@@ -1,0 +1,26 @@
+{
+  "url": "http://127.0.0.1:18512/",
+  "generatedSavesOnly": true,
+  "generatedLevelAndGearAccess": true,
+  "deterministicCombatChance": true,
+  "checks": [
+    "Default off; native setting toggle persists",
+    "Matching equipped boar-hide cape shows4% earth preparation",
+    "Same actual boar hits cause lower native health loss with preparation",
+    "Current encountered Boar affinity only shown through public encounter",
+    "Option and matching gear survive save/reload/import"
+  ],
+  "results": [
+    {
+      "enabled": false,
+      "hpLost": 1152,
+      "hits": 16
+    },
+    {
+      "enabled": true,
+      "hpLost": 1120,
+      "hits": 16
+    }
+  ],
+  "errors": []
+}

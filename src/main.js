@@ -1,3 +1,4 @@
+import {normalizeElementalOption,describeElementalPreparation,ELEMENTAL_SETTING_DESCRIPTION} from './absorb_e3/elemental_affinities.js';
 import {equipmentDurability as durability} from './absorb_e2/durability.js';
 import {getPacingState,setPacingState,advancePacing,prepareFood,getPacingEffects} from './absorb_e1/pacing.js';
 import {mountPacingPanel,pacingStatus} from './absorb_e1/panel.js';
@@ -515,6 +516,29 @@ let localLife=normalizeLocalLife(),localLifePanel;
 let fortSupply=createFortSupply(),fortControls;
 let pacingMinute=null,pacingPanel,pacingStatusPanel;
 let durabilityPanel;
+let elementalPanel;
+function changeElementalPreparation(enabled) {
+    if(!ownsSave||foundationSaveBlocked||importProbeToken||restoringNativeSave)throw Error('Elemental settings require the writable game tab.');
+    const state=structuredClone(expansionState);state.sequence++;
+    persistExpansion({state,external:{money:character.money},gameplay:gameplaySnapshot(),nativePatch:{'options/elemental_affinities':enabled},
+        absorbPublish:()=>{game_options.elemental_affinities=enabled;}});elementalPanel?.render();
+}
+function createElementalPanel() {
+    const option=document.createElement('label'),input=document.createElement('input');input.type='checkbox';input.dataset.elementalOption='true';
+    option.append(input,document.createTextNode('Elemental preparation (off by default)'));document.getElementById('options_choices').append(option);
+    const panel=document.createElement('details');panel.id='elemental_panel';panel.className='expedition_panel';
+    const title=document.createElement('summary');title.textContent='Elemental preparation';const body=document.createElement('div'),notice=document.createElement('p');panel.append(title,body,notice);
+    input.onchange=()=>{try{changeElementalPreparation(input.checked);}catch(error){notice.textContent=error.message;render();}};
+    let signature='';
+    function render(){const host=document.getElementById('location_actions_div');if(panel.parentElement!==host)host.append(panel);input.checked=game_options.elemental_affinities;
+        const current=current_combat?.defenders||[],known=Object.keys(enemy_killcount).filter(id=>enemy_killcount[id]>0).map(id=>enemy_templates[id]).filter(Boolean);
+        const view=describeElementalPreparation({enabled:game_options.elemental_affinities,equipment:character.getEquipment(),encounteredEnemies:[...current,...known]});
+        panel.hidden=!!current_dialogue;const next=JSON.stringify(view);if(next===signature)return;signature=next;body.replaceChildren();
+        const text=document.createElement('p');text.textContent=view.text;body.append(text);for(const row of view.rows){const p=document.createElement('p');p.textContent=row.text;body.append(p);}
+    }
+    render();return {render};
+}
+
 function commitDurability(stage) {
     if(!ownsSave||foundationSaveBlocked||importProbeToken||restoringNativeSave||nativeOccupationReason())throw Error('Finish current work in the writable game tab before equipment maintenance.');
     const state=structuredClone(expansionState);state.sequence++;
@@ -522,7 +546,7 @@ function commitDurability(stage) {
         nativePatch:stage.nativePatch,absorbPublish:stage.publish});
     character._equipItem(null);character.updateStatsAndDisplay();update_displayed_equipment();update_displayed_character_inventory();
     if(current_combat){current_combat.resetCombatLoops(true);update_displayed_fighters_stats();}
-    durabilityPanel?.render();
+    durabilityPanel?.render();elementalPanel?.render();
 }
 function createDurabilityPanel() {
     const host=document.getElementById('options_choices'),option=document.createElement('label'),input=document.createElement('input');
@@ -549,7 +573,7 @@ function changeHomePacing(next) {
     if(!ownsSave||foundationSaveBlocked||importProbeToken||restoringNativeSave)throw Error('Pacing changes require the writable game tab.');
     const state=structuredClone(expansionState);state.sequence++;
     persistExpansion({state,external:{money:character.money},gameplay:gameplaySnapshot(),nativePatch:{pacing_e1:next},pacingNext:next,pacingTarget:calendarMinutes(current_game_time)});
-    pacingPanel?.render();pacingStatusPanel?.render();durabilityPanel?.render();
+    pacingPanel?.render();pacingStatusPanel?.render();durabilityPanel?.render();elementalPanel?.render();
 }
 function createPacingStatusPanel() {
     const panel=document.createElement('details');panel.id='pacing_status_panel';panel.className='expedition_panel';
@@ -573,7 +597,7 @@ function actFort(action) {
     const plan=stageFortAction({state:expansionState,gameplay:gameplaySnapshot(),money:character.money,itemLog:item_log.items,
         fort:fortSupply,action,context:{...frame,busy:frame.disabled,readOnly:!ownsSave||foundationSaveBlocked||importProbeToken,
         assertItemDisposition:key=>assertNativeItemDisposition(expansionState,key)},keyFor:id=>item_templates[id].getInventoryKey(),getItem:getItemFromKey});
-    persistExpansion(plan);log_message(plan.message,'notification');fortControls?.render();pacingPanel?.render();pacingStatusPanel?.render();durabilityPanel?.render();return plan;
+    persistExpansion(plan);log_message(plan.message,'notification');fortControls?.render();pacingPanel?.render();pacingStatusPanel?.render();durabilityPanel?.render();elementalPanel?.render();return plan;
 }
 function observeFortAcquisition(itemId,count,kind,sourceId,label) {
     if(restoringNativeSave||!(count>0)||!item_templates[itemId]||expansionState.actors.player.worldId!=='base.frontier')return;
@@ -797,7 +821,7 @@ function persistExpansion(plan, ownershipBindings = {}, itemsByOwner = {}) {
     // Every owned domain is durable before native state is published. Rendering
     // happens afterward and never applies rewards.
     expansionState = plan.state;
-    if(plan.pacingNext){setPacingState(plan.pacingNext);pacingMinute=plan.pacingTarget;pacingPanel?.render();pacingStatusPanel?.render();durabilityPanel?.render();}
+    if(plan.pacingNext){setPacingState(plan.pacingNext);pacingMinute=plan.pacingTarget;pacingPanel?.render();pacingStatusPanel?.render();durabilityPanel?.render();elementalPanel?.render();}
     if(plan.nativePatch?.fort_supply)fortSupply=migrateFortSupply({fort_supply:plan.nativePatch.fort_supply});
     if(plan.localLifeResult){localLife=normalizeLocalLife(plan.localLifeResult.state);for(const message of plan.localLifeResult.messages)log_message(message,'notification');}
     character.money = plan.external.money;
@@ -860,7 +884,7 @@ function persistExpansion(plan, ownershipBindings = {}, itemsByOwner = {}) {
         frontierCampaignPanel?.render();
         partyPanel?.render(); exchangePanel?.render(); observationPanel?.render(); pocketRealmPanel?.render();skillExpansionPanel?.render();originalFrontierPanel?.render();featureExpansionPanel?.render();causalStoryPanel?.render();
         backlogPanel?.render();replacementRecognitionPanel?.render();backlogOpeningPanel?.render();repositoryPanel?.render();inkPanel?.render();nestedInkPanels?.render();
-        knownRoutesPanel?.render();adventureNotebook?.render();localLifePanel?.render();fortControls?.render();pacingPanel?.render();pacingStatusPanel?.render();durabilityPanel?.render();
+        knownRoutesPanel?.render();adventureNotebook?.render();localLifePanel?.render();fortControls?.render();pacingPanel?.render();pacingStatusPanel?.render();durabilityPanel?.render();elementalPanel?.render();
         expansionQuests?.render();
         characterBio?.render();
         worldEventFeed?.render();
@@ -1493,6 +1517,7 @@ const favourite_items = {};
 
 //stuff from options panel
 const game_options = {
+    elemental_affinities:false,
     uniform_text_size_in_action: false,
     auto_return_to_bed: true,
     remember_message_log_filters: false,
@@ -3134,7 +3159,7 @@ function end_dialogue() {
 
 function reload_normal_location() {
     update_displayed_normal_location(current_location);
-    furniturePanel?.render();localLifePanel?.render();fortControls?.render();pacingPanel?.render();pacingStatusPanel?.render();durabilityPanel?.render();
+    furniturePanel?.render();localLifePanel?.render();fortControls?.render();pacingPanel?.render();pacingStatusPanel?.render();durabilityPanel?.render();elementalPanel?.render();
 }
 
 /**
@@ -4318,7 +4343,7 @@ function use_item(item_key) {
         });
 
         character.removeFromInventory([{item_key}]);
-        setPacingState(nourishment.state);pacingPanel?.render();pacingStatusPanel?.render();durabilityPanel?.render();
+        setPacingState(nourishment.state);pacingPanel?.render();pacingStatusPanel?.render();durabilityPanel?.render();elementalPanel?.render();
     }
 }
 
@@ -4966,6 +4991,7 @@ function load(save_data) {
         last_location_with_bed = save_data.last_location_with_bed;
         last_combat_location = save_data.last_combat_location;
 
+        game_options.elemental_affinities=normalizeElementalOption(save_data.options?.elemental_affinities);
         game_options.uniform_text_size_in_action = save_data.options?.uniform_text_size_in_action;
         option_uniform_textsize(game_options.uniform_text_size_in_action);
 
@@ -6820,7 +6846,7 @@ function update() {
         let were_stats_updated = false;
         const prev_day = current_game_time.day_count;
         const advancedMinutes = update_timer();
-        furniturePanel?.render();localLifePanel?.render();fortControls?.render();pacingPanel?.render();pacingStatusPanel?.render();durabilityPanel?.render();
+        furniturePanel?.render();localLifePanel?.render();fortControls?.render();pacingPanel?.render();pacingStatusPanel?.render();durabilityPanel?.render();elementalPanel?.render();
         if(!advancedMinutes || expansionState.chronicle?.life.endedAt != null) {update(); return;}
 
         if(start_date - last_rewarded_export > config.time_between_export_rewards) {
@@ -7868,6 +7894,7 @@ if(!importProbeToken && !foundationSaveBlocked && !is_loading_error) {
     pacingPanel=mountPacingPanel({host:document.getElementById('options_choices'),getContext:homePacingContext,onChange:changeHomePacing});
     pacingStatusPanel=createPacingStatusPanel();
     durabilityPanel=createDurabilityPanel();
+    elementalPanel=createElementalPanel();
     setKnownClearTextReader(location=>knownClearText(location,fortDisclosures(book_stats[FORT.notes].accumulated_time>=4)));
     fortControls=createFortControls({read:readFortFrame,act:actFort});
     if(current_location?.tags.safe_zone) reload_normal_location();

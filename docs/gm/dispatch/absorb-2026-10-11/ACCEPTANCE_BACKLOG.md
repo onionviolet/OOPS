@@ -14,3 +14,5 @@ D1: Natural low-level Fort balance, free earned notes route, failed-smelt recove
 E1-1: Long-horizon seasons/hunger balance, native travel minute accounting, other-world suspension, future-schema rejection and failed-storage setting injection remain browser-unexercised. Core toggles/food/weather/sleep/freeze/exact reload/import are verified. Explicit simulation reward amounts retain their authored amounts; ordinary native XP paths are paced.
 
 E2-1: Long-horizon wear balance, weapon/shield browser penalties, merchant/storage/realm-carrier instance routes, custody rejection and missing-condition ID hydration are source-tested but browser-unexercised. Core duplicate armor copies, hit wear, native defense, coin repair, persistence and failed-save repair are verified.
+
+E3-1: Water/air native browser comparisons, multi-piece12% cap, ordinary unmatched/physical attacks, special-combat exclusion and every armor-component variant are source-tested but browser-unexercised. Core earth native comparison, setting, observed encounter UI and persistence verified.

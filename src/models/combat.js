@@ -1,3 +1,4 @@
+import {getElementalDefenseModifier} from '../absorb_e3/elemental_affinities.js';
 import {equipmentDurability as durability} from '../absorb_e2/durability.js';
 import {accessoryDropModifier} from '../absorb_c1/accessories.js';
 "use strict";
@@ -370,13 +371,13 @@ class Combat {
             player?._equipItem(null);
         }
 
-        game_stats.total_hits_taken += (!this.is_special_combat && target.tags.main_character);
-        game_stats.total_hits_done += (!this.is_special_combat && fighter.tags.main_character);
+        game_stats.total_hits_taken += Number(!this.is_special_combat && !!target.tags.main_character);
+        game_stats.total_hits_done += Number(!this.is_special_combat && !!fighter.tags.main_character);
 
         if(fighter.getFullStats().crit_rate > Math.random()){
             damages_dealt = damages_dealt.map(val => val*fighter.getFullStats().crit_multiplier);
             critted = true;
-            game_stats.total_crits_taken += (!this.is_special_combat && target.tags.main_character);
+            game_stats.total_crits_taken += Number(!this.is_special_combat && !!target.tags.main_character);
 
             if(!this.is_special_combat && fighter.tags.main_character) {
                 game_stats.total_crits_done++;
@@ -388,6 +389,7 @@ class Combat {
             game_stats.strongest_hit = damages_dealt[0];
         }
 
+        if(!this.is_special_combat&&target.tags.main_character)defense_modifier+=getElementalDefenseModifier({enabled:game_options.elemental_affinities,attacker:fighter,equipment:target.getEquipment(),baseDamage:base_damage});
         let {damage_taken, fainted} = target.takeDamage({damage_values: damages_dealt, defense_modifier, give_skill_xp: (!this.is_special_combat && target.tags.main_character)});
 
         target.on_damaged(fighter);
