@@ -1,3 +1,4 @@
+import {normalizeLocalLife} from './absorb_c2/local_life.js';
 import {validatePackState} from './content_packs.js';
 import {validateWorldCompletionNativeEnvelope} from './world_completion_native.js';
 import {validateCausalStoryEnvelope} from './causal_story_native.js';
@@ -53,6 +54,7 @@ export function validateSaveEnvelope(original, currentVersion) {
         if((incoming[i] || 0) < (current[i] || 0)) break;
     }
     // Retirement is validated before any active game or storage mutation.
+    if(Object.hasOwn(original,"absorb_local_life"))normalizeLocalLife(original.absorb_local_life);
     const {save, retired} = prepareFoundationSave(original);
     if(save.expansion != null) validateExpansionState(save.expansion);
     validateRealmEnvelope(save);

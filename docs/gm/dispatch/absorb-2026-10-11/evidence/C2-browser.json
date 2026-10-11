@@ -1,0 +1,15 @@
+{
+  "url": "http://127.0.0.1:18512/",
+  "generatedSavesOnly": true,
+  "deterministicChanceForFixture": true,
+  "checks": [
+    "Midday bread native item/once-day claim",
+    "Five-minute look-around native find and persistent completion",
+    "Raw potato native poison causes actual exposure learning",
+    "Village runner contact/help costs5 and retains history",
+    "Save/reload/file import retains claims/find/help"
+  ],
+  "poisonMinutes": 3,
+  "poisonXp": 0.75,
+  "errors": []
+}

@@ -1,3 +1,5 @@
+import {normalizeLocalLife, advanceLocalLife, localLifeAction} from './absorb_c2/local_life.js';
+import {createLocalLifePanel} from './absorb_c2/panel.js';
 import {setAccessoryEquipmentReader, accessoryCraftingTiers} from './absorb_c1/accessories.js';
 import {furnitureProjection, furnitureSkillMultiplier, furnitureRecovery, furniturePresentation, furnitureItemBonusText} from './absorb_b/furniture.js';
 import {STEAM_ABSORPTION_GROUPS} from './steam_absorption_content.js';
@@ -501,6 +503,36 @@ const nativeGameplay = createNativeGameplayAdapter({player:character,getPerson:i
 function gameplaySnapshot() {return nativeGameplay.snapshot(expansionState);}
 
 let furniturePanel;
+let localLife=normalizeLocalLife(),localLifePanel;
+function localLifeContext(calendar=current_game_time, state=expansionState, location=current_location?.id) {
+    return {worldId:state.actors.player.worldId, location,
+        alive:character.is_alive===true&&state.chronicle?.life.endedAt==null,
+        idle:!current_combat&&!current_activity&&!current_game_action&&!is_sleeping&&!is_reading&&!current_dialogue&&!is_in_trade()&&nativeActionReasons(state).length===0,
+        clock:calendarMinutes(calendar),calendarMinute:calendarMinutes(calendar),
+        perception:character.getTotalSkillLevel('Perception'),money:character.money,
+        foodPoisonRemaining:active_effects['Slight food poisoning']?.duration||0};
+}
+function stageLocalLifeResult(plan, result) {
+    plan.gameplay ||= gameplaySnapshot();
+    plan.external ||= {money:character.money};
+    plan.external.money+=result.native.money;
+    const acquisitions=[];
+    for(const row of result.native.items){const key=item_templates[row.item_id].getInventoryKey();
+        applyGameplayEffect(plan.gameplay,{type:'item',key,amount:row.count},'player');acquisitions.push({owner:'player',key,count:row.count});}
+    for(const [skill,amount] of Object.entries(result.native.skillXp))if(amount>0)
+        applyGameplayEffect(plan.gameplay,{type:'xp',skill,amount:Math.round(amount*100)/100},'player');
+    plan.acquisitions=[...(plan.acquisitions||[]),...acquisitions];
+    plan.nativePatch={...plan.nativePatch,absorb_local_life:result.state};plan.localLifeResult=result;
+    return plan;
+}
+function dispatchLocalLifePlan(result) {
+    if(!ownsSave||foundationSaveBlocked||importProbeToken||is_loading_error)throw Error('This tab cannot save local actions.');
+    if(result.ok===false)throw Error(result.messages.join(' '));
+    const state=structuredClone(expansionState);state.sequence++;
+    persistExpansion(stageLocalLifeResult({state,external:{money:character.money},gameplay:gameplaySnapshot()},result));
+    return result;
+}
+
 function readFurnitureInput() {
     return {state: expansionState, locationId: current_location?.id,
         housingAccessible: !!current_location?.housing?.isUnlocked(),
@@ -515,7 +547,7 @@ function createFurniturePanel() {
     const body=document.createElement('div');panel.append(summary,body);
     document.getElementById('location_actions_div').append(panel);
     let signature='';
-    const render=()=>{const view=furniturePresentation(readFurnitureInput());panel.hidden=!view.visible||!!current_dialogue||!!current_combat;
+    const render=()=>{const host=document.getElementById('location_actions_div');if(panel.parentElement!==host)host.append(panel);const view=furniturePresentation(readFurnitureInput());panel.hidden=!view.visible||!!current_dialogue||!!current_combat;
         const next=JSON.stringify(view.sections.map(section=>section.records.map(r=>r.text)));if(next===signature)return;signature=next;
         body.replaceChildren();for(const section of view.sections)for(const record of section.records){const p=document.createElement('p');p.textContent=record.text;body.append(p);}};
     render();return {render};
@@ -582,6 +614,9 @@ function expeditionContext() {
 }
 
 function persistExpansion(plan, ownershipBindings = {}, itemsByOwner = {}) {
+    const localFrame=localLifeContext(plan.calendar||current_game_time,plan.state,plan.nativeLocation||current_location?.id);
+    if(!restoringNativeSave&&!plan.localLifeResult&&localFrame.clock>(localLife.lastClock??localFrame.clock))
+        stageLocalLifeResult(plan,advanceLocalLife(localLife,localFrame));
     // Played-time settlements may retain their original job sequence. Opted-in
     // characters give this committed boundary a fresh nonce before recognition.
     if(plan.state.referenceGameplay && expansionState.referenceGameplay && plan.state.sequence===expansionState.sequence && plan.state.clock>expansionState.clock)plan.state.sequence++;
@@ -681,6 +716,7 @@ function persistExpansion(plan, ownershipBindings = {}, itemsByOwner = {}) {
     // Every owned domain is durable before native state is published. Rendering
     // happens afterward and never applies rewards.
     expansionState = plan.state;
+    if(plan.localLifeResult){localLife=normalizeLocalLife(plan.localLifeResult.state);for(const message of plan.localLifeResult.messages)log_message(message,'notification');}
     character.money = plan.external.money;
     if(plan.calendar) current_game_time.loadTime(plan.calendar);
 
@@ -740,7 +776,7 @@ function persistExpansion(plan, ownershipBindings = {}, itemsByOwner = {}) {
         frontierCampaignPanel?.render();
         partyPanel?.render(); exchangePanel?.render(); observationPanel?.render(); pocketRealmPanel?.render();skillExpansionPanel?.render();originalFrontierPanel?.render();featureExpansionPanel?.render();causalStoryPanel?.render();
         backlogPanel?.render();replacementRecognitionPanel?.render();backlogOpeningPanel?.render();repositoryPanel?.render();inkPanel?.render();nestedInkPanels?.render();
-        knownRoutesPanel?.render();adventureNotebook?.render();
+        knownRoutesPanel?.render();adventureNotebook?.render();localLifePanel?.render();
         expansionQuests?.render();
         characterBio?.render();
         worldEventFeed?.render();
@@ -3013,7 +3049,7 @@ function end_dialogue() {
 
 function reload_normal_location() {
     update_displayed_normal_location(current_location);
-    furniturePanel?.render();
+    furniturePanel?.render();localLifePanel?.render();
 }
 
 /**
@@ -4647,6 +4683,7 @@ function create_save({forExport = false} = {}) {
             save_data["skill_list_state"][i] = skill_list.children[i].classList.contains("skill_category_expanded");
         }
 
+        save_data.absorb_local_life=structuredClone(localLife);
         save_data.content_packs = structuredClone(optionalPackState);
         save_data.village_career = structuredClone(villageCareer);
         save_data.fork_schema = 1;
@@ -4749,6 +4786,8 @@ function load(save_data) {
             save_data = preparePackSave(save_data,optionalPacks);
             save_data = validateSaveEnvelope(save_data, game_version);
             optionalPackState=validatePackState(save_data.content_packs??emptyPackState());
+            localLife=normalizeLocalLife(save_data.absorb_local_life);
+            if(localLife.lastClock==null)localLife.lastClock=calendarMinutes(save_data["current time"]);
             const prepared = prepareFoundationSave(save_data);
             save_data = prepareV06Save(prepared.save);
             retiredContent = prepared.retired;
@@ -6604,6 +6643,10 @@ function update_timer(time_in_minutes, source = null) {
     }
     current_game_time.goUp(minutes);
     advanceExpeditions(minutes);
+    if(localLife.lastClock!==calendarMinutes(current_game_time)) {
+        try{dispatchLocalLifePlan(advanceLocalLife(localLife,localLifeContext()));}
+        catch(error){console.error('Local life paused:',error);log_message(error.message,'notification');return 0;}
+    }
 
     //character.updateStatsAndDisplay(); //done every second, probably only used for day-night cycle at this point
     const daynight_change = was_night !== is_night(current_game_time);
@@ -6667,7 +6710,7 @@ function update() {
         let were_stats_updated = false;
         const prev_day = current_game_time.day_count;
         const advancedMinutes = update_timer();
-        furniturePanel?.render();
+        furniturePanel?.render();localLifePanel?.render();
         if(!advancedMinutes || expansionState.chronicle?.life.endedAt != null) {update(); return;}
 
         if(start_date - last_rewarded_export > config.time_between_export_rewards) {
@@ -7706,6 +7749,10 @@ if(!importProbeToken && !foundationSaveBlocked && !is_loading_error) {
         return equipment;
     });
     furniturePanel=createFurniturePanel();
+    if(localLife.lastClock==null)localLife.lastClock=calendarMinutes(current_game_time);
+    localLifePanel=createLocalLifePanel({container:document.getElementById('location_actions_div'),
+        read:()=>({state:localLife,context:localLifeContext()}),
+        act:id=>dispatchLocalLifePlan(localLifeAction(localLife,localLifeContext(),id))});
     if(current_location?.tags.safe_zone) reload_normal_location();
     lifeRecordPanel = createLifeRecordPanel({read:()=>({record:lifeRecord,canWrite:ownsSave&&!foundationSaveBlocked&&!importProbeToken}),remember:()=>{
         if(!ownsSave || foundationSaveBlocked || importProbeToken) throw new Error("This life cannot be written right now.");

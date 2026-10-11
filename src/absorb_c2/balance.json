@@ -1,0 +1,4 @@
+{
+  "searchAndExposure": {"searchMinutes":5,"baseChance":0.1,"missStep":0.05,"chanceCap":0.4,"perceptionStep":0.002,"perceptionCap":0.1,"poisonXpPerMinute":0.25,"hubMinutes":15,"hubBase":0.2,"hubStep":0.1,"hubCap":0.5,"helpCost":5,"helpXp":2},
+  "meal": {"period":1440,"opens":720,"closes":840}
+}

@@ -19,19 +19,6 @@ expansion proposal: [log](docs/gm/PROJECT_LOG.md#expansion-design-proposal).
 
 ## Accepted decisions
 
-- **Detailed completion planning (2026-10-11, Weibao):** section off audits
-  and ideas to work on every small detail, with a standardized way to complete
-  worlds and shared systems. [Completion standard](docs/WORLD_COMPLETION_STANDARD.md)
-  owns the proposed sections, detail ledger, depth and acceptance workflow.
-  Internal subagents are authorized for parallel planning with one integrator.
-- **Suspenseful random entry (2026-10-11, Weibao):** the intended expanded
-  run starts at a random starting point. Frontier probably will not be played
-  through and is not a required opening or prerequisite campaign. Existing
-  saves and the native campaign remain intact. Eligible starts, selection
-  probabilities, fallback and reroll policies remain proposals; no random-start
-  runtime is established by this decision. See the
-  [start standard](docs/WORLD_COMPLETION_STANDARD.md#random-starting-points-without-spoiling-discovery).
-
 - **First milestone:** one realm and one prestige layer. This sequences
   delivery; it does not cap the vision.
 - **Branch dimension (2026-10-03):** the expanded setting is its own branch of
@@ -208,16 +195,10 @@ and [checkpoint](docs/gm/dispatch/village-study-2026-10-09/CHECKPOINT.md).
 
 ## Next step
 
-1. Reconcile the current absorption checkpoint and its remaining playable gates.
-   Test the native opening as compatibility evidence, not a required player route.
-2. Populate the completion standard's sections and detail rows from audit inputs,
-   then qualify suspenseful starting candidates independently of Frontier.
-3. Implement the selected connected slices under their owning assignments; use
-   rebuilt fresh-origin behavior and save/reload/import evidence as applicable.
-
-The earlier base/home-world-first review sequence is superseded as player-entry
-planning by the random-entry decision above. Existing delivered wave evidence
-and unfinished acceptance cases retain their local owners.
+1. Playtest the current build from a fresh origin: base opening, one home-world
+   loop, one book world, then save, reload and import.
+2. Work through the acceptance backlogs, starting with save compatibility.
+3. Only then start the next content wave.
 
 ## Repository
 
@@ -316,3 +297,5 @@ NPC timer or XP track.
 v0.6 development Days 2–7 content is merged while retaining fork extensions and the existing guild save ID. Furniture bonuses now derive from existing native housing, earned fixtures and owned books/kits. Numbers and the rack/bench recovery/study interpretation are proposals. Native Shack sleep and save/reload/import are browser verified; other furnishing branches remain in the [wave backlog](docs/gm/dispatch/absorb-2026-10-11/ACCEPTANCE_BACKLOG.md). Current integration owner: [checkpoint](docs/gm/dispatch/absorb-2026-10-11/CHECKPOINT.md).
 
 Absorption C1 proposal: four craftable native amulets offer +2 points item-craft chance, +5% relative drops, 5% markup reduction or safe-location tier1 cooking. One native amulet slot makes these mutually exclusive preparations. Native costs/skills/custody remain authoritative; no new save domain. Craft/luck/portable cooking and save roundtrip browser verified.
+
+Absorption C2 proposal: native food-poison exposure trains resistance, idle local searches have a capped rising chance and finite finds, Village runners offer help/decline, and a midday bread table returns each game day. Additive absorb_local_life schema1 defaults empty on old saves and rejects unsupported schemas. Core browser journey and persistence verified; alternatives remain in the wave backlog.
