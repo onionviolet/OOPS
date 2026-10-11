@@ -1,0 +1,374 @@
+{
+  "status": "COMPLETE: assigned targeted source pass",
+  "installed_bytes_copied": 61885953,
+  "game_launched": false,
+  "saves_or_settings_read": false,
+  "web_sources_retained": 17,
+  "read_scope": {
+    "S01": "12-17",
+    "S02": "12-29",
+    "S03": "12-17",
+    "S04": "12-22",
+    "S05": "16,40-43,47,50-51,78",
+    "S06": "12-20",
+    "S07": "12-25",
+    "S08": "12-17",
+    "S09": "12-19",
+    "S10": "12-19",
+    "S11": "12-26",
+    "S12": "12-26",
+    "S13": "12-24",
+    "S14": "12-29",
+    "S15": "12-13",
+    "S16": "12-35",
+    "S17": "comments listed in SOURCES.json",
+    "S18": "About This Game",
+    "S19": "12-33"
+  },
+  "unbiased_contradictions": [
+    "coercive workforce distinct from consensual followers",
+    "unnamed fixed-strength hirelings versus universal individual-growth aspiration",
+    "shared allocated Insight versus activity-based growth",
+    "irreversible regional nemesis choice versus all-options access",
+    "turn-based camping versus idle/offline automation",
+    "manual reload replay versus inferred enforced permanent loss",
+    "developer and player-reported friction plus differing player experiences"
+  ],
+  "verification_scope": "Static input/extraction/structural validation only. No gameplay, browser or save checks.",
+  "updated_utc": "2026-10-10T15:29:49.749346+00:00",
+  "buildid": "25598304",
+  "engine": "Unity 6000.2.9f1, macOS Mono",
+  "inventory_files": 17365,
+  "inventory_bytes": 5479725761,
+  "inventory_scope": "filenames/sizes; no saves/settings read",
+  "managed_code": {
+    "decompiler": "ILSpy 9.1.0.7988 on .NET 8.0.425",
+    "recovered_cs_files": 1506,
+    "review": "specific methods listed in FINDINGS and CODE_READSET, not every file",
+    "input_receipt": "~/.codex/research/vagrus/INPUT_RECEIPT.json"
+  },
+  "recovered_tables": {
+    "events": {
+      "bytes": 29671814,
+      "sha256": "46cfaa96f369f6b816fad13888c1413df30d35972e66021c8f4cf2d0cc64e84b",
+      "top_fields": [
+        [
+          "events",
+          1178
+        ]
+      ]
+    },
+    "AirTable": {
+      "bytes": 8671302,
+      "sha256": "dd0a614e027216ee32cf8da9c258c6447e4c522ca6652962d58aec818cae5c0d",
+      "top_fields": [
+        [
+          "Nodes",
+          378
+        ],
+        [
+          "Regions",
+          148
+        ],
+        [
+          "CodexTags",
+          15
+        ],
+        [
+          "Passengers",
+          462
+        ],
+        [
+          "Rumors",
+          85
+        ],
+        [
+          "FactionsLocation",
+          88
+        ],
+        [
+          "TradeTasks",
+          592
+        ],
+        [
+          "MercenaryTasks",
+          319
+        ],
+        [
+          "MercenaryTasksFlavorTexts",
+          237
+        ],
+        [
+          "ExplorationTasks",
+          3
+        ],
+        [
+          "SourceLevels",
+          11
+        ],
+        [
+          "Factions",
+          88
+        ],
+        [
+          "Methods",
+          89
+        ],
+        [
+          "Properties",
+          590
+        ],
+        [
+          "Dependencies",
+          166
+        ],
+        [
+          "Impacts",
+          34
+        ],
+        [
+          "Effects",
+          1143
+        ],
+        [
+          "CrewCombatActions",
+          29
+        ],
+        [
+          "Status",
+          102
+        ],
+        [
+          "Crew",
+          12
+        ],
+        [
+          "Perks",
+          125
+        ],
+        [
+          "EffectProps",
+          357
+        ],
+        [
+          "Characters",
+          517
+        ],
+        [
+          "Skills",
+          737
+        ],
+        [
+          "Items",
+          118
+        ],
+        [
+          "Equipment",
+          93
+        ],
+        [
+          "Goods",
+          58
+        ],
+        [
+          "Gears",
+          86
+        ],
+        [
+          "CombatTemplates",
+          968
+        ],
+        [
+          "CrewCombatTemp",
+          492
+        ],
+        [
+          "CrewCombatAttributes",
+          69
+        ],
+        [
+          "Containers",
+          133
+        ],
+        [
+          "Initial",
+          44
+        ],
+        [
+          "CodexEntries",
+          51
+        ],
+        [
+          "Achievements",
+          114
+        ],
+        [
+          "Tooltips",
+          756
+        ],
+        [
+          "TextTemplates",
+          812
+        ],
+        [
+          "Tutorial",
+          195
+        ],
+        [
+          "GeneratedNames",
+          366
+        ],
+        [
+          "Game",
+          28
+        ],
+        [
+          "PopUpNews",
+          45
+        ],
+        [
+          "StoreProducts",
+          18
+        ]
+      ]
+    },
+    "Locals": {
+      "bytes": 1434779,
+      "sha256": "caa875c7b7b70ba26c5c671ae5d0ff54f5a5bc752aa26d0768ab417849dbcbac",
+      "top_fields": [
+        [
+          "Backgrounds",
+          347
+        ],
+        [
+          "CombatBackgrounds",
+          236
+        ],
+        [
+          "LocalCombatBackgrounds",
+          242
+        ],
+        [
+          "CharacterPhases",
+          4764
+        ],
+        [
+          "LocalCharacters",
+          413
+        ]
+      ]
+    },
+    "journals": {
+      "bytes": 889587,
+      "sha256": "e44c5469a6a78ee97fd2bebf83f1a7fd2bc76d0fc141fc8e185f5726053a6420",
+      "top_fields": [
+        [
+          "journals",
+          1678
+        ]
+      ]
+    },
+    "codexes": {
+      "bytes": 686090,
+      "sha256": "8e4ae18ac4d14288ced1fd00ef98017687727ed3f061e5d5a3faa88a7eced065",
+      "top_fields": [
+        [
+          "codexes",
+          287
+        ]
+      ]
+    }
+  },
+  "structural_index": {
+    "event_records": 1178,
+    "event_steps": 17223,
+    "event_choices": 34323,
+    "graph_base_events": 46,
+    "graph_subevents": 569,
+    "airtable_counts": {
+      "Nodes": 378,
+      "Regions": 148,
+      "CodexTags": 15,
+      "Passengers": 462,
+      "Rumors": 85,
+      "FactionsLocation": 88,
+      "TradeTasks": 592,
+      "MercenaryTasks": 319,
+      "MercenaryTasksFlavorTexts": 237,
+      "ExplorationTasks": 3,
+      "SourceLevels": 11,
+      "Factions": 88,
+      "Methods": 89,
+      "Properties": 590,
+      "Dependencies": 166,
+      "Impacts": 34,
+      "Effects": 1143,
+      "CrewCombatActions": 29,
+      "Status": 102,
+      "Crew": 12,
+      "Perks": 125,
+      "EffectProps": 357,
+      "Characters": 517,
+      "Skills": 737,
+      "Items": 118,
+      "Equipment": 93,
+      "Goods": 58,
+      "Gears": 86,
+      "CombatTemplates": 968,
+      "CrewCombatTemp": 492,
+      "CrewCombatAttributes": 69,
+      "Containers": 133,
+      "Initial": 44,
+      "CodexEntries": 51,
+      "Achievements": 114,
+      "Tooltips": 756,
+      "TextTemplates": 812,
+      "Tutorial": 195,
+      "GeneratedNames": 366,
+      "Game": 28,
+      "PopUpNews": 45,
+      "StoreProducts": 18
+    },
+    "journals": 1678,
+    "codexes": 287
+  },
+  "semantic_review": {
+    "company": "all 12 Crew rows, selected properties/effects/status joins, base aggregate methods and role upkeep",
+    "travel_supply": "beast rows, staffing ranges/penalties, supplies/ration/payment/camp pipeline, selected march/rest impacts",
+    "text_events": "All settings/choice action scripts in 25 named Loyalty_Low/Critical records, with selected prose; all four Camping_AccidentSlave steps and six choice scripts, with selected prose; selected GorGoro banter/gifts/project gates; both Mech_OutpostSupplyInstructions steps; graph schema example and metadata, not all graph branches.",
+    "companions": "all 25 warning/departure records; selected six character rows, alignment arrays, quest-cap cases and referenced journal records",
+    "journals_codex": "counts/ID indexing, selected journal references and Comitatus codex entry; not whole lore review"
+  },
+  "question_readback": {
+    "company_crew": "F1,F27,F31-F33,F38,F44-F46",
+    "travel_supply": "F8-F10,F32-F35,F45-F46,F53",
+    "events_choices": "F2,F11,F36-F37,F42,F48-F52,F54",
+    "loyalty_departure": "F4,F12-F14,F27-F30,F47-F50,F55-F56",
+    "heir_fit": "F23,F26,F43; original analogy P8, no generational Vagrus mechanism established"
+  },
+  "opaque_or_unverified": [
+    "complete narrative and all quest/ending branches",
+    "runtime event cadence/priority competition and re-recruitment exceptions",
+    "all difficulty boundary behavior and zero-demand staffing behavior",
+    "final UI binding of every data row and DLC entitlement/access",
+    "every supply-provider daily transaction and all hunting/foraging tuning",
+    "runtime save/load/import, offscreen simulation, performance and balance",
+    "save size/history pruning and generational succession"
+  ],
+  "failed_or_repaired_routes": [
+    "unpinned ILSpy tool package failed; compatible pinned 9.1.0.7988 succeeded",
+    "generic resources.assets custom MonoBehaviour trees mostly unavailable: 62069 read errors; no gameplay claims made from those failures",
+    "disk fell below 3 GiB, extraction halted; later interruption left stale status docs; retained input hashes were rechecked on explicit user resume",
+    "cryptography absent from UnityPy venv; used separate existing Python runtimes, without another dependency install"
+  ],
+  "private_receipts": [
+    "INPUT_RECEIPT.json",
+    "BUNDLE_COPY_RECEIPT.json",
+    "TABLE_RECEIPT.json",
+    "CODE_READSET.json",
+    "BUNDLE_SCAN.json",
+    "RETENTION.json",
+    "CLEANUP.json"
+  ],
+  "raw_prose_in_git": false
+}

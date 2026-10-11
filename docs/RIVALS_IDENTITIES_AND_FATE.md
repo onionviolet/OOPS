@@ -192,7 +192,7 @@ Declare whether each operation **copies**, **moves**, **leases**, **shares**, **
 
 ### Luck and fate as gameplay, not one global multiplier
 
-Use fortune only on explicitly supported events. Ordinary drops, opportunity discovery, escape, breakthrough risk and encounter selection are different scopes. A character's social credibility and metaphysical fortune should not secretly be the same number. Otherworldly fortune needs a declared compatibility rule before it influences a technological world's access control.
+Use fortune only on explicitly supported events. Ordinary drops, opportunity discovery, escape, breakthrough risk and encounter selection are different scopes. A character's social credibility and metaphysical fortune should not secretly be the same number. Otherworldly fortune needs a declared compatibility rule before it influences a technological world's access control. Scoped fortune is the default; a simple flat luck multiplier (a 100x cheat) remains a dial.
 
 Two useful models remain open. **Reserve luck** permits a visible spend or transfer that alters a supported distribution. **Anchored fate** links a character to specific openings, protections or milestones. Either can be powerful; selecting both immediately would make the first slice harder to explain and verify.
 
@@ -210,7 +210,7 @@ Three scales should remain separate: temporary disguise, institutional usurpatio
 
 Original infiltration loop: study a missing examiner's habits → obtain a badge and a plausible cover → choose which checkpoint to approach → answer a knowledge or credential challenge → use access or retreat → encounter a later audit. Different observers may check appearance, practiced expertise, personal memory, a seal or a soul signature. One failed check can create suspicion, expose the cover or summon a witness according to authored rules.
 
-The original person can remain alive, be missing, expose the fraud or owe the player a favor. A body death, soul escape, dormant clone, fake death and rumor of death need explicit distinct states. A definitive death stays definitive unless the setting already establishes an applicable survival method.
+The original person can remain alive, be missing, expose the fraud or owe the player a favor. A body death, soul escape, dormant clone, fake death and rumor of death need explicit distinct states. A definitive death stays definitive by default; a revival cheat, ritual or world law can undo it at a cost.
 
 Replacement must list exactly what transfers. It may grant a recognized office while transferring its debts, expected performance and enemies. It should not automatically move the original person's skills, relationships, unearned quest rewards and inventory into the player's account. Swapping bodies while simultaneously rewinding history requires a later ownership-and-timeline audit.
 

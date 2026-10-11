@@ -1,0 +1,204 @@
+{
+  "assigned_scope": "five connected life-sim chains plus history/save retention boundary",
+  "status": "complete-finite-pass",
+  "retained_files": 16444,
+  "read_files": 24,
+  "read_scope": [
+    {
+      "path": "game/common/character_interactions/00_dynast_interactions.txt",
+      "sha256": "12fc20966bc43fa62026359d46c87cd11400ccdeda026def1b125a124a613607",
+      "read_scope": [
+        "3-280 disinherit",
+        "776-857 restore inheritance"
+      ]
+    },
+    {
+      "path": "game/common/scripted_effects/00_interaction_effects.txt",
+      "sha256": "4247f484295988b50098a43869d4c4056b7e0855bf8d5fa6ec0755cb996d7e82",
+      "read_scope": [
+        "1507-1761 disinherit",
+        "1762-1810 restoration cleanup"
+      ]
+    },
+    {
+      "path": "game/common/traits/00_traits.txt",
+      "sha256": "93ad0316b733aa474d34841bd92fb3fc9336c111e9f06e7910178e74482185aa",
+      "read_scope": [
+        "4845-4880 drunkard",
+        "5274-5300 confider",
+        "12646-12670 disinherited"
+      ]
+    },
+    {
+      "path": "game/common/on_action/stress_on_actions.txt",
+      "sha256": "9fc07829b57730a6683c098f8a537468b1404f1264a7a673139733213cba8026",
+      "read_scope": [
+        "1-290 stress threshold dispatch and reduction"
+      ]
+    },
+    {
+      "path": "game/events/stress_events/stress_threshold_events.txt",
+      "sha256": "feb4702321a7b872ebb39c1d3fab6bdfd2002300098e912fcd307abdc775a339",
+      "read_scope": [
+        "53-155 dispatch",
+        "308-355 daily guard and extreme threshold",
+        "533 post-immediate hook;647-694 alcohol choice;775-788 after hook"
+      ]
+    },
+    {
+      "path": "game/common/scripted_effects/00_stress_effects.txt",
+      "sha256": "b496b45ebd5557562c9e2f10aaa747833062c2e7b049efb9d86b7d0dc18e2ba9",
+      "read_scope": [
+        "1-115 post-immediate/after cleanup",
+        "1009-1030 short-lived deceased reference"
+      ]
+    },
+    {
+      "path": "game/common/script_values/00_stress_values.txt",
+      "sha256": "821a0b77244fc5ee2d87d339cb24dbef00787b83d44ec2df9215fc1a93aec2d4",
+      "read_scope": [
+        "1-110 stress amounts, thresholds and cooldown"
+      ]
+    },
+    {
+      "path": "game/common/modifiers/00_stress_effect_modifiers.txt",
+      "sha256": "b488f35d8925aeea9909aa77208eb46ec4428f74d73d7346fd8055400370fd13",
+      "read_scope": [
+        "1-65 grief and coping penalties"
+      ]
+    },
+    {
+      "path": "game/common/decisions/90_minor_decisions.txt",
+      "sha256": "47da3707b26515a9d7d063395f834e4447d0ff9170d7c5c58d2da35e5dd4ecac",
+      "read_scope": [
+        "2355-2455 confider decision"
+      ]
+    },
+    {
+      "path": "game/common/on_action/stress_coping_decisions_on_actions.txt",
+      "sha256": "41f57ac3f06c843945ff36ccdaf9c719ac6bf5308301bb0d35f93612a17393b8",
+      "read_scope": [
+        "confider two-event dispatcher"
+      ]
+    },
+    {
+      "path": "game/events/stress_events/stress_trait_coping_decisions_events.txt",
+      "sha256": "d18a975ad72325e67d7dd5eb13d25d951608dc4153a0d60fd1e9fbf253f37327",
+      "read_scope": [
+        "1555-1770 confider branches"
+      ]
+    },
+    {
+      "path": "game/common/decisions/00_dynasty_decisions.txt",
+      "sha256": "33af6e18f7fc6675fd1bfac9026f13df57b69751b28ee4d551f80ef0fa05d543",
+      "read_scope": [
+        "1-230 cadet branch gates and execution"
+      ]
+    },
+    {
+      "path": "game/common/scripted_effects/00_decisions_effects.txt",
+      "sha256": "a30e06ea5c3c3c0cc24e8be823600f12a5f5cb0caf3fa52c3ca98648b0f8f2d5",
+      "read_scope": [
+        "2997-3078 cadet branch gains, artifact claim and catalysts"
+      ]
+    },
+    {
+      "path": "game/common/on_action/death.txt",
+      "sha256": "fb44d37c735f7810f56c862c236df235150659e607c1a1aeeb0d52c9c5c5e1a3",
+      "read_scope": [
+        "160-230 DLC heir setup",
+        "960-1030 relative/spouse memories"
+      ]
+    },
+    {
+      "path": "game/common/character_memory_types/_character_memories.info",
+      "sha256": "644f0d24a17f21ab1686e05a1753244a5bfbbc4686631f16914803fbdcf7c5cf",
+      "read_scope": [
+        "whole memory authoring contract"
+      ]
+    },
+    {
+      "path": "game/common/character_memory_types/character_memories_1.txt",
+      "sha256": "68357d1404ac4078f78c9b3ae7084c5535cb737ce96f4fe4592ea0525d564267",
+      "read_scope": [
+        "1-130 relative/spouse/duel memory definitions"
+      ]
+    },
+    {
+      "path": "game/common/script_values/00_memory_values.txt",
+      "sha256": "a75f2c6870e650fc560e2c8ce7550a3f6a634a7199927bcfae9d63916de41cae",
+      "read_scope": [
+        "whole duration relevance policy"
+      ]
+    },
+    {
+      "path": "game/common/defines/00_defines.txt",
+      "sha256": "8e430d77eb6e8767030f34b1c53d5dae84277fb354bd73cc42f93dc500be8982",
+      "read_scope": [
+        "searched save/history/memory references;1474,1661-1663 read"
+      ]
+    },
+    {
+      "path": "game/events/activities/funeral_activity/funeral_events.txt",
+      "sha256": "6cfaf95ba4c14444d05d4ef5d927a215bfac0d469f7d1f670ac8e748cea30255",
+      "read_scope": [
+        "180-245 memory-sensitive description consumer"
+      ]
+    },
+    {
+      "path": "game/events/religion_events/false_conversion_events.txt",
+      "sha256": "3c058eb278a6fc959895fb62316aa9f184a87dc810bdda0221396f1cc22749ac",
+      "read_scope": [
+        "1040-1070 vulnerability gate",
+        "1210-1270 remembered deceased selection"
+      ]
+    },
+    {
+      "path": "game/gui/window_memories.gui",
+      "sha256": "c04f8c45542b3954c1517ea7be4236266296eb5c15b166184f4f68fcc5479122",
+      "read_scope": [
+        "247-305 memory icon/name/date and empty view"
+      ]
+    },
+    {
+      "path": "game/history/characters/english.txt",
+      "sha256": "0f5587bb3b479e8266519468a875a34abb3e4c6c6eab27bcf9be7b698d3a7cab",
+      "read_scope": [
+        "1-95 authored dated ancestry/birth/death sample"
+      ]
+    },
+    {
+      "path": "game/dlc_metadata/00_dlc_metadata.txt",
+      "sha256": "a18addeab0dc91255f3b8498ce734485722b84cb4793fa089daaac902858558a",
+      "read_scope": [
+        "whole shipped metadata inventory"
+      ]
+    },
+    {
+      "path": "game/dlc/dlc003_fp1/dlc003.dlc",
+      "sha256": "b36c37b70e11f52affc6d22458c6654a59033d6757a690b211f1e1cb45cd7e02",
+      "read_scope": [
+        "whole descriptor"
+      ]
+    }
+  ],
+  "unread": [
+    "Most event content and localization prose",
+    "Other trait and dynasty-perk paths, schemes, diplomacy, warfare, culture/faith and economics",
+    "TGP cadet branch event and native branch membership behavior",
+    "Native engine source/methods, save serializer, compression, object graph prune algorithm and history loader",
+    "PDF comic and art/music/cosmetics, map and tools/tests excluded from private retention",
+    "Every DLC full semantic pass; metadata inventory alone does not establish that"
+  ],
+  "verification": {
+    "retention_hashes": true,
+    "bounded_source_analysis": true,
+    "runtime_gameplay": false,
+    "YAIR_implementation": false,
+    "browser_save_reload_import": false
+  },
+  "no_installed_consumer": true,
+  "uninstall_eligible": true,
+  "eligibility_basis": "Assigned finite source pass complete; useful inputs retained/hash-matched privately, no installed source consumer, DLC disposition separate. Parent must route/verify Steam uninstall.",
+  "retention_receipt": "/Users/weiwei/.codex/research/crusader-kings-3/RETENTION.json"
+}

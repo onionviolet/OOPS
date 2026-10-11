@@ -1,0 +1,371 @@
+{
+  "date": "2026-10-08",
+  "status": "bounded reconstructed-source audit",
+  "findings": [
+    {
+      "id": "BB-FL01",
+      "title": "A background generates a biography, body, kit and costs",
+      "claim": "Recruit initialization builds background attributes and description, chooses compatible traits, adds equipment and appearance, finalizes name substitutions. Farmhand supplies a lowborn tag, muscular body set, base hiring/daily cost and rural starting kit.",
+      "evidence": "core/data_001/scripts/entity/tactical/player.nut setStartValuesEx:1952-2016; core/data_001/scripts/skills/backgrounds/character_background.nut buildDescription:129-211; priority/data_001/scripts/skills/backgrounds/farmhand_background.nut create:6-26, onAddEquipment:89-127",
+      "yair_proposal_mapping": "Attach prior occupation and a short origin to native fieldwork/patrolling introductions, with one real skill/equipment consequence rather than a separate origin screen.",
+      "state": "source-reviewed; gameplay not run",
+      "caveat": "Background attribute arrays are offsets added to base endpoints, not final ranges; debug bytecode confirms farmhand literal order. Full balance/roll consumers are not runtime-qualified."
+    },
+    {
+      "id": "BB-FL02",
+      "title": "Traits have compatibility rules",
+      "claim": "Random trait admission rejects duplicates and exclusions from the background/previous admitted traits; accepted traits can add titles. Loyal and disloyal exclude each other.",
+      "evidence": "core/data_001/scripts/entity/tactical/player.nut setStartValuesEx:1964-2002; priority/data_001/scripts/skills/traits/loyal_trait.nut create:15-20; priority/data_001/scripts/skills/traits/disloyal_trait.nut create:13-17",
+      "yair_proposal_mapping": "For an optional recruit, generate one memorable trait plus a compatible nickname; surface its effect in the existing person/party view.",
+      "state": "source-reviewed; gameplay not run"
+    },
+    {
+      "id": "BB-FL03",
+      "title": "Talent is distinct from background and level",
+      "claim": "Talent assignment skips untalented backgrounds, chooses distinct eligible attributes and grants 1-3 stars; level-up rolls use these talents.",
+      "evidence": "core/data_001/scripts/entity/tactical/player.nut fillTalentValues:2020-2052, fillAttributeLevelUpValues:2055-2082",
+      "yair_proposal_mapping": "Preserve vanilla skill practice; an optional recruit may learn some ordinary skills faster without replacing the actual skill progression.",
+      "state": "source-reviewed; gameplay not run",
+      "caveat": "Only assignment/roll code reviewed, not full talent UI or balance."
+    },
+    {
+      "id": "BB-FL04",
+      "title": "Recruit information can be bought",
+      "claim": "Hiring traits return empty until tryout is done, then trait IDs/icons. Tryout cost depends on hiring cost with bounds and a price multiplier.",
+      "evidence": "core/data_001/scripts/entity/tactical/player.nut getTryoutCost:128-130, getHiringTraits:304-324",
+      "yair_proposal_mapping": "Use a small paid trial work shift or conversation to reveal one recruit preference, accessible in native center actions.",
+      "state": "source-reviewed; gameplay not run"
+    },
+    {
+      "id": "BB-FL05",
+      "title": "A stronger veteran costs more to retain",
+      "claim": "Background daily wage scales with level, first by 1.1 and after level 11 by a slower 1.03 progression; per-character and company multipliers apply. Hiring cost incorporates background level and equipped item values.",
+      "evidence": "core/data_001/scripts/skills/backgrounds/character_background.nut onUpdate:295-310, adjustHiringCostBasedOnEquipment:320-336; core/data_001/scripts/entity/tactical/player.nut getDailyCost:133-135",
+      "yair_proposal_mapping": "Show the daily cost beside any hired helper benefit so vanilla job income can meaningfully support or constrain them.",
+      "state": "source-reviewed; gameplay not run",
+      "caveat": "Farmhand DailyCost=10 is a seed value, not a promise of 10 final crowns/day: onAdded and multipliers modify it."
+    },
+    {
+      "id": "BB-FL06",
+      "title": "Mood remembers why",
+      "claim": "Mood changes are bounded, keep up to five signed reason/time entries, refresh a duplicate most-recent reason, and recover toward a baseline with optimist/pessimist variation. Mood and reason/time entries serialize.",
+      "evidence": "core/data_001/scripts/entity/tactical/player.nut improveMood:203-239, worsenMood:242-278, recoverMood:281-301, onSerialize:2244-2258, onDeserialize:2308-2318",
+      "yair_proposal_mapping": "Give an optional helper a short reason list; append lasting turning points to life_record, keeping authoritative mood state outside that lossy biography.",
+      "state": "source-reviewed; gameplay not run"
+    },
+    {
+      "id": "BB-FL07",
+      "title": "Food and pay failures affect particular people",
+      "claim": "Daily update applies unpaid/hungry mood changes per brother; greedy/spartan/gluttonous traits select different constants. Gluttonous also increases DailyFood.",
+      "evidence": "core/data_001/scripts/states/world/asset_manager.nut update:850-891; priority/data_001/scripts/skills/traits/gluttonous_trait.nut onUpdate:42-44",
+      "yair_proposal_mapping": "Native earned money and gathered/cooked food can support one optional helper; show warnings before a missed shift or departure.",
+      "state": "source-reviewed; gameplay not run",
+      "caveat": "Numeric mood constants not reviewed; claim differentiation, not a precise penalty scale."
+    },
+    {
+      "id": "BB-FL08",
+      "title": "Desertion follows severe mood, with loyalty and support modifiers",
+      "claim": "checkDesertion requires event availability and mood below 1, excludes zero-wage and player characters, halves chance for loyal/companion/paymaster and doubles for disloyal. It fires departure when roster has more than one member; the last-member case opens failure finish screen.",
+      "evidence": "core/data_001/scripts/states/world/asset_manager.nut checkDesertion:1229-1291",
+      "yair_proposal_mapping": "For one opt-in helper, let prolonged missed commitments cause a visible departure after explanatory warnings; avoid adding this to default native unconsciousness.",
+      "state": "source-reviewed; gameplay not run"
+    },
+    {
+      "id": "BB-FL09",
+      "title": "Departure and death are distinct loss paths",
+      "claim": "Desertion removes the roster member. On non-Hard economic difficulty it transfers their items to stash first; on Hard it does not take that recovery route. Calls to skills.onDeath are cleanup and do not establish that the deserter died.",
+      "evidence": "targeted/data_001/scripts/events/events/special/desertion_event.nut screen A getResult:40-51",
+      "yair_proposal_mapping": "Define helper departure custody explicitly; an apprentice who leaves should not silently erase player-owned tools.",
+      "state": "source-reviewed; gameplay not run",
+      "caveat": "Hard destination of items was not followed beyond absence of transfer. Do not describe desertion as character death."
+    },
+    {
+      "id": "BB-FL10",
+      "title": "Healing is an economic schedule with visible estimates",
+      "claim": "Temporary injury gives min/max remaining days; treatment halves base duration and surgeon reduces it. onNewDay consumes medicine, attempts recovery once minimum elapsed, and moves TimeApplied forward when supplies/oath prevent healing. Time and treatment state serialize.",
+      "evidence": "priority/data_001/scripts/skills/injury/injury.nut getHealingTime:71-86, addTooltipHint:146-189, onNewDay:259-301, onSerialize/onDeserialize:362-384",
+      "yair_proposal_mapping": "Extend native unconsciousness recovery with an opt-in convalescence job limit and visible recovery window; show what medicine changes.",
+      "state": "source-reviewed; gameplay not run",
+      "caveat": "This is a proposal, not authority to change accepted default defeat behavior."
+    },
+    {
+      "id": "BB-FL11",
+      "title": "Injuries change actions, not just a health number",
+      "claim": "Broken Leg is temporary, with a 5-7 day base healing window; onUpdate adds two movement AP and multiplies initiative by 0.6. Injured Knee Cap is explicitly temporary too, unlike Broken Knee.",
+      "evidence": "priority/data_001/scripts/skills/injury/broken_leg_injury.nut create:3-14, onUpdate:47-57; priority/data_001/scripts/skills/injury/injured_knee_cap_injury.nut create:3-14",
+      "yair_proposal_mapping": "A temporary injury could slow native running/patrolling but leave seated study or crafting useful; retain alternative actions during recovery.",
+      "state": "source-reviewed; gameplay not run"
+    },
+    {
+      "id": "BB-FL12",
+      "title": "Being struck down can trade death for a lasting wound",
+      "claim": "isReallyKilled rejects non-None fatalities, scenario/auto-retreat/guest cases, then uses survival chance or a conditional guarantee. An eligible survivor receives an unowned permanent injury, goes to survivor roster and gets a mood penalty. Survivor trait multiplies survival chance by 2.72.",
+      "evidence": "core/data_001/scripts/entity/tactical/player.nut isReallyKilled:811-869; priority/data_001/scripts/skills/traits/survivor_trait.nut onUpdate:45-47",
+      "yair_proposal_mapping": "In a separate harsh campaign, make an explicit scar outcome distinct from native unconsciousness and true death, with a readable source event.",
+      "state": "source-reviewed; gameplay not run",
+      "caveat": "Survivor tooltip says 90%, but underlying base constant not read; do not promote tooltip into an independently reconstructed probability."
+    },
+    {
+      "id": "BB-FL13",
+      "title": "Permanent wounds can force a new role",
+      "claim": "Permanent injury base has PermanentInjury type, permanent tooltip and empty treatment setter, without the temporary injury healing loop. Broken Knee reduces both defenses and initiative and makes reserve acceptable. Missing Hand unequips/drops two-handed mainhand/offhand gear and disables offhand slot data.",
+      "evidence": "targeted/data_001/scripts/skills/injury_permanent/permanent_injury.nut create:23-27, setTreated:15-17, addTooltipHint:30-37; targeted/data_001/scripts/skills/injury_permanent/broken_knee_injury.nut onUpdate:54-59; targeted/data_001/scripts/skills/injury_permanent/missing_hand_injury.nut onAdded:30-48",
+      "yair_proposal_mapping": "A scar can redirect a helper from patrolling to tutoring or workshop assistance, rather than making a developed person useless.",
+      "state": "source-reviewed; gameplay not run",
+      "caveat": "No claim permanent wounds are impossible to cure through every special item/event; these base classes simply do not use ordinary healing."
+    },
+    {
+      "id": "BB-FL14",
+      "title": "Death keeps an individual record",
+      "claim": "onDeath creates a casualty stub with original ID, name/title, combat/lifetime stats, company tenure, level and wage. Endings select background-specific good/bad prose from surviving roster entries.",
+      "evidence": "core/data_001/scripts/entity/tactical/player.nut onDeath:930-940; core/data_001/scripts/states/world/asset_manager.nut addBrotherEnding:1728-1807; priority/data_001/scripts/skills/backgrounds/farmhand_background.nut create:10-11",
+      "yair_proposal_mapping": "Use life_record loss/legacy milestones for a short named memorial, while storing actual person/custody truth separately.",
+      "state": "source-reviewed; gameplay not run",
+      "caveat": "Casualty stub alone is not proof all obituary information reaches a particular screen; later consumers were not followed."
+    },
+    {
+      "id": "BB-FL15",
+      "title": "Loss changes a living veteran",
+      "claim": "Oldguard event requires at least seven nonexpendable fallen, at least three current brothers and a level>=8 eligible survivor whose tenure overlaps earlier casualties; event gives drunkard trait and a mood penalty and inserts named dead companions in prose.",
+      "evidence": "priority/data_001/scripts/events/events/oldguard_becomes_drunkard_event.nut screen A start:28-38, onUpdateScore:53-130, onPrepareVariables:137-150",
+      "yair_proposal_mapping": "When a known helper is lost, one surviving friend can have one authored reaction, recorded in life_record, rather than a generic company-wide penalty.",
+      "state": "source-reviewed; gameplay not run",
+      "caveat": "Selected actual code predicates read; this is not evidence of a general relationship graph."
+    },
+    {
+      "id": "BB-FL16",
+      "title": "A retired background has a camp role",
+      "claim": "Retired Soldier War Story event requires roster size>=3 and a retired-soldier background at level>=3; speaker improves mood by .25 and other brothers each get a 50% chance of +1 mood. Retired Soldier background supplies physical/combat tradeoffs and specific endings.",
+      "evidence": "priority/data_001/scripts/events/events/retired_soldier_tale_event.nut screen A start:26-61, onUpdateScore:68-93; priority/data_001/scripts/skills/backgrounds/retired_soldier_background.nut create:6-33, onChangeAttributes:72-112",
+      "yair_proposal_mapping": "An older optional patrol veteran can share a story or teach native spatial awareness, making an everyday background useful outside combat.",
+      "state": "source-reviewed; gameplay not run",
+      "caveat": "Exact resulting attributes require combining background offsets with base endpoint ranges; no full numerical balance audit."
+    },
+    {
+      "id": "BB-FL17",
+      "title": "Class and personality change mundane food complaints",
+      "claim": "No Food Variety event checks the stash for foods other than ground grains after day 5; lowborn/spartan are exempt, gluttonous gets -1 mood and others -0.5 in the event.",
+      "evidence": "priority/data_001/scripts/events/events/no_food_variety_event.nut screen A start:24-51, onUpdateScore:58-109",
+      "yair_proposal_mapping": "One cook/meal-variety scene can respond to what native gathering produced; show one person appreciating a different meal.",
+      "state": "source-reviewed; gameplay not run",
+      "caveat": "The event does not maintain a verified multi-day diet history in the reviewed code; the prose describes days but predicates inspect current stash."
+    },
+    {
+      "id": "BB-FL18",
+      "title": "Aging is a scoped swordmaster event, not a universal lifespan model",
+      "claim": "Preview requires swordmaster level>=6, absence of aging-preview/old/rejuvenation flag; it lowers mood and adds aging_preview. Actual aging event requires swordmaster level>=9 and absence of old/rejuvenation; either final branch adds old_trait. old_trait gains resolve but lowers HP, stamina, initiative and vision and allows reserve. A separate paycut event subtracts half current daily cost from base wage and flags it, but its reviewed eligibility requires NOT old.",
+      "evidence": "targeted/data_001/scripts/events/events/aging_swordmaster_preview_event.nut start:26-40, onUpdateScore:46-63; targeted/data_001/scripts/events/events/aging_swordmaster_event.nut D/E start:100-144, onUpdateScore:150-167; priority/data_001/scripts/skills/traits/old_trait.nut onUpdate:64-71; targeted/data_001/scripts/events/events/aging_swordmaster_paycut_event.nut start:26-36, onUpdateScore:42-59",
+      "yair_proposal_mapping": "YAIR already has explicit birthYear/deathYear in npc_lives; use that owner for age truth and BB for an authored warning/role-change scene. Do not substitute combat level for human age.",
+      "state": "source-reviewed; gameplay not run",
+      "caveat": "No full follower calendar aging, retirement timer, or old-age death execution established. Preview is not a required flag in actual aging predicate; paycut is not verified as an after-aging sequence or exact final 50% wage."
+    },
+    {
+      "id": "W1",
+      "evidence": "FM update L187-212; runSimulation L215-245",
+      "claim": "Relations normalize once per observed day; only one indexed faction is updated per manager call. New campaigns run pre-simulation cycles for selected enemy factions, with Wildmen/Desert predicates.",
+      "yair_proposal_mapping": "Coarse background faction work, staggered rather than every actor every tick. Pre-existing trouble before the hero arrives.",
+      "state": "source-reviewed; gameplay not run"
+    },
+    {
+      "id": "W2",
+      "evidence": "F normalizeRelation L267-286; addPlayerRelationEx L294-318",
+      "claim": "Standing moves toward 50 with separate good/bad multipliers. Reasons have text, sign and timestamp, with six recent entries maximum; repeating latest reason refreshes its timestamp.",
+      "yair_proposal_mapping": "Place memory shows recent causes and slowly fades unless marked lasting. Do not use global fame as every person's knowledge.",
+      "state": "source-reviewed; gameplay not run"
+    },
+    {
+      "id": "W3",
+      "evidence": "F updatePlayerRelation L326-367",
+      "claim": "Under 20 removes alliance with IDs 1/2; otherwise adds them. Existing settlements and living units receive relation updates.",
+      "yair_proposal_mapping": "Hostility affects actual local access and patrol behavior, not only a displayed meter. Verify player-ID meaning before reproducing exact BB semantics.",
+      "state": "source-reviewed; gameplay not run"
+    },
+    {
+      "id": "W4",
+      "evidence": "SF addPlayerRelation L5-29; NF addPlayerRelation L30-42",
+      "claim": "Positive civilian relation gain is reduced by settlement size; allied-civilians ambition adds a positive multiplier. Negative civilian change passes 25% to its owner; negative noble change passes 50% to its settlements.",
+      "yair_proposal_mapping": "Distinguish town and ruling institution. Harm spreads through an authored authority link while friendship stays local.",
+      "state": "source-reviewed; gameplay not run"
+    },
+    {
+      "id": "W5",
+      "evidence": "SF isReadyForContract L79-88; NF isReadyForContract L94-96",
+      "claim": "Civilian contract capacity uses settlement size, with delay 5-(size-1) days and early-campaign exemptions. Noble houses permit no other existing contract and use a three-day delay.",
+      "yair_proposal_mapping": "Town jobs replenish at different cadence from institutional commissions; avoid an endless static job menu.",
+      "state": "source-reviewed; gameplay not run"
+    },
+    {
+      "id": "W6",
+      "evidence": "FM createNobleHouses L480-520; NF onUpdateRoster L81-91; SF onUpdateRoster L49-75",
+      "claim": "House generation selects an archetype, unique name/banner, motto, description and traits. House roster supplies named nobles with shared lineage appearance; civilians maintain councilmen with duplicate-title handling.",
+      "yair_proposal_mapping": "A faction has recurring officeholders and recognizable identity. This does not establish genealogy, aging or inheritance simulation.",
+      "state": "source-reviewed; gameplay not run"
+    },
+    {
+      "id": "W7",
+      "evidence": "F update L639-735; FA update/execute L55-78",
+      "claim": "Inactive/empty-deck factions do nothing; global delay precedes roster/action work. Positive action scores enter weighted selection, one action executes. Cards clear state, require settlements when configured, and evaluate only when cooldown/new-campaign predicates allow.",
+      "yair_proposal_mapping": "A bounded local actor director with eligibility before weighted chance; saved next-attempt time is essential.",
+      "state": "source-reviewed; gameplay not run"
+    },
+    {
+      "id": "W8",
+      "evidence": "FA getScaledDifficultyMult L494-498; getReputationToDifficultyLightMult L501-504",
+      "claim": "One scaling helper combines company strength, elapsed days, caps and combat EnemyMult; the other uses elapsed days despite its name. Call sites not reviewed.",
+      "yair_proposal_mapping": "Separate authored fixed threats from generated pressure. Do not claim every BB enemy scales, or import universal player scaling into YAIR.",
+      "state": "source-reviewed; gameplay not run"
+    },
+    {
+      "id": "W9",
+      "evidence": "FM updateGreaterEvil L888-917,973-977",
+      "claim": "Crisis None returns. Initial scheduled phase is 50-60 days ahead, plus five for ironman and five for combat difficulty index 0. Warning requires company strength >=160; live requires >=180 after a 20-day warning schedule.",
+      "yair_proposal_mapping": "A local campaign crisis can expose warnings and preparation time, with explicit gates. This is BB-specific pacing, not a requirement to protect every YAIR encounter.",
+      "state": "source-reviewed; gameplay not run"
+    },
+    {
+      "id": "W10",
+      "evidence": "FM updateGreaterEvil L919-970; isNoblesFeuding L1055-1079",
+      "claim": "Random crisis selection favors unused eligible types, then excludes last type. Civil war eligibility is structural: >2 noble factions and >=2 with >=2 settlements. Holy war also requires Desert and city-state existence.",
+      "yair_proposal_mapping": "World events require an actual political/ecological cause. Deleting or weakening factions can change what crises are possible.",
+      "state": "source-reviewed; gameplay not run"
+    },
+    {
+      "id": "W11",
+      "evidence": "FM updateGreaterEvil L980-1000,1021-1031",
+      "claim": "Live civil/holy war breaks different alliances; greenskins ally orc/goblin factions, then remove that alliance at ending. Start/end news is recorded.",
+      "yair_proposal_mapping": "A crisis changes actor relationships and routes, rather than just adding a stronger encounter table.",
+      "state": "source-reviewed; gameplay not run"
+    },
+    {
+      "id": "W12",
+      "evidence": "FM updateGreaterEvil L1011-1049; onSerialize L1119-1125",
+      "claim": "Live strength updates once per observed day using a config constant. End requires strength<=0 or civil-war feud end, and no active contract. Aftermath aborts combat, records used/last crisis, schedules 25-35 days to next phase and increments defeated count. Type/phase/time/strength/last-update are serialized.",
+      "yair_proposal_mapping": "Crisis ending waits for in-progress commitments; aftermath has history and a quieter phase. Daily constant sign/value and contract/action contribution call sites were not reviewed.",
+      "state": "source-reviewed; gameplay not run"
+    },
+    {
+      "id": "W13",
+      "evidence": "AM members L54-56; addMoralReputation L306-308; addBusinessReputation L342-356; update L814-820; WA L19-31",
+      "claim": "Business reputation and moral reputation are distinct. Moral change clamps 0-100; business changes use a rate, with threshold achievements. Daily business reputation decays when positive; config defines different reward/penalty categories for battle, success, failure and betrayal.",
+      "yair_proposal_mapping": "Trustworthiness and public capability can diverge. A feared competent contractor is different from a kind unknown novice.",
+      "state": "source-reviewed; gameplay not run"
+    },
+    {
+      "id": "W14",
+      "evidence": "AM getDailyMoneyCost/getDailyFoodCost L443-466; update L814-891",
+      "claim": "Upkeep sums individual daily wage/food. Daily processing runs after hour 8 when asset consumption enabled, triggers skill daily work and injury visual updates, checks affordability per member, worsens mood for unpaid/hungry members with greedy/spartan/gluttonous branches, then deducts wages.",
+      "yair_proposal_mapping": "A proposed companion agreement should state wage, provisions and hardship causes. Native solo inventory/clock can support one named helper before party combat.",
+      "state": "source-reviewed; gameplay not run"
+    },
+    {
+      "id": "W15",
+      "evidence": "AM sortFoodByFreshness L711-732; consumeFood L751-809; update L916-995",
+      "claim": "Food consumption gathers actual stash food, sorts desirability then freshness, consumes by elapsed time with terrain/company factors. Hourly recovery repairs equipped items then marked stash items with parts; camping affects speed.",
+      "yair_proposal_mapping": "Mundane supplies have useful distinct jobs: food for people, parts for equipment, rest for recovery. Exact item-order priority needs bytecode qualification before numeric balancing.",
+      "state": "source-reviewed; gameplay not run"
+    },
+    {
+      "id": "W16",
+      "evidence": "AM update L1000-1023; checkDesertion L1229-1290",
+      "claim": "Every fourth processed hour checks desertion then recovers mood; nearby allied nonmilitary size>=2 town within distance3 can improve low/neutral mood with named visit reason. Desertion first requires event availability; zero-wage/player-character members are exempt. Mood<1 drives chance; loyal, disloyal, companion and paymaster modify it. One selected candidate triggers a desertion event, or game finish if alone.",
+      "yair_proposal_mapping": "Warn through specific grievances, allow ordinary refuge/recreation to help, and separate departure eligibility from its actual event. Native defeat remains unconsciousness: run-ending behavior is not accepted for YAIR.",
+      "state": "source-reviewed; gameplay not run"
+    },
+    {
+      "id": "W17",
+      "evidence": "RM getNumberOfUnlockedSlots L58-70; setFollower L146-149; create L167-186; RF evaluate/isUnlocked L61-71,117-124; AM resetToDefaults L622-684",
+      "claim": "Retinue creation is Desert-gated; five slots are created. Business reputation gates slot checks. Candidates expose cost/effects/requirements and reevaluate satisfaction. Switching a follower resets company defaults, applies retinue updates, origin and active ambition effects.",
+      "yair_proposal_mapping": "A noncombat specialist earns access through demonstrated work and changes a concrete service. Rebuild derived effects from defaults to avoid stacked replacements. Slot unlock array order is unqualified.",
+      "state": "source-reviewed; gameplay not run"
+    },
+    {
+      "id": "W18",
+      "evidence": "AM setCampaignSettings L362-395; WS autosave L285-305, quicksave/load branches L3573-3584, onBeforeSerialize L3721-3731",
+      "claim": "Combat difficulty, economic difficulty and ironman are separate stored settings; starting budget is another setting. Ironman autosaves to the named campaign and disables these quicksave/load shortcuts. Metadata separately persists combat/economic/ironman/DLC mask.",
+      "yair_proposal_mapping": "Separate severity, economy and save policy. Never equate harsh combat or death with mandatory ironman, and never change vanilla save policy under a research proposal.",
+      "state": "source-reviewed; gameplay not run"
+    },
+    {
+      "id": "E1",
+      "title": "Eligibility and timing precede event selection",
+      "claim": "Ordinary events wait for global delay and a two-hour check cadence. Chance increases with time since last event. Tactical/menu/loading contexts block updating, nearby hostiles suppress ordinary events; special events are checked separately.",
+      "evidence": "priority/data_001/scripts/events/event_manager.nut update:186-281; core/data_001/scripts/config/events.nut:1-8",
+      "state": "source-reviewed; gameplay not run",
+      "caveat": "Virtual seconds are not real wall time. The240 constant is not240 game days."
+    },
+    {
+      "id": "E2",
+      "title": "Weighted director work is spread across frames",
+      "claim": "Candidates update eligibility, exclude the last ordinary event, and accumulate positive scores. News and recent battle impose priority thresholds; a generator yields periodically. After weighted selection it rechecks eligibility and nearby threats before presentation.",
+      "evidence": "priority/data_001/scripts/events/event_manager.nut selectEvent:283-382; trial/event-manager-debug.txt",
+      "state": "source-reviewed; gameplay not run",
+      "caveat": "Debug confirms relevant score constants/calls/yields; complete generator reconstruction not executed."
+    },
+    {
+      "id": "E3",
+      "title": "Event cooldown persists",
+      "claim": "Firing prepares a start screen and sets CooldownUntil using current virtual time plus authored duration. Serialization stores/restores that cutoff. Response functions choose subsequent screens.",
+      "evidence": "priority/data_001/scripts/events/event.nut update/fire/processInput:63-116; onSerialize/onDeserialize:504-512",
+      "state": "source-reviewed; gameplay not run",
+      "caveat": "Cooldown serialization is visible script intent; native save transaction fidelity unverified."
+    },
+    {
+      "id": "E4",
+      "title": "Event text describes practical trouble and named people",
+      "claim": "Food-variety event uses camp dialogue and current food inventory eligibility; retired-soldier story uses an actual speaker and roster predicates. Screen List entries expose individual effects beside prose.",
+      "evidence": "priority/data_001/scripts/events/events/no_food_variety_event.nut create/onUpdateScore:3-121; retired_soldier_tale_event.nut:3-113",
+      "state": "source-reviewed; gameplay not run",
+      "caveat": "The text mentions repeated diet but reviewed predicate checks current stash, not dietary history. Style inference from two scenes, not full corpus."
+    },
+    {
+      "id": "E5",
+      "title": "A specialist is tied to demonstrated care",
+      "claim": "Surgeon follower sets a survival-guarantee company flag and requires five injured men treated at temples. Player fatality logic checks that flag only after excluding fatality/scenario/auto-retreat/guest paths, and requires no prior permanent wound for the guarantee.",
+      "evidence": "priority/data_001/scripts/retinue/followers/surgeon_follower.nut onUpdate/onEvaluate:31-47; core/data_001/scripts/entity/tactical/player.nut isReallyKilled:811-869",
+      "state": "source-reviewed; gameplay not run",
+      "caveat": "Do not quote the tooltip as unconditional survival or all-cause death prevention."
+    },
+    {
+      "id": "E6",
+      "title": "Enemy power has material eligibility",
+      "claim": "Necromancer is assigned raise/possession skills. Raise Undead requires a spawned resurrectable corpse on an empty tile; its configured action/fatigue cost is explicit. Possession requires zombie_minion and no existing possessed effect, and adds paired owner/target effects.",
+      "evidence": "targeted/data_001/scripts/entity/tactical/enemies/necromancer.nut onInit:20-38; skills/actives/raise_undead.nut create/onVerifyTarget/onUse:3-108; skills/actives/possess_undead_skill.nut isUsable/onVerifyTarget/onUse:61-114",
+      "state": "source-reviewed; gameplay not run",
+      "caveat": "No general learnable/lootable enemy power or world-scale revival plan proved. Paired effect lifetime/cleanup not traced."
+    },
+    {
+      "id": "E7",
+      "title": "Ironman changes save policy separately from loss",
+      "claim": "Autosave chooses named campaign versus ordinary autosave. Quicksave/load shortcuts are disabled for ironman. Finish-data generation deletes ironman campaign storage; retirement menu opens the finish screen.",
+      "evidence": "core/data_001/scripts/states/world_state.nut autosave:285-312; main_menu_module_onRetirePressed:1863-1867; shortcuts:3573-3584; states/world/asset_manager.nut getGameFinishData:1621-1628",
+      "state": "source-reviewed; gameplay not run",
+      "caveat": "No storage operation executed. Native engine implementation, crash recovery and external backups not audited."
+    },
+    {
+      "id": "E8",
+      "title": "Fairness is a design inference with explicit limits",
+      "claim": "Visible costs, reason histories, healing estimates, specialized care and crisis warning phases give players ways to understand/prevent losses. Fatality exclusions and random survival still create severe outcomes.",
+      "evidence": "BB-FL05/06/08/10/12; W9/W18; E5",
+      "state": "source-reviewed; gameplay not run",
+      "caveat": "Interpretation, not player-experience proof or a claim Battle Brothers is always fair. No encounter balance/playtest run."
+    }
+  ],
+  "source_key_index": {
+    "FM": "priority/data_001/scripts/factions/faction_manager.nut",
+    "F": "priority/data_001/scripts/factions/faction.nut",
+    "FA": "priority/data_001/scripts/factions/faction_action.nut",
+    "SF": "priority/data_001/scripts/factions/settlement_faction.nut",
+    "NF": "priority/data_001/scripts/factions/noble_faction.nut",
+    "RM": "priority/data_001/scripts/retinue/retinue_manager.nut",
+    "RF": "priority/data_001/scripts/retinue/follower.nut",
+    "AM": "core/data_001/scripts/states/world/asset_manager.nut",
+    "WS": "priority/data_001/scripts/states/world_state.nut",
+    "WA": "decompiled/data_001/scripts/config/world_assets.nut"
+  },
+  "global_limits": [
+    "Proposals remain unaccepted. No gameplay run.",
+    "Known Nutcracker reconstruction hazards: unresolved OP_JMP in asset_manager.consumeFood; serialization read/write discrepancy in faction_manager.LastUpdate; exact behavior of these branches remains unqualified.",
+    "Background attribute arrays are endpoint offsets added to base ranges; descending offsets alone are not a decoder defect. Farmhand debug confirms literal order.",
+    "No general founding/territorial player faction, universal age/lifespan, procedural social graph or autonomous ancient revival plan established."
+  ]
+}

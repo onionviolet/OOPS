@@ -1,0 +1,188 @@
+--- src/main.js (pre-task dirty)
++++ src/main.js
+@@ -310,6 +310,10 @@
+ import {createLifeRecordPanel} from './life_record_ui.js';
+ import {createVillageLives, advanceVillageLives} from './npc_lives.js';
+ import {createVillageLivesPanel} from './npc_lives_ui.js';
++import {createVillageCareer, migrateVillageCareer, beginVillageShift, finishVillageShift, resolveVillageKit, promoteVillageCareer, CAREER_RANKS} from './village_career.js';
++import {createVillageCareerControls} from './village_career_ui.js';
++let villageCareer = createVillageCareer();
++let villageCareerControls;
+ let npcLives = null;
+ let villageLivesPanel;
+ let lifeRecord = createLifeRecord();
+@@ -323,6 +327,8 @@
+     const nextNpc = save.npc_lives == null ? null : advanceVillageLives(save.npc_lives, save['current time'].year);
+     if(nextNpc) save.npc_lives = nextNpc;
+     writeGuardedSave(localStorage, key, JSON.stringify(save));
++    villageCareer = migrateVillageCareer(save);
++    villageCareerControls?.render();
+     lifeRecord = next;
+     npcLives = nextNpc;
+     lifeRecordPanel?.render();
+@@ -1802,8 +1808,29 @@
+  * 
+  * @param {Object} selected_activity - {id} of activity in Location's activities list??
+  */
++// Kit resolution and promotion publish state, money and biography together.
++function writeVillageCareer(choice) {
++    if(!ownsSave || foundationSaveBlocked || importProbeToken || current_location?.id!=='Village' || expansionState.actors.player.worldId!=='base.frontier' || current_activity || current_dialogue || current_game_action || current_combat || is_sleeping || is_reading || is_in_trade() || expeditionOccupiesPlayer())throw new Error('Finish your current work and speak to Tessa in Village.');
++    const serialized=create_save();if(!serialized)throw new Error('The career ledger could not be saved.');
++    const save=JSON.parse(serialized);
++    if(choice==='promote') {
++        save.village_career=promoteVillageCareer(villageCareer);
++        const t=save['current time'];
++        save.life_record=appendLifeMilestone(save.life_record,{year:t.year,at:lifeCalendarMinute(t),worldId:'base.frontier',kind:'career',text:`Tessa named you a ${CAREER_RANKS[save.village_career.rank].toLowerCase()} on the Village patrol.`});
++    } else {
++        save.village_career=resolveVillageKit(villageCareer,choice);
++        if(choice==='pay') {if(save.character.money<50)throw new Error('You need 50 coins to settle the kit debt.');save.character.money-=50;}
++    }
++    lifeSaveStorage.setItem(is_on_dev()?dev_save_key:save_key,JSON.stringify(save));
++    if(choice==='pay')add_money_to_character(-50);
++    log_message(choice==='promote'?`Tessa recognizes you as ${CAREER_RANKS[villageCareer.rank]}. Your life record remembers this promotion.`:choice==='return'?'Tessa: “Lantern and baton accounted for. Thank you.”':choice==='keep'?'Tessa records a 50-coin kit debt. Return the kit or pay before your next shift.':'Tessa records your kit debt as paid.');
++    villageCareerControls?.render();
++}
++
+ function start_activity(selected_activity) {
+     if(expeditionOccupiesPlayer()) return;
++    if(!restoringNativeSave && (!ownsSave || foundationSaveBlocked || importProbeToken))return;
++    if(!restoringNativeSave && current_activity)return;
+     current_activity = Object.assign({},current_location.activities[selected_activity]);
+     current_activity.id = selected_activity;
+ 
+@@ -1833,6 +1860,11 @@
+         }
+     } else throw `"${activities[current_activity.activity_name].type}" is not a valid activity type!`;
+ 
++    if(!restoringNativeSave && current_location.id === 'Village' && selected_activity === 'patrolling') {
++        try {villageCareer = beginVillageShift(villageCareer);}
++        catch(error) {log_message(error.message);current_activity=null;return;}
++        log_message('Tessa loans you the patrol lantern and baton. Return them after the round, or a 50-coin debt must be recorded.');
++    }
+     current_activity.earnings = 0;
+     current_activity.gathering_time = 0;
+     current_activity.gathered_materials = {};
+@@ -1844,6 +1876,11 @@
+ }
+ 
+ function end_activity() {
++    if(!current_activity)return;
++    if(current_location.id === 'Village' && current_activity.id === 'patrolling' && villageCareer.loan?.status === 'active') {
++        villageCareer = finishVillageShift(villageCareer, current_activity.earnings > 0);
++        log_message('Tessa notes how your shift went. Bring back the loaned lantern and baton before taking another round.');
++    }
+     
+     log_message(`%HeroName% finished ${current_activity.activity_name}`, "activity_finished");
+     
+@@ -4494,6 +4531,7 @@
+             save_data["skill_list_state"][i] = skill_list.children[i].classList.contains("skill_category_expanded");
+         }
+ 
++        save_data.village_career = structuredClone(villageCareer);
+         save_data.fork_schema = 1;
+         save_data.life_record = observeLifeSave(lifeRecord, {...save_data, expansion: expansionState});
+         if(npcLives) save_data.npc_lives = advanceVillageLives(npcLives, current_game_time.year);
+@@ -4595,6 +4633,7 @@
+             const prepared = prepareFoundationSave(save_data);
+             save_data = prepareV06Save(prepared.save);
+             retiredContent = prepared.retired;
++            villageCareer = migrateVillageCareer(save_data);
+             lifeRecord = migrateLifeRecord(save_data);
+             npcLives = save_data.npc_lives == null ? null : advanceVillageLives(save_data.npc_lives, save_data["current time"].year);
+             expansionState = initializeExpedition(loadExpansionState(save_data.expansion, expeditionRegistry, expansionState.rng));
+@@ -6762,11 +6801,14 @@
+                     current_activity.gathering_time_needed = gathering_time_needed;
+                 }
+ 
+-                update_displayed_ongoing_activity(current_activity);
+-
+-                if(!can_work(current_activity)) {
++                // A career shift is one native working period, not an endless wage loop.
++                if(current_location.id === 'Village' && current_activity.id === 'patrolling' && villageCareer.loan?.status === 'active' && current_activity.earnings > 0) {
+                     end_activity();
+-                }
++                } else {
++                    update_displayed_ongoing_activity(current_activity);
++                    if(!can_work(current_activity))end_activity();
++                }
++
+                 
+             } else {
+                 //no current activity
+@@ -7427,6 +7469,11 @@
+         },command:command=>command.type?actFeatureExpansion(command):actPocketRealm(command)});
+     adventureNotebook = createAdventureNotebook({registry: expeditionRegistry,
+         read: () => ({...readProgression(), inDialogue: !!current_dialogue, inCombat: !!current_combat})});
++    villageCareerControls = createVillageCareerControls({read:()=>({state:villageCareer,
++        visible:current_location?.id==='Village' && expansionState.actors.player.worldId==='base.frontier' && !current_dialogue && !current_combat && !is_sleeping && !is_reading && !is_in_trade() && !current_game_action,
++        canWrite:ownsSave&&!foundationSaveBlocked&&!importProbeToken,
++        busy:!!current_activity || !!nativeOccupationReason()}),
++        resolve:choice=>writeVillageCareer(choice),promote:()=>writeVillageCareer('promote')});
+     villageLivesPanel = createVillageLivesPanel({read:()=>({state:npcLives,inVillage:current_location?.id==='Village' && expansionState.actors.player.worldId==='base.frontier',canWrite:ownsSave&&!foundationSaveBlocked&&!importProbeToken}),meet:()=>{
+         if(npcLives || !ownsSave || foundationSaveBlocked || importProbeToken || current_location?.id!=='Village' || expansionState.actors.player.worldId!=='base.frontier')throw new Error("Meet your neighbors in Village when your life can be saved.");
+         const serialized=create_save();if(!serialized)throw new Error("This meeting could not be remembered.");
+--- src/save_files.js (pre-task dirty)
++++ src/save_files.js
+@@ -14,6 +14,8 @@
+ import {validateItemKey} from "./gameplay_transactions.js";
+ import {stableId} from "./simulation_contracts.js";
+ 
++import {validateVillageCareer} from './village_career.js';
++
+ import {validateLifeRecord} from './life_record.js';
+ import {validateVillageLives} from './npc_lives.js';
+ 
+@@ -28,6 +30,10 @@
+ 
+ export function validateSaveEnvelope(original, currentVersion) {
+     object(original, "Save");
++    if(original.village_career != null) {
++        validateVillageCareer(original.village_career);
++        if(original.village_career.loan?.status==='active' && (original['current location']!=='Village' || original.current_activity?.activity_id!=='patrolling'))throw new Error('Active Village career must have its native patrol.');
++    }
+     if(original.life_record != null) validateLifeRecord(original.life_record);
+     if(original.npc_lives != null) {validateVillageLives(original.npc_lives);if(original.npc_lives.lastYear > original["current time"]?.year)throw new Error("Village lives are ahead of this calendar.");}
+     const parts = version => {
+--- src/data/locations.js (pre-task dirty)
++++ src/data/locations.js
+@@ -1883,9 +1883,9 @@
+         }),
+         "patrolling": new LocationActivity({
+             activity_name: "patrolling",
+-            starting_text: "Go on a patrol around the village.",
++            starting_text: "Take a loaned kit and patrol with Tessa (2 hours, 50 coins).",
+             get_payment: () => {return 50},
+-            is_unlocked: false,
++            is_unlocked: true,
+             working_period: 60*2,
+             skill_xp_per_tick: 1
+         }),
+--- PROJECT.md (pre-task dirty)
++++ PROJECT.md
+@@ -75,6 +75,26 @@
+ 
+ Wave-by-wave delivery history: [project log](docs/gm/PROJECT_LOG.md).
+ 
++## Village career proposal (2026-10-09)
++
++Original playable proposal, awaiting Weibao's fiction and balance acceptance:
++Village's native patrol is available from the opening. Tessa lends a lantern
++and baton for one existing two-hour, 50-coin round. Leaving early earns no
++career credit. The custody ledger requires returning the kit or recording a
++50-coin debt; another loan waits until the kit is returned or its debt paid.
++The kit is job custody, not an equippable item or a stat bonus.
++
++Three ranks use completed native work and returned kits, with no career XP:
++Apprentice, Dependable worker (two full shifts/two returns), Mentor (five/five).
++Tessa remembers the last shift and kit resolution; each claimed promotion
++adds one career biography entry. Optional `village_career` schema 1 defaults
++to an empty career on old saves, without invented history, debt or rewards.
++An old saved patrol without career data continues as its original native job;
++newly started Village patrols use the career contract.
++
++Evidence and remaining acceptance: [village career report](docs/gm/dispatch/village-career-2026-10-09/REPORT.md)
++and [checkpoint](docs/gm/dispatch/village-career-2026-10-09/CHECKPOINT.md).
++
+ ## Next step
+ 
+ 1. Playtest the current build from a fresh origin: base opening, one home-world

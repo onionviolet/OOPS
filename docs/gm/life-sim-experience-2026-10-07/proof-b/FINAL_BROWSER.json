@@ -1,0 +1,14 @@
+{
+  "origin": "http://127.0.0.1:18543/",
+  "bundle": "http://127.0.0.1:18543/dist/bundle.js?version=life-98fcce294351",
+  "errors": [],
+  "checks": [
+    "latest combined source build loads ended life",
+    "truthful unconnected heir text/button",
+    "selected lesson/grave",
+    "no clock advance",
+    "native save succeeds"
+  ],
+  "remaining": "heir host not connected",
+  "generatedSavesOnly": true
+}

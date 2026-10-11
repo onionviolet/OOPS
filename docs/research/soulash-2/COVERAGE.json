@@ -1,0 +1,36 @@
+{
+  "source": "Soulash 2 Windows public demo 0.9.19.7",
+  "snapshot_sha256": "aecc5886a9a6f710388867a9ee28e404f6df764bc60bd35be9ee8c1c65e8dc72",
+  "inventory": {
+    "zip_entries": 14310,
+    "json_entries": 10745,
+    "core_2_entities": 3366,
+    "core_2_buildings": 509,
+    "core_2_milestones": 1116
+  },
+  "read": {
+    "selected_json_members_at_least": 16,
+    "version_text": 1,
+    "dependency_doc": 1,
+    "executable_header_and_hash": 1,
+    "full_native_functions": 0,
+    "game_executions": 0,
+    "distinct_cited_json_members": 16
+  },
+  "reviewed_semantic_traces": [
+    "F1 timber sources and conversion",
+    "F2 Adventuring milestone and ingot",
+    "F3 Pyromancy unlock and ability",
+    "F4 elemental core conversion recipes"
+  ],
+  "not_reviewed": [
+    "most JSON entries",
+    "native loader and state mutations",
+    "full world simulation",
+    "save schema",
+    "current retail code",
+    "post-demo Economy and Living World mechanics"
+  ],
+  "boundary": "Member references prove data links, not that the native executable loads, exposes, schedules, enforces, or resolves them. Retail v0.10.x public devlogs are documentation only.",
+  "root_readback": "../../gm/dispatch/new-game-audits-2026-10-07/SOULASH_READBACK.json"
+}

@@ -1,0 +1,73 @@
+{
+  "schema": 1,
+  "observed_at": "2026-10-07T18:08:35.612325+00:00",
+  "canonical_rows": [
+    {
+      "entry": "10095b968",
+      "name": "__ZN8Splitter22closeUnusedConnectionsEv",
+      "status": "success",
+      "body_addresses": 740,
+      "instruction_count": 185,
+      "body_sha256": "0ebd42437765f04081809c5015cd4daa2322fb8d7f48377d7bba5ac589bf151d",
+      "c_like_sha256": "ebd5b43d5d014a5c046bbd9251687665e772f94dbd434cf41cbafd8f0662eb3c",
+      "chunk": 1851,
+      "line": 1,
+      "diagnostic_body_C_ASM_identical": true,
+      "manually_overridden_switches": 8,
+      "full_context_repair_receipt_sha256": "88f2866495eb8dd6d74092dea535234f40321ed181d930d138bf16aeb5fe59a4",
+      "all_body_and_decoded_instruction_bytes_match_exact_input": true
+    },
+    {
+      "entry": "10095bc4c",
+      "name": "__ZNK8Splitter8drawBaseER9DrawQueue",
+      "status": "success",
+      "body_addresses": 2552,
+      "instruction_count": 638,
+      "body_sha256": "a369b5b8bd9f883f8f252e16ff13631baed1d4215931ab8faf88ea745eb72c23",
+      "c_like_sha256": "79adf0daaecfe5ebf254689beaab0fa21d68579cd3ed88c489186c96ed337124",
+      "chunk": 1852,
+      "line": 1,
+      "diagnostic_body_C_ASM_identical": true,
+      "manually_overridden_switches": 6,
+      "full_context_repair_receipt_sha256": "88f2866495eb8dd6d74092dea535234f40321ed181d930d138bf16aeb5fe59a4",
+      "all_body_and_decoded_instruction_bytes_match_exact_input": true
+    },
+    {
+      "entry": "1007f70c4",
+      "name": "__ZN8Inserter38transferFromInventoryWithSpoilPriorityER9Inventory",
+      "status": "success",
+      "body_addresses": 988,
+      "instruction_count": 247,
+      "body_sha256": "ae2ed03ff9a0790d524dcbf89cd5a339e18c8a6deb9d08090ff07b9979b7b4be",
+      "c_like_sha256": "4732e2de4f594224eba26989aadbc44a5d515ee745f51ad73f41648e80a54875",
+      "chunk": 1853,
+      "line": 1,
+      "diagnostic_body_C_ASM_identical": true,
+      "manually_overridden_switches": 1,
+      "full_context_repair_receipt_sha256": "88f2866495eb8dd6d74092dea535234f40321ed181d930d138bf16aeb5fe59a4",
+      "all_body_and_decoded_instruction_bytes_match_exact_input": true
+    }
+  ],
+  "input_sha256": "9e1d7571e0284bb4c4e0e12716143752c893cb79b266038e64d0ee41f54aab93",
+  "combined_receipt_sha256": "88f2866495eb8dd6d74092dea535234f40321ed181d930d138bf16aeb5fe59a4",
+  "combined_dependencies_all_match": true,
+  "all_14_splitter_targets_guarded_and_decoded_in_body": true,
+  "inserter_six_cases": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "inserter_omitted_original_bytes_recovered": 64,
+  "actual_terminal_guard": {
+    "started_at": "2026-10-07T18:01:50.751167+00:00",
+    "interventions": [],
+    "maximum_native_rss_kib": 15568,
+    "maximum_java_rss_kib": 583408,
+    "exit_code": 0,
+    "ended_at": "2026-10-07T18:05:56.724811+00:00"
+  },
+  "limit": "Qualified exact guarded byte-table flow, full-context C, raw body/ASM closure. Override annotations are inferred tool repairs; original class types, unbound virtual calls, NaN/FPCR and complete original C++ project are not established."
+}

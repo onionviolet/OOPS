@@ -1,0 +1,15 @@
+# Lamb leaf delivery
+
+2026-10-07. LAMB-P02 has four original implementation leaves, using the same Eda, existing fitting bench, learned method, native player money/items, Eda purse/vitals, common jobs and publisher. No shared source or build was edited by `/root/lamb_slice`.
+
+**F1 behavior.** Actual completed demonstration and practice can support one willing one-minute appointment. The office belongs to Eda and supplies only future inspection/delivery access. The two static fine-guide routes hold and return one owned native Matched repair stave and Eda’s unchanged own guide; one player coin and one Eda stamina fund two minutes. Successful inspection pays Eda one coin and issues one class approval. One later minute holds a native stave and three Eda coins, then transfers that stave to Eda and pays the player three coins only at completion. It consumes that approval and settles once. Ending is a player-only local action, needs no current Eda source, and retains competence and all earlier receipts.
+
+**F2 proof.** `node docs/gm/non-factorio-absorption-2026-10-07/lamb/leaf_checks.mjs` passed 21 bounded checks. The work harness uses actual shared effect/refund reducers and scheduler previews; cancellation and ending use the actual host. Both guide variants, exact pending holds/returns, finite-purse payment, source-loss refunds, actual source removal before ending, old absence, JSON roundtrip, strict pending/history/namespace tamper and replay exclusions pass. Four leaf syntax checks and task-path whitespace check passed. [CHECKS.json](CHECKS.json) binds results and live input/output hashes.
+
+**F3 boundary.** Source implementation and the bounded proof are complete; root’s shared scheduler integration, matching rebuild, fresh-origin browser, native publication and save/reload/import gates are unrun here. Publisher failure and wider keyboard/regression/director acceptance are not established by these checks. None of the 21 checks claims source-game execution or game parity. Costs, local fiction and one-minute handover remain proposals.
+
+Root hooks and ownership transfer are recorded in [RELEASE.json](RELEASE.json). All child source writes stop at that release.
+
+## Root browser gate
+
+[BROWSER.json](BROWSER.json) records exit0 on combined bundle7c4fe2b159f0: actual Eda demonstration and player practice qualify without appointment; one-minute appointment belongs to the same Eda; paid inspection holds real player part/Eda guide and cancellation restores fee/items without wage/approval; held inspection reloads and completes once; finite handover transfers the native part and three Eda coins while consuming approval; actual earlier approved-save native import restores the unsettled history; ending/reload preserves trained source and completed work while removing further service. Seven criteria passed, no application errors. The naturally dulled guide route was played; sharp-guide, delivery refund, source-loss ending and in-flight support-loss remain bounded-model checks with browser gates open. No per-copy identity or full Cult of the Lamb parity is claimed.

@@ -1,0 +1,17 @@
+{
+  "url": "http://127.0.0.1:18547/",
+  "root": "/tmp/yairpg-life-experience-pass-b-heir-candidate-r3-20261007",
+  "errors": [],
+  "checks": [
+    "real death-screen heir button",
+    "actual fresh-native initialization",
+    "zero native XP/starter goods",
+    "one retained method changes ordinary preparation",
+    "biography/grave and NPC world retained",
+    "reload/export/import no extra generation",
+    "rejected first write keeps bytes",
+    "rejected replacement keeps full predecessor/export/cancel"
+  ],
+  "generatedSavesOnly": true,
+  "status": "isolated host integration candidate; shared main.js untouched"
+}

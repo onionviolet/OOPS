@@ -1,0 +1,228 @@
+{
+  "revision": "1da7316ffd9d281b45a86c4c54ec532276557892",
+  "scope": "six connected source chains",
+  "chains": [
+    {
+      "id": "F1",
+      "claim": "Automation reserves a measurable budget before execution",
+      "evidence": [
+        {
+          "path": "src/NetscriptWorker.ts",
+          "start": 74,
+          "end": 155,
+          "revision": "1da7316ffd9d281b45a86c4c54ec532276557892",
+          "url": "https://github.com/bitburner-official/bitburner-src/blob/1da7316ffd9d281b45a86c4c54ec532276557892/src/NetscriptWorker.ts#L74-L155"
+        }
+      ],
+      "coverage": "selected ranges inspected; linked caller/UI support, not all dependencies",
+      "runtime_exercised": false
+    },
+    {
+      "id": "F2",
+      "claim": "Research joins data, requirements, effects and readable UI",
+      "evidence": [
+        {
+          "path": "src/Corporation/Actions.ts",
+          "start": 501,
+          "end": 539,
+          "revision": "1da7316ffd9d281b45a86c4c54ec532276557892",
+          "url": "https://github.com/bitburner-official/bitburner-src/blob/1da7316ffd9d281b45a86c4c54ec532276557892/src/Corporation/Actions.ts#L501-L539"
+        },
+        {
+          "path": "src/Corporation/ResearchTree.ts",
+          "start": 17,
+          "end": 52,
+          "revision": "1da7316ffd9d281b45a86c4c54ec532276557892",
+          "url": "https://github.com/bitburner-official/bitburner-src/blob/1da7316ffd9d281b45a86c4c54ec532276557892/src/Corporation/ResearchTree.ts#L17-L52"
+        },
+        {
+          "path": "src/Corporation/ResearchTree.ts",
+          "start": 165,
+          "end": 221,
+          "revision": "1da7316ffd9d281b45a86c4c54ec532276557892",
+          "url": "https://github.com/bitburner-official/bitburner-src/blob/1da7316ffd9d281b45a86c4c54ec532276557892/src/Corporation/ResearchTree.ts#L165-L221"
+        },
+        {
+          "path": "src/Corporation/data/BaseResearchTree.ts",
+          "start": 15,
+          "end": 65,
+          "revision": "1da7316ffd9d281b45a86c4c54ec532276557892",
+          "url": "https://github.com/bitburner-official/bitburner-src/blob/1da7316ffd9d281b45a86c4c54ec532276557892/src/Corporation/data/BaseResearchTree.ts#L15-L65"
+        },
+        {
+          "path": "src/Corporation/ui/modals/ResearchModal.tsx",
+          "start": 28,
+          "end": 85,
+          "revision": "1da7316ffd9d281b45a86c4c54ec532276557892",
+          "url": "https://github.com/bitburner-official/bitburner-src/blob/1da7316ffd9d281b45a86c4c54ec532276557892/src/Corporation/ui/modals/ResearchModal.tsx#L28-L85"
+        }
+      ],
+      "coverage": "selected ranges inspected; linked caller/UI support, not all dependencies",
+      "runtime_exercised": false
+    },
+    {
+      "id": "F3",
+      "claim": "Reset types have different destruction and retention boundaries",
+      "evidence": [
+        {
+          "path": "src/PersonObjects/Player/PlayerObjectGeneralMethods.ts",
+          "start": 80,
+          "end": 175,
+          "revision": "1da7316ffd9d281b45a86c4c54ec532276557892",
+          "url": "https://github.com/bitburner-official/bitburner-src/blob/1da7316ffd9d281b45a86c4c54ec532276557892/src/PersonObjects/Player/PlayerObjectGeneralMethods.ts#L80-L175"
+        },
+        {
+          "path": "src/Prestige.ts",
+          "start": 55,
+          "end": 98,
+          "revision": "1da7316ffd9d281b45a86c4c54ec532276557892",
+          "url": "https://github.com/bitburner-official/bitburner-src/blob/1da7316ffd9d281b45a86c4c54ec532276557892/src/Prestige.ts#L55-L98"
+        },
+        {
+          "path": "src/Prestige.ts",
+          "start": 203,
+          "end": 257,
+          "revision": "1da7316ffd9d281b45a86c4c54ec532276557892",
+          "url": "https://github.com/bitburner-official/bitburner-src/blob/1da7316ffd9d281b45a86c4c54ec532276557892/src/Prestige.ts#L203-L257"
+        },
+        {
+          "path": "src/Augmentation/AugmentationHelpers.ts",
+          "start": 69,
+          "end": 113,
+          "revision": "1da7316ffd9d281b45a86c4c54ec532276557892",
+          "url": "https://github.com/bitburner-official/bitburner-src/blob/1da7316ffd9d281b45a86c4c54ec532276557892/src/Augmentation/AugmentationHelpers.ts#L69-L113"
+        },
+        {
+          "path": "src/RedPill.tsx",
+          "start": 16,
+          "end": 78,
+          "revision": "1da7316ffd9d281b45a86c4c54ec532276557892",
+          "url": "https://github.com/bitburner-official/bitburner-src/blob/1da7316ffd9d281b45a86c4c54ec532276557892/src/RedPill.tsx#L16-L78"
+        }
+      ],
+      "coverage": "selected ranges inspected; linked caller/UI support, not all dependencies",
+      "runtime_exercised": false
+    },
+    {
+      "id": "F4",
+      "claim": "Offline progress is a model with subsystem-specific treatment",
+      "evidence": [
+        {
+          "path": "src/Script/ScriptHelpers.ts",
+          "start": 14,
+          "end": 90,
+          "revision": "1da7316ffd9d281b45a86c4c54ec532276557892",
+          "url": "https://github.com/bitburner-official/bitburner-src/blob/1da7316ffd9d281b45a86c4c54ec532276557892/src/Script/ScriptHelpers.ts#L14-L90"
+        },
+        {
+          "path": "src/NetscriptWorker.ts",
+          "start": 218,
+          "end": 264,
+          "revision": "1da7316ffd9d281b45a86c4c54ec532276557892",
+          "url": "https://github.com/bitburner-official/bitburner-src/blob/1da7316ffd9d281b45a86c4c54ec532276557892/src/NetscriptWorker.ts#L218-L264"
+        },
+        {
+          "path": "src/engine.tsx",
+          "start": 257,
+          "end": 282,
+          "revision": "1da7316ffd9d281b45a86c4c54ec532276557892",
+          "url": "https://github.com/bitburner-official/bitburner-src/blob/1da7316ffd9d281b45a86c4c54ec532276557892/src/engine.tsx#L257-L282"
+        },
+        {
+          "path": "src/engine.tsx",
+          "start": 307,
+          "end": 341,
+          "revision": "1da7316ffd9d281b45a86c4c54ec532276557892",
+          "url": "https://github.com/bitburner-official/bitburner-src/blob/1da7316ffd9d281b45a86c4c54ec532276557892/src/engine.tsx#L307-L341"
+        },
+        {
+          "path": "src/engine.tsx",
+          "start": 355,
+          "end": 372,
+          "revision": "1da7316ffd9d281b45a86c4c54ec532276557892",
+          "url": "https://github.com/bitburner-official/bitburner-src/blob/1da7316ffd9d281b45a86c4c54ec532276557892/src/engine.tsx#L355-L372"
+        }
+      ],
+      "coverage": "selected ranges inspected; linked caller/UI support, not all dependencies",
+      "runtime_exercised": false
+    },
+    {
+      "id": "F5",
+      "claim": "Automation UI makes cost and outcomes inspectable",
+      "evidence": [
+        {
+          "path": "src/ui/ActiveScripts/WorkerScriptAccordion.tsx",
+          "start": 47,
+          "end": 165,
+          "revision": "1da7316ffd9d281b45a86c4c54ec532276557892",
+          "url": "https://github.com/bitburner-official/bitburner-src/blob/1da7316ffd9d281b45a86c4c54ec532276557892/src/ui/ActiveScripts/WorkerScriptAccordion.tsx#L47-L165"
+        }
+      ],
+      "coverage": "selected ranges inspected; linked caller/UI support, not all dependencies",
+      "runtime_exercised": false
+    },
+    {
+      "id": "F6",
+      "claim": "Save success and import review have explicit stages",
+      "evidence": [
+        {
+          "path": "src/SaveObject.ts",
+          "start": 235,
+          "end": 336,
+          "revision": "1da7316ffd9d281b45a86c4c54ec532276557892",
+          "url": "https://github.com/bitburner-official/bitburner-src/blob/1da7316ffd9d281b45a86c4c54ec532276557892/src/SaveObject.ts#L235-L336"
+        },
+        {
+          "path": "src/ui/React/ImportSaveComparison.tsx",
+          "start": 114,
+          "end": 161,
+          "revision": "1da7316ffd9d281b45a86c4c54ec532276557892",
+          "url": "https://github.com/bitburner-official/bitburner-src/blob/1da7316ffd9d281b45a86c4c54ec532276557892/src/ui/React/ImportSaveComparison.tsx#L114-L161"
+        },
+        {
+          "path": "src/SaveObject.ts",
+          "start": 457,
+          "end": 480,
+          "revision": "1da7316ffd9d281b45a86c4c54ec532276557892",
+          "url": "https://github.com/bitburner-official/bitburner-src/blob/1da7316ffd9d281b45a86c4c54ec532276557892/src/SaveObject.ts#L457-L480"
+        },
+        {
+          "path": "src/SaveObject.ts",
+          "start": 536,
+          "end": 550,
+          "revision": "1da7316ffd9d281b45a86c4c54ec532276557892",
+          "url": "https://github.com/bitburner-official/bitburner-src/blob/1da7316ffd9d281b45a86c4c54ec532276557892/src/SaveObject.ts#L536-L550"
+        },
+        {
+          "path": "src/utils/SaveDataMigrationUtils.ts",
+          "start": 67,
+          "end": 118,
+          "revision": "1da7316ffd9d281b45a86c4c54ec532276557892",
+          "url": "https://github.com/bitburner-official/bitburner-src/blob/1da7316ffd9d281b45a86c4c54ec532276557892/src/utils/SaveDataMigrationUtils.ts#L67-L118"
+        }
+      ],
+      "coverage": "selected ranges inspected; linked caller/UI support, not all dependencies",
+      "runtime_exercised": false
+    }
+  ],
+  "excluded": [
+    "Netscript interpreter and full API correctness",
+    "Hacking combat/formula balance",
+    "Corporation full economy or all research items",
+    "All BitNode/SourceFile unlocks and retention fields",
+    "Electron cloud sync and Steam build parity",
+    "Full migration history and storage implementation",
+    "All gameplay, natural pacing and accessibility"
+  ],
+  "open_gates": [
+    "Runtime behavior of audited Bitburner source unexercised by design",
+    "No YAIR proposal selected; any implementation must qualify a fresh-origin native slice and save/reload/import",
+    "Prestige field retention policy requires an accepted compatibility decision before reset changes"
+  ],
+  "counts": {
+    "findings": 6,
+    "ranked_proposals": 6,
+    "small_touches": 26,
+    "retained_files": 17
+  }
+}

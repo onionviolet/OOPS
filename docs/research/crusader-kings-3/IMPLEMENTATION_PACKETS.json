@@ -1,0 +1,74 @@
+{
+  "status": "handoff-ready-proposals",
+  "experience_target": "docs/gm/life-sim-experience-2026-10-07/",
+  "foundation_target": "docs/gm/life-sim-foundation-2026-10-07/",
+  "packets": [
+    {
+      "id": "P1",
+      "owner": "life-sim experience GM",
+      "title": "One costly promise leaves stress and a coping habit",
+      "source_findings": [
+        "F1",
+        "F2"
+      ],
+      "proposal": "An opt-in home-world promise conflicts with one established habit. Breaking it adds stress; a relief choice leaves a modest persistent habit and one dated aftereffect. Preserve vanilla entry and recovery.",
+      "acceptance": "Fresh-origin promise choice, insufficient prerequisite, one relief consequence, later event, save/reload/import preserve exact habit and due time.",
+      "state": "proposal only; balance and psychological labels original; no gameplay implemented"
+    },
+    {
+      "id": "P2",
+      "owner": "life-sim experience GM",
+      "title": "A confidant is a person, not a stress button",
+      "source_findings": [
+        "F3"
+      ],
+      "proposal": "One existing NPC can become a trusted contact through a paid-in-time conversation. A saved bond selects later dialogue, with an availability gate and routine cooldown.",
+      "acceptance": "First conversation creates bond, repeat uses it, absent NPC blocks it without consuming cooldown; reload/import preserve relation and date.",
+      "state": "proposal only"
+    },
+    {
+      "id": "P3",
+      "owner": "life-sim experience GM",
+      "title": "An heirloom choice leaves a family rival",
+      "source_findings": [
+        "F1",
+        "F4"
+      ],
+      "proposal": "At one optional family milestone, choose who receives a keepsake; excluded relative remembers the choice. A later reconciliation changes eligibility/opinion without deleting the biography. No forced death/prestige design.",
+      "acceptance": "Two candidates, one transfer, later rival callback, reversal retains old milestone, save/reload/import agree.",
+      "state": "proposal only; requires accepted family/legacy scope"
+    },
+    {
+      "id": "P4",
+      "owner": "life-sim foundation GM",
+      "title": "Semantic memory retention and safe participant tombstones",
+      "source_findings": [
+        "F5"
+      ],
+      "proposal": "Store event kind/date/world/actor IDs and compact context, render text later. Use short ordinary retention and longer player/family/rival milestones. Before dropping full NPC state, preserve tombstone facts needed by retained memories; bound live references, rather than pinning whole NPC forever.",
+      "acceptance": "Long simulated life size budget; still-active event and milestone references survive compaction; expired routine memories retire; stable replay/save/reload/import and unknown-ID fallback.",
+      "boundary": "These are original browser-engine policies inspired by shipped contracts. CK3 native serializer, compression codec, graph prune algorithm and byte budgets remain unrecovered.",
+      "state": "proposal only; compare existing life_record/npc_lives owners before integration"
+    },
+    {
+      "id": "P5",
+      "owner": "life-sim foundation GM",
+      "title": "Separate authored starting history from played-life deltas",
+      "source_findings": [
+        "F6",
+        "F5"
+      ],
+      "proposal": "Keep immutable content facts outside save; save only player-caused deltas and compact milestones with content-version-aware ID lookup. Coarse NPC years consume retained outcomes rather than replaying all prose.",
+      "acceptance": "Baseline absent from exported payload, changed facts survive version migration/reload/import; missing content ID uses preserved minimal fact instead of losing biography.",
+      "boundary": "No claim CK3 implements this exact save strategy; history source schema alone cannot establish native compaction.",
+      "state": "proposal only"
+    }
+  ],
+  "integration_constraints": [
+    "Read live state owners before implementation; other writers retain ownership",
+    "Vanilla opening and original center UI remain intact",
+    "One realm/one prestige first milestone",
+    "No forced death, restart or universal family system accepted here",
+    "Source audit is not gameplay acceptance; fresh browser build/save/reload/import gates remain for implementers"
+  ]
+}

@@ -1,0 +1,109 @@
+{
+  "schema": 1,
+  "released_utc": "2026-10-07T21:32:51.605799+00:00",
+  "owner": "/root/lamb_slice",
+  "integrator": "/root",
+  "status": "released_source_writes_stopped",
+  "ownership_transfer": {
+    "from": "/root/lamb_slice",
+    "to": "/root",
+    "paths": [
+      "src/steam_lamb_content.js",
+      "src/steam_lamb_runtime.js",
+      "src/steam_lamb_facts.js",
+      "src/steam_lamb_host.js"
+    ],
+    "child_no_further_source_writes": true
+  },
+  "output_hashes": [
+    {
+      "path": "src/steam_lamb_content.js",
+      "sha256": "e370771852e1eb8a40d392bc87041f7d8a27b13ea6847462064c5ca56c70079e",
+      "bytes": 7312
+    },
+    {
+      "path": "src/steam_lamb_runtime.js",
+      "sha256": "8df169fae0f5d865130058a1f3e8b0920def440de06c67c62749da32a36ab8ae",
+      "bytes": 10136
+    },
+    {
+      "path": "src/steam_lamb_facts.js",
+      "sha256": "ba755e21daedf50113c1d5602725902c03bb706af04ba849bb06831189533be0",
+      "bytes": 10506
+    },
+    {
+      "path": "src/steam_lamb_host.js",
+      "sha256": "b770c3b9f7f549a33625e30d9222d11935aacc734d032b28faa9c942c08dd49d",
+      "bytes": 4122
+    }
+  ],
+  "qualification_receipt": "docs/gm/non-factorio-absorption-2026-10-07/lamb/CHECKS.json",
+  "check_count": 21,
+  "root_hooks": [
+    {
+      "path": "src/steam_absorption_content.js",
+      "action": "Import steamLambDefinitions from steam_lamb_content.js; append steam_lamb to STEAM_ABSORPTION_GROUPS and steamLambDefinitions to the aggregated definition families. No items/sites/actors are declared by this slice."
+    },
+    {
+      "path": "src/steam_absorption_facts.js",
+      "action": "Import steamLambFacts and validateSteamLambState from steam_lamb_facts.js; include the facts and run its optional validator."
+    },
+    {
+      "path": "src/steam_absorption_host.js",
+      "action": "Import steamLambContext, commitSteamLambCommand and steamLambPresentation from steam_lamb_host.js; add steam_lamb to the existing hosts map."
+    },
+    {
+      "path": "src/simulation.js",
+      "action": "Import guardSteamLambAdmission, stampSteamLambAcceptedJob and steamLambCompletionContext from steam_lamb_runtime.js. Call guard at admission beside the existing DF/BOH/ONI guards; stamp after costs and completionSupport/participants are frozen, before enqueue; wrap current completion context with steamLambCompletionContext before simulationFacts/meets. The wrapper must see the existing bench reservation even though the completing job has been removed from the jobs list."
+    }
+  ],
+  "public_exports": {
+    "content": [
+      "STEAM_LAMB_IDS",
+      "STEAM_LAMB_KEYS",
+      "steamLambDefinitions"
+    ],
+    "facts": [
+      "steamLambFacts",
+      "validateSteamLambState"
+    ],
+    "host": [
+      "steamLambContext",
+      "commitSteamLambCommand",
+      "steamLambPresentation"
+    ],
+    "runtime_hooks": [
+      "guardSteamLambAdmission",
+      "stampSteamLambAcceptedJob",
+      "steamLambCompletionContext"
+    ]
+  },
+  "group": "steam_lamb",
+  "prefix": "steam.lamb.",
+  "commands": [
+    "steam.lamb.appoint",
+    "steam.lamb.inspect_fine",
+    "steam.lamb.inspect_fineDull",
+    "steam.lamb.deliver",
+    "steam.lamb.end"
+  ],
+  "required_context": "Same native body/alive/care-frame/inventory/vitals/equipment/external context as BOH. Timed commands target feature_objects.miri; ending is immediate player-only target=null and has no current-source requirement.",
+  "pending_field": "steamLambWork",
+  "save_compatibility": "Optional actor facts/completed/knowledge/common jobs only, expansion11/simulation5 unchanged; office belongs existing Eda; approval refers fungible Matched repair stave class, no copy identity/provenance.",
+  "source_receipts": [
+    "docs/gm/non-factorio-absorption-2026-10-07/lamb/SOURCE_SELECTION.json",
+    "docs/gm/non-factorio-absorption-2026-10-07/lamb/SOURCE_HASHES.json"
+  ],
+  "remaining_gates": [
+    "root timed scheduler integration",
+    "matching immutable rebuild",
+    "fresh-origin browser gameplay",
+    "native publication/save/reload/import IO",
+    "publisher-failure browser branch",
+    "keyboard/wider regressions",
+    "creative-director acceptance"
+  ],
+  "no_shared_writes": true,
+  "no_commits": true,
+  "no_private_or_research_changes": true
+}

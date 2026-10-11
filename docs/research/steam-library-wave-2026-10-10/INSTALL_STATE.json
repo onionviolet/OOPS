@@ -1,0 +1,84 @@
+{
+  "checked_utc": "2026-10-10T15:34:37.771144+00:00",
+  "route": "read-only Steam manifests; no settings, saves or launch",
+  "games": [
+    {
+      "appid": 1593350,
+      "game": "Increlution",
+      "manifest_present": false,
+      "state": "manifest absent; installed status not asserted",
+      "recorded_install_folder": "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Increlution",
+      "recorded_install_folder_present": false,
+      "current_state": "absent from recorded Steam library: manifest and game folder missing"
+    },
+    {
+      "appid": 304650,
+      "game": "Sunless Sea",
+      "manifest_present": false,
+      "state": "manifest absent; installed status not asserted",
+      "recorded_install_folder": "/Users/weiwei/Library/Application Support/Steam/steamapps/common/SunlessSea",
+      "recorded_install_folder_present": false,
+      "current_state": "absent from recorded Steam library: manifest and game folder missing"
+    },
+    {
+      "appid": 596970,
+      "game": "Sunless Skies",
+      "manifest_present": false,
+      "state": "manifest absent; installed status not asserted",
+      "recorded_install_folder": "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Sunless Skies",
+      "recorded_install_folder_present": false,
+      "current_state": "absent from recorded Steam library: manifest and game folder missing"
+    },
+    {
+      "appid": 466300,
+      "game": "Planescape: Torment: Enhanced Edition",
+      "manifest_present": false,
+      "state": "manifest absent; installed status not asserted",
+      "recorded_install_folder": "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Planescape Torment Enhanced Edition",
+      "recorded_install_folder_present": false,
+      "current_state": "absent from recorded Steam library: manifest and game folder missing"
+    },
+    {
+      "appid": 1578650,
+      "game": "Citizen Sleeper",
+      "manifest_present": false,
+      "state": "manifest absent; installed status not asserted",
+      "recorded_install_folder": "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Citizen Sleeper",
+      "recorded_install_folder_present": false,
+      "current_state": "absent from recorded Steam library: manifest and game folder missing"
+    },
+    {
+      "appid": 2442460,
+      "game": "Citizen Sleeper 2",
+      "manifest_present": false,
+      "state": "manifest absent; installed status not asserted",
+      "recorded_install_folder": "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Citizen Sleeper 2 Starward Vector",
+      "recorded_install_folder_present": false,
+      "current_state": "absent from recorded Steam library: manifest and game folder missing"
+    },
+    {
+      "appid": 632470,
+      "game": "Disco Elysium",
+      "manifest_present": false,
+      "state": "manifest absent; installed status not asserted",
+      "recorded_install_folder": "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Disco Elysium",
+      "recorded_install_folder_present": false,
+      "current_state": "absent from recorded Steam library: manifest and game folder missing"
+    },
+    {
+      "appid": 909660,
+      "game": "Vagrus: The Riven Realms",
+      "manifest_present": true,
+      "manifest_sha256": "07e9957329d18cb6c9b0371ba1b93598b82ec7a8228e1e9807d87c1a63364db6",
+      "StateFlags": "4",
+      "buildid": "25598304",
+      "installdir": "Vagrus - The Riven Realms",
+      "SizeOnDisk": "5479725761",
+      "install_folder_present": true,
+      "recorded_install_folder": "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Vagrus - The Riven Realms",
+      "recorded_install_folder_present": true,
+      "current_state": "fully installed: StateFlags 4"
+    }
+  ],
+  "limits": "Only the recorded Steam library is checked; no alternate libraries/settings inspected. No uninstall performed by this session."
+}

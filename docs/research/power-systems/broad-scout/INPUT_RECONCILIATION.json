@@ -1,0 +1,29 @@
+{
+  "date": "2026-10-10",
+  "initial_hashes": {
+    "docs/emergent/E8B_POWER_CATALOG.md": "3eed888a96e509ccc9cdecb9edcb32d9a851f25fba8f09887822cded9c9f787e",
+    "docs/emergent/E8C_POWER_PATHS_AND_ANIME.md": "b4d732021219a90be41d32aff61139f27f89f0ca615a2b73a273647ce475a1dd",
+    "docs/emergent/E8E_ADAPTATION.md": "016c46a4a1f0c30bed417b2ab7f51a3f9a81db3de04ed0db3d2aaf436d0ea035",
+    "docs/emergent/E8D_VOW_SYSTEM.md": "317e464f8b189ce88b5894298a4bbe0886f4841575146caca4dbe1027ce2273b",
+    "docs/emergent/E8_POWER_ASPECTS.md": "a00b54ae2ebace018b3ba6ac883f148b4d50a4dd3806c4103ee84d1bbcd8eb5c"
+  },
+  "reviewed_hashes": {
+    "docs/emergent/E8B_POWER_CATALOG.md": "3eed888a96e509ccc9cdecb9edcb32d9a851f25fba8f09887822cded9c9f787e",
+    "docs/emergent/E8C_POWER_PATHS_AND_ANIME.md": "76300d72dfc7fe61378b95970a3095f985163936bdeb72eeb6c375eab930eb4d",
+    "docs/emergent/E8E_ADAPTATION.md": "016c46a4a1f0c30bed417b2ab7f51a3f9a81db3de04ed0db3d2aaf436d0ea035",
+    "docs/emergent/E8D_VOW_SYSTEM.md": "7dd9a25e218b8f0dff3a64d4ea379ae48d5cfcce283b4b1456cf439270de34ad",
+    "docs/emergent/E8_POWER_ASPECTS.md": "7baf6e63125fdf26a765bc1cffc3f71188194849d0494c2411fbad80b90f729e"
+  },
+  "changed_inputs": [
+    "docs/emergent/E8C_POWER_PATHS_AND_ANIME.md",
+    "docs/emergent/E8D_VOW_SYSTEM.md",
+    "docs/emergent/E8_POWER_ASPECTS.md"
+  ],
+  "cause": "Concurrent A-C survey fold-in observed in live files; lane D made no E8 edits.",
+  "read_sections": [
+    "E8 Survey fold-in keep a power parts apart",
+    "E8C Survey fold-in paths",
+    "E8D Survey fold-in vows and JJK corrections"
+  ],
+  "effect": "Keep live carrier, observation, simulation-retention and mechanism/payer fields as incumbent. Proposed extensions concern apparent awareness, intervention status, expiry, reset selection and law version, not a duplicate universal schema."
+}

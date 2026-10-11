@@ -1,0 +1,43 @@
+{
+  "date": "2026-10-08",
+  "source": "https://store.steampowered.com/api/appdetails?appids=1468810&l=english",
+  "declared_products": [
+    {
+      "app_id": 2408730,
+      "name": "Tale of Immortal - Ground of No Return",
+      "classification": "independent roguelite gameplay mode",
+      "declared_source": "https://store.steampowered.com/app/2408730/",
+      "entitlement": "not queried",
+      "installed_or_active": "not established by base depot or shared code",
+      "review": "DLC-named tables/signatures inventoried, some sample sheets retained; not independently semantically audited. Soundtrack/artbook not expanded or read."
+    },
+    {
+      "app_id": 1536810,
+      "name": "鬼谷八荒 Soundtrack",
+      "classification": "soundtrack",
+      "declared_source": "https://store.steampowered.com/app/1536810/",
+      "entitlement": "not queried",
+      "installed_or_active": "not established by base depot or shared code",
+      "review": "DLC-named tables/signatures inventoried, some sample sheets retained; not independently semantically audited. Soundtrack/artbook not expanded or read."
+    },
+    {
+      "app_id": 3294480,
+      "name": "Tale of Immortal - BaHuang Chronicle",
+      "classification": "artbook",
+      "declared_source": "https://store.steampowered.com/app/3294480/",
+      "entitlement": "not queried",
+      "installed_or_active": "not established by base depot or shared code",
+      "review": "DLC-named tables/signatures inventoried, some sample sheets retained; not independently semantically audited. Soundtrack/artbook not expanded or read."
+    },
+    {
+      "app_id": 3326620,
+      "name": "Tale of Immortal - Five Blooms",
+      "classification": "romance/side-story content pack",
+      "declared_source": "https://store.steampowered.com/app/3326620/",
+      "entitlement": "not queried",
+      "installed_or_active": "not established by base depot or shared code",
+      "review": "DLC-named tables/signatures inventoried, some sample sheets retained; not independently semantically audited. Soundtrack/artbook not expanded or read."
+    }
+  ],
+  "warning": "DLC prefix is a code/content namespace, not proof of a particular licensed expansion or runtime activation."
+}

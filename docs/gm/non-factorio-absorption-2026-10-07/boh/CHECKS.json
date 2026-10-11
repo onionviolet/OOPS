@@ -1,0 +1,84 @@
+{
+  "schema": 1,
+  "checked_at_utc": "2026-10-07T20:35:12.641817+00:00",
+  "result": "pass",
+  "bounded_reducer": {
+    "command": "node docs/gm/non-factorio-absorption-2026-10-07/boh/leaf_checks.mjs",
+    "exit_code": 0,
+    "passed": 15,
+    "test_names": [
+      "old absence is inert and pure projection mutates nothing",
+      "copy spends native paper/ink, worker effort, money and real time",
+      "trial holds and returns owned materials, spends effort, adds only topic failure and fatigue",
+      "specific rest changes only fatigue; comparison consumes the diagnostic and returns materials",
+      "actual played expiry is an alternative to specific rest",
+      "specific rest still completes after natural fatigue expires during it",
+      "funded guidance prepares without failure, followed by separate real reading",
+      "learned route makes actual native kits and returns the same owned knife dulled",
+      "losing a copy preserves understanding and repeat paid copies restore the reference",
+      "cancellation restores held objects, money and effort, producing no preparation or wage",
+      "canceled learned kit work returns its manual, sharp knife, materials and effort",
+      "lost consent or body/bench support refunds actual work without outcome",
+      "admission rejects missing, borrowed or equipped references/tools and untrusted context",
+      "pending exact contracts survive JSON and reject amended costs/returns/time/participants/support",
+      "forged procedure, alien namespace, edited fatigue and history deletion are rejected"
+    ],
+    "uses": "actual shared effect and reservation-return refund reducer",
+    "boundary": "Does not execute shared scheduler hooks, native publication, browser clocks or native save IO."
+  },
+  "fixture_repairs": [
+    "Register genuine existing bodyConditions, including body.sore_hands.",
+    "Discard initial workshop enrollment acquisition events before cancellation checks."
+  ],
+  "implementation_repair": "Reject deletion of failed-trial study fatigue before completed specific rest or actual four-minute expiry.",
+  "syntax": {
+    "result": "pass",
+    "commands": [
+      "node --check src/steam_boh_content.js",
+      "node --check src/steam_boh_runtime.js",
+      "node --check src/steam_boh_facts.js",
+      "node --check src/steam_boh_host.js"
+    ]
+  },
+  "player_text": {
+    "result": "pass",
+    "content_strings_checked": 151,
+    "checked_fields": [
+      "item descriptions",
+      "command labels and descriptions",
+      "knowledge values",
+      "requirement and completion reasons",
+      "condition labels and detail"
+    ],
+    "host_status": "manually reviewed; workshop voice"
+  },
+  "source_verification": {
+    "command": "python3 docs/gm/non-factorio-absorption-2026-10-07/boh/verify_source.py",
+    "exit_code": 0,
+    "files": 7,
+    "unique_exact_locators": 19,
+    "receipt": "SOURCE_HASHES.json"
+  },
+  "files": [
+    {
+      "path": "src/steam_boh_content.js",
+      "sha256": "9367325369ba5e88de34acc6d48dd730ad3b4a8bbfbde9de786dd4d00702e6f7"
+    },
+    {
+      "path": "src/steam_boh_runtime.js",
+      "sha256": "11a0db97310e5ee03e38148e17fef9c6a8d08e28ebcdadc5fcc1a9c15d50df81"
+    },
+    {
+      "path": "src/steam_boh_facts.js",
+      "sha256": "5f5beb1dc2d40b05e14b8238deade4c976728e4ef21d8e6dee638761e61ee6e7"
+    },
+    {
+      "path": "src/steam_boh_host.js",
+      "sha256": "4ad3095087daf798162c44c122e3108f70b937a93eb958bf8cfa8d91bd1f4d03"
+    }
+  ],
+  "check_script_sha256": "b94661166fc8079f665e56854c0fb8cf9b1a778cd7b4c8bbc45645863b6e8f95",
+  "source_checker_sha256": "8ac0cc2464b1670b48ab55fdb9f29c914a8983cc1eee750efe29d5fe553b24da",
+  "browser_gameplay": "implemented-unverified",
+  "save_reload_import": "unrun; root remaining gate"
+}

@@ -1,0 +1,25 @@
+{
+  "game": "King of Dragon Pass",
+  "finite_pass_complete": true,
+  "read_chains": [
+    "F1",
+    "F2",
+    "F3",
+    "F4",
+    "F5",
+    "F6"
+  ],
+  "readable_semantics": "Manual/SacredTime, Clan, Farming, Reorganization, Relations, Crises, Saga",
+  "native_read": "Scene read/init, response and result dispatch, condition evaluation entry, VM word dispatch loop, yearly counter decrement, bounded person aging",
+  "decoded_data": "1760 index offsets and 16-bit word-count record boundaries validated against scenes.dat size",
+  "unread": [
+    "Complete OSL opcode and variable map",
+    "Individual 1760 scene programs, advisor text rules and outcome probabilities",
+    "All clan/NPC yearly ecology formulas",
+    "Save/history serializer internals",
+    "Quest and tribe mechanics beyond mentioned manual links",
+    "Art/audio/text lore corpus"
+  ],
+  "validation": "Private payload hash match plus structural assertions. No runtime or browser checks relevant to source lane.",
+  "uninstall_gate": "assigned finite pass complete; retained dependencies and inputs hash matched; no installed-path consumer; parent owns Steam uninstall dialog and post-uninstall proof"
+}

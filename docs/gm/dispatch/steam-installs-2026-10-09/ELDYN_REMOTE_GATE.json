@@ -1,0 +1,11 @@
+{
+  "at_utc": "2026-10-09T20:00:57.561071+00:00",
+  "url": "https://eldyn.io",
+  "purpose": "public source reachability only; no launch or authenticated request",
+  "web_tool": "not accessible via web open",
+  "fallback": "curl -I --max-time 20 https://eldyn.io",
+  "curl_exit_code": 6,
+  "curl_result": "Could not resolve host: eldyn.io",
+  "interpretation": "Remote gameplay source could not be acquired through either route; this does not prove permanent shutdown.",
+  "retries": "none"
+}

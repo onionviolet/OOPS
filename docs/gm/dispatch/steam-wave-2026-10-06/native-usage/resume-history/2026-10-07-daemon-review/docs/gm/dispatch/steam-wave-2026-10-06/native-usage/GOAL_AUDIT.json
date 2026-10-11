@@ -1,0 +1,101 @@
+{
+  "observed_utc": "2026-10-07T14:04:14.806358+00:00",
+  "status": "NOT COMPLETE",
+  "original_objective_preserved": true,
+  "requirements": [
+    {
+      "requirement": "Pin actual installed version/platform/native input and retain original Lua/API/DLC/dependencies privately",
+      "state": "proved for retained input snapshot",
+      "evidence": [
+        "docs/research/factorio/INTAKE.json",
+        "docs/research/factorio/native/INTAKE.json",
+        "FACTORIO_COMPLETION.json",
+        "RETAINED_INPUT_REFRESH.json",
+        "DEPENDENCY_ACQUISITION.json"
+      ],
+      "limit": "Root retained-input refresh matches installed 2.0.77 / build 23347942, all three native inputs, 1,877 text files and two API documents. Bundled Steam API and both licenses are retained and independently matched. System dependencies remain external metadata; presence does not establish an enabled DLC profile or entitlement."
+    },
+    {
+      "requirement": "Recover both architecture full function pseudocode/disassembly sets with exact provenance/coverage/failures",
+      "state": "ARM full initial attempts acquired; Intel whole export active; incomplete",
+      "evidence": [
+        "private exports/arm64/progress.json",
+        "private native-index.sqlite",
+        "docs/research/factorio/native/PIPELINE.json",
+        "ARM_CORPUS_ACQUISITION.json",
+        "X86_SAVED_REOPEN_ACQUISITION.json",
+        "X86_INITIAL_CORPUS_ACQUISITION.json"
+      ],
+      "limit": "Intel saved/reopened 182,398 functions, 178,145 callable matches and 9,869,783 instructions. At 2026-10-07T14:04:07.321309Z, the healthy unchanged exporter reports 168,900 closed rows, 168,835 C successes and 65 failures. Only the earlier 8,400 Intel records have root byte/C/ASM acquisition. Final both-corpus coverage, provenance, alias and failure reconciliation remain pending."
+    },
+    {
+      "requirement": "Make meaningful changed repairs for failed functions and qualify native ABI/field limits",
+      "state": "incomplete",
+      "evidence": [
+        "private immutable failure records",
+        "NATIVE_PROGRESS.json",
+        "native readers/logistics-heat/REPORT.md",
+        "ARM_CORPUS_ACQUISITION.json",
+        "BACKEND_REVIEW_ACQUISITION.json",
+        "ARM_FLOW_READBACK.json",
+        "BACKEND_BUILD_ACQUISITION.json"
+      ],
+      "limit": "All 1,105 scalar-affected ARM methods use the qualified second-source repair. All 14 Splitter tables, six Inserter cases and their 64 omitted bytes, exact global instruction ownership, selected Heat physical ABI/fields and faithful hash/merge/signal diagnosis remain required. The separately compiled diagnostic backend is acquired but unexecuted. Changed-capacity large retries are authorized after the stream and diagnosis, with finite measured limits."
+    },
+    {
+      "requirement": "Review consequential native production/inventory/quality/spoilage/logistics/heat/DLC joins against actual shipped Lua/API",
+      "state": "Bounded reader/source/API refresh acquired; known case-body closure and final repair qualification pending",
+      "evidence": [
+        "docs/research/factorio/native/readers/quality-spoilage/REPORT.md",
+        "docs/research/factorio/native/readers/logistics-heat/REPORT.md",
+        "docs/research/factorio/native/SOURCE_BINDING.json",
+        "SOURCE_BINDING_ACQUISITION.json",
+        "LATEST_BINDING_READBACK.json",
+        "READER_REFRESH_ACQUISITION.json"
+      ],
+      "limit": "The reader reread 54 bindings / 53 distinct C views; root matched their body/C hashes, 26 source bindings and 61 API pointers. Nineteen claims are unchanged, one strengthened and two require Inserter body-flow closure. Six actual case entries and 64 original bytes remain outside its saved body/ASM. Seven other candidate gaps remain unclassified. Full semantic, virtual-flow, floating-point and DLC activation limits stay explicit."
+    },
+    {
+      "requirement": "Use recovered methods in one concrete original YAIR behavior through existing inventory/body/clock/publisher/engine/UI",
+      "state": "proved source/build delivery; implemented-unverified",
+      "evidence": [
+        "BUILD_ACQUISITION.json",
+        "RETORT_REVIEW.md",
+        "RETORT_INTERFACE.md",
+        "NATIVE_VALIDATOR_INTERFACE.md",
+        "docs/gm/audit-absorption-2026-10-07/DELIVERY.md"
+      ],
+      "limit": "Four exact retort leaves and actual engine/UI/reader/consumer joins are retained in the acquired 370-source build. Paid stock, two receivers, collection/disposal and a finite batch plan use one inventory/body/clock/publisher. Pre-batch admission and refundable unburned fuel are original policies. Gameplay/save acceptance remains deferred."
+    },
+    {
+      "requirement": "Appropriate build/import/definition/link checks and matching source/current preview; explicitly deferred playable acceptance",
+      "state": "proved within authorized phase",
+      "evidence": [
+        "docs/gm/home-social-base-2026-10-07/FINAL_CHECKS.json",
+        "docs/gm/audit-absorption-2026-10-07/BUILD.json",
+        "BUILD_ACQUISITION.json",
+        "RETORT_REVIEW.md"
+      ],
+      "limit": "The acquired matching build retains 370 local source-map contents and exact bundle/map/index hashes. Source/build checks are complete for this delivery. No gameplay, browser, save, failure, regression or director suite is claimed."
+    },
+    {
+      "requirement": "Preserve saves/attribution/unrelated dirty work/exclusive writers; retain raw code privately and avoid publication/install mutation",
+      "state": "proved actions within current scope; final recheck pending",
+      "evidence": [
+        "ACQUISITION.json",
+        "INTEGRATION_PACKET.md",
+        "private tool receipts",
+        "docs/gm/audit-absorption-2026-10-07/RELEASE.json",
+        "ARM_ARCHIVE_ACQUISITION.json"
+      ],
+      "limit": "Private inputs, chunks, packed program, archives, restore helpers and actual failed records remain retained. The sole native writer and root acceptance document lease are intact. Final corpus/tool preservation acquisition remains pending; user saves, installs and unrelated dirty work stay untouched."
+    }
+  ],
+  "decision": "Keep the full human-authorized objective active. The exporter is healthy and the instrumentation build is acquired, but full Intel recovery, known body/CFG closure, faithful failure and ABI repairs, final corpus/section/provenance acquisition and refreshed consequential claims remain unfinished. Primary root alone makes the final host goal decision.",
+  "live_state_receipt": "ACCEPTANCE_STATE_REFRESH.json",
+  "final_audit_preparation": {
+    "script": "audit_native_corpus.py",
+    "mode": "--extended",
+    "state": "AST syntax checked; not run against a new corpus yet. Native final immutable release required."
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "captured": "2026-10-08",
+  "purpose": "Research input snapshot; no ownership of these inputs",
+  "sha256": {
+    "PROJECT.md": "8143c0f8c59c18fe9084cbb4afbbfa70719d29e5c55e138615b07e6195e86541",
+    "docs/GAME_MASTER_PROMPT.md": "afdfe348cbdfa308ef4bd032325b489946f98788d6574778784c6d873ec2cb70",
+    "docs/LIFE_SIM_NORTH_STAR.md": "f5635c6e97acdf7d3aa08f0945307068e4bb6e1793068854141e2ffe1a69d356",
+    "docs/WORLD_CARDS.md": "9ea44213c5df87ccea5639ae93a0ae2b8cf5e2eaa1c8ac4726e6abec7afbaffe",
+    "docs/worlds/MULTIVERSE_STRUCTURES.md": "ffa576cbeac958665316d4a3aaee020700a1c58542ada77cf2e00abecbcd306c",
+    "docs/gm/dispatch/power-scaling-2026-10-08/ASSIGNMENT.md": "50cd7a5b1effd133c16a0be534e04e6a2fa84cc95b5ae347996ba48568e968f0",
+    "docs/research/novels/full-book/lord-of-mysteries/CHECKPOINT.md": "a260b2005d53469dd23644f4cb66b67df4f3f0112352572a8d14e458ce500804",
+    "docs/research/novels/full-book/lord-of-mysteries/SYNTHESIS.md": "441ce548a67a51366e4a4d1ac988b41e9797dfe812808625a914d5f481a3c32d",
+    "docs/research/novels/full-book/lord-of-mysteries/COVERAGE.md": "bfe8151797e9a46623049a9b20fdc2a5cb8488bacc2adcae192c01342de50a0a",
+    "docs/research/novels/full-book/reverend-insanity/CHECKPOINT.md": "ba271e53bfd0bf9f73de2605c35bdf9f1c9b5af88959bbc578446ddfba2b29b2",
+    "docs/research/novels/full-book/reverend-insanity/SYNTHESIS.md": "b271eefb130cfdafca7d8fcb0959445e86e40e2296dd6578ce32ab19716f0a41",
+    "docs/research/novels/full-book/reverend-insanity/POWER_INDEX.md": "7400c5b1915ea55add4b0da2e0ad3682cb47e01a247b7c3a96a1b6e39d897154",
+    "docs/research/novels/full-book/reverend-insanity/COVERAGE.md": "18acdf24a0810364b8a9563342fd833bf93ef0921ae44cd09baa96c822277e1b",
+    "docs/research/novels/full-book/omniscient-reader/CHECKPOINT.md": "9ba839d1d8ce20ddfd7319742b88d60f489e7b39e6022fc66f2e3d88161d09d0",
+    "docs/research/novels/full-book/omniscient-reader/SYNTHESIS.md": "e074811cad01f94d25f499f58cc1b29e99d8313885eacfe6a5dff45e9f6e4b39",
+    "docs/research/novels/full-book/omniscient-reader/POWER_RULES.md": "6b50d99946208467bc028c17a030199ca16d509834ed166a513c837dbb5d3519",
+    "docs/research/novels/full-book/shadow-slave/CHECKPOINT.md": "97e15c428f3ff893ccd2a7be2da0c3c471877a9d1bda5c00da68ac1c46f0b795",
+    "docs/research/novels/full-book/shadow-slave/SYNTHESIS.md": "935cd941b5c39953ff732498b915abca9cdccd1fd4473bf301761fde160efd2f",
+    "docs/research/novels/full-book/shadow-slave/POWER_INDEX.md": "71bef294022b77382e85a6c41448ce14a93faa9bbf2ea9fc0d379a5f0834da90",
+    "docs/research/novels/full-book/shadow-slave/COVERAGE.md": "4e6c2bebaf156b862270266d3f654a9a145ab18af00b8adba37c915f3dcab201",
+    "docs/research/novels/full-book/a-novel-concept/CHECKPOINT.md": "14d15f9ffb982cc68ea0a0e929f03f9fa384a0e58584f4b96e2c3fb64b6de52e",
+    "docs/research/novels/full-book/a-novel-concept/REPORT.md": "266032e910a908b6a0dd945c961e12246e075eb2df99778155d131a3d491308e",
+    "docs/research/novels/full-book/a-novel-concept/POWER_INDEX.md": "2e16267edd1c0a8537d0f99e4c65b7242ad1b5fbc50506403116e764cea62429",
+    "docs/research/novels/full-book/a-novel-concept/WORLD_CARD.md": "55363142044f6e5a0b1eaff97f1ec016510510225c2fa0c3ef141f796c48ec27",
+    "docs/research/novels/full-book/speedrunning-multiverse/CHECKPOINT.md": "3526f9af43ab20a08f573e640d007e61da78a562aaeb0258026a72f9344156c0",
+    "docs/research/novels/full-book/speedrunning-multiverse/REPORT.md": "3c9216916b0a541c1d280ba3722553044fa5ebf2d3cdc3cea68aa054d84c8dad",
+    "docs/research/novels/full-book/speedrunning-multiverse/DETAILED_FINDINGS.md": "a7ee1fc441b314081f9c6acab3091be961fb3a498bc0fa478aa1b973d0871ab3",
+    "docs/research/novels/novel-wave-2026-10-08/books/warlock/REPORT.md": "896764c76f64747cd1a7d246518453f44d586fd7e8cd5f3317a3709549bb01ba",
+    "docs/research/novels/novel-wave-2026-10-08/REVIEW.md": "e72a606007d5467a46419f3a3e7e316d19103cabdd504fe57d8b3a9b2e6b6024"
+  },
+  "reconciled_drift": [
+    {
+      "path": "docs/LIFE_SIM_NORTH_STAR.md",
+      "initial_sha256": "8d0604800cecdb3b9d97ecd241583593e1e382ceca6007f8dcd4fde25a259023",
+      "current_sha256": "f5635c6e97acdf7d3aa08f0945307068e4bb6e1793068854141e2ffe1a69d356",
+      "reconciliation": "Re-read live progression, concepts, cheat tiers/pure cheats, compatibility modes, barriers and latest tail. No-universal-rank rule intact; incorporated clean-cheat permission and local absolute-conflict policy. No writes to input."
+    }
+  ]
+}

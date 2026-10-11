@@ -1,0 +1,26 @@
+{
+  "checkedAt": "2026-10-09T00:51:54.059958+00:00",
+  "exampleCount": 7,
+  "schemaCheck": "local validator for schema keywords used here, not a general JSON Schema implementation",
+  "negativeExamplesRejected": [
+    "unknown field",
+    "missing revision",
+    "invalid kind"
+  ],
+  "operationDomainCheck": "restore/retain disjoint in filled example",
+  "localLinks": "all resolve",
+  "sourceFileLocators": "all paths exist",
+  "inputFilesCompared": 437,
+  "changedSinceSnapshot": [
+    "docs/LIFE_SIM_NORTH_STAR.md"
+  ],
+  "runtimeTestsRun": false,
+  "buildRun": false,
+  "browserRun": false,
+  "saveAccess": false,
+  "limitations": [
+    "Pack references/adapters are proposed and unresolved; no executable pack validation",
+    "Source semantics are statically inspected, not exercised",
+    "Snapshot began after initial reads; no attribution of external input drift"
+  ]
+}

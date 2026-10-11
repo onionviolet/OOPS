@@ -1,0 +1,105 @@
+{
+  "date": "2026-10-09T20:36:49.908707+00:00",
+  "appid": 3606890,
+  "name": "Upload Labs",
+  "status": "installed-source-static-audit-complete",
+  "lens": "Research, automation and production bottlenecks",
+  "ownership": "installation observed; purchase/entitlement scope not inferred",
+  "manifest_present": true,
+  "install_request": "FullyInstalled observed by parent and rechecked",
+  "store_platforms": {
+    "windows": true,
+    "mac": false,
+    "linux": true
+  },
+  "cached_depots": [
+    {
+      "depot": "3606891",
+      "platform": "windows",
+      "manifest": {
+        "gid": "8585410954840555889",
+        "size": 173804624,
+        "download": 91585184
+      }
+    },
+    {
+      "depot": "3606892",
+      "platform": "linux",
+      "manifest": {
+        "gid": "1231551473235839611",
+        "size": 146743504,
+        "download": 84614384
+      }
+    }
+  ],
+  "cached_config_installdir": "Upload Labs",
+  "storefront_url": "https://store.steampowered.com/app/3606890/",
+  "metadata_api_url": "https://store.steampowered.com/api/appdetails?appids=3606890&l=english",
+  "retained_storefront": {
+    "path": "/Users/weiwei/.codex/research/library-games-2026-10-09/storefront/APP_3606890.json",
+    "bytes": 16031,
+    "sha256": "68acd4aa9227a69218d5ec32df91937cfc747e6b73f07b6e9fa42d00e0ed045d"
+  },
+  "useful_game_source": "embedded Godot executable, recovered scripts and extracted data JSON",
+  "uninstall": "parent coordinator owns request after handback",
+  "raw_game_code_committed": false,
+  "dlc_declared": [
+    4234080,
+    3606990,
+    3958950,
+    3958960,
+    4085930,
+    4387380
+  ],
+  "dlc_entitlement_installed_read": "not established",
+  "buildid": "23748080",
+  "state_flags": 4,
+  "size_on_disk": 173804624,
+  "private_retention": "/Users/weiwei/.codex/research/upload-labs/RETENTION.json",
+  "private_verification": "/Users/weiwei/.codex/research/upload-labs/VERIFICATION.json",
+  "previous_acquisition_status": "storefront-only, superseded by current source evidence",
+  "steam_installs_final_receipt_2026_10_09": {
+    "appid": 3606890,
+    "slug": "upload-labs",
+    "buildid": "23748080",
+    "requested_at_utc": "2026-10-09T20:37:42.565715+00:00",
+    "uri": "steam://uninstall/3606890",
+    "shell_exit_code": 0,
+    "copy_verified": true,
+    "source_audit": "recovered Godot research/routing/offline/reset bodies and static resources; blank automation bytecode bounded",
+    "proposals": 8,
+    "small_touches": 24,
+    "verification_private": "/Users/weiwei/.codex/research/upload-labs/VERIFICATION.json",
+    "uninstalled": "not-verified; request sent, dialog confirmation unobserved",
+    "last_checked_at_utc": "2026-10-09T20:37:42.608510+00:00",
+    "manifest_present": true,
+    "content_log_entries": [
+      "[2026-10-09 16:00:26] AppID 3606890 state changed : Update Required,",
+      "[2026-10-09 16:00:26] AppID 3606890 scheduler update : Priority First, not played for 1 seconds, update disabled for 0 seconds",
+      "[2026-10-09 16:00:26] AppID 3606890 state changed : Update Required,Update Queued,",
+      "[2026-10-09 16:00:26] AppID 3606890 state changed : Update Required,Update Queued,Update Running,",
+      "[2026-10-09 16:00:26] AppID 3606890 App update changed : Running Update,",
+      "[2026-10-09 16:00:26] AppID 3606890 App update changed : Running Update,Reconfiguring,",
+      "[2026-10-09 16:00:30] AppID 3606890 App update changed : Running Update,",
+      "[2026-10-09 16:00:30] AppID 3606890 App update changed : Running Update,Verifying Installed,",
+      "[2026-10-09 16:00:30] AppID 3606890 App update changed : Running Update,",
+      "[2026-10-09 16:00:30] AppID 3606890 App update changed : Running Update,Preallocating,",
+      "[2026-10-09 16:00:30] AppID 3606890 preallocated 5 files (165 MB) ",
+      "[2026-10-09 16:00:30] AppID 3606890 App update changed : Running Update,",
+      "[2026-10-09 16:00:30] AppID 3606890 update started : download 0/91585184, store 0/0, reuse 0/0, delta 0/0, stage 0/173804624 ",
+      "[2026-10-09 16:00:30] AppID 3606890 state changed : Update Required,Update Queued,Update Running,Update Started,",
+      "[2026-10-09 16:00:30] AppID 3606890 App update changed : Running Update,Downloading,Staging,",
+      "[2026-10-09 16:00:36] AppID 3606890 App update changed : Running Update,",
+      "[2026-10-09 16:00:36] AppID 3606890 App update changed : Running Update,Committing,",
+      "[2026-10-09 16:00:36] AppID 3606890 starting commit from \"/Users/weiwei/Library/Application Support/Steam/steamapps/downloading/3606890\" to \"/Users/weiwei/Library/Application Support/Steam/steamapps/common/Upload Labs\" : 6 updated, 0 moved, 0 deleted files",
+      "[2026-10-09 16:00:36] AppID 3606890 state changed : Fully Installed,Update Queued,Update Running,",
+      "[2026-10-09 16:00:36] AppID 3606890 finished update, 1 mounted depots (BuildID 23748080) : 3606891 (8585410954840555889),",
+      "[2026-10-09 16:00:36] AppID 3606890 App update changed : Running Update,",
+      "[2026-10-09 16:00:36] AppID 3606890 App update changed : None",
+      "[2026-10-09 16:00:36] AppID 3606890 state changed : Fully Installed,Update Queued,",
+      "[2026-10-09 16:00:36] AppID 3606890 state changed : Fully Installed,",
+      "[2026-10-09 16:00:36] AppID 3606890 scheduler finished : removed from schedule (result No Error, state 0xc) "
+    ],
+    "console_uninstall_entries": []
+  }
+}

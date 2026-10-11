@@ -1,0 +1,40 @@
+{
+  "public_source": "https://store.steampowered.com/dlc/763890/",
+  "public_checked_utc": "2026-10-07T20:32:05.441495+00:00",
+  "entitlement_or_runtime_activation": "unverified; installed depot and included definitions do not establish ownership",
+  "items": [
+    {
+      "name": "Base free updates/campaigns",
+      "source_accessible": true,
+      "retained": "builtIn villain modules and base data/code",
+      "semantic_read": "Only selected base-life mechanics, not all campaigns."
+    },
+    {
+      "name": "Omenroad",
+      "kind": "gameplay mode and story expansion",
+      "public_declared": true,
+      "source_accessible": "Base shipment has dungeon classes/data and hidden glyffrix module; no activation inferred.",
+      "read": "No complete Omenroad campaign/mode pass; dungeon progression explicitly unread."
+    },
+    {
+      "name": "Armors and Skins",
+      "kind": "cosmetic armor/outfits and transformation skins",
+      "public_declared": true,
+      "source_accessible": "Base customization/theming definitions retained; separate purchased payload/activation not verified.",
+      "read": "Unread cosmetics; raster art excluded from retention as unnecessary for assigned lens."
+    },
+    {
+      "name": "Soundtrack/music/extras",
+      "kind": "extras",
+      "source_accessible": "No separate installed extras claimed",
+      "read": "Unread; audio not retained, base credits retained."
+    }
+  ],
+  "installed_module_evidence": {
+    "private_path": "/Users/weiwei/.codex/research/wildermyth/retained/mods/builtIn/villain_glyffrix/mod.json",
+    "sha256": "c2d2e5e9c2d81896a8816492d8932ac78d2bc8849638f7a094a2d13089873ea2",
+    "locator": "blurb Single Chapter DLC Story; showInStoryDialog false",
+    "origin_jar_sha256": null
+  },
+  "bounds": "No purchase, entitlement change or runtime launch; complete declared DLC list not asserted beyond official DLC page items."
+}

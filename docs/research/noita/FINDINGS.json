@@ -1,0 +1,198 @@
+{
+  "schema": 1,
+  "date": "2026-10-09",
+  "status": "static_source_audit_complete_with_declared_native_gaps",
+  "findings": [
+    {
+      "id": "F1",
+      "codes": [
+        "N1"
+      ],
+      "verdict": "confirmed_with_correction",
+      "claim": "468 material definitions with inheritance, numeric physics and explicit special hooks, not a universal property-only system.",
+      "evidence": [
+        "data/materials.xml"
+      ],
+      "digest": "MATERIAL_REACTION_DIGEST.md"
+    },
+    {
+      "id": "F2",
+      "codes": [
+        "N2"
+      ],
+      "verdict": "corrected",
+      "claim": "330 active authored reaction records: identity and family selectors, higher arity, requirements, geometry and entity outputs. E4 needs adapters rather than direct copying.",
+      "evidence": [
+        "data/materials.xml:14862",
+        "data/materials.xml:15793",
+        "data/materials.xml:16854"
+      ],
+      "digest": "MATERIAL_REACTION_DIGEST.md"
+    },
+    {
+      "id": "F6",
+      "codes": [
+        "N6"
+      ],
+      "verdict": "community_supported_engine_inference",
+      "claim": "No active Lua/XML generator found; community tool reconstructs seed-resolved LC and AP recipes. Binary equivalence not tested.",
+      "evidence": [
+        "data/materials.xml:16187",
+        "https://github.com/Neffc/narg/blob/fa614b2eb44c1469053a0306b48f09af0a171d90/src/alchemy.rs"
+      ],
+      "digest": "ALCHEMY_AND_SUBSTITUTION.md"
+    },
+    {
+      "id": "F7",
+      "codes": [
+        "N7"
+      ],
+      "verdict": "confirmed_with_correction",
+      "claim": "Modifiers share a cast group; triggers compile fresh child groups from a shared deck/mana budget before impact.",
+      "evidence": [
+        "data/scripts/gun/gun.lua:146-164",
+        "data/scripts/gun/gun.lua:335-372"
+      ],
+      "digest": "COMPOSITION_DIGEST.md"
+    },
+    {
+      "id": "F8",
+      "codes": [
+        "N8"
+      ],
+      "verdict": "corrected",
+      "claim": "Perks rewrite personal response/emission; fungal shift is TRIP-driven world conversion with no Lua expiry. Stack availability differs from mathematical composition.",
+      "evidence": [
+        "data/scripts/status_effects/effect_trip_03.lua:1-24",
+        "data/scripts/magic/fungal_shift.lua:119-249",
+        "data/scripts/perks/perk_list.lua:1280-1404"
+      ],
+      "digest": "PERKS_FINDINGS.md"
+    },
+    {
+      "id": "BW-F1",
+      "codes": [
+        "N3"
+      ],
+      "verdict": "confirmed_with_correction",
+      "claim": "Materials attach contact statuses through legacy status_effects or structured Stains. OILED, like WET, is marked as fire protection on the body; loose oil is burnable. The summary that oil feeds fire must distinguish loose fuel from coating.",
+      "evidence": [
+        "data/materials.xml:5854-5884",
+        "data/scripts/status_effects/status_list.lua:8-45"
+      ],
+      "opaque": [
+        "Exact coating replacement, washing and ignition order are implemented by native systems, not reconstructed here."
+      ]
+    },
+    {
+      "id": "BW-F2",
+      "codes": [
+        "N4"
+      ],
+      "verdict": "confirmed_with_correction",
+      "claim": "Ingestion has its own per-material dose/effect rows. A useful stain may be harmful when drunk: invisibility liquid gives FOOD_POISONING by ingestion. Solids also have ingestion effects, so neither every liquid having an effect nor every material being consumable follows.",
+      "evidence": [
+        "data/materials.xml:7090-7132",
+        "data/materials.xml:9761-9797",
+        "data/entities/player_base.xml:386-399"
+      ],
+      "opaque": [
+        "Native dose accumulation, effect decay and inheritance merge semantics are not fully reconstructed."
+      ]
+    },
+    {
+      "id": "BW-F3",
+      "codes": [
+        "N3",
+        "N4"
+      ],
+      "verdict": "confirmed",
+      "claim": "Status data has tiers rather than a uniform stack: INGESTION_DRUNK thresholds are 0, 0.25, 0.75 and 1, with POISONED added at 1. TRIP has four tiers; CURSE_CLOUD three. Effects carry finite frame durations and may have exclusivity groups.",
+      "evidence": [
+        "data/scripts/status_effects/status_list.lua:213-279",
+        "data/scripts/status_effects/status_list.lua:353-376",
+        "external/tools_modding/component_documentation.txt:994-1012"
+      ]
+    },
+    {
+      "id": "BW-F4",
+      "codes": [
+        "N5"
+      ],
+      "verdict": "confirmed_with_correction",
+      "claim": "Flasks hold mixtures indexed by material type and run reactions inside the inventory. The ordinary flask sucks up to barrel_size 1000 and enables reaction chance 20, explosions and entity outputs. Powder pouch has material_type 1, barrel_size 1500 and drinkable 0. One-material containers are an explicit YAIR simplification, not the observed Noita model.",
+      "evidence": [
+        "data/entities/items/pickup/potion.xml:60-88",
+        "data/entities/items/pickup/powder_stash.xml:62-84",
+        "data/entities/items/pickup/powder_stash.xml:151-161",
+        "external/tools_modding/component_documentation.txt:1632-1641"
+      ]
+    },
+    {
+      "id": "BW-F5",
+      "codes": [
+        "N9"
+      ],
+      "verdict": "confirmed_with_boundary",
+      "claim": "Standard polymorph targets sheep for 600 frames and random polymorph uses the RANDOM target. Engine documentation exposes serialized original entity storage. A mass polymorph script targets both homing targets and player units, with boss and immunity exclusions. Restoring memories or a soul is YAIR design, not a Noita source fact.",
+      "evidence": [
+        "data/entities/misc/effect_polymorph.xml:5-11",
+        "data/entities/misc/effect_polymorph_random.xml:5-11",
+        "data/scripts/projectiles/mass_polymorph.lua:6-22",
+        "external/tools_modding/component_documentation.txt:1001-1002"
+      ],
+      "opaque": [
+        "Random candidate selection and native entity restoration are opaque in this Lua/XML audit."
+      ]
+    },
+    {
+      "id": "BW-F6",
+      "codes": [
+        "N10"
+      ],
+      "verdict": "confirmed_with_correction",
+      "claim": "Players, basic enemies and animals share damage/status component families, but authored parameters differ. Enemy AI has herd relations and aggression, not only tag matching. The directed relation matrix has 35 herds and 133 asymmetric unordered pairs. Shared mechanics do not imply identical susceptibility or universal friendly fire.",
+      "evidence": [
+        "data/entities/player_base.xml:132-161",
+        "data/entities/player_base.xml:268-272",
+        "data/entities/base_humanoid.xml:165-181",
+        "data/entities/base_humanoid.xml:208-212",
+        "data/entities/base_enemy_basic.xml:3-33",
+        "data/genome_relations.csv:1-36",
+        "external/tools_modding/component_documentation.txt:133-143",
+        "external/tools_modding/component_documentation.txt:2267-2275",
+        "external/tools_modding/component_documentation.txt:2669"
+      ]
+    },
+    {
+      "id": "BW-F7",
+      "codes": [
+        "N11"
+      ],
+      "verdict": "confirmed_with_boundary",
+      "claim": "Orb pickups separate first discovery from later encounters: a first encounter creates a spell card from storage, a known orb creates a heart, and out-of-bounds orb IDs create evil hearts. Tablet offerings convert physical tablets to gold and repeated offerings may spawn monsters. These are concrete knowledge, place and history gates. Claims about community discovery dates are not established by the install.",
+      "evidence": [
+        "data/scripts/items/orb_pickup.lua:21-59",
+        "data/entities/items/books/base_book.xml:1-40",
+        "data/scripts/magic/altar_tablet_magic.lua:249-318"
+      ]
+    }
+  ],
+  "all_n_codes_present": [
+    "N1",
+    "N2",
+    "N3",
+    "N4",
+    "N5",
+    "N6",
+    "N7",
+    "N8",
+    "N9",
+    "N10",
+    "N11"
+  ],
+  "proposals_not_decisions": true,
+  "reaction_examples": "REACTION_EXAMPLES.json",
+  "touches_count_in_report": 26,
+  "shared_owners_modified": false
+}

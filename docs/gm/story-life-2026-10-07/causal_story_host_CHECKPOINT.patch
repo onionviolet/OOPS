@@ -1,0 +1,62 @@
+--- src/causal_story_host.js before
++++ src/causal_story_host.js checkpoint
+@@ -19,6 +19,7 @@
+ import {applySimulationEffects, refundCosts, simulationFacts} from './simulation_effects.js';
+ import {meets, validateSimulationState} from './simulation_contracts.js';
+ import {activePractice} from './techniques.js';
++import {projectVillageScene} from './causal_story_scenes.js';
+ 
+ const check=(value,text)=>{if(!value) throw new Error(text);};
+ const copy=value=>structuredClone(value);
+@@ -138,12 +139,16 @@
+     if(proof && !room(state,p,['release','report'].some(a=>id===causalStoryId(p,a)))) reasons.push('This case’s retained account is full; its recorded outcome remains available.');
+     const d=registry.simulation.commands.get(id===causalStoryId(p,'sever')?causalStoryId(p,'sever_job'):id);
+     if(d?.group==='causal_story' && d.actorId==='player' && id!==causalStoryId(p,'sever_job')) {
++        // A disabled counter quote can still disclose an undiscovered source.
++        // Admission support and what the player has learned are separate gates.
++        const counterKnown=id!==causalStoryId(p,'sever') ||
++            !!known(state,'player',p,'method') && !!known(state,'player',p,'authorization');
+         if(reasons.length) return admittedRow(state,context,id,d.label,reasons,costText(d.costs||[]),d.duration||0,
+-            {visible:!d.visibleWhen||meets(d.visibleWhen,simulationFacts(state,context,registry))});
++            {visible:counterKnown && (!d.visibleWhen||meets(d.visibleWhen,simulationFacts(state,context,registry)))});
+         const c=causalStoryContext(state,{...context,targetId:d.targetId||null,
+             facts:{...context.facts,'causal.hostSeverJob':id===causalStoryId(p,'sever')}});
+         const q=previewSimulationCommand(state,registry,d.id,c);
+-        return admittedRow(state,c,id,d.label,q.reasons,costText(q.costs.length?q.costs:d.costs||[]),q.duration,{visible:q.visible});
++        return admittedRow(state,c,id,d.label,q.reasons,costText(q.costs.length?q.costs:d.costs||[]),q.duration,{visible:q.visible&&counterKnown});
+     }
+     const manual=['strike','subdue','capture','release','release_source','withdraw','report'];
+     check(manual.some(a=>id===causalStoryId(p,a)),'Unknown original causal command.');
+@@ -175,7 +180,8 @@
+     const labels={strike:`Strike ${PROFILES[p].name} with lethal intent · 2 stamina`,subdue:`Subdue ${PROFILES[p].name} · 2 stamina`,
+         capture:`Restrain ${PROFILES[p].name} with your Survey rope`,release:`Release ${PROFILES[p].name} and recover your rope`,
+         release_source:`Complete ${PROFILES[p].name}'s consented source release`,withdraw:'Withdraw your optional help',report:'Hear Nell’s retained delivery account'};
+-    return admittedRow(state,context,id,labels[action],reasons,action==='strike'||action==='subdue'?['2 stamina']:action==='capture'?['1 owned Survey rope held in custody']:[],0);
++    return admittedRow(state,context,id,labels[action],reasons,action==='strike'||action==='subdue'?['2 stamina']:action==='capture'?['1 owned Survey rope held in custody']:[],0,
++        {visible:action!=='release_source'||!!known(state,'player',p,'release_consent')});
+ }
+ 
+ function attach(plan,registry,context,id) {
+@@ -464,7 +470,8 @@
+                 }
+                 for(const action of ['strike','subdue','capture','release','release_source','withdraw','report']) {
+                     if(action==='release'&&person(state,P[p])?.life!=='incapacitated' || action==='release_source'&&p==='mortal' || action==='report'&&!proof.closure)continue;
+-                    actions.push(previewCausalStoryCommand(state,registry,causalStoryId(p,action),context));
++                    const q=previewCausalStoryCommand(state,registry,causalStoryId(p,action),context);
++                    if(q.visible)actions.push(q);
+                 }
+             }
+             for(const [key,row] of Object.entries(state.simulation.knowledge.player||{}).filter(([key])=>proofOf(key)===p))
+@@ -474,9 +481,9 @@
+                 return {id:j.id,label:j.label,remaining:Math.max(0,j.due-state.clock),cancellation:j.cancellation,
+                     eligible:q.eligible,command:q.command};
+             });
+-            return {id:p,label:PROFILES[p].name,description:proof?
+-                'The heard courier terms, your received accounts and your accepted work are shown here. Physical outcomes can continue after the delivery account.':
+-                'Hear this person’s current terms before beginning their played delivery window.',actions,records,work};
++            const scene=projectVillageScene({id:p,began:!!proof,actions,records,work,
++                deadlineRemaining:proof&&known(state,'player',p,'terms')?Math.max(0,proof.deadline-state.clock):null});
++            return {id:p,label:PROFILES[p].name,scene,actions,records,work};
+         });
+         return {visible:true,enrolled:true,sections};
+     } catch(error) {return {visible:true,enrolled:!!state.causalStories,sections:[],error:'The current story owners are unavailable. Refresh after the current action.'};}

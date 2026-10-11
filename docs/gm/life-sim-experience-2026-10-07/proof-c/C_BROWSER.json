@@ -1,0 +1,18 @@
+{
+  "url": "http://127.0.0.1:18541/",
+  "root": "/tmp/yairpg-life-experience-pass-c-r2-20261007",
+  "voices": [
+    "I finally understand the road signs! There are places I could go now.",
+    "Learned the road signs. Ready for the next journey.",
+    "The old signs still point home. I remember who first showed me."
+  ],
+  "errors": [],
+  "checks": [
+    "earned lesson in browser",
+    "reflection at 12/40/80",
+    "Life side panel",
+    "save/reload/import",
+    "no repeat reflection"
+  ],
+  "generatedSavesOnly": true
+}

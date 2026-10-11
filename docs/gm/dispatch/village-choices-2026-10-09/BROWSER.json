@@ -1,0 +1,34 @@
+{
+  "status": "passed",
+  "origin": "http://127.0.0.1:8139",
+  "findings": [
+    "paid: preview, blocked early exit, partial save/reload/file import, five lesson minutes, full shift payout 70, completed save/reload/file import passed.",
+    "pay: preview, blocked early exit, partial save/reload/file import, five lesson minutes, full shift payout 50, completed save/reload/file import passed.",
+    "time: preview, blocked early exit, partial save/reload/file import, five lesson minutes, full shift payout 0, completed save/reload/file import passed.",
+    "favor: preview, blocked early exit, partial save/reload/file import, five lesson minutes, full shift payout 60, completed save/reload/file import passed.",
+    "free: preview, blocked early exit, partial save/reload/file import, five lesson minutes, full shift payout 60, completed save/reload/file import passed.",
+    "Favor granted once, consumed for one covered shift, +50 with no career credit; quota-rejected tuition gives no coins; accepted +5 tuition survives reload/import.",
+    "Free teaches without obligation; first solo pays +10; tuition declined with no transfer and memory survives reload/import.",
+    "tutor: six native study minutes, five practice minutes, +60 executable patrol, save/reload/file import.",
+    "notes: six native study minutes, five practice minutes, +60 executable patrol, save/reload/file import.",
+    "Historical schema-3 taught recruit migrates to taught on your shift, preserving teacher and solo history without invented favors or tuition.",
+    "Existing choices regression: explicit two promotions, early shift exit without credit, kit kept as debt, debt cleared by returning or paying exactly 50, save/reload/import.",
+    "Historical schema-3 taught recruit migrates to taught on your shift, preserving teacher and solo history without invented favors or tuition.",
+    "Unmodified production HackTimer: Time teaches five lesson minutes, blocks early exit after lesson, finishes a fresh 120-minute shift with zero wages and one full-shift credit, retains terms and money after save/reload."
+  ],
+  "errors": [],
+  "receipts": [
+    "BROWSER_TEACHING.json",
+    "BROWSER_STUDY.json",
+    "BROWSER_EXTRA.json",
+    "NORMAL_TIMER.json"
+  ],
+  "scope": "Consolidated observed journeys on the unchanged final source/build across fixture repairs; each generated context begins isolated. Tests did not access private saves.",
+  "repairs": [
+    "Practice display expression corrected before final rebuild.",
+    "Generated Mentor shift number preserved to keep last-shift history valid.",
+    "Unread-book fixture explicitly resets native finished flag to unlocked (1), alongside removing completed reading. Deleting the saved flag alone did not clear finished status."
+  ],
+  "timerPolicy": "Fresh isolated browser contexts, generated schema-3 fixtures from prior generated study proof. HackTimer suppressed; Playwright accelerates common native ticks. No private saves.",
+  "inputHashes": "FINAL_INPUTS.json"
+}

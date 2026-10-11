@@ -1,0 +1,29 @@
+{
+  "status": "completed finite assigned source pass, numerical serialized gameplay remains opaque",
+  "app": 2442460,
+  "build": "24313348",
+  "state": 4,
+  "platform": "macOS Mono Unity2022.3.40f1",
+  "install_root": "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Citizen Sleeper 2 Starward Vector",
+  "install_files": 321,
+  "manifest_sha256_at_intake": "08bc776d840ba515514656082610802385060a21e74ce601f61dd718d7eb4711",
+  "inventory": "/Users/weiwei/.codex/research/citizen-sleeper-2/INSTALL_INVENTORY.json",
+  "retention": "/Users/weiwei/.codex/research/citizen-sleeper-2/RETENTION.json",
+  "engine_layout": "51 level files, sharedassets0..50, Mono managed assemblies; compiled Ink v19",
+  "methods": [
+    "Inventory/hash shipped install in place after StateFlags4",
+    "Read selected types with ILSpy9.1.0.7988; selected methods re-exported with live Managed reference resolver",
+    "Retain six small managed inputs, hash-matched",
+    "Decode four TextAssets395-398 from sharedassets0 in place; retain raw script text and English text by named root entry",
+    "Read bounded in-place ASCII guide/difficulty windows with exact byte offsets; preserve55 selected text records",
+    "Inspect English Ink crew-dispatch expressions and failure/completion assignments; not a full narrative execution"
+  ],
+  "sequence": "CS1 source dossier/checks completed before CS2 install inventory and source pass",
+  "extras": {
+    "sketchbook": "Sleepers Sketchbook - Jump Over the Age.pdf; inventoried/hashed, unread/unretained",
+    "spindlejack": "two installed PDF rule/play sheets, inventoried/hashed; not the core Unity game, unread/unretained",
+    "soundtrack": "not established by this pass; a public listing does not establish installed ownership"
+  },
+  "safety": "No game launched, user saves/settings read or changed, install modified, YAIR source edited, build/commit/uninstall performed",
+  "disk": "Retention paused06:32UTC for192MiB free; after15-minute check at06:47:35UTC,4.2GiB free. CS2 private retained material about13MiB; no large scene copy."
+}

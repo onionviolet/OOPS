@@ -1,0 +1,52 @@
+{
+  "status": "finite bounded audit complete; not whole-game semantic coverage",
+  "lenses": [
+    {
+      "lens": "1 Followers as people",
+      "findings": "BB-FL01-18; W14/16; E5",
+      "reviewed": "Background/trait generation, hiring information/cost, level wage, bounded mood causes, hardship/desertion, injuries and casualty/epilogue paths reviewed.",
+      "limits": "No universal calendar aging, retirement timer, ordinary old-age death or full relationship/family graph established. Scoped swordmaster aging is level gated; full recruitment UI and tactical morale bridge unreviewed."
+    },
+    {
+      "lens": "2 Company as faction",
+      "findings": "W13-17; BB-FL05/07/08; E7",
+      "reviewed": "Upkeep, renown/business versus moral reputation, repair/supply intent, retinue gates, company failure/finish paths.",
+      "limits": "No player-founded kingdom, territory/law/succession simulation proved. Native food loop has unresolved jump; full contract payments/negotiation and all ambitions unreviewed."
+    },
+    {
+      "lens": "3 World factions",
+      "findings": "W1-8",
+      "reviewed": "Named house/civilian rosters, localized standing/linked losses, contract availability cadence, scored actions and relation normalization.",
+      "limits": "Specific action execution and full faction economy are not exhaustively traced. Named officeholders do not establish simulated dynasties."
+    },
+    {
+      "lens": "4 Late crises",
+      "findings": "W9-12; E6",
+      "reviewed": "Phase scheduling, strength gates, unused/last-type eligibility, alliances/start-end news and aftermath; one enemy revival method.",
+      "limits": "Specific crisis contract/action contributions and whole map destruction rules unreviewed. Ancient actor self-directed world revival plans not demonstrated. No runtime DLC activation claim."
+    },
+    {
+      "lens": "5 Events",
+      "findings": "E1-4; BB-FL15-18",
+      "reviewed": "Global/per-event pacing, score weighting/rechecks, generator work spreading, camp scenes, specific aging/loss/food predicates.",
+      "limits": "Not full event prose catalogue. Known reconstructed control-flow hazards remain; cooldown save intent is not native save fidelity."
+    },
+    {
+      "lens": "6 Harsh world",
+      "findings": "BB-FL08-14; W18; E5/7/8",
+      "reviewed": "Death/survival exclusions and wounds, departures/custody, estimate/care, difficulty versus save policy, retirement finish path.",
+      "limits": "Fairness is design inference, not observed play. Full combat balance, retreats, native save crash safety and exact chance bases unreviewed. Native YAIR default defeat remains unchanged."
+    },
+    {
+      "lens": "7 Twenty small touches",
+      "findings": "T1-T24",
+      "reviewed": "24 original mappings to native/additive owners, eight ranked proposals.",
+      "limits": "Not gameplay implementation, acceptance, or authorization."
+    }
+  ],
+  "private_sources": "~/.codex/research/battle-brothers/",
+  "reviewed_sources": "REVIEWED_SOURCES.json",
+  "dlc": "Ten DAT archives and ten installed DLC-labelled depot entries. Presence/manifest association observed, runtime entitlement/activation not run; see DLC_COVERAGE.json.",
+  "proposals": 8,
+  "small_touches": 24
+}

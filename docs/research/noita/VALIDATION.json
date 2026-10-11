@@ -1,0 +1,32 @@
+{
+  "status": "pass",
+  "utc": "2026-10-10T01:08:42.034435+00:00",
+  "archive_original_copy_hash_match": true,
+  "readable_member_hashes_checked": 5566,
+  "loose_original_copy_hashes_checked": 454,
+  "json_files_parsed": [
+    "IMPLEMENTATION_PACKETS.json",
+    "BODY_WORLD_FINDINGS.json",
+    "FINDINGS.json",
+    "INTAKE.json",
+    "VALIDATION.json",
+    "COVERAGE.json",
+    "REACTION_EXAMPLES.json"
+  ],
+  "relative_links_checked": 26,
+  "source_citation_ranges_checked": 120,
+  "coverage_hash_records_checked": 46,
+  "counts_independently_reproduced": [
+    "468 material definitions",
+    "325 Reaction + 5 ReqReaction",
+    "132 ingestion materials / 133 blocks / 149 rows",
+    "35 herds / 133 asymmetric pairs",
+    "30 examples / 11 N codes / 10 proposal packets"
+  ],
+  "not_run": [
+    "Noita runtime",
+    "YAIR build/test/browser",
+    "save access"
+  ],
+  "known_limits": "Static source audit. Engine semantics and catalogue obtainability unverified."
+}

@@ -1,0 +1,15 @@
+{
+  "date": "2026-10-08",
+  "retained_input_hashes_checked": 2034,
+  "derived_hashes_checked": 1654,
+  "hash_mismatches": [],
+  "public_json_parse": "pass",
+  "evidence_or_YAIR_path_missing": [],
+  "compiled_workbook_scalar_matches": 440,
+  "compiled_workbook_differences": [],
+  "findings": 46,
+  "small_touches": 22,
+  "native_slices": 16,
+  "no_build_or_gameplay_checks": "source-only authorization",
+  "status": "pass"
+}

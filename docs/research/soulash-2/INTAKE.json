@@ -1,0 +1,32 @@
+{
+  "status": "completed_bounded_data_audit",
+  "date": "2026-10-07",
+  "source": "https://wizardsofthecode.itch.io/soulash-2",
+  "acquisition": "anonymous public Windows demo download; no account, purchase, installation, or game execution",
+  "private_archive": "~/.codex/research/soulash-2/soulash-2-windows-demo.zip",
+  "archive_bytes": 390401657,
+  "archive_sha256": "aecc5886a9a6f710388867a9ee28e404f6df764bc60bd35be9ee8c1c65e8dc72",
+  "archive_entries": 14310,
+  "archive_uncompressed_bytes": 432273504,
+  "json_entries": 10745,
+  "version_file": {
+    "path": "version.txt",
+    "content": "0.9.19.7",
+    "sha256": "1aeaa2ea23cf61be2d968c0cdab31db4238f657b53d2196a7f503b0caa9bfc9e"
+  },
+  "windows_executable": {
+    "path": "Soulash 2.exe",
+    "bytes": 10298880,
+    "sha256": "34e71c7d986e57ce7e94e336f13476846b2708d27285830085a332924f0d8ff5",
+    "header": "MZ, PE32+ x86-64 (machine 0x8664)",
+    "coff_timestamp_utc": "2026-03-04T00:18:18Z",
+    "executed": false,
+    "decompiled": false
+  },
+  "http_last_modified": "2026-03-04T08:23:08Z",
+  "reference_current_retail": [
+    "https://wizardsofthecode.itch.io/soulash-2/devlog/1609597/update-v0100-the-living-world",
+    "https://wizardsofthecode.itch.io/soulash-2/devlog/1674437/soulash-2-v0103-economy"
+  ],
+  "private_receipt": "~/.codex/research/soulash-2/DOWNLOAD.json"
+}

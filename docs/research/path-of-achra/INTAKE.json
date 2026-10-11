@@ -1,0 +1,18 @@
+{
+  "title": "Path of Achra",
+  "scope": "public HTML5 v0.4.7 demo only",
+  "source_url": "https://html-classic.itch.zone/html/7679817/PoA%20HTML%20v0.4.7/RoguelikeHTML.pck",
+  "private_pack": "~/.codex/research/path-of-achra/RoguelikeHTML.pck",
+  "pack_bytes": 71089856,
+  "pack_sha256": "fca9ac051ee9c6c237619404875d2e37b8d58d605988d17008a0dd296cc71662",
+  "engine": "Godot 3.5.2 pack; bytecode version 13",
+  "acquisition_utc": "2026-10-07T14:36:38Z",
+  "receipts": [
+    "DOWNLOADS.json",
+    "PCK_INDEX.json",
+    "EXTRACTED_HASHES.json",
+    "RECOVERY.json"
+  ],
+  "retail_boundary": "May 7, 2024 retail release, later/current executable not inspected",
+  "data_boundary": "14 loose Data/*.json tables are present and readable; their full semantic contents are outside this selected audit. extracted/game-data.json EXISTS:false is a separate optional file, not evidence that the tables are absent."
+}

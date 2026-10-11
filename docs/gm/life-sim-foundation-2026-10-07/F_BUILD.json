@@ -1,0 +1,14 @@
+{
+  "snapshot": "/tmp/yairpg-life-foundation-f-20261007",
+  "origin": "http://127.0.0.1:18318",
+  "files": {
+    "src/main.js": "bb94a4796e149958def5ac965874d9b6f63d650063598997ff19b64f4dd1e762",
+    "src/save_files.js": "c0fa8367b828c5c6ed59daade39f9b0fb537a1d53736e7a7f19dfb9c161f1ddd",
+    "src/life_record.js": "21ac5f17fff62794ba26d7180deb6a9c0ad85060d79134e5d6ce83de51d1d9bd",
+    "src/life_record_ui.js": "5ba9dbfc1efb5cade9721dc01ae31c4696ad9cdda7c3f8abf3613110f0828528",
+    "src/npc_lives.js": "1a4a35d5e6aa67f1ece8a358c45617876460a03b87344c0953a80894bca0dd12",
+    "src/npc_lives_ui.js": "aac6526f5a16a5de3af69030b4fc736db8aba5b49e3ae53f73beb4fa0e2da49b",
+    "dist/bundle.js": "3ad476cf6ef5245141ff215383edc2af578ae1d8fa66f393c39c368ec6d4615e"
+  },
+  "scope": "Foundation E/F paths, isolated build. Other integrated lanes are not certified by this proof."
+}

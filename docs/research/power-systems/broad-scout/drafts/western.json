@@ -1,0 +1,585 @@
+[
+  {
+    "title": "The Game at Carousel: A Horror Movie LitRPG",
+    "author": "lost_rambler",
+    "platform": "Royal Road",
+    "language_group": "Western English web serial",
+    "summary": "People trapped in a town must play through horror-film rules. A weak support role becomes useful when its holder can convincingly appear unaware of danger: monsters leave that apparent bystander alone. The premise turns what an enemy thinks you noticed into a survival resource rather than a simple perception stat.",
+    "lenses": [
+      "observation",
+      "rule-abuse and gag physics",
+      "immortality and revival"
+    ],
+    "novelty_score": 5,
+    "source_urls": [
+      "https://www.royalroad.com/fiction/65629/the-game-at-carousel-a-horror-movie-litrpg",
+      "https://www.royalroad.com/fiction/65629/the-game-at-carousel-a-horror-movie-litrpg%C2%A0?review=1616023"
+    ],
+    "evidence_scope": "Indexed official fiction-page description for the bystander hook; public fiction-page reviews support the horror-rule framing. No chapters read.",
+    "verified_hook": "The indexed fiction-page description names an Oblivious Bystander trope that protects someone convincingly pretending not to notice monsters.",
+    "unknowns": [
+      "What counts as convincing?",
+      "Who judges awareness?",
+      "Limits and costs of death or replay require full text."
+    ],
+    "proposal": "Proposal: make declared or apparent awareness distinct from actual awareness in a local encounter rule.",
+    "search_receipts": [
+      "turn8search0"
+    ],
+    "power_currency": null,
+    "acquisition_gate": null,
+    "cost": null,
+    "persistence": null,
+    "source_details": [
+      {
+        "url": "https://www.royalroad.com/fiction/65629/the-game-at-carousel-a-horror-movie-litrpg",
+        "source_kind": "official_author_platform_indexed_metadata",
+        "access": "search_index_only",
+        "retrieved_date": "2026-10-10"
+      },
+      {
+        "url": "https://www.royalroad.com/fiction/65629/the-game-at-carousel-a-horror-movie-litrpg%C2%A0?review=1616023",
+        "source_kind": "public_reader_review_on_official_platform_indexed_metadata",
+        "access": "search_index_only",
+        "retrieved_date": "2026-10-10"
+      }
+    ]
+  },
+  {
+    "title": "Godclads",
+    "author": "OstensibleMammal",
+    "platform": "Royal Road",
+    "language_group": "Western English web serial",
+    "summary": "Humanity stole the powers of slain gods, yet the theft helped break reality. Ascenders now fight over the laws of existence inside the remaining cities. A manufactured ghoul gains immortality and an unlikely legacy, suggesting power growth can mean acquiring a piece of rule ownership rather than merely stronger attacks.",
+    "lenses": [
+      "shards and inheritance",
+      "immortality and revival",
+      "rule enforcers"
+    ],
+    "novelty_score": 5,
+    "source_urls": [
+      "https://www.royalroad.com/fiction/59663/godclads"
+    ],
+    "evidence_scope": "Indexed official Royal Road fiction-page synopsis and author attribution; metadata only.",
+    "verified_hook": "Official synopsis states that humans stole divine powers, ascenders contest existence laws, and Avo gains immortality and a legacy.",
+    "unknowns": [
+      "Precise fuel, growth gates and repair costs.",
+      "Whether competing laws override, merge or create paradox."
+    ],
+    "proposal": "Proposal: model a stolen source separately from its authority to change a world rule.",
+    "search_receipts": [
+      "turn29search0"
+    ],
+    "power_currency": null,
+    "acquisition_gate": "Stolen divine power; Avo receives immortality and a legacy",
+    "cost": null,
+    "persistence": null,
+    "source_details": [
+      {
+        "url": "https://www.royalroad.com/fiction/59663/godclads",
+        "source_kind": "official_author_platform_indexed_metadata",
+        "access": "search_index_only",
+        "retrieved_date": "2026-10-10"
+      }
+    ]
+  },
+  {
+    "title": "Slumrat Rising",
+    "author": "Warby Picus",
+    "platform": "Royal Road",
+    "language_group": "Western English web serial",
+    "summary": "A corporation offers escape from poverty through a brutal selection process and access to a system able to raise ordinary people toward demigodhood. Angels and demons are hired labor. Power access is thus part of employment and institutional control, making the provider and its incentives central to the path.",
+    "lenses": [
+      "systems with strange prices",
+      "vows and contracts",
+      "power paths with odd currencies"
+    ],
+    "novelty_score": 4,
+    "source_urls": [
+      "https://www.royalroad.com/fiction/65801/slumrat-rising"
+    ],
+    "evidence_scope": "Indexed official Royal Road fiction-page synopsis and author attribution; metadata only.",
+    "verified_hook": "The official synopsis ties System Astrologica access to corporate selection and describes hired supernatural labor.",
+    "unknowns": [
+      "Actual employment clauses and revocation powers.",
+      "Whether service is a binding magical price or ordinary social coercion."
+    ],
+    "proposal": "Proposal: separate a power supplier, employer and grader, even when one institution holds all three roles.",
+    "search_receipts": [
+      "turn24search0"
+    ],
+    "power_currency": "System Astrologica access",
+    "acquisition_gate": "Corporate selection",
+    "cost": null,
+    "persistence": null,
+    "source_details": [
+      {
+        "url": "https://www.royalroad.com/fiction/65801/slumrat-rising",
+        "source_kind": "official_author_platform_indexed_metadata",
+        "access": "search_index_only",
+        "retrieved_date": "2026-10-10"
+      }
+    ]
+  },
+  {
+    "title": "Markets and Multiverses",
+    "author": "acaswell",
+    "platform": "Royal Road",
+    "language_group": "Western English web serial",
+    "summary": "Transmigrators live successive lives in worlds with distinct magic systems. Between lives they return to a ruined market where abilities and items were once traded. They can live for a very long time but still face permanent death, so learning a local system and maintaining a cross-life survival route are separate problems.",
+    "lenses": [
+      "immortality and revival",
+      "systems with strange prices",
+      "power paths with odd currencies"
+    ],
+    "novelty_score": 5,
+    "source_urls": [
+      "https://www.royalroad.com/fiction/61244/markets-and-multiverses"
+    ],
+    "evidence_scope": "Indexed official Royal Road fiction-page synopsis and author attribution; metadata only.",
+    "verified_hook": "Official synopsis distinguishes unique world systems, ability/item trade between lives and possible permanent death.",
+    "unknowns": [
+      "Current market currencies.",
+      "What carries across a rebirth and what must be bought again."
+    ],
+    "proposal": "Proposal: distinguish lifetime growth, market-owned abilities and the remaining permission to reincarnate.",
+    "search_receipts": [
+      "turn12search0"
+    ],
+    "power_currency": null,
+    "acquisition_gate": "Transmigration",
+    "cost": "Risk of permanent death",
+    "persistence": "Successive lives and a between-life market; exact retained contents unknown",
+    "source_details": [
+      {
+        "url": "https://www.royalroad.com/fiction/61244/markets-and-multiverses",
+        "source_kind": "official_author_platform_indexed_metadata",
+        "access": "search_index_only",
+        "retrieved_date": "2026-10-10"
+      }
+    ]
+  },
+  {
+    "title": "The Daily Grind",
+    "author": "argusthecat",
+    "platform": "Royal Road",
+    "language_group": "Western English web serial",
+    "summary": "An office worker finds a dungeon-like space in his building. Public metadata and reader descriptions point toward loot that grants skills rather than a conventional combat-level ladder. The research value is the possibility of treating useful knowledge as a strange physical reward, with mundane expertise remaining part of supernatural growth.",
+    "lenses": [
+      "simulators and draws",
+      "power paths with odd currencies",
+      "rule-abuse and gag physics"
+    ],
+    "novelty_score": 4,
+    "source_urls": [
+      "https://www.royalroad.com/fiction/15925/the-daily-grind",
+      "https://www.royalroad.com/fiction/15925/the-daily-grind%5D?review=329186"
+    ],
+    "evidence_scope": "Indexed official synopsis for location and author; indexed public fiction-page review for skill-orb hook. No chapter or appendix claim used.",
+    "verified_hook": "Official synopsis verifies the office subdimension; public page reviews mention skill orbs and unusual rewards.",
+    "unknowns": [
+      "Randomness, specificity, copying and stacking of skill rewards.",
+      "Whether a granted rank includes judgment or only execution."
+    ],
+    "proposal": "Proposal: let found knowledge reward narrow everyday actions rather than only generic intelligence.",
+    "search_receipts": [
+      "turn12search1",
+      "turn31search11"
+    ],
+    "power_currency": null,
+    "acquisition_gate": null,
+    "cost": null,
+    "persistence": null,
+    "source_details": [
+      {
+        "url": "https://www.royalroad.com/fiction/15925/the-daily-grind",
+        "source_kind": "official_author_platform_indexed_metadata",
+        "access": "search_index_only",
+        "retrieved_date": "2026-10-10"
+      },
+      {
+        "url": "https://www.royalroad.com/fiction/15925/the-daily-grind%5D?review=329186",
+        "source_kind": "public_reader_review_on_official_platform_indexed_metadata",
+        "access": "search_index_only",
+        "retrieved_date": "2026-10-10"
+      }
+    ]
+  },
+  {
+    "title": "All the Dust that Falls",
+    "author": "zaifyr",
+    "platform": "Royal Road",
+    "language_group": "Western English web serial",
+    "summary": "A vacuum cleaner is summoned to a magical world and keeps pursuing cleanliness while facing demons and armies. Its ordinary purpose becomes an escalating power path, and followers read deeper meaning into its acts. This offers a sharp test of whether the actor, observers and system agree on what an action means.",
+    "lenses": [
+      "rule-abuse and gag physics",
+      "observation",
+      "power paths with odd currencies"
+    ],
+    "novelty_score": 4,
+    "source_urls": [
+      "https://www.royalroad.com/fiction/60292/all-the-dust-that-falls"
+    ],
+    "evidence_scope": "Indexed official Royal Road fiction-page synopsis and author attribution; metadata only.",
+    "verified_hook": "Official synopsis presents a vacuum pursuing cleaning, power and followers in a magic world.",
+    "unknowns": [
+      "How cleaning feeds progression.",
+      "Whether follower belief grants power or only changes social status."
+    ],
+    "proposal": "Proposal: preserve an unusual creature purpose as its goal while observers assign a different meaning.",
+    "search_receipts": [
+      "turn17search0"
+    ],
+    "power_currency": null,
+    "acquisition_gate": null,
+    "cost": null,
+    "persistence": null,
+    "source_details": [
+      {
+        "url": "https://www.royalroad.com/fiction/60292/all-the-dust-that-falls",
+        "source_kind": "official_author_platform_indexed_metadata",
+        "access": "search_index_only",
+        "retrieved_date": "2026-10-10"
+      }
+    ]
+  },
+  {
+    "title": "Return of the Runebound Professor",
+    "author": "Actus",
+    "platform": "Royal Road",
+    "language_group": "Western English web serial",
+    "summary": "A reincarnated teacher reforms after death, but dying leaves a painful soul injury. That changes experimentation: the body can be replaced while an internal cost survives. The advertised breadth of runic magic makes repeated trials attractive without proving that immortality removes every gate or consequence from learning.",
+    "lenses": [
+      "immortality and revival",
+      "systems with strange prices",
+      "shards and inheritance"
+    ],
+    "novelty_score": 5,
+    "source_urls": [
+      "https://www.royalroad.com/fiction/68679/return-of-the-runebound-professor"
+    ],
+    "evidence_scope": "Indexed official Royal Road fiction-page synopsis and author attribution; metadata only.",
+    "verified_hook": "Official synopsis explicitly links body reformation after death with soul wounds and many runic magic variations.",
+    "unknowns": [
+      "Soul-wound recovery and final-death conditions.",
+      "Rune combination, transfer and destruction rules."
+    ],
+    "proposal": "Proposal: give revival separate body recovery and persistent soul damage records.",
+    "search_receipts": [
+      "turn17search2"
+    ],
+    "power_currency": "Lives, described as a currency in the synopsis",
+    "acquisition_gate": "Death triggers body reformation",
+    "cost": "Painful soul wound",
+    "persistence": "Body reforms; soul injury survives the death event",
+    "source_details": [
+      {
+        "url": "https://www.royalroad.com/fiction/68679/return-of-the-runebound-professor",
+        "source_kind": "official_author_platform_indexed_metadata",
+        "access": "search_index_only",
+        "retrieved_date": "2026-10-10"
+      }
+    ]
+  },
+  {
+    "title": "Minute Mage: A Time Magic LitRPG",
+    "author": "Reg Rome",
+    "platform": "Royal Road",
+    "language_group": "Western English web serial",
+    "summary": "A human gains a very short rewind that initially works once per day. Growth extends the window, while the demons who regard the magic as theirs pursue him. The small time budget makes tactical observation valuable: knowing what happens next does not guarantee enough time or another charge to change it.",
+    "lenses": [
+      "future sight",
+      "systems with strange prices",
+      "power paths with odd currencies"
+    ],
+    "novelty_score": 4,
+    "source_urls": [
+      "https://www.royalroad.com/fiction/61762/minute-mage-a-time-traveling-litrpg"
+    ],
+    "evidence_scope": "Indexed official Royal Road fiction-page synopsis and author attribution; metadata only.",
+    "verified_hook": "Official indexed synopsis specifies a one-minute rewind once daily and a longer window with levels.",
+    "unknowns": [
+      "Memory and item carry.",
+      "Cooldown behavior across rewind.",
+      "Ownership claims versus actual magical revocation."
+    ],
+    "proposal": "Proposal: treat rewind length, use quota and stolen-power pursuit as separate limits.",
+    "search_receipts": [
+      "turn20search4"
+    ],
+    "power_currency": null,
+    "acquisition_gate": "Level growth extends rewind",
+    "cost": "Initially once per day",
+    "persistence": "Rewind begins at one minute; exact carry unknown",
+    "source_details": [
+      {
+        "url": "https://www.royalroad.com/fiction/61762/minute-mage-a-time-traveling-litrpg",
+        "source_kind": "official_author_platform_indexed_metadata",
+        "access": "search_index_only",
+        "retrieved_date": "2026-10-10"
+      }
+    ]
+  },
+  {
+    "title": "The Stubborn Skill-Grinder In A Time Loop",
+    "author": "X-RHODEN-X",
+    "platform": "Royal Road",
+    "language_group": "Western English web serial",
+    "summary": "A fighter repeatedly returns to the day of his death and grinds skills through brute-force attempts. Instead of solving the loop solely through a perfect plan, he uses repeated failure as practice. The hook invites comparison between retained skill, retained equipment and actual mastery behind a system number.",
+    "lenses": [
+      "immortality and revival",
+      "rule-abuse and gag physics",
+      "power paths with odd currencies"
+    ],
+    "novelty_score": 4,
+    "source_urls": [
+      "https://www.royalroad.com/fiction/83294/the-stubborn-skill-grinder-in-a-time-loop-book",
+      "https://www.scribblehub.com/series/1028638/the-stubborn-skillgrinder-in-a-time-loop/"
+    ],
+    "evidence_scope": "Indexed Royal Road author attribution and public author-platform Scribble Hub synopsis. No full-text reading.",
+    "verified_hook": "Author-platform synopsis describes a death-triggered return and repeated practice that gains skill levels.",
+    "unknowns": [
+      "Reset anchor, retention and escape conditions.",
+      "Which skills require real mastery rather than repeated exposure."
+    ],
+    "proposal": "Proposal: distinguish retained practice from retained status-screen numbers.",
+    "search_receipts": [
+      "turn24search1",
+      "turn33search0"
+    ],
+    "power_currency": null,
+    "acquisition_gate": "Repeated practice across loops",
+    "cost": null,
+    "persistence": "Skill levels gained across repetition; exact retention rules unverified",
+    "source_details": [
+      {
+        "url": "https://www.royalroad.com/fiction/83294/the-stubborn-skill-grinder-in-a-time-loop-book",
+        "source_kind": "official_author_platform_indexed_metadata",
+        "access": "search_index_only",
+        "retrieved_date": "2026-10-10"
+      },
+      {
+        "url": "https://www.scribblehub.com/series/1028638/the-stubborn-skillgrinder-in-a-time-loop/",
+        "source_kind": "official_author_platform_indexed_metadata",
+        "access": "search_index_only",
+        "retrieved_date": "2026-10-10"
+      }
+    ]
+  },
+  {
+    "title": "Industrial Strength Magic",
+    "author": "Macronomicon",
+    "platform": "Royal Road",
+    "language_group": "Western English web serial",
+    "summary": "A young man born between a magical family and a supervillain family lacks the abilities he wants. A system pushes him toward one parent path while he seeks the other. The official hook supports researching how a machine-mediated path can interact with magic without assuming either source naturally supplies the other.",
+    "lenses": [
+      "shards and inheritance",
+      "rule-abuse and gag physics",
+      "power paths with odd currencies"
+    ],
+    "novelty_score": 4,
+    "source_urls": [
+      "https://www.royalroad.com/fiction/57011/industrial-"
+    ],
+    "evidence_scope": "Indexed official Royal Road fiction-page synopsis and author attribution; metadata only.",
+    "verified_hook": "Official synopsis verifies mixed parental sources, initially absent powers and a system-driven path conflict.",
+    "unknowns": [
+      "Exact tinker scaling.",
+      "Whether magic is recreated, routed through tools or directly inherited."
+    ],
+    "proposal": "Proposal: let a tool path reach a family technique through an explicit interface rather than automatic conversion.",
+    "search_receipts": [
+      "turn15search0"
+    ],
+    "power_currency": null,
+    "acquisition_gate": "System boots",
+    "cost": null,
+    "persistence": null,
+    "source_details": [
+      {
+        "url": "https://www.royalroad.com/fiction/57011/industrial-",
+        "source_kind": "official_author_platform_indexed_metadata",
+        "access": "search_index_only",
+        "retrieved_date": "2026-10-10"
+      }
+    ]
+  },
+  {
+    "title": "Double-Blind: A Modern LITRPG",
+    "author": "Eligos",
+    "platform": "Royal Road",
+    "language_group": "Western English web serial",
+    "summary": "A system arrives in a modern town but leaves many residents unchanged. Public reader metadata describes a hidden mastermind class with a false-identity skill, allowing its holder to look ordinary while building influence. The useful hook is power used to control what other people can classify, rather than only hiding a body.",
+    "lenses": [
+      "mimics and hidden identities",
+      "observation",
+      "inspectors and rule enforcers"
+    ],
+    "novelty_score": 4,
+    "source_urls": [
+      "https://www.royalroad.com/fiction/50553/double-blind",
+      "https://www.royalroad.com/fiction/50553/double-blind?reviews=4&sorting=oldest"
+    ],
+    "evidence_scope": "Official fiction-page attribution; hook is public reader-review metadata, not canon checked in chapters.",
+    "verified_hook": "Indexed public page review identifies fake identity and a hidden mastermind class; official page supplies title and author.",
+    "unknowns": [
+      "What inspection channels the false identity defeats.",
+      "Whether disguise changes records, perception or system output."
+    ],
+    "proposal": "Proposal: track the reported identity separately for each observer and each inspection method.",
+    "search_receipts": [
+      "turn24search2",
+      "turn24search3"
+    ],
+    "power_currency": null,
+    "acquisition_gate": null,
+    "cost": null,
+    "persistence": null,
+    "source_details": [
+      {
+        "url": "https://www.royalroad.com/fiction/50553/double-blind",
+        "source_kind": "official_author_platform_indexed_metadata",
+        "access": "search_index_only",
+        "retrieved_date": "2026-10-10"
+      },
+      {
+        "url": "https://www.royalroad.com/fiction/50553/double-blind?reviews=4&sorting=oldest",
+        "source_kind": "public_reader_review_on_official_platform_indexed_metadata",
+        "access": "search_index_only",
+        "retrieved_date": "2026-10-10"
+      }
+    ]
+  },
+  {
+    "title": "Pale Lights",
+    "author": "ErraticErrata",
+    "platform": "Royal Road",
+    "language_group": "Western English web serial",
+    "summary": "A thief relies on a contract with a fickle goddess until an accidental crossing of a line forces him from his old life. Public reader metadata describes gods sharing power for a price. The core research question is how the same bargain can combine usable power, patron discretion and dangerous interpretation.",
+    "lenses": [
+      "vows and contracts",
+      "systems with strange prices",
+      "future sight"
+    ],
+    "novelty_score": 5,
+    "source_urls": [
+      "https://www.royalroad.com/fiction/65058/pale-lights",
+      "https://www.royalroad.com/fiction/65058/pale?reviews=8"
+    ],
+    "evidence_scope": "Indexed official synopsis for contract and author; public review for priced divine power. No chapter claims used.",
+    "verified_hook": "Official synopsis explicitly gives Tristan a contract with a capricious goddess; reader metadata supports priced divine gifts.",
+    "unknowns": [
+      "Exact gift and price.",
+      "Whether the crossed line is contractual, social or both.",
+      "Fortune and future-sight rules require source material."
+    ],
+    "proposal": "Proposal: distinguish contract text, patron mood and an external social consequence.",
+    "search_receipts": [
+      "turn29search1",
+      "turn20search1"
+    ],
+    "power_currency": null,
+    "acquisition_gate": "Divine contract",
+    "cost": "Priced gifts mentioned in reader metadata; exact price unknown",
+    "persistence": null,
+    "source_details": [
+      {
+        "url": "https://www.royalroad.com/fiction/65058/pale-lights",
+        "source_kind": "official_author_platform_indexed_metadata",
+        "access": "search_index_only",
+        "retrieved_date": "2026-10-10"
+      },
+      {
+        "url": "https://www.royalroad.com/fiction/65058/pale?reviews=8",
+        "source_kind": "public_reader_review_on_official_platform_indexed_metadata",
+        "access": "search_index_only",
+        "retrieved_date": "2026-10-10"
+      }
+    ]
+  },
+  {
+    "title": "Mimic Me! Within The Eternal Forest",
+    "author": "Rutaria",
+    "platform": "Royal Road",
+    "language_group": "Western English web serial",
+    "summary": "A young mimic starts alone in a forest where monsters seek evolution. The author describes evolution as driven by a creature wish, while the official synopsis shows a shapeshifting egg needing to survive until it changes. This suggests power branches shaped by desire, with disguise and survival arriving before a human identity.",
+    "lenses": [
+      "mimics and hidden identities",
+      "power paths with odd currencies",
+      "observation"
+    ],
+    "novelty_score": 5,
+    "source_urls": [
+      "https://www.royalroad.com/fiction/140716/mimic-mewithin-the-eternal-forest",
+      "https://www.royalroad.com/forums/thread/161234?page=1"
+    ],
+    "evidence_scope": "Indexed official synopsis and a public forum post attributed to the author. Forum dates may be stale or inconsistent; no dates or counts are relied upon.",
+    "verified_hook": "Official synopsis gives the shifting egg and survival/evolution hook; author forum metadata calls the protagonist a mimic and says evolution follows wishes.",
+    "unknowns": [
+      "How a wish is measured.",
+      "Whether mimicry copies shape, ability or identity.",
+      "Evolution cost and irreversible changes."
+    ],
+    "proposal": "Proposal: let a creature desired form influence branch offers while preserving its current body limits.",
+    "search_receipts": [
+      "turn34search0",
+      "turn34search6"
+    ],
+    "power_currency": null,
+    "acquisition_gate": "Survive until evolution; author says wishes shape evolution",
+    "cost": null,
+    "persistence": null,
+    "source_details": [
+      {
+        "url": "https://www.royalroad.com/fiction/140716/mimic-mewithin-the-eternal-forest",
+        "source_kind": "official_author_platform_indexed_metadata",
+        "access": "search_index_only",
+        "retrieved_date": "2026-10-10"
+      },
+      {
+        "url": "https://www.royalroad.com/forums/thread/161234?page=1",
+        "source_kind": "official_author_platform_indexed_metadata",
+        "access": "search_index_only",
+        "retrieved_date": "2026-10-10"
+      }
+    ]
+  },
+  {
+    "title": "The Law of Averages",
+    "author": "mcswazey",
+    "platform": "Royal Road",
+    "language_group": "Western English web serial",
+    "summary": "A displaced man enters a world where superpowers can be purchased and heroics are discouraged. What seems ordinary in one world can be special in another. The hook separates a power market from heroic destiny and asks who can obtain a useful ability when the relevant barrier is a sale rather than awakening.",
+    "lenses": [
+      "systems with strange prices",
+      "power paths with odd currencies",
+      "inspectors and rule enforcers"
+    ],
+    "novelty_score": 4,
+    "source_urls": [
+      "https://www.royalroad.com/fiction/20101/the-law-of-averages"
+    ],
+    "evidence_scope": "Indexed official Royal Road fiction-page synopsis and author attribution; metadata only.",
+    "verified_hook": "Official synopsis explicitly describes powers for sale and a society that frowns on heroics.",
+    "unknowns": [
+      "Price, license, installation and compatibility.",
+      "Whether purchased power can be resold or revoked."
+    ],
+    "proposal": "Proposal: separate purchase, bodily installation, permission to use and public approval.",
+    "search_receipts": [
+      "turn31search0"
+    ],
+    "power_currency": null,
+    "acquisition_gate": "Purchase superpowers",
+    "cost": "Sale price unspecified",
+    "persistence": null,
+    "source_details": [
+      {
+        "url": "https://www.royalroad.com/fiction/20101/the-law-of-averages",
+        "source_kind": "official_author_platform_indexed_metadata",
+        "access": "search_index_only",
+        "retrieved_date": "2026-10-10"
+      }
+    ]
+  }
+]

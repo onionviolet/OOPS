@@ -1,0 +1,591 @@
+{
+  "checked_utc": "2026-10-09T04:59:08.005630+00:00",
+  "method": "static locator, artifact completeness, source snapshot and clone checks only",
+  "status": "pass",
+  "errors": [],
+  "clones_checked": 7,
+  "pinned_locators_checked": 115,
+  "unique_pinned_locators": 112,
+  "local_targets_checked": 72,
+  "curated_touches": 30,
+  "ranked_proposals": 8,
+  "input_drift": [],
+  "runtime_checks": "not run; research-only assignment",
+  "source_locators": [
+    {
+      "document": "EVOLVE.md",
+      "url": "https://github.com/pmotschmann/Evolve/blob/3436358dcd03d9f9e071d51ea071e0a78c0322e4/LICENSE#L1-L2",
+      "file_lines": 373
+    },
+    {
+      "document": "EVOLVE.md",
+      "url": "https://github.com/pmotschmann/Evolve/blob/3436358dcd03d9f9e071d51ea071e0a78c0322e4/README.md#L1-L12",
+      "file_lines": 82
+    },
+    {
+      "document": "EVOLVE.md",
+      "url": "https://github.com/pmotschmann/Evolve/blob/3436358dcd03d9f9e071d51ea071e0a78c0322e4/src/functions.js#L142-L172",
+      "file_lines": 3520
+    },
+    {
+      "document": "EVOLVE.md",
+      "url": "https://github.com/pmotschmann/Evolve/blob/3436358dcd03d9f9e071d51ea071e0a78c0322e4/src/main.js#L841-L882",
+      "file_lines": 12995
+    },
+    {
+      "document": "EVOLVE.md",
+      "url": "https://github.com/pmotschmann/Evolve/blob/3436358dcd03d9f9e071d51ea071e0a78c0322e4/src/functions.js#L174-L204",
+      "file_lines": 3520
+    },
+    {
+      "document": "EVOLVE.md",
+      "url": "https://github.com/pmotschmann/Evolve/blob/3436358dcd03d9f9e071d51ea071e0a78c0322e4/src/main.js#L12810-L12826",
+      "file_lines": 12995
+    },
+    {
+      "document": "EVOLVE.md",
+      "url": "https://github.com/pmotschmann/Evolve/blob/3436358dcd03d9f9e071d51ea071e0a78c0322e4/src/vars.js#L2400-L2430",
+      "file_lines": 2442
+    },
+    {
+      "document": "EVOLVE.md",
+      "url": "https://github.com/pmotschmann/Evolve/blob/3436358dcd03d9f9e071d51ea071e0a78c0322e4/src/main.js#L3845-L3868",
+      "file_lines": 12995
+    },
+    {
+      "document": "EVOLVE.md",
+      "url": "https://github.com/pmotschmann/Evolve/blob/3436358dcd03d9f9e071d51ea071e0a78c0322e4/src/resets.js#L1264-L1288",
+      "file_lines": 1359
+    },
+    {
+      "document": "EVOLVE.md",
+      "url": "https://github.com/pmotschmann/Evolve/blob/3436358dcd03d9f9e071d51ea071e0a78c0322e4/src/vars.js#L2335-L2430",
+      "file_lines": 2442
+    },
+    {
+      "document": "EVOLVE.md",
+      "url": "https://github.com/pmotschmann/Evolve/blob/3436358dcd03d9f9e071d51ea071e0a78c0322e4/src/resets.js#L7-L85",
+      "file_lines": 1359
+    },
+    {
+      "document": "EVOLVE.md",
+      "url": "https://github.com/pmotschmann/Evolve/blob/3436358dcd03d9f9e071d51ea071e0a78c0322e4/src/resets.js#L87-L225",
+      "file_lines": 1359
+    },
+    {
+      "document": "EVOLVE.md",
+      "url": "https://github.com/pmotschmann/Evolve/blob/3436358dcd03d9f9e071d51ea071e0a78c0322e4/src/resets.js#L227-L317",
+      "file_lines": 1359
+    },
+    {
+      "document": "EVOLVE.md",
+      "url": "https://github.com/pmotschmann/Evolve/blob/3436358dcd03d9f9e071d51ea071e0a78c0322e4/src/resets.js#L320-L429",
+      "file_lines": 1359
+    },
+    {
+      "document": "EVOLVE.md",
+      "url": "https://github.com/pmotschmann/Evolve/blob/3436358dcd03d9f9e071d51ea071e0a78c0322e4/src/resets.js#L431-L530",
+      "file_lines": 1359
+    },
+    {
+      "document": "EVOLVE.md",
+      "url": "https://github.com/pmotschmann/Evolve/blob/3436358dcd03d9f9e071d51ea071e0a78c0322e4/src/resets.js#L532-L631",
+      "file_lines": 1359
+    },
+    {
+      "document": "EVOLVE.md",
+      "url": "https://github.com/pmotschmann/Evolve/blob/3436358dcd03d9f9e071d51ea071e0a78c0322e4/src/resets.js#L633-L746",
+      "file_lines": 1359
+    },
+    {
+      "document": "EVOLVE.md",
+      "url": "https://github.com/pmotschmann/Evolve/blob/3436358dcd03d9f9e071d51ea071e0a78c0322e4/src/resets.js#L748-L842",
+      "file_lines": 1359
+    },
+    {
+      "document": "EVOLVE.md",
+      "url": "https://github.com/pmotschmann/Evolve/blob/3436358dcd03d9f9e071d51ea071e0a78c0322e4/src/resets.js#L844-L932",
+      "file_lines": 1359
+    },
+    {
+      "document": "EVOLVE.md",
+      "url": "https://github.com/pmotschmann/Evolve/blob/3436358dcd03d9f9e071d51ea071e0a78c0322e4/src/resets.js#L934-L1008",
+      "file_lines": 1359
+    },
+    {
+      "document": "EVOLVE.md",
+      "url": "https://github.com/pmotschmann/Evolve/blob/3436358dcd03d9f9e071d51ea071e0a78c0322e4/src/resets.js#L1010-L1262",
+      "file_lines": 1359
+    },
+    {
+      "document": "EVOLVE.md",
+      "url": "https://github.com/pmotschmann/Evolve/blob/3436358dcd03d9f9e071d51ea071e0a78c0322e4/src/functions.js#L1494-L1575",
+      "file_lines": 3520
+    },
+    {
+      "document": "EVOLVE.md",
+      "url": "https://github.com/pmotschmann/Evolve/blob/3436358dcd03d9f9e071d51ea071e0a78c0322e4/src/vars.js#L2432-L2442",
+      "file_lines": 2442
+    },
+    {
+      "document": "EVOLVE.md",
+      "url": "https://github.com/pmotschmann/Evolve/blob/3436358dcd03d9f9e071d51ea071e0a78c0322e4/src/tech.js#L18-L91",
+      "file_lines": 15725
+    },
+    {
+      "document": "EVOLVE.md",
+      "url": "https://github.com/pmotschmann/Evolve/blob/3436358dcd03d9f9e071d51ea071e0a78c0322e4/src/arpa.js#L322-L459",
+      "file_lines": 2639
+    },
+    {
+      "document": "EVOLVE.md",
+      "url": "https://github.com/pmotschmann/Evolve/blob/3436358dcd03d9f9e071d51ea071e0a78c0322e4/src/functions.js#L1361-L1418",
+      "file_lines": 3520
+    },
+    {
+      "document": "EVOLVE.md",
+      "url": "https://github.com/pmotschmann/Evolve/blob/3436358dcd03d9f9e071d51ea071e0a78c0322e4/src/functions.js#L414-L446",
+      "file_lines": 3520
+    },
+    {
+      "document": "EVOLVE.md",
+      "url": "https://github.com/pmotschmann/Evolve/blob/3436358dcd03d9f9e071d51ea071e0a78c0322e4/src/governor.js#L363-L375",
+      "file_lines": 1854
+    },
+    {
+      "document": "EVOLVE.md",
+      "url": "https://github.com/pmotschmann/Evolve/blob/3436358dcd03d9f9e071d51ea071e0a78c0322e4/src/governor.js#L474-L551",
+      "file_lines": 1854
+    },
+    {
+      "document": "EVOLVE.md",
+      "url": "https://github.com/pmotschmann/Evolve/blob/3436358dcd03d9f9e071d51ea071e0a78c0322e4/src/races.js#L240-L267",
+      "file_lines": 9533
+    },
+    {
+      "document": "EVOLVE.md",
+      "url": "https://github.com/pmotschmann/Evolve/blob/3436358dcd03d9f9e071d51ea071e0a78c0322e4/src/races.js#L4997-L5026",
+      "file_lines": 9533
+    },
+    {
+      "document": "EVOLVE.md",
+      "url": "https://github.com/pmotschmann/Evolve/blob/3436358dcd03d9f9e071d51ea071e0a78c0322e4/src/jobs.js#L14-L59",
+      "file_lines": 1052
+    },
+    {
+      "document": "EVOLVE.md",
+      "url": "https://github.com/pmotschmann/Evolve/blob/3436358dcd03d9f9e071d51ea071e0a78c0322e4/src/jobs.js#L369-L410",
+      "file_lines": 1052
+    },
+    {
+      "document": "EVOLVE.md",
+      "url": "https://github.com/pmotschmann/Evolve/blob/3436358dcd03d9f9e071d51ea071e0a78c0322e4/src/events.js#L13-L74",
+      "file_lines": 1214
+    },
+    {
+      "document": "EVOLVE.md",
+      "url": "https://github.com/pmotschmann/Evolve/blob/3436358dcd03d9f9e071d51ea071e0a78c0322e4/src/events.js#L1110-L1164",
+      "file_lines": 1214
+    },
+    {
+      "document": "EVOLVE.md",
+      "url": "https://github.com/pmotschmann/Evolve/blob/3436358dcd03d9f9e071d51ea071e0a78c0322e4/src/main.js#L12720-L12760",
+      "file_lines": 12995
+    },
+    {
+      "document": "EVOLVE.md",
+      "url": "https://github.com/pmotschmann/Evolve/blob/3436358dcd03d9f9e071d51ea071e0a78c0322e4/src/vars.js#L1-L2",
+      "file_lines": 2442
+    },
+    {
+      "document": "EVOLVE.md",
+      "url": "https://github.com/pmotschmann/Evolve/blob/3436358dcd03d9f9e071d51ea071e0a78c0322e4/src/vars.js#L83-L119",
+      "file_lines": 2442
+    },
+    {
+      "document": "EVOLVE.md",
+      "url": "https://github.com/pmotschmann/Evolve/blob/3436358dcd03d9f9e071d51ea071e0a78c0322e4/src/functions.js#L206-L257",
+      "file_lines": 3520
+    },
+    {
+      "document": "EVOLVE.md",
+      "url": "https://github.com/pmotschmann/Evolve/blob/3436358dcd03d9f9e071d51ea071e0a78c0322e4/src/functions.js#L364-L395",
+      "file_lines": 3520
+    },
+    {
+      "document": "EVOLVE.md",
+      "url": "https://github.com/pmotschmann/Evolve/blob/3436358dcd03d9f9e071d51ea071e0a78c0322e4/src/actions.js#L6081-L6125",
+      "file_lines": 9744
+    },
+    {
+      "document": "EVOLVE.md",
+      "url": "https://github.com/pmotschmann/Evolve/blob/3436358dcd03d9f9e071d51ea071e0a78c0322e4/src/actions.js#L9557-L9605",
+      "file_lines": 9744
+    },
+    {
+      "document": "EVOLVE.md",
+      "url": "https://github.com/pmotschmann/Evolve/blob/3436358dcd03d9f9e071d51ea071e0a78c0322e4/src/functions.js#L18-L75",
+      "file_lines": 3520
+    },
+    {
+      "document": "IDLE_LOOPS.md",
+      "url": "https://github.com/StopSign/stopsign.github.io/blob/d41bf197f9203e6da6f72628a9d76369b8140d57/index.html#L23-L32",
+      "file_lines": 213
+    },
+    {
+      "document": "IDLE_LOOPS.md",
+      "url": "https://github.com/StopSign/stopsign.github.io/blob/d41bf197f9203e6da6f72628a9d76369b8140d57/LICENSE.md#L1-L21",
+      "file_lines": 21
+    },
+    {
+      "document": "IDLE_LOOPS.md",
+      "url": "https://github.com/omsi6/omsi6.github.io/blob/fa21477d424f3aa1f1bf6deb9f6f83c2569770ab/loops/driver.js#L4-L157",
+      "file_lines": 550
+    },
+    {
+      "document": "IDLE_LOOPS.md",
+      "url": "https://github.com/omsi6/omsi6.github.io/blob/fa21477d424f3aa1f1bf6deb9f6f83c2569770ab/loops/saving.js#L22-L84",
+      "file_lines": 779
+    },
+    {
+      "document": "IDLE_LOOPS.md",
+      "url": "https://github.com/omsi6/omsi6.github.io/blob/fa21477d424f3aa1f1bf6deb9f6f83c2569770ab/loops/actions.js#L235-L260",
+      "file_lines": 287
+    },
+    {
+      "document": "IDLE_LOOPS.md",
+      "url": "https://github.com/omsi6/omsi6.github.io/blob/fa21477d424f3aa1f1bf6deb9f6f83c2569770ab/loops/actions.js#L13-L193",
+      "file_lines": 287
+    },
+    {
+      "document": "IDLE_LOOPS.md",
+      "url": "https://github.com/omsi6/omsi6.github.io/blob/fa21477d424f3aa1f1bf6deb9f6f83c2569770ab/loops/saving.js#L411-L440",
+      "file_lines": 779
+    },
+    {
+      "document": "IDLE_LOOPS.md",
+      "url": "https://github.com/omsi6/omsi6.github.io/blob/fa21477d424f3aa1f1bf6deb9f6f83c2569770ab/loops/driver.js#L527-L550",
+      "file_lines": 550
+    },
+    {
+      "document": "IDLE_LOOPS.md",
+      "url": "https://github.com/StopSign/stopsign.github.io/blob/d41bf197f9203e6da6f72628a9d76369b8140d57/idleLoops/saving.js#L60-L61",
+      "file_lines": 370
+    },
+    {
+      "document": "IDLE_LOOPS.md",
+      "url": "https://github.com/StopSign/stopsign.github.io/blob/d41bf197f9203e6da6f72628a9d76369b8140d57/idleLoops/saving.js#L207-L213",
+      "file_lines": 370
+    },
+    {
+      "document": "IDLE_LOOPS.md",
+      "url": "https://github.com/StopSign/stopsign.github.io/blob/d41bf197f9203e6da6f72628a9d76369b8140d57/idleLoops/driver.js#L9-L59",
+      "file_lines": 411
+    },
+    {
+      "document": "IDLE_LOOPS.md",
+      "url": "https://github.com/dmchurch/omsi-loops/blob/fe4a349efb799a56ab548018caca1a1a1aea0c8f/driver.js#L88-L218",
+      "file_lines": 813
+    },
+    {
+      "document": "IDLE_LOOPS.md",
+      "url": "https://github.com/dmchurch/omsi-loops/blob/fe4a349efb799a56ab548018caca1a1a1aea0c8f/driver.js#L720-L733",
+      "file_lines": 813
+    },
+    {
+      "document": "IDLE_LOOPS.md",
+      "url": "https://github.com/dmchurch/omsi-loops/blob/fe4a349efb799a56ab548018caca1a1a1aea0c8f/saving.js#L1306-L1312",
+      "file_lines": 1603
+    },
+    {
+      "document": "IDLE_LOOPS.md",
+      "url": "https://github.com/omsi6/omsi6.github.io/blob/fa21477d424f3aa1f1bf6deb9f6f83c2569770ab/loops/driver.js#L211-L214",
+      "file_lines": 550
+    },
+    {
+      "document": "IDLE_LOOPS.md",
+      "url": "https://github.com/omsi6/omsi6.github.io/blob/fa21477d424f3aa1f1bf6deb9f6f83c2569770ab/loops/stats.js#L132-L149",
+      "file_lines": 149
+    },
+    {
+      "document": "IDLE_LOOPS.md",
+      "url": "https://github.com/omsi6/omsi6.github.io/blob/fa21477d424f3aa1f1bf6deb9f6f83c2569770ab/loops/town.js#L20-L86",
+      "file_lines": 127
+    },
+    {
+      "document": "IDLE_LOOPS.md",
+      "url": "https://github.com/omsi6/omsi6.github.io/blob/fa21477d424f3aa1f1bf6deb9f6f83c2569770ab/loops/actionList.js#L1771-L1840",
+      "file_lines": 3629
+    },
+    {
+      "document": "IDLE_LOOPS.md",
+      "url": "https://github.com/omsi6/omsi6.github.io/blob/fa21477d424f3aa1f1bf6deb9f6f83c2569770ab/loops/actionList.js#L3226-L3296",
+      "file_lines": 3629
+    },
+    {
+      "document": "IDLE_LOOPS.md",
+      "url": "https://github.com/omsi6/omsi6.github.io/blob/fa21477d424f3aa1f1bf6deb9f6f83c2569770ab/loops/saving.js#L444-L488",
+      "file_lines": 779
+    },
+    {
+      "document": "IDLE_LOOPS.md",
+      "url": "https://github.com/omsi6/omsi6.github.io/blob/fa21477d424f3aa1f1bf6deb9f6f83c2569770ab/loops/saving.js#L227-L243",
+      "file_lines": 779
+    },
+    {
+      "document": "IDLE_LOOPS.md",
+      "url": "https://github.com/omsi6/omsi6.github.io/blob/fa21477d424f3aa1f1bf6deb9f6f83c2569770ab/loops/saving.js#L262-L280",
+      "file_lines": 779
+    },
+    {
+      "document": "IDLE_LOOPS.md",
+      "url": "https://github.com/omsi6/omsi6.github.io/blob/fa21477d424f3aa1f1bf6deb9f6f83c2569770ab/loops/actionList.js#L916-L1044",
+      "file_lines": 3629
+    },
+    {
+      "document": "IDLE_LOOPS.md",
+      "url": "https://github.com/omsi6/omsi6.github.io/blob/fa21477d424f3aa1f1bf6deb9f6f83c2569770ab/loops/driver.js#L252-L294",
+      "file_lines": 550
+    },
+    {
+      "document": "IDLE_LOOPS.md",
+      "url": "https://github.com/omsi6/omsi6.github.io/blob/fa21477d424f3aa1f1bf6deb9f6f83c2569770ab/loops/actionList.js#L58-L130",
+      "file_lines": 3629
+    },
+    {
+      "document": "IDLE_LOOPS.md",
+      "url": "https://github.com/omsi6/omsi6.github.io/blob/fa21477d424f3aa1f1bf6deb9f6f83c2569770ab/loops/saving.js#L719-L750",
+      "file_lines": 779
+    },
+    {
+      "document": "IDLE_LOOPS.md",
+      "url": "https://github.com/omsi6/omsi6.github.io/blob/fa21477d424f3aa1f1bf6deb9f6f83c2569770ab/loops/views/main.view.js#L510-L550",
+      "file_lines": 1138
+    },
+    {
+      "document": "IDLE_LOOPS.md",
+      "url": "https://github.com/omsi6/omsi6.github.io/blob/fa21477d424f3aa1f1bf6deb9f6f83c2569770ab/loops/views/main.view.js#L443-L463",
+      "file_lines": 1138
+    },
+    {
+      "document": "IDLE_LOOPS.md",
+      "url": "https://github.com/omsi6/omsi6.github.io/blob/fa21477d424f3aa1f1bf6deb9f6f83c2569770ab/loops/views/main.view.js#L725-L781",
+      "file_lines": 1138
+    },
+    {
+      "document": "LICENSES.md",
+      "url": "https://github.com/ihtasham42/progress-knight/blob/f6dd0c3c444d838f80325bbdca918160b99e89e5/LICENSE#L1-L24",
+      "file_lines": 24
+    },
+    {
+      "document": "LICENSES.md",
+      "url": "https://github.com/StopSign/stopsign.github.io/blob/d41bf197f9203e6da6f72628a9d76369b8140d57/LICENSE.md#L1-L21",
+      "file_lines": 21
+    },
+    {
+      "document": "LICENSES.md",
+      "url": "https://github.com/pmotschmann/Evolve/blob/3436358dcd03d9f9e071d51ea071e0a78c0322e4/LICENSE#L1-L2",
+      "file_lines": 373
+    },
+    {
+      "document": "PROGRESS_KNIGHT.md",
+      "url": "https://github.com/ihtasham42/progress-knight/blob/f6dd0c3c444d838f80325bbdca918160b99e89e5/README.md#L1-L19",
+      "file_lines": 19
+    },
+    {
+      "document": "PROGRESS_KNIGHT.md",
+      "url": "https://github.com/ihtasham42/progress-knight/blob/f6dd0c3c444d838f80325bbdca918160b99e89e5/LICENSE#L1-L24",
+      "file_lines": 24
+    },
+    {
+      "document": "PROGRESS_KNIGHT.md",
+      "url": "https://github.com/ihtasham42/progress-knight/blob/f6dd0c3c444d838f80325bbdca918160b99e89e5/js/main.js#L1-L33",
+      "file_lines": 1158
+    },
+    {
+      "document": "PROGRESS_KNIGHT.md",
+      "url": "https://github.com/ihtasham42/progress-knight/blob/f6dd0c3c444d838f80325bbdca918160b99e89e5/js/main.js#L1013-L1021",
+      "file_lines": 1158
+    },
+    {
+      "document": "PROGRESS_KNIGHT.md",
+      "url": "https://github.com/ihtasham42/progress-knight/blob/f6dd0c3c444d838f80325bbdca918160b99e89e5/js/main.js#L216-L290",
+      "file_lines": 1158
+    },
+    {
+      "document": "PROGRESS_KNIGHT.md",
+      "url": "https://github.com/ihtasham42/progress-knight/blob/f6dd0c3c444d838f80325bbdca918160b99e89e5/js/main.js#L370-L395",
+      "file_lines": 1158
+    },
+    {
+      "document": "PROGRESS_KNIGHT.md",
+      "url": "https://github.com/ihtasham42/progress-knight/blob/f6dd0c3c444d838f80325bbdca918160b99e89e5/js/main.js#L318-L329",
+      "file_lines": 1158
+    },
+    {
+      "document": "PROGRESS_KNIGHT.md",
+      "url": "https://github.com/ihtasham42/progress-knight/blob/f6dd0c3c444d838f80325bbdca918160b99e89e5/js/main.js#L980-L997",
+      "file_lines": 1158
+    },
+    {
+      "document": "PROGRESS_KNIGHT.md",
+      "url": "https://github.com/ihtasham42/progress-knight/blob/f6dd0c3c444d838f80325bbdca918160b99e89e5/js/main.js#L1148-L1158",
+      "file_lines": 1158
+    },
+    {
+      "document": "PROGRESS_KNIGHT.md",
+      "url": "https://github.com/ihtasham42/progress-knight/blob/f6dd0c3c444d838f80325bbdca918160b99e89e5/js/main.js#L850-L890",
+      "file_lines": 1158
+    },
+    {
+      "document": "PROGRESS_KNIGHT.md",
+      "url": "https://github.com/ihtasham42/progress-knight/blob/f6dd0c3c444d838f80325bbdca918160b99e89e5/js/main.js#L892-L909",
+      "file_lines": 1158
+    },
+    {
+      "document": "PROGRESS_KNIGHT.md",
+      "url": "https://github.com/ihtasham42/progress-knight/blob/f6dd0c3c444d838f80325bbdca918160b99e89e5/js/classes.js#L1-L74",
+      "file_lines": 166
+    },
+    {
+      "document": "PROGRESS_KNIGHT.md",
+      "url": "https://github.com/ihtasham42/progress-knight/blob/f6dd0c3c444d838f80325bbdca918160b99e89e5/js/main.js#L1056-L1110",
+      "file_lines": 1158
+    },
+    {
+      "document": "PROGRESS_KNIGHT.md",
+      "url": "https://github.com/ihtasham42/progress-knight/blob/f6dd0c3c444d838f80325bbdca918160b99e89e5/js/main.js#L709-L763",
+      "file_lines": 1158
+    },
+    {
+      "document": "PROGRESS_KNIGHT.md",
+      "url": "https://github.com/ihtasham42/progress-knight/blob/f6dd0c3c444d838f80325bbdca918160b99e89e5/js/main.js#L912-L978",
+      "file_lines": 1158
+    },
+    {
+      "document": "PROGRESS_KNIGHT.md",
+      "url": "https://github.com/ihtasham42/progress-knight/blob/f6dd0c3c444d838f80325bbdca918160b99e89e5/js/main.js#L424-L481",
+      "file_lines": 1158
+    },
+    {
+      "document": "PROGRESS_KNIGHT.md",
+      "url": "https://github.com/ihtasham42/progress-knight/blob/f6dd0c3c444d838f80325bbdca918160b99e89e5/js/main.js#L484-L548",
+      "file_lines": 1158
+    },
+    {
+      "document": "PROGRESS_KNIGHT.md",
+      "url": "https://github.com/ihtasham42/progress-knight/blob/f6dd0c3c444d838f80325bbdca918160b99e89e5/js/main.js#L550-L575",
+      "file_lines": 1158
+    },
+    {
+      "document": "PROGRESS_KNIGHT.md",
+      "url": "https://github.com/ihtasham42/progress-knight/blob/f6dd0c3c444d838f80325bbdca918160b99e89e5/js/main.js#L647-L658",
+      "file_lines": 1158
+    },
+    {
+      "document": "PROGRESS_KNIGHT.md",
+      "url": "https://github.com/ihtasham42/progress-knight/blob/f6dd0c3c444d838f80325bbdca918160b99e89e5/js/main.js#L332-L353",
+      "file_lines": 1158
+    },
+    {
+      "document": "PROGRESS_KNIGHT.md",
+      "url": "https://github.com/ihtasham42/progress-knight/blob/f6dd0c3c444d838f80325bbdca918160b99e89e5/index.html#L233-L261",
+      "file_lines": 302
+    },
+    {
+      "document": "PROGRESS_KNIGHT.md",
+      "url": "https://github.com/indomit/progress_knight_2/blob/d03f8b65adddab4a089a2f95e3a4749770aa03cb/README.md#L1-L5",
+      "file_lines": 5
+    },
+    {
+      "document": "PROGRESS_KNIGHT.md",
+      "url": "https://github.com/indomit/progress_knight_2/blob/d03f8b65adddab4a089a2f95e3a4749770aa03cb/index.html#L1519-L1541",
+      "file_lines": 1715
+    },
+    {
+      "document": "PROGRESS_KNIGHT.md",
+      "url": "https://github.com/indomit/progress_knight_2/blob/d03f8b65adddab4a089a2f95e3a4749770aa03cb/js/main.js#L23-L134",
+      "file_lines": 134
+    },
+    {
+      "document": "PROGRESS_KNIGHT.md",
+      "url": "https://github.com/indomit/progress_knight_2/blob/d03f8b65adddab4a089a2f95e3a4749770aa03cb/js/offline.js#L7-L122",
+      "file_lines": 122
+    },
+    {
+      "document": "PROGRESS_KNIGHT.md",
+      "url": "https://github.com/indomit/progress_knight_2/blob/d03f8b65adddab4a089a2f95e3a4749770aa03cb/js/data.js#L316-L320",
+      "file_lines": 1068
+    },
+    {
+      "document": "PROGRESS_KNIGHT.md",
+      "url": "https://github.com/indomit/progress_knight_2/blob/d03f8b65adddab4a089a2f95e3a4749770aa03cb/js/game.js#L773-L830",
+      "file_lines": 1287
+    },
+    {
+      "document": "PROGRESS_KNIGHT.md",
+      "url": "https://github.com/indomit/progress_knight_2/blob/d03f8b65adddab4a089a2f95e3a4749770aa03cb/js/game.js#L832-L910",
+      "file_lines": 1287
+    },
+    {
+      "document": "PROGRESS_KNIGHT.md",
+      "url": "https://github.com/indomit/progress_knight_2/blob/d03f8b65adddab4a089a2f95e3a4749770aa03cb/js/game.js#L912-L1028",
+      "file_lines": 1287
+    },
+    {
+      "document": "PROGRESS_KNIGHT.md",
+      "url": "https://github.com/indomit/progress_knight_2/blob/d03f8b65adddab4a089a2f95e3a4749770aa03cb/js/game.js#L731-L771",
+      "file_lines": 1287
+    },
+    {
+      "document": "PROGRESS_KNIGHT.md",
+      "url": "https://github.com/indomit/progress_knight_2/blob/d03f8b65adddab4a089a2f95e3a4749770aa03cb/js/game.js#L1030-L1058",
+      "file_lines": 1287
+    },
+    {
+      "document": "PROGRESS_KNIGHT.md",
+      "url": "https://github.com/indomit/progress_knight_2/blob/d03f8b65adddab4a089a2f95e3a4749770aa03cb/js/game.js#L696-L729",
+      "file_lines": 1287
+    },
+    {
+      "document": "PROGRESS_KNIGHT.md",
+      "url": "https://github.com/indomit/progress_knight_2/blob/d03f8b65adddab4a089a2f95e3a4749770aa03cb/js/game.js#L1250-L1286",
+      "file_lines": 1287
+    },
+    {
+      "document": "PROGRESS_KNIGHT.md",
+      "url": "https://github.com/indomit/progress_knight_2/blob/d03f8b65adddab4a089a2f95e3a4749770aa03cb/js/data.js#L578-L613",
+      "file_lines": 1068
+    },
+    {
+      "document": "PROGRESS_KNIGHT.md",
+      "url": "https://github.com/indomit/progress_knight_2/blob/d03f8b65adddab4a089a2f95e3a4749770aa03cb/js/task.js#L40-L90",
+      "file_lines": 405
+    },
+    {
+      "document": "PROGRESS_KNIGHT.md",
+      "url": "https://github.com/indomit/progress_knight_2/blob/d03f8b65adddab4a089a2f95e3a4749770aa03cb/js/saveman.js#L113-L225",
+      "file_lines": 276
+    },
+    {
+      "document": "PROGRESS_KNIGHT.md",
+      "url": "https://github.com/indomit/progress_knight_2/blob/d03f8b65adddab4a089a2f95e3a4749770aa03cb/js/saveman.js#L1-L11",
+      "file_lines": 276
+    },
+    {
+      "document": "PROGRESS_KNIGHT.md",
+      "url": "https://github.com/indomit/progress_knight_2/blob/d03f8b65adddab4a089a2f95e3a4749770aa03cb/js/ui_tooltip.js#L7-L90",
+      "file_lines": 840
+    },
+    {
+      "document": "PROGRESS_KNIGHT.md",
+      "url": "https://github.com/indomit/progress_knight_2/blob/d03f8b65adddab4a089a2f95e3a4749770aa03cb/js/events.js#L1-L84",
+      "file_lines": 158
+    },
+    {
+      "document": "PROGRESS_KNIGHT.md",
+      "url": "https://github.com/indomit/progress_knight_2/blob/d03f8b65adddab4a089a2f95e3a4749770aa03cb/js/game.js#L526-L560",
+      "file_lines": 1287
+    }
+  ]
+}

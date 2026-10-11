@@ -1,0 +1,8 @@
+{
+  "origin": "http://127.0.0.1:18318",
+  "errors": [],
+  "expansionSchema": 11,
+  "recordCount": 1,
+  "householdAbsent": true,
+  "check": "Old schema11 import over existing biography/household starts its own life."
+}

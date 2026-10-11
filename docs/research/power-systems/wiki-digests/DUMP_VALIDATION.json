@@ -1,0 +1,36 @@
+{
+  "state": "passed",
+  "date_utc": "2026-10-10T06:56:04.276859+00:00",
+  "wiki_identities_checked": 74,
+  "archives": 13,
+  "dump_claims": 41,
+  "covered_request_status_cells": 9,
+  "additional_request_ids": [
+    "S95",
+    "S96",
+    "S97"
+  ],
+  "subject_records": 119,
+  "minimum_observed_s3_gap_seconds": 4.026509,
+  "s3_request_count": 141,
+  "checks": [
+    "Python syntax parsed",
+    "119 unique digests present",
+    "at most two database-name keys per wiki",
+    "compressed archive byte sizes and SHA-256 verified",
+    "selected page text hashes and revision bindings verified",
+    "Skyrim-only reviewed source bounds",
+    "S3 requests serial, paced and method/URL cache-unique",
+    "no pending request or 429",
+    "current Shadow Slave request not promoted by another community",
+    "source request IDs unique and existing Status cell matches",
+    "current Markdown local links resolve",
+    "historical aggregate snapshot hashes preserved"
+  ],
+  "limits": [
+    "Semantic review is bounded to 41 claim sections, not all selected offline pages.",
+    "Wiki evidence does not authenticate primary canon or current game balance.",
+    "The initial S3 error response bodies were hashed but not retained in full; parsed error codes and headers remain.",
+    "No gameplay, build, save, commit or publication checks were run."
+  ]
+}

@@ -1,0 +1,112 @@
+{
+  "observed_utc": "2026-10-07T18:12:54.369350+00:00",
+  "owner": "/root/factorio_recovery_review",
+  "scope": "Bounded complete canonical C read plus exact original case-table/guard/ASM reconciliation; no runtime semantics or new original member names.",
+  "canonical_acquisition": "FLOW_CANONICAL_ACQUISITION.json",
+  "inserter_before_after": {
+    "old_chunk": 5,
+    "old_line": 5,
+    "old_body_bytes": 924,
+    "old_instructions": 231,
+    "old_C_sha256": "8e2128b3a4dc13f71f348c1e56e84c5eef49182244a53ef614ae82f3e82d7dbc",
+    "new_chunk": 1853,
+    "new_line": 1,
+    "new_body_bytes": 988,
+    "new_instructions": 247,
+    "new_C_sha256": "4732e2de4f594224eba26989aadbc44a5d515ee745f51ad73f41648e80a54875",
+    "restored_instruction_addresses": [
+      "1007f725c",
+      "1007f7260",
+      "1007f72b0",
+      "1007f72b4",
+      "1007f72b8",
+      "1007f72bc",
+      "1007f72c0",
+      "1007f72c4",
+      "1007f72c8",
+      "1007f72cc",
+      "1007f72d0",
+      "1007f72d4",
+      "1007f72d8",
+      "1007f72dc",
+      "1007f72e0",
+      "1007f72e4"
+    ],
+    "restored_bytes": 64,
+    "existing_instruction_bytes_and_text_unchanged": true,
+    "only_changed_existing_flow_address": "1007f72ac",
+    "C_changes": "Byte pointer inference, explicit pre-switch invalid-domain guard and visible manually overridden switch. The same six comparison predicates remain; old generated C already printed them but old body/ASM omitted their original instructions."
+  },
+  "claims": [
+    {
+      "id": "NLH-02",
+      "disposition": "unchanged consequential claim, canonical case-body/CFG qualification closed",
+      "evidence": {
+        "entry": "1007f70c4",
+        "C_selection_compatibility": [
+          42,
+          46
+        ],
+        "C_receiver_admission": [
+          97,
+          103
+        ],
+        "C_hand_limit_and_transfer": [
+          158,
+          203
+        ],
+        "C_tick_store": [
+          191,
+          193
+        ],
+        "ASM_receipt": "FLOW_CANONICAL_ACQUISITION.json"
+      },
+      "qualification": "Same six guarded quality-filter comparisons feed existing receiver admission and candidate selection. Canonical byte/ASM/body now covers every case destination; selection, bounded live hand transfer and tick update remain supported. Virtual receiver implementation and numeric result enum names remain unknown."
+    },
+    {
+      "id": "NLH-03",
+      "disposition": "unchanged consequential claim, canonical case-body/CFG qualification closed",
+      "evidence": {
+        "entry": "1007f70c4",
+        "C_filter_guard_and_six_comparisons": [
+          64,
+          89
+        ],
+        "C_spoil_selection": [
+          105,
+          147
+        ],
+        "prototype_comparator_offset": "0x431",
+        "metadata_comparator_offset": "0x40"
+      },
+      "qualification": "The full canonical switch preserves existing comparisons; priority orientation uses the same prototype byte/metadata branches. The new case closure does not assign original member names, establish a whole freshness algorithm or DLC activation. parseSpoilPriority and comparator bodies are unchanged prior reader evidence."
+    }
+  ],
+  "splitter_semantics": {
+    "closeUnusedConnections": "Eight guarded four-way selections choose physical pointer slots in two groups. In each group two selected slots are cleared and two are set to this; exact original direction names and struct member types remain inferred.",
+    "drawBase": "Six four-way guarded selections choose starting/ending connection pointers and shift indicator positions; generated body also calls existing sprite/belt/circuit drawing helpers. Rendering correctness, indirect callee semantics and inferred integer/floating casts are not runtime-proved.",
+    "qualification": "Both formerly crashing methods now have complete decoded serialized candidate-body coverage and nonempty generated C views; no suppressed failure or stand-in view. Broader view-to-address scope is not inferred from success counts."
+  },
+  "checks": "Read-only complete generated C, exact byte/guard/CFG acquisition, old/new C/ASM comparison. No game/recovered code/browser/save/build execution.",
+  "complete_generated_C_views_read": [
+    {
+      "entry": "10095b968",
+      "chunk": 1851,
+      "line": 1,
+      "C_lines": 175
+    },
+    {
+      "entry": "10095bc4c",
+      "chunk": 1852,
+      "line": 1,
+      "C_lines": 442
+    },
+    {
+      "entry": "1007f70c4",
+      "chunk": 1853,
+      "line": 1,
+      "C_lines": 213
+    }
+  ],
+  "generated_C_scope": "Complete generated views were read. Serialized FunctionManager body/ASM ranges are independently exact; per-line generated-C source-address scope is uncollected, so view lines are not asserted to map only to those body ranges. Selected guarded case behavior is additionally reconciled with original ASM."
+}

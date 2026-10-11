@@ -1,0 +1,596 @@
+{
+  "schema": "source-map-evidence-v1",
+  "source_kind": "public hosted Magic Research 2 browser demo",
+  "hosting_commit": "05717a17798a2165780ac38465f1e0c2d8736796",
+  "line_rule": "1-based inclusive spans in sourcesContent bodies; source index is 0-based",
+  "evidence": [
+    {
+      "id": "E01",
+      "claim": "A built Essence Catalyst triggers the Study unlock event.",
+      "sources": [
+        {
+          "source_map": "main.15163126.js.map",
+          "source_index": 431,
+          "source_path": "src/backend/events/progression/PreTrainingProgression.tsx",
+          "source_body_sha256": "af38967619a5d336df8bf192f1ab6b49b5d122f028d15afa81878d13d2f7ef8c",
+          "line_spans": [
+            [
+              169,
+              201
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "E02",
+      "claim": "Assigned researchers generate transformed element experience per tick.",
+      "sources": [
+        {
+          "source_map": "main.15163126.js.map",
+          "source_index": 46,
+          "source_path": "src/backend/study/Study.tsx",
+          "source_body_sha256": "b4f3f488892941aa36655324919a282e4018427cee8bf6c992e8a0916a4b8cdd",
+          "line_spans": [
+            [
+              24,
+              35
+            ],
+            [
+              63,
+              84
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "E03",
+      "claim": "Element experience determines level; spell visibility checks unlocked elements and level requirements.",
+      "sources": [
+        {
+          "source_map": "main.15163126.js.map",
+          "source_index": 25,
+          "source_path": "src/backend/spells/Elements.tsx",
+          "source_body_sha256": "8de6f20363d422cdc6020af4209a1fecfed28834f37999927cc7658cfbe99475",
+          "line_spans": [
+            [
+              264,
+              279
+            ],
+            [
+              656,
+              675
+            ]
+          ]
+        },
+        {
+          "source_map": "main.15163126.js.map",
+          "source_index": 104,
+          "source_path": "src/backend/spells/Spell.tsx",
+          "source_body_sha256": "c63897d5a676cd62102a6893595da632e8857422faf091d584fde875c37a2fc3",
+          "line_spans": [
+            [
+              203,
+              211
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "E04",
+      "claim": "The level-up event compares old and new visible spells for learned-spell text.",
+      "sources": [
+        {
+          "source_map": "main.15163126.js.map",
+          "source_index": 112,
+          "source_path": "src/backend/events/progression/LevelUp.tsx",
+          "source_body_sha256": "fdd6ac9def9a8d23d37d778435ebeed5591b263fc20daa48031b844a77ca42d3",
+          "line_spans": [
+            [
+              72,
+              95
+            ],
+            [
+              250,
+              268
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "E05",
+      "claim": "Fireball has nominal mana cost 380, cooldown 6 seconds, 20 autocast points, Fire level 6.",
+      "sources": [
+        {
+          "source_map": "main.15163126.js.map",
+          "source_index": 533,
+          "source_path": "src/backend/spells/fire/Fireball.tsx",
+          "source_body_sha256": "ee7fa401f168738d5efdf3a59037248aeeb1d7171c4ea848c07371f232b46146",
+          "line_spans": [
+            [
+              35,
+              37
+            ],
+            [
+              68,
+              80
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "E06",
+      "claim": "Spell enabled logic checks visibility, cooldown, silence, stun, and can-cast transformation.",
+      "sources": [
+        {
+          "source_map": "main.15163126.js.map",
+          "source_index": 104,
+          "source_path": "src/backend/spells/Spell.tsx",
+          "source_body_sha256": "c63897d5a676cd62102a6893595da632e8857422faf091d584fde875c37a2fc3",
+          "line_spans": [
+            [
+              229,
+              260
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "E07",
+      "claim": "The common action gate checks live resource amount and capacity; paying subtracts its cost.",
+      "sources": [
+        {
+          "source_map": "main.15163126.js.map",
+          "source_index": 78,
+          "source_path": "src/backend/action/Action.tsx",
+          "source_body_sha256": "8a2a88c082b45f56443eae8ef6f6d713ecb5d5d39ab50915878543baa532e12f",
+          "line_spans": [
+            [
+              163,
+              177
+            ],
+            [
+              191,
+              208
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "E08",
+      "claim": "Mana cost is transformed; primary element has a 0.5 cost multiplier.",
+      "sources": [
+        {
+          "source_map": "main.15163126.js.map",
+          "source_index": 104,
+          "source_path": "src/backend/spells/Spell.tsx",
+          "source_body_sha256": "c63897d5a676cd62102a6893595da632e8857422faf091d584fde875c37a2fc3",
+          "line_spans": [
+            [
+              91,
+              113
+            ]
+          ]
+        },
+        {
+          "source_map": "main.15163126.js.map",
+          "source_index": 25,
+          "source_path": "src/backend/spells/Elements.tsx",
+          "source_body_sha256": "8de6f20363d422cdc6020af4209a1fecfed28834f37999927cc7658cfbe99475",
+          "line_spans": [
+            [
+              595,
+              611
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "E09",
+      "claim": "A normal spell action exits when unaffordable, otherwise applies effect, pays, and grants use experience.",
+      "sources": [
+        {
+          "source_map": "main.15163126.js.map",
+          "source_index": 104,
+          "source_path": "src/backend/spells/Spell.tsx",
+          "source_body_sha256": "c63897d5a676cd62102a6893595da632e8857422faf091d584fde875c37a2fc3",
+          "line_spans": [
+            [
+              382,
+              403
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "E10",
+      "claim": "The demo item loader registers the Water wand transmutation.",
+      "sources": [
+        {
+          "source_map": "main.15163126.js.map",
+          "source_index": 517,
+          "source_path": "src/backend/items/DemoItemLoader.tsx",
+          "source_body_sha256": "294a1ce97da9c0c02b5e18a2b6aec25b974dbc9df2a6a9d8eeea87c5ebbd51ee",
+          "line_spans": [
+            [
+              117,
+              124
+            ]
+          ]
+        },
+        {
+          "source_map": "main.15163126.js.map",
+          "source_index": 568,
+          "source_path": "src/backend/DemoLoader.tsx",
+          "source_body_sha256": "118a46a5ff9c60aea6d9557d7b6eb0b9732435f03fb760387ee6ab3db808f55b",
+          "line_spans": [
+            [
+              24,
+              42
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "E11",
+      "claim": "The Water wand grants attack, mana regeneration, mana capacity, and a Water action magnitude effect; its recipe requires Water 14, 400 mana, 5000 Water Essence, and 65 Water shards.",
+      "sources": [
+        {
+          "source_map": "main.15163126.js.map",
+          "source_index": 440,
+          "source_path": "src/backend/items/equipment/hand/water/WandOfWater.tsx",
+          "source_body_sha256": "563a3537183f8101163368bbefdcfa0557cdb6620c7a3ad51517a3c43f6f2879",
+          "line_spans": [
+            [
+              42,
+              62
+            ],
+            [
+              80,
+              125
+            ]
+          ]
+        },
+        {
+          "source_map": "main.15163126.js.map",
+          "source_index": 150,
+          "source_path": "src/backend/items/equipment/EquippableItem.tsx",
+          "source_body_sha256": "3cad354c98dced190f0536adb78fd7b23b1f6cac1cdf72ebb275cc58dc9620ab",
+          "line_spans": [
+            [
+              162,
+              194
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "E12",
+      "claim": "Action effects compose tags and apply matching transformations.",
+      "sources": [
+        {
+          "source_map": "main.15163126.js.map",
+          "source_index": 78,
+          "source_path": "src/backend/action/Action.tsx",
+          "source_body_sha256": "8a2a88c082b45f56443eae8ef6f6d713ecb5d5d39ab50915878543baa532e12f",
+          "line_spans": [
+            [
+              73,
+              82
+            ],
+            [
+              110,
+              122
+            ]
+          ]
+        },
+        {
+          "source_map": "main.15163126.js.map",
+          "source_index": 104,
+          "source_path": "src/backend/spells/Spell.tsx",
+          "source_body_sha256": "c63897d5a676cd62102a6893595da632e8857422faf091d584fde875c37a2fc3",
+          "line_spans": [
+            [
+              50,
+              64
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "E13",
+      "claim": "Equipment transmutation visibility requires Exploration unlock.",
+      "sources": [
+        {
+          "source_map": "main.15163126.js.map",
+          "source_index": 310,
+          "source_path": "src/backend/items/transmute/EquipmentTransmutationSpell.tsx",
+          "source_body_sha256": "fa9b177ed97c972b01ff5a8f41d91c68a4d56390f1e892ce0dedecd7c444be2c",
+          "line_spans": [
+            [
+              8,
+              13
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "E14",
+      "claim": "The Wizards event requires Transmutation unlock and at least 500 capped Coins; Continue grants its flag.",
+      "sources": [
+        {
+          "source_map": "main.15163126.js.map",
+          "source_index": 431,
+          "source_path": "src/backend/events/progression/PreTrainingProgression.tsx",
+          "source_body_sha256": "af38967619a5d336df8bf192f1ab6b49b5d122f028d15afa81878d13d2f7ef8c",
+          "line_spans": [
+            [
+              244,
+              250
+            ],
+            [
+              262,
+              273
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "E15",
+      "claim": "Ordinary autocast grants assigned-wizard points, screens rules/spells and conditions, casts and deducts points; check-only can break later processing.",
+      "sources": [
+        {
+          "source_map": "main.15163126.js.map",
+          "source_index": 98,
+          "source_path": "src/backend/autocast/Autocast.tsx",
+          "source_body_sha256": "be341a478428b51eb58361339a71d9271dfb55243b4b69f064f493d007286bd4",
+          "line_spans": [
+            [
+              989,
+              1054
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "E16",
+      "claim": "Permacast may deduct mana while charging wizard points before enabled and condition checks.",
+      "sources": [
+        {
+          "source_map": "main.15163126.js.map",
+          "source_index": 98,
+          "source_path": "src/backend/autocast/Autocast.tsx",
+          "source_body_sha256": "be341a478428b51eb58361339a71d9271dfb55243b4b69f064f493d007286bd4",
+          "line_spans": [
+            [
+              1068,
+              1146
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "E17",
+      "claim": "A second tick listener resumes permacast after income if the first pass stopped for lack of mana.",
+      "sources": [
+        {
+          "source_map": "main.15163126.js.map",
+          "source_index": 98,
+          "source_path": "src/backend/autocast/Autocast.tsx",
+          "source_body_sha256": "be341a478428b51eb58361339a71d9271dfb55243b4b69f064f493d007286bd4",
+          "line_spans": [
+            [
+              1082,
+              1096
+            ],
+            [
+              1157,
+              1175
+            ],
+            [
+              1208,
+              1237
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "E18",
+      "claim": "Strategy load invokes auto-disable; it screens capacity and estimates wizard and mana income for permacast.",
+      "sources": [
+        {
+          "source_map": "main.15163126.js.map",
+          "source_index": 98,
+          "source_path": "src/backend/autocast/Autocast.tsx",
+          "source_body_sha256": "be341a478428b51eb58361339a71d9271dfb55243b4b69f064f493d007286bd4",
+          "line_spans": [
+            [
+              492,
+              502
+            ],
+            [
+              535,
+              613
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "E19",
+      "claim": "The demo storyline loader calls the Posterity unlocker, which registers the storyline.",
+      "sources": [
+        {
+          "source_map": "main.15163126.js.map",
+          "source_index": 468,
+          "source_path": "src/backend/events/storyline/DemoStorylinesLoader.tsx",
+          "source_body_sha256": "eb3e8d2a261c41ac6cd0ba06f24db79d3a98f0c08a5248ef2bdf090b041d3ae3",
+          "line_spans": [
+            [
+              26,
+              31
+            ]
+          ]
+        },
+        {
+          "source_map": "main.15163126.js.map",
+          "source_index": 470,
+          "source_path": "src/backend/events/storyline/pretraining/RetireUnlocker.tsx",
+          "source_body_sha256": "28cf4e55ba955e31a29df9a845dc6ac318c4545a92e2673f3fb6468555cf7c46",
+          "line_spans": [
+            [
+              16,
+              22
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "E20",
+      "claim": "A level-up listener triggers the Posterity event after the primary-element maximum for the run reaches 7; Continue completes and activates its bonus.",
+      "sources": [
+        {
+          "source_map": "main.15163126.js.map",
+          "source_index": 470,
+          "source_path": "src/backend/events/storyline/pretraining/RetireUnlocker.tsx",
+          "source_body_sha256": "28cf4e55ba955e31a29df9a845dc6ac318c4545a92e2673f3fb6468555cf7c46",
+          "line_spans": [
+            [
+              35,
+              45
+            ],
+            [
+              57,
+              71
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "E21",
+      "claim": "Storyline completion writes run and world flags; Retirement reads the world completion flag.",
+      "sources": [
+        {
+          "source_map": "main.15163126.js.map",
+          "source_index": 35,
+          "source_path": "src/backend/storylines/Storyline.tsx",
+          "source_body_sha256": "11c1ca5ff8370f7818c993d66090396da492f15a04afdcb4160b08d93354d565",
+          "line_spans": [
+            [
+              93,
+              120
+            ]
+          ]
+        },
+        {
+          "source_map": "main.15163126.js.map",
+          "source_index": 20,
+          "source_path": "src/backend/Retire.tsx",
+          "source_body_sha256": "dca4f84c1fe2b6deec6a74c8dc32e92ddb412ccd81a43b8d5280c904355f47ca",
+          "line_spans": [
+            [
+              31,
+              33
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "E22",
+      "claim": "The retirement screen computes a hypothetical post-retirement preview and requires a second button press for the actual reset.",
+      "sources": [
+        {
+          "source_map": "main.15163126.js.map",
+          "source_index": 260,
+          "source_path": "src/components/Retirement.tsx",
+          "source_body_sha256": "64d5b25366999800371ce018958a4cf4a2a7a72834b9fc30a959abda0c90253c",
+          "line_spans": [
+            [
+              39,
+              54
+            ],
+            [
+              232,
+              247
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "E23",
+      "claim": "Retirement runs listeners, increments reset count, replaces run state, and invokes post-retirement listeners; an element listener records primary and secondary maxima.",
+      "sources": [
+        {
+          "source_map": "main.15163126.js.map",
+          "source_index": 20,
+          "source_path": "src/backend/Retire.tsx",
+          "source_body_sha256": "dca4f84c1fe2b6deec6a74c8dc32e92ddb412ccd81a43b8d5280c904355f47ca",
+          "line_spans": [
+            [
+              35,
+              69
+            ]
+          ]
+        },
+        {
+          "source_map": "main.15163126.js.map",
+          "source_index": 25,
+          "source_path": "src/backend/spells/Elements.tsx",
+          "source_body_sha256": "8de6f20363d422cdc6020af4209a1fecfed28834f37999927cc7658cfbe99475",
+          "line_spans": [
+            [
+              613,
+              633
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "E24",
+      "claim": "Stored element maxima feed starting experience and later experience/production multipliers.",
+      "sources": [
+        {
+          "source_map": "main.15163126.js.map",
+          "source_index": 25,
+          "source_path": "src/backend/spells/Elements.tsx",
+          "source_body_sha256": "8de6f20363d422cdc6020af4209a1fecfed28834f37999927cc7658cfbe99475",
+          "line_spans": [
+            [
+              507,
+              552
+            ],
+            [
+              555,
+              569
+            ],
+            [
+              635,
+              641
+            ]
+          ]
+        }
+      ]
+    }
+  ]
+}

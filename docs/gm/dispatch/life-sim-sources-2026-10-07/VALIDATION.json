@@ -1,0 +1,39 @@
+{
+  "checked_at": "2026-10-07T17:11:24.500975-04:00",
+  "all_five_removed": true,
+  "steam_no_error_logs_and_absent_manifests_installs": true,
+  "private_receipts_still_exist": {
+    "cultist-simulator": "/Users/weiwei/.codex/research/cultist-simulator/build22090405/COPY_HASHES.json",
+    "crusader-kings-3": "/Users/weiwei/.codex/research/crusader-kings-3/RETENTION.json",
+    "king-of-dragon-pass": "/Users/weiwei/.codex/research/king-of-dragon-pass/retention.json",
+    "kenshi": "/Users/weiwei/.codex/research/kenshi/RETENTION.json",
+    "wildermyth": "/Users/weiwei/.codex/research/wildermyth/retention.json",
+    "six-ages-2": "/Users/weiwei/.codex/research/six-ages-2/COPY_RECEIPT.json"
+  },
+  "json_parse": true,
+  "markdown_local_links": true,
+  "remaining_blocks": [
+    1468810
+  ],
+  "free_GiB": 61.61,
+  "active_audit_apps": [],
+  "identity_correction": "881420 retired;2278010 current target",
+  "pending_uninstall_apps": [
+    2278010
+  ],
+  "completed_finite_audit_apps": [
+    718670,
+    763890,
+    352220,
+    1158310,
+    233860,
+    2278010
+  ],
+  "retired_apps": [
+    881420
+  ],
+  "six_ages_2_copy_receipt_fingerprint_verified": true,
+  "six_ages_2_managed_lua_native_sample_hashes_verified": true,
+  "six_ages_2_manifest_absent": false,
+  "six_ages_2_install_absent": false
+}

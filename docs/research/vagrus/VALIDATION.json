@@ -1,0 +1,101 @@
+{
+  "source_copy_pairs": [
+    {
+      "name": "Assembly-CSharp.dll",
+      "source_copy_hash_match": true
+    },
+    {
+      "name": "build.json",
+      "source_copy_hash_match": true
+    },
+    {
+      "name": "events",
+      "source_copy_hash_match": true
+    },
+    {
+      "name": "AirTable",
+      "source_copy_hash_match": true
+    },
+    {
+      "name": "Locals",
+      "source_copy_hash_match": true
+    },
+    {
+      "name": "journals",
+      "source_copy_hash_match": true
+    },
+    {
+      "name": "codexes",
+      "source_copy_hash_match": true
+    }
+  ],
+  "reproduction": [
+    {
+      "name": "events",
+      "original_bundle_copy_match": true,
+      "reextracted_ciphertext_match": true,
+      "redecoded_plaintext_match": true,
+      "json_valid": true
+    },
+    {
+      "name": "AirTable",
+      "original_bundle_copy_match": true,
+      "reextracted_ciphertext_match": true,
+      "redecoded_plaintext_match": true,
+      "json_valid": true
+    },
+    {
+      "name": "Locals",
+      "original_bundle_copy_match": true,
+      "reextracted_ciphertext_match": true,
+      "redecoded_plaintext_match": true,
+      "json_valid": true
+    },
+    {
+      "name": "journals",
+      "original_bundle_copy_match": true,
+      "reextracted_ciphertext_match": true,
+      "redecoded_plaintext_match": true,
+      "json_valid": true
+    },
+    {
+      "name": "codexes",
+      "original_bundle_copy_match": true,
+      "reextracted_ciphertext_match": true,
+      "redecoded_plaintext_match": true,
+      "json_valid": true
+    }
+  ],
+  "source_structures": {
+    "crew_rows": 12,
+    "loyalty_records": 25,
+    "critical_records": 11,
+    "injury_steps": 4,
+    "injury_choices": 6,
+    "event_records": 1178,
+    "event_steps": 17223,
+    "event_choices": 34323
+  },
+  "artifacts": {
+    "required_outputs": 7,
+    "findings": 56,
+    "ranked_proposals": 8,
+    "small_touches": 30,
+    "local_links": "valid",
+    "json": "valid"
+  },
+  "shared_report": {
+    "games": 8,
+    "install_snapshot_utc": "2026-10-10T15:34:37.771144+00:00",
+    "section_completion_evidence": "reports/checkpoints of the other seven games, read-only"
+  },
+  "retention": {
+    "files": 1585,
+    "bytes": 131847153,
+    "original_source_inputs_retained": true,
+    "temporary_exports_removed_bytes": 55248685
+  },
+  "status": "PASS",
+  "checked_utc": "2026-10-10T15:37:06.922848+00:00",
+  "gameplay_checks": "not run; prohibited"
+}

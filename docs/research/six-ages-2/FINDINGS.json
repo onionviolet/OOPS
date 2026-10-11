@@ -1,0 +1,314 @@
+{
+  "chains": [
+    {
+      "id": "SA2-F1",
+      "title": "Advisors are aging people whose availability differs from their skill",
+      "verified": [
+        "Featured people have initial age/range, chosen skills, trait exclusions and council positions.",
+        "Managed Person routes age, family, health, availability and skills separately to native engine; dead and away states change display.",
+        "Native ageRing loops seven ring slots and calls annual person aging; agePerson writes age and yearsOnRing."
+      ],
+      "manual_semantics": [
+        "Reorganizing trades skill mix against religion mix; hereditary king need not be chief."
+      ],
+      "inference": "Treat replacement as a social/history choice, not swapping a stat bundle.",
+      "limits": "Exact mortality odds, skill-aging formula and inheritance graphs not reconstructed.",
+      "evidence": [
+        {
+          "private_path": "payload/LightsGoingOut.app/Contents/Plugins/DarkAgePlugin.bundle/Contents/Resources/DarkAge-People.lua",
+          "lines": [
+            15,
+            35
+          ],
+          "sha256": "d006c4b004f746eb2b1839b9c56c1fdc52a8f0647c1f095a459cca8a47f6697c"
+        },
+        {
+          "private_path": "payload/LightsGoingOut.app/Contents/Plugins/DarkAgePlugin.bundle/Contents/Resources/DarkAge-People.lua",
+          "lines": [
+            144,
+            306
+          ],
+          "sha256": "d006c4b004f746eb2b1839b9c56c1fdc52a8f0647c1f095a459cca8a47f6697c"
+        },
+        {
+          "private_path": "recovered/managed/Person.cs",
+          "lines": [
+            13,
+            160
+          ],
+          "sha256": "4daebb34db5b62b923bb2f6ef92182cd919b2f49c1606af27af00efeb6d9c7c9"
+        },
+        {
+          "private_path": "payload/LightsGoingOut.app/Contents/Plugins/DarkAgePlugin.bundle/Contents/Resources/DarkAge-Help-Steam.lua",
+          "lines": [
+            207,
+            220
+          ],
+          "sha256": "093849fbffd7639d7ce1f9e93d9f8da49eaac02bab519a2557e8e5f4d9321312"
+        }
+      ],
+      "native": [
+        "ageRing.asm 0x1a9fa0..0x1aa090",
+        "agePerson.asm 0x534f0..0x5422f"
+      ]
+    },
+    {
+      "id": "SA2-F2",
+      "title": "An annual forecast precedes a real preparation budget and retained reserve",
+      "verified": [
+        "SacredTime.OnShow reads forecast and magic reserve, sets ten allocation capacities from Game.MaxMagic.",
+        "OnToggle bounds remaining capacity; Proceed writes each allocation, subtracts total magicUsed and advances native SacredTime."
+      ],
+      "manual_semantics": [
+        "Ring religion changes allocation maximum; annual allocations affect related actions throughout year; reserve helps later situations."
+      ],
+      "inference": "Present upcoming risk before a player chooses one annual preparation and reserves resources.",
+      "limits": "Annual action modifier consumers remain native/unread; no assumed exact multipliers.",
+      "evidence": [
+        {
+          "private_path": "recovered/managed/SacredTime.cs",
+          "lines": [
+            80,
+            139
+          ],
+          "sha256": "49293762d312b38c301f851b09d845bd2fa9158f1dd4c10ed6fbeac07d82d3f9"
+        },
+        {
+          "private_path": "payload/LightsGoingOut.app/Contents/Plugins/DarkAgePlugin.bundle/Contents/Resources/DarkAge-Help-Steam.lua",
+          "lines": [
+            188,
+            203
+          ],
+          "sha256": "093849fbffd7639d7ce1f9e93d9f8da49eaac02bab519a2557e8e5f4d9321312"
+        },
+        {
+          "private_path": "payload/LightsGoingOut.app/Contents/Plugins/DarkAgePlugin.bundle/Contents/Resources/TutorialTips-DarkAge.lua",
+          "lines": [
+            375,
+            398
+          ],
+          "sha256": "e530f5f8ebb5dd1e6487c7a62c75ef74fdb0b77ad1831404637ca83112567670"
+        }
+      ]
+    },
+    {
+      "id": "SA2-F3",
+      "title": "Ventures connect qualified people, calendar capacity and repairable aftermath",
+      "verified": [
+        "VentureDialogController uses native eligibility to enable buttons, reports why-not, derives skill and best/performing person, and StartVenture passes ID and leader then advances turn when appropriate.",
+        "Lua entries gate repair/reputation/pasture recovery by circumstances and assign distinct skills/religion modifiers."
+      ],
+      "manual_semantics": [
+        "Two ventures per year initially, tasks occupy coordinated effort and usually run through year.",
+        "Damaged houses need goods; fort damage enables repair; some destruction is irreparable."
+      ],
+      "inference": "A setback should unlock a concrete repair task with its own skill/resource cost.",
+      "limits": "Lua whyNot strings describe constraints; native validation/cost/outcome code not reconstructed for each venture.",
+      "evidence": [
+        {
+          "private_path": "recovered/managed/VentureDialogController.cs",
+          "lines": [
+            55,
+            170
+          ],
+          "sha256": "52e47ef88d8ec834849405994f20ee660cebfbeeeb6257eab7f005b7161082cd"
+        },
+        {
+          "private_path": "payload/LightsGoingOut.app/Contents/Plugins/DarkAgePlugin.bundle/Contents/Resources/DarkAge-Ventures.lua",
+          "lines": [
+            126,
+            164
+          ],
+          "sha256": "b1d545885e1c41f4d1945a4959b4ac9d603f174b2c8c73eac4ebe772d7dec97a"
+        },
+        {
+          "private_path": "payload/LightsGoingOut.app/Contents/Plugins/DarkAgePlugin.bundle/Contents/Resources/DarkAge-Ventures.lua",
+          "lines": [
+            215,
+            243
+          ],
+          "sha256": "b1d545885e1c41f4d1945a4959b4ac9d603f174b2c8c73eac4ebe772d7dec97a"
+        },
+        {
+          "private_path": "payload/LightsGoingOut.app/Contents/Plugins/DarkAgePlugin.bundle/Contents/Resources/TutorialTips-DarkAge.lua",
+          "lines": [
+            662,
+            675
+          ],
+          "sha256": "e530f5f8ebb5dd1e6487c7a62c75ef74fdb0b77ad1831404637ca83112567670"
+        },
+        {
+          "private_path": "payload/LightsGoingOut.app/Contents/Plugins/DarkAgePlugin.bundle/Contents/Resources/TutorialTips-DarkAge.lua",
+          "lines": [
+            1549,
+            1577
+          ],
+          "sha256": "e530f5f8ebb5dd1e6487c7a62c75ef74fdb0b77ad1831404637ca83112567670"
+        }
+      ]
+    },
+    {
+      "id": "SA2-F4",
+      "title": "Neglect becomes specific relationship or world consequences at coarse boundaries",
+      "verified": [
+        "Lua config supplies absence thresholds: spirit bargains7 years, caravans4, emissaries4, exploration3, raids5, rituals10.",
+        "Native handleMoot reads lastCaravan and threshold then constructs/adds a concern; reads lastEmissary/threshold and writes other clans likesUs; raid absence reduces fearsUs.",
+        "Native handleSacredTime reads bargain/exploration/ritual timestamps and thresholds, adds concerns or threat variables."
+      ],
+      "manual_semantics": [],
+      "inference": "Store last meaningful contact timestamp and resolve missed years into one bounded fact, not hourly NPC ticks.",
+      "limits": "Exact numeric penalties, all qualifying activity reset sites and concern decay remain unread.",
+      "evidence": [
+        {
+          "private_path": "payload/LightsGoingOut.app/Contents/Plugins/DarkAgePlugin.bundle/Contents/Resources/DarkAge.lua",
+          "lines": [
+            927,
+            935
+          ],
+          "sha256": "4f061544769b5a104d7a254391622a02783a328120f8294358e16796f1d1f3b4"
+        },
+        {
+          "private_path": "payload/LightsGoingOut.app/Contents/Plugins/DarkAgePlugin.bundle/Contents/Resources/DarkAge-Concerns.lua",
+          "lines": [
+            414,
+            452
+          ],
+          "sha256": "32b9cb7a359a3db188727b1e93d7e5435603afa93db6bec8e068fcafaef9e76b"
+        },
+        {
+          "private_path": "payload/LightsGoingOut.app/Contents/Plugins/DarkAgePlugin.bundle/Contents/Resources/DarkAge-Concerns.lua",
+          "lines": [
+            810,
+            841
+          ],
+          "sha256": "32b9cb7a359a3db188727b1e93d7e5435603afa93db6bec8e068fcafaef9e76b"
+        }
+      ],
+      "native": [
+        "handleMoot.asm 0xbfE60..0xc0a9e",
+        "handleSacredTime.asm 0xc0b20..0xc1031"
+      ]
+    },
+    {
+      "id": "SA2-F5",
+      "title": "Temporary scene context is cleared after outcomes, while history is committed",
+      "verified": [
+        "OSL.lua lists transient advisor/family/test/choice variables reset before or after interactivity.",
+        "Native Script.checkResult dispatches result and calls resetVariablesAfterInteractivity. Script.completed calls saga.finishEntry and reset."
+      ],
+      "manual_semantics": [],
+      "inference": "Keep event-local context separate from persistent biography; commit one outcome then erase scratch to prevent later advice contamination.",
+      "limits": "Individual scene programs, choice costs and odds are retained bytecode but unread.",
+      "evidence": [
+        {
+          "private_path": "payload/LightsGoingOut.app/Contents/Plugins/DarkAgePlugin.bundle/Contents/Resources/OSL.lua",
+          "lines": [
+            1,
+            30
+          ],
+          "sha256": "e46bfb1128ae0a4fe7b50c3a83cfe6a9122c46f7a697ce620b726317b4b220d5"
+        }
+      ],
+      "native": [
+        "checkResult.asm 0x1387f0..0x138b1b",
+        "completed.asm 0000000000138bb0..0000000000138d96"
+      ]
+    },
+    {
+      "id": "SA2-F6",
+      "title": "History is readable by year and ruler; rewind is a separate explicit operation",
+      "verified": [
+        "Game wrappers expose SagaForYear, NameOfRulerInYear, SaveAsYearlySave and LoadGameYear.",
+        "SagaView loads selected year, hides restore for current year, gates by canBeRestored and requests confirmation before RestoreToYear."
+      ],
+      "manual_semantics": [
+        "Saga records clan events/starting lore, begins year with omen and groups years under king; restoring discards subsequent progress."
+      ],
+      "inference": "A readable yearly history index can be independent of detailed tick logs and recovery checkpoints.",
+      "limits": "Native encoding, compression, retention and actual snapshot file format unrecovered; no save-size claim.",
+      "evidence": [
+        {
+          "private_path": "recovered/managed/Game.cs",
+          "lines": [
+            130,
+            148
+          ],
+          "sha256": "074f17275c69076a30b4a578654b45274871b5e915820ab995451aa73f43b825"
+        },
+        {
+          "private_path": "recovered/managed/Game.cs",
+          "lines": [
+            295,
+            303
+          ],
+          "sha256": "074f17275c69076a30b4a578654b45274871b5e915820ab995451aa73f43b825"
+        },
+        {
+          "private_path": "recovered/managed/SagaView.cs",
+          "lines": [
+            55,
+            100
+          ],
+          "sha256": "7ba13a218c54738116dfc35ecd4be0fecabce78c69d4bd84a0c958f07151b5ad"
+        },
+        {
+          "private_path": "payload/LightsGoingOut.app/Contents/Plugins/DarkAgePlugin.bundle/Contents/Resources/DarkAge-Help-Steam.lua",
+          "lines": [
+            165,
+            173
+          ],
+          "sha256": "093849fbffd7639d7ce1f9e93d9f8da49eaac02bab519a2557e8e5f4d9321312"
+        }
+      ]
+    }
+  ],
+  "native_evidence": [
+    {
+      "artifact": "recovered/ageRing.asm",
+      "sha256": "af87f7fb270c239320bbc806d39526409ba9b30d612ab35931584da78f94c81c",
+      "symbol": "-[DarkAgeGame ageRing:]:",
+      "address_start": "00000000001a9fa0",
+      "address_end": "00000000001aa09b"
+    },
+    {
+      "artifact": "recovered/agePerson.asm",
+      "sha256": "a6d118819723526d59274b6d4c0c56c3fc510c97082cd367ce03e87b95e33a5c",
+      "symbol": "-[Person ageOneYearWithFamousEvent:instructionMagic:multiplier:]:",
+      "address_start": "00000000000534f0",
+      "address_end": "00000000000542ae"
+    },
+    {
+      "artifact": "recovered/handleMoot.asm",
+      "sha256": "bd675805ce937a9a962c0ebdd2bd72acf3085ddf1cf5df635375f413b5361c45",
+      "symbol": "-[PlayerClan(Economics) handleMoot]:",
+      "address_start": "00000000000bfe60",
+      "address_end": "00000000000c0b17"
+    },
+    {
+      "artifact": "recovered/handleSacredTime.asm",
+      "sha256": "35d31c6ad88a4c7bec77c0365305a787d18f6cba47c72cf05e0cff8032e8af26",
+      "symbol": "-[PlayerClan(Economics) handleSacredTime]:",
+      "address_start": "00000000000c0b20",
+      "address_end": "00000000000c1067"
+    },
+    {
+      "artifact": "recovered/checkResult.asm",
+      "sha256": "eede9ea16f42f657592641f728986ab95cd57d3344e9de64ba02f397afdfff30",
+      "symbol": "-[Script checkResult]:",
+      "address_start": "00000000001387f0",
+      "address_end": "0000000000138b47"
+    },
+    {
+      "artifact": "recovered/completed.asm",
+      "sha256": "f762db7f6e9a9648948405e02816e872c32a59dabbe9aa2e58630ca10dc9861d",
+      "symbol": "-[Script completed]:",
+      "address_start": "0000000000138bb0",
+      "address_end": "0000000000138d96"
+    }
+  ],
+  "native_boundary": {
+    "private_path": "recovered/firstpass/PluginImport.cs",
+    "sha256": "eec2c5f66ef4341cf751cab1dd6688e16983c75a8c676cc44d77fcd8fc60f7fa",
+    "meaning": "DllImport bridge confirms native simulation ownership; managed wrapper export is not reconstruction of all native mechanics."
+  }
+}

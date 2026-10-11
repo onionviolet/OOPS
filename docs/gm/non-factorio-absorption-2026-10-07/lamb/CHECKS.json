@@ -1,0 +1,129 @@
+{
+  "schema": 1,
+  "checked_utc": "2026-10-07T21:32:51.605799+00:00",
+  "owner": "/root/lamb_slice",
+  "status": "passed_bounded_leaf_proof_root_integration_browser_pending",
+  "command": "node docs/gm/non-factorio-absorption-2026-10-07/lamb/leaf_checks.mjs",
+  "exit_code": 0,
+  "passed": 21,
+  "check_names": [
+    "old absence and pure local views are inert",
+    "actual observed/practiced competence alone gives no office, approval or service",
+    "appointment needs actual completions and matching Eda demonstration, not remembered words",
+    "appointment cancellation and source-loss support refund leave no office or history",
+    "inspection holds the only real stave and fineDull guide and completes without available duplicates",
+    "sharp fine guide follows its own unchanged return and distinct receipt, sharing the one approval exclusion",
+    "inspection admission rejects absent or borrowed/equipped part and missing/loaned/equipped guide",
+    "native fee and Eda effort must actually be available",
+    "inspection cancellation refunds the exact fee, Eda effort, stave and unchanged guide",
+    "lost consent, source, body, hands, location or native battle refunds inspection without approval or wage",
+    "the finite order holds one native stave and three actual Eda coins, paying only at completion",
+    "missing part, insufficient actual purse and inactive current source reject the order without spending",
+    "delivery cancellation and lost source return stave and purse exactly, keeping approval unconsumed",
+    "ending with an inactive source retains earned competence and every receipt, blocking future service",
+    "ending after settlement preserves the native transfer, payment and consumed approval",
+    "actual source removal disables service without preventing ending or erasing appointment history",
+    "actual scheduler preview protects player, Eda and bench attention; stale host requests reject",
+    "all pending static routes survive JSON; changed held costs, guide, time, returns or support reject",
+    "orphan office, approval, history, replayed completion and foreign namespaces reject",
+    "admission requires current native body, Eda consent/method and bench, but title never supplies them",
+    "schema11/simulation5 and unrelated ordinary work histories remain unchanged"
+  ],
+  "syntax": {
+    "commands": [
+      "node --check src/steam_lamb_content.js",
+      "node --check src/steam_lamb_runtime.js",
+      "node --check src/steam_lamb_facts.js",
+      "node --check src/steam_lamb_host.js"
+    ],
+    "exit_code": 0
+  },
+  "whitespace": {
+    "method": "read all four untracked leaves and reject trailing whitespace; task-path git diff --check also exited0",
+    "passed": true
+  },
+  "output_hashes": [
+    {
+      "path": "src/steam_lamb_content.js",
+      "sha256": "e370771852e1eb8a40d392bc87041f7d8a27b13ea6847462064c5ca56c70079e",
+      "bytes": 7312
+    },
+    {
+      "path": "src/steam_lamb_runtime.js",
+      "sha256": "8df169fae0f5d865130058a1f3e8b0920def440de06c67c62749da32a36ab8ae",
+      "bytes": 10136
+    },
+    {
+      "path": "src/steam_lamb_facts.js",
+      "sha256": "ba755e21daedf50113c1d5602725902c03bb706af04ba849bb06831189533be0",
+      "bytes": 10506
+    },
+    {
+      "path": "src/steam_lamb_host.js",
+      "sha256": "b770c3b9f7f549a33625e30d9222d11935aacc734d032b28faa9c942c08dd49d",
+      "bytes": 4122
+    }
+  ],
+  "qualification_script": {
+    "path": "docs/gm/non-factorio-absorption-2026-10-07/lamb/leaf_checks.mjs",
+    "sha256": "cf2aefe7ec3d3377f468f5c43ce93b31f83f1ec9f4722252d229afa1cb43e259",
+    "bytes": 25094
+  },
+  "shared_input_hashes": [
+    {
+      "path": "src/feature_expansion_objects.js",
+      "sha256": "d4d6c19ef677addd94b874dc37355465d3997d7cfbdf58ce00df379d5f02a0bd",
+      "bytes": 27136
+    },
+    {
+      "path": "src/simulation.js",
+      "sha256": "07037d28864ed8746d768a6ed575bd5eb44b9c6f7af1f07297e5d59bb38110a6",
+      "bytes": 59159
+    },
+    {
+      "path": "src/simulation_effects.js",
+      "sha256": "bd9dde5ea0e09510a6111ac6c99e139c89ce94afc2ae4ae9772213b089408620",
+      "bytes": 30997
+    },
+    {
+      "path": "src/simulation_contracts.js",
+      "sha256": "0b048cb891b0e30abeb7f97125d8fe62ca9abe03c7fc7697e0078ae4a72501de",
+      "bytes": 33625
+    },
+    {
+      "path": "src/status_care_facts.js",
+      "sha256": "7c32a7b9b3eb7cf411b1f1b762fbdca50d159966ca09d799f075f78ea649dd49",
+      "bytes": 8037
+    },
+    {
+      "path": "src/body_progression.js",
+      "sha256": "47e8de67bdb099fb41365afafbf3081e342e734d97615850f921e0b280dfe84e",
+      "bytes": 9050
+    },
+    {
+      "path": "src/steam_absorption_content.js",
+      "sha256": "250625966287ff0d116fed2650a8cc1affb4d55e11d304e6229032b2c1621e76",
+      "bytes": 687
+    },
+    {
+      "path": "src/steam_absorption_facts.js",
+      "sha256": "96b845ee854f331f0efe79c377fbb2054fefa675d24d9e9a9a3d8598134ebf80",
+      "bytes": 637
+    },
+    {
+      "path": "src/steam_absorption_host.js",
+      "sha256": "534dca24ce00346d1d6559794143d49b5222fd275dc3ad47dc57fcee845dee57",
+      "bytes": 1329
+    }
+  ],
+  "proof_boundary": "Actual shared effect/refund reducers and scheduler previews; real cancellation and ending host. Generated timed-job assembly/completion harness does not establish not-yet-added shared timed hooks, native publication, browser or save/import IO.",
+  "not_run": [
+    "root timed scheduler integration",
+    "matching immutable rebuild",
+    "fresh-origin browser gameplay",
+    "native publication/save/reload/import IO",
+    "publisher-failure browser branch",
+    "keyboard/wider regressions",
+    "creative-director acceptance"
+  ]
+}

@@ -1,0 +1,64 @@
+{
+  "status": "bounded-static-source-audit-complete",
+  "source_audit_complete": true,
+  "installed_build": "25151407",
+  "source_bytes": 308402708,
+  "table_counts": {
+    "strings": 27609,
+    "code_entries": 6108,
+    "variables": 14853,
+    "functions": 2916,
+    "objects": 792,
+    "rooms": 75,
+    "scripts": 3257
+  },
+  "decoded": {
+    "strings": 27609,
+    "codes": 6108,
+    "variables": 14853,
+    "functions": 2916,
+    "errors": [],
+    "unique_instruction_boundaries": 752914,
+    "unresolved_references": 0,
+    "branch_targets_outside_known_boundaries": [],
+    "unique_code_bodies": 4034
+  },
+  "reviewed_code_indices": [
+    1647,
+    1674,
+    1678,
+    1680,
+    1721,
+    1723,
+    1774,
+    1820,
+    1834,
+    1870,
+    1872,
+    1874,
+    3881,
+    3883,
+    4327,
+    4421,
+    5119
+  ],
+  "review_depth": "Named table recovery plus all unique bytecode bodies decoded. Human static review targets findings intervals only. No full high-level decompilation, whole-program reachability or full dialogue review.",
+  "not_reviewed": [
+    "all story/choice paths",
+    "localize3.dat contents",
+    "audio/art/textures",
+    "engine extensions/native runner",
+    "DLC entitlement",
+    "whole save serializer schema, all caller timing and offline policies"
+  ],
+  "not_exercised": [
+    "game runtime",
+    "rendered UI",
+    "natural route reachability and pacing",
+    "user save/reload/import",
+    "Steam awards/cloud",
+    "all YAIR proposals"
+  ],
+  "opaque_code": "No selected CODE instruction stream structurally opaque; native runner/extensions and VN engine dispatch semantics not reverse engineered. Special Break instructions decoded as subopcode/argument only where semantics not needed. No complete high-level source recovery claim.",
+  "public_raw_content": false
+}

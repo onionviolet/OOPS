@@ -1,0 +1,24 @@
+{
+  "game": "King of Dragon Pass",
+  "app_id": 352220,
+  "reviewed_at": "2026-10-07T16:22:19.339798-04:00",
+  "eligible": true,
+  "receipt_hash_verified": true,
+  "representative_private_hash_checks": [
+    "kodp_reference_card/kodp_reference_card/King of Dragon Pass - Reference Card.pdf",
+    "King of Dragon Pass.app/Contents/Resources/King of Dragon Pass.s86",
+    "King of Dragon Pass.app/Contents/Resources/KoDp/scenes.dat"
+  ],
+  "finite_pass": "five manual-defined chains plus bounded native engine chain",
+  "limits": [
+    "Complete OSL opcode and variable map",
+    "Individual 1760 scene programs, advisor text rules and outcome probabilities",
+    "All clan/NPC yearly ecology formulas",
+    "Save/history serializer internals",
+    "Quest and tribe mechanics beyond mentioned manual links",
+    "Art/audio/text lore corpus"
+  ],
+  "recipient": "docs/gm/life-sim-experience-2026-10-07/",
+  "packets": "docs/research/king-of-dragon-pass/IMPLEMENTATION_PACKETS.json",
+  "no_installed_consumer": true
+}

@@ -1,0 +1,128 @@
+[
+  {
+    "id": "F1",
+    "label": "seen in text",
+    "finding": "Decay is engineered dependence, not ordinary mechanical wear.",
+    "detail": "Sabine explains planned obsolescence, corporate-exclusive stabilizer and biosynthetic immune passcodes. Medicine is bodily support and a means of corporate control. This is the character account; executable biomedical simulation is not established.",
+    "locator": "assets/text/sharedassets0-237.txt / root[2].SabineInspection2, SabinesTest"
+  },
+  {
+    "id": "F2",
+    "label": "seen in text",
+    "finding": "Food remains necessary for this artificial body.",
+    "detail": "The shipped guide says condition falls one segment per cycle, can be hurt by violence/injury/lack of food, and energy falls two segments per cycle. Starvation converts energy loss into condition loss and doubles per-cycle condition depletion. Do not derive an exact combined formula from this prose.",
+    "locator": "level1 byte offsets 121870124, 121971012, 121971144"
+  },
+  {
+    "id": "F3",
+    "label": "seen in text",
+    "finding": "Condition limits the next cycle's action capacity.",
+    "detail": "The guide links worse condition to fewer newly rolled dice. Dice are allocated to actions; resting at home ends the cycle and replenishes them. Exact condition-to-count thresholds were not decoded.",
+    "locator": "level1 bytes 121818204, 121823732"
+  },
+  {
+    "id": "F4",
+    "label": "seen in text",
+    "finding": "A selected die and the appropriate skill define the action attempt.",
+    "detail": "The guide names Engineer, Interface, Endure, Intuit and Engage; modifiers -1, 0, +1, +2 alter the slotted die, and some actions require +1. Positive, neutral and negative outcomes can change clocks, items, energy or condition. Full odds lookup and clamps remain opaque.",
+    "locator": "level1 bytes 121827628, 121933812, 121966900, 121939044"
+  },
+  {
+    "id": "F5",
+    "label": "seen in text",
+    "finding": "Data-cloud actions give low or specific dice a different use.",
+    "detail": "The shipped tutorial requires matching a displayed die to unlock extraction; Interface +1/+2 offers more possible matches. This is a distinct selection rule, not merely a bigger general success percentage.",
+    "locator": "level1 byte 121970092"
+  },
+  {
+    "id": "F6",
+    "label": "seen in text",
+    "finding": "Action clocks and cycle clocks advance for different reasons.",
+    "detail": "Guide text puts action-filled clocks below contributing actions; cycle clocks tick once per cycle without player input and appear on location icons. Completing a clock signals an imminent good or bad event. Dragos' debt is the guide's example of pressure independent of project work.",
+    "locator": "level1 bytes 121868012, 121868275"
+  },
+  {
+    "id": "F7",
+    "label": "seen in text",
+    "finding": "Breaking down continues the life with an impairment.",
+    "detail": "At zero condition the guide describes breakdown, a skill locked at -1 with perks disabled, a one-upgrade repair cost, and partial bodily recovery after rest. Bodily recovery and skill repair are separate. This is guide evidence, not a tested death/recovery branch.",
+    "locator": "level1 byte 121815892"
+  },
+  {
+    "id": "F8",
+    "label": "seen in text",
+    "finding": "Self-repair and alternative medicine change dependence.",
+    "detail": "The shipped perk text allows scrap-based repair at home. Riko's narrative extracts stabilizer from Clubheads supplied by the player; Hypha describes shared food and work without wages. Exact material quantities, growth clocks and recipe rewards remain unverified.",
+    "locator": "level1 byte 121894652; English Ink RikosStabilizer, HyphaExplained, RikoScene1, RikoScene2"
+  },
+  {
+    "id": "F9",
+    "label": "seen in text",
+    "finding": "Corporate ownership differs from treatment as a person.",
+    "detail": "Sabine describes no legal rights/status in surrogate systems, yet chooses to help. Their provider is entangled with Yatagan and its profits. Freedom has institutional and interpersonal dimensions beyond restoring a condition bar.",
+    "locator": "English Ink SabineInspection3, SabineScene2, InjectionSabine2"
+  },
+  {
+    "id": "F10",
+    "label": "seen in text",
+    "finding": "A tracker reports condition as well as location.",
+    "detail": "Feng's solution both disables tracking and falsifies a terminal condition report to discourage retrieval. The story ties counter-surveillance to the adversary's valuation of an asset; actual hunter state transitions were not decoded.",
+    "locator": "English Ink FengTracker, FengFixesTracker, EthanExplains11"
+  },
+  {
+    "id": "F11",
+    "label": "seen in text",
+    "finding": "Failure can leave a specific social setback.",
+    "detail": "QualityControl describes loss of trusted shipyard work after bad welds, returning to yard-hand work and rebuilding trust, or choosing to leave. This is authored failure content; exact clock/reset gating remains opaque.",
+    "locator": "English Ink QualityControl"
+  },
+  {
+    "id": "F12",
+    "label": "seen in text",
+    "finding": "The source includes a substantial commitment warning.",
+    "detail": "Purge's shipped warning says sending data begins the final sequence and prevents returning to unfinished drives or other endings. Some clocks prepare departure over twelve cycles. This contradicts treating all commitments as reversible or all side stories as permanently available.",
+    "locator": "level1 bytes 121803188, 122529100; English root knots with FLUX/PURGE content"
+  },
+  {
+    "id": "F13",
+    "label": "seen in data or code",
+    "finding": "Narrative and gameplay have separate source structures.",
+    "detail": "Mono assemblies include PlaymakerInkProxy wrapping an Ink Story: choose a path/choice, continue text, get tags, and read/write variables. Four compiled Ink v19 TextAssets share 1,398 root names; English is sharedassets0 path ID237. Generic PlayMaker action code was decompiled, but full serialized gameplay graphs were not recovered.",
+    "locator": "code/PlaymakerInkProxy.cs:13-145; ASSET_RECEIPT.json; sharedassets0.assets path IDs237-240"
+  },
+  {
+    "id": "F14",
+    "label": "seen in data or code",
+    "finding": "The pictured UI keeps resources near the fiction and makes commitment legible.",
+    "detail": "Publisher screenshot0 shows condition/dice and a tracked drive beside scrollable dialogue. Screenshot2 shows critical/repeatable action labels, skill/modifier, probabilities, danger words and a radial Local Knowledge clock. Static promotional images are version-unknown, not runtime evidence of this install.",
+    "locator": "private public/RECEIPT.json, screenshot-0.jpg, screenshot-2.jpg"
+  },
+  {
+    "id": "F15",
+    "label": "seen in text",
+    "finding": "The source does not support maintenance replacing food or parts replacing all progression.",
+    "detail": "The guide explicitly retains eating; five named skills and perk/upgrade text remain alongside body condition. These are contradictions with the abbreviated construct example in the north star, not grounds to ban that example from another world.",
+    "locator": "F2, F4, F7, F8; public screenshot1; docs/LIFE_SIM_NORTH_STAR.md construct notes"
+  },
+  {
+    "id": "F16",
+    "label": "inferred",
+    "finding": "Manual cycles would need adaptation for YAIR idle time.",
+    "detail": "The guide makes rest advance time; no offline catch-up implementation was established. An idle adaptation needs its own local cycle/offline policy. Do not assert that the installed game advances or freezes during absence from this audit.",
+    "locator": "F3, F6; src/simulation.js:311-328, 449-535; rulebook time and per-world rules"
+  },
+  {
+    "id": "F17",
+    "label": "seen in text",
+    "finding": "A dated player complaint questions late-game pressure.",
+    "detail": "One participant in the January2025 Steam stress discussion says the original eventually became too easy. This is an individual retrospective comment, not a representative survey, pacing measurement or verified defect in this build.",
+    "locator": "WEB3 post#2, https://steamcommunity.com/app/2442460/discussions/0/600769217628750565/"
+  },
+  {
+    "id": "F18",
+    "label": "inferred",
+    "finding": "Capacity loss can create a feedback loop.",
+    "detail": "Fewer dice can make earning repair resources harder, while repaired capacity can improve access to work. This follows the guide and narrative, but actual severity, prices and late-game balance were not measured.",
+    "locator": "F2-F4, F8-F9"
+  }
+]

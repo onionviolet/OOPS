@@ -1,0 +1,45 @@
+{
+  "passed": true,
+  "selected": 15,
+  "books_with_chapter_text": 5,
+  "chapters_acquired_read": 11,
+  "chapter_hashes_verified": 11,
+  "private_epubs": 5,
+  "leaf_model": "gpt-6-luna medium",
+  "leaf_claims_reviewed": 15,
+  "parent_repair_rounds": 1,
+  "source_request_ids_added": [
+    "S89",
+    "S90",
+    "S91",
+    "S92",
+    "S93",
+    "S94"
+  ],
+  "existing_request_prefix_preserved": true,
+  "unique_request_ids": 94,
+  "hosts_stopped": {
+    "www.royalroad.com": "robots disallow (GPTBot)",
+    "www.webnovel.com": "Cloudflare challenge parameters",
+    "book.qidian.com": "robots disallow (GPTBot)",
+    "j-novel.club": "redirect HTTP 308; not followed",
+    "www.wuxiaworld.com": "Cloudflare challenge parameters"
+  },
+  "network_requests": 32,
+  "requests_per_host": {
+    "www.royalroad.com": 1,
+    "www.webnovel.com": 2,
+    "book.qidian.com": 1,
+    "www.tappytoon.com": 6,
+    "www.wuxiaworld.com": 6,
+    "j-novel.club": 2,
+    "palelights.com": 6,
+    "ncode.syosetu.com": 4,
+    "kakuyomu.jp": 4
+  },
+  "minimum_same_host_gap_seconds": 4.06564,
+  "requests_after_host_stop": 0,
+  "inbox_epubs_at_delivery": 0,
+  "game_builds_tests_commits": 0,
+  "scope": "artifact integrity, acquired-source coverage and bounded source review only"
+}

@@ -1,0 +1,59 @@
+{
+  "packets": [
+    {
+      "id": "SA2-P1",
+      "status": "original proposal, not accepted or implemented",
+      "route": "experience",
+      "title": "A friend ages into a new role",
+      "evidence": "SA2-F1",
+      "scope": "personId, ageStage, priorRole, availability, milestone",
+      "playable_acceptance": "Advance one established NPC to next age stage; distinct text/action availability; save/reload/import preserves identity and single milestone.",
+      "compatibility": "Optional additive bounded state, preserve vanilla opening/current saves; owner supplies migration/defaults",
+      "exclusions": "No proprietary names/prose, whole dynasty simulation, unapproved true death, universal rewind, new world or new prestige layer"
+    },
+    {
+      "id": "SA2-P2",
+      "status": "original proposal, not accepted or implemented",
+      "route": "experience",
+      "title": "Prepare for one forecasted season",
+      "evidence": "SA2-F2",
+      "scope": "periodId, forecastId, preparationId, reservedResource",
+      "playable_acceptance": "Forecast visible before allocation; spend once; selected protection changes one later outcome; reserve remains usable; reload does not reroll.",
+      "compatibility": "Optional additive bounded state, preserve vanilla opening/current saves; owner supplies migration/defaults",
+      "exclusions": "No proprietary names/prose, whole dynasty simulation, unapproved true death, universal rewind, new world or new prestige layer"
+    },
+    {
+      "id": "SA2-P3",
+      "status": "original proposal, not accepted or implemented",
+      "route": "experience",
+      "title": "Repair a damaged home with a skilled friend",
+      "evidence": "SA2-F3",
+      "scope": "homeDamage, repairId, helperId, dueAt, costPaid",
+      "playable_acceptance": "One setback unlocks repair; eligibility explains missing skill/material; finish changes home and records helper; interruption cannot duplicate cost/outcome.",
+      "compatibility": "Optional additive bounded state, preserve vanilla opening/current saves; owner supplies migration/defaults",
+      "exclusions": "No proprietary names/prose, whole dynasty simulation, unapproved true death, universal rewind, new world or new prestige layer"
+    },
+    {
+      "id": "SA2-P4",
+      "status": "original proposal, not accepted or implemented",
+      "route": "foundation",
+      "title": "Let neglected relationships age in coarse steps",
+      "evidence": "SA2-F4",
+      "scope": "npcId, lastMeaningfulContactAt, lastResolvedPeriod, neglectedTier",
+      "playable_acceptance": "Advance several unseen years in one call and in split calls; same bounded state; report absence once; renewed contact changes later tier; save/reload/import stable.",
+      "compatibility": "Optional additive bounded state, preserve vanilla opening/current saves; owner supplies migration/defaults",
+      "exclusions": "No proprietary names/prose, whole dynasty simulation, unapproved true death, universal rewind, new world or new prestige layer"
+    },
+    {
+      "id": "SA2-P5",
+      "status": "original proposal, not accepted or implemented",
+      "route": "foundation",
+      "title": "Commit event aftermath into a yearly life index",
+      "evidence": "SA2-F5 + SA2-F6",
+      "scope": "eventId, yearId, committedOutcome, participantIds, transientContext",
+      "playable_acceptance": "Resolve one event once; next event receives no stale scratch; yearly index retains outcome/people; reload/import identical; no new rewind/death policy.",
+      "compatibility": "Optional additive bounded state, preserve vanilla opening/current saves; owner supplies migration/defaults",
+      "exclusions": "No proprietary names/prose, whole dynasty simulation, unapproved true death, universal rewind, new world or new prestige layer"
+    }
+  ]
+}

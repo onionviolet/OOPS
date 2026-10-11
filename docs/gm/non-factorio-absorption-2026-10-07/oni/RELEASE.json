@@ -1,0 +1,68 @@
+{
+  "schema": 1,
+  "date": "2026-10-07",
+  "owner": "/root/oni_slice",
+  "released_to": "/root",
+  "status": "source_and_leaf_evidence_released_browser_unverified",
+  "paths": [
+    "src/steam_oni_content.js",
+    "src/steam_oni_runtime.js",
+    "src/steam_oni_facts.js",
+    "src/steam_oni_host.js"
+  ],
+  "document_area": "docs/gm/non-factorio-absorption-2026-10-07/oni",
+  "source_hashes": [
+    {
+      "path": "src/steam_oni_content.js",
+      "sha256": "6cbe695c58aa605adc9292ac7d2bb6e93c4d2bc7772ed4668e121e0bb78428b2"
+    },
+    {
+      "path": "src/steam_oni_runtime.js",
+      "sha256": "6a5df3ef495c1c25f90052bbb2c2529a4cbe66c3fed94bd5e7e7d5dcc691e39a"
+    },
+    {
+      "path": "src/steam_oni_facts.js",
+      "sha256": "c9beb50f845ab9909c96cbbdda6410d4d58476ec06512dc02628c174ca341a95"
+    },
+    {
+      "path": "src/steam_oni_host.js",
+      "sha256": "74c3f84f5d1d6c686e291465f4a42c7556370e5e4551162856dd78d5293d2f49"
+    },
+    {
+      "path": "docs/gm/non-factorio-absorption-2026-10-07/oni/leaf_checks.mjs",
+      "sha256": "eaebf310e21c413a54528f40c575ee12ead690aae62b7f492c3adc6f85335ca6"
+    }
+  ],
+  "checks": {
+    "syntax": {
+      "command": "node --check for four steam_oni modules",
+      "result": "passed"
+    },
+    "bounded": {
+      "command": "node docs/gm/non-factorio-absorption-2026-10-07/oni/leaf_checks.mjs",
+      "result": "passed",
+      "count": 14,
+      "scope": "Cold enrollment/instant command host and real shared effect/refund reducers using scheduler-shaped jobs, JSON compatibility and tamper rejection."
+    }
+  },
+  "unverified": [
+    "Shared scheduled ticking",
+    "Native publication",
+    "Matching build",
+    "Fresh-origin controls and native cooking",
+    "Save/reload/native import"
+  ],
+  "hook_exports": [
+    "steamONIDefinitions",
+    "steamONIFacts",
+    "validateSteamONIState",
+    "steamONIContext",
+    "commitSteamONICommand",
+    "steamONIPresentation",
+    "guardSteamONIAdmission",
+    "stampSteamONIAcceptedJob",
+    "steamONICompletionContext"
+  ],
+  "compatibility": "Expansion11 and supported simulation1-5 unchanged. Cold opening schema3 caused idle plan; refundable work schema4; existing5 stays5. Optional complete absence inert.",
+  "boundary": "No shared edits, build, browser, commits, installs, private saves, research mutation or recovered-code execution."
+}

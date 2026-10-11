@@ -1,0 +1,477 @@
+{
+  "revision": "1da7316ffd9d281b45a86c4c54ec532276557892",
+  "findings": [
+    {
+      "id": "F1",
+      "title": "Automation reserves a measurable budget before execution",
+      "status": "source-verified; runtime-unverified",
+      "observation": "Worker start checks RAM per thread, rejects shortage before allocation, tracks PID and cleans up resolved/rejected execution.",
+      "primary_evidence": {
+        "path": "src/NetscriptWorker.ts",
+        "start": 74,
+        "end": 155,
+        "revision": "1da7316ffd9d281b45a86c4c54ec532276557892",
+        "url": "https://github.com/bitburner-official/bitburner-src/blob/1da7316ffd9d281b45a86c4c54ec532276557892/src/NetscriptWorker.ts#L74-L155"
+      },
+      "transfer_proposal": "Extend the existing single-command routine with visible affordability and a bounded target, without JavaScript or parallel actor labor.",
+      "supporting_evidence": []
+    },
+    {
+      "id": "F2",
+      "title": "Research joins data, requirements, effects and readable UI",
+      "status": "source-verified; runtime-unverified",
+      "observation": "Research checks parent and points, subtracts once, then shares the unlock with same-industry divisions; transport updates warehouse size explicitly.",
+      "primary_evidence": {
+        "path": "src/Corporation/Actions.ts",
+        "start": 501,
+        "end": 539,
+        "revision": "1da7316ffd9d281b45a86c4c54ec532276557892",
+        "url": "https://github.com/bitburner-official/bitburner-src/blob/1da7316ffd9d281b45a86c4c54ec532276557892/src/Corporation/Actions.ts#L501-L539"
+      },
+      "transfer_proposal": "A local workshop method should have a known prerequisite, materials and a named practical function. Do not give all workshops knowledge without a transmission rule.",
+      "supporting_evidence": [
+        {
+          "path": "src/Corporation/ResearchTree.ts",
+          "start": 17,
+          "end": 52,
+          "revision": "1da7316ffd9d281b45a86c4c54ec532276557892",
+          "url": "https://github.com/bitburner-official/bitburner-src/blob/1da7316ffd9d281b45a86c4c54ec532276557892/src/Corporation/ResearchTree.ts#L17-L52"
+        },
+        {
+          "path": "src/Corporation/ResearchTree.ts",
+          "start": 165,
+          "end": 221,
+          "revision": "1da7316ffd9d281b45a86c4c54ec532276557892",
+          "url": "https://github.com/bitburner-official/bitburner-src/blob/1da7316ffd9d281b45a86c4c54ec532276557892/src/Corporation/ResearchTree.ts#L165-L221"
+        },
+        {
+          "path": "src/Corporation/data/BaseResearchTree.ts",
+          "start": 15,
+          "end": 65,
+          "revision": "1da7316ffd9d281b45a86c4c54ec532276557892",
+          "url": "https://github.com/bitburner-official/bitburner-src/blob/1da7316ffd9d281b45a86c4c54ec532276557892/src/Corporation/data/BaseResearchTree.ts#L15-L65"
+        },
+        {
+          "path": "src/Corporation/ui/modals/ResearchModal.tsx",
+          "start": 28,
+          "end": 85,
+          "revision": "1da7316ffd9d281b45a86c4c54ec532276557892",
+          "url": "https://github.com/bitburner-official/bitburner-src/blob/1da7316ffd9d281b45a86c4c54ec532276557892/src/Corporation/ui/modals/ResearchModal.tsx#L28-L85"
+        }
+      ]
+    },
+    {
+      "id": "F3",
+      "title": "Reset types have different destruction and retention boundaries",
+      "status": "source-verified; runtime-unverified",
+      "observation": "Augmentation reset clears skills, money, work and invitations and reapplies installed augmentations. Source-file reset calls that path and additionally clears institutions and augmentations. The non-flume BitNode entry caller grants/upgrades a Source-File before resetting; flume entry does not grant it.",
+      "primary_evidence": {
+        "path": "src/PersonObjects/Player/PlayerObjectGeneralMethods.ts",
+        "start": 80,
+        "end": 175,
+        "revision": "1da7316ffd9d281b45a86c4c54ec532276557892",
+        "url": "https://github.com/bitburner-official/bitburner-src/blob/1da7316ffd9d281b45a86c4c54ec532276557892/src/PersonObjects/Player/PlayerObjectGeneralMethods.ts#L80-L175"
+      },
+      "transfer_proposal": "For the one proposed prestige layer, show a field-level retention preview; travel and ascension remain distinct, and existing lives never reset automatically.",
+      "supporting_evidence": [
+        {
+          "path": "src/Prestige.ts",
+          "start": 55,
+          "end": 98,
+          "revision": "1da7316ffd9d281b45a86c4c54ec532276557892",
+          "url": "https://github.com/bitburner-official/bitburner-src/blob/1da7316ffd9d281b45a86c4c54ec532276557892/src/Prestige.ts#L55-L98"
+        },
+        {
+          "path": "src/Prestige.ts",
+          "start": 203,
+          "end": 257,
+          "revision": "1da7316ffd9d281b45a86c4c54ec532276557892",
+          "url": "https://github.com/bitburner-official/bitburner-src/blob/1da7316ffd9d281b45a86c4c54ec532276557892/src/Prestige.ts#L203-L257"
+        },
+        {
+          "path": "src/Augmentation/AugmentationHelpers.ts",
+          "start": 69,
+          "end": 113,
+          "revision": "1da7316ffd9d281b45a86c4c54ec532276557892",
+          "url": "https://github.com/bitburner-official/bitburner-src/blob/1da7316ffd9d281b45a86c4c54ec532276557892/src/Augmentation/AugmentationHelpers.ts#L69-L113"
+        },
+        {
+          "path": "src/RedPill.tsx",
+          "start": 16,
+          "end": 78,
+          "revision": "1da7316ffd9d281b45a86c4c54ec532276557892",
+          "url": "https://github.com/bitburner-official/bitburner-src/blob/1da7316ffd9d281b45a86c4c54ec532276557892/src/RedPill.tsx#L16-L78"
+        }
+      ]
+    },
+    {
+      "id": "F4",
+      "title": "Offline progress is a model with subsystem-specific treatment",
+      "status": "source-verified; runtime-unverified",
+      "observation": "Offline script production uses measured prior activity, elapsed time, confidence for experience and a configurable income factor. Grow/weaken use half-rate counts; money guards nonfinite values. Startup restores only listed saved scripts after MainUILoaded, can skip them with ?noscript, and RAM admission may fail; offline calculation is called after each start attempt, so this code is not a promise of uninterrupted script execution.",
+      "primary_evidence": {
+        "path": "src/Script/ScriptHelpers.ts",
+        "start": 14,
+        "end": 90,
+        "revision": "1da7316ffd9d281b45a86c4c54ec532276557892",
+        "url": "https://github.com/bitburner-official/bitburner-src/blob/1da7316ffd9d281b45a86c4c54ec532276557892/src/Script/ScriptHelpers.ts#L14-L90"
+      },
+      "transfer_proposal": "Present known offline policy and a catch-up receipt, using YAIR actual legal commands rather than copying estimates or the four-hour threshold.",
+      "supporting_evidence": [
+        {
+          "path": "src/NetscriptWorker.ts",
+          "start": 218,
+          "end": 264,
+          "revision": "1da7316ffd9d281b45a86c4c54ec532276557892",
+          "url": "https://github.com/bitburner-official/bitburner-src/blob/1da7316ffd9d281b45a86c4c54ec532276557892/src/NetscriptWorker.ts#L218-L264"
+        },
+        {
+          "path": "src/engine.tsx",
+          "start": 257,
+          "end": 282,
+          "revision": "1da7316ffd9d281b45a86c4c54ec532276557892",
+          "url": "https://github.com/bitburner-official/bitburner-src/blob/1da7316ffd9d281b45a86c4c54ec532276557892/src/engine.tsx#L257-L282"
+        },
+        {
+          "path": "src/engine.tsx",
+          "start": 307,
+          "end": 341,
+          "revision": "1da7316ffd9d281b45a86c4c54ec532276557892",
+          "url": "https://github.com/bitburner-official/bitburner-src/blob/1da7316ffd9d281b45a86c4c54ec532276557892/src/engine.tsx#L307-L341"
+        },
+        {
+          "path": "src/engine.tsx",
+          "start": 355,
+          "end": 372,
+          "revision": "1da7316ffd9d281b45a86c4c54ec532276557892",
+          "url": "https://github.com/bitburner-official/bitburner-src/blob/1da7316ffd9d281b45a86c4c54ec532276557892/src/engine.tsx#L355-L372"
+        }
+      ]
+    },
+    {
+      "id": "F5",
+      "title": "Automation UI makes cost and outcomes inspectable",
+      "status": "source-verified; runtime-unverified",
+      "observation": "A collapsed script row identifies RAM and arguments; expansion separates threads, online/offline time, totals and measured production rates; kill and log handlers expose control.",
+      "primary_evidence": {
+        "path": "src/ui/ActiveScripts/WorkerScriptAccordion.tsx",
+        "start": 47,
+        "end": 165,
+        "revision": "1da7316ffd9d281b45a86c4c54ec532276557892",
+        "url": "https://github.com/bitburner-official/bitburner-src/blob/1da7316ffd9d281b45a86c4c54ec532276557892/src/ui/ActiveScripts/WorkerScriptAccordion.tsx#L47-L165"
+      },
+      "transfer_proposal": "Keep a concise native center-menu routine row with target, progress, blocker and pause. Expand detail in the same panel, not a new terminal.",
+      "supporting_evidence": []
+    },
+    {
+      "id": "F6",
+      "title": "Save success and import review have explicit stages",
+      "status": "source-verified; runtime-unverified",
+      "observation": "Saving awaits encoding and storage, returning on either failure before the success toast. Import writes storage and reloads; an adjacent comparison screen parses both candidate/current data and temporarily suspends autosave.",
+      "primary_evidence": {
+        "path": "src/SaveObject.ts",
+        "start": 235,
+        "end": 336,
+        "revision": "1da7316ffd9d281b45a86c4c54ec532276557892",
+        "url": "https://github.com/bitburner-official/bitburner-src/blob/1da7316ffd9d281b45a86c4c54ec532276557892/src/SaveObject.ts#L235-L336"
+      },
+      "transfer_proposal": "Extend existing guarded saves with a truthful last-success state and bounded import comparison. Do not claim import is inherently transactional: the inspected import function writes before reload.",
+      "supporting_evidence": [
+        {
+          "path": "src/ui/React/ImportSaveComparison.tsx",
+          "start": 114,
+          "end": 161,
+          "revision": "1da7316ffd9d281b45a86c4c54ec532276557892",
+          "url": "https://github.com/bitburner-official/bitburner-src/blob/1da7316ffd9d281b45a86c4c54ec532276557892/src/ui/React/ImportSaveComparison.tsx#L114-L161"
+        },
+        {
+          "path": "src/SaveObject.ts",
+          "start": 457,
+          "end": 480,
+          "revision": "1da7316ffd9d281b45a86c4c54ec532276557892",
+          "url": "https://github.com/bitburner-official/bitburner-src/blob/1da7316ffd9d281b45a86c4c54ec532276557892/src/SaveObject.ts#L457-L480"
+        },
+        {
+          "path": "src/SaveObject.ts",
+          "start": 536,
+          "end": 550,
+          "revision": "1da7316ffd9d281b45a86c4c54ec532276557892",
+          "url": "https://github.com/bitburner-official/bitburner-src/blob/1da7316ffd9d281b45a86c4c54ec532276557892/src/SaveObject.ts#L536-L550"
+        },
+        {
+          "path": "src/utils/SaveDataMigrationUtils.ts",
+          "start": 67,
+          "end": 118,
+          "revision": "1da7316ffd9d281b45a86c4c54ec532276557892",
+          "url": "https://github.com/bitburner-official/bitburner-src/blob/1da7316ffd9d281b45a86c4c54ec532276557892/src/utils/SaveDataMigrationUtils.ts#L67-L118"
+        }
+      ]
+    }
+  ],
+  "proposals": [
+    {
+      "id": "P1",
+      "rank": 1,
+      "title": "Make the existing routine legible",
+      "finding_ids": [
+        "F1",
+        "F5"
+      ],
+      "vanilla_mapping": "src/simulation.js:311-329; existing center actions",
+      "player_loop": "Repeat one native gathering command a chosen number of times, pause it, and see why the next iteration cannot start.",
+      "boundary": "No new automation scheduler; care actions remain excluded.",
+      "acceptance_gate": "From fresh origin, repeat one allowed command twice; insufficient input and busy-actor rejection spend nothing; pause/resume target survives save, reload and import.",
+      "status": "proposal; not accepted or implemented"
+    },
+    {
+      "id": "P2",
+      "rank": 2,
+      "title": "Workshop discovery with one functional payoff",
+      "finding_ids": [
+        "F2"
+      ],
+      "vanilla_mapping": "native gathering, crafting recipes, professions and equipment",
+      "player_loop": "Gather one specimen, study one method at a local workshop, then craft one tool whose use changes an existing action.",
+      "boundary": "Reuse one realm and native panels; no generic research currency tree until selected.",
+      "acceptance_gate": "Fresh-origin unlock has one prerequisite and one payment, repeated purchase costs nothing, new recipe/tool affects a native action and reload/import retains exactly that state.",
+      "status": "proposal; not accepted or implemented"
+    },
+    {
+      "id": "P3",
+      "rank": 3,
+      "title": "Receipts for productive time",
+      "finding_ids": [
+        "F4",
+        "F5"
+      ],
+      "vanilla_mapping": "existing simulation clock, routine status and activity logs",
+      "player_loop": "Return from a short absence and see completed work, inputs spent and the precise reason work stopped.",
+      "boundary": "Use the existing clock policy; no forecast production until it is defined and verified.",
+      "acceptance_gate": "Fresh-origin controlled elapsed time and a scarce input produce exact bounded totals, no replay on second reload/import and a clear unfinished state.",
+      "status": "proposal; not accepted or implemented"
+    },
+    {
+      "id": "P4",
+      "rank": 4,
+      "title": "Review the life being loaded",
+      "finding_ids": [
+        "F6"
+      ],
+      "vanilla_mapping": "src/save_files.js:166-190; native save/import flow",
+      "player_loop": "Before replacing a life, compare location, played time and schema, with a useful storage failure message tied to the last successful save.",
+      "boundary": "Guarded storage already exists. This is an extension, not a replacement or a claim of absent safety.",
+      "acceptance_gate": "Use synthetic saves only: valid legacy import, malformed candidate, oversize storage failure and cancel preserve last save; successful reload/import reports the correct life.",
+      "status": "proposal; not accepted or implemented"
+    },
+    {
+      "id": "P5",
+      "rank": 5,
+      "title": "Research sharing needs a place and a teacher",
+      "finding_ids": [
+        "F2"
+      ],
+      "vanilla_mapping": "native Village NPCs, workshop inventory, quests and trade",
+      "player_loop": "Teach the unlocked workshop method to one named craftsperson; a related facility changes only after the lesson or delivered copy.",
+      "boundary": "Original proposal; existing npc_lives.js:5-39 is a predetermined household, not evidence of autonomous teaching.",
+      "acceptance_gate": "Two synthetic actors show unlock confined to learner; absent lesson conveys nothing; delivered knowledge and resulting action persist through save/reload/import.",
+      "status": "proposal; not accepted or implemented"
+    },
+    {
+      "id": "P6",
+      "rank": 6,
+      "title": "One prestige preview, separate from travel",
+      "finding_ids": [
+        "F3"
+      ],
+      "vanilla_mapping": "PROJECT.md one prestige layer; native stats, items, life record",
+      "player_loop": "Inspect a proposed rebirth charter showing the capability gained and which current possessions or work would end before accepting anything.",
+      "boundary": "Policy undecided. Start with preview only; no reset implementation, second layer or travel coupling authorized.",
+      "acceptance_gate": "A preview performs no mutation; later selected reset needs legacy-save migration, explicit field retention tests and fresh-origin save/reload/import proof.",
+      "status": "proposal; not accepted or implemented"
+    }
+  ],
+  "small_touches": [
+    {
+      "id": "T01",
+      "proposal": "P1",
+      "touch": "Routine label uses the actual native action name",
+      "vanilla_mapping": "center action row",
+      "status": "original proposal"
+    },
+    {
+      "id": "T02",
+      "proposal": "P1",
+      "touch": "Show chosen target and remaining repetitions",
+      "vanilla_mapping": "existing single-command routine",
+      "status": "original proposal"
+    },
+    {
+      "id": "T03",
+      "proposal": "P1",
+      "touch": "Show reserved input versus inventory available",
+      "vanilla_mapping": "crafting/gathering commitment",
+      "status": "original proposal"
+    },
+    {
+      "id": "T04",
+      "proposal": "P1",
+      "touch": "Name the blocked input or actor state",
+      "vanilla_mapping": "native action availability",
+      "status": "original proposal"
+    },
+    {
+      "id": "T05",
+      "proposal": "P1",
+      "touch": "Pause button leaves target visible",
+      "vanilla_mapping": "routine controls",
+      "status": "original proposal"
+    },
+    {
+      "id": "T06",
+      "proposal": "P2",
+      "touch": "A locked method names its known prerequisite",
+      "vanilla_mapping": "crafting panel",
+      "status": "original proposal"
+    },
+    {
+      "id": "T07",
+      "proposal": "P2",
+      "touch": "Show exact payment before study",
+      "vanilla_mapping": "native inventory",
+      "status": "original proposal"
+    },
+    {
+      "id": "T08",
+      "proposal": "P2",
+      "touch": "Completed method shows a simple learned mark",
+      "vanilla_mapping": "existing panel",
+      "status": "original proposal"
+    },
+    {
+      "id": "T09",
+      "proposal": "P2",
+      "touch": "Show which recipe became usable",
+      "vanilla_mapping": "recipe list",
+      "status": "original proposal"
+    },
+    {
+      "id": "T10",
+      "proposal": "P2",
+      "touch": "Tool description states the affected action",
+      "vanilla_mapping": "equipment tooltip",
+      "status": "original proposal"
+    },
+    {
+      "id": "T11",
+      "proposal": "P3",
+      "touch": "Receipt separates completed and unfinished work",
+      "vanilla_mapping": "native activity log",
+      "status": "original proposal"
+    },
+    {
+      "id": "T12",
+      "proposal": "P3",
+      "touch": "Receipt states elapsed simulated time",
+      "vanilla_mapping": "clock display",
+      "status": "original proposal"
+    },
+    {
+      "id": "T13",
+      "proposal": "P3",
+      "touch": "Display inputs spent beside outputs gained",
+      "vanilla_mapping": "inventory/log",
+      "status": "original proposal"
+    },
+    {
+      "id": "T14",
+      "proposal": "P3",
+      "touch": "Stop reason distinguishes missing input from full storage",
+      "vanilla_mapping": "routine status",
+      "status": "original proposal"
+    },
+    {
+      "id": "T15",
+      "proposal": "P4",
+      "touch": "Show last successful save time, not last attempted time",
+      "vanilla_mapping": "save panel",
+      "status": "original proposal"
+    },
+    {
+      "id": "T16",
+      "proposal": "P4",
+      "touch": "Compare current and candidate location",
+      "vanilla_mapping": "import review",
+      "status": "original proposal"
+    },
+    {
+      "id": "T17",
+      "proposal": "P4",
+      "touch": "Compare played time and schema without exposing hidden lore",
+      "vanilla_mapping": "import review",
+      "status": "original proposal"
+    },
+    {
+      "id": "T18",
+      "proposal": "P4",
+      "touch": "Cancel resumes existing life and autosave policy",
+      "vanilla_mapping": "save controls",
+      "status": "original proposal"
+    },
+    {
+      "id": "T19",
+      "proposal": "P5",
+      "touch": "Method panel names its local discoverer",
+      "vanilla_mapping": "workshop lore",
+      "status": "original proposal"
+    },
+    {
+      "id": "T20",
+      "proposal": "P5",
+      "touch": "Lesson preview names the specific recipient",
+      "vanilla_mapping": "NPC dialogue",
+      "status": "original proposal"
+    },
+    {
+      "id": "T21",
+      "proposal": "P5",
+      "touch": "Receipt records one conveyed method",
+      "vanilla_mapping": "existing compact biography/log",
+      "status": "original proposal"
+    },
+    {
+      "id": "T22",
+      "proposal": "P5",
+      "touch": "Unknown NPC does not display future family events",
+      "vanilla_mapping": "existing household view",
+      "status": "original proposal"
+    },
+    {
+      "id": "T23",
+      "proposal": "P6",
+      "touch": "Preview divides retained and ended fields",
+      "vanilla_mapping": "one prestige review",
+      "status": "original proposal"
+    },
+    {
+      "id": "T24",
+      "proposal": "P6",
+      "touch": "Name the one new function gained instead of a vague multiplier",
+      "vanilla_mapping": "prestige preview",
+      "status": "original proposal"
+    },
+    {
+      "id": "T25",
+      "proposal": "P6",
+      "touch": "Travel action has no prestige wording or reset toggle",
+      "vanilla_mapping": "native travel menu",
+      "status": "original proposal"
+    },
+    {
+      "id": "T26",
+      "proposal": "P6",
+      "touch": "Pending projects are listed in preview before reset is considered",
+      "vanilla_mapping": "commitment summary",
+      "status": "original proposal"
+    }
+  ]
+}

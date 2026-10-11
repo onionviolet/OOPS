@@ -1,0 +1,26 @@
+{
+  "game": "Tale of Immortal",
+  "app_id": 1468810,
+  "checked_at": "2026-10-07T20:18:10.723585+00:00",
+  "state": "blocked_acquisition",
+  "source_copied": false,
+  "hash_copy_verified": false,
+  "decompiled": false,
+  "semantic_pass_complete": false,
+  "uninstall_eligible": false,
+  "platform_expected": "Windows via Neutron/NotProton; payload not acquired",
+  "build": null,
+  "private_evidence": "/Users/weiwei/.codex/research/tale-of-immortal/ACQUISITION.json",
+  "failures": [
+    "[2026-10-07 15:11:59] Failed installing AppID 1468810 (Invalid install path)",
+    "[2026-10-07 16:01:09] Failed installing AppID 1468810 (Invalid install path)",
+    "[2026-10-07 16:08:25] Failed installing AppID 1468810 (Invalid install path)"
+  ],
+  "compatibility_mapping": "notproton priority250 already present",
+  "metadata_gap": "local appinfo entry lacks config and depots; no install-directory metadata available",
+  "appinfo_root_keys": [
+    "appid",
+    "common",
+    "public_only"
+  ]
+}

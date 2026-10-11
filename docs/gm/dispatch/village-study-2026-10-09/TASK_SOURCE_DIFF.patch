@@ -1,0 +1,282 @@
+--- task-baseline/src/main.js
++++ src/main.js
+@@ -310,7 +310,7 @@
+ import {createLifeRecordPanel} from './life_record_ui.js';
+ import {createVillageLives, advanceVillageLives} from './npc_lives.js';
+ import {createVillageLivesPanel} from './npc_lives_ui.js';
+-import {createVillageCareer, migrateVillageCareer, beginVillageShift, finishVillageShift, resolveVillageKit, promoteVillageCareer, CAREER_RANKS} from './village_career.js';
++import {createVillageCareer, migrateVillageCareer, beginVillageShift, finishVillageShift, resolveVillageKit, promoteVillageCareer, CAREER_RANKS, WATCHCRAFT_BOOK, WATCHCRAFT_READING, WATCHCRAFT_PRACTICE, issueWatchcraft, practiceWatchcraft, watchcraftPresentation, villageShiftBonus} from './village_career.js';
+ import {createVillageCareerControls} from './village_career_ui.js';
+ let villageCareer = createVillageCareer();
+ let villageCareerControls;
+@@ -1808,12 +1808,18 @@
+  * 
+  * @param {Object} selected_activity - {id} of activity in Location's activities list??
+  */
+-// Kit resolution and promotion publish state, money and biography together.
++function watchcraftKnown() {return book_stats[WATCHCRAFT_BOOK].accumulated_time>=WATCHCRAFT_READING;}
++// Kit resolution, manual issuance and promotion publish their saved state together.
+ function writeVillageCareer(choice) {
+     if(!ownsSave || foundationSaveBlocked || importProbeToken || current_location?.id!=='Village' || expansionState.actors.player.worldId!=='base.frontier' || current_activity || current_dialogue || current_game_action || current_combat || is_sleeping || is_reading || is_in_trade() || expeditionOccupiesPlayer())throw new Error('Finish your current work and speak to Tessa in Village.');
+     const serialized=create_save();if(!serialized)throw new Error('The career ledger could not be saved.');
+     const save=JSON.parse(serialized);
+-    if(choice==='promote') {
++    if(choice==='notes') {
++        save.village_career=issueWatchcraft(villageCareer);
++        const key=item_templates[WATCHCRAFT_BOOK].getInventoryKey();
++        const inventory=save.inventories.person.main_character;
++        inventory[key]={count:(inventory[key]?.count || 0)+1};
++    } else if(choice==='promote') {
+         save.village_career=promoteVillageCareer(villageCareer);
+         const t=save['current time'];
+         save.life_record=appendLifeMilestone(save.life_record,{year:t.year,at:lifeCalendarMinute(t),worldId:'base.frontier',kind:'career',text:`Tessa named you a ${CAREER_RANKS[save.village_career.rank].toLowerCase()} on the Village patrol.`});
+@@ -1823,7 +1829,11 @@
+     }
+     lifeSaveStorage.setItem(is_on_dev()?dev_save_key:save_key,JSON.stringify(save));
+     if(choice==='pay')add_money_to_character(-50);
+-    log_message(choice==='promote'?`Tessa recognizes you as ${CAREER_RANKS[villageCareer.rank]}. Your life record remembers this promotion.`:choice==='return'?'Tessa: “Lantern and baton accounted for. Thank you.”':choice==='keep'?'Tessa records a 50-coin kit debt. Return the kit or pay before your next shift.':'Tessa records your kit debt as paid.');
++    if(choice==='notes') {
++        character.addToInventory([{item_id:WATCHCRAFT_BOOK,count:1}]);
++        log_message('Tessa gives you her watchcraft notes. Read, rehearse during Village meditation, then apply the method on a new patrol with our loaned kit.');
++    }
++    if(choice!=='notes')log_message(choice==='promote'?`Tessa recognizes you as ${CAREER_RANKS[villageCareer.rank]}. Your life record remembers this promotion.`:choice==='return'?'Tessa: “Lantern and baton accounted for. Thank you.”':choice==='keep'?'Tessa records a 50-coin kit debt. Return the kit or pay before your next shift.':'Tessa records your kit debt as paid.');
+     villageCareerControls?.render();
+ }
+ 
+@@ -1861,7 +1871,7 @@
+     } else throw `"${activities[current_activity.activity_name].type}" is not a valid activity type!`;
+ 
+     if(!restoringNativeSave && current_location.id === 'Village' && selected_activity === 'patrolling') {
+-        try {villageCareer = beginVillageShift(villageCareer);}
++        try {villageCareer = beginVillageShift(villageCareer,watchcraftKnown());}
+         catch(error) {log_message(error.message);current_activity=null;return;}
+         log_message('Tessa loans you the patrol lantern and baton. Return them after the round, or a 50-coin debt must be recorded.');
+     }
+@@ -1878,7 +1888,18 @@
+ function end_activity() {
+     if(!current_activity)return;
+     if(current_location.id === 'Village' && current_activity.id === 'patrolling' && villageCareer.loan?.status === 'active') {
++        const bonus=villageShiftBonus(villageCareer,current_activity.earnings>0);
++        const firstUse=bonus>0 && !villageCareer.watchcraft.used;
+         villageCareer = finishVillageShift(villageCareer, current_activity.earnings > 0);
++        if(bonus) {
++            current_activity.earnings+=bonus;
++            log_message('Your practiced watchcraft and loaned lantern and baton produced a clear patrol report: +10 coins, 60 total.');
++            if(firstUse) {
++                const t=current_game_time;
++                lifeRecord=appendLifeMilestone(lifeRecord,{year:t.year,at:lifeCalendarMinute(t),worldId:'base.frontier',kind:'career',text:'You first used Tessa’s practiced watchcraft with the loaned lantern and baton to earn a clearer patrol report.'});
++                lifeRecordPanel?.render();
++            }
++        }
+         log_message('Tessa notes how your shift went. Bring back the loaned lantern and baton before taking another round.');
+     }
+     
+@@ -6730,6 +6751,12 @@
+             }
+ 
+             if(current_activity) { //in activity
++                if(villageCareer.watchcraft.issued && villageCareer.watchcraft.practiceMinutes<WATCHCRAFT_PRACTICE) {
++                    const before=villageCareer.watchcraft.practiceMinutes;
++                    villageCareer=practiceWatchcraft(villageCareer,{known:watchcraftKnown(),location:current_location.id,activity:current_activity.id,worldId:expansionState.actors.player.worldId,alive:character.is_alive===true});
++                    if(before<WATCHCRAFT_PRACTICE && villageCareer.watchcraft.practiceMinutes===WATCHCRAFT_PRACTICE)
++                        log_message('Watchcraft practiced: you can now apply the sector scan on a new full Village patrol with Tessa’s loaned lantern and baton.');
++                }
+ 
+                 //if effects: add them
+                 if(current_activity.applied_effects) {
+@@ -7469,11 +7496,13 @@
+         },command:command=>command.type?actFeatureExpansion(command):actPocketRealm(command)});
+     adventureNotebook = createAdventureNotebook({registry: expeditionRegistry,
+         read: () => ({...readProgression(), inDialogue: !!current_dialogue, inCombat: !!current_combat})});
+-    villageCareerControls = createVillageCareerControls({read:()=>({state:villageCareer,
++    villageCareerControls = createVillageCareerControls({read:()=>({state:villageCareer,study:watchcraftPresentation(villageCareer,watchcraftKnown()),hasNotes:!!character.getItems()[item_templates[WATCHCRAFT_BOOK].getInventoryKey()],
+         visible:current_location?.id==='Village' && expansionState.actors.player.worldId==='base.frontier' && !current_dialogue && !current_combat && !is_sleeping && !is_reading && !is_in_trade() && !current_game_action,
+         canWrite:ownsSave&&!foundationSaveBlocked&&!importProbeToken,
+         busy:!!current_activity || !!nativeOccupationReason()}),
+-        resolve:choice=>writeVillageCareer(choice),promote:()=>writeVillageCareer('promote')});
++        resolve:choice=>writeVillageCareer(choice),promote:()=>writeVillageCareer('promote'),
++        notes:()=>writeVillageCareer('notes'),readNotes:()=>start_reading(WATCHCRAFT_BOOK),
++        practice:()=>start_activity('meditating')});
+     villageLivesPanel = createVillageLivesPanel({read:()=>({state:npcLives,inVillage:current_location?.id==='Village' && expansionState.actors.player.worldId==='base.frontier',canWrite:ownsSave&&!foundationSaveBlocked&&!importProbeToken}),meet:()=>{
+         if(npcLives || !ownsSave || foundationSaveBlocked || importProbeToken || current_location?.id!=='Village' || expansionState.actors.player.worldId!=='base.frontier')throw new Error("Meet your neighbors in Village when your life can be saved.");
+         const serialized=create_save();if(!serialized)throw new Error("This meeting could not be remembered.");
+--- task-baseline/src/items.js
++++ src/items.js
+@@ -1,3 +1,4 @@
++import {WATCHCRAFT_BOOK, WATCHCRAFT_READING} from './village_career.js';
+ import {ALLOY_ID, BRACE_ID, SPRINGSTEEL, deriveBraceStats} from "./alloy_equipment.js";
+ import {preserveWorldCompletionNativeItem} from './world_completion_native.js';
+ "use strict";
+@@ -1397,6 +1398,9 @@
+ });
+ 
+ //books
++book_stats[WATCHCRAFT_BOOK] = new BookData({required_time:WATCHCRAFT_READING,literacy_xp_rate:1});
++item_templates[WATCHCRAFT_BOOK] = new Book({name:WATCHCRAFT_BOOK,value:0,
++    description:'Tessa’s short patrol notes: divide the lane into sectors, notice changes, and check each dark doorway with the loaned lantern and baton. Six minutes of reading gives knowledge. Rehearse calm observation for five minutes while meditating in Village, then complete a new patrol with the loaned kit for a 10-coin report bonus. Reading alone gives no patrol bonus.'});
+ book_stats[ROUTE_NOTES] = new BookData({required_time: 4, literacy_xp_rate: 1});
+ (()=>{
+     item_templates[ROUTE_NOTES] = new Book({name: ROUTE_NOTES, value: 0,
+--- task-baseline/src/village_career.js
++++ src/village_career.js
+@@ -1,37 +1,54 @@
+ // Original proposal: one Village patrol career, using native time and wages.
+ export const CAREER_RANKS = ['Apprentice', 'Dependable worker', 'Mentor'];
+ export const KIT_DEBT = 50;
++export const WATCHCRAFT_BOOK = 'Tessa’s watchcraft notes';
++export const WATCHCRAFT_READING = 6;
++export const WATCHCRAFT_PRACTICE = 5;
++export const WATCHCRAFT_BONUS = 10;
++const emptyStudy = () => ({issued:false,practiceMinutes:0,used:false});
+ const natural = n => Number.isSafeInteger(n) && n >= 0;
+ const check = (ok, message) => {if(!ok) throw new Error(`Village career: ${message}.`);};
+ export function createVillageCareer() {
+-    return {schema:1,rank:0,shifts:0,completed:0,returned:0,loan:null,debt:0,lastShift:null};
++    return {schema:2,rank:0,shifts:0,completed:0,returned:0,loan:null,debt:0,lastShift:null,watchcraft:emptyStudy()};
+ }
+ export function validateVillageCareer(s) {
+-    check(s && s.schema===1 && Number.isInteger(s.rank) && s.rank>=0 && s.rank<3,'unsupported rank or schema');
++    check(s && [1,2].includes(s.schema) && Number.isInteger(s.rank) && s.rank>=0 && s.rank<3,'unsupported rank or schema');
+     check([s.shifts,s.completed,s.returned,s.debt].every(natural) && s.returned<=s.completed && s.completed<=s.shifts,'invalid counts');
+     check(s.loan===null || (s.loan && ['active','return_due','debt'].includes(s.loan.status) && typeof s.loan.completed==='boolean'),'invalid kit custody');
+     check(s.debt===(s.loan?.status==='debt'?KIT_DEBT:0),'invalid kit debt');
+     check(!s.loan || (s.shifts>0 && (s.loan.status!=='active' || !s.loan.completed)),'invalid active shift');
+     check(s.lastShift===null || (s.lastShift && natural(s.lastShift.number) && s.lastShift.number>0 && s.lastShift.number<=s.shifts && typeof s.lastShift.completed==='boolean' && ['due','returned','kept','paid'].includes(s.lastShift.kit)),'invalid shift memory');
+     check(s.rank===0 || (s.completed>=(s.rank===1?2:5) && s.returned>=(s.rank===1?2:5)),'unearned rank');
++    if(s.schema===2) {
++        const w=s.watchcraft;
++        check(w && typeof w.issued==='boolean' && natural(w.practiceMinutes) && w.practiceMinutes<=WATCHCRAFT_PRACTICE && typeof w.used==='boolean','invalid watchcraft study');
++        check(!w.issued || s.rank>=1,'watchcraft needs Tessa’s promotion');
++        check(!w.practiceMinutes || w.issued,'practice needs the offered method');
++        check(!w.used || (w.practiceMinutes===WATCHCRAFT_PRACTICE && s.completed>0),'unearned watchcraft use');
++        check(!s.loan?.watchcraft || (s.loan.status==='active' && w.practiceMinutes===WATCHCRAFT_PRACTICE),'unpracticed patrol method');
++        check(!s.loan || s.loan.watchcraft==null || typeof s.loan.watchcraft==='boolean','invalid patrol method');
++    }
+     return s;
+ }
+ export function migrateVillageCareer(save) {
+     // Missing optional field means no invented career, debt, promotion or kit.
+-    return structuredClone(validateVillageCareer(save.village_career ?? createVillageCareer()));
++    const s=structuredClone(validateVillageCareer(save.village_career ?? createVillageCareer()));
++    // Additive schema-1 migration: preserve custody/history, grant no method.
++    if(s.schema===1) {s.schema=2;s.watchcraft=emptyStudy();}
++    return validateVillageCareer(s);
+ }
+-export function beginVillageShift(state) {
+-    const s=structuredClone(validateVillageCareer(state));check(!s.loan,'return the loaned kit or settle its debt before another shift');
+-    s.shifts++;s.loan={status:'active',completed:false};return validateVillageCareer(s);
++export function beginVillageShift(state,known=false) {
++    const s=migrateVillageCareer({village_career:state});check(!s.loan,'return the loaned kit or settle its debt before another shift');
++    s.shifts++;s.loan={status:'active',completed:false,watchcraft:known && s.watchcraft.practiceMinutes===WATCHCRAFT_PRACTICE};return validateVillageCareer(s);
+ }
+ export function finishVillageShift(state,completed) {
+-    const s=structuredClone(validateVillageCareer(state));check(s.loan?.status==='active','no active career shift');
+-    if(completed)s.completed++;
++    const s=migrateVillageCareer({village_career:state});check(s.loan?.status==='active','no active career shift');
++    if(completed) {s.completed++;if(s.loan.watchcraft)s.watchcraft.used=true;}
+     s.loan={status:'return_due',completed};s.lastShift={number:s.shifts,completed,kit:'due'};
+     return validateVillageCareer(s);
+ }
+ export function resolveVillageKit(state,choice) {
+-    const s=structuredClone(validateVillageCareer(state));check(['return_due','debt'].includes(s.loan?.status),'finish your shift before resolving the kit');
++    const s=migrateVillageCareer({village_career:state});check(['return_due','debt'].includes(s.loan?.status),'finish your shift before resolving the kit');
+     check(['return','keep','pay'].includes(choice),'unknown kit choice');
+     if(choice==='keep') {check(s.loan.status==='return_due','debt is already recorded');s.loan.status='debt';s.debt=KIT_DEBT;s.lastShift.kit='kept';}
+     else {if(choice==='pay')check(s.loan.status==='debt','no debt to pay');
+@@ -48,7 +65,7 @@
+     return reasons;
+ }
+ export function promoteVillageCareer(state) {
+-    const s=structuredClone(validateVillageCareer(state));check(s.rank<2,'you already mentor the patrol');
++    const s=migrateVillageCareer({village_career:state});check(s.rank<2,'you already mentor the patrol');
+     const unmet=villagePromotionRequirements(s);check(!unmet.length,unmet.join(' '));s.rank++;return validateVillageCareer(s);
+ }
+ export function villageColleagueMemory(state) {
+@@ -58,3 +75,26 @@
+     const kit={due:'I’m still waiting for our lantern and baton.',returned:'You brought the kit back. I can rely on that.',kept:'You kept our kit. The 50-coin debt is in the ledger.',paid:'You paid for the missing kit. We still need people who return what they borrow.'}[last.kit];
+     return `Tessa remembers shift ${last.number}: “Last time, ${work}. ${kit}”`;
+ }
++
++// Knowledge stays in native book progress; practice and first use stay with this career.
++export function issueWatchcraft(state) {
++    const s=migrateVillageCareer({village_career:state});
++    check(s.rank>=1,'become a Dependable worker before asking for the notes');
++    check(!s.watchcraft.issued,'Tessa already gave you her notes');
++    s.watchcraft.issued=true;return validateVillageCareer(s);
++}
++export function practiceWatchcraft(state,{known,location,activity,worldId,alive=true}) {
++    const s=migrateVillageCareer({village_career:state});
++    if(known && s.watchcraft.issued && location==='Village' && worldId==='base.frontier' && activity==='meditating' && alive)
++        s.watchcraft.practiceMinutes=Math.min(WATCHCRAFT_PRACTICE,s.watchcraft.practiceMinutes+1);
++    return validateVillageCareer(s);
++}
++export function watchcraftPresentation(state,known) {
++    const s=migrateVillageCareer({village_career:state}),practiced=known && s.watchcraft.practiceMinutes===WATCHCRAFT_PRACTICE;
++    return {known,practiced,executable:practiced && s.loan?.status==='active' && s.loan.watchcraft===true,
++        nextPatrol:practiced && !s.loan,practiceMinutes:s.watchcraft.practiceMinutes};
++}
++export function villageShiftBonus(state,completed) {
++    validateVillageCareer(state);
++    return completed && state.loan?.status==='active' && state.loan.watchcraft===true ? WATCHCRAFT_BONUS : 0;
++}
+--- task-baseline/src/village_career_ui.js
++++ src/village_career_ui.js
+@@ -1,21 +1,31 @@
+-import {CAREER_RANKS,KIT_DEBT,villagePromotionRequirements,villageColleagueMemory} from './village_career.js';
++import {CAREER_RANKS,KIT_DEBT,villagePromotionRequirements,villageColleagueMemory,WATCHCRAFT_BOOK,WATCHCRAFT_BONUS,WATCHCRAFT_PRACTICE} from './village_career.js';
+ const node=(tag,text='')=>{const n=document.createElement(tag);n.textContent=text;return n;};
+ // Lives inside the native center menu, including the ongoing patrol display.
+-export function createVillageCareerControls({read,resolve,promote}) {
++export function createVillageCareerControls({read,resolve,promote,notes,readNotes,practice}) {
+     const panel=node('section');panel.id='village_career_controls';
+-    const title=node('h4'),status=node('p'),memory=node('p'),requirements=node('p'),buttons=node('div'),error=node('p');
+-    panel.append(title,status,memory,requirements,buttons,error);let signature='';
++    const title=node('h4'),status=node('p'),memory=node('p'),requirements=node('p'),study=node('p'),outcome=node('p'),buttons=node('div'),error=node('p');study.id='village_watchcraft_status';outcome.id='village_watchcraft_outcome';
++    panel.append(title,status,memory,requirements,study,outcome,buttons,error);let signature='';
+     const action=(id,label,fn,disabled)=>{const b=node('button',label);b.type='button';b.id=id;b.disabled=disabled;b.onclick=()=>{try{fn();error.textContent='';}catch(e){error.textContent=e.message;}render();};return b;};
+     function render() {
+         const v=read();panel.hidden=!v.visible;
+         if(!v.visible)return;
+-        const s=v.state,next=JSON.stringify([s,v.canWrite,v.busy]);
++        const s=v.state,next=JSON.stringify([s,v.study,v.hasNotes,v.canWrite,v.busy]);
+         if(next!==signature) {signature=next;title.textContent=`Village patrol · ${CAREER_RANKS[s.rank]}`;
+-            status.textContent=s.loan?.status==='active'?'Loaned lantern and baton in your custody. Finish the two-hour round for 50 coins; leaving early earns no shift credit.':s.loan?`Kit ${s.debt?'debt: 50 coins':'return due'}. Return it before your next shift, or record a 50-coin debt if you keep it.`:'Take a loaned lantern and baton through the native patrol job below. Each full round pays 50 coins.';
++            status.textContent=s.loan?.status==='active'?'Loaned lantern and baton in your custody. Finish the two-hour round for 50 base coins; leaving early earns no shift credit.':s.loan?`Kit ${s.debt?'debt: 50 coins':'return due'}. Return it before your next shift, or record a 50-coin debt if you keep it.`:'Take a loaned lantern and baton through the native patrol job below. Each full round pays 50 base coins; the report bonus is shown below.';
+             memory.textContent=villageColleagueMemory(s);
+             const unmet=villagePromotionRequirements(s);
+             requirements.textContent=s.rank===2?'Mentor: all three career ranks earned.':`Next: ${CAREER_RANKS[s.rank+1]}. ${unmet.length?unmet.join(' '):'All requirements met. Ask Tessa for your promotion.'}`;
+             const controls=[],disabled=!v.canWrite||v.busy;
++            const w=v.study;
++            study.textContent=`Watchcraft: known ${w.known?'yes':'no'} · practiced ${w.practiced?'yes':`no (${w.practiceMinutes}/${WATCHCRAFT_PRACTICE} meditation minutes)`} · executable now ${w.executable?'yes, loaned lantern and baton held on this round':'no'}.`;
++            outcome.textContent=s.loan?.status==='active'?(w.executable?`This full round: 50 coins + ${WATCHCRAFT_BONUS} for a clear report = 60 coins. Leaving early pays nothing.`:'This full round: 50 coins. Watchcraft bonus unavailable on this round.'):
++                w.nextPatrol?`Next full patrol with the loaned lantern and baton: 60 coins. Without that kit the method cannot execute.`:
++                s.debt?'Next patrol blocked by kit debt. Return the kit or pay before borrowing another.':
++                'Next full patrol: 50 coins. Read Tessa’s notes, then rehearse calm sector scanning during five minutes of Village meditation for the tool-dependent report bonus.';
++            if(s.rank>=1 && !s.watchcraft.issued)controls.push(action('village_watchcraft_notes',`Ask Tessa for ${WATCHCRAFT_BOOK}`,notes,disabled));
++            if(s.watchcraft.issued && !w.known)controls.push(action('village_watchcraft_read','Read watchcraft notes · 6 minutes',readNotes,disabled||!v.hasNotes));
++            if(s.watchcraft.issued && !w.known && !v.hasNotes)outcome.textContent+=' Retrieve your notes from storage to read them.';
++            if(w.known && !w.practiced)controls.push(action('village_watchcraft_practice','Rehearse watchcraft while meditating · 5 minutes',practice,disabled));
+             if(s.loan && s.loan.status!=='active') {
+                 controls.push(action('village_return_kit','Return loaned kit',()=>resolve('return'),disabled));
+                 controls.push(s.debt?action('village_pay_debt',`Pay ${KIT_DEBT}-coin kit debt`,()=>resolve('pay'),disabled):action('village_keep_kit','Keep kit and record debt',()=>resolve('keep'),disabled));
+--- task-baseline/src/save_files.js
++++ src/save_files.js
+@@ -14,7 +14,7 @@
+ import {validateItemKey} from "./gameplay_transactions.js";
+ import {stableId} from "./simulation_contracts.js";
+ 
+-import {validateVillageCareer} from './village_career.js';
++import {validateVillageCareer, WATCHCRAFT_BOOK, WATCHCRAFT_READING, WATCHCRAFT_PRACTICE} from './village_career.js';
+ 
+ import {validateLifeRecord} from './life_record.js';
+ import {validateVillageLives} from './npc_lives.js';
+@@ -32,6 +32,9 @@
+     object(original, "Save");
+     if(original.village_career != null) {
+         validateVillageCareer(original.village_career);
++        if(original.village_career.schema===2 && original.village_career.watchcraft.practiceMinutes>0 &&
++            !(original.books?.[WATCHCRAFT_BOOK]?.accumulated_time>=WATCHCRAFT_READING))throw new Error('Watchcraft practice needs completed native reading.');
++        if(original.village_career.loan?.watchcraft && original.village_career.watchcraft.practiceMinutes!==WATCHCRAFT_PRACTICE)throw new Error('Executable watchcraft needs completed practice.');
+         if(original.village_career.loan?.status==='active' && (original['current location']!=='Village' || original.current_activity?.activity_id!=='patrolling'))throw new Error('Active Village career must have its native patrol.');
+     }
+     if(original.life_record != null) validateLifeRecord(original.life_record);

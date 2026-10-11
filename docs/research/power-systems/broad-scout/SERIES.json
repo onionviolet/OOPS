@@ -1,0 +1,4343 @@
+{
+  "schema_version": 1,
+  "lane": "D",
+  "date": "2026-10-10",
+  "status": "analyst mappings; proposals",
+  "series": [
+    {
+      "id": "D001",
+      "title": "I Have a Super USB Drive",
+      "evidence_sources": [
+        "D001-S1",
+        "D001-S2"
+      ],
+      "mapping_status": "analyst classification of metadata; null means not established here",
+      "path": {
+        "currency": null,
+        "steps": null,
+        "gate": {
+          "acquisition": "Finding the physical USB drive",
+          "advancement": null
+        },
+        "risk": null,
+        "shape": "field",
+        "branching": null,
+        "grader": null,
+        "ceiling": null
+      },
+      "families": [
+        "interface",
+        "creation"
+      ],
+      "power_sources": "item-bound",
+      "axes": {
+        "object": "USB and eligible fictional inputs",
+        "mechanism": "carrier with discoverable rules; extraction is review-only",
+        "trigger": null,
+        "certainty": null,
+        "scope": null,
+        "price": null,
+        "limit": null,
+        "visibility": null,
+        "persistence": null,
+        "growth": null
+      },
+      "vows_contracts_costs": {
+        "kind": "activation gate",
+        "slots": {
+          "swearer": null,
+          "restriction": null,
+          "object": "USB and eligible fictional inputs",
+          "scope": null,
+          "duration": null,
+          "benefit": "Official indexed synopsis confirms a physical USB drive with discoverable rules and an immortality goal. Film-item extraction is corroborated only by indexed reviews.",
+          "consequence": null,
+          "witness": null,
+          "condition": null,
+          "ramp": null,
+          "stake": null,
+          "counterparty": null,
+          "release": null,
+          "visibility": null,
+          "inheritance": null,
+          "interpretation": null,
+          "coercion": null,
+          "memory": null,
+          "specificity": null
+        },
+        "trade": null,
+        "breach": null,
+        "interpretation_tricks": null,
+        "collective_rules": null,
+        "qualification": "Only trade/contract rows imply bargaining. Resource gates, involuntary rules and physical harm are not inferred vows."
+      },
+      "unique_mechanics": [
+        {
+          "description": "Official indexed synopsis confirms a physical USB drive with discoverable rules and an immortality goal. Film-item extraction is corroborated only by indexed reviews.",
+          "source_ids": [
+            "D001-S1",
+            "D001-S2"
+          ],
+          "what_we_take": "Proposal: give a power-export device explicit eligible source objects, tests and a real carrier.",
+          "status": "proposal"
+        }
+      ],
+      "gag_or_rule_abuse": {
+        "verified_scene": null,
+        "metadata_lead": "NovelUpdates reviews by Alex Woods (2021-04-06) and Goth667 (2021-09-05) describe film-item extraction; do not treat their later-world claims as canon.",
+        "qualification": "No chapter scenes read. Ingenious premise, rule exploit and comedy are not interchangeable."
+      }
+    },
+    {
+      "id": "D002",
+      "title": "My Cell Prison",
+      "evidence_sources": [
+        "D002-S1",
+        "D002-S2"
+      ],
+      "mapping_status": "analyst classification of metadata; null means not established here",
+      "path": {
+        "currency": null,
+        "steps": null,
+        "gate": {
+          "acquisition": "Rebirth as a cell carrying prison-code power",
+          "advancement": null
+        },
+        "risk": null,
+        "shape": "field",
+        "branching": null,
+        "grader": null,
+        "ceiling": null
+      },
+      "families": [
+        "soul work",
+        "shapeshifting"
+      ],
+      "power_sources": "rebirth; prison-linked source",
+      "axes": {
+        "object": "cell body and prison",
+        "mechanism": "rebirth into a cell; replaceable parts are review-only",
+        "trigger": null,
+        "certainty": null,
+        "scope": null,
+        "price": null,
+        "limit": null,
+        "visibility": null,
+        "persistence": null,
+        "growth": null
+      },
+      "vows_contracts_costs": {
+        "kind": "carrier condition",
+        "slots": {
+          "swearer": null,
+          "restriction": null,
+          "object": "cell body and prison",
+          "scope": null,
+          "duration": null,
+          "benefit": "Indexed publisher synopsis confirms cell rebirth and prison-code power. Portable storage and replaceable anatomy remain review-only leads.",
+          "consequence": null,
+          "witness": null,
+          "condition": null,
+          "ramp": null,
+          "stake": null,
+          "counterparty": null,
+          "release": null,
+          "visibility": null,
+          "inheritance": null,
+          "interpretation": null,
+          "coercion": null,
+          "memory": null,
+          "specificity": null
+        },
+        "trade": null,
+        "breach": null,
+        "interpretation_tricks": null,
+        "collective_rules": null,
+        "qualification": "Only trade/contract rows imply bargaining. Resource gates, involuntary rules and physical harm are not inferred vows."
+      },
+      "unique_mechanics": [
+        {
+          "description": "Indexed publisher synopsis confirms cell rebirth and prison-code power. Portable storage and replaceable anatomy remain review-only leads.",
+          "source_ids": [
+            "D002-S1",
+            "D002-S2"
+          ],
+          "what_we_take": "Proposal: separate consciousness, cell core, replaceable anatomy and prison custody.",
+          "status": "proposal"
+        }
+      ],
+      "gag_or_rule_abuse": {
+        "verified_scene": null,
+        "metadata_lead": "Webnovel review by Usagi_mofu reports portable prison storage, face changes and body-part replacement; catalog chapter 5 is titled Portable Prison.",
+        "qualification": "No chapter scenes read. Ingenious premise, rule exploit and comedy are not interchangeable."
+      }
+    },
+    {
+      "id": "D003",
+      "title": "Let Me Game in Peace",
+      "evidence_sources": [
+        "D003-S1",
+        "D003-S2"
+      ],
+      "mapping_status": "analyst classification of metadata; null means not established here",
+      "path": {
+        "currency": "Blood for game lives; monster crystals as upgrades",
+        "steps": null,
+        "gate": {
+          "acquisition": null,
+          "advancement": null
+        },
+        "risk": "One drop of blood per game life",
+        "shape": "field",
+        "branching": null,
+        "grader": null,
+        "ceiling": null
+      },
+      "families": [
+        "interface",
+        "simulation",
+        "beasts"
+      ],
+      "power_sources": "item-bound phone",
+      "axes": {
+        "object": "phone copy of a dimensional zone",
+        "mechanism": "game attempts yielding power rewards",
+        "trigger": "blood payment for another game life",
+        "certainty": null,
+        "scope": null,
+        "price": "One drop of blood per game life",
+        "limit": null,
+        "visibility": null,
+        "persistence": "Game rewards provide real stat/skill/companion gains",
+        "growth": null
+      },
+      "vows_contracts_costs": {
+        "kind": "per-attempt cost",
+        "slots": {
+          "swearer": null,
+          "restriction": null,
+          "object": "phone copy of a dimensional zone",
+          "scope": null,
+          "duration": null,
+          "benefit": "Indexed novel description explicitly states blood-funded game lives, phone dungeon copies and transferable monster rewards. Official comic synopsis supports the blood/phone premise.",
+          "consequence": null,
+          "witness": null,
+          "condition": null,
+          "ramp": null,
+          "stake": null,
+          "counterparty": null,
+          "release": null,
+          "visibility": null,
+          "inheritance": null,
+          "interpretation": null,
+          "coercion": null,
+          "memory": null,
+          "specificity": null
+        },
+        "trade": "One drop of blood per game life",
+        "breach": null,
+        "interpretation_tricks": null,
+        "collective_rules": null,
+        "qualification": "Only trade/contract rows imply bargaining. Resource gates, involuntary rules and physical harm are not inferred vows."
+      },
+      "unique_mechanics": [
+        {
+          "description": "Indexed novel description explicitly states blood-funded game lives, phone dungeon copies and transferable monster rewards. Official comic synopsis supports the blood/phone premise.",
+          "source_ids": [
+            "D003-S1",
+            "D003-S2"
+          ],
+          "what_we_take": "Proposal: let a safe rehearsal spend a real bodily resource and export only named reward types.",
+          "status": "proposal"
+        }
+      ],
+      "gag_or_rule_abuse": {
+        "verified_scene": null,
+        "metadata_lead": null,
+        "qualification": "No chapter scenes read. Ingenious premise, rule exploit and comedy are not interchangeable."
+      }
+    },
+    {
+      "id": "D004",
+      "title": "Losing Money to Be a Tycoon",
+      "evidence_sources": [
+        "D004-S1",
+        "D004-S2"
+      ],
+      "mapping_status": "analyst classification of metadata; null means not established here",
+      "path": {
+        "currency": "Business losses credited by a reward system",
+        "steps": null,
+        "gate": {
+          "acquisition": "System obtained after rebirth",
+          "advancement": null
+        },
+        "risk": null,
+        "shape": "field",
+        "branching": null,
+        "grader": null,
+        "ceiling": null
+      },
+      "families": [
+        "interface",
+        "wealth"
+      ],
+      "power_sources": "granted system",
+      "axes": {
+        "object": "business results",
+        "mechanism": "reward for losses",
+        "trigger": "a qualifying loss; precise settlement unknown",
+        "certainty": null,
+        "scope": null,
+        "price": null,
+        "limit": null,
+        "visibility": null,
+        "persistence": null,
+        "growth": null
+      },
+      "vows_contracts_costs": {
+        "kind": "reward policy",
+        "slots": {
+          "swearer": null,
+          "restriction": null,
+          "object": "business results",
+          "scope": null,
+          "duration": null,
+          "benefit": "Official indexed synopsis confirms the loss-reward system and failed attempts to make unsuccessful games. Separate ledgers and conversion details are review-only in this scout.",
+          "consequence": null,
+          "witness": null,
+          "condition": null,
+          "ramp": null,
+          "stake": null,
+          "counterparty": null,
+          "release": null,
+          "visibility": null,
+          "inheritance": null,
+          "interpretation": null,
+          "coercion": null,
+          "memory": null,
+          "specificity": null
+        },
+        "trade": null,
+        "breach": null,
+        "interpretation_tricks": null,
+        "collective_rules": null,
+        "qualification": "Only trade/contract rows imply bargaining. Resource gates, involuntary rules and physical harm are not inferred vows."
+      },
+      "unique_mechanics": [
+        {
+          "description": "Official indexed synopsis confirms the loss-reward system and failed attempts to make unsuccessful games. Separate ledgers and conversion details are review-only in this scout.",
+          "source_ids": [
+            "D004-S1",
+            "D004-S2"
+          ],
+          "what_we_take": "Proposal: use a reward system whose accounting objective conflicts with the helpers' own goals.",
+          "status": "proposal"
+        }
+      ],
+      "gag_or_rule_abuse": {
+        "verified_scene": null,
+        "metadata_lead": "NovelUpdates reviews by fireutsie (2021-01-02) and Macho (2020-10-02) describe separate funds and conversion rules; numerical examples are not accepted as canonical.",
+        "qualification": "No chapter scenes read. Ingenious premise, rule exploit and comedy are not interchangeable."
+      }
+    },
+    {
+      "id": "D005",
+      "title": "Astral Apostle",
+      "evidence_sources": [
+        "D005-S1",
+        "D005-S2"
+      ],
+      "mapping_status": "analyst classification of metadata; null means not established here",
+      "path": {
+        "currency": null,
+        "steps": null,
+        "gate": {
+          "acquisition": "Awakened realm-travel power; created apostle soul vessels",
+          "advancement": null
+        },
+        "risk": null,
+        "shape": "web",
+        "branching": null,
+        "grader": null,
+        "ceiling": null
+      },
+      "families": [
+        "soul work",
+        "multiplication"
+      ],
+      "power_sources": "projected soul vessels",
+      "axes": {
+        "object": "local apostle bodies",
+        "mechanism": "separate vessels and identities",
+        "trigger": "projection",
+        "certainty": null,
+        "scope": null,
+        "price": null,
+        "limit": null,
+        "visibility": null,
+        "persistence": "One traveler uses different created vessels and identities",
+        "growth": null
+      },
+      "vows_contracts_costs": {
+        "kind": "carrier condition",
+        "slots": {
+          "swearer": null,
+          "restriction": null,
+          "object": "local apostle bodies",
+          "scope": null,
+          "duration": null,
+          "benefit": "Official indexed synopsis confirms created soul vessels, realm projection and distinct identities.",
+          "consequence": null,
+          "witness": null,
+          "condition": null,
+          "ramp": null,
+          "stake": null,
+          "counterparty": null,
+          "release": null,
+          "visibility": null,
+          "inheritance": null,
+          "interpretation": null,
+          "coercion": null,
+          "memory": null,
+          "specificity": null
+        },
+        "trade": null,
+        "breach": null,
+        "interpretation_tricks": null,
+        "collective_rules": null,
+        "qualification": "Only trade/contract rows imply bargaining. Resource gates, involuntary rules and physical harm are not inferred vows."
+      },
+      "unique_mechanics": [
+        {
+          "description": "Official indexed synopsis confirms created soul vessels, realm projection and distinct identities.",
+          "source_ids": [
+            "D005-S1",
+            "D005-S2"
+          ],
+          "what_we_take": "Proposal: give each projected life a local body and identity while tracking a separate traveling self.",
+          "status": "proposal"
+        }
+      ],
+      "gag_or_rule_abuse": {
+        "verified_scene": null,
+        "metadata_lead": null,
+        "qualification": "No chapter scenes read. Ingenious premise, rule exploit and comedy are not interchangeable."
+      }
+    },
+    {
+      "id": "D006",
+      "title": "Seized by the System",
+      "evidence_sources": [
+        "D006-S1",
+        "D006-S2"
+      ],
+      "mapping_status": "analyst classification of metadata; null means not established here",
+      "path": {
+        "currency": null,
+        "steps": null,
+        "gate": {
+          "acquisition": "System takes over the body",
+          "advancement": null
+        },
+        "risk": null,
+        "shape": "field",
+        "branching": null,
+        "grader": null,
+        "ceiling": null
+      },
+      "families": [
+        "interface",
+        "possession"
+      ],
+      "power_sources": "granted autonomous system",
+      "axes": {
+        "object": "host body",
+        "mechanism": "system operates the body",
+        "trigger": null,
+        "certainty": null,
+        "scope": null,
+        "price": null,
+        "limit": null,
+        "visibility": null,
+        "persistence": "Person remains conscious while system holds bodily control",
+        "growth": null
+      },
+      "vows_contracts_costs": {
+        "kind": "imposed control",
+        "slots": {
+          "swearer": null,
+          "restriction": null,
+          "object": "host body",
+          "scope": null,
+          "duration": null,
+          "benefit": "Indexed description confirms the system takes over the body; a Qidian-hosted booklist reproduces the official body-loss synopsis.",
+          "consequence": null,
+          "witness": null,
+          "condition": null,
+          "ramp": null,
+          "stake": null,
+          "counterparty": null,
+          "release": null,
+          "visibility": null,
+          "inheritance": null,
+          "interpretation": null,
+          "coercion": null,
+          "memory": null,
+          "specificity": null
+        },
+        "trade": null,
+        "breach": null,
+        "interpretation_tricks": null,
+        "collective_rules": null,
+        "qualification": "Only trade/contract rows imply bargaining. Resource gates, involuntary rules and physical harm are not inferred vows."
+      },
+      "unique_mechanics": [
+        {
+          "description": "Indexed description confirms the system takes over the body; a Qidian-hosted booklist reproduces the official body-loss synopsis.",
+          "source_ids": [
+            "D006-S1",
+            "D006-S2"
+          ],
+          "what_we_take": "Proposal: distinguish owning a body from controlling its actions and advising its operator.",
+          "status": "proposal"
+        }
+      ],
+      "gag_or_rule_abuse": {
+        "verified_scene": null,
+        "metadata_lead": null,
+        "qualification": "No chapter scenes read. Ingenious premise, rule exploit and comedy are not interchangeable."
+      }
+    },
+    {
+      "id": "D007",
+      "title": "Soul of Negary",
+      "evidence_sources": [
+        "D007-S1",
+        "D007-S2"
+      ],
+      "mapping_status": "analyst classification of metadata; null means not established here",
+      "path": {
+        "currency": null,
+        "steps": null,
+        "gate": {
+          "acquisition": "Deceived travel and stolen protagonist aura",
+          "advancement": null
+        },
+        "risk": null,
+        "shape": "field",
+        "branching": null,
+        "grader": null,
+        "ceiling": null
+      },
+      "families": [
+        "soul work",
+        "inheritance"
+      ],
+      "power_sources": "remnant soul after stolen aura",
+      "axes": {
+        "object": "protagonist aura and remnant self",
+        "mechanism": "harvesting advantage; later absorption is review-only",
+        "trigger": null,
+        "certainty": null,
+        "scope": null,
+        "price": null,
+        "limit": null,
+        "visibility": null,
+        "persistence": "A remnant soul survives the loss",
+        "growth": null
+      },
+      "vows_contracts_costs": {
+        "kind": "imposed loss",
+        "slots": {
+          "swearer": null,
+          "restriction": null,
+          "object": "protagonist aura and remnant self",
+          "scope": null,
+          "duration": null,
+          "benefit": "Indexed synopsis confirms a deceived traveler, stolen protagonist aura and remnant soul. Soul absorption and changing identity are review-only leads.",
+          "consequence": null,
+          "witness": null,
+          "condition": null,
+          "ramp": null,
+          "stake": null,
+          "counterparty": null,
+          "release": null,
+          "visibility": null,
+          "inheritance": null,
+          "interpretation": null,
+          "coercion": null,
+          "memory": null,
+          "specificity": null
+        },
+        "trade": null,
+        "breach": null,
+        "interpretation_tricks": null,
+        "collective_rules": null,
+        "qualification": "Only trade/contract rows imply bargaining. Resource gates, involuntary rules and physical harm are not inferred vows."
+      },
+      "unique_mechanics": [
+        {
+          "description": "Indexed synopsis confirms a deceived traveler, stolen protagonist aura and remnant soul. Soul absorption and changing identity are review-only leads.",
+          "source_ids": [
+            "D007-S1",
+            "D007-S2"
+          ],
+          "what_we_take": "Proposal: allow a stolen narrative advantage to leave a surviving but changed power carrier.",
+          "status": "proposal"
+        }
+      ],
+      "gag_or_rule_abuse": {
+        "verified_scene": null,
+        "metadata_lead": "NovelUpdates review by Mors86 (2020-10-12) describes soul consumption and loss of the old human identity; later metaphysical claims remain unverified.",
+        "qualification": "No chapter scenes read. Ingenious premise, rule exploit and comedy are not interchangeable."
+      }
+    },
+    {
+      "id": "D008",
+      "title": "My Divine Diary",
+      "evidence_sources": [
+        "D008-S1"
+      ],
+      "mapping_status": "analyst classification of metadata; null means not established here",
+      "path": {
+        "currency": null,
+        "steps": null,
+        "gate": {
+          "acquisition": "Accident grants infinite reincarnation",
+          "advancement": null
+        },
+        "risk": null,
+        "shape": "field",
+        "branching": null,
+        "grader": null,
+        "ceiling": null
+      },
+      "families": [
+        "reincarnation",
+        "knowledge"
+      ],
+      "power_sources": "accident",
+      "axes": {
+        "object": "successive lives",
+        "mechanism": "reincarnation and cumulative knowledge",
+        "trigger": "death and another birth",
+        "certainty": null,
+        "scope": null,
+        "price": null,
+        "limit": null,
+        "visibility": null,
+        "persistence": "Knowledge accumulated across reincarnations",
+        "growth": null
+      },
+      "vows_contracts_costs": {
+        "kind": "revival condition",
+        "slots": {
+          "swearer": null,
+          "restriction": null,
+          "object": "successive lives",
+          "scope": null,
+          "duration": null,
+          "benefit": "Indexed synopsis confirms infinite reincarnation, repeated childhood death and knowledge accumulation toward divinity.",
+          "consequence": null,
+          "witness": null,
+          "condition": null,
+          "ramp": null,
+          "stake": null,
+          "counterparty": null,
+          "release": null,
+          "visibility": null,
+          "inheritance": null,
+          "interpretation": null,
+          "coercion": null,
+          "memory": null,
+          "specificity": null
+        },
+        "trade": null,
+        "breach": null,
+        "interpretation_tricks": null,
+        "collective_rules": null,
+        "qualification": "Only trade/contract rows imply bargaining. Resource gates, involuntary rules and physical harm are not inferred vows."
+      },
+      "unique_mechanics": [
+        {
+          "description": "Indexed synopsis confirms infinite reincarnation, repeated childhood death and knowledge accumulation toward divinity.",
+          "source_ids": [
+            "D008-S1"
+          ],
+          "what_we_take": "Proposal: make repeated life retain knowledge while still requiring protection through a vulnerable new body.",
+          "status": "proposal"
+        }
+      ],
+      "gag_or_rule_abuse": {
+        "verified_scene": null,
+        "metadata_lead": null,
+        "qualification": "No chapter scenes read. Ingenious premise, rule exploit and comedy are not interchangeable."
+      }
+    },
+    {
+      "id": "D009",
+      "title": "Fantasy Simulator",
+      "evidence_sources": [
+        "D009-S1"
+      ],
+      "mapping_status": "analyst classification of metadata; null means not established here",
+      "path": {
+        "currency": null,
+        "steps": null,
+        "gate": {
+          "acquisition": "Simulator discovered after transmigration",
+          "advancement": null
+        },
+        "risk": null,
+        "shape": "field",
+        "branching": null,
+        "grader": null,
+        "ceiling": null
+      },
+      "families": [
+        "interface",
+        "simulation"
+      ],
+      "power_sources": "granted simulator",
+      "axes": {
+        "object": "simulated life and continuing body",
+        "mechanism": "simulated outcomes grant outside rewards",
+        "trigger": null,
+        "certainty": null,
+        "scope": null,
+        "price": null,
+        "limit": null,
+        "visibility": null,
+        "persistence": "Simulation rewards strengthen the surrounding real-world self",
+        "growth": null
+      },
+      "vows_contracts_costs": {
+        "kind": "reward policy",
+        "slots": {
+          "swearer": null,
+          "restriction": null,
+          "object": "simulated life and continuing body",
+          "scope": null,
+          "duration": null,
+          "benefit": "Indexed synopsis confirms a fantasy simulator and rewards that strengthen its user in the surrounding reality.",
+          "consequence": null,
+          "witness": null,
+          "condition": null,
+          "ramp": null,
+          "stake": null,
+          "counterparty": null,
+          "release": null,
+          "visibility": null,
+          "inheritance": null,
+          "interpretation": null,
+          "coercion": null,
+          "memory": null,
+          "specificity": null
+        },
+        "trade": null,
+        "breach": null,
+        "interpretation_tricks": null,
+        "collective_rules": null,
+        "qualification": "Only trade/contract rows imply bargaining. Resource gates, involuntary rules and physical harm are not inferred vows."
+      },
+      "unique_mechanics": [
+        {
+          "description": "Indexed synopsis confirms a fantasy simulator and rewards that strengthen its user in the surrounding reality.",
+          "source_ids": [
+            "D009-S1"
+          ],
+          "what_we_take": "Proposal: show a simulation's entry terms and named transferable results before it begins.",
+          "status": "proposal"
+        }
+      ],
+      "gag_or_rule_abuse": {
+        "verified_scene": null,
+        "metadata_lead": null,
+        "qualification": "No chapter scenes read. Ingenious premise, rule exploit and comedy are not interchangeable."
+      }
+    },
+    {
+      "id": "D010",
+      "title": "Carefree Path of Dreams",
+      "evidence_sources": [
+        "D010-S1"
+      ],
+      "mapping_status": "analyst classification of metadata; null means not established here",
+      "path": {
+        "currency": null,
+        "steps": null,
+        "gate": {
+          "acquisition": null,
+          "advancement": null
+        },
+        "risk": null,
+        "shape": "field",
+        "branching": null,
+        "grader": null,
+        "ceiling": null
+      },
+      "families": [
+        "dreams"
+      ],
+      "power_sources": "dream route; source specifics unknown",
+      "axes": {
+        "object": "dreams and worlds",
+        "mechanism": "dream-linked progression; reality effect unverified",
+        "trigger": null,
+        "certainty": null,
+        "scope": null,
+        "price": null,
+        "limit": null,
+        "visibility": null,
+        "persistence": null,
+        "growth": null
+      },
+      "vows_contracts_costs": {
+        "kind": "access condition",
+        "slots": {
+          "swearer": null,
+          "restriction": null,
+          "object": "dreams and worlds",
+          "scope": null,
+          "duration": null,
+          "benefit": "Indexed synopsis confirms dream/world-conquest framing; tags support dream and multiple-body lenses. Exact Dream Master mechanics require reading.",
+          "consequence": null,
+          "witness": null,
+          "condition": null,
+          "ramp": null,
+          "stake": null,
+          "counterparty": null,
+          "release": null,
+          "visibility": null,
+          "inheritance": null,
+          "interpretation": null,
+          "coercion": null,
+          "memory": null,
+          "specificity": null
+        },
+        "trade": null,
+        "breach": null,
+        "interpretation_tricks": null,
+        "collective_rules": null,
+        "qualification": "Only trade/contract rows imply bargaining. Resource gates, involuntary rules and physical harm are not inferred vows."
+      },
+      "unique_mechanics": [
+        {
+          "description": "Indexed synopsis confirms dream/world-conquest framing; tags support dream and multiple-body lenses. Exact Dream Master mechanics require reading.",
+          "source_ids": [
+            "D010-S1"
+          ],
+          "what_we_take": "Proposal: separate observing a dream, inhabiting its body and changing its world.",
+          "status": "proposal"
+        }
+      ],
+      "gag_or_rule_abuse": {
+        "verified_scene": null,
+        "metadata_lead": "NovelUpdates review by AppleGrowth (2021-09-17) describes a stolen Dream Master path and multiple cultivation systems; not canonical evidence here.",
+        "qualification": "No chapter scenes read. Ingenious premise, rule exploit and comedy are not interchangeable."
+      }
+    },
+    {
+      "id": "D011",
+      "title": "Low Dimensional Game",
+      "evidence_sources": [
+        "D011-S1"
+      ],
+      "mapping_status": "analyst classification of metadata; null means not established here",
+      "path": {
+        "currency": null,
+        "steps": null,
+        "gate": {
+          "acquisition": "Accidentally finding an entrance to a low-dimensional world",
+          "advancement": null
+        },
+        "risk": null,
+        "shape": "field",
+        "branching": null,
+        "grader": null,
+        "ceiling": null
+      },
+      "families": [
+        "creation",
+        "will and domain"
+      ],
+      "power_sources": "environment access",
+      "axes": {
+        "object": "lower-dimensional world",
+        "mechanism": "local world editing",
+        "trigger": "access through an entrance",
+        "certainty": null,
+        "scope": null,
+        "price": null,
+        "limit": null,
+        "visibility": null,
+        "persistence": null,
+        "growth": null
+      },
+      "vows_contracts_costs": {
+        "kind": "jurisdiction condition",
+        "slots": {
+          "swearer": null,
+          "restriction": null,
+          "object": "lower-dimensional world",
+          "scope": null,
+          "duration": null,
+          "benefit": "Indexed synopsis confirms entry into a lower-dimensional world and broad control within it.",
+          "consequence": null,
+          "witness": null,
+          "condition": null,
+          "ramp": null,
+          "stake": null,
+          "counterparty": null,
+          "release": null,
+          "visibility": null,
+          "inheritance": null,
+          "interpretation": null,
+          "coercion": null,
+          "memory": null,
+          "specificity": null
+        },
+        "trade": null,
+        "breach": null,
+        "interpretation_tricks": null,
+        "collective_rules": null,
+        "qualification": "Only trade/contract rows imply bargaining. Resource gates, involuntary rules and physical harm are not inferred vows."
+      },
+      "unique_mechanics": [
+        {
+          "description": "Indexed synopsis confirms entry into a lower-dimensional world and broad control within it.",
+          "source_ids": [
+            "D011-S1"
+          ],
+          "what_we_take": "Proposal: keep world-editor authority local to a specified dimension and verify any export rule separately.",
+          "status": "proposal"
+        }
+      ],
+      "gag_or_rule_abuse": {
+        "verified_scene": null,
+        "metadata_lead": null,
+        "qualification": "No chapter scenes read. Ingenious premise, rule exploit and comedy are not interchangeable."
+      }
+    },
+    {
+      "id": "D012",
+      "title": "Everybody is Kung Fu Fighting, While I Started a Farm",
+      "evidence_sources": [
+        "D012-S1",
+        "D012-S2"
+      ],
+      "mapping_status": "analyst classification of metadata; null means not established here",
+      "path": {
+        "currency": "System supplies seeds",
+        "steps": null,
+        "gate": {
+          "acquisition": "Seed system obtained after transmigration",
+          "advancement": null
+        },
+        "risk": null,
+        "shape": "tree",
+        "branching": null,
+        "grader": null,
+        "ceiling": null
+      },
+      "families": [
+        "plants",
+        "creation",
+        "interface"
+      ],
+      "power_sources": "seed-based system",
+      "axes": {
+        "object": "farm and planted inputs",
+        "mechanism": "growth; invented manuals are review-only",
+        "trigger": "planting; eligible objects unknown",
+        "certainty": null,
+        "scope": null,
+        "price": null,
+        "limit": null,
+        "visibility": null,
+        "persistence": null,
+        "growth": null
+      },
+      "vows_contracts_costs": {
+        "kind": "conversion condition",
+        "slots": {
+          "swearer": null,
+          "restriction": null,
+          "object": "farm and planted inputs",
+          "scope": null,
+          "duration": null,
+          "benefit": "Official indexed synopsis confirms the seed system and weapon-like inedible peas. Planted manuals appear in the official catalog; fictional-manual realization is review-only.",
+          "consequence": null,
+          "witness": null,
+          "condition": null,
+          "ramp": null,
+          "stake": null,
+          "counterparty": null,
+          "release": null,
+          "visibility": null,
+          "inheritance": null,
+          "interpretation": null,
+          "coercion": null,
+          "memory": null,
+          "specificity": null
+        },
+        "trade": null,
+        "breach": null,
+        "interpretation_tricks": null,
+        "collective_rules": null,
+        "qualification": "Only trade/contract rows imply bargaining. Resource gates, involuntary rules and physical harm are not inferred vows."
+      },
+      "unique_mechanics": [
+        {
+          "description": "Official indexed synopsis confirms the seed system and weapon-like inedible peas. Planted manuals appear in the official catalog; fictional-manual realization is review-only.",
+          "source_ids": [
+            "D012-S1",
+            "D012-S2"
+          ],
+          "what_we_take": "Proposal: make an object's planting recipe a way to grow a transformed result, with eligibility stated per recipe.",
+          "status": "proposal"
+        }
+      ],
+      "gag_or_rule_abuse": {
+        "verified_scene": null,
+        "metadata_lead": "NovelUpdates review by jrewrew (2021-04-22) and Webnovel review by FNU_LNU describe planting fabricated manuals; official catalog names Planting Cultivation Manuals and Planted a Money Tree.",
+        "qualification": "No chapter scenes read. Ingenious premise, rule exploit and comedy are not interchangeable."
+      }
+    },
+    {
+      "id": "D013",
+      "title": "Doomsday Wonderland",
+      "evidence_sources": [
+        "D013-S1",
+        "D013-S2"
+      ],
+      "mapping_status": "analyst classification of metadata; null means not established here",
+      "path": {
+        "currency": null,
+        "steps": null,
+        "gate": {
+          "acquisition": null,
+          "advancement": null
+        },
+        "risk": null,
+        "shape": "field",
+        "branching": null,
+        "grader": null,
+        "ceiling": null
+      },
+      "families": [
+        "adaptation",
+        "world travel"
+      ],
+      "power_sources": "posthuman adaptation",
+      "axes": {
+        "object": "survivor across apocalypse worlds",
+        "mechanism": "local survival powers",
+        "trigger": null,
+        "certainty": null,
+        "scope": null,
+        "price": null,
+        "limit": null,
+        "visibility": null,
+        "persistence": null,
+        "growth": null
+      },
+      "vows_contracts_costs": {
+        "kind": "world condition",
+        "slots": {
+          "swearer": null,
+          "restriction": null,
+          "object": "survivor across apocalypse worlds",
+          "scope": null,
+          "duration": null,
+          "benefit": "Indexed synopsis confirms serial apocalypse worlds and posthuman adaptation; conditional-power lens is a catalog tag, not a verified specific ability.",
+          "consequence": null,
+          "witness": null,
+          "condition": null,
+          "ramp": null,
+          "stake": null,
+          "counterparty": null,
+          "release": null,
+          "visibility": null,
+          "inheritance": null,
+          "interpretation": null,
+          "coercion": null,
+          "memory": null,
+          "specificity": null
+        },
+        "trade": null,
+        "breach": null,
+        "interpretation_tricks": null,
+        "collective_rules": null,
+        "qualification": "Only trade/contract rows imply bargaining. Resource gates, involuntary rules and physical harm are not inferred vows."
+      },
+      "unique_mechanics": [
+        {
+          "description": "Indexed synopsis confirms serial apocalypse worlds and posthuman adaptation; conditional-power lens is a catalog tag, not a verified specific ability.",
+          "source_ids": [
+            "D013-S1",
+            "D013-S2"
+          ],
+          "what_we_take": "Proposal: let environmental adaptation and strange conditional tools differ by world rather than share one ladder.",
+          "status": "proposal"
+        }
+      ],
+      "gag_or_rule_abuse": {
+        "verified_scene": null,
+        "metadata_lead": null,
+        "qualification": "No chapter scenes read. Ingenious premise, rule exploit and comedy are not interchangeable."
+      }
+    },
+    {
+      "id": "D014",
+      "title": "Trafford's Trading Club",
+      "evidence_sources": [
+        "D014-S1",
+        "D014-S2"
+      ],
+      "mapping_status": "analyst classification of metadata; null means not established here",
+      "path": {
+        "currency": "Precious items, lifespan or souls in trade",
+        "steps": null,
+        "gate": {
+          "acquisition": "Becoming the club proprietor",
+          "advancement": null
+        },
+        "risk": "Customers surrender something precious for a desired outcome",
+        "shape": "web",
+        "branching": null,
+        "grader": null,
+        "ceiling": null
+      },
+      "families": [
+        "contracts and oaths",
+        "wealth",
+        "lifespan"
+      ],
+      "power_sources": "brokered exchange",
+      "axes": {
+        "object": "desired outcome and offered possessions",
+        "mechanism": "trade whose proceeds extend the proprietor life",
+        "trigger": "completed transaction",
+        "certainty": null,
+        "scope": null,
+        "price": "Customers surrender something precious for a desired outcome",
+        "limit": null,
+        "visibility": null,
+        "persistence": "Successful trades extend the proprietor's lifespan",
+        "growth": null
+      },
+      "vows_contracts_costs": {
+        "kind": "mutual exchange",
+        "slots": {
+          "swearer": "Buyer and club proprietor",
+          "restriction": null,
+          "object": "desired outcome and offered possessions",
+          "scope": null,
+          "duration": null,
+          "benefit": "Desired outcome; completed trades also extend the owner life",
+          "consequence": null,
+          "witness": null,
+          "condition": null,
+          "ramp": null,
+          "stake": "Precious possessions, lifespan or soul in synopsis",
+          "counterparty": "Trading club",
+          "release": null,
+          "visibility": null,
+          "inheritance": null,
+          "interpretation": null,
+          "coercion": null,
+          "memory": null,
+          "specificity": null
+        },
+        "trade": "Customers surrender something precious for a desired outcome",
+        "breach": null,
+        "interpretation_tricks": null,
+        "collective_rules": null,
+        "qualification": "Only trade/contract rows imply bargaining. Resource gates, involuntary rules and physical harm are not inferred vows."
+      },
+      "unique_mechanics": [
+        {
+          "description": "Indexed synopsis explicitly confirms lifespan/items/soul trades and the owner gaining lifespan from successful business.",
+          "source_ids": [
+            "D014-S1",
+            "D014-S2"
+          ],
+          "what_we_take": "Proposal: track what a customer relinquishes separately from what the broker gains, with explicit ownership and consent.",
+          "status": "proposal"
+        }
+      ],
+      "gag_or_rule_abuse": {
+        "verified_scene": null,
+        "metadata_lead": null,
+        "qualification": "No chapter scenes read. Ingenious premise, rule exploit and comedy are not interchangeable."
+      }
+    },
+    {
+      "id": "D015",
+      "title": "I Can See Life Values (working English gloss)",
+      "evidence_sources": [
+        "D015-S1",
+        "D015-S2",
+        "D015-S3"
+      ],
+      "mapping_status": "analyst classification of metadata; null means not established here",
+      "path": {
+        "currency": null,
+        "steps": null,
+        "gate": {
+          "acquisition": "A medical student receives system support",
+          "advancement": null
+        },
+        "risk": null,
+        "shape": "field",
+        "branching": null,
+        "grader": null,
+        "ceiling": null
+      },
+      "families": [
+        "observation",
+        "interface"
+      ],
+      "power_sources": "granted system",
+      "axes": {
+        "object": "patient life value",
+        "mechanism": "health-related reading; meaning of number unverified",
+        "trigger": "observation; exact operation unknown",
+        "certainty": null,
+        "scope": null,
+        "price": null,
+        "limit": null,
+        "visibility": null,
+        "persistence": null,
+        "growth": null
+      },
+      "vows_contracts_costs": {
+        "kind": "measurement condition",
+        "slots": {
+          "swearer": null,
+          "restriction": null,
+          "object": "patient life value",
+          "scope": null,
+          "duration": null,
+          "benefit": "Qidian-hosted synopsis and Readnovel title page explicitly confirm the medical student can see patient life values. Taiwan National Central Library ISBN metadata independently confirms title and author.",
+          "consequence": null,
+          "witness": null,
+          "condition": null,
+          "ramp": null,
+          "stake": null,
+          "counterparty": null,
+          "release": null,
+          "visibility": null,
+          "inheritance": null,
+          "interpretation": null,
+          "coercion": null,
+          "memory": null,
+          "specificity": null
+        },
+        "trade": null,
+        "breach": null,
+        "interpretation_tricks": null,
+        "collective_rules": null,
+        "qualification": "Only trade/contract rows imply bargaining. Resource gates, involuntary rules and physical harm are not inferred vows."
+      },
+      "unique_mechanics": [
+        {
+          "description": "Qidian-hosted synopsis and Readnovel title page explicitly confirm the medical student can see patient life values. Taiwan National Central Library ISBN metadata independently confirms title and author.",
+          "source_ids": [
+            "D015-S1",
+            "D015-S2",
+            "D015-S3"
+          ],
+          "what_we_take": "Proposal: a health reading supplies evidence for a decision without itself performing treatment.",
+          "status": "proposal"
+        }
+      ],
+      "gag_or_rule_abuse": {
+        "verified_scene": null,
+        "metadata_lead": null,
+        "qualification": "No chapter scenes read. Ingenious premise, rule exploit and comedy are not interchangeable."
+      }
+    },
+    {
+      "id": "D016",
+      "title": "Information Omniscient (working English gloss)",
+      "evidence_sources": [
+        "D016-S1",
+        "D016-S2"
+      ],
+      "mapping_status": "analyst classification of metadata; null means not established here",
+      "path": {
+        "currency": null,
+        "steps": null,
+        "gate": {
+          "acquisition": null,
+          "advancement": null
+        },
+        "risk": null,
+        "shape": "field",
+        "branching": null,
+        "grader": null,
+        "ceiling": null
+      },
+      "families": [
+        "observation",
+        "memory",
+        "intent"
+      ],
+      "power_sources": "sensory faculty; origin unspecified",
+      "axes": {
+        "object": "past events, intent and buried memory",
+        "mechanism": "different senses expose different information",
+        "trigger": "sensory access",
+        "certainty": null,
+        "scope": null,
+        "price": null,
+        "limit": null,
+        "visibility": null,
+        "persistence": null,
+        "growth": null
+      },
+      "vows_contracts_costs": {
+        "kind": "interpretation condition",
+        "slots": {
+          "swearer": null,
+          "restriction": null,
+          "object": "past events, intent and buried memory",
+          "scope": null,
+          "duration": null,
+          "benefit": "Qidian-hosted author synopsis explicitly distinguishes sight, hearing and sensory access to hidden memories. Understanding and overload limits are reader-comment leads, not established by the synopsis.",
+          "consequence": null,
+          "witness": null,
+          "condition": null,
+          "ramp": null,
+          "stake": null,
+          "counterparty": null,
+          "release": null,
+          "visibility": null,
+          "inheritance": null,
+          "interpretation": null,
+          "coercion": null,
+          "memory": null,
+          "specificity": null
+        },
+        "trade": null,
+        "breach": null,
+        "interpretation_tricks": null,
+        "collective_rules": null,
+        "qualification": "Only trade/contract rows imply bargaining. Resource gates, involuntary rules and physical harm are not inferred vows."
+      },
+      "unique_mechanics": [
+        {
+          "description": "Qidian-hosted author synopsis explicitly distinguishes sight, hearing and sensory access to hidden memories. Understanding and overload limits are reader-comment leads, not established by the synopsis.",
+          "source_ids": [
+            "D016-S1",
+            "D016-S2"
+          ],
+          "what_we_take": "Proposal: keep raw sensed information separate from what the observer has concepts to interpret.",
+          "status": "proposal"
+        }
+      ],
+      "gag_or_rule_abuse": {
+        "verified_scene": null,
+        "metadata_lead": "Qidian booklist 644453 reader comment says perceiving information is not understanding it; 627927 says prior knowledge enables interpretation.",
+        "qualification": "No chapter scenes read. Ingenious premise, rule exploit and comedy are not interchangeable."
+      }
+    },
+    {
+      "id": "D017",
+      "title": "Dungeon Reset",
+      "evidence_sources": [
+        "D017-S1",
+        "D017-S2",
+        "D017-S3"
+      ],
+      "mapping_status": "analyst classification of metadata; null means not established here",
+      "path": {
+        "currency": null,
+        "steps": null,
+        "gate": {
+          "acquisition": "Survivor becomes an exception to dungeon reset",
+          "advancement": null
+        },
+        "risk": null,
+        "shape": "field",
+        "branching": null,
+        "grader": null,
+        "ceiling": null
+      },
+      "families": [
+        "interface",
+        "creation"
+      ],
+      "power_sources": "reset exception",
+      "axes": {
+        "object": "one dungeon survivor",
+        "mechanism": "exemption from reset",
+        "trigger": "dungeon reset",
+        "certainty": null,
+        "scope": null,
+        "price": null,
+        "limit": null,
+        "visibility": null,
+        "persistence": "Synopsis says dungeon resets do not apply to him; possessions unspecified",
+        "growth": null
+      },
+      "vows_contracts_costs": {
+        "kind": "imposed world rule",
+        "slots": {
+          "swearer": null,
+          "restriction": null,
+          "object": "one dungeon survivor",
+          "scope": null,
+          "duration": null,
+          "benefit": "Synopsis explicitly says dungeon resets do not apply to Jeong Dawoon.",
+          "consequence": null,
+          "witness": null,
+          "condition": null,
+          "ramp": null,
+          "stake": null,
+          "counterparty": null,
+          "release": null,
+          "visibility": null,
+          "inheritance": null,
+          "interpretation": null,
+          "coercion": null,
+          "memory": null,
+          "specificity": null
+        },
+        "trade": null,
+        "breach": null,
+        "interpretation_tricks": null,
+        "collective_rules": null,
+        "qualification": "Only trade/contract rows imply bargaining. Resource gates, involuntary rules and physical harm are not inferred vows."
+      },
+      "unique_mechanics": [
+        {
+          "description": "Synopsis explicitly says dungeon resets do not apply to Jeong Dawoon.",
+          "source_ids": [
+            "D017-S1",
+            "D017-S2",
+            "D017-S3"
+          ],
+          "what_we_take": "Proposal: let a local reset spare one tagged carrier, creating construction and resource loops. Read reset scenes before choosing what is spared.",
+          "status": "proposal"
+        }
+      ],
+      "gag_or_rule_abuse": {
+        "verified_scene": null,
+        "metadata_lead": null,
+        "qualification": "No chapter scenes read. Ingenious premise, rule exploit and comedy are not interchangeable."
+      }
+    },
+    {
+      "id": "D018",
+      "title": "The Book Eating Magician",
+      "evidence_sources": [
+        "D018-S1",
+        "D018-S2",
+        "D018-S3"
+      ],
+      "mapping_status": "analyst classification of metadata; null means not established here",
+      "path": {
+        "currency": "Magic books",
+        "steps": null,
+        "gate": {
+          "acquisition": "Consume a magic primer with high understanding",
+          "advancement": null
+        },
+        "risk": "A book is consumed",
+        "shape": "field",
+        "branching": null,
+        "grader": null,
+        "ceiling": null
+      },
+      "families": [
+        "consumption",
+        "knowledge"
+      ],
+      "power_sources": "consumed books",
+      "axes": {
+        "object": "book contents and learner",
+        "mechanism": "consumption grants a spell",
+        "trigger": "book consumption with high understanding in synopsis",
+        "certainty": null,
+        "scope": null,
+        "price": "A book is consumed",
+        "limit": null,
+        "visibility": null,
+        "persistence": "Acquired spell stated; longer retention unspecified",
+        "growth": null
+      },
+      "vows_contracts_costs": {
+        "kind": "consumed input",
+        "slots": {
+          "swearer": null,
+          "restriction": null,
+          "object": "book contents and learner",
+          "scope": null,
+          "duration": null,
+          "benefit": "Synopsis explicitly shows consumption of a primer, high understanding, and acquisition of a second-circle spell.",
+          "consequence": null,
+          "witness": null,
+          "condition": null,
+          "ramp": null,
+          "stake": null,
+          "counterparty": null,
+          "release": null,
+          "visibility": null,
+          "inheritance": null,
+          "interpretation": null,
+          "coercion": null,
+          "memory": null,
+          "specificity": null
+        },
+        "trade": "A book is consumed",
+        "breach": null,
+        "interpretation_tricks": null,
+        "collective_rules": null,
+        "qualification": "Only trade/contract rows imply bargaining. Resource gates, involuntary rules and physical harm are not inferred vows."
+      },
+      "unique_mechanics": [
+        {
+          "description": "Synopsis explicitly shows consumption of a primer, high understanding, and acquisition of a second-circle spell.",
+          "source_ids": [
+            "D018-S1",
+            "D018-S2",
+            "D018-S3"
+          ],
+          "what_we_take": "Proposal: transfer practical skill by consuming a knowledge carrier, with preparation and provenance gates.",
+          "status": "proposal"
+        }
+      ],
+      "gag_or_rule_abuse": {
+        "verified_scene": null,
+        "metadata_lead": null,
+        "qualification": "No chapter scenes read. Ingenious premise, rule exploit and comedy are not interchangeable."
+      }
+    },
+    {
+      "id": "D019",
+      "title": "The 31st Piece Turns the Tables",
+      "evidence_sources": [
+        "D019-S1"
+      ],
+      "mapping_status": "analyst classification of metadata; null means not established here",
+      "path": {
+        "currency": null,
+        "steps": null,
+        "gate": {
+          "acquisition": "Player becomes a game piece",
+          "advancement": null
+        },
+        "risk": null,
+        "shape": "field",
+        "branching": null,
+        "grader": null,
+        "ceiling": null
+      },
+      "families": [
+        "interface",
+        "probability"
+      ],
+      "power_sources": "divine game",
+      "axes": {
+        "object": "operator turned game piece",
+        "mechanism": "role transition in a dice-driven game",
+        "trigger": null,
+        "certainty": null,
+        "scope": null,
+        "price": null,
+        "limit": null,
+        "visibility": null,
+        "persistence": null,
+        "growth": null
+      },
+      "vows_contracts_costs": {
+        "kind": "imposed role",
+        "slots": {
+          "swearer": null,
+          "restriction": null,
+          "object": "operator turned game piece",
+          "scope": null,
+          "duration": null,
+          "benefit": "Synopsis explicitly describes reality shifting with dice and a player becoming a game piece.",
+          "consequence": null,
+          "witness": null,
+          "condition": null,
+          "ramp": null,
+          "stake": null,
+          "counterparty": null,
+          "release": null,
+          "visibility": null,
+          "inheritance": null,
+          "interpretation": null,
+          "coercion": null,
+          "memory": null,
+          "specificity": null
+        },
+        "trade": null,
+        "breach": null,
+        "interpretation_tricks": null,
+        "collective_rules": null,
+        "qualification": "Only trade/contract rows imply bargaining. Resource gates, involuntary rules and physical harm are not inferred vows."
+      },
+      "unique_mechanics": [
+        {
+          "description": "Synopsis explicitly describes reality shifting with dice and a player becoming a game piece.",
+          "source_ids": [
+            "D019-S1"
+          ],
+          "what_we_take": "Proposal: world entry changes which side of a rule interface the player occupies.",
+          "status": "proposal"
+        }
+      ],
+      "gag_or_rule_abuse": {
+        "verified_scene": null,
+        "metadata_lead": null,
+        "qualification": "No chapter scenes read. Ingenious premise, rule exploit and comedy are not interchangeable."
+      }
+    },
+    {
+      "id": "D020",
+      "title": "The Main Heroines are Trying to Kill Me",
+      "evidence_sources": [
+        "D020-S1"
+      ],
+      "mapping_status": "analyst classification of metadata; null means not established here",
+      "path": {
+        "currency": null,
+        "steps": null,
+        "gate": {
+          "acquisition": "System granted as regressor privilege",
+          "advancement": null
+        },
+        "risk": null,
+        "shape": "field",
+        "branching": null,
+        "grader": null,
+        "ceiling": null
+      },
+      "families": [
+        "regression",
+        "memory",
+        "interface"
+      ],
+      "power_sources": "regressor privilege",
+      "axes": {
+        "object": "several prior-timeline witnesses",
+        "mechanism": "memory retention is shared",
+        "trigger": "regression",
+        "certainty": null,
+        "scope": null,
+        "price": null,
+        "limit": null,
+        "visibility": null,
+        "persistence": "Protagonist and heroines retain previous-timeline memories",
+        "growth": null
+      },
+      "vows_contracts_costs": {
+        "kind": "retention condition",
+        "slots": {
+          "swearer": null,
+          "restriction": null,
+          "object": "several prior-timeline witnesses",
+          "scope": null,
+          "duration": null,
+          "benefit": "Synopsis explicitly says the heroines regain previous-timeline memories while the protagonist has a regressor privilege system.",
+          "consequence": null,
+          "witness": null,
+          "condition": null,
+          "ramp": null,
+          "stake": null,
+          "counterparty": null,
+          "release": null,
+          "visibility": null,
+          "inheritance": null,
+          "interpretation": null,
+          "coercion": null,
+          "memory": null,
+          "specificity": null
+        },
+        "trade": null,
+        "breach": null,
+        "interpretation_tricks": null,
+        "collective_rules": null,
+        "qualification": "Only trade/contract rows imply bargaining. Resource gates, involuntary rules and physical harm are not inferred vows."
+      },
+      "unique_mechanics": [
+        {
+          "description": "Synopsis explicitly says the heroines regain previous-timeline memories while the protagonist has a regressor privilege system.",
+          "source_ids": [
+            "D020-S1"
+          ],
+          "what_we_take": "Proposal: let other people retain different evidence from a prior run, turning regression into a contested information problem.",
+          "status": "proposal"
+        }
+      ],
+      "gag_or_rule_abuse": {
+        "verified_scene": null,
+        "metadata_lead": null,
+        "qualification": "No chapter scenes read. Ingenious premise, rule exploit and comedy are not interchangeable."
+      }
+    },
+    {
+      "id": "D021",
+      "title": "Kidnapped Dragons",
+      "evidence_sources": [
+        "D021-S1"
+      ],
+      "mapping_status": "analyst classification of metadata; null means not established here",
+      "path": {
+        "currency": null,
+        "steps": null,
+        "gate": {
+          "acquisition": "Vintage Clock (EX) authority",
+          "advancement": null
+        },
+        "risk": null,
+        "shape": "field",
+        "branching": null,
+        "grader": null,
+        "ceiling": null
+      },
+      "families": [
+        "regression",
+        "revival"
+      ],
+      "power_sources": "Vintage Clock authority",
+      "axes": {
+        "object": "world time",
+        "mechanism": "rewind after failure or death",
+        "trigger": "death or failed rescue as described by synopsis",
+        "certainty": null,
+        "scope": null,
+        "price": null,
+        "limit": null,
+        "visibility": null,
+        "persistence": "World time rewinds on failed rescue; return on death stated",
+        "growth": null
+      },
+      "vows_contracts_costs": {
+        "kind": "revival condition",
+        "slots": {
+          "swearer": null,
+          "restriction": null,
+          "object": "world time",
+          "scope": null,
+          "duration": null,
+          "benefit": "Synopsis names Vintage Clock (EX), world-time rewind, and return whenever the protagonist dies.",
+          "consequence": null,
+          "witness": null,
+          "condition": null,
+          "ramp": null,
+          "stake": null,
+          "counterparty": null,
+          "release": null,
+          "visibility": null,
+          "inheritance": null,
+          "interpretation": null,
+          "coercion": null,
+          "memory": null,
+          "specificity": null
+        },
+        "trade": null,
+        "breach": null,
+        "interpretation_tricks": null,
+        "collective_rules": null,
+        "qualification": "Only trade/contract rows imply bargaining. Resource gates, involuntary rules and physical harm are not inferred vows."
+      },
+      "unique_mechanics": [
+        {
+          "description": "Synopsis names Vintage Clock (EX), world-time rewind, and return whenever the protagonist dies.",
+          "source_ids": [
+            "D021-S1"
+          ],
+          "what_we_take": "Proposal: an unwanted revival can preserve the investigator while leaving the large threat unsolved.",
+          "status": "proposal"
+        }
+      ],
+      "gag_or_rule_abuse": {
+        "verified_scene": null,
+        "metadata_lead": null,
+        "qualification": "No chapter scenes read. Ingenious premise, rule exploit and comedy are not interchangeable."
+      }
+    },
+    {
+      "id": "D022",
+      "title": "I’m an Infinite Regressor, But I’ve Got Stories to Tell",
+      "evidence_sources": [
+        "D022-S1"
+      ],
+      "mapping_status": "analyst classification of metadata; null means not established here",
+      "path": {
+        "currency": null,
+        "steps": null,
+        "gate": {
+          "acquisition": null,
+          "advancement": null
+        },
+        "risk": null,
+        "shape": "field",
+        "branching": null,
+        "grader": null,
+        "ceiling": null
+      },
+      "families": [
+        "regression",
+        "memory"
+      ],
+      "power_sources": "regression; origin unknown",
+      "axes": {
+        "object": "narrator experience",
+        "mechanism": "many failed runs retained as experience",
+        "trigger": null,
+        "certainty": null,
+        "scope": null,
+        "price": null,
+        "limit": null,
+        "visibility": null,
+        "persistence": "1,183 runs of experience retained by narrator",
+        "growth": null
+      },
+      "vows_contracts_costs": {
+        "kind": "retention condition",
+        "slots": {
+          "swearer": null,
+          "restriction": null,
+          "object": "narrator experience",
+          "scope": null,
+          "duration": null,
+          "benefit": "Synopsis explicitly describes infinite regression and 1,183 runs of experience ending in repeated failure.",
+          "consequence": null,
+          "witness": null,
+          "condition": null,
+          "ramp": null,
+          "stake": null,
+          "counterparty": null,
+          "release": null,
+          "visibility": null,
+          "inheritance": null,
+          "interpretation": null,
+          "coercion": null,
+          "memory": null,
+          "specificity": null
+        },
+        "trade": null,
+        "breach": null,
+        "interpretation_tricks": null,
+        "collective_rules": null,
+        "qualification": "Only trade/contract rows imply bargaining. Resource gates, involuntary rules and physical harm are not inferred vows."
+      },
+      "unique_mechanics": [
+        {
+          "description": "Synopsis explicitly describes infinite regression and 1,183 runs of experience ending in repeated failure.",
+          "source_ids": [
+            "D022-S1"
+          ],
+          "what_we_take": "Proposal: track contradictory observations across lives without turning past experience into infallible foresight.",
+          "status": "proposal"
+        }
+      ],
+      "gag_or_rule_abuse": {
+        "verified_scene": null,
+        "metadata_lead": null,
+        "qualification": "No chapter scenes read. Ingenious premise, rule exploit and comedy are not interchangeable."
+      }
+    },
+    {
+      "id": "D023",
+      "title": "I Became the Necromancer of the Academy",
+      "evidence_sources": [
+        "D023-S1"
+      ],
+      "mapping_status": "analyst classification of metadata; null means not established here",
+      "path": {
+        "currency": null,
+        "steps": null,
+        "gate": {
+          "acquisition": null,
+          "advancement": null
+        },
+        "risk": null,
+        "shape": null,
+        "branching": null,
+        "grader": null,
+        "ceiling": null
+      },
+      "families": [
+        "soul work"
+      ],
+      "power_sources": "not established",
+      "axes": {
+        "object": "dead with remaining grievance",
+        "mechanism": "speaker invites grievance and promises salvation",
+        "trigger": null,
+        "certainty": null,
+        "scope": null,
+        "price": null,
+        "limit": null,
+        "visibility": null,
+        "persistence": null,
+        "growth": null
+      },
+      "vows_contracts_costs": {
+        "kind": "promise lead, binding unverified",
+        "slots": {
+          "swearer": null,
+          "restriction": null,
+          "object": "dead with remaining grievance",
+          "scope": null,
+          "duration": null,
+          "benefit": "Synopsis directly links awakening, remaining grudge, and promised salvation.",
+          "consequence": null,
+          "witness": null,
+          "condition": null,
+          "ramp": null,
+          "stake": null,
+          "counterparty": null,
+          "release": null,
+          "visibility": null,
+          "inheritance": null,
+          "interpretation": null,
+          "coercion": null,
+          "memory": null,
+          "specificity": null
+        },
+        "trade": null,
+        "breach": null,
+        "interpretation_tricks": null,
+        "collective_rules": null,
+        "qualification": "Only trade/contract rows imply bargaining. Resource gates, involuntary rules and physical harm are not inferred vows."
+      },
+      "unique_mechanics": [
+        {
+          "description": "Synopsis directly links awakening, remaining grudge, and promised salvation.",
+          "source_ids": [
+            "D023-S1"
+          ],
+          "what_we_take": "Proposal: inspect a spirit’s grievance as a route to resolution, separate from treating the spirit as a combat asset.",
+          "status": "proposal"
+        }
+      ],
+      "gag_or_rule_abuse": {
+        "verified_scene": null,
+        "metadata_lead": null,
+        "qualification": "No chapter scenes read. Ingenious premise, rule exploit and comedy are not interchangeable."
+      }
+    },
+    {
+      "id": "D024",
+      "title": "The S-Classes That I Raised",
+      "evidence_sources": [
+        "D024-S1"
+      ],
+      "mapping_status": "analyst classification of metadata; null means not established here",
+      "path": {
+        "currency": null,
+        "steps": null,
+        "gate": {
+          "acquisition": "Nurturer title received after regression",
+          "advancement": null
+        },
+        "risk": null,
+        "shape": "field",
+        "branching": null,
+        "grader": null,
+        "ceiling": null
+      },
+      "families": [
+        "leveling others",
+        "leadership"
+      ],
+      "power_sources": "granted title",
+      "axes": {
+        "object": "stronger people supported by weak bearer",
+        "mechanism": "nurturing route",
+        "trigger": null,
+        "certainty": null,
+        "scope": null,
+        "price": null,
+        "limit": null,
+        "visibility": null,
+        "persistence": null,
+        "growth": null
+      },
+      "vows_contracts_costs": {
+        "kind": "title condition",
+        "slots": {
+          "swearer": null,
+          "restriction": null,
+          "object": "stronger people supported by weak bearer",
+          "scope": null,
+          "duration": null,
+          "benefit": "Synopsis identifies an F-rank protagonist, regression and the Perfect Nurturer title.",
+          "consequence": null,
+          "witness": null,
+          "condition": null,
+          "ramp": null,
+          "stake": null,
+          "counterparty": null,
+          "release": null,
+          "visibility": null,
+          "inheritance": null,
+          "interpretation": null,
+          "coercion": null,
+          "memory": null,
+          "specificity": null
+        },
+        "trade": null,
+        "breach": null,
+        "interpretation_tricks": null,
+        "collective_rules": null,
+        "qualification": "Only trade/contract rows imply bargaining. Resource gates, involuntary rules and physical harm are not inferred vows."
+      },
+      "unique_mechanics": [
+        {
+          "description": "Synopsis identifies an F-rank protagonist, regression and the Perfect Nurturer title.",
+          "source_ids": [
+            "D024-S1"
+          ],
+          "what_we_take": "Proposal: give a weak body valuable growth-support abilities whose beneficiaries can act independently.",
+          "status": "proposal"
+        }
+      ],
+      "gag_or_rule_abuse": {
+        "verified_scene": null,
+        "metadata_lead": null,
+        "qualification": "No chapter scenes read. Ingenious premise, rule exploit and comedy are not interchangeable."
+      }
+    },
+    {
+      "id": "D025",
+      "title": "D-Genesis: Three Years after the Dungeons Appeared",
+      "evidence_sources": [
+        "D025-S1"
+      ],
+      "mapping_status": "analyst classification of metadata; null means not established here",
+      "path": {
+        "currency": "Skill orbs for transfer; conversion rates unspecified",
+        "steps": null,
+        "gate": {
+          "acquisition": "Accidental skill gain at birth of a dungeon",
+          "advancement": null
+        },
+        "risk": null,
+        "shape": "web",
+        "branching": null,
+        "grader": null,
+        "ceiling": null
+      },
+      "families": [
+        "interface",
+        "observation",
+        "skill transfer"
+      ],
+      "power_sources": "acquired skill; transferable orbs",
+      "axes": {
+        "object": "dungeon status and skill orbs",
+        "mechanism": "private appraisal and power trade",
+        "trigger": null,
+        "certainty": null,
+        "scope": null,
+        "price": null,
+        "limit": null,
+        "visibility": null,
+        "persistence": "Skill orbs described as ephemeral; duration unspecified",
+        "growth": null
+      },
+      "vows_contracts_costs": {
+        "kind": "expiry condition",
+        "slots": {
+          "swearer": null,
+          "restriction": null,
+          "object": "dungeon status and skill orbs",
+          "scope": null,
+          "duration": null,
+          "benefit": "Official volume 1 gives privileged status screens; volume 2 explicitly describes ephemeral skill-orb auctions.",
+          "consequence": null,
+          "witness": null,
+          "condition": null,
+          "ramp": null,
+          "stake": null,
+          "counterparty": null,
+          "release": null,
+          "visibility": null,
+          "inheritance": null,
+          "interpretation": null,
+          "coercion": null,
+          "memory": null,
+          "specificity": null
+        },
+        "trade": null,
+        "breach": null,
+        "interpretation_tricks": null,
+        "collective_rules": null,
+        "qualification": "Only trade/contract rows imply bargaining. Resource gates, involuntary rules and physical harm are not inferred vows."
+      },
+      "unique_mechanics": [
+        {
+          "description": "Official volume 1 gives privileged status screens; volume 2 explicitly describes ephemeral skill-orb auctions.",
+          "source_ids": [
+            "D025-S1"
+          ],
+          "what_we_take": "Proposal: sell a transferable ability whose useful lifetime creates real delivery and inspection problems.",
+          "status": "proposal"
+        }
+      ],
+      "gag_or_rule_abuse": {
+        "verified_scene": null,
+        "metadata_lead": null,
+        "qualification": "No chapter scenes read. Ingenious premise, rule exploit and comedy are not interchangeable."
+      }
+    },
+    {
+      "id": "D026",
+      "title": "Making Magic: The Sweet Life of a Witch Who Knows an Infinite MP Loophole",
+      "evidence_sources": [
+        "D026-S1"
+      ],
+      "mapping_status": "analyst classification of metadata; null means not established here",
+      "path": {
+        "currency": "Mana",
+        "steps": null,
+        "gate": {
+          "acquisition": "Chose Creation Magic unique skill",
+          "advancement": null
+        },
+        "risk": "Enough mana required for creation",
+        "shape": "field",
+        "branching": null,
+        "grader": null,
+        "ceiling": null
+      },
+      "families": [
+        "creation",
+        "stat work"
+      ],
+      "power_sources": "chosen unique skill",
+      "axes": {
+        "object": "created items and mana pool",
+        "mechanism": "mana-gated creation with pool-growth loophole",
+        "trigger": "creation; pool growth described as daily",
+        "certainty": null,
+        "scope": null,
+        "price": "Enough mana required for creation",
+        "limit": null,
+        "visibility": null,
+        "persistence": "Mana pool expands a little each day; mechanism unspecified",
+        "growth": "Mana pool grows a little daily; formula not read"
+      },
+      "vows_contracts_costs": {
+        "kind": "resource gate",
+        "slots": {
+          "swearer": null,
+          "restriction": null,
+          "object": "created items and mana pool",
+          "scope": null,
+          "duration": null,
+          "benefit": "Official synopsis states arbitrary item creation subject to enough mana and a daily mana-pool expansion trick.",
+          "consequence": null,
+          "witness": null,
+          "condition": null,
+          "ramp": null,
+          "stake": null,
+          "counterparty": null,
+          "release": null,
+          "visibility": null,
+          "inheritance": null,
+          "interpretation": null,
+          "coercion": null,
+          "memory": null,
+          "specificity": null
+        },
+        "trade": "Enough mana required for creation",
+        "breach": null,
+        "interpretation_tricks": null,
+        "collective_rules": null,
+        "qualification": "Only trade/contract rows imply bargaining. Resource gates, involuntary rules and physical harm are not inferred vows."
+      },
+      "unique_mechanics": [
+        {
+          "description": "Official synopsis states arbitrary item creation subject to enough mana and a daily mana-pool expansion trick.",
+          "source_ids": [
+            "D026-S1"
+          ],
+          "what_we_take": "Proposal: a known craft can manufacture the input to its own capacity growth, with explicit local costs.",
+          "status": "proposal"
+        }
+      ],
+      "gag_or_rule_abuse": {
+        "verified_scene": null,
+        "metadata_lead": "MP loophole advertised; execution unverified",
+        "qualification": "No chapter scenes read. Ingenious premise, rule exploit and comedy are not interchangeable."
+      }
+    },
+    {
+      "id": "D027",
+      "title": "To Another World... with Land Mines!",
+      "evidence_sources": [
+        "D027-S1",
+        "D027-S2",
+        "D027-S3"
+      ],
+      "mapping_status": "analyst classification of metadata; null means not established here",
+      "path": {
+        "currency": null,
+        "steps": null,
+        "gate": {
+          "acquisition": "Evil god reincarnates class with supernatural skills",
+          "advancement": null
+        },
+        "risk": "Some attractive powers hide deadly downsides",
+        "shape": "tree",
+        "branching": null,
+        "grader": null,
+        "ceiling": null
+      },
+      "families": [
+        "cursed gift",
+        "interface"
+      ],
+      "power_sources": "granted reincarnation skills",
+      "axes": {
+        "object": "selected ability and bearer",
+        "mechanism": "attractive grants hide dangerous conditions",
+        "trigger": "skill selection; exact harm trigger unknown",
+        "certainty": null,
+        "scope": null,
+        "price": "Some attractive powers hide deadly downsides",
+        "limit": null,
+        "visibility": null,
+        "persistence": null,
+        "growth": null
+      },
+      "vows_contracts_costs": {
+        "kind": "hidden drawback",
+        "slots": {
+          "swearer": null,
+          "restriction": null,
+          "object": "selected ability and bearer",
+          "scope": null,
+          "duration": null,
+          "benefit": "Official publisher synopsis states that attractive powers hide deadly downsides.",
+          "consequence": null,
+          "witness": null,
+          "condition": null,
+          "ramp": null,
+          "stake": null,
+          "counterparty": null,
+          "release": null,
+          "visibility": null,
+          "inheritance": null,
+          "interpretation": null,
+          "coercion": null,
+          "memory": null,
+          "specificity": null
+        },
+        "trade": "Some attractive powers hide deadly downsides",
+        "breach": null,
+        "interpretation_tricks": null,
+        "collective_rules": null,
+        "qualification": "Only trade/contract rows imply bargaining. Resource gates, involuntary rules and physical harm are not inferred vows."
+      },
+      "unique_mechanics": [
+        {
+          "description": "Official publisher synopsis states that attractive powers hide deadly downsides.",
+          "source_ids": [
+            "D027-S1",
+            "D027-S2",
+            "D027-S3"
+          ],
+          "what_we_take": "Proposal: information about a power can be a purchasable resource separate from the power itself.",
+          "status": "proposal"
+        }
+      ],
+      "gag_or_rule_abuse": {
+        "verified_scene": null,
+        "metadata_lead": null,
+        "qualification": "No chapter scenes read. Ingenious premise, rule exploit and comedy are not interchangeable."
+      }
+    },
+    {
+      "id": "D028",
+      "title": "Lazy Dungeon Master",
+      "evidence_sources": [
+        "D028-S1"
+      ],
+      "mapping_status": "analyst classification of metadata; null means not established here",
+      "path": {
+        "currency": null,
+        "steps": null,
+        "gate": {
+          "acquisition": "Summoned as dungeon master",
+          "advancement": null
+        },
+        "risk": "Dungeon core destruction kills the master",
+        "shape": "field",
+        "branching": null,
+        "grader": null,
+        "ceiling": null
+      },
+      "families": [
+        "will and domain",
+        "possession"
+      ],
+      "power_sources": "dungeon office and core",
+      "axes": {
+        "object": "master, core and remote monster body",
+        "mechanism": "life tied to core; later remote possession",
+        "trigger": "core destruction kills master",
+        "certainty": null,
+        "scope": null,
+        "price": "Dungeon core destruction kills the master",
+        "limit": null,
+        "visibility": null,
+        "persistence": null,
+        "growth": null
+      },
+      "vows_contracts_costs": {
+        "kind": "anchor condition",
+        "slots": {
+          "swearer": null,
+          "restriction": null,
+          "object": "master, core and remote monster body",
+          "scope": null,
+          "duration": null,
+          "benefit": "Official volume 1 states core destruction kills the master; volume 2 adds two income sources; volume 16 names monster-body possession.",
+          "consequence": null,
+          "witness": null,
+          "condition": null,
+          "ramp": null,
+          "stake": null,
+          "counterparty": null,
+          "release": null,
+          "visibility": null,
+          "inheritance": null,
+          "interpretation": null,
+          "coercion": null,
+          "memory": null,
+          "specificity": null
+        },
+        "trade": "Dungeon core destruction kills the master",
+        "breach": null,
+        "interpretation_tricks": null,
+        "collective_rules": null,
+        "qualification": "Only trade/contract rows imply bargaining. Resource gates, involuntary rules and physical harm are not inferred vows."
+      },
+      "unique_mechanics": [
+        {
+          "description": "Official volume 1 states core destruction kills the master; volume 2 adds two income sources; volume 16 names monster-body possession.",
+          "source_ids": [
+            "D028-S1"
+          ],
+          "what_we_take": "Proposal: a fragile external anchor can turn hospitality and territorial planning into survival infrastructure.",
+          "status": "proposal"
+        }
+      ],
+      "gag_or_rule_abuse": {
+        "verified_scene": null,
+        "metadata_lead": null,
+        "qualification": "No chapter scenes read. Ingenious premise, rule exploit and comedy are not interchangeable."
+      }
+    },
+    {
+      "id": "D029",
+      "title": "Min-Maxing My TRPG Build in Another World",
+      "evidence_sources": [
+        "D029-S1"
+      ],
+      "mapping_status": "analyst classification of metadata; null means not established here",
+      "path": {
+        "currency": null,
+        "steps": null,
+        "gate": {
+          "acquisition": "Reborn with universe rulebook access",
+          "advancement": null
+        },
+        "risk": "Helping the sister requires serving a magus in volume 2",
+        "shape": "tree",
+        "branching": null,
+        "grader": null,
+        "ceiling": null
+      },
+      "families": [
+        "interface",
+        "knowledge",
+        "trained skills"
+      ],
+      "power_sources": "rebirth with rulebook access",
+      "axes": {
+        "object": "build and universe rules",
+        "mechanism": "rules knowledge supports optimization",
+        "trigger": null,
+        "certainty": null,
+        "scope": null,
+        "price": "Helping the sister requires serving a magus in volume 2",
+        "limit": null,
+        "visibility": null,
+        "persistence": null,
+        "growth": null
+      },
+      "vows_contracts_costs": {
+        "kind": "information advantage; service exchange",
+        "slots": {
+          "swearer": null,
+          "restriction": null,
+          "object": "build and universe rules",
+          "scope": null,
+          "duration": null,
+          "benefit": "Official synopsis explicitly grants rulebook access and power-leveled skills; volume 2 describes service as the cost of help.",
+          "consequence": null,
+          "witness": null,
+          "condition": null,
+          "ramp": null,
+          "stake": null,
+          "counterparty": null,
+          "release": null,
+          "visibility": null,
+          "inheritance": null,
+          "interpretation": null,
+          "coercion": null,
+          "memory": null,
+          "specificity": null
+        },
+        "trade": "Helping the sister requires serving a magus in volume 2",
+        "breach": null,
+        "interpretation_tricks": null,
+        "collective_rules": null,
+        "qualification": "Only trade/contract rows imply bargaining. Resource gates, involuntary rules and physical harm are not inferred vows."
+      },
+      "unique_mechanics": [
+        {
+          "description": "Official synopsis explicitly grants rulebook access and power-leveled skills; volume 2 describes service as the cost of help.",
+          "source_ids": [
+            "D029-S1"
+          ],
+          "what_we_take": "Proposal: expose a local advancement rulebook while keeping social consequences outside its numerical score.",
+          "status": "proposal"
+        }
+      ],
+      "gag_or_rule_abuse": {
+        "verified_scene": null,
+        "metadata_lead": null,
+        "qualification": "No chapter scenes read. Ingenious premise, rule exploit and comedy are not interchangeable."
+      }
+    },
+    {
+      "id": "D030",
+      "title": "Monster Tamer",
+      "evidence_sources": [
+        "D030-S1",
+        "D030-S2"
+      ],
+      "mapping_status": "analyst classification of metadata; null means not established here",
+      "path": {
+        "currency": null,
+        "steps": null,
+        "gate": {
+          "acquisition": null,
+          "advancement": null
+        },
+        "risk": null,
+        "shape": "web",
+        "branching": null,
+        "grader": null,
+        "ceiling": null
+      },
+      "families": [
+        "beasts",
+        "mind and soul"
+      ],
+      "power_sources": "companion grant; exact source unknown",
+      "axes": {
+        "object": "monster hearts and companions",
+        "mechanism": "inner agency and concealed bonds",
+        "trigger": null,
+        "certainty": null,
+        "scope": null,
+        "price": null,
+        "limit": null,
+        "visibility": null,
+        "persistence": null,
+        "growth": null
+      },
+      "vows_contracts_costs": {
+        "kind": "bond lead, terms unverified",
+        "slots": {
+          "swearer": null,
+          "restriction": null,
+          "object": "monster hearts and companions",
+          "scope": null,
+          "duration": null,
+          "benefit": "Official volume 11 describes a visitor who gives hearts to monsters; volumes 3 and 4 explicitly make their secret dangerous.",
+          "consequence": null,
+          "witness": null,
+          "condition": null,
+          "ramp": null,
+          "stake": null,
+          "counterparty": null,
+          "release": null,
+          "visibility": null,
+          "inheritance": null,
+          "interpretation": null,
+          "coercion": null,
+          "memory": null,
+          "specificity": null
+        },
+        "trade": null,
+        "breach": null,
+        "interpretation_tricks": null,
+        "collective_rules": null,
+        "qualification": "Only trade/contract rows imply bargaining. Resource gates, involuntary rules and physical harm are not inferred vows."
+      },
+      "unique_mechanics": [
+        {
+          "description": "Official volume 11 describes a visitor who gives hearts to monsters; volumes 3 and 4 explicitly make their secret dangerous.",
+          "source_ids": [
+            "D030-S1",
+            "D030-S2"
+          ],
+          "what_we_take": "Proposal: a power bond can awaken a partner’s agency, creating needs and loyalties rather than another inventory slot.",
+          "status": "proposal"
+        }
+      ],
+      "gag_or_rule_abuse": {
+        "verified_scene": null,
+        "metadata_lead": null,
+        "qualification": "No chapter scenes read. Ingenious premise, rule exploit and comedy are not interchangeable."
+      }
+    },
+    {
+      "id": "D031",
+      "title": "The Magician Who Rose From Failure",
+      "evidence_sources": [
+        "D031-S1"
+      ],
+      "mapping_status": "analyst classification of metadata; null means not established here",
+      "path": {
+        "currency": null,
+        "steps": null,
+        "gate": {
+          "acquisition": "Memories from a scientific prior life",
+          "advancement": null
+        },
+        "risk": null,
+        "shape": "field",
+        "branching": null,
+        "grader": null,
+        "ceiling": null
+      },
+      "families": [
+        "machines",
+        "observation",
+        "knowledge"
+      ],
+      "power_sources": "prior-life knowledge; trained invention",
+      "axes": {
+        "object": "magic as measured by an instrument",
+        "mechanism": "measurement device",
+        "trigger": "use of device; exact operation unknown",
+        "certainty": null,
+        "scope": null,
+        "price": null,
+        "limit": null,
+        "visibility": null,
+        "persistence": "Prior-life knowledge supports invention of a magic measuring device",
+        "growth": null
+      },
+      "vows_contracts_costs": {
+        "kind": "measurement condition",
+        "slots": {
+          "swearer": null,
+          "restriction": null,
+          "object": "magic as measured by an instrument",
+          "scope": null,
+          "duration": null,
+          "benefit": "Official volume 2 identifies the aethometer as a device measuring magic’s essence.",
+          "consequence": null,
+          "witness": null,
+          "condition": null,
+          "ramp": null,
+          "stake": null,
+          "counterparty": null,
+          "release": null,
+          "visibility": null,
+          "inheritance": null,
+          "interpretation": null,
+          "coercion": null,
+          "memory": null,
+          "specificity": null
+        },
+        "trade": null,
+        "breach": null,
+        "interpretation_tricks": null,
+        "collective_rules": null,
+        "qualification": "Only trade/contract rows imply bargaining. Resource gates, involuntary rules and physical harm are not inferred vows."
+      },
+      "unique_mechanics": [
+        {
+          "description": "Official volume 2 identifies the aethometer as a device measuring magic’s essence.",
+          "source_ids": [
+            "D031-S1"
+          ],
+          "what_we_take": "Proposal: a crafted instrument can change accepted evidence and research opportunities without measuring every aspect of a person.",
+          "status": "proposal"
+        }
+      ],
+      "gag_or_rule_abuse": {
+        "verified_scene": null,
+        "metadata_lead": null,
+        "qualification": "No chapter scenes read. Ingenious premise, rule exploit and comedy are not interchangeable."
+      }
+    },
+    {
+      "id": "D032",
+      "title": "Did I Seriously Just Get Reincarnated as My Gag Character?!",
+      "evidence_sources": [
+        "D032-S1"
+      ],
+      "mapping_status": "analyst classification of metadata; null means not established here",
+      "path": {
+        "currency": null,
+        "steps": null,
+        "gate": {
+          "acquisition": "Reincarnated as joke avatar instead of main character",
+          "advancement": null
+        },
+        "risk": null,
+        "shape": null,
+        "branching": null,
+        "grader": null,
+        "ceiling": null
+      },
+      "families": [
+        "shapeshifting",
+        "interface"
+      ],
+      "power_sources": "rebirth into authored avatar",
+      "axes": {
+        "object": "joke avatar body",
+        "mechanism": "wrong build is the arrival carrier",
+        "trigger": "reincarnation",
+        "certainty": null,
+        "scope": null,
+        "price": null,
+        "limit": null,
+        "visibility": null,
+        "persistence": "Joke avatar body carries to new world; detailed skill retention unknown",
+        "growth": null
+      },
+      "vows_contracts_costs": {
+        "kind": "carrier condition",
+        "slots": {
+          "swearer": null,
+          "restriction": null,
+          "object": "joke avatar body",
+          "scope": null,
+          "duration": null,
+          "benefit": "Official synopsis explicitly distinguishes an invincible main character from a nonoptimized joke avatar as the reincarnation carrier.",
+          "consequence": null,
+          "witness": null,
+          "condition": null,
+          "ramp": null,
+          "stake": null,
+          "counterparty": null,
+          "release": null,
+          "visibility": null,
+          "inheritance": null,
+          "interpretation": null,
+          "coercion": null,
+          "memory": null,
+          "specificity": null
+        },
+        "trade": null,
+        "breach": null,
+        "interpretation_tricks": null,
+        "collective_rules": null,
+        "qualification": "Only trade/contract rows imply bargaining. Resource gates, involuntary rules and physical harm are not inferred vows."
+      },
+      "unique_mechanics": [
+        {
+          "description": "Official synopsis explicitly distinguishes an invincible main character from a nonoptimized joke avatar as the reincarnation carrier.",
+          "source_ids": [
+            "D032-S1"
+          ],
+          "what_we_take": "Proposal: a transferred character can inherit inconvenient cosmetic, social and build traits selected for a different context.",
+          "status": "proposal"
+        }
+      ],
+      "gag_or_rule_abuse": {
+        "verified_scene": null,
+        "metadata_lead": null,
+        "qualification": "No chapter scenes read. Ingenious premise, rule exploit and comedy are not interchangeable."
+      }
+    },
+    {
+      "id": "D033",
+      "title": "The Game at Carousel: A Horror Movie LitRPG",
+      "evidence_sources": [
+        "D033-S1",
+        "D033-S2"
+      ],
+      "mapping_status": "analyst classification of metadata; null means not established here",
+      "path": {
+        "currency": null,
+        "steps": null,
+        "gate": {
+          "acquisition": null,
+          "advancement": null
+        },
+        "risk": null,
+        "shape": "field",
+        "branching": null,
+        "grader": null,
+        "ceiling": null
+      },
+      "families": [
+        "presence",
+        "conditions",
+        "interface"
+      ],
+      "power_sources": "role and trope",
+      "axes": {
+        "object": "apparent awareness of monsters",
+        "mechanism": "protection conditional on convincing unawareness",
+        "trigger": "convincingly appearing unaware",
+        "certainty": null,
+        "scope": null,
+        "price": null,
+        "limit": null,
+        "visibility": null,
+        "persistence": null,
+        "growth": null
+      },
+      "vows_contracts_costs": {
+        "kind": "activation gate",
+        "slots": {
+          "swearer": null,
+          "restriction": null,
+          "object": "apparent awareness of monsters",
+          "scope": null,
+          "duration": null,
+          "benefit": "The indexed fiction-page description names an Oblivious Bystander trope that protects someone convincingly pretending not to notice monsters.",
+          "consequence": null,
+          "witness": null,
+          "condition": null,
+          "ramp": null,
+          "stake": null,
+          "counterparty": null,
+          "release": null,
+          "visibility": null,
+          "inheritance": null,
+          "interpretation": null,
+          "coercion": null,
+          "memory": null,
+          "specificity": null
+        },
+        "trade": null,
+        "breach": null,
+        "interpretation_tricks": null,
+        "collective_rules": null,
+        "qualification": "Only trade/contract rows imply bargaining. Resource gates, involuntary rules and physical harm are not inferred vows."
+      },
+      "unique_mechanics": [
+        {
+          "description": "The indexed fiction-page description names an Oblivious Bystander trope that protects someone convincingly pretending not to notice monsters.",
+          "source_ids": [
+            "D033-S1",
+            "D033-S2"
+          ],
+          "what_we_take": "Proposal: make declared or apparent awareness distinct from actual awareness in a local encounter rule.",
+          "status": "proposal"
+        }
+      ],
+      "gag_or_rule_abuse": {
+        "verified_scene": null,
+        "metadata_lead": null,
+        "qualification": "No chapter scenes read. Ingenious premise, rule exploit and comedy are not interchangeable."
+      }
+    },
+    {
+      "id": "D034",
+      "title": "Godclads",
+      "evidence_sources": [
+        "D034-S1"
+      ],
+      "mapping_status": "analyst classification of metadata; null means not established here",
+      "path": {
+        "currency": null,
+        "steps": null,
+        "gate": {
+          "acquisition": "Stolen divine power; Avo receives immortality and a legacy",
+          "advancement": null
+        },
+        "risk": null,
+        "shape": "web",
+        "branching": null,
+        "grader": null,
+        "ceiling": null
+      },
+      "families": [
+        "inheritance",
+        "will and domain",
+        "rules"
+      ],
+      "power_sources": "stolen divine power; legacy",
+      "axes": {
+        "object": "laws of existence",
+        "mechanism": "ascenders contest rule ownership",
+        "trigger": null,
+        "certainty": null,
+        "scope": null,
+        "price": null,
+        "limit": null,
+        "visibility": null,
+        "persistence": null,
+        "growth": null
+      },
+      "vows_contracts_costs": {
+        "kind": "authority contest",
+        "slots": {
+          "swearer": null,
+          "restriction": null,
+          "object": "laws of existence",
+          "scope": null,
+          "duration": null,
+          "benefit": "Official synopsis states that humans stole divine powers, ascenders contest existence laws, and Avo gains immortality and a legacy.",
+          "consequence": null,
+          "witness": null,
+          "condition": null,
+          "ramp": null,
+          "stake": null,
+          "counterparty": null,
+          "release": null,
+          "visibility": null,
+          "inheritance": null,
+          "interpretation": null,
+          "coercion": null,
+          "memory": null,
+          "specificity": null
+        },
+        "trade": null,
+        "breach": null,
+        "interpretation_tricks": null,
+        "collective_rules": null,
+        "qualification": "Only trade/contract rows imply bargaining. Resource gates, involuntary rules and physical harm are not inferred vows."
+      },
+      "unique_mechanics": [
+        {
+          "description": "Official synopsis states that humans stole divine powers, ascenders contest existence laws, and Avo gains immortality and a legacy.",
+          "source_ids": [
+            "D034-S1"
+          ],
+          "what_we_take": "Proposal: model a stolen source separately from its authority to change a world rule.",
+          "status": "proposal"
+        }
+      ],
+      "gag_or_rule_abuse": {
+        "verified_scene": null,
+        "metadata_lead": null,
+        "qualification": "No chapter scenes read. Ingenious premise, rule exploit and comedy are not interchangeable."
+      }
+    },
+    {
+      "id": "D035",
+      "title": "Slumrat Rising",
+      "evidence_sources": [
+        "D035-S1"
+      ],
+      "mapping_status": "analyst classification of metadata; null means not established here",
+      "path": {
+        "currency": null,
+        "steps": null,
+        "gate": {
+          "acquisition": "Corporate selection",
+          "advancement": null
+        },
+        "risk": null,
+        "shape": "field",
+        "branching": null,
+        "grader": null,
+        "ceiling": null
+      },
+      "families": [
+        "interface",
+        "patron grants"
+      ],
+      "power_sources": "corporate selection",
+      "axes": {
+        "object": "employee access to System Astrologica",
+        "mechanism": "institution controls access to growth",
+        "trigger": "selection",
+        "certainty": null,
+        "scope": null,
+        "price": null,
+        "limit": null,
+        "visibility": null,
+        "persistence": null,
+        "growth": null
+      },
+      "vows_contracts_costs": {
+        "kind": "institutional access",
+        "slots": {
+          "swearer": null,
+          "restriction": null,
+          "object": "employee access to System Astrologica",
+          "scope": null,
+          "duration": null,
+          "benefit": "The official synopsis ties System Astrologica access to corporate selection and describes hired supernatural labor.",
+          "consequence": null,
+          "witness": null,
+          "condition": null,
+          "ramp": null,
+          "stake": null,
+          "counterparty": null,
+          "release": null,
+          "visibility": null,
+          "inheritance": null,
+          "interpretation": null,
+          "coercion": null,
+          "memory": null,
+          "specificity": null
+        },
+        "trade": null,
+        "breach": null,
+        "interpretation_tricks": null,
+        "collective_rules": null,
+        "qualification": "Only trade/contract rows imply bargaining. Resource gates, involuntary rules and physical harm are not inferred vows."
+      },
+      "unique_mechanics": [
+        {
+          "description": "The official synopsis ties System Astrologica access to corporate selection and describes hired supernatural labor.",
+          "source_ids": [
+            "D035-S1"
+          ],
+          "what_we_take": "Proposal: separate a power supplier, employer and grader, even when one institution holds all three roles.",
+          "status": "proposal"
+        }
+      ],
+      "gag_or_rule_abuse": {
+        "verified_scene": null,
+        "metadata_lead": null,
+        "qualification": "No chapter scenes read. Ingenious premise, rule exploit and comedy are not interchangeable."
+      }
+    },
+    {
+      "id": "D036",
+      "title": "Markets and Multiverses",
+      "evidence_sources": [
+        "D036-S1"
+      ],
+      "mapping_status": "analyst classification of metadata; null means not established here",
+      "path": {
+        "currency": null,
+        "steps": null,
+        "gate": {
+          "acquisition": "Transmigration",
+          "advancement": null
+        },
+        "risk": "Risk of permanent death",
+        "shape": "web",
+        "branching": null,
+        "grader": null,
+        "ceiling": null
+      },
+      "families": [
+        "reincarnation",
+        "power trade"
+      ],
+      "power_sources": "transmigration and between-life market",
+      "axes": {
+        "object": "abilities and items between lives",
+        "mechanism": "many local systems and trading route",
+        "trigger": "successive lives",
+        "certainty": null,
+        "scope": null,
+        "price": "Risk of permanent death",
+        "limit": null,
+        "visibility": null,
+        "persistence": "Successive lives and a between-life market; exact retained contents unknown",
+        "growth": null
+      },
+      "vows_contracts_costs": {
+        "kind": "carrier and market condition",
+        "slots": {
+          "swearer": null,
+          "restriction": null,
+          "object": "abilities and items between lives",
+          "scope": null,
+          "duration": null,
+          "benefit": "Official synopsis distinguishes unique world systems, ability/item trade between lives and possible permanent death.",
+          "consequence": null,
+          "witness": null,
+          "condition": null,
+          "ramp": null,
+          "stake": null,
+          "counterparty": null,
+          "release": null,
+          "visibility": null,
+          "inheritance": null,
+          "interpretation": null,
+          "coercion": null,
+          "memory": null,
+          "specificity": null
+        },
+        "trade": "Risk of permanent death",
+        "breach": null,
+        "interpretation_tricks": null,
+        "collective_rules": null,
+        "qualification": "Only trade/contract rows imply bargaining. Resource gates, involuntary rules and physical harm are not inferred vows."
+      },
+      "unique_mechanics": [
+        {
+          "description": "Official synopsis distinguishes unique world systems, ability/item trade between lives and possible permanent death.",
+          "source_ids": [
+            "D036-S1"
+          ],
+          "what_we_take": "Proposal: distinguish lifetime growth, market-owned abilities and the remaining permission to reincarnate.",
+          "status": "proposal"
+        }
+      ],
+      "gag_or_rule_abuse": {
+        "verified_scene": null,
+        "metadata_lead": null,
+        "qualification": "No chapter scenes read. Ingenious premise, rule exploit and comedy are not interchangeable."
+      }
+    },
+    {
+      "id": "D037",
+      "title": "The Daily Grind",
+      "evidence_sources": [
+        "D037-S1",
+        "D037-S2"
+      ],
+      "mapping_status": "analyst classification of metadata; null means not established here",
+      "path": {
+        "currency": null,
+        "steps": null,
+        "gate": {
+          "acquisition": null,
+          "advancement": null
+        },
+        "risk": null,
+        "shape": "field",
+        "branching": null,
+        "grader": null,
+        "ceiling": null
+      },
+      "families": [
+        "knowledge",
+        "interface"
+      ],
+      "power_sources": "office subdimension; review-level skill orbs",
+      "axes": {
+        "object": "office space and useful expertise",
+        "mechanism": "office adventure rewards; precise transfer is review-only",
+        "trigger": null,
+        "certainty": null,
+        "scope": null,
+        "price": null,
+        "limit": null,
+        "visibility": null,
+        "persistence": null,
+        "growth": null
+      },
+      "vows_contracts_costs": {
+        "kind": "reward lead",
+        "slots": {
+          "swearer": null,
+          "restriction": null,
+          "object": "office space and useful expertise",
+          "scope": null,
+          "duration": null,
+          "benefit": "Official synopsis verifies the office subdimension; public page reviews mention skill orbs and unusual rewards.",
+          "consequence": null,
+          "witness": null,
+          "condition": null,
+          "ramp": null,
+          "stake": null,
+          "counterparty": null,
+          "release": null,
+          "visibility": null,
+          "inheritance": null,
+          "interpretation": null,
+          "coercion": null,
+          "memory": null,
+          "specificity": null
+        },
+        "trade": null,
+        "breach": null,
+        "interpretation_tricks": null,
+        "collective_rules": null,
+        "qualification": "Only trade/contract rows imply bargaining. Resource gates, involuntary rules and physical harm are not inferred vows."
+      },
+      "unique_mechanics": [
+        {
+          "description": "Official synopsis verifies the office subdimension; public page reviews mention skill orbs and unusual rewards.",
+          "source_ids": [
+            "D037-S1",
+            "D037-S2"
+          ],
+          "what_we_take": "Proposal: let found knowledge reward narrow everyday actions rather than only generic intelligence.",
+          "status": "proposal"
+        }
+      ],
+      "gag_or_rule_abuse": {
+        "verified_scene": null,
+        "metadata_lead": null,
+        "qualification": "No chapter scenes read. Ingenious premise, rule exploit and comedy are not interchangeable."
+      }
+    },
+    {
+      "id": "D038",
+      "title": "All the Dust that Falls",
+      "evidence_sources": [
+        "D038-S1"
+      ],
+      "mapping_status": "analyst classification of metadata; null means not established here",
+      "path": {
+        "currency": null,
+        "steps": null,
+        "gate": {
+          "acquisition": null,
+          "advancement": null
+        },
+        "risk": null,
+        "shape": "field",
+        "branching": null,
+        "grader": null,
+        "ceiling": null
+      },
+      "families": [
+        "machines",
+        "leadership"
+      ],
+      "power_sources": "summoned vacuum",
+      "axes": {
+        "object": "cleaning and followers",
+        "mechanism": "ordinary purpose in a supernatural world",
+        "trigger": "cleaning; exact reward trigger unverified",
+        "certainty": null,
+        "scope": null,
+        "price": null,
+        "limit": null,
+        "visibility": null,
+        "persistence": null,
+        "growth": null
+      },
+      "vows_contracts_costs": {
+        "kind": "interpretation lead",
+        "slots": {
+          "swearer": null,
+          "restriction": null,
+          "object": "cleaning and followers",
+          "scope": null,
+          "duration": null,
+          "benefit": "Official synopsis presents a vacuum pursuing cleaning, power and followers in a magic world.",
+          "consequence": null,
+          "witness": null,
+          "condition": null,
+          "ramp": null,
+          "stake": null,
+          "counterparty": null,
+          "release": null,
+          "visibility": null,
+          "inheritance": null,
+          "interpretation": null,
+          "coercion": null,
+          "memory": null,
+          "specificity": null
+        },
+        "trade": null,
+        "breach": null,
+        "interpretation_tricks": null,
+        "collective_rules": null,
+        "qualification": "Only trade/contract rows imply bargaining. Resource gates, involuntary rules and physical harm are not inferred vows."
+      },
+      "unique_mechanics": [
+        {
+          "description": "Official synopsis presents a vacuum pursuing cleaning, power and followers in a magic world.",
+          "source_ids": [
+            "D038-S1"
+          ],
+          "what_we_take": "Proposal: preserve an unusual creature purpose as its goal while observers assign a different meaning.",
+          "status": "proposal"
+        }
+      ],
+      "gag_or_rule_abuse": {
+        "verified_scene": null,
+        "metadata_lead": null,
+        "qualification": "No chapter scenes read. Ingenious premise, rule exploit and comedy are not interchangeable."
+      }
+    },
+    {
+      "id": "D039",
+      "title": "Return of the Runebound Professor",
+      "evidence_sources": [
+        "D039-S1"
+      ],
+      "mapping_status": "analyst classification of metadata; null means not established here",
+      "path": {
+        "currency": "Lives, described as a currency in the synopsis",
+        "steps": null,
+        "gate": {
+          "acquisition": "Death triggers body reformation",
+          "advancement": null
+        },
+        "risk": "Painful soul wound",
+        "shape": "field",
+        "branching": null,
+        "grader": null,
+        "ceiling": null
+      },
+      "families": [
+        "revival",
+        "soul work",
+        "runic craft"
+      ],
+      "power_sources": "reincarnation; runes",
+      "axes": {
+        "object": "body and injured soul",
+        "mechanism": "body reforms while soul injury survives",
+        "trigger": "death",
+        "certainty": null,
+        "scope": null,
+        "price": "Painful soul wound",
+        "limit": null,
+        "visibility": null,
+        "persistence": "Body reforms; soul injury survives the death event",
+        "growth": null
+      },
+      "vows_contracts_costs": {
+        "kind": "physical cost",
+        "slots": {
+          "swearer": null,
+          "restriction": null,
+          "object": "body and injured soul",
+          "scope": null,
+          "duration": null,
+          "benefit": "Official synopsis explicitly links body reformation after death with soul wounds and many runic magic variations.",
+          "consequence": null,
+          "witness": null,
+          "condition": null,
+          "ramp": null,
+          "stake": null,
+          "counterparty": null,
+          "release": null,
+          "visibility": null,
+          "inheritance": null,
+          "interpretation": null,
+          "coercion": null,
+          "memory": null,
+          "specificity": null
+        },
+        "trade": "Painful soul wound",
+        "breach": null,
+        "interpretation_tricks": null,
+        "collective_rules": null,
+        "qualification": "Only trade/contract rows imply bargaining. Resource gates, involuntary rules and physical harm are not inferred vows."
+      },
+      "unique_mechanics": [
+        {
+          "description": "Official synopsis explicitly links body reformation after death with soul wounds and many runic magic variations.",
+          "source_ids": [
+            "D039-S1"
+          ],
+          "what_we_take": "Proposal: give revival separate body recovery and persistent soul damage records.",
+          "status": "proposal"
+        }
+      ],
+      "gag_or_rule_abuse": {
+        "verified_scene": null,
+        "metadata_lead": null,
+        "qualification": "No chapter scenes read. Ingenious premise, rule exploit and comedy are not interchangeable."
+      }
+    },
+    {
+      "id": "D040",
+      "title": "Minute Mage: A Time Magic LitRPG",
+      "evidence_sources": [
+        "D040-S1"
+      ],
+      "mapping_status": "analyst classification of metadata; null means not established here",
+      "path": {
+        "currency": null,
+        "steps": null,
+        "gate": {
+          "acquisition": "Level growth extends rewind",
+          "advancement": null
+        },
+        "risk": "Initially once per day",
+        "shape": "ladder",
+        "branching": null,
+        "grader": null,
+        "ceiling": null
+      },
+      "families": [
+        "regression",
+        "time"
+      ],
+      "power_sources": "acquired time magic",
+      "axes": {
+        "object": "short time window",
+        "mechanism": "limited rewind extended by levels",
+        "trigger": "rewind use",
+        "certainty": null,
+        "scope": "Initially one minute; window grows with levels",
+        "price": "Initially once per day",
+        "limit": "Initially once daily",
+        "visibility": null,
+        "persistence": "Rewind begins at one minute; exact carry unknown",
+        "growth": "Levels extend rewind window"
+      },
+      "vows_contracts_costs": {
+        "kind": "use limit",
+        "slots": {
+          "swearer": null,
+          "restriction": null,
+          "object": "short time window",
+          "scope": null,
+          "duration": null,
+          "benefit": "Official indexed synopsis specifies a one-minute rewind once daily and a longer window with levels.",
+          "consequence": null,
+          "witness": null,
+          "condition": null,
+          "ramp": null,
+          "stake": null,
+          "counterparty": null,
+          "release": null,
+          "visibility": null,
+          "inheritance": null,
+          "interpretation": null,
+          "coercion": null,
+          "memory": null,
+          "specificity": null
+        },
+        "trade": "Initially once per day",
+        "breach": null,
+        "interpretation_tricks": null,
+        "collective_rules": null,
+        "qualification": "Only trade/contract rows imply bargaining. Resource gates, involuntary rules and physical harm are not inferred vows."
+      },
+      "unique_mechanics": [
+        {
+          "description": "Official indexed synopsis specifies a one-minute rewind once daily and a longer window with levels.",
+          "source_ids": [
+            "D040-S1"
+          ],
+          "what_we_take": "Proposal: treat rewind length, use quota and stolen-power pursuit as separate limits.",
+          "status": "proposal"
+        }
+      ],
+      "gag_or_rule_abuse": {
+        "verified_scene": null,
+        "metadata_lead": null,
+        "qualification": "No chapter scenes read. Ingenious premise, rule exploit and comedy are not interchangeable."
+      }
+    },
+    {
+      "id": "D041",
+      "title": "The Stubborn Skill-Grinder In A Time Loop",
+      "evidence_sources": [
+        "D041-S1",
+        "D041-S2"
+      ],
+      "mapping_status": "analyst classification of metadata; null means not established here",
+      "path": {
+        "currency": null,
+        "steps": null,
+        "gate": {
+          "acquisition": "Repeated practice across loops",
+          "advancement": null
+        },
+        "risk": null,
+        "shape": "field",
+        "branching": null,
+        "grader": null,
+        "ceiling": null
+      },
+      "families": [
+        "regression",
+        "trained skills"
+      ],
+      "power_sources": "time loop",
+      "axes": {
+        "object": "practice across attempts",
+        "mechanism": "death returns and repeated practice raises skills",
+        "trigger": "death",
+        "certainty": null,
+        "scope": null,
+        "price": null,
+        "limit": null,
+        "visibility": null,
+        "persistence": "Skill levels gained across repetition; exact retention rules unverified",
+        "growth": null
+      },
+      "vows_contracts_costs": {
+        "kind": "retention condition",
+        "slots": {
+          "swearer": null,
+          "restriction": null,
+          "object": "practice across attempts",
+          "scope": null,
+          "duration": null,
+          "benefit": "Author-platform synopsis describes a death-triggered return and repeated practice that gains skill levels.",
+          "consequence": null,
+          "witness": null,
+          "condition": null,
+          "ramp": null,
+          "stake": null,
+          "counterparty": null,
+          "release": null,
+          "visibility": null,
+          "inheritance": null,
+          "interpretation": null,
+          "coercion": null,
+          "memory": null,
+          "specificity": null
+        },
+        "trade": null,
+        "breach": null,
+        "interpretation_tricks": null,
+        "collective_rules": null,
+        "qualification": "Only trade/contract rows imply bargaining. Resource gates, involuntary rules and physical harm are not inferred vows."
+      },
+      "unique_mechanics": [
+        {
+          "description": "Author-platform synopsis describes a death-triggered return and repeated practice that gains skill levels.",
+          "source_ids": [
+            "D041-S1",
+            "D041-S2"
+          ],
+          "what_we_take": "Proposal: distinguish retained practice from retained status-screen numbers.",
+          "status": "proposal"
+        }
+      ],
+      "gag_or_rule_abuse": {
+        "verified_scene": null,
+        "metadata_lead": null,
+        "qualification": "No chapter scenes read. Ingenious premise, rule exploit and comedy are not interchangeable."
+      }
+    },
+    {
+      "id": "D042",
+      "title": "Industrial Strength Magic",
+      "evidence_sources": [
+        "D042-S1"
+      ],
+      "mapping_status": "analyst classification of metadata; null means not established here",
+      "path": {
+        "currency": null,
+        "steps": null,
+        "gate": {
+          "acquisition": "System boots",
+          "advancement": null
+        },
+        "risk": null,
+        "shape": "tree",
+        "branching": null,
+        "grader": null,
+        "ceiling": null
+      },
+      "families": [
+        "machines",
+        "interface",
+        "magic"
+      ],
+      "power_sources": "mixed family sources and system",
+      "axes": {
+        "object": "body and selected path",
+        "mechanism": "system steers a path that conflicts with preference",
+        "trigger": "system activation",
+        "certainty": null,
+        "scope": null,
+        "price": null,
+        "limit": null,
+        "visibility": null,
+        "persistence": null,
+        "growth": null
+      },
+      "vows_contracts_costs": {
+        "kind": "imposed incentive",
+        "slots": {
+          "swearer": null,
+          "restriction": null,
+          "object": "body and selected path",
+          "scope": null,
+          "duration": null,
+          "benefit": "Official synopsis verifies mixed parental sources, initially absent powers and a system-driven path conflict.",
+          "consequence": null,
+          "witness": null,
+          "condition": null,
+          "ramp": null,
+          "stake": null,
+          "counterparty": null,
+          "release": null,
+          "visibility": null,
+          "inheritance": null,
+          "interpretation": null,
+          "coercion": null,
+          "memory": null,
+          "specificity": null
+        },
+        "trade": null,
+        "breach": null,
+        "interpretation_tricks": null,
+        "collective_rules": null,
+        "qualification": "Only trade/contract rows imply bargaining. Resource gates, involuntary rules and physical harm are not inferred vows."
+      },
+      "unique_mechanics": [
+        {
+          "description": "Official synopsis verifies mixed parental sources, initially absent powers and a system-driven path conflict.",
+          "source_ids": [
+            "D042-S1"
+          ],
+          "what_we_take": "Proposal: let a tool path reach a family technique through an explicit interface rather than automatic conversion.",
+          "status": "proposal"
+        }
+      ],
+      "gag_or_rule_abuse": {
+        "verified_scene": null,
+        "metadata_lead": null,
+        "qualification": "No chapter scenes read. Ingenious premise, rule exploit and comedy are not interchangeable."
+      }
+    },
+    {
+      "id": "D043",
+      "title": "Double-Blind: A Modern LITRPG",
+      "evidence_sources": [
+        "D043-S1",
+        "D043-S2"
+      ],
+      "mapping_status": "analyst classification of metadata; null means not established here",
+      "path": {
+        "currency": null,
+        "steps": null,
+        "gate": {
+          "acquisition": null,
+          "advancement": null
+        },
+        "risk": null,
+        "shape": "field",
+        "branching": null,
+        "grader": null,
+        "ceiling": null
+      },
+      "families": [
+        "presence",
+        "interface"
+      ],
+      "power_sources": "hidden class; review evidence",
+      "axes": {
+        "object": "public classification of bearer",
+        "mechanism": "false identity; review-only detailed hook",
+        "trigger": null,
+        "certainty": null,
+        "scope": null,
+        "price": null,
+        "limit": null,
+        "visibility": null,
+        "persistence": null,
+        "growth": null
+      },
+      "vows_contracts_costs": {
+        "kind": "concealment lead",
+        "slots": {
+          "swearer": null,
+          "restriction": null,
+          "object": "public classification of bearer",
+          "scope": null,
+          "duration": null,
+          "benefit": "Indexed public page review identifies fake identity and a hidden mastermind class; official page supplies title and author.",
+          "consequence": null,
+          "witness": null,
+          "condition": null,
+          "ramp": null,
+          "stake": null,
+          "counterparty": null,
+          "release": null,
+          "visibility": null,
+          "inheritance": null,
+          "interpretation": null,
+          "coercion": null,
+          "memory": null,
+          "specificity": null
+        },
+        "trade": null,
+        "breach": null,
+        "interpretation_tricks": null,
+        "collective_rules": null,
+        "qualification": "Only trade/contract rows imply bargaining. Resource gates, involuntary rules and physical harm are not inferred vows."
+      },
+      "unique_mechanics": [
+        {
+          "description": "Indexed public page review identifies fake identity and a hidden mastermind class; official page supplies title and author.",
+          "source_ids": [
+            "D043-S1",
+            "D043-S2"
+          ],
+          "what_we_take": "Proposal: track the reported identity separately for each observer and each inspection method.",
+          "status": "proposal"
+        }
+      ],
+      "gag_or_rule_abuse": {
+        "verified_scene": null,
+        "metadata_lead": null,
+        "qualification": "No chapter scenes read. Ingenious premise, rule exploit and comedy are not interchangeable."
+      }
+    },
+    {
+      "id": "D044",
+      "title": "Pale Lights",
+      "evidence_sources": [
+        "D044-S1",
+        "D044-S2"
+      ],
+      "mapping_status": "analyst classification of metadata; null means not established here",
+      "path": {
+        "currency": null,
+        "steps": null,
+        "gate": {
+          "acquisition": "Divine contract",
+          "advancement": null
+        },
+        "risk": "Priced gifts mentioned in reader metadata; exact price unknown",
+        "shape": "web",
+        "branching": null,
+        "grader": null,
+        "ceiling": null
+      },
+      "families": [
+        "contracts and oaths",
+        "patron grants"
+      ],
+      "power_sources": "goddess contract",
+      "axes": {
+        "object": "thief and capricious patron",
+        "mechanism": "divine bargain; precise price unverified",
+        "trigger": null,
+        "certainty": null,
+        "scope": null,
+        "price": "Priced gifts mentioned in reader metadata; exact price unknown",
+        "limit": null,
+        "visibility": null,
+        "persistence": null,
+        "growth": null
+      },
+      "vows_contracts_costs": {
+        "kind": "mutual contract lead",
+        "slots": {
+          "swearer": "Thief named Tristan",
+          "restriction": null,
+          "object": "thief and capricious patron",
+          "scope": null,
+          "duration": null,
+          "benefit": "Contract-derived support; precise grant and price not established",
+          "consequence": null,
+          "witness": null,
+          "condition": null,
+          "ramp": null,
+          "stake": null,
+          "counterparty": "Capricious goddess",
+          "release": null,
+          "visibility": null,
+          "inheritance": null,
+          "interpretation": null,
+          "coercion": null,
+          "memory": null,
+          "specificity": null
+        },
+        "trade": "Priced gifts mentioned in reader metadata; exact price unknown",
+        "breach": null,
+        "interpretation_tricks": null,
+        "collective_rules": null,
+        "qualification": "Only trade/contract rows imply bargaining. Resource gates, involuntary rules and physical harm are not inferred vows."
+      },
+      "unique_mechanics": [
+        {
+          "description": "Official synopsis explicitly gives Tristan a contract with a capricious goddess; reader metadata supports priced divine gifts.",
+          "source_ids": [
+            "D044-S1",
+            "D044-S2"
+          ],
+          "what_we_take": "Proposal: distinguish contract text, patron mood and an external social consequence.",
+          "status": "proposal"
+        }
+      ],
+      "gag_or_rule_abuse": {
+        "verified_scene": null,
+        "metadata_lead": null,
+        "qualification": "No chapter scenes read. Ingenious premise, rule exploit and comedy are not interchangeable."
+      }
+    },
+    {
+      "id": "D045",
+      "title": "Mimic Me! Within The Eternal Forest",
+      "evidence_sources": [
+        "D045-S1",
+        "D045-S2"
+      ],
+      "mapping_status": "analyst classification of metadata; null means not established here",
+      "path": {
+        "currency": null,
+        "steps": null,
+        "gate": {
+          "acquisition": "Survive until evolution; author says wishes shape evolution",
+          "advancement": null
+        },
+        "risk": null,
+        "shape": "tree",
+        "branching": null,
+        "grader": null,
+        "ceiling": null
+      },
+      "families": [
+        "shapeshifting",
+        "adaptation"
+      ],
+      "power_sources": "monster evolution",
+      "axes": {
+        "object": "shifting egg body",
+        "mechanism": "survival before evolution; wishes are author-forum lead",
+        "trigger": null,
+        "certainty": null,
+        "scope": null,
+        "price": null,
+        "limit": null,
+        "visibility": null,
+        "persistence": null,
+        "growth": null
+      },
+      "vows_contracts_costs": {
+        "kind": "evolution condition",
+        "slots": {
+          "swearer": null,
+          "restriction": null,
+          "object": "shifting egg body",
+          "scope": null,
+          "duration": null,
+          "benefit": "Official synopsis gives the shifting egg and survival/evolution hook; author forum metadata calls the protagonist a mimic and says evolution follows wishes.",
+          "consequence": null,
+          "witness": null,
+          "condition": null,
+          "ramp": null,
+          "stake": null,
+          "counterparty": null,
+          "release": null,
+          "visibility": null,
+          "inheritance": null,
+          "interpretation": null,
+          "coercion": null,
+          "memory": null,
+          "specificity": null
+        },
+        "trade": null,
+        "breach": null,
+        "interpretation_tricks": null,
+        "collective_rules": null,
+        "qualification": "Only trade/contract rows imply bargaining. Resource gates, involuntary rules and physical harm are not inferred vows."
+      },
+      "unique_mechanics": [
+        {
+          "description": "Official synopsis gives the shifting egg and survival/evolution hook; author forum metadata calls the protagonist a mimic and says evolution follows wishes.",
+          "source_ids": [
+            "D045-S1",
+            "D045-S2"
+          ],
+          "what_we_take": "Proposal: let a creature desired form influence branch offers while preserving its current body limits.",
+          "status": "proposal"
+        }
+      ],
+      "gag_or_rule_abuse": {
+        "verified_scene": null,
+        "metadata_lead": null,
+        "qualification": "No chapter scenes read. Ingenious premise, rule exploit and comedy are not interchangeable."
+      }
+    },
+    {
+      "id": "D046",
+      "title": "The Law of Averages",
+      "evidence_sources": [
+        "D046-S1"
+      ],
+      "mapping_status": "analyst classification of metadata; null means not established here",
+      "path": {
+        "currency": null,
+        "steps": null,
+        "gate": {
+          "acquisition": "Purchase superpowers",
+          "advancement": null
+        },
+        "risk": "Sale price unspecified",
+        "shape": "field",
+        "branching": null,
+        "grader": null,
+        "ceiling": null
+      },
+      "families": [
+        "power trade",
+        "wealth"
+      ],
+      "power_sources": "purchased powers",
+      "axes": {
+        "object": "buyer and sale",
+        "mechanism": "market access instead of awakening",
+        "trigger": "purchase",
+        "certainty": null,
+        "scope": null,
+        "price": "Sale price unspecified",
+        "limit": null,
+        "visibility": null,
+        "persistence": null,
+        "growth": null
+      },
+      "vows_contracts_costs": {
+        "kind": "market condition",
+        "slots": {
+          "swearer": null,
+          "restriction": null,
+          "object": "buyer and sale",
+          "scope": null,
+          "duration": null,
+          "benefit": "Official synopsis explicitly describes powers for sale and a society that frowns on heroics.",
+          "consequence": null,
+          "witness": null,
+          "condition": null,
+          "ramp": null,
+          "stake": null,
+          "counterparty": null,
+          "release": null,
+          "visibility": null,
+          "inheritance": null,
+          "interpretation": null,
+          "coercion": null,
+          "memory": null,
+          "specificity": null
+        },
+        "trade": "Sale price unspecified",
+        "breach": null,
+        "interpretation_tricks": null,
+        "collective_rules": null,
+        "qualification": "Only trade/contract rows imply bargaining. Resource gates, involuntary rules and physical harm are not inferred vows."
+      },
+      "unique_mechanics": [
+        {
+          "description": "Official synopsis explicitly describes powers for sale and a society that frowns on heroics.",
+          "source_ids": [
+            "D046-S1"
+          ],
+          "what_we_take": "Proposal: separate purchase, bodily installation, permission to use and public approval.",
+          "status": "proposal"
+        }
+      ],
+      "gag_or_rule_abuse": {
+        "verified_scene": null,
+        "metadata_lead": null,
+        "qualification": "No chapter scenes read. Ingenious premise, rule exploit and comedy are not interchangeable."
+      }
+    },
+    {
+      "id": "D047",
+      "title": "Ra",
+      "evidence_sources": [
+        "D047-S1",
+        "D047-S2"
+      ],
+      "mapping_status": "analyst classification of metadata; null means not established here",
+      "path": {
+        "currency": null,
+        "steps": null,
+        "gate": {
+          "acquisition": null,
+          "advancement": null
+        },
+        "risk": null,
+        "shape": "field",
+        "branching": null,
+        "grader": null,
+        "ceiling": null
+      },
+      "families": [
+        "machines",
+        "knowledge",
+        "composed craft"
+      ],
+      "power_sources": "trained engineering",
+      "axes": {
+        "object": "industrial and domestic magic",
+        "mechanism": "technical study of an operation",
+        "trigger": null,
+        "certainty": null,
+        "scope": null,
+        "price": null,
+        "limit": null,
+        "visibility": null,
+        "persistence": null,
+        "growth": null
+      },
+      "vows_contracts_costs": {
+        "kind": "physical procedure",
+        "slots": {
+          "swearer": null,
+          "restriction": null,
+          "object": "industrial and domestic magic",
+          "scope": null,
+          "duration": null,
+          "benefit": "Magic is an engineering field with household and industrial uses; investigation centers on a failed magical spaceflight.",
+          "consequence": null,
+          "witness": null,
+          "condition": null,
+          "ramp": null,
+          "stake": null,
+          "counterparty": null,
+          "release": null,
+          "visibility": null,
+          "inheritance": null,
+          "interpretation": null,
+          "coercion": null,
+          "memory": null,
+          "specificity": null
+        },
+        "trade": null,
+        "breach": null,
+        "interpretation_tricks": null,
+        "collective_rules": null,
+        "qualification": "Only trade/contract rows imply bargaining. Resource gates, involuntary rules and physical harm are not inferred vows."
+      },
+      "unique_mechanics": [
+        {
+          "description": "Magic is an engineering field with household and industrial uses; investigation centers on a failed magical spaceflight.",
+          "source_ids": [
+            "D047-S1",
+            "D047-S2"
+          ],
+          "what_we_take": "Proposal: a workshop can test a spell model against a real material and record what failed.",
+          "status": "proposal"
+        }
+      ],
+      "gag_or_rule_abuse": {
+        "verified_scene": null,
+        "metadata_lead": null,
+        "qualification": "No chapter scenes read. Ingenious premise, rule exploit and comedy are not interchangeable."
+      }
+    },
+    {
+      "id": "D048",
+      "title": "Fine Structure",
+      "evidence_sources": [
+        "D048-S1",
+        "D048-S2"
+      ],
+      "mapping_status": "analyst classification of metadata; null means not established here",
+      "path": {
+        "currency": null,
+        "steps": null,
+        "gate": {
+          "acquisition": null,
+          "advancement": null
+        },
+        "risk": null,
+        "shape": "field",
+        "branching": null,
+        "grader": null,
+        "ceiling": null
+      },
+      "families": [
+        "rules",
+        "negation",
+        "knowledge"
+      ],
+      "power_sources": "discovered scientific framework",
+      "axes": {
+        "object": "local physical laws",
+        "mechanism": "experiments followed by closure of possibilities",
+        "trigger": "experiment; causal sequence requires text",
+        "certainty": null,
+        "scope": null,
+        "price": null,
+        "limit": null,
+        "visibility": null,
+        "persistence": null,
+        "growth": null
+      },
+      "vows_contracts_costs": {
+        "kind": "imposed world rule",
+        "slots": {
+          "swearer": null,
+          "restriction": null,
+          "object": "local physical laws",
+          "scope": null,
+          "duration": null,
+          "benefit": "Experiments are followed by sabotage and changing scientific laws that close discovered possibilities.",
+          "consequence": null,
+          "witness": null,
+          "condition": null,
+          "ramp": null,
+          "stake": null,
+          "counterparty": null,
+          "release": null,
+          "visibility": null,
+          "inheritance": null,
+          "interpretation": null,
+          "coercion": null,
+          "memory": null,
+          "specificity": null
+        },
+        "trade": null,
+        "breach": null,
+        "interpretation_tricks": null,
+        "collective_rules": null,
+        "qualification": "Only trade/contract rows imply bargaining. Resource gates, involuntary rules and physical harm are not inferred vows."
+      },
+      "unique_mechanics": [
+        {
+          "description": "Experiments are followed by sabotage and changing scientific laws that close discovered possibilities.",
+          "source_ids": [
+            "D048-S1",
+            "D048-S2"
+          ],
+          "what_we_take": "Proposal: a discovery receipt stores the rule version under which it worked, and later trials can fail under a changed local law.",
+          "status": "proposal"
+        }
+      ],
+      "gag_or_rule_abuse": {
+        "verified_scene": null,
+        "metadata_lead": null,
+        "qualification": "No chapter scenes read. Ingenious premise, rule exploit and comedy are not interchangeable."
+      }
+    },
+    {
+      "id": "D049",
+      "title": "I Can See Your Death",
+      "evidence_sources": [
+        "D049-S1"
+      ],
+      "mapping_status": "analyst classification of metadata; null means not established here",
+      "path": {
+        "currency": null,
+        "steps": null,
+        "gate": {
+          "acquisition": "Sight begins after an accident",
+          "advancement": null
+        },
+        "risk": null,
+        "shape": "field",
+        "branching": null,
+        "grader": null,
+        "ceiling": null
+      },
+      "families": [
+        "observation",
+        "future sight"
+      ],
+      "power_sources": "accident-awakened sight",
+      "axes": {
+        "object": "another person death date and sign",
+        "mechanism": "color distinguishes advertised intervention status",
+        "trigger": "sight; exact activation unknown",
+        "certainty": "Narrator describes black dates as avoidable and red as fixed; objective certainty unverified",
+        "scope": null,
+        "price": null,
+        "limit": null,
+        "visibility": null,
+        "persistence": null,
+        "growth": null
+      },
+      "vows_contracts_costs": {
+        "kind": "prediction condition",
+        "slots": {
+          "swearer": null,
+          "restriction": null,
+          "object": "another person death date and sign",
+          "scope": null,
+          "duration": null,
+          "benefit": "Synopsis states death date/sign sight and contrasts preventable black readings with red lifespans described as unchangeable.",
+          "consequence": null,
+          "witness": null,
+          "condition": null,
+          "ramp": null,
+          "stake": null,
+          "counterparty": null,
+          "release": null,
+          "visibility": null,
+          "inheritance": null,
+          "interpretation": null,
+          "coercion": null,
+          "memory": null,
+          "specificity": null
+        },
+        "trade": null,
+        "breach": null,
+        "interpretation_tricks": null,
+        "collective_rules": null,
+        "qualification": "Only trade/contract rows imply bargaining. Resource gates, involuntary rules and physical harm are not inferred vows."
+      },
+      "unique_mechanics": [
+        {
+          "description": "Synopsis states death date/sign sight and contrasts preventable black readings with red lifespans described as unchangeable.",
+          "source_ids": [
+            "D049-S1"
+          ],
+          "what_we_take": "Proposal: a reading has separate certainty and intervention status; apparent inevitability stays an observer claim until tested.",
+          "status": "proposal"
+        }
+      ],
+      "gag_or_rule_abuse": {
+        "verified_scene": null,
+        "metadata_lead": null,
+        "qualification": "No chapter scenes read. Ingenious premise, rule exploit and comedy are not interchangeable."
+      }
+    },
+    {
+      "id": "D050",
+      "title": "The Oracle Paths",
+      "evidence_sources": [
+        "D050-S1"
+      ],
+      "mapping_status": "analyst classification of metadata; null means not established here",
+      "path": {
+        "currency": null,
+        "steps": null,
+        "gate": {
+          "acquisition": "Bracelet delivered to every Earthling",
+          "advancement": null
+        },
+        "risk": null,
+        "shape": "field",
+        "branching": null,
+        "grader": null,
+        "ceiling": null
+      },
+      "families": [
+        "interface",
+        "future sight"
+      ],
+      "power_sources": "granted AI bracelet",
+      "axes": {
+        "object": "choices and future consequences",
+        "mechanism": "guidance available to all Earthlings",
+        "trigger": null,
+        "certainty": null,
+        "scope": null,
+        "price": null,
+        "limit": null,
+        "visibility": null,
+        "persistence": null,
+        "growth": null
+      },
+      "vows_contracts_costs": {
+        "kind": "guidance condition",
+        "slots": {
+          "swearer": null,
+          "restriction": null,
+          "object": "choices and future consequences",
+          "scope": null,
+          "duration": null,
+          "benefit": "Official synopsis grants all Earthlings an Oracle AI bracelet describing future consequences of choices; exact tariff is unstated.",
+          "consequence": null,
+          "witness": null,
+          "condition": null,
+          "ramp": null,
+          "stake": null,
+          "counterparty": null,
+          "release": null,
+          "visibility": null,
+          "inheritance": null,
+          "interpretation": null,
+          "coercion": null,
+          "memory": null,
+          "specificity": null
+        },
+        "trade": null,
+        "breach": null,
+        "interpretation_tricks": null,
+        "collective_rules": null,
+        "qualification": "Only trade/contract rows imply bargaining. Resource gates, involuntary rules and physical harm are not inferred vows."
+      },
+      "unique_mechanics": [
+        {
+          "description": "Official synopsis grants all Earthlings an Oracle AI bracelet describing future consequences of choices; exact tariff is unstated.",
+          "source_ids": [
+            "D050-S1"
+          ],
+          "what_we_take": "Proposal: preview quality depends on which other actors also possess and act on guidance, rather than assuming passive opponents.",
+          "status": "proposal"
+        }
+      ],
+      "gag_or_rule_abuse": {
+        "verified_scene": null,
+        "metadata_lead": null,
+        "qualification": "No chapter scenes read. Ingenious premise, rule exploit and comedy are not interchangeable."
+      }
+    }
+  ],
+  "top_15": [
+    {
+      "rank": 1,
+      "id": "D-M01",
+      "candidate_id": "D033",
+      "title": "The Game at Carousel: A Horror Movie LitRPG",
+      "mechanic": "Apparent awareness",
+      "added_decision": "Actual knowledge and what an enemy thinks you know can differ.",
+      "what_we_take": "Proposal: make declared or apparent awareness distinct from actual awareness in a local encounter rule.",
+      "future_proof": "Compare a warned observer who maintains the role with one who openly reacts.",
+      "status": "proposal"
+    },
+    {
+      "rank": 2,
+      "id": "D-M02",
+      "candidate_id": "D017",
+      "title": "Dungeon Reset",
+      "mechanic": "Selective world reset",
+      "added_decision": "One carrier can be exempt while the surrounding world refreshes.",
+      "what_we_take": "Proposal: let a local reset spare one tagged carrier, creating construction and resource loops. Read reset scenes before choosing what is spared.",
+      "future_proof": "Reset one room and inspect body, belongings and construction separately.",
+      "status": "proposal"
+    },
+    {
+      "rank": 3,
+      "id": "D-M03",
+      "candidate_id": "D027",
+      "title": "To Another World... with Land Mines!",
+      "mechanic": "Hidden grant terms",
+      "added_decision": "An offered benefit need not expose its real drawback.",
+      "what_we_take": "Proposal: information about a power can be a purchasable resource separate from the power itself.",
+      "future_proof": "A reliable guide reveals one concealed condition before a grant is chosen.",
+      "status": "proposal"
+    },
+    {
+      "rank": 4,
+      "id": "D-M04",
+      "candidate_id": "D048",
+      "title": "Fine Structure",
+      "mechanic": "Discovery can close a law",
+      "added_decision": "An old true measurement can become obsolete when the world changes.",
+      "what_we_take": "Proposal: a discovery receipt stores the rule version under which it worked, and later trials can fail under a changed local law.",
+      "future_proof": "Keep a successful trial receipt; show a later failure under a new rule version.",
+      "status": "proposal"
+    },
+    {
+      "rank": 5,
+      "id": "D-M05",
+      "candidate_id": "D034",
+      "title": "Godclads",
+      "mechanic": "Power as rule ownership",
+      "added_decision": "A power holder can contest which local law applies.",
+      "what_we_take": "Proposal: model a stolen source separately from its authority to change a world rule.",
+      "future_proof": "Two authorities conflict over one action; record winner and affected scope.",
+      "status": "proposal"
+    },
+    {
+      "rank": 6,
+      "id": "D-M06",
+      "candidate_id": "D018",
+      "title": "The Book Eating Magician",
+      "mechanic": "Destroying a book to learn",
+      "added_decision": "The carrier is spent while understanding and usable method transfer separately.",
+      "what_we_take": "Proposal: transfer practical skill by consuming a knowledge carrier, with preparation and provenance gates.",
+      "future_proof": "A learner receives one method while the consumed copy is no longer teachable.",
+      "status": "proposal"
+    },
+    {
+      "rank": 7,
+      "id": "D-M07",
+      "candidate_id": "D014",
+      "title": "Trafford's Trading Club",
+      "mechanic": "Price feeds the broker",
+      "added_decision": "One payer loss can sustain a different beneficiary.",
+      "what_we_take": "Proposal: track what a customer relinquishes separately from what the broker gains, with explicit ownership and consent.",
+      "future_proof": "Show payer, desired outcome, broker gain and unresolved liabilities on one receipt.",
+      "status": "proposal"
+    },
+    {
+      "rank": 8,
+      "id": "D-M08",
+      "candidate_id": "D026",
+      "title": "Making Magic: The Sweet Life of a Witch Who Knows an Infinite MP Loophole",
+      "mechanic": "Creation grows its own capacity",
+      "added_decision": "A real loophole can compound instead of paying a fixed cost.",
+      "what_we_take": "Proposal: a known craft can manufacture the input to its own capacity growth, with explicit local costs.",
+      "future_proof": "One allowed daily operation increases capacity; do not invent its source formula.",
+      "status": "proposal"
+    },
+    {
+      "rank": 9,
+      "id": "D-M09",
+      "candidate_id": "D005",
+      "title": "Astral Apostle",
+      "mechanic": "Local vessel portfolios",
+      "added_decision": "Body, local identity and returning traveler can have distinct owners.",
+      "what_we_take": "Proposal: give each projected life a local body and identity while tracking a separate traveling self.",
+      "future_proof": "One traveler changes vessels while the old local biography stays attached to its person.",
+      "status": "proposal"
+    },
+    {
+      "rank": 10,
+      "id": "D-M10",
+      "candidate_id": "D039",
+      "title": "Return of the Runebound Professor",
+      "mechanic": "Different revival layers",
+      "added_decision": "A rebuilt body can retain a damaged soul.",
+      "what_we_take": "Proposal: give revival separate body recovery and persistent soul damage records.",
+      "future_proof": "After one permitted revival, clear bodily injury but retain a named soul wound.",
+      "status": "proposal"
+    },
+    {
+      "rank": 11,
+      "id": "D-M11",
+      "candidate_id": "D025",
+      "title": "D-Genesis: Three Years after the Dungeons Appeared",
+      "mechanic": "Perishable power trade",
+      "added_decision": "A transferable ability can expire before delivery or sale.",
+      "what_we_take": "Proposal: sell a transferable ability whose useful lifetime creates real delivery and inspection problems.",
+      "future_proof": "A custody transfer succeeds before expiry and fails honestly afterward.",
+      "status": "proposal"
+    },
+    {
+      "rank": 12,
+      "id": "D-M12",
+      "candidate_id": "D044",
+      "title": "Pale Lights",
+      "mechanic": "Capricious contract partner",
+      "added_decision": "Patron preferences and a fixed signed term need not be identical.",
+      "what_we_take": "Proposal: distinguish contract text, patron mood and an external social consequence.",
+      "future_proof": "Keep the original bargain alongside a later change in patron mood.",
+      "status": "proposal"
+    },
+    {
+      "rank": 13,
+      "id": "D-M13",
+      "candidate_id": "D049",
+      "title": "I Can See Your Death",
+      "mechanic": "Certainty versus changeability",
+      "added_decision": "Seeing a clear future and being able to alter it are different claims.",
+      "what_we_take": "Proposal: a reading has separate certainty and intervention status; apparent inevitability stays an observer claim until tested.",
+      "future_proof": "Show a precise reading with an untested intervention flag, then record the actual attempt.",
+      "status": "proposal"
+    },
+    {
+      "rank": 14,
+      "id": "D-M14",
+      "candidate_id": "D050",
+      "title": "The Oracle Paths",
+      "mechanic": "Competing future guidance",
+      "added_decision": "Opponents can also act on predictions.",
+      "what_we_take": "Proposal: preview quality depends on which other actors also possess and act on guidance, rather than assuming passive opponents.",
+      "future_proof": "Revise a preview when another informed actor changes their intended action.",
+      "status": "proposal"
+    },
+    {
+      "rank": 15,
+      "id": "D-M15",
+      "candidate_id": "D004",
+      "title": "Losing Money to Be a Tycoon",
+      "mechanic": "Failure rewards meet other minds",
+      "added_decision": "A deliberate bad plan can be defeated by helpful independent agents.",
+      "what_we_take": "Proposal: use a reward system whose accounting objective conflicts with the helpers' own goals.",
+      "future_proof": "Separate intended loss, staff interpretation, actual profit and the system payout.",
+      "status": "proposal"
+    }
+  ]
+}

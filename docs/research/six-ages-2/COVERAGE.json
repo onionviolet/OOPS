@@ -1,0 +1,30 @@
+{
+  "assigned_pass": "six connected life-sim chains",
+  "completed_chains": [
+    "SA2-F1",
+    "SA2-F2",
+    "SA2-F3",
+    "SA2-F4",
+    "SA2-F5",
+    "SA2-F6"
+  ],
+  "source_exports": "Assembly-CSharp + firstpass ILSpy; native asm complete export with six methods read; Lua definitions/help bounded read",
+  "native_methods_read": [
+    "DarkAgeGame.ageRing",
+    "Person.ageOneYearWithFamousEvent:instructionMagic:multiplier:",
+    "PlayerClan(Economics).handleMoot",
+    "PlayerClan(Economics).handleSacredTime",
+    "Script.checkResult",
+    "Script.completed"
+  ],
+  "unread": [
+    "scene bytecode programs and metadata interpretation",
+    "most native functions, exact age skill probabilities and mortality",
+    "full lineage succession/event chain outcomes",
+    "serialized Unity art/audio",
+    "native save format/compression and disk retention",
+    "all venture outcomes/cost validations"
+  ],
+  "runtime_acceptance": "not run; source audit only",
+  "whole_game_coverage": false
+}

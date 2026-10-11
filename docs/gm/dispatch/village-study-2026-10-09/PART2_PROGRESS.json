@@ -1,0 +1,15 @@
+{
+  "findings": [
+    "Fresh vanilla opening: two native 50-coin shifts unlock Dependable and Tessa’s notes.",
+    "Quota rejection gives neither book nor issuance receipt; retry remains available.",
+    "Native book read, partial-reading save/reload and completion give known only, with no stat or wage bonus.",
+    "Known-only full patrol still pays 50 coins.",
+    "Native meditation and partial-practice file export/import retain progress; five minutes unlock practice, still not executable without the loaned kit.",
+    "Active method-bearing patrol survives file import; native full round pays exactly 60 and adds one first-use life entry.",
+    "Second executable round pays 60 without another first-use entry.",
+    "Early departure earns no wage/bonus; retained debt blocks a new executable patrol.",
+    "Final native save/reload/export/import retains one manual, completed reading, practice, custody and one first-use biography.",
+    "Generated schema-1 career loads with earned rank/history intact and empty schema-2 study, without invented method rewards."
+  ],
+  "errors": []
+}

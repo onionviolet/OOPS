@@ -1,0 +1,29 @@
+{
+  "state": "passed",
+  "subject_count": 115,
+  "digest_count": 115,
+  "article_response_count": 21,
+  "distinct_revision_count": 20,
+  "reviewed_claim_count": 28,
+  "host_count": 75,
+  "blocked_hosts": 73,
+  "source_request_count": 73,
+  "checks": [
+    "input snapshot hashes unchanged",
+    "private cache response SHA-256 integrity",
+    "all claims point to acquired revisions",
+    "per-host network pacing at least 4 seconds",
+    "300 page cap obeyed",
+    "no post-refusal request on blocked robots hosts",
+    "complete digest inventory",
+    "local Markdown links resolve",
+    "request IDs unique",
+    "Python syntax parsed"
+  ],
+  "limitations": [
+    "Mechanical artifact validation does not authenticate wiki claims against canon.",
+    "No browser, build, gameplay or persistence test requested or run."
+  ],
+  "final_render_validation": "passed: syntax, input hashes, local links, source request IDs after D hook addition",
+  "validated_at_utc": "2026-10-10T05:41:51.162287+00:00"
+}

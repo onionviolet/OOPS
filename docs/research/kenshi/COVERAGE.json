@@ -1,0 +1,36 @@
+{
+  "status": "finite source pass complete; no runtime acceptance",
+  "decoded_records": 59558,
+  "decoded_by_file": {
+    "gamedata.base": 9399,
+    "Dialogue.mod": 39077,
+    "Newwworld.mod": 2511,
+    "rebirth.mod": 8571
+  },
+  "reviewed": "FCS reader methods and five connected bounded authored chains F1-F5; counts are not semantic coverage",
+  "native_runtime": "unread; no disassembly or executable gameplay recovered",
+  "reviewed_managed_methods": [
+    "GameData.Item.load",
+    "GameData.readString",
+    "GameData.readHeader",
+    "GameData.loadFromFile"
+  ],
+  "limits": [
+    "individual layers decoded; full runtime load-order/removal/precedence not reproduced",
+    "native AI scheduler, combat, needs consumption and save serializer unread",
+    "all other dialogue/characters/towns/research/gear/physics/terrain mostly unread",
+    "no game/editor launch or source-runtime test"
+  ],
+  "uninstall_eligibility": {
+    "verified_retention": true,
+    "finite_pass_complete": true,
+    "worker_installed_path_consumers": 0,
+    "parent_recheck_required": "other consumers and Steam dialog; worker does not own uninstall"
+  },
+  "checks": [
+    "initial source-to-copy SHA256 match",
+    "final private input SHA256 recheck",
+    "database length bounds and four exact EOF checks",
+    "JSON artifact parse and local links"
+  ]
+}

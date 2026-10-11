@@ -1,0 +1,53 @@
+{
+  "url": "http://127.0.0.1:18620",
+  "findings": [
+    "At the generated unlocked Shack, the explicit plan enrolls ordinary services without Eda and creates no tray or herbs.",
+    "Construction holds actual wood and money; cancellation returns them and creates no site.",
+    "Pending construction reloads and creates exactly the owned tray, with no automatic crop or herb gift.",
+    "Cancelling tending returns both joint inputs and leaves the existing empty tray, without a harvest.",
+    "Two separately chosen rounds each spend new herbs and sap; one initial bundle becomes three actual carried bundles.",
+    "Ordinary travel to the Village leaves the tray intact but blocks tending outside its supported shelter.",
+    "The existing native Goat stew recipe consumes two produced herb bundles and real meat into a carried meal.",
+    "Native file import restores the earlier actual pending round and completes its single harvest once at the retained tray."
+  ],
+  "errors": [],
+  "resourceErrors": [
+    {
+      "url": "http://127.0.0.1:18620/resources/img/ko-fi_icon.png",
+      "failure": "net::ERR_CONNECTION_RESET"
+    }
+  ],
+  "limits": [
+    "Generated unlocked Shack, supplies, crafting access and high Cooking skill isolate the consumer; natural acquisition and balance acceptance are not proved.",
+    "Hands/roof loss during a pending round and malformed import have bounded reducer/validator coverage; separate browser branches remain open."
+  ],
+  "schema": 1,
+  "build_receipt": "../oni-r1-BUILD.json",
+  "bundle_sha256": "214103c6d0b187a6207a01038a43eede8db819c253bc227192a105a8f1ba4b41",
+  "script": "browser_proof.cjs",
+  "exit_code": 0,
+  "verification": "eight bounded fresh-context browser gameplay/save criteria passed; director acceptance separate",
+  "source_files": [
+    {
+      "path": "src/steam_oni_content.js",
+      "kind": "filesystem-source",
+      "sha256": "6cbe695c58aa605adc9292ac7d2bb6e93c4d2bc7772ed4668e121e0bb78428b2"
+    },
+    {
+      "path": "src/steam_oni_runtime.js",
+      "kind": "filesystem-source",
+      "sha256": "6a5df3ef495c1c25f90052bbb2c2529a4cbe66c3fed94bd5e7e7d5dcc691e39a"
+    },
+    {
+      "path": "src/steam_oni_facts.js",
+      "kind": "filesystem-source",
+      "sha256": "c9beb50f845ab9909c96cbbdda6410d4d58476ec06512dc02628c174ca341a95"
+    },
+    {
+      "path": "src/steam_oni_host.js",
+      "kind": "filesystem-source",
+      "sha256": "74c3f84f5d1d6c686e291465f4a42c7556370e5e4551162856dd78d5293d2f49"
+    }
+  ],
+  "screenshot": "/tmp/yairpg-nonfactorio-proof/oni/cooked-harvest.png"
+}

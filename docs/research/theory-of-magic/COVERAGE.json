@@ -1,0 +1,58 @@
+{
+  "status": "bounded-static-source-audit-complete",
+  "inventory_files": 594,
+  "reviewed_paths": [
+    "CONTRIBUTORS",
+    "LICENSE",
+    "README.md",
+    "data/classes.json",
+    "data/furniture.json",
+    "data/hall.json",
+    "data/homes.json",
+    "data/modules.json",
+    "data/modules/learning.json",
+    "data/modules/sublimation.json",
+    "data/resources.json",
+    "data/skills.json",
+    "data/tasks.json",
+    "index.html",
+    "src/dataLoader.js",
+    "src/inventories/home.js",
+    "src/items/skill.js",
+    "src/modules/hall.js",
+    "src/modules/runner.js",
+    "src/ui/components/filterbox.vue",
+    "src/ui/hall/hall.vue",
+    "src/ui/items/skill.vue",
+    "src/ui/panes/resources.vue",
+    "src/ui/panes/running.vue"
+  ],
+  "inspection_depth": "Targeted numbered passages, not every line or complete game coverage. Original snapshot identity only.",
+  "covered": [
+    "source identity and license",
+    "study/research/capacity",
+    "selected early jobs and graduation branches",
+    "selected housing/furnishing tradeoffs",
+    "scribe/bind and sublimation data",
+    "runner cost/cap/rest/resume paths",
+    "Hall prestige glossary/controller/UI",
+    "static progress/filter/hide UI"
+  ],
+  "excluded": [
+    "build and play execution",
+    "user installation/version/save",
+    "full combat/spell/minion systems",
+    "full progression graph and all late-game branches",
+    "all seasonal modules",
+    "offline accrual correctness",
+    "full original versus community diff",
+    "network persistence/security review"
+  ],
+  "unrun_gates": [
+    "runtime behavior and pacing",
+    "rendered UI and accessibility",
+    "save/reload/import in Theory of Magic",
+    "all proposed YAIR acceptance tests"
+  ],
+  "coverage_warning": "Loaded module lists inspected, but this does not prove every module initializes or plays correctly. Data balance is authored values, not measured waiting time."
+}

@@ -1,0 +1,166 @@
+{
+  "status": "completed finite source pass with explicit opaque branches",
+  "extracted_not_reviewed": {
+    "workbooks": 914,
+    "sheets": 1613,
+    "nonempty_rows": 277971,
+    "fresh_mapped_method_entries": 203880,
+    "native_methods_disassembled": 16,
+    "compiled_scalar_tables": "NpcMemory14 complete direct-store rows;NpcBase2;RoleGrade11 identified partial rows/440fields;44 item allocations observed"
+  },
+  "lens_coverage": [
+    {
+      "id": "C1",
+      "lens": "NPC lives",
+      "finding_ids": [
+        "N1",
+        "N2",
+        "N3",
+        "N4",
+        "N5",
+        "N6",
+        "N7",
+        "N15"
+      ],
+      "reviewed": "Generation distributions and relation schemas read; current memory insertion/count/age-pruning body reviewed; bounded RunUnit traversal inspected.",
+      "opaque": "Childbirth execution, marriage eligibility/cost/aftermath, all aging/death action consumers, scheduling cadence/thread budget and performance not traced.",
+      "tier": "native+table"
+    },
+    {
+      "id": "C2",
+      "lens": "Cultivation and aptitude",
+      "finding_ids": [
+        "CE1",
+        "CE2",
+        "CE3",
+        "CE4",
+        "CE5",
+        "CE6",
+        "CE7",
+        "CE8",
+        "CE28",
+        "CE29"
+      ],
+      "reviewed": "Ten realm annotations; phase/quality/material/failure/learning/mastery rows; material rate aggregation body;440 current compiled scalar/string values match11 workbook rows.",
+      "opaque": "Full breakthrough transaction, RNG/success consumer, failure dungeon return, permanent root mutation and all late realms untraced.",
+      "tier": "native+table"
+    },
+    {
+      "id": "C3",
+      "lens": "Sects and factions",
+      "finding_ids": [
+        "N8",
+        "N9",
+        "N10",
+        "N11",
+        "N12",
+        "N13",
+        "N14"
+      ],
+      "reviewed": "Ranks, contribution, salary/backpay loyalty, payroll reserve, duty risk, aggregate members, war aftermath in official tables.",
+      "opaque": "Recruitment/founding/leadership executable transactions and disciples progression not traced.",
+      "tier": "table/proposal"
+    },
+    {
+      "id": "C4",
+      "lens": "Events and director",
+      "finding_ids": [
+        "CE9",
+        "CE10",
+        "CE11",
+        "CE12",
+        "CE13",
+        "CE14",
+        "CE27"
+      ],
+      "reviewed": "Eligibility/cooldown/priority/calendar/pacing and create/visit/expire action fields; current attribute-to-probability helper reviewed.",
+      "opaque": "Final weighted selection/priority/RNG persistence and complete dispatch timing not traced. No RimWorld-style adaptive director inferred.",
+      "tier": "native+table"
+    },
+    {
+      "id": "C5",
+      "lens": "Ancient monsters and plans",
+      "finding_ids": [
+        "CE15",
+        "CE16",
+        "CE17",
+        "CE18"
+      ],
+      "reviewed": "Boss refresh/escalation tables; authored sealed souls release/reseal branch; inheritance examines action history.",
+      "opaque": "No autonomous revival/inheritance planning or world-scale timeline simulation demonstrated.",
+      "tier": "table/proposal"
+    },
+    {
+      "id": "C6",
+      "lens": "Life and death",
+      "finding_ids": [
+        "CE19",
+        "CE20",
+        "CE21"
+      ],
+      "reviewed": "Lifespan changes/health drain/remnant-soul status/sect revival costs read in tables.",
+      "opaque": "Playable reincarnation, generational inheritance, whole death/revival execution, save loss/retention policy untraced.",
+      "tier": "table/proposal"
+    },
+    {
+      "id": "C7",
+      "lens": "Work and economy",
+      "finding_ids": [
+        "CE22",
+        "CE23",
+        "CE24",
+        "CE25",
+        "CE26"
+      ],
+      "reviewed": "Alchemy ingredients/elements/tool effects, market gates and24-month auction/six-month notice/fees in tables.",
+      "opaque": "Explosion transaction/yield/time, full job careers, dynamic price model and full auction resolution untraced.",
+      "tier": "table/proposal"
+    },
+    {
+      "id": "C8",
+      "lens": "Small touches",
+      "finding_ids": [
+        "T1",
+        "T2",
+        "T3",
+        "T4",
+        "T5",
+        "T6",
+        "T7",
+        "T8",
+        "T9",
+        "T10",
+        "T11",
+        "T12",
+        "T13",
+        "T14",
+        "T15",
+        "T16",
+        "T17",
+        "T18",
+        "T19",
+        "T20",
+        "T21",
+        "T22"
+      ],
+      "reviewed": "22 original proposals mapped to existing YAIR paths; every named JS path exists.",
+      "opaque": "Proposals only; no implementation/build/playable acceptance.",
+      "tier": "table/proposal"
+    },
+    {
+      "id": "C9",
+      "lens": "Save size and history",
+      "finding_ids": [
+        "N15",
+        "N16",
+        "N17"
+      ],
+      "reviewed": "Current memory defaults10/100years; ordinary/vital record split; five-calendar-year ordinary cutoff; parameterized string encoding; optional GZip then encryption write.",
+      "opaque": "Vital-history global bounds, whole-save byte budget, active flags, atomicity, crash behavior, migration and actual size not measured. User saves untouched.",
+      "tier": "native+table"
+    }
+  ],
+  "whole_game_semantic_coverage": false,
+  "runtime_exercised": false,
+  "all_disassembled_methods_semantically_reviewed": false
+}

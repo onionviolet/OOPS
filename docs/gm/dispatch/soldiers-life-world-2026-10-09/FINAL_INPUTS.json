@@ -1,0 +1,15 @@
+{
+  "src/content_packs.js": "65c72a9510cb87bab963ef508c62a82af9918c5ff869338e50aab0503fef87ad",
+  "src/content_pack_ui.js": "53c0ee4c5ce3739e9fbee49cce48fdf5169f4f93c3ac2edb6d44ae4e2e3ec2e4",
+  "src/main.js": "4c8ff0568dab52fb5525800877e3102a5923de4d2a511c172232a9e3eccfe688",
+  "src/save_files.js": "85d720df9bf7938ad441df69b61adaa437da5f94464ddcc9124cc0f2e8168308",
+  "src/expedition_ui.js": "4e7a461cc64398a946ffcabc7b9457cac055594f901f234b79eb7d084577cfec",
+  "tests/content_packs.test.js": "7e447a91d2489825ce91b47adbfa048f625073544a7f6d7437be7c6e5938999b",
+  "index.html": "4727cb0d8b8cf925805ecf422bef1b161ca0e6e88eb8c43cc669fa5cf0c5c513",
+  "dist/bundle.js": "c77bf39ea67a959f6d2f16a2c45d7584464ca62c01c46be150e64d3e10a8dd3c",
+  "dist/bundle.js.map": "936b89e1d8f5442c6e2d5def8b1871daea36671147dee07ab2c746cc9146e4cb",
+  ".gitignore": "cf87028f7c72200a7312387e6d4f4327a4efe3d6471d2323e89dc74fbbdd09a1",
+  "PROJECT.md": "e677e5d493c9e175624a17295eaef51aa1e67df6b9a056d1133657136f37c9cb",
+  "docs/DIRECTION_SYNTHESIS.md": "db9b7f61a67265c48333adcc106d93cb36c9e6517c23e4e65faaaf9947c44cd3",
+  "docs/PLAYTEST.md": "262f033faed0b70510710e22fd823abb810ecbf55e3e085e227561995d8bc226"
+}

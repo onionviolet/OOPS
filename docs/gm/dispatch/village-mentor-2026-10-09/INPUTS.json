@@ -1,0 +1,17 @@
+{
+  "branch": "codex/gameplay-foundations",
+  "head": "d6b6937c921ab8573480aa798dc0a5a56131db7e",
+  "files": {
+    "src/village_career.js": "82c312da907f968eb5b9df5517d2cfa8e628edce0e1ed66ba7aaeb5f16ae1bd9",
+    "src/village_career_ui.js": "f636ccb20577489ccb0a676f4f6f2d74e222a7538dc5a252637329c91d637c4d",
+    "src/npc_lives.js": "abef56e7d73a0e17a3ba551608eafc4fb7f9f1660c17a445cfe96ae9869eb804",
+    "src/main.js": "9bc30b222e6daaa31da70145014c603a88d169f41ec0d0fa7d016716c78e8559",
+    "src/save_files.js": "f2d5143eb576b7accf8ed7d6112ce5936bece765b40e79866c830424280285d4",
+    "tests/village_mentor.test.js": "f924a1a6f1f743fc3757e50b498a717fc320d9e8639a139a9e7b7bfd9a6b80f5",
+    "tests/village_study.test.js": "7ae56adcc3bb513bea7fbb5fc136d9f2b39eeecced3ebc7ead17d46f5f9c6d47",
+    "dist/bundle.js": "4ad6fb2ca4dec1d94e71abb2fb63d053f0470828da01fdb925bb7c972a461758",
+    "dist/bundle.js.map": "e442f830c59739ee992ae3e2c28a62a04d9e5a979c0db0205a80b024606a8a51",
+    "index.html": "9e0d6cf4c96e828858c764a9e1f7881affb022d6dda9a51e27ff23aa365de1c9"
+  },
+  "note": "Final source/build inputs in dirty shared checkout; preexisting edits preserved. Hashes do not imply commit, deployment or director acceptance."
+}

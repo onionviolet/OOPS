@@ -1,0 +1,15 @@
+# Kenshi second pass: building a life with other people
+
+2026-10-08. **Finite research pass complete. Proposals only.**
+
+Kenshi's useful lesson is that becoming somebody changes your obligations as well as your strength. People follow for different reasons; a workshop gives factions somewhere to visit; injury can close a familiar route while making a different trade, tool or ally matter. This pass adds connected source traces beyond the [first pass](../REPORT.md), using only the retained private copy.
+
+- **F1: Rescue is not recruitment.** Payment, persuasion, unlocking a cage and buying freedom have different authored outcomes. A freed person may travel provisionally, join, thank you and leave, or reject their former captor. Named recruits carry personal ambitions and reactions into later care. Permanent-companion loyalty decay or desertion was not established. [People](PEOPLE.md)
+- **F2: Founding gives politics an address.** Construction, material bootstrapping and crop suitability connect the place to work. Territory, diplomacy, rulers and town size gate different demands: money, stored food or ritual attendance. The old “tech level” label means town size in the editor schema. [Settlements](SETTLEMENTS.md)
+- **F3: Removing a ruler does not resolve every conflict.** Two custodians' status can qualify a prison farm for new residents and a fish shop; a leader's fate also changes road populations. Attributed ruler removal can invite character-targeted retaliation even without a base. Native override precedence remains unread. [Settlements](SETTLEMENTS.md)
+- **F4: Bodies change the available life.** A missing arm, cheap prosthetic, specialized replacement and robot maintenance have different practical effects. Shipped tips describe survival through rescue, restraint-breaking, concealment, treatment and loadout changes. No universal escape, regrowth or resurrection is proved. [Bodies and recovery routes](BODIES.md)
+- **F5: Small details carry these systems.** A hesitant recruit, a patient's discomfort, an unsuitable seam, a changing uniform or a specialist tool can tell a life story through existing center actions, jobs, crafting and location text. [Thirty small touches](SMALL_TOUCHES.md)
+
+The strongest next proposal is **O1, help before membership**: one village encounter with a wounded stranger who can accept safe passage, disclose a problem, and independently join or depart. It deepens followers without first adding a company-wide loyalty economy. The [eight ranked proposals](PROPOSALS.md) are decisions for Weibao, not implementation orders. [The Red Basin](WORLD_CARD.md) is an original harsh-world draft, separate from Frontier's accepted unconsciousness/recovery opening.
+
+Evidence consists of layered authored records, recovered editor schema/enums and all 62 shipped tips. Native combat, AI, recruitment selection, raid scheduling, merge precedence and saves were not executed or recovered. No reinstall, gameplay edits, builds, commits or save access. [Coverage](COVERAGE.json), [validation](VALIDATION.json) and [checkpoint](CHECKPOINT.md) record the bounded result.

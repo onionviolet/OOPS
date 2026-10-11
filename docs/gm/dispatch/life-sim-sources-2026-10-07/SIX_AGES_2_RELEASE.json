@@ -1,0 +1,46 @@
+{
+  "game": "Six Ages2: Lights Going Out",
+  "app_id": 2278010,
+  "build_id": 12712255,
+  "reviewed_at": "2026-10-07T17:06:48.740204-04:00",
+  "eligible": true,
+  "private_receipt_hash_verified": true,
+  "private_sample_hash_checks": [
+    "LightsGoingOut.app/Contents/Resources/Data/Managed/Assembly-CSharp.dll",
+    "LightsGoingOut.app/Contents/Plugins/DarkAgePlugin.bundle/Contents/Resources/DarkAge-GarbleTalk.lua",
+    "LightsGoingOut.app/Contents/Plugins/DarkAgePlugin.bundle/Contents/MacOS/DarkAgePlugin"
+  ],
+  "retained_files": 310,
+  "retained_bytes": 337741843,
+  "completed_chains": [
+    "SA2-F1",
+    "SA2-F2",
+    "SA2-F3",
+    "SA2-F4",
+    "SA2-F5",
+    "SA2-F6"
+  ],
+  "native_methods_read": [
+    "DarkAgeGame.ageRing",
+    "Person.ageOneYearWithFamousEvent:instructionMagic:multiplier:",
+    "PlayerClan(Economics).handleMoot",
+    "PlayerClan(Economics).handleSacredTime",
+    "Script.checkResult",
+    "Script.completed"
+  ],
+  "limits": [
+    "scene bytecode programs and metadata interpretation",
+    "most native functions, exact age skill probabilities and mortality",
+    "full lineage succession/event chain outcomes",
+    "serialized Unity art/audio",
+    "native save format/compression and disk retention",
+    "all venture outcomes/cost validations"
+  ],
+  "recipients": [
+    "docs/gm/life-sim-experience-2026-10-07/",
+    "docs/gm/life-sim-foundation-2026-10-07/"
+  ],
+  "packets": "docs/research/six-ages-2/IMPLEMENTATION_PACKETS.json",
+  "no_installed_consumer": true,
+  "parent_process_check": "no process under installed target path"
+}

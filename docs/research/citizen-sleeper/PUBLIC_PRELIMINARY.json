@@ -1,0 +1,26 @@
+[
+  {
+    "id": "CS-PUB1",
+    "label": "seen in text",
+    "claim": "Publisher premise identifies the sleeper as digitised human consciousness in a corporate-owned artificial body, escaping its makers.",
+    "locator": "WEB1 / About This Game"
+  },
+  {
+    "id": "CS-PUB2",
+    "label": "seen in data or code",
+    "claim": "Publisher screenshot 2 shows two action cards marked critical/repeatable; skill and modifier; a die with positive/neutral/negative probabilities; danger label; start/input controls; and Local Knowledge radial progress below them. This proves pictured layout, not current executable behavior.",
+    "locator": "public/screenshot-2.jpg"
+  },
+  {
+    "id": "CS-PUB3",
+    "label": "seen in text",
+    "claim": "Publisher screenshot 1 names Self Repair, Photosynthetic Skin, Hard to Kill, Predictive Reasoning and Instant Karma. The pictured Self Repair says 2 CONDITION per scrap; this is version-unknown promotional text and must not establish the installed value.",
+    "locator": "public/screenshot-1.jpg"
+  },
+  {
+    "id": "CS-PUB4",
+    "label": "seen in data or code",
+    "claim": "Publisher screenshot 0 keeps the condition/dice area and current Survive drive visible beside a portrait, scrollable prose and dialogue choices; source is a static screenshot.",
+    "locator": "public/screenshot-0.jpg"
+  }
+]

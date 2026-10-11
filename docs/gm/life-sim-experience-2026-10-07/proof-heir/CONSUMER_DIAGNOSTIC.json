@@ -1,0 +1,192 @@
+{
+  "dom": [
+    {
+      "tag": "DETAILS",
+      "id": "expedition_panel",
+      "hidden": false,
+      "display": "block",
+      "visibility": "visible",
+      "rect": {
+        "x": 828,
+        "y": 978.609375,
+        "width": 400,
+        "height": 1511.25,
+        "top": 978.609375,
+        "right": 1228,
+        "bottom": 2489.859375,
+        "left": 828
+      }
+    },
+    {
+      "tag": "DIV",
+      "id": "",
+      "hidden": false,
+      "display": "block",
+      "visibility": "visible",
+      "rect": {
+        "x": 828,
+        "y": 978.609375,
+        "width": 400,
+        "height": 1511.25,
+        "top": 978.609375,
+        "right": 1228,
+        "bottom": 2489.859375,
+        "left": 828
+      }
+    },
+    {
+      "tag": "DIV",
+      "id": "notebook_view_here",
+      "hidden": false,
+      "display": "block",
+      "visibility": "visible",
+      "rect": {
+        "x": 828,
+        "y": 136.375,
+        "width": 400,
+        "height": 2353.484375,
+        "top": 136.375,
+        "right": 1228,
+        "bottom": 2489.859375,
+        "left": 828
+      }
+    },
+    {
+      "tag": "SECTION",
+      "id": "adventure_notebook",
+      "hidden": false,
+      "display": "block",
+      "visibility": "visible",
+      "rect": {
+        "x": 828,
+        "y": 64,
+        "width": 400,
+        "height": 2425.859375,
+        "top": 64,
+        "right": 1228,
+        "bottom": 2489.859375,
+        "left": 828
+      }
+    },
+    {
+      "tag": "DIV",
+      "id": "notebook_box_div",
+      "hidden": false,
+      "display": "block",
+      "visibility": "visible",
+      "rect": {
+        "x": 828,
+        "y": 56,
+        "width": 400,
+        "height": 263,
+        "top": 56,
+        "right": 1228,
+        "bottom": 319,
+        "left": 828
+      }
+    },
+    {
+      "tag": "DIV",
+      "id": "journal_content_div",
+      "hidden": false,
+      "display": "block",
+      "visibility": "visible",
+      "rect": {
+        "x": 828,
+        "y": 56,
+        "width": 400,
+        "height": 287,
+        "top": 56,
+        "right": 1228,
+        "bottom": 343,
+        "left": 828
+      }
+    },
+    {
+      "tag": "DIV",
+      "id": "journal_div",
+      "hidden": false,
+      "display": "block",
+      "visibility": "visible",
+      "rect": {
+        "x": 825,
+        "y": 5,
+        "width": 406,
+        "height": 336,
+        "top": 5,
+        "right": 1231,
+        "bottom": 341,
+        "left": 825
+      }
+    },
+    {
+      "tag": "DIV",
+      "id": "global_content",
+      "hidden": false,
+      "display": "block",
+      "visibility": "visible",
+      "rect": {
+        "x": 5,
+        "y": 5,
+        "width": 1241,
+        "height": 0,
+        "top": 5,
+        "right": 1246,
+        "bottom": 5,
+        "left": 5
+      }
+    },
+    {
+      "tag": "DIV",
+      "id": "main_content",
+      "hidden": false,
+      "display": "block",
+      "visibility": "visible",
+      "rect": {
+        "x": 5,
+        "y": 5,
+        "width": 1241,
+        "height": 806,
+        "top": 5,
+        "right": 1246,
+        "bottom": 811,
+        "left": 5
+      }
+    },
+    {
+      "tag": "BODY",
+      "id": "",
+      "hidden": false,
+      "display": "block",
+      "visibility": "visible",
+      "rect": {
+        "x": 8,
+        "y": 8,
+        "width": 1584,
+        "height": 0,
+        "top": 8,
+        "right": 1592,
+        "bottom": 8,
+        "left": 8
+      }
+    },
+    {
+      "tag": "HTML",
+      "id": "",
+      "hidden": false,
+      "display": "block",
+      "visibility": "visible",
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "width": 1600,
+        "height": 8,
+        "top": 0,
+        "right": 1600,
+        "bottom": 8,
+        "left": 0
+      }
+    }
+  ],
+  "errors": []
+}

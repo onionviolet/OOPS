@@ -1,34 +1,62 @@
 {
-  "observed_utc": "2026-10-07T14:04:14.806358+00:00",
-  "native_writer": "/root/factorio_native_finish3",
-  "live_process_sample": "46960 46919 S    55:13 455216",
-  "export_progress_path": "/Users/weiwei/.codex/research/factorio/native-23347942/exports/x86_64/progress.json",
-  "export_progress_sha256_at_read": "16fa27cfd548c0bce49d8046f772b069c075b81a961262c9e8b88a279f1deb7d",
-  "exporter_reported_progress": {
-    "schema": 1,
-    "architecture": "x86_64",
-    "mode": "full",
-    "disk_floor_bytes": 536870912,
-    "pipeline_script_sha256": "eadd26b7518c69f8b6c19c3820c1182f07d1f1e86da30ef5f70c8c67322e5eff",
-    "state": "running",
-    "started_at": "2026-10-07T13:09:07.333989Z",
-    "updated_at": "2026-10-07T14:04:07.321309Z",
-    "pid": 46960,
-    "planned_nonexternal": 182398,
-    "retained_unique_entries": 168900,
-    "this_run_written": 168900,
-    "this_run_success": 168835,
-    "this_run_failed": 65,
-    "last_closed_chunk": 1689,
-    "free_bytes": 70101995520,
-    "this_run_status_counts": {
-      "decompiler-failure": 55,
-      "resource-limit": 2,
-      "success": 168835,
-      "timeout": 8
-    }
+  "observed_utc": "2026-10-07T18:41:06.434753+00:00",
+  "native_writer": "/root/factorio_native_continuation",
+  "acceptance_writer": "/root/factorio_recovery_review",
+  "root_reserved": [
+    "native/ASSIGNMENT.md",
+    "native-usage/ACQUISITION.json",
+    "native-usage/history/2026-10-07-model-error-resume/",
+    "host goal decision"
+  ],
+  "lease_transfer": "Old finish3/acceptance and native_resume/acceptance_resume vanished after model error/daemon; primary root checked authoritative child/process absence before replacement.",
+  "closed_initial_ARM": {
+    "through_chunk": 1850,
+    "unique": 183199,
+    "C_success": 183186,
+    "failures": 13,
+    "receipt": "ARM_CORPUS_ACQUISITION.json"
   },
-  "counts_acquisition": "Live progress is exporter-reported. No new whole-corpus byte/hash/identity audit ran. Final closed corpus awaits native writer release.",
+  "closed_initial_Intel": {
+    "through_chunk": 1824,
+    "unique": 182398,
+    "C_success": 182329,
+    "failures": 69,
+    "receipt": "X86_INITIAL_CLOSED_ACQUISITION.json",
+    "progress_state": "run-complete",
+    "closed_utc": "2026-10-07T14:08:12.997065Z"
+  },
+  "current_native_action": "Existing Heat export closed; same healthy job performs immutable ARM global ownership. Next required ARM capacity reopen supplies global4B/alignment assertion before transient repairs. Intel Style repair, cause-specific backend/resource qualification and fail-closed compact exporter ledger follow.",
   "compiled_backend_acquisition": "BACKEND_BUILD_ACQUISITION.json",
-  "same_goal_status": "Active; primary root owns the host goal decision."
+  "executed_diagnostic_acquisition": "BACKEND_DIAGNOSTIC_ACQUISITION.json",
+  "original_use_acquisition": "RETORT_RESUME_READBACK.json",
+  "same_goal_status": "Unfinished authorized objective resumed; primary root owns host goal decisions.",
+  "checks": "Read-only exact compressed corpus/input/inventory/candidate hash recheck and retort source/map/immutable historical-build comparison. No native or gameplay execution by reviewer.",
+  "canonical_flow_delta": {
+    "through_chunk": 1853,
+    "three_rows_success": true,
+    "ARM_latest_unique": 183199,
+    "ARM_latest_C_successes": 183188,
+    "ARM_latest_failures": 11,
+    "receipt": "FLOW_CANONICAL_ACQUISITION.json",
+    "claim_receipt": "FLOW_CLAIM_READBACK.json",
+    "limit": "Independent bounded delta; final corpus index and other repairs pending."
+  },
+  "canonical_Heat_delta": {
+    "through_chunk": 1857,
+    "rows": 4,
+    "body_and_ASM_unchanged": true,
+    "receipt": "HEAT_CANONICAL_ACQUISITION.json",
+    "semantic_receipt": "HEAT_STORAGE_READBACK.json",
+    "C_unknown_calling_convention_warnings": 4,
+    "unknown_transferEnergyTo_return": "preserved"
+  },
+  "crossarch_reader": {
+    "agent": "/root/factorio_crossarch_reader",
+    "write": [
+      "docs/research/factorio/native/readers/cross-architecture/",
+      "private reader-work/cross-architecture-20261007/"
+    ],
+    "native_process": "none permitted",
+    "scope": "Existing22claims/53distinctARM bodies versus exact-mangled Intel counterparts; independent packet acquisition pending."
+  }
 }

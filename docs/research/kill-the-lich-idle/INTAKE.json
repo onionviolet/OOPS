@@ -1,0 +1,369 @@
+{
+  "date": "2026-10-09",
+  "mode": "installed-Steam-ASAR bounded static source audit, with preserved pinned-public-source comparison",
+  "repository": "https://github.com/StopSign/stopsign.github.io",
+  "commit": "d41bf197f9203e6da6f72628a9d76369b8140d57",
+  "public_source_path": "KTL/",
+  "private_copy": "/Users/weiwei/.codex/research/kill-the-lich-idle/source",
+  "identity": {
+    "title_evidence": {
+      "path": "KTL/MECHANICS.md",
+      "lines": [
+        1,
+        2
+      ],
+      "url": "https://github.com/StopSign/stopsign.github.io/blob/d41bf197f9203e6da6f72628a9d76369b8140d57/KTL/MECHANICS.md#L1-L2"
+    },
+    "web_ui": {
+      "path": "KTL/index.html",
+      "lines": [
+        253,
+        260
+      ],
+      "url": "https://github.com/StopSign/stopsign.github.io/blob/d41bf197f9203e6da6f72628a9d76369b8140d57/KTL/index.html#L253-L260"
+    },
+    "copyright": {
+      "path": "LICENSE.md",
+      "lines": [
+        1,
+        9
+      ],
+      "url": "https://github.com/StopSign/stopsign.github.io/blob/d41bf197f9203e6da6f72628a9d76369b8140d57/LICENSE.md#L1-L9"
+    },
+    "steam_public_metadata": {
+      "name": "Kill the Lich Idle",
+      "developers": [
+        "Stop Sign Gaming"
+      ],
+      "publishers": [
+        "Stop Sign Gaming"
+      ],
+      "website": null,
+      "steam_appid": 4522510,
+      "success": true
+    },
+    "steam_metadata_url": "https://store.steampowered.com/api/appdetails?appids=4522510",
+    "interpretation": "Manifest identifies app 4522510 and build 23044204; retained ASAR matches the install, package names Kill The Lich and main.js initializes Steamworks app 4522510. Selected public files are related and 19 newline-normalized matches, but the public commit is not a byte-identical shipped snapshot.",
+    "version_proof": "Installed manifest plus exact ASAR hash and extracted-byte comparison; private STEAM_RETENTION.json and STEAM_VERIFICATION.json.",
+    "ownership_proof": "Local installation verified; no entitlement API/sign-in and no account identifier retained in public dossier."
+  },
+  "steam_install_state": "Manifest StateFlags=4, buildid=23044204, installed bytes 372649498; observed read-only. Uninstall handoff belongs to parent.",
+  "retention": "Retain only 23 useful pinned files privately with per-file hashes, plus acquisition and public-store metadata receipts. 652790 source bytes. No full clone, ZIP, artwork, .cursorrules, steamSecrets.js or saveFile.js fetched. No account/saves acquired.",
+  "license": "Prior public 23-file intake includes MIT LICENSE.md at its pinned commit. Installed package.json:8 says UNLICENSED, with no root LICENSE.md counterpart in retained ASAR. Public MIT provenance does not establish a grant for the installed package. This audit copies no reference code or raw prose into YAIR.",
+  "files": [
+    {
+      "path": "LICENSE.md",
+      "bytes": 1065,
+      "sha256": "55012b0c448b72574fc420a685a0ba10cad439c6646a1ed3386f79631d19802e",
+      "url": "https://raw.githubusercontent.com/StopSign/stopsign.github.io/d41bf197f9203e6da6f72628a9d76369b8140d57/LICENSE.md"
+    },
+    {
+      "path": "KTL/MECHANICS.md",
+      "bytes": 3860,
+      "sha256": "9987b5a9470eaabe978d96b7360d9807745ab7ff49ab86e6a0f27ed880060496",
+      "url": "https://raw.githubusercontent.com/StopSign/stopsign.github.io/d41bf197f9203e6da6f72628a9d76369b8140d57/KTL/MECHANICS.md"
+    },
+    {
+      "path": "KTL/engine.js",
+      "bytes": 7694,
+      "sha256": "2241f3528e2adf1f0dea5d9a6f023d4e534027d2185d41d65553e946d6b8754f",
+      "url": "https://raw.githubusercontent.com/StopSign/stopsign.github.io/d41bf197f9203e6da6f72628a9d76369b8140d57/KTL/engine.js"
+    },
+    {
+      "path": "KTL/automation.js",
+      "bytes": 12554,
+      "sha256": "80e8ccb5e1b8cad139f95490ece1f49ded49d9d0eab2f967b1a0a33cb962b59e",
+      "url": "https://raw.githubusercontent.com/StopSign/stopsign.github.io/d41bf197f9203e6da6f72628a9d76369b8140d57/KTL/automation.js"
+    },
+    {
+      "path": "KTL/saving.js",
+      "bytes": 26152,
+      "sha256": "c40e7d79250cd7c226bd9f8812ec6effcc87aa0fd36253ef862732ffbabeb696",
+      "url": "https://raw.githubusercontent.com/StopSign/stopsign.github.io/d41bf197f9203e6da6f72628a9d76369b8140d57/KTL/saving.js"
+    },
+    {
+      "path": "KTL/events.js",
+      "bytes": 35862,
+      "sha256": "3b5ef9d214a5b1b76360b9d2c4b18115e8838111fc9383120da678d609236780",
+      "url": "https://raw.githubusercontent.com/StopSign/stopsign.github.io/d41bf197f9203e6da6f72628a9d76369b8140d57/KTL/events.js"
+    },
+    {
+      "path": "KTL/onLoad.js",
+      "bytes": 10150,
+      "sha256": "d3a19eef3fed6dae206c596b8e4ab9c9e7dc9fdf42004066370981c3b7efeaa8",
+      "url": "https://raw.githubusercontent.com/StopSign/stopsign.github.io/d41bf197f9203e6da6f72628a9d76369b8140d57/KTL/onLoad.js"
+    },
+    {
+      "path": "KTL/ktl.js",
+      "bytes": 39462,
+      "sha256": "a5b301f902737b43b1d479df08e5e6dbc1dbcfe22f2710a96fba964c7862e300",
+      "url": "https://raw.githubusercontent.com/StopSign/stopsign.github.io/d41bf197f9203e6da6f72628a9d76369b8140d57/KTL/ktl.js"
+    },
+    {
+      "path": "KTL/actionData.js",
+      "bytes": 102667,
+      "sha256": "e0f32559b4bafac0eaa1d8a4647673d645770dc98ce5b785e5032c1ed1c7ac6b",
+      "url": "https://raw.githubusercontent.com/StopSign/stopsign.github.io/d41bf197f9203e6da6f72628a9d76369b8140d57/KTL/actionData.js"
+    },
+    {
+      "path": "KTL/actionData2.js",
+      "bytes": 41502,
+      "sha256": "692dbb56d5bd51fffe87b211935b16070a439f96cbf12dc84d96e68bf7a96c5d",
+      "url": "https://raw.githubusercontent.com/StopSign/stopsign.github.io/d41bf197f9203e6da6f72628a9d76369b8140d57/KTL/actionData2.js"
+    },
+    {
+      "path": "KTL/actionData3.js",
+      "bytes": 26729,
+      "sha256": "f53417a39fe0a173e01baa56288a7e3d64b490a601efa1c01a5e07b2566cf38a",
+      "url": "https://raw.githubusercontent.com/StopSign/stopsign.github.io/d41bf197f9203e6da6f72628a9d76369b8140d57/KTL/actionData3.js"
+    },
+    {
+      "path": "KTL/actionData4.js",
+      "bytes": 57080,
+      "sha256": "65fef266826db422fdd8361fb3e9acc2f19134da9bbf25cd0430c6ec7136bf10",
+      "url": "https://raw.githubusercontent.com/StopSign/stopsign.github.io/d41bf197f9203e6da6f72628a9d76369b8140d57/KTL/actionData4.js"
+    },
+    {
+      "path": "KTL/actionData5.js",
+      "bytes": 9358,
+      "sha256": "cc414af13606cf5f2f055704b421f78d5595baff95d825b0bfb967b289717953",
+      "url": "https://raw.githubusercontent.com/StopSign/stopsign.github.io/d41bf197f9203e6da6f72628a9d76369b8140d57/KTL/actionData5.js"
+    },
+    {
+      "path": "KTL/actionDataFunctions.js",
+      "bytes": 23756,
+      "sha256": "94c2639100d8dcd8bd37765390eb326ad9cecd8db6584fce86f5439f41675f0f",
+      "url": "https://raw.githubusercontent.com/StopSign/stopsign.github.io/d41bf197f9203e6da6f72628a9d76369b8140d57/KTL/actionDataFunctions.js"
+    },
+    {
+      "path": "KTL/menu.js",
+      "bytes": 70042,
+      "sha256": "70c77bcfc0642d75ab501da520e6d4d36fda4f145b97eeebc94611700460d616",
+      "url": "https://raw.githubusercontent.com/StopSign/stopsign.github.io/d41bf197f9203e6da6f72628a9d76369b8140d57/KTL/menu.js"
+    },
+    {
+      "path": "KTL/index.html",
+      "bytes": 34016,
+      "sha256": "f047d6337b1327e076a0194f69eca5bee6bbbfd1bfd624dbecab6c475e60c3f6",
+      "url": "https://raw.githubusercontent.com/StopSign/stopsign.github.io/d41bf197f9203e6da6f72628a9d76369b8140d57/KTL/index.html"
+    },
+    {
+      "path": "KTL/attribute.js",
+      "bytes": 6509,
+      "sha256": "3ddf5d220e3d92ddb54fa08fa456540af78eed74319a07dc565bb040d3535d80",
+      "url": "https://raw.githubusercontent.com/StopSign/stopsign.github.io/d41bf197f9203e6da6f72628a9d76369b8140d57/KTL/attribute.js"
+    },
+    {
+      "path": "KTL/spells.js",
+      "bytes": 4638,
+      "sha256": "d5848d40eb30d2e1f0cd66376ccaa0d8bfca1dfd3afb2bc9a1b2d7a21b525965",
+      "url": "https://raw.githubusercontent.com/StopSign/stopsign.github.io/d41bf197f9203e6da6f72628a9d76369b8140d57/KTL/spells.js"
+    },
+    {
+      "path": "KTL/upgradeData.js",
+      "bytes": 53002,
+      "sha256": "4779b96b471f092a31c7e43d87efc0d3f0282e0dd3f34034cf488c001b30d67d",
+      "url": "https://raw.githubusercontent.com/StopSign/stopsign.github.io/d41bf197f9203e6da6f72628a9d76369b8140d57/KTL/upgradeData.js"
+    },
+    {
+      "path": "KTL/steamStuff.js",
+      "bytes": 5365,
+      "sha256": "ef56b2a0be7fa42a8ea3a5fe73a551bbf6e9e3832a2798c0a190bc5bf24df5a7",
+      "url": "https://raw.githubusercontent.com/StopSign/stopsign.github.io/d41bf197f9203e6da6f72628a9d76369b8140d57/KTL/steamStuff.js"
+    },
+    {
+      "path": "KTL/data/globalsAndInitial.js",
+      "url": "https://raw.githubusercontent.com/StopSign/stopsign.github.io/d41bf197f9203e6da6f72628a9d76369b8140d57/KTL/data/globalsAndInitial.js",
+      "bytes": 28998,
+      "sha256": "46e1d0f45791b2520177a2d7cd4ff366efa94572b21aa4d1900915d144f7f541"
+    },
+    {
+      "path": "KTL/data/textData.js",
+      "url": "https://raw.githubusercontent.com/StopSign/stopsign.github.io/d41bf197f9203e6da6f72628a9d76369b8140d57/KTL/data/textData.js",
+      "bytes": 41584,
+      "sha256": "c1d9339e20ac095fc59b013c5d241ffae08a4055f8fda73222efa3bc14c62d35"
+    },
+    {
+      "path": "KTL/driver.js",
+      "url": "https://raw.githubusercontent.com/StopSign/stopsign.github.io/d41bf197f9203e6da6f72628a9d76369b8140d57/KTL/driver.js",
+      "bytes": 10745,
+      "sha256": "e8c392567a859e673854e40f889855d6b8921b03dbaad93a1aa7171801734bcd"
+    }
+  ],
+  "bytes": 652790,
+  "historical_public_provenance": {
+    "mode": "public-web-source-fallback, not Steam acquisition",
+    "identity": {
+      "title_evidence": {
+        "path": "KTL/MECHANICS.md",
+        "lines": [
+          1,
+          2
+        ],
+        "url": "https://github.com/StopSign/stopsign.github.io/blob/d41bf197f9203e6da6f72628a9d76369b8140d57/KTL/MECHANICS.md#L1-L2"
+      },
+      "web_ui": {
+        "path": "KTL/index.html",
+        "lines": [
+          253,
+          260
+        ],
+        "url": "https://github.com/StopSign/stopsign.github.io/blob/d41bf197f9203e6da6f72628a9d76369b8140d57/KTL/index.html#L253-L260"
+      },
+      "copyright": {
+        "path": "LICENSE.md",
+        "lines": [
+          1,
+          9
+        ],
+        "url": "https://github.com/StopSign/stopsign.github.io/blob/d41bf197f9203e6da6f72628a9d76369b8140d57/LICENSE.md#L1-L9"
+      },
+      "steam_public_metadata": {
+        "name": "Kill the Lich Idle",
+        "developers": [
+          "Stop Sign Gaming"
+        ],
+        "publishers": [
+          "Stop Sign Gaming"
+        ],
+        "website": null,
+        "steam_appid": 4522510,
+        "success": true
+      },
+      "steam_metadata_url": "https://store.steampowered.com/api/appdetails?appids=4522510",
+      "interpretation": "Public metadata names Kill the Lich Idle and Stop Sign Gaming; repository uses StopSign and includes packaging code. Names are compatible, but no inspected developer outbound link or binary comparison establishes this commit as the Steam version.",
+      "version_proof": "not obtained",
+      "ownership_proof": "not obtained"
+    },
+    "steam_install_state": "KTL installation not requested or acquired. Parent sequential Steam lane still has first-game pending dialog; this fallback does not close installation/version gate.",
+    "retention": "Retain only 23 useful pinned files privately with per-file hashes, plus acquisition and public-store metadata receipts. 652790 source bytes. No full clone, ZIP, artwork, .cursorrules, steamSecrets.js or saveFile.js fetched. No account/saves acquired.",
+    "license": "MIT, copyright 2022 StopSign. No code copied into YAIR; retain notices for any future copying.",
+    "status": "Original 2026-10-09 fallback preserved; superseded only where installed receipts now resolve acquisition."
+  },
+  "installed_source": {
+    "appid": 4522510,
+    "buildid": "23044204",
+    "state_flags": 4,
+    "asar_bytes": 3590430,
+    "asar_sha256": "a048bcaa9dc50d2af320ceb1457fef5424f8dd17dee793e50be2411f10f379fa",
+    "private_input": "/Users/weiwei/.codex/research/kill-the-lich-idle/installed_input/resources/app.asar",
+    "private_extraction": "/Users/weiwei/.codex/research/kill-the-lich-idle/installed_source",
+    "extracted_files": 118,
+    "extracted_bytes": 2817300,
+    "retention_receipt": "/Users/weiwei/.codex/research/kill-the-lich-idle/STEAM_RETENTION.json",
+    "verification_receipt": "/Users/weiwei/.codex/research/kill-the-lich-idle/STEAM_VERIFICATION.json",
+    "comparison_receipt": "/Users/weiwei/.codex/research/kill-the-lich-idle/INSTALLED_WEB_COMPARISON.json",
+    "all_extracted_byte_matches": true,
+    "all_integrity_matches": true,
+    "comparison": {
+      "selected": 23,
+      "exact_match": 0,
+      "different": 22,
+      "absent": 1,
+      "normalized_match": 19
+    },
+    "semantic_differences": [
+      "KTL/data/globalsAndInitial.js:106-111 enables isSteam",
+      "KTL/index.html:493-494 enables Steam script tags",
+      "KTL/MECHANICS.md:38-51 replaces debug/packaging prose, not executable mechanics"
+    ],
+    "missing_public_equivalent": [
+      "LICENSE.md"
+    ],
+    "private_retention_limit": "Installed ASAR 3590430 + extraction 2817300 + original selected web 652790 = 7060520 raw bytes, below 10 MiB. Installed extraction includes bundled static resources; no user saves, executable dependencies or complete install copied."
+  },
+  "uninstall_request": {
+    "appid": 4522510,
+    "slug": "kill-the-lich-idle",
+    "buildid": "23044204",
+    "requested_at_utc": "2026-10-09T20:17:29.832042+00:00",
+    "uri": "steam://uninstall/4522510",
+    "shell_exit_code": 0,
+    "copy_verified": true,
+    "source_audit": "installed JS body audit and pinned-web comparison",
+    "proposals": 8,
+    "small_touches": 24,
+    "verification_private": "/Users/weiwei/.codex/research/kill-the-lich-idle/STEAM_VERIFICATION.json",
+    "uninstalled": "not-yet-verified; dialog confirmation unobserved"
+  },
+  "steam_installs_final_receipt_2026_10_09": {
+    "appid": 4522510,
+    "slug": "kill-the-lich-idle",
+    "buildid": "23044204",
+    "requested_at_utc": "2026-10-09T20:17:29.832042+00:00",
+    "uri": "steam://uninstall/4522510",
+    "shell_exit_code": 0,
+    "copy_verified": true,
+    "source_audit": "installed JS body audit and pinned-web comparison",
+    "proposals": 8,
+    "small_touches": 24,
+    "verification_private": "/Users/weiwei/.codex/research/kill-the-lich-idle/STEAM_VERIFICATION.json",
+    "uninstalled": "verified-manifest-absent-and-log-success",
+    "last_checked_at_utc": "2026-10-09T20:37:42.608510+00:00",
+    "manifest_present": false,
+    "content_log_entries": [
+      "[2026-10-09 15:59:54] AppID 4522510 state changed : Update Required,",
+      "[2026-10-09 15:59:54] AppID 4522510 scheduler update : Priority First, not played for 1 seconds, update disabled for 0 seconds",
+      "[2026-10-09 15:59:54] AppID 4522510 state changed : Update Required,Update Queued,",
+      "[2026-10-09 15:59:55] AppID 4522510 state changed : Update Required,Update Queued,Update Running,",
+      "[2026-10-09 15:59:55] AppID 4522510 App update changed : Running Update,",
+      "[2026-10-09 15:59:55] AppID 4522510 App update changed : Running Update,Reconfiguring,",
+      "[2026-10-09 15:59:55] AppID 4522510 App update changed : Running Update,",
+      "[2026-10-09 15:59:55] AppID 4522510 App update changed : Running Update,Verifying Installed,",
+      "[2026-10-09 15:59:55] AppID 4522510 App update changed : Running Update,",
+      "[2026-10-09 15:59:55] AppID 4522510 App update changed : Running Update,Preallocating,",
+      "[2026-10-09 15:59:55] AppID 4522510 preallocated 79 files (355 MB) ",
+      "[2026-10-09 15:59:55] AppID 4522510 App update changed : Running Update,",
+      "[2026-10-09 15:59:55] AppID 4522510 update started : download 0/137676832, store 0/0, reuse 0/0, delta 0/0, stage 0/372649498 ",
+      "[2026-10-09 15:59:55] AppID 4522510 state changed : Update Required,Update Queued,Update Running,Update Started,",
+      "[2026-10-09 15:59:55] AppID 4522510 App update changed : Running Update,Downloading,Staging,",
+      "[2026-10-09 16:00:04] AppID 4522510 update canceled : Priority (Suspended)",
+      "[2026-10-09 16:00:04] AppID 4522510 App update changed : Running Update,Downloading,Staging,Stopping,",
+      "[2026-10-09 16:00:04] AppID 4522510 App update changed : Running Update,Stopping,",
+      "[2026-10-09 16:00:04] AppID 4522510 App update changed : None",
+      "[2026-10-09 16:00:04] AppID 4522510 state changed : Update Required,Update Queued,Update Started, (Suspended)",
+      "[2026-10-09 16:00:04] AppID 4522510 scheduler finished : staying in schedule (result Suspended, state 0x40a) ",
+      "[2026-10-09 16:00:12] AppID 4522510 state changed : Update Required,Update Queued,Update Running,Update Started,",
+      "[2026-10-09 16:00:12] AppID 4522510 App update changed : Running Update,",
+      "[2026-10-09 16:00:12] AppID 4522510 App update changed : Running Update,Reconfiguring,",
+      "[2026-10-09 16:00:12] AppID 4522510 App update changed : Running Update,",
+      "[2026-10-09 16:00:12] AppID 4522510 App update changed : Running Update,Preallocating,",
+      "[2026-10-09 16:00:12] AppID 4522510 preallocated 0 files (0 MB) ",
+      "[2026-10-09 16:00:12] AppID 4522510 App update changed : Running Update,",
+      "[2026-10-09 16:00:12] AppID 4522510 update started : download 70831136/137676832, store 0/0, reuse 0/0, delta 0/0, stage 186979427/372649498 ",
+      "[2026-10-09 16:00:12] AppID 4522510 App update changed : Running Update,Downloading,Staging,",
+      "[2026-10-09 16:00:15] AppID 4522510 update canceled : Priority (Suspended)",
+      "[2026-10-09 16:00:15] AppID 4522510 App update changed : Running Update,Downloading,Staging,Stopping,",
+      "[2026-10-09 16:00:16] AppID 4522510 App update changed : Running Update,Stopping,",
+      "[2026-10-09 16:00:16] AppID 4522510 App update changed : None",
+      "[2026-10-09 16:00:16] AppID 4522510 state changed : Update Required,Update Queued,Update Started, (Suspended)",
+      "[2026-10-09 16:00:16] AppID 4522510 scheduler finished : staying in schedule (result Suspended, state 0x40a) ",
+      "[2026-10-09 16:00:43] AppID 4522510 state changed : Update Required,Update Queued,Update Running,Update Started,",
+      "[2026-10-09 16:00:43] AppID 4522510 App update changed : Running Update,",
+      "[2026-10-09 16:00:43] AppID 4522510 App update changed : Running Update,Reconfiguring,",
+      "[2026-10-09 16:00:43] AppID 4522510 App update changed : Running Update,",
+      "[2026-10-09 16:00:43] AppID 4522510 App update changed : Running Update,Preallocating,",
+      "[2026-10-09 16:00:43] AppID 4522510 preallocated 0 files (0 MB) ",
+      "[2026-10-09 16:00:43] AppID 4522510 App update changed : Running Update,",
+      "[2026-10-09 16:00:43] AppID 4522510 update started : download 107192720/137676832, store 0/0, reuse 0/0, delta 0/0, stage 295532255/372649498 ",
+      "[2026-10-09 16:00:43] AppID 4522510 App update changed : Running Update,Downloading,Staging,",
+      "[2026-10-09 16:00:45] AppID 4522510 App update changed : Running Update,",
+      "[2026-10-09 16:00:45] AppID 4522510 App update changed : Running Update,Committing,",
+      "[2026-10-09 16:00:45] AppID 4522510 starting commit from \"/Users/weiwei/Library/Application Support/Steam/steamapps/downloading/4522510\" to \"/Users/weiwei/Library/Application Support/Steam/steamapps/common/Kill the Lich\" : 95 updated, 0 moved, 0 deleted files",
+      "[2026-10-09 16:00:45] AppID 4522510 state changed : Fully Installed,Update Queued,Update Running,",
+      "[2026-10-09 16:00:45] AppID 4522510 finished update, 1 mounted depots (BuildID 23044204) : 4522511 (9126314253815049066),",
+      "[2026-10-09 16:00:45] AppID 4522510 App update changed : Running Update,",
+      "[2026-10-09 16:00:45] AppID 4522510 App update changed : None",
+      "[2026-10-09 16:00:45] AppID 4522510 state changed : Fully Installed,Update Queued,",
+      "[2026-10-09 16:00:45] AppID 4522510 state changed : Fully Installed,",
+      "[2026-10-09 16:00:45] AppID 4522510 scheduler finished : removed from schedule (result No Error, state 0xc) ",
+      "[2026-10-09 16:17:42] AppID 4522510 state changed : Update Required,Fully Installed,Files Missing,Uninstalling,",
+      "[2026-10-09 16:17:42] AppID 4522510 state changed : Uninstalled,",
+      "[2026-10-09 16:17:42] AppID 4522510 finished uninstall (No Error)"
+    ],
+    "console_uninstall_entries": [
+      "[2026-10-09 16:17:29] ExecuteSteamURL: \"steam://open/steam://uninstall/4522510\"",
+      "[2026-10-09 16:17:29] ExecuteSteamURL: \"steam://uninstall/4522510\""
+    ]
+  }
+}

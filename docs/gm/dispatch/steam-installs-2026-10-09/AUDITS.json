@@ -1,0 +1,89 @@
+{
+  "updated_at_utc": "2026-10-09T20:37:42.608510+00:00",
+  "audits": [
+    {
+      "appid": 1740540,
+      "slug": "the-lands-of-eldyn",
+      "buildid": "7520224",
+      "scope": "installed Electron wrapper; remotely delivered gameplay unavailable",
+      "proposals": 5,
+      "touches": 22,
+      "uninstall_receipt": "ELDYN_UNINSTALL.json",
+      "verification_private": "/Users/weiwei/.codex/research/the-lands-of-eldyn/AUDIT_VERIFICATION.json",
+      "top_finding": "Local wrapper loads remote game; menu navigation is inspectable, territory/army/NPC rules are not.",
+      "limits": "Remote host public-source recovery failed including DNS; no runtime or remote game logic.",
+      "recommended_proposal": "Make close, return, leave and unavailable states distinct in the existing center menu.",
+      "uninstall": "not-verified; request sent, dialog confirmation unobserved"
+    },
+    {
+      "appid": 3848900,
+      "slug": "sucker-for-love-crush-landing",
+      "buildid": "25151407",
+      "scope": "GameMaker tables and17 selected instruction bodies",
+      "proposals": 8,
+      "touches": 24,
+      "uninstall_receipt": "SUCKER_UNINSTALL.json",
+      "verification_private": "/Users/weiwei/.codex/research/sucker-for-love-crush-landing/VERIFICATION.json",
+      "top_finding": "Typed heart milestones remember preparation choices and inform final scenes; ending flags retained separately.",
+      "limits": "Full routes/localization/native extensions and runtime unverified; point_wicked/points_wicked discrepancy.",
+      "recommended_proposal": "Let one optional relationship milestone remember how a prepared gift was made, then recall that cause later.",
+      "uninstall": "verified-manifest-absent-and-log-success"
+    },
+    {
+      "appid": 4522510,
+      "slug": "kill-the-lich-idle",
+      "buildid": "23044204",
+      "scope": "installed Electron JS bodies plus pinned-public-source comparison",
+      "proposals": 8,
+      "touches": 24,
+      "uninstall_receipt": "LICH_UNINSTALL.json",
+      "verification_private": "/Users/weiwei/.codex/research/kill-the-lich-idle/STEAM_VERIFICATION.json",
+      "top_finding": "Ordinary skills/social work feed prepared confrontation; 19 of 22 source files match normalized public source.",
+      "limits": "Installed cloud loading enabled but ordinary cloud write commented; runtime synchronization/pacing unverified.",
+      "recommended_proposal": "Let ordinary practice and a familiar contact open useful work and affect preparation for a specific threat.",
+      "uninstall": "verified-manifest-absent-and-log-success"
+    },
+    {
+      "appid": 3795920,
+      "slug": "ani-idle",
+      "buildid": "19068956",
+      "scope": "42 recovered Godot scripts; selected mechanics bodies",
+      "proposals": 8,
+      "touches": 24,
+      "uninstall_receipt": "ANI_UNINSTALL.json",
+      "verification_private": "/Users/weiwei/.codex/research/ani-idle/VERIFICATION.json",
+      "top_finding": "Repeat fights, manual skills, interruptible rest events, directed crystal crafting and chained quest memory.",
+      "limits": "No prestige/offline reconciliation found in inspected scripts; exact scene/resource data and runtime unverified.",
+      "recommended_proposal": "One native rest encounter leaves remembered aftermath rather than becoming compulsory upkeep.",
+      "uninstall": "not-verified; request sent, dialog confirmation unobserved"
+    },
+    {
+      "appid": 2847400,
+      "slug": "endless-ascent",
+      "buildid": "25410965",
+      "scope": "IL2CPP metadata and 26 selected actual x64 method ranges",
+      "proposals": 8,
+      "touches": 24,
+      "uninstall_receipt": "ASCENT_UNINSTALL.json",
+      "verification_private": "/Users/weiwei/.codex/research/endless-ascent/VERIFICATION.json",
+      "top_finding": "Weighted item puzzles, distinct missing-item checks, heat/hydration warnings and completion-funded consumables.",
+      "limits": "Scene bindings/serialized overrides/full route graph/checkpoint persistence/runtime unverified; no idle or prestige established.",
+      "recommended_proposal": "An optional local encounter shows item contributions and partial progress, then pays its completion reward once.",
+      "uninstall": "not-verified; request sent, dialog confirmation unobserved"
+    },
+    {
+      "appid": 3606890,
+      "slug": "upload-labs",
+      "buildid": "23748080",
+      "scope": "457 recovered Godot scripts, selected production/research/routing/offline/reset bodies and 18 static data files; blank automation excluded",
+      "proposals": 8,
+      "touches": 24,
+      "uninstall_receipt": "UPLOAD_UNINSTALL.json",
+      "verification_private": "/Users/weiwei/.codex/research/upload-labs/VERIFICATION.json",
+      "top_finding": "Research alternatives, flow bottlenecks, sample sell-versus-investigate choices, capped away-time reserve and distinct reset/refund paths.",
+      "limits": "Nine inspected automation bytecode entries truly blank; 11 recovered scripts blank in total; runtime/pacing/reset consequences unexercised.",
+      "recommended_proposal": "Show one native workshop chain\u2019s limiting input and useful output through a clear bottleneck receipt.",
+      "uninstall": "not-verified; request sent, dialog confirmation unobserved"
+    }
+  ]
+}

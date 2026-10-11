@@ -1,0 +1,44 @@
+{
+  "app_id": 718670,
+  "build_id": "22090405",
+  "platform": "macOS Mono managed",
+  "checked_utc": "2026-10-07T20:22:32.271153+00:00",
+  "status": "finite-source-pass-complete",
+  "private_snapshot": "/Users/weiwei/.codex/research/cultist-simulator/build22090405",
+  "copied": true,
+  "decompiled": true,
+  "audit_complete": true,
+  "uninstall_eligible": true,
+  "no_installed_path_consumers": true,
+  "gameplay_verified": false,
+  "save_access": "none",
+  "installed_dlc_appids": [
+    871650,
+    871651,
+    871900,
+    1259930,
+    1813090
+  ],
+  "installed_depots": [
+    718672,
+    871653,
+    1083440,
+    871901,
+    1259931,
+    1813090
+  ],
+  "source_accessible_gameplay_families": [
+    "DLC_DANCER",
+    "DLC_PRIEST",
+    "DLC_GHOUL",
+    "DLC_EXILE"
+  ],
+  "semantic_read": {
+    "DLC_GHOUL": "First taste, attached hunger mutation/reduction and shared terminal threshold only.",
+    "DLC_DANCER": "Shared ambition dispatch visible; campaign unread.",
+    "DLC_PRIEST": "Retained, campaign unread.",
+    "DLC_EXILE": "Retained, campaign unread."
+  },
+  "perpetual": "edition/sempr.txt displayPerpetual true retained. Extra app1813090 present in manifest; exact extra/music/art inventory unread and excluded from life-sim semantic claims.",
+  "inventory_bound": "Local manifest and filenames only; appid-to-marketing-name mapping not independently verified. No private entitlement or runtime activation inferred. No store purchases performed."
+}

@@ -1,0 +1,15 @@
+{
+  "game": "Tale of Immortal",
+  "app_id": 1468810,
+  "checked_at": "2026-10-07T20:18:10.723585+00:00",
+  "state": "blocked_acquisition",
+  "source_copied": false,
+  "hash_copy_verified": false,
+  "decompiled": false,
+  "semantic_pass_complete": false,
+  "uninstall_eligible": false,
+  "inventory": [],
+  "coverage": "No depot metadata or installed payload available",
+  "entitlement_inferred": false,
+  "runtime_activation_inferred": false
+}

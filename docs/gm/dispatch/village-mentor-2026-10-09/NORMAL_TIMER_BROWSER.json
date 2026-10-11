@@ -1,0 +1,10 @@
+{
+  "status": "passed",
+  "origin": "http://127.0.0.1:18330/",
+  "findings": [
+    "Unmodified worker timer completes five teaching minutes on a native shared patrol.",
+    "Unmodified production worker timer completes 120-minute solo patrol with +10 stipend, teacher memory and one biography."
+  ],
+  "errors": [],
+  "timerPolicy": "Unmodified production HackTimer; no clock patch, route interception or progress injection. Generated schema-2 Mentor fixture."
+}

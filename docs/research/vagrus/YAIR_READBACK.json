@@ -1,0 +1,34 @@
+{
+  "checked_utc": "2026-10-10T15:37:06.922848+00:00",
+  "route": "read-only source mapping; runtime not reverified",
+  "files": [
+    {
+      "path": "PROJECT.md",
+      "sha256": "242202b43b63a26a8de3155012d190bdaa5782b0c03b6a8d75de6d9c372418d1"
+    },
+    {
+      "path": "docs/RULES_FROM_SCRATCH.md",
+      "sha256": "03239f3f675df1568bbd3c28c1df70777687a76c9bb10e4a4ba6383019566980"
+    },
+    {
+      "path": "docs/LIFE_SIM_NORTH_STAR.md",
+      "sha256": "b7daae7b8e1b690eb3166ed99d77291248030e5132bf0da2df09111602e9c750"
+    },
+    {
+      "path": "src/village_career.js",
+      "sha256": "6e8cf84ace080b1955ff4c21e32b11fbc78c52ac1728ac989c66593aada2f962"
+    },
+    {
+      "path": "src/simulation_effects.js",
+      "sha256": "bd9dde5ea0e09510a6111ac6c99e139c89ce94afc2ae4ae9772213b089408620"
+    },
+    {
+      "path": "src/original_frontier_campaign_content.js",
+      "sha256": "c301329a184379f03eec9e207a35ef9ac299405929f22d045210ddf04a85b866"
+    },
+    {
+      "path": "src/chronicle_ui.js",
+      "sha256": "280db6e29dcb548d03b797d69da7117a068d12c687cedba9533a04096a5595f4"
+    }
+  ]
+}

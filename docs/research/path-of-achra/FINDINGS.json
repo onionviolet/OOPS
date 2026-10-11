@@ -1,0 +1,265 @@
+{
+  "source_pack_sha256": "fca9ac051ee9c6c237619404875d2e37b8d58d605988d17008a0dd296cc71662",
+  "source_type": "Godot 3.5.2 compiled bytecode token/line rendering, non-buildable",
+  "paths": [
+    {
+      "id": "F1",
+      "status": "source-observed-demo-only",
+      "evidence": [
+        {
+          "private_rendering": "recovered/Process_Queue2.gd",
+          "lines": [
+            22,
+            98
+          ],
+          "rendering_sha256": "da0baabf5c24a450ba8731981815fc3a527ad0d7f79731afb376469d6315cb58",
+          "compiled_input_sha256": "ecf6f73b205c7507b0fd2edd574bf789ed91896f6f421887a998d05c8a181850"
+        },
+        {
+          "private_rendering": "recovered/Process_Queue.gd",
+          "lines": [
+            99,
+            172
+          ],
+          "rendering_sha256": "d7e0c044230191f0e8ac4291c8083dc350846cbbca13eb30bb1fecb88e7f3136",
+          "compiled_input_sha256": "7fa612726c63a80432e8b3286dc919b0cde056e42e6253926387514f34593f78"
+        },
+        {
+          "private_rendering": "recovered/Process_Queue.gd",
+          "lines": [
+            332,
+            382
+          ],
+          "rendering_sha256": "d7e0c044230191f0e8ac4291c8083dc350846cbbca13eb30bb1fecb88e7f3136",
+          "compiled_input_sha256": "7fa612726c63a80432e8b3286dc919b0cde056e42e6253926387514f34593f78"
+        },
+        {
+          "private_rendering": "recovered/Process_Queue_Actions_Effects.gd",
+          "lines": [
+            6,
+            41
+          ],
+          "rendering_sha256": "45542109c74e7c5e654e5ff0630c76594b73b72e30f453a8652b136b9553d49d",
+          "compiled_input_sha256": "eb6cb9ef260025af26b11b089261766b073678b42b253e46d2b957870ad8e245"
+        }
+      ],
+      "prerequisites": "A player, ally, enemy, or world clock reaches its 100 tick threshold; action queue or effect queue has work.",
+      "decision": "Eligible units are collected; effects are handled before ordinary actions.",
+      "expenditure": "The actor clock subtracts 100 on eligibility; queued effects are removed when dispatched.",
+      "mutation": "Active unit list, queues, cycle flags and turn state change.",
+      "actual_consumer": "ProcessQueue2.create_turn calls ToolAi.take_action; ProcessQueue.cycle_go_2 passes an effect to qe.check.",
+      "time": "Tick accrual depends on SPEED, world clock adds 5; one queued effect is processed per shown cycle_go_2 call.",
+      "failure": "Dead queued actors do not take the shown AI action; empty queues fall through to clock search. The100-iteration clock search is not an effect-chain limit; per-producer conditions remain separate.",
+      "aftermath": "game.new_turn or player unpause follows the displayed branch; front insertion can reorder pending consequences."
+    },
+    {
+      "id": "F2",
+      "status": "source-observed-demo-only",
+      "evidence": [
+        {
+          "private_rendering": "recovered/Button_Invoke.gd",
+          "lines": [
+            17,
+            39
+          ],
+          "rendering_sha256": "f288ce9ae6988d9a8819fe0ca596a6375189b008edaf10630341c9ee8656e894",
+          "compiled_input_sha256": "bde4c9c5bd17e9c749cbd401bd6d6dd39fa20819e2c2853719caa99f7bef039a"
+        },
+        {
+          "private_rendering": "recovered/ToolInvokes.gd",
+          "lines": [
+            6,
+            112
+          ],
+          "rendering_sha256": "a9264e08a271b6431ba3ed7dd324a43ec9568fea25ee33d42c3b6c3662c774d9",
+          "compiled_input_sha256": "7e9d0b6b97806084e1dee337c1dae0e65da5ac900b4a68ff3a5c84a13e9f2ca4"
+        },
+        {
+          "private_rendering": "recovered/RouterEvents_OnInvoke.gd",
+          "lines": [
+            6,
+            89
+          ],
+          "rendering_sha256": "1391045684519ca21abdc46205cf032503c8c7a5b42af066d10c772a49b41eac",
+          "compiled_input_sha256": "c2df5f4723a45bb58fb33d9249687a82257234766a55925e60a91c174a7de8b3"
+        },
+        {
+          "private_rendering": "recovered/Process_Queue.gd",
+          "lines": [
+            27,
+            85
+          ],
+          "rendering_sha256": "d7e0c044230191f0e8ac4291c8083dc350846cbbca13eb30bb1fecb88e7f3136",
+          "compiled_input_sha256": "7fa612726c63a80432e8b3286dc919b0cde056e42e6253926387514f34593f78"
+        }
+      ],
+      "prerequisites": "Player alive, invoke level requirement met and use > 0.",
+      "decision": "Button invokes cast by title after decrementing use; event_invoke runs event keyed recharge and trait effects.",
+      "expenditure": "One charge is spent at button activation; separate event paths can gain or lose charges by configured labels.",
+      "mutation": "Invoke use counter changes; eligible traits enqueue buffs, bonus, heal or other named actions.",
+      "actual_consumer": "ToolInvokes.cast and event_invoke.check produce actions; ProcessQueue.run_queue and qe.check consume queued actions.",
+      "time": "Activation calls run_queue immediately; exact relation to other queued effects requires live behavior.",
+      "failure": "Dead, underlevel or zero charge blocks the cast at the button.",
+      "aftermath": "Button refreshes its displayed charge count."
+    },
+    {
+      "id": "F3",
+      "status": "source-observed-demo-only",
+      "evidence": [
+        {
+          "private_rendering": "recovered/Process_Queue_Actions_Effects.gd",
+          "lines": [
+            89,
+            107
+          ],
+          "rendering_sha256": "45542109c74e7c5e654e5ff0630c76594b73b72e30f453a8652b136b9553d49d",
+          "compiled_input_sha256": "eb6cb9ef260025af26b11b089261766b073678b42b253e46d2b957870ad8e245"
+        },
+        {
+          "private_rendering": "recovered/ToolMagicMaker.gd",
+          "lines": [
+            217,
+            220
+          ],
+          "rendering_sha256": "8c73c80f2395d5ab42d7bb8e63014d32527000af974ae75f1923fdbaab334189",
+          "compiled_input_sha256": "a7860b37e8826df9e64e04550d38355ab2500bae6ddbd769b8d0bc11830b6374"
+        },
+        {
+          "private_rendering": "recovered/RouterEvents_OnApplyBuff.gd",
+          "lines": [
+            24,
+            95
+          ],
+          "rendering_sha256": "319bced149c11315c3da27df536b47a10ec4dc184d32e88aa6796f5c3c6339c5",
+          "compiled_input_sha256": "d44a5a5eff5ea2c2d2bc0177f987f035c3c9d375c6e5db803209224d4b6adc54"
+        }
+      ],
+      "prerequisites": "A named add_buff action with a living target and buff source/target fields.",
+      "decision": "Unique same-name buff extends duration; another existing form is queued for removal; otherwise new buff appends.",
+      "expenditure": "No generic resource cost occurs at this consumer; producer abilities may have costs outside this path.",
+      "mutation": "Target Buffs gains a cloned buff or an existing duration increases; effect actions may be queued.",
+      "actual_consumer": "qe.add_buff calls ToolMagicMaker.add_buff, which calls event_apply_buff.check.",
+      "time": "Applied during effect queue dispatch; replacement removal itself is queued.",
+      "failure": "Dead target is filtered by qe.add_buff; no claim about source death across every producer.",
+      "aftermath": "Player buff UI refreshes in event_apply_buff; trait dependent heal/damage can chain."
+    },
+    {
+      "id": "F4",
+      "status": "source-observed-demo-only",
+      "evidence": [
+        {
+          "private_rendering": "recovered/RouterEvents_OnDamage.gd",
+          "lines": [
+            5,
+            100
+          ],
+          "rendering_sha256": "c6d2a941638c92b0b740ed001642e07c6ece965e1b71a781a83daee1d030759a",
+          "compiled_input_sha256": "27cb9d6fbd64c0db5da783c5e720f59d03ce9bdbf0eb087f1b2db95e44b4a6f5"
+        },
+        {
+          "private_rendering": "recovered/Process_Queue_Actions_Effects.gd",
+          "lines": [
+            186,
+            201
+          ],
+          "rendering_sha256": "45542109c74e7c5e654e5ff0630c76594b73b72e30f453a8652b136b9553d49d",
+          "compiled_input_sha256": "eb6cb9ef260025af26b11b089261766b073678b42b253e46d2b957870ad8e245"
+        },
+        {
+          "private_rendering": "recovered/RouterEvents_OnHeal.gd",
+          "lines": [
+            5,
+            93
+          ],
+          "rendering_sha256": "d1f524d634bbc3850f437160f39f1c661a670708105bebe2e2dd4ecc802b2c47",
+          "compiled_input_sha256": "5491ea2ed4db21a4e7ccbabe2a6c59c9d7fbe48f01c43d247729a567ac8dbae2"
+        },
+        {
+          "private_rendering": "recovered/ToolInvokes.gd",
+          "lines": [
+            20,
+            30
+          ],
+          "rendering_sha256": "a9264e08a271b6431ba3ed7dd324a43ec9568fea25ee33d42c3b6c3662c774d9",
+          "compiled_input_sha256": "7e9d0b6b97806084e1dee337c1dae0e65da5ac900b4a68ff3a5c84a13e9f2ca4"
+        }
+      ],
+      "prerequisites": "A live defender takes typed damage; FireHealing and related traits require their individual type/position checks.",
+      "decision": "Damage checks resistance and traits, then changes HP; a queued heal runs only if both participants live and target lacks HP.",
+      "expenditure": "Damage is subtracted from defender HP; if player is healed a heal keyed invoke charge may be lost.",
+      "mutation": "HP, event_killer when HP falls below one, scores/messages and pending heal actions change. FireHealing in the cited path heals the attacker producing fire damage, not the defender taking it.",
+      "actual_consumer": "qe.heal calls event_heal.check; event_damage.check is the upstream damage event.",
+      "time": "Healing follows queue dispatch and can be invalidated by intervening death.",
+      "failure": "Full HP yields no heal; dead healer/target is rejected in qe.heal.",
+      "aftermath": "Heal amount is modified, clamped to maximum HP and life display updated."
+    },
+    {
+      "id": "F5",
+      "status": "source-observed-demo-only",
+      "evidence": [
+        {
+          "private_rendering": "recovered/Process_Queue.gd",
+          "lines": [
+            266,
+            311
+          ],
+          "rendering_sha256": "d7e0c044230191f0e8ac4291c8083dc350846cbbca13eb30bb1fecb88e7f3136",
+          "compiled_input_sha256": "7fa612726c63a80432e8b3286dc919b0cde056e42e6253926387514f34593f78"
+        },
+        {
+          "private_rendering": "recovered/RouterEvents_OnMove.gd",
+          "lines": [
+            5,
+            83
+          ],
+          "rendering_sha256": "3c9695cc831af3a97c6e3d41ea5f5a7c4613207d4494857429474cc1f3525276",
+          "compiled_input_sha256": "8b4043552d013de4bd0fc43751ae06f00504cb8b5eb7368797a3af3bfa8d59a5"
+        },
+        {
+          "private_rendering": "recovered/Process_Queue_Actions_Effects.gd",
+          "lines": [
+            166,
+            170
+          ],
+          "rendering_sha256": "45542109c74e7c5e654e5ff0630c76594b73b72e30f453a8652b136b9553d49d",
+          "compiled_input_sha256": "eb6cb9ef260025af26b11b089261766b073678b42b253e46d2b957870ad8e245"
+        },
+        {
+          "private_rendering": "recovered/ToolMagicMaker.gd",
+          "lines": [
+            271,
+            283
+          ],
+          "rendering_sha256": "8c73c80f2395d5ab42d7bb8e63014d32527000af974ae75f1923fdbaab334189",
+          "compiled_input_sha256": "a7860b37e8826df9e64e04550d38355ab2500bae6ddbd769b8d0bc11830b6374"
+        },
+        {
+          "private_rendering": "recovered/RouterEvents_OnMove.gd",
+          "lines": [
+            568,
+            580
+          ],
+          "rendering_sha256": "3c9695cc831af3a97c6e3d41ea5f5a7c4613207d4494857429474cc1f3525276",
+          "compiled_input_sha256": "8b4043552d013de4bd0fc43751ae06f00504cb8b5eb7368797a3af3bfa8d59a5"
+        },
+        {
+          "private_rendering": "recovered/RouterEvents_OnMove.gd",
+          "lines": [
+            708,
+            733
+          ],
+          "rendering_sha256": "3c9695cc831af3a97c6e3d41ea5f5a7c4613207d4494857429474cc1f3525276",
+          "compiled_input_sha256": "8b4043552d013de4bd0fc43751ae06f00504cb8b5eb7368797a3af3bfa8d59a5"
+        }
+      ],
+      "prerequisites": "A legal player or unit movement action, or a same-tile wait action.",
+      "decision": "Movement checks active buffs; Entangle/Bleed schedule typed damage, then residence changes and adjacent Vigilance can attack.",
+      "expenditure": "No movement currency is shown in this path; time is handled by the action/turn queue.",
+      "mutation": "Tile resident and unit residence change; damage and attack actions can be queued.",
+      "actual_consumer": "ProcessQueue.player_move/unit_move calls event_move.check; qe.magic_damage_target routes a scheduled damage effect.",
+      "time": "Effect resolves on later queue dispatch, not at source insertion.",
+      "failure": "Out of range/blocked movement does not enter event_move; dead target rejects magic_damage_target at dispatch. BloodRetort and ChannelDeath producers require a nonempty Global.Enemies list; this is not proof that every referenced enemy is alive or that all combo chains terminate.",
+      "aftermath": "A wait calls check_wait and lacks the moving-only check_end branch; live behavior of swaps was not run."
+    }
+  ]
+}

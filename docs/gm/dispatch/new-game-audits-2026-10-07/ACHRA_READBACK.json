@@ -1,0 +1,20 @@
+{
+  "checked_utc": "2026-10-07T17:53:45.333412+00:00",
+  "semantic_paths": 5,
+  "distinct_cited_renderings": 11,
+  "cited_span_union_lines": 989,
+  "checks": [
+    "cited rendering SHA256",
+    "compiled source identity vs recovery receipt",
+    "line bounds",
+    "parent read of queue/buff/damage/heal and two producer guards"
+  ],
+  "parent_repairs": [
+    "attacker heal qualification",
+    "clock search is not effect chain cap",
+    "14 loose tables available; optional game-data EXISTS:false separate",
+    "BloodRetort/ChannelDeath enemy-list guards"
+  ],
+  "coverage": "selected semantic spans only",
+  "gameplay_exercised": false
+}

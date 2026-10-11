@@ -1,0 +1,14 @@
+{
+  "root": "/tmp/yairpg-life-experience-pass-b-heir-candidate-r3-20261007",
+  "url": "http://127.0.0.1:18546/",
+  "checks": [
+    "real death-screen heir button",
+    "actual fresh native body and creator",
+    "zero XP and starter items",
+    "one lesson visible in ordinary route preparation",
+    "biography/grave and NPC world retained",
+    "heir reload and file import preserve generation2"
+  ],
+  "status": "Primary assertions passed on r3 and artifacts saved; later failure-only context did not load bundle (connection reset and HTML version callback error).",
+  "generatedSavesOnly": true
+}

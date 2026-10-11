@@ -1,0 +1,9 @@
+{
+  "status": "passed",
+  "origin": "http://localhost:8139",
+  "errors": [],
+  "findings": [
+    "Generated v0.6 native save with the new optional field removed loads an already-active legacy patrol with retained timer and no fabricated loan, career, or debt.",
+    "Finishing the legacy patrol and starting a new native patrol creates exactly one career shift and loan."
+  ]
+}

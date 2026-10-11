@@ -1,0 +1,1107 @@
+{
+  "date": "2026-10-09",
+  "revision": "a2632d2edf3e07e9168fff81167b11f2792e9197",
+  "findings": [
+    {
+      "id": "P1",
+      "rank": 1,
+      "title": "Make study change what a character can do",
+      "status": "proposal-not-accepted-not-implemented",
+      "source_evidence": [
+        {
+          "path": "data/tasks.json",
+          "lines": [
+            69,
+            87
+          ],
+          "url": "https://gitlab.com/mathiashjelm/arcanum/-/blob/a2632d2edf3e07e9168fff81167b11f2792e9197/data/tasks.json#L69"
+        },
+        {
+          "path": "data/resources.json",
+          "lines": [
+            11,
+            34
+          ],
+          "url": "https://gitlab.com/mathiashjelm/arcanum/-/blob/a2632d2edf3e07e9168fff81167b11f2792e9197/data/resources.json#L11"
+        },
+        {
+          "path": "data/skills.json",
+          "lines": [
+            17,
+            37
+          ],
+          "url": "https://gitlab.com/mathiashjelm/arcanum/-/blob/a2632d2edf3e07e9168fff81167b11f2792e9197/data/skills.json#L17"
+        }
+      ],
+      "source_observation": "Active study produces research and a small arcana effect; scroll holdings modify research rate and capacity, while lore modifies capacity and arcana.",
+      "interpretation": "Read a short field manual, practice its method, and use it in one native gathering task. Keep reading progress separate from trained skill and equipped means.",
+      "yair_mapping": "src/items.js:1092-1152; src/data/skills.js:2539-2565; src/activities.js:130-135",
+      "smallest_slice": "A native book plus one useful gathering technique; Literacy still earns XP and the old book rewards remain intact.",
+      "acceptance_gate": "Book reading reaches completion; technique is learned but cannot execute without its declared tool; gather with tool and see the practical outcome.",
+      "priority_reason": "Highest: connects existing books, ordinary skills and work without selecting a new magic world.",
+      "verification": "static-source-inspected; execution-unrun; exact user build unknown"
+    },
+    {
+      "id": "P2",
+      "rank": 2,
+      "title": "Let the Shack become a working home",
+      "status": "proposal-not-accepted-not-implemented",
+      "source_evidence": [
+        {
+          "path": "data/furniture.json",
+          "lines": [
+            324,
+            356
+          ],
+          "url": "https://gitlab.com/mathiashjelm/arcanum/-/blob/a2632d2edf3e07e9168fff81167b11f2792e9197/data/furniture.json#L324"
+        },
+        {
+          "path": "data/furniture.json",
+          "lines": [
+            391,
+            403
+          ],
+          "url": "https://gitlab.com/mathiashjelm/arcanum/-/blob/a2632d2edf3e07e9168fff81167b11f2792e9197/data/furniture.json#L391"
+        },
+        {
+          "path": "data/homes.json",
+          "lines": [
+            3,
+            9
+          ],
+          "url": "https://gitlab.com/mathiashjelm/arcanum/-/blob/a2632d2edf3e07e9168fff81167b11f2792e9197/data/homes.json#L3"
+        },
+        {
+          "path": "data/homes.json",
+          "lines": [
+            46,
+            85
+          ],
+          "url": "https://gitlab.com/mathiashjelm/arcanum/-/blob/a2632d2edf3e07e9168fff81167b11f2792e9197/data/homes.json#L46"
+        }
+      ],
+      "source_observation": "Furniture modifies concrete task costs/rates/caps and occupies space; homes provide different capacity and running costs.",
+      "interpretation": "Craft a reading stand or workbench for the Shack; choose a practical benefit that applies only while using that place. Start with one furnishing, not a universal room-slot system.",
+      "yair_mapping": "src/data/locations.js:348-370; src/crafting_recipes.js:45-101; src/items.js:1092-1152",
+      "smallest_slice": "One crafted study stand changes one book task at the Shack and records that the player furnished their home.",
+      "acceptance_gate": "Enter Shack, compare reading rate before/after installation, leave and verify location-specific benefit ends; reload/import preserves one installation.",
+      "priority_reason": "High: a lived place develops through work; audit existing Proto23 and home-workshop owners before duplicating them.",
+      "verification": "static-source-inspected; execution-unrun; exact user build unknown"
+    },
+    {
+      "id": "P3",
+      "rank": 3,
+      "title": "Show why a routine stopped",
+      "status": "proposal-not-accepted-not-implemented",
+      "source_evidence": [
+        {
+          "path": "src/modules/runner.js",
+          "lines": [
+            573,
+            618
+          ],
+          "url": "https://gitlab.com/mathiashjelm/arcanum/-/blob/a2632d2edf3e07e9168fff81167b11f2792e9197/src/modules/runner.js#L573"
+        },
+        {
+          "path": "src/modules/runner.js",
+          "lines": [
+            636,
+            659
+          ],
+          "url": "https://gitlab.com/mathiashjelm/arcanum/-/blob/a2632d2edf3e07e9168fff81167b11f2792e9197/src/modules/runner.js#L636"
+        },
+        {
+          "path": "src/ui/panes/running.vue",
+          "lines": [
+            69,
+            132
+          ],
+          "url": "https://gitlab.com/mathiashjelm/arcanum/-/blob/a2632d2edf3e07e9168fff81167b11f2792e9197/src/ui/panes/running.vue#L69"
+        }
+      ],
+      "source_observation": "Runner separates active/waiting/goals/hobbies; retries eligible work, rests, and blocks work for caps, full resources or unaffordable running costs.",
+      "interpretation": "Give native activity/read/craft rows a clear blocked reason and optional stop-at-goal. Propose a repeat/rest/resume cycle only after its native host is checked.",
+      "yair_mapping": "src/activities.js:16-79; src/main.js:2248-2301; src/display.js:4457; src/simulation.js:311-329 (existing counted programs)",
+      "smallest_slice": "One task stops at its resource or target limit, says why, and needs no hidden click loop.",
+      "acceptance_gate": "Run to target, exhaust the declared resource, stop manually, change location and verify no old task resumes by accident.",
+      "priority_reason": "High: visible agency and predictable idling; Theory runner is evidence, not a YAIR API.",
+      "verification": "static-source-inspected; execution-unrun; exact user build unknown"
+    },
+    {
+      "id": "P4",
+      "rank": 4,
+      "title": "Make an apprenticeship a chapter in a life",
+      "status": "proposal-not-accepted-not-implemented",
+      "source_evidence": [
+        {
+          "path": "data/classes.json",
+          "lines": [
+            25,
+            105
+          ],
+          "url": "https://gitlab.com/mathiashjelm/arcanum/-/blob/a2632d2edf3e07e9168fff81167b11f2792e9197/data/classes.json#L25"
+        },
+        {
+          "path": "data/classes.json",
+          "lines": [
+            107,
+            155
+          ],
+          "url": "https://gitlab.com/mathiashjelm/arcanum/-/blob/a2632d2edf3e07e9168fff81167b11f2792e9197/data/classes.json#L107"
+        }
+      ],
+      "source_observation": "Jobs alter learning ceilings and passive earnings; apprenticeship graduation has distinct priced and dark alternatives.",
+      "interpretation": "Offer an optional village craft apprenticeship: ordinary job work trains the trade, mentor tasks unlock a practical method, and graduation adds a recorded title. Existing fieldwork remains available.",
+      "yair_mapping": "src/activities.js:84-97; src/data/locations.js:345; src/crafting_recipes.js:45-82",
+      "smallest_slice": "One mentor and one commission with an explicit completion consequence.",
+      "acceptance_gate": "Accept, defer, earn reward exactly once, and verify native quest/job access remains; inspect reload/import for title and commission.",
+      "priority_reason": "Medium-high: careers connect people, work and lasting biography; no forced master murder or replacement opening.",
+      "verification": "static-source-inspected; execution-unrun; exact user build unknown"
+    },
+    {
+      "id": "P5",
+      "rank": 5,
+      "title": "Keep basic learning useful beyond its first unlock",
+      "status": "proposal-not-accepted-not-implemented",
+      "source_evidence": [
+        {
+          "path": "data/skills.json",
+          "lines": [
+            248,
+            287
+          ],
+          "url": "https://gitlab.com/mathiashjelm/arcanum/-/blob/a2632d2edf3e07e9168fff81167b11f2792e9197/data/skills.json#L248"
+        },
+        {
+          "path": "data/modules/learning.json",
+          "lines": [
+            109,
+            142
+          ],
+          "url": "https://gitlab.com/mathiashjelm/arcanum/-/blob/a2632d2edf3e07e9168fff81167b11f2792e9197/data/modules/learning.json#L109"
+        },
+        {
+          "path": "src/items/skill.js",
+          "lines": [
+            15,
+            25
+          ],
+          "url": "https://gitlab.com/mathiashjelm/arcanum/-/blob/a2632d2edf3e07e9168fff81167b11f2792e9197/src/items/skill.js#L15"
+        }
+      ],
+      "source_observation": "Language and history study cross-modify other rates/caps; an education module adds further learning upgrades.",
+      "interpretation": "Use a specific Literacy or Meditation milestone to improve one later task, with a visible causal explanation. Avoid a compulsory generic research bar across worlds.",
+      "yair_mapping": "src/data/skills.js:2539-2565; src/activities.js:130-135; src/items.js:1128-1131",
+      "smallest_slice": "One learned practice changes a later recipe or reading task through an existing skill check.",
+      "acceptance_gate": "Compare below/above threshold and show the exact changed cost or result; verify bonus applied once and persists.",
+      "priority_reason": "Medium: ordinary skills remain relevant; numerical balance is an original proposal.",
+      "verification": "static-source-inspected; execution-unrun; exact user build unknown"
+    },
+    {
+      "id": "P6",
+      "rank": 6,
+      "title": "Turn expendable notes into lasting understanding",
+      "status": "proposal-not-accepted-not-implemented",
+      "source_evidence": [
+        {
+          "path": "data/tasks.json",
+          "lines": [
+            932,
+            960
+          ],
+          "url": "https://gitlab.com/mathiashjelm/arcanum/-/blob/a2632d2edf3e07e9168fff81167b11f2792e9197/data/tasks.json#L932"
+        },
+        {
+          "path": "data/modules/sublimation.json",
+          "lines": [
+            9,
+            73
+          ],
+          "url": "https://gitlab.com/mathiashjelm/arcanum/-/blob/a2632d2edf3e07e9168fff81167b11f2792e9197/data/modules/sublimation.json#L9"
+        }
+      ],
+      "source_observation": "Scribing consumes research/mana, binding consumes scrolls/research/mana; sublimation trades tangible lore goods for capacity modifiers.",
+      "interpretation": "Bind gathered notes into a manual, then optionally consume a copy to learn a permanent local method. Keep the source book and understood method distinct; do not assume knowledge guarantees execution.",
+      "yair_mapping": "src/crafting_recipes.js:45-101; src/items.js:1092-1152",
+      "smallest_slice": "One note-to-book recipe and one optional learned technique, using native item transactions.",
+      "acceptance_gate": "Insufficient notes spends nothing; valid craft debits exactly once; study preserves native book semantics; reload/import does not duplicate method.",
+      "priority_reason": "Medium: one material chain creates tangible research; Theory sublimation is not proof of cross-life persistence.",
+      "verification": "static-source-inspected; execution-unrun; exact user build unknown"
+    },
+    {
+      "id": "P7",
+      "rank": 7,
+      "title": "Put progress explanations in the existing center menu",
+      "status": "proposal-not-accepted-not-implemented",
+      "source_evidence": [
+        {
+          "path": "src/ui/items/skill.vue",
+          "lines": [
+            29,
+            55
+          ],
+          "url": "https://gitlab.com/mathiashjelm/arcanum/-/blob/a2632d2edf3e07e9168fff81167b11f2792e9197/src/ui/items/skill.vue#L29"
+        },
+        {
+          "path": "src/ui/panes/resources.vue",
+          "lines": [
+            14,
+            49
+          ],
+          "url": "https://gitlab.com/mathiashjelm/arcanum/-/blob/a2632d2edf3e07e9168fff81167b11f2792e9197/src/ui/panes/resources.vue#L14"
+        },
+        {
+          "path": "src/ui/components/filterbox.vue",
+          "lines": [
+            32,
+            53
+          ],
+          "url": "https://gitlab.com/mathiashjelm/arcanum/-/blob/a2632d2edf3e07e9168fff81167b11f2792e9197/src/ui/components/filterbox.vue#L32"
+        }
+      ],
+      "source_observation": "Skill UI shows owned/unowned, level/cap, train/stop, experience progress; resource groups retain hide settings; filter box searches names.",
+      "interpretation": "Show current progress, goal, known prerequisite and practical reward on one task row; add a filter only when the list is large. No Theory layout transplant.",
+      "yair_mapping": "src/display.js:103-108; src/main.js:2248-2301; src/items.js:1138-1152; src/display.js:4457-4471 (existing progress and remaining time)",
+      "smallest_slice": "A reading row states time remaining and what completion will allow, respecting undiscovered information.",
+      "acceptance_gate": "Fresh browser verifies narrow/normal width, keyboard operation, disabled reason and no hidden-world spoiler; screenshot the exact changed row.",
+      "priority_reason": "Medium: clear choices help dense systems feel manageable.",
+      "verification": "static-source-inspected; execution-unrun; exact user build unknown"
+    },
+    {
+      "id": "P8",
+      "rank": 8,
+      "title": "Explore prestige that preserves a lived character",
+      "status": "proposal-not-accepted-not-implemented",
+      "source_evidence": [
+        {
+          "path": "data/hall.json",
+          "lines": [
+            27,
+            34
+          ],
+          "url": "https://gitlab.com/mathiashjelm/arcanum/-/blob/a2632d2edf3e07e9168fff81167b11f2792e9197/data/hall.json#L27"
+        },
+        {
+          "path": "data/hall.json",
+          "lines": [
+            64,
+            73
+          ],
+          "url": "https://gitlab.com/mathiashjelm/arcanum/-/blob/a2632d2edf3e07e9168fff81167b11f2792e9197/data/hall.json#L64"
+        },
+        {
+          "path": "src/modules/hall.js",
+          "lines": [
+            137,
+            149
+          ],
+          "url": "https://gitlab.com/mathiashjelm/arcanum/-/blob/a2632d2edf3e07e9168fff81167b11f2792e9197/src/modules/hall.js#L137"
+        },
+        {
+          "path": "src/ui/hall/hall.vue",
+          "lines": [
+            42,
+            50
+          ],
+          "url": "https://gitlab.com/mathiashjelm/arcanum/-/blob/a2632d2edf3e07e9168fff81167b11f2792e9197/src/ui/hall/hall.vue#L42"
+        }
+      ],
+      "source_observation": "Hall glossary explicitly describes preserved progress, switchable new characters and separately saved prestige; hall controller has slots and dismissal.",
+      "interpretation": "Consider a later mentor hall or legacy archive where accomplishments aid a new character without erasing the existing one. Keep travel, learning, death and prestige separate.",
+      "yair_mapping": "PROJECT.md: Accepted decisions; src/save_files.js; src/chronicle.js",
+      "smallest_slice": "Design-only retention matrix for one prestige layer; no reset code or extra-character implementation authorized.",
+      "acceptance_gate": "Before implementation select ownership, retained goods/knowledge/relationships, import semantics and one exploit test; then fresh-origin save/reload/import.",
+      "priority_reason": "Later: strong conceptual alternative, but largest persistence scope and not the next content wave.",
+      "verification": "static-source-inspected; execution-unrun; exact user build unknown"
+    }
+  ],
+  "small_touches": [
+    {
+      "id": "T01",
+      "proposal": "A book row says \u201cthree pages remain\u201d using native remaining time",
+      "inspiration_evidence": [
+        {
+          "path": "data/tasks.json",
+          "lines": [
+            69,
+            87
+          ],
+          "url": "https://gitlab.com/mathiashjelm/arcanum/-/blob/a2632d2edf3e07e9168fff81167b11f2792e9197/data/tasks.json#L69"
+        },
+        {
+          "path": "data/resources.json",
+          "lines": [
+            11,
+            34
+          ],
+          "url": "https://gitlab.com/mathiashjelm/arcanum/-/blob/a2632d2edf3e07e9168fff81167b11f2792e9197/data/resources.json#L11"
+        },
+        {
+          "path": "data/skills.json",
+          "lines": [
+            17,
+            37
+          ],
+          "url": "https://gitlab.com/mathiashjelm/arcanum/-/blob/a2632d2edf3e07e9168fff81167b11f2792e9197/data/skills.json#L17"
+        }
+      ],
+      "native_mapping": "src/items.js:1138-1140",
+      "status": "original-YAIR-touch-proposal; not claimed present in reference",
+      "acceptance": "Fresh-origin exercise of the stated row or consequence; save/reload/import if persisted."
+    },
+    {
+      "id": "T02",
+      "proposal": "The first completed manual leaves a dated bio entry",
+      "inspiration_evidence": [
+        {
+          "path": "data/tasks.json",
+          "lines": [
+            69,
+            87
+          ],
+          "url": "https://gitlab.com/mathiashjelm/arcanum/-/blob/a2632d2edf3e07e9168fff81167b11f2792e9197/data/tasks.json#L69"
+        },
+        {
+          "path": "data/resources.json",
+          "lines": [
+            11,
+            34
+          ],
+          "url": "https://gitlab.com/mathiashjelm/arcanum/-/blob/a2632d2edf3e07e9168fff81167b11f2792e9197/data/resources.json#L11"
+        },
+        {
+          "path": "data/skills.json",
+          "lines": [
+            17,
+            37
+          ],
+          "url": "https://gitlab.com/mathiashjelm/arcanum/-/blob/a2632d2edf3e07e9168fff81167b11f2792e9197/data/skills.json#L17"
+        }
+      ],
+      "native_mapping": "src/items.js:1143-1152; src/life_record.js",
+      "status": "original-YAIR-touch-proposal; not claimed present in reference",
+      "acceptance": "Fresh-origin exercise of the stated row or consequence; save/reload/import if persisted."
+    },
+    {
+      "id": "T03",
+      "proposal": "A newly understood technique says which tool enables it",
+      "inspiration_evidence": [
+        {
+          "path": "data/tasks.json",
+          "lines": [
+            69,
+            87
+          ],
+          "url": "https://gitlab.com/mathiashjelm/arcanum/-/blob/a2632d2edf3e07e9168fff81167b11f2792e9197/data/tasks.json#L69"
+        },
+        {
+          "path": "data/resources.json",
+          "lines": [
+            11,
+            34
+          ],
+          "url": "https://gitlab.com/mathiashjelm/arcanum/-/blob/a2632d2edf3e07e9168fff81167b11f2792e9197/data/resources.json#L11"
+        },
+        {
+          "path": "data/skills.json",
+          "lines": [
+            17,
+            37
+          ],
+          "url": "https://gitlab.com/mathiashjelm/arcanum/-/blob/a2632d2edf3e07e9168fff81167b11f2792e9197/data/skills.json#L17"
+        }
+      ],
+      "native_mapping": "src/activities.js:60-73",
+      "status": "original-YAIR-touch-proposal; not claimed present in reference",
+      "acceptance": "Fresh-origin exercise of the stated row or consequence; save/reload/import if persisted."
+    },
+    {
+      "id": "T04",
+      "proposal": "An old manual gains a brief player-authored margin note after useful practice",
+      "inspiration_evidence": [
+        {
+          "path": "data/skills.json",
+          "lines": [
+            248,
+            287
+          ],
+          "url": "https://gitlab.com/mathiashjelm/arcanum/-/blob/a2632d2edf3e07e9168fff81167b11f2792e9197/data/skills.json#L248"
+        },
+        {
+          "path": "data/modules/learning.json",
+          "lines": [
+            109,
+            142
+          ],
+          "url": "https://gitlab.com/mathiashjelm/arcanum/-/blob/a2632d2edf3e07e9168fff81167b11f2792e9197/data/modules/learning.json#L109"
+        },
+        {
+          "path": "src/items/skill.js",
+          "lines": [
+            15,
+            25
+          ],
+          "url": "https://gitlab.com/mathiashjelm/arcanum/-/blob/a2632d2edf3e07e9168fff81167b11f2792e9197/src/items/skill.js#L15"
+        }
+      ],
+      "native_mapping": "src/items.js:1092-1107",
+      "status": "original-YAIR-touch-proposal; not claimed present in reference",
+      "acceptance": "Fresh-origin exercise of the stated row or consequence; save/reload/import if persisted."
+    },
+    {
+      "id": "T05",
+      "proposal": "A study stand description names the person who made it",
+      "inspiration_evidence": [
+        {
+          "path": "data/furniture.json",
+          "lines": [
+            324,
+            356
+          ],
+          "url": "https://gitlab.com/mathiashjelm/arcanum/-/blob/a2632d2edf3e07e9168fff81167b11f2792e9197/data/furniture.json#L324"
+        },
+        {
+          "path": "data/furniture.json",
+          "lines": [
+            391,
+            403
+          ],
+          "url": "https://gitlab.com/mathiashjelm/arcanum/-/blob/a2632d2edf3e07e9168fff81167b11f2792e9197/data/furniture.json#L391"
+        },
+        {
+          "path": "data/homes.json",
+          "lines": [
+            3,
+            9
+          ],
+          "url": "https://gitlab.com/mathiashjelm/arcanum/-/blob/a2632d2edf3e07e9168fff81167b11f2792e9197/data/homes.json#L3"
+        },
+        {
+          "path": "data/homes.json",
+          "lines": [
+            46,
+            85
+          ],
+          "url": "https://gitlab.com/mathiashjelm/arcanum/-/blob/a2632d2edf3e07e9168fff81167b11f2792e9197/data/homes.json#L46"
+        }
+      ],
+      "native_mapping": "src/crafting_recipes.js:45-71; src/data/locations.js:363-370",
+      "status": "original-YAIR-touch-proposal; not claimed present in reference",
+      "acceptance": "Fresh-origin exercise of the stated row or consequence; save/reload/import if persisted."
+    },
+    {
+      "id": "T06",
+      "proposal": "A home task previews the exact local benefit of its furnishing",
+      "inspiration_evidence": [
+        {
+          "path": "data/furniture.json",
+          "lines": [
+            324,
+            356
+          ],
+          "url": "https://gitlab.com/mathiashjelm/arcanum/-/blob/a2632d2edf3e07e9168fff81167b11f2792e9197/data/furniture.json#L324"
+        },
+        {
+          "path": "data/furniture.json",
+          "lines": [
+            391,
+            403
+          ],
+          "url": "https://gitlab.com/mathiashjelm/arcanum/-/blob/a2632d2edf3e07e9168fff81167b11f2792e9197/data/furniture.json#L391"
+        },
+        {
+          "path": "data/homes.json",
+          "lines": [
+            3,
+            9
+          ],
+          "url": "https://gitlab.com/mathiashjelm/arcanum/-/blob/a2632d2edf3e07e9168fff81167b11f2792e9197/data/homes.json#L3"
+        },
+        {
+          "path": "data/homes.json",
+          "lines": [
+            46,
+            85
+          ],
+          "url": "https://gitlab.com/mathiashjelm/arcanum/-/blob/a2632d2edf3e07e9168fff81167b11f2792e9197/data/homes.json#L46"
+        }
+      ],
+      "native_mapping": "src/data/locations.js:363-370; src/display.js",
+      "status": "original-YAIR-touch-proposal; not claimed present in reference",
+      "acceptance": "Fresh-origin exercise of the stated row or consequence; save/reload/import if persisted."
+    },
+    {
+      "id": "T07",
+      "proposal": "One installed bench receives a small scuff description after repeated work",
+      "inspiration_evidence": [
+        {
+          "path": "data/furniture.json",
+          "lines": [
+            324,
+            356
+          ],
+          "url": "https://gitlab.com/mathiashjelm/arcanum/-/blob/a2632d2edf3e07e9168fff81167b11f2792e9197/data/furniture.json#L324"
+        },
+        {
+          "path": "data/furniture.json",
+          "lines": [
+            391,
+            403
+          ],
+          "url": "https://gitlab.com/mathiashjelm/arcanum/-/blob/a2632d2edf3e07e9168fff81167b11f2792e9197/data/furniture.json#L391"
+        },
+        {
+          "path": "data/homes.json",
+          "lines": [
+            3,
+            9
+          ],
+          "url": "https://gitlab.com/mathiashjelm/arcanum/-/blob/a2632d2edf3e07e9168fff81167b11f2792e9197/data/homes.json#L3"
+        },
+        {
+          "path": "data/homes.json",
+          "lines": [
+            46,
+            85
+          ],
+          "url": "https://gitlab.com/mathiashjelm/arcanum/-/blob/a2632d2edf3e07e9168fff81167b11f2792e9197/data/homes.json#L46"
+        }
+      ],
+      "native_mapping": "src/crafting_recipes.js:45-71; src/life_record.js",
+      "status": "original-YAIR-touch-proposal; not claimed present in reference",
+      "acceptance": "Fresh-origin exercise of the stated row or consequence; save/reload/import if persisted."
+    },
+    {
+      "id": "T08",
+      "proposal": "A returning resident sees one sentence about their furnished Shack",
+      "inspiration_evidence": [
+        {
+          "path": "data/furniture.json",
+          "lines": [
+            324,
+            356
+          ],
+          "url": "https://gitlab.com/mathiashjelm/arcanum/-/blob/a2632d2edf3e07e9168fff81167b11f2792e9197/data/furniture.json#L324"
+        },
+        {
+          "path": "data/furniture.json",
+          "lines": [
+            391,
+            403
+          ],
+          "url": "https://gitlab.com/mathiashjelm/arcanum/-/blob/a2632d2edf3e07e9168fff81167b11f2792e9197/data/furniture.json#L391"
+        },
+        {
+          "path": "data/homes.json",
+          "lines": [
+            3,
+            9
+          ],
+          "url": "https://gitlab.com/mathiashjelm/arcanum/-/blob/a2632d2edf3e07e9168fff81167b11f2792e9197/data/homes.json#L3"
+        },
+        {
+          "path": "data/homes.json",
+          "lines": [
+            46,
+            85
+          ],
+          "url": "https://gitlab.com/mathiashjelm/arcanum/-/blob/a2632d2edf3e07e9168fff81167b11f2792e9197/data/homes.json#L46"
+        }
+      ],
+      "native_mapping": "src/data/locations.js:363-370",
+      "status": "original-YAIR-touch-proposal; not claimed present in reference",
+      "acceptance": "Fresh-origin exercise of the stated row or consequence; save/reload/import if persisted."
+    },
+    {
+      "id": "T09",
+      "proposal": "Paused reading says \u201cstopped by you\u201d distinctly from a missing requirement",
+      "inspiration_evidence": [
+        {
+          "path": "src/modules/runner.js",
+          "lines": [
+            573,
+            618
+          ],
+          "url": "https://gitlab.com/mathiashjelm/arcanum/-/blob/a2632d2edf3e07e9168fff81167b11f2792e9197/src/modules/runner.js#L573"
+        },
+        {
+          "path": "src/modules/runner.js",
+          "lines": [
+            636,
+            659
+          ],
+          "url": "https://gitlab.com/mathiashjelm/arcanum/-/blob/a2632d2edf3e07e9168fff81167b11f2792e9197/src/modules/runner.js#L636"
+        },
+        {
+          "path": "src/ui/panes/running.vue",
+          "lines": [
+            69,
+            132
+          ],
+          "url": "https://gitlab.com/mathiashjelm/arcanum/-/blob/a2632d2edf3e07e9168fff81167b11f2792e9197/src/ui/panes/running.vue#L69"
+        }
+      ],
+      "native_mapping": "src/main.js:2248-2301",
+      "status": "original-YAIR-touch-proposal; not claimed present in reference",
+      "acceptance": "Fresh-origin exercise of the stated row or consequence; save/reload/import if persisted."
+    },
+    {
+      "id": "T10",
+      "proposal": "A completed target displays one quiet completion sentence instead of repeating it each tick",
+      "inspiration_evidence": [
+        {
+          "path": "src/modules/runner.js",
+          "lines": [
+            573,
+            618
+          ],
+          "url": "https://gitlab.com/mathiashjelm/arcanum/-/blob/a2632d2edf3e07e9168fff81167b11f2792e9197/src/modules/runner.js#L573"
+        },
+        {
+          "path": "src/modules/runner.js",
+          "lines": [
+            636,
+            659
+          ],
+          "url": "https://gitlab.com/mathiashjelm/arcanum/-/blob/a2632d2edf3e07e9168fff81167b11f2792e9197/src/modules/runner.js#L636"
+        },
+        {
+          "path": "src/ui/panes/running.vue",
+          "lines": [
+            69,
+            132
+          ],
+          "url": "https://gitlab.com/mathiashjelm/arcanum/-/blob/a2632d2edf3e07e9168fff81167b11f2792e9197/src/ui/panes/running.vue#L69"
+        }
+      ],
+      "native_mapping": "src/main.js:2292-2301; src/display.js:767",
+      "status": "original-YAIR-touch-proposal; not claimed present in reference",
+      "acceptance": "Fresh-origin exercise of the stated row or consequence; save/reload/import if persisted."
+    },
+    {
+      "id": "T11",
+      "proposal": "An activity row previews stop-at-target beside Start",
+      "inspiration_evidence": [
+        {
+          "path": "src/modules/runner.js",
+          "lines": [
+            573,
+            618
+          ],
+          "url": "https://gitlab.com/mathiashjelm/arcanum/-/blob/a2632d2edf3e07e9168fff81167b11f2792e9197/src/modules/runner.js#L573"
+        },
+        {
+          "path": "src/modules/runner.js",
+          "lines": [
+            636,
+            659
+          ],
+          "url": "https://gitlab.com/mathiashjelm/arcanum/-/blob/a2632d2edf3e07e9168fff81167b11f2792e9197/src/modules/runner.js#L636"
+        },
+        {
+          "path": "src/ui/panes/running.vue",
+          "lines": [
+            69,
+            132
+          ],
+          "url": "https://gitlab.com/mathiashjelm/arcanum/-/blob/a2632d2edf3e07e9168fff81167b11f2792e9197/src/ui/panes/running.vue#L69"
+        }
+      ],
+      "native_mapping": "src/activities.js:16-43; src/display.js",
+      "status": "original-YAIR-touch-proposal; not claimed present in reference",
+      "acceptance": "Fresh-origin exercise of the stated row or consequence; save/reload/import if persisted."
+    },
+    {
+      "id": "T12",
+      "proposal": "A stopped craft says which ingredient ran out",
+      "inspiration_evidence": [
+        {
+          "path": "src/modules/runner.js",
+          "lines": [
+            573,
+            618
+          ],
+          "url": "https://gitlab.com/mathiashjelm/arcanum/-/blob/a2632d2edf3e07e9168fff81167b11f2792e9197/src/modules/runner.js#L573"
+        },
+        {
+          "path": "src/modules/runner.js",
+          "lines": [
+            636,
+            659
+          ],
+          "url": "https://gitlab.com/mathiashjelm/arcanum/-/blob/a2632d2edf3e07e9168fff81167b11f2792e9197/src/modules/runner.js#L636"
+        },
+        {
+          "path": "src/ui/panes/running.vue",
+          "lines": [
+            69,
+            132
+          ],
+          "url": "https://gitlab.com/mathiashjelm/arcanum/-/blob/a2632d2edf3e07e9168fff81167b11f2792e9197/src/ui/panes/running.vue#L69"
+        }
+      ],
+      "native_mapping": "src/crafting_recipes.js:104-150",
+      "status": "original-YAIR-touch-proposal; not claimed present in reference",
+      "acceptance": "Fresh-origin exercise of the stated row or consequence; save/reload/import if persisted."
+    },
+    {
+      "id": "T13",
+      "proposal": "Mentor dialogue remembers the first commissioned item",
+      "inspiration_evidence": [
+        {
+          "path": "data/classes.json",
+          "lines": [
+            25,
+            105
+          ],
+          "url": "https://gitlab.com/mathiashjelm/arcanum/-/blob/a2632d2edf3e07e9168fff81167b11f2792e9197/data/classes.json#L25"
+        },
+        {
+          "path": "data/classes.json",
+          "lines": [
+            107,
+            155
+          ],
+          "url": "https://gitlab.com/mathiashjelm/arcanum/-/blob/a2632d2edf3e07e9168fff81167b11f2792e9197/data/classes.json#L107"
+        }
+      ],
+      "native_mapping": "src/data/dialogues.js; src/data/npcs.js",
+      "status": "original-YAIR-touch-proposal; not claimed present in reference",
+      "acceptance": "Fresh-origin exercise of the stated row or consequence; save/reload/import if persisted."
+    },
+    {
+      "id": "T14",
+      "proposal": "A craft graduation title names the trade, not a universal power tier",
+      "inspiration_evidence": [
+        {
+          "path": "data/classes.json",
+          "lines": [
+            25,
+            105
+          ],
+          "url": "https://gitlab.com/mathiashjelm/arcanum/-/blob/a2632d2edf3e07e9168fff81167b11f2792e9197/data/classes.json#L25"
+        },
+        {
+          "path": "data/classes.json",
+          "lines": [
+            107,
+            155
+          ],
+          "url": "https://gitlab.com/mathiashjelm/arcanum/-/blob/a2632d2edf3e07e9168fff81167b11f2792e9197/data/classes.json#L107"
+        }
+      ],
+      "native_mapping": "src/data/dialogues.js; src/life_record.js",
+      "status": "original-YAIR-touch-proposal; not claimed present in reference",
+      "acceptance": "Fresh-origin exercise of the stated row or consequence; save/reload/import if persisted."
+    },
+    {
+      "id": "T15",
+      "proposal": "First paid fieldwork records the first honest wage",
+      "inspiration_evidence": [
+        {
+          "path": "data/classes.json",
+          "lines": [
+            25,
+            105
+          ],
+          "url": "https://gitlab.com/mathiashjelm/arcanum/-/blob/a2632d2edf3e07e9168fff81167b11f2792e9197/data/classes.json#L25"
+        },
+        {
+          "path": "data/classes.json",
+          "lines": [
+            107,
+            155
+          ],
+          "url": "https://gitlab.com/mathiashjelm/arcanum/-/blob/a2632d2edf3e07e9168fff81167b11f2792e9197/data/classes.json#L107"
+        }
+      ],
+      "native_mapping": "src/activities.js:84-90; src/life_record.js",
+      "status": "original-YAIR-touch-proposal; not claimed present in reference",
+      "acceptance": "Fresh-origin exercise of the stated row or consequence; save/reload/import if persisted."
+    },
+    {
+      "id": "T16",
+      "proposal": "A deferred commission gets a neutral \u201cstill waiting\u201d line",
+      "inspiration_evidence": [
+        {
+          "path": "data/classes.json",
+          "lines": [
+            25,
+            105
+          ],
+          "url": "https://gitlab.com/mathiashjelm/arcanum/-/blob/a2632d2edf3e07e9168fff81167b11f2792e9197/data/classes.json#L25"
+        },
+        {
+          "path": "data/classes.json",
+          "lines": [
+            107,
+            155
+          ],
+          "url": "https://gitlab.com/mathiashjelm/arcanum/-/blob/a2632d2edf3e07e9168fff81167b11f2792e9197/data/classes.json#L107"
+        }
+      ],
+      "native_mapping": "src/data/dialogues.js",
+      "status": "original-YAIR-touch-proposal; not claimed present in reference",
+      "acceptance": "Fresh-origin exercise of the stated row or consequence; save/reload/import if persisted."
+    },
+    {
+      "id": "T17",
+      "proposal": "A Literacy milestone names the practical recipe it helped unlock",
+      "inspiration_evidence": [
+        {
+          "path": "data/skills.json",
+          "lines": [
+            248,
+            287
+          ],
+          "url": "https://gitlab.com/mathiashjelm/arcanum/-/blob/a2632d2edf3e07e9168fff81167b11f2792e9197/data/skills.json#L248"
+        },
+        {
+          "path": "data/modules/learning.json",
+          "lines": [
+            109,
+            142
+          ],
+          "url": "https://gitlab.com/mathiashjelm/arcanum/-/blob/a2632d2edf3e07e9168fff81167b11f2792e9197/data/modules/learning.json#L109"
+        },
+        {
+          "path": "src/items/skill.js",
+          "lines": [
+            15,
+            25
+          ],
+          "url": "https://gitlab.com/mathiashjelm/arcanum/-/blob/a2632d2edf3e07e9168fff81167b11f2792e9197/src/items/skill.js#L15"
+        }
+      ],
+      "native_mapping": "src/data/skills.js:2539-2565; src/crafting_recipes.js:45-71",
+      "status": "original-YAIR-touch-proposal; not claimed present in reference",
+      "acceptance": "Fresh-origin exercise of the stated row or consequence; save/reload/import if persisted."
+    },
+    {
+      "id": "T18",
+      "proposal": "Meditation training has a local sensory line at the Shack",
+      "inspiration_evidence": [
+        {
+          "path": "data/skills.json",
+          "lines": [
+            248,
+            287
+          ],
+          "url": "https://gitlab.com/mathiashjelm/arcanum/-/blob/a2632d2edf3e07e9168fff81167b11f2792e9197/data/skills.json#L248"
+        },
+        {
+          "path": "data/modules/learning.json",
+          "lines": [
+            109,
+            142
+          ],
+          "url": "https://gitlab.com/mathiashjelm/arcanum/-/blob/a2632d2edf3e07e9168fff81167b11f2792e9197/data/modules/learning.json#L109"
+        },
+        {
+          "path": "src/items/skill.js",
+          "lines": [
+            15,
+            25
+          ],
+          "url": "https://gitlab.com/mathiashjelm/arcanum/-/blob/a2632d2edf3e07e9168fff81167b11f2792e9197/src/items/skill.js#L15"
+        }
+      ],
+      "native_mapping": "src/activities.js:130-135; src/data/locations.js:363-370",
+      "status": "original-YAIR-touch-proposal; not claimed present in reference",
+      "acceptance": "Fresh-origin exercise of the stated row or consequence; save/reload/import if persisted."
+    },
+    {
+      "id": "T19",
+      "proposal": "A bound field notebook lists its contributing gathering skill",
+      "inspiration_evidence": [
+        {
+          "path": "data/tasks.json",
+          "lines": [
+            932,
+            960
+          ],
+          "url": "https://gitlab.com/mathiashjelm/arcanum/-/blob/a2632d2edf3e07e9168fff81167b11f2792e9197/data/tasks.json#L932"
+        },
+        {
+          "path": "data/modules/sublimation.json",
+          "lines": [
+            9,
+            73
+          ],
+          "url": "https://gitlab.com/mathiashjelm/arcanum/-/blob/a2632d2edf3e07e9168fff81167b11f2792e9197/data/modules/sublimation.json#L9"
+        }
+      ],
+      "native_mapping": "src/crafting_recipes.js:45-71; src/activities.js:60-73",
+      "status": "original-YAIR-touch-proposal; not claimed present in reference",
+      "acceptance": "Fresh-origin exercise of the stated row or consequence; save/reload/import if persisted."
+    },
+    {
+      "id": "T20",
+      "proposal": "Consuming a duplicate manual explicitly previews item loss and learned benefit",
+      "inspiration_evidence": [
+        {
+          "path": "data/tasks.json",
+          "lines": [
+            932,
+            960
+          ],
+          "url": "https://gitlab.com/mathiashjelm/arcanum/-/blob/a2632d2edf3e07e9168fff81167b11f2792e9197/data/tasks.json#L932"
+        },
+        {
+          "path": "data/modules/sublimation.json",
+          "lines": [
+            9,
+            73
+          ],
+          "url": "https://gitlab.com/mathiashjelm/arcanum/-/blob/a2632d2edf3e07e9168fff81167b11f2792e9197/data/modules/sublimation.json#L9"
+        }
+      ],
+      "native_mapping": "src/items.js:1092-1152; src/native_storage_transaction.js",
+      "status": "original-YAIR-touch-proposal; not claimed present in reference",
+      "acceptance": "Fresh-origin exercise of the stated row or consequence; save/reload/import if persisted."
+    },
+    {
+      "id": "T21",
+      "proposal": "A learned method remembers the place it was studied",
+      "inspiration_evidence": [
+        {
+          "path": "data/tasks.json",
+          "lines": [
+            932,
+            960
+          ],
+          "url": "https://gitlab.com/mathiashjelm/arcanum/-/blob/a2632d2edf3e07e9168fff81167b11f2792e9197/data/tasks.json#L932"
+        },
+        {
+          "path": "data/modules/sublimation.json",
+          "lines": [
+            9,
+            73
+          ],
+          "url": "https://gitlab.com/mathiashjelm/arcanum/-/blob/a2632d2edf3e07e9168fff81167b11f2792e9197/data/modules/sublimation.json#L9"
+        }
+      ],
+      "native_mapping": "src/life_record.js; src/data/locations.js",
+      "status": "original-YAIR-touch-proposal; not claimed present in reference",
+      "acceptance": "Fresh-origin exercise of the stated row or consequence; save/reload/import if persisted."
+    },
+    {
+      "id": "T22",
+      "proposal": "Book list filtering matches titles without exposing unread rewards",
+      "inspiration_evidence": [
+        {
+          "path": "src/ui/items/skill.vue",
+          "lines": [
+            29,
+            55
+          ],
+          "url": "https://gitlab.com/mathiashjelm/arcanum/-/blob/a2632d2edf3e07e9168fff81167b11f2792e9197/src/ui/items/skill.vue#L29"
+        },
+        {
+          "path": "src/ui/panes/resources.vue",
+          "lines": [
+            14,
+            49
+          ],
+          "url": "https://gitlab.com/mathiashjelm/arcanum/-/blob/a2632d2edf3e07e9168fff81167b11f2792e9197/src/ui/panes/resources.vue#L14"
+        },
+        {
+          "path": "src/ui/components/filterbox.vue",
+          "lines": [
+            32,
+            53
+          ],
+          "url": "https://gitlab.com/mathiashjelm/arcanum/-/blob/a2632d2edf3e07e9168fff81167b11f2792e9197/src/ui/components/filterbox.vue#L32"
+        }
+      ],
+      "native_mapping": "src/display.js; src/items.js:1092-1152",
+      "status": "original-YAIR-touch-proposal; not claimed present in reference",
+      "acceptance": "Fresh-origin exercise of the stated row or consequence; save/reload/import if persisted."
+    },
+    {
+      "id": "T23",
+      "proposal": "A task row exposes the same requirement to keyboard focus as hover",
+      "inspiration_evidence": [
+        {
+          "path": "src/ui/items/skill.vue",
+          "lines": [
+            29,
+            55
+          ],
+          "url": "https://gitlab.com/mathiashjelm/arcanum/-/blob/a2632d2edf3e07e9168fff81167b11f2792e9197/src/ui/items/skill.vue#L29"
+        },
+        {
+          "path": "src/ui/panes/resources.vue",
+          "lines": [
+            14,
+            49
+          ],
+          "url": "https://gitlab.com/mathiashjelm/arcanum/-/blob/a2632d2edf3e07e9168fff81167b11f2792e9197/src/ui/panes/resources.vue#L14"
+        },
+        {
+          "path": "src/ui/components/filterbox.vue",
+          "lines": [
+            32,
+            53
+          ],
+          "url": "https://gitlab.com/mathiashjelm/arcanum/-/blob/a2632d2edf3e07e9168fff81167b11f2792e9197/src/ui/components/filterbox.vue#L32"
+        }
+      ],
+      "native_mapping": "src/display.js; src/main.js:2248-2301",
+      "status": "original-YAIR-touch-proposal; not claimed present in reference",
+      "acceptance": "Fresh-origin exercise of the stated row or consequence; save/reload/import if persisted."
+    },
+    {
+      "id": "T24",
+      "proposal": "A future prestige preview lists people and belongings kept or left behind in plain language",
+      "inspiration_evidence": [
+        {
+          "path": "data/hall.json",
+          "lines": [
+            27,
+            34
+          ],
+          "url": "https://gitlab.com/mathiashjelm/arcanum/-/blob/a2632d2edf3e07e9168fff81167b11f2792e9197/data/hall.json#L27"
+        },
+        {
+          "path": "data/hall.json",
+          "lines": [
+            64,
+            73
+          ],
+          "url": "https://gitlab.com/mathiashjelm/arcanum/-/blob/a2632d2edf3e07e9168fff81167b11f2792e9197/data/hall.json#L64"
+        },
+        {
+          "path": "src/modules/hall.js",
+          "lines": [
+            137,
+            149
+          ],
+          "url": "https://gitlab.com/mathiashjelm/arcanum/-/blob/a2632d2edf3e07e9168fff81167b11f2792e9197/src/modules/hall.js#L137"
+        },
+        {
+          "path": "src/ui/hall/hall.vue",
+          "lines": [
+            42,
+            50
+          ],
+          "url": "https://gitlab.com/mathiashjelm/arcanum/-/blob/a2632d2edf3e07e9168fff81167b11f2792e9197/src/ui/hall/hall.vue#L42"
+        }
+      ],
+      "native_mapping": "PROJECT.md: Accepted decisions; src/save_files.js",
+      "status": "original-YAIR-touch-proposal; not claimed present in reference",
+      "acceptance": "Fresh-origin exercise of the stated row or consequence; save/reload/import if persisted."
+    }
+  ],
+  "live_yair_baseline": {
+    "observed": "2026-10-09",
+    "scope": "source-present only, no runtime proof in this audit",
+    "facts": [
+      "src/simulation.js:311-329 already supports counted single-command programs plus pause/resume; P3 proposes native task legibility/integration rather than discovering missing automation.",
+      "src/life_record.js:41-47 already bounds and compacts biography; touch proposals reuse it.",
+      "src/save_files.js:166-190 already has a 4 MiB origin save guard; any persistent proposal must preserve and respect this guard.",
+      "src/npc_lives.js:5-39 already represents bounded predetermined household history; this audit proposes no general new NPC scheduler.",
+      "src/display.js:4457-4471 already shows reading time remaining and a progress bar; P7 extends causal explanation, T01 is optional wording rather than new remaining-time support."
+    ]
+  }
+}

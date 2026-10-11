@@ -1,0 +1,23 @@
+[
+  {
+    "id": "WEB1",
+    "url": "https://store.steampowered.com/app/1578650/Citizen_Sleeper/",
+    "kind": "publisher text",
+    "read": "About This Game, 2026-10-10",
+    "scope": "premise, named mechanics, three included episodes; no runtime proof"
+  },
+  {
+    "id": "WEB2",
+    "url": "https://store.steampowered.com/app/2442460/Citizen_Sleeper_2_Starward_Vector/",
+    "kind": "publisher text",
+    "read": "About This Game, 2026-10-10",
+    "scope": "sequel premise, crew, contracts, push, stress; no runtime proof"
+  },
+  {
+    "id": "WEB3",
+    "url": "https://steamcommunity.com/app/2442460/discussions/0/600769217628750565/",
+    "kind": "dated player reports and publisher replies",
+    "read": "first page, posts dated 2025-01-31 through 2025-02-01",
+    "scope": "reported frustration and suggested recovery; not evidence bugs persist in installed build; not representative survey"
+  }
+]

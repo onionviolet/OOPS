@@ -1,0 +1,34 @@
+{
+  "record storage": {
+    "matchesVerifiedSnapshot": true,
+    "sha256": "782f0e195c8d7e52c9285ff469f55ba8d52db6869b678620742a9e77ea518518"
+  },
+  "save functions": {
+    "matchesVerifiedSnapshot": true,
+    "sha256": "10e02c2ba1b49fc35e331efc476f73e3990190459be2ac5e184423724a0fa892"
+  },
+  "panel mounts": {
+    "matchesVerifiedSnapshot": true,
+    "sha256": "0a10b5fba8c958ebe63d9589df64cdc2fa7eeeddc61b209ee9eabedb1d7614a2"
+  },
+  "save_files.js": {
+    "matchesVerifiedSnapshot": true,
+    "sha256": "c0fa8367b828c5c6ed59daade39f9b0fb537a1d53736e7a7f19dfb9c161f1ddd"
+  },
+  "life_record.js": {
+    "matchesVerifiedSnapshot": true,
+    "sha256": "21ac5f17fff62794ba26d7180deb6a9c0ad85060d79134e5d6ce83de51d1d9bd"
+  },
+  "life_record_ui.js": {
+    "matchesVerifiedSnapshot": true,
+    "sha256": "5ba9dbfc1efb5cade9721dc01ae31c4696ad9cdda7c3f8abf3613110f0828528"
+  },
+  "npc_lives.js": {
+    "matchesVerifiedSnapshot": true,
+    "sha256": "1a4a35d5e6aa67f1ece8a358c45617876460a03b87344c0953a80894bca0dd12"
+  },
+  "npc_lives_ui.js": {
+    "matchesVerifiedSnapshot": true,
+    "sha256": "aac6526f5a16a5de3af69030b4fc736db8aba5b49e3ae53f73beb4fa0e2da49b"
+  }
+}

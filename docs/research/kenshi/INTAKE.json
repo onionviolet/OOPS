@@ -1,0 +1,30 @@
+{
+  "date": "2026-10-07",
+  "app_id": 233860,
+  "build_id": 13871665,
+  "platform": "Windows via Neutron Steam Play; no launch",
+  "manifest_state_flags": 4,
+  "staging_bytes": 0,
+  "snapshot": "/Users/weiwei/.codex/research/kenshi",
+  "retention_manifest": "/Users/weiwei/.codex/research/kenshi/RETENTION.json",
+  "retained_files": 51,
+  "retained_input_bytes": 100188719,
+  "hash_match_initial_and_final": true,
+  "stable_window_seconds": 5,
+  "code": "native C++ runtime retained; managed FCS editor decompiled with ILSpy 9.1 exit 0",
+  "data_decode_counts": {
+    "gamedata.base": 9399,
+    "Dialogue.mod": 39077,
+    "Newwworld.mod": 2511,
+    "rebirth.mod": 8571
+  },
+  "data_decode_exact_eof": true,
+  "private_tools": [
+    "decode.py",
+    "focused.py",
+    "decompiled-fcs/GameData.cs"
+  ],
+  "save_policy": "save/log/user mods folders not read or copied",
+  "excluded": "large art/audio/terrain plus untranslated locales; database records sufficient for finite pass",
+  "raw_content_in_git": false
+}

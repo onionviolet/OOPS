@@ -1,0 +1,30 @@
+{
+  "game": "Crusader Kings III",
+  "app_id": 1158310,
+  "reviewed_at": "2026-10-07T16:34:02.854476-04:00",
+  "eligible": true,
+  "private_receipt_hash_verified": true,
+  "private_sample_hash_checks": [
+    "game/common/character_interactions/00_dynast_interactions.txt",
+    "game/common/character_memory_types/_character_memories.info"
+  ],
+  "retained_files": 16444,
+  "retained_bytes": 1654763719,
+  "finite_pass": "five connected scripts/event/memory chains plus authored-history/save-retention boundary",
+  "limits": [
+    "Most event content and localization prose",
+    "Other trait and dynasty-perk paths, schemes, diplomacy, warfare, culture/faith and economics",
+    "TGP cadet branch event and native branch membership behavior",
+    "Native engine source/methods, save serializer, compression, object graph prune algorithm and history loader",
+    "PDF comic and art/music/cosmetics, map and tools/tests excluded from private retention",
+    "Every DLC full semantic pass; metadata inventory alone does not establish that"
+  ],
+  "recipients": [
+    "docs/gm/life-sim-experience-2026-10-07/",
+    "docs/gm/life-sim-foundation-2026-10-07/"
+  ],
+  "packets": "docs/research/crusader-kings-3/IMPLEMENTATION_PACKETS.json",
+  "no_installed_consumer": true,
+  "parent_process_check": "no matching running ck3 executable",
+  "spot_check_repair": "Initial sample lookup omitted snapshot/; corrected private hashes verified"
+}

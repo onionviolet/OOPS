@@ -1,0 +1,103 @@
+{
+  "date": "2026-10-09",
+  "appid": 3795920,
+  "name": "Ani Idle",
+  "status": "installed-recovered-script-static-audit-complete",
+  "lens": "Idle versus active, rest, crafting and quests",
+  "ownership": "Steam fully installed target app; no separate entitlement enumeration",
+  "manifest_present": true,
+  "install_request": "completed-before-audit",
+  "store_platforms": {
+    "windows": true,
+    "mac": false,
+    "linux": false
+  },
+  "cached_depots": [
+    {
+      "depot": "3795921",
+      "platform": "windows",
+      "manifest": {
+        "gid": "1695680766301782036",
+        "size": 167609232,
+        "download": 82910240
+      }
+    }
+  ],
+  "cached_config_installdir": "Ani Idle",
+  "storefront_url": "https://store.steampowered.com/app/3795920/",
+  "metadata_api_url": "https://store.steampowered.com/api/appdetails?appids=3795920&l=english",
+  "retained_storefront": {
+    "path": "/Users/weiwei/.codex/research/library-games-2026-10-09/storefront/APP_3795920.json",
+    "bytes": 18994,
+    "sha256": "f55e92fc09557aad6b1320beec69e8a519f3d69bb0e785b31b732aa9841ba4b8"
+  },
+  "useful_game_source": "42 embedded Godot scripts recovered with GDRETools 2.7.1; Godot 4.3.0 identified in recovery report",
+  "uninstall": "not requested by per-game worker; coordinator owns request/observation",
+  "raw_game_code_committed": false,
+  "dlc_declared": [],
+  "dlc_entitlement_installed_read": "not established",
+  "buildid": "19068956",
+  "manifest_fields": {
+    "StateFlags": "4",
+    "buildid": "19068956",
+    "SizeOnDisk": "167609232",
+    "BytesToDownload": "82910240",
+    "BytesDownloaded": "82910240",
+    "BytesToStage": "167609232",
+    "BytesStaged": "167609232"
+  },
+  "retention": {
+    "path": "/Users/weiwei/.codex/research/ani-idle/RETENTION.json",
+    "verification_path": "/Users/weiwei/.codex/research/ani-idle/VERIFICATION.json",
+    "exe_bytes": 164223280,
+    "sha256": "854836c391b4ab3562df879c7bb1250cef1585562dc25dceef9d936330c19c2c",
+    "copy_gate_pass": true
+  },
+  "steam_installs_final_receipt_2026_10_09": {
+    "appid": 3795920,
+    "slug": "ani-idle",
+    "buildid": "19068956",
+    "requested_at_utc": "2026-10-09T20:22:03.163662+00:00",
+    "uri": "steam://uninstall/3795920",
+    "shell_exit_code": 0,
+    "copy_verified": true,
+    "source_audit": "42 recovered Godot scripts; selected mechanics bodies",
+    "proposals": 8,
+    "small_touches": 24,
+    "verification_private": "/Users/weiwei/.codex/research/ani-idle/VERIFICATION.json",
+    "uninstalled": "not-verified; request sent, dialog confirmation unobserved",
+    "last_checked_at_utc": "2026-10-09T20:37:42.608510+00:00",
+    "manifest_present": true,
+    "content_log_entries": [
+      "[2026-10-09 16:00:04] AppID 3795920 state changed : Update Required,",
+      "[2026-10-09 16:00:04] AppID 3795920 scheduler update : Priority First, not played for 1 seconds, update disabled for 0 seconds",
+      "[2026-10-09 16:00:04] AppID 3795920 state changed : Update Required,Update Queued,",
+      "[2026-10-09 16:00:04] AppID 3795920 state changed : Update Required,Update Queued,Update Running,",
+      "[2026-10-09 16:00:04] AppID 3795920 App update changed : Running Update,",
+      "[2026-10-09 16:00:04] AppID 3795920 App update changed : Running Update,Reconfiguring,",
+      "[2026-10-09 16:00:04] AppID 3795920 App update changed : Running Update,",
+      "[2026-10-09 16:00:04] AppID 3795920 App update changed : Running Update,Verifying Installed,",
+      "[2026-10-09 16:00:04] AppID 3795920 App update changed : Running Update,",
+      "[2026-10-09 16:00:04] AppID 3795920 App update changed : Running Update,Preallocating,",
+      "[2026-10-09 16:00:04] AppID 3795920 preallocated 3 files (159 MB) ",
+      "[2026-10-09 16:00:04] AppID 3795920 App update changed : Running Update,",
+      "[2026-10-09 16:00:04] AppID 3795920 update started : download 0/82910240, store 0/0, reuse 0/0, delta 0/0, stage 0/167609232 ",
+      "[2026-10-09 16:00:04] AppID 3795920 state changed : Update Required,Update Queued,Update Running,Update Started,",
+      "[2026-10-09 16:00:04] AppID 3795920 App update changed : Running Update,Downloading,Staging,",
+      "[2026-10-09 16:00:12] AppID 3795920 App update changed : Running Update,",
+      "[2026-10-09 16:00:12] AppID 3795920 App update changed : Running Update,Committing,",
+      "[2026-10-09 16:00:12] AppID 3795920 starting commit from \"/Users/weiwei/Library/Application Support/Steam/steamapps/downloading/3795920\" to \"/Users/weiwei/Library/Application Support/Steam/steamapps/common/Ani Idle\" : 3 updated, 0 moved, 0 deleted files",
+      "[2026-10-09 16:00:12] AppID 3795920 state changed : Fully Installed,Update Queued,Update Running,",
+      "[2026-10-09 16:00:12] AppID 3795920 finished update, 1 mounted depots (BuildID 19068956) : 3795921 (1695680766301782036),",
+      "[2026-10-09 16:00:12] AppID 3795920 App update changed : Running Update,",
+      "[2026-10-09 16:00:12] AppID 3795920 App update changed : None",
+      "[2026-10-09 16:00:12] AppID 3795920 state changed : Fully Installed,Update Queued,",
+      "[2026-10-09 16:00:12] AppID 3795920 state changed : Fully Installed,",
+      "[2026-10-09 16:00:12] AppID 3795920 scheduler finished : removed from schedule (result No Error, state 0xc) "
+    ],
+    "console_uninstall_entries": [
+      "[2026-10-09 16:22:03] ExecuteSteamURL: \"steam://open/steam://uninstall/3795920\"",
+      "[2026-10-09 16:22:03] ExecuteSteamURL: \"steam://uninstall/3795920\""
+    ]
+  }
+}

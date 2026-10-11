@@ -1,0 +1,57 @@
+{
+  "observed_utc": "2026-10-07T18:29:02.553299+00:00",
+  "owner": "/root/factorio_recovery_review",
+  "status": "Pre-canonical physical storage readback; new canonical row acquisition pending",
+  "scope": "Complete frozen4ASM/body/C hash verification against exact retained input; executed private helper and physical receipt read. No new canonicalC or original type claim.",
+  "input_sha256": "9e1d7571e0284bb4c4e0e12716143752c893cb79b266038e64d0ee41f54aab93",
+  "before_views": [
+    {
+      "entry": "1005fcf68",
+      "before_record": "/Users/weiwei/.codex/research/factorio/native-23347942/tool-repairs/physical-selected/1005fcf68-before.json",
+      "before_record_sha256": "fcf3e1a7c58988fa1e5cdd09e9104356904c62a3d980105dd0070be57d1a6c29",
+      "body_sha256": "600d92421778a19d08a3bc1130812b797e946d6ae4f95299ee9cb70d5c7bf4f5",
+      "body_bytes": 84,
+      "instruction_count": 21,
+      "original_body_and_instruction_bytes_match": true
+    },
+    {
+      "entry": "1001e8af4",
+      "before_record": "/Users/weiwei/.codex/research/factorio/native-23347942/tool-repairs/physical-selected/1001e8af4-before.json",
+      "before_record_sha256": "7125c16f966395efd1351b9c43a83f512fd2b0e609a6f4681394b762d180e8e5",
+      "body_sha256": "c424e9885607f0890a37b45317068169cc04a2198d88405b30ea0163d50ad854",
+      "body_bytes": 24,
+      "instruction_count": 6,
+      "original_body_and_instruction_bytes_match": true
+    },
+    {
+      "entry": "10029a42c",
+      "before_record": "/Users/weiwei/.codex/research/factorio/native-23347942/tool-repairs/physical-selected/10029a42c-before.json",
+      "before_record_sha256": "6d1d012daf889cc19d928d7390f5e3d13f3858659036863456c02251b5abb379",
+      "body_sha256": "32ad73a32cfbb6a0977aa9168eec8e2cde227226ef76e0fd223495b6f847013c",
+      "body_bytes": 52,
+      "instruction_count": 13,
+      "original_body_and_instruction_bytes_match": true
+    },
+    {
+      "entry": "10029a460",
+      "before_record": "/Users/weiwei/.codex/research/factorio/native-23347942/tool-repairs/physical-selected/10029a460-before.json",
+      "before_record_sha256": "773da0a5234242755396fa0c95a6f9de8afd9b588ee900c683e53e819eb8188c",
+      "body_sha256": "f4030c984283c8400feacccb1b9e20b9c30d8b3c28505a06904e60df3cdc705e",
+      "body_bytes": 84,
+      "instruction_count": 21,
+      "original_body_and_instruction_bytes_match": true
+    }
+  ],
+  "physical_semantics": {
+    "1005fcf68": "For finite nonnegative requests, available surplus is clamped to zero, request and prototype+0x90 limit; W0 becomes0/1 and gates actual +0x60 store. Zero/nonpositive and nonfinite contracts are not broadened. No direct caller return use was established.",
+    "1001e8af4": "LDR D0 +0x60; prototype+0x80/+0x88 feed offset plus energy/divisor; final D0 arithmetic directly precedes RET. Names and units of those fields remain inferred.",
+    "10029a42c": "If current +0x60 is below prototype+0x78, admits the lesser of headroom and requested amount, stores the sum and moves admitted amount into D0 before RET. Finite nonnegative requests are the bounded interpretation.",
+    "10029a460": "Bounds positive transfer by source energy, receiver headroom, request and prototype+0x90; then adds receiver and subtracts source. The final D0 contains source remainder on the mutation path, so no original return contract or transferred-amount return is asserted."
+  },
+  "limits": [
+    "Observed offset-only private structures are physical annotations, not recovered original class/member declarations.",
+    "Default unknown transferEnergyTo return stays unchanged.",
+    "NaN,FPCR,signed-zero, exact loader field mapping and global call ordering remain unqualified.",
+    "Canonical full-context new C and exact combined provenance acquisition is still pending."
+  ]
+}

@@ -1,0 +1,59 @@
+{
+  "status": "proposals only",
+  "packets": [
+    {
+      "id": "P1",
+      "title": "A mentor retirement that trains one apprentice",
+      "status": "original proposal, unaccepted, unimplemented",
+      "source_findings": [
+        "F1",
+        "F3"
+      ],
+      "owner": "life-sim experience GM",
+      "scope": "One opt-in named mentor reaches retirement date. Choose current apprentice training credit or one small local resource payout, then mentor becomes unavailable for routine lessons. Keep native player defeat unchanged.",
+      "state_contract": "mentor ID, retirement due time, chosen recipient, emitted milestone and transaction receipt; persist choice before rewards; duplicate execution cannot pay twice.",
+      "acceptance": "Before due lesson works; at due show choices with named cost/result; choose apprentice, save/reload/import retains reward and retired state; missing/dead recipient offers resource fallback; large time advance resolves once.",
+      "exclusions": "No universal NPC population, forced player death, automatic prestige or copied story text."
+    },
+    {
+      "id": "P2",
+      "title": "Scars with a history and separate temporary recovery cost",
+      "status": "original proposal, unaccepted, unimplemented",
+      "source_findings": [
+        "F2",
+        "F5"
+      ],
+      "owner": "life-sim experience GM",
+      "scope": "One optional event produces an original injury annotation plus bounded recovery inconvenience; persistent mark survives recovery and points to its milestone.",
+      "state_contract": "injury ID, originating milestone, recoverAt, permanent annotation; timed penalty expires separately; carrier/retention policy explicit.",
+      "acceptance": "Recovery ends penalty once; history and annotation stay after reload/import; duplicate event does not stack injury; current native unconsciousness remains unchanged."
+    },
+    {
+      "id": "P3",
+      "title": "Origin tags that unlock one later callback",
+      "status": "original proposal, unaccepted, unimplemented",
+      "source_findings": [
+        "F4"
+      ],
+      "owner": "life-sim experience GM",
+      "scope": "One optional starting memory chooses a coherent original origin tag and one later local event callback, rather than random cosmetic biography.",
+      "state_contract": "record choice and tag, saved RNG selection, callback resolved receipt; required/forbidden gate visible in diagnostics.",
+      "acceptance": "Contradictory tags excluded; no eligible event gives a quiet no-op; later callback recognizes tag; resolve persists and cannot reroll or repeat after reload/import."
+    },
+    {
+      "id": "P4",
+      "title": "Compact chapter records and explicit legacy carry",
+      "status": "original proposal, unaccepted, unimplemented",
+      "source_findings": [
+        "F2",
+        "F5",
+        "F6"
+      ],
+      "owner": "life-sim foundation GM",
+      "scope": "One life-record milestone type distinguishes permanent mark, present-life modifier and relationship ID. Keep annual summaries with counters rather than storing every rendered sentence.",
+      "state_contract": "stable event ID, year/world ID, references and carry class; preserve source milestone needed by scar; no inferred CK3-equivalent compaction claim.",
+      "acceptance": "Round-trip long synthetic biography through save/reload/import; present-life modifier excluded only at explicitly accepted reset boundary; broken relationship IDs degrade to remembered name; measured save-size bound."
+    }
+  ],
+  "handoff": "Parent owns dispatch to current experience/foundation GMs; no src edits."
+}

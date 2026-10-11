@@ -1,0 +1,19 @@
+{
+  "checked_at": "2026-10-07T16:38:17.088382-04:00",
+  "all_five_removed": true,
+  "steam_no_error_logs_and_absent_manifests_installs": true,
+  "private_receipts_still_exist": {
+    "cultist-simulator": "/Users/weiwei/.codex/research/cultist-simulator/build22090405/COPY_HASHES.json",
+    "crusader-kings-3": "/Users/weiwei/.codex/research/crusader-kings-3/RETENTION.json",
+    "king-of-dragon-pass": "/Users/weiwei/.codex/research/king-of-dragon-pass/retention.json",
+    "kenshi": "/Users/weiwei/.codex/research/kenshi/RETENTION.json",
+    "wildermyth": "/Users/weiwei/.codex/research/wildermyth/retention.json"
+  },
+  "json_parse": true,
+  "markdown_local_links": true,
+  "remaining_blocks": [
+    881420,
+    1468810
+  ],
+  "free_GiB": 59.96
+}

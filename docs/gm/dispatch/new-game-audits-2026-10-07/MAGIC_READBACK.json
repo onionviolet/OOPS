@@ -1,0 +1,79 @@
+{
+  "checked_utc": "2026-10-07T17:56:08.139231+00:00",
+  "selected_parent_semantic_readback": [
+    {
+      "evidence_id": "E16",
+      "path": "src/backend/autocast/Autocast.tsx",
+      "map_index": 98,
+      "spans": [
+        [
+          1068,
+          1146
+        ]
+      ]
+    },
+    {
+      "evidence_id": "E20",
+      "path": "src/backend/events/storyline/pretraining/RetireUnlocker.tsx",
+      "map_index": 470,
+      "spans": [
+        [
+          35,
+          45
+        ],
+        [
+          57,
+          71
+        ]
+      ]
+    },
+    {
+      "evidence_id": "E23",
+      "path": "src/backend/Retire.tsx",
+      "map_index": 20,
+      "spans": [
+        [
+          35,
+          69
+        ]
+      ]
+    },
+    {
+      "evidence_id": "E23",
+      "path": "src/backend/spells/Elements.tsx",
+      "map_index": 25,
+      "spans": [
+        [
+          613,
+          633
+        ]
+      ]
+    },
+    {
+      "evidence_id": "E24",
+      "path": "src/backend/spells/Elements.tsx",
+      "map_index": 25,
+      "spans": [
+        [
+          507,
+          552
+        ],
+        [
+          555,
+          569
+        ],
+        [
+          635,
+          641
+        ]
+      ]
+    }
+  ],
+  "claims_qualified": [
+    "permacast can spend mana before enabled/condition checks under prior visibility/capacity/wizard-power guards",
+    "retirement event uses primary element run maximum",
+    "retirement replaces run state and retains world maxima through listeners"
+  ],
+  "worker_full_evidence_check": "docs/research/magic-research-2/VALIDATION.json",
+  "gameplay_exercised": false
+}

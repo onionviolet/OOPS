@@ -22,7 +22,9 @@ Original worlds and specific book references are both allowed design sources.
 Follow PROJECT.md on attribution, source verification, and inspiration versus
 a requested direct adaptation. Do not block on a finalized favorite-book list.
 Reading a supplied book in full is allowed; never modify the source library or
-commit raw prose. Keep `docs/research/novels/` out of git.
+commit raw prose. Keep `docs/research/novels/` out of git. For a deep dive
+on a whole source (power system, rules, fan premises, wiki cross-check),
+follow [the source deep dive playbook](docs/research/SOURCE_DEEP_DIVE_PLAYBOOK.md).
 
 Finish one playable slice before starting the next. A wave ends
 at a checkpoint where Weibao can play it, not when a context or batch boundary
@@ -44,6 +46,17 @@ compatibility decision.
 
 Use origin for the personal fork (public) and upstream for the original.
 Inspect the working tree before editing and preserve unrelated changes.
+
+## Sealed secrets
+
+Weibao plays the game too, so world secrets are sealed by default
+([details](docs/worlds/WORLD_SECRETS_AND_DISCOVERY.md#sealed-secrets-standard-rule-2026-10-10)).
+Agents read and write sealed files freely to design, implement and test
+them. Do not show a secret's truth to Weibao in chat, reports, summaries,
+indexes, commit messages or UI text outside its discovery route. Refer to
+secrets by ID, route and status ("S2: Medicine route works"). Unseal only
+when he asks for that secret or world. Public franchise twists are not
+sealed; a changed or randomized truth is.
 
 ## Multi-agent work
 

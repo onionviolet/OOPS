@@ -1,0 +1,519 @@
+{
+  "date": "2026-10-09",
+  "appid": 2847400,
+  "buildid": "25410965",
+  "status": "bounded-installed-native-source-audit",
+  "evidence_policy": "Declarations are signatures/fields only. Findings explicitly include selected decoded native instructions. Inferences and original proposals are separate. No playable proof.",
+  "findings": [
+    {
+      "id": "F1",
+      "evidence_kind": "recovered-native-body-plus-metadata-field-layout",
+      "claim": "Native constructor establishes first-person movement controls, not an idle simulation.",
+      "anchor": {
+        "installed_file": "GameAssembly.dll",
+        "class": "FPSController",
+        "method": ".ctor",
+        "rva": "0x301190",
+        "end_rva": "0x301210",
+        "native_range_sha256": "b3e06f4384ee375dbc3b1689618c06900832008a973832746d570e5aade127ec",
+        "private_readback": "~/.codex/research/endless-ascent/selected-disassembly.txt",
+        "declaration": "~/.codex/research/endless-ascent/dump/dump.cs"
+      },
+      "readback": "walkSpeed at0x38 defaults6, jumpForce at0x50 defaults8, gravity at0x54 defaults30; serialized scene values can override these.",
+      "limits_and_inference": "Scene puzzle and obstacle lens; no native platforming behavior was played."
+    },
+    {
+      "id": "F2",
+      "evidence_kind": "recovered-native-body-plus-metadata-field-layout",
+      "claim": "Level-one completion coroutine awards completion currency separately from completion count.",
+      "anchor": {
+        "installed_file": "GameAssembly.dll",
+        "class": "Ray1.<Escaper>d__129",
+        "method": "MoveNext",
+        "rva": "0x30DE70",
+        "end_rva": "0x30e1b0",
+        "native_range_sha256": "a99f605395e846b5f572cfbf92a8ee7ab8c237c216fefb8b86070e4a13268f1a",
+        "private_readback": "~/.codex/research/endless-ascent/selected-disassembly.txt",
+        "declaration": "~/.codex/research/endless-ascent/dump/dump.cs"
+      },
+      "readback": "FinishedLevels is set to1 only when its integer stat is0; ASCENSIONS float receives+1 when Steam initialized and GetStat succeeds.",
+      "limits_and_inference": "No prestige/reset demonstrated. This is code presence, not a Steam-account stat read."
+    },
+    {
+      "id": "F3",
+      "evidence_kind": "recovered-native-body-plus-metadata-field-layout",
+      "claim": "Supplies have distinct currency prices and stock quantities.",
+      "anchor": {
+        "installed_file": "GameAssembly.dll",
+        "class": "CamManageBuy",
+        "method": "TryBuyPillow",
+        "rva": "0x2EE9B0",
+        "end_rva": "0x2eeae0",
+        "native_range_sha256": "09eab4aaad9bf8f451c724c7dfdaf9728d37965fba7e453e02dbfc403c7e8722",
+        "private_readback": "~/.codex/research/endless-ascent/selected-disassembly.txt",
+        "declaration": "~/.codex/research/endless-ascent/dump/dump.cs"
+      },
+      "readback": "RequireASCENSIONS>=1, subtract1, StoreStats; then GetStat PillowAmount and add100. Drink costs3 adds18; AC costs4 adds35; IE costs5 adds25, anchored separately in retained method index.",
+      "limits_and_inference": "Supplies, not demonstrated permanent stat upgrades. Their runtime effect magnitudes were not recovered."
+    },
+    {
+      "id": "F4",
+      "evidence_kind": "recovered-native-body-plus-metadata-field-layout",
+      "claim": "Fuse check distinguishes missing requirement, success and repeat success.",
+      "anchor": {
+        "installed_file": "GameAssembly.dll",
+        "class": "ItemChecker",
+        "method": "Check",
+        "rva": "0x323390",
+        "end_rva": "0x3235f0",
+        "native_range_sha256": "0064202a7fd1c4bd8ce520e4d28d79adb01945a9f6df61357d931b24795c5f72",
+        "private_readback": "~/.codex/research/endless-ascent/selected-disassembly.txt",
+        "declaration": "~/.codex/research/endless-ascent/dump/dump.cs"
+      },
+      "readback": "HasItem0x50 false activatesNeedFuse0x20; true plus ONCE0x52 false latches it, activatesSuccess, changes terminal state and plays door animation.",
+      "limits_and_inference": "Requirement feedback and exactly-once presentation are useful for native YAIR encounters; fuse acquisition not traced."
+    },
+    {
+      "id": "F5",
+      "evidence_kind": "recovered-native-body-plus-metadata-field-layout",
+      "claim": "Weight gate counts distinct object categories and acknowledges completion.",
+      "anchor": {
+        "installed_file": "GameAssembly.dll",
+        "class": "WeightController",
+        "method": "Update",
+        "rva": "0x36FF00",
+        "end_rva": "0x370070",
+        "native_range_sha256": "106da9dee76ea3955e5ee14698a9591b5e0494be860abca5654aba5844af52b8",
+        "private_readback": "~/.codex/research/endless-ascent/selected-disassembly.txt",
+        "declaration": "~/.codex/research/endless-ascent/dump/dump.cs"
+      },
+      "readback": "Weight0x20 approaches targetMaxWeight0x28 by WeightFade0x24*deltaTime; updates text when difference>0.01; threshold10.7 flipsStillIntact0x70 false and opens door; false state shows rewarded.",
+      "limits_and_inference": "MaxWeight is a misleading field name: selected trigger bodies add contributions to it. This is a >=threshold, not an exact-weight puzzle."
+    },
+    {
+      "id": "F6",
+      "evidence_kind": "recovered-native-body-plus-metadata-field-layout",
+      "claim": "Category contributions are guarded and removable.",
+      "anchor": {
+        "installed_file": "GameAssembly.dll",
+        "class": "WeightController",
+        "method": "OnTriggerEnter",
+        "rva": "0x36F700",
+        "end_rva": "0x36f990",
+        "native_range_sha256": "826ead6ff6defb877f8d7d9fc7f5907681ea838eab9e90406be0b55910f291a2",
+        "private_readback": "~/.codex/research/endless-ascent/selected-disassembly.txt",
+        "declaration": "~/.codex/research/endless-ascent/dump/dump.cs"
+      },
+      "readback": "P1 adds1, P2 adds2, Weapon1.5, Obj1 2.8, Obj2 2.3, Obj3 0.9, Obj4 0.2, each gated by its boolean. RevDumb1 subtracts1 and clearsDumb1. OnTriggerExit/other removal bodies remain declaration-only.",
+      "limits_and_inference": "Weighted item semantics can be original YAIR recipe requirements without importing physics."
+    },
+    {
+      "id": "F7",
+      "evidence_kind": "recovered-native-body-plus-metadata-field-layout",
+      "claim": "Heat warning and failure use separate time thresholds.",
+      "anchor": {
+        "installed_file": "GameAssembly.dll",
+        "class": "HeatingTimer",
+        "method": "Update",
+        "rva": "0x301AC0",
+        "end_rva": "0x301bc0",
+        "native_range_sha256": "da52d739d7763a6f0950f28ddd9aa2d44388a9c5c43646324f08f62391a9cf58",
+        "private_readback": "~/.codex/research/endless-ascent/selected-disassembly.txt",
+        "declaration": "~/.codex/research/endless-ascent/dump/dump.cs"
+      },
+      "readback": "Timer0x20 incrementsdeltaTime; above330 andReadyT0x38 showsText and clears guard; above serializedMax0x24 activatesHeat and callsDying.StartDying.",
+      "limits_and_inference": "Actual sceneMax not acquired; warning ordering relative to scene failure is not verified."
+    },
+    {
+      "id": "F8",
+      "evidence_kind": "recovered-native-body-plus-metadata-field-layout",
+      "claim": "Hydration presents early warning and a one-use refill.",
+      "anchor": {
+        "installed_file": "GameAssembly.dll",
+        "class": "HydrationSystem",
+        "method": "Update",
+        "rva": "0x3023D0",
+        "end_rva": "0x302510",
+        "native_range_sha256": "41f930855b46cb6ef682be3143f0fa9c51eaf9b822b6c4cfb76dc59c6653bbef",
+        "private_readback": "~/.codex/research/endless-ascent/selected-disassembly.txt",
+        "declaration": "~/.codex/research/endless-ascent/dump/dump.cs"
+      },
+      "readback": "UI displaysAmount0x40, Warning active below0.2, Amount-=Faderspeed0x44*deltaTime. KeyDown0x72 with active bottle andHasWater resetsAmount1 and clearsHasWater.",
+      "limits_and_inference": "No damage or thirst death is demonstrated in this method; do not add that as a source claim."
+    },
+    {
+      "id": "F9",
+      "evidence_kind": "recovered-native-body-plus-metadata-field-layout",
+      "claim": "Elevator action differentiates selection, prerequisite and completion.",
+      "anchor": {
+        "installed_file": "GameAssembly.dll",
+        "class": "ControllerElevator",
+        "method": "Action",
+        "rva": "0x34C500",
+        "end_rva": "0x34c950",
+        "native_range_sha256": "9fa14912500e16ff01c309e591654af8da6bc3f5d410a93aab505110d42d0198",
+        "private_readback": "~/.codex/research/endless-ascent/selected-disassembly.txt",
+        "declaration": "~/.codex/research/endless-ascent/dump/dump.cs"
+      },
+      "readback": "Three active slide objects choose separate branches; third checksExtractorThere and callsRay8.ENeedText if absent; CanDo guards activation; OPEN andACTIVE status updates accompany animation/audio calls.",
+      "limits_and_inference": "Adapt to a location action with plain statuses; exact puzzle sequence and scene bindings remain unknown."
+    },
+    {
+      "id": "F10",
+      "evidence_kind": "recovered-native-body-plus-metadata-field-layout",
+      "claim": "A collective achievement requires all six completion flags and a latch.",
+      "anchor": {
+        "installed_file": "GameAssembly.dll",
+        "class": "CheckAll6",
+        "method": "Update",
+        "rva": "0x34C030",
+        "end_rva": "0x34c110",
+        "native_range_sha256": "706fd51091bc139a0b20144c9cec3468aac5e53ce3251e7b33ea4d722fdbf9a5",
+        "private_readback": "~/.codex/research/endless-ascent/selected-disassembly.txt",
+        "declaration": "~/.codex/research/endless-ascent/dump/dump.cs"
+      },
+      "readback": "Checks six RoboLVL8.DidMake at0x98 thenAction0x50; setsAction before Steam initialized branch and setsALL6 achievement only with Steam.",
+      "limits_and_inference": "Aggregate condition is demonstrated; achievement may be missed if Steam unavailable at latch time. Do not replicate external-service authority."
+    },
+    {
+      "id": "F11",
+      "evidence_kind": "recovered-native-body-plus-metadata-field-layout",
+      "claim": "Boss health is an arithmetic variable with hit feedback.",
+      "anchor": {
+        "installed_file": "GameAssembly.dll",
+        "class": "BossAI1",
+        "method": "TakeHealth",
+        "rva": "0x311150",
+        "end_rva": "0x311260",
+        "native_range_sha256": "17d06b8345bb53364069e30753cb5f8a0f6b9ec64996addb63222fa283ea6c13",
+        "private_readback": "~/.codex/research/endless-ascent/selected-disassembly.txt",
+        "declaration": "~/.codex/research/endless-ascent/dump/dump.cs"
+      },
+      "readback": "Health0xC0-=HealthDamage0xC4 then instantiatesEffectTake. Constructor defaults1.0 health and0.1 damage; scene overrides unacquired.",
+      "limits_and_inference": "Boss telegraph/timing field declarations exist but their full behavior was not recovered; no claim of ten-hit playable balance."
+    },
+    {
+      "id": "F12",
+      "evidence_kind": "recovered-native-body-plus-metadata-field-layout",
+      "claim": "Retry reloads a named scene, while spawn setup can vary.",
+      "anchor": {
+        "installed_file": "GameAssembly.dll",
+        "class": "RestartLevel",
+        "method": "Update",
+        "rva": "0x30B420",
+        "end_rva": "0x30b490",
+        "native_range_sha256": "0b98db816a4b8536fbb2cf286d450e1a25f359032d410ae020712900339b30bc",
+        "private_readback": "~/.codex/research/endless-ascent/selected-disassembly.txt",
+        "declaration": "~/.codex/research/endless-ascent/dump/dump.cs"
+      },
+      "readback": "Key polling invokesSceneManager.LoadScene usingSceneName0x20. ManagerSpawn.Start randomizes0..Spawns.Length then activates selected member.",
+      "limits_and_inference": "No mid-scene saved checkpoint established. Do not label random spawning as procedural generation or give retry retention assumptions."
+    }
+  ],
+  "ranked_original_proposals": [
+    {
+      "id": "P1",
+      "rank": 1,
+      "title": "Visible repair gate",
+      "proposal": "A single optional Nearby cave mechanism asks for an ordinary component, shows missing/supplied/ready and pays once.",
+      "source_findings": [
+        "F4"
+      ],
+      "native_mapping": "src/data/locations.js (Nearby cave); src/items.js; src/field_ui.js:createFieldPanel",
+      "implementation_boundary": "Native location action plus inventory transaction; optional sparse encounter state.",
+      "acceptance_gate": "Missing item rejects without mutation; proper item resolves once; repeat click, reload and import never duplicate reward.",
+      "status": "original-proposal-not-authorized-implementation"
+    },
+    {
+      "id": "P2",
+      "rank": 2,
+      "title": "Weighted contribution puzzle",
+      "proposal": "One cave counterweight accepts several original item categories; show contribution and remaining requirement before placement.",
+      "source_findings": [
+        "F5",
+        "F6"
+      ],
+      "native_mapping": "src/crafting_recipes.js; src/items.js; src/data/skills.js:Weightlifting; src/data/locations.js (Nearby cave)",
+      "implementation_boundary": "Reuse component counts and ordinary Weightlifting access, not physics or another XP pool.",
+      "acceptance_gate": "Distinct category placement cannot double count; removing restores state; threshold crossing pays once; old saves have no invented placements.",
+      "status": "original-proposal-not-authorized-implementation"
+    },
+    {
+      "id": "P3",
+      "rank": 3,
+      "title": "Encounter retry with recovery",
+      "proposal": "An optional challenge has a retry that explains exactly what resets; native unconsciousness/recovery remains the defeat rule.",
+      "source_findings": [
+        "F12"
+      ],
+      "native_mapping": "src/data/locations.js (Cave room); src/save_files.js:validateSaveEnvelope; src/chronicle.js",
+      "implementation_boundary": "Encounter-local transient state with an explicit compatible retention policy.",
+      "acceptance_gate": "Leaving/retrying cannot refund spent rewards or reroll a committed outcome; native defeat unchanged; save/reload/import honors declared scope.",
+      "status": "original-proposal-not-authorized-implementation"
+    },
+    {
+      "id": "P4",
+      "rank": 4,
+      "title": "Preparation instead of permanent upgrades",
+      "proposal": "Offer one supply choice for the next optional outing using existing item stock and merchant prices.",
+      "source_findings": [
+        "F2",
+        "F3"
+      ],
+      "native_mapping": "src/data/traders.js; src/items.js; src/data/inventory_templates.js",
+      "implementation_boundary": "Native coins and inventory; no ASCENSIONS currency, achievement dependence or prestige reset.",
+      "acceptance_gate": "Purchase atomically debits coins and adds item; insufficient funds/full rejection changes neither; effects only through ordinary item use.",
+      "status": "original-proposal-not-authorized-implementation"
+    },
+    {
+      "id": "P5",
+      "rank": 5,
+      "title": "Readable hazard and refuge",
+      "proposal": "For one proposed heat exposure encounter, show warning and remaining safe time and let player retreat.",
+      "source_findings": [
+        "F7",
+        "F8"
+      ],
+      "native_mapping": "src/data/locations.js:location_types; src/event_feed.js; src/field_ui.js",
+      "implementation_boundary": "Bounded native location effect; skill mitigation through existing location rules.",
+      "acceptance_gate": "Warnings readable before failure; pausing/leaving rules explicit; save/reload/import preserve elapsed state without wall-clock surprise.",
+      "status": "original-proposal-not-authorized-implementation"
+    },
+    {
+      "id": "P6",
+      "rank": 6,
+      "title": "Prerequisite-aware action wording",
+      "proposal": "Replace a generic blocked encounter action with the specific missing tool and the next useful center action.",
+      "source_findings": [
+        "F4",
+        "F9"
+      ],
+      "native_mapping": "src/field_ui.js:createFieldPanel; src/data/locations.js; src/items.js",
+      "implementation_boundary": "Existing center/location menu; no modal dashboard.",
+      "acceptance_gate": "Blocked command refuses safely and says why; obtaining requirement changes label; already completed state remains readable.",
+      "status": "original-proposal-not-authorized-implementation"
+    },
+    {
+      "id": "P7",
+      "rank": 7,
+      "title": "Personal completion record",
+      "proposal": "Record first clear separately from repeat performance, making an ordinary task part of biography.",
+      "source_findings": [
+        "F2",
+        "F10"
+      ],
+      "native_mapping": "src/life_record.js:appendLifeMilestone; src/chronicle.js; src/save_files.js",
+      "implementation_boundary": "Native event plus deduplicated life milestone; optional personal best.",
+      "acceptance_gate": "First clear writes one event, repeats improve only valid best; fresh/legacy/reload/import do not invent or duplicate deeds.",
+      "status": "original-proposal-not-authorized-implementation"
+    },
+    {
+      "id": "P8",
+      "rank": 8,
+      "title": "Collective work checklist",
+      "proposal": "One location errand displays several concrete prerequisite tasks and pays when all finish.",
+      "source_findings": [
+        "F10",
+        "F9"
+      ],
+      "native_mapping": "src/data/locations.js (Village); src/data/dialogues.js; src/life_record.js",
+      "implementation_boundary": "Native quest conditions and center actions, not six new currencies.",
+      "acceptance_gate": "Order independent checks; remaining tasks listed; completion latches only after local reward succeeds; offline/local play identical.",
+      "status": "original-proposal-not-authorized-implementation"
+    }
+  ],
+  "small_touches": [
+    {
+      "id": "T01",
+      "touch": "Show the missing tool in the blocked action label",
+      "source_finding": "F4",
+      "native_mapping": "src/field_ui.js / location center action",
+      "status": "original-proposal",
+      "fiction_and_values": "YAIR original, no copied puzzle/dialogue/assets"
+    },
+    {
+      "id": "T02",
+      "touch": "Swap required-item text for a success receipt after placement",
+      "source_finding": "F4",
+      "native_mapping": "src/event_feed.js / inventory action",
+      "status": "original-proposal",
+      "fiction_and_values": "YAIR original, no copied puzzle/dialogue/assets"
+    },
+    {
+      "id": "T03",
+      "touch": "Keep completed mechanism clickable for a short remembered response",
+      "source_finding": "F4",
+      "native_mapping": "src/data/dialogues.js / location state",
+      "status": "original-proposal",
+      "fiction_and_values": "YAIR original, no copied puzzle/dialogue/assets"
+    },
+    {
+      "id": "T04",
+      "touch": "Reward first completion once",
+      "source_finding": "F4",
+      "native_mapping": "src/life_record.js:appendLifeMilestone",
+      "status": "original-proposal",
+      "fiction_and_values": "YAIR original, no copied puzzle/dialogue/assets"
+    },
+    {
+      "id": "T05",
+      "touch": "Display every offered item contribution before committing",
+      "source_finding": "F6",
+      "native_mapping": "src/items.js / crafting requirement preview",
+      "status": "original-proposal",
+      "fiction_and_values": "YAIR original, no copied puzzle/dialogue/assets"
+    },
+    {
+      "id": "T06",
+      "touch": "Mark an already counted category as supplied",
+      "source_finding": "F6",
+      "native_mapping": "src/crafting_recipes.js / component preview",
+      "status": "original-proposal",
+      "fiction_and_values": "YAIR original, no copied puzzle/dialogue/assets"
+    },
+    {
+      "id": "T07",
+      "touch": "Show remaining load in ordinary units",
+      "source_finding": "F5",
+      "native_mapping": "src/field_ui.js / encounter status",
+      "status": "original-proposal",
+      "fiction_and_values": "YAIR original, no copied puzzle/dialogue/assets"
+    },
+    {
+      "id": "T08",
+      "touch": "Acknowledge removal with a short event",
+      "source_finding": "F6",
+      "native_mapping": "src/event_feed.js / undo placement command",
+      "status": "original-proposal",
+      "fiction_and_values": "YAIR original, no copied puzzle/dialogue/assets"
+    },
+    {
+      "id": "T09",
+      "touch": "Latch solved state even when items subsequently leave",
+      "source_finding": "F5",
+      "native_mapping": "src/save_files.js / optional encounter completion",
+      "status": "original-proposal",
+      "fiction_and_values": "YAIR original, no copied puzzle/dialogue/assets"
+    },
+    {
+      "id": "T10",
+      "touch": "Use threshold wording rather than implying an exact recipe",
+      "source_finding": "F5",
+      "native_mapping": "src/field_ui.js / condition text",
+      "status": "original-proposal",
+      "fiction_and_values": "YAIR original, no copied puzzle/dialogue/assets"
+    },
+    {
+      "id": "T11",
+      "touch": "Add a visible low-resource warning before failure",
+      "source_finding": "F8",
+      "native_mapping": "src/field_ui.js / existing resource readout",
+      "status": "original-proposal",
+      "fiction_and_values": "YAIR original, no copied puzzle/dialogue/assets"
+    },
+    {
+      "id": "T12",
+      "touch": "Show full and empty supply states on the same item",
+      "source_finding": "F8",
+      "native_mapping": "src/items.js / ordinary consumable description",
+      "status": "original-proposal",
+      "fiction_and_values": "YAIR original, no copied puzzle/dialogue/assets"
+    },
+    {
+      "id": "T13",
+      "touch": "Explain one-use refill before spending",
+      "source_finding": "F8",
+      "native_mapping": "src/items.js / consume action",
+      "status": "original-proposal",
+      "fiction_and_values": "YAIR original, no copied puzzle/dialogue/assets"
+    },
+    {
+      "id": "T14",
+      "touch": "Use one warning per threshold crossing rather than every tick",
+      "source_finding": "F7",
+      "native_mapping": "src/event_feed.js / encounter notification",
+      "status": "original-proposal",
+      "fiction_and_values": "YAIR original, no copied puzzle/dialogue/assets"
+    },
+    {
+      "id": "T15",
+      "touch": "Let retreat retain explicitly documented preparation",
+      "source_finding": "F12",
+      "native_mapping": "src/data/locations.js / connected location action",
+      "status": "original-proposal",
+      "fiction_and_values": "YAIR original, no copied puzzle/dialogue/assets"
+    },
+    {
+      "id": "T16",
+      "touch": "Explain reset scope on retry",
+      "source_finding": "F12",
+      "native_mapping": "src/field_ui.js / retry label",
+      "status": "original-proposal",
+      "fiction_and_values": "YAIR original, no copied puzzle/dialogue/assets"
+    },
+    {
+      "id": "T17",
+      "touch": "Keep first clear and personal best separate",
+      "source_finding": "F2",
+      "native_mapping": "src/life_record.js / milestone and encounter result",
+      "status": "original-proposal",
+      "fiction_and_values": "YAIR original, no copied puzzle/dialogue/assets"
+    },
+    {
+      "id": "T18",
+      "touch": "Hide optional challenge timing until requested",
+      "source_finding": "F2",
+      "native_mapping": "src/field_ui.js / display choice; MainMenu timer field declaration only",
+      "status": "original-proposal",
+      "fiction_and_values": "YAIR original, no copied puzzle/dialogue/assets"
+    },
+    {
+      "id": "T19",
+      "touch": "List supply price alongside quantity obtained",
+      "source_finding": "F3",
+      "native_mapping": "src/data/traders.js / native trade row",
+      "status": "original-proposal",
+      "fiction_and_values": "YAIR original, no copied puzzle/dialogue/assets"
+    },
+    {
+      "id": "T20",
+      "touch": "Explain why supplies cannot be afforded without debiting",
+      "source_finding": "F3",
+      "native_mapping": "src/data/traders.js / purchase rejection",
+      "status": "original-proposal",
+      "fiction_and_values": "YAIR original, no copied puzzle/dialogue/assets"
+    },
+    {
+      "id": "T21",
+      "touch": "Show each collective task check independently",
+      "source_finding": "F10",
+      "native_mapping": "src/field_ui.js / native quest checklist",
+      "status": "original-proposal",
+      "fiction_and_values": "YAIR original, no copied puzzle/dialogue/assets"
+    },
+    {
+      "id": "T22",
+      "touch": "Turn a staged action into ready/missing/completed text",
+      "source_finding": "F9",
+      "native_mapping": "src/data/locations.js / center action",
+      "status": "original-proposal",
+      "fiction_and_values": "YAIR original, no copied puzzle/dialogue/assets"
+    },
+    {
+      "id": "T23",
+      "touch": "Pair a hit event with health change for clarity",
+      "source_finding": "F11",
+      "native_mapping": "src/event_feed.js / native combat event",
+      "status": "original-proposal",
+      "fiction_and_values": "YAIR original, no copied puzzle/dialogue/assets"
+    },
+    {
+      "id": "T24",
+      "touch": "Use a small authored variant pool with a stable committed choice",
+      "source_finding": "F12",
+      "native_mapping": "src/data/locations.js / encounter variant",
+      "status": "original-proposal",
+      "fiction_and_values": "YAIR original, no copied puzzle/dialogue/assets"
+    }
+  ]
+}

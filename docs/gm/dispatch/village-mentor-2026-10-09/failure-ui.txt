@@ -1,0 +1,104 @@
+Yet Another Idle RPG
+by Miktaew 🐱
+LOADING
+Something went wrong 😭
+Save game version: v0.6
+Current game version: v0.6
+
+No changes since the last time you played~
+An error has occured on loading! Please open the browser console to check for details and then let the developer know!
+Play...?
+Create your hero
+Everything in this entire panel is purely cosmetic
+Name (can be changed at any time):
+
+Gender presentation (perception, not identity):
+Female
+ambiguous
+Male
+Height (relative to race average):
+Short
+Average
+Tall
+Age (relative to race's aging):
+Young adult
+Adult
+Middle aged
+Default race
+Human
+Humanoid races
+Elf
+Half-elf
+Dwarf
+Half-dwarf
+Beastkin races
+Nekomimi
+(cat person)
+Nezumimi
+(mouse person)
+Inumimi
+(dog person)
+Kitsunemimi
+(fox person)
+Usagimimi
+(rabbit person)
+Lizardkin
+Confirm
+40/40 stamina
+0/0 mana
+60/60 hp
+01/04/999 08:00, Summer, Mon 
+Sort by name
+Sort by value
+Sort by type
+All
+Equipment
+Usable
+Other
+Favs
+Inventory
+Combat
+Clears: [0]
+Enemy groups left: 
+ Hide max level skills
+Sort by name
+Sort by level
+Sort by progress
+Skills
+Stances
+Magic
+Quests
+Bestiary
+Anthology
+Data
+= Quests =
+Hide completed 
+Lvl: 0
+Strength: 12.0
+Agility: 8.0
+Dexterity: 10.0
+Intuition 10.0
+Defense: 1.0
+Magic: 0.0
+Atk power: 1.2
+Atk spd: 1.0
+Crit rate: 5.0%
+Crit mult: 130.0%
+AP: 32
+EP : 25
+Active effects: 0
+Stats
+Bio
+Equipment
+Tools
+Levels / unlocks
+Events
+Crafting
+Combat
+Loot
+BGM
+Save
+Export
+Import
+settings
+help_outline

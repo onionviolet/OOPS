@@ -1,0 +1,2242 @@
+{
+  "date": "2026-10-08",
+  "status": "finite source pass; original proposals only",
+  "source_boundary": "Official mod tutorial workbook snapshots; fresh current IL2CPP declarations; targeted native bodies. Exact evidence locators below. Private full row receipts retained outside Git. No gameplay or complete semantic coverage.",
+  "facts": [
+    {
+      "id": "N1",
+      "claim": "NPC generation snapshot targets 2,000 initial NPCs; independent settlement and sect position distributions control initial locations.",
+      "verification": "source_snapshot_only; not gameplay tested",
+      "unresolved_chain": {
+        "prerequisite": "not recovered",
+        "cost": "not recovered",
+        "time": "not recovered",
+        "failure": "not recovered",
+        "aftermath": "not recovered"
+      },
+      "yair_implication": {
+        "status": "proposal only",
+        "text": "Generate a bounded named cohort from birthplace and institution, rather than giving every unseen person a full simulation. 2,000 is a source snapshot value, not a YAIR target."
+      },
+      "evidence": [
+        {
+          "kind": "official_mod_workbook_snapshot",
+          "source_install_relative": "Mod/modFQA/配置修改教程/配置（只读）/NPC生成配置表.xlsx",
+          "extracted_file": "/Users/weiwei/.codex/research/tale-of-immortal/tables/NPC生成配置表__4a2e1a58e5.json",
+          "sheet": "NpcInitParameters",
+          "header_rows": [
+            1,
+            2,
+            3
+          ],
+          "excel_rows": [
+            4,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19
+          ]
+        },
+        {
+          "kind": "current_binary_metadata_declaration",
+          "file": "/Users/weiwei/.codex/research/tale-of-immortal/dumper/dump.cs",
+          "class": "WorldInitNPCTool",
+          "line_start": 799222,
+          "line_end": 799362,
+          "method_bodies_recovered": false
+        }
+      ]
+    },
+    {
+      "id": "N2",
+      "claim": "Generation separates weighted realm/phase/post/contribution, personality weights, starting wealth, hobbies and appearance preference.",
+      "verification": "source_snapshot_only; not gameplay tested",
+      "unresolved_chain": {
+        "prerequisite": "not recovered",
+        "cost": "not recovered",
+        "time": "not recovered",
+        "failure": "not recovered",
+        "aftermath": "not recovered"
+      },
+      "yair_implication": {
+        "status": "proposal only",
+        "text": "A village person can have one trade, one preference and one institutional tie that changes a real choice. Do not turn each trait into a mandatory meter."
+      },
+      "evidence": [
+        {
+          "kind": "official_mod_workbook_snapshot",
+          "source_install_relative": "Mod/modFQA/配置修改教程/配置（只读）/NPC生成配置表.xlsx",
+          "extracted_file": "/Users/weiwei/.codex/research/tale-of-immortal/tables/NPC生成配置表__63ad9e46e7.json",
+          "sheet": "NpcInitGradeSchool",
+          "header_rows": [
+            1,
+            2,
+            3
+          ],
+          "excel_rows": [
+            4,
+            5,
+            6,
+            7
+          ]
+        },
+        {
+          "kind": "official_mod_workbook_snapshot",
+          "source_install_relative": "Mod/modFQA/配置修改教程/配置（只读）/NPC生成配置表.xlsx",
+          "extracted_file": "/Users/weiwei/.codex/research/tale-of-immortal/tables/NPC生成配置表__8f5fe3b8fe.json",
+          "sheet": "NpcInitCharacter",
+          "header_rows": [
+            1,
+            2,
+            3
+          ],
+          "excel_rows": [
+            4,
+            5,
+            6,
+            7
+          ]
+        },
+        {
+          "kind": "official_mod_workbook_snapshot",
+          "source_install_relative": "Mod/modFQA/配置修改教程/配置（只读）/NPC生成配置表.xlsx",
+          "extracted_file": "/Users/weiwei/.codex/research/tale-of-immortal/tables/NPC生成配置表__22a76d0417.json",
+          "sheet": "NpcInitMoney",
+          "header_rows": [
+            1,
+            2,
+            3
+          ],
+          "excel_rows": [
+            4,
+            5,
+            6
+          ]
+        },
+        {
+          "kind": "official_mod_workbook_snapshot",
+          "source_install_relative": "Mod/modFQA/配置修改教程/配置（只读）/NPC生成配置表.xlsx",
+          "extracted_file": "/Users/weiwei/.codex/research/tale-of-immortal/tables/NPC生成配置表__b12c6debcd.json",
+          "sheet": "NpcInitHobby",
+          "header_rows": [
+            1,
+            2,
+            3
+          ],
+          "excel_rows": [
+            4,
+            5
+          ]
+        },
+        {
+          "kind": "official_mod_workbook_snapshot",
+          "source_install_relative": "Mod/modFQA/配置修改教程/配置（只读）/NPC生成配置表.xlsx",
+          "extracted_file": "/Users/weiwei/.codex/research/tale-of-immortal/tables/NPC生成配置表__0735f2d2ea.json",
+          "sheet": "NpcFavouriteLooks",
+          "header_rows": [
+            1,
+            2,
+            3
+          ],
+          "excel_rows": [
+            4,
+            5
+          ]
+        }
+      ]
+    },
+    {
+      "id": "N3",
+      "claim": "Rank-dependent generation includes an age amplification and maximum lifespan percentage plus reputation/combat/aptitude modifiers. The workbook note says sect NPC attributes receive one percentage amplification by post.",
+      "verification": "source_snapshot_only; not gameplay tested",
+      "unresolved_chain": {
+        "prerequisite": "not recovered",
+        "cost": "not recovered",
+        "time": "not recovered",
+        "failure": "not recovered",
+        "aftermath": "not recovered"
+      },
+      "yair_implication": {
+        "status": "proposal only",
+        "text": "Late-start elders should have a concrete history and means; record age separately from competence. Multiplication and lifespan clamping order remain opaque."
+      },
+      "evidence": [
+        {
+          "kind": "official_mod_workbook_snapshot",
+          "source_install_relative": "Mod/modFQA/配置修改教程/配置（只读）/NPC生成配置表.xlsx",
+          "extracted_file": "/Users/weiwei/.codex/research/tale-of-immortal/tables/NPC生成配置表__b0a3c657b3.json",
+          "sheet": "NpcInitAttrGrow",
+          "header_rows": [
+            1,
+            2,
+            3
+          ],
+          "excel_rows": [
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            13
+          ]
+        }
+      ]
+    },
+    {
+      "id": "N4",
+      "claim": "Current binary declarations contain an AI manager with unit map, current running unit, timing counters, custom run hooks and RunUnit; per-unit AI has current goal, failed-goal state, back-receive goals and callbacks. Targeted native body now confirms copying/sorting the AI list and callback-mediated iteration. Sort priorities, per-goal behavior, full scheduler cadence/cost/threading remain unresolved.",
+      "verification": "current native slice reviewed; not runtime tested",
+      "unresolved_chain": {
+        "prerequisite": "not recovered",
+        "cost": "not recovered",
+        "time": "not recovered",
+        "failure": "not recovered",
+        "aftermath": "not recovered"
+      },
+      "yair_implication": {
+        "status": "proposal only",
+        "text": "Use bounded actor goals and explicit failed attempts if adding active NPC lives. YAIR current npc_lives.js is a predetermined yearly family timeline, not autonomous goal AI."
+      },
+      "evidence": [
+        {
+          "kind": "current_binary_metadata_declaration",
+          "file": "/Users/weiwei/.codex/research/tale-of-immortal/dumper/dump.cs",
+          "class": "WorldUnitAIMgr",
+          "line_start": 771804,
+          "line_end": 771880,
+          "method_bodies_recovered": false
+        },
+        {
+          "kind": "current_binary_metadata_declaration",
+          "file": "/Users/weiwei/.codex/research/tale-of-immortal/dumper/dump.cs",
+          "class": "WorldUnitAIBase",
+          "line_start": 824563,
+          "line_end": 824658,
+          "method_bodies_recovered": false
+        },
+        {
+          "kind": "current_native_method_body_disassembly",
+          "file": "/Users/weiwei/.codex/research/tale-of-immortal/native/WorldUnitAIMgr__RunUnit.asm",
+          "method_rva": "0x3eee810",
+          "instruction_rva_ranges": [
+            "0x3eeea19–0x3eeeb1b",
+            "0x3eeee6e–0x3eeefa6"
+          ],
+          "observed": "Copies dictionary Values into a List<WorldUnitAIBase>, sorts through a comparison callback, and walks actors through callback delegates with stop/destroy flags. Generic-shared targets are labeled by Method$ arguments; arbitrary generic symbol names do not establish actor type.",
+          "runtime_exercised": false
+        }
+      ]
+    },
+    {
+      "id": "N5",
+      "claim": "NPC encapsulated-behavior snapshot caps player-interrupting interactions at six per month in both min/max parameters. Fresh native compiled defaults corroborate communicationMin=communicationMax=6; loaded mod overrides and enforcement call chain remain unchecked.",
+      "verification": "source_snapshot_only; not gameplay tested",
+      "unresolved_chain": {
+        "prerequisite": "interaction classification/cap enforcement not recovered",
+        "cost": "player attention; resource cost unknown",
+        "time": "monthly in workbook comments",
+        "failure": "cap behavior unknown",
+        "aftermath": "deferred/dropped interaction policy unknown"
+      },
+      "yair_implication": {
+        "status": "proposal only",
+        "text": "Let background lives produce a digest with a small attention budget, while important observed events remain actionable."
+      },
+      "evidence": [
+        {
+          "kind": "official_mod_workbook_snapshot",
+          "source_install_relative": "Mod/modFQA/配置修改教程/配置（只读）/NPC封装行为配置表.xlsx",
+          "extracted_file": "/Users/weiwei/.codex/research/tale-of-immortal/tables/NPC封装行为配置表__2ab0fe260f.json",
+          "sheet": "NpcBase",
+          "header_rows": [
+            1,
+            2,
+            3
+          ],
+          "excel_rows": [
+            4,
+            5
+          ]
+        },
+        {
+          "kind": "current_binary_compiled_default",
+          "file": "/Users/weiwei/.codex/research/tale-of-immortal/compiled-tables/ConfNpcBase.json",
+          "method": "ConfNpcBaseBase$$Init1",
+          "method_rva": "0x59944b0",
+          "scope": "Recovered scalar/string direct stores only; arrays and unrecognized instructions omitted. Compiled defaults before runtime mod/patch overrides.",
+          "excel_rows": [
+            null,
+            null
+          ]
+        }
+      ]
+    },
+    {
+      "id": "N6",
+      "claim": "Current RelationData declares parent/children/private children/sibling/back relations, married/lover/master/student and directed intimacy dictionaries. Fresh dump additionally declares notRelieveUnitsID, absent in retained Melon stubs.",
+      "verification": "source_snapshot_only; not gameplay tested",
+      "unresolved_chain": {
+        "prerequisite": "not recovered",
+        "cost": "not recovered",
+        "time": "not recovered",
+        "failure": "not recovered",
+        "aftermath": "not recovered"
+      },
+      "yair_implication": {
+        "status": "proposal only",
+        "text": "Keep actual tie, directed opinion and known-to-player information distinct. These declarations do not prove births, ongoing fertility or inheritance."
+      },
+      "evidence": [
+        {
+          "kind": "current_binary_metadata_declaration",
+          "file": "/Users/weiwei/.codex/research/tale-of-immortal/dumper/dump.cs",
+          "class": "DataUnit.RelationData",
+          "line_start": 576923,
+          "line_end": 577065,
+          "method_bodies_recovered": false
+        },
+        {
+          "kind": "current_binary_metadata_declaration",
+          "file": "/Users/weiwei/.codex/research/tale-of-immortal/dumper/dump.cs",
+          "class": "WorldInitNPCTool.RelationData",
+          "line_start": 798957,
+          "line_end": 798969,
+          "method_bodies_recovered": false
+        }
+      ]
+    },
+    {
+      "id": "N7",
+      "claim": "Marriage snapshot contains regret intimacy loss 50–80 percent and letter IDs 301/302 for companion relation outcomes. Current UnitActionRoleMarry exposes IsCreate, completion, OnEnd and direction-specific action methods.",
+      "verification": "source_snapshot_only; not gameplay tested",
+      "unresolved_chain": {
+        "prerequisite": "proposal acceptance, availability and IsCreate checks unknown",
+        "cost": "ceremony/resource cost unknown",
+        "time": "ceremony scheduler unknown",
+        "failure": "regretReduceMin=50/regretReduceMax=80 in snapshot; exact application unknown",
+        "aftermath": "regretLetterA=301, regretLetterB=302; relation mutation not recovered"
+      },
+      "yair_implication": {
+        "status": "proposal only",
+        "text": "A promise and its cancellation can leave a durable memory rather than merely toggling spouse status."
+      },
+      "evidence": [
+        {
+          "kind": "official_mod_workbook_snapshot",
+          "source_install_relative": "Mod/modFQA/配置修改教程/配置（只读）/角色交互行为配置表.xlsx",
+          "extracted_file": "/Users/weiwei/.codex/research/tale-of-immortal/tables/角色交互行为配置表__f675c385bb.json",
+          "sheet": "RoleMarry",
+          "header_rows": [
+            1,
+            2,
+            3
+          ],
+          "excel_rows": [
+            4,
+            5,
+            6,
+            7
+          ]
+        },
+        {
+          "kind": "current_binary_metadata_declaration",
+          "file": "/Users/weiwei/.codex/research/tale-of-immortal/dumper/dump.cs",
+          "class": "UnitActionRoleMarry",
+          "line_start": 807960,
+          "line_end": 807994,
+          "method_bodies_recovered": false
+        }
+      ]
+    },
+    {
+      "id": "N8",
+      "claim": "Area-2 sect snapshot has seven offices, capacity, monthly salary, accumulated contribution/reputation/aptitude requirements and discount fields. Example leader: one slot, salary 600, contribution 875, reputation 1000; outer disciple: five slots, salary 80, aptitude requirement 10.",
+      "verification": "source_snapshot_only; not gameplay tested",
+      "unresolved_chain": {
+        "prerequisite": "configured requirements; actual gate precedence unknown",
+        "cost": "organization pays salary; promotion challenge may add costs",
+        "time": "salary monthly per header",
+        "failure": "competition/denial logic unknown",
+        "aftermath": "new capacity/benefits in config; transition code not recovered"
+      },
+      "yair_implication": {
+        "status": "proposal only",
+        "text": "An apprenticeship can become a wage and responsibility ladder with scarce posts. This is a design option, not selection of cultivation for the vanilla opening."
+      },
+      "evidence": [
+        {
+          "kind": "official_mod_workbook_snapshot",
+          "source_install_relative": "Mod/modFQA/配置修改教程/配置（只读）/宗门配置表.xlsx",
+          "extracted_file": "/Users/weiwei/.codex/research/tale-of-immortal/tables/宗门配置表__c289823e09.json",
+          "sheet": "SchoolPost",
+          "header_rows": [
+            1,
+            2,
+            3
+          ],
+          "excel_rows": [
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10
+          ]
+        }
+      ]
+    },
+    {
+      "id": "N9",
+      "claim": "Promotion contest snapshot separates player contribution entry cost, delay, contest size, winners and automatic recruitment interval/count. Area-2 outer contest row has 12-month check interval, one-month start delay, contribution cost 100, 16 fighters, one winner and automatic interval/count 12/1.",
+      "verification": "source_snapshot_only; not gameplay tested",
+      "unresolved_chain": {
+        "prerequisite": "area/post configured; complete candidate checks unknown",
+        "cost": "applyCost=100 for id2",
+        "time": "month=12/startMonth=1/autoMonth=12 snapshot fields",
+        "failure": "lose contest; precise consequences unknown",
+        "aftermath": "winNum=1/autoNum=1; exact appointment chain unknown"
+      },
+      "yair_implication": {
+        "status": "proposal only",
+        "text": "A career opening can occur on a calendar; preparation, entry and winning should be different states."
+      },
+      "evidence": [
+        {
+          "kind": "official_mod_workbook_snapshot",
+          "source_install_relative": "Mod/modFQA/配置修改教程/配置（只读）/宗门比试配置表.xlsx",
+          "extracted_file": "/Users/weiwei/.codex/research/tale-of-immortal/tables/宗门比试配置表__b0408a2049.json",
+          "sheet": "SchoolFightPost",
+          "header_rows": [
+            1,
+            2,
+            3
+          ],
+          "excel_rows": [
+            4,
+            5,
+            6
+          ]
+        }
+      ]
+    },
+    {
+      "id": "N10",
+      "claim": "Sect duty table distinguishes human task eligibility/rewards, monthly refresh odds, aggregate disciple count, success chance and death chance. Example taskType102 area6 requires three members, success 86 and death 2 (headers call these rates, denominator not recovered). Detail sheet includes material IDs/quality/count and NPC herbalWorth.",
+      "verification": "source_snapshot_only; not gameplay tested",
+      "unresolved_chain": {
+        "prerequisite": "condition=post_0_6 and postMin/postMax; grammar implementation unknown",
+        "cost": "requireMember=3 for task id1023; actual material consumption unknown",
+        "time": "department task count 1–3 monthly in header; completion delay unknown",
+        "failure": "memberBaseSucceeRate=86/memberBaseDieRate=2 in id1023; roll logic unknown",
+        "aftermath": "rewardContribution/money/reputation/schollAttr and completeTaskFunction fields; actual chain unknown"
+      },
+      "yair_implication": {
+        "status": "proposal only",
+        "text": "Duties can consume workers and create material/skill/reputation results. Named people and aggregate population should not be silently interchangeable."
+      },
+      "evidence": [
+        {
+          "kind": "official_mod_workbook_snapshot",
+          "source_install_relative": "Mod/modFQA/配置修改教程/配置（只读）/宗门任务配置表.xlsx",
+          "extracted_file": "/Users/weiwei/.codex/research/tale-of-immortal/tables/宗门任务配置表__7a0fd65828.json",
+          "sheet": "SchoolTaskTypeBase",
+          "header_rows": [
+            1,
+            2,
+            3
+          ],
+          "excel_rows": [
+            5,
+            6,
+            7
+          ]
+        },
+        {
+          "kind": "official_mod_workbook_snapshot",
+          "source_install_relative": "Mod/modFQA/配置修改教程/配置（只读）/宗门任务配置表.xlsx",
+          "extracted_file": "/Users/weiwei/.codex/research/tale-of-immortal/tables/宗门任务配置表__30f092a04b.json",
+          "sheet": "SchoolTask102",
+          "header_rows": [
+            1,
+            2,
+            3
+          ],
+          "excel_rows": [
+            4,
+            5
+          ]
+        },
+        {
+          "kind": "official_mod_workbook_snapshot",
+          "source_install_relative": "Mod/modFQA/配置修改教程/配置（只读）/宗门任务配置表.xlsx",
+          "extracted_file": "/Users/weiwei/.codex/research/tale-of-immortal/tables/宗门任务配置表__a1c16498af.json",
+          "sheet": "SchoolTaskAllotCount",
+          "header_rows": [
+            1,
+            2,
+            3
+          ],
+          "excel_rows": [
+            4,
+            5,
+            6,
+            7,
+            8
+          ]
+        }
+      ]
+    },
+    {
+      "id": "N11",
+      "claim": "Sect economic AI snapshot lowers loyalty by 4–8 when salary cannot be paid, restores five per backpay, and describes NPC leaders backpaying when loyalty below 90 and enough money. Expansion reserves six months of salaries.",
+      "verification": "source_snapshot_only; not gameplay tested",
+      "unresolved_chain": {
+        "prerequisite": "NPC leader, loyalty below90, sufficient money per comment",
+        "cost": "backpay amount formula unknown; six months reserve for expansion",
+        "time": "salary month cadence; AI evaluation cadence unknown",
+        "failure": "poorBetrayal 4_8 in all listed areas",
+        "aftermath": "addLoyalty=5; resignation threshold unknown"
+      },
+      "yair_implication": {
+        "status": "proposal only",
+        "text": "Leadership should involve paying people and keeping reserves. A missed wage can cause a remembered loss of trust, without introducing a mandatory economy to vanilla."
+      },
+      "evidence": [
+        {
+          "kind": "official_mod_workbook_snapshot",
+          "source_install_relative": "Mod/modFQA/配置修改教程/配置（只读）/宗门配置表.xlsx",
+          "extracted_file": "/Users/weiwei/.codex/research/tale-of-immortal/tables/宗门配置表__5e3bc94b9b.json",
+          "sheet": "SchoolParameters1",
+          "header_rows": [
+            1,
+            2,
+            3
+          ],
+          "excel_rows": [
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            26
+          ]
+        }
+      ]
+    },
+    {
+      "id": "N12",
+      "claim": "Population snapshot treats registered disciples as bounded counts with floor-triggered replenishment: area2 below50 gains5–15 per addition and max300. This differs from individually generated world NPCs.",
+      "verification": "source_snapshot_only; not gameplay tested",
+      "unresolved_chain": {
+        "prerequisite": "not recovered",
+        "cost": "not recovered",
+        "time": "not recovered",
+        "failure": "not recovered",
+        "aftermath": "not recovered"
+      },
+      "yair_implication": {
+        "status": "proposal only",
+        "text": "Use named recurring people for relationships and aggregate workers for large institutions; author explicit promotion between representations."
+      },
+      "evidence": [
+        {
+          "kind": "official_mod_workbook_snapshot",
+          "source_install_relative": "Mod/modFQA/配置修改教程/配置（只读）/宗门配置表.xlsx",
+          "extracted_file": "/Users/weiwei/.codex/research/tale-of-immortal/tables/宗门配置表__5e3bc94b9b.json",
+          "sheet": "SchoolParameters1",
+          "header_rows": [
+            1,
+            2,
+            3
+          ],
+          "excel_rows": [
+            4,
+            9,
+            27
+          ]
+        }
+      ]
+    },
+    {
+      "id": "N13",
+      "claim": "Sect resource requests contain personality rate modifiers and separate agree/refuse NPC log IDs, institutional log ID, monthly news and drama IDs.",
+      "verification": "source_snapshot_only; not gameplay tested",
+      "unresolved_chain": {
+        "prerequisite": "resId=3/area=2; trigger conditions unrecovered",
+        "cost": "addCount=50; resource semantics unresolved",
+        "time": "monthLog field present; firing cadence unknown",
+        "failure": "refuseNpcLog and playerRefuseDrama=0",
+        "aftermath": "agree/refuse logs, schoolLogId3314, monthLog drama_monthLog30123, drama8180001/agree8180003"
+      },
+      "yair_implication": {
+        "status": "proposal only",
+        "text": "One decision can update personal memory, institutional ledger and public news with different visibility."
+      },
+      "evidence": [
+        {
+          "kind": "official_mod_workbook_snapshot",
+          "source_install_relative": "Mod/modFQA/配置修改教程/配置（只读）/宗门AI配置表.xlsx",
+          "extracted_file": "/Users/weiwei/.codex/research/tale-of-immortal/tables/宗门AI配置表__8bcc0b8f84.json",
+          "sheet": "SchoolApprove",
+          "header_rows": [
+            1,
+            2,
+            3
+          ],
+          "excel_rows": [
+            4
+          ]
+        }
+      ]
+    },
+    {
+      "id": "N14",
+      "claim": "War snapshot includes diplomatic harm, true-death chance, delayed counterattack, minimum attacking forces, compensation, damaged stability/population, territory loss and post-war rewards.",
+      "verification": "source_snapshot_only; not gameplay tested",
+      "unresolved_chain": {
+        "prerequisite": "attackNeedUnitMinNum45/counterNeedUnitMinNum30; complete AI checks unknown",
+        "cost": "ordinary realm1 revival38, hero60; conversion resMoney1/herbal10/mine10; compensation attackFailPayRate30000 per10000",
+        "time": "counterWaitTime24 months, retry+36, success protection24; counter random offset0–6; attackSchoolAIInterval24 units unclear in its own comment",
+        "failure": "unitDieRate200 per10000 per combat death; kindredDieImmuneRate5000 per10000; immunity order unknown",
+        "aftermath": "diplomacy/hate, territory5, stability/registered-member losses, rewards1100131/2/3, treasury share >=50%; actual call order unknown"
+      },
+      "yair_implication": {
+        "status": "proposal only",
+        "text": "War should leave losses, obligations and political memory. Copy consequences selectively; source numbers are not YAIR balance."
+      },
+      "evidence": [
+        {
+          "kind": "official_mod_workbook_snapshot",
+          "source_install_relative": "Mod/modFQA/配置修改教程/配置（只读）/宗门战配置表.xlsx",
+          "extracted_file": "/Users/weiwei/.codex/research/tale-of-immortal/tables/宗门战配置表__50551cab2e.json",
+          "sheet": "SchoolWarInfo",
+          "header_rows": [
+            1,
+            2,
+            3
+          ],
+          "excel_rows": [
+            4,
+            5,
+            21,
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30,
+            31,
+            32,
+            33,
+            34,
+            35,
+            36,
+            37,
+            43,
+            44,
+            45,
+            53,
+            54,
+            55,
+            56,
+            66,
+            67,
+            68
+          ]
+        },
+        {
+          "kind": "official_mod_workbook_snapshot",
+          "source_install_relative": "Mod/modFQA/配置修改教程/配置（只读）/宗门战配置表.xlsx",
+          "extracted_file": "/Users/weiwei/.codex/research/tale-of-immortal/tables/宗门战配置表__bea39acb0a.json",
+          "sheet": "SchoolReviveCost",
+          "header_rows": [
+            1,
+            2,
+            3
+          ],
+          "excel_rows": [
+            4,
+            5
+          ]
+        }
+      ]
+    },
+    {
+      "id": "N15",
+      "claim": "Current native AddMemory stamps current month and appends to memory-kind bucket, calls a count limiter with maxCount and mode3, then removes oldest entries whose calendar-year difference exceeds maxSaveYear. Fourteen recovered compiled default memory kinds all set maxCount10/maxSaveYear100. These compiled defaults can be overridden; helper mode3 internals and retention outside this insertion method are not recovered.",
+      "verification": "compiled defaults and native insertion/age trimming reviewed; not runtime tested",
+      "unresolved_chain": {
+        "prerequisite": "memory-kind lookup must resolve; full caller eligibility unknown",
+        "cost": "per-type count limiter receives10 for recovered default kinds; whole-state cost unmeasured",
+        "time": "stamps roundMonth; age trimming happens in observed AddMemory path; periodic cleanup unknown",
+        "failure": "missing config/list guards visible, semantic recovery/error policy unknown",
+        "aftermath": "per-type insertion plus configured count-limit call; oldest removed if calendar year difference>100 for recovered defaults"
+      },
+      "yair_implication": {
+        "status": "proposal only",
+        "text": "Keep bounded causal memories distinct from lossy biography. YAIR chronicle relationship memories currently retain32 per actor; biography retains64 recent entries and200 annual summaries."
+      },
+      "evidence": [
+        {
+          "kind": "current_binary_metadata_declaration",
+          "file": "/Users/weiwei/.codex/research/tale-of-immortal/dumper/dump.cs",
+          "class": "DataUnit.MemoryData",
+          "line_start": 577855,
+          "line_end": 577869,
+          "method_bodies_recovered": false
+        },
+        {
+          "kind": "current_binary_metadata_declaration",
+          "file": "/Users/weiwei/.codex/research/tale-of-immortal/dumper/dump.cs",
+          "class": "DataUnit.MemoryData.MemoryItem",
+          "line_start": 577838,
+          "line_end": 577853,
+          "method_bodies_recovered": false
+        },
+        {
+          "kind": "current_binary_metadata_declaration",
+          "file": "/Users/weiwei/.codex/research/tale-of-immortal/dumper/dump.cs",
+          "class": "ConfNpcMemoryItem",
+          "line_start": 514457,
+          "line_end": 514474,
+          "method_bodies_recovered": false
+        },
+        {
+          "kind": "current_binary_compiled_default",
+          "file": "/Users/weiwei/.codex/research/tale-of-immortal/compiled-tables/ConfNpcMemory.json",
+          "method": "ConfNpcMemoryBase$$Init1",
+          "method_rva": "0x5275080",
+          "scope": "Recovered scalar/string direct stores only; arrays and unrecognized instructions omitted. Compiled defaults before runtime mod/patch overrides.",
+          "excel_rows": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
+        },
+        {
+          "kind": "current_native_method_body_disassembly",
+          "file": "/Users/weiwei/.codex/research/tale-of-immortal/native/DataUnit_MemoryData__AddMemory.asm",
+          "method_rva": "0x3ce7cb0",
+          "instruction_rva_ranges": [
+            "0x3ce7d8c–0x3ce7dcc",
+            "0x3ce7dd1–0x3ce7e98",
+            "0x3ce7ea4–0x3ce7ed7",
+            "0x3ce7ee0–0x3ce7f93"
+          ],
+          "observed": "Stores target/value array/current roundMonth, appends into memoryID bucket, obtains configured maxCount, calls CommonTool.LimitList(list,maxCount,3), then removes oldest while current calendar year minus oldest year exceeds maxSaveYear.",
+          "runtime_exercised": false
+        },
+        {
+          "kind": "current_native_method_body_disassembly",
+          "file": "/Users/weiwei/.codex/research/tale-of-immortal/native/CommonTool__MonthToYearMonth.asm",
+          "method_rva": "0x35b9b90",
+          "instruction_rva_ranges": [
+            "0x35b9bc0–0x35b9c22"
+          ],
+          "observed": "Converts months by division/remainder12 with 1-based nonzero-year convention: m1->year1/month1, m12->year1/month12, m13->year2/month1; m0->year0/month12 with default boolean argument.",
+          "runtime_exercised": false
+        }
+      ]
+    },
+    {
+      "id": "N16",
+      "claim": "Current native history cleanup removes oldest ordinary logs while their calendar year is <=currentYear-5, stopping at a newer first entry. This method does not touch vital logs. Native month-bucket serialization uses &Q between month/main/sublog groups and &W between log entries, with structured subrecord serialization. Call cadence, all vital-history retention paths and total serialized size remain unknown.",
+      "verification": "current native cleanup/encoding slice reviewed; not runtime tested",
+      "unresolved_chain": {
+        "prerequisite": "cleanup invocation and sorted-ordinary-history invariant not traced",
+        "cost": "five-calendar-year ordinary retention is time bounded, not entry/byte bounded; vital bound unknown",
+        "time": "calendarYear threshold currentYear-5 inclusive removal; periodic invocation cadence unknown",
+        "failure": "parsing/null guards visible; full corruption recovery untraced",
+        "aftermath": "old ordinary records removed; vital untouched in this method"
+      },
+      "yair_implication": {
+        "status": "proposal only",
+        "text": "Distinguish event occurrence from who knows it and from rendered prose. Keep durable gameplay facts outside biography summaries; save-size bounds need code proof, not type names."
+      },
+      "evidence": [
+        {
+          "kind": "current_binary_metadata_declaration",
+          "file": "/Users/weiwei/.codex/research/tale-of-immortal/dumper/dump.cs",
+          "class": "DataUnitLog.LogData",
+          "line_start": 579009,
+          "line_end": 579045,
+          "method_bodies_recovered": false
+        },
+        {
+          "kind": "current_binary_metadata_declaration",
+          "file": "/Users/weiwei/.codex/research/tale-of-immortal/dumper/dump.cs",
+          "class": "DataUnitLog.LogData.Data",
+          "line_start": 578896,
+          "line_end": 578923,
+          "method_bodies_recovered": false
+        },
+        {
+          "kind": "current_binary_metadata_declaration",
+          "file": "/Users/weiwei/.codex/research/tale-of-immortal/dumper/dump.cs",
+          "class": "DataUnitLog.LogData.LogItemData",
+          "line_start": 578962,
+          "line_end": 579007,
+          "method_bodies_recovered": false
+        },
+        {
+          "kind": "current_binary_metadata_declaration",
+          "file": "/Users/weiwei/.codex/research/tale-of-immortal/dumper/dump.cs",
+          "class": "DataUnitLog.LogEvent.EventData",
+          "line_start": 579047,
+          "line_end": 579066,
+          "method_bodies_recovered": false
+        },
+        {
+          "kind": "official_mod_workbook_snapshot",
+          "source_install_relative": "Mod/modFQA/配置修改教程/配置（只读）/角色行为日志配置表.xlsx",
+          "extracted_file": "/Users/weiwei/.codex/research/tale-of-immortal/tables/角色行为日志配置表__83a08030a0.json",
+          "sheet": "RoleLogBase",
+          "header_rows": [
+            1,
+            2,
+            3
+          ],
+          "excel_rows": [
+            4,
+            5,
+            6
+          ]
+        },
+        {
+          "kind": "official_mod_workbook_snapshot",
+          "source_install_relative": "Mod/modFQA/配置修改教程/配置（只读）/宗门配置表.xlsx",
+          "extracted_file": "/Users/weiwei/.codex/research/tale-of-immortal/tables/宗门配置表__594f0e9d6c.json",
+          "sheet": "SchoolLog",
+          "header_rows": [
+            1,
+            2,
+            3
+          ],
+          "excel_rows": [
+            4,
+            5
+          ]
+        },
+        {
+          "kind": "official_mod_workbook_snapshot",
+          "source_install_relative": "Mod/modFQA/配置修改教程/配置（只读）/月结事件日志配置表.xlsx",
+          "extracted_file": "/Users/weiwei/.codex/research/tale-of-immortal/tables/月结事件日志配置表__86904b5279.json",
+          "sheet": "MonthLogBase",
+          "header_rows": [
+            1,
+            2,
+            3
+          ],
+          "excel_rows": [
+            4,
+            5
+          ]
+        },
+        {
+          "kind": "current_native_method_body_disassembly",
+          "file": "/Users/weiwei/.codex/research/tale-of-immortal/native/DataUnitLog_LogData__ClearOverMonthLog.asm",
+          "method_rva": "0x2fb0380",
+          "instruction_rva_ranges": [
+            "0x2fb03ce–0x2fb043e",
+            "0x2fb0444–0x2fb04f9"
+          ],
+          "observed": "Computes current calendar year minus5, parses first stored ordinary log month, removes first ordinary entry until its year is strictly newer than threshold. Only collection at object+0x10 is accessed; vital collection at+0x18 is untouched by this method.",
+          "runtime_exercised": false
+        },
+        {
+          "kind": "current_native_method_body_disassembly",
+          "file": "/Users/weiwei/.codex/research/tale-of-immortal/native/DataUnitLog_LogData_LogItemData__DataToString.asm",
+          "method_rva": "0x279e930",
+          "instruction_rva_ranges": [
+            "0x279e985–0x279ea31",
+            "0x279ea31–0x279eac9",
+            "0x279eac9–0x279eb24"
+          ],
+          "observed": "Encodes month string plus main and sublog groups separated by &Q; entries in each group joined by &W. Data subrecord serialization called for each entry.",
+          "runtime_exercised": false
+        },
+        {
+          "kind": "current_native_method_body_disassembly",
+          "file": "/Users/weiwei/.codex/research/tale-of-immortal/native/DataUnitLog_LogData_Data__DataToString.asm",
+          "method_rva": "0x279bb40",
+          "instruction_rva_ranges": [
+            "0x279bb40–0x279bd80"
+          ],
+          "observed": "Structured Data subrecord encodes IDs/values/conditionValues into a string; does not prove full save-size limit.",
+          "runtime_exercised": false
+        }
+      ]
+    },
+    {
+      "id": "N17",
+      "claim": "Current native CacheMgr.Save string path converts UTF8, conditionally compresses at GameConf static flag+0x31, conditionally encrypts at flag+0x32 with configured key+0x38, then calls FileTool.WriteByte. Default flag values, runtime overrides and whole-save organization were not established.",
+      "verification": "native byte-save path reviewed; not runtime tested",
+      "unresolved_chain": {
+        "prerequisite": "runtime flags and full callers unknown",
+        "cost": "compression CPU/memory/size unmeasured",
+        "time": "invoked on Save; scheduling/atomicity unknown",
+        "failure": "write/backup/recovery semantics unknown",
+        "aftermath": "bytes written after optional transformations; no measured total-size bound"
+      },
+      "yair_implication": {
+        "status": "proposal only",
+        "text": "History compaction and byte compression solve different problems. Preserve YAIR gameplay authority separately from lossy biography; do not infer a bounded save from compression alone."
+      },
+      "evidence": [
+        {
+          "kind": "current_native_method_body_disassembly",
+          "file": "/Users/weiwei/.codex/research/tale-of-immortal/native/CacheMgr__Save.asm",
+          "method_rva": "0x38106a0",
+          "instruction_rva_ranges": [
+            "0x38106a0–0x38106d0",
+            "0x3810727–0x381073e",
+            "0x3810766–0x38107c8",
+            "0x38107d5–0x38107e8"
+          ],
+          "observed": "UTF8->conditional Compress->conditional EncryptMult->WriteByte.",
+          "runtime_exercised": false
+        }
+      ]
+    },
+    {
+      "id": "CE1",
+      "topic": "cultivation",
+      "claim": "Realm/phase/quality are separate. Snapshot grade2 phase1 has quality1/3/5 alternatives, all exp2346, but growItemNum1/3/6, materialsNum1/2/3, fateNum1/2/3, abilityPoint12/16/20. Thus ingredient preparation changes breakthrough outcome choices.",
+      "evidence_tier": "official_mod_tutorial_read_only_workbook_snapshot",
+      "runtime_unknown": "Success probability and consumed-item behavior need executable method verification; failFeatureProb100 is probability of failure status, not breakthrough failure chance.",
+      "evidence": [
+        {
+          "source_install_relative": "Mod/modFQA/配置修改教程/配置（只读）/角色配置表.xlsx",
+          "sheet": "RoleGrade",
+          "excel_row": 7,
+          "extracted_json": "/Users/weiwei/.codex/research/tale-of-immortal/tables/角色配置表__92592bbb53.json"
+        },
+        {
+          "source_install_relative": "Mod/modFQA/配置修改教程/配置（只读）/角色配置表.xlsx",
+          "sheet": "RoleGrade",
+          "excel_row": 8,
+          "extracted_json": "/Users/weiwei/.codex/research/tale-of-immortal/tables/角色配置表__92592bbb53.json"
+        },
+        {
+          "source_install_relative": "Mod/modFQA/配置修改教程/配置（只读）/角色配置表.xlsx",
+          "sheet": "RoleGrade",
+          "excel_row": 9,
+          "extracted_json": "/Users/weiwei/.codex/research/tale-of-immortal/tables/角色配置表__92592bbb53.json"
+        }
+      ]
+    },
+    {
+      "id": "CE2",
+      "topic": "cultivation",
+      "claim": "Ten realm names occur as Chinese annotations: 炼气,筑基,结晶,金丹,具灵,元婴,化神,悟道,羽化,登仙. Later growth is plot-gated, not only accumulated exp: grade10 phase3 requires dialogue_7005035_1 and references drama7005001|7005036.",
+      "evidence_tier": "official_mod_tutorial_read_only_workbook_snapshot",
+      "runtime_unknown": "All ten names verified by annotations across sheet, translation and installed balance not checked; current runtime table identity unverified.",
+      "evidence": [
+        {
+          "source_install_relative": "Mod/modFQA/配置修改教程/配置（只读）/角色配置表.xlsx",
+          "sheet": "RoleGrade",
+          "excel_row": 4,
+          "extracted_json": "/Users/weiwei/.codex/research/tale-of-immortal/tables/角色配置表__92592bbb53.json"
+        },
+        {
+          "source_install_relative": "Mod/modFQA/配置修改教程/配置（只读）/角色配置表.xlsx",
+          "sheet": "RoleGrade",
+          "excel_row": 7,
+          "extracted_json": "/Users/weiwei/.codex/research/tale-of-immortal/tables/角色配置表__92592bbb53.json"
+        },
+        {
+          "source_install_relative": "Mod/modFQA/配置修改教程/配置（只读）/角色配置表.xlsx",
+          "sheet": "RoleGrade",
+          "excel_row": 12,
+          "extracted_json": "/Users/weiwei/.codex/research/tale-of-immortal/tables/角色配置表__92592bbb53.json"
+        },
+        {
+          "source_install_relative": "Mod/modFQA/配置修改教程/配置（只读）/角色配置表.xlsx",
+          "sheet": "RoleGrade",
+          "excel_row": 15,
+          "extracted_json": "/Users/weiwei/.codex/research/tale-of-immortal/tables/角色配置表__92592bbb53.json"
+        },
+        {
+          "source_install_relative": "Mod/modFQA/配置修改教程/配置（只读）/角色配置表.xlsx",
+          "sheet": "RoleGrade",
+          "excel_row": 22,
+          "extracted_json": "/Users/weiwei/.codex/research/tale-of-immortal/tables/角色配置表__92592bbb53.json"
+        },
+        {
+          "source_install_relative": "Mod/modFQA/配置修改教程/配置（只读）/角色配置表.xlsx",
+          "sheet": "RoleGrade",
+          "excel_row": 25,
+          "extracted_json": "/Users/weiwei/.codex/research/tale-of-immortal/tables/角色配置表__92592bbb53.json"
+        },
+        {
+          "source_install_relative": "Mod/modFQA/配置修改教程/配置（只读）/角色配置表.xlsx",
+          "sheet": "RoleGrade",
+          "excel_row": 30,
+          "extracted_json": "/Users/weiwei/.codex/research/tale-of-immortal/tables/角色配置表__92592bbb53.json"
+        },
+        {
+          "source_install_relative": "Mod/modFQA/配置修改教程/配置（只读）/角色配置表.xlsx",
+          "sheet": "RoleGrade",
+          "excel_row": 33,
+          "extracted_json": "/Users/weiwei/.codex/research/tale-of-immortal/tables/角色配置表__92592bbb53.json"
+        },
+        {
+          "source_install_relative": "Mod/modFQA/配置修改教程/配置（只读）/角色配置表.xlsx",
+          "sheet": "RoleGrade",
+          "excel_row": 39,
+          "extracted_json": "/Users/weiwei/.codex/research/tale-of-immortal/tables/角色配置表__92592bbb53.json"
+        },
+        {
+          "source_install_relative": "Mod/modFQA/配置修改教程/配置（只读）/角色配置表.xlsx",
+          "sheet": "RoleGrade",
+          "excel_row": 42,
+          "extracted_json": "/Users/weiwei/.codex/research/tale-of-immortal/tables/角色配置表__92592bbb53.json"
+        },
+        {
+          "source_install_relative": "Mod/modFQA/配置修改教程/配置（只读）/角色配置表.xlsx",
+          "sheet": "RoleGrade",
+          "excel_row": 47,
+          "extracted_json": "/Users/weiwei/.codex/research/tale-of-immortal/tables/角色配置表__92592bbb53.json"
+        }
+      ]
+    },
+    {
+      "id": "CE3",
+      "topic": "failure",
+      "claim": "grade2 breakthrough failure references feature109. Feature109 lasts12 months, lowers attack10%, and forbids another breakthrough. Underlying effect1092 encodes growForbid. Failure leaves a recovery obligation.",
+      "evidence_tier": "official_mod_tutorial_read_only_workbook_snapshot",
+      "runtime_unknown": "Exact failure draw, material loss, dungeon result and time advancement not recovered.",
+      "evidence": [
+        {
+          "source_install_relative": "Mod/modFQA/配置修改教程/配置（只读）/角色配置表.xlsx",
+          "sheet": "RoleGrade",
+          "excel_row": 7,
+          "extracted_json": "/Users/weiwei/.codex/research/tale-of-immortal/tables/角色配置表__92592bbb53.json"
+        },
+        {
+          "source_install_relative": "Mod/modFQA/配置修改教程/配置（只读）/创角配置表.xlsx",
+          "sheet": "RoleCreateFeature",
+          "excel_row": 16,
+          "extracted_json": "/Users/weiwei/.codex/research/tale-of-immortal/tables/创角配置表__1d3b81ba7d.json"
+        },
+        {
+          "source_install_relative": "Mod/modFQA/配置修改教程/配置（只读）/角色配置表.xlsx",
+          "sheet": "RoleEffect",
+          "excel_row": 567,
+          "extracted_json": "/Users/weiwei/.codex/research/tale-of-immortal/tables/角色配置表__6e0e644bff.json"
+        },
+        {
+          "source_install_relative": "Mod/modFQA/配置修改教程/配置（只读）/角色配置表.xlsx",
+          "sheet": "RoleEffect",
+          "excel_row": 568,
+          "extracted_json": "/Users/weiwei/.codex/research/tale-of-immortal/tables/角色配置表__6e0e644bff.json"
+        }
+      ]
+    },
+    {
+      "id": "CE4",
+      "topic": "aptitude",
+      "claim": "Aptitude is multi-axis: innate sword trait1401 adds sword aptitude25 and other traits; fire trait1503 adds fire root25. Effects14011 and15031 encode basSword_1_25 and basFire_1_25.",
+      "evidence_tier": "official_mod_tutorial_read_only_workbook_snapshot",
+      "runtime_unknown": "Generation weighting execution and caps unverified. A trait called reincarnated sword demon is an origin trait, not proof of a playable post-death reincarnation loop.",
+      "evidence": [
+        {
+          "source_install_relative": "Mod/modFQA/配置修改教程/配置（只读）/创角配置表.xlsx",
+          "sheet": "RoleCreateFeature",
+          "excel_row": 78,
+          "extracted_json": "/Users/weiwei/.codex/research/tale-of-immortal/tables/创角配置表__1d3b81ba7d.json"
+        },
+        {
+          "source_install_relative": "Mod/modFQA/配置修改教程/配置（只读）/创角配置表.xlsx",
+          "sheet": "RoleCreateFeature",
+          "excel_row": 115,
+          "extracted_json": "/Users/weiwei/.codex/research/tale-of-immortal/tables/创角配置表__1d3b81ba7d.json"
+        },
+        {
+          "source_install_relative": "Mod/modFQA/配置修改教程/配置（只读）/角色配置表.xlsx",
+          "sheet": "RoleEffect",
+          "excel_row": 32,
+          "extracted_json": "/Users/weiwei/.codex/research/tale-of-immortal/tables/角色配置表__6e0e644bff.json"
+        },
+        {
+          "source_install_relative": "Mod/modFQA/配置修改教程/配置（只读）/角色配置表.xlsx",
+          "sheet": "RoleEffect",
+          "excel_row": 115,
+          "extracted_json": "/Users/weiwei/.codex/research/tale-of-immortal/tables/角色配置表__6e0e644bff.json"
+        }
+      ]
+    },
+    {
+      "id": "CE5",
+      "topic": "aptitude",
+      "claim": "Root improvement is item-supported: localized item_desc1051016 explicitly describes a treasure that increases Fire Root. Separately temporary failure feature111 lasts12 months and reduces magic aptitude10%, while prohibiting growth.",
+      "evidence_tier": "official_mod_tutorial_read_only_workbook_snapshot",
+      "runtime_unknown": "Magnitude/consumption/cap of root treasure must be resolved through ItemPill/RoleEffect; root-system mutation or replacement not proved.",
+      "evidence": [
+        {
+          "source_install_relative": "Mod/modFQA/配置修改教程/配置（只读）/国际化文本表.xlsx",
+          "sheet": "LocalText",
+          "excel_row": 5187,
+          "extracted_json": "/Users/weiwei/.codex/research/tale-of-immortal/tables/国际化文本表__537dcd469a.json"
+        },
+        {
+          "source_install_relative": "Mod/modFQA/配置修改教程/配置（只读）/创角配置表.xlsx",
+          "sheet": "RoleCreateFeature",
+          "excel_row": 18,
+          "extracted_json": "/Users/weiwei/.codex/research/tale-of-immortal/tables/创角配置表__1d3b81ba7d.json"
+        },
+        {
+          "source_install_relative": "Mod/modFQA/配置修改教程/配置（只读）/角色配置表.xlsx",
+          "sheet": "RoleEffect",
+          "excel_row": 571,
+          "extracted_json": "/Users/weiwei/.codex/research/tale-of-immortal/tables/角色配置表__6e0e644bff.json"
+        },
+        {
+          "source_install_relative": "Mod/modFQA/配置修改教程/配置（只读）/角色配置表.xlsx",
+          "sheet": "RoleEffect",
+          "excel_row": 572,
+          "extracted_json": "/Users/weiwei/.codex/research/tale-of-immortal/tables/角色配置表__6e0e644bff.json"
+        }
+      ]
+    },
+    {
+      "id": "CE6",
+      "topic": "techniques",
+      "claim": "Learning costs time and money separately: BattleSkillCost row4 grade1 level1 type1 costs money50 and days15, talentExp10. Better quality at same grade costs more money with same15 days in rows5..8.",
+      "evidence_tier": "official_mod_tutorial_read_only_workbook_snapshot",
+      "runtime_unknown": "talentExp formula, study success, interruptions and material consumption not recovered.",
+      "evidence": [
+        {
+          "source_install_relative": "Mod/modFQA/配置修改教程/配置（只读）/武技配置表.xlsx",
+          "sheet": "BattleSkillCost",
+          "excel_row": 4,
+          "extracted_json": "/Users/weiwei/.codex/research/tale-of-immortal/tables/武技配置表__88d95938fb.json"
+        },
+        {
+          "source_install_relative": "Mod/modFQA/配置修改教程/配置（只读）/武技配置表.xlsx",
+          "sheet": "BattleSkillCost",
+          "excel_row": 5,
+          "extracted_json": "/Users/weiwei/.codex/research/tale-of-immortal/tables/武技配置表__88d95938fb.json"
+        },
+        {
+          "source_install_relative": "Mod/modFQA/配置修改教程/配置（只读）/武技配置表.xlsx",
+          "sheet": "BattleSkillCost",
+          "excel_row": 6,
+          "extracted_json": "/Users/weiwei/.codex/research/tale-of-immortal/tables/武技配置表__88d95938fb.json"
+        },
+        {
+          "source_install_relative": "Mod/modFQA/配置修改教程/配置（只读）/武技配置表.xlsx",
+          "sheet": "BattleSkillCost",
+          "excel_row": 7,
+          "extracted_json": "/Users/weiwei/.codex/research/tale-of-immortal/tables/武技配置表__88d95938fb.json"
+        },
+        {
+          "source_install_relative": "Mod/modFQA/配置修改教程/配置（只读）/武技配置表.xlsx",
+          "sheet": "BattleSkillCost",
+          "excel_row": 8,
+          "extracted_json": "/Users/weiwei/.codex/research/tale-of-immortal/tables/武技配置表__88d95938fb.json"
+        }
+      ]
+    },
+    {
+      "id": "CE7",
+      "topic": "techniques",
+      "claim": "Practice has its own recipe: grade1 type1 masteryLevel1 costs two item5021413, days1, mastery20, talentPara500, forgetMin1/forgetMax3. At masteryLevel2 it costs three and gains30.",
+      "evidence_tier": "official_mod_tutorial_read_only_workbook_snapshot",
+      "runtime_unknown": "Do not interpret forgetMin/Max as forgotten XP until logic recovered; actual yield scaling by talentPara unknown.",
+      "evidence": [
+        {
+          "source_install_relative": "Mod/modFQA/配置修改教程/配置（只读）/武技配置表.xlsx",
+          "sheet": "BattleSkillTrain",
+          "excel_row": 4,
+          "extracted_json": "/Users/weiwei/.codex/research/tale-of-immortal/tables/武技配置表__508c76e7b0.json"
+        },
+        {
+          "source_install_relative": "Mod/modFQA/配置修改教程/配置（只读）/武技配置表.xlsx",
+          "sheet": "BattleSkillTrain",
+          "excel_row": 5,
+          "extracted_json": "/Users/weiwei/.codex/research/tale-of-immortal/tables/武技配置表__508c76e7b0.json"
+        }
+      ]
+    },
+    {
+      "id": "CE8",
+      "topic": "techniques",
+      "claim": "Mastery names are staged and thresholds vary by technique realm. Stage2 threshold150 for grade1 and10291 for grade10; stage3 is450/30904. Technique difficulty has talent breakpoints0,50,100,200,400.",
+      "evidence_tier": "official_mod_tutorial_read_only_workbook_snapshot",
+      "runtime_unknown": "Technique mastery, aptitude and character realm must not be collapsed into one universal level.",
+      "evidence": [
+        {
+          "source_install_relative": "Mod/modFQA/配置修改教程/配置（只读）/武技配置表.xlsx",
+          "sheet": "BattleSkillMastery",
+          "excel_row": 4,
+          "extracted_json": "/Users/weiwei/.codex/research/tale-of-immortal/tables/武技配置表__91cb60709d.json"
+        },
+        {
+          "source_install_relative": "Mod/modFQA/配置修改教程/配置（只读）/武技配置表.xlsx",
+          "sheet": "BattleSkillMastery",
+          "excel_row": 5,
+          "extracted_json": "/Users/weiwei/.codex/research/tale-of-immortal/tables/武技配置表__91cb60709d.json"
+        },
+        {
+          "source_install_relative": "Mod/modFQA/配置修改教程/配置（只读）/武技配置表.xlsx",
+          "sheet": "BattleSkillMastery",
+          "excel_row": 6,
+          "extracted_json": "/Users/weiwei/.codex/research/tale-of-immortal/tables/武技配置表__91cb60709d.json"
+        },
+        {
+          "source_install_relative": "Mod/modFQA/配置修改教程/配置（只读）/武技配置表.xlsx",
+          "sheet": "BattleSkillDifficult",
+          "excel_row": 4,
+          "extracted_json": "/Users/weiwei/.codex/research/tale-of-immortal/tables/武技配置表__165e749de5.json"
+        },
+        {
+          "source_install_relative": "Mod/modFQA/配置修改教程/配置（只读）/武技配置表.xlsx",
+          "sheet": "BattleSkillDifficult",
+          "excel_row": 5,
+          "extracted_json": "/Users/weiwei/.codex/research/tale-of-immortal/tables/武技配置表__165e749de5.json"
+        },
+        {
+          "source_install_relative": "Mod/modFQA/配置修改教程/配置（只读）/武技配置表.xlsx",
+          "sheet": "BattleSkillDifficult",
+          "excel_row": 6,
+          "extracted_json": "/Users/weiwei/.codex/research/tale-of-immortal/tables/武技配置表__165e749de5.json"
+        },
+        {
+          "source_install_relative": "Mod/modFQA/配置修改教程/配置（只读）/武技配置表.xlsx",
+          "sheet": "BattleSkillDifficult",
+          "excel_row": 7,
+          "extracted_json": "/Users/weiwei/.codex/research/tale-of-immortal/tables/武技配置表__165e749de5.json"
+        },
+        {
+          "source_install_relative": "Mod/modFQA/配置修改教程/配置（只读）/武技配置表.xlsx",
+          "sheet": "BattleSkillDifficult",
+          "excel_row": 8,
+          "extracted_json": "/Users/weiwei/.codex/research/tale-of-immortal/tables/武技配置表__165e749de5.json"
+        }
+      ]
+    },
+    {
+      "id": "CE9",
+      "topic": "events",
+      "claim": "Encounter table separates eligibility, attribute, three probability parameters, recurrence, geomancy, cooldown group and priority. ID1028 requires featureTime_700043_12, repeats, triggerCD12, paraC0.1, priority60. Formula not inferred.",
+      "evidence_tier": "official_mod_tutorial_read_only_workbook_snapshot",
+      "runtime_unknown": "Probability formula and winner selection, priority tie order, saved RNG and reload rerolls unknown.",
+      "evidence": [
+        {
+          "source_install_relative": "Mod/modFQA/配置修改教程/配置（只读）/奇遇配置.xlsx",
+          "sheet": "FortuitousEvent",
+          "excel_row": 4,
+          "extracted_json": "/Users/weiwei/.codex/research/tale-of-immortal/tables/奇遇配置__4bb9df2b01.json"
+        },
+        {
+          "source_install_relative": "Mod/modFQA/配置修改教程/配置（只读）/奇遇配置.xlsx",
+          "sheet": "FortuitousEvent",
+          "excel_row": 6,
+          "extracted_json": "/Users/weiwei/.codex/research/tale-of-immortal/tables/奇遇配置__4bb9df2b01.json"
+        },
+        {
+          "source_install_relative": "Mod/modFQA/配置修改教程/配置（只读）/奇遇配置.xlsx",
+          "sheet": "FortuitousEvent",
+          "excel_row": 10,
+          "extracted_json": "/Users/weiwei/.codex/research/tale-of-immortal/tables/奇遇配置__4bb9df2b01.json"
+        },
+        {
+          "source_install_relative": "Mod/modFQA/配置修改教程/配置（只读）/奇遇配置.xlsx",
+          "sheet": "FortuitousEvent",
+          "excel_row": 11,
+          "extracted_json": "/Users/weiwei/.codex/research/tale-of-immortal/tables/奇遇配置__4bb9df2b01.json"
+        },
+        {
+          "source_install_relative": "Mod/modFQA/配置修改教程/配置（只读）/奇遇配置.xlsx",
+          "sheet": "FortuitousEvent",
+          "excel_row": 12,
+          "extracted_json": "/Users/weiwei/.codex/research/tale-of-immortal/tables/奇遇配置__4bb9df2b01.json"
+        }
+      ]
+    },
+    {
+      "id": "CE10",
+      "topic": "events",
+      "claim": "Global pacing parameters exist: type2 encounters at most one per month, screening range5 tiles, triggerMin2/triggerMax5 months, pointNum500 recorded points.",
+      "evidence_tier": "official_mod_tutorial_read_only_workbook_snapshot",
+      "runtime_unknown": "Record points purpose and exact runtime application unknown; this is a constrained encounter scheduler, not evidence for mood/adaptive storyteller selection.",
+      "evidence": [
+        {
+          "source_install_relative": "Mod/modFQA/配置修改教程/配置（只读）/奇遇配置.xlsx",
+          "sheet": "FortuitousParameters",
+          "excel_row": 4,
+          "extracted_json": "/Users/weiwei/.codex/research/tale-of-immortal/tables/奇遇配置__f70d351874.json"
+        },
+        {
+          "source_install_relative": "Mod/modFQA/配置修改教程/配置（只读）/奇遇配置.xlsx",
+          "sheet": "FortuitousParameters",
+          "excel_row": 5,
+          "extracted_json": "/Users/weiwei/.codex/research/tale-of-immortal/tables/奇遇配置__f70d351874.json"
+        },
+        {
+          "source_install_relative": "Mod/modFQA/配置修改教程/配置（只读）/奇遇配置.xlsx",
+          "sheet": "FortuitousParameters",
+          "excel_row": 6,
+          "extracted_json": "/Users/weiwei/.codex/research/tale-of-immortal/tables/奇遇配置__f70d351874.json"
+        },
+        {
+          "source_install_relative": "Mod/modFQA/配置修改教程/配置（只读）/奇遇配置.xlsx",
+          "sheet": "FortuitousParameters",
+          "excel_row": 7,
+          "extracted_json": "/Users/weiwei/.codex/research/tale-of-immortal/tables/奇遇配置__f70d351874.json"
+        },
+        {
+          "source_install_relative": "Mod/modFQA/配置修改教程/配置（只读）/奇遇配置.xlsx",
+          "sheet": "FortuitousParameters",
+          "excel_row": 8,
+          "extracted_json": "/Users/weiwei/.codex/research/tale-of-immortal/tables/奇遇配置__f70d351874.json"
+        }
+      ]
+    },
+    {
+      "id": "CE11",
+      "topic": "events",
+      "claim": "Some encounters attach to named events instead of travel rolls. ID1036 trigger emit_MapPlayerRoleUpGradeBig gates grade6 and calls a run-end drama; ID2011 trigger emit_GameWorldRunEnd gates taskTime_2110207_3 plus grade/event/dialogue and adds task+monthlog.",
+      "evidence_tier": "official_mod_tutorial_read_only_workbook_snapshot",
+      "runtime_unknown": "event hook semantics and timestamp units require interpreter verification.",
+      "evidence": [
+        {
+          "source_install_relative": "Mod/modFQA/配置修改教程/配置（只读）/奇遇配置.xlsx",
+          "sheet": "FortuitousEvent",
+          "excel_row": 12,
+          "extracted_json": "/Users/weiwei/.codex/research/tale-of-immortal/tables/奇遇配置__4bb9df2b01.json"
+        },
+        {
+          "source_install_relative": "Mod/modFQA/配置修改教程/配置（只读）/奇遇配置.xlsx",
+          "sheet": "FortuitousEvent",
+          "excel_row": 76,
+          "extracted_json": "/Users/weiwei/.codex/research/tale-of-immortal/tables/奇遇配置__4bb9df2b01.json"
+        }
+      ]
+    },
+    {
+      "id": "CE12",
+      "topic": "timelines",
+      "claim": "Calendar eligibility exists alongside random parameter fields. Event10001 requires gameCurYearMonth_7_8 and grade2..10/area4/absence of event17; repeat1, CD6, paraC0.033. Events51201 and51202 require gameMonth24 or48 lower bounds with different regions and NPC IDs.",
+      "evidence_tier": "official_mod_tutorial_read_only_workbook_snapshot",
+      "runtime_unknown": "Exact parameter grammar from condition interpreter not recovered; do not claim canon timeline changes or active autonomous plans.",
+      "evidence": [
+        {
+          "source_install_relative": "Mod/modFQA/配置修改教程/配置（只读）/奇遇配置.xlsx",
+          "sheet": "FortuitousEvent",
+          "excel_row": 199,
+          "extracted_json": "/Users/weiwei/.codex/research/tale-of-immortal/tables/奇遇配置__4bb9df2b01.json"
+        },
+        {
+          "source_install_relative": "Mod/modFQA/配置修改教程/配置（只读）/奇遇配置.xlsx",
+          "sheet": "FortuitousEvent",
+          "excel_row": 772,
+          "extracted_json": "/Users/weiwei/.codex/research/tale-of-immortal/tables/奇遇配置__4bb9df2b01.json"
+        },
+        {
+          "source_install_relative": "Mod/modFQA/配置修改教程/配置（只读）/奇遇配置.xlsx",
+          "sheet": "FortuitousEvent",
+          "excel_row": 773,
+          "extracted_json": "/Users/weiwei/.codex/research/tale-of-immortal/tables/奇遇配置__4bb9df2b01.json"
+        }
+      ]
+    },
+    {
+      "id": "CE13",
+      "topic": "events",
+      "claim": "World icons have duration plus distinct create/visit/expiry hooks. ID801125 lasts6 months, visit dramaPackageActive_11041; expiry delTask_8000845|createEventInRange_0_0_801300_1. Timeout can remove an obligation and create successor content.",
+      "evidence_tier": "official_mod_tutorial_read_only_workbook_snapshot",
+      "runtime_unknown": "Explicit header says notTimeFunction executes when duration elapses, not intermediate clearing; full graph after801300 not traced.",
+      "evidence": [
+        {
+          "source_install_relative": "Mod/modFQA/配置修改教程/配置（只读）/大地图元素配置表.xlsx",
+          "sheet": "WorldFortuitousEventBase",
+          "excel_row": 937,
+          "extracted_json": "/Users/weiwei/.codex/research/tale-of-immortal/tables/大地图元素配置表__3f6fa202d3.json"
+        }
+      ]
+    },
+    {
+      "id": "CE14",
+      "topic": "events",
+      "claim": "Reports accompany opportunities: world event60401 duration3, createMonthLog act_monthLog30011, expiry group_60401; hidden geomancy event60601 duration3/maxCount1 and expiry clearGeomancyNavi.",
+      "evidence_tier": "official_mod_tutorial_read_only_workbook_snapshot",
+      "runtime_unknown": "No proof these individual snapshot events are enabled in installed balance.",
+      "evidence": [
+        {
+          "source_install_relative": "Mod/modFQA/配置修改教程/配置（只读）/大地图元素配置表.xlsx",
+          "sheet": "WorldFortuitousEventBase",
+          "excel_row": 314,
+          "extracted_json": "/Users/weiwei/.codex/research/tale-of-immortal/tables/大地图元素配置表__3f6fa202d3.json"
+        },
+        {
+          "source_install_relative": "Mod/modFQA/配置修改教程/配置（只读）/大地图元素配置表.xlsx",
+          "sheet": "WorldFortuitousEventBase",
+          "excel_row": 316,
+          "extracted_json": "/Users/weiwei/.codex/research/tale-of-immortal/tables/大地图元素配置表__3f6fa202d3.json"
+        }
+      ]
+    },
+    {
+      "id": "CE15",
+      "topic": "monsters",
+      "claim": "Monster locations are replenished with population/distance constraints: total120, distance5, school and town min1/max3, town radius8, default monster duration12.",
+      "evidence_tier": "official_mod_tutorial_read_only_workbook_snapshot",
+      "runtime_unknown": "These are snapshot parameters, not proof of actual living monsters ticking while offscreen.",
+      "evidence": [
+        {
+          "source_install_relative": "Mod/modFQA/配置修改教程/配置（只读）/大地图怪物刷新表.xlsx",
+          "sheet": "WorldMonsterRefresh",
+          "excel_row": 4,
+          "extracted_json": "/Users/weiwei/.codex/research/tale-of-immortal/tables/大地图怪物刷新表__56e657a571.json"
+        },
+        {
+          "source_install_relative": "Mod/modFQA/配置修改教程/配置（只读）/大地图怪物刷新表.xlsx",
+          "sheet": "WorldMonsterRefresh",
+          "excel_row": 5,
+          "extracted_json": "/Users/weiwei/.codex/research/tale-of-immortal/tables/大地图怪物刷新表__56e657a571.json"
+        },
+        {
+          "source_install_relative": "Mod/modFQA/配置修改教程/配置（只读）/大地图怪物刷新表.xlsx",
+          "sheet": "WorldMonsterRefresh",
+          "excel_row": 6,
+          "extracted_json": "/Users/weiwei/.codex/research/tale-of-immortal/tables/大地图怪物刷新表__56e657a571.json"
+        },
+        {
+          "source_install_relative": "Mod/modFQA/配置修改教程/配置（只读）/大地图怪物刷新表.xlsx",
+          "sheet": "WorldMonsterRefresh",
+          "excel_row": 7,
+          "extracted_json": "/Users/weiwei/.codex/research/tale-of-immortal/tables/大地图怪物刷新表__56e657a571.json"
+        },
+        {
+          "source_install_relative": "Mod/modFQA/配置修改教程/配置（只读）/大地图怪物刷新表.xlsx",
+          "sheet": "WorldMonsterRefresh",
+          "excel_row": 8,
+          "extracted_json": "/Users/weiwei/.codex/research/tale-of-immortal/tables/大地图怪物刷新表__56e657a571.json"
+        },
+        {
+          "source_install_relative": "Mod/modFQA/配置修改教程/配置（只读）/大地图怪物刷新表.xlsx",
+          "sheet": "WorldMonsterRefresh",
+          "excel_row": 9,
+          "extracted_json": "/Users/weiwei/.codex/research/tale-of-immortal/tables/大地图怪物刷新表__56e657a571.json"
+        },
+        {
+          "source_install_relative": "Mod/modFQA/配置修改教程/配置（只读）/大地图怪物刷新表.xlsx",
+          "sheet": "WorldMonsterRefresh",
+          "excel_row": 10,
+          "extracted_json": "/Users/weiwei/.codex/research/tale-of-immortal/tables/大地图怪物刷新表__56e657a571.json"
+        },
+        {
+          "source_install_relative": "Mod/modFQA/配置修改教程/配置（只读）/大地图怪物刷新表.xlsx",
+          "sheet": "WorldMonsterRefresh",
+          "excel_row": 11,
+          "extracted_json": "/Users/weiwei/.codex/research/tale-of-immortal/tables/大地图怪物刷新表__56e657a571.json"
+        },
+        {
+          "source_install_relative": "Mod/modFQA/配置修改教程/配置（只读）/大地图怪物刷新表.xlsx",
+          "sheet": "WorldMonsterRefresh",
+          "excel_row": 12,
+          "extracted_json": "/Users/weiwei/.codex/research/tale-of-immortal/tables/大地图怪物刷新表__56e657a571.json"
+        }
+      ]
+    },
+    {
+      "id": "CE16",
+      "topic": "monsters",
+      "claim": "Threat escalation is explicit data: area1 dungeon1012 starts level1, gains level every6 months, cap3, weight1000. Fixed special-area row1 has weighted sites/event2001_50|2002_50 and time12; corresponding world event2001 iconleishen/type2/duration12.",
+      "evidence_tier": "official_mod_tutorial_read_only_workbook_snapshot",
+      "runtime_unknown": "Special-area time unit not labelled in inspected header; cannot claim endless ancient-monster autonomous revival.",
+      "evidence": [
+        {
+          "source_install_relative": "Mod/modFQA/配置修改教程/配置（只读）/大地图怪物刷新表.xlsx",
+          "sheet": "WorldMonsterAreaMatch",
+          "excel_row": 4,
+          "extracted_json": "/Users/weiwei/.codex/research/tale-of-immortal/tables/大地图怪物刷新表__e8997da14e.json"
+        },
+        {
+          "source_install_relative": "Mod/modFQA/配置修改教程/配置（只读）/大地图怪物刷新表.xlsx",
+          "sheet": "WorldMonsterSpecialArea",
+          "excel_row": 4,
+          "extracted_json": "/Users/weiwei/.codex/research/tale-of-immortal/tables/大地图怪物刷新表__c17c4168a8.json"
+        },
+        {
+          "source_install_relative": "Mod/modFQA/配置修改教程/配置（只读）/大地图元素配置表.xlsx",
+          "sheet": "WorldFortuitousEventBase",
+          "excel_row": 145,
+          "extracted_json": "/Users/weiwei/.codex/research/tale-of-immortal/tables/大地图元素配置表__3f6fa202d3.json"
+        },
+        {
+          "source_install_relative": "Mod/modFQA/配置修改教程/配置（只读）/大地图元素配置表.xlsx",
+          "sheet": "WorldFortuitousEventBase",
+          "excel_row": 146,
+          "extracted_json": "/Users/weiwei/.codex/research/tale-of-immortal/tables/大地图元素配置表__3f6fa202d3.json"
+        }
+      ]
+    },
+    {
+      "id": "CE17",
+      "topic": "sealed_beings",
+      "claim": "Jiuying and Xiangliu remnant souls have a concrete authored release/reseal choice. Dialog610562 identifies souls sealed in statues; options6105631→610565 reinforce seal,6105632→610564 release. Release continuation option6105641 enters dungeon2020_1_-4.",
+      "evidence_tier": "official_mod_tutorial_read_only_workbook_snapshot",
+      "runtime_unknown": "This is an authored branch, not a simulator of monster plans. Combat success/failure/afterworld effects not traced.",
+      "evidence": [
+        {
+          "source_install_relative": "Mod/modFQA/配置修改教程/配置（只读）/剧情配置表.xlsx",
+          "sheet": "DramaDialogue",
+          "excel_row": 489,
+          "extracted_json": "/Users/weiwei/.codex/research/tale-of-immortal/tables/剧情配置表__b565bf38be.json"
+        },
+        {
+          "source_install_relative": "Mod/modFQA/配置修改教程/配置（只读）/剧情配置表.xlsx",
+          "sheet": "DramaDialogue",
+          "excel_row": 491,
+          "extracted_json": "/Users/weiwei/.codex/research/tale-of-immortal/tables/剧情配置表__b565bf38be.json"
+        },
+        {
+          "source_install_relative": "Mod/modFQA/配置修改教程/配置（只读）/剧情配置表.xlsx",
+          "sheet": "DramaDialogue",
+          "excel_row": 492,
+          "extracted_json": "/Users/weiwei/.codex/research/tale-of-immortal/tables/剧情配置表__b565bf38be.json"
+        },
+        {
+          "source_install_relative": "Mod/modFQA/配置修改教程/配置（只读）/剧情配置表.xlsx",
+          "sheet": "DramaDialogue",
+          "excel_row": 493,
+          "extracted_json": "/Users/weiwei/.codex/research/tale-of-immortal/tables/剧情配置表__b565bf38be.json"
+        },
+        {
+          "source_install_relative": "Mod/modFQA/配置修改教程/配置（只读）/剧情配置表.xlsx",
+          "sheet": "DramaOptions",
+          "excel_row": 519,
+          "extracted_json": "/Users/weiwei/.codex/research/tale-of-immortal/tables/剧情配置表__711295e234.json"
+        },
+        {
+          "source_install_relative": "Mod/modFQA/配置修改教程/配置（只读）/剧情配置表.xlsx",
+          "sheet": "DramaOptions",
+          "excel_row": 520,
+          "extracted_json": "/Users/weiwei/.codex/research/tale-of-immortal/tables/剧情配置表__711295e234.json"
+        },
+        {
+          "source_install_relative": "Mod/modFQA/配置修改教程/配置（只读）/剧情配置表.xlsx",
+          "sheet": "DramaOptions",
+          "excel_row": 521,
+          "extracted_json": "/Users/weiwei/.codex/research/tale-of-immortal/tables/剧情配置表__711295e234.json"
+        },
+        {
+          "source_install_relative": "Mod/modFQA/配置修改教程/配置（只读）/剧情配置表.xlsx",
+          "sheet": "DramaOptions",
+          "excel_row": 522,
+          "extracted_json": "/Users/weiwei/.codex/research/tale-of-immortal/tables/剧情配置表__711295e234.json"
+        },
+        {
+          "source_install_relative": "Mod/modFQA/配置修改教程/配置（只读）/剧情配置表.xlsx",
+          "sheet": "DramaOptions",
+          "excel_row": 523,
+          "extracted_json": "/Users/weiwei/.codex/research/tale-of-immortal/tables/剧情配置表__711295e234.json"
+        },
+        {
+          "source_install_relative": "Mod/modFQA/配置修改教程/配置（只读）/剧情配置表.xlsx",
+          "sheet": "DramaOptions",
+          "excel_row": 524,
+          "extracted_json": "/Users/weiwei/.codex/research/tale-of-immortal/tables/剧情配置表__711295e234.json"
+        }
+      ]
+    },
+    {
+      "id": "CE18",
+      "topic": "inheritance",
+      "claim": "Inheritance can inspect past actions: dialogues610487/610488/610489 respectively inspect moreDialogue histories or itemUse+dialogue, and deny inheritance for leaving bodies, taking money, reading private letters.",
+      "evidence_tier": "official_mod_tutorial_read_only_workbook_snapshot",
+      "runtime_unknown": "Final reward and all favorable routes not traced; localized moral judgments are source design, not required YAIR morality.",
+      "evidence": [
+        {
+          "source_install_relative": "Mod/modFQA/配置修改教程/配置（只读）/剧情配置表.xlsx",
+          "sheet": "DramaDialogue",
+          "excel_row": 431,
+          "extracted_json": "/Users/weiwei/.codex/research/tale-of-immortal/tables/剧情配置表__b565bf38be.json"
+        },
+        {
+          "source_install_relative": "Mod/modFQA/配置修改教程/配置（只读）/剧情配置表.xlsx",
+          "sheet": "DramaDialogue",
+          "excel_row": 432,
+          "extracted_json": "/Users/weiwei/.codex/research/tale-of-immortal/tables/剧情配置表__b565bf38be.json"
+        },
+        {
+          "source_install_relative": "Mod/modFQA/配置修改教程/配置（只读）/剧情配置表.xlsx",
+          "sheet": "DramaDialogue",
+          "excel_row": 433,
+          "extracted_json": "/Users/weiwei/.codex/research/tale-of-immortal/tables/剧情配置表__b565bf38be.json"
+        },
+        {
+          "source_install_relative": "Mod/modFQA/配置修改教程/配置（只读）/剧情配置表.xlsx",
+          "sheet": "DramaOptions",
+          "excel_row": 453,
+          "extracted_json": "/Users/weiwei/.codex/research/tale-of-immortal/tables/剧情配置表__711295e234.json"
+        },
+        {
+          "source_install_relative": "Mod/modFQA/配置修改教程/配置（只读）/剧情配置表.xlsx",
+          "sheet": "DramaOptions",
+          "excel_row": 454,
+          "extracted_json": "/Users/weiwei/.codex/research/tale-of-immortal/tables/剧情配置表__711295e234.json"
+        }
+      ]
+    },
+    {
+      "id": "CE19",
+      "topic": "lifespan",
+      "claim": "Realm growth adds lifespan in data. Foundation grade2 grows480 units, annotation+40 years. RoleHealth thresholds50/30/20/10 have monthly HP reduction10/15/20/25 percent and lifeReduce0/1/2/3.",
+      "evidence_tier": "official_mod_tutorial_read_only_workbook_snapshot",
+      "runtime_unknown": "480/40 implies months; execution and interaction with birth age not recovered. Death at exact age boundary unknown.",
+      "evidence": [
+        {
+          "source_install_relative": "Mod/modFQA/配置修改教程/配置（只读）/角色配置表.xlsx",
+          "sheet": "RoleGrade",
+          "excel_row": 7,
+          "extracted_json": "/Users/weiwei/.codex/research/tale-of-immortal/tables/角色配置表__92592bbb53.json"
+        },
+        {
+          "source_install_relative": "Mod/modFQA/配置修改教程/配置（只读）/角色配置表.xlsx",
+          "sheet": "RoleHealth",
+          "excel_row": 1,
+          "extracted_json": "/Users/weiwei/.codex/research/tale-of-immortal/tables/角色配置表__e704bcb81e.json"
+        },
+        {
+          "source_install_relative": "Mod/modFQA/配置修改教程/配置（只读）/角色配置表.xlsx",
+          "sheet": "RoleHealth",
+          "excel_row": 4,
+          "extracted_json": "/Users/weiwei/.codex/research/tale-of-immortal/tables/角色配置表__e704bcb81e.json"
+        },
+        {
+          "source_install_relative": "Mod/modFQA/配置修改教程/配置（只读）/角色配置表.xlsx",
+          "sheet": "RoleHealth",
+          "excel_row": 5,
+          "extracted_json": "/Users/weiwei/.codex/research/tale-of-immortal/tables/角色配置表__e704bcb81e.json"
+        },
+        {
+          "source_install_relative": "Mod/modFQA/配置修改教程/配置（只读）/角色配置表.xlsx",
+          "sheet": "RoleHealth",
+          "excel_row": 6,
+          "extracted_json": "/Users/weiwei/.codex/research/tale-of-immortal/tables/角色配置表__e704bcb81e.json"
+        },
+        {
+          "source_install_relative": "Mod/modFQA/配置修改教程/配置（只读）/角色配置表.xlsx",
+          "sheet": "RoleHealth",
+          "excel_row": 7,
+          "extracted_json": "/Users/weiwei/.codex/research/tale-of-immortal/tables/角色配置表__e704bcb81e.json"
+        }
+      ]
+    },
+    {
+      "id": "CE20",
+      "topic": "life_extension",
+      "claim": "Attribute effect11031 value life_1_600 provides additive lifespan increase;11021 life_1_-120 reduces it. Lifespan is modifiable independently of realm.",
+      "evidence_tier": "official_mod_tutorial_read_only_workbook_snapshot",
+      "runtime_unknown": "Caller/trait/item and exact stacking/caps not traced; no proof of open-ended rejuvenation.",
+      "evidence": [
+        {
+          "source_install_relative": "Mod/modFQA/配置修改教程/配置（只读）/角色配置表.xlsx",
+          "sheet": "RoleEffect",
+          "excel_row": 6,
+          "extracted_json": "/Users/weiwei/.codex/research/tale-of-immortal/tables/角色配置表__6e0e644bff.json"
+        },
+        {
+          "source_install_relative": "Mod/modFQA/配置修改教程/配置（只读）/角色配置表.xlsx",
+          "sheet": "RoleEffect",
+          "excel_row": 8,
+          "extracted_json": "/Users/weiwei/.codex/research/tale-of-immortal/tables/角色配置表__6e0e644bff.json"
+        }
+      ]
+    },
+    {
+      "id": "CE21",
+      "topic": "death",
+      "claim": "Feature101 is24-month remnant soul status with localized instruction to obtain a restoration pill or disperse. Effects1011/1012/1013 are die/hide/stopRunAI. Sect revival costs vary by realm and ordinary versus heroic NPC: grade1 cost38/heroCost60, grade2 52/83.",
+      "evidence_tier": "official_mod_tutorial_read_only_workbook_snapshot",
+      "runtime_unknown": "Restoration deadlines and revival payment currency/execution not recovered. No playable reincarnation/legacy loop established.",
+      "evidence": [
+        {
+          "source_install_relative": "Mod/modFQA/配置修改教程/配置（只读）/创角配置表.xlsx",
+          "sheet": "RoleCreateFeature",
+          "excel_row": 4,
+          "extracted_json": "/Users/weiwei/.codex/research/tale-of-immortal/tables/创角配置表__1d3b81ba7d.json"
+        },
+        {
+          "source_install_relative": "Mod/modFQA/配置修改教程/配置（只读）/创角配置表.xlsx",
+          "sheet": "RoleCreateFeature",
+          "excel_row": 5,
+          "extracted_json": "/Users/weiwei/.codex/research/tale-of-immortal/tables/创角配置表__1d3b81ba7d.json"
+        },
+        {
+          "source_install_relative": "Mod/modFQA/配置修改教程/配置（只读）/创角配置表.xlsx",
+          "sheet": "RoleCreateFeature",
+          "excel_row": 6,
+          "extracted_json": "/Users/weiwei/.codex/research/tale-of-immortal/tables/创角配置表__1d3b81ba7d.json"
+        },
+        {
+          "source_install_relative": "Mod/modFQA/配置修改教程/配置（只读）/角色配置表.xlsx",
+          "sheet": "RoleEffect",
+          "excel_row": 555,
+          "extracted_json": "/Users/weiwei/.codex/research/tale-of-immortal/tables/角色配置表__6e0e644bff.json"
+        },
+        {
+          "source_install_relative": "Mod/modFQA/配置修改教程/配置（只读）/角色配置表.xlsx",
+          "sheet": "RoleEffect",
+          "excel_row": 556,
+          "extracted_json": "/Users/weiwei/.codex/research/tale-of-immortal/tables/角色配置表__6e0e644bff.json"
+        },
+        {
+          "source_install_relative": "Mod/modFQA/配置修改教程/配置（只读）/角色配置表.xlsx",
+          "sheet": "RoleEffect",
+          "excel_row": 557,
+          "extracted_json": "/Users/weiwei/.codex/research/tale-of-immortal/tables/角色配置表__6e0e644bff.json"
+        },
+        {
+          "source_install_relative": "Mod/modFQA/配置修改教程/配置（只读）/宗门战配置表.xlsx",
+          "sheet": "SchoolReviveCost",
+          "excel_row": 4,
+          "extracted_json": "/Users/weiwei/.codex/research/tale-of-immortal/tables/宗门战配置表__bea39acb0a.json"
+        },
+        {
+          "source_install_relative": "Mod/modFQA/配置修改教程/配置（只读）/宗门战配置表.xlsx",
+          "sheet": "SchoolReviveCost",
+          "excel_row": 5,
+          "extracted_json": "/Users/weiwei/.codex/research/tale-of-immortal/tables/宗门战配置表__bea39acb0a.json"
+        },
+        {
+          "source_install_relative": "Mod/modFQA/配置修改教程/配置（只读）/宗门战配置表.xlsx",
+          "sheet": "SchoolReviveCost",
+          "excel_row": 6,
+          "extracted_json": "/Users/weiwei/.codex/research/tale-of-immortal/tables/宗门战配置表__bea39acb0a.json"
+        }
+      ]
+    },
+    {
+      "id": "CE22",
+      "topic": "crafting",
+      "claim": "Alchemy formula6051011 gates basPil12, consumes20 energy and herbal5031061×50; element targets thunder150/wood250; six quality outputs; outputNum10. Furnaces gate aptitude and material slots independently.",
+      "evidence_tier": "official_mod_tutorial_read_only_workbook_snapshot",
+      "runtime_unknown": "Craft duration and yield/failure formula not recovered; do not claim guaranteed10 outputs.",
+      "evidence": [
+        {
+          "source_install_relative": "Mod/modFQA/配置修改教程/配置（只读）/炼丹配置表.xlsx",
+          "sheet": "MakePillFormula",
+          "excel_row": 4,
+          "extracted_json": "/Users/weiwei/.codex/research/tale-of-immortal/tables/炼丹配置表__b65e647304.json"
+        },
+        {
+          "source_install_relative": "Mod/modFQA/配置修改教程/配置（只读）/炼丹配置表.xlsx",
+          "sheet": "MakePillFurnace",
+          "excel_row": 4,
+          "extracted_json": "/Users/weiwei/.codex/research/tale-of-immortal/tables/炼丹配置表__5ed90db41c.json"
+        },
+        {
+          "source_install_relative": "Mod/modFQA/配置修改教程/配置（只读）/炼丹配置表.xlsx",
+          "sheet": "MakePillFurnace",
+          "excel_row": 5,
+          "extracted_json": "/Users/weiwei/.codex/research/tale-of-immortal/tables/炼丹配置表__5ed90db41c.json"
+        }
+      ]
+    },
+    {
+      "id": "CE23",
+      "topic": "crafting",
+      "claim": "Tool properties affect method: MakePillSkill1 gives mastery_10; skill2 mix_30 has a30% material-placement benefit; skill3 bombDurable_2 changes explosion durability cost. Tool6061301 text grants temporaryAlchemy30 and six slots.",
+      "evidence_tier": "official_mod_tutorial_read_only_workbook_snapshot",
+      "runtime_unknown": "Main explosion probability and post-failure inventory changes unknown. Equipment sensitivity is source-supported, specific YAIR balance is original.",
+      "evidence": [
+        {
+          "source_install_relative": "Mod/modFQA/配置修改教程/配置（只读）/炼丹配置表.xlsx",
+          "sheet": "MakePillSkill",
+          "excel_row": 4,
+          "extracted_json": "/Users/weiwei/.codex/research/tale-of-immortal/tables/炼丹配置表__18c29d33a0.json"
+        },
+        {
+          "source_install_relative": "Mod/modFQA/配置修改教程/配置（只读）/炼丹配置表.xlsx",
+          "sheet": "MakePillSkill",
+          "excel_row": 5,
+          "extracted_json": "/Users/weiwei/.codex/research/tale-of-immortal/tables/炼丹配置表__18c29d33a0.json"
+        },
+        {
+          "source_install_relative": "Mod/modFQA/配置修改教程/配置（只读）/炼丹配置表.xlsx",
+          "sheet": "MakePillSkill",
+          "excel_row": 6,
+          "extracted_json": "/Users/weiwei/.codex/research/tale-of-immortal/tables/炼丹配置表__18c29d33a0.json"
+        },
+        {
+          "source_install_relative": "Mod/modFQA/配置修改教程/配置（只读）/国际化文本表.xlsx",
+          "sheet": "LocalText",
+          "excel_row": 4204,
+          "extracted_json": "/Users/weiwei/.codex/research/tale-of-immortal/tables/国际化文本表__537dcd469a.json"
+        }
+      ]
+    },
+    {
+      "id": "CE24",
+      "topic": "economy",
+      "claim": "Auction cadence24 months, notice6 months before, consignment commission10%, minimum bid increment10% of reserve, consideration15 seconds, initial consignment fee10%, max5 NPC bid candidates per item.",
+      "evidence_tier": "official_mod_tutorial_read_only_workbook_snapshot",
+      "runtime_unknown": "Runtime bidder budget/revenge/scoring not recovered; values are not current runtime balance.",
+      "evidence": [
+        {
+          "source_install_relative": "Mod/modFQA/配置修改教程/配置（只读）/拍卖会配置表.xlsx",
+          "sheet": "TownAuction",
+          "excel_row": 4,
+          "extracted_json": "/Users/weiwei/.codex/research/tale-of-immortal/tables/拍卖会配置表__528de5b2a5.json"
+        },
+        {
+          "source_install_relative": "Mod/modFQA/配置修改教程/配置（只读）/拍卖会配置表.xlsx",
+          "sheet": "TownAuction",
+          "excel_row": 5,
+          "extracted_json": "/Users/weiwei/.codex/research/tale-of-immortal/tables/拍卖会配置表__528de5b2a5.json"
+        },
+        {
+          "source_install_relative": "Mod/modFQA/配置修改教程/配置（只读）/拍卖会配置表.xlsx",
+          "sheet": "TownAuction",
+          "excel_row": 6,
+          "extracted_json": "/Users/weiwei/.codex/research/tale-of-immortal/tables/拍卖会配置表__528de5b2a5.json"
+        },
+        {
+          "source_install_relative": "Mod/modFQA/配置修改教程/配置（只读）/拍卖会配置表.xlsx",
+          "sheet": "TownAuction",
+          "excel_row": 7,
+          "extracted_json": "/Users/weiwei/.codex/research/tale-of-immortal/tables/拍卖会配置表__528de5b2a5.json"
+        },
+        {
+          "source_install_relative": "Mod/modFQA/配置修改教程/配置（只读）/拍卖会配置表.xlsx",
+          "sheet": "TownAuction",
+          "excel_row": 8,
+          "extracted_json": "/Users/weiwei/.codex/research/tale-of-immortal/tables/拍卖会配置表__528de5b2a5.json"
+        },
+        {
+          "source_install_relative": "Mod/modFQA/配置修改教程/配置（只读）/拍卖会配置表.xlsx",
+          "sheet": "TownAuction",
+          "excel_row": 9,
+          "extracted_json": "/Users/weiwei/.codex/research/tale-of-immortal/tables/拍卖会配置表__528de5b2a5.json"
+        },
+        {
+          "source_install_relative": "Mod/modFQA/配置修改教程/配置（只读）/拍卖会配置表.xlsx",
+          "sheet": "TownAuction",
+          "excel_row": 10,
+          "extracted_json": "/Users/weiwei/.codex/research/tale-of-immortal/tables/拍卖会配置表__528de5b2a5.json"
+        },
+        {
+          "source_install_relative": "Mod/modFQA/配置修改教程/配置（只读）/拍卖会配置表.xlsx",
+          "sheet": "TownAuction",
+          "excel_row": 11,
+          "extracted_json": "/Users/weiwei/.codex/research/tale-of-immortal/tables/拍卖会配置表__528de5b2a5.json"
+        },
+        {
+          "source_install_relative": "Mod/modFQA/配置修改教程/配置（只读）/拍卖会配置表.xlsx",
+          "sheet": "TownAuction",
+          "excel_row": 12,
+          "extracted_json": "/Users/weiwei/.codex/research/tale-of-immortal/tables/拍卖会配置表__528de5b2a5.json"
+        }
+      ]
+    },
+    {
+      "id": "CE25",
+      "topic": "economy",
+      "claim": "Market supply is location/rank dependent: group1 max10 for town levels0..5. Item1011051 stock20..30, town level0; book marketplace tier6 requires reputation600/grade2, lower tiers require400/200/100/0.",
+      "evidence_tier": "official_mod_tutorial_read_only_workbook_snapshot",
+      "runtime_unknown": "No dynamic supply-demand price formula established. Vanilla trader margins are actual YAIR source; Tale item sale/worth schema distinct from market stock.",
+      "evidence": [
+        {
+          "source_install_relative": "Mod/modFQA/配置修改教程/配置（只读）/城镇配置表.xlsx",
+          "sheet": "TownMarketBase",
+          "excel_row": 4,
+          "extracted_json": "/Users/weiwei/.codex/research/tale-of-immortal/tables/城镇配置表__93eb5d3d09.json"
+        },
+        {
+          "source_install_relative": "Mod/modFQA/配置修改教程/配置（只读）/城镇配置表.xlsx",
+          "sheet": "TownMarketBase",
+          "excel_row": 5,
+          "extracted_json": "/Users/weiwei/.codex/research/tale-of-immortal/tables/城镇配置表__93eb5d3d09.json"
+        },
+        {
+          "source_install_relative": "Mod/modFQA/配置修改教程/配置（只读）/城镇配置表.xlsx",
+          "sheet": "TownMarketItem",
+          "excel_row": 4,
+          "extracted_json": "/Users/weiwei/.codex/research/tale-of-immortal/tables/城镇配置表__410b4671b3.json"
+        },
+        {
+          "source_install_relative": "Mod/modFQA/配置修改教程/配置（只读）/城镇配置表.xlsx",
+          "sheet": "TownMarketItem",
+          "excel_row": 5,
+          "extracted_json": "/Users/weiwei/.codex/research/tale-of-immortal/tables/城镇配置表__410b4671b3.json"
+        },
+        {
+          "source_install_relative": "Mod/modFQA/配置修改教程/配置（只读）/城镇配置表.xlsx",
+          "sheet": "TownMarketBook",
+          "excel_row": 4,
+          "extracted_json": "/Users/weiwei/.codex/research/tale-of-immortal/tables/城镇配置表__3c34c48134.json"
+        },
+        {
+          "source_install_relative": "Mod/modFQA/配置修改教程/配置（只读）/城镇配置表.xlsx",
+          "sheet": "TownMarketBook",
+          "excel_row": 5,
+          "extracted_json": "/Users/weiwei/.codex/research/tale-of-immortal/tables/城镇配置表__3c34c48134.json"
+        },
+        {
+          "source_install_relative": "Mod/modFQA/配置修改教程/配置（只读）/城镇配置表.xlsx",
+          "sheet": "TownMarketBook",
+          "excel_row": 6,
+          "extracted_json": "/Users/weiwei/.codex/research/tale-of-immortal/tables/城镇配置表__3c34c48134.json"
+        },
+        {
+          "source_install_relative": "Mod/modFQA/配置修改教程/配置（只读）/城镇配置表.xlsx",
+          "sheet": "TownMarketBook",
+          "excel_row": 7,
+          "extracted_json": "/Users/weiwei/.codex/research/tale-of-immortal/tables/城镇配置表__3c34c48134.json"
+        },
+        {
+          "source_install_relative": "Mod/modFQA/配置修改教程/配置（只读）/城镇配置表.xlsx",
+          "sheet": "TownMarketBook",
+          "excel_row": 8,
+          "extracted_json": "/Users/weiwei/.codex/research/tale-of-immortal/tables/城镇配置表__3c34c48134.json"
+        },
+        {
+          "source_install_relative": "Mod/modFQA/配置修改教程/配置（只读）/城镇配置表.xlsx",
+          "sheet": "TownMarketBook",
+          "excel_row": 9,
+          "extracted_json": "/Users/weiwei/.codex/research/tale-of-immortal/tables/城镇配置表__3c34c48134.json"
+        }
+      ]
+    },
+    {
+      "id": "CE26",
+      "topic": "economy",
+      "claim": "ItemProps exposes sale/worth/auction/dieDrop independently; ItemSkill exposes price/cost/auction/contribution/worth/sale by grade and quality.",
+      "evidence_tier": "official_mod_tutorial_read_only_workbook_snapshot",
+      "runtime_unknown": "Runtime sale multipliers, item score and prices influenced by NPC personality unknown; jobs beyond sect tasks/alchemy not audited in this lane.",
+      "evidence": [
+        {
+          "source_install_relative": "Mod/modFQA/配置修改教程/配置（只读）/道具配置表.xlsx",
+          "sheet": "ItemProps",
+          "excel_row": 1,
+          "extracted_json": "/Users/weiwei/.codex/research/tale-of-immortal/tables/道具配置表__7d30d7221a.json"
+        },
+        {
+          "source_install_relative": "Mod/modFQA/配置修改教程/配置（只读）/道具配置表.xlsx",
+          "sheet": "ItemProps",
+          "excel_row": 4,
+          "extracted_json": "/Users/weiwei/.codex/research/tale-of-immortal/tables/道具配置表__7d30d7221a.json"
+        },
+        {
+          "source_install_relative": "Mod/modFQA/配置修改教程/配置（只读）/道具配置表.xlsx",
+          "sheet": "ItemSkill",
+          "excel_row": 1,
+          "extracted_json": "/Users/weiwei/.codex/research/tale-of-immortal/tables/道具配置表__bcd183365e.json"
+        },
+        {
+          "source_install_relative": "Mod/modFQA/配置修改教程/配置（只读）/道具配置表.xlsx",
+          "sheet": "ItemSkill",
+          "excel_row": 4,
+          "extracted_json": "/Users/weiwei/.codex/research/tale-of-immortal/tables/道具配置表__bcd183365e.json"
+        }
+      ]
+    },
+    {
+      "id": "CE27",
+      "topic": "events",
+      "claim": "Native TriggerRandomV is a probability-value helper: x=paraA*v, return x/(x+paraB)+paraC. For attribute luck, v=max(luck-standardLuck,0); for unluck v=max(standardLuck-luck,0). Other attribute names read the corresponding current-world DynInt value. This method has no RNG draw or result clamp. Baseline luck/unluck returns paraC when denominator is nonzero.",
+      "evidence_tier": "present_installed_native_method_body",
+      "runtime_unknown": "Full encounter selection and clamp/draw behavior remains in consumers; standardLuck active value and active encounter parameters unverified. Invalid/null object chains take error path, not probability-zero return; denominator-zero safety not present in inspected arithmetic.",
+      "evidence": [
+        {
+          "source": "/Users/weiwei/.codex/research/tale-of-immortal/native/FortuitousEventTool__TriggerRandomV.asm",
+          "RVA_range": "0x2E54D40-0x2E5507A",
+          "lines": "1-210",
+          "field_layout_source": "/Users/weiwei/.codex/research/tale-of-immortal/dumper/dump.cs",
+          "field_layout_lines": "491535-491555",
+          "offsets": {
+            "attribute": "0x38",
+            "paraA": "0x40",
+            "paraB": "0x44",
+            "paraC": "0x48"
+          },
+          "formula_instruction_RVAs": [
+            "0x2E5504D",
+            "0x2E55055",
+            "0x2E5505A",
+            "0x2E5505E"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "CE28",
+      "topic": "cultivation",
+      "claim": "Native GetCompleteRate sums rate from supplied existing nonempty material identifiers converted under PropsHerbalUpGradeData generic context. If supplied array empty or total<=0 returns0; otherwise CeilToInt(total/supplied-array-length). Empty strings or missing lookup entries add nothing but remain in divisor. Null array/conversion or required object path errors do not silently become zero.",
+      "evidence_tier": "present_installed_native_method_body",
+      "runtime_unknown": "This is a material-rate aggregation helper. Actual breakthrough random comparison, clamping, extra modifiers, consumption, failure handling and final consumer untraced. Generic method call label says PropsUnitRingData because native shared implementation is reused; generic context and rate getter establish intended PropsHerbalUpGradeData usage.",
+      "evidence": [
+        {
+          "source": "/Users/weiwei/.codex/research/tale-of-immortal/native/UnitActionRoleUpGrade__GetCompleteRate.asm",
+          "RVA_range": "0x37C2980-0x37C2ACA",
+          "lines": "1-84",
+          "sum_RVA": "0x37C2A83",
+          "division_RVA": "0x37C2AA4",
+          "ceil_RVA": "0x37C2AA8",
+          "signature_source": "/Users/weiwei/.codex/research/tale-of-immortal/dumper/dump.cs",
+          "signature_line": 810001
+        }
+      ]
+    },
+    {
+      "id": "CE29",
+      "topic": "cultivation",
+      "claim": "Partial compiled RoleGrade initialization corroborates snapshot scalar/string data for IDs1..11, including grade2 quality1/3/5 material counts1/3/6, optional-material slots1/2/3, fate choices1/2/3, life gain480, and failure feature109. Recovered fields agree with corresponding snapshot fields.",
+      "evidence_tier": "present_installed_compiled_default_partial_scalar_recovery",
+      "runtime_unknown": "Only11 identified partial objects from44 allocated initializer objects; arrays, unrecognized stores and unlabelled objects omitted. Compiled defaults precede runtime mod/patch overrides. Not a full table decode or active balance verification.",
+      "evidence": [
+        {
+          "source": "/Users/weiwei/.codex/research/tale-of-immortal/compiled-tables/ConfRoleGrade.json",
+          "method": "ConfRoleGradeBase.Init1",
+          "RVA": "0x4C2F520",
+          "identified_rows": 11,
+          "initializer_objects_reported_by_extractor": 44,
+          "matching_scalar_string_fields": 440,
+          "differences": [],
+          "store_locators": "rows[].stores records exact instruction RVA for each recovered field",
+          "id4_allocation": "0x4c3091b"
+        }
+      ]
+    }
+  ],
+  "small_touches": [
+    {
+      "id": "T1",
+      "proposal": "Show preparation outcomes before choosing breakthrough",
+      "source_fact": "CE1",
+      "native_YAIR_mapping": "src/data/skills.js + src/crafting_recipes.js: recipe/skill milestone description",
+      "adaptation_boundary": "Material-dependent native craft mastery proposal; cultivation remains opt-in",
+      "status": "proposal_only"
+    },
+    {
+      "id": "T2",
+      "proposal": "Different quality attempts grant different optional perks",
+      "source_fact": "CE1",
+      "native_YAIR_mapping": "src/models/skill.js + src/skill_expansion_content.js",
+      "adaptation_boundary": "Native skill branch proposal, no universal realm",
+      "status": "proposal_only"
+    },
+    {
+      "id": "T3",
+      "proposal": "A failed attempt leaves a visible timed recovery condition",
+      "source_fact": "CE3",
+      "native_YAIR_mapping": "src/activities.js + native effect/center action",
+      "adaptation_boundary": "Keep native defeat unconsciousness; failure recovery is proposal",
+      "status": "proposal_only"
+    },
+    {
+      "id": "T4",
+      "proposal": "Reveal aptitude through doing an activity",
+      "source_fact": "CE4",
+      "native_YAIR_mapping": "src/skill_discovery_native.js + src/data/skills.js",
+      "adaptation_boundary": "Original inference from multidimensional aptitude, not source amnesia",
+      "status": "proposal_only"
+    },
+    {
+      "id": "T5",
+      "proposal": "Rare gathered food subtly improves a mundane specialty",
+      "source_fact": "CE5",
+      "native_YAIR_mapping": "src/crafting_recipes.js + src/data/skills.js",
+      "adaptation_boundary": "Source root treasure translated into original native skill reward",
+      "status": "proposal_only"
+    },
+    {
+      "id": "T6",
+      "proposal": "Book study displays time and money separately",
+      "source_fact": "CE6",
+      "native_YAIR_mapping": "src/activities.js + src/data/skills.js: Literacy",
+      "adaptation_boundary": "Technique cost precedent; native manual study framing",
+      "status": "proposal_only"
+    },
+    {
+      "id": "T7",
+      "proposal": "Technique practice spends consumables and a day",
+      "source_fact": "CE7",
+      "native_YAIR_mapping": "src/crafting_recipes.js + src/activities.js",
+      "adaptation_boundary": "Source-derived training recipe proposal",
+      "status": "proposal_only"
+    },
+    {
+      "id": "T8",
+      "proposal": "Mastery stages have readable names",
+      "source_fact": "CE8",
+      "native_YAIR_mapping": "src/models/skill.js + src/data/skills.js",
+      "adaptation_boundary": "Keep native numerical skill growth intact",
+      "status": "proposal_only"
+    },
+    {
+      "id": "T9",
+      "proposal": "A tool perk modifies recipe practice rather than global power",
+      "source_fact": "CE23",
+      "native_YAIR_mapping": "src/crafting_recipes.js: Alchemy/Smelting/Forging",
+      "adaptation_boundary": "Use existing equipment-sensitive craft loop",
+      "status": "proposal_only"
+    },
+    {
+      "id": "T10",
+      "proposal": "Separate eligibility from chance in event content",
+      "source_fact": "CE9",
+      "native_YAIR_mapping": "src/chronicle.js + src/event_feed.js",
+      "adaptation_boundary": "Saved RNG integration is original engineering proposal",
+      "status": "proposal_only"
+    },
+    {
+      "id": "T11",
+      "proposal": "Family of related encounters shares a cooldown",
+      "source_fact": "CE9",
+      "native_YAIR_mapping": "src/chronicle.js + src/event_feed.js",
+      "adaptation_boundary": "Original event director adapter, source schema precedent",
+      "status": "proposal_only"
+    },
+    {
+      "id": "T12",
+      "proposal": "Cap disruptive encounters per month",
+      "source_fact": "CE10",
+      "native_YAIR_mapping": "src/game_time.js + src/chronicle.js",
+      "adaptation_boundary": "Pacing proposal; not implemented by this audit",
+      "status": "proposal_only"
+    },
+    {
+      "id": "T13",
+      "proposal": "Milestone triggers a letter instead of another random popup",
+      "source_fact": "CE11",
+      "native_YAIR_mapping": "src/data/skills.js + src/event_feed.js",
+      "adaptation_boundary": "Native skill/job firsts as source event-hook adaptation",
+      "status": "proposal_only"
+    },
+    {
+      "id": "T14",
+      "proposal": "Rare seasonal encounter needs the right month and place",
+      "source_fact": "CE12",
+      "native_YAIR_mapping": "src/game_time.js + src/event_feed.js",
+      "adaptation_boundary": "Native calendar seasonal visitor proposal",
+      "status": "proposal_only"
+    },
+    {
+      "id": "T15",
+      "proposal": "Missed opportunity produces a successor rumor",
+      "source_fact": "CE13",
+      "native_YAIR_mapping": "src/chronicle.js + src/event_feed.js",
+      "adaptation_boundary": "Original missed-event continuation, exact expiry hook precedent",
+      "status": "proposal_only"
+    },
+    {
+      "id": "T16",
+      "proposal": "A warning arrives ahead of a timed market",
+      "source_fact": "CE24",
+      "native_YAIR_mapping": "src/data/traders.js + src/game_time.js + src/event_feed.js",
+      "adaptation_boundary": "Native periodic traveling trader rather than new auction UI",
+      "status": "proposal_only"
+    },
+    {
+      "id": "T17",
+      "proposal": "Threat left alone gets stronger but has a cap",
+      "source_fact": "CE16",
+      "native_YAIR_mapping": "src/data/locations.js + src/game_time.js",
+      "adaptation_boundary": "Native combat-zone threat proposal; no unlimited escalation",
+      "status": "proposal_only"
+    },
+    {
+      "id": "T18",
+      "proposal": "A relic has a reseal or release center action",
+      "source_fact": "CE17",
+      "native_YAIR_mapping": "src/data/locations.js + dialogue/center menu",
+      "adaptation_boundary": "Original optional authored story slice; source branch precedent",
+      "status": "proposal_only"
+    },
+    {
+      "id": "T19",
+      "proposal": "An elder remembers how you handled an earlier obligation",
+      "source_fact": "CE18",
+      "native_YAIR_mapping": "src/chronicle.js: existing villageElder + relationshipChange",
+      "adaptation_boundary": "Source condition-history precedent, avoid required moral interpretation",
+      "status": "proposal_only"
+    },
+    {
+      "id": "T20",
+      "proposal": "Crafting tool failure leaves repair work",
+      "source_fact": "CE23",
+      "native_YAIR_mapping": "src/crafting_recipes.js + Forging/Alchemy",
+      "adaptation_boundary": "Original repair recipe proposal; exact furnace durability failure precedent",
+      "status": "proposal_only"
+    },
+    {
+      "id": "T21",
+      "proposal": "Trade stock reflects the settlement and your reputation",
+      "source_fact": "CE25",
+      "native_YAIR_mapping": "src/data/traders.js + src/components/trader_component.js",
+      "adaptation_boundary": "Native stock/availability proposal; no invented demand simulator",
+      "status": "proposal_only"
+    },
+    {
+      "id": "T22",
+      "proposal": "Health loss has a calendar cost shown before long work",
+      "source_fact": "CE19",
+      "native_YAIR_mapping": "src/activities.js + src/chronicle.js",
+      "adaptation_boundary": "Requires accepted aging/death policy; preserve default open life mode",
+      "status": "proposal_only"
+    }
+  ],
+  "unresolved": [
+    {
+      "id": "U1",
+      "question": "Are children generated only at world initialization or also born during ongoing play?",
+      "next_source": "WorldInitNPCTool.Relation/RandomRelationUnit versus any ongoing child creation call graph; NpcSocialRelation/PartFitting config not present in TABLE_INDEX.",
+      "status": "unresolved; neither fields nor matching-score declarations prove ongoing childbirth."
+    },
+    {
+      "id": "U2",
+      "question": "NPC offscreen scheduling: exact time budget, catch-up/offline behavior, goal eligibility/retry/cost and personality effects?",
+      "next_source": "Current WorldUnitAIMgr.RunUnit and WorldUnitAIBase.RunUnit/CreateGoal bodies plus runtime Npc AI config.",
+      "status": "Native outer RunUnit list/sort/callback iteration reviewed; goal logic, callback bodies, sort key, full cadence/threading/CPU budget still unresolved."
+    },
+    {
+      "id": "U3",
+      "question": "History cap, memory expiration, vital retention and exact serialized bytes per world-year?",
+      "next_source": "Current AddMemory/ClearOverMonthLog/DataToString bodies, configuration maxCount/maxSaveYear values and caller cadence.",
+      "status": "Resolved local native paths: AddMemory configured limiter/age trim, ordinary history inclusive five-year threshold removal, bucket encoding and conditional byte compression/encryption. Unresolved: helper mode3 behavior, caller cadence, runtime override config, vital retention elsewhere and whole-save byte bounds. No actual saves inspected."
+    },
+    {
+      "id": "U4",
+      "question": "Sect founding/leadership authority, recruitment acceptance, disciples teaching and wars complete transition order?",
+      "next_source": "UnitActionSchoolJoin/SetPostType/SchoolRecruit/Relation actions and war manager native bodies.",
+      "status": "rank/duty/war configuration evidence supports proposals, not a verified playable reconstruction."
+    },
+    "Active installed table values and hashes versus mod tutorial snapshot",
+    "Full encounter eligibility/priority/random comparison and RNG persistence/reload behavior; bounded probability helper solved (CE27)",
+    "Breakthrough item consumption, final success comparison/modifiers, failure dungeon aftermath; bounded material-rate aggregation solved (CE28)",
+    "Permanent root mutation versus additive aptitude and temporary penalties",
+    "Autonomous ancient-beings plans, revival timers, world-scale branching timelines",
+    "Playable reincarnation/legacy following death (origin names are not proof)",
+    "Crafting duration/yield/explosion and trade pricing formulas",
+    "Full non-sect job/career system not demonstrated"
+  ]
+}

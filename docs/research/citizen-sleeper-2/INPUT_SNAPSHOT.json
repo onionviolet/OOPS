@@ -1,0 +1,53 @@
+{
+  "at": "2026-10-10T06:03:07.342623+00:00",
+  "inputs": [
+    {
+      "path": "AGENTS.md",
+      "sha256": "c88fc420db73fefb7500a7410913d15ee824ec800837747c058da0780e01527d"
+    },
+    {
+      "path": "PROJECT.md",
+      "sha256": "eedc05e8172c872dcf3510e11ac0fa58781f3d1b041a9c93055b2791b714db55"
+    },
+    {
+      "path": "docs/RULES_FROM_SCRATCH.md",
+      "sha256": "03239f3f675df1568bbd3c28c1df70777687a76c9bb10e4a4ba6383019566980"
+    },
+    {
+      "path": "docs/LIFE_SIM_NORTH_STAR.md",
+      "sha256": "47eb1c69c314d70219193fde9f2c9563488a35f6e464e0900e8f1164ee23cf9d"
+    },
+    {
+      "path": "docs/GAME_MASTER_PROMPT.md",
+      "sha256": "0ed51b1615b67f6c3a7ac59f9ccdf21602e29f39494bb2f8e4829ffaf5c392a1"
+    },
+    {
+      "path": "docs/gm/dispatch/steam-library-wave-2026-10-10/ASSIGNMENT.md",
+      "sha256": "d4aab9052cc570aae49246720358797626ee5deed974f5bc1e50e826490cd6b2"
+    },
+    {
+      "path": "src/simulation.js",
+      "sha256": "3f7ecf0f208edc1edff502d7e1f5076ad1e1a435630a020658eb922d3287d3f3"
+    },
+    {
+      "path": "src/simulation_resolution.js",
+      "sha256": "b47789d1959d5e43fcce298b3631830169aa0d89b972cd7d08da1a55e4c2fd94"
+    },
+    {
+      "path": "src/simulation_contracts.js",
+      "sha256": "0b048cb891b0e30abeb7f97125d8fe62ca9abe03c7fc7697e0078ae4a72501de"
+    },
+    {
+      "path": "src/character_bio.js",
+      "sha256": "f6dc97c32f651734fb1984df7a93b9c44b42b1078380b7df51a1b670c8dd959a"
+    },
+    {
+      "path": "src/npc_lives.js",
+      "sha256": "abef56e7d73a0e17a3ba551608eafc4fb7f9f1660c17a445cfe96ae9869eb804"
+    },
+    {
+      "path": "src/event_feed_ui.js",
+      "sha256": "d1c3539ea9d2f1f64fa67f453237f593b1dec3e9cd9b56754e730d674d02ffd0"
+    }
+  ]
+}

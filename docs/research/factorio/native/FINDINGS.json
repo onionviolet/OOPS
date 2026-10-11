@@ -343,5 +343,23 @@
     "MeaningfulARMfailure/allknown14+6table/body/pcode/physicalABI/backendidentity-preserving repairs.",
     "ExactARMglobalinstructionaddress/functionownership comparison; rootusage/recoveryfinalacquisition.",
     "Finalcurrent REPORT/FINDINGS/COVERAGE/DLC/readers/provenance reconciliation withno fabricatedC/source/type/semanticcompletion."
-  ]
+  ],
+  "canonical_flow_refresh": {
+    "observed_at": "2026-10-07T18:18:11.748416+00:00",
+    "receipt": "FLOW_REPAIR.json",
+    "root_acquisition": "../../../gm/dispatch/steam-wave-2026-10-06/native-usage/FLOW_CANONICAL_ACQUISITION.json",
+    "NLH_02_03": "unchanged claims; canonical six-case body/CFG closure qualified",
+    "ARM_latest_C": 183188,
+    "ARM_latest_failures": 11
+  },
+  "selected_heat_physical_refresh": {
+    "observed_at": "2026-10-07T18:40:24.070552+00:00",
+    "receipt": "HEAT_PHYSICAL_REPAIR.json",
+    "state": "NLH08/09/10 consequential arithmetic/store claims unchanged; generated view now has actual double-field access and lower64D0/W0word result storage, without former integer numeric casts/vector16byte return inference.",
+    "limits": [
+      "Original C++ types/member names/compiler declaration remain inferred; word0or1 result is physical evidence, not original bool typedef.",
+      "transferEnergyTo existing unknown/default return kept; finalD0 arithmetic alone does not prove a return contract.",
+      "NaN/FPCR/signedzero/negativeinputs/globalcadence and runtime conservation are not established."
+    ]
+  }
 }

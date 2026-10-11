@@ -1,0 +1,314 @@
+[
+  {
+    "book": "pale-lights",
+    "url": "https://palelights.com/table-of-contents/",
+    "receipt": {
+      "url": "https://palelights.com/table-of-contents/",
+      "status": 200,
+      "time": "2026-10-10T05:40:28.524621+00:00",
+      "started": "2026-10-10T05:40:28.167960+00:00",
+      "bytes": 77767,
+      "sha256": "05326f2f654031a65bd7ed09f48545743128cc43d950990d1e9810c32fb1ea42",
+      "content_type": "text/html; charset=UTF-8",
+      "location": null
+    },
+    "html": "docs/research/novels/power-scout-2026-10-10/pale-lights/sources/c208f0d73531.html",
+    "text": null,
+    "characters": 0,
+    "status": "page_received_no_text"
+  },
+  {
+    "book": "pale-lights",
+    "url": "https://palelights.com/2022/08/17/chapter-1/",
+    "receipt": {
+      "url": "https://palelights.com/2022/08/17/chapter-1/",
+      "status": 200,
+      "time": "2026-10-10T05:40:32.987732+00:00",
+      "started": "2026-10-10T05:40:32.590261+00:00",
+      "bytes": 181996,
+      "sha256": "ba47df17d08a838923b24173bb1b5f0b11a18df71bd4a978c334ef43b01fd84d",
+      "content_type": "text/html; charset=UTF-8",
+      "location": null
+    },
+    "html": "docs/research/novels/power-scout-2026-10-10/pale-lights/sources/37216265a44a.html",
+    "text": "docs/research/novels/power-scout-2026-10-10/pale-lights/sources/37216265a44a.txt",
+    "characters": 29458,
+    "status": "text_acquired"
+  },
+  {
+    "book": "pale-lights",
+    "url": "https://palelights.com/2022/08/17/chapter-2/",
+    "receipt": {
+      "url": "https://palelights.com/2022/08/17/chapter-2/",
+      "status": 200,
+      "time": "2026-10-10T05:40:38.282643+00:00",
+      "started": "2026-10-10T05:40:37.894678+00:00",
+      "bytes": 139855,
+      "sha256": "43a878383ee70369b8391d596f7ea4890a4f95bea9eacfe74134e99c22e3065a",
+      "content_type": "text/html; charset=UTF-8",
+      "location": null
+    },
+    "html": "docs/research/novels/power-scout-2026-10-10/pale-lights/sources/549a46e155b8.html",
+    "text": "docs/research/novels/power-scout-2026-10-10/pale-lights/sources/549a46e155b8.txt",
+    "characters": 24649,
+    "status": "text_acquired"
+  },
+  {
+    "book": "pale-lights",
+    "url": "https://palelights.com/2022/08/26/chapter-3/",
+    "receipt": {
+      "url": "https://palelights.com/2022/08/26/chapter-3/",
+      "status": 200,
+      "time": "2026-10-10T05:40:43.259832+00:00",
+      "started": "2026-10-10T05:40:42.696768+00:00",
+      "bytes": 206823,
+      "sha256": "454a484a55c645925b51585a52e56cdd85b3033cf7d335e9be00d182928d83ec",
+      "content_type": "text/html; charset=UTF-8",
+      "location": null
+    },
+    "html": "docs/research/novels/power-scout-2026-10-10/pale-lights/sources/f1c0492950d8.html",
+    "text": "docs/research/novels/power-scout-2026-10-10/pale-lights/sources/f1c0492950d8.txt",
+    "characters": 35511,
+    "status": "text_acquired"
+  },
+  {
+    "book": "book-eater",
+    "url": "https://www.wuxiaworld.com/novel/book-eater/be-chapter-1",
+    "receipt": {
+      "url": "https://www.wuxiaworld.com/novel/book-eater/be-chapter-1",
+      "status": 200,
+      "time": "2026-10-10T05:40:43.510455+00:00",
+      "started": "2026-10-10T05:40:43.290963+00:00",
+      "bytes": 157099,
+      "sha256": "1885ed1c4979c0d361f6b165b6b9a13508887fbb648143f71b05c8a41ee237db",
+      "content_type": "text/html; charset=utf-8",
+      "location": null
+    },
+    "html": "docs/research/novels/power-scout-2026-10-10/book-eater/sources/946c36c60447.html",
+    "text": "docs/research/novels/power-scout-2026-10-10/book-eater/sources/946c36c60447.txt",
+    "characters": 9545,
+    "status": "text_acquired"
+  },
+  {
+    "book": "land-mines-web",
+    "url": "https://ncode.syosetu.com/n0350em/2/",
+    "receipt": {
+      "url": "https://ncode.syosetu.com/n0350em/2/",
+      "status": 200,
+      "time": "2026-10-10T05:40:51.969057+00:00",
+      "started": "2026-10-10T05:40:50.822260+00:00",
+      "bytes": 65597,
+      "sha256": "aea5533e0abdbeac023213857bcfae0cabbcdd1c458c228ed94801afe1b251a5",
+      "content_type": "text/html; charset=UTF-8",
+      "location": null
+    },
+    "html": "docs/research/novels/power-scout-2026-10-10/land-mines-web/sources/cf0463350dff.html",
+    "text": "docs/research/novels/power-scout-2026-10-10/land-mines-web/sources/cf0463350dff.txt",
+    "characters": 8038,
+    "status": "text_acquired"
+  },
+  {
+    "book": "d-genesis-web",
+    "url": "https://kakuyomu.jp/works/1177354054894181631",
+    "receipt": {
+      "url": "https://kakuyomu.jp/works/1177354054894181631",
+      "status": 200,
+      "time": "2026-10-10T05:40:59.983348+00:00",
+      "started": "2026-10-10T05:40:58.989937+00:00",
+      "bytes": 220755,
+      "sha256": "508d05d2988bc4bd15e8231f982adceccd2245c20eaefef4a908a77e63566c68",
+      "content_type": "text/html; charset=utf-8",
+      "location": null
+    },
+    "html": "docs/research/novels/power-scout-2026-10-10/d-genesis-web/sources/6cf9719f4c3e.html",
+    "text": null,
+    "characters": 0,
+    "status": "page_received_no_text"
+  },
+  {
+    "book": "dungeon-reset",
+    "url": "https://www.tappytoon.com/en/chapters/864582051",
+    "receipt": {
+      "url": "https://www.tappytoon.com/en/chapters/864582051",
+      "status": 200,
+      "time": "2026-10-10T05:41:00.916154+00:00",
+      "started": "2026-10-10T05:41:00.020462+00:00",
+      "bytes": 289252,
+      "sha256": "3f3fba8fa5faf8a2ce806732699ebaac5d2641b698cb0712ecfdc6ff43755c89",
+      "content_type": "text/html; charset=utf-8",
+      "location": null
+    },
+    "html": "docs/research/novels/power-scout-2026-10-10/dungeon-reset/sources/fcd7a5dbb1b4.html",
+    "text": null,
+    "characters": 0,
+    "status": "page_received_no_text"
+  },
+  {
+    "book": "dungeon-reset",
+    "url": "https://www.tappytoon.com/en/chapters/678133446",
+    "receipt": {
+      "url": "https://www.tappytoon.com/en/chapters/678133446",
+      "status": 200,
+      "time": "2026-10-10T05:41:08.746648+00:00",
+      "started": "2026-10-10T05:41:07.806170+00:00",
+      "bytes": 290598,
+      "sha256": "bf05731397aebb77a2a00687a3e69d81834c5c25241a20959b8c7e085aaadb60",
+      "content_type": "text/html; charset=utf-8",
+      "location": null
+    },
+    "html": "docs/research/novels/power-scout-2026-10-10/dungeon-reset/sources/908017c1c4c4.html",
+    "text": null,
+    "characters": 0,
+    "status": "page_received_no_text"
+  },
+  {
+    "book": "dungeon-reset",
+    "url": "https://www.tappytoon.com/en/chapters/520079600",
+    "receipt": {
+      "url": "https://www.tappytoon.com/en/chapters/520079600",
+      "status": 200,
+      "time": "2026-10-10T05:41:16.417843+00:00",
+      "started": "2026-10-10T05:41:15.339166+00:00",
+      "bytes": 290598,
+      "sha256": "118707bc51b51d2dc506f1cbfa762c451ceb7bb9e5615c5c4a90bdf24d904c15",
+      "content_type": "text/html; charset=utf-8",
+      "location": null
+    },
+    "html": "docs/research/novels/power-scout-2026-10-10/dungeon-reset/sources/ae7f7efc5fdc.html",
+    "text": null,
+    "characters": 0,
+    "status": "page_received_no_text"
+  },
+  {
+    "book": "dungeon-reset",
+    "url": "https://www.tappytoon.com/en/chapters/524862469",
+    "receipt": {
+      "url": "https://www.tappytoon.com/en/chapters/524862469",
+      "status": 200,
+      "time": "2026-10-10T05:41:22.382297+00:00",
+      "started": "2026-10-10T05:41:21.551359+00:00",
+      "bytes": 290598,
+      "sha256": "821964c85d39cb0044fc953ef958007bc7436b9f1689dd1c3c7471251c5e0ac0",
+      "content_type": "text/html; charset=utf-8",
+      "location": null
+    },
+    "html": "docs/research/novels/power-scout-2026-10-10/dungeon-reset/sources/beca360e9539.html",
+    "text": null,
+    "characters": 0,
+    "status": "page_received_no_text"
+  },
+  {
+    "book": "book-eater",
+    "url": "https://www.wuxiaworld.com/novel/book-eater/be-chapter-2",
+    "receipt": {
+      "url": "https://www.wuxiaworld.com/novel/book-eater/be-chapter-2",
+      "status": 200,
+      "time": "2026-10-10T05:42:23.780856+00:00",
+      "started": "2026-10-10T05:42:23.570956+00:00",
+      "bytes": 154508,
+      "sha256": "253f3ca0412686c6dc61d62e958812311d289daa4d5e37d45db9bc5e7cb5ef31",
+      "content_type": "text/html; charset=utf-8",
+      "location": null
+    },
+    "html": "docs/research/novels/power-scout-2026-10-10/book-eater/sources/8ec271b8c25a.html",
+    "text": "docs/research/novels/power-scout-2026-10-10/book-eater/sources/8ec271b8c25a.txt",
+    "characters": 8320,
+    "status": "text_acquired"
+  },
+  {
+    "book": "book-eater",
+    "url": "https://www.wuxiaworld.com/novel/book-eater/be-chapter-3",
+    "receipt": {
+      "url": "https://www.wuxiaworld.com/novel/book-eater/be-chapter-3",
+      "status": 200,
+      "time": "2026-10-10T05:42:29.550043+00:00",
+      "started": "2026-10-10T05:42:29.340441+00:00",
+      "bytes": 158143,
+      "sha256": "158de2358b54632600bcb5bbe7da9bcb98dcf8af2e10bcc35a3af14e39cc1bc6",
+      "content_type": "text/html; charset=utf-8",
+      "location": null
+    },
+    "html": "docs/research/novels/power-scout-2026-10-10/book-eater/sources/0941bda679f9.html",
+    "text": "docs/research/novels/power-scout-2026-10-10/book-eater/sources/0941bda679f9.txt",
+    "characters": 9442,
+    "status": "text_acquired"
+  },
+  {
+    "book": "book-eater",
+    "url": "https://www.wuxiaworld.com/novel/book-eater/be-chapter-4",
+    "status": "stopped",
+    "reason": "www.wuxiaworld.com: Cloudflare challenge parameters"
+  },
+  {
+    "book": "making-magic-web",
+    "url": "https://ncode.syosetu.com/n4154fl/2/",
+    "receipt": {
+      "url": "https://ncode.syosetu.com/n4154fl/2/",
+      "status": 200,
+      "time": "2026-10-10T05:42:35.578324+00:00",
+      "started": "2026-10-10T05:42:34.696125+00:00",
+      "bytes": 40479,
+      "sha256": "e4ab6267aea28ef9c1dd328e1e483c9260fd8b82a7389c52ddc395d7929427f2",
+      "content_type": "text/html; charset=UTF-8",
+      "location": null
+    },
+    "html": "docs/research/novels/power-scout-2026-10-10/making-magic-web/sources/f887d34cc24d.html",
+    "text": "docs/research/novels/power-scout-2026-10-10/making-magic-web/sources/f887d34cc24d.txt",
+    "characters": 1626,
+    "status": "text_acquired"
+  },
+  {
+    "book": "making-magic-web",
+    "url": "https://ncode.syosetu.com/n4154fl/3/",
+    "receipt": {
+      "url": "https://ncode.syosetu.com/n4154fl/3/",
+      "status": 200,
+      "time": "2026-10-10T05:42:42.319830+00:00",
+      "started": "2026-10-10T05:42:40.977488+00:00",
+      "bytes": 37749,
+      "sha256": "7542abe79b2fecea3b6467bd1ffff8afb028e158a39de2e2f1991657e9db93fa",
+      "content_type": "text/html; charset=UTF-8",
+      "location": null
+    },
+    "html": "docs/research/novels/power-scout-2026-10-10/making-magic-web/sources/cae62499d701.html",
+    "text": "docs/research/novels/power-scout-2026-10-10/making-magic-web/sources/cae62499d701.txt",
+    "characters": 1257,
+    "status": "text_acquired"
+  },
+  {
+    "book": "d-genesis-web",
+    "url": "https://kakuyomu.jp/works/1177354054894181631/episodes/1177354054894181655",
+    "receipt": {
+      "url": "https://kakuyomu.jp/works/1177354054894181631/episodes/1177354054894181655",
+      "status": 200,
+      "time": "2026-10-10T05:42:42.633552+00:00",
+      "started": "2026-10-10T05:42:42.334701+00:00",
+      "bytes": 49196,
+      "sha256": "37f32a5fbe2a2d0c4b400b9e2201d47a6e8192faddb15e77082de6bb0ecb5522",
+      "content_type": "text/html; charset=utf-8",
+      "location": null
+    },
+    "html": "docs/research/novels/power-scout-2026-10-10/d-genesis-web/sources/ac133690ec97.html",
+    "text": "docs/research/novels/power-scout-2026-10-10/d-genesis-web/sources/ac133690ec97.txt",
+    "characters": 1944,
+    "status": "text_acquired"
+  },
+  {
+    "book": "d-genesis-web",
+    "url": "https://kakuyomu.jp/works/1177354054894181631/episodes/1177354054894381387",
+    "receipt": {
+      "url": "https://kakuyomu.jp/works/1177354054894181631/episodes/1177354054894381387",
+      "status": 200,
+      "time": "2026-10-10T05:43:18.395267+00:00",
+      "started": "2026-10-10T05:43:17.938167+00:00",
+      "bytes": 71607,
+      "sha256": "626a893c931bb02dac51af62c14b6ef09e6e9c64ec9a849fe5a8526ac8ec9898",
+      "content_type": "text/html; charset=utf-8",
+      "location": null
+    },
+    "html": "docs/research/novels/power-scout-2026-10-10/d-genesis-web/sources/7e3a4117805e.html",
+    "text": "docs/research/novels/power-scout-2026-10-10/d-genesis-web/sources/7e3a4117805e.txt",
+    "characters": 8084,
+    "status": "text_acquired"
+  }
+]

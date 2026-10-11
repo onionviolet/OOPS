@@ -1,0 +1,340 @@
+{
+  "schema": 1,
+  "date": "2026-10-09",
+  "authority": "Research only. Selection and new implementation authorization remain with Weibao/coordinating GM.",
+  "packets": [
+    {
+      "id": "P1",
+      "title": "Exact and profile ingredient matching",
+      "state": "proposal_not_authorized_for_implementation",
+      "depends_on": [],
+      "owners": [
+        "docs/emergent/E4_TAGS_AND_RULES.md",
+        "docs/emergent/E4B_MATERIALS_AND_NOITA.md",
+        "docs/emergent/SHARED_VOCABULARY.md"
+      ],
+      "proof": "One torch role accepts two known fuels; one canon recipe requires exact identity. Preview distinguishes physical fit from knowledge. Keep material_id/material_type lookup as baseline.",
+      "later_acceptance": [
+        "rebuild from changed source",
+        "fresh-origin browser exercise of changed behavior",
+        "old-save compatibility plus save reload/import when persistence changes",
+        "director fiction and balance review"
+      ],
+      "exclusions": [
+        "pixel physics",
+        "arbitrary game Lua execution",
+        "new realm/prestige layer",
+        "changing existing player saves during this audit"
+      ],
+      "evidence_docs": [
+        "MATERIAL_REACTION_DIGEST.md",
+        "ALCHEMY_AND_SUBSTITUTION.md",
+        "COMPOSITION_DIGEST.md",
+        "PERKS_FINDINGS.md",
+        "BODY_WORLD_DIGEST.md"
+      ]
+    },
+    {
+      "id": "P2",
+      "title": "Conserved mixtures and container custody",
+      "state": "proposal_not_authorized_for_implementation",
+      "depends_on": [
+        "P1"
+      ],
+      "owners": [
+        "docs/emergent/E4_TAGS_AND_RULES.md",
+        "docs/emergent/E4B_MATERIALS_AND_NOITA.md",
+        "docs/emergent/SHARED_VOCABULARY.md"
+      ],
+      "proof": "Mix water and poison; split/pour/drink/break conserve constituent amounts and preserve trace hazards. Save, reload and import mixtures without duplication.",
+      "later_acceptance": [
+        "rebuild from changed source",
+        "fresh-origin browser exercise of changed behavior",
+        "old-save compatibility plus save reload/import when persistence changes",
+        "director fiction and balance review"
+      ],
+      "exclusions": [
+        "pixel physics",
+        "arbitrary game Lua execution",
+        "new realm/prestige layer",
+        "changing existing player saves during this audit"
+      ],
+      "evidence_docs": [
+        "MATERIAL_REACTION_DIGEST.md",
+        "ALCHEMY_AND_SUBSTITUTION.md",
+        "COMPOSITION_DIGEST.md",
+        "PERKS_FINDINGS.md",
+        "BODY_WORLD_DIGEST.md"
+      ]
+    },
+    {
+      "id": "P3",
+      "title": "Body routes and coating effects",
+      "state": "proposal_not_authorized_for_implementation",
+      "depends_on": [
+        "P2"
+      ],
+      "owners": [
+        "docs/emergent/E4_TAGS_AND_RULES.md",
+        "docs/emergent/E4B_MATERIALS_AND_NOITA.md",
+        "docs/emergent/SHARED_VOCABULARY.md"
+      ],
+      "proof": "Pour and swallow same liquid produce distinct authored outcomes; wet body fire check logs protection; loose oil can burn independently.",
+      "later_acceptance": [
+        "rebuild from changed source",
+        "fresh-origin browser exercise of changed behavior",
+        "old-save compatibility plus save reload/import when persistence changes",
+        "director fiction and balance review"
+      ],
+      "exclusions": [
+        "pixel physics",
+        "arbitrary game Lua execution",
+        "new realm/prestige layer",
+        "changing existing player saves during this audit"
+      ],
+      "evidence_docs": [
+        "MATERIAL_REACTION_DIGEST.md",
+        "ALCHEMY_AND_SUBSTITUTION.md",
+        "COMPOSITION_DIGEST.md",
+        "PERKS_FINDINGS.md",
+        "BODY_WORLD_DIGEST.md"
+      ]
+    },
+    {
+      "id": "P4",
+      "title": "Recipe fit and independent axes",
+      "state": "proposal_not_authorized_for_implementation",
+      "depends_on": [
+        "P1",
+        "P2"
+      ],
+      "owners": [
+        "docs/emergent/E4_TAGS_AND_RULES.md",
+        "docs/emergent/E4B_MATERIALS_AND_NOITA.md",
+        "docs/emergent/SHARED_VOCABULARY.md"
+      ],
+      "proof": "A strong volatile fuel can fail a safe range; purity and amount alter yield/dose separately from workmanship. Keep native quality intact.",
+      "later_acceptance": [
+        "rebuild from changed source",
+        "fresh-origin browser exercise of changed behavior",
+        "old-save compatibility plus save reload/import when persistence changes",
+        "director fiction and balance review"
+      ],
+      "exclusions": [
+        "pixel physics",
+        "arbitrary game Lua execution",
+        "new realm/prestige layer",
+        "changing existing player saves during this audit"
+      ],
+      "evidence_docs": [
+        "MATERIAL_REACTION_DIGEST.md",
+        "ALCHEMY_AND_SUBSTITUTION.md",
+        "COMPOSITION_DIGEST.md",
+        "PERKS_FINDINGS.md",
+        "BODY_WORLD_DIGEST.md"
+      ]
+    },
+    {
+      "id": "P5",
+      "title": "Technique groups and delayed payloads",
+      "state": "proposal_not_authorized_for_implementation",
+      "depends_on": [
+        "P3"
+      ],
+      "owners": [
+        "docs/emergent/E4_TAGS_AND_RULES.md",
+        "docs/emergent/E4B_MATERIALS_AND_NOITA.md",
+        "docs/emergent/SHARED_VOCABULARY.md"
+      ],
+      "proof": "Modifier before multicast affects root group; child scope starts from declared baseline; reserve resources once, dispatch payload once. Insufficient cost, order and charges are explained.",
+      "later_acceptance": [
+        "rebuild from changed source",
+        "fresh-origin browser exercise of changed behavior",
+        "old-save compatibility plus save reload/import when persistence changes",
+        "director fiction and balance review"
+      ],
+      "exclusions": [
+        "pixel physics",
+        "arbitrary game Lua execution",
+        "new realm/prestige layer",
+        "changing existing player saves during this audit"
+      ],
+      "evidence_docs": [
+        "MATERIAL_REACTION_DIGEST.md",
+        "ALCHEMY_AND_SUBSTITUTION.md",
+        "COMPOSITION_DIGEST.md",
+        "PERKS_FINDINGS.md",
+        "BODY_WORLD_DIGEST.md"
+      ]
+    },
+    {
+      "id": "P6",
+      "title": "Resolved seeded secrets",
+      "state": "proposal_not_authorized_for_implementation",
+      "depends_on": [
+        "P1"
+      ],
+      "owners": [
+        "docs/emergent/E4_TAGS_AND_RULES.md",
+        "docs/emergent/E4B_MATERIALS_AND_NOITA.md",
+        "docs/emergent/SHARED_VOCABULARY.md"
+      ],
+      "proof": "Same saved world retains recipe across reload, import and catalogue upgrade; experimentation does not reroll it. Exact or profile policy is explicit.",
+      "later_acceptance": [
+        "rebuild from changed source",
+        "fresh-origin browser exercise of changed behavior",
+        "old-save compatibility plus save reload/import when persistence changes",
+        "director fiction and balance review"
+      ],
+      "exclusions": [
+        "pixel physics",
+        "arbitrary game Lua execution",
+        "new realm/prestige layer",
+        "changing existing player saves during this audit"
+      ],
+      "evidence_docs": [
+        "MATERIAL_REACTION_DIGEST.md",
+        "ALCHEMY_AND_SUBSTITUTION.md",
+        "COMPOSITION_DIGEST.md",
+        "PERKS_FINDINGS.md",
+        "BODY_WORLD_DIGEST.md"
+      ]
+    },
+    {
+      "id": "P7",
+      "title": "Owned effects and world mutations",
+      "state": "proposal_not_authorized_for_implementation",
+      "depends_on": [
+        "P2",
+        "P3"
+      ],
+      "owners": [
+        "docs/emergent/E4_TAGS_AND_RULES.md",
+        "docs/emergent/E4B_MATERIALS_AND_NOITA.md",
+        "docs/emergent/SHARED_VOCABULARY.md"
+      ],
+      "proof": "Two modifiers compose by declared operators; removing one derives correct remaining state. One mutation records scope, actual identities and future-production policy.",
+      "later_acceptance": [
+        "rebuild from changed source",
+        "fresh-origin browser exercise of changed behavior",
+        "old-save compatibility plus save reload/import when persistence changes",
+        "director fiction and balance review"
+      ],
+      "exclusions": [
+        "pixel physics",
+        "arbitrary game Lua execution",
+        "new realm/prestige layer",
+        "changing existing player saves during this audit"
+      ],
+      "evidence_docs": [
+        "MATERIAL_REACTION_DIGEST.md",
+        "ALCHEMY_AND_SUBSTITUTION.md",
+        "COMPOSITION_DIGEST.md",
+        "PERKS_FINDINGS.md",
+        "BODY_WORLD_DIGEST.md"
+      ]
+    },
+    {
+      "id": "P8",
+      "title": "Third participants and missing surroundings",
+      "state": "proposal_not_authorized_for_implementation",
+      "depends_on": [
+        "P2"
+      ],
+      "owners": [
+        "docs/emergent/E4_TAGS_AND_RULES.md",
+        "docs/emergent/E4B_MATERIALS_AND_NOITA.md",
+        "docs/emergent/SHARED_VOCABULARY.md"
+      ],
+      "proof": "Seed growth requires a specific third constituent; starvation checks explicit known absence; bounded area conversion stops at a declared budget.",
+      "later_acceptance": [
+        "rebuild from changed source",
+        "fresh-origin browser exercise of changed behavior",
+        "old-save compatibility plus save reload/import when persistence changes",
+        "director fiction and balance review"
+      ],
+      "exclusions": [
+        "pixel physics",
+        "arbitrary game Lua execution",
+        "new realm/prestige layer",
+        "changing existing player saves during this audit"
+      ],
+      "evidence_docs": [
+        "MATERIAL_REACTION_DIGEST.md",
+        "ALCHEMY_AND_SUBSTITUTION.md",
+        "COMPOSITION_DIGEST.md",
+        "PERKS_FINDINGS.md",
+        "BODY_WORLD_DIGEST.md"
+      ]
+    },
+    {
+      "id": "P9",
+      "title": "Shared body rules and directed faction responses",
+      "state": "proposal_not_authorized_for_implementation",
+      "depends_on": [
+        "P3"
+      ],
+      "owners": [
+        "docs/emergent/E4_TAGS_AND_RULES.md",
+        "docs/emergent/E4B_MATERIALS_AND_NOITA.md",
+        "docs/emergent/SHARED_VOCABULARY.md"
+      ],
+      "proof": "Apply rain/fire to two bodies with distinct immunity and cause logs; faction A-to-B hostility differs from B-to-A without global hostility tags.",
+      "later_acceptance": [
+        "rebuild from changed source",
+        "fresh-origin browser exercise of changed behavior",
+        "old-save compatibility plus save reload/import when persistence changes",
+        "director fiction and balance review"
+      ],
+      "exclusions": [
+        "pixel physics",
+        "arbitrary game Lua execution",
+        "new realm/prestige layer",
+        "changing existing player saves during this audit"
+      ],
+      "evidence_docs": [
+        "MATERIAL_REACTION_DIGEST.md",
+        "ALCHEMY_AND_SUBSTITUTION.md",
+        "COMPOSITION_DIGEST.md",
+        "PERKS_FINDINGS.md",
+        "BODY_WORLD_DIGEST.md"
+      ]
+    },
+    {
+      "id": "P10",
+      "title": "Evidence-led discovery",
+      "state": "proposal_not_authorized_for_implementation",
+      "depends_on": [
+        "P1",
+        "P6"
+      ],
+      "owners": [
+        "docs/emergent/E4_TAGS_AND_RULES.md",
+        "docs/emergent/E4B_MATERIALS_AND_NOITA.md",
+        "docs/emergent/SHARED_VOCABULARY.md"
+      ],
+      "proof": "Observe, test, research or learn one substitute property and retain provenance; safe known mode and risky trial follow the selected Q14 policy.",
+      "later_acceptance": [
+        "rebuild from changed source",
+        "fresh-origin browser exercise of changed behavior",
+        "old-save compatibility plus save reload/import when persistence changes",
+        "director fiction and balance review"
+      ],
+      "exclusions": [
+        "pixel physics",
+        "arbitrary game Lua execution",
+        "new realm/prestige layer",
+        "changing existing player saves during this audit"
+      ],
+      "evidence_docs": [
+        "MATERIAL_REACTION_DIGEST.md",
+        "ALCHEMY_AND_SUBSTITUTION.md",
+        "COMPOSITION_DIGEST.md",
+        "PERKS_FINDINGS.md",
+        "BODY_WORLD_DIGEST.md"
+      ]
+    }
+  ],
+  "accepted_changes": [],
+  "q14": "Allow partly understood substitutions as risky experiments or block them until known remains open."
+}

@@ -1,0 +1,61 @@
+{
+  "observed_utc": "2026-10-07T18:39:07.964003+00:00",
+  "scope": "Superseded pre-Heat acquisition state preserved verbatim; root ownership documents excluded.",
+  "files": [
+    {
+      "path": "docs/gm/dispatch/steam-wave-2026-10-06/native-usage/CHECKPOINT.md",
+      "before_image": "docs/gm/dispatch/steam-wave-2026-10-06/native-usage/resume-history/2026-10-07-heat-acquisition/docs/gm/dispatch/steam-wave-2026-10-06/native-usage/CHECKPOINT.md",
+      "sha256": "6ad1048f5f752b713344ca74753283bb8c6d9e2655ae06fdb4ec246ea2f2558e"
+    },
+    {
+      "path": "docs/gm/dispatch/steam-wave-2026-10-06/native-usage/GOAL_AUDIT.json",
+      "before_image": "docs/gm/dispatch/steam-wave-2026-10-06/native-usage/resume-history/2026-10-07-heat-acquisition/docs/gm/dispatch/steam-wave-2026-10-06/native-usage/GOAL_AUDIT.json",
+      "sha256": "54460f3207222710e2d7f99f27ee6ff20badddf27238f061bf36054a0a503de6"
+    },
+    {
+      "path": "docs/gm/dispatch/steam-wave-2026-10-06/native-usage/ACCEPTANCE_STATE_REFRESH.json",
+      "before_image": "docs/gm/dispatch/steam-wave-2026-10-06/native-usage/resume-history/2026-10-07-heat-acquisition/docs/gm/dispatch/steam-wave-2026-10-06/native-usage/ACCEPTANCE_STATE_REFRESH.json",
+      "sha256": "0b28f9e2babba083fb69d49148abc8a65befb903440eaa10751b72176c6701bf"
+    },
+    {
+      "path": "docs/gm/dispatch/steam-wave-2026-10-06/native-usage/HEAT_STORAGE_READBACK.json",
+      "before_image": "docs/gm/dispatch/steam-wave-2026-10-06/native-usage/resume-history/2026-10-07-heat-acquisition/docs/gm/dispatch/steam-wave-2026-10-06/native-usage/HEAT_STORAGE_READBACK.json",
+      "sha256": "ba16febfdc6e2e49346c2d718b581862abb39919487fc752fe2620a5b6d7fdfd"
+    },
+    {
+      "path": "docs/gm/dispatch/steam-wave-2026-10-06/CHECKPOINT.md",
+      "before_image": "docs/gm/dispatch/steam-wave-2026-10-06/native-usage/resume-history/2026-10-07-heat-acquisition/docs/gm/dispatch/steam-wave-2026-10-06/CHECKPOINT.md",
+      "sha256": "1ee35b3848cf51cf33e7df73528e7f231772cbf2fe63c8c7a75d182a92b36b82"
+    },
+    {
+      "path": "docs/gm/dispatch/steam-wave-2026-10-06/DISPATCH.json",
+      "before_image": "docs/gm/dispatch/steam-wave-2026-10-06/native-usage/resume-history/2026-10-07-heat-acquisition/docs/gm/dispatch/steam-wave-2026-10-06/DISPATCH.json",
+      "sha256": "4881af7d0df0dc61195c7421e9cfbf1e450c79f67063b3103b8602ea3857e82f"
+    },
+    {
+      "path": "docs/research/factorio/CHECKPOINT.md",
+      "before_image": "docs/gm/dispatch/steam-wave-2026-10-06/native-usage/resume-history/2026-10-07-heat-acquisition/docs/research/factorio/CHECKPOINT.md",
+      "sha256": "81bde454cf72b02a340265eb3aeb8d3e979cfccf77812f19e422101bdfddc439"
+    },
+    {
+      "path": "docs/research/factorio/REPORT.md",
+      "before_image": "docs/gm/dispatch/steam-wave-2026-10-06/native-usage/resume-history/2026-10-07-heat-acquisition/docs/research/factorio/REPORT.md",
+      "sha256": "a4cda844c6a4c6df070bf0304adf4f2920a5f94ec5499ed0970dfcb8aedf3f86"
+    },
+    {
+      "path": "docs/research/factorio/INTAKE.json",
+      "before_image": "docs/gm/dispatch/steam-wave-2026-10-06/native-usage/resume-history/2026-10-07-heat-acquisition/docs/research/factorio/INTAKE.json",
+      "sha256": "9bde2a14a2539f7af097dc7c0b060345181eadc7f439aa525d09709047f5b1d6"
+    },
+    {
+      "path": "docs/research/factorio/COVERAGE.json",
+      "before_image": "docs/gm/dispatch/steam-wave-2026-10-06/native-usage/resume-history/2026-10-07-heat-acquisition/docs/research/factorio/COVERAGE.json",
+      "sha256": "0ee695c6453f0ba76d134067097e790932011c26c5cb0e8b83d55729763457e4"
+    },
+    {
+      "path": "docs/research/factorio/DLC_COVERAGE.json",
+      "before_image": "docs/gm/dispatch/steam-wave-2026-10-06/native-usage/resume-history/2026-10-07-heat-acquisition/docs/research/factorio/DLC_COVERAGE.json",
+      "sha256": "b563eb6fc760059df8f3b3e3a3f198026e80f456746904e3cc46722869aa4cc4"
+    }
+  ]
+}

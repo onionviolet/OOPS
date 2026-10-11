@@ -3992,7 +3992,9 @@ Sources to audit for each realm are listed in
 - **Spirit or ghost.** Belief and anchors keep you real; without them you
   fade. You can possess animals, objects, then people, each a step up.
   Exorcists, priests and mediums are the main observers.
-- **Construct.** Parts replace levels; maintenance replaces food. An owner
+- **Construct.** Parts replace levels; depending on the build,
+  maintenance replaces food (a full robot) or adds to it (a
+  bio-synthetic body, as in Citizen Sleeper). An owner
   can repair, upgrade or sell you. Self-modification and freedom are the
   long goal.
 - **Dungeon or place.** Visitors are your economy and your threat. You
@@ -4010,6 +4012,197 @@ Sources to audit for each realm are listed in
   warnings. The host can refuse you. Your levels grow with theirs.
 - **Concept or force.** A disease spreads, a rumor mutates, a storm
   gathers. Plague Inc. is the model. Mostly for outliers and late game.
+
+### Bodies and their needs: a spectrum (2026-10-10)
+
+Weibao, after the Citizen Sleeper finding that its construct body still
+needs food: "there can of course be full robot where maintenance replaces
+food." Both exist; what a body needs follows what it's made of (rule 4).
+
+| Body | Needs | Repairs by | Example |
+|---|---|---|---|
+| Organic | Food, water, sleep, medicine | Healing, rest | Humans, most beasts |
+| Bio-synthetic (an emulated mind in a grown or hybrid body) | Food plus special drugs or stabilizer; maintenance | Medicine and parts | Citizen Sleeper's Sleeper (food and stabilizer) |
+| Cyborg | Food for the organic part, power and repair for the machine part | Healing and repair, separately | Kenshi's prosthetics, Legendary Mechanic implants |
+| Full robot or construct | Power, maintenance, spare parts; no food | Repair benches, parts, technicians | Kenshi's Skeletons |
+| Golem or animated object | Mana, a binding, a master's command | Re-enchantment | Golem and puppet traditions |
+| Undead | Necrotic energy, souls or blood; no ordinary food | Necromancy, feeding | Liches, vampires |
+| Spirit or ghost | Belief, anchors, emotion | Offerings, reconsecration | Bleach souls; ghost starts |
+| Plant | Light, water, soil, seasons | Growth, grafting | Tree starts |
+| Elemental or energy being | A source of its element | Absorbing its element | Fire spirits |
+| Divine | Worship | Followers, miracles | God starts |
+
+**More on this:**
+- **Needs set the daily loop:** a robot's day plans around power and
+  parts, a vampire's around blood and daylight, a tree's around seasons.
+- **Needs set the economy:** who sells what you need (a parts dealer, a
+  blood broker, a temple), and who controls the supply (Citizen Sleeper's
+  corporate stabilizer).
+- **Needs set the dangers:** starvation for the organic, rust and power
+  loss for the robot, forgetting for the ghost, fire for the tree.
+- **Needs can be leashes:** a supply only one faction provides is a
+  hold over you (ties to held systems and patron terms).
+- **Changing body changes needs:** a cyborg upgrade halves food and adds
+  maintenance; becoming undead swaps food for blood.
+- **Repair is not healing** (Kenshi): a robot doesn't heal by resting;
+  it needs a bench and parts.
+- **Freedom and repair are separate goals** (Citizen Sleeper): fixing the
+  body doesn't free you from whoever owns your parts or your papers.
+- **Idle fit:** the needs a body has decide what can run while you're
+  away (a robot on a charging dock can work all night; a human needs
+  sleep).
+- **Mixed needs are a design space:** a construct with a single organic
+  organ that needs food, a ghost in a robot shell, a tree that hosts a
+  human soul.
+
+**Needs, further (2026-10-10):**
+- **Needs meet worlds:** a robot in a world without electricity must
+  find another power source (mana batteries, steam, a captive lightning
+  spirit); a vampire in a world without people starves; a ghost in a world
+  that doesn't believe in ghosts fades faster. Travel plans start with
+  "what will I eat there?"
+- **Substitutes:** most needs have alternatives at a cost: qi can replace
+  food at high cultivation; a solar shell replaces power; prayer replaces
+  a temple. Finding a substitute is a small quest.
+- **Dependency and addiction:** a supply you can't make yourself (a
+  stabilizer, a blood contract, a patron's mana) can become a dependency
+  with withdrawal, and breaking it is a goal of its own.
+- **Need-based cheats:** "never hungry", a perpetual power core, a
+  self-repairing body; each removes a daily loop and frees time for
+  others.
+- **Needs as social glue:** sharing meals, trading parts, a ghost's
+  community of believers, a vampire's household of willing donors.
+- **Needs as tells:** a construct that never eats, a man who never sleeps,
+  a guest who won't enter a temple; observers notice.
+- **Needs and aging:** organic bodies age; robots wear and get
+  obsolete; spirits fade as belief thins; trees grow old but slowly.
+- **Shared needs for groups:** a crew needs supplies (Citizen Sleeper 2);
+  a sect needs spirit stones; a dungeon needs visitors; a god's church
+  needs donations.
+- **Needs in the UI:** each body shows its own bars in the existing
+  panels (hunger or power or belief), and only the ones it actually has.
+
+
+### Hunger and idle play (2026-10-10)
+
+Weibao: "consider that hunger wasn't a thing in the original game, and if
+adding it would make it harder to be an idle game?"
+
+**What the code has (read, not run):** vanilla YAIR has no hunger meter.
+Food items exist as consumables with timed buff effects (see the
+correction below), and some descriptions mention
+keeping you from going hungry, but nothing tracks it. One expansion
+prototype (`src/nethack_fieldcraft_content.js`) has a small satiety value
+restored by workshop rations, limited to that module.
+
+**The risk is real.** A hunger meter that drains by default fights idle
+play: routines stall when food runs out, being away gets punished, and the
+player micromanages meals instead of choosing what to do. Several audited
+games show the cost: Increlution's offline time burns life, Citizen
+Sleeper 2's stress and supply cascades drew complaints, and Sunless Sea's
+harsh survival was softened in Skies.
+
+**Options (proposal; worlds and bodies choose, rule 2):**
+
+| Option | How it works | Idle fit | Where it fits |
+|---|---|---|---|
+| No hunger | Food is buffs only (vanilla) | Best | The home world by default; gentle lives |
+| Well-fed bonus | Eating gives a buff; not eating just means no buff (the Valheim model, where food raises max health and stamina) | Very good | Most worlds |
+| Upkeep from stock | Meals come out of your stores automatically, like a cost; you only notice when stores run low (RimWorld pawns feed themselves; Melvor-style auto-eat) | Good | Life-sim worlds with households |
+| Ration policy | The player sets a policy once (eat well, eat cheap, fast); routines follow it | Good | Poor or frontier lives |
+| Danger-only hunger | Hunger matters only on expeditions, sieges, voyages, in the wild | Good | Expeditions, Sunless-style voyages |
+| Full survival | A draining meter with starvation | Poor for idle; strong for tension | Harsh worlds and modes, opt-in (Kenshi, Don't Starve) |
+
+**Rules that keep needs idle-friendly (proposal):**
+- **Automatic first:** needs are met from stores without clicks; the
+  player decides policy, not each meal.
+- **Pause, don't punish, while away:** if stores run out offline, routines
+  stop at a safe point and wait (the stop-condition idea), unless the
+  player chose a harsh mode.
+- **Warnings before trouble:** "food for three days" in the existing
+  panels.
+- **Needs as budget, not chores:** food becomes part of a household's
+  daily cost, like rent.
+- **Only the needs a body has:** a robot shows power, a ghost belief, a
+  human food; a cheat or high cultivation can remove the need.
+- **Harshness is a dial:** full survival exists for worlds and lives that
+  want it, never as a hidden default.
+
+**What hunger adds when it's on:** a reason for farming, cooking,
+trade and households to matter; travel planning; poverty that feels real;
+fasting and feasting as events; a cheat like "never hungry" that means
+something.
+
+**Proposal for the home world:** keep vanilla's no-hunger as the starting
+setting, add the well-fed bonus as an optional layer, and let harsher
+needs appear through worlds, bodies, origins (a poor family) or modes.
+
+**Beyond hunger: other needs, idle-friendly (proposal, 2026-10-10):**
+- **Rest as a reward, not a penalty:** time away builds a "rested" bonus
+  that speeds the next session's growth (World of Warcraft's rested XP is
+  the model). This turns being away into a gain, the most idle-friendly
+  way to handle any need. Vanilla already has stamina, so rest exists in a
+  small form.
+- **Mood and comfort:** a good home, company and food lift mood, which
+  gives small bonuses; bad conditions lower it (RimWorld's mood, Kenshi's
+  lack of it). Bonuses first, penalties only in harsh settings.
+- **Social needs:** loneliness for a lone wolf, belonging for a sect
+  member, worship for a god. Met by routines (visiting, letters,
+  ceremonies) that run on their own once set up.
+- **Meaning and purpose:** an immortal or a long life can drift; goals,
+  projects and new worlds feed purpose (ties to "immortal in one world,
+  exploring another").
+- **Hygiene, warmth and shelter:** mostly for harsh worlds and poor lives;
+  otherwise folded into the household's upkeep.
+
+**Food and cooking as depth when it's on:**
+- **Quality and variety:** better meals give better bonuses; eating the
+  same thing loses effect (a light version of the variety rule that keeps
+  crafting interesting).
+- **Food as culture:** each world and region has its own dishes; a
+  traveler's food can be a trade good, a gift or an insult.
+- **Food as power:** spirit beasts' meat in cultivation worlds, monster
+  cooking in dungeon worlds, a chef path that grows busted ("all paths
+  lead to the Dao").
+- **Famine and plenty as world events:** a bad harvest raises prices,
+  moves people and starts wars; a feast builds relationships.
+- **Households eat together:** heirs, apprentices and followers share
+  stores; feeding them is part of keeping them loyal.
+
+**Time scale and needs:**
+- **Needs scale with the body's clock:** a tree's "meal" is a season of
+  rain; a mayfly eats once; an ancient beast sleeps for years.
+- **Needs at high power fade or change:** a cultivator stops needing food
+  (inedia), then needs spirit energy instead; a god stops needing
+  anything but worship.
+
+**Correction and implementation sketch (2026-10-10, code read, not run):**
+- **Vanilla already has the well-fed model.** Meals are usable items that
+  apply timed buffs tagged `food` (for example "Basic meal" adds flat
+  stamina regeneration for a set duration; "Well hydrated" exists too) in
+  `src/active_effects.js` and `src/items.js`. So option 2 above isn't new:
+  it's the original game's design, and the safest base to extend.
+- **Extend, don't replace (proposal):**
+  - **Auto-eat policy:** a routine setting that uses the best food in
+    stock when its buff runs out, so the well-fed buff stays up while
+    idling. Stops when stock is empty, with a warning.
+  - **Rested bonus:** time away adds a capped "rested" active effect on
+    return, using the same active-effect system.
+  - **Upkeep:** households and followers draw from stores at the daily
+    boundary (`advanceSimulationBoundary`), shown as a daily cost.
+  - **Harsh hunger:** a world or mode flag adds a draining need with
+    debuffs instead of buffs; off by default.
+  - **Body-specific needs:** a body declares which need bars it has
+    (food, power, belief), reusing the same buff and upkeep machinery.
+- **Saves:** auto-eat and rested are settings plus active effects, which
+  vanilla already saves; upkeep and harsh hunger need new fields and a
+  migration.
+
+**What to avoid:**
+- Several draining meters at once in a default life.
+- Needs that require clicks every few minutes.
+- Offline needs that end a life silently, outside opt-in harsh modes.
+
 
 ### Immortal in one world, beginning in another
 
@@ -4329,6 +4522,645 @@ on the existing registry (sources, capabilities, hooks, phases C0-C6), a
 progression loop for cheats, and [enemies with cheats](CHEAT_LIBRARY.md#enemies-with-cheats-2026-10-10)
 (the same cards with NPC policies, counters, what happens when a holder
 falls, and who hunts cheaters).
+
+## Systems held back by someone in the world (proposal, 2026-10-10)
+
+Weibao: "I think I once read an RR story with a system that was held back
+by a powerful character in the same world, but it was still influencing
+the main character. It was a cultivation novel I think." Then: "Should it
+be storyteller or book lore?"
+
+**Possible source (from his Royal Road history, synopsis only, not
+confirmed):** *Tale of the Creation of the Heavens* by FallenMoon3 (Royal
+Road fiction 91538, 102 chapters, inactive). Heroes fight the universe's
+strongest being, the Celestial Emperor, and only break off a fragment of
+his divine book; a boy imprisoned by his stepmother receives the fragment.
+The Emperor still holds the rest of the book. Whether the Emperor
+influences the boy through it isn't in the synopsis. Other history titles
+with related shapes: *Godfather's System* (a stolen destiny),
+*Regressed Master: Raising the Son of Heaven* (a heaven-favored disciple
+seen from the master's side), *Homegrown System* (the system's creator
+lives in the world). Weibao to confirm which one he meant.
+
+**Re-audit (2026-10-10, still unfound):** Weibao added that the MC may
+have had SSS-rank sword abilities. All 680 synopses in his RR history were
+scanned, plus the first 3 chapters of the 176 cultivation, xianxia and sect
+titles, looking for "SSS". *Tale of the Creation of the Heavens* is ruled
+out: it has no system and no SSS. The only SSS hit, *Hell of a System*
+(71769), is about a demon core, not a held system. Web searches turned up
+nothing either.
+
+**Confirmed by Weibao (2026-10-10):** *Virtuous Demon: The Unhallowed
+Cultivator* (Royal Road fiction 106630). Shuren is young master of the Liu
+Clan, the strongest sword clan, but a curse stops him using a sword. Tez, a
+disciple with a "System", challenges him, and after that the world around
+Shuren starts shifting: an inheritance appears, demonic sects attack, a
+beast tide, the Unhallowed Monolith wakes, and his reputation collapses.
+The synopsis promises lore for System Transmigrators and their effect on
+the world.
+
+**Deep dive done (2026-10-10, free ch 1-98):** [private synthesis](research/novels/virtuous-demon/SYSTEMS_DEEP_DIVE_2026-10-10.md).
+Three parties restrain each other:
+- **The cultivator MC** has a sealed SSS+ swordsmanship.
+- **A transmigrator rival** has a System that steers him into the MC,
+  edits his doubts and forces his body.
+- **The System is an entity.** It strips the MC's sealed path, then
+  fights and seals the will that came with that path.
+
+Proposals for this section:
+- **A non-holder target view:** a life lived as the person someone else's
+  System is aimed at.
+- **Three cheat cards:** Parasite System, Sealed Blessing and Narrow
+  Curse.
+- **A first slice:** a rival whose System targets the player.
+
+### The idea
+
+A cheat or system isn't always free-floating. Someone in the world can
+own it, hold most of it, have sealed it, or be holding it back, and still
+reach the holder through it. That person becomes part of the cheat:
+patron, jailer, puppeteer or rival.
+
+**Shapes this can take:**
+- **A fragment of someone's artifact:** you hold a piece; the owner holds
+  the rest and can sense, pull or reclaim it (the fragments-of-power idea
+  with a living owner).
+- **A sealed or throttled system:** a powerful being suppresses it, so
+  features stay locked until the seal weakens or the sealer is defeated.
+- **A subroutine of a bigger system:** your personal system is one branch
+  of a holder's higher-level system (system levels S2 under S5 or S6).
+- **A leash:** the system was given to you so someone could steer you
+  (patron terms: lien or leash).
+- **A protective hold:** an ancestor or teacher holds it back because
+  full power would kill you or draw hunters.
+- **A stolen system:** you took it from someone who wants it back.
+
+**How the holder still influences you:**
+- **Quests that serve the holder's goals,** disguised as yours.
+- **Filtered information:** the system hides or bends what you see.
+- **Rewards that nudge:** better rewards for choices the holder likes.
+- **Locks:** features withheld until you do what the holder wants.
+- **Watching:** the holder sees what you see, or feels when you use it.
+- **Dreams, whispers and urges** in worlds where that fits.
+- **Direct pull:** the holder can drain, reclaim or switch it off at a
+  cost.
+
+**What the player can do about it:**
+- **Notice:** inconsistencies in rewards, quests that benefit a stranger,
+  an observer who reads the system's mark (the observation contest).
+- **Learn who holds it,** through research, divination, or the holder
+  revealing themselves.
+- **Choose:** obey, bargain, resist, hide from it, cut it off and lose
+  features, seek the other fragments, free the system, or take the
+  holder's place.
+- **Turn it around:** use the link to spy on the holder, feed it false
+  information, or pull more power from the holder's side.
+
+### Storyteller or book lore?
+
+**Both, at different layers (proposal):**
+- **Lore decides what is true:** who holds the system, why, and what the
+  link can do. In a book world that's the book's lore (rule 3). In an
+  original world it's the world card, or a cheat card's lore field.
+- **The storyteller decides when and how hard it shows up:** when the
+  holder's influence appears, how often quests lean their way, when a
+  seal weakens. It paces the reveal but can't contradict the lore.
+- **In worlds without an authored holder,** a storyteller instance can
+  play one (an emergent holder), which turns an ordinary system into a
+  held one partway through a life.
+- **Fate-style storytellers** (from the earlier storyteller and fate
+  ideas) are themselves a kind of holder: a force steering you through
+  your own cheat.
+
+### More to consider
+
+- **The holder as an enemy with a cheat:** the holder uses the same card
+  from the other side ([enemies with cheats](CHEAT_LIBRARY.md#enemies-with-cheats-2026-10-10)).
+- **Several fragment holders** competing for the whole book, each
+  pulling on the others.
+- **The holder dies:** the hold breaks, the system goes wild, passes to
+  their heir, or becomes fully yours.
+- **The holder is benevolent:** a teacher holding back a cheat until you're
+  ready, which turns a jailer into a mentor.
+- **The system itself has a view:** it may side with you against its
+  holder, or the reverse.
+- **Across lives:** a held cheat carried into the next life brings its
+  holder's attention with it.
+- **A cheat library field:** `holder` (none, owner, sealer, parent
+  system, patron, thief) and `influence` (quests, filter, rewards, locks,
+  watch, pull) on each card.
+
+### Expanded after the Virtuous Demon read (proposal, 2026-10-10)
+
+These are considerations to pick from per world and per character, not a
+spec. A world uses the parts that make sense for it. The tiers are
+examples, and there are more.
+Source notes: [Virtuous Demon synthesis](research/novels/virtuous-demon/SYSTEMS_DEEP_DIVE_2026-10-10.md)
+(private).
+
+**Everyone who can stand around a held system.** Any of these can be the
+player, an NPC, or the player in a later life:
+
+| Role | Their life | What they can do |
+|---|---|---|
+| Holder | Big rewards, shrinking freedom | Obey, bargain, resist, hide it, look for an exit deal |
+| Target | Someone else's system is aimed at you | Read the signs, avoid, counter, befriend the holder, turn the holder |
+| Sealer | Keeps a power or a system locked | Protect, punish, ripen it, hide it from hunters, lose the seal |
+| Sealed heir | Carries a locked gift and sees ??? where grades should be | Grow into it, pay a blood price to use some of it, guard it from thieves |
+| Hitchhiker | A will that rides inside a power or a stolen skill | Wake up in a new host, bargain, compete with the system for the host |
+| Observer | An elder, rival or diviner who notices anomalies | Investigate, report, recruit, protect "a talent before it blooms" |
+| Thief | Takes the system or the sealed gift | Absorb it, and pay with whatever came attached |
+| The system itself | An entity with an agenda | (Later, if ever playable) choose hosts, spend influence, fear the heavens |
+
+**Ways a system can influence its holder.** Each should be legible to the
+player sooner or later:
+- **Rewards that pull:** the bigger the reward, the harder it is to
+  refuse. A hidden `steer` meter rises with what you take.
+- **Conveniences:** the world tilts. A beast spares you, loot appears, a
+  rival shows up exactly where the quest wants. You only see it in
+  hindsight (purple eyes in the book).
+- **Detours:** plans that would settle a conflict peacefully keep
+  falling through.
+- **Memory edits:** doubts vanish behind a headache. A clue tier for
+  the player is spotting the gap.
+- **Forced action:** refusing a mandatory quest risks the system taking
+  the body for one act.
+- **Name blocks:** some names or truths abort when you try to learn them.
+  This is a natural discovery gate for sealed secrets.
+- **Live ledgers:** titles and achievements are revoked when the event
+  behind them reverses.
+
+**Being the target.** This was the missing view:
+- **A threat tag only the holder sees.** The target feels it as bad
+  luck, a rival who grows impossibly fast, and rumors with no author.
+- **Signs you can read:** the holder mutters to nothing, grows too fast,
+  has storage before they should, or uses a soul attack at a rank where
+  that's impossible. These map onto the observation contest.
+- **Counterplay:** hide your true grades, refuse the staged duel, feed
+  the holder false readings, or make the holder an ally against their own
+  system. Or just grow faster than the system expected.
+- **The cost can be personal:** a wound to the soul, a lost path, family
+  trade collapsing under rumors. It should be recoverable through play,
+  not a permanent loss imposed on the player.
+
+**Seals, as a palette:**
+- **Who seals:** an ancestor, a teacher, the heavens, a curse, an enemy,
+  yourself, a system.
+- **Why:** to protect you, to protect others from you, to hide you from
+  hunters, to make you earn it ("a true path is earned"), to punish, or to
+  keep a passenger asleep.
+- **What leaks through:** stances and techniques next to the blocked
+  thing, one move practiced a million times, raw talent at a cost.
+- **How it lifts:** growing into it, the sealer's death, a ritual site
+  (a mountain split in two), theft, a bargain, or a crisis.
+- **What comes with lifting:** the true grade, a passenger's will, the
+  attention of whoever wanted it, and symptoms that follow the power to
+  any new holder.
+
+**Several systems and the heavens:**
+- **A system can be counter-divine:** it hides its holder from fate,
+  divination and the heavens' gaze, and fate storytellers would treat
+  it as an intruder.
+- **Several systems in one world:** rivals, a hierarchy, or a food chain.
+  A system that eats other systems' holders.
+- **Two patrons in one soul** (a system and a hitchhiker) turn the
+  holder's inner life into politics.
+- **Higher hands** (the book's red strings) suggest another player
+  pulling threads above all of them.
+
+**Across lives and prestige:**
+- The system, its agenda and its sealed passengers can carry over, and
+  so can the target's grudge.
+- A target in one life can become a holder in the next, or a sealer
+  protecting a descendant.
+- A sealer who survives remembers you across lives.
+
+**Worlds where this fits** (examples, more exist):
+- **Cultivation:** heavenly blessings and seals are native here.
+- **System apocalypse:** a world full of holders, so a non-holder is
+  rare and interesting.
+- **Magic academy:** a classmate's system rates students.
+- **Modern urban:** a stranger's luck keeps ruining yours.
+- **Book worlds:** wherever the source has a cheat with a patron.
+
+**Tone range.** It can play as comedy ("shitty system"), tragedy (a
+hollowed heir) or horror (a parasite wearing a friend). The storyteller
+picks per world and per character.
+
+**Keeping it fun:**
+- **Legible autonomy loss:** show the meter, and show past events
+  re-read once the player has the clue.
+- **No dead ends:** every hold has an exit, whether a deal, outgrowing
+  it, breaking it, or living with it on good terms.
+- **No lost save or progress beyond what the story offers back:** a lost
+  path opens another path. This matches the life-sim rule that failure
+  is content.
+- **Opt-in intensity:** per-world adjectives set how hard a system can
+  push (gentle nudge up to puppet), never a fixed global rule.
+
+**Engine fields to add to the cheat card** (proposal, on top of
+`holder` and `influence`):
+- `agenda` (hidden)
+- `steer`
+- `autonomy`
+- `sealed_by`
+- `true_grade`
+- `passenger`
+- `threat_tags` (who it targets)
+- `exposure` (observer risk)
+
+The storyteller paces reveals. Lore fixes what is true.
+
+### Weibao's answers and follow-up (2026-10-10)
+
+**1. How visible a threat tag is.** Weibao: "probably as Much as I know?
+they might hate me for whatever reason, like todd for Re:Zero and more and
+I would none the wiser, if I have a relevant specific identification skill
+or something accordingly?"
+
+So the player sees only what their character knows. A tag, a grudge or a
+kill-on-sight judgment stays invisible unless the character has a fitting
+way to learn it. Considerations:
+- **Hostility needs no reason the player can see.** It can be a system
+  tag, a Todd-style gut call that you're dangerous, a prophecy, a
+  past-life grudge, an employer's order, a misread rumor, envy, or
+  something you did that they saw and you forgot. The NPC acts on it,
+  and you may just die or lose out.
+- **Routes to knowing**, each fitting some worlds, characters and
+  times:
+  - identification and appraisal skills
+  - threat sight of your own
+  - emotion or aura reading (the book's Celes sees colours)
+  - divination
+  - mind reading
+  - a spy or friend who tells you
+  - the NPC's own slips
+  - a death summary
+  - a later life's memory
+  - an observation contest won against the NPC's concealment
+- **Partial knowledge is normal.** A skill might show "hostile" without
+  why, or why without who. Readings can be wrong (rulebook), and a
+  skilled hater can mask it.
+- **Learning in hindsight.** When you die or fail to a hidden enemy, the
+  summary may show only what the character could plausibly have pieced
+  together. More arrives in later lives, or never.
+- **It cuts both ways.** NPCs don't see your tags either unless they
+  have the skill, which is what lets a target hide their true grade.
+
+**2. A system entity as a playable character.** Weibao: "Why not?" Allowed
+where a world supports it. Considerations:
+- **The loop:** you are the system. You pick or are bound to a host,
+  then spend influence on quests, rewards, conveniences, edits and
+  takeovers. The host acts on their own most of the time, which suits
+  idle play.
+- **Resources:** influence (earned through the host's growth or deeds
+  you want), host trust or autonomy, exposure to observers and the
+  heavens, and your own agenda's progress.
+- **Pressures:**
+  - the host's will pushing back
+  - observers and rival systems
+  - the heavens or a sealer hunting you
+  - hitchhikers competing for the same host
+  - the host's death, which forces a new host or dormancy
+- **Kinds of system:** benevolent mentor, contract-minded merchant,
+  parasite, a fragment of something bigger, an AI from another world, or
+  a curse that thinks. Each world's adjectives decide which exist.
+- **Ties to existing ideas:** character switching (Hall of Selves),
+  multi-life carryover (a system outlives hosts), the enemies-with-cheats
+  cards played from the system's seat, and the storyteller layer, since a
+  system is a small storyteller with a stake.
+
+**3. Teaching the clues without a tutorial (pondered, proposal):**
+- **Odd before explained.** The first sign is just strange: the rival
+  wins a fight they shouldn't, a beast ignores them. Nothing labels it.
+  Players who shrug still have a normal life.
+- **Patterns, not single events.** One coincidence is luck. The third
+  similar one gets a quiet journal note ("Tez again?") only if the
+  character would notice, which depends on stats like perception, or on
+  having been hurt by it.
+- **NPCs ask the question.** An elder, friend or rival says it aloud:
+  "doesn't he grow too fast?" That can come from the storyteller at a
+  fitting time. It's a nudge, not an answer.
+- **Clue tiers as journal entries.** The book's chain is the template:
+  1. overhearing a strange word
+  2. impossible growth
+  3. an ability nobody at that rank should have
+  4. naming it to their face
+  5. a theory of who's behind them
+
+  Each tier unlocks new actions (watch, ask, test, confront, ally).
+- **Re-reading the past.** Once a tier unlocks, old journal entries can
+  gain a margin note ("that beast's eyes were purple"). The player feels
+  clever in hindsight, and nothing was hidden unfairly.
+- **Failing forward.** Losing to the hidden force is also a clue. The
+  death or setback summary lists anomalies the character saw, never the
+  full truth.
+- **Skills speed it up, never replace play.** An appraisal skill skips a
+  tier or two. Without one, patience and attention get there.
+- **The holder can be a source too.** A rival who doubts their own system
+  might come to you. Tez wanted to talk, and the system kept detouring
+  him.
+- **Calibrate per world.** Dense clues in a gentle world, sparse ones in
+  a harsh one. Some worlds never explain.
+
+Accepted direction from Weibao's answers: hidden intent and a playable
+system entity. Both are recorded in [PROJECT.md](../PROJECT.md). The
+clue-teaching points are still proposals.
+
+## System evolution and beyond (proposal, 2026-10-10)
+
+Weibao: "system evolution, stuff and more? ... I meant like that and
+beyond, just for more ideas."
+
+These are ideas to pick from per world, per character and per time. The
+existing anchors are the system levels in the
+[entry matrix](worlds/BOOK_WORLD_ENTRY_MATRIX.md): S0 none, S1 info,
+S2 helper, S3 shop, S4 authority, S5 world-wide, S6 multiversal, S7 meta.
+The other anchor is the [cheat progression loop](CHEAT_LIBRARY.md#a-good-progression-loop-for-cheats).
+Evolution means moving along those levels and along the other axes
+below. Book examples from the survey are in
+[system-evolution research](research/system-evolution-2026-10-10/SURVEY.md).
+
+### Axes a system can evolve along
+
+| Axis | From | Toward | Example moment |
+|---|---|---|---|
+| Reach (S-levels) | Info panel | Helper, shop, authority, world, multiverse, meta | An Examine that later edits what it reads |
+| Interface | Plain text boxes | A voice, a face, a companion body, a whole inner world | The book's System shows its true form in ch 96 |
+| Mind | No will | A tool, an assistant, a personality, an agenda, a peer | It starts to joke, then to argue, then to ask for things |
+| Allegiance | The creator's | Neutral, then the host's, or turned against both | It sides with you against its holder |
+| Fit to host | Generic game UI | Tuned to this person's life, habits and fears | Quests start to reference your history |
+| Integrity | Clean | Glitched, corrupted, repaired, patched, forked | ??? fields fill in as it heals |
+| Scope of users | One host | A party, a family line, a sect, a whole world | A system that takes subscribers |
+| Origin known | A mystery | Rumors, then its maker, then its purpose | You meet a former host |
+| Cost | Free | Fees, tithes, debts, a leash, symbiosis | It starts charging for what used to be free |
+| Form | Software-like | An artifact, a spirit, an organ, a law of the world | It moves out of your head into a ring, or into the sky |
+
+### Ways it evolves (triggers)
+
+- **Use:** levels from using it, like any skill.
+- **Host growth:** opens up at your breakthroughs (the book's System
+  can't rate anyone above the holder's realm).
+- **Feeding:** points, cores, souls, artifacts, other systems, or
+  knowledge from books read.
+- **Quests and milestones:** the system's own story beats.
+- **Merging:** eating or fusing with another system, a sealed gift, or a
+  world's native power (Tez took a sword path and it fought back).
+- **Damage and repair:** after a crash it reboots changed. Repairs can
+  be done by you, a craftsman, its maker, or by time.
+- **Rule-breaking:** a forbidden act (hacking it, reading its source,
+  defying a mandatory quest) mutates it.
+- **Choice trees:** you pick branches, like a class tree for the system.
+- **Worlds visited:** it picks up modules native to each world (cultivation
+  ranks in one, mana in another).
+- **Lives lived:** across prestige it keeps a seed and regrows
+  differently.
+- **Outside events:** a world update, an apocalypse phase, an admin
+  patch, its creator's war.
+
+### Directions an evolution can go
+
+Not all of these are upgrades:
+- **Up:** new modules, new verbs, higher S-level.
+- **Sideways:** swaps one module for another (shop becomes crafting).
+- **Inward:** fuses into your soul until it's a talent, not a UI. The
+  boxes disappear because you are the system now.
+- **Outward:** becomes a world law others can use, so you're its
+  admin, its priest or its bug.
+- **Down:** a nerf, a lockout, a downgrade after misuse or a hostile
+  patch. You climb back.
+- **Apart:** splits into two (one helpful, one hostile) or sheds a
+  module that becomes its own entity.
+- **Away:** leaves, dies or goes dormant, and you live on your own skill.
+  Its absence becomes a life chapter (Tez yelling for it to come back).
+- **Into someone:** gets a body, becomes an NPC, a companion, a child,
+  a rival.
+
+### Beyond evolution: more ideas
+
+**The system as a relationship:**
+- trust and friction like any companion
+- favors, grudges, inside jokes
+- it can be jealous of other cheats, mentors or lovers
+- breaking up with your system, or reconciling with it
+
+**Systems as a society:**
+- systems talk to each other, trade, war, form unions
+- a system court judges hosts or systems
+- a system market where modules are bought from other systems
+- system ranks: a junior system serving a senior one (S2 under S5)
+
+**Makers and owners:**
+- a gamer god, a dead civilization, a future you, an AI from another
+  world, a heavenly bureaucracy, a curse, a fellow student
+- meeting the maker can be a boss, a job interview, a reunion or a
+  disappointment
+- inheriting a dead maker's admin rights
+
+**The host side:**
+- outgrowing it: you get strong enough that it's training wheels
+- hacking it: exploits, menu glitches, rules-lawyering quest wording
+- writing your own: system maker or crafter routes
+- teaching it: you add modules from your own knowledge (a scientist
+  host gives it a lab)
+- hiding it: different worlds treat holders as saints, heretics,
+  property or prey
+
+**The world side:**
+- world systems that patch mid-life: a balance change hits everyone
+- natives who never had a system, and how they see holders (the book's
+  elders find holders unnatural)
+- a system apocalypse arriving late in an established world
+- heavens versus systems: fate, divination and blessings conflict with
+  or absorb system logic (the System nullifies the "Gaze of Heaven's
+  Eye")
+
+**Shapes that aren't boxes:**
+- a book that writes itself
+- a voice that only rhymes
+- a tattoo that shifts
+- dreams that hand out quests
+- an animal familiar that keeps score
+- a coin that flips for you
+- a ghost grandmother with opinions
+
+The system concept is a frame; the world decides the costume.
+
+**Strange and funny ones:**
+- a system with low self-esteem
+- one that is wrong a lot
+- one that runs ads
+- one written for a different species
+- one that's a beta
+- one that only rewards cooking
+- a system that's also trapped and wants out
+
+**Systems across a lineage:**
+- a family system inherited with grandmother's settings and grudges
+- a system that remembers every host and compares you to them
+- heirs voting on its updates
+
+**Ending a system story:**
+- merged, freed, killed, retired, promoted to world law
+- handed to a child
+- turned into your own technique
+- left behind in another world, still running
+
+### Examples from the survey (synopsis level)
+
+The [survey](research/system-evolution-2026-10-10/SURVEY.md) covers 62 works:
+29 from Weibao's Royal Road history and 33 from Royal Road search, all
+read at synopsis level. Ideas it adds or confirms:
+- **The host built the system:** *Homegrown System* (in Weibao's
+  history). The MC accidentally made the AI that became Earth's System.
+- **It resets when its creator dies:** *Reaper's Resurgence* (history).
+  A world system with a maker who can die.
+- **A secret admin inside it:** *Unwilling Eldritch Horror of Fortune*
+  (history). In *Otherworld Volunteer* (history), admins are the
+  antagonists.
+- **The god leaves and roles shatter:** *The God Shards* (history). The
+  system's god vanishes and the Administrator class breaks into pieces.
+- **It misreads its host:** *Incursion Protocol* (history). A wrong
+  classification as a life you live with.
+- **Eating and merging:** *Skill Eater* (history), plus several merge and
+  fusion titles.
+- **Growth that costs the host:** *The Broken System Trilogy* (history)
+  burns identity, and another title mutates the body.
+- **World patches and phases:** titles like *Patch Monday* and *Hard
+  Reset*. Integration as a timeline.
+- **The pitfall it flags (inferred from blurbs):** "glitch" and "SSS
+  maker" premises often turn into a plain power fantasy. Our guard is
+  that each evolution adds a rule the player has to reason about, not just
+  bigger numbers.
+
+The survey found no reviews, and its notes on well-known Chinese and
+Korean titles come from memory only. Next if wanted: chapter reads of 6 to
+8 titles to see how their systems actually change mid-story.
+
+### Engine notes (proposal)
+
+- **Cheat card fields:** `s_level`, `axes` (current value per axis),
+  `modules` (list with tiers), `mind`, `allegiance`, `integrity`,
+  `origin_known`, `evolution_triggers`, `branch_choices`.
+- **Pacing:** evolution events go through the storyteller so they land
+  at fitting times. One clear step per season fits the cheat loop's
+  season scale.
+- **Verbs over numbers:** each evolution step should add something new to
+  do, per the cheat loop's "growth adds verbs" rule.
+- **Visibility:** the player knows what their character knows. A
+  system's hidden modules and agenda can stay ??? until discovered,
+  which ties into hidden intent and sealed secrets.
+
+## Steam library wave findings (2026-10-10)
+
+Six Codex lanes audited games from Weibao's Steam library, read-only, with
+the unbiased lens ([assignment](gm/dispatch/steam-library-wave-2026-10-10/ASSIGNMENT.md)).
+Each game's full dossier is in `docs/research/<game>/` (REPORT first, then
+FINDINGS, IMPLEMENTATION_PACKETS and SMALL_TOUCHES). Nothing was launched,
+built or committed; all proposals are options. Vagrus is still running and
+will be added when it finishes.
+
+### What each game showed
+
+**Increlution** ([report](research/increlution/REPORT.md)). Repeated
+survival runs get faster. Skill levels, base health, automation and
+artifact powers persist; possessions and buildings reset. *Contradicts us:*
+it replays the same authored opening (no random births or heirs), and
+offline time uses up life. *Worth taking:* a death summary showing exactly
+what survived and why; separating this body's practice from carried
+aptitude; automation earned by repeating familiar work; catch-up that stops
+at the next meaningful decision.
+
+**Sunless Sea** ([report](research/sunless-sea/REPORT.md)). Death is a
+choice about what the next captain receives: a rival can take a weapon, a
+shipmate an officer, a correspondent the chart; a child opens a second
+pick; a will protects the home and stored heirlooms. Stories are storylets
+gated by numeric qualities; a successful investigation can make terror
+worse. *Contradicts us:* most story progress doesn't carry, successors get
+abstract stat fractions, and the developer reports players found the death
+penalty excessive. *Worth taking:* a surviving-estate receipt, visible
+story locks, continuation without blood heirs, threats that open several
+responses.
+
+**Sunless Skies** ([report](research/sunless-skies/REPORT.md)). Broader
+continuity than Sea: the next captain gets the locomotive, banked goods,
+chosen qualities, half the money and most equipment, but picks a new
+origin and ambition. Timed thematic event decks; requirements that are also
+costs; "compromised success" outcomes; terror crises leave Nightmares that
+open later stories. *Discrepancy kept:* the installed code's XP inheritance
+differs from the developer's published description. *Worth taking:*
+separating a person's reset from what the world remembers, an estate with
+named losses, danger with a remembered aftermath, cost and success as
+separate facts.
+
+**Planescape: Torment** ([report](research/planescape-torment/REPORT.md)).
+Death is a story action (it can even be demonstrated for pay). Earlier
+lives persist through body inscriptions, a journal, witnesses and binding
+promises; meeting earlier selves allows different merges. *Contradicts us:*
+it's one authored immortal with curated past selves, not a society or
+lineage, and death is often profitable rather than costly. *Worth taking:*
+one former-life record with two interpretations, a witness who remembers an
+obligation, a hostile earlier self offering a bargain, an enemy switching
+from killing you to containing you.
+
+**Citizen Sleeper** ([report](research/citizen-sleeper/REPORT.md)). A
+construct body whose condition limits the day's action dice; work, food,
+medicine and pursuit overlap. Two kinds of clock: progress from actions,
+and pressure that advances each cycle. *Contradicts our construct idea:*
+the artificial body still needs food, so "maintenance replaces food" isn't
+supported. Repairing the body and becoming free are separate projects;
+personhood and corporate ownership are distinct claims. *Worth taking:* a
+construct start that loses one named capability when a part wears,
+repair through paid service or helping a workshop, institutions that
+disagree about whether you're a person.
+
+**Citizen Sleeper 2** ([report](research/citizen-sleeper-2/REPORT.md)).
+A crew and bounded jobs: each crew member has dice and a stress limit;
+stress damages dice faces; contracts remove repair access; a crisis adds
+pressure each cycle. Difficulty changes bodily recovery (safe, risky,
+dangerous). *Contradicts us:* players in early 2025 reported stress
+cascades felt like losing access to play. *Worth taking:* a crew contract
+with an honest commitment ledger before you start, a crisis that grows
+beside your progress, recovery policies chosen per world.
+
+**Disco Elysium** ([report](research/disco-elysium/REPORT.md)). Skills are
+speakers in dialogue, with their own fallible opinions; 53 thoughts are
+research projects with effects while being researched and when done;
+failures play out as different situations, not just losses. The amnesiac
+start keeps fragments of competence and a specific past. *Discrepancies
+kept:* thought timings differ between sources; players complain about
+failing high-probability checks. *Worth taking:* a work skill that offers
+a private observation, questions that become study projects, failures with
+an authored aftermath, an amnesia origin that keeps your skills while you
+uncover an obligation.
+
+### Patterns across the wave (with evidence named)
+
+- **A receipt for what survives** shows up in Increlution, Sunless Sea and
+  Sunless Skies. All three show the carry explicitly rather than leaving
+  it implicit. This supports the heirs and next-life sections.
+- **The world remembers separately from the person** (Sunless Skies,
+  Planescape): a new person resets while world marks stay.
+- **Pressure and progress are different clocks** (both Citizen Sleepers,
+  Sunless Skies' decks).
+- **Danger leaves an aftermath** (Sunless Skies' Nightmares, Disco's
+  failures, Citizen Sleeper 2's glitches).
+- **Harshness has a cost in player feeling:** Sea's death penalty, Citizen
+  Sleeper 2's stress cascades and Disco's high-probability failures all
+  drew complaints. Harsh options should stay opt-in per world, as the
+  rulebook already allows.
+
+### Contradictions to keep in view
+
+- Construct bodies may still need food (Citizen Sleeper). Weibao: full
+  robots where maintenance replaces food exist too; see the body-needs
+  spectrum under "Who or what you start as".
+- Offline time can cost life (Increlution), against our starting setting.
+- Inheritance can be abstract fractions rather than real things (Sea).
+- A strong "same player, earlier self" source is one authored immortal,
+  not a lineage system (Planescape).
+
+These are each game's rules; per the rulebook, each world chooses its own.
 
 ## Can the current UI show all this? (Claude, 2026-10-08)
 
@@ -5264,8 +6096,9 @@ gets for certain deeds are worth taking.
 - **Stats.** No levels or per-level points. Every skill level adds fixed
   stats; titles, race changes and fruit add more; assigned points come
   only from rewards. No respec. A soft cap: stats grow linearly while
-  tribulations scale faster. Crossing stat thresholds raises your tier
-  and triggers harder tribulations.
+  tribulations scale faster. Crossing stat thresholds queues Normal
+  Tribulations inside a tier; only a High Tribulation changes tier
+  (author Q&A, corrected 2026-10-10).
 - **Enemies** (twelve major rivals tabled in the audit): a rival champion
   who kills him on arrival and becomes a mutual rival; a princess who
   edits probability and later allies; a mind-controlling cult; a king who
@@ -6133,6 +6966,124 @@ The W08 immediate skill grant, restored mastery and borrowed competence qualify 
 
 The earlier waves are integrated as counterexamples, not votes: [W08](research/novels/divergence-earlier-2026-10-10/wave-10-08/NORTH_STAR_FINDINGS.md), [W09](research/novels/divergence-earlier-2026-10-10/wave-10-09/NORTH_STAR_FINDINGS.md), [secondary](research/novels/divergence-earlier-2026-10-10/secondary/NORTH_STAR_FINDINGS.md), [full-book1](research/novels/divergence-earlier-2026-10-10/full-book-1/NORTH_STAR_FINDINGS.md) and [full-book2](research/novels/divergence-earlier-2026-10-10/full-book-2/NORTH_STAR_FINDINGS.md). Their Gluttony servant-division/clock conflicts, Genetic missing36/cut223, LOTM limited reviewed integration, Shadow duplicate2927, weak secondary provenance and unfinished/MTL snapshots remain unresolved. This subsection qualifies the older summaries where they imply universal practice, safe institutions, reversible losses or independent author agreement; it does not edit those historical sections or select another implementation wave.
 
+## What fiction teaches about nonhuman lives (research, 2026-10-10)
+
+Weibao: "expanding on each idea and more, looking at the relevant fictions
+or book worlds around them and more to be inspired and learn from?"
+
+Six Sonnet research passes, one per cluster of bodies, read web summaries,
+wikis and reviews (no full books). Full notes, claim labels (shown, stated,
+inferred, recalled) and URLs are in
+[nonhuman-fiction-2026-10-10](research/nonhuman-fiction-2026-10-10/BRIEF.md):
+[A monster, beast, hive](research/nonhuman-fiction-2026-10-10/A_MONSTER_BEAST_HIVE.md),
+[B object, construct, vehicle](research/nonhuman-fiction-2026-10-10/B_OBJECT_CONSTRUCT_VEHICLE.md),
+[C plant, fungus, nature](research/nonhuman-fiction-2026-10-10/C_PLANT_FUNGUS_NATURE.md),
+[D spirit, undead, shadow](research/nonhuman-fiction-2026-10-10/D_SPIRIT_UNDEAD_SHADOW.md),
+[E dungeon, divine, concept](research/nonhuman-fiction-2026-10-10/E_DUNGEON_DIVINE_CONCEPT.md),
+[F symbiont, system, scale](research/nonhuman-fiction-2026-10-10/F_SYMBIONT_SYSTEM_SCALE.md).
+Everything below is a proposal drawn from them.
+
+### Patterns that showed up in every cluster
+
+- **P1. The genre's main failure is the body turning human too fast.**
+  Tree of Aeons drifts into a realm-hopping general, Overlord and Skeleton
+  Knight start overpowered and humanlike, Parasyte and The Host humanize
+  the alien, dungeon cores get a human avatar early. Rule: a humanlike
+  form or avatar is a late, costly reward with tells (a fox's tail, shadow,
+  reflection, the family dog that barks).
+- **P2. Being heard is a ladder.** Sword: unheard, heard by one wielder,
+  heard by all. Tree: shade, fruit, omen, one person who listens (The
+  Overstory). Ghost: a medium. God: a witnessed miracle. One shared
+  channel ladder, written once, serves every immobile or unseen body.
+- **P3. Many bodies live on what others give them.** Offerings to
+  ancestors (Ghost Festival, Obon), belief (Small Gods), praise (Okami),
+  wielders' deeds, maintenance (Citizen Sleeper), care (tsukumogami turn
+  hostile when neglected). This ties nonhuman lives straight into the
+  family and heirs systems: neglected ancestors go hungry.
+- **P4. Success wakes a response.** Plague Inc.'s cure rises as you
+  spread; Vampire's Masquerade; the guild that notices a growing dungeon;
+  rival pantheons; exorcists. Growth always raises a matching threat.
+- **P5. Offline time is a body state.** Seasons passing for a tree,
+  Torpor for a vampire, waiting between wielders for a sword, the egg
+  before hatching, a dormant seed bank. Each body says what idle time is
+  for it, and it is never empty.
+- **P6. A body starts under a rule or contract.** Murderbot's governor,
+  the golem's name slip, Talos's independence test, Natsume's
+  bodyguard paid by inheritance of the book, Howl's hidden clause. The
+  first big choice is obey, hide or rewrite it.
+- **P7. Some lives win by letting go.** Spiritfarer, The Lovely Bones,
+  The Sixth Sense, naming the shadow in Earthsea, The Host's Wanderer
+  giving up the body. Endings can be release, merging or fading by
+  choice, with a keepsake carried to the next life.
+- **P8. Repetition kills these stories.** Spore's shallow stages, the
+  Chrysalis middle, Mimic's repeated eating, Legend of Keepers' waves,
+  Black & White's loop. Each body needs its verbs to change as it grows.
+
+### The strongest idea per body
+
+| Body | Idea | Source |
+|---|---|---|
+| Monster | Evolution is a scheduled event with a price; a forbidden shortcut carries a bill | So I'm a Spider (level caps, Taboo), xianxia tribulation, kitsune tail ages |
+| Beast or familiar | Contracts with end clauses, revealed over time; returning a name releases | Natsume's Book of Friends |
+| Hive | Size is limited by control; losing a controller sends a brood feral; hives quarrel inside | StarCraft Zerg, The Wandering Inn's Antinium |
+| Heirs for all creatures | Each generation inherits part of what the last learned; children roll from what the parent ate | Children of Time, Re:Monster |
+| Household angle | Being the bug is easy; the family losing your wages is the game | Kafka, The Metamorphosis |
+| Object | A life is a chain of wielders; the bio lists hands | Reincarnated as a Sword, Stormbringer |
+| Object economy | Stock, price, earn points, upgrade: the cleanest idle loop | Reborn as a Vending Machine |
+| Construct | Day as dice, body as debt; a maintenance clock | Citizen Sleeper |
+| House or ship | Cracks in the house track the family's conflict | Encanto, Howl's Moving Castle |
+| Tree | Seasons are the currency; one shared sun; neighbors shade each other | Reborn as a Demonic Tree, Photosynthesis (board game) |
+| Fungus network | A market, not a family: trees trade, cheat and starve neighbors | The 2023 wood-wide-web critiques |
+| Fungus parasite | A staged ladder, and "the fungus is the person" | The Last of Us, The Girl with All the Gifts |
+| Place spirit | Two faces tipped by one event; appearance shows health | Princess Mononoke, Spirited Away |
+| Ghost | Fetters to tend, Passions to fuel you, a Shadow self urging you to stop | Wraith: The Oblivion |
+| Undead | Hunger, Humanity and Exposure pull against each other; Torpor is idle | Vampire: The Masquerade |
+| Undead verb | Eat the dead for a temporary build and a clue | iZombie, Warm Bodies |
+| Retry | A short rewind with memory kept | Ghost Trick, The Skeleton Soldier |
+| Dungeon | Visitors are income and threat; minions have needs | Dungeon Keeper, Dungeon Born |
+| Small god | A jurisdiction ladder: god of one bridge up to City God, demotion for neglect | Chinese tudigong and Chenghuang practice |
+| Any god | Belief has count and kind; a shrine is a save point | Small Gods, Noragami |
+| Concept | A rumor with carriers, a season and an official response | The 1979 Kuchisake-onna rumor |
+| Top of a divine path | Acting the role until it digests, at the risk of losing yourself | Lord of the Mysteries |
+| Symbiont | Two minds propose actions; loyalty drifts toward the host | Parasyte, The Host |
+| System | The system is a character with moods, secrets and its own plan | Reincarnated as a Dragon Hatchling, Sword Art Online's Yui |
+| Fortune | Luck as a pool for family, sect and nation: measured, spent, stolen | Dragon Canon, national destiny novels (take the mechanic, not the nationalism) |
+| Institution spirit | Watches generations with few verbs; the cleanest idle body | Tsukumogami folklore; no protagonist precedent found |
+| Huge bodies | Scale sets the tick; bigger bodies need avatars | Star Maker, Ego the Living Planet |
+
+### Bodies the research added
+
+Grove as one mind; treeship; sacred stump (a felled tree that goes on as
+a shrine or house); seed bank; lichen (two organisms, two voices);
+houseplant; Annihilation-style haunted zone; mushi from Mushishi;
+cerebrate-less brood; egg-saved mind; contract-bound hearth spirit;
+tsukumogami woken by neglect; ikiryo (a living person's wandering
+spirit); zashiki-warashi (a house's luck child); "you are already dead"
+start; wight as Humanity-zero failure; reverse symbiont (you are the
+host); Solaris-style body that makes visitors from memory; nested worlds.
+
+### Where the research pushes back
+
+- **Concept bodies need not be late-game.** The starting realms table
+  calls them rare outliers. A rumor with carriers and a season is a
+  playable early start.
+- **Shadow starts have no protagonist precedent** found; the shadow is
+  always a threat or servant. That is open design room, not proof it
+  works.
+- **Tree novels are weaker on the tree than expected.** Board games,
+  Mononoke and The Overstory taught more than the web novels did.
+- **Fungus and plant idle games are a real market gap** (none found;
+  search not exhaustive).
+
+### Evidence limits
+
+No novel was read in full. Unverified or thin: Slime's detailed
+mechanics, Fated Villain's ring spirit, Legendary Mechanic, Kairos as a
+god-belief work, Dungeon Core Online, the Lord of the Mysteries rumor
+pathway, Cultist Simulator's Hours, Tree of Aeons' movement rules, Bleach's
+Hollow ladder, and the Chinese system and fortune novels. Each file's open
+questions list what a chapter-level read should check.
+
 ## Considerations wave, 2026-10-10 (pointer)
 
 A session with Weibao produced a set of **considerations** (palettes for
@@ -6148,9 +7099,114 @@ disturbed), [selves and echoes](SELVES_AND_ECHOES.md),
 [trials and tribulations](TRIALS_AND_TRIBULATIONS.md),
 [abuse and limits](ABUSE_AND_LIMITS.md),
 [presentation and the fourth wall](PRESENTATION_AND_FOURTH_WALL.md),
-[cosmic events](COSMIC_EVENTS.md). Weibao's words for each are in
+[cosmic events](COSMIC_EVENTS.md),
+[technology and progression](TECHNOLOGY_AND_PROGRESSION.md). Weibao's words for each are in
 [USER_VISION](USER_VISION.md). Implementation slices are parked; this was
 ideaboarding.
+
+## Skills, constitutions and everyday interactions (Codex proposals, 2026-10-10)
+
+Weibao asked: "Ideaboard skills and constitutions and little stuff and more?
+Engine extensions to allow for more stuff? more to consider?"
+
+Everything below is a consideration, not an accepted rule, implementation
+order or new gameplay. Builds on skill evolution, gimmick depth, bodies and
+the little-stuff sections above. World and source rules decide which examples
+fit. No universal flaw, slot limit, evolution cost or mandatory trade-off is
+introduced. Existing sealed truths stay sealed.
+
+### P6 Skills have methods, habits and histories
+
+The same skill can be practiced with different tools, senses, bodies and
+intentions. A cook learns heat through touch, timing, smell or an instrument;
+the resulting methods can share competence without being identical. Consider
+precision, reach, speed, efficiency, control and improvisation as independent
+improvements when useful, rather than six compulsory progress bars.
+
+Repeated use can produce a personal habit: catching a falling cup, checking
+an exit or feeling a loose joint in a tool. Whether that becomes automatic,
+deliberate, teachable or supernatural depends on the method and world.
+Mastery can remove an old requirement, invent a new application or reach
+beyond a teacher's version. Fusion need not erase the originals; branching
+need not be exclusive. A flawed manual, self-taught shortcut and refined
+school method can have distinct histories and practical results.
+
+### P7 Constitutions change processes, not just totals
+
+A constitution may be inherited, grown, grafted, engineered, bestowed or
+temporarily induced. Distinguish what the body actually does from its name,
+diagnosis and reputation. Bloodline can describe descent, constitution a
+functioning bodily arrangement and condition a current change, with overlap
+where the world says so. None requires a fixed rarity ladder or weakness.
+
+Original possibilities, openly proposed and not assigned to any sealed world:
+
+| Possibility | Ordinary consequence | Further development |
+|---|---|---|
+| Heat-storing tissues | Hold warmth after leaving a forge; change how a cold room feels | Learn controlled release, redirect heat into work or develop a new organ |
+| Living mineral bones | Weight, resonance, nourishment and tool fit change | Grow a chosen mineral structure, repair fractures or cultivate vibration sensing |
+| Distributed nervous system | Several limbs can coordinate work differently | Train independent attention, change sensory integration or operate through a graft |
+| Porous energy channels | Local energy enters and leaves through actual contact | Learn selective intake, seal an opening or use the flow for another technique |
+| Body adapted to an unusual environment | Movement, senses and recovery fit that environment | Broaden tolerance, make a specialized form or use equipment for another habitat |
+
+Acquisition, awakening, stabilization, refinement, suppression and replacement
+are possible transitions, not one required sequence. Partial changes matter:
+an altered hand need not transform the whole body. Genuine superiority is
+allowed. Compatibility, costs and consequences follow the actual mechanism.
+
+### P8 Small details can be evidence or opportunities
+
+Warm skin leaves a chair warm. Calluses change a handshake. A repaired handle
+fits its maker's grip. A teacher notices their pupil's characteristic pause.
+A tailor learns to accommodate a growing body. A familiar animal responds to
+scent rather than the name on a character sheet. A recipe needs adjustment
+after crossing to a place with different heat or ingredients.
+
+Let details sometimes affect a real action: who recognizes you, which tool
+fits, what a specialist can infer or what service is offered. Other details
+can simply make a life feel lived. Neither chores nor a reward for every
+observation are required. Habits and descriptions should reflect actual
+history, with variation and restraint instead of repeated notification spam.
+
+### P9 Engine extension candidates
+
+Source read, not runtime tested in this review: native `Skill` has milestones,
+parent relationships and conditional XP; `body_progression.js` authors bounded
+training, conditions and sources; `capabilities.js` queries source provenance
+with max/sum aggregation; `power_models.js` previews several model families;
+`skill_expansion_host.js` projects discovered methods into existing UI.
+This establishes useful extension points, not complete support for the ideas.
+
+| Candidate | What it would enable | Integration consideration |
+|---|---|---|
+| Structured action context | A use records actor, body part, method, target, tool, material, environment and outcome | Extend existing commands and receipts; optional fields only where meaningful |
+| Functional body components | Organs, limbs and channels provide senses, transformations, needs and executable support | Feed native stats, work and combat from the same body facts; named metadata alone does not perform the function |
+| Conditional effects and composition | A skill, constitution, item and environment jointly change an action | Define effect order, scope, provenance and recursive interaction handling; preserve powerful intended synergies |
+| Development and method lineage | Personal variants, discoveries, teaching, hybridization and changed requirements | Link acquired versions to their origins and save transitions through existing publication; avoid parallel XP owners |
+| Observer-specific presentation | Body clues, diagnoses and skill estimates depend on who observed what | Project known claims to menus, descriptions and Notebook; prevent hidden requirements from leaking through labels |
+
+Authoring should support narrow handlers for mechanisms that cannot fit a
+simple data rule. Unsupported effects need a clear author-facing result,
+rather than a card that appears functional but never changes play. Shared
+handlers should serve NPCs where their bodies, means and world rules allow.
+Schema changes need migration or an explicit compatibility decision; missing
+old-save fields must not invent a constitution, training or past encounter.
+
+### P10 More connections to consider
+
+Teaching across different bodies; diagnosis that changes after a new test;
+equipment made for someone else's proportions; prostheses and borrowed senses;
+temporary transformations that leave learned habits; recovery that preserves
+some adaptations and removes others; inherited traits whose expression
+depends on environment; a constitution becoming a profession's advantage;
+local institutions recognizing demonstrated competence rather than names;
+and techniques that keep working after their original power source changes
+because the body or practitioner has learned another way.
+
+The useful design question is: what changes in an ordinary decision, an
+extraordinary use and another person's response? These are prompts for
+ideaboarding, not required tests for every cosmetic detail. No playable
+slice is selected by this section.
 
 
 ## TTKS five-book findings (2026-10-10)
@@ -6446,3 +7502,13 @@ life: aging, parenting, long marriage, decades-long careers, cheat costs,
 money or illness as the spine, and domestic nonhuman lives. Thirteen
 platform conventions (RR1 to RR13) are presentation ideas. All of it is
 proposal, not accepted.
+
+## Death and reset batch (pointer, 2026-10-10)
+
+Six deep dives (SSS-Class Suicide Hunter, All You Need Is Kill, Absolute
+Regression, The World After the Fall, A Knight Who Eternally Regresses,
+Second Life Ranker) are pulled together in
+[docs/research/DEATH_AND_RESET_CONSIDERATIONS_2026-10-10.md](research/DEATH_AND_RESET_CONSIDERATIONS_2026-10-10.md).
+Its main proposal: model a reset as six dials (trigger, anchor, carry set,
+cost, witnesses, exit) set per world, so the first prestige layer is one
+setting of a general engine. Proposal, not accepted.

@@ -1,0 +1,47 @@
+{
+  "status": "bounded-static-source-audit-complete",
+  "reviewed": [
+    "research purchase/prerequisite/effect application",
+    "selected 196-entry research data, 220 window records and 12 file definitions",
+    "typed routing, resource process bottlenecks, upload payouts",
+    "lab consumption and research upgrades",
+    "processor heat, continuous producer nodes",
+    "offline reserve, backup rotation, schema conversions, graph persistence",
+    "reboot, portal refund and wipe"
+  ],
+  "recovery": {
+    "gd_count": 457,
+    "blank_gd_count": 11,
+    "zero_failed_conversions": true,
+    "blank_automation_paths": [
+      "scripts/scripts_tab.gd",
+      "scenes/windows/scripts/window_script_artifact_finder.gd",
+      "scenes/windows/scripts/window_script.gd",
+      "scenes/windows/scripts/window_script_overclocker.gd",
+      "scenes/windows/scripts/window_script_time_skipper.gd",
+      "scenes/windows/scripts/window_script_charger.gd",
+      "scenes/windows/scripts/window_script_discharger.gd",
+      "scenes/windows/scripts/window_script_battery.gd"
+    ]
+  },
+  "static_json_count": 17,
+  "strict_json_gap": "connectors.json has a trailing comma; not parsed or used in claims",
+  "not_reviewed": [
+    "scene defaults/wiring",
+    "translations and narrative",
+    "all 196 research entries individually",
+    "all windows/recipes/balance",
+    "addons networking/account/premium implementation",
+    "DLC entitlement and payload completeness"
+  ],
+  "not_exercised": [
+    "game launch",
+    "runtime/UI/pacing",
+    "automation script-family behavior",
+    "save/reload/import",
+    "reset/retention in runtime"
+  ],
+  "source_audit_complete": true,
+  "complete_means": "requested research lens at static code/data level only, with unavailable automation families explicitly bounded",
+  "proposals_not_accepted": true
+}

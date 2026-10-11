@@ -1,0 +1,3327 @@
+{
+  "schema_version": 1,
+  "lane": "D broad-scout",
+  "date": "2026-10-10",
+  "status": "metadata survey complete",
+  "scope": "Public metadata only, not full-text verification, source acquisition or gameplay.",
+  "novelty_scale": {
+    "1": "Cosmetic variation",
+    "2": "Familiar family with a minor condition",
+    "3": "Useful distinct variant",
+    "4": "Changes a decision or carrier relationship",
+    "5": "Changes rule ownership, interpretation or system behavior"
+  },
+  "candidates": [
+    {
+      "title": "I Have a Super USB Drive",
+      "original_title": "我有超体U盘",
+      "author": "Darkness Black Bear / 黑暗狗熊",
+      "platform": "Webnovel licensed English edition; original platform not verified by accessed metadata",
+      "summary": "A biology student finds a USB drive with hidden operating rules and studies it to pursue wealth, longevity and power. Indexed reader reviews describe exporting items from films, turning fictional technology into experimental inputs. The useful lead is selective extraction through one physical carrier, with eligibility rules still needing direct reading.",
+      "lenses": [
+        "systems with strange prices",
+        "inspectors and rule enforcers",
+        "immortality and revival"
+      ],
+      "novelty_score": 4,
+      "source_urls": [
+        "https://www.webnovel.com/book/i-have-a-super-usb-drive_17527881305321505",
+        "https://www.novelupdates.com/series/i-have-a-super-usb-drive/"
+      ],
+      "evidence_scope": "indexed metadata",
+      "verified_hook": "Official indexed synopsis confirms a physical USB drive with discoverable rules and an immortality goal. Film-item extraction is corroborated only by indexed reviews.",
+      "unknowns": [
+        "Exact extraction whitelist, charging cost and whether entries become real worlds.",
+        "Original publishing platform is not established by the accessed index."
+      ],
+      "proposal": "Proposal: give a power-export device explicit eligible source objects, tests and a real carrier.",
+      "deep_read_rank_cn": 1,
+      "review_only_lead": "NovelUpdates reviews by Alex Woods (2021-04-06) and Goth667 (2021-09-05) describe film-item extraction; do not treat their later-world claims as canon.",
+      "source_evidence": [
+        {
+          "url": "https://www.webnovel.com/book/i-have-a-super-usb-drive_17527881305321505",
+          "kind": "official_publisher",
+          "evidence_scope": "indexed metadata",
+          "supports": "Indexed official English book landing page supports English author identity, Webnovel platform and synopsis; reviews/catalog claims are qualified separately."
+        },
+        {
+          "url": "https://www.novelupdates.com/series/i-have-a-super-usb-drive/",
+          "kind": "public_catalog",
+          "evidence_scope": "indexed metadata",
+          "supports": "Indexed series entry supports listed author, original/English publisher where stated, original title and the bounded synopsis/tag/review claims distinguished in verified_hook."
+        }
+      ],
+      "power_currency": null,
+      "acquisition_gate": "Finding the physical USB drive",
+      "cost": null,
+      "persistence": null,
+      "draft_owner": "drafts/chinese.json",
+      "language_group": "Chinese",
+      "id": "D001",
+      "novelty_basis": "Editorial estimate of the advertised hook against E8-E8D and prior lanes, not a popularity or literary score.",
+      "adaptation_status": "proposal; not accepted or implemented",
+      "claim_status": "metadata-supported hook; review details remain leads; exact world rules need selected text",
+      "source_ids": [
+        "D001-S1",
+        "D001-S2"
+      ]
+    },
+    {
+      "title": "My Cell Prison",
+      "original_title": "我的细胞监狱",
+      "author": "Yellow Shirt Fatty / 穿黄衣的阿肥",
+      "platform": "Qidian original; Webnovel English edition",
+      "summary": "The protagonist is reborn as a cell and uses a prison-linked power in a world of awakened ancient beings. Official metadata names several human growth disciplines. Indexed reviews add a portable prison and replaceable body parts, suggesting that anatomy can become a loadout while identity persists outside one fixed body.",
+      "lenses": [
+        "mimics and hidden identities",
+        "shards and inheritance",
+        "immortality and revival"
+      ],
+      "novelty_score": 4,
+      "source_urls": [
+        "https://www.webnovel.com/book/my-cell-prison_16880586105601605",
+        "https://book.qidian.com/booklist/detail/647039/1/"
+      ],
+      "evidence_scope": "indexed metadata",
+      "verified_hook": "Indexed publisher synopsis confirms cell rebirth and prison-code power. Portable storage and replaceable anatomy remain review-only leads.",
+      "unknowns": [
+        "Limits on body-part selection, organism storage and disguise.",
+        "Which memories, skills and liabilities follow an acquired part."
+      ],
+      "proposal": "Proposal: separate consciousness, cell core, replaceable anatomy and prison custody.",
+      "deep_read_rank_cn": 2,
+      "review_only_lead": "Webnovel review by Usagi_mofu reports portable prison storage, face changes and body-part replacement; catalog chapter 5 is titled Portable Prison.",
+      "source_evidence": [
+        {
+          "url": "https://www.webnovel.com/book/my-cell-prison_16880586105601605",
+          "kind": "official_publisher",
+          "evidence_scope": "indexed metadata",
+          "supports": "Indexed official English book landing page supports English author identity, Webnovel platform and synopsis; reviews/catalog claims are qualified separately."
+        },
+        {
+          "url": "https://book.qidian.com/booklist/detail/647039/1/",
+          "kind": "publisher_hosted_catalog_and_reader_list",
+          "evidence_scope": "indexed metadata",
+          "supports": "Indexed publisher-hosted title/author entry and reproduced author synopsis; booklist owner commentary is a secondary reader lead."
+        }
+      ],
+      "power_currency": null,
+      "acquisition_gate": "Rebirth as a cell carrying prison-code power",
+      "cost": null,
+      "persistence": null,
+      "draft_owner": "drafts/chinese.json",
+      "language_group": "Chinese",
+      "id": "D002",
+      "novelty_basis": "Editorial estimate of the advertised hook against E8-E8D and prior lanes, not a popularity or literary score.",
+      "adaptation_status": "proposal; not accepted or implemented",
+      "claim_status": "metadata-supported hook; review details remain leads; exact world rules need selected text",
+      "source_ids": [
+        "D002-S1",
+        "D002-S2"
+      ]
+    },
+    {
+      "title": "Let Me Game in Peace",
+      "original_title": "我只想安静地打游戏",
+      "author": "Twelve-Winged Dark Seraphim / 十二翼黑暗炽天使",
+      "platform": "Qidian original; Webnovel English edition",
+      "summary": "Real dimensional zones become dungeon instances on a phone. One drop of blood buys another game life, while defeated creatures yield crystals, skills and companion beasts. This separates bodily danger from repeated simulated attempts, but still makes repetition consume something in the real body instead of offering an unlimited reset button.",
+      "lenses": [
+        "simulators and draws",
+        "systems with strange prices",
+        "immortality and revival"
+      ],
+      "novelty_score": 5,
+      "source_urls": [
+        "https://www.novelupdates.com/series/let-me-game-in-peace/",
+        "https://www.webnovel.com/comic/let-me-game-in-peace_23185067706498601"
+      ],
+      "evidence_scope": "indexed metadata",
+      "verified_hook": "Indexed novel description explicitly states blood-funded game lives, phone dungeon copies and transferable monster rewards. Official comic synopsis supports the blood/phone premise.",
+      "unknowns": [
+        "Blood recovery and retry limits.",
+        "What information or loot cannot leave the phone and how faithfully the copy matches reality."
+      ],
+      "proposal": "Proposal: let a safe rehearsal spend a real bodily resource and export only named reward types.",
+      "deep_read_rank_cn": 3,
+      "source_evidence": [
+        {
+          "url": "https://www.novelupdates.com/series/let-me-game-in-peace/",
+          "kind": "public_catalog",
+          "evidence_scope": "indexed metadata",
+          "supports": "Indexed series entry supports listed author, original/English publisher where stated, original title and the bounded synopsis/tag/review claims distinguished in verified_hook."
+        },
+        {
+          "url": "https://www.webnovel.com/comic/let-me-game-in-peace_23185067706498601",
+          "kind": "official_adaptation_synopsis",
+          "evidence_scope": "indexed metadata",
+          "supports": "Indexed official comic synopsis supports blood-funded phone-dungeon premise only; novel author/publisher derives from NovelUpdates."
+        }
+      ],
+      "power_currency": "Blood for game lives; monster crystals as upgrades",
+      "acquisition_gate": null,
+      "cost": "One drop of blood per game life",
+      "persistence": "Game rewards provide real stat/skill/companion gains",
+      "draft_owner": "drafts/chinese.json",
+      "language_group": "Chinese",
+      "id": "D003",
+      "novelty_basis": "Editorial estimate of the advertised hook against E8-E8D and prior lanes, not a popularity or literary score.",
+      "adaptation_status": "proposal; not accepted or implemented",
+      "claim_status": "metadata-supported hook; review details remain leads; exact world rules need selected text",
+      "source_ids": [
+        "D003-S1",
+        "D003-S2"
+      ]
+    },
+    {
+      "title": "Losing Money to Be a Tycoon",
+      "original_title": "亏成首富从游戏开始",
+      "author": "Inebriation-seeking Blue Shirt / 青衫取醉",
+      "platform": "Qidian original; Webnovel English edition",
+      "summary": "A system rewards a businessman for losing money, so apparently bad projects become his intended progression route. Employees read those choices as brilliant leadership and accidentally make them profitable. Reviews describe separate company and personal funds, making bookkeeping categories and other people's independent actions central to exploiting the reward rule.",
+      "lenses": [
+        "power paths with odd currencies",
+        "rule-abuse and gag physics",
+        "systems with strange prices"
+      ],
+      "novelty_score": 5,
+      "source_urls": [
+        "https://www.webnovel.com/book/15705498105694305",
+        "https://www.novelupdates.com/series/losing-money-to-be-a-tycoon/"
+      ],
+      "evidence_scope": "indexed metadata",
+      "verified_hook": "Official indexed synopsis confirms the loss-reward system and failed attempts to make unsuccessful games. Separate ledgers and conversion details are review-only in this scout.",
+      "unknowns": [
+        "Settlement periods, conversion rates and prohibited spending.",
+        "Which losses count and who judges deliberate waste."
+      ],
+      "proposal": "Proposal: use a reward system whose accounting objective conflicts with the helpers' own goals.",
+      "deep_read_rank_cn": 4,
+      "review_only_lead": "NovelUpdates reviews by fireutsie (2021-01-02) and Macho (2020-10-02) describe separate funds and conversion rules; numerical examples are not accepted as canonical.",
+      "source_evidence": [
+        {
+          "url": "https://www.webnovel.com/book/15705498105694305",
+          "kind": "official_publisher",
+          "evidence_scope": "indexed metadata",
+          "supports": "Indexed official English book landing page supports English author identity, Webnovel platform and synopsis; reviews/catalog claims are qualified separately."
+        },
+        {
+          "url": "https://www.novelupdates.com/series/losing-money-to-be-a-tycoon/",
+          "kind": "public_catalog",
+          "evidence_scope": "indexed metadata",
+          "supports": "Indexed series entry supports listed author, original/English publisher where stated, original title and the bounded synopsis/tag/review claims distinguished in verified_hook."
+        }
+      ],
+      "power_currency": "Business losses credited by a reward system",
+      "acquisition_gate": "System obtained after rebirth",
+      "cost": null,
+      "persistence": null,
+      "draft_owner": "drafts/chinese.json",
+      "language_group": "Chinese",
+      "id": "D004",
+      "novelty_basis": "Editorial estimate of the advertised hook against E8-E8D and prior lanes, not a popularity or literary score.",
+      "adaptation_status": "proposal; not accepted or implemented",
+      "claim_status": "metadata-supported hook; review details remain leads; exact world rules need selected text",
+      "source_ids": [
+        "D004-S1",
+        "D004-S2"
+      ]
+    },
+    {
+      "title": "Astral Apostle",
+      "original_title": "星界使徒",
+      "author": "Qi Peijia / 齐佩甲",
+      "platform": "Qidian original; Webnovel English edition",
+      "summary": "One traveler creates separate apostle bodies as soul vessels and projects them into other realms under different identities. Each new vessel resembles another birth rather than a simple portal trip. The sharp hook is a traveler maintaining many local bodies and biographies while the underlying person remains tied to a home civilization.",
+      "lenses": [
+        "mimics and hidden identities",
+        "shards and inheritance",
+        "immortality and revival"
+      ],
+      "novelty_score": 5,
+      "source_urls": [
+        "https://www.webnovel.com/book/astral-apostle_21638395405875905",
+        "https://www.novelupdates.com/series/astral-apostle/"
+      ],
+      "evidence_scope": "indexed metadata",
+      "verified_hook": "Official indexed synopsis confirms created soul vessels, realm projection and distinct identities.",
+      "unknowns": [
+        "Vessel autonomy when not controlled.",
+        "Death handling, trait constraints and what returns to the home body."
+      ],
+      "proposal": "Proposal: give each projected life a local body and identity while tracking a separate traveling self.",
+      "deep_read_rank_cn": 5,
+      "source_evidence": [
+        {
+          "url": "https://www.webnovel.com/book/astral-apostle_21638395405875905",
+          "kind": "official_publisher",
+          "evidence_scope": "indexed metadata",
+          "supports": "Indexed official English book landing page supports English author identity, Webnovel platform and synopsis; reviews/catalog claims are qualified separately."
+        },
+        {
+          "url": "https://www.novelupdates.com/series/astral-apostle/",
+          "kind": "public_catalog",
+          "evidence_scope": "indexed metadata",
+          "supports": "Indexed series entry supports listed author, original/English publisher where stated, original title and the bounded synopsis/tag/review claims distinguished in verified_hook."
+        }
+      ],
+      "power_currency": null,
+      "acquisition_gate": "Awakened realm-travel power; created apostle soul vessels",
+      "cost": null,
+      "persistence": "One traveler uses different created vessels and identities",
+      "draft_owner": "drafts/chinese.json",
+      "language_group": "Chinese",
+      "id": "D005",
+      "novelty_basis": "Editorial estimate of the advertised hook against E8-E8D and prior lanes, not a popularity or literary score.",
+      "adaptation_status": "proposal; not accepted or implemented",
+      "claim_status": "metadata-supported hook; review details remain leads; exact world rules need selected text",
+      "source_ids": [
+        "D005-S1",
+        "D005-S2"
+      ]
+    },
+    {
+      "title": "Seized by the System",
+      "original_title": "我被系统托管了",
+      "author": "Mu Heng / 木恒",
+      "platform": "Qidian original; Webnovel English edition",
+      "summary": "A man receives a system but loses control of his body to it. Instead of pressing upgrade buttons himself, he must live with an autonomous operator that acts through his physical form. The system and person can have separate motives and strengths, making advice, access and delegated control the real power interface.",
+      "lenses": [
+        "mimics and hidden identities",
+        "inspectors and rule enforcers",
+        "rule-abuse and gag physics"
+      ],
+      "novelty_score": 4,
+      "source_urls": [
+        "https://www.novelupdates.com/series/seized-by-the-system/",
+        "https://book.qidian.com/booklist/detail/633338/1/"
+      ],
+      "evidence_scope": "indexed metadata",
+      "verified_hook": "Indexed description confirms the system takes over the body; a Qidian-hosted booklist reproduces the official body-loss synopsis.",
+      "unknowns": [
+        "How body access is negotiated or restored.",
+        "Whether moral rules bind the operator, the owner or both."
+      ],
+      "proposal": "Proposal: distinguish owning a body from controlling its actions and advising its operator.",
+      "source_evidence": [
+        {
+          "url": "https://www.novelupdates.com/series/seized-by-the-system/",
+          "kind": "public_catalog",
+          "evidence_scope": "indexed metadata",
+          "supports": "Indexed series entry supports listed author, original/English publisher where stated, original title and the bounded synopsis/tag/review claims distinguished in verified_hook."
+        },
+        {
+          "url": "https://book.qidian.com/booklist/detail/633338/1/",
+          "kind": "publisher_hosted_catalog_and_reader_list",
+          "evidence_scope": "indexed metadata",
+          "supports": "Indexed publisher-hosted title/author entry and reproduced author synopsis; booklist owner commentary is a secondary reader lead."
+        }
+      ],
+      "power_currency": null,
+      "acquisition_gate": "System takes over the body",
+      "cost": null,
+      "persistence": "Person remains conscious while system holds bodily control",
+      "draft_owner": "drafts/chinese.json",
+      "language_group": "Chinese",
+      "id": "D006",
+      "novelty_basis": "Editorial estimate of the advertised hook against E8-E8D and prior lanes, not a popularity or literary score.",
+      "adaptation_status": "proposal; not accepted or implemented",
+      "claim_status": "metadata-supported hook; review details remain leads; exact world rules need selected text",
+      "source_ids": [
+        "D006-S1",
+        "D006-S2"
+      ]
+    },
+    {
+      "title": "Soul of Negary",
+      "original_title": "奈格里之魂",
+      "author": "Xu Ming / 虚鸣",
+      "platform": "Qidian original; Webnovel English edition",
+      "summary": "The starting protagonist is tricked into travel and stripped of his protagonist aura, leaving a remnant soul. The metadata reverses the usual benevolent-system premise: even narrative advantage can be harvested. Reader reviews suggest growth by absorbing souls and remaking identity, so the research target is what remains continuous as the original self erodes.",
+      "lenses": [
+        "shards and inheritance",
+        "immortality and revival",
+        "systems with strange prices"
+      ],
+      "novelty_score": 4,
+      "source_urls": [
+        "https://www.webnovel.com/book/soul-of-negary_17914721805523705",
+        "https://www.novelupdates.com/series/soul-of-negary/"
+      ],
+      "evidence_scope": "indexed metadata",
+      "verified_hook": "Indexed synopsis confirms a deceived traveler, stolen protagonist aura and remnant soul. Soul absorption and changing identity are review-only leads.",
+      "unknowns": [
+        "What aura actually does and how it can be transferred.",
+        "Soul compatibility, identity loss and how distributed manifestations are controlled."
+      ],
+      "proposal": "Proposal: allow a stolen narrative advantage to leave a surviving but changed power carrier.",
+      "review_only_lead": "NovelUpdates review by Mors86 (2020-10-12) describes soul consumption and loss of the old human identity; later metaphysical claims remain unverified.",
+      "source_evidence": [
+        {
+          "url": "https://www.webnovel.com/book/soul-of-negary_17914721805523705",
+          "kind": "official_publisher",
+          "evidence_scope": "indexed metadata",
+          "supports": "Indexed official English book landing page supports English author identity, Webnovel platform and synopsis; reviews/catalog claims are qualified separately."
+        },
+        {
+          "url": "https://www.novelupdates.com/series/soul-of-negary/",
+          "kind": "public_catalog",
+          "evidence_scope": "indexed metadata",
+          "supports": "Indexed series entry supports listed author, original/English publisher where stated, original title and the bounded synopsis/tag/review claims distinguished in verified_hook."
+        }
+      ],
+      "power_currency": null,
+      "acquisition_gate": "Deceived travel and stolen protagonist aura",
+      "cost": null,
+      "persistence": "A remnant soul survives the loss",
+      "draft_owner": "drafts/chinese.json",
+      "language_group": "Chinese",
+      "id": "D007",
+      "novelty_basis": "Editorial estimate of the advertised hook against E8-E8D and prior lanes, not a popularity or literary score.",
+      "adaptation_status": "proposal; not accepted or implemented",
+      "claim_status": "metadata-supported hook; review details remain leads; exact world rules need selected text",
+      "source_ids": [
+        "D007-S1",
+        "D007-S2"
+      ]
+    },
+    {
+      "title": "My Divine Diary",
+      "original_title": "我的成神日志",
+      "author": "Dali Bao / 大力宝",
+      "platform": "Qidian",
+      "summary": "An accident grants infinite reincarnation, yet the protagonist repeatedly dies before reaching adulthood. Continuity alone does not supply a safe childhood, a useful body or social protection. The metadata frames godhood as the result of knowledge collected across many failed lives, turning survival of the next developmental stage into a meaningful progression gate.",
+      "lenses": [
+        "immortality and revival",
+        "shards and inheritance",
+        "power paths with odd currencies"
+      ],
+      "novelty_score": 4,
+      "source_urls": [
+        "https://www.novelupdates.com/series/my-divine-diary/"
+      ],
+      "evidence_scope": "indexed metadata",
+      "verified_hook": "Indexed synopsis confirms infinite reincarnation, repeated childhood death and knowledge accumulation toward divinity.",
+      "unknowns": [
+        "Whether death ages are a hard rule or a starting pattern.",
+        "Memory storage, rebirth targeting and research methods that survive changes of world."
+      ],
+      "proposal": "Proposal: make repeated life retain knowledge while still requiring protection through a vulnerable new body.",
+      "source_evidence": [
+        {
+          "url": "https://www.novelupdates.com/series/my-divine-diary/",
+          "kind": "public_catalog",
+          "evidence_scope": "indexed metadata",
+          "supports": "Indexed series entry supports listed author, original/English publisher where stated, original title and the bounded synopsis/tag/review claims distinguished in verified_hook."
+        }
+      ],
+      "power_currency": null,
+      "acquisition_gate": "Accident grants infinite reincarnation",
+      "cost": null,
+      "persistence": "Knowledge accumulated across reincarnations",
+      "draft_owner": "drafts/chinese.json",
+      "language_group": "Chinese",
+      "id": "D008",
+      "novelty_basis": "Editorial estimate of the advertised hook against E8-E8D and prior lanes, not a popularity or literary score.",
+      "adaptation_status": "proposal; not accepted or implemented",
+      "claim_status": "metadata-supported hook; review details remain leads; exact world rules need selected text",
+      "source_ids": [
+        "D008-S1"
+      ]
+    },
+    {
+      "title": "Fantasy Simulator",
+      "original_title": "玄幻模拟器",
+      "author": "Salted Fish Jienan / 咸鱼洁南",
+      "platform": "Qidian original; Webnovel English edition",
+      "summary": "After reaching a martial-arts version of reality, the protagonist gains a simulator whose rewards make him stronger outside the simulation. Different imagined lives can therefore become inputs to one continuing body. The scout target is the reward boundary: experience, training and a simulated identity need not all transfer together or carry the same price.",
+      "lenses": [
+        "simulators and draws",
+        "power paths with odd currencies",
+        "shards and inheritance"
+      ],
+      "novelty_score": 3,
+      "source_urls": [
+        "https://www.novelupdates.com/series/fantasy-simulator/"
+      ],
+      "evidence_scope": "indexed metadata",
+      "verified_hook": "Indexed synopsis confirms a fantasy simulator and rewards that strengthen its user in the surrounding reality.",
+      "unknowns": [
+        "Entry price, reward selection and whether simulated worlds are independent realities.",
+        "Which memories, ranks or bodies are retained and how rewards are judged."
+      ],
+      "proposal": "Proposal: show a simulation's entry terms and named transferable results before it begins.",
+      "source_evidence": [
+        {
+          "url": "https://www.novelupdates.com/series/fantasy-simulator/",
+          "kind": "public_catalog",
+          "evidence_scope": "indexed metadata",
+          "supports": "Indexed series entry supports listed author, original/English publisher where stated, original title and the bounded synopsis/tag/review claims distinguished in verified_hook."
+        }
+      ],
+      "power_currency": null,
+      "acquisition_gate": "Simulator discovered after transmigration",
+      "cost": null,
+      "persistence": "Simulation rewards strengthen the surrounding real-world self",
+      "draft_owner": "drafts/chinese.json",
+      "language_group": "Chinese",
+      "id": "D009",
+      "novelty_basis": "Editorial estimate of the advertised hook against E8-E8D and prior lanes, not a popularity or literary score.",
+      "adaptation_status": "proposal; not accepted or implemented",
+      "claim_status": "metadata-supported hook; review details remain leads; exact world rules need selected text",
+      "source_ids": [
+        "D009-S1"
+      ]
+    },
+    {
+      "title": "Carefree Path of Dreams",
+      "original_title": "逍遥梦路",
+      "author": "The Plagiarist / 文抄公",
+      "platform": "Qidian original; Webnovel English edition",
+      "summary": "The public premise joins ordinary farming and dreams with eventual mastery of worlds. Indexed tags mark dreams, multiple bodies, inheritance and world travel; reviews identify Dream Masters and changing local systems. The distinctive lead is progression through dream-based access, but the short synopsis alone does not establish whether a dream changes reality or merely visits it.",
+      "lenses": [
+        "kinds of observation",
+        "mimics and hidden identities",
+        "power paths with odd currencies"
+      ],
+      "novelty_score": 3,
+      "source_urls": [
+        "https://www.novelupdates.com/series/carefree-path-of-dreams/"
+      ],
+      "evidence_scope": "indexed metadata",
+      "verified_hook": "Indexed synopsis confirms dream/world-conquest framing; tags support dream and multiple-body lenses. Exact Dream Master mechanics require reading.",
+      "unknowns": [
+        "Dream entry, dream ownership, reality effects and source dependence.",
+        "Whether systems survive loss of the patron behind the path."
+      ],
+      "proposal": "Proposal: separate observing a dream, inhabiting its body and changing its world.",
+      "review_only_lead": "NovelUpdates review by AppleGrowth (2021-09-17) describes a stolen Dream Master path and multiple cultivation systems; not canonical evidence here.",
+      "source_evidence": [
+        {
+          "url": "https://www.novelupdates.com/series/carefree-path-of-dreams/",
+          "kind": "public_catalog",
+          "evidence_scope": "indexed metadata",
+          "supports": "Indexed series entry supports listed author, original/English publisher where stated, original title and the bounded synopsis/tag/review claims distinguished in verified_hook."
+        }
+      ],
+      "power_currency": null,
+      "acquisition_gate": null,
+      "cost": null,
+      "persistence": null,
+      "draft_owner": "drafts/chinese.json",
+      "language_group": "Chinese",
+      "id": "D010",
+      "novelty_basis": "Editorial estimate of the advertised hook against E8-E8D and prior lanes, not a popularity or literary score.",
+      "adaptation_status": "proposal; not accepted or implemented",
+      "claim_status": "metadata-supported hook; review details remain leads; exact world rules need selected text",
+      "source_ids": [
+        "D010-S1"
+      ]
+    },
+    {
+      "title": "Low Dimensional Game",
+      "original_title": "低维游戏",
+      "author": "LSLCCF / 历史里吹吹风",
+      "platform": "Qidian original; Webnovel English edition",
+      "summary": "An ordinary person finds an entrance to a lower-dimensional world where he can control its contents like a game master. This is a creation-power lead rather than another combat ladder: authority depends on which world is being edited. The metadata does not show whether that control reaches the user's own higher-dimensional environment.",
+      "lenses": [
+        "power paths with odd currencies",
+        "inspectors and rule enforcers",
+        "kinds of observation"
+      ],
+      "novelty_score": 4,
+      "source_urls": [
+        "https://www.novelupdates.com/series/low-dimensional-game/"
+      ],
+      "evidence_scope": "indexed metadata",
+      "verified_hook": "Indexed synopsis confirms entry into a lower-dimensional world and broad control within it.",
+      "unknowns": [
+        "Creation fuel, time ratios and whether living beings resist.",
+        "How objects, knowledge or power can cross the dimension boundary."
+      ],
+      "proposal": "Proposal: keep world-editor authority local to a specified dimension and verify any export rule separately.",
+      "source_evidence": [
+        {
+          "url": "https://www.novelupdates.com/series/low-dimensional-game/",
+          "kind": "public_catalog",
+          "evidence_scope": "indexed metadata",
+          "supports": "Indexed series entry supports listed author, original/English publisher where stated, original title and the bounded synopsis/tag/review claims distinguished in verified_hook."
+        }
+      ],
+      "power_currency": null,
+      "acquisition_gate": "Accidentally finding an entrance to a low-dimensional world",
+      "cost": null,
+      "persistence": null,
+      "draft_owner": "drafts/chinese.json",
+      "language_group": "Chinese",
+      "id": "D011",
+      "novelty_basis": "Editorial estimate of the advertised hook against E8-E8D and prior lanes, not a popularity or literary score.",
+      "adaptation_status": "proposal; not accepted or implemented",
+      "claim_status": "metadata-supported hook; review details remain leads; exact world rules need selected text",
+      "source_ids": [
+        "D011-S1"
+      ]
+    },
+    {
+      "title": "Everybody is Kung Fu Fighting, While I Started a Farm",
+      "original_title": "你们练武我种田",
+      "author": "Oof in Webnovel; 哎哟啊 in NovelUpdates (also lists 布里包子, alias relation unverified)",
+      "platform": "Qidian original; Webnovel English edition",
+      "summary": "A martial-arts world grants one protagonist a seed-based system. Indexed reviews say planting can multiply or improve objects and even turn an invented training manual into an effective one. This suggests a growth process that treats descriptions and equipment as seeds, with the farm becoming a machine for making unlikely rules physically usable.",
+      "lenses": [
+        "rule-abuse and gag physics",
+        "power paths with odd currencies",
+        "systems with strange prices"
+      ],
+      "novelty_score": 4,
+      "source_urls": [
+        "https://www.webnovel.com/book/17527789006425805",
+        "https://www.novelupdates.com/series/everybody-is-kung-fu-fighting-while-i-started-a-farm/"
+      ],
+      "evidence_scope": "indexed metadata",
+      "verified_hook": "Official indexed synopsis confirms the seed system and weapon-like inedible peas. Planted manuals appear in the official catalog; fictional-manual realization is review-only.",
+      "unknowns": [
+        "What can be planted, soil limits, time, farm points and whether imagined manuals are validated.",
+        "Author alias relation requires confirmation."
+      ],
+      "proposal": "Proposal: make an object's planting recipe a way to grow a transformed result, with eligibility stated per recipe.",
+      "review_only_lead": "NovelUpdates review by jrewrew (2021-04-22) and Webnovel review by FNU_LNU describe planting fabricated manuals; official catalog names Planting Cultivation Manuals and Planted a Money Tree.",
+      "source_evidence": [
+        {
+          "url": "https://www.webnovel.com/book/17527789006425805",
+          "kind": "official_publisher",
+          "evidence_scope": "indexed metadata",
+          "supports": "Indexed official English book landing page supports English author identity, Webnovel platform and synopsis; reviews/catalog claims are qualified separately."
+        },
+        {
+          "url": "https://www.novelupdates.com/series/everybody-is-kung-fu-fighting-while-i-started-a-farm/",
+          "kind": "public_catalog",
+          "evidence_scope": "indexed metadata",
+          "supports": "Indexed series entry supports listed author, original/English publisher where stated, original title and the bounded synopsis/tag/review claims distinguished in verified_hook."
+        }
+      ],
+      "power_currency": "System supplies seeds",
+      "acquisition_gate": "Seed system obtained after transmigration",
+      "cost": null,
+      "persistence": null,
+      "draft_owner": "drafts/chinese.json",
+      "language_group": "Chinese",
+      "id": "D012",
+      "novelty_basis": "Editorial estimate of the advertised hook against E8-E8D and prior lanes, not a popularity or literary score.",
+      "adaptation_status": "proposal; not accepted or implemented",
+      "claim_status": "metadata-supported hook; review details remain leads; exact world rules need selected text",
+      "source_ids": [
+        "D012-S1",
+        "D012-S2"
+      ]
+    },
+    {
+      "title": "Doomsday Wonderland",
+      "original_title": "末日乐园",
+      "author": "Beards and Tails / N. Heller / 须尾俱全",
+      "platform": "Qidian original; Webnovel English edition",
+      "summary": "Survivors must move through multiple worlds with different apocalypses rather than solve one catastrophe and settle down. The indexed synopsis ties powers to posthuman adaptation; tags mark conditional powers, sentient objects and spatial abilities. It is a promising source for powers designed around local survival problems, but specific card or item rules still need chapters.",
+      "lenses": [
+        "systems with strange prices",
+        "inspectors and rule enforcers",
+        "kinds of observation"
+      ],
+      "novelty_score": 4,
+      "source_urls": [
+        "https://www.novelupdates.com/series/doomsday-wonderland/",
+        "https://acts.qidian.com/2018/5620962_1/index.html"
+      ],
+      "evidence_scope": "indexed metadata",
+      "verified_hook": "Indexed synopsis confirms serial apocalypse worlds and posthuman adaptation; conditional-power lens is a catalog tag, not a verified specific ability.",
+      "unknowns": [
+        "World-transfer timing and whether destinations can be chosen.",
+        "Exact condition wording and costs for representative powers and special items."
+      ],
+      "proposal": "Proposal: let environmental adaptation and strange conditional tools differ by world rather than share one ladder.",
+      "source_evidence": [
+        {
+          "url": "https://www.novelupdates.com/series/doomsday-wonderland/",
+          "kind": "public_catalog",
+          "evidence_scope": "indexed metadata",
+          "supports": "Indexed series entry supports listed author, original/English publisher where stated, original title and the bounded synopsis/tag/review claims distinguished in verified_hook."
+        },
+        {
+          "url": "https://acts.qidian.com/2018/5620962_1/index.html",
+          "kind": "official_publisher_ranking",
+          "evidence_scope": "indexed metadata",
+          "supports": "Indexed publisher ranking supports Chinese title, author and short synopsis only."
+        }
+      ],
+      "power_currency": null,
+      "acquisition_gate": null,
+      "cost": null,
+      "persistence": null,
+      "draft_owner": "drafts/chinese.json",
+      "language_group": "Chinese",
+      "id": "D013",
+      "novelty_basis": "Editorial estimate of the advertised hook against E8-E8D and prior lanes, not a popularity or literary score.",
+      "adaptation_status": "proposal; not accepted or implemented",
+      "claim_status": "metadata-supported hook; review details remain leads; exact world rules need selected text",
+      "source_ids": [
+        "D013-S1",
+        "D013-S2"
+      ]
+    },
+    {
+      "title": "Trafford's Trading Club",
+      "original_title": "特拉福买家俱乐部",
+      "author": "White Jade of Sunset Mountain / 夕山白石",
+      "platform": "Qidian original; Webnovel English edition",
+      "summary": "A club sells desired outcomes in exchange for precious possessions, lifespan or souls. Successful trades extend its owner's own life, so one person's paid price feeds another person's longevity. The central hook is a broker operating a power market where ownership, valuation and personal attachment matter more than a common combat resource.",
+      "lenses": [
+        "vows and contracts",
+        "systems with strange prices",
+        "immortality and revival"
+      ],
+      "novelty_score": 5,
+      "source_urls": [
+        "https://www.webnovel.com/book/trafford%27s-trading-club_6831849802000805",
+        "https://www.novelupdates.com/series/traffords-trading-club/"
+      ],
+      "evidence_scope": "indexed metadata",
+      "verified_hook": "Indexed synopsis explicitly confirms lifespan/items/soul trades and the owner gaining lifespan from successful business.",
+      "unknowns": [
+        "Who sets fair prices, what can be sold and whether consent can be revoked.",
+        "Breach, refunds, forced bargains and the proprietor's own costs."
+      ],
+      "proposal": "Proposal: track what a customer relinquishes separately from what the broker gains, with explicit ownership and consent.",
+      "source_evidence": [
+        {
+          "url": "https://www.webnovel.com/book/trafford%27s-trading-club_6831849802000805",
+          "kind": "official_publisher",
+          "evidence_scope": "indexed metadata",
+          "supports": "Indexed official English book landing page supports English author identity, Webnovel platform and synopsis; reviews/catalog claims are qualified separately."
+        },
+        {
+          "url": "https://www.novelupdates.com/series/traffords-trading-club/",
+          "kind": "public_catalog",
+          "evidence_scope": "indexed metadata",
+          "supports": "Indexed series entry supports listed author, original/English publisher where stated, original title and the bounded synopsis/tag/review claims distinguished in verified_hook."
+        }
+      ],
+      "power_currency": "Precious items, lifespan or souls in trade",
+      "acquisition_gate": "Becoming the club proprietor",
+      "cost": "Customers surrender something precious for a desired outcome",
+      "persistence": "Successful trades extend the proprietor's lifespan",
+      "draft_owner": "drafts/chinese.json",
+      "language_group": "Chinese",
+      "id": "D014",
+      "novelty_basis": "Editorial estimate of the advertised hook against E8-E8D and prior lanes, not a popularity or literary score.",
+      "adaptation_status": "proposal; not accepted or implemented",
+      "claim_status": "metadata-supported hook; review details remain leads; exact world rules need selected text",
+      "source_ids": [
+        "D014-S1",
+        "D014-S2"
+      ]
+    },
+    {
+      "title": "I Can See Life Values (working English gloss)",
+      "original_title": "我能看到生命值",
+      "author": "笔尖的手术刀 (no verified English pen-name)",
+      "platform": "Qidian publisher-hosted synopsis; original release platform not independently checked",
+      "summary": "A medical student gains a system that lets him see a patient's life value. The public premise grants a new kind of reading rather than an automatic cure: what the observer knows can change the treatment he attempts. Exact interpretation, blind spots and whether the number measures current health or remaining life need chapters.",
+      "lenses": [
+        "kinds of observation",
+        "inspectors and rule enforcers"
+      ],
+      "novelty_score": 4,
+      "source_urls": [
+        "https://book.qidian.com/booklist/detail/639144/",
+        "https://www.readnovel.com/bookquery/qbxabpgttunj",
+        "https://isbn.ncl.edu.tw/FCKEDITOR_UploadFiles/1681781562.pdf"
+      ],
+      "evidence_scope": "indexed metadata",
+      "verified_hook": "Qidian-hosted synopsis and Readnovel title page explicitly confirm the medical student can see patient life values. Taiwan National Central Library ISBN metadata independently confirms title and author.",
+      "unknowns": [
+        "What life value actually measures, its update rate, precision and false readings.",
+        "Whether diagnosis and treatment must still be learned or obtained separately.",
+        "Original release platform remains unverified."
+      ],
+      "proposal": "Proposal: a health reading supplies evidence for a decision without itself performing treatment.",
+      "source_evidence": [
+        {
+          "url": "https://book.qidian.com/booklist/detail/639144/",
+          "kind": "publisher_hosted_catalog_and_reader_list",
+          "evidence_scope": "indexed metadata",
+          "supports": "Indexed publisher-hosted title/author entry and reproduced author synopsis; booklist owner commentary is a secondary reader lead."
+        },
+        {
+          "url": "https://www.readnovel.com/bookquery/qbxabpgttunj",
+          "kind": "publisher_title_metadata",
+          "evidence_scope": "indexed metadata",
+          "supports": "Indexed publisher-hosted title page supports Chinese title, author and short synopsis only."
+        },
+        {
+          "url": "https://isbn.ncl.edu.tw/FCKEDITOR_UploadFiles/1681781562.pdf",
+          "kind": "national_library_bibliography",
+          "evidence_scope": "indexed metadata",
+          "supports": "Indexed National Central Library book metadata supports Chinese title, author and print publication; no mechanics claims."
+        }
+      ],
+      "power_currency": null,
+      "acquisition_gate": "A medical student receives system support",
+      "cost": null,
+      "persistence": null,
+      "draft_owner": "drafts/chinese.json",
+      "language_group": "Chinese",
+      "id": "D015",
+      "novelty_basis": "Editorial estimate of the advertised hook against E8-E8D and prior lanes, not a popularity or literary score.",
+      "adaptation_status": "proposal; not accepted or implemented",
+      "claim_status": "metadata-supported hook; review details remain leads; exact world rules need selected text",
+      "source_ids": [
+        "D015-S1",
+        "D015-S2",
+        "D015-S3"
+      ]
+    },
+    {
+      "title": "Information Omniscient (working English gloss)",
+      "original_title": "信息全知者",
+      "author": "魔性沧月 (no verified English pen-name)",
+      "platform": "Qidian publisher-hosted title/synopsis entry",
+      "summary": "Sight reveals past events, hearing exposes hidden intentions, and sensory information can reach buried memories. The premise makes information itself the power channel. A publisher-hosted reader note distinguishes perceiving vast data from understanding it, suggesting knowledge and filtering can matter more than adding another sensor or raising a damage stat.",
+      "lenses": [
+        "kinds of observation",
+        "mimics and hidden identities",
+        "inspectors and rule enforcers"
+      ],
+      "novelty_score": 5,
+      "source_urls": [
+        "https://book.qidian.com/booklist/detail/644453/",
+        "https://book.qidian.com/booklist/detail/627927/2/"
+      ],
+      "evidence_scope": "indexed metadata",
+      "verified_hook": "Qidian-hosted author synopsis explicitly distinguishes sight, hearing and sensory access to hidden memories. Understanding and overload limits are reader-comment leads, not established by the synopsis.",
+      "unknowns": [
+        "How literal the synopsis's all-information claim is.",
+        "Concept-learning requirements, overload, filtering, range and future-information limits."
+      ],
+      "proposal": "Proposal: keep raw sensed information separate from what the observer has concepts to interpret.",
+      "review_only_lead": "Qidian booklist 644453 reader comment says perceiving information is not understanding it; 627927 says prior knowledge enables interpretation.",
+      "source_evidence": [
+        {
+          "url": "https://book.qidian.com/booklist/detail/644453/",
+          "kind": "publisher_hosted_catalog_and_reader_list",
+          "evidence_scope": "indexed metadata",
+          "supports": "Indexed publisher-hosted title/author entry and reproduced author synopsis; booklist owner commentary is a secondary reader lead."
+        },
+        {
+          "url": "https://book.qidian.com/booklist/detail/627927/2/",
+          "kind": "publisher_hosted_catalog_and_reader_list",
+          "evidence_scope": "indexed metadata",
+          "supports": "Indexed publisher-hosted title/author entry and reproduced author synopsis; booklist owner commentary is a secondary reader lead."
+        }
+      ],
+      "power_currency": null,
+      "acquisition_gate": null,
+      "cost": null,
+      "persistence": null,
+      "draft_owner": "drafts/chinese.json",
+      "language_group": "Chinese",
+      "id": "D016",
+      "novelty_basis": "Editorial estimate of the advertised hook against E8-E8D and prior lanes, not a popularity or literary score.",
+      "adaptation_status": "proposal; not accepted or implemented",
+      "claim_status": "metadata-supported hook; review details remain leads; exact world rules need selected text",
+      "source_ids": [
+        "D016-S1",
+        "D016-S2"
+      ]
+    },
+    {
+      "title": "Dungeon Reset",
+      "original_title": "던전리셋",
+      "author": "Daul (다울)",
+      "platform": "Kakaopage original novel; licensed English novel and adaptation on Tappytoon",
+      "language_group": "Korean",
+      "summary": "The dungeon resets its spent traps and explored spaces for later entrants, but one survivor is outside that reset rule. His special status makes repeated work and ordinary fabrication matter differently from normal combat progression. The metadata identifies an exception to world maintenance, not a universal rewind power.",
+      "lenses": [
+        "rule-abuse",
+        "immortality and revival",
+        "power paths with odd currencies"
+      ],
+      "novelty_score": 5,
+      "source_urls": [
+        "https://www.novelupdates.com/series/dungeon-reset/",
+        "https://www.tappytoon.com/en/book/dungeon-reset-novel",
+        "https://page.kakao.com/content/50594147?page=1"
+      ],
+      "evidence_scope": "indexed metadata",
+      "verified_hook": "Synopsis explicitly says dungeon resets do not apply to Jeong Dawoon.",
+      "unknowns": [
+        "Which possessions and construction survive; reset cadence; exact exception trigger; restoration is not proven immortality."
+      ],
+      "proposal": "Proposal: let a local reset spare one tagged carrier, creating construction and resource loops. Read reset scenes before choosing what is spared.",
+      "source_request": null,
+      "power_currency": null,
+      "acquisition_gate": "Survivor becomes an exception to dungeon reset",
+      "cost": null,
+      "persistence": "Synopsis says dungeon resets do not apply to him; possessions unspecified",
+      "draft_owner": "drafts/korean-japanese.json",
+      "id": "D017",
+      "novelty_basis": "Editorial estimate of the advertised hook against E8-E8D and prior lanes, not a popularity or literary score.",
+      "adaptation_status": "proposal; not accepted or implemented",
+      "claim_status": "metadata-supported hook; review details remain leads; exact world rules need selected text",
+      "source_ids": [
+        "D017-S1",
+        "D017-S2",
+        "D017-S3"
+      ]
+    },
+    {
+      "title": "The Book Eating Magician",
+      "original_title": "책 먹는 마법사",
+      "author": "McEnroe (메켄로)",
+      "platform": "Munpia / Intime; licensed English Wuxiaworld",
+      "language_group": "Korean",
+      "summary": "Magical books are consumed to acquire their contents as usable spells. The synopsis pairs prior understanding with a successful acquisition, making comprehension relevant to the transfer. Public reader reviews also describe inheriting an original author’s memories, but that extension needs text before being treated as a rule.",
+      "lenses": [
+        "shards and inheritance",
+        "systems with strange prices",
+        "power paths with odd currencies"
+      ],
+      "novelty_score": 5,
+      "source_urls": [
+        "https://www.novelupdates.com/series/the-book-eating-magician/",
+        "https://www.wuxiaworld.com/novel/book-eater",
+        "https://series.naver.com/novel/detail.series?productNo=2884396"
+      ],
+      "evidence_scope": "indexed metadata",
+      "verified_hook": "Synopsis explicitly shows consumption of a primer, high understanding, and acquisition of a second-circle spell.",
+      "unknowns": [
+        "Book destruction accounting; circle gate; daily capacity; original-author memories are review-level only."
+      ],
+      "proposal": "Proposal: transfer practical skill by consuming a knowledge carrier, with preparation and provenance gates.",
+      "source_request": null,
+      "power_currency": "Magic books",
+      "acquisition_gate": "Consume a magic primer with high understanding",
+      "cost": "A book is consumed",
+      "persistence": "Acquired spell stated; longer retention unspecified",
+      "draft_owner": "drafts/korean-japanese.json",
+      "id": "D018",
+      "novelty_basis": "Editorial estimate of the advertised hook against E8-E8D and prior lanes, not a popularity or literary score.",
+      "adaptation_status": "proposal; not accepted or implemented",
+      "claim_status": "metadata-supported hook; review details remain leads; exact world rules need selected text",
+      "source_ids": [
+        "D018-S1",
+        "D018-S2",
+        "D018-S3"
+      ]
+    },
+    {
+      "title": "The 31st Piece Turns the Tables",
+      "original_title": "31번째 말은 게임판을 뒤엎는다",
+      "author": "왕모찌",
+      "platform": "Kakaopage / Titan",
+      "language_group": "Korean",
+      "summary": "A player enjoys a divine dice-driven game until he becomes a piece within it. The synopsis makes the transition between operator and operated character central. Reviews suggest created characters persist as people with their own histories, but exact inheritance and summoning rules remain an open text request.",
+      "lenses": [
+        "simulators and draws",
+        "rule-abuse",
+        "shards and inheritance"
+      ],
+      "novelty_score": 4,
+      "source_urls": [
+        "https://www.novelupdates.com/series/the-31st-piece-turns-the-tables/"
+      ],
+      "evidence_scope": "indexed metadata",
+      "verified_hook": "Synopsis explicitly describes reality shifting with dice and a player becoming a game piece.",
+      "unknowns": [
+        "Dice authority; legal rerolls; whether old pieces can be reclaimed; reviews alone support detailed legacy claims."
+      ],
+      "proposal": "Proposal: world entry changes which side of a rule interface the player occupies.",
+      "source_request": null,
+      "power_currency": null,
+      "acquisition_gate": "Player becomes a game piece",
+      "cost": null,
+      "persistence": null,
+      "draft_owner": "drafts/korean-japanese.json",
+      "id": "D019",
+      "novelty_basis": "Editorial estimate of the advertised hook against E8-E8D and prior lanes, not a popularity or literary score.",
+      "adaptation_status": "proposal; not accepted or implemented",
+      "claim_status": "metadata-supported hook; review details remain leads; exact world rules need selected text",
+      "source_ids": [
+        "D019-S1"
+      ]
+    },
+    {
+      "title": "The Main Heroines are Trying to Kill Me",
+      "original_title": "메인 히로인들이 나를 죽이려 한다",
+      "author": "Kim Mamo (김마모)",
+      "platform": "Novelpia / Kakaopage; licensed English Novelpia Global",
+      "language_group": "Korean",
+      "summary": "A protagonist obtains a system after regressing, expecting that advantage to save a doomed fantasy world. Other central characters also remember his previous timeline, including what he did there. The unusual hook is asymmetric-looking memory that is actually shared, so hidden knowledge and reputation can collide across a reset.",
+      "lenses": [
+        "immortality and revival",
+        "hidden identities",
+        "kinds of observation",
+        "systems with strange prices"
+      ],
+      "novelty_score": 4,
+      "source_urls": [
+        "https://www.novelupdates.com/series/the-main-heroines-are-trying-to-kill-me/"
+      ],
+      "evidence_scope": "indexed metadata",
+      "verified_hook": "Synopsis explicitly says the heroines regain previous-timeline memories while the protagonist has a regressor privilege system.",
+      "unknowns": [
+        "Exact reward currency, evil-act requirement and disclosure penalties are not established by the synopsis."
+      ],
+      "proposal": "Proposal: let other people retain different evidence from a prior run, turning regression into a contested information problem.",
+      "source_request": null,
+      "power_currency": null,
+      "acquisition_gate": "System granted as regressor privilege",
+      "cost": null,
+      "persistence": "Protagonist and heroines retain previous-timeline memories",
+      "draft_owner": "drafts/korean-japanese.json",
+      "id": "D020",
+      "novelty_basis": "Editorial estimate of the advertised hook against E8-E8D and prior lanes, not a popularity or literary score.",
+      "adaptation_status": "proposal; not accepted or implemented",
+      "claim_status": "metadata-supported hook; review details remain leads; exact world rules need selected text",
+      "source_ids": [
+        "D020-S1"
+      ]
+    },
+    {
+      "title": "Kidnapped Dragons",
+      "original_title": "드래곤을 유괴하다",
+      "author": "Yuzu (유주)",
+      "platform": "JHS Books / MstoryHub",
+      "language_group": "Korean",
+      "summary": "A world-rewind authority repeatedly returns a powerful protector after death or a failed apocalypse. Strength alone has not saved Earth from enraged dragons. The synopsis puts compulsory survival and repeated prevention attempts together, making resurrection a burden and information source rather than proof that combat power solves the threat.",
+      "lenses": [
+        "immortality and revival",
+        "future sight",
+        "systems with strange prices"
+      ],
+      "novelty_score": 4,
+      "source_urls": [
+        "https://www.novelupdates.com/series/kidnapped-dragons/"
+      ],
+      "evidence_scope": "indexed metadata",
+      "verified_hook": "Synopsis names Vintage Clock (EX), world-time rewind, and return whenever the protagonist dies.",
+      "unknowns": [
+        "Which memories or powers persist; exact failure trigger; whether rewind can be refused."
+      ],
+      "proposal": "Proposal: an unwanted revival can preserve the investigator while leaving the large threat unsolved.",
+      "source_request": null,
+      "power_currency": null,
+      "acquisition_gate": "Vintage Clock (EX) authority",
+      "cost": null,
+      "persistence": "World time rewinds on failed rescue; return on death stated",
+      "draft_owner": "drafts/korean-japanese.json",
+      "id": "D021",
+      "novelty_basis": "Editorial estimate of the advertised hook against E8-E8D and prior lanes, not a popularity or literary score.",
+      "adaptation_status": "proposal; not accepted or implemented",
+      "claim_status": "metadata-supported hook; review details remain leads; exact world rules need selected text",
+      "source_ids": [
+        "D021-S1"
+      ]
+    },
+    {
+      "title": "I’m an Infinite Regressor, But I’ve Got Stories to Tell",
+      "original_title": "무한 회귀자인데 썰 푼다",
+      "author": "Sinnoa (신노아)",
+      "platform": "Kakaopage / J Plus / Jayple Media",
+      "language_group": "Korean",
+      "summary": "The narrator has accumulated more than a thousand failed runs rather than reaching the promised perfect ending. Public metadata frames infinite regression as an archive of failed experiments and relationships. Its novelty is the persistent investigator’s interpretation of many outcomes, while the actual anomaly rules still need reading.",
+      "lenses": [
+        "immortality and revival",
+        "kinds of observation",
+        "rule-abuse"
+      ],
+      "novelty_score": 4,
+      "source_urls": [
+        "https://www.novelupdates.com/series/im-an-infinite-regressor-but-ive-got-stories-to-tell/"
+      ],
+      "evidence_scope": "indexed metadata",
+      "verified_hook": "Synopsis explicitly describes infinite regression and 1,183 runs of experience ending in repeated failure.",
+      "unknowns": [
+        "Reset trigger; retained state; anomaly rules; any immunity or unavoidable forgetting."
+      ],
+      "proposal": "Proposal: track contradictory observations across lives without turning past experience into infallible foresight.",
+      "source_request": null,
+      "power_currency": null,
+      "acquisition_gate": null,
+      "cost": null,
+      "persistence": "1,183 runs of experience retained by narrator",
+      "draft_owner": "drafts/korean-japanese.json",
+      "id": "D022",
+      "novelty_basis": "Editorial estimate of the advertised hook against E8-E8D and prior lanes, not a popularity or literary score.",
+      "adaptation_status": "proposal; not accepted or implemented",
+      "claim_status": "metadata-supported hook; review details remain leads; exact world rules need selected text",
+      "source_ids": [
+        "D022-S1"
+      ]
+    },
+    {
+      "title": "I Became the Necromancer of the Academy",
+      "original_title": "아카데미의 사령술사가 되었다",
+      "author": "_172",
+      "platform": "Novelpia; licensed English Novelpia Global",
+      "language_group": "Korean",
+      "summary": "The public synopsis asks the dead to awaken and pour their remaining resentment onto the speaker, who promises to save them. This is a lead for necromancy built around receiving grievance and release. It does not yet establish that grudges are a spendable resource or that spirits enter enforceable contracts.",
+      "lenses": [
+        "vows and contracts",
+        "systems with strange prices",
+        "kinds of observation"
+      ],
+      "novelty_score": 3,
+      "source_urls": [
+        "https://www.novelupdates.com/series/i-became-the-necromancer-of-the-academy/"
+      ],
+      "evidence_scope": "indexed metadata",
+      "verified_hook": "Synopsis directly links awakening, remaining grudge, and promised salvation.",
+      "unknowns": [
+        "All quantitative power rules; whether spirits are bound, healed or summoned; exact cost to the listener."
+      ],
+      "proposal": "Proposal: inspect a spirit’s grievance as a route to resolution, separate from treating the spirit as a combat asset.",
+      "source_request": null,
+      "power_currency": null,
+      "acquisition_gate": null,
+      "cost": null,
+      "persistence": null,
+      "draft_owner": "drafts/korean-japanese.json",
+      "id": "D023",
+      "novelty_basis": "Editorial estimate of the advertised hook against E8-E8D and prior lanes, not a popularity or literary score.",
+      "adaptation_status": "proposal; not accepted or implemented",
+      "claim_status": "metadata-supported hook; review details remain leads; exact world rules need selected text",
+      "source_ids": [
+        "D023-S1"
+      ]
+    },
+    {
+      "title": "The S-Classes That I Raised",
+      "original_title": "내가 키운 S급들",
+      "author": "Geunseo (근서)",
+      "platform": "Munpia / J Plus / Jayple Media",
+      "language_group": "Korean",
+      "summary": "A weak hunter regresses and receives a nurturing title, shifting his intended role toward supporting much stronger people. The synopsis makes power over others’ growth distinct from personal strength. Reviews mention an awkward spoken registration phrase, which is a promising conditional-power lead but not yet a verified contract mechanic.",
+      "lenses": [
+        "power paths with odd currencies",
+        "vows and contracts",
+        "kinds of observation"
+      ],
+      "novelty_score": 3,
+      "source_urls": [
+        "https://www.novelupdates.com/series/the-s-classes-that-i-raised/"
+      ],
+      "evidence_scope": "indexed metadata",
+      "verified_hook": "Synopsis identifies an F-rank protagonist, regression and the Perfect Nurturer title.",
+      "unknowns": [
+        "Growth multipliers; registration and consent rules; the I-love-you keyword is review evidence only."
+      ],
+      "proposal": "Proposal: give a weak body valuable growth-support abilities whose beneficiaries can act independently.",
+      "source_request": null,
+      "power_currency": null,
+      "acquisition_gate": "Nurturer title received after regression",
+      "cost": null,
+      "persistence": null,
+      "draft_owner": "drafts/korean-japanese.json",
+      "id": "D024",
+      "novelty_basis": "Editorial estimate of the advertised hook against E8-E8D and prior lanes, not a popularity or literary score.",
+      "adaptation_status": "proposal; not accepted or implemented",
+      "claim_status": "metadata-supported hook; review details remain leads; exact world rules need selected text",
+      "source_ids": [
+        "D024-S1"
+      ]
+    },
+    {
+      "title": "D-Genesis: Three Years after the Dungeons Appeared",
+      "original_title": null,
+      "author": "KONO Tsuranori",
+      "platform": "Kadokawa; English light novel J-Novel Club",
+      "language_group": "Japanese",
+      "summary": "A rare skill turns dungeon exploration into an RPG-like readable interface for one office worker. He and a mathematically skilled colleague use that advantage commercially. Official later-volume synopses add fleeting skill orbs sold by auction, making measurement and the logistics of transferable power more important than raw damage.",
+      "lenses": [
+        "kinds of observation",
+        "shards and inheritance",
+        "systems with strange prices"
+      ],
+      "novelty_score": 5,
+      "source_urls": [
+        "https://j-novel.club/series/d-genesis/"
+      ],
+      "evidence_scope": "indexed metadata",
+      "verified_hook": "Official volume 1 gives privileged status screens; volume 2 explicitly describes ephemeral skill-orb auctions.",
+      "unknowns": [
+        "Orb expiry duration; storage loophole; transfer eligibility; who else can measure stats. Original Japanese title not verified in this pass."
+      ],
+      "proposal": "Proposal: sell a transferable ability whose useful lifetime creates real delivery and inspection problems.",
+      "source_request": {
+        "url": "https://j-novel.club/series/d-genesis",
+        "why": "Open volume 1 and 2 previews or owned text: verify who can read stats and exactly why skill orbs are ephemeral."
+      },
+      "power_currency": "Skill orbs for transfer; conversion rates unspecified",
+      "acquisition_gate": "Accidental skill gain at birth of a dungeon",
+      "cost": null,
+      "persistence": "Skill orbs described as ephemeral; duration unspecified",
+      "draft_owner": "drafts/korean-japanese.json",
+      "id": "D025",
+      "novelty_basis": "Editorial estimate of the advertised hook against E8-E8D and prior lanes, not a popularity or literary score.",
+      "adaptation_status": "proposal; not accepted or implemented",
+      "claim_status": "metadata-supported hook; review details remain leads; exact world rules need selected text",
+      "source_ids": [
+        "D025-S1"
+      ]
+    },
+    {
+      "title": "Making Magic: The Sweet Life of a Witch Who Knows an Infinite MP Loophole",
+      "original_title": null,
+      "author": "Aloha Zachou",
+      "platform": "English light novel J-Novel Club",
+      "language_group": "Japanese",
+      "summary": "Creation magic can produce desired items only when the witch has enough mana. The official synopsis explicitly pairs that hard gate with a loophole that grows her pool a little each day. It supports a compounding route from utility creation toward broad capacity without revealing the actual exploit’s formula.",
+      "lenses": [
+        "rule-abuse",
+        "power paths with odd currencies",
+        "systems with strange prices"
+      ],
+      "novelty_score": 5,
+      "source_urls": [
+        "https://j-novel.club/series/making-magic/"
+      ],
+      "evidence_scope": "direct metadata",
+      "verified_hook": "Official synopsis states arbitrary item creation subject to enough mana and a daily mana-pool expansion trick.",
+      "unknowns": [
+        "What is created or consumed to grow MP; reset or diminishing-return rules; duplication limits. Original title not verified."
+      ],
+      "proposal": "Proposal: a known craft can manufacture the input to its own capacity growth, with explicit local costs.",
+      "source_request": {
+        "url": "https://j-novel.club/series/making-magic",
+        "why": "Open volume 1 source to learn the actual pool-growth loophole and its limits; the synopsis deliberately leaves it unspecified."
+      },
+      "power_currency": "Mana",
+      "acquisition_gate": "Chose Creation Magic unique skill",
+      "cost": "Enough mana required for creation",
+      "persistence": "Mana pool expands a little each day; mechanism unspecified",
+      "draft_owner": "drafts/korean-japanese.json",
+      "id": "D026",
+      "novelty_basis": "Editorial estimate of the advertised hook against E8-E8D and prior lanes, not a popularity or literary score.",
+      "adaptation_status": "proposal; not accepted or implemented",
+      "claim_status": "metadata-supported hook; review details remain leads; exact world rules need selected text",
+      "source_ids": [
+        "D026-S1"
+      ]
+    },
+    {
+      "title": "To Another World... with Land Mines!",
+      "original_title": null,
+      "author": "Itsuki Mizuho",
+      "platform": "English light novel J-Novel Club",
+      "language_group": "Japanese",
+      "summary": "Reincarnated classmates choose apparently powerful abilities whose hidden downsides can be lethal. The official publisher metadata supports deceptive grants rather than universally fair skill choices. A separately indexed summary mentions paying for a guide that reveals fine print; that price and disclosure mechanism require confirmation in the novel.",
+      "lenses": [
+        "systems with strange prices",
+        "kinds of observation",
+        "rule-abuse"
+      ],
+      "novelty_score": 5,
+      "source_urls": [
+        "https://j-novel.club/series/to-another-world-with-land-mines/",
+        "https://j-novel.club/series/to-another-world-with-land-mines-manga",
+        "https://en.wikipedia.org/wiki/To_Another_World..._with_Land_Mines%21"
+      ],
+      "evidence_scope": "indexed metadata",
+      "verified_hook": "Official publisher synopsis states that attractive powers hide deadly downsides.",
+      "unknowns": [
+        "Exact trap skills and collateral effects; guide purchase and prices are secondary evidence. Original title not verified."
+      ],
+      "proposal": "Proposal: information about a power can be a purchasable resource separate from the power itself.",
+      "source_request": {
+        "url": "https://j-novel.club/series/to-another-world-with-land-mines",
+        "why": "Open volume 1 source to verify the skill-selection fine print, information purchase and at least two actual trap outcomes."
+      },
+      "power_currency": null,
+      "acquisition_gate": "Evil god reincarnates class with supernatural skills",
+      "cost": "Some attractive powers hide deadly downsides",
+      "persistence": null,
+      "draft_owner": "drafts/korean-japanese.json",
+      "id": "D027",
+      "novelty_basis": "Editorial estimate of the advertised hook against E8-E8D and prior lanes, not a popularity or literary score.",
+      "adaptation_status": "proposal; not accepted or implemented",
+      "claim_status": "metadata-supported hook; review details remain leads; exact world rules need selected text",
+      "source_ids": [
+        "D027-S1",
+        "D027-S2",
+        "D027-S3"
+      ]
+    },
+    {
+      "title": "Lazy Dungeon Master",
+      "original_title": null,
+      "author": "Supana Onikage",
+      "platform": "English light novel J-Novel Club",
+      "language_group": "Japanese",
+      "summary": "The dungeon master’s life is tied to the dungeon core, so protecting a place becomes direct bodily survival. Official volume descriptions add an inn beside the dungeon, competing dungeons, and later remote work through possessing a monster. These are distinct carrier and economic hooks, not confirmed point-farming formulas.",
+      "lenses": [
+        "systems with strange prices",
+        "hidden identities",
+        "rule-abuse",
+        "immortality and revival"
+      ],
+      "novelty_score": 4,
+      "source_urls": [
+        "https://j-novel.club/series/lazy-dungeon-master/"
+      ],
+      "evidence_scope": "indexed metadata",
+      "verified_hook": "Official volume 1 states core destruction kills the master; volume 2 adds two income sources; volume 16 names monster-body possession.",
+      "unknowns": [
+        "Dungeon-point income formula; visitor sleep exploit; remote-body death consequence. Original title not verified."
+      ],
+      "proposal": "Proposal: a fragile external anchor can turn hospitality and territorial planning into survival infrastructure.",
+      "source_request": {
+        "url": "https://j-novel.club/series/lazy-dungeon-master",
+        "why": "Open volume 1 source for core binding, dungeon resource accounting and ways to attract visitors without killing them."
+      },
+      "power_currency": null,
+      "acquisition_gate": "Summoned as dungeon master",
+      "cost": "Dungeon core destruction kills the master",
+      "persistence": null,
+      "draft_owner": "drafts/korean-japanese.json",
+      "id": "D028",
+      "novelty_basis": "Editorial estimate of the advertised hook against E8-E8D and prior lanes, not a popularity or literary score.",
+      "adaptation_status": "proposal; not accepted or implemented",
+      "claim_status": "metadata-supported hook; review details remain leads; exact world rules need selected text",
+      "source_ids": [
+        "D028-S1"
+      ]
+    },
+    {
+      "title": "Min-Maxing My TRPG Build in Another World",
+      "original_title": null,
+      "author": "Schuld",
+      "platform": "English light novel J-Novel Club",
+      "language_group": "Japanese",
+      "summary": "A tabletop optimizer is reborn with access to the universe’s rulebook and can pursue highly developed skills. The publisher frames that information advantage as dangerous when it draws attention or encourages bad choices. It is a lead for authored builds and optimization, not proof of literal dice governing every event.",
+      "lenses": [
+        "rule-abuse",
+        "power paths with odd currencies",
+        "kinds of observation"
+      ],
+      "novelty_score": 4,
+      "source_urls": [
+        "https://j-novel.club/series/min-maxing-my-trpg-build-in-another-world/"
+      ],
+      "evidence_scope": "indexed metadata",
+      "verified_hook": "Official synopsis explicitly grants rulebook access and power-leveled skills; volume 2 describes service as the cost of help.",
+      "unknowns": [
+        "XP acquisition and purchase rules; cost scaling; whether oaths have supernatural enforcement. Original title not verified."
+      ],
+      "proposal": "Proposal: expose a local advancement rulebook while keeping social consequences outside its numerical score.",
+      "source_request": null,
+      "power_currency": null,
+      "acquisition_gate": "Reborn with universe rulebook access",
+      "cost": "Helping the sister requires serving a magus in volume 2",
+      "persistence": null,
+      "draft_owner": "drafts/korean-japanese.json",
+      "id": "D029",
+      "novelty_basis": "Editorial estimate of the advertised hook against E8-E8D and prior lanes, not a popularity or literary score.",
+      "adaptation_status": "proposal; not accepted or implemented",
+      "claim_status": "metadata-supported hook; review details remain leads; exact world rules need selected text",
+      "source_ids": [
+        "D029-S1"
+      ]
+    },
+    {
+      "title": "Monster Tamer",
+      "original_title": "モンスターのご主人様",
+      "author": "Minto Higure",
+      "platform": "Futabasha; English light novel J-Novel Club",
+      "language_group": "Japanese",
+      "summary": "A displaced student survives by gaining monster companions after empowered humans destroy his trust. Official later synopses call him someone who gives hearts to monsters and make concealment of those companions consequential. The hook is a grant that changes a monster’s inner agency and the human’s social position, not merely ownership.",
+      "lenses": [
+        "mimics and hidden identities",
+        "vows and contracts",
+        "shards and inheritance"
+      ],
+      "novelty_score": 4,
+      "source_urls": [
+        "https://j-novel.club/series/monster-tamer/",
+        "https://isekai.fandom.com/wiki/Monster_Tamer"
+      ],
+      "evidence_scope": "indexed metadata",
+      "verified_hook": "Official volume 11 describes a visitor who gives hearts to monsters; volumes 3 and 4 explicitly make their secret dangerous.",
+      "unknowns": [
+        "Bond trigger; consent and compulsion; thought-sharing; whether each companion’s personality is created or awakened."
+      ],
+      "proposal": "Proposal: a power bond can awaken a partner’s agency, creating needs and loyalties rather than another inventory slot.",
+      "source_request": {
+        "url": "https://j-novel.club/series/monster-tamer",
+        "why": "Open volume 1 source to distinguish hearts, mental connection and command authority; later blurbs confirm the heart-giving hook but not its terms."
+      },
+      "power_currency": null,
+      "acquisition_gate": null,
+      "cost": null,
+      "persistence": null,
+      "draft_owner": "drafts/korean-japanese.json",
+      "id": "D030",
+      "novelty_basis": "Editorial estimate of the advertised hook against E8-E8D and prior lanes, not a popularity or literary score.",
+      "adaptation_status": "proposal; not accepted or implemented",
+      "claim_status": "metadata-supported hook; review details remain leads; exact world rules need selected text",
+      "source_ids": [
+        "D030-S1",
+        "D030-S2"
+      ]
+    },
+    {
+      "title": "The Magician Who Rose From Failure",
+      "original_title": null,
+      "author": "Hitsuji Gamei",
+      "platform": "GC Novels; English light novel J-Novel Club",
+      "language_group": "Japanese",
+      "summary": "A magically disappointing heir carries memories from a scientific world. Official volume 2 says he invents a device that measures the essence of magic and presents it to military and magical leaders. This makes instrumentation a progression route: inherited knowledge changes what institutions can measure, rather than just granting a stronger spell.",
+      "lenses": [
+        "kinds of observation",
+        "shards and inheritance",
+        "power paths with odd currencies"
+      ],
+      "novelty_score": 4,
+      "source_urls": [
+        "https://j-novel.club/series/the-magician-who-rose-from-failure/"
+      ],
+      "evidence_scope": "indexed metadata",
+      "verified_hook": "Official volume 2 identifies the aethometer as a device measuring magic’s essence.",
+      "unknowns": [
+        "Units and calibration; how measurement changes technique; whether the device has blind spots. Original title not verified."
+      ],
+      "proposal": "Proposal: a crafted instrument can change accepted evidence and research opportunities without measuring every aspect of a person.",
+      "source_request": null,
+      "power_currency": null,
+      "acquisition_gate": "Memories from a scientific prior life",
+      "cost": null,
+      "persistence": "Prior-life knowledge supports invention of a magic measuring device",
+      "draft_owner": "drafts/korean-japanese.json",
+      "id": "D031",
+      "novelty_basis": "Editorial estimate of the advertised hook against E8-E8D and prior lanes, not a popularity or literary score.",
+      "adaptation_status": "proposal; not accepted or implemented",
+      "claim_status": "metadata-supported hook; review details remain leads; exact world rules need selected text",
+      "source_ids": [
+        "D031-S1"
+      ]
+    },
+    {
+      "title": "Did I Seriously Just Get Reincarnated as My Gag Character?!",
+      "original_title": null,
+      "author": "Kanade Otonashi",
+      "platform": "English light novel J-Novel Club",
+      "language_group": "Japanese",
+      "summary": "A player enters the body of a joke dragon-princess avatar rather than his optimized main character. The official premise makes build intention differ from the body that actually arrives. This is a limited scout for odd character portfolios and identity change; metadata does not prove comedy itself overrides physical rules.",
+      "lenses": [
+        "mimics and hidden identities",
+        "rule-abuse",
+        "simulators and draws"
+      ],
+      "novelty_score": 3,
+      "source_urls": [
+        "https://j-novel.club/series/did-i-seriously-just-get-reincarnated-as-my-gag-character/"
+      ],
+      "evidence_scope": "indexed metadata",
+      "verified_hook": "Official synopsis explicitly distinguishes an invincible main character from a nonoptimized joke avatar as the reincarnation carrier.",
+      "unknowns": [
+        "Which traits transfer; whether joke abilities work differently outside the game; no gag-physics rule verified. Original title not verified."
+      ],
+      "proposal": "Proposal: a transferred character can inherit inconvenient cosmetic, social and build traits selected for a different context.",
+      "source_request": null,
+      "power_currency": null,
+      "acquisition_gate": "Reincarnated as joke avatar instead of main character",
+      "cost": null,
+      "persistence": "Joke avatar body carries to new world; detailed skill retention unknown",
+      "draft_owner": "drafts/korean-japanese.json",
+      "id": "D032",
+      "novelty_basis": "Editorial estimate of the advertised hook against E8-E8D and prior lanes, not a popularity or literary score.",
+      "adaptation_status": "proposal; not accepted or implemented",
+      "claim_status": "metadata-supported hook; review details remain leads; exact world rules need selected text",
+      "source_ids": [
+        "D032-S1"
+      ]
+    },
+    {
+      "title": "The Game at Carousel: A Horror Movie LitRPG",
+      "author": "lost_rambler",
+      "platform": "Royal Road",
+      "language_group": "Western English web serial",
+      "summary": "People trapped in a town must play through horror-film rules. A weak support role becomes useful when its holder can convincingly appear unaware of danger: monsters leave that apparent bystander alone. The premise turns what an enemy thinks you noticed into a survival resource rather than a simple perception stat.",
+      "lenses": [
+        "observation",
+        "rule-abuse and gag physics",
+        "immortality and revival"
+      ],
+      "novelty_score": 5,
+      "source_urls": [
+        "https://www.royalroad.com/fiction/65629/the-game-at-carousel-a-horror-movie-litrpg",
+        "https://www.royalroad.com/fiction/65629/the-game-at-carousel-a-horror-movie-litrpg%C2%A0?review=1616023"
+      ],
+      "evidence_scope": "Indexed official fiction-page description for the bystander hook; public fiction-page reviews support the horror-rule framing. No chapters read.",
+      "verified_hook": "The indexed fiction-page description names an Oblivious Bystander trope that protects someone convincingly pretending not to notice monsters.",
+      "unknowns": [
+        "What counts as convincing?",
+        "Who judges awareness?",
+        "Limits and costs of death or replay require full text."
+      ],
+      "proposal": "Proposal: make declared or apparent awareness distinct from actual awareness in a local encounter rule.",
+      "search_receipts": [
+        "turn8search0"
+      ],
+      "power_currency": null,
+      "acquisition_gate": null,
+      "cost": null,
+      "persistence": null,
+      "source_details": [
+        {
+          "url": "https://www.royalroad.com/fiction/65629/the-game-at-carousel-a-horror-movie-litrpg",
+          "source_kind": "official_author_platform_indexed_metadata",
+          "access": "search_index_only",
+          "retrieved_date": "2026-10-10"
+        },
+        {
+          "url": "https://www.royalroad.com/fiction/65629/the-game-at-carousel-a-horror-movie-litrpg%C2%A0?review=1616023",
+          "source_kind": "public_reader_review_on_official_platform_indexed_metadata",
+          "access": "search_index_only",
+          "retrieved_date": "2026-10-10"
+        }
+      ],
+      "draft_owner": "drafts/western.json",
+      "id": "D033",
+      "original_title": null,
+      "novelty_basis": "Editorial estimate of the advertised hook against E8-E8D and prior lanes, not a popularity or literary score.",
+      "adaptation_status": "proposal; not accepted or implemented",
+      "claim_status": "metadata-supported hook; review details remain leads; exact world rules need selected text",
+      "source_ids": [
+        "D033-S1",
+        "D033-S2"
+      ]
+    },
+    {
+      "title": "Godclads",
+      "author": "OstensibleMammal",
+      "platform": "Royal Road",
+      "language_group": "Western English web serial",
+      "summary": "Humanity stole the powers of slain gods, yet the theft helped break reality. Ascenders now fight over the laws of existence inside the remaining cities. A manufactured ghoul gains immortality and an unlikely legacy, suggesting power growth can mean acquiring a piece of rule ownership rather than merely stronger attacks.",
+      "lenses": [
+        "shards and inheritance",
+        "immortality and revival",
+        "rule enforcers"
+      ],
+      "novelty_score": 5,
+      "source_urls": [
+        "https://www.royalroad.com/fiction/59663/godclads"
+      ],
+      "evidence_scope": "Indexed official Royal Road fiction-page synopsis and author attribution; metadata only.",
+      "verified_hook": "Official synopsis states that humans stole divine powers, ascenders contest existence laws, and Avo gains immortality and a legacy.",
+      "unknowns": [
+        "Precise fuel, growth gates and repair costs.",
+        "Whether competing laws override, merge or create paradox."
+      ],
+      "proposal": "Proposal: model a stolen source separately from its authority to change a world rule.",
+      "search_receipts": [
+        "turn29search0"
+      ],
+      "power_currency": null,
+      "acquisition_gate": "Stolen divine power; Avo receives immortality and a legacy",
+      "cost": null,
+      "persistence": null,
+      "source_details": [
+        {
+          "url": "https://www.royalroad.com/fiction/59663/godclads",
+          "source_kind": "official_author_platform_indexed_metadata",
+          "access": "search_index_only",
+          "retrieved_date": "2026-10-10"
+        }
+      ],
+      "draft_owner": "drafts/western.json",
+      "id": "D034",
+      "original_title": null,
+      "novelty_basis": "Editorial estimate of the advertised hook against E8-E8D and prior lanes, not a popularity or literary score.",
+      "adaptation_status": "proposal; not accepted or implemented",
+      "claim_status": "metadata-supported hook; review details remain leads; exact world rules need selected text",
+      "source_ids": [
+        "D034-S1"
+      ]
+    },
+    {
+      "title": "Slumrat Rising",
+      "author": "Warby Picus",
+      "platform": "Royal Road",
+      "language_group": "Western English web serial",
+      "summary": "A corporation offers escape from poverty through a brutal selection process and access to a system able to raise ordinary people toward demigodhood. Angels and demons are hired labor. Power access is thus part of employment and institutional control, making the provider and its incentives central to the path.",
+      "lenses": [
+        "systems with strange prices",
+        "vows and contracts",
+        "power paths with odd currencies"
+      ],
+      "novelty_score": 4,
+      "source_urls": [
+        "https://www.royalroad.com/fiction/65801/slumrat-rising"
+      ],
+      "evidence_scope": "Indexed official Royal Road fiction-page synopsis and author attribution; metadata only.",
+      "verified_hook": "The official synopsis ties System Astrologica access to corporate selection and describes hired supernatural labor.",
+      "unknowns": [
+        "Actual employment clauses and revocation powers.",
+        "Whether service is a binding magical price or ordinary social coercion."
+      ],
+      "proposal": "Proposal: separate a power supplier, employer and grader, even when one institution holds all three roles.",
+      "search_receipts": [
+        "turn24search0"
+      ],
+      "power_currency": null,
+      "acquisition_gate": "Corporate selection",
+      "cost": null,
+      "persistence": null,
+      "source_details": [
+        {
+          "url": "https://www.royalroad.com/fiction/65801/slumrat-rising",
+          "source_kind": "official_author_platform_indexed_metadata",
+          "access": "search_index_only",
+          "retrieved_date": "2026-10-10"
+        }
+      ],
+      "draft_owner": "drafts/western.json",
+      "id": "D035",
+      "original_title": null,
+      "novelty_basis": "Editorial estimate of the advertised hook against E8-E8D and prior lanes, not a popularity or literary score.",
+      "adaptation_status": "proposal; not accepted or implemented",
+      "claim_status": "metadata-supported hook; review details remain leads; exact world rules need selected text",
+      "source_ids": [
+        "D035-S1"
+      ]
+    },
+    {
+      "title": "Markets and Multiverses",
+      "author": "acaswell",
+      "platform": "Royal Road",
+      "language_group": "Western English web serial",
+      "summary": "Transmigrators live successive lives in worlds with distinct magic systems. Between lives they return to a ruined market where abilities and items were once traded. They can live for a very long time but still face permanent death, so learning a local system and maintaining a cross-life survival route are separate problems.",
+      "lenses": [
+        "immortality and revival",
+        "systems with strange prices",
+        "power paths with odd currencies"
+      ],
+      "novelty_score": 5,
+      "source_urls": [
+        "https://www.royalroad.com/fiction/61244/markets-and-multiverses"
+      ],
+      "evidence_scope": "Indexed official Royal Road fiction-page synopsis and author attribution; metadata only.",
+      "verified_hook": "Official synopsis distinguishes unique world systems, ability/item trade between lives and possible permanent death.",
+      "unknowns": [
+        "Current market currencies.",
+        "What carries across a rebirth and what must be bought again."
+      ],
+      "proposal": "Proposal: distinguish lifetime growth, market-owned abilities and the remaining permission to reincarnate.",
+      "search_receipts": [
+        "turn12search0"
+      ],
+      "power_currency": null,
+      "acquisition_gate": "Transmigration",
+      "cost": "Risk of permanent death",
+      "persistence": "Successive lives and a between-life market; exact retained contents unknown",
+      "source_details": [
+        {
+          "url": "https://www.royalroad.com/fiction/61244/markets-and-multiverses",
+          "source_kind": "official_author_platform_indexed_metadata",
+          "access": "search_index_only",
+          "retrieved_date": "2026-10-10"
+        }
+      ],
+      "draft_owner": "drafts/western.json",
+      "id": "D036",
+      "original_title": null,
+      "novelty_basis": "Editorial estimate of the advertised hook against E8-E8D and prior lanes, not a popularity or literary score.",
+      "adaptation_status": "proposal; not accepted or implemented",
+      "claim_status": "metadata-supported hook; review details remain leads; exact world rules need selected text",
+      "source_ids": [
+        "D036-S1"
+      ]
+    },
+    {
+      "title": "The Daily Grind",
+      "author": "argusthecat",
+      "platform": "Royal Road",
+      "language_group": "Western English web serial",
+      "summary": "An office worker finds a dungeon-like space in his building. Public metadata and reader descriptions point toward loot that grants skills rather than a conventional combat-level ladder. The research value is the possibility of treating useful knowledge as a strange physical reward, with mundane expertise remaining part of supernatural growth.",
+      "lenses": [
+        "simulators and draws",
+        "power paths with odd currencies",
+        "rule-abuse and gag physics"
+      ],
+      "novelty_score": 4,
+      "source_urls": [
+        "https://www.royalroad.com/fiction/15925/the-daily-grind",
+        "https://www.royalroad.com/fiction/15925/the-daily-grind%5D?review=329186"
+      ],
+      "evidence_scope": "Indexed official synopsis for location and author; indexed public fiction-page review for skill-orb hook. No chapter or appendix claim used.",
+      "verified_hook": "Official synopsis verifies the office subdimension; public page reviews mention skill orbs and unusual rewards.",
+      "unknowns": [
+        "Randomness, specificity, copying and stacking of skill rewards.",
+        "Whether a granted rank includes judgment or only execution."
+      ],
+      "proposal": "Proposal: let found knowledge reward narrow everyday actions rather than only generic intelligence.",
+      "search_receipts": [
+        "turn12search1",
+        "turn31search11"
+      ],
+      "power_currency": null,
+      "acquisition_gate": null,
+      "cost": null,
+      "persistence": null,
+      "source_details": [
+        {
+          "url": "https://www.royalroad.com/fiction/15925/the-daily-grind",
+          "source_kind": "official_author_platform_indexed_metadata",
+          "access": "search_index_only",
+          "retrieved_date": "2026-10-10"
+        },
+        {
+          "url": "https://www.royalroad.com/fiction/15925/the-daily-grind%5D?review=329186",
+          "source_kind": "public_reader_review_on_official_platform_indexed_metadata",
+          "access": "search_index_only",
+          "retrieved_date": "2026-10-10"
+        }
+      ],
+      "draft_owner": "drafts/western.json",
+      "id": "D037",
+      "original_title": null,
+      "novelty_basis": "Editorial estimate of the advertised hook against E8-E8D and prior lanes, not a popularity or literary score.",
+      "adaptation_status": "proposal; not accepted or implemented",
+      "claim_status": "metadata-supported hook; review details remain leads; exact world rules need selected text",
+      "source_ids": [
+        "D037-S1",
+        "D037-S2"
+      ]
+    },
+    {
+      "title": "All the Dust that Falls",
+      "author": "zaifyr",
+      "platform": "Royal Road",
+      "language_group": "Western English web serial",
+      "summary": "A vacuum cleaner is summoned to a magical world and keeps pursuing cleanliness while facing demons and armies. Its ordinary purpose becomes an escalating power path, and followers read deeper meaning into its acts. This offers a sharp test of whether the actor, observers and system agree on what an action means.",
+      "lenses": [
+        "rule-abuse and gag physics",
+        "observation",
+        "power paths with odd currencies"
+      ],
+      "novelty_score": 4,
+      "source_urls": [
+        "https://www.royalroad.com/fiction/60292/all-the-dust-that-falls"
+      ],
+      "evidence_scope": "Indexed official Royal Road fiction-page synopsis and author attribution; metadata only.",
+      "verified_hook": "Official synopsis presents a vacuum pursuing cleaning, power and followers in a magic world.",
+      "unknowns": [
+        "How cleaning feeds progression.",
+        "Whether follower belief grants power or only changes social status."
+      ],
+      "proposal": "Proposal: preserve an unusual creature purpose as its goal while observers assign a different meaning.",
+      "search_receipts": [
+        "turn17search0"
+      ],
+      "power_currency": null,
+      "acquisition_gate": null,
+      "cost": null,
+      "persistence": null,
+      "source_details": [
+        {
+          "url": "https://www.royalroad.com/fiction/60292/all-the-dust-that-falls",
+          "source_kind": "official_author_platform_indexed_metadata",
+          "access": "search_index_only",
+          "retrieved_date": "2026-10-10"
+        }
+      ],
+      "draft_owner": "drafts/western.json",
+      "id": "D038",
+      "original_title": null,
+      "novelty_basis": "Editorial estimate of the advertised hook against E8-E8D and prior lanes, not a popularity or literary score.",
+      "adaptation_status": "proposal; not accepted or implemented",
+      "claim_status": "metadata-supported hook; review details remain leads; exact world rules need selected text",
+      "source_ids": [
+        "D038-S1"
+      ]
+    },
+    {
+      "title": "Return of the Runebound Professor",
+      "author": "Actus",
+      "platform": "Royal Road",
+      "language_group": "Western English web serial",
+      "summary": "A reincarnated teacher reforms after death, but dying leaves a painful soul injury. That changes experimentation: the body can be replaced while an internal cost survives. The advertised breadth of runic magic makes repeated trials attractive without proving that immortality removes every gate or consequence from learning.",
+      "lenses": [
+        "immortality and revival",
+        "systems with strange prices",
+        "shards and inheritance"
+      ],
+      "novelty_score": 5,
+      "source_urls": [
+        "https://www.royalroad.com/fiction/68679/return-of-the-runebound-professor"
+      ],
+      "evidence_scope": "Indexed official Royal Road fiction-page synopsis and author attribution; metadata only.",
+      "verified_hook": "Official synopsis explicitly links body reformation after death with soul wounds and many runic magic variations.",
+      "unknowns": [
+        "Soul-wound recovery and final-death conditions.",
+        "Rune combination, transfer and destruction rules."
+      ],
+      "proposal": "Proposal: give revival separate body recovery and persistent soul damage records.",
+      "search_receipts": [
+        "turn17search2"
+      ],
+      "power_currency": "Lives, described as a currency in the synopsis",
+      "acquisition_gate": "Death triggers body reformation",
+      "cost": "Painful soul wound",
+      "persistence": "Body reforms; soul injury survives the death event",
+      "source_details": [
+        {
+          "url": "https://www.royalroad.com/fiction/68679/return-of-the-runebound-professor",
+          "source_kind": "official_author_platform_indexed_metadata",
+          "access": "search_index_only",
+          "retrieved_date": "2026-10-10"
+        }
+      ],
+      "draft_owner": "drafts/western.json",
+      "id": "D039",
+      "original_title": null,
+      "novelty_basis": "Editorial estimate of the advertised hook against E8-E8D and prior lanes, not a popularity or literary score.",
+      "adaptation_status": "proposal; not accepted or implemented",
+      "claim_status": "metadata-supported hook; review details remain leads; exact world rules need selected text",
+      "source_ids": [
+        "D039-S1"
+      ]
+    },
+    {
+      "title": "Minute Mage: A Time Magic LitRPG",
+      "author": "Reg Rome",
+      "platform": "Royal Road",
+      "language_group": "Western English web serial",
+      "summary": "A human gains a very short rewind that initially works once per day. Growth extends the window, while the demons who regard the magic as theirs pursue him. The small time budget makes tactical observation valuable: knowing what happens next does not guarantee enough time or another charge to change it.",
+      "lenses": [
+        "future sight",
+        "systems with strange prices",
+        "power paths with odd currencies"
+      ],
+      "novelty_score": 4,
+      "source_urls": [
+        "https://www.royalroad.com/fiction/61762/minute-mage-a-time-traveling-litrpg"
+      ],
+      "evidence_scope": "Indexed official Royal Road fiction-page synopsis and author attribution; metadata only.",
+      "verified_hook": "Official indexed synopsis specifies a one-minute rewind once daily and a longer window with levels.",
+      "unknowns": [
+        "Memory and item carry.",
+        "Cooldown behavior across rewind.",
+        "Ownership claims versus actual magical revocation."
+      ],
+      "proposal": "Proposal: treat rewind length, use quota and stolen-power pursuit as separate limits.",
+      "search_receipts": [
+        "turn20search4"
+      ],
+      "power_currency": null,
+      "acquisition_gate": "Level growth extends rewind",
+      "cost": "Initially once per day",
+      "persistence": "Rewind begins at one minute; exact carry unknown",
+      "source_details": [
+        {
+          "url": "https://www.royalroad.com/fiction/61762/minute-mage-a-time-traveling-litrpg",
+          "source_kind": "official_author_platform_indexed_metadata",
+          "access": "search_index_only",
+          "retrieved_date": "2026-10-10"
+        }
+      ],
+      "draft_owner": "drafts/western.json",
+      "id": "D040",
+      "original_title": null,
+      "novelty_basis": "Editorial estimate of the advertised hook against E8-E8D and prior lanes, not a popularity or literary score.",
+      "adaptation_status": "proposal; not accepted or implemented",
+      "claim_status": "metadata-supported hook; review details remain leads; exact world rules need selected text",
+      "source_ids": [
+        "D040-S1"
+      ]
+    },
+    {
+      "title": "The Stubborn Skill-Grinder In A Time Loop",
+      "author": "X-RHODEN-X",
+      "platform": "Royal Road",
+      "language_group": "Western English web serial",
+      "summary": "A fighter repeatedly returns to the day of his death and grinds skills through brute-force attempts. Instead of solving the loop solely through a perfect plan, he uses repeated failure as practice. The hook invites comparison between retained skill, retained equipment and actual mastery behind a system number.",
+      "lenses": [
+        "immortality and revival",
+        "rule-abuse and gag physics",
+        "power paths with odd currencies"
+      ],
+      "novelty_score": 3,
+      "source_urls": [
+        "https://www.royalroad.com/fiction/83294/the-stubborn-skill-grinder-in-a-time-loop-book",
+        "https://www.scribblehub.com/series/1028638/the-stubborn-skillgrinder-in-a-time-loop/"
+      ],
+      "evidence_scope": "Indexed Royal Road author attribution and public author-platform Scribble Hub synopsis. No full-text reading.",
+      "verified_hook": "Author-platform synopsis describes a death-triggered return and repeated practice that gains skill levels.",
+      "unknowns": [
+        "Reset anchor, retention and escape conditions.",
+        "Which skills require real mastery rather than repeated exposure."
+      ],
+      "proposal": "Proposal: distinguish retained practice from retained status-screen numbers.",
+      "search_receipts": [
+        "turn24search1",
+        "turn33search0"
+      ],
+      "power_currency": null,
+      "acquisition_gate": "Repeated practice across loops",
+      "cost": null,
+      "persistence": "Skill levels gained across repetition; exact retention rules unverified",
+      "source_details": [
+        {
+          "url": "https://www.royalroad.com/fiction/83294/the-stubborn-skill-grinder-in-a-time-loop-book",
+          "source_kind": "official_author_platform_indexed_metadata",
+          "access": "search_index_only",
+          "retrieved_date": "2026-10-10"
+        },
+        {
+          "url": "https://www.scribblehub.com/series/1028638/the-stubborn-skillgrinder-in-a-time-loop/",
+          "source_kind": "official_author_platform_indexed_metadata",
+          "access": "search_index_only",
+          "retrieved_date": "2026-10-10"
+        }
+      ],
+      "draft_owner": "drafts/western.json",
+      "id": "D041",
+      "original_title": null,
+      "novelty_basis": "Editorial estimate of the advertised hook against E8-E8D and prior lanes, not a popularity or literary score.",
+      "adaptation_status": "proposal; not accepted or implemented",
+      "claim_status": "metadata-supported hook; review details remain leads; exact world rules need selected text",
+      "source_ids": [
+        "D041-S1",
+        "D041-S2"
+      ]
+    },
+    {
+      "title": "Industrial Strength Magic",
+      "author": "Macronomicon",
+      "platform": "Royal Road",
+      "language_group": "Western English web serial",
+      "summary": "A young man born between a magical family and a supervillain family lacks the abilities he wants. A system pushes him toward one parent path while he seeks the other. The official hook supports researching how a machine-mediated path can interact with magic without assuming either source naturally supplies the other.",
+      "lenses": [
+        "shards and inheritance",
+        "rule-abuse and gag physics",
+        "power paths with odd currencies"
+      ],
+      "novelty_score": 3,
+      "source_urls": [
+        "https://www.royalroad.com/fiction/57011/industrial-"
+      ],
+      "evidence_scope": "Indexed official Royal Road fiction-page synopsis and author attribution; metadata only.",
+      "verified_hook": "Official synopsis verifies mixed parental sources, initially absent powers and a system-driven path conflict.",
+      "unknowns": [
+        "Exact tinker scaling.",
+        "Whether magic is recreated, routed through tools or directly inherited."
+      ],
+      "proposal": "Proposal: let a tool path reach a family technique through an explicit interface rather than automatic conversion.",
+      "search_receipts": [
+        "turn15search0"
+      ],
+      "power_currency": null,
+      "acquisition_gate": "System boots",
+      "cost": null,
+      "persistence": null,
+      "source_details": [
+        {
+          "url": "https://www.royalroad.com/fiction/57011/industrial-",
+          "source_kind": "official_author_platform_indexed_metadata",
+          "access": "search_index_only",
+          "retrieved_date": "2026-10-10"
+        }
+      ],
+      "draft_owner": "drafts/western.json",
+      "id": "D042",
+      "original_title": null,
+      "novelty_basis": "Editorial estimate of the advertised hook against E8-E8D and prior lanes, not a popularity or literary score.",
+      "adaptation_status": "proposal; not accepted or implemented",
+      "claim_status": "metadata-supported hook; review details remain leads; exact world rules need selected text",
+      "source_ids": [
+        "D042-S1"
+      ]
+    },
+    {
+      "title": "Double-Blind: A Modern LITRPG",
+      "author": "Eligos",
+      "platform": "Royal Road",
+      "language_group": "Western English web serial",
+      "summary": "A system arrives in a modern town but leaves many residents unchanged. Public reader metadata describes a hidden mastermind class with a false-identity skill, allowing its holder to look ordinary while building influence. The useful hook is power used to control what other people can classify, rather than only hiding a body.",
+      "lenses": [
+        "mimics and hidden identities",
+        "observation",
+        "inspectors and rule enforcers"
+      ],
+      "novelty_score": 3,
+      "source_urls": [
+        "https://www.royalroad.com/fiction/50553/double-blind",
+        "https://www.royalroad.com/fiction/50553/double-blind?reviews=4&sorting=oldest"
+      ],
+      "evidence_scope": "Official fiction-page attribution; hook is public reader-review metadata, not canon checked in chapters.",
+      "verified_hook": "Indexed public page review identifies fake identity and a hidden mastermind class; official page supplies title and author.",
+      "unknowns": [
+        "What inspection channels the false identity defeats.",
+        "Whether disguise changes records, perception or system output."
+      ],
+      "proposal": "Proposal: track the reported identity separately for each observer and each inspection method.",
+      "search_receipts": [
+        "turn24search2",
+        "turn24search3"
+      ],
+      "power_currency": null,
+      "acquisition_gate": null,
+      "cost": null,
+      "persistence": null,
+      "source_details": [
+        {
+          "url": "https://www.royalroad.com/fiction/50553/double-blind",
+          "source_kind": "official_author_platform_indexed_metadata",
+          "access": "search_index_only",
+          "retrieved_date": "2026-10-10"
+        },
+        {
+          "url": "https://www.royalroad.com/fiction/50553/double-blind?reviews=4&sorting=oldest",
+          "source_kind": "public_reader_review_on_official_platform_indexed_metadata",
+          "access": "search_index_only",
+          "retrieved_date": "2026-10-10"
+        }
+      ],
+      "draft_owner": "drafts/western.json",
+      "id": "D043",
+      "original_title": null,
+      "novelty_basis": "Editorial estimate of the advertised hook against E8-E8D and prior lanes, not a popularity or literary score.",
+      "adaptation_status": "proposal; not accepted or implemented",
+      "claim_status": "metadata-supported hook; review details remain leads; exact world rules need selected text",
+      "source_ids": [
+        "D043-S1",
+        "D043-S2"
+      ]
+    },
+    {
+      "title": "Pale Lights",
+      "author": "ErraticErrata",
+      "platform": "Royal Road",
+      "language_group": "Western English web serial",
+      "summary": "A thief relies on a contract with a fickle goddess until an accidental crossing of a line forces him from his old life. Public reader metadata describes gods sharing power for a price. The core research question is how the same bargain can combine usable power, patron discretion and dangerous interpretation.",
+      "lenses": [
+        "vows and contracts",
+        "systems with strange prices",
+        "future sight"
+      ],
+      "novelty_score": 5,
+      "source_urls": [
+        "https://www.royalroad.com/fiction/65058/pale-lights",
+        "https://www.royalroad.com/fiction/65058/pale?reviews=8"
+      ],
+      "evidence_scope": "Indexed official synopsis for contract and author; public review for priced divine power. No chapter claims used.",
+      "verified_hook": "Official synopsis explicitly gives Tristan a contract with a capricious goddess; reader metadata supports priced divine gifts.",
+      "unknowns": [
+        "Exact gift and price.",
+        "Whether the crossed line is contractual, social or both.",
+        "Fortune and future-sight rules require source material."
+      ],
+      "proposal": "Proposal: distinguish contract text, patron mood and an external social consequence.",
+      "search_receipts": [
+        "turn29search1",
+        "turn20search1"
+      ],
+      "power_currency": null,
+      "acquisition_gate": "Divine contract",
+      "cost": "Priced gifts mentioned in reader metadata; exact price unknown",
+      "persistence": null,
+      "source_details": [
+        {
+          "url": "https://www.royalroad.com/fiction/65058/pale-lights",
+          "source_kind": "official_author_platform_indexed_metadata",
+          "access": "search_index_only",
+          "retrieved_date": "2026-10-10"
+        },
+        {
+          "url": "https://www.royalroad.com/fiction/65058/pale?reviews=8",
+          "source_kind": "public_reader_review_on_official_platform_indexed_metadata",
+          "access": "search_index_only",
+          "retrieved_date": "2026-10-10"
+        }
+      ],
+      "draft_owner": "drafts/western.json",
+      "id": "D044",
+      "original_title": null,
+      "novelty_basis": "Editorial estimate of the advertised hook against E8-E8D and prior lanes, not a popularity or literary score.",
+      "adaptation_status": "proposal; not accepted or implemented",
+      "claim_status": "metadata-supported hook; review details remain leads; exact world rules need selected text",
+      "source_ids": [
+        "D044-S1",
+        "D044-S2"
+      ]
+    },
+    {
+      "title": "Mimic Me! Within The Eternal Forest",
+      "author": "Rutaria",
+      "platform": "Royal Road",
+      "language_group": "Western English web serial",
+      "summary": "A young mimic starts alone in a forest where monsters seek evolution. The author describes evolution as driven by a creature wish, while the official synopsis shows a shapeshifting egg needing to survive until it changes. This suggests power branches shaped by desire, with disguise and survival arriving before a human identity.",
+      "lenses": [
+        "mimics and hidden identities",
+        "power paths with odd currencies",
+        "observation"
+      ],
+      "novelty_score": 4,
+      "source_urls": [
+        "https://www.royalroad.com/fiction/140716/mimic-mewithin-the-eternal-forest",
+        "https://www.royalroad.com/forums/thread/161234?page=1"
+      ],
+      "evidence_scope": "Indexed official synopsis and a public forum post attributed to the author. Forum dates may be stale or inconsistent; no dates or counts are relied upon.",
+      "verified_hook": "Official synopsis gives the shifting egg and survival/evolution hook; author forum metadata calls the protagonist a mimic and says evolution follows wishes.",
+      "unknowns": [
+        "How a wish is measured.",
+        "Whether mimicry copies shape, ability or identity.",
+        "Evolution cost and irreversible changes."
+      ],
+      "proposal": "Proposal: let a creature desired form influence branch offers while preserving its current body limits.",
+      "search_receipts": [
+        "turn34search0",
+        "turn34search6"
+      ],
+      "power_currency": null,
+      "acquisition_gate": "Survive until evolution; author says wishes shape evolution",
+      "cost": null,
+      "persistence": null,
+      "source_details": [
+        {
+          "url": "https://www.royalroad.com/fiction/140716/mimic-mewithin-the-eternal-forest",
+          "source_kind": "official_author_platform_indexed_metadata",
+          "access": "search_index_only",
+          "retrieved_date": "2026-10-10"
+        },
+        {
+          "url": "https://www.royalroad.com/forums/thread/161234?page=1",
+          "source_kind": "official_author_platform_indexed_metadata",
+          "access": "search_index_only",
+          "retrieved_date": "2026-10-10"
+        }
+      ],
+      "draft_owner": "drafts/western.json",
+      "id": "D045",
+      "original_title": null,
+      "novelty_basis": "Editorial estimate of the advertised hook against E8-E8D and prior lanes, not a popularity or literary score.",
+      "adaptation_status": "proposal; not accepted or implemented",
+      "claim_status": "metadata-supported hook; review details remain leads; exact world rules need selected text",
+      "source_ids": [
+        "D045-S1",
+        "D045-S2"
+      ]
+    },
+    {
+      "title": "The Law of Averages",
+      "author": "mcswazey",
+      "platform": "Royal Road",
+      "language_group": "Western English web serial",
+      "summary": "A displaced man enters a world where superpowers can be purchased and heroics are discouraged. What seems ordinary in one world can be special in another. The hook separates a power market from heroic destiny and asks who can obtain a useful ability when the relevant barrier is a sale rather than awakening.",
+      "lenses": [
+        "systems with strange prices",
+        "power paths with odd currencies",
+        "inspectors and rule enforcers"
+      ],
+      "novelty_score": 4,
+      "source_urls": [
+        "https://www.royalroad.com/fiction/20101/the-law-of-averages"
+      ],
+      "evidence_scope": "Indexed official Royal Road fiction-page synopsis and author attribution; metadata only.",
+      "verified_hook": "Official synopsis explicitly describes powers for sale and a society that frowns on heroics.",
+      "unknowns": [
+        "Price, license, installation and compatibility.",
+        "Whether purchased power can be resold or revoked."
+      ],
+      "proposal": "Proposal: separate purchase, bodily installation, permission to use and public approval.",
+      "search_receipts": [
+        "turn31search0"
+      ],
+      "power_currency": null,
+      "acquisition_gate": "Purchase superpowers",
+      "cost": "Sale price unspecified",
+      "persistence": null,
+      "source_details": [
+        {
+          "url": "https://www.royalroad.com/fiction/20101/the-law-of-averages",
+          "source_kind": "official_author_platform_indexed_metadata",
+          "access": "search_index_only",
+          "retrieved_date": "2026-10-10"
+        }
+      ],
+      "draft_owner": "drafts/western.json",
+      "id": "D046",
+      "original_title": null,
+      "novelty_basis": "Editorial estimate of the advertised hook against E8-E8D and prior lanes, not a popularity or literary score.",
+      "adaptation_status": "proposal; not accepted or implemented",
+      "claim_status": "metadata-supported hook; review details remain leads; exact world rules need selected text",
+      "source_ids": [
+        "D046-S1"
+      ]
+    },
+    {
+      "title": "Ra",
+      "original_title": "Ra",
+      "author": "qntm (Sam Hughes)",
+      "platform": "Author website; self-published editions",
+      "language_group": "Western",
+      "summary": "Magic is studied and used as an engineering discipline, with domestic and industrial applications. A student seeks to understand a failed magical spaceflight. The unusual hook is technical power whose working model can be investigated, rather than a fixed gift; later hidden-system claims need the chosen text edition before design use.",
+      "lenses": [
+        "inspectors and rule enforcers",
+        "rule-abuse and gag physics"
+      ],
+      "novelty_score": 4,
+      "source_urls": [
+        "https://www.goodreads.com/book/show/59025155-ra",
+        "https://en.wikipedia.org/wiki/Ra_(novel)"
+      ],
+      "evidence_scope": "indexed public synopsis and bibliographic metadata",
+      "verified_hook": "Magic is an engineering field with household and industrial uses; investigation centers on a failed magical spaceflight.",
+      "unknowns": [
+        "Exact spell syntax, resource accounting, exploit scene and edition changes not read."
+      ],
+      "proposal": "Proposal: a workshop can test a spell model against a real material and record what failed.",
+      "source_request_url": "https://qntm.org/ra",
+      "draft_owner": "drafts/root.json",
+      "id": "D047",
+      "novelty_basis": "Editorial estimate of the advertised hook against E8-E8D and prior lanes, not a popularity or literary score.",
+      "adaptation_status": "proposal; not accepted or implemented",
+      "claim_status": "metadata-supported hook; review details remain leads; exact world rules need selected text",
+      "source_ids": [
+        "D047-S1",
+        "D047-S2"
+      ]
+    },
+    {
+      "title": "Fine Structure",
+      "original_title": "Fine Structure",
+      "author": "qntm",
+      "platform": "Author web serial; self-published EPUB",
+      "language_group": "Western",
+      "summary": "A new framework promises access to energy, transport and parallel worlds. Attempts to use it provoke sabotage, while the laws of physics change to close discoveries. The hook is a world that edits what remains possible after an experiment, making a sound observation obsolete without making the original observer dishonest.",
+      "lenses": [
+        "kinds of observation",
+        "inspectors and rule enforcers",
+        "rule-abuse and gag physics"
+      ],
+      "novelty_score": 5,
+      "source_urls": [
+        "https://qntm.gumroad.com/l/ELFop",
+        "https://books.google.com/books/about/Fine_Structure.html?id=2gdkDwAAQBAJ"
+      ],
+      "evidence_scope": "indexed author shop synopsis and book metadata",
+      "verified_hook": "Experiments are followed by sabotage and changing scientific laws that close discovered possibilities.",
+      "unknowns": [
+        "Who enforces the closure, precise trigger order, exceptions and any renewal costs need text."
+      ],
+      "proposal": "Proposal: a discovery receipt stores the rule version under which it worked, and later trials can fail under a changed local law.",
+      "source_request_url": "https://qntm.gumroad.com/l/ELFop",
+      "draft_owner": "drafts/root.json",
+      "id": "D048",
+      "novelty_basis": "Editorial estimate of the advertised hook against E8-E8D and prior lanes, not a popularity or literary score.",
+      "adaptation_status": "proposal; not accepted or implemented",
+      "claim_status": "metadata-supported hook; review details remain leads; exact world rules need selected text",
+      "source_ids": [
+        "D048-S1",
+        "D048-S2"
+      ]
+    },
+    {
+      "title": "I Can See Your Death",
+      "original_title": "너의 죽음이 보여",
+      "author": "단해늘",
+      "platform": "Korean web novel; original platform not established in accessed metadata",
+      "language_group": "Korean",
+      "summary": "After an accident, a woman reads a death date and sign above other people. Black entries can be changed by her intervention, while red ones appear fixed to her. The synopsis therefore distinguishes seeing an outcome from being able to prevent it, and turns the displayed kind of prediction into a practical rescue decision.",
+      "lenses": [
+        "future sight",
+        "kinds of observation",
+        "hidden identities"
+      ],
+      "novelty_score": 4,
+      "source_urls": [
+        "https://www.novelupdates.com/series/i-can-see-your-death/"
+      ],
+      "evidence_scope": "indexed public novel synopsis and author metadata",
+      "verified_hook": "Synopsis states death date/sign sight and contrasts preventable black readings with red lifespans described as unchangeable.",
+      "unknowns": [
+        "Is the color an objective law or an incomplete character belief?",
+        "Exact scope, reliability, growth and effect of telling the target need text."
+      ],
+      "proposal": "Proposal: a reading has separate certainty and intervention status; apparent inevitability stays an observer claim until tested.",
+      "power_currency": null,
+      "acquisition_gate": "Sight begins after an accident",
+      "cost": null,
+      "persistence": null,
+      "draft_owner": "drafts/root.json",
+      "id": "D049",
+      "novelty_basis": "Editorial estimate of the advertised hook against E8-E8D and prior lanes, not a popularity or literary score.",
+      "adaptation_status": "proposal; not accepted or implemented",
+      "claim_status": "metadata-supported hook; review details remain leads; exact world rules need selected text",
+      "source_ids": [
+        "D049-S1"
+      ]
+    },
+    {
+      "title": "The Oracle Paths",
+      "original_title": "The Oracle Paths",
+      "author": "Arkinslize",
+      "platform": "WebNovel original English web serial",
+      "language_group": "Western",
+      "summary": "Every person receives a bracelet with an AI that promises guidance about how choices affect the future. The premise removes the usual advantage of being the only informed actor. Guidance becomes a contested resource when opponents can plan too, while the synopsis warns that the gift has a price without specifying its tariff.",
+      "lenses": [
+        "future sight",
+        "kinds of observation",
+        "systems with strange prices"
+      ],
+      "novelty_score": 5,
+      "source_urls": [
+        "https://www.webnovel.com/book/15465781005526105"
+      ],
+      "evidence_scope": "indexed official author-platform synopsis and author metadata",
+      "verified_hook": "Official synopsis grants all Earthlings an Oracle AI bracelet describing future consequences of choices; exact tariff is unstated.",
+      "unknowns": [
+        "Prediction fidelity, guide conflicts, price, updates and anti-prediction rules need text."
+      ],
+      "proposal": "Proposal: preview quality depends on which other actors also possess and act on guidance, rather than assuming passive opponents.",
+      "power_currency": null,
+      "acquisition_gate": "Bracelet delivered to every Earthling",
+      "cost": null,
+      "persistence": null,
+      "draft_owner": "drafts/root.json",
+      "id": "D050",
+      "novelty_basis": "Editorial estimate of the advertised hook against E8-E8D and prior lanes, not a popularity or literary score.",
+      "adaptation_status": "proposal; not accepted or implemented",
+      "claim_status": "metadata-supported hook; review details remain leads; exact world rules need selected text",
+      "source_ids": [
+        "D050-S1"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "D001-S1",
+      "candidate_id": "D001",
+      "title": "I Have a Super USB Drive",
+      "url": "https://www.webnovel.com/book/i-have-a-super-usb-drive_17527881305321505",
+      "source_kind": "official_publisher",
+      "access": "indexed metadata",
+      "date": "2026-10-10",
+      "supports": "Indexed official English book landing page supports English author identity, Webnovel platform and synopsis; reviews/catalog claims are qualified separately."
+    },
+    {
+      "id": "D001-S2",
+      "candidate_id": "D001",
+      "title": "I Have a Super USB Drive",
+      "url": "https://www.novelupdates.com/series/i-have-a-super-usb-drive/",
+      "source_kind": "public_catalog",
+      "access": "indexed metadata",
+      "date": "2026-10-10",
+      "supports": "Indexed series entry supports listed author, original/English publisher where stated, original title and the bounded synopsis/tag/review claims distinguished in verified_hook."
+    },
+    {
+      "id": "D002-S1",
+      "candidate_id": "D002",
+      "title": "My Cell Prison",
+      "url": "https://www.webnovel.com/book/my-cell-prison_16880586105601605",
+      "source_kind": "official_publisher",
+      "access": "indexed metadata",
+      "date": "2026-10-10",
+      "supports": "Indexed official English book landing page supports English author identity, Webnovel platform and synopsis; reviews/catalog claims are qualified separately."
+    },
+    {
+      "id": "D002-S2",
+      "candidate_id": "D002",
+      "title": "My Cell Prison",
+      "url": "https://book.qidian.com/booklist/detail/647039/1/",
+      "source_kind": "publisher_hosted_catalog_and_reader_list",
+      "access": "indexed metadata",
+      "date": "2026-10-10",
+      "supports": "Indexed publisher-hosted title/author entry and reproduced author synopsis; booklist owner commentary is a secondary reader lead."
+    },
+    {
+      "id": "D003-S1",
+      "candidate_id": "D003",
+      "title": "Let Me Game in Peace",
+      "url": "https://www.novelupdates.com/series/let-me-game-in-peace/",
+      "source_kind": "public_catalog",
+      "access": "indexed metadata",
+      "date": "2026-10-10",
+      "supports": "Indexed series entry supports listed author, original/English publisher where stated, original title and the bounded synopsis/tag/review claims distinguished in verified_hook."
+    },
+    {
+      "id": "D003-S2",
+      "candidate_id": "D003",
+      "title": "Let Me Game in Peace",
+      "url": "https://www.webnovel.com/comic/let-me-game-in-peace_23185067706498601",
+      "source_kind": "official_adaptation_synopsis",
+      "access": "indexed metadata",
+      "date": "2026-10-10",
+      "supports": "Indexed official comic synopsis supports blood-funded phone-dungeon premise only; novel author/publisher derives from NovelUpdates."
+    },
+    {
+      "id": "D004-S1",
+      "candidate_id": "D004",
+      "title": "Losing Money to Be a Tycoon",
+      "url": "https://www.webnovel.com/book/15705498105694305",
+      "source_kind": "official_publisher",
+      "access": "indexed metadata",
+      "date": "2026-10-10",
+      "supports": "Indexed official English book landing page supports English author identity, Webnovel platform and synopsis; reviews/catalog claims are qualified separately."
+    },
+    {
+      "id": "D004-S2",
+      "candidate_id": "D004",
+      "title": "Losing Money to Be a Tycoon",
+      "url": "https://www.novelupdates.com/series/losing-money-to-be-a-tycoon/",
+      "source_kind": "public_catalog",
+      "access": "indexed metadata",
+      "date": "2026-10-10",
+      "supports": "Indexed series entry supports listed author, original/English publisher where stated, original title and the bounded synopsis/tag/review claims distinguished in verified_hook."
+    },
+    {
+      "id": "D005-S1",
+      "candidate_id": "D005",
+      "title": "Astral Apostle",
+      "url": "https://www.webnovel.com/book/astral-apostle_21638395405875905",
+      "source_kind": "official_publisher",
+      "access": "indexed metadata",
+      "date": "2026-10-10",
+      "supports": "Indexed official English book landing page supports English author identity, Webnovel platform and synopsis; reviews/catalog claims are qualified separately."
+    },
+    {
+      "id": "D005-S2",
+      "candidate_id": "D005",
+      "title": "Astral Apostle",
+      "url": "https://www.novelupdates.com/series/astral-apostle/",
+      "source_kind": "public_catalog",
+      "access": "indexed metadata",
+      "date": "2026-10-10",
+      "supports": "Indexed series entry supports listed author, original/English publisher where stated, original title and the bounded synopsis/tag/review claims distinguished in verified_hook."
+    },
+    {
+      "id": "D006-S1",
+      "candidate_id": "D006",
+      "title": "Seized by the System",
+      "url": "https://www.novelupdates.com/series/seized-by-the-system/",
+      "source_kind": "public_catalog",
+      "access": "indexed metadata",
+      "date": "2026-10-10",
+      "supports": "Indexed series entry supports listed author, original/English publisher where stated, original title and the bounded synopsis/tag/review claims distinguished in verified_hook."
+    },
+    {
+      "id": "D006-S2",
+      "candidate_id": "D006",
+      "title": "Seized by the System",
+      "url": "https://book.qidian.com/booklist/detail/633338/1/",
+      "source_kind": "publisher_hosted_catalog_and_reader_list",
+      "access": "indexed metadata",
+      "date": "2026-10-10",
+      "supports": "Indexed publisher-hosted title/author entry and reproduced author synopsis; booklist owner commentary is a secondary reader lead."
+    },
+    {
+      "id": "D007-S1",
+      "candidate_id": "D007",
+      "title": "Soul of Negary",
+      "url": "https://www.webnovel.com/book/soul-of-negary_17914721805523705",
+      "source_kind": "official_publisher",
+      "access": "indexed metadata",
+      "date": "2026-10-10",
+      "supports": "Indexed official English book landing page supports English author identity, Webnovel platform and synopsis; reviews/catalog claims are qualified separately."
+    },
+    {
+      "id": "D007-S2",
+      "candidate_id": "D007",
+      "title": "Soul of Negary",
+      "url": "https://www.novelupdates.com/series/soul-of-negary/",
+      "source_kind": "public_catalog",
+      "access": "indexed metadata",
+      "date": "2026-10-10",
+      "supports": "Indexed series entry supports listed author, original/English publisher where stated, original title and the bounded synopsis/tag/review claims distinguished in verified_hook."
+    },
+    {
+      "id": "D008-S1",
+      "candidate_id": "D008",
+      "title": "My Divine Diary",
+      "url": "https://www.novelupdates.com/series/my-divine-diary/",
+      "source_kind": "public_catalog",
+      "access": "indexed metadata",
+      "date": "2026-10-10",
+      "supports": "Indexed series entry supports listed author, original/English publisher where stated, original title and the bounded synopsis/tag/review claims distinguished in verified_hook."
+    },
+    {
+      "id": "D009-S1",
+      "candidate_id": "D009",
+      "title": "Fantasy Simulator",
+      "url": "https://www.novelupdates.com/series/fantasy-simulator/",
+      "source_kind": "public_catalog",
+      "access": "indexed metadata",
+      "date": "2026-10-10",
+      "supports": "Indexed series entry supports listed author, original/English publisher where stated, original title and the bounded synopsis/tag/review claims distinguished in verified_hook."
+    },
+    {
+      "id": "D010-S1",
+      "candidate_id": "D010",
+      "title": "Carefree Path of Dreams",
+      "url": "https://www.novelupdates.com/series/carefree-path-of-dreams/",
+      "source_kind": "public_catalog",
+      "access": "indexed metadata",
+      "date": "2026-10-10",
+      "supports": "Indexed series entry supports listed author, original/English publisher where stated, original title and the bounded synopsis/tag/review claims distinguished in verified_hook."
+    },
+    {
+      "id": "D011-S1",
+      "candidate_id": "D011",
+      "title": "Low Dimensional Game",
+      "url": "https://www.novelupdates.com/series/low-dimensional-game/",
+      "source_kind": "public_catalog",
+      "access": "indexed metadata",
+      "date": "2026-10-10",
+      "supports": "Indexed series entry supports listed author, original/English publisher where stated, original title and the bounded synopsis/tag/review claims distinguished in verified_hook."
+    },
+    {
+      "id": "D012-S1",
+      "candidate_id": "D012",
+      "title": "Everybody is Kung Fu Fighting, While I Started a Farm",
+      "url": "https://www.webnovel.com/book/17527789006425805",
+      "source_kind": "official_publisher",
+      "access": "indexed metadata",
+      "date": "2026-10-10",
+      "supports": "Indexed official English book landing page supports English author identity, Webnovel platform and synopsis; reviews/catalog claims are qualified separately."
+    },
+    {
+      "id": "D012-S2",
+      "candidate_id": "D012",
+      "title": "Everybody is Kung Fu Fighting, While I Started a Farm",
+      "url": "https://www.novelupdates.com/series/everybody-is-kung-fu-fighting-while-i-started-a-farm/",
+      "source_kind": "public_catalog",
+      "access": "indexed metadata",
+      "date": "2026-10-10",
+      "supports": "Indexed series entry supports listed author, original/English publisher where stated, original title and the bounded synopsis/tag/review claims distinguished in verified_hook."
+    },
+    {
+      "id": "D013-S1",
+      "candidate_id": "D013",
+      "title": "Doomsday Wonderland",
+      "url": "https://www.novelupdates.com/series/doomsday-wonderland/",
+      "source_kind": "public_catalog",
+      "access": "indexed metadata",
+      "date": "2026-10-10",
+      "supports": "Indexed series entry supports listed author, original/English publisher where stated, original title and the bounded synopsis/tag/review claims distinguished in verified_hook."
+    },
+    {
+      "id": "D013-S2",
+      "candidate_id": "D013",
+      "title": "Doomsday Wonderland",
+      "url": "https://acts.qidian.com/2018/5620962_1/index.html",
+      "source_kind": "official_publisher_ranking",
+      "access": "indexed metadata",
+      "date": "2026-10-10",
+      "supports": "Indexed publisher ranking supports Chinese title, author and short synopsis only."
+    },
+    {
+      "id": "D014-S1",
+      "candidate_id": "D014",
+      "title": "Trafford's Trading Club",
+      "url": "https://www.webnovel.com/book/trafford%27s-trading-club_6831849802000805",
+      "source_kind": "official_publisher",
+      "access": "indexed metadata",
+      "date": "2026-10-10",
+      "supports": "Indexed official English book landing page supports English author identity, Webnovel platform and synopsis; reviews/catalog claims are qualified separately."
+    },
+    {
+      "id": "D014-S2",
+      "candidate_id": "D014",
+      "title": "Trafford's Trading Club",
+      "url": "https://www.novelupdates.com/series/traffords-trading-club/",
+      "source_kind": "public_catalog",
+      "access": "indexed metadata",
+      "date": "2026-10-10",
+      "supports": "Indexed series entry supports listed author, original/English publisher where stated, original title and the bounded synopsis/tag/review claims distinguished in verified_hook."
+    },
+    {
+      "id": "D015-S1",
+      "candidate_id": "D015",
+      "title": "I Can See Life Values (working English gloss)",
+      "url": "https://book.qidian.com/booklist/detail/639144/",
+      "source_kind": "publisher_hosted_catalog_and_reader_list",
+      "access": "indexed metadata",
+      "date": "2026-10-10",
+      "supports": "Indexed publisher-hosted title/author entry and reproduced author synopsis; booklist owner commentary is a secondary reader lead."
+    },
+    {
+      "id": "D015-S2",
+      "candidate_id": "D015",
+      "title": "I Can See Life Values (working English gloss)",
+      "url": "https://www.readnovel.com/bookquery/qbxabpgttunj",
+      "source_kind": "publisher_title_metadata",
+      "access": "indexed metadata",
+      "date": "2026-10-10",
+      "supports": "Indexed publisher-hosted title page supports Chinese title, author and short synopsis only."
+    },
+    {
+      "id": "D015-S3",
+      "candidate_id": "D015",
+      "title": "I Can See Life Values (working English gloss)",
+      "url": "https://isbn.ncl.edu.tw/FCKEDITOR_UploadFiles/1681781562.pdf",
+      "source_kind": "national_library_bibliography",
+      "access": "indexed metadata",
+      "date": "2026-10-10",
+      "supports": "Indexed National Central Library book metadata supports Chinese title, author and print publication; no mechanics claims."
+    },
+    {
+      "id": "D016-S1",
+      "candidate_id": "D016",
+      "title": "Information Omniscient (working English gloss)",
+      "url": "https://book.qidian.com/booklist/detail/644453/",
+      "source_kind": "publisher_hosted_catalog_and_reader_list",
+      "access": "indexed metadata",
+      "date": "2026-10-10",
+      "supports": "Indexed publisher-hosted title/author entry and reproduced author synopsis; booklist owner commentary is a secondary reader lead."
+    },
+    {
+      "id": "D016-S2",
+      "candidate_id": "D016",
+      "title": "Information Omniscient (working English gloss)",
+      "url": "https://book.qidian.com/booklist/detail/627927/2/",
+      "source_kind": "publisher_hosted_catalog_and_reader_list",
+      "access": "indexed metadata",
+      "date": "2026-10-10",
+      "supports": "Indexed publisher-hosted title/author entry and reproduced author synopsis; booklist owner commentary is a secondary reader lead."
+    },
+    {
+      "id": "D017-S1",
+      "candidate_id": "D017",
+      "title": "Dungeon Reset",
+      "url": "https://www.novelupdates.com/series/dungeon-reset/",
+      "source_kind": "public metadata; scope in candidate evidence_scope",
+      "access": "indexed metadata",
+      "date": "2026-10-10",
+      "supports": "Advertised premise and listed identity fields; review-only details are qualified in the candidate."
+    },
+    {
+      "id": "D017-S2",
+      "candidate_id": "D017",
+      "title": "Dungeon Reset",
+      "url": "https://www.tappytoon.com/en/book/dungeon-reset-novel",
+      "source_kind": "public metadata; scope in candidate evidence_scope",
+      "access": "indexed metadata",
+      "date": "2026-10-10",
+      "supports": "Advertised premise and listed identity fields; review-only details are qualified in the candidate."
+    },
+    {
+      "id": "D017-S3",
+      "candidate_id": "D017",
+      "title": "Dungeon Reset",
+      "url": "https://page.kakao.com/content/50594147?page=1",
+      "source_kind": "public metadata; scope in candidate evidence_scope",
+      "access": "indexed metadata",
+      "date": "2026-10-10",
+      "supports": "Advertised premise and listed identity fields; review-only details are qualified in the candidate."
+    },
+    {
+      "id": "D018-S1",
+      "candidate_id": "D018",
+      "title": "The Book Eating Magician",
+      "url": "https://www.novelupdates.com/series/the-book-eating-magician/",
+      "source_kind": "public metadata; scope in candidate evidence_scope",
+      "access": "indexed metadata",
+      "date": "2026-10-10",
+      "supports": "Advertised premise and listed identity fields; review-only details are qualified in the candidate."
+    },
+    {
+      "id": "D018-S2",
+      "candidate_id": "D018",
+      "title": "The Book Eating Magician",
+      "url": "https://www.wuxiaworld.com/novel/book-eater",
+      "source_kind": "public metadata; scope in candidate evidence_scope",
+      "access": "indexed metadata",
+      "date": "2026-10-10",
+      "supports": "Advertised premise and listed identity fields; review-only details are qualified in the candidate."
+    },
+    {
+      "id": "D018-S3",
+      "candidate_id": "D018",
+      "title": "The Book Eating Magician",
+      "url": "https://series.naver.com/novel/detail.series?productNo=2884396",
+      "source_kind": "public metadata; scope in candidate evidence_scope",
+      "access": "indexed metadata",
+      "date": "2026-10-10",
+      "supports": "Advertised premise and listed identity fields; review-only details are qualified in the candidate."
+    },
+    {
+      "id": "D019-S1",
+      "candidate_id": "D019",
+      "title": "The 31st Piece Turns the Tables",
+      "url": "https://www.novelupdates.com/series/the-31st-piece-turns-the-tables/",
+      "source_kind": "public metadata; scope in candidate evidence_scope",
+      "access": "indexed metadata",
+      "date": "2026-10-10",
+      "supports": "Advertised premise and listed identity fields; review-only details are qualified in the candidate."
+    },
+    {
+      "id": "D020-S1",
+      "candidate_id": "D020",
+      "title": "The Main Heroines are Trying to Kill Me",
+      "url": "https://www.novelupdates.com/series/the-main-heroines-are-trying-to-kill-me/",
+      "source_kind": "public metadata; scope in candidate evidence_scope",
+      "access": "indexed metadata",
+      "date": "2026-10-10",
+      "supports": "Advertised premise and listed identity fields; review-only details are qualified in the candidate."
+    },
+    {
+      "id": "D021-S1",
+      "candidate_id": "D021",
+      "title": "Kidnapped Dragons",
+      "url": "https://www.novelupdates.com/series/kidnapped-dragons/",
+      "source_kind": "public metadata; scope in candidate evidence_scope",
+      "access": "indexed metadata",
+      "date": "2026-10-10",
+      "supports": "Advertised premise and listed identity fields; review-only details are qualified in the candidate."
+    },
+    {
+      "id": "D022-S1",
+      "candidate_id": "D022",
+      "title": "I’m an Infinite Regressor, But I’ve Got Stories to Tell",
+      "url": "https://www.novelupdates.com/series/im-an-infinite-regressor-but-ive-got-stories-to-tell/",
+      "source_kind": "public metadata; scope in candidate evidence_scope",
+      "access": "indexed metadata",
+      "date": "2026-10-10",
+      "supports": "Advertised premise and listed identity fields; review-only details are qualified in the candidate."
+    },
+    {
+      "id": "D023-S1",
+      "candidate_id": "D023",
+      "title": "I Became the Necromancer of the Academy",
+      "url": "https://www.novelupdates.com/series/i-became-the-necromancer-of-the-academy/",
+      "source_kind": "public metadata; scope in candidate evidence_scope",
+      "access": "indexed metadata",
+      "date": "2026-10-10",
+      "supports": "Advertised premise and listed identity fields; review-only details are qualified in the candidate."
+    },
+    {
+      "id": "D024-S1",
+      "candidate_id": "D024",
+      "title": "The S-Classes That I Raised",
+      "url": "https://www.novelupdates.com/series/the-s-classes-that-i-raised/",
+      "source_kind": "public metadata; scope in candidate evidence_scope",
+      "access": "indexed metadata",
+      "date": "2026-10-10",
+      "supports": "Advertised premise and listed identity fields; review-only details are qualified in the candidate."
+    },
+    {
+      "id": "D025-S1",
+      "candidate_id": "D025",
+      "title": "D-Genesis: Three Years after the Dungeons Appeared",
+      "url": "https://j-novel.club/series/d-genesis/",
+      "source_kind": "public metadata; scope in candidate evidence_scope",
+      "access": "indexed metadata",
+      "date": "2026-10-10",
+      "supports": "Advertised premise and listed identity fields; review-only details are qualified in the candidate."
+    },
+    {
+      "id": "D026-S1",
+      "candidate_id": "D026",
+      "title": "Making Magic: The Sweet Life of a Witch Who Knows an Infinite MP Loophole",
+      "url": "https://j-novel.club/series/making-magic/",
+      "source_kind": "public metadata; scope in candidate evidence_scope",
+      "access": "direct metadata",
+      "date": "2026-10-10",
+      "supports": "Advertised premise and listed identity fields; review-only details are qualified in the candidate."
+    },
+    {
+      "id": "D027-S1",
+      "candidate_id": "D027",
+      "title": "To Another World... with Land Mines!",
+      "url": "https://j-novel.club/series/to-another-world-with-land-mines/",
+      "source_kind": "public metadata; scope in candidate evidence_scope",
+      "access": "indexed metadata",
+      "date": "2026-10-10",
+      "supports": "Advertised premise and listed identity fields; review-only details are qualified in the candidate."
+    },
+    {
+      "id": "D027-S2",
+      "candidate_id": "D027",
+      "title": "To Another World... with Land Mines!",
+      "url": "https://j-novel.club/series/to-another-world-with-land-mines-manga",
+      "source_kind": "public metadata; scope in candidate evidence_scope",
+      "access": "indexed metadata",
+      "date": "2026-10-10",
+      "supports": "Advertised premise and listed identity fields; review-only details are qualified in the candidate."
+    },
+    {
+      "id": "D027-S3",
+      "candidate_id": "D027",
+      "title": "To Another World... with Land Mines!",
+      "url": "https://en.wikipedia.org/wiki/To_Another_World..._with_Land_Mines%21",
+      "source_kind": "public metadata; scope in candidate evidence_scope",
+      "access": "indexed metadata",
+      "date": "2026-10-10",
+      "supports": "Advertised premise and listed identity fields; review-only details are qualified in the candidate."
+    },
+    {
+      "id": "D028-S1",
+      "candidate_id": "D028",
+      "title": "Lazy Dungeon Master",
+      "url": "https://j-novel.club/series/lazy-dungeon-master/",
+      "source_kind": "public metadata; scope in candidate evidence_scope",
+      "access": "indexed metadata",
+      "date": "2026-10-10",
+      "supports": "Advertised premise and listed identity fields; review-only details are qualified in the candidate."
+    },
+    {
+      "id": "D029-S1",
+      "candidate_id": "D029",
+      "title": "Min-Maxing My TRPG Build in Another World",
+      "url": "https://j-novel.club/series/min-maxing-my-trpg-build-in-another-world/",
+      "source_kind": "public metadata; scope in candidate evidence_scope",
+      "access": "indexed metadata",
+      "date": "2026-10-10",
+      "supports": "Advertised premise and listed identity fields; review-only details are qualified in the candidate."
+    },
+    {
+      "id": "D030-S1",
+      "candidate_id": "D030",
+      "title": "Monster Tamer",
+      "url": "https://j-novel.club/series/monster-tamer/",
+      "source_kind": "public metadata; scope in candidate evidence_scope",
+      "access": "indexed metadata",
+      "date": "2026-10-10",
+      "supports": "Advertised premise and listed identity fields; review-only details are qualified in the candidate."
+    },
+    {
+      "id": "D030-S2",
+      "candidate_id": "D030",
+      "title": "Monster Tamer",
+      "url": "https://isekai.fandom.com/wiki/Monster_Tamer",
+      "source_kind": "public metadata; scope in candidate evidence_scope",
+      "access": "indexed metadata",
+      "date": "2026-10-10",
+      "supports": "Advertised premise and listed identity fields; review-only details are qualified in the candidate."
+    },
+    {
+      "id": "D031-S1",
+      "candidate_id": "D031",
+      "title": "The Magician Who Rose From Failure",
+      "url": "https://j-novel.club/series/the-magician-who-rose-from-failure/",
+      "source_kind": "public metadata; scope in candidate evidence_scope",
+      "access": "indexed metadata",
+      "date": "2026-10-10",
+      "supports": "Advertised premise and listed identity fields; review-only details are qualified in the candidate."
+    },
+    {
+      "id": "D032-S1",
+      "candidate_id": "D032",
+      "title": "Did I Seriously Just Get Reincarnated as My Gag Character?!",
+      "url": "https://j-novel.club/series/did-i-seriously-just-get-reincarnated-as-my-gag-character/",
+      "source_kind": "public metadata; scope in candidate evidence_scope",
+      "access": "indexed metadata",
+      "date": "2026-10-10",
+      "supports": "Advertised premise and listed identity fields; review-only details are qualified in the candidate."
+    },
+    {
+      "id": "D033-S1",
+      "candidate_id": "D033",
+      "title": "The Game at Carousel: A Horror Movie LitRPG",
+      "url": "https://www.royalroad.com/fiction/65629/the-game-at-carousel-a-horror-movie-litrpg",
+      "source_kind": "official_author_platform_indexed_metadata",
+      "access": "search_index_only",
+      "date": "2026-10-10",
+      "supports": "Advertised premise and listed identity fields; review-only details are qualified in the candidate."
+    },
+    {
+      "id": "D033-S2",
+      "candidate_id": "D033",
+      "title": "The Game at Carousel: A Horror Movie LitRPG",
+      "url": "https://www.royalroad.com/fiction/65629/the-game-at-carousel-a-horror-movie-litrpg%C2%A0?review=1616023",
+      "source_kind": "public_reader_review_on_official_platform_indexed_metadata",
+      "access": "search_index_only",
+      "date": "2026-10-10",
+      "supports": "Advertised premise and listed identity fields; review-only details are qualified in the candidate."
+    },
+    {
+      "id": "D034-S1",
+      "candidate_id": "D034",
+      "title": "Godclads",
+      "url": "https://www.royalroad.com/fiction/59663/godclads",
+      "source_kind": "official_author_platform_indexed_metadata",
+      "access": "search_index_only",
+      "date": "2026-10-10",
+      "supports": "Advertised premise and listed identity fields; review-only details are qualified in the candidate."
+    },
+    {
+      "id": "D035-S1",
+      "candidate_id": "D035",
+      "title": "Slumrat Rising",
+      "url": "https://www.royalroad.com/fiction/65801/slumrat-rising",
+      "source_kind": "official_author_platform_indexed_metadata",
+      "access": "search_index_only",
+      "date": "2026-10-10",
+      "supports": "Advertised premise and listed identity fields; review-only details are qualified in the candidate."
+    },
+    {
+      "id": "D036-S1",
+      "candidate_id": "D036",
+      "title": "Markets and Multiverses",
+      "url": "https://www.royalroad.com/fiction/61244/markets-and-multiverses",
+      "source_kind": "official_author_platform_indexed_metadata",
+      "access": "search_index_only",
+      "date": "2026-10-10",
+      "supports": "Advertised premise and listed identity fields; review-only details are qualified in the candidate."
+    },
+    {
+      "id": "D037-S1",
+      "candidate_id": "D037",
+      "title": "The Daily Grind",
+      "url": "https://www.royalroad.com/fiction/15925/the-daily-grind",
+      "source_kind": "official_author_platform_indexed_metadata",
+      "access": "search_index_only",
+      "date": "2026-10-10",
+      "supports": "Advertised premise and listed identity fields; review-only details are qualified in the candidate."
+    },
+    {
+      "id": "D037-S2",
+      "candidate_id": "D037",
+      "title": "The Daily Grind",
+      "url": "https://www.royalroad.com/fiction/15925/the-daily-grind%5D?review=329186",
+      "source_kind": "public_reader_review_on_official_platform_indexed_metadata",
+      "access": "search_index_only",
+      "date": "2026-10-10",
+      "supports": "Advertised premise and listed identity fields; review-only details are qualified in the candidate."
+    },
+    {
+      "id": "D038-S1",
+      "candidate_id": "D038",
+      "title": "All the Dust that Falls",
+      "url": "https://www.royalroad.com/fiction/60292/all-the-dust-that-falls",
+      "source_kind": "official_author_platform_indexed_metadata",
+      "access": "search_index_only",
+      "date": "2026-10-10",
+      "supports": "Advertised premise and listed identity fields; review-only details are qualified in the candidate."
+    },
+    {
+      "id": "D039-S1",
+      "candidate_id": "D039",
+      "title": "Return of the Runebound Professor",
+      "url": "https://www.royalroad.com/fiction/68679/return-of-the-runebound-professor",
+      "source_kind": "official_author_platform_indexed_metadata",
+      "access": "search_index_only",
+      "date": "2026-10-10",
+      "supports": "Advertised premise and listed identity fields; review-only details are qualified in the candidate."
+    },
+    {
+      "id": "D040-S1",
+      "candidate_id": "D040",
+      "title": "Minute Mage: A Time Magic LitRPG",
+      "url": "https://www.royalroad.com/fiction/61762/minute-mage-a-time-traveling-litrpg",
+      "source_kind": "official_author_platform_indexed_metadata",
+      "access": "search_index_only",
+      "date": "2026-10-10",
+      "supports": "Advertised premise and listed identity fields; review-only details are qualified in the candidate."
+    },
+    {
+      "id": "D041-S1",
+      "candidate_id": "D041",
+      "title": "The Stubborn Skill-Grinder In A Time Loop",
+      "url": "https://www.royalroad.com/fiction/83294/the-stubborn-skill-grinder-in-a-time-loop-book",
+      "source_kind": "official_author_platform_indexed_metadata",
+      "access": "search_index_only",
+      "date": "2026-10-10",
+      "supports": "Advertised premise and listed identity fields; review-only details are qualified in the candidate."
+    },
+    {
+      "id": "D041-S2",
+      "candidate_id": "D041",
+      "title": "The Stubborn Skill-Grinder In A Time Loop",
+      "url": "https://www.scribblehub.com/series/1028638/the-stubborn-skillgrinder-in-a-time-loop/",
+      "source_kind": "official_author_platform_indexed_metadata",
+      "access": "search_index_only",
+      "date": "2026-10-10",
+      "supports": "Advertised premise and listed identity fields; review-only details are qualified in the candidate."
+    },
+    {
+      "id": "D042-S1",
+      "candidate_id": "D042",
+      "title": "Industrial Strength Magic",
+      "url": "https://www.royalroad.com/fiction/57011/industrial-",
+      "source_kind": "official_author_platform_indexed_metadata",
+      "access": "search_index_only",
+      "date": "2026-10-10",
+      "supports": "Advertised premise and listed identity fields; review-only details are qualified in the candidate."
+    },
+    {
+      "id": "D043-S1",
+      "candidate_id": "D043",
+      "title": "Double-Blind: A Modern LITRPG",
+      "url": "https://www.royalroad.com/fiction/50553/double-blind",
+      "source_kind": "official_author_platform_indexed_metadata",
+      "access": "search_index_only",
+      "date": "2026-10-10",
+      "supports": "Advertised premise and listed identity fields; review-only details are qualified in the candidate."
+    },
+    {
+      "id": "D043-S2",
+      "candidate_id": "D043",
+      "title": "Double-Blind: A Modern LITRPG",
+      "url": "https://www.royalroad.com/fiction/50553/double-blind?reviews=4&sorting=oldest",
+      "source_kind": "public_reader_review_on_official_platform_indexed_metadata",
+      "access": "search_index_only",
+      "date": "2026-10-10",
+      "supports": "Advertised premise and listed identity fields; review-only details are qualified in the candidate."
+    },
+    {
+      "id": "D044-S1",
+      "candidate_id": "D044",
+      "title": "Pale Lights",
+      "url": "https://www.royalroad.com/fiction/65058/pale-lights",
+      "source_kind": "official_author_platform_indexed_metadata",
+      "access": "search_index_only",
+      "date": "2026-10-10",
+      "supports": "Advertised premise and listed identity fields; review-only details are qualified in the candidate."
+    },
+    {
+      "id": "D044-S2",
+      "candidate_id": "D044",
+      "title": "Pale Lights",
+      "url": "https://www.royalroad.com/fiction/65058/pale?reviews=8",
+      "source_kind": "public_reader_review_on_official_platform_indexed_metadata",
+      "access": "search_index_only",
+      "date": "2026-10-10",
+      "supports": "Advertised premise and listed identity fields; review-only details are qualified in the candidate."
+    },
+    {
+      "id": "D045-S1",
+      "candidate_id": "D045",
+      "title": "Mimic Me! Within The Eternal Forest",
+      "url": "https://www.royalroad.com/fiction/140716/mimic-mewithin-the-eternal-forest",
+      "source_kind": "official_author_platform_indexed_metadata",
+      "access": "search_index_only",
+      "date": "2026-10-10",
+      "supports": "Advertised premise and listed identity fields; review-only details are qualified in the candidate."
+    },
+    {
+      "id": "D045-S2",
+      "candidate_id": "D045",
+      "title": "Mimic Me! Within The Eternal Forest",
+      "url": "https://www.royalroad.com/forums/thread/161234?page=1",
+      "source_kind": "official_author_platform_indexed_metadata",
+      "access": "search_index_only",
+      "date": "2026-10-10",
+      "supports": "Advertised premise and listed identity fields; review-only details are qualified in the candidate."
+    },
+    {
+      "id": "D046-S1",
+      "candidate_id": "D046",
+      "title": "The Law of Averages",
+      "url": "https://www.royalroad.com/fiction/20101/the-law-of-averages",
+      "source_kind": "official_author_platform_indexed_metadata",
+      "access": "search_index_only",
+      "date": "2026-10-10",
+      "supports": "Advertised premise and listed identity fields; review-only details are qualified in the candidate."
+    },
+    {
+      "id": "D047-S1",
+      "candidate_id": "D047",
+      "title": "Ra",
+      "url": "https://www.goodreads.com/book/show/59025155-ra",
+      "source_kind": "public metadata; scope in candidate evidence_scope",
+      "access": "indexed public synopsis and bibliographic metadata",
+      "date": "2026-10-10",
+      "supports": "Advertised premise and listed identity fields; review-only details are qualified in the candidate."
+    },
+    {
+      "id": "D047-S2",
+      "candidate_id": "D047",
+      "title": "Ra",
+      "url": "https://en.wikipedia.org/wiki/Ra_(novel)",
+      "source_kind": "public metadata; scope in candidate evidence_scope",
+      "access": "indexed public synopsis and bibliographic metadata",
+      "date": "2026-10-10",
+      "supports": "Advertised premise and listed identity fields; review-only details are qualified in the candidate."
+    },
+    {
+      "id": "D048-S1",
+      "candidate_id": "D048",
+      "title": "Fine Structure",
+      "url": "https://qntm.gumroad.com/l/ELFop",
+      "source_kind": "public metadata; scope in candidate evidence_scope",
+      "access": "indexed author shop synopsis and book metadata",
+      "date": "2026-10-10",
+      "supports": "Advertised premise and listed identity fields; review-only details are qualified in the candidate."
+    },
+    {
+      "id": "D048-S2",
+      "candidate_id": "D048",
+      "title": "Fine Structure",
+      "url": "https://books.google.com/books/about/Fine_Structure.html?id=2gdkDwAAQBAJ",
+      "source_kind": "public metadata; scope in candidate evidence_scope",
+      "access": "indexed author shop synopsis and book metadata",
+      "date": "2026-10-10",
+      "supports": "Advertised premise and listed identity fields; review-only details are qualified in the candidate."
+    },
+    {
+      "id": "D049-S1",
+      "candidate_id": "D049",
+      "title": "I Can See Your Death",
+      "url": "https://www.novelupdates.com/series/i-can-see-your-death/",
+      "source_kind": "public metadata; scope in candidate evidence_scope",
+      "access": "indexed public novel synopsis and author metadata",
+      "date": "2026-10-10",
+      "supports": "Advertised premise and listed identity fields; review-only details are qualified in the candidate."
+    },
+    {
+      "id": "D050-S1",
+      "candidate_id": "D050",
+      "title": "The Oracle Paths",
+      "url": "https://www.webnovel.com/book/15465781005526105",
+      "source_kind": "public metadata; scope in candidate evidence_scope",
+      "access": "indexed official author-platform synopsis and author metadata",
+      "date": "2026-10-10",
+      "supports": "Advertised premise and listed identity fields; review-only details are qualified in the candidate."
+    }
+  ],
+  "top_15": [
+    {
+      "rank": 1,
+      "id": "D-M01",
+      "candidate_id": "D033",
+      "title": "The Game at Carousel: A Horror Movie LitRPG",
+      "mechanic": "Apparent awareness",
+      "added_decision": "Actual knowledge and what an enemy thinks you know can differ.",
+      "what_we_take": "Proposal: make declared or apparent awareness distinct from actual awareness in a local encounter rule.",
+      "future_proof": "Compare a warned observer who maintains the role with one who openly reacts.",
+      "status": "proposal"
+    },
+    {
+      "rank": 2,
+      "id": "D-M02",
+      "candidate_id": "D017",
+      "title": "Dungeon Reset",
+      "mechanic": "Selective world reset",
+      "added_decision": "One carrier can be exempt while the surrounding world refreshes.",
+      "what_we_take": "Proposal: let a local reset spare one tagged carrier, creating construction and resource loops. Read reset scenes before choosing what is spared.",
+      "future_proof": "Reset one room and inspect body, belongings and construction separately.",
+      "status": "proposal"
+    },
+    {
+      "rank": 3,
+      "id": "D-M03",
+      "candidate_id": "D027",
+      "title": "To Another World... with Land Mines!",
+      "mechanic": "Hidden grant terms",
+      "added_decision": "An offered benefit need not expose its real drawback.",
+      "what_we_take": "Proposal: information about a power can be a purchasable resource separate from the power itself.",
+      "future_proof": "A reliable guide reveals one concealed condition before a grant is chosen.",
+      "status": "proposal"
+    },
+    {
+      "rank": 4,
+      "id": "D-M04",
+      "candidate_id": "D048",
+      "title": "Fine Structure",
+      "mechanic": "Discovery can close a law",
+      "added_decision": "An old true measurement can become obsolete when the world changes.",
+      "what_we_take": "Proposal: a discovery receipt stores the rule version under which it worked, and later trials can fail under a changed local law.",
+      "future_proof": "Keep a successful trial receipt; show a later failure under a new rule version.",
+      "status": "proposal"
+    },
+    {
+      "rank": 5,
+      "id": "D-M05",
+      "candidate_id": "D034",
+      "title": "Godclads",
+      "mechanic": "Power as rule ownership",
+      "added_decision": "A power holder can contest which local law applies.",
+      "what_we_take": "Proposal: model a stolen source separately from its authority to change a world rule.",
+      "future_proof": "Two authorities conflict over one action; record winner and affected scope.",
+      "status": "proposal"
+    },
+    {
+      "rank": 6,
+      "id": "D-M06",
+      "candidate_id": "D018",
+      "title": "The Book Eating Magician",
+      "mechanic": "Destroying a book to learn",
+      "added_decision": "The carrier is spent while understanding and usable method transfer separately.",
+      "what_we_take": "Proposal: transfer practical skill by consuming a knowledge carrier, with preparation and provenance gates.",
+      "future_proof": "A learner receives one method while the consumed copy is no longer teachable.",
+      "status": "proposal"
+    },
+    {
+      "rank": 7,
+      "id": "D-M07",
+      "candidate_id": "D014",
+      "title": "Trafford's Trading Club",
+      "mechanic": "Price feeds the broker",
+      "added_decision": "One payer loss can sustain a different beneficiary.",
+      "what_we_take": "Proposal: track what a customer relinquishes separately from what the broker gains, with explicit ownership and consent.",
+      "future_proof": "Show payer, desired outcome, broker gain and unresolved liabilities on one receipt.",
+      "status": "proposal"
+    },
+    {
+      "rank": 8,
+      "id": "D-M08",
+      "candidate_id": "D026",
+      "title": "Making Magic: The Sweet Life of a Witch Who Knows an Infinite MP Loophole",
+      "mechanic": "Creation grows its own capacity",
+      "added_decision": "A real loophole can compound instead of paying a fixed cost.",
+      "what_we_take": "Proposal: a known craft can manufacture the input to its own capacity growth, with explicit local costs.",
+      "future_proof": "One allowed daily operation increases capacity; do not invent its source formula.",
+      "status": "proposal"
+    },
+    {
+      "rank": 9,
+      "id": "D-M09",
+      "candidate_id": "D005",
+      "title": "Astral Apostle",
+      "mechanic": "Local vessel portfolios",
+      "added_decision": "Body, local identity and returning traveler can have distinct owners.",
+      "what_we_take": "Proposal: give each projected life a local body and identity while tracking a separate traveling self.",
+      "future_proof": "One traveler changes vessels while the old local biography stays attached to its person.",
+      "status": "proposal"
+    },
+    {
+      "rank": 10,
+      "id": "D-M10",
+      "candidate_id": "D039",
+      "title": "Return of the Runebound Professor",
+      "mechanic": "Different revival layers",
+      "added_decision": "A rebuilt body can retain a damaged soul.",
+      "what_we_take": "Proposal: give revival separate body recovery and persistent soul damage records.",
+      "future_proof": "After one permitted revival, clear bodily injury but retain a named soul wound.",
+      "status": "proposal"
+    },
+    {
+      "rank": 11,
+      "id": "D-M11",
+      "candidate_id": "D025",
+      "title": "D-Genesis: Three Years after the Dungeons Appeared",
+      "mechanic": "Perishable power trade",
+      "added_decision": "A transferable ability can expire before delivery or sale.",
+      "what_we_take": "Proposal: sell a transferable ability whose useful lifetime creates real delivery and inspection problems.",
+      "future_proof": "A custody transfer succeeds before expiry and fails honestly afterward.",
+      "status": "proposal"
+    },
+    {
+      "rank": 12,
+      "id": "D-M12",
+      "candidate_id": "D044",
+      "title": "Pale Lights",
+      "mechanic": "Capricious contract partner",
+      "added_decision": "Patron preferences and a fixed signed term need not be identical.",
+      "what_we_take": "Proposal: distinguish contract text, patron mood and an external social consequence.",
+      "future_proof": "Keep the original bargain alongside a later change in patron mood.",
+      "status": "proposal"
+    },
+    {
+      "rank": 13,
+      "id": "D-M13",
+      "candidate_id": "D049",
+      "title": "I Can See Your Death",
+      "mechanic": "Certainty versus changeability",
+      "added_decision": "Seeing a clear future and being able to alter it are different claims.",
+      "what_we_take": "Proposal: a reading has separate certainty and intervention status; apparent inevitability stays an observer claim until tested.",
+      "future_proof": "Show a precise reading with an untested intervention flag, then record the actual attempt.",
+      "status": "proposal"
+    },
+    {
+      "rank": 14,
+      "id": "D-M14",
+      "candidate_id": "D050",
+      "title": "The Oracle Paths",
+      "mechanic": "Competing future guidance",
+      "added_decision": "Opponents can also act on predictions.",
+      "what_we_take": "Proposal: preview quality depends on which other actors also possess and act on guidance, rather than assuming passive opponents.",
+      "future_proof": "Revise a preview when another informed actor changes their intended action.",
+      "status": "proposal"
+    },
+    {
+      "rank": 15,
+      "id": "D-M15",
+      "candidate_id": "D004",
+      "title": "Losing Money to Be a Tycoon",
+      "mechanic": "Failure rewards meet other minds",
+      "added_decision": "A deliberate bad plan can be defeated by helpful independent agents.",
+      "what_we_take": "Proposal: use a reward system whose accounting objective conflicts with the helpers' own goals.",
+      "future_proof": "Separate intended loss, staff interpretation, actual profit and the system payout.",
+      "status": "proposal"
+    }
+  ],
+  "source_requests": [
+    {
+      "id": "S6",
+      "candidate_id": "D033",
+      "title": "The Game at Carousel: A Horror Movie LitRPG",
+      "url": "https://www.royalroad.com/fiction/65629/the-game-at-carousel-a-horror-movie-litrpg",
+      "why": "Read the first bystander protection test and one failure or exception. Who judges convincing unawareness?",
+      "status": "Open; full text needed for exact rules; no acquisition attempted"
+    },
+    {
+      "id": "S7",
+      "candidate_id": "D017",
+      "title": "Dungeon Reset",
+      "url": "https://www.tappytoon.com/en/book/dungeon-reset-novel",
+      "why": "Read the glitch/reset event and first post-reset crafting. What survives: body, objects, skills or construction?",
+      "status": "Open; full text needed for exact rules; no acquisition attempted"
+    },
+    {
+      "id": "S8",
+      "candidate_id": "D027",
+      "title": "To Another World... with Land Mines!",
+      "url": "https://j-novel.club/series/to-another-world-with-land-mines/",
+      "why": "Read the initial gift selection and a revealed trap. Establish hidden terms, guide access and actual harm triggers.",
+      "status": "Open; full text needed for exact rules; no acquisition attempted"
+    },
+    {
+      "id": "S9",
+      "candidate_id": "D048",
+      "title": "Fine Structure",
+      "url": "https://qntm.gumroad.com/l/ELFop",
+      "why": "Use an accessible author edition or a copy you have. Read a discovery and its closure; establish trigger order and law-edit authority.",
+      "status": "Open; full text needed for exact rules; no acquisition attempted"
+    },
+    {
+      "id": "S10",
+      "candidate_id": "D034",
+      "title": "Godclads",
+      "url": "https://www.royalroad.com/fiction/59663/godclads",
+      "why": "Read the first clear divine-law operation and a contested use. Establish fuel, authority scope and failure costs.",
+      "status": "Open; full text needed for exact rules; no acquisition attempted"
+    },
+    {
+      "id": "S11",
+      "candidate_id": "D018",
+      "title": "The Book Eating Magician",
+      "url": "https://www.wuxiaworld.com/novel/book-eater",
+      "why": "Publisher title is Book Eater. Read the first consumption and a rejected or constrained transfer; distinguish understanding, author memory and spell execution.",
+      "status": "Open; full text needed for exact rules; no acquisition attempted"
+    },
+    {
+      "id": "S12",
+      "candidate_id": "D014",
+      "title": "Trafford's Trading Club",
+      "url": "https://www.webnovel.com/book/trafford%27s-trading-club_6831849802000805",
+      "why": "Read one negotiated trade and its aftermath. Establish valuation, consent, delivered result and what extends the proprietor life.",
+      "status": "Open; full text needed for exact rules; no acquisition attempted"
+    },
+    {
+      "id": "S13",
+      "candidate_id": "D026",
+      "title": "Making Magic: The Sweet Life of a Witch Who Knows an Infinite MP Loophole",
+      "url": "https://j-novel.club/series/making-magic/",
+      "why": "Read the actual MP-growth loop and a mana-gated creation. Establish consumed inputs, daily cadence and which limits really apply.",
+      "status": "Open; full text needed for exact rules; no acquisition attempted"
+    },
+    {
+      "id": "S14",
+      "candidate_id": "D005",
+      "title": "Astral Apostle",
+      "url": "https://www.webnovel.com/book/astral-apostle_21638395405875905",
+      "why": "Read first vessel creation, departure and return. What memory, ability and local history stays with each carrier?",
+      "status": "Open; full text needed for exact rules; no acquisition attempted"
+    },
+    {
+      "id": "S15",
+      "candidate_id": "D039",
+      "title": "Return of the Runebound Professor",
+      "url": "https://www.royalroad.com/fiction/68679/return-of-the-runebound-professor",
+      "why": "Read a death/reformation and soul-wound recovery. Establish which injury persists and whether healing has a separate price.",
+      "status": "Open; full text needed for exact rules; no acquisition attempted"
+    }
+  ]
+}

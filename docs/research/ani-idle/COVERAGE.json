@@ -1,0 +1,60 @@
+{
+  "date": "2026-10-09",
+  "status": "bounded-installed-script-static-audit-complete",
+  "source_audit_complete": true,
+  "recovery_counts": {
+    "Decompiled scripts": 42,
+    "Scripts not decompiled": 0,
+    "Successfully converted": 42,
+    "Failed conversions": 0
+  },
+  "recovered_gd_count": 42,
+  "read_body_files": [
+    "game.gd",
+    "player.gd",
+    "fight_menu.gd",
+    "fight_button.gd",
+    "skill_slot.gd",
+    "quests_menu.gd",
+    "crafting_menu.gd",
+    "dungeons_menu.gd",
+    "inventory_menu.gd",
+    "inventory_slot.gd",
+    "character_menu.gd",
+    "savedgame.gd",
+    "saver_loader.gd"
+  ],
+  "targeted_search_scope": "all recovered *.gd for clock/offline/prestige/rebirth/reset/save hooks; scene/resource payloads not extracted",
+  "lens_covered": [
+    "idle auto fight versus manual technique",
+    "rest and interruptions",
+    "crafting operations",
+    "quest memory and stat conditions",
+    "XP/cap/reward/death",
+    "offline/reset/save evidence boundary"
+  ],
+  "unresolved": [
+    "exported resource arrays and numerical loot/event/modifier data",
+    "scene signal wiring and actual timer duration",
+    "native extension behavior",
+    "whether actual runtime matches decompiled branches"
+  ],
+  "not_exercised": [
+    "game launch or editor",
+    "rendered UI",
+    "natural pacing and balance",
+    "offline elapsed behavior",
+    "save/reload/import",
+    "Steam uninstall"
+  ],
+  "source_findings": 12,
+  "ranked_original_proposals": 8,
+  "native_mapped_touches": 24,
+  "anchor_count": 44,
+  "anchor_validation_pass": true,
+  "private_verification_path": "/Users/weiwei/.codex/research/ani-idle/VERIFICATION.json",
+  "input_hash_match": true,
+  "copy_audit_gate": true,
+  "privacy": "Only derived paraphrases, numeric metadata and private path/line anchors are public; no raw code, dialogue, art or user save/account identifiers.",
+  "read_body_files_scope": "targeted relevant function bodies and declarations, not every unrelated UI/audio function"
+}

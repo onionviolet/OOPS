@@ -37,7 +37,7 @@ If missing lore changes a choice, knowledge claim or motive, hold that scene's f
 |---|---|
 | Identity | Scene/revision, world/instance/era, actual speaker/listener IDs and source snapshot |
 | Place and time | Physical or supported remote contact, observed location, played-time availability and opening cause |
-| Participants | Life/body, language/channel, consent, accessibility and conflicting reservations |
+| Participants | Life/body, language/channel, consent (a default that coercion, possession or a cheat can bypass at a cost), accessibility and conflicting reservations |
 | Goals and means | What each speaker wants, what they can offer/enforce, owned stock, learned methods and authority |
 | Evidence | Who saw/heard what, where/when, report provenance, uncertainty and contradicted expectations |
 | Directed history | Speaker-to-player and player-to-speaker memories separately; unresolved promises, loans and known deeds |

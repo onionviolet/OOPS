@@ -1,0 +1,30 @@
+{
+  "status": "pass",
+  "date": "2026-10-10",
+  "checks": [
+    "JSON parse",
+    "first 20 in exact dispatch order",
+    "8 path parts and 10 axes per series",
+    "core cost/vow slots per series",
+    "minimum 2 proposals and gag/rule abuse per series",
+    "source IDs and claim basis resolve",
+    "verified claims have sources",
+    "15 ranked mechanics and 10 JJK audit codes",
+    "Markdown local links resolve",
+    "no em dash in prose",
+    "family values resolve to exact E8B catalog names; related E8/E8C concepts separated",
+    "task document whitespace check"
+  ],
+  "series": 20,
+  "sources": 63,
+  "proposals": 42,
+  "claim_status_counts": {
+    "reference_verified": 61,
+    "remembered_unverified": 11
+  },
+  "issues": [],
+  "input_drift": [],
+  "evidence_limit": "Structural/editorial validation only; not independent canon adjudication or gameplay verification.",
+  "runtime_changes_by_this_lane": false,
+  "builds_tests_commits_by_this_lane": false
+}

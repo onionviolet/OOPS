@@ -1,0 +1,81 @@
+{
+  "date": "2026-10-08",
+  "purpose": "Source inputs and first-pass preservation baseline; not runtime evidence",
+  "files": [
+    {
+      "path": "~/.codex/research/kenshi/gamedata.base.json",
+      "sha256": "14d9f92646f10a0674adcf93048608100ddcad4d5cf7c73a623df7ef20c0e3fb",
+      "bytes": 5702389
+    },
+    {
+      "path": "~/.codex/research/kenshi/Dialogue.mod.json",
+      "sha256": "952ed08f4318f5f954e269dd320eb69fe6195f87e0b18b31e42ffed80e257ead",
+      "bytes": 14627529
+    },
+    {
+      "path": "~/.codex/research/kenshi/Newwworld.mod.json",
+      "sha256": "b46a2f727738d7329758045e94e1fb46e711f8d73881810ca24c9dd0024cf208",
+      "bytes": 2511496
+    },
+    {
+      "path": "~/.codex/research/kenshi/rebirth.mod.json",
+      "sha256": "645d99b324d56d307f606200bf32a70efafe237df2d38959cf92fc484b04a2dd",
+      "bytes": 5088384
+    },
+    {
+      "path": "~/.codex/research/kenshi/RETENTION.json",
+      "sha256": "34919603c259fd835b23de9486505a69bfe7971d655e8124af62f8b1cfe586f8",
+      "bytes": 8070
+    },
+    {
+      "path": "~/.codex/research/kenshi/inputs/data/tips.txt",
+      "sha256": "ac85e494e975d14d26505f15b96a922e9d04f466efc49a36c3d6b88bbb44a2c9",
+      "bytes": 7759
+    },
+    {
+      "path": "~/.codex/research/kenshi/inputs/fcs.def",
+      "sha256": "a26972bc9a273b283627965bef9bfff6ce5e2f159d9202551e6bdaf45d608ffd",
+      "bytes": 153142
+    },
+    {
+      "path": "docs/research/kenshi/REPORT.md",
+      "sha256": "e7c37f172700bb7fa87be4026839afb0711396de063671f7cf22a30e864d2830",
+      "bytes": 2530
+    },
+    {
+      "path": "docs/research/kenshi/FINDINGS.md",
+      "sha256": "5232f64f4220bb401cdc67b051847b7ecd55532a722b0cae99357f3bebd3c703",
+      "bytes": 7192
+    },
+    {
+      "path": "docs/research/kenshi/COVERAGE.json",
+      "sha256": "d0d6fe6065473e39769f9dabce33b3a3ce59c61f161b5c44febbef2defd9b1ec",
+      "bytes": 1343
+    },
+    {
+      "path": "docs/research/kenshi/IMPLEMENTATION_PACKETS.md",
+      "sha256": "7900e5e98e703f497b0bddc0ac6a7ed279c0ddcdc05de25b5bd69a3ab5e02d0f",
+      "bytes": 3248
+    },
+    {
+      "path": "PROJECT.md",
+      "sha256": "8143c0f8c59c18fe9084cbb4afbbfa70719d29e5c55e138615b07e6195e86541",
+      "bytes": 5610
+    },
+    {
+      "path": "docs/LIFE_SIM_NORTH_STAR.md",
+      "sha256": "78a7dca3c17371c79e35a9542b18d6532bc5bcbf33dbfc05a54e2d4573be8202",
+      "bytes": 151581
+    },
+    {
+      "path": "docs/WORLD_CARDS.md",
+      "sha256": "9ea44213c5df87ccea5639ae93a0ae2b8cf5e2eaa1c8ac4726e6abec7afbaffe",
+      "bytes": 25074
+    },
+    {
+      "path": "docs/gm/dispatch/kenshi-depth-2026-10-08/ASSIGNMENT.md",
+      "sha256": "430effd06804d663fb73c69e745c262bae829df2d1367b2c4b39802722cb0152",
+      "bytes": 2380
+    }
+  ]
+}

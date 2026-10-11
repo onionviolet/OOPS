@@ -1,0 +1,11 @@
+# B heir host candidate, not merged
+
+Foundation completed E/F and retained save ownership, deferring the heir hook. Experience therefore leaves shared main.js save paths untouched and applies a reviewable host patch only to an isolated source snapshot. This is a playable integration proposal, not a claim of shared-source integration or accepted reset canon.
+
+Candidate compatibility decision: optional transient native top-level `life_successor_requested:true` is valid only on an ended life. First guarded write preserves the complete predecessor. Reload uses actual fresh-game initialization as the native baseline. The second guarded write replaces the staged predecessor only after validating the new heir, then reloads. No static generated default template or second inventory is used. An unpatched build can still load the full predecessor in the staged envelope. New expansion remains readable schema5; life record and NPC component schemas stay1.
+
+Retention proposal: original native starter body, XP, inventory and quest state; one selected learned method; ancestor name/epitaph; compact biography; surrounding npc_lives world state; UI options. Calendar and saved RNG continue. Personal training and possessions do not cross. Full predecessor export is offered before the explicit Begin heir action. Failed first write retains the old bytes. Failed second write retains the staged full predecessor, disables fresh temporary-body autosaves, and offers retry, cancel or old-life export inside the existing loading screen.
+
+Artifacts: candidate_main.mjs applies exact bounded replacements to snapshot main.js and rejects input drift. HEIR_HOST_CANDIDATE.patch is for owning-integrator review. build_snapshot.mjs --heir-candidate creates a separate source/bundle and verifies its source map. Shared main.js receives no candidate edits.
+
+Required proof: real death-screen button, full reload through fresh initialization, zero native XP/starter possessions, retained one method used in ordinary preparation/control play, legacy and world persistence through reload/import, plus failed-write recovery. Browser proof must use generated characters on a separate fresh origin. Candidate is implemented-unverified until that proof lands.

@@ -1,0 +1,176 @@
+{
+  "game": "King of Dragon Pass",
+  "buildid": "10566687",
+  "status": "completed finite pass; manual-connected mechanics and bounded native engine recovery",
+  "chains": [
+    {
+      "id": "F1",
+      "title": "Annual preparation changes the coming year",
+      "evidence_level": "shipped manual semantics; native time-counter support separately qualified",
+      "sources": [
+        {
+          "path": "King of Dragon Pass.app/Contents/Resources/KoDp/Manual/SacredTime.html",
+          "section": "Forecasts and Omens; Allocating Magic; The Clan Ring",
+          "sha256": "a002f763cd0a8f634ea37c5d50d8347cacab0207e82416da50f81a2d2c3cafb5"
+        },
+        {
+          "path": "King of Dragon Pass.app/Contents/Resources/KoDp/Manual/Farming.html",
+          "section": "Crops; The Expected Harvest; Starvation",
+          "sha256": "aaa02343b8031db8192bca186e6870ee448c035c66886a823d0c61576a6d9a85"
+        }
+      ],
+      "prerequisite": "Year-end rituals renew a limited magic budget; clan type and religious diversity on the ring change category capacity.",
+      "decision": "Read forecast and allocate crops, herds, health or other categories, retaining emergency reserve if desired.",
+      "spend_state_change": "Magic committed to categories augments next-year actions; crop rituals combine with blessings rather than replacing them.",
+      "time_absence": "Planting occurs in Sea season and harvesting in Earth season; annual forecast precedes decisions whose effects arrive later.",
+      "downstream": "Healthy labor, land, crops and magic together determine food; food surplus supports trade or gifts.",
+      "failure_aftermath": "Insufficient seasonal food prompts warnings; slaughter buys time at herd cost. Distant relief missions can arrive too late. Ignoring divine information has consequences according to the manual, but exact penalties were not decoded.",
+      "inference": "A forecast is useful because it precedes a resource commitment and offers different responses, rather than adding a flavor line."
+    },
+    {
+      "id": "F2",
+      "title": "A leader leaving changes both missions and home capability",
+      "evidence_level": "shipped manual semantics",
+      "sources": [
+        {
+          "path": "King of Dragon Pass.app/Contents/Resources/KoDp/Manual/Reorganization.html",
+          "section": "Choosing Your Clan Ring; The Warleader",
+          "sha256": "6b12e59e6e9be5ce566b3f095839f99540c16ae2c6304f44663b826aca249e1f"
+        },
+        {
+          "path": "King of Dragon Pass.app/Contents/Resources/KoDp/Manual/Relations.html",
+          "section": "Choosing Your Emissary; Choosing an Escort",
+          "sha256": "c061fe6e0ff54992d7de83cf1cfd456999e105affe5a56ef6cc08f6f5c7cc614"
+        }
+      ],
+      "prerequisite": "Ring membership, skill and religion affect leadership functions and mission success.",
+      "decision": "Send a skilled ring member as envoy with gifts and escorts, or keep that person at home.",
+      "spend_state_change": "Gifts use goods/cattle; escorts remove working or fighting people from home. Ring members perform better on missions than outsiders.",
+      "time_absence": "Distant missions may take at least a season. Travelers are temporarily subtracted from population, so annual recap can misleadingly look like demographic loss.",
+      "downstream": "Another member replaces an absent warleader; temporary absence weakens annual rituals while permanent vacancy also harms magic and mood.",
+      "failure_aftermath": "Bandits and feuding neighbors threaten unguarded parties; people return to the available population only if they survive.",
+      "inference": "A person should be a scarce capability with location and availability, rather than a permanent bonus detached from their whereabouts."
+    },
+    {
+      "id": "F3",
+      "title": "Growing children sustain work and replace aging leaders",
+      "evidence_level": "shipped manual semantics with bounded native aging confirmation",
+      "sources": [
+        {
+          "path": "King of Dragon Pass.app/Contents/Resources/KoDp/Manual/Clan.html",
+          "section": "Children; Nobles; Hunters; Sickness & Health",
+          "sha256": "1499480215fac0533bdfb3a683501283e260f993e214e0ad3061786f05b34eaf"
+        },
+        {
+          "path": "King of Dragon Pass.app/Contents/Resources/KoDp/Manual/Reorganization.html",
+          "section": "Leader Skills; Choosing Your Clan Ring",
+          "sha256": "6b12e59e6e9be5ce566b3f095839f99540c16ae2c6304f44663b826aca249e1f"
+        }
+      ],
+      "prerequisite": "Children consume food before contributing adult labor; health determines who can work or advise.",
+      "decision": "Keep sufficient producers for dependents and reorganize when leaders die, become wounded or improve.",
+      "spend_state_change": "Children become farmers or nobles after fifteen years according to the manual; hunters teach children their occupation. New leaders emerge as old leaders disappear.",
+      "time_absence": "This is a multi-year production and capability pipeline; skill growth can justify later promotion.",
+      "downstream": "Leader skills influence agriculture, negotiation, battle and ritual success; successor composition therefore changes ordinary clan operations.",
+      "failure_aftermath": "Too many dependent children compared with farmers increases starvation risk; sickness makes old-age/starvation deaths more likely and removes workers from tasks.",
+      "native_support": {
+        "routine": "CPerson::AgeOneYear(short)",
+        "address": "0x13f950",
+        "observed": "Increments a 16-bit age field; branches at age 51 into a different randomized skill-update path. Floating-point skill slots are read/modified.",
+        "limit": "Exact development/decline rates and mortality formula were not reconstructed; do not import the threshold or odds into YAIR as design decisions."
+      },
+      "inference": "Aging should redistribute useful capabilities and create succession pressure in roles the player already cares about."
+    },
+    {
+      "id": "F4",
+      "title": "Gifts create debts with later political use",
+      "evidence_level": "shipped manual semantics",
+      "sources": [
+        {
+          "path": "King of Dragon Pass.app/Contents/Resources/KoDp/Manual/Relations.html",
+          "section": "Gift Giving; Ask for Favor; Feuds; Allies",
+          "sha256": "c061fe6e0ff54992d7de83cf1cfd456999e105affe5a56ef6cc08f6f5c7cc614"
+        }
+      ],
+      "prerequisite": "Neighbor relationships include public attitude, concealed commoner grievances, alliances, feuds and favor balance.",
+      "decision": "Send a substantial gift, collect a favor now, or keep the debt outstanding for influence later.",
+      "spend_state_change": "Favors net in one direction; a new opposing favor reduces debt rather than creating two simultaneous obligations. Large gifts can count as repayment.",
+      "time_absence": "Envoys travel; collecting food aid has delivery latency. Uncollected debt influences later negotiations.",
+      "downstream": "Allies can assist without prior debt; owed favors improve receptiveness in disputes; generosity can help end feuds.",
+      "failure_aftermath": "Small gifts can lower reputation; ending a feud may upset the player clan; friendly leader attitude does not eliminate commoner grievances or future feuds.",
+      "inference": "Use signed obligation balances and separate relationship layers so polite surface interactions do not erase history."
+    },
+    {
+      "id": "F5",
+      "title": "Recruitment solves shortages with delayed social consequences",
+      "evidence_level": "shipped manual semantics",
+      "sources": [
+        {
+          "path": "King of Dragon Pass.app/Contents/Resources/KoDp/Manual/Clan.html",
+          "section": "Farmers; Weaponthanes; The Clan Mood; Farmer Morale and Weaponthane Morale",
+          "sha256": "1499480215fac0533bdfb3a683501283e260f993e214e0ad3061786f05b34eaf"
+        },
+        {
+          "path": "King of Dragon Pass.app/Contents/Resources/KoDp/Manual/Farming.html",
+          "section": "Land; Starvation",
+          "sha256": "aaa02343b8031db8192bca186e6870ee448c035c66886a823d0c61576a6d9a85"
+        }
+      ],
+      "prerequisite": "Cultivated land needs healthy labor; military recruitment needs goods and horses.",
+      "decision": "Recruit newcomers generously, reassign hunters, or reduce demanding land use.",
+      "spend_state_change": "Warrior recruitment is bounded by welcoming gifts and mounts; more workers can support land but generous newcomer treatment can offend existing farmers.",
+      "time_absence": "Farmer recruitment resolves after one or two seasons; hunters already provide food, exploration and detection support, so reassignment has opportunity cost.",
+      "downstream": "Professional morale differs from whole-clan mood. Bad mood makes small disputes escalate and repeated poor leadership can become rebellion.",
+      "failure_aftermath": "Luring another clan\u2019s workers harms relations; excessive cultivated acreage overworks farmers, lowers productivity and increases dissatisfaction. Dismissing warriors may increase banditry.",
+      "inference": "Delayed recruitment is an event chain with source, arrival and acceptance, rather than an instant headcount purchase."
+    },
+    {
+      "id": "F6",
+      "title": "Events run through conditions, responses and delayed state",
+      "evidence_level": "bounded native disassembly and structural data decode",
+      "sources": [
+        {
+          "path": "King of Dragon Pass.app/Contents/Resources/King of Dragon Pass.s86",
+          "sha256": "34f3d26911f8965f6f15f151327d7821336335f2204f495a78d7fa51e4755a82",
+          "routines": [
+            "CScene::Read 0x158340",
+            "CScene::InitializeClass 0x158470",
+            "CScene::CheckCondition 0x153d60",
+            "CScene::DoResponse 0x1569a0",
+            "CScene::CheckResult 0x153de0",
+            "COSL::Run 0x11e100",
+            "CScene::AdvanceYear 0x153280"
+          ]
+        },
+        {
+          "path": "King of Dragon Pass.app/Contents/Resources/KoDp/scenes.dat",
+          "section": "Header and 1760 indexed record boundaries; individual opcode semantics not decoded",
+          "sha256": "c13f4071da49b6f44a10cbd0d17347f61d244ab77a44112761809174910529c0"
+        },
+        {
+          "path": "King of Dragon Pass.app/Contents/Resources/KoDp/Manual/Crises.html",
+          "section": "Crises and Adventures",
+          "sha256": "2c355010db6da76dcc3b5fea734a264a02337814383c0acbcecf94bb06134196"
+        },
+        {
+          "path": "King of Dragon Pass.app/Contents/Resources/KoDp/Manual/Saga.html",
+          "section": "Saga Screen",
+          "sha256": "feb3ccf308966918276f89ecca27b7c9552e9fb5b48e28647dae8066dfb26282"
+        }
+      ],
+      "prerequisite": "Scene eligibility can be a special sentinel or an OSL VM program; narrative payload is custom indexed bytecode, not JSON or managed C#.",
+      "decision": "Active response lookup precedes running the response program.",
+      "spend_state_change": "DoResponse clears active-response flag, executes COSL::Run at the response offset and calls CheckResult. CheckResult routes advice, queued outcome or completed state to the current scene.",
+      "time_absence": "AdvanceYear decrements only positive entries in a scene counter array; semantic labels of those counters remain unresolved. The manual independently describes delayed consequences and future events.",
+      "downstream": "Read loads scene record and invokes VM; yearly saga omits minor details and stores the omen for later reference. Manual says annual saves precede Sacred Time.",
+      "failure_aftermath": "COSL bounds execution at 0x43e3 words and recognizes stop command 0x400. Do not infer every event\u2019s conditions or cost from dispatcher structure.",
+      "inference": "Separate eligible scene, committed response, scheduled aftermath and compact remembered history; do not persist every presentation string."
+    }
+  ],
+  "global_limits": [
+    "No game launch or user saves read.",
+    "Five mechanic chains are semantics documented by installed manual, not complete per-scene source reconstruction.",
+    "1760 record boundaries decoded and validated, but OSL opcode/variable mapping and arbitrary scene-specific choices/probabilities remain unread.",
+    "Native disassembly is executable instruction recovery, not original C++ source or gameplay acceptance."
+  ]
+}

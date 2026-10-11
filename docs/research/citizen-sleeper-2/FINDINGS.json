@@ -1,0 +1,142 @@
+[
+  {
+    "id": "F1",
+    "label": "seen in text",
+    "finding": "Rebooting for freedom has a bodily and memory cost.",
+    "detail": "The opening identifies an emulated working double and a corporate escape, then Laine's stabilizer-backed captivity. Serafin says the interrupted reboot meant to end that dependence also disrupted memory. It is not a voluntary cosmetic amnesia start.",
+    "locator": "English TextAsset395 / RebootInterruptedScene, SerafinPauseScene, MemoryTest, RigStealScene"
+  },
+  {
+    "id": "F2",
+    "label": "seen in text",
+    "finding": "Stress changes the risk of losing an action die.",
+    "detail": "The guide says stress highlights hazardous rolled numbers above the stress bar; newly rolled dice matching them take damage. Each die has three health; depleted dice break. The mapping of stress to hazardous faces varies with difficulty. Exact table/roll ordering not decoded.",
+    "locator": "level2 bytes3007964, 3061860, 3131276"
+  },
+  {
+    "id": "F3",
+    "label": "seen in text",
+    "finding": "Food now connects to stress rather than the first game's condition-decay loop.",
+    "detail": "The guide says energy normally falls one segment per cycle; starvation adds one stress per cycle and energy-loss effects accrue stress. Dangerous difficulty describes double energy depletion. This is tutorial/difficulty text, not an executed formula.",
+    "locator": "level2 bytes3007964, 3250156; level0 byte289612"
+  },
+  {
+    "id": "F4",
+    "label": "seen in text",
+    "finding": "Repair has a threshold, location and new liability.",
+    "detail": "Only fully broken dice can be repaired at the Rig workshop. Scrap or rare components are required; better components yield fewer glitches. Repair is unavailable during a contract. Exact component counts and acquired glitch values are opaque.",
+    "locator": "level2 byte3105884"
+  },
+  {
+    "id": "F5",
+    "label": "seen in text",
+    "finding": "Temporary glitch is a consumable hazard; permanent glitch is separately described.",
+    "detail": "Guide text gives a maximum of six temporary glitch levels, raises the chance of glitched dice, and says rolling a glitched die clears one level. Using it is described as 80% negative/20% positive. Permanent glitch is red, does not clear on a glitched roll, and is described in two conflicting variants: unfixable versus not easily fixable. The active message and full repair routes are not established.",
+    "locator": "level2 bytes3055140, 3051316, 3205332"
+  },
+  {
+    "id": "F6",
+    "label": "seen in text",
+    "finding": "Push is a class-specific, configurable intervention.",
+    "detail": "On contracts, once per cycle, Push adds one stress. Reboot rerolls the Operator's lowest dice; Rally boosts each crew member's lowest die by two; Focus boosts the Machinist's lowest die by two and can remove stress on its positive outcome. Configuration/upgrades happen at hubs, with one active upgrade per tier. Tutorial baselines are not all upgrade variants.",
+    "locator": "level2 bytes3030820, 3149732, 3259900, 3288788; level0 class descriptions287132,293924,309596"
+  },
+  {
+    "id": "F7",
+    "label": "seen in text",
+    "finding": "Crew are additional decision resources with individual stress limits.",
+    "detail": "Contract tutorials specify two dice per crew member and skill-based allocation. Certain outcomes give crew stress; a full bar makes that person unavailable for actions. Crew selection can change the story, not just the odds. Full crew roster, stress capacities and narrative branches were not audited.",
+    "locator": "level2 bytes3096244, 3149732, 3199684; English root crew dispatch and JuniPitch/JuniChoice"
+  },
+  {
+    "id": "F8",
+    "label": "seen in text",
+    "finding": "Preparation involves fuel, supplies and people.",
+    "detail": "The guide recommends fuel to reach contracts, supplies to sustain the team, and temporary or permanent recruitment. With supplies, energy is supplied each cycle; without supplies, player and crew take one stress per cycle. Exact supply draw, storage caps and travel costs remain opaque.",
+    "locator": "level2 bytes3013516, 3096244, 3199684"
+  },
+  {
+    "id": "F9",
+    "label": "seen in text",
+    "finding": "Contract stress is separate from personal stress.",
+    "detail": "A full contract-stress bar fails the contract. A crisis adds one contract stress per cycle until resolved at its location. The player must choose between the objective and preventing escalation. Exact spawn triggers and precedence at simultaneous completion/failure remain opaque.",
+    "locator": "level2 bytes3096244, 3119564"
+  },
+  {
+    "id": "F10",
+    "label": "seen in text",
+    "finding": "The Rig is both recovery access and a place for useful crew work.",
+    "detail": "Docked at hubs, bunks spend dice to reduce stress and the galley spends supplies to restore energy. A crew-task menu chooses a resource focus; the guide describes a random chance of acquiring it at the next cycle. This is authored turn-bound support, not evidence of an autonomous offline economy.",
+    "locator": "level2 byte3274372"
+  },
+  {
+    "id": "F11",
+    "label": "seen in text",
+    "finding": "Clocks remain shared visual grammar for good and bad events.",
+    "detail": "The guide describes action-filled and cycle-filled clocks and imminent event completion. Cycle clocks progress every cycle. The glitch clock is beside the dice, and stress face markers disclose future damage risk. Rendered animation and accessibility were not exercised.",
+    "locator": "level2 bytes3029188,3092524,3139292,3131276"
+  },
+  {
+    "id": "F12",
+    "label": "seen in text",
+    "finding": "Odds, skill modifiers and risk tiers are separate information.",
+    "detail": "The guide displays positive/neutral/negative probabilities after dice assignment; skill modifiers change the die; Safe/Risky/Dangerous labels indicate stronger consequences and rewards. Scene skill checks also show odds. Exact action-tier outcome tables are not established by this text.",
+    "locator": "level2 bytes3017724,3166028,3195668"
+  },
+  {
+    "id": "F13",
+    "label": "seen in text",
+    "finding": "Difficulty changes body rules, not just enemy strength.",
+    "detail": "Safe: broken dice count as one, higher stress tolerance, no death. Risky: broken dice unusable, standard tolerance, terminal damage has a permanent penalty. Dangerous: more repair components, very low tolerance, double energy loss and a run-ending message. The dangerous-run message offers continuation by reloading on a lower difficulty. These are source options, not a universal permanence rule.",
+    "locator": "level0 bytes334244,299084,289612; level2 bytes3203060,3269060,3219628"
+  },
+  {
+    "id": "F14",
+    "label": "seen in text",
+    "finding": "Freedom includes protection from being overwritten.",
+    "detail": "Laine's threat reaches inside the Sleeper, including a controlled finger movement, and threatens to retake control. The opening supplies a concrete prior dependence and incomplete escape. A multi-hub life does not automatically erase that vulnerability.",
+    "locator": "English Ink LaineHuntScene1, RebootInterruptedScene, RigStealScene"
+  },
+  {
+    "id": "F15",
+    "label": "seen in data or code",
+    "finding": "Narrative selection reads the chosen crew, and failure is authored.",
+    "detail": "The English compiled Ink opening calls GetStringVariable for CrewMember1/2 and selects named crew content; JuniCollapseNoCore authors contract failure aftermath. Named failure/completion flags exist in compiled branches. Host binding and complete downstream contract graphs remain opaque.",
+    "locator": "sharedassets0.assets TextAsset395 / root[0] crew-dispatch expressions; JuniCollapseNoCore; compiled CONTRACT_FAILED/CONTRACT_COMPLETED assignments; GoScrappy2/3, SerafinLoadUp, CoreEndJuni, CoreinShip assignments inspected"
+  },
+  {
+    "id": "F16",
+    "label": "seen in data or code",
+    "finding": "The source still separates an Ink wrapper from serialized gameplay.",
+    "detail": "PlaymakerInkProxy constructs Story from a TextAsset, exposes path/choice/tag/state operations; InkGoToStoryPath drives the wrapper from a PlayMaker action. CSFSMVariables simply references a PlayMakerFSM. These recovered method bodies do not contain the dice-damage table or complete contracts.",
+    "locator": "Assembly-CSharp.dll: PlaymakerInkProxy, CSFSMVariables, HutongGames.PlayMaker.Actions.InkGoToStoryPath; private selected-code/ and CODE_EXPORT_RECEIPT.json"
+  },
+  {
+    "id": "F17",
+    "label": "seen in text",
+    "finding": "Players report that the repair/stress restrictions can feel like losing access to play.",
+    "detail": "A January2025 Steam discussion reports broken-dice cascades, inability to spend upgrades during contracts and difficulty understanding supplies. Publisher replies recommend adjustable difficulty and describe a crisis-focused intent. These are dated, individual reports, not a survey or verified bugs in build24313348.",
+    "locator": "WEB3, https://steamcommunity.com/app/2442460/discussions/0/600769217628750565/"
+  },
+  {
+    "id": "F18",
+    "label": "inferred",
+    "finding": "The sequel adds preparation and aftermath around a shared dice-and-clock grammar.",
+    "detail": "Within these two audited sources: bodily condition and survival-to-stability in CS1 become stress, individual die health, repairs/glitch, class Push, crew allocation and contracts in CS2. This is a scoped contrast, not a ranking or a general law about sequels.",
+    "locator": "CS1 F2-F8; CS2 F2-F13"
+  },
+  {
+    "id": "F19",
+    "label": "inferred",
+    "finding": "Its turn-based crew economy is not an idle/offline policy.",
+    "detail": "A next-cycle resource roll and deliberate contract turns could inspire YAIR routines, but cannot establish unattended catch-up, safe stops or NPC lives while the app is closed. Those need explicit local rules and implementation.",
+    "locator": "F8-F10; accepted rulebook2/7; YAIR src/simulation.js programs/common clock"
+  },
+  {
+    "id": "F20",
+    "label": "inferred",
+    "finding": "The preflight UI should reveal what cannot be recovered during the job.",
+    "detail": "Repair restrictions, stress hazards, crew eligibility and supply risk can punish an unprepared commitment. A YAIR adaptation could surface those known constraints before departure without exposing unknown story twists. This is a design proposal, not a ban on harsh contracts.",
+    "locator": "F4/F6-F9/F17"
+  }
+]

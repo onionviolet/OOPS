@@ -1,0 +1,22 @@
+{
+  "at": "2026-10-10T06:53:05.890225+00:00",
+  "app": 2442460,
+  "build": "24313348",
+  "state": 4,
+  "checked_source_copy_pairs": 6,
+  "checked_inputs": [
+    "Citizen Sleeper 2.app/Contents/Resources/Data/Managed/Assembly-CSharp.dll",
+    "Citizen Sleeper 2.app/Contents/Resources/Data/Managed/PlayMaker.dll",
+    "Citizen Sleeper 2.app/Contents/Resources/Data/Managed/Ink-Libraries.dll",
+    "Citizen Sleeper 2.app/Contents/Resources/Data/Managed/UnityEngine.CoreModule.dll",
+    "Citizen Sleeper 2.app/Contents/Resources/Data/Managed/UnityEngine.dll",
+    "Citizen Sleeper 2.app/Contents/Resources/Data/Managed/UnityEngine.UI.dll",
+    "Citizen Sleeper 2.app/Contents/Resources/Data/level0",
+    "Citizen Sleeper 2.app/Contents/Resources/Data/level2"
+  ],
+  "source_hashes_unchanged_since_inventory": true,
+  "project_input_drift": [
+    "docs/LIFE_SIM_NORTH_STAR.md"
+  ],
+  "kind": "Read-only source/retention verification, not gameplay proof"
+}

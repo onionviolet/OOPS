@@ -1,0 +1,11 @@
+# ONI slice checkpoint
+
+Revision 3, 2026-10-07. Child `/root/oni_slice`, parent `/root`. Four leaf modules and this directory were the exclusive child write area. Source ownership is released to root at the matching [RELEASE.json](RELEASE.json). Root owns every shared join/build/browser gate. Retained source files and other GM edits are read-only.
+
+**Objective:** one optional original sheltered nursery at the existing Shack, separate from Nell's finite plot. Paid build and repeated herb-plus-sap cycles create ordinary native Cooking herbs. In-world text; no population, autonomous renewal, upkeep, new inventory/clock or schema bump. The north-star document remains a proposal.
+
+**Progress:** exact E28–E32 retained hashes match the dossier; E06 supplementary AND-input comparison also matches. Source selection, hashes and revised contract are saved. Root explicitly authorized implementation after the BOH browser checkpoint. All four leaves are implemented. Opening independently stages ordinary enrollment when needed and does not require Eda. Root authorized exactly one player-only plan situation with a single idle phase to satisfy the unchanged shared schema3+ causal contract; shape/cause/opening pairing is strict. No timer or biological truth is stored in that situation.
+
+**Verification:** four syntax checks passed and 14 bounded checks pass. The cold-opening check uses the real enrollment/instant command host. Work checks execute real shared effects/refunds with scheduler-shaped jobs and pure stamps/completion facts. They cover paid build/site only on completion, twice-renewed real-input herbs, missing either input, roof/body/hands/health/battle/session blockers, encumbered inputs, cancellation/lost-support conservation, JSON/tamper guards, unchanged schema5 and untouched finite plot. See [DELIVERY.md](DELIVERY.md) for exact scope. No shared scheduled ticking, native publication, browser, cooking action or save-file IO was exercised. No build/private save/installed game was used.
+
+**Resume:** root joins content/facts/host aggregation and admission/stamp/completion-context hooks, rebuilds and proves a fresh-origin Shack loop through actual cooking, save/reload/native import and cancellation. The implementation remains browser-unverified until root supplies that evidence. No tool session or uncertain write remains in this child lane.

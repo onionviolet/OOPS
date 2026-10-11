@@ -1,0 +1,14 @@
+{
+  "appid": 2278010,
+  "observed_installed_depots": [
+    {
+      "id": 2278011,
+      "manifest": "189230333960371258",
+      "role": "base game installed macOS payload"
+    }
+  ],
+  "dlc": "No separate DLC depot in supplied appmanifest; no account/license lookup performed. Not proof no DLC exists.",
+  "separate_titles": "Six Ages1 app881420 is a different title, not this dossier or a DLC blocker.",
+  "included_material": "DarkAge and StormAge Lua tables plus demo definitions ship together; table presence does not establish playable campaign activation/ownership. Demo contents not treated as expansion.",
+  "coverage": "Only described DarkAge bounded chains read; no DLC entitlement/activation or extra story campaign coverage claimed."
+}

@@ -3,7 +3,7 @@
   "checked_utc": "2026-10-07T14:39:40.700019+00:00",
   "owner": "docs/gm/dispatch/new-game-audits-2026-10-07/",
   "human_request": "GM decompile and audit newer games or games that havent been done quite yet?",
-  "claim_level": "live source/readiness screens; active actual demo audits pending review",
+  "claim_level": "Three completed bounded static demo audits; two payload-gated candidates; no whole retail/gameplay completion",
   "candidates": [
     {
       "appid": 2399160,
@@ -32,12 +32,15 @@
       "checked_utc": "2026-10-07T14:36:01.683178+00:00",
       "rank": 1,
       "slug": "soulash-2",
-      "worker": "/root/soulash_audit",
-      "state": "active_demo_data_audit",
-      "coverage_limit": "2026 living-world and economy updates; native executable consumers require qualification",
+      "worker": null,
+      "state": "bounded_demo_data_audit_complete",
+      "coverage_limit": "Selected data edges only; zero native functions recovered. Later0.10.x retail mechanics remain creator-documented.",
       "source_dossier_existed_at_intake": false,
       "local_steam_payload_present": false,
-      "output_directory": "docs/research/soulash-2/"
+      "output_directory": "docs/research/soulash-2/",
+      "semantic_trace_count": 4,
+      "report": "docs/research/soulash-2/REPORT.md",
+      "actual_demo_version": "0.9.19.7"
     },
     {
       "appid": 2382520,
@@ -95,12 +98,14 @@
       "checked_utc": "2026-10-07T14:36:01.758574+00:00",
       "rank": 3,
       "slug": "path-of-achra",
-      "worker": "/root/achra_audit",
-      "state": "active_old_demo_recovery",
+      "worker": null,
+      "state": "bounded_old_demo_source_audit_complete",
       "coverage_limit": "Public v0.4.7 demo is older than current retail",
       "source_dossier_existed_at_intake": false,
       "local_steam_payload_present": false,
-      "output_directory": "docs/research/path-of-achra/"
+      "output_directory": "docs/research/path-of-achra/",
+      "semantic_trace_count": 5,
+      "report": "docs/research/path-of-achra/REPORT.md"
     },
     {
       "appid": 2864890,
@@ -127,12 +132,14 @@
       "checked_utc": "2026-10-07T14:36:02.555829+00:00",
       "rank": 4,
       "slug": "magic-research-2",
-      "worker": "/root/magic_research_audit",
-      "state": "active_archived_demo_audit",
+      "worker": null,
+      "state": "bounded_archived_demo_source_audit_complete",
       "coverage_limit": "Public browser JS/maps at pinned July2024 hosting revision; retail coverage separate",
       "source_dossier_existed_at_intake": false,
       "local_steam_payload_present": false,
-      "output_directory": "docs/research/magic-research-2/"
+      "output_directory": "docs/research/magic-research-2/",
+      "semantic_trace_count": 5,
+      "report": "docs/research/magic-research-2/REPORT.md"
     },
     {
       "appid": 1696440,
@@ -198,5 +205,19 @@
   },
   "existing_factorio_owner": "01a1146c-7d19-7440-92a6-8f5ab5198db9",
   "runtime_changes": false,
-  "gameplay_tests": "deferred_not_run"
+  "gameplay_tests": "deferred_not_run",
+  "resume": {
+    "checked_utc": "2026-10-07T17:48:59.859725+00:00",
+    "parked_sessions": [
+      "01a116c9-bcf9-77f1-a9cb-93548edbec8c",
+      "01a116c9-f6e7-72f2-8174-c06d19206c5e"
+    ],
+    "parked_status": "failed/notLoaded verified via read_thread; partial private inputs acquired",
+    "old_workers_live": false,
+    "fallback_worker_model": "gpt-6-sol",
+    "fallback_reason": "gpt-6.1-sol account route returned unsupported-model error",
+    "actual_demo_version_caveat": "Soulash2 ZIP last-modified March4,2026; latest retail page version is not proof of demo version"
+  },
+  "completion_utc": "2026-10-07T18:01:07.685920+00:00",
+  "all_own_workers_released": true
 }

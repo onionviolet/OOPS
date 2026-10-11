@@ -1,0 +1,68 @@
+{
+  "status": "original proposals; not accepted or implemented",
+  "handoff_to": "docs/gm/life-sim-experience-2026-10-07/",
+  "foundation_relevance": "P5 is a design observation only; no verified King of Dragon Pass save-format compaction algorithm recovered.",
+  "packets": [
+    {
+      "id": "P1",
+      "title": "Forecast with a preparation window",
+      "findings": [
+        "F1"
+      ],
+      "proposal": "An original home-world weather rumor appears before a season. Player can reserve stores, shift routine work or ask a skilled neighbor; outcome records both choice and actual seasonal condition.",
+      "acceptance": "Prepare and abstain in two fresh runs; cross season boundary; food/work effects and a compact life entry agree; reload preserves prepared commitment.",
+      "scope": "One season, one home-world location, no required new origin."
+    },
+    {
+      "id": "P2",
+      "title": "Companion availability has a cost",
+      "findings": [
+        "F2",
+        "F3"
+      ],
+      "proposal": "A known artisan can travel on one short commission. Their local training is unavailable until return; another less skilled artisan can cover. Return or failure produces a persistent entry.",
+      "acceptance": "Dispatch prevents double booking and local service, return reopens it, save/reload retains assignment and due time."
+    },
+    {
+      "id": "P3",
+      "title": "Favor ledger with imperfect public knowledge",
+      "findings": [
+        "F4"
+      ],
+      "proposal": "Track signed small obligations between player and one original NPC; giving aid reduces existing opposing debt first. Gossip reports reputation separately from the precise balance.",
+      "acceptance": "Opposing help nets debt, collecting changes resources once, overheard account never overwrites the true ledger."
+    },
+    {
+      "id": "P4",
+      "title": "Delayed apprenticeship and succession",
+      "findings": [
+        "F3",
+        "F5"
+      ],
+      "proposal": "Invite one apprentice whose arrival waits on a household condition. Existing mentor reacts to promised support; years of routine learning can unlock a teaching role before any death mechanic.",
+      "acceptance": "Pending invitation survives reload; apprentice arrives once; support cost and mentor reaction persist; vanilla skill use remains available."
+    },
+    {
+      "id": "P5",
+      "title": "Event response plus compact remembered aftermath",
+      "findings": [
+        "F6"
+      ],
+      "proposal": "For one original dispute store eligibility, committed choice and a scheduled follow-up as separate IDs; preserve only meaningful annual life records rather than all transient prose.",
+      "acceptance": "Reload cannot reroll the committed choice; follow-up executes once after time advance; compaction retains participant, decision and outcome linkage."
+    }
+  ],
+  "exclusions": [
+    "No imported source prose/art/rules tables",
+    "No mandatory clan system or new runtime writer",
+    "No new death/reset policy",
+    "No numeric threshold borrowed from native aging"
+  ],
+  "priority": [
+    "P5",
+    "P2",
+    "P1",
+    "P3",
+    "P4"
+  ]
+}

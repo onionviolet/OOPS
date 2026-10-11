@@ -1,0 +1,18 @@
+{
+  "status": "passed",
+  "origin": "http://127.0.0.1:18319",
+  "findings": [
+    "Native round 1 completed and kit returned (browser clock advanced, no career-state injection).",
+    "Native round 2 completed and kit returned (browser clock advanced, no career-state injection).",
+    "Native round 3 completed and kit returned (browser clock advanced, no career-state injection).",
+    "Native round 4 completed and kit returned (browser clock advanced, no career-state injection).",
+    "Native round 5 completed and kit returned (browser clock advanced, no career-state injection).",
+    "Mentor promotion after five full native rounds and five returns.",
+    "Quota rejection leaves kit debt and money unchanged.",
+    "Paying 50 coins clears debt without return credit.",
+    "Mentor and paid kit survive actual native save, reload, file export and import.",
+    "Generated 49-coin save refuses debt payment with no money or custody mutation.",
+    "Old generated save missing career owner retains active native patrol without invented career history."
+  ],
+  "errors": []
+}

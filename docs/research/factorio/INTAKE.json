@@ -1577,18 +1577,20 @@
   "repository_dirty_state": "Existing broad dirty tree was observed and preserved; only assigned Factorio research directory was written.",
   "snapshot_scope": "Historical finite installed-source/API pass ending2026-10-07T03:59Z; originalcounts/claims/never_done fields apply to that pass.",
   "current_native_followup": {
-    "state": "Active subsequent full both-architecture recovery and original use; historical finite Lua/API snapshot remains separate.",
-    "sole_native_writer": "/root/factorio_native_finish3",
-    "root_acceptance_writer": "/root/factorio_acceptance",
+    "state": "Unfinished subsequent full both-architecture recovery/review and original use resumed; historical finite Lua/API snapshot remains separate.",
+    "sole_native_writer": "/root/factorio_native_continuation",
+    "root_acceptance_writer": "/root/factorio_recovery_review",
     "native_checkpoint": "native/CHECKPOINT.md",
+    "native_assignment": "native/ASSIGNMENT.md",
     "native_report": "native/REPORT.md",
     "native_coverage": "native/COVERAGE.json",
     "root_usage_checkpoint": "../../gm/dispatch/steam-wave-2026-10-06/native-usage/CHECKPOINT.md",
-    "ARM_root_acquired": "183,199 unique functions / 183,186 latest C successes / 13 failures; all 178,879 callable candidates attempted; exact body/C/chunk/instruction bytes verified; 1,105 scalar-affected methods use qualified repair.",
-    "Intel_state": "Saved/reopened 182,398 functions / 9,869,783 instructions / 178,145 callables. Healthy full C/ASM export 41973 / PID46960 reports 168,900 closed rows, 168,835 C successes and 65 failures at 2026-10-07T14:04:07.321309Z; final corpus acquisition pending.",
-    "original_use": "Retort source/native/UI is acquired in e77080593d4b / 370-source build, implemented-unverified; gameplay/save/failure/browser/director checks deferred.",
-    "semantic_limit": "Whole machine function attempts and retained files are not whole-source semantic reading, complete CFG/type/ABI proof or enabled DLC/entitlement coverage.",
-    "required_gates": "Full Intel stream, known Splitter/Inserter case closure, selected Heat physical ABI, faithful failure diagnosis/repair, instruction ownership and final immutable corpus/provenance/coverage audit."
+    "ARM_root_acquired": "Initial183,199/183,186C/13failures through1850; canonical flow/Heat delta through1857 acquired183,188C/11failures. Selected Heat physical storage views retain exact original bodies; unknown declaration/return/caller limits remain.",
+    "Intel_state": "Initial stream closed through1824: 182,398 unique functions / 182,329 C successes / 69 failures. Current compressed corpus/input/inventory/candidate projection matches the durable full byte/C/ASM audit; final repair acquisition remains pending.",
+    "original_use": "Four exact retort leaves match live/current map and retained historical e77080593d4b build; implemented-unverified, behavior acceptance deferred. Independent shared tree changes are not a current matching combined build.",
+    "semantic_limit": "Whole machine attempts are distinct from complete semantic, CFG/type/ABI, enabled DLC or original buildable C++ recovery.",
+    "required_gates": "Coherent hash/merge; Intel section; measured resource retries; exact global ownership; compact resume ledger and cross-architecture claim packet; final repaired corpus/provenance reconciliation.",
+    "crossarch_reader": "/root/factorio_crossarch_reader: new reader folder/private work only, no native process; packet acquisition pending."
   },
-  "routing_updated_utc": "2026-10-07T14:04:14.806358+00:00"
+  "routing_updated_utc": "2026-10-07T18:41:06.434753+00:00"
 }

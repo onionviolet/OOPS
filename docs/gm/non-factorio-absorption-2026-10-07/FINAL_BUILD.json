@@ -1,0 +1,10 @@
+{
+  "bundleSha256": "7c4fe2b159f0fb2446a9cab2ce0832bd6e87aca6d02eca638aa38490fcaacb7f",
+  "sharedBuild": "npm run build",
+  "inkCheck": "passed",
+  "browserBuildIdentical": true,
+  "filesystemSources": 396,
+  "sourceDrift": [],
+  "indexSha256": "96f781fbaa018be9beffd896a2d11ad1ab9c2928b1632d5017838a9991062b54",
+  "sourceMapSha256": "08cd6ab3b8ec03b1f338fb2e89fa27a695411c0a433c60429d1d76cfbd1f9690"
+}

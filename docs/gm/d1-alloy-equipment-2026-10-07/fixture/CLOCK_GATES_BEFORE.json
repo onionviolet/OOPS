@@ -1,0 +1,115 @@
+[
+  {
+    "name": "vanilla",
+    "startup": {
+      "bio": {
+        "age": "adult",
+        "height": "average",
+        "race": "human",
+        "gender": "ambiguous"
+      },
+      "error": null,
+      "scheduled": 1
+    },
+    "location": "Village",
+    "joined": false,
+    "gates": {
+      "backlogNativeClockPaused": false,
+      "importProbeToken": false,
+      "notOwnsSave": false,
+      "expansionError": "",
+      "foundationSaveBlocked": false,
+      "is_loading_error": false,
+      "lifeEnded": false,
+      "playerSession": false,
+      "waitingSimulationChoice": false,
+      "manualChroniclePolicy": false
+    },
+    "choice": null,
+    "pendingJourney": false,
+    "journeyRemaining": null,
+    "branch": "native",
+    "plan": {
+      "consumed": 1,
+      "stoppedAtChoice": false,
+      "remaining": 0
+    },
+    "tick": 1,
+    "before": 0,
+    "after": 0,
+    "afterError": "",
+    "afterSaveBlocked": false
+  },
+  {
+    "name": "smelting-9",
+    "startup": {
+      "bio": {},
+      "error": "Cannot read properties of undefined (reading 'name')",
+      "scheduled": 0
+    },
+    "location": "Village",
+    "joined": true,
+    "gates": {
+      "backlogNativeClockPaused": false,
+      "importProbeToken": false,
+      "notOwnsSave": false,
+      "expansionError": "",
+      "foundationSaveBlocked": false,
+      "is_loading_error": false,
+      "lifeEnded": false,
+      "playerSession": false,
+      "waitingSimulationChoice": false,
+      "manualChroniclePolicy": false
+    },
+    "choice": null,
+    "pendingJourney": false,
+    "journeyRemaining": null,
+    "branch": "advanceChroniclePlan",
+    "plan": {
+      "consumed": 1,
+      "stoppedAtChoice": false,
+      "remaining": 0
+    },
+    "tick": 1,
+    "before": 28,
+    "after": 29,
+    "afterError": "",
+    "afterSaveBlocked": false
+  },
+  {
+    "name": "smelting-10",
+    "startup": {
+      "bio": {},
+      "error": "Cannot read properties of undefined (reading 'name')",
+      "scheduled": 0
+    },
+    "location": "Village",
+    "joined": true,
+    "gates": {
+      "backlogNativeClockPaused": false,
+      "importProbeToken": false,
+      "notOwnsSave": false,
+      "expansionError": "",
+      "foundationSaveBlocked": false,
+      "is_loading_error": false,
+      "lifeEnded": false,
+      "playerSession": false,
+      "waitingSimulationChoice": false,
+      "manualChroniclePolicy": false
+    },
+    "choice": null,
+    "pendingJourney": false,
+    "journeyRemaining": null,
+    "branch": "advanceChroniclePlan",
+    "plan": {
+      "consumed": 1,
+      "stoppedAtChoice": false,
+      "remaining": 0
+    },
+    "tick": 1,
+    "before": 28,
+    "after": 29,
+    "afterError": "",
+    "afterSaveBlocked": false
+  }
+]

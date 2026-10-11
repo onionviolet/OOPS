@@ -1,0 +1,23 @@
+{
+  "status": "passed",
+  "origin": "http://127.0.0.1:8139",
+  "findings": [
+    "paid: preview, blocked early exit, partial save/reload/file import, five lesson minutes, full shift payout 70, completed save/reload/file import passed.",
+    "pay: preview, blocked early exit, partial save/reload/file import, five lesson minutes, full shift payout 50, completed save/reload/file import passed.",
+    "time: preview, blocked early exit, partial save/reload/file import, five lesson minutes, full shift payout 0, completed save/reload/file import passed.",
+    "favor: preview, blocked early exit, partial save/reload/file import, five lesson minutes, full shift payout 60, completed save/reload/file import passed.",
+    "free: preview, blocked early exit, partial save/reload/file import, five lesson minutes, full shift payout 60, completed save/reload/file import passed.",
+    "Favor granted once, consumed for one covered shift, +50 with no career credit; quota-rejected tuition gives no coins; accepted +5 tuition survives reload/import.",
+    "Free teaches without obligation; first solo pays +10; tuition declined with no transfer and memory survives reload/import."
+  ],
+  "errors": [],
+  "receipt": "Observed successful teaching journeys from final-source run session 25033, before its unrelated unread-book fixture failure. No source/build writes between that run and repaired study run 31211. Final hashes checked without drift.",
+  "screenshots": [
+    "paid.png",
+    "pay.png",
+    "time.png",
+    "favor.png",
+    "free.png"
+  ],
+  "timerPolicy": "Fresh isolated browser contexts, generated schema-3 fixtures from prior generated study proof. HackTimer suppressed; Playwright accelerates common native ticks. No private saves."
+}

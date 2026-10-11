@@ -1,0 +1,15 @@
+{
+  "app": 233860,
+  "manifest_depots": {
+    "233861": "base",
+    "468550": "soundtrack DLC depot; OST and WAV directories present"
+  },
+  "music_retention": "excluded proportional to disk; not gameplay source input",
+  "entitlement": "not independently verified",
+  "gameplay_expansions": "none classified from retained local evidence; no external catalog claim",
+  "story_extras": "FCS manual retained unread",
+  "free_base_updates": "build-specific rebirth/Newwworld/Dialogue overlays decoded; not separately classified DLC",
+  "source_accessible": "base authored tables and editor",
+  "read": "bounded life-sim chains",
+  "unread": "soundtrack/audio/manual/art and remainder of data"
+}

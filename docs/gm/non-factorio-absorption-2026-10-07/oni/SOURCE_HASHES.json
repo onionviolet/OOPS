@@ -1,0 +1,116 @@
+{
+  "schema": 1,
+  "date": "2026-10-07",
+  "source_root": "/Users/weiwei/.codex/research/oxygen-not-included/24423041",
+  "retained_files": [
+    {
+      "evidence_id": "E28",
+      "path": "decompiled/BasicSingleHarvestPlantConfig.cs",
+      "sha256": "869a73362c80e9699d59b3ef4546de1393523c475fe6e23568134f8f7e8391a8",
+      "matches_dossier": true
+    },
+    {
+      "evidence_id": "E29",
+      "path": "selected/PlantElementAbsorber.cs",
+      "sha256": "9a2cce1d860762d0b165b69fc0b4b975df8f95782c948f711ea68c92afb851c3",
+      "matches_dossier": true
+    },
+    {
+      "evidence_id": "E30",
+      "path": "selected/WiltCondition.cs",
+      "sha256": "ea9d7af4104561e793a2a689a01857d2355a78c35c5124e723b4118cc56a7cba",
+      "matches_dossier": true
+    },
+    {
+      "evidence_id": "E31",
+      "path": "selected/Growing.cs",
+      "sha256": "00d8ed5b164b7c9fbb0df759d2ab8ca8a22b7b3b00a04422e9d7b0566c3c1354",
+      "matches_dossier": true
+    },
+    {
+      "evidence_id": "E32",
+      "path": "selected/Crop.cs",
+      "sha256": "f1ab81bfd67219698482efff1f9f30363b3d9828c1696d76e1908121f1598589",
+      "matches_dossier": true
+    },
+    {
+      "evidence_id": "E06",
+      "path": "selected/ElementConverter.cs",
+      "sha256": "63e970f81c6f5cdf733660126f5749b7e3f54b8bbb6fad5a981868b3925e57ad",
+      "matches_dossier": true
+    }
+  ],
+  "workspace_read_inputs": [
+    {
+      "path": "docs/research/oxygen-not-included/FINDINGS.json",
+      "sha256": "bd84832571a94cc0f16a53deb5372da38205b9246fc8f9315e83e4c73737b22a"
+    },
+    {
+      "path": "docs/research/oxygen-not-included/PACKETS.json",
+      "sha256": "477f2ca19638fc0cd23a42bd559f7863ce205145ac8dd85e29518002a4c298f6"
+    },
+    {
+      "path": "src/status_care_facts.js",
+      "sha256": "7c32a7b9b3eb7cf411b1f1b762fbdca50d159966ca09d799f075f78ea649dd49"
+    },
+    {
+      "path": "src/site_projects.js",
+      "sha256": "0a9eeb705992b988e5d678f2bd9f4d62f1fc4e911cdb1b456df69787c042583c"
+    },
+    {
+      "path": "src/simulation_effects.js",
+      "sha256": "bd9dde5ea0e09510a6111ac6c99e139c89ce94afc2ae4ae9772213b089408620"
+    },
+    {
+      "path": "src/simulation_contracts.js",
+      "sha256": "0b048cb891b0e30abeb7f97125d8fe62ca9abe03c7fc7697e0078ae4a72501de"
+    },
+    {
+      "path": "src/crafting_recipes.js",
+      "sha256": "eaee722af0f314756c49381e7fdd5b534cdad2168e7b38d048b490dd333d280d"
+    },
+    {
+      "path": "src/items.js",
+      "sha256": "c15f84854154b14913d6f1e54d0c349be3c7d4f8bac924f7655338ae85ef1af6"
+    },
+    {
+      "path": "src/steam_boh_content.js",
+      "sha256": "9367325369ba5e88de34acc6d48dd730ad3b4a8bbfbde9de786dd4d00702e6f7"
+    },
+    {
+      "path": "src/steam_boh_runtime.js",
+      "sha256": "11a0db97310e5ee03e38148e17fef9c6a8d08e28ebcdadc5fcc1a9c15d50df81"
+    },
+    {
+      "path": "src/steam_boh_facts.js",
+      "sha256": "5f5beb1dc2d40b05e14b8238deade4c976728e4ef21d8e6dee638761e61ee6e7"
+    },
+    {
+      "path": "src/steam_boh_host.js",
+      "sha256": "4ad3095087daf798162c44c122e3108f70b937a93eb958bf8cfa8d91bd1f4d03"
+    }
+  ],
+  "implementation_files": [
+    {
+      "path": "src/steam_oni_content.js",
+      "sha256": "6cbe695c58aa605adc9292ac7d2bb6e93c4d2bc7772ed4668e121e0bb78428b2"
+    },
+    {
+      "path": "src/steam_oni_runtime.js",
+      "sha256": "6a5df3ef495c1c25f90052bbb2c2529a4cbe66c3fed94bd5e7e7d5dcc691e39a"
+    },
+    {
+      "path": "src/steam_oni_facts.js",
+      "sha256": "c9beb50f845ab9909c96cbbdda6410d4d58476ec06512dc02628c174ca341a95"
+    },
+    {
+      "path": "src/steam_oni_host.js",
+      "sha256": "74c3f84f5d1d6c686e291465f4a42c7556370e5e4551162856dd78d5293d2f49"
+    },
+    {
+      "path": "docs/gm/non-factorio-absorption-2026-10-07/oni/leaf_checks.mjs",
+      "sha256": "eaebf310e21c413a54528f40c575ee12ead690aae62b7f492c3adc6f85335ca6"
+    }
+  ],
+  "workspace_read_inputs_policy": "Captured at source selection; independent root edits may follow. Implementation fingerprints below belong to this release."
+}

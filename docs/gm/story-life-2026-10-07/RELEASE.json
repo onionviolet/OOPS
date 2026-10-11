@@ -1,0 +1,19 @@
+{
+  "owner": "01a116c6-f4d9-7961-a253-cf80002abd83",
+  "released": true,
+  "sourceStatus": "implemented-unverified",
+  "hashes": {
+    "src/causal_story_content.js": "6fbcfc9e1718f961f8c4b99c588c1cc8c4816378ce889c93662cec0aea10af22",
+    "src/causal_story_host.js": "cc6464bb00936100be5cf6b02c95be62f38c3478d273b2b83c4395fb7bcf8c1c",
+    "src/causal_story_native.js": "f70656361f79b011fdf18953caa10fba3acea327c007e16c170fd5345c5ccc84",
+    "src/causal_story_ui.js": "5e43b094b364e574e9ad00e8bda57ada6b2a333c04191af86c2db49df87a32e5",
+    "src/causal_story_scenes.js": "7ccaeae599ce284f7d5003ab95b9687426c69ebdba452b9238d2931ef9f28ca9",
+    "src/items.js": "abde53366c388bd5b6823c3614c8d9287b629de64f1bc0667806cc5d41748cbd"
+  },
+  "sharedIntegratingPeer": "01a116c6-9556-74c1-a50d-e689d91785a0",
+  "sharedAttentionJoinPending": true,
+  "sourceChecks": "BUILD.json and MODEL_CHECKS.json",
+  "privateSavesTouched": false,
+  "newCommit": false,
+  "pendingBrowserGate": "Full watch-account-conversation plus timed save/reload/import and responsiveness remain unverified after browser connection loss."
+}

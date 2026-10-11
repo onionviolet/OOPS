@@ -24,7 +24,7 @@ The first playable milestone sequences code; it does not restrict design depth. 
 
 Each local module names stable ID/revision, source/version boundary, type, owner/body/assembly binding, material or acquired source, tier track, functions, inputs/outputs, requirements, compatibility, mounting/interface, active costs, idle/upkeep policy, known failure modes, inspection evidence, repair, upgrade/downgrade, salvage and portability. These are proposed records, not current save fields.
 
-A **tier** must open/change a function, operating envelope or integration possibility. A level within that tier may tune efficiency, precision or capacity. Grade/rarity, tier, quality, condition and mastery are different dimensions; a globally labelled T3 has no automatic lore equivalence. Do not impose a universal highest tier, slot count or one breakthrough ritual on all worlds. Canonical stages require actual evidence, and source-specific prerequisites remain real.
+A **tier** must open/change a function, operating envelope or integration possibility. A level within that tier may tune efficiency, precision or capacity. Grade/rarity, tier, quality, condition and mastery are different dimensions; by default a globally labelled T3 has no automatic lore equivalence; verse equalization is the dial that adds one. Do not impose a universal highest tier, slot count or one breakthrough ritual on all worlds. Canonical stages require actual evidence, and source-specific prerequisites remain real.
 
 ### Campaign delivery criteria
 
@@ -40,7 +40,7 @@ Use at least eight clearly identified modules/components or technique families p
 
 Assemblies respect physical/ritual interfaces, weight, space, power/energy, heat/strain, response/control, durability, range, material support and authority as relevant. Local definitions choose actual channels and limits. A capability exists only when its required modules and support are operative. Replacing a module can remove a function while preserving unrelated training and possessions. An authority cannot be installed like a battery unless that source explicitly permits it.
 
-One physical component has one owner/holder and one instance identity. Installation reserves the actual part; removal returns that part in its current condition, not a fresh copy. An assembled inventory display may project child components but cannot create a second player inventory. Refit costs labor/materials and may require a safe facility; battle swapping needs an actual quick-change interface, not a free menu action.
+One physical component has one owner/holder and one instance identity. Installation reserves the actual part; removal returns that part in its current condition, not a fresh copy. This protects the save; in-fiction duplication is a costed cheat or world law. An assembled inventory display may project child components but cannot create a second player inventory. Refit costs labor/materials and may require a safe facility; battle swapping needs an actual quick-change interface, not a free menu action.
 
 Modern-looking technology is not automatically canon in Naruto, and ordinary craftsmanship cannot automatically manufacture a Bleach soul-bound release. Magical crafting can use substrates, inscription/control, anchors, fuel, seals, interfaces, protective housings and learned methods where the selected source supports them. Unsupported cross-world combinations are named original experiments with paid tests and explicit unknowns.
 

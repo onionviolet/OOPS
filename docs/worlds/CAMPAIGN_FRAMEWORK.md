@@ -24,11 +24,11 @@ Compose a visit from independent records: `WorldDefinition + ContinuityDefinitio
 
 - `worldId` identifies a rules/source family. `continuityId` identifies an independent causal history. `eraId` identifies an authored starting snapshot. `regionId` identifies a place. `scenarioId` identifies an authored situation. IDs are stable, never display labels.
 - A future `worldInstanceId` identifies durable world state; repeated entries into the same instance preserve people, projects, unique claims, consequences, and RNG. The current engine has world domains but no implemented native binding for these independent instances.
-- An era switch is a new branch or isolated historical scenario by default. It never implicitly rolls back a live world. A canonical prequel needs bounded source evidence. Unverified earlier-era details are invented branch history.
+- An era switch is a new branch or isolated historical scenario by default. It does not roll back a live world unless a regression or loop cheat, or a world that allows it, grants rollback at a cost. A canonical prequel needs bounded source evidence. Unverified earlier-era details are invented branch history.
 - Plot modes: `authored`, `situation`, `contract`, `divergence`, `historical`. Describe trigger, action alternatives, actual consequence, discovery, refusal/expiry, and what survives reload. A mode can select content; it does not justify a second plot-state writer.
-- Power is a contextual profile: physical output, speed/reach, endurance, perception, resistance, access/authority, fuel/logistics, and preparation. Fictional ranks provide local context. Threats keep their authored strength; selecting a region/mission uses the profile, rather than leveling every enemy to the player.
+- Power is a contextual profile: physical output, speed/reach, endurance, perception, resistance, access/authority, fuel/logistics, and preparation. Fictional ranks provide local context. Threats keep their authored strength; selecting a region/mission uses the profile, rather than leveling every enemy to the player. Fixed threats are the default; scaled threats are a difficulty or world dial.
 - Severe unfairness may include overwhelming enemies, scarce cures, failed objectives, competing actors and permanent local consequences. It need not guarantee victory or an escape. Distinguish what the character can know from author truth. Numerical danger, lethal rules, run loss and offline losses remain proposals requiring an explicit opt-in implementation contract.
-- A visit must declare body, memories, learned methods, sources/fuel, cargo, companions, obligations, return conditions, interruption, and absence-clock policy. Draft default: freeze absent worlds and browser-closed play. Unsupported imported powers retain ownership and can resume when their actual requirements return.
+- A visit must declare body, memories, learned methods, sources/fuel, cargo, companions, obligations, return conditions, interruption, and absence-clock policy. Draft default: freeze absent worlds and browser-closed play. Offline catch-up, time banking or harsh offline loss are opt-in modes ([idle and offline proposal](../RULES_FROM_SCRATCH.md#idle-and-offline)). Unsupported imported powers retain ownership and can resume when their actual requirements return.
 - Use existing shared commands, jobs, sites, occurrences, knowledge, actor custody and durable publication wherever inspected source supports them. Identify missing adapters precisely. Do not invent working APIs or copy native inventory into another owner.
 
 ## World GM delivery gate
@@ -96,9 +96,9 @@ For every arc, define author truth, character-visible evidence, actor goals/mean
 
 ## Contextual power scaling and useful imbalance
 
-Use local measurements and capabilities first: can a person breach this barrier, outrun this pursuer, sustain the method, survive the exposure, detect the ambush, reach the target, or possess authority over it? An author-only profile may compare output/speed/endurance/resistance/perception/authority/logistics, but the player's estimate includes only observed or learned evidence. Unknown is not zero. A fictional rank is not a numerical cross-franchise proof.
+Use local measurements and capabilities first: can a person breach this barrier, outrun this pursuer, sustain the method, survive the exposure, detect the ambush, reach the target, or possess authority over it? An author-only profile may compare output/speed/endurance/resistance/perception/authority/logistics, but the player's estimate includes only observed or learned evidence. Unknown is not zero. By default a fictional rank is not a numerical cross-franchise proof; verse equalization is the dial that converts them.
 
-Proposed mission selection uses **minimum workable means**, **likely threat**, **exceptional threat**, and **uncertainty**. A low combat-power character with workshop access can still repair a pump; a devastating fighter without a filter can still suffer exposure. A courier mission is not labelled safe because its average opponent is weak when an established warlord may cross the route. No automatic enemy-level matching is selected.
+Proposed mission selection uses **minimum workable means**, **likely threat**, **exceptional threat**, and **uncertainty**. A low combat-power character with workshop access can still repair a pump; a devastating fighter without a filter can still suffer exposure. A courier mission is not labelled safe because its average opponent is weak when an established warlord may cross the route. No automatic enemy-level matching is selected by default; it stays available as a difficulty or world dial.
 
 Three calibration fixtures for a later build:
 
@@ -152,13 +152,13 @@ Opening proposal: a frontier commission pays for documenting a strange route mar
 | Memories / methods | Retained; execution still needs actual support | Retained if the selected entry policy says so; foreknowledge is a belief |
 | Sources / fuel | Carried sources retain ownership; finite fuel stays finite | Soul-bound/body-bound distinction must be authored and previewed |
 | Cargo / equipment | Named owner/holder crosses once; capacity/route limits apply | Physical cargo stays with its actual holder unless a declared transfer occurs |
-| Companions | Consent, available body and compatible passage required | Do not silently recreate the same person in another body/history |
+| Companions | Consent, available body and compatible passage by default; coercion, possession or a cheat can bypass consent at a cost | Do not silently recreate the same person in another body/history |
 | Obligations | Remain with the actual issuer/person/instance | A remembered debt is not automatically enforceable in an unrelated history |
-| Sites / world claims | Remain in their actual world instance | A new branch has distinct claims; do not mint portable unique rewards repeatedly |
+| Sites / world claims | Remain in their actual world instance | A new branch has distinct claims; by default unique rewards are not minted again (a costed duplication cheat or world law can) |
 
 Before travel review prerequisites, return route, incompatible functions, fuel/cargo, companion terms, unfinished commitments and exact losses. The current planner requires a safe boundary and closed pursuits/work; forced mid-job kidnapping is a missing interrupted-transition adapter. Do not claim that current travel previews implement it.
 
-Draft clock policy freezes absent instances and browser-closed play. A later explicit alternative may advance funded NPC projects on the common clock with a bounded budget. The first return journey must preserve completed projects, specific NPC memories, item custody and unique rewards. Independent instances must never share native flags through a convenient label swap.
+Draft clock policy freezes absent instances and browser-closed play by default; offline catch-up or harsh loss are opt-in modes. A later explicit alternative may advance funded NPC projects on the common clock with a bounded budget. The first return journey must preserve completed projects, specific NPC memories, item custody and unique rewards. Independent instances must never share native flags through a convenient label swap.
 
 ## Inspected runtime fit and remaining gates
 

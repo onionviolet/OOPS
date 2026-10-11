@@ -19,7 +19,7 @@ Read [campaign composition](CAMPAIGN_FRAMEWORK.md), [continuity](LORE_AND_CONTIN
 | Scenario | Immediate situation, possible actions, stakes, discoveries and aftermath |
 | Time / loss | Growth/absence/advancement policy, body/life/run retention and severe-risk terms |
 
-Same world, different starts: an ordinary adult can earn a workshop; a school-age child can earn supervised study; a reincarnated infant can preserve an observation and build a caregiver relationship; a rooted spirit can bargain for protection or irrigation. Their first useful actions differ. A world/era/origin combination is validated, not a random unrestricted product of labels.
+Same world, different starts: an ordinary adult can earn a workshop; a school-age child can earn supervised study; a reincarnated infant can preserve an observation and build a caregiver relationship; a rooted spirit can bargain for protection or irrigation. Their first useful actions differ. A world/era/origin combination is validated, not a random unrestricted product of labels. A combination without an in-world reason is off by default but reachable through a cheat, meta unlock or cost.
 
 ### Scratch, birth, reincarnation and replacement
 
@@ -40,7 +40,7 @@ These are original scenario families. A reference world's lore may permit, prohi
 
 ## No automatic predecessor-power inheritance
 
-Taking a name, body or narrative role is not identical to possessing the person's techniques, source, mastery, fuel, soul bond, equipment or recognized office. Each domain gets an explicit starting rule. If actual retained anatomy supports an innate faculty, say what survives and whether it is dormant, controllable or unsupported. Do not silently remove an operative organ solely because a challenge needs weakness.
+Taking a name, body or narrative role is not identical to possessing the person's techniques, source, mastery, fuel, soul bond, equipment or recognized office. This is the default for fresh starts, not a ban: an origin that inherits the host's powers is selectable at a cost (the host's debts and enemies, fate attention or a smaller budget). Each domain gets an explicit starting rule. If actual retained anatomy supports an innate faculty, say what survives and whether it is dormant, controllable or unsupported. Do not silently remove an operative organ solely because a challenge needs weakness.
 
 Examples of proposed starts:
 
@@ -69,7 +69,7 @@ A child phase can open language, literacy, independent movement, chores, apprent
 
 Avoid mandatory real-time years of growth. A proposed chapter advance can move to a later phase after meaningful choices. Before acceptance it declares uncompleted work, participating people, calendar changes, body/source development, retained evidence, relevant risks and losses. Its resulting state is frozen and validated, with concrete consequences; it cannot silently mark every future canon event as completed.
 
-Care work can become a consenting NPC controller/routine with actual supplies and capacity. A narrative abstraction can cover unrepresented ordinary days, but must label the scope. It does not prove a full minute-by-minute childhood simulation. Current no-browser-closed-advancement remains; a newborn origin does not introduce offline starvation or aging.
+Care work can become a consenting NPC controller/routine with actual supplies and capacity. A narrative abstraction can cover unrepresented ordinary days, but must label the scope. It does not prove a full minute-by-minute childhood simulation. The current default of no browser-closed advancement remains; a newborn origin does not introduce offline starvation or aging unless an opt-in offline mode does.
 
 ## Tree and other bodies change available actions
 
@@ -87,7 +87,7 @@ Represent three author concepts: campaign event ordering, each world's local cal
 
 Proposed timeline record: world-instance/source revision, local calendar anchor, traveler entry/exit/elapsed exposure, actual event causes, NPC body/life ages, known reports, active commitments and absence policy. Parallel worlds may be in different years or mythic eras while their visits are ordered in one campaign. Similar dates do not merge histories.
 
-An origin can begin before, during, after or alongside a source arc. Earlier versions need earlier people, resources and institutions. Growing from baby to adulthood can overlap real local changes when authored; it does not automatically age frozen absent worlds. A source endpoint is author context, not a character's calendar notification.
+An origin can begin before, during, after or alongside a source arc. Earlier versions need earlier people, resources and institutions. Growing from baby to adulthood can overlap real local changes when authored; by default it does not age frozen absent worlds. A source endpoint is author context, not a character's calendar notification.
 
 Absence alternatives remain proposals: freeze the instance; advance funded relevant actors/events under bounded common-clock work; or author a declared chapter snapshot. Review effects before a time jump that would move a commitment. Repeated preview/import cannot grant retroactive years of production, mastery, inherited wealth or invented missed-deadline loss.
 
@@ -105,7 +105,7 @@ Inspected existing service: `chooseSimulationOrigin` in `src/simulation.js` requ
 
 Missing selected delivery: valid new-game/per-life origin initialization, body-specific legal native actions/stats/inventory, deterministic family/household generation, age/communication/care state, chapter-time projection and safe world-calendar conversion, source/soul/role retention, instance-native bindings and migration/import/UI. Reuse current time/people/custody/knowledge/commands rather than another save or reward manager.
 
-Future gate: fresh ordinary and limited-body origins; legal differing first actions; frozen family/name/resources after reload; no predecessor-power entitlement; one meaningful body/learning milestone with actual cost/knowledge; reviewed chapter advance; preserved original native progress/old-save defaults; rejected invalid/stale/duplicate selection and failed-save publication. Browser proof requires rebuilt source and generated saves on a fresh origin. No such checks run in this design pass.
+Future gate: fresh ordinary and limited-body origins; legal differing first actions; frozen family/name/resources after reload; no predecessor-power entitlement by default; one meaningful body/learning milestone with actual cost/knowledge; reviewed chapter advance; preserved original native progress/old-save defaults; rejected invalid/stale/duplicate selection and failed-save publication. Browser proof requires rebuilt source and generated saves on a fresh origin. No such checks run in this design pass.
 
 ## Resume checkpoint
 

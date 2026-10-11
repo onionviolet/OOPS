@@ -1,0 +1,540 @@
+{
+  "schema": 1,
+  "packet": {
+    "id": "BOH-P01",
+    "title": "A difficult manual with a useful failed attempt",
+    "paths": [
+      "BH01",
+      "BH02",
+      "BH03",
+      "BH07"
+    ],
+    "proposal": "One original manual can be mastered through the existing paid instruction or a bounded prepared reading attempt. The attempt uses current body/attention, a relevant sample and permitted desk; a real failed trial retains a diagnostic note and spent effort, while a later specific treatment restores availability.",
+    "reuse": "Native reading/item state plus existing sources/knowledge/body/status care/common clock/durable publication. Existing Eda/Neri paid datum lessons remain their own completed content.",
+    "new_gap": "A manual-specific prepared rescue window and failed diagnostic consumer, with object mastery distinct from the actor's earned procedure.",
+    "choices": [
+      "Pay for qualified instruction",
+      "Attempt prepared study",
+      "Keep the manual unread"
+    ],
+    "migration": "Optional additive stable-ID record absent on old saves; no retroactive fatigue, knowledge or reward. Define cancellation and failed-persistence effects through current owners.",
+    "acceptance": "Later fresh-origin journey: failed attempt -> exact diagnostic -> relevant treatment/preparation -> earned usable procedure -> reload retains independent book/mastery/actor facts.",
+    "status": "original-proposal-only",
+    "accepted": false,
+    "implemented": false,
+    "all_gameplay_checks": "deferred; later gate, not a current test request"
+  },
+  "selected_paths": [
+    {
+      "id": "BH02",
+      "title": "Reading success, rescue and failure",
+      "source": "definitions-plus-interpreter",
+      "content_scope": "base",
+      "status": "selected-dependency-chain-source-reviewed",
+      "chain": "The Forge-6 book needs an ability and sufficient Forge to master. Mastery mutates the physical book and spawns a specific lesson; rereading spawns Foresight instead. Under-strength attempts draw three opportunities and allow slot-based rescue, with dynamic alternatives rechecking the current ingredients.",
+      "boundary": "Exhausted opportunities lead to fatigue, consolation and soul-specific malady-risk links. Only Forge success and Phost/Lantern risk were followed; other principle branches were inventoried or sampled, not all reviewed.",
+      "evidence": [
+        {
+          "id": "t.thebookofcinders",
+          "file": "elements/tomes.json",
+          "group": "elements",
+          "ordinal_zero_based": 28,
+          "sha256": "4d625b5d367cc344c238c71968926df6de54119a15c6e8c3b38f80595e6ff41b"
+        },
+        {
+          "id": "study.mystery.forge.mastered",
+          "file": "recipes/1_consider_books.json",
+          "group": "recipes",
+          "ordinal_zero_based": 61,
+          "sha256": "065beecc50b079d5e75bc0d15a150cd02e8ff6132ce7fd17ce93f43a98b53368"
+        },
+        {
+          "id": "study.mystery.forge.mastering.begin",
+          "file": "recipes/1_consider_books.json",
+          "group": "recipes",
+          "ordinal_zero_based": 62,
+          "sha256": "065beecc50b079d5e75bc0d15a150cd02e8ff6132ce7fd17ce93f43a98b53368"
+        },
+        {
+          "id": "study.mystery.forge.mastering.yes",
+          "file": "recipes/1_consider_books.json",
+          "group": "recipes",
+          "ordinal_zero_based": 63,
+          "sha256": "065beecc50b079d5e75bc0d15a150cd02e8ff6132ce7fd17ce93f43a98b53368"
+        },
+        {
+          "id": "study.mystery.forge.mastering.maybe",
+          "file": "recipes/1_consider_books.json",
+          "group": "recipes",
+          "ordinal_zero_based": 64,
+          "sha256": "065beecc50b079d5e75bc0d15a150cd02e8ff6132ce7fd17ce93f43a98b53368"
+        },
+        {
+          "id": "study.mastering.opportunities.router",
+          "file": "recipes/1_consider_books.json",
+          "group": "recipes",
+          "ordinal_zero_based": 27,
+          "sha256": "065beecc50b079d5e75bc0d15a150cd02e8ff6132ce7fd17ce93f43a98b53368"
+        },
+        {
+          "id": "study.mastering.opportunity.memory",
+          "file": "recipes/1_consider_books.json",
+          "group": "recipes",
+          "ordinal_zero_based": 30,
+          "sha256": "065beecc50b079d5e75bc0d15a150cd02e8ff6132ce7fd17ce93f43a98b53368"
+        },
+        {
+          "id": "study.mastering.opportunity.comfort",
+          "file": "recipes/1_consider_books.json",
+          "group": "recipes",
+          "ordinal_zero_based": 31,
+          "sha256": "065beecc50b079d5e75bc0d15a150cd02e8ff6132ce7fd17ce93f43a98b53368"
+        },
+        {
+          "id": "study.mastering.no",
+          "file": "recipes/1_consider_books.json",
+          "group": "recipes",
+          "ordinal_zero_based": 38,
+          "sha256": "065beecc50b079d5e75bc0d15a150cd02e8ff6132ce7fd17ce93f43a98b53368"
+        },
+        {
+          "id": "maladyrisk.phost.lantern",
+          "file": "recipes/1_consider_books.json",
+          "group": "recipes",
+          "ordinal_zero_based": 43,
+          "sha256": "065beecc50b079d5e75bc0d15a150cd02e8ff6132ce7fd17ce93f43a98b53368"
+        },
+        {
+          "id": "d.challenges.opportunities",
+          "file": "decks/challenges.json",
+          "group": "decks",
+          "ordinal_zero_based": 0,
+          "sha256": "a2a19cb5bed346f9796ba21bd021b0478ab1e55831fbc22e5191f3100224f025"
+        },
+        {
+          "id": "d.challenges.consolations",
+          "file": "decks/challenges.json",
+          "group": "decks",
+          "ordinal_zero_based": 1,
+          "sha256": "a2a19cb5bed346f9796ba21bd021b0478ab1e55831fbc22e5191f3100224f025"
+        }
+      ]
+    },
+    {
+      "id": "BH07",
+      "title": "Fatigue is not malady; cure is not refreshed capacity",
+      "source": "definitions-plus-interpreter",
+      "content_scope": "base",
+      "status": "selected-dependency-chain-source-reviewed",
+      "chain": "Phost fatigue becomes zpho and dawn recovery returns xpho. Malady becomes mpho with reduced Lantern and a Nectar-5 cure requirement. A restorative bed action with enough Nectar invokes curing, which becomes fatigued zpho, not fresh Phost; later recovery is another transition.",
+      "boundary": "Treatment is a functional state chain with a concrete consumer and residual aftermath. All soul maladies, contamination and bed rules are not reviewed. No source-wide offline healing assumption.",
+      "evidence": [
+        {
+          "id": "xpho",
+          "file": "elements/abilities.json",
+          "group": "elements",
+          "ordinal_zero_based": 8,
+          "sha256": "6633f164ed58530b2aa4d568434e2da7644beecaac06aa29928b73743444d928"
+        },
+        {
+          "id": "zpho",
+          "file": "elements/abilities.json",
+          "group": "elements",
+          "ordinal_zero_based": 17,
+          "sha256": "6633f164ed58530b2aa4d568434e2da7644beecaac06aa29928b73743444d928"
+        },
+        {
+          "id": "mpho",
+          "file": "elements/abilities.json",
+          "group": "elements",
+          "ordinal_zero_based": 25,
+          "sha256": "6633f164ed58530b2aa4d568434e2da7644beecaac06aa29928b73743444d928"
+        },
+        {
+          "id": "bed.rest.malady.nectar",
+          "file": "recipes/crafting_0_rest.json",
+          "group": "recipes",
+          "ordinal_zero_based": 5,
+          "sha256": "73b71b7b694456368203c8862cdce5b727f01ddb23c0aa2618c43077bcc36934"
+        },
+        {
+          "id": "_ability.fatigued",
+          "file": "elements/_prototypes.json",
+          "group": "elements",
+          "ordinal_zero_based": 1,
+          "sha256": "590afc01d6a095ebf5a93f27be991fde9ee998d2b0396fda0dec3a1c6cebf2a2"
+        },
+        {
+          "id": "_ability.fatigued",
+          "file": "elements/abilities.json",
+          "group": "elements",
+          "ordinal_zero_based": 0,
+          "sha256": "6633f164ed58530b2aa4d568434e2da7644beecaac06aa29928b73743444d928"
+        },
+        {
+          "id": "day.daybreak",
+          "file": "recipes/celestial_recipes_time.json",
+          "group": "recipes",
+          "ordinal_zero_based": 0,
+          "sha256": "04b48be5da162becda39af1a61e1812dd8371b67a948deaf3da393a8a3061265"
+        }
+      ]
+    }
+  ],
+  "claims": [
+    {
+      "id": "BOH-F02",
+      "path_id": "BH02",
+      "classification": "source-observation",
+      "claim": "A hard reading threshold coexists with an under-strength rescue sequence.",
+      "evidence": [
+        {
+          "id": "t.thebookofcinders",
+          "file": "elements/tomes.json",
+          "group": "elements",
+          "ordinal_zero_based": 28,
+          "sha256": "4d625b5d367cc344c238c71968926df6de54119a15c6e8c3b38f80595e6ff41b"
+        },
+        {
+          "id": "study.mystery.forge.mastered",
+          "file": "recipes/1_consider_books.json",
+          "group": "recipes",
+          "ordinal_zero_based": 61,
+          "sha256": "065beecc50b079d5e75bc0d15a150cd02e8ff6132ce7fd17ce93f43a98b53368"
+        },
+        {
+          "id": "study.mystery.forge.mastering.begin",
+          "file": "recipes/1_consider_books.json",
+          "group": "recipes",
+          "ordinal_zero_based": 62,
+          "sha256": "065beecc50b079d5e75bc0d15a150cd02e8ff6132ce7fd17ce93f43a98b53368"
+        },
+        {
+          "id": "study.mystery.forge.mastering.yes",
+          "file": "recipes/1_consider_books.json",
+          "group": "recipes",
+          "ordinal_zero_based": 63,
+          "sha256": "065beecc50b079d5e75bc0d15a150cd02e8ff6132ce7fd17ce93f43a98b53368"
+        },
+        {
+          "id": "study.mystery.forge.mastering.maybe",
+          "file": "recipes/1_consider_books.json",
+          "group": "recipes",
+          "ordinal_zero_based": 64,
+          "sha256": "065beecc50b079d5e75bc0d15a150cd02e8ff6132ce7fd17ce93f43a98b53368"
+        },
+        {
+          "id": "study.mastering.opportunities.router",
+          "file": "recipes/1_consider_books.json",
+          "group": "recipes",
+          "ordinal_zero_based": 27,
+          "sha256": "065beecc50b079d5e75bc0d15a150cd02e8ff6132ce7fd17ce93f43a98b53368"
+        },
+        {
+          "id": "study.mastering.opportunity.memory",
+          "file": "recipes/1_consider_books.json",
+          "group": "recipes",
+          "ordinal_zero_based": 30,
+          "sha256": "065beecc50b079d5e75bc0d15a150cd02e8ff6132ce7fd17ce93f43a98b53368"
+        },
+        {
+          "id": "study.mastering.opportunity.comfort",
+          "file": "recipes/1_consider_books.json",
+          "group": "recipes",
+          "ordinal_zero_based": 31,
+          "sha256": "065beecc50b079d5e75bc0d15a150cd02e8ff6132ce7fd17ce93f43a98b53368"
+        },
+        {
+          "id": "study.mastering.no",
+          "file": "recipes/1_consider_books.json",
+          "group": "recipes",
+          "ordinal_zero_based": 38,
+          "sha256": "065beecc50b079d5e75bc0d15a150cd02e8ff6132ce7fd17ce93f43a98b53368"
+        },
+        {
+          "id": "maladyrisk.phost.lantern",
+          "file": "recipes/1_consider_books.json",
+          "group": "recipes",
+          "ordinal_zero_based": 43,
+          "sha256": "065beecc50b079d5e75bc0d15a150cd02e8ff6132ce7fd17ce93f43a98b53368"
+        },
+        {
+          "id": "d.challenges.opportunities",
+          "file": "decks/challenges.json",
+          "group": "decks",
+          "ordinal_zero_based": 0,
+          "sha256": "a2a19cb5bed346f9796ba21bd021b0478ab1e55831fbc22e5191f3100224f025"
+        },
+        {
+          "id": "d.challenges.consolations",
+          "file": "decks/challenges.json",
+          "group": "decks",
+          "ordinal_zero_based": 1,
+          "sha256": "a2a19cb5bed346f9796ba21bd021b0478ab1e55831fbc22e5191f3100224f025"
+        }
+      ],
+      "design_inference": "A composable persistent-world model can preserve these distinctions without adopting the source setting or numbers.",
+      "original_yair_proposal": "Offer bounded preparation windows where a compatible material or observation changes a difficult attempt.",
+      "accepted": false,
+      "implemented": false,
+      "code_evidence": []
+    },
+    {
+      "id": "BOH-F03",
+      "path_id": "BH02",
+      "classification": "source-observation",
+      "claim": "Mastery mutates the particular book; rereading has a different repeatable output.",
+      "evidence": [
+        {
+          "id": "t.thebookofcinders",
+          "file": "elements/tomes.json",
+          "group": "elements",
+          "ordinal_zero_based": 28,
+          "sha256": "4d625b5d367cc344c238c71968926df6de54119a15c6e8c3b38f80595e6ff41b"
+        },
+        {
+          "id": "study.mystery.forge.mastered",
+          "file": "recipes/1_consider_books.json",
+          "group": "recipes",
+          "ordinal_zero_based": 61,
+          "sha256": "065beecc50b079d5e75bc0d15a150cd02e8ff6132ce7fd17ce93f43a98b53368"
+        },
+        {
+          "id": "study.mystery.forge.mastering.begin",
+          "file": "recipes/1_consider_books.json",
+          "group": "recipes",
+          "ordinal_zero_based": 62,
+          "sha256": "065beecc50b079d5e75bc0d15a150cd02e8ff6132ce7fd17ce93f43a98b53368"
+        },
+        {
+          "id": "study.mystery.forge.mastering.yes",
+          "file": "recipes/1_consider_books.json",
+          "group": "recipes",
+          "ordinal_zero_based": 63,
+          "sha256": "065beecc50b079d5e75bc0d15a150cd02e8ff6132ce7fd17ce93f43a98b53368"
+        },
+        {
+          "id": "study.mystery.forge.mastering.maybe",
+          "file": "recipes/1_consider_books.json",
+          "group": "recipes",
+          "ordinal_zero_based": 64,
+          "sha256": "065beecc50b079d5e75bc0d15a150cd02e8ff6132ce7fd17ce93f43a98b53368"
+        },
+        {
+          "id": "study.mastering.opportunities.router",
+          "file": "recipes/1_consider_books.json",
+          "group": "recipes",
+          "ordinal_zero_based": 27,
+          "sha256": "065beecc50b079d5e75bc0d15a150cd02e8ff6132ce7fd17ce93f43a98b53368"
+        },
+        {
+          "id": "study.mastering.opportunity.memory",
+          "file": "recipes/1_consider_books.json",
+          "group": "recipes",
+          "ordinal_zero_based": 30,
+          "sha256": "065beecc50b079d5e75bc0d15a150cd02e8ff6132ce7fd17ce93f43a98b53368"
+        },
+        {
+          "id": "study.mastering.opportunity.comfort",
+          "file": "recipes/1_consider_books.json",
+          "group": "recipes",
+          "ordinal_zero_based": 31,
+          "sha256": "065beecc50b079d5e75bc0d15a150cd02e8ff6132ce7fd17ce93f43a98b53368"
+        },
+        {
+          "id": "study.mastering.no",
+          "file": "recipes/1_consider_books.json",
+          "group": "recipes",
+          "ordinal_zero_based": 38,
+          "sha256": "065beecc50b079d5e75bc0d15a150cd02e8ff6132ce7fd17ce93f43a98b53368"
+        },
+        {
+          "id": "maladyrisk.phost.lantern",
+          "file": "recipes/1_consider_books.json",
+          "group": "recipes",
+          "ordinal_zero_based": 43,
+          "sha256": "065beecc50b079d5e75bc0d15a150cd02e8ff6132ce7fd17ce93f43a98b53368"
+        },
+        {
+          "id": "d.challenges.opportunities",
+          "file": "decks/challenges.json",
+          "group": "decks",
+          "ordinal_zero_based": 0,
+          "sha256": "a2a19cb5bed346f9796ba21bd021b0478ab1e55831fbc22e5191f3100224f025"
+        },
+        {
+          "id": "d.challenges.consolations",
+          "file": "decks/challenges.json",
+          "group": "decks",
+          "ordinal_zero_based": 1,
+          "sha256": "a2a19cb5bed346f9796ba21bd021b0478ab1e55831fbc22e5191f3100224f025"
+        }
+      ],
+      "design_inference": "A composable persistent-world model can preserve these distinctions without adopting the source setting or numbers.",
+      "original_yair_proposal": "Separate first discovery, permanent understanding and reusable practical reference.",
+      "accepted": false,
+      "implemented": false,
+      "code_evidence": []
+    },
+    {
+      "id": "BOH-F04",
+      "path_id": "BH02",
+      "classification": "source-observation",
+      "claim": "Failure produces fatigue, consolation and soul-specific risk.",
+      "evidence": [
+        {
+          "id": "t.thebookofcinders",
+          "file": "elements/tomes.json",
+          "group": "elements",
+          "ordinal_zero_based": 28,
+          "sha256": "4d625b5d367cc344c238c71968926df6de54119a15c6e8c3b38f80595e6ff41b"
+        },
+        {
+          "id": "study.mystery.forge.mastered",
+          "file": "recipes/1_consider_books.json",
+          "group": "recipes",
+          "ordinal_zero_based": 61,
+          "sha256": "065beecc50b079d5e75bc0d15a150cd02e8ff6132ce7fd17ce93f43a98b53368"
+        },
+        {
+          "id": "study.mystery.forge.mastering.begin",
+          "file": "recipes/1_consider_books.json",
+          "group": "recipes",
+          "ordinal_zero_based": 62,
+          "sha256": "065beecc50b079d5e75bc0d15a150cd02e8ff6132ce7fd17ce93f43a98b53368"
+        },
+        {
+          "id": "study.mystery.forge.mastering.yes",
+          "file": "recipes/1_consider_books.json",
+          "group": "recipes",
+          "ordinal_zero_based": 63,
+          "sha256": "065beecc50b079d5e75bc0d15a150cd02e8ff6132ce7fd17ce93f43a98b53368"
+        },
+        {
+          "id": "study.mystery.forge.mastering.maybe",
+          "file": "recipes/1_consider_books.json",
+          "group": "recipes",
+          "ordinal_zero_based": 64,
+          "sha256": "065beecc50b079d5e75bc0d15a150cd02e8ff6132ce7fd17ce93f43a98b53368"
+        },
+        {
+          "id": "study.mastering.opportunities.router",
+          "file": "recipes/1_consider_books.json",
+          "group": "recipes",
+          "ordinal_zero_based": 27,
+          "sha256": "065beecc50b079d5e75bc0d15a150cd02e8ff6132ce7fd17ce93f43a98b53368"
+        },
+        {
+          "id": "study.mastering.opportunity.memory",
+          "file": "recipes/1_consider_books.json",
+          "group": "recipes",
+          "ordinal_zero_based": 30,
+          "sha256": "065beecc50b079d5e75bc0d15a150cd02e8ff6132ce7fd17ce93f43a98b53368"
+        },
+        {
+          "id": "study.mastering.opportunity.comfort",
+          "file": "recipes/1_consider_books.json",
+          "group": "recipes",
+          "ordinal_zero_based": 31,
+          "sha256": "065beecc50b079d5e75bc0d15a150cd02e8ff6132ce7fd17ce93f43a98b53368"
+        },
+        {
+          "id": "study.mastering.no",
+          "file": "recipes/1_consider_books.json",
+          "group": "recipes",
+          "ordinal_zero_based": 38,
+          "sha256": "065beecc50b079d5e75bc0d15a150cd02e8ff6132ce7fd17ce93f43a98b53368"
+        },
+        {
+          "id": "maladyrisk.phost.lantern",
+          "file": "recipes/1_consider_books.json",
+          "group": "recipes",
+          "ordinal_zero_based": 43,
+          "sha256": "065beecc50b079d5e75bc0d15a150cd02e8ff6132ce7fd17ce93f43a98b53368"
+        },
+        {
+          "id": "d.challenges.opportunities",
+          "file": "decks/challenges.json",
+          "group": "decks",
+          "ordinal_zero_based": 0,
+          "sha256": "a2a19cb5bed346f9796ba21bd021b0478ab1e55831fbc22e5191f3100224f025"
+        },
+        {
+          "id": "d.challenges.consolations",
+          "file": "decks/challenges.json",
+          "group": "decks",
+          "ordinal_zero_based": 1,
+          "sha256": "a2a19cb5bed346f9796ba21bd021b0478ab1e55831fbc22e5191f3100224f025"
+        }
+      ],
+      "design_inference": "A composable persistent-world model can preserve these distinctions without adopting the source setting or numbers.",
+      "original_yair_proposal": "Retain failure evidence and a treatment route, with exact costs and no duplicate success payout.",
+      "accepted": false,
+      "implemented": false,
+      "code_evidence": []
+    },
+    {
+      "id": "BOH-F14",
+      "path_id": "BH07",
+      "classification": "source-observation",
+      "claim": "Curing Phost malady leaves fatigue before later recovery.",
+      "evidence": [
+        {
+          "id": "xpho",
+          "file": "elements/abilities.json",
+          "group": "elements",
+          "ordinal_zero_based": 8,
+          "sha256": "6633f164ed58530b2aa4d568434e2da7644beecaac06aa29928b73743444d928"
+        },
+        {
+          "id": "zpho",
+          "file": "elements/abilities.json",
+          "group": "elements",
+          "ordinal_zero_based": 17,
+          "sha256": "6633f164ed58530b2aa4d568434e2da7644beecaac06aa29928b73743444d928"
+        },
+        {
+          "id": "mpho",
+          "file": "elements/abilities.json",
+          "group": "elements",
+          "ordinal_zero_based": 25,
+          "sha256": "6633f164ed58530b2aa4d568434e2da7644beecaac06aa29928b73743444d928"
+        },
+        {
+          "id": "bed.rest.malady.nectar",
+          "file": "recipes/crafting_0_rest.json",
+          "group": "recipes",
+          "ordinal_zero_based": 5,
+          "sha256": "73b71b7b694456368203c8862cdce5b727f01ddb23c0aa2618c43077bcc36934"
+        },
+        {
+          "id": "_ability.fatigued",
+          "file": "elements/_prototypes.json",
+          "group": "elements",
+          "ordinal_zero_based": 1,
+          "sha256": "590afc01d6a095ebf5a93f27be991fde9ee998d2b0396fda0dec3a1c6cebf2a2"
+        },
+        {
+          "id": "_ability.fatigued",
+          "file": "elements/abilities.json",
+          "group": "elements",
+          "ordinal_zero_based": 0,
+          "sha256": "6633f164ed58530b2aa4d568434e2da7644beecaac06aa29928b73743444d928"
+        },
+        {
+          "id": "day.daybreak",
+          "file": "recipes/celestial_recipes_time.json",
+          "group": "recipes",
+          "ordinal_zero_based": 0,
+          "sha256": "04b48be5da162becda39af1a61e1812dd8371b67a948deaf3da393a8a3061265"
+        }
+      ],
+      "design_inference": "A composable persistent-world model can preserve these distinctions without adopting the source setting or numbers.",
+      "original_yair_proposal": "Separate stabilized, treated and fully available states when a body or resource requires recovery.",
+      "accepted": false,
+      "implemented": false,
+      "code_evidence": []
+    }
+  ],
+  "boundary": "Dossier source observations retained read-only. Original deterministic fatigue, preparation, bench/manual and kit behavior; no source names, RNG, malady, soul system, per-copy book mastery or source prose imported."
+}

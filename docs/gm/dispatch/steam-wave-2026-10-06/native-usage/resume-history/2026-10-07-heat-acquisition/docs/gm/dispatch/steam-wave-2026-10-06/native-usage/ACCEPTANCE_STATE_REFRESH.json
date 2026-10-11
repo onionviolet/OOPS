@@ -1,0 +1,44 @@
+{
+  "observed_utc": "2026-10-07T18:14:06.932521+00:00",
+  "native_writer": "/root/factorio_native_continuation",
+  "acceptance_writer": "/root/factorio_recovery_review",
+  "root_reserved": [
+    "native/ASSIGNMENT.md",
+    "native-usage/ACQUISITION.json",
+    "native-usage/history/2026-10-07-model-error-resume/",
+    "host goal decision"
+  ],
+  "lease_transfer": "Old finish3/acceptance and native_resume/acceptance_resume vanished after model error/daemon; primary root checked authoritative child/process absence before replacement.",
+  "closed_initial_ARM": {
+    "through_chunk": 1850,
+    "unique": 183199,
+    "C_success": 183186,
+    "failures": 13,
+    "receipt": "ARM_CORPUS_ACQUISITION.json"
+  },
+  "closed_initial_Intel": {
+    "through_chunk": 1824,
+    "unique": 182398,
+    "C_success": 182329,
+    "failures": 69,
+    "receipt": "X86_INITIAL_CLOSED_ACQUISITION.json",
+    "progress_state": "run-complete",
+    "closed_utc": "2026-10-07T14:08:12.997065Z"
+  },
+  "current_native_action": "Selected Heat ABI and global instruction ownership, then actual-cause coherent hash/merge/section/resource qualification.",
+  "compiled_backend_acquisition": "BACKEND_BUILD_ACQUISITION.json",
+  "executed_diagnostic_acquisition": "BACKEND_DIAGNOSTIC_ACQUISITION.json",
+  "original_use_acquisition": "RETORT_RESUME_READBACK.json",
+  "same_goal_status": "Unfinished authorized objective resumed; primary root owns host goal decisions.",
+  "checks": "Read-only exact compressed corpus/input/inventory/candidate hash recheck and retort source/map/immutable historical-build comparison. No native or gameplay execution by reviewer.",
+  "canonical_flow_delta": {
+    "through_chunk": 1853,
+    "three_rows_success": true,
+    "ARM_latest_unique": 183199,
+    "ARM_latest_C_successes": 183188,
+    "ARM_latest_failures": 11,
+    "receipt": "FLOW_CANONICAL_ACQUISITION.json",
+    "claim_receipt": "FLOW_CLAIM_READBACK.json",
+    "limit": "Independent bounded delta; final corpus index and other repairs pending."
+  }
+}

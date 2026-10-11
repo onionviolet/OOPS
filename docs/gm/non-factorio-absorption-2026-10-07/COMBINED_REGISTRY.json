@@ -1,0 +1,39 @@
+{
+  "stats": {
+    "commands": 1254,
+    "controllers": 52,
+    "conditions": 24,
+    "groups": {
+      "steam_df": 4,
+      "steam_boh": 9,
+      "steam_oni": 3,
+      "steam_lamb": 5
+    }
+  },
+  "compatibility": [
+    {
+      "file": "/tmp/yairpg-nonfactorio-proof/df-followthrough/bought.json",
+      "unchanged": true,
+      "schema": 5,
+      "simulationSchema": 4
+    },
+    {
+      "file": "/tmp/yairpg-nonfactorio-proof/boh/pending-copy.json",
+      "unchanged": true,
+      "schema": 5,
+      "simulationSchema": 4
+    },
+    {
+      "file": "/tmp/yairpg-nonfactorio-proof/boh/learned-kits.json",
+      "unchanged": true,
+      "schema": 5,
+      "simulationSchema": 4
+    },
+    {
+      "file": "/tmp/yairpg-nonfactorio-proof/oni/finished.json",
+      "unchanged": true,
+      "schema": 5,
+      "simulationSchema": 4
+    }
+  ]
+}

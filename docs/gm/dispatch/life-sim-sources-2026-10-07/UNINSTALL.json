@@ -1,0 +1,118 @@
+{
+  "games": [
+    {
+      "app_id": 352220,
+      "game": "King of Dragon Pass",
+      "gate": "KING_OF_DRAGON_PASS_RELEASE.json",
+      "request": "steam://uninstall/352220",
+      "request_shell_exit": 0,
+      "requested_at": "2026-10-07T16:22:43.921122-04:00",
+      "status": "removed-verified-steam-log-manifest-install",
+      "last_observed_at": "2026-10-07T16:36:47.973341-04:00",
+      "manifest_absent": true,
+      "install_absent": true,
+      "steam_log_tail": [
+        "[2026-10-07 15:56:21] AppID 352220 state changed : Fully Installed,",
+        "[2026-10-07 15:56:21] AppID 352220 scheduler finished : removed from schedule (result No Error, state 0xc) ",
+        "[2026-10-07 16:22:26] AppID 352220 state changed : Update Required,Fully Installed,Files Missing,Uninstalling,",
+        "[2026-10-07 16:22:27] AppID 352220 state changed : Uninstalled,",
+        "[2026-10-07 16:22:27] AppID 352220 finished uninstall (No Error)"
+      ]
+    },
+    {
+      "app_id": 718670,
+      "game": "Cultist Simulator",
+      "gate": "CULTIST_SIMULATOR_RELEASE.json",
+      "request": "steam://uninstall/718670",
+      "request_shell_exit": 0,
+      "recorded_at": "2026-10-07T16:27:10.937483-04:00",
+      "status": "removed-verified-steam-log-manifest-install",
+      "last_observed_at": "2026-10-07T16:36:47.973341-04:00",
+      "manifest_absent": true,
+      "install_absent": true,
+      "steam_log_tail": [
+        "[2026-10-07 15:58:26] AppID 718670 state changed : Fully Installed,",
+        "[2026-10-07 15:58:26] AppID 718670 scheduler finished : removed from schedule (result No Error, state 0xc) ",
+        "[2026-10-07 16:24:47] AppID 718670 state changed : Update Required,Fully Installed,Files Missing,Uninstalling,",
+        "[2026-10-07 16:24:48] AppID 718670 state changed : Uninstalled,",
+        "[2026-10-07 16:24:48] AppID 718670 finished uninstall (No Error)"
+      ]
+    },
+    {
+      "app_id": 233860,
+      "game": "Kenshi",
+      "gate": "KENSHI_RELEASE.json",
+      "request": "steam://uninstall/233860",
+      "request_shell_exit": 0,
+      "recorded_at": "2026-10-07T16:27:10.937608-04:00",
+      "status": "removed-verified-steam-log-manifest-install",
+      "last_observed_at": "2026-10-07T16:36:47.973341-04:00",
+      "manifest_absent": true,
+      "install_absent": true,
+      "steam_log_tail": [
+        "[2026-10-07 15:39:53] AppID 233860 state changed : Fully Installed,",
+        "[2026-10-07 15:39:53] AppID 233860 scheduler finished : removed from schedule (result No Error, state 0xc) ",
+        "[2026-10-07 16:26:39] AppID 233860 state changed : Update Required,Fully Installed,Files Missing,Uninstalling,",
+        "[2026-10-07 16:27:45] AppID 233860 state changed : Uninstalled,",
+        "[2026-10-07 16:27:45] AppID 233860 finished uninstall (No Error)"
+      ]
+    },
+    {
+      "app_id": 1158310,
+      "game": "Crusader Kings III",
+      "gate": "CRUSADER_KINGS_3_RELEASE.json",
+      "request": "steam://uninstall/1158310",
+      "request_shell_exit": 0,
+      "recorded_at": "2026-10-07T16:34:02.865134-04:00",
+      "status": "removed-verified-steam-log-manifest-install",
+      "last_observed_at": "2026-10-07T16:36:47.973341-04:00",
+      "manifest_absent": true,
+      "install_absent": true,
+      "steam_log_tail": [
+        "[2026-10-07 15:55:28] AppID 1158310 state changed : Fully Installed,",
+        "[2026-10-07 15:55:28] AppID 1158310 scheduler finished : removed from schedule (result No Error, state 0xc) ",
+        "[2026-10-07 16:34:15] AppID 1158310 state changed : Update Required,Fully Installed,Files Missing,Uninstalling,",
+        "[2026-10-07 16:34:42] AppID 1158310 state changed : Uninstalled,",
+        "[2026-10-07 16:34:42] AppID 1158310 finished uninstall (No Error)"
+      ]
+    },
+    {
+      "app_id": 763890,
+      "game": "Wildermyth",
+      "gate": "WILDERMYTH_RELEASE.json",
+      "request": "steam://uninstall/763890",
+      "request_shell_exit": 0,
+      "recorded_at": "2026-10-07T16:36:47.973341-04:00",
+      "status": "removed-verified-steam-log-manifest-install",
+      "last_observed_at": "2026-10-07T16:36:47.973341-04:00",
+      "manifest_absent": true,
+      "install_absent": true,
+      "steam_log_tail": [
+        "[2026-10-07 16:10:48] AppID 763890 state changed : Fully Installed,",
+        "[2026-10-07 16:10:48] AppID 763890 scheduler finished : removed from schedule (result No Error, state 0xc) ",
+        "[2026-10-07 16:35:51] AppID 763890 state changed : Update Required,Fully Installed,Files Missing,Uninstalling,",
+        "[2026-10-07 16:36:13] AppID 763890 state changed : Uninstalled,",
+        "[2026-10-07 16:36:13] AppID 763890 finished uninstall (No Error)"
+      ]
+    },
+    {
+      "app_id": 2278010,
+      "game": "Six Ages2: Lights Going Out",
+      "gate": "SIX_AGES_2_RELEASE.json",
+      "request": "steam://uninstall/2278010",
+      "request_shell_exit": 0,
+      "recorded_at": "2026-10-07T17:07:08.499402-04:00",
+      "status": "requested-awaiting-removal-proof",
+      "manifest_absent": false,
+      "install_absent": false,
+      "steam_log_tail": [
+        "[2026-10-07 16:54:19] AppID 2278010 App update changed : Running Update,",
+        "[2026-10-07 16:54:19] AppID 2278010 App update changed : None",
+        "[2026-10-07 16:54:19] AppID 2278010 state changed : Fully Installed,Update Queued,",
+        "[2026-10-07 16:54:19] AppID 2278010 state changed : Fully Installed,",
+        "[2026-10-07 16:54:19] AppID 2278010 scheduler finished : removed from schedule (result No Error, state 0xc) "
+      ],
+      "last_observed_at": "2026-10-07T17:10:43.143850-04:00"
+    }
+  ]
+}

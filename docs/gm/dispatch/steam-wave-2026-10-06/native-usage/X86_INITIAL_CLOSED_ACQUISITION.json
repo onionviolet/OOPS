@@ -1,0 +1,62 @@
+{
+  "observed_utc": "2026-10-07T18:02:32.337299+00:00",
+  "owner": "/root/factorio_recovery_review",
+  "scope": "Independent current closed-byte metadata acquisition reuses unchanged full initial row audit; does not rerun semantic or body audit.",
+  "prior_full_audit": {
+    "path": "/Users/weiwei/.codex/research/factorio/native-usage-audit/X86_INITIAL_WHOLE_CORPUS_ACQUISITION-through1824.json",
+    "sha256": "3801c2b0efdbdb45fc2af6898322c8dc4c4606e865ac3db6a8a5cc866c5ee340",
+    "observed_utc": "2026-10-07T14:12:48.071378+00:00",
+    "verification": "pass"
+  },
+  "current_closed_snapshot": {
+    "architecture": "x86_64",
+    "through_chunk": 1824,
+    "records": 182398,
+    "compressed_bytes_hashed": 319974694,
+    "all_chunk_compressed_hashes_and_sizes_match": true,
+    "receipts_unchanged_before_after": true,
+    "receipt_projection_sha256": "a0e08d9e86e1d184b4f85a3591bdb4ff421d5e22d4c1adf2d4d93498af737f2e",
+    "input_inventory_candidate_hashes": {
+      "inventory": "797bcf9af348009d98cf290c03b6d1e07d4d2f2adcd527687717ab22f7c2e773",
+      "candidates": "4ee25a3059c2d9eb1bc1c349f50c62d5436d288a19f9e526a765641ba86578a1",
+      "input": "5b33a896e7a07cbd34252a104f3b849d79a8d2bac57759c015fcb4675a083a26"
+    },
+    "status_counts": {
+      "success": 182329,
+      "decompiler-failure": 55,
+      "resource-limit": 6,
+      "timeout": 8
+    },
+    "inventory_missing": [],
+    "callable_missing": []
+  },
+  "progress": {
+    "schema": 1,
+    "architecture": "x86_64",
+    "mode": "full",
+    "disk_floor_bytes": 536870912,
+    "pipeline_script_sha256": "eadd26b7518c69f8b6c19c3820c1182f07d1f1e86da30ef5f70c8c67322e5eff",
+    "state": "run-complete",
+    "started_at": "2026-10-07T13:09:07.333989Z",
+    "updated_at": "2026-10-07T14:08:12.997065Z",
+    "pid": 46960,
+    "planned_nonexternal": 182398,
+    "retained_unique_entries": 182398,
+    "this_run_written": 182398,
+    "this_run_success": 182329,
+    "this_run_failed": 69,
+    "last_closed_chunk": 1824,
+    "free_bytes": 69978865664,
+    "this_run_status_counts": {
+      "decompiler-failure": 55,
+      "resource-limit": 6,
+      "success": 182329,
+      "timeout": 8
+    }
+  },
+  "limitations": [
+    "No full original C++ semantic/type/CFG or completed repair claim.",
+    "Initial 69 failures and inferred boundaries remain for native qualification.",
+    "210 candidate alias spelling differences are historical token/underscore normalization evidence, acquired separately; they are not unattempted methods."
+  ]
+}

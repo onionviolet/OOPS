@@ -1,0 +1,923 @@
+{
+  "count": 59,
+  "method": "static filename references and exported declarations; not a runtime registry count",
+  "hosts": [
+    {
+      "path": "src/agreed_duty_host.js",
+      "lines": 140,
+      "exports": [
+        "joinAgreedDutyDefinitions",
+        "agreedDutySocietyCommandAdmission",
+        "assertAgreedDutySocietyCommandAdmission",
+        "agreedDutyFilterSocietyActions",
+        "agreedDutyPresentation",
+        "commitAgreedDutyAction",
+        "agreedDutyCompletionEffects",
+        "agreedDutyCancellationEffects",
+        "agreedDutyStoppedEffects",
+        "agreedDutyRefusalEffects",
+        "agreedDutyPeopleView"
+      ],
+      "importedBy": [
+        "src/feature_expansion_wave_host.js",
+        "src/feature_expansion_society_host.js",
+        "src/simulation.js",
+        "src/main.js",
+        "src/people_knowledge.js"
+      ]
+    },
+    {
+      "path": "src/artifact_workshop_host.js",
+      "lines": 72,
+      "exports": [
+        "commitArtifactWorkshopCommand",
+        "artifactWorkshopPresentation"
+      ],
+      "importedBy": [
+        "src/feature_expansion_wave_host.js",
+        "src/main.js"
+      ]
+    },
+    {
+      "path": "src/audit_remainder_combat_fit_host.js",
+      "lines": 78,
+      "exports": [
+        "remainderCombatFitContext",
+        "commitRemainderCombatFitCommand",
+        "remainderCombatFitAdmissionRows",
+        "remainderCombatFitPresentation"
+      ],
+      "importedBy": [
+        "src/audit_remainder_host.js"
+      ]
+    },
+    {
+      "path": "src/audit_remainder_combat_objectives_host.js",
+      "lines": 57,
+      "exports": [
+        "commitRemainderCombatObjectivesCommand",
+        "remainderCombatObjectivesAdmissionChoices",
+        "remainderCombatObjectivesPresentation"
+      ],
+      "importedBy": [
+        "src/audit_remainder_host.js",
+        "src/feature_expansion_powers_host.js"
+      ]
+    },
+    {
+      "path": "src/audit_remainder_consequences_host.js",
+      "lines": 96,
+      "exports": [
+        "remainderConsequencesContext",
+        "remainderConsequencesSimulationContexts",
+        "reconcileRemainderConsequences",
+        "commitRemainderConsequencesCommand",
+        "remainderConsequencesPresentation",
+        "remainderConsequencesPeopleView",
+        "remainderConsequencesPublicCommandIds"
+      ],
+      "importedBy": [
+        "src/audit_remainder_host.js",
+        "src/audit_remainder_runtime.js",
+        "src/simulation.js",
+        "src/people_knowledge.js"
+      ]
+    },
+    {
+      "path": "src/audit_remainder_home_host.js",
+      "lines": 65,
+      "exports": [
+        "remainderHomeContext",
+        "commitRemainderHomeCommand",
+        "remainderHomePresentation",
+        "remainderHomeSimulationContexts",
+        "remainderHomePublicCommandIds"
+      ],
+      "importedBy": [
+        "src/audit_remainder_host.js",
+        "src/audit_remainder_runtime.js"
+      ]
+    },
+    {
+      "path": "src/audit_remainder_host.js",
+      "lines": 72,
+      "exports": [
+        "AUDIT_REMAINDER_GROUPS",
+        "auditRemainderContext",
+        "commitAuditRemainderCommand",
+        "auditRemainderPresentation"
+      ],
+      "importedBy": [
+        "src/feature_expansion_wave_host.js",
+        "src/main.js"
+      ]
+    },
+    {
+      "path": "src/audit_remainder_livelihood_host.js",
+      "lines": 79,
+      "exports": [
+        "remainderLivelihoodContext",
+        "commitRemainderLivelihoodCommand",
+        "remainderLivelihoodPresentation"
+      ],
+      "importedBy": [
+        "src/audit_remainder_host.js"
+      ]
+    },
+    {
+      "path": "src/audit_remainder_offers_host.js",
+      "lines": 57,
+      "exports": [
+        "remainderOffersContext",
+        "commitRemainderOffersCommand",
+        "remainderOffersPresentation"
+      ],
+      "importedBy": [
+        "src/audit_remainder_host.js"
+      ]
+    },
+    {
+      "path": "src/audited_kit_reserve_host.js",
+      "lines": 77,
+      "exports": [
+        "auditedKitReserveContext",
+        "startAuditedKitReserve",
+        "auditedKitReserveStart",
+        "controlAuditedKitReserve",
+        "auditedKitReserveControl",
+        "auditedKitReservePresentation"
+      ],
+      "importedBy": [
+        "src/feature_expansion_wave_host.js",
+        "src/main.js"
+      ]
+    },
+    {
+      "path": "src/audited_workshop_host.js",
+      "lines": 41,
+      "exports": [
+        "AUDITED_WORKSHOP_GROUPS",
+        "auditedWorkshopContext",
+        "commitAuditedWorkshopCommand",
+        "auditedWorkshopPresentation"
+      ],
+      "importedBy": [
+        "src/feature_expansion_wave_host.js",
+        "src/main.js"
+      ]
+    },
+    {
+      "path": "src/backlog_expansion_host.js",
+      "lines": 156,
+      "exports": [
+        "backlogActions",
+        "backlogNativeContext",
+        "validateBacklogState",
+        "previewBacklogAction",
+        "commitBacklogAction",
+        "backlogView",
+        "backlogNativeActionReasons",
+        "assertBacklogPublication",
+        "backlogNativeClockPaused",
+        "validateBacklogEnvelope",
+        "assertBacklogItemDisposition"
+      ],
+      "importedBy": [
+        "src/native_gameplay_adapter.js",
+        "src/expansion_engine.js",
+        "src/main.js",
+        "src/save_files.js",
+        "src/backlog_expansion_ui.js"
+      ]
+    },
+    {
+      "path": "src/book_care_host.js",
+      "lines": 58,
+      "exports": [
+        "bookCareContext",
+        "commitBookCareCommand",
+        "bookCarePresentation"
+      ],
+      "importedBy": [
+        "src/feature_expansion_wave_host.js",
+        "src/main.js"
+      ]
+    },
+    {
+      "path": "src/book_world_mol_host.js",
+      "lines": 79,
+      "exports": [
+        "molContext",
+        "previewMolCommand",
+        "previewMolResponse",
+        "commitMolCommand",
+        "molSimulationContexts",
+        "molPresentation"
+      ],
+      "importedBy": [
+        "src/book_world_mol_native.js",
+        "src/expansion_engine.js",
+        "src/main.js",
+        "src/feature_expansion_refinements_host.js"
+      ]
+    },
+    {
+      "path": "src/book_world_paradise_campaign_host.js",
+      "lines": 70,
+      "exports": [
+        "commitParadiseCampaignDepthCommand",
+        "paradiseCampaignDepthPresentation"
+      ],
+      "importedBy": [
+        "src/main.js",
+        "src/feature_expansion_refinements_host.js"
+      ]
+    },
+    {
+      "path": "src/book_world_paradise_host.js",
+      "lines": 92,
+      "exports": [
+        "paradiseContext",
+        "previewParadiseCommand",
+        "commitParadiseCommand",
+        "paradiseSimulationContexts",
+        "paradisePresentation"
+      ],
+      "importedBy": [
+        "src/book_world_paradise_native.js",
+        "src/expansion_engine.js",
+        "src/main.js",
+        "src/feature_expansion_refinements_host.js"
+      ]
+    },
+    {
+      "path": "src/causal_story_host.js",
+      "lines": 504,
+      "exports": [
+        "causalStoryContext",
+        "causalStorySimulationContexts",
+        "previewCausalStoryCommand",
+        "commitCausalStoryCommand",
+        "completeCausalStoryJob",
+        "invalidateCausalStorySupport",
+        "reconcileCausalStoryPlan",
+        "recordCausalStoryJobCompletion",
+        "nextCausalStoryBoundary",
+        "advanceCausalStoryBoundary",
+        "causalStoryTravelReasons",
+        "causalStoryPresentation"
+      ],
+      "importedBy": [
+        "src/causal_story_ui.js",
+        "src/simulation.js",
+        "src/expansion_engine.js",
+        "src/main.js"
+      ]
+    },
+    {
+      "path": "src/contextual_balm_host.js",
+      "lines": 86,
+      "exports": [
+        "commitContextualBalmCommand",
+        "stageContextualBalmEffectRequest",
+        "contextualBalmPresentation",
+        "CONTEXTUAL_BALM_INTERFACE"
+      ],
+      "importedBy": [
+        "src/feature_expansion_wave_host.js",
+        "src/main.js"
+      ]
+    },
+    {
+      "path": "src/cooling_refinement_host.js",
+      "lines": 136,
+      "exports": [
+        "coolingRefinementContext",
+        "previewCoolingRefinementCommand",
+        "commitCoolingRefinementCommand",
+        "coolingRefinementPresentation",
+        "validateCoolingRefinementState"
+      ],
+      "importedBy": [
+        "src/feature_expansion_wave_host.js",
+        "src/main.js"
+      ]
+    },
+    {
+      "path": "src/crush_social_host.js",
+      "lines": 123,
+      "exports": [
+        "commitCrushSocialAction",
+        "validateCrushSocial"
+      ],
+      "importedBy": [
+        "src/expansion_engine.js",
+        "src/main.js"
+      ]
+    },
+    {
+      "path": "src/factorio_retort_host.js",
+      "lines": 205,
+      "exports": [
+        "factorioRetortContext",
+        "validateFactorioRetortDefinitions",
+        "validateFactorioRetortAcceptedJob",
+        "validateFactorioRetortState",
+        "validateFactorioRetortHeldNative",
+        "commitFactorioRetortCommand",
+        "cancelFactorioRetortJob",
+        "startFactorioRetortPlan",
+        "controlFactorioRetortPlan",
+        "factorioRetortPresentation"
+      ],
+      "importedBy": [
+        "src/feature_expansion_wave_host.js",
+        "src/factorio_retort_native.js",
+        "src/main.js",
+        "src/reference_gameplay_state.js"
+      ]
+    },
+    {
+      "path": "src/feature_expansion_battle_host.js",
+      "lines": 84,
+      "exports": [
+        "createFeatureBattleHost"
+      ],
+      "importedBy": [
+        "src/main.js"
+      ]
+    },
+    {
+      "path": "src/feature_expansion_book_host.js",
+      "lines": 176,
+      "exports": [
+        "readBookNativeInputs",
+        "bookNativeContext",
+        "qualifiedOfficeBody",
+        "qualifiedOfficeSnapshot",
+        "assertQualifiedOfficePlan",
+        "createQualifiedBacklogAdapter"
+      ],
+      "importedBy": [
+        "src/main.js",
+        "src/feature_expansion_reference_desk.js"
+      ]
+    },
+    {
+      "path": "src/feature_expansion_destination_host.js",
+      "lines": 175,
+      "exports": [
+        "createTidemarkConnection",
+        "activeTidemarkVisit",
+        "validateTidemarkState",
+        "syncTidemarkClock",
+        "nextTidemarkBoundary",
+        "tidemarkContext",
+        "tidemarkSimulationContexts",
+        "previewTidemarkAction",
+        "beginTidemark",
+        "commitTidemarkAction",
+        "tidemarkView",
+        "tidemarkPresentation"
+      ],
+      "importedBy": [
+        "src/feature_expansion_destination_native.js",
+        "src/simulation_effects.js",
+        "src/feature_expansion_wave_host.js",
+        "src/expansion_engine.js",
+        "src/ink_scene_content.js",
+        "src/main.js",
+        "src/realm_state.js"
+      ]
+    },
+    {
+      "path": "src/feature_expansion_host.js",
+      "lines": 71,
+      "exports": [
+        "featureCostText",
+        "projectFeatureCommands",
+        "featureRecordedKnowledge",
+        "featureWorkControls",
+        "featureEncounterControls"
+      ],
+      "importedBy": [
+        "src/steam_oni_host.js",
+        "src/world_completion_life_host.js",
+        "src/feature_expansion_wave_host.js",
+        "src/factorio_retort_host.js",
+        "src/steam_boh_host.js",
+        "src/game_absorption_assay_host.js",
+        "src/contextual_balm_host.js",
+        "src/audit_remainder_combat_objectives_host.js",
+        "src/audit_remainder_consequences_host.js",
+        "src/audit_remainder_host.js",
+        "src/feature_expansion_subtlety_host.js",
+        "src/cooling_refinement_host.js",
+        "src/audited_workshop_host.js",
+        "src/artifact_workshop_host.js",
+        "src/audit_remainder_home_host.js",
+        "src/home_furnishing_host.js",
+        "src/steam_lamb_host.js",
+        "src/feature_expansion_presentation_costs.js",
+        "src/nethack_fieldcraft_host.js",
+        "src/steam_df_host.js",
+        "src/world_completion_materials_host.js",
+        "src/world_completion_lens_host.js",
+        "src/world_completion_learning_host.js",
+        "src/feature_expansion_reference_desk.js",
+        "src/audit_remainder_offers_host.js",
+        "src/status_care_host.js",
+        "src/book_world_paradise_campaign_host.js",
+        "src/book_care_host.js",
+        "src/field_care_host.js"
+      ]
+    },
+    {
+      "path": "src/feature_expansion_nested_chains_host.js",
+      "lines": 105,
+      "exports": [
+        "nestedChainContext",
+        "nestedChainSimulationContexts",
+        "previewNestedChainCommand",
+        "commitNestedChainCommand",
+        "nestedChainPeopleView",
+        "nestedChainPresentation",
+        "validateNestedChains"
+      ],
+      "importedBy": [
+        "src/expansion_engine.js",
+        "src/ink_scene_content.js",
+        "src/main.js",
+        "src/people_knowledge.js",
+        "src/feature_expansion_refinements_host.js"
+      ]
+    },
+    {
+      "path": "src/feature_expansion_nested_host.js",
+      "lines": 299,
+      "exports": [
+        "activeNestedVisit",
+        "createNestedConnections",
+        "validateNestedCampaignState",
+        "syncNestedCampaignClock",
+        "nextNestedCampaignBoundary",
+        "nestedFacts",
+        "nestedContext",
+        "nestedSimulationContexts",
+        "previewNestedCommand",
+        "commitNestedCommand",
+        "prepareNestedArrival",
+        "nestedPresentation"
+      ],
+      "importedBy": [
+        "src/simulation_effects.js",
+        "src/expansion_engine.js",
+        "src/main.js",
+        "src/feature_expansion_refinements_host.js",
+        "src/feature_expansion_nested_native.js",
+        "src/realm_state.js"
+      ]
+    },
+    {
+      "path": "src/feature_expansion_objects_host.js",
+      "lines": 134,
+      "exports": [
+        "featureObjectFacts",
+        "featureObjectContext",
+        "beginFeatureObjects",
+        "commitFeatureObjectCommand",
+        "previewFeatureObjectCommand",
+        "validateFeatureObjectState",
+        "featureObjectPresentation"
+      ],
+      "importedBy": [
+        "src/simulation_effects.js",
+        "src/feature_expansion_wave_host.js",
+        "src/expansion_engine.js",
+        "src/main.js",
+        "src/reference_gameplay_host.js"
+      ]
+    },
+    {
+      "path": "src/feature_expansion_powers_host.js",
+      "lines": 82,
+      "exports": [
+        "featurePowerContext",
+        "featurePowerPresentation",
+        "planFeaturePowerCommand",
+        "isFeatureBattle"
+      ],
+      "importedBy": [
+        "src/feature_expansion_wave_host.js",
+        "src/main.js"
+      ]
+    },
+    {
+      "path": "src/feature_expansion_recognition_host.js",
+      "lines": 45,
+      "exports": [
+        "replacementKnownAccounts",
+        "replacementRecognitionPresentation",
+        "createReplacementRecognitionPanel"
+      ],
+      "importedBy": [
+        "src/main.js"
+      ]
+    },
+    {
+      "path": "src/feature_expansion_refinements_host.js",
+      "lines": 88,
+      "exports": [
+        "refinementPresentation"
+      ],
+      "importedBy": [
+        "src/main.js"
+      ]
+    },
+    {
+      "path": "src/feature_expansion_society_host.js",
+      "lines": 160,
+      "exports": [
+        "createSocietyWorkPlanRegistry",
+        "societyContext",
+        "beginSociety",
+        "commitSocietyAction",
+        "societyPeopleView",
+        "societyPresentation",
+        "createSocietyPanel"
+      ],
+      "importedBy": [
+        "src/feature_expansion_wave_host.js",
+        "src/main.js"
+      ]
+    },
+    {
+      "path": "src/feature_expansion_subtlety_host.js",
+      "lines": 153,
+      "exports": [
+        "relayFacts",
+        "relayContext",
+        "validateRelayState",
+        "createRelayHost",
+        "relayKnowledgePresentation",
+        "relayPeopleView"
+      ],
+      "importedBy": [
+        "src/simulation_effects.js",
+        "src/expansion_engine.js",
+        "src/main.js",
+        "src/people_knowledge.js"
+      ]
+    },
+    {
+      "path": "src/feature_expansion_wave_host.js",
+      "lines": 106,
+      "exports": [
+        "featureWavePresentation"
+      ],
+      "importedBy": [
+        "src/main.js"
+      ]
+    },
+    {
+      "path": "src/field_care_host.js",
+      "lines": 45,
+      "exports": [
+        "fieldCareContext",
+        "commitFieldCareCommand",
+        "reconcileFieldCareNative",
+        "fieldCarePresentation"
+      ],
+      "importedBy": [
+        "src/feature_expansion_wave_host.js",
+        "src/main.js"
+      ]
+    },
+    {
+      "path": "src/game_absorption_assay_host.js",
+      "lines": 60,
+      "exports": [
+        "gameAbsorptionAssayContext",
+        "commitGameAbsorptionAssayCommand",
+        "cancelGameAbsorptionAssayJob",
+        "gameAbsorptionAssayPresentation"
+      ],
+      "importedBy": [
+        "src/feature_expansion_wave_host.js",
+        "src/main.js"
+      ]
+    },
+    {
+      "path": "src/home_furnishing_host.js",
+      "lines": 43,
+      "exports": [
+        "homeFurnishingContext",
+        "commitHomeFurnishingCommand",
+        "homeFurnishingPresentation",
+        "homeFurnishingPublicCommands"
+      ],
+      "importedBy": [
+        "src/feature_expansion_wave_host.js",
+        "src/main.js"
+      ]
+    },
+    {
+      "path": "src/known_routes_host.js",
+      "lines": 241,
+      "exports": [
+        "knownRoutesPresentation"
+      ],
+      "importedBy": [
+        "src/main.js"
+      ]
+    },
+    {
+      "path": "src/life_experience_host.js",
+      "lines": 25,
+      "exports": [
+        "buildLifeHeirSave"
+      ],
+      "importedBy": []
+    },
+    {
+      "path": "src/lore_practice_host.js",
+      "lines": 111,
+      "exports": [
+        "lorePracticeContext",
+        "lorePracticePublicCommandIds",
+        "commitLorePracticeCommand",
+        "lorePracticePresentation",
+        "lorePracticeSiteSupport"
+      ],
+      "importedBy": [
+        "src/feature_expansion_wave_host.js",
+        "src/main.js"
+      ]
+    },
+    {
+      "path": "src/native_battle_host.js",
+      "lines": 60,
+      "exports": [
+        "createNativeBattleHost"
+      ],
+      "importedBy": [
+        "src/main.js"
+      ]
+    },
+    {
+      "path": "src/nethack_fieldcraft_host.js",
+      "lines": 44,
+      "exports": [
+        "nethackFieldcraftContext",
+        "commitNethackFieldcraftCommand",
+        "nethackFieldcraftPresentation"
+      ],
+      "importedBy": [
+        "src/feature_expansion_wave_host.js",
+        "src/main.js"
+      ]
+    },
+    {
+      "path": "src/original_frontier_campaign_host.js",
+      "lines": 119,
+      "exports": [
+        "originalFrontierContext",
+        "beginOriginalFrontier",
+        "commitOriginalFrontier",
+        "originalFrontierCareerQuestView",
+        "recordOriginalFrontierEncounter",
+        "originalFrontierPresentation"
+      ],
+      "importedBy": [
+        "src/original_frontier_campaign_ui.js",
+        "src/expansion_quest_ui.js",
+        "src/main.js"
+      ]
+    },
+    {
+      "path": "src/pocket_realm_host.js",
+      "lines": 130,
+      "exports": [
+        "POCKET_LOCATION",
+        "pocketSimulationDefinitions",
+        "pocketRealmActions",
+        "pocketContext",
+        "previewPocketRealmAction",
+        "commitPocketRealmAction",
+        "pocketRealmView"
+      ],
+      "importedBy": [
+        "src/pocket_realm_ui.js",
+        "src/main.js",
+        "src/simulation_content.js"
+      ]
+    },
+    {
+      "path": "src/proto23_world_host.js",
+      "lines": 163,
+      "exports": [
+        "previewProto23Command",
+        "commitProto23Command",
+        "proto23SimulationContexts",
+        "proto23Presentation"
+      ],
+      "importedBy": [
+        "src/feature_expansion_wave_host.js",
+        "src/expansion_engine.js",
+        "src/main.js",
+        "src/proto23_world_native.js"
+      ]
+    },
+    {
+      "path": "src/reference_gameplay_host.js",
+      "lines": 100,
+      "exports": [
+        "referenceGameplayFacts",
+        "referenceGameplayContext",
+        "commitReferenceGameplayCommand",
+        "previewReferenceGameplayCommand",
+        "validateReferenceGameplayWorkshop",
+        "referenceGameplayNextBoundary",
+        "referenceGameplayPresentation"
+      ],
+      "importedBy": [
+        "src/simulation_effects.js",
+        "src/feature_expansion_wave_host.js",
+        "src/audit_remainder_combat_objectives_host.js",
+        "src/audit_remainder_host.js",
+        "src/cooling_refinement_host.js",
+        "src/audited_workshop_host.js",
+        "src/audit_remainder_home_host.js",
+        "src/main.js",
+        "src/factorio_retort_facts.js",
+        "src/reference_gameplay_state.js"
+      ]
+    },
+    {
+      "path": "src/repository_absorption_host.js",
+      "lines": 136,
+      "exports": [
+        "repositoryAbsorptionContext",
+        "beginRepositoryAbsorption",
+        "commitRepositoryAbsorption",
+        "cancelRepositoryAbsorption",
+        "commitRepositoryProjection",
+        "repositoryAbsorptionPresentation"
+      ],
+      "importedBy": [
+        "src/repository_absorption_ui.js",
+        "src/main.js"
+      ]
+    },
+    {
+      "path": "src/skill_expansion_host.js",
+      "lines": 65,
+      "exports": [
+        "skillExpansionContext",
+        "skillExpansionPresentation"
+      ],
+      "importedBy": [
+        "src/main.js",
+        "src/skill_expansion_ui.js"
+      ]
+    },
+    {
+      "path": "src/status_care_host.js",
+      "lines": 73,
+      "exports": [
+        "statusCareContext",
+        "commitStatusCareCommand",
+        "reconcileStatusCareNative",
+        "statusCarePresentation"
+      ],
+      "importedBy": [
+        "src/feature_expansion_wave_host.js",
+        "src/main.js"
+      ]
+    },
+    {
+      "path": "src/steam_absorption_host.js",
+      "lines": 25,
+      "exports": [
+        "steamAbsorptionContext",
+        "commitSteamAbsorptionCommand",
+        "steamAbsorptionPresentation"
+      ],
+      "importedBy": [
+        "src/feature_expansion_wave_host.js",
+        "src/main.js"
+      ]
+    },
+    {
+      "path": "src/steam_boh_host.js",
+      "lines": 44,
+      "exports": [
+        "steamBOHContext",
+        "commitSteamBOHCommand",
+        "steamBOHPresentation"
+      ],
+      "importedBy": [
+        "src/steam_absorption_host.js"
+      ]
+    },
+    {
+      "path": "src/steam_df_host.js",
+      "lines": 52,
+      "exports": [
+        "steamDFContext",
+        "commitSteamDFCommand",
+        "steamDFPresentation"
+      ],
+      "importedBy": [
+        "src/steam_absorption_host.js"
+      ]
+    },
+    {
+      "path": "src/steam_lamb_host.js",
+      "lines": 46,
+      "exports": [
+        "steamLambContext",
+        "commitSteamLambCommand",
+        "steamLambPresentation"
+      ],
+      "importedBy": [
+        "src/steam_absorption_host.js"
+      ]
+    },
+    {
+      "path": "src/steam_oni_host.js",
+      "lines": 56,
+      "exports": [
+        "steamONIContext",
+        "commitSteamONICommand",
+        "steamONIPresentation"
+      ],
+      "importedBy": [
+        "src/steam_absorption_host.js"
+      ]
+    },
+    {
+      "path": "src/world_completion_host.js",
+      "lines": 47,
+      "exports": [
+        "commitWorldCompletionCommand",
+        "worldCompletionPresentation"
+      ],
+      "importedBy": [
+        "src/feature_expansion_wave_host.js",
+        "src/main.js"
+      ]
+    },
+    {
+      "path": "src/world_completion_learning_host.js",
+      "lines": 49,
+      "exports": [
+        "worldCompletionLearningContext",
+        "commitWorldCompletionLearningCommand",
+        "worldCompletionLearningPresentation",
+        "worldCompletionLearningPublicCommandIds"
+      ],
+      "importedBy": [
+        "src/world_completion_host.js"
+      ]
+    },
+    {
+      "path": "src/world_completion_lens_host.js",
+      "lines": 65,
+      "exports": [
+        "worldCompletionLensContext",
+        "commitWorldCompletionLensCommand",
+        "worldCompletionLensPresentation"
+      ],
+      "importedBy": [
+        "src/world_completion_host.js"
+      ]
+    },
+    {
+      "path": "src/world_completion_life_host.js",
+      "lines": 41,
+      "exports": [
+        "worldCompletionLifeContext",
+        "commitWorldCompletionLifeCommand",
+        "worldCompletionLifePresentation"
+      ],
+      "importedBy": [
+        "src/world_completion_host.js"
+      ]
+    },
+    {
+      "path": "src/world_completion_materials_host.js",
+      "lines": 69,
+      "exports": [
+        "worldCompletionMaterialsContext",
+        "worldCompletionMaterialsRuntimeRegistry",
+        "commitWorldCompletionMaterialsCommand",
+        "worldCompletionMaterialsPresentation"
+      ],
+      "importedBy": [
+        "src/world_completion_materials_runtime.js",
+        "src/world_completion_host.js"
+      ]
+    }
+  ]
+}

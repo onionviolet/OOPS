@@ -1,0 +1,27 @@
+{
+  "game": "Wildermyth",
+  "app_id": 763890,
+  "observed_at_utc": "2026-10-07T20:34:40.202100+00:00",
+  "state": "finite-source-pass-complete-uninstall-eligible",
+  "source_gate": {
+    "manifest": "/Users/weiwei/Library/Application Support/Steam/steamapps/appmanifest_763890.acf",
+    "state_flags": 4,
+    "all_download_and_stage_bytes_complete": true,
+    "source_root": "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Wildermyth/wildermyth.app/Contents/Resources"
+  },
+  "copied": true,
+  "decompiled": true,
+  "audit_complete": true,
+  "uninstall_eligible": true,
+  "reason": "Copy source/copy hashes verified; six finite chains complete; all installed-path worker processes stopped. Parent owns immediate Steam uninstall and downstream handoff. Personal saves untouched.",
+  "ownership": [
+    "docs/research/wildermyth/",
+    "/Users/weiwei/.codex/research/wildermyth/"
+  ],
+  "build_id": 21684217,
+  "active_installed_path_consumers": false,
+  "retention_receipt": "/Users/weiwei/.codex/research/wildermyth/retention.json",
+  "retained_bytes": 608049951,
+  "retained_files": 23725,
+  "decompile_receipt": "/Users/weiwei/.codex/research/wildermyth/decompile-receipt.json"
+}

@@ -1,0 +1,1015 @@
+{
+  "state": "partly_covered_by_dated_dumps",
+  "requests": [
+    {
+      "id": "S16",
+      "host": "chainsaw-man.fandom.com",
+      "api": "https://chainsaw-man.fandom.com/api.php",
+      "series": [
+        "Chainsaw Man"
+      ],
+      "requested_urls": [
+        "https://chainsaw-man.fandom.com/wiki/Devil",
+        "https://chainsaw-man.fandom.com/wiki/Contract"
+      ],
+      "reason": "chainsaw-man.fandom.com: HTTP 403"
+    },
+    {
+      "id": "S17",
+      "host": "jujutsu-kaisen.fandom.com",
+      "api": "https://jujutsu-kaisen.fandom.com/api.php",
+      "series": [
+        "Jujutsu Kaisen"
+      ],
+      "requested_urls": [
+        "https://jujutsu-kaisen.fandom.com/wiki/Binding_Vow",
+        "https://jujutsu-kaisen.fandom.com/wiki/Ratio_Technique",
+        "https://jujutsu-kaisen.fandom.com/wiki/Cursed_Technique",
+        "https://jujutsu-kaisen.fandom.com/wiki/Heavenly_Restriction",
+        "https://jujutsu-kaisen.fandom.com/wiki/Mythical_Beast_Amber",
+        "https://jujutsu-kaisen.fandom.com/wiki/Culling_Game",
+        "https://jujutsu-kaisen.fandom.com/wiki/Deadly_Sentencing",
+        "https://jujutsu-kaisen.fandom.com/wiki/Shrine",
+        "https://jujutsu-kaisen.fandom.com/wiki/Yuji_Itadori/Synopsis"
+      ],
+      "reason": "jujutsu-kaisen.fandom.com: HTTP 403",
+      "dump_status": "covered by dump 2026-02-20 (downloaded 2026-10-10; selected sections reviewed)"
+    },
+    {
+      "id": "S18",
+      "host": "hunterxhunter.fandom.com",
+      "api": "https://hunterxhunter.fandom.com/api.php",
+      "series": [
+        "Hunter x Hunter"
+      ],
+      "requested_urls": [
+        "https://hunterxhunter.fandom.com/wiki/Nen?file=Nen_Types_Diagram.svg",
+        "https://hunterxhunter.fandom.com/wiki/Knuckle_Bine"
+      ],
+      "reason": "hunterxhunter.fandom.com: HTTP 403",
+      "dump_status": "covered by dump 2026-07-01 (downloaded 2026-10-10; selected sections reviewed)"
+    },
+    {
+      "id": "S19",
+      "host": "undead-unluck.fandom.com",
+      "api": "https://undead-unluck.fandom.com/api.php",
+      "series": [
+        "Undead Unluck"
+      ],
+      "requested_urls": [
+        "https://undead-unluck.fandom.com/wiki/Negators"
+      ],
+      "reason": "undead-unluck.fandom.com: HTTP 403"
+    },
+    {
+      "id": "S20",
+      "host": "bleach.fandom.com",
+      "api": "https://bleach.fandom.com/api.php",
+      "series": [
+        "Bleach"
+      ],
+      "requested_urls": [
+        "https://bleach.fandom.com/wiki/Zanpakut%C5%8D"
+      ],
+      "reason": "bleach.fandom.com: HTTP 403"
+    },
+    {
+      "id": "S21",
+      "host": "naruto.fandom.com",
+      "api": "https://naruto.fandom.com/api.php",
+      "series": [
+        "Naruto"
+      ],
+      "requested_urls": [
+        "https://naruto.fandom.com/wiki/Chakra",
+        "https://naruto.fandom.com/wiki/Nature_Transformation",
+        "https://naruto.fandom.com/wiki/Eight_Gates?file=Chakra_Gates.png",
+        "https://naruto.fandom.com/wiki/Shadow_Clone_Technique"
+      ],
+      "reason": "naruto.fandom.com: HTTP 403"
+    },
+    {
+      "id": "S22",
+      "host": "onepiece.fandom.com",
+      "api": "https://onepiece.fandom.com/api.php",
+      "series": [
+        "One Piece"
+      ],
+      "requested_urls": [
+        "https://onepiece.fandom.com/wiki/Devil_Fruit",
+        "https://onepiece.fandom.com/wiki/Haki",
+        "https://onepiece.fandom.com/wiki/Haki/Supreme_King_Haki",
+        "https://onepiece.fandom.com/wiki/Goro_Goro_no_Mi"
+      ],
+      "reason": "onepiece.fandom.com: HTTP 403",
+      "dump_status": "covered by dump 2026-08-29 (downloaded 2026-10-10; selected sections reviewed)"
+    },
+    {
+      "id": "S23",
+      "host": "myheroacademia.fandom.com",
+      "api": "https://myheroacademia.fandom.com/api.php",
+      "series": [
+        "My Hero Academia"
+      ],
+      "requested_urls": [
+        "https://myheroacademia.fandom.com/wiki/Quirk",
+        "https://myheroacademia.fandom.com/wiki/One_For_All",
+        "https://myheroacademia.fandom.com/wiki/Mirio_Togata"
+      ],
+      "reason": "myheroacademia.fandom.com: HTTP 403"
+    },
+    {
+      "id": "S24",
+      "host": "jojowiki.com",
+      "api": "https://jojowiki.com/api.php",
+      "series": [
+        "JoJo's Bizarre Adventure"
+      ],
+      "requested_urls": [
+        "https://jojowiki.com/Stand",
+        "https://jojowiki.com/Super_Fly"
+      ],
+      "reason": "jojowiki.com: robots disallow (YAIRPG-wiki-research/1.0 (personal research; AI-assisted; no login))"
+    },
+    {
+      "id": "S25",
+      "host": "fma.fandom.com",
+      "api": "https://fma.fandom.com/api.php",
+      "series": [
+        "Fullmetal Alchemist"
+      ],
+      "requested_urls": [
+        "https://fma.fandom.com/wiki/Alchemy",
+        "https://fma.fandom.com/wiki/Philosopher%27s_Stone"
+      ],
+      "reason": "fma.fandom.com: HTTP 403",
+      "dump_status": "covered by dump 2026-07-22 (downloaded 2026-10-10; selected sections reviewed)"
+    },
+    {
+      "id": "S26",
+      "host": "frieren.fandom.com",
+      "api": "https://frieren.fandom.com/api.php",
+      "series": [
+        "Frieren"
+      ],
+      "requested_urls": [
+        "https://frieren.fandom.com/wiki/Episode_3",
+        "https://frieren.fandom.com/wiki/Frieren",
+        "https://frieren.fandom.com/wiki/Mimic",
+        "https://frieren.fandom.com/wiki/Magic"
+      ],
+      "reason": "frieren.fandom.com: HTTP 403"
+    },
+    {
+      "id": "S27",
+      "host": "mob-psycho-100.fandom.com",
+      "api": "https://mob-psycho-100.fandom.com/api.php",
+      "series": [
+        "Mob Psycho 100"
+      ],
+      "requested_urls": [
+        "https://mob-psycho-100.fandom.com/wiki/Shigeo_Kageyama",
+        "https://mob-psycho-100.fandom.com/wiki/Psychic_Power"
+      ],
+      "reason": "mob-psycho-100.fandom.com: HTTP 403"
+    },
+    {
+      "id": "S28",
+      "host": "kimetsu-no-yaiba.fandom.com",
+      "api": "https://kimetsu-no-yaiba.fandom.com/api.php",
+      "series": [
+        "Demon Slayer"
+      ],
+      "requested_urls": [
+        "https://kimetsu-no-yaiba.fandom.com/wiki/Breathing_Style",
+        "https://kimetsu-no-yaiba.fandom.com/wiki/Zenitsu_Agatsuma",
+        "https://kimetsu-no-yaiba.fandom.com/wiki/Mitsuri_Kanroji"
+      ],
+      "reason": "kimetsu-no-yaiba.fandom.com: HTTP 403"
+    },
+    {
+      "id": "S29",
+      "host": "blackclover.fandom.com",
+      "api": "https://blackclover.fandom.com/api.php",
+      "series": [
+        "Black Clover"
+      ],
+      "requested_urls": [
+        "https://blackclover.fandom.com/wiki/Grimoire",
+        "https://blackclover.fandom.com/wiki/Devil"
+      ],
+      "reason": "blackclover.fandom.com: HTTP 403"
+    },
+    {
+      "id": "S30",
+      "host": "en.wikipedia.org",
+      "api": "https://en.wikipedia.org/w/api.php",
+      "series": [
+        "Chainsaw Man",
+        "Undead Unluck",
+        "Bleach",
+        "Fullmetal Alchemist",
+        "Mob Psycho 100",
+        "Black Clover",
+        "Return of the Mount Hua Sect",
+        "Mistborn",
+        "The Kingkiller Chronicle",
+        "The Wheel of Time",
+        "Marvel comics",
+        "Dungeons & Dragons: 2024 revised fifth edition",
+        "Irish geis and geasa",
+        "Faustian pact: Goethe wager",
+        "Fae bargains: Rumpelstiltskin",
+        "Monastic vows: Benedictine example",
+        "Knightly vows and chivalry",
+        "Curses: Sleeping Beauty and The Monkey Paw",
+        "Genies and wishes: Aladdin and Fisherman tales",
+        "To Another World... with Land Mines!",
+        "Ra"
+      ],
+      "requested_urls": [
+        "https://en.wikipedia.org/wiki/Denji_%28Chainsaw_Man%29",
+        "https://en.wikipedia.org/wiki/List_of_Undead_Unluck_characters",
+        "https://en.wikipedia.org/wiki/List_of_Bleach_characters",
+        "https://en.wikipedia.org/wiki/Roy_Mustang",
+        "https://en.wikipedia.org/wiki/Shigeo_Kageyama",
+        "https://en.wikipedia.org/wiki/Black_Clover",
+        "https://en.wikipedia.org/wiki/Return_of_the_Blossoming_Blade",
+        "https://en.wikipedia.org/wiki/Mistborn#Magic",
+        "https://en.wikipedia.org/wiki/True_name",
+        "https://en.wikipedia.org/wiki/The_Wheel_of_Time#Setting",
+        "https://en.wikipedia.org/wiki/Mutant_(Marvel_Comics)",
+        "https://en.wikipedia.org/wiki/Magic_of_Dungeons_%26_Dragons",
+        "https://en.wikipedia.org/wiki/Geas",
+        "https://en.wikipedia.org/wiki/Aided_Con_Culainn",
+        "https://en.wikipedia.org/wiki/Faust,_Part_One",
+        "https://en.wikipedia.org/wiki/Goethe%27s_Faust",
+        "https://en.wikipedia.org/wiki/Rumpelstiltskin",
+        "https://en.wikipedia.org/wiki/Rule_of_Saint_Benedict",
+        "https://en.wikipedia.org/wiki/Chivalry",
+        "https://en.wikipedia.org/wiki/Sleeping_Beauty",
+        "https://en.wikipedia.org/wiki/The_Monkey%27s_Paw",
+        "https://en.wikipedia.org/wiki/Aladdin",
+        "https://en.wikipedia.org/wiki/The_Fisherman_and_the_Jinni",
+        "https://en.wikipedia.org/wiki/To_Another_World..._with_Land_Mines%21",
+        "https://en.wikipedia.org/wiki/Ra_(novel)"
+      ],
+      "reason": "en.wikipedia.org: robots disallow (YAIRPG-wiki-research/1.0 (personal research; AI-assisted; no login))"
+    },
+    {
+      "id": "S31",
+      "host": "dandadan.fandom.com",
+      "api": "https://dandadan.fandom.com/api.php",
+      "series": [
+        "Dandadan"
+      ],
+      "requested_urls": [
+        "https://dandadan.fandom.com/wiki/Okarun",
+        "https://dandadan.fandom.com/wiki/Turbo_Granny",
+        "https://dandadan.fandom.com/wiki/Evil_Eye_Arc",
+        "https://dandadan.fandom.com/wiki/Spiritual_Power"
+      ],
+      "reason": "dandadan.fandom.com: HTTP 403"
+    },
+    {
+      "id": "S32",
+      "host": "kagurabachi.fandom.com",
+      "api": "https://kagurabachi.fandom.com/api.php",
+      "series": [
+        "Kagurabachi"
+      ],
+      "requested_urls": [
+        "https://kagurabachi.fandom.com/wiki/Enchanted_Blade",
+        "https://kagurabachi.fandom.com/wiki/Magatsumi"
+      ],
+      "reason": "kagurabachi.fandom.com: HTTP 403"
+    },
+    {
+      "id": "S33",
+      "host": "fire-force.fandom.com",
+      "api": "https://fire-force.fandom.com/api.php",
+      "series": [
+        "Fire Force"
+      ],
+      "requested_urls": [
+        "https://fire-force.fandom.com/wiki/Adolla_Link",
+        "https://fire-force.fandom.com/wiki/Arthur_Boyle",
+        "https://fire-force.fandom.com/wiki/Ignition_Ability"
+      ],
+      "reason": "fire-force.fandom.com: HTTP 403"
+    },
+    {
+      "id": "S34",
+      "host": "worldtrigger.fandom.com",
+      "api": "https://worldtrigger.fandom.com/api.php",
+      "series": [
+        "World Trigger"
+      ],
+      "requested_urls": [
+        "https://worldtrigger.fandom.com/wiki/Trigger",
+        "https://worldtrigger.fandom.com/wiki/Bail_Out"
+      ],
+      "reason": "worldtrigger.fandom.com: HTTP 403"
+    },
+    {
+      "id": "S35",
+      "host": "kaiju-no-8.fandom.com",
+      "api": "https://kaiju-no-8.fandom.com/api.php",
+      "series": [
+        "Kaiju No. 8"
+      ],
+      "requested_urls": [
+        "https://kaiju-no-8.fandom.com/wiki/Defense_Force",
+        "https://kaiju-no-8.fandom.com/wiki/Kafka_Hibino",
+        "https://kaiju-no-8.fandom.com/wiki/Gen_Narumi",
+        "https://kaiju-no-8.fandom.com/wiki/Unleashed_Combat_Power"
+      ],
+      "reason": "kaiju-no-8.fandom.com: HTTP 403"
+    },
+    {
+      "id": "S36",
+      "host": "typemoon.fandom.com",
+      "api": "https://typemoon.fandom.com/api.php",
+      "series": [
+        "Fate series"
+      ],
+      "requested_urls": [
+        "https://typemoon.fandom.com/wiki/Command_Spell",
+        "https://typemoon.fandom.com/wiki/Servant",
+        "https://typemoon.fandom.com/wiki/Heroic_Spirit"
+      ],
+      "reason": "typemoon.fandom.com: HTTP 403",
+      "dump_status": "covered by dump 2026-07-21 (downloaded 2026-10-10; selected sections reviewed)"
+    },
+    {
+      "id": "S37",
+      "host": "reverend-insanity.fandom.com",
+      "api": "https://reverend-insanity.fandom.com/api.php",
+      "series": [
+        "Reverend Insanity"
+      ],
+      "requested_urls": [
+        "https://reverend-insanity.fandom.com/wiki/Gu",
+        "https://reverend-insanity.fandom.com/wiki/Cultivation"
+      ],
+      "reason": "reverend-insanity.fandom.com: HTTP 403",
+      "dump_status": "covered by dump 2026-08-27 (downloaded 2026-10-10; selected sections reviewed)"
+    },
+    {
+      "id": "S38",
+      "host": "lordofthemysteries.fandom.com",
+      "api": "https://lordofthemysteries.fandom.com/api.php",
+      "series": [
+        "Lord of Mysteries"
+      ],
+      "requested_urls": [
+        "https://lordofthemysteries.fandom.com/wiki/Acting_Method",
+        "https://lordofthemysteries.fandom.com/wiki/Beyonders"
+      ],
+      "reason": "lordofthemysteries.fandom.com: HTTP 403"
+    },
+    {
+      "id": "S39",
+      "host": "omniscient-readers-viewpoint.fandom.com",
+      "api": "https://omniscient-readers-viewpoint.fandom.com/api.php",
+      "series": [
+        "Omniscient Reader’s Viewpoint"
+      ],
+      "requested_urls": [
+        "https://omniscient-readers-viewpoint.fandom.com/wiki/Star_Stream",
+        "https://omniscient-readers-viewpoint.fandom.com/wiki/Probability"
+      ],
+      "reason": "omniscient-readers-viewpoint.fandom.com: HTTP 403"
+    },
+    {
+      "id": "S40",
+      "host": "towerofgod.fandom.com",
+      "api": "https://towerofgod.fandom.com/api.php",
+      "series": [
+        "Tower of God"
+      ],
+      "requested_urls": [
+        "https://towerofgod.fandom.com/wiki/Administrator",
+        "https://towerofgod.fandom.com/wiki/Position",
+        "https://towerofgod.fandom.com/wiki/Shinsu_Manipulation"
+      ],
+      "reason": "towerofgod.fandom.com: HTTP 403"
+    },
+    {
+      "id": "S41",
+      "host": "solo-leveling.fandom.com",
+      "api": "https://solo-leveling.fandom.com/api.php",
+      "series": [
+        "Solo Leveling"
+      ],
+      "requested_urls": [
+        "https://solo-leveling.fandom.com/wiki/System",
+        "https://solo-leveling.fandom.com/wiki/Shadow_Extraction"
+      ],
+      "reason": "solo-leveling.fandom.com: HTTP 403"
+    },
+    {
+      "id": "S42",
+      "host": "the-second-coming-of-gluttony.fandom.com",
+      "api": "https://the-second-coming-of-gluttony.fandom.com/api.php",
+      "series": [
+        "The Second Coming of Gluttony"
+      ],
+      "requested_urls": [
+        "https://the-second-coming-of-gluttony.fandom.com/wiki/Gluttony"
+      ],
+      "reason": "the-second-coming-of-gluttony.fandom.com: HTTP 403"
+    },
+    {
+      "id": "S43",
+      "host": "lout-of-counts-family.fandom.com",
+      "api": "https://lout-of-counts-family.fandom.com/api.php",
+      "series": [
+        "Trash of the Count’s Family"
+      ],
+      "requested_urls": [
+        "https://lout-of-counts-family.fandom.com/wiki/Ancient_Power",
+        "https://lout-of-counts-family.fandom.com/wiki/Cale_Henituse/Abilities"
+      ],
+      "reason": "lout-of-counts-family.fandom.com: HTTP 403"
+    },
+    {
+      "id": "S44",
+      "host": "coiling-dragon.fandom.com",
+      "api": "https://coiling-dragon.fandom.com/api.php",
+      "series": [
+        "Coiling Dragon"
+      ],
+      "requested_urls": [
+        "https://coiling-dragon.fandom.com/wiki/Power_Hierarchy",
+        "https://coiling-dragon.fandom.com/wiki/Linley_Baruch/Abilities",
+        "https://coiling-dragon.fandom.com/wiki/Sovereign"
+      ],
+      "reason": "coiling-dragon.fandom.com: HTTP 403"
+    },
+    {
+      "id": "S45",
+      "host": "i-shall-seal-the-heavens.fandom.com",
+      "api": "https://i-shall-seal-the-heavens.fandom.com/api.php",
+      "series": [
+        "I Shall Seal the Heavens"
+      ],
+      "requested_urls": [
+        "https://i-shall-seal-the-heavens.fandom.com/wiki/Cultivation"
+      ],
+      "reason": "i-shall-seal-the-heavens.fandom.com: HTTP 403"
+    },
+    {
+      "id": "S46",
+      "host": "renegade-immortal.fandom.com",
+      "api": "https://renegade-immortal.fandom.com/api.php",
+      "series": [
+        "Renegade Immortal"
+      ],
+      "requested_urls": [
+        "https://renegade-immortal.fandom.com/wiki/Cultivation"
+      ],
+      "reason": "renegade-immortal.fandom.com: HTTP 403"
+    },
+    {
+      "id": "S47",
+      "host": "martial-peak-mp.fandom.com",
+      "api": "https://martial-peak-mp.fandom.com/api.php",
+      "series": [
+        "Martial Peak"
+      ],
+      "requested_urls": [
+        "https://martial-peak-mp.fandom.com/wiki/Cultivation",
+        "https://martial-peak-mp.fandom.com/wiki/Open_Heaven"
+      ],
+      "reason": "martial-peak-mp.fandom.com: HTTP 403"
+    },
+    {
+      "id": "S48",
+      "host": "releasethatwitch.fandom.com",
+      "api": "https://releasethatwitch.fandom.com/api.php",
+      "series": [
+        "Release That Witch"
+      ],
+      "requested_urls": [
+        "https://releasethatwitch.fandom.com/wiki/Magic",
+        "https://releasethatwitch.fandom.com/wiki/Nightingale/Power_%26_Abilities",
+        "https://releasethatwitch.fandom.com/wiki/Technological_development/Misc."
+      ],
+      "reason": "releasethatwitch.fandom.com: HTTP 403"
+    },
+    {
+      "id": "S49",
+      "host": "tbate.fandom.com",
+      "api": "https://tbate.fandom.com/api.php",
+      "series": [
+        "The Beginning After the End"
+      ],
+      "requested_urls": [
+        "https://tbate.fandom.com/wiki/Arthur_Leywin/Abilities",
+        "https://tbate.fandom.com/wiki/Aether",
+        "https://tbate.fandom.com/wiki/Magic_and_Objects"
+      ],
+      "reason": "tbate.fandom.com: HTTP 403"
+    },
+    {
+      "id": "S50",
+      "host": "overgeared.fandom.com",
+      "api": "https://overgeared.fandom.com/api.php",
+      "series": [
+        "Overgeared"
+      ],
+      "requested_urls": [
+        "https://overgeared.fandom.com/wiki/Legendary_Blacksmith%27s_Breath",
+        "https://overgeared.fandom.com/wiki/Pagma",
+        "https://overgeared.fandom.com/wiki/Pagma%27s_Rare_Book"
+      ],
+      "reason": "overgeared.fandom.com: HTTP 403"
+    },
+    {
+      "id": "S51",
+      "host": "shadowslave.fandom.com",
+      "api": "https://shadowslave.fandom.com/api.php",
+      "series": [
+        "Shadow Slave"
+      ],
+      "requested_urls": [
+        "https://shadowslave.fandom.com/wiki/Spell",
+        "https://shadowslave.fandom.com/wiki/Aspect"
+      ],
+      "reason": "shadowslave.fandom.com: HTTP 403"
+    },
+    {
+      "id": "S52",
+      "host": "mother-of-learning.fandom.com",
+      "api": "https://mother-of-learning.fandom.com/api.php",
+      "series": [
+        "Mother of Learning"
+      ],
+      "requested_urls": [
+        "https://mother-of-learning.fandom.com/wiki/Magic"
+      ],
+      "reason": "mother-of-learning.fandom.com: HTTP 403"
+    },
+    {
+      "id": "S53",
+      "host": "wiki.abidanarchive.com",
+      "api": "https://wiki.abidanarchive.com/api.php",
+      "series": [
+        "Cradle"
+      ],
+      "requested_urls": [
+        "https://wiki.abidanarchive.com/index.php/Path_of_the_Endless_Sword",
+        "https://wiki.abidanarchive.com/index.php/Advancement_Level"
+      ],
+      "reason": "wiki.abidanarchive.com: redirect HTTP 301; not followed"
+    },
+    {
+      "id": "S54",
+      "host": "worm.fandom.com",
+      "api": "https://worm.fandom.com/api.php",
+      "series": [
+        "Worm"
+      ],
+      "requested_urls": [
+        "https://worm.fandom.com/wiki/Power_Classifications"
+      ],
+      "reason": "worm.fandom.com: HTTP 403"
+    },
+    {
+      "id": "S55",
+      "host": "coppermind.net",
+      "api": "https://coppermind.net/api.php",
+      "series": [
+        "Mistborn",
+        "The Stormlight Archive"
+      ],
+      "requested_urls": [
+        "https://coppermind.net/wiki/Allomancy",
+        "https://coppermind.net/wiki/Feruchemy",
+        "https://coppermind.net/wiki/Deadeye",
+        "https://coppermind.net/wiki/Surgebinding"
+      ],
+      "reason": "coppermind.net: HTTP 403"
+    },
+    {
+      "id": "S56",
+      "host": "es.wikipedia.org",
+      "api": "https://es.wikipedia.org/w/api.php",
+      "series": [
+        "The Kingkiller Chronicle"
+      ],
+      "requested_urls": [
+        "https://es.wikipedia.org/wiki/El_nombre_del_viento"
+      ],
+      "reason": "es.wikipedia.org: robots disallow (YAIRPG-wiki-research/1.0 (personal research; AI-assisted; no login))"
+    },
+    {
+      "id": "S57",
+      "host": "dresdenfiles.fandom.com",
+      "api": "https://dresdenfiles.fandom.com/api.php",
+      "series": [
+        "The Dresden Files"
+      ],
+      "requested_urls": [
+        "https://dresdenfiles.fandom.com/wiki/Magic",
+        "https://dresdenfiles.fandom.com/wiki/Seven_Laws_of_Magic"
+      ],
+      "reason": "dresdenfiles.fandom.com: HTTP 403"
+    },
+    {
+      "id": "S58",
+      "host": "abridged-guide-to-evil.fandom.com",
+      "api": "https://abridged-guide-to-evil.fandom.com/api.php",
+      "series": [
+        "A Practical Guide to Evil"
+      ],
+      "requested_urls": [
+        "https://abridged-guide-to-evil.fandom.com/wiki/Aspects"
+      ],
+      "reason": "abridged-guide-to-evil.fandom.com: HTTP 403"
+    },
+    {
+      "id": "S59",
+      "host": "dungeon-crawler-carl.fandom.com",
+      "api": "https://dungeon-crawler-carl.fandom.com/api.php",
+      "series": [
+        "Dungeon Crawler Carl"
+      ],
+      "requested_urls": [
+        "https://dungeon-crawler-carl.fandom.com/wiki/System_AI",
+        "https://dungeon-crawler-carl.fandom.com/wiki/Sponsors"
+      ],
+      "reason": "dungeon-crawler-carl.fandom.com: HTTP 403",
+      "dump_status": "covered by dump 2026-08-21 (downloaded 2026-10-10; selected sections reviewed)"
+    },
+    {
+      "id": "S60",
+      "host": "he-who-fights-with-monsters.fandom.com",
+      "api": "https://he-who-fights-with-monsters.fandom.com/api.php",
+      "series": [
+        "He Who Fights With Monsters"
+      ],
+      "requested_urls": [
+        "https://he-who-fights-with-monsters.fandom.com/wiki/Essences",
+        "https://he-who-fights-with-monsters.fandom.com/wiki/Frequently_Asked_Questions"
+      ],
+      "reason": "he-who-fights-with-monsters.fandom.com: HTTP 403"
+    },
+    {
+      "id": "S61",
+      "host": "marvel.fandom.com",
+      "api": "https://marvel.fandom.com/api.php",
+      "series": [
+        "Marvel comics"
+      ],
+      "requested_urls": [
+        "https://marvel.fandom.com/wiki/Category:Power_Systems"
+      ],
+      "reason": "marvel.fandom.com: HTTP 403"
+    },
+    {
+      "id": "S62",
+      "host": "dc.fandom.com",
+      "api": "https://dc.fandom.com/api.php",
+      "series": [
+        "DC comics"
+      ],
+      "requested_urls": [
+        "https://dc.fandom.com/wiki/Emotional_Spectrum"
+      ],
+      "reason": "dc.fandom.com: HTTP 403"
+    },
+    {
+      "id": "S63",
+      "host": "mtg.fandom.com",
+      "api": "https://mtg.fandom.com/api.php",
+      "series": [
+        "Magic: The Gathering"
+      ],
+      "requested_urls": [
+        "https://mtg.fandom.com/wiki/Color"
+      ],
+      "reason": "mtg.fandom.com: HTTP 403"
+    },
+    {
+      "id": "S64",
+      "host": "darksouls.fandom.com",
+      "api": "https://darksouls.fandom.com/api.php",
+      "series": [
+        "Dark Souls 1 covenants"
+      ],
+      "requested_urls": [
+        "https://darksouls.fandom.com/wiki/Covenant_(Dark_Souls)"
+      ],
+      "reason": "darksouls.fandom.com: HTTP 403",
+      "dump_status": "covered by dump 2026-09-06 (downloaded 2026-10-10; selected sections reviewed)"
+    },
+    {
+      "id": "S65",
+      "host": "eldenring.fandom.com",
+      "api": "https://eldenring.fandom.com/api.php",
+      "series": [
+        "Elden Ring"
+      ],
+      "requested_urls": [
+        "https://eldenring.fandom.com/wiki/Incantations"
+      ],
+      "reason": "eldenring.fandom.com: HTTP 403",
+      "dump_status": "covered by dump 2026-02-20 (downloaded 2026-10-10; selected sections reviewed)"
+    },
+    {
+      "id": "S66",
+      "host": "hades.fandom.com",
+      "api": "https://hades.fandom.com/api.php",
+      "series": [
+        "Hades 1 boons"
+      ],
+      "requested_urls": [
+        "https://hades.fandom.com/wiki/Duo_Boons",
+        "https://hades.fandom.com/wiki/Trial_of_the_Gods"
+      ],
+      "reason": "hades.fandom.com: HTTP 403"
+    },
+    {
+      "id": "S67",
+      "host": "slay-the-spire.fandom.com",
+      "api": "https://slay-the-spire.fandom.com/api.php",
+      "series": [
+        "Slay the Spire 1 relics"
+      ],
+      "requested_urls": [
+        "https://slay-the-spire.fandom.com/wiki/Dead_Branch"
+      ],
+      "reason": "slay-the-spire.fandom.com: HTTP 403"
+    },
+    {
+      "id": "S68",
+      "host": "isekai.fandom.com",
+      "api": "https://isekai.fandom.com/api.php",
+      "series": [
+        "Monster Tamer"
+      ],
+      "requested_urls": [
+        "https://isekai.fandom.com/wiki/Monster_Tamer"
+      ],
+      "reason": "isekai.fandom.com: HTTP 403"
+    },
+    {
+      "id": "S69",
+      "host": "my-cell-prison.fandom.com",
+      "api": "https://my-cell-prison.fandom.com/api.php",
+      "series": [
+        "My Cell Prison"
+      ],
+      "requested_urls": [
+        "https://my-cell-prison.fandom.com/wiki/My_Cell_Prison_Wiki"
+      ],
+      "reason": "my-cell-prison.fandom.com: HTTP 403"
+    },
+    {
+      "id": "S70",
+      "host": "soul-of-negary-novel.fandom.com",
+      "api": "https://soul-of-negary-novel.fandom.com/api.php",
+      "series": [
+        "Soul of Negary"
+      ],
+      "requested_urls": [
+        "https://soul-of-negary-novel.fandom.com/wiki/Origin",
+        "https://soul-of-negary-novel.fandom.com/wiki/Soul_Virus",
+        "https://soul-of-negary-novel.fandom.com/wiki/Flame_World",
+        "https://soul-of-negary-novel.fandom.com/wiki/Negary/Abilities"
+      ],
+      "reason": "soul-of-negary-novel.fandom.com: HTTP 403"
+    },
+    {
+      "id": "S71",
+      "host": "fantasy-simulator.fandom.com",
+      "api": "https://fantasy-simulator.fandom.com/api.php",
+      "series": [
+        "Fantasy Simulator"
+      ],
+      "requested_urls": [
+        "https://fantasy-simulator.fandom.com/wiki/Chen_Heng/Simulations"
+      ],
+      "reason": "fantasy-simulator.fandom.com: HTTP 403"
+    },
+    {
+      "id": "S72",
+      "host": "carefree-path-of-dreams.fandom.com",
+      "api": "https://carefree-path-of-dreams.fandom.com/api.php",
+      "series": [
+        "Carefree Path of Dreams"
+      ],
+      "requested_urls": [
+        "https://carefree-path-of-dreams.fandom.com/wiki/Dream_Master",
+        "https://carefree-path-of-dreams.fandom.com/wiki/Scientific_Cultivation_Method"
+      ],
+      "reason": "carefree-path-of-dreams.fandom.com: HTTP 403"
+    },
+    {
+      "id": "S73",
+      "host": "vsbattles.fandom.com",
+      "api": "https://vsbattles.fandom.com/api.php",
+      "series": [
+        "Low Dimensional Game",
+        "Fine Structure"
+      ],
+      "requested_urls": [
+        "https://vsbattles.fandom.com/wiki/Low_Dimensional_Game",
+        "https://vsbattles.fandom.com/wiki/Fine_Structure_Explanation_Page"
+      ],
+      "reason": "vsbattles.fandom.com: HTTP 403"
+    },
+    {
+      "id": "S74",
+      "host": "doomsday-wonderland.fandom.com",
+      "api": "https://doomsday-wonderland.fandom.com/api.php",
+      "series": [
+        "Doomsday Wonderland"
+      ],
+      "requested_urls": [
+        "https://doomsday-wonderland.fandom.com/wiki/Temporary_Right_Of_Abode",
+        "https://doomsday-wonderland.fandom.com/wiki/Planar_World",
+        "https://doomsday-wonderland.fandom.com/wiki/Duoluozhong"
+      ],
+      "reason": "doomsday-wonderland.fandom.com: HTTP 403"
+    },
+    {
+      "id": "S75",
+      "host": "thebookeatingmagician.fandom.com",
+      "api": "https://thebookeatingmagician.fandom.com/api.php",
+      "series": [
+        "The Book Eating Magician"
+      ],
+      "requested_urls": [
+        "https://thebookeatingmagician.fandom.com/wiki/Umbra"
+      ],
+      "reason": "thebookeatingmagician.fandom.com: HTTP 403"
+    },
+    {
+      "id": "S76",
+      "host": "the-book-eating-magician.fandom.com",
+      "api": "https://the-book-eating-magician.fandom.com/api.php",
+      "series": [
+        "The Book Eating Magician"
+      ],
+      "requested_urls": [
+        "https://the-book-eating-magician.fandom.com/wiki/Theodore_Miller"
+      ],
+      "reason": "the-book-eating-magician.fandom.com: HTTP 403"
+    },
+    {
+      "id": "S77",
+      "host": "the-main-heroines-are-trying-to-kill-me.fandom.com",
+      "api": "https://the-main-heroines-are-trying-to-kill-me.fandom.com/api.php",
+      "series": [
+        "The Main Heroines are Trying to Kill Me"
+      ],
+      "requested_urls": [
+        "https://the-main-heroines-are-trying-to-kill-me.fandom.com/wiki/The_Main_Heroines_Are_Trying_To_Kill_Me_Wiki"
+      ],
+      "reason": "the-main-heroines-are-trying-to-kill-me.fandom.com: HTTP 403"
+    },
+    {
+      "id": "S78",
+      "host": "kidnappeddragons.fandom.com",
+      "api": "https://kidnappeddragons.fandom.com/api.php",
+      "series": [
+        "Kidnapped Dragons"
+      ],
+      "requested_urls": [
+        "https://kidnappeddragons.fandom.com/wiki/Kidnapped_Dragons_Wiki"
+      ],
+      "reason": "kidnappeddragons.fandom.com: HTTP 403"
+    },
+    {
+      "id": "S79",
+      "host": "mysranks.fandom.com",
+      "api": "https://mysranks.fandom.com/api.php",
+      "series": [
+        "The S-Classes That I Raised"
+      ],
+      "requested_urls": [
+        "https://mysranks.fandom.com/wiki/The_S-Ranks_That_I_Raised"
+      ],
+      "reason": "mysranks.fandom.com: HTTP 403"
+    },
+    {
+      "id": "S80",
+      "host": "to-another-world-with-land-mines.fandom.com",
+      "api": "https://to-another-world-with-land-mines.fandom.com/api.php",
+      "series": [
+        "To Another World... with Land Mines!"
+      ],
+      "requested_urls": [
+        "https://to-another-world-with-land-mines.fandom.com/wiki/%22Landmines%22_Skills"
+      ],
+      "reason": "to-another-world-with-land-mines.fandom.com: HTTP 403"
+    },
+    {
+      "id": "S81",
+      "host": "lazydungeonmaster.fandom.com",
+      "api": "https://lazydungeonmaster.fandom.com/api.php",
+      "series": [
+        "Lazy Dungeon Master"
+      ],
+      "requested_urls": [
+        "https://lazydungeonmaster.fandom.com/wiki/Dungeon_Master",
+        "https://lazydungeonmaster.fandom.com/wiki/Dungeon_Core",
+        "https://lazydungeonmaster.fandom.com/wiki/Dungeons"
+      ],
+      "reason": "lazydungeonmaster.fandom.com: HTTP 403"
+    },
+    {
+      "id": "S82",
+      "host": "monster-tamer.fandom.com",
+      "api": "https://monster-tamer.fandom.com/api.php",
+      "series": [
+        "Monster Tamer"
+      ],
+      "requested_urls": [
+        "https://monster-tamer.fandom.com/wiki/Majima_Takahiro"
+      ],
+      "reason": "monster-tamer.fandom.com: HTTP 403"
+    },
+    {
+      "id": "S83",
+      "host": "the-magician-who-rose-from-failure.fandom.com",
+      "api": "https://the-magician-who-rose-from-failure.fandom.com/api.php",
+      "series": [
+        "The Magician Who Rose From Failure"
+      ],
+      "requested_urls": [
+        "https://the-magician-who-rose-from-failure.fandom.com/wiki/Spells"
+      ],
+      "reason": "the-magician-who-rose-from-failure.fandom.com: HTTP 403"
+    },
+    {
+      "id": "S84",
+      "host": "the-daily-grind.fandom.com",
+      "api": "https://the-daily-grind.fandom.com/api.php",
+      "series": [
+        "The Daily Grind"
+      ],
+      "requested_urls": [
+        "https://the-daily-grind.fandom.com/wiki/The_Daily_Grind_Wiki"
+      ],
+      "reason": "the-daily-grind.fandom.com: HTTP 403"
+    },
+    {
+      "id": "S85",
+      "host": "runebound-professor.fandom.com",
+      "api": "https://runebound-professor.fandom.com/api.php",
+      "series": [
+        "Return of the Runebound Professor"
+      ],
+      "requested_urls": [
+        "https://runebound-professor.fandom.com/wiki/Runes",
+        "https://runebound-professor.fandom.com/wiki/Noah_Vines/Runes"
+      ],
+      "reason": "runebound-professor.fandom.com: HTTP 403"
+    },
+    {
+      "id": "S86",
+      "host": "the-stubborn-skillgrinder-in-a-time-loop.fandom.com",
+      "api": "https://the-stubborn-skillgrinder-in-a-time-loop.fandom.com/api.php",
+      "series": [
+        "The Stubborn Skill-Grinder In A Time Loop"
+      ],
+      "requested_urls": [
+        "https://the-stubborn-skillgrinder-in-a-time-loop.fandom.com/wiki/Skills",
+        "https://the-stubborn-skillgrinder-in-a-time-loop.fandom.com/wiki/Mythical_Skills",
+        "https://the-stubborn-skillgrinder-in-a-time-loop.fandom.com/wiki/Worlds"
+      ],
+      "reason": "the-stubborn-skillgrinder-in-a-time-loop.fandom.com: HTTP 403"
+    },
+    {
+      "id": "S87",
+      "host": "pale-lights.fandom.com",
+      "api": "https://pale-lights.fandom.com/api.php",
+      "series": [
+        "Pale Lights"
+      ],
+      "requested_urls": [
+        "https://pale-lights.fandom.com/wiki/The_Trials",
+        "https://pale-lights.fandom.com/wiki/The_Watch"
+      ],
+      "reason": "pale-lights.fandom.com: HTTP 403"
+    },
+    {
+      "id": "S88",
+      "host": "oracle-paths.fandom.com",
+      "api": "https://oracle-paths.fandom.com/api.php",
+      "series": [
+        "The Oracle Paths"
+      ],
+      "requested_urls": [
+        "https://oracle-paths.fandom.com/wiki/Dream_Aether",
+        "https://oracle-paths.fandom.com/wiki/Bloodline",
+        "https://oracle-paths.fandom.com/wiki/False_World_War"
+      ],
+      "reason": "oracle-paths.fandom.com: HTTP 403"
+    }
+  ]
+}

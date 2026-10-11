@@ -1,0 +1,32 @@
+{
+  "app_id": 718670,
+  "build_id": "22090405",
+  "platform": "macOS Mono managed",
+  "checked_utc": "2026-10-07T20:22:32.271153+00:00",
+  "status": "finite-source-pass-complete",
+  "private_snapshot": "/Users/weiwei/.codex/research/cultist-simulator/build22090405",
+  "copied": true,
+  "decompiled": true,
+  "audit_complete": true,
+  "uninstall_eligible": true,
+  "no_installed_path_consumers": true,
+  "gameplay_verified": false,
+  "save_access": "none",
+  "manifest_stateflags": 4,
+  "staging_size": 0,
+  "stable_seconds": 3,
+  "retained_files": 1307,
+  "retained_bytes": 58817360,
+  "copy_hash_manifest": "/Users/weiwei/.codex/research/cultist-simulator/build22090405/COPY_HASHES.json",
+  "copy_hash_manifest_sha256": "481a3317aba1f7b3f471f87bdefffc6a9bcd120b348d4dac6521f016ce4c59c2",
+  "managed_binary": {
+    "path": "inputs/Managed/SecretHistories.Main.dll",
+    "sha256": "e9ba82a7b05ed006801c64985579b3a5012806eafa127f6c7ce124878299cc83"
+  },
+  "decompile_command": "DOTNET_ROOT=<Qud tools/dotnet> <dotnet>/dotnet <ilspycmd>/ilspycmd.dll -p -o <snapshot>/decompiled/main <snapshot>/inputs/Managed/SecretHistories.Main.dll",
+  "decompile_exit": 0,
+  "decompile_log": "decompile-main.log",
+  "dependencies": "All installed Managed and StreamingAssets files retained; Qud dotnet/ILSpy retained in existing private toolchain. Native executable, Unity bundles/art/audio excluded from this code/definitions pass.",
+  "decompile_cs_files": 618,
+  "decompile_diagnostics": "Successful exit0; ILSpy9.1 emits upgrade notice to11.1, no recovery error in log."
+}

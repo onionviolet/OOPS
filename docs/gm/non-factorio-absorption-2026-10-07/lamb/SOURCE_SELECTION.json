@@ -1,0 +1,253 @@
+{
+  "schema": 1,
+  "date": "2026-10-07",
+  "checked_utc": "2026-10-07T21:14:17.644105+00:00",
+  "owner": "/root/lamb_slice",
+  "packet": "LAMB-P02",
+  "source_edition": "Cult of the Lamb Steam1313140/build25223484/version1.5.26",
+  "source_root": "/Users/weiwei/.codex/research/cult-of-the-lamb/25223484",
+  "selected_claims": [
+    "LAMB-F17",
+    "LAMB-F16",
+    "LAMB-F44",
+    "LAMB-F06"
+  ],
+  "status": "original_leaves_implemented_21_bounded_checks_passed_released_for_root_integration_browser_gate",
+  "claim_boundaries": [
+    {
+      "id": "LAMB-F17",
+      "source_claim": "Discipleship requires an available follower of at least level 10 who is not already a disciple, plus ritual availability/affordability. The ceremony explicitly grants the trait/status and increments the created count; reaching the level alone is not this promotion.",
+      "qualification": "source-established static path, runtime unobserved",
+      "adaptation_boundary": "Earned competence and separately performed appointment are different facts. The paid fitting service, consent, office ending and local prices are original design, not source formulas."
+    },
+    {
+      "id": "LAMB-F16",
+      "source_claim": "Productivity uses a level contribution clamped at10 and then trait, relationship, institution and season modifiers. Missionary success uses its own level tiers; demon effectiveness separately clamps level at10 plus a necklace bonus. The productivity winter-body conditional has a negative false branch even if the trait is absent.",
+      "qualification": "source-established static path, runtime unobserved",
+      "adaptation_boundary": "Different consumers use their own bounded competence rules. No source level, multiplier, trait, season, missionary or demon formula is ported."
+    },
+    {
+      "id": "LAMB-F44",
+      "source_claim": "Follower data declares keyed identity/location/task destination/home, mission commitments, rewards, parentage, inventory, traits, funeral history and pair relationships. Loaded and simulated follower objects share the brain/data model; visible entity replacement is not a new person. These are selected static definitions, not a save roundtrip audit.",
+      "qualification": "source-established static path, runtime unobserved",
+      "adaptation_boundary": "Loaded and simulated representations retain the same underlying follower information. This slice reuses the actual existing Eda actor; selected definitions are not an observed source save roundtrip."
+    },
+    {
+      "id": "LAMB-F06",
+      "source_claim": "Reconsideration releases old reservations, resolves personal priorities, tries to keep an existing unique task, then claims eligible tasks by role/priority category. The shared location scheduler can displace lower-priority allocations and then settles pending choices. The named level-requirement helper currently returns true.",
+      "qualification": "source-established static path, runtime unobserved",
+      "adaptation_boundary": "Task eligibility, willingness, priority and reservation are distinct. This slice reuses YAIR actor/site reservations; it does not port the source scheduler or its unconditional level helper."
+    }
+  ],
+  "evidence": [
+    {
+      "claim": "LAMB-F17",
+      "path": "decompiled/Assembly-CSharp/Lamb.UI.Rituals/RitualItem.cs",
+      "inspected_spans": [
+        {
+          "start": 88,
+          "end": 119
+        }
+      ],
+      "sha256": "ac9d3896922c4c6a6c61b753f69ef8c1b956a0dba800570eaf2549d87f6a8f31",
+      "matches_dossier": true,
+      "qualification": "selected static retained decompiled source; runtime unobserved"
+    },
+    {
+      "claim": "LAMB-F17",
+      "path": "decompiled/Assembly-CSharp/RitualBecomeDisciple.cs",
+      "inspected_spans": [
+        {
+          "start": 65,
+          "end": 143
+        }
+      ],
+      "sha256": "b8b67a1498739b2c23bba91d0f0f2c610b12eedd031297832c7af13b741bd35b",
+      "matches_dossier": true,
+      "qualification": "selected static retained decompiled source; runtime unobserved"
+    },
+    {
+      "claim": "LAMB-F17",
+      "path": "decompiled/Assembly-CSharp/FollowerBrain.cs",
+      "inspected_spans": [
+        {
+          "start": 2141,
+          "end": 2145
+        }
+      ],
+      "sha256": "a5e4f8d4552f6a059ce3e0a94764c79093548e20e7526c19170b046ce49d0a13",
+      "matches_dossier": true,
+      "qualification": "selected static retained decompiled source; runtime unobserved"
+    },
+    {
+      "claim": "LAMB-F17",
+      "path": "decompiled/Assembly-CSharp/FollowerTask_ReeducateDissenter.cs",
+      "inspected_spans": [
+        {
+          "start": 165,
+          "end": 177
+        }
+      ],
+      "sha256": "a2d8f876d4c2fc4940d2eefa5fa07ff233aa5ecffc75206ea70c215655b6f656",
+      "matches_dossier": true,
+      "qualification": "selected static retained decompiled source; runtime unobserved"
+    },
+    {
+      "claim": "LAMB-F16",
+      "path": "decompiled/Assembly-CSharp/FollowerBrainInfo.cs",
+      "inspected_spans": [
+        {
+          "start": 477,
+          "end": 511
+        }
+      ],
+      "sha256": "49ec5cd6e13a0a0ada399c5b25ab26c36efa2e03351d3f951727bbb3e42170cb",
+      "matches_dossier": true,
+      "qualification": "selected static retained decompiled source; runtime unobserved"
+    },
+    {
+      "claim": "LAMB-F16",
+      "path": "decompiled/Assembly-CSharp/MissionaryManager.cs",
+      "inspected_spans": [
+        {
+          "start": 65,
+          "end": 114
+        }
+      ],
+      "sha256": "b3d8145c052064eddfe0af1716290a6a331ccab889ed3b8315d958a46e49a4d0",
+      "matches_dossier": true,
+      "qualification": "selected static retained decompiled source; runtime unobserved"
+    },
+    {
+      "claim": "LAMB-F16",
+      "path": "decompiled/Assembly-CSharp/FollowerInfo.cs",
+      "inspected_spans": [
+        {
+          "start": 2137,
+          "end": 2140
+        }
+      ],
+      "sha256": "9c6744588eecf8c8322500e79e6255cdff8ce16d79fa95cc91f369b68a2bf0cf",
+      "matches_dossier": true,
+      "qualification": "selected static retained decompiled source; runtime unobserved"
+    },
+    {
+      "claim": "LAMB-F44",
+      "path": "decompiled/Assembly-CSharp/FollowerInfo.cs",
+      "inspected_spans": [
+        {
+          "start": 1030,
+          "end": 1140
+        }
+      ],
+      "sha256": "9c6744588eecf8c8322500e79e6255cdff8ce16d79fa95cc91f369b68a2bf0cf",
+      "matches_dossier": true,
+      "qualification": "selected static retained decompiled source; runtime unobserved"
+    },
+    {
+      "claim": "LAMB-F44",
+      "path": "decompiled/Assembly-CSharp/FollowerInfo.cs",
+      "inspected_spans": [
+        {
+          "start": 1526,
+          "end": 1555
+        }
+      ],
+      "sha256": "9c6744588eecf8c8322500e79e6255cdff8ce16d79fa95cc91f369b68a2bf0cf",
+      "matches_dossier": true,
+      "qualification": "selected static retained decompiled source; runtime unobserved"
+    },
+    {
+      "claim": "LAMB-F44",
+      "path": "decompiled/Assembly-CSharp/TimeManager.cs",
+      "inspected_spans": [
+        {
+          "start": 849,
+          "end": 977
+        }
+      ],
+      "sha256": "b164c57982a45fc99e1cbc11f689ab1ceff3b57170e54f277efaa1dd0a06d4bf",
+      "matches_dossier": true,
+      "qualification": "selected static retained decompiled source; runtime unobserved"
+    },
+    {
+      "claim": "LAMB-F44",
+      "path": "decompiled/Assembly-CSharp/FollowerBrainInfo.cs",
+      "inspected_spans": [
+        {
+          "start": 527,
+          "end": 576
+        }
+      ],
+      "sha256": "49ec5cd6e13a0a0ada399c5b25ab26c36efa2e03351d3f951727bbb3e42170cb",
+      "matches_dossier": true,
+      "qualification": "selected static retained decompiled source; runtime unobserved"
+    },
+    {
+      "claim": "LAMB-F06",
+      "path": "decompiled/Assembly-CSharp/FollowerBrain.cs",
+      "inspected_spans": [
+        {
+          "start": 3484,
+          "end": 3546
+        }
+      ],
+      "sha256": "a5e4f8d4552f6a059ce3e0a94764c79093548e20e7526c19170b046ce49d0a13",
+      "matches_dossier": true,
+      "qualification": "selected static retained decompiled source; runtime unobserved"
+    },
+    {
+      "claim": "LAMB-F06",
+      "path": "decompiled/Assembly-CSharp/TimeManager.cs",
+      "inspected_spans": [
+        {
+          "start": 623,
+          "end": 783
+        }
+      ],
+      "sha256": "b164c57982a45fc99e1cbc11f689ab1ceff3b57170e54f277efaa1dd0a06d4bf",
+      "matches_dossier": true,
+      "qualification": "selected static retained decompiled source; runtime unobserved"
+    },
+    {
+      "claim": "LAMB-F06",
+      "path": "decompiled/Assembly-CSharp/FollowerTask.cs",
+      "inspected_spans": [
+        {
+          "start": 57,
+          "end": 97
+        }
+      ],
+      "sha256": "20a18f9875111f911cd0bb734b5302b3ffa8c14bff23460d97a01e865b7180cb",
+      "matches_dossier": true,
+      "qualification": "selected static retained decompiled source; runtime unobserved"
+    }
+  ],
+  "adaptation": {
+    "name": "Eda\u2019s fitting assessor agreement",
+    "durable_actor": "feature_objects.miri",
+    "competence": "Actual player observe_alignment and learn completions; Eda retained demonstration and her existing trained active grain_matching source, faculty and power.",
+    "appointment": "Explicit willing co-located one-minute appointment; office fact belongs to Eda.",
+    "inspection": "1 native player coin + 1 Eda stamina + 2 played minutes; reserve and return 1 owned Matched repair stave and Eda\u2019s actual owned fine or fineDull guide, unchanged.",
+    "approval": "One use approval of the fungible Matched repair stave class; mutually exclusive static guide routes with distinct retained knowledge keys. No per-copy identity or provenance.",
+    "order": "One finite approved order reserves one player-owned matched stave and three existing Eda coins; one-minute handover is an original provisional timing; completion transfers that native item to Eda and pays three native player coins, consuming approval once.",
+    "termination": "Explicit ending removes future office access while retaining competence, appointment and delivered history; no active fitting source needed to end.",
+    "boundary": "Source-inspired original adaptation. No copied source code/prose/media, source ritual, productivity formula, new title/actor/currency engine or top-level save domain."
+  },
+  "write_reservations": [
+    "docs/gm/non-factorio-absorption-2026-10-07/lamb/",
+    "src/steam_lamb_content.js",
+    "src/steam_lamb_runtime.js",
+    "src/steam_lamb_facts.js",
+    "src/steam_lamb_host.js"
+  ],
+  "implementation_authorized": true,
+  "source_execution": false,
+  "installed_game_inspection": false,
+  "implementation_handoff": {
+    "authority": "Explicit parent/root message after ONI primary browser gate",
+    "reported_ONI_bundle": "214103c6d0b1",
+    "reported_origin_port": 18620,
+    "reported_exit_code": 0
+  }
+}

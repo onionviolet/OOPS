@@ -1,0 +1,3622 @@
+{
+  "date": "2026-10-09",
+  "mode": "read-only public source audit",
+  "source": {
+    "url": "https://gitlab.com/mathiashjelm/arcanum",
+    "revision": "a2632d2edf3e07e9168fff81167b11f2792e9197",
+    "branch": "master",
+    "private_path": "/Users/weiwei/.codex/research/theory-of-magic/source",
+    "identity": [
+      {
+        "path": "README.md",
+        "lines": [
+          9,
+          13
+        ],
+        "url": "https://gitlab.com/mathiashjelm/arcanum/-/blob/a2632d2edf3e07e9168fff81167b11f2792e9197/README.md#L9"
+      },
+      {
+        "path": "CONTRIBUTORS",
+        "lines": [
+          1,
+          4
+        ],
+        "url": "https://gitlab.com/mathiashjelm/arcanum/-/blob/a2632d2edf3e07e9168fff81167b11f2792e9197/CONTRIBUTORS#L1"
+      },
+      {
+        "path": "index.html",
+        "lines": [
+          5,
+          12
+        ],
+        "url": "https://gitlab.com/mathiashjelm/arcanum/-/blob/a2632d2edf3e07e9168fff81167b11f2792e9197/index.html#L5"
+      },
+      {
+        "path": "LICENSE",
+        "lines": [
+          3,
+          9
+        ],
+        "url": "https://gitlab.com/mathiashjelm/arcanum/-/blob/a2632d2edf3e07e9168fff81167b11f2792e9197/LICENSE#L3"
+      }
+    ],
+    "identity_note": "README points to Arcanum Testing Repo; index and CONTRIBUTORS independently bind Theory of Magic. Not exact user-open-build verification."
+  },
+  "original": {
+    "requested_url": "https://gitlab.com/lerpinglemur/arcanum",
+    "web_redirect": "https://gitlab.com/justin.lacy/arcanum",
+    "revision": "35437ed4869856220d17ea9564b339cd02b03035",
+    "private_path": "/Users/weiwei/.codex/research/theory-of-magic/original-source",
+    "inspection": "README lines 13-17 and index.html line 4 inspected for identity only; no full version comparison"
+  },
+  "license": "MIT terms, copyright 2020 Justin Lacy; preserve if code copied. No code copied into YAIR.",
+  "acquisition": "Two shallow git clones; no dependencies or execution. ~7 MB on disk combined at acquisition.",
+  "retention": "Retain shallow snapshots and per-file hashes privately as source receipts. Public report contains derived findings and source links only. No user saves acquired. No installation or uninstall needed.",
+  "user_instance": "Parent reports no matching CUA Chrome tab/app; source route chosen. Exact user build remains unknown.",
+  "file_inventory": [
+    {
+      "snapshot": "community",
+      "path": ".gitignore",
+      "bytes": 157,
+      "sha256": "a95a86a5cf6d5ba2e8e002f88a0bce133059139dedc68251c9af519700b06806"
+    },
+    {
+      "snapshot": "community",
+      "path": ".gitlab-ci.yml",
+      "bytes": 619,
+      "sha256": "27361a56341c41c1483df5459c87236cbd8cb3894f4ed8d250610535a842b713"
+    },
+    {
+      "snapshot": "community",
+      "path": ".prettierrc",
+      "bytes": 108,
+      "sha256": "eb296f68e6b7a4b2e983f95601f139e6e3b0bff4c13b111b1b3ced06f0386b11"
+    },
+    {
+      "snapshot": "community",
+      "path": "CONTRIBUTORS",
+      "bytes": 590,
+      "sha256": "c66554884551a0f2930b071f87207fc2506e7441d979f648ec1ab765322ea1e3"
+    },
+    {
+      "snapshot": "community",
+      "path": "LICENSE",
+      "bytes": 1090,
+      "sha256": "2ea8103be8ae1207417724f39e08575acecb2d81c74b6d3bf13b13bc2482d955"
+    },
+    {
+      "snapshot": "community",
+      "path": "README.md",
+      "bytes": 4724,
+      "sha256": "440c15d44c8822dc726229eee74f0ed444aa5594a50c122f58d1500308e19741"
+    },
+    {
+      "snapshot": "community",
+      "path": "changelog.txt",
+      "bytes": 5394,
+      "sha256": "dca0ccb2a8c0ac8edfc5b577117988578b1ba5a8fe4db8994613f334c72d032e"
+    },
+    {
+      "snapshot": "community",
+      "path": "css/main.css",
+      "bytes": 20262,
+      "sha256": "7ba39ea11490e06306a31e144965f255ca416f1f6050e6dc4296de9437986cb1"
+    },
+    {
+      "snapshot": "community",
+      "path": "data/armors.json",
+      "bytes": 3,
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+    },
+    {
+      "snapshot": "community",
+      "path": "data/clashes.json",
+      "bytes": 3,
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+    },
+    {
+      "snapshot": "community",
+      "path": "data/classes.json",
+      "bytes": 21224,
+      "sha256": "653d767dc4551fc45983ce21a4960bbaa7f243e48ab2b55e4d306421b26c1dc9"
+    },
+    {
+      "snapshot": "community",
+      "path": "data/dungeons.json",
+      "bytes": 18463,
+      "sha256": "6c0b17fbd0e304997e0acaaf6313321249cf91f0a813aa628b34b29257713f21"
+    },
+    {
+      "snapshot": "community",
+      "path": "data/enchants.json",
+      "bytes": 822,
+      "sha256": "c28a31af3a29fe6f741994bef7f7097efefc1b4f4333141edb5ba76291015a64"
+    },
+    {
+      "snapshot": "community",
+      "path": "data/encounters.json",
+      "bytes": 29224,
+      "sha256": "85886d00a23566fd9980eb8f134e2667bfdd4c8308517c874620c465a5d80ab9"
+    },
+    {
+      "snapshot": "community",
+      "path": "data/equipslots.json",
+      "bytes": 1460,
+      "sha256": "542fa05aa2247b23b7de4b1e0926a0ccf167c1eb2040126e384e701d4ec1abdb"
+    },
+    {
+      "snapshot": "community",
+      "path": "data/events.json",
+      "bytes": 11985,
+      "sha256": "f39fe5868d73c096fffb3281b80ecdcf07ba17a190ff30ed8b6683da17c0eada"
+    },
+    {
+      "snapshot": "community",
+      "path": "data/furniture.json",
+      "bytes": 30409,
+      "sha256": "c5a43de5c994dd7639ad95d71cce2d1a91de2386594c03a67a929300f4ce988f"
+    },
+    {
+      "snapshot": "community",
+      "path": "data/glossaryentries.json",
+      "bytes": 2,
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    {
+      "snapshot": "community",
+      "path": "data/hall.json",
+      "bytes": 14325,
+      "sha256": "41af477b19279fc3af7aafe356318f3e5c80842351141f165cde4a577ec52ebf"
+    },
+    {
+      "snapshot": "community",
+      "path": "data/homes.json",
+      "bytes": 15309,
+      "sha256": "af722ff9bbc43b6ffb3550a691b78cfaa9ac357f4fb11689977f1efb8c75403d"
+    },
+    {
+      "snapshot": "community",
+      "path": "data/locales.json",
+      "bytes": 8265,
+      "sha256": "2f4b43ff130a60b9b4d2cb459dddc961f511e03bee8d63f09b0f58eadb699a94"
+    },
+    {
+      "snapshot": "community",
+      "path": "data/materials.json",
+      "bytes": 3,
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+    },
+    {
+      "snapshot": "community",
+      "path": "data/modules/classline/shadow.json",
+      "bytes": 68083,
+      "sha256": "faa46613e97637889096134d7d18e571a41bdb0a5cb95a8e4fe970dfbcf93bb2"
+    },
+    {
+      "snapshot": "community",
+      "path": "data/modules/combattutorial.json",
+      "bytes": 4429,
+      "sha256": "1834f4a5a4a13304399d9b223cdc95af79351fe6fedaa71eee4a7992df49f231"
+    },
+    {
+      "snapshot": "community",
+      "path": "data/modules/companions.json",
+      "bytes": 5185,
+      "sha256": "052bac76cb160780e152baefbbfd2cf4974d22f9d017c47299b59db0f778c8a4"
+    },
+    {
+      "snapshot": "community",
+      "path": "data/modules/contributors.json",
+      "bytes": 2260,
+      "sha256": "be02bf18ae2758d9c0efa1d155b991e831fe0a92ac3efef6df95de88de6cb5cb"
+    },
+    {
+      "snapshot": "community",
+      "path": "data/modules/cthulhu.json",
+      "bytes": 1685,
+      "sha256": "e9d2e835339a1a46eef43082fc670b15ebd82ae81ca45d3789803b3325d0dc5d"
+    },
+    {
+      "snapshot": "community",
+      "path": "data/modules/debitomancy.json",
+      "bytes": 13852,
+      "sha256": "1d0ccc5bd87542cc3682f1541daea2eaee08ec7b956af63ceeb6ed7c3dca8d01"
+    },
+    {
+      "snapshot": "community",
+      "path": "data/modules/duelist.json",
+      "bytes": 12121,
+      "sha256": "e7c1c5c0a8f3c417b387534a0f8d09fd4e98f21ba83bed92e1fc589110bc0d14"
+    },
+    {
+      "snapshot": "community",
+      "path": "data/modules/equipment/armors.json",
+      "bytes": 24631,
+      "sha256": "5338369f28321e37a809e8ba88259da5b285dcd56d1f38961657a227ab6dae58"
+    },
+    {
+      "snapshot": "community",
+      "path": "data/modules/equipment/caster.json",
+      "bytes": 8423,
+      "sha256": "ce42d6e68abc63d6e8f88511b4b265272f758c0559b818483d22ea9d60be19c4"
+    },
+    {
+      "snapshot": "community",
+      "path": "data/modules/equipment/crafting.json",
+      "bytes": 2416,
+      "sha256": "7ac7fc9e4e7b3f3529faa1f17d1fbe62e22ed3acf99bb646dc4e55b6184f83d3"
+    },
+    {
+      "snapshot": "community",
+      "path": "data/modules/equipment/jewelry.json",
+      "bytes": 11288,
+      "sha256": "f7aee4d21c9446a981289d0249110b059d2bf4f66fc07e55a637eb21829a0f0c"
+    },
+    {
+      "snapshot": "community",
+      "path": "data/modules/equipment/martial.json",
+      "bytes": 18498,
+      "sha256": "7fcddd2fa97af87488e52b165b05cf39ea198e328308d201305dc7bd5723aee0"
+    },
+    {
+      "snapshot": "community",
+      "path": "data/modules/extraaction.json",
+      "bytes": 2971,
+      "sha256": "5faf810b5363ba6a64e82b937ac07c90b54eeef8ebefcf5b331ab5af042c8462"
+    },
+    {
+      "snapshot": "community",
+      "path": "data/modules/familiars.json",
+      "bytes": 58,
+      "sha256": "0552f02ae201d11b305b5d2a026976cbc5693c96b435a026cea212dba19e4f4e"
+    },
+    {
+      "snapshot": "community",
+      "path": "data/modules/furniture_upgrades.json",
+      "bytes": 2216,
+      "sha256": "58672f4e205aa545ee055135bb1a1ad56d46aa2e94e1bd8b88f81e39089eec08"
+    },
+    {
+      "snapshot": "community",
+      "path": "data/modules/hallgloss.json",
+      "bytes": 49556,
+      "sha256": "43219204577b196c9666fb1838515cfa83d50ec404ded886584f18f991ed1a37"
+    },
+    {
+      "snapshot": "community",
+      "path": "data/modules/learning.json",
+      "bytes": 61120,
+      "sha256": "a27e15e5161f5b5b5f82627791b50f0ddc871a2fc10e970355d53bb2bd03c43a"
+    },
+    {
+      "snapshot": "community",
+      "path": "data/modules/martial.json",
+      "bytes": 20490,
+      "sha256": "60ffa756837fb516f1d9c2f716414e730b7d035f25d3e053ee2ae3edf9807963"
+    },
+    {
+      "snapshot": "community",
+      "path": "data/modules/patrons.json",
+      "bytes": 10842,
+      "sha256": "1f7c5cca871e4d1839a5afe41af283902a60a04298622be2e7fd8ea2e81e82fd"
+    },
+    {
+      "snapshot": "community",
+      "path": "data/modules/priest.json",
+      "bytes": 10073,
+      "sha256": "6c395edb29e4ea1eff9402f647f4568fe7d731856567432c485a7d2bff5d45ef"
+    },
+    {
+      "snapshot": "community",
+      "path": "data/modules/puppeteer.json",
+      "bytes": 65298,
+      "sha256": "5a7f541005731767d5e959c36fc71fe19bdb35f8d0ee84099eda090f0203f939"
+    },
+    {
+      "snapshot": "community",
+      "path": "data/modules/pyromancer.json",
+      "bytes": 40581,
+      "sha256": "cddbce4f23359f6c5fe03ce66fb38be1fa697ebad144788a12d42e4523d3b97b"
+    },
+    {
+      "snapshot": "community",
+      "path": "data/modules/questing.json",
+      "bytes": 4809,
+      "sha256": "8c593a9dcb20c5aa52dfede4505c97e24186f0d59c510670541339d8ea3ac636"
+    },
+    {
+      "snapshot": "community",
+      "path": "data/modules/reedburgh.json",
+      "bytes": 29518,
+      "sha256": "f1afb12c65d9c7eb4fa41e146e89a807110789e3c5a84daefef30262b48f5c82"
+    },
+    {
+      "snapshot": "community",
+      "path": "data/modules/ritualist.json",
+      "bytes": 25041,
+      "sha256": "097ed92fc8c0e127b17563189098369475b8205b2839fe5e11012a4f7368241e"
+    },
+    {
+      "snapshot": "community",
+      "path": "data/modules/sackmakers.json",
+      "bytes": 6043,
+      "sha256": "d45ffb239e10a4a4ef2babc5a293b2452507c42f7eb8dcb075131e33e771cb81"
+    },
+    {
+      "snapshot": "community",
+      "path": "data/modules/seasonal/beltane/beltane.json",
+      "bytes": 20039,
+      "sha256": "5368822aa94c46d91d422212f02fac64b09abde81baae1b24712339f28fd4652"
+    },
+    {
+      "snapshot": "community",
+      "path": "data/modules/seasonal/beltane/legacy/legacy_beltane.json",
+      "bytes": 8379,
+      "sha256": "ff6e88a34c73083ed2d5c0a281fc1bd333d26ed690bd28de5ca2f16ce57dc06d"
+    },
+    {
+      "snapshot": "community",
+      "path": "data/modules/seasonal/fool/fool.json",
+      "bytes": 2123,
+      "sha256": "353c1c34fefb2a2248193a533bf3a62da9aa8becf4e223c6c1c06ced0806a191"
+    },
+    {
+      "snapshot": "community",
+      "path": "data/modules/seasonal/fool/legacy/legacy_fool.json",
+      "bytes": 446,
+      "sha256": "264b5c8978d3aba0d8fc91210e92818aef36ee54189f7f51ef0189689a054136"
+    },
+    {
+      "snapshot": "community",
+      "path": "data/modules/seasonal/halloween/halloween.json",
+      "bytes": 39977,
+      "sha256": "745f2a89bad8bd084225b74ff95a473158c9c1a913948e68be5336c870687cd6"
+    },
+    {
+      "snapshot": "community",
+      "path": "data/modules/seasonal/halloween/halloween_shapeshifting.json",
+      "bytes": 26528,
+      "sha256": "b593d1d3e3fca0beb46c59897a4829c504ef74591a0f5b271afcfc36ecc21ccb"
+    },
+    {
+      "snapshot": "community",
+      "path": "data/modules/seasonal/halloween/legacy/legacy_halloween.json",
+      "bytes": 12921,
+      "sha256": "5423810b0ef3b16940089f933c5f3894052b47b4a187207bd0bb59d3b23d0bfe"
+    },
+    {
+      "snapshot": "community",
+      "path": "data/modules/seasonal/winter/legacy/legacy_winter.json",
+      "bytes": 24838,
+      "sha256": "7e9df8a78692ee8b53a68103ac9c169f16a34e811ee1df65d8848a854051c2e8"
+    },
+    {
+      "snapshot": "community",
+      "path": "data/modules/seasonal/winter/winter.json",
+      "bytes": 49073,
+      "sha256": "b0df5abc3a4c6149964d2a48c0b3952b7f2650d6a33b99d86dc9f1b8ee774725"
+    },
+    {
+      "snapshot": "community",
+      "path": "data/modules/shian.json",
+      "bytes": 13085,
+      "sha256": "e535466be1dfa9a4e9d2289c08da95402513264bca57979c270ae736606918e2"
+    },
+    {
+      "snapshot": "community",
+      "path": "data/modules/shopkeeping.json",
+      "bytes": 11174,
+      "sha256": "7f3b33b55295165b251968efcd135050bbe66175b624a2e4fd9a867be2383664"
+    },
+    {
+      "snapshot": "community",
+      "path": "data/modules/spring.json",
+      "bytes": 8262,
+      "sha256": "8f970f86becd0f317839c9e3d3415b91bea906406af064829c01a367ccd9ed97"
+    },
+    {
+      "snapshot": "community",
+      "path": "data/modules/sublimation.json",
+      "bytes": 2753,
+      "sha256": "0ec7b8aeed7ca04f48669b968fe4d06d060e4945892d31203c81b4f0d82ee23d"
+    },
+    {
+      "snapshot": "community",
+      "path": "data/modules/swordplay.json",
+      "bytes": 19600,
+      "sha256": "ce6daddc76eb9945f1ffcb0f3d7b6619e9bd87a41f01f311d541e6b72a54a4bd"
+    },
+    {
+      "snapshot": "community",
+      "path": "data/modules/timerip.json",
+      "bytes": 31940,
+      "sha256": "1a968f9887ed1be0dd806dc0bae97dbccc06d2bfa16667354358dd6bdeb12c76"
+    },
+    {
+      "snapshot": "community",
+      "path": "data/modules.json",
+      "bytes": 1113,
+      "sha256": "e711e984b01e709d39c5be8bb03192e88e760f43955316c4d8efd66c333980fd"
+    },
+    {
+      "snapshot": "community",
+      "path": "data/monsters.json",
+      "bytes": 88383,
+      "sha256": "685a86cef4f1b389ea0c22f86dfd877ce4183e89c30ca77c9a91d023a253ebf6"
+    },
+    {
+      "snapshot": "community",
+      "path": "data/places.json",
+      "bytes": 104,
+      "sha256": "20019f7bf11b5c44c1c65fa3e98fe742ca0fa203c83bae0c6f07c63a71a5f5f2"
+    },
+    {
+      "snapshot": "community",
+      "path": "data/player.json",
+      "bytes": 2611,
+      "sha256": "ec4706ce5e50d66012f4ef3396fd277b95956a121b8c64c23c6cf28fb9088b83"
+    },
+    {
+      "snapshot": "community",
+      "path": "data/potencies.json",
+      "bytes": 2572,
+      "sha256": "ce38e1a7c5f63e35237518ff182fe842a57fb84ea29f5e2e8c6c21fb09cc7cd4"
+    },
+    {
+      "snapshot": "community",
+      "path": "data/potions.json",
+      "bytes": 30289,
+      "sha256": "08ae612509227c9ef5c504966ba6e68bced7a0a66b7c12625399e681e51021f2"
+    },
+    {
+      "snapshot": "community",
+      "path": "data/professions.json",
+      "bytes": 205,
+      "sha256": "4414b709c1f3b521b8c147a899ffa8e5731e86109a54557e6967dd8cad0eddd8"
+    },
+    {
+      "snapshot": "community",
+      "path": "data/properties.json",
+      "bytes": 3204,
+      "sha256": "47149175a885ef65d28e6079b5852a0d4065752e68cc29db4d4aef7827c10a49"
+    },
+    {
+      "snapshot": "community",
+      "path": "data/quests.json",
+      "bytes": 22221,
+      "sha256": "4d614da22c7e206c50510cd9051fb4ac0991acd51e087c9a2ffc18245664030d"
+    },
+    {
+      "snapshot": "community",
+      "path": "data/rares.json",
+      "bytes": 8426,
+      "sha256": "90672ff7e3533e7ad66a2483c3ae193eaa1c5e1708582583116afeca554c5e76"
+    },
+    {
+      "snapshot": "community",
+      "path": "data/reagents.json",
+      "bytes": 2243,
+      "sha256": "977223875836512806cf526aa6b3ae2bdefdfa708e7512de93773847b0b4edc3"
+    },
+    {
+      "snapshot": "community",
+      "path": "data/resources.json",
+      "bytes": 11329,
+      "sha256": "7972da42a99a7c6f84252b43accec991a2230fced062eeed17b017775c50b2a3"
+    },
+    {
+      "snapshot": "community",
+      "path": "data/sections.json",
+      "bytes": 1709,
+      "sha256": "74f8311e6a19826cd4f7e2d837e86c59c2e35f467968142495e0d849df80f32c"
+    },
+    {
+      "snapshot": "community",
+      "path": "data/skills.json",
+      "bytes": 17228,
+      "sha256": "36dd43d6d883f4b1c40256d63ba6ff760513b404a1740655d65a6249929d3789"
+    },
+    {
+      "snapshot": "community",
+      "path": "data/spells.json",
+      "bytes": 117335,
+      "sha256": "6810347642d4f6375eb32a6b665e768c610a20a8cc321c787820e8e8401f2fa2"
+    },
+    {
+      "snapshot": "community",
+      "path": "data/states.json",
+      "bytes": 713,
+      "sha256": "deb02e85b22ed295b090e2602dba437e76e8363d87248c96cb63a2eff1473b82"
+    },
+    {
+      "snapshot": "community",
+      "path": "data/stressors.json",
+      "bytes": 796,
+      "sha256": "e4880a15838a727ef82fac0048b25075c0dc49e363f9de0d2cb96294f3c0a325"
+    },
+    {
+      "snapshot": "community",
+      "path": "data/tags.json",
+      "bytes": 12108,
+      "sha256": "37ac677fb9fadaf2c213d225b7996a7a4105f8cc700372c93e8a8f944e42469f"
+    },
+    {
+      "snapshot": "community",
+      "path": "data/tasks.json",
+      "bytes": 99713,
+      "sha256": "01876266070915a953c104ce9d7236b15b2da6afc000dbc92b8d50f8b96a4199"
+    },
+    {
+      "snapshot": "community",
+      "path": "data/titles.json",
+      "bytes": 1947,
+      "sha256": "0b530bc0ce7c004c4f05f7c1180418cd1c110ce7312aaeb57709f633dd22a19a"
+    },
+    {
+      "snapshot": "community",
+      "path": "data/upgrades.json",
+      "bytes": 88284,
+      "sha256": "9cb4d4ff32ea5ee10bddd825583ff5a19c7a6a727e4132cdb019b442efd35da0"
+    },
+    {
+      "snapshot": "community",
+      "path": "data/weapons.json",
+      "bytes": 3,
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+    },
+    {
+      "snapshot": "community",
+      "path": "docs/classes.txt",
+      "bytes": 628,
+      "sha256": "c87fb4ea3ff2adb61eb589c3bb3177945d4bac528e8639f5ff6e2e56b8bed25a"
+    },
+    {
+      "snapshot": "community",
+      "path": "docs/code notes.txt",
+      "bytes": 2304,
+      "sha256": "c96d69f7a6d17bb515f7a39c4486eef5368ed2461b888b0bf9b8cb7e4c9b406c"
+    },
+    {
+      "snapshot": "community",
+      "path": "docs/data.txt",
+      "bytes": 10823,
+      "sha256": "d7028f4c2fd487733efc8fd6d5d47949435bb80659ade228480e54bd8805dcca"
+    },
+    {
+      "snapshot": "community",
+      "path": "docs/game design.txt",
+      "bytes": 1656,
+      "sha256": "7e5d324d942f02a78cc43df0341c5575f7002bb5c7aabd2f140a2220372ef396"
+    },
+    {
+      "snapshot": "community",
+      "path": "docs/json lexicon.md",
+      "bytes": 2695,
+      "sha256": "3ea855013e96f120883de0857bad616b17837c689da9034d1dd5b61ddf6f4149"
+    },
+    {
+      "snapshot": "community",
+      "path": "docs/level_standards.txt",
+      "bytes": 103,
+      "sha256": "0e85f37e0501c96c0d3a90d5bf4f230a9beddda482545b68bcf4492a0821ff0c"
+    },
+    {
+      "snapshot": "community",
+      "path": "docs/module documentation.md",
+      "bytes": 104997,
+      "sha256": "031a0d120810126096e1c44e96734b0d505e2e9ec2d76a99ba659822999950c6"
+    },
+    {
+      "snapshot": "community",
+      "path": "docs/patronstuff",
+      "bytes": 670,
+      "sha256": "75f257355279ecc307460736f77830629a9c9e3a3dc7c28e8951f498aff1cd99"
+    },
+    {
+      "snapshot": "community",
+      "path": "docs/places.txt",
+      "bytes": 67,
+      "sha256": "f9a062400ad6c6e0acbc963f0756fd6eb2738ae7762a0023426cf73bdf7becc3"
+    },
+    {
+      "snapshot": "community",
+      "path": "docs/todo.txt",
+      "bytes": 552,
+      "sha256": "5c4dfbac8647127588d0ceb867f4c172d9fa6e84c77cfd492635ce3d19da04aa"
+    },
+    {
+      "snapshot": "community",
+      "path": "docs/todo_pedro.txt",
+      "bytes": 552,
+      "sha256": "5c4dfbac8647127588d0ceb867f4c172d9fa6e84c77cfd492635ce3d19da04aa"
+    },
+    {
+      "snapshot": "community",
+      "path": "eslint.config.mjs",
+      "bytes": 354,
+      "sha256": "83aa22395103ba76bcd406e1b749ebe9bdf880f8b136167ef4cc569721b24796"
+    },
+    {
+      "snapshot": "community",
+      "path": "index.html",
+      "bytes": 851,
+      "sha256": "df7b52253c1ab381ed4d760a058ef1b9d987cf4baae2d1ee9ccbdc4fda64f92d"
+    },
+    {
+      "snapshot": "community",
+      "path": "manifest.webmanifest",
+      "bytes": 445,
+      "sha256": "da3a8cf139662aa27115ee98fa8b6aae0cee4e82768e7dc1a64d67039eeb1fb8"
+    },
+    {
+      "snapshot": "community",
+      "path": "package.json",
+      "bytes": 997,
+      "sha256": "6f787d56db39bd545b6ac6d5d5b38aaaf2d65f7c324e04dd0a132d6304dca26c"
+    },
+    {
+      "snapshot": "community",
+      "path": "privacy.html",
+      "bytes": 427,
+      "sha256": "7005f005e3054a66e05dc730f66858ceee383f81b012a0cba3e5b0e38aac4ccc"
+    },
+    {
+      "snapshot": "community",
+      "path": "src/changes.js",
+      "bytes": 781,
+      "sha256": "fa2f5c7f4dc579b8e2c668e75ee610f40e47481c03aae8799122a6b03eae98ea"
+    },
+    {
+      "snapshot": "community",
+      "path": "src/chars/alter.js",
+      "bytes": 2783,
+      "sha256": "a55ff6dbcf19c2f86ad369de0edbdff015310d6f27ed45e4c425e2551222afc1"
+    },
+    {
+      "snapshot": "community",
+      "path": "src/chars/attack.js",
+      "bytes": 8512,
+      "sha256": "11689cd3877d0a0ddc2a0fffe1672ec58c1b8514c9731c705795cc363d30bf08"
+    },
+    {
+      "snapshot": "community",
+      "path": "src/chars/char.js",
+      "bytes": 21581,
+      "sha256": "ed4b7840db36e3a85a541d42c2a831c7625695824a6fa4a358d4f0a96ef9205e"
+    },
+    {
+      "snapshot": "community",
+      "path": "src/chars/chargroup.js",
+      "bytes": 274,
+      "sha256": "65db5924a42b0f576a72c045703ba2d23861a0e4719d6f032558f54da923dd45"
+    },
+    {
+      "snapshot": "community",
+      "path": "src/chars/context.js",
+      "bytes": 7779,
+      "sha256": "e324b9234794aca443ae15d781c2244ef6db2a73ab453d859ece9c4e81b30161"
+    },
+    {
+      "snapshot": "community",
+      "path": "src/chars/dot.js",
+      "bytes": 11953,
+      "sha256": "e80ca61063c261e9f27cb25ae70a74a9f2aeff7550680c679d19800976ba28ae"
+    },
+    {
+      "snapshot": "community",
+      "path": "src/chars/equip.js",
+      "bytes": 2463,
+      "sha256": "4495734075b0c15b80271c61c065fc00429675c7e770ae6d8794c4f182c1a2b6"
+    },
+    {
+      "snapshot": "community",
+      "path": "src/chars/npc.js",
+      "bytes": 10589,
+      "sha256": "e2403158310b62a549301b8cd7e7e734ccd836f222d7228d1d4b27d11f63969b"
+    },
+    {
+      "snapshot": "community",
+      "path": "src/chars/npcState.js",
+      "bytes": 4963,
+      "sha256": "a521433e7d1507e5f3f1c7181d7abb0a5a620f7a54c387ceb290057224480ef6"
+    },
+    {
+      "snapshot": "community",
+      "path": "src/chars/player.js",
+      "bytes": 13573,
+      "sha256": "203efa5fe07a371facf81e1017b40fe4359603f512f180255b8bc2a4629b8ea3"
+    },
+    {
+      "snapshot": "community",
+      "path": "src/chars/slot.js",
+      "bytes": 6751,
+      "sha256": "247193f14beba6f1aaf3a595e7b33b6b4e49dc2c0de315b05fb8bd4907ce64ff"
+    },
+    {
+      "snapshot": "community",
+      "path": "src/chars/slotgroup.js",
+      "bytes": 2232,
+      "sha256": "8e464b76d729c6e335dff85d720d99dbe54521b4f46a84b7eeb07ab25e5a070b"
+    },
+    {
+      "snapshot": "community",
+      "path": "src/chars/state.js",
+      "bytes": 1321,
+      "sha256": "a8038e65ee16cf0d6a5c8f4c3fe613aace24ce9d0d386ae7128a3ab6c06d8ace"
+    },
+    {
+      "snapshot": "community",
+      "path": "src/chars/states.js",
+      "bytes": 4014,
+      "sha256": "1d5d03f82df4e8d37bd4255a106b365c5fad4cacebb3c6d668daf3deac8b1f08"
+    },
+    {
+      "snapshot": "community",
+      "path": "src/chars/title.js",
+      "bytes": 419,
+      "sha256": "e31d9f3e3f254568dc0f6982289fe471d61fffd6dfe40f409c2d748a7387f1c3"
+    },
+    {
+      "snapshot": "community",
+      "path": "src/chars/wearable.js",
+      "bytes": 10998,
+      "sha256": "f35cc19266030c5813709af23816d1c7158a4e64245f318de653cb0e0858e640"
+    },
+    {
+      "snapshot": "community",
+      "path": "src/classes/spawngroup.js",
+      "bytes": 2709,
+      "sha256": "17ec291b3c7df8038e6ea29195e242f6c95a56fb16d1ef7f3788d030cdb3f101"
+    },
+    {
+      "snapshot": "community",
+      "path": "src/classes/spawnparams.js",
+      "bytes": 1662,
+      "sha256": "af765643eddbcb49f061d5740d0d32abaf6bdfdeb52d38ef96376359ca26b14f"
+    },
+    {
+      "snapshot": "community",
+      "path": "src/classes/spawns.js",
+      "bytes": 2435,
+      "sha256": "44f8416772c74bed7eea8e86b258a5a9238fc29aeaf5a5ca425d4b278d79f0e4"
+    },
+    {
+      "snapshot": "community",
+      "path": "src/composites/combat.js",
+      "bytes": 15330,
+      "sha256": "2f7ef2048a1e49025f8b5b6f3a935772817a49ece468737a99ee9ea4d8c0aede"
+    },
+    {
+      "snapshot": "community",
+      "path": "src/composites/enchanting.js",
+      "bytes": 2139,
+      "sha256": "c1275725f0ca89a5213511150a0bab2b5c78d35b1ca6e9f677a6e3f5b3edf5be"
+    },
+    {
+      "snapshot": "community",
+      "path": "src/composites/explore.js",
+      "bytes": 8676,
+      "sha256": "ebf16a1a1b73d49d3021c94548a5608e0daf45d5b53e9d22e1e4122f2297277c"
+    },
+    {
+      "snapshot": "community",
+      "path": "src/composites/group.js",
+      "bytes": 4440,
+      "sha256": "1746b33604420243279d7d506fd203a3b43485ebe1a6f39bb354f318895b55de"
+    },
+    {
+      "snapshot": "community",
+      "path": "src/composites/proxy.js",
+      "bytes": 1970,
+      "sha256": "3826f4a67322faed78cce1835887349d96bc8ef11da2023c8e8f87a4b2f3e6dc"
+    },
+    {
+      "snapshot": "community",
+      "path": "src/composites/quickbar.js",
+      "bytes": 1567,
+      "sha256": "6fcf4891b2344af944792c82a626b4da303ff756a060835b2e7819cda1612ec8"
+    },
+    {
+      "snapshot": "community",
+      "path": "src/composites/quickbars.js",
+      "bytes": 1573,
+      "sha256": "79e0202aa9de348c88077dce31e6667adf42c9c4b9aca12f175288c6bb1c3f06"
+    },
+    {
+      "snapshot": "community",
+      "path": "src/composites/quickslot.js",
+      "bytes": 2707,
+      "sha256": "919139310f74c3a5b36370d1cc164e6d66f86e27f45441032eec8197b1cc7f6a"
+    },
+    {
+      "snapshot": "community",
+      "path": "src/composites/runnable.js",
+      "bytes": 2309,
+      "sha256": "a5ec86cc4957c83a147e9d474e947ebfe71f889e1ed68cd2bc5f4b02b291b98e"
+    },
+    {
+      "snapshot": "community",
+      "path": "src/composites/tagset.js",
+      "bytes": 5228,
+      "sha256": "338c771ddf9bd41283af9c3b4fb3c4b510446b058692e6a580b1c10c06291cd9"
+    },
+    {
+      "snapshot": "community",
+      "path": "src/dataLoader.js",
+      "bytes": 11007,
+      "sha256": "6843692b0f8ed657d3b23b5af0b3db60df7d78a9d3d81daf6b8dcb9d31dc0eca"
+    },
+    {
+      "snapshot": "community",
+      "path": "src/debug/cheats.js",
+      "bytes": 1566,
+      "sha256": "bfe3c24525c76b680e445d43d4cfc2e98e926efbc3b0155fb2c422aff9bc68ca"
+    },
+    {
+      "snapshot": "community",
+      "path": "src/debug/cmdline.js",
+      "bytes": 2476,
+      "sha256": "c67e97851a094287b055f2fd37fc6489071dc8ad15541cd4d1c792c356b0dbd5"
+    },
+    {
+      "snapshot": "community",
+      "path": "src/debug/debug.js",
+      "bytes": 4579,
+      "sha256": "9f0a805c400691df218aabcec9f0ce2746cde412022c736856f5e0c52312676c"
+    },
+    {
+      "snapshot": "community",
+      "path": "src/debug/devconsole.vue",
+      "bytes": 1144,
+      "sha256": "87db052218de238cba2da5a7036b1215981c54ea29937acf2032bf91fac91f1f"
+    },
+    {
+      "snapshot": "community",
+      "path": "src/events.js",
+      "bytes": 13954,
+      "sha256": "dd78fd691cb024e1064f62645da550f3183ae8b6b3d33cf4d6131fcf62b47a86"
+    },
+    {
+      "snapshot": "community",
+      "path": "src/game.js",
+      "bytes": 36913,
+      "sha256": "50482fa4b99f7cf27234ecc34a6eb37be1944e8101ac446419c1c2327338e3e7"
+    },
+    {
+      "snapshot": "community",
+      "path": "src/gameState.js",
+      "bytes": 14198,
+      "sha256": "4f5e207215a8cae6a3f56b5120e8efbffa47aca0b673bad41a282a832196a9c5"
+    },
+    {
+      "snapshot": "community",
+      "path": "src/genGroup.js",
+      "bytes": 5211,
+      "sha256": "cd558c452e29e9e454c105837f6d36002f6fabde42ad226e354b8a0f8e4f032a"
+    },
+    {
+      "snapshot": "community",
+      "path": "src/globalMixin.js",
+      "bytes": 499,
+      "sha256": "19789e02f3dc0aec83d779e3bbbf290af705e7a3a4664f06f277f4dde922095c"
+    },
+    {
+      "snapshot": "community",
+      "path": "src/index.js",
+      "bytes": 6440,
+      "sha256": "4b5f0e981b7479a841a284cdd87f391a54e43cfceb1520ab40cc07d140a55fb6"
+    },
+    {
+      "snapshot": "community",
+      "path": "src/inventories/dataList.js",
+      "bytes": 5196,
+      "sha256": "1d4caed05dcf27fa9013693d8daf6e2cf3eb213159c6a43972cb458c3b264ec5"
+    },
+    {
+      "snapshot": "community",
+      "path": "src/inventories/enchantslots.js",
+      "bytes": 3035,
+      "sha256": "1e2eca749b94938c071e32ce1dc8a59d24067a6cb874b02717a0bd1f8df15ef9"
+    },
+    {
+      "snapshot": "community",
+      "path": "src/inventories/home.js",
+      "bytes": 1249,
+      "sha256": "0dd7d7f1ccd87e7beb8a0ca6a11b4ce0e94d69a1d7f9ec26ac8fe2c999d911ed"
+    },
+    {
+      "snapshot": "community",
+      "path": "src/inventories/inventory.js",
+      "bytes": 8990,
+      "sha256": "bc72b9de696a3957ef94e26b806cecdd08a81bf93c1a6aabfc5289705f043e52"
+    },
+    {
+      "snapshot": "community",
+      "path": "src/inventories/minions.js",
+      "bytes": 4129,
+      "sha256": "3bfa7228e4cfd4fdb52ae9fd37da909d3c16d6ba60a30bc61ad2b41abf6a9d49"
+    },
+    {
+      "snapshot": "community",
+      "path": "src/inventories/spellLoadouts.js",
+      "bytes": 1729,
+      "sha256": "50e91154d5f61b0d08c983f60760a6eabf0df2b8c154090e8242f3855ce2ae9f"
+    },
+    {
+      "snapshot": "community",
+      "path": "src/inventories/userSpells.js",
+      "bytes": 1114,
+      "sha256": "89181d6ab9f09916062177a84bcfec390cf8f7f8268794a3023afc89eb91fde1"
+    },
+    {
+      "snapshot": "community",
+      "path": "src/items/base.js",
+      "bytes": 19600,
+      "sha256": "8abca59abafbab5a1a4e07d2557b12788f4fcf5dbf80dc8a28781018132741fe"
+    },
+    {
+      "snapshot": "community",
+      "path": "src/items/charupgrade.js",
+      "bytes": 1034,
+      "sha256": "2c6fdaeb1badaa8c96bea43e135c35fd2a1d5b821cd8c915ee5ca9f6331c4e21"
+    },
+    {
+      "snapshot": "community",
+      "path": "src/items/enchant.js",
+      "bytes": 1621,
+      "sha256": "a8493faf78aa768d9277e3443d90e3f948d26978e6db3cf2b1624482d8383134"
+    },
+    {
+      "snapshot": "community",
+      "path": "src/items/encounter.js",
+      "bytes": 2042,
+      "sha256": "7eca176a0ba577379d7a71e0bdb55c1c08d56bcc3392be428f884b4c07ee3d00"
+    },
+    {
+      "snapshot": "community",
+      "path": "src/items/gclass.js",
+      "bytes": 614,
+      "sha256": "eab5d752daed4c37eca68e4c7ebb35f7e42b2d7a3e62b4312f0908ba80abb92d"
+    },
+    {
+      "snapshot": "community",
+      "path": "src/items/gdata.js",
+      "bytes": 14893,
+      "sha256": "b5b6b324b13effd81261e2b32f46d1182f990548f2c3e3954835e140a7e4fbc2"
+    },
+    {
+      "snapshot": "community",
+      "path": "src/items/gevent.js",
+      "bytes": 1443,
+      "sha256": "b37d4d8b57bd83ba62d618f8698f9d1432d58aa7fb3e5c568c4f738eaec7c781"
+    },
+    {
+      "snapshot": "community",
+      "path": "src/items/instance.js",
+      "bytes": 3374,
+      "sha256": "2220366ee74eaa88f0212bc9a2c0db5ccad96dfb8ec97c7e0095814075f73455"
+    },
+    {
+      "snapshot": "community",
+      "path": "src/items/item.js",
+      "bytes": 7331,
+      "sha256": "daa65b3ab9e92bd5c03ae62d172e11267f6f030e03ce4b23f49cb213d5470710"
+    },
+    {
+      "snapshot": "community",
+      "path": "src/items/locale.js",
+      "bytes": 3831,
+      "sha256": "777604a99ff80dec47d35f1bf2382fbdd475f07d6a8aaaa2d4a702cbb48fe334"
+    },
+    {
+      "snapshot": "community",
+      "path": "src/items/monster.js",
+      "bytes": 8257,
+      "sha256": "704d4274b7725cbe55356e2393a39cc77d2de392f879a202daf4913e71290696"
+    },
+    {
+      "snapshot": "community",
+      "path": "src/items/potion.js",
+      "bytes": 2216,
+      "sha256": "e6b896c924d3f842a51b77d0f8564627c8cfa1af0c2f07aca5f4adc6b3dc42aa"
+    },
+    {
+      "snapshot": "community",
+      "path": "src/items/resource.js",
+      "bytes": 2224,
+      "sha256": "a3aadc938c8271c678847c43e18143857b2e5f5bbdf664665a183e5318119821"
+    },
+    {
+      "snapshot": "community",
+      "path": "src/items/revStat.js",
+      "bytes": 1242,
+      "sha256": "5b88a95bf10a48422d870dead039b3705daca1d9008229a9f00ff4c430bd1fa1"
+    },
+    {
+      "snapshot": "community",
+      "path": "src/items/skill.js",
+      "bytes": 2060,
+      "sha256": "838d69374a5c329243456777e6a129b88a12ac52c528b0add960dcd8aa24b5d5"
+    },
+    {
+      "snapshot": "community",
+      "path": "src/items/spell.js",
+      "bytes": 3386,
+      "sha256": "4f50c55be2aced1c780852e59d41f85357a81e6172f8795f3ef7ad213d3a204b"
+    },
+    {
+      "snapshot": "community",
+      "path": "src/items/statData.js",
+      "bytes": 1946,
+      "sha256": "70252ba10ca6e5484131f41f7bfa3531b5b5f4ea6a81afff594e4ab0c18ebad2"
+    },
+    {
+      "snapshot": "community",
+      "path": "src/items/task.js",
+      "bytes": 6376,
+      "sha256": "0d3b2c0b1d2893d161a2c0ac5e0067794689e03b90dcc83af15a6cbfe9c68459"
+    },
+    {
+      "snapshot": "community",
+      "path": "src/log.js",
+      "bytes": 2550,
+      "sha256": "c59957740f57dd97c9a1540e104d510d64ef712bb83a16ef963604c9b9966f62"
+    },
+    {
+      "snapshot": "community",
+      "path": "src/modules/charinfo.js",
+      "bytes": 2656,
+      "sha256": "9d8783897884c5475828c2bd475db7d7e958721c0d70f70897e8bc2aed5a6a52"
+    },
+    {
+      "snapshot": "community",
+      "path": "src/modules/craft.js",
+      "bytes": 3174,
+      "sha256": "0d843a0c5dd7b66c75e391fb515a4eb01079e7e03e1c87c0ff1ff34f776ad0e8"
+    },
+    {
+      "snapshot": "community",
+      "path": "src/modules/hall.js",
+      "bytes": 6141,
+      "sha256": "482e9ff288de415796f8ee7168b376569a1b4bbd54e0f71b56f603fb241b0012"
+    },
+    {
+      "snapshot": "community",
+      "path": "src/modules/itemgen.js",
+      "bytes": 15281,
+      "sha256": "e0f952ab3138004dc0ac3fecd53c932418baece41eefa3e11b3a4299da6ba67d"
+    },
+    {
+      "snapshot": "community",
+      "path": "src/modules/module.js",
+      "bytes": 5145,
+      "sha256": "c54616a7c959f7ae4a74674101b735472855bd0158141bf73c1734204530d829"
+    },
+    {
+      "snapshot": "community",
+      "path": "src/modules/parsing.js",
+      "bytes": 11620,
+      "sha256": "8909995b3a4149597e45eca1d9556cebd32e61232310f8dcb97686da0d3dfbef"
+    },
+    {
+      "snapshot": "community",
+      "path": "src/modules/persist/persist-db.js",
+      "bytes": 2609,
+      "sha256": "6eb9176851322a87a7166b4a94d7cb3ebc3f7e6035c345e8dbdbb287e34e4096"
+    },
+    {
+      "snapshot": "community",
+      "path": "src/modules/persist/persist.js",
+      "bytes": 2541,
+      "sha256": "ff464e1cfcece8ced18cfd76f2186d192f5e9fe02d151c30c0d27e6691a97b3e"
+    },
+    {
+      "snapshot": "community",
+      "path": "src/modules/persist/persistLocal.js",
+      "bytes": 1181,
+      "sha256": "29935010a01b8b54c970ec466af8c71c27fb7b9219fc91dcd46e03df1a191870"
+    },
+    {
+      "snapshot": "community",
+      "path": "src/modules/persist/persistRemote.js",
+      "bytes": 2168,
+      "sha256": "49fd4f562a9c29fba93fb2bf627fe8d9f8bbe4d8b122108c92d2550410c3151f"
+    },
+    {
+      "snapshot": "community",
+      "path": "src/modules/profile.js",
+      "bytes": 7484,
+      "sha256": "e0657e6a8b644d72aea0464856899c55baebe686ffe836fc253b53a198349993"
+    },
+    {
+      "snapshot": "community",
+      "path": "src/modules/randoms.js",
+      "bytes": 568,
+      "sha256": "698d7c2f15104fcaa40cf13747e58b6a94bd5bc00b54ae8ee46c93d51b75d5cb"
+    },
+    {
+      "snapshot": "community",
+      "path": "src/modules/runner.js",
+      "bytes": 16458,
+      "sha256": "e33340b470083bf9f3c70b56615b20a797ebec78055533a962d1a376cd8033a3"
+    },
+    {
+      "snapshot": "community",
+      "path": "src/modules/settings.js",
+      "bytes": 1727,
+      "sha256": "3279a4f8c10cd6622af015cb753cfb2a4347852545028de961351b0d0439c16f"
+    },
+    {
+      "snapshot": "community",
+      "path": "src/protos/protoDot.js",
+      "bytes": 1009,
+      "sha256": "1a3d64ca0789596c7d9d37b4c32d49addabe49ae31b49edf9a5110d4217f9a71"
+    },
+    {
+      "snapshot": "community",
+      "path": "src/protos/protoItem.js",
+      "bytes": 2804,
+      "sha256": "298a2aba93dada25d1d8d2a5afeac061d7ec73bc628e64baaa3f727ba65e7686"
+    },
+    {
+      "snapshot": "community",
+      "path": "src/remote/confirm.html",
+      "bytes": 1077,
+      "sha256": "6e2cdcf10d39ee5ae9ca11ffb408991ea850603238b0439ad01722da5388c62a"
+    },
+    {
+      "snapshot": "community",
+      "path": "src/remote/google-cors.json",
+      "bytes": 254,
+      "sha256": "435dcb1e211b64511c47a2786a12b941adaad7daa327ba11b96bce9c433d3fa9"
+    },
+    {
+      "snapshot": "community",
+      "path": "src/remote/remote.js",
+      "bytes": 2808,
+      "sha256": "1d1a2dba3de4fcf4e3dc3cbca50f8fc74d2ac07aaff5dd38e058cfc2b22c097d"
+    },
+    {
+      "snapshot": "community",
+      "path": "src/sw.js",
+      "bytes": 438,
+      "sha256": "d986fc28a22cdc33fcc815422ba82afa87af57c486d53dfe3c6a647cecc1de3c"
+    },
+    {
+      "snapshot": "community",
+      "path": "src/techTree.js",
+      "bytes": 5952,
+      "sha256": "7755cb1552d775c774842bf14682faa2480846c57644db42acd4dae8c4e2df41"
+    },
+    {
+      "snapshot": "community",
+      "path": "src/timer.js",
+      "bytes": 176,
+      "sha256": "33415f2ec460a45eef642761fc62c45d9bae641687542eefd81d6f42e1854504"
+    },
+    {
+      "snapshot": "community",
+      "path": "src/ui/components/bars.vue",
+      "bytes": 1227,
+      "sha256": "df32683e54ed342d47b23d5b1c4beec7b5cdff5d41ba8c107de57a57ab39752d"
+    },
+    {
+      "snapshot": "community",
+      "path": "src/ui/components/combatbar.vue",
+      "bytes": 2784,
+      "sha256": "20190b83cb5e2566e4b5af8ea8b4a1df786456bd9739b71476e9deb04ef329bb"
+    },
+    {
+      "snapshot": "community",
+      "path": "src/ui/components/confirm.vue",
+      "bytes": 1152,
+      "sha256": "2646c595abe060c82783a756ce3ccbf74e94790b8630fabbc4c1351772e56e7e"
+    },
+    {
+      "snapshot": "community",
+      "path": "src/ui/components/dropdown.vue",
+      "bytes": 2799,
+      "sha256": "606ab900807d7dd6ea0435f110bed260694cc31e0bd0785408a0ecf80b007729"
+    },
+    {
+      "snapshot": "community",
+      "path": "src/ui/components/filterbox.vue",
+      "bytes": 1483,
+      "sha256": "d9ef1eccef48c44c858334e3cd0af69ea69f953e9be3f7ca503c582f793c6e81"
+    },
+    {
+      "snapshot": "community",
+      "path": "src/ui/components/loginStatus.vue",
+      "bytes": 358,
+      "sha256": "5bb55909a5f3b73a25484ba77e001eb024ae2a26aa5d62237165d822606d06ce"
+    },
+    {
+      "snapshot": "community",
+      "path": "src/ui/components/menu.vue",
+      "bytes": 1259,
+      "sha256": "7ce8673684d84405eaa5c58dc0dc36a3d5cbcd1c9145245b5d8081d2ee9922b2"
+    },
+    {
+      "snapshot": "community",
+      "path": "src/ui/components/picklist.vue",
+      "bytes": 379,
+      "sha256": "69b2dba415bb89e2c4630b036b2c4de027650ba077ea9008021760d27d8abca6"
+    },
+    {
+      "snapshot": "community",
+      "path": "src/ui/components/progbar.vue",
+      "bytes": 2222,
+      "sha256": "42f20af114b89cda80d796aff642b57787be274f56918813b90927b4a1ee207f"
+    },
+    {
+      "snapshot": "community",
+      "path": "src/ui/components/register.vue",
+      "bytes": 1345,
+      "sha256": "71dfc4ed1fc57e6fd06d1f534e25ccc34bb74b313eb8a5abdd8b4f7975ba1e89"
+    },
+    {
+      "snapshot": "community",
+      "path": "src/ui/components/slotpick.vue",
+      "bytes": 2023,
+      "sha256": "c38db7c1bca6391dce719e44ebb68b57ce2ed5d62a12aa9f6f505b03a4f3fb3a"
+    },
+    {
+      "snapshot": "community",
+      "path": "src/ui/equipment/enchantingSlot.vue",
+      "bytes": 1330,
+      "sha256": "4b4abdbedacaa35f86cc2ef00923b85691e70248cb27c2d1cf4f1bb386c57760"
+    },
+    {
+      "snapshot": "community",
+      "path": "src/ui/equipment/equipment.vue",
+      "bytes": 13029,
+      "sha256": "39cd5cdfbeced0f6ec158e93d7a6fc0c1dcd5abf6ed1fd3c5bb31b6bd56b0e0f"
+    },
+    {
+      "snapshot": "community",
+      "path": "src/ui/equipment/equipmentItem.vue",
+      "bytes": 2718,
+      "sha256": "ed91cc2aa2f1ac33169d99029d75413a1ccbb0bbe1b697ceb8860759ddfe7927"
+    },
+    {
+      "snapshot": "community",
+      "path": "src/ui/hall/charinfo.vue",
+      "bytes": 2256,
+      "sha256": "b1d0a5d954f10c1342d7c34319e6ded6f60237d6b4f16a714849afda340197f2"
+    },
+    {
+      "snapshot": "community",
+      "path": "src/ui/hall/hall.vue",
+      "bytes": 3101,
+      "sha256": "ab93784bf253ada9874e963a39936b5727c1a67695477c7c1c861d80df4b8669"
+    },
+    {
+      "snapshot": "community",
+      "path": "src/ui/hall/hall_upgrades.vue",
+      "bytes": 1341,
+      "sha256": "43d59465543883bd4698906772628367533c7a743993989fce54569aabc464be"
+    },
+    {
+      "snapshot": "community",
+      "path": "src/ui/hall/upgrades.vue",
+      "bytes": 136,
+      "sha256": "83b215ec8b6e62547b169a830c9d19b6dae8fff770aac79b8eb6b925bb787a08"
+    },
+    {
+      "snapshot": "community",
+      "path": "src/ui/items/attack.vue",
+      "bytes": 8909,
+      "sha256": "4a55db8f58bfce4812b3537c55806a4afb8b5b399e473899f6cc42d792d7b910"
+    },
+    {
+      "snapshot": "community",
+      "path": "src/ui/items/combat.vue",
+      "bytes": 575,
+      "sha256": "e741dccdeaa21e625ad5595ad1efc59a390bade71d44ec4ba494b394fbe97518"
+    },
+    {
+      "snapshot": "community",
+      "path": "src/ui/items/damageMixin.js",
+      "bytes": 3958,
+      "sha256": "276f95d8be9c42ce3658e6609d309a06943cf34f13de3f0518062c3f9a4e7562"
+    },
+    {
+      "snapshot": "community",
+      "path": "src/ui/items/displayItem.js",
+      "bytes": 1176,
+      "sha256": "aad0412c18af3f6dd9339da5fdff65b48395896563edcffbf40beec18abae2c9"
+    },
+    {
+      "snapshot": "community",
+      "path": "src/ui/items/dot-info.vue",
+      "bytes": 5568,
+      "sha256": "a05a1e601388121c3b05f744074b9e6ec4cc28df7241135b7560a3e80f57882f"
+    },
+    {
+      "snapshot": "community",
+      "path": "src/ui/items/dotView.vue",
+      "bytes": 1258,
+      "sha256": "d9d7a207c06259338ab3f7b6eca7990ea28d96cb6bd1c4cde66747a221f3df66"
+    },
+    {
+      "snapshot": "community",
+      "path": "src/ui/items/enchantslots.vue",
+      "bytes": 1303,
+      "sha256": "97b16ecc49651e1ceba43e5fe064b808260eabbce34819ade7ca440a230ff1dc"
+    },
+    {
+      "snapshot": "community",
+      "path": "src/ui/items/explore.vue",
+      "bytes": 3462,
+      "sha256": "d4d333bc027634fae4c038a1d47822151f42ff7c681a0925420bc24fd814d523"
+    },
+    {
+      "snapshot": "community",
+      "path": "src/ui/items/gdata.vue",
+      "bytes": 17396,
+      "sha256": "205aacad16c03cf25fb46d86f3c5c2fc1139a1aba3997c03dc6044487dd7b992"
+    },
+    {
+      "snapshot": "community",
+      "path": "src/ui/items/healingMixin.js",
+      "bytes": 3948,
+      "sha256": "2f494f942cd30ae00bcccf1e52ac3fd6885d9cbce8fec50acac5cb9fb2ce03ca"
+    },
+    {
+      "snapshot": "community",
+      "path": "src/ui/items/info-block.vue",
+      "bytes": 10595,
+      "sha256": "93787722bf620a2df662dc220f3d07a7ff19b920ea722a52cae688dfe95830a8"
+    },
+    {
+      "snapshot": "community",
+      "path": "src/ui/items/infoBlock.js",
+      "bytes": 4359,
+      "sha256": "d46a37c660002ccd620fd74010c297b9446c2ac1090dc48a4929fdd77fd6f834"
+    },
+    {
+      "snapshot": "community",
+      "path": "src/ui/items/mood.vue",
+      "bytes": 1515,
+      "sha256": "cb8bb4897d0ca1e2eb14482430001ac1e6c5faf71e08737987b257c2f7bc5423"
+    },
+    {
+      "snapshot": "community",
+      "path": "src/ui/items/npc-group.vue",
+      "bytes": 1121,
+      "sha256": "ac6c7d63680e40921da498df466544925072efbb55a433b8338eeb7bf7e731ad"
+    },
+    {
+      "snapshot": "community",
+      "path": "src/ui/items/skill.vue",
+      "bytes": 2317,
+      "sha256": "abff00211de0cf1b512de98fe8ad123e492a14dc2c7b37c215897f2af3376728"
+    },
+    {
+      "snapshot": "community",
+      "path": "src/ui/items/summon.vue",
+      "bytes": 1292,
+      "sha256": "e87de710d2f03a431d8321f852d3e2a681421ebb659bc94e14b2dbcde0ec69ab"
+    },
+    {
+      "snapshot": "community",
+      "path": "src/ui/items/weapon.vue",
+      "bytes": 597,
+      "sha256": "45d84d0404862da4617cb0eb99b60b2bc988c82531de870e91d0b966d847e8b7"
+    },
+    {
+      "snapshot": "community",
+      "path": "src/ui/itemsBase.js",
+      "bytes": 3052,
+      "sha256": "92c82985beb576cbd218bf676b62d496497bb43013b731c61c6b43e70bd23f6e"
+    },
+    {
+      "snapshot": "community",
+      "path": "src/ui/main.vue",
+      "bytes": 14643,
+      "sha256": "098e83281bfa5a5e21d0d650c562d9c6a25771ed8c5edfd05e281658cb2a84f6"
+    },
+    {
+      "snapshot": "community",
+      "path": "src/ui/outlog.vue",
+      "bytes": 2911,
+      "sha256": "251cd774dff1b8bb0fda22749b1418013473b71105c69a1fde203f7a8cee01d4"
+    },
+    {
+      "snapshot": "community",
+      "path": "src/ui/panes/allupgrades.vue",
+      "bytes": 4997,
+      "sha256": "7b9de6a9847190fa702782d59e790c910805a603b340d393dacc508f1dfd3d57"
+    },
+    {
+      "snapshot": "community",
+      "path": "src/ui/panes/charpane.vue",
+      "bytes": 943,
+      "sha256": "3b3791cfce1c1d592e9d8ecd904579625df9c2af99a373656a664d2618c30814"
+    },
+    {
+      "snapshot": "community",
+      "path": "src/ui/panes/entryGroup.vue",
+      "bytes": 2046,
+      "sha256": "90167180cf67cc18f59d91c113c81c1b07b6142065fcef501236df42c3300d9c"
+    },
+    {
+      "snapshot": "community",
+      "path": "src/ui/panes/glossaryentries.vue",
+      "bytes": 2350,
+      "sha256": "f3be725b1125c28c90fa666df2d69e880e9e63cb25fac29d8477d8360f8d7b7c"
+    },
+    {
+      "snapshot": "community",
+      "path": "src/ui/panes/itemGroup.vue",
+      "bytes": 1974,
+      "sha256": "ef3f8086ab686803799acd8644dc3f2dd3d900189253478f7b6e2b9b15906a66"
+    },
+    {
+      "snapshot": "community",
+      "path": "src/ui/panes/resources.vue",
+      "bytes": 1789,
+      "sha256": "12fbff724f0cf2ff76dd09991ea616304e7cb342713c4bf82d641665b7b7cbb6"
+    },
+    {
+      "snapshot": "community",
+      "path": "src/ui/panes/running.vue",
+      "bytes": 3707,
+      "sha256": "f05ea8578e2786a66cd78d46ef67a19d535c32613d8018a9f9f1ca284f38e166"
+    },
+    {
+      "snapshot": "community",
+      "path": "src/ui/panes/taskGroup.vue",
+      "bytes": 1638,
+      "sha256": "5f7d55961452da599fb908233f7ca3704d4ff3aba5ea2c7a0f33f2fa5199db4a"
+    },
+    {
+      "snapshot": "community",
+      "path": "src/ui/panes/upgrades.vue",
+      "bytes": 1988,
+      "sha256": "106edefc47261ac05fa1f72c7314f14fae316884cb3c19598fa4ac884162fdd4"
+    },
+    {
+      "snapshot": "community",
+      "path": "src/ui/panes/vitals.vue",
+      "bytes": 6994,
+      "sha256": "f531fd0ab310f94faad4ed5e389437c6d6bc0c1121f98aee9e6b05db53fba810"
+    },
+    {
+      "snapshot": "community",
+      "path": "src/ui/popups/activities.vue",
+      "bytes": 7045,
+      "sha256": "c7403d9edbd9bb8e808e210cee77f5dc56f934028b1ad7328010b17e08a6f10a"
+    },
+    {
+      "snapshot": "community",
+      "path": "src/ui/popups/choice.vue",
+      "bytes": 4121,
+      "sha256": "1e78516509e7ad8ec4b5705680d1da69b61c9e4815d9ae7d9ab215b4bb60adf5"
+    },
+    {
+      "snapshot": "community",
+      "path": "src/ui/popups/itemPopup.vue",
+      "bytes": 3089,
+      "sha256": "96dfa1640b841d551969b814b993483f0bd0202d44c72186494b26f83ef8ecb8"
+    },
+    {
+      "snapshot": "community",
+      "path": "src/ui/popups/login.vue",
+      "bytes": 1623,
+      "sha256": "d35ad2e7dab759305c227c4cfea71185eec53493d4e690ee9358148f80efd43c"
+    },
+    {
+      "snapshot": "community",
+      "path": "src/ui/popups/popups.js",
+      "bytes": 1432,
+      "sha256": "77c51085d9663731fed789d418dc59cee3ce06de8c13e86c6f73bbfc80f31e0f"
+    },
+    {
+      "snapshot": "community",
+      "path": "src/ui/popups/settings.vue",
+      "bytes": 6532,
+      "sha256": "e71f56ef8bfb8feed8b1f98f742c4da02a271d577687e4dffd310370f5e0787d"
+    },
+    {
+      "snapshot": "community",
+      "path": "src/ui/popups/warn.vue",
+      "bytes": 1844,
+      "sha256": "daae601b467cadafd41a8bbd9cec28a9649f9d9c942143cedc3c0e9af25aca13"
+    },
+    {
+      "snapshot": "community",
+      "path": "src/ui/potionschool.vue",
+      "bytes": 2743,
+      "sha256": "9dd2c7963e7c53f265452c000f254b186f886478b5c105a5d56eb3171713dfb9"
+    },
+    {
+      "snapshot": "community",
+      "path": "src/ui/quickbar.vue",
+      "bytes": 2193,
+      "sha256": "21733cd775fc8d5af148be1ac2ad40f9b8a6cba5d86ffb0f7e9096dac7aed6aa"
+    },
+    {
+      "snapshot": "community",
+      "path": "src/ui/sections/adventure.vue",
+      "bytes": 8683,
+      "sha256": "acc76d93ce77f752b70caad413a74207186b318617c54a9902a4d4c626420b06"
+    },
+    {
+      "snapshot": "community",
+      "path": "src/ui/sections/bestiary.vue",
+      "bytes": 4405,
+      "sha256": "34f9101fa2a7bb0f706392e487323b5b4e501a1bc3afd85ea47a28894efb5f4e"
+    },
+    {
+      "snapshot": "community",
+      "path": "src/ui/sections/converters.vue",
+      "bytes": 3850,
+      "sha256": "a299a4e785dd2b7af8fa06c1b0ecc9f953305feb315db1481281b90e77649c31"
+    },
+    {
+      "snapshot": "community",
+      "path": "src/ui/sections/crafting.vue",
+      "bytes": 4397,
+      "sha256": "8103e63f00d840b3f9ad1700527a6c6fb3e832f6fd9b75d93d7ea50a954b8a5c"
+    },
+    {
+      "snapshot": "community",
+      "path": "src/ui/sections/enchanting.vue",
+      "bytes": 5423,
+      "sha256": "fca8d7a654aff64b8e498ee97006a28796991cbbea5e3bf3da698f8e16dde773"
+    },
+    {
+      "snapshot": "community",
+      "path": "src/ui/sections/equip.vue",
+      "bytes": 2236,
+      "sha256": "85a7a379848f4f154567bab958c3da0d95a1ca2cfcd1f7e9247bac17aa9ccd0b"
+    },
+    {
+      "snapshot": "community",
+      "path": "src/ui/sections/familiars.vue",
+      "bytes": 278,
+      "sha256": "33e868e11f850c45cdcee3092e062681ab33bb4bf1c81d3b3247031e14551480"
+    },
+    {
+      "snapshot": "community",
+      "path": "src/ui/sections/furniture.vue",
+      "bytes": 10108,
+      "sha256": "11f11067e04b3ceda5c807df58ddd1ae914a92f12b36555fa96829dce990f405"
+    },
+    {
+      "snapshot": "community",
+      "path": "src/ui/sections/glossary.vue",
+      "bytes": 3788,
+      "sha256": "7c23fd1d8b41fff01ff790042ad8070863b9b755cf1abc9620e8552d98944c7b"
+    },
+    {
+      "snapshot": "community",
+      "path": "src/ui/sections/home.vue",
+      "bytes": 2824,
+      "sha256": "3215b83522960dfc7303423930e2f54423952222517ab27c8083440fcb91df38"
+    },
+    {
+      "snapshot": "community",
+      "path": "src/ui/sections/inventory.vue",
+      "bytes": 6255,
+      "sha256": "6643577e16b79a03e31683b1e58af88f2596413669792247d94bdf74e1a99f7e"
+    },
+    {
+      "snapshot": "community",
+      "path": "src/ui/sections/minions.vue",
+      "bytes": 4403,
+      "sha256": "2d815573e7781691be15dd5741a7aae6ffe0edc85294f009462420906bb9556a"
+    },
+    {
+      "snapshot": "community",
+      "path": "src/ui/sections/player.vue",
+      "bytes": 10498,
+      "sha256": "ac50963d731430fe5c5af6c739732e1a19026092a31d9d851db7c9d60af3918c"
+    },
+    {
+      "snapshot": "community",
+      "path": "src/ui/sections/potions.vue",
+      "bytes": 10202,
+      "sha256": "7eb89ec980609ef992acee747fdd72904de50cd9b8669b0508e6280f82ad8153"
+    },
+    {
+      "snapshot": "community",
+      "path": "src/ui/sections/scraft.vue",
+      "bytes": 12998,
+      "sha256": "5ef0cf19d8def1cf603f97aa263f5c2d59f976ebd649829926823954eeda42b0"
+    },
+    {
+      "snapshot": "community",
+      "path": "src/ui/sections/skills.vue",
+      "bytes": 3936,
+      "sha256": "39f25ba28246dc098f9b52253fc2822820738318545e84a93838b45dbccd0d4c"
+    },
+    {
+      "snapshot": "community",
+      "path": "src/ui/sections/spells.vue",
+      "bytes": 12355,
+      "sha256": "d3205bfaa16232262080a2567f889ffc1189dc15b65c419c6c758343a79c2edc"
+    },
+    {
+      "snapshot": "community",
+      "path": "src/ui/sections/tasks.vue",
+      "bytes": 5239,
+      "sha256": "1c9d82cff28af5d7176d80abb354d588c1b4f61979ee665c18f65d3ccb091cb0"
+    },
+    {
+      "snapshot": "community",
+      "path": "src/ui/sections/travelogue.vue",
+      "bytes": 8767,
+      "sha256": "f64b56b4f317bed1cbe2d0f8bf215690115a93db9f25f51ea0fc4d58040b0e55"
+    },
+    {
+      "snapshot": "community",
+      "path": "src/ui/spelllist.vue",
+      "bytes": 5128,
+      "sha256": "12a66b4b17f3606331b80457753c2569c8dbf219c5f010b851e56792bc52ccfa"
+    },
+    {
+      "snapshot": "community",
+      "path": "src/ui/spellschool.vue",
+      "bytes": 3264,
+      "sha256": "8f8fc42a44687b1bd6ae021980b9a0d8149b872d34fda722b7af9ecc254b1c94"
+    },
+    {
+      "snapshot": "community",
+      "path": "src/ui/top-bar.vue",
+      "bytes": 3213,
+      "sha256": "912f63eb071a4e64c8ce85ef2bb2beb755138218fe4c3d1291d8d6d7e85246e3"
+    },
+    {
+      "snapshot": "community",
+      "path": "src/ui/uiMixin.js",
+      "bytes": 4447,
+      "sha256": "dd688db2bb270a64d0f7ae3dcaa0b79d4bfd7cb0f2e53cf0d3abcba1bb37fb52"
+    },
+    {
+      "snapshot": "community",
+      "path": "src/unused/halloween.json",
+      "bytes": 16294,
+      "sha256": "39073fbb03eaccc11d9616fee309256dea2362d99353f52290b2a1bb31585f4d"
+    },
+    {
+      "snapshot": "community",
+      "path": "src/unused/lock.js",
+      "bytes": 1799,
+      "sha256": "8bce4c8afcfdf2a069eaf0344f0972753358257f4220748982c4f11bf52109f3"
+    },
+    {
+      "snapshot": "community",
+      "path": "src/unused/stub.js",
+      "bytes": 288,
+      "sha256": "6b3e2107bfaede0afe2f689eda126698b8f1d2dba63a00c2038fa070bef59733"
+    },
+    {
+      "snapshot": "community",
+      "path": "src/util/array.ts",
+      "bytes": 12372,
+      "sha256": "a6f1af622aafe2df0dc8dee3d1f4e5a1659b1dde6f4cd6a620542c07d53bf462"
+    },
+    {
+      "snapshot": "community",
+      "path": "src/util/arrayDeprecated.js",
+      "bytes": 6540,
+      "sha256": "f71c454a53b1a714ea69ebc1ccea2f4bf7b489346aa4b54df8e57b72ee4d329f"
+    },
+    {
+      "snapshot": "community",
+      "path": "src/util/converter.js",
+      "bytes": 1334,
+      "sha256": "2b8337f6e38bad37e487d96ba0a1a049b9c81827d0a2aa3aeb7e0b808028b247"
+    },
+    {
+      "snapshot": "community",
+      "path": "src/util/dataUtil.js",
+      "bytes": 2716,
+      "sha256": "e9047fd27aca341197159354d3873bc6f6e581b5f24b2a2e0d4bcc7accd68cca"
+    },
+    {
+      "snapshot": "community",
+      "path": "src/util/format.js",
+      "bytes": 3946,
+      "sha256": "b2595c28f906d556deeaf4ff28a01ea801d6c68c7eded9d8f084446d3deaf348"
+    },
+    {
+      "snapshot": "community",
+      "path": "src/util/jsonLoader.js",
+      "bytes": 2214,
+      "sha256": "e76b24973370c5be5700c3968f60941f756c9ba36292b1cfcfa30a24cabafd30"
+    },
+    {
+      "snapshot": "community",
+      "path": "src/util/objecty.js",
+      "bytes": 18696,
+      "sha256": "2dd4a96fe36eae2fb7bf07778d6ed3ea3e6c20c942d6283e74bf7f950347e80f"
+    },
+    {
+      "snapshot": "community",
+      "path": "src/util/util.js",
+      "bytes": 11378,
+      "sha256": "29fa0fb3fec2722238cda3be11eb426ce93a1f1fc20bf8c7a16f0685b3fa0914"
+    },
+    {
+      "snapshot": "community",
+      "path": "src/util/varPath.js",
+      "bytes": 2442,
+      "sha256": "1c30a8fb759c113d6bd04847e11586792059e9244b22b4d849e88e7db8c0ffc3"
+    },
+    {
+      "snapshot": "community",
+      "path": "src/values/arrayset.js",
+      "bytes": 954,
+      "sha256": "e7f733211c2444446f82eb2fc8065129f9fa94bdf13bcbe32caac6d20eff8997"
+    },
+    {
+      "snapshot": "community",
+      "path": "src/values/combatVars.js",
+      "bytes": 12988,
+      "sha256": "4d8e7c98aa05fb94224fad8fe75d41f26f9bd38c19925706cf658d67f49ca330"
+    },
+    {
+      "snapshot": "community",
+      "path": "src/values/consts.js",
+      "bytes": 4508,
+      "sha256": "d9d99243b679ab05fc6b57f1a79875a34dddb3ad9ae29495e1a9217d1509fa81"
+    },
+    {
+      "snapshot": "community",
+      "path": "src/values/coord.js",
+      "bytes": 859,
+      "sha256": "fd32a20bbb7a816ce7e4c0899dae303a2c3cfacd19619bf087c5c23a2469b47c"
+    },
+    {
+      "snapshot": "community",
+      "path": "src/values/craftVars.js",
+      "bytes": 4933,
+      "sha256": "9765a5ade9f16c5586a9d2895c44e9b96958dfd9db0c72f1893be9fe51283a33"
+    },
+    {
+      "snapshot": "community",
+      "path": "src/values/defaults.js",
+      "bytes": 770,
+      "sha256": "64940c0d3bbb34a83f0fafe679d882dd74cc37b9f5b9541c73f92aa12ce9d0c2"
+    },
+    {
+      "snapshot": "community",
+      "path": "src/values/maxStat.js",
+      "bytes": 1948,
+      "sha256": "f5724c84f11419a503dae0fed61fd664afca6a6832036ee7dd663ad6d7bebd10"
+    },
+    {
+      "snapshot": "community",
+      "path": "src/values/mods/atmod.js",
+      "bytes": 2937,
+      "sha256": "15794b74a881fcfdc5041efe65b28d6dba67737e7064e70a2ad5e2954c087f66"
+    },
+    {
+      "snapshot": "community",
+      "path": "src/values/mods/curvedmod.js",
+      "bytes": 4978,
+      "sha256": "57ddcaf76d33932945dad2f5402b50d41b5198363c2759c804d7c3140efd838e"
+    },
+    {
+      "snapshot": "community",
+      "path": "src/values/mods/mod.js",
+      "bytes": 7691,
+      "sha256": "20e7831af53461fbdba5dd81ca1ec74f61791a1c49146e11ccb0d953291f3168"
+    },
+    {
+      "snapshot": "community",
+      "path": "src/values/mods/permod.js",
+      "bytes": 1653,
+      "sha256": "d55579b556bd4181fc6b08aae8d387a1b97f9e63636210537cab95e881d15411"
+    },
+    {
+      "snapshot": "community",
+      "path": "src/values/mods/rangedmod.js",
+      "bytes": 8127,
+      "sha256": "e171dd13c6eed2c778baa859ba446ba095cfd4a91beaa37b5856851fa9ee7051"
+    },
+    {
+      "snapshot": "community",
+      "path": "src/values/percent.js",
+      "bytes": 1181,
+      "sha256": "b7476a5197889da1f537e4fd30d1c0eab9eb12d47143c3d376e085830e572786"
+    },
+    {
+      "snapshot": "community",
+      "path": "src/values/range.js",
+      "bytes": 3650,
+      "sha256": "a73b256f05035e4243e48b93d912de6abf31baf6703bb6cafd5369e0610a2745"
+    },
+    {
+      "snapshot": "community",
+      "path": "src/values/rvals/atval.js",
+      "bytes": 1004,
+      "sha256": "1f46f5a5e29082045ab28f5dcecc48b23d44834b024ae5fefef74d438db96f15"
+    },
+    {
+      "snapshot": "community",
+      "path": "src/values/rvals/fvalue.js",
+      "bytes": 5917,
+      "sha256": "dd2c7ad0200fbca4a01afd323bfb82c5bbe15777ad2e74374af884b8014fb811"
+    },
+    {
+      "snapshot": "community",
+      "path": "src/values/rvals/rvalue.js",
+      "bytes": 3681,
+      "sha256": "5bbd02fdd244a69dc2c6a866ce4feefb42bc833477804634bd2da61bd68e5965"
+    },
+    {
+      "snapshot": "community",
+      "path": "src/values/rvals/scaler.js",
+      "bytes": 1106,
+      "sha256": "e8930a119dd70be18929a7ca8875bb912c4ca98c2489dfd0e960537c53d67c5a"
+    },
+    {
+      "snapshot": "community",
+      "path": "src/values/rvals/srcval.js",
+      "bytes": 421,
+      "sha256": "6f192e7ca1650d2607495f43f48be35866434776fd4664f1230d24ab352151cb"
+    },
+    {
+      "snapshot": "community",
+      "path": "src/values/rvals/stat.js",
+      "bytes": 6188,
+      "sha256": "1cc85ac9eb72ea29aba9998a1222de4a4d02a576586f4022e9d09c87b0c6e8dc"
+    },
+    {
+      "snapshot": "community",
+      "path": "tsconfig.json",
+      "bytes": 261,
+      "sha256": "f32b8e0126f0c3c2bd2e69cd0aa09b70878116baf585a861d07120a03706e368"
+    },
+    {
+      "snapshot": "community",
+      "path": "vite.config.ts",
+      "bytes": 3735,
+      "sha256": "7e7eff8f36057f1a8cc9a113573888e59b17f98f45b237a4f920caaf543e4a76"
+    },
+    {
+      "snapshot": "community",
+      "path": "vue.config.js",
+      "bytes": 95,
+      "sha256": "8c83f0efa5e7cf74492a3bcdea65b4c28234634c8ac26b8212654ae4cce69193"
+    },
+    {
+      "snapshot": "original",
+      "path": ".gitignore",
+      "bytes": 138,
+      "sha256": "d99e34ed753025f265b7132f4ac26cc3256bd0201ff582ee12822b2d476a5529"
+    },
+    {
+      "snapshot": "original",
+      "path": ".gitlab-ci.yml",
+      "bytes": 723,
+      "sha256": "093c8684485595fc6c55bcf93548b69ce4fdb2e015b0e30a6a07c8ddb19c48e1"
+    },
+    {
+      "snapshot": "original",
+      "path": "CONTRIBUTORS",
+      "bytes": 606,
+      "sha256": "8d8f4c3790bf7be7ba9696ac3062f29ae82d78d71bc627214a6f03d0390be1cd"
+    },
+    {
+      "snapshot": "original",
+      "path": "LICENSE",
+      "bytes": 1090,
+      "sha256": "2ea8103be8ae1207417724f39e08575acecb2d81c74b6d3bf13b13bc2482d955"
+    },
+    {
+      "snapshot": "original",
+      "path": "README.md",
+      "bytes": 5224,
+      "sha256": "e0354402a5486f35ba8b615eaa9f86e0eb5525725e58a6533dc451f7687dc669"
+    },
+    {
+      "snapshot": "original",
+      "path": "WiP/winter.json",
+      "bytes": 46865,
+      "sha256": "f78a2211e5f13d04722f2d6fc0bbeb90464c9ccbe4cd42262fcf7e641b7074dd"
+    },
+    {
+      "snapshot": "original",
+      "path": "changelog.txt",
+      "bytes": 5394,
+      "sha256": "dca0ccb2a8c0ac8edfc5b577117988578b1ba5a8fe4db8994613f334c72d032e"
+    },
+    {
+      "snapshot": "original",
+      "path": "css/main.css",
+      "bytes": 13155,
+      "sha256": "8260a217334d6cd4e39862fc4e98a3d2e3408705f2926f01b41d348abcb0ecea"
+    },
+    {
+      "snapshot": "original",
+      "path": "data/armors.json",
+      "bytes": 3948,
+      "sha256": "6752b5292c8823eb24bb29151801f5d016e12dc7a392867780f2c6e72ef33d91"
+    },
+    {
+      "snapshot": "original",
+      "path": "data/clashes.json",
+      "bytes": 6,
+      "sha256": "b45c681534d92e14f44e6f5577b0701bd30dc73726b1f68a68cb4bbeca87093c"
+    },
+    {
+      "snapshot": "original",
+      "path": "data/classes.json",
+      "bytes": 30757,
+      "sha256": "f2c23fe94930c132659b8b10e16c2b34c30f8c4acf197387004e40aa1b13ab0a"
+    },
+    {
+      "snapshot": "original",
+      "path": "data/defeatstat.json",
+      "bytes": 87,
+      "sha256": "8b41d9b21498033b6d2f4633044c8209ba3647b6cbcac0afa138c681fb623a5d"
+    },
+    {
+      "snapshot": "original",
+      "path": "data/dungeons.json",
+      "bytes": 17161,
+      "sha256": "c4a6c0d48ee41729657fce88862d26d4b575612c31efd87732e25b54065c91b9"
+    },
+    {
+      "snapshot": "original",
+      "path": "data/enchants.json",
+      "bytes": 15885,
+      "sha256": "3042dfae93d032cb6128a9e63f4b664e45e240cd5afeb6d94d866e1ff1c4b6d0"
+    },
+    {
+      "snapshot": "original",
+      "path": "data/encounters.json",
+      "bytes": 20985,
+      "sha256": "fddee88a9ff76ccbb554b6a82171c5782f6da3f8023b45cd5861e0df01e02cfb"
+    },
+    {
+      "snapshot": "original",
+      "path": "data/events.json",
+      "bytes": 10017,
+      "sha256": "0931c173caf43535e3356a5a439c26d4a6d4f9e66b934647e19f44577c8b5526"
+    },
+    {
+      "snapshot": "original",
+      "path": "data/furniture.json",
+      "bytes": 31024,
+      "sha256": "e48a553a3457dcf90913fec1ddc96a89159efa3312ea9d14326c37406cd5085a"
+    },
+    {
+      "snapshot": "original",
+      "path": "data/glossaryentries.json",
+      "bytes": 8111,
+      "sha256": "9915fa2eccc590cf3b006169b62f79de66667de724069d5c4ddbe020a2c47af4"
+    },
+    {
+      "snapshot": "original",
+      "path": "data/hall.json",
+      "bytes": 7585,
+      "sha256": "9892d2769f90f7e364d8b70e6b21675500d4376cd527809e30210e6baf549a79"
+    },
+    {
+      "snapshot": "original",
+      "path": "data/homes.json",
+      "bytes": 11089,
+      "sha256": "0fe3a7ea144e27a2f4dd9419952d969b573797736f732111dfba9d3af2927074"
+    },
+    {
+      "snapshot": "original",
+      "path": "data/locales.json",
+      "bytes": 7838,
+      "sha256": "653ce92aa73dd09d41f3c5231fe2d4e79ef484302b58ce85f873244f5613b887"
+    },
+    {
+      "snapshot": "original",
+      "path": "data/materials.json",
+      "bytes": 6950,
+      "sha256": "cc499727c98fda2d2d06628e0beea5b080a675d195704292f134d4aa318c26d7"
+    },
+    {
+      "snapshot": "original",
+      "path": "data/modules/combattutorial.json",
+      "bytes": 4145,
+      "sha256": "358c73e4c1017adb75ef3d8526d0b028cb699b3484660c02a9c52abe01622494"
+    },
+    {
+      "snapshot": "original",
+      "path": "data/modules/companions.json",
+      "bytes": 5475,
+      "sha256": "ddef2aa851327abc8c10051a9120f6be57feb2065629f0f33d9f38fea293bd0b"
+    },
+    {
+      "snapshot": "original",
+      "path": "data/modules/contributors.json",
+      "bytes": 1132,
+      "sha256": "5458a98cbedd3c9df52a8b4a9ffe2df08efeb9b4372e60cfbb0f0c06dc892c03"
+    },
+    {
+      "snapshot": "original",
+      "path": "data/modules/cthulhu.json",
+      "bytes": 1684,
+      "sha256": "ba4fd3c9ce65d5724f89cdac7fa8265764d100627b9aa15fd94eab0e50bc9b04"
+    },
+    {
+      "snapshot": "original",
+      "path": "data/modules/debitomancy.json",
+      "bytes": 9668,
+      "sha256": "434a527dc48fd53dfe66c2728179b58f7483495469b79849e52203a885cefedd"
+    },
+    {
+      "snapshot": "original",
+      "path": "data/modules/debug.json",
+      "bytes": 2411,
+      "sha256": "b938d43b0b95a4be62ad56ed30b3a0c38fc74f89fbfd5a9e6686f6b4a5867c91"
+    },
+    {
+      "snapshot": "original",
+      "path": "data/modules/duelist.json",
+      "bytes": 9803,
+      "sha256": "5cc7f56efdf889d6985ee6f6f12d47168f76b52ead38febb54b926972bfe0554"
+    },
+    {
+      "snapshot": "original",
+      "path": "data/modules/experimental.json",
+      "bytes": 1007,
+      "sha256": "12dc62bf73f5a51b9baab4a9a82f329b151fda905f8babe6b7197506cfd0c030"
+    },
+    {
+      "snapshot": "original",
+      "path": "data/modules/extraaction.json",
+      "bytes": 2814,
+      "sha256": "e3ded6c74627cd17111ea190af711bddb27dde2424178689bfccb91e3db3a6a4"
+    },
+    {
+      "snapshot": "original",
+      "path": "data/modules/extramats.json",
+      "bytes": 12334,
+      "sha256": "51a712524dce95e2a99204c7ff3eb44f5bc32eec9633748416fee04dd303564f"
+    },
+    {
+      "snapshot": "original",
+      "path": "data/modules/familiars.json",
+      "bytes": 60,
+      "sha256": "85dcea1a9f43d9c2cac8fbf42488140e750b30054711fa6064d24e71af852a10"
+    },
+    {
+      "snapshot": "original",
+      "path": "data/modules/furniture_upgrades.json",
+      "bytes": 4838,
+      "sha256": "d958362ac4f38eb6ff4896a7b4aec07d8197a6f0c1476cef617ea77765655291"
+    },
+    {
+      "snapshot": "original",
+      "path": "data/modules/halloween.json",
+      "bytes": 30740,
+      "sha256": "71a98bab1383c97405f23308594d3c1e9ca9faf8d2b0b26b571d51998428e79e"
+    },
+    {
+      "snapshot": "original",
+      "path": "data/modules/legacy.json",
+      "bytes": 28635,
+      "sha256": "4b2385605416b8d800a94c30e9e9dca901895765c48655e712b9df1975141681"
+    },
+    {
+      "snapshot": "original",
+      "path": "data/modules/martial.json",
+      "bytes": 18981,
+      "sha256": "39c927ced0ab44b71c33199d29549f9a052d13a8de47a32e16790a0c6065a1af"
+    },
+    {
+      "snapshot": "original",
+      "path": "data/modules/patrons.json",
+      "bytes": 9211,
+      "sha256": "d96297ff6a32c57fcff3dddf23dd3d2b542fcf1570fe8deb781273a40047a6c9"
+    },
+    {
+      "snapshot": "original",
+      "path": "data/modules/priest.json",
+      "bytes": 8082,
+      "sha256": "480298a54291a5b1c510ada9a038d69dc91bca2dde173616a3e61f68daa02393"
+    },
+    {
+      "snapshot": "original",
+      "path": "data/modules/puppeteer.json",
+      "bytes": 56950,
+      "sha256": "54444c6422b9492b1107c6f87df4681c2d4c29451384856e9e6d11e96bb2debe"
+    },
+    {
+      "snapshot": "original",
+      "path": "data/modules/pyromancer.json",
+      "bytes": 36595,
+      "sha256": "69c0287b47dba700f9b2372e0be0b70019b15d17f6607aefab26b402f4dccacd"
+    },
+    {
+      "snapshot": "original",
+      "path": "data/modules/reedburgh.json",
+      "bytes": 26273,
+      "sha256": "d1c2e71f32391ee0ae37b8c233a7271dda78e1b0d827701277c7f26d75007043"
+    },
+    {
+      "snapshot": "original",
+      "path": "data/modules/ritualist.json",
+      "bytes": 24646,
+      "sha256": "310d3c24c6f36afd89314d6543f3fcd56517775fbbad46392391c2ddddcdb4b8"
+    },
+    {
+      "snapshot": "original",
+      "path": "data/modules/sackmakers.json",
+      "bytes": 4292,
+      "sha256": "cd820b5b6aac4f5dda8d7877215f052b29287ba4d3a36130b82f510e0ce7aabd"
+    },
+    {
+      "snapshot": "original",
+      "path": "data/modules/shian.json",
+      "bytes": 10897,
+      "sha256": "2fff4dbb7d81f65e9a0f23bc92eec67e1845aff09ff2fde46cdf454721c7ccdb"
+    },
+    {
+      "snapshot": "original",
+      "path": "data/modules/shopkeeping.json",
+      "bytes": 9723,
+      "sha256": "376414e9a973d14aea572046a6278883a5bd94ee52941e05a00921201d4bbe86"
+    },
+    {
+      "snapshot": "original",
+      "path": "data/modules/spring.json",
+      "bytes": 8508,
+      "sha256": "2dce0447ce46868963e283c1b35fd4e377c992ad97cefa83aacd27be79d611ee"
+    },
+    {
+      "snapshot": "original",
+      "path": "data/modules/swordplay.json",
+      "bytes": 16775,
+      "sha256": "d811c418d8c7e5441c5f6324d5e6922b769fe2229d02602d40bc209c82183802"
+    },
+    {
+      "snapshot": "original",
+      "path": "data/modules/targettesting.json",
+      "bytes": 11133,
+      "sha256": "d20e11d1ddf7d09022749bd952520478775378942acabea9a38c3f36399391ed"
+    },
+    {
+      "snapshot": "original",
+      "path": "data/modules/timerip.json",
+      "bytes": 28605,
+      "sha256": "36d73b48cb8d03daddaca3bd7ac0b9022cc275c401e85b01dcce5d39116d711d"
+    },
+    {
+      "snapshot": "original",
+      "path": "data/modules/winter.json",
+      "bytes": 45471,
+      "sha256": "45816862ca2c9b515d639b64fc02ea73d6288fd1fc9a744e8ab4010a92053bbd"
+    },
+    {
+      "snapshot": "original",
+      "path": "data/modules.json",
+      "bytes": 800,
+      "sha256": "c671fc6eb496f622ca7aca966471a97375bef7252ba56099a3f02b176c1edd54"
+    },
+    {
+      "snapshot": "original",
+      "path": "data/monsters.json",
+      "bytes": 67618,
+      "sha256": "5a45090cd4b48d04fd8bac5e254895aa65ea1cdfbad2a226d83f41f6054e08bb"
+    },
+    {
+      "snapshot": "original",
+      "path": "data/places.json",
+      "bytes": 103,
+      "sha256": "2f2e57f2360dbeef9e0ccc37c522a9b26c4e95f3d9dbaef7ae7af4b210e6fce4"
+    },
+    {
+      "snapshot": "original",
+      "path": "data/player.json",
+      "bytes": 2439,
+      "sha256": "7ebd85152371c32e95175403b9cec7466fd8e2cb0515f5d371084aa6f996cfc4"
+    },
+    {
+      "snapshot": "original",
+      "path": "data/potencies.json",
+      "bytes": 2593,
+      "sha256": "cc726f5e7a6549252f9f43e7efa5834f93d0a59c44f7d356b3fe3feb47adf228"
+    },
+    {
+      "snapshot": "original",
+      "path": "data/potions.json",
+      "bytes": 21174,
+      "sha256": "8cf04d8d993a3ecce8068bcc4a7c687cf76267e0378bc59ebc63d34803827f45"
+    },
+    {
+      "snapshot": "original",
+      "path": "data/professions.json",
+      "bytes": 203,
+      "sha256": "e10b186d0cc592bba0da8e0ab8e89a3deafb425da4db1b29085ff9c3b38a43d6"
+    },
+    {
+      "snapshot": "original",
+      "path": "data/properties.json",
+      "bytes": 3219,
+      "sha256": "ac4104873dc1ced2bc1d1ad0baf8ad0a4c10a9c783b081aaeb2ff64d26d31e1d"
+    },
+    {
+      "snapshot": "original",
+      "path": "data/rares.json",
+      "bytes": 8341,
+      "sha256": "d1abb73402d8fea5ac9d94ad2cbc9173c329ee47380cd62f32c874fc9ccb5c4c"
+    },
+    {
+      "snapshot": "original",
+      "path": "data/reagents.json",
+      "bytes": 2414,
+      "sha256": "366db1b6fb8d36de52f6c2c9ae4bdcd9a0fd93c3306d6a5d507a7e950c7169fc"
+    },
+    {
+      "snapshot": "original",
+      "path": "data/resources.json",
+      "bytes": 11506,
+      "sha256": "7eb72ca13ac1c857eb9551d62f0173e683aa064bf43e95a10ea60e9964bf3c10"
+    },
+    {
+      "snapshot": "original",
+      "path": "data/sections.json",
+      "bytes": 1338,
+      "sha256": "6187f985e9230276a096e1fe1dadf6198899c98acb962365c91308656ed88ada"
+    },
+    {
+      "snapshot": "original",
+      "path": "data/skills.json",
+      "bytes": 18563,
+      "sha256": "c83442d780cca994feabab5dc90516b07868c263950b3ca9e7b81c25d305dfbe"
+    },
+    {
+      "snapshot": "original",
+      "path": "data/spells.json",
+      "bytes": 69290,
+      "sha256": "f43bb75567a5748c24071b2f72dd882dce7361f4ea67f45add5ce955cd96e40e"
+    },
+    {
+      "snapshot": "original",
+      "path": "data/states.json",
+      "bytes": 1501,
+      "sha256": "a9d1f269dc443f001d322c6a7a73aa4efc100f5bacc5e1c4fb67554c43dc9476"
+    },
+    {
+      "snapshot": "original",
+      "path": "data/stressors.json",
+      "bytes": 680,
+      "sha256": "a4943ed3a515db4ea643622ea522dcd0dbf929233e5e588c7bb79cd28f985284"
+    },
+    {
+      "snapshot": "original",
+      "path": "data/tags.json",
+      "bytes": 6037,
+      "sha256": "d5cc6570331ea313be372d8ccb93c4d0c39caaaf97d88298914e2660dfc7e5f3"
+    },
+    {
+      "snapshot": "original",
+      "path": "data/tasks.json",
+      "bytes": 67260,
+      "sha256": "3022c626b5fb03cd2024c0f08106e70f14ff1ebdae14696bdbd08ba5f8c5f6d5"
+    },
+    {
+      "snapshot": "original",
+      "path": "data/upgrades.json",
+      "bytes": 53534,
+      "sha256": "4ed3918131d263185123fcde79f2b29194d431de625f81f85ec18b3a00e49a1a"
+    },
+    {
+      "snapshot": "original",
+      "path": "data/weapons.json",
+      "bytes": 4873,
+      "sha256": "ceff5eed9a4e1a48fd86499ea1b9e8f598f3fc8337808039c0781d9ad14bb51d"
+    },
+    {
+      "snapshot": "original",
+      "path": "docs/classes.txt",
+      "bytes": 628,
+      "sha256": "c87fb4ea3ff2adb61eb589c3bb3177945d4bac528e8639f5ff6e2e56b8bed25a"
+    },
+    {
+      "snapshot": "original",
+      "path": "docs/code notes.txt",
+      "bytes": 2304,
+      "sha256": "c96d69f7a6d17bb515f7a39c4486eef5368ed2461b888b0bf9b8cb7e4c9b406c"
+    },
+    {
+      "snapshot": "original",
+      "path": "docs/data.txt",
+      "bytes": 10823,
+      "sha256": "d7028f4c2fd487733efc8fd6d5d47949435bb80659ade228480e54bd8805dcca"
+    },
+    {
+      "snapshot": "original",
+      "path": "docs/game design.txt",
+      "bytes": 1656,
+      "sha256": "7e5d324d942f02a78cc43df0341c5575f7002bb5c7aabd2f140a2220372ef396"
+    },
+    {
+      "snapshot": "original",
+      "path": "docs/json lexicon.md",
+      "bytes": 2692,
+      "sha256": "55f9afcc81c33ad155a8bca3bde15b85600be3dcad8af0d47d6efdc6d0763df4"
+    },
+    {
+      "snapshot": "original",
+      "path": "docs/level_standards.txt",
+      "bytes": 103,
+      "sha256": "0e85f37e0501c96c0d3a90d5bf4f230a9beddda482545b68bcf4492a0821ff0c"
+    },
+    {
+      "snapshot": "original",
+      "path": "docs/module documentation.md",
+      "bytes": 13240,
+      "sha256": "1d2c0d1fd3cf775baa865e1e3f4fb3c00365caa2ae6ad823516aa06238e34922"
+    },
+    {
+      "snapshot": "original",
+      "path": "docs/patronstuff",
+      "bytes": 670,
+      "sha256": "75f257355279ecc307460736f77830629a9c9e3a3dc7c28e8951f498aff1cd99"
+    },
+    {
+      "snapshot": "original",
+      "path": "docs/places.txt",
+      "bytes": 67,
+      "sha256": "f9a062400ad6c6e0acbc963f0756fd6eb2738ae7762a0023426cf73bdf7becc3"
+    },
+    {
+      "snapshot": "original",
+      "path": "docs/todo.txt",
+      "bytes": 552,
+      "sha256": "5c4dfbac8647127588d0ceb867f4c172d9fa6e84c77cfd492635ce3d19da04aa"
+    },
+    {
+      "snapshot": "original",
+      "path": "docs/todo_pedro.txt",
+      "bytes": 552,
+      "sha256": "5c4dfbac8647127588d0ceb867f4c172d9fa6e84c77cfd492635ce3d19da04aa"
+    },
+    {
+      "snapshot": "original",
+      "path": "index.html",
+      "bytes": 793,
+      "sha256": "3581e1ec659983b7e0dc3d83ed0eaf5b27e41253f8ca9cb09c4801af7db7ffcd"
+    },
+    {
+      "snapshot": "original",
+      "path": "manifest.webmanifest",
+      "bytes": 445,
+      "sha256": "da3a8cf139662aa27115ee98fa8b6aae0cee4e82768e7dc1a64d67039eeb1fb8"
+    },
+    {
+      "snapshot": "original",
+      "path": "package.json",
+      "bytes": 622,
+      "sha256": "7ba5fe1026a14ed2b602047e48a9eef54af5f6479fd9d39b0b4b60b7dc21c4d5"
+    },
+    {
+      "snapshot": "original",
+      "path": "privacy.html",
+      "bytes": 427,
+      "sha256": "7005f005e3054a66e05dc730f66858ceee383f81b012a0cba3e5b0e38aac4ccc"
+    },
+    {
+      "snapshot": "original",
+      "path": "src/chars/alter.js",
+      "bytes": 784,
+      "sha256": "780f16f2476e22809dac2d03d2923ee23ca6d076d2778678eb48b271f13e356e"
+    },
+    {
+      "snapshot": "original",
+      "path": "src/chars/attack.js",
+      "bytes": 7861,
+      "sha256": "5ba2b71f7d885a0024da7bc253c106f0f2557e7eeb221a2e2f4e66d8d5a4121b"
+    },
+    {
+      "snapshot": "original",
+      "path": "src/chars/char.js",
+      "bytes": 15038,
+      "sha256": "48104f9d1ccab518337b20bcfbf71c15a45665e4c60d396d6662d8f40aeef2ee"
+    },
+    {
+      "snapshot": "original",
+      "path": "src/chars/chargroup.js",
+      "bytes": 251,
+      "sha256": "0ebf1923ac2c159324d65a6f3b57c07d293336c3f21434dcc678dc19fa8af906"
+    },
+    {
+      "snapshot": "original",
+      "path": "src/chars/context.js",
+      "bytes": 7040,
+      "sha256": "ae840ba5c634cd399ee2752bd7a5dad0460867f11f4d109ecef9fc798a1cfe7f"
+    },
+    {
+      "snapshot": "original",
+      "path": "src/chars/dot.js",
+      "bytes": 10100,
+      "sha256": "052f21ac6e1a485e6929867487edd8da708da5b941ce2dc8a59a02677b3e64ee"
+    },
+    {
+      "snapshot": "original",
+      "path": "src/chars/equip.js",
+      "bytes": 2684,
+      "sha256": "5dd780a296b92da04a985eed93a98ef2a8be5bdc3943c93d83f2cf7c9b6ffefe"
+    },
+    {
+      "snapshot": "original",
+      "path": "src/chars/npc.js",
+      "bytes": 9323,
+      "sha256": "5f85b8ab6558bfa38ede0f6cecf50da56e4b42bc78a873a94bace7426738c2bf"
+    },
+    {
+      "snapshot": "original",
+      "path": "src/chars/npcState.js",
+      "bytes": 5043,
+      "sha256": "b842c330416363428e8fbfbce27ec9055cb0ddba52f5a9594982d37c26cd010f"
+    },
+    {
+      "snapshot": "original",
+      "path": "src/chars/player.js",
+      "bytes": 10377,
+      "sha256": "85ad798301a88f2256b4c382d699242c65ecd6548c3f0e57e479d56de52355d1"
+    },
+    {
+      "snapshot": "original",
+      "path": "src/chars/slot.js",
+      "bytes": 5211,
+      "sha256": "bf2bdc16dc8242e8c231edb220f7f28aefd7de3b29981122a954437841d25582"
+    },
+    {
+      "snapshot": "original",
+      "path": "src/chars/slotgroup.js",
+      "bytes": 2279,
+      "sha256": "250230c906a10dac8ca8b37f9a4f027ffc90be2c33237c5573e8e5b82cea7890"
+    },
+    {
+      "snapshot": "original",
+      "path": "src/chars/state.js",
+      "bytes": 1287,
+      "sha256": "13b8aa789d0222c7c3cfdaa7fed05a3bf27d3190b0dfca2a0b54aff466da495e"
+    },
+    {
+      "snapshot": "original",
+      "path": "src/chars/states.js",
+      "bytes": 5311,
+      "sha256": "9bf1fd9dfd8515ff0500cfd36de329d45847482f86157a0ad39d43b052d15a98"
+    },
+    {
+      "snapshot": "original",
+      "path": "src/chars/wearable.js",
+      "bytes": 8486,
+      "sha256": "e079926d4e9c77986edd30e8cc792dc900605a2152582d08fbc27298bbb83c75"
+    },
+    {
+      "snapshot": "original",
+      "path": "src/classes/spawngroup.js",
+      "bytes": 2455,
+      "sha256": "a4b72ffd8edea1efb09380584d15a9fa6231293394634de08dd3be1e2ec0357e"
+    },
+    {
+      "snapshot": "original",
+      "path": "src/classes/spawnparams.js",
+      "bytes": 1620,
+      "sha256": "477716d09bed6a1677c570d4d2a89ef140a16e470e378ab648cb457b1c11106c"
+    },
+    {
+      "snapshot": "original",
+      "path": "src/classes/spawns.js",
+      "bytes": 2286,
+      "sha256": "4cb5d86fbddaf5a6979d172c1ba0f0591d236ba6b0a06067adf651c826828ff8"
+    },
+    {
+      "snapshot": "original",
+      "path": "src/composites/combat.js",
+      "bytes": 16100,
+      "sha256": "23da9e131ed72535f966fdd1fb7c9ee6302b67cf0dc5bbf0494e772e021b731a"
+    },
+    {
+      "snapshot": "original",
+      "path": "src/composites/enchanting.js",
+      "bytes": 2097,
+      "sha256": "782b496657b1b6f16683f75d7118cec3a2aa12dd9673a56d7ed86e5ac72f194a"
+    },
+    {
+      "snapshot": "original",
+      "path": "src/composites/explore.js",
+      "bytes": 8206,
+      "sha256": "5ae06cd8726c2305e8470e692a17ec0c147fe3aecf25b8b53e22415d671c8f99"
+    },
+    {
+      "snapshot": "original",
+      "path": "src/composites/group.js",
+      "bytes": 4208,
+      "sha256": "ec590802c5516ac8b8024eb39ef101ef28fc9efca11cda0b0beae2f87ac7dfd9"
+    },
+    {
+      "snapshot": "original",
+      "path": "src/composites/proxy.js",
+      "bytes": 1883,
+      "sha256": "5777e9a2ea3df7bcda306ecc4918328b8a01192239f0935db3d7f16f8c6f9bd9"
+    },
+    {
+      "snapshot": "original",
+      "path": "src/composites/quickbar.js",
+      "bytes": 1600,
+      "sha256": "d36190d16b3ecdabf0f8a5c34199369328d86b684fe414f77e9fdb50f105e865"
+    },
+    {
+      "snapshot": "original",
+      "path": "src/composites/quickbars.js",
+      "bytes": 1599,
+      "sha256": "0f4a352b165a3a0711663e762bc92fa24c1212772c434432bfa5d3c464768cf3"
+    },
+    {
+      "snapshot": "original",
+      "path": "src/composites/quickslot.js",
+      "bytes": 2756,
+      "sha256": "b65366962a7c141b721732065846a52e619833aaa88eda1eda330613477631f1"
+    },
+    {
+      "snapshot": "original",
+      "path": "src/composites/runnable.js",
+      "bytes": 2265,
+      "sha256": "8b12b77012cd75abbbab1f59e4aff738d353ac978d50c11450ea753ff718b28e"
+    },
+    {
+      "snapshot": "original",
+      "path": "src/composites/tagset.js",
+      "bytes": 5278,
+      "sha256": "28b1130efbc899939a1d19e4b20b09451b6e8f3c25e08450481a07e314e56671"
+    },
+    {
+      "snapshot": "original",
+      "path": "src/dataLoader.js",
+      "bytes": 10661,
+      "sha256": "a1786667fa573988f0de9d04abc4548b60c62127cfa797f9fea9458866d70000"
+    },
+    {
+      "snapshot": "original",
+      "path": "src/debug/cheats.js",
+      "bytes": 1594,
+      "sha256": "1ed63cc28ac86479db44404650b4346649ca713f4549df3973fef82ff35603bb"
+    },
+    {
+      "snapshot": "original",
+      "path": "src/debug/cmdline.js",
+      "bytes": 2534,
+      "sha256": "cf10b0a7e1d693c23137e9183313d1a54f8a8080d414a2465b38b73ad0f366e3"
+    },
+    {
+      "snapshot": "original",
+      "path": "src/debug/debug.js",
+      "bytes": 4616,
+      "sha256": "3c68492e9d3b188560544a3082d2fb9dbc75fdc5d3b7ff1edf233df9ce3202d0"
+    },
+    {
+      "snapshot": "original",
+      "path": "src/debug/devconsole.vue",
+      "bytes": 1213,
+      "sha256": "e135b7b03cfff868264b1a0af43feb84c1925638e6130c7bc5f8e48f8824705f"
+    },
+    {
+      "snapshot": "original",
+      "path": "src/events.js",
+      "bytes": 10799,
+      "sha256": "c992fa13afc0431b21b1b2ef14eb6a7183844599b3e1fbd440948aa521268d2e"
+    },
+    {
+      "snapshot": "original",
+      "path": "src/game.js",
+      "bytes": 30993,
+      "sha256": "80c425fc20bc9be6f44d13d62237666d12aad068bebcecd08ded3b61722caa19"
+    },
+    {
+      "snapshot": "original",
+      "path": "src/gameState.js",
+      "bytes": 21915,
+      "sha256": "79850328f58d57ee593cbae2fb1e572e25ab554dbd5b30cb2f1efa81b1b1fe5e"
+    },
+    {
+      "snapshot": "original",
+      "path": "src/genGroup.js",
+      "bytes": 4296,
+      "sha256": "f92435d4ee8207a155dcf78a936a39d6a3ba4cd0ba04a68feeb73b011db89a90"
+    },
+    {
+      "snapshot": "original",
+      "path": "src/index.js",
+      "bytes": 6315,
+      "sha256": "ecb25a9cb99ab1210c7d13df0f4c04ddb19cb541f996de3e19607bf97529f2f7"
+    },
+    {
+      "snapshot": "original",
+      "path": "src/interfaces/irunnable.js",
+      "bytes": 368,
+      "sha256": "a1541d76ccb4c8d7d9414fc76e0b43397957da8afbe230b60ada01011089a05a"
+    },
+    {
+      "snapshot": "original",
+      "path": "src/inventories/dataList.js",
+      "bytes": 3656,
+      "sha256": "eaa3fe487e491217c1218ad1126479453c5ffab39eb8fbfed5afb7f89ccb91bf"
+    },
+    {
+      "snapshot": "original",
+      "path": "src/inventories/enchantslots.js",
+      "bytes": 2777,
+      "sha256": "9d556e225d19e4f74dd502ef3754eca86b43b0f30eddfb2923757bd8da00c20a"
+    },
+    {
+      "snapshot": "original",
+      "path": "src/inventories/home.js",
+      "bytes": 1214,
+      "sha256": "9f34f91cbb25be4e5f7719a5fa51df566c311cb1c4cb9187c45d0758cabf5243"
+    },
+    {
+      "snapshot": "original",
+      "path": "src/inventories/inventory.js",
+      "bytes": 9095,
+      "sha256": "d9111363a037cba50385e420c62a19e1a91c054b4a5276806580aa0b1a9fa36b"
+    },
+    {
+      "snapshot": "original",
+      "path": "src/inventories/minions.js",
+      "bytes": 4129,
+      "sha256": "f216df5978a81be979b63d786bf1c41c7403c5a63c5440ece631d0931e1bda91"
+    },
+    {
+      "snapshot": "original",
+      "path": "src/inventories/spellLoadouts.js",
+      "bytes": 1764,
+      "sha256": "7d6d998ff25a7541a69eeab8bbcd9ce51fee18b25affab7eaea09cd5a046afb5"
+    },
+    {
+      "snapshot": "original",
+      "path": "src/inventories/userSpells.js",
+      "bytes": 1128,
+      "sha256": "b0713b622821376623cbfb9c97bf20dd3433832d72c73f524bda1d2dba623d72"
+    },
+    {
+      "snapshot": "original",
+      "path": "src/items/base.js",
+      "bytes": 19279,
+      "sha256": "400d908c8b47f7a2fd2484c1de203af07b450201deb84e70aaa3f5b3c6e4c741"
+    },
+    {
+      "snapshot": "original",
+      "path": "src/items/charupgrade.js",
+      "bytes": 1085,
+      "sha256": "250644aa4aae377ea9753abf036fca82140bd3638ed4caeda454bcfd5a0a451e"
+    },
+    {
+      "snapshot": "original",
+      "path": "src/items/enchant.js",
+      "bytes": 1609,
+      "sha256": "9dd2294d030279c2e0556924a941b269a99b0f90194849b693d29fe0c14e7c51"
+    },
+    {
+      "snapshot": "original",
+      "path": "src/items/encounter.js",
+      "bytes": 2035,
+      "sha256": "695cc2bd4e32638e1f564ae3541b093ca8c63c184db6203eda51710fbf7a943b"
+    },
+    {
+      "snapshot": "original",
+      "path": "src/items/gclass.js",
+      "bytes": 597,
+      "sha256": "c12604a44aaff1c7a214f7dff6d7f75614a50a63322528f8b456278f1818dfe9"
+    },
+    {
+      "snapshot": "original",
+      "path": "src/items/gdata.js",
+      "bytes": 13842,
+      "sha256": "a99b388cc3e93ca899ae23d319d8e50562c45e66f2f0d284c0f85c40faa4cca5"
+    },
+    {
+      "snapshot": "original",
+      "path": "src/items/gevent.js",
+      "bytes": 1435,
+      "sha256": "71cf91555e5fa6f71371d5bd64088d8640496556447a71f3b2db2ae4cee7a4d6"
+    },
+    {
+      "snapshot": "original",
+      "path": "src/items/instance.js",
+      "bytes": 2197,
+      "sha256": "58a34b0459313d1a8f20bc206fa622900308e7f28fab8bb000586fddd6686ac8"
+    },
+    {
+      "snapshot": "original",
+      "path": "src/items/item.js",
+      "bytes": 5499,
+      "sha256": "eea94de07892a4887acdc732c0e25ecc8525a607e31459dd0ce867b6d7c2c6f2"
+    },
+    {
+      "snapshot": "original",
+      "path": "src/items/locale.js",
+      "bytes": 3550,
+      "sha256": "810656058fb8b5ccb3839572b4f396ac03df6a0d62a05b075c31ca2c2ef6fae2"
+    },
+    {
+      "snapshot": "original",
+      "path": "src/items/mindata.js",
+      "bytes": 478,
+      "sha256": "d8c0f07c4281513d91dfdbbe868611a8e38abc274f4cc06ebe321d8e4764d8f7"
+    },
+    {
+      "snapshot": "original",
+      "path": "src/items/monster.js",
+      "bytes": 6491,
+      "sha256": "e3dc5f46b38ffee49232296b93ad7c82b8a9cef42c7aa904757448c4bed3edce"
+    },
+    {
+      "snapshot": "original",
+      "path": "src/items/place.js",
+      "bytes": 684,
+      "sha256": "3dec3f73654f94494bd1221713d4ff6d97a70e866ed2e5e37abd3d7fd1ebe177"
+    },
+    {
+      "snapshot": "original",
+      "path": "src/items/potion.js",
+      "bytes": 1277,
+      "sha256": "1bab6522b67681ac0d0465a5524e319867d587ae08174b2cc8cf45df2f7bd69a"
+    },
+    {
+      "snapshot": "original",
+      "path": "src/items/recipe.js",
+      "bytes": 159,
+      "sha256": "805985c31c7c0aea9bec9d387c3192c0b1be791d0ae6dd9c6b2f975fd3b287f6"
+    },
+    {
+      "snapshot": "original",
+      "path": "src/items/resource.js",
+      "bytes": 2243,
+      "sha256": "1b384a616cba6ef21c998df5535541216b8d711611f179455cfaec81aecebe3c"
+    },
+    {
+      "snapshot": "original",
+      "path": "src/items/revStat.js",
+      "bytes": 1133,
+      "sha256": "8784c410db7e8891381e63595bacb087e3d4ec45a3cdbedfeb6f9126324cfa3d"
+    },
+    {
+      "snapshot": "original",
+      "path": "src/items/skill.js",
+      "bytes": 2218,
+      "sha256": "4684dc7494c2b419fac14ef4c9eab3194daa8461e2eec83d60a995b156dca0ec"
+    },
+    {
+      "snapshot": "original",
+      "path": "src/items/spell.js",
+      "bytes": 2547,
+      "sha256": "0698b01c78ce42c47489cdfe9e836c0473eabe7bdfe990088de5df9a1ea848fe"
+    },
+    {
+      "snapshot": "original",
+      "path": "src/items/statData.js",
+      "bytes": 1946,
+      "sha256": "71857ad22949f77d4a41d35581df63cedaa710ef3ec1f396fb21951416648194"
+    },
+    {
+      "snapshot": "original",
+      "path": "src/items/task.js",
+      "bytes": 5894,
+      "sha256": "585abd3c5182233b473266851899c7779425ff7c81d6f6f4080b208c0b1c56b9"
+    },
+    {
+      "snapshot": "original",
+      "path": "src/log.js",
+      "bytes": 2366,
+      "sha256": "88d130b51c0df45ad9b4b03253fa477f157ae74307cd72986ac2075b092e10fc"
+    },
+    {
+      "snapshot": "original",
+      "path": "src/modules/charinfo.js",
+      "bytes": 2567,
+      "sha256": "59b481c4cb3853eb77e92144c01b5559896a8eeb70d00311b86b44bdf5fcb071"
+    },
+    {
+      "snapshot": "original",
+      "path": "src/modules/craft.js",
+      "bytes": 3213,
+      "sha256": "0bc0a7b44fb689cbe88ebadc32e8f31f18e9d6e40d51efdc5c0173aa704c9f0f"
+    },
+    {
+      "snapshot": "original",
+      "path": "src/modules/hall.js",
+      "bytes": 6108,
+      "sha256": "5dd32752b5d0c56d2dce20f634e0c92b8916b055a1cc8edd65af21d5284ad06a"
+    },
+    {
+      "snapshot": "original",
+      "path": "src/modules/itemgen.js",
+      "bytes": 13794,
+      "sha256": "da9c8bf0fec05ff2f8d8622f723cfcf20b5e4cb328d4217fca2751f0f1385f0b"
+    },
+    {
+      "snapshot": "original",
+      "path": "src/modules/module.js",
+      "bytes": 5217,
+      "sha256": "8ae15bf1e7642c602e23c034b49f84b81a074d3d304cce1e30a177aa4ec69155"
+    },
+    {
+      "snapshot": "original",
+      "path": "src/modules/modules/modulemgr.js",
+      "bytes": 51,
+      "sha256": "7991fa74684c89dd91f438725663ca592adc6c779edd241b6b97c0bbcbd98711"
+    },
+    {
+      "snapshot": "original",
+      "path": "src/modules/parsing.js",
+      "bytes": 7768,
+      "sha256": "a82d6badebd30be5fa90ee9b9fb5a9fc2fe22dd1690ca123653f4a2cd1670f72"
+    },
+    {
+      "snapshot": "original",
+      "path": "src/modules/persist/persist-db.js",
+      "bytes": 2680,
+      "sha256": "e843511fe154f2a86b0858d6308e27ad7902c4b04529625946d70479967b8ec1"
+    },
+    {
+      "snapshot": "original",
+      "path": "src/modules/persist/persist.js",
+      "bytes": 2556,
+      "sha256": "00d499f0e9d644fa59bc179eab2e39e430c1ca991f268fa9af9fde16eda273be"
+    },
+    {
+      "snapshot": "original",
+      "path": "src/modules/persist/persistLocal.js",
+      "bytes": 1225,
+      "sha256": "97e16f21705319334c008b6c1783d2f5a8ed9475f92213fa05ef28ff7addaf60"
+    },
+    {
+      "snapshot": "original",
+      "path": "src/modules/persist/persistRemote.js",
+      "bytes": 2139,
+      "sha256": "057791c7712e7e22552180d505a12e4b28373de8ce4f8c67c265ab2ad1ce5045"
+    },
+    {
+      "snapshot": "original",
+      "path": "src/modules/profile.js",
+      "bytes": 7560,
+      "sha256": "68b1bf2e195edb914e505cc148fca3a1440c05ee4d8d98791acd8cc20b682083"
+    },
+    {
+      "snapshot": "original",
+      "path": "src/modules/randoms.js",
+      "bytes": 582,
+      "sha256": "c237e4def290e3f8b3406aa1b33084cfcb4f426833b261713312b43f3595bdec"
+    },
+    {
+      "snapshot": "original",
+      "path": "src/modules/runner.js",
+      "bytes": 13413,
+      "sha256": "28be6db1ced5c047d9784d4955b43b977b9b9e2e62cb6e379d3b2f6e99efac95"
+    },
+    {
+      "snapshot": "original",
+      "path": "src/modules/settings.js",
+      "bytes": 1537,
+      "sha256": "7a88af9635b614bf2b1fc2fedaf4b0d3da237006e8bdd5f39f66105c7f9b3aef"
+    },
+    {
+      "snapshot": "original",
+      "path": "src/protos/protoDot.js",
+      "bytes": 985,
+      "sha256": "11ad66a5d419ce629bbcc3efb3c5979a72dc5e2ab10eff6742c660af0812215b"
+    },
+    {
+      "snapshot": "original",
+      "path": "src/protos/protoItem.js",
+      "bytes": 2032,
+      "sha256": "6c998c8116a5d275d187a30dbf96e4b2bb85db0524f951c92f291570e25a612a"
+    },
+    {
+      "snapshot": "original",
+      "path": "src/remote/confirm.html",
+      "bytes": 1083,
+      "sha256": "6bc5b53e86bab7442cdafca3a924b45cbba29fe90562d06e982a88527cddb93f"
+    },
+    {
+      "snapshot": "original",
+      "path": "src/remote/google-cors.json",
+      "bytes": 301,
+      "sha256": "40540b33fcfec0d7de868d6a2f0a2aade159a856ceddbb22eb9889644397f90e"
+    },
+    {
+      "snapshot": "original",
+      "path": "src/remote/remote.js",
+      "bytes": 2809,
+      "sha256": "65228e46814972d2b960b7cbab736c1a56e0fbdc0a454702fed070f1ab5131d4"
+    },
+    {
+      "snapshot": "original",
+      "path": "src/store/popups.js",
+      "bytes": 1673,
+      "sha256": "1bd3027dc282f6a320eb1792af3bc2313b438ade6524e2b8668caae192afc539"
+    },
+    {
+      "snapshot": "original",
+      "path": "src/sw.js",
+      "bytes": 409,
+      "sha256": "3e70f58c40f226a01daf0f82d5a5eb54efb0e1da010a1fd81f5eafac0afea865"
+    },
+    {
+      "snapshot": "original",
+      "path": "src/techTree.js",
+      "bytes": 6799,
+      "sha256": "8c9c2dd8a1889cd814120de2f770ecfbfa9bcb0b9fe7f3e170744c5365614bd5"
+    },
+    {
+      "snapshot": "original",
+      "path": "src/ui/components/bars.vue",
+      "bytes": 1247,
+      "sha256": "33b0a4067aa33aa237d71393b439f3045bf0f7072b41e3d37cef434925a7330d"
+    },
+    {
+      "snapshot": "original",
+      "path": "src/ui/components/confirm.vue",
+      "bytes": 1168,
+      "sha256": "1aded4b846b81768d70c83304b8143411573089dfed7d25bbdd29e37268919f8"
+    },
+    {
+      "snapshot": "original",
+      "path": "src/ui/components/dropdown.vue",
+      "bytes": 2075,
+      "sha256": "31da9f1d9a89c540915b73748f76d9050bd636a1a8c91f4e210bf2cbcf1372d4"
+    },
+    {
+      "snapshot": "original",
+      "path": "src/ui/components/filterbox.vue",
+      "bytes": 1537,
+      "sha256": "69fd5806beb855d7dfc87419db6b1d444de812c41d9f0ced5d9a56ab494f303f"
+    },
+    {
+      "snapshot": "original",
+      "path": "src/ui/components/menu.vue",
+      "bytes": 1149,
+      "sha256": "42c0fd226b99a0acc42b5313470acb2801e454a0abd11137e4f299ffe68d8a1c"
+    },
+    {
+      "snapshot": "original",
+      "path": "src/ui/components/picklist.vue",
+      "bytes": 475,
+      "sha256": "545d6848b3259cfa79289961e8378f040a8374b1eb20cff773b74d3084a8d805"
+    },
+    {
+      "snapshot": "original",
+      "path": "src/ui/components/progbar.vue",
+      "bytes": 1230,
+      "sha256": "3519544807e41b4a51f501dfe8f2ef7c7c64aaf10141aff4030aaf676e4056a6"
+    },
+    {
+      "snapshot": "original",
+      "path": "src/ui/components/register.vue",
+      "bytes": 1330,
+      "sha256": "236363e479ad294e1ac601ea0a685131f3a324b123e6ff088a15f5e5c28a0a22"
+    },
+    {
+      "snapshot": "original",
+      "path": "src/ui/components/slotpick.vue",
+      "bytes": 2077,
+      "sha256": "cd11d9efe6990cb1184f6228c7b2de1419f86e98d0ae731ed600114d10b57ad8"
+    },
+    {
+      "snapshot": "original",
+      "path": "src/ui/composables/use-hidable.js",
+      "bytes": 3089,
+      "sha256": "9add781d3ba57933dc3672bbb86a073a73a3b75976a940bca80b13bc6963c14e"
+    },
+    {
+      "snapshot": "original",
+      "path": "src/ui/composables/use-row-colors.js",
+      "bytes": 1218,
+      "sha256": "3eb2168c01afd602ee71a55fa234351c77c60fa19e5562803bd9279c3c904c4e"
+    },
+    {
+      "snapshot": "original",
+      "path": "src/ui/hall/charinfo.vue",
+      "bytes": 2421,
+      "sha256": "26d493540f495de761afadb063616c56fd079d47d020fe45429e877482c689f4"
+    },
+    {
+      "snapshot": "original",
+      "path": "src/ui/hall/hall.vue",
+      "bytes": 2825,
+      "sha256": "4997dc2bb21f72d71b5a518a223d538e7b429d449f3535272523f47ca1b7c257"
+    },
+    {
+      "snapshot": "original",
+      "path": "src/ui/hall/hall_upgrades.vue",
+      "bytes": 1336,
+      "sha256": "d6b58540a4852c6842aaa6d7f349ed21818266e3772e1ed5ee921a8d9c7ee265"
+    },
+    {
+      "snapshot": "original",
+      "path": "src/ui/items/attack.vue",
+      "bytes": 3946,
+      "sha256": "ef0203c5a6bd572f658315f6cb80283775bf67a2738774e23b7a817423c543c8"
+    },
+    {
+      "snapshot": "original",
+      "path": "src/ui/items/combat.vue",
+      "bytes": 507,
+      "sha256": "854709ae27ce7de1574e318e7d10c5a3c0ae5819a033d6be771e2750b1586d56"
+    },
+    {
+      "snapshot": "original",
+      "path": "src/ui/items/displayItem.js",
+      "bytes": 848,
+      "sha256": "8e0f035e5405eea7fa4d2b579de99f4be88b9094da77979a4b21a1e40c15480f"
+    },
+    {
+      "snapshot": "original",
+      "path": "src/ui/items/dot-info.vue",
+      "bytes": 3278,
+      "sha256": "ae8754136874ede73f91c6a14ebfeda9834ee190b5215a2f7846084588f896e6"
+    },
+    {
+      "snapshot": "original",
+      "path": "src/ui/items/dotView.vue",
+      "bytes": 1429,
+      "sha256": "6333bb5bbb6f3d4d3ef20f9e05532382c306647424f49c2b530d74eb26f4c931"
+    },
+    {
+      "snapshot": "original",
+      "path": "src/ui/items/enchantslots.vue",
+      "bytes": 1297,
+      "sha256": "b9a3cf5a180c3bc5bb529bb93005b05d7dc9c2b88fe5bd2448bb1556e2485e8d"
+    },
+    {
+      "snapshot": "original",
+      "path": "src/ui/items/explore.vue",
+      "bytes": 3292,
+      "sha256": "2044580ce378b9713d404df16eee4fe1d7fbbe40ed79c3f654adafa796feb69b"
+    },
+    {
+      "snapshot": "original",
+      "path": "src/ui/items/gdata.vue",
+      "bytes": 10857,
+      "sha256": "0b2fe959fd66e34181296c057c4ee8ff5cb311590d406ea07ca428b912de6538"
+    },
+    {
+      "snapshot": "original",
+      "path": "src/ui/items/healingMixin.js",
+      "bytes": 3124,
+      "sha256": "be0297b57a857a26ccb6f64caf354a43df643403ada122d7156fabe9fcef8e82"
+    },
+    {
+      "snapshot": "original",
+      "path": "src/ui/items/info-block.vue",
+      "bytes": 6979,
+      "sha256": "1cc598a9395b4ce5d0c5dabb9a18d24b2f45b5bd0feb53346942f65f5e06ecda"
+    },
+    {
+      "snapshot": "original",
+      "path": "src/ui/items/infoBlock.js",
+      "bytes": 3339,
+      "sha256": "28883b0537b275941774b12ccb042d9fa441c05e9719769bc904f6b3a697d609"
+    },
+    {
+      "snapshot": "original",
+      "path": "src/ui/items/mood.vue",
+      "bytes": 1836,
+      "sha256": "f8db1b5fd026451d2e59f05e31c14acca1b90f161ed03cc445006abc2889b799"
+    },
+    {
+      "snapshot": "original",
+      "path": "src/ui/items/npc-group.vue",
+      "bytes": 952,
+      "sha256": "33b6289ec9e0f254a916372e41e05fe381466a5a5573a07eacb73e48c4d7ada3"
+    },
+    {
+      "snapshot": "original",
+      "path": "src/ui/items/skill.vue",
+      "bytes": 1415,
+      "sha256": "d816ba1aaafce16833ee6f7fbd6350e4fea006bb37a414c1a931c6e299512bed"
+    },
+    {
+      "snapshot": "original",
+      "path": "src/ui/items/summon.vue",
+      "bytes": 850,
+      "sha256": "ffe7181a3b5379dbfa02b04e762ec85db5b3e8a9420f618ec864149b949bce6e"
+    },
+    {
+      "snapshot": "original",
+      "path": "src/ui/items/use-damage.js",
+      "bytes": 3473,
+      "sha256": "7894bdf2cf593bd99419b3addeb77db47a3bb5cb3a22541baa6da76b6b989a6b"
+    },
+    {
+      "snapshot": "original",
+      "path": "src/ui/items/weapon.vue",
+      "bytes": 444,
+      "sha256": "d7ae1453828af2663eba529293754146dc76dcf9a7aeb78f2dc8edd114c1e714"
+    },
+    {
+      "snapshot": "original",
+      "path": "src/ui/itemsBase.js",
+      "bytes": 399,
+      "sha256": "bba54d35b9d08cfb31ed82bfc60f248200355436b93f8edf6617410f796277cd"
+    },
+    {
+      "snapshot": "original",
+      "path": "src/ui/main.vue",
+      "bytes": 10470,
+      "sha256": "c0beb006fb80772a95e2cfe60ced4e9b89ed89ff38450289cc3cc0f7e5c9536b"
+    },
+    {
+      "snapshot": "original",
+      "path": "src/ui/outlog.vue",
+      "bytes": 2740,
+      "sha256": "900844aae35a55563948b3c2bd4b541a3fffa9f4c543971ad43f1212f4ee0a07"
+    },
+    {
+      "snapshot": "original",
+      "path": "src/ui/panes/allupgrades.vue",
+      "bytes": 2296,
+      "sha256": "52bd82325dac566d184ea2fca46f3410dba6cb4c23dd002c800baa53d439471a"
+    },
+    {
+      "snapshot": "original",
+      "path": "src/ui/panes/charpane.vue",
+      "bytes": 1060,
+      "sha256": "a2bb4446cc82348d1657868b4da96e00e4b6bf7aefc5dfd79408097e0d23e9f3"
+    },
+    {
+      "snapshot": "original",
+      "path": "src/ui/panes/entryGroup.vue",
+      "bytes": 2095,
+      "sha256": "71274b6aa7fcae32308478d956adac336f20ed050d1b1c459bb7f23e144eb931"
+    },
+    {
+      "snapshot": "original",
+      "path": "src/ui/panes/glossaryentries.vue",
+      "bytes": 1569,
+      "sha256": "5477b9dd5087f5179fb5b61d6d7f341918749101ad6137e3a326ded2764062df"
+    },
+    {
+      "snapshot": "original",
+      "path": "src/ui/panes/itemGroup.vue",
+      "bytes": 1935,
+      "sha256": "ec8f41176bb412f8457c17076e1076a70dd255b9eb142412a9304377bc16022e"
+    },
+    {
+      "snapshot": "original",
+      "path": "src/ui/panes/resources.vue",
+      "bytes": 1801,
+      "sha256": "9ca73f42dcd22d895c7a21ba9dd30dfe52e1ae17559b486fa4c247de5fb4cf75"
+    },
+    {
+      "snapshot": "original",
+      "path": "src/ui/panes/running.vue",
+      "bytes": 2609,
+      "sha256": "1f9122d8181717d1ee907ec6a6757e12af8bfaabf79526eff4b3871ecabf7db3"
+    },
+    {
+      "snapshot": "original",
+      "path": "src/ui/panes/upgrades.vue",
+      "bytes": 999,
+      "sha256": "eda8fa1a58b5440767f3e018a90619e1416f804a8bddd7426e1e806e78e6013a"
+    },
+    {
+      "snapshot": "original",
+      "path": "src/ui/panes/vitals.vue",
+      "bytes": 3807,
+      "sha256": "fb297a395aab307b4269abc337a7fd2f0a817e70c186015ad20a375969b08d43"
+    },
+    {
+      "snapshot": "original",
+      "path": "src/ui/popups/activities.vue",
+      "bytes": 3715,
+      "sha256": "bd9e8d5be5746f3f3f35a029275dd964cc9b7fa417e18ac80c7e07cdf4fc296e"
+    },
+    {
+      "snapshot": "original",
+      "path": "src/ui/popups/choice.vue",
+      "bytes": 3024,
+      "sha256": "73908e6d3ed5ac34a73b032ca4472538841e8ec33eacee01d0e5ca92ffd7f4b5"
+    },
+    {
+      "snapshot": "original",
+      "path": "src/ui/popups/itemPopup.vue",
+      "bytes": 2299,
+      "sha256": "66aa4e163e027260656d6ebc32a51ade69bf8846732476ea4eef4633bd4635c1"
+    },
+    {
+      "snapshot": "original",
+      "path": "src/ui/popups/login.vue",
+      "bytes": 1576,
+      "sha256": "c21eaa6e5d16d745f8a8eea3fd627ad3f5681bc34e5bdf969108cf965996d115"
+    },
+    {
+      "snapshot": "original",
+      "path": "src/ui/popups/popups.js",
+      "bytes": 1372,
+      "sha256": "888f184756abc106f5534f393afac0ffd1a62c87c66f6956db75a8337f1e387d"
+    },
+    {
+      "snapshot": "original",
+      "path": "src/ui/popups/settings.vue",
+      "bytes": 3220,
+      "sha256": "68d976c5412cc40379e8e42b9e0d6458ddc30cedf5036130398dbe8ab510978c"
+    },
+    {
+      "snapshot": "original",
+      "path": "src/ui/popups/warn.vue",
+      "bytes": 1718,
+      "sha256": "fa88a5f3de7547697c7ef696f1f9f54186039efed7e9ab12020baa30d86a2302"
+    },
+    {
+      "snapshot": "original",
+      "path": "src/ui/quickbar.vue",
+      "bytes": 2561,
+      "sha256": "335b009ac792db5b530c5358f45ebcd9d2266c5822c87162732c296c78c70c8e"
+    },
+    {
+      "snapshot": "original",
+      "path": "src/ui/sections/adventure.vue",
+      "bytes": 7059,
+      "sha256": "22526a9a2ff89eeb8dd3dd512adb17a2742bb098ce74a440abbb16810ec2e27e"
+    },
+    {
+      "snapshot": "original",
+      "path": "src/ui/sections/bestiary.vue",
+      "bytes": 3657,
+      "sha256": "a2912073c4d53b265f9e4e808dbc66e736b79e21869caa56fe0f8d4db9541322"
+    },
+    {
+      "snapshot": "original",
+      "path": "src/ui/sections/converters.vue",
+      "bytes": 3571,
+      "sha256": "59d546068a125933608de2a60ac1b9add134c4363ed160d31528d6e6612ad243"
+    },
+    {
+      "snapshot": "original",
+      "path": "src/ui/sections/enchanting.vue",
+      "bytes": 5196,
+      "sha256": "e54b7c3d49b93789cabec51dbffcf8337afdfde6d5b38d277f8e832b1f0cdeb3"
+    },
+    {
+      "snapshot": "original",
+      "path": "src/ui/sections/equip.vue",
+      "bytes": 1628,
+      "sha256": "9f24c6f69ab616059b2f6a4c0149443193afde66fa243c049ac5fe2dd61150c7"
+    },
+    {
+      "snapshot": "original",
+      "path": "src/ui/sections/familiars.vue",
+      "bytes": 269,
+      "sha256": "b1ba5b012f286ba303aeed00da9d05b6407a9b1d6b7faf8f9d7a3807bab370e2"
+    },
+    {
+      "snapshot": "original",
+      "path": "src/ui/sections/furniture.vue",
+      "bytes": 7221,
+      "sha256": "5064198fec277271ad5979623ff598e2fc095dc776beee24ec6d9ba482e8ff6f"
+    },
+    {
+      "snapshot": "original",
+      "path": "src/ui/sections/glossary.vue",
+      "bytes": 3568,
+      "sha256": "d85bd3e6065abc5380849bba048a8c959708a8568b016911055cd642fca1e4a0"
+    },
+    {
+      "snapshot": "original",
+      "path": "src/ui/sections/home.vue",
+      "bytes": 2707,
+      "sha256": "81e01f6e43153b34f96d8c3e8ac01d7ea3cf38814cb6e334d668301942098bb2"
+    },
+    {
+      "snapshot": "original",
+      "path": "src/ui/sections/inventory.vue",
+      "bytes": 4547,
+      "sha256": "0e657af6a5d492c4fb24635497386c3af9fa091b33524b741e2d2688fffb616e"
+    },
+    {
+      "snapshot": "original",
+      "path": "src/ui/sections/minions.vue",
+      "bytes": 3845,
+      "sha256": "df3d3efea10bf790231b93d48d1c3e8d71ff6a5c84d5dd772202fde7206615e2"
+    },
+    {
+      "snapshot": "original",
+      "path": "src/ui/sections/player.vue",
+      "bytes": 7721,
+      "sha256": "ae1cf36230b72eee21ec3ba576926d446bd5953eae8b4839123f971de680d15c"
+    },
+    {
+      "snapshot": "original",
+      "path": "src/ui/sections/potions.vue",
+      "bytes": 1538,
+      "sha256": "fcd4d6f772b1cb2501ddacb8640d716d6c4b87b8c3c3296edee91529e7df8e8b"
+    },
+    {
+      "snapshot": "original",
+      "path": "src/ui/sections/scraft.vue",
+      "bytes": 4556,
+      "sha256": "628803b69bdf5c544661d3352825251c794079ee04a529217c58b1e1c4a2f31d"
+    },
+    {
+      "snapshot": "original",
+      "path": "src/ui/sections/skills.vue",
+      "bytes": 3322,
+      "sha256": "176072a4f51e74bfde6afc633a61b45eef761147ef5d98f3a2917d7f66caeec5"
+    },
+    {
+      "snapshot": "original",
+      "path": "src/ui/sections/spells.vue",
+      "bytes": 4331,
+      "sha256": "aaee00f91cf8b8541aecc96ab95616cd1d48c0ffc94dfb256c326c5db747341a"
+    },
+    {
+      "snapshot": "original",
+      "path": "src/ui/sections/tasks.vue",
+      "bytes": 3181,
+      "sha256": "e34ae623f0c3e4e8775ea6e960807c2a1bf053ed867a659cc3ec2d5b04dd7644"
+    },
+    {
+      "snapshot": "original",
+      "path": "src/ui/spellbook.vue",
+      "bytes": 2103,
+      "sha256": "4ef85839ee9fd8024583406f591e716e91c26ce6c3cc230315dd1ceed1e21ee2"
+    },
+    {
+      "snapshot": "original",
+      "path": "src/ui/spelllist.vue",
+      "bytes": 3617,
+      "sha256": "4a73d311f6b1fd5b4c99970ae5cf6dcb2534451eca30e312c3b63c25bc78406b"
+    },
+    {
+      "snapshot": "original",
+      "path": "src/ui/top-bar.vue",
+      "bytes": 2810,
+      "sha256": "3758dccc18be3a0039cfa734413939d1d74318aebc721202ba9184b5df43b29c"
+    },
+    {
+      "snapshot": "original",
+      "path": "src/unused/bonus.js",
+      "bytes": 856,
+      "sha256": "0a827b50b6efd2406d3cbb473e5fdcc64a2447ae46779042aab59d5694ea6b15"
+    },
+    {
+      "snapshot": "original",
+      "path": "src/unused/chance.js",
+      "bytes": 530,
+      "sha256": "9c1a49c1af41caa593987bb8d882672f1e543ce8c46ac045f71f93251f5533a4"
+    },
+    {
+      "snapshot": "original",
+      "path": "src/unused/furniture.js",
+      "bytes": 340,
+      "sha256": "d50f8ff14bbf094f1018877397bb31604f82de195f59cc77a5126ecdb83e6a30"
+    },
+    {
+      "snapshot": "original",
+      "path": "src/unused/halloween.json",
+      "bytes": 15973,
+      "sha256": "962603944491235d4ef250dbc51b57311dd851b86025703d878a5a5f688bfe51"
+    },
+    {
+      "snapshot": "original",
+      "path": "src/unused/home.js",
+      "bytes": 453,
+      "sha256": "d1cf08be74179b7c728552626fa111571b2ca85913fbaeead5a05726f1aa9f25"
+    },
+    {
+      "snapshot": "original",
+      "path": "src/unused/lock.js",
+      "bytes": 1716,
+      "sha256": "5e2a750d3ec6d4e8be77ce0138245625fa75aa8d403897a63e95bbe3b739984f"
+    },
+    {
+      "snapshot": "original",
+      "path": "src/unused/statEntry.js",
+      "bytes": 627,
+      "sha256": "aa8b6c8bfd6d7cfe1417810bcdea9ca0eec58c9669d7e9d741c8c3a0090b53c4"
+    },
+    {
+      "snapshot": "original",
+      "path": "src/unused/stub.js",
+      "bytes": 284,
+      "sha256": "b51b2d57cdab159d9873c169c0cb4ca3ee18ae5b4d27f6f5a565055227ae7ab8"
+    },
+    {
+      "snapshot": "original",
+      "path": "src/unused/travel.js",
+      "bytes": 443,
+      "sha256": "decea114576eb3d4420d155109f4c2033e22ccfc1cb92e4b2279bd17d2df3275"
+    },
+    {
+      "snapshot": "original",
+      "path": "src/util/array.js",
+      "bytes": 12859,
+      "sha256": "e7efb56c38ac352b9f38f4bbd296d36d51c4e3a1db68e47d0f044c8e15ffd83e"
+    },
+    {
+      "snapshot": "original",
+      "path": "src/util/array.ts",
+      "bytes": 12913,
+      "sha256": "a894485c248e4cea5750c9d8cb7bdf82b45f95cd8864b9ee96c1fbbff13a2b56"
+    },
+    {
+      "snapshot": "original",
+      "path": "src/util/arrayDeprecated.js",
+      "bytes": 6544,
+      "sha256": "4bea48171b516d5eb8338a2dd202d99e2ffaa49691ac4cf3820e9993c6d3aa54"
+    },
+    {
+      "snapshot": "original",
+      "path": "src/util/dataUtil.js",
+      "bytes": 2931,
+      "sha256": "724987375c832dc60bbf1212faf01d0373d0c1006a58a6d86dd841457fb541aa"
+    },
+    {
+      "snapshot": "original",
+      "path": "src/util/format.js",
+      "bytes": 3473,
+      "sha256": "902bfe1b7310a94f696c24051bd49752ec24667da4b5e3a8d0a9340a9d670ee0"
+    },
+    {
+      "snapshot": "original",
+      "path": "src/util/jsonLoader.js",
+      "bytes": 2195,
+      "sha256": "56dad82f8ba8bb764375f0c74f51aa3842818f25dcbd765784e6164f00c5367a"
+    },
+    {
+      "snapshot": "original",
+      "path": "src/util/objecty.js",
+      "bytes": 19041,
+      "sha256": "b3f2ff41e2c23650a5975e289717ae74494a456e426a91f512d7a4a0aaedeab6"
+    },
+    {
+      "snapshot": "original",
+      "path": "src/util/util.js",
+      "bytes": 10986,
+      "sha256": "95f62a7448d6a2391fb8844f42638ed189fe5ecebe9f6307059ffda3cda0e336"
+    },
+    {
+      "snapshot": "original",
+      "path": "src/util/varPath.js",
+      "bytes": 2446,
+      "sha256": "e8dd35a571c8fc30cc9cc34584b6ddfd7872894ffcc23bd6585e23a2b207c69b"
+    },
+    {
+      "snapshot": "original",
+      "path": "src/values/arrayset.js",
+      "bytes": 949,
+      "sha256": "5591c5eead932491583fb68dae950c021ed77ae1b8a5cb85631e1813905945fd"
+    },
+    {
+      "snapshot": "original",
+      "path": "src/values/combatVars.js",
+      "bytes": 17382,
+      "sha256": "239d4adde09c8bd19799e71ca01469be69145c439b4e251ecbb38f62467dc93e"
+    },
+    {
+      "snapshot": "original",
+      "path": "src/values/consts.js",
+      "bytes": 4574,
+      "sha256": "5fe56e1ed47df2e3f2c580e5d600e2bcec3c4f03e1285c46e4149c7b18fe5028"
+    },
+    {
+      "snapshot": "original",
+      "path": "src/values/coord.js",
+      "bytes": 855,
+      "sha256": "3335ad3279150e3e6fa86e74dfe8648939041542541f9acf8d9683d4837bd584"
+    },
+    {
+      "snapshot": "original",
+      "path": "src/values/craftVars.js",
+      "bytes": 5134,
+      "sha256": "14640a462e5a32187179baab2bed85305a088637bf97327bea796046e4527497"
+    },
+    {
+      "snapshot": "original",
+      "path": "src/values/defaults.js",
+      "bytes": 732,
+      "sha256": "2322d48f8058f51d30f462340fe7dc025b5501ffee12216b6ee612192987ed6f"
+    },
+    {
+      "snapshot": "original",
+      "path": "src/values/maxStat.js",
+      "bytes": 1870,
+      "sha256": "965d841144fe0a3bb2dab1d8a55c4d0fa201a7963123f8af7bde81fea6170a11"
+    },
+    {
+      "snapshot": "original",
+      "path": "src/values/mods/atmod.js",
+      "bytes": 2891,
+      "sha256": "8460fc9a0255f8cc9762fb420df7a760707f37fb731fc13bd1563fcfe7553816"
+    },
+    {
+      "snapshot": "original",
+      "path": "src/values/mods/curvedmod.js",
+      "bytes": 5609,
+      "sha256": "80f2db8840d88836ad3baf2e737c33150af8d33049e5a1f4a19567da75e1fddd"
+    },
+    {
+      "snapshot": "original",
+      "path": "src/values/mods/mod.js",
+      "bytes": 7753,
+      "sha256": "300bff6e025bd41e2aa441e8c90508f8c0374019c97c26422d8b6aa0f34cb951"
+    },
+    {
+      "snapshot": "original",
+      "path": "src/values/mods/permod.js",
+      "bytes": 1654,
+      "sha256": "2d2b1a838f9b514a127b80c7f01f84192546247175fe62b58ac1d89602919cd1"
+    },
+    {
+      "snapshot": "original",
+      "path": "src/values/mods/rangedmod.js",
+      "bytes": 8282,
+      "sha256": "134b6aefda7e3e3a4f11da283d5c521fa37be0134e3a58b1371ef156b2ef5df0"
+    },
+    {
+      "snapshot": "original",
+      "path": "src/values/percent.js",
+      "bytes": 1304,
+      "sha256": "8b37de4b2bc9b736f94d69464c61e5b2522390c01d061ef27da92ad709f4d6d9"
+    },
+    {
+      "snapshot": "original",
+      "path": "src/values/range.js",
+      "bytes": 3585,
+      "sha256": "0d4930f14c9886db967433d9026cf6ef79b1adf1202c3480f8f69de7d2913291"
+    },
+    {
+      "snapshot": "original",
+      "path": "src/values/rvals/atval.js",
+      "bytes": 990,
+      "sha256": "7a63d9442c1f5f8fce19abc582fec34d16c3c9d51126a329a5216d4f3cfe6bec"
+    },
+    {
+      "snapshot": "original",
+      "path": "src/values/rvals/fvalue.js",
+      "bytes": 1945,
+      "sha256": "37dcd765a92df8565d0b49738dcbbfd1345fbc195001f56dcd84867725c9bbed"
+    },
+    {
+      "snapshot": "original",
+      "path": "src/values/rvals/rvalue.js",
+      "bytes": 3388,
+      "sha256": "a46980d773fea5e00c2ecc3b8fb20946ad09d20293ddc28269d6de1dcabc8c13"
+    },
+    {
+      "snapshot": "original",
+      "path": "src/values/rvals/scaler.js",
+      "bytes": 1070,
+      "sha256": "2ed031317b744f57ecd8713b0af8d22adf436071d1f850e08aa778a451006e1b"
+    },
+    {
+      "snapshot": "original",
+      "path": "src/values/rvals/srcval.js",
+      "bytes": 407,
+      "sha256": "d5906db9a7a15372271c5f956504e0406449a1dedbc14e37a0555c84a606bb93"
+    },
+    {
+      "snapshot": "original",
+      "path": "src/values/rvals/stat.js",
+      "bytes": 5941,
+      "sha256": "96e83be916bbfe975b85739bacdfbeffd1b1d3a588f1d21b41fcc4cab0116354"
+    },
+    {
+      "snapshot": "original",
+      "path": "tsconfig.json",
+      "bytes": 412,
+      "sha256": "f4208ffa03ba0df078d003af3a28d49172b821464a04d12f1702cab4f640a177"
+    },
+    {
+      "snapshot": "original",
+      "path": "vite.config.ts",
+      "bytes": 2495,
+      "sha256": "84b629fd6ca7204e51d616fcf508fe22571c0579a3066793efb87300867889ed"
+    },
+    {
+      "snapshot": "original",
+      "path": "vue.config.js",
+      "bytes": 95,
+      "sha256": "8c83f0efa5e7cf74492a3bcdea65b4c28234634c8ac26b8212654ae4cce69193"
+    }
+  ]
+}

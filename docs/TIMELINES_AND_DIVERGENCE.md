@@ -110,6 +110,8 @@ Small disturbances decay (canon pressure heals them). Big ones stay.
 - **Schemers who adapt** to you as a variable (E8E at plot scale).
 - **Fate as an entity** (E5) that actively repairs its course.
 - **Time-keeper factions** that police divergence, or exploit it.
+  Expanded in [time keepers and variants](TIME_KEEPERS_AND_VARIANTS.md)
+  (Loki and kin: pruning, the Void, keeper careers, variant parties).
 
 ### Interactions with other standards
 - **Absent worlds (rule 7).** A world's natural course runs on its own

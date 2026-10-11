@@ -1,0 +1,25 @@
+{
+  "at": "2026-10-10T06:55:47.306257+00:00",
+  "status": "passed artifact and source checks; no gameplay tests",
+  "required_files_sha256": {
+    "INTAKE.json": "1a8933b60284729ee6ba6d4bc3b794f01b5de14630edb4f8cdcb36f1734066c1",
+    "REPORT.md": "0cfffc9aa0abfcfbc1076886677713f3b930ff3bf216b689739d92ad5380677d",
+    "FINDINGS.json": "b2f7b3faa358cbe8b187017770b74178612c99c8b9eda6b7dd9d85d854ae5e11",
+    "COVERAGE.json": "6a7bf05b2a383ed04c603be47bee16b0376bae9079beba85ad955f2e52c7c133",
+    "IMPLEMENTATION_PACKETS.md": "02af40c81d1cf49287db8c90c773d2148d73cd2cf51285fad9c6ded0915d591f",
+    "SMALL_TOUCHES.md": "518ca7c3d70283f6a8cbb56c33c9e9fc5ae62c0dfbee9a12212b02e479f1fb0c",
+    "CHECKPOINT.md": "3eda5f198b43f1c66c86285f8951407e528193c9961c1af981ca7f4b6c889de9"
+  },
+  "findings": 18,
+  "ranked_packets": 6,
+  "small_touches": 24,
+  "local_links_checked": [
+    "IMPLEMENTATION_PACKETS.md",
+    "SMALL_TOUCHES.md",
+    "FINDINGS.json",
+    "COVERAGE.json",
+    "INTAKE.json"
+  ],
+  "source_receipt": "SOURCE_VALIDATION.json",
+  "runtime": "not run / not authorized by research task"
+}

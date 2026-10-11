@@ -1,0 +1,34 @@
+{
+  "observed_utc": "2026-10-07T14:04:14.806358+00:00",
+  "native_writer": "/root/factorio_native_finish3",
+  "live_process_sample": "46960 46919 S    55:13 455216",
+  "export_progress_path": "/Users/weiwei/.codex/research/factorio/native-23347942/exports/x86_64/progress.json",
+  "export_progress_sha256_at_read": "16fa27cfd548c0bce49d8046f772b069c075b81a961262c9e8b88a279f1deb7d",
+  "exporter_reported_progress": {
+    "schema": 1,
+    "architecture": "x86_64",
+    "mode": "full",
+    "disk_floor_bytes": 536870912,
+    "pipeline_script_sha256": "eadd26b7518c69f8b6c19c3820c1182f07d1f1e86da30ef5f70c8c67322e5eff",
+    "state": "running",
+    "started_at": "2026-10-07T13:09:07.333989Z",
+    "updated_at": "2026-10-07T14:04:07.321309Z",
+    "pid": 46960,
+    "planned_nonexternal": 182398,
+    "retained_unique_entries": 168900,
+    "this_run_written": 168900,
+    "this_run_success": 168835,
+    "this_run_failed": 65,
+    "last_closed_chunk": 1689,
+    "free_bytes": 70101995520,
+    "this_run_status_counts": {
+      "decompiler-failure": 55,
+      "resource-limit": 2,
+      "success": 168835,
+      "timeout": 8
+    }
+  },
+  "counts_acquisition": "Live progress is exporter-reported. No new whole-corpus byte/hash/identity audit ran. Final closed corpus awaits native writer release.",
+  "compiled_backend_acquisition": "BACKEND_BUILD_ACQUISITION.json",
+  "same_goal_status": "Active; primary root owns the host goal decision."
+}

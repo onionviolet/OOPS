@@ -1,0 +1,37 @@
+{
+  "status": "passed",
+  "candidate_count": 50,
+  "language_groups": {
+    "Chinese": 16,
+    "Korean": 9,
+    "Japanese": 8,
+    "Western": 17
+  },
+  "series_mapping_count": 50,
+  "source_reference_count": 78,
+  "top_mechanics": 15,
+  "source_requests_added": 10,
+  "shared_original_bytes_preserved": true,
+  "shared_request_ids_unique": true,
+  "exact_repeats_excluded": true,
+  "path_parts": 8,
+  "axes": 10,
+  "core_and_optional_vow_fields_checked": true,
+  "e8_matches_initial_snapshot": {
+    "docs/emergent/E8B_POWER_CATALOG.md": true,
+    "docs/emergent/E8C_POWER_PATHS_AND_ANIME.md": false,
+    "docs/emergent/E8E_ADAPTATION.md": true,
+    "docs/emergent/E8D_VOW_SYSTEM.md": false,
+    "docs/emergent/E8_POWER_ASPECTS.md": false
+  },
+  "concurrent_e8_updates_reviewed": true,
+  "e8_matches_reviewed_snapshot": true,
+  "links": "Local targets exist; public URLs syntactically valid and recorded from metadata. No mass live URL fetch.",
+  "verification_scope": "Artifact integrity and coverage only. No primary chapter reading, gameplay/build/save tests.",
+  "sha256": {
+    "CANDIDATES.json": "1be4ca4a55837fc63c7c157946bf167223054d3c97a5527b7ecd08308d9d3620",
+    "SERIES.json": "9c486159d7b766f303ee2667d7d33e92cc286647e6f372e4a60620aad3221fab",
+    "REPORT.md": "177ede9c66850684ab3d22a593c60d704cf47dd89a08705ac5c1eb2f2ed3cecc",
+    "SOURCES.md": "fb51c47fbb8764469f088529d86fdfcb05ec2b3adc0099c2856753abd8a4f34d"
+  }
+}

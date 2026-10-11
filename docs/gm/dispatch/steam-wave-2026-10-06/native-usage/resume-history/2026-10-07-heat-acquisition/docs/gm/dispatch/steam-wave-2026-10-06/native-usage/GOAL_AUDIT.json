@@ -1,0 +1,111 @@
+{
+  "observed_utc": "2026-10-07T18:14:06.932521+00:00",
+  "status": "NOT COMPLETE",
+  "original_objective_preserved": true,
+  "requirements": [
+    {
+      "requirement": "Pin actual installed version/platform/native input and retain original Lua/API/DLC/dependencies privately",
+      "state": "proved for retained input snapshot",
+      "evidence": [
+        "docs/research/factorio/INTAKE.json",
+        "docs/research/factorio/native/INTAKE.json",
+        "FACTORIO_COMPLETION.json",
+        "RETAINED_INPUT_REFRESH.json",
+        "DEPENDENCY_ACQUISITION.json"
+      ],
+      "limit": "Root retained-input refresh matches installed 2.0.77 / build 23347942, all three native inputs, 1,877 text files and two API documents. Bundled Steam API and both licenses are retained and independently matched. System dependencies remain external metadata; presence does not establish an enabled DLC profile or entitlement."
+    },
+    {
+      "requirement": "Recover both architecture full function pseudocode/disassembly sets with exact provenance/coverage/failures",
+      "state": "Both full initial function attempt sets closed and independently acquired; repair/final reconciliation incomplete",
+      "evidence": [
+        "ARM_CORPUS_ACQUISITION.json",
+        "X86_INITIAL_CLOSED_ACQUISITION.json",
+        "X86_SAVED_REOPEN_ACQUISITION.json",
+        "private X86_INITIAL_WHOLE_CORPUS_ACQUISITION-through1824.json",
+        "docs/research/factorio/native/PIPELINE.json",
+        "FLOW_CANONICAL_ACQUISITION.json"
+      ],
+      "limit": "Both initial corpora are acquired. ARM canonical repairs through1853 replace two failed Splitter methods with actual C successes; the acquired bounded delta has 183,199 unique functions, 183,188 latest C successes and 11 failures. Intel initial through1824 has 182,398 unique functions, 182,329 C successes and 69 failures. All three canonical flow rows have exact raw/C/ASM/input/context/tool acquisition; final repaired corpus/index/ownership/section/alias/external/provenance and semantic qualification remain open."
+    },
+    {
+      "requirement": "Make meaningful changed repairs for failed functions and qualify native ABI/field limits",
+      "state": "Scalar and guarded Splitter/Inserter repairs acquired; coherent hash/merge/ABI/section/resource/ownership work incomplete",
+      "evidence": [
+        "private immutable failure records",
+        "NATIVE_PROGRESS.json",
+        "native readers/logistics-heat/REPORT.md",
+        "ARM_CORPUS_ACQUISITION.json",
+        "BACKEND_REVIEW_ACQUISITION.json",
+        "ARM_FLOW_READBACK.json",
+        "BACKEND_BUILD_ACQUISITION.json",
+        "BACKEND_DIAGNOSTIC_ACQUISITION.json",
+        "private FULL_CONTEXT_ALL_TABLES_FLOW2.json",
+        "private ALL_SPLITTER_TABLES_FLOW2.json",
+        "private INSERTER_TABLE_FLOW2.json",
+        "FLOW_CANONICAL_ACQUISITION.json"
+      ],
+      "limit": "All 1,105 scalar-affected methods retain qualified repair. Three canonical flow rows now close both Splitter crashes and six Inserter cases, with14 guarded Splitter tables, every original body/instruction byte and64 restored Inserter bytes acquired. The generated C remains qualified for candidate boundaries and inferred types. Diagnosed greater-than-eight hash collisions and overlapping address-tied INDIRECTs still require faithful repair. Selected Heat physical ABI, Intel unwind edge, measured resource retries and exact instruction ownership remain open."
+    },
+    {
+      "requirement": "Review consequential native production/inventory/quality/spoilage/logistics/heat/DLC joins against actual shipped Lua/API",
+      "state": "Bounded native/Lua/API review acquired; NLH-02/03 canonical case closure acquired; later ABI/repair implications pending",
+      "evidence": [
+        "docs/research/factorio/native/readers/quality-spoilage/REPORT.md",
+        "docs/research/factorio/native/readers/logistics-heat/REPORT.md",
+        "docs/research/factorio/native/SOURCE_BINDING.json",
+        "SOURCE_BINDING_ACQUISITION.json",
+        "LATEST_BINDING_READBACK.json",
+        "READER_REFRESH_ACQUISITION.json",
+        "FLOW_CLAIM_READBACK.json"
+      ],
+      "limit": "Prior54 reader bindings/53 C views,26 source bindings and61 API pointers remain acquired. Complete canonical Splitter/Inserter C bodies and their byte/guard/CFG evidence were independently read. NLH-02/03 consequential claims are unchanged with canonical six-case closure now qualified;16 missing instructions/64 original bytes are retained. Seven other candidate-body gaps, indirect callees, floating-point/type/ABI and actual DLC activation limits remain open."
+    },
+    {
+      "requirement": "Use recovered methods in one concrete original YAIR behavior through existing inventory/body/clock/publisher/engine/UI",
+      "state": "proved source/build delivery; implemented-unverified",
+      "evidence": [
+        "BUILD_ACQUISITION.json",
+        "RETORT_REVIEW.md",
+        "RETORT_INTERFACE.md",
+        "NATIVE_VALIDATOR_INTERFACE.md",
+        "docs/gm/audit-absorption-2026-10-07/DELIVERY.md",
+        "RETORT_RESUME_READBACK.json"
+      ],
+      "limit": "All four released retort source hashes still match live source, current source-map contents and the retained historical 370-source build. Existing engine/UI/stock/body/clock/publisher joins were source-reviewed. Paid stock, separate receivers, clearing/disposal and a finite batch plan are original YAIR use; pre-batch admission and refundable unburned fuel are original policies. Gameplay/save acceptance remains implemented-unverified and deferred. Independent lanes have changed shared source since that build, so this is not a current combined-build claim."
+    },
+    {
+      "requirement": "Appropriate build/import/definition/link checks and matching source/current preview; explicitly deferred playable acceptance",
+      "state": "Historical delivery source/build checks retained and reacquired; current tree evolves in parallel",
+      "evidence": [
+        "docs/gm/home-social-base-2026-10-07/FINAL_CHECKS.json",
+        "docs/gm/audit-absorption-2026-10-07/BUILD.json",
+        "BUILD_ACQUISITION.json",
+        "RETORT_REVIEW.md",
+        "RETORT_RESUME_READBACK.json"
+      ],
+      "limit": "The immutable e77080593d4b bundle/map/index and four exact retort leaves match their acquired historical receipts. Ten shared/story source files differ from the historical 370-source snapshot during independent lane work. No shared build was run or claimed current by this reviewer. Existing permitted syntax/import/definition/link receipts remain scoped to their snapshots; no gameplay, browser, save/reload/import behavior, failure, regression or director suite is claimed."
+    },
+    {
+      "requirement": "Preserve saves/attribution/unrelated dirty work/exclusive writers; retain raw code privately and avoid publication/install mutation",
+      "state": "Exclusive writer transfer and retained historical artifacts acquired; final preservation recheck pending",
+      "evidence": [
+        "ACQUISITION.json",
+        "INTEGRATION_PACKET.md",
+        "private tool receipts",
+        "docs/gm/audit-absorption-2026-10-07/RELEASE.json",
+        "ARM_ARCHIVE_ACQUISITION.json"
+      ],
+      "limit": "The account model error and later daemon restart retired vanished writer leases after authoritative child/process absence checks. Sole native/private writer is /root/factorio_native_continuation; /root/factorio_recovery_review owns independent acceptance and released routing. Primary root retains assignment, ACQUISITION.json and host goal decisions. Private raw inputs/chunks/failures/tools/archives remain retained; unchanged Intel compressed corpus is reacquired. Saves, installs, unrelated lane work and shared runtime/build remain untouched by this continuation. Final new corpus/tool preservation audit remains pending."
+    }
+  ],
+  "decision": "Continue the same unfinished authorized objective. Canonical Splitter/Inserter rows and associated reader case closure now pass independent acquisition. Both full initial attempt sets were already acquired. Coherent hash/merge, selected Heat ABI, Intel section, measured resource and exact ownership/final repaired-corpus acquisition remain required. Primary root alone decides host goal status.",
+  "live_state_receipt": "ACCEPTANCE_STATE_REFRESH.json",
+  "final_audit_preparation": {
+    "script": "audit_native_corpus.py",
+    "mode": "--extended",
+    "state": "AST syntax checked previously; durable full initial Intel --extended audit acquired unchanged. New final repaired corpus must be stable before the final extended acquisition."
+  },
+  "resume_receipt": "ACCEPTANCE_STATE_REFRESH.json",
+  "superseded_state": "resume-history/2026-10-07-daemon-review/docs/gm/dispatch/steam-wave-2026-10-06/native-usage/GOAL_AUDIT.json"
+}

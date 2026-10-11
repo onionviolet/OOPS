@@ -1,0 +1,22 @@
+{
+  "checked_at": "2026-10-07T20:36:44.977571+00:00",
+  "status": "pending-real-source-arrival",
+  "assigned_pass": [
+    "generations",
+    "advisors",
+    "event consequence chains",
+    "yearly clan cycle"
+  ],
+  "read_source_files": [],
+  "chains_verified": [],
+  "unread": [
+    "all installed-source inputs; none available to this worker"
+  ],
+  "not_claimed": [
+    "runtime behavior",
+    "whole-game coverage",
+    "source recovery",
+    "finite audit completion"
+  ],
+  "blocker": "No app881420 manifest and no app881420 content-log lines after spaced60second readiness checks. User reports requeued; no live source arrival observed. Root reports install confirmation remains unanswered. No ownership or engine fact inferred."
+}

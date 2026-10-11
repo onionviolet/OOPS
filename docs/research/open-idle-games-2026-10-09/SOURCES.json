@@ -1,0 +1,90 @@
+{
+  "audit_date": "2026-10-09",
+  "captured_utc": "2026-10-09T04:56:00.465693+00:00",
+  "method": "depth-1 clones and static source inspection; no upstream code executed",
+  "repos": [
+    {
+      "clone_dir": "/Users/weiwei/.codex/research/progress-knight/original",
+      "url": "https://github.com/ihtasham42/progress-knight.git",
+      "sha": "f6dd0c3c444d838f80325bbdca918160b99e89e5",
+      "commit_date": "2021-07-11T13:32:49+01:00",
+      "subject": "Update README.md",
+      "shallow": true,
+      "status": "",
+      "license_files": [
+        "LICENSE"
+      ],
+      "license_finding": "Unlicense"
+    },
+    {
+      "clone_dir": "/Users/weiwei/.codex/research/progress-knight/two",
+      "url": "https://github.com/Symb1/progress_knight_2.git",
+      "sha": "5b6b059b1f5ad645837e504bde1d455995d05514",
+      "commit_date": "2022-02-15T21:19:03+01:00",
+      "subject": "Add files via upload",
+      "shallow": true,
+      "status": "",
+      "license_files": [],
+      "license_finding": "No explicit repository license found"
+    },
+    {
+      "clone_dir": "/Users/weiwei/.codex/research/progress-knight/quest",
+      "url": "https://github.com/indomit/progress_knight_2.git",
+      "sha": "d03f8b65adddab4a089a2f95e3a4749770aa03cb",
+      "commit_date": "2026-09-25T20:10:46+07:00",
+      "subject": "fixed bug with save migration",
+      "shallow": true,
+      "status": "",
+      "license_files": [],
+      "license_finding": "No explicit repository license found"
+    },
+    {
+      "clone_dir": "/Users/weiwei/.codex/research/idle-loops/original",
+      "url": "https://github.com/StopSign/stopsign.github.io.git",
+      "sha": "d41bf197f9203e6da6f72628a9d76369b8140d57",
+      "commit_date": "2026-06-14T17:27:04+02:00",
+      "subject": "Changes",
+      "shallow": true,
+      "status": "",
+      "license_files": [
+        "LICENSE.md"
+      ],
+      "license_finding": "MIT"
+    },
+    {
+      "clone_dir": "/Users/weiwei/.codex/research/idle-loops/maintained",
+      "url": "https://github.com/omsi6/omsi6.github.io.git",
+      "sha": "fa21477d424f3aa1f1bf6deb9f6f83c2569770ab",
+      "commit_date": "2023-02-11T18:45:56-08:00",
+      "subject": "looms: v1.46",
+      "shallow": true,
+      "status": "",
+      "license_files": [],
+      "license_finding": "No explicit repository license found"
+    },
+    {
+      "clone_dir": "/Users/weiwei/.codex/research/idle-loops/dmchurch",
+      "url": "https://github.com/dmchurch/omsi-loops.git",
+      "sha": "fe4a349efb799a56ab548018caca1a1a1aea0c8f",
+      "commit_date": "2025-03-23T18:40:52-04:00",
+      "subject": "update Recent Changes with notes from #15",
+      "shallow": true,
+      "status": "",
+      "license_files": [],
+      "license_finding": "No explicit repository license found"
+    },
+    {
+      "clone_dir": "/Users/weiwei/.codex/research/evolve",
+      "url": "https://github.com/pmotschmann/Evolve.git",
+      "sha": "3436358dcd03d9f9e071d51ea071e0a78c0322e4",
+      "commit_date": "2026-06-19T13:09:47-04:00",
+      "subject": "1.4.1",
+      "shallow": true,
+      "status": "",
+      "license_files": [
+        "LICENSE"
+      ],
+      "license_finding": "MPL-2.0"
+    }
+  ]
+}

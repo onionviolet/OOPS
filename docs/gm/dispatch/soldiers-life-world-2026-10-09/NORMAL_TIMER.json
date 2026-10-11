@@ -1,0 +1,11 @@
+{
+  "status": "passed",
+  "origin": "http://127.0.0.1:8147",
+  "timer": "Unmodified native HackTimer; no clock override or forced speed.",
+  "findings": [
+    "Two-minute drill and five-minute duty finish using the normal played timer.",
+    "Rejected report storage retains kit and delivery and grants no wages; retry grants one local wage.",
+    "Return preserves Village money and native career."
+  ],
+  "errors": []
+}

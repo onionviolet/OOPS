@@ -1,0 +1,32 @@
+{
+  "pack_index_entries": 3234,
+  "compiled_scripts_token_recovered": 126,
+  "compiled_scripts_fully_byte_consumed": 126,
+  "semantic_paths_read": 5,
+  "semantic_path_ids": [
+    "F1",
+    "F2",
+    "F3",
+    "F4",
+    "F5"
+  ],
+  "distinct_renderings_cited": 11,
+  "semantic_scope": "five bounded connected paths; cited spans only, not complete scripts or whole game",
+  "checks": [
+    "private pack SHA-256",
+    "cited rendering SHA-256 against RECOVERY.json",
+    "compiled input SHA-256 against RECOVERY.json",
+    "cited line spans in bounds",
+    "dossier JSON parse"
+  ],
+  "not_run": [
+    "game execution",
+    "browser play",
+    "retail/native inspection",
+    "Godot rebuild",
+    "save/reload/import",
+    "YAIR implementation or build"
+  ],
+  "semantic_span_union_lines": 989,
+  "root_readback": "../../gm/dispatch/new-game-audits-2026-10-07/ACHRA_READBACK.json"
+}

@@ -1,0 +1,46 @@
+{
+  "date": "2026-10-09",
+  "status": "bounded-source-pass-complete-not-full-game-reconstruction",
+  "input_files": 4,
+  "selected_native_method_ranges": 26,
+  "selected_classes": [
+    "BossAI1",
+    "CamManageBuy",
+    "CheckAll6",
+    "ControllerElevator",
+    "Dying",
+    "FPSController",
+    "GameOverM",
+    "HeatingTimer",
+    "HydrationSystem",
+    "ItemChecker",
+    "MainMenu",
+    "ManagerSpawn",
+    "PathOpen",
+    "Ray1.<Escaper>d__129",
+    "RestartLevel",
+    "TimerGame",
+    "WeightController"
+  ],
+  "read": {
+    "metadata_declarations": "Selected gameplay field layouts and method signatures",
+    "native_bodies": "26 selected RVA ranges including completion coroutine, purchase, retry, puzzle, hazard, damage and aggregate completion",
+    "scalars": "Purchase costs and stock deltas, category weights and threshold, warning330 and hydration0.2, constructor defaults",
+    "serialized_scenes": "Not copied or parsed",
+    "player_saves_and_Steam_stats": "Not read"
+  },
+  "not_verified": [
+    "Full scene wiring, item placements or default serialized overrides",
+    "Full level completion graph and other scene rewards",
+    "Upgrade effect implementation and actual scene consumable duration",
+    "Mid-level checkpoints or save retention on retry",
+    "Full enemy AI, timing telegraphs and movement behavior",
+    "Natural pacing, difficulty, geometry, UI visibility or played behavior",
+    "Prestige, idle/offline loop or procedural generation"
+  ],
+  "tool_result": "Il2CppDumper output generation Done, exit134 at post-output ReadKey. JSON/declarations/dummy filenames parsed; selected native body readback verified separately.",
+  "disassembly_boundary": "From metadata method RVA through next unique mapped method RVA. PE unwind entries may split functions; not used as sole bound. May include trailing INT3 padding. Shared native addresses have multiple metadata aliases; avoid interpreting generic call labels without field/body context.",
+  "raw_source_public": false,
+  "proposals": 8,
+  "small_touches": 24
+}

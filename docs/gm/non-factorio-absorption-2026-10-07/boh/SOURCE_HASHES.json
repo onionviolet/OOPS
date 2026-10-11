@@ -1,0 +1,197 @@
+{
+  "schema": 1,
+  "checked_at_utc": "2026-10-07T20:31:19.104105+00:00",
+  "snapshot": "/Users/weiwei/.codex/research/book-of-hours/22091683",
+  "source_library_mutated": false,
+  "recovered_helpers_executed": false,
+  "source_corpus_copied": false,
+  "selected_path_ids": [
+    "BH02",
+    "BH07"
+  ],
+  "published_claim_ids": [
+    "BOH-F02",
+    "BOH-F03",
+    "BOH-F04",
+    "BOH-F14"
+  ],
+  "published_dossier": "docs/research/book-of-hours/FINDINGS.json",
+  "published_dossier_sha256": "05b30b25290382fa7662d4bef4351be5410c8dc53f33b02e3265f3b4cc04f1c5",
+  "selection_sha256": "edf7be7339e907aa503fd58267ee1d71ebbcb19bf673e569363f1c642d15e351",
+  "actual_retained_file_hashes": [
+    {
+      "file": "decks/challenges.json",
+      "sha256": "a2a19cb5bed346f9796ba21bd021b0478ab1e55831fbc22e5191f3100224f025",
+      "bytes": 2849
+    },
+    {
+      "file": "elements/_prototypes.json",
+      "sha256": "590afc01d6a095ebf5a93f27be991fde9ee998d2b0396fda0dec3a1c6cebf2a2",
+      "bytes": 24458
+    },
+    {
+      "file": "elements/abilities.json",
+      "sha256": "6633f164ed58530b2aa4d568434e2da7644beecaac06aa29928b73743444d928",
+      "bytes": 18784
+    },
+    {
+      "file": "elements/tomes.json",
+      "sha256": "4d625b5d367cc344c238c71968926df6de54119a15c6e8c3b38f80595e6ff41b",
+      "bytes": 664856
+    },
+    {
+      "file": "recipes/1_consider_books.json",
+      "sha256": "065beecc50b079d5e75bc0d15a150cd02e8ff6132ce7fd17ce93f43a98b53368",
+      "bytes": 48665
+    },
+    {
+      "file": "recipes/celestial_recipes_time.json",
+      "sha256": "04b48be5da162becda39af1a61e1812dd8371b67a948deaf3da393a8a3061265",
+      "bytes": 13068
+    },
+    {
+      "file": "recipes/crafting_0_rest.json",
+      "sha256": "73b71b7b694456368203c8862cdce5b727f01ddb23c0aa2618c43077bcc36934",
+      "bytes": 8495
+    }
+  ],
+  "exact_definition_locators": [
+    {
+      "id": "t.thebookofcinders",
+      "file": "elements/tomes.json",
+      "group": "elements",
+      "ordinal_zero_based": 28,
+      "sha256": "4d625b5d367cc344c238c71968926df6de54119a15c6e8c3b38f80595e6ff41b"
+    },
+    {
+      "id": "study.mystery.forge.mastered",
+      "file": "recipes/1_consider_books.json",
+      "group": "recipes",
+      "ordinal_zero_based": 61,
+      "sha256": "065beecc50b079d5e75bc0d15a150cd02e8ff6132ce7fd17ce93f43a98b53368"
+    },
+    {
+      "id": "study.mystery.forge.mastering.begin",
+      "file": "recipes/1_consider_books.json",
+      "group": "recipes",
+      "ordinal_zero_based": 62,
+      "sha256": "065beecc50b079d5e75bc0d15a150cd02e8ff6132ce7fd17ce93f43a98b53368"
+    },
+    {
+      "id": "study.mystery.forge.mastering.yes",
+      "file": "recipes/1_consider_books.json",
+      "group": "recipes",
+      "ordinal_zero_based": 63,
+      "sha256": "065beecc50b079d5e75bc0d15a150cd02e8ff6132ce7fd17ce93f43a98b53368"
+    },
+    {
+      "id": "study.mystery.forge.mastering.maybe",
+      "file": "recipes/1_consider_books.json",
+      "group": "recipes",
+      "ordinal_zero_based": 64,
+      "sha256": "065beecc50b079d5e75bc0d15a150cd02e8ff6132ce7fd17ce93f43a98b53368"
+    },
+    {
+      "id": "study.mastering.opportunities.router",
+      "file": "recipes/1_consider_books.json",
+      "group": "recipes",
+      "ordinal_zero_based": 27,
+      "sha256": "065beecc50b079d5e75bc0d15a150cd02e8ff6132ce7fd17ce93f43a98b53368"
+    },
+    {
+      "id": "study.mastering.opportunity.memory",
+      "file": "recipes/1_consider_books.json",
+      "group": "recipes",
+      "ordinal_zero_based": 30,
+      "sha256": "065beecc50b079d5e75bc0d15a150cd02e8ff6132ce7fd17ce93f43a98b53368"
+    },
+    {
+      "id": "study.mastering.opportunity.comfort",
+      "file": "recipes/1_consider_books.json",
+      "group": "recipes",
+      "ordinal_zero_based": 31,
+      "sha256": "065beecc50b079d5e75bc0d15a150cd02e8ff6132ce7fd17ce93f43a98b53368"
+    },
+    {
+      "id": "study.mastering.no",
+      "file": "recipes/1_consider_books.json",
+      "group": "recipes",
+      "ordinal_zero_based": 38,
+      "sha256": "065beecc50b079d5e75bc0d15a150cd02e8ff6132ce7fd17ce93f43a98b53368"
+    },
+    {
+      "id": "maladyrisk.phost.lantern",
+      "file": "recipes/1_consider_books.json",
+      "group": "recipes",
+      "ordinal_zero_based": 43,
+      "sha256": "065beecc50b079d5e75bc0d15a150cd02e8ff6132ce7fd17ce93f43a98b53368"
+    },
+    {
+      "id": "d.challenges.opportunities",
+      "file": "decks/challenges.json",
+      "group": "decks",
+      "ordinal_zero_based": 0,
+      "sha256": "a2a19cb5bed346f9796ba21bd021b0478ab1e55831fbc22e5191f3100224f025"
+    },
+    {
+      "id": "d.challenges.consolations",
+      "file": "decks/challenges.json",
+      "group": "decks",
+      "ordinal_zero_based": 1,
+      "sha256": "a2a19cb5bed346f9796ba21bd021b0478ab1e55831fbc22e5191f3100224f025"
+    },
+    {
+      "id": "xpho",
+      "file": "elements/abilities.json",
+      "group": "elements",
+      "ordinal_zero_based": 8,
+      "sha256": "6633f164ed58530b2aa4d568434e2da7644beecaac06aa29928b73743444d928"
+    },
+    {
+      "id": "zpho",
+      "file": "elements/abilities.json",
+      "group": "elements",
+      "ordinal_zero_based": 17,
+      "sha256": "6633f164ed58530b2aa4d568434e2da7644beecaac06aa29928b73743444d928"
+    },
+    {
+      "id": "mpho",
+      "file": "elements/abilities.json",
+      "group": "elements",
+      "ordinal_zero_based": 25,
+      "sha256": "6633f164ed58530b2aa4d568434e2da7644beecaac06aa29928b73743444d928"
+    },
+    {
+      "id": "bed.rest.malady.nectar",
+      "file": "recipes/crafting_0_rest.json",
+      "group": "recipes",
+      "ordinal_zero_based": 5,
+      "sha256": "73b71b7b694456368203c8862cdce5b727f01ddb23c0aa2618c43077bcc36934"
+    },
+    {
+      "id": "_ability.fatigued",
+      "file": "elements/_prototypes.json",
+      "group": "elements",
+      "ordinal_zero_based": 1,
+      "sha256": "590afc01d6a095ebf5a93f27be991fde9ee998d2b0396fda0dec3a1c6cebf2a2"
+    },
+    {
+      "id": "_ability.fatigued",
+      "file": "elements/abilities.json",
+      "group": "elements",
+      "ordinal_zero_based": 0,
+      "sha256": "6633f164ed58530b2aa4d568434e2da7644beecaac06aa29928b73743444d928"
+    },
+    {
+      "id": "day.daybreak",
+      "file": "recipes/celestial_recipes_time.json",
+      "group": "recipes",
+      "ordinal_zero_based": 0,
+      "sha256": "04b48be5da162becda39af1a61e1812dd8371b67a948deaf3da393a8a3061265"
+    }
+  ],
+  "result": "pass",
+  "file_count": 7,
+  "locator_count": 19,
+  "boundary": "Selected definitions and published claim binding only; no whole-source or source-runtime claim."
+}

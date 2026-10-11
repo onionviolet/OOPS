@@ -1,0 +1,18 @@
+{
+  "game": "Six Ages: Ride Like the Wind",
+  "app_id": 881420,
+  "checked_at": "2026-10-07T20:36:44.977571+00:00",
+  "status": "pending-real-source-arrival",
+  "library": "/Users/weiwei/Library/Application Support/Steam",
+  "observed": {
+    "manifest_present": false,
+    "content_log_app_lines": 0,
+    "user_report": "requeued",
+    "root_report": "install confirmation remains unanswered"
+  },
+  "engine": "unverified; assignment expected Unity only",
+  "snapshot": null,
+  "decompile": null,
+  "saves_inspected": false,
+  "blocker": "No app881420 manifest and no app881420 content-log lines after spaced60second readiness checks. User reports requeued; no live source arrival observed. Root reports install confirmation remains unanswered. No ownership or engine fact inferred."
+}

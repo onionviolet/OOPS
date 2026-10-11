@@ -1,0 +1,165 @@
+{
+  "checked_utc": "2026-10-07T17:59:02.564964+00:00",
+  "result": "passed",
+  "member_references": 16,
+  "distinct_json_members": 16,
+  "resolvable_json_pointers": 35,
+  "checks": [
+    "ZIP member hashes",
+    "JSON parses",
+    "actual JSON pointer resolution",
+    "version.txt equals0.9.19.7"
+  ],
+  "parent_repair": "Human field descriptions converted to exact machine-resolvable JSON pointer lists.",
+  "references": [
+    {
+      "finding": "F1",
+      "member": "data/mods/core_2/natural_resources.json",
+      "sha256": "f532cc4278855be14e08a82265a72cdb4595ca8789afbe594a28143a3b61f7ce",
+      "pointers": [
+        "/boreal_forest/wood"
+      ]
+    },
+    {
+      "finding": "F1",
+      "member": "data/mods/core_2/buildings/10_Woodcutter.json",
+      "sha256": "5a6dac7d527c2283985e402278d0b7fc05ac58e51ad6257a2bf7d2a2dcb23aa0",
+      "pointers": [
+        "/produces/0"
+      ]
+    },
+    {
+      "finding": "F1",
+      "member": "data/mods/core_2/buildings/102_Carpenter.json",
+      "sha256": "d579aca9f9867de40bf2408de0f57cefab91b637beebc4d9556c2f4ea23c41a8",
+      "pointers": [
+        "/produces/0"
+      ]
+    },
+    {
+      "finding": "F1",
+      "member": "data/mods/core_2/entities/2092_Pine_Log.json",
+      "sha256": "30d516c54340871e7913c936d4b41370154650a80409d63526d63f227bfa7dd4",
+      "pointers": [
+        "/producer"
+      ]
+    },
+    {
+      "finding": "F1",
+      "member": "data/mods/core_2/entities/2093_Pine_Wood.json",
+      "sha256": "33b14e4aa6e1d704515190430c424e941af0f45618ea2026bbcfcf750d988dce",
+      "pointers": [
+        "/resource"
+      ]
+    },
+    {
+      "finding": "F2",
+      "member": "data/mods/core_2/milestones/adventuring/Adamantine_Ingot.json",
+      "sha256": "a609d8d723eda2982cf53fe4d8925aa7df54f8d199904a5fd52111fe999d222e",
+      "pointers": [
+        "/requirements",
+        "/rewards/0"
+      ]
+    },
+    {
+      "finding": "F2",
+      "member": "data/mods/core_2/entities/2116_Adamantine_Ingot.json",
+      "sha256": "9db065bbbcf16bbd1d901bce9de14ad990bcbc3f8fb28a2c0f5c3a9e6b143dd7",
+      "pointers": [
+        "/craftable",
+        "/resource"
+      ]
+    },
+    {
+      "finding": "F2",
+      "member": "data/mods/core_2/entities/2113_Adamantine_Ore.json",
+      "sha256": "e7150c030effbc84c46ad7e60bcd48ca015038bfb34872cc7f27a54a30f21d6a",
+      "pointers": [
+        "/id",
+        "/craftable"
+      ]
+    },
+    {
+      "finding": "F3",
+      "member": "data/mods/core_2/milestones/pyromancy/Ball_of_Fire.json",
+      "sha256": "b5ed67a66d1a10cc8319e605738e5a7e47cae9f461c5ad7695f27905ba60a54e",
+      "pointers": [
+        "/requirements",
+        "/rewards/0"
+      ]
+    },
+    {
+      "finding": "F3",
+      "member": "data/mods/core_2/abilities/15_Fireball.json",
+      "sha256": "07b70d95243e1a36568d97cb8a16397ed31495ad55ae0ef114f85de1faab383d",
+      "pointers": [
+        "/cost",
+        "/effects",
+        "/skill",
+        "/cast_time",
+        "/cooldown"
+      ]
+    },
+    {
+      "finding": "F3",
+      "member": "data/mods/core_2/skills.json",
+      "sha256": "518780332e0fed490765b0030b5305a7f83116c5d5fd13ab9575bff19532fc19",
+      "pointers": [
+        "/19/exp_sources"
+      ]
+    },
+    {
+      "finding": "F4",
+      "member": "data/mods/core_2/craftables.json",
+      "sha256": "aec13fa91af9b71f054aa357417cd0e397f2ffffd4192ec23928f8dbf0b1bcd1",
+      "pointers": [
+        "/0",
+        "/1",
+        "/2",
+        "/3"
+      ]
+    },
+    {
+      "finding": "F4",
+      "member": "data/mods/core_2/entities/2531_Fire_Core.json",
+      "sha256": "1bcb0542489cd98adb25d9b152a17a6266469bb7bb73a0dc7861daf4d8868a22",
+      "pointers": [
+        "/id",
+        "/resource",
+        "/weapon/damage/0/dmg_type"
+      ]
+    },
+    {
+      "finding": "F4",
+      "member": "data/mods/core_2/entities/2532_Water_Core.json",
+      "sha256": "c597b7b53b156387c57698672834f76a76724af78578cc4efd242193588e151a",
+      "pointers": [
+        "/id",
+        "/resource",
+        "/weapon/damage/0/dmg_type"
+      ]
+    },
+    {
+      "finding": "F4",
+      "member": "data/mods/core_2/entities/2533_Wind_Core.json",
+      "sha256": "ce122043e5596e549fa377db05d9a2860b49083c1b67a76832485300db96c60d",
+      "pointers": [
+        "/id",
+        "/resource",
+        "/weapon/damage/0/dmg_type"
+      ]
+    },
+    {
+      "finding": "F4",
+      "member": "data/mods/core_2/entities/2534_Earth_Core.json",
+      "sha256": "cc977cbac63bcb205335e08fd20722d6cf30968497c51a0f7d2d6a2d082cb6f4",
+      "pointers": [
+        "/id",
+        "/resource",
+        "/weapon/damage/0/dmg_type"
+      ]
+    }
+  ],
+  "native_functions_recovered": 0,
+  "gameplay_exercised": false
+}

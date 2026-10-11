@@ -1,0 +1,29 @@
+{
+  "date": "2026-10-08",
+  "kind": "static-document-check-only",
+  "local_links_checked": 35,
+  "errors": [],
+  "touch_ids": 24,
+  "ranked_proposal_ids": 8,
+  "glossary_ids": 24,
+  "unreconciled_input_drift": [],
+  "reconciled_drift": [
+    {
+      "path": "docs/LIFE_SIM_NORTH_STAR.md",
+      "initial_sha256": "8d0604800cecdb3b9d97ecd241583593e1e382ceca6007f8dcd4fde25a259023",
+      "current_sha256": "f5635c6e97acdf7d3aa08f0945307068e4bb6e1793068854141e2ffe1a69d356",
+      "reconciliation": "Re-read live progression, concepts, cheat tiers/pure cheats, compatibility modes, barriers and latest tail. No-universal-rank rule intact; incorporated clean-cheat permission and local absolute-conflict policy. No writes to input."
+    }
+  ],
+  "gameplay_checks": "not applicable; research only",
+  "deliverable_sha256": {
+    "SOURCES.md": "aa93538da53c854bbf9eb30292e983c034e70059819c59b57f226290fef3ee37",
+    "REPORT.md": "81e74cf1da011f66972a2b2802b4925b15a809b40b3c8c8ed359d001ab480901",
+    "COSMOLOGY.md": "a121fddb3a0a6816e3870a5bd70c18767dfcbbdbeb3f6423e7a78a8e4a81be65",
+    "GLOSSARY.md": "0eca1c6f26312cac57f4f24558770c3c0bbe87112adf0367b1a2f82748de557e",
+    "PROPOSALS.md": "903146ce03ebc43eb502e207af68c28f4ceedf7ec7467003430e1780e01f2495",
+    "CHECKPOINT.md": "befe08c412d881f5f867a82fd1c08841af06df159019b75d9a7cc2ef8e31e251",
+    "TOUCHES.md": "21abc4b1283ec179199e3a207b6fa4692ec93f1479640c13f82405af69e1ad1f"
+  },
+  "passed": true
+}

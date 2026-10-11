@@ -1,0 +1,227 @@
+{
+  "source_version": "0.9.19.7 Windows demo",
+  "evidence_format": "ZIP member path, SHA-256 of uncompressed member, JSON pointer; pointers name data observations, not verified executable behavior",
+  "findings": [
+    {
+      "id": "F1",
+      "title": "Wood has parallel gathering, processing and settlement production data edges",
+      "prerequisite": "boreal forest wood resource or a Woodcutter building; processing path requires a Pine Log",
+      "decision": "Select a log source and a downstream conversion route",
+      "expenditure": "Carpenters production entry takes one Pine Log; entity producer definition lists 30 time for direct processing",
+      "mutation": "Data declares Pine Log 2092 to Pine Wood 2093 outputs; it does not prove stock movement or production scheduling",
+      "time": "Woodcutter output daily 1; Carpenters output daily 10; log producer time 30 (units unverified)",
+      "failure": "No runtime shortage, queue or worker behavior recovered",
+      "aftermath": "Pine Wood is a type-3 resource with quality 1 and value 200 in the demo data",
+      "data_consumer_edges": [
+        "natural_resources.boreal_forest.wood.entities[0].id -> 2092",
+        "Woodcutter.produces[0].entities[0].id -> 2092",
+        "Carpenters.produces[0].takes[0].id -> 2092",
+        "Carpenters.produces[0].entities[0].id -> 2093",
+        "Pine_Log.producer.products.1[0].id -> 2093"
+      ],
+      "evidence": [
+        {
+          "path": "data/mods/core_2/natural_resources.json",
+          "sha256": "f532cc4278855be14e08a82265a72cdb4595ca8789afbe594a28143a3b61f7ce",
+          "location_description": "/boreal_forest/wood",
+          "json_pointers": [
+            "/boreal_forest/wood"
+          ]
+        },
+        {
+          "path": "data/mods/core_2/buildings/10_Woodcutter.json",
+          "sha256": "5a6dac7d527c2283985e402278d0b7fc05ac58e51ad6257a2bf7d2a2dcb23aa0",
+          "location_description": "/produces/0",
+          "json_pointers": [
+            "/produces/0"
+          ]
+        },
+        {
+          "path": "data/mods/core_2/buildings/102_Carpenter.json",
+          "sha256": "d579aca9f9867de40bf2408de0f57cefab91b637beebc4d9556c2f4ea23c41a8",
+          "location_description": "/produces/0",
+          "json_pointers": [
+            "/produces/0"
+          ]
+        },
+        {
+          "path": "data/mods/core_2/entities/2092_Pine_Log.json",
+          "sha256": "30d516c54340871e7913c936d4b41370154650a80409d63526d63f227bfa7dd4",
+          "location_description": "/producer",
+          "json_pointers": [
+            "/producer"
+          ]
+        },
+        {
+          "path": "data/mods/core_2/entities/2093_Pine_Wood.json",
+          "sha256": "33b14e4aa6e1d704515190430c424e941af0f45618ea2026bbcfcf750d988dce",
+          "location_description": "/resource",
+          "json_pointers": [
+            "/resource"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "F2",
+      "title": "Skill milestone points to a concrete ingot recipe and ore input",
+      "prerequisite": "Adventuring skill 48 in milestone definition; recipe requires two Adamantine Ore 2113 and tool 10",
+      "decision": "Pursue the Adamantine Ingot recipe",
+      "expenditure": "Two ore units, tool 10, recipe time 2 (units unverified)",
+      "mutation": "Milestone reward names recipe 2116; entity 2116 defines ingot resource quality 4 and value 60000",
+      "time": "Craftable time 2",
+      "failure": "The executable's unlock enforcement, craft failure and material consumption have not been read",
+      "aftermath": "The output data identifies ingot 2116, with type-1 resource metadata",
+      "data_consumer_edges": [
+        "milestone.rewards[0].recipe -> entity 2116",
+        "ingot.craftable.resources[0].id -> ore entity 2113"
+      ],
+      "evidence": [
+        {
+          "path": "data/mods/core_2/milestones/adventuring/Adamantine_Ingot.json",
+          "sha256": "a609d8d723eda2982cf53fe4d8925aa7df54f8d199904a5fd52111fe999d222e",
+          "location_description": "/requirements and /rewards/0",
+          "json_pointers": [
+            "/requirements",
+            "/rewards/0"
+          ]
+        },
+        {
+          "path": "data/mods/core_2/entities/2116_Adamantine_Ingot.json",
+          "sha256": "9db065bbbcf16bbd1d901bce9de14ad990bcbc3f8fb28a2c0f5c3a9e6b143dd7",
+          "location_description": "/craftable and /resource",
+          "json_pointers": [
+            "/craftable",
+            "/resource"
+          ]
+        },
+        {
+          "path": "data/mods/core_2/entities/2113_Adamantine_Ore.json",
+          "sha256": "e7150c030effbc84c46ad7e60bcd48ca015038bfb34872cc7f27a54a30f21d6a",
+          "location_description": "/id and /craftable",
+          "json_pointers": [
+            "/id",
+            "/craftable"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "F3",
+      "title": "Pyromancy skill, milestone and Fireball ability form a progression chain",
+      "prerequisite": "Ball of Fire milestone requires Pyromancy skill 15; Fireball definition assigns skill core_2_pyromancy",
+      "decision": "Unlock and use Fireball as a Pyromancy action in the data model",
+      "expenditure": "Ability cost stamina 10; cast_time 1.2 and cooldown 5 (units unverified)",
+      "mutation": "Ability effects declare fire damage [4,8], area range 6 and magic-power damage factor 0.25",
+      "time": "cast_time 1.2, cooldown 5; duration 0",
+      "failure": "Target validation, actual damage formula and combat resolution are native-code gaps",
+      "aftermath": "Skills data lists ability use as Pyromancy experience source at rate 2; runtime application unverified",
+      "data_consumer_edges": [
+        "milestone.rewards[0].ability -> ability 15",
+        "ability.skill -> skills core_2_pyromancy",
+        "skills.exp_sources[0].id -> ability event label"
+      ],
+      "evidence": [
+        {
+          "path": "data/mods/core_2/milestones/pyromancy/Ball_of_Fire.json",
+          "sha256": "b5ed67a66d1a10cc8319e605738e5a7e47cae9f461c5ad7695f27905ba60a54e",
+          "location_description": "/requirements and /rewards/0",
+          "json_pointers": [
+            "/requirements",
+            "/rewards/0"
+          ]
+        },
+        {
+          "path": "data/mods/core_2/abilities/15_Fireball.json",
+          "sha256": "07b70d95243e1a36568d97cb8a16397ed31495ad55ae0ef114f85de1faab383d",
+          "location_description": "/cost, /effects, /skill, /cast_time, /cooldown",
+          "json_pointers": [
+            "/cost",
+            "/effects",
+            "/skill",
+            "/cast_time",
+            "/cooldown"
+          ]
+        },
+        {
+          "path": "data/mods/core_2/skills.json",
+          "sha256": "518780332e0fed490765b0030b5305a7f83116c5d5fd13ab9575bff19532fc19",
+          "location_description": "entry where id=core_2_pyromancy, /exp_sources",
+          "json_pointers": [
+            "/19/exp_sources"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "F4",
+      "title": "Four elemental core conversion recipes form a directed data cycle",
+      "prerequisite": "Possess one next-element core and tool 15",
+      "decision": "Choose conversion: Water to Fire, Wind to Water, Earth to Wind, or Fire to Earth",
+      "expenditure": "One core input and time 30 per recipe",
+      "mutation": "Each craftables entry names a distinct output prototype among IDs 2531 to 2534",
+      "time": "30 per recipe (units unverified)",
+      "failure": "No execution or conservation rule verified; recipe discovery and availability are unknown",
+      "aftermath": "Each resulting core has distinct resource affix and damage type metadata in its entity definition, but conversion effects are not observed in play",
+      "data_consumer_edges": [
+        "2532 -> 2531",
+        "2533 -> 2532",
+        "2534 -> 2533",
+        "2531 -> 2534"
+      ],
+      "evidence": [
+        {
+          "path": "data/mods/core_2/craftables.json",
+          "sha256": "aec13fa91af9b71f054aa357417cd0e397f2ffffd4192ec23928f8dbf0b1bcd1",
+          "location_description": "/0 through /3",
+          "json_pointers": [
+            "/0",
+            "/1",
+            "/2",
+            "/3"
+          ]
+        },
+        {
+          "path": "data/mods/core_2/entities/2531_Fire_Core.json",
+          "sha256": "1bcb0542489cd98adb25d9b152a17a6266469bb7bb73a0dc7861daf4d8868a22",
+          "location_description": "/id, /resource, /weapon/damage/0/dmg_type",
+          "json_pointers": [
+            "/id",
+            "/resource",
+            "/weapon/damage/0/dmg_type"
+          ]
+        },
+        {
+          "path": "data/mods/core_2/entities/2532_Water_Core.json",
+          "sha256": "c597b7b53b156387c57698672834f76a76724af78578cc4efd242193588e151a",
+          "location_description": "/id, /resource, /weapon/damage/0/dmg_type",
+          "json_pointers": [
+            "/id",
+            "/resource",
+            "/weapon/damage/0/dmg_type"
+          ]
+        },
+        {
+          "path": "data/mods/core_2/entities/2533_Wind_Core.json",
+          "sha256": "ce122043e5596e549fa377db05d9a2860b49083c1b67a76832485300db96c60d",
+          "location_description": "/id, /resource, /weapon/damage/0/dmg_type",
+          "json_pointers": [
+            "/id",
+            "/resource",
+            "/weapon/damage/0/dmg_type"
+          ]
+        },
+        {
+          "path": "data/mods/core_2/entities/2534_Earth_Core.json",
+          "sha256": "cc977cbac63bcb205335e08fd20722d6cf30968497c51a0f7d2d6a2d082cb6f4",
+          "location_description": "/id, /resource, /weapon/damage/0/dmg_type",
+          "json_pointers": [
+            "/id",
+            "/resource",
+            "/weapon/damage/0/dmg_type"
+          ]
+        }
+      ]
+    }
+  ]
+}

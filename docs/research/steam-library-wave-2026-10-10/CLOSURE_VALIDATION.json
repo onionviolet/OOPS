@@ -1,0 +1,82 @@
+{
+  "status": "PASS",
+  "checked_utc": "2026-10-10T15:38:22.761393+00:00",
+  "checkpoint_complete": true,
+  "shared_report_complete": true,
+  "local_links_valid": true,
+  "json_valid": true,
+  "artifacts": [
+    {
+      "path": "docs/research/vagrus/CHECKPOINT.md",
+      "sha256": "b2c776208e53f0c4e06b20e7aa5b154392dccef857b603f451963e0f98a5ffd3"
+    },
+    {
+      "path": "docs/research/vagrus/COVERAGE.json",
+      "sha256": "465c1af42395b298dd37472cd98f1de4e5249d34cca2a8261a5f85b0275a96ab"
+    },
+    {
+      "path": "docs/research/vagrus/EXTRACTION_RECEIPT.md",
+      "sha256": "8a5ba730f30e5c4cc809858216f3ca617fcb97ca452bdfebda879129acb4d622"
+    },
+    {
+      "path": "docs/research/vagrus/FINDINGS.json",
+      "sha256": "ce9a26143d7f17efa729e6546ae86d6d473a69f52c06fd57ea825d0d97172a21"
+    },
+    {
+      "path": "docs/research/vagrus/FINDINGS.md",
+      "sha256": "3d34a941ec1b326ad608e13401a4e21b2ab597354cba4f241b415e0ce96f8734"
+    },
+    {
+      "path": "docs/research/vagrus/IMPLEMENTATION_PACKETS.md",
+      "sha256": "e3f89f4caf9c738b0aab374bd63b4699a83547da572f214a94866d38f905d1b6"
+    },
+    {
+      "path": "docs/research/vagrus/INSTALL_WAIT.json",
+      "sha256": "be4070cc8ddd6d752d0bfb7f136a2206b82c23dd3802d9315d175e6ed715c1c1"
+    },
+    {
+      "path": "docs/research/vagrus/INTAKE.json",
+      "sha256": "9e5d1447ce536ea0a6998548ba7933f565f1dd61d0fd5277fc9afb6a32d26c80"
+    },
+    {
+      "path": "docs/research/vagrus/RECONCILIATION.md",
+      "sha256": "783c74e60203f133ab7e3266db0a6084b770fd528df1b53447f8a8933e916f4a"
+    },
+    {
+      "path": "docs/research/vagrus/REPORT.md",
+      "sha256": "23dec08afa14456cb3ccdd7d4006a3dd5789fc2c9d2017c05712abc685917395"
+    },
+    {
+      "path": "docs/research/vagrus/SMALL_TOUCHES.md",
+      "sha256": "40da5ca5cab8c7d8fc5f13bacb950c02e9dfde44f81d333db6454b72f96a92af"
+    },
+    {
+      "path": "docs/research/vagrus/SOURCES.json",
+      "sha256": "a4912c81936c62f12553aeb590e8c6d7b993e395bcc6d78474681ad18fee3c81"
+    },
+    {
+      "path": "docs/research/vagrus/SOURCES.md",
+      "sha256": "ebd9404867302af7c1f360ef4df7a52f12a64c5a4dfeff0637cdbd2b79e6d53e"
+    },
+    {
+      "path": "docs/research/vagrus/VALIDATION.json",
+      "sha256": "3ba01246cd118c7484354103aafd6780c4a57f9ab2f2c9299f4c78fc33afa9de"
+    },
+    {
+      "path": "docs/research/vagrus/YAIR_INPUTS.json",
+      "sha256": "c1ca374a8feaf04fa14674ca57693f2fa5ba6c44d7f5bca1ed1062ed135b4c82"
+    },
+    {
+      "path": "docs/research/vagrus/YAIR_READBACK.json",
+      "sha256": "b4aa1b855cdea5f9ed89bd7fcc617e611c8e1b1ef73962a741494ae63d63fcdc"
+    },
+    {
+      "path": "docs/research/steam-library-wave-2026-10-10/INSTALL_STATE.json",
+      "sha256": "e806735d29d5e6a02948bf2ca2131a986b54b65fb6b4a8edbd4c993b81a3f119"
+    },
+    {
+      "path": "docs/research/steam-library-wave-2026-10-10/REPORT.md",
+      "sha256": "31291992296e514f17375554ce31a46f0c446ceb75ee0b2f4159a699f960cb79"
+    }
+  ]
+}

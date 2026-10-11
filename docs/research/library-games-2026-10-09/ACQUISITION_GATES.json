@@ -1,0 +1,109 @@
+[
+  {
+    "appid": 3848900,
+    "slug": "sucker-for-love-crush-landing",
+    "status": "install-uri-sent-dialog-unobserved",
+    "depots": [
+      {
+        "depot": "3848901",
+        "platform": null,
+        "manifest": {
+          "gid": "4914467712406201194",
+          "size": 1649500432,
+          "download": 1330429200
+        }
+      }
+    ]
+  },
+  {
+    "appid": 3795920,
+    "slug": "ani-idle",
+    "status": "queued-behind-first-unconfirmed-install",
+    "depots": [
+      {
+        "depot": "3795921",
+        "platform": "windows",
+        "manifest": {
+          "gid": "1695680766301782036",
+          "size": 167609232,
+          "download": 82910240
+        }
+      }
+    ]
+  },
+  {
+    "appid": 2847400,
+    "slug": "endless-ascent",
+    "status": "queued-behind-first-unconfirmed-install",
+    "depots": [
+      {
+        "depot": "2847407",
+        "platform": null,
+        "manifest": {
+          "gid": "1556293351966417755",
+          "size": 1259331055,
+          "download": 304560368
+        }
+      }
+    ]
+  },
+  {
+    "appid": 3606890,
+    "slug": "upload-labs",
+    "status": "queued-behind-first-unconfirmed-install",
+    "depots": [
+      {
+        "depot": "3606891",
+        "platform": "windows",
+        "manifest": {
+          "gid": "8585410954840555889",
+          "size": 173804624,
+          "download": 91585184
+        }
+      },
+      {
+        "depot": "3606892",
+        "platform": "linux",
+        "manifest": {
+          "gid": "1231551473235839611",
+          "size": 146743504,
+          "download": 84614384
+        }
+      }
+    ]
+  },
+  {
+    "appid": 1740540,
+    "slug": "the-lands-of-eldyn",
+    "status": "queued-behind-first-unconfirmed-install",
+    "depots": [
+      {
+        "depot": "1740542",
+        "platform": "windows",
+        "manifest": {
+          "gid": "592180820455287675",
+          "size": 211474523,
+          "download": 73961568
+        }
+      },
+      {
+        "depot": "1740544",
+        "platform": "linux",
+        "manifest": {
+          "gid": "2557595340318633026",
+          "size": 205238714,
+          "download": 68088880
+        }
+      },
+      {
+        "depot": "1740543",
+        "platform": "macos",
+        "manifest": {
+          "gid": "8583937251860063342",
+          "size": 189874690,
+          "download": 67883136
+        }
+      }
+    ]
+  }
+]

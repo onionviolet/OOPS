@@ -1,0 +1,54 @@
+{
+  "result": "pass",
+  "subjects": 28,
+  "claims": 47,
+  "mechanics": 56,
+  "sources": 64,
+  "ranked_additions": 15,
+  "groups": {
+    "book": 12,
+    "comics": 2,
+    "tabletop": 1,
+    "game": 6,
+    "myth": 5,
+    "vows_history": 2
+  },
+  "remembered_claims": [
+    "dresden.C3"
+  ],
+  "source_access": {
+    "local_read": 2,
+    "search_excerpt": 46,
+    "page_read": 16
+  },
+  "input_drift": [],
+  "errors": [],
+  "checks": [
+    "28 assigned subjects",
+    "eight path parts",
+    "ten axes",
+    "family/source/delivery mappings",
+    "17 E8D slots",
+    "unique claim/source/mechanic IDs",
+    "evidence references",
+    "top 15 exclude remembered evidence",
+    "access labels",
+    "local source links",
+    "plain-language dash check",
+    "input hashes"
+  ],
+  "not_run": [
+    "build",
+    "game tests",
+    "browser gameplay",
+    "full book reread",
+    "exact blocked-page scene verification"
+  ],
+  "scope": "Lane C research files only; no gameplay acceptance implied",
+  "artifacts": {
+    "SERIES.json": "1ea5519ed2574acb6f5e07edaa4b3cfc37edc4d8d8713f23ce075016be4cbbe6",
+    "REPORT.md": "b327e1046f59ef76b6ecaaae21286c7d8e1146c96202fad4d1bb5e6be1fded6c",
+    "SOURCES.md": "b47034085a0926b91a949ebd59e04ee511814b6494f199a497f05d00023200a7",
+    "INPUT_HASHES.json": "a24d4eccd5b59fd2e1d6549e0daa8bda7f000b96ff851b98f575d594a531d7af"
+  }
+}

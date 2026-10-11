@@ -147,16 +147,16 @@
     "user_clarification": "factorio done; actual installed audit complete",
     "completion_evidence": "FACTORIO_COMPLETION.json"
   },
-  "observed_utc": "2026-10-07T14:04:14.806358+00:00",
+  "observed_utc": "2026-10-07T18:41:06.434753+00:00",
   "native_follow_up": {
     "authorized_by": "direct human full decompile and usage please",
-    "state": "active goal; not finite source pass completion",
-    "agent": "/root/factorio_native_finish3",
+    "state": "unfinished authorized full native goal resumed after model error/daemon",
+    "agent": "/root/factorio_native_continuation",
     "checkpoint": "docs/research/factorio/native/CHECKPOINT.md",
     "usage_checkpoint": "docs/gm/dispatch/steam-wave-2026-10-06/native-usage/CHECKPOINT.md",
     "shared_integrator": "01a114d2-2065-7b10-86b8-6c68962d9f8f (finite delivery released)",
     "heartbeat": "original readiness watcher remains PAUSED",
-    "limit": "ARM full initial attempts are acquired; Intel whole stream, known case/ABI closure, meaningful failure repairs and final reconciliation remain unfinished. Retort delivery is acquired and implemented-unverified. No further uninstall.",
+    "limit": "Selected flow/Heat acquired; original declarations/callers/returns qualified. Coherent hash/merge, Intel section/resource, exact ownership, compact ledger/crossarch/final acquisition remain.",
     "read_only_backend_reviewer": "/root/factorio_backend_review (backend and53bodyrefresh bothcompleted/released)",
     "ARM_verified_snapshot": {
       "unique": 183199,
@@ -165,7 +165,22 @@
       "through_chunk": 1850,
       "receipt": "native-usage/ARM_CORPUS_ACQUISITION.json"
     },
-    "Intel_state": "Saved/reopened 182,398 functions / 9,869,783 instructions / 178,145 callables. Healthy full C/ASM export 41973 / PID46960 reports 168,900 closed rows, 168,835 C successes and 65 failures at 2026-10-07T14:04:07.321309Z; final corpus acquisition pending.",
-    "root_acceptance_writer": "/root/factorio_acceptance"
+    "Intel_state": "Initial stream closed through1824: 182,398 unique functions / 182,329 C successes / 69 failures. Current compressed corpus/input/inventory/candidate projection matches the durable full byte/C/ASM audit; final repair acquisition remains pending.",
+    "root_acceptance_writer": "/root/factorio_recovery_review",
+    "current_intel_acquisition": "native-usage/X86_INITIAL_CLOSED_ACQUISITION.json",
+    "original_use": "Four exact retort leaves match live/current map and retained historical e77080593d4b build; implemented-unverified, behavior acceptance deferred. Independent shared tree changes are not a current matching combined build.",
+    "canonical_flow_delta": {
+      "through_chunk": 1853,
+      "C_successes": 183188,
+      "failures": 11,
+      "receipt": "native-usage/FLOW_CANONICAL_ACQUISITION.json"
+    },
+    "canonical_Heat_delta": {
+      "through_chunk": 1857,
+      "rows": 4,
+      "bodies_unchanged": true,
+      "receipt": "native-usage/HEAT_CANONICAL_ACQUISITION.json"
+    },
+    "crossarch_reader": "/root/factorio_crossarch_reader (new reader/private folder only; no native process)"
   }
 }

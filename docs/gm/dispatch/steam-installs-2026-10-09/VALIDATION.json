@@ -1,0 +1,39 @@
+{
+  "at_utc": "2026-10-09T20:37:42.608510+00:00",
+  "dossier_files_checked": 36,
+  "json_parse": "passed",
+  "local_dossier_links_errors": [],
+  "raw_copy_gates": "verified before each uninstall request; private receipts linked in AUDITS.json",
+  "proposals_touch_minimums": "passed",
+  "project_files_checked": 401,
+  "project_input_drift": [
+    "src/main.js",
+    "src/items.js",
+    "src/save_files.js",
+    "src/data/locations.js",
+    "dist/bundle.js.map",
+    "dist/bundle.js",
+    "index.html",
+    "PROJECT.md"
+  ],
+  "drift_interpretation": "Live shared-workspace differences only; this task did not edit or revert those files.",
+  "protected_game_manifests": {
+    "1546320": {
+      "present": true,
+      "hash_matches_baseline": true
+    },
+    "1325860": {
+      "present": true,
+      "hash_matches_baseline": true
+    },
+    "2854290": {
+      "present": true,
+      "hash_matches_baseline": true
+    }
+  },
+  "runtime": "not exercised; research only",
+  "builds_tests_commits": "none by this task",
+  "dispatch_json_files_parsed": 14,
+  "worker_state": "six readers completed and ownership handed back, verified live",
+  "final_checkpoint_readback": "passed"
+}

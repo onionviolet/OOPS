@@ -1,0 +1,179 @@
+{
+  "schema_version": 1,
+  "authorized_local_date": "2026-10-06",
+  "root_thread_id": "01a1146c-7d19-7440-92a6-8f5ab5198db9",
+  "assignment": "ASSIGNMENT.md",
+  "host_pool_limit_including_root": 8,
+  "workers": [
+    {
+      "agent": "/root/dwarf_fortress_gm",
+      "slug": "dwarf-fortress",
+      "appid": 975370,
+      "ownership": "docs/research/dwarf-fortress/",
+      "private_ownership": "/Users/weiwei/.codex/research/dwarf-fortress/",
+      "state": "completed finite source/data pass; exclusive writer released",
+      "installed_state": {
+        "StateFlags": "4",
+        "buildid": "24557528",
+        "StagingSize": "0"
+      },
+      "checkpoint": "docs/research/dwarf-fortress/CHECKPOINT.md",
+      "runtime_implementation": "unassigned; proposals only",
+      "completion_evidence": "docs/research/dwarf-fortress/VALIDATION.json",
+      "native_recovery": "unrecovered native engine; shipped Lua/raw declarations inspected"
+    },
+    {
+      "agent": "/root/book_of_hours_gm",
+      "slug": "book-of-hours",
+      "appid": 1028310,
+      "ownership": "docs/research/book-of-hours/",
+      "private_ownership": "/Users/weiwei/.codex/research/book-of-hours/",
+      "state": "completed finite source pass; exclusive writer released",
+      "installed_state": {
+        "StateFlags": "4",
+        "buildid": "22091683",
+        "StagingSize": "0"
+      },
+      "checkpoint": "docs/research/book-of-hours/CHECKPOINT.md",
+      "runtime_implementation": "unassigned; proposals only",
+      "completion_evidence": "docs/research/book-of-hours/CHECKPOINT.md"
+    },
+    {
+      "agent": "/root/factorio_gm",
+      "slug": "factorio",
+      "appid": 427520,
+      "ownership": "docs/research/factorio/",
+      "private_ownership": "/Users/weiwei/.codex/research/factorio/",
+      "state": "completed finite installed-source pass; exclusive writer released",
+      "installed_state": {
+        "StateFlags": "4",
+        "buildid": "23347942",
+        "StagingSize": "0"
+      },
+      "checkpoint": "docs/research/factorio/CHECKPOINT.md",
+      "runtime_implementation": "unassigned; proposals only",
+      "readiness_evidence": "FACTORIO_READY.json",
+      "installed_version": "2.0.77",
+      "installed_modules": [
+        "core",
+        "base",
+        "space-age",
+        "quality",
+        "elevated-rails"
+      ],
+      "completion_evidence": "FACTORIO_COMPLETION.json",
+      "native_recovery": "unrecovered native C++; actual shipped Lua/prototypes and APIs inspected"
+    },
+    {
+      "agent": "/root/oxygen_gm",
+      "slug": "oxygen-not-included",
+      "appid": 457140,
+      "ownership": "docs/research/oxygen-not-included/",
+      "private_ownership": "/Users/weiwei/.codex/research/oxygen-not-included/",
+      "state": "completed finite managed-source/DLC pass; exclusive writer released",
+      "installed_state": {
+        "StateFlags": "4",
+        "buildid": "24423041",
+        "StagingSize": "0"
+      },
+      "checkpoint": "docs/research/oxygen-not-included/CHECKPOINT.md",
+      "runtime_implementation": "unassigned; proposals only",
+      "completion_evidence": "docs/research/oxygen-not-included/CHECKPOINT.md",
+      "native_recovery": "managed assemblies exported; native SimDLL retained/interface-inspected only"
+    },
+    {
+      "agent": "/root/lamb_gm",
+      "slug": "cult-of-the-lamb",
+      "appid": 1313140,
+      "ownership": "docs/research/cult-of-the-lamb/",
+      "private_ownership": "/Users/weiwei/.codex/research/cult-of-the-lamb/",
+      "state": "completed finite managed-source/DLC pass; exclusive writer released",
+      "installed_state": {
+        "StateFlags": "4",
+        "buildid": "25223484",
+        "StagingSize": "0"
+      },
+      "checkpoint": "docs/research/cult-of-the-lamb/CHECKPOINT.md",
+      "runtime_implementation": "unassigned; proposals only",
+      "completion": {
+        "checkpoint_revision": 3,
+        "intake_status": "finite_source_research_complete",
+        "reported_structural_checks": 23,
+        "findings": 47,
+        "paths": 16,
+        "selected_files": 68,
+        "union_lines": 9324,
+        "runtime_implementation": "unassigned; proposals only"
+      }
+    }
+  ],
+  "audit": {
+    "agent": "/root/cleanup_audit",
+    "ownership": "CLEANUP_AUDIT.json",
+    "state": "completed; exclusive audit writer released"
+  },
+  "limits": [
+    "Finite selected source passes do not claim whole-game/DLC semantic coverage",
+    "Native/IL2CPP recovery differs from complete managed source export",
+    "No runtime/canonical integration assigned",
+    "Four source GMs completed/released; Cult of the Lamb remains active at this receipt",
+    "No new-wave uninstall scheduled"
+  ],
+  "cleanup": {
+    "status": "completed",
+    "uninstalled_apps": [
+      466170,
+      955900,
+      1267910,
+      1910680,
+      459820
+    ],
+    "kept_installed_app": 1546320,
+    "reason_kept": "Partial IL2CPP native recovery",
+    "evidence": [
+      "CLEANUP_AUDIT.json",
+      "RETENTION.json",
+      "UNINSTALL.json",
+      "VALIDATION.json"
+    ],
+    "estimated_net_reclaimed_gib": 4.77
+  },
+  "factorio_follow_up": {
+    "automation_id": "watch-factorio-source-readiness",
+    "status": "PAUSED",
+    "interval_minutes": 15,
+    "target_thread_id": "01a1146c-7d19-7440-92a6-8f5ab5198db9",
+    "stop_after": "finite installed-source intake/research complete",
+    "user_clarification": "factorio done; actual installed audit complete",
+    "completion_evidence": "FACTORIO_COMPLETION.json"
+  },
+  "observed_utc": "2026-10-07T18:14:06.932521+00:00",
+  "native_follow_up": {
+    "authorized_by": "direct human full decompile and usage please",
+    "state": "unfinished authorized full native goal resumed after model error/daemon",
+    "agent": "/root/factorio_native_continuation",
+    "checkpoint": "docs/research/factorio/native/CHECKPOINT.md",
+    "usage_checkpoint": "docs/gm/dispatch/steam-wave-2026-10-06/native-usage/CHECKPOINT.md",
+    "shared_integrator": "01a114d2-2065-7b10-86b8-6c68962d9f8f (finite delivery released)",
+    "heartbeat": "original readiness watcher remains PAUSED",
+    "limit": "Canonical Splitter/Inserter closure acquired; coherent hash/merge/Heat/Intel section/resource/ownership and final repaired corpus/reader audit remain.",
+    "read_only_backend_reviewer": "/root/factorio_backend_review (backend and53bodyrefresh bothcompleted/released)",
+    "ARM_verified_snapshot": {
+      "unique": 183199,
+      "C_successes": 183186,
+      "failures": 13,
+      "through_chunk": 1850,
+      "receipt": "native-usage/ARM_CORPUS_ACQUISITION.json"
+    },
+    "Intel_state": "Initial stream closed through1824: 182,398 unique functions / 182,329 C successes / 69 failures. Current compressed corpus/input/inventory/candidate projection matches the durable full byte/C/ASM audit; final repair acquisition remains pending.",
+    "root_acceptance_writer": "/root/factorio_recovery_review",
+    "current_intel_acquisition": "native-usage/X86_INITIAL_CLOSED_ACQUISITION.json",
+    "original_use": "Four exact retort leaves match live/current map and retained historical e77080593d4b build; implemented-unverified, behavior acceptance deferred. Independent shared tree changes are not a current matching combined build.",
+    "canonical_flow_delta": {
+      "through_chunk": 1853,
+      "C_successes": 183188,
+      "failures": 11,
+      "receipt": "native-usage/FLOW_CANONICAL_ACQUISITION.json"
+    }
+  }
+}

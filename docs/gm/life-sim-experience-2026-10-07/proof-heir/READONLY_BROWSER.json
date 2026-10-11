@@ -1,0 +1,10 @@
+{
+  "origin": "http://127.0.0.1:18546/",
+  "checks": [
+    "active owner holds original",
+    "temporary body inert",
+    "read-only cancel cannot overwrite staged original"
+  ],
+  "errors": [],
+  "generatedSavesOnly": true
+}

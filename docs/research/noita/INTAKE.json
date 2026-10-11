@@ -1,0 +1,74 @@
+{
+  "schema": 1,
+  "date": "2026-10-09",
+  "app_id": 881100,
+  "build_id": "17130612",
+  "branch": "master",
+  "version_hash": "9dbd52ced019a643169a2db02f46c77f8766c6e5",
+  "depot": {
+    "id": "881101",
+    "manifest": "1707227655636660075"
+  },
+  "install_state": "fully_installed_retained_not_launched_by_audit",
+  "install_size_bytes_from_manifest": 1639174567,
+  "archive": {
+    "bytes": 42467033,
+    "sha256": "c95a0c01a55ec29267afef6bbec8a0cae0ba2b350638e2203674ed4dfb9227c3"
+  },
+  "archive_members": 14745,
+  "extracted_readable_members": 5566,
+  "loose_files_copied": 454,
+  "loose_files_by_top_level": {
+    "README.txt": 1,
+    "_branch.txt": 1,
+    "_release_notes.txt": 1,
+    "_version_hash.txt": 1,
+    "config.xml": 1,
+    "crashes": 1,
+    "data": 186,
+    "licenses": 39,
+    "mods": 103,
+    "screenshot_paths.txt": 1,
+    "steam_appid.txt": 1,
+    "tools_modding": 118
+  },
+  "mods_examples": [
+    "daily_practice",
+    "example",
+    "nightmare",
+    "starting_loadouts",
+    "translation_fi"
+  ],
+  "mods_review": "example/mod.xml full and example/init.lua lines 1-65 read; other examples inventoried, not enabled",
+  "private_root": "~/.codex/research/noita/",
+  "private_receipts": [
+    "EXTRACTION.json",
+    "REACTIONS_FULL.json",
+    "MATERIAL_STATS.json",
+    "COMPOSITION_COUNTS.json",
+    "COMPOSITION_REVIEWED_FILES.json"
+  ],
+  "public_boundary": "Analysis and small identifiers only; no archive, extracted assets, raw script corpus or private save",
+  "allowed_writes": [
+    "docs/research/noita/ except existing run.log",
+    "~/.codex/research/noita/"
+  ],
+  "excluded": [
+    "launch",
+    "Steam UI",
+    "saves",
+    "uninstall",
+    "YAIR src edits",
+    "build",
+    "commit",
+    "shared design owner edits"
+  ],
+  "method": "Bounded read-only source audit plus labeled community reconstruction of secret recipe algorithm",
+  "engine_decompilation": "not performed; archive Lua/XML plus shipped component documentation recovered sufficient audit structure",
+  "community_source": {
+    "url": "https://github.com/Neffc/narg",
+    "revision": "fa614b2eb44c1469053a0306b48f09af0a171d90",
+    "used_for": "engine-opaque secret recipe algorithm only",
+    "game_build_equivalence": "unverified"
+  }
+}

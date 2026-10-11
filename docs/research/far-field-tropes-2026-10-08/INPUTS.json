@@ -1,0 +1,13 @@
+{
+  "captured_at": "2026-10-08T20:43:57.368130-04:00",
+  "note": "Mid-research live snapshot, after north-star additions were observed. Not an initial-tree snapshot.",
+  "files": {
+    "PROJECT.md": "8143c0f8c59c18fe9084cbb4afbbfa70719d29e5c55e138615b07e6195e86541",
+    "docs/GAME_MASTER_PROMPT.md": "afdfe348cbdfa308ef4bd032325b489946f98788d6574778784c6d873ec2cb70",
+    "docs/LIFE_SIM_NORTH_STAR.md": "722106f107ba8698d0157613720531c1acf1669c2ce664301fffa07cca53f1c9",
+    "docs/WORLD_CARDS.md": "9ea44213c5df87ccea5639ae93a0ae2b8cf5e2eaa1c8ac4726e6abec7afbaffe",
+    "docs/RESEARCH_GENRE_TROPES.md": "1d2ce3c5e3885807aa9be48c954742459ca4b3a7248bf9b2b0014d88789b2b6b",
+    "docs/RESEARCH_GENRE_SWEEP.md": "abb4987edfce0130b339fddf526b6cfabc8449ce89a14ea9f819991181c88130",
+    "docs/gm/dispatch/far-field-tropes-2026-10-08/ASSIGNMENT.md": "b767f1696948afd89984fc72c22e61c1dec15778283168ae7e96b5e035b5c563"
+  }
+}

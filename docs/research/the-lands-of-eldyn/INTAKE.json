@@ -1,0 +1,195 @@
+{
+  "date": "2026-10-09",
+  "appid": 1740540,
+  "name": "The Lands of Eldyn",
+  "status": "installed-wrapper-source-audit-complete; gameplay-mechanic-audit-blocked",
+  "lens": "Territory, commandable armies and harsh-world powers",
+  "ownership": "Fully Installed state established by coordinator; no entitlement API inspected by worker",
+  "manifest_present": true,
+  "install_request": "installed payload recovered by parent",
+  "store_platforms": {
+    "windows": true,
+    "mac": false,
+    "linux": true
+  },
+  "cached_depots": [
+    {
+      "depot": "1740542",
+      "platform": "windows",
+      "manifest": {
+        "gid": "592180820455287675",
+        "size": 211474523,
+        "download": 73961568
+      }
+    },
+    {
+      "depot": "1740544",
+      "platform": "linux",
+      "manifest": {
+        "gid": "2557595340318633026",
+        "size": 205238714,
+        "download": 68088880
+      }
+    },
+    {
+      "depot": "1740543",
+      "platform": "macos",
+      "manifest": {
+        "gid": "8583937251860063342",
+        "size": 189874690,
+        "download": 67883136
+      }
+    }
+  ],
+  "cached_config_installdir": "The Lands of Eldyn",
+  "storefront_url": "https://store.steampowered.com/app/1740540/",
+  "metadata_api_url": "https://store.steampowered.com/api/appdetails?appids=1740540&l=english",
+  "retained_storefront": {
+    "path": "/Users/weiwei/.codex/research/library-games-2026-10-09/storefront/APP_1740540.json",
+    "bytes": 11173,
+    "sha256": "7169bdcfa1bd1c4ddbbd9c3303f02eeb9a296d7f00a715e9190abfad61f6eaf0"
+  },
+  "useful_game_source": "app-owned Electron wrapper recovered; remote gameplay/server source absent",
+  "uninstall": "worker did not request; coordinator owns authorized uninstall URL after dossier/copy gate",
+  "raw_game_code_committed": false,
+  "dlc_declared": [],
+  "dlc_entitlement_installed_read": "not established",
+  "buildid": "7520224",
+  "private_retention": "/Users/weiwei/.codex/research/the-lands-of-eldyn/RETENTION.json",
+  "private_copy_verification": "/Users/weiwei/.codex/research/the-lands-of-eldyn/AUDIT_VERIFICATION.json",
+  "raw_retained_bytes": 3901611,
+  "selected_extracted_files": [
+    {
+      "path": "src/main/main.js",
+      "bytes": 3458,
+      "sha256": "04382573eed32a74d291b35ac197218f5db28e79c5c5a82c183cd520bc0750e0",
+      "matches_asar": true
+    },
+    {
+      "path": "static/preload.js",
+      "bytes": 1901,
+      "sha256": "6a87037c2b1d97b3647d0bb51c66a264c1494dbad906c90ff3c3764ba610767d",
+      "matches_asar": true
+    },
+    {
+      "path": "static/index.html",
+      "bytes": 1223,
+      "sha256": "ebb192e096dcf60df1f23b62340c65078ce60219c24c477ff62d7ea2c9da7a4b",
+      "matches_asar": true
+    },
+    {
+      "path": "static/styles.css",
+      "bytes": 1643,
+      "sha256": "d8860f7e152a66509835caf40d67152c87d5b6cdeff83d5cdb5379837d4bf309",
+      "matches_asar": true
+    },
+    {
+      "path": "package.json",
+      "bytes": 432,
+      "sha256": "5fa27c324a80234ea6076634f7a4ae323c376f05e94bbcb57888a6066261a44c",
+      "matches_asar": true
+    },
+    {
+      "path": "main.js",
+      "bytes": 3285,
+      "sha256": "83c86292dca841c2c0e405655bce27a43ba26e69d7137e763c2b9013e1d28851",
+      "matches_asar": true
+    },
+    {
+      "path": "renderer.js",
+      "bytes": 1354,
+      "sha256": "f83c03d0b2d8166e9e9ebd156171e0da812b409764f07908eacdff46b7b09e3c",
+      "matches_asar": true
+    },
+    {
+      "path": "main.js.map",
+      "bytes": 4260,
+      "sha256": "5af35cb2c2b13e3620b9297ad956580b0b72f2348a8b1c6b82cfdd8db77744bd",
+      "matches_asar": true
+    },
+    {
+      "path": "renderer.js.map",
+      "bytes": 1702,
+      "sha256": "0701ab11bb40e0fb30ca36c667d97f579a3381608776c056a9c6cc48c8cbf278",
+      "matches_asar": true
+    },
+    {
+      "path": "index.html",
+      "bytes": 265,
+      "sha256": "8bf1ef01103294b8d0ada4ef7290af57559302a2f720b41b7f3048a76e37fe75",
+      "matches_asar": true
+    },
+    {
+      "path": "steam_appid.txt",
+      "bytes": 8,
+      "sha256": "3fa9a2144e45ebfaf912e98053585ab716e4baf0e0b642dff2a5fca0bda74d10",
+      "matches_asar": true
+    }
+  ],
+  "copy_gate": "passed; three raw retained inputs match initial and current installed hashes; eleven selected entries match ASAR bytes",
+  "uninstall_request": {
+    "requested_at_utc": "2026-10-09T20:00:15.115250+00:00",
+    "appid": 1740540,
+    "uri": "steam://uninstall/1740540",
+    "shell_exit_code": 0,
+    "stderr": "",
+    "copy_gate": "3 retained inputs hash-match installed originals and private copies; 11 selected ASAR entries verified by bounded reader",
+    "audit_gate": "installed Electron wrapper source audit complete; remote mechanics unavailable and explicitly excluded",
+    "dialog_confirmation": "unobserved; not clicked",
+    "uninstalled": "not-yet-verified"
+  },
+  "steam_installs_final_receipt_2026_10_09": {
+    "requested_at_utc": "2026-10-09T20:00:15.115250+00:00",
+    "appid": 1740540,
+    "uri": "steam://uninstall/1740540",
+    "shell_exit_code": 0,
+    "stderr": "",
+    "copy_gate": "3 retained inputs hash-match installed originals and private copies; 11 selected ASAR entries verified by bounded reader",
+    "audit_gate": "installed Electron wrapper source audit complete; remote mechanics unavailable and explicitly excluded",
+    "dialog_confirmation": "unobserved; not clicked",
+    "uninstalled": "not-verified; request sent, dialog confirmation unobserved",
+    "last_checked_at_utc": "2026-10-09T20:37:42.608510+00:00",
+    "manifest_present": true,
+    "recent_content_entries": [
+      "[2026-10-09 15:54:55] AppID 1740540 starting commit from \"/Users/weiwei/Library/Application Support/Steam/steamapps/downloading/1740540\" to \"/Users/weiwei/Library/Application Support/Steam/steamapps/common/The Lands of Eldyn\" : 286 updated, 0 moved, 0 deleted files",
+      "[2026-10-09 15:54:55] AppID 1740540 state changed : Fully Installed,Update Queued,Update Running,",
+      "[2026-10-09 15:54:55] AppID 1740540 finished update, 1 mounted depots (BuildID 7520224) : 1740542 (592180820455287675),",
+      "[2026-10-09 15:54:55] AppID 1740540 App update changed : Running Update,",
+      "[2026-10-09 15:54:55] AppID 1740540 App update changed : None",
+      "[2026-10-09 15:54:55] AppID 1740540 state changed : Fully Installed,Update Queued,",
+      "[2026-10-09 15:54:55] AppID 1740540 state changed : Fully Installed,",
+      "[2026-10-09 15:54:55] AppID 1740540 scheduler finished : removed from schedule (result No Error, state 0xc) "
+    ],
+    "content_log_entries": [
+      "[2026-10-09 15:54:36] AppID 1740540 state changed : Update Required,",
+      "[2026-10-09 15:54:36] AppID 1740540 scheduler update : Priority First, not played for 1 seconds, update disabled for 0 seconds",
+      "[2026-10-09 15:54:36] AppID 1740540 state changed : Update Required,Update Queued,",
+      "[2026-10-09 15:54:36] AppID 1740540 state changed : Update Required,Update Queued,Update Running,",
+      "[2026-10-09 15:54:36] AppID 1740540 App update changed : Running Update,",
+      "[2026-10-09 15:54:36] AppID 1740540 App update changed : Running Update,Reconfiguring,",
+      "[2026-10-09 15:54:36] AppID 1740540 App update changed : Running Update,",
+      "[2026-10-09 15:54:36] AppID 1740540 App update changed : Running Update,Verifying Installed,",
+      "[2026-10-09 15:54:36] AppID 1740540 App update changed : Running Update,",
+      "[2026-10-09 15:54:36] AppID 1740540 App update changed : Running Update,Preallocating,",
+      "[2026-10-09 15:54:37] AppID 1740540 preallocated 27 files (192 MB) ",
+      "[2026-10-09 15:54:37] AppID 1740540 App update changed : Running Update,",
+      "[2026-10-09 15:54:37] AppID 1740540 update started : download 0/73961568, store 0/0, reuse 0/0, delta 0/0, stage 0/211474523 ",
+      "[2026-10-09 15:54:37] AppID 1740540 state changed : Update Required,Update Queued,Update Running,Update Started,",
+      "[2026-10-09 15:54:37] AppID 1740540 App update changed : Running Update,Downloading,Staging,",
+      "[2026-10-09 15:54:55] AppID 1740540 App update changed : Running Update,",
+      "[2026-10-09 15:54:55] AppID 1740540 App update changed : Running Update,Committing,",
+      "[2026-10-09 15:54:55] AppID 1740540 starting commit from \"/Users/weiwei/Library/Application Support/Steam/steamapps/downloading/1740540\" to \"/Users/weiwei/Library/Application Support/Steam/steamapps/common/The Lands of Eldyn\" : 286 updated, 0 moved, 0 deleted files",
+      "[2026-10-09 15:54:55] AppID 1740540 state changed : Fully Installed,Update Queued,Update Running,",
+      "[2026-10-09 15:54:55] AppID 1740540 finished update, 1 mounted depots (BuildID 7520224) : 1740542 (592180820455287675),",
+      "[2026-10-09 15:54:55] AppID 1740540 App update changed : Running Update,",
+      "[2026-10-09 15:54:55] AppID 1740540 App update changed : None",
+      "[2026-10-09 15:54:55] AppID 1740540 state changed : Fully Installed,Update Queued,",
+      "[2026-10-09 15:54:55] AppID 1740540 state changed : Fully Installed,",
+      "[2026-10-09 15:54:55] AppID 1740540 scheduler finished : removed from schedule (result No Error, state 0xc) "
+    ],
+    "console_uninstall_entries": [
+      "[2026-10-09 16:00:15] ExecuteSteamURL: \"steam://open/steam://uninstall/1740540\"",
+      "[2026-10-09 16:00:15] ExecuteSteamURL: \"steam://uninstall/1740540\""
+    ]
+  }
+}

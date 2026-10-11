@@ -1,0 +1,534 @@
+{
+  "date": "2026-10-08",
+  "status": "passed source-only artifact checks",
+  "locator_checks": [
+    {
+      "file": "gamedata.base",
+      "id": "2287-gamedata.base",
+      "offset": 1000369
+    },
+    {
+      "file": "gamedata.base",
+      "id": "28-gamedata.quack",
+      "offset": 978957
+    },
+    {
+      "file": "gamedata.base",
+      "id": "17946-stick_people.mod",
+      "offset": 356729
+    },
+    {
+      "file": "gamedata.base",
+      "id": "5276-chareditor.mod",
+      "offset": 2892849
+    },
+    {
+      "file": "gamedata.base",
+      "id": "18960-gamedata.base",
+      "offset": 4090470
+    },
+    {
+      "file": "gamedata.base",
+      "id": "SHACKLES",
+      "offset": 3572677
+    },
+    {
+      "file": "gamedata.base",
+      "id": "581-gamedata.base",
+      "offset": 694500
+    },
+    {
+      "file": "gamedata.base",
+      "id": "110-gamedata.quack",
+      "offset": 1074793
+    },
+    {
+      "file": "gamedata.base",
+      "id": "4092-TwoStorey.mod",
+      "offset": 459649
+    },
+    {
+      "file": "gamedata.base",
+      "id": "1509-gamedata.base",
+      "offset": 3179274
+    },
+    {
+      "file": "gamedata.base",
+      "id": "1863-gamedata.base",
+      "offset": 4263708
+    },
+    {
+      "file": "Newwworld.mod",
+      "id": "96022-Newwworld.mod",
+      "offset": 1857359
+    },
+    {
+      "file": "Newwworld.mod",
+      "id": "95579-Newwworld.mod",
+      "offset": 1832034
+    },
+    {
+      "file": "Newwworld.mod",
+      "id": "96020-Newwworld.mod",
+      "offset": 1855016
+    },
+    {
+      "file": "Newwworld.mod",
+      "id": "96134-Newwworld.mod",
+      "offset": 1860032
+    },
+    {
+      "file": "Dialogue.mod",
+      "id": "19364-Dialogue.mod",
+      "offset": 534461
+    },
+    {
+      "file": "Dialogue.mod",
+      "id": "5007272-Dialogue.mod",
+      "offset": 11889621
+    },
+    {
+      "file": "Dialogue.mod",
+      "id": "19558-Dialogue.mod",
+      "offset": 5023083
+    },
+    {
+      "file": "Dialogue.mod",
+      "id": "19560-Dialogue.mod",
+      "offset": 3772437
+    },
+    {
+      "file": "Dialogue.mod",
+      "id": "54747-Dialogue.mod",
+      "offset": 7781862
+    },
+    {
+      "file": "Dialogue.mod",
+      "id": "54826-Dialogue.mod",
+      "offset": 7804526
+    },
+    {
+      "file": "Dialogue.mod",
+      "id": "54807-Dialogue.mod",
+      "offset": 7781355
+    },
+    {
+      "file": "Dialogue.mod",
+      "id": "55392-Dialogue.mod",
+      "offset": 7962597
+    },
+    {
+      "file": "Dialogue.mod",
+      "id": "42066-Dialogue.mod",
+      "offset": 3252711
+    },
+    {
+      "file": "Dialogue.mod",
+      "id": "53396-Dialogue.mod",
+      "offset": 7370727
+    },
+    {
+      "file": "Dialogue.mod",
+      "id": "50664-Dialogue.mod",
+      "offset": 4769419
+    },
+    {
+      "file": "Dialogue.mod",
+      "id": "61061-Dialogue.mod",
+      "offset": 9438793
+    },
+    {
+      "file": "Dialogue.mod",
+      "id": "59668-Dialogue.mod",
+      "offset": 9044798
+    },
+    {
+      "file": "Dialogue.mod",
+      "id": "98999-Dialogue.mod",
+      "offset": 11506083
+    },
+    {
+      "file": "Dialogue.mod",
+      "id": "60456-Dialogue.mod",
+      "offset": 9268457
+    },
+    {
+      "file": "rebirth.mod",
+      "id": "2184-gamedata.base",
+      "offset": 92767
+    },
+    {
+      "file": "rebirth.mod",
+      "id": "46039-rebirth.mod",
+      "offset": 791864
+    },
+    {
+      "file": "rebirth.mod",
+      "id": "96022-Newwworld.mod",
+      "offset": 454029
+    },
+    {
+      "file": "rebirth.mod",
+      "id": "95579-Newwworld.mod",
+      "offset": 448481
+    },
+    {
+      "file": "rebirth.mod",
+      "id": "96020-Newwworld.mod",
+      "offset": 452978
+    },
+    {
+      "file": "rebirth.mod",
+      "id": "96134-Newwworld.mod",
+      "offset": 455534
+    },
+    {
+      "file": "rebirth.mod",
+      "id": "17946-stick_people.mod",
+      "offset": 24498
+    },
+    {
+      "file": "rebirth.mod",
+      "id": "5276-chareditor.mod",
+      "offset": 232486
+    },
+    {
+      "file": "rebirth.mod",
+      "id": "18960-gamedata.base",
+      "offset": 329249
+    },
+    {
+      "file": "rebirth.mod",
+      "id": "64614-rebirth.mod",
+      "offset": 2456212
+    },
+    {
+      "file": "rebirth.mod",
+      "id": "64615-rebirth.mod",
+      "offset": 2458078
+    },
+    {
+      "file": "rebirth.mod",
+      "id": "16845-nodes_otto1.mod",
+      "offset": 307263
+    },
+    {
+      "file": "rebirth.mod",
+      "id": "42331-rebirth.mod",
+      "offset": 1509727
+    },
+    {
+      "file": "rebirth.mod",
+      "id": "1532934-rebirth.mod",
+      "offset": 3324590
+    },
+    {
+      "file": "rebirth.mod",
+      "id": "1532935-rebirth.mod",
+      "offset": 3325365
+    },
+    {
+      "file": "rebirth.mod",
+      "id": "1532936-rebirth.mod",
+      "offset": 3326210
+    },
+    {
+      "file": "rebirth.mod",
+      "id": "110-gamedata.quack",
+      "offset": 78558
+    },
+    {
+      "file": "rebirth.mod",
+      "id": "57390-rebirth.mod",
+      "offset": 2215221
+    },
+    {
+      "file": "rebirth.mod",
+      "id": "57367-rebirth.mod",
+      "offset": 2209092
+    },
+    {
+      "file": "rebirth.mod",
+      "id": "97212-rebirth.mod",
+      "offset": 3019910
+    },
+    {
+      "file": "rebirth.mod",
+      "id": "1533782-rebirth.mod",
+      "offset": 3798816
+    },
+    {
+      "file": "rebirth.mod",
+      "id": "61061-Dialogue.mod",
+      "offset": 610640
+    },
+    {
+      "file": "rebirth.mod",
+      "id": "1533495-__world reactions Slavers.mod",
+      "offset": 3627633
+    },
+    {
+      "file": "rebirth.mod",
+      "id": "1533692-__world reactions Slavers.mod",
+      "offset": 3626635
+    },
+    {
+      "file": "rebirth.mod",
+      "id": "51654-rebirth.mod",
+      "offset": 1703162
+    },
+    {
+      "file": "rebirth.mod",
+      "id": "60456-Dialogue.mod",
+      "offset": 602573
+    }
+  ],
+  "locator_count": 56,
+  "field_assertions": 9,
+  "retained_input_hash_matches": [
+    "fcs.def",
+    "data/gamedata.base",
+    "data/Newwworld.mod",
+    "data/Dialogue.mod",
+    "data/rebirth.mod",
+    "data/tips.txt"
+  ],
+  "first_pass_snapshot_hash_matches": [
+    "docs/research/kenshi/REPORT.md",
+    "docs/research/kenshi/FINDINGS.md",
+    "docs/research/kenshi/COVERAGE.json",
+    "docs/research/kenshi/IMPLEMENTATION_PACKETS.md"
+  ],
+  "input_snapshot_readback": [
+    {
+      "path": "~/.codex/research/kenshi/gamedata.base.json",
+      "matches_snapshot": true
+    },
+    {
+      "path": "~/.codex/research/kenshi/Dialogue.mod.json",
+      "matches_snapshot": true
+    },
+    {
+      "path": "~/.codex/research/kenshi/Newwworld.mod.json",
+      "matches_snapshot": true
+    },
+    {
+      "path": "~/.codex/research/kenshi/rebirth.mod.json",
+      "matches_snapshot": true
+    },
+    {
+      "path": "~/.codex/research/kenshi/RETENTION.json",
+      "matches_snapshot": true
+    },
+    {
+      "path": "~/.codex/research/kenshi/inputs/data/tips.txt",
+      "matches_snapshot": true
+    },
+    {
+      "path": "~/.codex/research/kenshi/inputs/fcs.def",
+      "matches_snapshot": true
+    },
+    {
+      "path": "docs/research/kenshi/REPORT.md",
+      "matches_snapshot": true
+    },
+    {
+      "path": "docs/research/kenshi/FINDINGS.md",
+      "matches_snapshot": true
+    },
+    {
+      "path": "docs/research/kenshi/COVERAGE.json",
+      "matches_snapshot": true
+    },
+    {
+      "path": "docs/research/kenshi/IMPLEMENTATION_PACKETS.md",
+      "matches_snapshot": true
+    },
+    {
+      "path": "PROJECT.md",
+      "matches_snapshot": true
+    },
+    {
+      "path": "docs/LIFE_SIM_NORTH_STAR.md",
+      "matches_snapshot": false
+    },
+    {
+      "path": "docs/WORLD_CARDS.md",
+      "matches_snapshot": true
+    },
+    {
+      "path": "docs/gm/dispatch/kenshi-depth-2026-10-08/ASSIGNMENT.md",
+      "matches_snapshot": true
+    }
+  ],
+  "local_link_count": 39,
+  "local_links": [
+    {
+      "from": "WORLD_CARD.md",
+      "target": "../../../WORLD_CARDS.md"
+    },
+    {
+      "from": "WORLD_CARD.md",
+      "target": "PEOPLE.md"
+    },
+    {
+      "from": "WORLD_CARD.md",
+      "target": "SETTLEMENTS.md"
+    },
+    {
+      "from": "WORLD_CARD.md",
+      "target": "BODIES.md"
+    },
+    {
+      "from": "REPORT.md",
+      "target": "../REPORT.md"
+    },
+    {
+      "from": "REPORT.md",
+      "target": "PEOPLE.md"
+    },
+    {
+      "from": "REPORT.md",
+      "target": "SETTLEMENTS.md"
+    },
+    {
+      "from": "REPORT.md",
+      "target": "SETTLEMENTS.md"
+    },
+    {
+      "from": "REPORT.md",
+      "target": "BODIES.md"
+    },
+    {
+      "from": "REPORT.md",
+      "target": "SMALL_TOUCHES.md"
+    },
+    {
+      "from": "REPORT.md",
+      "target": "PROPOSALS.md"
+    },
+    {
+      "from": "REPORT.md",
+      "target": "WORLD_CARD.md"
+    },
+    {
+      "from": "REPORT.md",
+      "target": "COVERAGE.json"
+    },
+    {
+      "from": "REPORT.md",
+      "target": "CHECKPOINT.md"
+    },
+    {
+      "from": "CHECKPOINT.md",
+      "target": "../../../gm/dispatch/kenshi-depth-2026-10-08/ASSIGNMENT.md"
+    },
+    {
+      "from": "CHECKPOINT.md",
+      "target": "REPORT.md"
+    },
+    {
+      "from": "CHECKPOINT.md",
+      "target": "INPUT_SNAPSHOT.json"
+    },
+    {
+      "from": "CHECKPOINT.md",
+      "target": "COVERAGE.json"
+    },
+    {
+      "from": "SETTLEMENTS.md",
+      "target": "../FINDINGS.md#recovery-evidence-and-limits"
+    },
+    {
+      "from": "FINDINGS.md",
+      "target": "REPORT.md"
+    },
+    {
+      "from": "FINDINGS.md",
+      "target": "PEOPLE.md"
+    },
+    {
+      "from": "FINDINGS.md",
+      "target": "PEOPLE.md"
+    },
+    {
+      "from": "FINDINGS.md",
+      "target": "PEOPLE.md"
+    },
+    {
+      "from": "FINDINGS.md",
+      "target": "SETTLEMENTS.md"
+    },
+    {
+      "from": "FINDINGS.md",
+      "target": "SETTLEMENTS.md"
+    },
+    {
+      "from": "FINDINGS.md",
+      "target": "SETTLEMENTS.md"
+    },
+    {
+      "from": "FINDINGS.md",
+      "target": "BODIES.md"
+    },
+    {
+      "from": "FINDINGS.md",
+      "target": "BODIES.md"
+    },
+    {
+      "from": "SMALL_TOUCHES.md",
+      "target": "../../../../src/activities.js"
+    },
+    {
+      "from": "SMALL_TOUCHES.md",
+      "target": "../../../../src/data/skills.js"
+    },
+    {
+      "from": "SMALL_TOUCHES.md",
+      "target": "../../../../src/data/locations.js"
+    },
+    {
+      "from": "SMALL_TOUCHES.md",
+      "target": "../../../../src/crafting_recipes.js"
+    },
+    {
+      "from": "SMALL_TOUCHES.md",
+      "target": "../../../../src/models/combat.js"
+    },
+    {
+      "from": "SMALL_TOUCHES.md",
+      "target": "../../../../src/main.js"
+    },
+    {
+      "from": "SMALL_TOUCHES.md",
+      "target": "PEOPLE.md"
+    },
+    {
+      "from": "SMALL_TOUCHES.md",
+      "target": "SETTLEMENTS.md"
+    },
+    {
+      "from": "SMALL_TOUCHES.md",
+      "target": "BODIES.md"
+    },
+    {
+      "from": "BODIES.md",
+      "target": "PEOPLE.md"
+    },
+    {
+      "from": "BODIES.md",
+      "target": "SETTLEMENTS.md"
+    }
+  ],
+  "tips_read": 62,
+  "small_touch_count": 30,
+  "ranked_proposal_count": 8,
+  "excluded": [
+    "native gameplay execution",
+    "final database merge",
+    "build",
+    "browser",
+    "save/reload/import",
+    "human design acceptance"
+  ]
+}

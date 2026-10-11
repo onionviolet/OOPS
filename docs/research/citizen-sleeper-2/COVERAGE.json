@@ -1,0 +1,80 @@
+{
+  "scope": "All six assigned source questions including the sequel additions; not complete mechanics, narrative or DLC semantics",
+  "code_read": [
+    "PlaymakerInkProxy Story/choice/path/tag/variable bridge",
+    "InkGoToStoryPath, InkStoryContinue; exported InkGetVariable/InkSetVariable for inspection boundaries",
+    "CSFSMVariables references PlayMakerFSM; no dice formula in this class",
+    "English compiled root crew dispatch GetStringVariable(CrewMember1/2), plus GoScrappy2/3, SerafinLoadUp, CoreEndJuni and CoreinShip outcome flags"
+  ],
+  "text_read": {
+    "english_root_entries_inventoried": 1596,
+    "narrative_knots": [
+      "RebootInterruptedScene",
+      "SerafinPauseScene",
+      "MemoryTest",
+      "RigStealScene",
+      "LaineHuntScene1",
+      "LaineSuccumb",
+      "SerafinTheory",
+      "JuniPitch",
+      "JuniChoice",
+      "DerelictFailedJuni",
+      "JuniCollapseNoCore",
+      "FlintBlock"
+    ],
+    "bounds": "Narrative reads capped at3000 characters per named entry; no claim of all linked arcs read. 1596 is a structural count, not semantic coverage.",
+    "guide": "level0 bytes270000..350000 and level2 bytes2950000..3430000;55 selected text records retained, absolute file-byte locators in FINDINGS",
+    "public": "Publisher description and first page of dated Steam stress discussion; primarily supplement, not numeric-rule authority"
+  },
+  "opaque": [
+    "Full gameplay PlayMaker instance graphs; no complete decoder succeeded in the first game and the sequel graphs were not independently recovered",
+    "Exact stress-to-damage lookup per difficulty, dice roll ordering, odds table and modifier clamping",
+    "Exact repair prices/component quantities, supply draw/caps, fuel/travel costs and every Push upgrade",
+    "Active UI binding of conflicting permanent-glitch messages; not resolved by presence of either string",
+    "All crew abilities/capacities, recruitment/loyalty/departure branches and complete contract order",
+    "Entire endings, Laine pursuit implementation, death/revival exception routes and optional extras",
+    "Native engine/audio/art/shaders; all three translated narratives only retained/inventoried",
+    "User save format/compatibility, reroll protection, persistence, runtime pacing, rendered UI and offline behavior"
+  ],
+  "source_status": "Guide/narrative claims are seen in text; wrappers/compiled expressions are seen in data or code. They are not gameplay execution. Numerical guide claims remain authored descriptions until the corresponding graph/runtime is verified.",
+  "retention": "Six managed inputs, selected code, four Ink scripts and English text by root entry; guide text/locators plus source SHA receipts. No raw Unity scenes or PDFs retained.",
+  "runtime": "No game launch, gameplay/save/reload/import checks, or YAIR implementation/build. Packets name future acceptance gates if selected.",
+  "uninstall": "Assigned finite pass complete. No active read requires this install. Weibao can remove it; unresolved scene recovery would require reinstalling.",
+  "question_readback": {
+    "body_decay_and_maintenance": [
+      "F1",
+      "F2",
+      "F3",
+      "F4",
+      "F5"
+    ],
+    "daily_dice_economy": [
+      "F2",
+      "F6",
+      "F7",
+      "F12"
+    ],
+    "clocks_and_display": [
+      "F9",
+      "F11"
+    ],
+    "ownership_and_freedom": [
+      "F1",
+      "F14"
+    ],
+    "idle_offline_and_UI_fit": [
+      "F10",
+      "F11",
+      "F19"
+    ],
+    "sequel_additions": [
+      "F6",
+      "F7",
+      "F8",
+      "F9",
+      "F10",
+      "F13",
+      "F18"
+    ]
+  }
+}

@@ -51,7 +51,7 @@ New snapshot procedure: record the added work/range, adjudicate conflicts, propo
 | Canon-compatible side story | Original people and local events occupy a source-compatible gap | Preserve declared anchors; do not promise the entire unseen world is unchanged |
 | Explicit divergence | Begin from checked anchors, then change one event or local rule | Record the first changed cause and re-evaluate every dependent future |
 | Earlier independent snapshot | Author an earlier cast/body/institution/resource state | Starts a separate history; no rewind or repair of the active later instance |
-| Parallel alternate world | A distinct history has already developed differently | Declare differences at entry; similarity never transfers memories, debts or rank automatically |
+| Parallel alternate world | A distinct history has already developed differently | Declare differences at entry; by default similarity does not transfer memories, debts or rank; a resonance law, cheat or authored link can |
 | Post-ending continuation | Start after the selected source endpoint | Prior ending remains that instance's past; subsequent events are original unless separately sourced |
 | Controlled overlap | Distinct instances can exchange actual people, objects or information | Requires a passage, custody, support and causality contract; no silent merge |
 
@@ -75,7 +75,7 @@ An enemy may adapt if it learns what happened and can pay for another method. It
 
 An earlier era is an independently authored start. Name a source-attested chapter/era anchor where available; mark invented dates and local prehistory `O`. Do not copy later ranks, shops, implants, relationships or buildings into it. Check every canonical participant's age/body, affiliation, acquired powers and location.
 
-The snapshot can develop an authored descendant history, but this is a new instance lineage. It cannot refund a destroyed ring, revive a dead teacher or change a workshop already lost in another instance. Historical rollback of a live campaign remains a separate unsupported runtime project.
+The snapshot can develop an authored descendant history, but this is a new instance lineage. It cannot refund a destroyed ring, revive a dead teacher or change a workshop already lost in another instance. No live rollback is the default. A regression or loop cheat or world can grant it at a cost; that runtime project is separate and unsupported today.
 
 Two snapshots of one named character represent historical counterparts unless a selected travel rule moves one actual person between them. Counterparts need distinct instance-qualified identity. Exact ages may remain unknown with an explicit age band; never present an invented integer as verified biography.
 
@@ -93,7 +93,7 @@ Do not import a sequel merely because it is official, or silently remove the sou
 
 ### Controlled overlap
 
-An overlap needs named origin and destination instances, one actual traveler or item, departure/arrival causes, passage limits, memory/body/source retention, return conditions and time policy. Alternate counterparts may coexist only with explicit identities and a reason. Neither gets the other's lineage, bond, account balance or obligations through a shared display name.
+An overlap needs named origin and destination instances, one actual traveler or item, departure/arrival causes, passage limits, memory/body/source retention, return conditions and time policy. Alternate counterparts may coexist only with explicit identities and a reason. Neither gets the other's lineage, bond, account balance or obligations through a shared display name alone; a resonance law or cheat can link them.
 
 If an original person travels, their absence changes their home responsibilities. A counterpart remains at home only if independently instantiated. A summoned projection, copy, corpse, reincarnation and living original are distinct forms with explicit duration, autonomy, source and custody. Observation alone creates none of them.
 
@@ -125,7 +125,7 @@ Known endings stay in author notes until evidence reveals them. A player menu ca
 
 ## Power and acquisition continuity
 
-The [assembly contract](PROGRESSION_AND_ASSEMBLY.md) separates training, structure, quality, condition, source/body, institution and research. Canon stages do not turn those axes into a global numbered tier. Local rank and item rarity are poor substitutes for actual function, fuel, reach and support.
+The [assembly contract](PROGRESSION_AND_ASSEMBLY.md) separates training, structure, quality, condition, source/body, institution and research. By default canon stages do not turn those axes into a global numbered tier; verse equalization is the dial that does. Local rank and item rarity are poor substitutes for actual function, fuel, reach and support.
 
 | Acquisition | What can be retained | What cannot be inferred |
 |---|---|---|
@@ -154,13 +154,13 @@ A variant may simply be superior once its actual acquisition/support exists. Ear
 | Methods/memory | Retained learning; execution rechecks support | Retained only under declared policy; memory remains instance-qualified belief |
 | Soul/personal bond | Do not duplicate or detach it by a menu action | Explicit soul identity, bonding and body interface required |
 | Gear/cargo | One actual holder, object identity and condition | Remains with actual holder unless a real transfer mechanism moves it |
-| Companions | Actual person, consent, availability and passage | A counterpart or summoned form is a different authored identity |
+| Companions | Actual person, consent by default (coercion, possession or a cheat can bypass it at a cost), availability and passage | A counterpart or summoned form is a different authored identity |
 | Obligations | Remain attached to actual issuer/history | Another instance does not inherit enforcement automatically |
 | Sites/claims | Remain in their actual instance | Earlier/parallel claims have separate causes and custody |
 
 Same-instance reentry preserves the changed people, projects, ownership and unique claims. A later new instance is not a reload trick to reclaim a unique organ or artifact. If repeated counterpart acquisition is deliberately allowed, author finite local costs and explicit campaign uniqueness/aggregation policy rather than hiding it behind travel.
 
-Draft default freezes absent worlds and browser-closed work. A later selected policy can advance funded actor projects on a common clock, with declared limits and discoverable return reports. A story document cannot quietly activate that policy. Current native independent-world and absence-clock adapters remain missing.
+Draft default freezes absent worlds and browser-closed work; offline catch-up or harsh loss are opt-in modes. A later selected policy can advance funded actor projects on a common clock, with declared limits and discoverable return reports. A story document cannot quietly activate that policy. Current native independent-world and absence-clock adapters remain missing.
 
 No travel preview grants safe escape from every committed danger. An inaccessible gate, dead passage keeper or destroyed return device can prevent return if the selected failure policy supports it. Preserve the cause and give discovery-appropriate evidence; don't silently teleport lost cargo home.
 
@@ -199,7 +199,7 @@ Progression happens through actual paid projects and acquired supports. Success 
 
 A destroyed archive can permanently remove its unreproduced contents, witnesses and legal evidence. Copies already made survive in their actual holders' inventories. Reconstructing part of the record is a new project with uncertainty, not a refund of the original loss.
 
-A dead teacher stops future instruction unless an actual sourced or original recovery method succeeds under its declared constraints. Already learned methods remain with students. Institutional succession may preserve routine work while unique expertise, private trust or a personal bond is gone.
+Death is final by default. A dead teacher stops future instruction unless an actual sourced or original recovery method (a revival cheat, ritual or world law, at a cost) succeeds under its declared constraints. Already learned methods remain with students. Institutional succession may preserve routine work while unique expertise, private trust or a personal bond is gone.
 
 An expelled faction member can retain skills and possessions while losing lawful facility access. A seized workshop changes ownership, supply, scheduling and who receives profits. A reinstatement can create new terms without erasing remembered coercion or earlier damage.
 

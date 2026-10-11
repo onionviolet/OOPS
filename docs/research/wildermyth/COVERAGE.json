@@ -1,0 +1,129 @@
+{
+  "game": "Wildermyth",
+  "finite_pass_complete": true,
+  "build": 21684217,
+  "version": "1.16+562 Patch",
+  "retained_files": 23725,
+  "retained_bytes": 608049951,
+  "source_copy_sha256_match": true,
+  "retention_receipt": "/Users/weiwei/.codex/research/wildermyth/retention.json",
+  "java_export_receipt": "/Users/weiwei/.codex/research/wildermyth/decompile-receipt.json",
+  "java_artifacts": 28,
+  "semantic_chains": 6,
+  "read_sources": [
+    {
+      "private_path": "/Users/weiwei/.codex/research/wildermyth/decompiled/com/worldwalkergames/legacy/game/generation/HumanAgeHelper.java",
+      "sha256": "a5bd9d045c41b3162fb903746e6df15c7f9523d51f6fd3ba9111bca06c273d0a",
+      "locator": "getAgeCategory",
+      "origin_jar_sha256": "8492b13de90b611e6ce2b28d0f158b460bf787253d937eb85a034c32f5498a4e"
+    },
+    {
+      "private_path": "/Users/weiwei/.codex/research/wildermyth/retained/assets/data/aspects/humanAging.json",
+      "sha256": "c6db5708c3bd56f09bd7daa671cb0356a5dbc49154eb17dd2175c4b65509b983",
+      "locator": "earlyMiddleAge/oldAge/extremeOldAge",
+      "origin_jar_sha256": null
+    },
+    {
+      "private_path": "/Users/weiwei/.codex/research/wildermyth/retained/assets/data/effects/deathChoice_scar.json",
+      "sha256": "0f728f7f3505ad87a208ec3609d31d809b75ab48eaf56cda9e416c3dee51d791",
+      "locator": "targets; outcomes flee WITHDRAW_UNIT/NewPlot/AddHistory",
+      "origin_jar_sha256": null
+    },
+    {
+      "private_path": "/Users/weiwei/.codex/research/wildermyth/retained/assets/data/aspects/humanSkin.json",
+      "sha256": "c8e4cd1780ed415ee6b6412b6209343d45ea37355a5e0d0072abd24efb4d4b30",
+      "locator": "human_scar / human_scar_debuff",
+      "origin_jar_sha256": null
+    },
+    {
+      "private_path": "/Users/weiwei/.codex/research/wildermyth/retained/assets/data/history/injury.json",
+      "sha256": "e67f41b6c1e0b9f6ff551d085b4dbfa88feb4746e86554c3973537ac86463fcb",
+      "locator": "human_injureLeftHand / human_replaceLeftHandProsthetic",
+      "origin_jar_sha256": null
+    },
+    {
+      "private_path": "/Users/weiwei/.codex/research/wildermyth/decompiled/com/worldwalkergames/legacy/game/mechanics/PlotC_Maimed.java",
+      "sha256": "6eddfe8655f2921f7fed5836eda5d61ee27d571343d727359da8602aaeac78f0",
+      "locator": "initialize/travelHome/waitToHeal/reactivate",
+      "origin_jar_sha256": "8492b13de90b611e6ce2b28d0f158b460bf787253d937eb85a034c32f5498a4e"
+    },
+    {
+      "private_path": "/Users/weiwei/.codex/research/wildermyth/retained/assets/data/effects/retire/trainRookie.json",
+      "sha256": "ab072391f95f37a4165ebfd322ea789a285b683ca6ea3980de7beecd3e420204",
+      "locator": "targets volunteer/volunteer2/volunteer3; outcomes one/two/three/four",
+      "origin_jar_sha256": null
+    },
+    {
+      "private_path": "/Users/weiwei/.codex/research/wildermyth/decompiled/com/worldwalkergames/legacy/game/generation/HistoryIndex.java",
+      "sha256": "4e7073e8ac16a0832b9384266cd65af72c392e83ee7034a7ebbd998d8e683275",
+      "locator": "getLineCheckForbidden",
+      "origin_jar_sha256": "8492b13de90b611e6ce2b28d0f158b460bf787253d937eb85a034c32f5498a4e"
+    },
+    {
+      "private_path": "/Users/weiwei/.codex/research/wildermyth/decompiled/com/worldwalkergames/legacy/game/generation/HistoryGenerator.java",
+      "sha256": "9167f780d5861b3ede9f4bfb7d2c12ebe08fa528ff542e75b11c9da2f38aa98f",
+      "locator": "convertToEntry/applyPrimeStatsToEntry",
+      "origin_jar_sha256": "8492b13de90b611e6ce2b28d0f158b460bf787253d937eb85a034c32f5498a4e"
+    },
+    {
+      "private_path": "/Users/weiwei/.codex/research/wildermyth/retained/assets/data/history/originsChild.json",
+      "sha256": "b84f1fdbf4ef9f22fa0f96bccbf117b36ca19230b276dcb8f1c5fb62acd6e930",
+      "locator": "originChild_2",
+      "origin_jar_sha256": null
+    },
+    {
+      "private_path": "/Users/weiwei/.codex/research/wildermyth/retained/assets/data/effects/hook/hook_Curious_beneaththeSurface_intro.json",
+      "sha256": "64c30ef21bccb53b726c5a4abaf43a0b5462341c0a9f536b1dd41fc9671a2897",
+      "locator": "targets/outcomes AssignToPlot+ADVANCE_PLOT",
+      "origin_jar_sha256": null
+    },
+    {
+      "private_path": "/Users/weiwei/.codex/research/wildermyth/retained/assets/data/effects/hook/hook_Curious_beneaththeSurface_resolve.json",
+      "sha256": "a6778f6205cf4ccfc3a01d93dfcbdd0098dcc94e0f59456ccb39bbdc9e7e71e9",
+      "locator": "outcomes AddHistory",
+      "origin_jar_sha256": null
+    },
+    {
+      "private_path": "/Users/weiwei/.codex/research/wildermyth/retained/assets/data/effects/deathChoice_lover.json",
+      "sha256": "c5bf9e5c2d9d7e4f0521114897174a89acfefa012f82f750f8d3f51647784d00",
+      "locator": "targets lover; outcomes attack/wait AddHistory",
+      "origin_jar_sha256": null
+    },
+    {
+      "private_path": "/Users/weiwei/.codex/research/wildermyth/retained/assets/data/aspects/humanSkin.json",
+      "sha256": "c8e4cd1780ed415ee6b6412b6209343d45ea37355a5e0d0072abd24efb4d4b30",
+      "locator": "loverDied_buff_promise / loverDied_buff_release",
+      "origin_jar_sha256": null
+    },
+    {
+      "private_path": "/Users/weiwei/.codex/research/wildermyth/decompiled/com/worldwalkergames/legacy/game/mechanics/LegacyRelationshipValidator.java",
+      "sha256": "eb78b3dbc1816f2ebe7445fcb9a4d1efd28c957730329e4195b3cdfff8bfc790",
+      "locator": "validateLegacyRelationships",
+      "origin_jar_sha256": "8492b13de90b611e6ce2b28d0f158b460bf787253d937eb85a034c32f5498a4e"
+    },
+    {
+      "private_path": "/Users/weiwei/.codex/research/wildermyth/decompiled/com/worldwalkergames/legacy/game/mechanics/LegacyAspectHelper.java",
+      "sha256": "9cd8ad1f0cee20ef7a407e0e20a35892b1880dc7c722929ac5cff41c9533b721",
+      "locator": "refreshLegacyAspects",
+      "origin_jar_sha256": "8492b13de90b611e6ce2b28d0f158b460bf787253d937eb85a034c32f5498a4e"
+    },
+    {
+      "private_path": "/Users/weiwei/.codex/research/wildermyth/decompiled/com/worldwalkergames/legacy/game/campaign/system/LegacySaveSystem.java",
+      "sha256": "35882139972ebd49ebacbc821e442706cc484258880e8a6ef7bd8ec33a46fcdc",
+      "locator": "update/after",
+      "origin_jar_sha256": "8492b13de90b611e6ce2b28d0f158b460bf787253d937eb85a034c32f5498a4e"
+    }
+  ],
+  "unread": [
+    "Most content events/campaigns and all story prose/localizations",
+    "Omenroad/dungeon progression, full DLC routes, cosmetics and soundtrack",
+    "Interval scheduler/time advancement, complete retirement scheduling, complete legacy entity serialization and history-reset semantics",
+    "Unexported server methods, main UI jar, native audio/graphics integrations"
+  ],
+  "excluded_retention": [
+    "Personal saves and user mods",
+    "Raster art/audio; unnecessary for assigned text-life mechanics",
+    "Native app launcher excluded; shipped JRE/dependencies retained"
+  ],
+  "bounds": "Retention counts and Java file counts are inventories, not whole-game or runtime coverage. Six connected finite chains complete; player/UI/save/import acceptance remains deferred."
+}

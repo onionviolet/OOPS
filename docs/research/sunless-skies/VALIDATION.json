@@ -1,0 +1,24 @@
+{
+  "checked_at": "2026-10-10T02:21:54.805672-04:00",
+  "documents": [
+    "INTAKE",
+    "REPORT",
+    "FINDINGS",
+    "COVERAGE",
+    "IMPLEMENTATION_PACKETS",
+    "SMALL_TOUCHES",
+    "CHECKPOINT"
+  ],
+  "source_hashes_match": true,
+  "links_and_locators_valid": true,
+  "counts": {
+    "roots": 1193,
+    "direct_root_branches": 5700,
+    "qualities": 2110,
+    "persistent": 130
+  },
+  "packets": 8,
+  "small_touches": 26,
+  "private_retention_bytes": 71349294,
+  "runtime_checks": "not run; launch forbidden"
+}

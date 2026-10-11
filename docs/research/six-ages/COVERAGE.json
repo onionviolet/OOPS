@@ -1,0 +1,26 @@
+{
+  "checked_at": "2026-10-07T20:36:44.977571+00:00",
+  "status": "superseded-wrong-app-identity",
+  "assigned_pass": [
+    "generations",
+    "advisors",
+    "event consequence chains",
+    "yearly clan cycle"
+  ],
+  "read_source_files": [],
+  "chains_verified": [],
+  "unread": [
+    "all installed-source inputs; none available to this worker"
+  ],
+  "not_claimed": [
+    "runtime behavior",
+    "whole-game coverage",
+    "source recovery",
+    "finite audit completion"
+  ],
+  "blocker": null,
+  "active_blocker": false,
+  "retired": true,
+  "superseded_by": "docs/research/six-ages-2/",
+  "correction": "User clarified owned title is Six Ages2 app2278010, not app881420. Do not resume this app."
+}

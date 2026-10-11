@@ -1,0 +1,14 @@
+{
+  "status": "passed",
+  "origin": "http://127.0.0.1:18330/",
+  "findings": [
+    "Generated schema-2 Mentor loads with preserved history/study and no invented recruit.",
+    "Rejected assignment storage creates no recruit or public life.",
+    "Shared native patrol teaches known/practiced state; partial lesson survives real file export/import; cost shown before choice and on round.",
+    "Completed shared Watchcraft round pays exactly 50, withholding 10 from its normal 60.",
+    "Solo progress survives reload/import. Quota failure grants no stipend, patrol or biography; retry grants exactly 10 with teacher memory and one entry.",
+    "Final save/reload/import preserves reward, teacher and biography; repeat solo pays once without duplicating first-patrol entry."
+  ],
+  "errors": [],
+  "timerPolicy": "Harness suppresses HackTimer only; Playwright clock accelerates common native minute ticks. Generated fixture from prior study proof; no private saves."
+}

@@ -1,0 +1,341 @@
+{
+  "schema": 1,
+  "observed_at_utc": "2026-10-07T03:48:54.225257+00:00",
+  "catalog_scope": "US-English official Steam appdetails declared entries of app427520; not every regional/historical/bundled product",
+  "declared_products": [
+    {
+      "appid": 645390,
+      "name": "Factorio: Space Age",
+      "type": "dlc",
+      "classification": "gameplay-expansion",
+      "catalog_url": "https://store.steampowered.com/api/appdetails?appids=645390&cc=US&l=english",
+      "catalog_sha256": "eae3b9f8271e77e4fadfe76a094201b3d7bba6656048eb638e9a4b57ceb5b6d4",
+      "installed_local_payload": "Space Age/Quality/Elevated Rails module data actually present; enablement and entitlement not read",
+      "semantic_coverage": "selected-official-public-source-inspected"
+    },
+    {
+      "appid": 436090,
+      "name": "Factorio - Soundtrack",
+      "type": "music",
+      "classification": "soundtrack-non-gameplay",
+      "catalog_url": "https://store.steampowered.com/api/appdetails?appids=436090&cc=US&l=english",
+      "catalog_sha256": "c6155cdcec3c52420a4cfb60ee15ad38809c23bc9c3b2d656d4cb39c7aaba249",
+      "installed_local_payload": "not-inspected soundtrack payload; metadata-only",
+      "semantic_coverage": "catalog-metadata-only; no gameplay inference"
+    },
+    {
+      "appid": 3311770,
+      "name": "Factorio: Space Age - Soundtrack",
+      "type": "music",
+      "classification": "soundtrack-non-gameplay",
+      "catalog_url": "https://store.steampowered.com/api/appdetails?appids=3311770&cc=US&l=english",
+      "catalog_sha256": "103fd327e0e5973cac507512d4e57e657a5d93258f7bc23fa5cdc5fdc9b0626a",
+      "installed_local_payload": "not-inspected soundtrack payload; metadata-only",
+      "semantic_coverage": "catalog-metadata-only; no gameplay inference"
+    }
+  ],
+  "modules": [
+    {
+      "module": "base",
+      "version": "2.1.21",
+      "dependencies": [],
+      "feature_flags": {},
+      "module_metadata_source": {
+        "kind": "official-metadata",
+        "path": "base/info.json",
+        "symbol": null,
+        "lines": null,
+        "url": "https://github.com/wube/factorio-data/blob/374934f81f82b09ec9fc459f92a316bd642ddd82/base/info.json",
+        "sha256": "c1b8f8b74948524801b64109b4a8a4a2701cb2a6a868a3674ee20b2c27e0684c",
+        "private_path": "/Users/weiwei/.codex/research/factorio/official-public/2.1.21/base/info.json"
+      },
+      "source_access": "official-public-and-actual-installed-readable",
+      "semantic_coverage": "selected-inspected",
+      "reviewed_findings": [
+        "FAC-02",
+        "FAC-03",
+        "FAC-04"
+      ],
+      "unread": "Unrelated module definitions and native feature implementation; not full module coverage.",
+      "installed_payload": {
+        "present": true,
+        "version": "2.0.77",
+        "actual_info": {
+          "name": "base",
+          "version": "2.0.77",
+          "title": "Base Mod",
+          "author": "Wube Software",
+          "contact": "dev@factorio.com",
+          "homepage": "https://www.factorio.com",
+          "dependencies": []
+        },
+        "reviewed_finding_ids": [
+          "FAC-02",
+          "FAC-03",
+          "FAC-04"
+        ]
+      }
+    },
+    {
+      "module": "core",
+      "version": "core-shared",
+      "dependencies": [],
+      "feature_flags": {},
+      "module_metadata_source": {
+        "kind": "official-metadata",
+        "path": "core/info.json",
+        "symbol": null,
+        "lines": null,
+        "url": "https://github.com/wube/factorio-data/blob/374934f81f82b09ec9fc459f92a316bd642ddd82/core/info.json",
+        "sha256": "aa1f8a1c6282b1deeb1a0982ac9eeff227a19f9b40d096bd05f797b711fe08e0",
+        "private_path": "/Users/weiwei/.codex/research/factorio/official-public/2.1.21/core/info.json"
+      },
+      "source_access": "official-public-and-actual-installed-readable",
+      "semantic_coverage": "selected-inspected",
+      "reviewed_findings": [
+        "FAC-12"
+      ],
+      "unread": "Unrelated module definitions and native feature implementation; not full module coverage.",
+      "installed_payload": {
+        "present": true,
+        "version": "core-shared",
+        "actual_info": {
+          "name": "core",
+          "title": "Core Factorio Data",
+          "author": "Wube Software",
+          "contact": "dev@factorio.com",
+          "homepage": "https://www.factorio.com",
+          "dependencies": []
+        },
+        "reviewed_finding_ids": [
+          "FAC-12"
+        ]
+      }
+    },
+    {
+      "module": "space-age",
+      "version": "2.1.21",
+      "dependencies": [
+        "base >= 2.1.0",
+        "elevated-rails >= 2.1.0",
+        "+ quality >= 2.1.0",
+        "recycler >= 2.1.0"
+      ],
+      "feature_flags": {
+        "expansion_required": true,
+        "space_travel_required": true,
+        "spoiling_required": true,
+        "freezing_required": true,
+        "segmented_units_required": true,
+        "expansion_shaders_required": true
+      },
+      "module_metadata_source": {
+        "kind": "official-metadata",
+        "path": "space-age/info.json",
+        "symbol": null,
+        "lines": null,
+        "url": "https://github.com/wube/factorio-data/blob/374934f81f82b09ec9fc459f92a316bd642ddd82/space-age/info.json",
+        "sha256": "d0f338f39a22e1bc574be08c07a3466ea6b5af906d79cffdfe1fdb2ebf30b5d5",
+        "private_path": "/Users/weiwei/.codex/research/factorio/official-public/2.1.21/space-age/info.json"
+      },
+      "source_access": "official-public-and-actual-installed-readable",
+      "semantic_coverage": "selected-inspected",
+      "reviewed_findings": [
+        "FAC-01",
+        "FAC-06",
+        "FAC-08",
+        "FAC-09",
+        "FAC-10",
+        "FAC-11",
+        "FAC-12",
+        "FAC-13"
+      ],
+      "unread": "Unrelated module definitions and native feature implementation; not full module coverage.",
+      "installed_payload": {
+        "present": true,
+        "version": "2.0.77",
+        "actual_info": {
+          "name": "space-age",
+          "version": "2.0.77",
+          "title": "Space Age",
+          "author": "Wube Software",
+          "contact": "dev@factorio.com",
+          "homepage": "https://www.factorio.com",
+          "dependencies": [
+            "base >= 2.0.0",
+            "elevated-rails >= 2.0.0",
+            "quality >= 2.0.0"
+          ],
+          "quality_required": true,
+          "space_travel_required": true,
+          "spoiling_required": true,
+          "freezing_required": true,
+          "segmented_units_required": true,
+          "expansion_shaders_required": true,
+          "factorio_version": "2.0"
+        },
+        "reviewed_finding_ids": [
+          "FAC-06",
+          "FAC-08",
+          "FAC-09",
+          "FAC-10",
+          "FAC-11",
+          "FAC-12",
+          "FAC-13"
+        ]
+      }
+    },
+    {
+      "module": "quality",
+      "version": "2.1.21",
+      "dependencies": [
+        "base >= 2.1.0",
+        "recycler >= 2.1.0"
+      ],
+      "feature_flags": {
+        "expansion_required": true,
+        "quality_required": true
+      },
+      "module_metadata_source": {
+        "kind": "official-metadata",
+        "path": "quality/info.json",
+        "symbol": null,
+        "lines": null,
+        "url": "https://github.com/wube/factorio-data/blob/374934f81f82b09ec9fc459f92a316bd642ddd82/quality/info.json",
+        "sha256": "401fd5f624d09eff68e8a3ea141b201cf16d574761e3882a553e16d43026f4b2",
+        "private_path": "/Users/weiwei/.codex/research/factorio/official-public/2.1.21/quality/info.json"
+      },
+      "source_access": "official-public-and-actual-installed-readable",
+      "semantic_coverage": "selected-inspected",
+      "reviewed_findings": [
+        "FAC-06"
+      ],
+      "unread": "Unrelated module definitions and native feature implementation; not full module coverage.",
+      "installed_payload": {
+        "present": true,
+        "version": "2.0.77",
+        "actual_info": {
+          "name": "quality",
+          "version": "2.0.77",
+          "title": "Quality",
+          "author": "Wube Software",
+          "contact": "dev@factorio.com",
+          "homepage": "https://www.factorio.com",
+          "dependencies": [
+            "base >= 2.0.0"
+          ],
+          "quality_required": true,
+          "factorio_version": "2.0"
+        },
+        "reviewed_finding_ids": [
+          "FAC-01",
+          "FAC-06",
+          "FAC-07",
+          "FAC-13"
+        ]
+      }
+    },
+    {
+      "module": "recycler",
+      "version": "2.1.21",
+      "dependencies": [
+        "base >= 2.1.0"
+      ],
+      "feature_flags": {
+        "expansion_required": true
+      },
+      "module_metadata_source": {
+        "kind": "official-metadata",
+        "path": "recycler/info.json",
+        "symbol": null,
+        "lines": null,
+        "url": "https://github.com/wube/factorio-data/blob/374934f81f82b09ec9fc459f92a316bd642ddd82/recycler/info.json",
+        "sha256": "ab94595c08764e419caf49a0856f371111671d0695f77baccb5868dea45a5800",
+        "private_path": "/Users/weiwei/.codex/research/factorio/official-public/2.1.21/recycler/info.json"
+      },
+      "source_access": "official-experimental-only; no installed separate recycler module",
+      "semantic_coverage": "selected-inspected",
+      "reviewed_findings": [
+        "FAC-07",
+        "FAC-13"
+      ],
+      "unread": "Unrelated module definitions and native feature implementation; not full module coverage.",
+      "installed_payload": {
+        "present": false,
+        "version": null,
+        "actual_info": null,
+        "reviewed_finding_ids": []
+      }
+    },
+    {
+      "module": "elevated-rails",
+      "version": "2.1.21",
+      "dependencies": [
+        "base >= 2.1.0"
+      ],
+      "feature_flags": {
+        "expansion_required": true,
+        "rail_bridges_required": true
+      },
+      "module_metadata_source": {
+        "kind": "official-metadata",
+        "path": "elevated-rails/info.json",
+        "symbol": null,
+        "lines": null,
+        "url": "https://github.com/wube/factorio-data/blob/374934f81f82b09ec9fc459f92a316bd642ddd82/elevated-rails/info.json",
+        "sha256": "ade1cdb0e617343cb9dd8c373262326d5cae1b0e820bbfc00466b850a2989541",
+        "private_path": "/Users/weiwei/.codex/research/factorio/official-public/2.1.21/elevated-rails/info.json"
+      },
+      "source_access": "official-public-and-actual-installed-readable",
+      "semantic_coverage": "selected-inspected",
+      "reviewed_findings": [
+        "FAC-14"
+      ],
+      "unread": "Unrelated module definitions and native feature implementation; not full module coverage.",
+      "installed_payload": {
+        "present": true,
+        "version": "2.0.77",
+        "actual_info": {
+          "name": "elevated-rails",
+          "version": "2.0.77",
+          "title": "Elevated Rails",
+          "author": "Wube Software",
+          "contact": "dev@factorio.com",
+          "homepage": "https://www.factorio.com",
+          "dependencies": [
+            "base >= 2.0.0"
+          ],
+          "rail_bridges_required": true,
+          "factorio_version": "2.0"
+        },
+        "reviewed_finding_ids": [
+          "FAC-14"
+        ]
+      }
+    }
+  ],
+  "dependency_interpretation": {
+    "2.1.21": "Space Age hard-requires Base, Elevated Rails and Recycler; + Quality is recommended. Quality hard-requires Base and Recycler. Feature flags still require the corresponding native expansion support.",
+    "2.0.77": "Stable metadata hard-requires Quality and Elevated Rails for Space Age. Stable Quality has no Recycler dependency in its info.json. Do not apply the experimental split to a stable install.",
+    "prefix_source": "https://lua-api.factorio.com/latest/auxiliary/mod-structure.html"
+  },
+  "purchases_install_activation_performed": false,
+  "whole_dlc_review": false,
+  "remaining_gate": "No gate remains for this finite installed-source pass. Full module/game semantic/native/runtime review remains outside its claimed bounds.",
+  "snapshot_scope": "Historical finite installed-source/API pass ending2026-10-07T03:59Z; originalcounts/claims/never_done fields apply to that pass.",
+  "current_native_followup": {
+    "state": "Active subsequent full both-architecture recovery and original use; historical finite Lua/API snapshot remains separate.",
+    "sole_native_writer": "/root/factorio_native_finish3",
+    "root_acceptance_writer": "/root/factorio_acceptance",
+    "native_checkpoint": "native/CHECKPOINT.md",
+    "native_report": "native/REPORT.md",
+    "native_coverage": "native/COVERAGE.json",
+    "root_usage_checkpoint": "../../gm/dispatch/steam-wave-2026-10-06/native-usage/CHECKPOINT.md",
+    "ARM_root_acquired": "183,199 unique functions / 183,186 latest C successes / 13 failures; all 178,879 callable candidates attempted; exact body/C/chunk/instruction bytes verified; 1,105 scalar-affected methods use qualified repair.",
+    "Intel_state": "Saved/reopened 182,398 functions / 9,869,783 instructions / 178,145 callables. Healthy full C/ASM export 41973 / PID46960 reports 168,900 closed rows, 168,835 C successes and 65 failures at 2026-10-07T14:04:07.321309Z; final corpus acquisition pending.",
+    "original_use": "Retort source/native/UI is acquired in e77080593d4b / 370-source build, implemented-unverified; gameplay/save/failure/browser/director checks deferred.",
+    "semantic_limit": "Whole machine function attempts and retained files are not whole-source semantic reading, complete CFG/type/ABI proof or enabled DLC/entitlement coverage.",
+    "required_gates": "Full Intel stream, known Splitter/Inserter case closure, selected Heat physical ABI, faithful failure diagnosis/repair, instruction ownership and final immutable corpus/provenance/coverage audit."
+  },
+  "routing_updated_utc": "2026-10-07T14:04:14.806358+00:00"
+}

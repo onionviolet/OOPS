@@ -130,7 +130,7 @@ taken, stolen or lost, so by default it can be, by some route.
 | Solo Leveling | Hunters | Runestones | Teach an extra skill | Item | Tradable; one sold for 70 billion won | Rare drops | `FB/solo-leveling/DETAILED_FINDINGS.md:52-53` |
 | You Have Died Again | Goren (rival) | Dolos System | Memory plus XP from killing the hero | System | Notes silent | Visibility lets the god adapt | `FB/you-have-died-again/TAXONOMY.md:19` |
 | A Novel Concept | Boon takers (U) | Fortuna, Sigurd boons | Trade Chance for one endeavor; broad protection with one weak point | Patron | Priced | Catalog isn't possession | `FB/a-novel-concept/LIMITS_AND_BYPASSES.md:31` |
-| Labyrinth of the Mad God | Nick | Flask of Restoration | Restores 25% per minute, half for others | Soulbound item | Destroyed on owner's death | Refills in about a day | `FB/labyrinth-mad-god-2/POWERS.md:45` |
+| Labyrinth of the Mad God | Nick | Flask of Restoration | Restores 25% over sixty seconds, half for others | Soulbound item | Destroyed on owner's death | Refills in about a day | `FB/labyrinth-mad-god-2/POWERS.md:45` |
 | Labyrinth of the Mad God | Bandit | Shadow Flame evolution | A king core remakes his body | Body | Notes silent | One witnessed case | `FB/labyrinth-mad-god-2/POWERS.md:16` |
 | Genetic Ascension | Sylas | Gene State | Odds-gated gene intake, week-long state | Body | Notes silent | Seizure risk; rare catalyst | `NW9/genetic/DOSSIER.md:29` |
 | Genetic Ascension | Sylas | Gene Crystal | Turns gene recipes into an evolution skill | Item | Notes silent | Overfilling strains it | `NW9/genetic/DOSSIER.md:75` |

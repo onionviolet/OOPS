@@ -1,0 +1,38 @@
+{
+  "game": "Six Ages 2: Lights Going Out",
+  "appid": 2278010,
+  "buildid": "12712255",
+  "checked_at_utc": "2026-10-07T21:05:08.896179+00:00",
+  "status": "copy-verified-finite-audit-complete",
+  "readiness": {
+    "StateFlags": 4,
+    "StagingSize": 0,
+    "download_stage_complete": true,
+    "stat_interval_seconds": 3
+  },
+  "engine": {
+    "observed": "Unity Mono C# frontend plus native x86_64 Objective-C DarkAgePlugin and readable Lua definitions/custom OSL scene bytecode",
+    "managed_recovery": "ILSpy project exports Assembly-CSharp.dll and Assembly-CSharp-firstpass.dll; runtime assembly export is not all native executable source",
+    "native_recovery": "otool -tvV + nm -C; six bounded native method slices"
+  },
+  "copy": {
+    "private_root": "/Users/weiwei/.codex/research/six-ages-2",
+    "files": 310,
+    "bytes": 337741843,
+    "all_sha256_matched": true,
+    "receipt_sha256": "893e39a76bf8f6519448c5573ccfcf52212346ce01ef34814e962e5b7b7ea19d",
+    "retained": "game managed code/dependencies, native plugin, all Lua + scene containers, Unity serialized core and native/framework dependencies",
+    "excluded": "streamed Unity art/audio .resS/.resource; no local/cloud saves"
+  },
+  "uninstall_eligible": true,
+  "installed_path_consumer": false,
+  "game_launched": false,
+  "saves_read": false,
+  "raw_source_in_git": false,
+  "recovery_commands": {
+    "managed": "DOTNET_ROOT=/Users/weiwei/.codex/research/caves-of-qud/2.0.211.56/tools/dotnet <dotnet>/dotnet <tools>/ilspycmd/ilspycmd.dll -p -o <private>/recovered/{managed|firstpass} <private>/payload/LightsGoingOut.app/Contents/Resources/Data/Managed/{Assembly-CSharp|Assembly-CSharp-firstpass}.dll",
+    "native": "nm -C <private>/payload/LightsGoingOut.app/Contents/Plugins/DarkAgePlugin.bundle/Contents/MacOS/DarkAgePlugin; otool -tvV <same binary>",
+    "diagnostics": "Both ILSpy commands exited0; firstpass log only reports available newer tool version. Exports not compiled.",
+    "validation": "All310 retained SHA256 reverified; all JSON evidence paths/hashes and line bounds checked after exports."
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "at": "2026-10-10T06:55:47.306257+00:00",
+  "north_star_sha256": "4843c00f7b1cd794a7473ad1523c28de77644899a240a87b27acec79d5017be5",
+  "read_sections": [
+    "Life progression defaults",
+    "Who or what you start as: realms of play / construct",
+    "Can the current UI show all this?",
+    "UI consistency",
+    "Hover details and text as a medium"
+  ],
+  "result": "Relevant sections reread after whole-file hash drift. They remain proposals; per-world construct, idle and UI mapping in these packets remains applicable. The explicit maintenance-versus-food contradiction remains visible. Accepted PROJECT/rulebook hashes were unchanged. No shared document edited."
+}

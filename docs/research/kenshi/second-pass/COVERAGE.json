@@ -1,0 +1,122 @@
+{
+  "date": "2026-10-08",
+  "status": "finite second-pass research complete; no gameplay or design acceptance",
+  "assignment": "docs/gm/dispatch/kenshi-depth-2026-10-08/ASSIGNMENT.md",
+  "source_route": "retained private copy only; no reinstall",
+  "decoded_context": {
+    "records_by_layer": {
+      "gamedata.base": 9399,
+      "Newwworld.mod": 2511,
+      "Dialogue.mod": 39077,
+      "rebirth.mod": 8571
+    },
+    "total": 59558,
+    "decoder_reused_from_first_pass": true,
+    "full_semantic_read": false,
+    "full_runtime_merge": false
+  },
+  "close_read": {
+    "connected_finding_count": 31,
+    "people": 11,
+    "settlements": 11,
+    "bodies_and_recovery": 9,
+    "shipped_tips": {
+      "read": 62,
+      "total": 62
+    }
+  },
+  "assignment_coverage": [
+    {
+      "lens": "Recruiting and keeping people",
+      "evidence": "PEOPLE.md P-F1-P-F11",
+      "covered": "paid hire, persuasion, cage rescue, purchase-event freedom, provisional travel, refusal, departure, hostility, motives and named reactions",
+      "limits": "representative profiles only; generic permanent follower desertion/loyalty decay not established"
+    },
+    {
+      "lens": "Founding a place",
+      "evidence": "SETTLEMENTS.md S-F1-S-F7",
+      "covered": "town-creation flag, work/material bootstrap, manual/powered production, crop ecology, territorial visits and escalation",
+      "limits": "native building transaction and raid scheduler unread"
+    },
+    {
+      "lens": "Factions and world state",
+      "evidence": "SETTLEMENTS.md S-F8-S-F11",
+      "covered": "relation network/coexistence, multi-person town replacement, road populations, involvement-sensitive ruler retaliation",
+      "limits": "native alive/captive evaluator, loaded squads and override precedence unread"
+    },
+    {
+      "lens": "Bodies",
+      "evidence": "BODIES.md B1-B7; PEOPLE.md P-F11",
+      "covered": "amputation origin, prosthetic specialization/cost, race-specific provisions/medicine, wear and captive status, hardship practice",
+      "limits": "native injury/XP triggers unread; no starvation XP or limb regrowth claim"
+    },
+    {
+      "lens": "Being a nobody and ways out",
+      "evidence": "BODIES.md B1/B7/B8; PEOPLE.md P-F3",
+      "covered": "zero-money missing-arm start, two-person captive start, weak aspirant, source-supported recovery-route inventory",
+      "limits": "not every start or every native escape route; no guaranteed rescue"
+    },
+    {
+      "lens": "Dialogue and reactions",
+      "evidence": "PEOPLE.md P-F1-P-F11; BODIES.md B9",
+      "covered": "beliefs, scars, disclosed status, captor memory, named relationships, race and prosthetic kit",
+      "limits": "authored conditions and actions, not measured runtime probabilities"
+    },
+    {
+      "lens": "20+ small touches mapped to vanilla",
+      "evidence": "SMALL_TOUCHES.md",
+      "covered": "30 original proposed details with source finding and inspected vanilla surface",
+      "limits": "proposed, not implemented"
+    },
+    {
+      "lens": "Original draft world card",
+      "evidence": "WORLD_CARD.md",
+      "covered": "all 12 card fields, compatibility modes, bounded first slice and shared-policy questions",
+      "limits": "fiction, transit laws and local settings are original proposals"
+    }
+  ],
+  "north_star_translation": {
+    "ranked_proposals": 8,
+    "file": "PROPOSALS.md",
+    "sections": [
+      "Followers and factions",
+      "Work",
+      "Aptitude can change",
+      "Enemy powers",
+      "Evil inheritances, one-way openings and the way around",
+      "How powers meet a new world"
+    ],
+    "unsupported_extensions": [
+      "general morale/desertion",
+      "succession/schisms",
+      "evil inheritance contamination",
+      "native resurrection/regrowth",
+      "universal escape guarantee"
+    ]
+  },
+  "reviewed_yair_surfaces": [
+    "src/activities.js",
+    "src/data/skills.js",
+    "src/data/locations.js",
+    "src/crafting_recipes.js",
+    "src/models/combat.js",
+    "src/main.js",
+    "docs/ENGINE_AUTHORING.md"
+  ],
+  "preservation": {
+    "first_pass_edits": false,
+    "raw_game_data_in_repo": false,
+    "src_edits": false,
+    "builds": false,
+    "commits": false,
+    "saves_accessed": false
+  },
+  "execution_limits": [
+    "native Kenshi combat/AI/needs/save serializer unread",
+    "no Kenshi launch or editor launch",
+    "no reproduced final layer merge",
+    "no YAIR build/browser/save verification authorized in research task",
+    "human acceptance and implementation selection remain with creative director"
+  ],
+  "reproduce": "python3 docs/research/kenshi/second-pass/validate_evidence.py"
+}

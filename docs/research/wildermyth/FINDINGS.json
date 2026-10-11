@@ -1,0 +1,182 @@
+{
+  "game": "Wildermyth",
+  "build": 21684217,
+  "finite_pass": "six bounded connected life-sim chains, not all source",
+  "chains": [
+    {
+      "id": "F1",
+      "name": "Aging changes the useful body",
+      "prerequisite": "Human Status contains AGE; integrity/age-immunity aspects bypass penalties.",
+      "decision": "getAgeCategory uses thresholds30,40,50,62,74,90; use stage-specific aspects rather than raw age scalar.",
+      "state": "humanAging defines speed, recovery, dodge, health costs and tenacity gains; early middle age recovery -8 and tenacity +5; old age speed -0.8 and tenacity +20.",
+      "time": "AGE is consumed here, not advanced here. Interval transition is a separately inspected path if recovered.",
+      "failure": "No runtime proof that every category is applied in every mode. Ageless branch returns before numeric thresholds.",
+      "later_consumer": "Status aspect stats affect subsequent combat/recovery; downstream application bounded by recovered interval/factory methods, not assumed from counts.",
+      "sources": [
+        {
+          "private_path": "/Users/weiwei/.codex/research/wildermyth/decompiled/com/worldwalkergames/legacy/game/generation/HumanAgeHelper.java",
+          "sha256": "a5bd9d045c41b3162fb903746e6df15c7f9523d51f6fd3ba9111bca06c273d0a",
+          "locator": "getAgeCategory",
+          "origin_jar_sha256": "8492b13de90b611e6ce2b28d0f158b460bf787253d937eb85a034c32f5498a4e"
+        },
+        {
+          "private_path": "/Users/weiwei/.codex/research/wildermyth/retained/assets/data/aspects/humanAging.json",
+          "sha256": "c6db5708c3bd56f09bd7daa671cb0356a5dbc49154eb17dd2175c4b65509b983",
+          "locator": "earlyMiddleAge/oldAge/extremeOldAge",
+          "origin_jar_sha256": null
+        }
+      ]
+    },
+    {
+      "id": "F2",
+      "name": "Survival leaves a scar and shortens service",
+      "prerequisite": "Alive injected hero eligibleForDeathChoice; no human_scar or filled head theme. Volunteer excludes maimed/escaped and respects forbidHeroicDeath.",
+      "decision": "Flee path chooses injury/withdrawal instead of final death.",
+      "state": "WITHDRAW_UNIT; NewPlot maimHero; AddHistory deathChoice_scar with permanent associatedAspects human_scar versus associatedAspectsThisCampaign human_scar_debuff. Debuff charisma -30, retirement age -10; scar changes skin.",
+      "time": "Actual PlotC_Maimed initialize marks maimedMustHeal, increments maimings and sets INJURY=HEALTH-1. travelHome selects safe visible town/station by path/threat score. waitToHeal inactivates control and waits for INJURY==0; interval/game-end/dungeon/immediate-recovery bypasses have explicit branches.",
+      "failure": "No controlled component kills plot entityNoLongerControlled; no start/path logs diagnostic and proceeds. Prior scar/head theme prevents scar choice. Invalid maimType falls back rightArm; no runtime proof of every branch.",
+      "later_consumer": "reactivate removes marker, stops campaign time, applies eligible heal-time theme or prosthetic history, swaps suitable replacement gear and restores active control. Scar debuff changes retirement eligibility while appearance/history retain cause.",
+      "sources": [
+        {
+          "private_path": "/Users/weiwei/.codex/research/wildermyth/retained/assets/data/effects/deathChoice_scar.json",
+          "sha256": "0f728f7f3505ad87a208ec3609d31d809b75ab48eaf56cda9e416c3dee51d791",
+          "locator": "targets; outcomes flee WITHDRAW_UNIT/NewPlot/AddHistory",
+          "origin_jar_sha256": null
+        },
+        {
+          "private_path": "/Users/weiwei/.codex/research/wildermyth/retained/assets/data/aspects/humanSkin.json",
+          "sha256": "c8e4cd1780ed415ee6b6412b6209343d45ea37355a5e0d0072abd24efb4d4b30",
+          "locator": "human_scar / human_scar_debuff",
+          "origin_jar_sha256": null
+        },
+        {
+          "private_path": "/Users/weiwei/.codex/research/wildermyth/retained/assets/data/history/injury.json",
+          "sha256": "e67f41b6c1e0b9f6ff551d085b4dbfa88feb4746e86554c3973537ac86463fcb",
+          "locator": "human_injureLeftHand / human_replaceLeftHandProsthetic",
+          "origin_jar_sha256": null
+        },
+        {
+          "private_path": "/Users/weiwei/.codex/research/wildermyth/decompiled/com/worldwalkergames/legacy/game/mechanics/PlotC_Maimed.java",
+          "sha256": "6eddfe8655f2921f7fed5836eda5d61ee27d571343d727359da8602aaeac78f0",
+          "locator": "initialize/travelHome/waitToHeal/reactivate",
+          "origin_jar_sha256": "8492b13de90b611e6ce2b28d0f158b460bf787253d937eb85a034c32f5498a4e"
+        }
+      ]
+    },
+    {
+      "id": "F3",
+      "name": "Retirement hands experience to a person",
+      "prerequisite": "Injected retiring hero and hook set of all retiring heroes; living ACTIVE volunteers excluded from retiring set and ranked by hero.LEVEL-LEVEL with threshold1.",
+      "decision": "Choose one of three rookies or resource alternative.",
+      "state": "Selected volunteer receives (hero.EXPERIENCE*3)/8 via GrantXP; alternative AddResources amount3. No XP subtraction from retiring hero in this data.",
+      "time": "Retirement event; exact interval scheduler inspected separately.",
+      "failure": "Optional candidate roles can be absent; no claim that unavailable choices are always rendered correctly. Dead/retiring heroes cannot receive the gift via these filters.",
+      "later_consumer": "New hero XP progression; distinct resource path keeps retirement meaningful without a qualified student.",
+      "sources": [
+        {
+          "private_path": "/Users/weiwei/.codex/research/wildermyth/retained/assets/data/effects/retire/trainRookie.json",
+          "sha256": "ab072391f95f37a4165ebfd322ea789a285b683ca6ea3980de7beecd3e420204",
+          "locator": "targets volunteer/volunteer2/volunteer3; outcomes one/two/three/four",
+          "origin_jar_sha256": null
+        }
+      ]
+    },
+    {
+      "id": "F4",
+      "name": "A generated childhood is future event eligibility",
+      "prerequisite": "History category with required/forbidden tags and optional legacy-unlock requirements. Existing history forbidden aspects plus virtual tags and current Status all participate.",
+      "decision": "HistoryIndex weighted valid selection; adds story-stat weight where supplied. Empty eligible list returns null.",
+      "state": "originChild_2 introduces intellectual/parent tags, hook_Curious and primeStats; HistoryGenerator converts line to dated Entry, associated aspects, relationships, prime-stat modifiers and persist policy.",
+      "time": "acquisitionTime = campaignTime.now or0 if absent; later curious intro needs unresolved Curious hook and morthagi threat.",
+      "failure": "Contradictory origins filtered; no valid line yields null. Curious intro forbids already-resolved hook and familyWith hook2.",
+      "later_consumer": "Curious intro assigns roles/advances plot; resolve adds a new dated history Entry. Not merely biography prose. Exact intermediary plot scheduling remains unread.",
+      "sources": [
+        {
+          "private_path": "/Users/weiwei/.codex/research/wildermyth/decompiled/com/worldwalkergames/legacy/game/generation/HistoryIndex.java",
+          "sha256": "4e7073e8ac16a0832b9384266cd65af72c392e83ee7034a7ebbd998d8e683275",
+          "locator": "getLineCheckForbidden",
+          "origin_jar_sha256": "8492b13de90b611e6ce2b28d0f158b460bf787253d937eb85a034c32f5498a4e"
+        },
+        {
+          "private_path": "/Users/weiwei/.codex/research/wildermyth/decompiled/com/worldwalkergames/legacy/game/generation/HistoryGenerator.java",
+          "sha256": "9167f780d5861b3ede9f4bfb7d2c12ebe08fa528ff542e75b11c9da2f38aa98f",
+          "locator": "convertToEntry/applyPrimeStatsToEntry",
+          "origin_jar_sha256": "8492b13de90b611e6ce2b28d0f158b460bf787253d937eb85a034c32f5498a4e"
+        },
+        {
+          "private_path": "/Users/weiwei/.codex/research/wildermyth/retained/assets/data/history/originsChild.json",
+          "sha256": "b84f1fdbf4ef9f22fa0f96bccbf117b36ca19230b276dcb8f1c5fb62acd6e930",
+          "locator": "originChild_2",
+          "origin_jar_sha256": null
+        },
+        {
+          "private_path": "/Users/weiwei/.codex/research/wildermyth/retained/assets/data/effects/hook/hook_Curious_beneaththeSurface_intro.json",
+          "sha256": "64c30ef21bccb53b726c5a4abaf43a0b5462341c0a9f536b1dd41fc9671a2897",
+          "locator": "targets/outcomes AssignToPlot+ADVANCE_PLOT",
+          "origin_jar_sha256": null
+        },
+        {
+          "private_path": "/Users/weiwei/.codex/research/wildermyth/retained/assets/data/effects/hook/hook_Curious_beneaththeSurface_resolve.json",
+          "sha256": "a6778f6205cf4ccfc3a01d93dfcbdd0098dcc94e0f59456ccb39bbdc9e7e71e9",
+          "locator": "outcomes AddHistory",
+          "origin_jar_sha256": null
+        }
+      ]
+    },
+    {
+      "id": "F5",
+      "name": "Death changes the survivor rather than ending their story",
+      "prerequisite": "Alive eligible hero and LOVER_WITH.hero score>=1 lover in range6.",
+      "decision": "Distinct flee/attack/wait mortal-choice branches.",
+      "state": "Wait AddHistory on lover with promise aspect gives RETIREMENT_AGE+10; attack release memory gives WARDING+1. These inline histories persistOverLegacy never and bind hero relationship.",
+      "time": "Current campaign survivor aftermath, not automatic cross-campaign power retention.",
+      "failure": "Without a matched lover in range the event is unavailable; mortal choice can end the original hero.",
+      "later_consumer": "Survivor combat warding or longer active career; relationship-bound history can explain why.",
+      "sources": [
+        {
+          "private_path": "/Users/weiwei/.codex/research/wildermyth/retained/assets/data/effects/deathChoice_lover.json",
+          "sha256": "c5bf9e5c2d9d7e4f0521114897174a89acfefa012f82f750f8d3f51647784d00",
+          "locator": "targets lover; outcomes attack/wait AddHistory",
+          "origin_jar_sha256": null
+        },
+        {
+          "private_path": "/Users/weiwei/.codex/research/wildermyth/retained/assets/data/aspects/humanSkin.json",
+          "sha256": "c8e4cd1780ed415ee6b6412b6209343d45ea37355a5e0d0072abd24efb4d4b30",
+          "locator": "loverDied_buff_promise / loverDied_buff_release",
+          "origin_jar_sha256": null
+        }
+      ]
+    },
+    {
+      "id": "F6",
+      "name": "Legacy links obey conflicts and explicit retention",
+      "prerequisite": "Legacy data and loaded Status/History identities; lockedRelationship aspects must point to an available other hero.",
+      "decision": "Validator restores lover or rival only when neither side already has that type; forbidLegacyLockedRelationships suppresses it.",
+      "state": "LegacyAspectHelper first removes existing legacy-tagged aspects then adds retained legacy aspects for matching IDs, with history fallback; company unlocks are refreshed separately.",
+      "time": "Legacy refresh, not every random event; LegacySaveSystem only writes dirty legacy for participant on update/after when active.",
+      "failure": "Null legacy returns; missing relationships/IDs skip; existing lover/rival prevents overwrite. isActive=false prevents update work.",
+      "later_consumer": "Recruited hero has coherent links and retained aspects; dirty-only persistence avoids writing an unchanged legacy each update. Native/runtime serialization not exercised.",
+      "sources": [
+        {
+          "private_path": "/Users/weiwei/.codex/research/wildermyth/decompiled/com/worldwalkergames/legacy/game/mechanics/LegacyRelationshipValidator.java",
+          "sha256": "eb78b3dbc1816f2ebe7445fcb9a4d1efd28c957730329e4195b3cdfff8bfc790",
+          "locator": "validateLegacyRelationships",
+          "origin_jar_sha256": "8492b13de90b611e6ce2b28d0f158b460bf787253d937eb85a034c32f5498a4e"
+        },
+        {
+          "private_path": "/Users/weiwei/.codex/research/wildermyth/decompiled/com/worldwalkergames/legacy/game/mechanics/LegacyAspectHelper.java",
+          "sha256": "9cd8ad1f0cee20ef7a407e0e20a35892b1880dc7c722929ac5cff41c9533b721",
+          "locator": "refreshLegacyAspects",
+          "origin_jar_sha256": "8492b13de90b611e6ce2b28d0f158b460bf787253d937eb85a034c32f5498a4e"
+        },
+        {
+          "private_path": "/Users/weiwei/.codex/research/wildermyth/decompiled/com/worldwalkergames/legacy/game/campaign/system/LegacySaveSystem.java",
+          "sha256": "35882139972ebd49ebacbc821e442706cc484258880e8a6ef7bd8ec33a46fcdc",
+          "locator": "update/after",
+          "origin_jar_sha256": "8492b13de90b611e6ce2b28d0f158b460bf787253d937eb85a034c32f5498a4e"
+        }
+      ]
+    }
+  ],
+  "design_method": "Connect aspect identity, dated history, event role matching and explicit legacy policy; structural original proposals only. Decompiled source is not runnable verification."
+}

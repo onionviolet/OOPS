@@ -1,0 +1,35 @@
+{
+  "game": "King of Dragon Pass",
+  "appid": 352220,
+  "checked_at_utc": "2026-10-07T20:21:13.211347+00:00",
+  "status": "stable-copy-verified-finite-audit-complete",
+  "buildid": "10566687",
+  "readiness": {
+    "StateFlags": 4,
+    "staging_size": 0,
+    "download_and_stage_complete": true,
+    "stat_interval_seconds": 3
+  },
+  "engine": {
+    "observed": "native i386 C++ game library on Marmalade/s3e/IwUI",
+    "evidence": "Mach-O .s86 plus retained CScene/COSL/CPerson symbols and executable disassembly",
+    "managed_decompile": "not applicable"
+  },
+  "copy": {
+    "private_root": "/Users/weiwei/.codex/research/king-of-dragon-pass",
+    "files": 3069,
+    "bytes": 355264768,
+    "all_sha256_matched": true,
+    "receipt_sha256": "4208021838e0cf449da1cc59149cce472bd7b09489d436e2e075f7a92be446f4",
+    "excluded": "Artwork/wallpaper extras, .DS_Store; user saves and cloud/userdata never included"
+  },
+  "recovery": {
+    "route": "native bounded objdump + indexed scenes.dat boundary decode + readable shipped manuals/UI",
+    "private_artifacts": "recovered/*.asm, native-symbols.txt, scene-index.json",
+    "scene_records": 1760
+  },
+  "uninstall_eligible": true,
+  "installed_path_consumer": false,
+  "save_data_read": false,
+  "raw_source_in_git": false
+}

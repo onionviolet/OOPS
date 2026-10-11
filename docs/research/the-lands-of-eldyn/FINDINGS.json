@@ -1,0 +1,312 @@
+{
+  "date": "2026-10-09",
+  "appid": 1740540,
+  "buildid": "7520224",
+  "status": "installed-wrapper-source-audit-complete; gameplay-mechanic-audit-blocked",
+  "findings": [
+    {
+      "id": "F1",
+      "finding": "Game delivery is remote, not a locally recovered life simulation.",
+      "evidence": [
+        {
+          "private_file": "/Users/weiwei/.codex/research/the-lands-of-eldyn/source/static/index.html",
+          "lines": "23",
+          "claim": "game iframe targets https://eldyn.io"
+        },
+        {
+          "private_file": "/Users/weiwei/.codex/research/the-lands-of-eldyn/source/src/main/main.js",
+          "lines": "61-62",
+          "claim": "loads the wrapper HTML"
+        },
+        {
+          "private_file": "/Users/weiwei/.codex/research/the-lands-of-eldyn/source/renderer.js",
+          "lines": "1",
+          "claim": "only webpack bootstrap and an empty renderer module"
+        }
+      ],
+      "boundary": "No conclusion about remote territory, armies, balance or NPC simulation."
+    },
+    {
+      "id": "F2",
+      "finding": "The local menu separates Close, Return to Main Menu, Logout and Quit.",
+      "evidence": [
+        {
+          "private_file": "/Users/weiwei/.codex/research/the-lands-of-eldyn/source/static/index.html",
+          "lines": "13-19",
+          "claim": "five buttons plus faction input"
+        },
+        {
+          "private_file": "/Users/weiwei/.codex/research/the-lands-of-eldyn/source/static/preload.js",
+          "lines": "26-43",
+          "claim": "separate handlers for quit, close, logout and home"
+        }
+      ],
+      "boundary": "Handlers read statically; no rendered behavior or remote destination verified."
+    },
+    {
+      "id": "F3",
+      "finding": "Faction join is a URL navigation affordance, not local faction mechanics.",
+      "evidence": [
+        {
+          "private_file": "/Users/weiwei/.codex/research/the-lands-of-eldyn/source/static/preload.js",
+          "lines": "45-52",
+          "claim": "raw input prefix test before iframe navigation"
+        },
+        {
+          "private_file": "/Users/weiwei/.codex/research/the-lands-of-eldyn/source/static/index.html",
+          "lines": "13-14",
+          "claim": "join label and world-link placeholder"
+        }
+      ],
+      "boundary": "startsWith accepts similar host strings; path, host and token validation are not demonstrated. No faction membership or army rules recovered."
+    },
+    {
+      "id": "F4",
+      "finding": "Steam identity and session continuity are delegated to cookies.",
+      "evidence": [
+        {
+          "private_file": "/Users/weiwei/.codex/research/the-lands-of-eldyn/source/src/main/main.js",
+          "lines": "18-24",
+          "claim": "Steamworks initialization"
+        },
+        {
+          "private_file": "/Users/weiwei/.codex/research/the-lands-of-eldyn/source/src/main/main.js",
+          "lines": "69-88",
+          "claim": "eldyn.io session cookies extended fourteen days"
+        },
+        {
+          "private_file": "/Users/weiwei/.codex/research/the-lands-of-eldyn/source/src/main/main.js",
+          "lines": "102-105",
+          "claim": "writes Steam ID cookie before createWindow"
+        }
+      ],
+      "boundary": "Authentication validity and server data are unknown; no cookies or saves inspected."
+    },
+    {
+      "id": "F5",
+      "finding": "Shell UI is fullscreen with a floating menu and remote font.",
+      "evidence": [
+        {
+          "private_file": "/Users/weiwei/.codex/research/the-lands-of-eldyn/source/src/main/main.js",
+          "lines": "33-59",
+          "claim": "fullscreen window and modal popup override"
+        },
+        {
+          "private_file": "/Users/weiwei/.codex/research/the-lands-of-eldyn/source/static/styles.css",
+          "lines": "1-4",
+          "claim": "font fetched from remote host"
+        },
+        {
+          "private_file": "/Users/weiwei/.codex/research/the-lands-of-eldyn/source/static/styles.css",
+          "lines": "56-82",
+          "claim": "floating bar and fixed-proportion hidden menu"
+        }
+      ],
+      "boundary": "No keyboard/focus management, loading/error handler or menu pause policy found in inspected app-owned paths; this does not establish what remote iframe implements."
+    }
+  ],
+  "ranked_proposals": [
+    {
+      "id": "P1",
+      "rank": 1,
+      "title": "Make close and return destinations unambiguous",
+      "status": "original YAIR proposal; not accepted, implemented or an Eldyn mechanic",
+      "inspiration_finding": "F2",
+      "vanilla_target": "Existing vanilla center choices and travel",
+      "live_target_anchor": "src/display.js:2061; src/display.js:2230",
+      "behavior": "Label center submenu close separately from actual location travel; keep character position intact when closing.",
+      "acceptance_gate": "Open trade/work/travel submenu, close each, verify position and task unchanged; reload remains same location.",
+      "compatibility": "No forced start, new window, faction system or network requirement. Preserve current saves; any new persisted status requires defaults/migration.",
+      "small_touches": [
+        {
+          "id": "T01",
+          "proposal": "P1",
+          "touch": "Use Close menu for dismissal only.",
+          "status": "original proposal, not observed source feature"
+        },
+        {
+          "id": "T02",
+          "proposal": "P1",
+          "touch": "Use destination names in travel actions.",
+          "status": "original proposal, not observed source feature"
+        },
+        {
+          "id": "T03",
+          "proposal": "P1",
+          "touch": "Preserve currently selected work when a submenu closes.",
+          "status": "original proposal, not observed source feature"
+        },
+        {
+          "id": "T04",
+          "proposal": "P1",
+          "touch": "Keep recovery and return-home choices separate.",
+          "status": "original proposal, not observed source feature"
+        }
+      ]
+    },
+    {
+      "id": "P2",
+      "rank": 2,
+      "title": "Make busy or unavailable destinations readable",
+      "status": "original YAIR proposal; not accepted, implemented or an Eldyn mechanic",
+      "inspiration_finding": "F1",
+      "vanilla_target": "Native action and travel controls",
+      "live_target_anchor": "src/display.js:2261; src/data/locations.js:297",
+      "behavior": "Show one plain reason when a destination is unavailable and show progress only during a real pending operation. YAIR remains local and receives no network dependency.",
+      "acceptance_gate": "Visit unlocked and locked routes, attempt a failing action, confirm clear reason and no duplicated rewards.",
+      "compatibility": "No forced start, new window, faction system or network requirement. Preserve current saves; any new persisted status requires defaults/migration.",
+      "small_touches": [
+        {
+          "id": "T05",
+          "proposal": "P2",
+          "touch": "Show locked route reason beside that route.",
+          "status": "original proposal, not observed source feature"
+        },
+        {
+          "id": "T06",
+          "proposal": "P2",
+          "touch": "Show pending state only while an operation is pending.",
+          "status": "original proposal, not observed source feature"
+        },
+        {
+          "id": "T07",
+          "proposal": "P2",
+          "touch": "Keep a failure message visible until the player acknowledges or retries.",
+          "status": "original proposal, not observed source feature"
+        },
+        {
+          "id": "T08",
+          "proposal": "P2",
+          "touch": "Disable duplicate activation during real asynchronous travel/import work, if any.",
+          "status": "original proposal, not observed source feature"
+        }
+      ]
+    },
+    {
+      "id": "P3",
+      "rank": 3,
+      "title": "Make optional branch invitations explicit",
+      "status": "original YAIR proposal; not accepted, implemented or an Eldyn mechanic",
+      "inspiration_finding": "F3",
+      "vanilla_target": "Native center menu destinations",
+      "live_target_anchor": "src/display.js:2061; src/display.js:2261",
+      "behavior": "For any future invitation entry, resolve an internal destination ID and preview place before entering. Do not add factions from this wrapper evidence.",
+      "acceptance_gate": "Valid, unknown and wrong-world IDs produce clear previews or errors without travel; vanilla movement still works.",
+      "compatibility": "No forced start, new window, faction system or network requirement. Preserve current saves; any new persisted status requires defaults/migration.",
+      "small_touches": [
+        {
+          "id": "T09",
+          "proposal": "P3",
+          "touch": "Display invite destination before entering.",
+          "status": "original proposal, not observed source feature"
+        },
+        {
+          "id": "T10",
+          "proposal": "P3",
+          "touch": "Trim pasted invitation whitespace.",
+          "status": "original proposal, not observed source feature"
+        },
+        {
+          "id": "T11",
+          "proposal": "P3",
+          "touch": "Reject unknown internal destination IDs with a plain message.",
+          "status": "original proposal, not observed source feature"
+        },
+        {
+          "id": "T12",
+          "proposal": "P3",
+          "touch": "Return from an invalid invitation without leaving the current place.",
+          "status": "original proposal, not observed source feature"
+        }
+      ]
+    },
+    {
+      "id": "P4",
+      "rank": 4,
+      "title": "Make save and resume status visible",
+      "status": "original YAIR proposal; not accepted, implemented or an Eldyn mechanic",
+      "inspiration_finding": "F4",
+      "vanilla_target": "Existing local save/export/import controls",
+      "live_target_anchor": "src/main.js:4576; src/main.js:4602; src/main.js:6371",
+      "behavior": "Show actual last successful local save and import result in existing controls, preserving local-first saves. No Steam identity or login added.",
+      "acceptance_gate": "Save, reload and import private fresh-test data; success appears only after real completion and failures preserve active character.",
+      "compatibility": "No forced start, new window, faction system or network requirement. Preserve current saves; any new persisted status requires defaults/migration.",
+      "small_touches": [
+        {
+          "id": "T13",
+          "proposal": "P4",
+          "touch": "Show timestamp only for the last completed save.",
+          "status": "original proposal, not observed source feature"
+        },
+        {
+          "id": "T14",
+          "proposal": "P4",
+          "touch": "Differentiate local save and exported file labels.",
+          "status": "original proposal, not observed source feature"
+        },
+        {
+          "id": "T15",
+          "proposal": "P4",
+          "touch": "Report import failure without replacing the active life.",
+          "status": "original proposal, not observed source feature"
+        },
+        {
+          "id": "T16",
+          "proposal": "P4",
+          "touch": "Display the active character/location after a successful reload.",
+          "status": "original proposal, not observed source feature"
+        }
+      ]
+    },
+    {
+      "id": "P5",
+      "rank": 5,
+      "title": "Make center controls usable on narrow screens and keyboards",
+      "status": "original YAIR proposal; not accepted, implemented or an Eldyn mechanic",
+      "inspiration_finding": "F5",
+      "vanilla_target": "Inherited center menu and log",
+      "live_target_anchor": "src/display.js:2230; src/display.js:767",
+      "behavior": "Retain native panels while improving labels, focus and responsive choice layout; prioritize functional local text over decorative font dependency.",
+      "acceptance_gate": "Keyboard-open and close menus, return focus, resize narrow, verify routes and log readable; runtime continuing while menu open is explicit.",
+      "compatibility": "No forced start, new window, faction system or network requirement. Preserve current saves; any new persisted status requires defaults/migration.",
+      "small_touches": [
+        {
+          "id": "T17",
+          "proposal": "P5",
+          "touch": "Give icon-only buttons accessible text labels.",
+          "status": "original proposal, not observed source feature"
+        },
+        {
+          "id": "T18",
+          "proposal": "P5",
+          "touch": "Return keyboard focus to the opener when closing a menu.",
+          "status": "original proposal, not observed source feature"
+        },
+        {
+          "id": "T19",
+          "proposal": "P5",
+          "touch": "Keep travel choices within a narrow center panel.",
+          "status": "original proposal, not observed source feature"
+        },
+        {
+          "id": "T20",
+          "proposal": "P5",
+          "touch": "Provide readable local font fallback when optional decoration fails.",
+          "status": "original proposal, not observed source feature"
+        },
+        {
+          "id": "T21",
+          "proposal": "P5",
+          "touch": "State whether time continues while the menu is open.",
+          "status": "original proposal, not observed source feature"
+        },
+        {
+          "id": "T22",
+          "proposal": "P5",
+          "touch": "Keep click targets readable when text scales to 200%.",
+          "status": "original proposal, not observed source feature"
+        }
+      ]
+    }
+  ]
+}

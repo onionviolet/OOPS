@@ -1,0 +1,347 @@
+[
+  {
+    "name": "vanilla",
+    "startup": {
+      "bio": {
+        "age": "adult",
+        "height": "average",
+        "race": "human",
+        "gender": "ambiguous"
+      },
+      "error": null,
+      "scheduled": 1
+    },
+    "location": "Village",
+    "joined": false,
+    "gates": {
+      "minutesZero": false,
+      "backlogNativeClockPaused": false,
+      "importProbeToken": false,
+      "notOwnsSave": false,
+      "expansionError": "",
+      "foundationSaveBlocked": false,
+      "is_loading_error": false,
+      "lifeEnded": false,
+      "playerSession": false,
+      "waitingSimulationChoice": false,
+      "manualChroniclePolicy": false
+    },
+    "choice": null,
+    "pendingJourney": false,
+    "journeyRemaining": null,
+    "branch": "native",
+    "plan": {
+      "consumed": 1,
+      "stoppedAtChoice": false,
+      "remaining": 0
+    },
+    "tick": 1,
+    "before": 0,
+    "after": 0,
+    "calendarBefore": {
+      "year": 999,
+      "month": 4,
+      "day": 1,
+      "hour": 8,
+      "minute": 0,
+      "day_count": 1
+    },
+    "calendarAfter": {
+      "year": 999,
+      "month": 4,
+      "day": 1,
+      "hour": 8,
+      "minute": 1,
+      "day_count": 1
+    },
+    "afterError": "",
+    "afterSaveBlocked": false,
+    "reload": {
+      "startup": {
+        "bio": {
+          "age": "adult",
+          "height": "average",
+          "race": "human",
+          "gender": "ambiguous"
+        },
+        "error": null,
+        "scheduled": 1
+      },
+      "location": "Village",
+      "joined": false,
+      "gates": {
+        "minutesZero": false,
+        "backlogNativeClockPaused": false,
+        "importProbeToken": false,
+        "notOwnsSave": false,
+        "expansionError": "",
+        "foundationSaveBlocked": false,
+        "is_loading_error": false,
+        "lifeEnded": false,
+        "playerSession": false,
+        "waitingSimulationChoice": false,
+        "manualChroniclePolicy": false
+      },
+      "choice": null,
+      "pendingJourney": false,
+      "journeyRemaining": null,
+      "branch": "native",
+      "plan": {
+        "consumed": 1,
+        "stoppedAtChoice": false,
+        "remaining": 0
+      },
+      "tick": 1,
+      "before": 0,
+      "after": 0,
+      "calendarBefore": {
+        "year": 999,
+        "month": 4,
+        "day": 1,
+        "hour": 8,
+        "minute": 1,
+        "day_count": 1
+      },
+      "calendarAfter": {
+        "year": 999,
+        "month": 4,
+        "day": 1,
+        "hour": 8,
+        "minute": 2,
+        "day_count": 1
+      },
+      "afterError": "",
+      "afterSaveBlocked": false
+    }
+  },
+  {
+    "name": "smelting-9",
+    "startup": {
+      "bio": {
+        "age": "adult",
+        "height": "average",
+        "race": "human",
+        "gender": "ambiguous"
+      },
+      "error": null,
+      "scheduled": 1
+    },
+    "location": "Village",
+    "joined": true,
+    "gates": {
+      "minutesZero": false,
+      "backlogNativeClockPaused": false,
+      "importProbeToken": false,
+      "notOwnsSave": false,
+      "expansionError": "",
+      "foundationSaveBlocked": false,
+      "is_loading_error": false,
+      "lifeEnded": false,
+      "playerSession": false,
+      "waitingSimulationChoice": false,
+      "manualChroniclePolicy": false
+    },
+    "choice": null,
+    "pendingJourney": false,
+    "journeyRemaining": null,
+    "branch": "advanceChroniclePlan",
+    "plan": {
+      "consumed": 1,
+      "stoppedAtChoice": false,
+      "remaining": 0
+    },
+    "tick": 1,
+    "before": 28,
+    "after": 29,
+    "calendarBefore": {
+      "year": 999,
+      "month": 4,
+      "day": 1,
+      "hour": 8,
+      "minute": 0,
+      "day_count": 1
+    },
+    "calendarAfter": {
+      "year": 999,
+      "month": 4,
+      "day": 1,
+      "hour": 8,
+      "minute": 1,
+      "day_count": 1
+    },
+    "afterError": "",
+    "afterSaveBlocked": false,
+    "reload": {
+      "startup": {
+        "bio": {
+          "age": "adult",
+          "height": "average",
+          "race": "human",
+          "gender": "ambiguous"
+        },
+        "error": null,
+        "scheduled": 1
+      },
+      "location": "Village",
+      "joined": true,
+      "gates": {
+        "minutesZero": false,
+        "backlogNativeClockPaused": false,
+        "importProbeToken": false,
+        "notOwnsSave": false,
+        "expansionError": "",
+        "foundationSaveBlocked": false,
+        "is_loading_error": false,
+        "lifeEnded": false,
+        "playerSession": false,
+        "waitingSimulationChoice": false,
+        "manualChroniclePolicy": false
+      },
+      "choice": null,
+      "pendingJourney": false,
+      "journeyRemaining": null,
+      "branch": "advanceChroniclePlan",
+      "plan": {
+        "consumed": 1,
+        "stoppedAtChoice": false,
+        "remaining": 0
+      },
+      "tick": 1,
+      "before": 29,
+      "after": 30,
+      "calendarBefore": {
+        "year": 999,
+        "month": 4,
+        "day": 1,
+        "hour": 8,
+        "minute": 1,
+        "day_count": 1
+      },
+      "calendarAfter": {
+        "year": 999,
+        "month": 4,
+        "day": 1,
+        "hour": 8,
+        "minute": 2,
+        "day_count": 1
+      },
+      "afterError": "",
+      "afterSaveBlocked": false
+    }
+  },
+  {
+    "name": "smelting-10",
+    "startup": {
+      "bio": {
+        "age": "adult",
+        "height": "average",
+        "race": "human",
+        "gender": "ambiguous"
+      },
+      "error": null,
+      "scheduled": 1
+    },
+    "location": "Village",
+    "joined": true,
+    "gates": {
+      "minutesZero": false,
+      "backlogNativeClockPaused": false,
+      "importProbeToken": false,
+      "notOwnsSave": false,
+      "expansionError": "",
+      "foundationSaveBlocked": false,
+      "is_loading_error": false,
+      "lifeEnded": false,
+      "playerSession": false,
+      "waitingSimulationChoice": false,
+      "manualChroniclePolicy": false
+    },
+    "choice": null,
+    "pendingJourney": false,
+    "journeyRemaining": null,
+    "branch": "advanceChroniclePlan",
+    "plan": {
+      "consumed": 1,
+      "stoppedAtChoice": false,
+      "remaining": 0
+    },
+    "tick": 1,
+    "before": 28,
+    "after": 29,
+    "calendarBefore": {
+      "year": 999,
+      "month": 4,
+      "day": 1,
+      "hour": 8,
+      "minute": 0,
+      "day_count": 1
+    },
+    "calendarAfter": {
+      "year": 999,
+      "month": 4,
+      "day": 1,
+      "hour": 8,
+      "minute": 1,
+      "day_count": 1
+    },
+    "afterError": "",
+    "afterSaveBlocked": false,
+    "reload": {
+      "startup": {
+        "bio": {
+          "age": "adult",
+          "height": "average",
+          "race": "human",
+          "gender": "ambiguous"
+        },
+        "error": null,
+        "scheduled": 1
+      },
+      "location": "Village",
+      "joined": true,
+      "gates": {
+        "minutesZero": false,
+        "backlogNativeClockPaused": false,
+        "importProbeToken": false,
+        "notOwnsSave": false,
+        "expansionError": "",
+        "foundationSaveBlocked": false,
+        "is_loading_error": false,
+        "lifeEnded": false,
+        "playerSession": false,
+        "waitingSimulationChoice": false,
+        "manualChroniclePolicy": false
+      },
+      "choice": null,
+      "pendingJourney": false,
+      "journeyRemaining": null,
+      "branch": "advanceChroniclePlan",
+      "plan": {
+        "consumed": 1,
+        "stoppedAtChoice": false,
+        "remaining": 0
+      },
+      "tick": 1,
+      "before": 29,
+      "after": 30,
+      "calendarBefore": {
+        "year": 999,
+        "month": 4,
+        "day": 1,
+        "hour": 8,
+        "minute": 1,
+        "day_count": 1
+      },
+      "calendarAfter": {
+        "year": 999,
+        "month": 4,
+        "day": 1,
+        "hour": 8,
+        "minute": 2,
+        "day_count": 1
+      },
+      "afterError": "",
+      "afterSaveBlocked": false
+    }
+  }
+]

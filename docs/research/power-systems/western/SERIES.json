@@ -1,0 +1,4444 @@
+{
+  "schema_version": 1,
+  "lane": "C",
+  "survey_date": "2026-10-10",
+  "state": "research_complete",
+  "scope": "28 assigned subjects; mechanics survey, not full canon certification or gameplay implementation.",
+  "evidence_policy": {
+    "verified_reference": "A bounded statement supported by material returned this run; consult source access for page versus indexed excerpt.",
+    "remembered_unverified": "Prior recollection only. Not evidence for direct adaptation or top-15 recommendation.",
+    "inference": "Analytical mapping or derived use, not an assertion that the source uses E8 field names.",
+    "proposal": "Original what-we-take idea; not an accepted decision.",
+    "not_found": "No checked gag or loophole in this bounded source pass.",
+    "null_slots": "Absent or not established by reviewed evidence; never means a universal prohibition."
+  },
+  "sources": [
+    {
+      "id": "W01",
+      "title": "Worm reviewed systems dossier",
+      "url": "docs/research/novels/full-book/worm/SYSTEMS.md",
+      "kind": "local_reviewed_dossier",
+      "access": "local_read",
+      "checked": "2026-10-10",
+      "supports": "Triggers and formulas; situated execution; truces; Entity revelations.",
+      "limit": "Reuse of prior parent-reviewed derived notes, not a fresh novel read. Exact member/paragraph locators remain in the dossier; private and gitignored."
+    },
+    {
+      "id": "W02",
+      "title": "Worm power classifications",
+      "url": "https://worm.fandom.com/wiki/Power_Classifications",
+      "kind": "fan_wiki",
+      "access": "search_excerpt",
+      "checked": "2026-10-10",
+      "supports": "PRT classes describe response types; numeric ratings estimate team threat. Includes link to author-run PRT quest.",
+      "limit": "Bounded reference, not a whole-work read."
+    },
+    {
+      "id": "C01",
+      "title": "Cradle advancement",
+      "url": "https://wiki.abidanarchive.com/index.php/Advancement_Level",
+      "kind": "fan_wiki",
+      "access": "page_read",
+      "checked": "2026-10-10",
+      "supports": "Madra, realm gates, Gold routes, Lord revelations, Sage/Herald and Monarch.",
+      "limit": "Bounded reference, not a whole-work read."
+    },
+    {
+      "id": "C02",
+      "title": "Will Wight on split cores",
+      "url": "https://abidanarchive.com/tag/heart%20of%20twin%20stars",
+      "kind": "author_QA_transcript",
+      "access": "search_excerpt",
+      "checked": "2026-10-10",
+      "supports": "Splitting loses a little energy, does not double reserves; cores can advance separately.",
+      "limit": "Bounded reference, not a whole-work read."
+    },
+    {
+      "id": "C03",
+      "title": "Will Wight on Remnant bonding",
+      "url": "https://abidanarchive.com/event/1?page=2",
+      "kind": "author_QA_transcript",
+      "access": "search_excerpt",
+      "checked": "2026-10-10",
+      "supports": "Advanced Remnants have identity; Sword Sage permitted Yerin to bond.",
+      "limit": "Bounded reference, not a whole-work read."
+    },
+    {
+      "id": "M01",
+      "title": "Mistborn metallic arts",
+      "url": "https://en.wikipedia.org/wiki/Mistborn#Magic",
+      "kind": "encyclopedia",
+      "access": "page_read",
+      "checked": "2026-10-10",
+      "supports": "Allomancy burns metal; Feruchemy stores attributes; Hemalurgy transfers stolen abilities.",
+      "limit": "Bounded reference, not a whole-work read."
+    },
+    {
+      "id": "M02",
+      "title": "Sanderson on Hemalurgy",
+      "url": "https://www.brandonsanderson.com/blogs/blog/annotation-mistborn-3-chapter-thirty-nine",
+      "kind": "author_annotation",
+      "access": "search_excerpt",
+      "checked": "2026-10-10",
+      "supports": "Theft and selection of powers in the spike design.",
+      "limit": "Bounded reference, not a whole-work read."
+    },
+    {
+      "id": "M03",
+      "title": "Sanderson compounding transcript cited by 17th Shard",
+      "url": "https://www.17thshard.com/forums/topic/5166-feruchemic-hemalurgic-spike/",
+      "kind": "author_QA_reproduced",
+      "access": "search_excerpt",
+      "checked": "2026-10-10",
+      "supports": "Same-metal Allomancy/Feruchemy draws outside energy into the stored attribute.",
+      "limit": "Forum reproduces a Tor Q&A; original event was not opened. Cross-check before direct adaptation."
+    },
+    {
+      "id": "S01",
+      "title": "The Ten Orders of Knights Radiant",
+      "url": "https://www.brandonsanderson.com/blogs/blog/the-ten-orders-of-knights-radiant",
+      "kind": "author_lore",
+      "access": "page_read",
+      "checked": "2026-10-10",
+      "supports": "Spren bonds, differing oaths, Lightweaver truths and personal progress.",
+      "limit": "Bounded reference, not a whole-work read."
+    },
+    {
+      "id": "S02",
+      "title": "Deadeye",
+      "url": "https://coppermind.net/wiki/Deadeye",
+      "kind": "fan_wiki",
+      "access": "search_excerpt",
+      "checked": "2026-10-10",
+      "supports": "Broken bonds harm spren; deadeye creation depends on era and bond stage.",
+      "limit": "Contains Wind and Truth spoilers. Do not turn the era-specific effect into a timeless law."
+    },
+    {
+      "id": "K01",
+      "title": "The Name of the Wind magic summary",
+      "url": "https://es.wikipedia.org/wiki/El_nombre_del_viento",
+      "kind": "encyclopedia",
+      "access": "search_excerpt",
+      "checked": "2026-10-10",
+      "supports": "Alar links objects; energy loss and bodily heat; Naming requires intuitive understanding.",
+      "limit": "Bounded reference, not a whole-work read."
+    },
+    {
+      "id": "K02",
+      "title": "True names in fiction",
+      "url": "https://en.wikipedia.org/wiki/True_name",
+      "kind": "encyclopedia",
+      "access": "search_excerpt",
+      "checked": "2026-10-10",
+      "supports": "Kingkiller naming grants mastery of the named thing.",
+      "limit": "Broad summary only. Kingkiller Fandom robots blocked; no exact slippage formula or book-scene claim."
+    },
+    {
+      "id": "D01",
+      "title": "Word of Jim on the Fae",
+      "url": "https://wordof.jim-butcher.com/index.php/word-of-jim-woj-compilation/woj-on-the-fae/",
+      "kind": "author_QA_compilation",
+      "access": "page_read",
+      "checked": "2026-10-10",
+      "supports": "Faerie office succession carries debts; Lea fulfilled a power bargain by giving confidence.",
+      "limit": "Attributed author Q&A with compiler notes. General folklore preamble is explicitly not necessarily Dresden canon."
+    },
+    {
+      "id": "D02",
+      "title": "Word of Jim on angels and Soulfire",
+      "url": "https://wordof.jim-butcher.com/index.php/word-of-jim-woj-compilation/woj-on-angels-demons-fallen-and-knights-of-the-cross/",
+      "kind": "author_QA_compilation",
+      "access": "page_read",
+      "checked": "2026-10-10",
+      "supports": "Soulfire and Hellfire are not additive; which is used depends on user and purpose.",
+      "limit": "Does not establish the precise soul depletion or recovery rule."
+    },
+    {
+      "id": "T01",
+      "title": "Wheel of Time Oath Rod",
+      "url": "https://library.tarvalon.net/index.php?title=Oath_Rod",
+      "kind": "fan_reference_with_chapter_citations",
+      "access": "page_read",
+      "checked": "2026-10-10",
+      "supports": "Binder, blocked lies, belief-based truth, lifespan cost and release.",
+      "limit": "Bounded reference, not a whole-work read."
+    },
+    {
+      "id": "T02",
+      "title": "Wheel of Time setting",
+      "url": "https://en.wikipedia.org/wiki/The_Wheel_of_Time#Setting",
+      "kind": "encyclopedia",
+      "access": "search_excerpt",
+      "checked": "2026-10-10",
+      "supports": "One Power halves, saidin taint and setting history.",
+      "limit": "Novel setting; do not blend with television continuity. Taint is era-specific."
+    },
+    {
+      "id": "G01",
+      "title": "Guide Aspects",
+      "url": "https://abridged-guide-to-evil.fandom.com/wiki/Aspects",
+      "kind": "fan_wiki",
+      "access": "search_excerpt",
+      "checked": "2026-10-10",
+      "supports": "Names develop up to three personality-linked Aspects; no known method for more than three.",
+      "limit": "Indexed excerpt; host later reported robots block. No page fetch or full-text crawl."
+    },
+    {
+      "id": "G02",
+      "title": "Guide Chapter 74: Partial",
+      "url": "https://practicalguidetoevil.wordpress.com/2019/09/11/chapter-74-partial/",
+      "kind": "author_serial",
+      "access": "search_excerpt",
+      "checked": "2026-10-10",
+      "supports": "Role has causal weight beyond raw physical power.",
+      "limit": "Short indexed selection only. Avoided unofficial Jumpchain/CYOA sheets found by search."
+    },
+    {
+      "id": "I01",
+      "title": "The Wandering Inn classes",
+      "url": "https://wiki.wanderinginn.com/Classes",
+      "kind": "fan_wiki",
+      "access": "search_excerpt",
+      "checked": "2026-10-10",
+      "supports": "Classes can consolidate; Princess class lost then restored by redefining the role.",
+      "limit": "Direct page returned 403. No further page requests to this host."
+    },
+    {
+      "id": "I02",
+      "title": "The Wandering Inn system messages",
+      "url": "https://wiki.wanderinginn.com/System_messages",
+      "kind": "fan_wiki",
+      "access": "search_excerpt",
+      "checked": "2026-10-10",
+      "supports": "Messages announce levels, class changes, conditions, titles and quests.",
+      "limit": "Indexed reference only; full classes page unavailable."
+    },
+    {
+      "id": "J01",
+      "title": "Dungeon Crawler Carl System AI",
+      "url": "https://dungeon-crawler-carl.fandom.com/wiki/System_AI",
+      "kind": "fan_wiki",
+      "access": "search_excerpt",
+      "checked": "2026-10-10",
+      "supports": "AI generates and enforces dungeon rules and awards achievements.",
+      "limit": "Host later robots blocked. Only initial indexed reference is used."
+    },
+    {
+      "id": "J02",
+      "title": "Dungeon Crawler Carl sponsors",
+      "url": "https://dungeon-crawler-carl.fandom.com/wiki/Sponsors",
+      "kind": "fan_wiki",
+      "access": "search_excerpt",
+      "checked": "2026-10-10",
+      "supports": "Advertisers sponsor crawler channels and send Benefactor Boxes; ratings matter.",
+      "limit": "Robots block accompanied the indexed result. No subsequent request to this host."
+    },
+    {
+      "id": "J03",
+      "title": "System AI explained, Dutch publisher site",
+      "url": "https://www.dungeoncrawlercarl.nl/en/news/the-system-ai-explained/",
+      "kind": "publisher_labeled_explainer",
+      "access": "search_excerpt",
+      "checked": "2026-10-10",
+      "supports": "AI gives unusually specific rewards involving Carl feet.",
+      "limit": "Public explainer, not a primary scene. Publisher status is inferred from site presentation; no prose download."
+    },
+    {
+      "id": "H01",
+      "title": "He Who Fights With Monsters essences",
+      "url": "https://he-who-fights-with-monsters.fandom.com/wiki/Essences",
+      "kind": "fan_wiki",
+      "access": "search_excerpt",
+      "checked": "2026-10-10",
+      "supports": "Five abilities per essence; stones awaken remaining abilities; personal randomness; divine revocation.",
+      "limit": "Page fetch returned 402. Later indexed FAQ reported robots block. Neither was bypassed."
+    },
+    {
+      "id": "H02",
+      "title": "HWFWM essence FAQ",
+      "url": "https://he-who-fights-with-monsters.fandom.com/wiki/Frequently_Asked_Questions",
+      "kind": "fan_wiki",
+      "access": "search_excerpt",
+      "checked": "2026-10-10",
+      "supports": "Three essences produce a confluence; divine alternatives can be revoked; confluences are not transferable.",
+      "limit": "Indexed text only. Exact rank thresholds are not freshly verified."
+    },
+    {
+      "id": "L01",
+      "title": "Mother of Learning reviewed power dossier",
+      "url": "docs/research/novels/full-book/mother-of-learning/POWERS.md",
+      "kind": "local_reviewed_dossier",
+      "access": "local_read",
+      "checked": "2026-10-10",
+      "supports": "Mana, retained skill, soul scars, shared copy reserves, divine disclosure contract and knowledge evasion.",
+      "limit": "Reuse of prior reviewed derived notes with chapter claim IDs, not a fresh novel read. Private and gitignored."
+    },
+    {
+      "id": "N01",
+      "title": "D&D 2024 Warlock",
+      "url": "https://www.dndbeyond.com/sources/dnd/br-2024/character-classes#Warlock",
+      "kind": "official_rules",
+      "access": "page_read",
+      "checked": "2026-10-10",
+      "supports": "Pact Magic, patron relation, invocations and level gates.",
+      "limit": "2024 revised fifth edition only. No generic automatic patron revocation rule is supplied here."
+    },
+    {
+      "id": "N02",
+      "title": "D&D 2024 Wish",
+      "url": "https://www.dndbeyond.com/sources/dnd/br-2024/spell-descriptions#Wish",
+      "kind": "official_rules",
+      "access": "page_read",
+      "checked": "2026-10-10",
+      "supports": "Spell duplication, open requests, DM judgment, stress and 33 percent loss chance.",
+      "limit": "Non-duplication effects incur stress, even listed alternatives. Do not blend with 2014 or other editions."
+    },
+    {
+      "id": "A01",
+      "title": "MTG The Value of Pie",
+      "url": "https://magic.wizards.com/en/news/making-magic/value-pie-2003-08-18-0",
+      "kind": "official_designer_article",
+      "access": "search_excerpt",
+      "checked": "2026-10-10",
+      "supports": "Color philosophies constrain both capabilities and weaknesses.",
+      "limit": "Historical design article, not a current legality list or immutable color-mechanics chart."
+    },
+    {
+      "id": "A02",
+      "title": "MTG Shaman You",
+      "url": "https://magic.wizards.com/en/news/making-magic/shaman-you-2008-03-24",
+      "kind": "official_designer_article",
+      "access": "search_excerpt",
+      "checked": "2026-10-10",
+      "supports": "Color identity affects spellcaster flavor; player-built combinations drive discovery.",
+      "limit": "Bounded reference, not a whole-work read."
+    },
+    {
+      "id": "F01",
+      "title": "Dark Souls covenants",
+      "url": "https://darksouls.wikidot.com/covenants",
+      "kind": "fan_wiki",
+      "access": "page_read",
+      "checked": "2026-10-10",
+      "supports": "Offerings and ranks; switching versus hard betrayal; covenant-specific rewards.",
+      "limit": "Dark Souls 1 including explicitly labeled Remastered notes; no Dark Souls 2/3 generalization."
+    },
+    {
+      "id": "E01",
+      "title": "Elden Ring official setting",
+      "url": "https://www.bandainamcoent.com/games/elden-ring",
+      "kind": "official_game_site",
+      "access": "search_excerpt",
+      "checked": "2026-10-10",
+      "supports": "Great Runes are claimed fragments of the shattered Elden Ring.",
+      "limit": "Bounded reference, not a whole-work read."
+    },
+    {
+      "id": "E02",
+      "title": "Elden Ring incantations",
+      "url": "https://eldenring.fandom.com/wiki/Incantations",
+      "kind": "fan_wiki",
+      "access": "search_excerpt",
+      "checked": "2026-10-10",
+      "supports": "Incantations need seals, requirements and scaling; spell types vary.",
+      "limit": "Bounded reference, not a whole-work read."
+    },
+    {
+      "id": "E03",
+      "title": "Elden Ring Rune Arc",
+      "url": "https://eldenring.wiki.gg/wiki/Rune_Arc",
+      "kind": "fan_wiki",
+      "access": "search_excerpt",
+      "checked": "2026-10-10",
+      "supports": "Rune Arc activates an equipped Great Rune.",
+      "limit": "Great Runes page open failed internally; used separately indexed Rune Arc entry."
+    },
+    {
+      "id": "B01",
+      "title": "Hades Duo Boons",
+      "url": "https://hades.fandom.com/wiki/Duo_Boons",
+      "kind": "fan_wiki",
+      "access": "search_excerpt",
+      "checked": "2026-10-10",
+      "supports": "Two-god boons require prerequisite boons and are lost at death.",
+      "limit": "Hades 1 only; page fetch failed internally. Hades 2 search results were excluded."
+    },
+    {
+      "id": "P01",
+      "title": "Path of Exile support gems",
+      "url": "https://www.poewiki.net/wiki/Support_gem",
+      "kind": "fan_wiki",
+      "access": "search_excerpt",
+      "checked": "2026-10-10",
+      "supports": "Linked sockets, support compatibility, altered behavior and cost multipliers.",
+      "limit": "PoE 1 only. Official skills URL failed, wiki page returned 403. Indexed page also says tags alone do not decide compatibility."
+    },
+    {
+      "id": "P02",
+      "title": "PoEDB support requirements",
+      "url": "https://poedb.tw/us/SupportGemRequirements",
+      "kind": "game_data_reference",
+      "access": "search_excerpt",
+      "checked": "2026-10-10",
+      "supports": "Linked group rather than direct adjacency; support can change skill behavior.",
+      "limit": "Bounded reference, not a whole-work read."
+    },
+    {
+      "id": "R01",
+      "title": "Slay the Spire Dead Branch",
+      "url": "https://slay-the-spire.fandom.com/wiki/Dead_Branch",
+      "kind": "fan_wiki",
+      "access": "search_excerpt",
+      "checked": "2026-10-10",
+      "supports": "Exhaust creates random hand cards; combines with Corruption.",
+      "limit": "Original video game only; board-game Dead Branch was excluded."
+    },
+    {
+      "id": "R02",
+      "title": "Slay the Spire Corruption",
+      "url": "https://slaythespire.org/wiki/cards/corruption",
+      "kind": "fan_reference",
+      "access": "search_excerpt",
+      "checked": "2026-10-10",
+      "supports": "Skills cost zero and exhaust on play.",
+      "limit": "Cross-check card definition in installed game before direct implementation; no browser game test in this lane."
+    },
+    {
+      "id": "V01",
+      "title": "Marvel mutants",
+      "url": "https://en.wikipedia.org/wiki/Mutant_(Marvel_Comics)",
+      "kind": "encyclopedia",
+      "access": "search_excerpt",
+      "checked": "2026-10-10",
+      "supports": "X-gene innate route versus externally induced mutates; variants differ by continuity.",
+      "limit": "Bounded reference, not a whole-work read."
+    },
+    {
+      "id": "V02",
+      "title": "Marvel Elixir",
+      "url": "https://www.marvel.com/characters/Elixir",
+      "kind": "official_character_profile",
+      "access": "search_excerpt",
+      "checked": "2026-10-10",
+      "supports": "Touch-based biokinesis, healing/harm and collapse after major healing.",
+      "limit": "Bounded reference, not a whole-work read."
+    },
+    {
+      "id": "V03",
+      "title": "Marvel mystical mutants",
+      "url": "https://www.marvel.com/articles/comics/mystical-mutants-marvel-universe-list?linkId=210900037",
+      "kind": "official_editorial",
+      "access": "search_excerpt",
+      "checked": "2026-10-10",
+      "supports": "Mutation and learned magic can coexist; Beast studied with Strange.",
+      "limit": "Bounded reference, not a whole-work read."
+    },
+    {
+      "id": "V04",
+      "title": "Dr Strange 2019 issue 1",
+      "url": "https://www.marvel.com/comics/issue/77846/dr_strange_2019_1",
+      "kind": "official_issue_synopsis",
+      "access": "search_excerpt",
+      "checked": "2026-10-10",
+      "supports": "Magic has a cost in this run; surgical and magical obligations compete.",
+      "limit": "Synopsis does not specify a universal per-spell cost formula."
+    },
+    {
+      "id": "Z01",
+      "title": "DC Green Lantern",
+      "url": "https://www.dc.com/characters/green-lantern",
+      "kind": "official_character_profile",
+      "access": "page_read",
+      "checked": "2026-10-10",
+      "supports": "Willpower-fueled rings, construct powers, oath, duties inherited with ring.",
+      "limit": "Bounded reference, not a whole-work read."
+    },
+    {
+      "id": "Z02",
+      "title": "DC Zatanna",
+      "url": "https://www.dc.com/characters/zatanna",
+      "kind": "official_character_profile",
+      "access": "search_excerpt",
+      "checked": "2026-10-10",
+      "supports": "Backward words, imagination and danger from magic.",
+      "limit": "Bounded reference, not a whole-work read."
+    },
+    {
+      "id": "Z03",
+      "title": "DC Zatanna iconic spells",
+      "url": "https://www.dc.com/blog/2025/02/20/daer-siht-tsil-zatanna-s-ten-most-iconic-spells",
+      "kind": "official_editorial",
+      "access": "page_read",
+      "checked": "2026-10-10",
+      "supports": "Blood-written spell despite lost voice; palindrome against word-reversal counter.",
+      "limit": "Examples labeled by issue. Animated-series examples are not folded into comics continuity."
+    },
+    {
+      "id": "Y01",
+      "title": "Geas",
+      "url": "https://en.wikipedia.org/wiki/Geas",
+      "kind": "encyclopedia",
+      "access": "search_excerpt",
+      "checked": "2026-10-10",
+      "supports": "Irish taboo or obligation, plural geasa; conflicting bans.",
+      "limit": "Bounded reference, not a whole-work read."
+    },
+    {
+      "id": "Y02",
+      "title": "Death of Cu Chulainn",
+      "url": "https://en.wikipedia.org/wiki/Aided_Con_Culainn",
+      "kind": "encyclopedia",
+      "access": "search_excerpt",
+      "checked": "2026-10-10",
+      "supports": "Dog-meat taboo conflicts with hospitality, weakens hero before death.",
+      "limit": "Narrative summary, not proof that historical Irish taboos have supernatural effects."
+    },
+    {
+      "id": "U01",
+      "title": "Goethe Faust Part One",
+      "url": "https://en.wikipedia.org/wiki/Faust,_Part_One",
+      "kind": "encyclopedia",
+      "access": "search_excerpt",
+      "checked": "2026-10-10",
+      "supports": "Earthly service exchanged for service in Hell conditional on complete satisfaction.",
+      "limit": "Goethe wager only; not merged with Marlowe fixed-term pact."
+    },
+    {
+      "id": "Q01",
+      "title": "Rumpelstiltskin",
+      "url": "https://en.wikipedia.org/wiki/Rumpelstiltskin",
+      "kind": "encyclopedia",
+      "access": "page_read",
+      "checked": "2026-10-10",
+      "supports": "First-child bargain and name-guessing release.",
+      "limit": "Specific Grimm tale; no universal rules about all fairies."
+    },
+    {
+      "id": "O01",
+      "title": "Benedictine daily life",
+      "url": "https://www.benedictines.org.uk/daily-life/",
+      "kind": "religious_community_primary",
+      "access": "search_excerpt",
+      "checked": "2026-10-10",
+      "supports": "Stability, conversion of life and obedience bind a communal vocation.",
+      "limit": "Real institution and self-described spiritual practice, not evidence of numerical supernatural buffs."
+    },
+    {
+      "id": "O02",
+      "title": "Benedictine vows",
+      "url": "https://www.portsmouthabbeymonastery.org/benedictine-vows",
+      "kind": "religious_community_primary",
+      "access": "search_excerpt",
+      "checked": "2026-10-10",
+      "supports": "Stability in community and perseverance in conversion.",
+      "limit": "Bounded reference, not a whole-work read."
+    },
+    {
+      "id": "X01",
+      "title": "Chivalry",
+      "url": "https://en.wikipedia.org/wiki/Chivalry",
+      "kind": "encyclopedia",
+      "access": "search_excerpt",
+      "checked": "2026-10-10",
+      "supports": "Historically varied warrior, religious and courtly ideals; medieval texts differ.",
+      "limit": "No single universal medieval knight code or automatic magic sanction established."
+    },
+    {
+      "id": "X02",
+      "title": "Modern code caveat",
+      "url": "https://www.gonderzone.org/Library/Chivalry/code.htm",
+      "kind": "modern_commentary",
+      "access": "search_excerpt",
+      "checked": "2026-10-10",
+      "supports": "The displayed code is a modern formulation, not an authentic universal medieval oath.",
+      "limit": "Bounded reference, not a whole-work read."
+    },
+    {
+      "id": "CC01",
+      "title": "Sleeping Beauty",
+      "url": "https://en.wikipedia.org/wiki/Sleeping_Beauty",
+      "kind": "encyclopedia",
+      "access": "page_read",
+      "checked": "2026-10-10",
+      "supports": "Death curse can be softened to sleep in Perrault/Grimm family of versions.",
+      "limit": "Versions differ; Perrault awakening does not use a kiss. No Disney curse rules imported."
+    },
+    {
+      "id": "CC02",
+      "title": "The Monkeys Paw",
+      "url": "https://www.gutenberg.org/files/12122/12122-h/12122-h.htm",
+      "kind": "public_domain_story",
+      "access": "page_read",
+      "checked": "2026-10-10",
+      "supports": "Three wishes; money arrives through the son death and compensation.",
+      "limit": "Public-domain short tale. No copyrighted book prose collected."
+    },
+    {
+      "id": "JJ01",
+      "title": "Aladdin",
+      "url": "https://en.wikipedia.org/wiki/Aladdin",
+      "kind": "encyclopedia",
+      "access": "page_read",
+      "checked": "2026-10-10",
+      "supports": "Distinct ring/lamp spirits, custody of lamp, weaker ring cannot undo stronger lamp magic.",
+      "limit": "Galland-associated tale summary; Disney three-wish rules are not generalized to this version."
+    },
+    {
+      "id": "JJ02",
+      "title": "The Fisherman and the Genie",
+      "url": "https://pressbooks.uiowa.edu/makur3/chapter/the-fisherman-and-the-genie/",
+      "kind": "public_domain_tale_hosted_by_university",
+      "access": "page_read",
+      "checked": "2026-10-10",
+      "supports": "Seal, rescuer threat, demonstration trick, renewed bargain.",
+      "limit": "Arabian Nights tale included by the assignment; not classified as intrinsically Western mythology."
+    },
+    {
+      "id": "B02",
+      "title": "Hades Trial of the Gods",
+      "url": "https://hades.fandom.com/wiki/Trial_of_the_Gods",
+      "kind": "fan_wiki",
+      "access": "search_excerpt",
+      "checked": "2026-10-10",
+      "supports": "Spurned god encounter, no Duo offers there, hostile Greater Call dialogue and Bad Call achievement.",
+      "limit": "Index result accompanied robots block. No later request to this route."
+    },
+    {
+      "id": "B03",
+      "title": "Hades official FAQ",
+      "url": "https://www.supergiantgames.com/blog/hades-faq/",
+      "kind": "official_game_FAQ",
+      "access": "search_excerpt",
+      "checked": "2026-10-10",
+      "supports": "Run-to-run changes and combinations of Olympian powers; specific Greek-myth adaptation.",
+      "limit": "Bounded reference, not a whole-work read."
+    },
+    {
+      "id": "F02",
+      "title": "Dark Souls Chaos Servant",
+      "url": "https://darksouls.wikidot.com/chaos-servant",
+      "kind": "fan_wiki",
+      "access": "search_excerpt",
+      "checked": "2026-10-10",
+      "supports": "Covenant rank can open a shortcut affecting NPC quest access, not merely combat power.",
+      "limit": "Bounded reference, not a whole-work read."
+    },
+    {
+      "id": "U02",
+      "title": "Goethe Faust overview",
+      "url": "https://en.wikipedia.org/wiki/Goethe%27s_Faust",
+      "kind": "encyclopedia",
+      "access": "search_excerpt",
+      "checked": "2026-10-10",
+      "supports": "Conditional satisfaction wager and blood-signing in Part One.",
+      "limit": "Part Two outcome is not used as a universal loophole."
+    },
+    {
+      "id": "G03",
+      "title": "Guide Interlude: East III",
+      "url": "https://practicalguidetoevil.wordpress.com/2021/06/18/interlude-east-iii/",
+      "kind": "author_serial",
+      "access": "search_excerpt",
+      "checked": "2026-10-10",
+      "supports": "Malicia and Bard discuss pattern-of-three danger and acting before a Name settles.",
+      "limit": "Character tactical models, not proof of an infallible narrative win rule."
+    },
+    {
+      "id": "H03",
+      "title": "HWFWM book one review",
+      "url": "https://fanfiaddict.com/review-he-who-fights-with-monsters-1-by-shirtaloon-aka-travis-deverell/",
+      "kind": "independent_review",
+      "access": "search_excerpt",
+      "checked": "2026-10-10",
+      "supports": "Adventurer rank sequence iron, bronze, silver, gold, diamond.",
+      "limit": "Secondary review only. Exact per-ability advancement thresholds not supplied."
+    }
+  ],
+  "series": [
+    {
+      "id": "worm",
+      "title": "Worm",
+      "group": "book",
+      "claims": [
+        {
+          "id": "worm.C1",
+          "text": "Natural trauma triggers and administered formulas are distinct acquisition routes; powers ultimately involve Entity shards. Formula results and costs vary.",
+          "source_ids": [
+            "W01"
+          ],
+          "status": "verified_reference",
+          "locator": "natural-triggers-and-formula-acquisition: W162-C01/02, W127-C03; cosmology: W281-C04/07, W291-C01/02"
+        },
+        {
+          "id": "worm.C2",
+          "text": "PRT classes guide countermeasures, while numbers estimate threat to a response team, not a universal power level.",
+          "source_ids": [
+            "W02"
+          ],
+          "status": "verified_reference",
+          "locator": null
+        },
+        {
+          "id": "worm.C3",
+          "text": "Emergency truces are negotiated and enforced by people. Local powers have distinct reach, fuel and material limits.",
+          "source_ids": [
+            "W01"
+          ],
+          "status": "verified_reference",
+          "locator": "territorial-coalitions: W220-C03, W279-C13/14; situated-power: W296-C07"
+        }
+      ],
+      "model_mapping_status": "inference_from_cited_claims",
+      "basis_claim_ids": [
+        "worm.C1",
+        "worm.C2",
+        "worm.C3"
+      ],
+      "path": {
+        "currency": "Shard fuel, materials, attention",
+        "steps": "Trigger then mastery; no common ladder",
+        "gate": "Trauma or formula; insight later",
+        "risk": "Bodily change; source agenda",
+        "shape": "Fixed gift with creative mastery",
+        "branching": "Case-specific evolution, not free respec",
+        "grader": "PRT assesses response needs",
+        "ceiling": "No universal cape cap"
+      },
+      "families": [
+        "Multiplication",
+        "Presence",
+        "Beasts",
+        "Parasitic",
+        "Machines"
+      ],
+      "power_sources": [
+        "Shard",
+        "Granted",
+        "Trained"
+      ],
+      "delivery_modes": [
+        "Active",
+        "Passive",
+        "Reactive"
+      ],
+      "axes": {
+        "object": "Specific targets",
+        "mechanism": "Remote shard-mediated effect",
+        "trigger": "Gift-specific",
+        "certainty": "Assessment can be wrong",
+        "scope": "Range and sight differ",
+        "price": "Fuel and sensory load",
+        "limit": "Material and counter",
+        "visibility": "Class visible; origin hidden",
+        "persistence": "Carrier-specific",
+        "growth": "Use and insight"
+      },
+      "vows": [
+        {
+          "kind": "Social truce",
+          "mapping_status": "inference",
+          "slots": {
+            "swearer": "Participating groups",
+            "restriction": "Do not attack allies during emergency",
+            "object": "Signatories and civilians",
+            "scope": "Named emergency",
+            "duration": "Agreement-specific",
+            "benefit": "Cooperation and access",
+            "consequence": "Retaliation and loss of trust",
+            "witness": "Other groups",
+            "condition": null,
+            "ramp": null,
+            "stake": null,
+            "counterparty": "Other signatories",
+            "release": null,
+            "visibility": "Shared",
+            "inheritance": null,
+            "interpretation": "Negotiated",
+            "coercion_clause": null
+          },
+          "enforcement": "Social, not automatic magic",
+          "collective_rules": "Participants only; outsiders may decline",
+          "interpretation_trick": "No verified loophole in this source selection."
+        }
+      ],
+      "mechanics": [
+        {
+          "id": "worm.M1",
+          "name": "Assessment is a separate record",
+          "basis_claim_ids": [
+            "worm.C2"
+          ],
+          "what_we_take": "Proposal: save who graded a power, what they saw and which response the grade recommends.",
+          "status": "proposal"
+        },
+        {
+          "id": "worm.M2",
+          "name": "Gift has its own agenda",
+          "basis_claim_ids": [
+            "worm.C1"
+          ],
+          "what_we_take": "Proposal: separate source goals from user goals without treating every shard as collectible.",
+          "status": "proposal"
+        }
+      ],
+      "gag_or_rule_abuse": [
+        {
+          "text": "Insect control can supply scouting and fine coordination as well as attacks. This is broad use of one gift, not another class unlocked by XP.",
+          "basis_claim_ids": [
+            "worm.C3"
+          ],
+          "status": "inference",
+          "note": "Operational profile, not a newly checked gag scene."
+        }
+      ],
+      "limits": "No Worm sequel sweep or fresh whole-book claim. Shards here are not identical to E8 shards of a broken artifact."
+    },
+    {
+      "id": "cradle",
+      "title": "Cradle",
+      "group": "book",
+      "claims": [
+        {
+          "id": "cradle.C1",
+          "text": "Madra Paths climb Foundation, Copper, Iron, Jade, Gold and Lord stages. Lord gates require revelations. Sage and Herald are distinct achievements; Monarch joins them. Remnant absorption is one Gold route, not the only one.",
+          "source_ids": [
+            "C01"
+          ],
+          "status": "verified_reference",
+          "locator": null
+        },
+        {
+          "id": "cradle.C2",
+          "text": "Core splitting loses a small amount of energy and divides reserves; cores can advance independently. An advanced Remnant may resist or allow a bond.",
+          "source_ids": [
+            "C02",
+            "C03"
+          ],
+          "status": "verified_reference",
+          "locator": null
+        }
+      ],
+      "model_mapping_status": "inference_from_cited_claims",
+      "basis_claim_ids": [
+        "cradle.C1",
+        "cradle.C2"
+      ],
+      "path": {
+        "currency": "Madra; aura; soulfire",
+        "steps": "Foundation to Monarch",
+        "gate": "Cycling, body preparation, revelations, bonds",
+        "risk": "Weak foundations; resisted bond",
+        "shape": "Ladder with two late branches",
+        "branching": "Paths; split cores; Sage/Herald convergence",
+        "grader": "Actual spiritual state",
+        "ceiling": "Monarch locally; ascension elsewhere"
+      },
+      "families": [
+        "Element control",
+        "Strength and enhancement",
+        "Inheritance",
+        "Bonds",
+        "Concept edge"
+      ],
+      "power_sources": [
+        "Trained",
+        "Environment",
+        "Inherited"
+      ],
+      "delivery_modes": [
+        "Active",
+        "Channel",
+        "Ritual"
+      ],
+      "axes": {
+        "object": "Body and spirit",
+        "mechanism": "Aspected energy and authority",
+        "trigger": "Technique or insight",
+        "certainty": "Measured rank; individual exceptions",
+        "scope": "Technique-specific",
+        "price": "Reserves and preparation",
+        "limit": "Channels and compatibility",
+        "visibility": "Senses unlock by stage",
+        "persistence": "Body/spirit and Remnant",
+        "growth": "Quality differs from capacity"
+      },
+      "vows": [
+        {
+          "kind": "Bond, not generic sacrifice vow",
+          "mapping_status": "inference",
+          "slots": {
+            "swearer": "Artist and partner",
+            "restriction": null,
+            "object": "Spirits",
+            "scope": null,
+            "duration": null,
+            "benefit": "Shared advancement means",
+            "consequence": null,
+            "witness": null,
+            "condition": null,
+            "ramp": null,
+            "stake": null,
+            "counterparty": "Sacred being",
+            "release": null,
+            "visibility": null,
+            "inheritance": null,
+            "interpretation": "Compatibility and relationship",
+            "coercion_clause": null
+          },
+          "enforcement": "Bond mechanics; exact breach penalty not established",
+          "collective_rules": "No shared magical sanction established.",
+          "interpretation_trick": "No verified loophole in this source selection."
+        }
+      ],
+      "mechanics": [
+        {
+          "id": "cradle.M1",
+          "name": "Split reservoir with shared body",
+          "basis_claim_ids": [
+            "cradle.C2"
+          ],
+          "what_we_take": "Proposal: track reservoir size, quality and refill separately from body rank.",
+          "status": "proposal"
+        },
+        {
+          "id": "cradle.M2",
+          "name": "Converging achievements",
+          "basis_claim_ids": [
+            "cradle.C1"
+          ],
+          "what_we_take": "Proposal: allow insight and body transformation in either order before their joint gate.",
+          "status": "proposal"
+        }
+      ],
+      "gag_or_rule_abuse": [
+        {
+          "text": "Splitting a core does not create free fuel: two smaller cores can house different Paths, with a slight loss at the split.",
+          "basis_claim_ids": [
+            "cradle.C2"
+          ],
+          "status": "verified_reference",
+          "note": null
+        }
+      ],
+      "limits": "Ranks summarized from references; no complete Path roster. Remnant identity is not automatically the dead person soul."
+    },
+    {
+      "id": "mistborn",
+      "title": "Mistborn",
+      "group": "book",
+      "claims": [
+        {
+          "id": "mistborn.C1",
+          "text": "Allomancy burns ingested metals. Feruchemy banks attributes in metal while weakening the same trait now; normal stores are personal. Hemalurgy steals and transfers power. These arts use metal differently.",
+          "source_ids": [
+            "M01",
+            "M02"
+          ],
+          "status": "verified_reference",
+          "locator": null
+        },
+        {
+          "id": "mistborn.C2",
+          "text": "Compounding combines matching-metal Allomancy and Feruchemy so outside energy amplifies the stored attribute. It is not ordinary storage creating energy.",
+          "source_ids": [
+            "M03"
+          ],
+          "status": "verified_reference",
+          "locator": null
+        }
+      ],
+      "model_mapping_status": "inference_from_cited_claims",
+      "basis_claim_ids": [
+        "mistborn.C1",
+        "mistborn.C2"
+      ],
+      "path": {
+        "currency": "Burnable metal; stored attributes",
+        "steps": "Gift access then mastery",
+        "gate": "Inherited access; stores; stolen power",
+        "risk": "Depletion and harm in acquisition",
+        "shape": "Three overlapping toolkits",
+        "branching": "Single or many metals; Twinborn combinations",
+        "grader": "Capability, not a level badge",
+        "ceiling": "No single common art ceiling"
+      },
+      "families": [
+        "Stat work",
+        "Storage",
+        "Force and gravity",
+        "Emotion",
+        "Inheritance"
+      ],
+      "power_sources": [
+        "Innate",
+        "Consumed",
+        "Item-bound",
+        "Stolen"
+      ],
+      "delivery_modes": [
+        "Active",
+        "Stored",
+        "Toggle"
+      ],
+      "axes": {
+        "object": "Body, mind or metal",
+        "mechanism": "Burn, bank or transfer",
+        "trigger": "Art-specific activation",
+        "certainty": "Metal-specific",
+        "scope": "Reach or store size",
+        "price": "Fuel or earlier weakness",
+        "limit": "Access and ownership",
+        "visibility": "Effects may expose art",
+        "persistence": "Stores in metal; access in bearer",
+        "growth": "Mastery and combinations"
+      },
+      "vows": [
+        {
+          "kind": "Storage trade, not a promise",
+          "mapping_status": "inference",
+          "slots": {
+            "swearer": "Storing user",
+            "restriction": "Lower own attribute while filling",
+            "object": "Attribute",
+            "scope": null,
+            "duration": "While charging",
+            "benefit": "Later burst",
+            "consequence": "Opportunity cost already paid",
+            "witness": null,
+            "condition": null,
+            "ramp": null,
+            "stake": "Stored attribute",
+            "counterparty": null,
+            "release": null,
+            "visibility": null,
+            "inheritance": null,
+            "interpretation": null,
+            "coercion_clause": null
+          },
+          "enforcement": "Resource accounting",
+          "collective_rules": "No shared magical sanction established.",
+          "interpretation_trick": "No verified loophole in this source selection."
+        }
+      ],
+      "mechanics": [
+        {
+          "id": "mistborn.M1",
+          "name": "Time-shift an attribute",
+          "basis_claim_ids": [
+            "mistborn.C1"
+          ],
+          "what_we_take": "Proposal: let calm days fund a later burst through a real named store.",
+          "status": "proposal"
+        },
+        {
+          "id": "mistborn.M2",
+          "name": "Cross-system fuel loop",
+          "basis_claim_ids": [
+            "mistborn.C2"
+          ],
+          "what_we_take": "Proposal: declare the external fuel and conversion rule that makes a storage combo multiply output.",
+          "status": "proposal"
+        }
+      ],
+      "gag_or_rule_abuse": [
+        {
+          "text": "Matching arts can compound a store rather than merely return what was saved. The amplifier has an outside energy source.",
+          "basis_claim_ids": [
+            "mistborn.C2"
+          ],
+          "status": "verified_reference",
+          "note": null
+        }
+      ],
+      "limits": "No complete sixteen-metal chart or universal inheritance rule. Later identity-free stores need separate era-specific proof."
+    },
+    {
+      "id": "stormlight",
+      "title": "The Stormlight Archive",
+      "group": "book",
+      "claims": [
+        {
+          "id": "stormlight.C1",
+          "text": "Spren bonds grant Surges through ten Orders with different Ideals. Lightweavers progress through personal truths rather than the same oath pattern as other Orders.",
+          "source_ids": [
+            "S01"
+          ],
+          "status": "verified_reference",
+          "locator": null
+        },
+        {
+          "id": "stormlight.C2",
+          "text": "Breaking a developed bond can harm its spren. Deadeye creation is tied to the Ba-Ado-Mishram imprisonment era and bond stage, not every broken oath in all history.",
+          "source_ids": [
+            "S02"
+          ],
+          "status": "verified_reference",
+          "locator": null
+        }
+      ],
+      "model_mapping_status": "inference_from_cited_claims",
+      "basis_claim_ids": [
+        "stormlight.C1",
+        "stormlight.C2"
+      ],
+      "path": {
+        "currency": "Stormlight, plus bond access",
+        "steps": "Progressive Ideals; order-specific",
+        "gate": "Accepted growth or personal truth",
+        "risk": "Bond damage also hurts partner",
+        "shape": "Bond release stages",
+        "branching": "Order identity; individual oath form",
+        "grader": "Bond and local acceptance",
+        "ceiling": "Order summit, not all cosmere power"
+      },
+      "families": [
+        "Bonds",
+        "Contracts and oaths",
+        "Element control",
+        "True names"
+      ],
+      "power_sources": [
+        "Granted",
+        "Environment",
+        "Trained"
+      ],
+      "delivery_modes": [
+        "Active",
+        "Passive"
+      ],
+      "axes": {
+        "object": "Bearer and bonded spren",
+        "mechanism": "Surges through bond",
+        "trigger": "Fuel and oath access",
+        "certainty": "Words alone insufficient",
+        "scope": "Order-specific functions",
+        "price": "Fuel and obligations",
+        "limit": "Bond state",
+        "visibility": "Sworn ideals may be public",
+        "persistence": "Bond continuity",
+        "growth": "Character-linked gates"
+      },
+      "vows": [
+        {
+          "kind": "Growing oath",
+          "mapping_status": "inference",
+          "slots": {
+            "swearer": "Radiant",
+            "restriction": "Live an Order Ideal",
+            "object": "Conduct or personal truth",
+            "scope": "Life and actions",
+            "duration": "Ongoing bond",
+            "benefit": "Deeper bond and powers",
+            "consequence": "Bond and spren damage",
+            "witness": "Bonded spren/local acceptance",
+            "condition": null,
+            "ramp": null,
+            "stake": null,
+            "counterparty": "Spren",
+            "release": null,
+            "visibility": "Variable",
+            "inheritance": null,
+            "interpretation": "Order and person-specific",
+            "coercion_clause": null
+          },
+          "enforcement": "Bond consequence",
+          "collective_rules": "Shared Order themes, not one pooled vow",
+          "interpretation_trick": "No verified loophole in this source selection."
+        }
+      ],
+      "mechanics": [
+        {
+          "id": "stormlight.M1",
+          "name": "Change through a promise",
+          "basis_claim_ids": [
+            "stormlight.C1"
+          ],
+          "what_we_take": "Proposal: let a vow unlock a new function when a person proves growth, rather than always quoting a strength multiplier.",
+          "status": "proposal"
+        },
+        {
+          "id": "stormlight.M2",
+          "name": "Partner takes breach damage",
+          "basis_claim_ids": [
+            "stormlight.C2"
+          ],
+          "what_we_take": "Proposal: assign breach victims separately from the swearer and keep era-specific sanctions.",
+          "status": "proposal"
+        }
+      ],
+      "gag_or_rule_abuse": [
+        {
+          "text": "Personal truth supplies a progression route where a stock oath would be the wrong gate. This is a distinct Order rule, not cheating the oath system.",
+          "basis_claim_ids": [
+            "stormlight.C1"
+          ],
+          "status": "verified_reference",
+          "note": null
+        }
+      ],
+      "limits": "Exact Ideal counts and new-era bond outcomes need source-era selection. No automatic universal deadeye rule."
+    },
+    {
+      "id": "kingkiller",
+      "title": "The Kingkiller Chronicle",
+      "group": "book",
+      "claims": [
+        {
+          "id": "kingkiller.C1",
+          "text": "Sympathy uses Alar to link objects and transfer force or energy, with losses including heat in the user. Naming instead depends on intuitive discovery of a true name; a spoken label alone is insufficient.",
+          "source_ids": [
+            "K01",
+            "K02"
+          ],
+          "status": "verified_reference",
+          "locator": null
+        }
+      ],
+      "model_mapping_status": "inference_from_cited_claims",
+      "basis_claim_ids": [
+        "kingkiller.C1"
+      ],
+      "path": {
+        "currency": "Energy source and concentration",
+        "steps": "Practice; mastery; Names",
+        "gate": "Study for links, insight for Names",
+        "risk": "Bodily heat or depletion",
+        "shape": "Two distinct arts in open field",
+        "branching": "Engineering and intuitive routes",
+        "grader": "Teachers assess skill",
+        "ceiling": "No verified numeric cap"
+      },
+      "families": [
+        "True names",
+        "Force and gravity",
+        "Element control",
+        "Machines"
+      ],
+      "power_sources": [
+        "Trained",
+        "Environment",
+        "Technology"
+      ],
+      "delivery_modes": [
+        "Active",
+        "Composed"
+      ],
+      "axes": {
+        "object": "Linked objects or named thing",
+        "mechanism": "Transfer versus direct mastery",
+        "trigger": "Concentration or insight",
+        "certainty": "Link quality and understanding",
+        "scope": "Link-specific",
+        "price": "Energy and bodily loss",
+        "limit": "Knowledge is not fuel",
+        "visibility": "Effect visible; link may be hidden",
+        "persistence": "Learned method in learner",
+        "growth": "Precision versus intuitive grasp"
+      },
+      "vows": [
+        {
+          "kind": "Not a vow system",
+          "mapping_status": "inference",
+          "slots": {
+            "swearer": null,
+            "restriction": null,
+            "object": null,
+            "scope": null,
+            "duration": null,
+            "benefit": null,
+            "consequence": null,
+            "witness": null,
+            "condition": null,
+            "ramp": null,
+            "stake": null,
+            "counterparty": null,
+            "release": null,
+            "visibility": null,
+            "inheritance": null,
+            "interpretation": null,
+            "coercion_clause": null
+          },
+          "enforcement": "Physical/magical link rules",
+          "collective_rules": "Teaching institutions; no collective magical vow established",
+          "interpretation_trick": "No verified loophole in this source selection."
+        }
+      ],
+      "mechanics": [
+        {
+          "id": "kingkiller.M1",
+          "name": "Loss reaches the operator",
+          "basis_claim_ids": [
+            "kingkiller.C1"
+          ],
+          "what_we_take": "Proposal: put waste heat and control failure in a technique profile, so better links matter.",
+          "status": "proposal"
+        },
+        {
+          "id": "kingkiller.M2",
+          "name": "Name is understanding",
+          "basis_claim_ids": [
+            "kingkiller.C1"
+          ],
+          "what_we_take": "Proposal: distinguish an ordinary label, a known true-name secret and the grasp needed to use it.",
+          "status": "proposal"
+        }
+      ],
+      "gag_or_rule_abuse": [
+        {
+          "text": "An efficient link and an outside heat source could beat a larger personal reserve. This is a design inference, not a checked Kvothe scene.",
+          "basis_claim_ids": [
+            "kingkiller.C1"
+          ],
+          "status": "inference",
+          "note": null
+        }
+      ],
+      "limits": "Fandom blocked. Exact slippage formula, Alar splitting limits and named duel tricks remain unverified; none supplied as canon."
+    },
+    {
+      "id": "dresden",
+      "title": "The Dresden Files",
+      "group": "book",
+      "claims": [
+        {
+          "id": "dresden.C1",
+          "text": "Faerie-office debts can survive a change of holder. Lea fulfilled Harry power bargain through confidence without increasing his actual powers.",
+          "source_ids": [
+            "D01"
+          ],
+          "status": "verified_reference",
+          "locator": null
+        },
+        {
+          "id": "dresden.C2",
+          "text": "The author says Soulfire and Hellfire are not additive; selection depends on user and purpose.",
+          "source_ids": [
+            "D02"
+          ],
+          "status": "verified_reference",
+          "locator": null
+        },
+        {
+          "id": "dresden.C3",
+          "text": "Remembered: Soulfire invests part of the caster soul into magic, with depletion risk and recovery. Exact cost and recovery are not verified in this pass.",
+          "source_ids": [],
+          "status": "remembered_unverified",
+          "locator": null
+        }
+      ],
+      "model_mapping_status": "inference_from_cited_claims",
+      "basis_claim_ids": [
+        "dresden.C1",
+        "dresden.C2"
+      ],
+      "path": {
+        "currency": "Magic; purpose; patron access",
+        "steps": "Study and acquired gifts",
+        "gate": "Training, bargain or gift",
+        "risk": "Obligation and misuse",
+        "shape": "Open arts with offices",
+        "branching": "Gift combinations constrained",
+        "grader": "Peers and local metaphysics",
+        "ceiling": "No numeric ceiling verified"
+      },
+      "families": [
+        "Contracts and oaths",
+        "Debt",
+        "Inheritance",
+        "Soul work",
+        "Borrowed"
+      ],
+      "power_sources": [
+        "Trained",
+        "Granted",
+        "Inherited"
+      ],
+      "delivery_modes": [
+        "Active",
+        "Ritual"
+      ],
+      "axes": {
+        "object": "Caster, bargain and office",
+        "mechanism": "Magic plus purpose-specific gift",
+        "trigger": "Casting or claimed favor",
+        "certainty": "Fulfillment may surprise",
+        "scope": "Deal-specific",
+        "price": "Obligations; soul cost unverified",
+        "limit": "Not every gift adds together",
+        "visibility": "Debt terms may be hidden",
+        "persistence": "Office carries claims",
+        "growth": "Study and changing duties"
+      },
+      "vows": [
+        {
+          "kind": "Faerie bargain",
+          "mapping_status": "inference",
+          "slots": {
+            "swearer": "Named parties",
+            "restriction": "Perform agreed service",
+            "object": "Promised outcome",
+            "scope": null,
+            "duration": "Terms of deal",
+            "benefit": "Service or promised power",
+            "consequence": "Claim or debt; exact punishment varies",
+            "witness": "Faerie counterparty",
+            "condition": null,
+            "ramp": null,
+            "stake": null,
+            "counterparty": "Office or individual",
+            "release": null,
+            "visibility": null,
+            "inheritance": "Office-linked claims persist",
+            "interpretation": "Outcome may differ from expected means",
+            "coercion_clause": null
+          },
+          "enforcement": "Bargain/office authority",
+          "collective_rules": "No shared magical sanction established.",
+          "interpretation_trick": "Confidence fulfilled Lea promise without a stat increase"
+        }
+      ],
+      "mechanics": [
+        {
+          "id": "dresden.M1",
+          "name": "Office holds the claim",
+          "basis_claim_ids": [
+            "dresden.C1"
+          ],
+          "what_we_take": "Proposal: let a debt name an office so a new holder can collect it.",
+          "status": "proposal"
+        },
+        {
+          "id": "dresden.M2",
+          "name": "Result versus method",
+          "basis_claim_ids": [
+            "dresden.C1"
+          ],
+          "what_we_take": "Proposal: record what was promised separately from how the patron fulfills it.",
+          "status": "proposal"
+        }
+      ],
+      "gag_or_rule_abuse": [
+        {
+          "text": "The apparent power-up in Lea bargain was confidence. Killing or replacing a faerie office holder does not necessarily erase its claims.",
+          "basis_claim_ids": [
+            "dresden.C1"
+          ],
+          "status": "verified_reference",
+          "note": null
+        }
+      ],
+      "limits": "Do not source universal truth-binding from author folklore preamble. Soulfire soul cost is remembered only, not ready for direct recreation."
+    },
+    {
+      "id": "wheel",
+      "title": "The Wheel of Time",
+      "group": "book",
+      "claims": [
+        {
+          "id": "wheel.C1",
+          "text": "The One Power has saidin and saidar halves; saidin taint belongs to a specific history. The Oath Rod is a ter angreal binder; sworn acts can become impossible and binding reduces lifespan.",
+          "source_ids": [
+            "T01",
+            "T02"
+          ],
+          "status": "verified_reference",
+          "locator": null
+        },
+        {
+          "id": "wheel.C2",
+          "text": "The truth oath follows what the speaker believes. Evasion is possible; the Rod can remove oaths. Oaths support institutional trust but do not grant channeling.",
+          "source_ids": [
+            "T01"
+          ],
+          "status": "verified_reference",
+          "locator": null
+        }
+      ],
+      "model_mapping_status": "inference_from_cited_claims",
+      "basis_claim_ids": [
+        "wheel.C1",
+        "wheel.C2"
+      ],
+      "path": {
+        "currency": "One Power",
+        "steps": "Learning and strength, not universal XP",
+        "gate": "Ability plus trained control",
+        "risk": "Era-specific taint; binding cost",
+        "shape": "Trained toolkit and institution",
+        "branching": "Schools and tools",
+        "grader": "Strength differs from Tower status",
+        "ceiling": "Person-specific; not one shared cap"
+      },
+      "families": [
+        "Element control",
+        "Sealing",
+        "Truth-bound",
+        "Contracts and oaths"
+      ],
+      "power_sources": [
+        "Innate",
+        "Trained",
+        "Item-bound"
+      ],
+      "delivery_modes": [
+        "Active",
+        "Composed",
+        "Ritual"
+      ],
+      "axes": {
+        "object": "Weaves and swearer",
+        "mechanism": "Channeling versus binding",
+        "trigger": "Technique or forbidden act",
+        "certainty": "Belief is not objective truth",
+        "scope": "Tool-specific",
+        "price": "Danger and lifespan",
+        "limit": "Binder prevents acts",
+        "visibility": "True statements can mislead",
+        "persistence": "Oath until released",
+        "growth": "Skill and institutional tests"
+      },
+      "vows": [
+        {
+          "kind": "Preventive binder",
+          "mapping_status": "inference",
+          "slots": {
+            "swearer": "Channeler",
+            "restriction": "Truth and conduct oaths",
+            "object": "Speech, weapons and force",
+            "scope": "Bound conduct",
+            "duration": "Until removal",
+            "benefit": "Membership and trust",
+            "consequence": "Forbidden act blocked; lifespan cost",
+            "witness": "Oath Rod",
+            "condition": null,
+            "ramp": null,
+            "stake": "Lifespan",
+            "counterparty": null,
+            "release": "Rod can remove binding",
+            "visibility": null,
+            "inheritance": null,
+            "interpretation": "Believed truth with evasion",
+            "coercion_clause": null
+          },
+          "enforcement": "Prevention",
+          "collective_rules": "Common oaths bind each member separately",
+          "interpretation_trick": "A false belief can be spoken without lying"
+        }
+      ],
+      "mechanics": [
+        {
+          "id": "wheel.M1",
+          "name": "Cannot act versus pay after",
+          "basis_claim_ids": [
+            "wheel.C1"
+          ],
+          "what_we_take": "Proposal: make prevention and punishment separate enforcement modes.",
+          "status": "proposal"
+        },
+        {
+          "id": "wheel.M2",
+          "name": "Belief as truth basis",
+          "basis_claim_ids": [
+            "wheel.C2"
+          ],
+          "what_we_take": "Proposal: let a local truth rule inspect belief rather than secretly reading objective world facts.",
+          "status": "proposal"
+        }
+      ],
+      "gag_or_rule_abuse": [
+        {
+          "text": "A technically true or sincerely believed statement can mislead listeners despite the speech oath.",
+          "basis_claim_ids": [
+            "wheel.C2"
+          ],
+          "status": "verified_reference",
+          "note": null
+        }
+      ],
+      "limits": "Not all ter angreal are binders. No universal male/female stat rule or television-source blend."
+    },
+    {
+      "id": "guide",
+      "title": "A Practical Guide to Evil",
+      "group": "book",
+      "claims": [
+        {
+          "id": "guide.C1",
+          "text": "Names give access to up to three Aspects shaped by the person and the Name. A Role has causal weight beyond physical power.",
+          "source_ids": [
+            "G01",
+            "G02"
+          ],
+          "status": "verified_reference",
+          "locator": null
+        },
+        {
+          "id": "guide.C2",
+          "text": "Malicia and Bard discuss danger at the end of a pattern of three, and planning an attack before a Name settles. These are character tactical judgments, not guaranteed results.",
+          "source_ids": [
+            "G03"
+          ],
+          "status": "verified_reference",
+          "locator": null
+        }
+      ],
+      "model_mapping_status": "inference_from_cited_claims",
+      "basis_claim_ids": [
+        "guide.C1",
+        "guide.C2"
+      ],
+      "path": {
+        "currency": "Name power and narrative position",
+        "steps": "Claimant to Named; Aspects emerge",
+        "gate": "Take a Role and develop it",
+        "risk": "Role mismatch and rival stories",
+        "shape": "Role succession and aspects",
+        "branching": "Aspects differ within same Name",
+        "grader": "Local narrative metaphysics",
+        "ceiling": "Three Aspects in reference; magnitude uncapped"
+      },
+      "families": [
+        "Fame",
+        "Concept edge",
+        "Achievements",
+        "Causality"
+      ],
+      "power_sources": [
+        "Faith or fame",
+        "Granted",
+        "Trained"
+      ],
+      "delivery_modes": [
+        "Active",
+        "Reactive"
+      ],
+      "axes": {
+        "object": "Actor and story role",
+        "mechanism": "Aspect function plus causal weight",
+        "trigger": "Role-fitting action",
+        "certainty": "Narrative pressure is not certainty",
+        "scope": "Scene and culture",
+        "price": "Commitment to role",
+        "limit": "Role and soul damage",
+        "visibility": "Title known; aspect hidden",
+        "persistence": "Name/role, not automatic heir carry",
+        "growth": "Personal expression"
+      },
+      "vows": [
+        {
+          "kind": "Role obligation, not priced vow",
+          "mapping_status": "inference",
+          "slots": {
+            "swearer": "Named actor",
+            "restriction": "Role-shaped conduct",
+            "object": "Life pattern",
+            "scope": null,
+            "duration": null,
+            "benefit": "Name and Aspects",
+            "consequence": null,
+            "witness": null,
+            "condition": null,
+            "ramp": null,
+            "stake": null,
+            "counterparty": null,
+            "release": null,
+            "visibility": null,
+            "inheritance": null,
+            "interpretation": "Cultural narrative",
+            "coercion_clause": null
+          },
+          "enforcement": "Role mechanics; no breach schedule established",
+          "collective_rules": "No shared magical sanction established.",
+          "interpretation_trick": "No verified loophole in this source selection."
+        }
+      ],
+      "mechanics": [
+        {
+          "id": "guide.M1",
+          "name": "Role selects affordances",
+          "basis_claim_ids": [
+            "guide.C1"
+          ],
+          "what_we_take": "Proposal: let a title change eligible actions and counterplay as well as stats.",
+          "status": "proposal"
+        },
+        {
+          "id": "guide.M2",
+          "name": "Same title, different verbs",
+          "basis_claim_ids": [
+            "guide.C1"
+          ],
+          "what_we_take": "Proposal: derive a few aspect verbs from lived choices, rather than issue every title holder identical skills.",
+          "status": "proposal"
+        }
+      ],
+      "gag_or_rule_abuse": [
+        {
+          "text": "Malicia and Bard plan around when a Name is vulnerable; Malicia pattern-of-three model is corrected in the conversation. Knowledge of story rules can be partial.",
+          "basis_claim_ids": [
+            "guide.C2"
+          ],
+          "status": "verified_reference",
+          "note": "A checked plan and disagreement, not a proved automatic victory."
+        }
+      ],
+      "limits": "No Jumpchain AP/CP budgets used. Role causality must not become global plot armor. Exact narrative outcomes still require scene-specific checks."
+    },
+    {
+      "id": "inn",
+      "title": "The Wandering Inn",
+      "group": "book",
+      "claims": [
+        {
+          "id": "inn.C1",
+          "text": "Classes can consolidate, sometimes keeping multiple titles in one class. Lyonette lost Princess through role mismatch and regained it by redefining the role. System messages announce levels, class changes and more.",
+          "source_ids": [
+            "I01",
+            "I02"
+          ],
+          "status": "verified_reference",
+          "locator": null
+        }
+      ],
+      "model_mapping_status": "inference_from_cited_claims",
+      "basis_claim_ids": [
+        "inn.C1"
+      ],
+      "path": {
+        "currency": "Class experience from life",
+        "steps": "Class levels and consolidation",
+        "gate": "Occupation, lived challenge and system award",
+        "risk": "Class loss or unwanted identity",
+        "shape": "Multiple ladders can merge",
+        "branching": "Role consolidation, not arithmetic addition",
+        "grader": "Grand Design; society reads the label",
+        "ceiling": "No universal ceiling established"
+      },
+      "families": [
+        "Achievements",
+        "Interface",
+        "Leadership",
+        "Creation"
+      ],
+      "power_sources": [
+        "Granted",
+        "Trained"
+      ],
+      "delivery_modes": [
+        "Passive",
+        "Active",
+        "Reactive"
+      ],
+      "axes": {
+        "object": "People and role functions",
+        "mechanism": "System-issued skills",
+        "trigger": "Life and level award",
+        "certainty": "Message is an award, not full appraisal",
+        "scope": "Skill-specific",
+        "price": "Effort and chosen life",
+        "limit": "Class requirements",
+        "visibility": "Announcements versus hidden class",
+        "persistence": "World-person record",
+        "growth": "Levels and class meaning"
+      },
+      "vows": [
+        {
+          "kind": "Role condition",
+          "mapping_status": "inference",
+          "slots": {
+            "swearer": "Class holder",
+            "restriction": "Role-compatible life",
+            "object": "Class identity",
+            "scope": null,
+            "duration": null,
+            "benefit": "Class access",
+            "consequence": "Role mismatch can lose class",
+            "witness": null,
+            "condition": null,
+            "ramp": null,
+            "stake": null,
+            "counterparty": null,
+            "release": "Role may be redefined",
+            "visibility": null,
+            "inheritance": null,
+            "interpretation": "Meaning of class",
+            "coercion_clause": null
+          },
+          "enforcement": "Class system; not generic vows",
+          "collective_rules": "No shared magical sanction established.",
+          "interpretation_trick": "No verified loophole in this source selection."
+        }
+      ],
+      "mechanics": [
+        {
+          "id": "inn.M1",
+          "name": "Merge a lived career",
+          "basis_claim_ids": [
+            "inn.C1"
+          ],
+          "what_we_take": "Proposal: let two pursuits form a new role when their history fits, without adding their level numbers.",
+          "status": "proposal"
+        },
+        {
+          "id": "inn.M2",
+          "name": "Redefine rather than restore",
+          "basis_claim_ids": [
+            "inn.C1"
+          ],
+          "what_we_take": "Proposal: allow a role lost through conduct to return under a newly demonstrated meaning.",
+          "status": "proposal"
+        }
+      ],
+      "gag_or_rule_abuse": [
+        {
+          "text": "Redefining Princess let a role return without simply undoing the character life.",
+          "basis_claim_ids": [
+            "inn.C1"
+          ],
+          "status": "verified_reference",
+          "note": null
+        }
+      ],
+      "limits": "403 prevented full reference access. No fresh capstone, level-refusal or universal XP formula claims."
+    },
+    {
+      "id": "carl",
+      "title": "Dungeon Crawler Carl",
+      "group": "book",
+      "claims": [
+        {
+          "id": "carl.C1",
+          "text": "The AI runs dungeon rules and achievements. Sponsors advertise on crawler channels and can send Benefactor Boxes; ratings affect sponsor attention.",
+          "source_ids": [
+            "J01",
+            "J02"
+          ],
+          "status": "verified_reference",
+          "locator": null
+        },
+        {
+          "id": "carl.C2",
+          "text": "A public explainer describes the AI giving unusually specific rewards around Carl feet, including a toe ring.",
+          "source_ids": [
+            "J03"
+          ],
+          "status": "verified_reference",
+          "locator": null
+        }
+      ],
+      "model_mapping_status": "inference_from_cited_claims",
+      "basis_claim_ids": [
+        "carl.C1",
+        "carl.C2"
+      ],
+      "path": {
+        "currency": "Experience, loot and sponsor resources",
+        "steps": "Crawler levels and floor gates",
+        "gate": "Survive and meet dungeon conditions",
+        "risk": "Death and manipulative administration",
+        "shape": "Level ladder inside staged contest",
+        "branching": "Build offers; sponsor interests",
+        "grader": "AI and contest administration",
+        "ceiling": "No safe universal cap established"
+      },
+      "families": [
+        "Interface",
+        "Achievements",
+        "Shop",
+        "Works only observed"
+      ],
+      "power_sources": [
+        "Granted",
+        "Technology",
+        "Item-bound"
+      ],
+      "delivery_modes": [
+        "Active",
+        "Passive",
+        "Reactive"
+      ],
+      "axes": {
+        "object": "Crawler and audience channel",
+        "mechanism": "System rewards plus outside gifts",
+        "trigger": "Achievement and sponsor decision",
+        "certainty": "Rules can have biased execution",
+        "scope": "Dungeon/floor and audience",
+        "price": "Risk, attention and obligations",
+        "limit": "Admin and gift rules",
+        "visibility": "Feed makes acts public",
+        "persistence": "Run-scoped unless specified",
+        "growth": "Levels and market attention"
+      },
+      "vows": [
+        {
+          "kind": "Commercial sponsorship",
+          "mapping_status": "inference",
+          "slots": {
+            "swearer": "Sponsor and contest parties",
+            "restriction": null,
+            "object": "Crawler channel",
+            "scope": "Contest",
+            "duration": null,
+            "benefit": "Benefactor gear",
+            "consequence": null,
+            "witness": null,
+            "condition": null,
+            "ramp": null,
+            "stake": null,
+            "counterparty": "Sponsor",
+            "release": null,
+            "visibility": "Broadcast",
+            "inheritance": null,
+            "interpretation": "Sponsor/admin terms",
+            "coercion_clause": null
+          },
+          "enforcement": "Commercial/system; exact breach not established",
+          "collective_rules": "Sponsor market and contest administration coexist",
+          "interpretation_trick": "No verified loophole in this source selection."
+        }
+      ],
+      "mechanics": [
+        {
+          "id": "carl.M1",
+          "name": "Patron and judge differ",
+          "basis_claim_ids": [
+            "carl.C1"
+          ],
+          "what_we_take": "Proposal: separate the sponsor paying for a reward from the authority permitting it.",
+          "status": "proposal"
+        },
+        {
+          "id": "carl.M2",
+          "name": "Biased reward taste",
+          "basis_claim_ids": [
+            "carl.C2"
+          ],
+          "what_we_take": "Proposal: let a comic patron favor odd feats and leave a visible record of what earned the gift.",
+          "status": "proposal"
+        }
+      ],
+      "gag_or_rule_abuse": [
+        {
+          "text": "The feet-focused rewards make an odd patron preference into a real loot incentive.",
+          "basis_claim_ids": [
+            "carl.C2"
+          ],
+          "status": "verified_reference",
+          "note": null
+        }
+      ],
+      "limits": "Indexed/wiki and public explainer coverage only. No exploit recipe or exact sponsor-floor quota proposed as verified canon."
+    },
+    {
+      "id": "hwfwm",
+      "title": "He Who Fights With Monsters",
+      "group": "book",
+      "claims": [
+        {
+          "id": "hwfwm.C1",
+          "text": "Three essences form a confluence. Each essence has five abilities; one wakes on bonding, others through stones. Stone and user shape partly random outputs. Divine essences retain a god connection and can be revoked. Confluences are not transferable.",
+          "source_ids": [
+            "H01",
+            "H02"
+          ],
+          "status": "verified_reference",
+          "locator": null
+        },
+        {
+          "id": "hwfwm.C2",
+          "text": "The independent book-one review lists iron, bronze, silver, gold and diamond as adventurer ranks. Exact per-ability thresholds and later transcendence are not verified here.",
+          "source_ids": [
+            "H03"
+          ],
+          "status": "verified_reference",
+          "locator": null
+        }
+      ],
+      "model_mapping_status": "inference_from_cited_claims",
+      "basis_claim_ids": [
+        "hwfwm.C1",
+        "hwfwm.C2"
+      ],
+      "path": {
+        "currency": "Essence abilities and training",
+        "steps": "Iron, bronze, silver, gold, diamond; thresholds open",
+        "gate": "Bond essences; awaken abilities",
+        "risk": "Bad fit; divine removal",
+        "shape": "Three inputs plus confluence",
+        "branching": "Stone selection biases a build",
+        "grader": "Metaphysical rank, not rarity label",
+        "ceiling": "Diamond in secondary reference; further unknown"
+      },
+      "families": [
+        "Inheritance",
+        "Curses and blessings",
+        "Stat work",
+        "Soul work"
+      ],
+      "power_sources": [
+        "Consumed",
+        "Granted",
+        "Trained"
+      ],
+      "delivery_modes": [
+        "Active",
+        "Passive",
+        "Ritual"
+      ],
+      "axes": {
+        "object": "Soul and ability set",
+        "mechanism": "Essence plus awakening catalyst",
+        "trigger": "Ritual bonding",
+        "certainty": "Biased random, not guaranteed pick",
+        "scope": "Ability-specific",
+        "price": "Rare ingredients and commitment",
+        "limit": "Slots and donor connection",
+        "visibility": "Rank/rarity can be misread",
+        "persistence": "Soul-bound; no implied portability",
+        "growth": "Abilities improve; exact gates open"
+      },
+      "vows": [
+        {
+          "kind": "Divine grant",
+          "mapping_status": "inference",
+          "slots": {
+            "swearer": "Recipient",
+            "restriction": null,
+            "object": "Divine essence",
+            "scope": null,
+            "duration": null,
+            "benefit": "Granted ability source",
+            "consequence": "Revocation can unbalance bearer",
+            "witness": null,
+            "condition": null,
+            "ramp": null,
+            "stake": null,
+            "counterparty": "God",
+            "release": null,
+            "visibility": null,
+            "inheritance": null,
+            "interpretation": "Grant conditions not fully established",
+            "coercion_clause": null
+          },
+          "enforcement": "Donor connection; not all essences revocable",
+          "collective_rules": "No shared magical sanction established.",
+          "interpretation_trick": "No verified loophole in this source selection."
+        }
+      ],
+      "mechanics": [
+        {
+          "id": "hwfwm.M1",
+          "name": "Emergent fourth source",
+          "basis_claim_ids": [
+            "hwfwm.C1"
+          ],
+          "what_we_take": "Proposal: let a chosen set produce an emergent result while preserving the inputs.",
+          "status": "proposal"
+        },
+        {
+          "id": "hwfwm.M2",
+          "name": "Rarity is not power",
+          "basis_claim_ids": [
+            "hwfwm.C1"
+          ],
+          "what_we_take": "Proposal: separate scarcity, output strength, precision of the draw and donor rights.",
+          "status": "proposal"
+        }
+      ],
+      "gag_or_rule_abuse": [
+        {
+          "text": "The reference explicitly says a duck-essence user can beat a fox-essence user. Theme and rarity do not decide the winner.",
+          "basis_claim_ids": [
+            "hwfwm.C1"
+          ],
+          "status": "verified_reference",
+          "note": null
+        }
+      ],
+      "limits": "No acquired book read; page access blocked. Rank names have secondary support; exact advancement thresholds remain open."
+    },
+    {
+      "id": "mol",
+      "title": "Mother of Learning",
+      "group": "book",
+      "claims": [
+        {
+          "id": "mol.C1",
+          "text": "Mana reserves and practiced shaping are distinct. Skills and marked memories can persist across iterations; soul scars can survive bodily renewal. Simulacra share original soul support and mana rather than create free reserves.",
+          "source_ids": [
+            "L01"
+          ],
+          "status": "verified_reference",
+          "locator": "C001-06/07/08; C005-01/02/08; C070-04/09; C083-10; C084-01-09"
+        },
+        {
+          "id": "mol.C2",
+          "text": "One divine disclosure pact reads the bound person senses, thoughts and memories. A private authored research gift allows knowledge evasion without removing that pact.",
+          "source_ids": [
+            "L01"
+          ],
+          "status": "verified_reference",
+          "locator": "PSE01/02; C096-07-10; C098-09"
+        }
+      ],
+      "model_mapping_status": "inference_from_cited_claims",
+      "basis_claim_ids": [
+        "mol.C1",
+        "mol.C2"
+      ],
+      "path": {
+        "currency": "Mana, shaping skill and iteration time",
+        "steps": "Mastery and loop access, no XP ladder",
+        "gate": "Teachers, practice, ritual and marker access",
+        "risk": "Soul scars; finite iterations; lost copies",
+        "shape": "Knowledge accumulation with reset body",
+        "branching": "Structured spells, shaping and soul work",
+        "grader": "Competence differs from loop authorization",
+        "ceiling": "No universal upper rank"
+      },
+      "families": [
+        "Save and load",
+        "Memory",
+        "Soul work",
+        "Multiplication",
+        "Storage"
+      ],
+      "power_sources": [
+        "Trained",
+        "Innate",
+        "Item-bound",
+        "Granted"
+      ],
+      "delivery_modes": [
+        "Active",
+        "Composed",
+        "Ritual"
+      ],
+      "axes": {
+        "object": "Body, mind, soul, marker",
+        "mechanism": "Practice plus authorized continuity",
+        "trigger": "Reset differs from spell trigger",
+        "certainty": "Character theory differs from witnessed result",
+        "scope": "Loop access and ability range",
+        "price": "Mana, scars and real preparation",
+        "limit": "Wards and authority",
+        "visibility": "Bound observer has limited evidence",
+        "persistence": "Explicit memory/soul carriers",
+        "growth": "Retained skill; not all body gains"
+      },
+      "vows": [
+        {
+          "kind": "Information-sensitive divine pact",
+          "mapping_status": "inference",
+          "slots": {
+            "swearer": "Zach in the checked pact",
+            "restriction": "Mission and disclosure terms",
+            "object": "Prison safeguards and known evidence",
+            "scope": null,
+            "duration": "Mission-specific",
+            "benefit": "Granted mission powers",
+            "consequence": "Contract sanctions",
+            "witness": "Divine pact authority",
+            "condition": null,
+            "ramp": null,
+            "stake": null,
+            "counterparty": "Divine party",
+            "release": null,
+            "visibility": "Private knowledge matters",
+            "inheritance": null,
+            "interpretation": "What senses/thoughts/memory reveal",
+            "coercion_clause": null
+          },
+          "enforcement": "Contract with information clause",
+          "collective_rules": "No shared magical sanction established.",
+          "interpretation_trick": "An ally can arrange help outside the bound person knowledge"
+        }
+      ],
+      "mechanics": [
+        {
+          "id": "mol.M1",
+          "name": "Knowledge limits enforcement",
+          "basis_claim_ids": [
+            "mol.C2"
+          ],
+          "what_we_take": "Proposal: define what a witness can learn and when it checks a clause.",
+          "status": "proposal"
+        },
+        {
+          "id": "mol.M2",
+          "name": "Copies share a bill",
+          "basis_claim_ids": [
+            "mol.C1"
+          ],
+          "what_we_take": "Proposal: show shared fuel use before copies act so parallel workers do not mint energy.",
+          "status": "proposal"
+        }
+      ],
+      "gag_or_rule_abuse": [
+        {
+          "text": "The disclosure pact can be evaded through how information reaches the bound person; the pact itself remains.",
+          "basis_claim_ids": [
+            "mol.C2"
+          ],
+          "status": "verified_reference",
+          "note": null
+        }
+      ],
+      "limits": "Reuses reviewed dossier. Exact divine contract is one case, not all geasa. No universal save-load or soul-damage cure inferred."
+    },
+    {
+      "id": "marvel",
+      "title": "Marvel comics",
+      "group": "comics",
+      "claims": [
+        {
+          "id": "marvel.C1",
+          "text": "Mutants have an innate X-gene route; mutates gain power through outside changes. These origins are not the same classification. Mutants can also learn magic.",
+          "source_ids": [
+            "V01",
+            "V03"
+          ],
+          "status": "verified_reference",
+          "locator": null
+        },
+        {
+          "id": "marvel.C2",
+          "text": "Elixir touch-based biokinesis can heal or harm; major healing can cause collapse. Dr Strange 2019 presents competing medical/magic duties and says magic has a cost, without one universal formula.",
+          "source_ids": [
+            "V02",
+            "V04"
+          ],
+          "status": "verified_reference",
+          "locator": null
+        }
+      ],
+      "model_mapping_status": "inference_from_cited_claims",
+      "basis_claim_ids": [
+        "marvel.C1",
+        "marvel.C2"
+      ],
+      "path": {
+        "currency": "Power-specific energy or access",
+        "steps": "Manifestation and training",
+        "gate": "Gene, external change, teacher or artifact",
+        "risk": "Power-specific harm and obligations",
+        "shape": "Many source-specific paths",
+        "branching": "Mutation plus study can coexist",
+        "grader": "Labels depend on observers and continuity",
+        "ceiling": "No shared Marvel numeric cap"
+      },
+      "families": [
+        "Adaptation",
+        "Healing",
+        "Strength and enhancement",
+        "Machines",
+        "Curses and blessings"
+      ],
+      "power_sources": [
+        "Innate",
+        "Mutation",
+        "Trained",
+        "Technology"
+      ],
+      "delivery_modes": [
+        "Active",
+        "Passive"
+      ],
+      "axes": {
+        "object": "Body or chosen target",
+        "mechanism": "Gene, induced change or magic",
+        "trigger": "Source-specific",
+        "certainty": "Labels do not prove all limits",
+        "scope": "Person-specific",
+        "price": "Example: healer collapses",
+        "limit": "Touch or learned means",
+        "visibility": "Hidden origin; visible effect",
+        "persistence": "Gene/body versus acquired skill",
+        "growth": "Control and knowledge"
+      },
+      "vows": [
+        {
+          "kind": "No common comics vow law",
+          "mapping_status": "inference",
+          "slots": {
+            "swearer": null,
+            "restriction": null,
+            "object": null,
+            "scope": null,
+            "duration": null,
+            "benefit": "Patron/ritual-specific magic",
+            "consequence": "Run-specific cost",
+            "witness": null,
+            "condition": null,
+            "ramp": null,
+            "stake": null,
+            "counterparty": null,
+            "release": null,
+            "visibility": null,
+            "inheritance": null,
+            "interpretation": null,
+            "coercion_clause": null
+          },
+          "enforcement": "Continuity and power-specific",
+          "collective_rules": "Institutions classify; no universal mutant sanction",
+          "interpretation_trick": "No verified loophole in this source selection."
+        }
+      ],
+      "mechanics": [
+        {
+          "id": "marvel.M1",
+          "name": "Origin is not effect",
+          "basis_claim_ids": [
+            "marvel.C1"
+          ],
+          "what_we_take": "Proposal: keep a power source separate from what it does and from the label others give it.",
+          "status": "proposal"
+        },
+        {
+          "id": "marvel.M2",
+          "name": "Heal and harm use same grasp",
+          "basis_claim_ids": [
+            "marvel.C2"
+          ],
+          "what_we_take": "Proposal: let one body-control method have both uses and a distinct overuse cost.",
+          "status": "proposal"
+        }
+      ],
+      "gag_or_rule_abuse": [
+        {
+          "text": "A mutant studying magic crosses two acquisition routes instead of treating mutant as a complete class tree.",
+          "basis_claim_ids": [
+            "marvel.C1"
+          ],
+          "status": "verified_reference",
+          "note": null
+        }
+      ],
+      "limits": "Comics examples only. No alpha/beta ladder or universal Omega strength number; no MCU blending. Further magic-cost scenes require run-specific review."
+    },
+    {
+      "id": "dc",
+      "title": "DC comics",
+      "group": "comics",
+      "claims": [
+        {
+          "id": "dc.C1",
+          "text": "Hal Jordan ring is alien technology fueled by willpower and makes constructs; Abin Sur passed ring and duties to him. Zatanna commonly uses backward spells.",
+          "source_ids": [
+            "Z01",
+            "Z02"
+          ],
+          "status": "verified_reference",
+          "locator": null
+        },
+        {
+          "id": "dc.C2",
+          "text": "DC editorial cites Zatanna healing by writing in blood after losing speech, and using a palindrome against a reversal counter. These examples are tied to specific comic issues.",
+          "source_ids": [
+            "Z03"
+          ],
+          "status": "verified_reference",
+          "locator": null
+        }
+      ],
+      "model_mapping_status": "inference_from_cited_claims",
+      "basis_claim_ids": [
+        "dc.C1",
+        "dc.C2"
+      ],
+      "path": {
+        "currency": "Willpower-ring source or learned magic",
+        "steps": "Training and source access",
+        "gate": "Ring succession; magic mastery",
+        "risk": "Duty and spell consequences",
+        "shape": "Source-specific open mastery",
+        "branching": "Tools, innate traits and methods differ",
+        "grader": "Corps status versus actual capability",
+        "ceiling": "No common DC cap"
+      },
+      "families": [
+        "Creation",
+        "Words of power",
+        "Inheritance",
+        "Force and gravity",
+        "Language"
+      ],
+      "power_sources": [
+        "Technology",
+        "Inherited",
+        "Trained"
+      ],
+      "delivery_modes": [
+        "Active",
+        "Composed"
+      ],
+      "axes": {
+        "object": "Construct or spell target",
+        "mechanism": "Ring channel versus intent-bearing language",
+        "trigger": "Thought, speech or alternate inscription",
+        "certainty": "Counter depends on real mechanism",
+        "scope": "Spell/construct-specific",
+        "price": "Charge/control or magic cost",
+        "limit": "Medium can change",
+        "visibility": "Words reveal method",
+        "persistence": "Ring custody plus duties",
+        "growth": "Creative methods"
+      },
+      "vows": [
+        {
+          "kind": "Corps duty oath",
+          "mapping_status": "inference",
+          "slots": {
+            "swearer": "Lantern",
+            "restriction": "Protect assigned sector",
+            "object": "Duty",
+            "scope": null,
+            "duration": null,
+            "benefit": "Office and ring access",
+            "consequence": null,
+            "witness": null,
+            "condition": null,
+            "ramp": null,
+            "stake": null,
+            "counterparty": "Corps",
+            "release": null,
+            "visibility": "Known oath",
+            "inheritance": "Ring and duties may pass",
+            "interpretation": null,
+            "coercion_clause": null
+          },
+          "enforcement": "Institutional duty; exact automatic penalty not established",
+          "collective_rules": "No shared magical sanction established.",
+          "interpretation_trick": "No verified loophole in this source selection."
+        }
+      ],
+      "mechanics": [
+        {
+          "id": "dc.M1",
+          "name": "Medium is not mechanism",
+          "basis_claim_ids": [
+            "dc.C2"
+          ],
+          "what_we_take": "Proposal: a speech counter can leave a hard alternate casting route if the source permits it.",
+          "status": "proposal"
+        },
+        {
+          "id": "dc.M2",
+          "name": "Symmetry defeats a counter",
+          "basis_claim_ids": [
+            "dc.C2"
+          ],
+          "what_we_take": "Proposal: let a transformed technique remain valid when its structure is unchanged by the hostile rule.",
+          "status": "proposal"
+        }
+      ],
+      "gag_or_rule_abuse": [
+        {
+          "text": "A palindrome survives a word-reversal counter; writing in blood bypasses one lost-voice situation.",
+          "basis_claim_ids": [
+            "dc.C2"
+          ],
+          "status": "verified_reference",
+          "note": null
+        }
+      ],
+      "limits": "Do not give every mute caster this escape. DC editorial lists several continuities; only labeled comics examples used here."
+    },
+    {
+      "id": "dnd",
+      "title": "Dungeons & Dragons: 2024 revised fifth edition",
+      "group": "tabletop",
+      "claims": [
+        {
+          "id": "dnd.C1",
+          "text": "Warlocks gain Pact Magic and invocation choices through level gates and patron relations. The cited class rules do not specify automatic removal of all powers for displeasing a patron.",
+          "source_ids": [
+            "N01"
+          ],
+          "status": "verified_reference",
+          "locator": null
+        },
+        {
+          "id": "dnd.C2",
+          "text": "Wish duplicates spells of level eight or lower without their normal requirements. Other uses incur stress, including a 33 percent chance to lose Wish forever. Open-ended requests let the DM fail, partly grant or twist the result.",
+          "source_ids": [
+            "N02"
+          ],
+          "status": "verified_reference",
+          "locator": null
+        }
+      ],
+      "model_mapping_status": "inference_from_cited_claims",
+      "basis_claim_ids": [
+        "dnd.C1",
+        "dnd.C2"
+      ],
+      "path": {
+        "currency": "Pact slots and class progression",
+        "steps": "Levels 1 to 20",
+        "gate": "Level and invocation prerequisites",
+        "risk": "Wish stress; patron trouble is contextual",
+        "shape": "Level ladder with toolkit picks",
+        "branching": "Invocations and multiclass rules",
+        "grader": "Rules plus DM for open requests",
+        "ceiling": "Class cap; Wish is not unlimited control"
+      },
+      "families": [
+        "Borrowed",
+        "Contracts and oaths",
+        "Creation",
+        "Causality",
+        "Words of power"
+      ],
+      "power_sources": [
+        "Granted",
+        "Trained"
+      ],
+      "delivery_modes": [
+        "Active",
+        "Ritual"
+      ],
+      "axes": {
+        "object": "Spell target or pact bearer",
+        "mechanism": "Defined effect versus adjudication",
+        "trigger": "Spell action and components",
+        "certainty": "Listed duplication versus open wish",
+        "scope": "Spell-specific",
+        "price": "Slots; non-duplication stress",
+        "limit": "Eligibility and DM authority",
+        "visibility": "Effect versus pact terms",
+        "persistence": "Feature or permanent effect as stated",
+        "growth": "Levels and choices"
+      },
+      "vows": [
+        {
+          "kind": "Warlock pact",
+          "mapping_status": "inference",
+          "slots": {
+            "swearer": "Warlock",
+            "restriction": null,
+            "object": null,
+            "scope": null,
+            "duration": null,
+            "benefit": "Knowledge and Pact Magic",
+            "consequence": null,
+            "witness": null,
+            "condition": null,
+            "ramp": null,
+            "stake": null,
+            "counterparty": "Patron",
+            "release": null,
+            "visibility": null,
+            "inheritance": null,
+            "interpretation": "Chosen fiction and class rules",
+            "coercion_clause": null
+          },
+          "enforcement": "No automatic revocation clause in cited class",
+          "collective_rules": "No shared magical sanction established.",
+          "interpretation_trick": "No verified loophole in this source selection."
+        },
+        {
+          "kind": "Wish request",
+          "mapping_status": "inference",
+          "slots": {
+            "swearer": "Caster",
+            "restriction": null,
+            "object": "Requested reality change",
+            "scope": null,
+            "duration": "Effect-specific",
+            "benefit": "Spell or wished result",
+            "consequence": "Stress outside duplication; possible permanent loss",
+            "witness": "DM for open request",
+            "condition": null,
+            "ramp": null,
+            "stake": null,
+            "counterparty": null,
+            "release": null,
+            "visibility": null,
+            "inheritance": null,
+            "interpretation": "Defined effect or broad adjudication",
+            "coercion_clause": null
+          },
+          "enforcement": "Spell rules, not abstinence vow",
+          "collective_rules": "No shared magical sanction established.",
+          "interpretation_trick": "Duplication avoids stress; listed alternatives do not"
+        }
+      ],
+      "mechanics": [
+        {
+          "id": "dnd.M1",
+          "name": "Safe function versus open request",
+          "basis_claim_ids": [
+            "dnd.C2"
+          ],
+          "what_we_take": "Proposal: offer defined effects beside a flexible request with its own declared failure rules.",
+          "status": "proposal"
+        },
+        {
+          "id": "dnd.M2",
+          "name": "Pact need not mean revocation",
+          "basis_claim_ids": [
+            "dnd.C1"
+          ],
+          "what_we_take": "Proposal: record whether a gift is learned, licensed or continuously lent before applying a patron penalty.",
+          "status": "proposal"
+        }
+      ],
+      "gag_or_rule_abuse": [
+        {
+          "text": "Spell duplication sidesteps normal components by explicit rule. Calling a non-duplication effect a safe listed option does not evade Wish stress.",
+          "basis_claim_ids": [
+            "dnd.C2"
+          ],
+          "status": "verified_reference",
+          "note": null
+        }
+      ],
+      "limits": "2024 rules only. No Wish/Simulacrum infinity exploit or blanket warlock soul-sale assumption used."
+    },
+    {
+      "id": "mtg",
+      "title": "Magic: The Gathering",
+      "group": "game",
+      "claims": [
+        {
+          "id": "mtg.C1",
+          "text": "The color pie ties philosophy to capabilities and weaknesses. The official design essays explain why distinct colors and player-built combinations support discovery.",
+          "source_ids": [
+            "A01",
+            "A02"
+          ],
+          "status": "verified_reference",
+          "locator": null
+        }
+      ],
+      "model_mapping_status": "inference_from_cited_claims",
+      "basis_claim_ids": [
+        "mtg.C1"
+      ],
+      "path": {
+        "currency": "Colored and generic mana",
+        "steps": "Board development, not character ranks",
+        "gate": "Sources and spell costs",
+        "risk": "Poor access or unmet cost",
+        "shape": "Affinity wheel and build web",
+        "branching": "Multi-color builds change access needs",
+        "grader": "Card rules and chosen format",
+        "ceiling": "Format/card-pool bound, no lore ladder"
+      },
+      "families": [
+        "Element control",
+        "Creation",
+        "Negation",
+        "Consumption",
+        "Conditions"
+      ],
+      "power_sources": [
+        "Environment",
+        "Trained",
+        "Item-bound"
+      ],
+      "delivery_modes": [
+        "Active",
+        "Reactive",
+        "Composed"
+      ],
+      "axes": {
+        "object": "Spells and board objects",
+        "mechanism": "Color-specific permission",
+        "trigger": "Rules and timing",
+        "certainty": "Deterministic text; uncertain draws",
+        "scope": "Card-specific",
+        "price": "Mana and build access",
+        "limit": "Color weaknesses",
+        "visibility": "Public board; hidden hand",
+        "persistence": "Match state",
+        "growth": "Deck combinations"
+      },
+      "vows": [
+        {
+          "kind": "Color identity is not an oath",
+          "mapping_status": "inference",
+          "slots": {
+            "swearer": null,
+            "restriction": "Capability profile per color",
+            "object": null,
+            "scope": null,
+            "duration": null,
+            "benefit": "Distinct strengths",
+            "consequence": null,
+            "witness": null,
+            "condition": null,
+            "ramp": null,
+            "stake": null,
+            "counterparty": null,
+            "release": null,
+            "visibility": null,
+            "inheritance": null,
+            "interpretation": null,
+            "coercion_clause": null
+          },
+          "enforcement": "Card rules and design; not moral policing",
+          "collective_rules": "Players share game rules",
+          "interpretation_trick": "No verified loophole in this source selection."
+        }
+      ],
+      "mechanics": [
+        {
+          "id": "mtg.M1",
+          "name": "Affinities have blind spots",
+          "basis_claim_ids": [
+            "mtg.C1"
+          ],
+          "what_we_take": "Proposal: record which functions a school lacks so a second school changes choices.",
+          "status": "proposal"
+        },
+        {
+          "id": "mtg.M2",
+          "name": "Philosophy is not alignment",
+          "basis_claim_ids": [
+            "mtg.C1"
+          ],
+          "what_we_take": "Proposal: let a path express goals and methods without fixing its user moral worth.",
+          "status": "proposal"
+        }
+      ],
+      "gag_or_rule_abuse": [
+        {
+          "text": "A mixed build could fill one school weakness but need a more complex fuel supply. This is an original design inference, not a specific sanctioned combo claim.",
+          "basis_claim_ids": [
+            "mtg.C1"
+          ],
+          "status": "inference",
+          "note": null
+        }
+      ],
+      "limits": "Color flavor drawn from dated official essays. Exact modern color breaks, format legality and named combos not surveyed."
+    },
+    {
+      "id": "souls",
+      "title": "Dark Souls 1 covenants",
+      "group": "game",
+      "claims": [
+        {
+          "id": "souls.C1",
+          "text": "Covenants grant routes and rewards through membership and offerings. Switching is distinguished from hard betrayal; offerings can be halved and ranks reduced. Covenant and version matter.",
+          "source_ids": [
+            "F01"
+          ],
+          "status": "verified_reference",
+          "locator": null
+        },
+        {
+          "id": "souls.C2",
+          "text": "Chaos Servant rank can open a shortcut that affects access to an NPC rescue route.",
+          "source_ids": [
+            "F02"
+          ],
+          "status": "verified_reference",
+          "locator": null
+        }
+      ],
+      "model_mapping_status": "inference_from_cited_claims",
+      "basis_claim_ids": [
+        "souls.C1",
+        "souls.C2"
+      ],
+      "path": {
+        "currency": "Souls for player; offerings for covenant",
+        "steps": "Player growth and covenant ranks are separate",
+        "gate": "Join and offer required tokens",
+        "risk": "Betrayal and access loss",
+        "shape": "Faction rank layered over build",
+        "branching": "Change membership with consequences",
+        "grader": "Covenant-specific accounting",
+        "ceiling": "Local rank cap, not player strength cap"
+      },
+      "families": [
+        "Contracts and oaths",
+        "Debt",
+        "Faith",
+        "Borrowed"
+      ],
+      "power_sources": [
+        "Granted",
+        "Trained",
+        "Item-bound"
+      ],
+      "delivery_modes": [
+        "Active",
+        "Passive"
+      ],
+      "axes": {
+        "object": "Member and faction access",
+        "mechanism": "Offerings unlock rewards",
+        "trigger": "Membership and contribution",
+        "certainty": "Explicit game rules",
+        "scope": "Covenant-specific",
+        "price": "Offerings and forgone alternatives",
+        "limit": "Version and affiliation",
+        "visibility": "Rank is a faction record",
+        "persistence": "Stored credit affected on departure",
+        "growth": "Contribution rank"
+      },
+      "vows": [
+        {
+          "kind": "Covenant membership",
+          "mapping_status": "inference",
+          "slots": {
+            "swearer": "Player member",
+            "restriction": "Covenant-specific duties",
+            "object": "Members and faction acts",
+            "scope": "Covenant",
+            "duration": "Membership",
+            "benefit": "Rewards and access",
+            "consequence": "Credit/rank loss; hard betrayal differs",
+            "witness": null,
+            "condition": null,
+            "ramp": null,
+            "stake": null,
+            "counterparty": "Covenant",
+            "release": "Departure or applicable absolution",
+            "visibility": null,
+            "inheritance": null,
+            "interpretation": "Game/version-specific rules",
+            "coercion_clause": null
+          },
+          "enforcement": "Faction rules",
+          "collective_rules": "Co-op or invasion affiliation differs by covenant",
+          "interpretation_trick": "No verified loophole in this source selection."
+        }
+      ],
+      "mechanics": [
+        {
+          "id": "souls.M1",
+          "name": "Leave versus betray",
+          "basis_claim_ids": [
+            "souls.C1"
+          ],
+          "what_we_take": "Proposal: distinguish resignation, hostile breach and absolution in the contract ledger.",
+          "status": "proposal"
+        },
+        {
+          "id": "souls.M2",
+          "name": "Rank from delivered proof",
+          "basis_claim_ids": [
+            "souls.C1"
+          ],
+          "what_we_take": "Proposal: let a faction grade contributions separately from combat ability.",
+          "status": "proposal"
+        }
+      ],
+      "gag_or_rule_abuse": [
+        {
+          "text": "Departure and betrayal should not be read as the same act simply because both change affiliation.",
+          "basis_claim_ids": [
+            "souls.C1"
+          ],
+          "status": "inference",
+          "note": null
+        }
+      ],
+      "limits": "No Dark Souls 2/3 rules mixed in. No claim every earned spell disappears on departure."
+    },
+    {
+      "id": "elden",
+      "title": "Elden Ring",
+      "group": "game",
+      "claims": [
+        {
+          "id": "elden.C1",
+          "text": "Great Runes are fragments of the broken Elden Ring. A Rune Arc activates an equipped Great Rune. Incantations use sacred seals and their own stat requirements and scaling.",
+          "source_ids": [
+            "E01",
+            "E02",
+            "E03"
+          ],
+          "status": "verified_reference",
+          "locator": null
+        }
+      ],
+      "model_mapping_status": "inference_from_cited_claims",
+      "basis_claim_ids": [
+        "elden.C1"
+      ],
+      "path": {
+        "currency": "Runes for growth; FP for spells",
+        "steps": "Stat investment; spell and rune access",
+        "gate": "Acquire spell, meet stats and use seal",
+        "risk": "Unusable source or spent consumable",
+        "shape": "Open stat build with artifact layers",
+        "branching": "Incantation schools and catalyst choices",
+        "grader": "Requirements and scaling",
+        "ceiling": "No single incantation ladder"
+      },
+      "families": [
+        "Faith",
+        "Element control",
+        "Healing",
+        "Inheritance",
+        "Conditions"
+      ],
+      "power_sources": [
+        "Trained",
+        "Item-bound",
+        "Granted"
+      ],
+      "delivery_modes": [
+        "Active",
+        "Passive"
+      ],
+      "axes": {
+        "object": "Bearer or spell target",
+        "mechanism": "Catalyst casting versus rune activation",
+        "trigger": "Cast or Rune Arc use",
+        "certainty": "Requirements differ from worship",
+        "scope": "Spell-specific",
+        "price": "FP and consumable",
+        "limit": "Seal and prerequisites",
+        "visibility": "Artifact owned may be inactive",
+        "persistence": "Equipment and activation state",
+        "growth": "Stats and tool upgrades"
+      },
+      "vows": [
+        {
+          "kind": "Not a general faith vow",
+          "mapping_status": "inference",
+          "slots": {
+            "swearer": null,
+            "restriction": null,
+            "object": "Seal or Great Rune",
+            "scope": null,
+            "duration": null,
+            "benefit": "Spell execution or rune effect",
+            "consequence": null,
+            "witness": null,
+            "condition": "Proper means and activation",
+            "ramp": null,
+            "stake": null,
+            "counterparty": null,
+            "release": null,
+            "visibility": null,
+            "inheritance": null,
+            "interpretation": null,
+            "coercion_clause": null
+          },
+          "enforcement": "Equipment and game rules",
+          "collective_rules": "Schools are distinct; no common pact law shown",
+          "interpretation_trick": "No verified loophole in this source selection."
+        }
+      ],
+      "mechanics": [
+        {
+          "id": "elden.M1",
+          "name": "Own, equip and activate",
+          "basis_claim_ids": [
+            "elden.C1"
+          ],
+          "what_we_take": "Proposal: show these as separate artifact states.",
+          "status": "proposal"
+        },
+        {
+          "id": "elden.M2",
+          "name": "Faith is a casting stat here",
+          "basis_claim_ids": [
+            "elden.C1"
+          ],
+          "what_we_take": "Proposal: separate a skill called faith from an actual bargain or moral conduct rule.",
+          "status": "proposal"
+        }
+      ],
+      "gag_or_rule_abuse": [
+        {
+          "text": "One could possess a famous rune and still lack its active effect. That is an access distinction, not a second acquisition roll.",
+          "basis_claim_ids": [
+            "elden.C1"
+          ],
+          "status": "inference",
+          "note": null
+        }
+      ],
+      "limits": "Base game lens. Great Rune and ordinary rune currency are different. No invented requirement to obey a god before using every incantation."
+    },
+    {
+      "id": "hades",
+      "title": "Hades 1 boons",
+      "group": "game",
+      "claims": [
+        {
+          "id": "hades.C1",
+          "text": "Duo Boons need prerequisite boons from the relevant gods. They are lost when Zagreus dies and returns, like other boons. Prerequisites establish eligibility, not a guaranteed offer.",
+          "source_ids": [
+            "B01",
+            "B03"
+          ],
+          "status": "verified_reference",
+          "locator": null
+        },
+        {
+          "id": "hades.C2",
+          "text": "Trial of the Gods does not offer Duo Boons. Calling the spurned god with a full gauge provokes special dialogue and the Bad Call achievement, without another effect from that insult.",
+          "source_ids": [
+            "B02"
+          ],
+          "status": "verified_reference",
+          "locator": null
+        }
+      ],
+      "model_mapping_status": "inference_from_cited_claims",
+      "basis_claim_ids": [
+        "hades.C1",
+        "hades.C2"
+      ],
+      "path": {
+        "currency": "Run offers and combat resources",
+        "steps": "Boon selections within a run",
+        "gate": "Obtain prerequisite boons then receive offer",
+        "risk": "Build fails to appear; death clears boons",
+        "shape": "Temporary build web",
+        "branching": "Two-source combinations",
+        "grader": "Offer and eligibility rules",
+        "ceiling": "Build/encounter bounds, not god rank"
+      },
+      "families": [
+        "Curses and blessings",
+        "Bonds",
+        "Borrowed",
+        "Element control"
+      ],
+      "power_sources": [
+        "Granted"
+      ],
+      "delivery_modes": [
+        "Active",
+        "Passive",
+        "Reactive"
+      ],
+      "axes": {
+        "object": "Attack slot or effect",
+        "mechanism": "God-specific modification",
+        "trigger": "Combat or eligible offer",
+        "certainty": "Eligible differs from offered",
+        "scope": "Run and action-specific",
+        "price": "Opportunity cost of pick",
+        "limit": "Prerequisite set",
+        "visibility": "Known boons",
+        "persistence": "Lost at return",
+        "growth": "Synergy rather than permanent ranks"
+      },
+      "vows": [
+        {
+          "kind": "Temporary divine boon",
+          "mapping_status": "inference",
+          "slots": {
+            "swearer": "Recipient",
+            "restriction": null,
+            "object": "Run boon",
+            "scope": null,
+            "duration": "Current escape attempt",
+            "benefit": "Combat modifier",
+            "consequence": null,
+            "witness": null,
+            "condition": "Relevant action and prerequisites",
+            "ramp": null,
+            "stake": null,
+            "counterparty": "Gods",
+            "release": null,
+            "visibility": null,
+            "inheritance": null,
+            "interpretation": null,
+            "coercion_clause": null
+          },
+          "enforcement": "Run state; no abstinence vow",
+          "collective_rules": "No shared magical sanction established.",
+          "interpretation_trick": "No verified loophole in this source selection."
+        }
+      ],
+      "mechanics": [
+        {
+          "id": "hades.M1",
+          "name": "Eligibility is not chance",
+          "basis_claim_ids": [
+            "hades.C1"
+          ],
+          "what_we_take": "Proposal: show missing prerequisites separately from draw odds.",
+          "status": "proposal"
+        },
+        {
+          "id": "hades.M2",
+          "name": "Pair grant with own function",
+          "basis_claim_ids": [
+            "hades.C1"
+          ],
+          "what_we_take": "Proposal: two compatible patrons can enable a distinct technique instead of stacking two percentages.",
+          "status": "proposal"
+        }
+      ],
+      "gag_or_rule_abuse": [
+        {
+          "text": "Using the Greater Call of the god currently attacking you is the Bad Call joke. It earns dialogue and an achievement, not a new hidden retaliation rule.",
+          "basis_claim_ids": [
+            "hades.C2"
+          ],
+          "status": "verified_reference",
+          "note": null
+        }
+      ],
+      "limits": "Hades 1 only, indexed reference; no native playtest and no verified reward-stack exploit."
+    },
+    {
+      "id": "poe",
+      "title": "Path of Exile 1 support gems",
+      "group": "game",
+      "claims": [
+        {
+          "id": "poe.C1",
+          "text": "Support gems modify compatible skills within linked sockets and can change behavior and costs. Direct adjacency is unnecessary within a linked group. Gem tags alone do not determine support compatibility.",
+          "source_ids": [
+            "P01",
+            "P02"
+          ],
+          "status": "verified_reference",
+          "locator": null
+        }
+      ],
+      "model_mapping_status": "inference_from_cited_claims",
+      "basis_claim_ids": [
+        "poe.C1"
+      ],
+      "path": {
+        "currency": "Mana, gems and linked equipment",
+        "steps": "Gem growth and build assembly",
+        "gate": "Compatible support and linked slots",
+        "risk": "Unaffordable skill or invalid link",
+        "shape": "Composed technique web",
+        "branching": "Swap supports within means",
+        "grader": "Actual support restrictions",
+        "ceiling": "Equipment/skill bounds, not shared world rank"
+      },
+      "families": [
+        "Conditions",
+        "Marks and stacks",
+        "Element control",
+        "Delay"
+      ],
+      "power_sources": [
+        "Item-bound",
+        "Trained"
+      ],
+      "delivery_modes": [
+        "Composed",
+        "Active",
+        "Reactive"
+      ],
+      "axes": {
+        "object": "Linked skill, not whole character",
+        "mechanism": "Behavior modifier",
+        "trigger": "Supported use",
+        "certainty": "Compatibility must be resolved",
+        "scope": "Socket group",
+        "price": "Changed cost",
+        "limit": "Explicit support restrictions",
+        "visibility": "Link can be inspected",
+        "persistence": "Equipment-bound",
+        "growth": "Parts and mastery"
+      },
+      "vows": [
+        {
+          "kind": "Composition restriction, not vow",
+          "mapping_status": "inference",
+          "slots": {
+            "swearer": null,
+            "restriction": "Meet support restrictions",
+            "object": "Skill operation",
+            "scope": null,
+            "duration": null,
+            "benefit": "Modified behavior",
+            "consequence": "Invalid support gives no effect",
+            "witness": null,
+            "condition": null,
+            "ramp": null,
+            "stake": null,
+            "counterparty": null,
+            "release": null,
+            "visibility": null,
+            "inheritance": null,
+            "interpretation": null,
+            "coercion_clause": null
+          },
+          "enforcement": "Support resolver",
+          "collective_rules": "No shared magical sanction established.",
+          "interpretation_trick": "No verified loophole in this source selection."
+        }
+      ],
+      "mechanics": [
+        {
+          "id": "poe.M1",
+          "name": "Executable grammar for techniques",
+          "basis_claim_ids": [
+            "poe.C1"
+          ],
+          "what_we_take": "Proposal: check valid compositions and resulting costs before committing a new technique.",
+          "status": "proposal"
+        },
+        {
+          "id": "poe.M2",
+          "name": "Local parts affect local skills",
+          "basis_claim_ids": [
+            "poe.C1"
+          ],
+          "what_we_take": "Proposal: prevent a support on one method from silently buffing every power.",
+          "status": "proposal"
+        }
+      ],
+      "gag_or_rule_abuse": [
+        {
+          "text": "A support linked to several valid skills can alter all of them; adjacency alone is not the rule.",
+          "basis_claim_ids": [
+            "poe.C1"
+          ],
+          "status": "inference",
+          "note": null
+        }
+      ],
+      "limits": "PoE 1 only, not PoE 2 socket/category rules. Official URL failed and wiki 403; index/data reference evidence only."
+    },
+    {
+      "id": "spire",
+      "title": "Slay the Spire 1 relics",
+      "group": "game",
+      "claims": [
+        {
+          "id": "spire.C1",
+          "text": "Dead Branch creates a random card when a card exhausts. Corruption makes Skills free and exhausts them on play. Together, spending disposable Skills can generate more options.",
+          "source_ids": [
+            "R01",
+            "R02"
+          ],
+          "status": "verified_reference",
+          "locator": null
+        }
+      ],
+      "model_mapping_status": "inference_from_cited_claims",
+      "basis_claim_ids": [
+        "spire.C1"
+      ],
+      "path": {
+        "currency": "Turn energy, hand and deck",
+        "steps": "Relic/card picks over run",
+        "gate": "Obtain relevant cards and relics",
+        "risk": "Random output and exhausted deck",
+        "shape": "Reactive build web",
+        "branching": "Combine relic and card rules",
+        "grader": "Actual ordered triggers",
+        "ceiling": "No rank ladder"
+      },
+      "families": [
+        "Conditions",
+        "Creation",
+        "Wild",
+        "Sacrifice"
+      ],
+      "power_sources": [
+        "Item-bound",
+        "Granted"
+      ],
+      "delivery_modes": [
+        "Reactive",
+        "Passive",
+        "Composed"
+      ],
+      "axes": {
+        "object": "Card/action record",
+        "mechanism": "On-exhaust creates card",
+        "trigger": "Exhaust event",
+        "certainty": "Random card, deterministic trigger",
+        "scope": "Hand and combat",
+        "price": "Disposable option",
+        "limit": "Actual exhaustion rule",
+        "visibility": "Relics known",
+        "persistence": "Run; combat pile state",
+        "growth": "Interactions"
+      },
+      "vows": [
+        {
+          "kind": "Conditional cost, not sworn promise",
+          "mapping_status": "inference",
+          "slots": {
+            "swearer": null,
+            "restriction": "Exhaust played Skill under Corruption",
+            "object": "Skill card",
+            "scope": null,
+            "duration": null,
+            "benefit": "Zero energy Skill",
+            "consequence": "Leaves available deck",
+            "witness": null,
+            "condition": null,
+            "ramp": null,
+            "stake": null,
+            "counterparty": null,
+            "release": null,
+            "visibility": null,
+            "inheritance": null,
+            "interpretation": null,
+            "coercion_clause": null
+          },
+          "enforcement": "Card and relic triggers",
+          "collective_rules": "No shared magical sanction established.",
+          "interpretation_trick": "No verified loophole in this source selection."
+        }
+      ],
+      "mechanics": [
+        {
+          "id": "spire.M1",
+          "name": "Cost becomes another input",
+          "basis_claim_ids": [
+            "spire.C1"
+          ],
+          "what_we_take": "Proposal: let a real paid cost trigger another rule, with an explicit resolution order.",
+          "status": "proposal"
+        },
+        {
+          "id": "spire.M2",
+          "name": "Power can make clutter",
+          "basis_claim_ids": [
+            "spire.C1"
+          ],
+          "what_we_take": "Proposal: show generated options and finite hand/attention costs instead of treating random creation as pure upside.",
+          "status": "proposal"
+        }
+      ],
+      "gag_or_rule_abuse": [
+        {
+          "text": "Dead Branch plus Corruption turns an exhaust downside into new cards. Generated cards remain random; this is not guaranteed infinity.",
+          "basis_claim_ids": [
+            "spire.C1"
+          ],
+          "status": "verified_reference",
+          "note": null
+        }
+      ],
+      "limits": "Original video game, not board-game Dead Branch. No installed-game verification or probability sweep."
+    },
+    {
+      "id": "geis",
+      "title": "Irish geis and geasa",
+      "group": "myth",
+      "claims": [
+        {
+          "id": "geis.C1",
+          "text": "A geis may be a taboo or required act. The Cu Chulainn death story puts a dog-meat ban against hospitality; complying with one breaks the other and weakens the hero.",
+          "source_ids": [
+            "Y01",
+            "Y02"
+          ],
+          "status": "verified_reference",
+          "locator": null
+        }
+      ],
+      "model_mapping_status": "inference_from_cited_claims",
+      "basis_claim_ids": [
+        "geis.C1"
+      ],
+      "path": {
+        "currency": "No common currency",
+        "steps": "No common steps",
+        "gate": "Receiving a taboo or obligation",
+        "risk": "Conflicting duties and doom",
+        "shape": "Imposed conditions on life",
+        "branching": "Different personal taboos",
+        "grader": "Story-specific sacred rule",
+        "ceiling": "No common cap"
+      },
+      "families": [
+        "Contracts and oaths",
+        "Cursed gift",
+        "Conditions"
+      ],
+      "power_sources": [
+        "Granted",
+        "Inherited"
+      ],
+      "delivery_modes": [
+        "Passive",
+        "Reactive"
+      ],
+      "axes": {
+        "object": "Bound person and act",
+        "mechanism": "Taboo-linked consequence",
+        "trigger": "Forbidden or required action",
+        "certainty": "Story-version rule",
+        "scope": "Personal circumstance",
+        "price": "Lost freedom and breach harm",
+        "limit": "Conflicting obligation",
+        "visibility": "Terms known or hidden",
+        "persistence": "Named bearer",
+        "growth": "No ordinary XP growth"
+      },
+      "vows": [
+        {
+          "kind": "Sacred taboo",
+          "mapping_status": "inference",
+          "slots": {
+            "swearer": "Hero",
+            "restriction": "Avoid forbidden meat; hospitality duty",
+            "object": "Meal",
+            "scope": null,
+            "duration": "Life condition",
+            "benefit": "Not explicitly priced in tale",
+            "consequence": "Weakening and doom",
+            "witness": null,
+            "condition": null,
+            "ramp": null,
+            "stake": null,
+            "counterparty": null,
+            "release": null,
+            "visibility": null,
+            "inheritance": null,
+            "interpretation": "Story-version terms",
+            "coercion_clause": "Trap does not automatically excuse breach"
+          },
+          "enforcement": "Narrative supernatural consequence",
+          "collective_rules": "No shared magical sanction established.",
+          "interpretation_trick": "Make one duty demand another prohibited act"
+        }
+      ],
+      "mechanics": [
+        {
+          "id": "geis.M1",
+          "name": "Conflict is a real state",
+          "basis_claim_ids": [
+            "geis.C1"
+          ],
+          "what_we_take": "Proposal: detect that no available act can keep all promises and show which one each option breaks.",
+          "status": "proposal"
+        },
+        {
+          "id": "geis.M2",
+          "name": "No reward still a binding",
+          "basis_claim_ids": [
+            "geis.C1"
+          ],
+          "what_we_take": "Proposal: permit imposed duties with no benefit quote rather than inventing a buff to balance them.",
+          "status": "proposal"
+        }
+      ],
+      "gag_or_rule_abuse": [
+        {
+          "text": "Offering forbidden meat as hospitality creates an obligation trap.",
+          "basis_claim_ids": [
+            "geis.C1"
+          ],
+          "status": "verified_reference",
+          "note": null
+        }
+      ],
+      "limits": "Irish tale family, not a generic Celtic constitution. Supernatural effect belongs to narrative, not an empirical claim about culture."
+    },
+    {
+      "id": "faust",
+      "title": "Faustian pact: Goethe wager",
+      "group": "myth",
+      "claims": [
+        {
+          "id": "faust.C1",
+          "text": "In Goethe Part One, Mephistopheles offers earthly service for Faust service in Hell. Faust adds the condition that a wholly satisfying moment ending his striving triggers the loss.",
+          "source_ids": [
+            "U01",
+            "U02"
+          ],
+          "status": "verified_reference",
+          "locator": null
+        }
+      ],
+      "model_mapping_status": "inference_from_cited_claims",
+      "basis_claim_ids": [
+        "faust.C1"
+      ],
+      "path": {
+        "currency": "Patron service and pledged future",
+        "steps": "Experience seeking, not ranks",
+        "gate": "Sign bargain; satisfaction is final trigger",
+        "risk": "Lose self/future service",
+        "shape": "Conditional wager",
+        "branching": "Different desires alter journey",
+        "grader": "Pact and interpretation",
+        "ceiling": "No numerical ceiling"
+      },
+      "families": [
+        "Contracts and oaths",
+        "Borrowed",
+        "Debt"
+      ],
+      "power_sources": [
+        "Granted"
+      ],
+      "delivery_modes": [
+        "Active",
+        "Ritual"
+      ],
+      "axes": {
+        "object": "Desire and future obligation",
+        "mechanism": "Patron fulfills experiences",
+        "trigger": "Satisfaction condition",
+        "certainty": "Inner state is hard to judge",
+        "scope": "Life wager",
+        "price": "Future service",
+        "limit": "Conditional trigger",
+        "visibility": "Private intention matters",
+        "persistence": "Until wager resolves",
+        "growth": "No general leveling"
+      },
+      "vows": [
+        {
+          "kind": "Conditional soul wager",
+          "mapping_status": "inference",
+          "slots": {
+            "swearer": "Faust",
+            "restriction": "Future service if condition met",
+            "object": "Life satisfaction",
+            "scope": null,
+            "duration": "Until decisive moment",
+            "benefit": "Earthly service",
+            "consequence": "Death/service in Hell per wager",
+            "witness": "Pact parties",
+            "condition": "Satisfied enough to cease striving",
+            "ramp": null,
+            "stake": "Future self",
+            "counterparty": "Mephistopheles",
+            "release": null,
+            "visibility": null,
+            "inheritance": null,
+            "interpretation": "Intent and expressed satisfaction",
+            "coercion_clause": null
+          },
+          "enforcement": "Conditional pact",
+          "collective_rules": "No shared magical sanction established.",
+          "interpretation_trick": "No verified loophole in this source selection."
+        }
+      ],
+      "mechanics": [
+        {
+          "id": "faust.M1",
+          "name": "Threshold debt",
+          "basis_claim_ids": [
+            "faust.C1"
+          ],
+          "what_we_take": "Proposal: a bargain can charge its full price when a future inner-state condition is met.",
+          "status": "proposal"
+        },
+        {
+          "id": "faust.M2",
+          "name": "Benefit threatens keeping",
+          "basis_claim_ids": [
+            "faust.C1"
+          ],
+          "what_we_take": "Proposal: let what the patron offers also move the bearer toward the bargain danger.",
+          "status": "proposal"
+        }
+      ],
+      "gag_or_rule_abuse": [
+        {
+          "text": "The desired reward is also the condition that risks losing the wager; the collector must get more than a signed receipt.",
+          "basis_claim_ids": [
+            "faust.C1"
+          ],
+          "status": "inference",
+          "note": null
+        }
+      ],
+      "limits": "Goethe Part One only. Do not merge Marlowe twenty-four-year term or claim Part Two settles by the same simple condition."
+    },
+    {
+      "id": "fae",
+      "title": "Fae bargains: Rumpelstiltskin",
+      "group": "myth",
+      "claims": [
+        {
+          "id": "fae.C1",
+          "text": "In the Grimm tale, spinning straw into gold is exchanged for the first child. A later name-guessing condition allows release from that claim.",
+          "source_ids": [
+            "Q01"
+          ],
+          "status": "verified_reference",
+          "locator": null
+        }
+      ],
+      "model_mapping_status": "inference_from_cited_claims",
+      "basis_claim_ids": [
+        "fae.C1"
+      ],
+      "path": {
+        "currency": "Payment and promised child",
+        "steps": "Bargain then release trial",
+        "gate": "Accept service; discover name",
+        "risk": "Deferred claim on child",
+        "shape": "Contract with knowledge exit",
+        "branching": "Revised terms add escape",
+        "grader": "Named helper and tale rules",
+        "ceiling": "No shared fairy rank"
+      },
+      "families": [
+        "Transmutation",
+        "Contracts and oaths",
+        "True names",
+        "Debt"
+      ],
+      "power_sources": [
+        "Granted",
+        "Trained"
+      ],
+      "delivery_modes": [
+        "Active",
+        "Ritual"
+      ],
+      "axes": {
+        "object": "Straw and promised child",
+        "mechanism": "Helper craft plus claim",
+        "trigger": "Request or collection",
+        "certainty": "Hidden name determines exit",
+        "scope": "Specific parties",
+        "price": "Payment or child",
+        "limit": "Release challenge",
+        "visibility": "Terms known; name secret",
+        "persistence": "Deferred obligation",
+        "growth": "Knowledge changes available exit"
+      },
+      "vows": [
+        {
+          "kind": "Bargain with secret release",
+          "mapping_status": "inference",
+          "slots": {
+            "swearer": "Parent",
+            "restriction": "Deliver promised child",
+            "object": "First child",
+            "scope": null,
+            "duration": "Until claim or name solution",
+            "benefit": "Gold-making service",
+            "consequence": "Child claimed",
+            "witness": null,
+            "condition": null,
+            "ramp": null,
+            "stake": null,
+            "counterparty": "Helper",
+            "release": "Guess correct name under granted terms",
+            "visibility": "Name hidden",
+            "inheritance": null,
+            "interpretation": "Specific revised bargain",
+            "coercion_clause": null
+          },
+          "enforcement": "Tale bargain",
+          "collective_rules": "No shared magical sanction established.",
+          "interpretation_trick": "Learn secret name to satisfy the release clause"
+        }
+      ],
+      "mechanics": [
+        {
+          "id": "fae.M1",
+          "name": "Release is a quest",
+          "basis_claim_ids": [
+            "fae.C1"
+          ],
+          "what_we_take": "Proposal: add an earned information-based release route to selected hostile bargains.",
+          "status": "proposal"
+        },
+        {
+          "id": "fae.M2",
+          "name": "Beneficiary is not payer",
+          "basis_claim_ids": [
+            "fae.C1"
+          ],
+          "what_we_take": "Proposal: record who gets the benefit, who promises and whose property or life is claimed.",
+          "status": "proposal"
+        }
+      ],
+      "gag_or_rule_abuse": [
+        {
+          "text": "Learning the secret name defeats the collection claim through an agreed condition.",
+          "basis_claim_ids": [
+            "fae.C1"
+          ],
+          "status": "verified_reference",
+          "note": null
+        }
+      ],
+      "limits": "No universal fairy inability to lie, no iron rule or universal true-name domination inferred from this tale."
+    },
+    {
+      "id": "monastic",
+      "title": "Monastic vows: Benedictine example",
+      "group": "vows_history",
+      "claims": [
+        {
+          "id": "monastic.C1",
+          "text": "Benedictine communities describe vows of stability, conversion of life and obedience, binding a lifelong communal vocation. These differ from reducing all monastic vows to silence or the same three counsels.",
+          "source_ids": [
+            "O01",
+            "O02"
+          ],
+          "status": "verified_reference",
+          "locator": null
+        }
+      ],
+      "model_mapping_status": "inference_from_cited_claims",
+      "basis_claim_ids": [
+        "monastic.C1"
+      ],
+      "path": {
+        "currency": "Time, work and communal means",
+        "steps": "Probation and profession, not power levels",
+        "gate": "Accepted commitment",
+        "risk": "Personal or communal breach",
+        "shape": "Institutional life path",
+        "branching": "Order-specific practice",
+        "grader": "Community and spiritual judgment",
+        "ceiling": "No empirical supernatural cap"
+      },
+      "families": [
+        "Bonds",
+        "Faith",
+        "Leadership"
+      ],
+      "power_sources": [
+        "Trained",
+        "Faith or fame"
+      ],
+      "delivery_modes": [
+        "Passive",
+        "Shared"
+      ],
+      "axes": {
+        "object": "Member and community",
+        "mechanism": "Practice and relationship",
+        "trigger": "Daily life and profession",
+        "certainty": "Faith claims differ from measured effect",
+        "scope": "Particular community",
+        "price": "Time, autonomy and ownership practice",
+        "limit": "Chosen rule of life",
+        "visibility": "Public profession",
+        "persistence": "Lifelong relation; no automatic heir vow",
+        "growth": "Practice and formation"
+      },
+      "vows": [
+        {
+          "kind": "Real communal profession",
+          "mapping_status": "inference",
+          "slots": {
+            "swearer": "Member",
+            "restriction": "Stability, conversion, obedience",
+            "object": "Way of life",
+            "scope": "Community and vocation",
+            "duration": "Lifelong profession",
+            "benefit": "Spiritual/community aim, not verified stat gain",
+            "consequence": null,
+            "witness": "Community",
+            "condition": null,
+            "ramp": null,
+            "stake": null,
+            "counterparty": "Community/superior",
+            "release": null,
+            "visibility": null,
+            "inheritance": null,
+            "interpretation": "Living tradition",
+            "coercion_clause": null
+          },
+          "enforcement": "Institution and conscience",
+          "collective_rules": "Shared rule, individual profession",
+          "interpretation_trick": "No verified loophole in this source selection."
+        }
+      ],
+      "mechanics": [
+        {
+          "id": "monastic.M1",
+          "name": "Vow as a way of life",
+          "basis_claim_ids": [
+            "monastic.C1"
+          ],
+          "what_we_take": "Proposal: a fictional order vow can open teachers, housing and shared work without a stat multiplier.",
+          "status": "proposal"
+        },
+        {
+          "id": "monastic.M2",
+          "name": "Change is an ongoing duty",
+          "basis_claim_ids": [
+            "monastic.C1"
+          ],
+          "what_we_take": "Proposal: distinguish a transformation commitment from a ban on a list of objects.",
+          "status": "proposal"
+        }
+      ],
+      "gag_or_rule_abuse": [
+        {
+          "text": "No verified gag or supernatural loophole claimed. Turning obedience into a game discount would be an invention.",
+          "basis_claim_ids": [
+            "monastic.C1"
+          ],
+          "status": "not_found",
+          "note": null
+        }
+      ],
+      "limits": "Historical/religious description only. All numerical power effects and magical breach effects would be original fiction."
+    },
+    {
+      "id": "knightly",
+      "title": "Knightly vows and chivalry",
+      "group": "vows_history",
+      "claims": [
+        {
+          "id": "knightly.C1",
+          "text": "Chivalry combined warrior, religious and courtly ideals with differing medieval treatments. A popular neat code may be a modern reconstruction, not a universal historical oath.",
+          "source_ids": [
+            "X01",
+            "X02"
+          ],
+          "status": "verified_reference",
+          "locator": null
+        }
+      ],
+      "model_mapping_status": "inference_from_cited_claims",
+      "basis_claim_ids": [
+        "knightly.C1"
+      ],
+      "path": {
+        "currency": "Service, equipment and standing",
+        "steps": "Recognition and service",
+        "gate": "Local ceremony or lord acceptance",
+        "risk": "Dishonor and conflict of duties",
+        "shape": "Institutional/social path",
+        "branching": "Different orders and allegiances",
+        "grader": "Community, lord or court",
+        "ceiling": "No historical magic rank"
+      },
+      "families": [
+        "Leadership",
+        "Bonds",
+        "Fame",
+        "Contracts and oaths"
+      ],
+      "power_sources": [
+        "Trained",
+        "Faith or fame"
+      ],
+      "delivery_modes": [
+        "Shared",
+        "Passive"
+      ],
+      "axes": {
+        "object": "Person and allegiance",
+        "mechanism": "Promise plus institution",
+        "trigger": "Service or accused breach",
+        "certainty": "Accusation is not verdict",
+        "scope": "Order/lord-specific",
+        "price": "Risk and duty",
+        "limit": "Jurisdiction",
+        "visibility": "Public deeds matter",
+        "persistence": "Office/estate versus personal vow",
+        "growth": "Deeds and reputation"
+      },
+      "vows": [
+        {
+          "kind": "Social service vow",
+          "mapping_status": "inference",
+          "slots": {
+            "swearer": "Knight in selected local order",
+            "restriction": "Chosen service duties",
+            "object": "Lord, order or protected group",
+            "scope": null,
+            "duration": "Local terms",
+            "benefit": "Standing and resources",
+            "consequence": "Local social/judicial sanction",
+            "witness": "Institution",
+            "condition": null,
+            "ramp": null,
+            "stake": null,
+            "counterparty": "Lord or order",
+            "release": null,
+            "visibility": null,
+            "inheritance": null,
+            "interpretation": "Selected historical or fictional code",
+            "coercion_clause": null
+          },
+          "enforcement": "Social/judicial",
+          "collective_rules": "Order standards vary",
+          "interpretation_trick": "No verified loophole in this source selection."
+        }
+      ],
+      "mechanics": [
+        {
+          "id": "knightly.M1",
+          "name": "Verdict is a later step",
+          "basis_claim_ids": [
+            "knightly.C1"
+          ],
+          "what_we_take": "Proposal: separate a breach allegation, evidence, judgment and actual sanction.",
+          "status": "proposal"
+        },
+        {
+          "id": "knightly.M2",
+          "name": "Duties have jurisdiction",
+          "basis_claim_ids": [
+            "knightly.C1"
+          ],
+          "what_we_take": "Proposal: show which lord or order can enforce a promise rather than global honor points.",
+          "status": "proposal"
+        }
+      ],
+      "gag_or_rule_abuse": [
+        {
+          "text": "No checked historical gag supplied. Competing lord and protection duties are a possible original dilemma.",
+          "basis_claim_ids": [
+            "knightly.C1"
+          ],
+          "status": "inference",
+          "note": null
+        }
+      ],
+      "limits": "No invented single medieval code. Magical fealty and inherited vow penalties must be explicitly fictional."
+    },
+    {
+      "id": "curses",
+      "title": "Curses: Sleeping Beauty and The Monkey Paw",
+      "group": "myth",
+      "claims": [
+        {
+          "id": "curses.C1",
+          "text": "The Perrault/Grimm family of Sleeping Beauty versions permits a death curse to be softened to long sleep; awakening details differ. Perrault does not require a kiss.",
+          "source_ids": [
+            "CC01"
+          ],
+          "status": "verified_reference",
+          "locator": null
+        },
+        {
+          "id": "curses.C2",
+          "text": "The Monkey Paw money wish is followed by the son death and compensation. A result can satisfy the amount while making its causal route disastrous.",
+          "source_ids": [
+            "CC02"
+          ],
+          "status": "verified_reference",
+          "locator": null
+        }
+      ],
+      "model_mapping_status": "inference_from_cited_claims",
+      "basis_claim_ids": [
+        "curses.C1",
+        "curses.C2"
+      ],
+      "path": {
+        "currency": "Curse authority or finite wishes",
+        "steps": "Imposition, mitigation and resolution",
+        "gate": "Trigger condition or spoken wish",
+        "risk": "Harm and unwanted causal fulfillment",
+        "shape": "Conditional trap with escape",
+        "branching": "Mitigation need not cancel curse",
+        "grader": "Tale-specific authority",
+        "ceiling": "No common cap"
+      },
+      "families": [
+        "Curses and blessings",
+        "Delay",
+        "Conditions",
+        "Causality",
+        "Stasis"
+      ],
+      "power_sources": [
+        "Granted",
+        "Item-bound"
+      ],
+      "delivery_modes": [
+        "Reactive",
+        "Active"
+      ],
+      "axes": {
+        "object": "Victim and household",
+        "mechanism": "Conditional harm or causal fulfillment",
+        "trigger": "Spindle or wish",
+        "certainty": "Tale/version-defined",
+        "scope": "Person plus surrounding people",
+        "price": "Harm to named victims",
+        "limit": "Mitigation differs from removal",
+        "visibility": "Meaning can be hidden",
+        "persistence": "Curse survives time",
+        "growth": "No standard growth"
+      },
+      "vows": [
+        {
+          "kind": "Imposed curse or dangerous wish",
+          "mapping_status": "inference",
+          "slots": {
+            "swearer": "Often victim is not signatory",
+            "restriction": null,
+            "object": "Victim or wished result",
+            "scope": null,
+            "duration": null,
+            "benefit": "May be absent; wish grants result",
+            "consequence": "Conditional harm",
+            "witness": "Cursing actor or object",
+            "condition": null,
+            "ramp": null,
+            "stake": null,
+            "counterparty": null,
+            "release": "Version-specific mitigation/end",
+            "visibility": null,
+            "inheritance": null,
+            "interpretation": "Outcome can be met through bad means",
+            "coercion_clause": null
+          },
+          "enforcement": "Imposed effect, not reciprocal vow",
+          "collective_rules": "Household can suffer spillover",
+          "interpretation_trick": "No verified loophole in this source selection."
+        }
+      ],
+      "mechanics": [
+        {
+          "id": "curses.M1",
+          "name": "Mitigate without erase",
+          "basis_claim_ids": [
+            "curses.C1"
+          ],
+          "what_we_take": "Proposal: permit a counter to alter a curse outcome while its trigger still resolves.",
+          "status": "proposal"
+        },
+        {
+          "id": "curses.M2",
+          "name": "Route of fulfillment matters",
+          "basis_claim_ids": [
+            "curses.C2"
+          ],
+          "what_we_take": "Proposal: let a wish promise a result and expose which causal routes remain possible.",
+          "status": "proposal"
+        }
+      ],
+      "gag_or_rule_abuse": [
+        {
+          "text": "Destroying or banning spindles does not by itself remove the curse; receiving the requested money need not be a happy win.",
+          "basis_claim_ids": [
+            "curses.C1",
+            "curses.C2"
+          ],
+          "status": "inference",
+          "note": null
+        }
+      ],
+      "limits": "Version-tagged tales, not all curses. No proof every wish must hurt somebody or every sleeping curse ends with a kiss."
+    },
+    {
+      "id": "genies",
+      "title": "Genies and wishes: Aladdin and Fisherman tales",
+      "group": "myth",
+      "claims": [
+        {
+          "id": "genies.C1",
+          "text": "Aladdin has distinct ring and lamp spirits. Lamp custody controls the stronger helper; the weaker ring spirit cannot directly reverse its magic but can transport Aladdin to recover the lamp.",
+          "source_ids": [
+            "JJ01"
+          ],
+          "status": "verified_reference",
+          "locator": null
+        },
+        {
+          "id": "genies.C2",
+          "text": "In the Fisherman tale a sealed spirit threatens its rescuer. The fisherman prompts it to demonstrate fitting in the jar, reseals it, then negotiates safer release.",
+          "source_ids": [
+            "JJ02"
+          ],
+          "status": "verified_reference",
+          "locator": null
+        }
+      ],
+      "model_mapping_status": "inference_from_cited_claims",
+      "basis_claim_ids": [
+        "genies.C1",
+        "genies.C2"
+      ],
+      "path": {
+        "currency": "Helper service and artifact custody",
+        "steps": "Acquire, lose and recover access",
+        "gate": "Summon through item or break seal",
+        "risk": "Hostile helper or stolen item",
+        "shape": "Item/patron relationship",
+        "branching": "Different spirits have different scope",
+        "grader": "Tale and helper capacity",
+        "ceiling": "Not universal omnipotence"
+      },
+      "families": [
+        "Summoning",
+        "Sealing",
+        "Creation",
+        "Debt",
+        "Borrowed"
+      ],
+      "power_sources": [
+        "Item-bound",
+        "Granted"
+      ],
+      "delivery_modes": [
+        "Active",
+        "Ritual"
+      ],
+      "axes": {
+        "object": "Requested object or service",
+        "mechanism": "Spirit performs work",
+        "trigger": "Item activation or release",
+        "certainty": "Helper may be hostile",
+        "scope": "Power differs by spirit",
+        "price": "Custody and bargain",
+        "limit": "Lesser helper cannot undo all",
+        "visibility": "Holder matters",
+        "persistence": "Object carries access",
+        "growth": "No standard levels"
+      },
+      "vows": [
+        {
+          "kind": "Release bargain and custody",
+          "mapping_status": "inference",
+          "slots": {
+            "swearer": "Fisherman and spirit",
+            "restriction": null,
+            "object": "Release and safe treatment",
+            "scope": null,
+            "duration": null,
+            "benefit": "Freedom for spirit; aid for rescuer",
+            "consequence": null,
+            "witness": null,
+            "condition": null,
+            "ramp": null,
+            "stake": "Seal and release control",
+            "counterparty": "Spirit",
+            "release": null,
+            "visibility": null,
+            "inheritance": null,
+            "interpretation": "Agreed promise",
+            "coercion_clause": null
+          },
+          "enforcement": "Custody plus bargain",
+          "collective_rules": "No shared magical sanction established.",
+          "interpretation_trick": "Demonstration restores containment before renegotiation"
+        }
+      ],
+      "mechanics": [
+        {
+          "id": "genies.M1",
+          "name": "Custody controls a service",
+          "basis_claim_ids": [
+            "genies.C1"
+          ],
+          "what_we_take": "Proposal: a carrier can grant command access without transferring the helper powers into the bearer.",
+          "status": "proposal"
+        },
+        {
+          "id": "genies.M2",
+          "name": "Weaker route still matters",
+          "basis_claim_ids": [
+            "genies.C1"
+          ],
+          "what_we_take": "Proposal: a weaker ally can solve access while remaining unable to cancel a stronger effect.",
+          "status": "proposal"
+        }
+      ],
+      "gag_or_rule_abuse": [
+        {
+          "text": "The fisherman uses a demonstration to regain custody. Aladdin uses the weaker ring spirit for access rather than asking it to undo stronger magic.",
+          "basis_claim_ids": [
+            "genies.C1",
+            "genies.C2"
+          ],
+          "status": "verified_reference",
+          "note": null
+        }
+      ],
+      "limits": "Arabian/Middle Eastern tale routes included by brief. No generic three-wish limit, malicious genie personality or infinite omnipotence imposed."
+    }
+  ],
+  "top_15": [
+    {
+      "rank": 1,
+      "id": "M1",
+      "name": "Separate prevention, automatic penalty and later judgment",
+      "mechanic_id": "wheel.M1",
+      "basis_claim_ids": [
+        "wheel.C1"
+      ],
+      "source_ids": [
+        "T01",
+        "T02"
+      ],
+      "delta_from_existing": "E8D has a consequence slot but starts from breach then penalty. A blocked act has no committed breach; a court can impose one later.",
+      "proposal": "Add enforcement.mode and an attempt/breach/verdict split.",
+      "smallest_proof": "Attempt one blocked lie, break one punitive pact, face one alleged social breach. Logs must differ.",
+      "status": "proposal"
+    },
+    {
+      "rank": 2,
+      "id": "M2",
+      "name": "Give the witness a knowledge boundary",
+      "mechanic_id": "mol.M1",
+      "basis_claim_ids": [
+        "mol.C2",
+        "wheel.C2"
+      ],
+      "source_ids": [
+        "L01",
+        "T01"
+      ],
+      "delta_from_existing": "E8D interpretation-by-tags cannot express a clause reading thoughts, memories or sincere belief.",
+      "proposal": "Add truth_basis, observer, evidence_channels and check_time. Use wheel.C2 as the belief contrast.",
+      "smallest_proof": "The same false statement passes a belief oath but fails an objective-fact rule; an undisclosed fact does not reach a limited witness.",
+      "status": "proposal"
+    },
+    {
+      "rank": 3,
+      "id": "M3",
+      "name": "Give the bargain an office holder",
+      "mechanic_id": "dresden.M1",
+      "basis_claim_ids": [
+        "dresden.C1"
+      ],
+      "source_ids": [
+        "D01"
+      ],
+      "delta_from_existing": "E8D inheritance is present, but succession of the creditor office differs from inheriting a personal vow.",
+      "proposal": "Add claim_holder_type and office_id; keep debtor, creditor and current holder distinct.",
+      "smallest_proof": "Replace the office holder; the claim stays, without copying the old holder memories into the new one.",
+      "status": "proposal"
+    },
+    {
+      "rank": 4,
+      "id": "M4",
+      "name": "A real store plus an outside amplifier",
+      "mechanic_id": "mistborn.M2",
+      "basis_claim_ids": [
+        "mistborn.C2"
+      ],
+      "source_ids": [
+        "M03"
+      ],
+      "delta_from_existing": "E8B stored mode and Stat work exist. The new part is distinguishing ordinary banking from externally fueled multiplication.",
+      "proposal": "Add fill_cost, balance, output_rate, converter and external_source to selected stores.",
+      "smallest_proof": "A plain store pays only its balance; a declared second source amplifies output and spends its own fuel.",
+      "status": "proposal"
+    },
+    {
+      "rank": 5,
+      "id": "M5",
+      "name": "Reservoir size is not rank quality",
+      "mechanic_id": "cradle.M1",
+      "basis_claim_ids": [
+        "cradle.C2"
+      ],
+      "source_ids": [
+        "C02",
+        "C03"
+      ],
+      "delta_from_existing": "E8C currency and steps exist, but a split reservoir should not lower its quality or double its fuel.",
+      "proposal": "Separate capacity, balance, quality, refill and the common body gate.",
+      "smallest_proof": "Split one store into two compatible sources with loss; advance one quality while the other remains unchanged.",
+      "status": "proposal"
+    },
+    {
+      "rank": 6,
+      "id": "M6",
+      "name": "Validate what a technique part can really modify",
+      "mechanic_id": "poe.M1",
+      "basis_claim_ids": [
+        "poe.C1"
+      ],
+      "source_ids": [
+        "P01",
+        "P02"
+      ],
+      "delta_from_existing": "E8B composed delivery and E4 tags exist. PoE cautions that shared tags alone do not prove support compatibility.",
+      "proposal": "Add a typed operation contract beside tags; compute resulting cost and failure reasons.",
+      "smallest_proof": "A tag match without a supported operation stays invalid; one valid part changes only its linked methods.",
+      "status": "proposal"
+    },
+    {
+      "rank": 7,
+      "id": "M7",
+      "name": "Paid costs can feed another rule",
+      "mechanic_id": "spire.M1",
+      "basis_claim_ids": [
+        "spire.C1"
+      ],
+      "source_ids": [
+        "R01",
+        "R02"
+      ],
+      "delta_from_existing": "The north star already has triggers and combos. The new work is an event order and a record showing that the cost was paid once.",
+      "proposal": "Represent committed costs as events with provenance; distinguish legal in-world loops from duplicate replay.",
+      "smallest_proof": "One exhausted option creates one draw; replaying the same receipt creates none; a new generated option can trigger its own legal chain.",
+      "status": "proposal"
+    },
+    {
+      "rank": 8,
+      "id": "M8",
+      "name": "Promise an outcome without promising its route",
+      "mechanic_id": "dresden.M2",
+      "basis_claim_ids": [
+        "dresden.C1",
+        "curses.C2"
+      ],
+      "source_ids": [
+        "D01",
+        "CC02"
+      ],
+      "delta_from_existing": "E8D names a benefit but lacks a clear distinction between result, means and a person expectation.",
+      "proposal": "Add promised_result, allowed_means and fulfillment_record; curses.C2 is a darker contrast.",
+      "smallest_proof": "A patron fulfills promised courage through teaching or confidence. The record shows whether a stat increase was actually promised.",
+      "status": "proposal"
+    },
+    {
+      "rank": 9,
+      "id": "M9",
+      "name": "Separate payer, supplier and judge",
+      "mechanic_id": "carl.M1",
+      "basis_claim_ids": [
+        "carl.C1"
+      ],
+      "source_ids": [
+        "J01",
+        "J02"
+      ],
+      "delta_from_existing": "E8D patron/witness pricing and audience already exist. A sponsor can fund a gift that another authority controls.",
+      "proposal": "Add reward_payer, reward_supplier and authorizer to selected grants.",
+      "smallest_proof": "A sponsor funds a desired tool but dungeon rules reject its delivery; relationship and authorization remain separate.",
+      "status": "proposal"
+    },
+    {
+      "rank": 10,
+      "id": "M10",
+      "name": "Own, know, equip and activate are separate",
+      "mechanic_id": "elden.M1",
+      "basis_claim_ids": [
+        "elden.C1"
+      ],
+      "source_ids": [
+        "E01",
+        "E02",
+        "E03"
+      ],
+      "delta_from_existing": "Existing research already separates knowledge and execution. An inactive owned artifact adds a useful activation state.",
+      "proposal": "Add activation_state and activator to item-source profiles, with explicit persistence.",
+      "smallest_proof": "An owned rune is inspected, equipped and activated through distinct actions; possession alone does not apply its effect.",
+      "status": "proposal"
+    },
+    {
+      "rank": 11,
+      "id": "M11",
+      "name": "An oath gate can accept growth",
+      "mechanic_id": "stormlight.M1",
+      "basis_claim_ids": [
+        "stormlight.C1"
+      ],
+      "source_ids": [
+        "S01"
+      ],
+      "delta_from_existing": "E8C has release stages and E8D restriction pricing. A personal truth or accepted Ideal is not an interchangeable sacrifice quote.",
+      "proposal": "Allow affirmation vows with acceptance_gate and milestone, no compulsory traded object.",
+      "smallest_proof": "Repeating a truth without the relevant lived change gives no new stage. A different valid truth can qualify where local rules allow.",
+      "status": "proposal"
+    },
+    {
+      "rank": 12,
+      "id": "M12",
+      "name": "Make a counter match mechanism, not casting medium",
+      "mechanic_id": "dc.M1",
+      "basis_claim_ids": [
+        "dc.C2"
+      ],
+      "source_ids": [
+        "Z03"
+      ],
+      "delta_from_existing": "E8 separates mechanism and trigger. The added detail is speech, writing and intent as different carriers of one method.",
+      "proposal": "Record expression_medium, required_parts and permitted alternatives on a technique.",
+      "smallest_proof": "Silence blocks voice casting; a source-permitted written version works at its own cost; an unpermitted alternative does not.",
+      "status": "proposal"
+    },
+    {
+      "rank": 13,
+      "id": "M13",
+      "name": "A grade is a scoped response policy",
+      "mechanic_id": "worm.M1",
+      "basis_claim_ids": [
+        "worm.C2"
+      ],
+      "source_ids": [
+        "W02"
+      ],
+      "delta_from_existing": "E8C already allows institutional grades. Worm adds what a grade tells a team to do, and whose evidence it used.",
+      "proposal": "Store grader, purpose, evidence, date and recommended_response separately from real power.",
+      "smallest_proof": "A scouting team and a duel school issue different assessments of the same power without changing its actual damage.",
+      "status": "proposal"
+    },
+    {
+      "rank": 14,
+      "id": "M14",
+      "name": "A release clause can be found",
+      "mechanic_id": "fae.M1",
+      "basis_claim_ids": [
+        "fae.C1"
+      ],
+      "source_ids": [
+        "Q01"
+      ],
+      "delta_from_existing": "E8D release and true-name families exist. Their combination makes investigating a secret a lawful contract exit.",
+      "proposal": "Add release_predicate and discovery_state, with clause visibility separate from its secret answer.",
+      "smallest_proof": "The player discovers the required name and fulfills the clause; inventing a wrong name does not release the claim.",
+      "status": "proposal"
+    },
+    {
+      "rank": 15,
+      "id": "M15",
+      "name": "Keep an impossible vow set impossible when local rules say so",
+      "mechanic_id": "geis.M1",
+      "basis_claim_ids": [
+        "geis.C1"
+      ],
+      "source_ids": [
+        "Y01",
+        "Y02"
+      ],
+      "delta_from_existing": "E8D already lists collisions and the same geis tale. The refinement is not silently choosing a priority that saves the hero.",
+      "proposal": "Add conflict_set, simultaneous_breaches and local_priority; allow no priority, negotiated waiver or escape by circumstance.",
+      "smallest_proof": "A trap offers only acts that break a known duty; show the separate costs rather than auto-cancel one promise.",
+      "status": "proposal"
+    }
+  ],
+  "integration_proposals": [
+    {
+      "id": "P1",
+      "target": "E8",
+      "title": "Separate the power from reports about it",
+      "proposal": "Keep ten axes. Add an optional observation record with observer, source, belief/confidence, evidence time and hidden axes. Add expression medium to mechanism details. This supports Worm grading, belief oaths and Zatanna counters without another universal power tier.",
+      "status": "proposal"
+    },
+    {
+      "id": "P2",
+      "target": "E8B",
+      "title": "Give sources operational records",
+      "proposal": "Extend existing stored/composed/granted modes with source balances, capacity, quality, refill, ownership, donor connection, activation and compatibility rules. These are details of a source, not a universal new resource. Ordinary banking, outside amplification and revocable grants must differ.",
+      "status": "proposal"
+    },
+    {
+      "id": "P3",
+      "target": "E8C",
+      "title": "Separate progress, access and appraisal",
+      "proposal": "Preserve eight path parts, but let a person hold independent tracks: trained mastery, reservoir quality, body stage, oath acceptance, class identity and institutional grade. An arc can merge tracks or require two achievements, without assuming every series is an XP ladder.",
+      "status": "proposal"
+    },
+    {
+      "id": "P4",
+      "target": "E8D",
+      "title": "Split the parties and enforcement stages",
+      "proposal": "Keep all existing core/extra slots. Add payer, beneficiary, liable_target and claim_holder; enforcement.mode; truth_basis; evidence_channels; check_time; acceptance_gate; release_predicate; and versioned fulfillment terms. Consequences can harm a partner, duties can attach to an office and some bindings have no reward.",
+      "status": "proposal"
+    },
+    {
+      "id": "P5",
+      "target": "E8 to E8D",
+      "title": "Keep rules and exploits local, inspectable and saved",
+      "proposal": "Record source continuity/era, known rule version, actual trigger order and carrier policy. A lawful funny exploit stays possible where the world permits it. Save/reload duplication is a different event. A later patch or court ruling cannot be silently substituted for the terms already promised.",
+      "status": "proposal"
+    }
+  ]
+}

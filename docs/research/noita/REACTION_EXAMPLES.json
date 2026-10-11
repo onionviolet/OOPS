@@ -1,0 +1,1103 @@
+{
+  "status": "proposals_only_unimplemented",
+  "count": 30,
+  "rules": [
+    {
+      "code": "R01",
+      "source": "data/materials.xml:14862",
+      "source_summary": "Cement cures beside cured concrete after it has aged.",
+      "source_rate_parameter": 70.0,
+      "proposal": {
+        "id": "rule:world.noita_study_01",
+        "revision": 1,
+        "label": "Cement cures beside cured concrete after it has aged",
+        "layer": "world",
+        "owner": "world:proposal.material_lab",
+        "trigger": "contact",
+        "when": {
+          "a": "material_id.cement",
+          "b": "material_id.concrete_static",
+          "extra": {
+            "all": [
+              {
+                "fact": "reaction.participant_a.age_minutes",
+                "op": "gte",
+                "value": 5
+              }
+            ]
+          }
+        },
+        "then": [
+          {
+            "type": "transform",
+            "target": "$a",
+            "into": "material:proposal.concrete_static",
+            "count": 1
+          }
+        ],
+        "chance": 0.1,
+        "stream": "interaction",
+        "explain": "Cement cures beside cured concrete after it has aged.",
+        "contact": "touch"
+      },
+      "adaptation_notes": "Illustrative 0.1 chance and five-minute age threshold are authored placeholders, not Noita rate/unit conversions. Material identity tags, mix presence facts, spent handling, phase targets and quantity settlement require adapters. Third participant binds $via; source geometry is replaced by bounded coarse contact."
+    },
+    {
+      "code": "R02",
+      "source": "data/materials.xml:14913",
+      "source_summary": "Steam condenses against a solid surface.",
+      "source_rate_parameter": 3.0,
+      "proposal": {
+        "id": "rule:world.noita_study_02",
+        "revision": 1,
+        "label": "Steam condenses against a solid surface",
+        "layer": "world",
+        "owner": "world:proposal.material_lab",
+        "trigger": "contact",
+        "when": {
+          "a": "material_id.steam",
+          "b": "static"
+        },
+        "then": [
+          {
+            "type": "transform",
+            "target": "$a",
+            "into": "material:proposal.water",
+            "count": 1
+          }
+        ],
+        "chance": 0.1,
+        "stream": "interaction",
+        "explain": "Steam condenses against a solid surface.",
+        "contact": "touch"
+      },
+      "adaptation_notes": "Illustrative 0.1 chance and five-minute age threshold are authored placeholders, not Noita rate/unit conversions. Material identity tags, mix presence facts, spent handling, phase targets and quantity settlement require adapters. Third participant binds $via; source geometry is replaced by bounded coarse contact."
+    },
+    {
+      "code": "R03",
+      "source": "data/materials.xml:14946",
+      "source_summary": "Fire melts ice without consuming the fire cell.",
+      "source_rate_parameter": 40.0,
+      "proposal": {
+        "id": "rule:world.noita_study_03",
+        "revision": 1,
+        "label": "Fire melts ice without consuming the fire cell",
+        "layer": "world",
+        "owner": "world:proposal.material_lab",
+        "trigger": "contact",
+        "when": {
+          "a": "fire",
+          "b": "material_id.ice"
+        },
+        "then": [
+          {
+            "type": "transform",
+            "target": "$b",
+            "into": "material:proposal.water",
+            "count": 1
+          }
+        ],
+        "chance": 0.1,
+        "stream": "interaction",
+        "explain": "Fire melts ice without consuming the fire cell.",
+        "contact": "touch"
+      },
+      "adaptation_notes": "Illustrative 0.1 chance and five-minute age threshold are authored placeholders, not Noita rate/unit conversions. Material identity tags, mix presence facts, spent handling, phase targets and quantity settlement require adapters. Third participant binds $via; source geometry is replaced by bounded coarse contact."
+    },
+    {
+      "code": "R04",
+      "source": "data/materials.xml:15036",
+      "source_summary": "Ice and chilly water freeze together.",
+      "source_rate_parameter": 10.0,
+      "proposal": {
+        "id": "rule:world.noita_study_04",
+        "revision": 1,
+        "label": "Ice and chilly water freeze together",
+        "layer": "world",
+        "owner": "world:proposal.material_lab",
+        "trigger": "contact",
+        "when": {
+          "a": "material_id.ice",
+          "b": "material_id.water_ice"
+        },
+        "then": [
+          {
+            "type": "transform",
+            "target": "$a",
+            "into": "material:proposal.ice_static",
+            "count": 1
+          },
+          {
+            "type": "transform",
+            "target": "$b",
+            "into": "material:proposal.ice_static",
+            "count": 1
+          }
+        ],
+        "chance": 0.1,
+        "stream": "interaction",
+        "explain": "Ice and chilly water freeze together.",
+        "contact": "touch"
+      },
+      "adaptation_notes": "Illustrative 0.1 chance and five-minute age threshold are authored placeholders, not Noita rate/unit conversions. Material identity tags, mix presence facts, spent handling, phase targets and quantity settlement require adapters. Third participant binds $via; source geometry is replaced by bounded coarse contact."
+    },
+    {
+      "code": "R05",
+      "source": "data/materials.xml:15080",
+      "source_summary": "Water cleans toxic sludge and remains water.",
+      "source_rate_parameter": 13.0,
+      "proposal": {
+        "id": "rule:world.noita_study_05",
+        "revision": 1,
+        "label": "Water cleans toxic sludge and remains water",
+        "layer": "world",
+        "owner": "world:proposal.material_lab",
+        "trigger": "contact",
+        "when": {
+          "a": "material_id.water",
+          "b": "material_id.radioactive_liquid"
+        },
+        "then": [
+          {
+            "type": "transform",
+            "target": "$b",
+            "into": "material:proposal.water",
+            "count": 1
+          }
+        ],
+        "chance": 0.1,
+        "stream": "interaction",
+        "explain": "Water cleans toxic sludge and remains water.",
+        "contact": "touch"
+      },
+      "adaptation_notes": "Illustrative 0.1 chance and five-minute age threshold are authored placeholders, not Noita rate/unit conversions. Material identity tags, mix presence facts, spent handling, phase targets and quantity settlement require adapters. Third participant binds $via; source geometry is replaced by bounded coarse contact."
+    },
+    {
+      "code": "R06",
+      "source": "data/materials.xml:15130",
+      "source_summary": "Salt dissolves into water to make brine.",
+      "source_rate_parameter": 5.0,
+      "proposal": {
+        "id": "rule:world.noita_study_06",
+        "revision": 1,
+        "label": "Salt dissolves into water to make brine",
+        "layer": "world",
+        "owner": "world:proposal.material_lab",
+        "trigger": "contact",
+        "when": {
+          "a": "material_id.salt",
+          "b": "material_id.water"
+        },
+        "then": [
+          {
+            "type": "tag",
+            "target": "$a",
+            "op": "add",
+            "tag": "spent",
+            "s": 1
+          },
+          {
+            "type": "transform",
+            "target": "$b",
+            "into": "material:proposal.water_salt",
+            "count": 1
+          }
+        ],
+        "chance": 0.1,
+        "stream": "interaction",
+        "explain": "Salt dissolves into water to make brine.",
+        "contact": "touch"
+      },
+      "adaptation_notes": "Illustrative 0.1 chance and five-minute age threshold are authored placeholders, not Noita rate/unit conversions. Material identity tags, mix presence facts, spent handling, phase targets and quantity settlement require adapters. Third participant binds $via; source geometry is replaced by bounded coarse contact."
+    },
+    {
+      "code": "R07",
+      "source": "data/materials.xml:15140",
+      "source_summary": "Fire separates brine into salt and steam.",
+      "source_rate_parameter": 20.0,
+      "proposal": {
+        "id": "rule:world.noita_study_07",
+        "revision": 1,
+        "label": "Fire separates brine into salt and steam",
+        "layer": "world",
+        "owner": "world:proposal.material_lab",
+        "trigger": "contact",
+        "when": {
+          "a": "fire",
+          "b": "material_id.water_salt",
+          "extra": {
+            "all": [
+              {
+                "fact": "mix.has.material_id.water_salt",
+                "op": "eq",
+                "value": true
+              }
+            ]
+          }
+        },
+        "then": [
+          {
+            "type": "transform",
+            "target": "$b",
+            "into": "material:proposal.salt",
+            "count": 1
+          },
+          {
+            "type": "transform",
+            "target": "$via",
+            "into": "material:proposal.steam",
+            "count": 1
+          }
+        ],
+        "chance": 0.1,
+        "stream": "interaction",
+        "explain": "Fire separates brine into salt and steam.",
+        "contact": "mix"
+      },
+      "adaptation_notes": "Illustrative 0.1 chance and five-minute age threshold are authored placeholders, not Noita rate/unit conversions. Material identity tags, mix presence facts, spent handling, phase targets and quantity settlement require adapters. Third participant binds $via; source geometry is replaced by bounded coarse contact."
+    },
+    {
+      "code": "R08",
+      "source": "data/materials.xml:15219",
+      "source_summary": "Acid corrodes vulnerable matter into acid gas.",
+      "source_rate_parameter": 50.0,
+      "proposal": {
+        "id": "rule:world.noita_study_08",
+        "revision": 1,
+        "label": "Acid corrodes vulnerable matter into acid gas",
+        "layer": "world",
+        "owner": "world:proposal.material_lab",
+        "trigger": "contact",
+        "when": {
+          "a": "acid",
+          "b": "corrodible"
+        },
+        "then": [
+          {
+            "type": "transform",
+            "target": "$b",
+            "into": "material:proposal.acid_gas",
+            "count": 1
+          }
+        ],
+        "chance": 0.1,
+        "stream": "interaction",
+        "explain": "Acid corrodes vulnerable matter into acid gas.",
+        "contact": "touch"
+      },
+      "adaptation_notes": "Illustrative 0.1 chance and five-minute age threshold are authored placeholders, not Noita rate/unit conversions. Material identity tags, mix presence facts, spent handling, phase targets and quantity settlement require adapters. Third participant binds $via; source geometry is replaced by bounded coarse contact."
+    },
+    {
+      "code": "R09",
+      "source": "data/materials.xml:15260",
+      "source_summary": "Water cools a molten variant and becomes steam.",
+      "source_rate_parameter": 20.0,
+      "proposal": {
+        "id": "rule:world.noita_study_09",
+        "revision": 1,
+        "label": "Water cools a molten variant and becomes steam",
+        "layer": "world",
+        "owner": "world:proposal.material_lab",
+        "trigger": "contact",
+        "when": {
+          "a": {
+            "all": [
+              "meltable",
+              "phase:molten"
+            ]
+          },
+          "b": "material_id.water"
+        },
+        "then": [
+          {
+            "type": "tag",
+            "target": "$a",
+            "op": "set",
+            "tag": "phase:solid",
+            "s": 1
+          },
+          {
+            "type": "transform",
+            "target": "$b",
+            "into": "material:proposal.steam",
+            "count": 1
+          }
+        ],
+        "chance": 0.1,
+        "stream": "interaction",
+        "explain": "Water cools a molten variant and becomes steam.",
+        "contact": "touch"
+      },
+      "adaptation_notes": "Illustrative 0.1 chance and five-minute age threshold are authored placeholders, not Noita rate/unit conversions. Material identity tags, mix presence facts, spent handling, phase targets and quantity settlement require adapters. Third participant binds $via; source geometry is replaced by bounded coarse contact."
+    },
+    {
+      "code": "R10",
+      "source": "data/materials.xml:15306",
+      "source_summary": "Lava and water yield rock and steam.",
+      "source_rate_parameter": 80.0,
+      "proposal": {
+        "id": "rule:world.noita_study_10",
+        "revision": 1,
+        "label": "Lava and water yield rock and steam",
+        "layer": "world",
+        "owner": "world:proposal.material_lab",
+        "trigger": "contact",
+        "when": {
+          "a": "lava",
+          "b": "material_id.water"
+        },
+        "then": [
+          {
+            "type": "transform",
+            "target": "$a",
+            "into": "material:proposal.rock_static",
+            "count": 1
+          },
+          {
+            "type": "transform",
+            "target": "$b",
+            "into": "material:proposal.steam",
+            "count": 1
+          }
+        ],
+        "chance": 0.1,
+        "stream": "interaction",
+        "explain": "Lava and water yield rock and steam.",
+        "contact": "touch"
+      },
+      "adaptation_notes": "Illustrative 0.1 chance and five-minute age threshold are authored placeholders, not Noita rate/unit conversions. Material identity tags, mix presence facts, spent handling, phase targets and quantity settlement require adapters. Third participant binds $via; source geometry is replaced by bounded coarse contact."
+    },
+    {
+      "code": "R11",
+      "source": "data/materials.xml:15324",
+      "source_summary": "Lava and mud yield sand and steam.",
+      "source_rate_parameter": 80.0,
+      "proposal": {
+        "id": "rule:world.noita_study_11",
+        "revision": 1,
+        "label": "Lava and mud yield sand and steam",
+        "layer": "world",
+        "owner": "world:proposal.material_lab",
+        "trigger": "contact",
+        "when": {
+          "a": "lava",
+          "b": "material_id.mud"
+        },
+        "then": [
+          {
+            "type": "transform",
+            "target": "$a",
+            "into": "material:proposal.sand_static",
+            "count": 1
+          },
+          {
+            "type": "transform",
+            "target": "$b",
+            "into": "material:proposal.steam",
+            "count": 1
+          }
+        ],
+        "chance": 0.1,
+        "stream": "interaction",
+        "explain": "Lava and mud yield sand and steam.",
+        "contact": "touch"
+      },
+      "adaptation_notes": "Illustrative 0.1 chance and five-minute age threshold are authored placeholders, not Noita rate/unit conversions. Material identity tags, mix presence facts, spent handling, phase targets and quantity settlement require adapters. Third participant binds $via; source geometry is replaced by bounded coarse contact."
+    },
+    {
+      "code": "R12",
+      "source": "data/materials.xml:15333",
+      "source_summary": "Lava and brine yield glowing rock and steam.",
+      "source_rate_parameter": 80.0,
+      "proposal": {
+        "id": "rule:world.noita_study_12",
+        "revision": 1,
+        "label": "Lava and brine yield glowing rock and steam",
+        "layer": "world",
+        "owner": "world:proposal.material_lab",
+        "trigger": "contact",
+        "when": {
+          "a": "lava",
+          "b": "material_id.water_salt"
+        },
+        "then": [
+          {
+            "type": "transform",
+            "target": "$a",
+            "into": "material:proposal.rock_static_glow",
+            "count": 1
+          },
+          {
+            "type": "transform",
+            "target": "$b",
+            "into": "material:proposal.steam",
+            "count": 1
+          }
+        ],
+        "chance": 0.1,
+        "stream": "interaction",
+        "explain": "Lava and brine yield glowing rock and steam.",
+        "contact": "touch"
+      },
+      "adaptation_notes": "Illustrative 0.1 chance and five-minute age threshold are authored placeholders, not Noita rate/unit conversions. Material identity tags, mix presence facts, spent handling, phase targets and quantity settlement require adapters. Third participant binds $via; source geometry is replaced by bounded coarse contact."
+    },
+    {
+      "code": "R13",
+      "source": "data/materials.xml:15622",
+      "source_summary": "An evaporating material disappears into air.",
+      "source_rate_parameter": 15.0,
+      "proposal": {
+        "id": "rule:world.noita_study_13",
+        "revision": 1,
+        "label": "An evaporating material disappears into air",
+        "layer": "world",
+        "owner": "world:proposal.material_lab",
+        "trigger": "contact",
+        "when": {
+          "a": "evaporable",
+          "b": "material_id.air"
+        },
+        "then": [
+          {
+            "type": "tag",
+            "target": "$a",
+            "op": "add",
+            "tag": "spent",
+            "s": 1
+          }
+        ],
+        "chance": 0.1,
+        "stream": "interaction",
+        "explain": "An evaporating material disappears into air.",
+        "contact": "touch"
+      },
+      "adaptation_notes": "Illustrative 0.1 chance and five-minute age threshold are authored placeholders, not Noita rate/unit conversions. Material identity tags, mix presence facts, spent handling, phase targets and quantity settlement require adapters. Third participant binds $via; source geometry is replaced by bounded coarse contact."
+    },
+    {
+      "code": "R14",
+      "source": "data/materials.xml:15670",
+      "source_summary": "Growth-friendly matter grows grass at an exposed surface.",
+      "source_rate_parameter": 2.0,
+      "proposal": {
+        "id": "rule:world.noita_study_14",
+        "revision": 1,
+        "label": "Growth-friendly matter grows grass at an exposed surface",
+        "layer": "world",
+        "owner": "world:proposal.material_lab",
+        "trigger": "contact",
+        "when": {
+          "a": "grows_grass",
+          "b": "material_id.air"
+        },
+        "then": [
+          {
+            "type": "transform",
+            "target": "$a",
+            "into": "material:proposal.grass",
+            "count": 1
+          }
+        ],
+        "chance": 0.1,
+        "stream": "interaction",
+        "explain": "Growth-friendly matter grows grass at an exposed surface.",
+        "contact": "touch"
+      },
+      "adaptation_notes": "Illustrative 0.1 chance and five-minute age threshold are authored placeholders, not Noita rate/unit conversions. Material identity tags, mix presence facts, spent handling, phase targets and quantity settlement require adapters. Third participant binds $via; source geometry is replaced by bounded coarse contact."
+    },
+    {
+      "code": "R15",
+      "source": "data/materials.xml:15755",
+      "source_summary": "A mushroom seed with blood and air grows a red mushroom.",
+      "source_rate_parameter": 5.0,
+      "proposal": {
+        "id": "rule:world.noita_study_15",
+        "revision": 1,
+        "label": "A mushroom seed with blood and air grows a red mushroom",
+        "layer": "world",
+        "owner": "world:proposal.material_lab",
+        "trigger": "contact",
+        "when": {
+          "a": "material_id.mushroom_seed",
+          "b": "material_id.blood",
+          "extra": {
+            "all": [
+              {
+                "fact": "mix.has.material_id.air",
+                "op": "eq",
+                "value": true
+              }
+            ]
+          }
+        },
+        "then": [
+          {
+            "type": "transform",
+            "target": "$a",
+            "into": "material:proposal.mushroom_giant_red",
+            "count": 1
+          },
+          {
+            "type": "tag",
+            "target": "$b",
+            "op": "add",
+            "tag": "spent",
+            "s": 1
+          }
+        ],
+        "chance": 0.1,
+        "stream": "interaction",
+        "explain": "A mushroom seed with blood and air grows a red mushroom.",
+        "contact": "mix"
+      },
+      "adaptation_notes": "Illustrative 0.1 chance and five-minute age threshold are authored placeholders, not Noita rate/unit conversions. Material identity tags, mix presence facts, spent handling, phase targets and quantity settlement require adapters. Third participant binds $via; source geometry is replaced by bounded coarse contact."
+    },
+    {
+      "code": "R16",
+      "source": "data/materials.xml:15781",
+      "source_summary": "Water revives dry grass.",
+      "source_rate_parameter": 2.0,
+      "proposal": {
+        "id": "rule:world.noita_study_16",
+        "revision": 1,
+        "label": "Water revives dry grass",
+        "layer": "world",
+        "owner": "world:proposal.material_lab",
+        "trigger": "contact",
+        "when": {
+          "a": "material_id.grass_dry",
+          "b": "water"
+        },
+        "then": [
+          {
+            "type": "transform",
+            "target": "$a",
+            "into": "material:proposal.grass",
+            "count": 1
+          },
+          {
+            "type": "tag",
+            "target": "$b",
+            "op": "add",
+            "tag": "spent",
+            "s": 1
+          }
+        ],
+        "chance": 0.1,
+        "stream": "interaction",
+        "explain": "Water revives dry grass.",
+        "contact": "touch"
+      },
+      "adaptation_notes": "Illustrative 0.1 chance and five-minute age threshold are authored placeholders, not Noita rate/unit conversions. Material identity tags, mix presence facts, spent handling, phase targets and quantity settlement require adapters. Third participant binds $via; source geometry is replaced by bounded coarse contact."
+    },
+    {
+      "code": "R17",
+      "source": "data/materials.xml:15787",
+      "source_summary": "Water starts growth from a plant seed.",
+      "source_rate_parameter": 80.0,
+      "proposal": {
+        "id": "rule:world.noita_study_17",
+        "revision": 1,
+        "label": "Water starts growth from a plant seed",
+        "layer": "world",
+        "owner": "world:proposal.material_lab",
+        "trigger": "contact",
+        "when": {
+          "a": "material_id.plant_seed",
+          "b": "material_id.water"
+        },
+        "then": [
+          {
+            "type": "transform",
+            "target": "$a",
+            "into": "material:proposal.plant_material",
+            "count": 1
+          },
+          {
+            "type": "tag",
+            "target": "$b",
+            "op": "add",
+            "tag": "spent",
+            "s": 1
+          }
+        ],
+        "chance": 0.1,
+        "stream": "interaction",
+        "explain": "Water starts growth from a plant seed.",
+        "contact": "touch"
+      },
+      "adaptation_notes": "Illustrative 0.1 chance and five-minute age threshold are authored placeholders, not Noita rate/unit conversions. Material identity tags, mix presence facts, spent handling, phase targets and quantity settlement require adapters. Third participant binds $via; source geometry is replaced by bounded coarse contact."
+    },
+    {
+      "code": "R18",
+      "source": "data/materials.xml:15793",
+      "source_summary": "Air-dependent growth decays when its air requirement fails.",
+      "source_rate_parameter": 10.0,
+      "proposal": {
+        "id": "rule:world.noita_study_18",
+        "revision": 1,
+        "label": "Air-dependent growth decays when its air requirement fails",
+        "layer": "world",
+        "owner": "world:proposal.material_lab",
+        "trigger": "tick",
+        "when": {
+          "a": "requires_air",
+          "extra": {
+            "all": [
+              {
+                "fact": "surroundings.has.air",
+                "op": "eq",
+                "value": false
+              }
+            ]
+          }
+        },
+        "then": [
+          {
+            "type": "transform",
+            "target": "$a",
+            "into": "material:proposal.soil",
+            "count": 1
+          }
+        ],
+        "chance": 0.1,
+        "stream": "interaction",
+        "explain": "Air-dependent growth decays when its air requirement fails."
+      },
+      "adaptation_notes": "Illustrative 0.1 chance and five-minute age threshold are authored placeholders, not Noita rate/unit conversions. Material identity tags, mix presence facts, spent handling, phase targets and quantity settlement require adapters. Third participant binds $via; source geometry is replaced by bounded coarse contact."
+    },
+    {
+      "code": "R19",
+      "source": "data/materials.xml:15888",
+      "source_summary": "Cold blood freezes vulnerable matter while keeping the coolant.",
+      "source_rate_parameter": 90.0,
+      "proposal": {
+        "id": "rule:world.noita_study_19",
+        "revision": 1,
+        "label": "Cold blood freezes vulnerable matter while keeping the coolant",
+        "layer": "world",
+        "owner": "world:proposal.material_lab",
+        "trigger": "contact",
+        "when": {
+          "a": "material_id.blood_cold",
+          "b": "freezable"
+        },
+        "then": [
+          {
+            "type": "transform",
+            "target": "$b",
+            "into": "material:proposal.ice_static",
+            "count": 1
+          }
+        ],
+        "chance": 0.1,
+        "stream": "interaction",
+        "explain": "Cold blood freezes vulnerable matter while keeping the coolant.",
+        "contact": "touch"
+      },
+      "adaptation_notes": "Illustrative 0.1 chance and five-minute age threshold are authored placeholders, not Noita rate/unit conversions. Material identity tags, mix presence facts, spent handling, phase targets and quantity settlement require adapters. Third participant binds $via; source geometry is replaced by bounded coarse contact."
+    },
+    {
+      "code": "R20",
+      "source": "data/materials.xml:16047",
+      "source_summary": "Water slowly rusts a susceptible family.",
+      "source_rate_parameter": 1.0,
+      "proposal": {
+        "id": "rule:world.noita_study_20",
+        "revision": 1,
+        "label": "Water slowly rusts a susceptible family",
+        "layer": "world",
+        "owner": "world:proposal.material_lab",
+        "trigger": "contact",
+        "when": {
+          "a": "rust",
+          "b": "water"
+        },
+        "then": [
+          {
+            "type": "transform",
+            "target": "$a",
+            "into": "material:proposal.rust_static",
+            "count": 1
+          }
+        ],
+        "chance": 0.1,
+        "stream": "interaction",
+        "explain": "Water slowly rusts a susceptible family.",
+        "contact": "touch"
+      },
+      "adaptation_notes": "Illustrative 0.1 chance and five-minute age threshold are authored placeholders, not Noita rate/unit conversions. Material identity tags, mix presence facts, spent handling, phase targets and quantity settlement require adapters. Third participant binds $via; source geometry is replaced by bounded coarse contact."
+    },
+    {
+      "code": "R21",
+      "source": "data/materials.xml:16062",
+      "source_summary": "Water is spent wetting soil into mud.",
+      "source_rate_parameter": 5.0,
+      "proposal": {
+        "id": "rule:world.noita_study_21",
+        "revision": 1,
+        "label": "Water is spent wetting soil into mud",
+        "layer": "world",
+        "owner": "world:proposal.material_lab",
+        "trigger": "contact",
+        "when": {
+          "a": "material_id.water",
+          "b": "material_id.soil"
+        },
+        "then": [
+          {
+            "type": "tag",
+            "target": "$a",
+            "op": "add",
+            "tag": "spent",
+            "s": 1
+          },
+          {
+            "type": "transform",
+            "target": "$b",
+            "into": "material:proposal.mud",
+            "count": 1
+          }
+        ],
+        "chance": 0.1,
+        "stream": "interaction",
+        "explain": "Water is spent wetting soil into mud.",
+        "contact": "touch"
+      },
+      "adaptation_notes": "Illustrative 0.1 chance and five-minute age threshold are authored placeholders, not Noita rate/unit conversions. Material identity tags, mix presence facts, spent handling, phase targets and quantity settlement require adapters. Third participant binds $via; source geometry is replaced by bounded coarse contact."
+    },
+    {
+      "code": "R22",
+      "source": "data/materials.xml:16116",
+      "source_summary": "Precursor and meat become gold-making draught.",
+      "source_rate_parameter": 100.0,
+      "proposal": {
+        "id": "rule:world.noita_study_22",
+        "revision": 1,
+        "label": "Precursor and meat become gold-making draught",
+        "layer": "world",
+        "owner": "world:proposal.material_lab",
+        "trigger": "contact",
+        "when": {
+          "a": "material_id.midas_precursor",
+          "b": "meat"
+        },
+        "then": [
+          {
+            "type": "transform",
+            "target": "$a",
+            "into": "material:proposal.midas",
+            "count": 1
+          },
+          {
+            "type": "transform",
+            "target": "$b",
+            "into": "material:proposal.midas",
+            "count": 1
+          }
+        ],
+        "chance": 0.1,
+        "stream": "interaction",
+        "explain": "Precursor and meat become gold-making draught.",
+        "contact": "touch"
+      },
+      "adaptation_notes": "Illustrative 0.1 chance and five-minute age threshold are authored placeholders, not Noita rate/unit conversions. Material identity tags, mix presence facts, spent handling, phase targets and quantity settlement require adapters. Third participant binds $via; source geometry is replaced by bounded coarse contact."
+    },
+    {
+      "code": "R23",
+      "source": "data/materials.xml:16151",
+      "source_summary": "Gold-making draught turns an eligible family to gold and remains catalyst.",
+      "source_rate_parameter": 100.0,
+      "proposal": {
+        "id": "rule:world.noita_study_23",
+        "revision": 1,
+        "label": "Gold-making draught turns an eligible family to gold and remains catalyst",
+        "layer": "world",
+        "owner": "world:proposal.material_lab",
+        "trigger": "contact",
+        "when": {
+          "a": "material_id.midas",
+          "b": "alchemy"
+        },
+        "then": [
+          {
+            "type": "transform",
+            "target": "$b",
+            "into": "material:proposal.gold",
+            "count": 1
+          }
+        ],
+        "chance": 0.1,
+        "stream": "interaction",
+        "explain": "Gold-making draught turns an eligible family to gold and remains catalyst.",
+        "contact": "touch"
+      },
+      "adaptation_notes": "Illustrative 0.1 chance and five-minute age threshold are authored placeholders, not Noita rate/unit conversions. Material identity tags, mix presence facts, spent handling, phase targets and quantity settlement require adapters. Third participant binds $via; source geometry is replaced by bounded coarse contact."
+    },
+    {
+      "code": "R24",
+      "source": "data/materials.xml:16249",
+      "source_summary": "Purifying powder cleans impure matter into water.",
+      "source_rate_parameter": 80.0,
+      "proposal": {
+        "id": "rule:world.noita_study_24",
+        "revision": 1,
+        "label": "Purifying powder cleans impure matter into water",
+        "layer": "world",
+        "owner": "world:proposal.material_lab",
+        "trigger": "contact",
+        "when": {
+          "a": "material_id.purifying_powder",
+          "b": "impure"
+        },
+        "then": [
+          {
+            "type": "transform",
+            "target": "$b",
+            "into": "material:proposal.water",
+            "count": 1
+          }
+        ],
+        "chance": 0.1,
+        "stream": "interaction",
+        "explain": "Purifying powder cleans impure matter into water.",
+        "contact": "touch"
+      },
+      "adaptation_notes": "Illustrative 0.1 chance and five-minute age threshold are authored placeholders, not Noita rate/unit conversions. Material identity tags, mix presence facts, spent handling, phase targets and quantity settlement require adapters. Third participant binds $via; source geometry is replaced by bounded coarse contact."
+    },
+    {
+      "code": "R25",
+      "source": "data/materials.xml:16264",
+      "source_summary": "Two mobility liquids combine into a dual-function liquid.",
+      "source_rate_parameter": 15.0,
+      "proposal": {
+        "id": "rule:world.noita_study_25",
+        "revision": 1,
+        "label": "Two mobility liquids combine into a dual-function liquid",
+        "layer": "world",
+        "owner": "world:proposal.material_lab",
+        "trigger": "contact",
+        "when": {
+          "a": "material_id.magic_liquid_faster_levitation",
+          "b": "material_id.magic_liquid_movement_faster"
+        },
+        "then": [
+          {
+            "type": "transform",
+            "target": "$a",
+            "into": "material:proposal.magic_liquid_faster_levitation_and_movement",
+            "count": 1
+          },
+          {
+            "type": "transform",
+            "target": "$b",
+            "into": "material:proposal.magic_liquid_faster_levitation_and_movement",
+            "count": 1
+          }
+        ],
+        "chance": 0.1,
+        "stream": "interaction",
+        "explain": "Two mobility liquids combine into a dual-function liquid.",
+        "contact": "touch"
+      },
+      "adaptation_notes": "Illustrative 0.1 chance and five-minute age threshold are authored placeholders, not Noita rate/unit conversions. Material identity tags, mix presence facts, spent handling, phase targets and quantity settlement require adapters. Third participant binds $via; source geometry is replaced by bounded coarse contact."
+    },
+    {
+      "code": "R26",
+      "source": "data/materials.xml:16270",
+      "source_summary": "Concentrated mana converts water into more concentrated mana.",
+      "source_rate_parameter": 25.0,
+      "proposal": {
+        "id": "rule:world.noita_study_26",
+        "revision": 1,
+        "label": "Concentrated mana converts water into more concentrated mana",
+        "layer": "world",
+        "owner": "world:proposal.material_lab",
+        "trigger": "contact",
+        "when": {
+          "a": "material_id.magic_liquid_mana_regeneration",
+          "b": "material_id.water"
+        },
+        "then": [
+          {
+            "type": "transform",
+            "target": "$b",
+            "into": "material:proposal.magic_liquid_mana_regeneration",
+            "count": 1
+          }
+        ],
+        "chance": 0.1,
+        "stream": "interaction",
+        "explain": "Concentrated mana converts water into more concentrated mana.",
+        "contact": "touch"
+      },
+      "adaptation_notes": "Illustrative 0.1 chance and five-minute age threshold are authored placeholders, not Noita rate/unit conversions. Material identity tags, mix presence facts, spent handling, phase targets and quantity settlement require adapters. Third participant binds $via; source geometry is replaced by bounded coarse contact."
+    },
+    {
+      "code": "R27",
+      "source": "data/materials.xml:16313",
+      "source_summary": "Water dilutes invisibility liquid away.",
+      "source_rate_parameter": 21.0,
+      "proposal": {
+        "id": "rule:world.noita_study_27",
+        "revision": 1,
+        "label": "Water dilutes invisibility liquid away",
+        "layer": "world",
+        "owner": "world:proposal.material_lab",
+        "trigger": "contact",
+        "when": {
+          "a": "material_id.magic_liquid_invisibility",
+          "b": "material_id.water"
+        },
+        "then": [
+          {
+            "type": "transform",
+            "target": "$a",
+            "into": "material:proposal.water",
+            "count": 1
+          }
+        ],
+        "chance": 0.1,
+        "stream": "interaction",
+        "explain": "Water dilutes invisibility liquid away.",
+        "contact": "touch"
+      },
+      "adaptation_notes": "Illustrative 0.1 chance and five-minute age threshold are authored placeholders, not Noita rate/unit conversions. Material identity tags, mix presence facts, spent handling, phase targets and quantity settlement require adapters. Third participant binds $via; source geometry is replaced by bounded coarse contact."
+    },
+    {
+      "code": "R28",
+      "source": "data/materials.xml:16319",
+      "source_summary": "Confusion liquid with blood and oil forms unstable polymorph liquid.",
+      "source_rate_parameter": 35.0,
+      "proposal": {
+        "id": "rule:world.noita_study_28",
+        "revision": 1,
+        "label": "Confusion liquid with blood and oil forms unstable polymorph liquid",
+        "layer": "world",
+        "owner": "world:proposal.material_lab",
+        "trigger": "contact",
+        "when": {
+          "a": "material_id.material_confusion",
+          "b": "material_id.blood",
+          "extra": {
+            "all": [
+              {
+                "fact": "mix.has.material_id.oil",
+                "op": "eq",
+                "value": true
+              }
+            ]
+          }
+        },
+        "then": [
+          {
+            "type": "transform",
+            "target": "$a",
+            "into": "material:proposal.magic_liquid_unstable_polymorph",
+            "count": 1
+          },
+          {
+            "type": "transform",
+            "target": "$b",
+            "into": "material:proposal.magic_liquid_unstable_polymorph",
+            "count": 1
+          },
+          {
+            "type": "transform",
+            "target": "$via",
+            "into": "material:proposal.magic_liquid_unstable_polymorph",
+            "count": 1
+          }
+        ],
+        "chance": 0.1,
+        "stream": "interaction",
+        "explain": "Confusion liquid with blood and oil forms unstable polymorph liquid.",
+        "contact": "mix"
+      },
+      "adaptation_notes": "Illustrative 0.1 chance and five-minute age threshold are authored placeholders, not Noita rate/unit conversions. Material identity tags, mix presence facts, spent handling, phase targets and quantity settlement require adapters. Third participant binds $via; source geometry is replaced by bounded coarse contact."
+    },
+    {
+      "code": "R29",
+      "source": "data/materials.xml:16854",
+      "source_summary": "Heat and oil warm raw meat, producing smoke.",
+      "source_rate_parameter": 10.0,
+      "proposal": {
+        "id": "rule:world.noita_study_29",
+        "revision": 1,
+        "label": "Heat and oil warm raw meat, producing smoke",
+        "layer": "world",
+        "owner": "world:proposal.material_lab",
+        "trigger": "contact",
+        "when": {
+          "a": "material_id.meat",
+          "b": "fire",
+          "extra": {
+            "all": [
+              {
+                "fact": "mix.has.material_id.oil",
+                "op": "eq",
+                "value": true
+              }
+            ]
+          }
+        },
+        "then": [
+          {
+            "type": "transform",
+            "target": "$a",
+            "into": "material:proposal.meat_warm",
+            "count": 1
+          },
+          {
+            "type": "transform",
+            "target": "$via",
+            "into": "material:proposal.smoke",
+            "count": 1
+          }
+        ],
+        "chance": 0.1,
+        "stream": "interaction",
+        "explain": "Heat and oil warm raw meat, producing smoke.",
+        "contact": "mix"
+      },
+      "adaptation_notes": "Illustrative 0.1 chance and five-minute age threshold are authored placeholders, not Noita rate/unit conversions. Material identity tags, mix presence facts, spent handling, phase targets and quantity settlement require adapters. Third participant binds $via; source geometry is replaced by bounded coarse contact."
+    },
+    {
+      "code": "R30",
+      "source": "data/materials.xml:16704",
+      "source_summary": "Rat powder is spent to create a creature entity.",
+      "source_rate_parameter": 100.0,
+      "proposal": {
+        "id": "rule:world.noita_study_30",
+        "revision": 1,
+        "label": "Rat powder is spent to create a creature entity",
+        "layer": "world",
+        "owner": "world:proposal.material_lab",
+        "trigger": "contact",
+        "when": {
+          "a": "material_id.rat_powder",
+          "b": "material_id.air"
+        },
+        "then": [
+          {
+            "type": "tag",
+            "target": "$a",
+            "op": "add",
+            "tag": "spent",
+            "s": 1
+          },
+          {
+            "type": "emit",
+            "hook": "reaction_spawn_creature",
+            "a": "$a",
+            "b": "$place"
+          }
+        ],
+        "chance": 0.1,
+        "stream": "interaction",
+        "explain": "Rat powder is spent to create a creature entity.",
+        "contact": "touch"
+      },
+      "adaptation_notes": "Illustrative 0.1 chance and five-minute age threshold are authored placeholders, not Noita rate/unit conversions. Material identity tags, mix presence facts, spent handling, phase targets and quantity settlement require adapters. Third participant binds $via; source geometry is replaced by bounded coarse contact."
+    }
+  ]
+}

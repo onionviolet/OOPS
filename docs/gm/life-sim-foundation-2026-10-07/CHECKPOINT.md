@@ -1,0 +1,13 @@
+# Foundation checkpoint, revision 5, 2026-10-07
+
+Identity: life-sim foundation GM, root runtime. Objective: assignment passes E then F. Both bounded playable slices completed; no new scope or commit authorization. North star/world names remain proposals.
+
+Ownership: save_files.js, save/record/NPC portions of main.js, life_record*.js, npc_lives*.js, tests/life_record.test.js and tests/npc_lives.test.js. Preserve other live main.js lanes. Experience owns life_experience*.js, chronicle.js/chronicle_ui.js and event_feed*.js. API acknowledgment and narrow youth-XP function handoff are in EXPERIENCE_ACK.md and FOUNDATION_RESPONSE.md. No heir/save writer handoff. Source reader /root/history_sources complete; owns SOURCE_NOTES.md.
+
+Progress: E adds optional life_record schema1, recent64/year200 compaction and conservative shared-origin4MiB save guard; export works after manual or transactional storage rejection. Expansion schema5-11 preserved. Absent record starts at import/load date, without transplanting current biography. F adds dormant optional npc_lives schema1: one original finite household, ages from birth year and saved coarse marriage/birth/death schedule,16-news cap. Existing combat/trader NPCs untouched.
+
+Evidence: REPORT.md, SOURCE_NOTES.md, E_BROWSER.json, E_QUOTA_TRANSACTION.json, F_BROWSER_PRIMARY.json, OLD_IMPORT.json, F_BUILD.json and LIVE_READBACK.json. 15 distinct focused tests passed across bounded runs. Browser primary F assertions passed; later fixture encoder failed in that script, so it is not reported as exit0. Corrected separate oldschema11 import passed, zero page errors. Screenshots /tmp/yairpg-life-foundation-proof/remembered-day.png and village-lives.png visually inspected. Generated saves only. No full regression or actual world-travel proof.
+
+Runtime: playable verified F snapshot /tmp/yairpg-life-foundation-f-20261007, bundle3ad476cf6ef5, originhttp://127.0.0.1:18318, server session34600. E snapshot on18317 (server42442). Final old-import session13284 passed and exited0; its browser closed. Other lanes/processes retained. Shared checkout was rebuilt once early accidentally; index.html generated fingerprint is not authoritative for F. Do not overwrite it if another lane updated it.
+
+Resume: no further foundation gameplay writes under this finite result. Show/play the F snapshot. Coordinator reviews live source areas and acceptance scope before integrating. Broader household/travel/regression, heir host, chronicle-note ingestion and unified Life presentation are explicit later gates in ACCEPTANCE_BACKLOG.md. Check live writers before any new shared integration.

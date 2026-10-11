@@ -1,0 +1,19 @@
+{
+  "url": "http://127.0.0.1:18621",
+  "findings": [
+    "Combined rebuilt bundle starts a real fresh vanilla game and completes the elder greeting without enrolling the new systems.",
+    "The supplied generated review file imports through the real loader and exposes the four contextual Here sections without granting a procedure, appointment or tray."
+  ],
+  "errors": [],
+  "resourceErrors": [],
+  "limits": [
+    "Generated funded/supplied fixture has high Cooking and two extra real Eda staves so both stock purchase and demonstration can be reviewed.",
+    "This smoke verifies combined initialization, import and contextual controls; individual game browser receipts own their longer journeys."
+  ],
+  "schema": 1,
+  "script": "combined_browser.cjs",
+  "exit_code": 0,
+  "build_receipt": "four-r1-BUILD.json",
+  "bundle": "7c4fe2b159f0",
+  "screenshot": "/tmp/yairpg-nonfactorio-proof/combined/four-game-preview.png"
+}

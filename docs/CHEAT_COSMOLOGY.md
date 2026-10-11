@@ -543,6 +543,331 @@ prestige and the rest are turned into twelve idea cards in
 
 [CHEAT_LIBRARY.md](CHEAT_LIBRARY.md) (2026-10-10): cheats as gameplay. Each cheat family adds its own loop, verbs, resources and screens; library cards extend the placement card with engine hooks, numbers, growth and who can hold them; worlds, origins, rivals, items, shops and events draw from the library.
 
+## Raising the cap (proposal, 2026-10-10)
+
+Weibao: "expanding our cosmology? Raising the cap? more to consider?"
+
+**Where the cap sits now.** Four scopes (C1 world, C2 cluster, C3
+multiverse, C4 between multiverses) plus five infinity expeditions (C5 to
+C9) in [the power-scaling cosmology](research/power-scaling-2026-10-08/COSMOLOGY.md).
+C4 says it is not "a final omniverse score". The fun ranking stops at 5,
+the tier words stop at Origin-class, and the fourth-wall ladder stops at
+R7. Everything below is a palette to pick from per world, not a new
+ladder every world must climb.
+
+### Layers above C4
+
+These are relationships, like C1 to C4. A higher layer changes what
+actions *mean*; it doesn't add a bigger number.
+
+| Code | Layer | What lives or happens there | Verbs it opens | Cheats that already touch it |
+|---|---|---|---|---|
+| C10 | **The sea between** | The medium every C4 crossing travels through: currents, storms, drifting dead worlds, things native to nowhere | Navigate, salvage dead worlds, chart currents, meet natives of nowhere | Reserve bodies (Speedrunning), the A.I. Chip, anything that has crossed (I) |
+| C11 | **The story layer** | Worlds as stories: genre is physics, protagonist halo is a force, tropes are laws | Read what kind of story you're in, change genre locally, steal or refuse a role | Gu Changge's fortune plundering, plot armor (D2a), villain systems |
+| C12 | **The audience layer** | Who watches: attention, ratings and sponsorship as fuel; constellations, broadcasts, gods as viewers | Perform, earn or starve attention, hide from it, sell your story | Omniscient Reader's constellations and Fourth Wall; hub ranking boards as a small version |
+| C13 | **The author layer** | Who writes: revisions, retcons, drafts abandoned, canon versus fan versions as parallel truths | Find an abandoned draft, argue with a revision, live in a fan branch | Fan-fiction premises (selves, AUs); timeline revisions |
+| C14 | **The game layer** | The run, the save, the atlas, the prestige reset, the player | Remember across resets, touch the save, notice the player | [Player-side cheats](CHEAT_LIBRARY.md#player-side-mechanics-as-in-world-cheats-idea-cards-2026-10-10), [fourth-wall ladder](PRESENTATION_AND_FOURTH_WALL.md#when-can-they-reach-outside-a-ladder-of-reach), [cosmic events](COSMIC_EVENTS.md) |
+| C15 | **The source** | What comes before rules: the blank, the first word, Origin-class concepts. May be empty, may be someone | Unknown by design; a cosmology card decides if it exists | None placed by feats yet |
+
+**The top can loop.** A cosmology card can make the order a circle
+instead of a stack: the author is a character in a farmer's dream, the
+audience lives inside the story it watches, the source is the player's
+own first run. Strange loops keep "the top" from being a final boss and
+let a small person matter at every scale.
+
+### Rules that keep a raised cap good
+
+- **UC1 Each cosmology card declares its own cap.** Most worlds cap at C1
+  and never mention more. The cap is an adjective of the card, like every
+  other limit.
+- **UC2 Discovered, not announced.** A layer above the current cap first
+  shows as a crack: an anti-feat nobody can explain, an outlier, a
+  character who talks to someone off-screen. Which layer truly exists in a
+  given cosmology is a [sealed secret](worlds/WORLD_SECRETS_AND_DISCOVERY.md#sealed-secrets-standard-rule-2026-10-10)
+  once chosen.
+- **UC3 Higher doesn't automatically win.** The existing precedence rule
+  holds: state domains and conditions first. An author-layer being that
+  comes down as an avatar can lose to a knife (avatar versus true body). A
+  world can choose layer-wins if it wants.
+- **UC4 New verbs, not bigger numbers.** Each layer opens actions that
+  didn't exist below (reading genre, earning attention, finding drafts).
+  If a layer only multiplies damage, it isn't a layer yet.
+- **UC5 Home stays meaningful.** Old obstacles stay easy, ordinary life
+  stays reachable, and the warm meal after the cosmic victory still
+  matters (power-scaling finding).
+- **UC6 The real-world line doesn't move.** Raising the cosmic cap never
+  raises the fourth-wall ceiling. R7 (no personal files, no OS data, no
+  real harm) is fixed by safety, not by story.
+
+### Raising the other caps
+
+| Code | Cap | How to raise it |
+|---|---|---|
+| UC7 | **Fun ranking (1 to 5)** | Boards saturate. When someone breaks a hub board's scale, the board publishes a new scale version, adds 6 or "off chart", and old ratings get re-graded. Scale inflation becomes lore and gossip |
+| UC8 | **Tier words (Knack to Origin-class)** | Add words only as vocabulary: Story-class (bends genre), Audience-class (runs on attention), Author-class (revises), Game-class (survives resets), Unwritten (no word yet). Still scope, not rank |
+| UC9 | **Scope by feats (placement card field 5)** | Accepts C10 to C15. A claim of C12 reach stays a statement until a feat is seen there |
+| UC10 | **A cheat's own ceiling (card field 10)** | Ways past: break it (a trial), borrow it (ride someone else's ceiling), move (a world with a higher cap), raise the world's cap (change a world law), or become the cap (others are now limited by you) |
+| UC11 | **A world's ceiling** | Shapes: a hard wall, soft (diminishing returns), guarded (an enforcer, Heaven's Will), sealed (once open, now closed: a fallen heaven), absent. Shape tells the player what kind of effort raises it |
+| UC12 | **The number cap** | The idle-game cap made cosmic. When a number nears the engine's float limit, the world treats it as an edge: the sky cracks, a cosmic event triggers, or a prestige layer opens (like Infinity in Antimatter Dimensions). Overflow spills into something: fortune, fate's heat, attention |
+| UC13 | **Multiplier caps** | Simple cheats (100x systems) stack until they hit a world's cap. The excess isn't lost by default: it pools, leaks into the world (crops grow too fast, rivals notice) or carries to the next world with a higher cap |
+
+### More to consider
+
+- **UC14 Who lives up there.** Natives of the sea between, audiences with
+  tastes, editors, abandoned characters from cut drafts, other players'
+  runs (ghost data). Each is a fitting character for some world.
+- **UC15 Going down is a power too.** A Story-class being choosing to live
+  as a farmer, a sealed god, a retired multiversal; descent as a path with
+  its own verbs (hiding, forgetting, being ordinary on purpose).
+- **UC16 Layer sickness.** Reaching a layer early costs something:
+  perceiving yourself as a character can bring dread, apathy or a
+  Flaw-like trait. Per world, never mandatory.
+- **UC17 Layer economies.** Attention (C12) and fortune (C11) are
+  currencies; brokers convert them across layers at treaty rates, linking
+  to [verse equalization](#verse-equalization-converting-between-systems).
+- **UC18 Contested top.** Two cosmologies can each claim to contain the
+  other. Meeting at C4 or C10 decides nothing; the dispute is lore.
+- **UC19 Idle progress at cosmic scale.** Higher layers tick slower in
+  your time and faster in theirs: one prestige reset is a day to the
+  audience, an age to the world.
+- **UC20 The first milestone's crack.** One realm, one prestige layer can
+  still hint at C14: a character who remembers the last reset, once.
+
+**Suggestions:**
+- **G1** Keep the first milestone capped at C1 with UC20 as its only crack.
+  Cheap, and it makes the later climb feel earned.
+- **G2** UC12 (number cap as edge) is the most native raise for an idle
+  game, because the overflow and the prestige reset are already there.
+  Good first cosmic beat once the slice is playable.
+- **G3** When a world's top layer is chosen, seal it under UC2 and refer
+  to it by ID only.
+
+## Using r/powerscaling and its neighbors (proposal, 2026-10-10)
+
+Weibao: "Are we using the r/powerscaling type of stuff and more? More to
+consider?"
+
+**What we use now.** The 2026-10-08 lane read about ten Reddit threads
+(r/PowerScaling, r/whowouldwin, r/CharacterRant, r/ProgressionFantasy,
+r/litrpg) and VS Battles wiki excerpts. It kept the vocabulary
+([glossary G01 to G24](research/power-scaling-2026-10-08/GLOSSARY.md):
+feats, statements, anti-feats, outliers, hax, durability negation,
+scaling chains, avatar versus true body) and the argument mistakes as
+investigations (F6 to F12). It was written under the "no universal rank"
+framing that Weibao never accepted, so it treated tier ladders as
+vocabulary only.
+
+**What we haven't used.** The community's *practices*: how people build
+matchups, argue, compile evidence and rate things. Those are game loops,
+not just words. Recalled from general knowledge, not freshly re-read;
+send a research lane before treating any term's exact community meaning
+as verified.
+
+### Community practices as game pieces
+
+| Code | Practice | What it means there | Game use |
+|---|---|---|---|
+| PS1 | **Keys** | A character at a specific point in their story (early, post-timeskip, final) | Your own keys: the Notebook and boards rate *which version* of you. A rival fights your old key from a rumor |
+| PS2 | **Low-end / high-end** | The weakest and strongest reasonable reading of a feat | Scholars publish ranges, not points; bets pay on which end proves true |
+| PS3 | **Calcs** | Physics estimates of a feat (energy to split a mountain) | A scholar path that sells calcs; calcs can be wrong (F12), and a debunk is a quest |
+| PS4 | **Standard battle assumptions** | Default fight rules: in character, no prep, bloodlusted or not | Arena and hub matchups declare conditions; an "IC" round, a "bloodlusted" round and a "full prep" round are three different contests |
+| PS5 | **Win conditions** | KO, death, ring-out, incapacitation, being sent away (BFR) | Duels, trials and cosmic events state what counts as winning; a weak cheat can win by the right condition |
+| PS6 | **Speed equalization** | Matching speeds so skill decides | Another [verse equalization](#verse-equalization-converting-between-systems) mode, partial by axis |
+| PS7 | **Immortality and regeneration types** | Graded kinds: survive fatal wounds, regrow from a cell, return from erasure, exist conceptually | Each is a separate "what kills you" question per character; counters target a type, not "immortality" |
+| PS8 | **Hax resistance** | Which hax a character shrugs off, with evidence | Resistances are found by testing, recorded in the Notebook, and can be wrong |
+| PS9 | **Respect threads** | Cited lists of a character's feats with page numbers | The Notebook's enemy and self pages *are* respect threads; NPCs compile them about you, and an incomplete one misleads them |
+| PS10 | **Wank and downplay** | Fans inflating or shrinking a character | Gossip inflates your legend, rivals downplay it; both shift how NPCs act without changing your real power |
+| PS11 | **Debunks** | Showing a claimed feat was misread | A quest verb: debunk a rival's legend, or have yours debunked |
+| PS12 | **PIS / CIS** | Plot- or character-induced stupidity explains an anti-feat | NPCs can be wrong in character: a proud elder refuses to flee, and that's a real anti-feat cause to investigate |
+| PS13 | **Jobbers and the Worf effect** | Strong characters losing to show a new threat is strong | A world event: the respected guardian loses on screen to signal danger; the player can prevent it or learn from it |
+| PS14 | **Power creep** | Later arcs inflate earlier ceilings | World ages and editions: later eras outclass earlier ones, and old masters feel it |
+| PS15 | **Featless** | Hyped, never shown | Legends with no recorded feat: the scariest and the least reliable entries on a board |
+| PS16 | **Scaling to own attacks** | A character can survive what they dish out | A scholar's assumption, often true, sometimes a fatal mistake |
+| PS17 | **Matchup threads** | "Who would win" prompts with rules | Hub arena events and tavern bets with posted prompts; the player can enter, rig, or bet |
+| PS18 | **Tier list making** | Community argues a ranking | The [fun ranking](#fun-ranking-for-funsies) as an in-world board that reacts to new feats, with a comments section of NPCs |
+
+### In-world rating institutions from other fiction
+
+Several works already turned power rating into a setting's own
+institution. Each is a model for a hub, guild or empire that rates
+people, with its own blind spots.
+
+| Code | Model (source) | How it rates | Blind spot to play with |
+|---|---|---|---|
+| PS19 | Threat classes (Worm: PRT ratings like Mover, Brute, Thinker, Master, with numbers) | By *kind* of power plus a danger number, for response planning | Rates threat, not person; a rating can be gamed or kept secret |
+| PS20 | Disaster levels (One Punch Man: Wolf to God) | By damage a monster could do | Ignores intent and hax; a weak-rated threat surprises |
+| PS21 | Hero rankings (One Punch Man, My Hero Academia) | Popularity and results | Fame, not strength; the strongest can be unranked |
+| PS22 | Sorcerer grades (Jujutsu Kaisen: grades 4 to special) | By what a sorcerer can handle | Politics decide grades; already in [the JJK notes](IDEA_INDEX.md) |
+| PS23 | Containment classes (SCP: Safe, Euclid, Keter and others) | By how hard something is to contain, not how strong | A world-ending item can be Safe if it's easy to box |
+| PS24 | Kardashev scale | Civilizations by energy used | Rates a people, not a person; hub empires could use it |
+| PS25 | Hunter licenses, adventurer ranks (Hunter x Hunter, isekai guilds) | By tests and completed jobs | Ranks lag reality; a newcomer far past their letter |
+
+### More to consider
+
+- **PS26 Rating as an axis set, not one number.** Combine institutions:
+  threat class (kind), disaster level (damage), containment class
+  (difficulty) and fame. Same person, four honest ratings that disagree.
+- **PS27 The community itself as NPCs.** A hub's scaling forum: regulars
+  with pet characters, a calc group, a moderator who bans wank, a lurker
+  who is secretly the person being debated.
+- **PS28 Being scaled hurts or helps.** A high rating draws challengers
+  and bounties; a low one lets you hide (link to cosmic events' "stay a
+  nobody" counter).
+- **PS29 Scaling the player across runs.** The atlas keeps keys of every
+  past life; a fun "who would win" between your own lives, or one life's
+  NPCs arguing about another.
+- **PS30 Absolute mode with a real tier chart.** A cosmology card that
+  picks the Absolute equalization mode can use a VSBW-style chart as
+  engine truth, for that cosmology only.
+- **PS31 Outerversal claims as C10 to C15 lore.** Community labels above
+  multiversal map loosely onto the [raised cap](#raising-the-cap-proposal-2026-10-10):
+  scholars argue whether a being is "outerversal" while the card says
+  which layer it actually touches.
+- **PS32 Matchup prompts as content generation.** A generator that writes
+  "who would win" prompts from the cheat library gives endless arena and
+  tavern events cheaply.
+
+**Suggestions:**
+- **G4** PS9 (the Notebook as a respect thread) and PS1 (keys) are the
+  cheapest wins: the feat notebook is already the lane's first proposal.
+- **G5** Send a short research lane to verify the community terms and add
+  respect-thread and matchup-thread examples before any of these become
+  UI text.
+
+## Power scaling in play: expanded (proposal, 2026-10-10)
+
+Weibao: "save accordingly, expand on ideas and more?"
+
+This expands PS1 to PS32 into shapes the engine could hold, then adds new
+angles. Still a palette: a farming world may use only the tavern board.
+
+### The feat record (the one shape most of this needs)
+
+Every PS idea reads from one record. Proposal fields:
+
+| Field | Holds | Feeds |
+|---|---|---|
+| What happened | Effect, target, place, outcome | Respect threads (PS9), calcs (PS3) |
+| Who | Actor and the **key** they were in (PS1) | Keys, power creep (PS14) |
+| Seen by | Observers, their skill and bias | Wank and downplay (PS10) |
+| Conditions | Prep, fuel, help, terrain, intent (in character or all-out) | Battle assumptions (PS4) |
+| Reading | Low-end and high-end (PS2), plus any calc and who made it | Bets, scholar sales |
+| Status | Rumor, witnessed, verified, debunked, outlier | Debunks (PS11), featless legends (PS15) |
+| Spread | Who has heard it, in what distorted form | Fame, challengers (PS28) |
+
+One true record, many copies. The engine keeps what really happened;
+each NPC, board and institution holds a *copy* that can be partial,
+inflated or wrong. Ratings are computed from copies, never from truth.
+That one rule makes wank, downplay, debunks, wrong boards and hiding all
+fall out for free.
+
+### Keys in depth (PS1)
+
+- **Your keys are automatic.** Each life chapter (a breakthrough, a world
+  change, a lost arm) closes a key. The Notebook shows "Early key",
+  "Post-war key" and so on, with feats sorted under each.
+- **The world fights your stale key.** A rival who last saw you three
+  keys ago prepares for that version. Growing fast is a stealth bonus;
+  being studied closely removes it.
+- **Keys can go down.** An injury, a sealed cheat or a new body opens a
+  weaker key. Boards that haven't heard still rate the old one, which
+  protects you or gets you challenged by people expecting less.
+- **Composite errors.** NPC scholars blend your keys into a composite
+  (G19) and get both your strengths and your limits wrong.
+
+### Contests with declared assumptions (PS4, PS5, PS6)
+
+A contest card states, before anything happens:
+
+1. **Conduct:** in character, all-out, or holding back to a stated level.
+2. **Knowledge:** blind, rumor-only, full respect thread, or full prep.
+3. **Equalization:** none, speed only, stats, or cheats sealed.
+4. **Win condition:** knockout, ring-out, sent away, first blood, yield,
+   objective (steal the flag), audience vote.
+5. **Stakes:** pride, money, a title, a life.
+
+The same two fighters give very different results under different cards.
+A trickster cheat that loses every knockout card might win every ring-out
+card. Players learn to pick, rig or refuse cards, which is skill, not stats.
+
+### Ways of not dying (PS7)
+
+Replace "immortal" with a named answer to "what does it take?":
+
+| Code | Survives | Ended by |
+|---|---|---|
+| PS7a | Wounds that should kill | Enough damage, or a wound it can't close |
+| PS7b | Losing most of the body | Destroying the last piece, or the core |
+| PS7c | Total destruction, returns from a stored anchor | Finding and breaking the anchor (reserve bodies, phylacteries) |
+| PS7d | Death, returns in time | Breaking the loop, or exhausting its fuel |
+| PS7e | Existing as an idea or role | Making everyone forget, or giving the role away |
+| PS7f | Never dying by age only | Anything else |
+
+A character can stack several. A counter names one type, so a
+"kills immortals" blade that handles PS7a does nothing to PS7c.
+
+### Rating institutions as one card (PS19 to PS26)
+
+Each institution gets the same card: **what it rates** (threat, damage,
+containment, fame, job record, energy), **how it learns** (tests,
+reports, spies, popularity), **scale** (letters, numbers, animal names),
+**who it serves**, **its blind spot**, and **what a rating does** (pay,
+access, bounties, required escorts). Put three in one hub and the player
+can be Keter, rank C and Tiger at once, and each label opens or closes
+different doors.
+
+### The scaling community as a living place (PS17, PS27, PS32)
+
+- **Regulars with pets.** A scholar who always overrates sword saints; a
+  calc group that is always low-end; a hype merchant who sells inflated
+  legends to fighters who want challengers.
+- **Threads as events.** A matchup prompt goes up. NPCs argue for days.
+  The player can post evidence, stay silent, or settle it for real.
+- **Settling it for real costs.** Proving a feat means showing it, which
+  updates everyone's copy of your record, including your enemies'.
+- **Generated prompts** come from the cheat library and current rumors,
+  so the board talks about what is happening in your world now.
+
+### New angles
+
+- **PS33 Sandbagging and fake anti-feats.** Lose on purpose, stage a
+  failure, hide a cheat. Your record stays true; everyone's copy is
+  wrong in your favor until someone debunks your anti-feat.
+- **PS34 Feat farming.** Stage feats for the board: fight a rated monster
+  in public, hire witnesses. Inflates your rating cheaply and draws
+  challengers you can't handle.
+- **PS35 A legend's manager.** A career: PR for fighters. Plant
+  rumors, time reveals, suppress embarrassing anti-feats.
+- **PS36 Scaling things, not people.** Items, places, techniques and
+  worlds get respect threads too. "Is this sword really dragon-rated?" is
+  an appraisal quest.
+- **PS37 Cheat matchups.** Boards argue which cheat beats which. The
+  actual answer comes from [when cheats meet](#when-cheats-meet-2026-10-10-codex),
+  and a board can be confidently wrong about it.
+- **PS38 Translation drift.** A feat told across worlds changes in each
+  retelling, the in-world version of a machine translation (U). Far-away
+  legends are the least reliable.
+- **PS39 Scaling yourself honestly.** The player's own Notebook rates you
+  from your known feats; the gap between it and the board's rating is
+  the danger zone (overconfidence or hidden strength).
+- **PS40 Analysis shows as entertainment.** A hub broadcast does a
+  Death Battle-style breakdown of two famous fighters, then the fight
+  happens. Links to the audience layer (C12).
+- **PS41 The board noticing the player layer.** A board that keeps
+  rating someone who keeps coming back after resets is a gentle C14
+  crack (UC20).
+- **PS42 Life-sim careers from all of this.** Scholar, calc
+  specialist, bookie, arena matchmaker, legend manager, debunker,
+  containment officer, rank examiner. Each works at any scale, from a
+  village wrestling ring to a multiverse hub.
+
+**Suggestions:**
+- **G6** Build the feat record with "one truth, many copies" first;
+  nearly every PS idea is a view over it.
+- **G7** First playable slice: a tavern board with one wrong rating about
+  the player, and the choice to correct it, exploit it or ignore it. It
+  fits the one-realm milestone and tests copies, debunks and fame.
+
 ## Placing the 2026-10-10 anime and web-novel wave (proposal, Claude)
 
 Weibao: "whats next? Consider aspects like how they fit into our

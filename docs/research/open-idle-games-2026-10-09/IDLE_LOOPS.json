@@ -1,0 +1,212 @@
+{
+  "as_of": "2026-10-09",
+  "scope": "Source-inspected research only; no gameplay executed",
+  "repositories": [
+    {
+      "role": "original",
+      "url": "https://github.com/StopSign/stopsign.github.io",
+      "clone_directory": "/Users/weiwei/.codex/research/idle-loops/original",
+      "game_subdirectory": "idleLoops",
+      "commit": "d41bf197f9203e6da6f72628a9d76369b8140d57",
+      "commit_date": "2026-06-14T17:27:04+02:00",
+      "commit_subject": "Changes",
+      "shallow": true,
+      "repository_license": {
+        "spdx": "MIT",
+        "file": "LICENSE.md",
+        "notice": "Copyright (c) 2022 StopSign"
+      }
+    },
+    {
+      "role": "maintained",
+      "url": "https://github.com/omsi6/omsi6.github.io",
+      "clone_directory": "/Users/weiwei/.codex/research/idle-loops/maintained",
+      "game_subdirectory": "loops",
+      "commit": "fa21477d424f3aa1f1bf6deb9f6f83c2569770ab",
+      "commit_date": "2023-02-11T18:45:56-08:00",
+      "commit_subject": "looms: v1.46",
+      "shallow": true,
+      "repository_license": {
+        "spdx": null,
+        "file": null,
+        "status": "No repository LICENSE/COPYING file found; GitHub API license null. Fork contributions license not established."
+      }
+    },
+    {
+      "role": "dmchurch",
+      "url": "https://github.com/dmchurch/omsi-loops",
+      "clone_directory": "/Users/weiwei/.codex/research/idle-loops/dmchurch",
+      "game_subdirectory": ".",
+      "commit": "fe4a349efb799a56ab548018caca1a1a1aea0c8f",
+      "commit_date": "2025-03-23T18:40:52-04:00",
+      "commit_subject": "update Recent Changes with notes from #15",
+      "shallow": true,
+      "repository_license": {
+        "spdx": null,
+        "file": null,
+        "status": "No repository LICENSE/COPYING file found; GitHub API license null. Fork contributions license not established."
+      }
+    }
+  ],
+  "lineage_only_metadata": {
+    "repository": "https://github.com/lloyd-delacroix/omsi-loops",
+    "parent": "omsi6/omsi6.github.io",
+    "license_api": null,
+    "not_cloned": true
+  },
+  "evidence_validation": [
+    {
+      "url": "https://github.com/StopSign/stopsign.github.io/blob/d41bf197f9203e6da6f72628a9d76369b8140d57/index.html#L23-L32",
+      "file_exists": true,
+      "line_range_exists": true
+    },
+    {
+      "url": "https://github.com/StopSign/stopsign.github.io/blob/d41bf197f9203e6da6f72628a9d76369b8140d57/LICENSE.md#L1-L21",
+      "file_exists": true,
+      "line_range_exists": true
+    },
+    {
+      "url": "https://github.com/omsi6/omsi6.github.io/blob/fa21477d424f3aa1f1bf6deb9f6f83c2569770ab/loops/driver.js#L4-L157",
+      "file_exists": true,
+      "line_range_exists": true
+    },
+    {
+      "url": "https://github.com/omsi6/omsi6.github.io/blob/fa21477d424f3aa1f1bf6deb9f6f83c2569770ab/loops/saving.js#L22-L84",
+      "file_exists": true,
+      "line_range_exists": true
+    },
+    {
+      "url": "https://github.com/omsi6/omsi6.github.io/blob/fa21477d424f3aa1f1bf6deb9f6f83c2569770ab/loops/actions.js#L235-L260",
+      "file_exists": true,
+      "line_range_exists": true
+    },
+    {
+      "url": "https://github.com/omsi6/omsi6.github.io/blob/fa21477d424f3aa1f1bf6deb9f6f83c2569770ab/loops/actions.js#L13-L193",
+      "file_exists": true,
+      "line_range_exists": true
+    },
+    {
+      "url": "https://github.com/omsi6/omsi6.github.io/blob/fa21477d424f3aa1f1bf6deb9f6f83c2569770ab/loops/saving.js#L411-L440",
+      "file_exists": true,
+      "line_range_exists": true
+    },
+    {
+      "url": "https://github.com/omsi6/omsi6.github.io/blob/fa21477d424f3aa1f1bf6deb9f6f83c2569770ab/loops/driver.js#L527-L550",
+      "file_exists": true,
+      "line_range_exists": true
+    },
+    {
+      "url": "https://github.com/StopSign/stopsign.github.io/blob/d41bf197f9203e6da6f72628a9d76369b8140d57/idleLoops/saving.js#L60-L61",
+      "file_exists": true,
+      "line_range_exists": true
+    },
+    {
+      "url": "https://github.com/StopSign/stopsign.github.io/blob/d41bf197f9203e6da6f72628a9d76369b8140d57/idleLoops/saving.js#L207-L213",
+      "file_exists": true,
+      "line_range_exists": true
+    },
+    {
+      "url": "https://github.com/StopSign/stopsign.github.io/blob/d41bf197f9203e6da6f72628a9d76369b8140d57/idleLoops/driver.js#L9-L59",
+      "file_exists": true,
+      "line_range_exists": true
+    },
+    {
+      "url": "https://github.com/dmchurch/omsi-loops/blob/fe4a349efb799a56ab548018caca1a1a1aea0c8f/driver.js#L88-L218",
+      "file_exists": true,
+      "line_range_exists": true
+    },
+    {
+      "url": "https://github.com/dmchurch/omsi-loops/blob/fe4a349efb799a56ab548018caca1a1a1aea0c8f/driver.js#L720-L733",
+      "file_exists": true,
+      "line_range_exists": true
+    },
+    {
+      "url": "https://github.com/dmchurch/omsi-loops/blob/fe4a349efb799a56ab548018caca1a1a1aea0c8f/saving.js#L1306-L1312",
+      "file_exists": true,
+      "line_range_exists": true
+    },
+    {
+      "url": "https://github.com/omsi6/omsi6.github.io/blob/fa21477d424f3aa1f1bf6deb9f6f83c2569770ab/loops/driver.js#L211-L214",
+      "file_exists": true,
+      "line_range_exists": true
+    },
+    {
+      "url": "https://github.com/omsi6/omsi6.github.io/blob/fa21477d424f3aa1f1bf6deb9f6f83c2569770ab/loops/stats.js#L132-L149",
+      "file_exists": true,
+      "line_range_exists": true
+    },
+    {
+      "url": "https://github.com/omsi6/omsi6.github.io/blob/fa21477d424f3aa1f1bf6deb9f6f83c2569770ab/loops/town.js#L20-L86",
+      "file_exists": true,
+      "line_range_exists": true
+    },
+    {
+      "url": "https://github.com/omsi6/omsi6.github.io/blob/fa21477d424f3aa1f1bf6deb9f6f83c2569770ab/loops/actionList.js#L1771-L1840",
+      "file_exists": true,
+      "line_range_exists": true
+    },
+    {
+      "url": "https://github.com/omsi6/omsi6.github.io/blob/fa21477d424f3aa1f1bf6deb9f6f83c2569770ab/loops/actionList.js#L3226-L3296",
+      "file_exists": true,
+      "line_range_exists": true
+    },
+    {
+      "url": "https://github.com/omsi6/omsi6.github.io/blob/fa21477d424f3aa1f1bf6deb9f6f83c2569770ab/loops/saving.js#L444-L488",
+      "file_exists": true,
+      "line_range_exists": true
+    },
+    {
+      "url": "https://github.com/omsi6/omsi6.github.io/blob/fa21477d424f3aa1f1bf6deb9f6f83c2569770ab/loops/saving.js#L227-L243",
+      "file_exists": true,
+      "line_range_exists": true
+    },
+    {
+      "url": "https://github.com/omsi6/omsi6.github.io/blob/fa21477d424f3aa1f1bf6deb9f6f83c2569770ab/loops/saving.js#L262-L280",
+      "file_exists": true,
+      "line_range_exists": true
+    },
+    {
+      "url": "https://github.com/omsi6/omsi6.github.io/blob/fa21477d424f3aa1f1bf6deb9f6f83c2569770ab/loops/actionList.js#L916-L1044",
+      "file_exists": true,
+      "line_range_exists": true
+    },
+    {
+      "url": "https://github.com/omsi6/omsi6.github.io/blob/fa21477d424f3aa1f1bf6deb9f6f83c2569770ab/loops/driver.js#L252-L294",
+      "file_exists": true,
+      "line_range_exists": true
+    },
+    {
+      "url": "https://github.com/omsi6/omsi6.github.io/blob/fa21477d424f3aa1f1bf6deb9f6f83c2569770ab/loops/actionList.js#L58-L130",
+      "file_exists": true,
+      "line_range_exists": true
+    },
+    {
+      "url": "https://github.com/omsi6/omsi6.github.io/blob/fa21477d424f3aa1f1bf6deb9f6f83c2569770ab/loops/saving.js#L719-L750",
+      "file_exists": true,
+      "line_range_exists": true
+    },
+    {
+      "url": "https://github.com/omsi6/omsi6.github.io/blob/fa21477d424f3aa1f1bf6deb9f6f83c2569770ab/loops/views/main.view.js#L510-L550",
+      "file_exists": true,
+      "line_range_exists": true
+    },
+    {
+      "url": "https://github.com/omsi6/omsi6.github.io/blob/fa21477d424f3aa1f1bf6deb9f6f83c2569770ab/loops/views/main.view.js#L443-L463",
+      "file_exists": true,
+      "line_range_exists": true
+    },
+    {
+      "url": "https://github.com/omsi6/omsi6.github.io/blob/fa21477d424f3aa1f1bf6deb9f6f83c2569770ab/loops/views/main.view.js#L725-L781",
+      "file_exists": true,
+      "line_range_exists": true
+    }
+  ],
+  "small_touch_count": 14,
+  "proposal_count": 5,
+  "limitations": [
+    "No game runtime or browser verification",
+    "No full asset provenance audit",
+    "No verified active October 2026 maintenance",
+    "No license grant established for later fork-specific contributions"
+  ]
+}

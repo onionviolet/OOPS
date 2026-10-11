@@ -1,0 +1,9 @@
+{
+  "status": "passed",
+  "trackedWorkingTreeIncludingDist": "zero exact source-title or character/place-name matches",
+  "taskPublicSourcesTestsAndOutputs": "zero matches",
+  "privatePackResearchAndSourceAssignment": "confirmed gitignored",
+  "privateTrackedFiles": 0,
+  "matching": "case-insensitive word boundaries, excluding substring false positives",
+  "historicalNote": "two inherited tracked title references privately archived and removed from public working tree; historical Git objects are not rewritten"
+}

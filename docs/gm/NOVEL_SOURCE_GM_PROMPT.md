@@ -29,3 +29,25 @@ Do not require a complete novel before developing an original prototype. Increas
 Audit the live queue against current owners. Check accessible primary locators for its provisional candidates, then return no more than three precise material requests and explain why each matters. If no source selection can be inferred, ask one concise preference question in this chat and continue access research independently. Do not assume shelf presence means favorite status or make all candidates mandatory.
 
 Each saved request must have an exact question, edition/locator or explicit locator gap, decision affected, evidence inspected, status and useful fallback. Each claim packet must have source provenance, bounded locators, evidence label, uncertainty, proposed owner and adaptation implications. Check actual Markdown targets, anchors and whitespace. Finish the bounded first run with the request queue, inspected coverage, remaining user input and checkpoint. Source intake does not establish implemented gameplay, exhaustive lore coverage or human design acceptance.
+
+## Lens discipline for book runs (Weibao, 2026-10-10)
+
+The Er Gen haul showed the failure: its shared lens told every run what
+Weibao already likes ("insight grows out of work"), the runs found it, and
+the agreement looked like evidence. It was an echo of the prompt, the
+north star and one author. For every future book dispatch:
+- **Ask open questions, never hand over a thesis.** Lens items name areas
+  to cover (progression, cheats, bodies, crafts, factions, worlds, enemies,
+  ordinary life), not the answer hoped for. Do not quote Weibao's known
+  preferences or earlier conclusions in the lens.
+- **Lead with difference.** Every run answers: what does this book do that
+  `LIFE_SIM_NORTH_STAR.md` lacks, and where does it contradict the north
+  star or an earlier wave? Name at least five such points with locators.
+- **Mark echoes.** Each proposal says whether it is new, an extension of a
+  named north-star idea (cite the line or section), or a restatement. Rank
+  new and contradicting proposals above restatements.
+- **Agreement is not independence.** When books share an author, translator,
+  lens or reader prompt, convergence among them counts as one source.
+  Count independence only across different authors and traditions.
+- **Read before the north star.** Readers take notes from the text first;
+  only the coordinator's synthesis step compares against the north star.

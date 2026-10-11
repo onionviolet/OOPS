@@ -1,0 +1,65 @@
+[
+  {
+    "route": "webnovel",
+    "url": "https://www.webnovel.com/book/let-me-game-in-peace_15117994305858505",
+    "status": "stopped",
+    "reason": "www.webnovel.com: Cloudflare challenge parameters"
+  },
+  {
+    "route": "qidian",
+    "url": "https://book.qidian.com/booklist/detail/644453/",
+    "status": "stopped",
+    "reason": "book.qidian.com: robots disallow (GPTBot)"
+  },
+  {
+    "route": "tappytoon",
+    "url": "https://www.tappytoon.com/en/book/dungeon-reset-novel",
+    "status": "landing_received",
+    "receipt": {
+      "url": "https://www.tappytoon.com/en/book/dungeon-reset-novel",
+      "status": 200,
+      "time": "2026-10-10T05:39:16.186055+00:00",
+      "started": "2026-10-10T05:39:15.083066+00:00",
+      "bytes": 375222,
+      "sha256": "f841a3f0c9f72fa5d2983f0f45a51f82efda9b8f96036fbc71c7be4800d45070",
+      "content_type": "text/html; charset=utf-8",
+      "location": null
+    }
+  },
+  {
+    "route": "wuxiaworld",
+    "url": "https://www.wuxiaworld.com/novel/book-eater",
+    "status": "landing_received",
+    "receipt": {
+      "url": "https://www.wuxiaworld.com/novel/book-eater",
+      "status": 200,
+      "time": "2026-10-10T05:39:24.321971+00:00",
+      "started": "2026-10-10T05:39:24.071117+00:00",
+      "bytes": 141390,
+      "sha256": "9a00bfbf25c6849d3b670c7ec1953ea4d3a7f561174ef63760875078d06dae33",
+      "content_type": "text/html; charset=utf-8",
+      "location": null
+    }
+  },
+  {
+    "route": "j-novel",
+    "url": "https://j-novel.club/series/d-genesis/",
+    "status": "stopped",
+    "reason": "j-novel.club: redirect HTTP 308; not followed"
+  },
+  {
+    "route": "pale-lights-author",
+    "url": "https://palelights.com/",
+    "status": "landing_received",
+    "receipt": {
+      "url": "https://palelights.com/",
+      "status": 200,
+      "time": "2026-10-10T05:39:35.345093+00:00",
+      "started": "2026-10-10T05:39:35.229893+00:00",
+      "bytes": 69586,
+      "sha256": "d5dc6a4dbb045bf8c0ff7444a440f98fd796d59a7eff3012c3aa603c21ed263e",
+      "content_type": "text/html; charset=UTF-8",
+      "location": null
+    }
+  }
+]

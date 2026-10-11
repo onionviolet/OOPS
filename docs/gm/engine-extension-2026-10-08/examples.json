@@ -1,0 +1,298 @@
+[
+  {
+    "schemaVersion": 1,
+    "kind": "world",
+    "id": "base.frontier",
+    "revision": 1,
+    "label": "The Frontier",
+    "origin": {
+      "document": "docs/WORLD_CARDS.md",
+      "section": "1. The Frontier",
+      "status": "proposal",
+      "invention": "Typed IDs and executable bindings are proposed. Growth ceiling remains unimplemented."
+    },
+    "data": {
+      "premise": "Ordinary village life, useful trades and a frontier worth staying in.",
+      "signatureLaws": [
+        "Doing grows skills",
+        "Thirty-day months shape ordinary work"
+      ],
+      "absences": [
+        {
+          "key": "concepts.maxTier",
+          "value": 0,
+          "knownReason": "Only the beginnings of intent take hold here."
+        },
+        {
+          "key": "revival.default",
+          "value": false,
+          "knownReason": "Defeat brings recovery, not a second birth."
+        }
+      ],
+      "rules": {
+        "preparation.staminaExtra": 0,
+        "time.ratio": {
+          "numerator": 1,
+          "denominator": 1
+        }
+      },
+      "growthFamilies": [
+        "native.skills"
+      ],
+      "displayMode": "native",
+      "stance": "neutral",
+      "scarcity": [
+        "Iron",
+        "Teachers",
+        "Books",
+        "Time"
+      ],
+      "deckIds": [
+        "frontier.seasons"
+      ],
+      "doorIds": [
+        "frontier.late_rift"
+      ],
+      "placeIds": [
+        "frontier.deep_forest"
+      ],
+      "clockPolicyId": "legacy.played_freeze",
+      "swapTest": "A trade, home and ordinary skills remain a whole life here."
+    }
+  },
+  {
+    "schemaVersion": 1,
+    "kind": "place",
+    "id": "frontier.deep_forest",
+    "revision": 1,
+    "label": "Deep forest",
+    "origin": {
+      "document": "docs/WORLD_CARDS.md",
+      "section": "1. The Frontier / Places",
+      "status": "proposal",
+      "invention": "Extra preparation stamina of1 is a proposed consumer, not a combat modifier or accepted balance."
+    },
+    "data": {
+      "worldId": "base.frontier",
+      "nativeLocationId": "Deep forest",
+      "rules": {
+        "preparation.staminaExtra": 1
+      },
+      "deckIds": [
+        "frontier.rare_herbs"
+      ],
+      "disclosureKey": "frontier.deep_forest.preparation"
+    }
+  },
+  {
+    "schemaVersion": 1,
+    "kind": "cheat",
+    "id": "crucible.origin_return",
+    "revision": 1,
+    "label": "Origin return gift",
+    "origin": {
+      "document": "docs/WORLD_CARDS.md",
+      "section": "2. The Crucible / Absences and Dials",
+      "status": "proposal",
+      "invention": "Concrete gift guarantee and collision policy are invented, not verified novel rules."
+    },
+    "data": {
+      "worldId": "proposal.crucible",
+      "tier": "fate",
+      "cheatKind": "pure",
+      "guarantee": {
+        "domain": "The registered body of the holder, while the acquired gift remains owned",
+        "promise": "Each bodily death invokes the body-only revival operation.",
+        "exclusions": [],
+        "costPolicy": "none",
+        "collisionPolicyId": "crucible.origin_return_absolute"
+      },
+      "sourceRequirementId": "crucible.origin_return_owned",
+      "adapterId": "operations.body_revival",
+      "wants": [],
+      "disclosureKey": "crucible.origin_return.known"
+    }
+  },
+  {
+    "schemaVersion": 1,
+    "kind": "operation",
+    "id": "crucible.body_return",
+    "revision": 1,
+    "label": "Body return",
+    "origin": {
+      "document": "docs/WORLD_CARDS.md",
+      "section": "2. The Crucible / revival by origin gift",
+      "status": "proposal",
+      "invention": "Anchor-template, observers, reward retention and automatic trigger are original engineering choices."
+    },
+    "data": {
+      "worldId": "proposal.crucible",
+      "operationKind": "revival",
+      "target": "$actor.body",
+      "anchorPolicyId": "crucible.gift_living_body",
+      "trigger": "death",
+      "historyModel": "body_only",
+      "restoreDomains": [
+        "actor.body"
+      ],
+      "retainDomains": [
+        "actor.knowledge",
+        "actor.inventory",
+        "world.aftermath",
+        "campaign.claims"
+      ],
+      "observerPolicyId": "witnesses.retain_received_memory",
+      "rewardScope": "campaign",
+      "rngPolicy": "retain",
+      "costs": [],
+      "adapterId": "operations.body_revival"
+    }
+  },
+  {
+    "schemaVersion": 1,
+    "kind": "faction",
+    "id": "paradise.contractors",
+    "revision": 1,
+    "label": "Paradise contractor residence",
+    "origin": {
+      "document": "docs/WORLD_CARDS.md",
+      "section": "6. The Paradise hub / Charter",
+      "status": "proposal",
+      "invention": "Treasury, rank IDs and coarse policies are proposals; defection is explicitly authored."
+    },
+    "data": {
+      "worldId": "book.paradise.hub",
+      "purpose": "A home and mission employer for recruited travelers.",
+      "eligibilityPolicyId": "paradise.contract_or_death",
+      "ranks": [
+        {
+          "id": "paradise.contractor",
+          "permissions": [
+            "paradise.room",
+            "paradise.entry_shop"
+          ]
+        }
+      ],
+      "seats": [
+        {
+          "id": "paradise.council",
+          "capacity": 3
+        }
+      ],
+      "treasuryOwnerId": "paradise.treasury",
+      "salaryPolicyId": "paradise.completed_mission_pay",
+      "dutyIds": [
+        "paradise.scheduled_mission"
+      ],
+      "shopIds": [
+        "paradise.rank_shop"
+      ],
+      "territoryIds": [
+        "paradise.residence"
+      ],
+      "returnPolicyId": "paradise.fixed_mission_return",
+      "enforcementPolicyId": "paradise.contract_penalties",
+      "leavingPolicyId": "paradise.authored_defection",
+      "simulationPolicyId": "faction.yearly_funded"
+    }
+  },
+  {
+    "schemaVersion": 1,
+    "kind": "research",
+    "id": "salvage.power_core",
+    "revision": 1,
+    "label": "Stable power-core blueprint",
+    "origin": {
+      "document": "docs/WORLD_CARDS.md",
+      "section": "8. Salvage Reach / Growth",
+      "status": "proposal",
+      "invention": "Blueprint, item and stage IDs, durations and failure cap are invented examples."
+    },
+    "data": {
+      "worldId": "proposal.salvage_reach",
+      "subject": "Reverse engineer a usable salvage power core.",
+      "inputs": [
+        {
+          "ownerId": "$actor",
+          "kind": "item",
+          "refId": "salvage.damaged_core",
+          "amount": 1
+        },
+        {
+          "ownerId": "$actor",
+          "kind": "site",
+          "refId": "salvage.workbench",
+          "amount": 1
+        }
+      ],
+      "stages": [
+        {
+          "id": "salvage.inspect",
+          "durationMinutes": 5,
+          "evidencePolicyId": "salvage.measured_core",
+          "outputIds": [
+            "salvage.core_partial_notes"
+          ]
+        },
+        {
+          "id": "salvage.prototype",
+          "durationMinutes": 20,
+          "evidencePolicyId": "salvage.funded_trial",
+          "outputIds": [
+            "salvage.core_blueprint"
+          ]
+        }
+      ],
+      "failureProgress": {
+        "counterKey": "salvage.core_failed_trials",
+        "increment": 1,
+        "cap": 13
+      },
+      "partialOutputIds": [
+        "salvage.unstable_core_procedure"
+      ],
+      "practiceProcedureId": "salvage.build_and_operate_core",
+      "knowledgeLicensePolicyId": "salvage.copy_blueprint_license",
+      "adapterId": "research.blueprint_trials"
+    }
+  },
+  {
+    "schemaVersion": 1,
+    "kind": "event",
+    "id": "bay.disaster_warning",
+    "revision": 1,
+    "label": "Disaster warning",
+    "origin": {
+      "document": "docs/WORLD_CARDS.md",
+      "section": "7. Bay City / Deck and truce",
+      "status": "proposal",
+      "invention": "Probability/cadence, cooldown and aftermath are proposed, not sourced or tuned."
+    },
+    "data": {
+      "worldId": "proposal.bay_city",
+      "placeIds": [
+        "bay.docks",
+        "bay.agency"
+      ],
+      "eligibilityPolicyId": "bay.truce_warning_eligible",
+      "cadenceMinutes": 43200,
+      "chancePerEligibleAttempt": 0.05,
+      "repeat": "repeatable",
+      "guaranteeAfter": null,
+      "cooldownGroup": "bay.major_disruption",
+      "cooldownMinutes": 518400,
+      "priority": 3,
+      "disruptionCost": 3,
+      "audiencePolicyId": "bay.received_public_warning",
+      "responseIds": [
+        "bay.help",
+        "bay.shelter",
+        "bay.ignore"
+      ],
+      "aftermathProcedureId": "bay.resolve_truce_warning",
+      "successorIds": [
+        "bay.disaster_arrival"
+      ]
+    }
+  }
+]

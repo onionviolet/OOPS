@@ -1,0 +1,24 @@
+{
+  "origin": "http://127.0.0.1:18318",
+  "bundle": "3ad476cf6ef5",
+  "status": "primary behavior passed before independent fixture-encoder failure",
+  "checks": [
+    "optional household meeting",
+    "future family hidden",
+    "24-year ages/family/birth/marriage",
+    "94-year deaths and news",
+    "save/reload/export/import retains exact household"
+  ],
+  "evidence": [
+    "browser_f.cjs assertions through F persistence passed",
+    "/tmp/yairpg-life-foundation-proof/village-lives.png visually inspected"
+  ],
+  "years": [
+    999,
+    1023,
+    1093
+  ],
+  "people": 6,
+  "newsAt1093": 8,
+  "unpassedInThatRun": "Old-save import helper failed to dynamically import raw save_files.js; native import was not attempted in that step. Corrected separate browser_old_import.cjs running."
+}

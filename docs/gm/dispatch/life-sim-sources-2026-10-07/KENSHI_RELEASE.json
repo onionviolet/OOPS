@@ -1,0 +1,28 @@
+{
+  "game": "Kenshi",
+  "app_id": 233860,
+  "reviewed_at": "2026-10-07T16:26:24.998623-04:00",
+  "eligible": true,
+  "private_receipt_sha256": "34919603c259fd835b23de9486505a69bfe7971d655e8124af62f8b1cfe586f8",
+  "private_sample_hash_checks": [
+    "data/Dialogue.mod",
+    "data/Newwworld.mod",
+    "forgotten construction set.exe"
+  ],
+  "retained_files": 51,
+  "retained_bytes": 100188719,
+  "finite_pass": "five linked authored chains plus managed database reader; four tables decoded with exact EOF",
+  "limits": [
+    "individual layers decoded; full runtime load-order/removal/precedence not reproduced",
+    "native AI scheduler, combat, needs consumption and save serializer unread",
+    "all other dialogue/characters/towns/research/gear/physics/terrain mostly unread",
+    "no game/editor launch or source-runtime test"
+  ],
+  "recipients": [
+    "docs/gm/life-sim-experience-2026-10-07/",
+    "docs/gm/life-sim-foundation-2026-10-07/"
+  ],
+  "packets": "docs/research/kenshi/IMPLEMENTATION_PACKETS.md",
+  "no_installed_consumer": true,
+  "parent_process_check": "no matching running game/editor process"
+}

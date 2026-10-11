@@ -1,0 +1,117 @@
+[
+  {
+    "path": "LICENSE.md",
+    "exists": true,
+    "hash_matches": true
+  },
+  {
+    "path": "KTL/MECHANICS.md",
+    "exists": true,
+    "hash_matches": true
+  },
+  {
+    "path": "KTL/engine.js",
+    "exists": true,
+    "hash_matches": true
+  },
+  {
+    "path": "KTL/automation.js",
+    "exists": true,
+    "hash_matches": true
+  },
+  {
+    "path": "KTL/saving.js",
+    "exists": true,
+    "hash_matches": true
+  },
+  {
+    "path": "KTL/events.js",
+    "exists": true,
+    "hash_matches": true
+  },
+  {
+    "path": "KTL/onLoad.js",
+    "exists": true,
+    "hash_matches": true
+  },
+  {
+    "path": "KTL/ktl.js",
+    "exists": true,
+    "hash_matches": true
+  },
+  {
+    "path": "KTL/actionData.js",
+    "exists": true,
+    "hash_matches": true
+  },
+  {
+    "path": "KTL/actionData2.js",
+    "exists": true,
+    "hash_matches": true
+  },
+  {
+    "path": "KTL/actionData3.js",
+    "exists": true,
+    "hash_matches": true
+  },
+  {
+    "path": "KTL/actionData4.js",
+    "exists": true,
+    "hash_matches": true
+  },
+  {
+    "path": "KTL/actionData5.js",
+    "exists": true,
+    "hash_matches": true
+  },
+  {
+    "path": "KTL/actionDataFunctions.js",
+    "exists": true,
+    "hash_matches": true
+  },
+  {
+    "path": "KTL/menu.js",
+    "exists": true,
+    "hash_matches": true
+  },
+  {
+    "path": "KTL/index.html",
+    "exists": true,
+    "hash_matches": true
+  },
+  {
+    "path": "KTL/attribute.js",
+    "exists": true,
+    "hash_matches": true
+  },
+  {
+    "path": "KTL/spells.js",
+    "exists": true,
+    "hash_matches": true
+  },
+  {
+    "path": "KTL/upgradeData.js",
+    "exists": true,
+    "hash_matches": true
+  },
+  {
+    "path": "KTL/steamStuff.js",
+    "exists": true,
+    "hash_matches": true
+  },
+  {
+    "path": "KTL/data/globalsAndInitial.js",
+    "exists": true,
+    "hash_matches": true
+  },
+  {
+    "path": "KTL/data/textData.js",
+    "exists": true,
+    "hash_matches": true
+  },
+  {
+    "path": "KTL/driver.js",
+    "exists": true,
+    "hash_matches": true
+  }
+]

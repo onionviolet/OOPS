@@ -1,0 +1,120 @@
+{
+  "schema": 1,
+  "date": "2026-10-07",
+  "owner": "/root/oni_slice",
+  "packet": "ONI-P04",
+  "selected_claims": [
+    "ONI-F17",
+    "ONI-F18",
+    "ONI-F19"
+  ],
+  "source_root": "/Users/weiwei/.codex/research/oxygen-not-included/24423041",
+  "evidence": [
+    {
+      "evidence_id": "E28",
+      "path": "decompiled/BasicSingleHarvestPlantConfig.cs",
+      "claims": [
+        "ONI-F17"
+      ],
+      "inspected_spans": [
+        {
+          "start": 1,
+          "end": 57
+        }
+      ],
+      "sha256": "869a73362c80e9699d59b3ef4546de1393523c475fe6e23568134f8f7e8391a8",
+      "matches_dossier": true,
+      "boundary": "Plant prefab habitat and dirt supply are actual growth support."
+    },
+    {
+      "evidence_id": "E29",
+      "path": "selected/PlantElementAbsorber.cs",
+      "claims": [
+        "ONI-F18"
+      ],
+      "inspected_spans": [
+        {
+          "start": 112,
+          "end": 164
+        }
+      ],
+      "sha256": "9a2cce1d860762d0b165b69fc0b4b975df8f95782c948f711ea68c92afb851c3",
+      "matches_dossier": true,
+      "boundary": "ConsumeInfo-array planner selects the first successful alternative; not an implicit AND."
+    },
+    {
+      "evidence_id": "E30",
+      "path": "selected/WiltCondition.cs",
+      "claims": [
+        "ONI-F17"
+      ],
+      "inspected_spans": [
+        {
+          "start": 1,
+          "end": 115
+        }
+      ],
+      "sha256": "ea9d7af4104561e793a2a689a01857d2355a78c35c5124e723b4118cc56a7cba",
+      "matches_dossier": true,
+      "boundary": "Environmental and nutritional conditions are enumerated and map to support events."
+    },
+    {
+      "evidence_id": "E31",
+      "path": "selected/Growing.cs",
+      "claims": [
+        "ONI-F17",
+        "ONI-F19"
+      ],
+      "inspected_spans": [
+        {
+          "start": 65,
+          "end": 223
+        }
+      ],
+      "sha256": "00d8ed5b164b7c9fbb0df759d2ab8ca8a22b7b3b00a04422e9d7b0566c3c1354",
+      "matches_dossier": true,
+      "boundary": "Growing transitions to stalled on wilt/custom support failure; rates and auto-harvest are source-specific."
+    },
+    {
+      "evidence_id": "E32",
+      "path": "selected/Crop.cs",
+      "claims": [
+        "ONI-F19"
+      ],
+      "inspected_spans": [
+        {
+          "start": 80,
+          "end": 162
+        }
+      ],
+      "sha256": "f1ab81bfd67219698482efff1f9f30363b3d9828c1696d76e1908121f1598589",
+      "matches_dossier": true,
+      "boundary": "Harvest creates a configured prefab with counted units and inherited temperature."
+    },
+    {
+      "evidence_id": "E06",
+      "path": "selected/ElementConverter.cs",
+      "claims": [
+        "ONI-F18"
+      ],
+      "inspected_spans": [
+        {
+          "start": 364,
+          "end": 395
+        }
+      ],
+      "sha256": "63e970f81c6f5cdf733660126f5749b7e3f54b8bbb6fad5a981868b3925e57ad",
+      "matches_dossier": true,
+      "boundary": "Supplementary comparison: every active converter input must meet its declared mass requirement."
+    }
+  ],
+  "status": "implemented_14_bounded_checks_pass_browser_unverified",
+  "adaptation": {
+    "name": "Sheltered nursery tray",
+    "input_mode": "AND: one Cooking herbs plus one Tree sap per explicit cycle",
+    "build": "2 Rough wood logs + 2 coins + 1 stamina + 4 played minutes",
+    "cycle": "1 Cooking herbs + 1 Tree sap + 1 stamina + 5 played minutes -> 2 native Cooking herbs",
+    "bound": "Authored viable-shoot fiction and compressed timing; no source code/prose, plant ecology, automatic harvest or rates ported."
+  },
+  "compatibility_detail": "Root authorized one optional player-only idle nursery_plan situation for unchanged schema3+ caused-situation validation. No ecology, NPC or extra timer."
+}

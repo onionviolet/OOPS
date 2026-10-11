@@ -1,0 +1,65 @@
+{
+  "game": "Vagrus: The Riven Realms",
+  "appid": 909660,
+  "assignment": "docs/gm/dispatch/steam-library-wave-2026-10-10/ASSIGNMENT.md section F",
+  "owned_paths": [
+    "docs/research/vagrus/",
+    "~/.codex/research/vagrus/"
+  ],
+  "install_manifest": "~/Library/Application Support/Steam/steamapps/appmanifest_909660.acf",
+  "initial_state_flags": "1042",
+  "initial_download_bytes": 0,
+  "target_buildid": "25598304",
+  "engine": "Unity 6000.2.9f1, macOS Mono",
+  "disk_available_at_intake": "6.6 GiB",
+  "download_wait": "10-minute manifest checks; deadline in WAIT_STATE.json; give up after 12 hours",
+  "handling": "read in place; small needed extracts only; hash SHA-256; no launch, settings, saves, install modification, uninstall, source edits, builds, commits",
+  "private_evidence": "~/.codex/research/vagrus/",
+  "source_register": "SOURCES.json",
+  "input_fingerprints": "YAIR_INPUTS.json",
+  "source_coverage": "COVERAGE.json",
+  "pass_complete": true,
+  "ready_for_user_managed_removal": true,
+  "latest_manifest_check": {
+    "checked_utc": "2026-10-10T06:21:53.147714+00:00",
+    "state_flags": "4",
+    "downloaded": "3980184832",
+    "download_total": "3980184832",
+    "buildid": "25598304",
+    "sha256": "07e9957329d18cb6c9b0371ba1b93598b82ec7a8228e1e9807d87c1a63364db6"
+  },
+  "private_tools": {
+    "inventory": "~/.codex/research/vagrus/inventory_install.py",
+    "asset_reader": "~/.codex/research/vagrus/inspect_unity.py",
+    "waiter": "~/.codex/research/vagrus/wait_install.py",
+    "asset_reader_runtime": "PYTHONDONTWRITEBYTECODE=1 ~/.codex/research/tools/tale-extract-venv/bin/python"
+  },
+  "status": "COMPLETE",
+  "updated_utc": "2026-10-10T15:29:49.749346+00:00",
+  "buildid": "25598304",
+  "state_flags": "4",
+  "initial_download_state_preserved": "INSTALL_WAIT.json",
+  "disk_resume_available": "42 GiB on explicit resume; 40 GiB later during final source read",
+  "input_receipts": [
+    "~/.codex/research/vagrus/INPUT_RECEIPT.json",
+    "~/.codex/research/vagrus/BUNDLE_COPY_RECEIPT.json",
+    "~/.codex/research/vagrus/TABLE_RECEIPT.json"
+  ],
+  "raw_inputs_and_prose": "private outside git",
+  "runtime_verified": false,
+  "final_manifest_check": {
+    "appid": 909660,
+    "game": "Vagrus: The Riven Realms",
+    "manifest_present": true,
+    "manifest_sha256": "07e9957329d18cb6c9b0371ba1b93598b82ec7a8228e1e9807d87c1a63364db6",
+    "StateFlags": "4",
+    "buildid": "25598304",
+    "installdir": "Vagrus - The Riven Realms",
+    "SizeOnDisk": "5479725761",
+    "install_folder_present": true,
+    "recorded_install_folder": "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Vagrus - The Riven Realms",
+    "recorded_install_folder_present": true,
+    "current_state": "fully installed: StateFlags 4"
+  },
+  "final_install_check_utc": "2026-10-10T15:34:37.771144+00:00"
+}

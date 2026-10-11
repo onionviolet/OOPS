@@ -1,5 +1,149 @@
 # User vision and research coverage
 
+## Anything is possible, 2026-10-09
+
+**Anything is possible, reasonably.** No mechanic, outcome or behavior is
+ruled out by default; "reasonably" means each option fits its world's lore
+and has a sensible cost or condition. When a design has several reasonable answers, the answer is
+"it depends": the world, the storyteller, the cheat or the player decides
+which applies, and every option stays reachable.
+
+Weibao's words, answering the [emergent systems](EMERGENT_SYSTEMS.md)
+questions:
+
+> anything is possible and it depends
+
+> depends on the cheat, each is possible
+
+> maybe it depends, maybe both, it can be 'fate' in some circumstances or in
+> that case it would be an storyteller instance for that world?
+
+> We can expand tags and rules to engine stuff and more? every layer as well
+
+> anything is possible should be a line and in uservision
+
+Later the same day, on the next five questions:
+
+> Q6 both possible, Q8 it depends on the character, and how we want thigns
+> to be? would we be the characters, or someone guiding them, or something
+> else entirely? this changes the gameplay flow accordingly
+
+> Q9 unsure whats the best option, how does other idles and games do it?
+
+> Q10, unsure what is most optimal
+
+> Q7, we can expand on the ideas accordingly? More stuff as well? Learning
+> from noita?
+
+On Q14 (crafting with half-understood substitutes):
+
+> Q14 both possible, risky crafting can teach you, dont forget, the goal is
+> everything is possible reasonably?
+
+And the correction that followed:
+
+> I mean the risk isnt with how many properties dont know, it is how the
+> unknown protieries interact with things, like if it has a kill everyone in
+> a 9999999 mile property if mixed with this niche something else, thats
+> exactly what happens
+
+Principle: the world simulates truthfully. Hidden properties are real and
+always act; knowledge changes what you can predict, not what happens.
+Detail: [unknown properties are real](emergent/E4B_MATERIALS_AND_NOITA.md#unknown-properties-are-real-weibaos-correction-2026-10-09).
+
+On mystery and observation:
+
+> However we can have mysterious things or ideas that work in randomness?
+> More to consider? Lore behind objects? Little stuff to consider, like using
+> the 'observe' skill or something on a random thing and then accordingly we
+> would neeed to give that thing lore and more? How to show details like
+> thee and more?
+
+Expanded in [E7 observation and mystery](emergent/E7_OBSERVATION_AND_MYSTERY.md).
+
+On power types and four web novels (2026-10-10):
+
+> Types of observe skills and more? Just like types of future sight? aspects
+> of the same idea? Like aspects of a certain law or more? shards of
+> abilities? types of immortality? subtle stuff like these? like we can
+> build a polite scraper to scrape [four ttks.tw novels]
+
+Expanded in [E8 power aspects](emergent/E8_POWER_ASPECTS.md); the novels go to
+the [ttks lane](gm/dispatch/ttks-novels-2026-10-10/ASSIGNMENT.md).
+
+On vows (2026-10-10):
+
+> Abusing rules in funny ways like vowing to not eat tacos for 20 days for a
+> 5x power increase and more?
+
+> it can be gaming the system, it can be a boon even if they never eat
+> tacos, cause there are jokes online about sukuna doing stuff like that,
+> more to consider?
+
+> for a vow system, implementation might require slotting in key terms,
+> like consequence, for benefit? more to consider?
+
+> consider how they were implemented in jjk and more? Save accordingly
+
+Expanded in [E8B gaming vows](emergent/E8B_POWER_CATALOG.md#gaming-vows-and-rules-weibao-2026-10-10)
+and [E8D vow system](emergent/E8D_VOW_SYSTEM.md).
+
+On absolutes and balance (2026-10-10):
+
+> There are and are not absolutes, so there can be multiple ways for the
+> same thing, teaching doesnt always have to cost the teacher and more?
+> Things can differe across worlds and more lore wise accoridngly?
+
+> for balance, yet but it doesnt have to be forced, unless well, it is sent
+> by heaven or somethng but if keeping low enough profile or op enough might
+> go unchecked? more to consider? There shoudnt be absolutes
+
+Principle: no rule holds for every world. A world may have its own
+absolutes as lore; the same thing can work several ways in different
+places. Balance is never imposed by design; a world, heaven, system or
+person may push back when its lore gives it a reason, and a quiet or
+strong enough life can go unchecked. Applied in
+[E8E](emergent/E8E_POWERS_IN_A_LIFE.md).
+
+On laws (2026-10-10):
+
+> consider stuff like Laws, making them make sense, or implemented
+> accordingly only when makes sense?
+
+> we can just have these ideas on how laws work and stuff as a power, since
+> there are plenty of powers like that, but as of current there seems to be
+> no lore reason to be like this in a specific world quite yet
+
+> save accordingly, consider implementation and combat aspects, this is
+> like the law path from LOTM, more to consider?
+
+> more to consider? expand accordingly, tie real lore accordingly
+
+> I meant lore as in world lore, lores relevant to each world? and dont
+> forget our rules
+
+Applied in [E9 laws as a power](emergent/E9_WORLD_LAWS.md): a law toolkit
+used by law powers; no world has assigned laws until its lore calls for it.
+
+Then, on recipes, drinking and Noita:
+
+> Q11 both possible depending on lore and how books does it, also consider
+> for crafting recipes, for replacement items in worlds, so like items with
+> the same tags and characteristics to be usable as replacement materials, of
+> course needing to research/find out the characteristics and more, maybe we
+> can have a tag for the power and quality and more accordingly? Q12 why not?
+> It can also be benefitial or a bunch of thing depending on what it actually
+> is and more, Q13 yes, feel free to decompile accoridnly once its dne
+> installing, and send out codex stuff to do accordingly
+
+Expanded in [Materials, states and Noita](emergent/E4B_MATERIALS_AND_NOITA.md#weibaos-answers-recipes-substitutes-and-drinking-2026-10-09).
+
+Accepted as a principle in [PROJECT.md](../PROJECT.md#accepted-decisions).
+Applied in [Emergent systems](EMERGENT_SYSTEMS.md#weibaos-answers-and-the-expansions-they-open-2026-10-09):
+NPC cruelty is set per world and storyteller with no global cap, cheats get
+any mix of stream access, storytellers stack per world and per person (fate),
+and tags and rules reach every layer.
+
 ## Vision update: what Weibao asked for, 2026-10-05 evening to 2026-10-07
 
 Plain-language consolidation of about 50 direct requests in Codex chats after
@@ -1283,13 +1427,38 @@ Recorded in [E8F adjectives](emergent/E8F_ADJECTIVES.md#expansions-and-beyond-te
 
 Recorded in [presentation and the fourth wall](PRESENTATION_AND_FOURTH_WALL.md).
 
+
+> types of possible gameplay? What can we learn from MArvel and DC and other comicbook worlds? Can we absorb accordingly from their wikis?
+>
+> run the pilot, we can also eventually take a look at fan fics and how they go about things and more?
+
+Recorded in [comics wiki pilot](research/comics/REPORT.md): Power Grid ranks and rarity, origin routes, meta-powers, death records, two lives, mantles, charge items, event decks, a draft original world card, and a fan fiction pilot listed as next.
+
 > we can have core stuff share signiture pieces? Other powers that touch Ui? chjaracter that does cool stuff and more? At what point should they be able to interact outside and more? Expanding on each idea and more?
 
 Recorded in [presentation and the fourth wall](PRESENTATION_AND_FOURTH_WALL.md#shared-signatures-more-ui-powers-meta-characters-and-reach-2026-10-10).
 
+
+> We can consider specific alternatie worlds as possible playthrough targets, awhat about invencible and other comic worlds and more? more to consider?
+
+Recorded in [comic playthrough targets](research/comics/PLAYTHROUGH_TARGETS.md): 24 targets (Invincible, 11 Marvel and 6 DC alternate realities, 6 other comic worlds), later-check titles, considerations C1 to C12 and a proposed first three.
+
+> save accordingly, consider aspects as in implementing worlds and then I wont know whats so psecial about the mmyself until its discovered or uncovered using relevant skill
+
+Recorded in [world secrets and discovery](worlds/WORLD_SECRETS_AND_DISCOVERY.md): secret anatomy, knowledge stages, native skills as routes, comic examples, implementation aspects and options for keeping Weibao unspoiled. Direction noted in PROJECT.md.
+
+> make sealing the standard rule for agents, but of course we stll need to consider implementation and more
+
+Recorded as a rule in AGENTS.md and an accepted decision in PROJECT.md; implementation proposals and more considerations in [world secrets and discovery](worlds/WORLD_SECRETS_AND_DISCOVERY.md#sealed-secrets-standard-rule-2026-10-10).
+
 > It doesnt always have to be UI effects, this is to make any effect that does show up that much more impactful
 
 Recorded at the top of [presentation and the fourth wall](PRESENTATION_AND_FOURTH_WALL.md#direction-restraint-makes-effects-land-weibao-2026-10-10): UI effects are a rare menu, not a default; text and world first.
+
+
+> run the fan fic pilot
+
+Recorded in [fan fiction pilot](research/fanfic/REPORT.md): Fanlore taxonomy, Western and Chinese reader files, findings F1 to F11, premises as run starts, mechanics M1 to M11, guardrails from reader complaints, and a first slice proposal. AO3 not fetched (its robots file blocks AI crawlers).
 
 > how to consider for the most outrageous possibilities like a god looking at the screen and shattering the entire run or something
 
@@ -1303,6 +1472,11 @@ Recorded in [cosmic events](COSMIC_EVENTS.md#it-depends-on-the-character-weibao-
 
 Recorded in [cosmic events](COSMIC_EVENTS.md#consequences-are-relative-and-god-likes-are-few-weibao-2026-10-10): consequences scale with capability; god-likes are scarce and unevenly spread; avatars and fragments give presence without frequency.
 
+
+> Browsing Ao3 in browser is allowed, ones you find in qidian you can probably find on ttks if popular enough, feel free to politely open blocked ones in vrowser,
+
+Done as a gap-fill pass: AO3 tag counts, Jumpchain wiki rules, Celestial Forge, a DC self-insert, and opening chapters of three Chinese novels (ttkan, 69shuba). Results in the [fan fiction pilot](research/fanfic/REPORT.md) (F12 to F15, M12 to M15); routes added to the [source deep dive playbook](research/SOURCE_DEEP_DIVE_PLAYBOOK.md#fan-and-web-fiction-routes-m3).
+
 > There is probably more distinctions and more tiers, but everything just has to make sense relevantly, and these are just considerations for established and for future worlds too? Like these are considerations to help us implement/ideaboard for fitting characters at fitting times
 
 Recorded as a usage note at the top of each doc from this session and in the [idea index](IDEA_INDEX.md#jjk-adaptation-and-the-proving-ground-2026-10-10).
@@ -1314,3 +1488,102 @@ Recorded in [fitting characters at fitting times](FITTING_CHARACTERS_AND_TIMES.m
 > save accordingly and expand on more to consider?
 
 Recorded in [fitting characters at fitting times](FITTING_CHARACTERS_AND_TIMES.md#expanded-2026-10-10): worked walkthroughs, anti-patterns, a fit card template, long play, agency, emotional shape, surprise versus fairness.
+
+
+> save accordingly and expand on more to consider? Consider more popular works and more?
+
+Recorded in the [fan fiction pilot](research/fanfic/REPORT.md#popular-works-pass-2026-10-10): AO3 most-loved works by premise, popular Western and rational fan fiction, popular Chinese fan novels across fandoms; findings F16 to F23, mechanics M16 to M24, more to consider MC1 to MC10.
+
+> save accordingly, consider implementation of cheats, like for simulators, how things can even be simulated and more? woud lit just be a mini playhtough with some key decisions and more?
+
+Recorded in [simulators and cheat implementation](SIMULATORS_AND_CHEAT_IMPLEMENTATION.md): three engines (story model, forked engine, estimates), seven modes including the dream run, honesty and sealed secrets, keeps, costs as adjectives, request/report shape and tests, all pilot cheat families mapped to engine pieces, a first slice and more to consider.
+
+> save accordingly and expand on more to consider? Shoudnt simulations(depending on the type) be able to tell the future? like it is precting how things would happen if keep going down that path and more? More to consider? Sned out a comrehensive Cheat implementation audit?
+
+Future-telling recorded in [simulators: telling the future](SIMULATORS_AND_CHEAT_IMPLEMENTATION.md#telling-the-future-2026-10-10). Cheat implementation audit dispatched to four auditors; results in [docs/audits/cheat-implementation-2026-10-10/](audits/cheat-implementation-2026-10-10/).
+
+Audit delivered: [cheat implementation audit](audits/cheat-implementation-2026-10-10/REPORT.md) (four readers, synthesis, guardrail tests, build order).
+
+> save accordingly and expand on more to consider? Keep things open for improvement int he future? more to consider?
+
+Recorded in the [cheat implementation audit](audits/cheat-implementation-2026-10-10/REPORT.md#keeping-it-open-for-improvement-proposal-2026-10-10): openness rules O1 to O15 (code and in-game) and more to consider MC1 to MC12.
+
+> send out audit for https://ttks.tw/novel/chapters/woyouyigexiuxianmoniqi/
+
+Audit delivered (private): `docs/research/novels/woyouyigexiuxianmoniqi/DEEP_DIVE_2026-10-10.md`, 285 ttks chapters read in full by four readers plus a web identity reader.
+
+> how can we implement the talent generation? would it be rng+action based MOre to consider?
+
+> save accordingly, more to consider? Why cant innate ones be roles? Whats with rule T20?
+
+Recorded in [simulators: talent generation](SIMULATORS_AND_CHEAT_IMPLEMENTATION.md#talent-generation-considerations-2026-10-10): action sets the theme and tilts the grade, a seeded roll picks the grade and the talent; a pipeline proposal; innate versus acquired rerolls (no kind permanently locked, cost decides); whose clock counts for per-year talents; more to consider T1 to T26.
+
+> save accordingly, more to consider?
+
+Recorded in [simulators: talents in play](SIMULATORS_AND_CHEAT_IMPLEMENTATION.md#more-to-consider-talents-in-play): T27 to T39 (grade versus usefulness, combos, hidden talents, theft, wording as law, moods, auras, cross-world strength, NPC talents, names, fate's debt, asking for a talent, showing reasons).
+
+> save accordingly, more to consider?
+
+Recorded in [simulators: talents over many runs](SIMULATORS_AND_CHEAT_IMPLEMENTATION.md#more-to-consider-talents-over-many-runs): T40 to T50 (inflation, spending talents, the reveal, every life earns something, run-only talents, sealed talents, talents opening doors, appraisal, talents remembering their life, rebalancing, never an empty roll).
+
+> save accordingly, more to consider? This is expanding the aspects of a specific cheat
+
+Recorded in [simulators: one idea, many forms](SIMULATORS_AND_CHEAT_IMPLEMENTATION.md#the-simulator-as-one-idea-many-forms-2026-10-10): the E8 aspects model applied to the simulator cheat itself; axes SA1 to SA13, look-alike pairs, shards, generated simulators and more to consider SM1 to SM7.
+
+> save accordingly, more to consider? Feel free to suggest as well, what did you write into memrory?
+
+Recorded in [simulators: the holder and the game](SIMULATORS_AND_CHEAT_IMPLEMENTATION.md#more-to-consider-the-holder-and-the-game-sm8-to-sm16): SM8 to SM16 (the cheat changes its holder, dream feelings, reading long runs, run archive, idle dreaming, selling the future, if the world knew, runs as chapters, prestige layer) and suggestions G1 to G4.
+
+> expanding our cosmotoligy? Raising the cap? more to ocnisder?
+
+Recorded in [cheat cosmology: raising the cap](CHEAT_COSMOLOGY.md#raising-the-cap-proposal-2026-10-10): layers above C4 (C10 the sea between, C11 story, C12 audience, C13 author, C14 game, C15 source, plus looping tops), rules UC1 to UC6, raising other caps UC7 to UC13 (ranking, tier words, cheat and world ceilings, the number cap, multipliers), more to consider UC14 to UC20 and suggestions G1 to G3.
+
+> save accordingly, more to consider? Are we using the r/powerscaling type of stuff and more? More to consider?
+
+Recorded in [cheat cosmology: using r/powerscaling and its neighbors](CHEAT_COSMOLOGY.md#using-rpowerscaling-and-its-neighbors-proposal-2026-10-10): what the 2026-10-08 lane used (vocabulary, argument mistakes) versus unused community practices PS1 to PS18 (keys, low and high ends, calcs, battle assumptions, win conditions, immortality types, respect threads, wank, debunks, jobbers, matchup threads), in-world rating institutions PS19 to PS25, more to consider PS26 to PS32 and suggestions G4 and G5.
+
+> save accordingly, expand on ideas and more?
+
+Recorded in [cheat cosmology: power scaling in play](CHEAT_COSMOLOGY.md#power-scaling-in-play-expanded-proposal-2026-10-10): the feat record ("one truth, many copies"), keys in depth, contest cards with declared assumptions, ways of not dying PS7a to PS7f, a rating institution card, the scaling community as a place, new angles PS33 to PS42 and suggestions G6 and G7.
+
+## Text VFX, bluffs, knowledge and means, 2026-10-10
+
+> Cool text based representations for interesting stuff? from jjk's Infinity, to adaptation, what other things deserve their own SFX?
+
+> yes add them to the doc, expand on each idea and consider new ideas too?consider flavorful ones, and ones for show of power, like 4th wall breaking? Deeper sfx and more?
+
+> expanding on this and more? More ideas? Stuff to consider for implementation and more?
+
+> more to consider? Expanding on ideas?
+
+Recorded in [presentation: text-only VFX library](PRESENTATION_AND_FOURTH_WALL.md#text-only-vfx-library-2026-10-10) and its second and third waves.
+
+> Also VFX, I think I said the wrong one lmao, I like the ideas, but Idk where bluffs could come in and more?
+
+> more to consider? expanding on ideas? I was just curious about bluffing spcific unknown abilities but bluffing in general is a good idea
+
+> more to consider? expanding on ideas? I feel like it is really unlikely for there to be fake infinity users sicne knowledghe of such techiniques is rare and als othe only character with somethign like that is gojo from JJk, right?
+
+Recorded in the presentation doc: where bluffs come in, bluffing specific abilities, bluff plausibility ("you can only be fooled into an ability you've heard of"), and knowledge and perception expanded.
+
+> We might be overthinking enemy observation and logs, its not like enemies would have access to stuff like those.... unless they do? Samve accordingly?
+
+> Its unlikely for me to know stuff about them unless I use a certain thing to check, just as its unlikely for them to know about me and stuff, everything needs to make sense in their respective worlds
+
+> I mean not the world let you observe but rather the means you have on hand
+
+> Alot of things should be decided by means, on both sides, save accordingly? Also levels of appraisal, types of appraisal, little subtlties like this, and wider subtleties and more? more to consider?
+
+Accepted in [PROJECT.md](../PROJECT.md) (knowledge and means, both ways). Recorded in [means and appraisal](MEANS_AND_APPRAISAL.md).
+
+> save accoridngly, expand accordingly?
+
+Recorded in [means and appraisal: expanded](MEANS_AND_APPRAISAL.md#expanded-the-life-of-a-means-counters-places-and-more-2026-10-10): the life of a means ML1 to ML5, means that are people, combinations, qualities beyond level, counters, places, organizational escalation, reading someone's means, asking instead of reading, canon and means, UI, appraisal angles AA1 to AA8 and suggestions G1 to G3.
+
+> Expanding on technology and technological progression?
+
+Recorded in [technology and progression](TECHNOLOGY_AND_PROGRESSION.md): layers TL, shapes TS, gates TG, knowledge fidelity TK, measurement TM, idle-loop stages TA, world reactions TW, odd tech TX, tech as a life TJ, scale TT, tech cheats TC and suggestions G1 to G3.
+
+> save accordingly, more to consider? do G1
+
+G1 done. Private deep dives: `docs/research/novels/shengnvbangwomonixiuxian/DEEP_DIVE_2026-10-10.md` (264 chapters, three lost to mirror errors) and `docs/research/novels/fanrencongjiyindao-moniqi/DEEP_DIVE_2026-10-10.md` (only the free 44 of 184 chapters exist on mirrors). Recorded in [simulators: two more simulators](SIMULATORS_AND_CHEAT_IMPLEMENTATION.md#two-more-simulators-g1-2026-10-10): new axis values, axes SA14 to SA19, look-alike pairs and more to consider SM17 to SM26.

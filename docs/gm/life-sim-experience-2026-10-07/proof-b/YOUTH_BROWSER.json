@@ -1,0 +1,20 @@
+{
+  "root": "/tmp/yairpg-life-experience-pass-b-youth-r1-20261007",
+  "url": "http://127.0.0.1:18542/",
+  "learning": [
+    {
+      "age": 18,
+      "delta": 1.9
+    },
+    {
+      "age": 40,
+      "delta": 1.59
+    }
+  ],
+  "checks": [
+    "native food-use XP per one consumed bread",
+    "20 percent multiplier within saved XP rounding"
+  ],
+  "status": "Verified before later Notebook click timeout; not a full B browser pass",
+  "generatedSavesOnly": true
+}

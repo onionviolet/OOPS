@@ -1,0 +1,38 @@
+{
+  "game": "Crusader Kings III",
+  "app_id": 1158310,
+  "recorded_at": "2026-10-07T20:32:59.055652+00:00",
+  "status": "finite-source-pass-complete",
+  "platform": "macOS universal native executable; readable Clausewitz/Jomini script/data",
+  "build_id": 25734779,
+  "install_gate": {
+    "StateFlags": 4,
+    "download_and_staging_complete": true,
+    "manifest_stable_through_copy": true,
+    "selected_files_stable_seconds": 8
+  },
+  "retention": {
+    "root": "/Users/weiwei/.codex/research/crusader-kings-3",
+    "receipt": "/Users/weiwei/.codex/research/crusader-kings-3/RETENTION.json",
+    "receipt_sha256": "a2649920d8423e188823edb8615ee370ab6459168b06b49a2de22d9eadc7f401",
+    "retained_files": 16444,
+    "hash_matches": 16444,
+    "bytes": 1654763719,
+    "native_executable": {
+      "path": "binaries/ck3.app/Contents/MacOS/ck3",
+      "sha256": "f20596fc433452dbcd111ed0fdbd32d110b24c90201a249b7648fb3c65c95359",
+      "format": "Mach-O universal x86_64 and arm64; identified with file, not decompiled"
+    },
+    "exclusions": "Giant gfx/art, sound/music, fonts, map_data, tools/tests/content_source and launcher payload; PDF comic not retained; text scripts/history/English and other localization/GUI/DLC descriptors/native mac dependencies retained. Personal saves/userdata untouched."
+  },
+  "decompilation": "Not needed for readable scripts; native engine executable retained but no native method recovery attempted; no claim of managed code recovery.",
+  "runtime_verified": false,
+  "constraints": [
+    "Only assigned dossier/private lane edited",
+    "No saves inspected",
+    "No game launched",
+    "No src changes",
+    "No commit/push",
+    "Steam actions owned by parent"
+  ]
+}

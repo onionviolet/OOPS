@@ -1,0 +1,298 @@
+{
+  "observed_utc": "2026-10-07T18:17:52.147419+00:00",
+  "owner": "/root/factorio_recovery_review",
+  "status": "PASS bounded canonical acquisition",
+  "scope": "Three new canonical rows only; unchanged full initial corpora acquired separately.",
+  "input_sha256": "9e1d7571e0284bb4c4e0e12716143752c893cb79b266038e64d0ee41f54aab93",
+  "combined_context_receipt_sha256": "88f2866495eb8dd6d74092dea535234f40321ed181d930d138bf16aeb5fe59a4",
+  "dependencies": [
+    {
+      "path": "/Users/weiwei/.codex/research/factorio/native-23347942/logs/FULL_CONTEXT_ALL_TABLES_CANONICAL_RESUME.json",
+      "sha256": "a5930a7317ff58bd7954253527bf523bc78d7078b0b5c64dfe9b2187ac6c4db5",
+      "bytes": 21424
+    },
+    {
+      "path": "/Users/weiwei/.codex/research/factorio/native-23347942/logs/ALL_SPLITTER_TABLES_CANONICAL_RESUME.json",
+      "sha256": "85e3d0726bb7a7f4c67d8341d93d0836bf322c21d1347840f370babe228dc0db",
+      "bytes": 104461
+    },
+    {
+      "path": "/Users/weiwei/.codex/research/factorio/native-23347942/logs/INSERTER_TABLE_CANONICAL_RESUME.json",
+      "sha256": "70424ac6a142339c8ff4ae947b7e9e3a4118478e280375072c4f32ddd9305df0",
+      "bytes": 1450
+    },
+    {
+      "path": "/Users/weiwei/.codex/research/factorio/native-23347942/pipeline-scripts/FactorioFullContextRepairToReceipt.java",
+      "sha256": "76f5fe51c22acde968ccee30b0f0f86ab6a366a050e7e4275f56afef77a5ae1d",
+      "bytes": 7711
+    },
+    {
+      "path": "/Users/weiwei/.codex/research/factorio/native-23347942/pipeline-scripts/FactorioAllSplitterTables.java",
+      "sha256": "2f1d5b938efbd5c5e12df6d7debcb40298ba129053c4e22cb3b3efb89d62369a",
+      "bytes": 11287
+    },
+    {
+      "path": "/Users/weiwei/.codex/research/factorio/native-23347942/pipeline-scripts/FactorioInserterTable.java",
+      "sha256": "45747fa480173010ac026dde63f6e365337266158346ff067de70cda8ee4e79f",
+      "bytes": 4193
+    },
+    {
+      "path": "/Users/weiwei/.codex/research/factorio/native-23347942/pipeline-scripts/FactorioCombinedFlowReceipt.java",
+      "sha256": "dd890eb40bef21662b6f572375a38087e9a114f0af1ff68f3b18acc69a3ff731",
+      "bytes": 1448
+    }
+  ],
+  "pipeline_script_sha256": "eadd26b7518c69f8b6c19c3820c1182f07d1f1e86da30ef5f70c8c67322e5eff",
+  "tool_variant_manifest_sha256": "d1f38d77737f4027da3f3e9bb26dd971ae4787b3d3669f7ff281889da420b97f",
+  "actual_tool_files": [
+    {
+      "path": "/Users/weiwei/.codex/research/tools/native-recovery-2026-10-07/ghidra_12.1.4_PUBLIC/Ghidra/Features/Decompiler/os/mac_arm_64/decompile",
+      "sha256": "7434284fc5a6b46b3cb27ef2e8d3c4ea7f801ac1f0cca30e95eb27732c0c62f0",
+      "manifest_field": "decompiler_binary_sha256"
+    },
+    {
+      "path": "/Users/weiwei/.codex/research/tools/native-recovery-2026-10-07/ghidra_12.1.4_PUBLIC/Ghidra/Processors/AARCH64/data/languages/AARCH64_AppleSilicon.sla",
+      "sha256": "541a9b1f35da6e7ebdbff962fae7bb221698695861647bbee8ec4a59533dcfe6",
+      "manifest_field": "SLA_after_sha256"
+    },
+    {
+      "path": "/Users/weiwei/.codex/research/tools/native-recovery-2026-10-07/ghidra_12.1.4_PUBLIC/Ghidra/Processors/AARCH64/data/languages/AARCH64neon.sinc",
+      "sha256": "65a9f4273d6407fe2d06ed5e0fe82a99fa2c8a509c7bf33f75279c940531ce8a",
+      "manifest_field": "source_after_sha256"
+    }
+  ],
+  "rows": [
+    {
+      "entry": "10095b968",
+      "chunk": 1851,
+      "line": 1,
+      "status": "success",
+      "body_sha256": "0ebd42437765f04081809c5015cd4daa2322fb8d7f48377d7bba5ac589bf151d",
+      "c_like_sha256": "ebd5b43d5d014a5c046bbd9251687665e772f94dbd434cf41cbafd8f0662eb3c",
+      "body_bytes": 740,
+      "instruction_count": 185,
+      "full_body_instruction_coverage": true,
+      "diagnostic_body_C_ASM_unchanged": true,
+      "chunk_sha256": "4dc48803806f72a02272146696ce23e12730bc5a9ea4d13217bce5eca3c435a5",
+      "receipt_sha256": "ed15e98f0975370cd6b87c1af27e2bc9961fd0fb4c59bb0ec0c1bfd355af06fb"
+    },
+    {
+      "entry": "10095bc4c",
+      "chunk": 1852,
+      "line": 1,
+      "status": "success",
+      "body_sha256": "a369b5b8bd9f883f8f252e16ff13631baed1d4215931ab8faf88ea745eb72c23",
+      "c_like_sha256": "79adf0daaecfe5ebf254689beaab0fa21d68579cd3ed88c489186c96ed337124",
+      "body_bytes": 2552,
+      "instruction_count": 638,
+      "full_body_instruction_coverage": true,
+      "diagnostic_body_C_ASM_unchanged": true,
+      "chunk_sha256": "e49d2a90a389330d2947b34895c9461986dbb94e59449daed9cd460affe8da42",
+      "receipt_sha256": "115d1085d6041d0ec2d239ecebc7a300311d055aad52b740cb757c8019b8fd0d"
+    },
+    {
+      "entry": "1007f70c4",
+      "chunk": 1853,
+      "line": 1,
+      "status": "success",
+      "body_sha256": "ae2ed03ff9a0790d524dcbf89cd5a339e18c8a6deb9d08090ff07b9979b7b4be",
+      "c_like_sha256": "4732e2de4f594224eba26989aadbc44a5d515ee745f51ad73f41648e80a54875",
+      "body_bytes": 988,
+      "instruction_count": 247,
+      "full_body_instruction_coverage": true,
+      "diagnostic_body_C_ASM_unchanged": true,
+      "chunk_sha256": "81ca086c285244427d916ec8a1c824cf773bae41d9a535df13c875dce18ab46b",
+      "receipt_sha256": "23324b873954a9e5a1c631834d37c17eea368525359e3fead6d9e5b8a8f69298"
+    }
+  ],
+  "splitter_tables": [
+    {
+      "entry": "10095b968",
+      "branch": "10095b9a8",
+      "targets": [
+        "10095b9c0",
+        "10095b9ac",
+        "10095b9b4",
+        "10095b9bc"
+      ],
+      "domain": "0..3",
+      "original_bytes_and_canonical_CFG_match": true
+    },
+    {
+      "entry": "10095b968",
+      "branch": "10095ba00",
+      "targets": [
+        "10095ba18",
+        "10095ba04",
+        "10095ba0c",
+        "10095ba14"
+      ],
+      "domain": "0..3",
+      "original_bytes_and_canonical_CFG_match": true
+    },
+    {
+      "entry": "10095b968",
+      "branch": "10095ba58",
+      "targets": [
+        "10095ba70",
+        "10095ba5c",
+        "10095ba64",
+        "10095ba6c"
+      ],
+      "domain": "0..3",
+      "original_bytes_and_canonical_CFG_match": true
+    },
+    {
+      "entry": "10095b968",
+      "branch": "10095baac",
+      "targets": [
+        "10095bac4",
+        "10095bab0",
+        "10095bab8",
+        "10095bac0"
+      ],
+      "domain": "0..3",
+      "original_bytes_and_canonical_CFG_match": true
+    },
+    {
+      "entry": "10095b968",
+      "branch": "10095baf4",
+      "targets": [
+        "10095bb0c",
+        "10095baf8",
+        "10095bb00",
+        "10095bb08"
+      ],
+      "domain": "0..3",
+      "original_bytes_and_canonical_CFG_match": true
+    },
+    {
+      "entry": "10095b968",
+      "branch": "10095bb38",
+      "targets": [
+        "10095bb50",
+        "10095bb3c",
+        "10095bb44",
+        "10095bb4c"
+      ],
+      "domain": "0..3",
+      "original_bytes_and_canonical_CFG_match": true
+    },
+    {
+      "entry": "10095b968",
+      "branch": "10095bb7c",
+      "targets": [
+        "10095bb94",
+        "10095bb80",
+        "10095bb88",
+        "10095bb90"
+      ],
+      "domain": "0..3",
+      "original_bytes_and_canonical_CFG_match": true
+    },
+    {
+      "entry": "10095b968",
+      "branch": "10095bbbc",
+      "targets": [
+        "10095bbc4",
+        "10095bbc0",
+        "10095bbd0",
+        "10095bbe0"
+      ],
+      "domain": "0..3",
+      "original_bytes_and_canonical_CFG_match": true
+    },
+    {
+      "entry": "10095bc4c",
+      "branch": "10095bdb4",
+      "targets": [
+        "10095bdcc",
+        "10095bdb8",
+        "10095bdc8",
+        "10095be0c"
+      ],
+      "domain": "0..3",
+      "original_bytes_and_canonical_CFG_match": true
+    },
+    {
+      "entry": "10095bc4c",
+      "branch": "10095be88",
+      "targets": [
+        "10095bea0",
+        "10095be8c",
+        "10095be9c",
+        "10095bee0"
+      ],
+      "domain": "0..3",
+      "original_bytes_and_canonical_CFG_match": true
+    },
+    {
+      "entry": "10095bc4c",
+      "branch": "10095bf60",
+      "targets": [
+        "10095bf78",
+        "10095bf64",
+        "10095bf74",
+        "10095bfbc"
+      ],
+      "domain": "0..3",
+      "original_bytes_and_canonical_CFG_match": true
+    },
+    {
+      "entry": "10095bc4c",
+      "branch": "10095c028",
+      "targets": [
+        "10095c040",
+        "10095c02c",
+        "10095c03c",
+        "10095c084"
+      ],
+      "domain": "0..3",
+      "original_bytes_and_canonical_CFG_match": true
+    },
+    {
+      "entry": "10095bc4c",
+      "branch": "10095c444",
+      "targets": [
+        "10095c448",
+        "10095c4a0",
+        "10095c4ac",
+        "10095c4b8"
+      ],
+      "domain": "0..3",
+      "original_bytes_and_canonical_CFG_match": true
+    },
+    {
+      "entry": "10095bc4c",
+      "branch": "10095c490",
+      "targets": [
+        "10095c494",
+        "10095c56c",
+        "10095c574",
+        "10095c57c"
+      ],
+      "domain": "0..3",
+      "original_bytes_and_canonical_CFG_match": true
+    }
+  ],
+  "inserter": {
+    "branch": "1007f72ac",
+    "accepted_index_domain": "0..5",
+    "targets": [
+      "1007f725c",
+      "1007f72b0",
+      "1007f72bc",
+      "1007f72c8",
+      "1007f72d4",
+      "1007f72e0"
+    ],
+    "restored_original_case_bytes": 64,
+    "raw_body_C_ASM_CFG_qualified": true
+  },
+  "all_read_artifacts_unchanged_before_after": true,
+  "limits": [
+    "Candidate boundaries, inferred prototypes and member names remain qualified.",
+    "Dedicated overrides are visible in generated C and pinned to exact guarded table bytes.",
+    "No game, recovered-code or gameplay execution; no whole-engine semantic completion claim."
+  ]
+}

@@ -1,0 +1,66 @@
+{
+  "captured_utc": "2026-10-10T06:09:08.422034+00:00",
+  "purpose": "read-only incumbent mapping, dirty shared working tree may drift",
+  "files": [
+    {
+      "path": "PROJECT.md",
+      "sha256": "eedc05e8172c872dcf3510e11ac0fa58781f3d1b041a9c93055b2791b714db55"
+    },
+    {
+      "path": "docs/RULES_FROM_SCRATCH.md",
+      "sha256": "03239f3f675df1568bbd3c28c1df70777687a76c9bb10e4a4ba6383019566980"
+    },
+    {
+      "path": "docs/LIFE_SIM_NORTH_STAR.md",
+      "sha256": "d0f9991261044c7174ef011b1bfaf3ad91db28f801a7a00fd66a11e6ea96ec4c"
+    },
+    {
+      "path": "docs/gm/dispatch/steam-library-wave-2026-10-10/ASSIGNMENT.md",
+      "sha256": "d4aab9052cc570aae49246720358797626ee5deed974f5bc1e50e826490cd6b2"
+    },
+    {
+      "path": "src/village_career.js",
+      "sha256": "6e8cf84ace080b1955ff4c21e32b11fbc78c52ac1728ac989c66593aada2f962"
+    },
+    {
+      "path": "src/village_career_ui.js",
+      "sha256": "a15951bd0684a541d7dde5c9df15c71aa6f1e81db541d0ea56f0b855d168a886"
+    },
+    {
+      "path": "src/party_content.js",
+      "sha256": "ad8a3ce2437cecae63e7971c32071dd080c01ba070032ae43316cfccab5d9491"
+    },
+    {
+      "path": "src/promise_content.js",
+      "sha256": "7347673f5046591be99914e3b46572612ffb7fea0bc52432edfd563a03fe4aec"
+    },
+    {
+      "path": "src/simulation_contracts.js",
+      "sha256": "0b048cb891b0e30abeb7f97125d8fe62ca9abe03c7fc7697e0078ae4a72501de"
+    },
+    {
+      "path": "src/simulation_effects.js",
+      "sha256": "bd9dde5ea0e09510a6111ac6c99e139c89ce94afc2ae4ae9772213b089408620"
+    },
+    {
+      "path": "src/expedition_content.js",
+      "sha256": "556a01896eeda19266b5ed2dadcdfb4b7df5e0e0bb8b89beb7b22ed1bbb8ce9c"
+    },
+    {
+      "path": "src/original_frontier_campaign_content.js",
+      "sha256": "c301329a184379f03eec9e207a35ef9ac299405929f22d045210ddf04a85b866"
+    },
+    {
+      "path": "src/original_frontier_campaign_host.js",
+      "sha256": "80d5abd69b1c42f937c6dbf4dc07a74d9c135638a64a8146786298b0fe5b9675"
+    },
+    {
+      "path": "src/life_experience.js",
+      "sha256": "c1753b6bbbcd63180e729f67bfd9c0260ee981bfc1329d7a1287d5b63e1adb6c"
+    },
+    {
+      "path": "src/chronicle_ui.js",
+      "sha256": "280db6e29dcb548d03b797d69da7117a068d12c687cedba9533a04096a5595f4"
+    }
+  ]
+}

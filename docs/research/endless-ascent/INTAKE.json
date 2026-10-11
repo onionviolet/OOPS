@@ -1,0 +1,110 @@
+{
+  "date": "2026-10-09",
+  "appid": 2847400,
+  "name": "Endless Ascent",
+  "status": "bounded-installed-native-source-audit",
+  "lens": "First-person scene puzzle/obstacle progression; completion-funded consumables",
+  "ownership": "Steam FullyInstalled manifest confirms installed payload; no license or account screen inspected",
+  "manifest_present": true,
+  "install_request": "queued-behind-first-unconfirmed-install",
+  "store_platforms": {
+    "windows": true,
+    "mac": false,
+    "linux": false
+  },
+  "cached_depots": [
+    {
+      "depot": "2847407",
+      "platform": null,
+      "manifest": {
+        "gid": "1556293351966417755",
+        "size": 1259331055,
+        "download": 304560368
+      }
+    }
+  ],
+  "cached_config_installdir": "Endless Ascent",
+  "storefront_url": "https://store.steampowered.com/app/2847400/",
+  "metadata_api_url": "https://store.steampowered.com/api/appdetails?appids=2847400&l=english",
+  "retained_storefront": {
+    "path": "/Users/weiwei/.codex/research/library-games-2026-10-09/storefront/APP_2847400.json",
+    "bytes": 10549,
+    "sha256": "f57357fda22ddff1095cf576cb68c4fbca86ce39cbbe1e0692c849ef03f0e325"
+  },
+  "useful_game_source": "Minimal native IL2CPP inputs retained; selected native bodies decoded; metadata stubs not treated as bodies",
+  "uninstall": "Worker does not request; coordinator may proceed only after final retention verification",
+  "raw_game_code_committed": false,
+  "dlc_declared": [],
+  "dlc_entitlement_installed_read": "not established",
+  "previous_acquisition_state": {
+    "status": "acquisition-only-not-a-completed-source-audit",
+    "manifest_present": false,
+    "useful_game_source": "not acquired"
+  },
+  "manifest_state_flags": "4 FullyInstalled at parent intake",
+  "buildid": "25410965",
+  "retention_manifest": "~/.codex/research/endless-ascent/RETENTION.json",
+  "verification_manifest": "~/.codex/research/endless-ascent/VERIFICATION.json",
+  "steam_installs_final_receipt_2026_10_09": {
+    "appid": 2847400,
+    "slug": "endless-ascent",
+    "buildid": "25410965",
+    "requested_at_utc": "2026-10-09T20:32:01.884579+00:00",
+    "uri": "steam://uninstall/2847400",
+    "shell_exit_code": 0,
+    "copy_verified": true,
+    "source_audit": "IL2CPP declarations and26 selected x64 bodies",
+    "proposals": 8,
+    "small_touches": 24,
+    "verification_private": "/Users/weiwei/.codex/research/endless-ascent/VERIFICATION.json",
+    "uninstalled": "not-verified; request sent, dialog confirmation unobserved",
+    "last_checked_at_utc": "2026-10-09T20:37:42.608510+00:00",
+    "manifest_present": true,
+    "content_log_entries": [
+      "[2026-10-09 16:00:15] AppID 2847400 state changed : Update Required,",
+      "[2026-10-09 16:00:15] AppID 2847400 scheduler update : Priority First, not played for 1 seconds, update disabled for 0 seconds",
+      "[2026-10-09 16:00:15] AppID 2847400 state changed : Update Required,Update Queued,",
+      "[2026-10-09 16:00:16] AppID 2847400 state changed : Update Required,Update Queued,Update Running,",
+      "[2026-10-09 16:00:16] AppID 2847400 App update changed : Running Update,",
+      "[2026-10-09 16:00:16] AppID 2847400 App update changed : Running Update,Reconfiguring,",
+      "[2026-10-09 16:00:16] AppID 2847400 App update changed : Running Update,",
+      "[2026-10-09 16:00:16] AppID 2847400 App update changed : Running Update,Verifying Installed,",
+      "[2026-10-09 16:00:16] AppID 2847400 App update changed : Running Update,",
+      "[2026-10-09 16:00:16] AppID 2847400 App update changed : Running Update,Preallocating,",
+      "[2026-10-09 16:00:16] AppID 2847400 preallocated 74 files (1198 MB) ",
+      "[2026-10-09 16:00:16] AppID 2847400 App update changed : Running Update,",
+      "[2026-10-09 16:00:16] AppID 2847400 update started : download 0/304560368, store 0/0, reuse 0/0, delta 0/0, stage 0/1259331055 ",
+      "[2026-10-09 16:00:16] AppID 2847400 state changed : Update Required,Update Queued,Update Running,Update Started,",
+      "[2026-10-09 16:00:16] AppID 2847400 App update changed : Running Update,Downloading,Staging,",
+      "[2026-10-09 16:00:26] AppID 2847400 update canceled : Priority (Suspended)",
+      "[2026-10-09 16:00:26] AppID 2847400 App update changed : Running Update,Downloading,Staging,Stopping,",
+      "[2026-10-09 16:00:26] AppID 2847400 App update changed : Running Update,Stopping,",
+      "[2026-10-09 16:00:26] AppID 2847400 App update changed : None",
+      "[2026-10-09 16:00:26] AppID 2847400 state changed : Update Required,Update Queued,Update Started, (Suspended)",
+      "[2026-10-09 16:00:26] AppID 2847400 scheduler finished : staying in schedule (result Suspended, state 0x40a) ",
+      "[2026-10-09 16:00:36] AppID 2847400 state changed : Update Required,Update Queued,Update Running,Update Started,",
+      "[2026-10-09 16:00:36] AppID 2847400 App update changed : Running Update,",
+      "[2026-10-09 16:00:36] AppID 2847400 App update changed : Running Update,Reconfiguring,",
+      "[2026-10-09 16:00:36] AppID 2847400 App update changed : Running Update,",
+      "[2026-10-09 16:00:36] AppID 2847400 App update changed : Running Update,Preallocating,",
+      "[2026-10-09 16:00:36] AppID 2847400 preallocated 0 files (0 MB) ",
+      "[2026-10-09 16:00:36] AppID 2847400 App update changed : Running Update,",
+      "[2026-10-09 16:00:36] AppID 2847400 update started : download 180564384/304560368, store 0/0, reuse 0/0, delta 0/0, stage 719515204/1259331055 ",
+      "[2026-10-09 16:00:36] AppID 2847400 App update changed : Running Update,Downloading,Staging,",
+      "[2026-10-09 16:00:43] AppID 2847400 App update changed : Running Update,",
+      "[2026-10-09 16:00:43] AppID 2847400 App update changed : Running Update,Committing,",
+      "[2026-10-09 16:00:43] AppID 2847400 starting commit from \"/Users/weiwei/Library/Application Support/Steam/steamapps/downloading/2847400\" to \"/Users/weiwei/Library/Application Support/Steam/steamapps/common/Endless Ascent\" : 105 updated, 0 moved, 0 deleted files",
+      "[2026-10-09 16:00:43] AppID 2847400 state changed : Fully Installed,Update Queued,Update Running,",
+      "[2026-10-09 16:00:43] AppID 2847400 finished update, 1 mounted depots (BuildID 25410965) : 2847407 (1556293351966417755),",
+      "[2026-10-09 16:00:43] AppID 2847400 App update changed : Running Update,",
+      "[2026-10-09 16:00:43] AppID 2847400 App update changed : None",
+      "[2026-10-09 16:00:43] AppID 2847400 state changed : Fully Installed,Update Queued,",
+      "[2026-10-09 16:00:43] AppID 2847400 state changed : Fully Installed,",
+      "[2026-10-09 16:00:43] AppID 2847400 scheduler finished : removed from schedule (result No Error, state 0xc) "
+    ],
+    "console_uninstall_entries": [
+      "[2026-10-09 16:32:01] ExecuteSteamURL: \"steam://open/steam://uninstall/2847400\"",
+      "[2026-10-09 16:32:01] ExecuteSteamURL: \"steam://uninstall/2847400\""
+    ]
+  }
+}

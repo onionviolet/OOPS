@@ -1,0 +1,13 @@
+# Original life-sim proposals for the experience GM
+
+Source pass complete. These are proposals, not accepted decisions or copied game content. Receiver: docs/gm/life-sim-experience-2026-10-07/. Each must preserve vanilla opening, native defeat and existing saves; no new offline loss policy is implied. FINDINGS.json contains original observations and exact source locators/hashes.
+
+| Packet | Small original interaction | Cost and durable consequence | Observable acceptance gate |
+|---|---|---|---|
+| P1, obligation calendar (F1/F4) | Opt into an apprentice rota or occult vow with one upcoming due date in the existing events panel. | The chosen routine reserves only its own resource; missed duty records a recoverable setback or relationship mark. | Show earning, competing spend, one due boundary, visible recovery and save/reload/import without double charging. |
+| P2, unequal recovery (F2) | A tired worker rests; an untreated named injury leaves a persistent limitation. | Rest occupies time; treatment uses a chosen resource; injury deadline writes one lasting life fact. | Both recovery paths visible, boundary equality exercised, import retains limitation, native defeat still recovers. |
+| P3, preparation with expiry (F3) | An investigation grants short-lived composure usable for a fearful encounter or another project. | Actual commit consumes composure only once; unused composure fades with a readable consequence. | Two consumers compete, cancellation policy is visible, expiry and reload cannot duplicate the state. |
+| P4, personal commitment state (F7) | One opt-in vow tracks strain on that vow, not a global corruption number. | Seasonal neglect adds strain, an explicit upkeep action lowers it and leaves a biography entry. | Inspect prerequisite versus spend, additive versus replacement updates, maximum bound, saved identity and lawful recovery. |
+| P5, last choice and next start (F5/F6) | A proposed life-ending path offers a home-life alternative and then an earned starting contact for the next life. | Earlier paid costs remain paid; ending record carries only the declared contact/story marker. | This remains opt-in; ordinary defeat unchanged. Show alternative, retained marker, independent new body and load/import. True death/prestige retention still require director decision. |
+
+Implement one playable packet before another. Use the saved RNG for any offered alternatives; the source LegacySelector uses new Random, which is an observation rather than a recommended YAIR policy. Keep runtime integration with its current writer. No gameplay acceptance comes from this dossier.

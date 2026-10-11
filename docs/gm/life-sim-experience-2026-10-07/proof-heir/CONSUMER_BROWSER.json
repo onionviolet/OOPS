@@ -1,0 +1,13 @@
+{
+  "origin": "http://127.0.0.1:18547/",
+  "errors": [],
+  "checks": [
+    "opened visible inherited route preparation",
+    "90 percent prepared footpath preview",
+    "real inspect action completed",
+    "real footpath action completed with inherited lesson"
+  ],
+  "before": "Scout the fast footpath\n\nUse marker-carrying capability instead of supplies. Takes 4 minutes, grants 20 Climbing XP and leaves the crossing unrepaired.\n\n4 min · Footpath mapped; guide ready: 90% · Footpath mapped; guide needs rest: 10% · Strong marker carrying: 20% moves from strain to safe; Route preparation: 10% moves from strain to safe\n\nInspect the crossing to learn its anchor points.",
+  "finalMoney": 106,
+  "generatedSavesOnly": true
+}

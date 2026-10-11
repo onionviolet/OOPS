@@ -1,0 +1,36 @@
+{
+  "app_id": 718670,
+  "build_id": "22090405",
+  "platform": "macOS Mono managed",
+  "checked_utc": "2026-10-07T20:22:32.271153+00:00",
+  "status": "finite-source-pass-complete",
+  "private_snapshot": "/Users/weiwei/.codex/research/cultist-simulator/build22090405",
+  "copied": true,
+  "decompiled": true,
+  "audit_complete": true,
+  "uninstall_eligible": true,
+  "no_installed_path_consumers": true,
+  "gameplay_verified": false,
+  "save_access": "none",
+  "assigned_pass": "Seven connected life-sim chains plus managed execution, reservation, mutation, decay and legacy consumers. Finite pass complete, not whole game.",
+  "reviewed_chain_ids": [
+    "F1",
+    "F2",
+    "F3",
+    "F4",
+    "F5",
+    "F6",
+    "F7"
+  ],
+  "reviewed_locators": 61,
+  "decompiled_cs_files": 618,
+  "decompiled_hash_manifest": "/Users/weiwei/.codex/research/cultist-simulator/build22090405/DECOMPILED_HASHES.json",
+  "unread": [
+    "Most of managed engine including save/load and ending handler internals",
+    "Most books, lore, expedition, cult/follower, hunter and romance content",
+    "All localizations beyond retained availability",
+    "Dancer, Priest and Exile campaigns except referenced shared ambition dispatch",
+    "Native engine, assets, soundtrack and perpetual extras"
+  ],
+  "bounds": "Recovered C# is decompiled output, not original project source. JSON trailing commas tolerated only for inspected-row reading. No generated stubs counted as executable coverage."
+}

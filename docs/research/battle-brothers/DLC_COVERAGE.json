@@ -1,0 +1,116 @@
+{
+  "date": "2026-10-08",
+  "official_listing": "https://store.steampowered.com/app/365360/Battle_Brothers/",
+  "installed_dlc_labelled_depots": 10,
+  "rows": [
+    {
+      "app": "365381",
+      "archive": null,
+      "label": "Lore & Art Book",
+      "category": "artbook, excluded",
+      "evidence": "installed manifest depot dlcappid association; archive DLC script member if applicable",
+      "dlc_scripts": [],
+      "runtime_activation": "not exercised"
+    },
+    {
+      "app": "365382",
+      "archive": "data_002.dat",
+      "label": "Fangshire",
+      "category": "deluxe gameplay item",
+      "evidence": "installed manifest depot dlcappid association; archive DLC script member if applicable",
+      "dlc_scripts": [
+        "scripts/dlc/dlc_fangshire.cnut"
+      ],
+      "runtime_activation": "not exercised"
+    },
+    {
+      "app": "732460",
+      "archive": "data_003.dat",
+      "label": "Lindwurm",
+      "category": "gameplay content",
+      "evidence": "installed manifest depot dlcappid association; archive DLC script member if applicable",
+      "dlc_scripts": [
+        "scripts/dlc/dlc_lindwurm.cnut"
+      ],
+      "runtime_activation": "not exercised"
+    },
+    {
+      "app": "961930",
+      "archive": "data_004.dat",
+      "label": "Beasts & Exploration",
+      "category": "gameplay expansion",
+      "evidence": "installed manifest depot dlcappid association; archive DLC script member if applicable",
+      "dlc_scripts": [
+        "scripts/dlc/dlc_unhold.cnut"
+      ],
+      "runtime_activation": "not exercised"
+    },
+    {
+      "app": "986090",
+      "archive": "data_005.dat",
+      "label": "Supporter / Kraken Banner",
+      "category": "supporter cosmetics",
+      "evidence": "installed manifest depot dlcappid association; archive DLC script member if applicable",
+      "dlc_scripts": [
+        "scripts/dlc/dlc_unhold_supporter.cnut"
+      ],
+      "runtime_activation": "not exercised"
+    },
+    {
+      "app": "1067690",
+      "archive": "data_006.dat",
+      "label": "Warriors of the North",
+      "category": "gameplay expansion",
+      "evidence": "installed manifest depot dlcappid association; archive DLC script member if applicable",
+      "dlc_scripts": [
+        "scripts/dlc/dlc_wildmen.cnut"
+      ],
+      "runtime_activation": "not exercised"
+    },
+    {
+      "app": "1067750",
+      "archive": "data_007.dat",
+      "label": "Supporter / Nordic Banner",
+      "category": "supporter cosmetics",
+      "evidence": "installed manifest depot dlcappid association; archive DLC script member if applicable",
+      "dlc_scripts": [
+        "scripts/dlc/dlc_wildmen_supporter.cnut"
+      ],
+      "runtime_activation": "not exercised"
+    },
+    {
+      "app": "1361280",
+      "archive": "data_008.dat",
+      "label": "Blazing Deserts",
+      "category": "gameplay expansion",
+      "evidence": "installed manifest depot dlcappid association; archive DLC script member if applicable",
+      "dlc_scripts": [
+        "scripts/dlc/dlc_desert.cnut"
+      ],
+      "runtime_activation": "not exercised"
+    },
+    {
+      "app": "1362330",
+      "archive": "data_009.dat",
+      "label": "Supporter / Southern Banner",
+      "category": "supporter cosmetics",
+      "evidence": "installed manifest depot dlcappid association; archive DLC script member if applicable",
+      "dlc_scripts": [
+        "scripts/dlc/dlc_desert_supporter.cnut"
+      ],
+      "runtime_activation": "not exercised"
+    },
+    {
+      "app": "1910050",
+      "archive": "data_010.dat",
+      "label": "Of Flesh and Faith",
+      "category": "gameplay origin content, comic excluded",
+      "evidence": "installed manifest depot dlcappid association; archive DLC script member if applicable",
+      "dlc_scripts": [
+        "scripts/dlc/dlc_paladins.cnut"
+      ],
+      "runtime_activation": "not exercised"
+    }
+  ],
+  "limits": "Installed depot associations are not a claim of current account license/activation. Labels use official listing and archive filenames. Story/art/audio not semantically reviewed. DLC-gated base-archive scripts may exist regardless of active entitlements."
+}

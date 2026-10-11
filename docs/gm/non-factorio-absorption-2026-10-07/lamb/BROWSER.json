@@ -1,0 +1,52 @@
+{
+  "url": "http://127.0.0.1:18621",
+  "findings": [
+    "Actual Eda demonstration and supervised native practice earn the prerequisites without automatically appointing her.",
+    "One willing minute appoints the same Eda; the office belongs to her and grants no replacement source.",
+    "Inspection really holds the owned part and Eda guide; cancellation restores fee, unchanged items and no approval or wage.",
+    "Saved held inspection reloads, returns the same counted part and guide, pays Eda once and issues the one class approval.",
+    "One finite order transfers the actual native stave to Eda, spends three of her coins and consumes its approval without replay.",
+    "Native file import restores the actual earlier approved-but-unsettled order, including part, purse and history.",
+    "Ending removes future service while preserving Eda\u2019s trained method and completed work; reload retains that distinction."
+  ],
+  "errors": [],
+  "resourceErrors": [
+    {
+      "url": "http://127.0.0.1:18621/styles/action_legibility.css?version=721590da18e7",
+      "failure": "net::ERR_CONNECTION_RESET"
+    }
+  ],
+  "limits": [
+    "Generated funded Eda fixture; actual demonstration/practice and all described transactions were played, but natural opening/pacing are not proved.",
+    "Sharp-guide route, delivery refund, source-loss ending and in-flight support loss have bounded checks; separate browser branches remain open. Approval is a fungible item-class receipt, not per-copy identity."
+  ],
+  "schema": 1,
+  "build_receipt": "../four-r1-BUILD.json",
+  "bundle_sha256": "7c4fe2b159f0fb2446a9cab2ce0832bd6e87aca6d02eca638aa38490fcaacb7f",
+  "script": "browser_proof.cjs",
+  "exit_code": 0,
+  "verification": "seven bounded fresh-context browser gameplay/save criteria passed; director acceptance separate",
+  "source_files": [
+    {
+      "path": "src/steam_lamb_content.js",
+      "kind": "filesystem-source",
+      "sha256": "e370771852e1eb8a40d392bc87041f7d8a27b13ea6847462064c5ca56c70079e"
+    },
+    {
+      "path": "src/steam_lamb_runtime.js",
+      "kind": "filesystem-source",
+      "sha256": "8df169fae0f5d865130058a1f3e8b0920def440de06c67c62749da32a36ab8ae"
+    },
+    {
+      "path": "src/steam_lamb_facts.js",
+      "kind": "filesystem-source",
+      "sha256": "ba755e21daedf50113c1d5602725902c03bb706af04ba849bb06831189533be0"
+    },
+    {
+      "path": "src/steam_lamb_host.js",
+      "kind": "filesystem-source",
+      "sha256": "b770c3b9f7f549a33625e30d9222d11935aacc734d032b28faa9c942c08dd49d"
+    }
+  ],
+  "screenshot": "/tmp/yairpg-nonfactorio-proof/lamb/ended-agreement.png"
+}

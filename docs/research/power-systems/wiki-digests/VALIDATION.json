@@ -1,0 +1,10 @@
+{
+  "state": "passed",
+  "scope": "Current API plus dump research artifacts; primary canon and gameplay excluded",
+  "current_dump_validation": "DUMP_VALIDATION.json",
+  "historical_api_validation": "history/pre-dump-addendum/VALIDATION.json",
+  "current_subject_records": 119,
+  "dump_claims": 41,
+  "archive_count": 13,
+  "covered_matching_wiki_requests": 9
+}

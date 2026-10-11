@@ -1,0 +1,41 @@
+{
+  "game": "Tale of Immortal",
+  "app_id": 1468810,
+  "checked_at": "2026-10-07T20:18:10.723585+00:00",
+  "state": "blocked_acquisition",
+  "source_copied": false,
+  "hash_copy_verified": false,
+  "decompiled": false,
+  "semantic_pass_complete": false,
+  "uninstall_eligible": false,
+  "planned_bounded_chains": [
+    {
+      "id": "C1",
+      "scope": "NPC aging, lifespan and death",
+      "status": "unread_no_payload"
+    },
+    {
+      "id": "C2",
+      "scope": "NPC relations and social obligations",
+      "status": "unread_no_payload"
+    },
+    {
+      "id": "C3",
+      "scope": "Cultivation action and breakthrough costs",
+      "status": "unread_no_payload"
+    },
+    {
+      "id": "C4",
+      "scope": "Event eligibility, choice and state mutations",
+      "status": "unread_no_payload"
+    },
+    {
+      "id": "C5",
+      "scope": "Time absence, failure and lasting aftermath",
+      "status": "unread_no_payload"
+    }
+  ],
+  "covered_chains": 0,
+  "unread": "Entire game source, data, DLC and runtime behavior",
+  "runtime_exercised": false
+}

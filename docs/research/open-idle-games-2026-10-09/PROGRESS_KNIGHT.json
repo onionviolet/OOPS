@@ -1,0 +1,78 @@
+{
+  "date": "2026-10-09",
+  "game": "Progress Knight",
+  "status": "source-inspected-not-playtested",
+  "executed_third_party_scripts": false,
+  "repos": [
+    {
+      "repository": "https://github.com/ihtasham42/progress-knight",
+      "clone_dir": "/Users/weiwei/.codex/research/progress-knight/original",
+      "role": "original",
+      "sha": "f6dd0c3c444d838f80325bbdca918160b99e89e5",
+      "commit_date": "2021-07-11T13:32:49+01:00",
+      "subject": "Update README.md",
+      "shallow": true,
+      "license": "Unlicense"
+    },
+    {
+      "repository": "https://github.com/Symb1/progress_knight_2",
+      "clone_dir": "/Users/weiwei/.codex/research/progress-knight/two",
+      "role": "intermediate fork",
+      "sha": "5b6b059b1f5ad645837e504bde1d455995d05514",
+      "commit_date": "2022-02-15T21:19:03+01:00",
+      "subject": "Add files via upload",
+      "shallow": true,
+      "license": "No explicit license found"
+    },
+    {
+      "repository": "https://github.com/indomit/progress_knight_2",
+      "clone_dir": "/Users/weiwei/.codex/research/progress-knight/quest",
+      "role": "maintained continuation",
+      "sha": "d03f8b65adddab4a089a2f95e3a4749770aa03cb",
+      "commit_date": "2026-09-25T20:10:46+07:00",
+      "subject": "fixed bug with save migration",
+      "shallow": true,
+      "license": "No explicit license found"
+    }
+  ],
+  "findings": [
+    "PK-F1",
+    "PK-F2",
+    "PK-F3",
+    "PK-F4",
+    "PK-F5",
+    "PK-F6",
+    "PK-F7",
+    "PK-F8"
+  ],
+  "small_touches": [
+    "PK-T1",
+    "PK-T2",
+    "PK-T3",
+    "PK-T4",
+    "PK-T5",
+    "PK-T6",
+    "PK-T7",
+    "PK-T8",
+    "PK-T9",
+    "PK-T10",
+    "PK-T11",
+    "PK-T12",
+    "PK-T13",
+    "PK-T14",
+    "PK-T15",
+    "PK-T16",
+    "PK-T17",
+    "PK-T18",
+    "PK-T19",
+    "PK-T20"
+  ],
+  "proposals": [
+    "PK-P1",
+    "PK-P2",
+    "PK-P3",
+    "PK-P4",
+    "PK-P5"
+  ],
+  "dossier": "PROGRESS_KNIGHT.md"
+}

@@ -1,0 +1,13 @@
+{
+  "src/main.js": "591e41110915f96e2e97b18bc6550684cb2c8a71f01d3e7a27c4188322c3a877",
+  "src/items.js": "26c044f9a180f56665966770f64ea890ea81e3ee6fe8e9cedbdc54f0a470a3be",
+  "src/save_files.js": "986be91884bd4f38179502d537d56632de913326e7672c1ff7aef00bf22abcb8",
+  "src/village_career.js": "33bc6166eb35c9cd7c700650b2b7e8c841bb951b993c2d32d4b7f44b958d5764",
+  "src/village_career_ui.js": "837785e81e9c496e02f4d3946db4c16fea9273c2972a4866a83df4e222e843c0",
+  "tests/village_study.test.js": "0e5a31fbf392769627a51a3a430a7247da16e0f2f15539823e2f5f6254e3890f",
+  "tests/chronicle.test.js": "234fbb1baaf84f7843445bcfc559173830d0667e993b1bbd0aacb61ecfa01d7d",
+  "tests/simulation.test.js": "48c580fdfffb79ea2277c081f31aecc82b1c2b4db8d13df9b8262a48321e8d49",
+  "tests/expansion_engine.test.js": "680175db9fbe05befdc5243cd4bf768c3683b49776ac3338a71f5d9f6bdde36f",
+  "dist/bundle.js": "e4d1a722ca650df36e049d6ca7d9664bf89f1c713e6ed80a6bf6943447412bdc",
+  "index.html": "52ab360518aff39b54bcde74b5a4300ac1a774446a0ae683aa303c16786efc3a"
+}

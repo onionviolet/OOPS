@@ -1,0 +1,106 @@
+[
+  {
+    "title": "Ra",
+    "original_title": "Ra",
+    "author": "qntm (Sam Hughes)",
+    "platform": "Author website; self-published editions",
+    "language_group": "Western",
+    "summary": "Magic is studied and used as an engineering discipline, with domestic and industrial applications. A student seeks to understand a failed magical spaceflight. The unusual hook is technical power whose working model can be investigated, rather than a fixed gift; later hidden-system claims need the chosen text edition before design use.",
+    "lenses": [
+      "inspectors and rule enforcers",
+      "rule-abuse and gag physics"
+    ],
+    "novelty_score": 4,
+    "source_urls": [
+      "https://www.goodreads.com/book/show/59025155-ra",
+      "https://en.wikipedia.org/wiki/Ra_(novel)"
+    ],
+    "evidence_scope": "indexed public synopsis and bibliographic metadata",
+    "verified_hook": "Magic is an engineering field with household and industrial uses; investigation centers on a failed magical spaceflight.",
+    "unknowns": [
+      "Exact spell syntax, resource accounting, exploit scene and edition changes not read."
+    ],
+    "proposal": "Proposal: a workshop can test a spell model against a real material and record what failed.",
+    "source_request_url": "https://qntm.org/ra"
+  },
+  {
+    "title": "Fine Structure",
+    "original_title": "Fine Structure",
+    "author": "qntm",
+    "platform": "Author web serial; self-published EPUB",
+    "language_group": "Western",
+    "summary": "A new framework promises access to energy, transport and parallel worlds. Attempts to use it provoke sabotage, while the laws of physics change to close discoveries. The hook is a world that edits what remains possible after an experiment, making a sound observation obsolete without making the original observer dishonest.",
+    "lenses": [
+      "kinds of observation",
+      "inspectors and rule enforcers",
+      "rule-abuse and gag physics"
+    ],
+    "novelty_score": 5,
+    "source_urls": [
+      "https://qntm.gumroad.com/l/ELFop",
+      "https://books.google.com/books/about/Fine_Structure.html?id=2gdkDwAAQBAJ"
+    ],
+    "evidence_scope": "indexed author shop synopsis and book metadata",
+    "verified_hook": "Experiments are followed by sabotage and changing scientific laws that close discovered possibilities.",
+    "unknowns": [
+      "Who enforces the closure, precise trigger order, exceptions and any renewal costs need text."
+    ],
+    "proposal": "Proposal: a discovery receipt stores the rule version under which it worked, and later trials can fail under a changed local law.",
+    "source_request_url": "https://qntm.gumroad.com/l/ELFop"
+  },
+  {
+    "title": "I Can See Your Death",
+    "original_title": "너의 죽음이 보여",
+    "author": "단해늘",
+    "platform": "Korean web novel; original platform not established in accessed metadata",
+    "language_group": "Korean",
+    "summary": "After an accident, a woman reads a death date and sign above other people. Black entries can be changed by her intervention, while red ones appear fixed to her. The synopsis therefore distinguishes seeing an outcome from being able to prevent it, and turns the displayed kind of prediction into a practical rescue decision.",
+    "lenses": [
+      "future sight",
+      "kinds of observation",
+      "hidden identities"
+    ],
+    "novelty_score": 4,
+    "source_urls": [
+      "https://www.novelupdates.com/series/i-can-see-your-death/"
+    ],
+    "evidence_scope": "indexed public novel synopsis and author metadata",
+    "verified_hook": "Synopsis states death date/sign sight and contrasts preventable black readings with red lifespans described as unchangeable.",
+    "unknowns": [
+      "Is the color an objective law or an incomplete character belief?",
+      "Exact scope, reliability, growth and effect of telling the target need text."
+    ],
+    "proposal": "Proposal: a reading has separate certainty and intervention status; apparent inevitability stays an observer claim until tested.",
+    "power_currency": null,
+    "acquisition_gate": "Sight begins after an accident",
+    "cost": null,
+    "persistence": null
+  },
+  {
+    "title": "The Oracle Paths",
+    "original_title": "The Oracle Paths",
+    "author": "Arkinslize",
+    "platform": "WebNovel original English web serial",
+    "language_group": "Western",
+    "summary": "Every person receives a bracelet with an AI that promises guidance about how choices affect the future. The premise removes the usual advantage of being the only informed actor. Guidance becomes a contested resource when opponents can plan too, while the synopsis warns that the gift has a price without specifying its tariff.",
+    "lenses": [
+      "future sight",
+      "kinds of observation",
+      "systems with strange prices"
+    ],
+    "novelty_score": 5,
+    "source_urls": [
+      "https://www.webnovel.com/book/15465781005526105"
+    ],
+    "evidence_scope": "indexed official author-platform synopsis and author metadata",
+    "verified_hook": "Official synopsis grants all Earthlings an Oracle AI bracelet describing future consequences of choices; exact tariff is unstated.",
+    "unknowns": [
+      "Prediction fidelity, guide conflicts, price, updates and anti-prediction rules need text."
+    ],
+    "proposal": "Proposal: preview quality depends on which other actors also possess and act on guidance, rather than assuming passive opponents.",
+    "power_currency": null,
+    "acquisition_gate": "Bracelet delivered to every Earthling",
+    "cost": null,
+    "persistence": null
+  }
+]

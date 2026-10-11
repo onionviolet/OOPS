@@ -1,0 +1,43 @@
+{
+  "kind": "generated-model-contract-checks",
+  "browserProof": false,
+  "cases": [
+    {
+      "proof": "mortal",
+      "clock": 19,
+      "watchCompleted": 1,
+      "watchCancellationRefunded": true,
+      "delivery": "delivered",
+      "receivedClosure": true,
+      "conversationCompleted": 1,
+      "extraLoot": false,
+      "hiddenCountersNotDisclosed": true
+    },
+    {
+      "proof": "covenant",
+      "clock": 19,
+      "watchCompleted": 1,
+      "watchCancellationRefunded": true,
+      "delivery": "delivered",
+      "receivedClosure": true,
+      "conversationCompleted": 1,
+      "extraLoot": false,
+      "hiddenCountersNotDisclosed": true
+    },
+    {
+      "proof": "anchor",
+      "clock": 19,
+      "watchCompleted": 1,
+      "watchCancellationRefunded": true,
+      "delivery": "delivered",
+      "receivedClosure": true,
+      "conversationCompleted": 1,
+      "extraLoot": false,
+      "hiddenCountersNotDisclosed": true
+    }
+  ],
+  "nativeSkillKeyContract": {
+    "spacedNativeNameAccepted": true,
+    "unsafeKeyRejected": true
+  }
+}

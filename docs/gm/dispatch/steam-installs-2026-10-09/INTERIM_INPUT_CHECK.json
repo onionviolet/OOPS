@@ -1,0 +1,15 @@
+{
+  "at_utc": "2026-10-09T20:12:10.193256+00:00",
+  "checked": 401,
+  "drift": [
+    "src/main.js",
+    "src/items.js",
+    "src/save_files.js",
+    "src/data/locations.js",
+    "dist/bundle.js.map",
+    "dist/bundle.js",
+    "index.html",
+    "PROJECT.md"
+  ],
+  "interpretation": "Hash changes report live shared-workspace drift, not attribution to this task."
+}

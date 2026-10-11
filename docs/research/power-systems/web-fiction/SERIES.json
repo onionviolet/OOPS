@@ -1,0 +1,4349 @@
+{
+  "schema_version": 1,
+  "lane": "B",
+  "date": "2026-10-10",
+  "state": "research_complete_with_explicit_evidence_limits",
+  "scope_counts": {
+    "main": 16,
+    "bridge": 2,
+    "category": 1
+  },
+  "evidence_legend": {
+    "verified_local_dossier": "This pass read an existing edition-qualified research owner, not the raw book; retain its claim/locator and review bounds.",
+    "verified_reference_summary": "This pass inspected a public reference or indexed summary. Secondary claims are not authenticated novel canon; access mode is in sources.",
+    "remembered_unverified": "Memory-based series detail; needs named primary locator before canon use.",
+    "model_mapping_inference": "Interpretation into E8, not the source author’s schema.",
+    "mapping_inference": "Path model/category or ceiling interpretation, not a universal source rule.",
+    "genre_synthesis": "Cross-example pattern, not a rule in every system novel.",
+    "unverified": "No supporting event verified. Explicit absence of proof, not proof of absence."
+  },
+  "proposal_policy": "All what_we_take fields and report amendments are proposals. No E8 edit, code, build, commit or accepted decision.",
+  "sources": [
+    {
+      "id": "L-RI",
+      "title": "Reverend Insanity reviewed power index",
+      "target": "docs/research/novels/full-book/reverend-insanity/POWER_INDEX.md",
+      "access": "local_dossier_read",
+      "checked": "2026-10-10",
+      "scope": "Separate axes; c18-20 Cicada; c62-100 feeding/fusion; RI-c0268-01, c0278-01/02/04 oath removal. Supplied edition, not fresh canon authentication.",
+      "sha256": "7400c5b1915ea55add4b0da2e0ad3682cb47e01a247b7c3a96a1b6e39d897154"
+    },
+    {
+      "id": "L-LOTM",
+      "title": "LOTM reviewed powers",
+      "target": "docs/research/novels/full-book/lord-of-mysteries/POWERS.md",
+      "access": "local_dossier_read",
+      "checked": "2026-10-10",
+      "scope": "Reviewed opening and later reviewed supplements, notably r003/r004/r014/r016. Partial review owner, not full-series certification.",
+      "sha256": "045300e29f354ce93c8a957496b3725ca279ec7cc26aa2ff55aea344b70b2b67"
+    },
+    {
+      "id": "L-ORV",
+      "title": "ORV functional power rules",
+      "target": "docs/research/novels/full-book/omniscient-reader/POWER_RULES.md",
+      "access": "local_dossier_read",
+      "checked": "2026-10-10",
+      "scope": "Reviewed supplied chapters 1-551. Opening ORV-003/008/009/010; later ORV-397, 491-502, 550-551. No new book read.",
+      "sha256": "33601df74a4ea4c312d2fcd23c92743f3881c91e1e53d7879fc3e4abf4062b65"
+    },
+    {
+      "id": "L-SCG",
+      "title": "Gluttony fact index",
+      "target": "docs/research/novels/novel-wave-2026-10-08/books/gluttony/FACTS.md",
+      "access": "local_dossier_read",
+      "checked": "2026-10-10",
+      "scope": "Growth/mastery, C194 foresight, C353 promotion, C454 extraction, C460 servant dilution, C470 failure, C526 Earth exception. Exact EPUB locators retained by owner.",
+      "sha256": "09a5903967a199f956e0899c00a8df7ed18280b7744a99070a569e0e9b3bcdf3"
+    },
+    {
+      "id": "L-SS",
+      "title": "Shadow Slave synthesis",
+      "target": "docs/research/novels/full-book/shadow-slave/SYNTHESIS.md",
+      "access": "local_dossier_read",
+      "checked": "2026-10-10",
+      "scope": "Opening/trial/return, Flaw reversal, Shore true-name command; supplied-edition synthesis through 3000 with remaining cross-index issues. No claim of new 3000-chapter read.",
+      "sha256": "935cd941b5c39953ff732498b915abca9cdccd1fd4473bf301761fde160efd2f"
+    },
+    {
+      "id": "L-SS-P",
+      "title": "Shadow Slave power index",
+      "target": "docs/research/novels/full-book/shadow-slave/POWER_INDEX.md",
+      "access": "local_dossier_read",
+      "checked": "2026-10-10",
+      "scope": "Early core/class/rank distinction; SS-0001-0005-C07-C18, 6-20 reward and Flaw; WeaverMask 278-279; post-theft Spell services. This index has a smaller cutoff than synthesis.",
+      "sha256": "71bef294022b77382e85a6c41448ce14a93faa9bbf2ea9fc0d379a5f0834da90"
+    },
+    {
+      "id": "L-ISSTH",
+      "title": "ISSTH dossier",
+      "target": "docs/research/novels/er-gen-haul-2026-10-09/issth/DOSSIER.md",
+      "access": "local_dossier_read",
+      "checked": "2026-10-10",
+      "scope": "Gates ch676/693/792-794; normal lamps 1274-1290 versus body lamps1080-1082; mirror, promissory notes and final 3-silver repayment ch1614. Supplied edition qualified.",
+      "sha256": "1d2fb4cfd1f33d5faddb4ab5446a5adc97191b01b3d406126e1b217a5e25256b"
+    },
+    {
+      "id": "L-REN",
+      "title": "Renegade Immortal dossier",
+      "target": "docs/research/novels/er-gen-haul-2026-10-09/renegade-immortal/DOSSIER.md",
+      "access": "local_dossier_read",
+      "checked": "2026-10-10",
+      "scope": "Reviewed1-100,101-250 and401-550; domain/celestial conversion409-425; Ji91/105/125/208; Bead early10:1 test. Whole dossier review in progress.",
+      "sha256": "d7019868d523ad742431211c5484010316ec120295f92da42a44d2394b79586a"
+    },
+    {
+      "id": "L-ERGEN",
+      "title": "Earlier Er Gen and Gu survey",
+      "target": "docs/research/novels/xianxia-masters-2026-10-08/ER_GEN_AND_GU.md",
+      "access": "local_prior_index_read",
+      "checked": "2026-10-10",
+      "scope": "Secondary-index upper ladders and scale. Lower confidence than current reviewed dossiers; not primary proof of late realms.",
+      "sha256": "be01d75647f66070b14e6f59f45ad41edd35775423f558f27c599fee1e3e6e3e"
+    },
+    {
+      "id": "L-MOL",
+      "title": "Mother of Learning power index",
+      "target": "docs/research/novels/full-book/mother-of-learning/POWERS.md",
+      "access": "local_dossier_read",
+      "checked": "2026-10-10",
+      "scope": "Ch9 mechanical lock bypass; ch18 physical vs mental illusion; ch51-65 memory/geas, loop markers, simulacra. Bridge only.",
+      "sha256": "3fd7d9f8f41fe00c361e11632843643c620a5cef2d65c1bef9b1fdfeff4b7a79"
+    },
+    {
+      "id": "L-FV",
+      "title": "Fated Villain power index",
+      "target": "docs/research/novels/full-book/fated-villain/POWERS.md",
+      "access": "local_dossier_read",
+      "checked": "2026-10-10",
+      "scope": "Supplied MTL qualified. Opening Destiny Points vs Fortune, 35-70 zero-fortune kills/curse/oath distinction. No universal point ratio.",
+      "sha256": "962076806d708a16aaff854f9996bdb35bb82dcd29c2bfbee247d6320ec58891"
+    },
+    {
+      "id": "L-LM",
+      "title": "Legendary Mechanic production cross reference",
+      "target": "docs/research/novels/full-book/legendary-mechanic/POWER_AND_PRODUCTION.md",
+      "access": "local_dossier_read",
+      "checked": "2026-10-10",
+      "scope": "Opening c1-5 learning versus fabrication, knowledge gate, duplicate blueprint costs and c26-45 source/tool capacity. Context only, not an extra assigned main title.",
+      "sha256": "ee6bc5f3346414d211c4a7465a430603e427813e144b11fa70c25f3a23ef2e44"
+    },
+    {
+      "id": "L-NS",
+      "title": "North star cross references",
+      "target": "docs/LIFE_SIM_NORTH_STAR.md",
+      "access": "local_design_read",
+      "checked": "2026-10-10",
+      "scope": "Sections on source power families, Nine Eyes, cultivation variants, observers and E8 context. Design claims are proposals, not canon.",
+      "sha256": "3271e133c4d946ca5062320cc5ac8777706944bcd1229abe950b3c21e0552479"
+    },
+    {
+      "id": "W-LOTM-A",
+      "title": "Acting Method",
+      "target": "https://lordofthemysteries.fandom.com/wiki/Acting_Method",
+      "access": "search_index_only",
+      "checked": "2026-10-10",
+      "scope": "Digestion can occur naturally; acting accelerates it; retain actor identity. Mixed LOTM/COI page, only first-book general mechanism used."
+    },
+    {
+      "id": "W-LOTM-B",
+      "title": "Beyonders",
+      "target": "https://lordofthemysteries.fandom.com/wiki/Beyonders",
+      "access": "search_index_only",
+      "checked": "2026-10-10",
+      "scope": "Ten numbered sequences9-0; high-sequence adjacent swaps exclude LOTM group at ordinary threshold. No direct successful page fetch."
+    },
+    {
+      "id": "W-LOTM-S",
+      "title": "Sequence",
+      "target": "https://lordofthemysteries.fandom.com/wiki/Sequence",
+      "access": "search_index_only",
+      "checked": "2026-10-10",
+      "scope": "Numbered path reference; use earlier local survey for scarce god-seat claim."
+    },
+    {
+      "id": "W-TOG-S",
+      "title": "Shinsu Manipulation",
+      "target": "https://towerofgod.fandom.com/wiki/Shinsu_Manipulation",
+      "access": "search_index_only",
+      "checked": "2026-10-10",
+      "scope": "Floor contract, weak/natural/item exceptions, irregular authority. Direct open failed; indexed summary only."
+    },
+    {
+      "id": "W-TOG-P",
+      "title": "Position",
+      "target": "https://towerofgod.fandom.com/wiki/Position",
+      "access": "search_index_only",
+      "checked": "2026-10-10",
+      "scope": "Five team roles, multi-role capability; wiki cites chapter28 and SIU blog. Role is not personal power rank."
+    },
+    {
+      "id": "W-TOG-A",
+      "title": "Administrator",
+      "target": "https://towerofgod.fandom.com/wiki/Administrator",
+      "access": "search_index_only",
+      "checked": "2026-10-10",
+      "scope": "Floor jurisdiction; eternal-life/immortality contracts; dead43rd-floor administrator. No complete breach table."
+    },
+    {
+      "id": "W-SOLO-S",
+      "title": "System",
+      "target": "https://solo-leveling.fandom.com/wiki/System",
+      "access": "search_index_only",
+      "checked": "2026-10-10",
+      "scope": "Quests/body preparation for monarch; page has Ragnarok additions, survey freezes main-series premise."
+    },
+    {
+      "id": "W-SOLO-X",
+      "title": "Shadow Extraction",
+      "target": "https://solo-leveling.fandom.com/wiki/Shadow_Extraction",
+      "access": "search_index_only",
+      "checked": "2026-10-10",
+      "scope": "Main-series failure/age/three-attempt and mana-type conditions; sequel exceptions explicitly excluded from baseline."
+    },
+    {
+      "id": "W-SOLO-P",
+      "title": "Penalty Zone summary",
+      "target": "https://wikikai.com/wiki/solo-leveling/locations/the-penalty-zone/",
+      "access": "search_index_only",
+      "checked": "2026-10-10",
+      "scope": "Low-confidence secondary recap of daily-quest punishment interrupting class trial. Use only as a labeled recap, not canonical chapter proof."
+    },
+    {
+      "id": "W-TCF-A",
+      "title": "Ancient Power",
+      "target": "https://lout-of-counts-family.fandom.com/wiki/Ancient_Power",
+      "access": "search_index_only",
+      "checked": "2026-10-10",
+      "scope": "Five-element stability and retained prior-owner wills; early-book premise, later revisions not frozen here."
+    },
+    {
+      "id": "W-TCF-C",
+      "title": "Cale abilities",
+      "target": "https://lout-of-counts-family.fandom.com/wiki/Cale_Henituse/Abilities",
+      "access": "search_index_only",
+      "checked": "2026-10-10",
+      "scope": "Fragile plate/healing, apparent Dominating Aura strength, coins for fire. Page spans later arcs; no universal final plate rule."
+    },
+    {
+      "id": "W-MH",
+      "title": "Return of the Blossoming Blade",
+      "target": "https://en.wikipedia.org/wiki/Return_of_the_Blossoming_Blade",
+      "access": "page_read",
+      "checked": "2026-10-10",
+      "scope": "Character section and licensed alternate-title identification. Martial master reincarnates and trains sect; exact technique mechanics not verified."
+    },
+    {
+      "id": "W-CD-H",
+      "title": "Coiling Dragon power hierarchy",
+      "target": "https://coiling-dragon.fandom.com/wiki/Power_Hierarchy",
+      "access": "search_index_only",
+      "checked": "2026-10-10",
+      "scope": "Mortal1-9, warrior/magus routes, divinity/laws; percentage claims omitted."
+    },
+    {
+      "id": "W-CD-L",
+      "title": "Linley abilities",
+      "target": "https://coiling-dragon.fandom.com/wiki/Linley_Baruch/Abilities",
+      "access": "search_index_only",
+      "checked": "2026-10-10",
+      "scope": "Elemental mysteries, law fusion, soul-split divine clones and scarce Sovereign spark route."
+    },
+    {
+      "id": "W-CD-S",
+      "title": "Sovereign",
+      "target": "https://coiling-dragon.fandom.com/wiki/Sovereign",
+      "access": "search_index_only",
+      "checked": "2026-10-10",
+      "scope": "Sovereign sparks, power separate from law insight; no fixed cross-world scale."
+    },
+    {
+      "id": "W-MP-O",
+      "title": "Open Heaven",
+      "target": "https://martial-peak-mp.fandom.com/wiki/Open_Heaven",
+      "access": "search_index_only",
+      "checked": "2026-10-10",
+      "scope": "Seven resources, lowest-grade bottleneck, small universe, usual two-rank ceiling and named rare exceptions. Robots denial recorded."
+    },
+    {
+      "id": "W-MP-C",
+      "title": "Cultivation",
+      "target": "https://martial-peak-mp.fandom.com/wiki/Cultivation",
+      "access": "search_index_only",
+      "checked": "2026-10-10",
+      "scope": "Great Emperor title versus inner-world source; World Creation endpoint is a named outlier, not guaranteed ladder access."
+    },
+    {
+      "id": "W-RTW-M",
+      "title": "Magic",
+      "target": "https://releasethatwitch.fandom.com/wiki/Magic",
+      "access": "search_index_only",
+      "checked": "2026-10-10",
+      "scope": "Individual awakening/adulthood/branch/evolution abilities; no universal ladder asserted."
+    },
+    {
+      "id": "W-RTW-N",
+      "title": "Nightingale abilities",
+      "target": "https://releasethatwitch.fandom.com/wiki/Nightingale/Power_%26_Abilities",
+      "access": "search_index_only",
+      "checked": "2026-10-10",
+      "scope": "Mist concealment, magic sight and lie reading sensitive to belief rather than objective truth."
+    },
+    {
+      "id": "W-RTW-T",
+      "title": "Technological development",
+      "target": "https://releasethatwitch.fandom.com/wiki/Technological_development/Misc.",
+      "access": "search_index_only",
+      "checked": "2026-10-10",
+      "scope": "Magic and industry coupling, Anna fire fuels hot-air balloon. Science-triggered evolution details remain remembered."
+    },
+    {
+      "id": "W-TB-M",
+      "title": "Magic and Objects",
+      "target": "https://tbate.fandom.com/wiki/Magic_and_Objects",
+      "access": "search_index_only",
+      "checked": "2026-10-10",
+      "scope": "Mana core, conductors, beast will, Lance artifacts soul-bound, aether branches/runes. Direct open failed."
+    },
+    {
+      "id": "W-TB-A",
+      "title": "Arthur abilities",
+      "target": "https://tbate.fandom.com/wiki/Arthur_Leywin/Abilities",
+      "access": "search_index_only",
+      "checked": "2026-10-10",
+      "scope": "Black-red-orange-yellow-silver-white mana stages; affinity deviations; later exceptional aether route."
+    },
+    {
+      "id": "W-TB-E",
+      "title": "Aether",
+      "target": "https://tbate.fandom.com/wiki/Aether",
+      "access": "search_index_only",
+      "checked": "2026-10-10",
+      "scope": "Conceptual runes, dangerous Destruction, former aether model revised. Page includes citation-needed material."
+    },
+    {
+      "id": "W-OG-R",
+      "title": "Pagma rare book",
+      "target": "https://overgeared.fandom.com/wiki/Pagma%27s_Rare_Book",
+      "access": "search_index_only",
+      "checked": "2026-10-10",
+      "scope": "Inheritance changes class and resets level/stats; source chapters1-2. Direct open failed."
+    },
+    {
+      "id": "W-OG-B",
+      "title": "Blacksmith breath",
+      "target": "https://overgeared.fandom.com/wiki/Legendary_Blacksmith%27s_Breath",
+      "access": "search_index_only",
+      "checked": "2026-10-10",
+      "scope": "Focus improves produced gear; later passive transition. Exact percentages omitted."
+    },
+    {
+      "id": "W-OG-P",
+      "title": "Pagma",
+      "target": "https://overgeared.fandom.com/wiki/Pagma",
+      "access": "search_index_only",
+      "checked": "2026-10-10",
+      "scope": "Legendary craft and sword arts, Baal contractor price/relationship. Page has guideline warning; terms unknown."
+    },
+    {
+      "id": "W-OG-4",
+      "title": "Overgeared official chapter4 index",
+      "target": "https://spa-prod.wuxiaworld.com/novel/overgeared/og-chapter-4",
+      "access": "official_search_index_only",
+      "checked": "2026-10-10",
+      "scope": "Search excerpt says negative level is deliberate, not bug. No chapter body fetched or copied."
+    },
+    {
+      "id": "W-CR-P",
+      "title": "Endless Sword bridge",
+      "target": "https://wiki.abidanarchive.com/index.php/Path_of_the_Endless_Sword",
+      "access": "search_index_only",
+      "checked": "2026-10-10",
+      "scope": "Madra/aura sword path and technique roles only. Full Cradle survey belongs to lane C."
+    },
+    {
+      "id": "W-CR-O",
+      "title": "Will Wight soul-oath Q&A",
+      "target": "https://www.abidanarchive.com/adv_search/?query=oath",
+      "access": "author_qa_search_index_only",
+      "checked": "2026-10-10",
+      "scope": "Jan2,2018 answers: spirit enforces agreement, channels/core harm, stronger souls affect aura, consequences can be mitigated. Direct open failed."
+    },
+    {
+      "id": "W-G-S",
+      "title": "Sign-in example platform synopsis",
+      "target": "https://www.webnovel.com/book/sign-in-system-in-another-world_20059098205968905",
+      "access": "platform_synopsis_index",
+      "checked": "2026-10-10",
+      "scope": "Mazano title gives a sign-in item. Metadata supports reward trigger, not universal daily policy."
+    },
+    {
+      "id": "W-G-G",
+      "title": "Pick Me Up official synopsis",
+      "target": "https://tapas.io/series/pick-me-up/info",
+      "access": "official_page_read",
+      "checked": "2026-10-10",
+      "scope": "Licensed comic adaptation of Korean novel: low-star character under controlling player. No full gacha economy extracted."
+    },
+    {
+      "id": "W-G-SIM",
+      "title": "Simulator public platform sample",
+      "target": "https://www.webnovel.com/book/27651925208499005/83785931026392743",
+      "access": "platform_sample_search_index",
+      "checked": "2026-10-10",
+      "scope": "Returned public chapter2 excerpt: paid personal/family simulation, choose one of experience/martial skill/cultivation. Platform publication, authenticity not independently authenticated. No full-text crawl."
+    },
+    {
+      "id": "W-G-D",
+      "title": "Good-deed system platform synopsis",
+      "target": "https://www.webnovel.com/book/a-system-of-good-deeds_32070990000264305",
+      "access": "platform_synopsis_index",
+      "checked": "2026-10-10",
+      "scope": "Author-published synopsis rewards small acts with money; no cosmic moral law or anti-farming rule verified."
+    }
+  ],
+  "series": [
+    {
+      "id": "RI",
+      "title": "Reverend Insanity",
+      "scope": "main",
+      "evidence_note": "Read-source verification is limited to the cited dossier or reference summary; it does not authenticate all franchise canon.",
+      "path": {
+        "currency": {
+          "text": "Primeval essence, later immortal essence; food and refinement inputs are separate.",
+          "status": "verified_local_dossier",
+          "source_ids": [
+            "L-RI"
+          ]
+        },
+        "steps": {
+          "text": "Mortal ranks1-5, immortal6-8, venerable9. Gu grade and attainment are separate.",
+          "status": "verified_local_dossier",
+          "source_ids": [
+            "L-RI"
+          ]
+        },
+        "gate": {
+          "text": "Aperture growth, refinement and later tribulations; recipe possession does not mean execution.",
+          "status": "verified_local_dossier",
+          "source_ids": [
+            "L-RI"
+          ]
+        },
+        "risk": {
+          "text": "Refinement can damage inputs; an unsafe high-rank Gu can rupture a weak vessel.",
+          "status": "verified_local_dossier",
+          "source_ids": [
+            "L-RI"
+          ]
+        },
+        "shape": {
+          "text": "Ladder plus recipe web.",
+          "status": "mapping_inference",
+          "source_ids": [
+            "L-RI"
+          ]
+        },
+        "branching": {
+          "text": "Choose Gu portfolios and killer moves; combining tools differs from fusing them.",
+          "status": "verified_local_dossier",
+          "source_ids": [
+            "L-RI"
+          ]
+        },
+        "grader": {
+          "text": "Aperture stage, Gu grade, expertise and public assessment have distinct bases.",
+          "status": "mapping_inference",
+          "source_ids": [
+            "L-RI"
+          ]
+        },
+        "ceiling": {
+          "text": "Eternal life remains an aim; no witnessed rank10 ending in supplied2334 chapters.",
+          "status": "mapping_inference",
+          "source_ids": [
+            "L-RI"
+          ]
+        }
+      },
+      "families": {
+        "values": [
+          "Consumption",
+          "Creation",
+          "Conditions",
+          "Contracts and oaths",
+          "Interface",
+          "Storage",
+          "Save and load"
+        ],
+        "status": "model_mapping_inference",
+        "source_ids": [
+          "L-RI"
+        ]
+      },
+      "power_sources": {
+        "text": "Living Gu refined or bought; manuals, expertise, inheritance and aperture ecology.",
+        "status": "verified_local_dossier",
+        "source_ids": [
+          "L-RI"
+        ]
+      },
+      "axis_variants": {
+        "growth": {
+          "text": "A consumed Gu can leave permanent body gains.",
+          "status": "model_mapping_inference",
+          "source_ids": [
+            "L-RI"
+          ]
+        },
+        "price": {
+          "text": "Feeding keeps the means alive; activation uses another budget.",
+          "status": "model_mapping_inference",
+          "source_ids": [
+            "L-RI"
+          ]
+        },
+        "certainty": {
+          "text": "A lie detector can be suppressed without the witness knowing.",
+          "status": "model_mapping_inference",
+          "source_ids": [
+            "L-RI"
+          ]
+        },
+        "persistence": {
+          "text": "Body gains, Gu custody and rewind memory have different carriers.",
+          "status": "model_mapping_inference",
+          "source_ids": [
+            "L-RI"
+          ]
+        }
+      },
+      "vows_contracts_costs": {
+        "kind": "removable_oath_mark",
+        "rule": {
+          "text": "Poison Vow constrains signers; Eating One’s Words removes Fang-side marks, not the other signers’ marks.",
+          "status": "verified_local_dossier",
+          "source_ids": [
+            "L-RI"
+          ]
+        },
+        "slot_mapping_status": "model_mapping_inference",
+        "slots": {
+          "swearer": "Named signers",
+          "restriction": "Agreed terms, exact text not reproduced",
+          "witness": "Gu mechanism",
+          "release": "Special consumable removes marks",
+          "consequence": null,
+          "interpretation": null
+        },
+        "collective_rules": {
+          "text": "Each signer has their own surviving constraint; asymmetric release changes the deal.",
+          "status": "verified_local_dossier",
+          "source_ids": [
+            "L-RI"
+          ]
+        }
+      },
+      "mechanics": [
+        {
+          "id": "RI-M1",
+          "name": "Living toolkit economy",
+          "source_rule": {
+            "text": "Wine-fed conversion Gu improves essence quality without raising aperture stage.",
+            "status": "verified_local_dossier",
+            "source_ids": [
+              "L-RI"
+            ]
+          },
+          "what_we_take": {
+            "text": "Track tool food, fuel, control and vessel growth separately.",
+            "status": "proposal"
+          }
+        },
+        {
+          "id": "RI-M2",
+          "name": "Recipe versus move",
+          "source_rule": {
+            "text": "White Jade fusion consumes two worms; using compatible worms together need not consume them.",
+            "status": "verified_local_dossier",
+            "source_ids": [
+              "L-RI"
+            ]
+          },
+          "what_we_take": {
+            "text": "Give craft recipes and combat compositions different owners and failure rules.",
+            "status": "proposal"
+          }
+        },
+        {
+          "id": "RI-M3",
+          "name": "Targeted oath removal",
+          "source_rule": {
+            "text": "Removing two marks does not release the remaining parties.",
+            "status": "verified_local_dossier",
+            "source_ids": [
+              "L-RI"
+            ]
+          },
+          "what_we_take": {
+            "text": "Make a bond’s enforcement substrate attackable per party.",
+            "status": "proposal"
+          }
+        }
+      ],
+      "gag_or_rule_abuse": {
+        "text": "Fang’s oath escape uses a specific consumable and future recipe knowledge while allies remain bound.",
+        "status": "verified_local_dossier",
+        "source_ids": [
+          "L-RI"
+        ]
+      },
+      "open_limits": [
+        "No general oath immunity; rank does not prove mastery or usable fuel."
+      ]
+    },
+    {
+      "id": "LOTM",
+      "title": "Lord of Mysteries",
+      "scope": "main",
+      "evidence_note": "Read-source verification is limited to the cited dossier or reference summary; it does not authenticate all franchise canon.",
+      "path": {
+        "currency": {
+          "text": "Spirituality fuels powers; ingredients and characteristics enable advancement.",
+          "status": "verified_reference_summary",
+          "source_ids": [
+            "L-LOTM",
+            "W-LOTM-A",
+            "W-LOTM-B",
+            "L-ERGEN"
+          ]
+        },
+        "steps": {
+          "text": "Sequences9 down to0, ten named stages.",
+          "status": "verified_reference_summary",
+          "source_ids": [
+            "L-LOTM",
+            "W-LOTM-A",
+            "W-LOTM-B",
+            "L-ERGEN"
+          ]
+        },
+        "gate": {
+          "text": "Potion, digestion and path-specific rituals at higher advancement.",
+          "status": "verified_reference_summary",
+          "source_ids": [
+            "L-LOTM",
+            "W-LOTM-A",
+            "W-LOTM-B",
+            "L-ERGEN"
+          ]
+        },
+        "risk": {
+          "text": "Loss of control from poor assimilation, incompatible ingestion and identity erosion.",
+          "status": "verified_reference_summary",
+          "source_ids": [
+            "L-LOTM",
+            "W-LOTM-A",
+            "W-LOTM-B",
+            "L-ERGEN"
+          ]
+        },
+        "shape": {
+          "text": "Descending-number ladder with conditional links.",
+          "status": "mapping_inference",
+          "source_ids": [
+            "L-LOTM",
+            "W-LOTM-A",
+            "W-LOTM-B",
+            "L-ERGEN"
+          ]
+        },
+        "branching": {
+          "text": "Adjacent-group switches at allowed high stages; LOTM group differs from ordinary4 threshold.",
+          "status": "verified_reference_summary",
+          "source_ids": [
+            "L-LOTM",
+            "W-LOTM-A",
+            "W-LOTM-B",
+            "L-ERGEN"
+          ]
+        },
+        "grader": {
+          "text": "Sequence is structural; church safety assessment is a separate policy.",
+          "status": "mapping_inference",
+          "source_ids": [
+            "L-LOTM",
+            "W-LOTM-A",
+            "W-LOTM-B",
+            "L-ERGEN"
+          ]
+        },
+        "ceiling": {
+          "text": "Sequence0 is a scarce divine position; above-sequence is not Sequence minus1.",
+          "status": "mapping_inference",
+          "source_ids": [
+            "L-LOTM",
+            "W-LOTM-A",
+            "W-LOTM-B",
+            "L-ERGEN"
+          ]
+        }
+      },
+      "families": {
+        "values": [
+          "Soul work",
+          "Presence",
+          "Dreams",
+          "Curses and blessings",
+          "True names",
+          "Inheritance"
+        ],
+        "status": "model_mapping_inference",
+        "source_ids": [
+          "L-LOTM",
+          "W-LOTM-A",
+          "W-LOTM-B",
+          "L-ERGEN"
+        ]
+      },
+      "power_sources": {
+        "text": "Consumed characteristics, trained control, rituals, artifacts and institutions.",
+        "status": "verified_reference_summary",
+        "source_ids": [
+          "L-LOTM",
+          "W-LOTM-A",
+          "W-LOTM-B",
+          "L-ERGEN"
+        ]
+      },
+      "axis_variants": {
+        "growth": {
+          "text": "Acting helps digestion; use/mastery alone is not the same event.",
+          "status": "model_mapping_inference",
+          "source_ids": [
+            "L-LOTM",
+            "W-LOTM-A",
+            "W-LOTM-B",
+            "L-ERGEN"
+          ]
+        },
+        "limit": {
+          "text": "Do not forget the actor’s identity.",
+          "status": "model_mapping_inference",
+          "source_ids": [
+            "L-LOTM",
+            "W-LOTM-A",
+            "W-LOTM-B",
+            "L-ERGEN"
+          ]
+        },
+        "price": {
+          "text": "Sanity and source assimilation.",
+          "status": "model_mapping_inference",
+          "source_ids": [
+            "L-LOTM",
+            "W-LOTM-A",
+            "W-LOTM-B",
+            "L-ERGEN"
+          ]
+        },
+        "certainty": {
+          "text": "Divination is bounded by evidence and interference.",
+          "status": "model_mapping_inference",
+          "source_ids": [
+            "L-LOTM",
+            "W-LOTM-A",
+            "W-LOTM-B",
+            "L-ERGEN"
+          ]
+        }
+      },
+      "vows_contracts_costs": {
+        "kind": "assimilation_not_vow",
+        "rule": {
+          "text": "Acting reconciles a potion imprint; it is not a chosen prohibition that universally buys a buff.",
+          "status": "verified_reference_summary",
+          "source_ids": [
+            "L-LOTM",
+            "W-LOTM-A",
+            "W-LOTM-B",
+            "L-ERGEN"
+          ]
+        },
+        "slot_mapping_status": "model_mapping_inference",
+        "slots": {
+          "swearer": null,
+          "restriction": "Role practice, not a generic ban",
+          "benefit": "Safer assimilation",
+          "consequence": "Loss of control risk, not a breach tariff",
+          "witness": null
+        },
+        "collective_rules": {
+          "text": "Organizations manage access and secrecy; no universal collective-vow law verified.",
+          "status": "verified_reference_summary",
+          "source_ids": [
+            "L-LOTM",
+            "W-LOTM-A",
+            "W-LOTM-B",
+            "L-ERGEN"
+          ]
+        }
+      },
+      "mechanics": [
+        {
+          "id": "LOTM-M1",
+          "name": "Role digestion",
+          "source_rule": {
+            "text": "Acting accelerates digestion, which can also occur slowly; excessive identification is dangerous.",
+            "status": "verified_reference_summary",
+            "source_ids": [
+              "L-LOTM",
+              "W-LOTM-A",
+              "W-LOTM-B",
+              "L-ERGEN"
+            ]
+          },
+          "what_we_take": {
+            "text": "Track assimilation separately from technique practice and identity.",
+            "status": "proposal"
+          }
+        },
+        {
+          "id": "LOTM-M2",
+          "name": "Conditional route change",
+          "source_rule": {
+            "text": "Reviewed diary teaching allows certain paired swaps; secondary reference gives a special LOTM-group threshold.",
+            "status": "verified_reference_summary",
+            "source_ids": [
+              "L-LOTM",
+              "W-LOTM-A",
+              "W-LOTM-B",
+              "L-ERGEN"
+            ]
+          },
+          "what_we_take": {
+            "text": "Use a source-bound compatibility graph with per-edge gates, not free respec.",
+            "status": "proposal"
+          }
+        }
+      ],
+      "gag_or_rule_abuse": {
+        "text": "Klein learns through working as a seer, while bounded divination cannot identify every cause. No universal workplace vow is shown.",
+        "status": "verified_local_dossier",
+        "source_ids": [
+          "L-LOTM",
+          "W-LOTM-A",
+          "W-LOTM-B",
+          "L-ERGEN"
+        ]
+      },
+      "open_limits": [
+        "E8C10-step count is right; name direction9→0, not a generic ascend counter. Freeze pathway/group/sequence before a direct adaptation."
+      ]
+    },
+    {
+      "id": "ORV",
+      "title": "Omniscient Reader’s Viewpoint",
+      "scope": "main",
+      "evidence_note": "Read-source verification is limited to the cited dossier or reference summary; it does not authenticate all franchise canon.",
+      "path": {
+        "currency": {
+          "text": "Coins, magic reserve, Stories and Probability serve distinct purposes.",
+          "status": "verified_local_dossier",
+          "source_ids": [
+            "L-ORV"
+          ]
+        },
+        "steps": {
+          "text": "Stats/skills, constellation status and scenario milestones are different tracks.",
+          "status": "verified_local_dossier",
+          "source_ids": [
+            "L-ORV"
+          ]
+        },
+        "gate": {
+          "text": "Deeds and Stories qualify status; sponsorship grants stigmas; scenarios impose goals.",
+          "status": "verified_local_dossier",
+          "source_ids": [
+            "L-ORV"
+          ]
+        },
+        "risk": {
+          "text": "Scenario failure can kill; excess intervention causes probability debt/storms and body damage.",
+          "status": "verified_local_dossier",
+          "source_ids": [
+            "L-ORV"
+          ]
+        },
+        "shape": {
+          "text": "Stack of personal growth, story qualifications and scenario access.",
+          "status": "mapping_inference",
+          "source_ids": [
+            "L-ORV"
+          ]
+        },
+        "branching": {
+          "text": "Sponsor choice can be refused; skills, stigmas and Stories are separate sources.",
+          "status": "verified_local_dossier",
+          "source_ids": [
+            "L-ORV"
+          ]
+        },
+        "grader": {
+          "text": "Dokkaebi operators, scenario law, constellation recognition and story qualification.",
+          "status": "mapping_inference",
+          "source_ids": [
+            "L-ORV"
+          ]
+        },
+        "ceiling": {
+          "text": "Myth-grade and later narrative authority exist; no single rank caps every actor.",
+          "status": "mapping_inference",
+          "source_ids": [
+            "L-ORV"
+          ]
+        }
+      },
+      "families": {
+        "values": [
+          "Fame",
+          "Borrowed",
+          "Interface",
+          "Conditions",
+          "Copying",
+          "Memory",
+          "Contracts and oaths"
+        ],
+        "status": "model_mapping_inference",
+        "source_ids": [
+          "L-ORV"
+        ]
+      },
+      "power_sources": {
+        "text": "Sponsors, earned Stories, coins, private reader skill and learned mastery.",
+        "status": "verified_local_dossier",
+        "source_ids": [
+          "L-ORV"
+        ]
+      },
+      "axis_variants": {
+        "certainty": {
+          "text": "A reader anticipates direction but still needs bodily speed.",
+          "status": "model_mapping_inference",
+          "source_ids": [
+            "L-ORV"
+          ]
+        },
+        "scope": {
+          "text": "Authority depends on scenario and local worldview.",
+          "status": "model_mapping_inference",
+          "source_ids": [
+            "L-ORV"
+          ]
+        },
+        "price": {
+          "text": "Probability measures admissible intervention, not ordinary chance.",
+          "status": "model_mapping_inference",
+          "source_ids": [
+            "L-ORV"
+          ]
+        },
+        "persistence": {
+          "text": "System service can decay while Stories have their own carriers.",
+          "status": "model_mapping_inference",
+          "source_ids": [
+            "L-ORV"
+          ]
+        }
+      },
+      "vows_contracts_costs": {
+        "kind": "sponsor_and_jurisdiction",
+        "rule": {
+          "text": "A sponsor stigma is borrowed authority; a donation can occur without accepted sponsorship. Scenario penalties are separate.",
+          "status": "verified_local_dossier",
+          "source_ids": [
+            "L-ORV"
+          ]
+        },
+        "slot_mapping_status": "model_mapping_inference",
+        "slots": {
+          "swearer": "Incarnation if deal accepted",
+          "counterparty": "Constellation",
+          "benefit": "Stigma or support",
+          "scope": "Scenario/worldview",
+          "stake": "Terms vary",
+          "release": null,
+          "consequence": null
+        },
+        "collective_rules": {
+          "text": "Company blessing/votes and shared story portions have distinct participation rules; ORV-397 missing voters shorten benefit.",
+          "status": "verified_local_dossier",
+          "source_ids": [
+            "L-ORV"
+          ]
+        }
+      },
+      "mechanics": [
+        {
+          "id": "ORV-M1",
+          "name": "Intervention budget",
+          "source_rule": {
+            "text": "Large powers need Probability support and can incur backlash even when the actor has ample fuel.",
+            "status": "verified_local_dossier",
+            "source_ids": [
+              "L-ORV"
+            ]
+          },
+          "what_we_take": {
+            "text": "Check legitimacy, fuel and body capacity separately.",
+            "status": "proposal"
+          }
+        },
+        {
+          "id": "ORV-M2",
+          "name": "Collective story shares",
+          "source_rule": {
+            "text": "A shared history supports power; participation and votes alter its use.",
+            "status": "verified_local_dossier",
+            "source_ids": [
+              "L-ORV"
+            ]
+          },
+          "what_we_take": {
+            "text": "Record contribution shares and quorum without replacing individual agency.",
+            "status": "proposal"
+          }
+        },
+        {
+          "id": "ORV-M3",
+          "name": "No patron required for tips",
+          "source_rule": {
+            "text": "Dokja receives a donation after refusing all sponsor offers.",
+            "status": "verified_local_dossier",
+            "source_ids": [
+              "L-ORV"
+            ]
+          },
+          "what_we_take": {
+            "text": "Separate one-off gifts from durable authority grants.",
+            "status": "proposal"
+          }
+        }
+      ],
+      "gag_or_rule_abuse": {
+        "text": "The opening creature-kill scenario accepts insects; a narrow literal objective permits a low-force solution.",
+        "status": "verified_local_dossier",
+        "source_ids": [
+          "L-ORV"
+        ]
+      },
+      "open_limits": [
+        "Do not translate Probability into hit chance. Bookmark stage limits and conditional later infinity remain stage-specific."
+      ]
+    },
+    {
+      "id": "TOG",
+      "title": "Tower of God",
+      "scope": "main",
+      "evidence_note": "Read-source verification is limited to the cited dossier or reference summary; it does not authenticate all franchise canon.",
+      "path": {
+        "currency": {
+          "text": "Shinsu.",
+          "status": "verified_reference_summary",
+          "source_ids": [
+            "W-TOG-S",
+            "W-TOG-P",
+            "W-TOG-A"
+          ]
+        },
+        "steps": {
+          "text": "Floor access and Regular/Ranker standing differ from control.",
+          "status": "verified_reference_summary",
+          "source_ids": [
+            "W-TOG-S",
+            "W-TOG-P",
+            "W-TOG-A"
+          ]
+        },
+        "gate": {
+          "text": "Tests and local contracts.",
+          "status": "verified_reference_summary",
+          "source_ids": [
+            "W-TOG-S",
+            "W-TOG-P",
+            "W-TOG-A"
+          ]
+        },
+        "risk": {
+          "text": "Floor authority limits access.",
+          "status": "verified_reference_summary",
+          "source_ids": [
+            "W-TOG-S",
+            "W-TOG-P",
+            "W-TOG-A"
+          ]
+        },
+        "shape": {
+          "text": "Access ladder plus skill field.",
+          "status": "mapping_inference",
+          "source_ids": [
+            "W-TOG-S",
+            "W-TOG-P",
+            "W-TOG-A"
+          ]
+        },
+        "branching": {
+          "text": "Five team roles can overlap.",
+          "status": "verified_reference_summary",
+          "source_ids": [
+            "W-TOG-S",
+            "W-TOG-P",
+            "W-TOG-A"
+          ]
+        },
+        "grader": {
+          "text": "Test authority and local administrator.",
+          "status": "mapping_inference",
+          "source_ids": [
+            "W-TOG-S",
+            "W-TOG-P",
+            "W-TOG-A"
+          ]
+        },
+        "ceiling": {
+          "text": "No complete tower ceiling verified.",
+          "status": "mapping_inference",
+          "source_ids": [
+            "W-TOG-S",
+            "W-TOG-P",
+            "W-TOG-A"
+          ]
+        }
+      },
+      "families": {
+        "values": [
+          "Element control",
+          "Environment-bound",
+          "Command"
+        ],
+        "status": "model_mapping_inference",
+        "source_ids": [
+          "W-TOG-S",
+          "W-TOG-P",
+          "W-TOG-A"
+        ]
+      },
+      "power_sources": {
+        "text": "Training and floor permission, with irregular exceptions.",
+        "status": "verified_reference_summary",
+        "source_ids": [
+          "W-TOG-S",
+          "W-TOG-P",
+          "W-TOG-A"
+        ]
+      },
+      "axis_variants": {
+        "scope": {
+          "text": "Contracts have floor jurisdiction.",
+          "status": "model_mapping_inference",
+          "source_ids": [
+            "W-TOG-S",
+            "W-TOG-P",
+            "W-TOG-A"
+          ]
+        },
+        "mechanism": {
+          "text": "A battle role differs from a personal technique.",
+          "status": "model_mapping_inference",
+          "source_ids": [
+            "W-TOG-S",
+            "W-TOG-P",
+            "W-TOG-A"
+          ]
+        },
+        "limit": {
+          "text": "Irregular authority and minor/natural uses qualify the permit rule.",
+          "status": "model_mapping_inference",
+          "source_ids": [
+            "W-TOG-S",
+            "W-TOG-P",
+            "W-TOG-A"
+          ]
+        }
+      },
+      "vows_contracts_costs": {
+        "kind": "jurisdiction_permit",
+        "rule": {
+          "text": "Ordinary direct shinsu use needs a floor contract, with exceptions.",
+          "status": "verified_reference_summary",
+          "source_ids": [
+            "W-TOG-S",
+            "W-TOG-P",
+            "W-TOG-A"
+          ]
+        },
+        "slot_mapping_status": "model_mapping_inference",
+        "slots": {
+          "swearer": "User",
+          "counterparty": "Floor administrator",
+          "benefit": "Permission",
+          "scope": "Floor",
+          "consequence": null,
+          "release": null
+        },
+        "collective_rules": {
+          "text": "Equipment has permission too; team roles coordinate functions.",
+          "status": "verified_reference_summary",
+          "source_ids": [
+            "W-TOG-S",
+            "W-TOG-P",
+            "W-TOG-A"
+          ]
+        }
+      },
+      "mechanics": [
+        {
+          "id": "TOG-M1",
+          "name": "Permit travels poorly",
+          "source_rule": {
+            "text": "An item contract may cover only specified floors.",
+            "status": "verified_reference_summary",
+            "source_ids": [
+              "W-TOG-S",
+              "W-TOG-P",
+              "W-TOG-A"
+            ]
+          },
+          "what_we_take": {
+            "text": "Treat authority as scoped and separate from owning the tool.",
+            "status": "proposal"
+          }
+        },
+        {
+          "id": "TOG-M2",
+          "name": "Role without class lock",
+          "source_rule": {
+            "text": "A skilled fighter can fill several positions.",
+            "status": "verified_reference_summary",
+            "source_ids": [
+              "W-TOG-S",
+              "W-TOG-P",
+              "W-TOG-A"
+            ]
+          },
+          "what_we_take": {
+            "text": "Let party roles be assignments, not permanent classes.",
+            "status": "proposal"
+          }
+        }
+      ],
+      "gag_or_rule_abuse": {
+        "text": "For an irregular, accepting a contract may bind power already available without it.",
+        "status": "verified_reference_summary",
+        "source_ids": [
+          "W-TOG-S",
+          "W-TOG-P",
+          "W-TOG-A"
+        ]
+      },
+      "open_limits": [
+        "Precise breach punishment unverified; not every permit is a sacrifice-for-output vow."
+      ]
+    },
+    {
+      "id": "SOLO",
+      "title": "Solo Leveling",
+      "scope": "main",
+      "evidence_note": "Read-source verification is limited to the cited dossier or reference summary; it does not authenticate all franchise canon.",
+      "path": {
+        "currency": {
+          "text": "Private XP/stats and mana.",
+          "status": "verified_reference_summary",
+          "source_ids": [
+            "W-SOLO-S",
+            "W-SOLO-X",
+            "W-SOLO-P"
+          ]
+        },
+        "steps": {
+          "text": "Levels and class trial; hunter rank is separate.",
+          "status": "verified_reference_summary",
+          "source_ids": [
+            "W-SOLO-S",
+            "W-SOLO-X",
+            "W-SOLO-P"
+          ]
+        },
+        "gate": {
+          "text": "System quests reshape a vessel.",
+          "status": "verified_reference_summary",
+          "source_ids": [
+            "W-SOLO-S",
+            "W-SOLO-X",
+            "W-SOLO-P"
+          ]
+        },
+        "risk": {
+          "text": "Failed tasks impose penalty.",
+          "status": "verified_reference_summary",
+          "source_ids": [
+            "W-SOLO-S",
+            "W-SOLO-X",
+            "W-SOLO-P"
+          ]
+        },
+        "shape": {
+          "text": "Private ladder plus army roster.",
+          "status": "mapping_inference",
+          "source_ids": [
+            "W-SOLO-S",
+            "W-SOLO-X",
+            "W-SOLO-P"
+          ]
+        },
+        "branching": {
+          "text": "Extraction gains followers, not each skill in the user.",
+          "status": "verified_reference_summary",
+          "source_ids": [
+            "W-SOLO-S",
+            "W-SOLO-X",
+            "W-SOLO-P"
+          ]
+        },
+        "grader": {
+          "text": "System versus hunter assessment.",
+          "status": "mapping_inference",
+          "source_ids": [
+            "W-SOLO-S",
+            "W-SOLO-X",
+            "W-SOLO-P"
+          ]
+        },
+        "ceiling": {
+          "text": "Main-series monarch succession, not an endless universal level rule.",
+          "status": "mapping_inference",
+          "source_ids": [
+            "W-SOLO-S",
+            "W-SOLO-X",
+            "W-SOLO-P"
+          ]
+        }
+      },
+      "families": {
+        "values": [
+          "Interface",
+          "Stat work",
+          "Summoning",
+          "Inheritance"
+        ],
+        "status": "model_mapping_inference",
+        "source_ids": [
+          "W-SOLO-S",
+          "W-SOLO-X",
+          "W-SOLO-P"
+        ]
+      },
+      "power_sources": {
+        "text": "System grant and later monarch inheritance.",
+        "status": "verified_reference_summary",
+        "source_ids": [
+          "W-SOLO-S",
+          "W-SOLO-X",
+          "W-SOLO-P"
+        ]
+      },
+      "axis_variants": {
+        "trigger": {
+          "text": "Extraction targets dead bodies.",
+          "status": "model_mapping_inference",
+          "source_ids": [
+            "W-SOLO-S",
+            "W-SOLO-X",
+            "W-SOLO-P"
+          ]
+        },
+        "limit": {
+          "text": "Target age/strength and attempt count affect success.",
+          "status": "model_mapping_inference",
+          "source_ids": [
+            "W-SOLO-S",
+            "W-SOLO-X",
+            "W-SOLO-P"
+          ]
+        },
+        "persistence": {
+          "text": "Army, body and interface are distinct.",
+          "status": "model_mapping_inference",
+          "source_ids": [
+            "W-SOLO-S",
+            "W-SOLO-X",
+            "W-SOLO-P"
+          ]
+        }
+      },
+      "vows_contracts_costs": {
+        "kind": "imposed_task",
+        "rule": {
+          "text": "System duties impose benefits and punishment rather than negotiated vow prices.",
+          "status": "verified_reference_summary",
+          "source_ids": [
+            "W-SOLO-S",
+            "W-SOLO-X",
+            "W-SOLO-P"
+          ]
+        },
+        "slot_mapping_status": "model_mapping_inference",
+        "slots": {
+          "swearer": "Player",
+          "witness": "System",
+          "restriction": "Assigned task",
+          "benefit": "Growth",
+          "consequence": "Penalty zone",
+          "coercion": "Imposed",
+          "release": null
+        },
+        "collective_rules": {
+          "text": "Army command is not a collective oath.",
+          "status": "verified_reference_summary",
+          "source_ids": [
+            "W-SOLO-S",
+            "W-SOLO-X",
+            "W-SOLO-P"
+          ]
+        }
+      },
+      "mechanics": [
+        {
+          "id": "SOLO-M1",
+          "name": "Vessel curriculum",
+          "source_rule": {
+            "text": "The interface prepares a body to bear inherited power.",
+            "status": "verified_reference_summary",
+            "source_ids": [
+              "W-SOLO-S",
+              "W-SOLO-X",
+              "W-SOLO-P"
+            ]
+          },
+          "what_we_take": {
+            "text": "Give a system an agenda and a body-readiness track.",
+            "status": "proposal"
+          }
+        },
+        {
+          "id": "SOLO-M2",
+          "name": "Corpse eligibility",
+          "source_rule": {
+            "text": "Extraction has body/type and stale-source limits.",
+            "status": "verified_reference_summary",
+            "source_ids": [
+              "W-SOLO-S",
+              "W-SOLO-X",
+              "W-SOLO-P"
+            ]
+          },
+          "what_we_take": {
+            "text": "Keep harvest eligibility and attempt state with each corpse.",
+            "status": "proposal"
+          }
+        }
+      ],
+      "gag_or_rule_abuse": {
+        "text": "A secondary recap reports punishment interrupting the class trial and providing recovery. This is low-confidence rule interaction, not authenticated chapter detail.",
+        "status": "verified_reference_summary",
+        "source_ids": [
+          "W-SOLO-S",
+          "W-SOLO-X",
+          "W-SOLO-P"
+        ]
+      },
+      "open_limits": [
+        "Exclude Ragnarok upgrades from baseline. No repeated reload rerolls in a proposed implementation."
+      ]
+    },
+    {
+      "id": "SCG",
+      "title": "The Second Coming of Gluttony",
+      "scope": "main",
+      "evidence_note": "Read-source verification is limited to the cited dossier or reference summary; it does not authenticate all franchise canon.",
+      "path": {
+        "currency": {
+          "text": "Mana, contribution points and physical effort are distinct.",
+          "status": "verified_local_dossier",
+          "source_ids": [
+            "L-SCG"
+          ]
+        },
+        "steps": {
+          "text": "Class level, body grade/subrank and skill mastery.",
+          "status": "verified_local_dossier",
+          "source_ids": [
+            "L-SCG"
+          ]
+        },
+        "gate": {
+          "text": "Contribution promotion, exam/experience at higher levels, divine trials.",
+          "status": "verified_local_dossier",
+          "source_ids": [
+            "L-SCG"
+          ]
+        },
+        "risk": {
+          "text": "Weak foundations, fatigue and dangerous trials.",
+          "status": "verified_local_dossier",
+          "source_ids": [
+            "L-SCG"
+          ]
+        },
+        "shape": {
+          "text": "Parallel ladder and skill field.",
+          "status": "mapping_inference",
+          "source_ids": [
+            "L-SCG"
+          ]
+        },
+        "branching": {
+          "text": "Innate foresight can fuse; divine Authority differs from class abilities.",
+          "status": "verified_local_dossier",
+          "source_ids": [
+            "L-SCG"
+          ]
+        },
+        "grader": {
+          "text": "Status panel, gods and actual practiced skill have different assessments.",
+          "status": "mapping_inference",
+          "source_ids": [
+            "L-SCG"
+          ]
+        },
+        "ceiling": {
+          "text": "Seol declines automatic godhood/level10; not a universal guaranteed finish.",
+          "status": "mapping_inference",
+          "source_ids": [
+            "L-SCG"
+          ]
+        }
+      },
+      "families": {
+        "values": [
+          "Interface",
+          "Observation",
+          "Borrowed",
+          "Consumption",
+          "Inheritance"
+        ],
+        "status": "model_mapping_inference",
+        "source_ids": [
+          "L-SCG"
+        ]
+      },
+      "power_sources": {
+        "text": "Training, purchased means, divine patron and relics.",
+        "status": "verified_local_dossier",
+        "source_ids": [
+          "L-SCG"
+        ]
+      },
+      "axis_variants": {
+        "certainty": {
+          "text": "Colorless can mean unreadable, not safe.",
+          "status": "model_mapping_inference",
+          "source_ids": [
+            "L-SCG"
+          ]
+        },
+        "growth": {
+          "text": "Level is a minimum standard, not mastered execution.",
+          "status": "model_mapping_inference",
+          "source_ids": [
+            "L-SCG"
+          ]
+        },
+        "scope": {
+          "text": "Earth suppression has an earlier poker exception.",
+          "status": "model_mapping_inference",
+          "source_ids": [
+            "L-SCG"
+          ]
+        },
+        "price": {
+          "text": "Multiple servants divide a shared Authority.",
+          "status": "model_mapping_inference",
+          "source_ids": [
+            "L-SCG"
+          ]
+        }
+      },
+      "vows_contracts_costs": {
+        "kind": "patron_allocation",
+        "rule": {
+          "text": "Gula’s Authority is shared across active servants; no general chosen-vow pricing rule is shown.",
+          "status": "verified_local_dossier",
+          "source_ids": [
+            "L-SCG"
+          ]
+        },
+        "slot_mapping_status": "model_mapping_inference",
+        "slots": {
+          "swearer": null,
+          "counterparty": "Gula",
+          "benefit": "Divine Authority",
+          "condition": "Appointment and number active",
+          "scope": "Local source rules",
+          "consequence": null
+        },
+        "collective_rules": {
+          "text": "C460 states at most five simultaneous servants; multiple servants divide potency, unlike extra independent copies.",
+          "status": "verified_local_dossier",
+          "source_ids": [
+            "L-SCG"
+          ]
+        }
+      },
+      "mechanics": [
+        {
+          "id": "SCG-M1",
+          "name": "Rank is not mastery",
+          "source_rule": {
+            "text": "A level5 fighter can still lack basic technique and body foundation.",
+            "status": "verified_local_dossier",
+            "source_ids": [
+              "L-SCG"
+            ]
+          },
+          "what_we_take": {
+            "text": "Keep class, body and mastery as visible separate paths.",
+            "status": "proposal"
+          }
+        },
+        {
+          "id": "SCG-M2",
+          "name": "Budgeted divine team",
+          "source_rule": {
+            "text": "Adding active servants splits a real potency budget.",
+            "status": "verified_local_dossier",
+            "source_ids": [
+              "L-SCG"
+            ]
+          },
+          "what_we_take": {
+            "text": "Support beneficial group size choices without free copied power.",
+            "status": "proposal"
+          }
+        },
+        {
+          "id": "SCG-M3",
+          "name": "Extraction not skill copying",
+          "source_rule": {
+            "text": "C454 extracts divine energy; C470 shows failure against stronger energy.",
+            "status": "verified_local_dossier",
+            "source_ids": [
+              "L-SCG"
+            ]
+          },
+          "what_we_take": {
+            "text": "Specify exactly what a consumption power transfers.",
+            "status": "proposal"
+          }
+        }
+      ],
+      "gag_or_rule_abuse": {
+        "text": "Seol uses foresight in poker and combat means in precise cooking; cross-domain skill use is not unrestricted world portability.",
+        "status": "verified_local_dossier",
+        "source_ids": [
+          "L-SCG"
+        ]
+      },
+      "open_limits": [
+        "Do not turn Gluttony’s title into generic ability-eating. Preserve Earth continuity issue rather than silently resolve it."
+      ]
+    },
+    {
+      "id": "TCF",
+      "title": "Trash of the Count’s Family",
+      "scope": "main",
+      "evidence_note": "Read-source verification is limited to the cited dossier or reference summary; it does not authenticate all franchise canon.",
+      "path": {
+        "currency": {
+          "text": "Ancient-power capacity and body strain.",
+          "status": "verified_reference_summary",
+          "source_ids": [
+            "W-TCF-A",
+            "W-TCF-C"
+          ]
+        },
+        "steps": {
+          "text": "Collection and stability, not one rank ladder.",
+          "status": "verified_reference_summary",
+          "source_ids": [
+            "W-TCF-A",
+            "W-TCF-C"
+          ]
+        },
+        "gate": {
+          "text": "Acquire remnants; balance elements.",
+          "status": "verified_reference_summary",
+          "source_ids": [
+            "W-TCF-A",
+            "W-TCF-C"
+          ]
+        },
+        "risk": {
+          "text": "Fragile plate and conflicting powers.",
+          "status": "verified_reference_summary",
+          "source_ids": [
+            "W-TCF-A",
+            "W-TCF-C"
+          ]
+        },
+        "shape": {
+          "text": "Portfolio web.",
+          "status": "mapping_inference",
+          "source_ids": [
+            "W-TCF-A",
+            "W-TCF-C"
+          ]
+        },
+        "branching": {
+          "text": "Distinct remnants can coexist.",
+          "status": "verified_reference_summary",
+          "source_ids": [
+            "W-TCF-A",
+            "W-TCF-C"
+          ]
+        },
+        "grader": {
+          "text": "Capacity and operation, not a universal level panel.",
+          "status": "mapping_inference",
+          "source_ids": [
+            "W-TCF-A",
+            "W-TCF-C"
+          ]
+        },
+        "ceiling": {
+          "text": "No final ceiling certified.",
+          "status": "mapping_inference",
+          "source_ids": [
+            "W-TCF-A",
+            "W-TCF-C"
+          ]
+        }
+      },
+      "families": {
+        "values": [
+          "Inheritance",
+          "Presence",
+          "Healing",
+          "Element control"
+        ],
+        "status": "model_mapping_inference",
+        "source_ids": [
+          "W-TCF-A",
+          "W-TCF-C"
+        ]
+      },
+      "power_sources": {
+        "text": "Ancient remnants with prior-owner wills.",
+        "status": "verified_reference_summary",
+        "source_ids": [
+          "W-TCF-A",
+          "W-TCF-C"
+        ]
+      },
+      "axis_variants": {
+        "visibility": {
+          "text": "Impressive aura can exceed real combat strength.",
+          "status": "model_mapping_inference",
+          "source_ids": [
+            "W-TCF-A",
+            "W-TCF-C"
+          ]
+        },
+        "limit": {
+          "text": "Carrier capacity constrains combination.",
+          "status": "model_mapping_inference",
+          "source_ids": [
+            "W-TCF-A",
+            "W-TCF-C"
+          ]
+        },
+        "growth": {
+          "text": "Retained wills differ from complete absorption.",
+          "status": "model_mapping_inference",
+          "source_ids": [
+            "W-TCF-A",
+            "W-TCF-C"
+          ]
+        }
+      },
+      "vows_contracts_costs": {
+        "kind": "inheritance_cost_not_vow",
+        "rule": {
+          "text": "Retaining old wills means incomplete ownership; this is not a universal oath bargain.",
+          "status": "verified_reference_summary",
+          "source_ids": [
+            "W-TCF-A",
+            "W-TCF-C"
+          ]
+        },
+        "slot_mapping_status": "model_mapping_inference",
+        "slots": {
+          "swearer": null,
+          "counterparty": "Remnant wills",
+          "benefit": "Power access",
+          "stake": "Full ownership withheld",
+          "consequence": null
+        },
+        "collective_rules": {
+          "text": "Allies are not one shared oath; collective penalty unknown.",
+          "status": "verified_reference_summary",
+          "source_ids": [
+            "W-TCF-A",
+            "W-TCF-C"
+          ]
+        }
+      },
+      "mechanics": [
+        {
+          "id": "TCF-M1",
+          "name": "Legacy can still speak",
+          "source_rule": {
+            "text": "Cale keeps voices instead of fully consuming their wills.",
+            "status": "verified_reference_summary",
+            "source_ids": [
+              "W-TCF-A",
+              "W-TCF-C"
+            ]
+          },
+          "what_we_take": {
+            "text": "Offer coexistence versus ownership as distinct acquisition modes.",
+            "status": "proposal"
+          }
+        },
+        {
+          "id": "TCF-M2",
+          "name": "Capacity and sturdiness",
+          "source_rule": {
+            "text": "A large plate can remain fragile.",
+            "status": "verified_reference_summary",
+            "source_ids": [
+              "W-TCF-A",
+              "W-TCF-C"
+            ]
+          },
+          "what_we_take": {
+            "text": "Separate capacity from stress tolerance.",
+            "status": "proposal"
+          }
+        },
+        {
+          "id": "TCF-M3",
+          "name": "Bluff aura",
+          "source_rule": {
+            "text": "Dominating Aura makes its user appear stronger.",
+            "status": "verified_reference_summary",
+            "source_ids": [
+              "W-TCF-A",
+              "W-TCF-C"
+            ]
+          },
+          "what_we_take": {
+            "text": "Distinguish intimidating evidence from actual damage.",
+            "status": "proposal"
+          }
+        }
+      ],
+      "gag_or_rule_abuse": {
+        "text": "A weak fighter’s convincing aura can bluff stronger observers.",
+        "status": "verified_reference_summary",
+        "source_ids": [
+          "W-TCF-A",
+          "W-TCF-C"
+        ]
+      },
+      "open_limits": [
+        "Early plate premise only; later plate changes need arc-specific verification."
+      ]
+    },
+    {
+      "id": "MH",
+      "title": "Return of the Mount Hua Sect",
+      "scope": "main",
+      "evidence_note": "Read-source verification is limited to the cited dossier or reference summary; it does not authenticate all franchise canon.",
+      "path": {
+        "currency": {
+          "text": "Internal energy, remembered detail pending verification.",
+          "status": "remembered_unverified",
+          "source_ids": [
+            "W-MH"
+          ]
+        },
+        "steps": {
+          "text": "Technique skill and sect generation are distinct; exact realms not certified.",
+          "status": "verified_reference_summary",
+          "source_ids": [
+            "W-MH"
+          ]
+        },
+        "gate": {
+          "text": "Training and recovery of a lineage.",
+          "status": "verified_reference_summary",
+          "source_ids": [
+            "W-MH"
+          ]
+        },
+        "risk": {
+          "text": "Body and foundation strain, remembered rather than source-confirmed.",
+          "status": "remembered_unverified",
+          "source_ids": [
+            "W-MH"
+          ]
+        },
+        "shape": {
+          "text": "School skill field.",
+          "status": "mapping_inference",
+          "source_ids": [
+            "W-MH"
+          ]
+        },
+        "branching": {
+          "text": "Restored styles taught across a sect.",
+          "status": "verified_reference_summary",
+          "source_ids": [
+            "W-MH"
+          ]
+        },
+        "grader": {
+          "text": "Sect roles and reputation differ from skill.",
+          "status": "mapping_inference",
+          "source_ids": [
+            "W-MH"
+          ]
+        },
+        "ceiling": {
+          "text": "No certified complete realm list.",
+          "status": "mapping_inference",
+          "source_ids": [
+            "W-MH"
+          ]
+        }
+      },
+      "families": {
+        "values": [
+          "Trained",
+          "Inheritance",
+          "Leadership"
+        ],
+        "status": "model_mapping_inference",
+        "source_ids": [
+          "W-MH"
+        ]
+      },
+      "power_sources": {
+        "text": "Reincarnated master’s knowledge and teaching.",
+        "status": "verified_reference_summary",
+        "source_ids": [
+          "W-MH"
+        ]
+      },
+      "axis_variants": {
+        "persistence": {
+          "text": "Past expertise survives into a new young body.",
+          "status": "model_mapping_inference",
+          "source_ids": [
+            "W-MH"
+          ]
+        },
+        "growth": {
+          "text": "Training rebuilds the sect, not only one fighter.",
+          "status": "model_mapping_inference",
+          "source_ids": [
+            "W-MH"
+          ]
+        }
+      },
+      "vows_contracts_costs": {
+        "kind": "institutional_not_verified_magical",
+        "rule": {
+          "text": "No magical sect-oath pricing or breach law verified in the public premise.",
+          "status": "verified_reference_summary",
+          "source_ids": [
+            "W-MH"
+          ]
+        },
+        "slot_mapping_status": "model_mapping_inference",
+        "slots": {
+          "swearer": null,
+          "witness": null,
+          "consequence": null
+        },
+        "collective_rules": {
+          "text": "Teaching new disciples restores collective capability.",
+          "status": "verified_reference_summary",
+          "source_ids": [
+            "W-MH"
+          ]
+        }
+      },
+      "mechanics": [
+        {
+          "id": "MH-M1",
+          "name": "Teacher as power carrier",
+          "source_rule": {
+            "text": "A returned master trains a weakened sect’s next generation.",
+            "status": "verified_reference_summary",
+            "source_ids": [
+              "W-MH"
+            ]
+          },
+          "what_we_take": {
+            "text": "Store inheritance in people as well as manuals.",
+            "status": "proposal"
+          }
+        },
+        {
+          "id": "MH-M2",
+          "name": "Expertise is not body",
+          "source_rule": {
+            "text": "The return separates past mastery from a new young vessel.",
+            "status": "verified_reference_summary",
+            "source_ids": [
+              "W-MH"
+            ]
+          },
+          "what_we_take": {
+            "text": "Permit rapid relearning without granting the old body.",
+            "status": "proposal"
+          }
+        }
+      ],
+      "gag_or_rule_abuse": {
+        "text": "The harsh, often comic drill-teacher pattern and frustration at weak foundations are remembered; no specific gag chapter verified.",
+        "status": "remembered_unverified",
+        "source_ids": [
+          "W-MH"
+        ]
+      },
+      "open_limits": [
+        "Internal-energy methods, pill effects and exact sword forms remain remembered; no pirated chapter source used."
+      ]
+    },
+    {
+      "id": "CD",
+      "title": "Coiling Dragon",
+      "scope": "main",
+      "evidence_note": "Read-source verification is limited to the cited dossier or reference summary; it does not authenticate all franchise canon.",
+      "path": {
+        "currency": {
+          "text": "Battle qi/mageforce; divine power later.",
+          "status": "verified_reference_summary",
+          "source_ids": [
+            "W-CD-H",
+            "W-CD-L",
+            "W-CD-S"
+          ]
+        },
+        "steps": {
+          "text": "Mortal1-9, Saint, divine ranks.",
+          "status": "verified_reference_summary",
+          "source_ids": [
+            "W-CD-H",
+            "W-CD-L",
+            "W-CD-S"
+          ]
+        },
+        "gate": {
+          "text": "Comprehension or acquired spark.",
+          "status": "verified_reference_summary",
+          "source_ids": [
+            "W-CD-H",
+            "W-CD-L",
+            "W-CD-S"
+          ]
+        },
+        "risk": {
+          "text": "Soul splitting exposes continuity risks.",
+          "status": "verified_reference_summary",
+          "source_ids": [
+            "W-CD-H",
+            "W-CD-L",
+            "W-CD-S"
+          ]
+        },
+        "shape": {
+          "text": "Ladder with facet-fusion web.",
+          "status": "mapping_inference",
+          "source_ids": [
+            "W-CD-H",
+            "W-CD-L",
+            "W-CD-S"
+          ]
+        },
+        "branching": {
+          "text": "Elemental divine clones can coexist.",
+          "status": "verified_reference_summary",
+          "source_ids": [
+            "W-CD-H",
+            "W-CD-L",
+            "W-CD-S"
+          ]
+        },
+        "grader": {
+          "text": "Law attainment differs from rank label.",
+          "status": "mapping_inference",
+          "source_ids": [
+            "W-CD-H",
+            "W-CD-L",
+            "W-CD-S"
+          ]
+        },
+        "ceiling": {
+          "text": "Sovereign sparks are scarce; exact ultimate limit not certified.",
+          "status": "mapping_inference",
+          "source_ids": [
+            "W-CD-H",
+            "W-CD-L",
+            "W-CD-S"
+          ]
+        }
+      },
+      "families": {
+        "values": [
+          "Element control",
+          "Multiplication",
+          "Soul work",
+          "Inheritance"
+        ],
+        "status": "model_mapping_inference",
+        "source_ids": [
+          "W-CD-H",
+          "W-CD-L",
+          "W-CD-S"
+        ]
+      },
+      "power_sources": {
+        "text": "Training, law insight, bloodline and divine sparks.",
+        "status": "verified_reference_summary",
+        "source_ids": [
+          "W-CD-H",
+          "W-CD-L",
+          "W-CD-S"
+        ]
+      },
+      "axis_variants": {
+        "growth": {
+          "text": "Several known mysteries can fuse.",
+          "status": "model_mapping_inference",
+          "source_ids": [
+            "W-CD-H",
+            "W-CD-L",
+            "W-CD-S"
+          ]
+        },
+        "persistence": {
+          "text": "Clone bodies share a divided soul.",
+          "status": "model_mapping_inference",
+          "source_ids": [
+            "W-CD-H",
+            "W-CD-L",
+            "W-CD-S"
+          ]
+        },
+        "limit": {
+          "text": "Sovereignty needs a scarce source.",
+          "status": "model_mapping_inference",
+          "source_ids": [
+            "W-CD-H",
+            "W-CD-L",
+            "W-CD-S"
+          ]
+        }
+      },
+      "vows_contracts_costs": {
+        "kind": "resource_gate_not_vow",
+        "rule": {
+          "text": "A Sovereign spark gate is resource scarcity, not a promised restriction.",
+          "status": "verified_reference_summary",
+          "source_ids": [
+            "W-CD-H",
+            "W-CD-L",
+            "W-CD-S"
+          ]
+        },
+        "slot_mapping_status": "model_mapping_inference",
+        "slots": {
+          "swearer": null,
+          "stake": "Scarce spark acquisition",
+          "benefit": "Sovereignty",
+          "consequence": null
+        },
+        "collective_rules": {
+          "text": "No complete soul-contract breach law verified here.",
+          "status": "verified_reference_summary",
+          "source_ids": [
+            "W-CD-H",
+            "W-CD-L",
+            "W-CD-S"
+          ]
+        }
+      },
+      "mechanics": [
+        {
+          "id": "CD-M1",
+          "name": "Facet fusion",
+          "source_rule": {
+            "text": "Law mysteries combine within a rank.",
+            "status": "verified_reference_summary",
+            "source_ids": [
+              "W-CD-H",
+              "W-CD-L",
+              "W-CD-S"
+            ]
+          },
+          "what_we_take": {
+            "text": "Track facets known and compatibility separately from realm.",
+            "status": "proposal"
+          }
+        },
+        {
+          "id": "CD-M2",
+          "name": "Externalized advancement",
+          "source_rule": {
+            "text": "Linley chooses a soul-split elemental clone at divinity.",
+            "status": "verified_reference_summary",
+            "source_ids": [
+              "W-CD-H",
+              "W-CD-L",
+              "W-CD-S"
+            ]
+          },
+          "what_we_take": {
+            "text": "Let a gate allocate power to a new body rather than simply upgrade one.",
+            "status": "proposal"
+          }
+        }
+      ],
+      "gag_or_rule_abuse": {
+        "text": "Several same-rank mysteries can be fused into a more useful operation; rank alone misses the advantage.",
+        "status": "verified_reference_summary",
+        "source_ids": [
+          "W-CD-H",
+          "W-CD-L",
+          "W-CD-S"
+        ]
+      },
+      "open_limits": [
+        "Exact soul-splitting penalty and all spark-route limits require a chapter-frozen source."
+      ]
+    },
+    {
+      "id": "ISSTH",
+      "title": "I Shall Seal the Heavens",
+      "scope": "main",
+      "evidence_note": "Read-source verification is limited to the cited dossier or reference summary; it does not authenticate all franchise canon.",
+      "path": {
+        "currency": {
+          "text": "Qi/celestial energy, ingredients, life force and spirit stones.",
+          "status": "verified_local_dossier",
+          "source_ids": [
+            "L-ISSTH"
+          ]
+        },
+        "steps": {
+          "text": "Qi→Foundation→Core→Nascent Soul→Severing→Dao Seeking→Immortal→Ancient→Dao; later transcendence.",
+          "status": "verified_local_dossier",
+          "source_ids": [
+            "L-ISSTH"
+          ]
+        },
+        "gate": {
+          "text": "Personal severings, tribulations, meridians and lamp ordeals.",
+          "status": "verified_local_dossier",
+          "source_ids": [
+            "L-ISSTH"
+          ]
+        },
+        "risk": {
+          "text": "Failed severing, life-force rot and false insight can kill or obstruct.",
+          "status": "verified_local_dossier",
+          "source_ids": [
+            "L-ISSTH"
+          ]
+        },
+        "shape": {
+          "text": "Ladder plus body, alchemy and hex paths.",
+          "status": "mapping_inference",
+          "source_ids": [
+            "L-ISSTH"
+          ]
+        },
+        "branching": {
+          "text": "Body lamps and main-cultivation lamps differ; second true self has separate will.",
+          "status": "verified_local_dossier",
+          "source_ids": [
+            "L-ISSTH"
+          ]
+        },
+        "grader": {
+          "text": "Actual cultivated quality, lineage and public title do not collapse.",
+          "status": "mapping_inference",
+          "source_ids": [
+            "L-ISSTH"
+          ]
+        },
+        "ceiling": {
+          "text": "Transcendence/Ancestor occur; later cosmos is not fully mapped.",
+          "status": "mapping_inference",
+          "source_ids": [
+            "L-ISSTH"
+          ]
+        }
+      },
+      "families": {
+        "values": [
+          "Conditions",
+          "Concept edge",
+          "Debt",
+          "Creation",
+          "Copying",
+          "Soul work"
+        ],
+        "status": "model_mapping_inference",
+        "source_ids": [
+          "L-ISSTH"
+        ]
+      },
+      "power_sources": {
+        "text": "Inheritance, cultivation, alchemy, relic and lived insight.",
+        "status": "verified_local_dossier",
+        "source_ids": [
+          "L-ISSTH"
+        ]
+      },
+      "axis_variants": {
+        "object": {
+          "text": "Sever a controlling attachment or will, not generic XP.",
+          "status": "model_mapping_inference",
+          "source_ids": [
+            "L-ISSTH"
+          ]
+        },
+        "growth": {
+          "text": "Lamp extinction differs from body lamp ignition.",
+          "status": "model_mapping_inference",
+          "source_ids": [
+            "L-ISSTH"
+          ]
+        },
+        "price": {
+          "text": "Life, rare inputs and obligations.",
+          "status": "model_mapping_inference",
+          "source_ids": [
+            "L-ISSTH"
+          ]
+        },
+        "mechanism": {
+          "text": "Copying an item differs from copying its user’s expertise.",
+          "status": "model_mapping_inference",
+          "source_ids": [
+            "L-ISSTH"
+          ]
+        }
+      },
+      "vows_contracts_costs": {
+        "kind": "causal_debt_and_gate",
+        "rule": {
+          "text": "Authored Karma/promissory notes create debt magic; genuine ties and repayment differ from arbitrary oath pricing.",
+          "status": "verified_local_dossier",
+          "source_ids": [
+            "L-ISSTH"
+          ]
+        },
+        "slot_mapping_status": "model_mapping_inference",
+        "slots": {
+          "swearer": "Actual obligated party",
+          "object": "Named debt",
+          "benefit": "Debt collection/closure where method permits",
+          "witness": null,
+          "release": "Actual repayment",
+          "consequence": null
+        },
+        "collective_rules": {
+          "text": "Alchemy blacklist is institutional denial with limited uses, not a universal supernatural collective curse.",
+          "status": "verified_local_dossier",
+          "source_ids": [
+            "L-ISSTH"
+          ]
+        }
+      },
+      "mechanics": [
+        {
+          "id": "ISSTH-M1",
+          "name": "Gate transforms the self",
+          "source_rule": {
+            "text": "Third Severing transfers Devilish will to the second self rather than deleting it everywhere.",
+            "status": "verified_local_dossier",
+            "source_ids": [
+              "L-ISSTH"
+            ]
+          },
+          "what_we_take": {
+            "text": "Author the target and carrier of each transformative gate.",
+            "status": "proposal"
+          }
+        },
+        {
+          "id": "ISSTH-M2",
+          "name": "Life-risk lamps",
+          "source_rule": {
+            "text": "Normal Ancient lamps extinguish, while special body lamps ignite.",
+            "status": "verified_local_dossier",
+            "source_ids": [
+              "L-ISSTH"
+            ]
+          },
+          "what_we_take": {
+            "text": "Keep parallel progression rules explicit even when they use the same noun.",
+            "status": "proposal"
+          }
+        },
+        {
+          "id": "ISSTH-M3",
+          "name": "Obligations as earned magic",
+          "source_rule": {
+            "text": "Merchant behavior grows into Karma methods; final debt repayment stays specific.",
+            "status": "verified_local_dossier",
+            "source_ids": [
+              "L-ISSTH"
+            ]
+          },
+          "what_we_take": {
+            "text": "Let ordinary work and real obligations unlock conceptual techniques.",
+            "status": "proposal"
+          }
+        }
+      ],
+      "gag_or_rule_abuse": {
+        "text": "The copper mirror copies with variable spirit-stone cost; its parrot has its own agenda. It is not free universal replication.",
+        "status": "verified_local_dossier",
+        "source_ids": [
+          "L-ISSTH"
+        ]
+      },
+      "open_limits": [
+        "Retain Dao Lord2/3-Essence naming inconsistency and quality differences; not every debt yields guaranteed cultivation."
+      ]
+    },
+    {
+      "id": "REN",
+      "title": "Renegade Immortal",
+      "scope": "main",
+      "evidence_note": "Read-source verification is limited to the cited dossier or reference summary; it does not authenticate all franchise canon.",
+      "path": {
+        "currency": {
+          "text": "Spiritual energy, Yin sources, later celestial energy/jades.",
+          "status": "verified_local_dossier",
+          "source_ids": [
+            "L-REN",
+            "L-ERGEN"
+          ]
+        },
+        "steps": {
+          "text": "Early core/soul ladder; later domain/Essence and higher-step classifications.",
+          "status": "verified_local_dossier",
+          "source_ids": [
+            "L-REN",
+            "L-ERGEN"
+          ]
+        },
+        "gate": {
+          "text": "Practice, personal domain, conversion and source compatibility.",
+          "status": "verified_local_dossier",
+          "source_ids": [
+            "L-REN",
+            "L-ERGEN"
+          ]
+        },
+        "risk": {
+          "text": "Ji can obstruct advancement; conversion leaves vulnerable origin soul.",
+          "status": "verified_local_dossier",
+          "source_ids": [
+            "L-REN",
+            "L-ERGEN"
+          ]
+        },
+        "shape": {
+          "text": "Ladder plus domain/body tracks.",
+          "status": "mapping_inference",
+          "source_ids": [
+            "L-REN",
+            "L-ERGEN"
+          ]
+        },
+        "branching": {
+          "text": "Unusual energy and Ancient body route do not share every gate.",
+          "status": "verified_local_dossier",
+          "source_ids": [
+            "L-REN",
+            "L-ERGEN"
+          ]
+        },
+        "grader": {
+          "text": "Realm and actual technique/body are separate.",
+          "status": "mapping_inference",
+          "source_ids": [
+            "L-REN",
+            "L-ERGEN"
+          ]
+        },
+        "ceiling": {
+          "text": "Higher-step claims remain bounded by reviewed source, not shared Er Gen conversion.",
+          "status": "mapping_inference",
+          "source_ids": [
+            "L-REN",
+            "L-ERGEN"
+          ]
+        }
+      },
+      "families": {
+        "values": [
+          "Will and domain",
+          "Soul work",
+          "Storage",
+          "Delay"
+        ],
+        "status": "model_mapping_inference",
+        "source_ids": [
+          "L-REN",
+          "L-ERGEN"
+        ]
+      },
+      "power_sources": {
+        "text": "Training, bead artifact, compatible energy and insight.",
+        "status": "verified_local_dossier",
+        "source_ids": [
+          "L-REN",
+          "L-ERGEN"
+        ]
+      },
+      "axis_variants": {
+        "growth": {
+          "text": "Ordinary life/domain understanding changes operations.",
+          "status": "model_mapping_inference",
+          "source_ids": [
+            "L-REN",
+            "L-ERGEN"
+          ]
+        },
+        "price": {
+          "text": "Bead time advantage still needs food/fuel and source-specific access.",
+          "status": "model_mapping_inference",
+          "source_ids": [
+            "L-REN",
+            "L-ERGEN"
+          ]
+        },
+        "limit": {
+          "text": "Great early offense can block a later gate.",
+          "status": "model_mapping_inference",
+          "source_ids": [
+            "L-REN",
+            "L-ERGEN"
+          ]
+        }
+      },
+      "vows_contracts_costs": {
+        "kind": "source_cost_not_vow",
+        "rule": {
+          "text": "No verified universal heart-demon bargain. A junior’s demand to cut mortal ties is contradicted by Situ Nan.",
+          "status": "verified_local_dossier",
+          "source_ids": [
+            "L-REN",
+            "L-ERGEN"
+          ]
+        },
+        "slot_mapping_status": "model_mapping_inference",
+        "slots": {
+          "swearer": null,
+          "restriction": "Reported doctrine, not enforced universal ban",
+          "consequence": null
+        },
+        "collective_rules": {
+          "text": "Sect teaching can be wrong or malicious; no collective oath law verified.",
+          "status": "verified_local_dossier",
+          "source_ids": [
+            "L-REN",
+            "L-ERGEN"
+          ]
+        }
+      },
+      "mechanics": [
+        {
+          "id": "REN-M1",
+          "name": "An advantage becomes blockage",
+          "source_rule": {
+            "text": "Ji destroys a later attempted transition in reviewed208.",
+            "status": "verified_local_dossier",
+            "source_ids": [
+              "L-REN",
+              "L-ERGEN"
+            ]
+          },
+          "what_we_take": {
+            "text": "Allow a path strength to create a real incompatibility without turning it into a vow.",
+            "status": "proposal"
+          }
+        },
+        {
+          "id": "REN-M2",
+          "name": "Conversion is a choice",
+          "source_rule": {
+            "text": "Soul Transformation requires celestial conversion, rare jades and defense during origin-soul refinement.",
+            "status": "verified_local_dossier",
+            "source_ids": [
+              "L-REN",
+              "L-ERGEN"
+            ]
+          },
+          "what_we_take": {
+            "text": "Make fuel conversion a prepared operation, not an automatic rank translation.",
+            "status": "proposal"
+          }
+        }
+      ],
+      "gag_or_rule_abuse": {
+        "text": "A father’s mistaken interpretation of a tiger-escape jump opens admission; recognition can be wrong. Bead time accelerates practice without supplying its inputs.",
+        "status": "verified_local_dossier",
+        "source_ids": [
+          "L-REN",
+          "L-ERGEN"
+        ]
+      },
+      "open_limits": [
+        "251-400 mortal/domain arc still pending its own full review; no new ending or complete-series claim here."
+      ]
+    },
+    {
+      "id": "MP",
+      "title": "Martial Peak",
+      "scope": "main",
+      "evidence_note": "Read-source verification is limited to the cited dossier or reference summary; it does not authenticate all franchise canon.",
+      "path": {
+        "currency": {
+          "text": "Seven refined resources, then inner-world force.",
+          "status": "verified_reference_summary",
+          "source_ids": [
+            "W-MP-O",
+            "W-MP-C"
+          ]
+        },
+        "steps": {
+          "text": "Open Heaven1-9 after earlier cultivation.",
+          "status": "verified_reference_summary",
+          "source_ids": [
+            "W-MP-O",
+            "W-MP-C"
+          ]
+        },
+        "gate": {
+          "text": "Form a small universe from Yin/Yang plus five elements.",
+          "status": "verified_reference_summary",
+          "source_ids": [
+            "W-MP-O",
+            "W-MP-C"
+          ]
+        },
+        "risk": {
+          "text": "Seal/world collapse.",
+          "status": "verified_reference_summary",
+          "source_ids": [
+            "W-MP-O",
+            "W-MP-C"
+          ]
+        },
+        "shape": {
+          "text": "Ladder with assembly gate.",
+          "status": "mapping_inference",
+          "source_ids": [
+            "W-MP-O",
+            "W-MP-C"
+          ]
+        },
+        "branching": {
+          "text": "Rare methods can alter normal limits.",
+          "status": "verified_reference_summary",
+          "source_ids": [
+            "W-MP-O",
+            "W-MP-C"
+          ]
+        },
+        "grader": {
+          "text": "World title differs from personal realm.",
+          "status": "mapping_inference",
+          "source_ids": [
+            "W-MP-O",
+            "W-MP-C"
+          ]
+        },
+        "ceiling": {
+          "text": "Normal initial-rank plus2 cap; rare exceptions and World Creation outlier.",
+          "status": "mapping_inference",
+          "source_ids": [
+            "W-MP-O",
+            "W-MP-C"
+          ]
+        }
+      },
+      "families": {
+        "values": [
+          "Storage",
+          "Creation",
+          "Environment-bound",
+          "Inheritance"
+        ],
+        "status": "model_mapping_inference",
+        "source_ids": [
+          "W-MP-O",
+          "W-MP-C"
+        ]
+      },
+      "power_sources": {
+        "text": "Materials, Dao seal and inner world.",
+        "status": "verified_reference_summary",
+        "source_ids": [
+          "W-MP-O",
+          "W-MP-C"
+        ]
+      },
+      "axis_variants": {
+        "growth": {
+          "text": "Lowest-grade ingredient constrains initial rank.",
+          "status": "model_mapping_inference",
+          "source_ids": [
+            "W-MP-O",
+            "W-MP-C"
+          ]
+        },
+        "persistence": {
+          "text": "Inner world carries a source internally.",
+          "status": "model_mapping_inference",
+          "source_ids": [
+            "W-MP-O",
+            "W-MP-C"
+          ]
+        },
+        "limit": {
+          "text": "Natural method cap differs from rare source exceptions.",
+          "status": "model_mapping_inference",
+          "source_ids": [
+            "W-MP-O",
+            "W-MP-C"
+          ]
+        }
+      },
+      "vows_contracts_costs": {
+        "kind": "foundation_gate_not_vow",
+        "rule": {
+          "text": "Material quality and method set a ceiling; no chosen prohibition buys the rank.",
+          "status": "verified_reference_summary",
+          "source_ids": [
+            "W-MP-O",
+            "W-MP-C"
+          ]
+        },
+        "slot_mapping_status": "model_mapping_inference",
+        "slots": {
+          "swearer": null,
+          "stake": "Foundation materials",
+          "benefit": "Inner world",
+          "consequence": "Collapse on unsafe gate"
+        },
+        "collective_rules": {
+          "text": "Institutions restrict high-rank opportunities; politics is distinct from physics.",
+          "status": "verified_reference_summary",
+          "source_ids": [
+            "W-MP-O",
+            "W-MP-C"
+          ]
+        }
+      },
+      "mechanics": [
+        {
+          "id": "MP-M1",
+          "name": "Weakest-link assembly",
+          "source_rule": {
+            "text": "Six strong resources do not cancel one weak input.",
+            "status": "verified_reference_summary",
+            "source_ids": [
+              "W-MP-O",
+              "W-MP-C"
+            ]
+          },
+          "what_we_take": {
+            "text": "Make bottleneck quality visible before consuming a foundation.",
+            "status": "proposal"
+          }
+        },
+        {
+          "id": "MP-M2",
+          "name": "Ceiling has provenance",
+          "source_rule": {
+            "text": "Rare sources can change a normal rank limit.",
+            "status": "verified_reference_summary",
+            "source_ids": [
+              "W-MP-O",
+              "W-MP-C"
+            ]
+          },
+          "what_we_take": {
+            "text": "Record which method imposed a ceiling and which exception changes it.",
+            "status": "proposal"
+          }
+        }
+      ],
+      "gag_or_rule_abuse": {
+        "text": "A World Fruit changes an assumed ceiling rather than merely paying another XP bar.",
+        "status": "verified_reference_summary",
+        "source_ids": [
+          "W-MP-O",
+          "W-MP-C"
+        ]
+      },
+      "open_limits": [
+        "Specific exception preconditions and arc scope needed before adaptation."
+      ]
+    },
+    {
+      "id": "RTW",
+      "title": "Release That Witch",
+      "scope": "main",
+      "evidence_note": "Read-source verification is limited to the cited dossier or reference summary; it does not authenticate all franchise canon.",
+      "path": {
+        "currency": {
+          "text": "Magic and practical production inputs.",
+          "status": "verified_reference_summary",
+          "source_ids": [
+            "W-RTW-M",
+            "W-RTW-N",
+            "W-RTW-T"
+          ]
+        },
+        "steps": {
+          "text": "Personal awakening, adulthood, branches/evolution.",
+          "status": "verified_reference_summary",
+          "source_ids": [
+            "W-RTW-M",
+            "W-RTW-N",
+            "W-RTW-T"
+          ]
+        },
+        "gate": {
+          "text": "Development of an individual gift.",
+          "status": "verified_reference_summary",
+          "source_ids": [
+            "W-RTW-M",
+            "W-RTW-N",
+            "W-RTW-T"
+          ]
+        },
+        "risk": {
+          "text": "Specific limits; no universal gate hazard certified.",
+          "status": "verified_reference_summary",
+          "source_ids": [
+            "W-RTW-M",
+            "W-RTW-N",
+            "W-RTW-T"
+          ]
+        },
+        "shape": {
+          "text": "Gift plus application field.",
+          "status": "mapping_inference",
+          "source_ids": [
+            "W-RTW-M",
+            "W-RTW-N",
+            "W-RTW-T"
+          ]
+        },
+        "branching": {
+          "text": "Different witches combine specialized output.",
+          "status": "verified_reference_summary",
+          "source_ids": [
+            "W-RTW-M",
+            "W-RTW-N",
+            "W-RTW-T"
+          ]
+        },
+        "grader": {
+          "text": "Gift and production results.",
+          "status": "mapping_inference",
+          "source_ids": [
+            "W-RTW-M",
+            "W-RTW-N",
+            "W-RTW-T"
+          ]
+        },
+        "ceiling": {
+          "text": "No one global level ladder certified.",
+          "status": "mapping_inference",
+          "source_ids": [
+            "W-RTW-M",
+            "W-RTW-N",
+            "W-RTW-T"
+          ]
+        }
+      },
+      "families": {
+        "values": [
+          "Creation",
+          "Transmutation",
+          "Observation",
+          "Technology"
+        ],
+        "status": "model_mapping_inference",
+        "source_ids": [
+          "W-RTW-M",
+          "W-RTW-N",
+          "W-RTW-T"
+        ]
+      },
+      "power_sources": {
+        "text": "Innate magic and collaborative engineering.",
+        "status": "verified_reference_summary",
+        "source_ids": [
+          "W-RTW-M",
+          "W-RTW-N",
+          "W-RTW-T"
+        ]
+      },
+      "axis_variants": {
+        "certainty": {
+          "text": "Lie reading tests belief, not objective truth.",
+          "status": "model_mapping_inference",
+          "source_ids": [
+            "W-RTW-M",
+            "W-RTW-N",
+            "W-RTW-T"
+          ]
+        },
+        "mechanism": {
+          "text": "Magic sight and concealed movement differ.",
+          "status": "model_mapping_inference",
+          "source_ids": [
+            "W-RTW-M",
+            "W-RTW-N",
+            "W-RTW-T"
+          ]
+        },
+        "object": {
+          "text": "Magic can power industrial infrastructure.",
+          "status": "model_mapping_inference",
+          "source_ids": [
+            "W-RTW-M",
+            "W-RTW-N",
+            "W-RTW-T"
+          ]
+        }
+      },
+      "vows_contracts_costs": {
+        "kind": "cost_not_verified_vow",
+        "rule": {
+          "text": "No universal witch-vow bargain verified.",
+          "status": "verified_reference_summary",
+          "source_ids": [
+            "W-RTW-M",
+            "W-RTW-N",
+            "W-RTW-T"
+          ]
+        },
+        "slot_mapping_status": "model_mapping_inference",
+        "slots": {
+          "swearer": null,
+          "consequence": null
+        },
+        "collective_rules": {
+          "text": "Complementary abilities support production; no pooled-oath penalty established.",
+          "status": "verified_reference_summary",
+          "source_ids": [
+            "W-RTW-M",
+            "W-RTW-N",
+            "W-RTW-T"
+          ]
+        }
+      },
+      "mechanics": [
+        {
+          "id": "RTW-M1",
+          "name": "Honesty is not truth",
+          "source_rule": {
+            "text": "Nightingale’s detector can accept a false claim sincerely believed.",
+            "status": "verified_reference_summary",
+            "source_ids": [
+              "W-RTW-M",
+              "W-RTW-N",
+              "W-RTW-T"
+            ]
+          },
+          "what_we_take": {
+            "text": "Separate sincerity detection from fact verification.",
+            "status": "proposal"
+          }
+        },
+        {
+          "id": "RTW-M2",
+          "name": "Production changes reach",
+          "source_rule": {
+            "text": "A witch’s fire can supply balloon fuel.",
+            "status": "verified_reference_summary",
+            "source_ids": [
+              "W-RTW-M",
+              "W-RTW-N",
+              "W-RTW-T"
+            ]
+          },
+          "what_we_take": {
+            "text": "Let a personal power act as a facility input beyond combat.",
+            "status": "proposal"
+          }
+        }
+      ],
+      "gag_or_rule_abuse": {
+        "text": "Sincere error can pass truth reading. Science-led ability evolution is remembered and needs a primary locator before use as canon.",
+        "status": "verified_reference_summary",
+        "source_ids": [
+          "W-RTW-M",
+          "W-RTW-N",
+          "W-RTW-T"
+        ]
+      },
+      "open_limits": [
+        "Mechanics of science-triggered evolution unverified in this pass; no rank equivalence with cultivators."
+      ]
+    },
+    {
+      "id": "TBATE",
+      "title": "The Beginning After the End",
+      "scope": "main",
+      "evidence_note": "Read-source verification is limited to the cited dossier or reference summary; it does not authenticate all franchise canon.",
+      "path": {
+        "currency": {
+          "text": "Mana; exceptional aether route is distinct.",
+          "status": "verified_reference_summary",
+          "source_ids": [
+            "W-TB-M",
+            "W-TB-A",
+            "W-TB-E"
+          ]
+        },
+        "steps": {
+          "text": "Mana cores dark→white; later aether core.",
+          "status": "verified_reference_summary",
+          "source_ids": [
+            "W-TB-M",
+            "W-TB-A",
+            "W-TB-E"
+          ]
+        },
+        "gate": {
+          "text": "Purify core; insight yields conceptual runes.",
+          "status": "verified_reference_summary",
+          "source_ids": [
+            "W-TB-M",
+            "W-TB-A",
+            "W-TB-E"
+          ]
+        },
+        "risk": {
+          "text": "Body damage and dangerous Destruction.",
+          "status": "verified_reference_summary",
+          "source_ids": [
+            "W-TB-M",
+            "W-TB-A",
+            "W-TB-E"
+          ]
+        },
+        "shape": {
+          "text": "Mana ladder plus rune field.",
+          "status": "mapping_inference",
+          "source_ids": [
+            "W-TB-M",
+            "W-TB-A",
+            "W-TB-E"
+          ]
+        },
+        "branching": {
+          "text": "Affinities, beast wills and aether differ.",
+          "status": "verified_reference_summary",
+          "source_ids": [
+            "W-TB-M",
+            "W-TB-A",
+            "W-TB-E"
+          ]
+        },
+        "grader": {
+          "text": "Core stage versus functional understanding.",
+          "status": "mapping_inference",
+          "source_ids": [
+            "W-TB-M",
+            "W-TB-A",
+            "W-TB-E"
+          ]
+        },
+        "ceiling": {
+          "text": "White is not an ultimate all-power ceiling.",
+          "status": "mapping_inference",
+          "source_ids": [
+            "W-TB-M",
+            "W-TB-A",
+            "W-TB-E"
+          ]
+        }
+      },
+      "families": {
+        "values": [
+          "Element control",
+          "Concept edge",
+          "Inheritance",
+          "Contracts and oaths"
+        ],
+        "status": "model_mapping_inference",
+        "source_ids": [
+          "W-TB-M",
+          "W-TB-A",
+          "W-TB-E"
+        ]
+      },
+      "power_sources": {
+        "text": "Training, bloodline, beast will, artifacts and insight.",
+        "status": "verified_reference_summary",
+        "source_ids": [
+          "W-TB-M",
+          "W-TB-A",
+          "W-TB-E"
+        ]
+      },
+      "axis_variants": {
+        "mechanism": {
+          "text": "Aether is not just stronger mana.",
+          "status": "model_mapping_inference",
+          "source_ids": [
+            "W-TB-M",
+            "W-TB-A",
+            "W-TB-E"
+          ]
+        },
+        "growth": {
+          "text": "Conceptual insight changes rune access.",
+          "status": "model_mapping_inference",
+          "source_ids": [
+            "W-TB-M",
+            "W-TB-A",
+            "W-TB-E"
+          ]
+        },
+        "limit": {
+          "text": "Artifacts can grant rank with allegiance constraints.",
+          "status": "model_mapping_inference",
+          "source_ids": [
+            "W-TB-M",
+            "W-TB-A",
+            "W-TB-E"
+          ]
+        }
+      },
+      "vows_contracts_costs": {
+        "kind": "artifact_allegiance",
+        "rule": {
+          "text": "Lance artifacts lift core stage and soul-bind users to rulers.",
+          "status": "verified_reference_summary",
+          "source_ids": [
+            "W-TB-M",
+            "W-TB-A",
+            "W-TB-E"
+          ]
+        },
+        "slot_mapping_status": "model_mapping_inference",
+        "slots": {
+          "swearer": "Artifact user",
+          "counterparty": "Bound ruler",
+          "benefit": "Core promotion",
+          "stake": "Allegiance",
+          "release": null,
+          "consequence": null
+        },
+        "collective_rules": {
+          "text": "Council/king allegiance is enforced through tools; complete terms unknown.",
+          "status": "verified_reference_summary",
+          "source_ids": [
+            "W-TB-M",
+            "W-TB-A",
+            "W-TB-E"
+          ]
+        }
+      },
+      "mechanics": [
+        {
+          "id": "TBATE-M1",
+          "name": "Promotion tied to obedience",
+          "source_rule": {
+            "text": "A helpful advancement artifact can also impose allegiance.",
+            "status": "verified_reference_summary",
+            "source_ids": [
+              "W-TB-M",
+              "W-TB-A",
+              "W-TB-E"
+            ]
+          },
+          "what_we_take": {
+            "text": "Show source ownership and obligation together.",
+            "status": "proposal"
+          }
+        },
+        {
+          "id": "TBATE-M2",
+          "name": "Model can be wrong",
+          "source_rule": {
+            "text": "Early aether explanations miss Arthur’s later means.",
+            "status": "verified_reference_summary",
+            "source_ids": [
+              "W-TB-M",
+              "W-TB-A",
+              "W-TB-E"
+            ]
+          },
+          "what_we_take": {
+            "text": "Store observer models without making them hard physics.",
+            "status": "proposal"
+          }
+        }
+      ],
+      "gag_or_rule_abuse": {
+        "text": "Arthur’s new aether route overturns prior claims about what the energy can do.",
+        "status": "verified_reference_summary",
+        "source_ids": [
+          "W-TB-M",
+          "W-TB-A",
+          "W-TB-E"
+        ]
+      },
+      "open_limits": [
+        "Later novel spoilers are not the same as comic stage; exact bond-break penalty unverified."
+      ]
+    },
+    {
+      "id": "OG",
+      "title": "Overgeared",
+      "scope": "main",
+      "evidence_note": "Read-source verification is limited to the cited dossier or reference summary; it does not authenticate all franchise canon.",
+      "path": {
+        "currency": {
+          "text": "XP, materials and craft effort.",
+          "status": "verified_reference_summary",
+          "source_ids": [
+            "W-OG-R",
+            "W-OG-B",
+            "W-OG-P",
+            "W-OG-4"
+          ]
+        },
+        "steps": {
+          "text": "Levels, inherited class and craft mastery.",
+          "status": "verified_reference_summary",
+          "source_ids": [
+            "W-OG-R",
+            "W-OG-B",
+            "W-OG-P",
+            "W-OG-4"
+          ]
+        },
+        "gate": {
+          "text": "Class book and production achievements.",
+          "status": "verified_reference_summary",
+          "source_ids": [
+            "W-OG-R",
+            "W-OG-B",
+            "W-OG-P",
+            "W-OG-4"
+          ]
+        },
+        "risk": {
+          "text": "Class change resets level/stats.",
+          "status": "verified_reference_summary",
+          "source_ids": [
+            "W-OG-R",
+            "W-OG-B",
+            "W-OG-P",
+            "W-OG-4"
+          ]
+        },
+        "shape": {
+          "text": "Class ladder plus craft web.",
+          "status": "mapping_inference",
+          "source_ids": [
+            "W-OG-R",
+            "W-OG-B",
+            "W-OG-P",
+            "W-OG-4"
+          ]
+        },
+        "branching": {
+          "text": "Legendary craft and sword functions coexist.",
+          "status": "verified_reference_summary",
+          "source_ids": [
+            "W-OG-R",
+            "W-OG-B",
+            "W-OG-P",
+            "W-OG-4"
+          ]
+        },
+        "grader": {
+          "text": "Game system and deeds/recognition.",
+          "status": "mapping_inference",
+          "source_ids": [
+            "W-OG-R",
+            "W-OG-B",
+            "W-OG-P",
+            "W-OG-4"
+          ]
+        },
+        "ceiling": {
+          "text": "Legendary is a path, not verified final limit.",
+          "status": "mapping_inference",
+          "source_ids": [
+            "W-OG-R",
+            "W-OG-B",
+            "W-OG-P",
+            "W-OG-4"
+          ]
+        }
+      },
+      "families": {
+        "values": [
+          "Creation",
+          "Inheritance",
+          "Achievements",
+          "Contracts and oaths"
+        ],
+        "status": "model_mapping_inference",
+        "source_ids": [
+          "W-OG-R",
+          "W-OG-B",
+          "W-OG-P",
+          "W-OG-4"
+        ]
+      },
+      "power_sources": {
+        "text": "Class inheritance and craft practice.",
+        "status": "verified_reference_summary",
+        "source_ids": [
+          "W-OG-R",
+          "W-OG-B",
+          "W-OG-P",
+          "W-OG-4"
+        ]
+      },
+      "axis_variants": {
+        "growth": {
+          "text": "Focused production improves items, later becomes passive.",
+          "status": "model_mapping_inference",
+          "source_ids": [
+            "W-OG-R",
+            "W-OG-B",
+            "W-OG-P",
+            "W-OG-4"
+          ]
+        },
+        "persistence": {
+          "text": "Inheritance can reset one track while opening another.",
+          "status": "model_mapping_inference",
+          "source_ids": [
+            "W-OG-R",
+            "W-OG-B",
+            "W-OG-P",
+            "W-OG-4"
+          ]
+        },
+        "price": {
+          "text": "Materials and lost level progress.",
+          "status": "model_mapping_inference",
+          "source_ids": [
+            "W-OG-R",
+            "W-OG-B",
+            "W-OG-P",
+            "W-OG-4"
+          ]
+        }
+      },
+      "vows_contracts_costs": {
+        "kind": "contract_terms_unknown",
+        "rule": {
+          "text": "Pagma is Baal’s contractor; no complete exchange or breach table verified.",
+          "status": "verified_reference_summary",
+          "source_ids": [
+            "W-OG-R",
+            "W-OG-B",
+            "W-OG-P",
+            "W-OG-4"
+          ]
+        },
+        "slot_mapping_status": "model_mapping_inference",
+        "slots": {
+          "swearer": "Pagma",
+          "counterparty": "Baal",
+          "benefit": "Contractor powers",
+          "stake": null,
+          "consequence": null
+        },
+        "collective_rules": {
+          "text": "Created equipment benefits recipients; no shared crafting oath shown.",
+          "status": "verified_reference_summary",
+          "source_ids": [
+            "W-OG-R",
+            "W-OG-B",
+            "W-OG-P",
+            "W-OG-4"
+          ]
+        }
+      },
+      "mechanics": [
+        {
+          "id": "OG-M1",
+          "name": "Craft is a growth path",
+          "source_rule": {
+            "text": "A maker’s effort changes item quality and effects.",
+            "status": "verified_reference_summary",
+            "source_ids": [
+              "W-OG-R",
+              "W-OG-B",
+              "W-OG-P",
+              "W-OG-4"
+            ]
+          },
+          "what_we_take": {
+            "text": "Let ordinary production develop into exceptional techniques.",
+            "status": "proposal"
+          }
+        },
+        {
+          "id": "OG-M2",
+          "name": "Inheritance can reset",
+          "source_rule": {
+            "text": "A class book resets levels/stats while opening a new path.",
+            "status": "verified_reference_summary",
+            "source_ids": [
+              "W-OG-R",
+              "W-OG-B",
+              "W-OG-P",
+              "W-OG-4"
+            ]
+          },
+          "what_we_take": {
+            "text": "Declare per-track retention before a route change.",
+            "status": "proposal"
+          }
+        }
+      ],
+      "gag_or_rule_abuse": {
+        "text": "The official chapter4 search excerpt treats negative level as intended, not a software bug.",
+        "status": "verified_reference_summary",
+        "source_ids": [
+          "W-OG-R",
+          "W-OG-B",
+          "W-OG-P",
+          "W-OG-4"
+        ]
+      },
+      "open_limits": [
+        "Full later class evolution and contract price not certified; no universal class-reset rule."
+      ]
+    },
+    {
+      "id": "SS",
+      "title": "Shadow Slave",
+      "scope": "main",
+      "evidence_note": "Read-source verification is limited to the cited dossier or reference summary; it does not authenticate all franchise canon.",
+      "path": {
+        "currency": {
+          "text": "Soul essence for use; fragments/shards for growth have different carriers.",
+          "status": "verified_local_dossier",
+          "source_ids": [
+            "L-SS",
+            "L-SS-P"
+          ]
+        },
+        "steps": {
+          "text": "Rank, creature class/core count, Aspect grade and mastery are separate.",
+          "status": "verified_local_dossier",
+          "source_ids": [
+            "L-SS",
+            "L-SS-P"
+          ]
+        },
+        "gate": {
+          "text": "Nightmare ordeals, core growth, learned technique and later sovereignty have distinct gates.",
+          "status": "verified_local_dossier",
+          "source_ids": [
+            "L-SS",
+            "L-SS-P"
+          ]
+        },
+        "risk": {
+          "text": "Bodily death, soul harm, hostile conditions and an involuntary Flaw.",
+          "status": "verified_local_dossier",
+          "source_ids": [
+            "L-SS",
+            "L-SS-P"
+          ]
+        },
+        "shape": {
+          "text": "Rank ladder plus core stack and technique field.",
+          "status": "mapping_inference",
+          "source_ids": [
+            "L-SS",
+            "L-SS-P"
+          ]
+        },
+        "branching": {
+          "text": "Divine-Aspect core development differs from ordinary human rules; Memories/Echoes are separate tools.",
+          "status": "verified_local_dossier",
+          "source_ids": [
+            "L-SS",
+            "L-SS-P"
+          ]
+        },
+        "grader": {
+          "text": "Spell appraisal and institution labels do not reveal all power.",
+          "status": "mapping_inference",
+          "source_ids": [
+            "L-SS",
+            "L-SS-P"
+          ]
+        },
+        "ceiling": {
+          "text": "Later source stages exist; no single rank comparison proves every outcome.",
+          "status": "mapping_inference",
+          "source_ids": [
+            "L-SS",
+            "L-SS-P"
+          ]
+        }
+      },
+      "families": {
+        "values": [
+          "Truth-bound",
+          "True names",
+          "Cursed gift",
+          "Dreams",
+          "Multiplication",
+          "Inheritance"
+        ],
+        "status": "model_mapping_inference",
+        "source_ids": [
+          "L-SS",
+          "L-SS-P"
+        ]
+      },
+      "power_sources": {
+        "text": "Personal Aspect, trained technique, soul growth, Memories, Echoes and source-specific lineage.",
+        "status": "verified_local_dossier",
+        "source_ids": [
+          "L-SS",
+          "L-SS-P"
+        ]
+      },
+      "axis_variants": {
+        "trigger": {
+          "text": "Truth Flaw affects speech; true-name bond has its own activation.",
+          "status": "model_mapping_inference",
+          "source_ids": [
+            "L-SS",
+            "L-SS-P"
+          ]
+        },
+        "price": {
+          "text": "Intrinsic Flaw is not a freely chosen restriction.",
+          "status": "model_mapping_inference",
+          "source_ids": [
+            "L-SS",
+            "L-SS-P"
+          ]
+        },
+        "persistence": {
+          "text": "Losing Spell service need not remove intrinsic faculties.",
+          "status": "model_mapping_inference",
+          "source_ids": [
+            "L-SS",
+            "L-SS-P"
+          ]
+        },
+        "visibility": {
+          "text": "Name disclosure and public reputation are not the same knowledge.",
+          "status": "model_mapping_inference",
+          "source_ids": [
+            "L-SS",
+            "L-SS-P"
+          ]
+        }
+      },
+      "vows_contracts_costs": {
+        "kind": "involuntary_flaw_and_name_bond",
+        "rule": {
+          "text": "Sunny’s Flaw and true-name command bond differ: Shore closure shows actual compelled departure; a mask reverses the Flaw instead of removing it.",
+          "status": "verified_local_dossier",
+          "source_ids": [
+            "L-SS",
+            "L-SS-P"
+          ]
+        },
+        "slot_mapping_status": "model_mapping_inference",
+        "slots": {
+          "swearer": "No voluntary swearer for intrinsic Flaw",
+          "object": "Truthful speech or named soul, separate mechanisms",
+          "counterparty": "Name-bond master when active",
+          "benefit": "Aspect power, not an on-demand quote",
+          "coercion": "Involuntary",
+          "release": "Specific later relationship changes; not generic consent",
+          "consequence": null
+        },
+        "collective_rules": {
+          "text": "Cohort cooperation is independent of Sunny’s name bond; no shared guilt rule established.",
+          "status": "verified_local_dossier",
+          "source_ids": [
+            "L-SS",
+            "L-SS-P"
+          ]
+        }
+      },
+      "mechanics": [
+        {
+          "id": "SS-M1",
+          "name": "Gift and burden stay linked",
+          "source_rule": {
+            "text": "A strong Aspect, its Flaw, core stage and actual mastery are independent fields.",
+            "status": "verified_local_dossier",
+            "source_ids": [
+              "L-SS",
+              "L-SS-P"
+            ]
+          },
+          "what_we_take": {
+            "text": "Generate personal gifts with intrinsic burdens without calling every burden a vow.",
+            "status": "proposal"
+          }
+        },
+        {
+          "id": "SS-M2",
+          "name": "Reverse instead of erase",
+          "source_rule": {
+            "text": "Weaver’s Mask reverses truthful speech while mundane identity clues remain.",
+            "status": "verified_local_dossier",
+            "source_ids": [
+              "L-SS",
+              "L-SS-P"
+            ]
+          },
+          "what_we_take": {
+            "text": "Let counters transform one axis without deleting the whole rule.",
+            "status": "proposal"
+          }
+        },
+        {
+          "id": "SS-M3",
+          "name": "Service is not faculty",
+          "source_rule": {
+            "text": "Post-theft Spell rune/Memory-service tests fail while intrinsic faculties persist.",
+            "status": "verified_local_dossier",
+            "source_ids": [
+              "L-SS",
+              "L-SS-P"
+            ]
+          },
+          "what_we_take": {
+            "text": "Separate a power’s native substrate from its service interface.",
+            "status": "proposal"
+          }
+        }
+      ],
+      "gag_or_rule_abuse": {
+        "text": "A truth-bound speaker uses technically true phrasing, and the mask can invert the speech rule. First bond description is not proof of exercised command; Shore command is a later distinct event.",
+        "status": "verified_local_dossier",
+        "source_ids": [
+          "L-SS",
+          "L-SS-P"
+        ]
+      },
+      "open_limits": [
+        "Respect stage/era differences: synthesis has later integration than POWER_INDEX. Dream travel, body travel and Memory custody differ."
+      ]
+    },
+    {
+      "id": "MOL",
+      "title": "Mother of Learning",
+      "scope": "bridge",
+      "evidence_note": "Read-source verification is limited to the cited dossier or reference summary; it does not authenticate all franchise canon.",
+      "path": {
+        "currency": {
+          "text": "Mana, shaping skill and preparation.",
+          "status": "verified_local_dossier",
+          "source_ids": [
+            "L-MOL"
+          ]
+        },
+        "steps": {
+          "text": "Open skill field; not XP levels.",
+          "status": "verified_local_dossier",
+          "source_ids": [
+            "L-MOL"
+          ]
+        },
+        "gate": {
+          "text": "Study, instruction and precision.",
+          "status": "verified_local_dossier",
+          "source_ids": [
+            "L-MOL"
+          ]
+        },
+        "risk": {
+          "text": "Mana exhaustion and hazardous experiments.",
+          "status": "verified_local_dossier",
+          "source_ids": [
+            "L-MOL"
+          ]
+        },
+        "shape": {
+          "text": "Field with spell-formula web.",
+          "status": "mapping_inference",
+          "source_ids": [
+            "L-MOL"
+          ]
+        },
+        "branching": {
+          "text": "Disciplines combine; simulacra share source mana.",
+          "status": "verified_local_dossier",
+          "source_ids": [
+            "L-MOL"
+          ]
+        },
+        "grader": {
+          "text": "Tests and actual operation.",
+          "status": "mapping_inference",
+          "source_ids": [
+            "L-MOL"
+          ]
+        },
+        "ceiling": {
+          "text": "No certified final spell mastery cap.",
+          "status": "mapping_inference",
+          "source_ids": [
+            "L-MOL"
+          ]
+        }
+      },
+      "families": {
+        "values": [
+          "Memory",
+          "Conditions",
+          "Save and load",
+          "Multiplication",
+          "Creation"
+        ],
+        "status": "model_mapping_inference",
+        "source_ids": [
+          "L-MOL"
+        ]
+      },
+      "power_sources": {
+        "text": "Study, formula tools and loop-retained experience.",
+        "status": "verified_local_dossier",
+        "source_ids": [
+          "L-MOL"
+        ]
+      },
+      "axis_variants": {
+        "persistence": {
+          "text": "Memory/control retention differs from body and stock.",
+          "status": "model_mapping_inference",
+          "source_ids": [
+            "L-MOL"
+          ]
+        },
+        "mechanism": {
+          "text": "Physical sound bypasses a mind ward.",
+          "status": "model_mapping_inference",
+          "source_ids": [
+            "L-MOL"
+          ]
+        },
+        "limit": {
+          "text": "A ward against a spell need not cover a mechanical method.",
+          "status": "model_mapping_inference",
+          "source_ids": [
+            "L-MOL"
+          ]
+        }
+      },
+      "vows_contracts_costs": {
+        "kind": "memory_mediated_compulsion",
+        "rule": {
+          "text": "A fresh geas can remain structurally present while memory removal defeats usable compulsion in one case.",
+          "status": "verified_local_dossier",
+          "source_ids": [
+            "L-MOL"
+          ]
+        },
+        "slot_mapping_status": "model_mapping_inference",
+        "slots": {
+          "swearer": "Bound person",
+          "restriction": "Geas instruction",
+          "memory": "Relevant fresh memory erased",
+          "release": "Specific memory intervention",
+          "consequence": null
+        },
+        "collective_rules": {
+          "text": "Loop/proxy obligations do not create universal shared penalties.",
+          "status": "verified_local_dossier",
+          "source_ids": [
+            "L-MOL"
+          ]
+        }
+      },
+      "mechanics": [
+        {
+          "id": "MOL-M1",
+          "name": "Enforcer needs usable state",
+          "source_rule": {
+            "text": "Ch51-65 separates geas structure from the mind state that makes it effective.",
+            "status": "verified_local_dossier",
+            "source_ids": [
+              "L-MOL"
+            ]
+          },
+          "what_we_take": {
+            "text": "Name a bond’s trigger memory and enforcement mechanism.",
+            "status": "proposal"
+          }
+        },
+        {
+          "id": "MOL-M2",
+          "name": "Bypass by different means",
+          "source_rule": {
+            "text": "Ch9 manipulates lock tumblers instead of casting a standard unlocking spell.",
+            "status": "verified_local_dossier",
+            "source_ids": [
+              "L-MOL"
+            ]
+          },
+          "what_we_take": {
+            "text": "Match counters to mechanisms, not broad family names.",
+            "status": "proposal"
+          }
+        }
+      ],
+      "gag_or_rule_abuse": {
+        "text": "A magical lock ward misses precise physical manipulation; this does not prove a universal anti-ward technique.",
+        "status": "verified_local_dossier",
+        "source_ids": [
+          "L-MOL"
+        ]
+      },
+      "open_limits": [
+        "Bridge only: loop/counter distinctions; Western lane owns broad genre comparison."
+      ]
+    },
+    {
+      "id": "CRADLE",
+      "title": "Cradle",
+      "scope": "bridge",
+      "evidence_note": "Read-source verification is limited to the cited dossier or reference summary; it does not authenticate all franchise canon.",
+      "path": {
+        "currency": {
+          "text": "Madra and ambient aura.",
+          "status": "verified_reference_summary",
+          "source_ids": [
+            "W-CR-P",
+            "W-CR-O"
+          ]
+        },
+        "steps": {
+          "text": "Sacred advancement, full ladder deferred to lane C.",
+          "status": "verified_reference_summary",
+          "source_ids": [
+            "W-CR-P",
+            "W-CR-O"
+          ]
+        },
+        "gate": {
+          "text": "Cultivation and path-specific techniques.",
+          "status": "verified_reference_summary",
+          "source_ids": [
+            "W-CR-P",
+            "W-CR-O"
+          ]
+        },
+        "risk": {
+          "text": "Spirit damage; other gates not surveyed here.",
+          "status": "verified_reference_summary",
+          "source_ids": [
+            "W-CR-P",
+            "W-CR-O"
+          ]
+        },
+        "shape": {
+          "text": "Path field within ladder.",
+          "status": "mapping_inference",
+          "source_ids": [
+            "W-CR-P",
+            "W-CR-O"
+          ]
+        },
+        "branching": {
+          "text": "Technique role differs from chosen path.",
+          "status": "verified_reference_summary",
+          "source_ids": [
+            "W-CR-P",
+            "W-CR-O"
+          ]
+        },
+        "grader": {
+          "text": "Local advancement; full detail lane C.",
+          "status": "mapping_inference",
+          "source_ids": [
+            "W-CR-P",
+            "W-CR-O"
+          ]
+        },
+        "ceiling": {
+          "text": "Not surveyed.",
+          "status": "mapping_inference",
+          "source_ids": [
+            "W-CR-P",
+            "W-CR-O"
+          ]
+        }
+      },
+      "families": {
+        "values": [
+          "Element control",
+          "Contracts and oaths"
+        ],
+        "status": "model_mapping_inference",
+        "source_ids": [
+          "W-CR-P",
+          "W-CR-O"
+        ]
+      },
+      "power_sources": {
+        "text": "Trained spirit and environmental aura.",
+        "status": "verified_reference_summary",
+        "source_ids": [
+          "W-CR-P",
+          "W-CR-O"
+        ]
+      },
+      "axis_variants": {
+        "mechanism": {
+          "text": "Striker/enforcer/ruler/forger are uses, not separate world ranks.",
+          "status": "model_mapping_inference",
+          "source_ids": [
+            "W-CR-P",
+            "W-CR-O"
+          ]
+        },
+        "price": {
+          "text": "Soul-oath breach can harm core/channels.",
+          "status": "model_mapping_inference",
+          "source_ids": [
+            "W-CR-P",
+            "W-CR-O"
+          ]
+        }
+      },
+      "vows_contracts_costs": {
+        "kind": "spirit_oath",
+        "rule": {
+          "text": "Author Q&A describes one’s spirit enforcing an agreement; stronger souls can involve surrounding aura.",
+          "status": "verified_reference_summary",
+          "source_ids": [
+            "W-CR-P",
+            "W-CR-O"
+          ]
+        },
+        "slot_mapping_status": "model_mapping_inference",
+        "slots": {
+          "swearer": "Person",
+          "witness": "Own spirit; sometimes aura",
+          "restriction": "Agreement",
+          "consequence": "Spirit/channel/core harm",
+          "release": "Exact annulment terms not established here"
+        },
+        "collective_rules": {
+          "text": "No generic group guilt rule established by this bridge.",
+          "status": "verified_reference_summary",
+          "source_ids": [
+            "W-CR-P",
+            "W-CR-O"
+          ]
+        }
+      },
+      "mechanics": [
+        {
+          "id": "CRADLE-M1",
+          "name": "Local spirit enforcement",
+          "source_rule": {
+            "text": "Oath consequences can persist but be mitigated over time per author Q&A.",
+            "status": "verified_reference_summary",
+            "source_ids": [
+              "W-CR-P",
+              "W-CR-O"
+            ]
+          },
+          "what_we_take": {
+            "text": "Distinguish intrinsic enforcer, environmental spillover and repair.",
+            "status": "proposal"
+          }
+        }
+      ],
+      "gag_or_rule_abuse": {
+        "text": "No chapter-specific gag certified; no invented loophole added.",
+        "status": "unverified",
+        "source_ids": [
+          "W-CR-P",
+          "W-CR-O"
+        ]
+      },
+      "open_limits": [
+        "Lane C owns full Cradle. Author answer inspected through search index; direct archive open failed."
+      ]
+    },
+    {
+      "id": "GENRE",
+      "title": "System-novel staples",
+      "scope": "category",
+      "evidence_note": "Read-source verification is limited to the cited dossier or reference summary; it does not authenticate all franchise canon.",
+      "path": {
+        "currency": {
+          "text": "Points, draw currency, simulated experience or target fortune, depending on book.",
+          "status": "verified_reference_summary",
+          "source_ids": [
+            "W-G-S",
+            "W-G-G",
+            "W-G-SIM",
+            "W-G-D",
+            "L-FV"
+          ]
+        },
+        "steps": {
+          "text": "Host-native ladder plus interface rewards.",
+          "status": "verified_reference_summary",
+          "source_ids": [
+            "W-G-S",
+            "W-G-G",
+            "W-G-SIM",
+            "W-G-D",
+            "L-FV"
+          ]
+        },
+        "gate": {
+          "text": "Reward trigger specified by each title.",
+          "status": "verified_reference_summary",
+          "source_ids": [
+            "W-G-S",
+            "W-G-G",
+            "W-G-SIM",
+            "W-G-D",
+            "L-FV"
+          ]
+        },
+        "risk": {
+          "text": "Wrong reward target, scarce currency or hostile agenda; genre synthesis.",
+          "status": "genre_synthesis",
+          "source_ids": [
+            "W-G-S",
+            "W-G-G",
+            "W-G-SIM",
+            "W-G-D",
+            "L-FV"
+          ]
+        },
+        "shape": {
+          "text": "Reward overlay on any path shape.",
+          "status": "genre_synthesis",
+          "source_ids": [
+            "W-G-S",
+            "W-G-G",
+            "W-G-SIM",
+            "W-G-D",
+            "L-FV"
+          ]
+        },
+        "branching": {
+          "text": "A reward may grant method, source, talent or a whole stage; not interchangeable.",
+          "status": "genre_synthesis",
+          "source_ids": [
+            "W-G-S",
+            "W-G-G",
+            "W-G-SIM",
+            "W-G-D",
+            "L-FV"
+          ]
+        },
+        "grader": {
+          "text": "System evaluator, not guaranteed objective truth.",
+          "status": "genre_synthesis",
+          "source_ids": [
+            "W-G-S",
+            "W-G-G",
+            "W-G-SIM",
+            "W-G-D",
+            "L-FV"
+          ]
+        },
+        "ceiling": {
+          "text": "Book-specific; no shared genre ceiling.",
+          "status": "genre_synthesis",
+          "source_ids": [
+            "W-G-S",
+            "W-G-G",
+            "W-G-SIM",
+            "W-G-D",
+            "L-FV"
+          ]
+        }
+      },
+      "families": {
+        "values": [
+          "Interface",
+          "Shop",
+          "Stat work",
+          "Achievements",
+          "Save and load",
+          "Inheritance"
+        ],
+        "status": "model_mapping_inference",
+        "source_ids": [
+          "W-G-S",
+          "W-G-G",
+          "W-G-SIM",
+          "W-G-D",
+          "L-FV"
+        ]
+      },
+      "power_sources": {
+        "text": "Granted system and explicit reward carriers.",
+        "status": "verified_reference_summary",
+        "source_ids": [
+          "W-G-S",
+          "W-G-G",
+          "W-G-SIM",
+          "W-G-D",
+          "L-FV"
+        ]
+      },
+      "axis_variants": {
+        "trigger": {
+          "text": "Sign-in, random draw, simulation result, deed or target disruption.",
+          "status": "model_mapping_inference",
+          "source_ids": [
+            "W-G-S",
+            "W-G-G",
+            "W-G-SIM",
+            "W-G-D",
+            "L-FV"
+          ]
+        },
+        "certainty": {
+          "text": "Reward prediction and actual settled reward differ.",
+          "status": "model_mapping_inference",
+          "source_ids": [
+            "W-G-S",
+            "W-G-G",
+            "W-G-SIM",
+            "W-G-D",
+            "L-FV"
+          ]
+        },
+        "growth": {
+          "text": "Reward may skip a gate where that title allows it.",
+          "status": "model_mapping_inference",
+          "source_ids": [
+            "W-G-S",
+            "W-G-G",
+            "W-G-SIM",
+            "W-G-D",
+            "L-FV"
+          ]
+        },
+        "persistence": {
+          "text": "A retained simulated skill is not proof that its world persists.",
+          "status": "model_mapping_inference",
+          "source_ids": [
+            "W-G-S",
+            "W-G-G",
+            "W-G-SIM",
+            "W-G-D",
+            "L-FV"
+          ]
+        }
+      },
+      "vows_contracts_costs": {
+        "kind": "reward_policy_not_one_vow",
+        "rule": {
+          "text": "Reward systems need not involve an oath; forced tasks and hostile grants are separate designs.",
+          "status": "verified_reference_summary",
+          "source_ids": [
+            "W-G-S",
+            "W-G-G",
+            "W-G-SIM",
+            "W-G-D",
+            "L-FV"
+          ]
+        },
+        "slot_mapping_status": "model_mapping_inference",
+        "slots": {
+          "swearer": null,
+          "witness": "System evaluator",
+          "condition": "Book-specific trigger",
+          "benefit": "Defined reward",
+          "consequence": "Only if specified"
+        },
+        "collective_rules": {
+          "text": "Gacha followers may have lives and resistance; no universal collective-consent rule.",
+          "status": "verified_reference_summary",
+          "source_ids": [
+            "W-G-S",
+            "W-G-G",
+            "W-G-SIM",
+            "W-G-D",
+            "L-FV"
+          ]
+        }
+      },
+      "mechanics": [
+        {
+          "id": "GENRE-M1",
+          "name": "Sign-in",
+          "source_rule": {
+            "text": "A platform synopsis gives an item from a sign-in trigger.",
+            "status": "verified_reference_summary",
+            "source_ids": [
+              "W-G-S"
+            ]
+          },
+          "what_we_take": {
+            "text": "Define eligibility, repeat policy and reward carrier per world.",
+            "status": "proposal"
+          }
+        },
+        {
+          "id": "GENRE-M2",
+          "name": "Gacha",
+          "source_rule": {
+            "text": "Official Pick Me Up premise puts a low-star person under a player’s control.",
+            "status": "verified_reference_summary",
+            "source_ids": [
+              "W-G-G"
+            ]
+          },
+          "what_we_take": {
+            "text": "Treat drawn people as actors rather than disposable inventory.",
+            "status": "proposal"
+          }
+        },
+        {
+          "id": "GENRE-M3",
+          "name": "Simulator",
+          "source_rule": {
+            "text": "Public platform example chooses experience, skill or cultivation after paying for a simulated run.",
+            "status": "verified_reference_summary",
+            "source_ids": [
+              "W-G-SIM"
+            ]
+          },
+          "what_we_take": {
+            "text": "Declare observation-only versus retained-result simulation.",
+            "status": "proposal"
+          }
+        },
+        {
+          "id": "GENRE-M4",
+          "name": "Rewards for deeds",
+          "source_rule": {
+            "text": "Good-deed synopsis gives money; Fated Villain gives points for specific target disruption.",
+            "status": "verified_reference_summary",
+            "source_ids": [
+              "W-G-D"
+            ]
+          },
+          "what_we_take": {
+            "text": "Name evaluator, deed subject and what is rewarded, with duplicate policy.",
+            "status": "proposal"
+          }
+        },
+        {
+          "id": "GENRE-M5",
+          "name": "Villain systems",
+          "source_rule": {
+            "text": "Fated Villain distinguishes spendable Destiny Points, target Fortune and backlash conditions.",
+            "status": "verified_local_dossier",
+            "source_ids": [
+              "L-FV"
+            ]
+          },
+          "what_we_take": {
+            "text": "Keep reward account, target protection and evaluator goals separate.",
+            "status": "proposal"
+          }
+        }
+      ],
+      "gag_or_rule_abuse": {
+        "text": "The kindly-deed reward contrasts with target-disruption rewards. Self-made emergencies for points and repeated sign-ins are proposed abuse cases, not verified events.",
+        "status": "genre_synthesis",
+        "source_ids": [
+          "W-G-S",
+          "W-G-G",
+          "W-G-SIM",
+          "W-G-D",
+          "L-FV"
+        ]
+      },
+      "open_limits": [
+        "No assumption every sign-in is daily, every gacha has pity, every simulator is prophecy, or every villain reward is an oath."
+      ],
+      "genre_subtypes": [
+        {
+          "id": "GENRE-M1",
+          "subtype": "sign_in",
+          "mechanic_id": "GENRE-M1",
+          "status": "proposal_mapping",
+          "unknowns": "Daily cadence, location weighting and reward exhaustion not verified."
+        },
+        {
+          "id": "GENRE-M2",
+          "subtype": "gacha",
+          "mechanic_id": "GENRE-M2",
+          "status": "proposal_mapping",
+          "unknowns": "Draw rates, pity and merge economy not verified by synopsis."
+        },
+        {
+          "id": "GENRE-M3",
+          "subtype": "simulator",
+          "mechanic_id": "GENRE-M3",
+          "status": "proposal_mapping",
+          "unknowns": "Only selected outcome retention verified in sample; accuracy and time ontology book-specific."
+        },
+        {
+          "id": "GENRE-M4",
+          "subtype": "rewards_for_deeds",
+          "mechanic_id": "GENRE-M4",
+          "status": "proposal_mapping",
+          "unknowns": "Anti-farming and cosmic moral fairness not verified."
+        },
+        {
+          "id": "GENRE-M5",
+          "subtype": "villain_systems",
+          "mechanic_id": "GENRE-M5",
+          "status": "proposal_mapping",
+          "unknowns": "No universal fortune-to-point exchange or oath immunity."
+        }
+      ]
+    }
+  ]
+}

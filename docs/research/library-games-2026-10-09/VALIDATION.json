@@ -1,0 +1,27 @@
+{
+  "captured_at": "2026-10-09T01:45:20.319731-04:00",
+  "passed": true,
+  "checks": {
+    "json_files": 31,
+    "hashes": 634,
+    "source_ranges": 294,
+    "local_links": 43
+  },
+  "dossiers": {
+    "theory-of-magic": {
+      "proposals": 8,
+      "touches": 24
+    },
+    "bitburner": {
+      "proposals": 6,
+      "touches": 26
+    },
+    "kill-the-lich-idle": {
+      "proposals": 8,
+      "touches": 24
+    }
+  },
+  "input_drift": [],
+  "errors": [],
+  "limitations": "Artifact/hash/range/link checks do not establish semantic completeness, runtime correctness, installed Steam identity, ownership, pacing or user acceptance."
+}

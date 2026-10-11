@@ -1,0 +1,28 @@
+{
+  "game": "Wildermyth",
+  "app_id": 763890,
+  "reviewed_at": "2026-10-07T16:35:46.973174-04:00",
+  "eligible": true,
+  "private_receipt_sha256": "4593367e56388582baa07a2d285ffd5a8be87e603beb6938173499005a73cf4f",
+  "private_sample_hash_checks": [
+    "/Users/weiwei/.codex/research/wildermyth/decompiled/com/worldwalkergames/legacy/game/generation/HumanAgeHelper.java",
+    "/Users/weiwei/.codex/research/wildermyth/retained/assets/data/aspects/humanAging.json",
+    "/Users/weiwei/.codex/research/wildermyth/decompiled/com/worldwalkergames/legacy/game/campaign/system/LegacySaveSystem.java"
+  ],
+  "retained_files": 23725,
+  "retained_bytes": 608049951,
+  "finite_pass": "six connected life-sim chains plus bounded actual Java export",
+  "limits": [
+    "Most content events/campaigns and all story prose/localizations",
+    "Omenroad/dungeon progression, full DLC routes, cosmetics and soundtrack",
+    "Interval scheduler/time advancement, complete retirement scheduling, complete legacy entity serialization and history-reset semantics",
+    "Unexported server methods, main UI jar, native audio/graphics integrations"
+  ],
+  "recipients": [
+    "docs/gm/life-sim-experience-2026-10-07/",
+    "docs/gm/life-sim-foundation-2026-10-07/"
+  ],
+  "packets": "docs/research/wildermyth/IMPLEMENTATION_PACKETS.json",
+  "no_installed_consumer": true,
+  "parent_process_check": "no process under installed Wildermyth path"
+}

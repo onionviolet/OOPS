@@ -1,0 +1,41 @@
+{
+  "checked_at": "2026-10-08T20:51:56.568083-04:00",
+  "status": "passed",
+  "document_counts": {
+    "genre_ids": 17,
+    "trope_ids": 36,
+    "idea_ids": 24,
+    "proposal_ids": 8
+  },
+  "four_variants_per_trope": true,
+  "numbered_source_groups_per_genre": 3,
+  "local_link_targets_checked": 25,
+  "missing_local_targets": [],
+  "distinct_external_links": 62,
+  "external_link_note": "Source fetching recorded in task tool calls; not a bulk HTTP link-status test. Some references are explicitly indexed-only.",
+  "style_check": "No em dash or spaced double hyphen in authored markdown.",
+  "input_drift_since_mid_pass": [
+    "docs/LIFE_SIM_NORTH_STAR.md"
+  ],
+  "final_input_sha256": {
+    "PROJECT.md": "8143c0f8c59c18fe9084cbb4afbbfa70719d29e5c55e138615b07e6195e86541",
+    "docs/GAME_MASTER_PROMPT.md": "afdfe348cbdfa308ef4bd032325b489946f98788d6574778784c6d873ec2cb70",
+    "docs/LIFE_SIM_NORTH_STAR.md": "f5635c6e97acdf7d3aa08f0945307068e4bb6e1793068854141e2ffe1a69d356",
+    "docs/WORLD_CARDS.md": "9ea44213c5df87ccea5639ae93a0ae2b8cf5e2eaa1c8ac4726e6abec7afbaffe",
+    "docs/RESEARCH_GENRE_TROPES.md": "1d2ce3c5e3885807aa9be48c954742459ca4b3a7248bf9b2b0014d88789b2b6b",
+    "docs/RESEARCH_GENRE_SWEEP.md": "abb4987edfce0130b339fddf526b6cfabc8449ce89a14ea9f819991181c88130",
+    "docs/gm/dispatch/far-field-tropes-2026-10-08/ASSIGNMENT.md": "b767f1696948afd89984fc72c22e61c1dec15778283168ae7e96b5e035b5c563"
+  },
+  "gameplay_checks": "Not run. Research-only scope.",
+  "writes_scope": "docs/research/far-field-tropes-2026-10-08",
+  "artifact_sha256": {
+    "docs/research/far-field-tropes-2026-10-08/CHECKPOINT.md": "bc20432625f9df63de520bfbec0966feb26408ea65f17533c1ace5e7e42bc096",
+    "docs/research/far-field-tropes-2026-10-08/INPUTS.json": "c660115a5e1b93cf185826c076235d9555b87764809c6952cafa08ca5612f505",
+    "docs/research/far-field-tropes-2026-10-08/PART_1_GENRES.md": "3675392f894ddba1ea3d715a6871e2f24ca86d5fcf72e498efad18c067f1776a",
+    "docs/research/far-field-tropes-2026-10-08/PART_2_TROPES.md": "bcffceb4da8297a18fffcfd599f9003a6e392cc1eff3831b0953a0467b8a3c7b",
+    "docs/research/far-field-tropes-2026-10-08/PART_3_NEW_IDEAS.md": "6aad500f2c4e6a40eaf047f21b78af1efbc079d4328297a4c04e4d1b75fcc288",
+    "docs/research/far-field-tropes-2026-10-08/PROPOSALS.md": "010610e02b539aafd2c9ffd522be0535471bd923aa0aae8bbdb83fefec70d246",
+    "docs/research/far-field-tropes-2026-10-08/REPORT.md": "b23405078743946764bd65b34c30bb12997d9611bda1e6b2a2f83c427e9f2346",
+    "docs/research/far-field-tropes-2026-10-08/SOURCES_AND_METHOD.md": "89072ea247c4f081edb9a9defa007b1e1f8552bdd9e15d1e7263b7a232997f8c"
+  }
+}

@@ -1,0 +1,654 @@
+{
+  "Jujutsu Kaisen": {
+    "status": "analyst_inference_from_reviewed_claims",
+    "evidence_ids": [
+      "DJ1",
+      "DJ2",
+      "DJ3",
+      "DJ4",
+      "DJ5",
+      "DJ6",
+      "DJ7",
+      "DJ8",
+      "DJ9"
+    ],
+    "path": {
+      "Currency": "Cursed energy; distinct positive-energy processing",
+      "Steps": "Personal method mastery and shared technique layers",
+      "Gate": "Engraved method, practice, ritual and technique-specific conditions",
+      "Risk": "Burnout, bodily destruction and vow consequences differ",
+      "Shape": "Personal gift plus shared toolkit plus pact and procedure web",
+      "Branching": "External storage can change how many methods a body can bear",
+      "Grader": "Institutional grades and a domain judge perform different jobs",
+      "Ceiling": "No universal ceiling certified by this review"
+    },
+    "families_and_means": "Contracts and oaths; Conditions; Sealing; Will and domain",
+    "axes": {
+      "Object": "Bearer, tool, body or condemned soul",
+      "Mechanism": "Formula, vow or barrier procedure",
+      "Trigger": "Technique conditions or court/ritual procedure",
+      "Certainty": "Unknown mutual penalties; judge knowledge differs from disclosed evidence",
+      "Scope": "Self, parties, domain or ritual participants",
+      "Price": "Fuel, sacrificed body or future activation obligation",
+      "Limit": "Anatomy, storage and barrier counters",
+      "Visibility": "Rule disclosure, case evidence and caster knowledge differ",
+      "Persistence": "Fulfillment can survive immediate healing; no general cross-life promise",
+      "Growth": "Practice, gesture subtraction and source-specific bargains"
+    },
+    "vow_slots": {
+      "swearer": "Self-vow user or agreed parties",
+      "restriction": "Named self-limit or agreed obligation",
+      "object": "Technique/party-specific",
+      "scope": "Case-specific, including domain or ritual",
+      "duration": "Case-specific; a future activation debt can outlast the first use",
+      "benefit": "Output or an agreed goal",
+      "consequence": "Self gain loss; mutual schedule not generally established",
+      "witness": null,
+      "condition": null,
+      "ramp": null,
+      "stake": null,
+      "counterparty": "Other signatory for a mutual pact",
+      "release": null,
+      "visibility": null,
+      "inheritance": null,
+      "interpretation": "Case wording and judgment, not only tag matching",
+      "coercion_clause": null
+    }
+  },
+  "Harry Potter": {
+    "status": "analyst_inference_from_reviewed_claims",
+    "evidence_ids": [
+      "DH1",
+      "DH2",
+      "DH3",
+      "DH4",
+      "DH5"
+    ],
+    "path": {
+      "Currency": "Magical capacity; no numeric mana economy established here",
+      "Steps": "Learning and executing spells; clause acceptance for a vow",
+      "Gate": "Innate capacity, learned method and witness ritual are distinct",
+      "Risk": "Some vows are fatal; other contract penalties remain untested",
+      "Shape": "Learned spell web with specific agreements",
+      "Branching": "Relocation, transformation and creation have different eligibility",
+      "Grader": "Civic courts judge cases; that is not a power-level grader",
+      "Ceiling": "No general ceiling established"
+    },
+    "families_and_means": "Contracts and oaths; Sealing; Transmutation; Words of power",
+    "axes": {
+      "Object": "Swearer, secret, soul or protected place",
+      "Mechanism": "Witness magic, concealment or transfiguration",
+      "Trigger": "Accepted clause, disclosure or learned spell",
+      "Certainty": "Untested Goblet sanctions; version-specific exceptions",
+      "Scope": "Promise terms, protected fact or civic jurisdiction",
+      "Price": "Casting budget unknown here; some breach penalties are fatal",
+      "Limit": "Capacity and creation eligibility, with transport alternatives",
+      "Visibility": "A keeper controls secret disclosure; courts receive evidence",
+      "Persistence": "Soul carries a concealed fact; further carry rules not certified",
+      "Growth": "Learning craft; no universal vow multiplier"
+    },
+    "vow_slots": {
+      "swearer": "Person accepting a clause",
+      "restriction": "Accepted promise",
+      "object": "Promised act or obligation",
+      "scope": "Terms of the selected version",
+      "duration": null,
+      "benefit": "Agreement; no universal strength purchase",
+      "consequence": "Unbreakable Vow breach is fatal; other contracts differ",
+      "witness": "Third wand-bearing binder in the checked ritual",
+      "condition": null,
+      "ramp": null,
+      "stake": null,
+      "counterparty": "Party asking for the promise",
+      "release": null,
+      "visibility": null,
+      "inheritance": null,
+      "interpretation": "Book, film and game claims must be separated",
+      "coercion_clause": null
+    }
+  },
+  "Elden Ring": {
+    "status": "analyst_inference_from_reviewed_claims",
+    "evidence_ids": [
+      "DE1",
+      "DE2",
+      "DE3",
+      "DE4",
+      "DE5"
+    ],
+    "path": {
+      "Currency": "FP and stamina for checked spells; rune carrier for mending",
+      "Steps": "Learned spells versus a specific ending-level mending event",
+      "Gate": "The checked incantations have Intelligence gates; mending has a site and role",
+      "Risk": "Cleansing removes beneficial effects too",
+      "Shape": "Spell web plus an authored world-rule commit",
+      "Branching": "Ordinary spell effect and changing Order are different functions",
+      "Grader": "Religion interprets Order; not a common numeric grade",
+      "Ceiling": "No unrestricted causal rewrite established by spell names"
+    },
+    "families_and_means": "Conditions; Causality; Curses and blessings; Negation",
+    "axes": {
+      "Object": "Buffed person, effects or Order carrier",
+      "Mechanism": "Retaliation, dispelling or rune-based mending",
+      "Trigger": "Qualifying damaging hits or a mending event",
+      "Certainty": "One rune page has an internally conflicting Effects instruction",
+      "Scope": "Bounded spell effects versus an ending-level Order change",
+      "Price": "FP and stamina; spell-specific attribute gates",
+      "Limit": "No unrestricted causal-history rewrite proven by names",
+      "Visibility": "Dispelling can reveal mimicry; theology interprets Order",
+      "Persistence": "Mending changes Order; combat effects have distinct duration",
+      "Growth": "Acquisition and authored change, not one rank ladder"
+    },
+    "vow_slots": {
+      "swearer": null,
+      "restriction": null,
+      "object": null,
+      "scope": null,
+      "duration": null,
+      "benefit": null,
+      "consequence": null,
+      "witness": null,
+      "condition": null,
+      "ramp": null,
+      "stake": null,
+      "counterparty": null,
+      "release": null,
+      "visibility": null,
+      "inheritance": null,
+      "interpretation": null,
+      "coercion_clause": null
+    }
+  },
+  "The Elder Scrolls: Skyrim": {
+    "status": "analyst_inference_from_reviewed_claims",
+    "evidence_ids": [
+      "DS1",
+      "DS2",
+      "DS3"
+    ],
+    "path": {
+      "Currency": "Magicka for spells; understanding and voice for shouts",
+      "Steps": "School mastery and a shout of up to three words",
+      "Gate": "Fuel, hands, knowledge; soul or teacher can supply understanding",
+      "Risk": "Insufficient fuel prevents a cast; civic sanctions are separate",
+      "Shape": "School web plus word sequences",
+      "Branching": "Mortals train; Dragonborn have a distinct learning carrier",
+      "Grader": "School skill and hold jurisdiction measure different things",
+      "Ceiling": "No universal maximum certified"
+    },
+    "families_and_means": "Words of power; Element control; Soul work; Mind",
+    "axes": {
+      "Object": "Caster, shout target or accused person",
+      "Mechanism": "Magicka school, understood speech or civic enforcement",
+      "Trigger": "Cast, vocalized words or reported crime",
+      "Certainty": "Game/edition-specific mechanisms",
+      "Scope": "Spell targets and hold-local jurisdiction",
+      "Price": "Magicka or learning resources; civic remedies have their own price",
+      "Limit": "Fuel, occupied hands and understanding",
+      "Visibility": "Knowledge and witnessed crime are separate readings",
+      "Persistence": "Bounty is jurisdiction-specific; cross-world carry not established",
+      "Growth": "School mastery and understanding additional words"
+    },
+    "vow_slots": {
+      "swearer": null,
+      "restriction": null,
+      "object": null,
+      "scope": null,
+      "duration": null,
+      "benefit": null,
+      "consequence": null,
+      "witness": null,
+      "condition": null,
+      "ramp": null,
+      "stake": null,
+      "counterparty": null,
+      "release": null,
+      "visibility": null,
+      "inheritance": null,
+      "interpretation": null,
+      "coercion_clause": null
+    }
+  },
+  "Fallout": {
+    "status": "analyst_inference_from_reviewed_claims",
+    "evidence_ids": [
+      "DA1",
+      "DA2"
+    ],
+    "path": {
+      "Currency": "Not established by this reputation-focused review",
+      "Steps": "Game-specific progression; do not import one universal ladder",
+      "Gate": "Groups evaluate standing using the selected game rules",
+      "Risk": "Social consequences vary by game and group",
+      "Shape": "Several versioned social measures",
+      "Branching": "Karma and faction standing may coexist or differ",
+      "Grader": "Named group or edition supplies the reading",
+      "Ceiling": "No power ceiling established"
+    },
+    "families_and_means": "Fame; Bonds; social assessment only in this bounded review",
+    "axes": {
+      "Object": "Player reading held by a group",
+      "Mechanism": "Edition-specific social measures",
+      "Trigger": "Actions recognized by the chosen game",
+      "Certainty": "Not a universal moral truth or omniscient court",
+      "Scope": "Game, faction or town",
+      "Price": "Not established by this standing-focused review",
+      "Limit": "Edition boundary and particular evaluator",
+      "Visibility": "Points, titles and status differ by game",
+      "Persistence": "No body or cross-life carry rule certified",
+      "Growth": "Standing changes; this is not evidence for a power XP track"
+    },
+    "vow_slots": {
+      "swearer": null,
+      "restriction": null,
+      "object": null,
+      "scope": null,
+      "duration": null,
+      "benefit": null,
+      "consequence": null,
+      "witness": null,
+      "condition": null,
+      "ramp": null,
+      "stake": null,
+      "counterparty": null,
+      "release": null,
+      "visibility": null,
+      "inheritance": null,
+      "interpretation": null,
+      "coercion_clause": null
+    }
+  },
+  "Hunter x Hunter": {
+    "status": "analyst_inference_from_reviewed_claims",
+    "evidence_ids": [
+      "DX1",
+      "DX2",
+      "DX3"
+    ],
+    "path": {
+      "Currency": "Aura and resolve in the reviewed Nen sections",
+      "Steps": "Personal ability development and imposed conditions",
+      "Gate": "One-shot and continuous requirements; permitted substitutes",
+      "Risk": "Breakable vows can end an ability or threaten broader Nen use",
+      "Shape": "Personal method and condition web",
+      "Branching": "A stolen method retains its creator's target definition",
+      "Grader": "No rank grader certified by these selected sections",
+      "Ceiling": "No fixed power cap established"
+    },
+    "families_and_means": "Copying; Conditions; Contracts and oaths",
+    "axes": {
+      "Object": "An eligible target defined by the ability maker",
+      "Mechanism": "Aura with a retained semantic predicate",
+      "Trigger": "One-shot or continuous conditions, with named substitutes",
+      "Certainty": "General breach outcome is not a fixed universal number",
+      "Scope": "Ability-specific targets and restrictions",
+      "Price": "Resolve and restrictions; punishment can add a stake",
+      "Limit": "Maker-defined eligibility can reject an otherwise similar object",
+      "Visibility": "Full hidden-condition discovery not certified here",
+      "Persistence": "Stolen ability keeps original target meaning",
+      "Growth": "Personal ability development and restriction risk"
+    },
+    "vow_slots": {
+      "swearer": "Ability creator/user",
+      "restriction": "Chosen breakable limitation",
+      "object": "A named ability and its allowed use",
+      "scope": "Ability-specific",
+      "duration": null,
+      "benefit": "Stronger or newly feasible ability",
+      "consequence": "Ability loss, risk to broader Nen or a specified punishment",
+      "witness": null,
+      "condition": null,
+      "ramp": null,
+      "stake": "Added punishment can strengthen the restriction",
+      "counterparty": null,
+      "release": null,
+      "visibility": null,
+      "inheritance": null,
+      "interpretation": "Copied method retains maker-defined target meaning",
+      "coercion_clause": null
+    }
+  },
+  "Fate series": {
+    "status": "analyst_inference_from_reviewed_claims",
+    "evidence_ids": [
+      "DF1",
+      "DF2",
+      "DF3"
+    ],
+    "path": {
+      "Currency": "Magical energy and finite command authority are separate",
+      "Steps": "Ritual summons an instance into a class vessel",
+      "Gate": "Carrier, authority, energy and agreement affect execution",
+      "Risk": "Resource strain, resistance and hostility differ",
+      "Shape": "Summoning and support network",
+      "Branching": "One source record can yield different limited vessels",
+      "Grader": "Master authority and class identity are distinct",
+      "Ceiling": "Orders are constrained; no universal absolute-success cap"
+    },
+    "families_and_means": "Command; Borrowed; Fame; Contracts and oaths",
+    "axes": {
+      "Object": "Master authority, Servant instance and heroic record",
+      "Mechanism": "Class vessel plus energy and command authority",
+      "Trigger": "Executable spoken order",
+      "Certainty": "Broad commands can be resisted; agreement changes performance",
+      "Scope": "Contracted instance; ritual variants differ",
+      "Price": "Charges and magical energy are separate",
+      "Limit": "Carrier interruption, energy and order specificity",
+      "Visibility": "Visible marks do not reveal all ritual purposes",
+      "Persistence": "Heroic record and summoned instance are different carriers",
+      "Growth": "Kit selection and bond; not a universal level or refill policy"
+    },
+    "vow_slots": {
+      "swearer": "Master/Servant relationship, not every order a voluntary vow",
+      "restriction": null,
+      "object": "Contracted Servant action",
+      "scope": "Specificity affects the order",
+      "duration": null,
+      "benefit": "Restraint or reinforcement",
+      "consequence": null,
+      "witness": null,
+      "condition": null,
+      "ramp": null,
+      "stake": "Finite authority charge and magical energy",
+      "counterparty": "Servant with its own will",
+      "release": null,
+      "visibility": null,
+      "inheritance": null,
+      "interpretation": "Specificity, energy and agreement",
+      "coercion_clause": null
+    }
+  },
+  "Reverend Insanity": {
+    "status": "analyst_inference_from_reviewed_claims",
+    "evidence_ids": [
+      "DR1",
+      "DR2"
+    ],
+    "path": {
+      "Currency": "Essence, living-tool food and host capacity are separate",
+      "Steps": "The reviewed cultivation page describes mortal and immortal ranks",
+      "Gate": "Aperture development and distinct tool grade",
+      "Risk": "A tool can exceed its bearer; implanted vows can be fatal",
+      "Shape": "Rank ladder plus living toolkit",
+      "Branching": "Tool combinations and removal methods differ from bearer rank",
+      "Grader": "Gu grade is not identical to bearer rank",
+      "Ceiling": "Rank 10 is a reported possibility, not a certified achieved ceiling"
+    },
+    "families_and_means": "Conditions; Contracts and oaths; living-tool means",
+    "axes": {
+      "Object": "Living Gu, aperture or implanted oath mark",
+      "Mechanism": "Tool function, host capacity and bodily enforcement",
+      "Trigger": "Activation or named vow breach",
+      "Certainty": "Inner-intent wording remains ambiguous",
+      "Scope": "Named bearer or implanted party",
+      "Price": "Essence, maintenance food and bodily risk",
+      "Limit": "Tool/bearer grade mismatch and named counters",
+      "Visibility": "No universal appraisal fidelity certified",
+      "Persistence": "Removing an implant can remove its enforcement",
+      "Growth": "Tool grade and bearer progression are separate"
+    },
+    "vow_slots": {
+      "swearer": "Named signers using Poison Vow Gu",
+      "restriction": "Implanted agreement",
+      "object": "Named party obligations",
+      "scope": "Affected bodies",
+      "duration": null,
+      "benefit": null,
+      "consequence": "Wiki describes fatal activation",
+      "witness": "Gu enforcement mechanism",
+      "condition": null,
+      "ramp": null,
+      "stake": null,
+      "counterparty": null,
+      "release": "Named removal methods; not a universal party release",
+      "visibility": null,
+      "inheritance": null,
+      "interpretation": "Inner-intent wording unresolved",
+      "coercion_clause": null
+    }
+  },
+  "One Piece": {
+    "status": "analyst_inference_from_reviewed_claims",
+    "evidence_ids": [
+      "DO1",
+      "DO2"
+    ],
+    "path": {
+      "Currency": "Will-based trained power; consuming a fruit is a distinct grant",
+      "Steps": "Training and mastery; no common level ladder certified",
+      "Gate": "Gift custody and training conditions differ",
+      "Risk": "Swimming drawback and usual single-power constraint with an outlier",
+      "Shape": "Consumed gift plus trained toolkit",
+      "Branching": "Fruit categories differ; one exceptional multi-power bearer is recorded",
+      "Grader": "No institutional strength grader certified here",
+      "Ceiling": "Do not turn the usual carrier rule into a universal prohibition"
+    },
+    "families_and_means": "Shapeshifting; Element control; observation; inherited or trained means",
+    "axes": {
+      "Object": "Fruit-power bearer and trained spiritual user",
+      "Mechanism": "Consumed grant versus will-based toolkit",
+      "Trigger": "Consumption or trained execution",
+      "Certainty": "Origin explanation is a theory; an outlier is recorded",
+      "Scope": "Power-specific targets; no shared radius",
+      "Price": "Swimming drawback; casting cost not standardized here",
+      "Limit": "Usual single-power rule with an explicit exception",
+      "Visibility": "Fruit names can identify or misidentify a source",
+      "Persistence": "Power returns to fruit after bearer death",
+      "Growth": "Training/mastery and consumed gift are different routes"
+    },
+    "vow_slots": {
+      "swearer": null,
+      "restriction": null,
+      "object": null,
+      "scope": null,
+      "duration": null,
+      "benefit": null,
+      "consequence": null,
+      "witness": null,
+      "condition": null,
+      "ramp": null,
+      "stake": null,
+      "counterparty": null,
+      "release": null,
+      "visibility": null,
+      "inheritance": null,
+      "interpretation": null,
+      "coercion_clause": null
+    }
+  },
+  "Fullmetal Alchemist": {
+    "status": "analyst_inference_from_reviewed_claims",
+    "evidence_ids": [
+      "DM1",
+      "DM2"
+    ],
+    "path": {
+      "Currency": "Natural energy and a stored-soul budget are different means",
+      "Steps": "Understand material, deconstruct and reconstruct",
+      "Gate": "Knowledge and execution; source continuity must be selected",
+      "Risk": "Stored souls are consumed rather than costs disappearing",
+      "Shape": "Craft method with ordered stages",
+      "Branching": "Anime and manga versions must not be silently merged",
+      "Grader": "No universal rank grader established here",
+      "Ceiling": "No free exchange exemption established by the stone"
+    },
+    "families_and_means": "Transmutation; Equivalent exchange; Soul work",
+    "axes": {
+      "Object": "Material and a stored-soul budget",
+      "Mechanism": "Ordered craft and expenditure of a real payer",
+      "Trigger": "Comprehension followed by execution",
+      "Certainty": "Anime/manga boundaries matter",
+      "Scope": "Material transformation; no limitless creation established",
+      "Price": "Natural energy or consumed souls",
+      "Limit": "Knowledge and available means",
+      "Visibility": "An apparent free exception can hide who pays",
+      "Persistence": "Reserve depletes; no indestructibility proof",
+      "Growth": "Knowledge and craft execution, not only output"
+    },
+    "vow_slots": {
+      "swearer": null,
+      "restriction": null,
+      "object": null,
+      "scope": null,
+      "duration": null,
+      "benefit": null,
+      "consequence": null,
+      "witness": null,
+      "condition": null,
+      "ramp": null,
+      "stake": null,
+      "counterparty": null,
+      "release": null,
+      "visibility": null,
+      "inheritance": null,
+      "interpretation": null,
+      "coercion_clause": null
+    }
+  },
+  "Dungeon Crawler Carl": {
+    "status": "analyst_inference_from_reviewed_claims",
+    "evidence_ids": [
+      "DC1",
+      "DC2"
+    ],
+    "path": {
+      "Currency": "Reward discretion, sponsor bid and gift budget are distinct",
+      "Steps": "Sponsor eligibility and later delivered aid",
+      "Gate": "Controller authority and sponsor communication constraints",
+      "Risk": "An arbiter can act against a claimed court authority",
+      "Shape": "Controlled reward and patronage network",
+      "Branching": "Named support does not guarantee usable aid",
+      "Grader": "Controller evaluates awards; external courts can conflict with it",
+      "Ceiling": "No unbounded player rule-writing established"
+    },
+    "families_and_means": "Interface; Quest giving; Achievements; Granted means",
+    "axes": {
+      "Object": "Controller rules, sponsor channel and crawler aid",
+      "Mechanism": "Discretionary rule enforcement and patronage economics",
+      "Trigger": "Awards and sponsorship eligibility",
+      "Certainty": "Sponsorship does not guarantee usable gifts",
+      "Scope": "Dungeon arbiter and sponsor-specific channels",
+      "Price": "Bid, gift price and reward discretion differ",
+      "Limit": "Communication direction and authority conflict",
+      "Visibility": "Interface exposes sponsor data but not guaranteed generosity",
+      "Persistence": "No general cross-world retention certified",
+      "Growth": "Eligibility/awards and delivered help are distinct"
+    },
+    "vow_slots": {
+      "swearer": null,
+      "restriction": null,
+      "object": null,
+      "scope": null,
+      "duration": null,
+      "benefit": null,
+      "consequence": null,
+      "witness": null,
+      "condition": null,
+      "ramp": null,
+      "stake": null,
+      "counterparty": null,
+      "release": null,
+      "visibility": null,
+      "inheritance": null,
+      "interpretation": null,
+      "coercion_clause": null
+    }
+  },
+  "Dark Souls 1 covenants": {
+    "status": "analyst_inference_from_reviewed_claims",
+    "evidence_ids": [
+      "DT1",
+      "DT2"
+    ],
+    "path": {
+      "Currency": "Offerings and faction progress",
+      "Steps": "Covenant ranks unlock particular rewards",
+      "Gate": "Membership, patron survival and already-completed changes differ",
+      "Risk": "Leaving, expulsion and killing a patron have different consequences",
+      "Shape": "Faction ladder with release and re-entry",
+      "Branching": "One active covenant; original and Remastered routes differ",
+      "Grader": "Covenant measures contributions",
+      "Ceiling": "No universal character-power ceiling established"
+    },
+    "families_and_means": "Faith; Bonds; Contracts and oaths; Granted means",
+    "axes": {
+      "Object": "Membership, offerings, rewards and a shortcut",
+      "Mechanism": "Faction game rules",
+      "Trigger": "Join, offer, leave, expulsion or re-entry",
+      "Certainty": "Replay descriptions conflict on shortcut persistence",
+      "Scope": "Dark Souls 1; Remastered route explicitly distinguished",
+      "Price": "Offerings and contribution loss",
+      "Limit": "Living patron and membership can gate access",
+      "Visibility": "Roster can expose offerings",
+      "Persistence": "A completed physical change need not equal current permission; verify replay",
+      "Growth": "Offering-based rank, not all character power"
+    },
+    "vow_slots": {
+      "swearer": "Joining player",
+      "restriction": "Covenant-specific rules",
+      "object": null,
+      "scope": "Named faction and selected game edition",
+      "duration": null,
+      "benefit": "Rewards and access",
+      "consequence": "Exit and expulsion penalties differ",
+      "witness": "Game faction mechanism",
+      "condition": null,
+      "ramp": null,
+      "stake": null,
+      "counterparty": "Covenant with living-patron gates",
+      "release": "Leader/pardoner; Remastered switching differs",
+      "visibility": null,
+      "inheritance": null,
+      "interpretation": null,
+      "coercion_clause": null
+    }
+  },
+  "Shadow Slave": {
+    "status": "analyst_inference_from_reviewed_claims",
+    "evidence_ids": [
+      "DSS1"
+    ],
+    "path": {
+      "Currency": "Soul essence in the historical community snapshot",
+      "Steps": "Core quality ranks and separate legacy requirements",
+      "Gate": "Trials and an Aspect-specific legacy gate",
+      "Risk": "An imposed Flaw is not a chosen vow",
+      "Shape": "Rank path plus personal Aspect",
+      "Branching": "Attributes, Aspect ability and legacy are separate",
+      "Grader": "Historical Spell awards; current source not certified",
+      "Ceiling": "Do not claim current limits from the old-community dump"
+    },
+    "families_and_means": "Interface; Conditions; body or soul grants",
+    "axes": {
+      "Object": "Historical Aspect, core and legacy",
+      "Mechanism": "Specialization plus imposed Flaw",
+      "Trigger": "Trial or legacy requirements",
+      "Certainty": "Older community, not the requested current wiki",
+      "Scope": "Historical snapshot only",
+      "Price": "Imposed drawback; no voluntary quote certified",
+      "Limit": "Legacy eligibility differs from ordinary rank",
+      "Visibility": "A True Name is named but its full effect not certified",
+      "Persistence": "Core stores essence; cross-life carry unverified",
+      "Growth": "Core quality and Aspect legacy are distinct"
+    },
+    "vow_slots": {
+      "swearer": null,
+      "restriction": null,
+      "object": null,
+      "scope": null,
+      "duration": null,
+      "benefit": null,
+      "consequence": null,
+      "witness": null,
+      "condition": null,
+      "ramp": null,
+      "stake": null,
+      "counterparty": null,
+      "release": null,
+      "visibility": null,
+      "inheritance": null,
+      "interpretation": null,
+      "coercion_clause": null
+    }
+  }
+}

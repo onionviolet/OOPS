@@ -1,0 +1,438 @@
+[
+  {
+    "title": "Dungeon Reset",
+    "original_title": "던전리셋",
+    "author": "Daul (다울)",
+    "platform": "Kakaopage; English adaptation Tappytoon",
+    "language_group": "Korean",
+    "summary": "The dungeon resets its spent traps and explored spaces for later entrants, but one survivor is outside that reset rule. His special status makes repeated work and ordinary fabrication matter differently from normal combat progression. The metadata identifies an exception to world maintenance, not a universal rewind power.",
+    "lenses": [
+      "rule-abuse",
+      "immortality and revival",
+      "power paths with odd currencies"
+    ],
+    "novelty_score": 5,
+    "source_urls": [
+      "https://www.novelupdates.com/series/dungeon-reset/"
+    ],
+    "evidence_scope": "indexed metadata",
+    "verified_hook": "Synopsis explicitly says dungeon resets do not apply to Jeong Dawoon.",
+    "unknowns": "Which possessions and construction survive; reset cadence; exact exception trigger; restoration is not proven immortality.",
+    "proposal": "Proposal: let a local reset spare one tagged carrier, creating construction and resource loops. Read reset scenes before choosing what is spared.",
+    "source_request": null,
+    "power_currency": null,
+    "acquisition_gate": "Survivor becomes an exception to dungeon reset",
+    "cost": null,
+    "persistence": "Synopsis says dungeon resets do not apply to him; possessions unspecified"
+  },
+  {
+    "title": "The Book Eating Magician",
+    "original_title": "책 먹는 마법사",
+    "author": "McEnroe (메켄로)",
+    "platform": "Munpia / Intime; licensed English Wuxiaworld",
+    "language_group": "Korean",
+    "summary": "Magical books are consumed to acquire their contents as usable spells. The synopsis pairs prior understanding with a successful acquisition, making comprehension relevant to the transfer. Public reader reviews also describe inheriting an original author’s memories, but that extension needs text before being treated as a rule.",
+    "lenses": [
+      "shards and inheritance",
+      "systems with strange prices",
+      "power paths with odd currencies"
+    ],
+    "novelty_score": 5,
+    "source_urls": [
+      "https://www.novelupdates.com/series/the-book-eating-magician/"
+    ],
+    "evidence_scope": "indexed metadata",
+    "verified_hook": "Synopsis explicitly shows consumption of a primer, high understanding, and acquisition of a second-circle spell.",
+    "unknowns": "Book destruction accounting; circle gate; daily capacity; original-author memories are review-level only.",
+    "proposal": "Proposal: transfer practical skill by consuming a knowledge carrier, with preparation and provenance gates.",
+    "source_request": null,
+    "power_currency": "Magic books",
+    "acquisition_gate": "Consume a magic primer with high understanding",
+    "cost": "A book is consumed",
+    "persistence": "Acquired spell stated; longer retention unspecified"
+  },
+  {
+    "title": "The 31st Piece Turns the Tables",
+    "original_title": "31번째 말은 게임판을 뒤엎는다",
+    "author": "왕모찌",
+    "platform": "Kakaopage / Titan",
+    "language_group": "Korean",
+    "summary": "A player enjoys a divine dice-driven game until he becomes a piece within it. The synopsis makes the transition between operator and operated character central. Reviews suggest created characters persist as people with their own histories, but exact inheritance and summoning rules remain an open text request.",
+    "lenses": [
+      "simulators and draws",
+      "rule-abuse",
+      "shards and inheritance"
+    ],
+    "novelty_score": 4,
+    "source_urls": [
+      "https://www.novelupdates.com/series/the-31st-piece-turns-the-tables/"
+    ],
+    "evidence_scope": "indexed metadata",
+    "verified_hook": "Synopsis explicitly describes reality shifting with dice and a player becoming a game piece.",
+    "unknowns": "Dice authority; legal rerolls; whether old pieces can be reclaimed; reviews alone support detailed legacy claims.",
+    "proposal": "Proposal: world entry changes which side of a rule interface the player occupies.",
+    "source_request": null,
+    "power_currency": null,
+    "acquisition_gate": "Player becomes a game piece",
+    "cost": null,
+    "persistence": null
+  },
+  {
+    "title": "The Main Heroines are Trying to Kill Me",
+    "original_title": "메인 히로인들이 나를 죽이려 한다",
+    "author": "Kim Mamo (김마모)",
+    "platform": "Novelpia / Kakaopage; licensed English Novelpia Global",
+    "language_group": "Korean",
+    "summary": "A protagonist obtains a system after regressing, expecting that advantage to save a doomed fantasy world. Other central characters also remember his previous timeline, including what he did there. The unusual hook is asymmetric-looking memory that is actually shared, so hidden knowledge and reputation can collide across a reset.",
+    "lenses": [
+      "immortality and revival",
+      "hidden identities",
+      "kinds of observation",
+      "systems with strange prices"
+    ],
+    "novelty_score": 4,
+    "source_urls": [
+      "https://www.novelupdates.com/series/the-main-heroines-are-trying-to-kill-me/"
+    ],
+    "evidence_scope": "indexed metadata",
+    "verified_hook": "Synopsis explicitly says the heroines regain previous-timeline memories while the protagonist has a regressor privilege system.",
+    "unknowns": "Exact reward currency, evil-act requirement and disclosure penalties are not established by the synopsis.",
+    "proposal": "Proposal: let other people retain different evidence from a prior run, turning regression into a contested information problem.",
+    "source_request": null,
+    "power_currency": null,
+    "acquisition_gate": "System granted as regressor privilege",
+    "cost": null,
+    "persistence": "Protagonist and heroines retain previous-timeline memories"
+  },
+  {
+    "title": "Kidnapped Dragons",
+    "original_title": "드래곤을 유괴하다",
+    "author": "Yuzu (유주)",
+    "platform": "JHS Books / MstoryHub",
+    "language_group": "Korean",
+    "summary": "A world-rewind authority repeatedly returns a powerful protector after death or a failed apocalypse. Strength alone has not saved Earth from enraged dragons. The synopsis puts compulsory survival and repeated prevention attempts together, making resurrection a burden and information source rather than proof that combat power solves the threat.",
+    "lenses": [
+      "immortality and revival",
+      "future sight",
+      "systems with strange prices"
+    ],
+    "novelty_score": 4,
+    "source_urls": [
+      "https://www.novelupdates.com/series/kidnapped-dragons/"
+    ],
+    "evidence_scope": "indexed metadata",
+    "verified_hook": "Synopsis names Vintage Clock (EX), world-time rewind, and return whenever the protagonist dies.",
+    "unknowns": "Which memories or powers persist; exact failure trigger; whether rewind can be refused.",
+    "proposal": "Proposal: an unwanted revival can preserve the investigator while leaving the large threat unsolved.",
+    "source_request": null,
+    "power_currency": null,
+    "acquisition_gate": "Vintage Clock (EX) authority",
+    "cost": null,
+    "persistence": "World time rewinds on failed rescue; return on death stated"
+  },
+  {
+    "title": "I’m an Infinite Regressor, But I’ve Got Stories to Tell",
+    "original_title": "무한 회귀자인데 썰 푼다",
+    "author": "Sinnoa (신노아)",
+    "platform": "Kakaopage / J Plus / Jayple Media",
+    "language_group": "Korean",
+    "summary": "The narrator has accumulated more than a thousand failed runs rather than reaching the promised perfect ending. Public metadata frames infinite regression as an archive of failed experiments and relationships. Its novelty is the persistent investigator’s interpretation of many outcomes, while the actual anomaly rules still need reading.",
+    "lenses": [
+      "immortality and revival",
+      "kinds of observation",
+      "rule-abuse"
+    ],
+    "novelty_score": 4,
+    "source_urls": [
+      "https://www.novelupdates.com/series/im-an-infinite-regressor-but-ive-got-stories-to-tell/"
+    ],
+    "evidence_scope": "indexed metadata",
+    "verified_hook": "Synopsis explicitly describes infinite regression and 1,183 runs of experience ending in repeated failure.",
+    "unknowns": "Reset trigger; retained state; anomaly rules; any immunity or unavoidable forgetting.",
+    "proposal": "Proposal: track contradictory observations across lives without turning past experience into infallible foresight.",
+    "source_request": null,
+    "power_currency": null,
+    "acquisition_gate": null,
+    "cost": null,
+    "persistence": "1,183 runs of experience retained by narrator"
+  },
+  {
+    "title": "I Became the Necromancer of the Academy",
+    "original_title": "아카데미의 사령술사가 되었다",
+    "author": "_172",
+    "platform": "Novelpia; licensed English Novelpia Global",
+    "language_group": "Korean",
+    "summary": "The public synopsis asks the dead to awaken and pour their remaining resentment onto the speaker, who promises to save them. This is a lead for necromancy built around receiving grievance and release. It does not yet establish that grudges are a spendable resource or that spirits enter enforceable contracts.",
+    "lenses": [
+      "vows and contracts",
+      "systems with strange prices",
+      "kinds of observation"
+    ],
+    "novelty_score": 3,
+    "source_urls": [
+      "https://www.novelupdates.com/series/i-became-the-necromancer-of-the-academy/"
+    ],
+    "evidence_scope": "indexed metadata",
+    "verified_hook": "Synopsis directly links awakening, remaining grudge, and promised salvation.",
+    "unknowns": "All quantitative power rules; whether spirits are bound, healed or summoned; exact cost to the listener.",
+    "proposal": "Proposal: inspect a spirit’s grievance as a route to resolution, separate from treating the spirit as a combat asset.",
+    "source_request": null,
+    "power_currency": null,
+    "acquisition_gate": null,
+    "cost": null,
+    "persistence": null
+  },
+  {
+    "title": "The S-Classes That I Raised",
+    "original_title": "내가 키운 S급들",
+    "author": "Geunseo (근서)",
+    "platform": "Munpia / J Plus / Jayple Media",
+    "language_group": "Korean",
+    "summary": "A weak hunter regresses and receives a nurturing title, shifting his intended role toward supporting much stronger people. The synopsis makes power over others’ growth distinct from personal strength. Reviews mention an awkward spoken registration phrase, which is a promising conditional-power lead but not yet a verified contract mechanic.",
+    "lenses": [
+      "power paths with odd currencies",
+      "vows and contracts",
+      "kinds of observation"
+    ],
+    "novelty_score": 3,
+    "source_urls": [
+      "https://www.novelupdates.com/series/the-s-classes-that-i-raised/"
+    ],
+    "evidence_scope": "indexed metadata",
+    "verified_hook": "Synopsis identifies an F-rank protagonist, regression and the Perfect Nurturer title.",
+    "unknowns": "Growth multipliers; registration and consent rules; the I-love-you keyword is review evidence only.",
+    "proposal": "Proposal: give a weak body valuable growth-support abilities whose beneficiaries can act independently.",
+    "source_request": null,
+    "power_currency": null,
+    "acquisition_gate": "Nurturer title received after regression",
+    "cost": null,
+    "persistence": null
+  },
+  {
+    "title": "D-Genesis: Three Years after the Dungeons Appeared",
+    "original_title": null,
+    "author": "KONO Tsuranori",
+    "platform": "Kadokawa; English light novel J-Novel Club",
+    "language_group": "Japanese",
+    "summary": "A rare skill turns dungeon exploration into an RPG-like readable interface for one office worker. He and a mathematically skilled colleague use that advantage commercially. Official later-volume synopses add fleeting skill orbs sold by auction, making measurement and the logistics of transferable power more important than raw damage.",
+    "lenses": [
+      "kinds of observation",
+      "shards and inheritance",
+      "systems with strange prices"
+    ],
+    "novelty_score": 5,
+    "source_urls": [
+      "https://j-novel.club/series/d-genesis/"
+    ],
+    "evidence_scope": "indexed metadata",
+    "verified_hook": "Official volume 1 gives privileged status screens; volume 2 explicitly describes ephemeral skill-orb auctions.",
+    "unknowns": "Orb expiry duration; storage loophole; transfer eligibility; who else can measure stats. Original Japanese title not verified in this pass.",
+    "proposal": "Proposal: sell a transferable ability whose useful lifetime creates real delivery and inspection problems.",
+    "source_request": {
+      "url": "https://j-novel.club/series/d-genesis",
+      "why": "Open volume 1 and 2 previews or owned text: verify who can read stats and exactly why skill orbs are ephemeral."
+    },
+    "power_currency": "Skill orbs for transfer; conversion rates unspecified",
+    "acquisition_gate": "Accidental skill gain at birth of a dungeon",
+    "cost": null,
+    "persistence": "Skill orbs described as ephemeral; duration unspecified"
+  },
+  {
+    "title": "Making Magic: The Sweet Life of a Witch Who Knows an Infinite MP Loophole",
+    "original_title": null,
+    "author": "Aloha Zachou",
+    "platform": "English light novel J-Novel Club",
+    "language_group": "Japanese",
+    "summary": "Creation magic can produce desired items only when the witch has enough mana. The official synopsis explicitly pairs that hard gate with a loophole that grows her pool a little each day. It supports a compounding route from utility creation toward broad capacity without revealing the actual exploit’s formula.",
+    "lenses": [
+      "rule-abuse",
+      "power paths with odd currencies",
+      "systems with strange prices"
+    ],
+    "novelty_score": 5,
+    "source_urls": [
+      "https://j-novel.club/series/making-magic/"
+    ],
+    "evidence_scope": "direct metadata",
+    "verified_hook": "Official synopsis states arbitrary item creation subject to enough mana and a daily mana-pool expansion trick.",
+    "unknowns": "What is created or consumed to grow MP; reset or diminishing-return rules; duplication limits. Original title not verified.",
+    "proposal": "Proposal: a known craft can manufacture the input to its own capacity growth, with explicit local costs.",
+    "source_request": {
+      "url": "https://j-novel.club/series/making-magic",
+      "why": "Open volume 1 source to learn the actual pool-growth loophole and its limits; the synopsis deliberately leaves it unspecified."
+    },
+    "power_currency": "Mana",
+    "acquisition_gate": "Chose Creation Magic unique skill",
+    "cost": "Enough mana required for creation",
+    "persistence": "Mana pool expands a little each day; mechanism unspecified"
+  },
+  {
+    "title": "To Another World... with Land Mines!",
+    "original_title": null,
+    "author": "Itsuki Mizuho",
+    "platform": "English light novel J-Novel Club",
+    "language_group": "Japanese",
+    "summary": "Reincarnated classmates choose apparently powerful abilities whose hidden downsides can be lethal. The official publisher metadata supports deceptive grants rather than universally fair skill choices. A separately indexed summary mentions paying for a guide that reveals fine print; that price and disclosure mechanism require confirmation in the novel.",
+    "lenses": [
+      "systems with strange prices",
+      "kinds of observation",
+      "rule-abuse"
+    ],
+    "novelty_score": 5,
+    "source_urls": [
+      "https://j-novel.club/series/to-another-world-with-land-mines/",
+      "https://j-novel.club/series/to-another-world-with-land-mines-manga",
+      "https://en.wikipedia.org/wiki/To_Another_World..._with_Land_Mines%21"
+    ],
+    "evidence_scope": "indexed metadata",
+    "verified_hook": "Official publisher synopsis states that attractive powers hide deadly downsides.",
+    "unknowns": "Exact trap skills and collateral effects; guide purchase and prices are secondary evidence. Original title not verified.",
+    "proposal": "Proposal: information about a power can be a purchasable resource separate from the power itself.",
+    "source_request": {
+      "url": "https://j-novel.club/series/to-another-world-with-land-mines",
+      "why": "Open volume 1 source to verify the skill-selection fine print, information purchase and at least two actual trap outcomes."
+    },
+    "power_currency": null,
+    "acquisition_gate": "Evil god reincarnates class with supernatural skills",
+    "cost": "Some attractive powers hide deadly downsides",
+    "persistence": null
+  },
+  {
+    "title": "Lazy Dungeon Master",
+    "original_title": null,
+    "author": "Supana Onikage",
+    "platform": "English light novel J-Novel Club",
+    "language_group": "Japanese",
+    "summary": "The dungeon master’s life is tied to the dungeon core, so protecting a place becomes direct bodily survival. Official volume descriptions add an inn beside the dungeon, competing dungeons, and later remote work through possessing a monster. These are distinct carrier and economic hooks, not confirmed point-farming formulas.",
+    "lenses": [
+      "systems with strange prices",
+      "hidden identities",
+      "rule-abuse",
+      "immortality and revival"
+    ],
+    "novelty_score": 4,
+    "source_urls": [
+      "https://j-novel.club/series/lazy-dungeon-master/"
+    ],
+    "evidence_scope": "indexed metadata",
+    "verified_hook": "Official volume 1 states core destruction kills the master; volume 2 adds two income sources; volume 16 names monster-body possession.",
+    "unknowns": "Dungeon-point income formula; visitor sleep exploit; remote-body death consequence. Original title not verified.",
+    "proposal": "Proposal: a fragile external anchor can turn hospitality and territorial planning into survival infrastructure.",
+    "source_request": {
+      "url": "https://j-novel.club/series/lazy-dungeon-master",
+      "why": "Open volume 1 source for core binding, dungeon resource accounting and ways to attract visitors without killing them."
+    },
+    "power_currency": null,
+    "acquisition_gate": "Summoned as dungeon master",
+    "cost": "Dungeon core destruction kills the master",
+    "persistence": null
+  },
+  {
+    "title": "Min-Maxing My TRPG Build in Another World",
+    "original_title": null,
+    "author": "Schuld",
+    "platform": "English light novel J-Novel Club",
+    "language_group": "Japanese",
+    "summary": "A tabletop optimizer is reborn with access to the universe’s rulebook and can pursue highly developed skills. The publisher frames that information advantage as dangerous when it draws attention or encourages bad choices. It is a lead for authored builds and optimization, not proof of literal dice governing every event.",
+    "lenses": [
+      "rule-abuse",
+      "power paths with odd currencies",
+      "kinds of observation"
+    ],
+    "novelty_score": 4,
+    "source_urls": [
+      "https://j-novel.club/series/min-maxing-my-trpg-build-in-another-world/"
+    ],
+    "evidence_scope": "indexed metadata",
+    "verified_hook": "Official synopsis explicitly grants rulebook access and power-leveled skills; volume 2 describes service as the cost of help.",
+    "unknowns": "XP acquisition and purchase rules; cost scaling; whether oaths have supernatural enforcement. Original title not verified.",
+    "proposal": "Proposal: expose a local advancement rulebook while keeping social consequences outside its numerical score.",
+    "source_request": null,
+    "power_currency": null,
+    "acquisition_gate": "Reborn with universe rulebook access",
+    "cost": "Helping the sister requires serving a magus in volume 2",
+    "persistence": null
+  },
+  {
+    "title": "Monster Tamer",
+    "original_title": "モンスターのご主人様",
+    "author": "Minto Higure",
+    "platform": "Futabasha; English light novel J-Novel Club",
+    "language_group": "Japanese",
+    "summary": "A displaced student survives by gaining monster companions after empowered humans destroy his trust. Official later synopses call him someone who gives hearts to monsters and make concealment of those companions consequential. The hook is a grant that changes a monster’s inner agency and the human’s social position, not merely ownership.",
+    "lenses": [
+      "mimics and hidden identities",
+      "vows and contracts",
+      "shards and inheritance"
+    ],
+    "novelty_score": 4,
+    "source_urls": [
+      "https://j-novel.club/series/monster-tamer/",
+      "https://isekai.fandom.com/wiki/Monster_Tamer"
+    ],
+    "evidence_scope": "indexed metadata",
+    "verified_hook": "Official volume 11 describes a visitor who gives hearts to monsters; volumes 3 and 4 explicitly make their secret dangerous.",
+    "unknowns": "Bond trigger; consent and compulsion; thought-sharing; whether each companion’s personality is created or awakened.",
+    "proposal": "Proposal: a power bond can awaken a partner’s agency, creating needs and loyalties rather than another inventory slot.",
+    "source_request": {
+      "url": "https://j-novel.club/series/monster-tamer",
+      "why": "Open volume 1 source to distinguish hearts, mental connection and command authority; later blurbs confirm the heart-giving hook but not its terms."
+    },
+    "power_currency": null,
+    "acquisition_gate": null,
+    "cost": null,
+    "persistence": null
+  },
+  {
+    "title": "The Magician Who Rose From Failure",
+    "original_title": null,
+    "author": "Hitsuji Gamei",
+    "platform": "GC Novels; English light novel J-Novel Club",
+    "language_group": "Japanese",
+    "summary": "A magically disappointing heir carries memories from a scientific world. Official volume 2 says he invents a device that measures the essence of magic and presents it to military and magical leaders. This makes instrumentation a progression route: inherited knowledge changes what institutions can measure, rather than just granting a stronger spell.",
+    "lenses": [
+      "kinds of observation",
+      "shards and inheritance",
+      "power paths with odd currencies"
+    ],
+    "novelty_score": 4,
+    "source_urls": [
+      "https://j-novel.club/series/the-magician-who-rose-from-failure/"
+    ],
+    "evidence_scope": "indexed metadata",
+    "verified_hook": "Official volume 2 identifies the aethometer as a device measuring magic’s essence.",
+    "unknowns": "Units and calibration; how measurement changes technique; whether the device has blind spots. Original title not verified.",
+    "proposal": "Proposal: a crafted instrument can change accepted evidence and research opportunities without measuring every aspect of a person.",
+    "source_request": null,
+    "power_currency": null,
+    "acquisition_gate": "Memories from a scientific prior life",
+    "cost": null,
+    "persistence": "Prior-life knowledge supports invention of a magic measuring device"
+  },
+  {
+    "title": "Did I Seriously Just Get Reincarnated as My Gag Character?!",
+    "original_title": null,
+    "author": "Kanade Otonashi",
+    "platform": "English light novel J-Novel Club",
+    "language_group": "Japanese",
+    "summary": "A player enters the body of a joke dragon-princess avatar rather than his optimized main character. The official premise makes build intention differ from the body that actually arrives. This is a limited scout for odd character portfolios and identity change; metadata does not prove comedy itself overrides physical rules.",
+    "lenses": [
+      "mimics and hidden identities",
+      "rule-abuse",
+      "simulators and draws"
+    ],
+    "novelty_score": 3,
+    "source_urls": [
+      "https://j-novel.club/series/did-i-seriously-just-get-reincarnated-as-my-gag-character/"
+    ],
+    "evidence_scope": "indexed metadata",
+    "verified_hook": "Official synopsis explicitly distinguishes an invincible main character from a nonoptimized joke avatar as the reincarnation carrier.",
+    "unknowns": "Which traits transfer; whether joke abilities work differently outside the game; no gag-physics rule verified. Original title not verified.",
+    "proposal": "Proposal: a transferred character can inherit inconvenient cosmetic, social and build traits selected for a different context.",
+    "source_request": null,
+    "power_currency": null,
+    "acquisition_gate": "Reincarnated as joke avatar instead of main character",
+    "cost": null,
+    "persistence": "Joke avatar body carries to new world; detailed skill retention unknown"
+  }
+]

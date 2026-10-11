@@ -1,0 +1,14 @@
+{
+  "dist/bundle.js": {
+    "accidental_build_sha256": "3ee1485cdfb13f7307a8fd5a92c4dba533287dbda169095350918dc067ac8b7a",
+    "restored_baseline_sha256": "e77080593d4b92010e150f818af3391680ff460641c2bd9cc356d468d23626f4"
+  },
+  "dist/bundle.js.map": {
+    "accidental_build_sha256": "73f9f6f68cd8c0821542b0b50478a12c620c3140ec9f437ef12bbc68a28a5bf7",
+    "restored_baseline_sha256": "f0ade6cf623b17dcc9ca8864736ccd7107d8f393d5306ce4c48f28d557bcbfb8"
+  },
+  "index.html": {
+    "accidental_build_sha256": "7e95a7beffc9465358c1763cd4f14c5145932ee98bfd22dfd93be6acabdeab16",
+    "restored_baseline_sha256": "7309c86e5e8608ba3dc5fc958b1c952c569b31c5073f7afbba9cef006d12488c"
+  }
+}

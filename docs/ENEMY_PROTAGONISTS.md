@@ -155,7 +155,7 @@ Use the same declared capability contracts where a player and NPC possess compar
 
 At first only the selected cast receives independent arcs. Ordinary enemies stay ordinary. Track off-screen claims and meaningful transitions, not prose logs for every moment. Procedural generation can later choose compatible backgrounds and motivations, while authored milestone rules supply coherent causes and endings.
 
-Do not use a live language model as an authority for irreversible NPC decisions, ownership or rewards. Finite authored choices and deterministic state rules are sufficient for the first prototype. This is an implementation judgment, not a claim that generated dialogue could never be useful.
+By default do not use a live language model as an authority for irreversible NPC decisions, ownership or rewards. Finite authored choices and deterministic state rules are sufficient for the first prototype. An opt-in LLM-proposer mode behind a setting could propose such choices later, validated and saved once. This is an implementation judgment, not a claim that generated dialogue could never be useful.
 
 ## Failure cases specific to protagonist-like enemies
 

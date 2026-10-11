@@ -1,0 +1,22 @@
+{
+  "started_utc": "2026-10-10T06:01:53.139115+00:00",
+  "deadline_utc": "2026-10-10T18:01:53.139115+00:00",
+  "checks": [
+    {
+      "checked_utc": "2026-10-10T06:11:53.145155+00:00",
+      "state_flags": "1042",
+      "downloaded": "1095653232",
+      "download_total": "3980184832",
+      "buildid": "0",
+      "sha256": "82867fda0ab0987ef03a4cb33f4eecbbc06173abf0c78fb04c49ef70446c5623"
+    },
+    {
+      "checked_utc": "2026-10-10T06:21:53.147714+00:00",
+      "state_flags": "4",
+      "downloaded": "3980184832",
+      "download_total": "3980184832",
+      "buildid": "25598304",
+      "sha256": "07e9957329d18cb6c9b0371ba1b93598b82ec7a8228e1e9807d87c1a63364db6"
+    }
+  ]
+}

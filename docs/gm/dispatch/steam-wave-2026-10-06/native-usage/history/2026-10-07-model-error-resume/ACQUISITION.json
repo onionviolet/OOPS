@@ -1,0 +1,204 @@
+{
+  "schema_version": 1,
+  "observed_utc": "2026-10-07T04:56:54.239664+00:00",
+  "root_thread_id": "01a1146c-7d19-7440-92a6-8f5ab5198db9",
+  "prior_owner_thread_id": "01a11473-1a58-7721-90fc-2367865b6ecf",
+  "prior_release": "docs/gm/book-world-completion-2026-10-06/CHECKPOINT.md revision7; live wait_threads confirmed latest turn completed/idle",
+  "scope": "one optional native-method-informed retort family; shared integration root only",
+  "source_before": [
+    {
+      "path": "src/feature_expansion_content.js",
+      "bytes": 2618,
+      "sha256": "1184bf0f2784da453e5063aa8868aab1feaf8ef871ddc500be3d73dba7b79b10"
+    },
+    {
+      "path": "src/expedition_content.js",
+      "bytes": 14861,
+      "sha256": "aa6c57853a8f1813bda1b1a1f5c3fe282c441359942a09a6fa113738c1e40c6f"
+    },
+    {
+      "path": "src/data/expedition_items.js",
+      "bytes": 3453,
+      "sha256": "9745c16f1e12469481aae52ed676e745a890de73a435d3208317e8304137d5d3"
+    },
+    {
+      "path": "src/simulation_effects.js",
+      "bytes": 29683,
+      "sha256": "4b27b6f5141bbfb4687c5b2d97f20f483df8e9f2065ab9d4510d4b7cbb9eb9a6"
+    },
+    {
+      "path": "src/reference_gameplay_state.js",
+      "bytes": 16858,
+      "sha256": "fe883ef6b25900283988a71f06b40c104bd2c90ae2632f83d92bc2c7ab689572"
+    },
+    {
+      "path": "src/save_files.js",
+      "bytes": 9039,
+      "sha256": "9ecd4feeb21ab31b6065ffa262ccd033a5d07304907f4aadd2c3ad3bb87e01e6"
+    },
+    {
+      "path": "src/main.js",
+      "bytes": 395646,
+      "sha256": "99f4ece298c84ddb02c0ea3d21db3c8a54845d011f9b82ac3a4613bda08dc32b"
+    },
+    {
+      "path": "src/feature_expansion_wave_host.js",
+      "bytes": 9342,
+      "sha256": "8858445f89f4f46329dafccde6a7fee74e165aeb30acf35fd0fa9b74eec707fd"
+    },
+    {
+      "path": "src/adventure_notebook.js",
+      "bytes": 12385,
+      "sha256": "12932680c7dd05b8dca359dc9305aea51c24162ad5132f2ffc4f75d3974a8d68"
+    },
+    {
+      "path": "PROJECT.md",
+      "bytes": 161437,
+      "sha256": "deac6041129bf8b91826011e9128c48621809016470f71ac3b60a57d30067e9a"
+    },
+    {
+      "path": "src/simulation.js",
+      "bytes": 56779,
+      "sha256": "bb2f1800a9c8940c28cc20c45b33384dddd52ff8da6aa9060a16342996305465",
+      "before_image": "/Users/weiwei/.codex/research/factorio/native-usage-before/simulation.js",
+      "method": "reconstructed only root exact provisioning patch against untouched live surrounding file; original read before patch confirmed old statement"
+    },
+    {
+      "path": "src/simulation_contracts.js",
+      "bytes": 33533,
+      "sha256": "6a14bf583fbb25a3dd2adeb19e38677c5610d3655f73e3eb42b92330d11594fc",
+      "before_image": "/Users/weiwei/.codex/research/factorio/native-usage-before/simulation_contracts.js",
+      "method": "reconstructed only root exact provisioning patch against untouched live surrounding file; original read before patch confirmed old statement"
+    },
+    {
+      "path": "src/simulation_ui.js",
+      "bytes": 10880,
+      "sha256": "496452a527441bddb1bd686e9febf4f768c99325c18ccb0ec659c05270e0e8eb",
+      "before_image": "/Users/weiwei/.codex/research/factorio/native-usage-before/simulation_ui.js"
+    }
+  ],
+  "writer_reservations": {
+    "root": [],
+    "book_worker": [],
+    "oxygen_worker": [],
+    "native_gm": [
+      "/root/factorio_native_finish3: docs/research/factorio/native/ except ASSIGNMENT.md",
+      "/Users/weiwei/.codex/research/factorio/native-23347942/"
+    ],
+    "retort_review": [],
+    "root_acceptance": [
+      "docs/gm/dispatch/steam-wave-2026-10-06/native-usage/ acceptance documents and finite audit notes",
+      "docs/research/factorio/{REPORT.md,CHECKPOINT.md,COVERAGE.json,INTAKE.json,DLC_COVERAGE.json} current routing only",
+      "docs/gm/dispatch/steam-wave-2026-10-06/{DISPATCH.json,CHECKPOINT.md} derived current routing only"
+    ]
+  },
+  "excluded": [
+    "four reserved game_absorption_assay_* leaves",
+    "private saves/Steam installations/other source dossiers",
+    "all unrelated dirty files"
+  ],
+  "checks": "gameplay/browser/save/unit/failure/regression/director deferred; relevant syntax/import/definition/build/link required",
+  "additional_join": "Optional site provision:false, matching existing optional-person provision semantics; older site defaults unchanged; retort rack opened only by funded installation.",
+  "shared_transfer": {
+    "utc": "2026-10-07T05:27:18.817947+00:00",
+    "from": "01a1146c-7d19-7440-92a6-8f5ab5198db9",
+    "to": "01a114a8-b32c-78b1-9d2f-9b140bb8300c",
+    "paths": [
+      "src/feature_expansion_content.js",
+      "src/expedition_content.js",
+      "src/data/expedition_items.js",
+      "src/simulation_effects.js",
+      "src/reference_gameplay_state.js",
+      "src/save_files.js",
+      "src/main.js",
+      "src/feature_expansion_wave_host.js",
+      "src/adventure_notebook.js",
+      "PROJECT.md",
+      "src/feature_expansion_ui.js",
+      "dist/bundle.js",
+      "dist/bundle.js.map",
+      "src/simulation.js",
+      "src/simulation_contracts.js",
+      "src/simulation_ui.js"
+    ],
+    "status": "finite retort combined integration/build delivered and acquired; shared lease released onward to audit coordinator",
+    "coordinator": "01a114d2-2065-7b10-86b8-6c68962d9f8f",
+    "packet": "docs/gm/dispatch/steam-wave-2026-10-06/native-usage/INTEGRATION_PACKET.md",
+    "actual_existing_retort_deltas": [
+      "src/simulation.js optional site provision:false skip",
+      "src/simulation_contracts.js optional site provision:boolean validation"
+    ],
+    "pending_shared_fix": "src/components/trader_component.js conserve exact retort stock through refresh",
+    "released_leaf_paths": [
+      "src/factorio_retort_content.js",
+      "src/factorio_retort_facts.js",
+      "src/factorio_retort_host.js",
+      "src/factorio_retort_native.js"
+    ],
+    "acknowledgment": "Home/social root acknowledged sole shared lease and inclusion of ready retort in finite combined build; native writer remains disjoint.",
+    "current_shared_owner": "01a114d2-2065-7b10-86b8-6c68962d9f8f",
+    "release_receipt": "docs/gm/home-social-base-2026-10-07/RELEASE.json",
+    "native_root_writes": "research/dispatch only; no further shared writes without current owner transfer"
+  },
+  "owned_current_leaf_inputs": [
+    {
+      "path": "src/factorio_retort_content.js",
+      "bytes": 11407,
+      "sha256": "e617c1ac206d3d75e48ee80b027c0a878d7cc745f26797877ed1a838b89aec3f"
+    },
+    {
+      "path": "src/factorio_retort_native.js",
+      "bytes": 10089,
+      "sha256": "906d15465db4a40248afd869ad9189d43d9b6bb01ec8766902e3ad44c41ac4e0"
+    }
+  ],
+  "reviewer_release": {
+    "observed_utc": "2026-10-07T05:29:40.305334+00:00",
+    "owner": "/root/retort_review",
+    "status": "completed/released and root hashes matched",
+    "paths": [
+      {
+        "path": "src/factorio_retort_facts.js",
+        "bytes": 3148,
+        "sha256": "e47c5e936462a70d66b1535faded38955c59e1369c1035eb9eac2dd332f04e2a"
+      },
+      {
+        "path": "src/factorio_retort_host.js",
+        "bytes": 19117,
+        "sha256": "3b22946a10fc4f021721283ec3cee0ce05c44b663c61b9879b335ade7f4c4e99"
+      }
+    ],
+    "root_context_requirement": [
+      "nativeAlive",
+      "nativeBody"
+    ],
+    "checks": "syntax/pure import/definition/link; gameplay/save deferred"
+  },
+  "native_continuation_shape": "Sole native successor:8,952freshC+assemblyentries;512Mheap proven; readOnlypre-rowreserve; packedprogram qualification next before any redundantownedprojectremoval.",
+  "native_successor_transfer": {
+    "observed_utc": "2026-10-07T07:20:56.862416+00:00",
+    "retired": "/root/factorio_native_successor",
+    "current": "/root/factorio_native_finalizer",
+    "proof": "Explicitinterruption; actualnoJava/analyzer/decompiler/writerlock; normalproject exactarchived+rootremoved.",
+    "scope": "Samefullbothslicegoal; no fullrecoveryclaim ornewruntimewriters."
+  },
+  "latest_native_restart": {
+    "observed_utc": "2026-10-07T12:15:14.200803+00:00",
+    "retired": "/root/factorio_native_finish2",
+    "new_owner": "/root/factorio_native_finish3",
+    "proof": "Authoritative agent inventory root only and ps shows no native Java/decompiler process; retained GLAD_RESOURCE_STOP proves scoped child termination. Stale project locks to audit before reuse.",
+    "scope": "Same both-architecture native recovery/repair/reconciliation objective, native dossier except ASSIGNMENT and private native-23347942. Root retains native-usage/tool bootstrap.",
+    "changed_capacity": "11GiB free after interrupted heavy backend released",
+    "next_execution": "Sequential x86 restore/import/seed/save/analysis/full export; resource guard inside native call; ARM exact failures and refresh qualification still mandatory."
+  },
+  "root_acceptance_continuation": {
+    "observed_utc": "2026-10-07T13:52:24.584937+00:00",
+    "owner": "/root/factorio_acceptance",
+    "scope": "Exclusive root acceptance documents and finite audit notes; released parent Factorio and derived wave routing only.",
+    "primary_root": "Read-only to these documents while acceptance writer is active; owns host goal status and final decision.",
+    "native_writer": "/root/factorio_native_finish3 remains sole native/private writer. Existing exporter 41973 / Java 46960 is healthy.",
+    "purpose": "Acquire final corpus, provenance, repairs, reader bindings and original use against the preserved full objective. No competing native process or shared runtime writes.",
+    "retained_goal": "Same full both-architecture recovery, meaningful repairs, consequential review and original use; no scope reduction.",
+    "last_refresh_utc": "2026-10-07T14:04:14.806358+00:00"
+  }
+}

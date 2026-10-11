@@ -1,0 +1,3154 @@
+{
+  "date": "2026-10-09",
+  "commit": "d41bf197f9203e6da6f72628a9d76369b8140d57",
+  "six_core_chains": [
+    {
+      "id": "C1",
+      "title": "Effort -> reflection -> useful attributes",
+      "source_observation": "Overclock routes toward reflect/body/travel/money/social pursuits. Reflect reveals note-taking and body-awareness steps by level; these reward attributes which contribute to efficiency. Engine consumes resource into progress; downstream routing uses tier, sliders and focus, normalized when total effective ratio exceeds one.",
+      "qualification": "Not simply five competing literal percentages of one global stamina pool; routing formulas scale sliders through tiers/focus.",
+      "evidence": [
+        {
+          "path": "KTL/data/globalsAndInitial.js",
+          "lines": [
+            189,
+            198
+          ],
+          "url": "https://github.com/StopSign/stopsign.github.io/blob/d41bf197f9203e6da6f72628a9d76369b8140d57/KTL/data/globalsAndInitial.js#L189-L198",
+          "installed": {
+            "buildid": "23044204",
+            "path": "KTL/data/globalsAndInitial.js",
+            "lines": [
+              189,
+              198
+            ],
+            "sha256": "20e2935a0547df67db8632ff5184f6efd2d424f2d483ccd84f1b2cb84a642f55",
+            "selected_passage_text_matches_public": true
+          }
+        },
+        {
+          "path": "KTL/actionData.js",
+          "lines": [
+            79,
+            138
+          ],
+          "url": "https://github.com/StopSign/stopsign.github.io/blob/d41bf197f9203e6da6f72628a9d76369b8140d57/KTL/actionData.js#L79-L138",
+          "installed": {
+            "buildid": "23044204",
+            "path": "KTL/actionData.js",
+            "lines": [
+              79,
+              138
+            ],
+            "sha256": "e2a315b320c3609360cda645a2eeae6abd32f84fcc10355a944122cae25635fd",
+            "selected_passage_text_matches_public": true
+          }
+        },
+        {
+          "path": "KTL/actionDataFunctions.js",
+          "lines": [
+            424,
+            488
+          ],
+          "url": "https://github.com/StopSign/stopsign.github.io/blob/d41bf197f9203e6da6f72628a9d76369b8140d57/KTL/actionDataFunctions.js#L424-L488",
+          "installed": {
+            "buildid": "23044204",
+            "path": "KTL/actionDataFunctions.js",
+            "lines": [
+              424,
+              488
+            ],
+            "sha256": "f7963c0f266014e2c32faab8fcca022dfb846571b2935b1d556a2345d7a29cf3",
+            "selected_passage_text_matches_public": true
+          }
+        },
+        {
+          "path": "KTL/engine.js",
+          "lines": [
+            19,
+            39
+          ],
+          "url": "https://github.com/StopSign/stopsign.github.io/blob/d41bf197f9203e6da6f72628a9d76369b8140d57/KTL/engine.js#L19-L39",
+          "installed": {
+            "buildid": "23044204",
+            "path": "KTL/engine.js",
+            "lines": [
+              19,
+              39
+            ],
+            "sha256": "e58774ba434e51ffd8de56c921ce901f5b09d3e0dfd4f7bc14901633698c91f7",
+            "selected_passage_text_matches_public": true
+          }
+        }
+      ],
+      "verification": "static trace; runtime unrun"
+    },
+    {
+      "id": "C2",
+      "title": "Work -> spending -> a home or community project",
+      "source_observation": "Money generator transfers generated coins to spending; graph branches to supplies, social access, equipment, housing and later investment. A reading chair rewards comfort/calm and reveals a fireplace; town investment branches toward library and carpenter work.",
+      "qualification": "Source describes these as action/attribute upgrades, not proof of simulated persistent buildings or NPC economies.",
+      "evidence": [
+        {
+          "path": "KTL/data/globalsAndInitial.js",
+          "lines": [
+            208,
+            218
+          ],
+          "url": "https://github.com/StopSign/stopsign.github.io/blob/d41bf197f9203e6da6f72628a9d76369b8140d57/KTL/data/globalsAndInitial.js#L208-L218",
+          "installed": {
+            "buildid": "23044204",
+            "path": "KTL/data/globalsAndInitial.js",
+            "lines": [
+              208,
+              218
+            ],
+            "sha256": "20e2935a0547df67db8632ff5184f6efd2d424f2d483ccd84f1b2cb84a642f55",
+            "selected_passage_text_matches_public": true
+          }
+        },
+        {
+          "path": "KTL/data/globalsAndInitial.js",
+          "lines": [
+            241,
+            271
+          ],
+          "url": "https://github.com/StopSign/stopsign.github.io/blob/d41bf197f9203e6da6f72628a9d76369b8140d57/KTL/data/globalsAndInitial.js#L241-L271",
+          "installed": {
+            "buildid": "23044204",
+            "path": "KTL/data/globalsAndInitial.js",
+            "lines": [
+              241,
+              271
+            ],
+            "sha256": "20e2935a0547df67db8632ff5184f6efd2d424f2d483ccd84f1b2cb84a642f55",
+            "selected_passage_text_matches_public": true
+          }
+        },
+        {
+          "path": "KTL/actionData.js",
+          "lines": [
+            275,
+            301
+          ],
+          "url": "https://github.com/StopSign/stopsign.github.io/blob/d41bf197f9203e6da6f72628a9d76369b8140d57/KTL/actionData.js#L275-L301",
+          "installed": {
+            "buildid": "23044204",
+            "path": "KTL/actionData.js",
+            "lines": [
+              275,
+              301
+            ],
+            "sha256": "e2a315b320c3609360cda645a2eeae6abd32f84fcc10355a944122cae25635fd",
+            "selected_passage_text_matches_public": true
+          }
+        },
+        {
+          "path": "KTL/actionData.js",
+          "lines": [
+            628,
+            639
+          ],
+          "url": "https://github.com/StopSign/stopsign.github.io/blob/d41bf197f9203e6da6f72628a9d76369b8140d57/KTL/actionData.js#L628-L639",
+          "installed": {
+            "buildid": "23044204",
+            "path": "KTL/actionData.js",
+            "lines": [
+              628,
+              639
+            ],
+            "sha256": "e2a315b320c3609360cda645a2eeae6abd32f84fcc10355a944122cae25635fd",
+            "selected_passage_text_matches_public": true
+          }
+        }
+      ],
+      "verification": "static trace; runtime unrun"
+    },
+    {
+      "id": "C3",
+      "title": "Social practice -> access -> threat information",
+      "source_observation": "Meet People routes to listening, Scott and coffee club. Scott reveals handyman and tavern-helper opportunities. Coffee gossip leads to Hear About The Lich; fear gain depends on total momentum and conversation resource and is added on Overclock completion without consuming fear.",
+      "qualification": "Named interactions are authored nodes. This is not evidence for autonomous NPC beliefs, schedules or full relationship simulation.",
+      "evidence": [
+        {
+          "path": "KTL/data/globalsAndInitial.js",
+          "lines": [
+            293,
+            314
+          ],
+          "url": "https://github.com/StopSign/stopsign.github.io/blob/d41bf197f9203e6da6f72628a9d76369b8140d57/KTL/data/globalsAndInitial.js#L293-L314",
+          "installed": {
+            "buildid": "23044204",
+            "path": "KTL/data/globalsAndInitial.js",
+            "lines": [
+              293,
+              314
+            ],
+            "sha256": "20e2935a0547df67db8632ff5184f6efd2d424f2d483ccd84f1b2cb84a642f55",
+            "selected_passage_text_matches_public": true
+          }
+        },
+        {
+          "path": "KTL/actionData.js",
+          "lines": [
+            1439,
+            1452
+          ],
+          "url": "https://github.com/StopSign/stopsign.github.io/blob/d41bf197f9203e6da6f72628a9d76369b8140d57/KTL/actionData.js#L1439-L1452",
+          "installed": {
+            "buildid": "23044204",
+            "path": "KTL/actionData.js",
+            "lines": [
+              1439,
+              1452
+            ],
+            "sha256": "e2a315b320c3609360cda645a2eeae6abd32f84fcc10355a944122cae25635fd",
+            "selected_passage_text_matches_public": true
+          }
+        },
+        {
+          "path": "KTL/actionData.js",
+          "lines": [
+            1154,
+            1203
+          ],
+          "url": "https://github.com/StopSign/stopsign.github.io/blob/d41bf197f9203e6da6f72628a9d76369b8140d57/KTL/actionData.js#L1154-L1203",
+          "installed": {
+            "buildid": "23044204",
+            "path": "KTL/actionData.js",
+            "lines": [
+              1154,
+              1203
+            ],
+            "sha256": "e2a315b320c3609360cda645a2eeae6abd32f84fcc10355a944122cae25635fd",
+            "selected_passage_text_matches_public": true
+          }
+        }
+      ],
+      "verification": "static trace; runtime unrun"
+    },
+    {
+      "id": "C4",
+      "title": "Charge -> mana -> arcana/spells -> stronger ordinary work",
+      "source_observation": "Dissipation feeds Pool Mana. Pool Mana generation depends on its source reservoir and action power/efficiency. Thread Arcana consumes mana and generates arcana into Prepare Spells. Mana quality multiplies grimoire level, fixed formula, research and incantation practice; prepared internal spells include overcharge/overwork/overtalk.",
+      "qualification": "The graph and formula are inspected; spell charge timing and the complete magic tree were not exercised.",
+      "evidence": [
+        {
+          "path": "KTL/data/globalsAndInitial.js",
+          "lines": [
+            520,
+            525
+          ],
+          "url": "https://github.com/StopSign/stopsign.github.io/blob/d41bf197f9203e6da6f72628a9d76369b8140d57/KTL/data/globalsAndInitial.js#L520-L525",
+          "installed": {
+            "buildid": "23044204",
+            "path": "KTL/data/globalsAndInitial.js",
+            "lines": [
+              520,
+              525
+            ],
+            "sha256": "20e2935a0547df67db8632ff5184f6efd2d424f2d483ccd84f1b2cb84a642f55",
+            "selected_passage_text_matches_public": true
+          }
+        },
+        {
+          "path": "KTL/data/globalsAndInitial.js",
+          "lines": [
+            572,
+            579
+          ],
+          "url": "https://github.com/StopSign/stopsign.github.io/blob/d41bf197f9203e6da6f72628a9d76369b8140d57/KTL/data/globalsAndInitial.js#L572-L579",
+          "installed": {
+            "buildid": "23044204",
+            "path": "KTL/data/globalsAndInitial.js",
+            "lines": [
+              572,
+              579
+            ],
+            "sha256": "20e2935a0547df67db8632ff5184f6efd2d424f2d483ccd84f1b2cb84a642f55",
+            "selected_passage_text_matches_public": true
+          }
+        },
+        {
+          "path": "KTL/actionData4.js",
+          "lines": [
+            112,
+            164
+          ],
+          "url": "https://github.com/StopSign/stopsign.github.io/blob/d41bf197f9203e6da6f72628a9d76369b8140d57/KTL/actionData4.js#L112-L164",
+          "installed": {
+            "buildid": "23044204",
+            "path": "KTL/actionData4.js",
+            "lines": [
+              112,
+              164
+            ],
+            "sha256": "1c9a38a71935e78cc9a8706ae016398b22690780fad0c470b36ba978fc9588d7",
+            "selected_passage_text_matches_public": true
+          }
+        },
+        {
+          "path": "KTL/actionData4.js",
+          "lines": [
+            165,
+            201
+          ],
+          "url": "https://github.com/StopSign/stopsign.github.io/blob/d41bf197f9203e6da6f72628a9d76369b8140d57/KTL/actionData4.js#L165-L201",
+          "installed": {
+            "buildid": "23044204",
+            "path": "KTL/actionData4.js",
+            "lines": [
+              165,
+              201
+            ],
+            "sha256": "1c9a38a71935e78cc9a8706ae016398b22690780fad0c470b36ba978fc9588d7",
+            "selected_passage_text_matches_public": true
+          }
+        },
+        {
+          "path": "KTL/actionData4.js",
+          "lines": [
+            614,
+            641
+          ],
+          "url": "https://github.com/StopSign/stopsign.github.io/blob/d41bf197f9203e6da6f72628a9d76369b8140d57/KTL/actionData4.js#L614-L641",
+          "installed": {
+            "buildid": "23044204",
+            "path": "KTL/actionData4.js",
+            "lines": [
+              614,
+              641
+            ],
+            "sha256": "1c9a38a71935e78cc9a8706ae016398b22690780fad0c470b36ba978fc9588d7",
+            "selected_passage_text_matches_public": true
+          }
+        }
+      ],
+      "verification": "static trace; runtime unrun"
+    },
+    {
+      "id": "C5",
+      "title": "Prepared life -> separate confrontation -> legacy rewards",
+      "source_observation": "initializeKTL checks confirmation and, outside debug, Lich knowledge plus mana quality; stops actions outside plane 2, starts that plane and the named repose exception, then seeds confrontation resources from lifetime momentum and fear. Combat chain removes wards, fights, kills and shatters phylactery; terminal nodes advertise legacy per completion.",
+      "qualification": "Entering Northern Wastes is a transition/stoppage, while useAmulet performs the distinct reset. Combat here is action progress, not a verified native YAIR battle analogue.",
+      "evidence": [
+        {
+          "path": "KTL/ktl.js",
+          "lines": [
+            401,
+            454
+          ],
+          "url": "https://github.com/StopSign/stopsign.github.io/blob/d41bf197f9203e6da6f72628a9d76369b8140d57/KTL/ktl.js#L401-L454",
+          "installed": {
+            "buildid": "23044204",
+            "path": "KTL/ktl.js",
+            "lines": [
+              401,
+              454
+            ],
+            "sha256": "d62fb2d75f6a83d1aae716583bec354402387c2764e48436d994dc9d0d9b87a7",
+            "selected_passage_text_matches_public": true
+          }
+        },
+        {
+          "path": "KTL/data/globalsAndInitial.js",
+          "lines": [
+            635,
+            644
+          ],
+          "url": "https://github.com/StopSign/stopsign.github.io/blob/d41bf197f9203e6da6f72628a9d76369b8140d57/KTL/data/globalsAndInitial.js#L635-L644",
+          "installed": {
+            "buildid": "23044204",
+            "path": "KTL/data/globalsAndInitial.js",
+            "lines": [
+              635,
+              644
+            ],
+            "sha256": "20e2935a0547df67db8632ff5184f6efd2d424f2d483ccd84f1b2cb84a642f55",
+            "selected_passage_text_matches_public": true
+          }
+        },
+        {
+          "path": "KTL/actionData3.js",
+          "lines": [
+            570,
+            592
+          ],
+          "url": "https://github.com/StopSign/stopsign.github.io/blob/d41bf197f9203e6da6f72628a9d76369b8140d57/KTL/actionData3.js#L570-L592",
+          "installed": {
+            "buildid": "23044204",
+            "path": "KTL/actionData3.js",
+            "lines": [
+              570,
+              592
+            ],
+            "sha256": "83337832e8e27a73c68a2e0a694e467eaa6a8f83c9a9445429849a06383ec37e",
+            "selected_passage_text_matches_public": true
+          }
+        }
+      ],
+      "verification": "static trace; runtime unrun"
+    },
+    {
+      "id": "C6",
+      "title": "Amulet -> severance -> optional Genesis, with different retention",
+      "source_observation": "Amulet invokes base reset per action but restores selected plane-1/plane-3 unlock metadata and plane-3 visibility; special wheel/repose treatment differs. Severance clears base attributes, legacy/coins/whispers and non-unique upgrades, then hides magic; Genesis additionally clears kill/reset progression and scales retained unlock count by a bought perk. UI availability predicates depend on monolith level/kill count or buying newGamePlus.",
+      "qualification": "Three reset layers are source structure only. MECHANICS timing estimates are unmeasured; no 50-Amulet or two-month trigger is asserted. Controllers mainly check confirmations, so UI availability predicates are not necessarily hard controller guards.",
+      "evidence": [
+        {
+          "path": "KTL/ktl.js",
+          "lines": [
+            612,
+            670
+          ],
+          "url": "https://github.com/StopSign/stopsign.github.io/blob/d41bf197f9203e6da6f72628a9d76369b8140d57/KTL/ktl.js#L612-L670",
+          "installed": {
+            "buildid": "23044204",
+            "path": "KTL/ktl.js",
+            "lines": [
+              612,
+              670
+            ],
+            "sha256": "d62fb2d75f6a83d1aae716583bec354402387c2764e48436d994dc9d0d9b87a7",
+            "selected_passage_text_matches_public": true
+          }
+        },
+        {
+          "path": "KTL/ktl.js",
+          "lines": [
+            278,
+            302
+          ],
+          "url": "https://github.com/StopSign/stopsign.github.io/blob/d41bf197f9203e6da6f72628a9d76369b8140d57/KTL/ktl.js#L278-L302",
+          "installed": {
+            "buildid": "23044204",
+            "path": "KTL/ktl.js",
+            "lines": [
+              278,
+              302
+            ],
+            "sha256": "d62fb2d75f6a83d1aae716583bec354402387c2764e48436d994dc9d0d9b87a7",
+            "selected_passage_text_matches_public": true
+          }
+        },
+        {
+          "path": "KTL/ktl.js",
+          "lines": [
+            325,
+            365
+          ],
+          "url": "https://github.com/StopSign/stopsign.github.io/blob/d41bf197f9203e6da6f72628a9d76369b8140d57/KTL/ktl.js#L325-L365",
+          "installed": {
+            "buildid": "23044204",
+            "path": "KTL/ktl.js",
+            "lines": [
+              325,
+              365
+            ],
+            "sha256": "d62fb2d75f6a83d1aae716583bec354402387c2764e48436d994dc9d0d9b87a7",
+            "selected_passage_text_matches_public": true
+          }
+        },
+        {
+          "path": "KTL/ktl.js",
+          "lines": [
+            148,
+            196
+          ],
+          "url": "https://github.com/StopSign/stopsign.github.io/blob/d41bf197f9203e6da6f72628a9d76369b8140d57/KTL/ktl.js#L148-L196",
+          "installed": {
+            "buildid": "23044204",
+            "path": "KTL/ktl.js",
+            "lines": [
+              148,
+              196
+            ],
+            "sha256": "d62fb2d75f6a83d1aae716583bec354402387c2764e48436d994dc9d0d9b87a7",
+            "selected_passage_text_matches_public": true
+          }
+        },
+        {
+          "path": "KTL/actionDataFunctions.js",
+          "lines": [
+            59,
+            110
+          ],
+          "url": "https://github.com/StopSign/stopsign.github.io/blob/d41bf197f9203e6da6f72628a9d76369b8140d57/KTL/actionDataFunctions.js#L59-L110",
+          "installed": {
+            "buildid": "23044204",
+            "path": "KTL/actionDataFunctions.js",
+            "lines": [
+              59,
+              110
+            ],
+            "sha256": "f7963c0f266014e2c32faab8fcca022dfb846571b2935b1d556a2345d7a29cf3",
+            "selected_passage_text_matches_public": true
+          }
+        },
+        {
+          "path": "KTL/ktl.js",
+          "lines": [
+            770,
+            779
+          ],
+          "url": "https://github.com/StopSign/stopsign.github.io/blob/d41bf197f9203e6da6f72628a9d76369b8140d57/KTL/ktl.js#L770-L779",
+          "installed": {
+            "buildid": "23044204",
+            "path": "KTL/ktl.js",
+            "lines": [
+              770,
+              779
+            ],
+            "sha256": "d62fb2d75f6a83d1aae716583bec354402387c2764e48436d994dc9d0d9b87a7",
+            "selected_passage_text_matches_public": true
+          }
+        },
+        {
+          "path": "KTL/upgradeData.js",
+          "lines": [
+            975,
+            985
+          ],
+          "url": "https://github.com/StopSign/stopsign.github.io/blob/d41bf197f9203e6da6f72628a9d76369b8140d57/KTL/upgradeData.js#L975-L985",
+          "installed": {
+            "buildid": "23044204",
+            "path": "KTL/upgradeData.js",
+            "lines": [
+              975,
+              985
+            ],
+            "sha256": "3f58692e40bacde13ed2a64a9d8a68ef784ee4e09447956887a7f13bb8f9bab7",
+            "selected_passage_text_matches_public": true
+          }
+        }
+      ],
+      "verification": "static trace; runtime unrun"
+    }
+  ],
+  "ranked_proposals": [
+    {
+      "id": "P1",
+      "rank": 1,
+      "title": "Let ordinary skills improve a later method",
+      "status": "original-proposal-not-accepted-not-implemented",
+      "evidence": [
+        {
+          "path": "KTL/data/globalsAndInitial.js",
+          "lines": [
+            189,
+            198
+          ],
+          "url": "https://github.com/StopSign/stopsign.github.io/blob/d41bf197f9203e6da6f72628a9d76369b8140d57/KTL/data/globalsAndInitial.js#L189-L198",
+          "installed": {
+            "buildid": "23044204",
+            "path": "KTL/data/globalsAndInitial.js",
+            "lines": [
+              189,
+              198
+            ],
+            "sha256": "20e2935a0547df67db8632ff5184f6efd2d424f2d483ccd84f1b2cb84a642f55",
+            "selected_passage_text_matches_public": true
+          }
+        },
+        {
+          "path": "KTL/actionData.js",
+          "lines": [
+            79,
+            138
+          ],
+          "url": "https://github.com/StopSign/stopsign.github.io/blob/d41bf197f9203e6da6f72628a9d76369b8140d57/KTL/actionData.js#L79-L138",
+          "installed": {
+            "buildid": "23044204",
+            "path": "KTL/actionData.js",
+            "lines": [
+              79,
+              138
+            ],
+            "sha256": "e2a315b320c3609360cda645a2eeae6abd32f84fcc10355a944122cae25635fd",
+            "selected_passage_text_matches_public": true
+          }
+        },
+        {
+          "path": "KTL/actionDataFunctions.js",
+          "lines": [
+            424,
+            488
+          ],
+          "url": "https://github.com/StopSign/stopsign.github.io/blob/d41bf197f9203e6da6f72628a9d76369b8140d57/KTL/actionDataFunctions.js#L424-L488",
+          "installed": {
+            "buildid": "23044204",
+            "path": "KTL/actionDataFunctions.js",
+            "lines": [
+              424,
+              488
+            ],
+            "sha256": "f7963c0f266014e2c32faab8fcca022dfb846571b2935b1d556a2345d7a29cf3",
+            "selected_passage_text_matches_public": true
+          }
+        },
+        {
+          "path": "KTL/engine.js",
+          "lines": [
+            19,
+            39
+          ],
+          "url": "https://github.com/StopSign/stopsign.github.io/blob/d41bf197f9203e6da6f72628a9d76369b8140d57/KTL/engine.js#L19-L39",
+          "installed": {
+            "buildid": "23044204",
+            "path": "KTL/engine.js",
+            "lines": [
+              19,
+              39
+            ],
+            "sha256": "e58774ba434e51ffd8de56c921ce901f5b09d3e0dfd4f7bc14901633698c91f7",
+            "selected_passage_text_matches_public": true
+          }
+        }
+      ],
+      "proposal": "Pick one existing Meditation, crafting or observation-related milestone that improves a concrete later task; show the causal link.",
+      "native_map": "src/activities.js:130-135; src/data/skills.js; src/crafting_recipes.js:79-101",
+      "smallest_slice": "One ordinary-skill threshold changes one native work or technique outcome.",
+      "acceptance": "Below/above threshold compare actual output and inspect that the bonus applies once.",
+      "reason": "Highest: deepens existing skills rather than replacing the starting campaign.",
+      "verification": "static-source only; all runtime and YAIR proposal gates unrun"
+    },
+    {
+      "id": "P2",
+      "rank": 2,
+      "title": "Make a familiar contact open practical work",
+      "status": "original-proposal-not-accepted-not-implemented",
+      "evidence": [
+        {
+          "path": "KTL/data/globalsAndInitial.js",
+          "lines": [
+            293,
+            314
+          ],
+          "url": "https://github.com/StopSign/stopsign.github.io/blob/d41bf197f9203e6da6f72628a9d76369b8140d57/KTL/data/globalsAndInitial.js#L293-L314",
+          "installed": {
+            "buildid": "23044204",
+            "path": "KTL/data/globalsAndInitial.js",
+            "lines": [
+              293,
+              314
+            ],
+            "sha256": "20e2935a0547df67db8632ff5184f6efd2d424f2d483ccd84f1b2cb84a642f55",
+            "selected_passage_text_matches_public": true
+          }
+        },
+        {
+          "path": "KTL/actionData.js",
+          "lines": [
+            1439,
+            1452
+          ],
+          "url": "https://github.com/StopSign/stopsign.github.io/blob/d41bf197f9203e6da6f72628a9d76369b8140d57/KTL/actionData.js#L1439-L1452",
+          "installed": {
+            "buildid": "23044204",
+            "path": "KTL/actionData.js",
+            "lines": [
+              1439,
+              1452
+            ],
+            "sha256": "e2a315b320c3609360cda645a2eeae6abd32f84fcc10355a944122cae25635fd",
+            "selected_passage_text_matches_public": true
+          }
+        },
+        {
+          "path": "KTL/actionData.js",
+          "lines": [
+            1154,
+            1203
+          ],
+          "url": "https://github.com/StopSign/stopsign.github.io/blob/d41bf197f9203e6da6f72628a9d76369b8140d57/KTL/actionData.js#L1154-L1203",
+          "installed": {
+            "buildid": "23044204",
+            "path": "KTL/actionData.js",
+            "lines": [
+              1154,
+              1203
+            ],
+            "sha256": "e2a315b320c3609360cda645a2eeae6abd32f84fcc10355a944122cae25635fd",
+            "selected_passage_text_matches_public": true
+          }
+        }
+      ],
+      "proposal": "An optional village contact remembers one useful exchange, then offers a commission or a known route. Gossip gives a lead rather than granting perfect knowledge.",
+      "native_map": "src/data/dialogues.js; src/data/npcs.js; src/activities.js:84-97",
+      "smallest_slice": "One NPC conversation, one commission and one remembered consequence.",
+      "acceptance": "Accept/defer/complete, award once, reopen dialogue, save/reload/import and observe the consequence.",
+      "reason": "High: a skill path becomes part of a lived place; no new universal relationship meter.",
+      "verification": "static-source only; all runtime and YAIR proposal gates unrun"
+    },
+    {
+      "id": "P3",
+      "rank": 3,
+      "title": "Give preparation a visible effect in a difficult encounter",
+      "status": "original-proposal-not-accepted-not-implemented",
+      "evidence": [
+        {
+          "path": "KTL/ktl.js",
+          "lines": [
+            401,
+            454
+          ],
+          "url": "https://github.com/StopSign/stopsign.github.io/blob/d41bf197f9203e6da6f72628a9d76369b8140d57/KTL/ktl.js#L401-L454",
+          "installed": {
+            "buildid": "23044204",
+            "path": "KTL/ktl.js",
+            "lines": [
+              401,
+              454
+            ],
+            "sha256": "d62fb2d75f6a83d1aae716583bec354402387c2764e48436d994dc9d0d9b87a7",
+            "selected_passage_text_matches_public": true
+          }
+        },
+        {
+          "path": "KTL/data/globalsAndInitial.js",
+          "lines": [
+            635,
+            644
+          ],
+          "url": "https://github.com/StopSign/stopsign.github.io/blob/d41bf197f9203e6da6f72628a9d76369b8140d57/KTL/data/globalsAndInitial.js#L635-L644",
+          "installed": {
+            "buildid": "23044204",
+            "path": "KTL/data/globalsAndInitial.js",
+            "lines": [
+              635,
+              644
+            ],
+            "sha256": "20e2935a0547df67db8632ff5184f6efd2d424f2d483ccd84f1b2cb84a642f55",
+            "selected_passage_text_matches_public": true
+          }
+        },
+        {
+          "path": "KTL/actionData3.js",
+          "lines": [
+            570,
+            592
+          ],
+          "url": "https://github.com/StopSign/stopsign.github.io/blob/d41bf197f9203e6da6f72628a9d76369b8140d57/KTL/actionData3.js#L570-L592",
+          "installed": {
+            "buildid": "23044204",
+            "path": "KTL/actionData3.js",
+            "lines": [
+              570,
+              592
+            ],
+            "sha256": "83337832e8e27a73c68a2e0a694e467eaa6a8f83c9a9445429849a06383ec37e",
+            "selected_passage_text_matches_public": true
+          }
+        }
+      ],
+      "proposal": "Complete a native scouting or tool-preparation job to gain one named advantage against one fixed encounter. Entering an expedition does not reset the life.",
+      "native_map": "src/data/locations.js; src/party_battle.js; src/native_battle_contracts.js",
+      "smallest_slice": "One encounter with a preparation fact and an explicit consequence.",
+      "acceptance": "Compare prepared/unprepared fresh-origin entries, show the changed outcome and confirm travel never clears unrelated progress.",
+      "reason": "High: life activities make combat decisions richer without scaling every threat.",
+      "verification": "static-source only; all runtime and YAIR proposal gates unrun"
+    },
+    {
+      "id": "P4",
+      "rank": 4,
+      "title": "Make earned money leave a useful mark at home",
+      "status": "original-proposal-not-accepted-not-implemented",
+      "evidence": [
+        {
+          "path": "KTL/data/globalsAndInitial.js",
+          "lines": [
+            208,
+            218
+          ],
+          "url": "https://github.com/StopSign/stopsign.github.io/blob/d41bf197f9203e6da6f72628a9d76369b8140d57/KTL/data/globalsAndInitial.js#L208-L218",
+          "installed": {
+            "buildid": "23044204",
+            "path": "KTL/data/globalsAndInitial.js",
+            "lines": [
+              208,
+              218
+            ],
+            "sha256": "20e2935a0547df67db8632ff5184f6efd2d424f2d483ccd84f1b2cb84a642f55",
+            "selected_passage_text_matches_public": true
+          }
+        },
+        {
+          "path": "KTL/data/globalsAndInitial.js",
+          "lines": [
+            241,
+            271
+          ],
+          "url": "https://github.com/StopSign/stopsign.github.io/blob/d41bf197f9203e6da6f72628a9d76369b8140d57/KTL/data/globalsAndInitial.js#L241-L271",
+          "installed": {
+            "buildid": "23044204",
+            "path": "KTL/data/globalsAndInitial.js",
+            "lines": [
+              241,
+              271
+            ],
+            "sha256": "20e2935a0547df67db8632ff5184f6efd2d424f2d483ccd84f1b2cb84a642f55",
+            "selected_passage_text_matches_public": true
+          }
+        },
+        {
+          "path": "KTL/actionData.js",
+          "lines": [
+            275,
+            301
+          ],
+          "url": "https://github.com/StopSign/stopsign.github.io/blob/d41bf197f9203e6da6f72628a9d76369b8140d57/KTL/actionData.js#L275-L301",
+          "installed": {
+            "buildid": "23044204",
+            "path": "KTL/actionData.js",
+            "lines": [
+              275,
+              301
+            ],
+            "sha256": "e2a315b320c3609360cda645a2eeae6abd32f84fcc10355a944122cae25635fd",
+            "selected_passage_text_matches_public": true
+          }
+        },
+        {
+          "path": "KTL/actionData.js",
+          "lines": [
+            628,
+            639
+          ],
+          "url": "https://github.com/StopSign/stopsign.github.io/blob/d41bf197f9203e6da6f72628a9d76369b8140d57/KTL/actionData.js#L628-L639",
+          "installed": {
+            "buildid": "23044204",
+            "path": "KTL/actionData.js",
+            "lines": [
+              628,
+              639
+            ],
+            "sha256": "e2a315b320c3609360cda645a2eeae6abd32f84fcc10355a944122cae25635fd",
+            "selected_passage_text_matches_public": true
+          }
+        }
+      ],
+      "proposal": "Buy or craft one Shack furnishing that changes a specific local task and records who helped build it. Reuse existing workshop owners first.",
+      "native_map": "src/data/locations.js:363-370; src/crafting_recipes.js:45-101; src/life_record.js:41-47",
+      "smallest_slice": "One furnishing, one task benefit and one bounded life entry.",
+      "acceptance": "Compare before/after, leave location, return, save/reload/import; item payment and furnishing reward occur once.",
+      "reason": "High-medium: economic choices become a home and biography, not only a bigger number.",
+      "verification": "static-source only; all runtime and YAIR proposal gates unrun"
+    },
+    {
+      "id": "P5",
+      "rank": 5,
+      "title": "Show what a counted routine will accomplish",
+      "status": "original-proposal-not-accepted-not-implemented",
+      "evidence": [
+        {
+          "path": "KTL/automation.js",
+          "lines": [
+            4,
+            32
+          ],
+          "url": "https://github.com/StopSign/stopsign.github.io/blob/d41bf197f9203e6da6f72628a9d76369b8140d57/KTL/automation.js#L4-L32",
+          "installed": {
+            "buildid": "23044204",
+            "path": "KTL/automation.js",
+            "lines": [
+              4,
+              32
+            ],
+            "sha256": "b2bd86fcadda0c8229fdffcc10d0f128e3c16a5857026f8661c9ce1eb1e0cd69",
+            "selected_passage_text_matches_public": true
+          }
+        },
+        {
+          "path": "KTL/automation.js",
+          "lines": [
+            278,
+            342
+          ],
+          "url": "https://github.com/StopSign/stopsign.github.io/blob/d41bf197f9203e6da6f72628a9d76369b8140d57/KTL/automation.js#L278-L342",
+          "installed": {
+            "buildid": "23044204",
+            "path": "KTL/automation.js",
+            "lines": [
+              278,
+              342
+            ],
+            "sha256": "b2bd86fcadda0c8229fdffcc10d0f128e3c16a5857026f8661c9ce1eb1e0cd69",
+            "selected_passage_text_matches_public": true
+          }
+        }
+      ],
+      "proposal": "Extend the existing native counted program with a readable goal/result and blocked reason. Offer one reversible preset, not a competing graph automation engine.",
+      "native_map": "src/simulation.js:311-329; src/simulation_ui.js; src/display.js",
+      "smallest_slice": "One existing command offers a named count target and displays why it paused.",
+      "acceptance": "Run target to completion, pause/resume, interrupt by travel/resource shortage and verify no unwanted restart or duplicate reward.",
+      "reason": "Medium: reduces chore clicks while preserving active choices.",
+      "verification": "static-source only; all runtime and YAIR proposal gates unrun"
+    },
+    {
+      "id": "P6",
+      "rank": 6,
+      "title": "Keep power amount and power quality distinct",
+      "status": "original-proposal-not-accepted-not-implemented",
+      "evidence": [
+        {
+          "path": "KTL/data/globalsAndInitial.js",
+          "lines": [
+            520,
+            525
+          ],
+          "url": "https://github.com/StopSign/stopsign.github.io/blob/d41bf197f9203e6da6f72628a9d76369b8140d57/KTL/data/globalsAndInitial.js#L520-L525",
+          "installed": {
+            "buildid": "23044204",
+            "path": "KTL/data/globalsAndInitial.js",
+            "lines": [
+              520,
+              525
+            ],
+            "sha256": "20e2935a0547df67db8632ff5184f6efd2d424f2d483ccd84f1b2cb84a642f55",
+            "selected_passage_text_matches_public": true
+          }
+        },
+        {
+          "path": "KTL/data/globalsAndInitial.js",
+          "lines": [
+            572,
+            579
+          ],
+          "url": "https://github.com/StopSign/stopsign.github.io/blob/d41bf197f9203e6da6f72628a9d76369b8140d57/KTL/data/globalsAndInitial.js#L572-L579",
+          "installed": {
+            "buildid": "23044204",
+            "path": "KTL/data/globalsAndInitial.js",
+            "lines": [
+              572,
+              579
+            ],
+            "sha256": "20e2935a0547df67db8632ff5184f6efd2d424f2d483ccd84f1b2cb84a642f55",
+            "selected_passage_text_matches_public": true
+          }
+        },
+        {
+          "path": "KTL/actionData4.js",
+          "lines": [
+            112,
+            164
+          ],
+          "url": "https://github.com/StopSign/stopsign.github.io/blob/d41bf197f9203e6da6f72628a9d76369b8140d57/KTL/actionData4.js#L112-L164",
+          "installed": {
+            "buildid": "23044204",
+            "path": "KTL/actionData4.js",
+            "lines": [
+              112,
+              164
+            ],
+            "sha256": "1c9a38a71935e78cc9a8706ae016398b22690780fad0c470b36ba978fc9588d7",
+            "selected_passage_text_matches_public": true
+          }
+        },
+        {
+          "path": "KTL/actionData4.js",
+          "lines": [
+            165,
+            201
+          ],
+          "url": "https://github.com/StopSign/stopsign.github.io/blob/d41bf197f9203e6da6f72628a9d76369b8140d57/KTL/actionData4.js#L165-L201",
+          "installed": {
+            "buildid": "23044204",
+            "path": "KTL/actionData4.js",
+            "lines": [
+              165,
+              201
+            ],
+            "sha256": "1c9a38a71935e78cc9a8706ae016398b22690780fad0c470b36ba978fc9588d7",
+            "selected_passage_text_matches_public": true
+          }
+        },
+        {
+          "path": "KTL/actionData4.js",
+          "lines": [
+            614,
+            641
+          ],
+          "url": "https://github.com/StopSign/stopsign.github.io/blob/d41bf197f9203e6da6f72628a9d76369b8140d57/KTL/actionData4.js#L614-L641",
+          "installed": {
+            "buildid": "23044204",
+            "path": "KTL/actionData4.js",
+            "lines": [
+              614,
+              641
+            ],
+            "sha256": "1c9a38a71935e78cc9a8706ae016398b22690780fad0c470b36ba978fc9588d7",
+            "selected_passage_text_matches_public": true
+          }
+        }
+      ],
+      "proposal": "For a local magic proposal, separate available fuel from control/technique quality. Ordinary practice improves one use while the correct source is still required.",
+      "native_map": "src/activities.js:130-135; src/items.js:1092-1152; src/simulation_content.js",
+      "smallest_slice": "Design one local technique with explicit source, tool/fuel, understanding and practiced-use requirements; no global mana conversion.",
+      "acceptance": "Exercise missing fuel versus poor control and show different reasons; migrate additive state and prove save/reload/import.",
+      "reason": "Medium-later: makes a world rule mechanically distinct; select a specific local lane before implementation.",
+      "verification": "static-source only; all runtime and YAIR proposal gates unrun"
+    },
+    {
+      "id": "P7",
+      "rank": 7,
+      "title": "Explain a milestone estimate without pretending certainty",
+      "status": "original-proposal-not-accepted-not-implemented",
+      "evidence": [
+        {
+          "path": "KTL/automation.js",
+          "lines": [
+            118,
+            128
+          ],
+          "url": "https://github.com/StopSign/stopsign.github.io/blob/d41bf197f9203e6da6f72628a9d76369b8140d57/KTL/automation.js#L118-L128",
+          "installed": {
+            "buildid": "23044204",
+            "path": "KTL/automation.js",
+            "lines": [
+              118,
+              128
+            ],
+            "sha256": "b2bd86fcadda0c8229fdffcc10d0f128e3c16a5857026f8661c9ce1eb1e0cd69",
+            "selected_passage_text_matches_public": true
+          }
+        },
+        {
+          "path": "KTL/driver.js",
+          "lines": [
+            14,
+            23
+          ],
+          "url": "https://github.com/StopSign/stopsign.github.io/blob/d41bf197f9203e6da6f72628a9d76369b8140d57/KTL/driver.js#L14-L23",
+          "installed": {
+            "buildid": "23044204",
+            "path": "KTL/driver.js",
+            "lines": [
+              14,
+              23
+            ],
+            "sha256": "9aac004f85a6fca691ffcbc988d33ea8dc312050210111d49ebcb89b20185144",
+            "selected_passage_text_matches_public": true
+          }
+        },
+        {
+          "path": "KTL/driver.js",
+          "lines": [
+            294,
+            326
+          ],
+          "url": "https://github.com/StopSign/stopsign.github.io/blob/d41bf197f9203e6da6f72628a9d76369b8140d57/KTL/driver.js#L294-L326",
+          "installed": {
+            "buildid": "23044204",
+            "path": "KTL/driver.js",
+            "lines": [
+              294,
+              326
+            ],
+            "sha256": "9aac004f85a6fca691ffcbc988d33ea8dc312050210111d49ebcb89b20185144",
+            "selected_passage_text_matches_public": true
+          }
+        }
+      ],
+      "proposal": "On one native task, display remaining time and its current assumptions; mark changing-rate forecasts as estimates. Reading already has time left and progress.",
+      "native_map": "src/display.js:4457-4471; src/main.js:2248-2301; src/game_time.js",
+      "smallest_slice": "Add a requirement/reward explanation or assumption label to an existing row.",
+      "acceptance": "Change tool/location/rate, verify estimate updates or becomes unavailable; keyboard and narrow-width browser check.",
+      "reason": "Medium: makes long tasks legible without promising reference pacing.",
+      "verification": "static-source only; all runtime and YAIR proposal gates unrun"
+    },
+    {
+      "id": "P8",
+      "rank": 8,
+      "title": "Preview one prestige retention policy clearly",
+      "status": "original-proposal-not-accepted-not-implemented",
+      "evidence": [
+        {
+          "path": "KTL/ktl.js",
+          "lines": [
+            612,
+            670
+          ],
+          "url": "https://github.com/StopSign/stopsign.github.io/blob/d41bf197f9203e6da6f72628a9d76369b8140d57/KTL/ktl.js#L612-L670",
+          "installed": {
+            "buildid": "23044204",
+            "path": "KTL/ktl.js",
+            "lines": [
+              612,
+              670
+            ],
+            "sha256": "d62fb2d75f6a83d1aae716583bec354402387c2764e48436d994dc9d0d9b87a7",
+            "selected_passage_text_matches_public": true
+          }
+        },
+        {
+          "path": "KTL/ktl.js",
+          "lines": [
+            278,
+            302
+          ],
+          "url": "https://github.com/StopSign/stopsign.github.io/blob/d41bf197f9203e6da6f72628a9d76369b8140d57/KTL/ktl.js#L278-L302",
+          "installed": {
+            "buildid": "23044204",
+            "path": "KTL/ktl.js",
+            "lines": [
+              278,
+              302
+            ],
+            "sha256": "d62fb2d75f6a83d1aae716583bec354402387c2764e48436d994dc9d0d9b87a7",
+            "selected_passage_text_matches_public": true
+          }
+        },
+        {
+          "path": "KTL/ktl.js",
+          "lines": [
+            325,
+            365
+          ],
+          "url": "https://github.com/StopSign/stopsign.github.io/blob/d41bf197f9203e6da6f72628a9d76369b8140d57/KTL/ktl.js#L325-L365",
+          "installed": {
+            "buildid": "23044204",
+            "path": "KTL/ktl.js",
+            "lines": [
+              325,
+              365
+            ],
+            "sha256": "d62fb2d75f6a83d1aae716583bec354402387c2764e48436d994dc9d0d9b87a7",
+            "selected_passage_text_matches_public": true
+          }
+        },
+        {
+          "path": "KTL/ktl.js",
+          "lines": [
+            148,
+            196
+          ],
+          "url": "https://github.com/StopSign/stopsign.github.io/blob/d41bf197f9203e6da6f72628a9d76369b8140d57/KTL/ktl.js#L148-L196",
+          "installed": {
+            "buildid": "23044204",
+            "path": "KTL/ktl.js",
+            "lines": [
+              148,
+              196
+            ],
+            "sha256": "d62fb2d75f6a83d1aae716583bec354402387c2764e48436d994dc9d0d9b87a7",
+            "selected_passage_text_matches_public": true
+          }
+        },
+        {
+          "path": "KTL/actionDataFunctions.js",
+          "lines": [
+            59,
+            110
+          ],
+          "url": "https://github.com/StopSign/stopsign.github.io/blob/d41bf197f9203e6da6f72628a9d76369b8140d57/KTL/actionDataFunctions.js#L59-L110",
+          "installed": {
+            "buildid": "23044204",
+            "path": "KTL/actionDataFunctions.js",
+            "lines": [
+              59,
+              110
+            ],
+            "sha256": "f7963c0f266014e2c32faab8fcca022dfb846571b2935b1d556a2345d7a29cf3",
+            "selected_passage_text_matches_public": true
+          }
+        },
+        {
+          "path": "KTL/ktl.js",
+          "lines": [
+            770,
+            779
+          ],
+          "url": "https://github.com/StopSign/stopsign.github.io/blob/d41bf197f9203e6da6f72628a9d76369b8140d57/KTL/ktl.js#L770-L779",
+          "installed": {
+            "buildid": "23044204",
+            "path": "KTL/ktl.js",
+            "lines": [
+              770,
+              779
+            ],
+            "sha256": "d62fb2d75f6a83d1aae716583bec354402387c2764e48436d994dc9d0d9b87a7",
+            "selected_passage_text_matches_public": true
+          }
+        },
+        {
+          "path": "KTL/upgradeData.js",
+          "lines": [
+            975,
+            985
+          ],
+          "url": "https://github.com/StopSign/stopsign.github.io/blob/d41bf197f9203e6da6f72628a9d76369b8140d57/KTL/upgradeData.js#L975-L985",
+          "installed": {
+            "buildid": "23044204",
+            "path": "KTL/upgradeData.js",
+            "lines": [
+              975,
+              985
+            ],
+            "sha256": "3f58692e40bacde13ed2a64a9d8a68ef784ee4e09447956887a7f13bb8f9bab7",
+            "selected_passage_text_matches_public": true
+          }
+        }
+      ],
+      "proposal": "Before any reset prototype, author a retained/lost/changed matrix and a plain preview for the one accepted prestige layer. Keep travel and death policy separate; three KTL layers are not a YAIR milestone plan.",
+      "native_map": "PROJECT.md: Accepted decisions; src/save_files.js:166-190; src/chronicle.js",
+      "smallest_slice": "Design-only retention matrix and one inspectable preview; no reset operation in this audit.",
+      "acceptance": "Director chooses retention; later prove exact old-save compatibility, reset loss/retention, import anti-duplication and unchanged travel.",
+      "reason": "Later: useful contract pattern, but broadest save impact.",
+      "verification": "static-source only; all runtime and YAIR proposal gates unrun"
+    }
+  ],
+  "small_touches": [
+    {
+      "id": "T01",
+      "proposal": "A Meditation milestone names the later task it improves",
+      "inspiration": [
+        {
+          "path": "KTL/data/globalsAndInitial.js",
+          "lines": [
+            189,
+            198
+          ],
+          "url": "https://github.com/StopSign/stopsign.github.io/blob/d41bf197f9203e6da6f72628a9d76369b8140d57/KTL/data/globalsAndInitial.js#L189-L198",
+          "installed": {
+            "buildid": "23044204",
+            "path": "KTL/data/globalsAndInitial.js",
+            "lines": [
+              189,
+              198
+            ],
+            "sha256": "20e2935a0547df67db8632ff5184f6efd2d424f2d483ccd84f1b2cb84a642f55",
+            "selected_passage_text_matches_public": true
+          }
+        },
+        {
+          "path": "KTL/actionData.js",
+          "lines": [
+            79,
+            138
+          ],
+          "url": "https://github.com/StopSign/stopsign.github.io/blob/d41bf197f9203e6da6f72628a9d76369b8140d57/KTL/actionData.js#L79-L138",
+          "installed": {
+            "buildid": "23044204",
+            "path": "KTL/actionData.js",
+            "lines": [
+              79,
+              138
+            ],
+            "sha256": "e2a315b320c3609360cda645a2eeae6abd32f84fcc10355a944122cae25635fd",
+            "selected_passage_text_matches_public": true
+          }
+        },
+        {
+          "path": "KTL/actionDataFunctions.js",
+          "lines": [
+            424,
+            488
+          ],
+          "url": "https://github.com/StopSign/stopsign.github.io/blob/d41bf197f9203e6da6f72628a9d76369b8140d57/KTL/actionDataFunctions.js#L424-L488",
+          "installed": {
+            "buildid": "23044204",
+            "path": "KTL/actionDataFunctions.js",
+            "lines": [
+              424,
+              488
+            ],
+            "sha256": "f7963c0f266014e2c32faab8fcca022dfb846571b2935b1d556a2345d7a29cf3",
+            "selected_passage_text_matches_public": true
+          }
+        },
+        {
+          "path": "KTL/engine.js",
+          "lines": [
+            19,
+            39
+          ],
+          "url": "https://github.com/StopSign/stopsign.github.io/blob/d41bf197f9203e6da6f72628a9d76369b8140d57/KTL/engine.js#L19-L39",
+          "installed": {
+            "buildid": "23044204",
+            "path": "KTL/engine.js",
+            "lines": [
+              19,
+              39
+            ],
+            "sha256": "e58774ba434e51ffd8de56c921ce901f5b09d3e0dfd4f7bc14901633698c91f7",
+            "selected_passage_text_matches_public": true
+          }
+        }
+      ],
+      "native_map": "src/activities.js:130-135; src/data/skills.js",
+      "status": "original small touch; not claimed present in KTL; not implemented",
+      "acceptance": "Fresh-origin row/consequence proof; save/reload/import for persistent changes."
+    },
+    {
+      "id": "T02",
+      "proposal": "A craft row explains the skill contribution to quality",
+      "inspiration": [
+        {
+          "path": "KTL/data/globalsAndInitial.js",
+          "lines": [
+            189,
+            198
+          ],
+          "url": "https://github.com/StopSign/stopsign.github.io/blob/d41bf197f9203e6da6f72628a9d76369b8140d57/KTL/data/globalsAndInitial.js#L189-L198",
+          "installed": {
+            "buildid": "23044204",
+            "path": "KTL/data/globalsAndInitial.js",
+            "lines": [
+              189,
+              198
+            ],
+            "sha256": "20e2935a0547df67db8632ff5184f6efd2d424f2d483ccd84f1b2cb84a642f55",
+            "selected_passage_text_matches_public": true
+          }
+        },
+        {
+          "path": "KTL/actionData.js",
+          "lines": [
+            79,
+            138
+          ],
+          "url": "https://github.com/StopSign/stopsign.github.io/blob/d41bf197f9203e6da6f72628a9d76369b8140d57/KTL/actionData.js#L79-L138",
+          "installed": {
+            "buildid": "23044204",
+            "path": "KTL/actionData.js",
+            "lines": [
+              79,
+              138
+            ],
+            "sha256": "e2a315b320c3609360cda645a2eeae6abd32f84fcc10355a944122cae25635fd",
+            "selected_passage_text_matches_public": true
+          }
+        },
+        {
+          "path": "KTL/actionDataFunctions.js",
+          "lines": [
+            424,
+            488
+          ],
+          "url": "https://github.com/StopSign/stopsign.github.io/blob/d41bf197f9203e6da6f72628a9d76369b8140d57/KTL/actionDataFunctions.js#L424-L488",
+          "installed": {
+            "buildid": "23044204",
+            "path": "KTL/actionDataFunctions.js",
+            "lines": [
+              424,
+              488
+            ],
+            "sha256": "f7963c0f266014e2c32faab8fcca022dfb846571b2935b1d556a2345d7a29cf3",
+            "selected_passage_text_matches_public": true
+          }
+        },
+        {
+          "path": "KTL/engine.js",
+          "lines": [
+            19,
+            39
+          ],
+          "url": "https://github.com/StopSign/stopsign.github.io/blob/d41bf197f9203e6da6f72628a9d76369b8140d57/KTL/engine.js#L19-L39",
+          "installed": {
+            "buildid": "23044204",
+            "path": "KTL/engine.js",
+            "lines": [
+              19,
+              39
+            ],
+            "sha256": "e58774ba434e51ffd8de56c921ce901f5b09d3e0dfd4f7bc14901633698c91f7",
+            "selected_passage_text_matches_public": true
+          }
+        }
+      ],
+      "native_map": "src/crafting_recipes.js:85-101",
+      "status": "original small touch; not claimed present in KTL; not implemented",
+      "acceptance": "Fresh-origin row/consequence proof; save/reload/import for persistent changes."
+    },
+    {
+      "id": "T03",
+      "proposal": "A practice action shows its next useful milestone beside the current progress",
+      "inspiration": [
+        {
+          "path": "KTL/data/globalsAndInitial.js",
+          "lines": [
+            189,
+            198
+          ],
+          "url": "https://github.com/StopSign/stopsign.github.io/blob/d41bf197f9203e6da6f72628a9d76369b8140d57/KTL/data/globalsAndInitial.js#L189-L198",
+          "installed": {
+            "buildid": "23044204",
+            "path": "KTL/data/globalsAndInitial.js",
+            "lines": [
+              189,
+              198
+            ],
+            "sha256": "20e2935a0547df67db8632ff5184f6efd2d424f2d483ccd84f1b2cb84a642f55",
+            "selected_passage_text_matches_public": true
+          }
+        },
+        {
+          "path": "KTL/actionData.js",
+          "lines": [
+            79,
+            138
+          ],
+          "url": "https://github.com/StopSign/stopsign.github.io/blob/d41bf197f9203e6da6f72628a9d76369b8140d57/KTL/actionData.js#L79-L138",
+          "installed": {
+            "buildid": "23044204",
+            "path": "KTL/actionData.js",
+            "lines": [
+              79,
+              138
+            ],
+            "sha256": "e2a315b320c3609360cda645a2eeae6abd32f84fcc10355a944122cae25635fd",
+            "selected_passage_text_matches_public": true
+          }
+        },
+        {
+          "path": "KTL/actionDataFunctions.js",
+          "lines": [
+            424,
+            488
+          ],
+          "url": "https://github.com/StopSign/stopsign.github.io/blob/d41bf197f9203e6da6f72628a9d76369b8140d57/KTL/actionDataFunctions.js#L424-L488",
+          "installed": {
+            "buildid": "23044204",
+            "path": "KTL/actionDataFunctions.js",
+            "lines": [
+              424,
+              488
+            ],
+            "sha256": "f7963c0f266014e2c32faab8fcca022dfb846571b2935b1d556a2345d7a29cf3",
+            "selected_passage_text_matches_public": true
+          }
+        },
+        {
+          "path": "KTL/engine.js",
+          "lines": [
+            19,
+            39
+          ],
+          "url": "https://github.com/StopSign/stopsign.github.io/blob/d41bf197f9203e6da6f72628a9d76369b8140d57/KTL/engine.js#L19-L39",
+          "installed": {
+            "buildid": "23044204",
+            "path": "KTL/engine.js",
+            "lines": [
+              19,
+              39
+            ],
+            "sha256": "e58774ba434e51ffd8de56c921ce901f5b09d3e0dfd4f7bc14901633698c91f7",
+            "selected_passage_text_matches_public": true
+          }
+        }
+      ],
+      "native_map": "src/data/skills.js; src/display.js",
+      "status": "original small touch; not claimed present in KTL; not implemented",
+      "acceptance": "Fresh-origin row/consequence proof; save/reload/import for persistent changes."
+    },
+    {
+      "id": "T04",
+      "proposal": "A learned method remembers the ordinary job that first made it click",
+      "inspiration": [
+        {
+          "path": "KTL/data/globalsAndInitial.js",
+          "lines": [
+            189,
+            198
+          ],
+          "url": "https://github.com/StopSign/stopsign.github.io/blob/d41bf197f9203e6da6f72628a9d76369b8140d57/KTL/data/globalsAndInitial.js#L189-L198",
+          "installed": {
+            "buildid": "23044204",
+            "path": "KTL/data/globalsAndInitial.js",
+            "lines": [
+              189,
+              198
+            ],
+            "sha256": "20e2935a0547df67db8632ff5184f6efd2d424f2d483ccd84f1b2cb84a642f55",
+            "selected_passage_text_matches_public": true
+          }
+        },
+        {
+          "path": "KTL/actionData.js",
+          "lines": [
+            79,
+            138
+          ],
+          "url": "https://github.com/StopSign/stopsign.github.io/blob/d41bf197f9203e6da6f72628a9d76369b8140d57/KTL/actionData.js#L79-L138",
+          "installed": {
+            "buildid": "23044204",
+            "path": "KTL/actionData.js",
+            "lines": [
+              79,
+              138
+            ],
+            "sha256": "e2a315b320c3609360cda645a2eeae6abd32f84fcc10355a944122cae25635fd",
+            "selected_passage_text_matches_public": true
+          }
+        },
+        {
+          "path": "KTL/actionDataFunctions.js",
+          "lines": [
+            424,
+            488
+          ],
+          "url": "https://github.com/StopSign/stopsign.github.io/blob/d41bf197f9203e6da6f72628a9d76369b8140d57/KTL/actionDataFunctions.js#L424-L488",
+          "installed": {
+            "buildid": "23044204",
+            "path": "KTL/actionDataFunctions.js",
+            "lines": [
+              424,
+              488
+            ],
+            "sha256": "f7963c0f266014e2c32faab8fcca022dfb846571b2935b1d556a2345d7a29cf3",
+            "selected_passage_text_matches_public": true
+          }
+        },
+        {
+          "path": "KTL/engine.js",
+          "lines": [
+            19,
+            39
+          ],
+          "url": "https://github.com/StopSign/stopsign.github.io/blob/d41bf197f9203e6da6f72628a9d76369b8140d57/KTL/engine.js#L19-L39",
+          "installed": {
+            "buildid": "23044204",
+            "path": "KTL/engine.js",
+            "lines": [
+              19,
+              39
+            ],
+            "sha256": "e58774ba434e51ffd8de56c921ce901f5b09d3e0dfd4f7bc14901633698c91f7",
+            "selected_passage_text_matches_public": true
+          }
+        }
+      ],
+      "native_map": "src/activities.js:84-97; src/life_record.js:41-47",
+      "status": "original small touch; not claimed present in KTL; not implemented",
+      "acceptance": "Fresh-origin row/consequence proof; save/reload/import for persistent changes."
+    },
+    {
+      "id": "T05",
+      "proposal": "First paid fieldwork records a compact first-wage memory",
+      "inspiration": [
+        {
+          "path": "KTL/data/globalsAndInitial.js",
+          "lines": [
+            208,
+            218
+          ],
+          "url": "https://github.com/StopSign/stopsign.github.io/blob/d41bf197f9203e6da6f72628a9d76369b8140d57/KTL/data/globalsAndInitial.js#L208-L218",
+          "installed": {
+            "buildid": "23044204",
+            "path": "KTL/data/globalsAndInitial.js",
+            "lines": [
+              208,
+              218
+            ],
+            "sha256": "20e2935a0547df67db8632ff5184f6efd2d424f2d483ccd84f1b2cb84a642f55",
+            "selected_passage_text_matches_public": true
+          }
+        },
+        {
+          "path": "KTL/data/globalsAndInitial.js",
+          "lines": [
+            241,
+            271
+          ],
+          "url": "https://github.com/StopSign/stopsign.github.io/blob/d41bf197f9203e6da6f72628a9d76369b8140d57/KTL/data/globalsAndInitial.js#L241-L271",
+          "installed": {
+            "buildid": "23044204",
+            "path": "KTL/data/globalsAndInitial.js",
+            "lines": [
+              241,
+              271
+            ],
+            "sha256": "20e2935a0547df67db8632ff5184f6efd2d424f2d483ccd84f1b2cb84a642f55",
+            "selected_passage_text_matches_public": true
+          }
+        },
+        {
+          "path": "KTL/actionData.js",
+          "lines": [
+            275,
+            301
+          ],
+          "url": "https://github.com/StopSign/stopsign.github.io/blob/d41bf197f9203e6da6f72628a9d76369b8140d57/KTL/actionData.js#L275-L301",
+          "installed": {
+            "buildid": "23044204",
+            "path": "KTL/actionData.js",
+            "lines": [
+              275,
+              301
+            ],
+            "sha256": "e2a315b320c3609360cda645a2eeae6abd32f84fcc10355a944122cae25635fd",
+            "selected_passage_text_matches_public": true
+          }
+        },
+        {
+          "path": "KTL/actionData.js",
+          "lines": [
+            628,
+            639
+          ],
+          "url": "https://github.com/StopSign/stopsign.github.io/blob/d41bf197f9203e6da6f72628a9d76369b8140d57/KTL/actionData.js#L628-L639",
+          "installed": {
+            "buildid": "23044204",
+            "path": "KTL/actionData.js",
+            "lines": [
+              628,
+              639
+            ],
+            "sha256": "e2a315b320c3609360cda645a2eeae6abd32f84fcc10355a944122cae25635fd",
+            "selected_passage_text_matches_public": true
+          }
+        }
+      ],
+      "native_map": "src/activities.js:84-90; src/life_record.js",
+      "status": "original small touch; not claimed present in KTL; not implemented",
+      "acceptance": "Fresh-origin row/consequence proof; save/reload/import for persistent changes."
+    },
+    {
+      "id": "T06",
+      "proposal": "One crafted chair description credits the village carpenter",
+      "inspiration": [
+        {
+          "path": "KTL/data/globalsAndInitial.js",
+          "lines": [
+            208,
+            218
+          ],
+          "url": "https://github.com/StopSign/stopsign.github.io/blob/d41bf197f9203e6da6f72628a9d76369b8140d57/KTL/data/globalsAndInitial.js#L208-L218",
+          "installed": {
+            "buildid": "23044204",
+            "path": "KTL/data/globalsAndInitial.js",
+            "lines": [
+              208,
+              218
+            ],
+            "sha256": "20e2935a0547df67db8632ff5184f6efd2d424f2d483ccd84f1b2cb84a642f55",
+            "selected_passage_text_matches_public": true
+          }
+        },
+        {
+          "path": "KTL/data/globalsAndInitial.js",
+          "lines": [
+            241,
+            271
+          ],
+          "url": "https://github.com/StopSign/stopsign.github.io/blob/d41bf197f9203e6da6f72628a9d76369b8140d57/KTL/data/globalsAndInitial.js#L241-L271",
+          "installed": {
+            "buildid": "23044204",
+            "path": "KTL/data/globalsAndInitial.js",
+            "lines": [
+              241,
+              271
+            ],
+            "sha256": "20e2935a0547df67db8632ff5184f6efd2d424f2d483ccd84f1b2cb84a642f55",
+            "selected_passage_text_matches_public": true
+          }
+        },
+        {
+          "path": "KTL/actionData.js",
+          "lines": [
+            275,
+            301
+          ],
+          "url": "https://github.com/StopSign/stopsign.github.io/blob/d41bf197f9203e6da6f72628a9d76369b8140d57/KTL/actionData.js#L275-L301",
+          "installed": {
+            "buildid": "23044204",
+            "path": "KTL/actionData.js",
+            "lines": [
+              275,
+              301
+            ],
+            "sha256": "e2a315b320c3609360cda645a2eeae6abd32f84fcc10355a944122cae25635fd",
+            "selected_passage_text_matches_public": true
+          }
+        },
+        {
+          "path": "KTL/actionData.js",
+          "lines": [
+            628,
+            639
+          ],
+          "url": "https://github.com/StopSign/stopsign.github.io/blob/d41bf197f9203e6da6f72628a9d76369b8140d57/KTL/actionData.js#L628-L639",
+          "installed": {
+            "buildid": "23044204",
+            "path": "KTL/actionData.js",
+            "lines": [
+              628,
+              639
+            ],
+            "sha256": "e2a315b320c3609360cda645a2eeae6abd32f84fcc10355a944122cae25635fd",
+            "selected_passage_text_matches_public": true
+          }
+        }
+      ],
+      "native_map": "src/data/locations.js:363-370; src/crafting_recipes.js",
+      "status": "original small touch; not claimed present in KTL; not implemented",
+      "acceptance": "Fresh-origin row/consequence proof; save/reload/import for persistent changes."
+    },
+    {
+      "id": "T07",
+      "proposal": "Returning to the Shack mentions the single installed furnishing",
+      "inspiration": [
+        {
+          "path": "KTL/data/globalsAndInitial.js",
+          "lines": [
+            208,
+            218
+          ],
+          "url": "https://github.com/StopSign/stopsign.github.io/blob/d41bf197f9203e6da6f72628a9d76369b8140d57/KTL/data/globalsAndInitial.js#L208-L218",
+          "installed": {
+            "buildid": "23044204",
+            "path": "KTL/data/globalsAndInitial.js",
+            "lines": [
+              208,
+              218
+            ],
+            "sha256": "20e2935a0547df67db8632ff5184f6efd2d424f2d483ccd84f1b2cb84a642f55",
+            "selected_passage_text_matches_public": true
+          }
+        },
+        {
+          "path": "KTL/data/globalsAndInitial.js",
+          "lines": [
+            241,
+            271
+          ],
+          "url": "https://github.com/StopSign/stopsign.github.io/blob/d41bf197f9203e6da6f72628a9d76369b8140d57/KTL/data/globalsAndInitial.js#L241-L271",
+          "installed": {
+            "buildid": "23044204",
+            "path": "KTL/data/globalsAndInitial.js",
+            "lines": [
+              241,
+              271
+            ],
+            "sha256": "20e2935a0547df67db8632ff5184f6efd2d424f2d483ccd84f1b2cb84a642f55",
+            "selected_passage_text_matches_public": true
+          }
+        },
+        {
+          "path": "KTL/actionData.js",
+          "lines": [
+            275,
+            301
+          ],
+          "url": "https://github.com/StopSign/stopsign.github.io/blob/d41bf197f9203e6da6f72628a9d76369b8140d57/KTL/actionData.js#L275-L301",
+          "installed": {
+            "buildid": "23044204",
+            "path": "KTL/actionData.js",
+            "lines": [
+              275,
+              301
+            ],
+            "sha256": "e2a315b320c3609360cda645a2eeae6abd32f84fcc10355a944122cae25635fd",
+            "selected_passage_text_matches_public": true
+          }
+        },
+        {
+          "path": "KTL/actionData.js",
+          "lines": [
+            628,
+            639
+          ],
+          "url": "https://github.com/StopSign/stopsign.github.io/blob/d41bf197f9203e6da6f72628a9d76369b8140d57/KTL/actionData.js#L628-L639",
+          "installed": {
+            "buildid": "23044204",
+            "path": "KTL/actionData.js",
+            "lines": [
+              628,
+              639
+            ],
+            "sha256": "e2a315b320c3609360cda645a2eeae6abd32f84fcc10355a944122cae25635fd",
+            "selected_passage_text_matches_public": true
+          }
+        }
+      ],
+      "native_map": "src/data/locations.js:363-370",
+      "status": "original small touch; not claimed present in KTL; not implemented",
+      "acceptance": "Fresh-origin row/consequence proof; save/reload/import for persistent changes."
+    },
+    {
+      "id": "T08",
+      "proposal": "A donated manual unlocks one specific local study opportunity",
+      "inspiration": [
+        {
+          "path": "KTL/data/globalsAndInitial.js",
+          "lines": [
+            208,
+            218
+          ],
+          "url": "https://github.com/StopSign/stopsign.github.io/blob/d41bf197f9203e6da6f72628a9d76369b8140d57/KTL/data/globalsAndInitial.js#L208-L218",
+          "installed": {
+            "buildid": "23044204",
+            "path": "KTL/data/globalsAndInitial.js",
+            "lines": [
+              208,
+              218
+            ],
+            "sha256": "20e2935a0547df67db8632ff5184f6efd2d424f2d483ccd84f1b2cb84a642f55",
+            "selected_passage_text_matches_public": true
+          }
+        },
+        {
+          "path": "KTL/data/globalsAndInitial.js",
+          "lines": [
+            241,
+            271
+          ],
+          "url": "https://github.com/StopSign/stopsign.github.io/blob/d41bf197f9203e6da6f72628a9d76369b8140d57/KTL/data/globalsAndInitial.js#L241-L271",
+          "installed": {
+            "buildid": "23044204",
+            "path": "KTL/data/globalsAndInitial.js",
+            "lines": [
+              241,
+              271
+            ],
+            "sha256": "20e2935a0547df67db8632ff5184f6efd2d424f2d483ccd84f1b2cb84a642f55",
+            "selected_passage_text_matches_public": true
+          }
+        },
+        {
+          "path": "KTL/actionData.js",
+          "lines": [
+            275,
+            301
+          ],
+          "url": "https://github.com/StopSign/stopsign.github.io/blob/d41bf197f9203e6da6f72628a9d76369b8140d57/KTL/actionData.js#L275-L301",
+          "installed": {
+            "buildid": "23044204",
+            "path": "KTL/actionData.js",
+            "lines": [
+              275,
+              301
+            ],
+            "sha256": "e2a315b320c3609360cda645a2eeae6abd32f84fcc10355a944122cae25635fd",
+            "selected_passage_text_matches_public": true
+          }
+        },
+        {
+          "path": "KTL/actionData.js",
+          "lines": [
+            628,
+            639
+          ],
+          "url": "https://github.com/StopSign/stopsign.github.io/blob/d41bf197f9203e6da6f72628a9d76369b8140d57/KTL/actionData.js#L628-L639",
+          "installed": {
+            "buildid": "23044204",
+            "path": "KTL/actionData.js",
+            "lines": [
+              628,
+              639
+            ],
+            "sha256": "e2a315b320c3609360cda645a2eeae6abd32f84fcc10355a944122cae25635fd",
+            "selected_passage_text_matches_public": true
+          }
+        }
+      ],
+      "native_map": "src/items.js:1092-1152; src/data/dialogues.js",
+      "status": "original small touch; not claimed present in KTL; not implemented",
+      "acceptance": "Fresh-origin row/consequence proof; save/reload/import for persistent changes."
+    },
+    {
+      "id": "T09",
+      "proposal": "A shopkeeper remembers the first completed commission",
+      "inspiration": [
+        {
+          "path": "KTL/data/globalsAndInitial.js",
+          "lines": [
+            293,
+            314
+          ],
+          "url": "https://github.com/StopSign/stopsign.github.io/blob/d41bf197f9203e6da6f72628a9d76369b8140d57/KTL/data/globalsAndInitial.js#L293-L314",
+          "installed": {
+            "buildid": "23044204",
+            "path": "KTL/data/globalsAndInitial.js",
+            "lines": [
+              293,
+              314
+            ],
+            "sha256": "20e2935a0547df67db8632ff5184f6efd2d424f2d483ccd84f1b2cb84a642f55",
+            "selected_passage_text_matches_public": true
+          }
+        },
+        {
+          "path": "KTL/actionData.js",
+          "lines": [
+            1439,
+            1452
+          ],
+          "url": "https://github.com/StopSign/stopsign.github.io/blob/d41bf197f9203e6da6f72628a9d76369b8140d57/KTL/actionData.js#L1439-L1452",
+          "installed": {
+            "buildid": "23044204",
+            "path": "KTL/actionData.js",
+            "lines": [
+              1439,
+              1452
+            ],
+            "sha256": "e2a315b320c3609360cda645a2eeae6abd32f84fcc10355a944122cae25635fd",
+            "selected_passage_text_matches_public": true
+          }
+        },
+        {
+          "path": "KTL/actionData.js",
+          "lines": [
+            1154,
+            1203
+          ],
+          "url": "https://github.com/StopSign/stopsign.github.io/blob/d41bf197f9203e6da6f72628a9d76369b8140d57/KTL/actionData.js#L1154-L1203",
+          "installed": {
+            "buildid": "23044204",
+            "path": "KTL/actionData.js",
+            "lines": [
+              1154,
+              1203
+            ],
+            "sha256": "e2a315b320c3609360cda645a2eeae6abd32f84fcc10355a944122cae25635fd",
+            "selected_passage_text_matches_public": true
+          }
+        }
+      ],
+      "native_map": "src/data/dialogues.js; src/data/npcs.js",
+      "status": "original small touch; not claimed present in KTL; not implemented",
+      "acceptance": "Fresh-origin row/consequence proof; save/reload/import for persistent changes."
+    },
+    {
+      "id": "T10",
+      "proposal": "A useful rumor names its speaker and the place they heard it",
+      "inspiration": [
+        {
+          "path": "KTL/data/globalsAndInitial.js",
+          "lines": [
+            293,
+            314
+          ],
+          "url": "https://github.com/StopSign/stopsign.github.io/blob/d41bf197f9203e6da6f72628a9d76369b8140d57/KTL/data/globalsAndInitial.js#L293-L314",
+          "installed": {
+            "buildid": "23044204",
+            "path": "KTL/data/globalsAndInitial.js",
+            "lines": [
+              293,
+              314
+            ],
+            "sha256": "20e2935a0547df67db8632ff5184f6efd2d424f2d483ccd84f1b2cb84a642f55",
+            "selected_passage_text_matches_public": true
+          }
+        },
+        {
+          "path": "KTL/actionData.js",
+          "lines": [
+            1439,
+            1452
+          ],
+          "url": "https://github.com/StopSign/stopsign.github.io/blob/d41bf197f9203e6da6f72628a9d76369b8140d57/KTL/actionData.js#L1439-L1452",
+          "installed": {
+            "buildid": "23044204",
+            "path": "KTL/actionData.js",
+            "lines": [
+              1439,
+              1452
+            ],
+            "sha256": "e2a315b320c3609360cda645a2eeae6abd32f84fcc10355a944122cae25635fd",
+            "selected_passage_text_matches_public": true
+          }
+        },
+        {
+          "path": "KTL/actionData.js",
+          "lines": [
+            1154,
+            1203
+          ],
+          "url": "https://github.com/StopSign/stopsign.github.io/blob/d41bf197f9203e6da6f72628a9d76369b8140d57/KTL/actionData.js#L1154-L1203",
+          "installed": {
+            "buildid": "23044204",
+            "path": "KTL/actionData.js",
+            "lines": [
+              1154,
+              1203
+            ],
+            "sha256": "e2a315b320c3609360cda645a2eeae6abd32f84fcc10355a944122cae25635fd",
+            "selected_passage_text_matches_public": true
+          }
+        }
+      ],
+      "native_map": "src/adventure_notebook.js; src/data/dialogues.js",
+      "status": "original small touch; not claimed present in KTL; not implemented",
+      "acceptance": "Fresh-origin row/consequence proof; save/reload/import for persistent changes."
+    },
+    {
+      "id": "T11",
+      "proposal": "Repeating small talk after a job changes one line rather than reopening its reward",
+      "inspiration": [
+        {
+          "path": "KTL/data/globalsAndInitial.js",
+          "lines": [
+            293,
+            314
+          ],
+          "url": "https://github.com/StopSign/stopsign.github.io/blob/d41bf197f9203e6da6f72628a9d76369b8140d57/KTL/data/globalsAndInitial.js#L293-L314",
+          "installed": {
+            "buildid": "23044204",
+            "path": "KTL/data/globalsAndInitial.js",
+            "lines": [
+              293,
+              314
+            ],
+            "sha256": "20e2935a0547df67db8632ff5184f6efd2d424f2d483ccd84f1b2cb84a642f55",
+            "selected_passage_text_matches_public": true
+          }
+        },
+        {
+          "path": "KTL/actionData.js",
+          "lines": [
+            1439,
+            1452
+          ],
+          "url": "https://github.com/StopSign/stopsign.github.io/blob/d41bf197f9203e6da6f72628a9d76369b8140d57/KTL/actionData.js#L1439-L1452",
+          "installed": {
+            "buildid": "23044204",
+            "path": "KTL/actionData.js",
+            "lines": [
+              1439,
+              1452
+            ],
+            "sha256": "e2a315b320c3609360cda645a2eeae6abd32f84fcc10355a944122cae25635fd",
+            "selected_passage_text_matches_public": true
+          }
+        },
+        {
+          "path": "KTL/actionData.js",
+          "lines": [
+            1154,
+            1203
+          ],
+          "url": "https://github.com/StopSign/stopsign.github.io/blob/d41bf197f9203e6da6f72628a9d76369b8140d57/KTL/actionData.js#L1154-L1203",
+          "installed": {
+            "buildid": "23044204",
+            "path": "KTL/actionData.js",
+            "lines": [
+              1154,
+              1203
+            ],
+            "sha256": "e2a315b320c3609360cda645a2eeae6abd32f84fcc10355a944122cae25635fd",
+            "selected_passage_text_matches_public": true
+          }
+        }
+      ],
+      "native_map": "src/data/dialogues.js",
+      "status": "original small touch; not claimed present in KTL; not implemented",
+      "acceptance": "Fresh-origin row/consequence proof; save/reload/import for persistent changes."
+    },
+    {
+      "id": "T12",
+      "proposal": "A declined commission remains politely available",
+      "inspiration": [
+        {
+          "path": "KTL/data/globalsAndInitial.js",
+          "lines": [
+            293,
+            314
+          ],
+          "url": "https://github.com/StopSign/stopsign.github.io/blob/d41bf197f9203e6da6f72628a9d76369b8140d57/KTL/data/globalsAndInitial.js#L293-L314",
+          "installed": {
+            "buildid": "23044204",
+            "path": "KTL/data/globalsAndInitial.js",
+            "lines": [
+              293,
+              314
+            ],
+            "sha256": "20e2935a0547df67db8632ff5184f6efd2d424f2d483ccd84f1b2cb84a642f55",
+            "selected_passage_text_matches_public": true
+          }
+        },
+        {
+          "path": "KTL/actionData.js",
+          "lines": [
+            1439,
+            1452
+          ],
+          "url": "https://github.com/StopSign/stopsign.github.io/blob/d41bf197f9203e6da6f72628a9d76369b8140d57/KTL/actionData.js#L1439-L1452",
+          "installed": {
+            "buildid": "23044204",
+            "path": "KTL/actionData.js",
+            "lines": [
+              1439,
+              1452
+            ],
+            "sha256": "e2a315b320c3609360cda645a2eeae6abd32f84fcc10355a944122cae25635fd",
+            "selected_passage_text_matches_public": true
+          }
+        },
+        {
+          "path": "KTL/actionData.js",
+          "lines": [
+            1154,
+            1203
+          ],
+          "url": "https://github.com/StopSign/stopsign.github.io/blob/d41bf197f9203e6da6f72628a9d76369b8140d57/KTL/actionData.js#L1154-L1203",
+          "installed": {
+            "buildid": "23044204",
+            "path": "KTL/actionData.js",
+            "lines": [
+              1154,
+              1203
+            ],
+            "sha256": "e2a315b320c3609360cda645a2eeae6abd32f84fcc10355a944122cae25635fd",
+            "selected_passage_text_matches_public": true
+          }
+        }
+      ],
+      "native_map": "src/data/dialogues.js",
+      "status": "original small touch; not claimed present in KTL; not implemented",
+      "acceptance": "Fresh-origin row/consequence proof; save/reload/import for persistent changes."
+    },
+    {
+      "id": "T13",
+      "proposal": "A scouting preparation names the specific threat it addresses",
+      "inspiration": [
+        {
+          "path": "KTL/ktl.js",
+          "lines": [
+            401,
+            454
+          ],
+          "url": "https://github.com/StopSign/stopsign.github.io/blob/d41bf197f9203e6da6f72628a9d76369b8140d57/KTL/ktl.js#L401-L454",
+          "installed": {
+            "buildid": "23044204",
+            "path": "KTL/ktl.js",
+            "lines": [
+              401,
+              454
+            ],
+            "sha256": "d62fb2d75f6a83d1aae716583bec354402387c2764e48436d994dc9d0d9b87a7",
+            "selected_passage_text_matches_public": true
+          }
+        },
+        {
+          "path": "KTL/data/globalsAndInitial.js",
+          "lines": [
+            635,
+            644
+          ],
+          "url": "https://github.com/StopSign/stopsign.github.io/blob/d41bf197f9203e6da6f72628a9d76369b8140d57/KTL/data/globalsAndInitial.js#L635-L644",
+          "installed": {
+            "buildid": "23044204",
+            "path": "KTL/data/globalsAndInitial.js",
+            "lines": [
+              635,
+              644
+            ],
+            "sha256": "20e2935a0547df67db8632ff5184f6efd2d424f2d483ccd84f1b2cb84a642f55",
+            "selected_passage_text_matches_public": true
+          }
+        },
+        {
+          "path": "KTL/actionData3.js",
+          "lines": [
+            570,
+            592
+          ],
+          "url": "https://github.com/StopSign/stopsign.github.io/blob/d41bf197f9203e6da6f72628a9d76369b8140d57/KTL/actionData3.js#L570-L592",
+          "installed": {
+            "buildid": "23044204",
+            "path": "KTL/actionData3.js",
+            "lines": [
+              570,
+              592
+            ],
+            "sha256": "83337832e8e27a73c68a2e0a694e467eaa6a8f83c9a9445429849a06383ec37e",
+            "selected_passage_text_matches_public": true
+          }
+        }
+      ],
+      "native_map": "src/data/locations.js; src/native_battle_contracts.js",
+      "status": "original small touch; not claimed present in KTL; not implemented",
+      "acceptance": "Fresh-origin row/consequence proof; save/reload/import for persistent changes."
+    },
+    {
+      "id": "T14",
+      "proposal": "A known overwhelming enemy can be inspected without implying a fair fight",
+      "inspiration": [
+        {
+          "path": "KTL/ktl.js",
+          "lines": [
+            401,
+            454
+          ],
+          "url": "https://github.com/StopSign/stopsign.github.io/blob/d41bf197f9203e6da6f72628a9d76369b8140d57/KTL/ktl.js#L401-L454",
+          "installed": {
+            "buildid": "23044204",
+            "path": "KTL/ktl.js",
+            "lines": [
+              401,
+              454
+            ],
+            "sha256": "d62fb2d75f6a83d1aae716583bec354402387c2764e48436d994dc9d0d9b87a7",
+            "selected_passage_text_matches_public": true
+          }
+        },
+        {
+          "path": "KTL/data/globalsAndInitial.js",
+          "lines": [
+            635,
+            644
+          ],
+          "url": "https://github.com/StopSign/stopsign.github.io/blob/d41bf197f9203e6da6f72628a9d76369b8140d57/KTL/data/globalsAndInitial.js#L635-L644",
+          "installed": {
+            "buildid": "23044204",
+            "path": "KTL/data/globalsAndInitial.js",
+            "lines": [
+              635,
+              644
+            ],
+            "sha256": "20e2935a0547df67db8632ff5184f6efd2d424f2d483ccd84f1b2cb84a642f55",
+            "selected_passage_text_matches_public": true
+          }
+        },
+        {
+          "path": "KTL/actionData3.js",
+          "lines": [
+            570,
+            592
+          ],
+          "url": "https://github.com/StopSign/stopsign.github.io/blob/d41bf197f9203e6da6f72628a9d76369b8140d57/KTL/actionData3.js#L570-L592",
+          "installed": {
+            "buildid": "23044204",
+            "path": "KTL/actionData3.js",
+            "lines": [
+              570,
+              592
+            ],
+            "sha256": "83337832e8e27a73c68a2e0a694e467eaa6a8f83c9a9445429849a06383ec37e",
+            "selected_passage_text_matches_public": true
+          }
+        }
+      ],
+      "native_map": "src/party_battle.js; src/adventure_notebook.js",
+      "status": "original small touch; not claimed present in KTL; not implemented",
+      "acceptance": "Fresh-origin row/consequence proof; save/reload/import for persistent changes."
+    },
+    {
+      "id": "T15",
+      "proposal": "Returning from a prepared encounter leaves one trace in the biography",
+      "inspiration": [
+        {
+          "path": "KTL/ktl.js",
+          "lines": [
+            401,
+            454
+          ],
+          "url": "https://github.com/StopSign/stopsign.github.io/blob/d41bf197f9203e6da6f72628a9d76369b8140d57/KTL/ktl.js#L401-L454",
+          "installed": {
+            "buildid": "23044204",
+            "path": "KTL/ktl.js",
+            "lines": [
+              401,
+              454
+            ],
+            "sha256": "d62fb2d75f6a83d1aae716583bec354402387c2764e48436d994dc9d0d9b87a7",
+            "selected_passage_text_matches_public": true
+          }
+        },
+        {
+          "path": "KTL/data/globalsAndInitial.js",
+          "lines": [
+            635,
+            644
+          ],
+          "url": "https://github.com/StopSign/stopsign.github.io/blob/d41bf197f9203e6da6f72628a9d76369b8140d57/KTL/data/globalsAndInitial.js#L635-L644",
+          "installed": {
+            "buildid": "23044204",
+            "path": "KTL/data/globalsAndInitial.js",
+            "lines": [
+              635,
+              644
+            ],
+            "sha256": "20e2935a0547df67db8632ff5184f6efd2d424f2d483ccd84f1b2cb84a642f55",
+            "selected_passage_text_matches_public": true
+          }
+        },
+        {
+          "path": "KTL/actionData3.js",
+          "lines": [
+            570,
+            592
+          ],
+          "url": "https://github.com/StopSign/stopsign.github.io/blob/d41bf197f9203e6da6f72628a9d76369b8140d57/KTL/actionData3.js#L570-L592",
+          "installed": {
+            "buildid": "23044204",
+            "path": "KTL/actionData3.js",
+            "lines": [
+              570,
+              592
+            ],
+            "sha256": "83337832e8e27a73c68a2e0a694e467eaa6a8f83c9a9445429849a06383ec37e",
+            "selected_passage_text_matches_public": true
+          }
+        }
+      ],
+      "native_map": "src/life_record.js:41-47",
+      "status": "original small touch; not claimed present in KTL; not implemented",
+      "acceptance": "Fresh-origin row/consequence proof; save/reload/import for persistent changes."
+    },
+    {
+      "id": "T16",
+      "proposal": "An expedition entry preview states that existing life progress stays",
+      "inspiration": [
+        {
+          "path": "KTL/ktl.js",
+          "lines": [
+            401,
+            454
+          ],
+          "url": "https://github.com/StopSign/stopsign.github.io/blob/d41bf197f9203e6da6f72628a9d76369b8140d57/KTL/ktl.js#L401-L454",
+          "installed": {
+            "buildid": "23044204",
+            "path": "KTL/ktl.js",
+            "lines": [
+              401,
+              454
+            ],
+            "sha256": "d62fb2d75f6a83d1aae716583bec354402387c2764e48436d994dc9d0d9b87a7",
+            "selected_passage_text_matches_public": true
+          }
+        },
+        {
+          "path": "KTL/data/globalsAndInitial.js",
+          "lines": [
+            635,
+            644
+          ],
+          "url": "https://github.com/StopSign/stopsign.github.io/blob/d41bf197f9203e6da6f72628a9d76369b8140d57/KTL/data/globalsAndInitial.js#L635-L644",
+          "installed": {
+            "buildid": "23044204",
+            "path": "KTL/data/globalsAndInitial.js",
+            "lines": [
+              635,
+              644
+            ],
+            "sha256": "20e2935a0547df67db8632ff5184f6efd2d424f2d483ccd84f1b2cb84a642f55",
+            "selected_passage_text_matches_public": true
+          }
+        },
+        {
+          "path": "KTL/actionData3.js",
+          "lines": [
+            570,
+            592
+          ],
+          "url": "https://github.com/StopSign/stopsign.github.io/blob/d41bf197f9203e6da6f72628a9d76369b8140d57/KTL/actionData3.js#L570-L592",
+          "installed": {
+            "buildid": "23044204",
+            "path": "KTL/actionData3.js",
+            "lines": [
+              570,
+              592
+            ],
+            "sha256": "83337832e8e27a73c68a2e0a694e467eaa6a8f83c9a9445429849a06383ec37e",
+            "selected_passage_text_matches_public": true
+          }
+        }
+      ],
+      "native_map": "src/data/locations.js; src/display.js",
+      "status": "original small touch; not claimed present in KTL; not implemented",
+      "acceptance": "Fresh-origin row/consequence proof; save/reload/import for persistent changes."
+    },
+    {
+      "id": "T17",
+      "proposal": "A counted routine row states both count and intended output",
+      "inspiration": [
+        {
+          "path": "KTL/automation.js",
+          "lines": [
+            4,
+            32
+          ],
+          "url": "https://github.com/StopSign/stopsign.github.io/blob/d41bf197f9203e6da6f72628a9d76369b8140d57/KTL/automation.js#L4-L32",
+          "installed": {
+            "buildid": "23044204",
+            "path": "KTL/automation.js",
+            "lines": [
+              4,
+              32
+            ],
+            "sha256": "b2bd86fcadda0c8229fdffcc10d0f128e3c16a5857026f8661c9ce1eb1e0cd69",
+            "selected_passage_text_matches_public": true
+          }
+        },
+        {
+          "path": "KTL/automation.js",
+          "lines": [
+            278,
+            342
+          ],
+          "url": "https://github.com/StopSign/stopsign.github.io/blob/d41bf197f9203e6da6f72628a9d76369b8140d57/KTL/automation.js#L278-L342",
+          "installed": {
+            "buildid": "23044204",
+            "path": "KTL/automation.js",
+            "lines": [
+              278,
+              342
+            ],
+            "sha256": "b2bd86fcadda0c8229fdffcc10d0f128e3c16a5857026f8661c9ce1eb1e0cd69",
+            "selected_passage_text_matches_public": true
+          }
+        }
+      ],
+      "native_map": "src/simulation.js:311-329; src/simulation_ui.js",
+      "status": "original small touch; not claimed present in KTL; not implemented",
+      "acceptance": "Fresh-origin row/consequence proof; save/reload/import for persistent changes."
+    },
+    {
+      "id": "T18",
+      "proposal": "A paused task distinguishes player pause from missing ingredients",
+      "inspiration": [
+        {
+          "path": "KTL/automation.js",
+          "lines": [
+            4,
+            32
+          ],
+          "url": "https://github.com/StopSign/stopsign.github.io/blob/d41bf197f9203e6da6f72628a9d76369b8140d57/KTL/automation.js#L4-L32",
+          "installed": {
+            "buildid": "23044204",
+            "path": "KTL/automation.js",
+            "lines": [
+              4,
+              32
+            ],
+            "sha256": "b2bd86fcadda0c8229fdffcc10d0f128e3c16a5857026f8661c9ce1eb1e0cd69",
+            "selected_passage_text_matches_public": true
+          }
+        },
+        {
+          "path": "KTL/automation.js",
+          "lines": [
+            278,
+            342
+          ],
+          "url": "https://github.com/StopSign/stopsign.github.io/blob/d41bf197f9203e6da6f72628a9d76369b8140d57/KTL/automation.js#L278-L342",
+          "installed": {
+            "buildid": "23044204",
+            "path": "KTL/automation.js",
+            "lines": [
+              278,
+              342
+            ],
+            "sha256": "b2bd86fcadda0c8229fdffcc10d0f128e3c16a5857026f8661c9ce1eb1e0cd69",
+            "selected_passage_text_matches_public": true
+          }
+        }
+      ],
+      "native_map": "src/simulation_ui.js; src/crafting_recipes.js",
+      "status": "original small touch; not claimed present in KTL; not implemented",
+      "acceptance": "Fresh-origin row/consequence proof; save/reload/import for persistent changes."
+    },
+    {
+      "id": "T19",
+      "proposal": "A practice row says fuel unavailable separately from method unlearned",
+      "inspiration": [
+        {
+          "path": "KTL/data/globalsAndInitial.js",
+          "lines": [
+            520,
+            525
+          ],
+          "url": "https://github.com/StopSign/stopsign.github.io/blob/d41bf197f9203e6da6f72628a9d76369b8140d57/KTL/data/globalsAndInitial.js#L520-L525",
+          "installed": {
+            "buildid": "23044204",
+            "path": "KTL/data/globalsAndInitial.js",
+            "lines": [
+              520,
+              525
+            ],
+            "sha256": "20e2935a0547df67db8632ff5184f6efd2d424f2d483ccd84f1b2cb84a642f55",
+            "selected_passage_text_matches_public": true
+          }
+        },
+        {
+          "path": "KTL/data/globalsAndInitial.js",
+          "lines": [
+            572,
+            579
+          ],
+          "url": "https://github.com/StopSign/stopsign.github.io/blob/d41bf197f9203e6da6f72628a9d76369b8140d57/KTL/data/globalsAndInitial.js#L572-L579",
+          "installed": {
+            "buildid": "23044204",
+            "path": "KTL/data/globalsAndInitial.js",
+            "lines": [
+              572,
+              579
+            ],
+            "sha256": "20e2935a0547df67db8632ff5184f6efd2d424f2d483ccd84f1b2cb84a642f55",
+            "selected_passage_text_matches_public": true
+          }
+        },
+        {
+          "path": "KTL/actionData4.js",
+          "lines": [
+            112,
+            164
+          ],
+          "url": "https://github.com/StopSign/stopsign.github.io/blob/d41bf197f9203e6da6f72628a9d76369b8140d57/KTL/actionData4.js#L112-L164",
+          "installed": {
+            "buildid": "23044204",
+            "path": "KTL/actionData4.js",
+            "lines": [
+              112,
+              164
+            ],
+            "sha256": "1c9a38a71935e78cc9a8706ae016398b22690780fad0c470b36ba978fc9588d7",
+            "selected_passage_text_matches_public": true
+          }
+        },
+        {
+          "path": "KTL/actionData4.js",
+          "lines": [
+            165,
+            201
+          ],
+          "url": "https://github.com/StopSign/stopsign.github.io/blob/d41bf197f9203e6da6f72628a9d76369b8140d57/KTL/actionData4.js#L165-L201",
+          "installed": {
+            "buildid": "23044204",
+            "path": "KTL/actionData4.js",
+            "lines": [
+              165,
+              201
+            ],
+            "sha256": "1c9a38a71935e78cc9a8706ae016398b22690780fad0c470b36ba978fc9588d7",
+            "selected_passage_text_matches_public": true
+          }
+        },
+        {
+          "path": "KTL/actionData4.js",
+          "lines": [
+            614,
+            641
+          ],
+          "url": "https://github.com/StopSign/stopsign.github.io/blob/d41bf197f9203e6da6f72628a9d76369b8140d57/KTL/actionData4.js#L614-L641",
+          "installed": {
+            "buildid": "23044204",
+            "path": "KTL/actionData4.js",
+            "lines": [
+              614,
+              641
+            ],
+            "sha256": "1c9a38a71935e78cc9a8706ae016398b22690780fad0c470b36ba978fc9588d7",
+            "selected_passage_text_matches_public": true
+          }
+        }
+      ],
+      "native_map": "src/simulation_content.js; src/items.js",
+      "status": "original small touch; not claimed present in KTL; not implemented",
+      "acceptance": "Fresh-origin row/consequence proof; save/reload/import for persistent changes."
+    },
+    {
+      "id": "T20",
+      "proposal": "A tool tooltip explains one method it supports",
+      "inspiration": [
+        {
+          "path": "KTL/data/globalsAndInitial.js",
+          "lines": [
+            520,
+            525
+          ],
+          "url": "https://github.com/StopSign/stopsign.github.io/blob/d41bf197f9203e6da6f72628a9d76369b8140d57/KTL/data/globalsAndInitial.js#L520-L525",
+          "installed": {
+            "buildid": "23044204",
+            "path": "KTL/data/globalsAndInitial.js",
+            "lines": [
+              520,
+              525
+            ],
+            "sha256": "20e2935a0547df67db8632ff5184f6efd2d424f2d483ccd84f1b2cb84a642f55",
+            "selected_passage_text_matches_public": true
+          }
+        },
+        {
+          "path": "KTL/data/globalsAndInitial.js",
+          "lines": [
+            572,
+            579
+          ],
+          "url": "https://github.com/StopSign/stopsign.github.io/blob/d41bf197f9203e6da6f72628a9d76369b8140d57/KTL/data/globalsAndInitial.js#L572-L579",
+          "installed": {
+            "buildid": "23044204",
+            "path": "KTL/data/globalsAndInitial.js",
+            "lines": [
+              572,
+              579
+            ],
+            "sha256": "20e2935a0547df67db8632ff5184f6efd2d424f2d483ccd84f1b2cb84a642f55",
+            "selected_passage_text_matches_public": true
+          }
+        },
+        {
+          "path": "KTL/actionData4.js",
+          "lines": [
+            112,
+            164
+          ],
+          "url": "https://github.com/StopSign/stopsign.github.io/blob/d41bf197f9203e6da6f72628a9d76369b8140d57/KTL/actionData4.js#L112-L164",
+          "installed": {
+            "buildid": "23044204",
+            "path": "KTL/actionData4.js",
+            "lines": [
+              112,
+              164
+            ],
+            "sha256": "1c9a38a71935e78cc9a8706ae016398b22690780fad0c470b36ba978fc9588d7",
+            "selected_passage_text_matches_public": true
+          }
+        },
+        {
+          "path": "KTL/actionData4.js",
+          "lines": [
+            165,
+            201
+          ],
+          "url": "https://github.com/StopSign/stopsign.github.io/blob/d41bf197f9203e6da6f72628a9d76369b8140d57/KTL/actionData4.js#L165-L201",
+          "installed": {
+            "buildid": "23044204",
+            "path": "KTL/actionData4.js",
+            "lines": [
+              165,
+              201
+            ],
+            "sha256": "1c9a38a71935e78cc9a8706ae016398b22690780fad0c470b36ba978fc9588d7",
+            "selected_passage_text_matches_public": true
+          }
+        },
+        {
+          "path": "KTL/actionData4.js",
+          "lines": [
+            614,
+            641
+          ],
+          "url": "https://github.com/StopSign/stopsign.github.io/blob/d41bf197f9203e6da6f72628a9d76369b8140d57/KTL/actionData4.js#L614-L641",
+          "installed": {
+            "buildid": "23044204",
+            "path": "KTL/actionData4.js",
+            "lines": [
+              614,
+              641
+            ],
+            "sha256": "1c9a38a71935e78cc9a8706ae016398b22690780fad0c470b36ba978fc9588d7",
+            "selected_passage_text_matches_public": true
+          }
+        }
+      ],
+      "native_map": "src/items.js; src/activities.js:60-73",
+      "status": "original small touch; not claimed present in KTL; not implemented",
+      "acceptance": "Fresh-origin row/consequence proof; save/reload/import for persistent changes."
+    },
+    {
+      "id": "T21",
+      "proposal": "A milestone estimate labels the assumed location and rate",
+      "inspiration": [
+        {
+          "path": "KTL/automation.js",
+          "lines": [
+            118,
+            128
+          ],
+          "url": "https://github.com/StopSign/stopsign.github.io/blob/d41bf197f9203e6da6f72628a9d76369b8140d57/KTL/automation.js#L118-L128",
+          "installed": {
+            "buildid": "23044204",
+            "path": "KTL/automation.js",
+            "lines": [
+              118,
+              128
+            ],
+            "sha256": "b2bd86fcadda0c8229fdffcc10d0f128e3c16a5857026f8661c9ce1eb1e0cd69",
+            "selected_passage_text_matches_public": true
+          }
+        },
+        {
+          "path": "KTL/driver.js",
+          "lines": [
+            14,
+            23
+          ],
+          "url": "https://github.com/StopSign/stopsign.github.io/blob/d41bf197f9203e6da6f72628a9d76369b8140d57/KTL/driver.js#L14-L23",
+          "installed": {
+            "buildid": "23044204",
+            "path": "KTL/driver.js",
+            "lines": [
+              14,
+              23
+            ],
+            "sha256": "9aac004f85a6fca691ffcbc988d33ea8dc312050210111d49ebcb89b20185144",
+            "selected_passage_text_matches_public": true
+          }
+        },
+        {
+          "path": "KTL/driver.js",
+          "lines": [
+            294,
+            326
+          ],
+          "url": "https://github.com/StopSign/stopsign.github.io/blob/d41bf197f9203e6da6f72628a9d76369b8140d57/KTL/driver.js#L294-L326",
+          "installed": {
+            "buildid": "23044204",
+            "path": "KTL/driver.js",
+            "lines": [
+              294,
+              326
+            ],
+            "sha256": "9aac004f85a6fca691ffcbc988d33ea8dc312050210111d49ebcb89b20185144",
+            "selected_passage_text_matches_public": true
+          }
+        }
+      ],
+      "native_map": "src/display.js:4457-4471",
+      "status": "original small touch; not claimed present in KTL; not implemented",
+      "acceptance": "Fresh-origin row/consequence proof; save/reload/import for persistent changes."
+    },
+    {
+      "id": "T22",
+      "proposal": "A cap or target reached message appears once instead of each tick",
+      "inspiration": [
+        {
+          "path": "KTL/automation.js",
+          "lines": [
+            4,
+            32
+          ],
+          "url": "https://github.com/StopSign/stopsign.github.io/blob/d41bf197f9203e6da6f72628a9d76369b8140d57/KTL/automation.js#L4-L32",
+          "installed": {
+            "buildid": "23044204",
+            "path": "KTL/automation.js",
+            "lines": [
+              4,
+              32
+            ],
+            "sha256": "b2bd86fcadda0c8229fdffcc10d0f128e3c16a5857026f8661c9ce1eb1e0cd69",
+            "selected_passage_text_matches_public": true
+          }
+        },
+        {
+          "path": "KTL/automation.js",
+          "lines": [
+            278,
+            342
+          ],
+          "url": "https://github.com/StopSign/stopsign.github.io/blob/d41bf197f9203e6da6f72628a9d76369b8140d57/KTL/automation.js#L278-L342",
+          "installed": {
+            "buildid": "23044204",
+            "path": "KTL/automation.js",
+            "lines": [
+              278,
+              342
+            ],
+            "sha256": "b2bd86fcadda0c8229fdffcc10d0f128e3c16a5857026f8661c9ce1eb1e0cd69",
+            "selected_passage_text_matches_public": true
+          }
+        }
+      ],
+      "native_map": "src/simulation.js:311-329; src/display.js",
+      "status": "original small touch; not claimed present in KTL; not implemented",
+      "acceptance": "Fresh-origin row/consequence proof; save/reload/import for persistent changes."
+    },
+    {
+      "id": "T23",
+      "proposal": "A future prestige preview lists one retained person and one retained object concretely",
+      "inspiration": [
+        {
+          "path": "KTL/ktl.js",
+          "lines": [
+            612,
+            670
+          ],
+          "url": "https://github.com/StopSign/stopsign.github.io/blob/d41bf197f9203e6da6f72628a9d76369b8140d57/KTL/ktl.js#L612-L670",
+          "installed": {
+            "buildid": "23044204",
+            "path": "KTL/ktl.js",
+            "lines": [
+              612,
+              670
+            ],
+            "sha256": "d62fb2d75f6a83d1aae716583bec354402387c2764e48436d994dc9d0d9b87a7",
+            "selected_passage_text_matches_public": true
+          }
+        },
+        {
+          "path": "KTL/ktl.js",
+          "lines": [
+            278,
+            302
+          ],
+          "url": "https://github.com/StopSign/stopsign.github.io/blob/d41bf197f9203e6da6f72628a9d76369b8140d57/KTL/ktl.js#L278-L302",
+          "installed": {
+            "buildid": "23044204",
+            "path": "KTL/ktl.js",
+            "lines": [
+              278,
+              302
+            ],
+            "sha256": "d62fb2d75f6a83d1aae716583bec354402387c2764e48436d994dc9d0d9b87a7",
+            "selected_passage_text_matches_public": true
+          }
+        },
+        {
+          "path": "KTL/ktl.js",
+          "lines": [
+            325,
+            365
+          ],
+          "url": "https://github.com/StopSign/stopsign.github.io/blob/d41bf197f9203e6da6f72628a9d76369b8140d57/KTL/ktl.js#L325-L365",
+          "installed": {
+            "buildid": "23044204",
+            "path": "KTL/ktl.js",
+            "lines": [
+              325,
+              365
+            ],
+            "sha256": "d62fb2d75f6a83d1aae716583bec354402387c2764e48436d994dc9d0d9b87a7",
+            "selected_passage_text_matches_public": true
+          }
+        },
+        {
+          "path": "KTL/ktl.js",
+          "lines": [
+            148,
+            196
+          ],
+          "url": "https://github.com/StopSign/stopsign.github.io/blob/d41bf197f9203e6da6f72628a9d76369b8140d57/KTL/ktl.js#L148-L196",
+          "installed": {
+            "buildid": "23044204",
+            "path": "KTL/ktl.js",
+            "lines": [
+              148,
+              196
+            ],
+            "sha256": "d62fb2d75f6a83d1aae716583bec354402387c2764e48436d994dc9d0d9b87a7",
+            "selected_passage_text_matches_public": true
+          }
+        },
+        {
+          "path": "KTL/actionDataFunctions.js",
+          "lines": [
+            59,
+            110
+          ],
+          "url": "https://github.com/StopSign/stopsign.github.io/blob/d41bf197f9203e6da6f72628a9d76369b8140d57/KTL/actionDataFunctions.js#L59-L110",
+          "installed": {
+            "buildid": "23044204",
+            "path": "KTL/actionDataFunctions.js",
+            "lines": [
+              59,
+              110
+            ],
+            "sha256": "f7963c0f266014e2c32faab8fcca022dfb846571b2935b1d556a2345d7a29cf3",
+            "selected_passage_text_matches_public": true
+          }
+        },
+        {
+          "path": "KTL/ktl.js",
+          "lines": [
+            770,
+            779
+          ],
+          "url": "https://github.com/StopSign/stopsign.github.io/blob/d41bf197f9203e6da6f72628a9d76369b8140d57/KTL/ktl.js#L770-L779",
+          "installed": {
+            "buildid": "23044204",
+            "path": "KTL/ktl.js",
+            "lines": [
+              770,
+              779
+            ],
+            "sha256": "d62fb2d75f6a83d1aae716583bec354402387c2764e48436d994dc9d0d9b87a7",
+            "selected_passage_text_matches_public": true
+          }
+        },
+        {
+          "path": "KTL/upgradeData.js",
+          "lines": [
+            975,
+            985
+          ],
+          "url": "https://github.com/StopSign/stopsign.github.io/blob/d41bf197f9203e6da6f72628a9d76369b8140d57/KTL/upgradeData.js#L975-L985",
+          "installed": {
+            "buildid": "23044204",
+            "path": "KTL/upgradeData.js",
+            "lines": [
+              975,
+              985
+            ],
+            "sha256": "3f58692e40bacde13ed2a64a9d8a68ef784ee4e09447956887a7f13bb8f9bab7",
+            "selected_passage_text_matches_public": true
+          }
+        }
+      ],
+      "native_map": "src/save_files.js; src/chronicle.js",
+      "status": "original small touch; not claimed present in KTL; not implemented",
+      "acceptance": "Fresh-origin row/consequence proof; save/reload/import for persistent changes."
+    },
+    {
+      "id": "T24",
+      "proposal": "A later prestige history can record the chosen purpose instead of only a count",
+      "inspiration": [
+        {
+          "path": "KTL/ktl.js",
+          "lines": [
+            612,
+            670
+          ],
+          "url": "https://github.com/StopSign/stopsign.github.io/blob/d41bf197f9203e6da6f72628a9d76369b8140d57/KTL/ktl.js#L612-L670",
+          "installed": {
+            "buildid": "23044204",
+            "path": "KTL/ktl.js",
+            "lines": [
+              612,
+              670
+            ],
+            "sha256": "d62fb2d75f6a83d1aae716583bec354402387c2764e48436d994dc9d0d9b87a7",
+            "selected_passage_text_matches_public": true
+          }
+        },
+        {
+          "path": "KTL/ktl.js",
+          "lines": [
+            278,
+            302
+          ],
+          "url": "https://github.com/StopSign/stopsign.github.io/blob/d41bf197f9203e6da6f72628a9d76369b8140d57/KTL/ktl.js#L278-L302",
+          "installed": {
+            "buildid": "23044204",
+            "path": "KTL/ktl.js",
+            "lines": [
+              278,
+              302
+            ],
+            "sha256": "d62fb2d75f6a83d1aae716583bec354402387c2764e48436d994dc9d0d9b87a7",
+            "selected_passage_text_matches_public": true
+          }
+        },
+        {
+          "path": "KTL/ktl.js",
+          "lines": [
+            325,
+            365
+          ],
+          "url": "https://github.com/StopSign/stopsign.github.io/blob/d41bf197f9203e6da6f72628a9d76369b8140d57/KTL/ktl.js#L325-L365",
+          "installed": {
+            "buildid": "23044204",
+            "path": "KTL/ktl.js",
+            "lines": [
+              325,
+              365
+            ],
+            "sha256": "d62fb2d75f6a83d1aae716583bec354402387c2764e48436d994dc9d0d9b87a7",
+            "selected_passage_text_matches_public": true
+          }
+        },
+        {
+          "path": "KTL/ktl.js",
+          "lines": [
+            148,
+            196
+          ],
+          "url": "https://github.com/StopSign/stopsign.github.io/blob/d41bf197f9203e6da6f72628a9d76369b8140d57/KTL/ktl.js#L148-L196",
+          "installed": {
+            "buildid": "23044204",
+            "path": "KTL/ktl.js",
+            "lines": [
+              148,
+              196
+            ],
+            "sha256": "d62fb2d75f6a83d1aae716583bec354402387c2764e48436d994dc9d0d9b87a7",
+            "selected_passage_text_matches_public": true
+          }
+        },
+        {
+          "path": "KTL/actionDataFunctions.js",
+          "lines": [
+            59,
+            110
+          ],
+          "url": "https://github.com/StopSign/stopsign.github.io/blob/d41bf197f9203e6da6f72628a9d76369b8140d57/KTL/actionDataFunctions.js#L59-L110",
+          "installed": {
+            "buildid": "23044204",
+            "path": "KTL/actionDataFunctions.js",
+            "lines": [
+              59,
+              110
+            ],
+            "sha256": "f7963c0f266014e2c32faab8fcca022dfb846571b2935b1d556a2345d7a29cf3",
+            "selected_passage_text_matches_public": true
+          }
+        },
+        {
+          "path": "KTL/ktl.js",
+          "lines": [
+            770,
+            779
+          ],
+          "url": "https://github.com/StopSign/stopsign.github.io/blob/d41bf197f9203e6da6f72628a9d76369b8140d57/KTL/ktl.js#L770-L779",
+          "installed": {
+            "buildid": "23044204",
+            "path": "KTL/ktl.js",
+            "lines": [
+              770,
+              779
+            ],
+            "sha256": "d62fb2d75f6a83d1aae716583bec354402387c2764e48436d994dc9d0d9b87a7",
+            "selected_passage_text_matches_public": true
+          }
+        },
+        {
+          "path": "KTL/upgradeData.js",
+          "lines": [
+            975,
+            985
+          ],
+          "url": "https://github.com/StopSign/stopsign.github.io/blob/d41bf197f9203e6da6f72628a9d76369b8140d57/KTL/upgradeData.js#L975-L985",
+          "installed": {
+            "buildid": "23044204",
+            "path": "KTL/upgradeData.js",
+            "lines": [
+              975,
+              985
+            ],
+            "sha256": "3f58692e40bacde13ed2a64a9d8a68ef784ee4e09447956887a7f13bb8f9bab7",
+            "selected_passage_text_matches_public": true
+          }
+        }
+      ],
+      "native_map": "src/life_record.js:41-47; src/chronicle.js",
+      "status": "original small touch; not claimed present in KTL; not implemented",
+      "acceptance": "Fresh-origin row/consequence proof; save/reload/import for persistent changes."
+    }
+  ],
+  "live_yair_baseline": [
+    "Existing counted programs/pause/resume src/simulation.js:311-329",
+    "Existing bounded biography src/life_record.js:41-47",
+    "Existing 4 MiB origin save guard src/save_files.js:166-190",
+    "Existing reading time/progress src/display.js:4457-4471",
+    "Existing bounded predetermined household src/npc_lives.js:5-39"
+  ],
+  "reset_qualifications": [
+    "MECHANICS.md roughly-50-Amulets and roughly-two-months claims are author estimates only, unmeasured.",
+    "Severance UI availability checks monolith completion and kill ranges; no fixed Amulet-count trigger shown by inspected controller.",
+    "Genesis button enabled by buying newGamePlus, not a verified fixed count/time gate.",
+    "Controller confirmation checks and source UI predicates kept distinct.",
+    "Amulet/severance preserve automation configuration by not clearing customTriggers while resetting fired flags/current index; later Genesis retention depends on other reset paths and perks, not declared unconditional.",
+    "Installed controller bodies corroborate the previous reset distinction; added MECHANICS debug prose neither changes reset triggers nor establishes months/50-use pacing. Genesis exceptions and perk-dependent retention make the documentation hard-reset shorthand insufficient as a complete loss matrix."
+  ],
+  "save_ui_separation": {
+    "evidence": [
+      {
+        "path": "KTL/saving.js",
+        "lines": [
+          351,
+          359
+        ],
+        "url": "https://github.com/StopSign/stopsign.github.io/blob/d41bf197f9203e6da6f72628a9d76369b8140d57/KTL/saving.js#L351-L359",
+        "installed": {
+          "buildid": "23044204",
+          "path": "KTL/saving.js",
+          "lines": [
+            351,
+            359
+          ],
+          "sha256": "d5b73c580c2c2cd46359deab9904de76869f4033543932a98ffd6aaf3e4c953a",
+          "selected_passage_text_matches_public": true
+        }
+      },
+      {
+        "path": "KTL/saving.js",
+        "lines": [
+          400,
+          421
+        ],
+        "url": "https://github.com/StopSign/stopsign.github.io/blob/d41bf197f9203e6da6f72628a9d76369b8140d57/KTL/saving.js#L400-L421",
+        "installed": {
+          "buildid": "23044204",
+          "path": "KTL/saving.js",
+          "lines": [
+            400,
+            421
+          ],
+          "sha256": "d5b73c580c2c2cd46359deab9904de76869f4033543932a98ffd6aaf3e4c953a",
+          "selected_passage_text_matches_public": true
+        }
+      },
+      {
+        "path": "KTL/index.html",
+        "lines": [
+          493,
+          494
+        ],
+        "url": "https://github.com/StopSign/stopsign.github.io/blob/d41bf197f9203e6da6f72628a9d76369b8140d57/KTL/index.html#L493-L494",
+        "installed": {
+          "buildid": "23044204",
+          "path": "KTL/index.html",
+          "lines": [
+            493,
+            494
+          ],
+          "sha256": "484ee164f085f4b1c780f8e759d996eb244e01498446ad889e972537df729514",
+          "selected_passage_text_matches_public": false
+        }
+      }
+    ],
+    "observation": "Installed saving.js:351-359 still writes schema-extracted localStorage and still comments out saveToSteamCloud. Unlike public entry, index.html:493-494 enables Steam scripts and globalsAndInitial.js:109 enables Steam. preload.js:3-9 exposes cloud bridges, main.js:64-112 implements guarded cloud handlers, and saving.js:77-132 attempts cloud load before local decode. Static support is asymmetric: cloud load can overwrite localStorage when successful, normal save does not invoke cloud write. No cloud/save/import behavior executed.",
+    "historical_public_observation": "Public web save writes cloned/schema-extracted data to localStorage; Steam cloud save call and Steam scripts are commented in the inspected web entry. Copy/import and compressed-file routes exist statically but were not run. No claim of cloud parity or safety acceptance."
+  },
+  "audit_mode": "installed bounded static six-chain pass; original public evidence retained as corroboration",
+  "installed_buildid": "23044204",
+  "private_evidence_root": "/Users/weiwei/.codex/research/kill-the-lich-idle/installed_source",
+  "installed_comparison": {
+    "receipt": "/Users/weiwei/.codex/research/kill-the-lich-idle/INSTALLED_WEB_COMPARISON.json",
+    "selected": 23,
+    "exact_match": 0,
+    "different": 22,
+    "absent": 1,
+    "normalized_match": 19,
+    "interpretation": "19 text-identical files differ only by CRLF; globals/init and index differ only in Steam activation, mechanics differs in documentation. Core selected mechanics are corroborated by installed code, not inferred from store description."
+  },
+  "installed_additional_findings": [
+    {
+      "id": "I1",
+      "observation": "Installed entry activates Steam scripts/isSteam. Selected engine/routing/reset/automation/action files are newline-normalized identical, so six prior gameplay chains hold for this bounded shipped pass.",
+      "evidence": [
+        "KTL/index.html:490-495",
+        "KTL/data/globalsAndInitial.js:106-111",
+        "main.js:1-14",
+        "package.json:1-11"
+      ]
+    },
+    {
+      "id": "I2",
+      "observation": "Offline absence adds bonus-time credit after >5s, adjusts cooldown/daily counters. skipTime spends instantTime and uses 1 tick/second before restoring 20. Neither numerical equivalence nor actual long-term pacing measured.",
+      "evidence": [
+        "KTL/driver.js:14-25",
+        "KTL/driver.js:294-327"
+      ]
+    },
+    {
+      "id": "I3",
+      "observation": "Scheduler limits real elapsed catch-up to 2000ms and base ticks to 40, but totalTicksToRun is subsequently multiplied by speed and processed in an uncapped inner loop. Added debug playbook recommends further caps; it is documentation, not evidence they shipped.",
+      "evidence": [
+        "KTL/helpers/interval2.js:14-58",
+        "KTL/MECHANICS.md:38-48"
+      ]
+    },
+    {
+      "id": "I4",
+      "observation": "Ordinary actions run until confrontation transition. Entry checks knowledge and mana quality then stops non-plane-2 actions except repose; separate Amulet resets and preserves selected unlock state. Social nodes give authored work/information rather than autonomous NPC minds.",
+      "evidence": [
+        "KTL/ktl.js:401-454",
+        "KTL/ktl.js:612-670",
+        "KTL/actionData.js:1154-1203",
+        "KTL/actionData.js:1439-1452"
+      ]
+    },
+    {
+      "id": "I5",
+      "observation": "Public MIT license remains historic web provenance. Shipped package reports UNLICENSED; no permission for copying installed package inferred. Original designs remain proposals, no code copied.",
+      "evidence": [
+        "package.json:8",
+        "private INSTALLED_WEB_COMPARISON.json LICENSE.md absent"
+      ]
+    }
+  ],
+  "native_mapping_qualification": "Native file/line pointers are retained candidate owners from the prior audit, not API contracts or gameplay proof. Concurrent YAIR work is preserved; recheck current owners before implementation."
+}

@@ -1,0 +1,60 @@
+{
+  "url": "http://127.0.0.1:18619",
+  "findings": [
+    "The preserved pending count loads, issues its original sample/cause and wage once; four coins then transfer two staves and invalidate the old count.",
+    "Native generated-file import restores prior money, staves and dated report after a real knife purchase changed them.",
+    "The purchased pair becomes two native kits and satisfies Eda\u2019s existing paid kit order.",
+    "Cancelling the actual count returns its fee without a report or Eda wage.",
+    "The paid estimate discloses its bracket and cannot authorize a pair.",
+    "The existing single-stave purchase invalidates the same exact-count witness."
+  ],
+  "errors": [],
+  "limits": [
+    "Generated funded workshop fixture, not natural opening progression or director balance acceptance.",
+    "Separate support-loss and malformed-import browser branches remain open; bounded validators cover their model rules."
+  ],
+  "schema": 1,
+  "build_receipt": "../boh-r2-BUILD.json",
+  "bundle_sha256": "315d17d7c6b3141e187e1065976a6e28e41c02348feb94e32f8a3085c220cb5b",
+  "proof_script": "followthrough.cjs",
+  "verification": "bounded fresh-context browser paths passed; not director acceptance",
+  "source_files": [
+    {
+      "path": "src/steam_df_content.js",
+      "kind": "filesystem-source",
+      "sha256": "f8799fbd707b47f41d742198514e77770893d44ad51577827a2a5192ba3328a9"
+    },
+    {
+      "path": "src/steam_df_runtime.js",
+      "kind": "filesystem-source",
+      "sha256": "82beaf66b08198d78c55fbe86e6853fb53f51ae116dfe1575232cc5b2de3f3d3"
+    },
+    {
+      "path": "src/steam_df_facts.js",
+      "kind": "filesystem-source",
+      "sha256": "f468dea5bcb3cf7bf0a344882460c7e7a89af2f53e13a451acaf5d18b2b8e5b0"
+    },
+    {
+      "path": "src/feature_expansion_objects_host.js",
+      "kind": "filesystem-source",
+      "sha256": "9577d0f114f8d7a131dd3eaf96b521f533f0f8e54d2d196ff02864f1dbfe1012"
+    },
+    {
+      "path": "src/simulation_effects.js",
+      "kind": "filesystem-source",
+      "sha256": "bd9dde5ea0e09510a6111ac6c99e139c89ce94afc2ae4ae9772213b089408620"
+    },
+    {
+      "path": "src/simulation.js",
+      "kind": "filesystem-source",
+      "sha256": "400768a5b415ba76b3308068dfbb5129575baa5a6c909e0d1a2dcaf449cd3288"
+    },
+    {
+      "path": "src/steam_df_host.js",
+      "kind": "filesystem-source",
+      "sha256": "86f0f29a33e41893a7cdda9b6b904fde8f6b84175378a26809cb9e8881a7eecc"
+    }
+  ],
+  "screenshot": "/tmp/yairpg-nonfactorio-proof/df-followthrough/kit-order.png",
+  "fixture_scope": "Generated funded hero and actual Eda opening. No user save read or modified."
+}

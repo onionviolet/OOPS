@@ -1,0 +1,41 @@
+# Source requests for Weibao
+
+Started 2026-10-10. Weibao: "send out broad research, but then make a point
+to make me find source material if need be". Research lanes add a row here
+when they need text they can't get politely by script (Cloudflare checks,
+login walls, paid chapters, robots refusals). Weibao fetches it in his own
+browser and drops the file in the inbox. Agents don't pass bot checks or log
+in for him.
+
+## How to fetch (WebToEpub in your Chrome)
+
+1. Install **WebToEpub** (free, open source, by dteviot) from the Chrome Web
+   Store, once.
+2. Open the book's index page in Chrome. If a "checking your browser" or
+   "verify you are human" page appears, pass it yourself as normal.
+3. Click the WebToEpub icon. It lists the chapters. If the site isn't
+   recognized, its default parser usually still works; pick the chapter
+   content element if asked.
+4. **Be polite:** in WebToEpub's advanced options set pages fetched at once
+   to **1**, and add a per-page delay of about **5000 ms** if the option is
+   shown. Grab what you want to read now, not the whole site.
+5. Save the EPUB into
+   `~/code/yet-another-idle-rpg/docs/research/novels/inbox/` (gitignored),
+   then tell Claude; the reading lane picks it up.
+
+## Open requests
+
+| ID | Book | Where | Why | Status |
+|---|---|---|---|---|
+| S1 | 巫师你好，我是伪人 (B1) | https://ttks.tw/novel/chapters/wushinihaowoshiweiren/index.html | Power types; Qidian blocks AI agents, no free mirror | Open |
+| S2 | 一年抽取一词条，模拟的也可以？ (B2) | https://ttks.tw/novel/chapters/yinianchouquyicitiaomonideyekeyi/index.html | Fanqie gave chapters 1 to 10 free; rest locked | Open (from ch. 11) |
+| S3 | 咒回：特级的我去死灭打宿傩了！ (B3, JJK world) | https://ttks.tw/novel/chapters/zhouhuitejidewoqusimiedasunuole/index.html | Same; vows, domains and Culling Game | Open (from ch. 11) |
+| S4 | 全人类的继承者 (B4) | https://ttks.tw/novel/chapters/quanrenleidejichengzhe/index.html | Inheritance idea; Qidian blocks AI agents | Open |
+| S5 | feitubianjingjianchaguan (B5, title to confirm) | https://ttks.tw/novel/chapters/feitubianjingjianchaguan/index.html | Added by Weibao 2026-10-10 | Open |
+
+69shu (69shuba and its other domains) also works as a source in your
+browser if a book is there.
+
+## Done
+
+(none yet)

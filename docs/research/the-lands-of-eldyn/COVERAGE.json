@@ -1,0 +1,89 @@
+{
+  "date": "2026-10-09",
+  "status": "complete within installed app-owned wrapper scope",
+  "source_audit_complete": true,
+  "source_audit_scope": "local wrapper only, not full game",
+  "full_game_mechanic_audit_complete": false,
+  "reviewed": [
+    {
+      "file": "src/main/main.js",
+      "sha256": "04382573eed32a74d291b35ac197218f5db28e79c5c5a82c183cd520bc0750e0",
+      "coverage": "full readable app-owned file or bundle structural inspection"
+    },
+    {
+      "file": "static/preload.js",
+      "sha256": "6a87037c2b1d97b3647d0bb51c66a264c1494dbad906c90ff3c3764ba610767d",
+      "coverage": "full readable app-owned file or bundle structural inspection"
+    },
+    {
+      "file": "static/index.html",
+      "sha256": "ebb192e096dcf60df1f23b62340c65078ce60219c24c477ff62d7ea2c9da7a4b",
+      "coverage": "full readable app-owned file or bundle structural inspection"
+    },
+    {
+      "file": "static/styles.css",
+      "sha256": "d8860f7e152a66509835caf40d67152c87d5b6cdeff83d5cdb5379837d4bf309",
+      "coverage": "full readable app-owned file or bundle structural inspection"
+    },
+    {
+      "file": "package.json",
+      "sha256": "5fa27c324a80234ea6076634f7a4ae323c376f05e94bbcb57888a6066261a44c",
+      "coverage": "full readable app-owned file or bundle structural inspection"
+    },
+    {
+      "file": "main.js",
+      "sha256": "83c86292dca841c2c0e405655bce27a43ba26e69d7137e763c2b9013e1d28851",
+      "coverage": "full readable app-owned file or bundle structural inspection"
+    },
+    {
+      "file": "renderer.js",
+      "sha256": "f83c03d0b2d8166e9e9ebd156171e0da812b409764f07908eacdff46b7b09e3c",
+      "coverage": "full readable app-owned file or bundle structural inspection"
+    },
+    {
+      "file": "main.js.map",
+      "sha256": "5af35cb2c2b13e3620b9297ad956580b0b72f2348a8b1c6b82cfdd8db77744bd",
+      "coverage": "full readable app-owned file or bundle structural inspection"
+    },
+    {
+      "file": "renderer.js.map",
+      "sha256": "0701ab11bb40e0fb30ca36c667d97f579a3381608776c056a9c6cc48c8cbf278",
+      "coverage": "full readable app-owned file or bundle structural inspection"
+    },
+    {
+      "file": "index.html",
+      "sha256": "8bf1ef01103294b8d0ada4ef7290af57559302a2f720b41b7f3048a76e37fe75",
+      "coverage": "full readable app-owned file or bundle structural inspection"
+    },
+    {
+      "file": "steam_appid.txt",
+      "sha256": "3fa9a2144e45ebfaf912e98053585ab716e4baf0e0b642dff2a5fca0bda74d10",
+      "coverage": "full readable app-owned file or bundle structural inspection"
+    }
+  ],
+  "source_maps": "names/mappings only, no sourcesContent; main map names src/main/main.js, renderer map only webpack bootstrap",
+  "not_reviewed": [
+    "remote eldyn.io client and server mechanics (not present locally)",
+    "third-party Electron/Greenworks dependency internals",
+    "DLC entitlement or payload",
+    "territory, army, combat, economy, aging, relationships, persistence/server authority mechanics"
+  ],
+  "not_exercised": [
+    "game launch",
+    "network/authentication",
+    "rendered UI",
+    "faction join",
+    "combat/progression/pacing",
+    "game save/reload/import"
+  ],
+  "excluded_from_selected_inventory": [
+    "release automation",
+    "Steam SDK packaging scripts"
+  ],
+  "verification_receipt": "/Users/weiwei/.codex/research/the-lands-of-eldyn/AUDIT_VERIFICATION.json",
+  "copy_verified": true,
+  "finding_count": 5,
+  "proposal_count": 5,
+  "small_touch_count": 22,
+  "no_source_feature_claim_for_proposals": true
+}

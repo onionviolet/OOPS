@@ -152,7 +152,17 @@ families, each with the loop it adds.
 | Heroic spirit summoning | Call the dead heroes of a world | Summon, bond | Spirit slots | Kairos' ship of the dead; Fate-style |
 | Pocket world | Own and grow a small world | Plant, populate, expand | World size, inhabitants | Fated Villain's inner universe; Primordial's loaned realm |
 
-Total so far: 45 families. Families overlap and combine; the table is a
+Added after the Virtuous Demon deep dive (proposal, 2026-10-10; see
+[held systems](LIFE_SIM_NORTH_STAR.md#expanded-after-the-virtuous-demon-read-proposal-2026-10-10)):
+
+| Cheat family | The loop it adds | New verbs | New resources | Examples or tropes |
+|---|---|---|---|---|
+| Parasite system | Generous rewards that steer you; win back your freedom | Accept, refuse, notice, bargain | Steer, autonomy | Virtuous Demon's Oracle of Yonder (quests, erased doubts, forced acts) |
+| Sealed blessing | Carry a locked gift, grow into it or have it stolen | Train around it, unseal, guard | True grade (hidden), seal strength | Virtuous Demon's sealed SSS+ swordsmanship |
+| Narrow curse | One exact combination is blocked; pay to force it | Avoid, override at a cost | Blood price, workaround mastery | Sword plus Qi grows blades from the body; a million-rep single cut |
+| Threat sight | Rate everyone by danger to you, capped by your rank | Gauge, flag | Threat tags | A system's S-to-SSS threat gauge |
+
+Total so far: 49 families. Families overlap and combine; the table is a
 starting vocabulary, not a closed list.
 
 ## Implementation (proposal, from reading the code on 2026-10-10)
@@ -177,6 +187,8 @@ What exists that a cheat can build on (read, not run):
   new save.
 - **Observation.** Capability queries (`src/capabilities.js`) are the
   natural place for "who can sense this cheat".
+
+Code audit of what exists, what is missing, risks and build order: [cheat implementation audit](audits/cheat-implementation-2026-10-10/REPORT.md). Simulators in depth (engines, modes, honesty, keeps) and every pilot cheat family mapped to engine pieces: [simulators and cheat implementation](SIMULATORS_AND_CHEAT_IMPLEMENTATION.md).
 
 **Proposed shape of a card in data:**
 - `id`, `family`, `backing`, `terms` (patron terms), `scope`.

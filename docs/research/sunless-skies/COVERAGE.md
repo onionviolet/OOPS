@@ -1,0 +1,13 @@
+# Coverage and limits
+
+**Seen in data or code:** recovered Assembly-CSharp method bodies,12 TextAssets, five decoded binary tables, full20-row level/10-row deck/4-group affiliation configs and a partial main configuration prefix. Binary-reader scripts assert every full table ends exactly at EOF, validate optional booleans and bound strings; source readers/field order remain inspectable. This validates structural recovery, not the correctness of every authored story or gameplay execution.
+
+Reviewed: LegacyService and its callers, continuation UI/display, new character completion, Merciful death routing, XP transfer and recovered level table, selected persistent flags/Hybras consumer, heirloom-gated facets, storylet selection/branch costs/rare outcomes, hunger/supplies/Petrichor, starvation/desperation chain, terror rates and mutiny/nightmare aftermath, port refresh and first-visit award.21 selected roots are traced privately. Enumerated persistent flags and deck joins; structural parsing of all rows is not semantic reading of all rows.
+
+Unread/opaque: most narrative content, all facet outcomes and individual victories, full quest reset matrix, exact actor relationships, all affiliation item earning paths, final-voyage chart save boundaries, normal save hydration and crash/atomicity behavior, cloud saves, imported overrides, full combat and platform UI behavior, all scenes/assets, main config bytes396-872, other resources/sharedassets. No personal saves or settings read. No launch or save/reload/import check permitted.
+
+**Seen in data or code:** manifest declares one installed macOS depot596972 and no separate DLC app in that manifest. No claim that this excludes bundled/free story updates or proves entitlement. Source contains gamepad, difficulty and post-level20 development code, but this pass does not audit every Sovereign Edition change. Unity version/build are recorded; historical web explanations are not promoted to current build behavior.
+
+**Seen in text:** the 2019 developer comparison reports excessive Sea death penalties and the intended retention changes. Its XP description differs from the installed method/table; both are recorded. Failed Reddit fetches were not retried or relied on. No broader player consensus claimed.
+
+Artifacts are private and proportional, about71 MB; resources.assets read in place. Removed only our unused temporary config candidates. All retained files have SHA256 in RETENTION. No source/build/commit, install/settings/save mutation or uninstall. Assigned finite source pass complete; whole-game semantic coverage and runtime validation are not claimed.

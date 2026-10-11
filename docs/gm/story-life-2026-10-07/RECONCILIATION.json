@@ -1,0 +1,26 @@
+{
+  "checkpoint_commit": "68694413",
+  "files": {
+    "src/causal_story_content.js": {
+      "before": "621734abc98faa1db3b095ccce1d83dabeb927fc7adbe09a8a7562c75c3b5ef2",
+      "bundle_source_matches_before": true,
+      "current": "cf934fe1e142d59b82ca7242c3fa5bb9e8371b8701376e58db5d69dd41dfc736",
+      "current_matches_checkpoint_commit": true
+    },
+    "src/causal_story_host.js": {
+      "before": "430c0b84da05a565e47df300e0fe3d35a0e2d70b4cc2545795888c65aef2a044",
+      "bundle_source_matches_before": true,
+      "current": "3ff2c0cc204da4f100b51b6b6c006e1268b751cc521ebef09be42faec8a2a2cb",
+      "current_matches_checkpoint_commit": true
+    },
+    "src/causal_story_ui.js": {
+      "before": "924bed5695ea8b75cfc76dea61815824d236d8ea46757cadbca8b05e4b512a65",
+      "bundle_source_matches_before": true,
+      "current": "e3dc37fad434bcb52c0274c690a69523ea7e2e5bdd6ff318d32d86d74e58ef30",
+      "current_matches_checkpoint_commit": true
+    }
+  },
+  "scene_matches_checkpoint": true,
+  "no_live_child_writer": true,
+  "source_module_writer": "root"
+}

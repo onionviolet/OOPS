@@ -1,0 +1,128 @@
+{
+  "status": "complete-source-audit",
+  "buildid": "11640258",
+  "method": "static read-only source recovery, no launch",
+  "indexed_counts": {
+    "skills": 12,
+    "jobs": 69,
+    "construction": 53,
+    "exploration": 307,
+    "chapters": 11
+  },
+  "read_and_traced": [
+    {
+      "area": "generation reset, restart and NG+",
+      "locators": [
+        "decoded.js:13141-13299",
+        "decoded.js:14031-14111"
+      ],
+      "depth": "method bodies"
+    },
+    {
+      "area": "skills, XP and multipliers",
+      "locators": [
+        "decoded.js:1248-1640"
+      ],
+      "depth": "core method bodies and skill table"
+    },
+    {
+      "area": "life clock, decay, food, death, offline and pausing",
+      "locators": [
+        "decoded.js:387-404",
+        "decoded.js:15243-15403",
+        "decoded.js:15767-16027"
+      ],
+      "depth": "core paths, no dynamic validation"
+    },
+    {
+      "area": "automation thresholds and priority scheduling",
+      "locators": [
+        "decoded.js:13452-13551",
+        "decoded.js:15736-15784",
+        "decoded.js:2279-2302",
+        "decoded.js:2550-2620"
+      ],
+      "depth": "threshold, eligibility and refill paths; not exhaustive tie/late-game branch testing"
+    },
+    {
+      "area": "opening jobs/buildings/explorations",
+      "locators": [
+        "decoded.js:2669-2767",
+        "decoded.js:4990-5055",
+        "decoded.js:6399-6600"
+      ],
+      "depth": "sampled authored progression"
+    },
+    {
+      "area": "artifact persistence and loop lore",
+      "locators": [
+        "decoded.js:9242-9268",
+        "decoded.js:9748-9765",
+        "decoded.js:10410-10432",
+        "decoded.js:10707-10768",
+        "decoded.js:13552-13676",
+        "decoded.js:11760-11777"
+      ],
+      "depth": "targeted method/text reading"
+    },
+    {
+      "area": "HTML tutorial, UI and settings",
+      "locators": [
+        "source/electron-index.html:30-101",
+        "source/electron-index.html:139-194",
+        "source/electron-index.html:270-291",
+        "source/electron-index.html:330-480"
+      ],
+      "depth": "text and DOM, no render"
+    },
+    {
+      "area": "save layout and history",
+      "locators": [
+        "decoded.js:17243-17356",
+        "decoded.js:17793-17876",
+        "decoded.js:13655-13676"
+      ],
+      "depth": "schema/history/saving code read; no save data"
+    },
+    {
+      "area": "YAIR packet destinations",
+      "locators": [
+        "src/life_experience.js",
+        "src/life_record.js",
+        "src/chronicle.js:273-281",
+        "src/simulation.js:311-328,499-536",
+        "src/save_files.js:170-193"
+      ],
+      "depth": "read-only mapping, no whole-system verification"
+    }
+  ],
+  "indexed_not_fully_read": [
+    "all late-game story branches and combat/boss behavior",
+    "all 307 exploration onComplete/canRun branches",
+    "all assets/styles and external dependencies"
+  ],
+  "opaque_or_unverified": [
+    "original unobfuscated symbol names unavailable",
+    "no dynamic semantics equivalence proof of decoder",
+    "no first-life/later-life real-time measurements",
+    "no actual rendered UI, accessibility or usability exercise",
+    "no actual save/import/reload or migration execution",
+    "no player-review sample",
+    "no autonomous family/random-birth subsystem found in reviewed reset/schema; bounded absence claim only",
+    "bundled Electron runtime version not determined"
+  ],
+  "excluded": [
+    "user saves and settings",
+    "Steam user/account state beyond app installation manifest",
+    "native game launch",
+    "large binaries/fonts/audio/vendor module internals",
+    "other research lanes",
+    "YAIR edits/builds/commits"
+  ],
+  "retention_receipts": [
+    "~/.codex/research/increlution/RETENTION.json",
+    "~/.codex/research/increlution/EXTRACTION_RECEIPT.json",
+    "~/.codex/research/increlution/TABLE_INDEX.json"
+  ],
+  "followup_acceptance": "Only a separately authorized implementation would require YAIR build/fresh-browser/save compatibility gates. Runtime source-game checking remains unperformed under no-launch instruction."
+}

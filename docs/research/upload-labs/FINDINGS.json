@@ -1,0 +1,770 @@
+{
+  "date": "2026-10-09T20:36:49.908707+00:00",
+  "status": "installed-source-static-audit-complete-with-explicit-gaps",
+  "source_binding": {
+    "appid": 3606890,
+    "buildid": "23748080",
+    "private_root": "/Users/weiwei/.codex/research/upload-labs"
+  },
+  "findings": [
+    {
+      "id": "F1",
+      "title": "Any-parent research and queued commitment",
+      "observed_static_source": "Empty prerequisites pass. Otherwise any owned OR queued prerequisite is enough, not all parents. Costs include queued levels; currency costs spend immediately; attribute costs gate availability and apply through attribute accounting. Queued research commits at reboot.",
+      "anchors": [
+        {
+          "private_file": "/Users/weiwei/.codex/research/upload-labs/recovered/scenes/research_panel.gd",
+          "lines": [
+            33,
+            100
+          ]
+        },
+        {
+          "private_file": "/Users/weiwei/.codex/research/upload-labs/recovered/reboot.gd",
+          "lines": [
+            23,
+            30
+          ]
+        },
+        {
+          "private_file": "/Users/weiwei/.codex/research/upload-labs/recovered/scripts/attributes.gd",
+          "lines": [
+            46,
+            51
+          ]
+        }
+      ],
+      "runtime": "unexercised"
+    },
+    {
+      "id": "F2",
+      "title": "Actual research paths and effects",
+      "observed_static_source": "Synchronizer costs 20 research after processor; verifier costs 80 after processor; reconstruction costs 3000 after verifier. Refinement follows verifier and compression follows refinement (200000 research), unlocking compressor by windows data. AGI lists reinforcement_learning and ai_games, interpreted as OR by panel. Portal network_speed costs one advanced research and doubles bandwidth through exponent factor 2; plus_network adds one network limit after it; upload_value doubles upload value after upload_speed.",
+      "anchors": [
+        {
+          "private_file": "/Users/weiwei/.codex/research/upload-labs/data-readable/research.json",
+          "lines": [
+            80,
+            80
+          ],
+          "json_pointer": "/synchronizer",
+          "original_file": "/Users/weiwei/.codex/research/upload-labs/static-data/data/research.json"
+        },
+        {
+          "private_file": "/Users/weiwei/.codex/research/upload-labs/data-readable/research.json",
+          "lines": [
+            100,
+            100
+          ],
+          "json_pointer": "/verifier",
+          "original_file": "/Users/weiwei/.codex/research/upload-labs/static-data/data/research.json"
+        },
+        {
+          "private_file": "/Users/weiwei/.codex/research/upload-labs/data-readable/research.json",
+          "lines": [
+            120,
+            120
+          ],
+          "json_pointer": "/reconstruction",
+          "original_file": "/Users/weiwei/.codex/research/upload-labs/static-data/data/research.json"
+        },
+        {
+          "private_file": "/Users/weiwei/.codex/research/upload-labs/data-readable/research.json",
+          "lines": [
+            551,
+            551
+          ],
+          "json_pointer": "/compression",
+          "original_file": "/Users/weiwei/.codex/research/upload-labs/static-data/data/research.json"
+        },
+        {
+          "private_file": "/Users/weiwei/.codex/research/upload-labs/data-readable/research.json",
+          "lines": [
+            1785,
+            1785
+          ],
+          "json_pointer": "/agi",
+          "original_file": "/Users/weiwei/.codex/research/upload-labs/static-data/data/research.json"
+        },
+        {
+          "private_file": "/Users/weiwei/.codex/research/upload-labs/data-readable/research.json",
+          "lines": [
+            1846,
+            1846
+          ],
+          "json_pointer": "/network_speed",
+          "original_file": "/Users/weiwei/.codex/research/upload-labs/static-data/data/research.json"
+        },
+        {
+          "private_file": "/Users/weiwei/.codex/research/upload-labs/data-readable/research.json",
+          "lines": [
+            1870,
+            1870
+          ],
+          "json_pointer": "/plus_network",
+          "original_file": "/Users/weiwei/.codex/research/upload-labs/static-data/data/research.json"
+        },
+        {
+          "private_file": "/Users/weiwei/.codex/research/upload-labs/data-readable/research.json",
+          "lines": [
+            1950,
+            1950
+          ],
+          "json_pointer": "/upload_value",
+          "original_file": "/Users/weiwei/.codex/research/upload-labs/static-data/data/research.json"
+        },
+        {
+          "private_file": "/Users/weiwei/.codex/research/upload-labs/data-readable/windows.json",
+          "lines": [
+            189,
+            189
+          ],
+          "json_pointer": "/compressor",
+          "original_file": "/Users/weiwei/.codex/research/upload-labs/static-data/data/windows.json"
+        },
+        {
+          "private_file": "/Users/weiwei/.codex/research/upload-labs/recovered/scripts/attribute.gd",
+          "lines": [
+            27,
+            48
+          ]
+        }
+      ],
+      "runtime": "unexercised"
+    },
+    {
+      "id": "F3",
+      "title": "Download to upload is a constrained conversion chain",
+      "observed_static_source": "Downloader completion adds files. Its goal includes file size. Processing consumes required file and auxiliary units; completed batches are capped by the scarcest input. Upload completion produces money and optional infection, updates lifetime money and emits uploaded; shown production uses min(process rate, incoming production). Text base size/value are 100/100; image size/value are 10000/160000 before variations. Base data values are not tested profitability.",
+      "anchors": [
+        {
+          "private_file": "/Users/weiwei/.codex/research/upload-labs/recovered/scenes/windows/window_download.gd",
+          "lines": [
+            14,
+            26
+          ]
+        },
+        {
+          "private_file": "/Users/weiwei/.codex/research/upload-labs/recovered/scripts/process_with_resource.gd",
+          "lines": [
+            6,
+            18
+          ]
+        },
+        {
+          "private_file": "/Users/weiwei/.codex/research/upload-labs/recovered/scenes/windows/window_file_process_with_speed.gd",
+          "lines": [
+            9,
+            42
+          ]
+        },
+        {
+          "private_file": "/Users/weiwei/.codex/research/upload-labs/recovered/scenes/windows/window_upload.gd",
+          "lines": [
+            23,
+            45
+          ]
+        },
+        {
+          "private_file": "/Users/weiwei/.codex/research/upload-labs/recovered/scripts/utils.gd",
+          "lines": [
+            252,
+            257
+          ]
+        },
+        {
+          "private_file": "/Users/weiwei/.codex/research/upload-labs/data-readable/files.json",
+          "lines": [
+            2,
+            2
+          ],
+          "json_pointer": "/text",
+          "original_file": "/Users/weiwei/.codex/research/upload-labs/static-data/data/files.json"
+        },
+        {
+          "private_file": "/Users/weiwei/.codex/research/upload-labs/data-readable/files.json",
+          "lines": [
+            17,
+            17
+          ],
+          "json_pointer": "/image",
+          "original_file": "/Users/weiwei/.codex/research/upload-labs/static-data/data/files.json"
+        }
+      ],
+      "runtime": "unexercised"
+    },
+    {
+      "id": "F4",
+      "title": "Routing is typed, not universally fair",
+      "observed_static_source": "MATERIAL whole items split randomly at low counts, or floor-share plus independent random remainder at large counts (not exact conservation for fractional residue). FLOW fills limited ports in order then splits remainder among unlimited ports. BOOST divides. MATERIAL_LIMITED routes to remaining capacity. SETTING broadcasts. HEAT allocates sequentially. FLUID divides additive amounts. UNIT sends one available unit per target. Paused or looping outputs are excluded. Production labels are estimates, not an exact realized allocation history.",
+      "anchors": [
+        {
+          "private_file": "/Users/weiwei/.codex/research/upload-labs/recovered/scripts/utils.gd",
+          "lines": [
+            6,
+            7
+          ]
+        },
+        {
+          "private_file": "/Users/weiwei/.codex/research/upload-labs/recovered/scenes/resource_container.gd",
+          "lines": [
+            99,
+            214
+          ]
+        },
+        {
+          "private_file": "/Users/weiwei/.codex/research/upload-labs/recovered/scenes/resource_container.gd",
+          "lines": [
+            309,
+            318
+          ]
+        },
+        {
+          "private_file": "/Users/weiwei/.codex/research/upload-labs/data-readable/resources.json",
+          "lines": [
+            2,
+            2
+          ],
+          "json_pointer": "/download_speed",
+          "original_file": "/Users/weiwei/.codex/research/upload-labs/static-data/data/resources.json"
+        },
+        {
+          "private_file": "/Users/weiwei/.codex/research/upload-labs/data-readable/resources.json",
+          "lines": [
+            962,
+            962
+          ],
+          "json_pointer": "/text",
+          "original_file": "/Users/weiwei/.codex/research/upload-labs/static-data/data/resources.json"
+        }
+      ],
+      "runtime": "unexercised"
+    },
+    {
+      "id": "F5",
+      "title": "Research competes with sale for actual inputs",
+      "observed_static_source": "Data lab consumes files for research and tracks a research total; empty inputs reset its progress. ANALYZED files double speed. Displayed research throughput takes the minimum of lab power and incoming file production. Research upgrade nodes consume accumulating input cost in batches, increasing subsequent threshold geometrically.",
+      "anchors": [
+        {
+          "private_file": "/Users/weiwei/.codex/research/upload-labs/recovered/scenes/windows/window_data_lab.gd",
+          "lines": [
+            29,
+            63
+          ]
+        },
+        {
+          "private_file": "/Users/weiwei/.codex/research/upload-labs/recovered/scenes/windows/window_research.gd",
+          "lines": [
+            25,
+            56
+          ]
+        }
+      ],
+      "runtime": "unexercised"
+    },
+    {
+      "id": "F6",
+      "title": "Hardware and overclock tradeoffs",
+      "observed_static_source": "Processor base speed is 128 times 2^level; cores add outputs, main core has its own multiplier. At heat limit, overclock bonus drops to 1. Component upgrade costs increase geometrically and importing blocks upgrade. Resource-driven ordinary producers emit configured product batches automatically.",
+      "anchors": [
+        {
+          "private_file": "/Users/weiwei/.codex/research/upload-labs/recovered/scenes/windows/window_processor.gd",
+          "lines": [
+            33,
+            48
+          ]
+        },
+        {
+          "private_file": "/Users/weiwei/.codex/research/upload-labs/recovered/scenes/windows/window_processor.gd",
+          "lines": [
+            83,
+            95
+          ]
+        },
+        {
+          "private_file": "/Users/weiwei/.codex/research/upload-labs/recovered/scripts/component.gd",
+          "lines": [
+            35,
+            54
+          ]
+        },
+        {
+          "private_file": "/Users/weiwei/.codex/research/upload-labs/recovered/scenes/windows/window_producer.gd",
+          "lines": [
+            16,
+            26
+          ]
+        }
+      ],
+      "runtime": "unexercised"
+    },
+    {
+      "id": "F7",
+      "title": "Time away banks acceleration",
+      "observed_static_source": "After a system-time gap exceeding four seconds, elapsed time times rest multiplier divided by 72 is added to a reserve. Reserve is capped by max_rest_time. UI offers off, 2x, 5x, 10x and displays quadratic consumption; simulation attributes scale tick speed. No away-time pipeline replay appears in this inspected path. Exact effective consumption across callbacks is runtime-unverified.",
+      "anchors": [
+        {
+          "private_file": "/Users/weiwei/.codex/research/upload-labs/recovered/main.gd",
+          "lines": [
+            9,
+            13
+          ]
+        },
+        {
+          "private_file": "/Users/weiwei/.codex/research/upload-labs/recovered/scripts/globals.gd",
+          "lines": [
+            169,
+            174
+          ]
+        },
+        {
+          "private_file": "/Users/weiwei/.codex/research/upload-labs/recovered/scripts/globals.gd",
+          "lines": [
+            338,
+            345
+          ]
+        },
+        {
+          "private_file": "/Users/weiwei/.codex/research/upload-labs/recovered/scripts/offline_panel.gd",
+          "lines": [
+            16,
+            21
+          ]
+        },
+        {
+          "private_file": "/Users/weiwei/.codex/research/upload-labs/recovered/scripts/attributes.gd",
+          "lines": [
+            113,
+            114
+          ]
+        }
+      ],
+      "runtime": "unexercised"
+    },
+    {
+      "id": "F8",
+      "title": "Persistence has backups, graph identity and migrations",
+      "observed_static_source": "Save routine rotates oldest of four backup files and writes primary; loading falls back to backup candidates. Schema conversions cover versions 1 through 4; desktop and globals are serialized. Resource saves include counts and output IDs; process saves progress. Schematic copy removes outside connections and paste clears counts/remaps IDs, separating recipe from inventory.",
+      "anchors": [
+        {
+          "private_file": "/Users/weiwei/.codex/research/upload-labs/recovered/scripts/data.gd",
+          "lines": [
+            81,
+            94
+          ]
+        },
+        {
+          "private_file": "/Users/weiwei/.codex/research/upload-labs/recovered/scripts/data.gd",
+          "lines": [
+            146,
+            187
+          ]
+        },
+        {
+          "private_file": "/Users/weiwei/.codex/research/upload-labs/recovered/scripts/data.gd",
+          "lines": [
+            212,
+            234
+          ]
+        },
+        {
+          "private_file": "/Users/weiwei/.codex/research/upload-labs/recovered/scenes/resource_container.gd",
+          "lines": [
+            558,
+            565
+          ]
+        },
+        {
+          "private_file": "/Users/weiwei/.codex/research/upload-labs/recovered/scripts/process.gd",
+          "lines": [
+            36,
+            39
+          ]
+        },
+        {
+          "private_file": "/Users/weiwei/.codex/research/upload-labs/recovered/scripts/desktop.gd",
+          "lines": [
+            155,
+            181
+          ]
+        },
+        {
+          "private_file": "/Users/weiwei/.codex/research/upload-labs/recovered/scripts/desktop.gd",
+          "lines": [
+            197,
+            207
+          ]
+        }
+      ],
+      "runtime": "unexercised"
+    },
+    {
+      "id": "F9",
+      "title": "Reboot, portal refund and wipe are distinct",
+      "observed_static_source": "Reboot zeros hack/code/AGI levels and transient upgrades/currencies based on permanent flags, commits queued research and resets window state. Advanced research currency is marked permanent; money/research are not. Portal reset zeros only portal-category research, restores advanced research from cumulative amount, clears queue and invokes reboot. Wipe clears broad globals, achievements, stats, research and reserve then initializes defaults. These are factory reset policies, not YAIR character death or inheritance rules.",
+      "anchors": [
+        {
+          "private_file": "/Users/weiwei/.codex/research/upload-labs/recovered/reboot.gd",
+          "lines": [
+            12,
+            46
+          ]
+        },
+        {
+          "private_file": "/Users/weiwei/.codex/research/upload-labs/data-readable/currencies.json",
+          "lines": [
+            2,
+            2
+          ],
+          "json_pointer": "/money",
+          "original_file": "/Users/weiwei/.codex/research/upload-labs/static-data/data/currencies.json"
+        },
+        {
+          "private_file": "/Users/weiwei/.codex/research/upload-labs/data-readable/currencies.json",
+          "lines": [
+            11,
+            11
+          ],
+          "json_pointer": "/research",
+          "original_file": "/Users/weiwei/.codex/research/upload-labs/static-data/data/currencies.json"
+        },
+        {
+          "private_file": "/Users/weiwei/.codex/research/upload-labs/data-readable/currencies.json",
+          "lines": [
+            20,
+            20
+          ],
+          "json_pointer": "/research_advanced",
+          "original_file": "/Users/weiwei/.codex/research/upload-labs/static-data/data/currencies.json"
+        },
+        {
+          "private_file": "/Users/weiwei/.codex/research/upload-labs/recovered/scripts/services/service_portal_reset.gd",
+          "lines": [
+            4,
+            14
+          ]
+        },
+        {
+          "private_file": "/Users/weiwei/.codex/research/upload-labs/recovered/scripts/globals.gd",
+          "lines": [
+            385,
+            442
+          ]
+        }
+      ],
+      "runtime": "unexercised"
+    },
+    {
+      "id": "F10",
+      "title": "Automation family coverage is incomplete",
+      "observed_static_source": "Ordinary process/producer/research consumers are readable continuous routines. The recovered script-tab, script panel and seven scenes/windows/scripts files contain only whitespace. Targeted original-pack extraction found nine identical 29-byte GDCs; explicit 4.6.1 decompilation again produced blank sources. Searches of readable managers and windows/research JSON found no corresponding functional implementation. Zero failed conversions does not establish their behavior, availability or entitlement. Scene wiring, translation prose, premium ownership and full balance were not recovered or exercised.",
+      "anchors": [
+        {
+          "private_file": "/Users/weiwei/.codex/research/upload-labs/recovered/scripts/scripts_tab.gd",
+          "lines": [
+            1,
+            1
+          ]
+        },
+        {
+          "private_file": "/Users/weiwei/.codex/research/upload-labs/recovered/scenes/windows/scripts/window_script.gd",
+          "lines": [
+            1,
+            1
+          ]
+        },
+        {
+          "private_file": "/Users/weiwei/.codex/research/upload-labs/recovered/scenes/windows/window_producer.gd",
+          "lines": [
+            16,
+            26
+          ]
+        }
+      ],
+      "runtime": "unexercised"
+    }
+  ],
+  "ranked_proposals": [
+    {
+      "id": "P1",
+      "rank": 1,
+      "title": "Workshop bottleneck receipt",
+      "proposal": "Center crafting action shows gather, prepare, craft, deliver rates and the current limiting input. Speeding craft alone cannot invent wood or buyers.",
+      "source_findings": [
+        "F3",
+        "F5"
+      ],
+      "native_mapping": "Native crafting, inventory, center actions; src/crafting_recipes.js, src/main.js",
+      "dependency": "Requires sampled actual inventory and native completion hooks.",
+      "acceptance": "One small recipe visibly stalls on missing input, recovers after gathering, then consumes and pays once.",
+      "status": "original proposal, not selected or implemented"
+    },
+    {
+      "id": "P2",
+      "rank": 2,
+      "title": "Study unlocks a working method",
+      "proposal": "A mentor teaches one process improvement after either practice OR a studied text. Show the alternatives explicitly; require actual equipment to execute.",
+      "source_findings": [
+        "F1",
+        "F2"
+      ],
+      "native_mapping": "Native books and Watchcraft known/practiced/executable presentation; src/village_career.js:80-99",
+      "dependency": "An authored method unlock, no global research currency.",
+      "acceptance": "The two routes each unlock the same method; studying alone never grants equipped execution.",
+      "status": "original proposal, not selected or implemented"
+    },
+    {
+      "id": "P3",
+      "rank": 3,
+      "title": "Choose sale or investigation",
+      "proposal": "Offer a native sample to Eda for research or sell it; consuming one sample cannot reward both branches. Research leaves a method or biography mark.",
+      "source_findings": [
+        "F3",
+        "F5"
+      ],
+      "native_mapping": "Actual offered-stock service; src/steam_df_runtime.js:39-61; adventure notebook",
+      "dependency": "Transactional item custody and one result.",
+      "acceptance": "One sample disappears once; research updates discovery and sale updates coins on separate attempts.",
+      "status": "original proposal, not selected or implemented"
+    },
+    {
+      "id": "P4",
+      "rank": 4,
+      "title": "Named workshop allocations",
+      "proposal": "Share limited tools or labor between two native jobs using explicit priority or equal shares selected by the player. Explain which job waits.",
+      "source_findings": [
+        "F4"
+      ],
+      "native_mapping": "Crafting and jobs; inventory; center menu",
+      "dependency": "Bounded local allocation contract; do not add a factory graph UI.",
+      "acceptance": "Two jobs compete for one tool without duplication; changing priority changes the waiting job.",
+      "status": "original proposal, not selected or implemented"
+    },
+    {
+      "id": "P5",
+      "rank": 5,
+      "title": "Quality changes the whole chain",
+      "proposal": "A careful preparation step reduces later work or improves value, with a visible extra input/time cost. Ordinary skills keep a purpose.",
+      "source_findings": [
+        "F3",
+        "F5"
+      ],
+      "native_mapping": "Native recipe/equipment and alloy technique; src/alloy_equipment.js; src/crafting_recipes.js",
+      "dependency": "One authored variant and item-compatible representation.",
+      "acceptance": "Prepared stock affects exactly its downstream recipe, not every item in inventory.",
+      "status": "original proposal, not selected or implemented"
+    },
+    {
+      "id": "P6",
+      "rank": 6,
+      "title": "Routine cards store method, not goods",
+      "proposal": "Save a local crafting routine as an ordered plan; copying the plan retains stop rules and recipe choice but gives no materials, coins or progress.",
+      "source_findings": [
+        "F8",
+        "F10"
+      ],
+      "native_mapping": "Existing simulation plans plus native crafting",
+      "dependency": "Optional versioned plan data and validation.",
+      "acceptance": "Copy/import plan produces zero inventory and stops safely when its tool or ingredient disappears.",
+      "status": "original proposal, not selected or implemented"
+    },
+    {
+      "id": "P7",
+      "rank": 7,
+      "title": "Push a tool beyond comfort",
+      "proposal": "Overwork a furnace or workshop for a short gain until heat/wear removes the bonus; the log identifies why. Care and ordinary maintenance restore it.",
+      "source_findings": [
+        "F6"
+      ],
+      "native_mapping": "Home-world craft actions, nursery care and equipment",
+      "dependency": "One local tool/wear state, no character-health inference.",
+      "acceptance": "Bonus ends at limit and returns only after the stated maintenance action.",
+      "status": "original proposal, not selected or implemented"
+    },
+    {
+      "id": "P8",
+      "rank": 8,
+      "title": "Rest reserve is an explicit policy candidate",
+      "proposal": "If director wants it, bank capped preparation time while away and spend it to accelerate only a selected safe routine. Show what uses it; exclude aging, deaths, contracts and world events unless separately authorized.",
+      "source_findings": [
+        "F7",
+        "F9"
+      ],
+      "native_mapping": "Saved simulation clock and optional native routine state",
+      "dependency": "Needs explicit offline/aging and save policy review; proposal only.",
+      "acceptance": "With an approved policy, reload cannot duplicate reserve and acceleration cannot silently advance excluded consequences.",
+      "status": "original proposal, not selected or implemented"
+    }
+  ],
+  "small_touches": [
+    {
+      "id": "T01",
+      "proposal": "Show missing ingredient name",
+      "source_finding": "F3",
+      "native_mapping": "crafting center action",
+      "status": "original proposal, unimplemented"
+    },
+    {
+      "id": "T02",
+      "proposal": "Show limiting stage",
+      "source_finding": "F3",
+      "native_mapping": "crafting center action",
+      "status": "original proposal, unimplemented"
+    },
+    {
+      "id": "T03",
+      "proposal": "Separate possible rate from actual last batch",
+      "source_finding": "F4",
+      "native_mapping": "native resource tooltip",
+      "status": "original proposal, unimplemented"
+    },
+    {
+      "id": "T04",
+      "proposal": "Show stock count beside recipe requirement",
+      "source_finding": "F8",
+      "native_mapping": "native inventory/crafting",
+      "status": "original proposal, unimplemented"
+    },
+    {
+      "id": "T05",
+      "proposal": "Pause routine when loaned tool is returned",
+      "source_finding": "F4",
+      "native_mapping": "Village custody ledger",
+      "status": "original proposal, unimplemented"
+    },
+    {
+      "id": "T06",
+      "proposal": "Display priority choice in plain words",
+      "source_finding": "F4",
+      "native_mapping": "native job/center menu",
+      "status": "original proposal, unimplemented"
+    },
+    {
+      "id": "T07",
+      "proposal": "Keep two alternate study prerequisites visible",
+      "source_finding": "F1",
+      "native_mapping": "native book/method tooltip",
+      "status": "original proposal, unimplemented"
+    },
+    {
+      "id": "T08",
+      "proposal": "Mark planned study separately from known",
+      "source_finding": "F1",
+      "native_mapping": "Watchcraft presentation",
+      "status": "original proposal, unimplemented"
+    },
+    {
+      "id": "T09",
+      "proposal": "Warn a planned method is not yet executable",
+      "source_finding": "F1",
+      "native_mapping": "Watchcraft presentation",
+      "status": "original proposal, unimplemented"
+    },
+    {
+      "id": "T10",
+      "proposal": "Preview next improvement cost",
+      "source_finding": "F2",
+      "native_mapping": "mentor/crafting action",
+      "status": "original proposal, unimplemented"
+    },
+    {
+      "id": "T11",
+      "proposal": "Explain why buying capacity is different from speed",
+      "source_finding": "F2",
+      "native_mapping": "workshop tool tooltip",
+      "status": "original proposal, unimplemented"
+    },
+    {
+      "id": "T12",
+      "proposal": "Name sample consumed by investigation",
+      "source_finding": "F5",
+      "native_mapping": "Eda offered-stock action",
+      "status": "original proposal, unimplemented"
+    },
+    {
+      "id": "T13",
+      "proposal": "Add first successful method use to biography",
+      "source_finding": "F5",
+      "native_mapping": "life record",
+      "status": "original proposal, unimplemented"
+    },
+    {
+      "id": "T14",
+      "proposal": "Show idle because input empty",
+      "source_finding": "F5",
+      "native_mapping": "center action status",
+      "status": "original proposal, unimplemented"
+    },
+    {
+      "id": "T15",
+      "proposal": "Stop progress on recipe identity change explicitly",
+      "source_finding": "F3",
+      "native_mapping": "native crafting routine",
+      "status": "original proposal, unimplemented"
+    },
+    {
+      "id": "T16",
+      "proposal": "Show prepared ingredient tag",
+      "source_finding": "F3",
+      "native_mapping": "item tooltip",
+      "status": "original proposal, unimplemented"
+    },
+    {
+      "id": "T17",
+      "proposal": "Explain quality effect at destination",
+      "source_finding": "F3",
+      "native_mapping": "recipe result preview",
+      "status": "original proposal, unimplemented"
+    },
+    {
+      "id": "T18",
+      "proposal": "Show maintenance limit before overwork",
+      "source_finding": "F6",
+      "native_mapping": "equipment/workshop tooltip",
+      "status": "original proposal, unimplemented"
+    },
+    {
+      "id": "T19",
+      "proposal": "Log bonus ended due to tool heat",
+      "source_finding": "F6",
+      "native_mapping": "event feed",
+      "status": "original proposal, unimplemented"
+    },
+    {
+      "id": "T20",
+      "proposal": "Use quiet completion feedback on batch",
+      "source_finding": "F6",
+      "native_mapping": "native crafting event log",
+      "status": "original proposal, unimplemented"
+    },
+    {
+      "id": "T21",
+      "proposal": "Copy routine name and rules only",
+      "source_finding": "F8",
+      "native_mapping": "existing simulation plan surface",
+      "status": "original proposal, unimplemented"
+    },
+    {
+      "id": "T22",
+      "proposal": "Reject outside references on routine import",
+      "source_finding": "F8",
+      "native_mapping": "save/plan validation",
+      "status": "original proposal, unimplemented"
+    },
+    {
+      "id": "T23",
+      "proposal": "Describe retained and lost state before any future reset",
+      "source_finding": "F9",
+      "native_mapping": "existing character details/reset proposal",
+      "status": "original proposal, unimplemented"
+    },
+    {
+      "id": "T24",
+      "proposal": "Show capped reserve and next drain if policy selected",
+      "source_finding": "F7",
+      "native_mapping": "existing time/routine tooltip",
+      "status": "original proposal, unimplemented"
+    }
+  ],
+  "raw_source_committed": false
+}

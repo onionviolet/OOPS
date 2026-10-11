@@ -1,0 +1,179 @@
+{
+  "claim_labels": [
+    "seen in data or code",
+    "seen in text",
+    "inferred"
+  ],
+  "source_build": "11640258",
+  "locator_root": "~/.codex/research/increlution/",
+  "findings": [
+    {
+      "id": "F1",
+      "label": "seen in data or code",
+      "title": "Engine and readable recovery",
+      "claim": "Electron wrapper loads HTML and JavaScript; no Unity managed/IL2CPP recovery was needed. Static table substitution leaves zero literal decoder calls.",
+      "locators": "source/package.json; source/main.js:createWindow; EXTRACTION_RECEIPT.json",
+      "limits_or_contradiction": "Expected Unity was wrong."
+    },
+    {
+      "id": "F2",
+      "label": "seen in data or code",
+      "title": "Ordinary rebirth replays the opening",
+      "claim": "a0_0x1b99d1 clears exploration/construction completion flags, resources, action queue and life clock; increments generation. It keeps instinct state and cumulative completions. Opening exploration 0 is always visible. No body/location/era/family roll appears in this transition or initial schema.",
+      "locators": "decoded.js:13141-13220 a0_0x1b99d1; 6399-6430 exploration 0; 17243-17356 a0_0xcdcdf5",
+      "limits_or_contradiction": "This is not source evidence for random rebirth. Absence statement is bounded to inspected reset/schema, not every possible hidden branch."
+    },
+    {
+      "id": "F3",
+      "label": "seen in text",
+      "title": "Loop fiction explicitly returns to the same time",
+      "claim": "Amy describes returning to the exact same point in time, while ordinary friends forget. Other cyclic beings can recognize the protagonist. The earlier resurrection legend is presented as unverified mythology within the story.",
+      "locators": "decoded.js:10707-10768 exploration 245-248 completedStory/getCompletedStory",
+      "limits_or_contradiction": "Same-origin replay and exceptional recognition contradict a uniformly persistent social world."
+    },
+    {
+      "id": "F4",
+      "label": "seen in data or code",
+      "title": "A life is timed survival, not a year-by-year biography",
+      "claim": "Fresh state starts at 100 health/maxHealth and generation 1. lifeTickClock advances when active actions consume milliseconds. Reviewed state has no birth age, youth/adult/elder or fertility fields. Health reaching zero resolves death after food handling.",
+      "locators": "decoded.js:17243-17356; 15930-15954 a0_0x409802; 15259-15275 death branch; 15790-15827 food/damage handling",
+      "limits_or_contradiction": "Do not relabel elapsed minutes as chronological aging or family simulation."
+    },
+    {
+      "id": "F5",
+      "label": "seen in data or code",
+      "title": "Compounding survival pressure",
+      "claim": "Base per-ms geometric factor is 1.0000037191, approximately 1.25 per active minute. Damage integrates the geometric curve and adds action-specific damage. Hut has decayMultiplier 0.5; fights add per-ms damage.",
+      "locators": "decoded.js:15955-16009 a0_0x516a12/a0_0x286586; 5013-5033 construction 1; 6434-6440 exploration 2",
+      "limits_or_contradiction": "Exponential pressure forces recurring death; no endless safe adulthood is shown by this loop."
+    },
+    {
+      "id": "F6",
+      "label": "seen in data or code",
+      "title": "Permanent max-health reward",
+      "claim": "On death maxHealth adds floor((1.1^(life milliseconds/60000)-1)*rewardMultiplier), guarded by dnaThisLife being null. Multiplier includes completed reward structures/explorations and NG+ perk 7. Reincarnation preserves base maxHealth; temporary construction multipliers still reset.",
+      "locators": "decoded.js:13338-13361 a0_0x4ba34a/a0_0x2287c4; 15262-15271; 16011-16027 a0_0x24d05b",
+      "limits_or_contradiction": "More survival yields more numeric power, not just more options."
+    },
+    {
+      "id": "F7",
+      "label": "seen in data or code",
+      "title": "Two skill ledgers",
+      "claim": "Same awarded XP goes into generationExperience and instinctExperience. Generation XP scale starts at 90 and grows 1.11; instinct starts at 1250 and grows 1.02. Speed multiplier combines 1.05^generationLevel and 1.01^instinctLevel with tools/discovery. Generation fields reset; instinct fields remain.",
+      "locators": "decoded.js:1430-1473; 1544-1588 a0_0x4a37ad/a0_0x365627; 13152-13160",
+      "limits_or_contradiction": "Cross-life speed is implemented directly; it is not inherited property or a learned manual."
+    },
+    {
+      "id": "F8",
+      "label": "seen in text",
+      "title": "Tutorial makes two skill tracks legible",
+      "claim": "Tutorial explains faster, stronger generation levels versus slower persistent instincts. Skill tooltip displays both XP/levels/multipliers and total.",
+      "locators": "source/electron-index.html:286-290; decoded.js:1379-1424",
+      "limits_or_contradiction": "Useful text UI evidence, no rendered usability claim."
+    },
+    {
+      "id": "F9",
+      "label": "seen in data or code",
+      "title": "Automation is earned per action across lives",
+      "claim": "Reincarnation unlocks actions whose cumulative timesCompleted reaches requirement. Defaults: jobs 400, construction 8, exploration 8 or repeatable 40; overrides include berries 200, wood 200, cart 5, hut 6, first exploration 7. Related route alternatives can lower the requirement by floor(other completions/2); minimum 1.",
+      "locators": "decoded.js:13452-13475 a0_0x4cc901; 13161-13183; jobs 0/1 at 2669-2720; construction 0/1 at 4990-5033; exploration 0 at 6399-6416",
+      "limits_or_contradiction": "Unlock can wait until next generation; repeated completion does not mean automation was available in the first life."
+    },
+    {
+      "id": "F10",
+      "label": "seen in data or code",
+      "title": "Automation is priorities and eligibility, not free production",
+      "claim": "Off/low/regular/high/top priorities. Scheduler checks eligible food/resources, construction, exploration and refills; food depletion can schedule an urgent refill. Construction has incremental resource use. Action visibility and affordability still matter.",
+      "locators": "decoded.js:2279-2302; 2550-2596; 6370-6393; 15736-15784 a0_0x2766f1/a0_0x23f70e",
+      "limits_or_contradiction": "Manual planning remains relevant around new gates and changing supply access."
+    },
+    {
+      "id": "F11",
+      "label": "seen in data or code",
+      "title": "Offline catch-up can spend life and reach death",
+      "claim": "Elapsed wall-time addition is capped at 259200000 ms (three days) per timestamp-gap calculation. Shared action loop consumes it, including health damage; paused/menu/death states clear or hold backlog according to options. Catch-up accelerates until the next stopping point; normal reincarnation remains a button command.",
+      "locators": "decoded.js:396-404 a0_0x239219; 15243-15403 a0_0x3f7d20; 15441-15446 reincarnate command",
+      "limits_or_contradiction": "Contradicts a blanket promise of no aging/life depletion while closed. Three-day added-gap cap is not proof total stored backlog cannot exceed three days."
+    },
+    {
+      "id": "F12",
+      "label": "seen in data or code",
+      "title": "Empty queues protect the player",
+      "claim": "No eligible automated work and no active action returns without advancing life; tickCounter is cleared. Manual pause and menu handling likewise prevent unintended active advancement, with opt-in offline-in-menu behavior.",
+      "locators": "decoded.js:15304-15322; 15343-15366; source/electron-index.html:97-101,389-396",
+      "limits_or_contradiction": "Idle is intentional work; waiting for input need not consume life."
+    },
+    {
+      "id": "F13",
+      "label": "seen in data or code",
+      "title": "Resource and building worlds reset",
+      "claim": "Inventory amounts/lastUse are cleared and completed structures lose isFinished on ordinary rebirth. Progress/completion count/encounter discovery are separate fields. Persistent discovery remembers an action existed without leaving its bridge standing.",
+      "locators": "decoded.js:13161-13212; 17418-17515 state initialization",
+      "limits_or_contradiction": "Directly contradicts treating every earlier house/stash as heir property."
+    },
+    {
+      "id": "F14",
+      "label": "seen in data or code",
+      "title": "Artifacts deliberately persist through a named carrier",
+      "claim": "Funnel hourglass (161) permanently reduces food cooldown by 1% per completion, with 1.1 completion difficulty scaling and extra damage. Shield (190), tooth (228), core (304) feed permanent combat, food and completion-damage effects. Powers read retained completion counts.",
+      "locators": "decoded.js:9248-9268; 9748-9765; 10410-10432; 13552-13643 a0_0x17591b; decoded.js:11760-11777 exploration 304",
+      "limits_or_contradiction": "Source supports artifact-mediated carry as one local option. It does not prove any YAIR soul/bloodline mechanism."
+    },
+    {
+      "id": "F15",
+      "label": "seen in data or code",
+      "title": "First life and later lives have different work burdens",
+      "claim": "Opening gathers berries/wood, explores a lake, unlocks raw fish and campfire cooking, fights a cave spider, builds a bridge and raft. All gates repeat after death, but instincts and automation shorten or remove earlier manual tasks. Skill panels reveal new skills from past completion/instincts.",
+      "locators": "decoded.js:1288-1371 skills; 2669-2767 jobs 0-3; 4990-5055; 6399-6600 exploration 0-10",
+      "limits_or_contradiction": "No measured first-life duration or late-run speed is claimed."
+    },
+    {
+      "id": "F16",
+      "label": "seen in data or code",
+      "title": "Text records events, then compares performance",
+      "claim": "Exploration completion writes story progress, per-life logs retain event IDs/times. Rebirth keeps last-life log and three detailed generation snapshots with time allocation, XP and furthest exploration. Tables/tooltips/progress bars expose action states and costs.",
+      "locators": "decoded.js:12559-12589; 12950-12958; 13208-13215; 13655-13676; 1627-1637; source/electron-index.html:30-101,139-167",
+      "limits_or_contradiction": "This is a bounded performance history, not a full genealogy."
+    },
+    {
+      "id": "F17",
+      "label": "seen in data or code",
+      "title": "Restart generation is not reincarnation",
+      "claim": "a0_0x8286b5 restores start-of-life instincts and completion counts, removes the death health reward if awarded, rolls statistics back and refunds elapsed simulated time to tickCounter. It does not increment generation.",
+      "locators": "decoded.js:13224-13299 a0_0x8286b5",
+      "limits_or_contradiction": "A replay/undo affordance differs from an earned new life; do not combine their retention contracts."
+    },
+    {
+      "id": "F18",
+      "label": "seen in data or code",
+      "title": "NG+ is a separate larger reset",
+      "claim": "a0_0x499831 keeps NG+ DNA/perk selection but resets generation to 1, max health to 100, skills/action tables/history and current chapter progression. Requirement scale is 0.999^earned NG+ DNA with minimum one completion.",
+      "locators": "decoded.js:14031-14111; 13452-13475; source/electron-index.html:177-194",
+      "limits_or_contradiction": "Dormant DNA-upgrade helpers and commented ordinary-death DNA UI are not evidence that the old shop is the current ordinary-rebirth interface."
+    },
+    {
+      "id": "F19",
+      "label": "seen in text",
+      "title": "Developer acknowledges optimization friction",
+      "claim": "Automation settings describe players adjusting priorities mid-run and offer exhausted-job overrides to reduce manual repetition. Other tooltips caution that specialized settings are confusing before learning the system.",
+      "locators": "source/electron-index.html:359-384",
+      "limits_or_contradiction": "This is developer-authored acknowledgement, not a sampled player-review finding. No player reviews were collected."
+    },
+    {
+      "id": "F20",
+      "label": "inferred",
+      "title": "Design costs of the implemented loop",
+      "claim": "Repeated rebuilding and route traversal can become repetition; exponentiating survival rewards can encourage time farming; death during catch-up can surprise players; a three-generation cap trades history detail for bounded storage. These follow mechanisms, not measured dissatisfaction.",
+      "locators": "F5/F6/F11/F13/F16",
+      "limits_or_contradiction": "No game ranking, no general design ban, no assertion players universally dislike these choices."
+    },
+    {
+      "id": "F21",
+      "label": "seen in data or code",
+      "title": "No reviewed heir/family simulation",
+      "claim": "Fresh state and ordinary reset hold skills, actions, inventory, logs and options rather than parent/child, inheritance-law or independent family-agent records. Reincarnation is applied to the same player state.",
+      "locators": "decoded.js:13141-13220; 17243-17356; TABLE_INDEX.json",
+      "limits_or_contradiction": "Useful counterexample for the assignment topic; not support for autonomous families or random successor plans."
+    }
+  ]
+}

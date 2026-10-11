@@ -1,0 +1,80 @@
+{
+  "schema": 1,
+  "released_at_utc": "2026-10-07T20:35:12.641817+00:00",
+  "writer": "/root/boh_finalize",
+  "recipient": "/root",
+  "status": "leaf-source-released; bounded-checks-pass; browser-implemented-unverified",
+  "ownership_released": [
+    "src/steam_boh_content.js",
+    "src/steam_boh_runtime.js",
+    "src/steam_boh_facts.js",
+    "src/steam_boh_host.js"
+  ],
+  "retained_writer_areas": [],
+  "files": [
+    {
+      "path": "src/steam_boh_content.js",
+      "sha256": "9367325369ba5e88de34acc6d48dd730ad3b4a8bbfbde9de786dd4d00702e6f7"
+    },
+    {
+      "path": "src/steam_boh_runtime.js",
+      "sha256": "11a0db97310e5ee03e38148e17fef9c6a8d08e28ebcdadc5fcc1a9c15d50df81"
+    },
+    {
+      "path": "src/steam_boh_facts.js",
+      "sha256": "5f5beb1dc2d40b05e14b8238deade4c976728e4ef21d8e6dee638761e61ee6e7"
+    },
+    {
+      "path": "src/steam_boh_host.js",
+      "sha256": "4ad3095087daf798162c44c122e3108f70b937a93eb958bf8cfa8d91bd1f4d03"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/gm/non-factorio-absorption-2026-10-07/boh/CHECKS.json",
+      "sha256": "b1a6b18a074c93ed6cbe45099e6c9f1c89207f27de2e6422daae0153d0a3f736"
+    },
+    {
+      "path": "docs/gm/non-factorio-absorption-2026-10-07/boh/SOURCE_HASHES.json",
+      "sha256": "d372cb2a13e13c9bd2b4779733e0bee015ccc68f0e0730a5418218b6b40308d6"
+    },
+    {
+      "path": "docs/gm/non-factorio-absorption-2026-10-07/boh/SOURCE_SELECTION.json",
+      "sha256": "edf7be7339e907aa503fd58267ee1d71ebbcb19bf673e569363f1c642d15e351"
+    },
+    {
+      "path": "docs/gm/non-factorio-absorption-2026-10-07/boh/DELIVERY.md",
+      "sha256": "982e7127cbd4aa46eb9dc08dcd49b36cc977326ab495043073e64c2d5e4dfb54"
+    },
+    {
+      "path": "docs/gm/non-factorio-absorption-2026-10-07/boh/CHECKPOINT.md",
+      "sha256": "495baf0038264ddc4abfb440aa03d382205c3dce2dc8edc48aea0bdca5d8321f"
+    },
+    {
+      "path": "docs/gm/non-factorio-absorption-2026-10-07/boh/leaf_checks.mjs",
+      "sha256": "b94661166fc8079f665e56854c0fb8cf9b1a778cd7b4c8bbc45645863b6e8f95"
+    },
+    {
+      "path": "docs/gm/non-factorio-absorption-2026-10-07/boh/verify_source.py",
+      "sha256": "8ac0cc2464b1670b48ab55fdb9f29c914a8983cc1eee750efe29d5fe553b24da"
+    }
+  ],
+  "compatibility": {
+    "expansion_schema": 11,
+    "simulation_schema": 5,
+    "old_optional_absence": "inert",
+    "prior_boh_saves": "none: root confirmed no integration/browser serialization",
+    "df_pending_meanings": "untouched",
+    "aliases_needed": false
+  },
+  "implemented": "original selected BOH-P01 clearance manual, diagnostic/recovery, preparation, procedure and actual kit consumer",
+  "remaining_authoritative_gate": "Root integration + matching rebuild + fresh-origin browser and native save/reload/import proof.",
+  "browser": "unrun",
+  "shared_scheduler_hooks": "unrun by leaf",
+  "native_publication": "unrun by leaf",
+  "creative_director_acceptance": "not implied",
+  "no_private_saves_touched": true,
+  "no_source_library_mutation": true,
+  "no_shared_joins_edited": true,
+  "no_commit_or_push": true
+}

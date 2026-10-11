@@ -1,0 +1,284 @@
+{
+  "schema": 1,
+  "checked_utc": "2026-10-07T21:14:17.644105+00:00",
+  "source_root": "/Users/weiwei/.codex/research/cult-of-the-lamb/25223484",
+  "inspection_mode": "read-only retained copies; no recovered code execution or installed game access",
+  "selected_unique_file_count": 9,
+  "all_selected_hashes_match": true,
+  "retained_files": [
+    {
+      "path": "decompiled/Assembly-CSharp/Lamb.UI.Rituals/RitualItem.cs",
+      "sha256": "ac9d3896922c4c6a6c61b753f69ef8c1b956a0dba800570eaf2549d87f6a8f31",
+      "expected_sha256": "ac9d3896922c4c6a6c61b753f69ef8c1b956a0dba800570eaf2549d87f6a8f31",
+      "matches_dossier": true,
+      "bytes": 7856,
+      "line_count": 301,
+      "claims": [
+        "LAMB-F17"
+      ],
+      "inspected_spans": [
+        {
+          "claim": "LAMB-F17",
+          "start": 88,
+          "end": 119
+        }
+      ]
+    },
+    {
+      "path": "decompiled/Assembly-CSharp/RitualBecomeDisciple.cs",
+      "sha256": "b8b67a1498739b2c23bba91d0f0f2c610b12eedd031297832c7af13b741bd35b",
+      "expected_sha256": "b8b67a1498739b2c23bba91d0f0f2c610b12eedd031297832c7af13b741bd35b",
+      "matches_dossier": true,
+      "bytes": 8461,
+      "line_count": 189,
+      "claims": [
+        "LAMB-F17"
+      ],
+      "inspected_spans": [
+        {
+          "claim": "LAMB-F17",
+          "start": 65,
+          "end": 143
+        }
+      ]
+    },
+    {
+      "path": "decompiled/Assembly-CSharp/FollowerBrain.cs",
+      "sha256": "a5e4f8d4552f6a059ce3e0a94764c79093548e20e7526c19170b046ce49d0a13",
+      "expected_sha256": "a5e4f8d4552f6a059ce3e0a94764c79093548e20e7526c19170b046ce49d0a13",
+      "matches_dossier": true,
+      "bytes": 194961,
+      "line_count": 6031,
+      "claims": [
+        "LAMB-F17",
+        "LAMB-F06"
+      ],
+      "inspected_spans": [
+        {
+          "claim": "LAMB-F17",
+          "start": 2141,
+          "end": 2145
+        },
+        {
+          "claim": "LAMB-F06",
+          "start": 3484,
+          "end": 3546
+        }
+      ]
+    },
+    {
+      "path": "decompiled/Assembly-CSharp/FollowerTask_ReeducateDissenter.cs",
+      "sha256": "a2d8f876d4c2fc4940d2eefa5fa07ff233aa5ecffc75206ea70c215655b6f656",
+      "expected_sha256": "a2d8f876d4c2fc4940d2eefa5fa07ff233aa5ecffc75206ea70c215655b6f656",
+      "matches_dossier": true,
+      "bytes": 5789,
+      "line_count": 198,
+      "claims": [
+        "LAMB-F17"
+      ],
+      "inspected_spans": [
+        {
+          "claim": "LAMB-F17",
+          "start": 165,
+          "end": 177
+        }
+      ]
+    },
+    {
+      "path": "decompiled/Assembly-CSharp/FollowerBrainInfo.cs",
+      "sha256": "49ec5cd6e13a0a0ada399c5b25ab26c36efa2e03351d3f951727bbb3e42170cb",
+      "expected_sha256": "49ec5cd6e13a0a0ada399c5b25ab26c36efa2e03351d3f951727bbb3e42170cb",
+      "matches_dossier": true,
+      "bytes": 9517,
+      "line_count": 616,
+      "claims": [
+        "LAMB-F16",
+        "LAMB-F44"
+      ],
+      "inspected_spans": [
+        {
+          "claim": "LAMB-F16",
+          "start": 477,
+          "end": 511
+        },
+        {
+          "claim": "LAMB-F44",
+          "start": 527,
+          "end": 576
+        }
+      ]
+    },
+    {
+      "path": "decompiled/Assembly-CSharp/MissionaryManager.cs",
+      "sha256": "b3d8145c052064eddfe0af1716290a6a331ccab889ed3b8315d958a46e49a4d0",
+      "expected_sha256": "b3d8145c052064eddfe0af1716290a6a331ccab889ed3b8315d958a46e49a4d0",
+      "matches_dossier": true,
+      "bytes": 13066,
+      "line_count": 381,
+      "claims": [
+        "LAMB-F16"
+      ],
+      "inspected_spans": [
+        {
+          "claim": "LAMB-F16",
+          "start": 65,
+          "end": 114
+        }
+      ]
+    },
+    {
+      "path": "decompiled/Assembly-CSharp/FollowerInfo.cs",
+      "sha256": "9c6744588eecf8c8322500e79e6255cdff8ce16d79fa95cc91f369b68a2bf0cf",
+      "expected_sha256": "9c6744588eecf8c8322500e79e6255cdff8ce16d79fa95cc91f369b68a2bf0cf",
+      "matches_dossier": true,
+      "bytes": 59340,
+      "line_count": 2299,
+      "claims": [
+        "LAMB-F16",
+        "LAMB-F44"
+      ],
+      "inspected_spans": [
+        {
+          "claim": "LAMB-F16",
+          "start": 2137,
+          "end": 2140
+        },
+        {
+          "claim": "LAMB-F44",
+          "start": 1030,
+          "end": 1140
+        },
+        {
+          "claim": "LAMB-F44",
+          "start": 1526,
+          "end": 1555
+        }
+      ]
+    },
+    {
+      "path": "decompiled/Assembly-CSharp/TimeManager.cs",
+      "sha256": "b164c57982a45fc99e1cbc11f689ab1ceff3b57170e54f277efaa1dd0a06d4bf",
+      "expected_sha256": "b164c57982a45fc99e1cbc11f689ab1ceff3b57170e54f277efaa1dd0a06d4bf",
+      "matches_dossier": true,
+      "bytes": 35178,
+      "line_count": 1193,
+      "claims": [
+        "LAMB-F44",
+        "LAMB-F06"
+      ],
+      "inspected_spans": [
+        {
+          "claim": "LAMB-F44",
+          "start": 849,
+          "end": 977
+        },
+        {
+          "claim": "LAMB-F06",
+          "start": 623,
+          "end": 783
+        }
+      ]
+    },
+    {
+      "path": "decompiled/Assembly-CSharp/FollowerTask.cs",
+      "sha256": "20a18f9875111f911cd0bb734b5302b3ffa8c14bff23460d97a01e865b7180cb",
+      "expected_sha256": "20a18f9875111f911cd0bb734b5302b3ffa8c14bff23460d97a01e865b7180cb",
+      "matches_dossier": true,
+      "bytes": 14717,
+      "line_count": 603,
+      "claims": [
+        "LAMB-F06"
+      ],
+      "inspected_spans": [
+        {
+          "claim": "LAMB-F06",
+          "start": 57,
+          "end": 97
+        }
+      ]
+    }
+  ],
+  "project_input_snapshot": [
+    {
+      "path": "AGENTS.md",
+      "sha256": "c88fc420db73fefb7500a7410913d15ee824ec800837747c058da0780e01527d"
+    },
+    {
+      "path": "PROJECT.md",
+      "sha256": "3b5267c441ee2000b281bb39b10420a3b48e47251cf89bf54e9d3e3f60c05095"
+    },
+    {
+      "path": "docs/GAME_MASTER_PROMPT.md",
+      "sha256": "afdfe348cbdfa308ef4bd032325b489946f98788d6574778784c6d873ec2cb70"
+    },
+    {
+      "path": "docs/LIFE_SIM_NORTH_STAR.md",
+      "sha256": "897871134544101853eb86071ded1514e514360bf694c4c1a4a96e969b6a8505"
+    },
+    {
+      "path": "docs/gm/non-factorio-absorption-2026-10-07/ASSIGNMENT.md",
+      "sha256": "fefa12b0caa1ac81f4594c3d0ee8f7c7a3cf5e9d39c1f1d3e3a1212130956849"
+    },
+    {
+      "path": "docs/gm/non-factorio-absorption-2026-10-07/CHECKPOINT.md",
+      "sha256": "61beac8427997f6e5f3e3d7b62bb1013e652ea9bdf938880f88fe5e33831dd81"
+    },
+    {
+      "path": "docs/research/cult-of-the-lamb/PACKETS.json",
+      "sha256": "409ad9708ca5e156218920994ea789b884c141682f110125b4e857947da58ecc"
+    },
+    {
+      "path": "docs/research/cult-of-the-lamb/IMPLEMENTATION_PACKETS.md",
+      "sha256": "59c778527295fcb9cd963982087c8cafc466c1abcba3ad059ae6f3a7654d822c"
+    },
+    {
+      "path": "docs/research/cult-of-the-lamb/FINDINGS.json",
+      "sha256": "0de3186db793c3eb59d72e93cd3853ae0a75904920ab9c20eebddec1798eca5f"
+    },
+    {
+      "path": "src/feature_expansion_objects.js",
+      "sha256": "d4d6c19ef677addd94b874dc37355465d3997d7cfbdf58ce00df379d5f02a0bd"
+    },
+    {
+      "path": "src/feature_expansion_objects_host.js",
+      "sha256": "9577d0f114f8d7a131dd3eaf96b521f533f0f8e54d2d196ff02864f1dbfe1012"
+    },
+    {
+      "path": "src/steam_boh_content.js",
+      "sha256": "9367325369ba5e88de34acc6d48dd730ad3b4a8bbfbde9de786dd4d00702e6f7"
+    },
+    {
+      "path": "src/steam_boh_runtime.js",
+      "sha256": "11a0db97310e5ee03e38148e17fef9c6a8d08e28ebcdadc5fcc1a9c15d50df81"
+    },
+    {
+      "path": "src/steam_boh_facts.js",
+      "sha256": "5f5beb1dc2d40b05e14b8238deade4c976728e4ef21d8e6dee638761e61ee6e7"
+    },
+    {
+      "path": "src/steam_boh_host.js",
+      "sha256": "4ad3095087daf798162c44c122e3108f70b937a93eb958bf8cfa8d91bd1f4d03"
+    },
+    {
+      "path": "src/steam_df_content.js",
+      "sha256": "f8799fbd707b47f41d742198514e77770893d44ad51577827a2a5192ba3328a9"
+    },
+    {
+      "path": "src/steam_df_facts.js",
+      "sha256": "f468dea5bcb3cf7bf0a344882460c7e7a89af2f53e13a451acaf5d18b2b8e5b0"
+    },
+    {
+      "path": "src/simulation.js",
+      "sha256": "400768a5b415ba76b3308068dfbb5129575baa5a6c909e0d1a2dcaf449cd3288"
+    },
+    {
+      "path": "src/simulation_effects.js",
+      "sha256": "bd9dde5ea0e09510a6111ac6c99e139c89ce94afc2ae4ae9772213b089408620"
+    },
+    {
+      "path": "src/simulation_contracts.js",
+      "sha256": "0b048cb891b0e30abeb7f97125d8fe62ca9abe03c7fc7697e0078ae4a72501de"
+    }
+  ],
+  "snapshot_scope": "Relevant dirty live project inputs read for the contract. Root-owned inputs may change before implementation; refresh material drift at handoff. These hashes do not establish browser behavior."
+}

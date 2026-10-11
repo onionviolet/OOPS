@@ -1,0 +1,209 @@
+{
+  "observed_utc": "2026-10-07T18:03:14.553288+00:00",
+  "owner": "/root/factorio_recovery_review",
+  "four_leaves": [
+    {
+      "path": "src/factorio_retort_content.js",
+      "bytes": 11407,
+      "sha256": "e617c1ac206d3d75e48ee80b027c0a878d7cc745f26797877ed1a838b89aec3f",
+      "actual_sha256": "e617c1ac206d3d75e48ee80b027c0a878d7cc745f26797877ed1a838b89aec3f",
+      "matches": true
+    },
+    {
+      "path": "src/factorio_retort_native.js",
+      "bytes": 10089,
+      "sha256": "906d15465db4a40248afd869ad9189d43d9b6bb01ec8766902e3ad44c41ac4e0",
+      "actual_sha256": "906d15465db4a40248afd869ad9189d43d9b6bb01ec8766902e3ad44c41ac4e0",
+      "matches": true
+    },
+    {
+      "path": "src/factorio_retort_facts.js",
+      "bytes": 3148,
+      "sha256": "e47c5e936462a70d66b1535faded38955c59e1369c1035eb9eac2dd332f04e2a",
+      "actual_sha256": "e47c5e936462a70d66b1535faded38955c59e1369c1035eb9eac2dd332f04e2a",
+      "matches": true
+    },
+    {
+      "path": "src/factorio_retort_host.js",
+      "bytes": 19117,
+      "sha256": "3b22946a10fc4f021721283ec3cee0ce05c44b663c61b9879b335ade7f4c4e99",
+      "actual_sha256": "3b22946a10fc4f021721283ec3cee0ce05c44b663c61b9879b335ade7f4c4e99",
+      "matches": true
+    }
+  ],
+  "map_readback": [
+    {
+      "path": "src/factorio_retort_content.js",
+      "retained_preview_source_sha256": "e617c1ac206d3d75e48ee80b027c0a878d7cc745f26797877ed1a838b89aec3f",
+      "current_map_source_sha256": "e617c1ac206d3d75e48ee80b027c0a878d7cc745f26797877ed1a838b89aec3f",
+      "actual_sha256": "e617c1ac206d3d75e48ee80b027c0a878d7cc745f26797877ed1a838b89aec3f"
+    },
+    {
+      "path": "src/factorio_retort_native.js",
+      "retained_preview_source_sha256": "906d15465db4a40248afd869ad9189d43d9b6bb01ec8766902e3ad44c41ac4e0",
+      "current_map_source_sha256": "906d15465db4a40248afd869ad9189d43d9b6bb01ec8766902e3ad44c41ac4e0",
+      "actual_sha256": "906d15465db4a40248afd869ad9189d43d9b6bb01ec8766902e3ad44c41ac4e0"
+    },
+    {
+      "path": "src/factorio_retort_facts.js",
+      "retained_preview_source_sha256": "e47c5e936462a70d66b1535faded38955c59e1369c1035eb9eac2dd332f04e2a",
+      "current_map_source_sha256": "e47c5e936462a70d66b1535faded38955c59e1369c1035eb9eac2dd332f04e2a",
+      "actual_sha256": "e47c5e936462a70d66b1535faded38955c59e1369c1035eb9eac2dd332f04e2a"
+    },
+    {
+      "path": "src/factorio_retort_host.js",
+      "retained_preview_source_sha256": "3b22946a10fc4f021721283ec3cee0ce05c44b663c61b9879b335ade7f4c4e99",
+      "current_map_source_sha256": "3b22946a10fc4f021721283ec3cee0ce05c44b663c61b9879b335ade7f4c4e99",
+      "actual_sha256": "3b22946a10fc4f021721283ec3cee0ce05c44b663c61b9879b335ade7f4c4e99"
+    }
+  ],
+  "retained_historical_build": {
+    "receipt": "docs/gm/audit-absorption-2026-10-07/BUILD.json",
+    "receipt_sha256": "f0520396e82ef12658b6701cc917d464858690be12d75bba49c5df79a7b8b446",
+    "fingerprint": "e77080593d4b",
+    "artifacts": [
+      {
+        "path": "/tmp/yairpg-audit-absorption-e77080593d4b-20261007/dist/bundle.js",
+        "actual_sha256": "e77080593d4b92010e150f818af3391680ff460641c2bd9cc356d468d23626f4",
+        "expected_sha256": "e77080593d4b92010e150f818af3391680ff460641c2bd9cc356d468d23626f4",
+        "matches": true
+      },
+      {
+        "path": "/tmp/yairpg-audit-absorption-e77080593d4b-20261007/dist/bundle.js.map",
+        "actual_sha256": "f0ade6cf623b17dcc9ca8864736ccd7107d8f393d5306ce4c48f28d557bcbfb8",
+        "expected_sha256": "f0ade6cf623b17dcc9ca8864736ccd7107d8f393d5306ce4c48f28d557bcbfb8",
+        "matches": true
+      },
+      {
+        "path": "/tmp/yairpg-audit-absorption-e77080593d4b-20261007/index.html",
+        "actual_sha256": "7309c86e5e8608ba3dc5fc958b1c952c569b31c5073f7afbba9cef006d12488c",
+        "expected_sha256": "7309c86e5e8608ba3dc5fc958b1c952c569b31c5073f7afbba9cef006d12488c",
+        "matches": true
+      }
+    ]
+  },
+  "current_tree_drift_from_historical_370_source_build": [
+    {
+      "path": "src/causal_story_content.js",
+      "historical_sha256": "621734abc98faa1db3b095ccce1d83dabeb927fc7adbe09a8a7562c75c3b5ef2",
+      "actual_sha256": "0efcd7becab6208afcc0d2de95beb90388c42d11bea9492704c59b3691aeba2e"
+    },
+    {
+      "path": "src/causal_story_host.js",
+      "historical_sha256": "430c0b84da05a565e47df300e0fe3d35a0e2d70b4cc2545795888c65aef2a044",
+      "actual_sha256": "0792d9b2508232c45c3c7985c125a2136cd180da971757cf8c2330dc9d9b5ef2"
+    },
+    {
+      "path": "src/expansion_engine.js",
+      "historical_sha256": "7df709c4729e6c38b5195929c0e970d7bc44c77568b61285d84e9a2b58ff3caf",
+      "actual_sha256": "bb9b59ce0400528ee006dc5846bb8ff85453ea7aa450d2875c37da29f754a829"
+    },
+    {
+      "path": "src/simulation_effects.js",
+      "historical_sha256": "60a72e9d1ea7408790b2661dd6b6cd72b0316e58b84586a8037cd286ea7485c3",
+      "actual_sha256": "57952f39895d17ee44532cc88ce8c1622bc8815e2ae4d70051d4719a0883f4c5"
+    },
+    {
+      "path": "src/simulation.js",
+      "historical_sha256": "27fcf48dca5b1219efd2572f397993996517aff7db90959caa36764ebe18599c",
+      "actual_sha256": "8fcec7d59a1513d22c02fbc80baa0936394aa034f402094415a215f9524f9114"
+    },
+    {
+      "path": "src/causal_story_ui.js",
+      "historical_sha256": "924bed5695ea8b75cfc76dea61815824d236d8ea46757cadbca8b05e4b512a65",
+      "actual_sha256": "5e43b094b364e574e9ad00e8bda57ada6b2a333c04191af86c2db49df87a32e5"
+    },
+    {
+      "path": "src/items.js",
+      "historical_sha256": "10b02fdcf0d07e75fb906d06b177b4782a4c05fd4e32fd3d83610c00c2684f71",
+      "actual_sha256": "abde53366c388bd5b6823c3614c8d9287b629de64f1bc0667806cc5d41748cbd"
+    },
+    {
+      "path": "src/feature_expansion_wave_host.js",
+      "historical_sha256": "1c5ac6d04183b8e71e8fc0f5c93a44402508cea9edcfe5e057e54f2607bf8b66",
+      "actual_sha256": "40fa05d57b4dcf589a9f1d46c89a114a71c7a3b8a2e93def8dda0c42b634f616"
+    },
+    {
+      "path": "src/simulation_content.js",
+      "historical_sha256": "a828be3c7f821a7479510fd9c73d725055b11f151fd52abd0b386293d9f174ce",
+      "actual_sha256": "ee64303f19bd78b926eda21dd9f11fac481eaea4b94fe1bfcbd76f0a7fd73185"
+    },
+    {
+      "path": "src/main.js",
+      "historical_sha256": "0f1347027f839dd30b5771f13496476106b3fe98912366b59d30cecdc85d6150",
+      "actual_sha256": "3f06a17a647731e37abd9355afafcb27524f272e174f8f94ee3354f52b4adc31"
+    }
+  ],
+  "current_dist": {
+    "bundle_sha256": "e77080593d4b92010e150f818af3391680ff460641c2bd9cc356d468d23626f4",
+    "map_sha256": "f0ade6cf623b17dcc9ca8864736ccd7107d8f393d5306ce4c48f28d557bcbfb8",
+    "index_sha256": "7309c86e5e8608ba3dc5fc958b1c952c569b31c5073f7afbba9cef006d12488c"
+  },
+  "status": "Retort source leaves preserved; historical acquired build retained. Current shared tree has independent lane changes; no new matching current combined build claim.",
+  "checks": "Read-only source/hash/source-map readback. No build or runtime/gameplay/browser/save/import execution.",
+  "gameplay_status": "implemented-unverified; existing five-family acceptance backlog remains deferred.",
+  "current_shared_join_review": {
+    "observed_utc": "2026-10-07T18:15:49.842097+00:00",
+    "scope": "Finite static retort join readback plus changed shared integration diff; prior complete shared source review remains historical. No build or runtime check.",
+    "source_pins": [
+      {
+        "path": "src/main.js",
+        "sha256": "7c6634846916d7afaf153541b252196a0dac6b28dcffcf6d39e3ce680b7e5afb"
+      },
+      {
+        "path": "src/simulation.js",
+        "sha256": "e1fd8b98947accd71cfcc770c1d203812d9a8cbd8ef75bcac801e7a756d2b931"
+      },
+      {
+        "path": "src/simulation_effects.js",
+        "sha256": "57952f39895d17ee44532cc88ce8c1622bc8815e2ae4d70051d4719a0883f4c5"
+      },
+      {
+        "path": "src/simulation_content.js",
+        "sha256": "ee64303f19bd78b926eda21dd9f11fac481eaea4b94fe1bfcbd76f0a7fd73185"
+      },
+      {
+        "path": "src/feature_expansion_wave_host.js",
+        "sha256": "40fa05d57b4dcf589a9f1d46c89a114a71c7a3b8a2e93def8dda0c42b634f616"
+      },
+      {
+        "path": "src/reference_gameplay_state.js",
+        "sha256": "9499390df80b452350ccfdd65cc125da92457bd7ed826f79738fd04bbc22b2a9"
+      },
+      {
+        "path": "src/save_files.js",
+        "sha256": "95013edd0e40deb44659f5d51548301210be18b4aba11b9bff00bcbd2e424567"
+      },
+      {
+        "path": "src/expedition_content.js",
+        "sha256": "556a01896eeda19266b5ed2dadcdfb4b7df5e0e0bb8b89beb7b22ed1bbb8ce9c"
+      },
+      {
+        "path": "src/data/expedition_items.js",
+        "sha256": "8211ea775c51d067e7db9c565d72105740307f0a9f15b0acbb756797240d9570"
+      },
+      {
+        "path": "src/components/trader_component.js",
+        "sha256": "613731e3c6ecb0dd40b600ba63b1981711bb2faa295620779b37f9ed0af6f056"
+      },
+      {
+        "path": "src/steam_absorption_host.js",
+        "sha256": "0b5dff499bef3a6e762821456a5f4c7713f21e0a2e09447ecf980558cae345bb"
+      },
+      {
+        "path": "src/steam_df_host.js",
+        "sha256": "9e3809570cefd1d8633d2b4e5e09ce9a796bd456bd69111dca25ed1a82cf3f37"
+      },
+      {
+        "path": "src/steam_df_runtime.js",
+        "sha256": "10ea8343fa5d58657893becc6b014f6d35222c240d036a2ea589a15cdc4a2e78"
+      }
+    ],
+    "findings": [
+      "Four typed retort dispatch branches and generic group bypass rejection remain; publication still calls the existing persistExpansion path.",
+      "Retort definitions, three-step work plan, five item specifications, native envelope/state readers, facts, current feature UI and conserved merchant keys remain joined.",
+      "Current native contexts retain nativeBody/nativeAlive. New Steam absorption context spreads the existing context; DF admission/stamp/completion hooks return early or unchanged context for other command families. Retort completion support is preserved."
+    ],
+    "result": "No additional actionable retort source defect in this finite current diff/readback. Other lanes still own evolving shared source and any combined build."
+  }
+}

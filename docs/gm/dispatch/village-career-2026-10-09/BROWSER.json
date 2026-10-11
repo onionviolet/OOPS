@@ -1,0 +1,14 @@
+{
+  "origin": "http://127.0.0.1:8139",
+  "findings": [
+    "Fresh origin opened the rebuilt vanilla game.",
+    "Native job starts a loaned patrol kit; opening shows exact promotion requirements.",
+    "Active native patrol save/reload restores the same shift and loan without duplication.",
+    "Played full native two-hour shift, got 50 coins, heard Tessa remember it, and returned the kit.",
+    "Two played shifts unlock Dependable worker, append exactly one career memory, and show the Mentor gate.",
+    "Actual UI export file imports through native loader; promotion, kit history and career biography survive reload/import.",
+    "Early departure earns no credit; kept kit debt persists, blocks another loan and clears on return."
+  ],
+  "errors": [],
+  "status": "passed"
+}

@@ -1,0 +1,498 @@
+{
+  "schema": 1,
+  "date": "2026-10-09",
+  "status": "requested_system_pass_complete_not_exhaustive_game_reconstruction",
+  "counting_method": "Live XML parser excludes comments; string-aware Lua comment lexer counts active IDs/types/stack fields; directed CSV counted independently",
+  "material_counts": {
+    "material_definitions": 468,
+    "base": 224,
+    "children": 244,
+    "reaction_kinds": {
+      "Reaction": 325,
+      "ReqReaction": 5
+    },
+    "inputs": {
+      "two": 298,
+      "three": 32
+    },
+    "selector_kinds": {
+      "exact": 168,
+      "tag": 162
+    },
+    "child_element_types": {
+      "Graphics": 393,
+      "StatusEffects": 136,
+      "ParticleEffect": 63,
+      "ExplosionConfig": 15
+    },
+    "derived_selector_inputs": 4
+  },
+  "material_field_count": 94,
+  "material_tag_count": 76,
+  "reaction_tag_count": 52,
+  "body_world_counts": {
+    "active_status_rows": 49,
+    "distinct_status_ids": 41,
+    "status_script_files_inventoried": 18,
+    "material_declarations": 468,
+    "legacy_contact_status_declarations": 70,
+    "explicit_liquid_stains_declarations": 65,
+    "structured_stain_materials": 21,
+    "structured_stain_effect_rows": 23,
+    "ingestion_materials": 132,
+    "ingestion_blocks": 133,
+    "ingestion_effect_rows": 149,
+    "herds": 35,
+    "relation_cells": 1225,
+    "asymmetric_unordered_herd_pairs": 133,
+    "numbered_orb_templates": 13,
+    "book_xml_templates_including_bases": 32
+  },
+  "composition_counts": {
+    "actions": 422,
+    "types": {
+      "modifier": 143,
+      "projectile": 122,
+      "static_projectile": 45,
+      "other": 42,
+      "material": 26,
+      "utility": 25,
+      "draw_many": 14,
+      "passive": 5
+    },
+    "perks": 106,
+    "stackable": 55,
+    "nonstackable": 51,
+    "explicit_caps": 16,
+    "rare_repeat": 29
+  },
+  "files": [
+    {
+      "path": "data/scripts/gun/gun.lua",
+      "review_depth": "deep section review",
+      "reviewed_line_ranges": [
+        [
+          1,
+          610
+        ]
+      ],
+      "boundary": "Assembly, draw/deck/hand/discard, root and payload casts, mana, uses, native boundaries. Tail durability helper routines not reviewed.",
+      "sha256": "30b1cfae774978950ce4a8b595d98e7475799689df42ff2d165ccb6257b3b96c",
+      "total_lines": 672
+    },
+    {
+      "path": "data/scripts/gun/gun_enums.lua",
+      "review_depth": "full short file",
+      "reviewed_line_ranges": [
+        [
+          1,
+          9
+        ]
+      ],
+      "boundary": "All action enums.",
+      "sha256": "31ddde97d0ad8a3ec33e5922ca51c663431b882d52090696721610eca6c9c469",
+      "total_lines": 9
+    },
+    {
+      "path": "data/scripts/gun/gun_actions.lua",
+      "review_depth": "whole-file metadata count plus selected function review",
+      "reviewed_line_ranges": [
+        [
+          1,
+          160
+        ],
+        [
+          1570,
+          1600
+        ],
+        [
+          4018,
+          4050
+        ],
+        [
+          4776,
+          4803
+        ],
+        [
+          5323,
+          5352
+        ],
+        [
+          5573,
+          5603
+        ],
+        [
+          10439,
+          10475
+        ]
+      ],
+      "boundary": "All 422 active records counted; not every callback manually reviewed. Additional searches located trigger/reset/division/conditional entries.",
+      "sha256": "09a034b16fbacbe330b76f47bf66a05919d8d3301c1030263851ab95b5c8c532",
+      "total_lines": 11126
+    },
+    {
+      "path": "data/scripts/gun/procedural/gun_procedural.lua",
+      "review_depth": "selected generator sections and symbol search",
+      "reviewed_line_ranges": [
+        [
+          429,
+          540
+        ],
+        [
+          609,
+          742
+        ]
+      ],
+      "boundary": "Cost/stat allocation, level/mana tradeoffs, capacity and shuffle.",
+      "sha256": "246f96dedf970ea5b9c390992562ade0cb504a7b0f7328e3e471409c162e18f0",
+      "total_lines": 980
+    },
+    {
+      "path": "data/scripts/gun/procedural/wands.lua",
+      "review_depth": "initial data records",
+      "reviewed_line_ranges": [
+        [
+          1,
+          200
+        ]
+      ],
+      "boundary": "Illustrative sprite/stat template table; whole table not audited.",
+      "sha256": "cef8a30c868c319befb8e8e75a157f95132e1640578916575947b522187ce66b",
+      "total_lines": 14003
+    },
+    {
+      "path": "data/scripts/gun/procedural/general_gun.lua",
+      "review_depth": "symbol search",
+      "reviewed_line_ranges": [],
+      "boundary": "Field assignment references only; not deeply reviewed.",
+      "sha256": "1c18ea620376a2895dacf09128e69422d3b51fed6db999ad93f16f5bfa314141",
+      "total_lines": 55
+    },
+    {
+      "path": "data/scripts/perks/perk_list.lua",
+      "review_depth": "whole-file metadata count plus selected records",
+      "reviewed_line_ranges": [
+        [
+          583,
+          615
+        ],
+        [
+          850,
+          1040
+        ],
+        [
+          1275,
+          1404
+        ],
+        [
+          1999,
+          2023
+        ]
+      ],
+      "boundary": "All 106 active definitions counted; protection, blood, HP, stainless, fungal disease examples reviewed. Counts exclude comments.",
+      "sha256": "e68830bc407791f48038bea87e38c24f2eea4667ec61aa0c3194c8d5271c5e84",
+      "total_lines": 3339
+    },
+    {
+      "path": "data/scripts/perks/perk.lua",
+      "review_depth": "selected acquisition and spawn sections",
+      "reviewed_line_ranges": [
+        [
+          1,
+          165
+        ],
+        [
+          195,
+          278
+        ]
+      ],
+      "boundary": "Stack eligibility, pool/deck repeats and spacing, pickup count, permanent effects and related-perk exclusion.",
+      "sha256": "bfc52573ba49c576149e2e3283c0019630b1b81646b0706c6c8d8ef3df8e1a48",
+      "total_lines": 818
+    },
+    {
+      "path": "data/scripts/magic/fungal_shift.lua",
+      "review_depth": "full file",
+      "reviewed_line_ranges": [
+        [
+          1,
+          250
+        ]
+      ],
+      "boundary": "Material groups, weighted pool, held inventory override, cooldown/iteration limits, conversion and feedback.",
+      "sha256": "924c2373edf1de329e2b30b288eb551f92064f547ff0865c970cf6f417e3486a",
+      "total_lines": 250
+    },
+    {
+      "path": "data/scripts/status_effects/effect_trip_03.lua",
+      "review_depth": "full short file",
+      "reviewed_line_ranges": [
+        [
+          1,
+          24
+        ]
+      ],
+      "boundary": "TRIP script invokes shift.",
+      "sha256": "0da5487279f47c8e5d43b1389f5842fe63f3ce72f9560f13aad0200fcb7cf77d",
+      "total_lines": 24
+    },
+    {
+      "path": "data/entities/misc/effect_trip_03.xml",
+      "review_depth": "targeted symbol search",
+      "reviewed_line_ranges": [
+        [
+          28,
+          28
+        ]
+      ],
+      "boundary": "Confirms linkage to effect_trip_03.lua; whole XML not reviewed.",
+      "sha256": "222d0547731df09d27640bcdd2813070a7b6b2ec4fe3ee758e5aa7165f2f4c3d",
+      "total_lines": 31
+    },
+    {
+      "path": "data/scripts/lib/utilities.lua",
+      "review_depth": "random helpers",
+      "reviewed_line_ranges": [
+        [
+          1,
+          75
+        ]
+      ],
+      "boundary": "Random coordinate wrappers and weighted selection; native RNG implementation not available.",
+      "sha256": "54b5f6344cf4dae24f570fc8c8471a4ab90b4dd295ca8d1fa65dbcddb8005410",
+      "total_lines": 1082
+    },
+    {
+      "path": "data/materials.xml",
+      "review_depth": "all status/ingestion declaration inventory; selected material blocks read",
+      "sha256": "122df34514edaf312e1a15a619b3d6a44d49ce605c929d5950c9051a57429d04",
+      "total_lines": 17030
+    },
+    {
+      "path": "data/scripts/status_effects/status_list.lua",
+      "review_depth": "full",
+      "sha256": "15c61f6cdc2c7f0d04598b759e8b4ed0c571d9d1769f01d745126516d8299cee",
+      "total_lines": 409
+    },
+    {
+      "path": "data/scripts/status_effects/hearty_start.lua",
+      "review_depth": "full",
+      "sha256": "26afc86b11b443a40a6db5e9405ed71b333760337e1b14543ae34b6ed2b21287",
+      "total_lines": 50
+    },
+    {
+      "path": "data/scripts/status_effects/hearty_end.lua",
+      "review_depth": "full",
+      "sha256": "1562e02e0d6b18d15fd97c34fbbbeb7831b1be64aea9b5e6d501f6d0a6b9aff4",
+      "total_lines": 34
+    },
+    {
+      "path": "data/entities/misc/effect_wet.xml",
+      "review_depth": "targeted body/world evidence review",
+      "sha256": "c265702e0bd22557a30eb9f5777df3483902cabf705f9fd67322a1e504aa972f",
+      "total_lines": 11
+    },
+    {
+      "path": "data/entities/misc/effect_oiled.xml",
+      "review_depth": "targeted body/world evidence review",
+      "sha256": "841245cfd8427d8e92682a48424304d9c42dbfce0feb4f527bc0071347c809b4",
+      "total_lines": 11
+    },
+    {
+      "path": "data/entities/misc/effect_internal_fire.xml",
+      "review_depth": "targeted body/world evidence review",
+      "sha256": "0a532864c6137bff4e5ac3ad2ae66e20d904bc05d1f6f9b58628fe9de03f45b7",
+      "total_lines": 74
+    },
+    {
+      "path": "data/entities/misc/effect_protection_polymorph.xml",
+      "review_depth": "targeted body/world evidence review",
+      "sha256": "725cc5ad0e08a63651c67ce56491606935cd8f23e933508936a7aea268f6521d",
+      "total_lines": 13
+    },
+    {
+      "path": "data/entities/misc/effect_polymorph.xml",
+      "review_depth": "targeted body/world evidence review",
+      "sha256": "999f9fd8edb762485e3fb04738b131d6db36d356c68bcc28a9f6f2076f4ffe92",
+      "total_lines": 89
+    },
+    {
+      "path": "data/entities/misc/effect_polymorph_random.xml",
+      "review_depth": "targeted body/world evidence review",
+      "sha256": "bd84c63b72908c28c7bd03b89eab5558ec576998d276f5bcb93683b8964dc358",
+      "total_lines": 65
+    },
+    {
+      "path": "data/entities/player_base.xml",
+      "review_depth": "relevant components",
+      "sha256": "a5f968f222ed471f8470fa0da76473bcbcb81d6bf05b7819e9d504d735570e2c",
+      "total_lines": 625
+    },
+    {
+      "path": "data/entities/base_humanoid.xml",
+      "review_depth": "relevant components",
+      "sha256": "7a8712db66ce5a8fff35dc221bc7cca864171c4fc75a15bdbd92a8ea39420fd4",
+      "total_lines": 233
+    },
+    {
+      "path": "data/entities/base_enemy_basic.xml",
+      "review_depth": "targeted body/world evidence review",
+      "sha256": "e3630ffc0e9e6953a8f008f8d6ddd8989b1d7d46f8b53fe13fc260aacf144123",
+      "total_lines": 91
+    },
+    {
+      "path": "data/entities/base_helpless_animal.xml",
+      "review_depth": "targeted body/world evidence review",
+      "sha256": "7b24c984f51d1701882c1ef6da736c28927cc4f4596b4fb6c50d219ba20f6a87",
+      "total_lines": 219
+    },
+    {
+      "path": "data/entities/animals/sheep.xml",
+      "review_depth": "targeted body/world evidence review",
+      "sha256": "bf2be236eb451581df51c6b8bbe11824e184e7e90a23f55fd05d90ac5354ef34",
+      "total_lines": 92
+    },
+    {
+      "path": "data/scripts/animals/sheep_ingest.lua",
+      "review_depth": "targeted body/world evidence review",
+      "sha256": "9f41e14f2776d52731b6b36eb0fb2f32d96aad6c38e26c2cc011dffb67171d38",
+      "total_lines": 10
+    },
+    {
+      "path": "data/scripts/projectiles/mass_polymorph.lua",
+      "review_depth": "targeted body/world evidence review",
+      "sha256": "c3b4d1c07080b3564a02dec9e00ee4a6c3f00a2b6e7fe0c3ae29b914f661eb78",
+      "total_lines": 27
+    },
+    {
+      "path": "data/entities/items/pickup/potion.xml",
+      "review_depth": "targeted body/world evidence review",
+      "sha256": "f5cd1c108ce2234fafc0d0667cf4bccb8a4d19344deaeffd2806016103d64c67",
+      "total_lines": 221
+    },
+    {
+      "path": "data/entities/items/pickup/powder_stash.xml",
+      "review_depth": "targeted body/world evidence review",
+      "sha256": "18497a23c5649783f5af80d71c9b56704a1e625b5951e6c1084c7882d3b9eaf5",
+      "total_lines": 220
+    },
+    {
+      "path": "data/scripts/items/potion.lua",
+      "review_depth": "selected init rows",
+      "sha256": "54422de70feb1a8596f6edb99ae64e0ed2e0e7ce8124ba8147c8ed1325cf8ea9",
+      "total_lines": 181
+    },
+    {
+      "path": "data/scripts/items/powder_stash.lua",
+      "review_depth": "selected material rows",
+      "sha256": "4174548af2d95bf569d53e0c9b2f1e49941f94156666c5f5fd7ff9ce2b788e38",
+      "total_lines": 96
+    },
+    {
+      "path": "data/scripts/items/potion_glass_break.lua",
+      "review_depth": "targeted body/world evidence review",
+      "sha256": "d582b23096ee3a3a83df62ddeb0333683084a7cd50393729bf440eb380c29a0e",
+      "total_lines": 29
+    },
+    {
+      "path": "data/genome_relations.csv",
+      "review_depth": "targeted body/world evidence review",
+      "sha256": "51a0f0853868997385f24546f60d9b59c6f2572d577aa9ae44f695540f5238e8",
+      "total_lines": 36
+    },
+    {
+      "path": "data/scripts/items/orb_pickup.lua",
+      "review_depth": "targeted body/world evidence review",
+      "sha256": "1c59e5fae6cff89ec9d59e59bfb1e3774a701cded4454370fffa20f15441c76b",
+      "total_lines": 74
+    },
+    {
+      "path": "data/entities/items/books/base_book.xml",
+      "review_depth": "targeted body/world evidence review",
+      "sha256": "45471fd64188ab23717ae38df0b86939eea52f61163101467d0568cf6a4bdc8c",
+      "total_lines": 124
+    },
+    {
+      "path": "data/entities/items/books/book_00.xml",
+      "review_depth": "targeted body/world evidence review",
+      "sha256": "d846297db6c7895ef427320022a272cc78216b0c3e27a2cb9e9844eab8c47c72",
+      "total_lines": 19
+    },
+    {
+      "path": "data/scripts/magic/altar_tablet_magic.lua",
+      "review_depth": "targeted body/world evidence review",
+      "sha256": "8959712271d89a01f2c570562cf12e17b9b9218ed7b10b76c493a257e76f869b",
+      "total_lines": 407
+    },
+    {
+      "path": "external/tools_modding/component_documentation.txt",
+      "review_depth": "relevant fields",
+      "sha256": "08c94c2dea03774c7cb6f54691a77bb204a15838527463efc37e8eebe7e3ee2b",
+      "total_lines": 2775
+    },
+    {
+      "path": "data/materials.xml",
+      "review_depth": "All live XML material/reaction declarations parsed and counted; all reaction fields extracted; selected physics/identity/reaction examples reviewed",
+      "sha256": "122df34514edaf312e1a15a619b3d6a44d49ce605c929d5950c9051a57429d04",
+      "total_lines": 17030
+    },
+    {
+      "path": "data/entities/animals/boss_centipede/ending/sampo_start_ending_sequence.lua",
+      "review_depth": "lines 1-150, endpoint/collection/newgame/completion gates only",
+      "sha256": "9b9c6d7ca3db9c459a29765371778ac687f96cb2339a15ba3ba7621f169d98f5",
+      "total_lines": 286
+    },
+    {
+      "path": "data/entities/animals/boss_centipede/sampo_init.lua",
+      "review_depth": "full small file",
+      "sha256": "94a7dff26fd9610725493000bb421fe87fabc235c8dc9c727622ab819bf8758f",
+      "total_lines": 27
+    },
+    {
+      "path": "data/entities/animals/boss_centipede/sampo_pickup.lua",
+      "review_depth": "lines 1-85",
+      "sha256": "8e4912ef62003b73b008205decb0d82bdaf27ee7c5b939de326fe57c46c534fd",
+      "total_lines": 102
+    },
+    {
+      "path": "external/mods/example/mod.xml",
+      "review_depth": "full small file",
+      "sha256": "8f2c5544f7dc1c80a78b86672f452d804f204acfc523570cdc31e2b1efff9120",
+      "total_lines": 15
+    },
+    {
+      "path": "external/mods/example/init.lua",
+      "review_depth": "lines 1-65",
+      "sha256": "c4774e2a84e90fc5e9f18f324e4969b2f7a713d5bb4932e674aa98a1fcd79ab1",
+      "total_lines": 94
+    }
+  ],
+  "community_read": [
+    {
+      "repository": "Neffc/narg",
+      "revision": "fa614b2eb44c1469053a0306b48f09af0a171d90",
+      "files": [
+        "src/alchemy.rs full",
+        "src/main.rs recipe-order/output paths",
+        "README.md explanation of catalysts/rate/identity"
+      ]
+    }
+  ],
+  "opaque": [
+    "Material inheritance merge, tag expansion and reaction scheduling/order in native engine",
+    "Dose accumulation, washing, cancellation/ignition order and native effect math",
+    "Secret recipe generator in installed binary; community parity not tested",
+    "Projectile collision/configuration, payload dispatch and mana regen timing",
+    "World conversion on unloaded/future terrain and shift save behavior",
+    "Polymorph restore and AI targeting",
+    "All secrets, endings and every spell/perk callback"
+  ],
+  "not_run": [
+    "game launch",
+    "gameplay validation",
+    "save reload/import",
+    "YAIR build/tests/browser"
+  ],
+  "extraction_is_not_reading": true,
+  "source_catalogue_counts_are_not_obtainability_claims": true
+}

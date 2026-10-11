@@ -1,0 +1,7 @@
+docs/gm/dispatch/lncrawl-polite-fork-2026-10-10/run.log session id: 01a12430-d71d-7431-98fb-17ca29d7ee1c
+docs/research/power-systems/anime-manga/run.log session id: 01a12430-de62-7b52-93f3-65551f78331f
+docs/research/power-systems/web-fiction/run.log session id: 01a12430-e62c-72f1-9915-ba36b74e2028
+docs/research/power-systems/western/run.log session id: 01a12430-ee07-7a33-acbc-440fc529506a
+session id: 01a12446-77b5-7db1-ae2f-6d5bd20d89e2
+docs/research/power-systems/wiki-digests/run.log session id: 01a12449-a934-71d1-b74a-04d4ab00364c
+docs/research/power-systems/novel-crawl/run.log session id: 01a12449-b03e-76a3-83e7-6f9b693adecc

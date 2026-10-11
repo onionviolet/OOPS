@@ -1,0 +1,45 @@
+{
+  "started_utc": "2026-10-10T05:30:09.610053+00:00",
+  "inputs": {
+    "PROJECT.md": "ab1f2d4fda6f60d40f7dc22cace32676675575576eb0cc166a7e1202b951f48a",
+    "docs/gm/dispatch/power-systems-2026-10-10/ASSIGNMENT_COMMON.md": "c7f0619aae46e79df368f90695e65c1e63184ed8ad9e38067a2efd52bf3e22df",
+    "docs/gm/dispatch/power-systems-2026-10-10/ASSIGNMENT_N.md": "866ab88653ad7a3d928e86d97acda1bbbe2f29051a62cfcef42f33a374131c82",
+    "docs/gm/dispatch/power-systems-2026-10-10/ASSIGNMENT_D.md": "8d464d1ad4fec00e89c0ae6e828b7f10180e53df9e6288f5b79401e8611865f4",
+    "docs/emergent/E8_POWER_ASPECTS.md": "7baf6e63125fdf26a765bc1cffc3f71188194849d0494c2411fbad80b90f729e",
+    "docs/emergent/E8B_POWER_CATALOG.md": "3eed888a96e509ccc9cdecb9edcb32d9a851f25fba8f09887822cded9c9f787e",
+    "docs/emergent/E8C_POWER_PATHS_AND_ANIME.md": "76300d72dfc7fe61378b95970a3095f985163936bdeb72eeb6c375eab930eb4d",
+    "docs/emergent/E8D_VOW_SYSTEM.md": "7dd9a25e218b8f0dff3a64d4ea379ae48d5cfcce283b4b1456cf439270de34ad"
+  },
+  "selection_policy": "Descending novelty_score, stable file order ties, first 15; snapshot hash before acquisition.",
+  "coverage_policy": "Read all chapters actually acquired; never label metadata as chapter evidence. Public ledger maps unknown fields to null.",
+  "acquisition_policy": "Existing supplied copies first. Official free pages only via polite fork or guarded FanFicFare. Shared host budget 300, stop at first refusal, no login or paid text.",
+  "delivery_hashes": {
+    "PROJECT.md": "eedc05e8172c872dcf3510e11ac0fa58781f3d1b041a9c93055b2791b714db55",
+    "docs/gm/dispatch/power-systems-2026-10-10/ASSIGNMENT_COMMON.md": "c7f0619aae46e79df368f90695e65c1e63184ed8ad9e38067a2efd52bf3e22df",
+    "docs/gm/dispatch/power-systems-2026-10-10/ASSIGNMENT_N.md": "866ab88653ad7a3d928e86d97acda1bbbe2f29051a62cfcef42f33a374131c82",
+    "docs/gm/dispatch/power-systems-2026-10-10/ASSIGNMENT_D.md": "8d464d1ad4fec00e89c0ae6e828b7f10180e53df9e6288f5b79401e8611865f4",
+    "docs/emergent/E8_POWER_ASPECTS.md": "ff0d5adece4a53411bf520c6870e6789fbfb9f53054212eae9c095024e79e420",
+    "docs/emergent/E8B_POWER_CATALOG.md": "b3f52031f3e1d550645607c4b49a56b2aafed665996388e09d8167692d1130e8",
+    "docs/emergent/E8C_POWER_PATHS_AND_ANIME.md": "439cf06fd42d616cde24bf53560945b46ebda9df9d73d214c1c4b83059fab490",
+    "docs/emergent/E8D_VOW_SYSTEM.md": "7dd9a25e218b8f0dff3a64d4ea379ae48d5cfcce283b4b1456cf439270de34ad"
+  },
+  "changed_inputs": [
+    "PROJECT.md",
+    "docs/emergent/E8_POWER_ASPECTS.md",
+    "docs/emergent/E8B_POWER_CATALOG.md",
+    "docs/emergent/E8C_POWER_PATHS_AND_ANIME.md"
+  ],
+  "final_artifact_sha256": {
+    "EPUBS.json": "7772d0132e0d4a1101b04d2a8366ba1f98529e3aba21c27651a26192cb9b5cd1",
+    "ACQUISITION.json": "120bc0b768a2e6ab7cf81d79fc1fb2cd9479f0528c415c7ec63099345cc9a797",
+    "SOURCES.md": "7e4980583ea6c37a6eaa3e089745473fd66cc16048500ccba4d2f4e277e1ebd7",
+    "REPORT.md": "0ef558e6bedc408f7368d3f01950785074db9eede5deff38124a512efd381608",
+    "CHECKPOINT.md": "9c4712c97951d89e65cbcdf6ac3e1846ab8c3542a8369b9ccab7a33d46684c3d",
+    "SOURCE_REQUEST_APPEND.json": "04bc89e5e4c415a3aeab728ac48e5fbacfc5387a46009070f91142acfc312d03",
+    "LOCAL_CHECK.json": "934001e39f6aaec11dd8e1f89de8e20a3f3bb1e7f2fb84ed7e6b82879dcbf4c1",
+    "VALIDATION.json": "ddccbe0699b5e3090e5d40b8d97eed8d3d56f14149278b946c736cade6c102cb",
+    "SELECTION.json": "53664dc292af27d9255eaf036ee15db0ab5ce31d1aa9c58cb1c00a65d5658334",
+    "SERIES.json": "86876b5d18bb338213363eb6634810d1593c151b6cba092716a6d5ea019956e7",
+    "ROUTES.json": "60064884b8f468cbd6219ed104f2f51673e1764e5e8471b3173fcd36e7673086"
+  }
+}

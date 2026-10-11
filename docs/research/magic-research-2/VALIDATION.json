@@ -1,0 +1,37 @@
+{
+  "schema": "source-validation-receipt-v1",
+  "result": "passed",
+  "checks": [
+    "Four acquired JS/map byte hashes and sizes match private manifest",
+    "Two main JS/map hashes match cached hosting-commit parity receipt",
+    "E01-E24 each resolve to the pinned source-map index and source path",
+    "All cited source-body SHA256 values match sourcesContent",
+    "All cited 1-based inclusive line spans are within their source bodies",
+    "Report references exactly E01-E24",
+    "Coverage counts match source maps and cited-body union",
+    "All dossier artifacts exist"
+  ],
+  "evidence_ids": 24,
+  "source_references": 32,
+  "line_spans": 47,
+  "selected_unique_source_bodies": 18,
+  "file_hashes": {
+    "main.15163126.js": {
+      "sha256": "6258fe652147afc5455ed29e61106e5f18cc666dccd28b592acfc9e6ea543d69",
+      "bytes": 1428002
+    },
+    "469.bf5f1452.js": {
+      "sha256": "fbb12089e2a4804b6d31d8440ab21cf17dcccf52df39ee6e292a801ef69cc71b",
+      "bytes": 2724906
+    },
+    "main.15163126.js.map": {
+      "sha256": "5ce376807005aa5418211661a0b9f9b4370725a3c94b17439a82ff994c1eaf59",
+      "bytes": 4254628
+    },
+    "469.bf5f1452.js.map": {
+      "sha256": "9fb034d4daa9439864aac55fcb712ba0f8a936112ec58e6dc20a89d4ab423f52",
+      "bytes": 7494379
+    }
+  },
+  "scope": "Static source and artifact validation only. No downloaded code or game was executed."
+}

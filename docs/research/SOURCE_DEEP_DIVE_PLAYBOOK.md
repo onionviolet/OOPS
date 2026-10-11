@@ -10,7 +10,29 @@ Runs so far: Lord of the Mysteries and Circle of Inevitability, then
 Shadow Slave (`docs/research/novels/shadow-slave/SYSTEMS_DEEP_DIVE_2026-10-10.md`),
 both on 2026-10-10. Also 我有一個修仙模擬器, a second simulator novel
 (`docs/research/novels/woyouyigexiuxianmoniqi/DEEP_DIVE_2026-10-10.md`),
-read in full from ttks.tw on 2026-10-10.
+read in full from ttks.tw on 2026-10-10. Then nine at once on 2026-10-10
+(A Novel Concept, Legendary Mechanic, ORV, Regressor's Tale, Speedrunning
+the Multiverse, You Have Died Again, Solo Leveling, Labyrinth of the Mad
+God, Fated Villain), each building on its full-book dossier; index in
+`docs/research/novels/DEEP_WORLDS_DEEP_DIVES_2026-10-10.md` (private).
+Also two simulator comparison novels that day: 聖女幫我模擬修仙
+(`docs/research/novels/shengnvbangwomonixiuxian/`) and
+凡人：從極陰島開始的修仙模擬器 (`docs/research/novels/fanrencongjiyindao-moniqi/`,
+free 44 chapters only).
+Also SSS-Class Suicide Hunter (Revival Hunter on Wuxiaworld), complete
+400-chapter EPUB, on 2026-10-10
+(`docs/research/novels/sss-class-suicide-hunter/DEEP_DIVE_2026-10-10.md`).
+
+Lessons from the nine-book batch:
+- A session holds about 20 concurrent agents. Nine coordinators each
+  planning four readers overflowed it, and most readers never launched.
+  For a batch, either give each coordinator one or two readers or run
+  fewer books at once.
+- The in-app browser has a tab cap. Close your tab when done.
+- Many Royal Road and Aethon books have no wiki (ANC, Speedrunning, You
+  Have Died Again, Labyrinth). Check for a Fandom 404 once, then use the
+  author's glossary or RR pages as the M4 source and use chapter ids in
+  place of revision ids.
 
 This playbook is a method, not accepted design. It sits beside the
 [book audit pipeline](novels/WORLD_AUDIT_PIPELINE.md) (private), which
@@ -170,6 +192,12 @@ Learned in the fan fiction pilot (`docs/research/fanfic/REPORT.md`,
   `【…ttk…】` watermark lines before reading. Long books can carry
   chapter-number restarts that are new arcs of the same book, not other
   books mixed in.
+  From the simulator comparison pair (2026-10-10): ttks can serve another
+  novel's text under a real chapter heading with an "use the app" error
+  notice, so grep for it. Its search is `/novel/search?q=<title>`. It
+  answered 429 twice in about 300 requests, and a 30 s wait cleared it.
+  Mirrors often stop at a book's free chapters; twkan (POST `/search`) and
+  69shuba (GBK form) are the next routes to try.
 - **Full reads of long books with Codex:** split a book into ranges of
   roughly 100–160 chapters, one detached run each, using
   `tools/book_deep_dive/launch_codex_reader.py` with `json_range.py` as the

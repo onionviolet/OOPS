@@ -1,0 +1,20 @@
+{
+  "at_utc": "2026-10-09T20:05:57.929144+00:00",
+  "gdre": {
+    "version": "v2.7.1",
+    "path": "/Users/weiwei/.codex/research/tools/gdre-v2.7.1",
+    "provenance": "private PROVENANCE.json",
+    "headless_help": "executed successfully",
+    "planned_scope": "Godot static scripts/data recovery only; no game execution"
+  },
+  "dotnet": {
+    "version": "8.0.425",
+    "path": "/Users/weiwei/.codex/research/tools/dotnet-sdk",
+    "source": "https://dot.net/v1/dotnet-install.sh",
+    "install_session": 30008,
+    "planned_scope": "Il2CppDumper static recovery; no game execution",
+    "installed": true,
+    "install_session_completed": true,
+    "installer_sha256": "082f7685e156738a1b2e2ed8381a621870d4ce8e8c59278034556f05c186eb2e"
+  }
+}

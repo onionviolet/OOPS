@@ -1,0 +1,146 @@
+{
+  "game": "Planescape: Torment: Enhanced Edition",
+  "appid": 466300,
+  "buildid": 25492483,
+  "state_flags": 4,
+  "scope": "section C only",
+  "date": "2026-10-10",
+  "engine": "Infinity Engine Enhanced Edition; installed engine.lua engine_mode=3",
+  "install": "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Planescape Torment Enhanced Edition",
+  "install_bytes_manifest": 1848155522,
+  "steam_depots": [
+    {
+      "id": 466301,
+      "manifest": "4833026455837748533"
+    },
+    {
+      "id": 466303,
+      "manifest": "1243134996496977071"
+    }
+  ],
+  "private_workspace": "/Users/weiwei/.codex/research/planescape-torment",
+  "extract_method": "read_ie.py KEY/BIFF slice reader, DLG state machine + English TLK linkage; INI extension; targeted BCS opcode annotation",
+  "source_hashes": [
+    {
+      "path": "chitin.key",
+      "bytes": 211278,
+      "sha256": "5704d79ac5367dceeadf478725e244e52e374ee206dc78d7aee8e8b1a12fefdd"
+    },
+    {
+      "path": "lang/en_US/dialog.tlk",
+      "bytes": 8157381,
+      "sha256": "f879961e267c9c741c2611a06a39bf6e7d370f73027d4d5f02108519763286cb"
+    },
+    {
+      "path": "data/DLGFiles.bif",
+      "bytes": 3410896,
+      "sha256": "2f5604db169225c9ae134b8d0ecac6e844891297b6bf4dc94c87be34b5baa1b1"
+    },
+    {
+      "path": "data/Scripts.bif",
+      "bytes": 6162232,
+      "sha256": "343f43ebdcf597b378d5275ea5cc55afda182ddecdbf6612cc6b1303ee55f504"
+    },
+    {
+      "path": "data/idsfiles.bif",
+      "bytes": 108348,
+      "sha256": "df08290af5b8e64467405e3143148edb17c1c01711e30583a660709822c231aa"
+    },
+    {
+      "path": "data/inifiles.bif",
+      "bytes": 441416,
+      "sha256": "3e131369516d56465f5bd60f5de1a93fc5d526ae927f7928d3879270d49f7579"
+    },
+    {
+      "path": "data/items.bif",
+      "bytes": 1914576,
+      "sha256": "f3cb601ba5c488b5d448950d84ff4a5e19ce686db7c7047d5d32d3e629572f8b"
+    }
+  ],
+  "parsed": {
+    "counts": {
+      "1000": 2680,
+      "IDS": 89,
+      "1": 553,
+      "1004": 484,
+      "1033": 19,
+      "1034": 6,
+      "1028": 1676,
+      "1032": 1,
+      "1001": 123,
+      "1003": 125,
+      "1002": 18,
+      "1015": 1,
+      "BCS": 2222,
+      "2051": 12,
+      "DLG": 854,
+      "4": 2898,
+      "SPL": 168,
+      "1014": 45,
+      "1013": 2,
+      "2050": 286,
+      "2DA": 146,
+      "ITM": 730,
+      "CRE": 1093,
+      "1010": 208,
+      "1023": 33,
+      "1021": 54,
+      "1019": 9,
+      "1016": 12,
+      "1029": 40
+    },
+    "strings": 106854,
+    "dialogs": 854,
+    "states": 16201,
+    "transitions": 46393
+  },
+  "raw_retained_count": 50,
+  "raw_retained_bytes": 887003,
+  "source_mode": "in-place read-only",
+  "changed_install": false,
+  "launched": false,
+  "save_settings_access": false,
+  "build_commit_uninstall": false,
+  "dlc": "No distinct gameplay DLC audited; manifest lists two platform/content depots, which do not independently establish DLC ownership or activation.",
+  "yair_mapping_inputs": [
+    {
+      "path": "PROJECT.md",
+      "sha256": "eedc05e8172c872dcf3510e11ac0fa58781f3d1b041a9c93055b2791b714db55"
+    },
+    {
+      "path": "docs/RULES_FROM_SCRATCH.md",
+      "sha256": "03239f3f675df1568bbd3c28c1df70777687a76c9bb10e4a4ba6383019566980"
+    },
+    {
+      "path": "docs/LIFE_SIM_NORTH_STAR.md",
+      "sha256": "9464c7481bf071385acee865dd22d4bcac769213e56fdd631701ec30427d4178"
+    },
+    {
+      "path": "docs/gm/dispatch/steam-library-wave-2026-10-10/ASSIGNMENT.md",
+      "sha256": "d4aab9052cc570aae49246720358797626ee5deed974f5bc1e50e826490cd6b2"
+    },
+    {
+      "path": "src/life_record.js",
+      "sha256": "21ac5f17fff62794ba26d7180deb6a9c0ad85060d79134e5d6ce83de51d1d9bd"
+    },
+    {
+      "path": "src/chronicle.js",
+      "sha256": "d07eaa2df0d8616adc67bfae4cf80441d0c8f8c38270a15254b4bf34dfe8bd71"
+    },
+    {
+      "path": "src/causal_story_host.js",
+      "sha256": "cc6464bb00936100be5cf6b02c95be62f38c3478d273b2b83c4395fb7bcf8c1c"
+    },
+    {
+      "path": "src/npc_lives.js",
+      "sha256": "abef56e7d73a0e17a3ba551608eafc4fb7f9f1660c17a445cfe96ae9869eb804"
+    }
+  ],
+  "semantic_coverage": "targeted nodes only; COVERAGE.md ledger",
+  "validation": {
+    "passed": true,
+    "checks": 2881,
+    "private_receipt": "/Users/weiwei/.codex/research/planescape-torment/VALIDATION.json",
+    "runtime": false
+  }
+}

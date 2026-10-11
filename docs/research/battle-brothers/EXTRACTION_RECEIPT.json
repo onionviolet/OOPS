@@ -1,0 +1,142 @@
+{
+  "date": "2026-10-08",
+  "build": "23856902",
+  "steam_app": 365360,
+  "state_flags": 4,
+  "private_root": "~/.codex/research/battle-brothers/",
+  "archives": [
+    {
+      "name": "data_001.dat",
+      "bytes": 1327562516,
+      "sha256": "3621875b5d76d0dcad7838aa2a72406cb65fcc5f9134f8d7ab6a21ed64fddbfd",
+      "mtime_ns": 1791483269347826337,
+      "member_count": 9372,
+      "squirrel_count": 3104
+    },
+    {
+      "name": "data_002.dat",
+      "bytes": 5770,
+      "sha256": "cb860bed2b09c563e822e99e5769de940efba3af3bf7bedcd6b2e12fa7393b98",
+      "mtime_ns": 1791483270706986235,
+      "member_count": 7,
+      "squirrel_count": 2
+    },
+    {
+      "name": "data_003.dat",
+      "bytes": 1517,
+      "sha256": "17f10219d26f616351c268a2ae9a43df5f506e690bd96a63fa72308af2b6f6d6",
+      "mtime_ns": 1791483271157697026,
+      "member_count": 3,
+      "squirrel_count": 1
+    },
+    {
+      "name": "data_004.dat",
+      "bytes": 95329421,
+      "sha256": "c65490cfd816e9b1a57ea1da1df750c850fd4ba7e8d2d4633f75bdfa1beacf0f",
+      "mtime_ns": 1791483275731428410,
+      "member_count": 369,
+      "squirrel_count": 1
+    },
+    {
+      "name": "data_005.dat",
+      "bytes": 1522,
+      "sha256": "de5976bd88673942225a75d5da4e18d5300c9e775bc6b6f6ec8fb95c697a6757",
+      "mtime_ns": 1791483276133013686,
+      "member_count": 3,
+      "squirrel_count": 1
+    },
+    {
+      "name": "data_006.dat",
+      "bytes": 14967496,
+      "sha256": "9c41633d2ab36b14d8e6b07689ae1d5d1a2300ea37d40b2bcaea17e001aa2506",
+      "mtime_ns": 1791483277791382127,
+      "member_count": 84,
+      "squirrel_count": 1
+    },
+    {
+      "name": "data_007.dat",
+      "bytes": 1526,
+      "sha256": "65d3a5dbbd49ba1ef3e6ed1e021fe714ab88edc44746312c7e3cca342783038f",
+      "mtime_ns": 1791483278244369414,
+      "member_count": 3,
+      "squirrel_count": 1
+    },
+    {
+      "name": "data_008.dat",
+      "bytes": 155163776,
+      "sha256": "1be9278fedb1b2f05a4c4357636972d989ef747b263e29a3c47caa27a29c0d4e",
+      "mtime_ns": 1791483295260953083,
+      "member_count": 372,
+      "squirrel_count": 1
+    },
+    {
+      "name": "data_009.dat",
+      "bytes": 1522,
+      "sha256": "4995a6c6b4fd500b5ef7c5e4f082d17710f83e4a81bfddc2f47c970bf81c799f",
+      "mtime_ns": 1791483295513875771,
+      "member_count": 3,
+      "squirrel_count": 1
+    },
+    {
+      "name": "data_010.dat",
+      "bytes": 2078,
+      "sha256": "b2934459ace570d91850fe21b903455287824a1e28087d95c22fcd3d2ebd026e",
+      "mtime_ns": 1791483295768510039,
+      "member_count": 3,
+      "squirrel_count": 1
+    }
+  ],
+  "retained_members": 3239,
+  "retained_bytes": 30222117,
+  "hash_matching_members": 3239,
+  "squirrel_members": 3114,
+  "unique_nonempty_decompiler_outputs": 1109,
+  "semantic_review_is_subset": true,
+  "tool_route": {
+    "package": "Enduriel/bbkit v0.1.3",
+    "source_commit": "95cc508f884dd6bdbae6b37e07250453500e0eb7",
+    "nutcracker_reported_version": "0.02, binary nut3.x",
+    "package_sha256": "07889b34a36f837bbfc33d029aea038dfa8bf4852b95aa7a9607bee638d0be93",
+    "executables": [
+      {
+        "name": "bbsq.exe",
+        "sha256": "07bbd52b081abf48340a158f746ba341f9eb5f87593a64f365436cf30915f959"
+      },
+      {
+        "name": "nutcracker.exe",
+        "sha256": "bb653588301de0c099fc69430fc699dd875205d9e5262bf09d64e8ee1a63a9a6"
+      },
+      {
+        "name": "sq.exe",
+        "sha256": "9c56f6d0961bd602fcf2cfaec045e8ad5bb1fda4eba774c8f119bc50ab42fc57"
+      }
+    ],
+    "host": "CrossOver Preview isolated win10_64 research bottle; game never run"
+  },
+  "qualification": {
+    "input": "scripts/skills/backgrounds/farmhand_background.cnut",
+    "decryption": "successful private working-copy bbsq -d",
+    "decompilation": "class/parent, cost, trait exclusion, stat and equipment functions recovered",
+    "syntax": "sq -c returned0 for reconstructed farmhand; no script executed",
+    "bytecode_checks": [
+      "onChangeAttributes OP_APPENDARRAY matches reconstructed stat literals",
+      "event_manager.selectEvent debug listing confirms score thresholds500/2000, random weighted pick and generator yields"
+    ],
+    "limits": "Syntax and debug agreement are bounded checks, not exact reconstruction or runtime validation. Author warns decompiler can produce incorrect logic."
+  },
+  "processes": {
+    "priority": "423 outputs, completed",
+    "core": "8 outputs, completed",
+    "targeted": "71 outputs, completed",
+    "broad": "stopped intentionally after674 nonempty outputs once audit inputs available; encrypted remaining scripts retained",
+    "active_extractors": false
+  },
+  "opaque": [
+    "2005 retained Squirrel members have no .nut output in this bounded pass",
+    "native C++ engine/persistence internals",
+    "runtime DLC entitlement/activation",
+    "whole-game semantic review",
+    "art/audio/books omitted"
+  ],
+  "prohibited_actions_run": []
+}

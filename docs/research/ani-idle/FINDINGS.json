@@ -1,0 +1,679 @@
+{
+  "date": "2026-10-09",
+  "appid": 3795920,
+  "buildid": "19068956",
+  "status": "installed-recovered-script-static-audit-complete",
+  "anchor_root": "/Users/weiwei/.codex/research/ani-idle/recovered",
+  "source_findings": [
+    {
+      "id": "AN-F1",
+      "title": "Automatic fight, active technique",
+      "status": "recovered-source-static",
+      "claim": "Normal fight buttons request repeat mode; one timeout handler performs automatic exchanges. A defeated enemy respawns when loop_fight is true. Manual skills have class and mana checks; the skill button gates cooldown and emits use. This is repeated auto combat with active intervention, not verified background/offline simulation.",
+      "evidence": [
+        {
+          "path": "/Users/weiwei/.codex/research/ani-idle/recovered/scripts/fight_button.gd",
+          "lines": [
+            242,
+            243
+          ]
+        },
+        {
+          "path": "/Users/weiwei/.codex/research/ani-idle/recovered/scripts/fight_menu.gd",
+          "lines": [
+            21,
+            59
+          ]
+        },
+        {
+          "path": "/Users/weiwei/.codex/research/ani-idle/recovered/scripts/game.gd",
+          "lines": [
+            295,
+            329
+          ]
+        },
+        {
+          "path": "/Users/weiwei/.codex/research/ani-idle/recovered/scripts/game.gd",
+          "lines": [
+            385,
+            403
+          ]
+        },
+        {
+          "path": "/Users/weiwei/.codex/research/ani-idle/recovered/scripts/game.gd",
+          "lines": [
+            634,
+            690
+          ]
+        },
+        {
+          "path": "/Users/weiwei/.codex/research/ani-idle/recovered/scripts/skill_slot.gd",
+          "lines": [
+            25,
+            38
+          ]
+        }
+      ],
+      "runtime_exercised": false
+    },
+    {
+      "id": "AN-F2",
+      "title": "Rest interrupts and has incidents",
+      "status": "recovered-source-static",
+      "claim": "Rest refuses during a dungeon, otherwise stops fighting and removes bad effects. The timer branch heals/fills 10% of maximum life/mana and rolls incidents including full recovery, a regeneration effect, poison, potions and crystals. Starting a fight disables resting. Exact probability and elapsed pacing are unexercised.",
+      "evidence": [
+        {
+          "path": "/Users/weiwei/.codex/research/ani-idle/recovered/scripts/game.gd",
+          "lines": [
+            245,
+            293
+          ]
+        },
+        {
+          "path": "/Users/weiwei/.codex/research/ani-idle/recovered/scripts/game.gd",
+          "lines": [
+            602,
+            611
+          ]
+        },
+        {
+          "path": "/Users/weiwei/.codex/research/ani-idle/recovered/scripts/fight_menu.gd",
+          "lines": [
+            54,
+            59
+          ]
+        }
+      ],
+      "runtime_exercised": false
+    },
+    {
+      "id": "AN-F3",
+      "title": "Crafting changes particular properties",
+      "status": "recovered-source-static",
+      "claim": "Crystals reroll complete affix sets at a selected rarity, reroll prefixes or suffixes, reroll one chosen category at random, add a modifier or improve tiers. Empowered tier ceilings check both player and item level. Invalid operations shown refund the consumed crystal. Names Ascend/Rebirth refer to gear operations, not character prestige.",
+      "evidence": [
+        {
+          "path": "/Users/weiwei/.codex/research/ani-idle/recovered/scripts/crafting_menu.gd",
+          "lines": [
+            118,
+            169
+          ]
+        },
+        {
+          "path": "/Users/weiwei/.codex/research/ani-idle/recovered/scripts/crafting_menu.gd",
+          "lines": [
+            189,
+            250
+          ]
+        },
+        {
+          "path": "/Users/weiwei/.codex/research/ani-idle/recovered/scripts/crafting_menu.gd",
+          "lines": [
+            299,
+            339
+          ]
+        }
+      ],
+      "runtime_exercised": false
+    },
+    {
+      "id": "AN-F4",
+      "title": "Repeat encounters remember fragments",
+      "status": "recovered-source-static",
+      "claim": "Quest selection is random from an exported array, with three choices. Egg feeding count persists across encounters until its reward branch resets it. Key/chest flags form a two-part condition then reset. These are small persistent chains, not a verified narrative campaign.",
+      "evidence": [
+        {
+          "path": "/Users/weiwei/.codex/research/ani-idle/recovered/scripts/quests_menu.gd",
+          "lines": [
+            63,
+            75
+          ]
+        },
+        {
+          "path": "/Users/weiwei/.codex/research/ani-idle/recovered/scripts/quests_menu.gd",
+          "lines": [
+            104,
+            136
+          ]
+        },
+        {
+          "path": "/Users/weiwei/.codex/research/ani-idle/recovered/scripts/quests_menu.gd",
+          "lines": [
+            310,
+            324
+          ]
+        },
+        {
+          "path": "/Users/weiwei/.codex/research/ani-idle/recovered/scripts/quests_menu.gd",
+          "lines": [
+            463,
+            504
+          ]
+        },
+        {
+          "path": "/Users/weiwei/.codex/research/ani-idle/recovered/scripts/saver_loader.gd",
+          "lines": [
+            81,
+            83
+          ]
+        }
+      ],
+      "runtime_exercised": false
+    },
+    {
+      "id": "AN-F5",
+      "title": "Stats change event options",
+      "status": "recovered-source-static",
+      "claim": "Recovered quest branches check intelligence, charisma, class plus wisdom, and dexterity. Some checks replace a random result with success, while others alter warning/outcome text. This gives noncombat stats situational uses without demonstrating living NPC relationships.",
+      "evidence": [
+        {
+          "path": "/Users/weiwei/.codex/research/ani-idle/recovered/scripts/quests_menu.gd",
+          "lines": [
+            186,
+            204
+          ]
+        },
+        {
+          "path": "/Users/weiwei/.codex/research/ani-idle/recovered/scripts/quests_menu.gd",
+          "lines": [
+            254,
+            294
+          ]
+        },
+        {
+          "path": "/Users/weiwei/.codex/research/ani-idle/recovered/scripts/quests_menu.gd",
+          "lines": [
+            659,
+            676
+          ]
+        }
+      ],
+      "runtime_exercised": false
+    },
+    {
+      "id": "AN-F6",
+      "title": "Calendar labels are not proven schedule gates",
+      "status": "recovered-source-static",
+      "claim": "Daily through Yearly button handlers only check dungeon occupancy before starting a random quest. StartQuest increments saved counters and shows a notice above one; it does not refuse. No clock-based cooldown/reset was found in recovered scripts. Do not read these labels as a verified daily login economy.",
+      "evidence": [
+        {
+          "path": "/Users/weiwei/.codex/research/ani-idle/recovered/scripts/quests_menu.gd",
+          "lines": [
+            75,
+            103
+          ]
+        },
+        {
+          "path": "/Users/weiwei/.codex/research/ani-idle/recovered/scripts/quests_menu.gd",
+          "lines": [
+            146,
+            183
+          ]
+        },
+        {
+          "path": "/Users/weiwei/.codex/research/ani-idle/recovered/scripts/savedgame.gd",
+          "lines": [
+            22,
+            26
+          ]
+        }
+      ],
+      "runtime_exercised": false
+    },
+    {
+      "id": "AN-F7",
+      "title": "Committed dungeon and fixed reward",
+      "status": "recovered-source-static",
+      "claim": "Dungeon start takes an enemy array, hides flee, advances sequentially on wins, and awards a particular equipment item based on final opponent. Rest and quest requests are blocked during the dungeon. Enemy resource arrays and UI wiring were not extracted, so exact dungeon contents and availability are unknown.",
+      "evidence": [
+        {
+          "path": "/Users/weiwei/.codex/research/ani-idle/recovered/scripts/dungeons_menu.gd",
+          "lines": [
+            27,
+            70
+          ]
+        },
+        {
+          "path": "/Users/weiwei/.codex/research/ani-idle/recovered/scripts/game.gd",
+          "lines": [
+            602,
+            605
+          ]
+        },
+        {
+          "path": "/Users/weiwei/.codex/research/ani-idle/recovered/scripts/quests_menu.gd",
+          "lines": [
+            146,
+            183
+          ]
+        }
+      ],
+      "runtime_exercised": false
+    },
+    {
+      "id": "AN-F8",
+      "title": "XP cap and recovery after death",
+      "status": "recovered-source-static",
+      "claim": "Player GainXP stops at level 69, raises at most one level per call and zeros current XP after leveling, so surplus is discarded in this body. Lower-level enemies incur cumulative XP reductions at gaps 10/20/30. Die removes effects, loses half current XP, refills life/mana; combat handler stops fight/dungeon. This is a penalty/recovery, not inherited YAIR unconsciousness or permanent death.",
+      "evidence": [
+        {
+          "path": "/Users/weiwei/.codex/research/ani-idle/recovered/scripts/player.gd",
+          "lines": [
+            20,
+            40
+          ]
+        },
+        {
+          "path": "/Users/weiwei/.codex/research/ani-idle/recovered/scripts/game.gd",
+          "lines": [
+            323,
+            329
+          ]
+        },
+        {
+          "path": "/Users/weiwei/.codex/research/ani-idle/recovered/scripts/game.gd",
+          "lines": [
+            420,
+            430
+          ]
+        }
+      ],
+      "runtime_exercised": false
+    },
+    {
+      "id": "AN-F9",
+      "title": "Source shows deletion reset, no character prestige",
+      "status": "recovered-source-static",
+      "claim": "New-game UI confirms deletion; loader removes the save and reloads scene only if the file exists. No character prestige/retention loop found in recovered scripts. Rebirth Crystal rerolls equipment modifier tiers, not the character.",
+      "evidence": [
+        {
+          "path": "/Users/weiwei/.codex/research/ani-idle/recovered/scripts/game.gd",
+          "lines": [
+            1100,
+            1117
+          ]
+        },
+        {
+          "path": "/Users/weiwei/.codex/research/ani-idle/recovered/scripts/saver_loader.gd",
+          "lines": [
+            314,
+            320
+          ]
+        },
+        {
+          "path": "/Users/weiwei/.codex/research/ani-idle/recovered/scripts/crafting_menu.gd",
+          "lines": [
+            299,
+            303
+          ]
+        }
+      ],
+      "runtime_exercised": false
+    },
+    {
+      "id": "AN-F10",
+      "title": "Save shape and offline evidence boundary",
+      "status": "recovered-source-static",
+      "claim": "SavedGame version defaults to 1 and stores player resource, inventory/equipment, achievements, type kill counters, quest fragments, crystal counts, preferences/help flags and total_playtime. Save uses ResourceSaver; load restores resources/state. No persisted timestamp or elapsed-away reconciliation found in these scripts. Active fight/rest state is not represented explicitly in SavedGame. No save file was opened and no compatibility/import test was run.",
+      "evidence": [
+        {
+          "path": "/Users/weiwei/.codex/research/ani-idle/recovered/scripts/savedgame.gd",
+          "lines": [
+            1,
+            52
+          ]
+        },
+        {
+          "path": "/Users/weiwei/.codex/research/ani-idle/recovered/scripts/saver_loader.gd",
+          "lines": [
+            37,
+            104
+          ]
+        },
+        {
+          "path": "/Users/weiwei/.codex/research/ani-idle/recovered/scripts/saver_loader.gd",
+          "lines": [
+            118,
+            144
+          ]
+        },
+        {
+          "path": "/Users/weiwei/.codex/research/ani-idle/recovered/scripts/saver_loader.gd",
+          "lines": [
+            301,
+            312
+          ]
+        }
+      ],
+      "runtime_exercised": false
+    },
+    {
+      "id": "AN-F11",
+      "title": "Loot, capacity and protection",
+      "status": "recovered-source-static",
+      "claim": "Loot draws a weighted entry and quantity; equipment item level comes from defeated enemy and receives mods. Rarity cutoffs vary by player level and stackables force normal. Inventory merges stacks, caps at 60 and returns a Boolean failure at capacity. Locked items refuse removal/shatter; shattering has a 50-threshold chance of one crystal. Drop callers may ignore add failure; no overflow safety is inferred.",
+      "evidence": [
+        {
+          "path": "/Users/weiwei/.codex/research/ani-idle/recovered/scripts/game.gd",
+          "lines": [
+            521,
+            599
+          ]
+        },
+        {
+          "path": "/Users/weiwei/.codex/research/ani-idle/recovered/scripts/inventory_menu.gd",
+          "lines": [
+            101,
+            162
+          ]
+        },
+        {
+          "path": "/Users/weiwei/.codex/research/ani-idle/recovered/scripts/inventory_slot.gd",
+          "lines": [
+            103,
+            112
+          ]
+        }
+      ],
+      "runtime_exercised": false
+    },
+    {
+      "id": "AN-F12",
+      "title": "Visible outcomes and early support",
+      "status": "recovered-source-static",
+      "claim": "Source contains kill counters, cooldown text, effect bar updates, stat values and rarity/type/level sorts. Level 2/5/10 grants named equipment and labels the last as final assistance. Rendered UI and ease of understanding were not exercised.",
+      "evidence": [
+        {
+          "path": "/Users/weiwei/.codex/research/ani-idle/recovered/scripts/game.gd",
+          "lines": [
+            319,
+            321
+          ]
+        },
+        {
+          "path": "/Users/weiwei/.codex/research/ani-idle/recovered/scripts/skill_slot.gd",
+          "lines": [
+            25,
+            38
+          ]
+        },
+        {
+          "path": "/Users/weiwei/.codex/research/ani-idle/recovered/scripts/character_menu.gd",
+          "lines": [
+            41,
+            68
+          ]
+        },
+        {
+          "path": "/Users/weiwei/.codex/research/ani-idle/recovered/scripts/inventory_menu.gd",
+          "lines": [
+            747,
+            781
+          ]
+        },
+        {
+          "path": "/Users/weiwei/.codex/research/ani-idle/recovered/scripts/inventory_menu.gd",
+          "lines": [
+            828,
+            853
+          ]
+        }
+      ],
+      "runtime_exercised": false
+    }
+  ],
+  "ranked_proposals": [
+    {
+      "id": "AN-P1",
+      "title": "Rest that leaves a place memory",
+      "inspired_by": "AN-F2",
+      "proposal": "Extend native rest/sleep in one existing home location with one bounded original encounter and a remembered outcome. Preserve base recovery; no hostile event lottery by default.",
+      "native_mapping": "src/main.js native rest/sleep; src/life_record.js appendLifeMilestone",
+      "acceptance_gate": "Rest stops incompatible action, heals normally, writes exactly one memory for the encounter; save/reload/import does not replay it.",
+      "rank": 1,
+      "status": "original-YAIR-proposal-not-accepted-not-implemented"
+    },
+    {
+      "id": "AN-P2",
+      "title": "One tool repair with a stated target",
+      "inspired_by": "AN-F3",
+      "proposal": "One native profession recipe repairs one existing weapon property with known inputs; preview what can change and what stays. Do not create an entire crystal currency or loot rarity system.",
+      "native_mapping": "src/crafting_recipes.js; src/items.js; src/native_equipment_transaction.js",
+      "acceptance_gate": "Preview matches committed item; invalid/full-inventory operations cost nothing; item identity and other modifiers survive save/reload/import.",
+      "rank": 2,
+      "status": "original-YAIR-proposal-not-accepted-not-implemented"
+    },
+    {
+      "id": "AN-P3",
+      "title": "A recurring encounter remembers unfinished care",
+      "inspired_by": "AN-F4",
+      "proposal": "One home-world person/object remembers a useful supplied item until a later native quest resolves it. Ownership and care matter before a reward.",
+      "native_mapping": "src/quests.js; src/causal_story_native.js; src/life_record.js",
+      "acceptance_gate": "First encounter records custody, later encounter consumes it once, decline preserves it; imports never invent past care.",
+      "rank": 3,
+      "status": "original-YAIR-proposal-not-accepted-not-implemented"
+    },
+    {
+      "id": "AN-P4",
+      "title": "Explain one practiced technique intervention",
+      "inspired_by": "AN-F1",
+      "proposal": "Extend the existing known/practiced/executable technique surface with clear mana/tool/readiness blockers and a concrete useful application; auto routine remains ordinary native play.",
+      "native_mapping": "src/village_career_ui.js; src/main.js native combat; src/data/skills.js",
+      "acceptance_gate": "No free effect from owning notes; required practice/tools checked; one valid use has visible consequence; cooldown and resource charges match.",
+      "rank": 4,
+      "status": "original-YAIR-proposal-not-accepted-not-implemented"
+    },
+    {
+      "id": "AN-P5",
+      "title": "Show a finite task route before commitment",
+      "inspired_by": "AN-F7",
+      "proposal": "One already existing expedition displays its required stages, supplied kit and reward before starting. Permit abandonment under current YAIR rules; do not copy a no-flee lock.",
+      "native_mapping": "src/data/locations.js; src/simulation_ui.js; src/simulation.js",
+      "acceptance_gate": "Preview equals stages/reward; early departure follows declared custody rules; reload neither skips a stage nor duplicates reward.",
+      "rank": 5,
+      "status": "original-YAIR-proposal-not-accepted-not-implemented"
+    },
+    {
+      "id": "AN-P6",
+      "title": "Ordinary skill offers an alternate event solution",
+      "inspired_by": "AN-F5",
+      "proposal": "One current quest accepts trained mundane skill as an alternate solution with a specific physical method and outcome; avoid a universal class gate.",
+      "native_mapping": "src/data/skills.js; src/quests.js; src/data/dialogues.js",
+      "acceptance_gate": "Qualified/unqualified paths explain cause; item/resource transaction occurs once; vanilla default choice still works.",
+      "rank": 6,
+      "status": "original-YAIR-proposal-not-accepted-not-implemented"
+    },
+    {
+      "id": "AN-P7",
+      "title": "Loot handling protects the wanted object",
+      "inspired_by": "AN-F11",
+      "proposal": "Reuse current inventory/equipment surfaces for a visible keep/salvage preference on one original crafted item, with preview and capacity-safe handoff.",
+      "native_mapping": "src/items.js; src/display.js inventory; src/native_equipment_transaction.js",
+      "acceptance_gate": "Protected item cannot be consumed accidentally; overflow never silently discards reward; export/import retains preference.",
+      "rank": 7,
+      "status": "original-YAIR-proposal-not-accepted-not-implemented"
+    },
+    {
+      "id": "AN-P8",
+      "title": "Describe the action that survives absence",
+      "inspired_by": "AN-F10",
+      "proposal": "Show existing routine and save/offline policy honestly in the native panel; preview what resumes, what pauses and when the player must choose. This is clarity over a second offline engine.",
+      "native_mapping": "src/simulation.js setSimulationProgram; src/save_files.js; src/main.js saving",
+      "acceptance_gate": "Fresh/reload/import show actual routine state; pending choice prevents unintended continuation; limits are explicit. No new prestige behavior.",
+      "rank": 8,
+      "status": "original-YAIR-proposal-not-accepted-not-implemented"
+    }
+  ],
+  "small_touches": [
+    {
+      "id": "AN-T01",
+      "proposal": "Rest location names its actual shelter",
+      "source_finding": "AN-F2",
+      "native_mapping": "native location/rest description",
+      "status": "original-proposal-not-implemented"
+    },
+    {
+      "id": "AN-T02",
+      "proposal": "Show current rest recovery target",
+      "source_finding": "AN-F2",
+      "native_mapping": "native health/stamina panel",
+      "status": "original-proposal-not-implemented"
+    },
+    {
+      "id": "AN-T03",
+      "proposal": "Rest visibly interrupts incompatible work",
+      "source_finding": "AN-F2",
+      "native_mapping": "native center action state",
+      "status": "original-proposal-not-implemented"
+    },
+    {
+      "id": "AN-T04",
+      "proposal": "Remember one person met while recovering",
+      "source_finding": "AN-F2",
+      "native_mapping": "life_record milestone",
+      "status": "original-proposal-not-implemented"
+    },
+    {
+      "id": "AN-T05",
+      "proposal": "Show ready/blocked reason on technique",
+      "source_finding": "AN-F1",
+      "native_mapping": "village_career_ui method view",
+      "status": "original-proposal-not-implemented"
+    },
+    {
+      "id": "AN-T06",
+      "proposal": "Show resource cost before technique use",
+      "source_finding": "AN-F1",
+      "native_mapping": "native combat/skill tooltip",
+      "status": "original-proposal-not-implemented"
+    },
+    {
+      "id": "AN-T07",
+      "proposal": "Show cooldown as remaining time",
+      "source_finding": "AN-F1",
+      "native_mapping": "native active effect panel",
+      "status": "original-proposal-not-implemented"
+    },
+    {
+      "id": "AN-T08",
+      "proposal": "Show selected repeat target and remaining count",
+      "source_finding": "AN-F1",
+      "native_mapping": "simulation_ui routine view",
+      "status": "original-proposal-not-implemented"
+    },
+    {
+      "id": "AN-T09",
+      "proposal": "Show when a routine pauses for choice",
+      "source_finding": "AN-F10",
+      "native_mapping": "simulation_ui pending event",
+      "status": "original-proposal-not-implemented"
+    },
+    {
+      "id": "AN-T10",
+      "proposal": "Show exactly what a repair preserves",
+      "source_finding": "AN-F3",
+      "native_mapping": "crafting recipe preview",
+      "status": "original-proposal-not-implemented"
+    },
+    {
+      "id": "AN-T11",
+      "proposal": "Show craftsman and material requirements together",
+      "source_finding": "AN-F3",
+      "native_mapping": "native crafting panel",
+      "status": "original-proposal-not-implemented"
+    },
+    {
+      "id": "AN-T12",
+      "proposal": "Explain blocked upgrade without spending input",
+      "source_finding": "AN-F3",
+      "native_mapping": "native equipment transaction",
+      "status": "original-proposal-not-implemented"
+    },
+    {
+      "id": "AN-T13",
+      "proposal": "Separate property repair from full replacement",
+      "source_finding": "AN-F3",
+      "native_mapping": "native crafting recipe labels",
+      "status": "original-proposal-not-implemented"
+    },
+    {
+      "id": "AN-T14",
+      "proposal": "Preview batch quantity and total cost",
+      "source_finding": "AN-F3",
+      "native_mapping": "native crafting amount control",
+      "status": "original-proposal-not-implemented"
+    },
+    {
+      "id": "AN-T15",
+      "proposal": "Remember supplied care item between encounters",
+      "source_finding": "AN-F4",
+      "native_mapping": "quest flag/custody state",
+      "status": "original-proposal-not-implemented"
+    },
+    {
+      "id": "AN-T16",
+      "proposal": "Describe missing matching object in later encounter",
+      "source_finding": "AN-F4",
+      "native_mapping": "native dialogue condition",
+      "status": "original-proposal-not-implemented"
+    },
+    {
+      "id": "AN-T17",
+      "proposal": "Offer skill-based alternate approach",
+      "source_finding": "AN-F5",
+      "native_mapping": "native quest/dialogue option",
+      "status": "original-proposal-not-implemented"
+    },
+    {
+      "id": "AN-T18",
+      "proposal": "Explain uncertain outcome without asserting fake odds",
+      "source_finding": "AN-F5",
+      "native_mapping": "native choice text",
+      "status": "original-proposal-not-implemented"
+    },
+    {
+      "id": "AN-T19",
+      "proposal": "Label frequency with in-game calendar if applicable",
+      "source_finding": "AN-F6",
+      "native_mapping": "native Game_Time quest view",
+      "status": "original-proposal-not-implemented"
+    },
+    {
+      "id": "AN-T20",
+      "proposal": "Show expedition final reward before departure",
+      "source_finding": "AN-F7",
+      "native_mapping": "native location/quest view",
+      "status": "original-proposal-not-implemented"
+    },
+    {
+      "id": "AN-T21",
+      "proposal": "Show current expedition stage",
+      "source_finding": "AN-F7",
+      "native_mapping": "native center activity text",
+      "status": "original-proposal-not-implemented"
+    },
+    {
+      "id": "AN-T22",
+      "proposal": "Keep wanted gear out of accidental salvage",
+      "source_finding": "AN-F11",
+      "native_mapping": "inventory item lock/protection proposal",
+      "status": "original-proposal-not-implemented"
+    },
+    {
+      "id": "AN-T23",
+      "proposal": "Show capacity failure before accepting reward",
+      "source_finding": "AN-F11",
+      "native_mapping": "native reward transaction",
+      "status": "original-proposal-not-implemented"
+    },
+    {
+      "id": "AN-T24",
+      "proposal": "Record first earned usable tool in biography",
+      "source_finding": "AN-F12",
+      "native_mapping": "life_record bounded milestone",
+      "status": "original-proposal-not-implemented"
+    }
+  ],
+  "runtime_exercised": false,
+  "negative_evidence_boundary": "No offline catch-up, character prestige or real-calendar gating found in recovered scripts; resource/scene values and native extension behavior not exhaustively audited."
+}

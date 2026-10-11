@@ -1,0 +1,237 @@
+[
+  {
+    "path": "core/data_001/scripts/entity/tactical/player.nut",
+    "sha256": "3ce2dc1e51ce5eb77d8429827efd0f0c34dc5f31fdf7b3db7547ec8e5e2bb2af",
+    "scope": "selected functions and supporting declarations; not exhaustive semantic validation"
+  },
+  {
+    "path": "core/data_001/scripts/skills/backgrounds/character_background.nut",
+    "sha256": "c41f5d3c27225a76b0acac4c9a4566f39aa384c6d75aeb8509dd19620ffaee92",
+    "scope": "selected functions and supporting declarations; not exhaustive semantic validation"
+  },
+  {
+    "key": "AM",
+    "path": "core/data_001/scripts/states/world/asset_manager.nut",
+    "sha256": "1038f18e7741ec7b832b637917be6a4684658877d764aa7ddf1c62261a36a702",
+    "lines": 2156,
+    "reviewed_ranges": "member/function keyword inventory across file; 362-400,443-468,622-687,711-734,751-810,812-1030,1229-1293; addMoralReputation/addBusinessReputation via keyword output",
+    "review_mode": "selected ranges plus function/member search; not full file unless range spans file"
+  },
+  {
+    "path": "priority/data_001/scripts/skills/traits/loyal_trait.nut",
+    "sha256": "f329e54f82740a7c3264de995397159801eb9746be889b6bfa5b213fa27d453f",
+    "scope": "selected functions and supporting declarations; not exhaustive semantic validation"
+  },
+  {
+    "path": "priority/data_001/scripts/skills/traits/disloyal_trait.nut",
+    "sha256": "79b0e18515d383fa62244083b1802cd4c72c23379bc86b6c0ce94b1195eb6d1a",
+    "scope": "selected functions and supporting declarations; not exhaustive semantic validation"
+  },
+  {
+    "path": "priority/data_001/scripts/skills/traits/old_trait.nut",
+    "sha256": "78c46c68a7550451df9bfe5f1d58380b878e0d247cd8ab31d55331c065f2b96e",
+    "scope": "selected functions and supporting declarations; not exhaustive semantic validation"
+  },
+  {
+    "path": "priority/data_001/scripts/skills/traits/survivor_trait.nut",
+    "sha256": "6a7e14b085d75f5db1f2be4d77ee995e47de13ca159faf9b22bb7adac0b6a13e",
+    "scope": "selected functions and supporting declarations; not exhaustive semantic validation"
+  },
+  {
+    "path": "priority/data_001/scripts/skills/traits/gluttonous_trait.nut",
+    "sha256": "b9cca46e12e31014a8b2e8c5bb2c256840c395e3d6ddb768d59483ebdec4388a",
+    "scope": "selected functions and supporting declarations; not exhaustive semantic validation"
+  },
+  {
+    "path": "priority/data_001/scripts/skills/backgrounds/farmhand_background.nut",
+    "sha256": "6f982bf9d6d5eda8d42fd448a2667ef304febc455faefe335ec8abeff25b51d8",
+    "scope": "selected functions and supporting declarations; not exhaustive semantic validation"
+  },
+  {
+    "path": "priority/data_001/scripts/skills/backgrounds/retired_soldier_background.nut",
+    "sha256": "101b2db7b30607bd9db4445c75867e12e039481a5490e8026303d640fd3936be",
+    "scope": "selected functions and supporting declarations; not exhaustive semantic validation"
+  },
+  {
+    "path": "priority/data_001/scripts/skills/injury/injury.nut",
+    "sha256": "46a23a534c2f2d8d5d837ef6facbe3e3aee17efe9e791e9b4b36e8104552aa46",
+    "scope": "selected functions and supporting declarations; not exhaustive semantic validation"
+  },
+  {
+    "path": "priority/data_001/scripts/skills/injury/broken_leg_injury.nut",
+    "sha256": "632a5bffe70c29d29d072d76e8b7049c1760c491be2f3d0c69fe64b78c9e0322",
+    "scope": "selected functions and supporting declarations; not exhaustive semantic validation"
+  },
+  {
+    "path": "priority/data_001/scripts/skills/injury/injured_knee_cap_injury.nut",
+    "sha256": "8b6e19c42564ca7bb29bbcfc03c24708285de4560ea88606bc7ba3a7aa3e6447",
+    "scope": "selected functions and supporting declarations; not exhaustive semantic validation"
+  },
+  {
+    "path": "priority/data_001/scripts/events/events/oldguard_becomes_drunkard_event.nut",
+    "sha256": "4b3ed41aa113f4039a21006cdca40c862beb185969ee37dd20d6df3b7ca7093a",
+    "scope": "selected functions and supporting declarations; not exhaustive semantic validation"
+  },
+  {
+    "path": "priority/data_001/scripts/events/events/no_food_event.nut",
+    "sha256": "8ebc47d0a73ef9d8dab3bd25f367c7d38cc974f9e900aa4f1f66c7283abfe0c3",
+    "scope": "selected functions and supporting declarations; not exhaustive semantic validation"
+  },
+  {
+    "path": "priority/data_001/scripts/events/events/retired_soldier_tale_event.nut",
+    "sha256": "9bf043568c2590a2892c68d5dd80ca896700cb51505602fd37589e98148e7b03",
+    "scope": "selected functions and supporting declarations; not exhaustive semantic validation"
+  },
+  {
+    "path": "priority/data_001/scripts/events/events/deserter_in_forest_event.nut",
+    "sha256": "8657c5aee497607cdb1605fadb18e197ebec639c2262b2420a34dd89b5d47cfa",
+    "scope": "selected functions and supporting declarations; not exhaustive semantic validation"
+  },
+  {
+    "path": "priority/data_001/scripts/events/events/no_food_variety_event.nut",
+    "sha256": "a20bcd45e9fb8e8044650a11fc81eefec5193b26f4a5a53936b059cec69ed62b",
+    "scope": "selected functions and supporting declarations; not exhaustive semantic validation"
+  },
+  {
+    "path": "targeted/data_001/scripts/events/events/aging_swordmaster_preview_event.nut",
+    "sha256": "d5b7ccf81ea39cf6dab5d4f2588d1255341b3768b417e002ed94ab8d36016172",
+    "scope": "selected functions and supporting declarations; not exhaustive semantic validation"
+  },
+  {
+    "path": "targeted/data_001/scripts/events/events/aging_swordmaster_event.nut",
+    "sha256": "c6625f750de072940c7b4a0767be87ba95b38fe5757fed07e6a3700f8e9a6cb3",
+    "scope": "selected functions and supporting declarations; not exhaustive semantic validation"
+  },
+  {
+    "path": "targeted/data_001/scripts/events/events/aging_swordmaster_paycut_event.nut",
+    "sha256": "b8d5d518f3615082eb3c5db95dd8d90f181c065724945d72322c5bfc0e216ad3",
+    "scope": "selected functions and supporting declarations; not exhaustive semantic validation"
+  },
+  {
+    "path": "targeted/data_001/scripts/events/events/special/desertion_event.nut",
+    "sha256": "62172321426e3a988828dd72c024b92996444e15bfb9485fb4a47a3c17ba078d",
+    "scope": "selected functions and supporting declarations; not exhaustive semantic validation"
+  },
+  {
+    "path": "targeted/data_001/scripts/skills/injury_permanent/permanent_injury.nut",
+    "sha256": "57a24ff9e8ec6216f65fe0e7e56f2ed01424e47c9b07df53a547987705b25a4f",
+    "scope": "selected functions and supporting declarations; not exhaustive semantic validation"
+  },
+  {
+    "path": "targeted/data_001/scripts/skills/injury_permanent/broken_knee_injury.nut",
+    "sha256": "40353157f86ed01297ca0af3bff7a2daf86da94f567a3b79a6b8770035e9285b",
+    "scope": "selected functions and supporting declarations; not exhaustive semantic validation"
+  },
+  {
+    "path": "targeted/data_001/scripts/skills/injury_permanent/missing_hand_injury.nut",
+    "sha256": "3f877668163c8757662a33e3a23b038f55cb388a5c7c7e199d9989d134188761",
+    "scope": "selected functions and supporting declarations; not exhaustive semantic validation"
+  },
+  {
+    "key": "FM",
+    "path": "priority/data_001/scripts/factions/faction_manager.nut",
+    "sha256": "66982a892a2f5097f4a3664f9dcc91396d04ab59a57fbf7861a36b7a8f0068dc",
+    "lines": 1162,
+    "reviewed_ranges": "187-248,480-527,686-747,888-1081; serialization fields 1119-1157 via keyword output",
+    "review_mode": "selected ranges plus function/member search; not full file unless range spans file"
+  },
+  {
+    "key": "F",
+    "path": "priority/data_001/scripts/factions/faction.nut",
+    "sha256": "f6cf623ac05644533be70304931295d3ba5f760e887510f6bbbf0009d0add18e",
+    "lines": 922,
+    "reviewed_ranges": "1-391,639-737; serialization fields 746-838 via keyword output",
+    "review_mode": "selected ranges plus function/member search; not full file unless range spans file"
+  },
+  {
+    "key": "FA",
+    "path": "priority/data_001/scripts/factions/faction_action.nut",
+    "sha256": "0c778208ff39557b95191902f6d2c5a84b428b5f4d2278a22f5039ad6dde384a",
+    "lines": 508,
+    "reviewed_ranges": "1-81,494-505",
+    "review_mode": "selected ranges plus function/member search; not full file unless range spans file"
+  },
+  {
+    "key": "SF",
+    "path": "priority/data_001/scripts/factions/settlement_faction.nut",
+    "sha256": "26077a7858cb15738c99cdb0f5ae60a901fd69f08803041f3616b696d3a44327",
+    "lines": 102,
+    "reviewed_ranges": "1-101",
+    "review_mode": "selected ranges plus function/member search; not full file unless range spans file"
+  },
+  {
+    "key": "NF",
+    "path": "priority/data_001/scripts/factions/noble_faction.nut",
+    "sha256": "1ea041a86e07f693fa273e56a6f28fc3851a4e7e2d282c9c5da36959e863282c",
+    "lines": 116,
+    "reviewed_ranges": "1-115",
+    "review_mode": "selected ranges plus function/member search; not full file unless range spans file"
+  },
+  {
+    "key": "RM",
+    "path": "priority/data_001/scripts/retinue/retinue_manager.nut",
+    "sha256": "7264f30e672dcbc6f4f5d240c68c434f0c58f9bba3752ccee5facf571e11a5c5",
+    "lines": 299,
+    "reviewed_ranges": "1-270",
+    "review_mode": "selected ranges plus function/member search; not full file unless range spans file"
+  },
+  {
+    "key": "RF",
+    "path": "priority/data_001/scripts/retinue/follower.nut",
+    "sha256": "27771e9272d4cb05fdf91fce05b82b5022416fe1ac0fff1bb5668193a3e82ddb",
+    "lines": 153,
+    "reviewed_ranges": "1-152",
+    "review_mode": "selected ranges plus function/member search; not full file unless range spans file"
+  },
+  {
+    "key": "WS",
+    "path": "priority/data_001/scripts/states/world_state.nut",
+    "sha256": "10d9505033110e442401099e84b47e96663dcca683ea0b6d25b5be0ecc531fa9",
+    "lines": 3889,
+    "reviewed_ranges": "285-312,3565-3587,3721-3731",
+    "review_mode": "selected ranges plus function/member search; not full file unless range spans file"
+  },
+  {
+    "key": "WA",
+    "path": "decompiled/data_001/scripts/config/world_assets.nut",
+    "sha256": "83736050e6d244a6ff2799258c439f7b2f232197c8c20cf5678487291dd1f13e",
+    "lines": 66,
+    "reviewed_ranges": "1-65",
+    "review_mode": "selected ranges plus function/member search; not full file unless range spans file"
+  },
+  {
+    "path": "priority/data_001/scripts/events/event_manager.nut",
+    "sha256": "786b69cb0fcf33b8898c04e702b71fcebfb2a00493981e67f5af863c863a7924",
+    "scope": "selected named methods in E findings; not whole-game semantics"
+  },
+  {
+    "path": "priority/data_001/scripts/events/event.nut",
+    "sha256": "a7ba245e078e567ea113b1c8e48770c7e5567c14379d31cf4506a2b8d525a609",
+    "scope": "selected named methods in E findings; not whole-game semantics"
+  },
+  {
+    "path": "core/data_001/scripts/config/events.nut",
+    "sha256": "868d8b705a35866fb8e361393d8b96e86d536f0ca2ed02d8aa5afc6dc1b1db1f",
+    "scope": "selected named methods in E findings; not whole-game semantics"
+  },
+  {
+    "path": "priority/data_001/scripts/retinue/followers/surgeon_follower.nut",
+    "sha256": "8805a4ac911b91022631170e0363959eed9ed8d60bf9d6d3bb8e9614d7a7f07b",
+    "scope": "selected named methods in E findings; not whole-game semantics"
+  },
+  {
+    "path": "targeted/data_001/scripts/entity/tactical/enemies/necromancer.nut",
+    "sha256": "bc8ba89cb341b9c91d6c02ba6e997b0e38e66916092f1409e79c7aad775d2f4b",
+    "scope": "selected named methods in E findings; not whole-game semantics"
+  },
+  {
+    "path": "targeted/data_001/scripts/skills/actives/raise_undead.nut",
+    "sha256": "f54a4f99eeb3650f6af339a3329ca6e47e6bd29909fd6a1585fff7cb1449b1fc",
+    "scope": "selected named methods in E findings; not whole-game semantics"
+  },
+  {
+    "path": "targeted/data_001/scripts/skills/actives/possess_undead_skill.nut",
+    "sha256": "d0fb93db106a68cdb4b35f2df2ee6d394757d36ebb542541ffc7be9ae7c0f9ba",
+    "scope": "selected named methods in E findings; not whole-game semantics"
+  }
+]

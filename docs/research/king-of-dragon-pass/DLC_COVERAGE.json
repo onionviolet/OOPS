@@ -1,0 +1,19 @@
+{
+  "game": "King of Dragon Pass",
+  "declared": [
+    {
+      "appid": 1738900,
+      "kind": "soundtrack",
+      "source": "retained official store metadata from prior intake",
+      "installed": "not established",
+      "read": false,
+      "gameplay_coverage": "none"
+    }
+  ],
+  "bundled_extras": {
+    "manual_and_reference_card": "retained privately; HTML manual read; PDF extras unread",
+    "artwork_and_wallpaper": "excluded as non-gameplay extras"
+  },
+  "entitlement": "not inferred from metadata or depot presence",
+  "base": "Build10566687 macOS payload inspected; updates not separate DLC"
+}

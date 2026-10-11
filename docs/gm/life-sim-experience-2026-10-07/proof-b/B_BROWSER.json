@@ -1,0 +1,28 @@
+{
+  "root": "/tmp/yairpg-life-experience-pass-b-youth-r1-20261007",
+  "url": "http://127.0.0.1:18542/",
+  "learning": [
+    {
+      "age": 18,
+      "delta": 1.9
+    },
+    {
+      "age": 40,
+      "delta": 1.59
+    }
+  ],
+  "errors": [],
+  "checks": [
+    "youth native food-use XP per action",
+    "Heard requires received reports",
+    "elder teaching 5 shared-clock minutes",
+    "teaching reload no duplicate",
+    "natural death grave and selected lesson",
+    "ending clock frozen",
+    "death reload/export/import"
+  ],
+  "remaining": [
+    "real heir host callback awaiting foundation save writer"
+  ],
+  "generatedSavesOnly": true
+}

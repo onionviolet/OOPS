@@ -1,0 +1,631 @@
+{
+  "date": "2026-10-09",
+  "appid": 3848900,
+  "buildid": "25151407",
+  "status": "bounded-static-source-audit-complete",
+  "private_source_sha256": "74972f8e54d3e1d19e54b427a6e99312ce6e8c7af864898cbbc09bf6582406e8",
+  "findings": [
+    {
+      "id": "F1",
+      "title": "Preparation changes the kind of relationship milestone",
+      "observed": "In HeartsUI Step, count red/orange/yellow/green/blue/purple feeding flags equal to 2. Count >=3 assigns new_heart_type 2; zero assigns 1; otherwise 0. Increment hearts_level and store that type in heart1_type, heart2_type, or heart3_type for levels >=3. These are typed milestones, not just one scalar affection bar.",
+      "evidence": [
+        {
+          "private_path": "/Users/weiwei/.codex/research/sucker-for-love-crush-landing/derived/disassembly.json",
+          "code_index": 4327,
+          "code_name": "gml_Object_obj_HeartsUI_Step_0",
+          "data_win_instruction_offsets": [
+            4520620,
+            4521260
+          ],
+          "entry_offset": 0,
+          "verification": "decoded instructions and statically reviewed branch; runtime unrun"
+        }
+      ],
+      "qualification": "Numeric feeding/heart meanings are recovered. No claim that these are mutually consensual romance states or that all natural routes reach the handler."
+    },
+    {
+      "id": "F2",
+      "title": "Earlier milestone quality can block a final scene",
+      "observed": "At HHEILY_FINAL_END_CHECK, OR-test all three stored heart types for value 2; any match selects PASS_BAD_12, otherwise PASS_GOOD_1.",
+      "evidence": [
+        {
+          "private_path": "/Users/weiwei/.codex/research/sucker-for-love-crush-landing/derived/disassembly.json",
+          "code_index": 4421,
+          "code_name": "gml_Object_obj_HheilyFinal_TrueForm_Step_0",
+          "data_win_instruction_offsets": [
+            4703020,
+            4703232
+          ],
+          "entry_offset": 0,
+          "verification": "decoded instructions and statically reviewed branch; runtime unrun"
+        }
+      ],
+      "qualification": "This proves a specific final event selector. It does not prove the full conditions for reaching the true ending or reconstruct every ending."
+    },
+    {
+      "id": "F3",
+      "title": "Final recollections use distinct conduct counters",
+      "observed": "Three VN scripts add their argument to points_good, points_sleaze and points_wicked. Finale event handlers test points_sleaze >3 and points_good >5 to select distinct recollection events. Another comparison reads point_wicked, singular, which differs from the incremented points_wicked name.",
+      "evidence": [
+        {
+          "private_path": "/Users/weiwei/.codex/research/sucker-for-love-crush-landing/derived/disassembly.json",
+          "code_index": 1870,
+          "code_name": "gml_GlobalScript_scr_VNaddgoodpoints",
+          "data_win_instruction_offsets": [
+            2611508,
+            2611528
+          ],
+          "entry_offset": 0,
+          "verification": "decoded instructions and statically reviewed branch; runtime unrun"
+        },
+        {
+          "private_path": "/Users/weiwei/.codex/research/sucker-for-love-crush-landing/derived/disassembly.json",
+          "code_index": 1872,
+          "code_name": "gml_GlobalScript_scr_VNaddsleazepoints",
+          "data_win_instruction_offsets": [
+            2611604,
+            2611624
+          ],
+          "entry_offset": 0,
+          "verification": "decoded instructions and statically reviewed branch; runtime unrun"
+        },
+        {
+          "private_path": "/Users/weiwei/.codex/research/sucker-for-love-crush-landing/derived/disassembly.json",
+          "code_index": 1874,
+          "code_name": "gml_GlobalScript_scr_VNaddwickedpoints",
+          "data_win_instruction_offsets": [
+            2611700,
+            2611720
+          ],
+          "entry_offset": 0,
+          "verification": "decoded instructions and statically reviewed branch; runtime unrun"
+        },
+        {
+          "private_path": "/Users/weiwei/.codex/research/sucker-for-love-crush-landing/derived/disassembly.json",
+          "code_index": 4421,
+          "code_name": "gml_Object_obj_HheilyFinal_TrueForm_Step_0",
+          "data_win_instruction_offsets": [
+            4701572,
+            4701632
+          ],
+          "entry_offset": 0,
+          "verification": "decoded instructions and statically reviewed branch; runtime unrun"
+        },
+        {
+          "private_path": "/Users/weiwei/.codex/research/sucker-for-love-crush-landing/derived/disassembly.json",
+          "code_index": 4421,
+          "code_name": "gml_Object_obj_HheilyFinal_TrueForm_Step_0",
+          "data_win_instruction_offsets": [
+            4702308,
+            4702408
+          ],
+          "entry_offset": 0,
+          "verification": "decoded instructions and statically reviewed branch; runtime unrun"
+        },
+        {
+          "private_path": "/Users/weiwei/.codex/research/sucker-for-love-crush-landing/derived/disassembly.json",
+          "code_index": 4421,
+          "code_name": "gml_Object_obj_HheilyFinal_TrueForm_Step_0",
+          "data_win_instruction_offsets": [
+            4702676,
+            4702792
+          ],
+          "entry_offset": 0,
+          "verification": "decoded instructions and statically reviewed branch; runtime unrun"
+        }
+      ],
+      "qualification": "Different named counters are not proven independent NPC affection axes. Singular/plural discrepancy is preserved as uncertainty, not silently repaired or declared a runtime bug."
+    },
+    {
+      "id": "F4",
+      "title": "Wrong preparation has specific feedback",
+      "observed": "scr_hasgift first checks failing; absent Bedroomflag sets a localized go-to-bedroom error and failing. If bloodbag is zero and failing remains false, sets a get-gift error. Error state uses a room_speed-scaled alarm.",
+      "evidence": [
+        {
+          "private_path": "/Users/weiwei/.codex/research/sucker-for-love-crush-landing/derived/disassembly.json",
+          "code_index": 1721,
+          "code_name": "gml_GlobalScript_scr_hasgift",
+          "data_win_instruction_offsets": [
+            2502588,
+            2502920
+          ],
+          "entry_offset": 0,
+          "verification": "decoded instructions and statically reviewed branch; runtime unrun"
+        }
+      ],
+      "qualification": "This is a concrete interaction precondition, not proof of a complete ritual engine or all inventory combinations."
+    },
+    {
+      "id": "F5",
+      "title": "Time advances physical preparation states",
+      "observed": "scr_advance_time increments game_time, calls three inventory conversions, changes waiting stove/fishbowl states from 1 to 2, resolves eggplant waiting and advances explicit pepper/banana states. scr_boil switches item IDs 13->14 and 56->57 through inventory add.",
+      "evidence": [
+        {
+          "private_path": "/Users/weiwei/.codex/research/sucker-for-love-crush-landing/derived/disassembly.json",
+          "code_index": 1647,
+          "code_name": "gml_GlobalScript_scr_advance_time",
+          "data_win_instruction_offsets": [
+            2459464,
+            2459936
+          ],
+          "entry_offset": 0,
+          "verification": "decoded instructions and statically reviewed branch; runtime unrun"
+        },
+        {
+          "private_path": "/Users/weiwei/.codex/research/sucker-for-love-crush-landing/derived/disassembly.json",
+          "code_index": 1674,
+          "code_name": "gml_GlobalScript_scr_boil",
+          "data_win_instruction_offsets": [
+            2485088,
+            2485184
+          ],
+          "entry_offset": 0,
+          "verification": "decoded instructions and statically reviewed branch; runtime unrun"
+        }
+      ],
+      "qualification": "Item IDs and transitions are source facts. Recipe names, player wait duration, all caller costs and automatic/offline timing remain unreviewed."
+    },
+    {
+      "id": "F6",
+      "title": "Completed outcomes are remembered separately from current run objects",
+      "observed": "ObjectTracker Other_4 sets the completed ending flag on ending-room entry and calls scr_save_progress when _is_ending. resetobjtracker snapshots fifteen ending flags, destroys/recreates tracker and restores flags. save_progress writes fifteen ending keys; load_progress reads/defaults them.",
+      "evidence": [
+        {
+          "private_path": "/Users/weiwei/.codex/research/sucker-for-love-crush-landing/derived/disassembly.json",
+          "code_index": 5119,
+          "code_name": "gml_Object_obj_ObjectTracker_Other_4",
+          "data_win_instruction_offsets": [
+            5509024,
+            5509080
+          ],
+          "entry_offset": 0,
+          "verification": "decoded instructions and statically reviewed branch; runtime unrun"
+        },
+        {
+          "private_path": "/Users/weiwei/.codex/research/sucker-for-love-crush-landing/derived/disassembly.json",
+          "code_index": 1820,
+          "code_name": "gml_GlobalScript_scr_resetobjtracker",
+          "data_win_instruction_offsets": [
+            2569936,
+            2570356
+          ],
+          "entry_offset": 0,
+          "verification": "decoded instructions and statically reviewed branch; runtime unrun"
+        },
+        {
+          "private_path": "/Users/weiwei/.codex/research/sucker-for-love-crush-landing/derived/disassembly.json",
+          "code_index": 1820,
+          "code_name": "gml_GlobalScript_scr_resetobjtracker",
+          "data_win_instruction_offsets": [
+            2570788,
+            2570844
+          ],
+          "entry_offset": 0,
+          "verification": "decoded instructions and statically reviewed branch; runtime unrun"
+        },
+        {
+          "private_path": "/Users/weiwei/.codex/research/sucker-for-love-crush-landing/derived/disassembly.json",
+          "code_index": 1834,
+          "code_name": "gml_GlobalScript_scr_save_progress",
+          "data_win_instruction_offsets": [
+            2599628,
+            2600564
+          ],
+          "entry_offset": 0,
+          "verification": "decoded instructions and statically reviewed branch; runtime unrun"
+        },
+        {
+          "private_path": "/Users/weiwei/.codex/research/sucker-for-love-crush-landing/derived/disassembly.json",
+          "code_index": 1774,
+          "code_name": "gml_GlobalScript_scr_load_progress",
+          "data_win_instruction_offsets": [
+            2553268,
+            2554688
+          ],
+          "entry_offset": 0,
+          "verification": "decoded instructions and statically reviewed branch; runtime unrun"
+        }
+      ],
+      "qualification": "Static save/load and reset preservation trace. No user save was accessed; no cross-run NPC consciousness, cloud guarantee or YAIR prestige retention decision follows."
+    },
+    {
+      "id": "F7",
+      "title": "Outcome collection is bounded and browsable",
+      "observed": "Ending menu Create sets total_slots=15 and slots_on_screen=5, makes an ending_rooms array and localized label keys.",
+      "evidence": [
+        {
+          "private_path": "/Users/weiwei/.codex/research/sucker-for-love-crush-landing/derived/disassembly.json",
+          "code_index": 3881,
+          "code_name": "gml_Object_obj_ending_menu_Create_0",
+          "data_win_instruction_offsets": [
+            4091536,
+            4091996
+          ],
+          "entry_offset": 0,
+          "verification": "decoded instructions and statically reviewed branch; runtime unrun"
+        }
+      ],
+      "qualification": "Fifteen configured gallery slots do not prove exactly fifteen reachable endings or rendered usability."
+    },
+    {
+      "id": "F8",
+      "title": "Milestones inspect collateral outcomes",
+      "observed": "Three-heart achievement helper has a Steam-ready branch for pet survival and checks eight named death flags before hero achievement. Any-ending helper checks went_outside and opened_door_for_stranger.",
+      "evidence": [
+        {
+          "private_path": "/Users/weiwei/.codex/research/sucker-for-love-crush-landing/derived/disassembly.json",
+          "code_index": 1678,
+          "code_name": "gml_GlobalScript_scr_check_3heart_achievements",
+          "data_win_instruction_offsets": [
+            2486660,
+            2487424
+          ],
+          "entry_offset": 0,
+          "verification": "decoded instructions and statically reviewed branch; runtime unrun"
+        },
+        {
+          "private_path": "/Users/weiwei/.codex/research/sucker-for-love-crush-landing/derived/disassembly.json",
+          "code_index": 1680,
+          "code_name": "gml_GlobalScript_scr_check_any_ending_achievements",
+          "data_win_instruction_offsets": [
+            2487492,
+            2487736
+          ],
+          "entry_offset": 0,
+          "verification": "decoded instructions and statically reviewed branch; runtime unrun"
+        }
+      ],
+      "qualification": "Award code is conditional on Steam readiness/initialization and helper invocation. No account achievements, runtime deaths or comprehensive ethical scoring verified."
+    }
+  ],
+  "ranked_proposals": [
+    {
+      "id": "P1",
+      "rank": 1,
+      "title": "A gift with a preparation history",
+      "source_findings": [
+        "F1",
+        "F4",
+        "F5"
+      ],
+      "original_yair_proposal": "Use native gathering/crafting and one optional Village conversation: freshly prepared, improvised or postponed. Store the cause with the relationship memory; original character and text.",
+      "native_owners": "src/activities.js; src/crafting_recipes.js; src/chronicle.js:57",
+      "scope": "Small: one event and three outcomes.",
+      "status": "proposal-only-not-authorized-implementation"
+    },
+    {
+      "id": "P2",
+      "rank": 2,
+      "title": "Relationships remember what each milestone cost",
+      "source_findings": [
+        "F1",
+        "F2"
+      ],
+      "original_yair_proposal": "Record a bounded typed memory for each shared milestone. A later invitation reads one earlier cause, including collateral damage, rather than only total trust.",
+      "native_owners": "src/chronicle.js:29; src/chronicle.js:57",
+      "scope": "Small first slice; broader romance remains a proposal.",
+      "status": "proposal-only-not-authorized-implementation"
+    },
+    {
+      "id": "P3",
+      "rank": 3,
+      "title": "A closing conversation recalls the way you behaved",
+      "source_findings": [
+        "F3"
+      ],
+      "original_yair_proposal": "Choose finale lines from concrete kept/broken promises, help and boundary violations. Reuse relationship axes/ties and cause IDs rather than a universal morality score.",
+      "native_owners": "src/chronicle.js:57; src/life_record.js:1",
+      "scope": "Small: one person, two remembered deeds.",
+      "status": "proposal-only-not-authorized-implementation"
+    },
+    {
+      "id": "P4",
+      "rank": 4,
+      "title": "Household preparation matures on the existing clock",
+      "source_findings": [
+        "F5"
+      ],
+      "original_yair_proposal": "One crafted meal or repaired keepsake moves from waiting to ready after a native time boundary, with clear expiry or preservation rules.",
+      "native_owners": "src/simulation.js; src/activities.js; src/crafting_recipes.js",
+      "scope": "Medium: declare offline policy and no wall-clock surprise loss.",
+      "status": "proposal-only-not-authorized-implementation"
+    },
+    {
+      "id": "P5",
+      "rank": 5,
+      "title": "A relationship episode can end without ending the life",
+      "source_findings": [
+        "F2",
+        "F6"
+      ],
+      "original_yair_proposal": "Close one optional friendship/romance episode with a remembered status and practical aftermath; native unconsciousness, home opening and ongoing professions continue.",
+      "native_owners": "src/chronicle.js; src/life_record.js; src/event_feed.js",
+      "scope": "Medium: new optional content state, old-save default.",
+      "status": "proposal-only-not-authorized-implementation"
+    },
+    {
+      "id": "P6",
+      "rank": 6,
+      "title": "Remembered accomplishments have a separate retention policy",
+      "source_findings": [
+        "F6",
+        "F7"
+      ],
+      "original_yair_proposal": "Keep a compact biography of completed episodes and clear discovery labels. Separate personal-memory retention from power and cross-world travel.",
+      "native_owners": "src/life_record.js; src/save_files.js; src/chronicle.js",
+      "scope": "Medium: migration and explicit restart policy required.",
+      "status": "proposal-only-not-authorized-implementation"
+    },
+    {
+      "id": "P7",
+      "rank": 7,
+      "title": "Care for bystanders changes the reunion",
+      "source_findings": [
+        "F8",
+        "F2"
+      ],
+      "original_yair_proposal": "An optional shared event records whether a dependent, pet or neighbor was protected; the later NPC response reads that deed with a stated cause.",
+      "native_owners": "src/npc_lives.js; src/chronicle.js; src/event_feed.js",
+      "scope": "Medium: bounded named actors, no population simulator.",
+      "status": "proposal-only-not-authorized-implementation"
+    },
+    {
+      "id": "P8",
+      "rank": 8,
+      "title": "Explain a blocked intimate scene in the center menu",
+      "source_findings": [
+        "F4",
+        "F7"
+      ],
+      "original_yair_proposal": "List missing preparation, time/place and the other person's current willingness as prose beside the native action. Give postponement its own consequence.",
+      "native_owners": "src/adventure_notebook.js; src/chronicle_ui.js; src/display.js",
+      "scope": "Small: center action and inline reasons, no new window.",
+      "status": "proposal-only-not-authorized-implementation"
+    }
+  ],
+  "small_touches": [
+    {
+      "id": "T01",
+      "title": "Prepared yesterday, served today",
+      "source_findings": [
+        "F5"
+      ],
+      "native_owner": "activities/crafting",
+      "original_touch": "Show age of the shared meal.",
+      "status": "proposal-only"
+    },
+    {
+      "id": "T02",
+      "title": "The borrowed pan comes back clean",
+      "source_findings": [
+        "F4"
+      ],
+      "native_owner": "chronicle ties",
+      "original_touch": "Remember returned preparation tools.",
+      "status": "proposal-only"
+    },
+    {
+      "id": "T03",
+      "title": "A substituted ingredient gets its own response",
+      "source_findings": [
+        "F1"
+      ],
+      "native_owner": "crafting/chronicle",
+      "original_touch": "Store improvised, not false perfect quality.",
+      "status": "proposal-only"
+    },
+    {
+      "id": "T04",
+      "title": "Offer to postpone",
+      "source_findings": [
+        "F4"
+      ],
+      "native_owner": "center conversation",
+      "original_touch": "Allow delay when place or preparation is wrong.",
+      "status": "proposal-only"
+    },
+    {
+      "id": "T05",
+      "title": "A plain gift beats an expensive one for this person",
+      "source_findings": [
+        "F1"
+      ],
+      "native_owner": "NPC conversation",
+      "original_touch": "One named preference, no price-to-love formula.",
+      "status": "proposal-only"
+    },
+    {
+      "id": "T06",
+      "title": "The first invitation keeps its date",
+      "source_findings": [
+        "F1"
+      ],
+      "native_owner": "Game_Time/chronicle",
+      "original_touch": "Timestamp the memory.",
+      "status": "proposal-only"
+    },
+    {
+      "id": "T07",
+      "title": "A later invitation recalls that first one",
+      "source_findings": [
+        "F2"
+      ],
+      "native_owner": "chronicle memories",
+      "original_touch": "One callback to an earlier cause.",
+      "status": "proposal-only"
+    },
+    {
+      "id": "T08",
+      "title": "A refusal remains a refusal after reload",
+      "source_findings": [
+        "F4"
+      ],
+      "native_owner": "save_files/chronicle",
+      "original_touch": "Persist optional episode choice.",
+      "status": "proposal-only"
+    },
+    {
+      "id": "T09",
+      "title": "Leave the scene kindly",
+      "source_findings": [
+        "F3"
+      ],
+      "native_owner": "center action",
+      "original_touch": "A respectful exit records no invented romance.",
+      "status": "proposal-only"
+    },
+    {
+      "id": "T10",
+      "title": "Help before making a request",
+      "source_findings": [
+        "F3"
+      ],
+      "native_owner": "jobs/chronicle",
+      "original_touch": "A completed native work receipt earns specific trust.",
+      "status": "proposal-only"
+    },
+    {
+      "id": "T11",
+      "title": "A boast changes one reunion line",
+      "source_findings": [
+        "F3"
+      ],
+      "native_owner": "chronicle ties",
+      "original_touch": "Bounded original conduct recollection.",
+      "status": "proposal-only"
+    },
+    {
+      "id": "T12",
+      "title": "Apologize for the exact harm",
+      "source_findings": [
+        "F3"
+      ],
+      "native_owner": "chronicle restitution",
+      "original_touch": "Name the unresolved cause.",
+      "status": "proposal-only"
+    },
+    {
+      "id": "T13",
+      "title": "A cooled meal has a visible state",
+      "source_findings": [
+        "F5"
+      ],
+      "native_owner": "inventory/crafting",
+      "original_touch": "Clear freshness word in item description.",
+      "status": "proposal-only"
+    },
+    {
+      "id": "T14",
+      "title": "The stove reports waiting versus ready",
+      "source_findings": [
+        "F5"
+      ],
+      "native_owner": "center work",
+      "original_touch": "Expose state without another timer panel.",
+      "status": "proposal-only"
+    },
+    {
+      "id": "T15",
+      "title": "The neighbor remembers you fed their pet",
+      "source_findings": [
+        "F8"
+      ],
+      "native_owner": "npc_lives/chronicle",
+      "original_touch": "One named care receipt.",
+      "status": "proposal-only"
+    },
+    {
+      "id": "T16",
+      "title": "Protect the dependent before the celebration",
+      "source_findings": [
+        "F8"
+      ],
+      "native_owner": "event_feed/chronicle",
+      "original_touch": "Optional alternative action with aftermath.",
+      "status": "proposal-only"
+    },
+    {
+      "id": "T17",
+      "title": "An episode gets a closing biography line",
+      "source_findings": [
+        "F6"
+      ],
+      "native_owner": "life_record",
+      "original_touch": "Compact one outcome, no dialogue archive.",
+      "status": "proposal-only"
+    },
+    {
+      "id": "T18",
+      "title": "Reunion text survives tracker recreation",
+      "source_findings": [
+        "F6"
+      ],
+      "native_owner": "chronicle/save_files",
+      "original_touch": "Authoritative cause separate from UI objects.",
+      "status": "proposal-only"
+    },
+    {
+      "id": "T19",
+      "title": "Seen outcomes have plain labels",
+      "source_findings": [
+        "F7"
+      ],
+      "native_owner": "bio/notebook",
+      "original_touch": "List only discovered outcomes.",
+      "status": "proposal-only"
+    },
+    {
+      "id": "T20",
+      "title": "Unknown outcomes stay unnamed",
+      "source_findings": [
+        "F7"
+      ],
+      "native_owner": "notebook",
+      "original_touch": "Avoid spoilery labels.",
+      "status": "proposal-only"
+    },
+    {
+      "id": "T21",
+      "title": "A missing tool gives a specific reason",
+      "source_findings": [
+        "F4"
+      ],
+      "native_owner": "center actions",
+      "original_touch": "Mention the exact preparation gap.",
+      "status": "proposal-only"
+    },
+    {
+      "id": "T22",
+      "title": "Place matters for a conversation",
+      "source_findings": [
+        "F4"
+      ],
+      "native_owner": "locations/chronicle",
+      "original_touch": "Invitation tied to one native location.",
+      "status": "proposal-only"
+    },
+    {
+      "id": "T23",
+      "title": "Two equal trust scores can mean different histories",
+      "source_findings": [
+        "F1",
+        "F3"
+      ],
+      "native_owner": "chronicle memories",
+      "original_touch": "Different remembered cause, same bounded axes.",
+      "status": "proposal-only"
+    },
+    {
+      "id": "T24",
+      "title": "The home keeps one memento",
+      "source_findings": [
+        "F6"
+      ],
+      "native_owner": "home inventory/life_record",
+      "original_touch": "One original keepsake and event receipt.",
+      "status": "proposal-only"
+    }
+  ],
+  "no_runtime_claim": true
+}

@@ -1,0 +1,129 @@
+{
+  "observed_utc": "2026-10-07T18:34:32.724036+00:00",
+  "owner": "/root/factorio_recovery_review",
+  "status": "PASS bounded canonical physical acquisition",
+  "input_sha256": "9e1d7571e0284bb4c4e0e12716143752c893cb79b266038e64d0ee41f54aab93",
+  "combined_context_receipt_sha256": "f75194d13249f59bc5e1de0d81b686d8ca6cf8f3f314781d628b6360d2ff09a1",
+  "dependencies": [
+    {
+      "path": "/Users/weiwei/.codex/research/factorio/native-23347942/logs/HEAT_PHYSICAL_CANONICAL.json",
+      "sha256": "7cd13531c488c86bad39bedc86766c51c68733b5d9146b6ac84c7f9e3f2626ea",
+      "bytes": 2526
+    },
+    {
+      "path": "/Users/weiwei/.codex/research/factorio/native-23347942/pipeline-scripts/FactorioHeatPhysical.java",
+      "sha256": "0a968bea000fd7bca8a848654a521e6e479d993c4fa93ec4a2e8657e479bbf56",
+      "bytes": 5052
+    },
+    {
+      "path": "/Users/weiwei/.codex/research/factorio/native-23347942/tool-repairs/physical-selected/PLAN.json",
+      "sha256": "7afce174e52c487f4c76835d9bc26faacea47a7f653220453a93b6eb8fa7715e",
+      "bytes": 2434
+    },
+    {
+      "path": "/Users/weiwei/.codex/research/factorio/native-23347942/pipeline-scripts/FactorioCombinedPhysicalReceipt.java",
+      "sha256": "296803efe10e291217a5828418994cc61c3f95d3b17466846067e9f227e41651",
+      "bytes": 1465
+    }
+  ],
+  "actual_tool_files": [
+    {
+      "path": "/Users/weiwei/.codex/research/tools/native-recovery-2026-10-07/ghidra_12.1.4_PUBLIC/Ghidra/Features/Decompiler/os/mac_arm_64/decompile",
+      "sha256": "7434284fc5a6b46b3cb27ef2e8d3c4ea7f801ac1f0cca30e95eb27732c0c62f0",
+      "manifest_field": "decompiler_binary_sha256"
+    },
+    {
+      "path": "/Users/weiwei/.codex/research/tools/native-recovery-2026-10-07/ghidra_12.1.4_PUBLIC/Ghidra/Processors/AARCH64/data/languages/AARCH64_AppleSilicon.sla",
+      "sha256": "541a9b1f35da6e7ebdbff962fae7bb221698695861647bbee8ec4a59533dcfe6",
+      "manifest_field": "SLA_after_sha256"
+    },
+    {
+      "path": "/Users/weiwei/.codex/research/tools/native-recovery-2026-10-07/ghidra_12.1.4_PUBLIC/Ghidra/Processors/AARCH64/data/languages/AARCH64neon.sinc",
+      "sha256": "65a9f4273d6407fe2d06ed5e0fe82a99fa2c8a509c7bf33f75279c940531ce8a",
+      "manifest_field": "source_after_sha256"
+    }
+  ],
+  "pipeline_script_sha256": "eadd26b7518c69f8b6c19c3820c1182f07d1f1e86da30ef5f70c8c67322e5eff",
+  "tool_variant_manifest_sha256": "d1f38d77737f4027da3f3e9bb26dd971ae4787b3d3669f7ff281889da420b97f",
+  "rows": [
+    {
+      "entry": "1005fcf68",
+      "chunk": 1854,
+      "line": 1,
+      "status": "success",
+      "body_sha256": "600d92421778a19d08a3bc1130812b797e946d6ae4f95299ee9cb70d5c7bf4f5",
+      "c_like_sha256": "d5959759552e93cc5d8ffcbf3f343578c24393105264f649c53c9619d746196e",
+      "old_c_like_sha256": "e812294eee3c191b55bf6eb6b989d3e3df523b0187c45c6b90de47592999add2",
+      "body_bytes": 84,
+      "instruction_count": 21,
+      "body_and_ASM_unchanged": true,
+      "signature_before": "undefined __ZN16HeatEnergySource24extractEnergyIfAvailableEd()",
+      "signature_after": "uint __ZN16HeatEnergySource24extractEnergyIfAvailableEd(observed_heat_source_offsets * source, double amount)",
+      "return_qualification": "W0 is physically 0 or 1 from CSET/CSEL, controls the energy store, survives RET; word-sized value view, original bool declaration unknown.",
+      "chunk_sha256": "272b60e8cb56412ce4502c847082ebb79a913996467987d143b862e9ae173e27",
+      "receipt_sha256": "5f4b8a9af21e26af0babd0134db3a130b32df67404cfb6b30f0e4f6c11503d24",
+      "before_record_sha256": "fcf3e1a7c58988fa1e5cdd09e9104356904c62a3d980105dd0070be57d1a6c29"
+    },
+    {
+      "entry": "1001e8af4",
+      "chunk": 1855,
+      "line": 1,
+      "status": "success",
+      "body_sha256": "c424e9885607f0890a37b45317068169cc04a2198d88405b30ea0163d50ad854",
+      "c_like_sha256": "8631db6bba9dfa79ce97f72999439fc6c47c93850bfc4a450251c5ad787d236f",
+      "old_c_like_sha256": "686c8ab0d8853fad1c888dbe1ea6c954747449a743987657c209bd3fa9e3efbc",
+      "body_bytes": 24,
+      "instruction_count": 6,
+      "body_and_ASM_unchanged": true,
+      "signature_before": "undefined __ZNK10HeatBuffer14getTemperatureEv()",
+      "signature_after": "double __ZNK10HeatBuffer14getTemperatureEv(observed_heat_buffer_offsets * buffer)",
+      "return_qualification": "Lower64 D0 arithmetic result is explicitly selected immediately before RET; original declaration remains inferred.",
+      "chunk_sha256": "5d65a79ca8ea8c914a112dcfafc48f18b422f396bb5532028ca2aba3a935303a",
+      "receipt_sha256": "b76d6a26e224beb06f16a9e708f7be89197c310f936df07916d3adde0d0fbebd",
+      "before_record_sha256": "7125c16f966395efd1351b9c43a83f512fd2b0e609a6f4681394b762d180e8e5"
+    },
+    {
+      "entry": "10029a42c",
+      "chunk": 1856,
+      "line": 1,
+      "status": "success",
+      "body_sha256": "32ad73a32cfbb6a0977aa9168eec8e2cde227226ef76e0fd223495b6f847013c",
+      "c_like_sha256": "1764c21ce7f9e34c7a013d506c0ad44e9cfac80f5b1cabed9115ebccfc5e3f98",
+      "old_c_like_sha256": "7f14a5144a8778775ee6108d5d9e5fe5845f220cf67c3d4ecd1305b9ea47ccbf",
+      "body_bytes": 52,
+      "instruction_count": 13,
+      "body_and_ASM_unchanged": true,
+      "signature_before": "undefined __ZN10HeatBuffer14transferEnergyEd()",
+      "signature_after": "double __ZN10HeatBuffer14transferEnergyEd(observed_heat_buffer_offsets * buffer, double amount)",
+      "return_qualification": "Lower64 D0 arithmetic result is explicitly selected immediately before RET; original declaration remains inferred.",
+      "chunk_sha256": "80302ddd0e3ef72a104f87fe7b3c98cda832f490fe2b804025a1fea80dd54652",
+      "receipt_sha256": "662fa1a4b0dcacba718bb751fcf3598e9ec46268ba725dbcea14cd8db68ff54f",
+      "before_record_sha256": "6d1d012daf889cc19d928d7390f5e3d13f3858659036863456c02251b5abb379"
+    },
+    {
+      "entry": "10029a460",
+      "chunk": 1857,
+      "line": 1,
+      "status": "success",
+      "body_sha256": "f4030c984283c8400feacccb1b9e20b9c30d8b3c28505a06904e60df3cdc705e",
+      "c_like_sha256": "fe16f43c642f6527afd176c24456a4937c187c327d06706b28e9fa77354d5f71",
+      "old_c_like_sha256": "b7e9d1434709ffc58215780b256274e54a3cc2f8e21c788d9e6df1153f19034b",
+      "body_bytes": 84,
+      "instruction_count": 21,
+      "body_and_ASM_unchanged": true,
+      "signature_before": "undefined __ZN10HeatBuffer16transferEnergyToERS_d()",
+      "signature_after": "undefined __ZN10HeatBuffer16transferEnergyToERS_d(observed_heat_buffer_offsets * buffer, observed_heat_buffer_offsets * receiver, double amount)",
+      "return_qualification": "Existing unknown/default return preserved; final D0 arithmetic alone does not establish return contract.",
+      "chunk_sha256": "39a15b66ec6147dc2756e2ffdb99d9d338a5cbdeee1170911c3b0ee08733bacc",
+      "receipt_sha256": "882b770f64aa0640417795f1be57e093434de4a146b91836d2f0e37ede3bc7d5",
+      "before_record_sha256": "773da0a5234242755396fa0c95a6f9de8afd9b588ee900c683e53e819eb8188c"
+    }
+  ],
+  "all_read_artifacts_unchanged_before_after": true,
+  "limits": [
+    "Original class/member declarations and return types remain inferred.",
+    "Unknown transferEnergyTo return is explicitly preserved.",
+    "NaN/FPCR/signed-zero, loader/callee and global order are not qualified.",
+    "No game/recovered-code execution or gameplay/save acceptance."
+  ]
+}

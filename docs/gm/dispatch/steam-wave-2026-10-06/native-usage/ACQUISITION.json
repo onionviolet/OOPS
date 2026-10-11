@@ -82,7 +82,7 @@
     "book_worker": [],
     "oxygen_worker": [],
     "native_gm": [
-      "/root/factorio_native_finish3: docs/research/factorio/native/ except ASSIGNMENT.md",
+      "/root/factorio_native_continuation: docs/research/factorio/native/ except ASSIGNMENT.md",
       "/Users/weiwei/.codex/research/factorio/native-23347942/"
     ],
     "retort_review": [],
@@ -193,12 +193,57 @@
   },
   "root_acceptance_continuation": {
     "observed_utc": "2026-10-07T13:52:24.584937+00:00",
-    "owner": "/root/factorio_acceptance",
+    "owner": "/root/factorio_recovery_review",
     "scope": "Exclusive root acceptance documents and finite audit notes; released parent Factorio and derived wave routing only.",
     "primary_root": "Read-only to these documents while acceptance writer is active; owns host goal status and final decision.",
-    "native_writer": "/root/factorio_native_finish3 remains sole native/private writer. Existing exporter 41973 / Java 46960 is healthy.",
+    "native_writer": "/root/factorio_native_continuation; initial streams closed, canonical flow2 refresh next",
     "purpose": "Acquire final corpus, provenance, repairs, reader bindings and original use against the preserved full objective. No competing native process or shared runtime writes.",
     "retained_goal": "Same full both-architecture recovery, meaningful repairs, consequential review and original use; no scope reduction.",
     "last_refresh_utc": "2026-10-07T14:04:14.806358+00:00"
+  },
+  "model_error_resume": {
+    "observed_utc": "2026-10-07T17:46:13.061612+00:00",
+    "checkpoint_commit": "6869441367da9d3be86dbd7e288c0712e34f6149",
+    "worktree_before": "clean",
+    "authoritative_old_tree": "root only; no native/build processes",
+    "native_writer": "/root/factorio_native_resume",
+    "acceptance_writer": "/root/factorio_acceptance_resume",
+    "native_scope": "docs/research/factorio/native except ASSIGNMENT; private native-23347942 and approved separate backend variant",
+    "acceptance_scope": "native-usage; released parent Factorio routing; derived wave routing; native/private/tool/runtime read-only",
+    "retained_scope": "same full both-architecture goal, explicit gameplay acceptance deferral, no shared gameplay/canonical writes",
+    "next_action": "Review actual flow2 guard/C/body results and emit canonical rows; remaining faithful hash/merge/Heat/resource/section/ownership repairs and final audits"
+  },
+  "daemon_resume": {
+    "observed_utc": "2026-10-07T18:00:26.966664+00:00",
+    "retired": [
+      "/root/factorio_native_resume",
+      "/root/factorio_acceptance_resume"
+    ],
+    "proof": "After server restart authoritative collaboration inventory contains only root, no analyzeHeadless/native_guard/decompiler process; no new canonical rows after ARM1850. Initial supported-route workers vanished before work.",
+    "native_writer": "/root/factorio_native_continuation",
+    "acceptance_writer": "/root/factorio_recovery_review",
+    "scope": "Same full objective and disjoint reservations; root owns ASSIGNMENT and ACQUISITION; reviewer current native-usage/parent routing; native writer native/private. Other GM lanes retain source/build ownership.",
+    "host_goal_observed": "blocked from prior interruption; user explicitly resumed work; no status-resume capability exposed and no replacement goal created."
+  },
+  "hash_variant_sublease": {
+    "observed_utc": "2026-10-07T18:11:22.788258+00:00",
+    "owner": "/root/factorio_hash_design",
+    "exclusive_write": "/Users/weiwei/.codex/research/factorio/native-23347942/tool-repairs/backend-dynamic-hash/constant-sensitive-v1/",
+    "native_gm_proposal_accepted": true,
+    "native_process_lease": "retained by /root/factorio_native_continuation; compiler and standalone synthetic tool checks only until explicit process transfer",
+    "originals": "read only",
+    "goal": "coherent legacy-first constant-sensitive hash repair, exact provenance and CPP/Java identity roundtrip qualification; actual same-root export acquisition remains native GM plus reviewer"
+  },
+  "crossarch_reader_sublease": {
+    "observed_utc": "2026-10-07T18:29:59.133535+00:00",
+    "owner": "/root/factorio_crossarch_reader",
+    "exclusive_write": [
+      "docs/research/factorio/native/readers/cross-architecture/",
+      "/Users/weiwei/.codex/research/factorio/native-23347942/reader-work/cross-architecture-20261007/"
+    ],
+    "scope": "Existing22 consequential claims/53 distinct selected bodies against exact-mangled-symbol Intel counterparts; truthful static semantic/ABI/lowering dispositions",
+    "all_other_areas": "read only",
+    "native_processes": "none permitted",
+    "main_writer": "/root/factorio_native_continuation explicitly excludes these fresh folders; corpus/index/other native dossier/process lease retained"
   }
 }

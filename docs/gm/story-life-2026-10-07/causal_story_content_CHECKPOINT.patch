@@ -1,0 +1,42 @@
+--- src/causal_story_content.js before
++++ src/causal_story_content.js checkpoint
+@@ -56,6 +56,14 @@
+ };
+ const methodAccount = proof => `Nell taught me the measured procedure for this ${proof} case through actual supported instruction. I retained the description and practiced with my own real kit, rope and body. The exact current target source, Nell\'s separate authorization and a supported paid counter remain necessary. No target protection, future strength or other identity was acquired.`;
+ 
++// Original spoken aftermath, received only through a completed conversation
++// with the still-present consenting courier. No private outcome is disclosed.
++const afterwardAccounts = {
++    mortal:'Tarin says, "A kit is useful when someone can use it. Next time, ask me what I need before deciding what would help." I heard him after Nell\'s delivery account; this conversation changes no earlier result.',
++    covenant:'Asha says, "Getting through a day and getting the work done are two different things. When you make a plan with me, ask what I want it to accomplish." I heard her after Nell\'s delivery account; she gave me no survival source.',
++    anchor:'Orin says, "If we do more work, agree on the work first. Nobody gets to spend my next day for me." I heard him after Nell\'s delivery account; this conversation grants no future ability or ownership of his time.',
++};
++
+ const commands = PROOFS.flatMap(proof => {
+     const lead = P[proof], name = PROFILES[proof].name, open = all(enrolled, at(proof, 'open'));
+     const leadDelivery = all(open, at(proof, 'deliveryPending'), at(proof, 'leadSupported'), person(P.keeper));
+@@ -65,6 +73,24 @@
+     const lessonSupport = all(player, at(proof, 'methodSupported'), at(proof, 'methodTaught', false));
+     const ordinaryPlayer = all(player, at(proof, 'ordinarySupported'), person(P.keeper));
+     return [
++        command(proof, 'keep_watch', {label:`Stay by ${name}'s packing bench · 1 stamina + 4 min`,
++            visibleWhen:all(at(proof, 'playerTermsKnown'), at(proof, 'open')),
++            requires:all(player, at(proof, 'open'), at(proof, 'playerTermsKnown')),
++            // Occupy only the player. Couriers, Nell and Roe retain their own
++            // benches and work. Old enrolled saves need no additional site.
++            duration:4, cancellation:'refund', completionFailure:'refund',
++            completionRequires:all(player, at(proof, 'exists')), completionCoLocated:true,
++            costs:[stamina('player', -1)],
++            effects:[know(proof, 'watch', 'player', `I stayed at the Village packing bench for four played minutes. The courier work had its own time to proceed if its people and supplies supported it. I still need to ask Nell what she received. Watching supplied no kit or guaranteed delivery.`, 'player', 'seen', 'observation')]}),
++        command(proof, 'talk_afterward', {label:`Talk with ${name} after Nell's account · 1 min`,
++            targetId:lead, coLocated:true, participants:['$target'],
++            claim:causalStoryId(proof, 'afterward_conversation'),
++            visibleWhen:all(at(proof, 'closed'), eq(`knowledge.${causalStoryId(proof, 'closure')}.seen`)),
++            requires:all(player, at(proof, 'closed'), person(lead), eq(`knowledge.${causalStoryId(proof, 'closure')}.seen`)),
++            ...timed(1, all(player, at(proof, 'closed'), person(lead),
++                eq(`knowledge.${causalStoryId(proof, 'closure')}.seen`)), sites.ordinary),
++            costs:[resource(lead, 'attention', -1)],
++            effects:[know(proof, 'afterward', 'player', afterwardAccounts[proof], lead, 'seen', 'instruction')]}),
+         command(proof, 'cooperate', {label:`Help ${name} pack the actual delivery · 1 log + 1 coin + 2 min`,
+             targetId:lead, coLocated:true, participants:['$target'], claim:causalStoryId(proof, 'player_cooperation'),
+             visibleWhen:all(at(proof, 'playerTermsKnown'), at(proof, 'open')),

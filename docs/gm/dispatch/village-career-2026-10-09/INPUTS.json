@@ -1,0 +1,14 @@
+{
+  "files": {
+    "src/main.js": "0fb1024d2d4c17e8fa769a339c07bba4e08ae598bab2174e2d5cc730c48444c4",
+    "src/save_files.js": "6648a6b3f3fdc60cc6903c19771b5a55b147d7cf33fda645d7701444df592826",
+    "src/data/locations.js": "38740c68888e6798cb5f42db0b063f9fde68653b444432862f734fb508e75328",
+    "src/village_career.js": "57a9cb201d11c2057eb3be2f2bd1a7dd157779ada91b7f0c53117d20ce058c73",
+    "src/village_career_ui.js": "f38276842c20c5411480faacd36d8eb0441d6331fbdd4bd3b28910cc9c9a9974",
+    "dist/bundle.js": "8e8fde7f75bd22de779caa7f397dbce1dfc5e9dc823a0a67bf3506d298fa501e",
+    "dist/bundle.js.map": "3a308a9d34474eea01b642e8f3101dfc9e843c70c75bfb3f2a63b4285fec63b8"
+  },
+  "bundle": "8e8fde7f75bd22de779caa7f397dbce1dfc5e9dc823a0a67bf3506d298fa501e",
+  "verificationOrigin": "http://127.0.0.1:8139",
+  "shape": "single integrator, native timer, no fixture grant or time acceleration"
+}

@@ -1,0 +1,123 @@
+{
+  "date": "2026-10-09",
+  "game": "Bitburner",
+  "steam_appid": 1812820,
+  "acquisition": "official public git clone --depth 1 --branch stable, then sparse checkout of 17 inspected files",
+  "source_revision": "1da7316ffd9d281b45a86c4c54ec532276557892",
+  "default_branch_verified": "dev",
+  "default_head_at_acquisition": "bdbf552390acd08d0a63a24d4650dae725d62fa2",
+  "branch_reason": "stable is the deliberate release-oriented snapshot, not a claim of Steam installed revision",
+  "local_source": "/Users/weiwei/.codex/research/bitburner/source",
+  "retention_manifest": "/Users/weiwei/.codex/research/bitburner/RETENTION_MANIFEST.json",
+  "retained_files": [
+    {
+      "path": "README.md",
+      "bytes": 2534,
+      "sha256": "0f46d6ae02b23cfaff42b790234c7284deb8871dc5e0f9cc3a9ebdb0e95437ca",
+      "retention": "bounded inspected source/context; private research only"
+    },
+    {
+      "path": "license.txt",
+      "bytes": 11317,
+      "sha256": "601fe20115ca43a6db9d3c0ef16af8acd2e086a369620e4fe0787e3077a6ad69",
+      "retention": "bounded inspected source/context; private research only"
+    },
+    {
+      "path": "src/Augmentation/AugmentationHelpers.ts",
+      "bytes": 5876,
+      "sha256": "9aaed76d56233b1c47a5a595da85234646444f13e29ac84ed8496d03790996f8",
+      "retention": "bounded inspected source/context; private research only"
+    },
+    {
+      "path": "src/Corporation/Actions.ts",
+      "bytes": 25925,
+      "sha256": "fca14ec1d1aedf08ce999f55958809128408a842460a8fb954b68bdd002fb4e3",
+      "retention": "bounded inspected source/context; private research only"
+    },
+    {
+      "path": "src/Corporation/ResearchTree.ts",
+      "bytes": 6459,
+      "sha256": "b51cadba7c4b3465eae6428668fbf6e33d8d5c24a47d7fc3c1df0d44f8281ab3",
+      "retention": "bounded inspected source/context; private research only"
+    },
+    {
+      "path": "src/Corporation/data/BaseResearchTree.ts",
+      "bytes": 2922,
+      "sha256": "58310b9f52f7c8361555ccf6abc1f54af642368dc8b8173995f042e86f8dbc76",
+      "retention": "bounded inspected source/context; private research only"
+    },
+    {
+      "path": "src/Corporation/ui/modals/ResearchModal.tsx",
+      "bytes": 5676,
+      "sha256": "4dfa8d8fca0ce44d0c2f619ed6055970db404ef9ed1c01461d744a5f10ed08d0",
+      "retention": "bounded inspected source/context; private research only"
+    },
+    {
+      "path": "src/NetscriptWorker.ts",
+      "bytes": 13543,
+      "sha256": "4db68c6cf59e2cf3b889604ec49ead4416a54a6fc9b64de2ceba61f949049124",
+      "retention": "bounded inspected source/context; private research only"
+    },
+    {
+      "path": "src/PersonObjects/Player/PlayerObjectGeneralMethods.ts",
+      "bytes": 22399,
+      "sha256": "aca2bbc19ea3bdfc22c457d4c446be55efcf85353f1ca2a97fecce72afd41aea",
+      "retention": "bounded inspected source/context; private research only"
+    },
+    {
+      "path": "src/Prestige.ts",
+      "bytes": 13097,
+      "sha256": "463f393dec55f0e10942f36484509695cf16094e2f0a75b3dc284e1dbea43e4c",
+      "retention": "bounded inspected source/context; private research only"
+    },
+    {
+      "path": "src/RedPill.tsx",
+      "bytes": 2886,
+      "sha256": "60c0af928e7464c9439dcb22cff9240fb3530f97a087f8d28a73dbcc4ab1eec8",
+      "retention": "bounded inspected source/context; private research only"
+    },
+    {
+      "path": "src/SaveObject.ts",
+      "bytes": 21239,
+      "sha256": "0efe403455b46e0a2781bae85f58ab9e18ea41a83b7eb8a0b9f7fb683908f25f",
+      "retention": "bounded inspected source/context; private research only"
+    },
+    {
+      "path": "src/Script/ScriptHelpers.ts",
+      "bytes": 4383,
+      "sha256": "0f04a952d54c6f8fdefc65ec908ff22c583fbb9fc7e233d018a27ed5808efb3b",
+      "retention": "bounded inspected source/context; private research only"
+    },
+    {
+      "path": "src/engine.tsx",
+      "bytes": 16417,
+      "sha256": "f72b2f9aefeebcec7389a37c1b7f6393e764abb134972cf563e2731db78cb9ea",
+      "retention": "bounded inspected source/context; private research only"
+    },
+    {
+      "path": "src/ui/ActiveScripts/WorkerScriptAccordion.tsx",
+      "bytes": 7042,
+      "sha256": "b64c21ea3a58cf1a9f64bc7d1b631b44e9216a0b3c10956976394082121c55d8",
+      "retention": "bounded inspected source/context; private research only"
+    },
+    {
+      "path": "src/ui/React/ImportSaveComparison.tsx",
+      "bytes": 18638,
+      "sha256": "0990df1644a8209093559b509f7b103f4c778e0c02b63bb6fd773b901599f4b2",
+      "retention": "bounded inspected source/context; private research only"
+    },
+    {
+      "path": "src/utils/SaveDataMigrationUtils.ts",
+      "bytes": 23706,
+      "sha256": "337b0bcc30ec7e43e057640881e92627aea515396e488a04eac598b6f835ead4",
+      "retention": "bounded inspected source/context; private research only"
+    }
+  ],
+  "license": "license.txt retained: Apache 2.0 with Commons Clause; no source copied into YAIR",
+  "steam_install": "not requested in this lane; public-source substitute required by assignment",
+  "executed_game": false,
+  "installed_dependencies": false,
+  "builds": false,
+  "saves_accessed": false,
+  "audit_limit": "Six selected code chains, not complete source or runtime audit; no shipped-build match asserted."
+}

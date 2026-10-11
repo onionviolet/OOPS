@@ -1,0 +1,138 @@
+{
+  "schema": "bounded-source-coverage-v1",
+  "trace_ledger": [
+    {
+      "id": "F1",
+      "evidence": [
+        "E01",
+        "E02",
+        "E03",
+        "E04",
+        "E05",
+        "E06",
+        "E07"
+      ],
+      "prerequisites": "Essence Catalyst built for Study; element unlocked and required level for a spell",
+      "expenditure": "Assigned researcher time; casting fuel separately checked",
+      "mutation": "Element experience and levels; learned-spell event text",
+      "consumer": "Spell visibility and enabled gate",
+      "time": "Experience accumulates per tick; cooldown is checked at cast time",
+      "failure": "Unmet knowledge or live cast gates block the action",
+      "aftermath": "New spell option becomes visible; no mana is granted by learning"
+    },
+    {
+      "id": "F2",
+      "evidence": [
+        "E05",
+        "E07",
+        "E08",
+        "E09"
+      ],
+      "prerequisites": "Visible and enabled Fireball with Fire level 6",
+      "expenditure": "Transformed mana cost, nominal base 380",
+      "mutation": "Cast effect, mana subtraction, use experience, last-cast time",
+      "consumer": "Common Action affordability and Spell.doAction",
+      "time": "Nominal 6-second cooldown",
+      "failure": "Unaffordable normal cast exits before effect, cost, or experience",
+      "aftermath": "Current mana and storage capacity still constrain repeated casting"
+    },
+    {
+      "id": "F3",
+      "evidence": [
+        "E10",
+        "E11",
+        "E12",
+        "E13"
+      ],
+      "prerequisites": "Exploration unlocked; Water level 14; recipe resources and items",
+      "expenditure": "400 mana, 5000 Water Essence, 65 Water shards before transformations",
+      "mutation": "Water wand inventory/equipment state",
+      "consumer": "EquippableItem stat effects and tagged Action effect transformation",
+      "time": "No time gate established by selected trace",
+      "failure": "Recipe or visibility gates block crafting; unequipped wand does not apply its registered Water multiplier",
+      "aftermath": "While equipped, attack, mana regeneration/capacity, and Water magnitude bonuses are declared"
+    },
+    {
+      "id": "F4",
+      "evidence": [
+        "E14",
+        "E15",
+        "E16",
+        "E17",
+        "E18"
+      ],
+      "prerequisites": "Wizards unlock after Transmutation and 500 capped Coins; assigned wizards/rules",
+      "expenditure": "Autocast points for ordinary casts; permacast may drain mana each tick while charging",
+      "mutation": "Rule points, spell effects, mana and disabled status",
+      "consumer": "Autocast tick listeners and strategy loader",
+      "time": "Points accrue per tick; second listener resumes after income when starved",
+      "failure": "Ordinary rule skips failed gates; check-only can stop later rules; permacast may spend mana without effect",
+      "aftermath": "Strategy load may auto-disable by capacity or estimated income, without guaranteeing transient fuel"
+    },
+    {
+      "id": "F5",
+      "evidence": [
+        "E19",
+        "E20",
+        "E21",
+        "E22",
+        "E23",
+        "E24"
+      ],
+      "prerequisites": "Posterity event after primary-element maximum for run reaches level 7; Continue option",
+      "expenditure": "Retirement replaces run state; selected trace establishes no item/currency entry fee",
+      "mutation": "Run and world storyline flags, reset count, stored primary/secondary maxima",
+      "consumer": "Retirement gate, preview, starting experience and multiplier functions",
+      "time": "Level-up trigger; reset requires two UI presses",
+      "failure": "Before world completion flag the Retirement gate remains closed",
+      "aftermath": "World flags and maxima persist while run state is replaced"
+    }
+  ],
+  "map_counts": [
+    {
+      "source_map": "main.15163126.js.map",
+      "source_entries": 584,
+      "entries_with_body": 584,
+      "backend_entries_with_body": 423,
+      "cited_unique_bodies": 18
+    },
+    {
+      "source_map": "469.bf5f1452.js.map",
+      "source_entries": 1236,
+      "entries_with_body": 1232,
+      "backend_entries_with_body": 0,
+      "cited_unique_bodies": 0
+    }
+  ],
+  "private_decoded_entries": 91,
+  "cited_unique_bodies": 18,
+  "cited_body_paths": [
+    "src/backend/DemoLoader.tsx",
+    "src/backend/Retire.tsx",
+    "src/backend/action/Action.tsx",
+    "src/backend/autocast/Autocast.tsx",
+    "src/backend/events/progression/LevelUp.tsx",
+    "src/backend/events/progression/PreTrainingProgression.tsx",
+    "src/backend/events/storyline/DemoStorylinesLoader.tsx",
+    "src/backend/events/storyline/pretraining/RetireUnlocker.tsx",
+    "src/backend/items/DemoItemLoader.tsx",
+    "src/backend/items/equipment/EquippableItem.tsx",
+    "src/backend/items/equipment/hand/water/WandOfWater.tsx",
+    "src/backend/items/transmute/EquipmentTransmutationSpell.tsx",
+    "src/backend/spells/Elements.tsx",
+    "src/backend/spells/Spell.tsx",
+    "src/backend/spells/fire/Fireball.tsx",
+    "src/backend/storylines/Storyline.tsx",
+    "src/backend/study/Study.tsx",
+    "src/components/Retirement.tsx"
+  ],
+  "evidence_entries": 24,
+  "evidence_source_references": 32,
+  "read_scope": "Five connected traces and immediate registration/consumer paths, not the full recovered map or all privately decoded files. Vendor map was acquired and indexed but has no cited gameplay body.",
+  "open_edges": [
+    "No runtime/browser play of the demo",
+    "No retail or DLC binary/source audit",
+    "No save migration or actual YAIR implementation",
+    "Map symbol presence alone does not establish demo reachability"
+  ]
+}

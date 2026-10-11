@@ -25,6 +25,7 @@ anyone must follow. The palette:
 | [Abuse and limits](ABUSE_AND_LIMITS.md) | In-world consequences |
 | [Presentation](PRESENTATION_AND_FOURTH_WALL.md) | Effects, restraint, meta characters, reach |
 | [Cosmic events](COSMIC_EVENTS.md) | God-like acts, scarcity, relative consequences |
+| [Time keepers and variants](TIME_KEEPERS_AND_VARIANTS.md) | Keepers, pruning, journeys, story gods, What Ifs |
 
 ## Three questions before picking anything
 

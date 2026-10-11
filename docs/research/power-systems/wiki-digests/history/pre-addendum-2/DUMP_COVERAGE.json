@@ -1,0 +1,45 @@
+{
+  "state": "bounded_review_with_open_source_gates",
+  "wiki_identity_count": 74,
+  "downloaded_archives": 13,
+  "reviewed_claim_count": 41,
+  "reviewed_dump_subjects": 13,
+  "historical_community_subjects": [
+    "Shadow Slave"
+  ],
+  "covered_source_request_ids": [
+    "S17",
+    "S18",
+    "S22",
+    "S25",
+    "S36",
+    "S37",
+    "S59",
+    "S64",
+    "S65"
+  ],
+  "source_request_status_only_edits": [
+    "S17",
+    "S18",
+    "S22",
+    "S25",
+    "S36",
+    "S37",
+    "S59",
+    "S64",
+    "S65"
+  ],
+  "extra_request_rows": [],
+  "size_skips": [],
+  "limits": [
+    "Primary canon not certified",
+    "Current communities not certified from historical alternate-community dumps",
+    "No complete review of every offline selected page"
+  ],
+  "additional_dump_request_ids": [
+    "S95",
+    "S96",
+    "S97"
+  ],
+  "source_request_preservation_check": "Renderer asserts all pre-existing cells except authorized Status cells are unchanged on each write."
+}

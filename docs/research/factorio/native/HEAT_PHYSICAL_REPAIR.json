@@ -1,0 +1,73 @@
+{
+  "schema": 1,
+  "observed_at": "2026-10-07T18:34:25.141250+00:00",
+  "canonical_rows": [
+    {
+      "entry": "1005fcf68",
+      "name": "__ZN16HeatEnergySource24extractEnergyIfAvailableEd",
+      "signature": "uint __ZN16HeatEnergySource24extractEnergyIfAvailableEd(observed_heat_source_offsets * source, double amount)",
+      "body_addresses": 84,
+      "instruction_count": 21,
+      "body_sha256": "600d92421778a19d08a3bc1130812b797e946d6ae4f95299ee9cb70d5c7bf4f5",
+      "c_like_sha256": "d5959759552e93cc5d8ffcbf3f343578c24393105264f649c53c9619d746196e",
+      "chunk": 1854,
+      "line": 1,
+      "exact_body_ASM_unchanged": true,
+      "return_qualification": "W0 is physically 0 or 1 from CSET/CSEL, controls the energy store, survives RET; word-sized value view, original bool declaration unknown.",
+      "retained_warning": "Unknown calling convention; exact physical custom register storage is specified and independently read. Original compiler declaration/model name is not claimed."
+    },
+    {
+      "entry": "1001e8af4",
+      "name": "__ZNK10HeatBuffer14getTemperatureEv",
+      "signature": "double __ZNK10HeatBuffer14getTemperatureEv(observed_heat_buffer_offsets * buffer)",
+      "body_addresses": 24,
+      "instruction_count": 6,
+      "body_sha256": "c424e9885607f0890a37b45317068169cc04a2198d88405b30ea0163d50ad854",
+      "c_like_sha256": "8631db6bba9dfa79ce97f72999439fc6c47c93850bfc4a450251c5ad787d236f",
+      "chunk": 1855,
+      "line": 1,
+      "exact_body_ASM_unchanged": true,
+      "return_qualification": "Lower64 D0 arithmetic result is explicitly selected immediately before RET; original declaration remains inferred.",
+      "retained_warning": "Unknown calling convention; exact physical custom register storage is specified and independently read. Original compiler declaration/model name is not claimed."
+    },
+    {
+      "entry": "10029a42c",
+      "name": "__ZN10HeatBuffer14transferEnergyEd",
+      "signature": "double __ZN10HeatBuffer14transferEnergyEd(observed_heat_buffer_offsets * buffer, double amount)",
+      "body_addresses": 52,
+      "instruction_count": 13,
+      "body_sha256": "32ad73a32cfbb6a0977aa9168eec8e2cde227226ef76e0fd223495b6f847013c",
+      "c_like_sha256": "1764c21ce7f9e34c7a013d506c0ad44e9cfac80f5b1cabed9115ebccfc5e3f98",
+      "chunk": 1856,
+      "line": 1,
+      "exact_body_ASM_unchanged": true,
+      "return_qualification": "Lower64 D0 arithmetic result is explicitly selected immediately before RET; original declaration remains inferred.",
+      "retained_warning": "Unknown calling convention; exact physical custom register storage is specified and independently read. Original compiler declaration/model name is not claimed."
+    },
+    {
+      "entry": "10029a460",
+      "name": "__ZN10HeatBuffer16transferEnergyToERS_d",
+      "signature": "undefined __ZN10HeatBuffer16transferEnergyToERS_d(observed_heat_buffer_offsets * buffer, observed_heat_buffer_offsets * receiver, double amount)",
+      "body_addresses": 84,
+      "instruction_count": 21,
+      "body_sha256": "f4030c984283c8400feacccb1b9e20b9c30d8b3c28505a06904e60df3cdc705e",
+      "c_like_sha256": "fe16f43c642f6527afd176c24456a4937c187c327d06706b28e9fa77354d5f71",
+      "chunk": 1857,
+      "line": 1,
+      "exact_body_ASM_unchanged": true,
+      "return_qualification": "Existing unknown/default return preserved; final D0 arithmetic alone does not establish return contract.",
+      "retained_warning": "Unknown calling convention; exact physical custom register storage is specified and independently read. Original compiler declaration/model name is not claimed."
+    }
+  ],
+  "combined_receipt_sha256": "f75194d13249f59bc5e1de0d81b686d8ca6cf8f3f314781d628b6360d2ff09a1",
+  "input_sha256": "9e1d7571e0284bb4c4e0e12716143752c893cb79b266038e64d0ee41f54aab93",
+  "complete_generated_C_bodies_and_61_original_instructions_read": true,
+  "observed_fields": "Offset-only double views at buffer+0x60; prototype+0x78/+0x80/+0x88/+0x90/+0xb0; source+0x18 buffer pointer. Unknown gaps retain undefined storage.",
+  "semantic_disposition": "NLH08/09/10 consequential arithmetic/store claims unchanged; generated view now has actual double-field access and lower64D0/W0word result storage, without former integer numeric casts/vector16byte return inference.",
+  "limits": [
+    "Original C++ types/member names/compiler declaration remain inferred; word0or1 result is physical evidence, not original bool typedef.",
+    "transferEnergyTo existing unknown/default return kept; finalD0 arithmetic alone does not prove a return contract.",
+    "NaN/FPCR/signedzero/negativeinputs/globalcadence and runtime conservation are not established."
+  ],
+  "headless_state": "C exports closed1854\u20131857; same job40334 still performing immutable global ownership comparison."
+}

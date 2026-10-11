@@ -1,0 +1,202 @@
+{
+  "observed_at": "2026-10-07T16:38:17.088382-04:00",
+  "games": [
+    {
+      "app_id": 718670,
+      "game": "Cultist Simulator",
+      "worker": "/root/cultist_ready",
+      "research_owner": "docs/research/cultist-simulator",
+      "manifest_present": false,
+      "state_flags": null,
+      "build_id": null,
+      "bytes_downloaded": null,
+      "bytes_to_download": null,
+      "status": "removed-verified-steam-log-manifest-install",
+      "uninstall_eligible": true,
+      "copied": true,
+      "audited": true,
+      "release": "CULTIST_SIMULATOR_RELEASE.json",
+      "audited_build_id": "22090405",
+      "uninstalled": true,
+      "artifact_paths": [
+        "docs/research/cultist-simulator/CHECKPOINT.md",
+        "docs/research/cultist-simulator/COVERAGE.json",
+        "docs/research/cultist-simulator/DLC_COVERAGE.json",
+        "docs/research/cultist-simulator/FINDINGS.json",
+        "docs/research/cultist-simulator/IMPLEMENTATION_PACKETS.md",
+        "docs/research/cultist-simulator/INTAKE.json",
+        "docs/research/cultist-simulator/REPORT.md"
+      ]
+    },
+    {
+      "app_id": 763890,
+      "game": "Wildermyth",
+      "worker": "/root/wildermyth_wait",
+      "research_owner": "docs/research/wildermyth",
+      "manifest_present": false,
+      "state_flags": null,
+      "build_id": null,
+      "bytes_downloaded": null,
+      "bytes_to_download": null,
+      "status": "removed-verified-steam-log-manifest-install",
+      "uninstall_eligible": true,
+      "audited_build_id": "21684217",
+      "copied": true,
+      "audited": true,
+      "uninstalled": true,
+      "release": "WILDERMYTH_RELEASE.json",
+      "artifact_paths": [
+        "docs/research/wildermyth/CHECKPOINT.md",
+        "docs/research/wildermyth/COVERAGE.json",
+        "docs/research/wildermyth/DLC_COVERAGE.json",
+        "docs/research/wildermyth/FINDINGS.json",
+        "docs/research/wildermyth/IMPLEMENTATION_PACKETS.json",
+        "docs/research/wildermyth/INTAKE.json",
+        "docs/research/wildermyth/REPORT.md"
+      ]
+    },
+    {
+      "app_id": 881420,
+      "game": "Six Ages",
+      "worker": "/root/six_ages_wait",
+      "research_owner": "docs/research/six-ages",
+      "manifest_present": false,
+      "state_flags": null,
+      "build_id": null,
+      "bytes_downloaded": null,
+      "bytes_to_download": null,
+      "status": "blocked-no-install-pipeline",
+      "uninstall_eligible": false,
+      "copied": false,
+      "audited": false,
+      "uninstalled": false,
+      "artifact_paths": [
+        "docs/research/six-ages/CHECKPOINT.md",
+        "docs/research/six-ages/COVERAGE.json",
+        "docs/research/six-ages/DLC_COVERAGE.json",
+        "docs/research/six-ages/FINDINGS.json",
+        "docs/research/six-ages/IMPLEMENTATION_PACKETS.json",
+        "docs/research/six-ages/INTAKE.json",
+        "docs/research/six-ages/REPORT.md"
+      ]
+    },
+    {
+      "app_id": 352220,
+      "game": "King of Dragon Pass",
+      "worker": "/root/dragon_ready",
+      "research_owner": "docs/research/king-of-dragon-pass",
+      "manifest_present": false,
+      "state_flags": null,
+      "build_id": null,
+      "bytes_downloaded": null,
+      "bytes_to_download": null,
+      "status": "removed-verified-steam-log-manifest-install",
+      "uninstall_eligible": true,
+      "copied": true,
+      "audited": true,
+      "release": "KING_OF_DRAGON_PASS_RELEASE.json",
+      "audited_build_id": "10566687",
+      "uninstalled": true,
+      "artifact_paths": [
+        "docs/research/king-of-dragon-pass/CHECKPOINT.md",
+        "docs/research/king-of-dragon-pass/COVERAGE.json",
+        "docs/research/king-of-dragon-pass/DLC_COVERAGE.json",
+        "docs/research/king-of-dragon-pass/FINDINGS.json",
+        "docs/research/king-of-dragon-pass/IMPLEMENTATION_PACKETS.json",
+        "docs/research/king-of-dragon-pass/INTAKE.json",
+        "docs/research/king-of-dragon-pass/REPORT.md"
+      ]
+    },
+    {
+      "app_id": 1158310,
+      "game": "Crusader Kings III",
+      "worker": "/root/ck3_ready",
+      "research_owner": "docs/research/crusader-kings-3",
+      "manifest_present": false,
+      "state_flags": null,
+      "build_id": null,
+      "bytes_downloaded": null,
+      "bytes_to_download": null,
+      "status": "removed-verified-steam-log-manifest-install",
+      "uninstall_eligible": true,
+      "audited_build_id": "25734779",
+      "copied": true,
+      "audited": true,
+      "uninstalled": true,
+      "release": "CRUSADER_KINGS_3_RELEASE.json",
+      "artifact_paths": [
+        "docs/research/crusader-kings-3/CHECKPOINT.md",
+        "docs/research/crusader-kings-3/COVERAGE.json",
+        "docs/research/crusader-kings-3/DLC_COVERAGE.json",
+        "docs/research/crusader-kings-3/FINDINGS.json",
+        "docs/research/crusader-kings-3/IMPLEMENTATION_PACKETS.json",
+        "docs/research/crusader-kings-3/INTAKE.json",
+        "docs/research/crusader-kings-3/REPORT.md"
+      ]
+    },
+    {
+      "app_id": 233860,
+      "game": "Kenshi",
+      "worker": "/root/kenshi_ready",
+      "research_owner": "docs/research/kenshi",
+      "manifest_present": false,
+      "state_flags": null,
+      "build_id": null,
+      "bytes_downloaded": null,
+      "bytes_to_download": null,
+      "status": "removed-verified-steam-log-manifest-install",
+      "uninstall_eligible": true,
+      "copied": true,
+      "audited": true,
+      "release": "KENSHI_RELEASE.json",
+      "audited_build_id": "13871665",
+      "uninstalled": true,
+      "artifact_paths": [
+        "docs/research/kenshi/CHECKPOINT.md",
+        "docs/research/kenshi/COVERAGE.json",
+        "docs/research/kenshi/DLC_COVERAGE.json",
+        "docs/research/kenshi/FINDINGS.md",
+        "docs/research/kenshi/IMPLEMENTATION_PACKETS.md",
+        "docs/research/kenshi/INTAKE.json",
+        "docs/research/kenshi/REPORT.md"
+      ]
+    },
+    {
+      "app_id": 1468810,
+      "game": "Tale of Immortal",
+      "worker": "/root/tale_acquisition",
+      "research_owner": "docs/research/tale-of-immortal",
+      "manifest_present": false,
+      "state_flags": null,
+      "build_id": null,
+      "bytes_downloaded": null,
+      "bytes_to_download": null,
+      "status": "blocked-invalid-install-path-public-only-appinfo",
+      "uninstall_eligible": false,
+      "copied": false,
+      "audited": false,
+      "uninstalled": false,
+      "artifact_paths": [
+        "docs/research/tale-of-immortal/CHECKPOINT.md",
+        "docs/research/tale-of-immortal/COVERAGE.json",
+        "docs/research/tale-of-immortal/DLC_COVERAGE.json",
+        "docs/research/tale-of-immortal/FINDINGS.json",
+        "docs/research/tale-of-immortal/IMPLEMENTATION_PACKETS.md",
+        "docs/research/tale-of-immortal/INTAKE.json",
+        "docs/research/tale-of-immortal/REPORT.md"
+      ]
+    }
+  ],
+  "outside_lane_cleanup": {
+    "427520": {
+      "manifest_absent": true
+    },
+    "1028310": {
+      "manifest_absent": true
+    },
+    "457140": {
+      "manifest_absent": true
+    }
+  },
+  "preservation": "Other lane writers, src, user saves, live manifests untouched"
+}

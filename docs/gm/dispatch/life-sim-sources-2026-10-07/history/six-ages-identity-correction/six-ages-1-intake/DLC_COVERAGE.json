@@ -1,0 +1,10 @@
+{
+  "checked_at": "2026-10-07T20:36:44.977571+00:00",
+  "status": "unverified-before-source",
+  "declared": [],
+  "installed": [],
+  "source_accessible": [],
+  "read": [],
+  "entitlement": "not inferred",
+  "blocker": "No finalized manifest or available source; DLC disposition unverified."
+}

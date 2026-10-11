@@ -1,0 +1,470 @@
+{
+  "app_id": 718670,
+  "build_id": "22090405",
+  "platform": "macOS Mono managed",
+  "checked_utc": "2026-10-07T20:22:32.271153+00:00",
+  "status": "finite-source-pass-complete",
+  "private_snapshot": "/Users/weiwei/.codex/research/cultist-simulator/build22090405",
+  "copied": true,
+  "decompiled": true,
+  "audit_complete": true,
+  "uninstall_eligible": true,
+  "no_installed_path_consumers": true,
+  "gameplay_verified": false,
+  "save_access": "none",
+  "engine_execution": [
+    {
+      "private_path": "decompiled/main/SecretHistories.Commands/RecipeCompletionEffectCommand.cs",
+      "selector": "public bool Execute(Situation",
+      "line": 31,
+      "sha256": "056a083bf67cec9b772f49a9a2bbe0426c3dbde7857be95533f0e63a9cdfc5b1"
+    },
+    {
+      "private_path": "decompiled/main/SecretHistories.Commands/RecipeCompletionEffectCommand.cs",
+      "selector": "private void RunMutationEffects",
+      "line": 131,
+      "sha256": "056a083bf67cec9b772f49a9a2bbe0426c3dbde7857be95533f0e63a9cdfc5b1"
+    },
+    {
+      "private_path": "decompiled/main/SecretHistories.Commands/RecipeCompletionEffectCommand.cs",
+      "selector": "private void RunRecipeEffects",
+      "line": 165,
+      "sha256": "056a083bf67cec9b772f49a9a2bbe0426c3dbde7857be95533f0e63a9cdfc5b1"
+    },
+    {
+      "private_path": "decompiled/main/SecretHistories.Spheres/Sphere.cs",
+      "selector": "public int ReduceElement",
+      "line": 496,
+      "sha256": "3649941a05dae4493f5a58b68756bba1b1985273f07ee7be242642700f24a692"
+    },
+    {
+      "private_path": "decompiled/main/SecretHistories.Spheres.Angels/GreedyAngel.cs",
+      "selector": "private void GrabStack",
+      "line": 91,
+      "sha256": "7d6f6a478497ab84ae3cd443da73664fa62baf38d839879fcaf22053e2416e29"
+    },
+    {
+      "private_path": "decompiled/main/SecretHistories.Entities/Recipe.cs",
+      "selector": "public virtual bool RequirementsSatisfiedBy",
+      "line": 376,
+      "sha256": "57e101c038cb4a4221a2834b64b11f06efcb363756d90044f84698f82bbaec82"
+    },
+    {
+      "private_path": "decompiled/main/SecretHistories.UI/ElementStack.cs",
+      "selector": "public void ExecuteHeartbeat",
+      "line": 532,
+      "sha256": "cd119b0e81af9837deb4b32a44e9586ddfc423094c8d6a3689129b5aa589ce86"
+    },
+    {
+      "private_path": "decompiled/main/SecretHistories.Logic/LegacySelector.cs",
+      "selector": "public static List<Legacy> DetermineLegacies",
+      "line": 12,
+      "sha256": "a7ad9b8f843323c277835a6d36c7c2a0fdc9ceb28f3cba7885e2ff9610251896"
+    },
+    {
+      "private_path": "decompiled/main/SecretHistories.Entities/Situation.cs",
+      "selector": "public void ExecuteCurrentRecipe",
+      "line": 668,
+      "sha256": "cd6c5fc4330ee73f944cb20ec0782fb3f4bdaca8b6fa4544c59373e7e2472ff8"
+    }
+  ],
+  "chains": [
+    {
+      "id": "F1",
+      "title": "Work competes with keeping a body alive",
+      "prerequisites": "Reason and an unfilled job route permit clerical acquisition; actual junior job enables work.",
+      "decision": "Commit Work to earning or divert scarce time toward occult actions.",
+      "actual_spend_and_mutation": "Junior work produces one Funds after 60; reason diligence substitutes a branch with further linked Funds and careeradvancement, rather than consuming every prerequisite. Needs grabs one Funds; discardseason applies funds -999 in its local storage. GreedyAngel splits one from a larger stack, so -999 is local cleanup, not a global wallet wipe.",
+      "downstream_consumer": "Funds pays the next needs cycle and illness recovery. Employment and careeradvancement xtriggers refresh/change job identity.",
+      "time_and_absence": "Needs is 60; junior job lifetime is 90 and absence converts it to demotion.",
+      "failure_and_aftermath": "No Funds selects starvation: Health loss/Hunger; no Health or Fatigue can end the body. Demotion admits a 30-time Passion plea that transforms the job back.",
+      "evidence": [
+        {
+          "private_path": "inputs/StreamingAssets/content/core/recipes/work_2_jobs.json",
+          "selector": "\"id\": \"findclericalwork\"",
+          "line": 4,
+          "sha256": "81047524c8c2265ebe02cc42178d3aae144f5bbb9dbe0ad0124e505f10fd98e4"
+        },
+        {
+          "private_path": "inputs/StreamingAssets/content/core/recipes/work_2_jobs.json",
+          "selector": "\"id\": \"gloverandgloverjuniorwork\"",
+          "line": 50,
+          "sha256": "81047524c8c2265ebe02cc42178d3aae144f5bbb9dbe0ad0124e505f10fd98e4"
+        },
+        {
+          "private_path": "inputs/StreamingAssets/content/core/recipes/work_2_jobs.json",
+          "selector": "\"id\": \"gloverandglover_diligence\"",
+          "line": 61,
+          "sha256": "81047524c8c2265ebe02cc42178d3aae144f5bbb9dbe0ad0124e505f10fd98e4"
+        },
+        {
+          "private_path": "inputs/StreamingAssets/content/core/recipes/work_2_jobs.json",
+          "selector": "\"id\": \"gloverandgloverjunior_diligence_promotion\"",
+          "line": 96,
+          "sha256": "81047524c8c2265ebe02cc42178d3aae144f5bbb9dbe0ad0124e505f10fd98e4"
+        },
+        {
+          "private_path": "inputs/StreamingAssets/content/core/elements/jobs.json",
+          "selector": "\"id\": \"gloverandgloverjuniorjob\"",
+          "line": 4,
+          "sha256": "11c87b8be2fe10ed4c4a7093c582cb9fde0469287e9188a684eeebe79ff4942f"
+        },
+        {
+          "private_path": "inputs/StreamingAssets/content/core/recipes/work_2_jobs.json",
+          "selector": "\"id\": \"job_plead\"",
+          "line": 34,
+          "sha256": "81047524c8c2265ebe02cc42178d3aae144f5bbb9dbe0ad0124e505f10fd98e4"
+        },
+        {
+          "private_path": "inputs/StreamingAssets/content/core/recipes/time.json",
+          "selector": "\"id\": \"needs\"",
+          "line": 12,
+          "sha256": "62c5c92d5e96888516de0b88355b931a6f46d6030703840083d42f29043f97f5"
+        },
+        {
+          "private_path": "inputs/StreamingAssets/content/core/recipes/time.json",
+          "selector": "\"id\": \"discardseason\"",
+          "line": 85,
+          "sha256": "62c5c92d5e96888516de0b88355b931a6f46d6030703840083d42f29043f97f5"
+        },
+        {
+          "private_path": "inputs/StreamingAssets/content/core/recipes/time.json",
+          "selector": "\"id\": \"starvation\"",
+          "line": 59,
+          "sha256": "62c5c92d5e96888516de0b88355b931a6f46d6030703840083d42f29043f97f5"
+        },
+        {
+          "private_path": "inputs/StreamingAssets/content/core/recipes/endings.json",
+          "selector": "\"id\": \"deathofthebody\"",
+          "line": 4,
+          "sha256": "ccf60ee199be1b56ce466634d25106738ce64aaffcc192bc4b50aa30d98586c8"
+        }
+      ]
+    },
+    {
+      "id": "F2",
+      "title": "Illness is a deadline with several recovery currencies",
+      "prerequisites": "Sickness season, Health/Fatigue, or injury from damagehealth.",
+      "decision": "Use Funds or Vitality and occupy Dream for treatment; prioritize it against other opportunities.",
+      "actual_spend_and_mutation": "Health fallsick xtrigger changes it into affliction; recovery spends one Funds or one Vitality and emits restorehealth to change affected card to Health. Requirements are eligibility, effects/xtriggers are actual spend/change.",
+      "downstream_consumer": "Recovered Health can work, dream and withstand later sickness. Decrepitude remains an ability/remnant and can enter a later ingredient route.",
+      "time_and_absence": "Affliction lifetime180, Injury150. Fatigue lifetime60 returns Health automatically. Dream treatment takes60; hunger treatment30.",
+      "failure_and_aftermath": "Untreated Injury/Affliction decays to Decrepitude. A special ingredientheartf route spends the ingredient and tohealth restores it; failed ingredient route consumes ingredient and produces Erudition. No automatic full reset.",
+      "evidence": [
+        {
+          "private_path": "inputs/StreamingAssets/content/core/elements/abilities.json",
+          "selector": "\"id\": \"health\"",
+          "line": 31,
+          "sha256": "f3cc619ee425751bb7d420a7f139b7003d5b252048131139bb0e63126fa138c0"
+        },
+        {
+          "private_path": "inputs/StreamingAssets/content/core/elements/abilities.json",
+          "selector": "\"id\": \"fatigue\"",
+          "line": 183,
+          "sha256": "f3cc619ee425751bb7d420a7f139b7003d5b252048131139bb0e63126fa138c0"
+        },
+        {
+          "private_path": "inputs/StreamingAssets/content/core/elements/abilities.json",
+          "selector": "\"id\": \"injury\"",
+          "line": 117,
+          "sha256": "f3cc619ee425751bb7d420a7f139b7003d5b252048131139bb0e63126fa138c0"
+        },
+        {
+          "private_path": "inputs/StreamingAssets/content/core/elements/abilities.json",
+          "selector": "\"id\": \"affliction\"",
+          "line": 203,
+          "sha256": "f3cc619ee425751bb7d420a7f139b7003d5b252048131139bb0e63126fa138c0"
+        },
+        {
+          "private_path": "inputs/StreamingAssets/content/core/elements/abilities.json",
+          "selector": "\"id\": \"decrepitude\"",
+          "line": 387,
+          "sha256": "f3cc619ee425751bb7d420a7f139b7003d5b252048131139bb0e63126fa138c0"
+        },
+        {
+          "private_path": "inputs/StreamingAssets/content/core/recipes/dream_rest.json",
+          "selector": "\"id\": \"recoverillhealthfunds\"",
+          "line": 142,
+          "sha256": "9f08ea943de6e8b0703e690126a26c23abcf5a635f21a20f3ce0d1ef8b45ab73"
+        },
+        {
+          "private_path": "inputs/StreamingAssets/content/core/recipes/dream_rest.json",
+          "selector": "\"id\": \"recoverillhealthfundsvitality\"",
+          "line": 161,
+          "sha256": "9f08ea943de6e8b0703e690126a26c23abcf5a635f21a20f3ce0d1ef8b45ab73"
+        },
+        {
+          "private_path": "inputs/StreamingAssets/content/core/recipes/dream_rest.json",
+          "selector": "\"id\": \"dream.decrepitude.ingredientheartf\"",
+          "line": 278,
+          "sha256": "9f08ea943de6e8b0703e690126a26c23abcf5a635f21a20f3ce0d1ef8b45ab73"
+        },
+        {
+          "private_path": "inputs/StreamingAssets/content/core/recipes/dream_rest.json",
+          "selector": "\"id\": \"dream.decrepitude.failure\"",
+          "line": 281,
+          "sha256": "9f08ea943de6e8b0703e690126a26c23abcf5a635f21a20f3ce0d1ef8b45ab73"
+        }
+      ]
+    },
+    {
+      "id": "F3",
+      "title": "A useful mental state can become a fatal accumulation",
+      "prerequisites": "Despair season starts risk, and Dread has inducesdespair1; fascination enters a parallel risk.",
+      "decision": "Spend Contentment to calm Dread, or deliberately use Dread/Fleeting to reduce Fascination.",
+      "actual_spend_and_mutation": "Despairabate removes one inducesdespair and one Contentment. Visionsabate removes one Fascination and one Dread; fleeting alternative spends Fleeting. Same resources have defensive and occult consumers.",
+      "downstream_consumer": "Dream reducedread/reducefascination shares these resources with the spontaneous hazard; surviving produces Fleeting.",
+      "time_and_absence": "Risk/active warmups60; Dread and Fascination lifetime180; Contentment60. Hazard greedily reserves cards and offers a final intervention window.",
+      "failure_and_aftermath": "Three inducesdespair or Fascination selects a 60-time ending route with an alternate abatement opportunity. Warning at two changes prediction. Exhaustion without usable relief can end the life.",
+      "evidence": [
+        {
+          "private_path": "inputs/StreamingAssets/content/core/recipes/time.json",
+          "selector": "\"id\": \"despairrisklink\"",
+          "line": 49,
+          "sha256": "62c5c92d5e96888516de0b88355b931a6f46d6030703840083d42f29043f97f5"
+        },
+        {
+          "private_path": "inputs/StreamingAssets/content/core/recipes/hazards.json",
+          "selector": "\"id\": \"despairrisk\"",
+          "line": 4,
+          "sha256": "37ead6fe7f5ee0cc17264ff0fc4420229d8fa382cf5885d97aa52af8bcd443c6"
+        },
+        {
+          "private_path": "inputs/StreamingAssets/content/core/recipes/hazards.json",
+          "selector": "\"id\": \"despairactive\"",
+          "line": 25,
+          "sha256": "37ead6fe7f5ee0cc17264ff0fc4420229d8fa382cf5885d97aa52af8bcd443c6"
+        },
+        {
+          "private_path": "inputs/StreamingAssets/content/core/recipes/hazards.json",
+          "selector": "\"id\": \"despairabate\"",
+          "line": 64,
+          "sha256": "37ead6fe7f5ee0cc17264ff0fc4420229d8fa382cf5885d97aa52af8bcd443c6"
+        },
+        {
+          "private_path": "inputs/StreamingAssets/content/core/recipes/hazards.json",
+          "selector": "\"id\": \"despairdeath\"",
+          "line": 68,
+          "sha256": "37ead6fe7f5ee0cc17264ff0fc4420229d8fa382cf5885d97aa52af8bcd443c6"
+        },
+        {
+          "private_path": "inputs/StreamingAssets/content/core/recipes/hazards.json",
+          "selector": "\"id\": \"visionsdeath\"",
+          "line": 242,
+          "sha256": "37ead6fe7f5ee0cc17264ff0fc4420229d8fa382cf5885d97aa52af8bcd443c6"
+        },
+        {
+          "private_path": "inputs/StreamingAssets/content/core/recipes/hazards.json",
+          "selector": "\"id\": \"visionsabate\"",
+          "line": 234,
+          "sha256": "37ead6fe7f5ee0cc17264ff0fc4420229d8fa382cf5885d97aa52af8bcd443c6"
+        },
+        {
+          "private_path": "inputs/StreamingAssets/content/core/recipes/hazards.json",
+          "selector": "\"id\": \"visionsabatefleeting\"",
+          "line": 238,
+          "sha256": "37ead6fe7f5ee0cc17264ff0fc4420229d8fa382cf5885d97aa52af8bcd443c6"
+        },
+        {
+          "private_path": "inputs/StreamingAssets/content/core/elements/abilities.json",
+          "selector": "\"id\": \"dread\"",
+          "line": 315,
+          "sha256": "f3cc619ee425751bb7d420a7f139b7003d5b252048131139bb0e63126fa138c0"
+        },
+        {
+          "private_path": "inputs/StreamingAssets/content/core/elements/abilities.json",
+          "selector": "\"id\": \"contentment\"",
+          "line": 697,
+          "sha256": "f3cc619ee425751bb7d420a7f139b7003d5b252048131139bb0e63126fa138c0"
+        },
+        {
+          "private_path": "inputs/StreamingAssets/content/core/recipes/dream_rest.json",
+          "selector": "\"id\": \"reducefascination\"",
+          "line": 198,
+          "sha256": "9f08ea943de6e8b0703e690126a26c23abcf5a635f21a20f3ce0d1ef8b45ab73"
+        }
+      ]
+    },
+    {
+      "id": "F4",
+      "title": "Occult advancement creates a recurring lifestyle obligation",
+      "prerequisites": "Power desireb, Stag-door achievement and Forge6 enable upgrade to obsessionc.",
+      "decision": "Accept the obligation, pay recurring Funds, or let it regress.",
+      "actual_spend_and_mutation": "Upgrade removes desireb and creates desirec. Ambition selects powermarks and grabs Funds; success consumes one Funds, creates two Vitality and emits ascend, changing c to d and onward. Failure consumes Vitality if present and emits descend/damagehealth.",
+      "downstream_consumer": "Power marks become requirements for later craving and ritual ending; stagef plus ritual/Forge36 opens the minor victory chain.",
+      "time_and_absence": "Seasonambitions routes ambition10 then craving30; failure branch adds30. Progress is repeatedly revisited by the life clock.",
+      "failure_and_aftermath": "Insufficient Funds steps desire backward and may injure Health. Threshold alone does not end the life: ritual trigger spends follower/summoned/passion quantities before a later overture.",
+      "evidence": [
+        {
+          "private_path": "inputs/StreamingAssets/content/core/recipes/ascension.json",
+          "selector": "\"id\": \"ascensionpower_upgradetoobsession\"",
+          "line": 4,
+          "sha256": "1afe96e03bc50e0d29907d1c7d12245ebf1ea340518f42c67a130375fb104a4c"
+        },
+        {
+          "private_path": "inputs/StreamingAssets/content/core/elements/ascension_elements.json",
+          "selector": "\"id\": \"ascensionpowerc\"",
+          "line": 153,
+          "sha256": "a83b7d234159020dc68523fc83623729da67c6a809e2dfd1b80183167d2bb85f"
+        },
+        {
+          "private_path": "inputs/StreamingAssets/content/core/elements/ascension_elements.json",
+          "selector": "\"id\": \"ascensionpowerd\"",
+          "line": 166,
+          "sha256": "a83b7d234159020dc68523fc83623729da67c6a809e2dfd1b80183167d2bb85f"
+        },
+        {
+          "private_path": "inputs/StreamingAssets/content/core/recipes/ascension.json",
+          "selector": "\"id\": \"ambition\"",
+          "line": 883,
+          "sha256": "1afe96e03bc50e0d29907d1c7d12245ebf1ea340518f42c67a130375fb104a4c"
+        },
+        {
+          "private_path": "inputs/StreamingAssets/content/core/recipes/ascension.json",
+          "selector": "\"id\": \"ascensioncravingpower\"",
+          "line": 945,
+          "sha256": "1afe96e03bc50e0d29907d1c7d12245ebf1ea340518f42c67a130375fb104a4c"
+        },
+        {
+          "private_path": "inputs/StreamingAssets/content/core/recipes/ascension.json",
+          "selector": "\"id\": \"ascensionsuccesscravingpower_descend\"",
+          "line": 1316,
+          "sha256": "1afe96e03bc50e0d29907d1c7d12245ebf1ea340518f42c67a130375fb104a4c"
+        },
+        {
+          "private_path": "inputs/StreamingAssets/content/core/recipes/ascension.json",
+          "selector": "\"id\": \"ascensioncravingpower_ascend\"",
+          "line": 1320,
+          "sha256": "1afe96e03bc50e0d29907d1c7d12245ebf1ea340518f42c67a130375fb104a4c"
+        },
+        {
+          "private_path": "inputs/StreamingAssets/content/core/recipes/ascension.json",
+          "selector": "\"id\": \"minorforgevictory_trigger\"",
+          "line": 129,
+          "sha256": "1afe96e03bc50e0d29907d1c7d12245ebf1ea340518f42c67a130375fb104a4c"
+        }
+      ]
+    },
+    {
+      "id": "F5",
+      "title": "A terminal ambition can still be refused for a relationship",
+      "prerequisites": "Minor Forge ritual trigger followed by overture; romanticinterest without corpse/notoriety can be greedily drawn.",
+      "decision": "During belovedfarewell, add Passion to choose a mortal relationship outcome; do nothing to continue ascent.",
+      "actual_spend_and_mutation": "The trigger already applies follower/summoned/passion -3 before overture. Farewell requires romanticinterest and absence of summoned; specific partner ending needs Passion and unique partner aspect. No universal refund or rollback is claimed.",
+      "downstream_consumer": "Ending ID is sent through Situation.ExecuteCurrentRecipe to the ending handler; it becomes input to next legacy selection.",
+      "time_and_absence": "Trigger1, overture60, farewell30, specific romance ending60. Choice occurs after earlier costs, rather than a costless preview.",
+      "failure_and_aftermath": "Absent relationship or Passion falls through linked routes to ascent; raised beloved changes the selected ending. Native YAIR defeat must not be replaced with these endings by inference.",
+      "evidence": [
+        {
+          "private_path": "inputs/StreamingAssets/content/core/recipes/ascension.json",
+          "selector": "\"id\": \"minorforgevictory_trigger\"",
+          "line": 129,
+          "sha256": "1afe96e03bc50e0d29907d1c7d12245ebf1ea340518f42c67a130375fb104a4c"
+        },
+        {
+          "private_path": "inputs/StreamingAssets/content/core/recipes/ascension.json",
+          "selector": "\"id\": \"minorforgevictory_overture\"",
+          "line": 148,
+          "sha256": "1afe96e03bc50e0d29907d1c7d12245ebf1ea340518f42c67a130375fb104a4c"
+        },
+        {
+          "private_path": "inputs/StreamingAssets/content/core/recipes/ascension.json",
+          "selector": "\"id\": \"belovedfarewell\"",
+          "line": 176,
+          "sha256": "1afe96e03bc50e0d29907d1c7d12245ebf1ea340518f42c67a130375fb104a4c"
+        },
+        {
+          "private_path": "inputs/StreamingAssets/content/core/recipes/ascension.json",
+          "selector": "\"id\": \"auclairvictory\"",
+          "line": 355,
+          "sha256": "1afe96e03bc50e0d29907d1c7d12245ebf1ea340518f42c67a130375fb104a4c"
+        },
+        {
+          "private_path": "inputs/StreamingAssets/content/core/recipes/ascension.json",
+          "selector": "\"id\": \"minorforgevictory\"",
+          "line": 184,
+          "sha256": "1afe96e03bc50e0d29907d1c7d12245ebf1ea340518f42c67a130375fb104a4c"
+        },
+        {
+          "private_path": "inputs/StreamingAssets/content/core/recipes/ascension.json",
+          "selector": "\"id\": \"minorforgevictorywithrisen\"",
+          "line": 180,
+          "sha256": "1afe96e03bc50e0d29907d1c7d12245ebf1ea340518f42c67a130375fb104a4c"
+        }
+      ]
+    },
+    {
+      "id": "F6",
+      "title": "An ending changes the next available life without proving whole-state inheritance",
+      "prerequisites": "Completed ending ID and registered Legacy definitions.",
+      "decision": "Choose among ending-dependent and additional legacy starts.",
+      "actual_spend_and_mutation": "LegacySelector matches FromEnding, adds two random availableWithoutEndingMatch candidates excluding the ending-matched ID and ExcludesOnEnding. Without a valid match it draws three. Apostleforge definition provisions Health2 and a particular job; no whole character transfer established.",
+      "downstream_consumer": "Ending minorforgevictory unlocks apostleforge start; deathofthebody has physician/brightyoungthing matches, one randomly chosen as ending dependent.",
+      "time_and_absence": "Selection happens after ending; new Random is used here. Do not copy this into YAIR saved-RNG behavior.",
+      "failure_and_aftermath": "No valid match logs a warning and offers three. Exclusions prevent duplicate specific starting variants. Save fields and exact persistence inheritance remain unread.",
+      "evidence": [
+        {
+          "private_path": "inputs/StreamingAssets/content/core/legacies/1_legacies.json",
+          "selector": "\"id\": \"brightyoungthing\"",
+          "line": 39,
+          "sha256": "ce99af16836a8fbe2ad4afc737086a0df0794e12e187bae6d41e8f3f504ec09b"
+        },
+        {
+          "private_path": "inputs/StreamingAssets/content/core/legacies/1_legacies.json",
+          "selector": "\"id\": \"physician\"",
+          "line": 54,
+          "sha256": "ce99af16836a8fbe2ad4afc737086a0df0794e12e187bae6d41e8f3f504ec09b"
+        },
+        {
+          "private_path": "inputs/StreamingAssets/content/core/legacies/1_legacies.json",
+          "selector": "\"id\": \"apostleforge\"",
+          "line": 87,
+          "sha256": "ce99af16836a8fbe2ad4afc737086a0df0794e12e187bae6d41e8f3f504ec09b"
+        },
+        {
+          "private_path": "inputs/StreamingAssets/content/core/legacies/1_legacies.json",
+          "selector": "\"id\": \"detectivepostpromotion\"",
+          "line": 69,
+          "sha256": "ce99af16836a8fbe2ad4afc737086a0df0794e12e187bae6d41e8f3f504ec09b"
+        }
+      ]
+    },
+    {
+      "id": "F7",
+      "title": "Ghoul progression attaches hunger to the desire rather than a generic player meter",
+      "prerequisites": "prealzabo, temptation.remembrance, corpse, Funds and Passion qualify first taste.",
+      "decision": "Make the first commitment, then feed hunger through the specialized study path.",
+      "actual_spend_and_mutation": "ghoul.firsttaste consumes corpse/prealzabo/Funds, creates memory.unexpected/alzabo and sets ghoul.hunger1 on matching desire. MutationEffect defaults Additive=false. Seasonal remembrance craving increments hunger additively when already present; reducehunger branches subtract one additively.",
+      "downstream_consumer": "At ghoul.hunger7 ambition can choose minorcrownedgrowthvictory. Generated memory is a source-backed output; entire memory corpus not read.",
+      "time_and_absence": "First taste30 and craving30; the obligation returns with ambition seasons.",
+      "failure_and_aftermath": "Omitting upkeep changes the attached hunger state toward the threshold; exact prerequisite routing into every feeding branch is unread. This is bounded DLC mutation coverage, not a completed Ghoul campaign.",
+      "evidence": [
+        {
+          "private_path": "inputs/StreamingAssets/content/core/recipes/DLC_GHOUL_recipes.json",
+          "selector": "\"id\": \"ghoul.firsttaste\"",
+          "line": 279,
+          "sha256": "ba3a98e017232cc5c720456700d29a15f0e604e45b8a7c0acc7d784505202c62"
+        },
+        {
+          "private_path": "inputs/StreamingAssets/content/core/recipes/DLC_GHOUL_recipes.json",
+          "selector": "\"id\": \"study.alzabo.corpse.reducehunger\"",
+          "line": 804,
+          "sha256": "ba3a98e017232cc5c720456700d29a15f0e604e45b8a7c0acc7d784505202c62"
+        },
+        {
+          "private_path": "inputs/StreamingAssets/content/core/recipes/ascension.json",
+          "selector": "\"id\": \"ascensioncravingremembrance\"",
+          "line": 957,
+          "sha256": "1afe96e03bc50e0d29907d1c7d12245ebf1ea340518f42c67a130375fb104a4c"
+        },
+        {
+          "private_path": "inputs/StreamingAssets/content/core/recipes/ascension.json",
+          "selector": "\"id\": \"ending.minorcrownedgrowthvictory\"",
+          "line": 929,
+          "sha256": "1afe96e03bc50e0d29907d1c7d12245ebf1ea340518f42c67a130375fb104a4c"
+        }
+      ]
+    }
+  ],
+  "inference": "Original adaptation proposals are in IMPLEMENTATION_PACKETS.md. No source-analysis observation proves playable YAIR behavior."
+}

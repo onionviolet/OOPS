@@ -573,3 +573,49 @@ The human explicitly requests implementation first and tests later. New pocket r
 The finite [reference gameplay delivery](gm/reference-gameplay/DELIVERY.md) adds feats/optional conduct/preparation, conserved cooling material/tool work, contextual native profiles/defensive opportunities and attributed function-targeted practice. Bundle `2f04d677a4db` matches226local source-map inputs and37previously qualified vendor maps. Scoped syntax, module imports/registry links, Ink compiler check and build pass; [BUILD.json](gm/reference-gameplay/BUILD.json) pins actual inputs.
 
 **Implemented-unverified.** Unit/browser/gameplay/save/reload/import/failure/keyboard/regression/director suites remain deferred and were not run. Earlier playtest results below do not prove changed code. The exact positive/negative/persistence/player-choice gates and generated-origin entry route are in [ACCEPTANCE_BACKLOG.md](gm/reference-gameplay/ACCEPTANCE_BACKLOG.md). Private saves were not read. The expansion9/old5–8/native3/new4 compatibility decision has source validation, with later roundtrip/older-reader/failure proof still open.
+
+
+## Four-game home-world absorption, 2026-10-07
+
+The authorized resume now requires rebuilding and browser/persistence checks. [Owning report](gm/non-factorio-absorption-2026-10-07/REPORT.md) and per-game `BROWSER.json` receipts bind each result. Current shared build `7c4fe2b159f0` is byte-identical to the combined preview; 396 actual filesystem inputs match the final source map, with 37 qualified embedded vendor sources. No filesystem source drift. `npm run build` and pinned Ink check passed.
+
+| Scope | Actual played proof | State |
+| --- | --- | --- |
+| DF-P04 | Saved count/wage, current pair/native staves, real kit production and Eda order, cancellation, estimate bracket, single-purchase staleness, native file import | Six bounded criteria; runner exit0 |
+| BOH-P01 | Physical copy/cancel, pending reload, failure/rest/comparison/read, held kit cancel/native outputs/order, completed import, guidance, generated copy-loss replacement and earlier pending-copy native import | Eleven criteria; primary exits1 only at final resource-warning assertion after gameplay passes; focused followthrough exit0/no errors |
+| ONI-P04 | Independent cold Shack plan, paid tray/cancel/reload, paired-input tending refund and two renewals, outside-shelter refusal, existing native Goat stew, earlier pending-cycle file import | Eight criteria; runner exit0/no application errors |
+| LAMB-P02 | Actual demonstration/practice, same-Eda appointment, held-part/guide inspection refund/reload, finite native order/purse, approved-history file import, ending/reload/source retention | Seven criteria; runner exit0/no application errors |
+| Combined | Actual fresh vanilla elder greeting; generated review-file native import and four contextual Here sections without pre-earned procedure/office/tray | Two smoke criteria; exit0 |
+
+Generated isolated contexts only. The supplied review fixture deliberately funds supplies, high Cooking and extra Eda staves; it does not prove natural acquisition/pacing. Screenshots of kits, cooking, agreement ending and combined preview were visually inspected. Ancillary request resets remain in receipts, including a local ko-fi icon reset. 62 meaningful bounded leaf checks cover their own contracts; no full regression is claimed. [Acceptance backlog](gm/non-factorio-absorption-2026-10-07/ACCEPTANCE_BACKLOG.md) preserves body/source/consent/habitat/publication branches, alternate tool routes and director balance review. Prior implementation-first deferrals and earlier wave evidence remain their historical scopes.
+
+
+## Village choices verification (2026-10-09)
+
+268 tests passed and the source was rebuilt. Fresh isolated generated-save
+browser journeys covered all five teaching terms, tuition accepted/declined,
+one favor-covered shift, notes/personal-instruction study, kit/debt/payment,
+promotions and schema-3 migration, with save/reload/file import. Accelerated
+common native ticks covered the matrix; unmodified HackTimer separately
+completed a full unpaid Time shift. Desktop choice previews and teacher
+memory were visually inspected. No private saves were accessed.
+
+[Consolidated evidence and play path](gm/dispatch/village-choices-2026-10-09/REPORT.md),
+[remaining acceptance](gm/dispatch/village-choices-2026-10-09/ACCEPTANCE_BACKLOG.md).
+This does not record director fiction/balance acceptance or verify natural
+opening-to-Mentor progression, mobile layout, or every exceptional boundary.
+
+## Optional book world 1 first-slice proof (2026-10-09)
+
+Proposal awaiting director fiction/balance acceptance. Source lane began only
+after village-choices released it. Tests passed 273/273 and build passed.
+Fresh-origin rebuilt browser covered four premise selections, native entry,
+duty/custody/local pay, permanent storage and temporary dispel, return, active
+and completed save/reload/actual file import, old schema-3 Village saves,
+absent pack and removed/restored pack. A separate normal native-timer duty
+verified rejected report storage grants no wage before retry. Final runs had
+no page errors. Private content and screenshots remain gitignored; tracked
+working-tree and task-output privacy scans passed.
+
+[Playable report and receipts](gm/dispatch/soldiers-life-world-2026-10-09/REPORT.md)
+and [unplayed branches/design follow-ons](gm/dispatch/soldiers-life-world-2026-10-09/ACCEPTANCE_BACKLOG.md).

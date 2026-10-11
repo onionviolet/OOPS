@@ -1,0 +1,32 @@
+{
+  "status": "completed finite assigned source pass; numerical FSM implementation remains opaque",
+  "app": 1578650,
+  "build": "24320660",
+  "platform": "macOS Mono Unity 2021.3.33f1",
+  "installed_state": 4,
+  "install_root": "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Citizen Sleeper",
+  "manifest_sha256_at_intake": "5744d2b96d00b6030fb691c783fb8e66d998a4a44189894e5d936124f025df4b",
+  "install_inventory": "/Users/weiwei/.codex/research/citizen-sleeper/INSTALL_INVENTORY.json",
+  "install_files": 196,
+  "retention": "/Users/weiwei/.codex/research/citizen-sleeper/RETENTION.json",
+  "methods": [
+    "Hash in-place shipped install files; no game launch",
+    "Copy three small managed inputs with matching SHA256",
+    "ILSpy9.1.0.7988 primary/firstpass/PlayMaker exports",
+    "UnityPy1.25.4 TextAsset export; compiled Ink text by root knot",
+    "TypeTreeGeneratorAPI0.0.10 attempted MonoBehaviour recovery; failed full FSM reads",
+    "Read bounded ASCII tutorial windows in level1 in place; document byte offsets, never treat strings as executable logic"
+  ],
+  "limits": [
+    "No raw game prose/code/art in public docs",
+    "No private saves/settings/cloud state inspected",
+    "No source edit/build/commit/uninstall",
+    "Raw Unity scene containers read in place and not retained"
+  ],
+  "dlc": {
+    "installed_extra": "The Art of Citizen Sleeper PDF inventoried/hashed, not read or copied",
+    "free_story_updates": "FLUX/REFUGE/PURGE named by publisher and present in shipped Ink names/tutorials; bounded relevant samples only",
+    "soundtrack": "not established by this pass; store listing is not proof of installed ownership"
+  },
+  "disk": "4.8GiB at installed intake; 192MiB at 06:32 UTC caused serialized-text export failure and retention pause"
+}

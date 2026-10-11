@@ -1,0 +1,697 @@
+{
+  "captured_at": "2026-10-09T01:34:34.845432-04:00",
+  "source_sha256": "d8f47a5ddbc2075af5bbd2c447634651f9963c38e715699c6a8b0f32b4b14f18",
+  "reader_basis": "Read-only port of Neutron helpers/appinfo.swift v29 parser, sections scoped to assigned IDs. App cache does not prove ownership.",
+  "apps": [
+    {
+      "appid": 1740540,
+      "common": {
+        "name": "The Lands of Eldyn",
+        "oslist": "windows,linux",
+        "type": "Game"
+      },
+      "config": {
+        "installdir": "The Lands of Eldyn",
+        "launch": {
+          "0": {
+            "executable": "The Lands of Eldyn.exe",
+            "arguments": "--in-process-gpu --disable-direct-composition --disable-transparency",
+            "type": "default",
+            "config": {
+              "oslist": "windows"
+            }
+          },
+          "1": {
+            "executable": "./eldyn.sh",
+            "arguments": "--in-process-gpu --disable-direct-composition",
+            "type": "default",
+            "config": {
+              "oslist": "linux"
+            }
+          },
+          "2": {
+            "executable": "The Lands of Eldyn.app",
+            "arguments": "--in-process-gpu --disable-direct-composition --disable-transparency",
+            "type": "default",
+            "config": {
+              "oslist": "macos"
+            }
+          }
+        }
+      },
+      "depots": {
+        "baselanguages": "english",
+        "1740542": {
+          "config": {
+            "oslist": "windows"
+          },
+          "manifests": {
+            "public": {
+              "gid": "592180820455287675",
+              "size": 211474523,
+              "download": 73961568
+            }
+          }
+        },
+        "1740544": {
+          "config": {
+            "oslist": "linux"
+          },
+          "manifests": {
+            "public": {
+              "gid": "2557595340318633026",
+              "size": 205238714,
+              "download": 68088880
+            }
+          }
+        },
+        "1740543": {
+          "config": {
+            "oslist": "macos"
+          },
+          "manifests": {
+            "public": {
+              "gid": "8583937251860063342",
+              "size": 189874690,
+              "download": 67883136
+            }
+          }
+        },
+        "branches": {
+          "public": {
+            "buildid": 7520224,
+            "timeupdated": 1634051740,
+            "timebuildupdated": 1634051728
+          }
+        }
+      },
+      "sections": [
+        "appid",
+        "common",
+        "extended",
+        "config",
+        "depots"
+      ]
+    },
+    {
+      "appid": 1812820,
+      "common": {
+        "name": "Bitburner",
+        "oslist": "windows,macos,linux",
+        "type": "Game"
+      },
+      "config": {
+        "installdir": "Bitburner",
+        "launch": {
+          "0": {
+            "executable": "bitburner.exe",
+            "type": "option1",
+            "config": {
+              "oslist": "windows"
+            },
+            "description_loc": {
+              "english": "normally"
+            },
+            "description": "normally"
+          },
+          "1": {
+            "executable": "bitburner.app",
+            "type": "default",
+            "config": {
+              "oslist": "macos"
+            }
+          },
+          "2": {
+            "executable": "bitburner",
+            "arguments": "--no-sandbox --ozone-platform=x11",
+            "type": "option1",
+            "config": {
+              "oslist": "linux"
+            },
+            "description_loc": {
+              "english": "--no-sandbox (diff flags for different linux distro)"
+            },
+            "description": "--no-sandbox (diff flags for different linux distro)"
+          },
+          "3": {
+            "executable": "bitburner.exe",
+            "arguments": "--no-scripts",
+            "type": "option2",
+            "config": {
+              "oslist": "windows"
+            },
+            "description_loc": {
+              "english": "and kill all scripts at startup."
+            },
+            "description": "and kill all scripts at startup."
+          },
+          "4": {
+            "executable": "bitburner",
+            "arguments": "--ozone-platform=x11",
+            "type": "option2",
+            "config": {
+              "oslist": "linux"
+            },
+            "description_loc": {
+              "english": "no flags"
+            },
+            "description": "no flags"
+          },
+          "5": {
+            "executable": "bitburner",
+            "arguments": "--disable-seccomp-filter-sandbox --ozone-platform=x11",
+            "type": "option3",
+            "config": {
+              "oslist": "linux"
+            },
+            "description_loc": {
+              "english": "--disable-seccomp-filter-sandbox"
+            },
+            "description": "--disable-seccomp-filter-sandbox"
+          }
+        }
+      },
+      "depots": {
+        "228989": {
+          "config": {
+            "oslist": "windows"
+          },
+          "depotfromapp": 228980,
+          "sharedinstall": 1
+        },
+        "1812821": {
+          "config": {
+            "oslist": "windows"
+          },
+          "manifests": {
+            "public": {
+              "gid": "8069675536705668660",
+              "size": 521016762,
+              "download": 165115664
+            },
+            "development": {
+              "gid": "1201922615361059984",
+              "size": 521011576,
+              "download": 165113456
+            },
+            "previous_release": {
+              "gid": "268563201353030841",
+              "size": 521054821,
+              "download": 165128032
+            },
+            "2.8.1_legacy": {
+              "gid": "230180817700985329",
+              "size": 401395803,
+              "download": 112353552
+            },
+            "2.5_legacy": {
+              "gid": "5621495447928312107",
+              "size": 309216153,
+              "download": 94019664
+            },
+            "v1.7": {
+              "gid": "8764698001042269675",
+              "size": 256807114,
+              "download": 81525936
+            }
+          }
+        },
+        "1812822": {
+          "config": {
+            "oslist": "macos"
+          },
+          "manifests": {
+            "public": {
+              "gid": "6743875706789034728",
+              "size": 1647167919,
+              "download": 226079392
+            },
+            "development": {
+              "gid": "2350846024025137372",
+              "size": 1647162733,
+              "download": 226077184
+            },
+            "previous_release": {
+              "gid": "2683789853462346284",
+              "size": 1647205978,
+              "download": 226091760
+            },
+            "2.8.1_legacy": {
+              "gid": "2995928722335327196",
+              "size": 861414857,
+              "download": 105641248
+            },
+            "2.5_legacy": {
+              "gid": "7763235434452384292",
+              "size": 729972544,
+              "download": 89468144
+            },
+            "v1.7": {
+              "gid": "2452807440410195228",
+              "size": 620639034,
+              "download": 77832560
+            }
+          }
+        },
+        "1812823": {
+          "config": {
+            "oslist": "linux"
+          },
+          "manifests": {
+            "public": {
+              "gid": "7517965374209315843",
+              "size": 471318895,
+              "download": 140488032
+            },
+            "development": {
+              "gid": "7915903894079478138",
+              "size": 471313709,
+              "download": 140485824
+            },
+            "previous_release": {
+              "gid": "1361263082492819524",
+              "size": 471356954,
+              "download": 140500400
+            },
+            "2.8.1_legacy": {
+              "gid": "8337988971976823621",
+              "size": 401477530,
+              "download": 107285056
+            },
+            "2.5_legacy": {
+              "gid": "6637173887291758883",
+              "size": 315168633,
+              "download": 90335088
+            },
+            "v1.7": {
+              "gid": "8845750543477734752",
+              "size": 259367614,
+              "download": 76751136
+            }
+          }
+        },
+        "branches": {
+          "public": {
+            "buildid": 23272653,
+            "timeupdated": 1779000869,
+            "timebuildupdated": 1779000825
+          },
+          "development": {
+            "buildid": 23272780,
+            "description": "Development branch",
+            "timeupdated": 1779002910,
+            "timebuildupdated": 1779002880
+          },
+          "previous_release": {
+            "buildid": 23054697,
+            "description": "The previous release version",
+            "timeupdated": 1777689377,
+            "timebuildupdated": 1777689283
+          },
+          "2.8.1_legacy": {
+            "buildid": 17982127,
+            "description": "Last 2.x.x release",
+            "timeupdated": 1743757378,
+            "timebuildupdated": 1743757328
+          },
+          "2.5_legacy": {
+            "buildid": 13047720,
+            "description": "Version 2.5, last build for Windows 7 and 8",
+            "timeupdated": 1703601024,
+            "timebuildupdated": 1703600926
+          },
+          "v1.7": {
+            "buildid": 9132880,
+            "description": "Version 1.7, last 1.x.x release",
+            "timeupdated": 1660755988,
+            "timebuildupdated": 1657948939
+          }
+        }
+      },
+      "sections": [
+        "appid",
+        "common",
+        "extended",
+        "config",
+        "depots",
+        "ufs"
+      ]
+    },
+    {
+      "appid": 2847400,
+      "common": {
+        "name": "Endless Ascent",
+        "oslist": "windows",
+        "type": "Game"
+      },
+      "config": {
+        "installdir": "Endless Ascent",
+        "launch": {
+          "0": {
+            "executable": "Endless Ascent.exe",
+            "type": "default",
+            "description_loc": {
+              "english": "Launching Endless Ascent"
+            },
+            "description": "Launching Endless Ascent"
+          }
+        }
+      },
+      "depots": {
+        "baselanguages": "english",
+        "hasdepotsindlc": 0,
+        "2847407": {
+          "manifests": {
+            "public": {
+              "gid": "1556293351966417755",
+              "size": 1259331055,
+              "download": 304560368
+            }
+          }
+        },
+        "branches": {
+          "public": {
+            "buildid": 25410965,
+            "timeupdated": 1789838930,
+            "timebuildupdated": 1789838760
+          }
+        }
+      },
+      "sections": [
+        "appid",
+        "common",
+        "extended",
+        "config",
+        "depots"
+      ]
+    },
+    {
+      "appid": 3606890,
+      "common": {
+        "name": "Upload Labs",
+        "oslist": "windows,linux",
+        "type": "Game"
+      },
+      "config": {
+        "installdir": "Upload Labs",
+        "launch": {
+          "0": {
+            "executable": "Upload Labs.exe",
+            "config": {
+              "oslist": "windows",
+              "osarch": "64"
+            }
+          },
+          "1": {
+            "executable": "Upload Labs.x86_64",
+            "config": {
+              "oslist": "linux"
+            }
+          },
+          "2": {
+            "executable": "Upload Labs.exe",
+            "arguments": "--rendering-driver opengl3",
+            "type": "option1",
+            "config": {
+              "oslist": "windows",
+              "osarch": "64"
+            },
+            "description_loc": {
+              "english": "OpenGL"
+            },
+            "description": "OpenGL"
+          },
+          "3": {
+            "executable": "Upload Labs.x86_64",
+            "arguments": "--rendering-driver opengl3",
+            "type": "option1",
+            "config": {
+              "oslist": "linux"
+            },
+            "description_loc": {
+              "english": "OpenGL"
+            },
+            "description": "OpenGL"
+          }
+        }
+      },
+      "depots": {
+        "3606891": {
+          "config": {
+            "oslist": "windows",
+            "osarch": 64
+          },
+          "manifests": {
+            "public": {
+              "gid": "8585410954840555889",
+              "size": 173804624,
+              "download": 91585184
+            },
+            "beta": {
+              "gid": "8585410954840555889",
+              "size": 173804624,
+              "download": 91585184
+            },
+            "ver-1.0": {
+              "gid": "2938176145917770744",
+              "size": 143620312,
+              "download": 70976768
+            },
+            "ver-2.0": {
+              "gid": "5310942722765772692",
+              "size": 156418752,
+              "download": 82320112
+            },
+            "ver-2.1": {
+              "gid": "419177017874968405",
+              "size": 157063128,
+              "download": 82676096
+            }
+          }
+        },
+        "3606892": {
+          "config": {
+            "oslist": "linux"
+          },
+          "manifests": {
+            "public": {
+              "gid": "1231551473235839611",
+              "size": 146743504,
+              "download": 84614384
+            },
+            "beta": {
+              "gid": "1231551473235839611",
+              "size": 146743504,
+              "download": 84614384
+            },
+            "ver-1.0": {
+              "gid": "1395234846827780437",
+              "size": 124424112,
+              "download": 65556448
+            },
+            "ver-2.0": {
+              "gid": "5026055139783904660",
+              "size": 136320512,
+              "download": 76669104
+            },
+            "ver-2.1": {
+              "gid": "2849653246939446098",
+              "size": 136964888,
+              "download": 77006528
+            }
+          }
+        },
+        "workshopdepot": 3606890,
+        "branches": {
+          "public": {
+            "buildid": 23748080,
+            "timeupdated": 1781546879,
+            "timebuildupdated": 1781546521
+          },
+          "beta": {
+            "buildid": 23748080,
+            "description": "Latest",
+            "timeupdated": 1781546523,
+            "timebuildupdated": 1781546521
+          },
+          "ver-1.0": {
+            "buildid": 20549041,
+            "description": "Legacy",
+            "timeupdated": 1766158745,
+            "timebuildupdated": 1761497136
+          },
+          "ver-2.0": {
+            "buildid": 21346940,
+            "description": "Legacy",
+            "timeupdated": 1770384621,
+            "timebuildupdated": 1767121250
+          },
+          "ver-2.1": {
+            "buildid": 22035660,
+            "description": "Legacy",
+            "timeupdated": 1771963381,
+            "timebuildupdated": 1771701295
+          }
+        }
+      },
+      "sections": [
+        "appid",
+        "common",
+        "extended",
+        "config",
+        "depots",
+        "ufs"
+      ]
+    },
+    {
+      "appid": 3795920,
+      "common": {
+        "name": "Ani Idle",
+        "oslist": "windows",
+        "type": "Game"
+      },
+      "config": {
+        "installdir": "Ani Idle",
+        "launch": {
+          "0": {
+            "executable": "Ani Idle.exe",
+            "config": {
+              "oslist": "windows"
+            }
+          }
+        }
+      },
+      "depots": {
+        "3795921": {
+          "config": {
+            "language": "english",
+            "oslist": "windows"
+          },
+          "manifests": {
+            "public": {
+              "gid": "1695680766301782036",
+              "size": 167609232,
+              "download": 82910240
+            }
+          }
+        },
+        "branches": {
+          "public": {
+            "buildid": 19068956,
+            "timeupdated": 1751392947,
+            "timebuildupdated": 1751392686
+          }
+        },
+        "privatebranches": 1
+      },
+      "sections": [
+        "appid",
+        "common",
+        "extended",
+        "config",
+        "depots",
+        "ufs"
+      ]
+    },
+    {
+      "appid": 3848900,
+      "common": {
+        "name": "Sucker for Love: Crush Landing",
+        "oslist": "windows",
+        "type": "Game"
+      },
+      "config": {
+        "installdir": "Sucker for Love Crush Landing",
+        "launch": {
+          "0": {
+            "executable": "SfL_CooS_2026.exe",
+            "type": "default"
+          }
+        },
+        "steamdecktouchscreen": 1
+      },
+      "depots": {
+        "3848901": {
+          "manifests": {
+            "public": {
+              "gid": "4914467712406201194",
+              "size": 1649500432,
+              "download": 1330429200
+            }
+          }
+        },
+        "branches": {
+          "public": {
+            "buildid": 25151407,
+            "timeupdated": 1788699477,
+            "timebuildupdated": 1788694270
+          }
+        },
+        "privatebranches": 1
+      },
+      "sections": [
+        "appid",
+        "common",
+        "extended",
+        "config",
+        "depots",
+        "ufs"
+      ]
+    },
+    {
+      "appid": 4522510,
+      "common": {
+        "name": "Kill the Lich Idle",
+        "oslist": "windows",
+        "type": "Game"
+      },
+      "config": {
+        "installdir": "Kill the Lich",
+        "launch": {
+          "0": {
+            "executable": "Kill The Lich.exe",
+            "config": {
+              "oslist": "windows"
+            }
+          }
+        }
+      },
+      "depots": {
+        "4522511": {
+          "manifests": {
+            "public": {
+              "gid": "9126314253815049066",
+              "size": 372649498,
+              "download": 137676832
+            }
+          }
+        },
+        "branches": {
+          "public": {
+            "buildid": 23044204,
+            "timeupdated": 1777627890,
+            "timebuildupdated": 1777627737
+          }
+        }
+      },
+      "sections": [
+        "appid",
+        "common",
+        "extended",
+        "config",
+        "depots",
+        "ufs"
+      ]
+    }
+  ],
+  "missing": [],
+  "manifests": {
+    "3848900": false,
+    "4522510": false,
+    "3795920": false,
+    "2847400": false,
+    "3606890": false,
+    "1740540": false,
+    "1812820": false
+  }
+}

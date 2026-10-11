@@ -1,0 +1,152 @@
+{
+  "date": "2026-10-09",
+  "appid": 3848900,
+  "name": "Sucker for Love: Crush Landing",
+  "status": "bounded-static-source-audit-complete",
+  "lens": "Romance, consequential scene choices and endings",
+  "ownership": "installed payload observed; no account/license/purchase inspection",
+  "manifest_present": true,
+  "install_request": "install-uri-sent-dialog-unobserved",
+  "store_platforms": {
+    "windows": true,
+    "mac": false,
+    "linux": false
+  },
+  "cached_depots": [
+    {
+      "depot": "3848901",
+      "platform": null,
+      "manifest": {
+        "gid": "4914467712406201194",
+        "size": 1649500432,
+        "download": 1330429200
+      }
+    }
+  ],
+  "cached_config_installdir": "Sucker for Love Crush Landing",
+  "storefront_url": "https://store.steampowered.com/app/3848900/",
+  "metadata_api_url": "https://store.steampowered.com/api/appdetails?appids=3848900&l=english",
+  "retained_storefront": {
+    "path": "/Users/weiwei/.codex/research/library-games-2026-10-09/storefront/APP_3848900.json",
+    "bytes": 22021,
+    "sha256": "0a646945d9a2f9b072febd606ed0dfd9f173377d6d5c63edab30f9980542d51a"
+  },
+  "useful_game_source": "GameMaker data.win tables and named bytecode disassembly",
+  "uninstall": "not requested by this auditor; hand back verified retention gate to parent",
+  "raw_game_code_committed": false,
+  "dlc_declared": [],
+  "dlc_entitlement_installed_read": "not established; no DLC-specific claims",
+  "fully_installed_observed": true,
+  "buildid": "25151407",
+  "private_retention": "/Users/weiwei/.codex/research/sucker-for-love-crush-landing/RETENTION.json",
+  "derived_retention": "/Users/weiwei/.codex/research/sucker-for-love-crush-landing/DERIVED_RETENTION.json",
+  "verification": {
+    "at_utc": "2026-10-09T20:11:36.256793+00:00",
+    "installed_file_sha256": "74972f8e54d3e1d19e54b427a6e99312ce6e8c7af864898cbbc09bf6582406e8",
+    "private_copy_sha256": "74972f8e54d3e1d19e54b427a6e99312ce6e8c7af864898cbbc09bf6582406e8",
+    "matching": true,
+    "raw_bytes": 308402708,
+    "derived_files": 22,
+    "derived_hashes_readback": true,
+    "parse_errors": 0,
+    "unresolved_references": 0,
+    "unexpected_branch_targets": 0,
+    "public_proposals": 8,
+    "public_small_touches": 24,
+    "no_launch": true,
+    "no_save_access": true
+  },
+  "format_definition_sources": [
+    {
+      "url": "https://github.com/UnderminersTeam/UndertaleModTool/blob/master/UndertaleModLib/Models/UndertaleCode.cs",
+      "private_file": "/Users/weiwei/.codex/research/sucker-for-love-crush-landing/tools/UndertaleCode.cs",
+      "qualification": "Retrieved current master definition, content SHA retained; custom parser, not UndertaleModTool decompiler execution"
+    },
+    {
+      "url": "https://github.com/UnderminersTeam/UndertaleModTool/blob/master/UndertaleModLib/Models/UndertaleVariable.cs"
+    },
+    {
+      "url": "https://github.com/UnderminersTeam/UndertaleModTool/blob/master/UndertaleModLib/Models/UndertaleFunction.cs"
+    }
+  ],
+  "uninstall_request": {
+    "appid": 3848900,
+    "slug": "sucker-for-love-crush-landing",
+    "buildid": "25151407",
+    "requested_at_utc": "2026-10-09T20:12:35.568803+00:00",
+    "uri": "steam://uninstall/3848900",
+    "shell_exit_code": 0,
+    "copy_verified": true,
+    "source_audit": "bounded GameMaker tables and selected instruction bodies",
+    "proposals": 8,
+    "small_touches": 24,
+    "verification_private": "/Users/weiwei/.codex/research/sucker-for-love-crush-landing/VERIFICATION.json",
+    "uninstalled": "not-yet-verified; dialog confirmation unobserved"
+  },
+  "steam_installs_final_receipt_2026_10_09": {
+    "appid": 3848900,
+    "slug": "sucker-for-love-crush-landing",
+    "buildid": "25151407",
+    "requested_at_utc": "2026-10-09T20:12:35.568803+00:00",
+    "uri": "steam://uninstall/3848900",
+    "shell_exit_code": 0,
+    "copy_verified": true,
+    "source_audit": "bounded GameMaker tables and selected instruction bodies",
+    "proposals": 8,
+    "small_touches": 24,
+    "verification_private": "/Users/weiwei/.codex/research/sucker-for-love-crush-landing/VERIFICATION.json",
+    "uninstalled": "verified-manifest-absent-and-log-success",
+    "last_checked_at_utc": "2026-10-09T20:37:42.608510+00:00",
+    "manifest_present": false,
+    "content_log_entries": [
+      "[2026-10-09 15:59:37] AppID 3848900 state changed : Update Required,",
+      "[2026-10-09 15:59:37] AppID 3848900 scheduler update : Priority First, not played for 1 seconds, update disabled for 0 seconds",
+      "[2026-10-09 15:59:37] AppID 3848900 state changed : Update Required,Update Queued,",
+      "[2026-10-09 15:59:37] AppID 3848900 state changed : Update Required,Update Queued,Update Running,",
+      "[2026-10-09 15:59:37] AppID 3848900 App update changed : Running Update,",
+      "[2026-10-09 15:59:37] AppID 3848900 App update changed : Running Update,Reconfiguring,",
+      "[2026-10-09 15:59:37] AppID 3848900 App update changed : Running Update,",
+      "[2026-10-09 15:59:37] AppID 3848900 App update changed : Running Update,Verifying Installed,",
+      "[2026-10-09 15:59:37] AppID 3848900 App update changed : Running Update,",
+      "[2026-10-09 15:59:37] AppID 3848900 App update changed : Running Update,Preallocating,",
+      "[2026-10-09 15:59:37] AppID 3848900 failed to update ownership ticket (Access Denied)",
+      "[2026-10-09 15:59:38] AppID 3848900 preallocated 18 files (1572 MB) ",
+      "[2026-10-09 15:59:38] AppID 3848900 App update changed : Running Update,",
+      "[2026-10-09 15:59:38] AppID 3848900 update started : download 0/1330429200, store 0/0, reuse 0/0, delta 0/0, stage 0/1649500432 ",
+      "[2026-10-09 15:59:38] AppID 3848900 state changed : Update Required,Update Queued,Update Running,Update Started,",
+      "[2026-10-09 15:59:38] AppID 3848900 App update changed : Running Update,Downloading,Staging,",
+      "[2026-10-09 15:59:54] AppID 3848900 update canceled : Priority (Suspended)",
+      "[2026-10-09 15:59:54] AppID 3848900 App update changed : Running Update,Downloading,Staging,Stopping,",
+      "[2026-10-09 15:59:55] AppID 3848900 App update changed : Running Update,Stopping,",
+      "[2026-10-09 15:59:55] AppID 3848900 App update changed : None",
+      "[2026-10-09 15:59:55] AppID 3848900 state changed : Update Required,Update Queued,Update Started, (Suspended)",
+      "[2026-10-09 15:59:55] AppID 3848900 scheduler finished : staying in schedule (result Suspended, state 0x40a) ",
+      "[2026-10-09 16:00:45] AppID 3848900 state changed : Update Required,Update Queued,Update Running,Update Started,",
+      "[2026-10-09 16:00:45] AppID 3848900 App update changed : Running Update,",
+      "[2026-10-09 16:00:45] AppID 3848900 App update changed : Running Update,Reconfiguring,",
+      "[2026-10-09 16:00:45] AppID 3848900 App update changed : Running Update,",
+      "[2026-10-09 16:00:45] AppID 3848900 App update changed : Running Update,Preallocating,",
+      "[2026-10-09 16:00:45] AppID 3848900 preallocated 0 files (0 MB) ",
+      "[2026-10-09 16:00:45] AppID 3848900 App update changed : Running Update,",
+      "[2026-10-09 16:00:45] AppID 3848900 update started : download 295768336/1330429200, store 0/0, reuse 0/0, delta 0/0, stage 369995657/1649500432 ",
+      "[2026-10-09 16:00:45] AppID 3848900 App update changed : Running Update,Downloading,Staging,",
+      "[2026-10-09 16:01:33] AppID 3848900 App update changed : Running Update,",
+      "[2026-10-09 16:01:33] AppID 3848900 App update changed : Running Update,Committing,",
+      "[2026-10-09 16:01:33] AppID 3848900 starting commit from \"/Users/weiwei/Library/Application Support/Steam/steamapps/downloading/3848900\" to \"/Users/weiwei/Library/Application Support/Steam/steamapps/common/Sucker for Love Crush Landing\" : 31 updated, 0 moved, 0 deleted files",
+      "[2026-10-09 16:01:33] AppID 3848900 state changed : Fully Installed,Update Queued,Update Running,",
+      "[2026-10-09 16:01:33] AppID 3848900 finished update, 1 mounted depots (BuildID 25151407) : 3848901 (4914467712406201194),",
+      "[2026-10-09 16:01:33] AppID 3848900 App update changed : Running Update,",
+      "[2026-10-09 16:01:33] AppID 3848900 App update changed : None",
+      "[2026-10-09 16:01:33] AppID 3848900 state changed : Fully Installed,Update Queued,",
+      "[2026-10-09 16:01:33] AppID 3848900 state changed : Fully Installed,",
+      "[2026-10-09 16:01:33] AppID 3848900 scheduler finished : removed from schedule (result No Error, state 0xc) ",
+      "[2026-10-09 16:12:37] AppID 3848900 state changed : Update Required,Fully Installed,Files Missing,Uninstalling,",
+      "[2026-10-09 16:12:37] AppID 3848900 state changed : Uninstalled,",
+      "[2026-10-09 16:12:37] AppID 3848900 finished uninstall (No Error)"
+    ],
+    "console_uninstall_entries": [
+      "[2026-10-09 16:12:35] ExecuteSteamURL: \"steam://open/steam://uninstall/3848900\"",
+      "[2026-10-09 16:12:35] ExecuteSteamURL: \"steam://uninstall/3848900\""
+    ]
+  }
+}

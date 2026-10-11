@@ -1,0 +1,25 @@
+{
+  "at": "2026-10-10T06:11:46.366913+00:00",
+  "source": "/Users/weiwei/Library/Application Support/Steam/logs/content_log.txt",
+  "lines": [
+    "[2026-10-10 01:56:43] AppID 2442460 App update changed : Running Update,",
+    "[2026-10-10 01:56:43] AppID 2442460 App update changed : Running Update,Verifying Installed,",
+    "[2026-10-10 01:56:43] AppID 2442460 App update changed : Running Update,",
+    "[2026-10-10 01:56:43] AppID 2442460 App update changed : Running Update,Preallocating,",
+    "[2026-10-10 01:56:44] AppID 2442460 preallocated 115 files (1621 MB) ",
+    "[2026-10-10 01:56:44] AppID 2442460 App update changed : Running Update,",
+    "[2026-10-10 01:56:45] AppID 2442460 update started : download 0/475550464, store 0/0, reuse 0/0, delta 0/0, stage 0/1712469338 ",
+    "[2026-10-10 01:56:45] AppID 2442460 state changed : Update Required,Update Queued,Update Optional,Update Running,Update Started,",
+    "[2026-10-10 01:56:45] AppID 2442460 App update changed : Running Update,Downloading,Staging,",
+    "[2026-10-10 01:56:48] AppID 2442460 update canceled : Priority (Suspended)",
+    "[2026-10-10 01:56:48] AppID 2442460 App update changed : Running Update,Downloading,Staging,Stopping,",
+    "[2026-10-10 01:56:48] AppID 2442460 App update changed : Running Update,Stopping,",
+    "[2026-10-10 01:56:48] AppID 2442460 App update changed : None",
+    "[2026-10-10 01:56:48] AppID 2442460 state changed : Update Required,Update Queued,Update Optional,Update Started, (Suspended)",
+    "[2026-10-10 01:56:48] AppID 2442460 scheduler finished : staying in schedule (result Suspended, state 0x41a) ",
+    "[2026-10-10 01:58:55] AppID 2442460 scheduler update : Priority Auto Update, not played for 132 seconds, update disabled for 0 seconds",
+    "[2026-10-10 01:58:55] AppID 2442460 state changed : Update Required,Update Queued,Update Optional,Update Started,",
+    "[2026-10-10 01:58:58] AppID 2442460 failed to update ownership ticket (Access Denied)"
+  ],
+  "interpretation": "seen in text: queued after Priority (Suspended); later ownership-ticket Access Denied. Cause of continued nonprogress not established."
+}

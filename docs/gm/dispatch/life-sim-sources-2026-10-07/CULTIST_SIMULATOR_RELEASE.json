@@ -1,0 +1,33 @@
+{
+  "game": "Cultist Simulator",
+  "app_id": 718670,
+  "reviewed_at": "2026-10-07T16:24:41.650630-04:00",
+  "eligible": true,
+  "copy_receipt_hash_verified": true,
+  "managed_binary_hash_verified": true,
+  "representative_private_checks": [
+    "Managed/UnityEngine.TerrainPhysicsModule.dll",
+    "StreamingAssets/content/loc_es/elements/books_untranslated.json",
+    "StreamingAssets/content/core/cultures/en/culture.json"
+  ],
+  "decompile_exit": 0,
+  "reviewed_chain_ids": [
+    "F1",
+    "F2",
+    "F3",
+    "F4",
+    "F5",
+    "F6",
+    "F7"
+  ],
+  "limits": [
+    "Most of managed engine including save/load and ending handler internals",
+    "Most books, lore, expedition, cult/follower, hunter and romance content",
+    "All localizations beyond retained availability",
+    "Dancer, Priest and Exile campaigns except referenced shared ambition dispatch",
+    "Native engine, assets, soundtrack and perpetual extras"
+  ],
+  "recipient": "docs/gm/life-sim-experience-2026-10-07/",
+  "packets": "docs/research/cultist-simulator/IMPLEMENTATION_PACKETS.md",
+  "no_installed_consumer": true
+}

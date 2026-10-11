@@ -1,0 +1,92 @@
+{
+  "scope": "Six assigned questions, source structures, original YAIR proposals and small touches; not whole-game semantic coverage",
+  "seen_code": [
+    "PlaymakerInkProxy Story initialization, text/choice/tag/variable bridge",
+    "CitizenSleeper/Skill and Com.CitizenSleeper/Skill enums",
+    "Generic PlayMaker ActionData serialized parameter types and load dispatch; Fsm/FsmState/PlayMakerFSM fields, not instance gameplay semantics",
+    "Relevant YAIR simulation commands, programs, progress/condition/body effects, participant reservation, energy reserve/strain, pursuit and existing UI owners"
+  ],
+  "seen_text": {
+    "ink_root_names_inventoried": 1398,
+    "english_knots_read": [
+      "IntroScene1",
+      "QualityControl",
+      "SabineInspection",
+      "SabineInspection2",
+      "SabineInspection3",
+      "SabineScene1End",
+      "SabineScene2",
+      "SabinesTest",
+      "SabineImplant",
+      "InjectionSabine",
+      "InjectionSabine2",
+      "RikosStabilizer",
+      "HyphaExplained",
+      "FengFixesTracker",
+      "EthanExplains11",
+      "Others",
+      "SabineBackup",
+      "SabineSceneKey",
+      "RikoScene1",
+      "RikoScene2",
+      "RikoScene3",
+      "HowToKnow",
+      "SabineScene4b",
+      "SabineFinalRab",
+      "FengScene1",
+      "FengScene4",
+      "FengAtTheTambour",
+      "HardinNotKnown",
+      "NoLeader",
+      "StayingHomeHypha",
+      "SabineSpeaks",
+      "FengTracker"
+    ],
+    "bounds": "Focused knots read up to4200 characters when longer; listed knots are not a claim that their entire linked arcs were read",
+    "guide_windows_in_place": "level1 bytes121790000..121990000 plus selected perk/status/episode text windows; ASCII text with exact byte-offset locators in FINDINGS",
+    "public": "Publisher About This Game and screenshots0-2; interview context; dated player comment; WEB_SOURCES.json"
+  },
+  "opaque": [
+    "Exact condition capacity/dice thresholds and dice regeneration ordering",
+    "Complete odds table/clamping, deterministic randomness and save/load reroll protection",
+    "Complete gameplay PlayMaker graphs and serialized numeric inputs",
+    "Stabilizer prices/quantities, mushroom growth and all perk numeric values",
+    "Every hunter/ending/episode branch and rendered clock animation/accessibility",
+    "Native engine/audio/shaders and all translated prose; artbook contents",
+    "Actual save format/migrations/personal persistence; no saves read or game run",
+    "Offline behavior, elapsed-time pacing, balance and difficulty measured in play"
+  ],
+  "decoder_receipt": "/Users/weiwei/.codex/research/citizen-sleeper/assets/ASSET_RECEIPT.json",
+  "decoder_failures_initial": 50250,
+  "failed_operation": "97106 scanned main scenes but JSON write failed Errno28; no SERIALIZED_TEXT.json is valid evidence",
+  "retained": "Small copied DLLs, decompiled exports, four Ink scripts and English knot text, public screenshots, inventories/hashes; raw scenes not retained",
+  "runtime": "No game launch, gameplay test, YAIR implementation/build or save/reload/import. Such checks are future gates of proposals, not missing authorization for this research.",
+  "completion": "Finite source pass complete with explicit opacity. Remove install only at Weibao's choice; reinstallation is needed for future unresolved scene graph recovery.",
+  "question_readback": {
+    "body_decay_and_maintenance": [
+      "F1",
+      "F2",
+      "F7",
+      "F8"
+    ],
+    "daily_dice_economy": [
+      "F3",
+      "F4",
+      "F5"
+    ],
+    "clocks_and_display": [
+      "F6",
+      "F14"
+    ],
+    "ownership_and_freedom": [
+      "F9",
+      "F10"
+    ],
+    "idle_offline_and_UI_fit": [
+      "F14",
+      "F15",
+      "F16"
+    ],
+    "sequel_additions": "Sibling citizen-sleeper-2 FINDINGS F18 contrasts the two completed source passes without ranking."
+  }
+}

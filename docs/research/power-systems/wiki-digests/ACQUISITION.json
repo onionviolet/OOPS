@@ -1,0 +1,4178 @@
+{
+  "inputs": [
+    {
+      "path": "docs/research/power-systems/anime-manga/SERIES.json",
+      "sha256": "0cce31a3d77186a996f02ff7e5ade3cf750721c10923dea0c4681f53feebc471"
+    },
+    {
+      "path": "docs/research/power-systems/web-fiction/SERIES.json",
+      "sha256": "cd0bbb2d6d3df028007f231f1b830a8419b6332f244817c1a8b7a4e3e96f1f67"
+    },
+    {
+      "path": "docs/research/power-systems/western/SERIES.json",
+      "sha256": "1ea5519ed2574acb6f5e07edaa4b3cfc37edc4d8d8713f23ce075016be4cbbe6"
+    },
+    {
+      "path": "docs/research/power-systems/broad-scout/CANDIDATES.json",
+      "sha256": "1be4ca4a55837fc63c7c157946bf167223054d3c97a5527b7ecd08308d9d3620"
+    }
+  ],
+  "series": [
+    {
+      "title": "Chainsaw Man",
+      "slug": "chainsaw-man",
+      "rows": [
+        {
+          "lane": "anime-manga",
+          "id": "A01",
+          "path": "docs/research/power-systems/anime-manga/SERIES.json"
+        }
+      ],
+      "urls": [
+        "https://chainsaw-man.fandom.com/wiki/Devil",
+        "https://chainsaw-man.fandom.com/wiki/Contract",
+        "https://en.wikipedia.org/wiki/Denji_%28Chainsaw_Man%29"
+      ]
+    },
+    {
+      "title": "Jujutsu Kaisen",
+      "slug": "jujutsu-kaisen",
+      "rows": [
+        {
+          "lane": "anime-manga",
+          "id": "A02",
+          "path": "docs/research/power-systems/anime-manga/SERIES.json"
+        }
+      ],
+      "urls": [
+        "https://jujutsu-kaisen.fandom.com/wiki/Binding_Vow",
+        "https://jujutsu-kaisen.fandom.com/wiki/Ratio_Technique",
+        "https://jujutsu-kaisen.fandom.com/wiki/Cursed_Technique",
+        "https://jujutsu-kaisen.fandom.com/wiki/Heavenly_Restriction",
+        "https://jujutsu-kaisen.fandom.com/wiki/Mythical_Beast_Amber",
+        "https://jujutsu-kaisen.fandom.com/wiki/Culling_Game",
+        "https://jujutsu-kaisen.fandom.com/wiki/Deadly_Sentencing",
+        "https://jujutsu-kaisen.fandom.com/wiki/Shrine",
+        "https://jujutsu-kaisen.fandom.com/wiki/Yuji_Itadori/Synopsis"
+      ]
+    },
+    {
+      "title": "Hunter x Hunter",
+      "slug": "hunter-x-hunter",
+      "rows": [
+        {
+          "lane": "anime-manga",
+          "id": "A03",
+          "path": "docs/research/power-systems/anime-manga/SERIES.json"
+        }
+      ],
+      "urls": [
+        "https://hunterxhunter.fandom.com/wiki/Nen?file=Nen_Types_Diagram.svg",
+        "https://hunterxhunter.fandom.com/wiki/Knuckle_Bine"
+      ]
+    },
+    {
+      "title": "Undead Unluck",
+      "slug": "undead-unluck",
+      "rows": [
+        {
+          "lane": "anime-manga",
+          "id": "A04",
+          "path": "docs/research/power-systems/anime-manga/SERIES.json"
+        }
+      ],
+      "urls": [
+        "https://undead-unluck.fandom.com/wiki/Negators",
+        "https://en.wikipedia.org/wiki/List_of_Undead_Unluck_characters"
+      ]
+    },
+    {
+      "title": "Bleach",
+      "slug": "bleach",
+      "rows": [
+        {
+          "lane": "anime-manga",
+          "id": "A05",
+          "path": "docs/research/power-systems/anime-manga/SERIES.json"
+        }
+      ],
+      "urls": [
+        "https://bleach.fandom.com/wiki/Zanpakut%C5%8D",
+        "https://en.wikipedia.org/wiki/List_of_Bleach_characters"
+      ]
+    },
+    {
+      "title": "Naruto",
+      "slug": "naruto",
+      "rows": [
+        {
+          "lane": "anime-manga",
+          "id": "A06",
+          "path": "docs/research/power-systems/anime-manga/SERIES.json"
+        }
+      ],
+      "urls": [
+        "https://naruto.fandom.com/wiki/Chakra",
+        "https://naruto.fandom.com/wiki/Nature_Transformation",
+        "https://naruto.fandom.com/wiki/Eight_Gates?file=Chakra_Gates.png",
+        "https://naruto.fandom.com/wiki/Shadow_Clone_Technique"
+      ]
+    },
+    {
+      "title": "One Piece",
+      "slug": "one-piece",
+      "rows": [
+        {
+          "lane": "anime-manga",
+          "id": "A07",
+          "path": "docs/research/power-systems/anime-manga/SERIES.json"
+        }
+      ],
+      "urls": [
+        "https://onepiece.fandom.com/wiki/Devil_Fruit",
+        "https://onepiece.fandom.com/wiki/Haki",
+        "https://onepiece.fandom.com/wiki/Haki/Supreme_King_Haki",
+        "https://onepiece.fandom.com/wiki/Goro_Goro_no_Mi"
+      ]
+    },
+    {
+      "title": "My Hero Academia",
+      "slug": "my-hero-academia",
+      "rows": [
+        {
+          "lane": "anime-manga",
+          "id": "A08",
+          "path": "docs/research/power-systems/anime-manga/SERIES.json"
+        }
+      ],
+      "urls": [
+        "https://myheroacademia.fandom.com/wiki/Quirk",
+        "https://myheroacademia.fandom.com/wiki/One_For_All",
+        "https://myheroacademia.fandom.com/wiki/Mirio_Togata"
+      ]
+    },
+    {
+      "title": "JoJo's Bizarre Adventure",
+      "slug": "jojo-s-bizarre-adventure",
+      "rows": [
+        {
+          "lane": "anime-manga",
+          "id": "A09",
+          "path": "docs/research/power-systems/anime-manga/SERIES.json"
+        }
+      ],
+      "urls": [
+        "https://jojowiki.com/Stand",
+        "https://jojowiki.com/Super_Fly"
+      ]
+    },
+    {
+      "title": "Fullmetal Alchemist",
+      "slug": "fullmetal-alchemist",
+      "rows": [
+        {
+          "lane": "anime-manga",
+          "id": "A10",
+          "path": "docs/research/power-systems/anime-manga/SERIES.json"
+        }
+      ],
+      "urls": [
+        "https://fma.fandom.com/wiki/Alchemy",
+        "https://fma.fandom.com/wiki/Philosopher%27s_Stone",
+        "https://en.wikipedia.org/wiki/Roy_Mustang"
+      ]
+    },
+    {
+      "title": "Frieren",
+      "slug": "frieren",
+      "rows": [
+        {
+          "lane": "anime-manga",
+          "id": "A11",
+          "path": "docs/research/power-systems/anime-manga/SERIES.json"
+        }
+      ],
+      "urls": [
+        "https://frieren.fandom.com/wiki/Episode_3",
+        "https://frieren.fandom.com/wiki/Frieren",
+        "https://frieren.fandom.com/wiki/Mimic",
+        "https://frieren.fandom.com/wiki/Magic"
+      ]
+    },
+    {
+      "title": "Mob Psycho 100",
+      "slug": "mob-psycho-100",
+      "rows": [
+        {
+          "lane": "anime-manga",
+          "id": "A12",
+          "path": "docs/research/power-systems/anime-manga/SERIES.json"
+        }
+      ],
+      "urls": [
+        "https://en.wikipedia.org/wiki/Shigeo_Kageyama",
+        "https://mob-psycho-100.fandom.com/wiki/Shigeo_Kageyama",
+        "https://mob-psycho-100.fandom.com/wiki/Psychic_Power"
+      ]
+    },
+    {
+      "title": "Demon Slayer",
+      "slug": "demon-slayer",
+      "rows": [
+        {
+          "lane": "anime-manga",
+          "id": "A13",
+          "path": "docs/research/power-systems/anime-manga/SERIES.json"
+        }
+      ],
+      "urls": [
+        "https://kimetsu-no-yaiba.fandom.com/wiki/Breathing_Style",
+        "https://kimetsu-no-yaiba.fandom.com/wiki/Zenitsu_Agatsuma",
+        "https://kimetsu-no-yaiba.fandom.com/wiki/Mitsuri_Kanroji"
+      ]
+    },
+    {
+      "title": "Black Clover",
+      "slug": "black-clover",
+      "rows": [
+        {
+          "lane": "anime-manga",
+          "id": "A14",
+          "path": "docs/research/power-systems/anime-manga/SERIES.json"
+        }
+      ],
+      "urls": [
+        "https://blackclover.fandom.com/wiki/Grimoire",
+        "https://blackclover.fandom.com/wiki/Devil",
+        "https://en.wikipedia.org/wiki/Black_Clover"
+      ]
+    },
+    {
+      "title": "Dandadan",
+      "slug": "dandadan",
+      "rows": [
+        {
+          "lane": "anime-manga",
+          "id": "A15",
+          "path": "docs/research/power-systems/anime-manga/SERIES.json"
+        }
+      ],
+      "urls": [
+        "https://dandadan.fandom.com/wiki/Okarun",
+        "https://dandadan.fandom.com/wiki/Turbo_Granny",
+        "https://dandadan.fandom.com/wiki/Evil_Eye_Arc",
+        "https://dandadan.fandom.com/wiki/Spiritual_Power"
+      ]
+    },
+    {
+      "title": "Kagurabachi",
+      "slug": "kagurabachi",
+      "rows": [
+        {
+          "lane": "anime-manga",
+          "id": "A16",
+          "path": "docs/research/power-systems/anime-manga/SERIES.json"
+        }
+      ],
+      "urls": [
+        "https://kagurabachi.fandom.com/wiki/Enchanted_Blade",
+        "https://kagurabachi.fandom.com/wiki/Magatsumi"
+      ]
+    },
+    {
+      "title": "Fire Force",
+      "slug": "fire-force",
+      "rows": [
+        {
+          "lane": "anime-manga",
+          "id": "A17",
+          "path": "docs/research/power-systems/anime-manga/SERIES.json"
+        }
+      ],
+      "urls": [
+        "https://fire-force.fandom.com/wiki/Adolla_Link",
+        "https://fire-force.fandom.com/wiki/Arthur_Boyle",
+        "https://fire-force.fandom.com/wiki/Ignition_Ability"
+      ]
+    },
+    {
+      "title": "World Trigger",
+      "slug": "world-trigger",
+      "rows": [
+        {
+          "lane": "anime-manga",
+          "id": "A18",
+          "path": "docs/research/power-systems/anime-manga/SERIES.json"
+        }
+      ],
+      "urls": [
+        "https://worldtrigger.fandom.com/wiki/Trigger",
+        "https://worldtrigger.fandom.com/wiki/Bail_Out"
+      ]
+    },
+    {
+      "title": "Kaiju No. 8",
+      "slug": "kaiju-no-8",
+      "rows": [
+        {
+          "lane": "anime-manga",
+          "id": "A19",
+          "path": "docs/research/power-systems/anime-manga/SERIES.json"
+        }
+      ],
+      "urls": [
+        "https://kaiju-no-8.fandom.com/wiki/Defense_Force",
+        "https://kaiju-no-8.fandom.com/wiki/Kafka_Hibino",
+        "https://kaiju-no-8.fandom.com/wiki/Gen_Narumi",
+        "https://kaiju-no-8.fandom.com/wiki/Unleashed_Combat_Power"
+      ]
+    },
+    {
+      "title": "Fate series",
+      "slug": "fate-series",
+      "rows": [
+        {
+          "lane": "anime-manga",
+          "id": "A20",
+          "path": "docs/research/power-systems/anime-manga/SERIES.json"
+        }
+      ],
+      "urls": [
+        "https://typemoon.fandom.com/wiki/Command_Spell",
+        "https://typemoon.fandom.com/wiki/Servant",
+        "https://typemoon.fandom.com/wiki/Heroic_Spirit"
+      ]
+    },
+    {
+      "title": "Reverend Insanity",
+      "slug": "reverend-insanity",
+      "rows": [
+        {
+          "lane": "web-fiction",
+          "id": "RI",
+          "path": "docs/research/power-systems/web-fiction/SERIES.json"
+        }
+      ],
+      "urls": [
+        "https://reverend-insanity.fandom.com/wiki/Gu",
+        "https://reverend-insanity.fandom.com/wiki/Cultivation"
+      ]
+    },
+    {
+      "title": "Lord of Mysteries",
+      "slug": "lord-of-mysteries",
+      "rows": [
+        {
+          "lane": "web-fiction",
+          "id": "LOTM",
+          "path": "docs/research/power-systems/web-fiction/SERIES.json"
+        }
+      ],
+      "urls": [
+        "https://lordofthemysteries.fandom.com/wiki/Acting_Method",
+        "https://lordofthemysteries.fandom.com/wiki/Beyonders"
+      ]
+    },
+    {
+      "title": "Omniscient Reader’s Viewpoint",
+      "slug": "omniscient-reader-s-viewpoint",
+      "rows": [
+        {
+          "lane": "web-fiction",
+          "id": "ORV",
+          "path": "docs/research/power-systems/web-fiction/SERIES.json"
+        }
+      ],
+      "urls": [
+        "https://omniscient-readers-viewpoint.fandom.com/wiki/Star_Stream",
+        "https://omniscient-readers-viewpoint.fandom.com/wiki/Probability"
+      ]
+    },
+    {
+      "title": "Tower of God",
+      "slug": "tower-of-god",
+      "rows": [
+        {
+          "lane": "web-fiction",
+          "id": "TOG",
+          "path": "docs/research/power-systems/web-fiction/SERIES.json"
+        }
+      ],
+      "urls": [
+        "https://towerofgod.fandom.com/wiki/Administrator",
+        "https://towerofgod.fandom.com/wiki/Position",
+        "https://towerofgod.fandom.com/wiki/Shinsu_Manipulation"
+      ]
+    },
+    {
+      "title": "Solo Leveling",
+      "slug": "solo-leveling",
+      "rows": [
+        {
+          "lane": "web-fiction",
+          "id": "SOLO",
+          "path": "docs/research/power-systems/web-fiction/SERIES.json"
+        }
+      ],
+      "urls": [
+        "https://solo-leveling.fandom.com/wiki/System",
+        "https://solo-leveling.fandom.com/wiki/Shadow_Extraction"
+      ]
+    },
+    {
+      "title": "The Second Coming of Gluttony",
+      "slug": "the-second-coming-of-gluttony",
+      "rows": [
+        {
+          "lane": "web-fiction",
+          "id": "SCG",
+          "path": "docs/research/power-systems/web-fiction/SERIES.json"
+        }
+      ],
+      "urls": [
+        "https://the-second-coming-of-gluttony.fandom.com/wiki/Gluttony"
+      ]
+    },
+    {
+      "title": "Trash of the Count’s Family",
+      "slug": "trash-of-the-count-s-family",
+      "rows": [
+        {
+          "lane": "web-fiction",
+          "id": "TCF",
+          "path": "docs/research/power-systems/web-fiction/SERIES.json"
+        }
+      ],
+      "urls": [
+        "https://lout-of-counts-family.fandom.com/wiki/Ancient_Power",
+        "https://lout-of-counts-family.fandom.com/wiki/Cale_Henituse/Abilities"
+      ]
+    },
+    {
+      "title": "Return of the Mount Hua Sect",
+      "slug": "return-of-the-mount-hua-sect",
+      "rows": [
+        {
+          "lane": "web-fiction",
+          "id": "MH",
+          "path": "docs/research/power-systems/web-fiction/SERIES.json"
+        }
+      ],
+      "urls": [
+        "https://en.wikipedia.org/wiki/Return_of_the_Blossoming_Blade"
+      ]
+    },
+    {
+      "title": "Coiling Dragon",
+      "slug": "coiling-dragon",
+      "rows": [
+        {
+          "lane": "web-fiction",
+          "id": "CD",
+          "path": "docs/research/power-systems/web-fiction/SERIES.json"
+        }
+      ],
+      "urls": [
+        "https://coiling-dragon.fandom.com/wiki/Power_Hierarchy",
+        "https://coiling-dragon.fandom.com/wiki/Linley_Baruch/Abilities",
+        "https://coiling-dragon.fandom.com/wiki/Sovereign"
+      ]
+    },
+    {
+      "title": "I Shall Seal the Heavens",
+      "slug": "i-shall-seal-the-heavens",
+      "rows": [
+        {
+          "lane": "web-fiction",
+          "id": "ISSTH",
+          "path": "docs/research/power-systems/web-fiction/SERIES.json"
+        }
+      ],
+      "urls": [
+        "https://i-shall-seal-the-heavens.fandom.com/wiki/Cultivation"
+      ]
+    },
+    {
+      "title": "Renegade Immortal",
+      "slug": "renegade-immortal",
+      "rows": [
+        {
+          "lane": "web-fiction",
+          "id": "REN",
+          "path": "docs/research/power-systems/web-fiction/SERIES.json"
+        }
+      ],
+      "urls": [
+        "https://renegade-immortal.fandom.com/wiki/Cultivation"
+      ]
+    },
+    {
+      "title": "Martial Peak",
+      "slug": "martial-peak",
+      "rows": [
+        {
+          "lane": "web-fiction",
+          "id": "MP",
+          "path": "docs/research/power-systems/web-fiction/SERIES.json"
+        }
+      ],
+      "urls": [
+        "https://martial-peak-mp.fandom.com/wiki/Cultivation",
+        "https://martial-peak-mp.fandom.com/wiki/Open_Heaven"
+      ]
+    },
+    {
+      "title": "Release That Witch",
+      "slug": "release-that-witch",
+      "rows": [
+        {
+          "lane": "web-fiction",
+          "id": "RTW",
+          "path": "docs/research/power-systems/web-fiction/SERIES.json"
+        }
+      ],
+      "urls": [
+        "https://releasethatwitch.fandom.com/wiki/Magic",
+        "https://releasethatwitch.fandom.com/wiki/Nightingale/Power_%26_Abilities",
+        "https://releasethatwitch.fandom.com/wiki/Technological_development/Misc."
+      ]
+    },
+    {
+      "title": "The Beginning After the End",
+      "slug": "the-beginning-after-the-end",
+      "rows": [
+        {
+          "lane": "web-fiction",
+          "id": "TBATE",
+          "path": "docs/research/power-systems/web-fiction/SERIES.json"
+        }
+      ],
+      "urls": [
+        "https://tbate.fandom.com/wiki/Arthur_Leywin/Abilities",
+        "https://tbate.fandom.com/wiki/Aether",
+        "https://tbate.fandom.com/wiki/Magic_and_Objects"
+      ]
+    },
+    {
+      "title": "Overgeared",
+      "slug": "overgeared",
+      "rows": [
+        {
+          "lane": "web-fiction",
+          "id": "OG",
+          "path": "docs/research/power-systems/web-fiction/SERIES.json"
+        }
+      ],
+      "urls": [
+        "https://overgeared.fandom.com/wiki/Legendary_Blacksmith%27s_Breath",
+        "https://overgeared.fandom.com/wiki/Pagma",
+        "https://overgeared.fandom.com/wiki/Pagma%27s_Rare_Book"
+      ]
+    },
+    {
+      "title": "Shadow Slave",
+      "slug": "shadow-slave",
+      "rows": [
+        {
+          "lane": "web-fiction",
+          "id": "SS",
+          "path": "docs/research/power-systems/web-fiction/SERIES.json"
+        }
+      ],
+      "urls": [
+        "https://shadowslave.fandom.com/wiki/Spell",
+        "https://shadowslave.fandom.com/wiki/Aspect"
+      ]
+    },
+    {
+      "title": "Mother of Learning",
+      "slug": "mother-of-learning",
+      "rows": [
+        {
+          "lane": "web-fiction",
+          "id": "MOL",
+          "path": "docs/research/power-systems/web-fiction/SERIES.json"
+        },
+        {
+          "lane": "western",
+          "id": "mol",
+          "path": "docs/research/power-systems/western/SERIES.json"
+        }
+      ],
+      "urls": [
+        "https://mother-of-learning.fandom.com/wiki/Magic"
+      ]
+    },
+    {
+      "title": "Cradle",
+      "slug": "cradle",
+      "rows": [
+        {
+          "lane": "web-fiction",
+          "id": "CRADLE",
+          "path": "docs/research/power-systems/web-fiction/SERIES.json"
+        },
+        {
+          "lane": "western",
+          "id": "cradle",
+          "path": "docs/research/power-systems/western/SERIES.json"
+        }
+      ],
+      "urls": [
+        "https://wiki.abidanarchive.com/index.php/Path_of_the_Endless_Sword",
+        "https://wiki.abidanarchive.com/index.php/Advancement_Level"
+      ]
+    },
+    {
+      "title": "System-novel staples",
+      "slug": "system-novel-staples",
+      "rows": [
+        {
+          "lane": "web-fiction",
+          "id": "GENRE",
+          "path": "docs/research/power-systems/web-fiction/SERIES.json"
+        }
+      ],
+      "urls": []
+    },
+    {
+      "title": "Worm",
+      "slug": "worm",
+      "rows": [
+        {
+          "lane": "western",
+          "id": "worm",
+          "path": "docs/research/power-systems/western/SERIES.json"
+        }
+      ],
+      "urls": [
+        "https://worm.fandom.com/wiki/Power_Classifications"
+      ]
+    },
+    {
+      "title": "Mistborn",
+      "slug": "mistborn",
+      "rows": [
+        {
+          "lane": "western",
+          "id": "mistborn",
+          "path": "docs/research/power-systems/western/SERIES.json"
+        }
+      ],
+      "urls": [
+        "https://en.wikipedia.org/wiki/Mistborn#Magic",
+        "https://coppermind.net/wiki/Allomancy",
+        "https://coppermind.net/wiki/Feruchemy"
+      ]
+    },
+    {
+      "title": "The Stormlight Archive",
+      "slug": "the-stormlight-archive",
+      "rows": [
+        {
+          "lane": "western",
+          "id": "stormlight",
+          "path": "docs/research/power-systems/western/SERIES.json"
+        }
+      ],
+      "urls": [
+        "https://coppermind.net/wiki/Deadeye",
+        "https://coppermind.net/wiki/Surgebinding"
+      ]
+    },
+    {
+      "title": "The Kingkiller Chronicle",
+      "slug": "the-kingkiller-chronicle",
+      "rows": [
+        {
+          "lane": "western",
+          "id": "kingkiller",
+          "path": "docs/research/power-systems/western/SERIES.json"
+        }
+      ],
+      "urls": [
+        "https://es.wikipedia.org/wiki/El_nombre_del_viento",
+        "https://en.wikipedia.org/wiki/True_name"
+      ]
+    },
+    {
+      "title": "The Dresden Files",
+      "slug": "the-dresden-files",
+      "rows": [
+        {
+          "lane": "western",
+          "id": "dresden",
+          "path": "docs/research/power-systems/western/SERIES.json"
+        }
+      ],
+      "urls": [
+        "https://dresdenfiles.fandom.com/wiki/Magic",
+        "https://dresdenfiles.fandom.com/wiki/Seven_Laws_of_Magic"
+      ]
+    },
+    {
+      "title": "The Wheel of Time",
+      "slug": "the-wheel-of-time",
+      "rows": [
+        {
+          "lane": "western",
+          "id": "wheel",
+          "path": "docs/research/power-systems/western/SERIES.json"
+        }
+      ],
+      "urls": [
+        "https://en.wikipedia.org/wiki/The_Wheel_of_Time#Setting"
+      ]
+    },
+    {
+      "title": "A Practical Guide to Evil",
+      "slug": "a-practical-guide-to-evil",
+      "rows": [
+        {
+          "lane": "western",
+          "id": "guide",
+          "path": "docs/research/power-systems/western/SERIES.json"
+        }
+      ],
+      "urls": [
+        "https://abridged-guide-to-evil.fandom.com/wiki/Aspects"
+      ]
+    },
+    {
+      "title": "The Wandering Inn",
+      "slug": "the-wandering-inn",
+      "rows": [
+        {
+          "lane": "western",
+          "id": "inn",
+          "path": "docs/research/power-systems/western/SERIES.json"
+        }
+      ],
+      "urls": [
+        "https://wiki.wanderinginn.com/Classes",
+        "https://wiki.wanderinginn.com/System_messages",
+        "https://wiki.wanderinginn.com/Skills",
+        "https://wiki.wanderinginn.com/Conditions",
+        "https://wiki.wanderinginn.com/Aspects",
+        "https://wiki.wanderinginn.com/Quests",
+        "https://wiki.wanderinginn.com/Grand_Design_of_Isthekenous",
+        "https://wiki.wanderinginn.com/Trials_of_Levelling",
+        "https://wiki.wanderinginn.com/Horror_Ranks",
+        "https://wiki.wanderinginn.com/Artifacts",
+        "https://wiki.wanderinginn.com/Magic"
+      ]
+    },
+    {
+      "title": "Dungeon Crawler Carl",
+      "slug": "dungeon-crawler-carl",
+      "rows": [
+        {
+          "lane": "western",
+          "id": "carl",
+          "path": "docs/research/power-systems/western/SERIES.json"
+        }
+      ],
+      "urls": [
+        "https://dungeon-crawler-carl.fandom.com/wiki/System_AI",
+        "https://dungeon-crawler-carl.fandom.com/wiki/Sponsors"
+      ]
+    },
+    {
+      "title": "He Who Fights With Monsters",
+      "slug": "he-who-fights-with-monsters",
+      "rows": [
+        {
+          "lane": "western",
+          "id": "hwfwm",
+          "path": "docs/research/power-systems/western/SERIES.json"
+        }
+      ],
+      "urls": [
+        "https://he-who-fights-with-monsters.fandom.com/wiki/Essences",
+        "https://he-who-fights-with-monsters.fandom.com/wiki/Frequently_Asked_Questions"
+      ]
+    },
+    {
+      "title": "Marvel comics",
+      "slug": "marvel-comics",
+      "rows": [
+        {
+          "lane": "western",
+          "id": "marvel",
+          "path": "docs/research/power-systems/western/SERIES.json"
+        }
+      ],
+      "urls": [
+        "https://en.wikipedia.org/wiki/Mutant_(Marvel_Comics)",
+        "https://marvel.fandom.com/wiki/Category:Power_Systems"
+      ]
+    },
+    {
+      "title": "DC comics",
+      "slug": "dc-comics",
+      "rows": [
+        {
+          "lane": "western",
+          "id": "dc",
+          "path": "docs/research/power-systems/western/SERIES.json"
+        }
+      ],
+      "urls": [
+        "https://dc.fandom.com/wiki/Emotional_Spectrum"
+      ]
+    },
+    {
+      "title": "Dungeons & Dragons: 2024 revised fifth edition",
+      "slug": "dungeons-dragons-2024-revised-fifth-edition",
+      "rows": [
+        {
+          "lane": "western",
+          "id": "dnd",
+          "path": "docs/research/power-systems/western/SERIES.json"
+        }
+      ],
+      "urls": [
+        "https://en.wikipedia.org/wiki/Magic_of_Dungeons_%26_Dragons"
+      ]
+    },
+    {
+      "title": "Magic: The Gathering",
+      "slug": "magic-the-gathering",
+      "rows": [
+        {
+          "lane": "western",
+          "id": "mtg",
+          "path": "docs/research/power-systems/western/SERIES.json"
+        }
+      ],
+      "urls": [
+        "https://mtg.fandom.com/wiki/Color"
+      ]
+    },
+    {
+      "title": "Dark Souls 1 covenants",
+      "slug": "dark-souls-1-covenants",
+      "rows": [
+        {
+          "lane": "western",
+          "id": "souls",
+          "path": "docs/research/power-systems/western/SERIES.json"
+        }
+      ],
+      "urls": [
+        "https://darksouls.fandom.com/wiki/Covenant_(Dark_Souls)"
+      ]
+    },
+    {
+      "title": "Elden Ring",
+      "slug": "elden-ring",
+      "rows": [
+        {
+          "lane": "western",
+          "id": "elden",
+          "path": "docs/research/power-systems/western/SERIES.json"
+        }
+      ],
+      "urls": [
+        "https://eldenring.fandom.com/wiki/Incantations",
+        "https://eldenring.wiki.gg/wiki/Rune_Arc"
+      ]
+    },
+    {
+      "title": "Hades 1 boons",
+      "slug": "hades-1-boons",
+      "rows": [
+        {
+          "lane": "western",
+          "id": "hades",
+          "path": "docs/research/power-systems/western/SERIES.json"
+        }
+      ],
+      "urls": [
+        "https://hades.fandom.com/wiki/Duo_Boons",
+        "https://hades.fandom.com/wiki/Trial_of_the_Gods"
+      ]
+    },
+    {
+      "title": "Path of Exile 1 support gems",
+      "slug": "path-of-exile-1-support-gems",
+      "rows": [
+        {
+          "lane": "western",
+          "id": "poe",
+          "path": "docs/research/power-systems/western/SERIES.json"
+        }
+      ],
+      "urls": [
+        "https://www.poewiki.net/wiki/Support_gem",
+        "https://www.poewiki.net/wiki/Skill_gem",
+        "https://www.poewiki.net/wiki/Gem_tag",
+        "https://www.poewiki.net/wiki/Trigger",
+        "https://www.poewiki.net/wiki/Reservation",
+        "https://www.poewiki.net/wiki/Item_socket",
+        "https://www.poewiki.net/wiki/Link",
+        "https://www.poewiki.net/wiki/Ascendancy_class",
+        "https://www.poewiki.net/wiki/Unique_item",
+        "https://www.poewiki.net/wiki/Currency"
+      ]
+    },
+    {
+      "title": "Slay the Spire 1 relics",
+      "slug": "slay-the-spire-1-relics",
+      "rows": [
+        {
+          "lane": "western",
+          "id": "spire",
+          "path": "docs/research/power-systems/western/SERIES.json"
+        }
+      ],
+      "urls": [
+        "https://slay-the-spire.fandom.com/wiki/Dead_Branch"
+      ]
+    },
+    {
+      "title": "Irish geis and geasa",
+      "slug": "irish-geis-and-geasa",
+      "rows": [
+        {
+          "lane": "western",
+          "id": "geis",
+          "path": "docs/research/power-systems/western/SERIES.json"
+        }
+      ],
+      "urls": [
+        "https://en.wikipedia.org/wiki/Geas",
+        "https://en.wikipedia.org/wiki/Aided_Con_Culainn"
+      ]
+    },
+    {
+      "title": "Faustian pact: Goethe wager",
+      "slug": "faustian-pact-goethe-wager",
+      "rows": [
+        {
+          "lane": "western",
+          "id": "faust",
+          "path": "docs/research/power-systems/western/SERIES.json"
+        }
+      ],
+      "urls": [
+        "https://en.wikipedia.org/wiki/Faust,_Part_One",
+        "https://en.wikipedia.org/wiki/Goethe%27s_Faust"
+      ]
+    },
+    {
+      "title": "Fae bargains: Rumpelstiltskin",
+      "slug": "fae-bargains-rumpelstiltskin",
+      "rows": [
+        {
+          "lane": "western",
+          "id": "fae",
+          "path": "docs/research/power-systems/western/SERIES.json"
+        }
+      ],
+      "urls": [
+        "https://en.wikipedia.org/wiki/Rumpelstiltskin"
+      ]
+    },
+    {
+      "title": "Monastic vows: Benedictine example",
+      "slug": "monastic-vows-benedictine-example",
+      "rows": [
+        {
+          "lane": "western",
+          "id": "monastic",
+          "path": "docs/research/power-systems/western/SERIES.json"
+        }
+      ],
+      "urls": [
+        "https://en.wikipedia.org/wiki/Rule_of_Saint_Benedict"
+      ]
+    },
+    {
+      "title": "Knightly vows and chivalry",
+      "slug": "knightly-vows-and-chivalry",
+      "rows": [
+        {
+          "lane": "western",
+          "id": "knightly",
+          "path": "docs/research/power-systems/western/SERIES.json"
+        }
+      ],
+      "urls": [
+        "https://en.wikipedia.org/wiki/Chivalry"
+      ]
+    },
+    {
+      "title": "Curses: Sleeping Beauty and The Monkey Paw",
+      "slug": "curses-sleeping-beauty-and-the-monkey-paw",
+      "rows": [
+        {
+          "lane": "western",
+          "id": "curses",
+          "path": "docs/research/power-systems/western/SERIES.json"
+        }
+      ],
+      "urls": [
+        "https://en.wikipedia.org/wiki/Sleeping_Beauty",
+        "https://en.wikipedia.org/wiki/The_Monkey%27s_Paw"
+      ]
+    },
+    {
+      "title": "Genies and wishes: Aladdin and Fisherman tales",
+      "slug": "genies-and-wishes-aladdin-and-fisherman-tales",
+      "rows": [
+        {
+          "lane": "western",
+          "id": "genies",
+          "path": "docs/research/power-systems/western/SERIES.json"
+        }
+      ],
+      "urls": [
+        "https://en.wikipedia.org/wiki/Aladdin",
+        "https://en.wikipedia.org/wiki/The_Fisherman_and_the_Jinni"
+      ]
+    },
+    {
+      "title": "I Have a Super USB Drive",
+      "slug": "i-have-a-super-usb-drive",
+      "rows": [
+        {
+          "lane": "broad-scout",
+          "id": "D001",
+          "path": "docs/research/power-systems/broad-scout/CANDIDATES.json"
+        }
+      ],
+      "urls": []
+    },
+    {
+      "title": "My Cell Prison",
+      "slug": "my-cell-prison",
+      "rows": [
+        {
+          "lane": "broad-scout",
+          "id": "D002",
+          "path": "docs/research/power-systems/broad-scout/CANDIDATES.json"
+        }
+      ],
+      "urls": [
+        "https://my-cell-prison.fandom.com/wiki/My_Cell_Prison_Wiki"
+      ]
+    },
+    {
+      "title": "Let Me Game in Peace",
+      "slug": "let-me-game-in-peace",
+      "rows": [
+        {
+          "lane": "broad-scout",
+          "id": "D003",
+          "path": "docs/research/power-systems/broad-scout/CANDIDATES.json"
+        }
+      ],
+      "urls": []
+    },
+    {
+      "title": "Losing Money to Be a Tycoon",
+      "slug": "losing-money-to-be-a-tycoon",
+      "rows": [
+        {
+          "lane": "broad-scout",
+          "id": "D004",
+          "path": "docs/research/power-systems/broad-scout/CANDIDATES.json"
+        }
+      ],
+      "urls": []
+    },
+    {
+      "title": "Astral Apostle",
+      "slug": "astral-apostle",
+      "rows": [
+        {
+          "lane": "broad-scout",
+          "id": "D005",
+          "path": "docs/research/power-systems/broad-scout/CANDIDATES.json"
+        }
+      ],
+      "urls": []
+    },
+    {
+      "title": "Seized by the System",
+      "slug": "seized-by-the-system",
+      "rows": [
+        {
+          "lane": "broad-scout",
+          "id": "D006",
+          "path": "docs/research/power-systems/broad-scout/CANDIDATES.json"
+        }
+      ],
+      "urls": []
+    },
+    {
+      "title": "Soul of Negary",
+      "slug": "soul-of-negary",
+      "rows": [
+        {
+          "lane": "broad-scout",
+          "id": "D007",
+          "path": "docs/research/power-systems/broad-scout/CANDIDATES.json"
+        }
+      ],
+      "urls": [
+        "https://soul-of-negary-novel.fandom.com/wiki/Origin",
+        "https://soul-of-negary-novel.fandom.com/wiki/Soul_Virus",
+        "https://soul-of-negary-novel.fandom.com/wiki/Flame_World",
+        "https://soul-of-negary-novel.fandom.com/wiki/Negary/Abilities"
+      ]
+    },
+    {
+      "title": "My Divine Diary",
+      "slug": "my-divine-diary",
+      "rows": [
+        {
+          "lane": "broad-scout",
+          "id": "D008",
+          "path": "docs/research/power-systems/broad-scout/CANDIDATES.json"
+        }
+      ],
+      "urls": []
+    },
+    {
+      "title": "Fantasy Simulator",
+      "slug": "fantasy-simulator",
+      "rows": [
+        {
+          "lane": "broad-scout",
+          "id": "D009",
+          "path": "docs/research/power-systems/broad-scout/CANDIDATES.json"
+        }
+      ],
+      "urls": [
+        "https://fantasy-simulator.fandom.com/wiki/Chen_Heng/Simulations"
+      ]
+    },
+    {
+      "title": "Carefree Path of Dreams",
+      "slug": "carefree-path-of-dreams",
+      "rows": [
+        {
+          "lane": "broad-scout",
+          "id": "D010",
+          "path": "docs/research/power-systems/broad-scout/CANDIDATES.json"
+        }
+      ],
+      "urls": [
+        "https://carefree-path-of-dreams.fandom.com/wiki/Dream_Master",
+        "https://carefree-path-of-dreams.fandom.com/wiki/Scientific_Cultivation_Method"
+      ]
+    },
+    {
+      "title": "Low Dimensional Game",
+      "slug": "low-dimensional-game",
+      "rows": [
+        {
+          "lane": "broad-scout",
+          "id": "D011",
+          "path": "docs/research/power-systems/broad-scout/CANDIDATES.json"
+        }
+      ],
+      "urls": [
+        "https://vsbattles.fandom.com/wiki/Low_Dimensional_Game"
+      ]
+    },
+    {
+      "title": "Everybody is Kung Fu Fighting, While I Started a Farm",
+      "slug": "everybody-is-kung-fu-fighting-while-i-started-a-farm",
+      "rows": [
+        {
+          "lane": "broad-scout",
+          "id": "D012",
+          "path": "docs/research/power-systems/broad-scout/CANDIDATES.json"
+        }
+      ],
+      "urls": []
+    },
+    {
+      "title": "Doomsday Wonderland",
+      "slug": "doomsday-wonderland",
+      "rows": [
+        {
+          "lane": "broad-scout",
+          "id": "D013",
+          "path": "docs/research/power-systems/broad-scout/CANDIDATES.json"
+        }
+      ],
+      "urls": [
+        "https://doomsday-wonderland.fandom.com/wiki/Temporary_Right_Of_Abode",
+        "https://doomsday-wonderland.fandom.com/wiki/Planar_World",
+        "https://doomsday-wonderland.fandom.com/wiki/Duoluozhong"
+      ]
+    },
+    {
+      "title": "Trafford's Trading Club",
+      "slug": "trafford-s-trading-club",
+      "rows": [
+        {
+          "lane": "broad-scout",
+          "id": "D014",
+          "path": "docs/research/power-systems/broad-scout/CANDIDATES.json"
+        }
+      ],
+      "urls": []
+    },
+    {
+      "title": "I Can See Life Values (working English gloss)",
+      "slug": "i-can-see-life-values-working-english-gloss",
+      "rows": [
+        {
+          "lane": "broad-scout",
+          "id": "D015",
+          "path": "docs/research/power-systems/broad-scout/CANDIDATES.json"
+        }
+      ],
+      "urls": []
+    },
+    {
+      "title": "Information Omniscient (working English gloss)",
+      "slug": "information-omniscient-working-english-gloss",
+      "rows": [
+        {
+          "lane": "broad-scout",
+          "id": "D016",
+          "path": "docs/research/power-systems/broad-scout/CANDIDATES.json"
+        }
+      ],
+      "urls": []
+    },
+    {
+      "title": "Dungeon Reset",
+      "slug": "dungeon-reset",
+      "rows": [
+        {
+          "lane": "broad-scout",
+          "id": "D017",
+          "path": "docs/research/power-systems/broad-scout/CANDIDATES.json"
+        }
+      ],
+      "urls": []
+    },
+    {
+      "title": "The Book Eating Magician",
+      "slug": "the-book-eating-magician",
+      "rows": [
+        {
+          "lane": "broad-scout",
+          "id": "D018",
+          "path": "docs/research/power-systems/broad-scout/CANDIDATES.json"
+        }
+      ],
+      "urls": [
+        "https://thebookeatingmagician.fandom.com/wiki/Umbra",
+        "https://the-book-eating-magician.fandom.com/wiki/Theodore_Miller"
+      ]
+    },
+    {
+      "title": "The 31st Piece Turns the Tables",
+      "slug": "the-31st-piece-turns-the-tables",
+      "rows": [
+        {
+          "lane": "broad-scout",
+          "id": "D019",
+          "path": "docs/research/power-systems/broad-scout/CANDIDATES.json"
+        }
+      ],
+      "urls": []
+    },
+    {
+      "title": "The Main Heroines are Trying to Kill Me",
+      "slug": "the-main-heroines-are-trying-to-kill-me",
+      "rows": [
+        {
+          "lane": "broad-scout",
+          "id": "D020",
+          "path": "docs/research/power-systems/broad-scout/CANDIDATES.json"
+        }
+      ],
+      "urls": [
+        "https://the-main-heroines-are-trying-to-kill-me.fandom.com/wiki/The_Main_Heroines_Are_Trying_To_Kill_Me_Wiki"
+      ]
+    },
+    {
+      "title": "Kidnapped Dragons",
+      "slug": "kidnapped-dragons",
+      "rows": [
+        {
+          "lane": "broad-scout",
+          "id": "D021",
+          "path": "docs/research/power-systems/broad-scout/CANDIDATES.json"
+        }
+      ],
+      "urls": [
+        "https://kidnappeddragons.fandom.com/wiki/Kidnapped_Dragons_Wiki"
+      ]
+    },
+    {
+      "title": "I’m an Infinite Regressor, But I’ve Got Stories to Tell",
+      "slug": "i-m-an-infinite-regressor-but-i-ve-got-stories-to-tell",
+      "rows": [
+        {
+          "lane": "broad-scout",
+          "id": "D022",
+          "path": "docs/research/power-systems/broad-scout/CANDIDATES.json"
+        }
+      ],
+      "urls": []
+    },
+    {
+      "title": "I Became the Necromancer of the Academy",
+      "slug": "i-became-the-necromancer-of-the-academy",
+      "rows": [
+        {
+          "lane": "broad-scout",
+          "id": "D023",
+          "path": "docs/research/power-systems/broad-scout/CANDIDATES.json"
+        }
+      ],
+      "urls": []
+    },
+    {
+      "title": "The S-Classes That I Raised",
+      "slug": "the-s-classes-that-i-raised",
+      "rows": [
+        {
+          "lane": "broad-scout",
+          "id": "D024",
+          "path": "docs/research/power-systems/broad-scout/CANDIDATES.json"
+        }
+      ],
+      "urls": [
+        "https://mysranks.fandom.com/wiki/The_S-Ranks_That_I_Raised"
+      ]
+    },
+    {
+      "title": "D-Genesis: Three Years after the Dungeons Appeared",
+      "slug": "d-genesis-three-years-after-the-dungeons-appeared",
+      "rows": [
+        {
+          "lane": "broad-scout",
+          "id": "D025",
+          "path": "docs/research/power-systems/broad-scout/CANDIDATES.json"
+        }
+      ],
+      "urls": []
+    },
+    {
+      "title": "Making Magic: The Sweet Life of a Witch Who Knows an Infinite MP Loophole",
+      "slug": "making-magic-the-sweet-life-of-a-witch-who-knows-an-infinite-mp-loophole",
+      "rows": [
+        {
+          "lane": "broad-scout",
+          "id": "D026",
+          "path": "docs/research/power-systems/broad-scout/CANDIDATES.json"
+        }
+      ],
+      "urls": []
+    },
+    {
+      "title": "To Another World... with Land Mines!",
+      "slug": "to-another-world-with-land-mines",
+      "rows": [
+        {
+          "lane": "broad-scout",
+          "id": "D027",
+          "path": "docs/research/power-systems/broad-scout/CANDIDATES.json"
+        }
+      ],
+      "urls": [
+        "https://en.wikipedia.org/wiki/To_Another_World..._with_Land_Mines%21",
+        "https://to-another-world-with-land-mines.fandom.com/wiki/%22Landmines%22_Skills"
+      ]
+    },
+    {
+      "title": "Lazy Dungeon Master",
+      "slug": "lazy-dungeon-master",
+      "rows": [
+        {
+          "lane": "broad-scout",
+          "id": "D028",
+          "path": "docs/research/power-systems/broad-scout/CANDIDATES.json"
+        }
+      ],
+      "urls": [
+        "https://lazydungeonmaster.fandom.com/wiki/Dungeon_Master",
+        "https://lazydungeonmaster.fandom.com/wiki/Dungeon_Core",
+        "https://lazydungeonmaster.fandom.com/wiki/Dungeons"
+      ]
+    },
+    {
+      "title": "Min-Maxing My TRPG Build in Another World",
+      "slug": "min-maxing-my-trpg-build-in-another-world",
+      "rows": [
+        {
+          "lane": "broad-scout",
+          "id": "D029",
+          "path": "docs/research/power-systems/broad-scout/CANDIDATES.json"
+        }
+      ],
+      "urls": []
+    },
+    {
+      "title": "Monster Tamer",
+      "slug": "monster-tamer",
+      "rows": [
+        {
+          "lane": "broad-scout",
+          "id": "D030",
+          "path": "docs/research/power-systems/broad-scout/CANDIDATES.json"
+        }
+      ],
+      "urls": [
+        "https://isekai.fandom.com/wiki/Monster_Tamer",
+        "https://monster-tamer.fandom.com/wiki/Majima_Takahiro"
+      ]
+    },
+    {
+      "title": "The Magician Who Rose From Failure",
+      "slug": "the-magician-who-rose-from-failure",
+      "rows": [
+        {
+          "lane": "broad-scout",
+          "id": "D031",
+          "path": "docs/research/power-systems/broad-scout/CANDIDATES.json"
+        }
+      ],
+      "urls": [
+        "https://the-magician-who-rose-from-failure.fandom.com/wiki/Spells"
+      ]
+    },
+    {
+      "title": "Did I Seriously Just Get Reincarnated as My Gag Character?!",
+      "slug": "did-i-seriously-just-get-reincarnated-as-my-gag-character",
+      "rows": [
+        {
+          "lane": "broad-scout",
+          "id": "D032",
+          "path": "docs/research/power-systems/broad-scout/CANDIDATES.json"
+        }
+      ],
+      "urls": []
+    },
+    {
+      "title": "The Game at Carousel: A Horror Movie LitRPG",
+      "slug": "the-game-at-carousel-a-horror-movie-litrpg",
+      "rows": [
+        {
+          "lane": "broad-scout",
+          "id": "D033",
+          "path": "docs/research/power-systems/broad-scout/CANDIDATES.json"
+        }
+      ],
+      "urls": []
+    },
+    {
+      "title": "Godclads",
+      "slug": "godclads",
+      "rows": [
+        {
+          "lane": "broad-scout",
+          "id": "D034",
+          "path": "docs/research/power-systems/broad-scout/CANDIDATES.json"
+        }
+      ],
+      "urls": []
+    },
+    {
+      "title": "Slumrat Rising",
+      "slug": "slumrat-rising",
+      "rows": [
+        {
+          "lane": "broad-scout",
+          "id": "D035",
+          "path": "docs/research/power-systems/broad-scout/CANDIDATES.json"
+        }
+      ],
+      "urls": []
+    },
+    {
+      "title": "Markets and Multiverses",
+      "slug": "markets-and-multiverses",
+      "rows": [
+        {
+          "lane": "broad-scout",
+          "id": "D036",
+          "path": "docs/research/power-systems/broad-scout/CANDIDATES.json"
+        }
+      ],
+      "urls": []
+    },
+    {
+      "title": "The Daily Grind",
+      "slug": "the-daily-grind",
+      "rows": [
+        {
+          "lane": "broad-scout",
+          "id": "D037",
+          "path": "docs/research/power-systems/broad-scout/CANDIDATES.json"
+        }
+      ],
+      "urls": [
+        "https://the-daily-grind.fandom.com/wiki/The_Daily_Grind_Wiki"
+      ]
+    },
+    {
+      "title": "All the Dust that Falls",
+      "slug": "all-the-dust-that-falls",
+      "rows": [
+        {
+          "lane": "broad-scout",
+          "id": "D038",
+          "path": "docs/research/power-systems/broad-scout/CANDIDATES.json"
+        }
+      ],
+      "urls": []
+    },
+    {
+      "title": "Return of the Runebound Professor",
+      "slug": "return-of-the-runebound-professor",
+      "rows": [
+        {
+          "lane": "broad-scout",
+          "id": "D039",
+          "path": "docs/research/power-systems/broad-scout/CANDIDATES.json"
+        }
+      ],
+      "urls": [
+        "https://runebound-professor.fandom.com/wiki/Runes",
+        "https://runebound-professor.fandom.com/wiki/Noah_Vines/Runes"
+      ]
+    },
+    {
+      "title": "Minute Mage: A Time Magic LitRPG",
+      "slug": "minute-mage-a-time-magic-litrpg",
+      "rows": [
+        {
+          "lane": "broad-scout",
+          "id": "D040",
+          "path": "docs/research/power-systems/broad-scout/CANDIDATES.json"
+        }
+      ],
+      "urls": []
+    },
+    {
+      "title": "The Stubborn Skill-Grinder In A Time Loop",
+      "slug": "the-stubborn-skill-grinder-in-a-time-loop",
+      "rows": [
+        {
+          "lane": "broad-scout",
+          "id": "D041",
+          "path": "docs/research/power-systems/broad-scout/CANDIDATES.json"
+        }
+      ],
+      "urls": [
+        "https://the-stubborn-skillgrinder-in-a-time-loop.fandom.com/wiki/Skills",
+        "https://the-stubborn-skillgrinder-in-a-time-loop.fandom.com/wiki/Mythical_Skills",
+        "https://the-stubborn-skillgrinder-in-a-time-loop.fandom.com/wiki/Worlds"
+      ]
+    },
+    {
+      "title": "Industrial Strength Magic",
+      "slug": "industrial-strength-magic",
+      "rows": [
+        {
+          "lane": "broad-scout",
+          "id": "D042",
+          "path": "docs/research/power-systems/broad-scout/CANDIDATES.json"
+        }
+      ],
+      "urls": []
+    },
+    {
+      "title": "Double-Blind: A Modern LITRPG",
+      "slug": "double-blind-a-modern-litrpg",
+      "rows": [
+        {
+          "lane": "broad-scout",
+          "id": "D043",
+          "path": "docs/research/power-systems/broad-scout/CANDIDATES.json"
+        }
+      ],
+      "urls": []
+    },
+    {
+      "title": "Pale Lights",
+      "slug": "pale-lights",
+      "rows": [
+        {
+          "lane": "broad-scout",
+          "id": "D044",
+          "path": "docs/research/power-systems/broad-scout/CANDIDATES.json"
+        }
+      ],
+      "urls": [
+        "https://pale-lights.fandom.com/wiki/The_Trials",
+        "https://pale-lights.fandom.com/wiki/The_Watch"
+      ]
+    },
+    {
+      "title": "Mimic Me! Within The Eternal Forest",
+      "slug": "mimic-me-within-the-eternal-forest",
+      "rows": [
+        {
+          "lane": "broad-scout",
+          "id": "D045",
+          "path": "docs/research/power-systems/broad-scout/CANDIDATES.json"
+        }
+      ],
+      "urls": []
+    },
+    {
+      "title": "The Law of Averages",
+      "slug": "the-law-of-averages",
+      "rows": [
+        {
+          "lane": "broad-scout",
+          "id": "D046",
+          "path": "docs/research/power-systems/broad-scout/CANDIDATES.json"
+        }
+      ],
+      "urls": []
+    },
+    {
+      "title": "Ra",
+      "slug": "ra",
+      "rows": [
+        {
+          "lane": "broad-scout",
+          "id": "D047",
+          "path": "docs/research/power-systems/broad-scout/CANDIDATES.json"
+        }
+      ],
+      "urls": [
+        "https://en.wikipedia.org/wiki/Ra_(novel)"
+      ]
+    },
+    {
+      "title": "Fine Structure",
+      "slug": "fine-structure",
+      "rows": [
+        {
+          "lane": "broad-scout",
+          "id": "D048",
+          "path": "docs/research/power-systems/broad-scout/CANDIDATES.json"
+        }
+      ],
+      "urls": [
+        "https://vsbattles.fandom.com/wiki/Fine_Structure_Explanation_Page"
+      ]
+    },
+    {
+      "title": "I Can See Your Death",
+      "slug": "i-can-see-your-death",
+      "rows": [
+        {
+          "lane": "broad-scout",
+          "id": "D049",
+          "path": "docs/research/power-systems/broad-scout/CANDIDATES.json"
+        }
+      ],
+      "urls": []
+    },
+    {
+      "title": "The Oracle Paths",
+      "slug": "the-oracle-paths",
+      "rows": [
+        {
+          "lane": "broad-scout",
+          "id": "D050",
+          "path": "docs/research/power-systems/broad-scout/CANDIDATES.json"
+        }
+      ],
+      "urls": [
+        "https://oracle-paths.fandom.com/wiki/Dream_Aether",
+        "https://oracle-paths.fandom.com/wiki/Bloodline",
+        "https://oracle-paths.fandom.com/wiki/False_World_War"
+      ]
+    }
+  ],
+  "hosts": {
+    "https://chainsaw-man.fandom.com/api.php": {
+      "host": "chainsaw-man.fandom.com",
+      "api": "https://chainsaw-man.fandom.com/api.php",
+      "pages": [],
+      "state": "blocked",
+      "reason": "chainsaw-man.fandom.com: HTTP 403",
+      "request_receipts": [
+        {
+          "url": "https://chainsaw-man.fandom.com/robots.txt",
+          "status": 403,
+          "time": "2026-10-10T05:31:15.413686+00:00",
+          "started": "2026-10-10T05:31:15.171284+00:00",
+          "bytes": 5614,
+          "sha256": "cd9b02dc79550fb229b349f3b3b011958f29e169f9965bf75cf3e6783f0fde3b",
+          "content_type": "text/html; charset=UTF-8",
+          "location": null
+        }
+      ]
+    },
+    "https://jujutsu-kaisen.fandom.com/api.php": {
+      "host": "jujutsu-kaisen.fandom.com",
+      "api": "https://jujutsu-kaisen.fandom.com/api.php",
+      "pages": [],
+      "state": "blocked",
+      "reason": "jujutsu-kaisen.fandom.com: HTTP 403",
+      "request_receipts": [
+        {
+          "url": "https://jujutsu-kaisen.fandom.com/robots.txt",
+          "status": 403,
+          "time": "2026-10-10T05:31:15.531500+00:00",
+          "started": "2026-10-10T05:31:15.415802+00:00",
+          "bytes": 5616,
+          "sha256": "92d693e645047769b6e618230ef799355c382a87f4c51d0bfc2e4616d7f8b370",
+          "content_type": "text/html; charset=UTF-8",
+          "location": null
+        }
+      ]
+    },
+    "https://hunterxhunter.fandom.com/api.php": {
+      "host": "hunterxhunter.fandom.com",
+      "api": "https://hunterxhunter.fandom.com/api.php",
+      "pages": [],
+      "state": "blocked",
+      "reason": "hunterxhunter.fandom.com: HTTP 403",
+      "request_receipts": [
+        {
+          "url": "https://hunterxhunter.fandom.com/robots.txt",
+          "status": 403,
+          "time": "2026-10-10T05:31:15.670583+00:00",
+          "started": "2026-10-10T05:31:15.533916+00:00",
+          "bytes": 5594,
+          "sha256": "cd2021c6314f98e1421aff0f8a20304ba3857a785159ca402b215d20edfa9acb",
+          "content_type": "text/html; charset=UTF-8",
+          "location": null
+        }
+      ]
+    },
+    "https://undead-unluck.fandom.com/api.php": {
+      "host": "undead-unluck.fandom.com",
+      "api": "https://undead-unluck.fandom.com/api.php",
+      "pages": [],
+      "state": "blocked",
+      "reason": "undead-unluck.fandom.com: HTTP 403",
+      "request_receipts": [
+        {
+          "url": "https://undead-unluck.fandom.com/robots.txt",
+          "status": 403,
+          "time": "2026-10-10T05:31:15.816132+00:00",
+          "started": "2026-10-10T05:31:15.672778+00:00",
+          "bytes": 5615,
+          "sha256": "b01d0a58108f0286427da8e6b74edab6f2af2709787f8fa32ae1295ddcc37d0b",
+          "content_type": "text/html; charset=UTF-8",
+          "location": null
+        }
+      ]
+    },
+    "https://bleach.fandom.com/api.php": {
+      "host": "bleach.fandom.com",
+      "api": "https://bleach.fandom.com/api.php",
+      "pages": [],
+      "state": "blocked",
+      "reason": "bleach.fandom.com: HTTP 403",
+      "request_receipts": [
+        {
+          "url": "https://bleach.fandom.com/robots.txt",
+          "status": 403,
+          "time": "2026-10-10T05:31:16.018356+00:00",
+          "started": "2026-10-10T05:31:15.819028+00:00",
+          "bytes": 5587,
+          "sha256": "b969d61d0d0bbbf9e1a6f593bf924346c5cef133de2db486df8d078c19e37331",
+          "content_type": "text/html; charset=UTF-8",
+          "location": null
+        }
+      ]
+    },
+    "https://naruto.fandom.com/api.php": {
+      "host": "naruto.fandom.com",
+      "api": "https://naruto.fandom.com/api.php",
+      "pages": [],
+      "state": "blocked",
+      "reason": "naruto.fandom.com: HTTP 403",
+      "request_receipts": [
+        {
+          "url": "https://naruto.fandom.com/robots.txt",
+          "status": 403,
+          "time": "2026-10-10T05:31:16.164752+00:00",
+          "started": "2026-10-10T05:31:16.020491+00:00",
+          "bytes": 5587,
+          "sha256": "67e53a0a12af45a10a46a862204163624847b49020558eb8e15db6a60b7779ee",
+          "content_type": "text/html; charset=UTF-8",
+          "location": null
+        }
+      ]
+    },
+    "https://onepiece.fandom.com/api.php": {
+      "host": "onepiece.fandom.com",
+      "api": "https://onepiece.fandom.com/api.php",
+      "pages": [],
+      "state": "blocked",
+      "reason": "onepiece.fandom.com: HTTP 403",
+      "request_receipts": [
+        {
+          "url": "https://onepiece.fandom.com/robots.txt",
+          "status": 403,
+          "time": "2026-10-10T05:31:16.311566+00:00",
+          "started": "2026-10-10T05:31:16.166815+00:00",
+          "bytes": 5589,
+          "sha256": "6e5a2d005d7e23af28e5d90b5a54d307ba6a3e60921d8cd74486f0b08b4136e4",
+          "content_type": "text/html; charset=UTF-8",
+          "location": null
+        }
+      ]
+    },
+    "https://myheroacademia.fandom.com/api.php": {
+      "host": "myheroacademia.fandom.com",
+      "api": "https://myheroacademia.fandom.com/api.php",
+      "pages": [],
+      "state": "blocked",
+      "reason": "myheroacademia.fandom.com: HTTP 403",
+      "request_receipts": [
+        {
+          "url": "https://myheroacademia.fandom.com/robots.txt",
+          "status": 403,
+          "time": "2026-10-10T05:31:16.488683+00:00",
+          "started": "2026-10-10T05:31:16.314710+00:00",
+          "bytes": 5616,
+          "sha256": "75d89153ce6934eb90391290028626a37e3388dafed52d4c8fe222ed35092098",
+          "content_type": "text/html; charset=UTF-8",
+          "location": null
+        }
+      ]
+    },
+    "https://jojowiki.com/api.php": {
+      "host": "jojowiki.com",
+      "api": "https://jojowiki.com/api.php",
+      "pages": [],
+      "state": "blocked",
+      "reason": "jojowiki.com: robots disallow (YAIRPG-wiki-research/1.0 (personal research; AI-assisted; no login))",
+      "request_receipts": [
+        {
+          "url": "https://jojowiki.com/robots.txt",
+          "status": 200,
+          "time": "2026-10-10T05:31:16.609335+00:00",
+          "started": "2026-10-10T05:31:16.492299+00:00",
+          "bytes": 2838,
+          "sha256": "156410f27098c8c74eb46159b4b87e10f87e99ddc929a94693b78eb72e2a5a3e",
+          "content_type": "text/plain",
+          "location": null
+        }
+      ]
+    },
+    "https://fma.fandom.com/api.php": {
+      "host": "fma.fandom.com",
+      "api": "https://fma.fandom.com/api.php",
+      "pages": [],
+      "state": "blocked",
+      "reason": "fma.fandom.com: HTTP 403",
+      "request_receipts": [
+        {
+          "url": "https://fma.fandom.com/robots.txt",
+          "status": 403,
+          "time": "2026-10-10T05:31:16.765643+00:00",
+          "started": "2026-10-10T05:31:16.622114+00:00",
+          "bytes": 5563,
+          "sha256": "72168c43d2022563291647119407da0de86482638adf3b0656b33a5661b536fe",
+          "content_type": "text/html; charset=UTF-8",
+          "location": null
+        }
+      ]
+    },
+    "https://frieren.fandom.com/api.php": {
+      "host": "frieren.fandom.com",
+      "api": "https://frieren.fandom.com/api.php",
+      "pages": [],
+      "state": "blocked",
+      "reason": "frieren.fandom.com: HTTP 403",
+      "request_receipts": [
+        {
+          "url": "https://frieren.fandom.com/robots.txt",
+          "status": 403,
+          "time": "2026-10-10T05:31:16.969270+00:00",
+          "started": "2026-10-10T05:31:16.769337+00:00",
+          "bytes": 5588,
+          "sha256": "8adf1c944d826a6436288efc1a58ac02b0532cda44a7ce87ddd201e9a4fb6d40",
+          "content_type": "text/html; charset=UTF-8",
+          "location": null
+        }
+      ]
+    },
+    "https://mob-psycho-100.fandom.com/api.php": {
+      "host": "mob-psycho-100.fandom.com",
+      "api": "https://mob-psycho-100.fandom.com/api.php",
+      "pages": [],
+      "state": "blocked",
+      "reason": "mob-psycho-100.fandom.com: HTTP 403",
+      "request_receipts": [
+        {
+          "url": "https://mob-psycho-100.fandom.com/robots.txt",
+          "status": 403,
+          "time": "2026-10-10T05:31:17.112169+00:00",
+          "started": "2026-10-10T05:31:16.971927+00:00",
+          "bytes": 5616,
+          "sha256": "e93c9828a974d8a12c44fe2d08032c55c9cc6299e84f10336b470fea95ca40a0",
+          "content_type": "text/html; charset=UTF-8",
+          "location": null
+        }
+      ]
+    },
+    "https://kimetsu-no-yaiba.fandom.com/api.php": {
+      "host": "kimetsu-no-yaiba.fandom.com",
+      "api": "https://kimetsu-no-yaiba.fandom.com/api.php",
+      "pages": [],
+      "state": "blocked",
+      "reason": "kimetsu-no-yaiba.fandom.com: HTTP 403",
+      "request_receipts": [
+        {
+          "url": "https://kimetsu-no-yaiba.fandom.com/robots.txt",
+          "status": 403,
+          "time": "2026-10-10T05:31:17.262989+00:00",
+          "started": "2026-10-10T05:31:17.116036+00:00",
+          "bytes": 5618,
+          "sha256": "4bcc1abe483118621feb1bdd23980b14233cda31a736feafe5b80a4a8c38e578",
+          "content_type": "text/html; charset=UTF-8",
+          "location": null
+        }
+      ]
+    },
+    "https://blackclover.fandom.com/api.php": {
+      "host": "blackclover.fandom.com",
+      "api": "https://blackclover.fandom.com/api.php",
+      "pages": [],
+      "state": "blocked",
+      "reason": "blackclover.fandom.com: HTTP 403",
+      "request_receipts": [
+        {
+          "url": "https://blackclover.fandom.com/robots.txt",
+          "status": 403,
+          "time": "2026-10-10T05:31:17.374423+00:00",
+          "started": "2026-10-10T05:31:17.265082+00:00",
+          "bytes": 5613,
+          "sha256": "ef8ec25544dbd0c0e6684704012d442a61b57f079e58468d3dad53a1e8043da4",
+          "content_type": "text/html; charset=UTF-8",
+          "location": null
+        }
+      ]
+    },
+    "https://en.wikipedia.org/w/api.php": {
+      "host": "en.wikipedia.org",
+      "api": "https://en.wikipedia.org/w/api.php",
+      "pages": [],
+      "state": "blocked",
+      "reason": "en.wikipedia.org: robots disallow (YAIRPG-wiki-research/1.0 (personal research; AI-assisted; no login))",
+      "request_receipts": [
+        {
+          "url": "https://en.wikipedia.org/robots.txt",
+          "status": 200,
+          "time": "2026-10-10T05:31:17.553281+00:00",
+          "started": "2026-10-10T05:31:17.376551+00:00",
+          "bytes": 28275,
+          "sha256": "48b98d80c8444d37cdf50cc9a4d2257b66039477e581066d2356062a4cbd678f",
+          "content_type": "text/plain; charset=utf-8",
+          "location": null
+        }
+      ]
+    },
+    "https://dandadan.fandom.com/api.php": {
+      "host": "dandadan.fandom.com",
+      "api": "https://dandadan.fandom.com/api.php",
+      "pages": [],
+      "state": "blocked",
+      "reason": "dandadan.fandom.com: HTTP 403",
+      "request_receipts": [
+        {
+          "url": "https://dandadan.fandom.com/robots.txt",
+          "status": 403,
+          "time": "2026-10-10T05:31:17.697259+00:00",
+          "started": "2026-10-10T05:31:17.559579+00:00",
+          "bytes": 5589,
+          "sha256": "e8712a2cf6af59ad9bca04e0343bcbe84fc3519380e0ad6e9ce01af484226355",
+          "content_type": "text/html; charset=UTF-8",
+          "location": null
+        }
+      ]
+    },
+    "https://kagurabachi.fandom.com/api.php": {
+      "host": "kagurabachi.fandom.com",
+      "api": "https://kagurabachi.fandom.com/api.php",
+      "pages": [],
+      "state": "blocked",
+      "reason": "kagurabachi.fandom.com: HTTP 403",
+      "request_receipts": [
+        {
+          "url": "https://kagurabachi.fandom.com/robots.txt",
+          "status": 403,
+          "time": "2026-10-10T05:31:17.841800+00:00",
+          "started": "2026-10-10T05:31:17.699666+00:00",
+          "bytes": 5613,
+          "sha256": "6b9d3ffadac723a506f6fb86ac935c6a4caca2c6601d70f9e00c50cb54e3e7ba",
+          "content_type": "text/html; charset=UTF-8",
+          "location": null
+        }
+      ]
+    },
+    "https://fire-force.fandom.com/api.php": {
+      "host": "fire-force.fandom.com",
+      "api": "https://fire-force.fandom.com/api.php",
+      "pages": [],
+      "state": "blocked",
+      "reason": "fire-force.fandom.com: HTTP 403",
+      "request_receipts": [
+        {
+          "url": "https://fire-force.fandom.com/robots.txt",
+          "status": 403,
+          "time": "2026-10-10T05:31:18.043682+00:00",
+          "started": "2026-10-10T05:31:17.843795+00:00",
+          "bytes": 5591,
+          "sha256": "95fd8005811a033b81ce3a4b41e596cae2da5b31b921fcd972ed909f16fedad2",
+          "content_type": "text/html; charset=UTF-8",
+          "location": null
+        }
+      ]
+    },
+    "https://worldtrigger.fandom.com/api.php": {
+      "host": "worldtrigger.fandom.com",
+      "api": "https://worldtrigger.fandom.com/api.php",
+      "pages": [],
+      "state": "blocked",
+      "reason": "worldtrigger.fandom.com: HTTP 403",
+      "request_receipts": [
+        {
+          "url": "https://worldtrigger.fandom.com/robots.txt",
+          "status": 403,
+          "time": "2026-10-10T05:31:18.190235+00:00",
+          "started": "2026-10-10T05:31:18.045842+00:00",
+          "bytes": 5614,
+          "sha256": "7a2e7e041f7893140894896c429dc405974740393adb39e9f58e804b239fdadb",
+          "content_type": "text/html; charset=UTF-8",
+          "location": null
+        }
+      ]
+    },
+    "https://kaiju-no-8.fandom.com/api.php": {
+      "host": "kaiju-no-8.fandom.com",
+      "api": "https://kaiju-no-8.fandom.com/api.php",
+      "pages": [],
+      "state": "blocked",
+      "reason": "kaiju-no-8.fandom.com: HTTP 403",
+      "request_receipts": [
+        {
+          "url": "https://kaiju-no-8.fandom.com/robots.txt",
+          "status": 403,
+          "time": "2026-10-10T05:31:18.331552+00:00",
+          "started": "2026-10-10T05:31:18.192344+00:00",
+          "bytes": 5591,
+          "sha256": "6f694d68e1e80f6a2d8313eae4016a044f965f3e76dfe1537720121b75fdbb08",
+          "content_type": "text/html; charset=UTF-8",
+          "location": null
+        }
+      ]
+    },
+    "https://typemoon.fandom.com/api.php": {
+      "host": "typemoon.fandom.com",
+      "api": "https://typemoon.fandom.com/api.php",
+      "pages": [],
+      "state": "blocked",
+      "reason": "typemoon.fandom.com: HTTP 403",
+      "request_receipts": [
+        {
+          "url": "https://typemoon.fandom.com/robots.txt",
+          "status": 403,
+          "time": "2026-10-10T05:31:18.543805+00:00",
+          "started": "2026-10-10T05:31:18.333621+00:00",
+          "bytes": 5589,
+          "sha256": "461553d41ee141350d0703d1447fd7d57655421078694c6a0bc50c22eda0e97b",
+          "content_type": "text/html; charset=UTF-8",
+          "location": null
+        }
+      ]
+    },
+    "https://reverend-insanity.fandom.com/api.php": {
+      "host": "reverend-insanity.fandom.com",
+      "api": "https://reverend-insanity.fandom.com/api.php",
+      "pages": [],
+      "state": "blocked",
+      "reason": "reverend-insanity.fandom.com: HTTP 403",
+      "request_receipts": [
+        {
+          "url": "https://reverend-insanity.fandom.com/robots.txt",
+          "status": 403,
+          "time": "2026-10-10T05:31:18.685832+00:00",
+          "started": "2026-10-10T05:31:18.547612+00:00",
+          "bytes": 5619,
+          "sha256": "d46c27f31ed3c09113eb3ff38f4c19bd3cd80debad642b1c8962ae497b423441",
+          "content_type": "text/html; charset=UTF-8",
+          "location": null
+        }
+      ]
+    },
+    "https://lordofthemysteries.fandom.com/api.php": {
+      "host": "lordofthemysteries.fandom.com",
+      "api": "https://lordofthemysteries.fandom.com/api.php",
+      "pages": [],
+      "state": "blocked",
+      "reason": "lordofthemysteries.fandom.com: HTTP 403",
+      "request_receipts": [
+        {
+          "url": "https://lordofthemysteries.fandom.com/robots.txt",
+          "status": 403,
+          "time": "2026-10-10T05:31:18.838207+00:00",
+          "started": "2026-10-10T05:31:18.688444+00:00",
+          "bytes": 5620,
+          "sha256": "f1b0164030a234e16457466aafef098842642eba5603723aa819f84cf3ab140b",
+          "content_type": "text/html; charset=UTF-8",
+          "location": null
+        }
+      ]
+    },
+    "https://omniscient-readers-viewpoint.fandom.com/api.php": {
+      "host": "omniscient-readers-viewpoint.fandom.com",
+      "api": "https://omniscient-readers-viewpoint.fandom.com/api.php",
+      "pages": [],
+      "state": "blocked",
+      "reason": "omniscient-readers-viewpoint.fandom.com: HTTP 403",
+      "request_receipts": [
+        {
+          "url": "https://omniscient-readers-viewpoint.fandom.com/robots.txt",
+          "status": 403,
+          "time": "2026-10-10T05:31:18.978420+00:00",
+          "started": "2026-10-10T05:31:18.841512+00:00",
+          "bytes": 5651,
+          "sha256": "056a51ccb5b6220a435f4ff737edcbad218533e770736e13fa230b0623e5fe40",
+          "content_type": "text/html; charset=UTF-8",
+          "location": null
+        }
+      ]
+    },
+    "https://towerofgod.fandom.com/api.php": {
+      "host": "towerofgod.fandom.com",
+      "api": "https://towerofgod.fandom.com/api.php",
+      "pages": [],
+      "state": "blocked",
+      "reason": "towerofgod.fandom.com: HTTP 403",
+      "request_receipts": [
+        {
+          "url": "https://towerofgod.fandom.com/robots.txt",
+          "status": 403,
+          "time": "2026-10-10T05:31:19.189456+00:00",
+          "started": "2026-10-10T05:31:18.980432+00:00",
+          "bytes": 5591,
+          "sha256": "854143e19d010fc15d966b9a1310698c4d1a6f1ccfe6120c82174d86ee141dfb",
+          "content_type": "text/html; charset=UTF-8",
+          "location": null
+        }
+      ]
+    },
+    "https://solo-leveling.fandom.com/api.php": {
+      "host": "solo-leveling.fandom.com",
+      "api": "https://solo-leveling.fandom.com/api.php",
+      "pages": [],
+      "state": "blocked",
+      "reason": "solo-leveling.fandom.com: HTTP 403",
+      "request_receipts": [
+        {
+          "url": "https://solo-leveling.fandom.com/robots.txt",
+          "status": 403,
+          "time": "2026-10-10T05:31:19.330467+00:00",
+          "started": "2026-10-10T05:31:19.191746+00:00",
+          "bytes": 5615,
+          "sha256": "c849c99af7af780c2950647957e82d7da3d88105e2b2cdae095770185d271833",
+          "content_type": "text/html; charset=UTF-8",
+          "location": null
+        }
+      ]
+    },
+    "https://the-second-coming-of-gluttony.fandom.com/api.php": {
+      "host": "the-second-coming-of-gluttony.fandom.com",
+      "api": "https://the-second-coming-of-gluttony.fandom.com/api.php",
+      "pages": [],
+      "state": "blocked",
+      "reason": "the-second-coming-of-gluttony.fandom.com: HTTP 403",
+      "request_receipts": [
+        {
+          "url": "https://the-second-coming-of-gluttony.fandom.com/robots.txt",
+          "status": 403,
+          "time": "2026-10-10T05:31:19.472674+00:00",
+          "started": "2026-10-10T05:31:19.332730+00:00",
+          "bytes": 5652,
+          "sha256": "ccee635f20f8636d721bbb70a30b8e125f059f7e1287d52464285ce2b138e571",
+          "content_type": "text/html; charset=UTF-8",
+          "location": null
+        }
+      ]
+    },
+    "https://lout-of-counts-family.fandom.com/api.php": {
+      "host": "lout-of-counts-family.fandom.com",
+      "api": "https://lout-of-counts-family.fandom.com/api.php",
+      "pages": [],
+      "state": "blocked",
+      "reason": "lout-of-counts-family.fandom.com: HTTP 403",
+      "request_receipts": [
+        {
+          "url": "https://lout-of-counts-family.fandom.com/robots.txt",
+          "status": 403,
+          "time": "2026-10-10T05:31:19.686728+00:00",
+          "started": "2026-10-10T05:31:19.475326+00:00",
+          "bytes": 5644,
+          "sha256": "975c886c0134362afeec5da3b9365eb9aa7a59a63e50eead81c6d4c6464f4abc",
+          "content_type": "text/html; charset=UTF-8",
+          "location": null
+        }
+      ]
+    },
+    "https://coiling-dragon.fandom.com/api.php": {
+      "host": "coiling-dragon.fandom.com",
+      "api": "https://coiling-dragon.fandom.com/api.php",
+      "pages": [],
+      "state": "blocked",
+      "reason": "coiling-dragon.fandom.com: HTTP 403",
+      "request_receipts": [
+        {
+          "url": "https://coiling-dragon.fandom.com/robots.txt",
+          "status": 403,
+          "time": "2026-10-10T05:31:19.831157+00:00",
+          "started": "2026-10-10T05:31:19.688933+00:00",
+          "bytes": 5616,
+          "sha256": "55170b9d763ad22335cdf36395c29a66fc70e34be98878322d91af183ed651bb",
+          "content_type": "text/html; charset=UTF-8",
+          "location": null
+        }
+      ]
+    },
+    "https://i-shall-seal-the-heavens.fandom.com/api.php": {
+      "host": "i-shall-seal-the-heavens.fandom.com",
+      "api": "https://i-shall-seal-the-heavens.fandom.com/api.php",
+      "pages": [],
+      "state": "blocked",
+      "reason": "i-shall-seal-the-heavens.fandom.com: HTTP 403",
+      "request_receipts": [
+        {
+          "url": "https://i-shall-seal-the-heavens.fandom.com/robots.txt",
+          "status": 403,
+          "time": "2026-10-10T05:31:19.974301+00:00",
+          "started": "2026-10-10T05:31:19.834580+00:00",
+          "bytes": 5647,
+          "sha256": "6243fe133557ea6012a7295f0963d5fa1c5da90ccb3756ed70459e1f1ac29773",
+          "content_type": "text/html; charset=UTF-8",
+          "location": null
+        }
+      ]
+    },
+    "https://renegade-immortal.fandom.com/api.php": {
+      "host": "renegade-immortal.fandom.com",
+      "api": "https://renegade-immortal.fandom.com/api.php",
+      "pages": [],
+      "state": "blocked",
+      "reason": "renegade-immortal.fandom.com: HTTP 403",
+      "request_receipts": [
+        {
+          "url": "https://renegade-immortal.fandom.com/robots.txt",
+          "status": 403,
+          "time": "2026-10-10T05:31:20.156980+00:00",
+          "started": "2026-10-10T05:31:19.976268+00:00",
+          "bytes": 5619,
+          "sha256": "e4d85fde7779ecdf6caee9d6bdaf9eae86bbdffa836312012cb9bcfa903b40c4",
+          "content_type": "text/html; charset=UTF-8",
+          "location": null
+        }
+      ]
+    },
+    "https://martial-peak-mp.fandom.com/api.php": {
+      "host": "martial-peak-mp.fandom.com",
+      "api": "https://martial-peak-mp.fandom.com/api.php",
+      "pages": [],
+      "state": "blocked",
+      "reason": "martial-peak-mp.fandom.com: HTTP 403",
+      "request_receipts": [
+        {
+          "url": "https://martial-peak-mp.fandom.com/robots.txt",
+          "status": 403,
+          "time": "2026-10-10T05:31:20.298848+00:00",
+          "started": "2026-10-10T05:31:20.159027+00:00",
+          "bytes": 5617,
+          "sha256": "daf90d73ae045f744c66dbf79feb104bb245670699009a22222b77068d545310",
+          "content_type": "text/html; charset=UTF-8",
+          "location": null
+        }
+      ]
+    },
+    "https://releasethatwitch.fandom.com/api.php": {
+      "host": "releasethatwitch.fandom.com",
+      "api": "https://releasethatwitch.fandom.com/api.php",
+      "pages": [],
+      "state": "blocked",
+      "reason": "releasethatwitch.fandom.com: HTTP 403",
+      "request_receipts": [
+        {
+          "url": "https://releasethatwitch.fandom.com/robots.txt",
+          "status": 403,
+          "time": "2026-10-10T05:31:20.440738+00:00",
+          "started": "2026-10-10T05:31:20.301166+00:00",
+          "bytes": 5618,
+          "sha256": "c23ef0f34311b71373b923dbe64e8aa324a80a5f4d6bf395689f5d4b4275b36e",
+          "content_type": "text/html; charset=UTF-8",
+          "location": null
+        }
+      ]
+    },
+    "https://tbate.fandom.com/api.php": {
+      "host": "tbate.fandom.com",
+      "api": "https://tbate.fandom.com/api.php",
+      "pages": [],
+      "state": "blocked",
+      "reason": "tbate.fandom.com: HTTP 403",
+      "request_receipts": [
+        {
+          "url": "https://tbate.fandom.com/robots.txt",
+          "status": 403,
+          "time": "2026-10-10T05:31:20.638772+00:00",
+          "started": "2026-10-10T05:31:20.443074+00:00",
+          "bytes": 5586,
+          "sha256": "65bcf2781837469ef12cb74c047e801f12584335abbff2a84c1627528cbd6ccb",
+          "content_type": "text/html; charset=UTF-8",
+          "location": null
+        }
+      ]
+    },
+    "https://overgeared.fandom.com/api.php": {
+      "host": "overgeared.fandom.com",
+      "api": "https://overgeared.fandom.com/api.php",
+      "pages": [],
+      "state": "blocked",
+      "reason": "overgeared.fandom.com: HTTP 403",
+      "request_receipts": [
+        {
+          "url": "https://overgeared.fandom.com/robots.txt",
+          "status": 403,
+          "time": "2026-10-10T05:31:20.779313+00:00",
+          "started": "2026-10-10T05:31:20.641025+00:00",
+          "bytes": 5591,
+          "sha256": "2a5b8772a8968b4762060308de6ce013136c9235ae9d5ea9ff788ddb86aea898",
+          "content_type": "text/html; charset=UTF-8",
+          "location": null
+        }
+      ]
+    },
+    "https://shadowslave.fandom.com/api.php": {
+      "host": "shadowslave.fandom.com",
+      "api": "https://shadowslave.fandom.com/api.php",
+      "pages": [],
+      "state": "blocked",
+      "reason": "shadowslave.fandom.com: HTTP 403",
+      "request_receipts": [
+        {
+          "url": "https://shadowslave.fandom.com/robots.txt",
+          "status": 403,
+          "time": "2026-10-10T05:31:20.923346+00:00",
+          "started": "2026-10-10T05:31:20.781751+00:00",
+          "bytes": 5613,
+          "sha256": "d4facfd315e38799e2c1cbd88dbc6448b6869b59af2dc98af5a7764cd201630b",
+          "content_type": "text/html; charset=UTF-8",
+          "location": null
+        }
+      ]
+    },
+    "https://mother-of-learning.fandom.com/api.php": {
+      "host": "mother-of-learning.fandom.com",
+      "api": "https://mother-of-learning.fandom.com/api.php",
+      "pages": [],
+      "state": "blocked",
+      "reason": "mother-of-learning.fandom.com: HTTP 403",
+      "request_receipts": [
+        {
+          "url": "https://mother-of-learning.fandom.com/robots.txt",
+          "status": 403,
+          "time": "2026-10-10T05:31:21.064940+00:00",
+          "started": "2026-10-10T05:31:20.926665+00:00",
+          "bytes": 5620,
+          "sha256": "487b1d7a44aae393c67bf514e3c449ec654de92eddfddaae154f5281649657dd",
+          "content_type": "text/html; charset=UTF-8",
+          "location": null
+        }
+      ]
+    },
+    "https://wiki.abidanarchive.com/api.php": {
+      "host": "wiki.abidanarchive.com",
+      "api": "https://wiki.abidanarchive.com/api.php",
+      "pages": [],
+      "state": "blocked",
+      "reason": "wiki.abidanarchive.com: redirect HTTP 301; not followed",
+      "request_receipts": [
+        {
+          "url": "https://wiki.abidanarchive.com/robots.txt",
+          "status": 301,
+          "time": "2026-10-10T05:31:23.859825+00:00",
+          "started": "2026-10-10T05:31:21.067618+00:00",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "content_type": "text/html; charset=utf-8",
+          "location": "https://wiki.abidanarchive.com/index.php/Welcome"
+        }
+      ]
+    },
+    "https://worm.fandom.com/api.php": {
+      "host": "worm.fandom.com",
+      "api": "https://worm.fandom.com/api.php",
+      "pages": [],
+      "state": "blocked",
+      "reason": "worm.fandom.com: HTTP 403",
+      "request_receipts": [
+        {
+          "url": "https://worm.fandom.com/robots.txt",
+          "status": 403,
+          "time": "2026-10-10T05:31:23.976217+00:00",
+          "started": "2026-10-10T05:31:23.862087+00:00",
+          "bytes": 5585,
+          "sha256": "b9f1464cdcfd6d7a46fcaae67e2d8f0a952475be2d7906b9ee598eaf412b63f5",
+          "content_type": "text/html; charset=UTF-8",
+          "location": null
+        }
+      ]
+    },
+    "https://coppermind.net/api.php": {
+      "host": "coppermind.net",
+      "api": "https://coppermind.net/api.php",
+      "pages": [],
+      "state": "blocked",
+      "reason": "coppermind.net: HTTP 403",
+      "request_receipts": [
+        {
+          "url": "https://coppermind.net/api.php?action=help&modules=query&format=json",
+          "status": 403,
+          "time": "2026-10-10T05:31:28.316329+00:00",
+          "started": "2026-10-10T05:31:28.234578+00:00",
+          "bytes": 5734,
+          "sha256": "3e3b6d0415eb6733eaed3003ab1d55a08b02b67bfe8e0a2a4bdfdd244e898092",
+          "content_type": "text/html; charset=UTF-8",
+          "location": null
+        },
+        {
+          "url": "https://coppermind.net/robots.txt",
+          "status": 200,
+          "time": "2026-10-10T05:31:24.103675+00:00",
+          "started": "2026-10-10T05:31:23.978536+00:00",
+          "bytes": 97,
+          "sha256": "d8de8a34c0e4bc3b5b6063d478cb09209f851ad8c5f8fb7f351a4829546726ce",
+          "content_type": "text/plain",
+          "location": null
+        }
+      ]
+    },
+    "https://es.wikipedia.org/w/api.php": {
+      "host": "es.wikipedia.org",
+      "api": "https://es.wikipedia.org/w/api.php",
+      "pages": [],
+      "state": "blocked",
+      "reason": "es.wikipedia.org: robots disallow (YAIRPG-wiki-research/1.0 (personal research; AI-assisted; no login))",
+      "request_receipts": [
+        {
+          "url": "https://es.wikipedia.org/robots.txt",
+          "status": 200,
+          "time": "2026-10-10T05:31:28.502679+00:00",
+          "started": "2026-10-10T05:31:28.318614+00:00",
+          "bytes": 19741,
+          "sha256": "5af808b5ebc7070bc95d19b1446b6a9beab79fa36ff024fe04a4cc334a75222e",
+          "content_type": "text/plain; charset=utf-8",
+          "location": null
+        }
+      ]
+    },
+    "https://dresdenfiles.fandom.com/api.php": {
+      "host": "dresdenfiles.fandom.com",
+      "api": "https://dresdenfiles.fandom.com/api.php",
+      "pages": [],
+      "state": "blocked",
+      "reason": "dresdenfiles.fandom.com: HTTP 403",
+      "request_receipts": [
+        {
+          "url": "https://dresdenfiles.fandom.com/robots.txt",
+          "status": 403,
+          "time": "2026-10-10T05:31:28.645818+00:00",
+          "started": "2026-10-10T05:31:28.507870+00:00",
+          "bytes": 5593,
+          "sha256": "eb97c32f5f0d90fccb00cab3d27f8b9ad2cd127b119a3e9235145437e57e26cb",
+          "content_type": "text/html; charset=UTF-8",
+          "location": null
+        }
+      ]
+    },
+    "https://abridged-guide-to-evil.fandom.com/api.php": {
+      "host": "abridged-guide-to-evil.fandom.com",
+      "api": "https://abridged-guide-to-evil.fandom.com/api.php",
+      "pages": [],
+      "state": "blocked",
+      "reason": "abridged-guide-to-evil.fandom.com: HTTP 403",
+      "request_receipts": [
+        {
+          "url": "https://abridged-guide-to-evil.fandom.com/robots.txt",
+          "status": 403,
+          "time": "2026-10-10T05:31:28.794677+00:00",
+          "started": "2026-10-10T05:31:28.649315+00:00",
+          "bytes": 5645,
+          "sha256": "77c643807a303b7be769247c701f4e901e01cc044bbed45966f6d5fa7837835e",
+          "content_type": "text/html; charset=UTF-8",
+          "location": null
+        }
+      ]
+    },
+    "https://wiki.wanderinginn.com/api.php": {
+      "host": "wiki.wanderinginn.com",
+      "api": "https://wiki.wanderinginn.com/api.php",
+      "pages": [
+        {
+          "requested_title": "Classes",
+          "title": "Classes",
+          "series": [
+            "The Wandering Inn"
+          ],
+          "url": "https://wiki.wanderinginn.com/Classes",
+          "revision_id": 128402,
+          "timestamp": "2026-09-17T18:45:39Z",
+          "sha256": "f1da131bcd2ec2c9af11affc47406a66a544082524030afae6c0f87d355cf78b",
+          "receipt": {
+            "url": "https://wiki.wanderinginn.com/api.php?action=query&prop=revisions&rvprop=ids%7Ctimestamp%7Ccontent&rvslots=main&titles=Classes&redirects=1&format=json&formatversion=2&maxlag=5",
+            "status": 200,
+            "time": "2026-10-10T05:32:13.720817+00:00",
+            "started": "2026-10-10T05:32:12.781754+00:00",
+            "bytes": 24274,
+            "sha256": "f1da131bcd2ec2c9af11affc47406a66a544082524030afae6c0f87d355cf78b",
+            "content_type": "application/json; charset=utf-8",
+            "location": null
+          },
+          "state": "acquired",
+          "revision_url": "https://wiki.wanderinginn.com/index.php?title=Classes&oldid=128402"
+        },
+        {
+          "requested_title": "System_messages",
+          "title": "System messages",
+          "series": [
+            "The Wandering Inn"
+          ],
+          "url": "https://wiki.wanderinginn.com/System_messages",
+          "revision_id": 101549,
+          "timestamp": "2025-02-06T00:39:18Z",
+          "sha256": "9808d7dd332181116d8342aba6b1957c9548cd4f88483bda7bf0348f53be5f14",
+          "receipt": {
+            "url": "https://wiki.wanderinginn.com/api.php?action=query&prop=revisions&rvprop=ids%7Ctimestamp%7Ccontent&rvslots=main&titles=System_messages&redirects=1&format=json&formatversion=2&maxlag=5",
+            "status": 200,
+            "time": "2026-10-10T05:32:18.422946+00:00",
+            "started": "2026-10-10T05:32:17.873630+00:00",
+            "bytes": 2740,
+            "sha256": "9808d7dd332181116d8342aba6b1957c9548cd4f88483bda7bf0348f53be5f14",
+            "content_type": "application/json; charset=utf-8",
+            "location": null
+          },
+          "state": "acquired",
+          "revision_url": "https://wiki.wanderinginn.com/index.php?title=System+messages&oldid=101549"
+        },
+        {
+          "requested_title": "Skills",
+          "title": "Skills",
+          "series": [
+            "The Wandering Inn"
+          ],
+          "url": "https://wiki.wanderinginn.com/Skills",
+          "revision_id": 128100,
+          "timestamp": "2026-09-07T12:49:33Z",
+          "sha256": "5e5e7e9a16958326f5ed5d3fb717c678ee8f3a27b100dd1bd0a343d0ea69c008",
+          "receipt": {
+            "url": "https://wiki.wanderinginn.com/api.php?action=query&prop=revisions&rvprop=ids%7Ctimestamp%7Ccontent&rvslots=main&titles=Skills&redirects=1&format=json&formatversion=2&maxlag=5",
+            "status": 200,
+            "time": "2026-10-10T05:32:41.488653+00:00",
+            "started": "2026-10-10T05:32:40.457463+00:00",
+            "bytes": 51575,
+            "sha256": "5e5e7e9a16958326f5ed5d3fb717c678ee8f3a27b100dd1bd0a343d0ea69c008",
+            "content_type": "application/json; charset=utf-8",
+            "location": null
+          },
+          "state": "acquired",
+          "revision_url": "https://wiki.wanderinginn.com/index.php?title=Skills&oldid=128100"
+        },
+        {
+          "requested_title": "Conditions",
+          "title": "Conditions",
+          "series": [
+            "The Wandering Inn"
+          ],
+          "url": "https://wiki.wanderinginn.com/Conditions",
+          "revision_id": 122477,
+          "timestamp": "2026-07-23T22:36:41Z",
+          "sha256": "d161fbae56dc4feaf0a37f8a41109ccc143e1297ec0fd580f8c759fa36ddc336",
+          "receipt": {
+            "url": "https://wiki.wanderinginn.com/api.php?action=query&prop=revisions&rvprop=ids%7Ctimestamp%7Ccontent&rvslots=main&titles=Conditions&redirects=1&format=json&formatversion=2&maxlag=5",
+            "status": 200,
+            "time": "2026-10-10T05:32:49.398501+00:00",
+            "started": "2026-10-10T05:32:48.683843+00:00",
+            "bytes": 11002,
+            "sha256": "d161fbae56dc4feaf0a37f8a41109ccc143e1297ec0fd580f8c759fa36ddc336",
+            "content_type": "application/json; charset=utf-8",
+            "location": null
+          },
+          "state": "acquired",
+          "revision_url": "https://wiki.wanderinginn.com/index.php?title=Conditions&oldid=122477"
+        },
+        {
+          "requested_title": "Aspects",
+          "title": "Aspects",
+          "series": [
+            "The Wandering Inn"
+          ],
+          "url": "https://wiki.wanderinginn.com/Aspects",
+          "revision_id": 121217,
+          "timestamp": "2026-06-21T13:11:21Z",
+          "sha256": "4bbe306824ddb7a8d8e5777ccce0f7081b30b4d2ffb4b96732a7502c6c5fea5e",
+          "receipt": {
+            "url": "https://wiki.wanderinginn.com/api.php?action=query&prop=revisions&rvprop=ids%7Ctimestamp%7Ccontent&rvslots=main&titles=Aspects&redirects=1&format=json&formatversion=2&maxlag=5",
+            "status": 200,
+            "time": "2026-10-10T05:32:57.635386+00:00",
+            "started": "2026-10-10T05:32:56.804156+00:00",
+            "bytes": 2812,
+            "sha256": "4bbe306824ddb7a8d8e5777ccce0f7081b30b4d2ffb4b96732a7502c6c5fea5e",
+            "content_type": "application/json; charset=utf-8",
+            "location": null
+          },
+          "state": "acquired",
+          "revision_url": "https://wiki.wanderinginn.com/index.php?title=Aspects&oldid=121217"
+        },
+        {
+          "requested_title": "Quests",
+          "title": "Quests",
+          "series": [
+            "The Wandering Inn"
+          ],
+          "url": "https://wiki.wanderinginn.com/Quests",
+          "revision_id": 128731,
+          "timestamp": "2026-10-09T22:31:20Z",
+          "sha256": "897dce7a84ee98c9e1cd186cb4a219345692366e787bdec11f0dba3140545a7b",
+          "receipt": {
+            "url": "https://wiki.wanderinginn.com/api.php?action=query&prop=revisions&rvprop=ids%7Ctimestamp%7Ccontent&rvslots=main&titles=Quests&redirects=1&format=json&formatversion=2&maxlag=5",
+            "status": 200,
+            "time": "2026-10-10T05:33:05.377732+00:00",
+            "started": "2026-10-10T05:33:04.950244+00:00",
+            "bytes": 27351,
+            "sha256": "897dce7a84ee98c9e1cd186cb4a219345692366e787bdec11f0dba3140545a7b",
+            "content_type": "application/json; charset=utf-8",
+            "location": null
+          },
+          "state": "acquired",
+          "revision_url": "https://wiki.wanderinginn.com/index.php?title=Quests&oldid=128731"
+        },
+        {
+          "requested_title": "Grand_Design_of_Isthekenous",
+          "title": "Grand Design of Isthekenous",
+          "series": [
+            "The Wandering Inn"
+          ],
+          "url": "https://wiki.wanderinginn.com/Grand_Design_of_Isthekenous",
+          "revision_id": 128387,
+          "timestamp": "2026-09-17T12:14:05Z",
+          "sha256": "3b7199a2973431a65911ef84f1e14cf5bab559e2c0e052e07cf68844c4315e41",
+          "receipt": {
+            "url": "https://wiki.wanderinginn.com/api.php?action=query&prop=revisions&rvprop=ids%7Ctimestamp%7Ccontent&rvslots=main&titles=Grand_Design_of_Isthekenous&redirects=1&format=json&formatversion=2&maxlag=5",
+            "status": 200,
+            "time": "2026-10-10T05:33:12.738300+00:00",
+            "started": "2026-10-10T05:33:10.946018+00:00",
+            "bytes": 25043,
+            "sha256": "3b7199a2973431a65911ef84f1e14cf5bab559e2c0e052e07cf68844c4315e41",
+            "content_type": "application/json; charset=utf-8",
+            "location": null
+          },
+          "state": "acquired",
+          "revision_url": "https://wiki.wanderinginn.com/index.php?title=Grand+Design+of+Isthekenous&oldid=128387"
+        },
+        {
+          "requested_title": "Trials_of_Levelling",
+          "title": "Trials of Levelling",
+          "series": [
+            "The Wandering Inn"
+          ],
+          "url": "https://wiki.wanderinginn.com/Trials_of_Levelling",
+          "revision_id": 117469,
+          "timestamp": "2026-03-01T00:57:14Z",
+          "sha256": "8efc46853dd81ed4295b4cfae77376de9cbb475547123ddcf6625dbb90b4b52c",
+          "receipt": {
+            "url": "https://wiki.wanderinginn.com/api.php?action=query&prop=revisions&rvprop=ids%7Ctimestamp%7Ccontent&rvslots=main&titles=Trials_of_Levelling&redirects=1&format=json&formatversion=2&maxlag=5",
+            "status": 200,
+            "time": "2026-10-10T05:33:19.446761+00:00",
+            "started": "2026-10-10T05:33:18.891882+00:00",
+            "bytes": 6904,
+            "sha256": "8efc46853dd81ed4295b4cfae77376de9cbb475547123ddcf6625dbb90b4b52c",
+            "content_type": "application/json; charset=utf-8",
+            "location": null
+          },
+          "state": "acquired",
+          "revision_url": "https://wiki.wanderinginn.com/index.php?title=Trials+of+Levelling&oldid=117469"
+        },
+        {
+          "requested_title": "Horror_Ranks",
+          "title": "Horror Ranks",
+          "series": [
+            "The Wandering Inn"
+          ],
+          "url": "https://wiki.wanderinginn.com/Horror_Ranks",
+          "revision_id": 105597,
+          "timestamp": "2025-06-30T09:36:28Z",
+          "sha256": "b57eb71a6ed3ab662a115d4d44834838c902db1e902f2e77c75ca71c780318e1",
+          "receipt": {
+            "url": "https://wiki.wanderinginn.com/api.php?action=query&prop=revisions&rvprop=ids%7Ctimestamp%7Ccontent&rvslots=main&titles=Horror_Ranks&redirects=1&format=json&formatversion=2&maxlag=5",
+            "status": 200,
+            "time": "2026-10-10T05:33:26.080906+00:00",
+            "started": "2026-10-10T05:33:25.511502+00:00",
+            "bytes": 3058,
+            "sha256": "b57eb71a6ed3ab662a115d4d44834838c902db1e902f2e77c75ca71c780318e1",
+            "content_type": "application/json; charset=utf-8",
+            "location": null
+          },
+          "state": "acquired",
+          "revision_url": "https://wiki.wanderinginn.com/index.php?title=Horror+Ranks&oldid=105597"
+        },
+        {
+          "requested_title": "Artifacts",
+          "title": "Artifacts",
+          "series": [
+            "The Wandering Inn"
+          ],
+          "url": "https://wiki.wanderinginn.com/Artifacts",
+          "revision_id": 125944,
+          "timestamp": "2026-08-30T18:06:54Z",
+          "sha256": "cd1b63ec7ff46300da131191b38f1dba6ee229422837f2e976b09f1a0b768d3e",
+          "receipt": {
+            "url": "https://wiki.wanderinginn.com/api.php?action=query&prop=revisions&rvprop=ids%7Ctimestamp%7Ccontent&rvslots=main&titles=Artifacts&redirects=1&format=json&formatversion=2&maxlag=5",
+            "status": 200,
+            "time": "2026-10-10T05:33:32.501910+00:00",
+            "started": "2026-10-10T05:33:31.804474+00:00",
+            "bytes": 13817,
+            "sha256": "cd1b63ec7ff46300da131191b38f1dba6ee229422837f2e976b09f1a0b768d3e",
+            "content_type": "application/json; charset=utf-8",
+            "location": null
+          },
+          "state": "acquired",
+          "revision_url": "https://wiki.wanderinginn.com/index.php?title=Artifacts&oldid=125944"
+        },
+        {
+          "requested_title": "Magic",
+          "title": "Magic",
+          "series": [
+            "The Wandering Inn"
+          ],
+          "url": "https://wiki.wanderinginn.com/Magic",
+          "revision_id": 128694,
+          "timestamp": "2026-10-08T17:09:34Z",
+          "sha256": "ab66ec96f01aaee527605d66cedf7d5d4f49aaf19868ec6b295dae5cca988ab4",
+          "receipt": {
+            "url": "https://wiki.wanderinginn.com/api.php?action=query&prop=revisions&rvprop=ids%7Ctimestamp%7Ccontent&rvslots=main&titles=Magic&redirects=1&format=json&formatversion=2&maxlag=5",
+            "status": 200,
+            "time": "2026-10-10T05:33:39.215754+00:00",
+            "started": "2026-10-10T05:33:38.553538+00:00",
+            "bytes": 4884,
+            "sha256": "ab66ec96f01aaee527605d66cedf7d5d4f49aaf19868ec6b295dae5cca988ab4",
+            "content_type": "application/json; charset=utf-8",
+            "location": null
+          },
+          "state": "acquired",
+          "revision_url": "https://wiki.wanderinginn.com/index.php?title=Magic&oldid=128694"
+        }
+      ],
+      "state": "complete",
+      "local_error": "Initial code wrongly assumed action=help returns JSON; read cached API help HTML, without refetch.",
+      "api_help_review": {
+        "title": "MediaWiki API help - The Wandering Inn Wiki",
+        "maxlag_documented": false,
+        "rate_terms_present": false,
+        "note": "action=help defaults to HTML even with format=json; API documentation only, not article scraping."
+      },
+      "guidance": {
+        "url": "https://wiki.wanderinginn.com/api.php?action=help&modules=query&format=json",
+        "receipt": {
+          "url": "https://wiki.wanderinginn.com/api.php?action=help&modules=query&format=json",
+          "status": 200,
+          "time": "2026-10-10T05:31:36.574702+00:00",
+          "started": "2026-10-10T05:31:35.299983+00:00",
+          "bytes": 45964,
+          "sha256": "e1cd34d63abdbcaaf3aed43cca23316edbb5119a0960a0a2bd2ac1affa517496",
+          "content_type": "text/html; charset=utf-8",
+          "location": null
+        },
+        "keys": [
+          "mediawiki_help_html"
+        ],
+        "note": "API help reviewed; transport obeys robots crawl delay/rate; maxlag=5; serial 4-8 second gaps."
+      },
+      "siteinfo": {
+        "url": "https://wiki.wanderinginn.com/api.php?action=query&meta=siteinfo&siprop=general%7Crightsinfo&format=json&maxlag=5",
+        "receipt": {
+          "url": "https://wiki.wanderinginn.com/api.php?action=query&meta=siteinfo&siprop=general%7Crightsinfo&format=json&maxlag=5",
+          "status": 200,
+          "time": "2026-10-10T05:36:25.471874+00:00",
+          "started": "2026-10-10T05:36:24.698117+00:00",
+          "bytes": 2565,
+          "sha256": "be1034c8c6eb63874143daf2ba064055438a084706e921087ed8ba230e8fb07f",
+          "content_type": "application/json; charset=utf-8",
+          "location": null
+        },
+        "data": {
+          "general": {
+            "mainpage": "The Wandering Inn Wiki",
+            "base": "https://wiki.wanderinginn.com/The_Wandering_Inn_Wiki",
+            "sitename": "The Wandering Inn Wiki",
+            "logo": "https://wiki.wanderinginn.com/resources/assets/the wandering inn wiki logo.svg",
+            "generator": "MediaWiki 1.43.10",
+            "phpversion": "8.5.4",
+            "phpsapi": "fpm-fcgi",
+            "dbtype": "mysql",
+            "dbversion": "8.4.11-0ubuntu0.26.04.1",
+            "langconversion": "",
+            "linkconversion": "",
+            "titleconversion": "",
+            "linkprefixcharset": "",
+            "linkprefix": "",
+            "linktrail": "/^([a-z]+)(.*)$/sD",
+            "legaltitlechars": " %!\"$&'()*,\\-.\\/0-9:;=?@A-Z\\\\^_`a-z~\\x80-\\xFF+",
+            "invalidusernamechars": "@:>=",
+            "fixarabicunicode": "",
+            "fixmalayalamunicode": "",
+            "case": "first-letter",
+            "lang": "en",
+            "fallback": [],
+            "fallback8bitEncoding": "windows-1252",
+            "writeapi": "",
+            "maxarticlesize": 2097152,
+            "timezone": "Europe/Berlin",
+            "timeoffset": 120,
+            "articlepath": "/$1",
+            "scriptpath": "",
+            "script": "/index.php",
+            "variantarticlepath": false,
+            "server": "https://wiki.wanderinginn.com",
+            "servername": "wiki.wanderinginn.com",
+            "wikiid": "wanderinginn_wiki",
+            "time": "2026-10-10T05:36:25Z",
+            "misermode": "",
+            "uploadsenabled": "",
+            "maxuploadsize": 104857600,
+            "minuploadchunksize": 1024,
+            "galleryoptions": {
+              "imagesPerRow": 0,
+              "imageWidth": 240,
+              "imageHeight": 240,
+              "captionLength": "",
+              "showBytes": "",
+              "mode": "nolines",
+              "showDimensions": ""
+            },
+            "thumblimits": [
+              120,
+              150,
+              180,
+              200,
+              250,
+              300
+            ],
+            "imagelimits": [
+              {
+                "width": 320,
+                "height": 240
+              },
+              {
+                "width": 640,
+                "height": 480
+              },
+              {
+                "width": 800,
+                "height": 600
+              },
+              {
+                "width": 1024,
+                "height": 768
+              },
+              {
+                "width": 1280,
+                "height": 1024
+              },
+              {
+                "width": 2560,
+                "height": 2048
+              }
+            ],
+            "favicon": "https://wiki.wanderinginn.com/resources/assets/favicon.ico",
+            "centralidlookupprovider": "local",
+            "allcentralidlookupproviders": [
+              "local"
+            ],
+            "interwikimagic": "",
+            "magiclinks": [],
+            "categorycollation": "uppercase",
+            "nofollowlinks": "",
+            "nofollownsexceptions": [],
+            "nofollowdomainexceptions": [
+              "mediawiki.org"
+            ],
+            "externallinktarget": "_blank",
+            "citeresponsivereferences": "",
+            "linter": {
+              "high": [
+                "deletable-table-tag",
+                "duplicate-ids",
+                "html5-misnesting",
+                "misc-tidy-replacement-issues",
+                "multiline-html-table-in-list",
+                "multiple-unclosed-formatting-tags",
+                "pwrap-bug-workaround",
+                "self-closed-tag",
+                "tidy-font-bug",
+                "tidy-whitespace-bug",
+                "unclosed-quotes-in-heading"
+              ],
+              "medium": [
+                "bogus-image-options",
+                "fostered",
+                "misnested-tag",
+                "multi-colon-escape",
+                "wikilink-in-extlink"
+              ],
+              "low": [
+                "missing-end-tag",
+                "missing-end-tag-in-heading",
+                "night-mode-unaware-background-color",
+                "obsolete-tag",
+                "stripped-tag"
+              ]
+            },
+            "max-page-id": 16959
+          },
+          "rightsinfo": {
+            "url": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+            "text": "Creative Commons attribution – non commercial – share alike"
+          }
+        }
+      },
+      "request_receipts": [
+        {
+          "url": "https://wiki.wanderinginn.com/api.php?action=query&prop=revisions&rvprop=ids%7Ctimestamp%7Ccontent&rvslots=main&titles=Conditions&redirects=1&format=json&formatversion=2&maxlag=5",
+          "status": 200,
+          "time": "2026-10-10T05:32:49.398501+00:00",
+          "started": "2026-10-10T05:32:48.683843+00:00",
+          "bytes": 11002,
+          "sha256": "d161fbae56dc4feaf0a37f8a41109ccc143e1297ec0fd580f8c759fa36ddc336",
+          "content_type": "application/json; charset=utf-8",
+          "location": null
+        },
+        {
+          "url": "https://wiki.wanderinginn.com/api.php?action=query&prop=revisions&rvprop=ids%7Ctimestamp%7Ccontent&rvslots=main&titles=Aspects&redirects=1&format=json&formatversion=2&maxlag=5",
+          "status": 200,
+          "time": "2026-10-10T05:32:57.635386+00:00",
+          "started": "2026-10-10T05:32:56.804156+00:00",
+          "bytes": 2812,
+          "sha256": "4bbe306824ddb7a8d8e5777ccce0f7081b30b4d2ffb4b96732a7502c6c5fea5e",
+          "content_type": "application/json; charset=utf-8",
+          "location": null
+        },
+        {
+          "url": "https://wiki.wanderinginn.com/api.php?action=query&prop=revisions&rvprop=ids%7Ctimestamp%7Ccontent&rvslots=main&titles=Quests&redirects=1&format=json&formatversion=2&maxlag=5",
+          "status": 200,
+          "time": "2026-10-10T05:33:05.377732+00:00",
+          "started": "2026-10-10T05:33:04.950244+00:00",
+          "bytes": 27351,
+          "sha256": "897dce7a84ee98c9e1cd186cb4a219345692366e787bdec11f0dba3140545a7b",
+          "content_type": "application/json; charset=utf-8",
+          "location": null
+        },
+        {
+          "url": "https://wiki.wanderinginn.com/api.php?action=query&prop=revisions&rvprop=ids%7Ctimestamp%7Ccontent&rvslots=main&titles=System_messages&redirects=1&format=json&formatversion=2&maxlag=5",
+          "status": 200,
+          "time": "2026-10-10T05:32:18.422946+00:00",
+          "started": "2026-10-10T05:32:17.873630+00:00",
+          "bytes": 2740,
+          "sha256": "9808d7dd332181116d8342aba6b1957c9548cd4f88483bda7bf0348f53be5f14",
+          "content_type": "application/json; charset=utf-8",
+          "location": null
+        },
+        {
+          "url": "https://wiki.wanderinginn.com/api.php?action=help&modules=query&format=json",
+          "status": 200,
+          "time": "2026-10-10T05:31:36.574702+00:00",
+          "started": "2026-10-10T05:31:35.299983+00:00",
+          "bytes": 45964,
+          "sha256": "e1cd34d63abdbcaaf3aed43cca23316edbb5119a0960a0a2bd2ac1affa517496",
+          "content_type": "text/html; charset=utf-8",
+          "location": null
+        },
+        {
+          "url": "https://wiki.wanderinginn.com/api.php?action=query&prop=revisions&rvprop=ids%7Ctimestamp%7Ccontent&rvslots=main&titles=Artifacts&redirects=1&format=json&formatversion=2&maxlag=5",
+          "status": 200,
+          "time": "2026-10-10T05:33:32.501910+00:00",
+          "started": "2026-10-10T05:33:31.804474+00:00",
+          "bytes": 13817,
+          "sha256": "cd1b63ec7ff46300da131191b38f1dba6ee229422837f2e976b09f1a0b768d3e",
+          "content_type": "application/json; charset=utf-8",
+          "location": null
+        },
+        {
+          "url": "https://wiki.wanderinginn.com/api.php?action=query&meta=siteinfo&siprop=general%7Crightsinfo&format=json&maxlag=5",
+          "status": 200,
+          "time": "2026-10-10T05:36:25.471874+00:00",
+          "started": "2026-10-10T05:36:24.698117+00:00",
+          "bytes": 2565,
+          "sha256": "be1034c8c6eb63874143daf2ba064055438a084706e921087ed8ba230e8fb07f",
+          "content_type": "application/json; charset=utf-8",
+          "location": null
+        },
+        {
+          "url": "https://wiki.wanderinginn.com/api.php?action=query&prop=revisions&rvprop=ids%7Ctimestamp%7Ccontent&rvslots=main&titles=Grand_Design_of_Isthekenous&redirects=1&format=json&formatversion=2&maxlag=5",
+          "status": 200,
+          "time": "2026-10-10T05:33:12.738300+00:00",
+          "started": "2026-10-10T05:33:10.946018+00:00",
+          "bytes": 25043,
+          "sha256": "3b7199a2973431a65911ef84f1e14cf5bab559e2c0e052e07cf68844c4315e41",
+          "content_type": "application/json; charset=utf-8",
+          "location": null
+        },
+        {
+          "url": "https://wiki.wanderinginn.com/api.php?action=query&prop=revisions&rvprop=ids%7Ctimestamp%7Ccontent&rvslots=main&titles=Trials_of_Levelling&redirects=1&format=json&formatversion=2&maxlag=5",
+          "status": 200,
+          "time": "2026-10-10T05:33:19.446761+00:00",
+          "started": "2026-10-10T05:33:18.891882+00:00",
+          "bytes": 6904,
+          "sha256": "8efc46853dd81ed4295b4cfae77376de9cbb475547123ddcf6625dbb90b4b52c",
+          "content_type": "application/json; charset=utf-8",
+          "location": null
+        },
+        {
+          "url": "https://wiki.wanderinginn.com/api.php?action=query&prop=revisions&rvprop=ids%7Ctimestamp%7Ccontent&rvslots=main&titles=Horror_Ranks&redirects=1&format=json&formatversion=2&maxlag=5",
+          "status": 200,
+          "time": "2026-10-10T05:33:26.080906+00:00",
+          "started": "2026-10-10T05:33:25.511502+00:00",
+          "bytes": 3058,
+          "sha256": "b57eb71a6ed3ab662a115d4d44834838c902db1e902f2e77c75ca71c780318e1",
+          "content_type": "application/json; charset=utf-8",
+          "location": null
+        },
+        {
+          "url": "https://wiki.wanderinginn.com/api.php?action=query&prop=revisions&rvprop=ids%7Ctimestamp%7Ccontent&rvslots=main&titles=Classes&redirects=1&format=json&formatversion=2&maxlag=5",
+          "status": 200,
+          "time": "2026-10-10T05:32:13.720817+00:00",
+          "started": "2026-10-10T05:32:12.781754+00:00",
+          "bytes": 24274,
+          "sha256": "f1da131bcd2ec2c9af11affc47406a66a544082524030afae6c0f87d355cf78b",
+          "content_type": "application/json; charset=utf-8",
+          "location": null
+        },
+        {
+          "url": "https://wiki.wanderinginn.com/api.php?action=query&prop=revisions&rvprop=ids%7Ctimestamp%7Ccontent&rvslots=main&titles=Skills&redirects=1&format=json&formatversion=2&maxlag=5",
+          "status": 200,
+          "time": "2026-10-10T05:32:41.488653+00:00",
+          "started": "2026-10-10T05:32:40.457463+00:00",
+          "bytes": 51575,
+          "sha256": "5e5e7e9a16958326f5ed5d3fb717c678ee8f3a27b100dd1bd0a343d0ea69c008",
+          "content_type": "application/json; charset=utf-8",
+          "location": null
+        },
+        {
+          "url": "https://wiki.wanderinginn.com/robots.txt",
+          "status": 200,
+          "time": "2026-10-10T05:31:28.945958+00:00",
+          "started": "2026-10-10T05:31:28.796841+00:00",
+          "bytes": 178,
+          "sha256": "abea4f699c7ec9638aca4222808a646326d62370f0aa50e08faaf892c507cd68",
+          "content_type": "text/plain",
+          "location": null
+        },
+        {
+          "url": "https://wiki.wanderinginn.com/api.php?action=query&prop=revisions&rvprop=ids%7Ctimestamp%7Ccontent&rvslots=main&titles=Magic&redirects=1&format=json&formatversion=2&maxlag=5",
+          "status": 200,
+          "time": "2026-10-10T05:33:39.215754+00:00",
+          "started": "2026-10-10T05:33:38.553538+00:00",
+          "bytes": 4884,
+          "sha256": "ab66ec96f01aaee527605d66cedf7d5d4f49aaf19868ec6b295dae5cca988ab4",
+          "content_type": "application/json; charset=utf-8",
+          "location": null
+        }
+      ]
+    },
+    "https://dungeon-crawler-carl.fandom.com/api.php": {
+      "host": "dungeon-crawler-carl.fandom.com",
+      "api": "https://dungeon-crawler-carl.fandom.com/api.php",
+      "pages": [],
+      "state": "blocked",
+      "reason": "dungeon-crawler-carl.fandom.com: HTTP 403",
+      "request_receipts": [
+        {
+          "url": "https://dungeon-crawler-carl.fandom.com/robots.txt",
+          "status": 403,
+          "time": "2026-10-10T05:31:36.736947+00:00",
+          "started": "2026-10-10T05:31:36.595381+00:00",
+          "bytes": 5643,
+          "sha256": "7fae1016e54a276c790fd4b611bcf68a6e41f16495878aec4dc98f828cb54900",
+          "content_type": "text/html; charset=UTF-8",
+          "location": null
+        }
+      ]
+    },
+    "https://he-who-fights-with-monsters.fandom.com/api.php": {
+      "host": "he-who-fights-with-monsters.fandom.com",
+      "api": "https://he-who-fights-with-monsters.fandom.com/api.php",
+      "pages": [],
+      "state": "blocked",
+      "reason": "he-who-fights-with-monsters.fandom.com: HTTP 403",
+      "request_receipts": [
+        {
+          "url": "https://he-who-fights-with-monsters.fandom.com/robots.txt",
+          "status": 403,
+          "time": "2026-10-10T05:31:36.933973+00:00",
+          "started": "2026-10-10T05:31:36.739246+00:00",
+          "bytes": 5650,
+          "sha256": "7cd0e3864caf0fa3b5548a73c091be9c252c64216467430829995a2c9f0265e4",
+          "content_type": "text/html; charset=UTF-8",
+          "location": null
+        }
+      ]
+    },
+    "https://marvel.fandom.com/api.php": {
+      "host": "marvel.fandom.com",
+      "api": "https://marvel.fandom.com/api.php",
+      "pages": [],
+      "state": "blocked",
+      "reason": "marvel.fandom.com: HTTP 403",
+      "request_receipts": [
+        {
+          "url": "https://marvel.fandom.com/robots.txt",
+          "status": 403,
+          "time": "2026-10-10T05:31:37.048561+00:00",
+          "started": "2026-10-10T05:31:36.936139+00:00",
+          "bytes": 5587,
+          "sha256": "435eb2aa89e645d6ca3b8ed660c862b4725932785bef7aaa4627a5de618b8567",
+          "content_type": "text/html; charset=UTF-8",
+          "location": null
+        }
+      ]
+    },
+    "https://dc.fandom.com/api.php": {
+      "host": "dc.fandom.com",
+      "api": "https://dc.fandom.com/api.php",
+      "pages": [],
+      "state": "blocked",
+      "reason": "dc.fandom.com: HTTP 403",
+      "request_receipts": [
+        {
+          "url": "https://dc.fandom.com/robots.txt",
+          "status": 403,
+          "time": "2026-10-10T05:31:37.165539+00:00",
+          "started": "2026-10-10T05:31:37.050779+00:00",
+          "bytes": 5562,
+          "sha256": "7b5671ec89b181e0e1890f5b39165bce7e093c6f6feb60435fba73bc9d66bc80",
+          "content_type": "text/html; charset=UTF-8",
+          "location": null
+        }
+      ]
+    },
+    "https://mtg.fandom.com/api.php": {
+      "host": "mtg.fandom.com",
+      "api": "https://mtg.fandom.com/api.php",
+      "pages": [],
+      "state": "blocked",
+      "reason": "mtg.fandom.com: HTTP 403",
+      "request_receipts": [
+        {
+          "url": "https://mtg.fandom.com/robots.txt",
+          "status": 403,
+          "time": "2026-10-10T05:31:37.278494+00:00",
+          "started": "2026-10-10T05:31:37.167739+00:00",
+          "bytes": 5563,
+          "sha256": "22a013d014cdfb679aef932991bdb835970764a090dd90bcd8ef53211a2beeb2",
+          "content_type": "text/html; charset=UTF-8",
+          "location": null
+        }
+      ]
+    },
+    "https://darksouls.fandom.com/api.php": {
+      "host": "darksouls.fandom.com",
+      "api": "https://darksouls.fandom.com/api.php",
+      "pages": [],
+      "state": "blocked",
+      "reason": "darksouls.fandom.com: HTTP 403",
+      "request_receipts": [
+        {
+          "url": "https://darksouls.fandom.com/robots.txt",
+          "status": 403,
+          "time": "2026-10-10T05:31:37.456601+00:00",
+          "started": "2026-10-10T05:31:37.280734+00:00",
+          "bytes": 5611,
+          "sha256": "446afc3e4292b65641e06339ebf03e5db3ae7a76276aa34b753a70ddfd91ebbc",
+          "content_type": "text/html; charset=UTF-8",
+          "location": null
+        }
+      ]
+    },
+    "https://eldenring.fandom.com/api.php": {
+      "host": "eldenring.fandom.com",
+      "api": "https://eldenring.fandom.com/api.php",
+      "pages": [],
+      "state": "blocked",
+      "reason": "eldenring.fandom.com: HTTP 403",
+      "request_receipts": [
+        {
+          "url": "https://eldenring.fandom.com/robots.txt",
+          "status": 403,
+          "time": "2026-10-10T05:31:37.597806+00:00",
+          "started": "2026-10-10T05:31:37.458877+00:00",
+          "bytes": 5590,
+          "sha256": "a28dd1b71a2155729a60a002231dc802146b8c4bd76b1c056d9a39f5c037abff",
+          "content_type": "text/html; charset=UTF-8",
+          "location": null
+        }
+      ]
+    },
+    "https://hades.fandom.com/api.php": {
+      "host": "hades.fandom.com",
+      "api": "https://hades.fandom.com/api.php",
+      "pages": [],
+      "state": "blocked",
+      "reason": "hades.fandom.com: HTTP 403",
+      "request_receipts": [
+        {
+          "url": "https://hades.fandom.com/robots.txt",
+          "status": 403,
+          "time": "2026-10-10T05:31:37.744041+00:00",
+          "started": "2026-10-10T05:31:37.599851+00:00",
+          "bytes": 5586,
+          "sha256": "d4a95763bed2963b617108832c3db7604a334617720920cd45176d3c8edb98b7",
+          "content_type": "text/html; charset=UTF-8",
+          "location": null
+        }
+      ]
+    },
+    "https://www.poewiki.net/api.php": {
+      "host": "www.poewiki.net",
+      "api": "https://www.poewiki.net/api.php",
+      "pages": [
+        {
+          "requested_title": "Support_gem",
+          "title": "Support gem",
+          "series": [
+            "Path of Exile 1 support gems"
+          ],
+          "url": "https://www.poewiki.net/wiki/Support_gem",
+          "revision_id": 1680417,
+          "timestamp": "2026-07-25T21:12:35Z",
+          "sha256": "58fcd6b679abfaa6a56c5d89cf4fc0736fca27bf934ee8804b7f281b9e737277",
+          "receipt": {
+            "url": "https://www.poewiki.net/api.php?action=query&prop=revisions&rvprop=ids%7Ctimestamp%7Ccontent&rvslots=main&titles=Support_gem&redirects=1&format=json&formatversion=2&maxlag=5",
+            "status": 200,
+            "time": "2026-10-10T05:32:18.729770+00:00",
+            "started": "2026-10-10T05:32:18.455818+00:00",
+            "bytes": 9692,
+            "sha256": "58fcd6b679abfaa6a56c5d89cf4fc0736fca27bf934ee8804b7f281b9e737277",
+            "content_type": "application/json; charset=utf-8",
+            "location": null
+          },
+          "state": "acquired",
+          "revision_url": "https://www.poewiki.net/index.php?title=Support+gem&oldid=1680417"
+        },
+        {
+          "requested_title": "Skill_gem",
+          "title": "Skill gem",
+          "series": [
+            "Path of Exile 1 support gems"
+          ],
+          "url": "https://www.poewiki.net/wiki/Skill_gem",
+          "revision_id": 1492929,
+          "timestamp": "2024-12-20T05:25:09Z",
+          "sha256": "e60322dc95140149a60aef972808ed1a0caca07694cbd1b9d3e9c76ea6e12900",
+          "receipt": {
+            "url": "https://www.poewiki.net/api.php?action=query&prop=revisions&rvprop=ids%7Ctimestamp%7Ccontent&rvslots=main&titles=Skill_gem&redirects=1&format=json&formatversion=2&maxlag=5",
+            "status": 200,
+            "time": "2026-10-10T05:33:39.448202+00:00",
+            "started": "2026-10-10T05:33:39.246978+00:00",
+            "bytes": 5649,
+            "sha256": "e60322dc95140149a60aef972808ed1a0caca07694cbd1b9d3e9c76ea6e12900",
+            "content_type": "application/json; charset=utf-8",
+            "location": null
+          },
+          "state": "acquired",
+          "revision_url": "https://www.poewiki.net/index.php?title=Skill+gem&oldid=1492929"
+        },
+        {
+          "requested_title": "Gem_tag",
+          "title": "Gem tag",
+          "series": [
+            "Path of Exile 1 support gems"
+          ],
+          "url": "https://www.poewiki.net/wiki/Gem_tag",
+          "revision_id": 1595540,
+          "timestamp": "2025-11-21T20:25:10Z",
+          "sha256": "50d21a14752c8212f55e8f0e32e9d0e077d44b60d10d0e38c824948e5c42fa3f",
+          "receipt": {
+            "url": "https://www.poewiki.net/api.php?action=query&prop=revisions&rvprop=ids%7Ctimestamp%7Ccontent&rvslots=main&titles=Gem_tag&redirects=1&format=json&formatversion=2&maxlag=5",
+            "status": 200,
+            "time": "2026-10-10T05:33:45.549017+00:00",
+            "started": "2026-10-10T05:33:45.277682+00:00",
+            "bytes": 12398,
+            "sha256": "50d21a14752c8212f55e8f0e32e9d0e077d44b60d10d0e38c824948e5c42fa3f",
+            "content_type": "application/json; charset=utf-8",
+            "location": null
+          },
+          "state": "acquired",
+          "revision_url": "https://www.poewiki.net/index.php?title=Gem+tag&oldid=1595540"
+        },
+        {
+          "requested_title": "Trigger",
+          "title": "Trigger",
+          "series": [
+            "Path of Exile 1 support gems"
+          ],
+          "url": "https://www.poewiki.net/wiki/Trigger",
+          "revision_id": 1702121,
+          "timestamp": "2026-08-27T15:59:03Z",
+          "sha256": "366514111203d98c6cfd84c50d8c386e62748a1978d9db2085d189514ea79509",
+          "receipt": {
+            "url": "https://www.poewiki.net/api.php?action=query&prop=revisions&rvprop=ids%7Ctimestamp%7Ccontent&rvslots=main&titles=Trigger&redirects=1&format=json&formatversion=2&maxlag=5",
+            "status": 200,
+            "time": "2026-10-10T05:33:52.753750+00:00",
+            "started": "2026-10-10T05:33:52.515240+00:00",
+            "bytes": 15900,
+            "sha256": "366514111203d98c6cfd84c50d8c386e62748a1978d9db2085d189514ea79509",
+            "content_type": "application/json; charset=utf-8",
+            "location": null
+          },
+          "state": "acquired",
+          "revision_url": "https://www.poewiki.net/index.php?title=Trigger&oldid=1702121"
+        },
+        {
+          "requested_title": "Reservation",
+          "title": "Reservation",
+          "series": [
+            "Path of Exile 1 support gems"
+          ],
+          "url": "https://www.poewiki.net/wiki/Reservation",
+          "revision_id": 1697378,
+          "timestamp": "2026-07-29T02:28:47Z",
+          "sha256": "1fc2d94019b45aa0b761358933dac3c0108e147399d11c5b64f93e39e9ce002a",
+          "receipt": {
+            "url": "https://www.poewiki.net/api.php?action=query&prop=revisions&rvprop=ids%7Ctimestamp%7Ccontent&rvslots=main&titles=Reservation&redirects=1&format=json&formatversion=2&maxlag=5",
+            "status": 200,
+            "time": "2026-10-10T05:33:58.118481+00:00",
+            "started": "2026-10-10T05:33:57.927776+00:00",
+            "bytes": 11661,
+            "sha256": "1fc2d94019b45aa0b761358933dac3c0108e147399d11c5b64f93e39e9ce002a",
+            "content_type": "application/json; charset=utf-8",
+            "location": null
+          },
+          "state": "acquired",
+          "revision_url": "https://www.poewiki.net/index.php?title=Reservation&oldid=1697378"
+        },
+        {
+          "requested_title": "Item_socket",
+          "title": "Item socket",
+          "series": [
+            "Path of Exile 1 support gems"
+          ],
+          "url": "https://www.poewiki.net/wiki/Item_socket",
+          "revision_id": 1702220,
+          "timestamp": "2026-09-01T06:01:52Z",
+          "sha256": "f3eddcfd7410261778e17e35492cccd79c5548a950c3d069c73e45e0f119ca32",
+          "receipt": {
+            "url": "https://www.poewiki.net/api.php?action=query&prop=revisions&rvprop=ids%7Ctimestamp%7Ccontent&rvslots=main&titles=Item_socket&redirects=1&format=json&formatversion=2&maxlag=5",
+            "status": 200,
+            "time": "2026-10-10T05:34:04.783320+00:00",
+            "started": "2026-10-10T05:34:04.551933+00:00",
+            "bytes": 15841,
+            "sha256": "f3eddcfd7410261778e17e35492cccd79c5548a950c3d069c73e45e0f119ca32",
+            "content_type": "application/json; charset=utf-8",
+            "location": null
+          },
+          "state": "acquired",
+          "revision_url": "https://www.poewiki.net/index.php?title=Item+socket&oldid=1702220"
+        },
+        {
+          "requested_title": "Link",
+          "title": "Item socket",
+          "series": [
+            "Path of Exile 1 support gems"
+          ],
+          "url": "https://www.poewiki.net/wiki/Link",
+          "revision_id": 1702220,
+          "timestamp": "2026-09-01T06:01:52Z",
+          "sha256": "921d4136e4738402d412e954cb3c3ba76d07bcae7e274b788e2c93148291a87a",
+          "receipt": {
+            "url": "https://www.poewiki.net/api.php?action=query&prop=revisions&rvprop=ids%7Ctimestamp%7Ccontent&rvslots=main&titles=Link&redirects=1&format=json&formatversion=2&maxlag=5",
+            "status": 200,
+            "time": "2026-10-10T05:34:09.165461+00:00",
+            "started": "2026-10-10T05:34:08.925444+00:00",
+            "bytes": 15813,
+            "sha256": "921d4136e4738402d412e954cb3c3ba76d07bcae7e274b788e2c93148291a87a",
+            "content_type": "application/json; charset=utf-8",
+            "location": null
+          },
+          "state": "acquired",
+          "revision_url": "https://www.poewiki.net/index.php?title=Item+socket&oldid=1702220"
+        },
+        {
+          "requested_title": "Ascendancy_class",
+          "title": "Ascendancy class",
+          "series": [
+            "Path of Exile 1 support gems"
+          ],
+          "url": "https://www.poewiki.net/wiki/Ascendancy_class",
+          "revision_id": 1697030,
+          "timestamp": "2026-07-28T13:26:02Z",
+          "sha256": "433ed91b57a970379457289d732adc40b75b6a080aa168fb8cecad5081a1ae00",
+          "receipt": {
+            "url": "https://www.poewiki.net/api.php?action=query&prop=revisions&rvprop=ids%7Ctimestamp%7Ccontent&rvslots=main&titles=Ascendancy_class&redirects=1&format=json&formatversion=2&maxlag=5",
+            "status": 200,
+            "time": "2026-10-10T05:34:13.926295+00:00",
+            "started": "2026-10-10T05:34:13.727107+00:00",
+            "bytes": 10406,
+            "sha256": "433ed91b57a970379457289d732adc40b75b6a080aa168fb8cecad5081a1ae00",
+            "content_type": "application/json; charset=utf-8",
+            "location": null
+          },
+          "state": "acquired",
+          "revision_url": "https://www.poewiki.net/index.php?title=Ascendancy+class&oldid=1697030"
+        },
+        {
+          "requested_title": "Unique_item",
+          "title": "Unique item",
+          "series": [
+            "Path of Exile 1 support gems"
+          ],
+          "url": "https://www.poewiki.net/wiki/Unique_item",
+          "revision_id": 1699287,
+          "timestamp": "2026-08-07T01:20:06Z",
+          "sha256": "54f882b093092d38189fde2673a271ee2f54b42c913afb4fe3cc5583b36be79d",
+          "receipt": {
+            "url": "https://www.poewiki.net/api.php?action=query&prop=revisions&rvprop=ids%7Ctimestamp%7Ccontent&rvslots=main&titles=Unique_item&redirects=1&format=json&formatversion=2&maxlag=5",
+            "status": 200,
+            "time": "2026-10-10T05:34:21.721396+00:00",
+            "started": "2026-10-10T05:34:21.488046+00:00",
+            "bytes": 12923,
+            "sha256": "54f882b093092d38189fde2673a271ee2f54b42c913afb4fe3cc5583b36be79d",
+            "content_type": "application/json; charset=utf-8",
+            "location": null
+          },
+          "state": "acquired",
+          "revision_url": "https://www.poewiki.net/index.php?title=Unique+item&oldid=1699287"
+        },
+        {
+          "requested_title": "Currency",
+          "title": "Currency",
+          "series": [
+            "Path of Exile 1 support gems"
+          ],
+          "url": "https://www.poewiki.net/wiki/Currency",
+          "revision_id": 1697406,
+          "timestamp": "2026-07-29T03:40:55Z",
+          "sha256": "e2349140adb9a7d568be804848327b1a2971c758dbe944c93b7f937dca1e0bbd",
+          "receipt": {
+            "url": "https://www.poewiki.net/api.php?action=query&prop=revisions&rvprop=ids%7Ctimestamp%7Ccontent&rvslots=main&titles=Currency&redirects=1&format=json&formatversion=2&maxlag=5",
+            "status": 200,
+            "time": "2026-10-10T05:34:26.323881+00:00",
+            "started": "2026-10-10T05:34:26.088309+00:00",
+            "bytes": 19387,
+            "sha256": "e2349140adb9a7d568be804848327b1a2971c758dbe944c93b7f937dca1e0bbd",
+            "content_type": "application/json; charset=utf-8",
+            "location": null
+          },
+          "state": "acquired",
+          "revision_url": "https://www.poewiki.net/index.php?title=Currency&oldid=1697406"
+        }
+      ],
+      "state": "complete",
+      "local_error": "Initial code wrongly assumed action=help returns JSON; read cached API help HTML, without refetch.",
+      "api_help_review": {
+        "title": "MediaWiki API help | PoE Wiki",
+        "maxlag_documented": false,
+        "rate_terms_present": false,
+        "note": "action=help defaults to HTML even with format=json; API documentation only, not article scraping."
+      },
+      "guidance": {
+        "url": "https://www.poewiki.net/api.php?action=help&modules=query&format=json",
+        "receipt": {
+          "url": "https://www.poewiki.net/api.php?action=help&modules=query&format=json",
+          "status": 200,
+          "time": "2026-10-10T05:31:43.471024+00:00",
+          "started": "2026-10-10T05:31:42.870778+00:00",
+          "bytes": 42662,
+          "sha256": "bc64c4dcf0425bedc3e05b999dd1e48f9c5d22be64f515279106d0da68e04926",
+          "content_type": "text/html; charset=utf-8",
+          "location": null
+        },
+        "keys": [
+          "mediawiki_help_html"
+        ],
+        "note": "API help reviewed; transport obeys robots crawl delay/rate; maxlag=5; serial 4-8 second gaps."
+      },
+      "siteinfo": {
+        "url": "https://www.poewiki.net/api.php?action=query&meta=siteinfo&siprop=general%7Crightsinfo&format=json&maxlag=5",
+        "receipt": {
+          "url": "https://www.poewiki.net/api.php?action=query&meta=siteinfo&siprop=general%7Crightsinfo&format=json&maxlag=5",
+          "status": 200,
+          "time": "2026-10-10T05:36:25.791330+00:00",
+          "started": "2026-10-10T05:36:25.507333+00:00",
+          "bytes": 1911,
+          "sha256": "faba3f82e704f23b4ba5c7353c546823b3fcc84f834fa54dc2bbba1b1a60d785",
+          "content_type": "application/json; charset=utf-8",
+          "location": null
+        },
+        "data": {
+          "general": {
+            "mainpage": "Path of Exile Wiki",
+            "base": "https://www.poewiki.net/wiki/Path_of_Exile_Wiki",
+            "sitename": "Path of Exile Wiki",
+            "logo": "https://www.poewiki.net/images/c/cb/PoEWikiLogo.png",
+            "generator": "MediaWiki 1.40.0",
+            "phpversion": "8.3.6",
+            "phpsapi": "fpm-fcgi",
+            "dbtype": "postgres",
+            "dbversion": "18.4 (Ubuntu 18.4-1.pgdg24.04+1)",
+            "langconversion": "",
+            "linkconversion": "",
+            "titleconversion": "",
+            "linkprefixcharset": "",
+            "linkprefix": "",
+            "linktrail": "/^([a-z]+)(.*)$/sD",
+            "legaltitlechars": " %!\"$&'()*,\\-.\\/0-9:;=?@A-Z\\\\^_`a-z~\\x80-\\xFF+",
+            "invalidusernamechars": "@:>=",
+            "fixarabicunicode": "",
+            "fixmalayalamunicode": "",
+            "case": "first-letter",
+            "lang": "en",
+            "fallback": [],
+            "fallback8bitEncoding": "windows-1252",
+            "writeapi": "",
+            "maxarticlesize": 2097152,
+            "timezone": "UTC",
+            "timeoffset": 0,
+            "articlepath": "/wiki/$1",
+            "scriptpath": "",
+            "script": "/index.php",
+            "variantarticlepath": false,
+            "server": "https://www.poewiki.net",
+            "servername": "www.poewiki.net",
+            "wikiid": "poe_wiki-poe_wiki-",
+            "time": "2026-10-10T05:36:25Z",
+            "uploadsenabled": "",
+            "maxuploadsize": 104857600,
+            "minuploadchunksize": 1024,
+            "galleryoptions": {
+              "imagesPerRow": 0,
+              "imageWidth": 120,
+              "imageHeight": 120,
+              "captionLength": "",
+              "showBytes": "",
+              "showDimensions": "",
+              "mode": "traditional"
+            },
+            "thumblimits": [
+              120,
+              150,
+              180,
+              200,
+              250,
+              300
+            ],
+            "imagelimits": [
+              {
+                "width": 320,
+                "height": 240
+              },
+              {
+                "width": 640,
+                "height": 480
+              },
+              {
+                "width": 800,
+                "height": 600
+              },
+              {
+                "width": 1024,
+                "height": 768
+              },
+              {
+                "width": 1280,
+                "height": 1024
+              },
+              {
+                "width": 2560,
+                "height": 2048
+              }
+            ],
+            "favicon": "https://www.poewiki.net/favicon.ico",
+            "centralidlookupprovider": "local",
+            "allcentralidlookupproviders": [
+              "local"
+            ],
+            "interwikimagic": "",
+            "magiclinks": [],
+            "categorycollation": "uppercase",
+            "nofollowlinks": "",
+            "nofollownsexceptions": [],
+            "nofollowdomainexceptions": [
+              "mediawiki.org"
+            ],
+            "citeresponsivereferences": ""
+          },
+          "rightsinfo": {
+            "url": "https://creativecommons.org/licenses/by-nc-sa/3.0/",
+            "text": "Creative Commons Attribution-NonCommercial 3.0 Unported"
+          }
+        }
+      },
+      "request_receipts": [
+        {
+          "url": "https://www.poewiki.net/api.php?action=query&prop=revisions&rvprop=ids%7Ctimestamp%7Ccontent&rvslots=main&titles=Unique_item&redirects=1&format=json&formatversion=2&maxlag=5",
+          "status": 200,
+          "time": "2026-10-10T05:34:21.721396+00:00",
+          "started": "2026-10-10T05:34:21.488046+00:00",
+          "bytes": 12923,
+          "sha256": "54f882b093092d38189fde2673a271ee2f54b42c913afb4fe3cc5583b36be79d",
+          "content_type": "application/json; charset=utf-8",
+          "location": null
+        },
+        {
+          "url": "https://www.poewiki.net/robots.txt",
+          "status": 200,
+          "time": "2026-10-10T05:31:38.082458+00:00",
+          "started": "2026-10-10T05:31:37.746403+00:00",
+          "bytes": 1244,
+          "sha256": "877dcf0a82cd66fcb55410f9d0dfec577e7b11b84d476071e2f9acecc768115b",
+          "content_type": "text/plain",
+          "location": null
+        },
+        {
+          "url": "https://www.poewiki.net/api.php?action=query&prop=revisions&rvprop=ids%7Ctimestamp%7Ccontent&rvslots=main&titles=Currency&redirects=1&format=json&formatversion=2&maxlag=5",
+          "status": 200,
+          "time": "2026-10-10T05:34:26.323881+00:00",
+          "started": "2026-10-10T05:34:26.088309+00:00",
+          "bytes": 19387,
+          "sha256": "e2349140adb9a7d568be804848327b1a2971c758dbe944c93b7f937dca1e0bbd",
+          "content_type": "application/json; charset=utf-8",
+          "location": null
+        },
+        {
+          "url": "https://www.poewiki.net/api.php?action=query&prop=revisions&rvprop=ids%7Ctimestamp%7Ccontent&rvslots=main&titles=Gem_tag&redirects=1&format=json&formatversion=2&maxlag=5",
+          "status": 200,
+          "time": "2026-10-10T05:33:45.549017+00:00",
+          "started": "2026-10-10T05:33:45.277682+00:00",
+          "bytes": 12398,
+          "sha256": "50d21a14752c8212f55e8f0e32e9d0e077d44b60d10d0e38c824948e5c42fa3f",
+          "content_type": "application/json; charset=utf-8",
+          "location": null
+        },
+        {
+          "url": "https://www.poewiki.net/api.php?action=query&prop=revisions&rvprop=ids%7Ctimestamp%7Ccontent&rvslots=main&titles=Skill_gem&redirects=1&format=json&formatversion=2&maxlag=5",
+          "status": 200,
+          "time": "2026-10-10T05:33:39.448202+00:00",
+          "started": "2026-10-10T05:33:39.246978+00:00",
+          "bytes": 5649,
+          "sha256": "e60322dc95140149a60aef972808ed1a0caca07694cbd1b9d3e9c76ea6e12900",
+          "content_type": "application/json; charset=utf-8",
+          "location": null
+        },
+        {
+          "url": "https://www.poewiki.net/api.php?action=query&prop=revisions&rvprop=ids%7Ctimestamp%7Ccontent&rvslots=main&titles=Reservation&redirects=1&format=json&formatversion=2&maxlag=5",
+          "status": 200,
+          "time": "2026-10-10T05:33:58.118481+00:00",
+          "started": "2026-10-10T05:33:57.927776+00:00",
+          "bytes": 11661,
+          "sha256": "1fc2d94019b45aa0b761358933dac3c0108e147399d11c5b64f93e39e9ce002a",
+          "content_type": "application/json; charset=utf-8",
+          "location": null
+        },
+        {
+          "url": "https://www.poewiki.net/api.php?action=query&prop=revisions&rvprop=ids%7Ctimestamp%7Ccontent&rvslots=main&titles=Item_socket&redirects=1&format=json&formatversion=2&maxlag=5",
+          "status": 200,
+          "time": "2026-10-10T05:34:04.783320+00:00",
+          "started": "2026-10-10T05:34:04.551933+00:00",
+          "bytes": 15841,
+          "sha256": "f3eddcfd7410261778e17e35492cccd79c5548a950c3d069c73e45e0f119ca32",
+          "content_type": "application/json; charset=utf-8",
+          "location": null
+        },
+        {
+          "url": "https://www.poewiki.net/api.php?action=query&prop=revisions&rvprop=ids%7Ctimestamp%7Ccontent&rvslots=main&titles=Trigger&redirects=1&format=json&formatversion=2&maxlag=5",
+          "status": 200,
+          "time": "2026-10-10T05:33:52.753750+00:00",
+          "started": "2026-10-10T05:33:52.515240+00:00",
+          "bytes": 15900,
+          "sha256": "366514111203d98c6cfd84c50d8c386e62748a1978d9db2085d189514ea79509",
+          "content_type": "application/json; charset=utf-8",
+          "location": null
+        },
+        {
+          "url": "https://www.poewiki.net/api.php?action=query&prop=revisions&rvprop=ids%7Ctimestamp%7Ccontent&rvslots=main&titles=Link&redirects=1&format=json&formatversion=2&maxlag=5",
+          "status": 200,
+          "time": "2026-10-10T05:34:09.165461+00:00",
+          "started": "2026-10-10T05:34:08.925444+00:00",
+          "bytes": 15813,
+          "sha256": "921d4136e4738402d412e954cb3c3ba76d07bcae7e274b788e2c93148291a87a",
+          "content_type": "application/json; charset=utf-8",
+          "location": null
+        },
+        {
+          "url": "https://www.poewiki.net/api.php?action=query&prop=revisions&rvprop=ids%7Ctimestamp%7Ccontent&rvslots=main&titles=Support_gem&redirects=1&format=json&formatversion=2&maxlag=5",
+          "status": 200,
+          "time": "2026-10-10T05:32:18.729770+00:00",
+          "started": "2026-10-10T05:32:18.455818+00:00",
+          "bytes": 9692,
+          "sha256": "58fcd6b679abfaa6a56c5d89cf4fc0736fca27bf934ee8804b7f281b9e737277",
+          "content_type": "application/json; charset=utf-8",
+          "location": null
+        },
+        {
+          "url": "https://www.poewiki.net/api.php?action=help&modules=query&format=json",
+          "status": 200,
+          "time": "2026-10-10T05:31:43.471024+00:00",
+          "started": "2026-10-10T05:31:42.870778+00:00",
+          "bytes": 42662,
+          "sha256": "bc64c4dcf0425bedc3e05b999dd1e48f9c5d22be64f515279106d0da68e04926",
+          "content_type": "text/html; charset=utf-8",
+          "location": null
+        },
+        {
+          "url": "https://www.poewiki.net/api.php?action=query&meta=siteinfo&siprop=general%7Crightsinfo&format=json&maxlag=5",
+          "status": 200,
+          "time": "2026-10-10T05:36:25.791330+00:00",
+          "started": "2026-10-10T05:36:25.507333+00:00",
+          "bytes": 1911,
+          "sha256": "faba3f82e704f23b4ba5c7353c546823b3fcc84f834fa54dc2bbba1b1a60d785",
+          "content_type": "application/json; charset=utf-8",
+          "location": null
+        },
+        {
+          "url": "https://www.poewiki.net/api.php?action=query&prop=revisions&rvprop=ids%7Ctimestamp%7Ccontent&rvslots=main&titles=Ascendancy_class&redirects=1&format=json&formatversion=2&maxlag=5",
+          "status": 200,
+          "time": "2026-10-10T05:34:13.926295+00:00",
+          "started": "2026-10-10T05:34:13.727107+00:00",
+          "bytes": 10406,
+          "sha256": "433ed91b57a970379457289d732adc40b75b6a080aa168fb8cecad5081a1ae00",
+          "content_type": "application/json; charset=utf-8",
+          "location": null
+        }
+      ]
+    },
+    "https://slay-the-spire.fandom.com/api.php": {
+      "host": "slay-the-spire.fandom.com",
+      "api": "https://slay-the-spire.fandom.com/api.php",
+      "pages": [],
+      "state": "blocked",
+      "reason": "slay-the-spire.fandom.com: HTTP 403",
+      "request_receipts": [
+        {
+          "url": "https://slay-the-spire.fandom.com/robots.txt",
+          "status": 403,
+          "time": "2026-10-10T05:31:43.625354+00:00",
+          "started": "2026-10-10T05:31:43.487898+00:00",
+          "bytes": 5616,
+          "sha256": "885a95a2cfa8937c6ffd73ab3fc790e43f1ee56e8c74d0c1b34fc576f99ddb51",
+          "content_type": "text/html; charset=UTF-8",
+          "location": null
+        }
+      ]
+    },
+    "https://isekai.fandom.com/api.php": {
+      "host": "isekai.fandom.com",
+      "api": "https://isekai.fandom.com/api.php",
+      "pages": [],
+      "state": "blocked",
+      "reason": "isekai.fandom.com: HTTP 403",
+      "request_receipts": [
+        {
+          "url": "https://isekai.fandom.com/robots.txt",
+          "status": 403,
+          "time": "2026-10-10T05:36:25.908678+00:00",
+          "started": "2026-10-10T05:36:25.794198+00:00",
+          "bytes": 5587,
+          "sha256": "fcd47d235932ec1e28b3d4cbbb1d6c039a0a42bcb4472a3953596711ebe3bd57",
+          "content_type": "text/html; charset=UTF-8",
+          "location": null
+        }
+      ]
+    },
+    "https://my-cell-prison.fandom.com/api.php": {
+      "host": "my-cell-prison.fandom.com",
+      "api": "https://my-cell-prison.fandom.com/api.php",
+      "pages": [],
+      "state": "blocked",
+      "reason": "my-cell-prison.fandom.com: HTTP 403",
+      "request_receipts": [
+        {
+          "url": "https://my-cell-prison.fandom.com/robots.txt",
+          "status": 403,
+          "time": "2026-10-10T05:37:50.642108+00:00",
+          "started": "2026-10-10T05:37:50.488210+00:00",
+          "bytes": 5616,
+          "sha256": "dfa96a0a0b8982443f0e0425a40e3c471d462efc9dc27ca4d03b9856b572e719",
+          "content_type": "text/html; charset=UTF-8",
+          "location": null
+        }
+      ]
+    },
+    "https://soul-of-negary-novel.fandom.com/api.php": {
+      "host": "soul-of-negary-novel.fandom.com",
+      "api": "https://soul-of-negary-novel.fandom.com/api.php",
+      "pages": [],
+      "state": "blocked",
+      "reason": "soul-of-negary-novel.fandom.com: HTTP 403",
+      "request_receipts": [
+        {
+          "url": "https://soul-of-negary-novel.fandom.com/robots.txt",
+          "status": 403,
+          "time": "2026-10-10T05:37:50.843553+00:00",
+          "started": "2026-10-10T05:37:50.646876+00:00",
+          "bytes": 5643,
+          "sha256": "c8a2d4363d565c714adf33bc624953ec203c6ecfd332bcb2e6d8652fe196ee3d",
+          "content_type": "text/html; charset=UTF-8",
+          "location": null
+        }
+      ]
+    },
+    "https://fantasy-simulator.fandom.com/api.php": {
+      "host": "fantasy-simulator.fandom.com",
+      "api": "https://fantasy-simulator.fandom.com/api.php",
+      "pages": [],
+      "state": "blocked",
+      "reason": "fantasy-simulator.fandom.com: HTTP 403",
+      "request_receipts": [
+        {
+          "url": "https://fantasy-simulator.fandom.com/robots.txt",
+          "status": 403,
+          "time": "2026-10-10T05:37:50.993465+00:00",
+          "started": "2026-10-10T05:37:50.848406+00:00",
+          "bytes": 5619,
+          "sha256": "f9f68534a182b453e380a7868953b21c6e9489455487be6e70041cbbc5d5fe27",
+          "content_type": "text/html; charset=UTF-8",
+          "location": null
+        }
+      ]
+    },
+    "https://carefree-path-of-dreams.fandom.com/api.php": {
+      "host": "carefree-path-of-dreams.fandom.com",
+      "api": "https://carefree-path-of-dreams.fandom.com/api.php",
+      "pages": [],
+      "state": "blocked",
+      "reason": "carefree-path-of-dreams.fandom.com: HTTP 403",
+      "request_receipts": [
+        {
+          "url": "https://carefree-path-of-dreams.fandom.com/robots.txt",
+          "status": 403,
+          "time": "2026-10-10T05:37:51.141228+00:00",
+          "started": "2026-10-10T05:37:50.998896+00:00",
+          "bytes": 5646,
+          "sha256": "8876f8738b43c22613a411b72e51a4318bc215aeaf9c0d5b9a5605de668463ad",
+          "content_type": "text/html; charset=UTF-8",
+          "location": null
+        }
+      ]
+    },
+    "https://vsbattles.fandom.com/api.php": {
+      "host": "vsbattles.fandom.com",
+      "api": "https://vsbattles.fandom.com/api.php",
+      "pages": [],
+      "state": "blocked",
+      "reason": "vsbattles.fandom.com: HTTP 403",
+      "request_receipts": [
+        {
+          "url": "https://vsbattles.fandom.com/robots.txt",
+          "status": 403,
+          "time": "2026-10-10T05:37:51.321820+00:00",
+          "started": "2026-10-10T05:37:51.144191+00:00",
+          "bytes": 5590,
+          "sha256": "8d435bcde99b4d4365933732c81da2f9d1c5c801baae956dd68627e67d775b1f",
+          "content_type": "text/html; charset=UTF-8",
+          "location": null
+        }
+      ]
+    },
+    "https://doomsday-wonderland.fandom.com/api.php": {
+      "host": "doomsday-wonderland.fandom.com",
+      "api": "https://doomsday-wonderland.fandom.com/api.php",
+      "pages": [],
+      "state": "blocked",
+      "reason": "doomsday-wonderland.fandom.com: HTTP 403",
+      "request_receipts": [
+        {
+          "url": "https://doomsday-wonderland.fandom.com/robots.txt",
+          "status": 403,
+          "time": "2026-10-10T05:37:51.470851+00:00",
+          "started": "2026-10-10T05:37:51.324552+00:00",
+          "bytes": 5621,
+          "sha256": "4ac2dccb57e5f6a130e70cf381a78b5e56055ab85a9c556f4ac0d73ee85465a3",
+          "content_type": "text/html; charset=UTF-8",
+          "location": null
+        }
+      ]
+    },
+    "https://thebookeatingmagician.fandom.com/api.php": {
+      "host": "thebookeatingmagician.fandom.com",
+      "api": "https://thebookeatingmagician.fandom.com/api.php",
+      "pages": [],
+      "state": "blocked",
+      "reason": "thebookeatingmagician.fandom.com: HTTP 403",
+      "request_receipts": [
+        {
+          "url": "https://thebookeatingmagician.fandom.com/robots.txt",
+          "status": 403,
+          "time": "2026-10-10T05:37:51.615272+00:00",
+          "started": "2026-10-10T05:37:51.473902+00:00",
+          "bytes": 5644,
+          "sha256": "2f1202fb1b7070c5df1538c62adfa85ab82fd6b698c9be44b17a654cb4ad041d",
+          "content_type": "text/html; charset=UTF-8",
+          "location": null
+        }
+      ]
+    },
+    "https://the-book-eating-magician.fandom.com/api.php": {
+      "host": "the-book-eating-magician.fandom.com",
+      "api": "https://the-book-eating-magician.fandom.com/api.php",
+      "pages": [],
+      "state": "blocked",
+      "reason": "the-book-eating-magician.fandom.com: HTTP 403",
+      "request_receipts": [
+        {
+          "url": "https://the-book-eating-magician.fandom.com/robots.txt",
+          "status": 403,
+          "time": "2026-10-10T05:37:51.801364+00:00",
+          "started": "2026-10-10T05:37:51.618334+00:00",
+          "bytes": 5647,
+          "sha256": "f161a72a7cd0d6a617f43e437c3c137fce84b8eb45605ebb5832a1e6ac06bd12",
+          "content_type": "text/html; charset=UTF-8",
+          "location": null
+        }
+      ]
+    },
+    "https://the-main-heroines-are-trying-to-kill-me.fandom.com/api.php": {
+      "host": "the-main-heroines-are-trying-to-kill-me.fandom.com",
+      "api": "https://the-main-heroines-are-trying-to-kill-me.fandom.com/api.php",
+      "pages": [],
+      "state": "blocked",
+      "reason": "the-main-heroines-are-trying-to-kill-me.fandom.com: HTTP 403",
+      "request_receipts": [
+        {
+          "url": "https://the-main-heroines-are-trying-to-kill-me.fandom.com/robots.txt",
+          "status": 403,
+          "time": "2026-10-10T05:37:51.945762+00:00",
+          "started": "2026-10-10T05:37:51.804291+00:00",
+          "bytes": 5706,
+          "sha256": "882866a35abeee0cdead3a49f3bc6e025502376a6677fd4f40135cb569442712",
+          "content_type": "text/html; charset=UTF-8",
+          "location": null
+        }
+      ]
+    },
+    "https://kidnappeddragons.fandom.com/api.php": {
+      "host": "kidnappeddragons.fandom.com",
+      "api": "https://kidnappeddragons.fandom.com/api.php",
+      "pages": [],
+      "state": "blocked",
+      "reason": "kidnappeddragons.fandom.com: HTTP 403",
+      "request_receipts": [
+        {
+          "url": "https://kidnappeddragons.fandom.com/robots.txt",
+          "status": 403,
+          "time": "2026-10-10T05:37:52.084173+00:00",
+          "started": "2026-10-10T05:37:51.948718+00:00",
+          "bytes": 5618,
+          "sha256": "ca3636b5c868c8cb35d8705910879cbda78e7fb5cea4eacbe9eaeb84092fb3c5",
+          "content_type": "text/html; charset=UTF-8",
+          "location": null
+        }
+      ]
+    },
+    "https://mysranks.fandom.com/api.php": {
+      "host": "mysranks.fandom.com",
+      "api": "https://mysranks.fandom.com/api.php",
+      "pages": [],
+      "state": "blocked",
+      "reason": "mysranks.fandom.com: HTTP 403",
+      "request_receipts": [
+        {
+          "url": "https://mysranks.fandom.com/robots.txt",
+          "status": 403,
+          "time": "2026-10-10T05:37:52.286439+00:00",
+          "started": "2026-10-10T05:37:52.088662+00:00",
+          "bytes": 5589,
+          "sha256": "3c5d7d06aefc997778465bcc271e3e0435321b35a84ed918b6684d1420cda6c6",
+          "content_type": "text/html; charset=UTF-8",
+          "location": null
+        }
+      ]
+    },
+    "https://to-another-world-with-land-mines.fandom.com/api.php": {
+      "host": "to-another-world-with-land-mines.fandom.com",
+      "api": "https://to-another-world-with-land-mines.fandom.com/api.php",
+      "pages": [],
+      "state": "blocked",
+      "reason": "to-another-world-with-land-mines.fandom.com: HTTP 403",
+      "request_receipts": [
+        {
+          "url": "https://to-another-world-with-land-mines.fandom.com/robots.txt",
+          "status": 403,
+          "time": "2026-10-10T05:37:52.432776+00:00",
+          "started": "2026-10-10T05:37:52.289883+00:00",
+          "bytes": 5655,
+          "sha256": "8f70484bf09c686f832ce5ac036aad022ede52e2163f0d69890e4b6e1cb6cf56",
+          "content_type": "text/html; charset=UTF-8",
+          "location": null
+        }
+      ]
+    },
+    "https://lazydungeonmaster.fandom.com/api.php": {
+      "host": "lazydungeonmaster.fandom.com",
+      "api": "https://lazydungeonmaster.fandom.com/api.php",
+      "pages": [],
+      "state": "blocked",
+      "reason": "lazydungeonmaster.fandom.com: HTTP 403",
+      "request_receipts": [
+        {
+          "url": "https://lazydungeonmaster.fandom.com/robots.txt",
+          "status": 403,
+          "time": "2026-10-10T05:37:52.570834+00:00",
+          "started": "2026-10-10T05:37:52.435816+00:00",
+          "bytes": 5619,
+          "sha256": "152d12a0e3d439848c7a6f79a2ccddc92e0d1a1ca03531dfc69accd176ffe77f",
+          "content_type": "text/html; charset=UTF-8",
+          "location": null
+        }
+      ]
+    },
+    "https://monster-tamer.fandom.com/api.php": {
+      "host": "monster-tamer.fandom.com",
+      "api": "https://monster-tamer.fandom.com/api.php",
+      "pages": [],
+      "state": "blocked",
+      "reason": "monster-tamer.fandom.com: HTTP 403",
+      "request_receipts": [
+        {
+          "url": "https://monster-tamer.fandom.com/robots.txt",
+          "status": 403,
+          "time": "2026-10-10T05:37:52.716632+00:00",
+          "started": "2026-10-10T05:37:52.575501+00:00",
+          "bytes": 5615,
+          "sha256": "51bf5ca2490da9940f21d007e50a6c37f88e364fdb0c69973c315647e497321f",
+          "content_type": "text/html; charset=UTF-8",
+          "location": null
+        }
+      ]
+    },
+    "https://the-magician-who-rose-from-failure.fandom.com/api.php": {
+      "host": "the-magician-who-rose-from-failure.fandom.com",
+      "api": "https://the-magician-who-rose-from-failure.fandom.com/api.php",
+      "pages": [],
+      "state": "blocked",
+      "reason": "the-magician-who-rose-from-failure.fandom.com: HTTP 403",
+      "request_receipts": [
+        {
+          "url": "https://the-magician-who-rose-from-failure.fandom.com/robots.txt",
+          "status": 403,
+          "time": "2026-10-10T05:37:52.926320+00:00",
+          "started": "2026-10-10T05:37:52.719564+00:00",
+          "bytes": 5679,
+          "sha256": "b64b5461472caaac08ea4315bafe1c8b4314f8517427da7f5facc8c72f54942a",
+          "content_type": "text/html; charset=UTF-8",
+          "location": null
+        }
+      ]
+    },
+    "https://the-daily-grind.fandom.com/api.php": {
+      "host": "the-daily-grind.fandom.com",
+      "api": "https://the-daily-grind.fandom.com/api.php",
+      "pages": [],
+      "state": "blocked",
+      "reason": "the-daily-grind.fandom.com: HTTP 403",
+      "request_receipts": [
+        {
+          "url": "https://the-daily-grind.fandom.com/robots.txt",
+          "status": 403,
+          "time": "2026-10-10T05:37:53.072057+00:00",
+          "started": "2026-10-10T05:37:52.929297+00:00",
+          "bytes": 5617,
+          "sha256": "7344736a8a01c8fb0e86a298ba33d4b26e18eb8222dd2df11dac1639b4d9ac09",
+          "content_type": "text/html; charset=UTF-8",
+          "location": null
+        }
+      ]
+    },
+    "https://runebound-professor.fandom.com/api.php": {
+      "host": "runebound-professor.fandom.com",
+      "api": "https://runebound-professor.fandom.com/api.php",
+      "pages": [],
+      "state": "blocked",
+      "reason": "runebound-professor.fandom.com: HTTP 403",
+      "request_receipts": [
+        {
+          "url": "https://runebound-professor.fandom.com/robots.txt",
+          "status": 403,
+          "time": "2026-10-10T05:37:53.216973+00:00",
+          "started": "2026-10-10T05:37:53.075056+00:00",
+          "bytes": 5621,
+          "sha256": "7c1cd2c97951949f48890cc1100faa757117777bd567d89a15e3e97ca1a5cce6",
+          "content_type": "text/html; charset=UTF-8",
+          "location": null
+        }
+      ]
+    },
+    "https://the-stubborn-skillgrinder-in-a-time-loop.fandom.com/api.php": {
+      "host": "the-stubborn-skillgrinder-in-a-time-loop.fandom.com",
+      "api": "https://the-stubborn-skillgrinder-in-a-time-loop.fandom.com/api.php",
+      "pages": [],
+      "state": "blocked",
+      "reason": "the-stubborn-skillgrinder-in-a-time-loop.fandom.com: HTTP 403",
+      "request_receipts": [
+        {
+          "url": "https://the-stubborn-skillgrinder-in-a-time-loop.fandom.com/robots.txt",
+          "status": 403,
+          "time": "2026-10-10T05:37:53.429364+00:00",
+          "started": "2026-10-10T05:37:53.220107+00:00",
+          "bytes": 5707,
+          "sha256": "1927a3447764b6c233f74236b8b25ef320dbe9d9a3b33613bac600b703fa6d74",
+          "content_type": "text/html; charset=UTF-8",
+          "location": null
+        }
+      ]
+    },
+    "https://pale-lights.fandom.com/api.php": {
+      "host": "pale-lights.fandom.com",
+      "api": "https://pale-lights.fandom.com/api.php",
+      "pages": [],
+      "state": "blocked",
+      "reason": "pale-lights.fandom.com: HTTP 403",
+      "request_receipts": [
+        {
+          "url": "https://pale-lights.fandom.com/robots.txt",
+          "status": 403,
+          "time": "2026-10-10T05:37:53.568457+00:00",
+          "started": "2026-10-10T05:37:53.432413+00:00",
+          "bytes": 5613,
+          "sha256": "59bec55ee450d0933470e3221ca2d797b0cf6da1491a90a6132d3fb9f6dfef07",
+          "content_type": "text/html; charset=UTF-8",
+          "location": null
+        }
+      ]
+    },
+    "https://oracle-paths.fandom.com/api.php": {
+      "host": "oracle-paths.fandom.com",
+      "api": "https://oracle-paths.fandom.com/api.php",
+      "pages": [],
+      "state": "blocked",
+      "reason": "oracle-paths.fandom.com: HTTP 403",
+      "request_receipts": [
+        {
+          "url": "https://oracle-paths.fandom.com/robots.txt",
+          "status": 403,
+          "time": "2026-10-10T05:37:53.710298+00:00",
+          "started": "2026-10-10T05:37:53.573399+00:00",
+          "bytes": 5614,
+          "sha256": "1634b05f5fddd0d306f722a914cc37bd5f0647378fae1e2ffd6ce2946c2fa01e",
+          "content_type": "text/html; charset=UTF-8",
+          "location": null
+        }
+      ]
+    }
+  },
+  "d_candidates_present": true
+}

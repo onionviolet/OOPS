@@ -1,0 +1,112 @@
+--- src/causal_story_ui.js before
++++ src/causal_story_ui.js checkpoint
+@@ -77,9 +77,9 @@
+ 
+     const element = node('details', '', 'expedition_panel');
+     element.id = 'causal_story_panel';
+-    const summary = node('summary', 'Causal stories');
++    const summary = node('summary', 'Village crossroads');
+     summary.tabIndex = 0;
+-    const source = node('p', 'Three original Village cases with their own people, protection rules and outcomes.');
++    const source = node('p', 'Three couriers, one keeper, and work that can carry on without you.');
+     const terms = node('p', `Joining is optional. Each begun case has a ${CAUSAL_STORY_LIMITS.clockWindow}-played-minute window. Time advances during supported play; closing the browser does not advance these cases.`, 'expedition_preview');
+     const status = node('p', '', 'expedition_notice');
+     status.setAttribute('role', 'status');
+@@ -221,13 +221,43 @@
+ 
+     function makeSection() {
+         const section = node('section', '', 'expedition_card');
+-        const heading = node('h4'), description = node('p'), actions = node('div');
++        const heading = node('h4'), description = node('p');
++        const phase = node('p', '', 'expedition_state'), clock = node('p', '', 'expedition_preview');
++        clock.setAttribute('role', 'timer');
++        clock.setAttribute('aria-live', 'off');
++        const paragraphs = node('div'), approaches = node('div');
++        const latest = node('section'), latestText = node('p');
++        latest.append(node('h5', 'Latest received account'), latestText);
+         const work = node('div'), workHeading = node('h5', 'Accepted work');
+         const records = node('details', '', 'notebook_preparation'), recordList = node('ul', '', 'expedition_history');
+-        records.append(node('summary', 'Observed and received accounts'), recordList);
+-        section.append(heading, description, actions, workHeading, work, records);
+-        return {element: section, heading, description, actions, actionRows: new Map(), workHeading,
++        records.append(node('summary', 'Earlier observed and received accounts'), recordList);
++        section.append(heading, phase, description, paragraphs, clock, workHeading, work, latest, approaches, records);
++        return {element: section, heading, description, phase, clock, paragraphs, paragraphRows:new Map(),
++            approaches, approachRows:new Map(), latest, latestText, workHeading,
+             work, workRows: new Map(), records, recordList, recordRows: new Map()};
++    }
++
++    function makeApproach(group) {
++        const element = node('details', '', 'notebook_preparation');
++        element.open = group.id === 'help' || group.id === 'afterward' || group.id === 'all';
++        const heading = node('summary'), description = node('p', '', 'expedition_preview'), actions = node('div');
++        element.append(heading, description, actions);
++        return {element, heading, description, actions, actionRows:new Map()};
++    }
++
++    function renderAction(actionEntry, row, blocked) {
++        actionEntry.row = row;
++        setText(actionEntry.control, textOf(row.label));
++        disable(actionEntry.control, blocked || row.eligible !== true || !commandPresent(row.command));
++        setText(actionEntry.costs, linesOf(row.costs).join(' '));
++        setText(actionEntry.duration, durationText(row.duration));
++        setText(actionEntry.cancellation, cancellationText(row.cancellation));
++        setText(actionEntry.reasons, [...new Set(linesOf(row.reasons))].join(' '));
++        const descriptions = [actionEntry.costs, actionEntry.duration, actionEntry.cancellation, actionEntry.reasons];
++        for(const description of descriptions) hide(description, !description.textContent);
++        const ids = descriptions.filter(description => !description.hidden).map(description => description.id);
++        if(ids.length) actionEntry.control.setAttribute('aria-describedby', ids.join(' '));
++        else actionEntry.control.removeAttribute('aria-describedby');
+     }
+ 
+     function renderProjected(projected) {
+@@ -244,22 +274,25 @@
+         // Both optional status flags may be supplied by the native host. Their
+         // absence does not create another saving/interaction policy in this UI.
+         reconcile(sections, sectionRows, view.sections, makeSection, (entry, section) => {
+-            setText(entry.heading, textOf(section.label));
++            const scene=section.scene;
++            setText(entry.heading, textOf(scene?.title) || textOf(section.label));
++            setText(entry.phase, textOf(scene?.phaseLabel));
++            hide(entry.phase, !entry.phase.textContent);
+             setText(entry.description, textOf(section.description));
+             hide(entry.description, !entry.description.textContent);
+-            reconcile(entry.actions, entry.actionRows, section.actions, () => makeAction(section.id), (actionEntry, row) => {
+-                actionEntry.row = row;
+-                setText(actionEntry.control, textOf(row.label));
+-                disable(actionEntry.control, blocked || writeBlocked || row.eligible !== true || !commandPresent(row.command));
+-                setText(actionEntry.costs, linesOf(row.costs).join(' '));
+-                setText(actionEntry.duration, durationText(row.duration));
+-                setText(actionEntry.cancellation, cancellationText(row.cancellation));
+-                setText(actionEntry.reasons, [...new Set(linesOf(row.reasons))].join(' '));
+-                const descriptions = [actionEntry.costs, actionEntry.duration, actionEntry.cancellation, actionEntry.reasons];
+-                for(const description of descriptions) hide(description, !description.textContent);
+-                const ids = descriptions.filter(description => !description.hidden).map(description => description.id);
+-                if(ids.length) actionEntry.control.setAttribute('aria-describedby', ids.join(' '));
+-                else actionEntry.control.removeAttribute('aria-describedby');
++            reconcile(entry.paragraphs, entry.paragraphRows, linesOf(scene?.paragraphs).map((text,index)=>({id:String(index),text})),
++                () => ({element:node('p')}), (paragraph,row) => setText(paragraph.element,row.text));
++            setText(entry.clock, textOf(scene?.clockText));
++            hide(entry.clock, !entry.clock.textContent);
++            setText(entry.latestText, textOf(scene?.latestAccount?.text));
++            hide(entry.latest, !entry.latestText.textContent);
++            const groups=Array.isArray(scene?.groups)?scene.groups:[{id:'all',label:'Your response',actions:section.actions}];
++            reconcile(entry.approaches, entry.approachRows, groups.filter(group=>rowsOf(group.actions).length), makeApproach, (approach,group) => {
++                setText(approach.heading, textOf(group.label));
++                setText(approach.description, textOf(group.description));
++                hide(approach.description, !approach.description.textContent);
++                reconcile(approach.actions, approach.actionRows, group.actions, () => makeAction(section.id),
++                    (actionEntry,row) => renderAction(actionEntry,row,blocked || writeBlocked));
+             });
+             reconcile(entry.work, entry.workRows, section.work, () => makeWork(section.id), (workEntry, row) => {
+                 workEntry.row = row;
+@@ -291,7 +324,8 @@
+             hide(refresh, false);
+             disable(refresh, busy);
+             for(const section of sectionRows.values()) {
+-                for(const action of section.actionRows.values()) disable(action.control, true);
++                for(const group of section.approachRows.values())
++                    for(const action of group.actionRows.values()) disable(action.control, true);
+                 for(const work of section.workRows.values()) disable(work.control, true);
+             }
+         }
