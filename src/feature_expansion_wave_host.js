@@ -1,3 +1,4 @@
+import {steamAbsorptionPresentation} from './steam_absorption_host.js';
 import {contextualBalmPresentation} from './contextual_balm_host.js';
 import {coolingRefinementPresentation} from './cooling_refinement_host.js';
 import {agreedDutyPresentation,agreedDutyFilterSocietyActions} from './agreed_duty_host.js';
@@ -33,6 +34,7 @@ const button=(id,label,command,eligible=true,reasons=[])=>({id,label,command,eli
 
 export function featureWavePresentation(snapshot,registry) {
     const {state,context}=snapshot,sections=[];
+    sections.push(...steamAbsorptionPresentation(state,registry,context).sections);
     sections.push(...contextualBalmPresentation(state,registry,context).sections);
     sections.push(...coolingRefinementPresentation(state,registry,context).sections);
     const duty=agreedDutyPresentation(state,registry,context);

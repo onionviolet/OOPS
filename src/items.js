@@ -1,3 +1,5 @@
+import {WATCHCRAFT_BOOK, WATCHCRAFT_READING} from './village_career.js';
+import {ALLOY_ID, BRACE_ID, SPRINGSTEEL, deriveBraceStats} from "./alloy_equipment.js";
 import {preserveWorldCompletionNativeItem} from './world_completion_native.js';
 "use strict";
 
@@ -195,7 +197,8 @@ class Item {
          * Use .getValue() instead of this
          */
         this.value = value;
-        this.tags = tags;
+        // Runtime instances add tags; authored definitions may be frozen.
+        this.tags = {...tags};
         this.tags["item"] = true;
         this.market_saturation_group = market_saturation_group;
 
@@ -1395,6 +1398,9 @@ book_stats["Counting Mice"] = new BookData({
 });
 
 //books
+book_stats[WATCHCRAFT_BOOK] = new BookData({required_time:WATCHCRAFT_READING,literacy_xp_rate:1});
+item_templates[WATCHCRAFT_BOOK] = new Book({name:WATCHCRAFT_BOOK,value:0,
+    description:'Tessa’s short patrol notes: divide the lane into sectors, notice changes, and check each dark doorway with the loaned lantern and baton. Six minutes of reading gives knowledge. Rehearse calm observation for five minutes while meditating in Village, then complete a new patrol with the loaned kit for a 10-coin report bonus. Reading alone gives no patrol bonus.'});
 book_stats[ROUTE_NOTES] = new BookData({required_time: 4, literacy_xp_rate: 1});
 (()=>{
     item_templates[ROUTE_NOTES] = new Book({name: ROUTE_NOTES, value: 0,
@@ -1751,7 +1757,7 @@ book_stats[ROUTE_NOTES] = new BookData({required_time: 4, literacy_xp_rate: 1});
         value: 10,
         material_type: "raw wood",
         getName: ()=>{
-            if(character.isRat()) return "Rat wood log";
+            if(character?.isRat()) return "Rat wood log";
             else return "Rough wood log";
         }
     });
@@ -4441,6 +4447,14 @@ function add_gear() {
         tags: {"food": true},
     });
 })();
+
+// Material-derived D1 equipment; balance numbers are proposals.
+item_templates[ALLOY_ID] = new Material({value: 70, material_type: "metal",
+    description: "Elastic iron-steel alloy, spring grade 1. Its brace favors agility over strength and makes forceful workshop packing use less drive. Unlocked at Smelting 10."});
+item_templates[ALLOY_ID].alloy_profile = SPRINGSTEEL;
+item_templates[BRACE_ID] = new Amulet({value: 140, item_tier: 2, use_quality: false,
+    stats: deriveBraceStats(item_templates[ALLOY_ID]),
+    description: "Spring grade 1, derived from springsteel: +2 Agility, -1 Strength. Forceful workshop packing: 2 kits for 2 drive units instead of 1 kit for 3. Other techniques unchanged. Balance proposal."});
 
 //setup ids
 function setup_ids() {

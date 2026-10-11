@@ -25,6 +25,8 @@ export function projectFeatureCommands(state, registry, context, {groups, prefix
     const actor = state.actors.player, s = state.simulation, actions = [];
     for(const d of registry.simulation.commands.values()) {
         if(d.actorId !== 'player' || !(groups?.includes(d.group) || prefixes.some(p => d.id.startsWith(p)))) continue;
+        // Optional residents are not created by viewing another enrolled family.
+        if(d.targetId && !s.people[d.targetId]) continue;
         if(d.once && actor.completed[d.id] || d.claim && s.claims[d.claim]) continue;
         const ctx = {...context, targetId:d.targetId || null};
         if(!meets(d.visibleWhen, simulationFacts(state, ctx, registry))) continue;

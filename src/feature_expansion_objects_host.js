@@ -127,7 +127,7 @@ export function featureObjectPresentation(state, registry, context) {
     const joint = f['feature_objects.lastSeenJoint'] || (f['feature_objects.sealed'] ? 'sealed' : f['feature_objects.braced'] ? 'braced' : f['feature_objects.jointInspected'] ? 'leaking' : null);
     const loanRecord = s?.custody?.[I.loan];
     const loan = introduced && loanRecord?.holder === 'player' ? {label: 'Eda\'s fitting knife', key: loanRecord.key, deposit: 2, owner: 'Eda', condition: ['dull', 'fineDull'].some(v => K[v] === loanRecord.key) ? 'dulled' : 'sharp'} : null;
-    return {visible: !!(canBegin || introduced || job), canBegin, beginId: I.begin, label: 'Tools & the drying shelf', actions, records, loan,
+    return {visible: !!(canBegin || introduced || job), canBegin, introduced, beginId: I.begin, label: 'Tools & the drying shelf', actions, records, loan,
         work: job ? {id: job.id, label: registry.simulation.commands.get(job.commandId)?.label || job.label, remainingMinutes: Math.max(0, job.due - state.clock), cancellation: job.cancellation} : null,
         quest: introduced && f['feature_objects.jointInspected'] ? {id: I.situation, label: 'The leaking joint', stage: joint === 'sealed' ? 'Sealed shelf retained' : joint === 'braced' ? 'Ordinary brace retained' : 'Inspected local fault',
             details: joint === 'sealed' ? 'Use the quicker shelf drying task or make actual survey kits. Return a remaining loan when ready.' : 'Ordinary sound stock can brace it. An acquired fitting function or Eda\'s demonstrated part can seal it. No work was promised by asking.', completed: joint === 'sealed'} : null};

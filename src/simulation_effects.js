@@ -1,3 +1,6 @@
+import {alloyEquipmentFacts} from "./alloy_equipment.js";
+import {steamAbsorptionFacts} from './steam_absorption_facts.js';
+import {steamDFStockCount,recordSteamDFStockMutation} from './steam_df_runtime.js';
 import {contextualBalmFacts} from './contextual_balm_facts.js';
 import {coolingRefinementFacts} from './cooling_refinement_facts.js';
 import {agreedDutyFacts} from './agreed_duty_facts.js';
@@ -63,9 +66,11 @@ export function simulationFacts(state, context, registry) {
     assert(s && a, "Enroll the living-world services first.");
     const referenceFacts = referenceGameplayFacts(state, context, registry);
     const facts = {...context.facts,...gameAbsorptionAssayFacts(state,context,registry),...worldCompletionFacts(state,context),...statusCareFacts(state,context),...fieldCareFacts(state,context),...bookCareFacts(state,context),...lorePracticeFacts(state,context),...causalStoryFacts(state,context),...auditRemainderFacts(state),...relayFacts(state,context),...referenceDeskFacts(state,context),...nestedFacts(state,context,context.nestedNative),...nestedChainFacts(state,context),...nestedLifeFacts(state,context),...paradiseFacts(state,context),...paradiseCampaignFacts(state,context),...molFacts(state,context), ...featureObjectFacts(state,context,registry), ...referenceFacts, ...auditRemainderCombinedFacts(state,{...context,facts:{...context.facts,...referenceFacts,...auditRemainderFacts(state)}},registry), ...auditedWorkshopFacts(state,{...context,facts:{...context.facts,...referenceFacts}},registry), ...nethackFieldcraftFacts(state,context,registry), ...societyFacts(state,context), ...repositoryAbsorptionFacts(state,context), ...featurePowerFacts(state,context), ...featureBattleFacts(state,context), ...tidemarkContext(state,context).facts, ...originalFrontierFacts(state,context,registry), ...realmFacts(state,actor), clock: state.clock, "actor.life": s.people[actor]?.life, "actor.world": a.worldId, "actor.location": context.facts?.location || s.people[actor]?.location};
+    Object.assign(facts, alloyEquipmentFacts(state, context));
     const owned = s.people[actor]?.inventory === "native" ? context.gameplay?.[actor]?.inventory : s.owners[actor];
     Object.assign(facts,homeFurnishingFacts(state,context),crushSocialFacts(state,context),factorioRetortFacts(state,context,registry),proto23Facts(state,context));
     Object.assign(facts,contextualBalmFacts(state,context),coolingRefinementFacts(state,context),agreedDutyFacts(state,context));
+    Object.assign(facts,steamAbsorptionFacts(state,context,registry));
     for(const [key,count] of Object.entries(owned || {})) facts[`item.${key}`] = count;
     facts["actor.busyOrder"] = !!a.facts["work.order"];
     for(const [k,v] of Object.entries(a.facts)) facts[`actor.${k}`] = v;
@@ -134,6 +139,7 @@ export function applySimulationEffects(plan, effects, context, registry, cause, 
     }
     assert(expanded.length <= 256, "Effect activation budget exceeded.");
     for(const original of expanded) {
+        const steamDFBefore=steamDFStockCount(state);
         validateSimulationEffect(original);
         const e = effectContext(original, context), actor = e.actor, p = person(state, actor), a = state.actors[actor];
         if(spending) assert(["resource", "vital", "item", "transfer", "custody", "energy"].includes(e.type) && (e.type !== "energy" || e.operation === "use") &&
@@ -320,6 +326,7 @@ export function applySimulationEffects(plan, effects, context, registry, cause, 
             else s.party = s.party.filter(id => id !== e.target);
         }
         if(spending) assert(["resource", "vital", "item", "transfer", "custody", "energy"].includes(e.type), "Unsupported reservation cost.");
+        recordSteamDFStockMutation(state,steamDFBefore,cause);
     }
 }
 

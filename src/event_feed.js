@@ -1,6 +1,8 @@
+import {lifeExperienceView,LIFE_LESSONS} from './life_experience.js';
+import {lifeRecordView} from './life_record.js';
 // Read-only news from existing owners. No rolls, rewards, enrollment or save fields.
 import {pursuitView} from "./pursuit.js";
-export function eventFeed(state, registry, facts = {}) {
+export function eventFeed(state, registry, facts = {}, lifeRecord = null) {
     const leads = [], news = [], actor = state.actors.player, worldId = actor.worldId;
     const destination = (panel, control) => ({view: "people", panel, control});
     const c = worldId === "base.frontier" ? state.chronicle : null;
@@ -45,10 +47,10 @@ export function eventFeed(state, registry, facts = {}) {
             text:`${e.label}${e.status === "expired" ? " · the opportunity has passed." : e.mode === "ambient" ? "" : " · resolved."}`});
     }
     const s = state.simulation;
-    for(const [key,record] of Object.entries(s?.knowledge.player || {})) if(key.startsWith('original_frontier.')) news.push({id:`frontier:news:${key}`,at:record.at,text:record.value});
+    for(const [key,record] of Object.entries(s?.knowledge?.player || {})) if(key.startsWith('original_frontier.')) news.push({id:`frontier:news:${key}`,at:record.at,text:record.value});
     // Only received player accounts enter the feed. Actor controllers, source
     // baselines and unobserved future outcomes never become public news.
-    for(const [key,record] of Object.entries(s?.knowledge.player || {})) if(
+    for(const [key,record] of Object.entries(s?.knowledge?.player || {})) if(
         key.startsWith('book.paradise.') || key.startsWith('book.goa.') || key.startsWith('book.mol.')) {
         news.push({id:`book:news:${key}`,at:record.at,text:record.value});
     }
@@ -89,5 +91,13 @@ export function eventFeed(state, registry, facts = {}) {
     }
     const order = (a,b) => b.at-a.at || a.id.localeCompare(b.id);
     leads.sort((a,b) => Number(b.available)-Number(a.available) || a.at-b.at || a.id.localeCompare(b.id));
-    return {leads, news:news.sort(order).slice(0,8)};
+    const lifeView=state.chronicle ? lifeExperienceView(state.chronicle) : null;
+    const life=lifeView ? [{id:'life:age',at:state.clock,text:`Age ${lifeView.age}. ${lifeView.stage==='youth' ? 'New lessons come quickly.' : lifeView.stage==='elder' ? 'There is still time to teach someone what I know.' : 'There is work to do, and time to do it.'}`},
+        ...(state.chronicle.knowledge.routeSignals ? [{id:'life:roads',at:state.clock,text:'I learned to read the road.'}] : []),
+        ...(state.chronicle.relationships.villageElder?.ties.dutyKept ? [{id:'life:promise',at:state.clock,text:'I kept my promise to put the old records in order.'}] : []),
+        ...state.chronicle.log.filter(m=>m.life || LIFE_LESSONS.some(l=>[l.youth,l.adult,l.elder].includes(m.text))).slice(-6).reverse().map((m,i)=>({id:`life:${i}:${m.at}`,at:m.at,text:m.text})),
+        ...(lifeView.epitaph?[{id:'life:grave',at:state.chronicle.life.endedAt,text:lifeView.epitaph}]:[])] : [];
+    if(lifeRecord){const record=lifeRecordView(lifeRecord);life.push(...record.recent.map(m=>({id:`memory:${m.id}`,at:m.at,text:`Year ${m.year}: ${m.text}`})),...record.years.map(y=>({id:`year:${y.year}`,at:y.last,text:`Year ${y.year}: ${y.count} moments remembered. ${y.highlights.join(' ')}`})));if(record.earlier.count)life.push({id:'earlier',at:0,text:`Through year ${record.earlier.throughYear}: ${record.earlier.count} moments remembered.`});}
+    const heard=Object.values(c?.events || {}).filter(e=>e.status==='missed'&&e.heard).map(e=>({id:`heard:${e.id}`,at:e.settledAt,text:e.missedText}));
+    return {leads, news:news.sort(order).slice(0,8),life,heard};
 }

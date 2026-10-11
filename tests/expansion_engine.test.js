@@ -167,7 +167,7 @@ test("legacy migration, dormant payload and Unicode file roundtrip retain new co
         expansion: begun.state, retired_content: {schema: 1, entries: [{path: ["cultivation"], value: {qi: 78}}]}};
     const decoded = decodeSaveFile(encodeSaveFile(JSON.stringify(envelope)), "v0.5.5.30");
     assert.deepEqual(decoded.expansion, begun.state); assert.deepEqual(decoded.retired_content, envelope.retired_content);
-    for(const mutate of [s => s.schema = 6, s => s.rng = 0, s => s.actors.player.resources.kits = -1,
+    for(const mutate of [s => s.schema = 999, s => s.rng = 0, s => s.actors.player.resources.kits = -1,
         s => s.pending[0].draw = 1, s => s.pending[0].effects = [{type: "bad"}], s => s.pending[0].actionId = "missing.action"]) {
         const bad = structuredClone(begun.state); mutate(bad);
         assert.throws(() => loadExpansionState(bad, registry));

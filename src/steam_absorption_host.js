@@ -4,10 +4,10 @@ import {steamONIContext, commitSteamONICommand, steamONIPresentation} from './st
 import {steamLambContext, commitSteamLambCommand, steamLambPresentation} from './steam_lamb_host.js';
 
 const hosts = Object.freeze({
-    steam_df: {context: steamDFContext, commit: commitSteamDFCommand, presentation: steamDFPresentation},
-    steam_boh: {context: steamBOHContext, commit: commitSteamBOHCommand, presentation: steamBOHPresentation},
-    steam_oni: {context: steamONIContext, commit: commitSteamONICommand, presentation: steamONIPresentation},
     steam_lamb: {context: steamLambContext, commit: commitSteamLambCommand, presentation: steamLambPresentation},
+    steam_oni: {context: steamONIContext, commit: commitSteamONICommand, presentation: steamONIPresentation},
+    steam_boh: {context: steamBOHContext, commit: commitSteamBOHCommand, presentation: steamBOHPresentation},
+    steam_df: {context: steamDFContext, commit: commitSteamDFCommand, presentation: steamDFPresentation},
 });
 
 export function steamAbsorptionContext(state, registry, context = {}) {

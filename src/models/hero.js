@@ -86,6 +86,17 @@ class Hero extends Person {
         });
     }
 
+    /**
+     * replaces title bonuses with the combined bonus of held titles; derived each call, so reloading never stacks them
+     * @param {{flats, multipliers, xp_multipliers}} bonuses from titleBonuses()
+     */
+    setTitleBonus({flats = {}, multipliers = {}, xp_multipliers = {}}) {
+        const levelable = this.getLevelableComponent();
+        levelable.stats.flat.titles = {...flats};
+        levelable.stats.multiplier.titles = {...multipliers};
+        levelable.xp_bonuses.multiplier.titles = {...xp_multipliers};
+    }
+
     addActiveEffectBonus(active_effects) {
         const levelable = this.getLevelableComponent();
 

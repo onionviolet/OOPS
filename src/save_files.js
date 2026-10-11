@@ -1,3 +1,4 @@
+import {validatePackState} from './content_packs.js';
 import {validateWorldCompletionNativeEnvelope} from './world_completion_native.js';
 import {validateCausalStoryEnvelope} from './causal_story_native.js';
 import {validateParadiseEnvelope} from './book_world_paradise_native.js';
@@ -14,6 +15,11 @@ import {validateChronicleCalendar} from "./chronicle.js";
 import {validateItemKey} from "./gameplay_transactions.js";
 import {stableId} from "./simulation_contracts.js";
 
+import {validateVillageCareer, WATCHCRAFT_BOOK, WATCHCRAFT_READING, WATCHCRAFT_PRACTICE} from './village_career.js';
+
+import {validateLifeRecord} from './life_record.js';
+import {validateVillageLives} from './npc_lives.js';
+
 const object = (value, label) => {
     if(!value || typeof value !== "object" || Array.isArray(value)) throw new Error(`${label} must be an object.`);
 };
@@ -25,6 +31,18 @@ const number = (value, label, minimum = 0) => {
 
 export function validateSaveEnvelope(original, currentVersion) {
     object(original, "Save");
+    if(original.content_packs!=null)validatePackState(original.content_packs);
+    if(original.village_career != null) {
+        validateVillageCareer(original.village_career);
+        if(original.village_career.recruit && !original.npc_lives?.people?.some(p=>p.id==='iona' && p.name==='Iona'))throw new Error('Village recruit needs her public life.');
+        if(original.village_career.recruit?.known && !(original.books?.[WATCHCRAFT_BOOK]?.accumulated_time>=WATCHCRAFT_READING || (original.village_career.schema>=4 && original.village_career.watchcraft.tutorMinutes===6)))throw new Error('Teaching needs completed native reading.');
+        if(original.village_career.schema>=2 && original.village_career.watchcraft.practiceMinutes>0 &&
+            !(original.books?.[WATCHCRAFT_BOOK]?.accumulated_time>=WATCHCRAFT_READING || (original.village_career.schema>=4 && original.village_career.watchcraft.tutorMinutes===6)))throw new Error('Watchcraft practice needs completed native reading.');
+        if(original.village_career.loan?.watchcraft && original.village_career.watchcraft.practiceMinutes!==WATCHCRAFT_PRACTICE)throw new Error('Executable watchcraft needs completed practice.');
+        if(original.village_career.loan?.status==='active' && (original['current location']!=='Village' || original.current_activity?.activity_id!=='patrolling'))throw new Error('Active Village career must have its native patrol.');
+    }
+    if(original.life_record != null) validateLifeRecord(original.life_record);
+    if(original.npc_lives != null) {validateVillageLives(original.npc_lives);if(original.npc_lives.lastYear > original["current time"]?.year)throw new Error("Village lives are ahead of this calendar.");}
     const parts = version => {
         if(typeof version !== "string" || !/^v\d+(\.\d+){1,4}$/.test(version)) throw new Error("Unrecognized save version.");
         return version.slice(1).split(".").map(Number);
@@ -153,6 +171,31 @@ export async function importSaveFile(encoded, {currentVersion, preflight, storag
     const save = decodeSaveFile(encoded, currentVersion);
     await preflight(save);
     const serialized = JSON.stringify(save);
-    storage.setItem(key, serialized);
+    writeGuardedSave(storage, key, serialized);
     return save;
+}
+
+// Conservative shared origin budget, measured in UTF-16 storage bytes. Browsers
+// may enforce a smaller quota; their failure is handled without deleting saves.
+export const SAVE_STORAGE_BUDGET = 4 * 1024 * 1024;
+export function measureSaveSize(serialized) {
+    if(typeof serialized !== 'string') throw new Error('No save was written.');
+    return {utf8Bytes:new TextEncoder().encode(serialized).length,storageBytes:serialized.length*2};
+}
+export function checkSaveSize(serialized,{storage,key,budget=SAVE_STORAGE_BUDGET}={}) {
+    const size=measureSaveSize(serialized);let total=size.storageBytes+2*(key?.length || 0);
+    if(storage && Number.isInteger(storage.length) && typeof storage.key==='function') {
+        for(let i=0;i<storage.length;i++) {const k=storage.key(i);if(k!==null && k!==key)total+=2*(k.length+(storage.getItem(k)?.length || 0));}
+    }
+    if(total>budget) throw Object.assign(new Error('There is no room to safely keep this life in your browser. Export your save to a file before continuing; your last saved life is still safe.'),{code:'SAVE_STORAGE_FULL'});
+    return {...size,originStorageBytes:total,budget};
+}
+export function writeGuardedSave(storage,key,serialized) {
+    checkSaveSize(serialized,{storage,key});
+    try {storage.setItem(key,serialized);}
+    catch(error) {
+        if(error?.name==='QuotaExceededError') throw Object.assign(new Error('Your browser has no room for this life. Export your save to a file; your last saved life is still safe.',{cause:error}),{code:'SAVE_STORAGE_FULL'});
+        throw error;
+    }
+    return serialized;
 }

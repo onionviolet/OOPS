@@ -3111,3 +3111,10 @@ i {
 @media (max-width: 640px) { #chronicle_life_end { top: 8%; padding: 1rem; } }
 
 #original_frontier_panel[hidden], #original_frontier_panel [hidden] { display: none !important; }
+
+#titles_panel { margin-top: .5rem; }
+#titles_panel summary { cursor: pointer; font-weight: bold; }
+#titles_panel ul { margin: .2rem 0 .4rem; padding-left: 1.1rem; }
+#titles_panel .title_family { margin-top: .4rem; font-style: italic; }
+#titles_panel .title_locked { opacity: .55; }
+#titles_panel .title_bonus { color: #7fbf7f; }

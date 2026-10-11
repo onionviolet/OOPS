@@ -18,7 +18,8 @@ export function prepareNativeEquipment(equipment, {actors, getItem}) {
     }
     return {
         write(envelope) {for(const s of stages) {
-            if(s.id === "player") envelope.character.equipment = s.next;
+            // Match create_save's JSON boundary; live Items contain functions.
+            if(s.id === "player") envelope.character.equipment = JSON.parse(JSON.stringify(s.next));
             else {envelope.npc_equipment ||= {}; envelope.npc_equipment[s.id] = structuredClone(s.slots);}
         }},
         publish() {for(const s of stages) {

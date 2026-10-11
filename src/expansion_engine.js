@@ -1,3 +1,4 @@
+import {validateSteamAbsorptionState} from './steam_absorption_facts.js';
 import {validateContextualBalmState} from './contextual_balm_facts.js';
 import {validateCoolingRefinement} from './cooling_refinement_facts.js';
 import {validateAgreedDutyState} from './agreed_duty_facts.js';
@@ -175,6 +176,7 @@ export function validateExpansionState(state, registry) {
     validateAuditedWorkshop(state,registry);
     validateGameAbsorptionAssay(state,registry);
     validateContextualBalmState(state,registry);
+    validateSteamAbsorptionState(state,registry);
     validateCoolingRefinement(state,registry);
     validateAgreedDutyState(state);
     check(state.schema !== REFERENCE_ENGINE_SCHEMA || state.referenceGameplay?.schema === 1, 'Expansion9 requires its optional reference gameplay owner.');

@@ -1,3 +1,4 @@
+import {steamAbsorptionDefinitions} from './steam_absorption_content.js';
 import {CONTEXTUAL_BALM_DEFINITIONS} from './contextual_balm_content.js';
 import {coolingRefinementDefinitions} from './cooling_refinement_content.js';
 import {agreedDutyDefinitions,agreedDutyFollowupDefinitions,agreedDutyController} from './agreed_duty_content.js';
@@ -118,3 +119,7 @@ simulationDefinitions.commands.push(...gameAbsorptionAssayDefinitions.commands);
 
 simulationDefinitions.commands.push(...CONTEXTUAL_BALM_DEFINITIONS.commands,...coolingRefinementDefinitions.commands,...agreedDutyDefinitions.commands,...agreedDutyFollowupDefinitions.commands);
 simulationDefinitions.controllers=simulationDefinitions.controllers.map(agreedDutyController);
+for(const [key,rows] of Object.entries(steamAbsorptionDefinitions)) {
+    simulationDefinitions[key] ||= [];
+    simulationDefinitions[key].push(...rows);
+}

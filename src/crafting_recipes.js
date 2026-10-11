@@ -1,3 +1,4 @@
+import {BRACE_ID, deriveBraceStats} from "./alloy_equipment.js";
 "use strict";
 
 import { character } from "./data/character.js";
@@ -182,7 +183,9 @@ class ComponentRecipe extends ItemRecipe{
                 return new ShieldComponent({ ...item_templates[result.id], quality: quality });
             } else if (result.tags["amulet"]) {
 
-                return new Amulet({ ...item_templates[result.id], quality: quality });
+                return new Amulet({ ...item_templates[result.id],
+                    stats: result.id === BRACE_ID ? deriveBraceStats(item_templates[material.id]) : result.stats,
+                    quality: quality });
             } else {
                 throw new Error(`Component recipe ${this.name} does not produce a valid result!`);
             }
@@ -903,7 +906,8 @@ function get_recipe_xp_value({category, subcategory, recipe_id, material_count, 
     crafting_recipes.equipment["Amulet"] = new ComponentRecipe({
         name: "Amulet",
         materials: [
-            {material_id: "Wool cloth", count: 5, result_id: "Wool scarf"}
+            {material_id: "Wool cloth", count: 5, result_id: "Wool scarf"},
+            {material_id: "Springsteel ingot", count: 1, result_id: "Springsteel brace"}
         ],
         item_type: "Amulet",
         recipe_skill: "Crafting",
@@ -1157,6 +1161,13 @@ function get_recipe_xp_value({category, subcategory, recipe_id, material_count, 
         success_chance: [0.6,1],
         recipe_level: [1,5],
         recipe_skill: "Smelting",
+    });
+    // D1 proposal: earned alloy access uses the native Smelting milestone.
+    smelting_recipes.items["Springsteel ingot"] = new ItemRecipe({
+        name: "Springsteel ingot", id: "Springsteel ingot", is_unlocked: false, recipe_type: "material",
+        materials: [{material_id: "Iron ingot", count: 1}, {material_id: "Steel ingot", count: 1}, {material_type: "coal", count: 1}],
+        result: {result_id: "Springsteel ingot", count: 1},
+        success_chance: [1,1], recipe_level: [10,20], recipe_skill: "Smelting",
     });
     smelting_recipes.items["Iron ingot"] = new ItemRecipe({
         name: "Iron ingot",

@@ -7,12 +7,16 @@ export function createEventFeed({registry, read, open}) {
     const summary = node("summary", "World events"), leads = node("div"), past = node("details");
     const pastSummary = node("summary", "Recent news"), history = node("ol");
     past.append(pastSummary,history); panel.append(summary,leads,past);
-    const rows = new Map(); let historySignature;
+    const lifePanel=node('details'),heardPanel=node('details'),lifeHistory=node('ol'),heardHistory=node('ol');
+    lifeHistory.style.maxHeight='16rem';lifeHistory.style.overflowY='auto';
+    lifePanel.id='life_event_view'; heardPanel.id='heard_event_view';
+    lifePanel.append(node('summary','Life'),lifeHistory);heardPanel.append(node('summary','Heard'),heardHistory);panel.append(lifePanel,heardPanel);
+    const rows = new Map(); let historySignature,lifeSignature,heardSignature;
     function render() {
-        const snapshot = read(), {state,context} = snapshot, feed = eventFeed(state,registry,context.facts);
+        const snapshot = read(), {state,context} = snapshot, feed = eventFeed(state,registry,context.facts,snapshot.lifeRecord);
         const host = document.getElementById("message_box_div");
         if(panel.parentElement !== host) host.prepend(panel);
-        panel.hidden = !feed.leads.length && !feed.news.length;
+        panel.hidden = !feed.leads.length && !feed.news.length && !feed.life.length && !feed.heard.length;
         const count = feed.leads.filter(e => e.available).length;
         summary.textContent = `World events${count ? ` · ${count} available` : ""}`;
         for(const e of feed.leads) {
@@ -37,6 +41,10 @@ export function createEventFeed({registry, read, open}) {
         const signature=JSON.stringify(feed.news);
         if(signature !== historySignature) {historySignature=signature; history.replaceChildren(...feed.news.map(m => node("li",m.text)));}
         past.hidden=!feed.news.length;
+        const ls=JSON.stringify(feed.life),hs=JSON.stringify(feed.heard);
+        if(ls!==lifeSignature){lifeSignature=ls;lifeHistory.replaceChildren(...feed.life.map(m=>node('li',m.text)));}
+        if(hs!==heardSignature){heardSignature=hs;heardHistory.replaceChildren(...feed.heard.map(m=>node('li',m.text)));}
+        lifePanel.hidden=!feed.life.length;heardPanel.hidden=!feed.heard.length;
     }
     render(); return {render};
 }

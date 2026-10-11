@@ -1,3 +1,4 @@
+import {STEAM_ABSORPTION_GROUPS} from './steam_absorption_content.js';
 import {isFeatureBattleSchema} from './feature_expansion_battle.js';
 import {activePractice} from "./techniques.js";
 import {createPeopleOverview} from "./people_ui.js";
@@ -34,6 +35,7 @@ function attention(state, registry, battleRunning=false) {
     const work = state.simulation?.jobs.find(j => j.actorId === "player");
     if(work){const group=registry.simulation.commands.get(work.commandId)?.group;
         if(group==='causal_story'||group==='causal_story_npc')return {id:work.id,view:'here',panel:'causal_story_panel',text:`${work.label} · ${Math.max(0,work.due-state.clock)} min remaining`};
+        if(STEAM_ABSORPTION_GROUPS.includes(group))return {id:work.id,view:'here',panel:'feature_expansion_panel',text:`${work.label} · ${Math.max(0,work.due-state.clock)} min remaining`};
         if(['feature_objects','feature_society','feature_powers','feature_battle','tidemark','repositories','subtlety_relay','nested_campaign','nested_chains','nested_life','book_paradise','book_mol','book_paradise_campaign','home_furnishings','proto23','factorio_retort','reference_gameplay','nethack_fieldcraft','contextual_balm','cooling_refinement','game_absorption_assay','audit_fixture','audit_lesson','artifact_collection','remainder_livelihood','remainder_home','remainder_offers','remainder_consequences','remainder_combat_fit','remainder_combat_objectives'].includes(group))return {id:work.id,view:'here',panel:group==='repositories'?'repository_absorption_panel':'feature_expansion_panel',text:`${work.label} · ${Math.max(0,work.due-state.clock)} min remaining`};}
     if(state.actors.player.facts["original_frontier.travel.remaining"]>0)return {id:"frontier-travel",view:"here",panel:"original_frontier_panel",text:`Native journey: ${state.actors.player.facts["original_frontier.travel.remaining"]} min remain. Continue played time or cancel the remaining journey.`};
     if(work&&registry.simulation.commands.get(work.commandId)?.group?.startsWith('world_completion_'))return {id:work.id,view:'here',panel:'feature_expansion_panel',text:`${work.label} · ${Math.max(0,work.due-state.clock)} min remaining`};

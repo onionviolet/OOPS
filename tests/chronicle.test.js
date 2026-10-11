@@ -21,7 +21,7 @@ test("schema3 migration preserves frozen jobs and has no retroactive age, favors
     const original = structuredClone(old), migrated = loadExpansionState(old, expeditionRegistry);
     assert.equal(migrated.schema, 5); assert.equal(migrated.chronicle, null);
     assert.deepEqual(migrated.pending, old.pending); assert.equal(migrated.rng, old.rng); assert.deepEqual(old, original);
-    assert.throws(() => loadExpansionState({...migrated, schema: 6}, expeditionRegistry), /compatible/);
+    assert.throws(() => loadExpansionState({...migrated, schema: 999}, expeditionRegistry), /compatible/);
 });
 
 test("calendar crosses exact months/years and long jumps without zero dates", () => {

@@ -1883,9 +1883,9 @@ There's another gate on the wall in front of you, but you have a strange feeling
         }),
         "patrolling": new LocationActivity({
             activity_name: "patrolling",
-            starting_text: "Go on a patrol around the village.",
+            starting_text: "Take a loaned kit and patrol with Tessa (2 hours, 50 coins).",
             get_payment: () => {return 50},
-            is_unlocked: false,
+            is_unlocked: true,
             working_period: 60*2,
             skill_xp_per_tick: 1
         }),

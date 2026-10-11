@@ -1,3 +1,5 @@
+import {STEAM_ABSORPTION_GROUPS} from './steam_absorption_content.js';
+import {steamAbsorptionContext,commitSteamAbsorptionCommand} from './steam_absorption_host.js';
 import {contextualBalmContext,commitContextualBalmCommand,stageContextualBalmEffectRequest} from './contextual_balm_host.js';
 import {prepareContextualBalmNative} from './contextual_balm_native.js';
 import {coolingRefinementContext,commitCoolingRefinementCommand} from './cooling_refinement_host.js';
@@ -238,7 +240,7 @@ import { traders } from "./data/traders.js";
 fill_availability_methods();
 
 import {prepareFoundationSave, retainRetiredContent} from "./save_compatibility.js";
-import {encodeSaveFile, importSaveFile, validateSaveEnvelope} from "./save_files.js";
+import {writeGuardedSave, encodeSaveFile, importSaveFile, validateSaveEnvelope} from "./save_files.js";
 import {preflightImport, installImportProbe} from "./import_probe.js";
 import {restoreSavedReputation, shouldReplayReputation} from "./reputation_state.js";
 import {hasEarnedClear} from "./clear_state.js";
@@ -246,6 +248,12 @@ import {createExpansionState, loadExpansionState, commitAction, advanceSimulatio
 import {beginFieldWorkshop} from "./field_workshop.js";
 import {createFieldPanel} from "./field_ui.js";
 import {expeditionRegistry, initializeExpedition, SURVEY_KIT_KEY, SURVEY_ROPE_KEY} from "./expedition_content.js";
+import {loadContentPacks, emptyPackState, validatePackState, enterPack, leavePack, actPack, advancePack, preparePackSave} from './content_packs.js';
+import {createContentPackPanel} from './content_pack_ui.js';
+import {SafeLocation as OptionalPackLocation} from './models/location.js';
+const optionalPacks=new Map();
+let optionalPackState=emptyPackState();
+let optionalPackPanel;
 import "./data/expedition_items.js";
 import {createExpeditionPanel} from "./expedition_ui.js";
 import {persistExpansionPlan} from "./expansion_persistence.js";
@@ -276,6 +284,7 @@ import {bodyFacts, beginBodyRecord} from "./body_progression.js";
 import {createBodyPanel} from "./body_ui.js";
 import {createSimulationPanel} from "./simulation_ui.js";
 import {createEventFeed} from "./event_feed_ui.js";
+import {lifeLearningMultiplier} from './life_experience.js';
 import {enrollSimulation, commitSimulationCommand, cancelSimulationJob, setSimulationProgram, pauseSimulationProgram, resumeSimulationProgram, answerSimulationEncounter, withdrawSimulationEncounter,
     respondSimulationEvent, simulationOccupiesActor, waitingSimulationChoice} from "./simulation.js";
 import {prepareNativeUnlocks} from "./native_unlock_transaction.js";
@@ -303,6 +312,41 @@ const dev_backup_key = "dev backup save";
 registerBookSubtletyCatalogue(expeditionRegistry);
 const agencyIntegrity=validateBookWorldAgencyContracts();if(!agencyIntegrity.valid)throw new Error(`Invalid book-world source contracts: ${agencyIntegrity.errors.join('; ')}`);
 expeditionRegistry.bookPlayerAgency={contracts:BOOK_WORLD_AGENCY_CONTRACTS,nativeBindings:new Map([['reincarnation-paradise',{revision:1,worldIds:PARADISE_FOOTPRINTS.map(f=>f.worldId),scope:'first-Goa supplied-MTL alternate branch',status:'implemented-unverified'}],['mother-of-learning',{revision:1,worldIds:MOL_FOOTPRINTS.map(f=>f.worldId),scope:'Cyoria academy independent visitor branch',status:'implemented-unverified'}]])};
+import {createLifeRecord, migrateLifeRecord, observeLifeSave, appendLifeMilestone, lifeCalendarMinute} from './life_record.js';
+import {createLifeRecordPanel} from './life_record_ui.js';
+import {normalizeTitles, grantEarnedTitles, titleBonuses, titleView, title_by_id, describeTitleBonus, yearsSince, titleCalendarMinute} from './titles.js';
+import {createTitlesPanel} from './titles_ui.js';
+let titlesPanel;
+let title_check_ticks = 0;
+import {createVillageLives, advanceVillageLives, addVillageRecruit} from './npc_lives.js';
+import {createVillageLivesPanel} from './npc_lives_ui.js';
+import {createVillageCareer, migrateVillageCareer, beginVillageShift, finishVillageShift, resolveVillageKit, promoteVillageCareer, CAREER_RANKS, WATCHCRAFT_BOOK, WATCHCRAFT_READING, WATCHCRAFT_PRACTICE, issueWatchcraft, practiceWatchcraft, watchcraftPresentation, villageShiftBonus, assignVillageRecruit, beginVillageTeaching, beginRecruitSolo, advanceVillageMentor, villageTeachingCost, villageTeachingStipend, resolveIonaTuition, villageTeachingBusy, beginTessaInstruction, advanceTessaInstruction, COVER_PAYMENT, SOLO_PAYMENT} from './village_career.js';
+import {createVillageCareerControls} from './village_career_ui.js';
+let villageCareer = createVillageCareer();
+let villageCareerControls;
+let npcLives = null;
+let villageLivesPanel;
+let lifeRecord = createLifeRecord();
+let lifeRecordPanel;
+let lifeStorageFailure = false;
+// Shared save writes stage life observations and publish them only after success.
+const lifeSaveStorage = {setItem(key, serialized) {
+    const save = JSON.parse(serialized);
+    const next = observeLifeSave(save.life_record ?? createLifeRecord(), save);
+    save.life_record = next;
+    const nextNpc = save.npc_lives == null ? null : advanceVillageLives(save.npc_lives, save['current time'].year);
+    if(nextNpc) save.npc_lives = nextNpc;
+    writeGuardedSave(localStorage, key, JSON.stringify(save));
+    villageCareer = migrateVillageCareer(save);
+    optionalPackState=validatePackState(save.content_packs??emptyPackState());
+    optionalPackPanel?.render();
+    villageCareerControls?.render();
+    lifeRecord = next;
+    npcLives = nextNpc;
+    lifeRecordPanel?.render();
+    villageLivesPanel?.render();
+}};
+
 let expansionState = initializeExpedition(createExpansionState(crypto.getRandomValues(new Uint32Array(1))[0]));
 setFieldcraftKnowledgeReader(()=>expansionState);
 character.setSimulationEffectReader(()=>{const context={nativeBody:currentNativeBody(),nativeAlive:character.is_alive===true};return {...projectStatusCareEffects(expansionState,expeditionRegistry,context),...projectFieldCareEffects(expansionState,expeditionRegistry,context),...projectBookCareEffects(expansionState,expeditionRegistry,context),...projectBookWorldEffects(expansionState,expeditionRegistry,context),...projectParadiseCampaignEffects(expansionState,expeditionRegistry,context)};});
@@ -494,7 +538,7 @@ function projectNativePeopleBodies() {
 function expeditionContext() {
     const gameplay = gameplaySnapshot();
     const evidence=frontierNativeEvidence();
-    return originalFrontierContext(expansionState,expeditionRegistry,skillExpansionContext(expansionState,{nativeBody:currentNativeBody(),nativeAlive:character.is_alive===true,nativeCareFrame:nativeCareFrame(),actorId: "player", worldId: expansionState.actors.player.worldId, external: {money: character.money}, gameplay,...evidence,
+    return originalFrontierContext(expansionState,expeditionRegistry,skillExpansionContext(expansionState,{nativeBody:currentNativeBody(),nativeAlive:character.is_alive===true,nativeCareFrame:nativeCareFrame(),equipment:readNativeEquipment({player:character}),actorId: "player", worldId: expansionState.actors.player.worldId, external: {money: character.money}, gameplay,...evidence,
         facts: {...evidence.facts,...chronicleFacts(expansionState.chronicle), location: current_location?.id, strength: character.getFullStats().strength, agility: character.getFullStats().agility,
             ...everydayFacts(expansionState, {hour: current_game_time.hour}),
             ...bodyFacts(expansionState),
@@ -599,10 +643,11 @@ function persistExpansion(plan, ownershipBindings = {}, itemsByOwner = {}) {
     }
     const nativePublications=[tidemarkNative.stage(plan),nestedNative.stage(plan),paradiseNative.stage(plan),molNative.stage(plan),proto23Native.stage(plan),causalNative.stage(plan),prepareContextualBalmNative(expansionState,plan,{activeEffects:active_effects,itemTemplates:item_templates,effectTemplates:effect_templates,ActiveEffect,refresh:()=>{update_displayed_effects();character.addActiveEffectBonus(active_effects);character.updateStatsAndDisplay();}})];
     const nativePublication={write:envelope=>nativePublications.forEach(p=>p.write(envelope)),publish:()=>nativePublications.forEach(p=>p.publish())};
-    try {persistExpansionPlan(plan, {createSave: create_save, storage: localStorage, bindings: gameplayBindings, ownershipBindings, unlockPublication, equipmentPublication, nativePublication,
+    try {persistExpansionPlan(plan, {createSave: create_save, storage: lifeSaveStorage, bindings: gameplayBindings, ownershipBindings, unlockPublication, equipmentPublication, nativePublication,
         validateEnvelope: data => validateSaveEnvelope(data, game_version), key: is_on_dev() ? dev_save_key : save_key});}
     catch(error) {
-        expansionError = "Progress paused because saving failed. Free storage and reload before continuing.";
+        lifeStorageFailure = error.code === 'SAVE_STORAGE_FULL';
+        expansionError = lifeStorageFailure ? error.message : "Progress paused because saving failed. Free storage and reload before continuing.";
         foundationSaveBlocked = true;
         if(current_combat) end_combat();
         throw error;
@@ -744,7 +789,28 @@ function answerPractice(practiceId, response, sequence) {
 
 function usesJoinedClock() {return !!expansionState.chronicle || !!expansionState.simulation || usesVillageClock(expansionState) || usesTownClock(expansionState);}
 
+function commandOptionalPack(id,action) {
+    const d=optionalPacks.get(id);if(!d||!ownsSave||foundationSaveBlocked||importProbeToken)throw Error('Optional content cannot be saved in this tab.');
+    if(action==='enter'&&(current_location?.id!=='Village'||nativeOccupationReason()||current_activity||current_game_action||current_combat||current_dialogue||is_sleeping||is_reading||is_in_trade()))throw Error('Finish your Village activity before departing.');
+    const next=action==='enter'?enterPack(optionalPackState,d):action==='return'?leavePack(optionalPackState,id):actPack(optionalPackState,d,action);
+    const save=JSON.parse(create_save());save.content_packs=next;
+    const target=action==='enter'?d.locations[0].id:action==='return'?'Village':null;
+    if(target) {
+        save['current location']=target;
+        const world=d.world.id;
+        save.expansion.worlds[world]??=structuredClone(next.packs[id].domain??{facts:{},resources:{},completed:{}});
+        save.expansion.actors.player.worldId=action==='enter'?world:'base.frontier';
+        if(save.expansion.simulation?.people?.player)save.expansion.simulation.people.player.location=target;
+    }
+    lifeSaveStorage.setItem(is_on_dev()?dev_save_key:save_key,JSON.stringify(save));
+    optionalPackState=next;
+    if(target){expansionState=save.expansion;change_location({location_id:target,skip_travel_time:true,do_quest_events:false,realm_move:true});renderWorldIdentity();}
+    optionalPackPanel?.render();
+}
+
 function nativeOccupationReason() {
+    if(!restoringNativeSave && Object.values(optionalPackState.packs).some(r=>r.active))return 'Return from your optional world before starting native activities.';
+    if(!restoringNativeSave && villageTeachingBusy(villageCareer))return 'Finish the agreed teaching minutes before starting another activity.';
     const backlogReasons=backlogNativeActionReasons(expansionState);
     if(backlogReasons.length)return backlogReasons.join(' ');
     if(expansionState.actors.player.facts['original_frontier.travel.remaining']>0)return 'Finish or cancel your remaining native journey in local notes first.';
@@ -774,7 +840,7 @@ function advanceExpeditions(minutes) {
         .some(actor => Object.values(actor.sources || {}).some(source => source.expiresAt > expansionState.clock));
     if(active) {
         try {persistExpansion(advanceSimulation(expansionState, expeditionRegistry, minutes, {money: character.money}, gameplaySnapshot(),simulationNativeContexts()));}
-        catch(error) {expansionError ||= error.message;}
+        catch(error) {expansionError ||= error.message; console.error("Expedition clock paused:", error); log_message(`Progress paused: ${error.message}`, "notification");}
     }
     expeditionPanel?.render();
     techniquePanel?.render();
@@ -843,7 +909,7 @@ function makeChroniclePlan(command) {
     return result.minutes ? advanceChroniclePlan(plan, result.minutes) : plan;
 }
 function actSimulation(command) {
-    const hostedId=id=>['game_absorption_assay','contextual_balm','cooling_refinement'].includes(expeditionRegistry.simulation.commands.get(id)?.group)||id?.startsWith('feature_society.duty.');
+    const hostedId=id=>STEAM_ABSORPTION_GROUPS.includes(expeditionRegistry.simulation.commands.get(id)?.group)||['game_absorption_assay','contextual_balm','cooling_refinement'].includes(expeditionRegistry.simulation.commands.get(id)?.group)||id?.startsWith('feature_society.duty.');
     if(command.id&&hostedId(command.id))throw new Error('Choose this action in its current Here project controls.');
     if(command.type==='cancel'&&expansionState.simulation?.jobs.some(j=>j.actorId==='player'&&hostedId(j.commandId)))throw new Error('Cancel this exact job through its Here project controls.');
     if(['program','pause','resume'].includes(command.type)&&hostedId(expansionState.simulation?.programs.player?.commandId))throw new Error('No automatic program is registered for these project choices.');
@@ -914,7 +980,8 @@ function actOriginalFrontier(command){
 function featureWaveContext(){
     const bookCurrent=paradiseContext(expansionState,referenceGameplayContext(expansionState,expeditionRegistry,nestedLifeContext(expansionState,nestedChainContext(expansionState,nestedContext(expansionState,repositoryAbsorptionContext(expansionState,expeditionRegistry,featurePowerContext(expansionState,tidemarkContext(expansionState,societyContext(expansionState,featureObjectContext(expansionState,expeditionRegistry,campaignContext()))))))))));
     const current=paradiseCampaignContext(expansionState,molContext(expansionState,bookCurrent));
-    return coolingRefinementContext(expansionState,expeditionRegistry,contextualBalmContext(expansionState,gameAbsorptionAssayContext(expansionState,expeditionRegistry,factorioRetortContext(expansionState,expeditionRegistry,proto23Context(expansionState,worldCompletionContext(expansionState,auditRemainderContext(expansionState,expeditionRegistry,auditedWorkshopContext(expansionState,expeditionRegistry,nethackFieldcraftContext(expansionState,expeditionRegistry,current)))))))));
+    const joined=coolingRefinementContext(expansionState,expeditionRegistry,contextualBalmContext(expansionState,gameAbsorptionAssayContext(expansionState,expeditionRegistry,factorioRetortContext(expansionState,expeditionRegistry,proto23Context(expansionState,worldCompletionContext(expansionState,auditRemainderContext(expansionState,expeditionRegistry,auditedWorkshopContext(expansionState,expeditionRegistry,nethackFieldcraftContext(expansionState,expeditionRegistry,current)))))))));
+    return steamAbsorptionContext(expansionState,expeditionRegistry,joined);
 }
 function actFeatureExpansion(command){
     if(!ownsSave||importProbeToken||foundationSaveBlocked||expansionError)throw new Error('Saving must be available before this action.');
@@ -926,7 +993,8 @@ function actFeatureExpansion(command){
         if(context.busy)throw new Error('Finish the current native activity first.');
         featureBattleHost.resume(command);return;
     }
-    if(command.type==='contextual_balm')plan=commitContextualBalmCommand(expansionState,expeditionRegistry,command,context,sequence);
+    if(STEAM_ABSORPTION_GROUPS.includes(command.type))plan=commitSteamAbsorptionCommand(expansionState,expeditionRegistry,command,context,sequence);
+    else if(command.type==='contextual_balm')plan=commitContextualBalmCommand(expansionState,expeditionRegistry,command,context,sequence);
     else if(command.type==='cooling_refinement')plan=commitCoolingRefinementCommand(expansionState,expeditionRegistry,command,context,sequence);
     else if(command.type==='agreed_duty')plan=commitAgreedDutyAction(expansionState,expeditionRegistry,context,command.id,sequence);
     else if(command.type==='world_completion')plan=commitWorldCompletionCommand(expansionState,expeditionRegistry,command,context,sequence);
@@ -1653,6 +1721,7 @@ function change_current_location(location_key) {
  * @param {Boolean} params.skip_combat used to not call start_combat function, used in loading as it's only called after 'PLAY' button is clicked
  */
 function change_location({location_id, event, skip_travel_time = false, do_quest_events = true, skip_combat = false,realm_move=false}) {
+    if(!realm_move&&!restoringNativeSave&&Object.values(optionalPackState.packs).some(r=>r.active)&&location_id!==current_location?.id){log_message('Use Return to Village in your optional world controls.','notification');return;}
     if(!restoringNativeSave&&location_id!==current_location?.id){const reasons=causalStoryTravelReasons(expansionState,'player');if(reasons.length){log_message(reasons.join(' '),'notification');return;}}
     if(!realm_move&&!restoringNativeSave&&location_id!==current_location?.id){const reasons=backlogNativeActionReasons(expansionState,'travel');if(reasons.length){log_message(reasons.join(' '),'notification');return;}}
     if(!realm_move&&!restoringNativeSave&&location_id!==current_location?.id&&(activeProto23Visit(expansionState)||Object.values(PROTO23_LOCATIONS).includes(location_id))){log_message('Use your Proto23 visitor controls in Notebook to move or return.','notification');return;}
@@ -1773,8 +1842,59 @@ function handle_location_icon_click() {
  * 
  * @param {Object} selected_activity - {id} of activity in Location's activities list??
  */
+function watchcraftKnown() {return villageCareer.watchcraft.tutorMinutes===6 || book_stats[WATCHCRAFT_BOOK].accumulated_time>=WATCHCRAFT_READING;}
+// Kit resolution, manual issuance and promotion publish their saved state together.
+function writeVillageCareer(choice) {
+    if(!ownsSave || foundationSaveBlocked || importProbeToken || current_location?.id!=='Village' || expansionState.actors.player.worldId!=='base.frontier' || (current_activity && !(choice.startsWith('teach:') && current_activity.id==='patrolling')) || current_dialogue || current_game_action || current_combat || is_sleeping || is_reading || is_in_trade() || expeditionOccupiesPlayer())throw new Error('Finish your current work and speak to Tessa in Village.');
+    const serialized=create_save();if(!serialized)throw new Error('The career ledger could not be saved.');
+    const save=JSON.parse(serialized);
+    if(choice==='recruit') {
+        save.village_career=assignVillageRecruit(villageCareer);
+        save.npc_lives=addVillageRecruit(npcLives,save['current time'].year,expansionState.rng);
+    } else if(choice.startsWith('teach:') || choice==='solo' || choice==='cover') {
+        const p=npcLives?.people.find(p=>p.id==='iona');
+        if(!p || current_game_time.year>=p.deathYear)throw new Error('Iona is no longer available for patrol.');
+        save.village_career=choice.startsWith('teach:')?beginVillageTeaching(villageCareer,watchcraftKnown(),character.name,choice.split(':')[1]):beginRecruitSolo(villageCareer,choice==='cover');
+        if(choice==='teach:time'){save.current_activity.gathering_time=0;save.current_activity.earnings=0;}
+    } else if(choice.startsWith('tuition:')) {
+        const p=npcLives?.people.find(p=>p.id==='iona');if(!p || current_game_time.year>=p.deathYear)throw new Error('Iona is no longer available.');
+        save.village_career=resolveIonaTuition(villageCareer,choice.split(':')[1]);
+        if(choice==='tuition:accepted')save.character.money+=5;
+    } else if(choice==='tutor') {
+        save.village_career=beginTessaInstruction(villageCareer);
+    } else if(choice==='notes') {
+        save.village_career=issueWatchcraft(villageCareer);
+        const key=item_templates[WATCHCRAFT_BOOK].getInventoryKey();
+        const inventory=save.inventories.person.main_character;
+        inventory[key]={count:(inventory[key]?.count || 0)+1};
+    } else if(choice==='promote') {
+        save.village_career=promoteVillageCareer(villageCareer);
+        const t=save['current time'];
+        save.life_record=appendLifeMilestone(save.life_record,{year:t.year,at:lifeCalendarMinute(t),worldId:'base.frontier',kind:'career',text:`Tessa named you a ${CAREER_RANKS[save.village_career.rank].toLowerCase()} on the Village patrol.`});
+    } else {
+        save.village_career=resolveVillageKit(villageCareer,choice);
+        if(choice==='pay') {if(save.character.money<50)throw new Error('You need 50 coins to settle the kit debt.');save.character.money-=50;}
+    }
+    lifeSaveStorage.setItem(is_on_dev()?dev_save_key:save_key,JSON.stringify(save));
+    if(choice==='pay')add_money_to_character(-50);
+    if(choice==='tuition:accepted')add_money_to_character(5);
+    if(choice==='teach:time'){current_activity.gathering_time=0;current_activity.earnings=0;}
+    if(choice==='tutor'){start_activity('meditating');log_message('Tessa teaches sector scanning in person for six Village meditation minutes. No coins or book needed; leaving pauses the lesson.');}
+    if(choice==='notes') {
+        character.addToInventory([{item_id:WATCHCRAFT_BOOK,count:1}]);
+        log_message('Tessa gives you her watchcraft notes. Read, rehearse during Village meditation, then apply the method on a new patrol with our loaned kit.');
+    }
+    if(choice.startsWith('tuition:'))log_message(choice==='tuition:accepted'?'You accept Iona’s offered five coins from her first solo stipend.':'You decline Iona’s tuition. She remembers your answer.');
+    else if(choice.startsWith('teach:'))log_message(`You begin teaching Iona on ${choice.split(':')[1]} terms. The agreed terms are in your patrol ledger.`);
+    else if(['recruit','solo','cover'].includes(choice))log_message(choice==='recruit'?'Tessa assigns Iona to your patrol.':choice==='cover'?'Iona spends one owed favor covering a two-hour shift: 50 coins on return, no player career credit.':'Iona begins a two-hour solo patrol. Stay in Village to hear her report and receive 10 coins.');
+    else if(!['notes','tutor'].includes(choice))log_message(choice==='promote'?`Tessa recognizes you as ${CAREER_RANKS[villageCareer.rank]}. Your life record remembers this promotion.`:choice==='return'?'Tessa: “Lantern and baton accounted for. Thank you.”':choice==='keep'?'Tessa records a 50-coin kit debt. Return the kit or pay before your next shift.':'Tessa records your kit debt as paid.');
+    villageCareerControls?.render();
+}
+
 function start_activity(selected_activity) {
     if(expeditionOccupiesPlayer()) return;
+    if(!restoringNativeSave && (!ownsSave || foundationSaveBlocked || importProbeToken))return;
+    if(!restoringNativeSave && current_activity)return;
     current_activity = Object.assign({},current_location.activities[selected_activity]);
     current_activity.id = selected_activity;
 
@@ -1804,6 +1924,11 @@ function start_activity(selected_activity) {
         }
     } else throw `"${activities[current_activity.activity_name].type}" is not a valid activity type!`;
 
+    if(!restoringNativeSave && current_location.id === 'Village' && selected_activity === 'patrolling') {
+        try {villageCareer = beginVillageShift(villageCareer,watchcraftKnown());}
+        catch(error) {log_message(error.message);current_activity=null;return;}
+        log_message('Tessa loans you the patrol lantern and baton. Return them after the round, or a 50-coin debt must be recorded.');
+    }
     current_activity.earnings = 0;
     current_activity.gathering_time = 0;
     current_activity.gathered_materials = {};
@@ -1815,6 +1940,28 @@ function start_activity(selected_activity) {
 }
 
 function end_activity() {
+    if(!current_activity)return;
+    if(villageTeachingBusy(villageCareer)){log_message('Finish the agreed teaching minutes before leaving this round.');return;}
+    if(current_location.id === 'Village' && current_activity.id === 'patrolling' && villageCareer.loan?.status === 'active') {
+        const bonus=villageShiftBonus(villageCareer,current_activity.earnings>0);
+        const firstUse=bonus>0 && !villageCareer.watchcraft.used;
+        const teachingStipend=villageTeachingStipend(villageCareer,current_activity.earnings>0);
+        const teachingCost=villageTeachingCost(villageCareer,current_activity.earnings>0);
+        villageCareer = finishVillageShift(villageCareer, current_activity.earnings > 0);
+        if(teachingCost)log_message(teachingCost===60?'This full teaching shift earns no pay, as agreed.':'The post pays 10 less: teaching on your shift meant less patrol work. These are lost wages, not a fee.');
+        if(bonus) {
+            current_activity.earnings+=bonus;
+            log_message('Your practiced watchcraft and loaned lantern and baton produced a clear patrol report: +10 coins, 60 total.');
+            if(firstUse) {
+                const t=current_game_time;
+                lifeRecord=appendLifeMilestone(lifeRecord,{year:t.year,at:lifeCalendarMinute(t),worldId:'base.frontier',kind:'career',text:'You first used Tessa’s practiced watchcraft with the loaned lantern and baton to earn a clearer patrol report.'});
+                lifeRecordPanel?.render();
+            }
+        }
+        current_activity.earnings=Math.max(0,current_activity.earnings-teachingCost)+teachingStipend;
+        if(teachingStipend)log_message('Tessa pays a 10-coin teaching stipend on top of your round. Training recruits is part of a Mentor’s job.');
+        log_message('Tessa notes how your shift went. Bring back the loaned lantern and baton before taking another round.');
+    }
     
     log_message(`%HeroName% finished ${current_activity.activity_name}`, "activity_finished");
     
@@ -2829,6 +2976,7 @@ function enough_time_for_earnings(selected_job) {
  * @param {String} npc_id 
  */
 function start_dialogue(npc_id) {
+    if(expeditionOccupiesPlayer())return;
     add_to_content_stack({content_type: "dialogue", data: {npc_id: npc_id}});
 }
 
@@ -3039,7 +3187,8 @@ function kill_target({target_index, fighter_index, is_target_an_attacker, do_que
     target.is_alive = false;
     update_displayed_health_of_fighter({fighter_index: target_index, is_attacker: is_target_an_attacker});
 
-    if(target.add_to_bestiary && is_target_an_attacker && !is_special_combat) {
+    // Enemies are defenders since the combat rewrite (hero attacks), so count kills of defenders.
+    if(target.add_to_bestiary && !is_target_an_attacker && !is_special_combat) {
         if(enemy_killcount[target.name]) {
             enemy_killcount[target.name] += 1;
             update_bestiary_entry_killcount(target.name);
@@ -3136,6 +3285,8 @@ function add_xp_to_skill({skill, xp_to_add = 1, should_info = true, use_bonus = 
     if(!skill.canGainXP(get_context())) {
         return;
     }
+
+    if(!is_from_loading && use_bonus) xp_to_add *= lifeLearningMultiplier(expansionState.chronicle);
 
     let {leveled, prev_name, new_name, was_hidden, message, unlocks} = character.addXPToSkill({skill, xp_to_add, should_info, use_bonus, add_to_parent, cap_gained_xp, is_from_loading, do_quest_events});
 
@@ -3928,6 +4079,7 @@ function character_equip_item(item_key) {
     const reasons = nativeActionReasons(expansionState);
     if(reasons.length) {log_message(reasons.join(" "),"notification");return;}
     character.equipItemFromInventory(item_key);
+    update_displayed_stats();
     if(current_combat) {
         current_combat.resetCombatLoops(true);
         update_displayed_fighters_stats();
@@ -4219,10 +4371,10 @@ function is_JSON(str) {
  * puts all important stuff into a string
  * @returns string with save data
  */
-function create_save() {
+function create_save({forExport = false} = {}) {
     try{
         if(!ownsSave) throw new Error("This tab does not own the save. Close the other game tab and reload.");
-        if(foundationSaveBlocked || is_loading_error) throw new Error("Saving disabled after a loading error. Preserve the original save and use a compatible build.");
+        if((foundationSaveBlocked && !(forExport && lifeStorageFailure)) || is_loading_error) throw new Error("Saving disabled after a loading error. Preserve the original save and use a compatible build.");
         const save_data = {};
         save_data["game version"] = game_version;
         save_data["current time"] = current_game_time;
@@ -4462,7 +4614,11 @@ function create_save() {
             save_data["skill_list_state"][i] = skill_list.children[i].classList.contains("skill_category_expanded");
         }
 
+        save_data.content_packs = structuredClone(optionalPackState);
+        save_data.village_career = structuredClone(villageCareer);
         save_data.fork_schema = 1;
+        save_data.life_record = observeLifeSave(lifeRecord, {...save_data, expansion: expansionState});
+        if(npcLives) save_data.npc_lives = advanceVillageLives(npcLives, current_game_time.year);
         save_data.expansion = recordRouteReading(expansionState, item_templates[ROUTE_NOTES].isFinished());
         tidemarkNative.snapshot(save_data,expansionState);
         nestedNative.snapshot(save_data,expansionState);
@@ -4505,14 +4661,15 @@ function save_to_file() {
     if(importProbeToken) return null;
     try {
         // Validate creation/encoding before offering a download or saving anything.
-        encodeSaveFile(create_save());
+        encodeSaveFile(create_save({forExport:true}));
         if(Date.now() - last_rewarded_export > config.time_between_export_rewards) {
             last_rewarded_export = Date.now();
             give_export_reward();
         }
-        const serialized = create_save();
+        const serialized = create_save({forExport:true});
         const encoded = encodeSaveFile(serialized);
-        localStorage.setItem(is_on_dev() ? dev_save_key : save_key, serialized);
+        try {lifeSaveStorage.setItem(is_on_dev() ? dev_save_key : save_key, serialized);}
+        catch(error) {log_message(error.message + " Your exported file can still be kept.", "message_critical"); return encoded;}
         save_counter = 0;
         log_message("Saved the game manually");
         return encoded;
@@ -4530,7 +4687,8 @@ function save_to_localStorage({key, is_manual}) {
     if(importProbeToken || !ownsSave) return;
     const save = create_save();
     if(save) {
-        localStorage.setItem(key, save);
+        try {lifeSaveStorage.setItem(key, save);}
+        catch(error) {log_message(error.message, "message_critical");return undefined;}
         if(is_manual) {
             log_message("Saved the game manually");
             save_counter = 0;
@@ -4555,10 +4713,15 @@ function load(save_data) {
     restoringNativeSave = true;
     try{
         try {
+            save_data = preparePackSave(save_data,optionalPacks);
             save_data = validateSaveEnvelope(save_data, game_version);
+            optionalPackState=validatePackState(save_data.content_packs??emptyPackState());
             const prepared = prepareFoundationSave(save_data);
             save_data = prepareV06Save(prepared.save);
             retiredContent = prepared.retired;
+            villageCareer = migrateVillageCareer(save_data);
+            lifeRecord = migrateLifeRecord(save_data);
+            npcLives = save_data.npc_lives == null ? null : advanceVillageLives(save_data.npc_lives, save_data["current time"].year);
             expansionState = initializeExpedition(loadExpansionState(save_data.expansion, expeditionRegistry, expansionState.rng));
             validateGameAbsorptionAssay(expansionState,expeditionRegistry,{gameplay:{player:{inventory:Object.fromEntries(Object.entries(save_data.character.inventory || {}).map(([key,row])=>[key,row.count]))}}});
             validateNativeGameplayReferences(expansionState.pending.flatMap(job => [job.effects, job.costs || []]));
@@ -4621,7 +4784,7 @@ function load(save_data) {
 
         name_field.value = save_data.character.name;
         character.name = save_data.character.name;
-        character.titles = structuredClone(save_data.character.titles || {});
+        character.titles = normalizeTitles(structuredClone(save_data.character.titles || {}));
         const bio = character.getBioComponent();
         Object.keys(bio).forEach(info => {
             bio[info] = save_data.character?.bio?.[info];
@@ -6297,7 +6460,7 @@ async function load_from_file(save_string) {
     importInProgress = true;
     try {
         await importSaveFile(save_string, {currentVersion: game_version, preflight: preflightImport,
-            storage: localStorage, key: is_on_dev() ? dev_save_key : save_key});
+            storage: lifeSaveStorage, key: is_on_dev() ? dev_save_key : save_key});
         window.location.reload(false);
     } catch (error) {
         log_message("Import rejected. Current save kept. " + error.message, "message_critical");
@@ -6364,6 +6527,19 @@ function hard_reset() {
 
 //update game time
 function update_timer(time_in_minutes, source = null) {
+    if(Object.values(optionalPackState.packs).some(r=>r.active)) {
+        if(importProbeToken||!ownsSave||foundationSaveBlocked||is_loading_error||lifeStorageFailure)return 0;
+        const minutes=time_in_minutes??1;
+        try {
+            const next=advancePack(optionalPackState,optionalPacks,minutes);
+            const save=JSON.parse(create_save());save.content_packs=next;
+            const calendar=JSON.parse(JSON.stringify(current_game_time));
+            current_game_time.goUp(minutes);save['current time']=JSON.parse(JSON.stringify(current_game_time));
+            try{lifeSaveStorage.setItem(is_on_dev()?dev_save_key:save_key,JSON.stringify(save));}
+            catch(error){Object.assign(current_game_time,calendar);throw error;}
+            optionalPackState=next;optionalPackPanel?.render();update_displayed_time();return minutes;
+        }catch(error){log_message('Optional work paused: '+error.message,'notification');return 0;}
+    }
     if(backlogNativeClockPaused(expansionState)){backlogPanel?.render();replacementRecognitionPanel?.render();backlogOpeningPanel?.render();knownRoutesPanel?.render();adventureNotebook?.render();return 0;}
     const was_night = is_night(current_game_time);
     const minutes = time_in_minutes ?? (is_sleeping ? config.time_speedup_when_sleeping : 1);
@@ -6383,6 +6559,7 @@ function update_timer(time_in_minutes, source = null) {
             expeditionPanel?.render(); techniquePanel?.render(); chroniclePanel?.render(); villagePanel?.render(); simulationPanel?.render();
             return consumed;
         } catch(error) {
+            console.error("Joined clock paused:", error); log_message(`Progress paused: ${error.message}`, "notification");
             if(expansionState.chronicle?.session && !foundationSaveBlocked) {
                 persistExpansion(makeChroniclePlan({type: "policy", policy: "manual"}));
                 chroniclePauseReason = `Prepared plan stopped: ${error.message} Withdraw or choose a supported response.`;
@@ -6651,7 +6828,31 @@ function update() {
                 change_stance({stance_id: selected_stance.id});
             }
 
+            if(villageCareer.recruit) {
+                const p=npcLives?.people.find(p=>p.id==='iona');
+                const next=advanceVillageMentor(villageCareer,{inVillage:current_location.id==='Village' && expansionState.actors.player.worldId==='base.frontier',alive:character.is_alive===true && !!p && current_game_time.year<p.deathYear,patrolling:current_activity?.id==='patrolling'});
+                if(next.recruit.soloPatrols>villageCareer.recruit.soloPatrols) {
+                    // Report, stipend and first biography publish together after durable storage.
+                    try {
+                        const save=JSON.parse(create_save());save.village_career=next;const payment=villageCareer.recruit.covering?COVER_PAYMENT:SOLO_PAYMENT;save.character.money+=payment;
+                        if(next.recruit.soloPatrols===1) {const t=save['current time'];save.life_record=appendLifeMilestone(save.life_record,{year:t.year,at:lifeCalendarMinute(t),worldId:'base.frontier',kind:'career',text:`Iona first patrolled Village alone using the Watchcraft you taught her. Tessa paid your career a ${payment}-coin ${villageCareer.recruit.covering?'covered-shift payment':'stipend'}.`});}
+                        lifeSaveStorage.setItem(is_on_dev()?dev_save_key:save_key,JSON.stringify(save));add_money_to_character(payment);
+                        log_message(`Iona returns with a clear solo report. Tessa pays ${payment} coins; Iona remembers ${next.recruit.taughtBy} as her teacher.`);
+                    } catch(error) {log_message(`Iona’s report could not be saved: ${error.message}`);}
+                } else villageCareer=next;
+            }
+            if(villageCareer.watchcraft.tutoring) {
+                const before=villageCareer.watchcraft.tutorMinutes;
+                villageCareer=advanceTessaInstruction(villageCareer,{inVillage:current_location.id==='Village' && expansionState.actors.player.worldId==='base.frontier',alive:character.is_alive===true,meditating:current_activity?.id==='meditating'});
+                if(before<6 && villageCareer.watchcraft.tutorMinutes===6){log_message('Tessa’s instruction is complete. Watchcraft is known; rehearse it for five more minutes before use.');end_activity();}
+            }
             if(current_activity) { //in activity
+                if(villageCareer.watchcraft.issued && villageCareer.watchcraft.practiceMinutes<WATCHCRAFT_PRACTICE) {
+                    const before=villageCareer.watchcraft.practiceMinutes;
+                    villageCareer=practiceWatchcraft(villageCareer,{known:watchcraftKnown(),location:current_location.id,activity:current_activity.id,worldId:expansionState.actors.player.worldId,alive:character.is_alive===true});
+                    if(before<WATCHCRAFT_PRACTICE && villageCareer.watchcraft.practiceMinutes===WATCHCRAFT_PRACTICE)
+                        log_message('Watchcraft practiced: you can now apply the sector scan on a new full Village patrol with Tessa’s loaned lantern and baton.');
+                }
 
                 //if effects: add them
                 if(current_activity.applied_effects) {
@@ -6723,11 +6924,14 @@ function update() {
                     current_activity.gathering_time_needed = gathering_time_needed;
                 }
 
-                update_displayed_ongoing_activity(current_activity);
-
-                if(!can_work(current_activity)) {
+                // A career shift is one native working period, not an endless wage loop.
+                if(current_location.id === 'Village' && current_activity.id === 'patrolling' && villageCareer.loan?.status === 'active' && current_activity.earnings > 0) {
                     end_activity();
+                } else {
+                    update_displayed_ongoing_activity(current_activity);
+                    if(!can_work(current_activity))end_activity();
                 }
+
                 
             } else {
                 //no current activity
@@ -6868,11 +7072,58 @@ function update() {
         }
 
         game_stats.total_playtime += 1/tickrate;
+        if(++title_check_ticks >= 5*tickrate) {title_check_ticks = 0; refresh_titles();}
         update();
     }, 1000/tickrate - time_adjustment);
     //uses time_adjustment based on time_variance_accumulator for more precise overall stabilization
     //(instead of only stabilizing relative to previous tick, it stabilizes relative to sum of deviations)
     //probably completely unnecessary lol, but hey, it sounds cool
+}
+
+/** Lifetime counters that titles read; all derived from existing saved state. */
+function readTitleCounters() {
+    const level = character.getLevelableComponent().current_level || 0;
+    const books = Object.values(book_stats).filter(b => b.required_time > 0 && b.accumulated_time >= b.required_time).length;
+    return {
+        // game_stats.total_kills is never incremented in this fork; the saved bestiary counts are the real tally.
+        kills: Object.values(enemy_killcount).reduce((a, n) => a + (n || 0), 0),
+        enemy_kinds: Object.values(enemy_killcount).filter(n => n > 0).length,
+        crits_done: game_stats.total_crits_done,
+        strongest_hit: game_stats.strongest_hit,
+        hits_taken: game_stats.total_hits_taken,
+        deaths: game_stats.total_deaths,
+        level,
+        level_without_death: game_stats.total_deaths === 0 ? level : 0,
+        crafts: game_stats.total_crafting_successes,
+        gathered: Object.values(game_stats.gathered_materials).reduce((a, n) => a + (n || 0), 0),
+        books,
+        years: yearsSince(current_game_time),
+        playtime_hours: game_stats.total_playtime / 3600,
+        money: character.money,
+    };
+}
+
+/**
+ * Grants titles whose counters are reached and reapplies the derived bonus.
+ * silent: back-fill on load, one summary line instead of one per title.
+ */
+function refresh_titles({silent = false} = {}) {
+    const earned = grantEarnedTitles(character.titles, readTitleCounters(), titleCalendarMinute(current_game_time));
+    character.setTitleBonus(titleBonuses(character.titles));
+    if(!earned.length && !silent) return earned; // load (silent) always redraws: skill bars were built before the bonus existed
+    if(silent) {
+        if(earned.length) log_message(`Titles recognized from your past: ${earned.map(id => title_by_id[id].name).join(", ")}.`, "level_up");
+    } else {
+        for(const id of earned) {
+            const title = title_by_id[id], bonus = describeTitleBonus(title.bonus);
+            log_message(`Title earned: ${title.name}. ${title.text}${bonus ? ` (${bonus})` : ""}`, "level_up");
+        }
+    }
+    character.updateStatsAndDisplay();
+    update_displayed_xp_bonuses();
+    update_all_displayed_skills_xp_gain();
+    titlesPanel?.render();
+    return earned;
 }
 
 function run() {
@@ -7020,6 +7271,7 @@ acquireSaveOwnership().then(owned => {
     villagePanel?.render(true);
     simulationPanel?.render(); pursuitPanel?.render(); fieldPanel?.render(); promisePanel?.render(); crushSocialPanel?.render(); bodyPanel?.render(); townPanel?.render();
     frontierCampaignPanel?.render();
+    featureExpansionPanel?.render();
     knownRoutesPanel?.render();adventureNotebook?.render(); worldEventFeed?.render();
 });
 
@@ -7211,6 +7463,10 @@ window.Verify_Game_Objects = Verify_Game_Objects;
 set_loading_screen_progress("Waking up from a nyap...");
 
 set_loading_screen_progress("Translating the meows");
+const loadedOptionalPacks=await loadContentPacks({registry:expeditionRegistry,locations,
+    makeLocation:l=>new OptionalPackLocation({id:l.id,name:l.label,description:l.description,connected_locations:[],is_under_roof:true}),
+    onError:()=>console.warn('An optional content pack could not be loaded; the base game remains available.')});
+for(const [id,definition] of loadedOptionalPacks)optionalPacks.set(id,definition);
 await translationManager.init(language);
 translationManager.translateUI(language);
 
@@ -7219,6 +7475,7 @@ if(importProbeToken) {
     // Probe uses fresh definitions and never reads another saved character.
 } else if(!is_on_dev() && save_key in localStorage || is_on_dev() && (dev_save_key in localStorage || !("skip_live_import" in localStorage) && save_key in localStorage )) {
     load_from_localstorage();
+    if(!is_loading_error) refresh_titles({silent: true});
     character.updateStatsAndDisplay();
     update_displayed_xp_bonuses();
 } else {
@@ -7309,6 +7566,9 @@ update_displayed_equipment();
 sort_displayed_inventory({sort_by: "name", target: "character"});
 
 if(!importProbeToken && !foundationSaveBlocked && !is_loading_error) {
+    optionalPackPanel=createContentPackPanel({definitions:optionalPacks,
+        read:()=>({state:optionalPackState,canEnter:ownsSave&&current_location?.id==='Village'&&!nativeOccupationReason()&&!current_activity&&!current_game_action&&!current_combat&&!current_dialogue&&!is_sleeping&&!is_reading&&!is_in_trade(),canAct:ownsSave&&!foundationSaveBlocked&&!lifeStorageFailure,
+            reference:villageCareer.rank>=1&&!villageCareer.loan&&!villageCareer.debt}),command:commandOptionalPack});
     renderWorldIdentity();
     validateNativeGameplayReferences([...expeditionRegistry.actions.values()].flatMap(action =>
         [action.costs, action.effects || [], ...action.outcomes.map(outcome => outcome.effects || [])])
@@ -7387,6 +7647,29 @@ if(!importProbeToken && !foundationSaveBlocked && !is_loading_error) {
         },command:command=>command.type?actFeatureExpansion(command):actPocketRealm(command)});
     adventureNotebook = createAdventureNotebook({registry: expeditionRegistry,
         read: () => ({...readProgression(), inDialogue: !!current_dialogue, inCombat: !!current_combat})});
+    villageCareerControls = createVillageCareerControls({read:()=>({state:villageCareer,study:watchcraftPresentation(villageCareer,watchcraftKnown()),hasNotes:!!character.getItems()[item_templates[WATCHCRAFT_BOOK].getInventoryKey()],
+        visible:current_location?.id==='Village' && expansionState.actors.player.worldId==='base.frontier' && !current_dialogue && !current_combat && !is_sleeping && !is_reading && !is_in_trade() && !current_game_action,
+        canWrite:ownsSave&&!foundationSaveBlocked&&!importProbeToken,
+        busy:!!current_activity || !!nativeOccupationReason(),canTeach:current_activity?.id==='patrolling' && !foundationSaveBlocked && !importProbeToken && ownsSave && !nativeOccupationReason(),recruitAlive:!!npcLives?.people.some(p=>p.id==='iona' && current_game_time.year<p.deathYear)}),
+        mentor:choice=>writeVillageCareer(choice),resolve:choice=>writeVillageCareer(choice),promote:()=>writeVillageCareer('promote'),
+        notes:()=>writeVillageCareer('notes'),tutor:()=>writeVillageCareer('tutor'),readNotes:()=>start_reading(WATCHCRAFT_BOOK),
+        practice:()=>start_activity('meditating')});
+    villageLivesPanel = createVillageLivesPanel({read:()=>({state:npcLives,inVillage:current_location?.id==='Village' && expansionState.actors.player.worldId==='base.frontier',canWrite:ownsSave&&!foundationSaveBlocked&&!importProbeToken}),meet:()=>{
+        if(npcLives || !ownsSave || foundationSaveBlocked || importProbeToken || current_location?.id!=='Village' || expansionState.actors.player.worldId!=='base.frontier')throw new Error("Meet your neighbors in Village when your life can be saved.");
+        const serialized=create_save();if(!serialized)throw new Error("This meeting could not be remembered.");
+        const save=JSON.parse(serialized);save.npc_lives=createVillageLives(save['current time'].year,expansionState.rng);
+        lifeSaveStorage.setItem(is_on_dev()?dev_save_key:save_key,JSON.stringify(save));
+    }});
+    titlesPanel = createTitlesPanel({read: () => titleView(character.titles, readTitleCounters())});
+    lifeRecordPanel = createLifeRecordPanel({read:()=>({record:lifeRecord,canWrite:ownsSave&&!foundationSaveBlocked&&!importProbeToken}),remember:()=>{
+        if(!ownsSave || foundationSaveBlocked || importProbeToken) throw new Error("This life cannot be written right now.");
+        const serialized=create_save(); if(!serialized) throw new Error("This day could not be remembered.");
+        const save=JSON.parse(serialized), t=save["current time"], worldId=expansionState.actors.player.worldId;
+        const at=lifeCalendarMinute(t);
+        if(save.life_record.recent.some(e=>e.kind==='memory' && Math.floor(e.at/1440)===Math.floor(at/1440) && e.worldId===worldId)) throw new Error("You have already held this day in memory.");
+        save.life_record=appendLifeMilestone(save.life_record,{year:t.year,at,worldId,kind:'memory',text:`You paused in ${current_location.name || current_location.id} and held this day in memory.`});
+        lifeSaveStorage.setItem(is_on_dev()?dev_save_key:save_key,JSON.stringify(save));
+    }});
     worldEventFeed = createEventFeed({registry: expeditionRegistry,
         read: () => ({...readProgression(), inDialogue: !!current_dialogue, inCombat: !!current_combat}),
         open: event => {

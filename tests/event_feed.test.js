@@ -10,7 +10,7 @@ const calendar={year:999,month:4,day:1,hour:8,minute:0,day_count:1};
 
 test("Events does not enroll a fresh game or expose frozen results", () => {
     const state=fresh();
-    assert.deepEqual(eventFeed(state,registry),{leads:[],news:[]});
+    assert.deepEqual(eventFeed(state,registry),{leads:[],news:[],life:[],heard:[]});
     const plan=commitAction(state,registry,"village.waypost",{actorId:"player",worldId:"base.frontier",external:{money:10},
         facts:{location:"Village","village.elderMet":true,perception:0},gameplay:{player:{inventory:{},
             skills:{Perception:{xp:0,parent:null,enabled:true}},reputation:{Village:0}}}});

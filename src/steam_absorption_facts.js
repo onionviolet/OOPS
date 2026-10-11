@@ -4,8 +4,7 @@ import {steamONIFacts, validateSteamONIState} from './steam_oni_facts.js';
 import {steamLambFacts, validateSteamLambState} from './steam_lamb_facts.js';
 
 export function steamAbsorptionFacts(state, context = {}, registry) {
-    return {...steamDFFacts(state, context, registry), ...steamBOHFacts(state, context, registry),
-        ...steamONIFacts(state, context, registry), ...steamLambFacts(state, context, registry)};
+    return {...steamDFFacts(state, context, registry), ...steamBOHFacts(state, context, registry), ...steamONIFacts(state, context, registry), ...steamLambFacts(state, context, registry)};
 }
 
 export function validateSteamAbsorptionState(state, registry) {

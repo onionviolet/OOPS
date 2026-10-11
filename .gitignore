@@ -8,3 +8,27 @@ dependency-graph.svg
 # Local-only: derived notes from copyrighted novels (public repo)
 /docs/research/novels/
 __pycache__/
+
+# Optional private content is fetched at runtime, never bundled
+/private_packs/
+
+# Source-identifying dispatch input remains local-only
+/docs/gm/dispatch/soldiers-life-world-2026-10-09/ASSIGNMENT.md
+
+# Local-only: raw pulls from comic wikis (CC BY-SA text, franchise IP)
+/docs/research/comics/raw/
+
+# Local-only: raw pulls for the fan fiction pilot
+/docs/research/fanfic/raw/
+
+# macOS metadata
+.DS_Store
+
+# Run logs stay local; evidence is recorded in JSON and Markdown
+*.log
+
+# Local-only: full raw wiki dumps (CC BY-SA text, franchise IP, 200+ MB)
+/docs/research/power-systems/wiki-digests/full-dumps/
+
+# Local-only: stray novel chapter reviews belong with docs/research/novels/
+/workers/

@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <HTML lang="en">
     <head>
-        <link rel = "stylesheet" href = "style.css?version=v0.6-587ed1bb38f1">
+        <link rel = "stylesheet" href = "style.css?version=v0.6-9f87ef592440">
         <link rel="stylesheet" href="styles/action_legibility.css?version=721590da18e7">
         
         <script type="module" src="resources/js/HackTimer/HackTimer.min.js"></script>
 
-        <script type="module" src="dist/bundle.js?version=v0.6-e77080593d4b"></script>
+        <script type="module" src="dist/bundle.js?version=v0.6-6fb203bfb42f"></script>
 
         <!--Icons-->
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -1275,7 +1275,8 @@
                     handleLocationIconClick();
                 }
 
-                const item_tooltip_margin = Number(getComputedStyle(document.querySelector('.item_tooltip'))["margin-left"].replace("px",""));
+                const initial_item_tooltip = document.querySelector('.item_tooltip');
+                const item_tooltip_margin = initial_item_tooltip ? Number(getComputedStyle(initial_item_tooltip)['margin-left'].replace('px','')) : 0;
                 //margin-left of tooltip elements; should be 0 in most cases
 
                 //not truly bottom edge of the window since it's reduced by tooltip_height, but close enough

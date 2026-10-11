@@ -1,3 +1,8 @@
+import {guardSteamLambAdmission,stampSteamLambAcceptedJob,steamLambCompletionContext} from './steam_lamb_runtime.js';
+import {guardSteamONIAdmission,stampSteamONIAcceptedJob,steamONICompletionContext} from './steam_oni_runtime.js';
+import {guardSteamBOHAdmission,stampSteamBOHAcceptedJob,steamBOHCompletionContext} from './steam_boh_runtime.js';
+import {alloyTechniqueEffects} from "./alloy_equipment.js";
+import {guardSteamDFAdmission,stampSteamDFAcceptedJob,steamDFCompletionContext} from './steam_df_runtime.js';
 import {agreedDutyCompletionEffects,agreedDutyCancellationEffects,agreedDutyStoppedEffects,agreedDutyRefusalEffects} from './agreed_duty_host.js';
 import {agreedDutySelectedCommand} from './agreed_duty_facts.js';
 import {paradiseCampaignControllerAllowed} from './book_world_paradise_campaign_runtime.js';
@@ -118,7 +123,7 @@ export function previewSimulationCommand(state, registry, commandId, context) {
         if(power.worlds && !power.worlds.includes(state.actors[context.actorId].worldId)) reasons.push("This world does not support the power's local rule or fuel.");
     }
     const test = plan(state, context);
-    const resolve = effects => (effects || []).map(e => e.amount != null ? {...e, amount: resolveEffectAmount(e.amount, facts, model || {})} : copy(e));
+    const resolve = effects => (alloyTechniqueEffects(d, effects, facts, value => resolveEffectAmount(value, facts, model || {})) || []).map(e => e.amount != null ? {...e, amount: resolveEffectAmount(e.amount, facts, model || {})} : copy(e));
     let costs = [], effects = [], weights = null;
     try {
         costs = resolve(d.costs); effects = resolve(d.effects); if(d.outcomes) weights = resolveOutcomeWeights(d.outcomes, facts, model || {});
@@ -138,6 +143,10 @@ export function previewSimulationCommand(state, registry, commandId, context) {
 
 function startCommand(out, registry, commandId, context, immediatePreview, contexts = {}) {
     const state = out.state, s = state.simulation, d = registry.simulation.commands.get(commandId);
+    guardSteamDFAdmission(state,d,context);
+    guardSteamBOHAdmission(state,d,context);
+    guardSteamONIAdmission(state,d,context);
+    guardSteamLambAdmission(state,d,context);
     assert(d, 'Unknown living-world command.');
     if(d.group?.startsWith('world_completion_')&&context.actorId==='player')assert(context.worldCompletionHost===true,'Use the current connected-world controls and their physical quote.');
     if(d.group==='world_completion_lens')assert(context.worldCompletionLensHost===true&&context.worldCompletionLensCommandId===d.id&&context.worldCompletionLensPreview!==true,'Lens work needs its actual host quote, not a preview.');
@@ -200,6 +209,10 @@ function startCommand(out, registry, commandId, context, immediatePreview, conte
             location: context.facts?.location || s.people[context.actorId].location, failure: d.completionFailure || "refund"};
     }
     if(d.audience) job.audience = d.audience.map(id => participant(id,context));
+    stampSteamDFAcceptedJob(state,job,context);
+    stampSteamBOHAcceptedJob(state,job,context);
+    stampSteamONIAcceptedJob(state,job,context);
+    stampSteamLambAcceptedJob(state,job,context);
     stampLorePracticeJob(state,job,context);
     stampWorldCompletionAcceptedJob(state,job,context);
     if(d.encounterId) {
@@ -230,7 +243,7 @@ function completeJob(out, job, registry, contexts = {}, beforeJob=null) {
     const completionGroup=registry.simulation.commands.get(job.commandId)?.group;
     const wcContext=completionGroup?.startsWith("world_completion_")?worldCompletionJobContext(state,job,{...contexts[job.actorId],...job.context,external:out.external,gameplay:out.gameplay,vitals:out.vitals,equipment:out.equipment}):null;
     if(job.completionSupport) {
-        const support = job.completionSupport, context = {...contexts[job.actorId], ...job.context,...wcContext, frontierContribution:job.frontierContribution,
+        const support = job.completionSupport, originalContext = {...contexts[job.actorId], ...job.context,...wcContext, frontierContribution:job.frontierContribution,
             ...(['book_mol','book_mol_npc'].includes(completionGroup)?{molAcceptedJob:job}:{}),
             ...(['book_paradise_campaign','book_paradise_campaign_npc'].includes(completionGroup)?{paradiseCampaignAcceptedJob:job}:{}),
             ...(registry.simulation.commands.get(job.commandId)?.group === 'audit_lesson' ? {auditWorkshopReservation: job} : {}),
@@ -241,6 +254,7 @@ function completeJob(out, job, registry, contexts = {}, beforeJob=null) {
             ...(completionGroup === 'home_furnishings' ? {homeFurnishingReservation: job} : {}),
             ...(completionGroup === 'proto23' ? {proto23AcceptedJob: job} : {}),
             external: out.external, gameplay: out.gameplay, vitals: out.vitals, equipment: out.equipment};
+        const context=steamLambCompletionContext(state,job,steamONICompletionContext(state,job,steamBOHCompletionContext(state,job,steamDFCompletionContext(state,job,originalContext))));
         const location = context.facts?.location || s.people[job.actorId].location;
         const present = (job.participants || [job.actorId]).every(id => s.people[id]?.life === "alive" && state.actors[id]?.worldId === state.actors[job.actorId].worldId &&
             (!support.coLocated || (id === job.actorId ? location : id === "player" ? contexts.player?.facts?.location || s.people.player.location : s.people[id].location) === support.location));
@@ -494,7 +508,7 @@ export function advanceSimulationBoundary(out, registry, contexts = {}) {
         for(const candidate of [...d.actions].sort((a,b) => b.priority - a.priority || JSON.stringify(a).localeCompare(JSON.stringify(b)))) {
             const kind = candidate.kind || "command";
             const ctx = {...contexts[c.actorId], actorId: c.actorId, targetId: candidate.targetId || null, gameplay: out.gameplay, external: out.external, vitals: out.vitals, equipment: out.equipment};
-            if(!meets(candidate.when, simulationFacts(state, ctx, registry))) continue;
+            if(candidate.when && !meets(candidate.when, simulationFacts(state, ctx, registry))) continue;
             if(kind === "command") {
                 const preview = previewSimulationCommand(state, registry, candidate.commandId, ctx);
                 if(!preview.eligible) continue;

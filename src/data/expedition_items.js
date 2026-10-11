@@ -1,3 +1,4 @@
+import {steamBOHItemSpecifications} from '../steam_boh_content.js';
 import {registerGameAbsorptionAssayItems} from '../game_absorption_assay_content.js';
 import {worldCompletionItemSpecifications} from '../world_completion_content.js';
 import {registerAuditRemainderItems} from '../audit_remainder_content.js';
@@ -50,3 +51,5 @@ registerArtifactWorkshopItems({itemTemplates:item_templates,OtherItem});
 for(const spec of worldCompletionItemSpecifications){if(item_templates[spec.id])throw new Error(`Duplicate world-completion item ${spec.id}.`);item_templates[spec.id]=new OtherItem({...spec,name:spec.id,tags:{expedition:true}});}
 
 registerGameAbsorptionAssayItems({itemTemplates:item_templates,OtherItem});
+
+for(const spec of steamBOHItemSpecifications){if(item_templates[spec.id])throw new Error(`Duplicate workshop item ${spec.id}.`);item_templates[spec.id]=new OtherItem({...spec,name:spec.id,tags:{expedition:true}});}

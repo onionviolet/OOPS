@@ -72,7 +72,7 @@ test("schema4 migrates without enrollment, rewards or reinterpreting a frozen co
     const old = initializeExpedition(createExpansionState(4)); old.schema = 4; delete old.simulation;
     const snapshot = structuredClone(old), next = loadExpansionState(old, expeditionRegistry);
     assert.equal(next.schema, 5); assert.equal(next.simulation, null); assert.deepEqual(old, snapshot);
-    assert.throws(() => loadExpansionState({...next, schema: 6}, expeditionRegistry), /compatible/);
+    assert.throws(() => loadExpansionState({...next, schema: 999}, expeditionRegistry), /compatible/);
 });
 test("inspection is pure, definitions are frozen and wrong actor, location or hidden means reject", () => {
     const p = begin(), before = structuredClone(p);

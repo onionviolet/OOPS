@@ -336,6 +336,11 @@ export function createCausalStoryUI({read, registry, command, container} = {}) {
         render();
         if(!projectionFailed && !refresh.hidden) status.focus({preventScroll: true});
     });
+    // The initial render can precede hero creation or the save lease. Opening
+    // the panel must quote the current body and ownership, not that old frame.
+    element.addEventListener('toggle', () => {
+        if(element.open && !destroyed && !busy) render();
+    });
     render();
     return {element, render, destroy() {
         if(destroyed) return;

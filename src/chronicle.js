@@ -1,3 +1,4 @@
+import {lifeVoice, learnedLifeLessons, lifeStage,lifeGrave} from './life_experience.js';
 // Original frontier content. Saved history is authoritative; views never roll events.
 export const GAME_YEAR = 360 * 24 * 60;
 const clone = value => structuredClone(value);
@@ -16,6 +17,14 @@ export function validateChronicle(c, clock) {
         finite(c.life.lifespan) && c.life.lifespan > c.life.initialAge && (c.life.endedAt === null || integer(c.life.endedAt) && c.life.endedAt <= clock), "Invalid lifespan policy.");
     check(c.life.endedAt === null || c.life.mode === "mortal" && c.life.endedAt === lifespanDeadline(c), "Invalid old-age ending.");
     check(c.life.mode !== "mortal" || Number.isSafeInteger(lifespanDeadline(c)), "Unsupported mortal time range.");
+    if(c.life.experience != null) {
+        const x=c.life.experience, ids=['routeSignals','guardLesson','controlPattern'];
+        check(object(x) && ['reflected','taught'].every(k=>Array.isArray(x[k]) && x[k].length<=3 && new Set(x[k]).size===x[k].length && x[k].every(id=>ids.includes(id)&&c.knowledge[id])) && (x.bequest===null || ids.includes(x.bequest)&&c.knowledge[x.bequest]), "Invalid life experience.");
+        check(x.lastYear==null||typeof x.lastYear==='boolean', "Invalid last-year memory.");
+        check(x.generation==null||integer(x.generation)&&x.generation>0, "Invalid generation.");
+        for(const grave of [x.grave,x.inheritedFrom].filter(v=>v!=null))check(object(grave)&&typeof grave.name==='string'&&grave.name.length<=80&&integer(grave.age)&&typeof grave.epitaph==='string'&&grave.epitaph.length<=512&&(grave.lesson===null||ids.includes(grave.lesson)), "Invalid remembered grave.");
+        check(x.grave==null||c.life.endedAt!==null, "A living life cannot have its own grave.");
+    }
     check(object(c.knowledge) && Object.entries(c.knowledge).every(([k,v]) => key(k) && typeof v === "boolean"), "Invalid chronicle knowledge.");
     check(object(c.relationships) && Object.keys(c.relationships).length <= 64, "Invalid relationship owners.");
     for(const [id, r] of Object.entries(c.relationships)) {
@@ -55,7 +64,7 @@ export function relationshipChange(c, actorId, {axes = {}, ties = {}, text, id},
     r.memories.push({id, at, text}); r.memories = r.memories.slice(-32);
 }
 
-function note(c, text, at) {c.log.push({at, text}); c.log = c.log.slice(-40);}
+function note(c, text, at, living = false) {c.log.push({at, text, ...(living ? {life:true} : {})}); c.log = c.log.slice(-40);}
 function event(c, id, label, place, opensAt, lifetime, missedText) {
     if(c.events[id]) return;
     c.events[id] = {id, label, place, opensAt, closesAt: opensAt + lifetime, status: c.lastClock >= opensAt ? "open" : "scheduled", heard: false, missedText};
@@ -88,7 +97,7 @@ export function validateChronicleCalendar(c, clock, calendar) {
 export function lifespanDeadline(c) {return c.life.mode === "mortal" ? c.enrolledAt + Math.ceil((c.life.lifespan - c.life.initialAge) * GAME_YEAR) : Infinity;}
 export function nextChronicleBoundary(c) {
     if(!c || c.life.endedAt !== null) return Infinity;
-    return Math.min(lifespanDeadline(c), ...Object.values(c.events).filter(e => e.status === "open" || e.status === "scheduled")
+    return Math.min(lifespanDeadline(c), c.life.mode==='mortal'&&!c.life.experience?.lastYear ? Math.max(c.enrolledAt,lifespanDeadline(c)-GAME_YEAR) : Infinity, ...Object.values(c.events).filter(e => e.status === "open" || e.status === "scheduled")
         .map(e => e.status === "scheduled" ? e.opensAt : e.closesAt));
 }
 
@@ -99,9 +108,15 @@ export function advanceChronicle(c, clock) {
         if(e.status === "scheduled" && clock >= e.opensAt) e.status = "open";
         if(e.status === "open" && clock >= e.closesAt) {e.status = "missed"; e.settledAt = e.closesAt;}
     }
+    if(next.life.mode==='mortal' && !next.life.experience?.lastYear && clock>=lifespanDeadline(next)-GAME_YEAR) {
+        const x=next.life.experience ||= {reflected:[],taught:[],bequest:null};x.lastYear=true;
+        note(next,"The seasons feel shorter. Before the next year turns, I should leave someone a little of what I know.",Math.max(next.enrolledAt,c.lastClock,lifespanDeadline(next)-GAME_YEAR),true);
+    }
     if(next.life.endedAt === null && clock >= lifespanDeadline(next)) {
         next.life.endedAt = lifespanDeadline(next); next.session = null;
-        note(next, "This mortal life ended from old age. Its knowledge, relationships and unresolved history remain in the saved chronicle.", next.life.endedAt);
+        const x=next.life.experience ||= {reflected:[],taught:[],bequest:null};
+        x.grave=lifeGrave(next);
+        note(next, "The road is quiet now. Others will walk it after me.", next.life.endedAt,true);
     }
     return next;
 }
@@ -145,7 +160,20 @@ export function commandChronicle(state, command, context, expectedSequence = sta
         if(c.session) check(["respond", "withdraw", "policy"].includes(command.type), "Finish or withdraw from the elder encounter first.");
         const r = c.relationships.villageElder;
         const resolve = id => {const e = c.events[id]; check(e?.status === "open", "This opportunity is not currently open."); e.status = "resolved"; e.settledAt = at; return e;};
-        if(command.type === "inspect") {
+        if(command.type === "reflect") {
+            check(learnedLifeLessons(c).some(l=>l.id===command.lesson), "You have not learned that lesson.");
+            const x=c.life.experience ||= {reflected:[], taught:[], bequest:null};
+            check(!x.reflected.includes(command.lesson), "That memory is already written down.");
+            x.reflected.push(command.lesson); x.bequest=command.lesson;
+            note(c, lifeVoice(c,command.lesson),at,true);
+        } else if(command.type === "teach") {
+            check(lifeStage(c)==="elder" && learnedLifeLessons(c).some(l=>l.id===command.lesson), "Only an elder can pass on a learned lesson.");
+            const x=c.life.experience ||= {reflected:[], taught:[], bequest:null};
+            check(!x.taught.includes(command.lesson), "Your apprentice already knows this lesson.");
+            check(lifespanDeadline(c)-at>=5, "There is not enough time for a full lesson.");
+            x.taught.push(command.lesson); x.bequest=command.lesson; minutes=5;
+            note(c, `My apprentice sits beside me. I show them ${learnedLifeLessons(c).find(l=>l.id===command.lesson).label}. They try again, and this time their hands are steady.`,at,true);
+        } else if(command.type === "inspect") {
             check(!c.knowledge.elderClue, "This clue is already recorded.");
             c.knowledge.elderClue = true; note(c, "The elder carries his weight with unusual balance. His actual strength remains unknown.", at);
         } else if(command.type === "hear") {
@@ -240,3 +268,14 @@ export const archiveDutyAction = {id: "chronicle.archive_duty", worldId: "base.f
     duration: 5, repeatable: false, completionScope: "actor", cancellation: "refund", costs: [{scope: "external", key: "money", amount: 1, label: "coin"}],
     requires: {all: [{fact: "location", op: "eq", value: "Village"}, {fact: "chronicle.pledged", op: "eq", value: true}, {fact: "chronicle.dutyDone", op: "eq", value: false}, {fact: "chronicle.alive", op: "eq", value: true}]},
     outcomes: [{id: "kept", label: "Archive promise fulfilled", chance: 1, effects: [{type: "chronicle", operation: "archive-duty"}]}]};
+
+// Builds a new age/relationship owner. Native body reset remains the host's job.
+export function createHeirChronicle(previous, clock, calendar, name) {
+    check(previous.life.endedAt!==null, "There is no ended life to inherit.");
+    const grave=lifeGrave(previous,name), c=createChronicle(clock,calendar,previous.life.mode==='mortal');
+    c.knowledge={}; if(grave.lesson)c.knowledge[grave.lesson]=true;
+    c.life.experience={reflected:[],taught:[],bequest:null,generation:(previous.life.experience?.generation||1)+1,inheritedFrom:grave};
+    if(grave.lesson)note(c,`Among the old papers I find a lesson about ${learnedLifeLessons(c)[0].label}. I can put it to use, even though these hands are my own.`,clock,true);
+    else note(c,"There is no lesson in the old papers. Still, I know where the traveler rests.",clock,true);
+    return c;
+}

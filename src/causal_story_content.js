@@ -7,6 +7,7 @@ export {CAUSAL_STORY_NATIVE_PEOPLE, causalStorySeedEffects, causalStoryNativeSta
 
 export const CAUSAL_STORY_SITES = freeze({delivery:Object.fromEntries(PROOFS.map(p => [p, `causal.story.delivery.${p}`])),
     research:'causal.story.research', care:'causal.story.care', ordinary:'causal.story.ordinary'});
+export const CAUSAL_STORY_MEETING_ID = 'causal.story.meeting.situation';
 const sites = CAUSAL_STORY_SITES;
 const eq = (fact, value=true, reason) => ({fact, op:'eq', value, ...(reason ? {reason} : {})});
 const all = (...rules) => ({all:rules});
@@ -87,8 +88,10 @@ const commands = PROOFS.flatMap(proof => {
             claim:causalStoryId(proof, 'afterward_conversation'),
             visibleWhen:all(at(proof, 'closed'), eq(`knowledge.${causalStoryId(proof, 'closure')}.seen`)),
             requires:all(player, at(proof, 'closed'), person(lead), eq(`knowledge.${causalStoryId(proof, 'closure')}.seen`)),
-            ...timed(1, all(player, at(proof, 'closed'), person(lead),
-                eq(`knowledge.${causalStoryId(proof, 'closure')}.seen`)), sites.ordinary),
+            // A conversation occupies its two people, not Nell's packing site.
+            duration:1, cancellation:'refund', completionFailure:'refund',
+            completionRequires:all(player, at(proof, 'closed'), person(lead),
+                eq(`knowledge.${causalStoryId(proof, 'closure')}.seen`)), completionCoLocated:true,
             costs:[resource(lead, 'attention', -1)],
             effects:[know(proof, 'afterward', 'player', afterwardAccounts[proof], lead, 'seen', 'instruction')]}),
         command(proof, 'cooperate', {label:`Help ${name} pack the actual delivery · 1 log + 1 coin + 2 min`,
@@ -234,11 +237,15 @@ export const causalStoryDefinitions = freeze({people:causalStoryPeople,
         const target=commands.find(command=>command.id===action.commandId)?.targetId;
         return target?{...action,targetId:target}:action;
     })})),
-    situations:PROOFS.map(proof => ({id:causalStoryId(proof, 'situation'), revision:1, label:`${PROFILES[proof].name}'s original observed Village case`,
+    situations:[{id:CAUSAL_STORY_MEETING_ID, revision:1, label:'Meeting the Village couriers',
+        context:{worldId:WORLD, instanceId:'frontier.main', continuityId:'base.branch', eraId:'original.causal_story.meeting', regionId:'frontier.village'},
+        initialPhase:'met', phases:['met'], participants:['player', ...causalStoryPeople.map(person=>person.id)],
+        privateTruth:{meetingOnly:true, provenance:'Original optional meeting; no delivery clock begins here.'}},
+        ...PROOFS.map(proof => ({id:causalStoryId(proof, 'situation'), revision:1, label:`${PROFILES[proof].name}'s original observed Village case`,
         context:{worldId:WORLD, instanceId:'frontier.main', continuityId:'base.branch', eraId:`original.causal_story.${proof}`, regionId:'frontier.village'},
         initialPhase:'begun', phases:['begun'], participants:['player', P[proof], P.witness, P.keeper],
         privateTruth:{proofId:proof, courierId:P[proof], keeperId:P.keeper, witnessId:P.witness, playedWindow:36,
-            provenance:'Original reversible prototype; no activated source-book world or survival entitlement.'}})),
+            provenance:'Original reversible prototype; no activated source-book world or survival entitlement.'}}))],
 });
 
 export function causalStoryFacts(state, context={}) {

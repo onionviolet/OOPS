@@ -10,7 +10,7 @@ import {CAUSAL_STORY_ENGINE_SCHEMA, CAUSAL_STORY_DEFINITION_REVISION,
     CAUSAL_STORY_ITEMS as ITEMS, CAUSAL_STORY_LIMITS as LIMITS,
     causalStoryPersonIds, causalStoryId} from './causal_story_ids.js';
 import {causalStoryDefinitions, causalStoryFacts, causalStorySeedEffects,
-    CAUSAL_STORY_NATIVE_PEOPLE} from './causal_story_content.js';
+    CAUSAL_STORY_NATIVE_PEOPLE, CAUSAL_STORY_MEETING_ID} from './causal_story_content.js';
 import {createCausalStoryState, beginCausalStoryProof, validateCausalStories,
     appendCausalStoryReceipt, resolveCausalProtection, resolveCausalStrike,
     evaluateCausalClosure, stageCausalClosure, causalStoryOccupiesActor} from './causal_story_core.js';
@@ -204,6 +204,9 @@ function attach(plan,registry,context,id) {
     }
     for(const d of causalStoryDefinitions.sites) s.sites[d.id]||={capacity:d.capacity,reservations:{}};
     for(const d of causalStoryDefinitions.controllers) s.controllers[d.id]={actorId:d.actorId,due:state.clock+d.interval,interval:d.interval};
+    // Schema4 needs an actual caused situation even before a courier's terms
+    // are heard. This meeting records enrollment without starting any deadline.
+    apply(plan,[{type:'situation',actor:'player',situationId:CAUSAL_STORY_MEETING_ID,operation:'begin'}],registry,context,id);
     apply(plan,causalStorySeedEffects,registry,context,id);
     plan.causalStoryActivation=true;
 }
@@ -460,11 +463,22 @@ export function causalStoryPresentation(state,registry,context={}) {
         if(!state.causalStories)return {visible:true,enrolled:false,sections:[{id:'causal.story.meeting',label:'Village couriers',
             description:'Meet independently supplied residents and hear their work. Only played game time advances their cases.',
             actions:[previewCausalStoryCommand(state,registry,'causal.story.enroll',context)],records:[],work:[]}]};
+        // Visibility uses only this family's facts and the player's received
+        // knowledge. Avoid evaluating and hashing executable quotes for hidden
+        // lessons/counters on every clock render. Shown offers still go through
+        // the full current host admission below.
+        const visibleFacts={...causalStoryContext(state,context).facts};
+        for(const [key,row] of Object.entries(state.simulation.knowledge.player||{})) {
+            visibleFacts[`knowledge.${key}.seen`]=true;
+            visibleFacts[`knowledge.${key}.understood`]=row.stage==='understood';
+        }
         const sections=PROOFS.map(p=>{
             const proof=state.causalStories.proofs[p],actions=[],records=[];
             if(!proof)actions.push(previewCausalStoryCommand(state,registry,causalStoryId(p,'begin'),context));
             else {
                 for(const d of causalStoryDefinitions.commands.filter(d=>proofOf(d.id)===p&&d.actorId==='player')) {
+                    if(d.id.endsWith('.sever_job') ? !known(state,'player',p,'method')||!known(state,'player',p,'authorization')
+                        : !meets(d.visibleWhen,visibleFacts))continue;
                     const q=previewCausalStoryCommand(state,registry,d.id.endsWith('.sever_job')?causalStoryId(p,'sever'):d.id,context);
                     if(q.visible)actions.push(q);
                 }

@@ -37,7 +37,7 @@ export function createExpeditionPanel({registry, read, command, cancel}) {
     });
     body.append(cancelButton);
     for(const action of registry.actions.values()) {
-        if(["technique", "chronicle", "village", "town"].includes(action.group)) continue;
+        if(["technique", "chronicle", "village", "town", "optional_pack"].includes(action.group)) continue;
         const card = element("div", "", "expedition_card");
         const button = element("button", action.label);
         button.type = "button";
@@ -80,7 +80,7 @@ export function createExpeditionPanel({registry, read, command, cancel}) {
         cancelButton.hidden = !cancellable;
         cancelButton.disabled = !!error;
         for(const action of registry.actions.values()) {
-        if(["technique", "chronicle", "village", "town"].includes(action.group)) continue;
+        if(["technique", "chronicle", "village", "town", "optional_pack"].includes(action.group)) continue;
             const preview = evaluateAction(state, registry, action.id, context);
             const {card, button, previewText, requirements} = cards.get(action.id);
             card.hidden = !preview.visible;
@@ -92,7 +92,7 @@ export function createExpeditionPanel({registry, read, command, cancel}) {
                     .map(o => `${o.label} ${Math.round(o.chance * 100)}%`).join(" / ")).join("");
             requirements.textContent = preview.reasons.join(" ");
         }
-        history.replaceChildren(...state.history.filter(receipt => !["technique", "chronicle", "village", "town"].includes(registry.actions.get(receipt.actionId)?.group)).slice(-6).reverse().map(receipt => element("li",
+        history.replaceChildren(...state.history.filter(receipt => !["technique", "chronicle", "village", "town", "optional_pack"].includes(registry.actions.get(receipt.actionId)?.group)).slice(-6).reverse().map(receipt => element("li",
             [receipt.label, ...(receipt.rolls || []).map(roll => roll.label)].join(" · "))));
     }
     render();

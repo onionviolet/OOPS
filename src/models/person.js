@@ -640,6 +640,7 @@ class Person{
                     * (levelable.xp_bonuses.multiplier.levels[bonus_target] || 1)
                     * (levelable.xp_bonuses.multiplier.skills[bonus_target] || 1)
                     * (levelable.xp_bonuses.multiplier.books[bonus_target] || 1)
+                    * (levelable.xp_bonuses.multiplier.titles?.[bonus_target] || 1)
                     * (levelable.xp_bonuses.multiplier.active_effects[bonus_target] || 1);
         });
 

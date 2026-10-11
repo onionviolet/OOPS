@@ -78,7 +78,10 @@ function savedInventory(value, label) {
 function savedXP(value, label) {
     shape(value, ['total_xp', 'skill_xp'], `${label} native XP`);
     assert(finite(value.total_xp) && value.total_xp >= 0 && object(value.skill_xp), `Invalid ${label} native XP owner.`);
-    for(const [key, xp] of Object.entries(value.skill_xp)) assert(stableId(key) && finite(xp) && xp >= 0, `Invalid ${label} skill XP.`);
+    // Native skill IDs include names such as "Night vision". Match the native
+    // gameplay snapshot's safe-key contract rather than content-definition IDs.
+    for(const [key, xp] of Object.entries(value.skill_xp)) assert(typeof key === 'string' && key.length > 0 &&
+        !['__proto__', 'constructor', 'prototype'].includes(key) && finite(xp) && xp >= 0, `Invalid ${label} skill XP.`);
     return value;
 }
 

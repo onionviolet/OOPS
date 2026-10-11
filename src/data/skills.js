@@ -2171,6 +2171,11 @@ Multiplies AP with daggers by ${Math.round((character.getTotalSkillCoefficient({
         base_xp_cost: 40,
         xp_scaling: 1.5,
         max_level: 60,
+        milestones: {
+            10: {unlocks: {recipes: [
+                {category: "smelting", subcategory: "items", recipe_id: "Springsteel ingot"},
+            ]}},
+        },
     });
     skills["Forging"] = new Skill({
         names: {0: "Forging"}, 
