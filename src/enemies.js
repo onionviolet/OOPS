@@ -215,6 +215,9 @@ const enemy_abilites = {
         add_active_effect(
             statuses[Math.floor(Math.random() * statuses.length)],
             duration);
+    },
+    stone_gaze(duration) {
+
     }
 };
 
@@ -599,6 +602,65 @@ const enemy_abilites = {
             {item_name: "Giant snake skin", chance: 0.01},
         ]
     });
+    enemy_templates["Grizzly bear"] = new Enemy({
+        name: "Grizzly bear",
+        description: "An especially vicious version of the already mighty and dangerous predator with thicker skin, sharper teeth, and more dangerous claws",
+        xp_value: 120,
+        rank: 9,
+        tags: ["living", "beast"],
+        stats: {health: 12000, attack: 800, agility: 180, dexterity: 250, intuition: 250, magic: 0, attack_speed: 0.9, defense: 600},
+        loot_list: [
+            {item_name: "Animal fat", chance: 0.1},
+            {item_name: "Bear hide", chance: 0.1},
+            {item_name: "Bear claw", chance: 0.2},
+            {item_name: "Sharp bear claw", chance: 0.005},
+        ],
+        size: enemy_sizes.LARGE,
+    });
+    enemy_templates["Owlbear"] = new Enemy({
+        name: "Owlbear",
+        description: "A squat, burly species of gryphon, with the front part of an owl and the hindquarters of a bear. While its large heft makes it worse at flying than its kin, it is still more agile than it looks",
+        xp_value: 180,
+        rank: 10,
+        tags: ["living", "beast"],
+        stats: {health: 18000, attack: 900, agility: 240, dexterity: 300, intuition: 300, magic: 0, attack_speed: 1, defense: 700},
+        loot_list: [
+            {item_name: "Animal fat", chance: 0.2},
+            {item_name: "Bear hide", chance: 0.2},
+            {item_name: "Gryphon feather", chance: 0.1},
+            {item_name: "Gryphon pinion", chance: 0.002},
+            {item_name: "Monster beak", chance: 0.005},
+        ],
+        size: enemy_sizes.LARGE,
+    });
+
+    enemy_templates["Bandersnatch"] = new Enemy({
+        name: "Bandersnatch",
+        description: "An ambush predator that prefers to hide its body high in the trees and swipe at prey with its extremely elongated limbs and neck",
+        xp_value: 100,
+        rank: 8,
+        tags: ["living", "beast"],
+        stats: {health: 4000, attack: 720, agility: 260, dexterity: 320, intuition: 360, magic: 0, attack_speed: 1.5, defense: 80},
+        loot_list: [
+            {item_name: "Bandersnatch claw", chance: 0.12},
+            {item_name: "Wolf pelt", chance: 0.12},
+            {item_name: "Monster bone", chance: 0.02},
+            {item_name: "Frumious claw", chance: 0.0015}
+        ],
+        size: enemy_sizes.MEDIUM,
+    });
+
+    enemy_templates["Grizzly squirrel"] = new Enemy({
+        name: "Grizzly squirrel",
+        description: "Small and furious",
+        xp_value: 40,
+        rank: 6,
+        size: enemy_sizes.SMALL,
+        tags: ["living", "beast"],
+        stats: {health: 800, attack: 320, agility: 300, dexterity: 240, intuition: 240, magic: 0, attack_speed: 3, defense: 80},
+        loot_list: []
+    });
+
 })();
 
 
@@ -678,6 +740,7 @@ const enemy_abilites = {
         stats: {health: 22000, attack: 400, agility: 450, dexterity: 700, intuition: 100, magic: 0, attack_speed: 1.6, attack_count: 2, defense: 2000},
         loot_list: [{item_name: "Giant crab claw", chance: 1}],
     });
+
     enemy_templates["Warthog"] = new Enemy({
         name: "Warthog",
         description: "A large, aggressive porcine creature with a tough hide and large tusks",
@@ -697,13 +760,13 @@ const enemy_abilites = {
 
 })();
 
-    Object.keys(enemy_templates).forEach(enemy_key => {
-        enemy_templates[enemy_key].id = enemy_key;
+Object.keys(enemy_templates).forEach(enemy_key => {
+    enemy_templates[enemy_key].id = enemy_key;
 
-        enemy_templates[enemy_key].loot_list.forEach(item => {
-            droplist[item.item_name] = true;
-        });
+    enemy_templates[enemy_key].loot_list.forEach(item => {
+        droplist[item.item_name] = true;
     });
+});
 
 
 export {Enemy, enemy_templates, enemy_killcount, tags_for_droprate_modifier_skills, enemy_tag_to_skill_mapping, droplist};

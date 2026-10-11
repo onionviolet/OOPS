@@ -236,6 +236,7 @@ import Combat from "./models/combat.js";
 import { Rewards } from "./rewards.js";
 import { ReputationManager } from "./reputation.js";
 import { traders } from "./data/traders.js";
+import { dialogue_owners } from "./components/dialogue_component.js";
 
 fill_availability_methods();
 
@@ -1668,7 +1669,8 @@ function option_do_dynamic_loot_message(option) {
  * 
  * {%translation(key)%}, which is self explanatory
  * 
- * and {%dynamic(key)%}, which dynamically selects string based on the key, requires manual setup for each (see get_dynamic_translation function)
+ * and {%dynamic(key)%}, which dynamically selects string based on the key, requires manual setup for each (see get_dynamic_translation function);
+ * intended mostly for smaller text inserts based on age/race/gender/height
  * @param {*} text_id 
  * @param {*} params
  * @returns 
@@ -4870,10 +4872,12 @@ function load(save_data) {
         Object.keys(save_data["availabilities"] || {}).forEach(category_key => {
             if(!availabilities[category_key]) {
                 console.error(`No such category of availability having elements as "${category_key}"`);
+                return;
             }
             Object.keys(save_data["availabilities"][category_key]).forEach(availability_id => {
                 if(!availabilities[category_key][availability_id]) {
                     console.error(`No such element with availability as "${category_key}" -> "${availability_id}"`);
+                    return;
                 }
 
                 availabilities[category_key][availability_id].setStatus(flag_to_status(save_data["availabilities"][category_key][availability_id]));
@@ -5805,7 +5809,7 @@ function load(save_data) {
             //compatibility for some dialogues
             process_rewards({
                 rewards: new Rewards({
-                    textlines: [{npc: "village elder", lines: ["crab rumors"]}]
+                    textlines: [{dialogue: "village elder", lines: ["crab rumors"]}]
                 }),
                 inform_overall: false,
             });
@@ -5815,9 +5819,9 @@ function load(save_data) {
                     rewards: new Rewards({
                         flags: ["is_guard_met"],
                         textlines: [
-                            {npc: "villageElder", lines: ["about guard"]},
-                            {npc: "oldCraftsman", lines: ["about guard"]},
-                            {npc: "villageMillers", lines: ["about guard"]},
+                            {dialogue: "village elder", lines: ["about guard"]},
+                            {dialogue: "old craftsman", lines: ["about guard"]},
+                            {dialogue: "village millers", lines: ["about guard"]},
                         ],
                     }),
                     inform_overall: false,
@@ -5827,7 +5831,7 @@ function load(save_data) {
             if(NPCRegistry.get("villageGuard").getDialogueComponent().textlines["wide"].isFinished()) {
                 process_rewards({
                     rewards: new Rewards({
-                        textlines: [{npc: "villageGuard", lines: ["hi", "tips 2", "serious", "teach more"]}]
+                        textlines: [{dialogue: "village guard", lines: ["hi", "tips 2", "serious", "teach more"]}]
                     }),
                     inform_overall: false,
                 });
@@ -5840,7 +5844,7 @@ function load(save_data) {
             if(supervisor.textlines["defeated boars"].isFinished() && !supervisor.textlines["troubled"].isFinished()) {
                 process_rewards({
                     rewards: new Rewards({
-                        textlines: [{npc: "farmSupervisor", lines: ["troubled unavailable"]}]
+                        textlines: [{dialogue: "farm supervisor", lines: ["troubled unavailable"]}]
                     }),
                     inform_overall: false,
                 });
@@ -5849,7 +5853,7 @@ function load(save_data) {
             if(elder.textlines["money"].isFinished()) {
                 process_rewards({
                     rewards: new Rewards({
-                        textlines: [{npc: "villageElder", lines: ["other work"]}]
+                        textlines: [{dialogue: "village elder", lines: ["other work"]}]
                     }),
                     inform_overall: false,
                 });
@@ -5859,7 +5863,7 @@ function load(save_data) {
                 process_rewards({
                     rewards: new Rewards({
                         locks: {
-                            textlines: {"villageElder": ["leave for materials"]}
+                            textlines: {"village elder": ["leave for materials"]}
                         }
                     }),
                     inform_overall: false,

@@ -290,6 +290,39 @@ const favourite_locations = {};
             }
         }
     });
+    location_types["perilous"] = new LocationType({
+        name: "perilous",
+        stages: {
+            1: {
+                description: "Littered with sharp and dangerous objects like thorns or broken glass. Every move risks injury",
+                related_skill: "Scrambling",
+                scaling_lvl: 30,
+                effects: {
+                    agility: {multiplier: 0.8},
+                    dexterity: {multiplier: 0.8},
+                    health_loss_flat: {flat: -10},
+                }
+            },
+            2: {
+                description: "Filled with very sharp and dangerous objects like traps, falling rocks, or the insides of a machine. Every false move puts you in mortal danger.",
+                related_skill: "Scrambling",
+                effects: {
+                    agility: {multiplier: 0.5},
+                    dexterity: {multiplier: 0.5},
+                    health_loss_flat: {flat: -50},
+                }
+            },
+            3: {
+                description: "An extremely dangerous place, like a raging inferno or the stomach of a beast. Every move risk certain death",
+                related_skill: "Scrambling",
+                effects: {
+                    agility: {multiplier: 0.2},
+                    dexterity: {multiplier: 0.2},
+                    health_loss_flat: {flat: -500},
+                }
+            }
+        }
+    });
 })();
 
 //create locations and zones
@@ -939,6 +972,66 @@ There's another gate on the wall in front of you, but you have a strange feeling
     });
     locations["Forest lake"].connected_locations.push({location: locations["Frogs"], custom_text: "Challenge the apex predator"});
 
+    locations["Motherwood"] = new SafeLocation({
+        connected_locations: [{location: locations["Forest lake"], travel_time: 30}],
+        description: "A deep part of the forest, dense and ancient. Civilization has no place here.",
+        name: "Motherwood",
+        getBackgroundNoises: () => ["*something is watching you*", "*something howls in the distance*", "*You step on the bones of some large animal*", "*something brushes against your leg*"],
+        is_unlocked: false,
+    });
+    locations["Forest lake"].connected_locations.push({ location: locations["Motherwood"], custom_text: "Follow where the river leads", travel_time: 30 });
+
+    locations["Primeval forest"] = new CombatZone({
+        description: "Dangerous beasts roam here",
+        enemies_list: ["Grizzly bear", "Bandersnatch", "Grizzly squirrel"],
+        enemy_count: 50,
+        enemy_group_size: [1,2],
+        is_unlocked: true,
+        enemy_stat_variation: 0.2,
+        name: "Primeval forest", 
+        types: [{type: "open", stage: 2, xp_gain: 7}, {type: "dark", stage: 1, xp_gain: 2}],
+        parent_location: locations["Motherwood"],
+        first_reward: {
+            xp: 10000,
+        },
+        repeatable_reward: {
+            xp: 4000,
+        },
+        rewards_with_clear_requirement: [
+            {
+                required_clear_count: 2,
+                messages: ["An area overgrown with thorny bushes stands in your way"],
+                locations: [{location:"Bramble path"}]
+            }
+        ],
+    });
+    locations["Motherwood"].connected_locations.push({location: locations["Primeval forest"], travel_time: 30});
+
+    locations["Bramble path"] = new CombatZone({
+        description: "A dense tangle of thorny bushes, as tall as a man, covers the ground. Larger animals can't go through here, this is the domain of those small enough to squeeze between or fly over",
+        enemy_groups_list: [
+            { enemies: ["Owlbear"] },
+            { enemies: ["Owlbear", "Grizzly squirrel"] },
+            { enemies: ["Bandersnatch"]},
+            { enemies: ["Bandersnatch", "Grizzly squirrel", "Grizzly squirrel"]},
+            { enemies: ["Grizzly squirrel", "Grizzly squirrel", "Grizzly squirrel", "Grizzly squirrel", "Grizzly squirrel", "Grizzly squirrel", "Grizzly squirrel", "Grizzly squirrel"] }],
+        enemy_count: 50,
+        is_unlocked: false,
+        enemy_stat_variation: 0.2,
+        name: "Bramble path", 
+        types: [{type: "narrow", stage: 2, xp_gain: 7}, {type: "rough", stage: 1, xp_gain: 2}, {type: "perilous", stage: 1, xp_gain: 5}],
+        parent_location: locations["Motherwood"],
+        first_reward: {
+            xp: 15000,
+        },
+        repeatable_reward: {
+            xp: 5000,
+        },
+    });
+    locations["Motherwood"].connected_locations.push({location: locations["Bramble path"], travel_time: 60});
+
+
+
     locations["Forest ant nest"] = new CombatZone({ 
         description: "A labyrinthine nest of red ants", 
         enemies_list: ["Red ant swarm"],
@@ -990,7 +1083,7 @@ There's another gate on the wall in front of you, but you have a strange feeling
         },
         temperature_range_modifier: 0.9,
         getBackgroundNoises: function() {
-            let noises = ["Cough cough", "Cough cough cough", "*You hear someone sobbing*", "*You see someone sleeping in an alleyway.*", "I'm so hungry...", "Even rotten food is better than nothing"];
+            let noises = ["Cough cough", "Cough cough cough", "*You hear someone sobbing*", "*You see someone sleeping in an alleyway.*", "I'm so hungry...", "Even rotten food is better than nothing", "*A pigeon gryphon is fruitlessly pecking the ground in search of food*", "*A pigeon gryphon swishes its rat tail cautiously*"];
             
             if(current_game_time.hour > 4 && current_game_time.hour <= 20) {
                 noises.push("Please, do you have a coin to spare?");
@@ -2437,6 +2530,22 @@ There's another gate on the wall in front of you, but you have a strange feeling
             }
         }),
     };
+
+    locations["Motherwood"].activities = {
+        "animal care": new LocationGatheringActivity({
+            activity_name: "animal care",
+            starting_text: "Delicately harvest silkworm coccoons",
+            skill_xp_per_tick: 10,
+            is_unlocked: false,
+            gained_resources: {
+                resources: [
+                    {name: "Coccoon", ammount: [[1,1], [1,3]], chance: [0.1, 1]},
+                ], 
+                time_period: [120, 40],
+                skill_required: [20, 30]
+            },
+        }),
+    }
 })();
 
 //add actions
@@ -3427,17 +3536,114 @@ There's another gate on the wall in front of you, but you have a strange feeling
             starting_text: "Follow where the river leads",
             description: "...into the darker forest...",
             action_text: "Exploring",
-            success_text: "[TBD]",
+            success_text: `You may have felt like you can already brave anything this forest can throw at you. But the part stretching before you is more imposing than anything you've seen so far.\n\n
+The river coming from the lake vanishes in darkness as the foliage is too dense to let in light. The trees there are growing larger, denser... More ancient.\n
+You try to make out the details of what looks like a bird flying in the distance. It has four legs...\n
+You venture forth`,
             failure_texts: {
-                conditional_loss: ["You need to get more used to water and have lung capacity to go that deep"],
+                conditional_loss: [`You may have felt like you can already brave anything this forest can throw at you. But the part stretching before you is more imposing than anything you've seen so far.\n\n
+The river coming from the lake vanishes in darkness as the foliage is too dense to let in light. The trees there are growing larger, denser... More ancient.\n
+You try to make out the details of what looks like a bird flying in the distance. It has four legs...\n
+You don't think you're ready for this`],
                 random_loss: [`You may have felt like you can already brave anything this forest can throw at you. But the part stretching before you is more imposing than anything you've seen so far.\n\n
-The river coming from the lake vanishes in darkness as the foliage is too dense to let in light. The trees there are growing larger, denser... More ancient.\n\n
-You try to make out the details of what looks like a bird flying in the distance. It has four legs... [tbc]`],
+The river coming from the lake vanishes in darkness as the foliage is too dense to let in light. The trees there are growing larger, denser... More ancient.\n
+You try to make out the details of what looks like a bird flying in the distance. It has four legs...\n
+You almost muster the courage to venture in, but hesitate at the last moment`],
             },
+            success_conditions: [
+                {
+                    hero_level: 20
+                },
+                {
+                    hero_level: 30
+                }
+            ],
             is_unlocked: true,
-            success_chances: [0,0],
+            attempt_duration: 30,
+            success_chances: [0, 1],
+            rewards: {
+                locations: [{ location: "Motherwood" }],
+                move_to: { location: "Motherwood" },
+                skill_xp: { Perception: 2000, },
+            },
         }),
-    },	
+    };
+
+    locations["Motherwood"].actions = {
+        "search for plants": new GameAction({
+            action_id: "search for plants",
+            starting_text: "Search for useful plants",
+            description: "Are there any you can recognize?",
+            action_text: "Exploring",
+            success_text: "You find that some flowering bushes are particlularly attractive to a peculiar type of caterpillar, and are positively swarming with them",
+            failure_texts: {
+                conditional_loss: ["You are not knowledgeable enough about plants for this..."],
+                random_loss: [
+                    "You search around, but nothing stands out to you",
+                    "You can't recognize any of these",
+                    "You don't spot anything useful"
+                ],
+            },
+            success_conditions: [
+                {
+                    skills: {
+                        "Herbalism": 20,
+                    },
+                },
+                {
+                    skills: {
+                        "Herbalism": 30,
+                    },
+                },
+            ],
+            is_unlocked: true,
+            attempt_duration: 60,
+            success_chances: [0.1, 1],
+            rewards: {
+                actions: [{location:"Motherwood", action: "identify bugs"}],
+            },
+        }),
+        "identify bugs": new GameAction({
+            action_id: "identify bugs",
+            starting_text: "Identify the peculiar caterpillars",
+            description: "There must be a significance to this",
+            action_text: "Examining",
+            success_text: "You realize that the abundant coccoons can be made into a high quality thread",
+            failure_texts: {
+                conditional_loss: ["You are not knowledgeable enough about animals for this..."],
+                random_loss: [
+                    "You see a lot of coccoons, but are not sure what to do with them",
+                    "The coccoons are white and fluffy, but you're not sure if they have any other use",
+                    "There are moths hatching from the coccoons, but are not sure what to do with them",
+                    "The plants grow berries, but they are not very good",
+                    "The plants don't seem to be particularly useful aside from attracting the insects",
+                    "You're not sure what an insect-attracting plant could be useful for",
+                    "You remember something about coccoons being useful, but can't remember what for",
+                ],
+            },
+            success_conditions: [
+                {
+                    skills: {
+                        "Animal handling": 10,
+                    },
+                },
+                {
+                    skills: {
+                        "Animal handling": 30,
+                    },
+                },
+            ],
+            attempt_duration: 60,
+            success_chances: [0.1, 1],
+            rewards: {
+                activities: [{ location: "Motherwood", activity: "animal care" }],
+                recipes: [
+                    {category: "crafting", subcategory: "items", recipe_id: "Silk cloth"},
+                ]
+            },
+        }),
+    };
+
     locations["Longhouse"].actions = {
         "learn forage": new GameAction({
             action_id: "learn forage",
@@ -3455,7 +3661,7 @@ You try to make out the details of what looks like a bird flying in the distance
                     "The scout tries to explain the look and uses of local flora, but she's just telling you things you've already learned",
                     "The scout tries to explain the look and uses of local flora, but you two get distracted and spend the hour talking about something else. It was nice",
                         
-              ],
+                ],
             },
             success_conditions: [
                 {

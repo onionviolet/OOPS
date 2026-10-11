@@ -275,6 +275,14 @@ const material_properties = {
         ],
         name: "turtleshell"
     },
+    "frumious": {
+        tier: 4,
+        weight: 80,
+        strength: 80,
+        types: [
+            component_types.SHORT_BLADE,
+        ]
+    },
     "white iron": {
         tier: 4,
         weight: 130,
@@ -361,6 +369,16 @@ const material_properties = {
         strength: 50,
         warmth: 110,
         handling: 80,
+        types: [
+            ...ALL_INTERIORS,
+        ],
+    },
+    "silk": {
+        tier: 5,
+        weight: 40,
+        strength: 40,
+        warmth: 110,
+        handling: 100,
         types: [
             ...ALL_INTERIORS,
         ],
@@ -464,12 +482,22 @@ const material_properties = {
             }
         }
     },
+    "monster bone": {
+        tier: 5,
+        weight: 80,
+        strength: 80,
+        types: [
+            ...ALL_WEAPON_HANDLES,
+        ]
+    },
 };
 
-const custom_names = {"linen":{}, "wool":{}, "iron chainmail": {}, "steel chainmail": {}, "snakeskin": {}};
+const custom_names = {"linen": {}, "wool": {}, "silk": {}, "iron chainmail": {}, "steel chainmail": {}, "snakeskin": {}};
 custom_names["linen"][component_types.HELMET_INTERIOR] = "Linen bandanna";
+custom_names["silk"][component_types.HELMET_INTERIOR] = "Silk bandanna";
 custom_names["linen"][component_types.LEG_ARMOR_INTERIOR] = "Linen leggings";
 custom_names["wool"][component_types.CHESTPLATE_INTERIOR] = "Wool shirt";
+custom_names["silk"][component_types.CHESTPLATE_INTERIOR] = "Silk shirt";
 custom_names["iron chainmail"][component_types.CHESTPLATE_EXTERIOR] = "Iron chainmail vest";
 custom_names["steel chainmail"][component_types.CHESTPLATE_EXTERIOR] = "Steel chainmail vest";
 custom_names["snakeskin"][component_types.LEG_ARMOR_INTERIOR] = "Snakeskin leggings";

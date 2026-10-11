@@ -1,0 +1,10 @@
+{
+  "url": "http://127.0.0.1:18512/",
+  "fingerprint": "http://127.0.0.1:18512/dist/bundle.js?version=v0.6-02663c815d58",
+  "findings": [
+    "Generated pre-merge fork save loads at the retained guild ID with fork state intact.",
+    "Motherwood native menu/action, Primeval forest encounter, save/reload and encoded file import exercised. Late-game access is generated, not natural progression."
+  ],
+  "errors": [],
+  "generatedSavesOnly": true
+}

@@ -1692,6 +1692,21 @@ book_stats[ROUTE_NOTES] = new BookData({required_time: 4, literacy_xp_rate: 1});
         value: 250,
     });
 
+    item_templates["Gryphon feather"] = new Material({
+        description: "A steely feather of a gryphon, very light and strong",
+        value: 150,
+    });
+    item_templates["Gryphon pinion"] = new Material({
+        description: "A particularly majestic feather from a gryphon",
+        value: 400,
+    });
+    
+    item_templates["Monster beak"] = new Material({
+        name: "Monster bone",
+        description: "The huge beak of a bird-like monster. Sharp and strong enough to be fashined into a weapon",
+        value: 250
+    });
+
     item_templates["Monster bone"] = new Material({
         name: "Monster bone",
         description: "Mutated and dark bone of a monster. Strong enough to support weight regular bones would crumble under",
@@ -1864,6 +1879,16 @@ book_stats[ROUTE_NOTES] = new BookData({required_time: 4, literacy_xp_rate: 1});
         value: 8,
     });
 
+    item_templates["Coccoon"] = new Material({
+        name: "Coccoon",
+        description: "A bundle of coccoons, each of them woven from fibers that could be made into a fine material",
+        value: 25,
+        material_type: "raw fabric",
+    });
+})();
+
+//fish
+(function(){
     item_templates["Ratfish"] = new Material({
         name: "Ratfish",
         description: "A small sweetwater fish, named after its unremarkable coloration and propensity to travel in large groups",
@@ -3637,6 +3662,14 @@ function add_gear() {
             }
         });
 
+        item_templates["Gryphon trophy"] = new Artifact({
+            name: "Gryphon trophy",
+            value: 700,
+            stats: {
+                //TODO
+            }
+        });
+
         item_templates["Simple dream catcher"] = new Artifact({
             name: "Simple dream catcher",
             description: "Sinew netting stretched over a willow hoop. You don't know how it works or what it does, but it makes you feel safer. It's design came to you in a dream",
@@ -3659,6 +3692,23 @@ function add_gear() {
             stats: {
                 cold_tolerance: {
                     flat: 5,
+                }
+            }
+        });
+        item_templates["Silk scarf"] = new Amulet({
+            value: 1000,
+            item_tier: 5,
+            use_quality: true,
+            description: "A long, heroically billowing scarf",
+            stats: {
+                crit_rate: {
+                    flat: 0.01,
+                },
+                attack_points: {
+                    multiplier: 1.1,
+                },
+                cold_tolerance: {
+                    flat: 2,
                 }
             }
         });
@@ -4023,6 +4073,11 @@ function add_gear() {
         value: 14,
         material_type: "fabric",
     });
+    item_templates["Silk cloth"] = new Material({
+        description: "Durable, yet light and soft, can be made into comfortable clothing",
+        value: 50,
+        material_type: "fabric",
+    });
 
     item_templates["Iron chainmail"] = new Material({
         description: "Dozens of tiny iron rings linked together. Nowhere near a wearable form, turning it into armor will still take a lot of effort and focus",
@@ -4090,6 +4145,11 @@ function add_gear() {
     item_templates["Processed weak monster bone"] = new Material({
         description: "Polished and cleaned bones of a weak monster, just waiting to be turned into a piece of equipment",
         value: 40,
+        material_type: "bone",
+    });
+    item_templates["Processed monster bone"] = new Material({
+        description: "Polished and cleaned bones of a dangerous monster, just waiting to be turned into a piece of equipment",
+        value: 90,
         material_type: "bone",
     });
 
