@@ -177,6 +177,25 @@ Learned in the fan fiction pilot (`docs/research/fanfic/REPORT.md`,
   every chunk. Check a run's log for the ranges it actually printed before
   trusting "read in full": one run stopped at a third of its range and said
   so, and a fresh run on the remainder fixed it. Record session ids.
+- **WordPress fan-translation sites** (Re:Zero via Witch Cult
+  Translations, 2026-10-10): check robots.txt, then pull
+  `/wp-json/wp/v2/posts?per_page=100&page=N` and `/pages` from the shell
+  with a few seconds between calls. Full content comes back in the JSON, so
+  about 3.1M words took 7 requests. Strip tags, sort by arc and chapter
+  into `{member: [title, body]}`, and write a `MANIFEST.tsv`. Seven Codex
+  readers (about 60–110 members each) then read everything in about an
+  hour. A Codex run's writable root is its own folder, so tell the
+  synthesis run to write inside it and copy the file up afterward.
+- **Japanese web novels on syosetu** (Tensura WN, 2026-10-10): robots.txt
+  allows general crawlers with a 1 s crawl delay. Read the index pages
+  (`/<ncode>/?p=N`, 100 chapters each), then each `/<ncode>/<n>/` page,
+  keeping `div.js-novel-text` at one request per 3 s. 304 chapters took
+  about 20 minutes. Codex reads Japanese and writes English notes, so the
+  original beats a partial fan translation. Blogger fan sites expose
+  `/feeds/posts/default?alt=json` with full post content.
+- **Fetch from Claude's shell, read with Codex.** Codex's workspace-write
+  sandbox has no network (DNS fails), so a Codex acquisition run can only
+  scout. Fetch in Claude's shell, then hand the saved JSON to Codex readers.
 - **Snippet grep in the browser:** fetch chapters inside the page, keep
   only short paragraphs that match mechanic keywords, and return those.
   This finds system rules without copying prose. Run long jobs as a

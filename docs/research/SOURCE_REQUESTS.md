@@ -178,3 +178,10 @@ The [crawl report](power-systems/novel-crawl/REPORT.md) records five bounded sam
 | S95 | Lane W wiki: reincarnation-paradise.fandom.com | https://reincarnation-paradise.fandom.com/ | Public S3 dump route: unavailable_name_guesses. Supply a permitted mechanics-page export with URL and revision metadata. | Open; no dump content acquired |
 | S96 | Lane W wiki: stormlightarchive.fandom.com | https://stormlightarchive.fandom.com/ | Public S3 dump route: dump_unavailable_storage. Supply a permitted mechanics-page export with URL and revision metadata. | Open; no dump content acquired |
 | S97 | Lane W wiki: mistborn.fandom.com | https://mistborn.fandom.com/ | Public S3 dump route: dump_unavailable_storage. Supply a permitted mechanics-page export with URL and revision metadata. | Open; no dump content acquired |
+
+## Anime and web-novel wave, 2026-10-10
+
+| ID | Book | Where | Why | Status |
+|---|---|---|---|---|
+| S98 | A Certain Magical Index light novels (Toaru), Kazuma Kamachi | Yen Press English edition, or a copy you own | The Toaru audit is wiki-only. Text would verify the Level system, Personal Reality, AIM, vector-control limits and the magic-side rules. Only if you already own it. | Open; low priority |
+| S99 | Re:Zero Arcs 1–4 | Yen Press light novels, or a copy you own | Witch Cult's copies were taken down, so Arcs 1–4 rest on the wiki. Matters for the taboo, early checkpoints, Sanctuary and the Witches' tea party. | Open; low priority |

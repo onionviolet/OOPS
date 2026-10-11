@@ -542,3 +542,415 @@ prestige and the rest are turned into twelve idea cards in
 ## The cheat library
 
 [CHEAT_LIBRARY.md](CHEAT_LIBRARY.md) (2026-10-10): cheats as gameplay. Each cheat family adds its own loop, verbs, resources and screens; library cards extend the placement card with engine hooks, numbers, growth and who can hold them; worlds, origins, rivals, items, shops and events draw from the library.
+
+## Placing the 2026-10-10 anime and web-novel wave (proposal, Claude)
+
+Weibao: "whats next? Consider aspects like how they fit into our
+cosmitology and more?" Sources: the Re:Zero full read
+(`research/novels/rezero/DEEP_DIVE_2026-10-10.md`, private, Arcs 5–10
+read in full, Arcs 1–4 wiki only) and wiki-first audits of Toaru, Slime
+(Tensura) and Code Geass (`research/novels/{toaru,tensura,code-geass}/`,
+private). Wiki-first rows rank below book-verified ones. The Slime rows were
+replaced on 2026-10-11 with rows from a full read of the Japanese web
+novel (`research/novels/tensura/DEEP_DIVE_2026-10-10.md`, private). (I) marks
+Claude's inference from backing, as above.
+
+### Placement rows
+
+| Cheat (world) | Family / backing | Scope by feats | In its own world | Outside it (default) | Anti-feats and checks |
+|---|---|---|---|---|---|
+| Return by Death (Re:Zero) | Time, checkpoint kind / patron plus soul (tied to Satella's connection; the wiki says checkpoints went erratic when the link was cut, and the read only partly confirms it) | World | Rewinds causal history to a checkpoint he can't choose; only his mind keeps the run | Weakened or Blocked where the patron can't reach (I); knowledge travels and decays | Telling anyone triggers a penalty on him or the listener; checkpoints can land too late; trauma accumulates |
+| Witch Factors and Authorities (Re:Zero) | Absorb or sin-specific effects / item-like custody that differs from access | World | Holder-specific powers; custody, compatibility and manifestation are separate | Custody might travel as an item; access needs compatibility the new world may not have (I) | Holder-specific recoil and counters; an Authority does not auto-win encounters |
+| Divine Protections (Re:Zero) | Gift / world law (birth, succession, later grant) | World | Innate rules, often unknown to the holder | Blocked or Reread elsewhere (I); a birth gift tied to the world's law stays home | Some hurt their owner; succession can move them |
+| Gluttony's Name and Memory eating (Re:Zero) | Absorb, identity / soul | World | Erases recognition or memory while competence can survive | Works wherever names and memory are real (I) | Name, memory, recognition and skill are distinct; restoration routes exist |
+| Esper ability, Personal Reality (Toaru) | Body and mind / body (brain development) | World (Academy City, AIM fields) | Level 0 to 5 by curriculum and measurement | Works where physics is similar; the level reading is Reread elsewhere (I) | Calculation can fail under pain or noise; AIM jammers |
+| Vector control (Toaru, Accelerator) | Body, field / body plus calculation (later external network) | World | Rewrites the direction of anything he can calculate | Weakened against laws he can't analyze (wiki: unfamiliar magic got through) | Depends on calculation; network loss cripples it |
+| Imagine Breaker (Toaru) | Counter, cancel / concept-like (right hand) | World | Cancels supernatural effects on touch, also blocks good ones | Probably Works (I): it targets "supernatural" as a category | Touch only; large or sustained sources need more than one touch (memory, unchecked); misfortune |
+| Magic Gods' world rewrite (Toaru) | Edit / concept | World, repeatedly recreated | Remakes the world; 50/50 outcomes | Fate-class anywhere (I) | Uncertainty of outcome; rival gods |
+| Great Sage, Raphael and Manas Ciel (Slime WN) | Analysis and advisor; soul skill, later independent intelligence within the soul | SHOWN: develops in Tensura; endgame Ciel operates with Rimuru on Earth | STATED and SHOWN: analyzes encountered information, computes, optimizes and delegates; events and naming produce later autonomy | SHOWN endgame Earth operation; INFERRED early Great Sage should be checked separately for carried soul, sensors and local laws | Needs data; hidden or falsified readings remain possible; free will and probability upset forecasts; Ciel can be baited. |
+| Predator and naming (Slime WN) | Absorption through a held skill; naming through a soul event with a specific payer and resulting bond | SHOWN: in-world intake, analyzed copying and several naming routes; later evolved powers participate in cross-world play | STATED and SHOWN: intake, analysis, timeless stomach, mimicry and isolation; naming may evolve, link or stabilize without always subordinating | INFERRED: test intake against target properties and supplied authority; test naming against carried energy and the target's soul. Destination names having symbolic weight is not a sufficient gate | Conscious targets resist; copies need data and materials; technique does not transfer automatically. Naming can exhaust or irreversibly weaken the payer; external payment and recipient results are case-specific. |
+| Food Chain, Supply and Shub-Niggurath (Slime WN) | Follower growth, copying and gifting; held authority, ability information and actual links | SHOWN: multiple patron factions and compatible retainers within Tensura | Growth returns abilities or energy; later information supports creation, copying, revocable gifts and storage | INFERRED: carried authority may work if the recipient, connection and fuel support it; no general cross-world gifting feat is established here | Capacity and mastery limit recipients; knowledge and learned technique are not automatic; not every transfer is naming lineage. |
+| Analysis-assisted potion and equipment craft (Slime WN) | Craft and analysis; recipe knowledge, material, fuel, operator and tools | SHOWN: local potion production; carried potion heals Mikami on Earth | Improves production through analyzed ingredients and parallel work; independent makers sustain better craft and workshop throughput | SHOWN that potion works on Earth; INFERRED reproducing it elsewhere still requires ingredients, suitable fuel and executable method | Same-grade copies perform worse; analysis does not remove material and training needs. Ordinary spatial storage does not preserve perfectly. |
+| Ramiris's labyrinth and revival items (Slime WN) | Territory and revival; operator, supported domain, recognition and carried item | SHOWN: Tensura domain, changing floors and bounded protected revival | Supports staffed dungeon business, creation, checkpoints, temporary visitor protection and repeated recognized-subordinate revival | INFERRED: a bracelet alone supplies no foreign supported domain. Creating a new domain requires operator and local support | Outside revival excluded; detached areas lose support; encroachment and blocked exits threaten refuge. C21–23, C46; T4 members 233–239. |
+| Chloe's time travel and future memory (Slime WN) | Time and memory; soul, specific time authorities and lived observations | SHOWN: protected historical journey, local retries and remembered lethal futures in Tensura | Keeps relevant traveled or retried experience, acts inside a defined change window and adapts to observed attacks | INFERRED: test available anchors, temporal laws and memory carrier; no ordinary interworld application is shown | Stopped time and heaven block routes; remembered future is not omniscient prophecy; global convergence is unproven. C25, C49, C53; T3 members 216 and 222; T4 member 249. |
+| Parallel bodies and soul corridors (Slime WN) | Many selves and communication; soul, compatible vessels, cores and connection | SHOWN: matured Rimuru continuity on Earth; corridors still give foreign-world coordinates | Coordinates consciousness, information and energy across supported bodies; stronger methods arrive through analysis and integration | SHOWN contact survives foreign travel; INFERRED each body and party still need local execution and transport means | Shared energy does not multiply recovery; channels can be cut, attacked or used as paths; early duplicates cannot run full simultaneous ultimates. C19, C54, C58; T4 members 241 and 243. |
+| Geass (Code Geass) | Command, perception, time and others / patron contract plus body (eye) | World | Wish-shaped power from a contract; grows while control decays | Leash-type gift: travels with the body, the grantor keeps a claim (I) | Once per target; eye contact; runaway; cancel zones |
+| Code (Code Geass) | Immortality / item-like transferable state | World plus a collective-mind layer (C's World) | Immortal, grants Geass, passed to a matured contractor | Works (I): bound to the bearer, not the world | Transfer only to a contractor whose Geass matured; Failed Ones |
+
+### What these worlds add to the cosmology
+
+- **CO1 Rewind-capable worlds.** Re:Zero adds a time kind our table lacks:
+  a **patron-held checkpoint** whose placement belongs to someone else.
+  It sits between "checkpoint" and "mind sent back". If the patron link is
+  cut, the checkpoints reportedly go erratic (wiki, partly confirmed). That gives a clean rule for
+  cross-world travel: carry Return by Death to a world the patron can't
+  see, and it degrades instead of vanishing.
+- **CO2 Owned small worlds.** Toaru's Academy City is a sealed, designed
+  experiment with a planner inside it. That suggests a **cosmology
+  type**: a world whose scope is set by an in-world owner (a planner, an
+  unaware god as in Haruhi, a hub). Owned worlds can be entered,
+  measured and escaped, and the owner notices deviations. This is the
+  "small world that is the playground of a being" idea; Toaru is the
+  strongest sourced fit.
+- **CO3 Two systems in one world.** Toaru's esper and magic sides
+  conflict (espers are hurt by casting). That is our compatibility modes
+  inside one world, not only at borders. A player with two systems
+  could pay that cost anywhere two systems overlap.
+- **CO4 A world with a built-in hub standard.** Slime's Existence Points
+  and the Voice of the World make an in-world absolute scale. Under
+  [verse equalization](#verse-equalization-converting-between-systems)
+  that is an Absolute mode that a world, not the engine, declares.
+- **CO5 Contract cheats with a grantor in reach.** Geass and Code are
+  the clearest leash-type gifts we have: power grows, control decays, and
+  the grantor's terms surface later. The **Failed One** state is a good
+  fit for a player who nearly succeeds.
+
+### Meetings worth testing
+
+Picked per pair, as the meeting decisions above require.
+
+- **Imagine Breaker vs Return by Death:** does touch cancel a patron's
+  checkpoint on the holder? The answer depends on whether the rewind is
+  "an effect on him" or "an effect on the world". A world declares it.
+- **Geass command vs Return by Death (I):** "die" makes him rewind; the
+  Geass user's world resets too and they don't remember. Absolute
+  obedience loses to a power that resets the order.
+- **Gluttony vs naming:** Re:Zero eats names; Slime grants power through
+  names; Shadow Slave forces True Names; LOTM uses honorific names.
+  **Names** become a cross-world axis: a name-eater meeting a named
+  monster either eats its evolution or chokes on its lineage.
+- **Vector reflection vs holder-specific Authorities:** reflection works
+  against what it can calculate. Authorities that rewrite rules, not
+  vectors, should pass through (the shown anti-feat pattern).
+- **Great Sage vs the A.I. Chip:** siblings. Two analysis cheats in one
+  party can share data or compete for it.
+
+### More to consider
+
+- **N1 Names as an axis.** Add "name" as a ninth axis or a target type:
+  who knows your name, who gave it, who can eat or force it.
+- **N2 The taboo as a world law.** Re:Zero's "can't tell anyone" fits
+  the sealed-secrets rule in play: a cheat whose disclosure costs the
+  listener, not the speaker.
+- **N3 Measured worlds.** Toaru's Level scan, Slime's EP and Re:Zero's
+  lack of any scale form a spectrum for the
+  [power scaling](#power-scaling-in-play-expanded-proposal-2026-10-10)
+  work: worlds that measure you, worlds that misread you, worlds that
+  can't.
+- **N4 Life-sim careers.** Pristella courier (Re:Zero), Academy City
+  Level 0 student or Judgment volunteer (Toaru), Tempest citizen on an
+  Effort-Point wage (Slime), Ashford student or Honorary Britannian
+  (Code Geass). Each is a "normal person beside the protagonist" start.
+- **N5 History reacting.** Re:Zero shows enemies adapting to observed
+  evidence, not to past loops. Code Geass offers fixed beats with
+  adjustable outcomes. Both fit [timelines and divergence](TIMELINES_AND_DIVERGENCE.md).
+
+### Names as an axis (A1, proposal)
+
+Five placed worlds treat names as power, so the placement card gets a
+ninth axis, **name**: which of a target's names a cheat reads, uses,
+gives, eats or forces. It builds on "which name" (LS4 in
+[means and appraisal](MEANS_AND_APPRAISAL.md)), "defines or names" (I10
+in [deep concepts](DEEP_CONCEPTS.md)), the `████` true-name display in
+[presentation](PRESENTATION_AND_FOURTH_WALL.md) and soul/true-name
+custody in [rivals and fate](RIVALS_IDENTITIES_AND_FATE.md).
+
+**Kinds of name** (a character can have several):
+
+| Kind | What it is | Placed examples |
+|---|---|---|
+| Registered | What records and institutions call you | Toaru's Bank database (memory), Re:Zero's registered true-name change (0436) |
+| Given | A name someone bestowed, which may carry a bond or evolution | Slime's naming (costs the namer magicules, evolves the named) |
+| True | The name that lets someone command or bind you | Shadow Slave's True Name, earned in the First Nightmare |
+| Honorific | A title the world's powers recognize and answer to | LOTM's honorific names, which reach their bearer when recited |
+| Remembered | The name as it lives in other people's memory | Re:Zero's Gluttony eats this; Julius stays capable but forgotten |
+| Magic | A chosen name that states a purpose | Toaru's magic names, declared before killing intent (memory) |
+| Hidden or lost | A name no one can say | The Nameless One (Planescape); `████` in our UI |
+
+**Operations on names:** read (appraise), give (bond, evolve, claim),
+eat (erase recognition or memory), force (command through a true name),
+recite (call a bearer's attention), change (re-register, take a new
+name), hide (shield), restore (bring an eaten name back).
+
+**How it fits the card:**
+- **Backing:** a given name rides the lineage (Slime); a true name rides
+  the soul; a remembered name lives in other people, so it is the only
+  name that can be attacked without touching you.
+- **Outside its world:** names travel with the soul or the records that
+  hold them. A remembered name doesn't travel; a new world simply never
+  knew you, which is a soft version of Gluttony's eating.
+- **Meetings (picked per pair):** a name-eater against a named monster
+  may eat the evolution or choke on the lineage behind it. A forced true
+  name against a holder with no true name yet does nothing, which makes
+  "haven't earned a true name" a defense. Reciting an honorific name in
+  a world that doesn't know the bearer may reach nobody, or something
+  else that answers to it.
+
+**More to consider:**
+- **NA1 Names as a life-sim verb.** Naming a pet, a child, a sword, a
+  shop or a technique (the naming idea in
+  [presentation](PRESENTATION_AND_FOURTH_WALL.md)) could carry a small
+  bond in worlds where names have weight, and nothing in worlds where
+  they don't.
+- **NA2 Being forgotten as a state, not death.** Re:Zero's victims keep
+  their skills but lose their place in other people's lives. A quest
+  line to be remembered again is a relationship game, not a combat one.
+- **NA3 Names as a currency.** Fame is a name others remember. A world
+  could let you spend your name (be forgotten) to pay for a miracle.
+- **NA4 Naming rights.** Who may name what is a social rule: elders name
+  children, discoverers name places, a monarch names nobles. Breaking it
+  is a crime in some worlds.
+- **NA5 The Notebook knows names.** A name you haven't learned shows as
+  `████`. Learning a true name is a discovery route, which suits sealed
+  secrets.
+
+## Alchemy and crafts in the cosmology (proposal, Claude, 2026-10-10)
+
+Weibao: "What about alchemy and more? more to consider?" Source: the
+[alchemy scan](research/alchemy-2026-10-10/SCAN.md) (14 kinds, sourced
+from search summaries, chapter pages, Wikipedia and UESP; Fandom wikis
+were blocked and no primary text was read), plus
+[Noita substitution](research/noita/ALCHEMY_AND_SUBSTITUTION.md), the
+[FMA digest](research/power-systems/wiki-digests/DIGEST_fullmetal-alchemist.md)
+and the Battle Through the Heavens cases in
+[cultivation paths](RESEARCH_CULTIVATION_PATHS.md). The game's existing
+Alchemy skill keeps its ordinary meaning.
+
+### A craft has four parts, and each has its own backing
+
+This is the scan's strongest finding, and it holds for every craft, not
+only alchemy.
+
+| Part | What it is | Backing | Travels between worlds? |
+|---|---|---|---|
+| Recipe | The method | Knowledge | Always, but may be wrong in a world with different properties |
+| Material | Ingredients, ore, herbs, souls | Item or the local world | Only what you carry; local materials must be found again |
+| Fuel | What powers the change: fire, qi, mana, tectonic energy, a life flow | World law or local supply | Breaks first. Missing fuel means Blocked or Weakened |
+| Operator | Who can do it: skill, aptitude, a trait, a system | Body, soul or system | With the body or soul; a system operator follows its system |
+
+**Same art, different fuel.** FMA's Amestris and Xing share technique
+but draw on different energy (scan 1.1). So one recipe card can carry a
+per-world fuel field: qi in a cultivation world, mana elsewhere, ordinary
+fire in a mundane one. Porting a craft means finding a local fuel, which
+is a quest, not a block.
+
+**What travels best:** internal alchemy (neidan, the body as furnace)
+needs only a body and a method. External alchemy (waidan) needs common
+materials and a crucible. Heavenly flames and pill lightning carry world
+law and block hardest. Discovery maps (Skyrim tasting, Noita seeds) are
+knowledge of one world, so a traveler arrives with hypotheses, not
+recipes.
+
+### Where alchemy sits: skill, cheat and source of cheats
+
+- **As a world skill:** the 14 kinds are palettes for each world's own
+  craft (exchange in an FMA-like world, furnaces in xianxia, ratio mixing
+  in a merchant world).
+- **As a cheat:** Perfect crafting is already in
+  [the cheat library](CHEAT_LIBRARY.md). Wave cheats add analysis-driven
+  crafting (Great Sage working out a full potion; Slime) and simulation
+  alchemy (Toaru's Ars Magna, which turns thought into reality but needs
+  more time than a human life to complete; scan 1.2).
+- **As a source of cheats:** the Philosopher's Stone is an item cheat
+  with a hidden payer (souls inside it). On the
+  [patron gifts](#patron-gifts-what-can-and-cant-be-taken-back) table it
+  is a gift whose cost someone else already paid, and finding out who is
+  a discovery.
+
+### Meetings worth testing
+
+- **Equivalent exchange vs the 10,000x return cheat:** a world law that
+  demands equal payment meets a cheat that pays out ten thousand times.
+  Either the world bills someone else for the difference (a hidden payer
+  again), or the cheat is Blocked there, or the world takes notice.
+- **Gluttony vs a homunculus:** a being made by alchemy may have no
+  remembered name to eat, or only its maker's memory of it.
+- **Name axis:** some worlds may need a true name to transmute a living
+  thing. Alchemy then depends on the name axis above.
+- **Body-furnace cultivator vs a toxicity world:** a neidan body may burn
+  off pill poison that ordinary drinkers accumulate.
+
+### More to consider
+
+- **AL1 Every craft uses the four-part card.** Smithing, enchanting,
+  formation arrays, cooking, medicine, Gu refining and tailoring share
+  recipe, material, fuel and operator. One model, many crafts.
+- **AL2 Alchemy as a reason to travel.** A recipe needing a material
+  from one world forces a trip; a potion holding stored fuel (bottled
+  qi) carries one world's power into another, until it runs out.
+- **AL3 Exchange-rate markets.** If a world's transmutation has a
+  visible rate, brokers sell knowledge of where the rate is wrong, like
+  the treaty rates under verse equalization.
+- **AL4 Tolerance as a body budget.** Witcher toxicity and pill poison
+  give the life-sim body a limit on consumables, opt-in per world.
+- **AL5 Lineage alchemy.** Einzbern-style multi-generation projects run
+  on the life-sim clock: your grandchild finishes the Great Work.
+- **AL6 Living inputs.** Homunculi, Gu and stones made of souls bridge
+  to the nonhuman fiction research and raise the question of who
+  consents.
+- **AL7 Careers.** Apothecary, pill refiner, guild examiner, ingredient
+  forager, tester (someone who tastes unknown potions for pay), recipe
+  thief, counterfeiter.
+- **AL9 Small worlds are simulable.** Ars Magna needs a model of the
+  whole world, which takes centuries for ours. A small owned world (CO2)
+  or a pocket realm might be small enough to model in one life, so
+  simulation alchemy is weak at home and strong in a pocket world.
+- **AL8 Thresholds, not tiers.** Small numeric gaps that unlock large
+  effects (the scan's purity and threshold examples) give crafting
+  breakpoints worth chasing.
+
+Engine shapes (four-field recipe, property axes, tolerance meter,
+discovery log, stage runner, trait inheritance, fuel adapters, body
+furnace, digestion) are the scan's P1–P9, all proposals.
+
+## Haruhi and Steins;Gate: owned worlds, memory and history pushing back (proposal, Claude, 2026-10-10)
+
+Sources: wiki-first audits of
+[Haruhi](research/novels/haruhi/WORLD_AUDIT_2026-10-10.md) and
+[Steins;Gate](research/novels/steins-gate/WORLD_AUDIT_2026-10-10.md)
+(private; labels CANON as the wiki attributes it, WIKI-INFERRED, MEMORY;
+no primary text read). Both fan scans were thin, so OC premises are
+inference.
+
+### Placement rows
+
+| Cheat (world) | Family / backing | Scope by feats | In its own world | Outside it (default) | Anti-feats and checks |
+|---|---|---|---|---|---|
+| Haruhi's wish power (Haruhi) | Edit, fate / concept (disputed: god, data anomaly or time-plane origin) | World, scope disputed by in-world factions | An unaware owner whose mood spawns closed spaces and whose wishes rewrite the world | Unknown; an unaware cheat may not even notice the border (I) | She must not learn what she is; watchers manage her mood; a rival candidate (Sasaki) exists |
+| Endless Eight loop (Haruhi) | Time, world recreated / owner's wish | Two weeks of one town | Resets until her unmet wish is met; déjà vu builds up (wiki gives two conflicting loop counts) | Blocked: the loop belongs to its owner | Only a data interface remembers all of it; ends only through the wish |
+| Disappearance rewrite (Haruhi) | Edit / borrowed owner power | World | Rewrites everyone's history with one keeper and an escape key | Blocked (I) | The author left a key and a deadline |
+| Reading Steiner (Steins;Gate) | Time, memory retention / soul or mind (MEMORY: innate) | World lines in one attractor field system | Keeps memory when the world line changes | Probably Works as memory retention in any rebuild world (I) | Feels a shift but can't measure it; others can't confirm it |
+| D-Mail (Steins;Gate) | Time, cause edit / item (device) plus world law | World | Sends a message to the past that edits one cause; the present does not move | Item travels; the effect needs a world with this time model (I) | Changes below the meter's sixth decimal move nothing; detection draws hunters |
+| Time Leap Machine (Steins;Gate) | Time, mind sent back / item | World, 48 hours | Sends memories to your past self | Item travels; limited window (I) | 48-hour cap; leaps strain the mind |
+
+### Owned worlds: one type, two ends
+
+Toaru and Haruhi are two presets of the owned-world type (CO2), per the
+Haruhi audit's comparison:
+
+| Field | Planner end (Toaru) | Dreamer end (Haruhi) |
+|---|---|---|
+| Owner knows it's a construct | Yes | No, and finding out is a loss condition for her watchers |
+| Boundary | A sealed city | Spaces that open and close |
+| Measurement | Level scans | None, only mood |
+| How deviation is noticed | Logged and absorbed into the plan | Felt as a mood, then wished away |
+| Escape | Leave the city | A rewrite key or a satisfied wish |
+
+**Middle presets to consider:** a hub that owns its worlds (Paradise
+style), a dungeon master, a dreaming patron, a child who doesn't know
+their imaginary world is real, an AI running a simulation. The player
+can be the owner too (the Haruhi audit's inversion: you're the one who
+mustn't notice).
+
+### Time kinds added
+
+These extend [time cheats by how they work](#time-cheats-by-how-they-work):
+
+| Kind | What actually moves | Examples |
+|---|---|---|
+| Patron checkpoint | The holder's mind returns to a point someone else chose | Return by Death |
+| Cause edit | One cause in the past changes; the world rebuilds; the present stays | D-Mail |
+| Owner's loop | A region repeats until its owner is satisfied | Endless Eight |
+| Owner's rewrite | A world's history is replaced, with a keeper and a key | Disappearance |
+
+**Meetings (picked per pair):**
+- **Cause edit vs patron checkpoint:** a D-Mail changes history before
+  Subaru's checkpoint. His checkpoint may now sit in a world line he never
+  lived through, so his knowledge is stale from the first second.
+- **Owner's loop vs any loop cheat:** a regressor inside Endless Eight
+  keeps more memory than the loop allows, which makes them the only person
+  who can learn what the owner wants. Or the owner's loop overrides theirs
+  until it ends.
+- **Reading Steiner vs Gluttony:** a mind that keeps memory across world
+  changes might also resist having a name eaten, or it might be the only
+  one who remembers the eaten person.
+
+### Memory entitlement: a shared rule across five worlds
+
+Re:Zero (only Subaru's mind carries over), Steins;Gate (memory tiers),
+Haruhi (déjà vu builds up across loops), Mother of Learning (marked
+souls) and Code Geass (Geass memory edits) all ask who keeps what. A
+proposal: every mind has a **memory entitlement** per kind of change.
+
+| Tier | Keeps | Example |
+|---|---|---|
+| Full | Everything | Reading Steiner, Subaru |
+| Traveler | Own memory, because they were moved, not rebuilt | Suzuha, a time leaper |
+| Fragment | Dreams and déjà vu that grow when prompted | Steins;Gate's lab members, Endless Eight's brigade |
+| None | Only the new history | Most people |
+| Edited | A memory someone else wrote | Geass victims, Gluttony's witnesses |
+
+Prompting a fragment into recall is a relationship scene (Steins;Gate's
+S4), which suits the life-sim: helping a friend remember a world that no
+longer exists.
+
+### How history pushes back: a spectrum
+
+| Mode | What happens when you change events | Source |
+|---|---|---|
+| Adapts | Enemies respond to what they observe now, not to past loops | Re:Zero (Todd) |
+| Converges | The outcome returns by another route unless you cross a threshold | Steins;Gate attractor fields |
+| Fixed beats | Big events happen; their outcomes can shift | Code Geass |
+| Absorbed | A planner logs the deviation and switches plans | Toaru |
+| Wished away | The owner's mood reshapes things back | Haruhi |
+| Free | Change sticks and spreads | Default for most worlds |
+
+Each world declares its mode, and the player finds out by watching a
+change fail or stick, as with the winner rules above.
+
+### More to consider
+
+- **HS1 Divergence as a measured stat.** A personal meter (Steins;Gate
+  S11) only its holder can read. Other people can't confirm your shift,
+  so convincing them is a social task.
+- **HS2 Small changes accumulate.** Changes below the threshold build up
+  in a hidden ledger (S6) until one tips the world line. That's an idle
+  mechanic: many small kindnesses quietly shift history.
+- **HS3 Escape recipes.** Leaving a converging outcome takes several
+  changed causes at once (Operation Skuld, S8). It's a puzzle with
+  discovered steps, not a menu.
+- **HS4 Slice-of-life fields.** Steins;Gate's Delta field (money
+  trouble, a café under threat) and Haruhi's club calendar give each
+  world a quiet home loop for the life-sim between crises.
+- **HS5 Club and lab membership.** Lab Mem 012 or the sixth member of a
+  five-member club is a ready "normal person beside the protagonist"
+  start.
+- **HS6 Genre-changing stages.** Haruhi's Theatre volume (simulated-genre
+  worlds with an escape, wiki summary only) is a template for an owner
+  who changes the genre each act.
+- **HS7 Disputed truth.** Haruhi's factions disagree on what she is.
+  Keep the dispute; don't settle it for the player.
+- **HS8 Loop fatigue.** The anime's eight-episode Endless Eight is the
+  warning: loops need variation tools and a summary skip.
+
+### Slime web novel: what the full read adds (2026-10-11)
+
+From the [Tensura deep dive](research/novels/tensura/DEEP_DIVE_2026-10-10.md)
+(private; 304 chapters read in full from the Japanese original, 70
+spot checks). Its corrections to the wiki audit: naming has different
+payers and bonds and doesn't always make a subordinate; Existence Points
+are a rough in-world estimate, not an exact scale (which softens CO4);
+how long awakening sleep lasts varies; fusing skills can lose functions.
+
+- **Names:** the WN strengthens the Given-name kind but shows a given name
+  needn't create domination. Record the relationship separately:
+  equality, protection, patron service, refugee naming, family naming,
+  stabilization.
+- **Crafts:** the four-part card fits closely (herb quality and
+  magicule-rich water change yield; a maker's technique changes gear of
+  the same grade). Add tools, workshop capacity and distribution as
+  extra fields. A finished potion carried to Earth still works there,
+  even though nobody can make one on Earth.
+- **Memory entitlement:** Chloe keeps the history she traveled or
+  retried; Hinata gets fragments through a soul link; Memory Orbs hold
+  copied, editable memories of the dead, which don't prove the soul
+  survived.
+- **History pushback:** ordinary Tensura history adapts through changed
+  causes; it does not rebuild prevented disasters. Chloe's journey adds a
+  **protected observation** mode: the past she has already confirmed is
+  fixed, while a specific present window can change.
+- **HS9 Wrong public history.** Historians misattribute the sea's
+  changed ecology, citizens credit Masayuki for others' deeds, and a
+  foreign court builds royal legitimacy on a visitor's offhand remark.
+  The world reacts to accounts that are wrong, which makes historians,
+  teachers and record keepers real life-sim careers.
