@@ -1,0 +1,16 @@
+{
+  "url": "http://127.0.0.1:18512/",
+  "generatedSavesOnly": true,
+  "strongHeroAndDeterministicSmeltingFixture": true,
+  "checks": [
+    "Once-only clerk notes and knowledge-source row",
+    "Native four-minute reading unlocks Fort",
+    "Two actual yard clears yield ore/coal and disclosed milestone",
+    "Native smelting creates repair ingot",
+    "Repair consumes stock and opens cellar",
+    "Two funded hand-ins pay exactly16 coins",
+    "Actual cellar clear finishes native quest with one ledger",
+    "Save/reload/file import retains repair/funds/quest"
+  ],
+  "errors": []
+}

@@ -1,3 +1,7 @@
+import {setKnownClearTextReader} from './display.js';
+import {FORT, createFortSupply, migrateFortSupply, stageFortAction, observeFortSource, fortDisclosures, knownClearText} from './absorb_d/fort.js';
+import {registerFortContent} from './absorb_d/register.js';
+import {createFortControls} from './absorb_d/ui.js';
 import {normalizeLocalLife, advanceLocalLife, localLifeAction} from './absorb_c2/local_life.js';
 import {createLocalLifePanel} from './absorb_c2/panel.js';
 import {setAccessoryEquipmentReader, accessoryCraftingTiers} from './absorb_c1/accessories.js';
@@ -99,7 +103,7 @@ import {beginSociety,commitSocietyAction,societyContext} from './feature_expansi
 import {createFeatureExpansionPanel} from './feature_expansion_ui.js';
 import {featureWavePresentation} from './feature_expansion_wave_host.js';
 import NPC from './models/npc.js';
-import {SafeLocation} from './models/location.js';
+import {SafeLocation, CombatZone} from './models/location.js';
 import {TraderComponent} from './components/trader_component.js';
 import {commitPocketRealmAction,pocketContext} from './pocket_realm_host.js';
 import {skillExpansionContext} from './skill_expansion_host.js';
@@ -124,7 +128,7 @@ import {prepareRivalRematch,commitFieldRenewal,RIVAL_PURSUIT} from "./frontier_c
 "use strict";
 
 import { current_game_time, is_night, Game_Time } from "./game_time.js";
-import { item_templates, item_log, getItem, book_stats, rarity_multipliers, getArmorSlot, getItemFromKey, getItemRarity} from "./items.js";
+import { Book, BookData, item_templates, item_log, getItem, book_stats, rarity_multipliers, getArmorSlot, getItemFromKey, getItemRarity} from "./items.js";
 import { loot_sold_count, market_region_mapping, recover_item_prices, trickle_market_saturations, set_loot_sold_count, capped_at } from "./market_saturation.js";
 import { locations, favourite_locations, location_types } from "./data/locations.js";
 import { skills } from "./data/skills.js";
@@ -243,6 +247,7 @@ import { traders } from "./data/traders.js";
 import { dialogue_owners } from "./components/dialogue_component.js";
 
 fill_availability_methods();
+registerFortContent({locations,item_templates,book_stats,quests,availabilities,SafeLocation,CombatZone,Book,BookData,Quest,QuestTask});
 
 import {prepareFoundationSave, retainRetiredContent} from "./save_compatibility.js";
 import {writeGuardedSave, encodeSaveFile, importSaveFile, validateSaveEnvelope} from "./save_files.js";
@@ -504,6 +509,28 @@ function gameplaySnapshot() {return nativeGameplay.snapshot(expansionState);}
 
 let furniturePanel;
 let localLife=normalizeLocalLife(),localLifePanel;
+let fortSupply=createFortSupply(),fortControls;
+function readFortFrame() {
+    const stock=readInventoryOwner(character.getItems());
+    return {fort:fortSupply,worldId:expansionState.actors.player.worldId,location:current_location?.id,
+        fieldClears:Math.floor(locations['Infested field'].enemy_groups_killed/locations['Infested field'].enemy_count),
+        yardClears:Math.floor(locations[FORT.yard].enemy_groups_killed/locations[FORT.yard].enemy_count),
+        notesRead:book_stats[FORT.notes].accumulated_time>=4,money:character.money,
+        stock:Object.fromEntries(['Rat tail','Iron ore','Iron ingot'].map(id=>[id,stock[item_templates[id].getInventoryKey()]||0])),
+        knownItems:item_log.items,disabled:!ownsSave||foundationSaveBlocked||importProbeToken||!character.is_alive||!!nativeOccupationReason()||!!current_dialogue};
+}
+function actFort(action) {
+    const frame=readFortFrame();
+    const plan=stageFortAction({state:expansionState,gameplay:gameplaySnapshot(),money:character.money,itemLog:item_log.items,
+        fort:fortSupply,action,context:{...frame,busy:frame.disabled,readOnly:!ownsSave||foundationSaveBlocked||importProbeToken,
+        assertItemDisposition:key=>assertNativeItemDisposition(expansionState,key)},keyFor:id=>item_templates[id].getInventoryKey(),getItem:getItemFromKey});
+    persistExpansion(plan);log_message(plan.message,'notification');fortControls?.render();return plan;
+}
+function observeFortAcquisition(itemId,count,kind,sourceId,label) {
+    if(restoringNativeSave||!(count>0)||!item_templates[itemId]||expansionState.actors.player.worldId!=='base.frontier')return;
+    fortSupply=observeFortSource(fortSupply,{itemId,count,kind,sourceId:String(sourceId),label:String(label),at:expansionState.clock});
+}
+
 function localLifeContext(calendar=current_game_time, state=expansionState, location=current_location?.id) {
     return {worldId:state.actors.player.worldId, location,
         alive:character.is_alive===true&&state.chronicle?.life.endedAt==null,
@@ -716,6 +743,7 @@ function persistExpansion(plan, ownershipBindings = {}, itemsByOwner = {}) {
     // Every owned domain is durable before native state is published. Rendering
     // happens afterward and never applies rewards.
     expansionState = plan.state;
+    if(plan.nativePatch?.fort_supply)fortSupply=migrateFortSupply({fort_supply:plan.nativePatch.fort_supply});
     if(plan.localLifeResult){localLife=normalizeLocalLife(plan.localLifeResult.state);for(const message of plan.localLifeResult.messages)log_message(message,'notification');}
     character.money = plan.external.money;
     if(plan.calendar) current_game_time.loadTime(plan.calendar);
@@ -776,7 +804,7 @@ function persistExpansion(plan, ownershipBindings = {}, itemsByOwner = {}) {
         frontierCampaignPanel?.render();
         partyPanel?.render(); exchangePanel?.render(); observationPanel?.render(); pocketRealmPanel?.render();skillExpansionPanel?.render();originalFrontierPanel?.render();featureExpansionPanel?.render();causalStoryPanel?.render();
         backlogPanel?.render();replacementRecognitionPanel?.render();backlogOpeningPanel?.render();repositoryPanel?.render();inkPanel?.render();nestedInkPanels?.render();
-        knownRoutesPanel?.render();adventureNotebook?.render();localLifePanel?.render();
+        knownRoutesPanel?.render();adventureNotebook?.render();localLifePanel?.render();fortControls?.render();
         expansionQuests?.render();
         characterBio?.render();
         worldEventFeed?.render();
@@ -2570,6 +2598,7 @@ function process_rewards({rewards = {}, source_type, source_name, is_first_clear
 
             log_message(`%HeroName% obtained "${item.getName()} x${count}"`);
             character.addToInventory([{item_key: item.getInventoryKey(), count}]);
+            if(!is_from_loading)observeFortAcquisition(item_id,count,source_type==="location"?"clear":"contact",source_name||source_type||"native.reward",source_name||"Received native reward");
         }
     }
 
@@ -3049,7 +3078,7 @@ function end_dialogue() {
 
 function reload_normal_location() {
     update_displayed_normal_location(current_location);
-    furniturePanel?.render();localLifePanel?.render();
+    furniturePanel?.render();localLifePanel?.render();fortControls?.render();
 }
 
 /**
@@ -3212,23 +3241,25 @@ function start_combat() {
 }
 
 function finish_combat_round(was_special_combat) {
+    // Clear rewards may move the player. Retain the defeated zone for its event.
+    const cleared_location=current_location;
     if(!was_special_combat){
-        const contribution=recordOriginalFrontierEncounter(expansionState,campaignContext(),current_location.id,current_location.enemy_groups_killed+1);
+        const contribution=recordOriginalFrontierEncounter(expansionState,campaignContext(),cleared_location.id,cleared_location.enemy_groups_killed+1);
         if(contribution)persistExpansion(contribution);
     }
-    current_location.enemy_groups_killed += 1;
-    if(current_location.enemy_groups_killed > 0 && current_location.enemy_groups_killed % current_location.enemy_count == 0) {
-        get_location_rewards(current_location);
+    cleared_location.enemy_groups_killed += 1;
+    if(cleared_location.enemy_groups_killed > 0 && cleared_location.enemy_groups_killed % cleared_location.enemy_count == 0) {
+        get_location_rewards(cleared_location);
 
         if(!was_special_combat) {
             do_quest_event({
                 quest_event_type: "clear",
-                quest_event_target: current_location.id,
+                quest_event_target: cleared_location.id,
                 quest_event_count: 1,
             });
         }
     }
-    update_location_kill_count(current_location);
+    if(current_location?.tags.combat_zone)update_location_kill_count(current_location);
     set_new_combat();
 }
 
@@ -3579,6 +3610,7 @@ function process_current_loot({loot_list, is_combat, is_summary}) {
     current_loot.recent = {};
 
     loot_list.forEach(loot_list_entry => {
+        if(!is_summary)observeFortAcquisition(loot_list_entry.item_id||getItemFromKey(loot_list_entry.item_key).id,loot_list_entry.count,is_combat?"drop":"gather",current_location.id,current_location.name);
         const key = loot_list_entry.item_id || loot_list_entry.item_key;
 
         current_loot.recent[key] = {item_id: loot_list_entry.item_id, item_key: loot_list_entry.item_key, item_count: loot_list_entry.count};
@@ -3795,6 +3827,7 @@ function use_recipe(target, ammount_wanted_to_craft = 1) {
 
                 if(final_count) {
                     character.addToInventory([{item_key: item_templates[result_id].getInventoryKey(), count: final_count}]);
+                    observeFortAcquisition(result_id,final_count,"craft",selected_recipe.id,selected_recipe.name);
                     let msg = `Created ${item_templates[result_id].getName()}`;
                     if(attempted_crafting_ammount > 1 || scale_results) {
                         msg+=` [${final_count} out of ${count*attempted_crafting_ammount}]`;
@@ -4683,6 +4716,7 @@ function create_save({forExport = false} = {}) {
             save_data["skill_list_state"][i] = skill_list.children[i].classList.contains("skill_category_expanded");
         }
 
+        save_data.fort_supply=structuredClone(fortSupply);
         save_data.absorb_local_life=structuredClone(localLife);
         save_data.content_packs = structuredClone(optionalPackState);
         save_data.village_career = structuredClone(villageCareer);
@@ -4787,6 +4821,7 @@ function load(save_data) {
             save_data = validateSaveEnvelope(save_data, game_version);
             optionalPackState=validatePackState(save_data.content_packs??emptyPackState());
             localLife=normalizeLocalLife(save_data.absorb_local_life);
+            fortSupply=migrateFortSupply(save_data);
             if(localLife.lastClock==null)localLife.lastClock=calendarMinutes(save_data["current time"]);
             const prepared = prepareFoundationSave(save_data);
             save_data = prepareV06Save(prepared.save);
@@ -6710,7 +6745,7 @@ function update() {
         let were_stats_updated = false;
         const prev_day = current_game_time.day_count;
         const advancedMinutes = update_timer();
-        furniturePanel?.render();localLifePanel?.render();
+        furniturePanel?.render();localLifePanel?.render();fortControls?.render();
         if(!advancedMinutes || expansionState.chronicle?.life.endedAt != null) {update(); return;}
 
         if(start_date - last_rewarded_export > config.time_between_export_rewards) {
@@ -7753,6 +7788,8 @@ if(!importProbeToken && !foundationSaveBlocked && !is_loading_error) {
     localLifePanel=createLocalLifePanel({container:document.getElementById('location_actions_div'),
         read:()=>({state:localLife,context:localLifeContext()}),
         act:id=>dispatchLocalLifePlan(localLifeAction(localLife,localLifeContext(),id))});
+    setKnownClearTextReader(location=>knownClearText(location,fortDisclosures(book_stats[FORT.notes].accumulated_time>=4)));
+    fortControls=createFortControls({read:readFortFrame,act:actFort});
     if(current_location?.tags.safe_zone) reload_normal_location();
     lifeRecordPanel = createLifeRecordPanel({read:()=>({record:lifeRecord,canWrite:ownsSave&&!foundationSaveBlocked&&!importProbeToken}),remember:()=>{
         if(!ownsSave || foundationSaveBlocked || importProbeToken) throw new Error("This life cannot be written right now.");

@@ -8,3 +8,5 @@ B1: Earned Shack rack/bench, finished owned book collection, Proto23 installed f
 C1-1: Native drop probability and actual trader settlement with Forager/Market accessories are integrated and source-tested but browser-unexercised, implemented-unverified. Crafting all four, luck tooltip change, portable cooking and persistence are browser verified.
 
 C2-1: Miss/cap sequence, Shack search, movement cancellation, runner decline/insufficient purse, next-day service, poison expiration and failed-storage injection remain browser-unexercised. Core find/service/exposure/help/persistence are browser verified.
+
+D1: Natural low-level Fort balance, free earned notes route, failed-smelt recovery, exhausted clerk purse, borrowed stock rejection and every journal acquisition source remain browser-unexercised. Core full chain, two paid board returns, learned source rows and save roundtrip verified.

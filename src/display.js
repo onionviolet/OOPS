@@ -2651,6 +2651,8 @@ function remove_fast_travel_choice({location_id}) {
     }
 }
 
+let knownClearReader=location=>'Clears: ['+Math.floor(location.enemy_groups_killed/location.enemy_count)+']';
+export function setKnownClearTextReader(reader){knownClearReader=reader;}
 function update_displayed_combat_location(location) {
 
     document.documentElement.style.setProperty('--location_desc_tooltip_visibility', "visible");
@@ -2678,7 +2680,7 @@ function update_displayed_combat_location(location) {
 
 
     enemy_count_div.children[0].children[1].innerText = location.enemy_count - location.enemy_groups_killed % location.enemy_count + " / " + location.enemy_count;
-    clear_count_div.children[0].children[0].innerText = "Clears: [" + Math.floor(location.enemy_groups_killed / location.enemy_count) +"]";
+    clear_count_div.children[0].children[0].innerText = knownClearReader(location);
 
     action = create_location_choices({location: location, category: "travel", is_combat: true});
 
@@ -2700,7 +2702,7 @@ function update_displayed_combat_location(location) {
 
 function update_location_kill_count(location) {
     enemy_count_div.children[0].children[1].innerText = location.enemy_count - location.enemy_groups_killed % location.enemy_count + " / " + location.enemy_count;
-    clear_count_div.children[0].children[0].innerText = "Clears: [" + Math.floor(location.enemy_groups_killed / location.enemy_count) +"]";
+    clear_count_div.children[0].children[0].innerText = knownClearReader(location);
 }
 
 function create_location_types_display(current_location){
