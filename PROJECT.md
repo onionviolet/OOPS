@@ -44,6 +44,11 @@ expansion proposal: [log](docs/gm/PROJECT_LOG.md#expansion-design-proposal).
   technique application. Springsteel and its numbers are implementation
   proposals awaiting playable acceptance; see the
   [D1 checkpoint](docs/gm/d1-alloy-equipment-2026-10-07/CHECKPOINT.md).
+- **Bonuses from furniture and more (2026-10-11):** furniture, fixtures,
+  accessories and similar owned things may give passive bonuses, as in
+  Proto23. This replaces the earlier "fixtures without passive bonuses"
+  choice. Specific numbers stay proposals. Absorption wave:
+  [absorb-2026-10-11](docs/gm/dispatch/absorb-2026-10-11/ASSIGNMENT.md).
 
 Still undecided: realm names, main story, skill roster, reset and retention
 rules, balance, and which book worlds become campaigns.
