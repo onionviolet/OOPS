@@ -623,3 +623,5 @@ and [unplayed branches/design follow-ons](gm/dispatch/soldiers-life-world-2026-1
 ## Absorption A/B, 2026-10-11
 
 Rebuilt source, A279/279 tests and B284/284. Disposable browser: pre-merge bundle-generated fork opening save loads with inventory/career/pack/schema retained; Motherwood action/Primeval encounter and save/reload/import. B native housing shows +5% Sleeping/rest, earns2.1 Sleeping XP in two ticks, restores health, survives save/reload/import without duplicate bonus. Generated saves only, no private saves. [Evidence](gm/dispatch/absorb-2026-10-11/evidence/) and [limits](gm/dispatch/absorb-2026-10-11/ACCEPTANCE_BACKLOG.md).
+
+Absorption C1: root290/290 tests, rebuild, disposable native UI crafted all four utility amulets from generated real materials; luck changed tooltip; Travel hearth cooked native rat meat at Shack; save/reload/import retained gear and cooking. Recipe-list Exit overlap fixed and clicked successfully. [C1 receipt](gm/dispatch/absorb-2026-10-11/evidence/C1-browser.json).

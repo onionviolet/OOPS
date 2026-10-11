@@ -1491,6 +1491,9 @@ input[type=checkbox], input[type=radio] {
 		}
 
 .crafting_recipe_list {
+    /* Keep final recipe controls above the fixed Exit button. */
+    padding-bottom: 48px;
+    box-sizing: border-box;
 	height: 300px;
 	width:100%;
 	top: 60px;

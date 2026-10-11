@@ -1,3 +1,4 @@
+import {setAccessoryEquipmentReader, accessoryCraftingTiers} from './absorb_c1/accessories.js';
 import {furnitureProjection, furnitureSkillMultiplier, furnitureRecovery, furniturePresentation, furnitureItemBonusText} from './absorb_b/furniture.js';
 import {STEAM_ABSORPTION_GROUPS} from './steam_absorption_content.js';
 import {steamAbsorptionContext,commitSteamAbsorptionCommand} from './steam_absorption_host.js';
@@ -3653,7 +3654,8 @@ function use_recipe(target, ammount_wanted_to_craft = 1) {
     const category = target.parentNode.parentNode.dataset.crafting_category;
     const subcategory = target.parentNode.parentNode.dataset.crafting_subcategory;
     const recipe_id = target.parentNode.dataset.recipe_id;
-    const station_tier = current_location.crafting.tiers[category];
+    const station_tier = accessoryCraftingTiers(current_location, undefined, global_flags.is_crafting_unlocked)[category];
+    if(!station_tier) {log_message('This place no longer supports that crafting station.','notification');return;}
 
     if(!category || !subcategory || !recipe_id) {
         //shouldn't be possible to reach this
@@ -3667,7 +3669,7 @@ function use_recipe(target, ammount_wanted_to_craft = 1) {
         try {
             if(subcategory === "items") {
                 const {materials} = selected_recipe.get_availability();
-                for(const group of materials) for(const entry of group.items) assertNativeItemDisposition(expansionState,entry.item.inventory_key);
+                for(const group of materials) for(const entry of group.items) assertNativeItemDisposition(expansionState,entry.item.getInventoryKey());
             } else {
                 for(const choice of recipe_div.querySelectorAll(".selected_component, .selected_material")) if(choice.dataset.item_key) assertNativeItemDisposition(expansionState,choice.dataset.item_key);
             }
@@ -3738,7 +3740,7 @@ function use_recipe(target, ammount_wanted_to_craft = 1) {
 
                     for (let j = 0; j < materials[i].items.length && to_remove > 0; j++) {
                         const removed = Math.min(materials[i].items[j].count, to_remove);
-                        const key = materials[i].items[j].item.inventory_key;
+                        const key = materials[i].items[j].item.getInventoryKey();
 
                         character.removeFromInventory([{ item_key: key, item_count: removed }]);
 
@@ -4106,6 +4108,8 @@ function character_equip_item(item_key) {
     const reasons = nativeActionReasons(expansionState);
     if(reasons.length) {log_message(reasons.join(" "),"notification");return;}
     character.equipItemFromInventory(item_key);
+    if(current_location.tags.safe_zone) reload_normal_location();
+    update_displayed_crafting_recipes();
     update_displayed_stats();
     if(current_combat) {
         current_combat.resetCombatLoops(true);
@@ -4125,6 +4129,8 @@ function character_unequip_item(item_slot) {
     const reasons = nativeActionReasons(expansionState);
     if(reasons.length) {log_message(reasons.join(" "),"notification");return;}
     character.unequipItem(item_slot);
+    if(current_location.tags.safe_zone) reload_normal_location();
+    update_displayed_crafting_recipes();
     if(current_combat) {
         current_combat.resetCombatLoops(true);
         update_displayed_fighters_stats();
@@ -7694,7 +7700,13 @@ if(!importProbeToken && !foundationSaveBlocked && !is_loading_error) {
     for(const id of ['Proto23 plain bed','Proto23 cottage hearth','Proto23 bookstand','Prepared survey kit']) {
         const bonus=furnitureItemBonusText(id);if(item_templates[id]&&bonus&&!item_templates[id].description.includes(bonus))item_templates[id].description+=' '+bonus;
     }
+    setAccessoryEquipmentReader(() => {
+        const equipment=character.getEquipment(),amulet=equipment.amulet;
+        if(amulet){try{assertNativeItemDisposition(expansionState,amulet.getInventoryKey());}catch{return {};}}
+        return equipment;
+    });
     furniturePanel=createFurniturePanel();
+    if(current_location?.tags.safe_zone) reload_normal_location();
     lifeRecordPanel = createLifeRecordPanel({read:()=>({record:lifeRecord,canWrite:ownsSave&&!foundationSaveBlocked&&!importProbeToken}),remember:()=>{
         if(!ownsSave || foundationSaveBlocked || importProbeToken) throw new Error("This life cannot be written right now.");
         const serialized=create_save(); if(!serialized) throw new Error("This day could not be remembered.");

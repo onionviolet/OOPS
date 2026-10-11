@@ -314,3 +314,5 @@ NPC timer or XP track.
 ## Absorption wave proposals (2026-10-11)
 
 v0.6 development Days 2–7 content is merged while retaining fork extensions and the existing guild save ID. Furniture bonuses now derive from existing native housing, earned fixtures and owned books/kits. Numbers and the rack/bench recovery/study interpretation are proposals. Native Shack sleep and save/reload/import are browser verified; other furnishing branches remain in the [wave backlog](docs/gm/dispatch/absorb-2026-10-11/ACCEPTANCE_BACKLOG.md). Current integration owner: [checkpoint](docs/gm/dispatch/absorb-2026-10-11/CHECKPOINT.md).
+
+Absorption C1 proposal: four craftable native amulets offer +2 points item-craft chance, +5% relative drops, 5% markup reduction or safe-location tier1 cooking. One native amulet slot makes these mutually exclusive preparations. Native costs/skills/custody remain authoritative; no new save domain. Craft/luck/portable cooking and save roundtrip browser verified.

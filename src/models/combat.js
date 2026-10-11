@@ -1,3 +1,4 @@
+import {accessoryDropModifier} from '../absorb_c1/accessories.js';
 "use strict";
 
 import {rollBaseCombatDamage,nextAttackTiming} from "../combat_math.js";
@@ -435,7 +436,7 @@ class Combat {
                 if(!this.is_special_combat && fighter.tags.main_character && target.get_loot) {
                     add_xp_to_character(target.xp_value * target_count_xp_modifier, true);
 
-                    let loot = target.get_loot({drop_chance_modifier: 1/target_count**0.6667});
+                    let loot = target.get_loot({drop_chance_modifier: accessoryDropModifier(1/target_count**0.6667)});
                     if(loot.length > 0) {
                         process_current_loot({loot_list: loot, is_combat: true});
                         loot = loot.map(x => {return {item_key: item_templates[x.item_id].getInventoryKey(), count: x.count}});

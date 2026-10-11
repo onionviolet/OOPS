@@ -1,3 +1,4 @@
+import {registerAccessoryItems} from './absorb_c1/accessories.js';
 import {WATCHCRAFT_BOOK, WATCHCRAFT_READING} from './village_career.js';
 import {ALLOY_ID, BRACE_ID, SPRINGSTEEL, deriveBraceStats} from "./alloy_equipment.js";
 import {preserveWorldCompletionNativeItem} from './world_completion_native.js';
@@ -4535,6 +4536,7 @@ function setup_ids() {
 add_gear_components();
 crafting_component_manager.fill_components();
 add_gear();
+registerAccessoryItems({item_templates, Amulet});
 setup_ids();
 
 availability_havers.push(Item);

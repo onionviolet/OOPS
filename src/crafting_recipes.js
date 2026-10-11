@@ -1,3 +1,4 @@
+import {registerAccessoryRecipes, accessoryCraftChance} from './absorb_c1/accessories.js';
 import {BRACE_ID, deriveBraceStats} from "./alloy_equipment.js";
 "use strict";
 
@@ -79,7 +80,7 @@ class Recipe {
     get_success_chance(station_tier=1) {
         const level = clamp(character.getTotalSkillLevel(this.recipe_skill), 0, this.recipe_level[1]) - this.recipe_level[0] + 1;
         const skill_modifier = Math.min(1,(0||(level+(station_tier-1))/(this.recipe_level[1]-this.recipe_level[0]+1)));
-        return this.success_chance[0]*(this.success_chance[1]/this.success_chance[0])**skill_modifier;
+        return accessoryCraftChance(this.success_chance[0]*(this.success_chance[1]/this.success_chance[0])**skill_modifier);
     }
 
     get_quality_range(tier = 0, component_quality) {
@@ -2103,6 +2104,7 @@ const recipes = {
 }
 
 
+registerAccessoryRecipes({recipes, ItemRecipe});
 Object.keys(recipes).forEach(recipe_category => {
     Object.keys(recipes[recipe_category]).forEach(recipe_subcategory => {
         Object.keys(recipes[recipe_category][recipe_subcategory]).forEach(recipe_key => {

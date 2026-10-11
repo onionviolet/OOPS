@@ -1,3 +1,4 @@
+import {accessoryTradeMargin} from '../absorb_c1/accessories.js';
 "use strict";
 
 import { character } from "../data/character.js";
@@ -141,7 +142,7 @@ class TraderComponent {
         const skill_multi = (1-character.getTotalLevelBonus("Haggling"));
         const rep_multi = (1-Math.min(1000,character.reputation[region])/2000) || 1;
 
-        return 1 + (this.profit_margin - 1) * skill_multi * rep_multi;
+        return accessoryTradeMargin(1 + (this.profit_margin - 1) * skill_multi * rep_multi);
     }
 
     emptyInventory(){

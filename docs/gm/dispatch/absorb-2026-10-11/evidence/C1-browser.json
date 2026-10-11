@@ -1,0 +1,13 @@
+{
+  "url": "http://127.0.0.1:18512/",
+  "generatedSavesOnly": true,
+  "checks": [
+    "All four accessories crafted through native UI with real material consumption",
+    "Equipped luck changes native success tooltip",
+    "Travel hearth enables actual rat-meat cooking at stationless Shack",
+    "Equipped utility survives save/reload/file import"
+  ],
+  "beforeLuck": "Success rate: 69%Materials required:Unknown animal tooth x37/3Unknown material x34/3XP value: 15.4Result: Forager pendantWhile equipped: +5% relative enemy item-drop chance. Does not increase drop quantity or combat rewards.Slot: amuletCount in player inventory: 1Value: 1C 2W",
+  "afterLuck": "Success rate: 71%Materials required:Unknown animal tooth x37/3Unknown material x34/3XP value: 15.4Result: Forager pendantWhile equipped: +5% relative enemy item-drop chance. Does not increase drop quantity or combat rewards.Slot: amuletCount in player inventory: 1Value: 1C 2W",
+  "errors": []
+}

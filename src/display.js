@@ -1,3 +1,4 @@
+import {accessoryCraftingTiers} from './absorb_c1/accessories.js';
 import {projectGameAbsorptionAssayItemView} from './game_absorption_assay_item_view.js';
 import {projectFieldcraftItemView} from './nethack_fieldcraft_item_view.js';
 "use strict";
@@ -2081,11 +2082,11 @@ function update_displayed_normal_location(location) {
     /////////////////////////////
     //add button to open crafting
     if(global_flags.is_crafting_unlocked) {
-        if(location.crafting?.isUnlocked()) {
+        if(Object.keys(accessoryCraftingTiers(location, undefined, global_flags.is_crafting_unlocked)).length) {
             const crafting_button = document.createElement("div");
             crafting_button.classList.add("location_choices", "choice_craft");
             crafting_button.setAttribute("onclick", 'openCraftingWindow()');
-            insert_HTML(crafting_button, `<i class="material-icons">construction</i> ${location.crafting.use_text}`);
+            insert_HTML(crafting_button, `<i class="material-icons">construction</i> ${location.crafting?.use_text || 'Cook with travel hearth'}`);
             location_choice_divs["crafting"] = crafting_button;
             //action_div.appendChild(crafting_button);
         }
@@ -2764,7 +2765,7 @@ function open_crafting_window() {
 
     const elements = document.getElementById('crafting_mainpage_buttons').children;
     for (let i = 0; i < elements.length; i++) {
-        let is_available = current_location.crafting.tiers[elements[i].dataset.crafting_category]
+        let is_available = accessoryCraftingTiers(current_location, undefined, global_flags.is_crafting_unlocked)[elements[i].dataset.crafting_category]
 
         elements[i].style.display = is_available ? "" : "none";
         //TODO maybe just graying it out would make more obvious what is happening?
@@ -3208,7 +3209,7 @@ function update_recipe_tooltip({category, subcategory, recipe_id, components}) {
 
 function create_recipe_tooltip_content({category, subcategory, recipe_id, material, components}) {
     const recipe = recipes[category][subcategory][recipe_id];
-    const station_tier = current_location?.crafting?.tiers[category] || 1;
+    const station_tier = accessoryCraftingTiers(current_location, undefined, global_flags.is_crafting_unlocked)[category] || 1;
     let tooltip = "";
 
     if(subcategory === "items") {   //TODO base on result present? class?
