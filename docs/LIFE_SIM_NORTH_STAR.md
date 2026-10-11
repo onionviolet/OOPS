@@ -6435,3 +6435,14 @@ pick any mix, including none.
 - **C29. Carriers can be owned by someone else.** A phylactery sold, a name
   taken, a land conquered. Whoever owns your carrier has leverage over you,
   and that's a social plot hook.
+
+## Royal Road audit (pointer, 2026-10-10)
+
+The platform-wide pass over 1,543 Royal Road listings is in
+[docs/research/royal-road-2026-10-10/REPORT.md](research/royal-road-2026-10-10/REPORT.md).
+It has a 161-trope atlas checked against this file (99 covered, 47 partial,
+10 new) and 275 ideas (104 new). Ten gaps (G1 to G10) cover the middle of a
+life: aging, parenting, long marriage, decades-long careers, cheat costs,
+money or illness as the spine, and domestic nonhuman lives. Thirteen
+platform conventions (RR1 to RR13) are presentation ideas. All of it is
+proposal, not accepted.
