@@ -1,3 +1,4 @@
+import {canonicalDurabilityKey} from './absorb_e2/durability.js';
 import {backlogNativeActionReasons,assertBacklogItemDisposition} from './backlog_expansion_host.js';
 import {readGameplayActor} from "./gameplay_publication.js";
 import {readNativeEquipment} from "./native_equipment_transaction.js";
@@ -51,8 +52,10 @@ export function nativeActionReasons(state, actorId = "player") {
 }
 
 export function assertNativeItemDisposition(state, key, actorId = "player") {
-    if(actorId==="player")assertBacklogItemDisposition(state,key);
-    if(Object.values(state.simulation?.custody || {}).some(c => c.holder === actorId && c.key === key)) {
-        throw new Error("Return borrowed goods before selling, consuming or crafting with them.");
+    const keys=[key];const canonical=canonicalDurabilityKey(key);if(canonical!==key)keys.push(canonical);
+    for(const candidate of keys){
+        if(actorId==="player")assertBacklogItemDisposition(state,candidate);
+        if(Object.values(state.simulation?.custody||{}).some(c=>c.holder===actorId&&c.key===candidate))
+            throw new Error("Return borrowed goods before selling, consuming or crafting with them.");
     }
 }

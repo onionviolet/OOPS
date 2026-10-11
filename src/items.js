@@ -1,3 +1,4 @@
+import {equipmentDurability as durability} from './absorb_e2/durability.js';
 import {registerAccessoryItems} from './absorb_c1/accessories.js';
 import {WATCHCRAFT_BOOK, WATCHCRAFT_READING} from './village_career.js';
 import {ALLOY_ID, BRACE_ID, SPRINGSTEEL, deriveBraceStats} from "./alloy_equipment.js";
@@ -1211,7 +1212,8 @@ function getItem(item_data) {
  * @param {String} item_data
  * @returns {Item} item of proper type, created based on item_key
  */
-function getItemFromKey(key) {
+function getItemFromKey(key) {return durability.bindFromKey(key,nativeGetItemFromKey(key));}
+function nativeGetItemFromKey(key) {
     let {id, components, quality} = JSON.parse(key);
     if(id && !quality) {
         if(item_templates[id]) {

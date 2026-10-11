@@ -1,6 +1,6 @@
 # Absorption checkpoint
 
-IDENTITY: Master GM, 2026-10-11, revision 10.
+IDENTITY: Master GM, 2026-10-11, revision 11.
 OBJECTIVE: Execute GM_PROMPT.md phases 1–4, Parts A–E; final push to origin/codex/gameplay-foundations authorized by that prompt.
 OWNERSHIP: Root integrates shared source, persistence, generated dist, index/style and global docs. Unrelated root PNG preserved; private saves untouched. Prior detached session stopped; inherited preview replaced with server at 18512.
 PROGRESS: Part A resolutions reviewed against HEAD and f0e32c20. Retained defensive recipe mapping, Springsteel extensions and existing guild ID. npm test 279/279, rebuild and disposable browser old-save/Motherwood/Primeval forest/save/reload/import pass. Evidence: evidence/A-browser.json and A-motherwood.png.
@@ -17,7 +17,7 @@ Base commit: c83bd819. Each worker owns only the following paths in its isolated
 | W-C2 | /Users/weiwei/code/absorb-2026-10-11-workers/c2 | src/absorb_c2/**, tests/absorb_c2.test.js, docs/gm/dispatch/absorb-2026-10-11/W-C2.md | verified (core journey; alternatives in backlog) | /root/discoveries |
 | W-D | /Users/weiwei/code/absorb-2026-10-11-workers/d | src/absorb_d/**, tests/absorb_d.test.js, docs/gm/dispatch/absorb-2026-10-11/W-D.md | verified (core chain; alternatives in backlog) | /root/fork_patterns |
 | W-E1 | /Users/weiwei/code/absorb-2026-10-11-workers/e1 | src/absorb_e1/**, tests/absorb_e1.test.js, docs/gm/dispatch/absorb-2026-10-11/W-E1.md | verified (core toggles/food/weather/sleep; alternatives in backlog) | /root/hunger_weather |
-| W-E2 | /Users/weiwei/code/absorb-2026-10-11-workers/e2 | src/absorb_e2/**, tests/absorb_e2.test.js, docs/gm/dispatch/absorb-2026-10-11/W-E2.md | changes ready | /root/durability |
+| W-E2 | /Users/weiwei/code/absorb-2026-10-11-workers/e2 | src/absorb_e2/**, tests/absorb_e2.test.js, docs/gm/dispatch/absorb-2026-10-11/W-E2.md | verified (copy/wear/repair/armor/storage failure) | /root/durability |
 | W-E3 | /Users/weiwei/code/absorb-2026-10-11-workers/e3 | src/absorb_e3/**, tests/absorb_e3.test.js, docs/gm/dispatch/absorb-2026-10-11/W-E3.md | changes ready | /root/elements |
 
 Integration order: B, C1, C2, D, E1/E2/E3. Each worker commits owned paths locally and supplies hook/save/UI notes and focused plus full-test evidence. Root reviews actual diffs then tests/builds/browser/save/reload/imports each part before commit.
@@ -35,3 +35,5 @@ Phase 3 D: registration, journal observers, read-gated clear hints and native bo
 D gate passed: actual two yard clears, salvage, native smelting, repair, two funded board hand-ins, cellar clear/native quest ledger, journal/known marker, save/reload/import. Root307/307 tests. Fixed inherited first-clear event attribution after reward travel and hidden safe-location NaN counter. D browser uses strong generated hero and deterministic smelting, not natural balance evidence. Next E1fd89f0c8+e6c65732; E2db93e46a; E34e66ad9d+16bb9ef8.
 
 E1 integrated: pacing_e1 schema1, runtime elapsed marker derived from native calendar (no second clock), staged within common persistence once per consumed minute. Defaults hunger/weather off; home-world scope, optional-pack play pauses meters. Root319/319 tests/build/browser independent toggles, repeated food, fog->rain/Wet, sleep drain, disabled freeze and exact state/XP reload/import pass. Next E2db93e46a.
+
+E2 gate passed: root325/325 tests/build, browser two same-quality steel copies distinct IDs, actual hit wear99.92, repair1 coin, damaged native defense5.2 versus full14, save/reload/import independent copies, injected failed repair write leaves money/condition unchanged. Shared v0.6 loader now preserves identified keys and hydrates after inventory decode; exact+canonical custody guard protects dispositions. Native armor regression9ef8a719 included; no speculative getStats scaling. Next E34e66ad9d+16bb9ef8.

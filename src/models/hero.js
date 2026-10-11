@@ -1,3 +1,4 @@
+import {equipmentDurability as durability} from '../absorb_e2/durability.js';
 "use strict";
 
 import { equipments } from "../components/equipment_component.js";
@@ -302,7 +303,7 @@ class Hero extends Person {
         if(item_key in items) { //check if its in inventory, just in case
             //add specific item to equipment slot
             // -> id and name tell which exactly item it is, then also check slot in item object and thats all whats needed
-            this.equipItem(items[item_key].item);
+            this.equipItem(durability.prepareEquip(items[item_key].item,getItemFromKey));
             this.removeFromInventory([{item_key}]);
             
             //update_character_stats(); //called in equip_item()

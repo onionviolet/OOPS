@@ -12,3 +12,5 @@ C2-1: Miss/cap sequence, Shack search, movement cancellation, runner decline/ins
 D1: Natural low-level Fort balance, free earned notes route, failed-smelt recovery, exhausted clerk purse, borrowed stock rejection and every journal acquisition source remain browser-unexercised. Core full chain, two paid board returns, learned source rows and save roundtrip verified.
 
 E1-1: Long-horizon seasons/hunger balance, native travel minute accounting, other-world suspension, future-schema rejection and failed-storage setting injection remain browser-unexercised. Core toggles/food/weather/sleep/freeze/exact reload/import are verified. Explicit simulation reward amounts retain their authored amounts; ordinary native XP paths are paced.
+
+E2-1: Long-horizon wear balance, weapon/shield browser penalties, merchant/storage/realm-carrier instance routes, custody rejection and missing-condition ID hydration are source-tested but browser-unexercised. Core duplicate armor copies, hit wear, native defense, coin repair, persistence and failed-save repair are verified.

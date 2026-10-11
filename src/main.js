@@ -1,3 +1,4 @@
+import {equipmentDurability as durability} from './absorb_e2/durability.js';
 import {getPacingState,setPacingState,advancePacing,prepareFood,getPacingEffects} from './absorb_e1/pacing.js';
 import {mountPacingPanel,pacingStatus} from './absorb_e1/panel.js';
 import {setKnownClearTextReader} from './display.js';
@@ -513,6 +514,33 @@ let furniturePanel;
 let localLife=normalizeLocalLife(),localLifePanel;
 let fortSupply=createFortSupply(),fortControls;
 let pacingMinute=null,pacingPanel,pacingStatusPanel;
+let durabilityPanel;
+function commitDurability(stage) {
+    if(!ownsSave||foundationSaveBlocked||importProbeToken||restoringNativeSave||nativeOccupationReason())throw Error('Finish current work in the writable game tab before equipment maintenance.');
+    const state=structuredClone(expansionState);state.sequence++;
+    persistExpansion({state,external:stage.external||{money:character.money},gameplay:gameplaySnapshot(),equipment:stage.equipment,
+        nativePatch:stage.nativePatch,absorbPublish:stage.publish});
+    character._equipItem(null);character.updateStatsAndDisplay();update_displayed_equipment();update_displayed_character_inventory();
+    if(current_combat){current_combat.resetCombatLoops(true);update_displayed_fighters_stats();}
+    durabilityPanel?.render();
+}
+function createDurabilityPanel() {
+    const host=document.getElementById('options_choices'),option=document.createElement('label'),input=document.createElement('input');
+    input.type='checkbox';input.dataset.durabilityOption='true';option.append(input,document.createTextNode('Equipment durability (off by default)'));host.append(option);
+    const panel=document.createElement('details');panel.id='durability_panel';panel.className='expedition_panel';
+    const title=document.createElement('summary');title.textContent='Equipment condition and repair';const body=document.createElement('div'),notice=document.createElement('p');panel.append(title,body,notice);
+    input.onchange=()=>{try{commitDurability(durability.stageToggle(character,input.checked,getItemFromKey,key=>assertNativeItemDisposition(expansionState,key)));}catch(error){notice.textContent=error.message;render();}};
+    let signature='';
+    function render(){const target=document.getElementById('location_actions_div');if(panel.parentElement!==target)target.append(panel);input.checked=durability.enabled;
+        panel.hidden=!!current_dialogue;const rows=durability.rows(character),next=JSON.stringify([durability.enabled,rows]);if(next===signature)return;signature=next;
+        body.replaceChildren();const help=document.createElement('p');help.textContent=durability.enabled?'Landed hits wear weapon, armor and shield copies. Lower condition reduces their native damage or protection; gear remains owned. Repair costs at most5 coins.':'Durability is off. Existing condition is frozen and native gear power applies. Activate in Settings; untouched old stacks keep their keys.';body.append(help);
+        for(const row of rows){const line=document.createElement('p');line.textContent=`${row.name}: ${row.condition.toFixed(2)}/100 · repair ${row.cost} coins `;
+            const button=document.createElement('button');button.textContent='Repair';button.dataset.durabilityRepair=row.key;button.disabled=!row.cost||!row.affordable||!!current_combat||!!nativeOccupationReason();
+            button.onclick=()=>{try{commitDurability(durability.stageRepair(character,row.key,key=>assertNativeItemDisposition(expansionState,key)));notice.textContent='Equipment repaired.';}catch(error){notice.textContent=error.message;}};line.append(button);body.append(line);}
+    }
+    render();return {render};
+}
+
 function homePacingContext(state=expansionState, location=current_location, calendar=current_game_time) {
     return {homeWorld:state.actors.player.worldId==='base.frontier'&&!Object.values(optionalPackState.packs).some(p=>p.active),
         outdoors:location?.is_under_roof===false,season:calendar.getSeason?calendar.getSeason():current_game_time.getSeason(),nativeRain:!!is_raining()};
@@ -521,7 +549,7 @@ function changeHomePacing(next) {
     if(!ownsSave||foundationSaveBlocked||importProbeToken||restoringNativeSave)throw Error('Pacing changes require the writable game tab.');
     const state=structuredClone(expansionState);state.sequence++;
     persistExpansion({state,external:{money:character.money},gameplay:gameplaySnapshot(),nativePatch:{pacing_e1:next},pacingNext:next,pacingTarget:calendarMinutes(current_game_time)});
-    pacingPanel?.render();pacingStatusPanel?.render();
+    pacingPanel?.render();pacingStatusPanel?.render();durabilityPanel?.render();
 }
 function createPacingStatusPanel() {
     const panel=document.createElement('details');panel.id='pacing_status_panel';panel.className='expedition_panel';
@@ -545,7 +573,7 @@ function actFort(action) {
     const plan=stageFortAction({state:expansionState,gameplay:gameplaySnapshot(),money:character.money,itemLog:item_log.items,
         fort:fortSupply,action,context:{...frame,busy:frame.disabled,readOnly:!ownsSave||foundationSaveBlocked||importProbeToken,
         assertItemDisposition:key=>assertNativeItemDisposition(expansionState,key)},keyFor:id=>item_templates[id].getInventoryKey(),getItem:getItemFromKey});
-    persistExpansion(plan);log_message(plan.message,'notification');fortControls?.render();pacingPanel?.render();pacingStatusPanel?.render();return plan;
+    persistExpansion(plan);log_message(plan.message,'notification');fortControls?.render();pacingPanel?.render();pacingStatusPanel?.render();durabilityPanel?.render();return plan;
 }
 function observeFortAcquisition(itemId,count,kind,sourceId,label) {
     if(restoringNativeSave||!(count>0)||!item_templates[itemId]||expansionState.actors.player.worldId!=='base.frontier')return;
@@ -769,7 +797,7 @@ function persistExpansion(plan, ownershipBindings = {}, itemsByOwner = {}) {
     // Every owned domain is durable before native state is published. Rendering
     // happens afterward and never applies rewards.
     expansionState = plan.state;
-    if(plan.pacingNext){setPacingState(plan.pacingNext);pacingMinute=plan.pacingTarget;pacingPanel?.render();pacingStatusPanel?.render();}
+    if(plan.pacingNext){setPacingState(plan.pacingNext);pacingMinute=plan.pacingTarget;pacingPanel?.render();pacingStatusPanel?.render();durabilityPanel?.render();}
     if(plan.nativePatch?.fort_supply)fortSupply=migrateFortSupply({fort_supply:plan.nativePatch.fort_supply});
     if(plan.localLifeResult){localLife=normalizeLocalLife(plan.localLifeResult.state);for(const message of plan.localLifeResult.messages)log_message(message,'notification');}
     character.money = plan.external.money;
@@ -783,6 +811,7 @@ function persistExpansion(plan, ownershipBindings = {}, itemsByOwner = {}) {
         if(expired) {character.addActiveEffectBonus(active_effects); character.updateStatsAndDisplay();}
     }
     if(expansionState.chronicle?.life.endedAt != null) character.is_alive = false;
+    if(plan.absorbPublish)plan.absorbPublish();
     publication.publish();
     unlockPublication.publish();
     equipmentPublication.publish();
@@ -831,7 +860,7 @@ function persistExpansion(plan, ownershipBindings = {}, itemsByOwner = {}) {
         frontierCampaignPanel?.render();
         partyPanel?.render(); exchangePanel?.render(); observationPanel?.render(); pocketRealmPanel?.render();skillExpansionPanel?.render();originalFrontierPanel?.render();featureExpansionPanel?.render();causalStoryPanel?.render();
         backlogPanel?.render();replacementRecognitionPanel?.render();backlogOpeningPanel?.render();repositoryPanel?.render();inkPanel?.render();nestedInkPanels?.render();
-        knownRoutesPanel?.render();adventureNotebook?.render();localLifePanel?.render();fortControls?.render();pacingPanel?.render();pacingStatusPanel?.render();
+        knownRoutesPanel?.render();adventureNotebook?.render();localLifePanel?.render();fortControls?.render();pacingPanel?.render();pacingStatusPanel?.render();durabilityPanel?.render();
         expansionQuests?.render();
         characterBio?.render();
         worldEventFeed?.render();
@@ -3105,7 +3134,7 @@ function end_dialogue() {
 
 function reload_normal_location() {
     update_displayed_normal_location(current_location);
-    furniturePanel?.render();localLifePanel?.render();fortControls?.render();pacingPanel?.render();pacingStatusPanel?.render();
+    furniturePanel?.render();localLifePanel?.render();fortControls?.render();pacingPanel?.render();pacingStatusPanel?.render();durabilityPanel?.render();
 }
 
 /**
@@ -4205,6 +4234,7 @@ function switch_action_box_content() {
 function character_equip_item(item_key) {
     const reasons = nativeActionReasons(expansionState);
     if(reasons.length) {log_message(reasons.join(" "),"notification");return;}
+    try{assertNativeItemDisposition(expansionState,item_key);}catch(error){log_message(error.message,"notification");return;}
     character.equipItemFromInventory(item_key);
     if(current_location.tags.safe_zone) reload_normal_location();
     update_displayed_crafting_recipes();
@@ -4288,7 +4318,7 @@ function use_item(item_key) {
         });
 
         character.removeFromInventory([{item_key}]);
-        setPacingState(nourishment.state);pacingPanel?.render();pacingStatusPanel?.render();
+        setPacingState(nourishment.state);pacingPanel?.render();pacingStatusPanel?.render();durabilityPanel?.render();
     }
 }
 
@@ -4748,6 +4778,7 @@ function create_save({forExport = false} = {}) {
             save_data["skill_list_state"][i] = skill_list.children[i].classList.contains("skill_category_expanded");
         }
 
+        save_data.equipment_durability=durability.serialize();
         save_data.pacing_e1=getPacingState();
         save_data.fort_supply=structuredClone(fortSupply);
         save_data.absorb_local_life=structuredClone(localLife);
@@ -4855,6 +4886,7 @@ function load(save_data) {
             optionalPackState=validatePackState(save_data.content_packs??emptyPackState());
             localLife=normalizeLocalLife(save_data.absorb_local_life);
             fortSupply=migrateFortSupply(save_data);
+            durability.load(save_data.equipment_durability);
             setPacingState(save_data.pacing_e1);pacingMinute=calendarMinutes(save_data["current time"]);
             if(localLife.lastClock==null)localLife.lastClock=calendarMinutes(save_data["current time"]);
             const prepared = prepareFoundationSave(save_data);
@@ -5479,7 +5511,13 @@ function load(save_data) {
                     }
 
                     Object.keys(saved_inventory).forEach(key => {
-                        let {id, components, quality} = JSON.parse(key);
+                        const parsedKey=JSON.parse(key);
+                        if(parsedKey.e2_instance!=null){
+                            const item=getItemFromKey(key);
+                            if(!item.tags.equippable||item.getInventoryKey()!==key||saved_inventory[key].count!==1)throw Error('Invalid identified equipment copy.');
+                            item_list.push({item_key:key,count:1});return;
+                        }
+                        let {id, components, quality} = parsedKey;
                         if(id && !quality) { 
                             //id is just a key of item_templates
                             //if it's present, item is "simple" (no components)
@@ -5566,6 +5604,9 @@ function load(save_data) {
                 });
             });
         }
+
+        durability.restoreEquipment(character,save_data.character.equipment,getItemFromKey);
+        character._equipItem(null,true);
 
         if(is_a_older_than_b(save_data["game version"], "v0.6")) {
             const storage_item_list = [];
@@ -6779,7 +6820,7 @@ function update() {
         let were_stats_updated = false;
         const prev_day = current_game_time.day_count;
         const advancedMinutes = update_timer();
-        furniturePanel?.render();localLifePanel?.render();fortControls?.render();pacingPanel?.render();pacingStatusPanel?.render();
+        furniturePanel?.render();localLifePanel?.render();fortControls?.render();pacingPanel?.render();pacingStatusPanel?.render();durabilityPanel?.render();
         if(!advancedMinutes || expansionState.chronicle?.life.endedAt != null) {update(); return;}
 
         if(start_date - last_rewarded_export > config.time_between_export_rewards) {
@@ -7826,6 +7867,7 @@ if(!importProbeToken && !foundationSaveBlocked && !is_loading_error) {
     pacingMinute??=calendarMinutes(current_game_time);
     pacingPanel=mountPacingPanel({host:document.getElementById('options_choices'),getContext:homePacingContext,onChange:changeHomePacing});
     pacingStatusPanel=createPacingStatusPanel();
+    durabilityPanel=createDurabilityPanel();
     setKnownClearTextReader(location=>knownClearText(location,fortDisclosures(book_stats[FORT.notes].accumulated_time>=4)));
     fortControls=createFortControls({read:readFortFrame,act:actFort});
     if(current_location?.tags.safe_zone) reload_normal_location();

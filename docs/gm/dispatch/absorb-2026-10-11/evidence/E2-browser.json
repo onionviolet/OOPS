@@ -1,0 +1,24 @@
+{
+  "url": "http://127.0.0.1:18512/",
+  "generatedSavesOnly": true,
+  "damagedConditionFixture": true,
+  "checks": [
+    "Old/default option off preserves native key",
+    "Two equal-quality copies acquire distinct stable equipped identities",
+    "Actual incoming hits wear only the equipped copy",
+    "Cheap native-coin repair restores condition",
+    "Damaged copy has lower native displayed defense",
+    "Unequip/equip/save/reload/import preserve independent copies and damage",
+    "Injected repair storage failure leaves native money and condition unchanged"
+  ],
+  "actualWornCondition": 99.92,
+  "damagedDefense": 5.2,
+  "freshDefense": 14,
+  "failure": {
+    "before": 101,
+    "after": 101,
+    "attempts": 1,
+    "text": "Equipment condition and repair\n\nLanded hits wear weapon, armor and shield copies. Lower condition reduces their native damage or protection; gear remains owned. Repair costs at most5 coins.\n\nSteel chainmail armored pants: 20.00/100 · repair 4 coins Repair\n\nSteel chainmail armored pants: 100.00/100 · repair 0 coins Repair\n\nYour browser has no room for this life. Export your save to a file; your last saved life is still safe."
+  },
+  "errors": []
+}

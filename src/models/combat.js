@@ -1,3 +1,4 @@
+import {equipmentDurability as durability} from '../absorb_e2/durability.js';
 import {accessoryDropModifier} from '../absorb_c1/accessories.js';
 "use strict";
 
@@ -364,6 +365,10 @@ class Combat {
         }
 
         //if this point is reached, attack has successfully struck its target, possibly partially blocked on the way
+        if(!this.is_special_combat&&durability.landedHit(fighter,target)) {
+            const player=fighter.tags.main_character?fighter:target.tags.main_character?target:null;
+            player?._equipItem(null);
+        }
 
         game_stats.total_hits_taken += (!this.is_special_combat && target.tags.main_character);
         game_stats.total_hits_done += (!this.is_special_combat && fighter.tags.main_character);
