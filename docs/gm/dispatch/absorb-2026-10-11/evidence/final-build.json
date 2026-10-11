@@ -1,0 +1,11 @@
+{
+  "nativeSourcesCompared": 407,
+  "sourceMapMatchesCurrentSource": true,
+  "bundleSha256": "e8681b6bce6cb4ddf0ae7acd2d16a0c20110a354c63881d87926c5ca4a81d59e",
+  "sourceMapSha256": "8baf6ed9d0f3a9f0af3b0acfde7b62ab9b8bbec7397539a08e36dd8eabb9292a",
+  "indexSha256": "46cead8d330a1e64d40ec852407bb4a4bfd9133b1e61dd63086ee43272f22e63",
+  "styleSha256": "9af1e67bb6ebfed0797b6194cc7c57b8b7ece75ba50cac688bc92701eb303485",
+  "build": "npm run build",
+  "tests": "npm test 330/330",
+  "generatedSavesOnly": true
+}

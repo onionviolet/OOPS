@@ -101,6 +101,8 @@ class Quest {
 
 const questManager = {
     startQuest({quest_id, should_inform = true}) {
+        // Completed-book unlocks and saved active quests can name the same quest.
+        if(this.isQuestActive(quest_id))return;
         const quest = quests[quest_id];
         if((!quest.isFinished() || quest.is_repeatable) && !this.isQuestActive(quest_id)) {
             active_quests[quest_id] = new Quest(quests[quest_id]);

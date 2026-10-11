@@ -556,7 +556,7 @@ function createDurabilityPanel() {
     input.onchange=()=>{try{commitDurability(durability.stageToggle(character,input.checked,getItemFromKey,key=>assertNativeItemDisposition(expansionState,key)));}catch(error){notice.textContent=error.message;render();}};
     let signature='';
     function render(){const target=document.getElementById('location_actions_div');if(panel.parentElement!==target)target.append(panel);input.checked=durability.enabled;
-        panel.hidden=!!current_dialogue;const rows=durability.rows(character),next=JSON.stringify([durability.enabled,rows]);if(next===signature)return;signature=next;
+        panel.hidden=!!current_dialogue;const rows=durability.rows(character),next=JSON.stringify([durability.enabled,rows,!!current_combat,!!nativeOccupationReason(),ownsSave&&!foundationSaveBlocked]);if(next===signature)return;signature=next;
         body.replaceChildren();const help=document.createElement('p');help.textContent=durability.enabled?'Landed hits wear weapon, armor and shield copies. Lower condition reduces their native damage or protection; gear remains owned. Repair costs at most5 coins.':'Durability is off. Existing condition is frozen and native gear power applies. Activate in Settings; untouched old stacks keep their keys.';body.append(help);
         for(const row of rows){const line=document.createElement('p');line.textContent=`${row.name}: ${row.condition.toFixed(2)}/100 · repair ${row.cost} coins `;
             const button=document.createElement('button');button.textContent='Repair';button.dataset.durabilityRepair=row.key;button.disabled=!row.cost||!row.affordable||!!current_combat||!!nativeOccupationReason();

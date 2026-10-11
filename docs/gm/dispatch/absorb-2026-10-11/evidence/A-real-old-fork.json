@@ -4,6 +4,6 @@
   "generatedSave": true,
   "checks": [
     "Pre-merge bundle generated an opening fork save",
-    "New bundle loads with retained inventory, village career, optional pack state, expansion schema and location"
+    "New bundle loads with retained native v0.6 inventory, money, XP, village career, optional pack state, expansion schema and location; all four new pacing options default off"
   ]
 }

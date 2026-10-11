@@ -1,0 +1,23 @@
+{
+  "url": "http://127.0.0.1:18514/",
+  "fingerprint": "http://127.0.0.1:18514/dist/bundle.js?version=v0.6-e8681b6bce6c",
+  "generatedSavesOnly": true,
+  "generatedAccessMaterialsLevelsAndChance": true,
+  "oneCombinedJourneyContext": true,
+  "checks": [
+    "A Motherwood action/Primeval encounter",
+    "B native housing sleep and bonus",
+    "C1 actual accessory craft and portable cooking",
+    "C2 bread/find/poison exposure",
+    "D actual notes reading and funded board hand-in",
+    "E all four settings together with hunger drain/gear wear/elemental encounter and repair",
+    "Save/reload/file import retains claims/funds/frozen pacing/gear identities and condition/options"
+  ],
+  "nativeHitsTaken": 8,
+  "heldEquipmentIdentities": {
+    "amulet": "{\"id\":\"Travel hearth pendant\",\"quality\":100,\"e2_instance\":\"e2.1\"}",
+    "legs": "{\"components\":{\"internal\":\"Goat leather pants\",\"external\":\"Steel chainmail greaves\"},\"quality\":100,\"e2_instance\":\"e2.2\"}",
+    "cape": "{\"id\":\"Boar hide cape\",\"quality\":100,\"e2_instance\":\"e2.3\"}"
+  },
+  "errors": []
+}
