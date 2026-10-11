@@ -1,3 +1,4 @@
+import {furnitureProjection, furnitureSkillMultiplier, furnitureRecovery, furniturePresentation, furnitureItemBonusText} from './absorb_b/furniture.js';
 import {STEAM_ABSORPTION_GROUPS} from './steam_absorption_content.js';
 import {steamAbsorptionContext,commitSteamAbsorptionCommand} from './steam_absorption_host.js';
 import {contextualBalmContext,commitContextualBalmCommand,stageContextualBalmEffectRequest} from './contextual_balm_host.js';
@@ -497,6 +498,28 @@ async function acquireSaveOwnership() {return importProbeToken ? true : new Prom
 
 const nativeGameplay = createNativeGameplayAdapter({player:character,getPerson:id=>NPCRegistry.get(id),skills,getContext:get_context,bindings:gameplayBindings});
 function gameplaySnapshot() {return nativeGameplay.snapshot(expansionState);}
+
+let furniturePanel;
+function readFurnitureInput() {
+    return {state: expansionState, locationId: current_location?.id,
+        housingAccessible: !!current_location?.housing?.isUnlocked(),
+        nativeInventory: readInventoryOwner(character.getItems()),
+        chestInventory: readInventoryOwner(player_storage.getItems()), bookStats: book_stats,
+        context: expeditionContext()};
+}
+function readFurnitureBonuses() {return furnitureProjection(readFurnitureInput());}
+function createFurniturePanel() {
+    const panel=document.createElement('details');panel.id='furniture_panel';panel.className='expedition_panel';
+    const summary=document.createElement('summary');summary.textContent='Furniture and home comforts';
+    const body=document.createElement('div');panel.append(summary,body);
+    document.getElementById('location_actions_div').append(panel);
+    let signature='';
+    const render=()=>{const view=furniturePresentation(readFurnitureInput());panel.hidden=!view.visible||!!current_dialogue||!!current_combat;
+        const next=JSON.stringify(view.sections.map(section=>section.records.map(r=>r.text)));if(next===signature)return;signature=next;
+        body.replaceChildren();for(const section of view.sections)for(const record of section.records){const p=document.createElement('p');p.textContent=record.text;body.append(p);}};
+    render();return {render};
+}
+
 
 function validateNativeGameplayReferences(definitions) {
     for(const definition of definitions) for(const effect of definition) {
@@ -2313,13 +2336,13 @@ function update_health({ammount_to_restore = 0, ammount_to_loose = 0, add_xp = t
 //single tick of resting
 function do_resting() {
     if(full_stats.health < full_stats.max_health) {
-        const resting_heal_ammount =  Math.round(Math.max(full_stats.max_health * 0.01, 2) * (1 + 3*character.getTotalSkillLevel("Regeneration")/skills["Regeneration"].max_level));
+        const resting_heal_ammount = furnitureRecovery(readFurnitureBonuses(),  Math.round(Math.max(full_stats.max_health * 0.01, 2) * (1 + 3*character.getTotalSkillLevel("Regeneration")/skills["Regeneration"].max_level)));
 
         update_health({ammount_to_restore: resting_heal_ammount});
     }
 
     if(full_stats.stamina < full_stats.max_stamina) {
-        const resting_stamina_ammount = Math.round(Math.max(full_stats.max_stamina/120, 2));
+        const resting_stamina_ammount = furnitureRecovery(readFurnitureBonuses(), Math.round(Math.max(full_stats.max_stamina/120, 2)));
         //todo: scale it with skill as well
 
         full_stats.stamina += (resting_stamina_ammount);
@@ -2333,13 +2356,13 @@ function do_resting() {
 
 function do_sleeping() {
     if(full_stats.health < full_stats.max_health) {
-        const sleeping_heal_ammount = Math.round(Math.max(full_stats.max_health * 0.04, 5) * (1 + character.getTotalSkillLevel("Sleeping")/skills["Sleeping"].max_level) * (1 + 3*character.getTotalSkillLevel("Regeneration")/skills["Regeneration"].max_level));
+        const sleeping_heal_ammount = furnitureRecovery(readFurnitureBonuses(), Math.round(Math.max(full_stats.max_health * 0.04, 5) * (1 + character.getTotalSkillLevel("Sleeping")/skills["Sleeping"].max_level) * (1 + 3*character.getTotalSkillLevel("Regeneration")/skills["Regeneration"].max_level)));
         
         update_health({ammount_to_restore: sleeping_heal_ammount});
     }
 
     if(full_stats.stamina < full_stats.max_stamina) {
-        const sleeping_stamina_ammount = Math.round(Math.max(full_stats.max_stamina/30, 5) * (1 + character.getTotalSkillLevel("Sleeping")/skills["Sleeping"].max_level));
+        const sleeping_stamina_ammount = furnitureRecovery(readFurnitureBonuses(), Math.round(Math.max(full_stats.max_stamina/30, 5) * (1 + character.getTotalSkillLevel("Sleeping")/skills["Sleeping"].max_level)));
 
         full_stats.stamina += (sleeping_stamina_ammount);
         if(full_stats.stamina > full_stats.max_stamina) {
@@ -2989,6 +3012,7 @@ function end_dialogue() {
 
 function reload_normal_location() {
     update_displayed_normal_location(current_location);
+    furniturePanel?.render();
 }
 
 /**
@@ -3289,6 +3313,7 @@ function add_xp_to_skill({skill, xp_to_add = 1, should_info = true, use_bonus = 
     }
 
     if(!is_from_loading && use_bonus) xp_to_add *= lifeLearningMultiplier(expansionState.chronicle);
+    if(!is_from_loading && !restoringNativeSave && use_bonus) xp_to_add *= furnitureSkillMultiplier(readFurnitureBonuses(), skill.skill_id);
 
     let {leveled, prev_name, new_name, was_hidden, message, unlocks} = character.addXPToSkill({skill, xp_to_add, should_info, use_bonus, add_to_parent, cap_gained_xp, is_from_loading, do_quest_events});
 
@@ -3668,7 +3693,7 @@ function use_recipe(target, ammount_wanted_to_craft = 1) {
 
                 const needed_xp = (recipe_skill.getTotalXPToNextLvl() - recipe_skill.getTotalXP()) || Infinity;
                 //const xp_per_craft = get_recipe_xp_value({category, subcategory, recipe_id});
-                const xp_per_craft = Math.min(recipe_skill.getXPToNextLvl()*config.crafting_skill_xp_gains_cap, get_recipe_xp_value({category, subcategory, recipe_id})*character.getSkillXPGain(recipe_skill.skill_id));
+                const xp_per_craft = Math.min(recipe_skill.getXPToNextLvl()*config.crafting_skill_xp_gains_cap, get_recipe_xp_value({category, subcategory, recipe_id})*character.getSkillXPGain(recipe_skill.skill_id)*furnitureSkillMultiplier(readFurnitureBonuses(), recipe_skill.skill_id));
                 const estimated_xp_per_craft = xp_per_craft * success_chance;
                 const needed_crafts = Math.ceil(needed_xp/estimated_xp_per_craft);
                 
@@ -3823,7 +3848,7 @@ function use_recipe(target, ammount_wanted_to_craft = 1) {
 
                         accumulated_xp += Math.min(
                             recipe_skill.getXPToNextLvl()*config.crafting_skill_xp_gains_cap, 
-                            get_recipe_xp_value({category, subcategory, recipe_id, material_count:recipe_material.count, result_tier: result_tier, rarity_multiplier: rarity_multipliers[getItemRarity(quality)]})* character.getSkillXPGain(recipe_skill.skill_id)
+                            get_recipe_xp_value({category, subcategory, recipe_id, material_count:recipe_material.count, result_tier: result_tier, rarity_multiplier: rarity_multipliers[getItemRarity(quality)]})* character.getSkillXPGain(recipe_skill.skill_id)*furnitureSkillMultiplier(readFurnitureBonuses(), recipe_skill.skill_id)
                         );
                         if(accumulated_xp  >= needed_xp) {
                             const qualities = Object.keys(crafted_items).map(x => Number(x)).sort((a,b)=>b-a);
@@ -3937,7 +3962,7 @@ function use_recipe(target, ammount_wanted_to_craft = 1) {
 
                 accumulated_xp += Math.min(
                     recipe_skill.getXPToNextLvl(), 
-                    get_recipe_xp_value({category, subcategory, recipe_id, selected_components: comp, rarity_multiplier: rarity_multipliers[getItemRarity(quality)]})*character.getSkillXPGain(recipe_skill.skill_id)
+                    get_recipe_xp_value({category, subcategory, recipe_id, selected_components: comp, rarity_multiplier: rarity_multipliers[getItemRarity(quality)]})*character.getSkillXPGain(recipe_skill.skill_id)*furnitureSkillMultiplier(readFurnitureBonuses(), recipe_skill.skill_id)
                 );
                             
                 if(accumulated_xp >= needed_xp) {
@@ -6636,6 +6661,7 @@ function update() {
         let were_stats_updated = false;
         const prev_day = current_game_time.day_count;
         const advancedMinutes = update_timer();
+        furniturePanel?.render();
         if(!advancedMinutes || expansionState.chronicle?.life.endedAt != null) {update(); return;}
 
         if(start_date - last_rewarded_export > config.time_between_export_rewards) {
@@ -7665,6 +7691,10 @@ if(!importProbeToken && !foundationSaveBlocked && !is_loading_error) {
         lifeSaveStorage.setItem(is_on_dev()?dev_save_key:save_key,JSON.stringify(save));
     }});
     titlesPanel = createTitlesPanel({read: () => titleView(character.titles, readTitleCounters())});
+    for(const id of ['Proto23 plain bed','Proto23 cottage hearth','Proto23 bookstand','Prepared survey kit']) {
+        const bonus=furnitureItemBonusText(id);if(item_templates[id]&&bonus&&!item_templates[id].description.includes(bonus))item_templates[id].description+=' '+bonus;
+    }
+    furniturePanel=createFurniturePanel();
     lifeRecordPanel = createLifeRecordPanel({read:()=>({record:lifeRecord,canWrite:ownsSave&&!foundationSaveBlocked&&!importProbeToken}),remember:()=>{
         if(!ownsSave || foundationSaveBlocked || importProbeToken) throw new Error("This life cannot be written right now.");
         const serialized=create_save(); if(!serialized) throw new Error("This day could not be remembered.");

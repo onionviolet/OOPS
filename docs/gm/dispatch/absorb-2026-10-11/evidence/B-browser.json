@@ -1,0 +1,12 @@
+{
+  "url": "http://127.0.0.1:18512/",
+  "generatedSavesOnly": true,
+  "beforeSleepingXP": 0,
+  "afterSleepingXP": 2.1,
+  "checks": [
+    "Accessible native housing shows proposed bonuses",
+    "Native sleep earns XP and restores health",
+    "Bonus remains once after save/reload/file import"
+  ],
+  "errors": []
+}

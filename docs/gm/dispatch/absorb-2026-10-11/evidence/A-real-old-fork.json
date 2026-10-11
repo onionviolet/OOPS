@@ -1,0 +1,9 @@
+{
+  "baseline": "c83bd819^1",
+  "baselineBundle": "v0.6-6fb203bfb42f",
+  "generatedSave": true,
+  "checks": [
+    "Pre-merge bundle generated an opening fork save",
+    "New bundle loads with retained inventory, village career, optional pack state, expansion schema and location"
+  ]
+}

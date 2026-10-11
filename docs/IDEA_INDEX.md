@@ -18,6 +18,16 @@ Remaining gaps, in order:
 
 ## How ideas are kept
 
+Current completion routing, 2026-10-11: [completion standard](WORLD_COMPLETION_STANDARD.md)
+sections S00–S14 retain individual details, interactions and separate evidence
+stages for worlds and shared systems. [Contract template](worlds/templates/WORLD_COMPLETION_TEMPLATE.md),
+[ledger template](worlds/templates/COMPLETION_LEDGER.template.json) and
+[public audit intake](gm/completion/AUDIT_INTAKE.json) set up the workflow.
+The intake is an artifact inventory; idea extraction and section reconciliation
+remain pending. Existing local completion owners keep their stable IDs.
+Expanded play is intended to begin at a suspenseful random point; Frontier
+remains optional. A player's route does not define developer world completion.
+
 For each new idea, capture the user's request in User vision, update the matching owner, and link it here. A genuinely new family can receive one focused owner. Preserve useful variants and open questions there rather than silently selecting one. PROJECT.md gets a short direction/decision entry only when it changes what was requested or accepted. Superseded live designs move to [Prototype history](PROTOTYPE_HISTORY.md); chronological research remains available.
 
 Useful statuses are **requested direction**, **proposal**, **selected for a prototype**, **implemented**, **browser verified** and **user accepted**. Research evidence and gameplay acceptance are separate. Record the source/request, proposed player interaction, dependencies, smallest playable proof, open decisions and current evidence. A future selection must identify the actual scope, not mark an entire dossier accepted.
@@ -264,3 +274,5 @@ The shared owner retains five connected considerations and links to existing kno
 [Proto23-inspired Village life](ENGINE_EXPANSION.md#proto23-inspired-village-life-runtime-2026-10-02) implements a finite discovered booklet/token, native reading that opens a distinct route, an existing craftsman's recognition/packing lesson, a functional Shack board using actual gathered wood, and one saved recurring calendar service. [Project policy](gm/PROJECT_LOG.md#proto23-inspired-village-life-2026-10-02) and [browser/save proof](PLAYTEST.md#village-life-browser-and-save-proof-2026-10-02) separate runtime delivery from provisional writing/balance. Further native-unlock, named-memory, custody, autonomous occurrence and authoring work remains scoped in that owner.
 
 [Everyday learning and mood](gm/PROJECT_LOG.md#everyday-learning-mood-and-small-details-2026-10-03) now implements three routes to the same practical understanding, temporary actor moods with retained directed memory, known working preferences, state-derived local details, quiet Shack rest and a finite missed-meeting fallback. [Authoring rules](ENGINE_AUTHORING.md#everyday-learning-and-mood-authoring-2026-10-03) and [matched browser/save proof](PLAYTEST.md#everyday-learning-and-mood-proof-2026-10-03) own the bounded implementation. Broader habits/social catalogues and final writing/balance remain proposals.
+
+- 2026-10-11 absorption: [assignment](gm/dispatch/absorb-2026-10-11/ASSIGNMENT.md), [live integration checkpoint](gm/dispatch/absorb-2026-10-11/CHECKPOINT.md), [unexercised acceptance](gm/dispatch/absorb-2026-10-11/ACCEPTANCE_BACKLOG.md). Bonuses accepted in principle; numbers remain proposals.
