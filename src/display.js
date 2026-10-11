@@ -1,3 +1,4 @@
+import {foodPacingDescription} from './absorb_e1/panel.js';
 import {accessoryCraftingTiers} from './absorb_c1/accessories.js';
 import {projectGameAbsorptionAssayItemView} from './game_absorption_assay_item_view.js';
 import {projectFieldcraftItemView} from './nethack_fieldcraft_item_view.js';
@@ -652,6 +653,7 @@ function create_item_tooltip_content({item, options={}, is_trade = false}) {
         }
     }
 
+    const nourishmentText=foodPacingDescription(item);if(nourishmentText)item_tooltip+='<br>'+nourishmentText;
     return item_tooltip;
 }
 

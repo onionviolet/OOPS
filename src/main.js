@@ -1,3 +1,5 @@
+import {getPacingState,setPacingState,advancePacing,prepareFood,getPacingEffects} from './absorb_e1/pacing.js';
+import {mountPacingPanel,pacingStatus} from './absorb_e1/panel.js';
 import {setKnownClearTextReader} from './display.js';
 import {FORT, createFortSupply, migrateFortSupply, stageFortAction, observeFortSource, fortDisclosures, knownClearText} from './absorb_d/fort.js';
 import {registerFortContent} from './absorb_d/register.js';
@@ -510,6 +512,25 @@ function gameplaySnapshot() {return nativeGameplay.snapshot(expansionState);}
 let furniturePanel;
 let localLife=normalizeLocalLife(),localLifePanel;
 let fortSupply=createFortSupply(),fortControls;
+let pacingMinute=null,pacingPanel,pacingStatusPanel;
+function homePacingContext(state=expansionState, location=current_location, calendar=current_game_time) {
+    return {homeWorld:state.actors.player.worldId==='base.frontier'&&!Object.values(optionalPackState.packs).some(p=>p.active),
+        outdoors:location?.is_under_roof===false,season:calendar.getSeason?calendar.getSeason():current_game_time.getSeason(),nativeRain:!!is_raining()};
+}
+function changeHomePacing(next) {
+    if(!ownsSave||foundationSaveBlocked||importProbeToken||restoringNativeSave)throw Error('Pacing changes require the writable game tab.');
+    const state=structuredClone(expansionState);state.sequence++;
+    persistExpansion({state,external:{money:character.money},gameplay:gameplaySnapshot(),nativePatch:{pacing_e1:next},pacingNext:next,pacingTarget:calendarMinutes(current_game_time)});
+    pacingPanel?.render();pacingStatusPanel?.render();
+}
+function createPacingStatusPanel() {
+    const panel=document.createElement('details');panel.id='pacing_status_panel';panel.className='expedition_panel';
+    const title=document.createElement('summary');title.textContent='Optional pacing';const text=document.createElement('p');panel.append(title,text);
+    const render=()=>{const host=document.getElementById('location_actions_div');if(panel.parentElement!==host)host.append(panel);
+        panel.hidden=!!current_dialogue||!!current_combat;text.textContent=pacingStatus(getPacingState(),homePacingContext());};
+    render();return {render};
+}
+
 function readFortFrame() {
     const stock=readInventoryOwner(character.getItems());
     return {fort:fortSupply,worldId:expansionState.actors.player.worldId,location:current_location?.id,
@@ -524,7 +545,7 @@ function actFort(action) {
     const plan=stageFortAction({state:expansionState,gameplay:gameplaySnapshot(),money:character.money,itemLog:item_log.items,
         fort:fortSupply,action,context:{...frame,busy:frame.disabled,readOnly:!ownsSave||foundationSaveBlocked||importProbeToken,
         assertItemDisposition:key=>assertNativeItemDisposition(expansionState,key)},keyFor:id=>item_templates[id].getInventoryKey(),getItem:getItemFromKey});
-    persistExpansion(plan);log_message(plan.message,'notification');fortControls?.render();return plan;
+    persistExpansion(plan);log_message(plan.message,'notification');fortControls?.render();pacingPanel?.render();pacingStatusPanel?.render();return plan;
 }
 function observeFortAcquisition(itemId,count,kind,sourceId,label) {
     if(restoringNativeSave||!(count>0)||!item_templates[itemId]||expansionState.actors.player.worldId!=='base.frontier')return;
@@ -598,7 +619,7 @@ function simulationNativeContexts() {
     for(const [id,ctx] of Object.entries(contexts))ctx.facts=featurePowerContext(expansionState,{...ctx,actorId:id,vitals:{[id]:ctx.vitals},equipment:{[id]:ctx.equipment}}).facts;
     Object.assign(contexts.player.facts,techniqueFacts(expansionState.actors.player,expeditionRegistry,contexts.player));
     const gameplay=gameplaySnapshot(),vitals=Object.fromEntries(Object.entries(contexts).map(([id,c])=>[id,c.vitals]));
-    for(const [id,c] of Object.entries(contexts))Object.assign(c,{actorId:id,worldId:expansionState.actors[id].worldId,nativeBody:id==='player'?currentNativeBody():null,nativeCareFrame:nativeCareFrame(),gameplay,vitalsByActor:vitals,nativeAlive:character.is_alive===true,remainderLivelihoodClock:{calendarMinute:calendarMinutes(current_game_time),clock:expansionState.clock},facts:{...c.facts,"weather.raining":!!is_raining(),...(id==='player'?{"village.shackUnlocked":!!locations.Shack.getAvailabilityComponent().getStatus().is_unlocked,"village.craftsmanMet":metVillageElder()&&expeditionContext().facts["village.craftsmanMet"],"village.craftsmanPresent":expansionState.simulation?.people.oldCraftsman?.life==='alive'&&expansionState.simulation.people.oldCraftsman.location==='Village'}:{})}});
+    for(const [id,c] of Object.entries(contexts))Object.assign(c,{actorId:id,worldId:expansionState.actors[id].worldId,nativeBody:id==='player'?currentNativeBody():null,nativeCareFrame:nativeCareFrame(),gameplay,vitalsByActor:vitals,nativeAlive:character.is_alive===true,remainderLivelihoodClock:{calendarMinute:calendarMinutes(current_game_time),clock:expansionState.clock},facts:{...c.facts,"weather.raining":getPacingEffects(homePacingContext()).raining,...(id==='player'?{"village.shackUnlocked":!!locations.Shack.getAvailabilityComponent().getStatus().is_unlocked,"village.craftsmanMet":metVillageElder()&&expeditionContext().facts["village.craftsmanMet"],"village.craftsmanPresent":expansionState.simulation?.people.oldCraftsman?.life==='alive'&&expansionState.simulation.people.oldCraftsman.location==='Village'}:{})}});
     const joined=nestedChainSimulationContexts(expansionState,nestedSimulationContexts(expansionState,contexts));
     for(const [id,c] of Object.entries(joined))joined[id]=nestedLifeContext(expansionState,c);
     return proto23SimulationContexts(expansionState,worldCompletionSimulationContexts(expansionState,lorePracticeSimulationContexts(expansionState,causalStorySimulationContexts(expansionState,auditRemainderSimulationContexts(expansionState,molSimulationContexts(expansionState,paradiseSimulationContexts(expansionState,joined)))))));
@@ -627,7 +648,7 @@ function expeditionContext() {
             ...everydayFacts(expansionState, {hour: current_game_time.hour}),
             ...bodyFacts(expansionState),
             "day.hour": current_game_time.hour,
-            "weather.raining": !!is_raining(), "weather.damp": rain_counter > 0,
+            "weather.raining": getPacingEffects(homePacingContext()).raining, "weather.damp": rain_counter > 0,
             "village.circleOpen": current_game_time.hour >= 8 && current_game_time.hour < 10,
             "village.briefingActive": (expansionState.actors.player.sources["village.morning_signs"]?.expiresAt ?? 0) > expansionState.clock,
             calendarMinute: calendarMinutes(current_game_time), perception: character.getTotalSkillLevel("Perception"),
@@ -641,6 +662,11 @@ function expeditionContext() {
 }
 
 function persistExpansion(plan, ownershipBindings = {}, itemsByOwner = {}) {
+    const pacingTarget=calendarMinutes(plan.calendar||current_game_time);
+    if(!restoringNativeSave&&pacingMinute!=null&&!plan.pacingNext&&pacingTarget>pacingMinute){
+        plan.pacingNext=advancePacing(getPacingState(),pacingTarget-pacingMinute,homePacingContext());
+        plan.pacingTarget=pacingTarget;plan.nativePatch={...plan.nativePatch,pacing_e1:plan.pacingNext};
+    }
     const localFrame=localLifeContext(plan.calendar||current_game_time,plan.state,plan.nativeLocation||current_location?.id);
     if(!restoringNativeSave&&!plan.localLifeResult&&localFrame.clock>(localLife.lastClock??localFrame.clock))
         stageLocalLifeResult(plan,advanceLocalLife(localLife,localFrame));
@@ -743,6 +769,7 @@ function persistExpansion(plan, ownershipBindings = {}, itemsByOwner = {}) {
     // Every owned domain is durable before native state is published. Rendering
     // happens afterward and never applies rewards.
     expansionState = plan.state;
+    if(plan.pacingNext){setPacingState(plan.pacingNext);pacingMinute=plan.pacingTarget;pacingPanel?.render();pacingStatusPanel?.render();}
     if(plan.nativePatch?.fort_supply)fortSupply=migrateFortSupply({fort_supply:plan.nativePatch.fort_supply});
     if(plan.localLifeResult){localLife=normalizeLocalLife(plan.localLifeResult.state);for(const message of plan.localLifeResult.messages)log_message(message,'notification');}
     character.money = plan.external.money;
@@ -804,7 +831,7 @@ function persistExpansion(plan, ownershipBindings = {}, itemsByOwner = {}) {
         frontierCampaignPanel?.render();
         partyPanel?.render(); exchangePanel?.render(); observationPanel?.render(); pocketRealmPanel?.render();skillExpansionPanel?.render();originalFrontierPanel?.render();featureExpansionPanel?.render();causalStoryPanel?.render();
         backlogPanel?.render();replacementRecognitionPanel?.render();backlogOpeningPanel?.render();repositoryPanel?.render();inkPanel?.render();nestedInkPanels?.render();
-        knownRoutesPanel?.render();adventureNotebook?.render();localLifePanel?.render();fortControls?.render();
+        knownRoutesPanel?.render();adventureNotebook?.render();localLifePanel?.render();fortControls?.render();pacingPanel?.render();pacingStatusPanel?.render();
         expansionQuests?.render();
         characterBio?.render();
         worldEventFeed?.render();
@@ -3078,7 +3105,7 @@ function end_dialogue() {
 
 function reload_normal_location() {
     update_displayed_normal_location(current_location);
-    furniturePanel?.render();localLifePanel?.render();fortControls?.render();
+    furniturePanel?.render();localLifePanel?.render();fortControls?.render();pacingPanel?.render();pacingStatusPanel?.render();
 }
 
 /**
@@ -3383,6 +3410,7 @@ function add_xp_to_skill({skill, xp_to_add = 1, should_info = true, use_bonus = 
     if(!is_from_loading && use_bonus) xp_to_add *= lifeLearningMultiplier(expansionState.chronicle);
     if(!is_from_loading && !restoringNativeSave && use_bonus) xp_to_add *= furnitureSkillMultiplier(readFurnitureBonuses(), skill.skill_id);
 
+    if(!is_from_loading&&!restoringNativeSave)xp_to_add*=getPacingEffects(homePacingContext()).efficiency;
     let {leveled, prev_name, new_name, was_hidden, message, unlocks} = character.addXPToSkill({skill, xp_to_add, should_info, use_bonus, add_to_parent, cap_gained_xp, is_from_loading, do_quest_events});
 
     const is_visible = skill.visibility_treshold <= skill.getTotalXP();
@@ -3542,6 +3570,7 @@ function add_xp_to_skill({skill, xp_to_add = 1, should_info = true, use_bonus = 
  * @param {Boolean} should_info 
  */
 function add_xp_to_character(xp_to_add, should_info = true, use_bonus) {
+    if(!restoringNativeSave)xp_to_add*=getPacingEffects(homePacingContext()).efficiency;
     const level_up = character.addXP({xp_to_add, use_bonus});
     
     if(level_up) {
@@ -4210,9 +4239,11 @@ function use_item(item_key) {
     const reasons = nativeActionReasons(expansionState);
     if(reasons.length) {log_message(reasons.join(" "),"notification");return;}
     try {assertNativeItemDisposition(expansionState,item_key);} catch(e) {log_message(e.message,"notification");return;}
+    if(!character.getItems()[item_key]?.count)return;
     const {id} = JSON.parse(item_key);
+    const nourishment=prepareFood(getPacingState(),item_templates[id],homePacingContext());
     const item_effects = item_templates[id].effects;
-    let used = false;
+    let used = nourishment.restored>0;
     for(let i = 0; i < item_effects.length; i++) {
         used = add_active_effect(item_effects[i].effect,item_effects[i].duration, true) || used;
         /*
@@ -4257,6 +4288,7 @@ function use_item(item_key) {
         });
 
         character.removeFromInventory([{item_key}]);
+        setPacingState(nourishment.state);pacingPanel?.render();pacingStatusPanel?.render();
     }
 }
 
@@ -4716,6 +4748,7 @@ function create_save({forExport = false} = {}) {
             save_data["skill_list_state"][i] = skill_list.children[i].classList.contains("skill_category_expanded");
         }
 
+        save_data.pacing_e1=getPacingState();
         save_data.fort_supply=structuredClone(fortSupply);
         save_data.absorb_local_life=structuredClone(localLife);
         save_data.content_packs = structuredClone(optionalPackState);
@@ -4822,6 +4855,7 @@ function load(save_data) {
             optionalPackState=validatePackState(save_data.content_packs??emptyPackState());
             localLife=normalizeLocalLife(save_data.absorb_local_life);
             fortSupply=migrateFortSupply(save_data);
+            setPacingState(save_data.pacing_e1);pacingMinute=calendarMinutes(save_data["current time"]);
             if(localLife.lastClock==null)localLife.lastClock=calendarMinutes(save_data["current time"]);
             const prepared = prepareFoundationSave(save_data);
             save_data = prepareV06Save(prepared.save);
@@ -6646,7 +6680,7 @@ function update_timer(time_in_minutes, source = null) {
             current_game_time.goUp(minutes);save['current time']=JSON.parse(JSON.stringify(current_game_time));
             try{lifeSaveStorage.setItem(is_on_dev()?dev_save_key:save_key,JSON.stringify(save));}
             catch(error){Object.assign(current_game_time,calendar);throw error;}
-            optionalPackState=next;optionalPackPanel?.render();update_displayed_time();return minutes;
+            optionalPackState=next;pacingMinute=calendarMinutes(current_game_time);optionalPackPanel?.render();update_displayed_time();return minutes;
         }catch(error){log_message('Optional work paused: '+error.message,'notification');return 0;}
     }
     if(backlogNativeClockPaused(expansionState)){backlogPanel?.render();replacementRecognitionPanel?.render();backlogOpeningPanel?.render();knownRoutesPanel?.render();adventureNotebook?.render();return 0;}
@@ -6745,7 +6779,7 @@ function update() {
         let were_stats_updated = false;
         const prev_day = current_game_time.day_count;
         const advancedMinutes = update_timer();
-        furniturePanel?.render();localLifePanel?.render();fortControls?.render();
+        furniturePanel?.render();localLifePanel?.render();fortControls?.render();pacingPanel?.render();pacingStatusPanel?.render();
         if(!advancedMinutes || expansionState.chronicle?.life.endedAt != null) {update(); return;}
 
         if(start_date - last_rewarded_export > config.time_between_export_rewards) {
@@ -6772,11 +6806,12 @@ function update() {
         update_displayed_effect_durations();
         update_displayed_effects();
 
-        const new_temperature = get_current_temperature_smoothed();
+        const optionalWeather=getPacingEffects(homePacingContext());
+        const new_temperature = get_current_temperature_smoothed()+optionalWeather.temperatureOffset;
 
         if(!current_location.is_under_roof) {
             //not under roof, background animations can happen
-            if(is_raining()) {
+            if(optionalWeather.raining) {
                 if(rain_counter >= time_until_wet) {
                 //been in rain long enough, add wet even if present
                     add_active_effect("Wet",30);
@@ -7788,6 +7823,9 @@ if(!importProbeToken && !foundationSaveBlocked && !is_loading_error) {
     localLifePanel=createLocalLifePanel({container:document.getElementById('location_actions_div'),
         read:()=>({state:localLife,context:localLifeContext()}),
         act:id=>dispatchLocalLifePlan(localLifeAction(localLife,localLifeContext(),id))});
+    pacingMinute??=calendarMinutes(current_game_time);
+    pacingPanel=mountPacingPanel({host:document.getElementById('options_choices'),getContext:homePacingContext,onChange:changeHomePacing});
+    pacingStatusPanel=createPacingStatusPanel();
     setKnownClearTextReader(location=>knownClearText(location,fortDisclosures(book_stats[FORT.notes].accumulated_time>=4)));
     fortControls=createFortControls({read:readFortFrame,act:actFort});
     if(current_location?.tags.safe_zone) reload_normal_location();

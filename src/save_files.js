@@ -1,3 +1,4 @@
+import {normalizePacing} from './absorb_e1/pacing.js';
 import {migrateFortSupply} from './absorb_d/fort.js';
 import {normalizeLocalLife} from './absorb_c2/local_life.js';
 import {validatePackState} from './content_packs.js';
@@ -55,6 +56,7 @@ export function validateSaveEnvelope(original, currentVersion) {
         if((incoming[i] || 0) < (current[i] || 0)) break;
     }
     // Retirement is validated before any active game or storage mutation.
+    if(Object.hasOwn(original,"pacing_e1")){object(original.pacing_e1,"Home pacing");normalizePacing(original.pacing_e1);}
     migrateFortSupply(original);
     if(Object.hasOwn(original,"absorb_local_life"))normalizeLocalLife(original.absorb_local_life);
     const {save, retired} = prepareFoundationSave(original);

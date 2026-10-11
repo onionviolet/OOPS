@@ -1,0 +1,15 @@
+{
+  "url": "http://127.0.0.1:18512/",
+  "generatedSavesOnly": true,
+  "checks": [
+    "Absent old setting defaults off; native settings toggle independently",
+    "Two native bread consumed despite existing equal meal buff, restore about30 fullness",
+    "Saved fog deadline advances to rain and native rain counter progresses",
+    "Native sleep consumes played hunger minutes and earns scaled ordinary XP",
+    "Turning off freezes meters/weather and reload/import retains exact state and XP"
+  ],
+  "fullnessBefore": 50,
+  "fullnessAfterFood": 80,
+  "sleepXp": 1,
+  "errors": []
+}
