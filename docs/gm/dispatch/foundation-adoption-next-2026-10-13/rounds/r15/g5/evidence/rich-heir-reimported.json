@@ -1,0 +1,61 @@
+{
+ "name": "TEST FIXTURE R15 G5 rich heir",
+ "money": 502,
+ "heroCreated": true,
+ "inventory": {
+  "Cheap leather pants@40": 2,
+  "Stale bread": 10,
+  "Old combat manual": 1
+ },
+ "chest": {
+  "Iron ore": 12,
+  "Rough wood log": 6
+ },
+ "shack": 1,
+ "reputation": {
+  "Village": -1,
+  "Slums": 0,
+  "Town": 0
+ },
+ "xp": 0,
+ "knowledge": {
+  "routeSignals": true
+ },
+ "inheritance": {
+  "recipient": "apprentice",
+  "papers": [
+   "routeSignals"
+  ],
+  "apprentice": [
+   "routeSignals"
+  ],
+  "money": 400,
+  "belongings": 7,
+  "chest": 18,
+  "home": true,
+  "obligations": [
+   "grievance"
+  ],
+  "archiveLine": true,
+  "debtsPaid": 0
+ },
+ "inheritedFrom": "TEST FIXTURE R15 G5 rich life",
+ "generation": 2,
+ "elderTies": {
+  "role": "acquaintance",
+  "rememberedPredecessor": "TEST FIXTURE R15 G5 rich life",
+  "grievance": true,
+  "successor": true
+ },
+ "inheritanceEvent": "resolved",
+ "ended": null,
+ "clock": 0,
+ "calendar": {
+  "year": 1061,
+  "month": 4,
+  "day": 1,
+  "hour": 8,
+  "minute": 0,
+  "day_count": 22321
+ }
+}

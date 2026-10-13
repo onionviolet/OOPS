@@ -1,0 +1,96 @@
+{
+ "kind": "old",
+ "profile": "/private/tmp/r15-g5-profile-old-1791918135288",
+ "errors": [
+  "Cannot read properties of undefined (reading 'name')"
+ ],
+ "steps": [
+  {
+   "name": "fresh origin loaded",
+   "bundle": "http://127.0.0.1:19150/dist/bundle.js?version=v0.6-70684e001885",
+   "localBundleHash": "70684e0018858f0e",
+   "servedBundleHash": "70684e0018858f0e"
+  },
+  {
+   "name": "TEST FIXTURE R15 G5 old-rule heir",
+   "file": "TEST-FIXTURE-R15-G5-old-rule-heir.txt",
+   "money": 102,
+   "heroCreated": true,
+   "inventory": {
+    "Cheap leather pants@40": 1,
+    "Stale bread": 5
+   },
+   "chest": {},
+   "shack": 0,
+   "reputation": {
+    "Village": 0,
+    "Slums": 0,
+    "Town": 0
+   },
+   "xp": 0,
+   "knowledge": {
+    "routeSignals": true
+   },
+   "inheritance": null,
+   "inheritedFrom": "TEST FIXTURE R15 G5 rich life",
+   "generation": 2,
+   "elderTies": {
+    "role": "acquaintance"
+   },
+   "inheritanceEvent": "scheduled",
+   "ended": null,
+   "clock": 0,
+   "calendar": {
+    "year": 1061,
+    "month": 4,
+    "day": 1,
+    "hour": 8,
+    "minute": 0,
+    "day_count": 22321
+   }
+  },
+  {
+   "name": "old-rule heir loaded on new build",
+   "inheritanceLine": "Generation 2. Heir of TEST FIXTURE R15 G5 rich life, begun under the earlier one-lesson rule.",
+   "studyButtons": 0,
+   "panelExcerpt": "Elder & chronicle\n\nOnly played game time advances your age.\n\nAge 18.000 · 0m elapsed · Mortal lifespan 80 years · 62.000 years remaining\n\nGeneration 2. Heir of TEST FIXTURE R15 G5 rich life, begun under the earlier one-lesson rule.\n\nInspect the elderRequest a control challengeAttack the elder · hostile confrontationAccept archive duty · a concrete promiseWrite down reading the road\n\nVisiting cartographer's briefing · Village · scheduled · opens 01/04/1061 08:10, Summer, Fri; closes 01/04/1061 08:40, Summer, Fri\n\nThe elder's archive succession · Village · scheduled · opens 01/04/1061 09:00, Sum"
+  },
+  {
+   "name": "TEST FIXTURE R15 G5 old-rule heir",
+   "money": 102,
+   "heroCreated": true,
+   "inventory": {
+    "Cheap leather pants@40": 1,
+    "Stale bread": 5
+   },
+   "chest": {},
+   "shack": 0,
+   "reputation": {
+    "Village": 0,
+    "Slums": 0,
+    "Town": 0
+   },
+   "xp": 0,
+   "knowledge": {
+    "routeSignals": true
+   },
+   "inheritance": null,
+   "inheritedFrom": "TEST FIXTURE R15 G5 rich life",
+   "generation": 2,
+   "elderTies": {
+    "role": "acquaintance"
+   },
+   "inheritanceEvent": "scheduled",
+   "ended": null,
+   "clock": 0,
+   "calendar": {
+    "year": 1061,
+    "month": 4,
+    "day": 1,
+    "hour": 8,
+    "minute": 0,
+    "day_count": 22321
+   }
+  }
+ ]
+}

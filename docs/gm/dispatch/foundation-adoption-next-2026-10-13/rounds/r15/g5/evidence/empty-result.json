@@ -1,0 +1,214 @@
+{
+ "kind": "empty",
+ "profile": "/private/tmp/r15-g5-profile-empty-1791918122198",
+ "errors": [],
+ "steps": [
+  {
+   "name": "fresh origin loaded",
+   "bundle": "http://127.0.0.1:19150/dist/bundle.js?version=v0.6-70684e001885",
+   "localBundleHash": "70684e0018858f0e",
+   "servedBundleHash": "70684e0018858f0e"
+  },
+  {
+   "name": "TEST FIXTURE R15 G5 empty life",
+   "file": "TEST-FIXTURE-R15-G5-empty-ended.txt",
+   "money": 0,
+   "heroCreated": true,
+   "inventory": {
+    "Cheap leather pants@40": 1
+   },
+   "chest": {},
+   "shack": 0,
+   "reputation": {
+    "Village": 0,
+    "Slums": 0,
+    "Town": 0
+   },
+   "xp": 0,
+   "knowledge": {},
+   "inheritance": null,
+   "inheritedFrom": null,
+   "generation": null,
+   "elderTies": {
+    "role": "acquaintance"
+   },
+   "inheritanceEvent": "missed",
+   "ended": 32140800,
+   "clock": 32140800,
+   "calendar": {
+    "year": 1061,
+    "month": 4,
+    "day": 1,
+    "hour": 8,
+    "minute": 0,
+    "day_count": 22321
+   }
+  },
+  {
+   "name": "ended-life dialog shows what will pass",
+   "button": "Begin an heir · they receive what this life left behind",
+   "help": "An heir begins with their own body, skills and starting things. They also receive what this life actually left behind:",
+   "preview": [
+    "Recipient: your next of kin.",
+    "Belongings (1): Cheap leather pants."
+   ]
+  },
+  {
+   "name": "The heir",
+   "money": 102,
+   "heroCreated": false,
+   "inventory": {
+    "Cheap leather pants@40": 2,
+    "Stale bread": 5
+   },
+   "chest": {},
+   "shack": 0,
+   "reputation": {
+    "Village": 0,
+    "Slums": 0,
+    "Town": 0
+   },
+   "xp": 0,
+   "knowledge": {},
+   "inheritance": {
+    "recipient": "kin",
+    "papers": [],
+    "apprentice": [],
+    "money": 0,
+    "belongings": 1,
+    "chest": 0,
+    "home": false,
+    "obligations": [],
+    "archiveLine": false,
+    "debtsPaid": 0
+   },
+   "inheritedFrom": "TEST FIXTURE R15 G5 empty life",
+   "generation": 2,
+   "elderTies": {
+    "role": "acquaintance",
+    "rememberedPredecessor": "TEST FIXTURE R15 G5 empty life"
+   },
+   "inheritanceEvent": "scheduled",
+   "ended": null,
+   "clock": 0,
+   "calendar": {
+    "year": 1061,
+    "month": 4,
+    "day": 1,
+    "hour": 8,
+    "minute": 0,
+    "day_count": 22321
+   }
+  },
+  {
+   "name": "heir playing: what they actually received",
+   "inheritanceLine": "Generation 2. Next of kin of TEST FIXTURE R15 G5 empty life. Received 0 coins, 1 belonging, 0 stored goods; 0 written papers; 0 open obligations.",
+   "journal": [
+    "From the estate I receive their belongings.",
+    "I am TEST FIXTURE R15 G5 empty life's next of kin. What they left behind is mine now.",
+    "A new chronicle begins. Local invitations have game-time deadlines; rumors can reach you later."
+   ],
+   "study": [],
+   "money": "Your purse contains: 10C 2W"
+  },
+  {
+   "name": "TEST FIXTURE R15 G5 empty heir",
+   "equal": true,
+   "money": 102,
+   "heroCreated": true,
+   "inventory": {
+    "Cheap leather pants@40": 2,
+    "Stale bread": 5
+   },
+   "chest": {},
+   "shack": 0,
+   "reputation": {
+    "Village": 0,
+    "Slums": 0,
+    "Town": 0
+   },
+   "xp": 0,
+   "knowledge": {},
+   "inheritance": {
+    "recipient": "kin",
+    "papers": [],
+    "apprentice": [],
+    "money": 0,
+    "belongings": 1,
+    "chest": 0,
+    "home": false,
+    "obligations": [],
+    "archiveLine": false,
+    "debtsPaid": 0
+   },
+   "inheritedFrom": "TEST FIXTURE R15 G5 empty life",
+   "generation": 2,
+   "elderTies": {
+    "role": "acquaintance",
+    "rememberedPredecessor": "TEST FIXTURE R15 G5 empty life"
+   },
+   "inheritanceEvent": "scheduled",
+   "ended": null,
+   "clock": 0,
+   "calendar": {
+    "year": 1061,
+    "month": 4,
+    "day": 1,
+    "hour": 8,
+    "minute": 0,
+    "day_count": 22321
+   }
+  },
+  {
+   "name": "TEST FIXTURE R15 G5 empty heir",
+   "equalIgnoringTimestamps": true,
+   "chronicleEqual": true,
+   "inventoryEqual": true,
+   "moneyEqual": true,
+   "money": 102,
+   "heroCreated": true,
+   "inventory": {
+    "Cheap leather pants@40": 2,
+    "Stale bread": 5
+   },
+   "chest": {},
+   "shack": 0,
+   "reputation": {
+    "Village": 0,
+    "Slums": 0,
+    "Town": 0
+   },
+   "xp": 0,
+   "knowledge": {},
+   "inheritance": {
+    "recipient": "kin",
+    "papers": [],
+    "apprentice": [],
+    "money": 0,
+    "belongings": 1,
+    "chest": 0,
+    "home": false,
+    "obligations": [],
+    "archiveLine": false,
+    "debtsPaid": 0
+   },
+   "inheritedFrom": "TEST FIXTURE R15 G5 empty life",
+   "generation": 2,
+   "elderTies": {
+    "role": "acquaintance",
+    "rememberedPredecessor": "TEST FIXTURE R15 G5 empty life"
+   },
+   "inheritanceEvent": "scheduled",
+   "ended": null,
+   "clock": 0,
+   "calendar": {
+    "year": 1061,
+    "month": 4,
+    "day": 1,
+    "hour": 8,
+    "minute": 0,
+    "day_count": 22321
+   }
+  }
+ ]
+}
