@@ -1,0 +1,315 @@
+{
+  "source": {
+    "repo": "https://github.com/immortalityidle/immortalityidle.github.io",
+    "live_site": "https://immortalityidle.github.io/",
+    "pinned_sha": "c7231bae717b67a8e4dba2a3775d58bfbfadbdd6",
+    "commit_date": "2026-10-13T12:34:57-06:00",
+    "package_version": "2.0.0",
+    "license": "No LICENSE file; GitHub API license field null. README grants informal permission: use the code as much as you want, keep derivatives open. Not an OSI license.",
+    "local_clone": "/private/tmp/claude-501/immortality-idle-src/repo (shallow, read-only, nothing installed or run)"
+  },
+  "claim_labels": [
+    "verified in source",
+    "verified in YAIR source",
+    "inferred"
+  ],
+  "findings": [
+    {
+      "id": "F1",
+      "label": "verified in source",
+      "title": "Crafting rides on daily work through activity-triggered workstations",
+      "claim": "A home holds workstations. Each lists triggerActivities and its own input stacks. Every day an activity runs, triggerWorkstations fires each matching station once, which consumes loaded inputs and makes output. Example: Blacksmithing day + anvil with 10 metal makes a weapon whose grade = material value + 5x station power + log10(metal lore) + activity level, plus optional gem and two extra materials (the second multiplies). Stations have setup and daily maintenance cost and count against the home's maxWorkstations and maxWorkstationPower.",
+      "permalinks": [
+        "https://github.com/immortalityidle/immortalityidle.github.io/blob/c7231bae717b67a8e4dba2a3775d58bfbfadbdd6/src/app/game-state/home.service.ts#L109-L133",
+        "https://github.com/immortalityidle/immortalityidle.github.io/blob/c7231bae717b67a8e4dba2a3775d58bfbfadbdd6/src/app/game-state/home.service.ts#L1860-L1870",
+        "https://github.com/immortalityidle/immortalityidle.github.io/blob/c7231bae717b67a8e4dba2a3775d58bfbfadbdd6/src/app/game-state/home.service.ts#L2347-L2426",
+        "https://github.com/immortalityidle/immortalityidle.github.io/blob/c7231bae717b67a8e4dba2a3775d58bfbfadbdd6/src/app/game-state/activity.service.ts#L383-L391",
+        "https://github.com/immortalityidle/immortalityidle.github.io/blob/c7231bae717b67a8e4dba2a3775d58bfbfadbdd6/src/app/game-state/activity.service.ts#L440-L462"
+      ],
+      "yair_comparison": "Verified in YAIR source: crafting is manual and gated by location (src/models/location.js LocationCrafting L33; src/crafting_recipes.js). src/home_furnishing_host.js builds an authored drying rack and drafting bench as site_projects phases, and FA20 rack/bench jobs assign one workshop slot. Nothing runs as a side effect of ordinary work.",
+      "novelty": "new",
+      "limits": ""
+    },
+    {
+      "id": "F2",
+      "label": "verified in source",
+      "title": "Aptitude grows from what this life gained, then sets next life's start",
+      "claim": "On reincarnation each non-divine attribute adds (value at death - value at life start) / aptitudeGainDivider to aptitude; aptitude never drops. Next life starts at 1 + aptitude/10 below a soft cap, log2 beyond it. Gain rate = aptitudeMult, a piecewise curve: linear to attributeScalingLimit, then 1/4, 1/20, 1/100 slopes, then a square-root soft cap and a soft hard cap at 365000. Two ascensions tune the curve: Condense Soul Core divides the divider by 1.5 (keep more per life), Reinforce Meridians doubles the linear limit. Each ascension wipes aptitudes back to 1 + aptitude/divider.",
+      "permalinks": [
+        "https://github.com/immortalityidle/immortalityidle.github.io/blob/c7231bae717b67a8e4dba2a3775d58bfbfadbdd6/src/app/game-state/character.service.ts#L1203-L1241",
+        "https://github.com/immortalityidle/immortalityidle.github.io/blob/c7231bae717b67a8e4dba2a3775d58bfbfadbdd6/src/app/game-state/character.service.ts#L1243-L1256",
+        "https://github.com/immortalityidle/immortalityidle.github.io/blob/c7231bae717b67a8e4dba2a3775d58bfbfadbdd6/src/app/game-state/character.service.ts#L1421-L1478",
+        "https://github.com/immortalityidle/immortalityidle.github.io/blob/c7231bae717b67a8e4dba2a3775d58bfbfadbdd6/src/app/game-state/character.service.ts#L1006-L1062"
+      ],
+      "yair_comparison": "Verified in YAIR source: no aptitude carry. Heirs inherit one lesson (src/chronicle.js createHeirChronicle L273); campaign rebirth resets chosen domains (src/simulation.js commitCampaignTransition L565). Increlution P3 already proposes separating practice from carry; docs/LIFE_SIM_NORTH_STAR.md L1529 says aptitude can change, per world and per path.",
+      "novelty": "partial: direction covered, concrete delta-based formula and tunable keep-rate are new",
+      "limits": ""
+    },
+    {
+      "id": "F3",
+      "label": "verified in source",
+      "title": "Schedule is a loop of activities with repeat counts, saved plans and threshold switches",
+      "claim": "activityLoop is an ordered list of {activity, repeatTimes, disabled}. Each day runs the current entry, skips disabled or locked ones, and pauses if nothing can run. Players save named loops. loopChangeTriggers swap the loaded loop when money, an attribute or a status max reaches a value; trigger 0 always loads at rebirth. An immediateActivity overrides the loop for a day. With a manual, the loop survives rebirth (autoRestart). A second 'spirit activity' runs in parallel each day for 5 qi.",
+      "permalinks": [
+        "https://github.com/immortalityidle/immortalityidle.github.io/blob/c7231bae717b67a8e4dba2a3775d58bfbfadbdd6/src/app/game-state/activity.ts#L159-L175",
+        "https://github.com/immortalityidle/immortalityidle.github.io/blob/c7231bae717b67a8e4dba2a3775d58bfbfadbdd6/src/app/game-state/activity.service.ts#L346-L511",
+        "https://github.com/immortalityidle/immortalityidle.github.io/blob/c7231bae717b67a8e4dba2a3775d58bfbfadbdd6/src/app/game-state/activity.service.ts#L748-L772",
+        "https://github.com/immortalityidle/immortalityidle.github.io/blob/c7231bae717b67a8e4dba2a3775d58bfbfadbdd6/src/app/game-state/activity.service.ts#L823-L842",
+        "https://github.com/immortalityidle/immortalityidle.github.io/blob/c7231bae717b67a8e4dba2a3775d58bfbfadbdd6/src/app/game-state/activity.service.ts#L1184-L1238"
+      ],
+      "yair_comparison": "Verified in YAIR source: one routine per actor repeating a single automatable command (src/simulation.js setSimulationProgram L319-337) and one hard-validated itinerary (src/feature_expansion_work_plan.js startWorkPlan L272). No multi-activity loop, saved plans or switch triggers. open-idle-games P2 advises proving one repeated task before named multi-action schedules.",
+      "novelty": "partial",
+      "limits": ""
+    },
+    {
+      "id": "F4",
+      "label": "verified in source",
+      "title": "Lifespan is a sum of named sources, with food quality setting a ceiling",
+      "claim": "Lifespan = base 30 years + food + alchemy + aptitude + spirituality + hygiene + magic, and a tooltip lists each source. Food adds lifespan per item eaten, capped at min(food value x 365 days, 20 years): better food raises the ceiling, so diet quality matters. Eating is capped per day. Death causes are old age, starvation, wounds or overwork, each with its own message. Life starts at 18. An opt-in pauseBeforeDeath stops time one day before old age. A dismissable life summary lists cause of death and aptitude gains.",
+      "permalinks": [
+        "https://github.com/immortalityidle/immortalityidle.github.io/blob/c7231bae717b67a8e4dba2a3775d58bfbfadbdd6/src/app/game-state/character.service.ts#L652-L667",
+        "https://github.com/immortalityidle/immortalityidle.github.io/blob/c7231bae717b67a8e4dba2a3775d58bfbfadbdd6/src/app/game-state/character.service.ts#L873-L946",
+        "https://github.com/immortalityidle/immortalityidle.github.io/blob/c7231bae717b67a8e4dba2a3775d58bfbfadbdd6/src/app/game-state/character.service.ts#L953-L994",
+        "https://github.com/immortalityidle/immortalityidle.github.io/blob/c7231bae717b67a8e4dba2a3775d58bfbfadbdd6/src/app/game-state/inventory.service.ts#L1685-L1722",
+        "https://github.com/immortalityidle/immortalityidle.github.io/blob/c7231bae717b67a8e4dba2a3775d58bfbfadbdd6/src/app/game-state/activity.service.ts#L357-L368",
+        "https://github.com/immortalityidle/immortalityidle.github.io/blob/c7231bae717b67a8e4dba2a3775d58bfbfadbdd6/src/app/life-summary/life-summary.component.html#L1-L30"
+      ],
+      "yair_comparison": "Verified in YAIR source: optional mortal life with fixed lifespan 80 and initial age 18 (src/chronicle.js L73-L116), a last-year note, life stages and youth learning bonus (src/life_experience.js L9-L10), grave/epitaph summary. No lifespan sources or extension and no pause before death.",
+      "novelty": "partial",
+      "limits": ""
+    },
+    {
+      "id": "F5",
+      "label": "verified in source",
+      "title": "Family trade and one apprenticeship per life",
+      "claim": "lifeActivities counts days per activity. At rebirth the most-practised of six crafts (Begging, Cooking, Blacksmithing, Alchemy, Woodworking, Leatherworking) becomes familySpecialty, worth +20% income in the next life. Separately each life has one open apprenticeship: starting any apprenticeship-gated job locks every other gated job until the current one reaches its skipApprenticeshipLevel. Finished apprenticeships are kept forever, so later lives pick up a new trade.",
+      "permalinks": [
+        "https://github.com/immortalityidle/immortalityidle.github.io/blob/c7231bae717b67a8e4dba2a3775d58bfbfadbdd6/src/app/game-state/activity.service.ts#L173-L180",
+        "https://github.com/immortalityidle/immortalityidle.github.io/blob/c7231bae717b67a8e4dba2a3775d58bfbfadbdd6/src/app/game-state/activity.service.ts#L1184-L1199",
+        "https://github.com/immortalityidle/immortalityidle.github.io/blob/c7231bae717b67a8e4dba2a3775d58bfbfadbdd6/src/app/game-state/activity.service.ts#L1034-L1043",
+        "https://github.com/immortalityidle/immortalityidle.github.io/blob/c7231bae717b67a8e4dba2a3775d58bfbfadbdd6/src/app/game-state/activity.service.ts#L1253-L1276",
+        "https://github.com/immortalityidle/immortalityidle.github.io/blob/c7231bae717b67a8e4dba2a3775d58bfbfadbdd6/src/app/game-state/activity.service.ts#L2508-L2510"
+      ],
+      "yair_comparison": "Verified in YAIR source: apprentice appears in roster/duty content (e.g. src/agreed_duty_host.js) but there is no per-life trade commitment or inherited family trade. Titles give lifetime-counter bonuses (src/titles.js L10).",
+      "novelty": "new",
+      "limits": ""
+    },
+    {
+      "id": "F6",
+      "label": "verified in source",
+      "title": "Bloodline ranks change what carries over, step by step",
+      "claim": "Each bloodline rank costs the current life and widens carry: weapons become heirlooms, then armor, then 1/8 money, then money x4 'with interest', then much more aptitude lifespan, then workstation materials, then followers and the empire, then daily aptitude growth from current attributes. The store text spells out each rank's carry before purchase.",
+      "permalinks": [
+        "https://github.com/immortalityidle/immortalityidle.github.io/blob/c7231bae717b67a8e4dba2a3775d58bfbfadbdd6/src/app/game-state/character.service.ts#L1064-L1080",
+        "https://github.com/immortalityidle/immortalityidle.github.io/blob/c7231bae717b67a8e4dba2a3775d58bfbfadbdd6/src/app/game-state/character.service.ts#L1111-L1201",
+        "https://github.com/immortalityidle/immortalityidle.github.io/blob/c7231bae717b67a8e4dba2a3775d58bfbfadbdd6/src/app/game-state/store.service.ts#L133-L180",
+        "https://github.com/immortalityidle/immortalityidle.github.io/blob/c7231bae717b67a8e4dba2a3775d58bfbfadbdd6/src/app/game-state/followers.service.ts#L1635-L1641"
+      ],
+      "yair_comparison": "Verified in YAIR source: rebirth transitions take explicit reset domains (src/simulation.js L565-607); src/life_experience_host.js buildLifeHeirSave keeps npc_lives, options and life record. No heirlooms. open-idle-games P4 proposes an operation card listing retained/reset fields.",
+      "novelty": "partial: the ladder of widening carry is new; preview card is covered",
+      "limits": ""
+    },
+    {
+      "id": "F7",
+      "label": "verified in source",
+      "title": "Challenge runs store the main save inside the challenge save",
+      "claim": "Avatar rebirth exports the whole current game into divineGameState, starts a fresh restricted state that keeps chosen unlocks (achievements, concepts, automation flags, technique discovery, layout), and shows a progress goal. Completing the goal opens a portal home: the stored state is re-imported, this run's attribute gains are added, each concept keeps the higher value, and a permanent reward unlocks. A typed 'REBIRTH' confirmation guards entry.",
+      "permalinks": [
+        "https://github.com/immortalityidle/immortalityidle.github.io/blob/c7231bae717b67a8e4dba2a3775d58bfbfadbdd6/src/app/game-state/game-state.service.ts#L1412-L1645",
+        "https://github.com/immortalityidle/immortalityidle.github.io/blob/c7231bae717b67a8e4dba2a3775d58bfbfadbdd6/src/app/game-state/game-state.service.ts#L1647-L1710",
+        "https://github.com/immortalityidle/immortalityidle.github.io/blob/c7231bae717b67a8e4dba2a3775d58bfbfadbdd6/src/app/game-state/game-state.service.ts#L1740-L1800"
+      ],
+      "yair_comparison": "Verified in YAIR source: no challenge runs or nested save; ChallengeZone in src/models/location.js L396 is fixed-stat fights. The rebirth transition notes that a reversal would need an isolated snapshot.",
+      "novelty": "new",
+      "limits": ""
+    },
+    {
+      "id": "F8",
+      "label": "verified in source",
+      "title": "Offline time banks at one tenth and the game always loads paused",
+      "claim": "Closed time adds (elapsed / interval / offlineDivider) banked ticks, offlineDivider 10. Load always pauses. The player opts in to spend banked ticks for faster play; the bank refills while open too. Speed tiers unlock by manual. Life is never spent while the tab is closed.",
+      "permalinks": [
+        "https://github.com/immortalityidle/immortalityidle.github.io/blob/c7231bae717b67a8e4dba2a3775d58bfbfadbdd6/src/app/game-state/main-loop.service.ts#L160-L190",
+        "https://github.com/immortalityidle/immortalityidle.github.io/blob/c7231bae717b67a8e4dba2a3775d58bfbfadbdd6/src/app/game-state/main-loop.service.ts#L230-L265"
+      ],
+      "yair_comparison": "Verified in YAIR source: only saved_at is stored (src/main.js); src/backlog_expansion_time.js has a narrow offline escrow. open-idle-games P6 already lists banked acceleration as a candidate.",
+      "novelty": "covered: confirms an existing candidate",
+      "limits": ""
+    },
+    {
+      "id": "F9",
+      "label": "verified in source",
+      "title": "Followers age out and their children replace them",
+      "claim": "Followers have age, lifespan (player lifespan / 10, 18 to 1000 years), job, power and wage. At death, with auto-replace, a child takes the same job at half power. Unpaid wages make followers leave. Job assignments can be saved and switched by the same threshold triggers as schedules. Followers clear at rebirth unless bloodline rank 7.",
+      "permalinks": [
+        "https://github.com/immortalityidle/immortalityidle.github.io/blob/c7231bae717b67a8e4dba2a3775d58bfbfadbdd6/src/app/game-state/followers.service.ts#L65-L76",
+        "https://github.com/immortalityidle/immortalityidle.github.io/blob/c7231bae717b67a8e4dba2a3775d58bfbfadbdd6/src/app/game-state/followers.service.ts#L1308-L1345",
+        "https://github.com/immortalityidle/immortalityidle.github.io/blob/c7231bae717b67a8e4dba2a3775d58bfbfadbdd6/src/app/game-state/followers.service.ts#L1864-L1874",
+        "https://github.com/immortalityidle/immortalityidle.github.io/blob/c7231bae717b67a8e4dba2a3775d58bfbfadbdd6/src/app/game-state/followers.service.ts#L2117-L2165",
+        "https://github.com/immortalityidle/immortalityidle.github.io/blob/c7231bae717b67a8e4dba2a3775d58bfbfadbdd6/src/app/game-state/followers.service.ts#L1635-L1658"
+      ],
+      "yair_comparison": "Verified in YAIR source: village NPCs age yearly, die at 65 to 85 and have family (src/npc_lives.js); one party helper (src/party_content.js). No follower jobs, child succession or presets. open-idle-games P8 covers one follower assignment.",
+      "novelty": "partial",
+      "limits": ""
+    },
+    {
+      "id": "F10",
+      "label": "verified in source",
+      "title": "Concept graph: combinations reveal hidden concepts with partial hints",
+      "claim": "24 Tao concepts. Advanced ones list discoveryRequirements (e.g. Earth 1e8 + Fire 1e8). Undiscovered concepts show as 'Tao of ????' with known prerequisites named and unknown ones shown as ????. A concept that still gates something says more study may reveal others. Progress persists across lives and feeds multipliers on lore gain, health, food yield and techniques.",
+      "permalinks": [
+        "https://github.com/immortalityidle/immortalityidle.github.io/blob/c7231bae717b67a8e4dba2a3775d58bfbfadbdd6/src/app/game-state/contemplation.service.ts#L8-L20",
+        "https://github.com/immortalityidle/immortalityidle.github.io/blob/c7231bae717b67a8e4dba2a3775d58bfbfadbdd6/src/app/game-state/contemplation.service.ts#L180-L240",
+        "https://github.com/immortalityidle/immortalityidle.github.io/blob/c7231bae717b67a8e4dba2a3775d58bfbfadbdd6/src/app/game-state/contemplation.service.ts#L705-L786",
+        "https://github.com/immortalityidle/immortalityidle.github.io/blob/c7231bae717b67a8e4dba2a3775d58bfbfadbdd6/src/app/game-state/contemplation.service.ts#L797-L826"
+      ],
+      "yair_comparison": "Verified in YAIR source: hidden skill names as ????? (src/models/skill.js L12) and src/skill_discovery.js projections. No combination graph. North star covers knowledge and discovery (L1108).",
+      "novelty": "new as mechanism",
+      "limits": ""
+    },
+    {
+      "id": "F11",
+      "label": "verified in source",
+      "title": "Family techniques are generated from combat and inherited",
+      "claim": "Fighting fills a development counter; at 20000 x 10^n it generates a family technique from a random prefix, attribute adjective, attack noun and optional effect, with random cooldown and costs. Each use adds base damage (more with refinement focus). Family techniques persist to descendants, can be archived to a library, relearned or forsaken, and the player can block prefixes and effects to steer future rolls.",
+      "permalinks": [
+        "https://github.com/immortalityidle/immortalityidle.github.io/blob/c7231bae717b67a8e4dba2a3775d58bfbfadbdd6/src/app/game-state/battle.service.ts#L143-L170",
+        "https://github.com/immortalityidle/immortalityidle.github.io/blob/c7231bae717b67a8e4dba2a3775d58bfbfadbdd6/src/app/game-state/battle.service.ts#L959-L967",
+        "https://github.com/immortalityidle/immortalityidle.github.io/blob/c7231bae717b67a8e4dba2a3775d58bfbfadbdd6/src/app/game-state/battle.service.ts#L1384-L1481",
+        "https://github.com/immortalityidle/immortalityidle.github.io/blob/c7231bae717b67a8e4dba2a3775d58bfbfadbdd6/src/app/game-state/battle.service.ts#L1483-L1528",
+        "https://github.com/immortalityidle/immortalityidle.github.io/blob/c7231bae717b67a8e4dba2a3775d58bfbfadbdd6/src/app/game-state/battle.service.ts#L1902-L1937"
+      ],
+      "yair_comparison": "Verified in YAIR source: one authored technique with observed/understood/owned stages (src/techniques.js, src/technique_content.js RAT_STEP). Nothing generated or inherited.",
+      "novelty": "new",
+      "limits": ""
+    },
+    {
+      "id": "F12",
+      "label": "verified in source",
+      "title": "Hells are rule zones keyed to past-life conduct",
+      "claim": "Each of 19 hell entries has entryEffect (stash followers, gear or money), dailyEffect (e.g. charisma x0.9 per day), exitEffect, a restricted activity list, a progress bar, a hint and a successCheck. Some read the past: the Mountain of Knives bills lifetime kills.",
+      "permalinks": [
+        "https://github.com/immortalityidle/immortalityidle.github.io/blob/c7231bae717b67a8e4dba2a3775d58bfbfadbdd6/src/app/game-state/hell.service.ts#L14-L30",
+        "https://github.com/immortalityidle/immortalityidle.github.io/blob/c7231bae717b67a8e4dba2a3775d58bfbfadbdd6/src/app/game-state/hell.service.ts#L1059-L1100",
+        "https://github.com/immortalityidle/immortalityidle.github.io/blob/c7231bae717b67a8e4dba2a3775d58bfbfadbdd6/src/app/game-state/hell.service.ts#L1362-L1384",
+        "https://github.com/immortalityidle/immortalityidle.github.io/blob/c7231bae717b67a8e4dba2a3775d58bfbfadbdd6/src/app/game-state/hell.service.ts#L110-L125"
+      ],
+      "yair_comparison": "Verified in YAIR source: per-realm cargo/boundary rules (src/pocket_realm_rules.js, src/realm_boundary_rules.js) are the closest seam. No zone with daily penalties and restricted actions.",
+      "novelty": "new",
+      "limits": ""
+    },
+    {
+      "id": "F13",
+      "label": "verified in source",
+      "title": "Megaprojects declare which progress survives",
+      "claim": "Nine impossible tasks run in order. At rebirth incomplete progress resets, except Build Tower, which keeps its bricks. Swim resets even when you surface mid-life. Starting a task can lock your location and adds task-only activities, removed on stop.",
+      "permalinks": [
+        "https://github.com/immortalityidle/immortalityidle.github.io/blob/c7231bae717b67a8e4dba2a3775d58bfbfadbdd6/src/app/game-state/impossibleTask.service.ts#L53-L120",
+        "https://github.com/immortalityidle/immortalityidle.github.io/blob/c7231bae717b67a8e4dba2a3775d58bfbfadbdd6/src/app/game-state/impossibleTask.service.ts#L208-L222",
+        "https://github.com/immortalityidle/immortalityidle.github.io/blob/c7231bae717b67a8e4dba2a3775d58bfbfadbdd6/src/app/game-state/impossibleTask.service.ts#L290-L327"
+      ],
+      "yair_comparison": "Verified in YAIR source: multi-phase site projects keep world facts (src/site_projects.js) with no persistence split across lives.",
+      "novelty": "new",
+      "limits": ""
+    },
+    {
+      "id": "F14",
+      "label": "verified in source",
+      "title": "Automation is bought as manuals; achievements open panels and add 2% each",
+      "claim": "About 40 manuals unlock QoL: remembered plans, auto-sell/auto-use with per-item reserve, auto-eat, auto-balance use/sell ratios, auto-equip best, auto-rest when a resource is short, autopause settings, speed tiers. Most are unlocked for sale by achievements. 130 achievements each add 2% to attribute gains; early ones unlock panels and place them into the layout.",
+      "permalinks": [
+        "https://github.com/immortalityidle/immortalityidle.github.io/blob/c7231bae717b67a8e4dba2a3775d58bfbfadbdd6/src/app/game-state/item-repo.service.ts#L2947-L2976",
+        "https://github.com/immortalityidle/immortalityidle.github.io/blob/c7231bae717b67a8e4dba2a3775d58bfbfadbdd6/src/app/game-state/store.service.ts#L91-L112",
+        "https://github.com/immortalityidle/immortalityidle.github.io/blob/c7231bae717b67a8e4dba2a3775d58bfbfadbdd6/src/app/game-state/achievement.service.ts#L230-L330",
+        "https://github.com/immortalityidle/immortalityidle.github.io/blob/c7231bae717b67a8e4dba2a3775d58bfbfadbdd6/src/app/game-state/character.service.ts#L1534-L1546",
+        "https://github.com/immortalityidle/immortalityidle.github.io/blob/c7231bae717b67a8e4dba2a3775d58bfbfadbdd6/src/app/game-state/inventory.service.ts#L108-L120"
+      ],
+      "yair_comparison": "Verified in YAIR source: titles give 2% lifetime bonuses (src/titles.js); auto-consume favourites (src/main.js L7278-7292); workspace modules with eligible/discovered callbacks (src/workspace_layout.js). Increlution P2 covers earned automation.",
+      "novelty": "partial",
+      "limits": ""
+    },
+    {
+      "id": "F15",
+      "label": "verified in source",
+      "title": "Overwork collapses you; qi overuse damages channels",
+      "claim": "Stamina below 0: 5 lost days and 1% max health. Qi below 0: 10 lost days and -1 max qi. Health at 0 from work is 'death by overwork'. With auto-rest, a day short of resources becomes Rest and the log says which resource ran out.",
+      "permalinks": [
+        "https://github.com/immortalityidle/immortalityidle.github.io/blob/c7231bae717b67a8e4dba2a3775d58bfbfadbdd6/src/app/game-state/activity.service.ts#L774-L821",
+        "https://github.com/immortalityidle/immortalityidle.github.io/blob/c7231bae717b67a8e4dba2a3775d58bfbfadbdd6/src/app/game-state/activity.service.ts#L440-L456"
+      ],
+      "yair_comparison": "Verified in YAIR source: stamina is a vital (src/energy_resources.js, src/conditions.js); no collapse rule.",
+      "novelty": "new",
+      "limits": ""
+    },
+    {
+      "id": "F16",
+      "label": "verified in source",
+      "title": "Home ladder with upkeep debt and bagua furniture scoring",
+      "claim": "22 home tiers from squatter tent to private universe; each sets recovery, furniture slots, workstation slots and power, land and fields, build time. Daily upkeep plus station maintenance; unpaid upkeep sends thugs (-20 health, money zeroed, optional pause). Furniture placed in bagua slots scores per matching subtype, color and element; feng shui raises money income and health. Bought furniture stays owned.",
+      "permalinks": [
+        "https://github.com/immortalityidle/immortalityidle.github.io/blob/c7231bae717b67a8e4dba2a3775d58bfbfadbdd6/src/app/game-state/home.service.ts#L43-L107",
+        "https://github.com/immortalityidle/immortalityidle.github.io/blob/c7231bae717b67a8e4dba2a3775d58bfbfadbdd6/src/app/game-state/home.service.ts#L1402-L1445",
+        "https://github.com/immortalityidle/immortalityidle.github.io/blob/c7231bae717b67a8e4dba2a3775d58bfbfadbdd6/src/app/game-state/home.service.ts#L1750-L1783",
+        "https://github.com/immortalityidle/immortalityidle.github.io/blob/c7231bae717b67a8e4dba2a3775d58bfbfadbdd6/src/app/game-state/store.service.ts#L114-L131"
+      ],
+      "yair_comparison": "Verified in YAIR source: housing is a sleep location (src/models/location.js LocationHousing L17); no tiers, upkeep or placement scoring.",
+      "novelty": "new",
+      "limits": ""
+    },
+    {
+      "id": "F17",
+      "label": "verified in source",
+      "title": "Save is one base64 string with per-service default filling",
+      "claim": "Export = 'ii2' + btoa(encodeURIComponent(JSON)). Import refuses other prefixes, then validateGameState fills defaults for every service before setProperties. No numeric save version. localStorage key adds the deployed branch name so experimental builds keep separate saves.",
+      "permalinks": [
+        "https://github.com/immortalityidle/immortalityidle.github.io/blob/c7231bae717b67a8e4dba2a3775d58bfbfadbdd6/src/app/game-state/game-state.service.ts#L31-L31",
+        "https://github.com/immortalityidle/immortalityidle.github.io/blob/c7231bae717b67a8e4dba2a3775d58bfbfadbdd6/src/app/game-state/game-state.service.ts#L526-L620",
+        "https://github.com/immortalityidle/immortalityidle.github.io/blob/c7231bae717b67a8e4dba2a3775d58bfbfadbdd6/src/app/game-state/game-state.service.ts#L1362-L1394",
+        "https://github.com/immortalityidle/immortalityidle.github.io/blob/c7231bae717b67a8e4dba2a3775d58bfbfadbdd6/src/app/game-state/game-state.service.ts#L1712-L1726"
+      ],
+      "yair_comparison": "Verified in YAIR source: versioned migrations and a guarded 4 MB envelope (src/main.js load L5176, src/save_migration.js, src/save_files.js). YAIR is ahead here; only the per-branch key is a possible small touch.",
+      "novelty": "covered",
+      "limits": ""
+    },
+    {
+      "id": "F18",
+      "label": "verified in source",
+      "title": "UI: draggable 100-column grid, lockable, with per-panel help",
+      "claim": "Desktop uses a 100-column ktd grid with vertical compaction; panels drag and resize when unlocked. Default layout is four panels; others appear as unlocked, with a 'new panel' indicator. Each panel carries help text. Mobile is a separate layout. Story beats are illustrated 'memories' that can be reviewed later.",
+      "permalinks": [
+        "https://github.com/immortalityidle/immortalityidle.github.io/blob/c7231bae717b67a8e4dba2a3775d58bfbfadbdd6/src/app/standard-layout/standard-layout.component.html#L123-L207",
+        "https://github.com/immortalityidle/immortalityidle.github.io/blob/c7231bae717b67a8e4dba2a3775d58bfbfadbdd6/src/app/game-state/game-state.service.ts#L115-L140",
+        "https://github.com/immortalityidle/immortalityidle.github.io/blob/c7231bae717b67a8e4dba2a3775d58bfbfadbdd6/src/app/game-state/game-state.service.ts#L313-L345",
+        "https://github.com/immortalityidle/immortalityidle.github.io/blob/c7231bae717b67a8e4dba2a3775d58bfbfadbdd6/src/app/game-state/game-state.service.ts#L468-L477",
+        "https://github.com/immortalityidle/immortalityidle.github.io/blob/c7231bae717b67a8e4dba2a3775d58bfbfadbdd6/src/app/game-state/achievement.service.ts#L2262-L2291",
+        "https://github.com/immortalityidle/immortalityidle.github.io/blob/c7231bae717b67a8e4dba2a3775d58bfbfadbdd6/src/app/app.component.html#L1-L5"
+      ],
+      "yair_comparison": "Verified in YAIR source: draggable dockable workspace (src/workspace_layout.js, src/workspace_state.js; registrations src/main.js L8280-8309). Proto23 UI research covers staged reveals.",
+      "novelty": "covered: small touches only",
+      "limits": ""
+    },
+    {
+      "id": "F19",
+      "label": "verified in source",
+      "title": "Yin and yang tags on activities reward a balanced week",
+      "claim": "Each activity level tags Yin, Yang, Balance or None; balance between the totals scales soul and magic health bonuses and the attribute hard cap.",
+      "permalinks": [
+        "https://github.com/immortalityidle/immortalityidle.github.io/blob/c7231bae717b67a8e4dba2a3775d58bfbfadbdd6/src/app/game-state/activity.ts#L4-L9",
+        "https://github.com/immortalityidle/immortalityidle.github.io/blob/c7231bae717b67a8e4dba2a3775d58bfbfadbdd6/src/app/game-state/character.service.ts#L1387-L1406"
+      ],
+      "yair_comparison": "Verified in YAIR source: no activity-mix bonus found by the survey.",
+      "novelty": "new, small",
+      "limits": ""
+    },
+    {
+      "id": "F20",
+      "label": "inferred",
+      "title": "Fit to YAIR: the strongest lessons are everyday-work side effects and visible carry rules",
+      "claim": "Inferred: F1, F2, F3, F5 and F4 change ordinary days in a life and map to existing owners. F7, F11, F12 and F13 are good later-world adjectives but need more seams. Many numbers (1e8 concept gates, 365000 cap) are tuned for an exponential idler and do not fit YAIR's lived pacing.",
+      "permalinks": [],
+      "yair_comparison": "Inferred from the comparison above.",
+      "novelty": "assessment",
+      "limits": ""
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "lane": "groundhog-life",
+  "date": "2026-10-13",
+  "source": {
+    "build": "itch html 465947",
+    "app_js_sha256": "7b388cf002edd7a4cc8aec5acd31eae7d8a997bb173a9d4cc85cf79fee2b343e",
+    "later_build_mirror": "github tcztzy/groundhog-life app.8454c4a8acef88257f33.js sha256 d167076ecdafa7f4c0272a66a3cf193a3f465b6f7a3af60c478bf1d8ee214f3c",
+    "locator_note": "line numbers refer to a js-beautify 1.15.1 formatted copy (app.pretty.js) kept in session scratch, not committed; 'v2' = formatted later build"
+  },
+  "labels": ["verified (code)", "verified (page)", "later build", "inferred"],
+  "findings": [
+    {"id": "F1", "label": "verified (code/page)", "claim": "Per-skill Groundhog Factor 1+highestLevelThisLoop/10; grand prestige clears factors, energy x(aaCounter+1)", "locators": "1542-1660 XPModule; 1393-1440 life/loop counters; 4818 aaCounter energy; Kongregate FAQ"},
+    {"id": "F2", "label": "verified (code)", "claim": "1440-minute schedule of 7 activities, free time is the remainder, step 60/240", "locators": "976-1101 activities; 3700-3824 schedule; 4449 delta; 4978 tick 300ms"},
+    {"id": "F3", "label": "verified (code)", "claim": "Happiness = home(age/5 expectation)+sleep+expense+work-life; happiness multiplies energy, energy multiplies XP", "locators": "4760-4815; 1229-1260 energy; 1206-1213 base XP"},
+    {"id": "F4", "label": "verified (code)", "claim": "Homes rent/upfront/chores/quality; helpers; investments; austerity auto-fallback", "locators": "2700-2765 homes; 3088-3135 assistants; 4754 investments; 1340-1380 money; 3776 austerityMode; 6612 alert text"},
+    {"id": "F5", "label": "verified (code)", "claim": "Ladders, level-10 promotion chain, research cross-gates, XP spread over an intended time", "locators": "1761-1773; 2094-2106; 2332-2343; 1680-1690 configureXpProgression; 4442 autoPromote"},
+    {"id": "F6", "label": "verified (code)", "claim": "Research areas with per-level passives; book reading queue; reread time/(1+timesCompleted)", "locators": "1440-1500 Book.prestige; 3236-3345 areas; 4492-4562 fields"},
+    {"id": "F7", "label": "verified (code)", "claim": "No death; day 15330 starts dilation 1.0005^n capped 10x; 'Reply groundhog' restart", "locators": "4978-4981; 5201; 4396-4420 groundHogging event; 7609 warning; 7651 banner"},
+    {"id": "F8", "label": "verified (code)", "claim": "Age-28 QM-50 email gate unlocks a career; cannon too late after year 41; two victory routes", "locators": "4325-4355 dp event; 4280-4320 anomaly event; 3277 physics chain"},
+    {"id": "F9", "label": "verified (code)", "claim": "Cooldown boosts unlocked by research", "locators": "3020-3032; 4200-4260 Boost"},
+    {"id": "F10", "label": "verified (code)", "claim": "Offline catch-up modal, autosave 15s, import/export, auto-pause option", "locators": "3147 settings; 5382; 6502; 5201"},
+    {"id": "F11", "label": "verified (code)", "claim": "Lost wallet returned leads to an inheritance 10+ years later", "locators": "4365-4385"},
+    {"id": "F12", "label": "later build", "claim": "Health age curve plus 5-year sleep moving average; Loop Trap; auto-x with Just Pause; Turbo banked ticks; Minimalism", "locators": "v2 5440-5515; 1735-1830; 3140-3162; 3809-3825; 6181-6204; 8790-8840"},
+    {"id": "F13", "label": "verified (page)", "claim": "Ratings 4.3 (itch) / 4.2 (Kongregate); repetition complaints; speed-up request", "locators": "itch page, community, Kongregate page"},
+    {"id": "F14", "label": "inferred", "claim": "F1 and banked time already covered by Progress Knight / Idle Loops / Increlution lanes; F2/F3/F8/F4/F6/F11 new", "locators": "docs/research/open-idle-games-2026-10-09/PROGRESS_KNIGHT.md; docs/research/increlution/IMPLEMENTATION_PACKETS.md P3; docs/research/DEATH_AND_RESET_CONSIDERATIONS_2026-10-10.md; docs/LIFE_SIM_NORTH_STAR.md:779"}
+  ],
+  "packets": ["P1 day budget", "P2 dated opportunity checks", "P3 mood from balance", "P4 reading queue and rereads", "P5 soft loop end"],
+  "futureDecompile": {"value": "none needed", "reason": "plain browser JS (Vue 2 + webpack) already read statically", "optional": "read remaining ~3k lines of later build"}
+}

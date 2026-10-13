@@ -1,0 +1,35 @@
+{
+  "lane": "academagia",
+  "date": "2026-10-13",
+  "target": "Academagia: The Making of Mages (Black Chicken Studios, 2010; Steam 533480)",
+  "method": "web only: Steam store/APIs, community wiki via MediaWiki API, developer interview, reviews",
+  "status": "research complete; proposals only; no gameplay verified",
+  "findings": [
+    {"code": "F1", "label": "verified", "topic": "day slots", "summary": "3 slots a day; weekday classes pre-filled; venue bonus and discovery chance"},
+    {"code": "F2", "label": "verified", "topic": "calendar", "summary": "12x4-week months; midterms month 12, finals month 6, summer months 7-8; no teaching in exam months"},
+    {"code": "F3", "label": "verified", "topic": "exams", "summary": "6 of 17 courses; score ~ parent skill x study level; final 80-95%; bands, curve, hybrid or pass/fail; unskippable"},
+    {"code": "F4", "label": "verified", "topic": "learning tracks", "summary": "class rolls seeded per date; Study +1 study level; Train +1 skill step"},
+    {"code": "F5", "label": "verified", "topic": "skill shape", "summary": "~54 parents with 3-7 subskills; parent = min of top three subskills; Inform/Expand/Increase"},
+    {"code": "F6", "label": "verified", "topic": "adventures", "summary": "staged skill checks; info choices raise odds; date windows, prerequisites, exclusions; 1 of 5 viewpoints"},
+    {"code": "F7", "label": "verified", "topic": "students", "summary": "80+ simulated students with goals, likes, personal arcs; relationship -10..+10; daily report"},
+    {"code": "F8", "label": "verified", "topic": "cliques", "summary": "contested befriend rolls; clique splits if internal relationships unbalanced; vendetta duels"},
+    {"code": "F9", "label": "verified", "topic": "colleges and instructors", "summary": "7 colleges with rivals; merit prize ladder 20 to 450+; favors reset teacher relationship; detention teaches"},
+    {"code": "F10", "label": "verified", "topic": "stress", "summary": "max = Fitness x 2; overflow loses next day; stress spendable as bonus"},
+    {"code": "F11", "label": "verified (fan formula)", "topic": "rolls", "summary": "Skill + rand(0-2) x Attribute vs difficulty; odds colour-coded"},
+    {"code": "F12", "label": "verified", "topic": "locations", "summary": "~577 locations; venue bonus; 0-15% discovery; reprimand without visitation rights"},
+    {"code": "F13", "label": "verified", "topic": "money", "summary": "allowance from parental approval; letters home raise it; concealment vs Finesse"},
+    {"code": "F14", "label": "verified", "topic": "spells", "summary": "component-based spells; extra components add effects and difficulty"},
+    {"code": "F15", "label": "verified", "topic": "character creation", "summary": "10 attribute points plus 7 background pages; familiar bonus capped by bond"},
+    {"code": "F16", "label": "verified", "topic": "random events", "summary": "~800 end-of-day events that never cost a slot"},
+    {"code": "F17", "label": "verified; status inferred", "topic": "series plan", "summary": "planned five years; only Year 1 shipped; dormant"},
+    {"code": "F18", "label": "verified", "topic": "engine", "summary": "Windows x64, .NET 4.0, DirectX 9; official 2010 mod tools"},
+    {"code": "F19", "label": "verified + inferred", "topic": "reception", "summary": "Steam 206/290 positive; grind criticized; idle automation fits the gap"},
+    {"code": "F20", "label": "verified / inferred", "topic": "developer lineage", "summary": "1931: Scheherazade (2015); inferred Long Live the Queen lineage"}
+  ],
+  "packets": ["P1 school timetable", "P2 study level and exams", "P3 house points and teacher ledger", "P4 staged skill-check adventures", "P5 classmate cohort"],
+  "futureDecompile": {
+    "value": "moderate, conditional on P2 or P4 acceptance",
+    "requires": "purchase decision by Weibao ($15.99)",
+    "route": "ILSpy/ilspycmd on .NET 4.0 managed assemblies plus 2010 mod-tool data files (format unconfirmed)"
+  }
+}

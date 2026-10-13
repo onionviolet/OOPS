@@ -7594,3 +7594,28 @@ Second Life Ranker) are pulled together in
 Its main proposal: model a reset as six dials (trigger, anchor, carry set,
 cost, witnesses, exit) set per world, so the first prestige layer is one
 setting of a general engine. Proposal, not accepted.
+
+## Life-sim idler references (pointer, 2026-10-13)
+
+Three new research lanes, all proposals, none accepted:
+
+- [Groundhog Life](research/groundhog-life/REPORT.md): the 24-hour day
+  as the resource, mood built from rest, workload and a home expectation
+  that rises with age, skill checks with a deadline inside one life
+  ("level 50 by age 28"), and a soft loop end where days stretch instead
+  of the character dying.
+- [Academagia](research/academagia/REPORT.md): the closest existing model
+  of a magic-school year. Day slots with class defaults, study level beside
+  skill, dated exams graded against a simulated cohort, house merit, a
+  teacher ledger, cliques. Reviewers' main complaint is the manual daily
+  grind, which idle routines would absorb. Maps to the Harry Potter
+  world-depth rows HP1 and HP10.
+- [Immortality Idle](research/immortality-idle/REPORT.md): ordinary days
+  do double duty. Stations craft as a side effect of matching work,
+  aptitude grows from a life's real gain, the most-practised trade becomes
+  the family trade, and lifespan is a named ledger. No license, so ideas
+  only.
+
+Future download and decompile passes for these and other unlogged games
+are queued in
+[docs/research/FUTURE_ACQUISITION_QUEUE_2026-10-13.md](research/FUTURE_ACQUISITION_QUEUE_2026-10-13.md).

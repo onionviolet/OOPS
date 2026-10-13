@@ -65,6 +65,14 @@ Collection completed: 30 of 30 repositories have pinned partial mirrors; no acqu
 | [Microsoft TextWorld](https://github.com/microsoft/TextWorld) | exploratory-benchmark | `6d88a0845bc9` | 2/2 seeds |
 | [TextWorldExpress](https://github.com/cognitiveailab/TextWorldExpress) | exploratory-benchmark | `db0e6c09802a` | 2/2 seeds |
 
+## Noted after collection, not mirrored
+
+These are recorded by later research lanes. They have no mirror and no SOURCES.json row until `collect_sources.py` collects them.
+
+| Repository | Lane | Pinned in research | License | Owner |
+|---|---|---|---|---|
+| [Immortality Idle](https://github.com/immortalityidle/immortalityidle.github.io) | progression / life-sim | `c7231bae717b` (main, 2026-10-13, v2.0.0) | None (README informal permission); ideas only | [immortality-idle lane](../immortality-idle/CHECKPOINT.md) |
+
 ## Related works
 
 | Reference | Research focus |
