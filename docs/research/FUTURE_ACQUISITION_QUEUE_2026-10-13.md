@@ -4,6 +4,10 @@
 
 Engine and build notes marked *unverified* are my own background knowledge, not checked this session. Confirm them before choosing a route.
 
+## Standing task (Weibao, 2026-10-13)
+
+Decompile or source-read every queued game Weibao already owns. Re-run the local inventory and do this again whenever things change: a new purchase, a new install, a new queue entry or a new local tool. Owned games need no further go-ahead for a read-only local pass. Buying a game still needs his explicit yes. Each pass still answers a named mechanic question and saves a lane under `docs/research/<game>/`; raw decompiled code and assets stay out of git.
+
 ## Short list
 
 **Decompile (closed builds, each needs a purchase go-ahead):**
