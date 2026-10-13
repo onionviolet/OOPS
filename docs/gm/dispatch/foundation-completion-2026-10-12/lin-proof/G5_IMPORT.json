@@ -1,0 +1,151 @@
+{
+  "hash": "dcf2ab53d4c3eb8a629652f9ca51277fb7f510a58fcc81b3bbbd04ee3c3086b1",
+  "results": [
+    {
+      "input": "/tmp/yairpg-lin-compat-v1.json",
+      "imported": true,
+      "readerLoaded": true,
+      "reload": true,
+      "cursor": {
+        "schema": 1,
+        "contentId": "feature-wave-negotiation",
+        "contentRevision": 1,
+        "contentHash": "sha256:ae0be8ab54ef5d062fb651cd7cd070b122ecaf9f79fc9f9ac00cf730a72a6a1f",
+        "runtimeVersion": "2.4.0",
+        "inkFormat": 21,
+        "saveFormat": 10,
+        "sceneId": "tidemark.negotiation",
+        "sessionId": "ink:7",
+        "revision": 1,
+        "status": "active",
+        "startedAt": 5,
+        "updatedAt": 5,
+        "cursor": "{\"flows\":{\"DEFAULT_FLOW\":{\"callstack\":{\"threads\":[{\"callstack\":[{\"exp\":false,\"type\":0}],\"threadIndex\":0,\"previousContentObject\":\"options.0.96\"}],\"threadCounter\":3},\"outputStream\":[\"^\\\"The tide won't argue,\\\" \",\"^the bench keeper\",\"^ says. \\\"We still can. Before you offer anything, ask what it is meant to do.\\\"\",\"\\n\"],\"choiceThreads\":{\"1\":{\"callstack\":[{\"cPath\":\"options.0\",\"idx\":8,\"exp\":false,\"type\":0}],\"threadIndex\":1,\"previousContentObject\":\"options.0.7\"},\"2\":{\"callstack\":[{\"cPath\":\"options.0\",\"idx\":87,\"exp\":false,\"type\":0}],\"threadIndex\":2,\"previousContentObject\":\"options.0.86\"},\"3\":{\"callstack\":[{\"cPath\":\"options.0\",\"idx\":96,\"exp\":false,\"type\":0}],\"threadIndex\":3,\"previousContentObject\":\"options.0.95\"}},\"currentChoices\":[{\"text\":\"Ask what is being offered, and on whose terms.\",\"index\":0,\"originalChoicePath\":\"options.0.8\",\"originalThreadIndex\":1,\"targetPath\":\"options.0.c-0\",\"isInvisibleDefault\":false,\"tags\":[\"response:ask_terms\"]},{\"text\":\"Decline the proposed arrangement.\",\"index\":1,\"originalChoicePath\":\"options.0.87\",\"originalThreadIndex\":2,\"targetPath\":\"options.0.c-7\",\"isInvisibleDefault\":false,\"tags\":[\"response:refuse\"]},{\"text\":\"Leave the discussion open for another visit.\",\"index\":2,\"originalChoicePath\":\"options.0.96\",\"originalThreadIndex\":3,\"targetPath\":\"options.0.c-8\",\"isInvisibleDefault\":false,\"tags\":[\"response:leave\"]}]}},\"currentFlowName\":\"DEFAULT_FLOW\",\"variablesState\":{},\"evalStack\":[],\"visitCounts\":{},\"turnIndices\":{},\"turnIdx\":-1,\"storySeed\":1,\"previousRandom\":0,\"inkSaveVersion\":10,\"inkFormatVersion\":21}",
+        "frame": {
+          "paragraphs": [
+            "The pump bench stands above the wet steps at the terrace. the bench keeper keeps one hand on the stock book and the other on the unfinished repair.",
+            "\"The tide won't argue,\" the bench keeper says. \"We still can. Before you offer anything, ask what it is meant to do.\""
+          ],
+          "choices": [
+            {
+              "id": "ask_terms",
+              "label": "Ask what is being offered, and on whose terms."
+            },
+            {
+              "id": "refuse",
+              "label": "Decline the proposed arrangement."
+            },
+            {
+              "id": "leave",
+              "label": "Leave the discussion open for another visit."
+            }
+          ]
+        },
+        "receipts": []
+      },
+      "jobDue": [],
+      "text": "Local conversations and return accounts\nBetween journeys\n\nConversation not started.\n\nConversation controls\nKnown actions\nDiscuss the offered work\n\nAvailable\n\nStated costs\n0 played minutes\nCompletion terms\nOnly this accepted native step is committed. Mission outcome, actual arrival, local welfare and settlement stay separate.\nDo this: Discuss the offered work"
+    },
+    {
+      "input": "/tmp/yairpg-lin-compat-v2.json",
+      "imported": true,
+      "readerLoaded": true,
+      "reload": true,
+      "cursor": {
+        "schema": 1,
+        "contentId": "feature-wave-negotiation",
+        "contentRevision": 2,
+        "contentHash": "sha256:2eceb76c13cc1c3e856203f84d6349d98e9e5a963e0f7c7e6afa2555eeb76a65",
+        "runtimeVersion": "2.4.0",
+        "inkFormat": 21,
+        "saveFormat": 10,
+        "sceneId": "tidemark.negotiation",
+        "sessionId": "ink:7",
+        "revision": 1,
+        "status": "active",
+        "startedAt": 5,
+        "updatedAt": 5,
+        "cursor": "{\"flows\":{\"DEFAULT_FLOW\":{\"callstack\":{\"threads\":[{\"callstack\":[{\"exp\":false,\"type\":0}],\"threadIndex\":0,\"previousContentObject\":\"options.0.96\"}],\"threadCounter\":3},\"outputStream\":[\"^\\\"The tide won't argue,\\\" \",\"^the bench keeper\",\"^ says. \\\"We still can. Before you offer anything, ask what it is meant to do.\\\"\",\"\\n\"],\"choiceThreads\":{\"1\":{\"callstack\":[{\"cPath\":\"options.0\",\"idx\":8,\"exp\":false,\"type\":0}],\"threadIndex\":1,\"previousContentObject\":\"options.0.7\"},\"2\":{\"callstack\":[{\"cPath\":\"options.0\",\"idx\":87,\"exp\":false,\"type\":0}],\"threadIndex\":2,\"previousContentObject\":\"options.0.86\"},\"3\":{\"callstack\":[{\"cPath\":\"options.0\",\"idx\":96,\"exp\":false,\"type\":0}],\"threadIndex\":3,\"previousContentObject\":\"options.0.95\"}},\"currentChoices\":[{\"text\":\"Ask what is being offered, and on whose terms.\",\"index\":0,\"originalChoicePath\":\"options.0.8\",\"originalThreadIndex\":1,\"targetPath\":\"options.0.c-0\",\"isInvisibleDefault\":false,\"tags\":[\"response:ask_terms\"]},{\"text\":\"Decline the proposed arrangement.\",\"index\":1,\"originalChoicePath\":\"options.0.87\",\"originalThreadIndex\":2,\"targetPath\":\"options.0.c-7\",\"isInvisibleDefault\":false,\"tags\":[\"response:refuse\"]},{\"text\":\"Leave the discussion open for another visit.\",\"index\":2,\"originalChoicePath\":\"options.0.96\",\"originalThreadIndex\":3,\"targetPath\":\"options.0.c-8\",\"isInvisibleDefault\":false,\"tags\":[\"response:leave\"]}]}},\"currentFlowName\":\"DEFAULT_FLOW\",\"variablesState\":{},\"evalStack\":[],\"visitCounts\":{},\"turnIndices\":{},\"turnIdx\":-1,\"storySeed\":1,\"previousRandom\":0,\"inkSaveVersion\":10,\"inkFormatVersion\":21}",
+        "frame": {
+          "paragraphs": [
+            "The pump bench stands above the wet steps at the terrace. the bench keeper keeps one hand on the stock book and the other on the unfinished repair.",
+            "\"The tide won't argue,\" the bench keeper says. \"We still can. Before you offer anything, ask what it is meant to do.\""
+          ],
+          "choices": [
+            {
+              "id": "ask_terms",
+              "label": "Ask what is being offered, and on whose terms."
+            },
+            {
+              "id": "refuse",
+              "label": "Decline the proposed arrangement."
+            },
+            {
+              "id": "leave",
+              "label": "Leave the discussion open for another visit."
+            }
+          ]
+        },
+        "receipts": []
+      },
+      "jobDue": [],
+      "text": "Local conversations and return accounts\nBetween journeys\n\nConversation not started.\n\nConversation controls\nKnown actions\nDiscuss the offered work\n\nAvailable\n\nStated costs\n0 played minutes\nCompletion terms\nOnly this accepted native step is committed. Mission outcome, actual arrival, local welfare and settlement stay separate.\nDo this: Discuss the offered work"
+    },
+    {
+      "input": "/tmp/yairpg-lin-compat-v3.json",
+      "imported": true,
+      "readerLoaded": true,
+      "reload": true,
+      "cursor": {
+        "schema": 2,
+        "scopes": [
+          {
+            "schema": 1,
+            "contentId": "feature-wave-negotiation",
+            "contentRevision": 3,
+            "contentHash": "sha256:f914d6a60616e31e382c34658f207c64f63a1d6c9ea707e58d0737f9a2770e3f",
+            "runtimeVersion": "2.4.0",
+            "inkFormat": 21,
+            "saveFormat": 10,
+            "sceneId": "nested.hub",
+            "sessionId": "ink:7",
+            "revision": 1,
+            "status": "active",
+            "startedAt": 5,
+            "updatedAt": 5,
+            "cursor": "{\"flows\":{\"DEFAULT_FLOW\":{\"callstack\":{\"threads\":[{\"callstack\":[{\"exp\":false,\"type\":0}],\"threadIndex\":0,\"previousContentObject\":\"nested_hub_options.0.65\"}],\"threadCounter\":2},\"outputStream\":[\"^ Your currently disclosed role terms: \",\"^Current approval: employee. Employee services and contractor contracts have separate permissions.\",\"\\n\"],\"choiceThreads\":{\"1\":{\"callstack\":[{\"cPath\":\"nested_hub_options.0\",\"idx\":8,\"exp\":false,\"type\":0}],\"threadIndex\":1,\"previousContentObject\":\"nested_hub_options.0.7\"},\"2\":{\"callstack\":[{\"cPath\":\"nested_hub_options.0\",\"idx\":65,\"exp\":false,\"type\":0}],\"threadIndex\":2,\"previousContentObject\":\"nested_hub_options.0.64\"}},\"currentChoices\":[{\"text\":\"Ask about the services, roles and their current terms.\",\"index\":0,\"originalChoicePath\":\"nested_hub_options.0.8\",\"originalThreadIndex\":1,\"targetPath\":\"nested_hub_options.0.c-0\",\"isInvisibleDefault\":false,\"tags\":[\"response:nested_hub_terms\"]},{\"text\":\"Leave this discussion without taking another service.\",\"index\":1,\"originalChoicePath\":\"nested_hub_options.0.65\",\"originalThreadIndex\":2,\"targetPath\":\"nested_hub_options.0.c-5\",\"isInvisibleDefault\":false,\"tags\":[\"response:nested_hub_leave\"]}]}},\"currentFlowName\":\"DEFAULT_FLOW\",\"variablesState\":{\"host_scene\":\"^nested.hub\",\"nested_hub_present\":true,\"nested_hub_name\":\"^Paradise service district\",\"nested_role_terms\":\"^Current approval: employee. Employee services and contractor contracts have separate permissions.\",\"nested_portability_terms\":\"^Your same living body and owned carried/equipped goods use the declared edge. Return unapproved loans first. A local office credential grants no foreign jurisdiction.\",\"nested_work_offered\":true,\"nested_training_offered\":true,\"nested_refit_offered\":true,\"nested_role_offered\":true,\"nested_residence_offered\":true},\"evalStack\":[],\"visitCounts\":{},\"turnIndices\":{},\"turnIdx\":-1,\"storySeed\":1,\"previousRandom\":0,\"inkSaveVersion\":10,\"inkFormatVersion\":21}",
+            "frame": {
+              "paragraphs": [
+                "You are at Paradise service district.",
+                "A spoon rests across a cooling cup. the person across from you turns the cup's chipped edge away from their hand.",
+                "\"Some days I finish the tea,\" they say. \"What did you come for?\"",
+                "Your currently disclosed role terms: Current approval: employee. Employee services and contractor contracts have separate permissions."
+              ],
+              "choices": [
+                {
+                  "id": "nested_hub_terms",
+                  "label": "Ask about the services, roles and their current terms."
+                },
+                {
+                  "id": "nested_hub_leave",
+                  "label": "Leave this discussion without taking another service."
+                }
+              ]
+            },
+            "receipts": [],
+            "scope": {
+              "id": "ink.nested.hub.hub_street.nested.paradise.main",
+              "kind": "hub",
+              "worldId": "nested.paradise_hub",
+              "instanceId": "nested.paradise.main"
+            }
+          }
+        ]
+      },
+      "jobDue": [],
+      "text": "Local conversations and return accounts\nBetween journeys\n\nConversation in progress.\n\nYou are at Paradise service district.\n\nA spoon rests across a cooling cup. the person across from you turns the cup's chipped edge away from their hand.\n\n\"Some days I finish the tea,\" they say. \"What did you come for?\"\n\nYour currently disclosed role terms: Current approval: employee. Employee services and contractor contracts have separate permissions.\n\nYour response\nKnown actions\nAsk about the services, roles and their current terms.\n\nAvailable\n\nStated costs\n0 played minutes\nCompletion terms\nOnly this accepted native step is committed. Mission outcome, actual arrival, local welfare and settlement stay separate.\nDo this: Ask about the services, roles and their current terms.\nLeave this discussion without taking another service.\n\nAvailable\n\nStated costs\n0 played minutes\nCompletion terms\nOnly this accepted native step is committed. Mission outcome, actual arrival, local welfare and settlement stay separate.\nDo this: Leave this discussion without taking another service.\nConversation controls\nKnown actions\nInterrupt this conversation\n\nAvailable\n\nDo this: Interrupt this conversation"
+    }
+  ],
+  "errors": [],
+  "generatedOnly": true
+}

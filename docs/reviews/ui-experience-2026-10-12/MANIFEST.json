@@ -1,0 +1,61 @@
+{
+  "shared_snapshot": {
+    "root": "/var/folders/zg/7y5nnphj6bd6bcxgm4tmgv280000gn/T/yairpg-ui-audit-sxba8w7r",
+    "files": {
+      "index.html": "b955739a4406c2e0973eb05d273db08b4d7ba2561e30b460d5072c266e2f2693",
+      "dist/bundle.js": "5b3863b2a2c2f04dfd4318b80349aca4610c2cf49ccb980bfe1a0777705055cf",
+      "style.css": "9af1e67bb6ebfed0797b6194cc7c57b8b7ece75ba50cac688bc92701eb303485"
+    }
+  },
+  "workspace": {
+    "root": "/Users/weiwei/.codex/candidates/yairpg-ui-modularity-2026-10-11",
+    "files": {
+      "index.html": "485eea8709fa74f1181654433aaba1114a05a70e65b9bbf2a54b0d05d9cdad49",
+      "dist/bundle.js": "598f67420c6eb2122f2abc7a7e65d051d1625064ecbfe2c397154d7c020ee155",
+      "style.css": "9af1e67bb6ebfed0797b6194cc7c57b8b7ece75ba50cac688bc92701eb303485"
+    }
+  },
+  "customization": {
+    "root": "/Users/weiwei/.codex/candidates/yairpg-customization-2026-10-12",
+    "files": {
+      "index.html": "29c65414fa30e38d2a4b5fcf5cb4ee178f22d8b91c98503b3708b69b95c908b3",
+      "dist/bundle.js": "c777648412f9d3fa2195d6bc9649dacd392fa035783265acdf6d4d2f29244f43",
+      "style.css": "9af1e67bb6ebfed0797b6194cc7c57b8b7ece75ba50cac688bc92701eb303485",
+      "styles/customization.css": "57f38e35d0d58adbfd786bfe179bb10da5d79b14217b71b975a535005e2f2ff5",
+      "src/customization_ui.js": "cf2c509ad702f341a6ba2677d56cced8f0d91b6985350054d2a5d767a3067bfe",
+      "src/customization_profiles.js": "117d0f38798b9f446d2e19f469e3d6464a203fe129b802c7c717bae04849afa5",
+      "src/workspace_layout.js": "3f705765e1de7a00f3f631adcaa54b0aac2af120c2657cd8d091f63b8cc44d16"
+    }
+  },
+  "evidence": {
+    "EVIDENCE.json": "a16048b3f53ea6ed7276d7250d8de211a03bac58ff9684bfba9efddb16a3cb88",
+    "customization-1440-editor-apply.png": "b98243a1ad3289d84eac13a4fc189507302c54a44a2cc12b97da35c249587b53",
+    "customization-1440-busy.png": "04138caaf258981ab73f2215ff594afd661e640928d19833368c58594ed38794",
+    "customization-1920-opening.png": "906ddae45f9df3ed309f2410d7cd57eb494eb5459959873a71686ea92c46369f",
+    "shared-1440-conversation.png": "355eea595734bc960d0ceeabf00e91ccfb53e6a60e80421d75ffd6b72546fe08",
+    "customization-1440-editor-expanded.png": "37d47813d2688580be4effb6a8c41acd9b5af05c6d1ee8954657cb354d5ad9a2",
+    "customization-1440-work-choices.png": "66012ec99e1d5d4e0676f4ff29cdf2bb59e453958156c348b28a3a5bda6952c4",
+    "FOLLOWUP.json": "72e4476ac77ec2ccb86a7c44a3623dafd96881784566494af962c8307a749215",
+    "workspace-1920-opening.png": "ca5da8577925df00eab83262d777d4a3cc6c6c62070a0319a1670d25432ece1c",
+    "shared-1512-opening.png": "45850dba030f698f7c570ae357b711d0119670f207e53a147ba8099d928654a2",
+    "workspace-1440-opening.png": "3252a5788b79f4f928e856dd1e6f7f5a841b321c36f3c2289e267297fd56603b",
+    "inspect-work-editor.cjs": "b940b00bb754018885710b176b7ebc5ed5f5a9b55ecf7513c9e8e211d41fc001",
+    "customization-1440-opening.png": "c760be41a2f055befc4c9a8b83f2d7152c4e5391026ec7a550dd5551ef57e3ca",
+    "workspace-1440-work-choices.png": "c06eac1fc40bb0cc65f93c393a3422a1132fcc1164c0324da30adc075e894312",
+    "customization-1440-conversation.png": "5a7c8a1c99711c11d9e7107c649a8388ec535034cc279d10dfd2557cbd53ef0a",
+    "shared-1440-opening.png": "319c5fdd746d19a726b6761692f71f3f5783833dac6ca741bd710236d043ae57",
+    "workspace-1512-opening.png": "8b58c60099d500d5dcefba8c470ae41e2d152d23ace0a349d6da8d6016e8419c",
+    "customization-1512-opening.png": "e955caed0874e6b63278aa588ef0392d28fa34047f08109096aed03e1a6f655e",
+    "workspace-1440-conversation.png": "0809fe9a737e0468e07049184aa50568a9f62f4f5bdb840586e584438f9cfc32",
+    "workspace-1440-busy.png": "4c98a9385ca34ba2cd5916808b8af448efb308c244b7bc9632416e29eb850a5c",
+    "shared-1920-opening.png": "57611647da9d468f7c7fc59272980bb228648622a7eaf2a2abbb92d2c586d59c",
+    "customization-1440-editing.png": "7b5d4bd675e3000f56a2e67a64e4b5d5a87d2d9c3fd6768877eee6a4450b9fd7",
+    "inspect-opening.cjs": "72eb54abf4c721b240986dfd25d5db65f313891c7ee1b5d358d0734cca9ebb72"
+  },
+  "status": {
+    "sharedBuild": "successful in public temporary snapshot; source repo untouched",
+    "candidates": "existing served binaries inspected; not rebuilt by this audit",
+    "playScope": "fresh hero openings at 3 sizes; public elder greetings at 1440; actual loaned-kit patrol starts on both candidates; editor disclosure and scrolling",
+    "excluded": "private packs, personal saves, gameplay edits, full-shift completion, crafting/combat, preference Apply, audio output, save/reload/import"
+  }
+}

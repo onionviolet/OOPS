@@ -1,0 +1,16 @@
+{
+  "status": "PASS",
+  "leafCount": 166,
+  "dispositions": {
+    "R": 132,
+    "W": 32,
+    "O": 1,
+    "S": 1
+  },
+  "idDispositionPairsMatch": true,
+  "supplementalJoinsReconciled": true,
+  "owners": {
+    "FOUNDATION_LEDGER.md": "7a1e909a1cd7eea80f383102e43fcb7fea16f224502ca1619ba60aa3bfff1465",
+    "FINAL_RECONCILIATION_DRAFT.md": "0e6b1eb04835c2cc4823121f8efb318bda7cd38c858155e3d4573f74c0f7727d"
+  }
+}

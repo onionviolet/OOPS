@@ -1,0 +1,1305 @@
+{
+  "lane": "G6",
+  "status": "planning-reviewed-by-worker",
+  "inputs": [
+    {
+      "path": "AGENTS.md",
+      "coverage": "Read project instructions; preserve saves, secrets and writer reservations."
+    },
+    {
+      "path": "PROJECT.md",
+      "coverage": "Read accepted local-law, means, carrier, furniture-bonus and random-entry decisions; runtime status remains with wave owners."
+    },
+    {
+      "path": "docs/GAME_MASTER_PROMPT.md",
+      "coverage": "Read GM authority, world detail and finite delivery workflow; no runtime assignment inferred."
+    },
+    {
+      "path": "docs/gm/WORLD_ACTIONABILITY_GM_PROMPT.md",
+      "coverage": "Read actionability/depth/output contract; selected functional leaves need consumers."
+    },
+    {
+      "path": "docs/WORLD_COMPLETION_STANDARD.md",
+      "coverage": "Read sections, tiny-detail decomposition and evidence levels; adopted S03/S05/S06/S07/S09/S11/S12/S14 joins."
+    },
+    {
+      "path": "docs/TECHNOLOGY_AND_PROGRESSION.md",
+      "coverage": "Read TL/TS/TG/TK/TN/TM/TA/TW/TR and public world palette; expand as local options, not universal rules. Final unrelated examples remain continuation."
+    },
+    {
+      "path": "docs/research/CRAFTING_TECH_MICRO_MACRO_2026-10-11.md",
+      "coverage": "Read full bounded report; MI01-12/WS01-08/MA01-14/IR01-08 and J1-3 receive cards or packet disposition. External linked sources not reread."
+    },
+    {
+      "path": "docs/worlds/PROGRESSION_AND_ASSEMBLY.md",
+      "coverage": "Read full shared contract, identity/installation/budget gaps and proof; preserve local-world dossiers as continuation."
+    },
+    {
+      "path": "src/crafting_recipes.js",
+      "coverage": "Read Recipe/ItemRecipe/ComponentRecipe front portion and inspected quality/material/registration consumers; recipe catalogue only searched, not exhausted."
+    },
+    {
+      "path": "src/home_furnishing_content.js",
+      "coverage": "Read fixture survey/construction/drying/adaptation/stave/kit definitions; extend without treating local facts as generic fixture state."
+    },
+    {
+      "path": "src/home_furnishing_host.js",
+      "coverage": "Read full host commit/presentation; shared staged execution and native projection retain authority."
+    },
+    {
+      "path": "src/world_completion_materials_content.js",
+      "coverage": "Read material cover/disposal definitions and frozen stamped-strip binding; later state-validation tail remains continuation."
+    },
+    {
+      "path": "src/world_completion_materials_runtime.js",
+      "coverage": "Read full retention and popped-job reconciliation; one opted-in crop/drain boundary, not generic ecology."
+    },
+    {
+      "path": "src/factorio_retort_content.js",
+      "coverage": "Read batch/collect/dispose definitions and finite-plan portion; bounded product/receiver consumer retained."
+    },
+    {
+      "path": "src/factorio_retort_host.js",
+      "coverage": "Read validation and reservation/custody portions; later host presentation implementation remains continuation."
+    },
+    {
+      "path": "src/absorb_b/furniture.js",
+      "coverage": "Read full projection; declared owned fixture/read-book bonuses are source consumers, not a passed browser gate."
+    },
+    {
+      "path": "src/absorb_c1/accessories.js",
+      "coverage": "Read full accessory definitions and utility adapters; four source-authored ordinary utility variants retained."
+    },
+    {
+      "path": "src/main.js",
+      "coverage": "Targeted craft-tier, furniture rest/sleep/XP/crafting call sites inspected; no full main audit."
+    },
+    {
+      "path": "src/display.js",
+      "coverage": "Targeted portable-station tier call sites inspected; no full display audit."
+    },
+    {
+      "path": "src/site_projects.js",
+      "coverage": "Read full compileSiteProject/projectView; finite phase DAG and shared commands, no industrial solver."
+    },
+    {
+      "path": "src/power_models.js",
+      "coverage": "Read full previewPowerModel/resolveEffectAmount; scalar functional capacity, no dynamic assembly graph."
+    },
+    {
+      "path": "src/weather.js",
+      "coverage": "Read temperature/rain/light implementation portions and exports; native deterministic exposure signals, not world-general physics."
+    }
+  ],
+  "requirements": [
+    {
+      "id": "G6-001",
+      "name": "World-local material function profiles",
+      "sections": [
+        "S01",
+        "S06",
+        "S14"
+      ],
+      "sourceRefs": [
+        "docs/research/CRAFTING_TECH_MICRO_MACRO_2026-10-11.md",
+        "docs/worlds/PROGRESSION_AND_ASSEMBLY.md"
+      ],
+      "criterion": "A selected recipe reads actual relevant properties and its resulting item supplies the promised function.",
+      "proposedExpansion": {
+        "variants": [
+          "Composition/purity for alloy or reagent",
+          "Grain/orientation for handle or woven lining",
+          "Local magic conductivity for a supported substrate"
+        ],
+        "details": [
+          "Separate definition, counted stock and unique specimen only where needed.",
+          "Property has unit/local scale, tested consumer, discovery route and permitted substitutions.",
+          "Do not add dozens of inert fields to every native item."
+        ]
+      },
+      "dependencies": [
+        "G5 inventory contract",
+        "World GM local laws"
+      ],
+      "engineConsumerOrGap": "Native Recipe quality/tier exists; arbitrary material property predicate adapter is a gap.",
+      "acceptanceCases": [
+        "Unknown material can be tested without exact UI disclosure",
+        "Tolerant substitute works if its function fits",
+        "Forbidden substrate rejected before spend"
+      ],
+      "remaining": "Choose first material/recipe pair; no general specimen schema selected."
+    },
+    {
+      "id": "G6-002",
+      "name": "Material preparation and resumable work",
+      "sections": [
+        "S06",
+        "S07",
+        "S14"
+      ],
+      "sourceRefs": [
+        "docs/research/CRAFTING_TECH_MICRO_MACRO_2026-10-11.md",
+        "src/home_furnishing_content.js"
+      ],
+      "criterion": "Selected preparation changes real stock and pause/resume preserves its paid progress under declared terms.",
+      "proposedExpansion": {
+        "variants": [
+          "Dry wet offcuts",
+          "Refine impure reagent",
+          "Anneal selected metal",
+          "Prepare flexible lining"
+        ],
+        "details": [
+          "Known batch remains idle; unfamiliar process needs only meaningful decisions.",
+          "Specify where unfinished work physically resides and who may resume it.",
+          "Local refund jobs are not evidence of generic partially consumed work."
+        ]
+      },
+      "dependencies": [
+        "G6-001",
+        "G5 job publication"
+      ],
+      "engineConsumerOrGap": "Home dry jobs convert exact green/offcut keys; generic partial workpiece persistence missing.",
+      "acceptanceCases": [
+        "Pause before/after material commitment",
+        "Resume without doubled stock",
+        "Transfer workpiece only through custody"
+      ],
+      "remaining": "First proof may retain atomic completion/refund; partial workpiece a later packet."
+    },
+    {
+      "id": "G6-003",
+      "name": "Purpose-specific measurement",
+      "sections": [
+        "S06",
+        "S09",
+        "S13"
+      ],
+      "sourceRefs": [
+        "docs/research/CRAFTING_TECH_MICRO_MACRO_2026-10-11.md",
+        "docs/TECHNOLOGY_AND_PROGRESSION.md",
+        "src/world_completion_materials_content.js"
+      ],
+      "criterion": "Held means establish a reading with suitable uncertainty; only supported precision unlocks the selected fit.",
+      "proposedExpansion": {
+        "variants": [
+          "Rough estimate",
+          "Known ruler/stop",
+          "Calibrated gauge",
+          "Expert or exceptional exact appraisal"
+        ],
+        "details": [
+          "Actual property and observer reading are separate.",
+          "Calibration changes confidence, not the specimen.",
+          "A certificate is attributed evidence; actor may verify it."
+        ]
+      },
+      "dependencies": [
+        "G6-001",
+        "G2/G5 appraisal contract"
+      ],
+      "engineConsumerOrGap": "Stamped measured strip binds one observed sample; generic measurement/evidence intervals missing.",
+      "acceptanceCases": [
+        "Wrong reading does not mutate truth",
+        "No instrument retains vague description",
+        "Sufficient exact appraisal bypasses trial",
+        "New sample invalidates old fit when relevant"
+      ],
+      "remaining": "Select measurement uncertainty policy per world."
+    },
+    {
+      "id": "G6-004",
+      "name": "In-game experiments and reusable evidence",
+      "sections": [
+        "S06",
+        "S09",
+        "S14"
+      ],
+      "sourceRefs": [
+        "docs/research/CRAFTING_TECH_MICRO_MACRO_2026-10-11.md",
+        "docs/TECHNOLOGY_AND_PROGRESSION.md"
+      ],
+      "criterion": "A committed test uses held apparatus/sample and teaches only its observed conclusion without preview rerolls.",
+      "proposedExpansion": {
+        "variants": [
+          "Controlled comparison",
+          "Accidental discovery",
+          "Replication by another maker",
+          "Field test after laboratory success"
+        ],
+        "details": [
+          "Freeze conditions and outcome seed only when chance is selected.",
+          "Useful inferior result, repairable work, recovered inputs and total loss are separate local outcomes.",
+          "Hypothesis form optional; known work never requires a science form."
+        ]
+      },
+      "dependencies": [
+        "G6-003",
+        "G5 committed-test contract"
+      ],
+      "engineConsumerOrGap": "Simulation knowledge receipts exist; structured test conditions and replication consumer missing.",
+      "acceptanceCases": [
+        "Preview consumes nothing",
+        "Reload preserves committed outcome",
+        "Negative result rules out only tested conditions",
+        "Perfect knowledge supplies declared certainty"
+      ],
+      "remaining": "First test needs explicit outcome/commitment contract."
+    },
+    {
+      "id": "G6-005",
+      "name": "Knowledge, practice, blueprint and operation",
+      "sections": [
+        "S06",
+        "S07",
+        "S09"
+      ],
+      "sourceRefs": [
+        "docs/TECHNOLOGY_AND_PROGRESSION.md",
+        "docs/worlds/PROGRESSION_AND_ASSEMBLY.md",
+        "src/home_furnishing_content.js"
+      ],
+      "criterion": "Learning a design opens an appropriate attempt; operating the completed object checks its real means separately.",
+      "proposedExpansion": {
+        "variants": [
+          "Rumor/concept research direction",
+          "Written recipe",
+          "Taught practical method",
+          "Carrier-protected perfect blueprint"
+        ],
+        "details": [
+          "Knowing what exists, knowing how, practicing and possessing apparatus remain distinct.",
+          "Memory decay/fuzzy transfer only if selected local rule or carrier requires it.",
+          "Teacher or powerful cheat can grant the actual supported stage directly."
+        ]
+      },
+      "dependencies": [
+        "G2 learning/source contract"
+      ],
+      "engineConsumerOrGap": "Retained notebook adaptation consumes actual notebook; recipe-specialty bonus adapter missing.",
+      "acceptanceCases": [
+        "Book title alone cannot supply physical tool",
+        "Teach one method without all craft mastery",
+        "Strong blueprint does not conjure materials unless cheat does"
+      ],
+      "remaining": "Use existing method owners; no new broad XP meter."
+    },
+    {
+      "id": "G6-006",
+      "name": "Toolmaking bootstrap",
+      "sections": [
+        "S06",
+        "S07"
+      ],
+      "sourceRefs": [
+        "docs/TECHNOLOGY_AND_PROGRESSION.md",
+        "docs/research/CRAFTING_TECH_MICRO_MACRO_2026-10-11.md"
+      ],
+      "criterion": "Each selected tool enables a concrete next operation instead of a nominal technology tier.",
+      "proposedExpansion": {
+        "variants": [
+          "File\u2192measuring stop\u2192matched part",
+          "Hand lens\u2192survey sample\u2192precision component",
+          "Mould/jig\u2192repeatable batches",
+          "Magical shaping directly substitutes where supported"
+        ],
+        "details": [
+          "Show known input and actual added capability.",
+          "Allow commissioning/borrowing/import to bypass a bootstrap link.",
+          "Source verification required before treating book technology as canon."
+        ]
+      },
+      "dependencies": [
+        "G6-003",
+        "G6-005"
+      ],
+      "engineConsumerOrGap": "Native station tiers gate recipes; selected function-specific tool gate needs adapter.",
+      "acceptanceCases": [
+        "Missing file blocks only relevant operation",
+        "Borrowed tool works during valid custody",
+        "Superior shaping bypasses machining chain"
+      ],
+      "remaining": "Pick one finite chain; no obligatory civilization ladder."
+    },
+    {
+      "id": "G6-007",
+      "name": "Parts, interfaces and adapters",
+      "sections": [
+        "S06",
+        "S12",
+        "S14"
+      ],
+      "sourceRefs": [
+        "docs/worlds/PROGRESSION_AND_ASSEMBLY.md",
+        "docs/research/CRAFTING_TECH_MICRO_MACRO_2026-10-11.md"
+      ],
+      "criterion": "A selected compatible part installs once; an adapter changes the named interface and usable function.",
+      "proposedExpansion": {
+        "variants": [
+          "Matched fixed authored variant",
+          "Mechanical adapter",
+          "Ritual connector",
+          "Biological graft where source supports it"
+        ],
+        "details": [
+          "Definition revision, instance, mount and assembly identities distinct.",
+          "Dimensions, control signals and energy channels checked only if relevant.",
+          "A lore authority is not interchangeable with a battery."
+        ]
+      },
+      "dependencies": [
+        "G6-001",
+        "G5 assembly integration"
+      ],
+      "engineConsumerOrGap": "Native components/quality exist; dynamic nested instance installation/removal registry missing.",
+      "acceptanceCases": [
+        "Mismatch has no spend",
+        "Part cannot be both installed and sold",
+        "Removal returns same current part",
+        "Adapter does not equalize all world rules"
+      ],
+      "remaining": "Fixed variants can prove first interface; generic graph needs separate owner."
+    },
+    {
+      "id": "G6-008",
+      "name": "Function-specific quality versus scale",
+      "sections": [
+        "S06",
+        "S05"
+      ],
+      "sourceRefs": [
+        "docs/research/CRAFTING_TECH_MICRO_MACRO_2026-10-11.md",
+        "docs/worlds/PROGRESSION_AND_ASSEMBLY.md",
+        "src/crafting_recipes.js"
+      ],
+      "criterion": "Improving selected quality changes its actual function, while expansion changes throughput under real constraints.",
+      "proposedExpansion": {
+        "variants": [
+          "Precision opens fine application",
+          "Higher yield saves scarce feedstock",
+          "More benches increase parallel capacity",
+          "Genuinely superior process improves both"
+        ],
+        "details": [
+          "Native numeric quality remains incumbent.",
+          "No forced lower-tier niche or compulsory replacement.",
+          "Quality, condition, mastery, structural tier and quantity stay separate."
+        ]
+      },
+      "dependencies": [
+        "G6-001",
+        "G6-012"
+      ],
+      "engineConsumerOrGap": "Native quality ranges/caps and component tiers read skills; device-specific quality-to-function adapter missing.",
+      "acceptanceCases": [
+        "High-grade unusable interface stays unusable",
+        "Scale limited by downstream assembly",
+        "Useful inferior specimen remains usable"
+      ],
+      "remaining": "Specify first function curve and show proposal numbers."
+    },
+    {
+      "id": "G6-009",
+      "name": "Repair, maintenance and salvage",
+      "sections": [
+        "S06",
+        "S14"
+      ],
+      "sourceRefs": [
+        "docs/worlds/PROGRESSION_AND_ASSEMBLY.md",
+        "docs/research/CRAFTING_TECH_MICRO_MACRO_2026-10-11.md",
+        "src/home_furnishing_content.js"
+      ],
+      "criterion": "Repair restores retained capability of an owned object; salvage consumes it and returns declared stock exactly once.",
+      "proposedExpansion": {
+        "variants": [
+          "Sharpen existing dulled tool",
+          "Replace selected seal",
+          "Recalibrate instrument",
+          "Dismantle owned fixed device"
+        ],
+        "details": [
+          "Wear/durability remains local opt-in, never applied universally.",
+          "Loan, installed part and reserved work are custody conflicts.",
+          "Recoveries reviewed across complete recipe cycles; no material multiplication."
+        ]
+      },
+      "dependencies": [
+        "G6-007",
+        "G5 inventory/custody writer"
+      ],
+      "engineConsumerOrGap": "Sharp\u2192dull fixed variants and counted offcut/stave route exist; generic identity-preserving repair/salvage missing.",
+      "acceptanceCases": [
+        "Reload after repair",
+        "Salvage twice refused",
+        "Borrowed object return preserves condition",
+        "No repair and salvage same object simultaneously"
+      ],
+      "remaining": "Choose one object lifecycle; global wear not selected."
+    },
+    {
+      "id": "G6-010",
+      "name": "Facility access and construction",
+      "sections": [
+        "S03",
+        "S05",
+        "S06"
+      ],
+      "sourceRefs": [
+        "docs/research/CRAFTING_TECH_MICRO_MACRO_2026-10-11.md",
+        "src/site_projects.js",
+        "src/home_furnishing_content.js"
+      ],
+      "criterion": "A completed supplied phase opens its named facility capability only while actual access supports it.",
+      "proposedExpansion": {
+        "variants": [
+          "Personal workshop",
+          "Rented guild bench",
+          "Communal facility",
+          "Patron-owned laboratory",
+          "Portable field kit"
+        ],
+        "details": [
+          "G3 owns entitlement/service terms; G6 owns physical capability and resources.",
+          "Incomplete frame has no completed facility output.",
+          "Moving or rebuilding preserves actual materials/claims under selected policy."
+        ]
+      },
+      "dependencies": [
+        "G3 access/claim seam"
+      ],
+      "engineConsumerOrGap": "compileSiteProject compiles finite DAG into existing claims/jobs; reusable facility capability registry missing.",
+      "acceptanceCases": [
+        "Lose access during job",
+        "Commission work without owning station",
+        "Frame vs finished consumer",
+        "Destroyed facility does not erase learned design"
+      ],
+      "remaining": "Start with local capability facts; general registry only if repeated consumer requires it."
+    },
+    {
+      "id": "G6-011",
+      "name": "Furniture and fixture useful lifecycle",
+      "sections": [
+        "S05",
+        "S06",
+        "S07",
+        "S14"
+      ],
+      "sourceRefs": [
+        "PROJECT.md",
+        "src/absorb_b/furniture.js",
+        "src/home_furnishing_content.js"
+      ],
+      "criterion": "Owned accessible furnishings supply their declared passive/active function; removal/lost access stops it without accumulated duplication.",
+      "proposedExpansion": {
+        "variants": [
+          "Bed recovery",
+          "Reading collection/bookstand",
+          "Drying rack active work and comfort",
+          "Drafting bench study and precise work",
+          "World-specific warded/living furniture"
+        ],
+        "details": [
+          "Acquisition, construction, installation, use, improvement and transfer have concrete contracts.",
+          "Duplicates, storage versus installed location and borrowed copies evaluated.",
+          "Proto23/native existing proposal numbers stay local; future fixtures can have distinct functions."
+        ]
+      },
+      "dependencies": [
+        "G6-010",
+        "G5 projection/publication"
+      ],
+      "engineConsumerOrGap": "furnitureProjection has idempotent owned/location projection; main rest/sleep/XP consumes it. General moving/dismantling not present in inspected fixture lane.",
+      "acceptanceCases": [
+        "Reload adds no bonus twice",
+        "Leave bonus scope",
+        "Unread or borrowed book excluded from owned-read contribution",
+        "Moving active fixture updates real consumer"
+      ],
+      "remaining": "Current absorption wave owns its gate; do not overlap it."
+    },
+    {
+      "id": "G6-012",
+      "name": "Stock, reservations and workshop capacity",
+      "sections": [
+        "S05",
+        "S06",
+        "S14"
+      ],
+      "sourceRefs": [
+        "docs/research/CRAFTING_TECH_MICRO_MACRO_2026-10-11.md",
+        "src/factorio_retort_host.js"
+      ],
+      "criterion": "Concurrent work never spends one input twice; explicit station and receiver capacity determine actual throughput.",
+      "proposedExpansion": {
+        "variants": [
+          "Single batch",
+          "Finite queue",
+          "Parallel distinct benches",
+          "Urgent repair priority"
+        ],
+        "details": [
+          "Distinguish owned stock, reserved stock, available labor and physical capacity.",
+          "Queued intent cannot fabricate future supply.",
+          "G3 commission demand references actual committed output."
+        ]
+      },
+      "dependencies": [
+        "G5 jobs/inventory writer",
+        "G3 order seam"
+      ],
+      "engineConsumerOrGap": "Retort accepted jobs validate exact stock and site reservations; arbitrary multi-output industrial optimizer missing.",
+      "acceptanceCases": [
+        "Two jobs same stock",
+        "Unavailable receiver",
+        "Full storage local policy",
+        "Cancel returns inputs once"
+      ],
+      "remaining": "Use finite jobs/plans; global solver not requested."
+    },
+    {
+      "id": "G6-013",
+      "name": "Energy and outputs for functional machines",
+      "sections": [
+        "S06",
+        "S07",
+        "S14"
+      ],
+      "sourceRefs": [
+        "docs/TECHNOLOGY_AND_PROGRESSION.md",
+        "docs/worlds/PROGRESSION_AND_ASSEMBLY.md",
+        "src/factorio_retort_content.js",
+        "src/power_models.js"
+      ],
+      "criterion": "A machine performs its promised operation with actual supported input, supply, throughput and destination.",
+      "proposedExpansion": {
+        "variants": [
+          "Hand or water driven",
+          "Fuel batch",
+          "Finite charged device",
+          "Locally supported mana/qi source"
+        ],
+        "details": [
+          "Startup, throughput and reserves separate only where relevant.",
+          "Heat/strain is local authored constraint, not mandatory universal meter.",
+          "A sufficiently powerful source really meets demand."
+        ]
+      },
+      "dependencies": [
+        "G6-007",
+        "G6-012"
+      ],
+      "engineConsumerOrGap": "Retort consumes exact fuel and receivers; power model scalar capacity exists. Durable multi-channel runtime device budgets missing.",
+      "acceptanceCases": [
+        "Absent fuel names stall",
+        "Receiver collection affects next batch",
+        "Supported infinite source honors its scope",
+        "No elapsed-time output without input"
+      ],
+      "remaining": "One fixed device mode can precede general budgets."
+    },
+    {
+      "id": "G6-014",
+      "name": "Automation and supervision",
+      "sections": [
+        "S05",
+        "S06",
+        "S11",
+        "S14"
+      ],
+      "sourceRefs": [
+        "docs/TECHNOLOGY_AND_PROGRESSION.md",
+        "docs/research/CRAFTING_TECH_MICRO_MACRO_2026-10-11.md",
+        "src/factorio_retort_content.js"
+      ],
+      "criterion": "Selected automation repeats real operations only while supported and exposes its binding stop cause.",
+      "proposedExpansion": {
+        "variants": [
+          "Finite learned work plan",
+          "Input-fed machine",
+          "Worker-operated line",
+          "Self-maintaining exceptional system"
+        ],
+        "details": [
+          "Native/manual alternatives remain reachable where means exist.",
+          "G3 owns wages/relationships; G6 declares operations operator can execute.",
+          "Offline advancement and absence policy explicitly selected."
+        ]
+      },
+      "dependencies": [
+        "G6-012",
+        "G6-013",
+        "G3 worker means",
+        "G4 clocks"
+      ],
+      "engineConsumerOrGap": "Existing retort finite plan has explicit steps; general autonomous industrial scheduling/self-expansion missing.",
+      "acceptanceCases": [
+        "Fuel exhaustion during absence",
+        "Lost operator access",
+        "Stop/resume does not redo reward",
+        "Supernatural automation may bypass supervision if real"
+      ],
+      "remaining": "No universal attention-for-fragility tradeoff imposed."
+    },
+    {
+      "id": "G6-015",
+      "name": "Utility accessories and ordinary support devices",
+      "sections": [
+        "S06",
+        "S07",
+        "S13"
+      ],
+      "sourceRefs": [
+        "src/absorb_c1/accessories.js",
+        "src/crafting_recipes.js",
+        "src/display.js"
+      ],
+      "criterion": "Each selected accessory changes the intended native action only when actually equipped or otherwise required.",
+      "proposedExpansion": {
+        "variants": [
+          "Chance charm craft probability",
+          "Forager drop probability",
+          "Trade-markup aid",
+          "Portable cooking capability",
+          "Survey lens or adapted body tool"
+        ],
+        "details": [
+          "Statless utility is still a real function.",
+          "Use inventory/equipment/custody incumbent; owning spare copies need not stack.",
+          "Allow superior or unusual variants where earned, with actual consumers."
+        ]
+      },
+      "dependencies": [
+        "G2 power/cheat joins",
+        "G5 equipment projection"
+      ],
+      "engineConsumerOrGap": "Four source accessories expose adapters; Recipe and display/main station tiers consume selected utilities. No browser verification run here.",
+      "acceptanceCases": [
+        "Equip vs carry distinction",
+        "Wrong native slot",
+        "Impossible recipe remains impossible",
+        "Portable station preserves better kitchen tier"
+      ],
+      "remaining": "Current absorption acceptance retained; future utility needs own consumer."
+    },
+    {
+      "id": "G6-016",
+      "name": "Connected precision-to-water journey",
+      "sections": [
+        "S03",
+        "S05",
+        "S06",
+        "S14"
+      ],
+      "sourceRefs": [
+        "docs/research/CRAFTING_TECH_MICRO_MACRO_2026-10-11.md"
+      ],
+      "criterion": "A built supplied pump opens a real water-dependent recipient action; its seal and operation matter.",
+      "proposedExpansion": {
+        "variants": [
+          "Hand pump",
+          "Powered fixed pump",
+          "Commissioned superior device",
+          "Local artifice equivalent"
+        ],
+        "details": [
+          "Sample bore, choose seal, measure fit, build/test, install with rights, provide supply, deliver useful water.",
+          "Recipient can irrigate one supported plot or access an authored service.",
+          "No generic fluid network or global potable-water rule required."
+        ]
+      },
+      "dependencies": [
+        "G6-003",
+        "G6-007",
+        "G6-010",
+        "G6-013",
+        "G3 recipient/action",
+        "G4 event joins"
+      ],
+      "engineConsumerOrGap": "No pump consumer found in inspected source; exact selected device and recipient action adapter required.",
+      "acceptanceCases": [
+        "Leak result changes delivered amount under local rule",
+        "No power no pumping",
+        "Recipient action actually unlocked",
+        "Save/reload preserves installation/output"
+      ],
+      "remaining": "Ready packet P1 below after G3 recipient contract and G5 transaction reservation."
+    },
+    {
+      "id": "G6-017",
+      "name": "Specialty-to-second-supplier journey",
+      "sections": [
+        "S05",
+        "S06",
+        "S07",
+        "S11"
+      ],
+      "sourceRefs": [
+        "docs/research/CRAFTING_TECH_MICRO_MACRO_2026-10-11.md"
+      ],
+      "criterion": "One taught supplier fulfills an actual later order using its own supported means and stock.",
+      "proposedExpansion": {
+        "variants": [
+          "Teach personally",
+          "Sell method",
+          "Open demonstration",
+          "Hire trained specialist"
+        ],
+        "details": [
+          "Maker specialty affects one recipe.",
+          "First accepted batch teaches only supported evidence.",
+          "Second supplier has actual capacity/stock; world reaction references real fulfillment."
+        ]
+      },
+      "dependencies": [
+        "G6-005",
+        "G6-012",
+        "G3 contracts/worker state",
+        "G4 local progression"
+      ],
+      "engineConsumerOrGap": "Method knowledge/jobs exist; recipe-specialty adapter and supplier order consumer missing.",
+      "acceptanceCases": [
+        "Teacher unavailable after transfer",
+        "Reject unsuitable batch",
+        "Second supplier shortage",
+        "No free duplicated wages/stock"
+      ],
+      "remaining": "Ready packet P2; G3 owns orders/payment/worker writes."
+    },
+    {
+      "id": "G6-018",
+      "name": "Local preservation-to-delivery journey",
+      "sections": [
+        "S05",
+        "S06",
+        "S12",
+        "S14"
+      ],
+      "sourceRefs": [
+        "docs/research/CRAFTING_TECH_MICRO_MACRO_2026-10-11.md"
+      ],
+      "criterion": "Selected preparation preserves one local product long enough for actual delivery under declared clocks.",
+      "proposedExpansion": {
+        "variants": [
+          "Drying",
+          "Cold storage",
+          "Sealed container",
+          "Stasis cheat/local exceptional method"
+        ],
+        "details": [
+          "Batch age and transformation rule needed only for selected perishable family.",
+          "Useful residue or alternate use is authored, not automatic.",
+          "No universal expiry/hunger from this proposal."
+        ]
+      },
+      "dependencies": [
+        "G4 age/offline clock",
+        "G6-010",
+        "G3 delivery contract",
+        "G5 batch persistence"
+      ],
+      "engineConsumerOrGap": "Native recipes support preparation; general batch age/spoilage transport consumer missing.",
+      "acceptanceCases": [
+        "Load paused/elapsed policy",
+        "Mix batches under declared age rule",
+        "Container removed",
+        "Stasis works if acquired"
+      ],
+      "remaining": "Later packet P6; higher persistence burden than P1/P2."
+    },
+    {
+      "id": "G6-019",
+      "name": "Environmental processing and site consequences",
+      "sections": [
+        "S03",
+        "S06",
+        "S11"
+      ],
+      "sourceRefs": [
+        "src/weather.js",
+        "src/world_completion_materials_runtime.js",
+        "docs/research/CRAFTING_TECH_MICRO_MACRO_2026-10-11.md"
+      ],
+      "criterion": "Selected weather/ecology event changes only causally supported material/site consumers.",
+      "proposedExpansion": {
+        "variants": [
+          "Rain affects exposed drying",
+          "Frost affects one planted bed",
+          "Shelter protects selected process",
+          "Local heat or atmosphere changes device operation"
+        ],
+        "details": [
+          "Explicit enrollment/support/window; no universal climate damage.",
+          "World instances select their own environmental rules.",
+          "Past event cannot replay after a late intervention."
+        ]
+      },
+      "dependencies": [
+        "G4 event/instance contract",
+        "World GM environment choice"
+      ],
+      "engineConsumerOrGap": "Native weather derives deterministic temperature/rain/light; material runtime joins one opted-in crop/drain and preserves unsupported windows. General ecology not present.",
+      "acceptanceCases": [
+        "Sheltered vs exposed operation",
+        "Late intervention changes current state only",
+        "World departure chosen pause policy",
+        "Repeated harvest rejected"
+      ],
+      "remaining": "Broader weather/ecology simulation remains continuation."
+    },
+    {
+      "id": "G6-020",
+      "name": "Resource geography and extraction",
+      "sections": [
+        "S03",
+        "S05",
+        "S06"
+      ],
+      "sourceRefs": [
+        "docs/research/CRAFTING_TECH_MICRO_MACRO_2026-10-11.md",
+        "docs/TECHNOLOGY_AND_PROGRESSION.md"
+      ],
+      "criterion": "A selected source supplies its actual material through an accessible extraction or trade route.",
+      "proposedExpansion": {
+        "variants": [
+          "Common local supply",
+          "Finite deposit",
+          "Regrowing source",
+          "Imported rare substrate",
+          "Created material via actual cheat"
+        ],
+        "details": [
+          "Extraction permission/social response belongs G3.",
+          "Depletion/regrowth only if world selects it.",
+          "Substitution and recycling provide distinct routes when supported."
+        ]
+      },
+      "dependencies": [
+        "G6-001",
+        "G3 trade/access",
+        "G4 regeneration clock"
+      ],
+      "engineConsumerOrGap": "Native material recipes/gathering foundations not exhaustively read; new resource stock/location adapter requires selected source.",
+      "acceptanceCases": [
+        "Exhaust chosen deposit",
+        "No access no extraction",
+        "Import held cargo",
+        "Strong creation ability really supplies material"
+      ],
+      "remaining": "Full gathering catalogue intentionally unread."
+    },
+    {
+      "id": "G6-021",
+      "name": "Infrastructure and real public-service changes",
+      "sections": [
+        "S03",
+        "S05",
+        "S06",
+        "S11"
+      ],
+      "sourceRefs": [
+        "docs/research/CRAFTING_TECH_MICRO_MACRO_2026-10-11.md",
+        "docs/TECHNOLOGY_AND_PROGRESSION.md"
+      ],
+      "criterion": "Commissioned infrastructure changes an actual service or route rather than only regional adoption text.",
+      "proposedExpansion": {
+        "variants": [
+          "Pump irrigation",
+          "Lighting night work",
+          "Printing accessible texts",
+          "Communication remote orders",
+          "Clinic preparation/support"
+        ],
+        "details": [
+          "Trace micro part\u2192working installation\u2192capacity\u2192recipient behavior.",
+          "Recipients/institutions decide adoption by their means/goals, not a universal resistance tax.",
+          "Maturity and adoption separate; advanced pockets coexist with basic regions."
+        ]
+      },
+      "dependencies": [
+        "G6-016 or selected device",
+        "G3 service/institution",
+        "G4 timeline"
+      ],
+      "engineConsumerOrGap": "Finite site projects can author phases; generic service/adoption/region consumers absent in inspected files.",
+      "acceptanceCases": [
+        "Prototype no automatic regional adoption",
+        "Destroyed supply stops supported service",
+        "Native improvement may surpass player invention",
+        "High means may enable instant supported adoption"
+      ],
+      "remaining": "One bounded recipient first; global economy not needed."
+    },
+    {
+      "id": "G6-022",
+      "name": "Diffusion, standards and competing designs",
+      "sections": [
+        "S04",
+        "S06",
+        "S11"
+      ],
+      "sourceRefs": [
+        "docs/research/CRAFTING_TECH_MICRO_MACRO_2026-10-11.md",
+        "docs/TECHNOLOGY_AND_PROGRESSION.md"
+      ],
+      "criterion": "A real taught/published/demonstrated method enables supported adoption or improvement by named actors.",
+      "proposedExpansion": {
+        "variants": [
+          "Open publication",
+          "Private apprenticeship",
+          "Licensing/commission",
+          "Independent rediscovery",
+          "Imported standard adapter"
+        ],
+        "details": [
+          "Physical connector/measure standard G6; entitlement/reaction G3.",
+          "Copied known design still needs materials/tools.",
+          "Local authorities may fund, ignore, oppose or improve for actual reasons."
+        ]
+      },
+      "dependencies": [
+        "G6-017",
+        "G3 actor goals/access",
+        "G4 natural course"
+      ],
+      "engineConsumerOrGap": "Knowledge receipts exist; generic method diffusion and standard interoperability consumers missing.",
+      "acceptanceCases": [
+        "No witness no observation diffusion",
+        "Recorded method survives maker absence",
+        "Incompatible supplier needs adapter",
+        "Canon milestone proceeds absent intervention"
+      ],
+      "remaining": "Select one observed transfer chain; no per-frame world gossip solver."
+    },
+    {
+      "id": "G6-023",
+      "name": "Cross-world compatibility experiments",
+      "sections": [
+        "S01",
+        "S06",
+        "S12"
+      ],
+      "sourceRefs": [
+        "docs/worlds/PROGRESSION_AND_ASSEMBLY.md",
+        "docs/TECHNOLOGY_AND_PROGRESSION.md",
+        "src/home_furnishing_content.js"
+      ],
+      "criterion": "Imported device, method or material retains its carrier and works only under actual local support, with meaningful adaptation routes.",
+      "proposedExpansion": {
+        "variants": [
+          "Device works intact",
+          "Locally fuel-limited",
+          "New adapter needed",
+          "Design reproducible from local substitute",
+          "Source law blocks operation until real exceptional means"
+        ],
+        "details": [
+          "Separate possession, operation and reproduction.",
+          "No universal technology/magic suppression default.",
+          "Cross-world unknowns are original experiments unless verified canon."
+        ]
+      },
+      "dependencies": [
+        "G2 carriers/exceptional functions",
+        "G4 instance identity",
+        "G6-004",
+        "G6-007"
+      ],
+      "engineConsumerOrGap": "Home notebook adaptation has narrow mundane consumer and physical carrier; generic compatibility/channel translator absent.",
+      "acceptanceCases": [
+        "Return retains original object",
+        "Import blueprint no factory",
+        "Compatible source works immediately",
+        "Strong compatibility cheat honors exact effect"
+      ],
+      "remaining": "World GM verifies local law before selecting outcomes."
+    },
+    {
+      "id": "G6-024",
+      "name": "Salvage and reverse engineering",
+      "sections": [
+        "S06",
+        "S09",
+        "S12"
+      ],
+      "sourceRefs": [
+        "docs/TECHNOLOGY_AND_PROGRESSION.md",
+        "docs/worlds/PROGRESSION_AND_ASSEMBLY.md"
+      ],
+      "criterion": "Disassembly yields declared actual parts/evidence and only the tested knowledge necessary for reproduction.",
+      "proposedExpansion": {
+        "variants": [
+          "Non-destructive inspection",
+          "Paid careful disassembly",
+          "Destructive recovery",
+          "Exceptional perfect reconstruction"
+        ],
+        "details": [
+          "Tamper protection/self-destruction only where source/device supplies it.",
+          "Missing manual vs missing tools vs missing exotic ingredient are separate gaps.",
+          "Known function need not reveal hidden operating principle."
+        ]
+      },
+      "dependencies": [
+        "G6-004",
+        "G6-009",
+        "G2 analysis cheats"
+      ],
+      "engineConsumerOrGap": "Current count-based salvage patterns exist; general device specimen disassembly/evidence adapter missing.",
+      "acceptanceCases": [
+        "Inspect no consume",
+        "Destroyed sample yields declared residue only",
+        "Protection triggers only matching condition",
+        "Perfect analysis grants supported detail"
+      ],
+      "remaining": "Select one ordinary public prototype; no sealed device details public."
+    },
+    {
+      "id": "G6-025",
+      "name": "Body-adapted and alien technology",
+      "sections": [
+        "S02",
+        "S06",
+        "S07"
+      ],
+      "sourceRefs": [
+        "docs/TECHNOLOGY_AND_PROGRESSION.md",
+        "docs/worlds/PROGRESSION_AND_ASSEMBLY.md",
+        "docs/research/CRAFTING_TECH_MICRO_MACRO_2026-10-11.md"
+      ],
+      "criterion": "A supported body can build and operate its local tool through actual anatomy, control and substrate.",
+      "proposedExpansion": {
+        "variants": [
+          "One-handed jig/assistant",
+          "Living grown equipment",
+          "Collective computation",
+          "Soul/concept engineering in supported worlds"
+        ],
+        "details": [
+          "Conventional tools not universal requirement.",
+          "Living tool growth, care, consent and custody require local source contract.",
+          "No human-hand assumption imported into random alien starts."
+        ]
+      },
+      "dependencies": [
+        "G1 body/start means",
+        "G2 local powers",
+        "World GM source rules"
+      ],
+      "engineConsumerOrGap": "Material jobs explicitly gate two usable hands in their local human scope; generic nonhuman/alien functional device adapters missing.",
+      "acceptanceCases": [
+        "Human device rejected for unsupported body with useful explanation",
+        "Adapted tool supplies same operation",
+        "Source-bound organ cannot be inventory-renamed"
+      ],
+      "remaining": "Full alien/source research remains world-GM continuation."
+    },
+    {
+      "id": "G6-026",
+      "name": "Research programs and workshop priorities",
+      "sections": [
+        "S04",
+        "S05",
+        "S06",
+        "S11"
+      ],
+      "sourceRefs": [
+        "docs/research/CRAFTING_TECH_MICRO_MACRO_2026-10-11.md",
+        "docs/TECHNOLOGY_AND_PROGRESSION.md"
+      ],
+      "criterion": "A supported team executes selected tests/production under explicit capacity, stock and priority commitments.",
+      "proposedExpansion": {
+        "variants": [
+          "Personal project",
+          "Commissioned experiment",
+          "Academy program",
+          "Distributed workshop collaboration"
+        ],
+        "details": [
+          "G3 selects agreements/knowledge ownership.",
+          "G6 specifies apparatus/question/delivery and dependency order.",
+          "Queued facility/worker commitments count when anticipating supply, without awarding future output."
+        ]
+      },
+      "dependencies": [
+        "G6-004",
+        "G6-012",
+        "G3 institutional contract"
+      ],
+      "engineConsumerOrGap": "Site phases and finite plans exist; multi-actor research program/project-reservation planner missing.",
+      "acceptanceCases": [
+        "Research competes with urgent repair",
+        "Absent specialist only stalls dependent phase",
+        "Cancelled commission releases actual reservations"
+      ],
+      "remaining": "Start event-driven bounded program, not global project AI."
+    },
+    {
+      "id": "G6-027",
+      "name": "Heirs, loss and industrial continuity",
+      "sections": [
+        "S06",
+        "S11",
+        "S12",
+        "S14"
+      ],
+      "sourceRefs": [
+        "docs/TECHNOLOGY_AND_PROGRESSION.md",
+        "docs/research/CRAFTING_TECH_MICRO_MACRO_2026-10-11.md",
+        "docs/worlds/PROGRESSION_AND_ASSEMBLY.md"
+      ],
+      "criterion": "Successor receives actual retained facility/records/claims under selected inheritance policy without invented personal mastery.",
+      "proposedExpansion": {
+        "variants": [
+          "Working inherited shop",
+          "Ruined facility with surviving records",
+          "Institution remembers maker",
+          "New run with actual carried blueprint"
+        ],
+        "details": [
+          "Facility loss, knowledge loss and personal skill loss separate.",
+          "G3 owns successor entitlement; G4 owns history/reset.",
+          "Transferred archive is a real carrier; name in history requires observed institutional record."
+        ]
+      },
+      "dependencies": [
+        "G3 claims/heirs",
+        "G4 retention/history",
+        "G2 carriers"
+      ],
+      "engineConsumerOrGap": "Existing fixture/custody state offers foundations; inherited facility/adoption compatibility not established by this audit.",
+      "acceptanceCases": [
+        "Rebuild from surviving records",
+        "Debt/claim retention local policy",
+        "No personally earned predecessor reward invented",
+        "Different timeline inventory isolated"
+      ],
+      "remaining": "Needs named inheritance/instance consumer; not a generic prestige assumption."
+    },
+    {
+      "id": "G6-028",
+      "name": "Functional item and workshop presentation",
+      "sections": [
+        "S06",
+        "S09",
+        "S13"
+      ],
+      "sourceRefs": [
+        "docs/research/CRAFTING_TECH_MICRO_MACRO_2026-10-11.md",
+        "docs/worlds/PROGRESSION_AND_ASSEMBLY.md",
+        "src/absorb_b/furniture.js",
+        "src/home_furnishing_host.js"
+      ],
+      "criterion": "Native interface shows available functions, known constraints, actual cost and stop cause with no hidden truth leakage.",
+      "proposedExpansion": {
+        "variants": [
+          "Compact function summary",
+          "Expandable component details",
+          "Accessible measurement range",
+          "Queue priority/receiver status"
+        ],
+        "details": [
+          "No eight-menu bureaucracy from assembly hierarchy.",
+          "Describe uncertain readings as attributed estimates.",
+          "Actor sees earned designs/owned fixtures; secret truths stay in sealed detail owners."
+        ]
+      },
+      "dependencies": [
+        "G5 native UI binding",
+        "G6-003"
+      ],
+      "engineConsumerOrGap": "Existing Here-panel records/projection and native inventory/equipment remain baseline; dynamic known-only graph view missing.",
+      "acceptanceCases": [
+        "Unknown material not exact hidden data",
+        "Keyboard operation",
+        "Stale cost refresh before commitment",
+        "No engine IDs in player labels"
+      ],
+      "remaining": "Final accessibility/native journey gate belongs implementation packet."
+    },
+    {
+      "id": "G6-029",
+      "name": "Industrial simulation performance boundaries",
+      "sections": [
+        "S06",
+        "S11",
+        "S14"
+      ],
+      "sourceRefs": [
+        "docs/research/CRAFTING_TECH_MICRO_MACRO_2026-10-11.md",
+        "docs/TECHNOLOGY_AND_PROGRESSION.md"
+      ],
+      "criterion": "Selected capacity chain settles deterministically at supported boundaries and stops at actual exhaustion without per-frame item ticking.",
+      "proposedExpansion": {
+        "variants": [
+          "Finite batch plan",
+          "Event-driven scheduled completion",
+          "Bounded offline production",
+          "Aggregated identical processes where equivalent"
+        ],
+        "details": [
+          "Name input/output/capacity/shared-worker boundary before any aggregation.",
+          "Single-output bottleneck estimate is not generic multi-product solver.",
+          "No equivalent suite reruns while authoritative gate already running."
+        ]
+      },
+      "dependencies": [
+        "G5 clock/publisher",
+        "G4 offline policy"
+      ],
+      "engineConsumerOrGap": "Retort bounded plans and exact jobs provide patterns; no universal industrial network solver established.",
+      "acceptanceCases": [
+        "Large elapsed interval stops at fuel exhaustion",
+        "Order of two completions defined",
+        "Save failure publishes no phantom output"
+      ],
+      "remaining": "Performance budget/reproducer selected with actual implementation scope."
+    },
+    {
+      "id": "G6-030",
+      "name": "Completion and source coverage gate",
+      "sections": [
+        "S00",
+        "S06",
+        "S14"
+      ],
+      "sourceRefs": [
+        "docs/WORLD_COMPLETION_STANDARD.md",
+        "docs/research/CRAFTING_TECH_MICRO_MACRO_2026-10-11.md",
+        "docs/worlds/PROGRESSION_AND_ASSEMBLY.md"
+      ],
+      "criterion": "Every selected functional leaf names source boundary, consumer, interaction cases and verification stage; unselected breadth is explicit.",
+      "proposedExpansion": {
+        "variants": [
+          "Fixed item slice",
+          "Completed selected section",
+          "World-local industrial program"
+        ],
+        "details": [
+          "Rebuild then fresh-origin journey acquisition\u2192use\u2192real consequence.",
+          "Save/reload/import and compatibility for changed persistence.",
+          "Director review is separate from source checks and browser receipts."
+        ]
+      },
+      "dependencies": [
+        "G5 reconciled ledger",
+        "World GM finite scope"
+      ],
+      "engineConsumerOrGap": "Planning artifacts only in this lane; no gameplay/build/browser assertions.",
+      "acceptanceCases": [
+        "No item catalog mistaken for functioning assembly",
+        "No regional label mistaken for changed life",
+        "All selected alternatives reachable or named dependency"
+      ],
+      "remaining": "Integration must adjudicate requirements and dispatch runtime scope separately."
+    }
+  ],
+  "unreadRemainder": [
+    "Full existing audit intake and reference-game reports not exhaustively read; no external/source-book research launched.",
+    "World MODULE_CATALOGUE, source ledgers and private pack/sealed material truths remain world-GM tranches.",
+    "Native item/recipe/gathering catalogues, main/display, broad simulation/save paths and later validation tails are targeted-only reads, not exhaustive audits.",
+    "Full macro economy, ecological model, technology diffusion and dynamic assembly implementation remain unscheduled horizon."
+  ],
+  "noRuntimeClaim": true
+}

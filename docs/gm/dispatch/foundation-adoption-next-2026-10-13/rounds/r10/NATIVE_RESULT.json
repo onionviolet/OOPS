@@ -1,0 +1,68 @@
+{
+  "status": "BOUNDED PARTIAL",
+  "entryRestoration": {
+    "character": true,
+    "inventories": true,
+    "expansion": true,
+    "current time": true,
+    "current location": true,
+    "npcs": true,
+    "npc_equipment": true
+  },
+  "sourceChecks": 8,
+  "paidCraft": "PAD_PAUSED.json",
+  "nativeUse": "PAD_USED_PAUSED.json",
+  "battleActions": 2,
+  "guardReceipt": {
+    "action": 1,
+    "type": "guard",
+    "actorId": "player",
+    "targets": [
+      "player"
+    ],
+    "text": "You spent the actual kit brace pad and two stamina for one stronger physical self guard.",
+    "combatFit": [],
+    "technique": null,
+    "nonce": {
+      "sessionId": "simulation:4861",
+      "sequence": 4861,
+      "action": 0,
+      "seed": 620341067
+    },
+    "outcomes": []
+  },
+  "incomingReceipt": {
+    "action": 2,
+    "type": "strike",
+    "actorId": "featureBattleHook",
+    "targets": [
+      "player"
+    ],
+    "text": "The held defense earned one next-choice opening: retreat for 1 stamina or counter for 2; any other player choice lets it expire. Oren committed a pole pull. Oren hit You for 1 [anchored: fatigue counter resisted].",
+    "combatFit": [],
+    "technique": "hook",
+    "nonce": {
+      "sessionId": "simulation:4861",
+      "sequence": 4862,
+      "action": 1,
+      "seed": 620341067
+    },
+    "outcomes": [
+      {
+        "targetId": "player",
+        "kind": "hit",
+        "damage": 1,
+        "defended": true
+      }
+    ]
+  },
+  "lastReliableClock": 859,
+  "lastReliableMoney": 47,
+  "finalWithdrawal": "ambiguous timeout; do not repeat without commitment evidence",
+  "finalSaveReloadExportLiteralImport": "OPEN / not demonstrated; disposable browser closed without genuine final export",
+  "latestGenuineExport": "../r8/final-earned-native.txt (historical pre-R10 only; cannot represent R10 spent state)",
+  "actualEarnedSnapshot": "PAD_USED_PAUSED.json and ERROR_LATEST_EARNED_1791908521709.json; actual stored Save observations, not Export/import artifacts",
+  "runtimeRepair": false,
+  "errors": "Harness initialization/key/lock and redirect listener failures; two uncommitted navigation failures each clock858 before original import recovery, charged4 lost minutes. Final summary toggle hid required controls; final withdrawal click ambiguous and error cleanup Save locator failed. Browser closed on failed cleanup.",
+  "ownBrowserClosed": true
+}

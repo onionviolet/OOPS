@@ -1,0 +1,7 @@
+{
+  "error": "page.waitForEvent: Timeout 30000ms exceeded while waiting for event \"domcontentloaded\"\n=========================== logs ===========================\nwaiting for event \"domcontentloaded\"\n============================================================",
+  "errors": [],
+  "pid": 28281,
+  "bundle": "9b130b295f8464eb770f603afd68d31166569901bd9f0af2acda93192007fcae",
+  "input": "/tmp/yairpg-foundation-learning-equipment-blocker.json"
+}

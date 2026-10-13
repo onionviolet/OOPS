@@ -1,0 +1,16 @@
+{
+  "bundle": "ef2e248bc8fdd21323e7becb1277ac45bc2537bdcf8e9630e5c688c60bc48d6a",
+  "actualInput": "/tmp/yairpg-foundation-learning-worker-feat-enrollment.json",
+  "error": "Unknown simulation participant featureBattleHook.",
+  "route": [
+    "native Stop woodcutting",
+    "native Open your feat record",
+    "actual publication to schema9/referenceGameplay1",
+    "saved exact actual state",
+    "fresh disposable ordinary native PLAY from exact saved state",
+    "pageerror and empty Here panel"
+  ],
+  "seam": "reference_gameplay_host.js:referenceGameplayPresentation calls simulationFacts with absent featureBattleHook before checking unopened-workshop visibleWhen",
+  "forbiddenShortcut": "Do not instantiate/provision hook or mark battle/workshop introduced merely for projection",
+  "status": "native reproduced; awaiting sole source owner repair"
+}

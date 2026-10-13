@@ -1,0 +1,224 @@
+Your beginning
+
+A livelihood in Reedbank
+
+You begin an adult local life with two usable hands. The holding jig supports your repair work. Buy access or walk along the lane; work is optional.
+
+Reedbank repair stall
+
+Mara
+
+Mara owns the stall, two repair kits, one offcut and one spare work period. She knows braced joinery and offers one paid joint repair.
+
+Sella
+
+Sella sells bread. Her split basket and loose-sided crate are here for repair; she has eight coins for those two deliveries and six for later small repairs.
+
+opening: You have three offcuts and an ordinary work coat. Buy access to Mara’s bench or take a walk along the lane. The holding jig supports either one or two hands. Work advances only on played time while you remain here; closing the browser pauses it. Travel waits for current work. Your history survives return.
+
+access: You bought one of Mara’s real kits and permission to use her holding jig. The kit is yours, with no return debt.
+
+basket terms: Sella entrusted you with her worn basket. One offcut and two played minutes repair it; delivery pays four coins. Cancelling repair returns its inputs to you, and you may return the untouched basket.
+
+basket receipt: Sella paid four coins and put your repaired basket back into her bread round.
+
+Your method: Mara taught you to seat and fasten a diagonal brace. You can now repair rigid crates, using your own kit and the holding jig.
+
+crate terms: Sella entrusted you with her loose crate. Braced joinery is required. Repair it personally for four coins, or agree to share one delivery coin with Mara for her own brace work.
+
+Mara’s contribution: Mara cut and fitted the brace with her own kit, offcut and spare work period. You assembled the crate together; she is owed one of its four delivery coins.
+
+crate receipt: Sella paid for your braced crate and now uses it for larger bread loads.
+
+lane: The lane offers a quiet return boundary. No workshop work runs while you are here; closed-browser time does not advance this district.
+
+A later opportunity: Sella’s repaired basket and braced crate are still on her bread round. Because you delivered both, she offers you the next three small fittings at two coins each. This standing offer comes from those deliveries, not a fresh introduction.
+
+routine: You delivered another useful fitting to Sella. Her finite standing repair fund paid two coins; buy offcuts for further work.
+
+Buy kit and bench access · 2 coins
+
+Two coins buy a real kit and continuing bench access. No field combat or campaign credit is required.
+
+Settled completions: 1.
+
+Time quote: Immediate.
+
+Inputs: None quoted.
+
+This action has already been completed.
+
+Buy kit and bench access · 2 coins
+Accept Sella’s basket repair · 4 coins on delivery
+
+Settled completions: 1.
+
+Time quote: Immediate.
+
+Inputs: None quoted.
+
+This action has already been completed.
+
+Accept Sella’s basket repair · 4 coins on delivery
+Repair Sella’s basket · 1 offcut · 2 min
+
+Settled completions: 1.
+
+Time quote: 2 played minutes.
+
+Inputs: None quoted.
+
+Insufficient, stale or unavailable item quantity. Refresh the trade.
+
+Repair Sella’s basket · 1 offcut · 2 minRepeat Repair Sella’s basket · 1 offcut · 2 min 3 times
+Return the untouched basket
+
+Unavailable.
+
+Time quote: Immediate.
+
+Inputs: None quoted.
+
+Insufficient, stale or unavailable item quantity. Refresh the trade.
+
+Return the untouched basket
+Resume the returned basket repair
+
+Unavailable.
+
+Time quote: Immediate.
+
+Inputs: None quoted.
+
+The required knowledge, means or circumstances are missing.
+
+Resume the returned basket repair
+Deliver Sella’s basket · 4 coins
+
+Deliver the actual repaired item. Sella’s own eight-coin repair fund pays each delivery once. Restoring this life never repays it.
+
+Settled completions: 1.
+
+Time quote: Immediate.
+
+Inputs: None quoted.
+
+The required knowledge, means or circumstances are missing. This action has already been completed.
+
+Deliver Sella’s basket · 4 coins
+Learn braced joinery from Mara · 2 coins · 2 min
+
+Practice the arrangement at the jig with Mara. A simple basket repair cannot stabilize a loaded rigid crate. Cancellation refunds the two coins and grants no method.
+
+Settled completions: 1.
+
+Time quote: 2 played minutes.
+
+Inputs: None quoted.
+
+This action has already been completed.
+
+Learn braced joinery from Mara · 2 coins · 2 min
+Accept Sella’s crate repair · 4 coins on delivery
+
+Settled completions: 1.
+
+Time quote: Immediate.
+
+Inputs: None quoted.
+
+This action has already been completed.
+
+Accept Sella’s crate repair · 4 coins on delivery
+Brace the crate yourself · 1 offcut · 3 min
+
+Unavailable.
+
+Time quote: 3 played minutes.
+
+Inputs: None quoted.
+
+Insufficient, stale or unavailable item quantity. Refresh the trade.
+
+Brace the crate yourself · 1 offcut · 3 minRepeat Brace the crate yourself · 1 offcut · 3 min 3 times
+Agree to repair with Mara · 1 coin of delivery pay · 2 min
+
+Mara offers one joint repair. She supplies her own offcut, kit, method and spare work period. You work together at the jig. Delivery pays three coins to you and one to her; cancellation or lost support refunds the reserved inputs and her period.
+
+Settled completions: 1.
+
+Time quote: 2 played minutes.
+
+Inputs: None quoted.
+
+The required knowledge, means or circumstances are missing.
+
+Agree to repair with Mara · 1 coin of delivery pay · 2 minRepeat Agree to repair with Mara · 1 coin of delivery pay · 2 min 3 times
+Deliver Sella’s crate · 4 coins
+
+Deliver the actual repaired item. Sella’s own eight-coin repair fund pays each delivery once. Restoring this life never repays it.
+
+Unavailable.
+
+Time quote: Immediate.
+
+Inputs: None quoted.
+
+The required knowledge, means or circumstances are missing.
+
+Deliver Sella’s crate · 4 coins
+Deliver Sella’s crate · 3 coins to you, 1 to Mara
+
+Deliver the actual repaired item. Sella’s own eight-coin repair fund pays each delivery once. Restoring this life never repays it.
+
+Settled completions: 1.
+
+Time quote: Immediate.
+
+Inputs: None quoted.
+
+The required knowledge, means or circumstances are missing. This action has already been completed.
+
+Deliver Sella’s crate · 3 coins to you, 1 to Mara
+Walk to Reedbank lane · 1 min
+
+Settled completions: 1.
+
+Time quote: 1 played minutes.
+
+Inputs: None quoted.
+
+Walk to Reedbank lane · 1 minRepeat Walk to Reedbank lane · 1 min 3 times
+Talk to Sella about your earlier repairs
+
+Settled completions: 1.
+
+Time quote: Immediate.
+
+Inputs: None quoted.
+
+This action has already been completed.
+
+Talk to Sella about your earlier repairs
+Make and deliver a bread-basket fitting · 1 offcut · 2 coins · 2 min
+
+Settled completions: 1.
+
+Time quote: 2 played minutes.
+
+Inputs: 1 × Repair offcut.
+
+Make and deliver a bread-basket fitting · 1 offcut · 2 coins · 2 minRepeat Make and deliver a bread-basket fitting · 1 offcut · 2 coins · 2 min 3 times
+Buy an offcut from Mara · 1 coin
+
+Buy only actual remaining stock. Mara’s joint repair also uses this offcut, so buying it first can leave her unable to contribute.
+
+Unavailable.
+
+Time quote: Immediate.
+
+Inputs: None quoted.
+
+Insufficient, stale or unavailable item quantity. Refresh the trade.
+
+Buy an offcut from Mara · 1 coin

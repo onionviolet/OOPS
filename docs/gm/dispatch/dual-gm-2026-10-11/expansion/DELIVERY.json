@@ -1,0 +1,72 @@
+{
+  "schema": "w1-planning-delivery-1",
+  "revision": 1,
+  "state": "checked finite planning return",
+  "reviewStatus": "pass-finite-planning-tranche",
+  "runtimeImplemented": false,
+  "directorAccepted": false,
+  "files": [
+    {
+      "path": "docs/gm/dispatch/dual-gm-2026-10-11/expansion/CHECKPOINT.md",
+      "sha256": "f9fd445e755fccdfd4e9ae0a161ee6e0aafd51cfe57356e70cf2b416629d0bf5"
+    },
+    {
+      "path": "docs/gm/dispatch/dual-gm-2026-10-11/expansion/COVERAGE_MAP.json",
+      "sha256": "149f069713b2e3be826d596ec5f8a5e338e2e82eb2cf1e7622ebd6df0c102987"
+    },
+    {
+      "path": "docs/gm/dispatch/dual-gm-2026-10-11/expansion/CROSS_SYSTEM_CASES.json",
+      "sha256": "120e2829926ac59a3f70fc03cb3108ba75b5402c6d799f7bcd80cfcc0f61697d"
+    },
+    {
+      "path": "docs/gm/dispatch/dual-gm-2026-10-11/expansion/DETAIL_LEDGER.json",
+      "sha256": "c14f459867cefd871b63e08105ad9264803b9bbb722fa396687e6a9195dba230"
+    },
+    {
+      "path": "docs/gm/dispatch/dual-gm-2026-10-11/expansion/ENGINE_CONTRACTS.json",
+      "sha256": "658df16b35e8b3344dbface15cc3d120eab927605991a273e747c69c284bd561"
+    },
+    {
+      "path": "docs/gm/dispatch/dual-gm-2026-10-11/expansion/INPUT_DISPOSITIONS.json",
+      "sha256": "870ea77d30a0efa41f8bed32c1f83d420cd77dfe8f3d945223b552e4b64f0194"
+    },
+    {
+      "path": "docs/gm/dispatch/dual-gm-2026-10-11/expansion/INPUT_HASHES.json",
+      "sha256": "41219db2bd583571c87c5428c2a064796ac859f2018569d8aca0f07fcb530f50"
+    },
+    {
+      "path": "docs/gm/dispatch/dual-gm-2026-10-11/expansion/PACKETS.md",
+      "sha256": "5b22636bfbd72fd659a93f2c090d603490d8cf3daef6131a5d713e9999d1ce1a"
+    },
+    {
+      "path": "docs/gm/dispatch/dual-gm-2026-10-11/expansion/README.md",
+      "sha256": "3fa2b5b46e746031abeef5917e7cf1a394371bedf3736660af4e679caefdaa26"
+    },
+    {
+      "path": "docs/gm/dispatch/dual-gm-2026-10-11/expansion/REMAINING_MANIFEST.md",
+      "sha256": "9bca20d40074d0164a028f83aec5584d20a168e0680fd365ac06545abca76df1"
+    },
+    {
+      "path": "docs/gm/dispatch/dual-gm-2026-10-11/expansion/REPORT.md",
+      "sha256": "97938f04da40b5a156b4ea715a20d101f6d3c34c20a496911a3897758bde0601"
+    },
+    {
+      "path": "docs/gm/dispatch/dual-gm-2026-10-11/expansion/VALIDATION.json",
+      "sha256": "2a0a7ad9e72bf4f1d1ae7db037cc1e0ad36b0dd231ab898ea595a5864d4744b3"
+    },
+    {
+      "path": "docs/gm/dispatch/dual-gm-2026-10-11/expansion/build_planning.py",
+      "sha256": "502c81c56d33054e21dc35c2cb5ac452a452bea39d7fc789ba7ec101276ba5b3"
+    },
+    {
+      "path": "docs/gm/dispatch/dual-gm-2026-10-11/expansion/review/REVIEW.json",
+      "sha256": "8c71248fb07107a1dfaf4c844258aa23c68fe2a84bda563838b0ecb8f0de81e0"
+    },
+    {
+      "path": "docs/gm/dispatch/dual-gm-2026-10-11/expansion/review/REVIEW.md",
+      "sha256": "190543bfbb7435bd991a4adeab24d2c5a85cd1abcb37a7cd36ecf4ea5da02801"
+    }
+  ],
+  "privateOwners": "Ignored world-depth-2026-10-11/source, starts and integration; exact truths withheld",
+  "nextGate": "Selected authorized implementation packet, rebuilt native fresh-origin journey and generated-save evidence"
+}

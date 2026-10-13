@@ -1,0 +1,8 @@
+const L=require('./lib.cjs');const fs=require('fs');const S=process.env.S;
+(async()=>{await L.launch();for(const [w,h] of [[1366,768],[1920,1080]]){const {p,ctx}=await L.open({w,h,save:fs.readFileSync(S+'/out/progressed.json','utf8')});await L.routes.combat(p);
+ const r=await p.evaluate(()=>{const box=document.getElementById('message_box_div'),b=box.getBoundingClientRect();const lines=[...box.querySelectorAll(':scope > .message_common')].filter(m=>getComputedStyle(m).display!=='none');
+  const last=lines.slice(-5).map(m=>{const r=m.getBoundingClientRect();return {t:m.innerText.trim().slice(0,40),full:r.top>=b.top-0.5&&r.bottom<=b.bottom+0.5&&r.bottom<=innerHeight&&r.top>=0}});
+  const center=e=>{const r=e.getBoundingClientRect();const t=document.elementFromPoint(r.left+r.width/2,r.top+r.height/2);return {inView:r.top>=0&&r.bottom<=innerHeight,text:e.innerText.trim(),hit:!!t&&(t===e||e.contains(t)||t.contains(e)||e.parentElement.contains(t))}};
+  const combat=document.querySelector('.workspace-module[data-module=combat]').getBoundingClientRect(),board=document.querySelector('.workspace-board').getBoundingClientRect();
+  return {total:lines.length,last,name:center(document.querySelector('#enemies_div .enemy_name')),hp:center(document.querySelector('#enemies_div .enemy_health_value')),combatModule:[Math.round(combat.left),Math.round(combat.width)],boardWidth:Math.round(board.width),bandOutsideBoard:!document.querySelector('.workspace-board').contains(document.getElementById('combat_div'))};});
+ console.log(w,JSON.stringify(r));await p.screenshot({path:`${S}/shots/combat_${w}x${h}_a3.png`});await ctx.close();}await L.browser.close();})();

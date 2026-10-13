@@ -1,0 +1,54 @@
+{
+  "candidateBundle": "598f67420c6eb2122f2abc7a7e65d051d1625064ecbfe2c397154d7c020ee155",
+  "sourceTests": {
+    "passed": 36,
+    "scope": "8layout/state +9optional UI +19knownpeople/career/supply; unchanged state and underlying gameplay sources"
+  },
+  "browser": {
+    "RESULT.json": {
+      "sha256": "5f2725dec0a7f78319caa6961ae28d071d4e853a028d80959530c7f9cf37d2d9",
+      "build": "http://127.0.0.1:18571/dist/bundle.js?version=v0.6-598f67420c6e",
+      "checks": 12,
+      "errors": []
+    },
+    "MOVEMENT.json": {
+      "sha256": "480fb205ca28b5650588073007122f598a9a67bdca86d5cdeda9f84f5e0b619a",
+      "build": "http://127.0.0.1:18571/dist/bundle.js?version=v0.6-598f67420c6e",
+      "checks": 9,
+      "errors": []
+    },
+    "touch.json": {
+      "sha256": "1a869fa82046db0749d469f4b0c448fc3d8593ff5257b4546a55e2f08aed0d55",
+      "build": "http://127.0.0.1:18571/dist/bundle.js?version=v0.6-598f67420c6e",
+      "checks": 4,
+      "errors": []
+    },
+    "decisions.json": {
+      "sha256": "10c1c7f6ffc14702572630897452e85c01375360485991ca050451826a2815dd",
+      "build": "http://127.0.0.1:18571/dist/bundle.js?version=v0.6-598f67420c6e",
+      "checks": 3,
+      "errors": []
+    },
+    "comparison.json": {
+      "sha256": "74e96279fb0ea54021317d3b22d526befe1a4ec5289a7cb5a5d5a4879a5267e2",
+      "build": "http://127.0.0.1:18571/dist/bundle.js?version=v0.6-598f67420c6e",
+      "checks": 2,
+      "errors": []
+    },
+    "native-journeys.json": {
+      "sha256": "aef6c4896569426adce71242d49788b659321faf37443da7e0bbe51aa9eb4163",
+      "build": "http://127.0.0.1:18571/dist/bundle.js?version=v0.6-598f67420c6e",
+      "checks": 9,
+      "errors": []
+    },
+    "optional-world-journeys.json": {
+      "sha256": "f30b504bd4838ecada7fff5165425e26efac43a3dc4fadfaa85065dac238300c",
+      "build": "http://127.0.0.1:18571/dist/bundle.js?version=v0.6-598f67420c6e",
+      "checks": 5,
+      "errors": []
+    }
+  },
+  "independentReview": "REVIEW.md records exact earlier/current slice identities separately",
+  "sharedIntegration": "not released; World1 successor reserved",
+  "humanAcceptance": "open; proposals"
+}

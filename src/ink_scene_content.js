@@ -6,7 +6,7 @@ import {NESTED_IDS as nestedIds,NESTED_LOCATIONS as nestedPlaces,NESTED_FOOTPRIN
 import {previewNestedChainCommand,commitNestedChainCommand} from './feature_expansion_nested_chains_host.js';
 import voiceCues from '../docs/gm/feature-wave/ink/voice-cues/VOICE_CUES.json' with {type:'json'};
 
-export const INK_RESPONSES = Object.freeze(['ask_terms', 'material', 'coin', 'borrow_tool', 'return_tool', 'use_tool', 'teach', 'refuse', 'leave', 'relay_terms', 'relay_honest', 'relay_alias', 'relay_credential', 'relay_registry', 'relay_personal', 'relay_office', 'relay_work', 'relay_correction', 'relay_refuse', 'relay_leave', 'nested_hub_terms', 'nested_hub_work', 'nested_hub_train', 'nested_hub_refit', 'nested_hub_role', 'nested_hub_leave', 'nested_offer_terms', 'nested_offer_accept', 'nested_offer_cooperate', 'nested_offer_decline', 'nested_offer_leave', 'nested_local_report', 'nested_local_objective', 'nested_local_support', 'nested_local_extend', 'nested_local_withdraw', 'nested_local_extract', 'nested_local_recover', 'nested_local_refuse', 'nested_local_leave', 'nested_return_report', 'nested_return_settle', 'nested_return_dispute', 'nested_return_refit', 'nested_return_revisit', 'nested_return_stay', 'nested_return_leave']);
+export const INK_RESPONSES = Object.freeze(['ask_terms', 'material', 'coin', 'borrow_tool', 'return_tool', 'use_tool', 'teach', 'refuse', 'leave', 'relay_terms', 'relay_honest', 'relay_alias', 'relay_credential', 'relay_registry', 'relay_personal', 'relay_office', 'relay_work', 'relay_correction', 'relay_refuse', 'relay_leave', 'nested_lin_open', 'nested_lin_work', 'nested_lin_refuse', 'nested_lin_texture', 'nested_lin_account', 'nested_lin_supply', 'nested_hub_terms', 'nested_hub_work', 'nested_hub_train', 'nested_hub_refit', 'nested_hub_role', 'nested_hub_leave', 'nested_offer_terms', 'nested_offer_accept', 'nested_offer_cooperate', 'nested_offer_decline', 'nested_offer_leave', 'nested_local_report', 'nested_local_objective', 'nested_local_support', 'nested_local_extend', 'nested_local_withdraw', 'nested_local_extract', 'nested_local_recover', 'nested_local_refuse', 'nested_local_leave', 'nested_return_report', 'nested_return_settle', 'nested_return_dispute', 'nested_return_refit', 'nested_return_revisit', 'nested_return_stay', 'nested_return_leave']);
 export const INK_SCENE_IDS = Object.freeze({scene:'feature-wave-negotiation',world:ids.world,keeper:ids.keeper,location:places.dock});
 const eq=(fact,value=true)=>({fact,op:'eq',value});
 const knowledge=(key,value)=>({type:'knowledge',actor:'player',key:`ink.tidemark.${key}`,stage:'seen',value});
@@ -50,7 +50,7 @@ export function inkObserverVariables(observed={}) {
 }
 export function inkBindingFor(host,id) {
     const binding=host?.bindings?.[id];
-    if(!binding||typeof binding.id!=='string'||!['narrative','destination','replacement','nested','nested_chain'].includes(binding.kind))throw Error('This narrative response has no admitted host command.');
+    if(!binding||typeof binding.id!=='string'||!['narrative','destination','replacement','nested','nested_chain','nested_life'].includes(binding.kind))throw Error('This narrative response has no admitted host command.');
     return binding;
 }
 const merged=(context,plan)=>({...context,external:plan.external,gameplay:plan.gameplay,vitals:plan.vitals||context.vitals});
@@ -200,6 +200,8 @@ export function inkNestedObserverVariables(observed={}) {
     const safe = observed && typeof observed==='object' ? observed : {};
     return {
         nested_hub_present:safe.nested_hub_present===true,
+        ...Object.fromEntries(['open','work','refuse','texture','account','supply'].map(id=>[`nested_lin_${id}_offered`,safe[`nested_lin_${id}_offered`]===true])),
+        nested_lin_report:bounded(safe.nested_lin_report,'',1200),
         nested_local_present:safe.nested_local_present===true,
         nested_return_arrived:safe.nested_return_arrived===true,
         nested_offer_visible:safe.nested_offer_visible===true,
@@ -290,7 +292,7 @@ export function validateNestedInkScope(state,registry,scope,context,{sceneId,mis
 }
 // Features passes its existing pure preview and its staged native+joined-clock
 // planner. Passing an action that already persists/publishes is unsupported.
-export function createNestedInkHost({state,registry,context,sceneId,missionId=null,previewNative,commitNative,roleChoice='contractor'}={}) {
+export function createNestedInkHost({state,registry,context,sceneId,missionId=null,previewNative,commitNative,previewLife,commitLife,roleChoice='contractor'}={}) {
     if(!registry?.simulation?.commands||!['nested.hub','nested.offer','nested.mission','nested.return'].includes(sceneId)||typeof previewNative!=='function'||typeof commitNative!=='function')throw Error('Bind this exact nested scene, its actual registry and pure native preview/commit.');
     const world=state.actors.player.worldId,location=context.facts?.location||state.simulation?.people.player?.location;
     const endpoint=nestedEndpoints.find(e=>e.scene===sceneId&&e.world===world&&e.location===location);
@@ -301,6 +303,9 @@ export function createNestedInkHost({state,registry,context,sceneId,missionId=nu
     const narrative=operation=>({id:`ink.nested.${endpoint.id}.${operation}`,kind:'narrative'});
     const native=id=>({id:id||'ink.nested.unbound',kind:'nested',...(id?{}:{missing:true})});
     const chain=id=>({id,kind:'nested_chain'});
+    const lin=endpoint.id==='hub_street'&&typeof previewLife==='function'&&typeof commitLife==='function';
+    const life=id=>({id:`nested.life.lin.${id}`,kind:'nested_life'});
+    const lifeAllowed=binding=>{const row=registry.simulation.commands.get(binding.id);return lin&&row?.group==='nested_life'&&row.targetId===endpoint.actor&&row.worldId===endpoint.world&&row.location===endpoint.location&&Object.values(bindings).some(b=>b.kind==='nested_life'&&b.id===binding.id);};
     const localLeaf=leaf=>nestedStd(endpoint.world,leaf);
     const extraction=state.nestedCampaign?.mission?.extraction;
     const bindings={begin:narrative('begin'),revisit:narrative('begin')};
@@ -308,6 +313,7 @@ export function createNestedInkHost({state,registry,context,sceneId,missionId=nu
         nested_hub_terms:narrative('terms'),nested_hub_leave:narrative('leave'),
         nested_hub_work:native(localLeaf('shift')),nested_hub_train:native(localLeaf(state.actors.player.facts['nested.method']==='fragment'?'support_lesson':'fragment')),
         nested_hub_refit:native(localLeaf('refit')),nested_hub_role:native(localLeaf(roleChoice==='employee'?'role_employee':'role_contractor'))});
+    if(lin)Object.assign(bindings,Object.fromEntries(['open','work','refuse','texture','account'].map(id=>[`nested_lin_${id}`,life(id)])),{nested_lin_supply:native('nested.staff_supply')});
     if(sceneId==='nested.offer')Object.assign(bindings,{
         nested_offer_terms:narrative('terms'),nested_offer_accept:native(`nested.accept.${missionId}`),nested_offer_cooperate:native(`nested.accept.${missionId}`),
         nested_offer_decline:narrative('leave'),nested_offer_leave:narrative('leave')});
@@ -356,6 +362,11 @@ export function createNestedInkHost({state,registry,context,sceneId,missionId=nu
             nested_recognition_report:report('nested.chain.roles.','archive recognition',nestedIds.archive),nested_method_report:report('nested.chain.method.','learned method',nestedIds.hub),nested_welfare_report:report('nested.chain.welfare.','Saltworks welfare',nestedIds.salt),
             nested_extraction_report:known[`nested.returned.${missionId}`]?.value||known[`nested.recovery.${missionId}`]?.value||known[`nested.extraction.${missionId}`]?.value||'',
             nested_prior_exchange:row?.label||prior?.responseId||'',nested_request_report:known[`nested.settled.${missionId}`]?.value?`This mission's recorded settlement: ${known[`nested.settled.${missionId}`].value}`:known[`nested.outcome.${missionId}`]?.value?`This mission's recorded outcome: ${known[`nested.outcome.${missionId}`].value}`:''};
+        const linKnown=key=>known[`nested.life.lin.${key}`]?.value||'';
+        const linJob=current.simulation?.jobs.find(j=>j.actorId==='player'&&j.commandId==='nested.life.lin.work');
+        fields.nested_lin_report=lin?(linKnown('account')||linKnown('result')||linKnown('refusal')||(linJob?'Your accepted supply job is in progress. Its materials and wage remain reserved; closing this conversation does not cancel the job.':linKnown('terms'))):'';
+        for(const id of ['open','work','refuse','texture','account'])fields[`nested_lin_${id}_offered`]=lin&&safeNativeQuote(previewLife,current,registry,bindings[`nested_lin_${id}`].id,ctx).visible===true;
+        fields.nested_lin_supply_offered=lin&&safeNativeQuote(previewNative,current,registry,'nested.staff_supply',ctx).visible===true;
         const offered=response=>{
             const b=bindings[response];return b?.kind==='nested'&&safeNativeQuote(previewNative,current,registry,b.id,ctx).visible===true;
         };
@@ -372,13 +383,16 @@ export function createNestedInkHost({state,registry,context,sceneId,missionId=nu
         preview(current,registry,binding,ctx) {
             const quote=validateNestedInkScope(current,registry,scope,ctx,{sceneId,missionId,endpoint});
             if(!quote.visible||!quote.eligible)return quote;
-            const prepared=checkedContext(current,ctx),nativeQuote=binding.kind==='nested'?safeNativeQuote(previewNative,current,registry,binding.id,prepared):binding.kind==='nested_chain'?safeNativeQuote(previewNestedChainCommand,current,registry,binding.id,prepared):
+            if(binding.kind==='nested_life'&&!lifeAllowed(binding))return {visible:false,eligible:false,reasons:['This request belongs to a different local participant or unsupported adapter.']};
+            const prepared=checkedContext(current,ctx),nativeQuote=binding.kind==='nested_life'?safeNativeQuote(previewLife,current,registry,binding.id,prepared):binding.kind==='nested'?safeNativeQuote(previewNative,current,registry,binding.id,prepared):binding.kind==='nested_chain'?safeNativeQuote(previewNestedChainCommand,current,registry,binding.id,prepared):
                 previewSimulationCommand(current,registry,binding.id,{...prepared,targetId:endpoint.actor});
-            return {...nativeQuote,costText:costText(nativeQuote)||nativeRow(binding.id)?.label||'Conversation only; no payment.',
-                consequenceText:nativeRow(binding.id)?.description||'Only this accepted native step is committed. Mission outcome, actual arrival, local welfare and settlement stay separate.'};
+            const row=registry.simulation.commands.get(binding.id)||nativeRow(binding.id);
+            return {...nativeQuote,costText:costText(nativeQuote)||row?.label||'Conversation only; no payment.',
+                consequenceText:row?.description||'Only this accepted native step is committed. Mission outcome, actual arrival, local welfare and settlement stay separate.'};
         },
         commit(current,registry,binding,ctx,expectedSequence=current.sequence) {
             const prepared=checkedContext(current,ctx);
+            if(binding.kind==='nested_life'){if(!lifeAllowed(binding))throw Error('This request belongs to a different local participant or unsupported adapter.');return commitLife(current,registry,{type:'nested_life',id:binding.id},prepared,expectedSequence);}
             return binding.kind==='nested'?commitNative(current,registry,binding.id,prepared,expectedSequence):binding.kind==='nested_chain'?commitNestedChainCommand(current,registry,{type:'command',id:binding.id},prepared,expectedSequence):
                 commitSimulationCommand(current,registry,{id:binding.id},{...prepared,targetId:endpoint.actor},expectedSequence);
         }

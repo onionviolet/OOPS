@@ -1,0 +1,119 @@
+{
+  "kind": "controlled_cursor_fixtures_from_natural_native_envelope",
+  "input": "/tmp/yairpg-lin-natural-pre-ink.json",
+  "sourceSha256": "fe34c197f016c704706518ec4978a97ab703c05b16b4b6cb4dff314e55f82354",
+  "nativeDomainSha256": "fe34c197f016c704706518ec4978a97ab703c05b16b4b6cb4dff314e55f82354",
+  "sequence": 7,
+  "clock": 5,
+  "nativeRevision": 8,
+  "resources": {
+    "nested.credit": 0
+  },
+  "characterMoney": 102,
+  "playerInventory": {
+    "{\"id\":\"Cheap leather pants\",\"quality\":40}": {
+      "count": 1
+    },
+    "{\"id\":\"Stale bread\"}": {
+      "count": 5
+    }
+  },
+  "linInventory": {
+    "{\"id\":\"Rough wood log\"}": {
+      "count": 3
+    },
+    "{\"id\":\"Survey rope\"}": {
+      "count": 1
+    }
+  },
+  "originalCampaignReceipts": [
+    {
+      "id": "nested.enroll",
+      "at": 1,
+      "sequence": 4
+    },
+    {
+      "id": "nested.enter_hub",
+      "at": 2,
+      "sequence": 5
+    },
+    {
+      "id": "nested.carrier.passage.5",
+      "at": 2,
+      "sequence": 5
+    },
+    {
+      "id": "nested.meet",
+      "at": 3,
+      "sequence": 6
+    },
+    {
+      "id": "nested.role_employee",
+      "at": 4,
+      "sequence": 7
+    }
+  ],
+  "fixtures": [
+    {
+      "path": "/tmp/yairpg-lin-compat-v1.json",
+      "revision": 1,
+      "wrapper": 1,
+      "sha256": "e289734e5d2a21b6b6b0566af0348371327c79b1e9350a81c032df19e7cecd13",
+      "contentHash": "sha256:ae0be8ab54ef5d062fb651cd7cd070b122ecaf9f79fc9f9ac00cf730a72a6a1f",
+      "sceneId": "tidemark.negotiation",
+      "scope": null,
+      "choices": [
+        "ask_terms",
+        "refuse",
+        "leave"
+      ],
+      "receipts": [],
+      "nativeDomainSha256": "fe34c197f016c704706518ec4978a97ab703c05b16b4b6cb4dff314e55f82354",
+      "validation": "full actual expansion reader and nested native envelope accepted; all non-Ink JSON values preserved"
+    },
+    {
+      "path": "/tmp/yairpg-lin-compat-v2.json",
+      "revision": 2,
+      "wrapper": 1,
+      "sha256": "37ba7097dfb250ae0a44df001aa12a309206a9651061848ba8dcad723e736a17",
+      "contentHash": "sha256:2eceb76c13cc1c3e856203f84d6349d98e9e5a963e0f7c7e6afa2555eeb76a65",
+      "sceneId": "tidemark.negotiation",
+      "scope": null,
+      "choices": [
+        "ask_terms",
+        "refuse",
+        "leave"
+      ],
+      "receipts": [],
+      "nativeDomainSha256": "fe34c197f016c704706518ec4978a97ab703c05b16b4b6cb4dff314e55f82354",
+      "validation": "full actual expansion reader and nested native envelope accepted; all non-Ink JSON values preserved"
+    },
+    {
+      "path": "/tmp/yairpg-lin-compat-v3.json",
+      "revision": 3,
+      "wrapper": 2,
+      "sha256": "d6e4c23a439629424463829d4c5593ee9c54d63d07bcf773261b9001d2224339",
+      "contentHash": "sha256:f914d6a60616e31e382c34658f207c64f63a1d6c9ea707e58d0737f9a2770e3f",
+      "sceneId": "nested.hub",
+      "scope": {
+        "id": "ink.nested.hub.hub_street.nested.paradise.main",
+        "kind": "hub",
+        "worldId": "nested.paradise_hub",
+        "instanceId": "nested.paradise.main"
+      },
+      "choices": [
+        "nested_hub_terms",
+        "nested_hub_leave"
+      ],
+      "receipts": [],
+      "nativeDomainSha256": "fe34c197f016c704706518ec4978a97ab703c05b16b4b6cb4dff314e55f82354",
+      "validation": "full actual expansion reader and nested native envelope accepted; all non-Ink JSON values preserved"
+    },
+    {
+      "path": "/tmp/yairpg-lin-compat-missing-artifact.json",
+      "negative": true,
+      "rejection": "Saved conversation needs its retained compiled content. Keep its paid host effects and restore the matching build.",
+      "nativeDomainSha256": "fe34c197f016c704706518ec4978a97ab703c05b16b4b6cb4dff314e55f82354"
+    }
+  ]
+}

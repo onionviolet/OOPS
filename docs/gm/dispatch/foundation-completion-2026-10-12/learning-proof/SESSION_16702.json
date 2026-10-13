@@ -1,0 +1,33 @@
+{
+  "pid": 16702,
+  "origin": "http://127.0.0.1:18643",
+  "startedHash": "6b3c8e392800cd43bfa850d314ae614cca7be3e26d6526a087af452c7d4d7a12",
+  "endedHash": "6b3c8e392800cd43bfa850d314ae614cca7be3e26d6526a087af452c7d4d7a12",
+  "events": [
+    {
+      "action": "wait",
+      "ms": 12000
+    },
+    {
+      "action": "panel",
+      "selector": "#field_panel"
+    },
+    {
+      "action": "click",
+      "selector": "#field_panel summary:has-text('Project & production')"
+    },
+    {
+      "action": "click",
+      "selector": "[data-field-command='field.inspect']"
+    },
+    {
+      "action": "save",
+      "name": "worker-field-ready"
+    },
+    {
+      "action": "save",
+      "name": "worker-surveyor-context-blocker"
+    }
+  ],
+  "errors": []
+}

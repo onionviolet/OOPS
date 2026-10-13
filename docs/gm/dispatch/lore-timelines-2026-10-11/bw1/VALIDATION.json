@@ -1,0 +1,44 @@
+{
+  "schema": "bw1-lore-validation-1",
+  "world": "BW1",
+  "status": "passed",
+  "executed": [
+    "All required JSON parsed",
+    "Five original source hashes equal frozen source hashes",
+    "319 contiguous inherited chapter receipts preserved",
+    "21 inherited owner hashes unchanged",
+    "Original MOBI unchanged and new private conversion pinned",
+    "Stable event IDs and acyclic occurrence-after edges",
+    "Expansion source-event IDs and before/during/after/means fields",
+    "29 exact primary-heading/member/range receipts mechanically checked",
+    "Private ignore rule confirmed",
+    "Public markdown scanned for source-specific names/locators",
+    "33 effect IDs and 25 consumed-state joins bind exact owner/state and source basis",
+    "Cross-event causal graph acyclic; internal constituent joins explicit",
+    "35 ordering-only edges do not claim cause",
+    "19 located independent plans/means; remaining independence expressly unknown"
+  ],
+  "counts": {
+    "events": 53,
+    "knowledge": 53,
+    "expansions": 14,
+    "continuities": 12,
+    "claims": 388,
+    "inherited_claims": 383,
+    "first_volume_corrections": 34,
+    "primary_checks": 29,
+    "distinct_primary_chapters": 23,
+    "required_effects": 33,
+    "required_effect_joins": 25,
+    "ordering_only_edges": 35,
+    "concrete_independent_plans": 19
+  },
+  "issues": [],
+  "not_run": [
+    "Runtime tests/build/browser/save-reload-import",
+    "New full reread of five editions",
+    "Later publication acquisition/current complete-series verification",
+    "Director acceptance"
+  ],
+  "ownership": "released"
+}

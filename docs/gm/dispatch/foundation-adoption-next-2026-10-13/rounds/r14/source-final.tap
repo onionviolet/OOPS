@@ -1,0 +1,316 @@
+TAP version 13
+# Subtest: fresh optional booking is visible and actually settles; both first-duty orders retain actual accounts
+ok 1 - fresh optional booking is visible and actually settles; both first-duty orders retain actual accounts
+  ---
+  duration_ms: 721.015584
+  type: 'test'
+  ...
+# Subtest: no-preference legacy controller preserves original order without any new booking or outcome history
+ok 2 - no-preference legacy controller preserves original order without any new booking or outcome history
+  ---
+  duration_ms: 101.725292
+  type: 'test'
+  ...
+# Subtest: pending original booking restores exact frozen terms and subsequent occupancy blocks a later workshop
+ok 3 - pending original booking restores exact frozen terms and subsequent occupancy blocks a later workshop
+  ---
+  duration_ms: 189.878167
+  type: 'test'
+  ...
+# Subtest: kept outcome enables fresh sponsored terms, real finite means and one useful native kit
+ok 4 - kept outcome enables fresh sponsored terms, real finite means and one useful native kit
+  ---
+  duration_ms: 496.349167
+  type: 'test'
+  ...
+# Subtest: actual consent withdrawal stops the earlier duty, refunds it and offers distinct personally funded work
+ok 5 - actual consent withdrawal stops the earlier duty, refunds it and offers distinct personally funded work
+  ---
+  duration_ms: 195.190125
+  type: 'test'
+  ...
+# Subtest: the original NPC cancellation authority keeps its distinct account and actual original refund
+ok 6 - the original NPC cancellation authority keeps its distinct account and actual original refund
+  ---
+  duration_ms: 74.244875
+  type: 'test'
+  ...
+# Subtest: later refusal changes no prior result, money, stock, mastery or rights and closes only its offer
+ok 7 - later refusal changes no prior result, money, stock, mastery or rights and closes only its offer
+  ---
+  duration_ms: 365.955875
+  type: 'test'
+  ...
+# Subtest: exact workshop cancellation refunds actual reservations and preserves account through retry
+ok 8 - exact workshop cancellation refunds actual reservations and preserves account through retry
+  ---
+  duration_ms: 481.800667
+  type: 'test'
+  ...
+# Subtest: controlled loss of actual method/body/contact/right support refunds with a truthful stopped account
+ok 9 - controlled loss of actual method/body/contact/right support refunds with a truthful stopped account
+  ---
+  duration_ms: 883.907833
+  type: 'test'
+  ...
+# Subtest: missing participant means, capability, contact, busy capacity, body and stale sequence never accept
+ok 10 - missing participant means, capability, contact, busy capacity, body and stale sequence never accept
+  ---
+  duration_ms: 1489.308625
+  type: 'test'
+  ...
+# Subtest: forged or absent prior outcome cannot create a new later agreement
+ok 11 - forged or absent prior outcome cannot create a new later agreement
+  ---
+  duration_ms: 193.543625
+  type: 'test'
+  ...
+# Subtest: failed durable publication leaves live prior state untouched and offers one legitimate retry
+ok 12 - failed durable publication leaves live prior state untouched and offers one legitimate retry
+  ---
+  duration_ms: 257.155792
+  type: 'test'
+  ...
+# Subtest: restoration rejects changed frozen output, costs, time, participants, accounts and closure
+ok 13 - restoration rejects changed frozen output, costs, time, participants, accounts and closure
+  ---
+  duration_ms: 239.960208
+  type: 'test'
+  ...
+# Subtest: ordinary absent capability explicitly exposes the paid lesson without supplied power facts
+ok 14 - ordinary absent capability explicitly exposes the paid lesson without supplied power facts
+  ---
+  duration_ms: 141.200583
+  type: 'test'
+  ...
+# Subtest: paid workshop stock and learned capability are separate, finite and three trials leave five salt attempts
+ok 15 - paid workshop stock and learned capability are separate, finite and three trials leave five salt attempts
+  ---
+  duration_ms: 259.093042
+  type: 'test'
+  ...
+# Subtest: pending refinement reserves exact inputs, freezes one roll/quote and restores unchanged
+ok 16 - pending refinement reserves exact inputs, freezes one roll/quote and restores unchanged
+  ---
+  duration_ms: 232.130292
+  type: 'test'
+  ...
+# Subtest: quiet window and actual focus select preparation; retry probability caps after three failures
+ok 17 - quiet window and actual focus select preparation; retry probability caps after three failures
+  ---
+  duration_ms: 401.879417
+  type: 'test'
+  ...
+# Subtest: cancel refunds salt and stamina without a result; repeated cancellation and stale reservation refuse
+ok 18 - cancel refunds salt and stamina without a result; repeated cancellation and stale reservation refuse
+  ---
+  duration_ms: 226.54225
+  type: 'test'
+  ...
+# Subtest: loss of body, source, power or Village support refunds pending work without completion
+ok 19 - loss of body, source, power or Village support refunds pending work without completion
+  ---
+  duration_ms: 1018.27925
+  type: 'test'
+  ...
+# Subtest: success grants exactly one application; actual sleeve becomes empty and hook field lasts five minutes
+ok 20 - success grants exactly one application; actual sleeve becomes empty and hook field lasts five minutes
+  ---
+  duration_ms: 230.319333
+  type: 'test'
+  ...
+# Subtest: failure spends reserved costs, grants no application and adds exact five-minute max soreness and retry
+ok 21 - failure spends reserved costs, grants no application and adds exact five-minute max soreness and retry
+  ---
+  duration_ms: 1354.4125
+  type: 'test'
+  ...
+# Subtest: old direct hook command still conserves sleeve and validates a four-minute field
+ok 22 - old direct hook command still conserves sleeve and validates a four-minute field
+  ---
+  duration_ms: 187.833833
+  type: 'test'
+  ...
+# Subtest: missing, borrowed, equipped or transferred sleeve and absent salt/body/source/calendar refuse atomically
+ok 23 - missing, borrowed, equipped or transferred sleeve and absent salt/body/source/calendar refuse atomically
+  ---
+  duration_ms: 1576.008833
+  type: 'test'
+  ...
+# Subtest: pending restoration rejects tampered quote, roll, due, costs, support, reservation and duplicate job
+ok 24 - pending restoration rejects tampered quote, roll, due, costs, support, reservation and duplicate job
+  ---
+  duration_ms: 184.562834
+  type: 'test'
+  ...
+# Subtest: completed restoration rejects forged result, retry, knowledge attribution and copied foreign receipts
+ok 25 - completed restoration rejects forged result, retry, knowledge attribution and copied foreign receipts
+  ---
+  duration_ms: 191.47325
+  type: 'test'
+  ...
+# Subtest: each material boundary persists before publication; quota failure preserves original and successful retry publishes exact stock once
+ok 26 - each material boundary persists before publication; quota failure preserves original and successful retry publishes exact stock once
+  ---
+  duration_ms: 1467.673792
+  type: 'test'
+  ...
+# Subtest: legacy typo basis pending migrates on copied load without altering paid terms or completing early
+ok 27 - legacy typo basis pending migrates on copied load without altering paid terms or completing early
+  ---
+  duration_ms: 170.768541
+  type: 'test'
+  ...
+# Subtest: source boundary returns all reserved stamina on support loss without changing frozen RNG
+ok 28 - source boundary returns all reserved stamina on support loss without changing frozen RNG
+  ---
+  duration_ms: 181.861917
+  type: 'test'
+  ...
+# Subtest: paid lesson needs current teacher contact and refinement needs free actual bench
+ok 29 - paid lesson needs current teacher contact and refinement needs free actual bench
+  ---
+  duration_ms: 356.108541
+  type: 'test'
+  ...
+# Subtest: cooling suppresses actual hook candidate while ordinary guard and jab remain available
+ok 30 - cooling suppresses actual hook candidate while ordinary guard and jab remain available
+  ---
+  duration_ms: 196.050667
+  type: 'test'
+  ...
+# Subtest: actual battle host initializes combat display before refreshing while syncing fighter state before start
+ok 31 - actual battle host initializes combat display before refreshing while syncing fighter state before start
+  ---
+  duration_ms: 200.315583
+  type: 'test'
+  ...
+# Subtest: preview is pure and explains knowledge, context, combined costs and actual odds
+ok 32 - preview is pure and explains knowledge, context, combined costs and actual odds
+  ---
+  duration_ms: 3.374375
+  type: 'test'
+  ...
+# Subtest: kit costs reserve once; frozen result survives reload, content revision and changed stats
+ok 33 - kit costs reserve once; frozen result survives reload, content revision and changed stats
+  ---
+  duration_ms: 32.774167
+  type: 'test'
+  ...
+# Subtest: both survey routes are viable and recorded guide condition changes departure rewards
+ok 34 - both survey routes are viable and recorded guide condition changes departure rewards
+  ---
+  duration_ms: 12.054584
+  type: 'test'
+  ...
+# Subtest: equal simulation duration in ticks or a travel jump crosses the same deadlines and expiry
+ok 35 - equal simulation duration in ticks or a travel jump crosses the same deadlines and expiry
+  ---
+  duration_ms: 60.220917
+  type: 'test'
+  ...
+# Subtest: repairing the crossing enables a more valuable delivery even if the guide needs rest
+ok 36 - repairing the crossing enables a more valuable delivery even if the guide needs rest
+  ---
+  duration_ms: 2.589042
+  type: 'test'
+  ...
+# Subtest: blocking scheduled choices stop exactly at their boundary and return unspent catch-up
+ok 37 - blocking scheduled choices stop exactly at their boundary and return unspent catch-up
+  ---
+  duration_ms: 1.935416
+  type: 'test'
+  ...
+# Subtest: actors have independent budgets and one assignment each, with stable same-time ordering
+ok 38 - actors have independent budgets and one assignment each, with stable same-time ordering
+  ---
+  duration_ms: 2.192
+  type: 'test'
+  ...
+# Subtest: invalid content and effects fail before mutation or spending
+ok 39 - invalid content and effects fail before mutation or spending
+  ---
+  duration_ms: 0.639292
+  type: 'test'
+  ...
+# Subtest: isolated rewind previews losses, retains memory and cannot export temporary rewards
+ok 40 - isolated rewind previews losses, retains memory and cannot export temporary rewards
+  ---
+  duration_ms: 1.222333
+  type: 'test'
+  ...
+# Subtest: legacy migration, dormant payload and Unicode file roundtrip retain new commitments
+ok 41 - legacy migration, dormant payload and Unicode file roundtrip retain new commitments
+  ---
+  duration_ms: 4.904542
+  type: 'test'
+  ...
+# Subtest: durable envelope write is atomic on failure, includes costs, and preserves unrelated fields
+ok 42 - durable envelope write is atomic on failure, includes costs, and preserves unrelated fields
+  ---
+  duration_ms: 1.062333
+  type: 'test'
+  ...
+# Subtest: FA18 new paid cause and finite later coin/bread conservation
+ok 43 - FA18 new paid cause and finite later coin/bread conservation
+  ---
+  duration_ms: 1.240542
+  type: 'test'
+  ...
+# Subtest: FA18 refusal and insufficient funds never issue or settle
+ok 44 - FA18 refusal and insufficient funds never issue or settle
+  ---
+  duration_ms: 0.338125
+  type: 'test'
+  ...
+# Subtest: FA18 actual current body/world/location/work requirements retain means
+ok 45 - FA18 actual current body/world/location/work requirements retain means
+  ---
+  duration_ms: 0.330083
+  type: 'test'
+  ...
+# Subtest: FA18 old help history never retroactively mints meal stock
+ok 46 - FA18 old help history never retroactively mints meal stock
+  ---
+  duration_ms: 0.121625
+  type: 'test'
+  ...
+# Subtest: FA18 persisted account invariants fail closed
+ok 47 - FA18 persisted account invariants fail closed
+  ---
+  duration_ms: 0.322542
+  type: 'test'
+  ...
+# Subtest: FA18 load/view/re-entry/ticks neither refill nor replay paid result
+ok 48 - FA18 load/view/re-entry/ticks neither refill nor replay paid result
+  ---
+  duration_ms: 0.926
+  type: 'test'
+  ...
+# Subtest: FA18 failing real publisher retains ticket, money and bread then successful envelope joins all
+ok 49 - FA18 failing real publisher retains ticket, money and bread then successful envelope joins all
+  ---
+  duration_ms: 14.935667
+  type: 'test'
+  ...
+# Subtest: common clock keeps simulation-owned gear in its own state while preparing actual native equipment
+ok 50 - common clock keeps simulation-owned gear in its own state while preparing actual native equipment
+  ---
+  duration_ms: 36.403209
+  type: 'test'
+  ...
+# Subtest: direct plan staging excludes only explicit simulation owners and retains unknown-owner rejection
+ok 51 - direct plan staging excludes only explicit simulation owners and retains unknown-owner rejection
+  ---
+  duration_ms: 0.588292
+  type: 'test'
+  ...
+1..51
+# tests 51
+# suites 0
+# pass 51
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 8889.642916

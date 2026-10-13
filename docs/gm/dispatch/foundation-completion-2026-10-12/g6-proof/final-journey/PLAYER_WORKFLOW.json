@@ -1,0 +1,21 @@
+{
+  "steps": [
+    {
+      "action": "export",
+      "name": "g6-final-literal"
+    },
+    {
+      "action": "reload",
+      "save": "g6-final-reloaded"
+    },
+    {
+      "action": "literalImport",
+      "path": "/tmp/yairpg-foundation-learning-g6-final-literal.txt",
+      "save": "g6-final-imported"
+    },
+    {
+      "action": "save",
+      "save": "g6-final-restored"
+    }
+  ]
+}

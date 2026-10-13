@@ -1,0 +1,81 @@
+.customization-module { font-family: var(--custom-font); font-size: var(--custom-size); background-color: var(--custom-background) !important; color: var(--custom-text) !important; padding: var(--custom-spacing); border-color: var(--custom-accent) !important; }
+.customization-module button, .customization-module select, .customization-module input { font: inherit; }
+.customization-module > summary, .customization-module h3, .customization-module h4 { color: var(--custom-accent); }
+.customization-panel { margin-block: .5rem; border: 1px solid #85999b; border-radius: 5px; padding: .6rem; background: #1c243b; color: #f1f2f5; text-align: left; }
+.customization-panel summary { cursor: pointer; font-weight: bold; }
+.customization-editor { overflow-wrap: anywhere; }
+.customization-editor fieldset { display: grid; grid-template-columns: repeat(auto-fit,minmax(185px,1fr)); gap: .6rem; min-width: 0; }
+.customization-editor label { display: flex; flex-wrap: wrap; align-items: center; gap: .4rem; min-width: 0; }
+.customization-editor input, .customization-editor select { max-width: 100%; box-sizing: border-box; }
+.customization-editor input[type=number] { width: 5rem; }
+.customization-editor textarea { width: 100%; min-width: 0; box-sizing: border-box; font: 12px monospace; }
+.customization-actions { display: flex; flex-wrap: wrap; gap: .4rem; margin-block: .7rem; }
+.customization-actions button { white-space: normal; }
+
+#work_ledger_rules_draft {width:100%;min-width:0;box-sizing:border-box;font:12px monospace;}
+#work_ledger_author button {white-space:normal;margin:.2rem;}
+
+/* One scroll owner per editor; draft state and commands stay beside it. */
+.customization-surface {
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+    height: 100%;
+    max-height: 100%;
+    box-sizing: border-box;
+    margin: 0;
+    padding: .65rem;
+    overflow: hidden;
+}
+.customization-surface > h3 {
+    margin: 0 0 .4rem;
+    font-size: 1.1rem;
+    flex: 0 0 auto;
+}
+.customization-draft-status {
+    margin: 0 0 .55rem;
+    padding: .45rem .55rem;
+    border-inline-start: 3px solid var(--custom-accent, #b5ced9);
+    background: #11192a;
+    min-height: 2.3em;
+    flex: 0 0 auto;
+    overflow-wrap: anywhere;
+}
+.customization-fields-scroll {
+    overflow: auto;
+    min-height: 0;
+    flex: 1 1 auto;
+    scrollbar-gutter: stable;
+    padding-inline-end: .25rem;
+}
+.customization-surface .customization-explanation,
+.customization-target-context { margin: 0 0 .7rem; line-height: 1.4; }
+.customization-target-context { font-weight: 600; }
+.customization-surface fieldset {
+    margin: 0 0 .8rem;
+    padding: .6rem;
+    grid-template-columns: repeat(auto-fit, minmax(155px, 1fr));
+    gap: .7rem;
+    border: 1px solid #65768a;
+}
+.customization-surface fieldset label {
+    align-content: start;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: .35rem;
+    text-align: left;
+}
+.customization-surface fieldset label:has(input[type=checkbox]) { flex-direction: row; }
+.customization-surface fieldset input[type=text],
+.customization-surface fieldset select { width: 100%; }
+.customization-surface .customization-actions {
+    flex: 0 0 auto;
+    margin: .65rem 0 0;
+    padding-block-start: .6rem;
+    border-block-start: 1px solid #65768a;
+}
+.customization-surface .customization-actions button { min-height: 2.2em; padding: .35rem .6rem; }
+.customization-surface input:focus-visible,
+.customization-surface select:focus-visible,
+.customization-surface textarea:focus-visible,
+.customization-surface button:focus-visible { outline: 2px solid #cfe8ff; outline-offset: 2px; }

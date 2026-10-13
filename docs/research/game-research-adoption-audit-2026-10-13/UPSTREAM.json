@@ -1,0 +1,36 @@
+{
+  "verified_date": "2026-10-13",
+  "revision": "d867136cecbf4a8c0eea90897bc9a33341eb582c",
+  "commit_time_utc": "2026-10-13T04:56:07Z",
+  "files": [
+    {
+      "path": "README.md",
+      "url": "https://raw.githubusercontent.com/morluto/rea/d867136cecbf4a8c0eea90897bc9a33341eb582c/README.md",
+      "revision": "d867136cecbf4a8c0eea90897bc9a33341eb582c",
+      "bytes": 20692,
+      "sha256": "cf1bca330a1bb6780c4c8003e7e58119aeabb6f09f5e700d535f083431a55f45"
+    },
+    {
+      "path": "src/ghidra/GhidraLauncher.ts",
+      "url": "https://raw.githubusercontent.com/morluto/rea/d867136cecbf4a8c0eea90897bc9a33341eb582c/src/ghidra/GhidraLauncher.ts",
+      "revision": "d867136cecbf4a8c0eea90897bc9a33341eb582c",
+      "bytes": 28529,
+      "sha256": "2e318470c89bb5cc7c663b5b9297abb6c1454068aae2a519d032a068766c0aef"
+    },
+    {
+      "path": "docs/ghidra-provider.md",
+      "url": "https://raw.githubusercontent.com/morluto/rea/d867136cecbf4a8c0eea90897bc9a33341eb582c/docs/ghidra-provider.md",
+      "revision": "d867136cecbf4a8c0eea90897bc9a33341eb582c",
+      "bytes": 15391,
+      "sha256": "7f1500f13ca5d18750d4fa21baa95b1972e8772075305c1ba5a64f7c9b3080fa"
+    },
+    {
+      "path": "docs/managed-code-analysis.md",
+      "url": "https://raw.githubusercontent.com/morluto/rea/d867136cecbf4a8c0eea90897bc9a33341eb582c/docs/managed-code-analysis.md",
+      "revision": "d867136cecbf4a8c0eea90897bc9a33341eb582c",
+      "bytes": 25592,
+      "sha256": "3750af2aedaa93b03cecc68fc9972206e17e2927de8967545b150b7a3115387b"
+    }
+  ],
+  "execution": "documentation/source inspection only; no REA install/trial"
+}

@@ -1,6 +1,7 @@
 import {Story} from 'inkjs';
 import compiled from '../stories/feature_wave.json' with {type:'json'};
 import retainedV1 from '../docs/gm/feature-wave/ink/content/feature_wave_v1.json' with {type:'json'};
+import retainedV3 from '../docs/gm/feature-wave/ink/content/feature_wave_v3.json' with {type:'json'};
 import retainedV2 from '../docs/gm/feature-wave/ink/content/feature_wave_v2.json' with {type:'json'};
 import {INK_RESPONSES, inkObserverVariables, inkBindingFor} from './ink_scene_content.js';
 
@@ -10,8 +11,8 @@ export const INK_NARRATIVE_SCOPE_LIMIT = 32;
 export const INK_RUNTIME_VERSION = '2.4.0';
 const identityOf = artifact => Object.freeze({...artifact.yairpgInk, inkFormat:21, saveFormat:10});
 export const INK_CONTENT = identityOf(compiled);
-export const INK_CONTENTS = Object.freeze([identityOf(retainedV1), identityOf(retainedV2), INK_CONTENT]);
-const contentByHash = new Map([[retainedV1.yairpgInk.contentHash,retainedV1],[retainedV2.yairpgInk.contentHash,retainedV2],[compiled.yairpgInk.contentHash,compiled]]);
+export const INK_CONTENTS = Object.freeze([identityOf(retainedV1), identityOf(retainedV2), identityOf(retainedV3), INK_CONTENT]);
+const contentByHash = new Map([[retainedV1.yairpgInk.contentHash,retainedV1],[retainedV2.yairpgInk.contentHash,retainedV2],[retainedV3.yairpgInk.contentHash,retainedV3],[compiled.yairpgInk.contentHash,compiled]]);
 const sceneOf = saved => saved?.sceneId || 'tidemark.negotiation';
 const hostScene = host => host?.sceneId || 'tidemark.negotiation';
 const artifactFor = saved => {

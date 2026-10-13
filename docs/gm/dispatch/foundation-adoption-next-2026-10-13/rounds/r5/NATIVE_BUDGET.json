@@ -1,0 +1,34 @@
+{
+  "owner": "01a13475-d052-7320-b98e-0d5cedf58838",
+  "beforeProgression": true,
+  "initialExport": "../r4/final-earned-native.txt",
+  "initialHash": "4efbcf2544856cf2e8826a771d834a0a293d94c65460b6901caffd820614f683",
+  "initialMoney": 58,
+  "initialLocation": "Shack",
+  "caps": {
+    "currencyGrossSpend": 18,
+    "visitorRoundTrips": 1,
+    "supplyChecks": 8,
+    "playedMinutes": 70,
+    "logsConsumed": 2,
+    "sapConsumed": 3,
+    "paperConsumed": 1,
+    "inkConsumed": 1,
+    "soundConsumed": 2,
+    "manualCommissions": 1,
+    "trial": 1,
+    "rest": 1,
+    "comparison": 1,
+    "read": 1,
+    "kitCompletions": 1,
+    "cancelledFA10Jobs": 1
+  },
+  "route": "Village public Proto23 chart/enroll/enter/arrival; buy paper/ink and up to two sap, optional sharp knife; return current body/cargo to Village. Existing Eda finite sound stock or cut/dry existing log. Existing owned dull knife edge restoration. Commission/study/use. No other world progression.",
+  "downstream": "Use one earned kit on an existing native consumer if available",
+  "deferred": [
+    "mobile",
+    "broad UI",
+    "private state",
+    "new procurement"
+  ]
+}

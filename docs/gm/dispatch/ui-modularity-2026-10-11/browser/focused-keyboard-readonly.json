@@ -1,0 +1,10 @@
+{
+  "url": "http://127.0.0.1:18571/",
+  "fingerprint": "http://127.0.0.1:18571/dist/bundle.js?version=v0.6-411455e77529",
+  "checks": [
+    "Find work Enter opens actual work choices and exposes expanded state.",
+    "Talk Space opens real dialogue choices; elder Enter opens actual greeting.",
+    "Same-origin second tab has read-only status before and after current-work docking; observer sends no gameplay commands/saves."
+  ],
+  "errors": []
+}

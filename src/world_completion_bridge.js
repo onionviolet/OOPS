@@ -11,7 +11,10 @@ export function worldCompletionBridgeFacts(state,context={}){
     const s=state.simulation,a=state.actors?.player,w=state.worlds?.['base.frontier']?.facts||{},known=s?.knowledge?.player||{};
     const common=worldCompletionLifeFacts(state,context),local=common['worldCompletion.local'],active=worldCompletionEnrolled(state);
     const lore=lorePracticeFacts(state,context),sample=known['lore.warning.sample'];
-    const current=active&&lore['lore.warning.currentSample']===true&&sample?.stage==='seen'&&
+    // This datum belongs to the player's performed observation and measurement.
+    // A learner's own position still gates their trip, bench and work separately.
+    const observerLore=lorePracticeFacts(state,{...context,actorId:'player',facts:{...context.facts,location:s?.people?.player?.location}});
+    const current=active&&observerLore['lore.warning.currentSample']===true&&sample?.stage==='seen'&&
         sample.basis?.attributedTo==='player'&&sample.basis.situationId==='lore.warning.rain'&&seq(sample.cause)&&natural(sample.at);
     const measurement=known['world.completion.lens.measurement'],p='world.completion.lens.';
     const measured=current&&measurement?.stage==='seen'&&measurement.basis?.sampleCause===sample.cause&&

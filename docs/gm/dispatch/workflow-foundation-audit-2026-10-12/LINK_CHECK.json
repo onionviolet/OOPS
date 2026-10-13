@@ -1,0 +1,235 @@
+{
+  "links": [
+    {
+      "file": "REPORT.md",
+      "target": "AUTHORITY_EVIDENCE.md",
+      "exists": true
+    },
+    {
+      "file": "REPORT.md",
+      "target": "WORKFLOW_MAP.md",
+      "exists": true
+    },
+    {
+      "file": "REPORT.md",
+      "target": "RESEARCH_TOOL_EVIDENCE.md",
+      "exists": true
+    },
+    {
+      "file": "REPORT.md",
+      "target": "NEXT_PACKET.md",
+      "exists": true
+    },
+    {
+      "file": "REPORT.md",
+      "target": "JOINS_EVIDENCE.md",
+      "exists": true
+    },
+    {
+      "file": "REPORT.md",
+      "target": "TOOLING_DECISION.md",
+      "exists": true
+    },
+    {
+      "file": "REPORT.md",
+      "target": "DIALOGUE_EVIDENCE.md",
+      "exists": true
+    },
+    {
+      "file": "REPORT.md",
+      "target": "DIALOGUE_EVIDENCE.md",
+      "exists": true
+    },
+    {
+      "file": "REPORT.md",
+      "target": "WORKFLOW_MAP.md",
+      "exists": true
+    },
+    {
+      "file": "REPORT.md",
+      "target": "RESEARCH_TOOL_EVIDENCE.md",
+      "exists": true
+    },
+    {
+      "file": "REPORT.md",
+      "target": "NEXT_PACKET.md",
+      "exists": true
+    },
+    {
+      "file": "REPORT.md",
+      "target": "VALIDATION.json",
+      "exists": true
+    },
+    {
+      "file": "REPORT.md",
+      "target": "INPUT_DRIFT.json",
+      "exists": true
+    },
+    {
+      "file": "RESEARCH_TOOL_EVIDENCE.md",
+      "target": "../../../reviews/FOUNDATION_RESEARCH_ROUTING_2026-10-12.json",
+      "exists": true
+    },
+    {
+      "file": "WORKFLOW_MAP.md",
+      "target": "RESEARCH_TOOL_EVIDENCE.md",
+      "exists": true
+    },
+    {
+      "file": "WORKFLOW_MAP.md",
+      "target": "NEXT_PACKET.md",
+      "exists": true
+    },
+    {
+      "file": "WORKFLOW_MAP.md",
+      "target": "JOINS_EVIDENCE.md",
+      "exists": true
+    },
+    {
+      "file": "WORKFLOW_MAP.md",
+      "target": "JOINS_EVIDENCE.md",
+      "exists": true
+    },
+    {
+      "file": "WORKFLOW_MAP.md",
+      "target": "DIALOGUE_EVIDENCE.md",
+      "exists": true
+    },
+    {
+      "file": "DIALOGUE_EVIDENCE.md",
+      "target": "../../feature-wave/ink/DELIVERY.md",
+      "exists": true
+    },
+    {
+      "file": "DIALOGUE_EVIDENCE.md",
+      "target": "../../feature-wave/ink/LATER_ACCEPTANCE.md",
+      "exists": true
+    },
+    {
+      "file": "DIALOGUE_EVIDENCE.md",
+      "target": "../../feature-wave/ink/BUILD.json",
+      "exists": true
+    },
+    {
+      "file": "DIALOGUE_EVIDENCE.md",
+      "target": "../../../../src/ink_scene_content.js",
+      "exists": true
+    },
+    {
+      "file": "DIALOGUE_EVIDENCE.md",
+      "target": "../../../../scripts/compile_feature_ink.mjs",
+      "exists": true
+    },
+    {
+      "file": "DIALOGUE_EVIDENCE.md",
+      "target": "../../../../src/main.js",
+      "exists": true
+    },
+    {
+      "file": "DIALOGUE_EVIDENCE.md",
+      "target": "../../../../src/components/dialogue_component.js",
+      "exists": true
+    },
+    {
+      "file": "DIALOGUE_EVIDENCE.md",
+      "target": "../../../../src/main.js",
+      "exists": true
+    },
+    {
+      "file": "DIALOGUE_EVIDENCE.md",
+      "target": "../../../../src/expansion_persistence.js",
+      "exists": true
+    },
+    {
+      "file": "DIALOGUE_EVIDENCE.md",
+      "target": "../../../../src/ink_narrative.js",
+      "exists": true
+    },
+    {
+      "file": "DIALOGUE_EVIDENCE.md",
+      "target": "../../../worlds/DIALOGUE_AND_INTERACTIONS.md",
+      "exists": true
+    },
+    {
+      "file": "DIALOGUE_EVIDENCE.md",
+      "target": "../../feature-wave/ink/HOST_BINDING.md",
+      "exists": true
+    },
+    {
+      "file": "DIALOGUE_EVIDENCE.md",
+      "target": "../../../../build.js",
+      "exists": true
+    },
+    {
+      "file": "DIALOGUE_EVIDENCE.md",
+      "target": "../../../../src/ink_scene_content.js",
+      "exists": true
+    },
+    {
+      "file": "DIALOGUE_EVIDENCE.md",
+      "target": "../../../../src/ink_narrative.js",
+      "exists": true
+    },
+    {
+      "file": "DIALOGUE_EVIDENCE.md",
+      "target": "../../../../src/ink_scene_content.js",
+      "exists": true
+    },
+    {
+      "file": "DIALOGUE_EVIDENCE.md",
+      "target": "../../../../src/main.js",
+      "exists": true
+    },
+    {
+      "file": "DIALOGUE_EVIDENCE.md",
+      "target": "../../../../src/ink_narrative_ui.js",
+      "exists": true
+    },
+    {
+      "file": "DIALOGUE_EVIDENCE.md",
+      "target": "../../../../src/feature_expansion_nested_life.js",
+      "exists": true
+    },
+    {
+      "file": "DIALOGUE_EVIDENCE.md",
+      "target": "../../../../src/ink_scene_content.js",
+      "exists": true
+    },
+    {
+      "file": "DIALOGUE_EVIDENCE.md",
+      "target": "../../../../src/feature_expansion_refinements_host.js",
+      "exists": true
+    },
+    {
+      "file": "DIALOGUE_EVIDENCE.md",
+      "target": "../../../../src/main.js",
+      "exists": true
+    },
+    {
+      "file": "DIALOGUE_EVIDENCE.md",
+      "target": "../../../../src/feature_expansion_nested_life.js",
+      "exists": true
+    },
+    {
+      "file": "NEXT_PACKET.md",
+      "target": "DIALOGUE_EVIDENCE.md",
+      "exists": true
+    },
+    {
+      "file": "NEXT_PACKET.md",
+      "target": "JOINS_EVIDENCE.md",
+      "exists": true
+    },
+    {
+      "file": "TOOLING_DECISION.md",
+      "target": "RESEARCH_TOOL_EVIDENCE.md",
+      "exists": true
+    },
+    {
+      "file": "TOOLING_DECISION.md",
+      "target": "DIALOGUE_EVIDENCE.md",
+      "exists": true
+    }
+  ],
+  "broken": []
+}

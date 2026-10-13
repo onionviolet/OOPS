@@ -1,0 +1,505 @@
+FA10 R5 SOURCE ONLY. Supplied fixtures are not native acquisition, browser play or literal Import.
+
+Focused command: node --test tests/fa10_manual.test.js
+Exit 0; 10/10 pass.
+TAP version 13
+# Subtest: SOURCE real copy scheduler reserves exact costs, returns paid physical stock once and restores pending
+ok 1 - SOURCE real copy scheduler reserves exact costs, returns paid physical stock once and restores pending
+  ---
+  duration_ms: 79.25225
+  type: 'test'
+  ...
+# Subtest: SOURCE trial diagnostic/four-minute fatigue, exact rest and comparison remain separate from learned read
+ok 2 - SOURCE trial diagnostic/four-minute fatigue, exact rest and comparison remain separate from learned read
+  ---
+  duration_ms: 65.406916
+  type: 'test'
+  ...
+# Subtest: SOURCE natural expiry and rest crossing expiry retain legal diagnostic history
+ok 3 - SOURCE natural expiry and rest crossing expiry retain legal diagnostic history
+  ---
+  duration_ms: 93.650416
+  type: 'test'
+  ...
+# Subtest: SOURCE paid guided comparison prepares only; separate read preserves actual procedure despite losing copy
+ok 4 - SOURCE paid guided comparison prepares only; separate read preserves actual procedure despite losing copy
+  ---
+  duration_ms: 38.294208
+  type: 'test'
+  ...
+# Subtest: SOURCE both learned knife variants conserve held copy, dull held sharp key, produce two real kit keys once
+ok 5 - SOURCE both learned knife variants conserve held copy, dull held sharp key, produce two real kit keys once
+  ---
+  duration_ms: 110.720875
+  type: 'test'
+  ...
+# Subtest: SOURCE cancel copy/trial/rest/comparison/guidance/read/both kits refunds exact inputs and effort without result
+ok 6 - SOURCE cancel copy/trial/rest/comparison/guidance/read/both kits refunds exact inputs and effort without result
+  ---
+  duration_ms: 259.61375
+  type: 'test'
+  ...
+# Subtest: SOURCE real scheduler support loss refunds body/site/clock/author/hands/battle failures without outcome
+ok 7 - SOURCE real scheduler support loss refunds body/site/clock/author/hands/battle failures without outcome
+  ---
+  duration_ms: 232.515125
+  type: 'test'
+  ...
+# Subtest: SOURCE admission excludes borrowed/equipped/missing references, alien actor/body/realm and occupied bench
+ok 8 - SOURCE admission excludes borrowed/equipped/missing references, alien actor/body/realm and occupied bench
+  ---
+  duration_ms: 229.714916
+  type: 'test'
+  ...
+# Subtest: SOURCE stale host quotes and frozen save mutation reject while exact old absence stays inert
+ok 9 - SOURCE stale host quotes and frozen save mutation reject while exact old absence stays inert
+  ---
+  duration_ms: 77.018
+  type: 'test'
+  ...
+# Subtest: SOURCE FA10 durable quota failure leaves live original untouched; explicit retry stores exact caused result
+ok 10 - SOURCE FA10 durable quota failure leaves live original untouched; explicit retry stores exact caused result
+  ---
+  duration_ms: 44.66275
+  type: 'test'
+  ...
+1..10
+# tests 10
+# suites 0
+# pass 10
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 1411.105625
+
+Affected command: node --test tests/fa10_manual.test.js tests/simulation.test.js tests/simulation_extensions.test.js tests/expansion_engine.test.js tests/save_compatibility.test.js tests/save_files.test.js
+Exit 0; 69/69 pass, including the same 10 focused checks (do not add).
+TAP version 13
+# Subtest: preview is pure and explains knowledge, context, combined costs and actual odds
+ok 1 - preview is pure and explains knowledge, context, combined costs and actual odds
+  ---
+  duration_ms: 1.805042
+  type: 'test'
+  ...
+# Subtest: kit costs reserve once; frozen result survives reload, content revision and changed stats
+ok 2 - kit costs reserve once; frozen result survives reload, content revision and changed stats
+  ---
+  duration_ms: 18.678125
+  type: 'test'
+  ...
+# Subtest: both survey routes are viable and recorded guide condition changes departure rewards
+ok 3 - both survey routes are viable and recorded guide condition changes departure rewards
+  ---
+  duration_ms: 5.561041
+  type: 'test'
+  ...
+# Subtest: equal simulation duration in ticks or a travel jump crosses the same deadlines and expiry
+ok 4 - equal simulation duration in ticks or a travel jump crosses the same deadlines and expiry
+  ---
+  duration_ms: 36.676
+  type: 'test'
+  ...
+# Subtest: repairing the crossing enables a more valuable delivery even if the guide needs rest
+ok 5 - repairing the crossing enables a more valuable delivery even if the guide needs rest
+  ---
+  duration_ms: 2.075791
+  type: 'test'
+  ...
+# Subtest: blocking scheduled choices stop exactly at their boundary and return unspent catch-up
+ok 6 - blocking scheduled choices stop exactly at their boundary and return unspent catch-up
+  ---
+  duration_ms: 1.585625
+  type: 'test'
+  ...
+# Subtest: actors have independent budgets and one assignment each, with stable same-time ordering
+ok 7 - actors have independent budgets and one assignment each, with stable same-time ordering
+  ---
+  duration_ms: 1.124916
+  type: 'test'
+  ...
+# Subtest: invalid content and effects fail before mutation or spending
+ok 8 - invalid content and effects fail before mutation or spending
+  ---
+  duration_ms: 0.414042
+  type: 'test'
+  ...
+# Subtest: isolated rewind previews losses, retains memory and cannot export temporary rewards
+ok 9 - isolated rewind previews losses, retains memory and cannot export temporary rewards
+  ---
+  duration_ms: 0.717667
+  type: 'test'
+  ...
+# Subtest: legacy migration, dormant payload and Unicode file roundtrip retain new commitments
+ok 10 - legacy migration, dormant payload and Unicode file roundtrip retain new commitments
+  ---
+  duration_ms: 3.407084
+  type: 'test'
+  ...
+# Subtest: durable envelope write is atomic on failure, includes costs, and preserves unrelated fields
+ok 11 - durable envelope write is atomic on failure, includes costs, and preserves unrelated fields
+  ---
+  duration_ms: 0.752833
+  type: 'test'
+  ...
+# Subtest: SOURCE real copy scheduler reserves exact costs, returns paid physical stock once and restores pending
+ok 12 - SOURCE real copy scheduler reserves exact costs, returns paid physical stock once and restores pending
+  ---
+  duration_ms: 91.12575
+  type: 'test'
+  ...
+# Subtest: SOURCE trial diagnostic/four-minute fatigue, exact rest and comparison remain separate from learned read
+ok 13 - SOURCE trial diagnostic/four-minute fatigue, exact rest and comparison remain separate from learned read
+  ---
+  duration_ms: 74.530583
+  type: 'test'
+  ...
+# Subtest: SOURCE natural expiry and rest crossing expiry retain legal diagnostic history
+ok 14 - SOURCE natural expiry and rest crossing expiry retain legal diagnostic history
+  ---
+  duration_ms: 109.410083
+  type: 'test'
+  ...
+# Subtest: SOURCE paid guided comparison prepares only; separate read preserves actual procedure despite losing copy
+ok 15 - SOURCE paid guided comparison prepares only; separate read preserves actual procedure despite losing copy
+  ---
+  duration_ms: 45.596083
+  type: 'test'
+  ...
+# Subtest: SOURCE both learned knife variants conserve held copy, dull held sharp key, produce two real kit keys once
+ok 16 - SOURCE both learned knife variants conserve held copy, dull held sharp key, produce two real kit keys once
+  ---
+  duration_ms: 125.240375
+  type: 'test'
+  ...
+# Subtest: SOURCE cancel copy/trial/rest/comparison/guidance/read/both kits refunds exact inputs and effort without result
+ok 17 - SOURCE cancel copy/trial/rest/comparison/guidance/read/both kits refunds exact inputs and effort without result
+  ---
+  duration_ms: 290.379833
+  type: 'test'
+  ...
+# Subtest: SOURCE real scheduler support loss refunds body/site/clock/author/hands/battle failures without outcome
+ok 18 - SOURCE real scheduler support loss refunds body/site/clock/author/hands/battle failures without outcome
+  ---
+  duration_ms: 258.732417
+  type: 'test'
+  ...
+# Subtest: SOURCE admission excludes borrowed/equipped/missing references, alien actor/body/realm and occupied bench
+ok 19 - SOURCE admission excludes borrowed/equipped/missing references, alien actor/body/realm and occupied bench
+  ---
+  duration_ms: 240.528875
+  type: 'test'
+  ...
+# Subtest: SOURCE stale host quotes and frozen save mutation reject while exact old absence stays inert
+ok 20 - SOURCE stale host quotes and frozen save mutation reject while exact old absence stays inert
+  ---
+  duration_ms: 77.930875
+  type: 'test'
+  ...
+# Subtest: SOURCE FA10 durable quota failure leaves live original untouched; explicit retry stores exact caused result
+ok 21 - SOURCE FA10 durable quota failure leaves live original untouched; explicit retry stores exact caused result
+  ---
+  duration_ms: 50.393291
+  type: 'test'
+  ...
+# Subtest: base saves gain no dormant payload and their state is unchanged
+ok 22 - base saves gain no dormant payload and their state is unchanged
+  ---
+  duration_ms: 0.859792
+  type: 'test'
+  ...
+# Subtest: prototype location, items, recipes and activity are preserved outside active content
+ok 23 - prototype location, items, recipes and activity are preserved outside active content
+  ---
+  duration_ms: 1.230125
+  type: 'test'
+  ...
+# Subtest: unsupported cultivation payloads stay opaque, but unknown retirement schemas block migration
+ok 24 - unsupported cultivation payloads stay opaque, but unknown retirement schemas block migration
+  ---
+  duration_ms: 0.240917
+  type: 'test'
+  ...
+# Subtest: native file encoding preserves Unicode and legacy Latin-1 saves
+ok 25 - native file encoding preserves Unicode and legacy Latin-1 saves
+  ---
+  duration_ms: 3.758417
+  type: 'test'
+  ...
+# Subtest: malformed and incompatible imports cannot write over the current save
+ok 26 - malformed and incompatible imports cannot write over the current save
+  ---
+  duration_ms: 1.485292
+  type: 'test'
+  ...
+# Subtest: real-loader rejection and storage failure do not perform premature writes
+ok 27 - real-loader rejection and storage failure do not perform premature writes
+  ---
+  duration_ms: 1.043083
+  type: 'test'
+  ...
+# Subtest: successful import commits only after preflight and retains retirement data once
+ok 28 - successful import commits only after preflight and retains retirement data once
+  ---
+  duration_ms: 0.648792
+  type: 'test'
+  ...
+# Subtest: failed export creation never encodes an undefined or invalid payload
+ok 29 - failed export creation never encodes an undefined or invalid payload
+  ---
+  duration_ms: 0.0865
+  type: 'test'
+  ...
+# Subtest: schema4 migrates without enrollment, rewards or reinterpreting a frozen commitment
+ok 30 - schema4 migrates without enrollment, rewards or reinterpreting a frozen commitment
+  ---
+  duration_ms: 10.210875
+  type: 'test'
+  ...
+# Subtest: inspection is pure, definitions are frozen and wrong actor, location or hidden means reject
+ok 31 - inspection is pure, definitions are frozen and wrong actor, location or hidden means reject
+  ---
+  duration_ms: 36.979916
+  type: 'test'
+  ...
+# Subtest: real native materials enter the NPC inventory; independent work, reload and collection settle once
+ok 32 - real native materials enter the NPC inventory; independent work, reload and collection settle once
+  ---
+  duration_ms: 45.88575
+  type: 'test'
+  ...
+# Subtest: one long advance and split/reloaded advances have equal actors, ownership, RNG and events
+ok 33 - one long advance and split/reloaded advances have equal actors, ownership, RNG and events
+  ---
+  duration_ms: 111.55325
+  type: 'test'
+  ...
+# Subtest: finite automation reserves each batch, returns cancellation inputs and pauses on shortage
+ok 34 - finite automation reserves each batch, returns cancellation inputs and pauses on shortage
+  ---
+  duration_ms: 68.205625
+  type: 'test'
+  ...
+# Subtest: shared site capacity and unique claims arbitrate across actors before costs or rewards
+ok 35 - shared site capacity and unique claims arbitrate across actors before costs or rewards
+  ---
+  duration_ms: 17.487167
+  type: 'test'
+  ...
+# Subtest: pending definitions freeze effects and reservations across content revisions
+ok 36 - pending definitions freeze effects and reservations across content revisions
+  ---
+  duration_ms: 7.465875
+  type: 'test'
+  ...
+# Subtest: life/conditions are durable; immunity, remedy and nonlethal encounters use explicit rules
+ok 37 - life/conditions are durable; immunity, remedy and nonlethal encounters use explicit rules
+  ---
+  duration_ms: 21.839208
+  type: 'test'
+  ...
+# Subtest: faculty possession, awakening, activation and suppression differ from remembered copies
+ok 38 - faculty possession, awakening, activation and suppression differ from remembered copies
+  ---
+  duration_ms: 31.20425
+  type: 'test'
+  ...
+# Subtest: execution uses actual target vitals, capacity, cooldown and native stamina/health projection
+ok 39 - execution uses actual target vitals, capacity, cooldown and native stamina/health projection
+  ---
+  duration_ms: 21.346792
+  type: 'test'
+  ...
+# Subtest: a saved encounter blocks ordinary time, resumes its frozen turn and settles once
+ok 40 - a saved encounter blocks ordinary time, resumes its frozen turn and settles once
+  ---
+  duration_ms: 14.32325
+  type: 'test'
+  ...
+# Subtest: tiers, origins and fusion have durable receipts, branches and constituent lineage
+ok 41 - tiers, origins and fusion have durable receipts, branches and constituent lineage
+  ---
+  duration_ms: 19.131709
+  type: 'test'
+  ...
+# Subtest: loans preserve owner/custody, block consumption and return the exact material
+ok 42 - loans preserve owner/custody, block consumption and return the exact material
+  ---
+  duration_ms: 24.278875
+  type: 'test'
+  ...
+# Subtest: world transitions preview explicit reset domains, preserve campaign knowledge/claims and stale previews reject
+ok 43 - world transitions preview explicit reset domains, preserve campaign knowledge/claims and stale previews reject
+  ---
+  duration_ms: 10.477417
+  type: 'test'
+  ...
+# Subtest: decisions retain unspent time; hidden occurrences require discovery and quiet checks award nothing
+ok 44 - decisions retain unspent time; hidden occurrences require discovery and quiet checks award nothing
+  ---
+  duration_ms: 11.743417
+  type: 'test'
+  ...
+# Subtest: bounded catch-up returns remaining work rather than skipping controller/event boundaries
+ok 45 - bounded catch-up returns remaining work rather than skipping controller/event boundaries
+  ---
+  duration_ms: 2324.6015
+  type: 'test'
+  ...
+# Subtest: failed durable write publishes no actors, claims, native transfers, resources or unlocks
+ok 46 - failed durable write publishes no actors, claims, native transfers, resources or unlocks
+  ---
+  duration_ms: 6.9055
+  type: 'test'
+  ...
+# Subtest: native unlocks stage access independently of publication and include recipe, skill, flag and quest
+ok 47 - native unlocks stage access independently of publication and include recipe, skill, flag and quest
+  ---
+  duration_ms: 0.180375
+  type: 'test'
+  ...
+# Subtest: malformed actor bindings, reservations, unknown definitions and future runtime schemas reject
+ok 48 - malformed actor bindings, reservations, unknown definitions and future runtime schemas reject
+  ---
+  duration_ms: 0.984792
+  type: 'test'
+  ...
+# Subtest: each power model enforces its own scope, cost and termination without a global rank
+ok 49 - each power model enforces its own scope, cost and termination without a global rank
+  ---
+  duration_ms: 0.916416
+  type: 'test'
+  ...
+# Subtest: formula-derived reservations remain negative and freeze the paid amount before later mastery
+ok 50 - formula-derived reservations remain negative and freeze the paid amount before later mastery
+  ---
+  duration_ms: 10.510625
+  type: 'test'
+  ...
+# Subtest: fictional condition ticks and old-age endings preserve work/refund rules across reload
+ok 51 - fictional condition ticks and old-age endings preserve work/refund rules across reload
+  ---
+  duration_ms: 18.59775
+  type: 'test'
+  ...
+# Subtest: new actors are created once with stable identity, independent inventory and no invented past
+ok 52 - new actors are created once with stable identity, independent inventory and no invented past
+  ---
+  duration_ms: 7.311917
+  type: 'test'
+  ...
+# Subtest: external actor proposals are restricted to visible legal registered commands and stale proposals reject
+ok 53 - external actor proposals are restricted to visible legal registered commands and stale proposals reject
+  ---
+  duration_ms: 37.342292
+  type: 'test'
+  ...
+# Subtest: native equipment stages an owned quality-key swap, saves NPC gear and rebuilds without extra items
+ok 54 - native equipment stages an owned quality-key swap, saves NPC gear and rebuilds without extra items
+  ---
+  duration_ms: 5.352292
+  type: 'test'
+  ...
+# Subtest: authored native reset values survive serialization after ordinary domain patches
+ok 55 - authored native reset values survive serialization after ordinary domain patches
+  ---
+  duration_ms: 2.585083
+  type: 'test'
+  ...
+# Subtest: a party encounter freezes its participants and pays all member costs atomically
+ok 56 - a party encounter freezes its participants and pays all member costs atomically
+  ---
+  duration_ms: 27.414667
+  type: 'test'
+  ...
+# Subtest: delayed native equipment/vital effects require real bindings and preserve NPC body state
+ok 57 - delayed native equipment/vital effects require real bindings and preserve NPC body state
+  ---
+  duration_ms: 6.817041
+  type: 'test'
+  ...
+# Subtest: repeatable actor creation binds distinct owners, freezes a delayed template and resumes birth once
+ok 58 - repeatable actor creation binds distinct owners, freezes a delayed template and resumes birth once
+  ---
+  duration_ms: 51.727208
+  type: 'test'
+  ...
+# Subtest: unknown aliases and insufficient supplies reject the whole hire without a debit or actor
+ok 59 - unknown aliases and insufficient supplies reject the whole hire without a debit or actor
+  ---
+  duration_ms: 8.574708
+  type: 'test'
+  ...
+# Subtest: NPC responses use real means, skip unaffordable priorities and persist a turn across reload
+ok 60 - NPC responses use real means, skip unaffordable priorities and persist a turn across reload
+  ---
+  duration_ms: 25.232958
+  type: 'test'
+  ...
+# Subtest: encounter success settles its claim once; withdrawal frees the claim while retaining spent means
+ok 61 - encounter success settles its claim once; withdrawal frees the claim while retaining spent means
+  ---
+  duration_ms: 14.998625
+  type: 'test'
+  ...
+# Subtest: dynamic outcome weights and effects share the pre-cost snapshot; inspection never draws
+ok 62 - dynamic outcome weights and effects share the pre-cost snapshot; inspection never draws
+  ---
+  duration_ms: 17.275625
+  type: 'test'
+  ...
+# Subtest: event guarantees count eligible misses; unmet conditions and open events do not consume attempts
+ok 63 - event guarantees count eligible misses; unmet conditions and open events do not consume attempts
+  ---
+  duration_ms: 10.409833
+  type: 'test'
+  ...
+# Subtest: caused NPC occurrences bind independently and unknown events cannot be answered by controllers
+ok 64 - caused NPC occurrences bind independently and unknown events cannot be answered by controllers
+  ---
+  duration_ms: 21.034458
+  type: 'test'
+  ...
+# Subtest: simulated movement respects work occupancy and native travel stays bound to its host
+ok 65 - simulated movement respects work occupancy and native travel stays bound to its host
+  ---
+  duration_ms: 11.976542
+  type: 'test'
+  ...
+# Subtest: two playable helpers finish independently and long advances match split/reloaded time
+ok 66 - two playable helpers finish independently and long advances match split/reloaded time
+  ---
+  duration_ms: 184.591959
+  type: 'test'
+  ...
+# Subtest: a failed durable hire preserves native supplies and creates no live actor or debit
+ok 67 - a failed durable hire preserves native supplies and creates no live actor or debit
+  ---
+  duration_ms: 7.0535
+  type: 'test'
+  ...
+# Subtest: inactive actors retain their memories without empty clock work; explicit return resumes future decisions
+ok 68 - inactive actors retain their memories without empty clock work; explicit return resumes future decisions
+  ---
+  duration_ms: 12.088292
+  type: 'test'
+  ...
+# Subtest: an NPC's private event response remains saved without disclosing its label to the player's history
+ok 69 - an NPC's private event response remains saved without disclosing its label to the player's history
+  ---
+  duration_ms: 11.161
+  type: 'test'
+  ...
+1..69
+# tests 69
+# suites 0
+# pass 69
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 3112.66675
+
+Historical checker command: node docs/gm/non-factorio-absorption-2026-10-07/boh/leaf_checks.mjs
+Exit 1 before first named check: TypeError Cannot read properties of undefined (reading values) at src/techniques.js:87, techniqueFacts, via originalFrontierFacts / featureObjectFacts / referenceGameplayFacts / simulationFacts / applySimulationEffects / old fixture.
+The historical checker creates a minimal registry without registry.techniques. This is stale fixture incompatibility, not a reproduced production FA10 defect. No historical file edited.

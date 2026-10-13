@@ -1,0 +1,21 @@
+{
+  "outbound": "docs/gm/dispatch/proto23-vfx-2026-10-13/PROTO23_VFX-outbound.md",
+  "conversation_url": "https://chatgpt.com/c/6ace1efb-1ea4-83e9-8ef1-18733ec275ab",
+  "route": "Chrome extension via cua_repl, ordinary signed-in ChatGPT Chat",
+  "model_mode": "Chat; model identity not exposed or inferred",
+  "effort": "High (visible default retained)",
+  "previous_effort": "Medium (UI_DENSITY_NEXT_PARTS_ROUNDTRIP_2026-10-13.json)",
+  "sent_at": null,
+  "sent_at_note": "Exact submission timestamp not recorded; composer contents matched outbound before Send",
+  "captured_at": "2026-10-13T12:17:08.005433+00:00",
+  "capture_complete": true,
+  "capture_format": "Verbatim rendered text from response canvas and surrounding reply; browser controls omitted",
+  "failed_attempts": [],
+  "implementation_authorized": true,
+  "new_chat_dispatched": false,
+  "sha256": {
+    "PROTO23_VFX-outbound.md": "aaf1140daebde6c7284e35d1105d8d81dda50e4f94e2ea03692a7b8417b8a173",
+    "PROTO23_VFX-response.md": "c7e7202e694b3fbb019b4fd49ce82341c9c30bed7ed32dafa42a4aef87a4f93f",
+    "PROTO23_VFX-reconciled.md": "dba146de9161efeb9077b3e12884fd18bddeed228c36ec0902d2022265caded6"
+  }
+}

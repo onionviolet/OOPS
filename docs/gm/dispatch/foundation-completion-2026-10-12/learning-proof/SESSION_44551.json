@@ -1,0 +1,112 @@
+{
+  "pid": 44551,
+  "servedHash": "96eefe92538e06364042fc069b7fd94834ddd6fb069b8d4db0f6ae0a7d4b9195",
+  "origin": "http://127.0.0.1:18643",
+  "startedHash": "96eefe92538e06364042fc069b7fd94834ddd6fb069b8d4db0f6ae0a7d4b9195",
+  "endedHash": "96eefe92538e06364042fc069b7fd94834ddd6fb069b8d4db0f6ae0a7d4b9195",
+  "events": [
+    {
+      "workflowStep": {
+        "action": "reload",
+        "save": "worker-player-strip-reloaded"
+      },
+      "index": 0,
+      "clock": 11643,
+      "sequence": 1238
+    },
+    {
+      "workflowStep": {
+        "action": "literalImport",
+        "path": "/tmp/yairpg-foundation-learning-worker-player-strip-produced.txt",
+        "save": "worker-player-strip-literal-imported"
+      },
+      "index": 1,
+      "clock": 11644,
+      "sequence": 1239
+    },
+    {
+      "workflowStep": {
+        "action": "click",
+        "selector": "#notebook_tab_here"
+      },
+      "index": 2,
+      "clock": 11644,
+      "sequence": 1239
+    },
+    {
+      "workflowStep": {
+        "action": "panel",
+        "selector": "#feature_expansion_panel"
+      },
+      "index": 3,
+      "clock": 11644,
+      "sequence": 1239
+    },
+    {
+      "workflowStep": {
+        "action": "panel",
+        "selector": "#feature_expansion_panel details:has(>summary:text-is(\"Home-world chapter & changed return\"))"
+      },
+      "index": 4,
+      "clock": 11644,
+      "sequence": 1239
+    },
+    {
+      "workflowStep": {
+        "action": "click",
+        "selector": "[data-action-legibility-key=\"action:world.completion.life.measured_line\"] button",
+        "save": "worker-player-strip-use-accepted"
+      },
+      "index": 5,
+      "clock": 11645,
+      "sequence": 1241
+    },
+    {
+      "workflowStep": {
+        "action": "completed",
+        "id": "world.completion.life.measured_line",
+        "save": "worker-player-strip-used"
+      },
+      "index": 6,
+      "clock": 11646,
+      "sequence": 1242
+    },
+    {
+      "workflowStep": {
+        "action": "export",
+        "name": "worker-player-strip-used"
+      },
+      "index": 7,
+      "clock": 11646,
+      "sequence": 1242
+    },
+    {
+      "workflowStep": {
+        "action": "reload",
+        "save": "worker-player-strip-used-reloaded"
+      },
+      "index": 8,
+      "clock": 11646,
+      "sequence": 1242
+    },
+    {
+      "workflowStep": {
+        "action": "literalImport",
+        "path": "/tmp/yairpg-foundation-learning-worker-player-strip-used.txt",
+        "save": "worker-player-strip-used-literal-imported"
+      },
+      "index": 9,
+      "clock": 11647,
+      "sequence": 1243
+    },
+    {
+      "action": "workflow",
+      "file": "PLAYER_USE_WORKFLOW.json"
+    },
+    {
+      "action": "save",
+      "name": "worker-player-positive-final"
+    }
+  ],
+  "errors": []
+}

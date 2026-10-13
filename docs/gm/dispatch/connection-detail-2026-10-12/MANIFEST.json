@@ -1,0 +1,192 @@
+{
+  "revision": 1,
+  "status": "frozen-for-planning",
+  "ownerThread": "01a12e6b-3e4b-7e13-9ec3-cdd0a37ceb89",
+  "authority": "ASSIGNMENT.md",
+  "scope": "C01-C07 and E01-E10 reconciliation; X01-X18 with two distinct leaves each; J01-J06; CD-P1-CD-P5. Proposals only.",
+  "contexts": [
+    "ordinary Frontier/Village",
+    "source-bounded Proto23 visitor branch",
+    "original extraordinary Glasshouse/nonhuman proposal"
+  ],
+  "families": [
+    {
+      "id": "X01",
+      "leaves": [
+        "X01-A specific invitation and friendship continuation",
+        "X01-B gift provenance and conflicting feelings"
+      ]
+    },
+    {
+      "id": "X02",
+      "leaves": [
+        "X02-A shared calendar renegotiation",
+        "X02-B separate possessions and care offer"
+      ]
+    },
+    {
+      "id": "X03",
+      "leaves": [
+        "X03-A changed-body recognition",
+        "X03-B copy with untransferred promises"
+      ]
+    },
+    {
+      "id": "X04",
+      "leaves": [
+        "X04-A commission inspection and actual user",
+        "X04-B admission versus attendance versus credentials"
+      ]
+    },
+    {
+      "id": "X05",
+      "leaves": [
+        "X05-A controlled negative result",
+        "X05-B demonstrated teaching and local execution"
+      ]
+    },
+    {
+      "id": "X06",
+      "leaves": [
+        "X06-A recollection with attributed uncertainty",
+        "X06-B rehearsal versus external discovery"
+      ]
+    },
+    {
+      "id": "X07",
+      "leaves": [
+        "X07-A typed repair target and reachable channel",
+        "X07-B interpreted intent with honest unsupported result"
+      ]
+    },
+    {
+      "id": "X08",
+      "leaves": [
+        "X08-A custody and held-use loss",
+        "X08-B perception range and reciprocal knowledge"
+      ]
+    },
+    {
+      "id": "X09",
+      "leaves": [
+        "X09-A supplied delegation and report",
+        "X09-B opponent plan interrupted by missing trace"
+      ]
+    },
+    {
+      "id": "X10",
+      "leaves": [
+        "X10-A expressive clothing versus equipment",
+        "X10-B garden hobby with optional care agreement"
+      ]
+    },
+    {
+      "id": "X11",
+      "leaves": [
+        "X11-A unlimited useful material creation",
+        "X11-B rooted actor commissions mobile hands"
+      ]
+    },
+    {
+      "id": "X12",
+      "leaves": [
+        "X12-A assistance trade theft and refusal",
+        "X12-B seeking unknown means without false impossibility"
+      ]
+    },
+    {
+      "id": "X13",
+      "leaves": [
+        "X13-A sent letter survives cancellation",
+        "X13-B absence and domain-specific return"
+      ]
+    },
+    {
+      "id": "X14",
+      "leaves": [
+        "X14-A loan repair and downstream performance",
+        "X14-B transformed gift retains provenance"
+      ]
+    },
+    {
+      "id": "X15",
+      "leaves": [
+        "X15-A abundant production changes a named order",
+        "X15-B lesson becomes willing local tradition"
+      ]
+    },
+    {
+      "id": "X16",
+      "leaves": [
+        "X16-A graduation with continuing relationships",
+        "X16-B willing succession through actual carriers"
+      ]
+    },
+    {
+      "id": "X17",
+      "leaves": [
+        "X17-A nonhuman action adapter diagnostic",
+        "X17-B exact content revision and restoration"
+      ]
+    },
+    {
+      "id": "X18",
+      "leaves": [
+        "X18-A accessible preferences before circumstance roll",
+        "X18-B known severe stakes and durable commitment"
+      ]
+    }
+  ],
+  "joins": [
+    "J01",
+    "J02",
+    "J03",
+    "J04",
+    "J05",
+    "J06"
+  ],
+  "packets": [
+    "CD-P1",
+    "CD-P2",
+    "CD-P3",
+    "CD-P4",
+    "CD-P5"
+  ],
+  "duplicates": [],
+  "ownership": {
+    "root": "all final outputs and integration",
+    "life-specialist": "LIFE_DETAIL_DRAFT.md only",
+    "possibility-specialist": "POSSIBILITY_DETAIL_DRAFT.md only",
+    "source-specialist": "SOURCE_SEAMS_DRAFT.md only",
+    "dispatcher": "DISPATCH.json"
+  },
+  "excluded": [
+    "runtime writes",
+    "other dispatch/candidate writes",
+    "shared docs writes",
+    "commits/push/publication",
+    "source acquisition/library edits",
+    "personal saves",
+    "new user-owned chats",
+    "external messages"
+  ],
+  "completion": {
+    "date": "2026-10-12",
+    "delivery": "source-inspected planning return complete",
+    "counts": {
+      "mappedFamilies": 35,
+      "nestedLeaves": 36,
+      "causalJoins": 6,
+      "futurePackets": 5
+    },
+    "evidence": [
+      "VALIDATION.json",
+      "REVIEW.md",
+      "INPUTS.json"
+    ],
+    "runtimeProof": "not run",
+    "sharedIntegration": "not performed",
+    "directorAcceptance": "not claimed",
+    "allChildReservations": "released"
+  }
+}

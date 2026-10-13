@@ -1,0 +1,40 @@
+{
+  "status": "FAIL",
+  "bundle": "c5d852bbb3db26d4cef74772edf44c8b96ec2d96aac3b8eb7032624ce8f49402",
+  "base": "dd3efe3383f12f0aac22e4f390aae90fae2e7fc4",
+  "fixture": "docs/gm/dispatch/foundation-adoption-next-2026-10-13/rounds/r3/ready-native.txt",
+  "fixtureHash": "613bb2bb1b1bde5d97a83813c3c729d683447bc563893d3ae5baff65eab9020c",
+  "checks": {
+    "bookingFailedWrite": true,
+    "cancelReturnsPaidReservationsWithoutResult": true
+  },
+  "events": [
+    {
+      "id": "reference_gameplay.refine_first",
+      "clock": 46
+    },
+    {
+      "id": "reference_gameplay.refine_first",
+      "clock": 47
+    },
+    {
+      "id": "cancel:simulation:4103",
+      "clock": 48
+    },
+    {
+      "id": "reference_gameplay.refine_first",
+      "clock": 49
+    }
+  ],
+  "errors": [],
+  "timePolicy": "Normal native browser timers; no resource/history/clock fields injected",
+  "console": [
+    "Failed to load resource: the server responded with a status of 404 (Not Found)",
+    "Failed to load resource: the server responded with a status of 404 (Not Found)",
+    "Failed to load resource: the server responded with a status of 404 (Not Found)",
+    "Something went wrong on saving the game!",
+    "Error: Saving disabled after a loading error. Preserve the original save and use a compatible build.\n    at lw (http://127.0.0.1:18727/dist/bundle.js?version=v0.6-c5d852bbb3db:1054:33546)\n    at $6 (http://127.0.0.1:18727/dist/bundle.js?version=v0.6-c5d852bbb3db:1054:39218)\n    at kFe (http://127.0.0.1:18727/dist/bundle.js?version=v0.6-c5d852bbb3db:1054:39423)\n    at HTMLDivElement.onclick (http://127.0.0.1:18727/:683:84)",
+    "Failed to load resource: the server responded with a status of 404 (Not Found)"
+  ],
+  "failure": "AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n\n0 !== 2\n\n    at /Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/foundation-adoption-next-2026-10-13/rounds/r3/refine-native.cjs:56:312"
+}

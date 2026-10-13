@@ -1,0 +1,22 @@
+{
+  "stage": "reconciled R2/fresh-successor objective; actual R1 dependency technical PASS",
+  "url": "https://chatgpt.com/c/6acdd318-fe58-83e9-b7d0-644e7433488e",
+  "sentAtUTC": "2026-10-13T06:43:46.549Z",
+  "captureAtUTC": "2026-10-13T06:48:35.787Z",
+  "mode": "ordinary Chat",
+  "effort": "High,3 of3 retained",
+  "model": "not exposed; not inferred",
+  "submissionTrimMatches": true,
+  "responseChars": 20795,
+  "completion": "Response complete; no Stop; full response-level Copy",
+  "files": {
+    "PROMPT_OUTBOUND.md": "6a357c8aeedb06b1bf2943d80b0f4c83e9be953fbeddf8de971fe77f64e5f318",
+    "PROMPT_SENT.md": "58a793011c464a99608bbcb07910b36bd4ebaeca7b1a9508eafc356d85fed95d",
+    "CHATGPT_RESPONSE.md": "05ff59db02a93903852ca250e5928076a6e5097e0964ec529eed4a1322976825",
+    "PROMPT_RECONCILED.md": "65e2d95092020f4b13432deab1444bd2045dbe546a8edb728d6a3e84742602ec",
+    "RECONCILIATION_NOTES.md": "54ed54f6bb695fe19b461097e0bffc8697f390221ca201510850c91106550772",
+    "REVIEW_PROOF.png": "a2d282823d1116733e600ca5778f00ef6b323e786a9ea22b1190af48f7c1ae9d"
+  },
+  "successorThread": "01a13425-517a-7442-83b6-34929c57dfab",
+  "entryGateEvidence": "../r1/REPORT.md and FINAL_BINDINGS.json"
+}

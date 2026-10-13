@@ -1,0 +1,57 @@
+{
+  "base": "53dc1df15889be6ebb1bae403497041f0672db46",
+  "checkout": "/Users/weiwei/.codex/worktrees/world1-completion/yet-another-idle-rpg",
+  "publicSourceHashes": [
+    {
+      "path": "src/main.js",
+      "sha256": "6053dd2a506dfd4ab7030abe6a38f13e525b52d2c20bbb2db10e186fcca20d74"
+    },
+    {
+      "path": "src/content_packs.js",
+      "sha256": "049fe5642c729068a475d00e80815158eb20fab580c192805eaeb21382273f41"
+    },
+    {
+      "path": "src/content_pack_ui.js",
+      "sha256": "cc8c792e5d195fdf54643a947be1ad42884b9c64d10b61e2cf88d5dae230a42d"
+    },
+    {
+      "path": "tests/content_pack_ui.test.js",
+      "sha256": "0f101e162af92b5f0522e569f3ddd2bde34d00f4d20be3074323f45a0fa4ffd4"
+    },
+    {
+      "path": "tests/content_pack_provenance.test.js",
+      "sha256": "972ed0cd39c7596d9c3f15a8ea09c70e74f02547cd86d9e52b7754179449c131"
+    },
+    {
+      "path": "dist/bundle.js",
+      "sha256": "9448294424826da47ddde847ef723f15c705b3f451ab99b16640fd50a10d3c2c"
+    },
+    {
+      "path": "dist/bundle.js.map",
+      "sha256": "e2ebc0732e521af4556ef62dd0e3cb1d835023ce15ef627cefc21064128963c4"
+    },
+    {
+      "path": "index.html",
+      "sha256": "f4e325be8172a5bb2ea2f86f85cc86164d1bbe939eadfb172ed844c96fcc3e80"
+    },
+    {
+      "path": "src/simulation_contracts.js",
+      "sha256": "bc7b0b356d6d459e9eff2a2e9ba7d34484f572c66fd3b1b8328591e75bc37e5d"
+    },
+    {
+      "path": "tests/simulation_optional_enrollment.test.js",
+      "sha256": "61fc7e22ebdf74584fdd5edcc15dafda085babc7a417b8b9e710f813ea2fd33b"
+    },
+    {
+      "path": "src/native_gameplay_adapter.js",
+      "sha256": "48d511cafef1f50c6f6fdb5727354bffa6f5cb049e5cf3030420e0568105ca6b"
+    },
+    {
+      "path": "tests/native_gameplay_binding.test.js",
+      "sha256": "9fa9f5af4123bc3ae4fd787167242e1a90bee5a86493a9a62cf6c08cfe1c06b0"
+    }
+  ],
+  "privateReceipt": "/Users/weiwei/.codex/worktrees/world1-completion/yet-another-idle-rpg/docs/research/novels/world-depth-2026-10-11/continuation/INPUT_RECEIPT.json",
+  "baselinePackParity": "all original candidate JSON pack bytes match unchanged original",
+  "latestBuildQualification": "Rebuilt staged-native-binding repair; mixed native gate passes including save/reload/import;9affected native regression cases pass. Earlier unaffected proof retained for exact scope."
+}

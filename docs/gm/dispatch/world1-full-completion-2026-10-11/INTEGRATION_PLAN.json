@@ -1,0 +1,160 @@
+{
+  "status": "reviewed generic source/tests copied after exact baseline checks; pack/build/native gates pending",
+  "owner": "01a12dee-d943-7cf2-ade3-8b5163bd0532",
+  "candidate": "/Users/weiwei/.codex/worktrees/world1-completion/yet-another-idle-rpg",
+  "sameBase": "53dc1df15889be6ebb1bae403497041f0672db46",
+  "paths": [
+    "src/content_pack_ui.js",
+    "src/content_packs.js",
+    "src/expansion_engine.js",
+    "src/main.js",
+    "src/native_gameplay_adapter.js",
+    "src/save_files.js",
+    "src/simulation.js",
+    "src/simulation_contracts.js",
+    "src/simulation_effects.js",
+    "src/structured_renewal.js",
+    "src/structured_pack_definitions.js",
+    "src/structured_pack_ui.js",
+    "src/structured_pack_runtime.js",
+    "src/structured_pack_state.js",
+    "src/structured_container_runtime.js",
+    "tests/content_pack_provenance.test.js",
+    "tests/native_gameplay_binding.test.js",
+    "tests/structured_container_integration.test.js",
+    "tests/structured_pack_definitions.test.js",
+    "tests/structured_pack_runtime.test.js",
+    "tests/content_pack_ui.test.js",
+    "tests/structured_container_development.test.js",
+    "tests/structured_container_preparation.test.js",
+    "tests/structured_origins.test.js",
+    "tests/structured_container_runtime.test.js",
+    "tests/structured_renewal.test.js",
+    "tests/simulation_optional_enrollment.test.js",
+    "tests/structured_pack_ui.test.js"
+  ],
+  "policy": "Copy only reviewed candidate changed and new source/tests after shared runtime release; no planning docs or old bundle overwrite. Rebuild shared after combined test slice; native proof on separate fresh shared origin. Private installed content copy preserves exact bytes and remains ignored. Existing parallel candidates remain separate. No commits or pushes.",
+  "inputs": {
+    "src/content_pack_ui.js": {
+      "candidate": "cc8c792e5d195fdf54643a947be1ad42884b9c64d10b61e2cf88d5dae230a42d",
+      "shared": "53c0ee4c5ce3739e9fbee49cce48fdf5169f4f93c3ac2edb6d44ae4e2e3ec2e4"
+    },
+    "src/content_packs.js": {
+      "candidate": "399730352eac8882361d17ef055042ec6e7337859bf905d6a6d1b6d7ad045255",
+      "shared": "65c72a9510cb87bab963ef508c62a82af9918c5ff869338e50aab0503fef87ad"
+    },
+    "src/expansion_engine.js": {
+      "candidate": "2362190f0f34baa5c71ff79f2527bb432b5695d3353365556401ad10219a056b",
+      "shared": "bb9b59ce0400528ee006dc5846bb8ff85453ea7aa450d2875c37da29f754a829"
+    },
+    "src/main.js": {
+      "candidate": "e71568373f32c310117039b0c4d202b8f5e315696b48dceeab05f63428b6f41b",
+      "shared": "5b595f75c35e16ed0c3c02e35549abce00eec041371db1984e2be86ee0810bd3"
+    },
+    "src/native_gameplay_adapter.js": {
+      "candidate": "48d511cafef1f50c6f6fdb5727354bffa6f5cb049e5cf3030420e0568105ca6b",
+      "shared": "47b06c7778287629d4be57867a2e141c4f46fb6f8bcec28c8fc24e3ddb475783"
+    },
+    "src/save_files.js": {
+      "candidate": "6be05fcc757617a1304c65c68051042a59cad03216979221f1213d4011b06500",
+      "shared": "c8424cb96d43847a89d6077ce5766d8302256f9b5f521faf4181b333e250db50"
+    },
+    "src/simulation.js": {
+      "candidate": "86358d8b12246bed7f22a46fda6f18b4c5a5c10cbb178322b42333eb860dbb18",
+      "shared": "3f7ecf0f208edc1edff502d7e1f5076ad1e1a435630a020658eb922d3287d3f3"
+    },
+    "src/simulation_contracts.js": {
+      "candidate": "05c861aed3bd315c5838905ebaacf69ee0361866900bde64ec6dce02c05748a1",
+      "shared": "0b048cb891b0e30abeb7f97125d8fe62ca9abe03c7fc7697e0078ae4a72501de"
+    },
+    "src/simulation_effects.js": {
+      "candidate": "4e83b442a9f85ec363c61c254ebe22b059dfcaf2b23d86565f86f0f0c52b1e97",
+      "shared": "bd9dde5ea0e09510a6111ac6c99e139c89ce94afc2ae4ae9772213b089408620"
+    },
+    "src/structured_renewal.js": {
+      "candidate": "0475b893680b1432af10d180bc03440ba7bfa9fc4d3d65cc93b88a6fb52ac1d8",
+      "shared": null
+    },
+    "src/structured_pack_definitions.js": {
+      "candidate": "d162ec4a266c56cb0057da1c3e31b6870c19034a38d1c9086dcfbd39e7bf892f",
+      "shared": null
+    },
+    "src/structured_pack_ui.js": {
+      "candidate": "9059e0c25855d0065357044b58846f71dbe3190dadf4289e73cae5b48b2d9c82",
+      "shared": null
+    },
+    "src/structured_pack_runtime.js": {
+      "candidate": "fbc9eb255b11040a0329fae926a9ad62cd3e4396ee5f4b93edd066c73e5fa794",
+      "shared": null
+    },
+    "src/structured_pack_state.js": {
+      "candidate": "a85fed42de42fb4df9f0595db408adb2541f39356e99beb80d94420143ff720a",
+      "shared": null
+    },
+    "src/structured_container_runtime.js": {
+      "candidate": "1ecce2ec727caab1ac24f7d322c3900a0e53740ba14fa77c599cdb74fbd58ad5",
+      "shared": null
+    },
+    "tests/content_pack_provenance.test.js": {
+      "candidate": "c08e30c66922150265517cca0cae565b5b344dc5001a648cda04e96fce8eb101",
+      "shared": null
+    },
+    "tests/native_gameplay_binding.test.js": {
+      "candidate": "9fa9f5af4123bc3ae4fd787167242e1a90bee5a86493a9a62cf6c08cfe1c06b0",
+      "shared": null
+    },
+    "tests/structured_container_integration.test.js": {
+      "candidate": "839e6e24fd0645f0ed5a126b3d968b3c39b97642351f04d842aa8688ad804a66",
+      "shared": null
+    },
+    "tests/structured_pack_definitions.test.js": {
+      "candidate": "b507abfff136825ef48ef4d9f53cb38baf67d9267b0f29c81e9db2828b1f2932",
+      "shared": null
+    },
+    "tests/structured_pack_runtime.test.js": {
+      "candidate": "235402ab3394e18fd34470dfee3e51af4673e0803c3cf505d2686f7819405329",
+      "shared": null
+    },
+    "tests/content_pack_ui.test.js": {
+      "candidate": "0f101e162af92b5f0522e569f3ddd2bde34d00f4d20be3074323f45a0fa4ffd4",
+      "shared": null
+    },
+    "tests/structured_container_development.test.js": {
+      "candidate": "e814e98da5913b2a4d1db66e7abdbdd49043f7504f19a06760751cc7bef7947b",
+      "shared": null
+    },
+    "tests/structured_container_preparation.test.js": {
+      "candidate": "3e20688f128c71ec9e92669744e20b0a21ed2d999b6980daadae4d5dba696f20",
+      "shared": null
+    },
+    "tests/structured_origins.test.js": {
+      "candidate": "3425c958196e8e77443c97c4b9c5467e48f1044ad75326e6b5ea0d2262360432",
+      "shared": null
+    },
+    "tests/structured_container_runtime.test.js": {
+      "candidate": "7f4e0c99c3d2074154821e8db54e6dca4e94f1bd3d36d373bab2d611df2f6c5d",
+      "shared": null
+    },
+    "tests/structured_renewal.test.js": {
+      "candidate": "d549200cb70f7b99c5730bdfbdb07eaf2986e45b6e8f7f7e085579e006fae761",
+      "shared": null
+    },
+    "tests/simulation_optional_enrollment.test.js": {
+      "candidate": "61fc7e22ebdf74584fdd5edcc15dafda085babc7a417b8b9e710f813ea2fd33b",
+      "shared": null
+    },
+    "tests/structured_pack_ui.test.js": {
+      "candidate": "e1a266971c0f8129d62762ae988de327ec6d423564e85a7300b3fc7ca804a365",
+      "shared": null
+    }
+  },
+  "releaseReceipt": "docs/gm/dispatch/absorb-2026-10-11/OWNERSHIP_RELEASE_2026-10-11.json",
+  "reservedGenerated": [
+    "dist/bundle.js",
+    "dist/bundle.js.map",
+    "index.html"
+  ],
+  "privatePolicy": "copy only retained pack revisions/manifest needed for intended installed build into ignored private_packs; source library and user saves untouched",
+  "review": "review/INTEGRATION_SOURCE_REVIEW.md; F1/F2 source repairs rereviewed and 17focused checks pass",
+  "sharedSourceParity": true
+}

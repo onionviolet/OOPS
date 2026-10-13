@@ -1,6 +1,7 @@
 // ACS-P03's one optional schedule preference composes into the existing
 // feature_society actors, world facts and controller. It creates no new owner.
 import {SOCIETY_IDS as S} from './feature_expansion_society.js';
+import {agreedDutyContinuationDefinitions} from './agreed_duty_continuation.js';
 
 const P = S.prefix, W = S.world, H = S.household, O = S.craftsperson, V = S.apprentice;
 const worldFact = (key, value) => ({type: 'world', worldId: W, key: `${P}.${key}`, value});
@@ -118,6 +119,7 @@ export function agreedDutyController(controller) {
 // One optional later request must be causally after the kept/deferred/refused
 // account. It asks for future discussion only; it never creates a duty.
 export const agreedDutyFollowupDefinitions = Object.freeze({commands: Object.freeze([
+    ...agreedDutyContinuationDefinitions.commands,
     {id: AGREED_DUTY_IDS.followupRepair, revision: 1, group: 'feature_society', worldId: W, actorId: 'player', location: 'Village',
         label: 'Ask once about another repair-first discussion · 1 minute', targetId: H, coLocated: true, participants: [H,O,V], duration: 1, once: true,
         visibleWhen: all(introduced, local), requires: all(eq(`knowledge.${AGREED_DUTY_IDS.resultKey}.seen`), eq('society.agreedDutyFollowupUnused')), costs: [],

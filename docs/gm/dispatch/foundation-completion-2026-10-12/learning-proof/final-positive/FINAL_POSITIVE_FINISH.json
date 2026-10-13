@@ -1,0 +1,65 @@
+{
+  "steps": [
+    {
+      "action": "batchClicks",
+      "selectors": [
+        "[data-pocket-realm=\"pocket.exit\"]"
+      ],
+      "save": "final-positive-supported-return"
+    },
+    {
+      "action": "completed",
+      "actor": "remainder_home.neri",
+      "id": "world.completion.learning.make_neri",
+      "save": "final-positive-produced"
+    },
+    {
+      "action": "export",
+      "name": "final-positive-produced"
+    },
+    {
+      "action": "reload",
+      "save": "final-positive-produced-reloaded"
+    },
+    {
+      "action": "literalImport",
+      "path": "/tmp/yairpg-foundation-learning-final-positive-produced.txt",
+      "save": "final-positive-produced-imported"
+    },
+    {
+      "action": "click",
+      "selector": "#notebook_tab_here"
+    },
+    {
+      "action": "panel",
+      "selector": "#feature_expansion_panel"
+    },
+    {
+      "action": "panel",
+      "selector": "#feature_expansion_panel details:has(>summary:text-is(\"A taught procedure, useful material\"))"
+    },
+    {
+      "action": "click",
+      "selector": "[data-action-legibility-key=\"action:world.completion.learning.account_village\"] button",
+      "save": "final-positive-account"
+    },
+    {
+      "action": "click",
+      "selector": "[data-action-legibility-key=\"action:world.completion.learning.collect\"] button",
+      "save": "final-positive-received"
+    },
+    {
+      "action": "export",
+      "name": "final-positive-received"
+    },
+    {
+      "action": "reload",
+      "save": "final-positive-received-reloaded"
+    },
+    {
+      "action": "literalImport",
+      "path": "/tmp/yairpg-foundation-learning-final-positive-received.txt",
+      "save": "final-positive-received-imported"
+    }
+  ]
+}

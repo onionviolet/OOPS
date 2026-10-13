@@ -32,7 +32,13 @@ export function validateTidemarkState(state){
  assert(state.worlds[ids.world]&&Object.entries(TIDEMARK_INITIAL_FACTS).every(([key,value])=>typeof state.worlds[ids.world].facts[key]===typeof value),'Missing or malformed destination facts.');
  const facts=state.worlds[ids.world].facts;assert(['none','timber','counterweight'].includes(facts['tidemark.route'])&&facts['tidemark.repaired']===(facts['tidemark.route']!=='none')&&(!facts['tidemark.collected']||facts['tidemark.repaired']&&facts['tidemark.agreed']),'Inconsistent local repair agreement.');
  for(const id of [ids.keeper,ids.wright])assert(state.actors[id]?.worldId===ids.world&&state.simulation?.people[id]?.inventory==='native'&&state.simulation.people[id].definitionId===id,'Missing distinct native Tidemark resident.');
- for(const r of d.receipts)assert(typeof r.id==='string'&&natural(r.at)&&r.at<=state.clock&&natural(r.sequence)&&r.sequence<=state.sequence,'Invalid destination receipt.');
+ for(const r of d.receipts){
+  assert(typeof r.id==='string'&&natural(r.at)&&r.at<=state.clock&&natural(r.sequence)&&r.sequence<=state.sequence,'Invalid destination receipt.');
+  if(r.retainedMethods!=null){
+   assert(['tidemark.enter','tidemark.return'].includes(r.id)&&natural(r.basisSequence)&&r.basisSequence<r.sequence&&natural(r.connectionRevision)&&r.connectionRevision>0&&r.connectionRevision<=d.connection.revision&&Array.isArray(r.retainedMethods)&&r.retainedMethods.length<=1,'Invalid retained passage carrier.');
+   for(const m of r.retainedMethods)assert(m.domain==='method'&&m.id==='tidemark.counterweight'&&natural(m.revision)&&m.revision>0,'Invalid learned method reference.');
+  }
+ }
  return true;
 }
 // Reconcile on every staged joined-clock movement, before simulations finish.
@@ -128,7 +134,7 @@ export function commitTidemarkAction(state,registry,id,context,expectedSequence=
  const preview=previewTidemarkAction(state,registry,id,context);assert(preview.visible&&preview.eligible,preview.reasons.join(' ')||'This destination action is unavailable.');
  if(id==='tidemark.chart')return beginTidemark(state,registry,context,expectedSequence);
  if(id==='tidemark.cancel'){const job=state.simulation.jobs.find(j=>j.actorId==='player'&&j.commandId.startsWith('tidemark.'));return cancelSimulationJob(state,registry,job.id,context,expectedSequence);}
- let plan;
+ let plan,retainedPassage;
  if(!custom.has(id)){
   const command=registry.simulation.commands.get(id);plan=commitSimulationCommand(state,registry,{id},{...context,targetId:command.targetId||null},expectedSequence);
   if(['tidemark.collect','tidemark.buy_log','tidemark.buy_kit','tidemark.salvage'].includes(id)){
@@ -146,6 +152,7 @@ export function commitTidemarkAction(state,registry,id,context,expectedSequence=
   plan=commitSimulationCommand(next,registry,{id:'tidemark.open_receipt'},seeded,expectedSequence);plan.destinationActivation=true;
  }else if(['tidemark.enter','tidemark.return'].includes(id)){
   const next=copy(state);syncTidemarkClock(next);const q=quoteRoute(next,context,id==='tidemark.return'?'reverse':'forward');assert(q.passage.allowed&&q.traveler.allowed,[...q.passage.reasons,...q.traveler.reasons].join(' '));
+  retainedPassage={basisSequence:state.sequence,connectionRevision:q.passage.connectionRevision,retainedMethods:copy(q.traveler.retained.methodRefs)};
   plan=commitSimulationCommand(next,registry,{id:id==='tidemark.enter'?'tidemark.enter_receipt':'tidemark.exit_receipt'},{...context,targetId:null},expectedSequence);
   const d=plan.state.featureDestination;
   if(id==='tidemark.enter'){const visit=createWorldVisit(d.instance,{id:`tidemark.visit.${plan.state.sequence}`,actorId:'player',endpoint,playedAt:plan.state.clock},definition,{actorIds:Object.keys(plan.state.actors),visits:d.visits});d.visits.push(visit);d.activeVisitId=visit.id;
@@ -157,7 +164,7 @@ export function commitTidemarkAction(state,registry,id,context,expectedSequence=
   plan={state:copy(state),external:copy(context.external),gameplay:copy(context.gameplay),vitals:copy(context.vitals||{}),acquisitions:[],unlocks:[]};
   ++plan.state.sequence;plan.nativeLocation=id==='tidemark.terrace'?places.terrace:places.dock;plan.nativePatch={'current location':plan.nativeLocation};plan.state.simulation.people.player.location=plan.nativeLocation;
  }
- if(plan.state.featureDestination){const d=plan.state.featureDestination;d.receipts.push({id,at:plan.state.clock,sequence:plan.state.sequence});d.receipts=d.receipts.slice(-32);}
+ if(plan.state.featureDestination){const d=plan.state.featureDestination;d.receipts.push({id,at:plan.state.clock,sequence:plan.state.sequence,...retainedPassage});d.receipts=d.receipts.slice(-32);}
  validateTidemarkState(plan.state);return plan;
 }
 export function tidemarkView(state,context){const d=state.featureDestination,inside=!!activeTidemarkVisit(state),known=state.simulation?.knowledge.player||{},c=tidemarkContext(state,context),facts=state.worlds[ids.world]?.facts||{};

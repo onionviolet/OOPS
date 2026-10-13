@@ -1,0 +1,12 @@
+{"action": "sequence", "selectors": ["[data-foundation-probe=\"foundation.probe.a.barrier.p-a\"]", "[data-foundation-probe=\"foundation.probe.b.s1\"]"]}
+{"action": "failClick", "selector": "[data-foundation-probe=\"foundation.probe.b.attack\"]"}
+{"action": "reload"}
+{"action": "invoke", "selector": "[data-foundation-probe=\"foundation.probe.b.attack\"]"}
+{"action": "wait", "ms": 3500}
+{"action": "invoke", "selector": "[data-foundation-probe=\"foundation.probe.b.attack\"]"}
+{"action": "wait", "ms": 5500}
+{"action": "invoke", "selector": "[data-foundation-probe=\"foundation.probe.b.attack\"]"}
+{"action": "save", "name": "expiry-aftermath"}
+{"action": "reload"}
+{"action": "import", "path": "/tmp/yairpg-foundation-interaction-expiry-aftermath.json"}
+{"action": "stop"}

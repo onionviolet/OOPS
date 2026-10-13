@@ -1,5 +1,174 @@
 # User vision and research coverage
 
+## Standing UI priority, 2026-10-13
+
+Accepted direction, reaffirmed by Weibao in this session: desktop and laptop play
+are primary; mobile optimization is deferred unless he explicitly requests it.
+His earlier request was:
+
+> dont condense thing into one thing, I still need to scroll down, I want to fully make use of the Screen assuming it is a laptop screen or something, mobile design and more can come in the future?
+
+Use available screen width and height to keep useful independent panels and
+routine actions visible at comfortable text size. Hiding or condensing useful
+surfaces is not a substitute for using laptop space. Long prose and history can
+scroll in their reading regions. Laptop zoom and text-size checks remain relevant
+when affected; a narrow effective viewport from laptop zoom does not authorize a
+mobile-design workstream. Existing mobile behavior and saved layouts remain
+subject to affected compatibility checks, without promoting mobile optimization
+into a product priority.
+
+This section owns the accepted direction and its reason. [PROJECT.md](../PROJECT.md)
+surfaces the current priority; [AGENTS.md](../AGENTS.md#standing-direction-and-consistency-gates)
+governs reconciliation and override authority. The [UI design owner](THEMATIC_UI_AND_INFORMATION_DESIGN_2026-10-12.md#standing-ui-scope-and-acceptance-gates-2026-10-13)
+defines task-specific gates. Checkpoints and reports record execution and evidence;
+passing checks does not establish Weibao's layout-feel acceptance.
+
+The earlier [laptop steering](gm/dispatch/cheats-sfx-implementation-2026-10-12/LAPTOP_LAYOUT_STEERING.md)
+is retained as provenance. Mobile requirements in older audits and task prompts
+are historical scope, not standing requirements for future UI work. Agent
+proposals and external reviews cannot change this direction. Later changes from
+Weibao must update this owner, its project summary and affected active guidance,
+with superseded wording retained as dated history.
+
+## World depth and canon-first world priority, 2026-10-13
+
+Weibao's requests in this session, in order:
+
+> deeper considerations for each world?
+
+> more to consider? subtle stuff too, workflow to iterate worlds, parallel worlds, different starting points and more? more to consider?
+
+> more to consider? save accordingly implementation of required features and more?
+
+> more to consider? save accordingly, engine improvements and more? We can prioritize worlds like Harry potter and D&D and the book worlds for cannon and easy work for implementing parallel or alternative universe stuff and more?
+
+Direction recorded: Harry Potter, D&D and the book worlds (A Soldier's Life,
+TTKS and Mother of Learning, by Claude's reading of "the book worlds") come first
+for canon play. Parallel and alternative-universe versions start with the easy
+work: variants that reuse existing content and engine seams with a changed
+divergence point or dial. Other worlds keep their considerations and stay
+reachable later; this sets order, not scope.
+
+Widened the same day:
+
+> Others too like LOTM, Shadow Slave, other stuff and more?
+
+> AUs that would change relationships, starting points and more?
+
+The canon-first book worlds now also include Lord of the Mysteries (with Circle
+of Inevitability), Shadow Slave and other book worlds, ordered by how much of the
+source we actually hold. Easy AUs explicitly include relationship AUs (friend,
+rival, family, mentor, enemy or love interest shifts at a divergence point) and
+start-point AUs (same world, different era, position, body or path).
+
+> how to consider implementing full world and fleshing out every little detail and more? locations, people, interactions, ability and more?
+
+Answered as a proposed production method (census, depth tiers, card families
+compiled to data, lints over hand ledgers, browser proof per slice) in part 10
+of the considerations doc. It is a proposal; the completion standard stays the
+owner of what "complete" means.
+
+The per-world considerations, iteration workflow, parallel worlds, starting
+points, subtle details, required features and engine improvements live in
+[World depth considerations](worlds/WORLD_DEPTH_CONSIDERATIONS_2026-10-13.md).
+Its rows are proposals; only this section's quoted priority is Weibao's direction.
+
+## Detailed completion and suspenseful entry, 2026-10-11
+
+> send new chat with gm accordingly, more to consider? and then another gm to begin workingo n parts that can be worked on?
+
+Created two new project chats, both observed active: a world-expansion GM for
+existing private book world 1 and a ready-implementation GM for MICRO-P1 native
+capped-XP reproduction/repair. The [handoff](gm/dispatch/dual-gm-2026-10-11/ASSIGNMENT.md)
+reserves separate planning/evidence paths and isolated source work; the incumbent
+absorption GM retains the original shared checkout. Source/world secrets stay
+sealed. More considerations are included as source/premise compatibility,
+micro-to-macro consequences, historical starts, late usefulness, prior VFX and
+actual implementation/save gates rather than a new unbounded brainstorming list.
+
+Finite dispatched planning return: seven internal agents completed eight lanes,
+with 179 proposed detail contracts and 693 specified-not-run acceptance cases.
+The [joined report](gm/dispatch/idea-expansion-2026-10-11/RECONCILIATION.md) retains
+source IDs, options and micro/macro joins; 14 predecessor VFX families are mapped.
+G8 records native title/skill/status implementation stages and source findings
+with reproduction gates. Independent reviews and structural checks passed.
+Local-world/source qualification, unread audits and runtime proof remain open.
+
+> expantion audits across little stuff and variants and stuff and more? from stuff like titles to progression to skills and little stuff and more?
+
+> Do we need implementation audits and expansions and more?
+
+G8 micro-progression/native-feature audit was added to the dispatched wave,
+reusing the returned G1 worker with a separate micro/ reservation. Titles, native
+skills, milestones, stats/traits/statuses/perks and related small variants join
+the existing powers, social, material and presentation lanes. The completion
+standard distinguishes design expansion from actual source/caller/UI/persistence
+and behavioral implementation audits. Browser/save acceptance remains unrun by
+this planning wave; declarations are not treated as functional delivery.
+
+> sennd out all the planers, consider more stuff need planning and more
+
+> dont forget cool ideas like the VFX for stuff like abilitites and more
+
+Seven internal planning GMs were dispatched in the
+[idea-expansion wave](gm/dispatch/idea-expansion-2026-10-11/README.md), with
+separate output reservations and parent integration. Materials/technology and
+independent coverage/presentation extend the initial five responsibilities.
+Ability VFX, transformations, spatial/temporal effects and show-of-power ideas
+are explicitly assigned to presentation review joined to power-function cards.
+Effects follow actual observer knowledge and accessibility; hidden truths stay
+sealed. This is planning/research over existing owners, not a runtime dispatch.
+
+> What about implementing timelines, different starting poitns, parallel worlds and more?
+
+The [temporal implementation plan](TIMELINES_AND_DIVERGENCE.md#implementation-planning-starts-histories-and-parallel-worlds-2026-10-11)
+adds identity, historical starts, causal events, parallel-state isolation, clock
+policies and temporal-cheat contracts with proposed packets TIME-P1–P5. The
+actionability prompt joins them across starts, cheats, continuity and integration
+roles. Source primitives and selected consumers were inspected; no new temporal
+runtime or gameplay acceptance is claimed.
+
+> should we first send out GMs to audit and expand on ideas like we did accordingly before?
+
+Recommended dispatch order is captured in the
+[actionability prompt](gm/WORLD_ACTIONABILITY_GM_PROMPT.md#recommended-dispatch-order):
+four idea-family lanes for starts, cheats/progression, lived worlds and
+history/discovery/continuity, followed by one reconciliation integrator. World
+owners apply their reviewed palettes to specific settings. This is a proposed
+planning order; the full audit wave has not been dispatched from this request.
+
+> For the starts, I want book and anime worlds to be implemented accordingly with all the options, implmenting alld the micro and macro details and more? we might need an adudit pass to first improve and expand on each idea accordingly? we might need specific agetns capable of fleshing out an entire world? it might be really hard to implement every little audit or implementation and cheats and more? Consider creating a prompt to first make everything possible and actionable>
+
+The [whole-world actionability prompt](gm/WORLD_ACTIONABILITY_GM_PROMPT.md)
+adds an audit-and-expansion pass before runtime work: source-qualified macro/micro
+world coverage, complete identified option families, functional cheat cards,
+compatibility, missing-engine contracts and ready implementation packets. A world
+owner keeps the whole-setting synthesis while specialist agents develop bounded
+areas. Full-world planning and finite playable delivery remain linked but
+distinct. The prompt is prepared; no specific world audit was launched by it.
+
+> How to reconcile between all audits and then implement every idea in depth?
+
+> we should section them off accordingly, this is to work on like every little detail, and set up a standardized way to complete worlds and more>
+
+> frontier probably wont be played through, and we would be starting in some rantom starting point to keep it suspenseful
+
+> consider in parallel using subagents accordingly and more to plan out proper?
+
+Requested direction is recorded in [PROJECT.md](../PROJECT.md). The
+[completion standard](WORLD_COMPLETION_STANDARD.md) proposes sections S00–S14,
+individual detail rows, cross-section interactions, finite world/system scope
+and separate gameplay/director acceptance. Contract and ledger templates are
+linked there. The [audit intake](gm/completion/AUDIT_INTAKE.json) inventories
+public artifacts only; per-idea extraction and reconciliation remain pending.
+Internal subagents helped inventory and review planning. No runtime implementation
+or all-audits/world-complete claim follows from this setup.
+
+Frontier is an optional campaign. The intended expanded run starts at a random
+point with character-limited knowledge; candidate identities and hidden truths
+remain sealed. Eligible starts, distribution and reroll policies remain proposals.
+There is no requirement that Weibao play Frontier to qualify other starts.
+
 ## Anything is possible, 2026-10-09
 
 **Anything is possible, reasonably.** No mechanic, outcome or behavior is
@@ -1587,3 +1756,79 @@ Recorded in [technology and progression](TECHNOLOGY_AND_PROGRESSION.md): layers 
 > save accordingly, more to consider? do G1
 
 G1 done. Private deep dives: `docs/research/novels/shengnvbangwomonixiuxian/DEEP_DIVE_2026-10-10.md` (264 chapters, three lost to mirror errors) and `docs/research/novels/fanrencongjiyindao-moniqi/DEEP_DIVE_2026-10-10.md` (only the free 44 of 184 chapters exist on mirrors). Recorded in [simulators: two more simulators](SIMULATORS_AND_CHEAT_IMPLEMENTATION.md#two-more-simulators-g1-2026-10-10): new axis values, axes SA14 to SA19, look-alike pairs and more to consider SM17 to SM26.
+
+## Crafting tiers and connected technology, 2026-10-11
+
+> crafting teirs and tech progression considerations and more?
+
+Proposal expansion saved in [technology and progression](TECHNOLOGY_AND_PROGRESSION.md#crafting-tiers-and-connected-progression-2026-10-11): CT1 to CT5 cover distinct item dimensions, functional breakthroughs, actual consumers, craft details CD1 to CD12 and development outside the player. One tool-to-production-to-craft proof is suggested, not assigned. No new accepted mechanics or gameplay changes.
+
+> Research and more? micro and macro level details?
+
+Saved in [micro/workshop/macro research](research/CRAFTING_TECH_MICRO_MACRO_2026-10-11.md): seven primary or official-hosted reference documents, MI01–MI12, WS01–WS08, MA01–MA14 and in-game research IR01–IR08, with three connected candidate journeys. Mechanisms, proposals and current source foundations remain distinct. No runtime build selected.
+
+## Engine choices and future app portability, 2026-10-11
+
+> consider engine stuff and more, like how would safes get managed, performance issues be considered and more?
+
+> engine level stuff and more? like the language we use or something? more to consider?
+
+> what to consider accordingly? what about godot and more and stuff? Rust? more to consider?
+
+> something that could be easily transferable to an app based game if we wanted to? mroe to consider? Consider ltitle stuff and more?
+
+> sure thign, save ideas accordingly
+
+Saved in [engine, saves, scale and app portability](ENGINE_SAVES_AND_SCALE_REVIEW_2026-10-11.md).
+The requested direction is to consider engine foundations and preserve an easy
+future app path. The dossier retains save/recovery/history requirements, measured
+versus unmeasured performance, typed core boundaries, Godot/Rust/Bevy alternatives,
+browser/desktop/mobile hosts and detailed platform acceptance. A portable core,
+shared web UI and replaceable platform adapters are the leading proposal, not an
+accepted stack. No installation, port, benchmark, app release or runtime change
+is selected by the request to save these ideas.
+
+## Proto23 full-source UI absorption, 2026-10-13
+
+> Click difficulty and then more ui appears, that sort of ui gating could be interesting, we can absorb the entire source code accordingly
+
+Requested direction: inspect the interface beyond its opening screen and learn
+from Proto23's whole source, including meaningful UI discovery gates, coloring,
+VFX and spacing. [Source/UI absorption report](research/proto23/UI_SOURCE_ABSORPTION_2026-10-13.md)
+extends the existing full-source audit with a live post-difficulty enemy-panel
+reveal and exact later source gates. Reuse current gameplay and discovery owners;
+desktop/laptop remains primary. Specific gates, effects, palettes and adoption
+slices remain proposals. Research is saved; runtime implementation is open.
+
+Follow-up request: “can continue deeper, also consider source code and more?”
+[Deeper mechanism report](research/proto23/SOURCE_MECHANISMS_AND_ADOPTION_2026-10-13.md)
+records exact-function probes and a current adoption map, connecting discoveries,
+practice, rewards and possessions to UI growth. It preserves desktop-first scope
+and separates existing source counterparts from new runtime acceptance.
+
+Follow-through: “connect this with our vfx idea nad more and then create a prompt
+with full context, and then using round trip improve and then implement?”
+The [VFX owner](PRESENTATION_AND_FOURTH_WALL.md#proto23-discovery-and-native-signatures-2026-10-13)
+now connects ordinary earned discovery to the larger power/panel/fourth-wall
+menu. The [roundtrip and native slice report](gm/dispatch/proto23-vfx-2026-10-13/REPORT.md)
+records High review, a restrained native skill cue, existing settings integration,
+rebuilt positive checks and exact open acceptance. Stronger families remain
+future world-specific consumers, and no human visual acceptance is inferred.
+
+Taste signal after seeing Vivid live: “I think vivid colors might be the best
+thus far, consdering the ui flow the proto23, maybe we should refer that more?
+More to consider? subtle stuff and more? what to work on next?” Vivid is his
+current favorite; making it the default is proposed, not yet done. Proto23's UI
+flow should be referenced more. [Further considerations](research/proto23/VIVID_AND_UI_FLOW_CONSIDERATIONS_2026-10-13.md)
+holds V1-V16 and a suggested order.
+
+Dispatch request: “send out accordingly, use the until done skill? We can fully
+expand/extend from proto23 completelty? we should consider, how its different
+for each world in the future? how it would fit for stuff like holiday themes,
+and future worlds and more?” Then: “we can take panels from proto23
+accordingly? or mold ours better? since current character vitals are
+misaligned and mor? will need t oconsider ui for each world and more for the
+fuutr”. Design answers live in the [UI owner](THEMATIC_UI_AND_INFORMATION_DESIGN_2026-10-12.md#vivid-frame-proto23-flow-worlds-and-occasions-proposal-2026-10-13)
+(layers L1-L7, per-world gates and arrival styles, festivals, a declarative
+world UI card, mold-not-copy). Execution runs as the
+[until-done goal](gm/dispatch/vivid-proto23-flow-2026-10-13/GOAL.md).

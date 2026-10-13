@@ -20,6 +20,8 @@ The brief is the local source of truth once adopted as that world's owner. The r
 
 **Scope boundary:** [Starting region, entry era, continuity, player role, central tension and what is deferred. For an adaptation, state permitted divergence.]
 
+**Direction fit:** [Link relevant live User vision, PROJECT.md decisions and design owners. Record deferred scope and any later human instruction changing direction. Apply AGENTS.md's consistency gates before dispatch and before completion/handoff. For UI work, name the target viewport and visible outcome under the UI design owner's gates.]
+
 **Composition and variants:** [Stable source-family, continuity, era, region, entry and scenario IDs under CAMPAIGN_FRAMEWORK.md; compatible era/place/role alternatives and their differing decisions. State how independent durable instances will bind to the current engine, or name that adapter as missing. Prequel invention is not canonical history or implemented rewind.]
 
 ### Local rules and progression
@@ -63,6 +65,26 @@ The brief is the local source of truth once adopted as that world's owner. The r
 **Reason to return:** [A relationship, production capability, discovery or situation that stays useful. Avoid compulsory daily maintenance.]
 
 ### First playable proof and open decisions
+
+**Whole-world actionability pass:** [For broad book/anime world work, use the
+World Actionability GM prompt before selecting runtime packets. Recover all
+assigned audits and ideas, expand connected macro/micro detail, cover identified
+start/premise/cheat families, preserve variants, name precise engine gaps and
+return a checked full design horizon plus finite delivery revisions.]
+
+**Completion contract:** [Use WORLD_COMPLETION_STANDARD.md and the local existing
+completion owner, or initialize its linked contract/ledger templates. Review
+S00–S14 for applicability; decompose selected families into observable detail
+IDs and cross-section cases. Freeze finite represented scope, keep source/code/
+browser/director evidence separate, and retain remaining work. A completed slice
+does not complete a section or world.]
+
+**Starting candidate coverage:** [Random eligible entry, later destination or
+both. Define compatible era/place/body/origin/situation snapshots, actual initial
+means/actions and observer knowledge, committed selection and reload/import
+cases. Frontier is optional, not a required tutorial. Candidate identities and
+sealed truths remain in agent-only owners. Use the shared selection owner;
+existing origin simulation is not proof of a new-game initializer.]
 
 **Integrated proof:** [One loop with a concrete situation, at least two meaningful approaches when appropriate, a cost or constraint and an observable persistent result.]
 
@@ -110,7 +132,7 @@ Follow the master's model-routing policy. Start appropriate settled gameplay/UI 
 
 You own worker review: inspect changed paths and checks against the current brief, ask for specific corrections, and return a coherent local result to the master. Workers do not select accepted canon, publish the combined build or spawn another tier. Mark unrun browser/save checks explicitly and leave final combined verification to the integrator. No completion summary alone establishes playable acceptance.
 
-Use the shared [autonomous iteration loop](GAME_MASTER_PROMPT.md#autonomous-iteration). Continue the assigned result across useful increments, adapt after actual findings, and preserve current test deferral and honest delivery states. The following design responsibilities apply where relevant; they are not a fixed per-turn checklist:
+Use the shared [autonomous iteration loop](GAME_MASTER_PROMPT.md#autonomous-iteration). Continue the assigned result across useful increments, adapt after actual findings, and follow the current assignment's verification policy and applicable AGENTS.md. Historical test deferrals do not replace the rebuilt fresh-origin gate for a gameplay-done claim. Keep unexercised behavior implemented-unverified. The following design responsibilities apply where relevant; they are not a fixed per-turn checklist:
 
 1. **Make this world distinct.** Demonstrate its signature rule through an ordinary activity, a development route and a consequential situation. Explain what the player must consider here that would differ elsewhere.
 2. **Connect daily life to larger ambitions.** Develop pursuits that feed one another through materials, understanding, facilities, relationships and changed conditions. Expand from a playable region before filling a whole map.
@@ -162,6 +184,6 @@ For a delegated implementation:
 
 [Capacity/succession](gm/dispatch/GM_CAPACITY_AND_SUCCESSION.md) supersedes the old project-wide four-role limit and no-new-chat refresh restriction. Use actual host limits and useful disjoint agents/project chats; same-role fresh-context successors require checkpoint, predecessor/process/child reconciliation and exclusive writer transfer. No extra approval is needed for this already-authorized project workflow. Preserve source/private-save/publishing scope. [Implementation-first pace](gm/dispatch/TRAILBLAZE_PARALLEL.md) defers further suites this exploratory wave and requires truthful unverified status.
 
-## Autonomous assigned goals, latest human authority2026-10-04
+## Autonomous assigned goals
 
-Assigned goals follow [autonomous completion/full books](gm/dispatch/AUTONOMOUS_GOALS_AND_FULL_BOOKS.md) and the shared [iteration loop](GAME_MASTER_PROMPT.md#autonomous-iteration). Packet/context boundaries are checkpoints. Preserve actual authority, source coverage, exclusive succession and current test deferral; stop at the assigned finite result.
+Follow the master prompt's [Autonomous assigned goals](GAME_MASTER_PROMPT.md#autonomous-assigned-goals) and [Delegation and succession](GAME_MASTER_PROMPT.md#delegation-and-succession). Stop at the assigned finite result.

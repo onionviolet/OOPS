@@ -1,0 +1,9 @@
+{
+  "steps": [
+    {
+      "action": "literalImport",
+      "path": "/tmp/yairpg-foundation-learning-final-positive-absence-spent.txt",
+      "save": "final-positive-absence-imported-requalified"
+    }
+  ]
+}

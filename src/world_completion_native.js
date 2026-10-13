@@ -1,5 +1,12 @@
 import {worldCompletionStripStamp,worldCompletionStripKey} from './world_completion_strip.js';
 const check=(ok,text)=>{if(!ok)throw new Error(text);};
+export function worldCompletionSavedNativeItem(key,entry,getItem){
+    const value=JSON.parse(key);
+    if(value?.id!=='Measured drain strip'||value.datum==null)return null;
+    const item=getItem(key),stamp=worldCompletionStripStamp(key);
+    check(stamp&&item?.getInventoryKey()===key&&entry?.count===1,'Invalid saved measured-material identity.');
+    return {item_key:key,count:entry.count};
+}
 export function preserveWorldCompletionNativeItem(key,item){
     let value;try{value=JSON.parse(key);}catch{return item;}
     if(value?.id!=='Measured drain strip'||value.datum==null)return item;

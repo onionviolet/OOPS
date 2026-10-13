@@ -1,0 +1,112 @@
+{
+  "pid": 42483,
+  "servedHash": "72cb3b8487715bbbe9fe61f57ed15779051eaf648c45eff9142edf83a689fa85",
+  "origin": "http://127.0.0.1:18643",
+  "startedHash": "72cb3b8487715bbbe9fe61f57ed15779051eaf648c45eff9142edf83a689fa85",
+  "endedHash": "72cb3b8487715bbbe9fe61f57ed15779051eaf648c45eff9142edf83a689fa85",
+  "events": [
+    {
+      "action": "click",
+      "selector": "#notebook_tab_here"
+    },
+    {
+      "action": "panel",
+      "selector": "#pocket_realm_panel"
+    },
+    {
+      "action": "click",
+      "selector": "[data-pocket-realm=\"pocket.enter\"]"
+    },
+    {
+      "action": "wait",
+      "ms": 3000
+    },
+    {
+      "action": "save",
+      "name": "worker-pocket-repaired-inside"
+    },
+    {
+      "action": "click",
+      "selector": "[data-pocket-realm=\"pocket.exit\"]"
+    },
+    {
+      "action": "save",
+      "name": "worker-player-workflow-start"
+    },
+    {
+      "error": "Unexpected end of JSON input"
+    },
+    {
+      "workflowStep": {
+        "action": "click",
+        "selector": "#notebook_tab_here"
+      },
+      "index": 0,
+      "clock": 11599,
+      "sequence": 1189
+    },
+    {
+      "workflowStep": {
+        "action": "panel",
+        "selector": "#feature_expansion_panel"
+      },
+      "index": 1,
+      "clock": 11600,
+      "sequence": 1190
+    },
+    {
+      "workflowStep": {
+        "action": "panel",
+        "selector": "#feature_expansion_panel details:has(>summary:text-is(\"A dated warning and one physical rain\"))"
+      },
+      "index": 2,
+      "clock": 11600,
+      "sequence": 1190
+    },
+    {
+      "workflowStep": {
+        "action": "panel",
+        "selector": "#feature_expansion_panel details:has(>summary:text-is(\"A useful lens with a return obligation\"))"
+      },
+      "index": 3,
+      "clock": 11600,
+      "sequence": 1190
+    },
+    {
+      "workflowStep": {
+        "action": "panel",
+        "selector": "#feature_expansion_panel details:has(>summary:text-is(\"A taught procedure, useful material\"))"
+      },
+      "index": 4,
+      "clock": 11600,
+      "sequence": 1190
+    },
+    {
+      "workflowStep": {
+        "action": "panel",
+        "selector": "#feature_expansion_panel details:has(>summary:text-is(\"Home-world chapter & changed return\"))"
+      },
+      "index": 5,
+      "clock": 11600,
+      "sequence": 1190
+    },
+    {
+      "workflowStep": {
+        "action": "click",
+        "selector": "[data-action-legibility-key=\"action:lore.warning.begin\"] button",
+        "save": "worker-b1-warning-sample"
+      },
+      "index": 6,
+      "clock": 11600,
+      "sequence": 1190
+    },
+    {
+      "error": "page.waitForFunction: Timeout 120000ms exceeded."
+    },
+    {
+      "action": "save",
+      "name": "worker-player-workflow-click-blocker"
+    }
+  ],
+  "errors": []
+}

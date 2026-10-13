@@ -1,0 +1,20 @@
+{
+  "started": "a4e84278059a711738b9149a331f916496dee79140384c021e11052187baef26",
+  "ended": "a4e84278059a711738b9149a331f916496dee79140384c021e11052187baef26",
+  "results": [
+    {
+      "name": "refused native work write keeps stock jobs and learned owners unchanged",
+      "status": "PASS"
+    },
+    {
+      "name": "actual old absent namespace native import invents no beginning",
+      "status": "PASS"
+    },
+    {
+      "name": "missing exact beginning content actual native import preserves current; restored exact content imports original",
+      "status": "PASS"
+    }
+  ],
+  "errors": [],
+  "stopped": true
+}

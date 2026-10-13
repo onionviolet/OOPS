@@ -1,5 +1,11 @@
 # R2: Proto23 skills and items vs YAIRPG
 
+2026-10-13 correction: the “first XP” reveal claim in 1.1 below is incorrect.
+The insertion into `you.skls` is inside `giveSkExp`'s level-up branch, so the
+default skill appears at level 1 after 51 XP. The historical wording is retained;
+[exact-function proof and current adoption map](../SOURCE_MECHANISMS_AND_ADOPTION_2026-10-13.md)
+own the correction and supersede this report's dated fork-absence claims.
+
 Coverage: Proto23 `index.html` (rev e93a8cd) lines 1700-5595 read in full with the Read tool (skills 1691-2183, Item constructor and items 2189-5588, quest/giveQst tail 1600-1700 for context). Outside-range helpers read to resolve calls: `giveSkExp` 13747, `giveExp` 13734, `giveTitle` 13760, `canRead` 13796, reading timer `chss.trd.sl` 12676-12691, `giveItem` 10917, rot planner 14122-14138, player `efficiency()` 7321, `mods` 7322, weapon-skill XP in the hit loop 10432-10477. YAIRPG side: `src/models/skill.js`, `src/data/skills.js`, `src/items.js` (Book/BookData 1093-1160, `book_stats` 1262-1400, consumables 4165+), `src/main.js` (reading 2362-2430, skill XP 3278, consumable use 4102-4150), `src/misc.js:47`, `src/active_effects.js`, `src/config.js`. There is no `src/character.js`; the character model is `src/data/character.js` (not studied beyond grep). Gear (`Eqp`, 5595+) belongs to another reader.
 
 Labels: SHOWN = read directly in code at the cited line. INFERRED = reasoned from nearby code. UNKNOWN = not in my range or not found.

@@ -1,4 +1,9 @@
 import {FORT,ORDERS,itemSourceJournal,migrateFortSupply} from './fort.js';
+import NPCRegistry from '../data/npcs.js';
+
+// Saved source labels may hold a native NPC id; show that NPC's own name instead.
+const npcName=id=>NPCRegistry.getAll()[id]?.name;
+const sourceLabel=edge=>npcName(edge.label)||npcName(edge.sourceId)||edge.label;
 
 // A projection inside native center actions; transactions belong to the caller.
 export function createFortControls({read,act,document=globalThis.document}) {
@@ -10,7 +15,8 @@ export function createFortControls({read,act,document=globalThis.document}) {
         const view=read();
         if(view.worldId!=='base.frontier'||!['Village',FORT.post].includes(view.location)){panel.remove();return;}
         const host=document.getElementById('location_actions_div');if(!host)return;
-        if(panel.parentElement!==host)host.prepend(panel);
+        // Follows native choices in DOM too, so tab order matches what players see.
+        if(panel.parentElement!==host)host.append(panel);
         const fingerprint=JSON.stringify(view);if(previous===fingerprint)return;previous=fingerprint;
         const f=migrateFortSupply({fort_supply:view.fort});
         text.textContent=`Clerk purse: ${f.funds} coins. Paid so far: ${f.spent}. Supplies change hands immediately; no shift, promotion or patrol credit. `+
@@ -25,7 +31,7 @@ export function createFortControls({read,act,document=globalThis.document}) {
         const entries=itemSourceJournal(f,view.knownItems);
         journal.replaceChildren();
         if(entries.length){const heading=document.createElement('strong');heading.textContent='Learned item sources';journal.append(heading);
-            for(const edge of entries){const row=document.createElement('div');row.textContent=`${edge.itemId}: ${edge.label} (${edge.certainty}, ${edge.kind})`;journal.append(row);}}
+            for(const edge of entries){const row=document.createElement('div');row.textContent=`${edge.itemId}: ${sourceLabel(edge)} (${edge.certainty}, ${edge.kind})`;journal.append(row);}}
     }
     render();return {render,destroy:()=>panel.remove()};
 }

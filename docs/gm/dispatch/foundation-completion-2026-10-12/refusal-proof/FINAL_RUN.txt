@@ -1,0 +1,12 @@
+{"ready": true, "servedHash": "e73550a4344ec549b67b830112200a10f9ed1a6f652c8c54c1b1c1ee95bff7a9", "pid": 69899, "origin": "http://127.0.0.1:18645", "hash": "e73550a4344ec549b67b830112200a10f9ed1a6f652c8c54c1b1c1ee95bff7a9", "startedHash": "e73550a4344ec549b67b830112200a10f9ed1a6f652c8c54c1b1c1ee95bff7a9", "clock": 11839, "sequence": 1403, "location": "Shack", "errors": []}
+{"workflow": 0, "action": "click", "clock": 11839, "sequence": 1403, "location": "Shack"}
+{"workflow": 1, "action": "panel", "clock": 11839, "sequence": 1403, "location": "Shack"}
+{"workflow": 2, "action": "panel", "clock": 11839, "sequence": 1403, "location": "Shack"}
+{"workflow": 3, "action": "click", "save": "natural-refusal-offered", "clock": 11840, "sequence": 1405, "location": "Shack"}
+{"workflow": 4, "action": "completed", "save": "natural-refusal-resolved", "clock": 11840, "sequence": 1405, "location": "Shack"}
+{"workflow": 5, "action": "click", "save": "natural-refusal-received", "clock": 11841, "sequence": 1407, "location": "Shack"}
+{"workflow": 6, "action": "click", "save": "natural-refusal-withdrawn", "clock": 11842, "sequence": 1409, "location": "Shack"}
+{"workflow": 7, "action": "export", "clock": 11842, "sequence": 1409, "location": "Shack"}
+{"workflow": 8, "action": "reload", "save": "natural-refusal-reloaded", "clock": 11842, "sequence": 1409, "location": "Shack"}
+{"workflow": 9, "action": "literalImport", "save": "natural-refusal-literal-imported", "clock": 11842, "sequence": 1409, "location": "Shack"}
+{"hash": "e73550a4344ec549b67b830112200a10f9ed1a6f652c8c54c1b1c1ee95bff7a9", "startedHash": "e73550a4344ec549b67b830112200a10f9ed1a6f652c8c54c1b1c1ee95bff7a9", "clock": 11842, "sequence": 1409, "location": "Shack", "errors": []}

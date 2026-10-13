@@ -1,0 +1,125 @@
+{
+  "status": "PASS",
+  "bundle": "ffd6988c00a8c3be0f86a255cb8ced4b0652a97c551cbcc2da8bb09675549b5d",
+  "base": "dd3efe3383f12f0aac22e4f390aae90fae2e7fc4",
+  "fixture": "docs/gm/dispatch/foundation-adoption-next-2026-10-13/rounds/r3/applied-native.txt",
+  "fixtureHash": "ea3f3ce293a0475453bcd76de0651d41c66130ea6648f1476558b2f272d3cd65",
+  "checks": {
+    "exactEarnedApplicationLiteralRestoration": true,
+    "nativeSpecialPullSuppressedAndOrdinaryGuardJabContinue": true,
+    "fiveMinuteExpiry": true,
+    "actualLegacyFourMinuteCompatibilityAndRestoration": true,
+    "legacyExpiry": true
+  },
+  "events": [
+    {
+      "id": "feature_battle.start",
+      "clock": 60
+    },
+    {
+      "id": "withdraw:",
+      "clock": 61
+    },
+    {
+      "id": "reference_gameplay.buy_sleeve",
+      "clock": 65
+    },
+    {
+      "id": "reference_gameplay.cool_hook",
+      "clock": 66
+    }
+  ],
+  "errors": [],
+  "timePolicy": "Normal native browser timers; no resource/history/clock fields injected",
+  "console": [
+    "Failed to load resource: the server responded with a status of 404 (Not Found)",
+    "Failed to load resource: the server responded with a status of 404 (Not Found)",
+    "Failed to load resource: the server responded with a status of 404 (Not Found)",
+    "Failed to load resource: the server responded with a status of 404 (Not Found)",
+    "Failed to load resource: the server responded with a status of 404 (Not Found)",
+    "Failed to load resource: the server responded with a status of 404 (Not Found)",
+    "Failed to load resource: the server responded with a status of 404 (Not Found)",
+    "Failed to load resource: the server responded with a status of 404 (Not Found)",
+    "Failed to load resource: the server responded with a status of 404 (Not Found)"
+  ],
+  "receipts": [
+    {
+      "action": 1,
+      "type": "guard",
+      "actorId": "featureBattleHook",
+      "targets": [
+        "featureBattleHook"
+      ],
+      "text": "Oren prepared guard for Oren; spent 2 stamina.",
+      "nonce": {
+        "sessionId": "simulation:4122",
+        "sequence": 4122,
+        "action": 0,
+        "seed": 620340652
+      },
+      "outcomes": []
+    },
+    {
+      "action": 2,
+      "type": "guard",
+      "actorId": "featureBattleShield",
+      "targets": [
+        "featureBattleShield"
+      ],
+      "text": "Nera prepared guard for Nera; spent 2 stamina.",
+      "nonce": {
+        "sessionId": "simulation:4122",
+        "sequence": 4123,
+        "action": 1,
+        "seed": 620340652
+      },
+      "outcomes": []
+    },
+    {
+      "action": 3,
+      "type": "strike",
+      "actorId": "player",
+      "targets": [
+        "featureBattleShield"
+      ],
+      "text": "You hit Nera for 0.5.",
+      "nonce": {
+        "sessionId": "simulation:4122",
+        "sequence": 4124,
+        "action": 2,
+        "seed": 620340652
+      },
+      "outcomes": [
+        {
+          "targetId": "featureBattleShield",
+          "kind": "hit",
+          "damage": 0.5,
+          "defended": false
+        }
+      ]
+    },
+    {
+      "action": 4,
+      "type": "strike",
+      "actorId": "featureBattleHook",
+      "targets": [
+        "player"
+      ],
+      "text": "Oren used a short bodily jab. Oren missed You.",
+      "nonce": {
+        "sessionId": "simulation:4122",
+        "sequence": 4125,
+        "action": 3,
+        "seed": 2169422172
+      },
+      "outcomes": [
+        {
+          "targetId": "player",
+          "kind": "evaded",
+          "damage": 0,
+          "defended": false
+        }
+      ]
+    }
+  ]
+}

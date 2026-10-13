@@ -1,0 +1,92 @@
+{
+  "passed": true,
+  "findings": [
+    {
+      "width": 390,
+      "preset": "Classic",
+      "withinViewport": true,
+      "localActions": true
+    },
+    {
+      "width": 390,
+      "preset": "Compare",
+      "withinViewport": true,
+      "localActions": true
+    },
+    {
+      "width": 390,
+      "preset": "Focus",
+      "withinViewport": true,
+      "localActions": true
+    },
+    {
+      "width": 768,
+      "preset": "Classic",
+      "withinViewport": true,
+      "localActions": true
+    },
+    {
+      "width": 768,
+      "preset": "Compare",
+      "withinViewport": true,
+      "localActions": true
+    },
+    {
+      "width": 768,
+      "preset": "Focus",
+      "withinViewport": true,
+      "localActions": true
+    },
+    {
+      "width": 1440,
+      "preset": "Classic",
+      "withinViewport": true,
+      "localActions": true
+    },
+    {
+      "width": 1440,
+      "preset": "Compare",
+      "withinViewport": true,
+      "localActions": true
+    },
+    {
+      "width": 1440,
+      "preset": "Focus",
+      "withinViewport": true,
+      "localActions": true
+    },
+    {
+      "width": 1920,
+      "preset": "Classic",
+      "withinViewport": true,
+      "localActions": true
+    },
+    {
+      "width": 1920,
+      "preset": "Compare",
+      "withinViewport": true,
+      "localActions": true
+    },
+    {
+      "width": 1920,
+      "preset": "Focus",
+      "withinViewport": true,
+      "localActions": true
+    }
+  ],
+  "mouseDock": true,
+  "keyboardDock": true,
+  "resize": true,
+  "pin": true,
+  "collapse": true,
+  "restore": true,
+  "floatBounds": true,
+  "overlap": true,
+  "liveNodeIdentity": true,
+  "refreshFocus": true,
+  "layoutReload": true,
+  "density": true,
+  "configRecovery": true,
+  "zoom200": true,
+  "errors": []
+}

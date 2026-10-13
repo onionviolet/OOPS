@@ -1,0 +1,26 @@
+[
+  {
+    "name": "provider-funds",
+    "path": "/tmp/yairpg-lin-negative-provider-funds.json",
+    "valid": true,
+    "error": null,
+    "sha256": "8cfc8fa62a98e58380302a8ab5750bbd378f6e065c555a6c4a4268fb94753f35",
+    "qualification": "controlled deficient state clone of real natural opened-request; no positive stock/resources/deeds"
+  },
+  {
+    "name": "unsupported-hands",
+    "path": "/tmp/yairpg-lin-negative-unsupported-hands.json",
+    "valid": true,
+    "error": null,
+    "sha256": "caa2031786800f97a6ece1c66ac2c95dbca065d93eb3bfecb48376e57e3e6082",
+    "qualification": "controlled deficient state clone of real natural opened-request; no positive stock/resources/deeds"
+  },
+  {
+    "name": "departed-contact",
+    "path": "/tmp/yairpg-lin-negative-departed-contact.json",
+    "valid": true,
+    "error": null,
+    "sha256": "055d06461732a298985441ccb6d2d8251e92cac6bfdf8f6a928799851afd633b",
+    "qualification": "controlled deficient state clone of real natural opened-request; no positive stock/resources/deeds"
+  }
+]

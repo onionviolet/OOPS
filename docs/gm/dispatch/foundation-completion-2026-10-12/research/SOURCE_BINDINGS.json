@@ -1,0 +1,54 @@
+{
+  "capturedAt": "2026-10-12T05:35:13.206Z",
+  "scope": "Bounded current-source read evidence; not tested gameplay or whole-file semantic audit. Current reads may drift under coordinator implementation.",
+  "files": [
+    {
+      "file": "package.json",
+      "sha256": "805269ecbf25287b2758391e718c805e1a4336b4b4f1c923a87b3712620e8e2c"
+    },
+    {
+      "file": "scripts/compile_feature_ink.mjs",
+      "sha256": "f3f9c2ca77440435431e8da55bedd5c42bad2ea01768a4b899a80173d4e75987"
+    },
+    {
+      "file": "src/ink_narrative.js",
+      "sha256": "f54f3413232acb9f134028cfb78a58e5d029f903c0976e259169ac7e7e9607ff"
+    },
+    {
+      "file": "src/ink_scene_content.js",
+      "sha256": "17510921b76264463dfc68911f3179c407a2b1c7970d9431dfdb50ec5820d761"
+    },
+    {
+      "file": "src/feature_expansion_nested_ink_ui.js",
+      "sha256": "194bec9af4e0a8cf1e30bd2b8efbe67447e77cb342c803d8b081ac34b95c4ec7"
+    },
+    {
+      "file": "src/feature_expansion_nested_life.js",
+      "sha256": "55ac52bdeb23c0ee6f9460f6a055a9ce35085c2718cfe1b48e114a0c231b5cd0"
+    },
+    {
+      "file": "src/simulation.js",
+      "sha256": "4de64133474c6c61035fd931bc5d5099a311e09100269d83b862e3016f40ea24"
+    },
+    {
+      "file": "src/simulation_effects.js",
+      "sha256": "c803e81778a260916d2b96771ebef0a501090db0609c3314c1151c67c6f3b502"
+    },
+    {
+      "file": "src/simulation_contracts.js",
+      "sha256": "c4d56bfe33f7e89dda8788e44760060363193190f1bb909ca39d6a25a6e554be"
+    },
+    {
+      "file": "src/life_experience_host.js",
+      "sha256": "02e1041513a0ebb3f4a97733bae3b95544e463e6c89d58922dd0860f4c0bc0df"
+    },
+    {
+      "file": "src/chronicle_ui.js",
+      "sha256": "280db6e29dcb548d03b797d69da7117a068d12c687cedba9533a04096a5595f4"
+    },
+    {
+      "file": "src/feature_expansion_nested_host.js",
+      "sha256": "f75320f70f705df0120c60130325536a12065e7a8b383c36bd24e74084676622"
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "owner": "01a12e63-3b14-7112-adb2-aea3e5dc7a98",
+  "candidate": "/Users/weiwei/.codex/candidates/yairpg-customization-2026-10-12",
+  "preview": "http://127.0.0.1:18582/",
+  "server": "candidate evidence/serve.mjs Node static server; process session70205",
+  "base": "/Users/weiwei/.codex/candidates/yairpg-cheats-sfx-2026-10-12",
+  "baseBundle": "c85fdbce370b",
+  "files": {
+    "src/main.js": "c36b6029b586bbce60bd8758038f0a2a79f08c031d088544ac41819b22f0d729",
+    "src/save_files.js": "9693989644833596a98379eececdc5a814e11845d27c1134b3e7dab3911b1120",
+    "src/work_ledger_system.js": "f5119bc03af63779bce71755e981d69fda5fd0d0c449c977cd88a7e23d42d2a6",
+    "src/work_ledger_ui.js": "750b6ef218796e82d240e85e0f2d7ed49a6ed90dc3407d390c891f58443fcff0",
+    "src/work_ledger_author_ui.js": "0b31bb4a66c8d04e28ae6565cae0f739b62f71d6f3b3c3f2e15b32c20062a794",
+    "src/customization_profiles.js": "117d0f38798b9f446d2e19f469e3d6464a203fe129b802c7c717bae04849afa5",
+    "src/customization_ui.js": "cf2c509ad702f341a6ba2677d56cced8f0d91b6985350054d2a5d767a3067bfe",
+    "src/settled_text_effects.js": "77ebc45d70c2c958b051a89a4462ea7dac43692ee51297d53119b17b2f11f40e",
+    "src/adventure_notebook.js": "a9c9f970ea45d6c9b1cd3dad32f6f23b8c5b46cb2c45d8cd055a5c941cb76b31",
+    "src/workspace_layout.js": "3f705765e1de7a00f3f631adcaa54b0aac2af120c2657cd8d091f63b8cc44d16",
+    "src/workspace_state.js": "22e824b8e6695d9749485223ff5a35ad8ae3d14273ad347eaf6baa4c5a12260c",
+    "src/workspace_views.js": "c53e916cfbdc458c9c183b3e7330723c37eecc91f2c3358a4f85184270a3d4f4",
+    "styles/settled_text_effects.css": "32d50ebc710c134f3f9606da449856c1e4181d3fe8aa86e3fcc0bb9c09fe4b49",
+    "styles/customization.css": "57f38e35d0d58adbfd786bfe179bb10da5d79b14217b71b975a535005e2f2ff5",
+    "styles/workspace.css": "c84aa8efa16e78db4be1ee12745eb059f8ae66c7df02f42c809cbf6027e14bed",
+    "index.html": "29c65414fa30e38d2a4b5fcf5cb4ee178f22d8b91c98503b3708b69b95c908b3",
+    "dist/bundle.js": "c777648412f9d3fa2195d6bc9649dacd392fa035783265acdf6d4d2f29244f43",
+    "dist/bundle.js.map": "207fcd1d6c3e4edd064e340233160433c9865325a10e3a85fca57f308e4c9e89"
+  },
+  "sharedIntegration": false,
+  "humanAccepted": false,
+  "patch": "FOUNDATION.patch",
+  "validation": "FOUNDATION_REPORT.md",
+  "assetAttribution": "Original SVG/CSS + synthesized WebAudio, upstream LICENSE preserved"
+}

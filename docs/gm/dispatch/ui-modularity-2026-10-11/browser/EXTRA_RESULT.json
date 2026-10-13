@@ -1,0 +1,8 @@
+{
+  "passed": true,
+  "mouseResize": true,
+  "keyboardResize": true,
+  "zoomEquivalent": "720 CSS px viewport representing a 1440 px window at 200%, alongside full-layout CSS zoom proof",
+  "localActions": true,
+  "errors": []
+}

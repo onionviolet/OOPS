@@ -1,0 +1,60 @@
+{
+  "bundle": "1dff53b1f13bec07645d3870cdae780eb259760eb8eb075c82e4ab73ff41d1da",
+  "sourceMapFiles": 438,
+  "route": "Fresh disposable native origins, UI only for progression. Deterministic initial entropy chooses the supported two/one-hand snapshot; no save, resources, flags or progress are injected.",
+  "checks": {
+    "twoImmediateChoices": true,
+    "firstUsefulRecipientCycle": true,
+    "beforeMethodUnavailable": true,
+    "afterMethodAvailable": true,
+    "intermediateLiteralRestoration": true,
+    "colleagueOwnMeans": true,
+    "secondUsefulCycleAndSplitPay": true,
+    "sameLifeLeaveRestore": true,
+    "historyDependentOpportunity": true,
+    "continuedOrdinaryPaidPlay": true,
+    "finalLiteralRestoration": true,
+    "secondaryNaturalFirstCycle": true
+  },
+  "events": [
+    "access",
+    "take_basket",
+    "repair_basket",
+    "deliver_basket",
+    "take_crate",
+    "learn",
+    "joint_crate",
+    "deliver_crate_joint",
+    "leave",
+    "return",
+    "remember",
+    "routine",
+    "access",
+    "take_basket",
+    "repair_basket",
+    "deliver_basket"
+  ],
+  "errors": [
+    "Failed to load resource: the server responded with a status of 404 (Not Found)",
+    "Failed to load resource: the server responded with a status of 404 (Not Found)",
+    "Failed to load resource: the server responded with a status of 404 (Not Found)",
+    "Failed to load resource: the server responded with a status of 404 (Not Found)",
+    "Failed to load resource: the server responded with a status of 404 (Not Found)",
+    "Failed to load resource: the server responded with a status of 404 (Not Found)",
+    "Failed to load resource: the server responded with a status of 404 (Not Found)",
+    "Failed to load resource: the server responded with a status of 404 (Not Found)",
+    "Failed to load resource: the server responded with a status of 404 (Not Found)",
+    "Failed to load resource: the server responded with a status of 404 (Not Found)",
+    "Failed to load resource: the server responded with a status of 404 (Not Found)"
+  ],
+  "primary": {
+    "start": "reedbank.paired_start",
+    "life": "reedbank.run.1.1.life",
+    "finalMoney": 107,
+    "deliveredBasket": 1,
+    "deliveredCrate": 1,
+    "fittings": 1
+  },
+  "status": "FAIL",
+  "failure": "AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n\n11 !== 0\n\n    at /Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/dependable-local-livelihood-2026-10-12/proof/native.cjs:61:9"
+}

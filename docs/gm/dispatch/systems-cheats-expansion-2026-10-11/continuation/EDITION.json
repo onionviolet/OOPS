@@ -1,0 +1,172 @@
+{
+  "schema": 1,
+  "edition": "systems-workshop-1",
+  "status": "C4-verified-local-candidate",
+  "candidate": "/Users/weiwei/.codex/worktrees/systems-cheats-completion/yet-another-idle-rpg",
+  "base": "53dc1df15889be6ebb1bae403497041f0672db46",
+  "selectedLocalContracts": {
+    "P02": [
+      "SC01.01",
+      "SC01.03",
+      "SC10.01",
+      "SC10.02",
+      "SC10.03",
+      "SC10.04",
+      "SC10.05",
+      "SC10.06",
+      "SC10.08",
+      "SC10.09"
+    ],
+    "P03": [
+      "SC02.01",
+      "SC02.02",
+      "SC02.03",
+      "SC03.01",
+      "SC03.03"
+    ],
+    "P04A": [
+      "SC04.02",
+      "SC04.03",
+      "SC06.01",
+      "SC06.02",
+      "SC06.03"
+    ],
+    "P04B": [
+      "SC05.01",
+      "SC05.03"
+    ],
+    "P05": [
+      "SC08.02",
+      "SC09.02",
+      "SC09.03"
+    ],
+    "P06": [
+      "SC07.01",
+      "SC07.02",
+      "SC07.03"
+    ],
+    "P07": [
+      "SC09.01",
+      "SC10.07"
+    ]
+  },
+  "requirements": [
+    {
+      "id": "SYS-R01",
+      "packet": "P02",
+      "criterion": "Refuse, accept real provider contract, craft actual item, claim points once, learn and lease, use then upgrade new output; disconnect retains method.",
+      "status": "verified-selected-local-scope",
+      "evidence": "evidence/IDENTITY.json"
+    },
+    {
+      "id": "SYS-R02",
+      "packet": "P03",
+      "criterion": "Construct inspection apparatus with real inputs and learned method; fixed preservation same revision used for provisions and dispatch.",
+      "status": "verified-selected-local-scope",
+      "evidence": "evidence/IDENTITY.json"
+    },
+    {
+      "id": "SYS-R03",
+      "packet": "P04A",
+      "criterion": "Earn cache in actual custody; opening-time deterministic seeded commitment yields two useful native items; appraisal reports possibilities, duplicate keep/sell; retry and import stable.",
+      "status": "verified-selected-local-scope",
+      "evidence": "evidence/IDENTITY.json"
+    },
+    {
+      "id": "SYS-R04",
+      "packet": "P04B",
+      "criterion": "Earn stake, funded rival escrow, fold or continue, draw bound before decision but hidden, settle both purses once; tool purchase consequential.",
+      "status": "verified-selected-local-scope",
+      "evidence": "evidence/IDENTITY.json"
+    },
+    {
+      "id": "SYS-R05",
+      "packet": "P05",
+      "criterion": "Configure/run/alter model; only knowledge exported; actual irrigation job consumes real inputs, comparison changes output.",
+      "status": "verified-selected-local-scope",
+      "evidence": "evidence/IDENTITY.json"
+    },
+    {
+      "id": "SYS-R06",
+      "packet": "P06",
+      "criterion": "Qualify current authored worlds; actual compatible existing consumer if supported, otherwise precise incumbent pack/adapter gate retained.",
+      "status": "verified-selected-local-scope",
+      "evidence": "evidence/IDENTITY.json"
+    },
+    {
+      "id": "SYS-R07",
+      "packet": "P07",
+      "criterion": "Teach registered NPC; own resources/clock produce retained output after teacher leaves, scoped response; no player-resource borrowing.",
+      "status": "verified-selected-local-scope",
+      "evidence": "evidence/IDENTITY.json"
+    },
+    {
+      "id": "SYS-R08",
+      "packet": "all",
+      "criterion": "Rebuilt fresh-origin natural journey plus alternate failures; old save, save/reload/import, failed write, replay and malformed-state proof.",
+      "status": "verified-selected-local-scope",
+      "evidence": "evidence/IDENTITY.json"
+    }
+  ],
+  "excludedLeaves": [
+    "SC01.02",
+    "SC03.02",
+    "SC04.01",
+    "SC05.02",
+    "SC08.01",
+    "SC08.03"
+  ],
+  "laterExclusions": [
+    "All unselected variants within selected leaves",
+    "Body conversion, new worlds/starts, generic NPC economies, arbitrary matter creation, real pocket habitats",
+    "Fortune manipulation, automated wagers, universal pity/slots/caps",
+    "Whole-book completion, private pack changes without current qualification",
+    "Death/prestige/legacy beyond existing carrier continuity"
+  ],
+  "humanAcceptance": "C5 open",
+  "sharedIntegration": "separate; not authorized",
+  "selectionLimits": {
+    "SC01.01": "Instruction and tested seam method; no generic mastery ladder",
+    "SC01.03": "Local provider consent and learned access; no property empire",
+    "SC02.01": "Purchased fixed item and point-bought lease; no universal cheat awakening",
+    "SC02.02": "Provider parcel module adds real output; no fusion/body evolution",
+    "SC02.03": "Disconnect removes lease; retained method/item stays; no death/prestige change",
+    "SC03.01": "Carried-kit inspection through crafted glass/pin apparatus and learned method; refit consumes original kit+pin, yields aligned kit, then precision dispatch trade.",
+    "SC03.03": "Ordinary packing remains independently useful",
+    "SC04.02": "Workshop cache opening-time equal two-item pool only",
+    "SC04.03": "Existing admitted simulation stream; no fortune power/reroll/pity",
+    "SC05.01": "Original sealed-draw wager with fold/continue; no casino/event betting",
+    "SC05.03": "Both actual in-game purses fund four-coin escrow; manual play only",
+    "SC06.01": "Carried opening-time cache with truthful pool appraisal; no fixed hidden-content claim",
+    "SC06.02": "Two declared item outcomes, duplicate keep/sell; no pity/exchange engine",
+    "SC06.03": "Actual item craft/repair or resale",
+    "SC07.01": "Original authored Frontier local proposal; no private book canon invention",
+    "SC07.02": "Existing native player opt-in local work/learning/application/continuation; no new generated start",
+    "SC07.03": "This frozen local edition plus named private-source adapter gate",
+    "SC08.02": "Six-tick three-bed represented irrigation model, knowledge-only export",
+    "SC09.01": "Ren learns and uses own finite logs; local payment memory only",
+    "SC09.02": "Played-time exact jobs/refund and spoiled ordinary comparison; no browser-closed advance",
+    "SC09.03": "Retained instruction and versioned model knowledge; no heir/generic scale promises",
+    "SC10.01": "Iona actual registered local custodian with finite stocks/purse/grant budget",
+    "SC10.02": "One accepted caused commission with actual input/output evidence",
+    "SC10.03": "One actual-provider-issued commissioning title, native recognition and module-upgrade eligibility; no generated achievement engine",
+    "SC10.04": "Exactly-once provider-funded10-point earned grant plus generated cache",
+    "SC10.05": "Declared3/2/5 point shop; no currency conversion economy",
+    "SC10.06": "Permanent seam knowledge plus detachable guidance source; no body transformation",
+    "SC10.07": "Actual native custody, learned inspection and Ren assistance; no universal storage service",
+    "SC10.08": "One preparation-to-parcel upgrade with actual changed verb",
+    "SC10.09": "Disconnect/reconnect plus coin-funded renewed lease and useful application; no playable system-entity/death lifecycle"
+  },
+  "compatibility": {
+    "absentEdition": "unchanged old save with no invented history",
+    "presentEdition": "facts version1, registered participants; point/quest/model/expiry invariants enforced; unknown version rejects before publication",
+    "stream": "existing simulation stream commits opening/deal draws atomically; imported pending or settled histories retain stream/outcome",
+    "closedBrowser": "no new closed-browser advance"
+  },
+  "commands": 55,
+  "privateBookWorldApplication": "qualified external adapter/pack owner gate; not included in local C4 runtime claim",
+  "playerCommands": 54,
+  "selectedLeaves": 30,
+  "excludedLeafCount": 6,
+  "evidenceIdentity": "evidence/IDENTITY.json"
+}

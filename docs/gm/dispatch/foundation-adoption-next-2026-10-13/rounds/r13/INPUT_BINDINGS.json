@@ -1,0 +1,31 @@
+{
+  "atUTC": "2026-10-13T17:03:02.204972+00:00",
+  "head": "dd3efe3383f12f0aac22e4f390aae90fae2e7fc4",
+  "branch": "codex/gameplay-foundations",
+  "hashes": {
+    "src/home_furnishing_content.js": "de307466f4db3b9e25d1a3ad7729edbc45c5eb02a28e65131c77415d0d58f2a2",
+    "src/home_furnishing_facts.js": "24e8c63ee4e37c5cb6f7da2a3208446587dcd5b9f402ff71538c89f52f76e8c2",
+    "src/home_furnishing_host.js": "e82613df4b5f1af55b17d4715551626f54abaaca8b6cae2d290879ff9d9b8128",
+    "src/site_projects.js": "0a9eeb705992b988e5d678f2bd9f4d62f1fc4e911cdb1b456df69787c042583c",
+    "src/field_workshop.js": "b9ab567ff075e1a4cb224d1e464dff07befeaedd935afb31f46e4ebdf4d86b05",
+    "src/audit_remainder_home_content.js": "44421654ff0a6a1337b0843068457549cc8d5306dbf68a50f6ad2c1b4051f8d5",
+    "src/simulation.js": "d56256a701b9190e4a143e63fea2cdcb7df3538dfe59aba9cfaef31544bee388",
+    "src/simulation_effects.js": "d72c0b6984738b718faaf5afab29733290e4c487b5d953b0b1722dae29495b71",
+    "src/simulation_contracts.js": "bfcf6b671c00e2db774880a204fa94cba06cdbf43ac56bef30bf131fee19ac95",
+    "src/expansion_persistence.js": "779a82715884c48f3d2338816d76b90e5e894b625f2fb7daec174091c73bc966",
+    "src/main.js": "d6a4359b2cf9fc493db9857d580077a930c4f826a24df2fb025590aa0d244857",
+    "src/expansion_engine.js": "530eecd10b634f31e41679bbd983d9ebb73bc56ca8c48eff7d1c11da7e4a99bb",
+    "src/book_world_mol_ids.js": "edcfdb180d2f9b9f3ea44abf932deef5386f1733aa76fa507240ce16669be195",
+    "src/book_world_mol_actions.js": "98213a044f808f67ecd64c3e5e4fb838aa664ba28d92578c580932bd3b51000d",
+    "tests/simulation.test.js": "48c580fdfffb79ea2277c081f31aecc82b1c2b4db8d13df9b8262a48321e8d49",
+    "tests/simulation_extensions.test.js": "064ca0bc1158399a92516e8eb038ebff09cefe99661b481d0b0e8c1e09505689",
+    "tests/field_workshop.test.js": "4a591c610dacc6783544437ba073dafa1e77ae645f22d91eff38e26ff0815bc9",
+    "tests/absorb_b.test.js": "8e3bfdcdfc71c4082cfcf1e5dc70cd9783eee158e8014a30cae8aae91604461f",
+    "tests/expansion_engine.test.js": "680175db9fbe05befdc5243cd4bf768c3683b49776ac3338a71f5d9f6bdde36f",
+    "docs/gm/dispatch/foundation-adoption-next-2026-10-13/rounds/r13/check-allocation.test.mjs": "5dfaa8e79de7328926fd98e574242f3a5357e7d7d5a56cc127d89f8f7af36b87",
+    "docs/gm/dispatch/foundation-adoption-next-2026-10-13/rounds/r13/FA20-reconciled.md": "30eb28fdc57d01ef30566e3e478cb6356a58b666e9d16acbbe61ee738a00b5ea",
+    "docs/gm/dispatch/foundation-adoption-next-2026-10-13/reservations/R13_SUCCESSOR_TRANSFER.json": "1cdef1527900a3c4960e6eabb8a7045c84dc7d7ad2b83336594c168c7e33a2ac"
+  },
+  "runtimeEdits": [],
+  "build": "NOT_RUN; no native candidate/claim"
+}

@@ -1,0 +1,12 @@
+locator.focus: Timeout 15000ms exceeded.
+Call log:
+[2m  - waiting for locator('[data-action-legibility-key="action:objects-begin"]').locator('.action-legibility__primary')[22m
+
+    at action (/Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/foundation-adoption-next-2026-10-13/rounds/r3/native.cjs:21:378)
+    at async /Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/foundation-adoption-next-2026-10-13/rounds/r3/native.cjs:35:2 {
+  log: [
+    `  - waiting for locator('[data-action-legibility-key="action:objects-begin"]').locator('.action-legibility__primary')`
+  ],
+  name: 'TimeoutError'
+}
+{"status":"FAIL","checks":{},"failure":"locator.focus: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('[data-action-legibility-key=\"action:objects-begin\"]').locator('.action-legibility__primary')\u001b[22m\n\n    at action (/Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/foundation-adoption-next-2026-10-13/rounds/r3/native.cjs:21:378)\n    at async /Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/foundation-adoption-next-2026-10-13/rounds/r3/native.cjs:35:2"}

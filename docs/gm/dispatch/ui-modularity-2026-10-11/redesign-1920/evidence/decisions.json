@@ -1,0 +1,11 @@
+{
+  "build": "http://127.0.0.1:18571/dist/bundle.js?version=v0.6-598f67420c6e",
+  "generatedFixture": true,
+  "fixtureScope": "Real enrollment; public event definition explicitly made witnessed mandatory for UI recovery proof. This is not natural trigger proof.",
+  "checks": [
+    "Generated witnessed decision recovers hidden notebook from critical current-work link; real keyboard response resolves once through authoritative handler.",
+    "Generated response status survives actual save/reload/native file import without second response or payment.",
+    "Undiscovered generated decision contributes no waiting message or actor detail to current-work projection."
+  ],
+  "errors": []
+}

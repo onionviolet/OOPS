@@ -45,7 +45,13 @@ export function projectFeatureCommands(state, registry, context, {groups, prefix
 
 export function featureRecordedKnowledge(state, prefixes) {
     return projectSimulationAftermath({state}).filter(row=>prefixes.some(prefix=>row.id.startsWith(prefix)))
-        .map(row=>({id:row.id,text:`${row.basisLabel}: ${row.text}${row.timeText?` · ${row.timeText}`:''}`}));
+        .map(row=>{
+            let content=row.text;
+            if(row.id.startsWith('feature_society.duty.continuation.account.')) {
+                try {content=JSON.parse(content).note;} catch {content='';}
+            }
+            return {id:row.id,text:`${row.basisLabel}: ${content}${row.timeText?` · ${row.timeText}`:''}`};
+        });
 }
 
 export function featureWorkControls(state, registry, groups, context={actorId:'player'}) {

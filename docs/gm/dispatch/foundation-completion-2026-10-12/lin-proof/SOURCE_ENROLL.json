@@ -1,0 +1,31 @@
+{
+  "before": {
+    "schema": 5,
+    "auditRemainder": null,
+    "controllers": [
+      "village.craftsman_controller"
+    ]
+  },
+  "preview": {
+    "visible": true,
+    "eligible": true,
+    "reasons": [],
+    "costs": [],
+    "duration": 0
+  },
+  "staged": {
+    "schema": 5,
+    "auditRemainder": null,
+    "controllers": [
+      "village.craftsman_controller",
+      "nested.chain.roles.registrar",
+      "nested.chain.roles.claimant",
+      "nested.chain.roles.witness",
+      "nested.chain.welfare.keeper",
+      "nested.chain.local.foreman",
+      "nested.chain.hub.issuer"
+    ]
+  },
+  "foreignControllers": [],
+  "failure": null
+}

@@ -1,0 +1,14 @@
+{
+  "url": "http://127.0.0.1:18571/",
+  "fingerprint": "http://127.0.0.1:18571/dist/bundle.js?version=v0.6-598f67420c6e",
+  "generatedSavesOnly": true,
+  "generatedFundsAndFixedRng": true,
+  "checks": [
+    "Absent optional manifest discloses no beginning panel or picker; returning manifest restores hidden preference and allows explicit reopen.",
+    "Actual structured immediate action dispatches once; docking dispatches no command.",
+    "Structured disabled action retains adjacent blocker explanation.",
+    "Available timed structured work starts once, docks while pending, and cancels without duplicate jobs.",
+    "Generated structured origin saves and reloads identity while presentation moves."
+  ],
+  "errors": []
+}

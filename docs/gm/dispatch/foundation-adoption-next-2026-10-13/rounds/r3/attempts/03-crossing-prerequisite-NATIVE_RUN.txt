@@ -1,0 +1,12 @@
+locator.waitFor: Timeout 15000ms exceeded.
+Call log:
+[2m  - waiting for locator('[data-action-legibility-key="action:feature_battle.inspect"]')[22m
+
+    at action (/Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/foundation-adoption-next-2026-10-13/rounds/r3/native.cjs:21:137)
+    at async /Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/foundation-adoption-next-2026-10-13/rounds/r3/native.cjs:48:2 {
+  log: [
+    `  - waiting for locator('[data-action-legibility-key="action:feature_battle.inspect"]')`
+  ],
+  name: 'TimeoutError'
+}
+{"status":"FAIL","checks":{"earnedPaidStockPreservedAfterRepair":true,"actualLesson":true,"threePaidTrials":true,"masteryLiteralRestoration":true},"failure":"locator.waitFor: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('[data-action-legibility-key=\"action:feature_battle.inspect\"]')\u001b[22m\n\n    at action (/Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/foundation-adoption-next-2026-10-13/rounds/r3/native.cjs:21:137)\n    at async /Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/foundation-adoption-next-2026-10-13/rounds/r3/native.cjs:48:2"}

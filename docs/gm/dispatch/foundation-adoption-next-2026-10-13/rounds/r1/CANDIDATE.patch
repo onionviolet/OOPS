@@ -1,0 +1,511 @@
+--- a/src/agreed_duty_content.js
++++ b/src/agreed_duty_content.js
+@@ -1,6 +1,7 @@
+ // ACS-P03's one optional schedule preference composes into the existing
+ // feature_society actors, world facts and controller. It creates no new owner.
+ import {SOCIETY_IDS as S} from './feature_expansion_society.js';
++import {agreedDutyContinuationDefinitions} from './agreed_duty_continuation.js';
+ 
+ const P = S.prefix, W = S.world, H = S.household, O = S.craftsperson, V = S.apprentice;
+ const worldFact = (key, value) => ({type: 'world', worldId: W, key: `${P}.${key}`, value});
+@@ -118,6 +119,7 @@
+ // One optional later request must be causally after the kept/deferred/refused
+ // account. It asks for future discussion only; it never creates a duty.
+ export const agreedDutyFollowupDefinitions = Object.freeze({commands: Object.freeze([
++    ...agreedDutyContinuationDefinitions.commands,
+     {id: AGREED_DUTY_IDS.followupRepair, revision: 1, group: 'feature_society', worldId: W, actorId: 'player', location: 'Village',
+         label: 'Ask once about another repair-first discussion · 1 minute', targetId: H, coLocated: true, participants: [H,O,V], duration: 1, once: true,
+         visibleWhen: all(introduced, local), requires: all(eq(`knowledge.${AGREED_DUTY_IDS.resultKey}.seen`), eq('society.agreedDutyFollowupUnused')), costs: [],
+--- a/src/agreed_duty_facts.js
++++ b/src/agreed_duty_facts.js
+@@ -2,6 +2,7 @@
+ import {assert, natural, record, stableId} from './simulation_contracts.js';
+ import {SOCIETY_IDS as S, SOCIETY_ITEMS} from './feature_expansion_society.js';
+ import {AGREED_DUTY_IDS as I, AGREED_DUTY_POLICY as P, agreedDutyDefinitions} from './agreed_duty_content.js';
++import {validateAgreedDutyContinuationState} from './agreed_duty_continuation.js';
+ 
+ const seq = cause => {
+     const match = /^(?:simulation|cancel|unsupported):([1-9][0-9]*)$/.exec(cause || '');
+@@ -29,7 +30,7 @@
+ export function agreedDutyReservationValid(state,job) {
+     const d=job&&meetingDefinition(job.commandId),sequence=seq(job?.id),expectedSupport={schema:1,requires:d?.completionRequires||null,
+         coLocated:!!d?.completionCoLocated,location:'Village',failure:d?.completionFailure||'refund'};
+-    const frozenContext=record(job?.context)&&same(Object.keys(job.context).sort(),['actorId','targetId','partyIds'])&&job.context.actorId==='player'&&
++    const frozenContext=record(job?.context)&&same(Object.keys(job.context).sort(),['actorId','partyIds','targetId'])&&job.context.actorId==='player'&&
+         job.context.targetId===S.household&&Array.isArray(job.context.partyIds)&&job.context.partyIds.length<=8&&
+         new Set(job.context.partyIds).size===job.context.partyIds.length&&job.context.partyIds.every(stableId);
+     return !!d && d.revision===1 && Number.isSafeInteger(sequence) && sequence>0 && sequence<=state.sequence && job.sequence===sequence &&
+@@ -87,10 +88,25 @@
+     const readiness = agreedDutyReadiness(state), preference = state.worlds?.[W]?.facts?.[`${PFX}.dutyPreference`];
+     const priorAgreement = agreementRecord(state), priorResult = resultRecord(state);
+     const recognizedAgreement = validAgreementReceipt(state, priorAgreement);
++    const priorOutcome = validResultReceipt(state, priorResult) ? JSON.parse(priorResult.value).status : null;
++    const person = state.simulation?.people?.player;
++    const body = person?.body?.id ? person.body : context.nativeBody;
+     return {
++        // Absent optional state means no booking/order/terminal marker, not an
++        // unknown predicate that makes every negated controller guard fail.
++        [`world.${PFX}.dutyPrebooked`]: state.worlds?.[W]?.facts?.[`${PFX}.dutyPrebooked`] ?? false,
++        [`world.${PFX}.dutyPreference`]: preference ?? false,
++        [`world.${PFX}.dutyTerminalCommand`]: state.worlds?.[W]?.facts?.[`${PFX}.dutyTerminalCommand`] ?? false,
+         'society.agreedDutyAvailable': readiness.ready && !idForPreference(preference) && !recognizedAgreement,
+         'society.agreedDutySupport': agreedDutyReadiness(state,{ignoreMeetingLocks:true,reservation:context.agreedDutyReservation}).ready,
+         'society.agreedDutyFollowupUnused': validResultReceipt(state, priorResult) && state.worlds?.[W]?.facts?.[`${PFX}.duty.followupUsed`] !== true,
++        'society.dutyContinuationKept': priorOutcome === 'kept',
++        'society.dutyContinuationInterrupted': ['cancelled','stopped','refused'].includes(priorOutcome),
++        'society.dutyContinuationCapability': !!state.simulation?.powers?.[S.craftsperson]?.[S.method]?.owned,
++        'society.dutyContinuationOpen': state.worlds?.[W]?.facts?.[`${PFX}.duty.continuationClosed`] !== true,
++        'society.dutyContinuationBody': !!body && person?.inventory === 'native' && person.life === 'alive' &&
++            context.nativeAlive === true && context.nativeReady !== false && body.id === 'native.player.body' &&
++            body.ownerId === 'player' && body.controllerId === 'player' && body.hands >= 2 && body.mobile === true,
+     };
+ }
+ 
+@@ -157,6 +173,7 @@
+             followup.basis?.situationId === `${PFX}.home_agreement` && state.worlds?.[W]?.facts?.[`${PFX}.duty.followupUsed`] === true,
+         'The optional second request must follow and consume the retained attributed duty result.');
+     }
++    validateAgreedDutyContinuationState(state,validAgreementReceipt(state,agreement)&&validResultReceipt(state,result));
+     return true;
+ }
+ 
+--- a/src/agreed_duty_host.js
++++ b/src/agreed_duty_host.js
+@@ -5,6 +5,7 @@
+ import {agreedDutyFacts, agreedDutyReadiness, agreedDutyReceiptValue,
+     agreedDutyReceiptMatches, agreedDutySelectedCommand, validateAgreedDutyState} from './agreed_duty_facts.js';
+ import {SOCIETY_IDS as S} from './feature_expansion_society.js';
++import {AGREED_DUTY_CONTINUATION_IDS as C,continuationAccountValue} from './agreed_duty_continuation.js';
+ import {commitSimulationCommand,previewSimulationCommand,simulationFacts} from './simulation.js';
+ 
+ const know = (key, value, attributedTo) => ({type:'knowledge',actor:'player',key:`${S.prefix}.duty.${key}`,stage:'seen',value,
+@@ -81,7 +82,7 @@
+ }
+ 
+ export function commitAgreedDutyAction(state,registry,context,commandId,expectedSequence=state.sequence) {
+-    if(!commandIds.has(commandId)) throw new Error('This is not one of the five bounded household scheduling choices.');
++    if(!commandIds.has(commandId)) throw new Error('This is not a supported household scheduling or later workshop choice.');
+     const admission=agreedDutySocietyCommandAdmission(state,commandId);
+     if(!admission.allowed) throw new Error(admission.reason);
+     const definition=registry.simulation.commands.get(commandId);
+@@ -90,7 +91,17 @@
+     return commitSimulationCommand(state,registry,{id:commandId,targetId:definition.targetId||null},ctx,expectedSequence);
+ }
+ 
++function continuationAccount(state, job, status) {
++    if(!job || ![C.sponsored,C.paid].includes(job.commandId) || !agreedDutyReceiptMatches(state)) return null;
++    const prior = state.simulation.knowledge.player[I.resultKey];
++    const value = continuationAccountValue(job,status,prior.cause);
++    return [{type:'knowledge',actor:'player',key:`${S.prefix}.duty.continuation.account.${job.sequence}`,
++        stage:'seen',value,basis:{kind:'observation',attributedTo:'player',situationId:`${S.prefix}.home_agreement`}}];
++}
++
+ export function agreedDutyCompletionEffects(state, job) {
++    const continuation = continuationAccount(state,job,'completed');
++    if(continuation) return continuation;
+     const selected = agreedDutySelectedCommand(state);
+     if(!selected || !job || job.commandId !== selected) return [];
+     const value = agreedDutyReceiptValue(state,job,'kept');
+@@ -98,6 +109,8 @@
+ }
+ 
+ export function agreedDutyCancellationEffects(state, job) {
++    const continuation = continuationAccount(state,job,'cancelled');
++    if(continuation) return continuation;
+     const selected = agreedDutySelectedCommand(state);
+     if(!selected || !job || job.commandId !== selected) return [];
+     const value = agreedDutyReceiptValue(state,job,'cancelled');
+@@ -105,6 +118,8 @@
+ }
+ 
+ export function agreedDutyStoppedEffects(state, job) {
++    const continuation = continuationAccount(state,job,'stopped');
++    if(continuation) return continuation;
+     const selected=agreedDutySelectedCommand(state);
+     if(!selected||!job||job.commandId!==selected)return [];
+     const value=agreedDutyReceiptValue(state,job,'stopped');
+--- a/src/feature_expansion_society.js
++++ b/src/feature_expansion_society.js
+@@ -33,7 +33,9 @@
+     {fact: 'vital.health', op: 'gte', value: 2});
+ const command = d => ({revision: 1, group: 'feature_society', worldId: W, actorId: 'player', location: 'Village',
+     costs: [], effects: [], requires: all(introduced, local), visibleWhen: introduced, ...d});
+-const npc = d => command({actorId: O, audience: ['$actor'], ...d});
++// Controller visibility cannot require the player's introduction fact on an NPC.
++// Their actual consent, means and offered-work requirements still govern admission.
++const npc = d => command({actorId: O, audience: ['$actor'], visibleWhen: null, ...d});
+ const support = requires => ({completionRequires: all(local, requires), completionCoLocated: true,
+     completionFailure: 'refund', cancellation: 'refund'});
+ 
+--- a/src/agreed_duty_continuation.js
++++ b/src/agreed_duty_continuation.js
+@@ -0,0 +1,162 @@
++// Proposed, finite post-duty continuation. The root integration owns the
++// valid-receipt facts, truthful cancellation/support-loss accounts and wiring.
++import {SOCIETY_IDS as S, SOCIETY_ITEMS} from './feature_expansion_society.js';
++import {assert,natural,record} from './simulation_contracts.js';
++
++const P = S.prefix, W = S.world, H = S.household, O = S.craftsperson;
++const LOG = SOCIETY_ITEMS.wood, KIT = SOCIETY_ITEMS.kit;
++
++const eq = (fact, value = true, reason) => ({fact, op: 'eq', value, ...(reason ? {reason} : {})});
++const all = (...rules) => ({all: rules});
++const wf = (key, value) => ({type: 'world', worldId: W, key: `${P}.${key}`, value});
++const knowledge = (key, value) => ({type: 'knowledge', actor: 'player', key: `${P}.duty.continuation.${key}`,
++    stage: 'seen', value, basis: {kind: 'observation', attributedTo: 'player', situationId: `${P}.home_agreement`}});
++const item = (actor, key, amount, reservationReturn = false) => ({type: 'item', actor, key, amount,
++    ...(reservationReturn ? {reservationReturn: true} : {})});
++const coin = (actor, amount) => ({type: 'resource', actor, key: 'coins', amount});
++const money = amount => ({type: 'resource', actor: 'player', key: 'money', native: true, amount});
++const stamina = (actor, amount) => ({type: 'vital', actor, key: 'stamina', amount});
++const resource = (actor, key, amount) => ({type: 'resource', actor, key, amount});
++
++const local = eq('society.clockSupported', true, 'The household cannot meet while you are away from the supported local clock.');
++const kept = eq('society.dutyContinuationKept');
++const interrupted = eq('society.dutyContinuationInterrupted');
++const open = eq('society.dutyContinuationOpen');
++const benchHeldByOrr = eq(`claim.${S.benchRight}.owner`, O);
++const playerHealthy = {fact: 'vital.health', op: 'gte', value: 2};
++const continuationCapability = eq('society.dutyContinuationCapability');
++const playerBody = eq('society.dutyContinuationBody');
++const completionSupport = all(local, eq('society.orrSupported'), continuationCapability,
++    playerBody, eq('society.handsUsable'), playerHealthy, benchHeldByOrr);
++
++export const AGREED_DUTY_CONTINUATION_IDS = Object.freeze({
++    sponsored: `${P}.duty.continuation_sponsored`,
++    paid: `${P}.duty.continuation_paid`,
++    decline: `${P}.duty.continuation_decline`,
++    closedFact: `${P}.duty.continuationClosed`,
++});
++
++const sponsored = {
++    id: AGREED_DUTY_CONTINUATION_IDS.sponsored, revision: 1, group: 'feature_society', worldId: W,
++    actorId: 'player', location: 'Village', label: 'Accept Hessa’s sponsored survey-kit workshop · 3 minutes',
++    description: 'After the kept duty, Hessa offers one coin for Orr to guide your workshop. Supply your own log. Orr uses his counted kit and ordinary sound join at his permitted bench. Reserve one stamina each, one of Orr’s attention, your log, Hessa’s coin and Orr’s kit for three played minutes. Completion pays Orr, returns his kit and gives you one prepared survey kit. Cancellation or lost support returns the reserved inputs. Hessa’s household log stays available for Vale’s shelf. This grants no learned method. Clicking accepts these terms.',
++    targetId: H, coLocated: true, participantsCoLocated: true, participants: [H, O], siteId: S.bench, duration: 3,
++    visibleWhen: all(kept, open), requires: all(kept, open, local, eq('society.orrSupported'), continuationCapability,
++        playerBody, eq('society.handsUsable'), playerHealthy, benchHeldByOrr),
++    costs: [item('player', LOG, -1), coin(H, -1), item(O, KIT, -1), resource(O, 'attention', -1), stamina(O, -1), stamina('player', -1)],
++    cancellation: 'refund', completionRequires: completionSupport, completionCoLocated: true, completionFailure: 'refund',
++    effects: [item(O, KIT, 1, true), coin(O, 1), item('player', KIT, 1),
++        wf('duty.continuationClosed', true),
++        knowledge('result', 'Completed the sponsored guided survey-kit workshop. The player supplied the log; Hessa supplied the coin. Orr returned his counted kit and earned the coin. One finished survey kit entered your inventory. Hessa’s household log remains. No method or mastery was granted.')],
++};
++
++const paid = {
++    id: AGREED_DUTY_CONTINUATION_IDS.paid, revision: 1, group: 'feature_society', worldId: W,
++    actorId: 'player', location: 'Village', label: 'Accept Orr’s paid survey-kit workshop · 1 log · 1 coin · 3 minutes',
++    description: 'After the verified cancelled, stopped or refused duty, Orr offers this separate personal workshop. It uses your actual log and one native coin, Orr’s actual prepared kit and ordinary sound join, your one stamina, Orr’s one stamina and one attention. On completion, Orr receives your coin, his kit returns to him, and one actual prepared survey kit goes to your native inventory. No lesson, source, power or mastery is granted. Clicking accepts these exact terms.',
++    targetId: O, coLocated: true, participantsCoLocated: true, participants: [O], siteId: S.bench, duration: 3,
++    visibleWhen: all(interrupted, open), requires: all(interrupted, open, local, eq('society.orrSupported'), continuationCapability,
++        playerBody, eq('society.handsUsable'), playerHealthy, benchHeldByOrr),
++    costs: [item('player', LOG, -1), money(-1), item(O, KIT, -1), resource(O, 'attention', -1), stamina(O, -1), stamina('player', -1)],
++    cancellation: 'refund', completionRequires: completionSupport, completionCoLocated: true, completionFailure: 'refund',
++    effects: [item(O, KIT, 1, true), coin(O, 1), item('player', KIT, 1),
++        wf('duty.continuationClosed', true),
++        knowledge('result', 'Completed Orr’s paid personal survey-kit workshop. The player supplied an actual log and native coin; Orr returned his counted kit and earned the coin. One finished survey kit entered the player’s native inventory. No method or mastery was granted.')],
++};
++
++const decline = {
++    id: AGREED_DUTY_CONTINUATION_IDS.decline, revision: 1, group: 'feature_society', worldId: W,
++    actorId: 'player', location: 'Village', label: 'Decline the later workshop offer · no cost',
++    description: 'Close only the optional later survey-kit continuation. This is immediate and spends no time or resources; it adds no punishment and does not change the earlier duty or its account.',
++    visibleWhen: all({any: [kept, interrupted]}, open),
++    requires: all({any: [kept, interrupted]}, open, local), costs: [],
++    effects: [wf('duty.continuationClosed', true),
++        knowledge('declined', 'Declined the optional later survey-kit continuation. No time, resources or earlier lawful result changed.')],
++};
++
++function deepFreeze(value) {
++    if(value && typeof value === 'object' && !Object.isFrozen(value)) {
++        Object.values(value).forEach(deepFreeze);
++        Object.freeze(value);
++    }
++    return value;
++}
++
++export const agreedDutyContinuationDefinitions = deepFreeze({commands: [sponsored, paid, decline]});
++
++export function stampAgreedDutyContinuationJob(state,job){
++    if(![sponsored.id,paid.id].includes(job.commandId))return;
++    job.dutyContinuationTerms={schema:1,acceptedAt:state.clock,
++        priorCause:state.simulation.knowledge.player[`${P}.duty.result`].cause};
++}
++
++const same=(a,b)=>JSON.stringify(a)===JSON.stringify(b);
++const sequence=id=>{const match=/^(?:simulation|cancel|unsupported):([1-9][0-9]*)$/.exec(id||'');return match?Number(match[1]):NaN;};
++export function continuationAccountValue(job,status,priorCause){
++    return JSON.stringify({schema:1,status,commandId:job.commandId,jobId:job.id,priorCause,acceptedAt:job.dutyContinuationTerms.acceptedAt,
++        note:status === 'completed' ? 'The later agreed workshop completed with its actual supplied means and native kit.'
++            : `The later agreed workshop was ${status}; its reserved inputs returned, with no kit or wage awarded.`});
++}
++
++// This finite consumer binds its own restored promises. It does not widen the
++// generic save validator or reinterpret any original duty revision/receipt.
++export function validateAgreedDutyContinuationState(state,priorValid){
++    const s=state.simulation;if(!s)return true;
++    const closed=state.worlds?.[W]?.facts?.[AGREED_DUTY_CONTINUATION_IDS.closedFact];
++    assert(closed==null||typeof closed==='boolean','Unsupported later-workshop closure.');
++    const work=[sponsored,paid],ids=work.map(d=>d.id),prior=s.knowledge?.player?.[`${P}.duty.result`];
++    const jobs=s.jobs.filter(j=>ids.includes(j.commandId));
++    const completed=work.filter(d=>state.actors.player.completed[d.id]);
++    const declined=state.actors.player.completed[decline.id]||0;
++    const accounts=Object.entries(s.knowledge?.player||{}).filter(([k])=>k.startsWith(`${P}.duty.continuation.account.`));
++    const output=s.knowledge?.player?.[`${P}.duty.continuation.result`],refusal=s.knowledge?.player?.[`${P}.duty.continuation.declined`];
++    const touched=jobs.length||completed.length||declined||accounts.length||output||refusal||closed===true;
++    if(!touched)return true;
++    assert(priorValid,'Later workshop lacks its legitimate previous duty outcome.');
++    const previous=JSON.parse(prior.value),expected=previous.status==='kept'?sponsored:paid;
++    assert(jobs.length<=1&&completed.length<=1&&!(completed.length&&declined),'Conflicting later workshop commitments.');
++    assert(completed.every(d=>d.id===expected.id&&state.actors.player.completed[d.id]===1)&&declined<=1,'Unsupported later workshop completion.');
++    for(const job of jobs){
++        const d=expected,n=sequence(job.id),terms=job.dutyContinuationTerms,support={schema:1,requires:d.completionRequires,coLocated:true,location:'Village',failure:'refund'};
++        assert(job.commandId===d.id&&job.revision===1&&job.actorId==='player'&&job.targetId===d.targetId&&
++            natural(n)&&n>0&&n<=state.sequence&&job.sequence===n&&record(terms)&&terms.schema===1&&
++            same(Object.keys(terms).sort(),['acceptedAt','priorCause','schema'])&&terms.priorCause===prior.cause&&
++            natural(terms.acceptedAt)&&terms.acceptedAt>=prior.at&&terms.acceptedAt<=state.clock&&job.due===terms.acceptedAt+d.duration&&
++            sequence(prior.cause)<n&&job.cancellation==='refund'&&job.siteId===S.bench&&job.claim==null&&
++            job.reservationReturns===1&&job.roll===null&&job.outcomeId===null&&same(job.costs,d.costs)&&same(job.effects,d.effects)&&
++            same(job.completionSupport,support)&&same(job.participants,['player',...d.participants])&&record(job.context)&&
++            same(Object.keys(job.context).sort(),['actorId','partyIds','targetId'])&&job.context.actorId==='player'&&job.context.targetId===d.targetId&&
++            Array.isArray(job.context.partyIds)&&new Set(job.context.partyIds).size===job.context.partyIds.length&&
++            s.sites[S.bench]?.reservations[job.id]==='player'&&!closed&&!completed.length&&!declined,
++        'The later workshop lost its exact frozen terms or reservation.');
++    }
++    let successes=0;
++    for(const [key,r] of accounts){
++        let data;try{data=JSON.parse(r.value);}catch{assert(false,'Malformed later workshop account.');}
++        const n=sequence(data.jobId),cause=sequence(r.cause);
++        assert(record(data)&&data.schema===1&&['completed','cancelled','stopped'].includes(data.status)&&data.commandId===expected.id&&
++            data.priorCause===prior.cause&&key===`${P}.duty.continuation.account.${n}`&&natural(n)&&n>sequence(prior.cause)&&
++            natural(cause)&&cause>=n&&cause<=state.sequence&&natural(r.at)&&r.at>=prior.at&&r.at<=state.clock&&
++            r.stage==='seen'&&same(Object.keys(r).sort(),['at','basis','cause','stage','value'])&&
++            same(r.basis,{kind:'observation',attributedTo:'player',situationId:`${P}.home_agreement`})&&
++            natural(data.acceptedAt)&&data.acceptedAt>=prior.at&&data.acceptedAt<=r.at&&
++            r.value===continuationAccountValue({commandId:data.commandId,id:data.jobId,dutyContinuationTerms:{acceptedAt:data.acceptedAt}},data.status,prior.cause)&&
++            !jobs.some(j=>j.id===data.jobId),'Unsupported later workshop account or cause.');
++        if(data.status==='completed'){
++            successes++;
++            assert(r.cause===data.jobId&&completed.length===1&&output?.cause===data.jobId&&r.at===data.acceptedAt+expected.duration,'Unmatched later workshop settlement.');
++        }else assert(r.cause.startsWith(data.status==='cancelled'?'cancel:':'unsupported:')&&cause>n,'Unsupported later workshop interruption cause.');
++    }
++    assert(successes===completed.length&&closed===(!!completed.length||!!declined)||
++        !closed&&!completed.length&&!declined&&successes===0,'Later workshop closure contradicts its settlement.');
++    const checkReceipt=(r,d,key)=>{
++        const effect=d.effects.find(e=>e.type==='knowledge'&&e.key===key),n=sequence(r?.cause);
++        assert(r?.stage==='seen'&&r.value===effect?.value&&natural(n)&&n>sequence(prior.cause)&&n<=state.sequence&&
++            r.cause.startsWith('simulation:')&&natural(r.at)&&r.at>=prior.at&&r.at<=state.clock&&same(r.basis,effect.basis),
++        'Later workshop result or refusal lost its actual committed cause.');
++    };
++    if(output){assert(completed.length===1,'Workshop output without settlement.');checkReceipt(output,expected,`${P}.duty.continuation.result`);}
++    if(refusal){assert(declined===1&&!output,'Workshop refusal conflicts with output.');checkReceipt(refusal,decline,`${P}.duty.continuation.declined`);}
++    assert(!declined||!!refusal,'Workshop refusal lacks its account.');
++    return true;
++}
+--- a/src/simulation.js
++++ b/src/simulation.js
+@@ -7,6 +7,7 @@
+ import {guardSteamDFAdmission,stampSteamDFAcceptedJob,steamDFCompletionContext} from './steam_df_runtime.js';
+ import {agreedDutyCompletionEffects,agreedDutyCancellationEffects,agreedDutyStoppedEffects,agreedDutyRefusalEffects} from './agreed_duty_host.js';
+ import {agreedDutySelectedCommand} from './agreed_duty_facts.js';
++import {stampAgreedDutyContinuationJob} from './agreed_duty_continuation.js';
+ import {paradiseCampaignControllerAllowed} from './book_world_paradise_campaign_runtime.js';
+ import {paradiseCampaignExistingCommandGate} from './book_world_paradise_campaign_facts.js';
+ import {worldCompletionJobContext,stampWorldCompletionAcceptedJob,recordWorldCompletionJobCompletion,worldCompletionTimersSupported,reconcileWorldCompletionPlan} from './world_completion_runtime.js';
+@@ -220,6 +221,7 @@
+     stampSteamLambAcceptedJob(state,job,context);
+     stampLorePracticeJob(state,job,context);
+     stampWorldCompletionAcceptedJob(state,job,context);
++    stampAgreedDutyContinuationJob(state,job);
+     if(d.encounterId) {
+         assert(!d.duration && !(d.effects || []).length, "Encounters start without overlapping jobs.");
+         const encounter = registry.simulation.encounters.get(d.encounterId);
+--- a/src/feature_expansion_host.js
++++ b/src/feature_expansion_host.js
+@@ -45,7 +45,13 @@
+ 
+ export function featureRecordedKnowledge(state, prefixes) {
+     return projectSimulationAftermath({state}).filter(row=>prefixes.some(prefix=>row.id.startsWith(prefix)))
+-        .map(row=>({id:row.id,text:`${row.basisLabel}: ${row.text}${row.timeText?` · ${row.timeText}`:''}`}));
++        .map(row=>{
++            let content=row.text;
++            if(row.id.startsWith('feature_society.duty.continuation.account.')) {
++                try {content=JSON.parse(content).note;} catch {content='';}
++            }
++            return {id:row.id,text:`${row.basisLabel}: ${content}${row.timeText?` · ${row.timeText}`:''}`};
++        });
+ }
+ 
+ export function featureWorkControls(state, registry, groups, context={actorId:'player'}) {
+--- a/tests/agreed_duty_continuation.test.js
++++ b/tests/agreed_duty_continuation.test.js
+@@ -0,0 +1,169 @@
++import test from 'node:test';
++import assert from 'node:assert/strict';
++import {createExpansionState,advanceSimulation,loadExpansionState} from '../src/expansion_engine.js';
++import {initializeExpedition,expeditionRegistry as registry} from '../src/expedition_content.js';
++import {beginSociety,commitSocietyAction} from '../src/feature_expansion_society_host.js';
++import {commitAgreedDutyAction,agreedDutyPresentation} from '../src/agreed_duty_host.js';
++import {AGREED_DUTY_IDS as I} from '../src/agreed_duty_content.js';
++import {AGREED_DUTY_CONTINUATION_IDS as C} from '../src/agreed_duty_continuation.js';
++import {SOCIETY_IDS as S,SOCIETY_ITEMS as K} from '../src/feature_expansion_society.js';
++import {cancelSimulationJob,previewSimulationCommand} from '../src/simulation.js';
++import {persistExpansionPlan} from '../src/expansion_persistence.js';
++import {featureRecordedKnowledge} from '../src/feature_expansion_host.js';
++
++// Controlled unit fixture. Browser proof must earn its native resources separately.
++const body={id:'native.player.body',form:'human',ownerId:'player',controllerId:'player',hands:2,mobile:true};
++const context=p=>({actorId:'player',facts:{location:'Village','village.elderMet':true},external:p.external,gameplay:p.gameplay,
++    vitals:p.vitals||{player:{health:20,max_health:20,stamina:20,max_stamina:20}},nativeBody:body,nativeAlive:true,nativeReady:true});
++const society=(p,id)=>commitSocietyAction(p.state,registry,{type:'command',id:`feature_society.${id}`},context(p));
++const duty=(p,id)=>commitAgreedDutyAction(p.state,registry,context(p),id);
++const advance=(p,n)=>{const c=context(p);return advanceSimulation(p.state,registry,n,p.external,p.gameplay,{player:{...c,vitals:c.vitals.player}});};
++const reload=p=>({...structuredClone(p),state:loadExpansionState(JSON.parse(JSON.stringify(p.state)),registry)});
++const quote=(p,id,extra={})=>previewSimulationCommand(p.state,registry,id,{...context(p),targetId:registry.simulation.commands.get(id).targetId,...extra});
++const owned=(p,a,k)=>p.state.simulation.owners[a]?.[k]||0;
++function setup(){
++    let p={state:initializeExpedition(createExpansionState(17)),external:{money:30},gameplay:{player:{inventory:{[K.wood]:4},skills:{},reputation:{}}}};
++    p=beginSociety(p.state,registry,context(p));p=society(p,'terms');return society(p,'supply');
++}
++function booked(choice=I.repairFirst){return duty(setup(),choice);}
++function kept(choice=I.repairFirst){return advance(booked(choice),14);}
++function stopped(){let p=advance(booked(),1);p=society(p,'stop_future');return advance(p,6);}
++const result=p=>JSON.parse(p.state.simulation.knowledge.player[I.resultKey].value);
++const accounts=p=>Object.entries(p.state.simulation.knowledge.player).filter(([k])=>k.startsWith('feature_society.duty.continuation.account.'));
++
++test('fresh optional booking is visible and actually settles; both first-duty orders retain actual accounts',()=>{
++    const p=setup();assert(quote(p,I.repairFirst).visible);assert(quote(p,I.repairFirst).eligible);
++    for(const [choice,preference,first] of [[I.repairFirst,'repair',I.repair],[I.lessonFirst,'lesson',I.lesson],[I.ordinary,'ordinary',I.repair]]){
++        const done=kept(choice);assert.equal(result(done).status,'kept');assert.equal(result(done).preference,preference);
++        assert.equal(result(done).dutyCommandId,first);assert.equal(done.state.actors[S.craftsperson].completed[first],1);
++        assert(quote(done,C.sponsored).eligible);assert(!quote(done,C.paid).visible);
++    }
++});
++
++test('no-preference legacy controller preserves original order without any new booking or outcome history',()=>{
++    let p=society(setup(),'authorize_home');p=advance(p,7);
++    assert.equal(p.state.actors[S.craftsperson].completed[I.repair],1);
++    assert.equal(p.state.simulation.knowledge.player[I.agreementKey],undefined);
++    assert.equal(p.state.simulation.knowledge.player[I.resultKey],undefined);
++    assert(!quote(p,C.sponsored).visible);assert(!quote(p,C.paid).visible);
++});
++
++test('pending original booking restores exact frozen terms and subsequent occupancy blocks a later workshop',()=>{
++    const accepted=booked(),job=structuredClone(accepted.state.simulation.jobs[0]);
++    const restored=reload(accepted);assert.deepEqual(restored.state.simulation.jobs[0],job);
++    const first=advance(restored,7);assert.equal(result(first).status,'kept');
++    assert(first.state.simulation.jobs.some(j=>j.commandId===I.lesson));assert(!quote(first,C.sponsored).eligible);
++    assert.equal(advance(first,7).state.actors[S.craftsperson].completed[I.lesson],1);
++});
++
++test('kept outcome enables fresh sponsored terms, real finite means and one useful native kit',()=>{
++    let p=kept();const before=structuredClone(p),old=result(p);
++    for(let n=0;n<3;n++)assert(agreedDutyPresentation(p.state,registry,context(p)).actions.some(a=>a.id===C.sponsored&&a.eligible));
++    assert.deepEqual(p,before);
++    p=duty(p,C.sponsored);assert.equal(owned(p,S.household,K.wood),1);assert.equal(owned(p,S.craftsperson,K.kit),0);
++    assert.equal(p.gameplay.player.inventory[K.wood],before.gameplay.player.inventory[K.wood]-1);
++    assert.equal(p.state.actors[S.craftsperson].resources.attention,0);assert.equal(p.gameplay.player.inventory[K.kit]||0,0);
++    p=advance(reload(p),3);assert.equal(p.gameplay.player.inventory[K.kit],1);assert.equal(owned(p,S.craftsperson,K.kit),1);
++    assert.equal(p.state.actors[S.craftsperson].resources.coins,before.state.actors[S.craftsperson].resources.coins+1);
++    assert.equal(p.external.money,before.external.money);assert.deepEqual(result(p),old);
++    assert.equal(p.state.simulation.powers.player?.[S.method],undefined);
++    assert.equal(JSON.parse(accounts(p)[0][1].value).priorCause,before.state.simulation.knowledge.player[I.resultKey].cause);
++    const shown=featureRecordedKnowledge(p.state,['feature_society.duty.continuation.account.']);
++    assert(shown[0].text.includes('later agreed workshop completed'));assert(!shown[0].text.includes('schema'));
++    const finished=reload(p);assert(!quote(finished,C.sponsored).eligible);assert.throws(()=>duty(finished,C.sponsored));
++    assert.deepEqual(advance(finished,5).gameplay.player.inventory,finished.gameplay.player.inventory);
++});
++
++test('actual consent withdrawal stops the earlier duty, refunds it and offers distinct personally funded work',()=>{
++    let p=stopped();assert.equal(result(p).status,'stopped');assert.equal(p.state.worlds[S.world].facts['feature_society.homeRepaired'],false);
++    assert.equal(owned(p,S.household,K.wood),3);assert.equal(p.state.actors[S.household].resources.coins,6);
++    assert(!quote(p,C.sponsored).visible);assert(quote(p,C.paid).eligible);
++    const before=structuredClone(p);p=duty(p,C.paid);assert.equal(p.external.money,before.external.money-1);
++    assert.equal(p.gameplay.player.inventory[K.wood],before.gameplay.player.inventory[K.wood]-1);
++    p=advance(p,3);assert.equal(p.gameplay.player.inventory[K.kit],1);assert.equal(owned(p,S.household,K.wood),3);
++    assert.equal(p.state.actors[S.household].resources.coins,6);assert.equal(result(p).status,'stopped');
++});
++
++test('later refusal changes no prior result, money, stock, mastery or rights and closes only its offer',()=>{
++    for(const make of [kept,stopped]){
++        const p=make(),old=structuredClone(p),done=duty(p,C.decline);
++        assert.deepEqual(done.external,old.external);assert.deepEqual(done.gameplay,old.gameplay);
++        assert.deepEqual(done.state.simulation.owners,old.state.simulation.owners);assert.deepEqual(done.state.simulation.claims,old.state.simulation.claims);
++        assert.deepEqual(result(done),result(old));assert.equal(done.state.clock,old.state.clock);
++        assert(!quote(done,C.sponsored).visible);assert(!quote(done,C.paid).visible);
++        assert.throws(()=>duty(reload(done),C.decline));
++    }
++});
++
++test('exact workshop cancellation refunds actual reservations and preserves account through retry',()=>{
++    for(const [make,id] of [[kept,C.sponsored],[stopped,C.paid]]){
++        const p=make(),accepted=duty(p,id),job=accepted.state.simulation.jobs.find(j=>j.commandId===id);
++        let cancelled=cancelSimulationJob(accepted.state,registry,job.id,context(accepted));
++        assert.deepEqual(cancelled.external,p.external);assert.deepEqual(cancelled.gameplay,p.gameplay);
++        assert.deepEqual(cancelled.state.simulation.owners,p.state.simulation.owners);
++        assert.deepEqual(cancelled.state.actors[S.craftsperson].resources,p.state.actors[S.craftsperson].resources);
++        assert.equal(JSON.parse(accounts(cancelled)[0][1].value).status,'cancelled');assert(quote(cancelled,id).eligible);
++        cancelled=advance(duty(reload(cancelled),id),3);assert.equal(cancelled.gameplay.player.inventory[K.kit],1);
++        assert.deepEqual(accounts(cancelled).map(([,r])=>JSON.parse(r.value).status),['cancelled','completed']);
++    }
++});
++
++test('controlled loss of actual method/body/contact/right support refunds with a truthful stopped account',()=>{
++    for(const loss of [p=>{p.state.simulation.faculties[S.craftsperson][S.method].active=false;},
++        p=>{p.state.simulation.people[S.craftsperson].location='Shack';},
++        p=>{p.state.simulation.claims[S.benchRight].owner=S.household;},
++        p=>{p.state.simulation.people.player.body={...body,hands:1};}]){
++        const p=kept();let accepted=duty(p,C.sponsored);loss(accepted);accepted=advance(accepted,3);
++        assert.equal(accepted.gameplay.player.inventory[K.kit]||0,0);assert.deepEqual(accepted.external,p.external);
++        assert.deepEqual(accepted.state.simulation.owners,p.state.simulation.owners);
++        assert.equal(JSON.parse(accounts(accepted)[0][1].value).status,'stopped');
++        assert.equal(accepted.state.worlds[S.world].facts[C.closedFact],undefined);
++    }
++});
++
++test('missing participant means, capability, contact, busy capacity, body and stale sequence never accept',()=>{
++    for(const change of [p=>{p.state.simulation.owners[S.craftsperson][K.kit]=0;},
++        p=>{p.state.actors[S.craftsperson].resources.attention=0;},p=>{p.state.simulation.powers[S.craftsperson][S.method].owned=false;},
++        p=>{p.state.simulation.people[S.craftsperson].location='Shack';},p=>{p.gameplay.player.inventory[K.wood]=0;},
++        p=>{p.state.actors[S.household].resources.coins=0;},p=>{p.state.simulation.people.player.body={...body,hands:1};}]){
++        const p=kept();change(p);const unchanged=structuredClone(p);assert(!quote(p,C.sponsored).eligible);
++        assert.throws(()=>duty(p,C.sponsored));assert.deepEqual(p,unchanged);
++    }
++    const p=kept();assert(!quote(p,C.sponsored,{facts:{location:'Shack'}}).eligible);
++    assert(!quote(p,C.sponsored,{busy:true}).eligible);
++    assert.throws(()=>commitAgreedDutyAction(p.state,registry,context(p),C.sponsored,p.state.sequence-1),/stale/);
++    const pending=duty(p,C.sponsored);assert(!quote(pending,C.sponsored).eligible);assert(!quote(pending,C.decline).eligible);
++});
++
++test('forged or absent prior outcome cannot create a new later agreement',()=>{
++    const p=setup();assert(!quote(p,C.sponsored).visible);assert(!quote(p,C.paid).visible);
++    const fake=kept();const data=result(fake);data.jobId='simulation:99999';fake.state.simulation.knowledge.player[I.resultKey].value=JSON.stringify(data);
++    assert(!quote(fake,C.sponsored).eligible);assert.throws(()=>loadExpansionState(fake.state,registry),/duty result/);
++    const absent=initializeExpedition(createExpansionState(9));assert.equal(reload({state:absent}).state.simulation,null);
++});
++
++test('failed durable publication leaves live prior state untouched and offers one legitimate retry',()=>{
++    const p=kept(),before=structuredClone(p),accepted=duty(p,C.sponsored);
++    assert.throws(()=>persistExpansionPlan(accepted,{createSave:()=>JSON.stringify({character:{money:p.external.money},inventories:{person:{main_character:{}}},levels:{person:{main_character:{skill_xp:{}}}}}),
++        bindings:{player:{category:'person',id:'main_character'}},storage:{setItem(){throw Error('quota');}},key:'disposable'}),/quota/);
++    assert.deepEqual(p,before);assert(quote(p,C.sponsored).eligible);
++    assert.equal(advance(duty(p,C.sponsored),3).gameplay.player.inventory[K.kit],1);
++});
++
++test('restoration rejects changed frozen output, costs, time, participants, accounts and closure',()=>{
++    const accepted=duty(kept(),C.sponsored);
++    for(const alter of [p=>{p.state.simulation.jobs.find(j=>j.commandId===C.sponsored).effects.find(e=>e.actor==='player'&&e.type==='item').amount=7;},
++        p=>{p.state.simulation.jobs.find(j=>j.commandId===C.sponsored).costs[0].amount=0;},
++        p=>{p.state.simulation.jobs.find(j=>j.commandId===C.sponsored).due+=1;},
++        p=>{p.state.simulation.jobs.find(j=>j.commandId===C.sponsored).participants.pop();},
++        p=>{p.state.worlds[S.world].facts[C.closedFact]=true;}]){
++        const p=structuredClone(accepted);alter(p);assert.throws(()=>reload(p));
++    }
++    const done=advance(accepted,3);
++    for(const alter of [p=>{accounts(p)[0][1].value='{"schema":999,"status":"garbage"}';},
++        p=>{p.state.worlds[S.world].facts[C.closedFact]=false;},
++        p=>{delete p.state.simulation.knowledge.player[accounts(p)[0][0]];}]){
++        const p=structuredClone(done);alter(p);assert.throws(()=>reload(p));
++    }
++    assert.equal(reload(done).gameplay.player.inventory[K.kit],1);
++});

@@ -1,0 +1,89 @@
+{
+  "errors": [],
+  "controls": [
+    {
+      "id": "inventory_sort_by_name",
+      "tag": "DIV",
+      "tabIndex": -1,
+      "role": null
+    },
+    {
+      "id": "location_actions_div",
+      "tag": "DIV",
+      "tabIndex": -1,
+      "role": null
+    },
+    {
+      "id": "character_show_stats",
+      "tag": "DIV",
+      "tabIndex": -1,
+      "role": null
+    }
+  ],
+  "notebookVisible": false,
+  "narrow": {
+    "viewport": 390,
+    "scroll": 1656,
+    "panels": [
+      {
+        "id": "basic_character_info_div",
+        "x": 5,
+        "width": 406
+      },
+      {
+        "id": "time_and_location",
+        "x": 415,
+        "width": 406
+      },
+      {
+        "id": "inventory_div",
+        "x": 5,
+        "width": 406
+      },
+      {
+        "id": "inventory_combat_switch_selection",
+        "x": 5,
+        "width": 406
+      },
+      {
+        "id": "location_div",
+        "x": 415,
+        "width": 406
+      },
+      {
+        "id": "location_related_div",
+        "x": 415,
+        "width": 406
+      },
+      {
+        "id": "skills_and_stances_div",
+        "x": 825,
+        "width": 406
+      },
+      {
+        "id": "journal_div",
+        "x": 825,
+        "width": 406
+      },
+      {
+        "id": "character_div",
+        "x": 5,
+        "width": 406
+      },
+      {
+        "id": "message_log_div",
+        "x": 1235,
+        "width": 421
+      }
+    ]
+  },
+  "scope": "Public native opening only; hidden notebook text excluded; private packs absent intentionally.",
+  "build": "Fresh esbuild compilation of copied source, browser target es2022, ESM; not npm release build.",
+  "hashes": {
+    "dist/bundle.js": "841c7d88f70215da45fa0fdf04bcd7515c1e18c3f7514214f04f8416097a1562",
+    "index.html": "ce4d492a309b469112baf0ad1f5af21b8f4004aa3cfbe0af1eecadbd73df2161",
+    "style.css": "9af1e67bb6ebfed0797b6194cc7c57b8b7ece75ba50cac688bc92701eb303485",
+    "styles/action_legibility.css": "721590da18e74e257aa7758db98b3b69871291e52f4b6d3a653278086ee25c3d",
+    "src/main.js": "e71568373f32c310117039b0c4d202b8f5e315696b48dceeab05f63428b6f41b"
+  }
+}

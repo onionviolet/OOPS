@@ -1,0 +1,358 @@
+TAP version 13
+# Subtest: actual chart/enrollment leaves unapproved consequence controllers absent; Lin host equals native preview and staged plan
+ok 1 - actual chart/enrollment leaves unapproved consequence controllers absent; Lin host equals native preview and staged plan
+  ---
+  duration_ms: 105.248875
+  type: 'test'
+  ...
+# Subtest: accepted Ink work reserves counted resources, survives reload, pays once and staff supply requires separate approval
+ok 2 - accepted Ink work reserves counted resources, survives reload, pays once and staff supply requires separate approval
+  ---
+  duration_ms: 324.33
+  type: 'test'
+  ...
+# Subtest: texture and refusal conserve material and wage; native cancellation refunds accepted work without a kit
+ok 3 - texture and refusal conserve material and wage; native cancellation refunds accepted work without a kit
+  ---
+  duration_ms: 242.317708
+  type: 'test'
+  ...
+# Subtest: losing actual supported body at completion refunds inputs and creates no wage or kit
+ok 4 - losing actual supported body at completion refunds inputs and creates no wage or kit
+  ---
+  duration_ms: 123.680791
+  type: 'test'
+  ...
+# Subtest: stale/double clock, sequence, revision, session and scope tokens cannot apply a second work effect
+ok 5 - stale/double clock, sequence, revision, session and scope tokens cannot apply a second work effect
+  ---
+  duration_ms: 80.846959
+  type: 'test'
+  ...
+# Subtest: wrong contact, unsupported body and native revision block bindings; adapters cannot invoke a different resident
+ok 6 - wrong contact, unsupported body and native revision block bindings; adapters cannot invoke a different resident
+  ---
+  duration_ms: 58.997167
+  type: 'test'
+  ...
+# Subtest: failed durable write preserves authoritative cursor/resources/jobs; retry publishes exactly one accepted effect
+ok 7 - failed durable write preserves authoritative cursor/resources/jobs; retry publishes exactly one accepted effect
+  ---
+  duration_ms: 77.203583
+  type: 'test'
+  ...
+# Subtest: retained v1/v2 legacy and v3 scoped opaque cursors reload without replacing paid receipt history
+ok 8 - retained v1/v2 legacy and v3 scoped opaque cursors reload without replacing paid receipt history
+  ---
+  duration_ms: 161.272208
+  type: 'test'
+  ...
+# Subtest: old absent enrollment and repeated read/preview create no demand, approval or Ink cursor
+ok 9 - old absent enrollment and repeated read/preview create no demand, approval or Ink cursor
+  ---
+  duration_ms: 59.746041
+  type: 'test'
+  ...
+# Subtest: missing counted materials or provider funds block work; contractor cannot gain staff approval from making Lin’s kit
+ok 10 - missing counted materials or provider funds block work; contractor cannot gain staff approval from making Lin’s kit
+  ---
+  duration_ms: 187.078958
+  type: 'test'
+  ...
+# Subtest: the shared controller admission preserves explicit approved remainder policy and ordinary nested controllers
+ok 11 - the shared controller admission preserves explicit approved remainder policy and ordinary nested controllers
+  ---
+  duration_ms: 0.469375
+  type: 'test'
+  ...
+# Subtest: actual declared hub passage retains complete owned cargo; unsafe traveler input keys stay rejected
+ok 12 - actual declared hub passage retains complete owned cargo; unsafe traveler input keys stay rejected
+  ---
+  duration_ms: 0.248625
+  type: 'test'
+  ...
+# Subtest: both supported starts naturally purchase actual access and deliver a useful first repair
+ok 13 - both supported starts naturally purchase actual access and deliver a useful first repair
+  ---
+  duration_ms: 106.447792
+  type: 'test'
+  ...
+# Subtest: player input quote names native coins and delivered objects without exposing NPC funds
+ok 14 - player input quote names native coins and delivered objects without exposing NPC funds
+  ---
+  duration_ms: 28.066208
+  type: 'test'
+  ...
+# Subtest: learned bracing changes execution, joint work uses independent finite means, later return unlocks funded continuation
+ok 15 - learned bracing changes execution, joint work uses independent finite means, later return unlocks funded continuation
+  ---
+  duration_ms: 89.746959
+  type: 'test'
+  ...
+# Subtest: missing colleague knowledge/tool/body/contact/attention/stock cannot borrow the player means
+ok 16 - missing colleague knowledge/tool/body/contact/attention/stock cannot borrow the player means
+  ---
+  duration_ms: 49.332208
+  type: 'test'
+  ...
+# Subtest: cancellation and lost colleague support return actual reserved inputs without pay, method or product
+ok 17 - cancellation and lost colleague support return actual reserved inputs without pay, method or product
+  ---
+  duration_ms: 54.9655
+  type: 'test'
+  ...
+# Subtest: personal second repair retains the colleague means, finite standing demand and stock stop repetition
+ok 18 - personal second repair retains the colleague means, finite standing demand and stock stop repetition
+  ---
+  duration_ms: 92.8575
+  type: 'test'
+  ...
+# Subtest: schema4 migrates without enrollment, rewards or reinterpreting a frozen commitment
+ok 19 - schema4 migrates without enrollment, rewards or reinterpreting a frozen commitment
+  ---
+  duration_ms: 8.633042
+  type: 'test'
+  ...
+# Subtest: inspection is pure, definitions are frozen and wrong actor, location or hidden means reject
+ok 20 - inspection is pure, definitions are frozen and wrong actor, location or hidden means reject
+  ---
+  duration_ms: 36.593875
+  type: 'test'
+  ...
+# Subtest: real native materials enter the NPC inventory; independent work, reload and collection settle once
+ok 21 - real native materials enter the NPC inventory; independent work, reload and collection settle once
+  ---
+  duration_ms: 39.22475
+  type: 'test'
+  ...
+# Subtest: one long advance and split/reloaded advances have equal actors, ownership, RNG and events
+ok 22 - one long advance and split/reloaded advances have equal actors, ownership, RNG and events
+  ---
+  duration_ms: 114.426917
+  type: 'test'
+  ...
+# Subtest: finite automation reserves each batch, returns cancellation inputs and pauses on shortage
+ok 23 - finite automation reserves each batch, returns cancellation inputs and pauses on shortage
+  ---
+  duration_ms: 76.456834
+  type: 'test'
+  ...
+# Subtest: shared site capacity and unique claims arbitrate across actors before costs or rewards
+ok 24 - shared site capacity and unique claims arbitrate across actors before costs or rewards
+  ---
+  duration_ms: 17.057834
+  type: 'test'
+  ...
+# Subtest: pending definitions freeze effects and reservations across content revisions
+ok 25 - pending definitions freeze effects and reservations across content revisions
+  ---
+  duration_ms: 7.717417
+  type: 'test'
+  ...
+# Subtest: life/conditions are durable; immunity, remedy and nonlethal encounters use explicit rules
+ok 26 - life/conditions are durable; immunity, remedy and nonlethal encounters use explicit rules
+  ---
+  duration_ms: 22.289
+  type: 'test'
+  ...
+# Subtest: faculty possession, awakening, activation and suppression differ from remembered copies
+ok 27 - faculty possession, awakening, activation and suppression differ from remembered copies
+  ---
+  duration_ms: 32.656917
+  type: 'test'
+  ...
+# Subtest: execution uses actual target vitals, capacity, cooldown and native stamina/health projection
+ok 28 - execution uses actual target vitals, capacity, cooldown and native stamina/health projection
+  ---
+  duration_ms: 21.342667
+  type: 'test'
+  ...
+# Subtest: a saved encounter blocks ordinary time, resumes its frozen turn and settles once
+ok 29 - a saved encounter blocks ordinary time, resumes its frozen turn and settles once
+  ---
+  duration_ms: 13.927958
+  type: 'test'
+  ...
+# Subtest: tiers, origins and fusion have durable receipts, branches and constituent lineage
+ok 30 - tiers, origins and fusion have durable receipts, branches and constituent lineage
+  ---
+  duration_ms: 18.633417
+  type: 'test'
+  ...
+# Subtest: loans preserve owner/custody, block consumption and return the exact material
+ok 31 - loans preserve owner/custody, block consumption and return the exact material
+  ---
+  duration_ms: 22.002375
+  type: 'test'
+  ...
+# Subtest: world transitions preview explicit reset domains, preserve campaign knowledge/claims and stale previews reject
+ok 32 - world transitions preview explicit reset domains, preserve campaign knowledge/claims and stale previews reject
+  ---
+  duration_ms: 10.520583
+  type: 'test'
+  ...
+# Subtest: decisions retain unspent time; hidden occurrences require discovery and quiet checks award nothing
+ok 33 - decisions retain unspent time; hidden occurrences require discovery and quiet checks award nothing
+  ---
+  duration_ms: 12.541333
+  type: 'test'
+  ...
+# Subtest: bounded catch-up returns remaining work rather than skipping controller/event boundaries
+ok 34 - bounded catch-up returns remaining work rather than skipping controller/event boundaries
+  ---
+  duration_ms: 2390.778958
+  type: 'test'
+  ...
+# Subtest: failed durable write publishes no actors, claims, native transfers, resources or unlocks
+ok 35 - failed durable write publishes no actors, claims, native transfers, resources or unlocks
+  ---
+  duration_ms: 6.989833
+  type: 'test'
+  ...
+# Subtest: native unlocks stage access independently of publication and include recipe, skill, flag and quest
+ok 36 - native unlocks stage access independently of publication and include recipe, skill, flag and quest
+  ---
+  duration_ms: 0.18
+  type: 'test'
+  ...
+# Subtest: malformed actor bindings, reservations, unknown definitions and future runtime schemas reject
+ok 37 - malformed actor bindings, reservations, unknown definitions and future runtime schemas reject
+  ---
+  duration_ms: 1.000083
+  type: 'test'
+  ...
+# Subtest: each power model enforces its own scope, cost and termination without a global rank
+ok 38 - each power model enforces its own scope, cost and termination without a global rank
+  ---
+  duration_ms: 0.929542
+  type: 'test'
+  ...
+# Subtest: formula-derived reservations remain negative and freeze the paid amount before later mastery
+ok 39 - formula-derived reservations remain negative and freeze the paid amount before later mastery
+  ---
+  duration_ms: 10.367
+  type: 'test'
+  ...
+# Subtest: fictional condition ticks and old-age endings preserve work/refund rules across reload
+ok 40 - fictional condition ticks and old-age endings preserve work/refund rules across reload
+  ---
+  duration_ms: 26.177375
+  type: 'test'
+  ...
+# Subtest: new actors are created once with stable identity, independent inventory and no invented past
+ok 41 - new actors are created once with stable identity, independent inventory and no invented past
+  ---
+  duration_ms: 7.948958
+  type: 'test'
+  ...
+# Subtest: external actor proposals are restricted to visible legal registered commands and stale proposals reject
+ok 42 - external actor proposals are restricted to visible legal registered commands and stale proposals reject
+  ---
+  duration_ms: 37.566458
+  type: 'test'
+  ...
+# Subtest: native equipment stages an owned quality-key swap, saves NPC gear and rebuilds without extra items
+ok 43 - native equipment stages an owned quality-key swap, saves NPC gear and rebuilds without extra items
+  ---
+  duration_ms: 5.829417
+  type: 'test'
+  ...
+# Subtest: authored native reset values survive serialization after ordinary domain patches
+ok 44 - authored native reset values survive serialization after ordinary domain patches
+  ---
+  duration_ms: 2.812959
+  type: 'test'
+  ...
+# Subtest: a party encounter freezes its participants and pays all member costs atomically
+ok 45 - a party encounter freezes its participants and pays all member costs atomically
+  ---
+  duration_ms: 37.596625
+  type: 'test'
+  ...
+# Subtest: delayed native equipment/vital effects require real bindings and preserve NPC body state
+ok 46 - delayed native equipment/vital effects require real bindings and preserve NPC body state
+  ---
+  duration_ms: 6.981583
+  type: 'test'
+  ...
+# Subtest: repeatable actor creation binds distinct owners, freezes a delayed template and resumes birth once
+ok 47 - repeatable actor creation binds distinct owners, freezes a delayed template and resumes birth once
+  ---
+  duration_ms: 49.82075
+  type: 'test'
+  ...
+# Subtest: unknown aliases and insufficient supplies reject the whole hire without a debit or actor
+ok 48 - unknown aliases and insufficient supplies reject the whole hire without a debit or actor
+  ---
+  duration_ms: 7.145
+  type: 'test'
+  ...
+# Subtest: NPC responses use real means, skip unaffordable priorities and persist a turn across reload
+ok 49 - NPC responses use real means, skip unaffordable priorities and persist a turn across reload
+  ---
+  duration_ms: 21.609291
+  type: 'test'
+  ...
+# Subtest: encounter success settles its claim once; withdrawal frees the claim while retaining spent means
+ok 50 - encounter success settles its claim once; withdrawal frees the claim while retaining spent means
+  ---
+  duration_ms: 14.703084
+  type: 'test'
+  ...
+# Subtest: dynamic outcome weights and effects share the pre-cost snapshot; inspection never draws
+ok 51 - dynamic outcome weights and effects share the pre-cost snapshot; inspection never draws
+  ---
+  duration_ms: 16.44875
+  type: 'test'
+  ...
+# Subtest: event guarantees count eligible misses; unmet conditions and open events do not consume attempts
+ok 52 - event guarantees count eligible misses; unmet conditions and open events do not consume attempts
+  ---
+  duration_ms: 10.165833
+  type: 'test'
+  ...
+# Subtest: caused NPC occurrences bind independently and unknown events cannot be answered by controllers
+ok 53 - caused NPC occurrences bind independently and unknown events cannot be answered by controllers
+  ---
+  duration_ms: 20.49425
+  type: 'test'
+  ...
+# Subtest: simulated movement respects work occupancy and native travel stays bound to its host
+ok 54 - simulated movement respects work occupancy and native travel stays bound to its host
+  ---
+  duration_ms: 12.299125
+  type: 'test'
+  ...
+# Subtest: two playable helpers finish independently and long advances match split/reloaded time
+ok 55 - two playable helpers finish independently and long advances match split/reloaded time
+  ---
+  duration_ms: 198.142083
+  type: 'test'
+  ...
+# Subtest: a failed durable hire preserves native supplies and creates no live actor or debit
+ok 56 - a failed durable hire preserves native supplies and creates no live actor or debit
+  ---
+  duration_ms: 7.372375
+  type: 'test'
+  ...
+# Subtest: inactive actors retain their memories without empty clock work; explicit return resumes future decisions
+ok 57 - inactive actors retain their memories without empty clock work; explicit return resumes future decisions
+  ---
+  duration_ms: 13.262792
+  type: 'test'
+  ...
+# Subtest: an NPC's private event response remains saved without disclosing its label to the player's history
+ok 58 - an NPC's private event response remains saved without disclosing its label to the player's history
+  ---
+  duration_ms: 11.338542
+  type: 'test'
+  ...
+1..58
+# tests 58
+# suites 0
+# pass 58
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 3197.390417

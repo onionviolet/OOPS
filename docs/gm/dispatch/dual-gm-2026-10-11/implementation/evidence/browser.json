@@ -1,0 +1,62 @@
+{
+  "origin": "http://127.0.0.1:18531/",
+  "generatedFixturesOnly": true,
+  "productionBundle": "77c29780b6eb04fc928bf6bf6ea0ced012d9bf643e55fe6f09a9a3b78e78efe1",
+  "diagnosticBundle": "3e050ce02aee07d07c65c451f2827a54064b1d270f769b29b0adc1c10e020ca2",
+  "component": "d48f4a9e411dab0a0e7f45ac47f6413a5c0a3cce20b41ed8d3acb7b7b73d62a4",
+  "capped": {
+    "current_level": 0,
+    "total_xp": 6,
+    "current_xp": 6,
+    "total_xp_to_next_lvl": 60,
+    "xp_to_next_lvl": 60
+  },
+  "below": {
+    "current_level": 0,
+    "total_xp": 9,
+    "current_xp": 9,
+    "total_xp_to_next_lvl": 60,
+    "xp_to_next_lvl": 60
+  },
+  "boundary": {
+    "current_level": 0,
+    "total_xp": 15,
+    "current_xp": 15,
+    "total_xp_to_next_lvl": 60,
+    "xp_to_next_lvl": 60
+  },
+  "parentXP": 1004,
+  "notices": 1,
+  "productionSleepingXP": 307.61,
+  "productionRegenerationBefore": 499,
+  "productionRegenerationAfter": 599,
+  "productionHealing": 114.45000000000005,
+  "preReloadMilestoneMultipliers": {
+    "max_health": 1.1232000000000002
+  },
+  "reloadedMilestoneMultipliers": {
+    "max_health": 1.12
+  },
+  "legacyXP": {
+    "Combat": {
+      "total_xp": 10000
+    },
+    "Swords": {
+      "total_xp": 12345
+    },
+    "Weapon mastery": {
+      "total_xp": 15000
+    },
+    "Sleeping": {
+      "total_xp": 127000
+    }
+  },
+  "checks": [
+    "unmodified production build native sleep",
+    "diagnostic entry native singleton capped/uncapped/multiplier/parent path",
+    "native bulk milestone skill unlock once and stats not repeated",
+    "current and legacy save/reload/import exact XP and flat milestones; existing factor rounding compared at two decimals; reload/import exact factors"
+  ],
+  "expectedMissingResourceCount": 10,
+  "errors": []
+}

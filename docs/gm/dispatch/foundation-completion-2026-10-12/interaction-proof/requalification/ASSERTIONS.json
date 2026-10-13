@@ -1,0 +1,24 @@
+{
+  "checks": {
+    "P01_pointer_identity_tick": true,
+    "P02_exact_one_pointer_transaction": true,
+    "P03_overlap_identity_and_gate": true,
+    "P04_stale_captured_handler": true,
+    "P05_failed_write": true,
+    "P06_pointer_retry_once": true,
+    "P07_build_and_process": true
+  },
+  "allPassed": true,
+  "sourceNamedTargetTest": "node --test --test-name-pattern=\"named suppressors\" tests/foundation_interaction_policy.test.js: 1 selected test passed",
+  "sourceBindings": {
+    "src/foundation_interaction_policy.js": "4e3abc409d7f291b00875c623678c1a5653b427e2a8a6b53c708bfd55d113bcd",
+    "src/foundation_interaction_ui.js": "d673c5b54cdfd45634a3dd75c57aa7b18b474a0ec16486027f65071c943d53f6",
+    "src/foundation_interaction_content.js": "344c5d3da3eaf5e22c8beccda95e42fa810a14397fd6e876763a5647c392310a",
+    "tests/foundation_interaction_policy.test.js": "71f2882a6712d92ca6263cfb2f6472a26651fdf7e3cdfd4f1eef503c4c145282",
+    "src/simulation.js": "554d12c0a0f30cf67b03e0381338e4258200902ccf991032c47c045a46665e99",
+    "src/simulation_effects.js": "17ea9ca9f6f40119bc5169c127443e21266f4b376394dc3569f477c7443ad74b",
+    "src/simulation_contracts.js": "5163ded3df8d89f196442dfe695d4b91e6da4e5a9b4be2c87f67d168de74bd04",
+    "dist/bundle.js": "ef2e248bc8fdd21323e7becb1277ac45bc2537bdcf8e9630e5c688c60bc48d6a"
+  },
+  "preservedPriorEvidence": "../ASSERTIONS.json, prior bundlea4e842: only affected P01-P07 gates rerun; content exact hash unchanged344c5d3d"
+}

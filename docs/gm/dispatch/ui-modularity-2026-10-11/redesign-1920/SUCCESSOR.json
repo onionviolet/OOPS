@@ -1,0 +1,15 @@
+{
+  "predecessor": "01a12e1c-b84f-74a0-9638-295e0facdd5e",
+  "owner": "01a12e3a-298d-7612-972b-031015c2f368",
+  "host": "local",
+  "status": "confirmed launched; exclusive UI transfer effective",
+  "candidate": "/Users/weiwei/.codex/candidates/yairpg-ui-modularity-2026-10-11",
+  "transferred": [
+    "redesign directory except this receipt",
+    "UI candidate or isolated successor",
+    "parent UI checkpoint/report"
+  ],
+  "predecessorState": "read-only except launch receipt; no candidate or task writes",
+  "sharedRuntimeTransferred": false,
+  "authority": "Weibao requested fresh UI GM and revised movement/1920x1080 design"
+}

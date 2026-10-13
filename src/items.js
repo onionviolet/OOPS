@@ -235,6 +235,7 @@ class Item {
     }
 
     createInventoryKey() {
+        if(this.tags.structuredEquipment)return JSON.stringify({id:this.id});
         const key = {};
 
         if(!this.components) {

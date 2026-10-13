@@ -5,7 +5,7 @@ import {createNestedInkHost} from './ink_scene_content.js';
 import {createInkNarrativeUI} from './ink_narrative_ui.js';
 import {inkNarrativeView} from './ink_narrative.js';
 import {NESTED_IDS,NESTED_LOCATIONS} from './feature_expansion_nested_content.js';
-export function createNestedInkPanels({read,registry,previewNative,commitNative,command}){
+export function createNestedInkPanels({read,registry,previewNative,commitNative,previewLife,commitLife,command}){
  const element=document.createElement('details');element.id='nested_ink_panel';element.className='expedition_panel';
  const summary=document.createElement('summary');summary.textContent='Local conversations and return accounts';element.append(summary);
  document.getElementById('location_actions_div')?.append(element);const panels=new Map();
@@ -20,7 +20,7 @@ export function createNestedInkPanels({read,registry,previewNative,commitNative,
   }else if(d?.mission&&[NESTED_IDS.salt,NESTED_IDS.archive].includes(world)&&['arrived','outcome','extracting'].includes(d.mission.stage))specs.push({sceneId:'nested.mission',missionId:d.mission.id});
   const shown=new Set();
   for(const spec of specs){
-   const key=`${spec.sceneId}.${spec.missionId||'hub'}.${location}`,getHost=()=>{const fresh=read();return qualifyNestedInkCosts(createNestedInkHost({...spec,state:fresh.state,context:fresh.context,registry,previewNative,commitNative}));};
+   const key=`${spec.sceneId}.${spec.missionId||'hub'}.${location}`,getHost=()=>{const fresh=read();return qualifyNestedInkCosts(createNestedInkHost({...spec,state:fresh.state,context:fresh.context,registry,previewNative,commitNative,previewLife,commitLife}));};
    try{getHost();}catch{continue;}shown.add(key);
    let panel=panels.get(key);
    if(!panel){

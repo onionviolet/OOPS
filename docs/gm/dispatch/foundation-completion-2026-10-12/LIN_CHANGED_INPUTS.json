@@ -1,0 +1,22 @@
+{
+  "stage": "shared9b130b current equipment-owner repair; story4 d193eb unchanged; affected native requalification pending",
+  "files": {
+    "src/ink_scene_content.js": "17510921b76264463dfc68911f3179c407a2b1c7970d9431dfdb50ec5820d761",
+    "src/ink_narrative.js": "f54f3413232acb9f134028cfb78a58e5d029f903c0976e259169ac7e7e9607ff",
+    "src/feature_expansion_nested_ink_ui.js": "194bec9af4e0a8cf1e30bd2b8efbe67447e77cb342c803d8b081ac34b95c4ec7",
+    "src/feature_expansion_nested_host.js": "94c04d5c80b660d617b92b0341115f2bf97abe3a211c98fc66c70021233eff42",
+    "src/main.js": "0f011b576cc05449f33c900f61a61c9044625060905a933e8334748722eed641",
+    "stories/feature_wave.ink": "a4d470baa3ce27e44087bbf213a51cc9d98e8afeefd5a08bdd2bb54281785d8a",
+    "stories/feature_wave.json": "ffb07d934f656be98952aa2e3d181c585b3342090e1d033079dc819df311ac7c",
+    "scripts/compile_feature_ink.mjs": "f3f9c2ca77440435431e8da55bedd5c42bad2ea01768a4b899a80173d4e75987",
+    "docs/gm/feature-wave/ink/content/feature_wave_v3.json": "a2688775a9adfd21b369f52e0f3fa07bdce8b084be9ce4fc1c385479f60648ed",
+    "dist/bundle.js": "9b130b295f8464eb770f603afd68d31166569901bd9f0af2acda93192007fcae",
+    "dist/bundle.js.map": "ebe57989c344f944d2e45799c305d46742d81ca74b6d1a975edb706d39b8b116",
+    "index.html": "408961500078c83e3fa838d2c461a8c16ee20a50091ab13334f0722e15a7e210",
+    "src/realm_traveler_profiles.js": "d4e98f8d9dd3fe2efe49e57ded583ef1ed2910b91d711eb2ece25f4f77aa774f",
+    "src/native_equipment_transaction.js": "114abb2788c00cb62d396ad4ef40cdf98180d1f1203c3754d2f8de4c43588793",
+    "src/expansion_engine.js": "6c8c0b3eea99ab1a802e70f4b077cf8dbc0ae8940cb5df0d92b6a330239ec16a",
+    "tests/native_equipment_ownership.test.js": "4e32649f845561eeb2ee0e9d368dc761836f526fb8e8449ef9543cf3a3b0dd56",
+    "tests/ink_lin_parity.test.js": "873a60d5410d2da28bd8d7415f06018f56563d1658daba9430e35ee1549d482c"
+  }
+}

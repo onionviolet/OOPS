@@ -1,0 +1,163 @@
+{
+  "date": "2026-10-11",
+  "revision": 4,
+  "status": "complete finite planning return; runtime/world-source gates remain open",
+  "authorization": "User: sennd out all the planers, consider more stuff need planning and more",
+  "mode": "existing-idea audit, expansion and implementation planning",
+  "scope": "Current public idea owners and source-inspected engine seams, with explicit source coverage limits; no full-world runtime delivery",
+  "integrator": "/root",
+  "runtimeWrites": false,
+  "privateSaves": "untouched",
+  "commitsOrPushes": false,
+  "inputSnapshots": {
+    "PROJECT.md": "0de7c373d5b1a4b180d3d5f458c6cadbbedd4c6da74e6e5fdb2fabcf4fd9a85f",
+    "docs/WORLD_COMPLETION_STANDARD.md": "05fb2097b74a01f82679cc32946c215cdfdf7054a35f1ec57007a20dc1918468",
+    "docs/gm/WORLD_ACTIONABILITY_GM_PROMPT.md": "ea48641284aaa76aa02ed4dff05f1a7e713838c29387b7a984f7cb6d1048e961",
+    "docs/TIMELINES_AND_DIVERGENCE.md": "d67870f739bcd29c025ad81ac1b0fbafc16b22a53bb1aaa3f9ace91401d6d075",
+    "docs/gm/completion/AUDIT_INTAKE.json": "83b1bc4ab7c67dcdb16bf0bc751c5b0239162795680661d919a3871ec2068abc"
+  },
+  "lanes": [
+    {
+      "id": "G1",
+      "agent": "/root/gm_starts",
+      "scope": "Starts and life forms",
+      "ownedDirectory": "docs/gm/dispatch/idea-expansion-2026-10-11/starts",
+      "state": "returned-validated-and-integrated",
+      "expectedOutputs": [
+        "REPORT.md",
+        "REQUIREMENTS.json"
+      ],
+      "noRuntimeWrites": true
+    },
+    {
+      "id": "G2",
+      "agent": "/root/gm_cheats",
+      "scope": "Powers, cheats and progression",
+      "ownedDirectory": "docs/gm/dispatch/idea-expansion-2026-10-11/powers",
+      "state": "returned-validated-and-integrated",
+      "expectedOutputs": [
+        "REPORT.md",
+        "REQUIREMENTS.json"
+      ],
+      "noRuntimeWrites": true
+    },
+    {
+      "id": "G3",
+      "agent": "/root/gm_life",
+      "scope": "Lived worlds, society and economy",
+      "ownedDirectory": "docs/gm/dispatch/idea-expansion-2026-10-11/life",
+      "state": "returned-validated-and-integrated",
+      "expectedOutputs": [
+        "REPORT.md",
+        "REQUIREMENTS.json"
+      ],
+      "noRuntimeWrites": true
+    },
+    {
+      "id": "G4",
+      "agent": "/root/start_review",
+      "scope": "Timelines, parallel worlds and discovery",
+      "ownedDirectory": "docs/gm/dispatch/idea-expansion-2026-10-11/continuity",
+      "state": "returned-validated-and-integrated",
+      "expectedOutputs": [
+        "REPORT.md",
+        "REQUIREMENTS.json"
+      ],
+      "noRuntimeWrites": true
+    },
+    {
+      "id": "G5",
+      "agent": "/root/audit_intake",
+      "scope": "Engine actionability",
+      "ownedDirectory": "docs/gm/dispatch/idea-expansion-2026-10-11/engine",
+      "state": "returned-validated-and-integrated",
+      "expectedOutputs": [
+        "REPORT.md",
+        "REQUIREMENTS.json"
+      ],
+      "noRuntimeWrites": true
+    },
+    {
+      "id": "G6",
+      "agent": "/root/gm_material",
+      "scope": "Materials, crafting, technology and environment",
+      "ownedDirectory": "docs/gm/dispatch/idea-expansion-2026-10-11/material",
+      "state": "returned-validated-and-integrated",
+      "expectedOutputs": [
+        "REPORT.md",
+        "REQUIREMENTS.json"
+      ],
+      "noRuntimeWrites": true
+    },
+    {
+      "id": "G7",
+      "agent": "/root/completion_review",
+      "scope": "Coverage, usability and completion review",
+      "ownedDirectory": "docs/gm/dispatch/idea-expansion-2026-10-11/review",
+      "state": "returned-validated-and-integrated",
+      "expectedOutputs": [
+        "REPORT.md",
+        "REQUIREMENTS.json"
+      ],
+      "noRuntimeWrites": true
+    },
+    {
+      "id": "G8",
+      "agent": "/root/gm_starts",
+      "scope": "Micro-progression/native feature design expansion and source implementation audit",
+      "ownedDirectory": "docs/gm/dispatch/idea-expansion-2026-10-11/micro",
+      "state": "returned-validated-and-integrated",
+      "expectedOutputs": [
+        "REPORT.md",
+        "REQUIREMENTS.json"
+      ],
+      "noRuntimeWrites": true
+    }
+  ],
+  "remaining": "Planner outputs, integration and independent coverage review pending.",
+  "latestSteering": [
+    {
+      "request": "dont forget cool ideas like the VFX for stuff like abilitites and more",
+      "appliedTo": [
+        "G2",
+        "G7"
+      ],
+      "scope": "Signature ability VFX, transforms, spatial/temporal/large-scale effects, meaningful feedback and observer-safe accessibility; planning only"
+    },
+    {
+      "request": "consider prior audits and ideas too since we did some thinking into vfx before",
+      "appliedTo": [
+        "G2",
+        "G7"
+      ],
+      "scope": "Recover previous presentation/VFX waves and related audit ideas; preserve existing IDs/variants and add old-to-new disposition mapping, not a replacement library",
+      "verifiedOwner": "docs/PRESENTATION_AND_FOURTH_WALL.md",
+      "index": "docs/IDEA_INDEX.md"
+    },
+    {
+      "request": "Expansion audits of titles, progression, skills and small details; implementation audits and expansions",
+      "appliedTo": [
+        "G2",
+        "G5",
+        "G8"
+      ],
+      "scope": "G8 source/consumer/UI/save-stage micro-audit; G2 functional breadth and G5 cross-lane readiness. No runtime suites in this planning task."
+    }
+  ],
+  "result": {
+    "planningLaneCount": 8,
+    "distinctInternalAgentCount": 7,
+    "proposedRequirementCount": 179,
+    "specifiedNotRunCaseCount": 693,
+    "sectionsWithPlanningCards": 15,
+    "runtimeCasesRun": 0,
+    "review": "G5 engine joins and G7 independent combined review passed after narrow fixes",
+    "outputs": [
+      "RECONCILIATION.md",
+      "DETAIL_LEDGER.json",
+      "COVERAGE.json",
+      "IMPLEMENTATION_QUEUE.json"
+    ],
+    "remaining": "World/source-qualified selected tranche, full unread audit remainder, reproduction gates and playable implementation"
+  }
+}

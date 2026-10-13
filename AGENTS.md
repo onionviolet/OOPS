@@ -3,6 +3,31 @@
 Read the PROJECT.md summary and the relevant source before changing this
 project.
 
+## Standing direction and consistency gates
+
+`docs/USER_VISION.md` preserves Weibao's goals, reasons and original requests;
+`PROJECT.md` surfaces current priorities and accepted decisions. Relevant design
+owners translate that direction into behavior. Checkpoints and verification
+reports record execution and evidence, not new product authority.
+
+Before substantive work, reconcile the task's outcome, relevant accepted direction
+and deferred scope against those live owners. Agent proposals, audits, review
+responses and inherited prompts cannot change a standing priority or turn deferred
+work into a required gate. Only Weibao's later instruction can change his direction;
+record that instruction and update affected live owners. Resolve clear conflicts
+from existing authority without asking him to repeat an established preference.
+
+UI work follows the [standing UI priority](docs/USER_VISION.md#standing-ui-priority-2026-10-13):
+desktop/laptop first, mobile optimization deferred. For substantive UI work, name
+the target viewport, visible outcome and deferred scope in the existing task
+record. Before completion or handoff, check both the result and remaining gates
+against the accepted direction. Rebuilt browser evidence at the target viewport
+is required for UI behavior claims; mobile checks cannot substitute for it.
+
+When direction changes, update its owner and PROJECT.md's summary, reconcile
+affected active instructions, and preserve superseded wording as dated history.
+Handoffs link to owners rather than copying another competing specification.
+
 ## Role
 
 Weibao is the creative director. Implement authorized ideas directly and show
@@ -29,6 +54,16 @@ follow [the source deep dive playbook](docs/research/SOURCE_DEEP_DIVE_PLAYBOOK.m
 Finish one playable slice before starting the next. A wave ends
 at a checkpoint where Weibao can play it, not when a context or batch boundary
 is reached.
+
+## Source acquisition tools
+
+Before collecting books or fanfiction, read
+[source acquisition tools](docs/research/SOURCE_ACQUISITION_TOOLS.md). Discover
+the existing `/Users/weiwei/code/lncrawl-polite` fork and project bridges before
+writing another downloader. Reuse its polite transport; an upstream adapter or
+a script with a delay is not automatically polite mode. Keep actual source,
+capture, reading and gameplay verification separate. The shared rules here
+apply to both Codex and Claude through CLAUDE.md's AGENTS.md import.
 
 ## Verification
 

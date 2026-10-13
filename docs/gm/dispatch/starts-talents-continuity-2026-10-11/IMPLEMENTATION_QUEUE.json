@@ -1,0 +1,70 @@
+{
+  "schema": 1,
+  "revision": 1,
+  "authority": "ASSIGNMENT.md expand then implement; exact mechanics remain proposals",
+  "firstSlice": {
+    "id": "STC-P1",
+    "status": "implemented-built-tested-browser-verified; director-acceptance-and-shared-integration-open",
+    "requirements": [
+      "STP-001",
+      "STP-004",
+      "STP-005",
+      "STP-010",
+      "STP-011",
+      "STC-C04",
+      "STC-C05",
+      "STC-C08",
+      "STC-C09",
+      "STC-C12",
+      "STC-C13",
+      "STC-C14",
+      "STC-C18"
+    ],
+    "consumer": "native structured start/command/event/faculty/stock/knowledge/save owners",
+    "acceptance": "coherent start; functional faculty and ordinary preparation; live-cause abstention/intervention; continuing aftermath; rebuilt native/save/reload/import; failed publication; old-save compatibility"
+  },
+  "remaining": [
+    {
+      "id": "STC-P2",
+      "family": "body-process aptitude and learned development",
+      "dependencies": [
+        "world-qualified actual XP/body/task consumer",
+        "STP-003/006/007/008/009/013"
+      ],
+      "gate": "actual learning/stat/action effect and removal/compatibility, not label"
+    },
+    {
+      "id": "STC-P3",
+      "family": "conditional weighted entry, influence and anti-repeat",
+      "dependencies": [
+        "qualified additional world pools",
+        "explicit per-axis policy and eligibility weights",
+        "STC-C01/02/03"
+      ],
+      "gate": "durable coherent selection; distribution/source version/cancel failure proof"
+    },
+    {
+      "id": "STC-P4",
+      "family": "actor causes, history forks and reliable reports",
+      "dependencies": [
+        "instance-qualified actual native actors/stock/knowledge",
+        "G4-04/08/09",
+        "STC-C06/07/10/11"
+      ],
+      "gate": "no history cross-contamination; real means-bound response and supported return"
+    },
+    {
+      "id": "STC-P5",
+      "family": "life scope, actual legacy and supported continuation",
+      "dependencies": [
+        "local source death/retention and actual carriers/property recipients",
+        "G1-023/024",
+        "STC-C15/16/17",
+        "STP-014/016"
+      ],
+      "gate": "retention follows surviving carriers; no ancestor cloning or generic prestige reset"
+    }
+  ],
+  "integration": "shared runtime read-only until explicit handoff",
+  "broadHorizon": "prior queue retained by reference; these ordered joins do not delete exceptional or ordinary alternatives"
+}

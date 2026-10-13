@@ -1,0 +1,9 @@
+{
+  "bundle": "bd1e547f019aecc03aeddce61b9cb1192fd21599b6c269aef7efc0c1b2f41c02",
+  "input": "/tmp/yairpg-foundation-learning-worker-audit-enrolled.json",
+  "pageerror": "Unknown simulation participant partyPartner.",
+  "actualEnrollment": "audit_remainder.enroll completed once, schema11, enrolledSequence749",
+  "seam": "audit_remainder_combat_fit_host.js:remainderCombatFitPresentation performs target facts before checking declared hidden condition for absent partyPartner",
+  "referenceRepair": "previous missing featureBattleHook no longer thrown; actual clean PLAY/clock/Here passed",
+  "shortcutExcluded": "No actor spawn or state grant"
+}

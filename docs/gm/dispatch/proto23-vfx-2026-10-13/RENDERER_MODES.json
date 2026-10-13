@@ -1,0 +1,42 @@
+[
+  {
+    "glyphs": 1,
+    "hidden": false,
+    "mode": "Full event processed",
+    "quote": "Fixture XP 10 · coins 12 · no reward or save writer",
+    "text": "Discovered: Test practice\n×"
+  },
+  {
+    "glyphs": 1,
+    "hidden": false,
+    "mode": "Reduced event processed",
+    "quote": "Fixture XP 10 · coins 12 · no reward or save writer",
+    "text": "Discovered: Test practice\n×"
+  },
+  {
+    "glyphs": 0,
+    "hidden": true,
+    "mode": "Off event processed",
+    "quote": "Fixture XP 10 · coins 12 · no reward or save writer",
+    "text": ""
+  },
+  {
+    "glyphs": 1,
+    "hidden": false,
+    "mode": "Static event processed",
+    "quote": "Fixture XP 10 · coins 12 · no reward or save writer",
+    "text": "Discovered: Test practice\n×"
+  },
+  {
+    "glyphs": 0,
+    "hidden": true,
+    "mode": "Unknown event processed",
+    "quote": "Fixture XP 10 · coins 12 · no reward or save writer",
+    "text": ""
+  },
+  {
+    "hidden": true,
+    "mode": "Cancel then replay",
+    "quote": "Fixture XP 10 · coins 12 · no reward or save writer"
+  }
+]

@@ -1,0 +1,2 @@
+http://127.0.0.1:18647/styles/component_themes.css {"errorText":"net::ERR_CONNECTION_RESET"}
+http://127.0.0.1:18647/resources/img/ko-fi_icon.png {"errorText":"net::ERR_CONNECTION_RESET"}

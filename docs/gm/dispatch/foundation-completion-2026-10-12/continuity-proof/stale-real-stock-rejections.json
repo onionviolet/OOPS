@@ -1,0 +1,9 @@
+{
+  "error": "This destination action is stale.",
+  "cargo": {
+    "allowed": false,
+    "reasons": [
+      "This native cargo reference is stale. Refresh the doorway."
+    ]
+  }
+}

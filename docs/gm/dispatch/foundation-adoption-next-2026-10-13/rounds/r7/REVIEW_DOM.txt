@@ -1,0 +1,324 @@
+- link "Skip to content":
+  - /url: "#_r_e6_"
+- complementary:
+  - navigation "Show sidebar":
+    - button "Show sidebar"
+    - button "Show sidebar":
+    - button "New chat":
+      - generic: New chat
+    - button "Search":
+      - generic: Search
+    - button "Recents":
+      - generic: Recents
+    - button "Library":
+      - generic: Library
+    - button "Open profile menu"
+- main:
+  - button "Share":
+    - text: Share
+  - button "More":
+  - region "Conversation":
+    - heading "You said:" [level=4]
+    - text: "# Request to the reviewing chat Improve the draft below into one complete executable replacement prompt, then briefly identify material scope/tradeoff changes. Use only this supplied context; you cannot inspect local files. Challenge consequential assumptions and make acceptance observable. Do not execute or dispatch. Stay within about1.5times the draft length, cut repetition, plain active language, no em dashes. Preserve direct human-authorized finite scope and honest evidence limits; reviewer proposals cannot grant writes, reopen closed paid rounds, add systems, or substitute SOURCE evidence for native behavior. The next human-authorized fresh GM will run the locally reconciled result. # Draft work prompt Continue the directly human-authorized finite Foundation/research-adoption FA01–FA23 fresh-GM chain in"
+    - code: /Users/weiwei/code/yet-another-idle-rpg
+    - text: ", same saved project and intentional dirty checkout. No reset or worktree. First substantive objective: R7 FA12 bounded sufficiency assessment of EXISTING production legibility, comparing the actual blocker and two useful legal next choices. Implementation is conditional on a demonstrated narrow functional gap; do not create a second retort/recipe/procurement/planner framework or treat assessment as automatic permission for broad UI work. READ ONLY initially. Recover live AGENTS/PROJECT/USER_VISION/GAME_MASTER refresh/current CHECKPOINT/HORIZON/reservations, workers, branch/HEAD/dirty inputs. Expected branch codex/gameplay-foundations HEADdd3efe3383f12f0aac22e4f390aae90fae2e7fc4; broad intentional dirty tree and separate active UI/proto23 research lane preserved. Before any shared write, verify reservations/R7_SUCCESSOR_TRANSFER.json naming YOUR ACTUAL chat ID, explicit predecessor01a13525-ab37-7311-926c-a39b01154282 release and transferred areas. Predecessor writes it after confirmed creation and immediately relinquishes ALL shared Foundation writes. Successor cannot self-grant. R6/R5/older transfers then are history. One writer per area. Separate UI/editor/minigame/heir lanes and pausedWorld1 excluded; targeted FA12functional binding only if needed under this packet. No private packs/library/personal saves, external acquisition/install/purchases, commit/push/publication/automation/unrelated messages. Protect sealed truths and sender seven originals/frozenR1/R3/R4/R6preview assets/processes. R6 closed its bounded verification unit, not wholeFA11 native completion. Existing retort has paid native install2logs2coins1stamina, two separate manual3minute batches each1sap1fuel log1stamina/two empty counted receivers, two filled outputs, resin-only residue stall, both separate residue clearing routes and owned receiver return. Native three-batch plan started while residue full, paused without future reservation, stayed paused after clearing, explicit resume at depleted sap spent nothing, future-stop ended cursor. No accepted plan batch, successful native plan continuation or current-job refund proof. A section-toggle harness failure missed completed second batch; no paid replay. SOURCE14focused checks included88affected passes cover actual costs/receiver conservation/support/refund/explicit continuation/current-vs-future cancellation/WorkPlans1/2/full-envelope forgery/durable quota retry. No runtime repair. Actual legal owned sharpknife/log cut then two ordinary shade dries supplied2sound staves. Existing reference_gameplay.resin_kits consumed1resin2sound and produced2native kits, then Eda's finite2minute delivery consumed2kit keys and paid2coins. Fungible counted keys, no unique per-copy IDs. Seven actual Save/reload/genuineExport/literal-fileImport checkpoints compare exactly including entire expansion/body/actors/RNG/clock/jobs/plans/sites/inventories/calendar/NPCstate. Retort focus/Enter/Space scoped positive evidence; broad Tab/opposites OPEN. R6 honored predeclared100minutes: clock684→747,63played,2coins spent/2earned,5logs/2sap,1cut/2dries/1kitjob/1delivery,2disposals,1plan/1futurestop,0merchants/travel. Its budget is CLOSED, not reusable for R7spending. Latest genuine rounds/r6/final-earned-native.txt SHA2565abd536f1dc0616ee39b59bde28477456bc2f6d304935752acad4d924db0ae72. Village51coins,78logs,0sap,1resin,7ordinary/4protectedkits,2dullknives,0sharp,1manual,twoemptyretortreceivers,nojobs,cancelledretortplanindex0. Preserve paid R3RNG/refinement/R4/R5 lineage; do not revert to a richer historical save. R6 initial own rebuild/439map parity and actual loaded/fetched/built8d386d43f12e37bbcf019a134bf3673627599b1eb7dc38db2dadb6107cc9911e bind retort proof. Concurrent live5a88823a77ba37b4eeeadd7364618d5599f3d2d6099006806662e0f960b9fe23 build drift was detected; play paused then root rebuilt current inputs/froze own R6candidate. Differences include discovery-feedback main hooks and UI files; dedicated retort/scheduler/save unchanged. Later sound/kit/delivery restorations bind actual5a response bytes and URL. Historical early proof is not relabeled final-byte proof. Current R6read-only preview /Users/weiwei/.codex/candidates/yairpg-foundation-adoption-2026-10-13-r6 on18735server session86575 stays immutable. Native browser/harness/live18733server closed/stopped. SOURCE worker fa11_source released; no workers carry over. Some harness files named sound-cut-completed/dry-first-completed contain pending jobs because inherited counters fooled initial waits; final absence-of-pending waits and actual receipt deltas supply settled proof. Preserve the limitation. ## FA12 execution 1. Trace the current legibility owner/call path before proposing a repair: factorio_retort_{content,facts,host}, existing reference_gameplay and feature_objects production/consumer projections, common action_legibility and simulation preview, native feature panel/Notebook, current work-plan reasons. Inspect the original H03comparison/O01/P5 audit row and current accepted direction. Qualify facts and stale wording. Source-backed original comparator intent is current material/support blockers plus two useful legal next choices, not a full economic optimizer or second system. Original retort is discrete refundable fuel with two physical receivers, not literal Factorio progressive burner ordering. 2. Select one concrete comparison grounded in actual current contracts. The earned R6 resin-only state supplied two declared alternatives for the occupied residue receiver: collect loose material and retain tray immediately, or spend1stamina/1playedminute to cold-dispose filled residue and retain tray. Only those controls free residue; resin collection alone did not. Current final state instead has empty trays but0sap, with useful kit stock and1resin. Use prior exact native evidence as historical evidence, not permission to reload richer paid stock or claim current eligibility. Prefer current read-only projection + legitimate native UI where possible. If current two-choice evidence requires unavailable inputs, leave that exact native subgate OPEN and isolate applicability at existing SOURCE seams; do not manufacture stock or grind. 3. State explicit sufficiency criteria: the player can identify the current blocker; distinguish held/unavailable/reserved/current-versus-future stock; compare two useful legal options and their actual costs/time/output/retained-object consequence; see why an unavailable alternative is blocked; and get fresh eligibility after supported state changes without stale advice or presentation mutation. Do not demand a new combined comparison screen merely because existing separate cards already supply this information. A remaining taste/design proposal is not a reproduced functional defect. 4. Declare a numeric finite R7budget before native PLAY. Default assessment budget:0coins/materials/stamina intentionally spent,0acquisition attempts/merchant purchases/jobs/plans/cancellations/travel,20playedminutes for inspection and normal ticking. Use supported startup pause and Save/reload during analysis; do not edit clocks. If a demonstrated required narrow repair needs a paid native probe, specify a separate sufficient finite probe budget BEFORE spending, never enlarge it after spending and never reopen R6. Native unavailable prerequisites stay OPEN. No new procurement framework or uncapped retry. 5. Before native behavior claims rebuild current inputs into a NEW isolated public preview/fresh origin,1600x1100desktop primary. Do not overwrite frozenR6. Bind source inputs/map parity/built artifacts plus actual loaded response hash/resourceURL and fetched/candidate hash at each reload/import. Active separate lane may rebuild live files; detect drift and qualify rather than infer identical bytes. Mobile/broad UI deferred. Any functional repair gets a before/after reproduction, narrow reserved files and new final rebuild; do not repair absent proof. 6. Verify through existing SOURCE and native seams as applicable. Renderer/projection must be read-only, exact quotes re-evaluate current eligibility, stale sequence/control reuse cannot spend or advise silently, SOURCE fixture negatives stay SOURCE. Reuse passed R6 invariants; do not rerun equivalent suites absent changed relevant inputs. Record inherited source/main byte distinctions. If R7changes persisted behavior, prove meaningful native Save/reload/genuineExport/literal-fileImport with exact genuine bytes; if assessment changes no persistence, say so and preserve native entered-state restoration evidence without ceremonial paid work. Required keyboard/focus scope only touched controls. 7. Save rounds/r7 REPORT/ACCEPTANCE_BACKLOG/FINAL_BINDINGS, classifying each target PASS/OPEN/NOTAPPLICABLE/BLOCKED with reason. The assessment may close with an explicit sufficient existing projection finding and no runtime edit; a reproduced unresolved functional gap remains open. Do not call wholeFA11/native opposite gates or chain complete. Update CHECKPOINT/HORIZON/PROJECT narrowly to link evidence rather than duplicate owners. ## Continue the finite horizon After honest R7closure, choose the next useful independent dependency-aware unit, likely FA13existing fieldcraft/assay/feats gaps rather than unavailable R6plan replay. Before its writes, complete its own authorized ordinary signed-in Chro"
+    - generic: …
+    - button "Show more":
+      - generic: Show more
+    - button "Copy message":
+    - button "Edit message":
+    - button "Worked for 20s"
+    - generic: Worked for 20s
+    - heading "ChatGPT said:" [level=4]
+    - paragraph: Here is a tightened replacement that makes the transfer authority, evidence classes, sufficiency decision, and repair trigger more explicit while preserving the finite chain and inherited proof.
+    - button "Add to Library":
+      - generic: R7 FA12 Production Legibility Sufficiency Assessment
+    - button "Copy":
+    - button "Open editor":
+    - textbox "Start writing":
+      - paragraph:
+        - text: Continue the directly human-authorized finite Foundation/research-adoption FA01–FA23 fresh-GM chain in
+        - code: /Users/weiwei/code/yet-another-idle-rpg
+        - text: ", using the same saved project and intentional dirty checkout. Do not reset, discard work, or create a worktree."
+      - paragraph: "Your first substantive objective is R7 FA12: a bounded sufficiency assessment of the EXISTING production-legibility path. Determine whether the existing projections already let a player identify the relevant blocker and compare two useful legal next choices. Implement only if you reproduce a narrow functional defect that prevents those outcomes. Do not create a second retort, recipe, procurement, planning, comparison, or optimizer system. Do not treat an assessment finding, reviewer suggestion, or design preference as write authority or as automatic permission for broad UI work."
+      - paragraph: The human authorized this finite chain and the next fresh GM run. This packet does not itself grant repository writes. Authority for shared Foundation writes still requires the locally reconciled actual-ID transfer described below.
+      - heading "Recovery, authority, and ownership" [level=2]
+      - paragraph: Start READ ONLY.
+      - paragraph: "Recover the live repository owners and current state before relying on this packet:"
+      - list:
+        - paragraph:
+          - code: AGENTS.md
+        - paragraph:
+          - code: PROJECT.md
+        - paragraph:
+          - code: docs/USER_VISION.md
+        - paragraph:
+          - text: the live
+          - code: GAME_MASTER
+          - text: refresh protocol
+        - paragraph:
+          - text: current
+          - code: CHECKPOINT
+          - text: and
+          - code: HORIZON
+        - paragraph: reservations and worker state
+        - paragraph: branch, HEAD, staged and unstaged changes, and relevant untracked inputs
+      - paragraph:
+        - text: Expected starting point is branch
+        - code: codex/gameplay-foundations
+        - text: at HEAD
+        - code: dd3efe3383f12f0aac22e4f390aae90fae2e7fc4
+        - text: ", with a broad intentional dirty tree and a separate active UI/Proto23 research lane. Treat those as supplied expectations to verify, not facts you may overwrite when the live checkout differs."
+      - paragraph:
+        - text: Before ANY shared write, verify
+        - code: R7_SUCCESSOR_TRANSFER.json
+        - text: and reservations name YOUR ACTUAL chat ID, explicitly record predecessor
+        - code: 01a13525-ab37-7311-926c-a39b01154282
+        - text: releasing the transferred areas, and match the live ownership state. The predecessor writes that transfer only after confirmed successor creation and then relinquishes all shared Foundation writes. You cannot self-grant ownership, infer it from older R5/R6 transfers, or repair a missing transfer yourself. If the transfer or reservation is absent, contradictory, or names another owner, remain read-only and classify the write-dependent portion BLOCKED.
+      - paragraph: Maintain one writer per area. Preserve separate UI, editor, minigame, heir, and paused World1 lanes. FA12 may reserve only the narrow functional binding files proven necessary by a reproduced defect. Do not claim or edit unrelated presentation surfaces merely because they display the same data.
+      - paragraph: No private packs, library data, personal saves, external acquisition, installs, purchases, commit, push, publication, automation, or unrelated messages. Preserve sealed truths, the sender's seven originals, frozen R1/R3/R4/R6 evidence, preview artifacts, and process records.
+      - heading "Inherited evidence and limits" [level=2]
+      - paragraph: R6 closed its own bounded verification round. It did NOT close every FA11 native gate.
+      - paragraph:
+        - text: Accepted R6 native evidence includes the existing retort's paid native install at
+        - code: 2 logs + 2 coins + 1 stamina
+        - text: ; two separate manual three-minute batches at
+        - code: 1 sap + 1 fuel log + 1 stamina
+        - text: "each with two empty counted receivers; two filled outputs; resin-only residue stall; both separate residue-clearing routes with receiver return; and the following plan behavior:"
+      - list:
+        - paragraph: a native three-batch plan started while residue was full
+        - paragraph: it paused without reserving future costs
+        - paragraph: it remained paused after residue clearing
+        - paragraph: explicit resume at depleted sap spent nothing
+        - paragraph: a future-stop ended the cursor
+      - paragraph: R6 did NOT obtain an accepted plan batch, successful native continuation, or current-job refund proof. Do not relabel those OPEN gates as passed.
+      - paragraph: A section-toggle harness failure missed the completed second batch. R6 did not replay paid work. SOURCE evidence instead contains 14 focused checks and 88 affected passes covering actual costs, receiver conservation, support/refund rules, explicit continuation, current-versus-future cancellation, WorkPlans 1/2, full-envelope forgery protection, and durable quota retry. No runtime repair resulted from that round.
+      - paragraph:
+        - text: "R6 also proved a legal owned material path: sharp knife/log cut, then two ordinary shade dries, supplied two sound staves. Existing"
+        - code: reference_gameplay.resin_kits
+        - text: consumed
+        - code: 1 resin + 2 sound
+        - text: and produced two native kits. Eda's finite two-minute delivery consumed two kit keys and paid two coins. Kit keys are fungible counted inventory, not unique per-copy objects.
+      - paragraph: Seven actual Save/reload/genuine Export/literal-file Import checkpoints compared exactly across expansion/body, actors, RNG, clock, jobs, plans, sites, inventories, calendar, and NPC state.
+      - paragraph: Retort focus/Enter/Space received scoped positive evidence. Broad Tab and opposite controls remain OPEN.
+      - paragraph:
+        - text: R6 used its declared 100-minute allowance and closed that budget. Recorded movement was clock
+        - code: 684 -> 747
+        - text: ", 63 played minutes, 2 coins spent and 2 earned, 5 logs, 2 sap, 1 cut, 2 dries, 1 kit job, 1 delivery, 2 disposals, 1 plan, 1 future stop, 0 merchants, and 0 travel. R7 may not reuse any of that budget."
+      - paragraph:
+        - text: "Latest genuine earned state:"
+        - code: rounds/r6/final-earned-native.txt
+        - text: SHA256
+        - code: 5abd536f1dc0616ee39b59bde28477456bc2f6d304935752acad4d924db0ae72
+      - paragraph: Reported final inventory/state is Village, 51 coins, 78 logs, 0 sap, 1 resin, 7 ordinary kits, 4 protected kits, 2 dull knives, 0 sharp knives, 1 manual, two empty retort receivers, no jobs, and cancelled retort plan index 0. Verify before relying on it. Preserve the paid R3 RNG/refinement and R4/R5/R6 lineage. Do not restore a richer historical save to manufacture eligibility.
+      - paragraph:
+        - text: R6's own initial rebuild/map parity and loaded/fetched/built hash
+        - code: 8d386d43f12e37bbcf019a134bf3673627599b1eb7dc38db2dadb6107cc9911e
+        - text: bind its retort proof. Concurrent live build drift
+        - code: 5a88823a77ba37b4eeeadd7364618d5599f3d2d6099006806662e0f960b9fe23
+        - text: was detected. Play stopped, current inputs were rebuilt, and the R6 candidate was frozen. Reported drift included discovery-feedback main hooks and UI files while dedicated retort, scheduler, and save files were unchanged. Later sound/kit/delivery restoration evidence binds the actual
+        - code: 5a...
+        - text: response bytes and URL. Historical early evidence must remain historical and must not be relabeled as final-byte proof.
+      - paragraph:
+        - text: "The immutable R6 preview is:"
+        - code: /Users/weiwei/.codex/candidates/yairpg-foundation-adoption-2026-10-13-r6
+        - text: on port
+        - code: "18735"
+        - text: ", server session"
+        - code: "86575"
+        - text: .
+      - paragraph:
+        - text: Do not modify or reuse that preview as the R7 candidate. Native browser, harness, and live
+        - code: "18733"
+        - text: server were stopped. SOURCE worker
+        - code: fa11_source
+        - text: was released. No worker carries into R7.
+      - paragraph:
+        - text: Some R6 harness files named
+        - code: sound-cut-completed
+        - text: and
+        - code: dry-first-completed
+        - text: contain pending jobs because inherited counters caused premature waits. Later absence-of-pending waits plus actual receipt deltas provide the settled proof. Preserve that limitation in any citation or summary.
+      - heading "R7 FA12 decision target" [level=2]
+      - paragraph: FA12 asks a narrower question than "can production UI be improved?"
+      - paragraph: "Determine whether the existing production-legibility owner path is already sufficient for the accepted comparator intent:"
+      - list:
+        - paragraph: identify the blocker that prevents the intended action
+        - paragraph: distinguish held, unavailable, reserved, current-job, and future-plan stock where those distinctions actually apply
+        - paragraph: expose two useful legal next choices when two such choices exist
+        - paragraph: show their real costs, time, outputs, and retained-object consequences
+        - paragraph: explain why an unavailable alternative is unavailable
+        - paragraph: recompute eligibility after supported state changes without stale advice, stale controls, or presentation code mutating gameplay
+      - paragraph: Existing separate cards, projections, Notebook entries, work-plan reasons, or feature-panel surfaces may collectively satisfy the requirement. Do not require a new combined comparison screen merely because the information is not co-located.
+      - paragraph: A taste issue, layout preference, wording polish request, or broader discoverability proposal is not a reproduced functional defect.
+      - heading "Execute FA12" [level=2]
+      - paragraph: "First trace the live ownership and call path before proposing any change. Inspect the current implementations corresponding to:"
+      - list:
+        - paragraph:
+          - code: "factorio_retort_{content,facts,host}"
+        - paragraph:
+          - text: existing
+          - code: reference_gameplay
+        - paragraph:
+          - code: feature_objects
+          - text: production and consumer projections
+        - paragraph:
+          - text: common
+          - code: action_legibility
+        - paragraph: simulation preview
+        - paragraph: native feature panel and Notebook
+        - paragraph: current work-plan reasons
+        - paragraph: the original H03 comparison, O01, and P5 audit row
+        - paragraph: the currently accepted direction that governs those rows
+      - paragraph: Qualify stale audit wording against current code. The supplied comparator intent is "current material/support blocker plus two useful legal next choices." It is not a full economic optimizer. The existing retort is a discrete refundable-fuel process with two physical receivers. Do not reshape it into literal Factorio progressive burner ordering.
+      - paragraph: "Choose one exact comparison case supported by existing contracts. The strongest inherited case is the earned R6 residue-blocked state, where two declared legal controls existed for the occupied residue receiver:"
+      - list:
+        - paragraph: collect the loose material and retain the tray immediately
+        - paragraph:
+          - text: spend
+          - code: 1 stamina + 1 played minute
+          - text: to cold-dispose the filled residue and retain the tray
+      - paragraph: Only those controls freed that residue receiver. Resin collection alone did not.
+      - paragraph: Do not confuse that historical case with the current final state. The supplied final state has empty receivers, 0 sap, useful kit stock, and 1 resin. Historical R6 native proof may establish what happened in R6, but it does not make the residue blocker currently present or make a current native choice eligible.
+      - paragraph: Prefer a current read-only projection plus legitimate current native UI when the final state naturally exposes the required information. Do not spend, acquire resources, restore richer stock, or manufacture residue merely to recreate the historical comparison.
+      - paragraph: "If the current state cannot naturally exhibit the exact two-choice residue case, separate the conclusions:"
+      - list:
+        - paragraph: assess the static and dynamic legibility contract at existing SOURCE/projection seams
+        - paragraph: use R6 paid native evidence only for the historical behavior it actually proved
+        - paragraph: mark any missing current-byte native positive for that exact state OPEN
+        - paragraph: do not convert the missing positive into either a failure or permission to grind
+      - paragraph: Likewise, do not invent two current alternatives for the 0-sap blocker unless the existing product contracts actually expose and support them.
+      - heading "Sufficiency and repair decision" [level=2]
+      - paragraph: Close FA12 as "existing implementation sufficient, no runtime edit" only when the evidence demonstrates that the relevant existing surfaces together meet the criteria above and no reproduced stale or incorrect functional behavior prevents their use.
+      - paragraph: "A runtime repair is authorized only when all of these are true:"
+      - list:
+        - paragraph: you reproduce a specific functional failure in the currently bound R7 build
+        - paragraph: the failure blocks an FA12 sufficiency criterion, rather than merely reducing polish
+        - paragraph: you identify the existing owner responsible for the failure
+        - paragraph: the correction can remain narrow and reuse current projection/action systems
+        - paragraph: the required files fall within an effective actual-ID reservation before editing
+      - paragraph: Examples of repair-worthy failures include an incorrect current blocker, stale eligibility after a supported state transition, a legal action shown as legal when it cannot execute, current and future reservations being conflated in a way that changes advice, a reused stale control spending against a changed state, or presentation evaluation mutating gameplay.
+      - paragraph: Do not repair hypothetical defects. Do not create a broader comparison component because a narrow defect is awkward to fix.
+      - paragraph: For any repair, first capture the failing pre-change behavior, then change only the responsible path, rerun relevant source checks, rebuild, and capture the corrected native behavior on the final bound bytes.
+      - heading "R7 resource budget" [level=2]
+      - paragraph: Before native PLAY, record the R7 budget.
+      - paragraph: "Default assessment budget:"
+      - paragraph:
+        - code: 0 coins
+        - code: 0 materials
+        - code: 0 stamina intentionally spent
+        - code: 0 acquisitions
+        - code: 0 merchant purchases
+        - code: 0 jobs
+        - code: 0 plans
+        - code: 0 cancellations
+        - code: 0 travel
+        - text: maximum
+        - code: 20 played minutes
+      - paragraph: Prefer inspection while paused. Do not advance time simply because the budget permits it. Use normal ticking only if a specific observable refresh behavior requires it and no unrelated job or paid process can advance. Save/reload during analysis is allowed. Do not edit clocks or save state.
+      - paragraph: If a demonstrated narrow repair requires a paid native probe, declare a separate finite probe budget before the first paid action. State exactly what the probe can prove and why the zero-spend state cannot prove it. The declared probe budget is a ceiling and may not be enlarged after spending. It cannot reopen R6 or authorize prerequisite grinding. If legitimate prerequisites are unavailable inside that predeclared probe, leave the native subgate OPEN.
+      - heading "R7 build and native evidence" [level=2]
+      - paragraph:
+        - text: Before making any claim about current native behavior, rebuild current inputs into a NEW isolated public R7 preview with a fresh origin. Use
+        - code: 1600x1100
+        - text: desktop as the primary viewport. Do not overwrite the frozen R6 candidate. Mobile and broad UI review are deferred.
+      - paragraph: "At each reload/import used as acceptance evidence, bind enough information to distinguish source from served runtime:"
+      - list:
+        - paragraph: current source input identity and relevant dirty inputs
+        - paragraph: map parity or equivalent build-input binding used by this repository
+        - paragraph: built artifact identity
+        - paragraph: actual loaded resource URL
+        - paragraph: actual response bytes/hash
+        - paragraph: fetched/candidate bytes/hash
+      - paragraph: The separate active lane may change live source while R7 runs. Detect drift. If drift occurs, stop making byte-specific claims until you can qualify which evidence binds which build. Do not infer identical behavior merely because the dedicated retort files did not change.
+      - paragraph: SOURCE evidence may support contracts, negatives, and unit/integration behavior. It cannot substitute for a native behavior claim.
+      - paragraph: Reuse unaffected R6 invariants instead of rerunning equivalent suites. Rerun tests only when their relevant inputs changed or FA12 needs a previously unproved assertion. Record inherited source/main byte distinctions.
+      - heading "Required verification" [level=2]
+      - paragraph: "Verify through the existing SOURCE and native seams as applicable:"
+      - list:
+        - paragraph: projections and renderers remain read-only
+        - paragraph: displayed blocker and eligibility come from current state rather than cached advice
+        - paragraph: current, unavailable, reserved, current-job, and future-plan quantities are distinguished where the underlying contracts distinguish them
+        - paragraph: exact displayed costs/time/output/retained-object consequences match the action contract
+        - paragraph: stale sequence or stale control reuse cannot silently spend against an invalid state
+        - paragraph: supported state changes recompute eligibility without requiring presentation mutation
+        - paragraph: SOURCE fixture negatives remain labeled SOURCE
+        - paragraph: historical R6 evidence remains labeled historical and byte-bound to R6
+        - paragraph: any current native claim binds the final R7 candidate bytes
+      - paragraph: If R7 changes persisted gameplay behavior, prove meaningful native Save/reload, genuine Export, and literal-file Import using genuine bytes and compare the affected state exactly. Do not add ceremonial persistence work if the implementation does not touch persisted behavior.
+      - paragraph: If R7 makes no runtime change, explicitly record that no new persistence proof was required. Still preserve enough entered-state restoration evidence to show the assessment did not corrupt the saved R6-earned state.
+      - paragraph: Keyboard/focus verification is limited to controls FA12 actually touches. Do not reopen broad Tab/opposites or other inherited keyboard gates.
+      - heading "R7 closure artifacts" [level=2]
+      - paragraph: "After the bounded assessment, write the normal R7 artifacts only if effective write ownership exists:"
+      - list:
+        - paragraph:
+          - code: rounds/r7/REPORT
+        - paragraph:
+          - code: rounds/r7/ACCEPTANCE_BACKLOG
+        - paragraph:
+          - code: rounds/r7/FINAL_BINDINGS
+      - paragraph:
+        - text: Classify every targeted criterion as
+        - code: PASS
+        - text: ","
+        - code: OPEN
+        - text: ","
+        - code: NOT_APPLICABLE
+        - text: ", or"
+        - code: BLOCKED
+        - text: ", with a concrete reason and evidence class."
+      - paragraph: "The report must make these judgments independently checkable:"
+      - list:
+        - paragraph: which exact blocker/comparison case FA12 assessed
+        - paragraph: what was current R7 native evidence
+        - paragraph: what was inherited R6 native evidence
+        - paragraph: what was SOURCE-only evidence
+        - paragraph: whether current final state could expose the historical two-choice case without manufacturing prerequisites
+        - paragraph: whether the existing projection path is sufficient
+        - paragraph: whether any functional defect was reproduced
+        - paragraph: if repaired, exact before/after behavior and reserved owner files
+        - paragraph: which native or opposite gates remain OPEN
+        - paragraph: R7 resource use versus the declared budget
+        - paragraph: final candidate/source/response bindings
+        - paragraph: any concurrent-source drift and its impact on claims
+      - paragraph: A valid R7 closure may be "existing projections are sufficient; no runtime edit." A reproduced but unresolved narrow functional defect remains OPEN. Missing current prerequisites may also leave one exact native positive OPEN without invalidating a supported source-level sufficiency finding.
+      - paragraph: Do not claim the whole FA11 native matrix complete. Do not close inherited FA07, FA10, R4 opposite-control, or R6 native gates. Do not call the finite chain complete from R7 alone.
+      - paragraph:
+        - text: Update
+        - code: CHECKPOINT
+        - text: ","
+        - code: HORIZON
+        - text: ", and"
+        - code: PROJECT
+        - text: only as narrowly required to link the new evidence and decisions. Do not duplicate owner documents or rewrite prior rounds.
+      - heading "Continue the finite authorized horizon" [level=2]
+      - paragraph: After honest R7 closure, select the next useful independent dependency-aware unit. FA13 existing fieldcraft/assay/feats gaps is a likely candidate if live dependencies support it. Do not choose unavailable R6 plan replay merely to consume the chain.
+      - paragraph: Before the next unit receives shared writes, complete its own authorized ordinary signed-in Chrome ChatGPT review/reconciliation, create the fresh GM, and establish the effective actual-ID predecessor release. A review can propose work but cannot grant write ownership. Do not repeat an identical review and do not self-issue a transfer.
+      - paragraph: "Preserve as OPEN unless later proven through their proper units:"
+      - paragraph: FA07 native balm evidence; FA10 study/kit/fatigue/read/control/keyboard gaps; exact R4 opposites; remaining R6 native controls.
+      - paragraph: The supplied horizon still includes applicable FA14 resident variants, FA15 older methods, FA18 recovery, FA19 exposure applicability, and FA20 two useful configurations. FA17 heir requires its legitimate separate transfer. FA21 editor, FA22 minigames, and FA23 UI stay in their separate lanes. World1 stays paused.
+      - paragraph: The finite chain still requires integrated changed-system persistence/recovery and an independent bounded gap review before final completion. Continue only through authorized useful FA01–FA23 units until the finite horizon is complete or every remaining useful unit is externally blocked. Do not invent extra work to keep the loop alive. Director fiction, balance, and taste acceptance remain separate from technical completion.
+    - paragraph: The main change is a stricter evidence and authority decision tree. The successor must verify an actual-ID transfer before any shared write, and a missing transfer now has an explicit BLOCKED outcome instead of creating ambiguity about whether the fresh GM may proceed.
+    - paragraph: I also separated the historical residue comparison from the current 0-sap state. R6 native proof can establish the old two-choice behavior, but it cannot be presented as a current R7 positive or used to justify restoring richer stock. If the current earned state cannot naturally recreate that blocker, the exact current-native subgate stays OPEN rather than triggering grinding.
+    - paragraph: Finally, the repair threshold is narrower and more observable. A runtime change now requires a reproduced current-build functional defect tied to a named FA12 criterion, an existing owner, and reserved files. Existing separate projections may pass FA12 without a new screen, and SOURCE evidence can support contract sufficiency without being promoted into native proof.
+    - button "Copy":
+    - button "Rate response":
+    - button "Share":
+    - button "Read aloud":
+    - button "Regenerate response":
+    - button "More actions":
+    - generic: ChatGPT can make mistakes. Check important info.
+    - button "Scroll to bottom":
+    - heading "Latest response" [level=4]
+    - status
+    - button "Add files and more":
+    - textbox "Ask ChatGPT" [active]:
+      - paragraph: Ask ChatGPT
+    - button "Select ChatGPT model":
+      - generic: High
+    - button "Dictate":
+    - button "Start Voice":
+- status
+- status: Response complete
+- button "⋮⋮"
+- button "⋮⋮"

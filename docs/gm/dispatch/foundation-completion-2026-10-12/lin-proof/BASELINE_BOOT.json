@@ -1,0 +1,15 @@
+{
+  "origin": "http://127.0.0.1:18632",
+  "bundle": "dcf2ab53d4c3eb8a629652f9ca51277fb7f510a58fcc81b3bbbd04ee3c3086b1",
+  "classification": "rebuilt shared source after two incumbent gate repairs + Lin content4",
+  "errors": [],
+  "generatedOnly": true,
+  "commands": [
+    "fresh PLAY + Confirm",
+    "native Village elder hello",
+    "Notebook Here",
+    "chart/enroll/enter",
+    "meet/employee"
+  ],
+  "save": "/tmp/yairpg-lin-natural-hub.json"
+}

@@ -1,5 +1,10 @@
 # Source deep dive playbook
 
+For chronology, lore implications and canon/noncanon expansion, also use the
+[lore and timeline audit contract](LORE_TIMELINE_AUDIT_CONTRACT.md). It separates
+occurrence from revelation, versions from evidence strength, and source history
+from actor belief and proposed branches.
+
 A reusable method for turning a book, series, game or wiki into
 implementation-ready research. First used for Lord of the Mysteries and
 Circle of Inevitability on 2026-10-10. That run is the worked example:
@@ -150,6 +155,14 @@ is acquired.
 
 ## Fan and web fiction routes (M3)
 
+For new acquisition, first follow
+[source acquisition tools](SOURCE_ACQUISITION_TOOLS.md). It identifies the
+existing personal polite fork, transport and FanFicFare/public-page bridges.
+Discover and reuse them before creating a downloader. All new scripted source
+requests use that transport's current contract; a delay alone is not polite
+mode. This routing supersedes the dated network recipes below. A stopped host
+does not become a browser bulk-collection assignment.
+
 From the 2026-10-10 survey readers (WebSearch/WebFetch only): Reddit is
 refused by the fetch tools; FFN, TV Tropes and Royal Road usually return
 403; AO3 fetches are intermittent. Point M3 readers at the browser routes
@@ -172,19 +185,16 @@ Learned in the fan fiction pilot (`docs/research/fanfic/REPORT.md`,
   trope definitions and fandom practice.
 - **Fandom wikis** (Jumpchain and others): same-origin API calls from an
   open wiki tab, per the wiki route above.
-- **Chinese web novels:** find the Qidian title on ttkan (`ttkan.co`) or
-  69shuba. Both return 403 to the shell. ttkan search falls back to loose
-  matches, so check the exact title (traditional characters). ttkan
-  chapters live at `/novel/pagea/<slug>_<n>.html`; 69shuba pages are GBK,
-  so decode with `TextDecoder('gbk')`.
-- **ttks.tw full books** (2026-10-10): the shell gets a Cloudflare 403,
-  but Weibao's Chrome (Claude in Chrome) passes. Open the book's
-  `/novel/chapters/<slug>/index.html`, read chapter ids from its links,
-  fetch `/<n>.html` one at a time with a 5 s gap, keep the `div.content`
-  paragraphs as `[heading, body]`, then save the JSON with a blob download
-  to `~/Downloads` and move it into the book's private `sources/` folder
-  with a receipt and hash. 285 chapters took about 35 minutes. ttks can lag
-  Qidian by dozens of chapters; check the Qidian count.
+- **Chinese catalogue discovery:** Weibao prefers 69shu/ttks discovery first,
+  followed by primary title/author/version checks. These are discovery leads,
+  not guaranteed download routes. Inspect actual charset, matching title and
+  catalogue links. Hostnames, encodings and availability vary; dated access
+  receipts are not current support claims.
+- **ttks/69shu capture quality** (2026-10-10/12 observations): mirror numbering,
+  author fields and coverage can differ from publisher metadata. Preserve raw
+  HTML and exact URLs, derive clean text separately, and record edition gaps.
+  The earlier 285-chapter browser collection took about 35 minutes; that is
+  historical evidence, not a new instruction to bypass the polite transport.
   Lessons from the five-book run (about 2,060 chapters, 2026-10-10):
   don't reject short chapters as failures, because author notes can be
   under 200 characters. Save a part file every 100 chapters, since the tab
@@ -195,9 +205,9 @@ Learned in the fan fiction pilot (`docs/research/fanfic/REPORT.md`,
   From the simulator comparison pair (2026-10-10): ttks can serve another
   novel's text under a real chapter heading with an "use the app" error
   notice, so grep for it. Its search is `/novel/search?q=<title>`. It
-  answered 429 twice in about 300 requests, and a 30 s wait cleared it.
-  Mirrors often stop at a book's free chapters; twkan (POST `/search`) and
-  69shuba (GBK form) are the next routes to try.
+  answered 429 in that historical run; current polite transport stops on 429
+  rather than waiting and retrying. Do not rotate to another mirror to resume
+  a stopped host. A captured mirror may cover only part of the original work.
 - **Full reads of long books with Codex:** split a book into ranges of
   roughly 100–160 chapters, one detached run each, using
   `tools/book_deep_dive/launch_codex_reader.py` with `json_range.py` as the
@@ -221,9 +231,11 @@ Learned in the fan fiction pilot (`docs/research/fanfic/REPORT.md`,
   about 20 minutes. Codex reads Japanese and writes English notes, so the
   original beats a partial fan translation. Blogger fan sites expose
   `/feeds/posts/default?alt=json` with full post content.
-- **Fetch from Claude's shell, read with Codex.** Codex's workspace-write
-  sandbox has no network (DNS fails), so a Codex acquisition run can only
-  scout. Fetch in Claude's shell, then hand the saved JSON to Codex readers.
+- **Execution environment:** inspect current tool/network availability; do not
+  assume a Codex shell cannot fetch because one earlier sandbox could not.
+  Run an authorized acquisition through the existing transport in an available
+  environment, then hand saved, qualified local text to readers. Browser APIs
+  may allow only DOM reads, so older in-page fetch recipes are not portable.
 - **Snippet grep in the browser:** fetch chapters inside the page, keep
   only short paragraphs that match mechanic keywords, and return those.
   This finds system rules without copying prose. Run long jobs as a

@@ -1,0 +1,79 @@
+{
+  "auditComplete": true,
+  "runtimeRepaired": false,
+  "sourceReleased": true,
+  "checks": [
+    {
+      "id": "C0",
+      "result": "DEFECT-F1"
+    },
+    {
+      "id": "C1",
+      "result": "PASS-DIAGNOSTIC"
+    },
+    {
+      "id": "C2",
+      "result": "PASS-DIAGNOSTIC"
+    },
+    {
+      "id": "C3",
+      "result": "PASS-DIAGNOSTIC"
+    },
+    {
+      "id": "C4",
+      "result": "PASS-DIAGNOSTIC"
+    },
+    {
+      "id": "C5",
+      "result": "PASS-DIAGNOSTIC"
+    },
+    {
+      "id": "C6",
+      "result": "PASS-DIAGNOSTIC"
+    },
+    {
+      "id": "C7",
+      "result": "PASS-DIAGNOSTIC"
+    },
+    {
+      "id": "C8R",
+      "result": "PASS-DIAGNOSTIC"
+    },
+    {
+      "id": "C9fresh",
+      "result": "PASS-PRODUCTION"
+    },
+    {
+      "id": "C10",
+      "result": "PASS-DIAGNOSTIC"
+    },
+    {
+      "id": "C11",
+      "result": "DEFECT-F3"
+    },
+    {
+      "id": "C12",
+      "result": "KEYBOARD-PASS-MOBILE-OVERFLOW"
+    },
+    {
+      "id": "C13",
+      "result": "PASS-PRODUCTION-GENERATED-ACTIVE"
+    },
+    {
+      "id": "C15",
+      "result": "PASS-STATIC-ACCESSIBLE"
+    },
+    {
+      "id": "C16",
+      "result": "PASS-DIAGNOSTIC"
+    },
+    {
+      "id": "F2production",
+      "result": "DEFECT-F2"
+    }
+  ],
+  "report": "REPORT.md",
+  "repairPackets": "REPAIR_PACKETS.md",
+  "privateEvidenceIgnored": true,
+  "normalFreshUiGate": "FAIL-F1"
+}

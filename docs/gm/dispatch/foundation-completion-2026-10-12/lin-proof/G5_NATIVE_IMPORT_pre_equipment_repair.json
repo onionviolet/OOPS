@@ -1,0 +1,297 @@
+{
+  "hash": "dcf2ab53d4c3eb8a629652f9ca51277fb7f510a58fcc81b3bbbd04ee3c3086b1",
+  "results": [
+    {
+      "input": "/tmp/yairpg-lin-natural-accepted.json",
+      "imported": true,
+      "readerLoaded": true,
+      "reload": true,
+      "cursor": {
+        "schema": 2,
+        "legacy": null,
+        "scopes": [
+          {
+            "schema": 1,
+            "contentId": "feature-wave-negotiation",
+            "contentRevision": 4,
+            "contentHash": "sha256:d193eb3a33eb66ba8825e6a15819f2920fe2a6b65ed27a24e5613e91015ccb43",
+            "runtimeVersion": "2.4.0",
+            "inkFormat": 21,
+            "saveFormat": 10,
+            "sceneId": "nested.hub",
+            "sessionId": "ink:8",
+            "revision": 5,
+            "status": "complete",
+            "startedAt": 5,
+            "updatedAt": 17,
+            "cursor": "{\"flows\":{\"DEFAULT_FLOW\":{\"callstack\":{\"threads\":[{\"callstack\":[{\"exp\":false,\"type\":0}],\"threadIndex\":0}],\"threadCounter\":11},\"outputStream\":[\"^ \",\"^Your accepted supply job is in progress. Its materials and wage remain reserved; closing this conversation does not cancel the job.\",\"\\n\"],\"currentChoices\":[]}},\"currentFlowName\":\"DEFAULT_FLOW\",\"variablesState\":{\"host_scene\":\"^nested.hub\",\"nested_lin_work_offered\":true,\"nested_lin_refuse_offered\":true,\"nested_lin_texture_offered\":true,\"nested_lin_supply_offered\":true,\"nested_lin_report\":\"^Your accepted supply job is in progress. Its materials and wage remain reserved; closing this conversation does not cancel the job.\",\"nested_hub_present\":true,\"nested_contact_name\":\"^Lin\",\"nested_hub_name\":\"^Paradise service district\",\"nested_role_terms\":\"^Current approval: employee. Employee services and contractor contracts have separate permissions.\",\"nested_portability_terms\":\"^Your same living body and owned carried/equipped goods use the declared edge. Return unapproved loans first. A local office credential grants no foreign jurisdiction.\",\"nested_work_offered\":true,\"nested_training_offered\":true,\"nested_refit_offered\":true,\"nested_role_offered\":true,\"nested_residence_offered\":true,\"nested_prior_exchange\":\"^nested_lin_open\"},\"evalStack\":[],\"visitCounts\":{\"nested_hub_options.0.c-0\":1,\"nested_hub_options.0.c-1\":1},\"turnIndices\":{},\"turnIdx\":1,\"storySeed\":1,\"previousRandom\":0,\"inkSaveVersion\":10,\"inkFormatVersion\":21}",
+            "frame": {
+              "paragraphs": [
+                "\"I'll keep the bench clear,\" Lin says. \"We can talk again when the work is done.\"",
+                "Your accepted supply job is in progress. Its materials and wage remain reserved; closing this conversation does not cancel the job."
+              ],
+              "choices": []
+            },
+            "receipts": [
+              {
+                "id": "ink.nested.hub.hub_street.nested.paradise.main:ink:8:1:begin",
+                "responseId": "begin",
+                "commandId": "ink.nested.hub_street.begin",
+                "sequence": 8,
+                "at": 5,
+                "scope": {
+                  "id": "ink.nested.hub.hub_street.nested.paradise.main",
+                  "kind": "hub",
+                  "worldId": "nested.paradise_hub",
+                  "instanceId": "nested.paradise.main"
+                },
+                "sceneId": "nested.hub"
+              },
+              {
+                "id": "ink.nested.hub.hub_street.nested.paradise.main:ink:8:2:pause",
+                "responseId": "pause",
+                "commandId": "ink.cursor.pause",
+                "sequence": 9,
+                "at": 6,
+                "scope": {
+                  "id": "ink.nested.hub.hub_street.nested.paradise.main",
+                  "kind": "hub",
+                  "worldId": "nested.paradise_hub",
+                  "instanceId": "nested.paradise.main"
+                },
+                "sceneId": "nested.hub"
+              },
+              {
+                "id": "ink.nested.hub.hub_street.nested.paradise.main:ink:8:3:resume",
+                "responseId": "resume",
+                "commandId": "ink.cursor.resume",
+                "sequence": 10,
+                "at": 7,
+                "scope": {
+                  "id": "ink.nested.hub.hub_street.nested.paradise.main",
+                  "kind": "hub",
+                  "worldId": "nested.paradise_hub",
+                  "instanceId": "nested.paradise.main"
+                },
+                "sceneId": "nested.hub"
+              },
+              {
+                "id": "ink.nested.hub.hub_street.nested.paradise.main:ink:8:4:nested_lin_open",
+                "responseId": "nested_lin_open",
+                "commandId": "nested.life.lin.open",
+                "sequence": 15,
+                "at": 16,
+                "scope": {
+                  "id": "ink.nested.hub.hub_street.nested.paradise.main",
+                  "kind": "hub",
+                  "worldId": "nested.paradise_hub",
+                  "instanceId": "nested.paradise.main"
+                },
+                "sceneId": "nested.hub"
+              },
+              {
+                "id": "ink.nested.hub.hub_street.nested.paradise.main:ink:8:5:nested_lin_work",
+                "responseId": "nested_lin_work",
+                "commandId": "nested.life.lin.work",
+                "sequence": 16,
+                "at": 17,
+                "scope": {
+                  "id": "ink.nested.hub.hub_street.nested.paradise.main",
+                  "kind": "hub",
+                  "worldId": "nested.paradise_hub",
+                  "instanceId": "nested.paradise.main"
+                },
+                "sceneId": "nested.hub"
+              }
+            ],
+            "scope": {
+              "id": "ink.nested.hub.hub_street.nested.paradise.main",
+              "kind": "hub",
+              "worldId": "nested.paradise_hub",
+              "instanceId": "nested.paradise.main"
+            }
+          }
+        ]
+      },
+      "jobDue": [
+        {
+          "id": "simulation:16",
+          "due": 21
+        }
+      ],
+      "text": "Local conversations and return accounts\nBetween journeys\n\nConversation finished.\n\n\"I'll keep the bench clear,\" Lin says. \"We can talk again when the work is done.\"\n\nYour accepted supply job is in progress. Its materials and wage remain reserved; closing this conversation does not cancel the job.\n\nConversation controls\nKnown actions\nMeet again\n\nUnavailable\n\nWhy this is unavailable\nFinish or cancel your current activity before starting this action.\nThe agreed participants cannot currently take this work together.\nStated costs\n0 played minutes\nCompletion terms\nOnly this accepted native step is committed. Mission outcome, actual arrival, local welfare and settlement stay separate.\nUnavailable: Meet again"
+    },
+    {
+      "input": "/tmp/yairpg-lin-natural-purchased.json",
+      "imported": true,
+      "readerLoaded": true,
+      "reload": true,
+      "cursor": {
+        "schema": 2,
+        "legacy": null,
+        "scopes": [
+          {
+            "schema": 1,
+            "contentId": "feature-wave-negotiation",
+            "contentRevision": 4,
+            "contentHash": "sha256:d193eb3a33eb66ba8825e6a15819f2920fe2a6b65ed27a24e5613e91015ccb43",
+            "runtimeVersion": "2.4.0",
+            "inkFormat": 21,
+            "saveFormat": 10,
+            "sceneId": "nested.hub",
+            "sessionId": "ink:20",
+            "revision": 2,
+            "status": "complete",
+            "startedAt": 23,
+            "updatedAt": 24,
+            "cursor": "{\"flows\":{\"DEFAULT_FLOW\":{\"callstack\":{\"threads\":[{\"callstack\":[{\"exp\":false,\"type\":0}],\"threadIndex\":0}],\"threadCounter\":4},\"outputStream\":[\"^Lin checks your staff approval and counts the paid kit out of her stock.\",\"\\n\"],\"currentChoices\":[]}},\"currentFlowName\":\"DEFAULT_FLOW\",\"variablesState\":{\"host_scene\":\"^nested.hub\",\"nested_lin_texture_offered\":true,\"nested_lin_supply_offered\":true,\"nested_lin_report\":\"^Lin shows the kit supply receipt and the three-credit wage receipt. Her remaining kits and funds still belong to her; staff approval and later purchases remain separate.\",\"nested_hub_present\":true,\"nested_contact_name\":\"^Lin\",\"nested_hub_name\":\"^Paradise service district\",\"nested_role_terms\":\"^Current approval: employee. Employee services and contractor contracts have separate permissions.\",\"nested_portability_terms\":\"^Your same living body and owned carried/equipped goods use the declared edge. Return unapproved loans first. A local office credential grants no foreign jurisdiction.\",\"nested_work_offered\":true,\"nested_training_offered\":true,\"nested_refit_offered\":true,\"nested_role_offered\":true,\"nested_residence_offered\":true,\"nested_prior_exchange\":\"^nested_lin_account\"},\"evalStack\":[],\"visitCounts\":{\"nested_hub_options.0.c-5\":1},\"turnIndices\":{},\"turnIdx\":0,\"storySeed\":1,\"previousRandom\":0,\"inkSaveVersion\":10,\"inkFormatVersion\":21}",
+            "frame": {
+              "paragraphs": [
+                "Lin checks your staff approval and counts the paid kit out of her stock."
+              ],
+              "choices": []
+            },
+            "receipts": [
+              {
+                "id": "ink.nested.hub.hub_street.nested.paradise.main:ink:8:1:begin",
+                "responseId": "begin",
+                "commandId": "ink.nested.hub_street.begin",
+                "sequence": 8,
+                "at": 5,
+                "scope": {
+                  "id": "ink.nested.hub.hub_street.nested.paradise.main",
+                  "kind": "hub",
+                  "worldId": "nested.paradise_hub",
+                  "instanceId": "nested.paradise.main"
+                },
+                "sceneId": "nested.hub"
+              },
+              {
+                "id": "ink.nested.hub.hub_street.nested.paradise.main:ink:8:2:pause",
+                "responseId": "pause",
+                "commandId": "ink.cursor.pause",
+                "sequence": 9,
+                "at": 6,
+                "scope": {
+                  "id": "ink.nested.hub.hub_street.nested.paradise.main",
+                  "kind": "hub",
+                  "worldId": "nested.paradise_hub",
+                  "instanceId": "nested.paradise.main"
+                },
+                "sceneId": "nested.hub"
+              },
+              {
+                "id": "ink.nested.hub.hub_street.nested.paradise.main:ink:8:3:resume",
+                "responseId": "resume",
+                "commandId": "ink.cursor.resume",
+                "sequence": 10,
+                "at": 7,
+                "scope": {
+                  "id": "ink.nested.hub.hub_street.nested.paradise.main",
+                  "kind": "hub",
+                  "worldId": "nested.paradise_hub",
+                  "instanceId": "nested.paradise.main"
+                },
+                "sceneId": "nested.hub"
+              },
+              {
+                "id": "ink.nested.hub.hub_street.nested.paradise.main:ink:8:4:nested_lin_open",
+                "responseId": "nested_lin_open",
+                "commandId": "nested.life.lin.open",
+                "sequence": 15,
+                "at": 16,
+                "scope": {
+                  "id": "ink.nested.hub.hub_street.nested.paradise.main",
+                  "kind": "hub",
+                  "worldId": "nested.paradise_hub",
+                  "instanceId": "nested.paradise.main"
+                },
+                "sceneId": "nested.hub"
+              },
+              {
+                "id": "ink.nested.hub.hub_street.nested.paradise.main:ink:8:5:nested_lin_work",
+                "responseId": "nested_lin_work",
+                "commandId": "nested.life.lin.work",
+                "sequence": 16,
+                "at": 17,
+                "scope": {
+                  "id": "ink.nested.hub.hub_street.nested.paradise.main",
+                  "kind": "hub",
+                  "worldId": "nested.paradise_hub",
+                  "instanceId": "nested.paradise.main"
+                },
+                "sceneId": "nested.hub"
+              },
+              {
+                "id": "ink.nested.hub.hub_street.nested.paradise.main:ink:18:1:revisit",
+                "responseId": "revisit",
+                "commandId": "ink.nested.hub_street.begin",
+                "sequence": 18,
+                "at": 21,
+                "scope": {
+                  "id": "ink.nested.hub.hub_street.nested.paradise.main",
+                  "kind": "hub",
+                  "worldId": "nested.paradise_hub",
+                  "instanceId": "nested.paradise.main"
+                },
+                "sceneId": "nested.hub"
+              },
+              {
+                "id": "ink.nested.hub.hub_street.nested.paradise.main:ink:18:2:nested_lin_account",
+                "responseId": "nested_lin_account",
+                "commandId": "nested.life.lin.account",
+                "sequence": 19,
+                "at": 22,
+                "scope": {
+                  "id": "ink.nested.hub.hub_street.nested.paradise.main",
+                  "kind": "hub",
+                  "worldId": "nested.paradise_hub",
+                  "instanceId": "nested.paradise.main"
+                },
+                "sceneId": "nested.hub"
+              },
+              {
+                "id": "ink.nested.hub.hub_street.nested.paradise.main:ink:20:1:revisit",
+                "responseId": "revisit",
+                "commandId": "ink.nested.hub_street.begin",
+                "sequence": 20,
+                "at": 23,
+                "scope": {
+                  "id": "ink.nested.hub.hub_street.nested.paradise.main",
+                  "kind": "hub",
+                  "worldId": "nested.paradise_hub",
+                  "instanceId": "nested.paradise.main"
+                },
+                "sceneId": "nested.hub"
+              },
+              {
+                "id": "ink.nested.hub.hub_street.nested.paradise.main:ink:20:2:nested_lin_supply",
+                "responseId": "nested_lin_supply",
+                "commandId": "nested.staff_supply",
+                "sequence": 21,
+                "at": 24,
+                "scope": {
+                  "id": "ink.nested.hub.hub_street.nested.paradise.main",
+                  "kind": "hub",
+                  "worldId": "nested.paradise_hub",
+                  "instanceId": "nested.paradise.main"
+                },
+                "sceneId": "nested.hub"
+              }
+            ],
+            "scope": {
+              "id": "ink.nested.hub.hub_street.nested.paradise.main",
+              "kind": "hub",
+              "worldId": "nested.paradise_hub",
+              "instanceId": "nested.paradise.main"
+            }
+          }
+        ]
+      },
+      "jobDue": [],
+      "text": "Local conversations and return accounts\nBetween journeys\n\nConversation finished.\n\nLin checks your staff approval and counts the paid kit out of her stock.\n\nConversation controls\nKnown actions\nMeet again\n\nAvailable\n\nStated costs\n0 played minutes\nCompletion terms\nOnly this accepted native step is committed. Mission outcome, actual arrival, local welfare and settlement stay separate.\nDo this: Meet again"
+    }
+  ],
+  "errors": [],
+  "generatedOnly": true
+}

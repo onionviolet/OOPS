@@ -1,0 +1,92 @@
+{
+  "status": "FAIL",
+  "bundle": "c5d852bbb3db26d4cef74772edf44c8b96ec2d96aac3b8eb7032624ce8f49402",
+  "base": "dd3efe3383f12f0aac22e4f390aae90fae2e7fc4",
+  "fixture": "docs/gm/dispatch/foundation-adoption-next-2026-10-13/rounds/r3/attempts/04-posttick-assertion-refine-earned-harness-failure.txt",
+  "fixtureHash": "87418eed259d0df278999729e1aa1a2bc81c9aecb254f2820c2f1faf2105e293",
+  "checks": {
+    "earnedPendingPreservedAfterHarnessFailure": true,
+    "frozenPendingLiteralRestoration": true,
+    "completedLiteralRestoration": true,
+    "actualPaidFailureSorenessAndRetry": true,
+    "exactDurablePaidStaminaReservation": true,
+    "finiteRngAttempts": true,
+    "applicationFailedWrite": true
+  },
+  "events": [
+    {
+      "id": "reference_gameplay.refine_second",
+      "clock": 57
+    },
+    {
+      "id": "reference_gameplay.steady_hook",
+      "clock": 59
+    },
+    {
+      "id": "reference_gameplay.steady_hook",
+      "clock": 60
+    }
+  ],
+  "errors": [],
+  "timePolicy": "Normal native browser timers; no resource/history/clock fields injected",
+  "console": [
+    "Failed to load resource: the server responded with a status of 404 (Not Found)",
+    "Failed to load resource: the server responded with a status of 404 (Not Found)",
+    "Failed to load resource: the server responded with a status of 404 (Not Found)",
+    "Failed to load resource: the server responded with a status of 404 (Not Found)",
+    "Failed to load resource: the server responded with a status of 404 (Not Found)",
+    "Failed to load resource: the server responded with a status of 404 (Not Found)",
+    "Failed to load resource: the server responded with a status of 404 (Not Found)",
+    "Failed to load resource: the server responded with a status of 404 (Not Found)",
+    "Failed to load resource: the server responded with a status of 404 (Not Found)",
+    "Failed to load resource: the server responded with a status of 404 (Not Found)",
+    "Failed to load resource: the server responded with a status of 404 (Not Found)",
+    "Failed to load resource: the server responded with a status of 404 (Not Found)",
+    "Failed to load resource: the server responded with a status of 404 (Not Found)",
+    "Failed to load resource: the server responded with a status of 404 (Not Found)",
+    "Failed to load resource: the server responded with a status of 404 (Not Found)",
+    "Something went wrong on saving the game!",
+    "Error: Saving disabled after a loading error. Preserve the original save and use a compatible build.\n    at lw (http://127.0.0.1:18727/dist/bundle.js?version=v0.6-c5d852bbb3db:1054:33546)\n    at $6 (http://127.0.0.1:18727/dist/bundle.js?version=v0.6-c5d852bbb3db:1054:39218)\n    at kFe (http://127.0.0.1:18727/dist/bundle.js?version=v0.6-c5d852bbb3db:1054:39423)\n    at HTMLDivElement.onclick (http://127.0.0.1:18727/:683:84)",
+    "Failed to load resource: the server responded with a status of 404 (Not Found)"
+  ],
+  "attempts": [
+    {
+      "schema": 1,
+      "result": "failure",
+      "commandId": "reference_gameplay.refine_first",
+      "cause": "simulation:4107",
+      "acceptedAt": 48,
+      "acceptedSequence": 4107,
+      "calendarMinute": 518015906,
+      "quietWindowOpen": true,
+      "quietWindowRemaining": 94,
+      "prepared": true,
+      "preparedByFocus": false,
+      "retryCountBefore": 0,
+      "baseProbability": 0.7,
+      "successProbability": 0.7,
+      "roll": 0.9561483354773372,
+      "outcomeId": "failure_prepared"
+    },
+    {
+      "schema": 1,
+      "result": "success",
+      "commandId": "reference_gameplay.refine_second",
+      "cause": "simulation:4116",
+      "acceptedAt": 56,
+      "acceptedSequence": 4116,
+      "calendarMinute": 518015914,
+      "quietWindowOpen": true,
+      "quietWindowRemaining": 86,
+      "prepared": true,
+      "preparedByFocus": false,
+      "retryCountBefore": 1,
+      "baseProbability": 0.7,
+      "successProbability": 0.75,
+      "roll": 0.144435269292444,
+      "outcomeId": "success_prepared"
+    }
+  ],
+  "successEarned": true,
+  "failure": "AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n\n64 !== 65\n\n    at /Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/foundation-adoption-next-2026-10-13/rounds/r3/refine-native.cjs:68:739"
+}

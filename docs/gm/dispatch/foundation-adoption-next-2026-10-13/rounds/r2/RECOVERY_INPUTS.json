@@ -1,0 +1,34 @@
+{
+  "atUTC": "2026-10-13T07:26:13.743405+00:00",
+  "thread": "01a13425-517a-7442-83b6-34929c57dfab",
+  "ownership": "effective SUCCESSOR_TRANSFER.json",
+  "branch": "codex/gameplay-foundations",
+  "head": "dd3efe3383f12f0aac22e4f390aae90fae2e7fc4",
+  "files": {
+    "src/contextual_balm_content.js": "41f9d95c7ef9ec1811e8da60ad86ae9822dd24841ccf51e8b7e047f2d9deb26e",
+    "src/contextual_balm_facts.js": "e665e303667aa780c3776164f98367f5288a2da45f122fd9ed8686fa832a104f",
+    "src/contextual_balm_host.js": "4b63298dea287c8cbba599a2a18ad1875c1bd9d04cbf77bb170e48ab7893515e",
+    "src/contextual_balm_native.js": "50ee6b79876a742183e9c3fbcfb603c3e818bf37b1641913b5e263b14de11476",
+    "src/main.js": "a1a4224182cbe4acbc6620499d5ff39d28367c3e5490c6e5a7b3b9048a2171be",
+    "src/simulation.js": "d56256a701b9190e4a143e63fea2cdcb7df3538dfe59aba9cfaef31544bee388",
+    "src/expansion_engine.js": "6c8c0b3eea99ab1a802e70f4b077cf8dbc0ae8940cb5df0d92b6a330239ec16a",
+    "src/expansion_persistence.js": "779a82715884c48f3d2338816d76b90e5e894b625f2fb7daec174091c73bc966",
+    "src/body_progression.js": "47e8de67bdb099fb41365afafbf3081e342e734d97615850f921e0b280dfe84e",
+    "src/save_files.js": "9693989644833596a98379eececdc5a814e11845d27c1134b3e7dab3911b1120",
+    "index.html": "a414ac44c9a7c01a244dc4fd55a782241f3009a28a652a2adfc13f36d7227af4",
+    "dist/bundle.js": "cb0c11d04b3e13c16aac5cd930314cfb78d654c326f07d2b9140f14e739ff175",
+    "dist/bundle.js.map": "c3fbf4cc6a7f14eb091a2162ea79ca539fafa91578b5caa12fb99fbb87d1fe1d"
+  },
+  "r1BindingsMismatch": {},
+  "workers": {
+    "balm_integrity": "tests/contextual_balm.test.js and SOURCE_REVIEW.md only",
+    "natural_balm": "natural-prerequisite/** only;18725;no source writes"
+  },
+  "targetViewport": [
+    1600,
+    1100
+  ],
+  "visibleOutcome": "Existing contextual-balm control and native treatment effect",
+  "deferred": "Broad UI, mobile, separate heir/editor/minigame lanes",
+  "build": "npm run build passed"
+}

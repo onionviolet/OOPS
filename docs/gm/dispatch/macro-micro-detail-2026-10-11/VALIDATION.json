@@ -1,0 +1,49 @@
+{
+  "scope": "document structure only; runtime/source canon/director proof not run",
+  "checks": {
+    "inherited_ids_exact_unique": true,
+    "idea_families_exact_unique": true,
+    "sections_exact_unique": true,
+    "required_routing_fields": true,
+    "ten_leaf_manifest": true,
+    "antecedent_ids_resolve": true,
+    "leaf_cards_present": true,
+    "four_packets_and_twelve_dependencies": true,
+    "local_link_targets_exist": true,
+    "explicit_source_paths_exist": true,
+    "no_trailing_whitespace": true
+  },
+  "passed": true,
+  "linksChecked": 26,
+  "explicitSourcePaths": [
+    "src/display.js",
+    "src/expansion_engine.js",
+    "src/expansion_persistence.js",
+    "src/main.js",
+    "src/models/hero.js",
+    "src/simulation.js",
+    "src/simulation_content.js",
+    "src/simulation_effects.js"
+  ],
+  "missingLinks": [],
+  "whitespace": [],
+  "inputDrift": [
+    "PROJECT.md",
+    "docs/gm/dispatch/absorb-2026-10-11/CHECKPOINT.md",
+    "docs/gm/dispatch/world1-full-completion-2026-10-11/CHECKPOINT.md"
+  ],
+  "outputHashes": {
+    "ASSIGNMENT.md": "0f794ebc73824e6df35ae2322fac86f15a294e8c3c34921d682831a6ecab26c1",
+    "REPORT.md": "e7b8182e691b163220d6183503b33d9270b3e34cb6350f6f64ec9b701a8ae3de",
+    "IMPLEMENTATION_PACKETS.md": "5568f9f52802fe40cd6a7faa042d7055f67e366f68cf418845af39f1135dbad8",
+    "CAUSAL_JOINS.md": "d4c0c93ccbbeb2f9c6b87d0885f0351d01ccd4dd31651486bc58921b6186eb27",
+    "validate.py": "1505ab7997a20ad5aec56975ded4266debe114d170455a8f01c33a56a9a5dfe1",
+    "DETAIL_CARDS.md": "ba63728303115b2d44499ac8abbf57338232b8c1fcbd21a9c12860efa11ccd82",
+    "INPUTS.json": "37d501f358c0f94e0b46e76fd8b69cdac60b0750c23482a16dc914f87650dbe0",
+    "MANIFEST.json": "1027f5c2db04a55af158b905d031fc0eac1bf5ecd70296ebcde1111927c3212d",
+    "COVERAGE.md": "e38eca32c7aeba562c489bc37e7daf43af36ce3facb5bfd7b515e0f7633ac425",
+    "SUPPLEMENTAL_DETAILS.md": "df5e73c23f4d90a8f5cdd0076973075f1b089d2181afa209e5e4ad68006c957d",
+    "REVIEW.md": "151f69b651483b3aa97953d262cfe6284b8fa6eeb6b4dd151ba48b21475fe755",
+    "DETAIL_LEDGER.json": "66c458ef245450d0753c8a8e440d8b898c66df9de6ac22fa3791f8ab6628efe0"
+  }
+}

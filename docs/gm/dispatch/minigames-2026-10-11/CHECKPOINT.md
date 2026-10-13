@@ -1,0 +1,24 @@
+# Minigame and management checkpoint
+
+IDENTITY: GM /root; current chat 01a12ba4-8a07-7711-892c-6cbc1f278ee2 verified by open_in_codex response; delegated launch source chat 01a12ba0-886b-7443-a087-85fe43901c94; 2026-10-11 revision 4. Current chat/task/worker IDs are tool-returned.
+OBJECTIVE: Expand MG01–MG10 first, then one substantive connected first loop per family. No shared-source merge, commit, push or publication. All local host/fiction/balance remain proposals. Continue to finite permitted delivery; not just first demo.
+OWNERSHIP: Exclusive dispatch /Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/minigames-2026-10-11. Candidate /Users/weiwei/.codex/worktrees/minigame-management/yet-another-idle-rpg, managed attachment, base 53dc1df15889be6ebb1bae403497041f0672db46. Applicable dirty AGENTS/PROJECT/GM/LIFE_SIM/IDEA instructions and frozen packet carried explicitly; CANDIDATE_INPUTS.json records hashes. Copied global owners are snapshots excluded from implementation delivery. Source runtime/global docs and incumbent candidates read-only; saves untouched.
+
+| Internal worker ID | Exclusive candidate path | Current state |
+|---|---|---|
+| /root/capital_rooms | src/management/capital_rooms.js | Completed; root repairs integrated; joined read-only review returned; reservation released |
+| /root/shops_auctions | src/management/shops_auctions.js | Returned; reservation released |
+| /root/shipping_farming | src/management/shipping_farming.js | Returned; reservation released; root escort/desk accounting repair |
+| /root/workshop_aid | src/management/workshop_aid.js | Returned; reservation released |
+| /root/events_restoration | src/management/events_restoration.js | Returned; reservation released; root display/program guard repair |
+
+All content leaves used gpt-6-luna high, disjoint two-family modules. Representative capital source/schema reviewed before other content leaves. This is provisional source qualification under deferral, not behavioral parity. Initial leaf needed signature/stock/sale repairs, root helper needed actual knowledge situation attribution. No model escalation. Root owns all remaining source/host/validation/UI/build/docs, added one real bounded NPC foreman job and learned finite repeat recipe. No leaf owns shared integration. Host exposed eight total slots; peak this task used root plus four concurrently running content leaves. Capacity was not treated as a project-global constraint.
+
+PROGRESS: DESIGN.md expands/reviews all ten before runtime. Each MG ID implemented in candidate with normal actor/site/inventory/cash/job owners, no new save domain or clock. 84 commands: MG01 9, MG02 12, MG03 9, MG04 4, MG05 5, MG06 8, MG07 7, MG08 8, MG09 10, MG10 8 plus4 charter/supplies. Four people/five sites explicit once charter only. Combined live registry1338 commands imports. Content schema, host/UI/save imports, main syntax and scoped source whitespace checks pass. Final rebuild passes, bundle879942ea50be, served index/bundle byte equality passes. EVIDENCE.json stores full hashes. Read-only joined review found no actionable defect in inspected host/ledger/cancellation/context seams; source-only review, not gameplay. npm ci ran in candidate only, completed successfully. No behavior/test/browser/save suites run. Active GM Autonomous iteration step3 deferral reconciled as assignment requires; all changed gameplay is implemented-unverified and cases saved in ACCEPTANCE_BACKLOG.md.
+
+RESUME: Finite permitted source delivery finished; all MG01–MG10 expanded, implemented and rebuilt. All workers confirmed completed; no write reservations or unknown mutations remain. Server45478 serves http://127.0.0.1:18641 from this candidate for human review. Managed artifact01a12ba4-d97b-7020-84c2-8eaf25e820e1 remains attached. When phase permits, execute ACCEPTANCE_BACKLOG.md combined natural/browser/save/import/failure gate. Shared integration and director acceptance unassigned. No behavior/persistence pass claimed; no private saves read. IDEA_INDEX drift inspected: unrelated engine-portability/body-lineage links only; AGENTS/PROJECT/GM/LIFE_SIM unchanged.
+
+
+## Reference intake, revision 4
+
+Five-world checked represented-range source/design pointers received from 01a1297e-c3c2-7c23-b4ae-974565fb5cf5 and stored in REFERENCE_INTAKE.md/REFERENCE_INTAKE.json. Public report/review and qualification statuses read; private synthesis catalog inspected without consuming scene-specific sources. Employer/institution/era, exact custody and received knowledge remain local; pay/service examples are not universal prices. Candidate source/artifact hashes still match EVIDENCE.json. Runtime/balance/build/save/global owners unchanged; no new workers or implementation scope. Existing implemented-unverified gates remain. Source coordinator retains its own L10 delivery accounting.

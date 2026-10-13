@@ -1,0 +1,9 @@
+{"action": "invoke", "selector": "[data-foundation-probe=\"foundation.probe.b.s1.remove\"]"}
+{"action": "invoke", "selector": "[data-foundation-probe=\"foundation.probe.b.attack\"]"}
+{"action": "invoke", "selector": "[data-foundation-probe=\"foundation.probe.b.s2.remove\"]"}
+{"action": "invoke", "selector": "[data-foundation-probe=\"foundation.probe.b.attack\"]"}
+{"action": "save", "name": "overlap-aftermath"}
+{"action": "reload"}
+{"action": "import", "path": "/tmp/yairpg-foundation-interaction-mid-suppression-real.json"}
+{"action": "save", "name": "mid-import-loaded"}
+{"action": "stop"}

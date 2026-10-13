@@ -1,0 +1,22 @@
+{
+  "thread": "01a13621-d902-7270-9b2d-cfb5672f3a13",
+  "head": "dd3efe3383f12f0aac22e4f390aae90fae2e7fc4",
+  "branch": "codex/gameplay-foundations",
+  "transfer": "reservations/R12_SUCCESSOR_TRANSFER.json",
+  "sha256": {
+    "src/structured_container_runtime.js": "b50fecd3c630237112826f2cdac9b7ba6e6551277482efb3472bdf4e1d856696",
+    "src/structured_pack_definitions.js": "73ecc5cdee21b422670fd3f211a220c605501f2879dd1b3c2bec02f08ea6c62e",
+    "src/structured_pack_runtime.js": "6fde55ab7e9e42109bc5553ac0bcb057e4310687c87c5a60ace390e10bb670e1",
+    "src/structured_pack_state.js": "8565b66675eca5dfec3f81c4a449b7d147baaa22fab49fb96a57c574994dcb10",
+    "src/simulation_effects.js": "d72c0b6984738b718faaf5afab29733290e4c487b5d953b0b1722dae29495b71",
+    "src/expansion_engine.js": "530eecd10b634f31e41679bbd983d9ebb73bc56ca8c48eff7d1c11da7e4a99bb",
+    "src/content_packs.js": "399730352eac8882361d17ef055042ec6e7337859bf905d6a6d1b6d7ad045255",
+    "src/main.js": "e102ab4161db2846650f52378769e867b4a77b2443b18e79c850d23f56c352bb",
+    "src/local_livelihood_content.js": "f6f941a81947e50694722df80a382d0db5c94250dec78fe2cd2dc6adc350f41d",
+    "src/foundation_start_content.js": "c355f66c301b48dbed3f96d1ae79bd287a043c553ac6ab92de4ade4579b0378a",
+    "tests/structured_container_integration.test.js": "839e6e24fd0645f0ed5a126b3d968b3c39b97642351f04d842aa8688ad804a66",
+    "tests/structured_container_development.test.js": "e814e98da5913b2a4d1db66e7abdbdd49043f7504f19a06760751cc7bef7947b",
+    "tests/structured_container_preparation.test.js": "3e20688f128c71ec9e92669744e20b0a21ed2d999b6980daadae4d5dba696f20",
+    "tests/structured_container_runtime.test.js": "cee864bffc70f2c2ea0f3881243b613cf39c57ca63ac23f39cc61e08744f90bd"
+  }
+}

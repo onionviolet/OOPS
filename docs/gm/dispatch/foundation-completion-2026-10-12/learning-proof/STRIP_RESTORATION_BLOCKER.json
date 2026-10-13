@@ -1,0 +1,51 @@
+{
+  "status": "native-restoration-failed",
+  "runnerPid": 43718,
+  "session": 80833,
+  "servedHash": "0e6d54c89228ace73ceaa6c964364a99eb13915fb66aa00f2838e4970470479b",
+  "observations": [
+    {
+      "path": "/tmp/yairpg-foundation-learning-worker-player-strip-produced.json",
+      "sha256": "1c086c1bb0117890743a129430c30daeac8df9812a3fbb929e2ec50ecda757c5",
+      "clock": 11641,
+      "sequence": 1236,
+      "nativeStripKeys": [
+        "{\"id\":\"Measured drain strip\",\"datum\":{\"schema\":1,\"sampleCause\":\"simulation:1219\",\"measuredCause\":\"simulation:1221\",\"productionCause\":\"simulation:1234\",\"makerId\":\"player\"}}"
+      ],
+      "madeEvidence": "{\"schema\":1,\"sampleCause\":\"simulation:1219\",\"measuredCause\":\"simulation:1221\",\"teacherSourceCause\":null,\"cause\":\"simulation:1234\",\"at\":11641,\"actorId\":\"player\"}"
+    },
+    {
+      "path": "/tmp/yairpg-foundation-learning-worker-player-strip-reloaded.json",
+      "sha256": "0c9fe70da93cd86d19d57c0fa5fed0ad2c7f6b3a4cc9781c4ecb8ec4ce8cad45",
+      "clock": 11641,
+      "sequence": 1236,
+      "nativeStripKeys": [
+        "{\"id\":\"Measured drain strip\"}"
+      ],
+      "madeEvidence": "{\"schema\":1,\"sampleCause\":\"simulation:1219\",\"measuredCause\":\"simulation:1221\",\"teacherSourceCause\":null,\"cause\":\"simulation:1234\",\"at\":11641,\"actorId\":\"player\"}",
+      "archivedActualObservation": "/tmp/yairpg-foundation-learning-worker-player-strip-reloaded-failed-0e6d.json",
+      "archivedSha256": "0c9fe70da93cd86d19d57c0fa5fed0ad2c7f6b3a4cc9781c4ecb8ec4ce8cad45",
+      "archivedMatchesOriginal": true
+    },
+    {
+      "path": "/tmp/yairpg-foundation-learning-worker-player-strip-literal-imported.json",
+      "sha256": "2ba284ba228192f0ef2190d246816c125e355749ea45dcd5e6f504b10e710cc1",
+      "clock": 11641,
+      "sequence": 1236,
+      "nativeStripKeys": [
+        "{\"id\":\"Measured drain strip\"}"
+      ],
+      "madeEvidence": "{\"schema\":1,\"sampleCause\":\"simulation:1219\",\"measuredCause\":\"simulation:1221\",\"teacherSourceCause\":null,\"cause\":\"simulation:1234\",\"at\":11641,\"actorId\":\"player\"}",
+      "archivedActualObservation": "/tmp/yairpg-foundation-learning-worker-player-strip-literal-imported-failed-0e6d.json",
+      "archivedSha256": "2ba284ba228192f0ef2190d246816c125e355749ea45dcd5e6f504b10e710cc1",
+      "archivedMatchesOriginal": true
+    }
+  ],
+  "actualExport": "/tmp/yairpg-foundation-learning-worker-player-strip-produced.txt",
+  "gate": "Produced exact stamped strip must survive native reload and literal file import",
+  "actual": "reload collapses datum identity to plain template key; literal exported file import also yields plain key",
+  "lineUsed": false,
+  "rootRepairOwner": true,
+  "correctResumeBoundary": "/tmp/yairpg-foundation-learning-worker-player-strip-produced.json",
+  "remainingRainAtCorrectBoundary": 7
+}

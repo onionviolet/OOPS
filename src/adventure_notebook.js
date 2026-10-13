@@ -1,3 +1,4 @@
+import {registerWorkspaceModule,workspaceOwns,openWorkspaceModule} from './workspace_layout.js';
 import {STEAM_ABSORPTION_GROUPS} from './steam_absorption_content.js';
 import {isFeatureBattleSchema} from './feature_expansion_battle.js';
 import {activePractice} from "./techniques.js";
@@ -76,12 +77,12 @@ export function createAdventureNotebook({registry, read}) {
         const active = attention(state,registry,snapshot.inCombat), familiar = knownPeople || state.chronicle || state.simulation || Object.keys(actor.techniques).length || actor.facts["town.joined"] || active;
         root.hidden = !familiar;
         const host = document.getElementById("notebook_box_div"), control = document.getElementById("journal_show_notebook");
-        if(root.parentElement !== host && host) host.append(root);
+        if(!workspaceOwns(root) && root.parentElement !== host && host) host.append(root);
         if(control) control.hidden = !familiar;
         for(const [id] of panels) {
             const panel = document.getElementById(id), wrap=wrappers.get(id);
             wrap.hidden=!!state.realmPrototype?.activeVisitId&&id!=="pocket_realm_panel"&&id!=="known_routes_panel";
-            if(panel && panel.parentElement !== wrap) wrap.append(panel);
+            if(panel && !workspaceOwns(panel) && panel.parentElement !== wrap) wrap.append(panel);
         }
         wrappers.get("expedition_panel").hidden = location !== "Village" && active?.panel !== "expedition_panel";
         wrappers.get("chronicle_panel").hidden = location !== "Village" && active?.panel !== "chronicle_panel";
@@ -93,6 +94,7 @@ export function createAdventureNotebook({registry, read}) {
             // A newly waiting response must remain reachable after moving away
             // from the location menu. User tab choices then survive later ticks.
             control?.click();
+            openWorkspaceModule('notebook');
         }
         lastLocation=location; lastAttention=active?.id || null;
         for(const [id,button] of buttons) {
@@ -107,6 +109,11 @@ export function createAdventureNotebook({registry, read}) {
         for(const [id,button] of buttons) {const isSelected=id===selected; button.setAttribute("aria-selected",String(isSelected)); button.tabIndex=isSelected ? 0 : -1; sections.get(id).hidden=!isSelected;}
         const message = error || active?.text || ""; if(status.textContent !== message) status.textContent=message; status.hidden=!message;
     }
-    function open(view = selected) {render(); if(buttons.has(view) && !buttons.get(view).disabled) {selected=view; render();} document.getElementById("journal_show_notebook")?.click();}
-    render(); return {render, open};
+    function open(view = selected) {openWorkspaceModule('notebook');render(); if(buttons.has(view) && !buttons.get(view).disabled) {selected=view; render();} document.getElementById("journal_show_notebook")?.click();}
+    render();
+    // Discovered: the notebook once its journal control shows (familiar, from saved state); people and routes once they have had content (sticky per session).
+    registerWorkspaceModule({id:'notebook',title:'Notes, practice & people',node:root,home:'right',eligible:()=>!root.hidden,discovered:()=>{const c=document.getElementById('journal_show_notebook');return c?!c.hidden:!root.hidden;}});
+    registerWorkspaceModule({id:'known-people',title:'People you know',node:people.panel,home:'right',eligible:()=>!people.panel.hidden,discovered:()=>!people.panel.hidden});
+    const routes=document.getElementById('known_routes_panel');if(routes)registerWorkspaceModule({id:'known-routes',title:'Known routes',node:routes,home:'right',eligible:()=>!routes.hidden,discovered:()=>!routes.hidden});
+    return {render, open};
 }

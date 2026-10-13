@@ -1,0 +1,27 @@
+[
+  {
+    "target": "Qud",
+    "path": "/Users/weiwei/.codex/research/caves-of-qud/2.0.211.56/DECOMPILATION_MANIFEST.json",
+    "exists_now": false
+  },
+  {
+    "target": "ACS",
+    "path": "/Users/weiwei/.codex/research/amazing-cultivation-simulator/17074448/DECOMPILATION_MANIFEST.json",
+    "exists_now": false
+  },
+  {
+    "target": "Book of Hours",
+    "path": "/Users/weiwei/.codex/research/book-of-hours/22091683/EXPORT_HASHES.json",
+    "exists_now": false
+  },
+  {
+    "target": "Factorio",
+    "path": "/Users/weiwei/.codex/research/factorio/native-23347942/priority-recovered/arm64/10073e2e4.c",
+    "exists_now": false
+  },
+  {
+    "target": "Upload Labs",
+    "path": "/Users/weiwei/.codex/research/upload-labs/VERIFICATION.json",
+    "exists_now": false
+  }
+]

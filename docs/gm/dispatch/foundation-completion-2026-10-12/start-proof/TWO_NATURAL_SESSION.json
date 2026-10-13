@@ -1,0 +1,7096 @@
+{
+  "pid": 59469,
+  "origin": "http://127.0.0.1:18646",
+  "startedHash": "a4e84278059a711738b9149a331f916496dee79140384c021e11052187baef26",
+  "endedHash": "a4e84278059a711738b9149a331f916496dee79140384c021e11052187baef26",
+  "events": [
+    {
+      "action": "click",
+      "selector": "[data-workspace-action=edit-layout]"
+    },
+    {
+      "action": "click",
+      "selector": "[data-workspace-action=collapse][data-module=beginning]"
+    },
+    {
+      "action": "click",
+      "selector": "[data-workspace-action=edit-layout]"
+    },
+    {
+      "action": "click",
+      "selector": "[data-structured-begin]"
+    },
+    {
+      "action": "save",
+      "name": "two-begin"
+    },
+    {
+      "action": "equip",
+      "key": "{\"id\":\"foundation_start.work_coat\"}"
+    },
+    {
+      "action": "unequip",
+      "slot": "torso"
+    },
+    {
+      "action": "click",
+      "selector": "[data-structured-action='foundation_start.shape']"
+    },
+    {
+      "action": "wait",
+      "ms": 3500
+    },
+    {
+      "action": "save",
+      "name": "two-shaped"
+    },
+    {
+      "action": "click",
+      "selector": "[data-structured-action='foundation_start.refit']"
+    },
+    {
+      "action": "wait",
+      "ms": 2000
+    },
+    {
+      "action": "equip",
+      "key": "{\"id\":\"foundation_start.work_coat\"}"
+    },
+    {
+      "action": "save",
+      "name": "two-fitted"
+    },
+    {
+      "action": "click",
+      "selector": "[data-structured-renewal]"
+    },
+    {
+      "action": "save",
+      "name": "two-renewed"
+    },
+    {
+      "action": "click",
+      "selector": "[data-structured-action='foundation_start.shape']"
+    },
+    {
+      "action": "wait",
+      "ms": 3000
+    },
+    {
+      "action": "save",
+      "name": "two-continued"
+    }
+  ],
+  "errors": [],
+  "snapshots": [
+    {
+      "cmd": {
+        "action": "click",
+        "selector": "[data-workspace-action=edit-layout]"
+      },
+      "result": {
+        "hash": "a4e84278059a711738b9149a331f916496dee79140384c021e11052187baef26",
+        "startedHash": "a4e84278059a711738b9149a331f916496dee79140384c021e11052187baef26",
+        "clock": 0,
+        "sequence": 97,
+        "schema": 5,
+        "location": "Village",
+        "money": 102,
+        "inventory": {
+          "{\"id\":\"Cheap leather pants\",\"quality\":40}": {
+            "count": 1
+          },
+          "{\"id\":\"Stale bread\"}": {
+            "count": 5
+          }
+        },
+        "structured": {
+          "schema": 1,
+          "packs": {},
+          "registered": {
+            "foundation_start": {
+              "worldId": "foundation_start.workroom",
+              "locationIds": [
+                "foundation_start.shelter"
+              ],
+              "itemIds": [
+                "foundation_start.work_coat",
+                "foundation_start.wood_blank",
+                "foundation_start.clasp"
+              ]
+            }
+          }
+        },
+        "character": {
+          "name": "Mira Proof",
+          "bio": {
+            "age": "adult",
+            "height": "average",
+            "race": "human",
+            "gender": "female"
+          },
+          "equipment": {}
+        },
+        "rng": 1,
+        "buttons": [
+          {
+            "text": "Inventory",
+            "id": "switch_to_inventory",
+            "attrs": []
+          },
+          {
+            "text": "Combat",
+            "id": "switch_to_combat",
+            "attrs": []
+          },
+          {
+            "text": "Stats",
+            "id": "character_show_stats",
+            "attrs": [
+              [
+                "data-translation",
+                "ui show stats"
+              ]
+            ]
+          },
+          {
+            "text": "Bio",
+            "id": "character_show_bio",
+            "attrs": [
+              [
+                "data-translation",
+                "ui show bio"
+              ]
+            ]
+          },
+          {
+            "text": "Equipment",
+            "id": "character_show_equipment",
+            "attrs": [
+              [
+                "data-translation",
+                "ui show equipment"
+              ]
+            ]
+          },
+          {
+            "text": "Tools",
+            "id": "character_show_tools",
+            "attrs": [
+              [
+                "data-translation",
+                "ui show tools"
+              ]
+            ]
+          },
+          {
+            "text": "Sort by name",
+            "id": "inventory_sort_by_name",
+            "attrs": [
+              [
+                "data-translation",
+                "ui sort name"
+              ]
+            ]
+          },
+          {
+            "text": "Sort by value",
+            "id": "inventory_sort_by_price",
+            "attrs": [
+              [
+                "data-translation",
+                "ui sort value"
+              ]
+            ]
+          },
+          {
+            "text": "Sort by type",
+            "id": "inventory_sort_by_type",
+            "attrs": [
+              [
+                "data-translation",
+                "ui sort type"
+              ]
+            ]
+          },
+          {
+            "text": "All",
+            "id": "inventory_show_all",
+            "attrs": [
+              [
+                "data-translation",
+                "ui show all"
+              ]
+            ]
+          },
+          {
+            "text": "Equipment",
+            "id": "inventory_show_equipment",
+            "attrs": [
+              [
+                "data-translation",
+                "ui show equipment"
+              ]
+            ]
+          },
+          {
+            "text": "Usable",
+            "id": "inventory_show_consumable",
+            "attrs": [
+              [
+                "data-translation",
+                "ui show usable"
+              ]
+            ]
+          },
+          {
+            "text": "Other",
+            "id": "inventory_show_other",
+            "attrs": [
+              [
+                "data-translation",
+                "ui show other"
+              ]
+            ]
+          },
+          {
+            "text": "Favs",
+            "id": "inventory_show_favs",
+            "attrs": [
+              [
+                "data-translation",
+                "ui show favs"
+              ]
+            ]
+          },
+          {
+            "text": "Ask for repair notes (one field clear)",
+            "disabled": true,
+            "id": "",
+            "attrs": [
+              [
+                "data-fort-action",
+                "notes"
+              ]
+            ]
+          },
+          {
+            "text": "Buy repair notes (10 coins)",
+            "disabled": false,
+            "id": "",
+            "attrs": [
+              [
+                "data-fort-action",
+                "buy_notes"
+              ]
+            ]
+          },
+          {
+            "text": "question_answer Talk to someone",
+            "id": "",
+            "attrs": [
+              [
+                "data-native-keyboard",
+                "true"
+              ]
+            ]
+          },
+          {
+            "text": "work_outline Find work",
+            "id": "",
+            "attrs": [
+              [
+                "data-native-keyboard",
+                "true"
+              ]
+            ]
+          },
+          {
+            "text": "Complete experimental admission drill",
+            "disabled": false,
+            "id": "",
+            "attrs": [
+              [
+                "data-foundation-probe",
+                "enroll"
+              ]
+            ]
+          },
+          {
+            "text": "Quests",
+            "id": "journal_show_quests",
+            "attrs": []
+          },
+          {
+            "text": "Bestiary",
+            "id": "journal_show_bestiary",
+            "attrs": []
+          },
+          {
+            "text": "Anthology",
+            "id": "journal_show_books",
+            "attrs": []
+          },
+          {
+            "text": "Data",
+            "id": "journal_show_data",
+            "attrs": []
+          },
+          {
+            "text": "Sort by name",
+            "id": "skill_sort_by_name",
+            "attrs": []
+          },
+          {
+            "text": "Sort by level",
+            "id": "skill_sort_by_level",
+            "attrs": []
+          },
+          {
+            "text": "Sort by progress",
+            "id": "skill_sort_by_progress",
+            "attrs": []
+          },
+          {
+            "text": "Skills",
+            "id": "show_skills",
+            "attrs": []
+          },
+          {
+            "text": "Stances",
+            "id": "show_stances",
+            "attrs": []
+          },
+          {
+            "text": "Magic",
+            "id": "show_magic",
+            "attrs": []
+          },
+          {
+            "text": "Remember this day",
+            "disabled": false,
+            "id": "life_remember_day",
+            "attrs": []
+          }
+        ],
+        "errors": []
+      }
+    },
+    {
+      "cmd": {
+        "action": "click",
+        "selector": "[data-workspace-action=collapse][data-module=beginning]"
+      },
+      "result": {
+        "hash": "a4e84278059a711738b9149a331f916496dee79140384c021e11052187baef26",
+        "startedHash": "a4e84278059a711738b9149a331f916496dee79140384c021e11052187baef26",
+        "clock": 0,
+        "sequence": 98,
+        "schema": 5,
+        "location": "Village",
+        "money": 102,
+        "inventory": {
+          "{\"id\":\"Cheap leather pants\",\"quality\":40}": {
+            "count": 1
+          },
+          "{\"id\":\"Stale bread\"}": {
+            "count": 5
+          }
+        },
+        "structured": {
+          "schema": 1,
+          "packs": {},
+          "registered": {
+            "foundation_start": {
+              "worldId": "foundation_start.workroom",
+              "locationIds": [
+                "foundation_start.shelter"
+              ],
+              "itemIds": [
+                "foundation_start.work_coat",
+                "foundation_start.wood_blank",
+                "foundation_start.clasp"
+              ]
+            }
+          }
+        },
+        "character": {
+          "name": "Mira Proof",
+          "bio": {
+            "age": "adult",
+            "height": "average",
+            "race": "human",
+            "gender": "female"
+          },
+          "equipment": {}
+        },
+        "rng": 1,
+        "buttons": [
+          {
+            "text": "Inventory",
+            "id": "switch_to_inventory",
+            "attrs": []
+          },
+          {
+            "text": "Combat",
+            "id": "switch_to_combat",
+            "attrs": []
+          },
+          {
+            "text": "Stats",
+            "id": "character_show_stats",
+            "attrs": [
+              [
+                "data-translation",
+                "ui show stats"
+              ]
+            ]
+          },
+          {
+            "text": "Bio",
+            "id": "character_show_bio",
+            "attrs": [
+              [
+                "data-translation",
+                "ui show bio"
+              ]
+            ]
+          },
+          {
+            "text": "Equipment",
+            "id": "character_show_equipment",
+            "attrs": [
+              [
+                "data-translation",
+                "ui show equipment"
+              ]
+            ]
+          },
+          {
+            "text": "Tools",
+            "id": "character_show_tools",
+            "attrs": [
+              [
+                "data-translation",
+                "ui show tools"
+              ]
+            ]
+          },
+          {
+            "text": "Sort by name",
+            "id": "inventory_sort_by_name",
+            "attrs": [
+              [
+                "data-translation",
+                "ui sort name"
+              ]
+            ]
+          },
+          {
+            "text": "Sort by value",
+            "id": "inventory_sort_by_price",
+            "attrs": [
+              [
+                "data-translation",
+                "ui sort value"
+              ]
+            ]
+          },
+          {
+            "text": "Sort by type",
+            "id": "inventory_sort_by_type",
+            "attrs": [
+              [
+                "data-translation",
+                "ui sort type"
+              ]
+            ]
+          },
+          {
+            "text": "All",
+            "id": "inventory_show_all",
+            "attrs": [
+              [
+                "data-translation",
+                "ui show all"
+              ]
+            ]
+          },
+          {
+            "text": "Equipment",
+            "id": "inventory_show_equipment",
+            "attrs": [
+              [
+                "data-translation",
+                "ui show equipment"
+              ]
+            ]
+          },
+          {
+            "text": "Usable",
+            "id": "inventory_show_consumable",
+            "attrs": [
+              [
+                "data-translation",
+                "ui show usable"
+              ]
+            ]
+          },
+          {
+            "text": "Other",
+            "id": "inventory_show_other",
+            "attrs": [
+              [
+                "data-translation",
+                "ui show other"
+              ]
+            ]
+          },
+          {
+            "text": "Favs",
+            "id": "inventory_show_favs",
+            "attrs": [
+              [
+                "data-translation",
+                "ui show favs"
+              ]
+            ]
+          },
+          {
+            "text": "Ask for repair notes (one field clear)",
+            "disabled": true,
+            "id": "",
+            "attrs": [
+              [
+                "data-fort-action",
+                "notes"
+              ]
+            ]
+          },
+          {
+            "text": "Buy repair notes (10 coins)",
+            "disabled": false,
+            "id": "",
+            "attrs": [
+              [
+                "data-fort-action",
+                "buy_notes"
+              ]
+            ]
+          },
+          {
+            "text": "question_answer Talk to someone",
+            "id": "",
+            "attrs": [
+              [
+                "data-native-keyboard",
+                "true"
+              ]
+            ]
+          },
+          {
+            "text": "work_outline Find work",
+            "id": "",
+            "attrs": [
+              [
+                "data-native-keyboard",
+                "true"
+              ]
+            ]
+          },
+          {
+            "text": "Complete experimental admission drill",
+            "disabled": false,
+            "id": "",
+            "attrs": [
+              [
+                "data-foundation-probe",
+                "enroll"
+              ]
+            ]
+          },
+          {
+            "text": "Quests",
+            "id": "journal_show_quests",
+            "attrs": []
+          },
+          {
+            "text": "Bestiary",
+            "id": "journal_show_bestiary",
+            "attrs": []
+          },
+          {
+            "text": "Anthology",
+            "id": "journal_show_books",
+            "attrs": []
+          },
+          {
+            "text": "Data",
+            "id": "journal_show_data",
+            "attrs": []
+          },
+          {
+            "text": "Sort by name",
+            "id": "skill_sort_by_name",
+            "attrs": []
+          },
+          {
+            "text": "Sort by level",
+            "id": "skill_sort_by_level",
+            "attrs": []
+          },
+          {
+            "text": "Sort by progress",
+            "id": "skill_sort_by_progress",
+            "attrs": []
+          },
+          {
+            "text": "Skills",
+            "id": "show_skills",
+            "attrs": []
+          },
+          {
+            "text": "Stances",
+            "id": "show_stances",
+            "attrs": []
+          },
+          {
+            "text": "Magic",
+            "id": "show_magic",
+            "attrs": []
+          },
+          {
+            "text": "Remember this day",
+            "disabled": false,
+            "id": "life_remember_day",
+            "attrs": []
+          },
+          {
+            "text": "Begin",
+            "disabled": false,
+            "id": "",
+            "attrs": [
+              [
+                "data-structured-begin",
+                "begin"
+              ]
+            ]
+          }
+        ],
+        "errors": []
+      }
+    },
+    {
+      "cmd": {
+        "action": "click",
+        "selector": "[data-workspace-action=edit-layout]"
+      },
+      "result": {
+        "hash": "a4e84278059a711738b9149a331f916496dee79140384c021e11052187baef26",
+        "startedHash": "a4e84278059a711738b9149a331f916496dee79140384c021e11052187baef26",
+        "clock": 0,
+        "sequence": 99,
+        "schema": 5,
+        "location": "Village",
+        "money": 102,
+        "inventory": {
+          "{\"id\":\"Cheap leather pants\",\"quality\":40}": {
+            "count": 1
+          },
+          "{\"id\":\"Stale bread\"}": {
+            "count": 5
+          }
+        },
+        "structured": {
+          "schema": 1,
+          "packs": {},
+          "registered": {
+            "foundation_start": {
+              "worldId": "foundation_start.workroom",
+              "locationIds": [
+                "foundation_start.shelter"
+              ],
+              "itemIds": [
+                "foundation_start.work_coat",
+                "foundation_start.wood_blank",
+                "foundation_start.clasp"
+              ]
+            }
+          }
+        },
+        "character": {
+          "name": "Mira Proof",
+          "bio": {
+            "age": "adult",
+            "height": "average",
+            "race": "human",
+            "gender": "female"
+          },
+          "equipment": {}
+        },
+        "rng": 1,
+        "buttons": [
+          {
+            "text": "Inventory",
+            "id": "switch_to_inventory",
+            "attrs": []
+          },
+          {
+            "text": "Combat",
+            "id": "switch_to_combat",
+            "attrs": []
+          },
+          {
+            "text": "Stats",
+            "id": "character_show_stats",
+            "attrs": [
+              [
+                "data-translation",
+                "ui show stats"
+              ]
+            ]
+          },
+          {
+            "text": "Bio",
+            "id": "character_show_bio",
+            "attrs": [
+              [
+                "data-translation",
+                "ui show bio"
+              ]
+            ]
+          },
+          {
+            "text": "Equipment",
+            "id": "character_show_equipment",
+            "attrs": [
+              [
+                "data-translation",
+                "ui show equipment"
+              ]
+            ]
+          },
+          {
+            "text": "Tools",
+            "id": "character_show_tools",
+            "attrs": [
+              [
+                "data-translation",
+                "ui show tools"
+              ]
+            ]
+          },
+          {
+            "text": "Sort by name",
+            "id": "inventory_sort_by_name",
+            "attrs": [
+              [
+                "data-translation",
+                "ui sort name"
+              ]
+            ]
+          },
+          {
+            "text": "Sort by value",
+            "id": "inventory_sort_by_price",
+            "attrs": [
+              [
+                "data-translation",
+                "ui sort value"
+              ]
+            ]
+          },
+          {
+            "text": "Sort by type",
+            "id": "inventory_sort_by_type",
+            "attrs": [
+              [
+                "data-translation",
+                "ui sort type"
+              ]
+            ]
+          },
+          {
+            "text": "All",
+            "id": "inventory_show_all",
+            "attrs": [
+              [
+                "data-translation",
+                "ui show all"
+              ]
+            ]
+          },
+          {
+            "text": "Equipment",
+            "id": "inventory_show_equipment",
+            "attrs": [
+              [
+                "data-translation",
+                "ui show equipment"
+              ]
+            ]
+          },
+          {
+            "text": "Usable",
+            "id": "inventory_show_consumable",
+            "attrs": [
+              [
+                "data-translation",
+                "ui show usable"
+              ]
+            ]
+          },
+          {
+            "text": "Other",
+            "id": "inventory_show_other",
+            "attrs": [
+              [
+                "data-translation",
+                "ui show other"
+              ]
+            ]
+          },
+          {
+            "text": "Favs",
+            "id": "inventory_show_favs",
+            "attrs": [
+              [
+                "data-translation",
+                "ui show favs"
+              ]
+            ]
+          },
+          {
+            "text": "Ask for repair notes (one field clear)",
+            "disabled": true,
+            "id": "",
+            "attrs": [
+              [
+                "data-fort-action",
+                "notes"
+              ]
+            ]
+          },
+          {
+            "text": "Buy repair notes (10 coins)",
+            "disabled": false,
+            "id": "",
+            "attrs": [
+              [
+                "data-fort-action",
+                "buy_notes"
+              ]
+            ]
+          },
+          {
+            "text": "question_answer Talk to someone",
+            "id": "",
+            "attrs": [
+              [
+                "data-native-keyboard",
+                "true"
+              ]
+            ]
+          },
+          {
+            "text": "work_outline Find work",
+            "id": "",
+            "attrs": [
+              [
+                "data-native-keyboard",
+                "true"
+              ]
+            ]
+          },
+          {
+            "text": "Complete experimental admission drill",
+            "disabled": false,
+            "id": "",
+            "attrs": [
+              [
+                "data-foundation-probe",
+                "enroll"
+              ]
+            ]
+          },
+          {
+            "text": "Quests",
+            "id": "journal_show_quests",
+            "attrs": []
+          },
+          {
+            "text": "Bestiary",
+            "id": "journal_show_bestiary",
+            "attrs": []
+          },
+          {
+            "text": "Anthology",
+            "id": "journal_show_books",
+            "attrs": []
+          },
+          {
+            "text": "Data",
+            "id": "journal_show_data",
+            "attrs": []
+          },
+          {
+            "text": "Sort by name",
+            "id": "skill_sort_by_name",
+            "attrs": []
+          },
+          {
+            "text": "Sort by level",
+            "id": "skill_sort_by_level",
+            "attrs": []
+          },
+          {
+            "text": "Sort by progress",
+            "id": "skill_sort_by_progress",
+            "attrs": []
+          },
+          {
+            "text": "Skills",
+            "id": "show_skills",
+            "attrs": []
+          },
+          {
+            "text": "Stances",
+            "id": "show_stances",
+            "attrs": []
+          },
+          {
+            "text": "Magic",
+            "id": "show_magic",
+            "attrs": []
+          },
+          {
+            "text": "Remember this day",
+            "disabled": false,
+            "id": "life_remember_day",
+            "attrs": []
+          },
+          {
+            "text": "Begin",
+            "disabled": false,
+            "id": "",
+            "attrs": [
+              [
+                "data-structured-begin",
+                "begin"
+              ]
+            ]
+          }
+        ],
+        "errors": []
+      }
+    },
+    {
+      "cmd": {
+        "action": "click",
+        "selector": "[data-structured-begin]"
+      },
+      "result": {
+        "hash": "a4e84278059a711738b9149a331f916496dee79140384c021e11052187baef26",
+        "startedHash": "a4e84278059a711738b9149a331f916496dee79140384c021e11052187baef26",
+        "clock": 1,
+        "sequence": 100,
+        "schema": 5,
+        "location": "foundation_start.shelter",
+        "money": 102,
+        "inventory": {
+          "{\"id\":\"Cheap leather pants\",\"quality\":40}": {
+            "count": 1
+          },
+          "{\"id\":\"Stale bread\"}": {
+            "count": 5
+          },
+          "{\"id\":\"foundation_start.work_coat\"}": {
+            "count": 1
+          },
+          "{\"id\":\"foundation_start.wood_blank\"}": {
+            "count": 2
+          }
+        },
+        "powers": {},
+        "custody": {},
+        "structured": {
+          "schema": 1,
+          "packs": {},
+          "registered": {
+            "foundation_start": {
+              "worldId": "foundation_start.workroom",
+              "locationIds": [
+                "foundation_start.shelter"
+              ],
+              "itemIds": [
+                "foundation_start.work_coat",
+                "foundation_start.wood_blank",
+                "foundation_start.clasp"
+              ]
+            }
+          },
+          "structured": {
+            "schema": 2,
+            "packId": "foundation_start",
+            "revision": 1,
+            "contentHash": "sha256:9d09e527259b3a926d00c901598c8e6522974c19c94ae62b8ecbd3acb0d546a7",
+            "startId": "foundation_start.paired_start",
+            "seed": 1,
+            "originSequence": 100,
+            "instanceId": "foundation_start.run.1.100",
+            "worldId": "foundation_start.workroom",
+            "locationId": "foundation_start.shelter",
+            "locationIds": [
+              "foundation_start.shelter"
+            ],
+            "containerBindings": [],
+            "peopleIds": [],
+            "units": [],
+            "initializedAt": 0,
+            "snapshotHash": "sha256:41d87cb0a52cd0094bd30d09d1e45f912c1ea9b2b5029d7e8549277edf1b48ad",
+            "choice": 0,
+            "startCount": 2,
+            "bodyId": "foundation_start.player.body",
+            "controllerId": "player",
+            "playerActorId": "player",
+            "life": "alive",
+            "lifeId": "foundation_start.run.1.100.life",
+            "bodyInstanceId": "foundation_start.run.1.100.body"
+          }
+        },
+        "body": {
+          "id": "foundation_start.player.body",
+          "ownerId": "player",
+          "controllerId": "player",
+          "form": "human",
+          "lifeStage": "adult",
+          "hands": 2,
+          "mobile": true,
+          "instanceId": "foundation_start.run.1.100.body"
+        },
+        "character": {
+          "name": "Mira Proof",
+          "bio": {
+            "age": "adult",
+            "height": "average",
+            "race": "human",
+            "gender": "female"
+          },
+          "equipment": {}
+        },
+        "rng": 1,
+        "buttons": [
+          {
+            "text": "Inventory",
+            "id": "switch_to_inventory",
+            "attrs": []
+          },
+          {
+            "text": "Combat",
+            "id": "switch_to_combat",
+            "attrs": []
+          },
+          {
+            "text": "Stats",
+            "id": "character_show_stats",
+            "attrs": [
+              [
+                "data-translation",
+                "ui show stats"
+              ]
+            ]
+          },
+          {
+            "text": "Bio",
+            "id": "character_show_bio",
+            "attrs": [
+              [
+                "data-translation",
+                "ui show bio"
+              ]
+            ]
+          },
+          {
+            "text": "Equipment",
+            "id": "character_show_equipment",
+            "attrs": [
+              [
+                "data-translation",
+                "ui show equipment"
+              ]
+            ]
+          },
+          {
+            "text": "Tools",
+            "id": "character_show_tools",
+            "attrs": [
+              [
+                "data-translation",
+                "ui show tools"
+              ]
+            ]
+          },
+          {
+            "text": "Sort by name",
+            "id": "inventory_sort_by_name",
+            "attrs": [
+              [
+                "data-translation",
+                "ui sort name"
+              ]
+            ]
+          },
+          {
+            "text": "Sort by value",
+            "id": "inventory_sort_by_price",
+            "attrs": [
+              [
+                "data-translation",
+                "ui sort value"
+              ]
+            ]
+          },
+          {
+            "text": "Sort by type",
+            "id": "inventory_sort_by_type",
+            "attrs": [
+              [
+                "data-translation",
+                "ui sort type"
+              ]
+            ]
+          },
+          {
+            "text": "All",
+            "id": "inventory_show_all",
+            "attrs": [
+              [
+                "data-translation",
+                "ui show all"
+              ]
+            ]
+          },
+          {
+            "text": "Equipment",
+            "id": "inventory_show_equipment",
+            "attrs": [
+              [
+                "data-translation",
+                "ui show equipment"
+              ]
+            ]
+          },
+          {
+            "text": "Usable",
+            "id": "inventory_show_consumable",
+            "attrs": [
+              [
+                "data-translation",
+                "ui show usable"
+              ]
+            ]
+          },
+          {
+            "text": "Other",
+            "id": "inventory_show_other",
+            "attrs": [
+              [
+                "data-translation",
+                "ui show other"
+              ]
+            ]
+          },
+          {
+            "text": "Favs",
+            "id": "inventory_show_favs",
+            "attrs": [
+              [
+                "data-translation",
+                "ui show favs"
+              ]
+            ]
+          },
+          {
+            "text": "Complete experimental admission drill",
+            "disabled": false,
+            "id": "",
+            "attrs": [
+              [
+                "data-foundation-probe",
+                "enroll"
+              ]
+            ]
+          },
+          {
+            "text": "Quests",
+            "id": "journal_show_quests",
+            "attrs": []
+          },
+          {
+            "text": "Bestiary",
+            "id": "journal_show_bestiary",
+            "attrs": []
+          },
+          {
+            "text": "Anthology",
+            "id": "journal_show_books",
+            "attrs": []
+          },
+          {
+            "text": "Data",
+            "id": "journal_show_data",
+            "attrs": []
+          },
+          {
+            "text": "Notebook",
+            "disabled": false,
+            "id": "journal_show_notebook",
+            "attrs": []
+          },
+          {
+            "text": "Sort by name",
+            "id": "skill_sort_by_name",
+            "attrs": []
+          },
+          {
+            "text": "Sort by level",
+            "id": "skill_sort_by_level",
+            "attrs": []
+          },
+          {
+            "text": "Sort by progress",
+            "id": "skill_sort_by_progress",
+            "attrs": []
+          },
+          {
+            "text": "Skills",
+            "id": "show_skills",
+            "attrs": []
+          },
+          {
+            "text": "Stances",
+            "id": "show_stances",
+            "attrs": []
+          },
+          {
+            "text": "Magic",
+            "id": "show_magic",
+            "attrs": []
+          },
+          {
+            "text": "Remember this day",
+            "disabled": false,
+            "id": "life_remember_day",
+            "attrs": []
+          },
+          {
+            "text": "Shape a clasp at the bench · 1 blank · 2 min",
+            "disabled": false,
+            "id": "",
+            "attrs": [
+              [
+                "data-structured-action",
+                "foundation_start.shape"
+              ]
+            ]
+          },
+          {
+            "text": "Repeat Shape a clasp at the bench · 1 blank · 2 min 3 times",
+            "disabled": false,
+            "id": "",
+            "attrs": [
+              [
+                "data-structured-repeat",
+                "foundation_start.shape"
+              ]
+            ]
+          },
+          {
+            "text": "Shape a clasp with the holding jig · 1 blank · 3 min",
+            "disabled": false,
+            "id": "",
+            "attrs": [
+              [
+                "data-structured-action",
+                "foundation_start.jig_shape"
+              ]
+            ]
+          },
+          {
+            "text": "Repeat Shape a clasp with the holding jig · 1 blank · 3 min 3 times",
+            "disabled": false,
+            "id": "",
+            "attrs": [
+              [
+                "data-structured-repeat",
+                "foundation_start.jig_shape"
+              ]
+            ]
+          },
+          {
+            "text": "Fit your coat clasp · 1 clasp · 1 min",
+            "disabled": true,
+            "id": "",
+            "attrs": [
+              [
+                "data-structured-action",
+                "foundation_start.refit"
+              ]
+            ]
+          }
+        ],
+        "errors": []
+      }
+    },
+    {
+      "cmd": {
+        "action": "save",
+        "name": "two-begin"
+      },
+      "result": {
+        "hash": "a4e84278059a711738b9149a331f916496dee79140384c021e11052187baef26",
+        "startedHash": "a4e84278059a711738b9149a331f916496dee79140384c021e11052187baef26",
+        "clock": 13,
+        "sequence": 100,
+        "schema": 5,
+        "location": "foundation_start.shelter",
+        "money": 102,
+        "inventory": {
+          "{\"id\":\"Cheap leather pants\",\"quality\":40}": {
+            "count": 1
+          },
+          "{\"id\":\"Stale bread\"}": {
+            "count": 5
+          },
+          "{\"id\":\"foundation_start.work_coat\"}": {
+            "count": 1
+          },
+          "{\"id\":\"foundation_start.wood_blank\"}": {
+            "count": 2
+          }
+        },
+        "powers": {},
+        "custody": {},
+        "structured": {
+          "schema": 1,
+          "packs": {},
+          "registered": {
+            "foundation_start": {
+              "worldId": "foundation_start.workroom",
+              "locationIds": [
+                "foundation_start.shelter"
+              ],
+              "itemIds": [
+                "foundation_start.work_coat",
+                "foundation_start.wood_blank",
+                "foundation_start.clasp"
+              ]
+            }
+          },
+          "structured": {
+            "schema": 2,
+            "packId": "foundation_start",
+            "revision": 1,
+            "contentHash": "sha256:9d09e527259b3a926d00c901598c8e6522974c19c94ae62b8ecbd3acb0d546a7",
+            "startId": "foundation_start.paired_start",
+            "seed": 1,
+            "originSequence": 100,
+            "instanceId": "foundation_start.run.1.100",
+            "worldId": "foundation_start.workroom",
+            "locationId": "foundation_start.shelter",
+            "locationIds": [
+              "foundation_start.shelter"
+            ],
+            "containerBindings": [],
+            "peopleIds": [],
+            "units": [],
+            "initializedAt": 0,
+            "snapshotHash": "sha256:41d87cb0a52cd0094bd30d09d1e45f912c1ea9b2b5029d7e8549277edf1b48ad",
+            "choice": 0,
+            "startCount": 2,
+            "bodyId": "foundation_start.player.body",
+            "controllerId": "player",
+            "playerActorId": "player",
+            "life": "alive",
+            "lifeId": "foundation_start.run.1.100.life",
+            "bodyInstanceId": "foundation_start.run.1.100.body"
+          }
+        },
+        "body": {
+          "id": "foundation_start.player.body",
+          "ownerId": "player",
+          "controllerId": "player",
+          "form": "human",
+          "lifeStage": "adult",
+          "hands": 2,
+          "mobile": true,
+          "instanceId": "foundation_start.run.1.100.body"
+        },
+        "character": {
+          "name": "Mira Proof",
+          "bio": {
+            "age": "adult",
+            "height": "average",
+            "race": "human",
+            "gender": "female"
+          },
+          "equipment": {}
+        },
+        "rng": 1,
+        "buttons": [
+          {
+            "text": "Inventory",
+            "id": "switch_to_inventory",
+            "attrs": []
+          },
+          {
+            "text": "Combat",
+            "id": "switch_to_combat",
+            "attrs": []
+          },
+          {
+            "text": "Stats",
+            "id": "character_show_stats",
+            "attrs": [
+              [
+                "data-translation",
+                "ui show stats"
+              ]
+            ]
+          },
+          {
+            "text": "Bio",
+            "id": "character_show_bio",
+            "attrs": [
+              [
+                "data-translation",
+                "ui show bio"
+              ]
+            ]
+          },
+          {
+            "text": "Equipment",
+            "id": "character_show_equipment",
+            "attrs": [
+              [
+                "data-translation",
+                "ui show equipment"
+              ]
+            ]
+          },
+          {
+            "text": "Tools",
+            "id": "character_show_tools",
+            "attrs": [
+              [
+                "data-translation",
+                "ui show tools"
+              ]
+            ]
+          },
+          {
+            "text": "Sort by name",
+            "id": "inventory_sort_by_name",
+            "attrs": [
+              [
+                "data-translation",
+                "ui sort name"
+              ]
+            ]
+          },
+          {
+            "text": "Sort by value",
+            "id": "inventory_sort_by_price",
+            "attrs": [
+              [
+                "data-translation",
+                "ui sort value"
+              ]
+            ]
+          },
+          {
+            "text": "Sort by type",
+            "id": "inventory_sort_by_type",
+            "attrs": [
+              [
+                "data-translation",
+                "ui sort type"
+              ]
+            ]
+          },
+          {
+            "text": "All",
+            "id": "inventory_show_all",
+            "attrs": [
+              [
+                "data-translation",
+                "ui show all"
+              ]
+            ]
+          },
+          {
+            "text": "Equipment",
+            "id": "inventory_show_equipment",
+            "attrs": [
+              [
+                "data-translation",
+                "ui show equipment"
+              ]
+            ]
+          },
+          {
+            "text": "Usable",
+            "id": "inventory_show_consumable",
+            "attrs": [
+              [
+                "data-translation",
+                "ui show usable"
+              ]
+            ]
+          },
+          {
+            "text": "Other",
+            "id": "inventory_show_other",
+            "attrs": [
+              [
+                "data-translation",
+                "ui show other"
+              ]
+            ]
+          },
+          {
+            "text": "Favs",
+            "id": "inventory_show_favs",
+            "attrs": [
+              [
+                "data-translation",
+                "ui show favs"
+              ]
+            ]
+          },
+          {
+            "text": "Complete experimental admission drill",
+            "disabled": false,
+            "id": "",
+            "attrs": [
+              [
+                "data-foundation-probe",
+                "enroll"
+              ]
+            ]
+          },
+          {
+            "text": "Quests",
+            "id": "journal_show_quests",
+            "attrs": []
+          },
+          {
+            "text": "Bestiary",
+            "id": "journal_show_bestiary",
+            "attrs": []
+          },
+          {
+            "text": "Anthology",
+            "id": "journal_show_books",
+            "attrs": []
+          },
+          {
+            "text": "Data",
+            "id": "journal_show_data",
+            "attrs": []
+          },
+          {
+            "text": "Notebook",
+            "disabled": false,
+            "id": "journal_show_notebook",
+            "attrs": []
+          },
+          {
+            "text": "Sort by name",
+            "id": "skill_sort_by_name",
+            "attrs": []
+          },
+          {
+            "text": "Sort by level",
+            "id": "skill_sort_by_level",
+            "attrs": []
+          },
+          {
+            "text": "Sort by progress",
+            "id": "skill_sort_by_progress",
+            "attrs": []
+          },
+          {
+            "text": "Skills",
+            "id": "show_skills",
+            "attrs": []
+          },
+          {
+            "text": "Stances",
+            "id": "show_stances",
+            "attrs": []
+          },
+          {
+            "text": "Magic",
+            "id": "show_magic",
+            "attrs": []
+          },
+          {
+            "text": "Remember this day",
+            "disabled": false,
+            "id": "life_remember_day",
+            "attrs": []
+          },
+          {
+            "text": "Shape a clasp at the bench · 1 blank · 2 min",
+            "disabled": false,
+            "id": "",
+            "attrs": [
+              [
+                "data-structured-action",
+                "foundation_start.shape"
+              ]
+            ]
+          },
+          {
+            "text": "Repeat Shape a clasp at the bench · 1 blank · 2 min 3 times",
+            "disabled": false,
+            "id": "",
+            "attrs": [
+              [
+                "data-structured-repeat",
+                "foundation_start.shape"
+              ]
+            ]
+          },
+          {
+            "text": "Shape a clasp with the holding jig · 1 blank · 3 min",
+            "disabled": false,
+            "id": "",
+            "attrs": [
+              [
+                "data-structured-action",
+                "foundation_start.jig_shape"
+              ]
+            ]
+          },
+          {
+            "text": "Repeat Shape a clasp with the holding jig · 1 blank · 3 min 3 times",
+            "disabled": false,
+            "id": "",
+            "attrs": [
+              [
+                "data-structured-repeat",
+                "foundation_start.jig_shape"
+              ]
+            ]
+          },
+          {
+            "text": "Fit your coat clasp · 1 clasp · 1 min",
+            "disabled": true,
+            "id": "",
+            "attrs": [
+              [
+                "data-structured-action",
+                "foundation_start.refit"
+              ]
+            ]
+          }
+        ],
+        "errors": []
+      }
+    },
+    {
+      "cmd": {
+        "action": "equip",
+        "key": "{\"id\":\"foundation_start.work_coat\"}"
+      },
+      "result": {
+        "hash": "a4e84278059a711738b9149a331f916496dee79140384c021e11052187baef26",
+        "startedHash": "a4e84278059a711738b9149a331f916496dee79140384c021e11052187baef26",
+        "clock": 14,
+        "sequence": 100,
+        "schema": 5,
+        "location": "foundation_start.shelter",
+        "money": 102,
+        "inventory": {
+          "{\"id\":\"Cheap leather pants\",\"quality\":40}": {
+            "count": 1
+          },
+          "{\"id\":\"Stale bread\"}": {
+            "count": 5
+          },
+          "{\"id\":\"foundation_start.wood_blank\"}": {
+            "count": 2
+          }
+        },
+        "powers": {},
+        "custody": {},
+        "structured": {
+          "schema": 1,
+          "packs": {},
+          "registered": {
+            "foundation_start": {
+              "worldId": "foundation_start.workroom",
+              "locationIds": [
+                "foundation_start.shelter"
+              ],
+              "itemIds": [
+                "foundation_start.work_coat",
+                "foundation_start.wood_blank",
+                "foundation_start.clasp"
+              ]
+            }
+          },
+          "structured": {
+            "schema": 2,
+            "packId": "foundation_start",
+            "revision": 1,
+            "contentHash": "sha256:9d09e527259b3a926d00c901598c8e6522974c19c94ae62b8ecbd3acb0d546a7",
+            "startId": "foundation_start.paired_start",
+            "seed": 1,
+            "originSequence": 100,
+            "instanceId": "foundation_start.run.1.100",
+            "worldId": "foundation_start.workroom",
+            "locationId": "foundation_start.shelter",
+            "locationIds": [
+              "foundation_start.shelter"
+            ],
+            "containerBindings": [],
+            "peopleIds": [],
+            "units": [],
+            "initializedAt": 0,
+            "snapshotHash": "sha256:41d87cb0a52cd0094bd30d09d1e45f912c1ea9b2b5029d7e8549277edf1b48ad",
+            "choice": 0,
+            "startCount": 2,
+            "bodyId": "foundation_start.player.body",
+            "controllerId": "player",
+            "playerActorId": "player",
+            "life": "alive",
+            "lifeId": "foundation_start.run.1.100.life",
+            "bodyInstanceId": "foundation_start.run.1.100.body"
+          }
+        },
+        "body": {
+          "id": "foundation_start.player.body",
+          "ownerId": "player",
+          "controllerId": "player",
+          "form": "human",
+          "lifeStage": "adult",
+          "hands": 2,
+          "mobile": true,
+          "instanceId": "foundation_start.run.1.100.body"
+        },
+        "character": {
+          "name": "Mira Proof",
+          "bio": {
+            "age": "adult",
+            "height": "average",
+            "race": "human",
+            "gender": "female"
+          },
+          "equipment": {
+            "torso": {
+              "name": "Work coat",
+              "id": "foundation_start.work_coat",
+              "description": "Your ordinary layered coat. Fit its clasp to receive its full protection.",
+              "saturates_market": true,
+              "material_type": null,
+              "use_quality": false,
+              "quality": 100,
+              "value": 1,
+              "tags": {
+                "expedition": true,
+                "structuredEquipment": true,
+                "item": true,
+                "equippable": true,
+                "component": true,
+                "armor component": true,
+                "clothing": true,
+                "armor": true
+              },
+              "market_saturation_group": {
+                "group_key": "type_clothing",
+                "group_tier": 0
+              },
+              "item_type": "EQUIPPABLE",
+              "component_stats": {},
+              "component_bonus_skill_levels": {},
+              "component_type": "chestplate interior",
+              "component_tier": 1,
+              "base_defense": 0,
+              "equip_slot": "torso",
+              "defense_value": 0,
+              "stats": {},
+              "bonus_skill_levels": {},
+              "inventory_key": "{\"id\":\"foundation_start.work_coat\"}"
+            }
+          }
+        },
+        "rng": 1,
+        "buttons": [
+          {
+            "text": "Inventory",
+            "id": "switch_to_inventory",
+            "attrs": []
+          },
+          {
+            "text": "Combat",
+            "id": "switch_to_combat",
+            "attrs": []
+          },
+          {
+            "text": "Stats",
+            "id": "character_show_stats",
+            "attrs": [
+              [
+                "data-translation",
+                "ui show stats"
+              ]
+            ]
+          },
+          {
+            "text": "Bio",
+            "id": "character_show_bio",
+            "attrs": [
+              [
+                "data-translation",
+                "ui show bio"
+              ]
+            ]
+          },
+          {
+            "text": "Equipment",
+            "id": "character_show_equipment",
+            "attrs": [
+              [
+                "data-translation",
+                "ui show equipment"
+              ]
+            ]
+          },
+          {
+            "text": "Tools",
+            "id": "character_show_tools",
+            "attrs": [
+              [
+                "data-translation",
+                "ui show tools"
+              ]
+            ]
+          },
+          {
+            "text": "Sort by name",
+            "id": "inventory_sort_by_name",
+            "attrs": [
+              [
+                "data-translation",
+                "ui sort name"
+              ]
+            ]
+          },
+          {
+            "text": "Sort by value",
+            "id": "inventory_sort_by_price",
+            "attrs": [
+              [
+                "data-translation",
+                "ui sort value"
+              ]
+            ]
+          },
+          {
+            "text": "Sort by type",
+            "id": "inventory_sort_by_type",
+            "attrs": [
+              [
+                "data-translation",
+                "ui sort type"
+              ]
+            ]
+          },
+          {
+            "text": "All",
+            "id": "inventory_show_all",
+            "attrs": [
+              [
+                "data-translation",
+                "ui show all"
+              ]
+            ]
+          },
+          {
+            "text": "Equipment",
+            "id": "inventory_show_equipment",
+            "attrs": [
+              [
+                "data-translation",
+                "ui show equipment"
+              ]
+            ]
+          },
+          {
+            "text": "Usable",
+            "id": "inventory_show_consumable",
+            "attrs": [
+              [
+                "data-translation",
+                "ui show usable"
+              ]
+            ]
+          },
+          {
+            "text": "Other",
+            "id": "inventory_show_other",
+            "attrs": [
+              [
+                "data-translation",
+                "ui show other"
+              ]
+            ]
+          },
+          {
+            "text": "Favs",
+            "id": "inventory_show_favs",
+            "attrs": [
+              [
+                "data-translation",
+                "ui show favs"
+              ]
+            ]
+          },
+          {
+            "text": "Complete experimental admission drill",
+            "disabled": false,
+            "id": "",
+            "attrs": [
+              [
+                "data-foundation-probe",
+                "enroll"
+              ]
+            ]
+          },
+          {
+            "text": "Quests",
+            "id": "journal_show_quests",
+            "attrs": []
+          },
+          {
+            "text": "Bestiary",
+            "id": "journal_show_bestiary",
+            "attrs": []
+          },
+          {
+            "text": "Anthology",
+            "id": "journal_show_books",
+            "attrs": []
+          },
+          {
+            "text": "Data",
+            "id": "journal_show_data",
+            "attrs": []
+          },
+          {
+            "text": "Notebook",
+            "disabled": false,
+            "id": "journal_show_notebook",
+            "attrs": []
+          },
+          {
+            "text": "Sort by name",
+            "id": "skill_sort_by_name",
+            "attrs": []
+          },
+          {
+            "text": "Sort by level",
+            "id": "skill_sort_by_level",
+            "attrs": []
+          },
+          {
+            "text": "Sort by progress",
+            "id": "skill_sort_by_progress",
+            "attrs": []
+          },
+          {
+            "text": "Skills",
+            "id": "show_skills",
+            "attrs": []
+          },
+          {
+            "text": "Stances",
+            "id": "show_stances",
+            "attrs": []
+          },
+          {
+            "text": "Magic",
+            "id": "show_magic",
+            "attrs": []
+          },
+          {
+            "text": "Remember this day",
+            "disabled": false,
+            "id": "life_remember_day",
+            "attrs": []
+          },
+          {
+            "text": "Shape a clasp at the bench · 1 blank · 2 min",
+            "disabled": false,
+            "id": "",
+            "attrs": [
+              [
+                "data-structured-action",
+                "foundation_start.shape"
+              ]
+            ]
+          },
+          {
+            "text": "Repeat Shape a clasp at the bench · 1 blank · 2 min 3 times",
+            "disabled": false,
+            "id": "",
+            "attrs": [
+              [
+                "data-structured-repeat",
+                "foundation_start.shape"
+              ]
+            ]
+          },
+          {
+            "text": "Shape a clasp with the holding jig · 1 blank · 3 min",
+            "disabled": false,
+            "id": "",
+            "attrs": [
+              [
+                "data-structured-action",
+                "foundation_start.jig_shape"
+              ]
+            ]
+          },
+          {
+            "text": "Repeat Shape a clasp with the holding jig · 1 blank · 3 min 3 times",
+            "disabled": false,
+            "id": "",
+            "attrs": [
+              [
+                "data-structured-repeat",
+                "foundation_start.jig_shape"
+              ]
+            ]
+          },
+          {
+            "text": "Fit your coat clasp · 1 clasp · 1 min",
+            "disabled": true,
+            "id": "",
+            "attrs": [
+              [
+                "data-structured-action",
+                "foundation_start.refit"
+              ]
+            ]
+          }
+        ],
+        "errors": []
+      }
+    },
+    {
+      "cmd": {
+        "action": "unequip",
+        "slot": "torso"
+      },
+      "result": {
+        "hash": "a4e84278059a711738b9149a331f916496dee79140384c021e11052187baef26",
+        "startedHash": "a4e84278059a711738b9149a331f916496dee79140384c021e11052187baef26",
+        "clock": 14,
+        "sequence": 100,
+        "schema": 5,
+        "location": "foundation_start.shelter",
+        "money": 102,
+        "inventory": {
+          "{\"id\":\"Cheap leather pants\",\"quality\":40}": {
+            "count": 1
+          },
+          "{\"id\":\"Stale bread\"}": {
+            "count": 5
+          },
+          "{\"id\":\"foundation_start.wood_blank\"}": {
+            "count": 2
+          },
+          "{\"id\":\"foundation_start.work_coat\"}": {
+            "count": 1
+          }
+        },
+        "powers": {},
+        "custody": {},
+        "structured": {
+          "schema": 1,
+          "packs": {},
+          "registered": {
+            "foundation_start": {
+              "worldId": "foundation_start.workroom",
+              "locationIds": [
+                "foundation_start.shelter"
+              ],
+              "itemIds": [
+                "foundation_start.work_coat",
+                "foundation_start.wood_blank",
+                "foundation_start.clasp"
+              ]
+            }
+          },
+          "structured": {
+            "schema": 2,
+            "packId": "foundation_start",
+            "revision": 1,
+            "contentHash": "sha256:9d09e527259b3a926d00c901598c8e6522974c19c94ae62b8ecbd3acb0d546a7",
+            "startId": "foundation_start.paired_start",
+            "seed": 1,
+            "originSequence": 100,
+            "instanceId": "foundation_start.run.1.100",
+            "worldId": "foundation_start.workroom",
+            "locationId": "foundation_start.shelter",
+            "locationIds": [
+              "foundation_start.shelter"
+            ],
+            "containerBindings": [],
+            "peopleIds": [],
+            "units": [],
+            "initializedAt": 0,
+            "snapshotHash": "sha256:41d87cb0a52cd0094bd30d09d1e45f912c1ea9b2b5029d7e8549277edf1b48ad",
+            "choice": 0,
+            "startCount": 2,
+            "bodyId": "foundation_start.player.body",
+            "controllerId": "player",
+            "playerActorId": "player",
+            "life": "alive",
+            "lifeId": "foundation_start.run.1.100.life",
+            "bodyInstanceId": "foundation_start.run.1.100.body"
+          }
+        },
+        "body": {
+          "id": "foundation_start.player.body",
+          "ownerId": "player",
+          "controllerId": "player",
+          "form": "human",
+          "lifeStage": "adult",
+          "hands": 2,
+          "mobile": true,
+          "instanceId": "foundation_start.run.1.100.body"
+        },
+        "character": {
+          "name": "Mira Proof",
+          "bio": {
+            "age": "adult",
+            "height": "average",
+            "race": "human",
+            "gender": "female"
+          },
+          "equipment": {
+            "torso": null
+          }
+        },
+        "rng": 1,
+        "buttons": [
+          {
+            "text": "Inventory",
+            "id": "switch_to_inventory",
+            "attrs": []
+          },
+          {
+            "text": "Combat",
+            "id": "switch_to_combat",
+            "attrs": []
+          },
+          {
+            "text": "Stats",
+            "id": "character_show_stats",
+            "attrs": [
+              [
+                "data-translation",
+                "ui show stats"
+              ]
+            ]
+          },
+          {
+            "text": "Bio",
+            "id": "character_show_bio",
+            "attrs": [
+              [
+                "data-translation",
+                "ui show bio"
+              ]
+            ]
+          },
+          {
+            "text": "Equipment",
+            "id": "character_show_equipment",
+            "attrs": [
+              [
+                "data-translation",
+                "ui show equipment"
+              ]
+            ]
+          },
+          {
+            "text": "Tools",
+            "id": "character_show_tools",
+            "attrs": [
+              [
+                "data-translation",
+                "ui show tools"
+              ]
+            ]
+          },
+          {
+            "text": "Sort by name",
+            "id": "inventory_sort_by_name",
+            "attrs": [
+              [
+                "data-translation",
+                "ui sort name"
+              ]
+            ]
+          },
+          {
+            "text": "Sort by value",
+            "id": "inventory_sort_by_price",
+            "attrs": [
+              [
+                "data-translation",
+                "ui sort value"
+              ]
+            ]
+          },
+          {
+            "text": "Sort by type",
+            "id": "inventory_sort_by_type",
+            "attrs": [
+              [
+                "data-translation",
+                "ui sort type"
+              ]
+            ]
+          },
+          {
+            "text": "All",
+            "id": "inventory_show_all",
+            "attrs": [
+              [
+                "data-translation",
+                "ui show all"
+              ]
+            ]
+          },
+          {
+            "text": "Equipment",
+            "id": "inventory_show_equipment",
+            "attrs": [
+              [
+                "data-translation",
+                "ui show equipment"
+              ]
+            ]
+          },
+          {
+            "text": "Usable",
+            "id": "inventory_show_consumable",
+            "attrs": [
+              [
+                "data-translation",
+                "ui show usable"
+              ]
+            ]
+          },
+          {
+            "text": "Other",
+            "id": "inventory_show_other",
+            "attrs": [
+              [
+                "data-translation",
+                "ui show other"
+              ]
+            ]
+          },
+          {
+            "text": "Favs",
+            "id": "inventory_show_favs",
+            "attrs": [
+              [
+                "data-translation",
+                "ui show favs"
+              ]
+            ]
+          },
+          {
+            "text": "Quests",
+            "id": "journal_show_quests",
+            "attrs": []
+          },
+          {
+            "text": "Bestiary",
+            "id": "journal_show_bestiary",
+            "attrs": []
+          },
+          {
+            "text": "Anthology",
+            "id": "journal_show_books",
+            "attrs": []
+          },
+          {
+            "text": "Data",
+            "id": "journal_show_data",
+            "attrs": []
+          },
+          {
+            "text": "Notebook",
+            "disabled": false,
+            "id": "journal_show_notebook",
+            "attrs": []
+          },
+          {
+            "text": "Sort by name",
+            "id": "skill_sort_by_name",
+            "attrs": []
+          },
+          {
+            "text": "Sort by level",
+            "id": "skill_sort_by_level",
+            "attrs": []
+          },
+          {
+            "text": "Sort by progress",
+            "id": "skill_sort_by_progress",
+            "attrs": []
+          },
+          {
+            "text": "Skills",
+            "id": "show_skills",
+            "attrs": []
+          },
+          {
+            "text": "Stances",
+            "id": "show_stances",
+            "attrs": []
+          },
+          {
+            "text": "Magic",
+            "id": "show_magic",
+            "attrs": []
+          },
+          {
+            "text": "Remember this day",
+            "disabled": false,
+            "id": "life_remember_day",
+            "attrs": []
+          },
+          {
+            "text": "Shape a clasp at the bench · 1 blank · 2 min",
+            "disabled": false,
+            "id": "",
+            "attrs": [
+              [
+                "data-structured-action",
+                "foundation_start.shape"
+              ]
+            ]
+          },
+          {
+            "text": "Repeat Shape a clasp at the bench · 1 blank · 2 min 3 times",
+            "disabled": false,
+            "id": "",
+            "attrs": [
+              [
+                "data-structured-repeat",
+                "foundation_start.shape"
+              ]
+            ]
+          },
+          {
+            "text": "Shape a clasp with the holding jig · 1 blank · 3 min",
+            "disabled": false,
+            "id": "",
+            "attrs": [
+              [
+                "data-structured-action",
+                "foundation_start.jig_shape"
+              ]
+            ]
+          },
+          {
+            "text": "Repeat Shape a clasp with the holding jig · 1 blank · 3 min 3 times",
+            "disabled": false,
+            "id": "",
+            "attrs": [
+              [
+                "data-structured-repeat",
+                "foundation_start.jig_shape"
+              ]
+            ]
+          },
+          {
+            "text": "Fit your coat clasp · 1 clasp · 1 min",
+            "disabled": true,
+            "id": "",
+            "attrs": [
+              [
+                "data-structured-action",
+                "foundation_start.refit"
+              ]
+            ]
+          }
+        ],
+        "errors": []
+      }
+    },
+    {
+      "cmd": {
+        "action": "click",
+        "selector": "[data-structured-action='foundation_start.shape']"
+      },
+      "result": {
+        "hash": "a4e84278059a711738b9149a331f916496dee79140384c021e11052187baef26",
+        "startedHash": "a4e84278059a711738b9149a331f916496dee79140384c021e11052187baef26",
+        "clock": 16,
+        "sequence": 101,
+        "schema": 5,
+        "location": "foundation_start.shelter",
+        "money": 102,
+        "inventory": {
+          "{\"id\":\"Cheap leather pants\",\"quality\":40}": {
+            "count": 1
+          },
+          "{\"id\":\"Stale bread\"}": {
+            "count": 5
+          },
+          "{\"id\":\"foundation_start.wood_blank\"}": {
+            "count": 1
+          },
+          "{\"id\":\"foundation_start.work_coat\"}": {
+            "count": 1
+          }
+        },
+        "powers": {},
+        "custody": {},
+        "structured": {
+          "schema": 1,
+          "packs": {},
+          "registered": {
+            "foundation_start": {
+              "worldId": "foundation_start.workroom",
+              "locationIds": [
+                "foundation_start.shelter"
+              ],
+              "itemIds": [
+                "foundation_start.work_coat",
+                "foundation_start.wood_blank",
+                "foundation_start.clasp"
+              ]
+            }
+          },
+          "structured": {
+            "schema": 2,
+            "packId": "foundation_start",
+            "revision": 1,
+            "contentHash": "sha256:9d09e527259b3a926d00c901598c8e6522974c19c94ae62b8ecbd3acb0d546a7",
+            "startId": "foundation_start.paired_start",
+            "seed": 1,
+            "originSequence": 100,
+            "instanceId": "foundation_start.run.1.100",
+            "worldId": "foundation_start.workroom",
+            "locationId": "foundation_start.shelter",
+            "locationIds": [
+              "foundation_start.shelter"
+            ],
+            "containerBindings": [],
+            "peopleIds": [],
+            "units": [],
+            "initializedAt": 0,
+            "snapshotHash": "sha256:41d87cb0a52cd0094bd30d09d1e45f912c1ea9b2b5029d7e8549277edf1b48ad",
+            "choice": 0,
+            "startCount": 2,
+            "bodyId": "foundation_start.player.body",
+            "controllerId": "player",
+            "playerActorId": "player",
+            "life": "alive",
+            "lifeId": "foundation_start.run.1.100.life",
+            "bodyInstanceId": "foundation_start.run.1.100.body"
+          }
+        },
+        "body": {
+          "id": "foundation_start.player.body",
+          "ownerId": "player",
+          "controllerId": "player",
+          "form": "human",
+          "lifeStage": "adult",
+          "hands": 2,
+          "mobile": true,
+          "instanceId": "foundation_start.run.1.100.body"
+        },
+        "character": {
+          "name": "Mira Proof",
+          "bio": {
+            "age": "adult",
+            "height": "average",
+            "race": "human",
+            "gender": "female"
+          },
+          "equipment": {}
+        },
+        "rng": 1,
+        "buttons": [
+          {
+            "text": "Inventory",
+            "id": "switch_to_inventory",
+            "attrs": []
+          },
+          {
+            "text": "Combat",
+            "id": "switch_to_combat",
+            "attrs": []
+          },
+          {
+            "text": "Stats",
+            "id": "character_show_stats",
+            "attrs": [
+              [
+                "data-translation",
+                "ui show stats"
+              ]
+            ]
+          },
+          {
+            "text": "Bio",
+            "id": "character_show_bio",
+            "attrs": [
+              [
+                "data-translation",
+                "ui show bio"
+              ]
+            ]
+          },
+          {
+            "text": "Equipment",
+            "id": "character_show_equipment",
+            "attrs": [
+              [
+                "data-translation",
+                "ui show equipment"
+              ]
+            ]
+          },
+          {
+            "text": "Tools",
+            "id": "character_show_tools",
+            "attrs": [
+              [
+                "data-translation",
+                "ui show tools"
+              ]
+            ]
+          },
+          {
+            "text": "Sort by name",
+            "id": "inventory_sort_by_name",
+            "attrs": [
+              [
+                "data-translation",
+                "ui sort name"
+              ]
+            ]
+          },
+          {
+            "text": "Sort by value",
+            "id": "inventory_sort_by_price",
+            "attrs": [
+              [
+                "data-translation",
+                "ui sort value"
+              ]
+            ]
+          },
+          {
+            "text": "Sort by type",
+            "id": "inventory_sort_by_type",
+            "attrs": [
+              [
+                "data-translation",
+                "ui sort type"
+              ]
+            ]
+          },
+          {
+            "text": "All",
+            "id": "inventory_show_all",
+            "attrs": [
+              [
+                "data-translation",
+                "ui show all"
+              ]
+            ]
+          },
+          {
+            "text": "Equipment",
+            "id": "inventory_show_equipment",
+            "attrs": [
+              [
+                "data-translation",
+                "ui show equipment"
+              ]
+            ]
+          },
+          {
+            "text": "Usable",
+            "id": "inventory_show_consumable",
+            "attrs": [
+              [
+                "data-translation",
+                "ui show usable"
+              ]
+            ]
+          },
+          {
+            "text": "Other",
+            "id": "inventory_show_other",
+            "attrs": [
+              [
+                "data-translation",
+                "ui show other"
+              ]
+            ]
+          },
+          {
+            "text": "Favs",
+            "id": "inventory_show_favs",
+            "attrs": [
+              [
+                "data-translation",
+                "ui show favs"
+              ]
+            ]
+          },
+          {
+            "text": "Open local controls",
+            "disabled": false,
+            "id": "",
+            "attrs": []
+          },
+          {
+            "text": "Complete experimental admission drill",
+            "disabled": true,
+            "id": "",
+            "attrs": [
+              [
+                "data-foundation-probe",
+                "enroll"
+              ]
+            ]
+          },
+          {
+            "text": "Quests",
+            "id": "journal_show_quests",
+            "attrs": []
+          },
+          {
+            "text": "Bestiary",
+            "id": "journal_show_bestiary",
+            "attrs": []
+          },
+          {
+            "text": "Anthology",
+            "id": "journal_show_books",
+            "attrs": []
+          },
+          {
+            "text": "Data",
+            "id": "journal_show_data",
+            "attrs": []
+          },
+          {
+            "text": "Notebook",
+            "disabled": false,
+            "id": "journal_show_notebook",
+            "attrs": []
+          },
+          {
+            "text": "Sort by name",
+            "id": "skill_sort_by_name",
+            "attrs": []
+          },
+          {
+            "text": "Sort by level",
+            "id": "skill_sort_by_level",
+            "attrs": []
+          },
+          {
+            "text": "Sort by progress",
+            "id": "skill_sort_by_progress",
+            "attrs": []
+          },
+          {
+            "text": "Skills",
+            "id": "show_skills",
+            "attrs": []
+          },
+          {
+            "text": "Stances",
+            "id": "show_stances",
+            "attrs": []
+          },
+          {
+            "text": "Magic",
+            "id": "show_magic",
+            "attrs": []
+          },
+          {
+            "text": "Remember this day",
+            "disabled": false,
+            "id": "life_remember_day",
+            "attrs": []
+          },
+          {
+            "text": "Cancel Shape a clasp at the bench · 1 blank · 2 min",
+            "disabled": false,
+            "id": "",
+            "attrs": [
+              [
+                "data-structured-cancel",
+                "simulation:101"
+              ]
+            ]
+          },
+          {
+            "text": "Shape a clasp at the bench · 1 blank · 2 min",
+            "disabled": true,
+            "id": "",
+            "attrs": [
+              [
+                "data-structured-action",
+                "foundation_start.shape"
+              ]
+            ]
+          },
+          {
+            "text": "Repeat Shape a clasp at the bench · 1 blank · 2 min 3 times",
+            "disabled": true,
+            "id": "",
+            "attrs": [
+              [
+                "data-structured-repeat",
+                "foundation_start.shape"
+              ]
+            ]
+          },
+          {
+            "text": "Shape a clasp with the holding jig · 1 blank · 3 min",
+            "disabled": true,
+            "id": "",
+            "attrs": [
+              [
+                "data-structured-action",
+                "foundation_start.jig_shape"
+              ]
+            ]
+          },
+          {
+            "text": "Repeat Shape a clasp with the holding jig · 1 blank · 3 min 3 times",
+            "disabled": true,
+            "id": "",
+            "attrs": [
+              [
+                "data-structured-repeat",
+                "foundation_start.jig_shape"
+              ]
+            ]
+          },
+          {
+            "text": "Fit your coat clasp · 1 clasp · 1 min",
+            "disabled": true,
+            "id": "",
+            "attrs": [
+              [
+                "data-structured-action",
+                "foundation_start.refit"
+              ]
+            ]
+          }
+        ],
+        "errors": []
+      }
+    },
+    {
+      "cmd": {
+        "action": "wait",
+        "ms": 3500
+      },
+      "result": {
+        "hash": "a4e84278059a711738b9149a331f916496dee79140384c021e11052187baef26",
+        "startedHash": "a4e84278059a711738b9149a331f916496dee79140384c021e11052187baef26",
+        "clock": 19,
+        "sequence": 101,
+        "schema": 5,
+        "location": "foundation_start.shelter",
+        "money": 102,
+        "inventory": {
+          "{\"id\":\"Cheap leather pants\",\"quality\":40}": {
+            "count": 1
+          },
+          "{\"id\":\"Stale bread\"}": {
+            "count": 5
+          },
+          "{\"id\":\"foundation_start.wood_blank\"}": {
+            "count": 1
+          },
+          "{\"id\":\"foundation_start.work_coat\"}": {
+            "count": 1
+          },
+          "{\"id\":\"foundation_start.clasp\"}": {
+            "count": 1
+          }
+        },
+        "powers": {},
+        "custody": {},
+        "structured": {
+          "schema": 1,
+          "packs": {},
+          "registered": {
+            "foundation_start": {
+              "worldId": "foundation_start.workroom",
+              "locationIds": [
+                "foundation_start.shelter"
+              ],
+              "itemIds": [
+                "foundation_start.work_coat",
+                "foundation_start.wood_blank",
+                "foundation_start.clasp"
+              ]
+            }
+          },
+          "structured": {
+            "schema": 2,
+            "packId": "foundation_start",
+            "revision": 1,
+            "contentHash": "sha256:9d09e527259b3a926d00c901598c8e6522974c19c94ae62b8ecbd3acb0d546a7",
+            "startId": "foundation_start.paired_start",
+            "seed": 1,
+            "originSequence": 100,
+            "instanceId": "foundation_start.run.1.100",
+            "worldId": "foundation_start.workroom",
+            "locationId": "foundation_start.shelter",
+            "locationIds": [
+              "foundation_start.shelter"
+            ],
+            "containerBindings": [],
+            "peopleIds": [],
+            "units": [],
+            "initializedAt": 0,
+            "snapshotHash": "sha256:41d87cb0a52cd0094bd30d09d1e45f912c1ea9b2b5029d7e8549277edf1b48ad",
+            "choice": 0,
+            "startCount": 2,
+            "bodyId": "foundation_start.player.body",
+            "controllerId": "player",
+            "playerActorId": "player",
+            "life": "alive",
+            "lifeId": "foundation_start.run.1.100.life",
+            "bodyInstanceId": "foundation_start.run.1.100.body"
+          }
+        },
+        "body": {
+          "id": "foundation_start.player.body",
+          "ownerId": "player",
+          "controllerId": "player",
+          "form": "human",
+          "lifeStage": "adult",
+          "hands": 2,
+          "mobile": true,
+          "instanceId": "foundation_start.run.1.100.body"
+        },
+        "character": {
+          "name": "Mira Proof",
+          "bio": {
+            "age": "adult",
+            "height": "average",
+            "race": "human",
+            "gender": "female"
+          },
+          "equipment": {}
+        },
+        "rng": 1,
+        "buttons": [
+          {
+            "text": "Inventory",
+            "id": "switch_to_inventory",
+            "attrs": []
+          },
+          {
+            "text": "Combat",
+            "id": "switch_to_combat",
+            "attrs": []
+          },
+          {
+            "text": "Stats",
+            "id": "character_show_stats",
+            "attrs": [
+              [
+                "data-translation",
+                "ui show stats"
+              ]
+            ]
+          },
+          {
+            "text": "Bio",
+            "id": "character_show_bio",
+            "attrs": [
+              [
+                "data-translation",
+                "ui show bio"
+              ]
+            ]
+          },
+          {
+            "text": "Equipment",
+            "id": "character_show_equipment",
+            "attrs": [
+              [
+                "data-translation",
+                "ui show equipment"
+              ]
+            ]
+          },
+          {
+            "text": "Tools",
+            "id": "character_show_tools",
+            "attrs": [
+              [
+                "data-translation",
+                "ui show tools"
+              ]
+            ]
+          },
+          {
+            "text": "Sort by name",
+            "id": "inventory_sort_by_name",
+            "attrs": [
+              [
+                "data-translation",
+                "ui sort name"
+              ]
+            ]
+          },
+          {
+            "text": "Sort by value",
+            "id": "inventory_sort_by_price",
+            "attrs": [
+              [
+                "data-translation",
+                "ui sort value"
+              ]
+            ]
+          },
+          {
+            "text": "Sort by type",
+            "id": "inventory_sort_by_type",
+            "attrs": [
+              [
+                "data-translation",
+                "ui sort type"
+              ]
+            ]
+          },
+          {
+            "text": "All",
+            "id": "inventory_show_all",
+            "attrs": [
+              [
+                "data-translation",
+                "ui show all"
+              ]
+            ]
+          },
+          {
+            "text": "Equipment",
+            "id": "inventory_show_equipment",
+            "attrs": [
+              [
+                "data-translation",
+                "ui show equipment"
+              ]
+            ]
+          },
+          {
+            "text": "Usable",
+            "id": "inventory_show_consumable",
+            "attrs": [
+              [
+                "data-translation",
+                "ui show usable"
+              ]
+            ]
+          },
+          {
+            "text": "Other",
+            "id": "inventory_show_other",
+            "attrs": [
+              [
+                "data-translation",
+                "ui show other"
+              ]
+            ]
+          },
+          {
+            "text": "Favs",
+            "id": "inventory_show_favs",
+            "attrs": [
+              [
+                "data-translation",
+                "ui show favs"
+              ]
+            ]
+          },
+          {
+            "text": "Complete experimental admission drill",
+            "disabled": false,
+            "id": "",
+            "attrs": [
+              [
+                "data-foundation-probe",
+                "enroll"
+              ]
+            ]
+          },
+          {
+            "text": "Quests",
+            "id": "journal_show_quests",
+            "attrs": []
+          },
+          {
+            "text": "Bestiary",
+            "id": "journal_show_bestiary",
+            "attrs": []
+          },
+          {
+            "text": "Anthology",
+            "id": "journal_show_books",
+            "attrs": []
+          },
+          {
+            "text": "Data",
+            "id": "journal_show_data",
+            "attrs": []
+          },
+          {
+            "text": "Notebook",
+            "disabled": false,
+            "id": "journal_show_notebook",
+            "attrs": []
+          },
+          {
+            "text": "Sort by name",
+            "id": "skill_sort_by_name",
+            "attrs": []
+          },
+          {
+            "text": "Sort by level",
+            "id": "skill_sort_by_level",
+            "attrs": []
+          },
+          {
+            "text": "Sort by progress",
+            "id": "skill_sort_by_progress",
+            "attrs": []
+          },
+          {
+            "text": "Skills",
+            "id": "show_skills",
+            "attrs": []
+          },
+          {
+            "text": "Stances",
+            "id": "show_stances",
+            "attrs": []
+          },
+          {
+            "text": "Magic",
+            "id": "show_magic",
+            "attrs": []
+          },
+          {
+            "text": "Remember this day",
+            "disabled": false,
+            "id": "life_remember_day",
+            "attrs": []
+          },
+          {
+            "text": "Accept renewal",
+            "disabled": true,
+            "id": "",
+            "attrs": [
+              [
+                "data-structured-renewal",
+                "accept"
+              ]
+            ]
+          },
+          {
+            "text": "Shape a clasp at the bench · 1 blank · 2 min",
+            "disabled": false,
+            "id": "",
+            "attrs": [
+              [
+                "data-structured-action",
+                "foundation_start.shape"
+              ]
+            ]
+          },
+          {
+            "text": "Repeat Shape a clasp at the bench · 1 blank · 2 min 3 times",
+            "disabled": false,
+            "id": "",
+            "attrs": [
+              [
+                "data-structured-repeat",
+                "foundation_start.shape"
+              ]
+            ]
+          },
+          {
+            "text": "Shape a clasp with the holding jig · 1 blank · 3 min",
+            "disabled": false,
+            "id": "",
+            "attrs": [
+              [
+                "data-structured-action",
+                "foundation_start.jig_shape"
+              ]
+            ]
+          },
+          {
+            "text": "Repeat Shape a clasp with the holding jig · 1 blank · 3 min 3 times",
+            "disabled": false,
+            "id": "",
+            "attrs": [
+              [
+                "data-structured-repeat",
+                "foundation_start.jig_shape"
+              ]
+            ]
+          },
+          {
+            "text": "Fit your coat clasp · 1 clasp · 1 min",
+            "disabled": false,
+            "id": "",
+            "attrs": [
+              [
+                "data-structured-action",
+                "foundation_start.refit"
+              ]
+            ]
+          }
+        ],
+        "errors": []
+      }
+    },
+    {
+      "cmd": {
+        "action": "save",
+        "name": "two-shaped"
+      },
+      "result": {
+        "hash": "a4e84278059a711738b9149a331f916496dee79140384c021e11052187baef26",
+        "startedHash": "a4e84278059a711738b9149a331f916496dee79140384c021e11052187baef26",
+        "clock": 22,
+        "sequence": 101,
+        "schema": 5,
+        "location": "foundation_start.shelter",
+        "money": 102,
+        "inventory": {
+          "{\"id\":\"Cheap leather pants\",\"quality\":40}": {
+            "count": 1
+          },
+          "{\"id\":\"Stale bread\"}": {
+            "count": 5
+          },
+          "{\"id\":\"foundation_start.wood_blank\"}": {
+            "count": 1
+          },
+          "{\"id\":\"foundation_start.work_coat\"}": {
+            "count": 1
+          },
+          "{\"id\":\"foundation_start.clasp\"}": {
+            "count": 1
+          }
+        },
+        "powers": {},
+        "custody": {},
+        "structured": {
+          "schema": 1,
+          "packs": {},
+          "registered": {
+            "foundation_start": {
+              "worldId": "foundation_start.workroom",
+              "locationIds": [
+                "foundation_start.shelter"
+              ],
+              "itemIds": [
+                "foundation_start.work_coat",
+                "foundation_start.wood_blank",
+                "foundation_start.clasp"
+              ]
+            }
+          },
+          "structured": {
+            "schema": 2,
+            "packId": "foundation_start",
+            "revision": 1,
+            "contentHash": "sha256:9d09e527259b3a926d00c901598c8e6522974c19c94ae62b8ecbd3acb0d546a7",
+            "startId": "foundation_start.paired_start",
+            "seed": 1,
+            "originSequence": 100,
+            "instanceId": "foundation_start.run.1.100",
+            "worldId": "foundation_start.workroom",
+            "locationId": "foundation_start.shelter",
+            "locationIds": [
+              "foundation_start.shelter"
+            ],
+            "containerBindings": [],
+            "peopleIds": [],
+            "units": [],
+            "initializedAt": 0,
+            "snapshotHash": "sha256:41d87cb0a52cd0094bd30d09d1e45f912c1ea9b2b5029d7e8549277edf1b48ad",
+            "choice": 0,
+            "startCount": 2,
+            "bodyId": "foundation_start.player.body",
+            "controllerId": "player",
+            "playerActorId": "player",
+            "life": "alive",
+            "lifeId": "foundation_start.run.1.100.life",
+            "bodyInstanceId": "foundation_start.run.1.100.body"
+          }
+        },
+        "body": {
+          "id": "foundation_start.player.body",
+          "ownerId": "player",
+          "controllerId": "player",
+          "form": "human",
+          "lifeStage": "adult",
+          "hands": 2,
+          "mobile": true,
+          "instanceId": "foundation_start.run.1.100.body"
+        },
+        "character": {
+          "name": "Mira Proof",
+          "bio": {
+            "age": "adult",
+            "height": "average",
+            "race": "human",
+            "gender": "female"
+          },
+          "equipment": {}
+        },
+        "rng": 1,
+        "buttons": [
+          {
+            "text": "Inventory",
+            "id": "switch_to_inventory",
+            "attrs": []
+          },
+          {
+            "text": "Combat",
+            "id": "switch_to_combat",
+            "attrs": []
+          },
+          {
+            "text": "Stats",
+            "id": "character_show_stats",
+            "attrs": [
+              [
+                "data-translation",
+                "ui show stats"
+              ]
+            ]
+          },
+          {
+            "text": "Bio",
+            "id": "character_show_bio",
+            "attrs": [
+              [
+                "data-translation",
+                "ui show bio"
+              ]
+            ]
+          },
+          {
+            "text": "Equipment",
+            "id": "character_show_equipment",
+            "attrs": [
+              [
+                "data-translation",
+                "ui show equipment"
+              ]
+            ]
+          },
+          {
+            "text": "Tools",
+            "id": "character_show_tools",
+            "attrs": [
+              [
+                "data-translation",
+                "ui show tools"
+              ]
+            ]
+          },
+          {
+            "text": "Sort by name",
+            "id": "inventory_sort_by_name",
+            "attrs": [
+              [
+                "data-translation",
+                "ui sort name"
+              ]
+            ]
+          },
+          {
+            "text": "Sort by value",
+            "id": "inventory_sort_by_price",
+            "attrs": [
+              [
+                "data-translation",
+                "ui sort value"
+              ]
+            ]
+          },
+          {
+            "text": "Sort by type",
+            "id": "inventory_sort_by_type",
+            "attrs": [
+              [
+                "data-translation",
+                "ui sort type"
+              ]
+            ]
+          },
+          {
+            "text": "All",
+            "id": "inventory_show_all",
+            "attrs": [
+              [
+                "data-translation",
+                "ui show all"
+              ]
+            ]
+          },
+          {
+            "text": "Equipment",
+            "id": "inventory_show_equipment",
+            "attrs": [
+              [
+                "data-translation",
+                "ui show equipment"
+              ]
+            ]
+          },
+          {
+            "text": "Usable",
+            "id": "inventory_show_consumable",
+            "attrs": [
+              [
+                "data-translation",
+                "ui show usable"
+              ]
+            ]
+          },
+          {
+            "text": "Other",
+            "id": "inventory_show_other",
+            "attrs": [
+              [
+                "data-translation",
+                "ui show other"
+              ]
+            ]
+          },
+          {
+            "text": "Favs",
+            "id": "inventory_show_favs",
+            "attrs": [
+              [
+                "data-translation",
+                "ui show favs"
+              ]
+            ]
+          },
+          {
+            "text": "Complete experimental admission drill",
+            "disabled": false,
+            "id": "",
+            "attrs": [
+              [
+                "data-foundation-probe",
+                "enroll"
+              ]
+            ]
+          },
+          {
+            "text": "Quests",
+            "id": "journal_show_quests",
+            "attrs": []
+          },
+          {
+            "text": "Bestiary",
+            "id": "journal_show_bestiary",
+            "attrs": []
+          },
+          {
+            "text": "Anthology",
+            "id": "journal_show_books",
+            "attrs": []
+          },
+          {
+            "text": "Data",
+            "id": "journal_show_data",
+            "attrs": []
+          },
+          {
+            "text": "Notebook",
+            "disabled": false,
+            "id": "journal_show_notebook",
+            "attrs": []
+          },
+          {
+            "text": "Sort by name",
+            "id": "skill_sort_by_name",
+            "attrs": []
+          },
+          {
+            "text": "Sort by level",
+            "id": "skill_sort_by_level",
+            "attrs": []
+          },
+          {
+            "text": "Sort by progress",
+            "id": "skill_sort_by_progress",
+            "attrs": []
+          },
+          {
+            "text": "Skills",
+            "id": "show_skills",
+            "attrs": []
+          },
+          {
+            "text": "Stances",
+            "id": "show_stances",
+            "attrs": []
+          },
+          {
+            "text": "Magic",
+            "id": "show_magic",
+            "attrs": []
+          },
+          {
+            "text": "Remember this day",
+            "disabled": false,
+            "id": "life_remember_day",
+            "attrs": []
+          },
+          {
+            "text": "Accept renewal",
+            "disabled": true,
+            "id": "",
+            "attrs": [
+              [
+                "data-structured-renewal",
+                "accept"
+              ]
+            ]
+          },
+          {
+            "text": "Shape a clasp at the bench · 1 blank · 2 min",
+            "disabled": false,
+            "id": "",
+            "attrs": [
+              [
+                "data-structured-action",
+                "foundation_start.shape"
+              ]
+            ]
+          },
+          {
+            "text": "Repeat Shape a clasp at the bench · 1 blank · 2 min 3 times",
+            "disabled": false,
+            "id": "",
+            "attrs": [
+              [
+                "data-structured-repeat",
+                "foundation_start.shape"
+              ]
+            ]
+          },
+          {
+            "text": "Shape a clasp with the holding jig · 1 blank · 3 min",
+            "disabled": false,
+            "id": "",
+            "attrs": [
+              [
+                "data-structured-action",
+                "foundation_start.jig_shape"
+              ]
+            ]
+          },
+          {
+            "text": "Repeat Shape a clasp with the holding jig · 1 blank · 3 min 3 times",
+            "disabled": false,
+            "id": "",
+            "attrs": [
+              [
+                "data-structured-repeat",
+                "foundation_start.jig_shape"
+              ]
+            ]
+          },
+          {
+            "text": "Fit your coat clasp · 1 clasp · 1 min",
+            "disabled": false,
+            "id": "",
+            "attrs": [
+              [
+                "data-structured-action",
+                "foundation_start.refit"
+              ]
+            ]
+          }
+        ],
+        "errors": []
+      }
+    },
+    {
+      "cmd": {
+        "action": "click",
+        "selector": "[data-structured-action='foundation_start.refit']"
+      },
+      "result": {
+        "hash": "a4e84278059a711738b9149a331f916496dee79140384c021e11052187baef26",
+        "startedHash": "a4e84278059a711738b9149a331f916496dee79140384c021e11052187baef26",
+        "clock": 49,
+        "sequence": 102,
+        "schema": 5,
+        "location": "foundation_start.shelter",
+        "money": 102,
+        "inventory": {
+          "{\"id\":\"Cheap leather pants\",\"quality\":40}": {
+            "count": 1
+          },
+          "{\"id\":\"Stale bread\"}": {
+            "count": 5
+          },
+          "{\"id\":\"foundation_start.wood_blank\"}": {
+            "count": 1
+          },
+          "{\"id\":\"foundation_start.work_coat\"}": {
+            "count": 1
+          }
+        },
+        "powers": {},
+        "custody": {},
+        "structured": {
+          "schema": 1,
+          "packs": {},
+          "registered": {
+            "foundation_start": {
+              "worldId": "foundation_start.workroom",
+              "locationIds": [
+                "foundation_start.shelter"
+              ],
+              "itemIds": [
+                "foundation_start.work_coat",
+                "foundation_start.wood_blank",
+                "foundation_start.clasp"
+              ]
+            }
+          },
+          "structured": {
+            "schema": 2,
+            "packId": "foundation_start",
+            "revision": 1,
+            "contentHash": "sha256:9d09e527259b3a926d00c901598c8e6522974c19c94ae62b8ecbd3acb0d546a7",
+            "startId": "foundation_start.paired_start",
+            "seed": 1,
+            "originSequence": 100,
+            "instanceId": "foundation_start.run.1.100",
+            "worldId": "foundation_start.workroom",
+            "locationId": "foundation_start.shelter",
+            "locationIds": [
+              "foundation_start.shelter"
+            ],
+            "containerBindings": [],
+            "peopleIds": [],
+            "units": [],
+            "initializedAt": 0,
+            "snapshotHash": "sha256:41d87cb0a52cd0094bd30d09d1e45f912c1ea9b2b5029d7e8549277edf1b48ad",
+            "choice": 0,
+            "startCount": 2,
+            "bodyId": "foundation_start.player.body",
+            "controllerId": "player",
+            "playerActorId": "player",
+            "life": "alive",
+            "lifeId": "foundation_start.run.1.100.life",
+            "bodyInstanceId": "foundation_start.run.1.100.body"
+          }
+        },
+        "body": {
+          "id": "foundation_start.player.body",
+          "ownerId": "player",
+          "controllerId": "player",
+          "form": "human",
+          "lifeStage": "adult",
+          "hands": 2,
+          "mobile": true,
+          "instanceId": "foundation_start.run.1.100.body"
+        },
+        "character": {
+          "name": "Mira Proof",
+          "bio": {
+            "age": "adult",
+            "height": "average",
+            "race": "human",
+            "gender": "female"
+          },
+          "equipment": {}
+        },
+        "rng": 1,
+        "buttons": [
+          {
+            "text": "Inventory",
+            "id": "switch_to_inventory",
+            "attrs": []
+          },
+          {
+            "text": "Combat",
+            "id": "switch_to_combat",
+            "attrs": []
+          },
+          {
+            "text": "Stats",
+            "id": "character_show_stats",
+            "attrs": [
+              [
+                "data-translation",
+                "ui show stats"
+              ]
+            ]
+          },
+          {
+            "text": "Bio",
+            "id": "character_show_bio",
+            "attrs": [
+              [
+                "data-translation",
+                "ui show bio"
+              ]
+            ]
+          },
+          {
+            "text": "Equipment",
+            "id": "character_show_equipment",
+            "attrs": [
+              [
+                "data-translation",
+                "ui show equipment"
+              ]
+            ]
+          },
+          {
+            "text": "Tools",
+            "id": "character_show_tools",
+            "attrs": [
+              [
+                "data-translation",
+                "ui show tools"
+              ]
+            ]
+          },
+          {
+            "text": "Sort by name",
+            "id": "inventory_sort_by_name",
+            "attrs": [
+              [
+                "data-translation",
+                "ui sort name"
+              ]
+            ]
+          },
+          {
+            "text": "Sort by value",
+            "id": "inventory_sort_by_price",
+            "attrs": [
+              [
+                "data-translation",
+                "ui sort value"
+              ]
+            ]
+          },
+          {
+            "text": "Sort by type",
+            "id": "inventory_sort_by_type",
+            "attrs": [
+              [
+                "data-translation",
+                "ui sort type"
+              ]
+            ]
+          },
+          {
+            "text": "All",
+            "id": "inventory_show_all",
+            "attrs": [
+              [
+                "data-translation",
+                "ui show all"
+              ]
+            ]
+          },
+          {
+            "text": "Equipment",
+            "id": "inventory_show_equipment",
+            "attrs": [
+              [
+                "data-translation",
+                "ui show equipment"
+              ]
+            ]
+          },
+          {
+            "text": "Usable",
+            "id": "inventory_show_consumable",
+            "attrs": [
+              [
+                "data-translation",
+                "ui show usable"
+              ]
+            ]
+          },
+          {
+            "text": "Other",
+            "id": "inventory_show_other",
+            "attrs": [
+              [
+                "data-translation",
+                "ui show other"
+              ]
+            ]
+          },
+          {
+            "text": "Favs",
+            "id": "inventory_show_favs",
+            "attrs": [
+              [
+                "data-translation",
+                "ui show favs"
+              ]
+            ]
+          },
+          {
+            "text": "Complete experimental admission drill",
+            "disabled": false,
+            "id": "",
+            "attrs": [
+              [
+                "data-foundation-probe",
+                "enroll"
+              ]
+            ]
+          },
+          {
+            "text": "Quests",
+            "id": "journal_show_quests",
+            "attrs": []
+          },
+          {
+            "text": "Bestiary",
+            "id": "journal_show_bestiary",
+            "attrs": []
+          },
+          {
+            "text": "Anthology",
+            "id": "journal_show_books",
+            "attrs": []
+          },
+          {
+            "text": "Data",
+            "id": "journal_show_data",
+            "attrs": []
+          },
+          {
+            "text": "Notebook",
+            "disabled": false,
+            "id": "journal_show_notebook",
+            "attrs": []
+          },
+          {
+            "text": "Sort by name",
+            "id": "skill_sort_by_name",
+            "attrs": []
+          },
+          {
+            "text": "Sort by level",
+            "id": "skill_sort_by_level",
+            "attrs": []
+          },
+          {
+            "text": "Sort by progress",
+            "id": "skill_sort_by_progress",
+            "attrs": []
+          },
+          {
+            "text": "Skills",
+            "id": "show_skills",
+            "attrs": []
+          },
+          {
+            "text": "Stances",
+            "id": "show_stances",
+            "attrs": []
+          },
+          {
+            "text": "Magic",
+            "id": "show_magic",
+            "attrs": []
+          },
+          {
+            "text": "Remember this day",
+            "disabled": false,
+            "id": "life_remember_day",
+            "attrs": []
+          },
+          {
+            "text": "Accept renewal",
+            "disabled": false,
+            "id": "",
+            "attrs": [
+              [
+                "data-structured-renewal",
+                "accept"
+              ]
+            ]
+          },
+          {
+            "text": "Shape a clasp at the bench · 1 blank · 2 min",
+            "disabled": false,
+            "id": "",
+            "attrs": [
+              [
+                "data-structured-action",
+                "foundation_start.shape"
+              ]
+            ]
+          },
+          {
+            "text": "Repeat Shape a clasp at the bench · 1 blank · 2 min 3 times",
+            "disabled": false,
+            "id": "",
+            "attrs": [
+              [
+                "data-structured-repeat",
+                "foundation_start.shape"
+              ]
+            ]
+          },
+          {
+            "text": "Shape a clasp with the holding jig · 1 blank · 3 min",
+            "disabled": false,
+            "id": "",
+            "attrs": [
+              [
+                "data-structured-action",
+                "foundation_start.jig_shape"
+              ]
+            ]
+          },
+          {
+            "text": "Repeat Shape a clasp with the holding jig · 1 blank · 3 min 3 times",
+            "disabled": false,
+            "id": "",
+            "attrs": [
+              [
+                "data-structured-repeat",
+                "foundation_start.jig_shape"
+              ]
+            ]
+          },
+          {
+            "text": "Fit your coat clasp · 1 clasp · 1 min",
+            "disabled": true,
+            "id": "",
+            "attrs": [
+              [
+                "data-structured-action",
+                "foundation_start.refit"
+              ]
+            ]
+          }
+        ],
+        "errors": []
+      }
+    },
+    {
+      "cmd": {
+        "action": "wait",
+        "ms": 2000
+      },
+      "result": {
+        "hash": "a4e84278059a711738b9149a331f916496dee79140384c021e11052187baef26",
+        "startedHash": "a4e84278059a711738b9149a331f916496dee79140384c021e11052187baef26",
+        "clock": 51,
+        "sequence": 102,
+        "schema": 5,
+        "location": "foundation_start.shelter",
+        "money": 102,
+        "inventory": {
+          "{\"id\":\"Cheap leather pants\",\"quality\":40}": {
+            "count": 1
+          },
+          "{\"id\":\"Stale bread\"}": {
+            "count": 5
+          },
+          "{\"id\":\"foundation_start.wood_blank\"}": {
+            "count": 1
+          },
+          "{\"id\":\"foundation_start.work_coat\"}": {
+            "count": 1
+          }
+        },
+        "powers": {},
+        "custody": {},
+        "structured": {
+          "schema": 1,
+          "packs": {},
+          "registered": {
+            "foundation_start": {
+              "worldId": "foundation_start.workroom",
+              "locationIds": [
+                "foundation_start.shelter"
+              ],
+              "itemIds": [
+                "foundation_start.work_coat",
+                "foundation_start.wood_blank",
+                "foundation_start.clasp"
+              ]
+            }
+          },
+          "structured": {
+            "schema": 2,
+            "packId": "foundation_start",
+            "revision": 1,
+            "contentHash": "sha256:9d09e527259b3a926d00c901598c8e6522974c19c94ae62b8ecbd3acb0d546a7",
+            "startId": "foundation_start.paired_start",
+            "seed": 1,
+            "originSequence": 100,
+            "instanceId": "foundation_start.run.1.100",
+            "worldId": "foundation_start.workroom",
+            "locationId": "foundation_start.shelter",
+            "locationIds": [
+              "foundation_start.shelter"
+            ],
+            "containerBindings": [],
+            "peopleIds": [],
+            "units": [],
+            "initializedAt": 0,
+            "snapshotHash": "sha256:41d87cb0a52cd0094bd30d09d1e45f912c1ea9b2b5029d7e8549277edf1b48ad",
+            "choice": 0,
+            "startCount": 2,
+            "bodyId": "foundation_start.player.body",
+            "controllerId": "player",
+            "playerActorId": "player",
+            "life": "alive",
+            "lifeId": "foundation_start.run.1.100.life",
+            "bodyInstanceId": "foundation_start.run.1.100.body"
+          }
+        },
+        "body": {
+          "id": "foundation_start.player.body",
+          "ownerId": "player",
+          "controllerId": "player",
+          "form": "human",
+          "lifeStage": "adult",
+          "hands": 2,
+          "mobile": true,
+          "instanceId": "foundation_start.run.1.100.body"
+        },
+        "character": {
+          "name": "Mira Proof",
+          "bio": {
+            "age": "adult",
+            "height": "average",
+            "race": "human",
+            "gender": "female"
+          },
+          "equipment": {}
+        },
+        "rng": 1,
+        "buttons": [
+          {
+            "text": "Inventory",
+            "id": "switch_to_inventory",
+            "attrs": []
+          },
+          {
+            "text": "Combat",
+            "id": "switch_to_combat",
+            "attrs": []
+          },
+          {
+            "text": "Stats",
+            "id": "character_show_stats",
+            "attrs": [
+              [
+                "data-translation",
+                "ui show stats"
+              ]
+            ]
+          },
+          {
+            "text": "Bio",
+            "id": "character_show_bio",
+            "attrs": [
+              [
+                "data-translation",
+                "ui show bio"
+              ]
+            ]
+          },
+          {
+            "text": "Equipment",
+            "id": "character_show_equipment",
+            "attrs": [
+              [
+                "data-translation",
+                "ui show equipment"
+              ]
+            ]
+          },
+          {
+            "text": "Tools",
+            "id": "character_show_tools",
+            "attrs": [
+              [
+                "data-translation",
+                "ui show tools"
+              ]
+            ]
+          },
+          {
+            "text": "Sort by name",
+            "id": "inventory_sort_by_name",
+            "attrs": [
+              [
+                "data-translation",
+                "ui sort name"
+              ]
+            ]
+          },
+          {
+            "text": "Sort by value",
+            "id": "inventory_sort_by_price",
+            "attrs": [
+              [
+                "data-translation",
+                "ui sort value"
+              ]
+            ]
+          },
+          {
+            "text": "Sort by type",
+            "id": "inventory_sort_by_type",
+            "attrs": [
+              [
+                "data-translation",
+                "ui sort type"
+              ]
+            ]
+          },
+          {
+            "text": "All",
+            "id": "inventory_show_all",
+            "attrs": [
+              [
+                "data-translation",
+                "ui show all"
+              ]
+            ]
+          },
+          {
+            "text": "Equipment",
+            "id": "inventory_show_equipment",
+            "attrs": [
+              [
+                "data-translation",
+                "ui show equipment"
+              ]
+            ]
+          },
+          {
+            "text": "Usable",
+            "id": "inventory_show_consumable",
+            "attrs": [
+              [
+                "data-translation",
+                "ui show usable"
+              ]
+            ]
+          },
+          {
+            "text": "Other",
+            "id": "inventory_show_other",
+            "attrs": [
+              [
+                "data-translation",
+                "ui show other"
+              ]
+            ]
+          },
+          {
+            "text": "Favs",
+            "id": "inventory_show_favs",
+            "attrs": [
+              [
+                "data-translation",
+                "ui show favs"
+              ]
+            ]
+          },
+          {
+            "text": "Quests",
+            "id": "journal_show_quests",
+            "attrs": []
+          },
+          {
+            "text": "Bestiary",
+            "id": "journal_show_bestiary",
+            "attrs": []
+          },
+          {
+            "text": "Anthology",
+            "id": "journal_show_books",
+            "attrs": []
+          },
+          {
+            "text": "Data",
+            "id": "journal_show_data",
+            "attrs": []
+          },
+          {
+            "text": "Notebook",
+            "disabled": false,
+            "id": "journal_show_notebook",
+            "attrs": []
+          },
+          {
+            "text": "Sort by name",
+            "id": "skill_sort_by_name",
+            "attrs": []
+          },
+          {
+            "text": "Sort by level",
+            "id": "skill_sort_by_level",
+            "attrs": []
+          },
+          {
+            "text": "Sort by progress",
+            "id": "skill_sort_by_progress",
+            "attrs": []
+          },
+          {
+            "text": "Skills",
+            "id": "show_skills",
+            "attrs": []
+          },
+          {
+            "text": "Stances",
+            "id": "show_stances",
+            "attrs": []
+          },
+          {
+            "text": "Magic",
+            "id": "show_magic",
+            "attrs": []
+          },
+          {
+            "text": "Remember this day",
+            "disabled": false,
+            "id": "life_remember_day",
+            "attrs": []
+          },
+          {
+            "text": "Accept renewal",
+            "disabled": false,
+            "id": "",
+            "attrs": [
+              [
+                "data-structured-renewal",
+                "accept"
+              ]
+            ]
+          },
+          {
+            "text": "Shape a clasp at the bench · 1 blank · 2 min",
+            "disabled": false,
+            "id": "",
+            "attrs": [
+              [
+                "data-structured-action",
+                "foundation_start.shape"
+              ]
+            ]
+          },
+          {
+            "text": "Repeat Shape a clasp at the bench · 1 blank · 2 min 3 times",
+            "disabled": false,
+            "id": "",
+            "attrs": [
+              [
+                "data-structured-repeat",
+                "foundation_start.shape"
+              ]
+            ]
+          },
+          {
+            "text": "Shape a clasp with the holding jig · 1 blank · 3 min",
+            "disabled": false,
+            "id": "",
+            "attrs": [
+              [
+                "data-structured-action",
+                "foundation_start.jig_shape"
+              ]
+            ]
+          },
+          {
+            "text": "Repeat Shape a clasp with the holding jig · 1 blank · 3 min 3 times",
+            "disabled": false,
+            "id": "",
+            "attrs": [
+              [
+                "data-structured-repeat",
+                "foundation_start.jig_shape"
+              ]
+            ]
+          },
+          {
+            "text": "Fit your coat clasp · 1 clasp · 1 min",
+            "disabled": true,
+            "id": "",
+            "attrs": [
+              [
+                "data-structured-action",
+                "foundation_start.refit"
+              ]
+            ]
+          }
+        ],
+        "errors": []
+      }
+    },
+    {
+      "cmd": {
+        "action": "equip",
+        "key": "{\"id\":\"foundation_start.work_coat\"}"
+      },
+      "result": {
+        "hash": "a4e84278059a711738b9149a331f916496dee79140384c021e11052187baef26",
+        "startedHash": "a4e84278059a711738b9149a331f916496dee79140384c021e11052187baef26",
+        "clock": 52,
+        "sequence": 102,
+        "schema": 5,
+        "location": "foundation_start.shelter",
+        "money": 102,
+        "inventory": {
+          "{\"id\":\"Cheap leather pants\",\"quality\":40}": {
+            "count": 1
+          },
+          "{\"id\":\"Stale bread\"}": {
+            "count": 5
+          },
+          "{\"id\":\"foundation_start.wood_blank\"}": {
+            "count": 1
+          }
+        },
+        "powers": {},
+        "custody": {},
+        "structured": {
+          "schema": 1,
+          "packs": {},
+          "registered": {
+            "foundation_start": {
+              "worldId": "foundation_start.workroom",
+              "locationIds": [
+                "foundation_start.shelter"
+              ],
+              "itemIds": [
+                "foundation_start.work_coat",
+                "foundation_start.wood_blank",
+                "foundation_start.clasp"
+              ]
+            }
+          },
+          "structured": {
+            "schema": 2,
+            "packId": "foundation_start",
+            "revision": 1,
+            "contentHash": "sha256:9d09e527259b3a926d00c901598c8e6522974c19c94ae62b8ecbd3acb0d546a7",
+            "startId": "foundation_start.paired_start",
+            "seed": 1,
+            "originSequence": 100,
+            "instanceId": "foundation_start.run.1.100",
+            "worldId": "foundation_start.workroom",
+            "locationId": "foundation_start.shelter",
+            "locationIds": [
+              "foundation_start.shelter"
+            ],
+            "containerBindings": [],
+            "peopleIds": [],
+            "units": [],
+            "initializedAt": 0,
+            "snapshotHash": "sha256:41d87cb0a52cd0094bd30d09d1e45f912c1ea9b2b5029d7e8549277edf1b48ad",
+            "choice": 0,
+            "startCount": 2,
+            "bodyId": "foundation_start.player.body",
+            "controllerId": "player",
+            "playerActorId": "player",
+            "life": "alive",
+            "lifeId": "foundation_start.run.1.100.life",
+            "bodyInstanceId": "foundation_start.run.1.100.body"
+          }
+        },
+        "body": {
+          "id": "foundation_start.player.body",
+          "ownerId": "player",
+          "controllerId": "player",
+          "form": "human",
+          "lifeStage": "adult",
+          "hands": 2,
+          "mobile": true,
+          "instanceId": "foundation_start.run.1.100.body"
+        },
+        "character": {
+          "name": "Mira Proof",
+          "bio": {
+            "age": "adult",
+            "height": "average",
+            "race": "human",
+            "gender": "female"
+          },
+          "equipment": {
+            "torso": {
+              "name": "Work coat",
+              "id": "foundation_start.work_coat",
+              "description": "Your ordinary layered coat. Fit its clasp to receive its full protection.",
+              "saturates_market": true,
+              "material_type": null,
+              "use_quality": false,
+              "quality": 100,
+              "value": 1,
+              "tags": {
+                "expedition": true,
+                "structuredEquipment": true,
+                "item": true,
+                "equippable": true,
+                "component": true,
+                "armor component": true,
+                "clothing": true,
+                "armor": true
+              },
+              "market_saturation_group": {
+                "group_key": "type_clothing",
+                "group_tier": 0
+              },
+              "item_type": "EQUIPPABLE",
+              "component_stats": {},
+              "component_bonus_skill_levels": {},
+              "component_type": "chestplate interior",
+              "component_tier": 1,
+              "base_defense": 0,
+              "equip_slot": "torso",
+              "defense_value": 0,
+              "stats": {},
+              "bonus_skill_levels": {},
+              "inventory_key": "{\"id\":\"foundation_start.work_coat\"}"
+            }
+          }
+        },
+        "rng": 1,
+        "buttons": [
+          {
+            "text": "Inventory",
+            "id": "switch_to_inventory",
+            "attrs": []
+          },
+          {
+            "text": "Combat",
+            "id": "switch_to_combat",
+            "attrs": []
+          },
+          {
+            "text": "Stats",
+            "id": "character_show_stats",
+            "attrs": [
+              [
+                "data-translation",
+                "ui show stats"
+              ]
+            ]
+          },
+          {
+            "text": "Bio",
+            "id": "character_show_bio",
+            "attrs": [
+              [
+                "data-translation",
+                "ui show bio"
+              ]
+            ]
+          },
+          {
+            "text": "Equipment",
+            "id": "character_show_equipment",
+            "attrs": [
+              [
+                "data-translation",
+                "ui show equipment"
+              ]
+            ]
+          },
+          {
+            "text": "Tools",
+            "id": "character_show_tools",
+            "attrs": [
+              [
+                "data-translation",
+                "ui show tools"
+              ]
+            ]
+          },
+          {
+            "text": "Sort by name",
+            "id": "inventory_sort_by_name",
+            "attrs": [
+              [
+                "data-translation",
+                "ui sort name"
+              ]
+            ]
+          },
+          {
+            "text": "Sort by value",
+            "id": "inventory_sort_by_price",
+            "attrs": [
+              [
+                "data-translation",
+                "ui sort value"
+              ]
+            ]
+          },
+          {
+            "text": "Sort by type",
+            "id": "inventory_sort_by_type",
+            "attrs": [
+              [
+                "data-translation",
+                "ui sort type"
+              ]
+            ]
+          },
+          {
+            "text": "All",
+            "id": "inventory_show_all",
+            "attrs": [
+              [
+                "data-translation",
+                "ui show all"
+              ]
+            ]
+          },
+          {
+            "text": "Equipment",
+            "id": "inventory_show_equipment",
+            "attrs": [
+              [
+                "data-translation",
+                "ui show equipment"
+              ]
+            ]
+          },
+          {
+            "text": "Usable",
+            "id": "inventory_show_consumable",
+            "attrs": [
+              [
+                "data-translation",
+                "ui show usable"
+              ]
+            ]
+          },
+          {
+            "text": "Other",
+            "id": "inventory_show_other",
+            "attrs": [
+              [
+                "data-translation",
+                "ui show other"
+              ]
+            ]
+          },
+          {
+            "text": "Favs",
+            "id": "inventory_show_favs",
+            "attrs": [
+              [
+                "data-translation",
+                "ui show favs"
+              ]
+            ]
+          },
+          {
+            "text": "Quests",
+            "id": "journal_show_quests",
+            "attrs": []
+          },
+          {
+            "text": "Bestiary",
+            "id": "journal_show_bestiary",
+            "attrs": []
+          },
+          {
+            "text": "Anthology",
+            "id": "journal_show_books",
+            "attrs": []
+          },
+          {
+            "text": "Data",
+            "id": "journal_show_data",
+            "attrs": []
+          },
+          {
+            "text": "Notebook",
+            "disabled": false,
+            "id": "journal_show_notebook",
+            "attrs": []
+          },
+          {
+            "text": "Sort by name",
+            "id": "skill_sort_by_name",
+            "attrs": []
+          },
+          {
+            "text": "Sort by level",
+            "id": "skill_sort_by_level",
+            "attrs": []
+          },
+          {
+            "text": "Sort by progress",
+            "id": "skill_sort_by_progress",
+            "attrs": []
+          },
+          {
+            "text": "Skills",
+            "id": "show_skills",
+            "attrs": []
+          },
+          {
+            "text": "Stances",
+            "id": "show_stances",
+            "attrs": []
+          },
+          {
+            "text": "Magic",
+            "id": "show_magic",
+            "attrs": []
+          },
+          {
+            "text": "Remember this day",
+            "disabled": false,
+            "id": "life_remember_day",
+            "attrs": []
+          },
+          {
+            "text": "Accept renewal",
+            "disabled": false,
+            "id": "",
+            "attrs": [
+              [
+                "data-structured-renewal",
+                "accept"
+              ]
+            ]
+          },
+          {
+            "text": "Shape a clasp at the bench · 1 blank · 2 min",
+            "disabled": false,
+            "id": "",
+            "attrs": [
+              [
+                "data-structured-action",
+                "foundation_start.shape"
+              ]
+            ]
+          },
+          {
+            "text": "Repeat Shape a clasp at the bench · 1 blank · 2 min 3 times",
+            "disabled": false,
+            "id": "",
+            "attrs": [
+              [
+                "data-structured-repeat",
+                "foundation_start.shape"
+              ]
+            ]
+          },
+          {
+            "text": "Shape a clasp with the holding jig · 1 blank · 3 min",
+            "disabled": false,
+            "id": "",
+            "attrs": [
+              [
+                "data-structured-action",
+                "foundation_start.jig_shape"
+              ]
+            ]
+          },
+          {
+            "text": "Repeat Shape a clasp with the holding jig · 1 blank · 3 min 3 times",
+            "disabled": false,
+            "id": "",
+            "attrs": [
+              [
+                "data-structured-repeat",
+                "foundation_start.jig_shape"
+              ]
+            ]
+          },
+          {
+            "text": "Fit your coat clasp · 1 clasp · 1 min",
+            "disabled": true,
+            "id": "",
+            "attrs": [
+              [
+                "data-structured-action",
+                "foundation_start.refit"
+              ]
+            ]
+          }
+        ],
+        "errors": []
+      }
+    },
+    {
+      "cmd": {
+        "action": "save",
+        "name": "two-fitted"
+      },
+      "result": {
+        "hash": "a4e84278059a711738b9149a331f916496dee79140384c021e11052187baef26",
+        "startedHash": "a4e84278059a711738b9149a331f916496dee79140384c021e11052187baef26",
+        "clock": 52,
+        "sequence": 102,
+        "schema": 5,
+        "location": "foundation_start.shelter",
+        "money": 102,
+        "inventory": {
+          "{\"id\":\"Cheap leather pants\",\"quality\":40}": {
+            "count": 1
+          },
+          "{\"id\":\"Stale bread\"}": {
+            "count": 5
+          },
+          "{\"id\":\"foundation_start.wood_blank\"}": {
+            "count": 1
+          }
+        },
+        "powers": {},
+        "custody": {},
+        "structured": {
+          "schema": 1,
+          "packs": {},
+          "registered": {
+            "foundation_start": {
+              "worldId": "foundation_start.workroom",
+              "locationIds": [
+                "foundation_start.shelter"
+              ],
+              "itemIds": [
+                "foundation_start.work_coat",
+                "foundation_start.wood_blank",
+                "foundation_start.clasp"
+              ]
+            }
+          },
+          "structured": {
+            "schema": 2,
+            "packId": "foundation_start",
+            "revision": 1,
+            "contentHash": "sha256:9d09e527259b3a926d00c901598c8e6522974c19c94ae62b8ecbd3acb0d546a7",
+            "startId": "foundation_start.paired_start",
+            "seed": 1,
+            "originSequence": 100,
+            "instanceId": "foundation_start.run.1.100",
+            "worldId": "foundation_start.workroom",
+            "locationId": "foundation_start.shelter",
+            "locationIds": [
+              "foundation_start.shelter"
+            ],
+            "containerBindings": [],
+            "peopleIds": [],
+            "units": [],
+            "initializedAt": 0,
+            "snapshotHash": "sha256:41d87cb0a52cd0094bd30d09d1e45f912c1ea9b2b5029d7e8549277edf1b48ad",
+            "choice": 0,
+            "startCount": 2,
+            "bodyId": "foundation_start.player.body",
+            "controllerId": "player",
+            "playerActorId": "player",
+            "life": "alive",
+            "lifeId": "foundation_start.run.1.100.life",
+            "bodyInstanceId": "foundation_start.run.1.100.body"
+          }
+        },
+        "body": {
+          "id": "foundation_start.player.body",
+          "ownerId": "player",
+          "controllerId": "player",
+          "form": "human",
+          "lifeStage": "adult",
+          "hands": 2,
+          "mobile": true,
+          "instanceId": "foundation_start.run.1.100.body"
+        },
+        "character": {
+          "name": "Mira Proof",
+          "bio": {
+            "age": "adult",
+            "height": "average",
+            "race": "human",
+            "gender": "female"
+          },
+          "equipment": {
+            "torso": {
+              "name": "Work coat",
+              "id": "foundation_start.work_coat",
+              "description": "Your ordinary layered coat. Fit its clasp to receive its full protection.",
+              "saturates_market": true,
+              "material_type": null,
+              "use_quality": false,
+              "quality": 100,
+              "value": 1,
+              "tags": {
+                "expedition": true,
+                "structuredEquipment": true,
+                "item": true,
+                "equippable": true,
+                "component": true,
+                "armor component": true,
+                "clothing": true,
+                "armor": true
+              },
+              "market_saturation_group": {
+                "group_key": "type_clothing",
+                "group_tier": 0
+              },
+              "item_type": "EQUIPPABLE",
+              "component_stats": {},
+              "component_bonus_skill_levels": {},
+              "component_type": "chestplate interior",
+              "component_tier": 1,
+              "base_defense": 0,
+              "equip_slot": "torso",
+              "defense_value": 0,
+              "stats": {},
+              "bonus_skill_levels": {},
+              "inventory_key": "{\"id\":\"foundation_start.work_coat\"}"
+            }
+          }
+        },
+        "rng": 1,
+        "buttons": [
+          {
+            "text": "Inventory",
+            "id": "switch_to_inventory",
+            "attrs": []
+          },
+          {
+            "text": "Combat",
+            "id": "switch_to_combat",
+            "attrs": []
+          },
+          {
+            "text": "Stats",
+            "id": "character_show_stats",
+            "attrs": [
+              [
+                "data-translation",
+                "ui show stats"
+              ]
+            ]
+          },
+          {
+            "text": "Bio",
+            "id": "character_show_bio",
+            "attrs": [
+              [
+                "data-translation",
+                "ui show bio"
+              ]
+            ]
+          },
+          {
+            "text": "Equipment",
+            "id": "character_show_equipment",
+            "attrs": [
+              [
+                "data-translation",
+                "ui show equipment"
+              ]
+            ]
+          },
+          {
+            "text": "Tools",
+            "id": "character_show_tools",
+            "attrs": [
+              [
+                "data-translation",
+                "ui show tools"
+              ]
+            ]
+          },
+          {
+            "text": "Sort by name",
+            "id": "inventory_sort_by_name",
+            "attrs": [
+              [
+                "data-translation",
+                "ui sort name"
+              ]
+            ]
+          },
+          {
+            "text": "Sort by value",
+            "id": "inventory_sort_by_price",
+            "attrs": [
+              [
+                "data-translation",
+                "ui sort value"
+              ]
+            ]
+          },
+          {
+            "text": "Sort by type",
+            "id": "inventory_sort_by_type",
+            "attrs": [
+              [
+                "data-translation",
+                "ui sort type"
+              ]
+            ]
+          },
+          {
+            "text": "All",
+            "id": "inventory_show_all",
+            "attrs": [
+              [
+                "data-translation",
+                "ui show all"
+              ]
+            ]
+          },
+          {
+            "text": "Equipment",
+            "id": "inventory_show_equipment",
+            "attrs": [
+              [
+                "data-translation",
+                "ui show equipment"
+              ]
+            ]
+          },
+          {
+            "text": "Usable",
+            "id": "inventory_show_consumable",
+            "attrs": [
+              [
+                "data-translation",
+                "ui show usable"
+              ]
+            ]
+          },
+          {
+            "text": "Other",
+            "id": "inventory_show_other",
+            "attrs": [
+              [
+                "data-translation",
+                "ui show other"
+              ]
+            ]
+          },
+          {
+            "text": "Favs",
+            "id": "inventory_show_favs",
+            "attrs": [
+              [
+                "data-translation",
+                "ui show favs"
+              ]
+            ]
+          },
+          {
+            "text": "Quests",
+            "id": "journal_show_quests",
+            "attrs": []
+          },
+          {
+            "text": "Bestiary",
+            "id": "journal_show_bestiary",
+            "attrs": []
+          },
+          {
+            "text": "Anthology",
+            "id": "journal_show_books",
+            "attrs": []
+          },
+          {
+            "text": "Data",
+            "id": "journal_show_data",
+            "attrs": []
+          },
+          {
+            "text": "Notebook",
+            "disabled": false,
+            "id": "journal_show_notebook",
+            "attrs": []
+          },
+          {
+            "text": "Sort by name",
+            "id": "skill_sort_by_name",
+            "attrs": []
+          },
+          {
+            "text": "Sort by level",
+            "id": "skill_sort_by_level",
+            "attrs": []
+          },
+          {
+            "text": "Sort by progress",
+            "id": "skill_sort_by_progress",
+            "attrs": []
+          },
+          {
+            "text": "Skills",
+            "id": "show_skills",
+            "attrs": []
+          },
+          {
+            "text": "Stances",
+            "id": "show_stances",
+            "attrs": []
+          },
+          {
+            "text": "Magic",
+            "id": "show_magic",
+            "attrs": []
+          },
+          {
+            "text": "Remember this day",
+            "disabled": false,
+            "id": "life_remember_day",
+            "attrs": []
+          },
+          {
+            "text": "Accept renewal",
+            "disabled": false,
+            "id": "",
+            "attrs": [
+              [
+                "data-structured-renewal",
+                "accept"
+              ]
+            ]
+          },
+          {
+            "text": "Shape a clasp at the bench · 1 blank · 2 min",
+            "disabled": false,
+            "id": "",
+            "attrs": [
+              [
+                "data-structured-action",
+                "foundation_start.shape"
+              ]
+            ]
+          },
+          {
+            "text": "Repeat Shape a clasp at the bench · 1 blank · 2 min 3 times",
+            "disabled": false,
+            "id": "",
+            "attrs": [
+              [
+                "data-structured-repeat",
+                "foundation_start.shape"
+              ]
+            ]
+          },
+          {
+            "text": "Shape a clasp with the holding jig · 1 blank · 3 min",
+            "disabled": false,
+            "id": "",
+            "attrs": [
+              [
+                "data-structured-action",
+                "foundation_start.jig_shape"
+              ]
+            ]
+          },
+          {
+            "text": "Repeat Shape a clasp with the holding jig · 1 blank · 3 min 3 times",
+            "disabled": false,
+            "id": "",
+            "attrs": [
+              [
+                "data-structured-repeat",
+                "foundation_start.jig_shape"
+              ]
+            ]
+          },
+          {
+            "text": "Fit your coat clasp · 1 clasp · 1 min",
+            "disabled": true,
+            "id": "",
+            "attrs": [
+              [
+                "data-structured-action",
+                "foundation_start.refit"
+              ]
+            ]
+          }
+        ],
+        "errors": []
+      }
+    },
+    {
+      "cmd": {
+        "action": "click",
+        "selector": "[data-structured-renewal]"
+      },
+      "result": {
+        "hash": "a4e84278059a711738b9149a331f916496dee79140384c021e11052187baef26",
+        "startedHash": "a4e84278059a711738b9149a331f916496dee79140384c021e11052187baef26",
+        "clock": 53,
+        "sequence": 103,
+        "schema": 5,
+        "location": "foundation_start.shelter",
+        "money": 102,
+        "inventory": {
+          "{\"id\":\"Cheap leather pants\",\"quality\":40}": {
+            "count": 1
+          },
+          "{\"id\":\"Stale bread\"}": {
+            "count": 5
+          },
+          "{\"id\":\"foundation_start.wood_blank\"}": {
+            "count": 1
+          }
+        },
+        "powers": {},
+        "custody": {},
+        "structured": {
+          "schema": 1,
+          "packs": {},
+          "registered": {
+            "foundation_start": {
+              "worldId": "foundation_start.workroom",
+              "locationIds": [
+                "foundation_start.shelter"
+              ],
+              "itemIds": [
+                "foundation_start.work_coat",
+                "foundation_start.wood_blank",
+                "foundation_start.clasp"
+              ]
+            }
+          },
+          "structured": {
+            "schema": 2,
+            "packId": "foundation_start",
+            "revision": 1,
+            "contentHash": "sha256:9d09e527259b3a926d00c901598c8e6522974c19c94ae62b8ecbd3acb0d546a7",
+            "startId": "foundation_start.paired_start",
+            "seed": 1,
+            "originSequence": 100,
+            "instanceId": "foundation_start.run.1.100",
+            "worldId": "foundation_start.workroom",
+            "locationId": "foundation_start.shelter",
+            "locationIds": [
+              "foundation_start.shelter"
+            ],
+            "containerBindings": [],
+            "peopleIds": [],
+            "units": [],
+            "initializedAt": 0,
+            "snapshotHash": "sha256:41d87cb0a52cd0094bd30d09d1e45f912c1ea9b2b5029d7e8549277edf1b48ad",
+            "choice": 0,
+            "startCount": 2,
+            "bodyId": "foundation_start.player.body",
+            "controllerId": "player",
+            "playerActorId": "player",
+            "life": "alive",
+            "lifeId": "foundation_start.run.1.100.life",
+            "bodyInstanceId": "foundation_start.run.1.100.body"
+          }
+        },
+        "body": {
+          "id": "foundation_start.player.body",
+          "ownerId": "player",
+          "controllerId": "player",
+          "form": "human",
+          "lifeStage": "adult",
+          "hands": 2,
+          "mobile": true,
+          "instanceId": "foundation_start.run.1.100.body"
+        },
+        "character": {
+          "name": "Mira Proof",
+          "bio": {
+            "age": "adult",
+            "height": "average",
+            "race": "human",
+            "gender": "female"
+          },
+          "equipment": {
+            "torso": {
+              "name": "Work coat",
+              "id": "foundation_start.work_coat",
+              "description": "Your ordinary layered coat. Fit its clasp to receive its full protection.",
+              "saturates_market": true,
+              "material_type": null,
+              "use_quality": false,
+              "quality": 100,
+              "value": 1,
+              "tags": {
+                "expedition": true,
+                "structuredEquipment": true,
+                "item": true,
+                "equippable": true,
+                "component": true,
+                "armor component": true,
+                "clothing": true,
+                "armor": true
+              },
+              "market_saturation_group": {
+                "group_key": "type_clothing",
+                "group_tier": 0
+              },
+              "item_type": "EQUIPPABLE",
+              "component_stats": {},
+              "component_bonus_skill_levels": {},
+              "component_type": "chestplate interior",
+              "component_tier": 1,
+              "base_defense": 0,
+              "equip_slot": "torso",
+              "defense_value": 0,
+              "stats": {},
+              "bonus_skill_levels": {},
+              "inventory_key": "{\"id\":\"foundation_start.work_coat\"}"
+            }
+          }
+        },
+        "rng": 1,
+        "buttons": [
+          {
+            "text": "Inventory",
+            "id": "switch_to_inventory",
+            "attrs": []
+          },
+          {
+            "text": "Combat",
+            "id": "switch_to_combat",
+            "attrs": []
+          },
+          {
+            "text": "Stats",
+            "id": "character_show_stats",
+            "attrs": [
+              [
+                "data-translation",
+                "ui show stats"
+              ]
+            ]
+          },
+          {
+            "text": "Bio",
+            "id": "character_show_bio",
+            "attrs": [
+              [
+                "data-translation",
+                "ui show bio"
+              ]
+            ]
+          },
+          {
+            "text": "Equipment",
+            "id": "character_show_equipment",
+            "attrs": [
+              [
+                "data-translation",
+                "ui show equipment"
+              ]
+            ]
+          },
+          {
+            "text": "Tools",
+            "id": "character_show_tools",
+            "attrs": [
+              [
+                "data-translation",
+                "ui show tools"
+              ]
+            ]
+          },
+          {
+            "text": "Sort by name",
+            "id": "inventory_sort_by_name",
+            "attrs": [
+              [
+                "data-translation",
+                "ui sort name"
+              ]
+            ]
+          },
+          {
+            "text": "Sort by value",
+            "id": "inventory_sort_by_price",
+            "attrs": [
+              [
+                "data-translation",
+                "ui sort value"
+              ]
+            ]
+          },
+          {
+            "text": "Sort by type",
+            "id": "inventory_sort_by_type",
+            "attrs": [
+              [
+                "data-translation",
+                "ui sort type"
+              ]
+            ]
+          },
+          {
+            "text": "All",
+            "id": "inventory_show_all",
+            "attrs": [
+              [
+                "data-translation",
+                "ui show all"
+              ]
+            ]
+          },
+          {
+            "text": "Equipment",
+            "id": "inventory_show_equipment",
+            "attrs": [
+              [
+                "data-translation",
+                "ui show equipment"
+              ]
+            ]
+          },
+          {
+            "text": "Usable",
+            "id": "inventory_show_consumable",
+            "attrs": [
+              [
+                "data-translation",
+                "ui show usable"
+              ]
+            ]
+          },
+          {
+            "text": "Other",
+            "id": "inventory_show_other",
+            "attrs": [
+              [
+                "data-translation",
+                "ui show other"
+              ]
+            ]
+          },
+          {
+            "text": "Favs",
+            "id": "inventory_show_favs",
+            "attrs": [
+              [
+                "data-translation",
+                "ui show favs"
+              ]
+            ]
+          },
+          {
+            "text": "Complete experimental admission drill",
+            "disabled": false,
+            "id": "",
+            "attrs": [
+              [
+                "data-foundation-probe",
+                "enroll"
+              ]
+            ]
+          },
+          {
+            "text": "Quests",
+            "id": "journal_show_quests",
+            "attrs": []
+          },
+          {
+            "text": "Bestiary",
+            "id": "journal_show_bestiary",
+            "attrs": []
+          },
+          {
+            "text": "Anthology",
+            "id": "journal_show_books",
+            "attrs": []
+          },
+          {
+            "text": "Data",
+            "id": "journal_show_data",
+            "attrs": []
+          },
+          {
+            "text": "Notebook",
+            "disabled": false,
+            "id": "journal_show_notebook",
+            "attrs": []
+          },
+          {
+            "text": "Sort by name",
+            "id": "skill_sort_by_name",
+            "attrs": []
+          },
+          {
+            "text": "Sort by level",
+            "id": "skill_sort_by_level",
+            "attrs": []
+          },
+          {
+            "text": "Sort by progress",
+            "id": "skill_sort_by_progress",
+            "attrs": []
+          },
+          {
+            "text": "Skills",
+            "id": "show_skills",
+            "attrs": []
+          },
+          {
+            "text": "Stances",
+            "id": "show_stances",
+            "attrs": []
+          },
+          {
+            "text": "Magic",
+            "id": "show_magic",
+            "attrs": []
+          },
+          {
+            "text": "Remember this day",
+            "disabled": false,
+            "id": "life_remember_day",
+            "attrs": []
+          },
+          {
+            "text": "Accept renewal",
+            "disabled": true,
+            "id": "",
+            "attrs": [
+              [
+                "data-structured-renewal",
+                "accept"
+              ]
+            ]
+          },
+          {
+            "text": "Shape a clasp at the bench · 1 blank · 2 min",
+            "disabled": false,
+            "id": "",
+            "attrs": [
+              [
+                "data-structured-action",
+                "foundation_start.shape"
+              ]
+            ]
+          },
+          {
+            "text": "Repeat Shape a clasp at the bench · 1 blank · 2 min 3 times",
+            "disabled": false,
+            "id": "",
+            "attrs": [
+              [
+                "data-structured-repeat",
+                "foundation_start.shape"
+              ]
+            ]
+          },
+          {
+            "text": "Shape a clasp with the holding jig · 1 blank · 3 min",
+            "disabled": false,
+            "id": "",
+            "attrs": [
+              [
+                "data-structured-action",
+                "foundation_start.jig_shape"
+              ]
+            ]
+          },
+          {
+            "text": "Repeat Shape a clasp with the holding jig · 1 blank · 3 min 3 times",
+            "disabled": false,
+            "id": "",
+            "attrs": [
+              [
+                "data-structured-repeat",
+                "foundation_start.jig_shape"
+              ]
+            ]
+          },
+          {
+            "text": "Fit your coat clasp · 1 clasp · 1 min",
+            "disabled": true,
+            "id": "",
+            "attrs": [
+              [
+                "data-structured-action",
+                "foundation_start.refit"
+              ]
+            ]
+          }
+        ],
+        "errors": []
+      }
+    },
+    {
+      "cmd": {
+        "action": "save",
+        "name": "two-renewed"
+      },
+      "result": {
+        "hash": "a4e84278059a711738b9149a331f916496dee79140384c021e11052187baef26",
+        "startedHash": "a4e84278059a711738b9149a331f916496dee79140384c021e11052187baef26",
+        "clock": 54,
+        "sequence": 103,
+        "schema": 5,
+        "location": "foundation_start.shelter",
+        "money": 102,
+        "inventory": {
+          "{\"id\":\"Cheap leather pants\",\"quality\":40}": {
+            "count": 1
+          },
+          "{\"id\":\"Stale bread\"}": {
+            "count": 5
+          },
+          "{\"id\":\"foundation_start.wood_blank\"}": {
+            "count": 1
+          }
+        },
+        "powers": {},
+        "custody": {},
+        "structured": {
+          "schema": 1,
+          "packs": {},
+          "registered": {
+            "foundation_start": {
+              "worldId": "foundation_start.workroom",
+              "locationIds": [
+                "foundation_start.shelter"
+              ],
+              "itemIds": [
+                "foundation_start.work_coat",
+                "foundation_start.wood_blank",
+                "foundation_start.clasp"
+              ]
+            }
+          },
+          "structured": {
+            "schema": 2,
+            "packId": "foundation_start",
+            "revision": 1,
+            "contentHash": "sha256:9d09e527259b3a926d00c901598c8e6522974c19c94ae62b8ecbd3acb0d546a7",
+            "startId": "foundation_start.paired_start",
+            "seed": 1,
+            "originSequence": 100,
+            "instanceId": "foundation_start.run.1.100",
+            "worldId": "foundation_start.workroom",
+            "locationId": "foundation_start.shelter",
+            "locationIds": [
+              "foundation_start.shelter"
+            ],
+            "containerBindings": [],
+            "peopleIds": [],
+            "units": [],
+            "initializedAt": 0,
+            "snapshotHash": "sha256:41d87cb0a52cd0094bd30d09d1e45f912c1ea9b2b5029d7e8549277edf1b48ad",
+            "choice": 0,
+            "startCount": 2,
+            "bodyId": "foundation_start.player.body",
+            "controllerId": "player",
+            "playerActorId": "player",
+            "life": "alive",
+            "lifeId": "foundation_start.run.1.100.life",
+            "bodyInstanceId": "foundation_start.run.1.100.body"
+          }
+        },
+        "body": {
+          "id": "foundation_start.player.body",
+          "ownerId": "player",
+          "controllerId": "player",
+          "form": "human",
+          "lifeStage": "adult",
+          "hands": 2,
+          "mobile": true,
+          "instanceId": "foundation_start.run.1.100.body"
+        },
+        "character": {
+          "name": "Mira Proof",
+          "bio": {
+            "age": "adult",
+            "height": "average",
+            "race": "human",
+            "gender": "female"
+          },
+          "equipment": {
+            "torso": {
+              "name": "Work coat",
+              "id": "foundation_start.work_coat",
+              "description": "Your ordinary layered coat. Fit its clasp to receive its full protection.",
+              "saturates_market": true,
+              "material_type": null,
+              "use_quality": false,
+              "quality": 100,
+              "value": 1,
+              "tags": {
+                "expedition": true,
+                "structuredEquipment": true,
+                "item": true,
+                "equippable": true,
+                "component": true,
+                "armor component": true,
+                "clothing": true,
+                "armor": true
+              },
+              "market_saturation_group": {
+                "group_key": "type_clothing",
+                "group_tier": 0
+              },
+              "item_type": "EQUIPPABLE",
+              "component_stats": {},
+              "component_bonus_skill_levels": {},
+              "component_type": "chestplate interior",
+              "component_tier": 1,
+              "base_defense": 0,
+              "equip_slot": "torso",
+              "defense_value": 0,
+              "stats": {},
+              "bonus_skill_levels": {},
+              "inventory_key": "{\"id\":\"foundation_start.work_coat\"}"
+            }
+          }
+        },
+        "rng": 1,
+        "buttons": [
+          {
+            "text": "Inventory",
+            "id": "switch_to_inventory",
+            "attrs": []
+          },
+          {
+            "text": "Combat",
+            "id": "switch_to_combat",
+            "attrs": []
+          },
+          {
+            "text": "Stats",
+            "id": "character_show_stats",
+            "attrs": [
+              [
+                "data-translation",
+                "ui show stats"
+              ]
+            ]
+          },
+          {
+            "text": "Bio",
+            "id": "character_show_bio",
+            "attrs": [
+              [
+                "data-translation",
+                "ui show bio"
+              ]
+            ]
+          },
+          {
+            "text": "Equipment",
+            "id": "character_show_equipment",
+            "attrs": [
+              [
+                "data-translation",
+                "ui show equipment"
+              ]
+            ]
+          },
+          {
+            "text": "Tools",
+            "id": "character_show_tools",
+            "attrs": [
+              [
+                "data-translation",
+                "ui show tools"
+              ]
+            ]
+          },
+          {
+            "text": "Sort by name",
+            "id": "inventory_sort_by_name",
+            "attrs": [
+              [
+                "data-translation",
+                "ui sort name"
+              ]
+            ]
+          },
+          {
+            "text": "Sort by value",
+            "id": "inventory_sort_by_price",
+            "attrs": [
+              [
+                "data-translation",
+                "ui sort value"
+              ]
+            ]
+          },
+          {
+            "text": "Sort by type",
+            "id": "inventory_sort_by_type",
+            "attrs": [
+              [
+                "data-translation",
+                "ui sort type"
+              ]
+            ]
+          },
+          {
+            "text": "All",
+            "id": "inventory_show_all",
+            "attrs": [
+              [
+                "data-translation",
+                "ui show all"
+              ]
+            ]
+          },
+          {
+            "text": "Equipment",
+            "id": "inventory_show_equipment",
+            "attrs": [
+              [
+                "data-translation",
+                "ui show equipment"
+              ]
+            ]
+          },
+          {
+            "text": "Usable",
+            "id": "inventory_show_consumable",
+            "attrs": [
+              [
+                "data-translation",
+                "ui show usable"
+              ]
+            ]
+          },
+          {
+            "text": "Other",
+            "id": "inventory_show_other",
+            "attrs": [
+              [
+                "data-translation",
+                "ui show other"
+              ]
+            ]
+          },
+          {
+            "text": "Favs",
+            "id": "inventory_show_favs",
+            "attrs": [
+              [
+                "data-translation",
+                "ui show favs"
+              ]
+            ]
+          },
+          {
+            "text": "Complete experimental admission drill",
+            "disabled": false,
+            "id": "",
+            "attrs": [
+              [
+                "data-foundation-probe",
+                "enroll"
+              ]
+            ]
+          },
+          {
+            "text": "Quests",
+            "id": "journal_show_quests",
+            "attrs": []
+          },
+          {
+            "text": "Bestiary",
+            "id": "journal_show_bestiary",
+            "attrs": []
+          },
+          {
+            "text": "Anthology",
+            "id": "journal_show_books",
+            "attrs": []
+          },
+          {
+            "text": "Data",
+            "id": "journal_show_data",
+            "attrs": []
+          },
+          {
+            "text": "Notebook",
+            "disabled": false,
+            "id": "journal_show_notebook",
+            "attrs": []
+          },
+          {
+            "text": "Sort by name",
+            "id": "skill_sort_by_name",
+            "attrs": []
+          },
+          {
+            "text": "Sort by level",
+            "id": "skill_sort_by_level",
+            "attrs": []
+          },
+          {
+            "text": "Sort by progress",
+            "id": "skill_sort_by_progress",
+            "attrs": []
+          },
+          {
+            "text": "Skills",
+            "id": "show_skills",
+            "attrs": []
+          },
+          {
+            "text": "Stances",
+            "id": "show_stances",
+            "attrs": []
+          },
+          {
+            "text": "Magic",
+            "id": "show_magic",
+            "attrs": []
+          },
+          {
+            "text": "Remember this day",
+            "disabled": false,
+            "id": "life_remember_day",
+            "attrs": []
+          },
+          {
+            "text": "Accept renewal",
+            "disabled": true,
+            "id": "",
+            "attrs": [
+              [
+                "data-structured-renewal",
+                "accept"
+              ]
+            ]
+          },
+          {
+            "text": "Shape a clasp at the bench · 1 blank · 2 min",
+            "disabled": false,
+            "id": "",
+            "attrs": [
+              [
+                "data-structured-action",
+                "foundation_start.shape"
+              ]
+            ]
+          },
+          {
+            "text": "Repeat Shape a clasp at the bench · 1 blank · 2 min 3 times",
+            "disabled": false,
+            "id": "",
+            "attrs": [
+              [
+                "data-structured-repeat",
+                "foundation_start.shape"
+              ]
+            ]
+          },
+          {
+            "text": "Shape a clasp with the holding jig · 1 blank · 3 min",
+            "disabled": false,
+            "id": "",
+            "attrs": [
+              [
+                "data-structured-action",
+                "foundation_start.jig_shape"
+              ]
+            ]
+          },
+          {
+            "text": "Repeat Shape a clasp with the holding jig · 1 blank · 3 min 3 times",
+            "disabled": false,
+            "id": "",
+            "attrs": [
+              [
+                "data-structured-repeat",
+                "foundation_start.jig_shape"
+              ]
+            ]
+          },
+          {
+            "text": "Fit your coat clasp · 1 clasp · 1 min",
+            "disabled": true,
+            "id": "",
+            "attrs": [
+              [
+                "data-structured-action",
+                "foundation_start.refit"
+              ]
+            ]
+          }
+        ],
+        "errors": []
+      }
+    },
+    {
+      "cmd": {
+        "action": "click",
+        "selector": "[data-structured-action='foundation_start.shape']"
+      },
+      "result": {
+        "hash": "a4e84278059a711738b9149a331f916496dee79140384c021e11052187baef26",
+        "startedHash": "a4e84278059a711738b9149a331f916496dee79140384c021e11052187baef26",
+        "clock": 56,
+        "sequence": 104,
+        "schema": 5,
+        "location": "foundation_start.shelter",
+        "money": 102,
+        "inventory": {
+          "{\"id\":\"Cheap leather pants\",\"quality\":40}": {
+            "count": 1
+          },
+          "{\"id\":\"Stale bread\"}": {
+            "count": 5
+          }
+        },
+        "powers": {},
+        "custody": {},
+        "structured": {
+          "schema": 1,
+          "packs": {},
+          "registered": {
+            "foundation_start": {
+              "worldId": "foundation_start.workroom",
+              "locationIds": [
+                "foundation_start.shelter"
+              ],
+              "itemIds": [
+                "foundation_start.work_coat",
+                "foundation_start.wood_blank",
+                "foundation_start.clasp"
+              ]
+            }
+          },
+          "structured": {
+            "schema": 2,
+            "packId": "foundation_start",
+            "revision": 1,
+            "contentHash": "sha256:9d09e527259b3a926d00c901598c8e6522974c19c94ae62b8ecbd3acb0d546a7",
+            "startId": "foundation_start.paired_start",
+            "seed": 1,
+            "originSequence": 100,
+            "instanceId": "foundation_start.run.1.100",
+            "worldId": "foundation_start.workroom",
+            "locationId": "foundation_start.shelter",
+            "locationIds": [
+              "foundation_start.shelter"
+            ],
+            "containerBindings": [],
+            "peopleIds": [],
+            "units": [],
+            "initializedAt": 0,
+            "snapshotHash": "sha256:41d87cb0a52cd0094bd30d09d1e45f912c1ea9b2b5029d7e8549277edf1b48ad",
+            "choice": 0,
+            "startCount": 2,
+            "bodyId": "foundation_start.player.body",
+            "controllerId": "player",
+            "playerActorId": "player",
+            "life": "alive",
+            "lifeId": "foundation_start.run.1.100.life",
+            "bodyInstanceId": "foundation_start.run.1.100.body"
+          }
+        },
+        "body": {
+          "id": "foundation_start.player.body",
+          "ownerId": "player",
+          "controllerId": "player",
+          "form": "human",
+          "lifeStage": "adult",
+          "hands": 2,
+          "mobile": true,
+          "instanceId": "foundation_start.run.1.100.body"
+        },
+        "character": {
+          "name": "Mira Proof",
+          "bio": {
+            "age": "adult",
+            "height": "average",
+            "race": "human",
+            "gender": "female"
+          },
+          "equipment": {
+            "torso": {
+              "name": "Work coat",
+              "id": "foundation_start.work_coat",
+              "description": "Your ordinary layered coat. Fit its clasp to receive its full protection.",
+              "saturates_market": true,
+              "material_type": null,
+              "use_quality": false,
+              "quality": 100,
+              "value": 1,
+              "tags": {
+                "expedition": true,
+                "structuredEquipment": true,
+                "item": true,
+                "equippable": true,
+                "component": true,
+                "armor component": true,
+                "clothing": true,
+                "armor": true
+              },
+              "market_saturation_group": {
+                "group_key": "type_clothing",
+                "group_tier": 0
+              },
+              "item_type": "EQUIPPABLE",
+              "component_stats": {},
+              "component_bonus_skill_levels": {},
+              "component_type": "chestplate interior",
+              "component_tier": 1,
+              "base_defense": 0,
+              "equip_slot": "torso",
+              "defense_value": 0,
+              "stats": {},
+              "bonus_skill_levels": {},
+              "inventory_key": "{\"id\":\"foundation_start.work_coat\"}"
+            }
+          }
+        },
+        "rng": 1,
+        "buttons": [
+          {
+            "text": "Inventory",
+            "id": "switch_to_inventory",
+            "attrs": []
+          },
+          {
+            "text": "Combat",
+            "id": "switch_to_combat",
+            "attrs": []
+          },
+          {
+            "text": "Stats",
+            "id": "character_show_stats",
+            "attrs": [
+              [
+                "data-translation",
+                "ui show stats"
+              ]
+            ]
+          },
+          {
+            "text": "Bio",
+            "id": "character_show_bio",
+            "attrs": [
+              [
+                "data-translation",
+                "ui show bio"
+              ]
+            ]
+          },
+          {
+            "text": "Equipment",
+            "id": "character_show_equipment",
+            "attrs": [
+              [
+                "data-translation",
+                "ui show equipment"
+              ]
+            ]
+          },
+          {
+            "text": "Tools",
+            "id": "character_show_tools",
+            "attrs": [
+              [
+                "data-translation",
+                "ui show tools"
+              ]
+            ]
+          },
+          {
+            "text": "Sort by name",
+            "id": "inventory_sort_by_name",
+            "attrs": [
+              [
+                "data-translation",
+                "ui sort name"
+              ]
+            ]
+          },
+          {
+            "text": "Sort by value",
+            "id": "inventory_sort_by_price",
+            "attrs": [
+              [
+                "data-translation",
+                "ui sort value"
+              ]
+            ]
+          },
+          {
+            "text": "Sort by type",
+            "id": "inventory_sort_by_type",
+            "attrs": [
+              [
+                "data-translation",
+                "ui sort type"
+              ]
+            ]
+          },
+          {
+            "text": "All",
+            "id": "inventory_show_all",
+            "attrs": [
+              [
+                "data-translation",
+                "ui show all"
+              ]
+            ]
+          },
+          {
+            "text": "Equipment",
+            "id": "inventory_show_equipment",
+            "attrs": [
+              [
+                "data-translation",
+                "ui show equipment"
+              ]
+            ]
+          },
+          {
+            "text": "Usable",
+            "id": "inventory_show_consumable",
+            "attrs": [
+              [
+                "data-translation",
+                "ui show usable"
+              ]
+            ]
+          },
+          {
+            "text": "Other",
+            "id": "inventory_show_other",
+            "attrs": [
+              [
+                "data-translation",
+                "ui show other"
+              ]
+            ]
+          },
+          {
+            "text": "Favs",
+            "id": "inventory_show_favs",
+            "attrs": [
+              [
+                "data-translation",
+                "ui show favs"
+              ]
+            ]
+          },
+          {
+            "text": "Open local controls",
+            "disabled": false,
+            "id": "",
+            "attrs": []
+          },
+          {
+            "text": "Complete experimental admission drill",
+            "disabled": true,
+            "id": "",
+            "attrs": [
+              [
+                "data-foundation-probe",
+                "enroll"
+              ]
+            ]
+          },
+          {
+            "text": "Quests",
+            "id": "journal_show_quests",
+            "attrs": []
+          },
+          {
+            "text": "Bestiary",
+            "id": "journal_show_bestiary",
+            "attrs": []
+          },
+          {
+            "text": "Anthology",
+            "id": "journal_show_books",
+            "attrs": []
+          },
+          {
+            "text": "Data",
+            "id": "journal_show_data",
+            "attrs": []
+          },
+          {
+            "text": "Notebook",
+            "disabled": false,
+            "id": "journal_show_notebook",
+            "attrs": []
+          },
+          {
+            "text": "Sort by name",
+            "id": "skill_sort_by_name",
+            "attrs": []
+          },
+          {
+            "text": "Sort by level",
+            "id": "skill_sort_by_level",
+            "attrs": []
+          },
+          {
+            "text": "Sort by progress",
+            "id": "skill_sort_by_progress",
+            "attrs": []
+          },
+          {
+            "text": "Skills",
+            "id": "show_skills",
+            "attrs": []
+          },
+          {
+            "text": "Stances",
+            "id": "show_stances",
+            "attrs": []
+          },
+          {
+            "text": "Magic",
+            "id": "show_magic",
+            "attrs": []
+          },
+          {
+            "text": "Remember this day",
+            "disabled": false,
+            "id": "life_remember_day",
+            "attrs": []
+          },
+          {
+            "text": "Cancel Shape a clasp at the bench · 1 blank · 2 min",
+            "disabled": false,
+            "id": "",
+            "attrs": [
+              [
+                "data-structured-cancel",
+                "simulation:104"
+              ]
+            ]
+          },
+          {
+            "text": "Accept renewal",
+            "disabled": true,
+            "id": "",
+            "attrs": [
+              [
+                "data-structured-renewal",
+                "accept"
+              ]
+            ]
+          },
+          {
+            "text": "Shape a clasp at the bench · 1 blank · 2 min",
+            "disabled": true,
+            "id": "",
+            "attrs": [
+              [
+                "data-structured-action",
+                "foundation_start.shape"
+              ]
+            ]
+          },
+          {
+            "text": "Repeat Shape a clasp at the bench · 1 blank · 2 min 3 times",
+            "disabled": true,
+            "id": "",
+            "attrs": [
+              [
+                "data-structured-repeat",
+                "foundation_start.shape"
+              ]
+            ]
+          },
+          {
+            "text": "Shape a clasp with the holding jig · 1 blank · 3 min",
+            "disabled": true,
+            "id": "",
+            "attrs": [
+              [
+                "data-structured-action",
+                "foundation_start.jig_shape"
+              ]
+            ]
+          },
+          {
+            "text": "Repeat Shape a clasp with the holding jig · 1 blank · 3 min 3 times",
+            "disabled": true,
+            "id": "",
+            "attrs": [
+              [
+                "data-structured-repeat",
+                "foundation_start.jig_shape"
+              ]
+            ]
+          },
+          {
+            "text": "Fit your coat clasp · 1 clasp · 1 min",
+            "disabled": true,
+            "id": "",
+            "attrs": [
+              [
+                "data-structured-action",
+                "foundation_start.refit"
+              ]
+            ]
+          }
+        ],
+        "errors": []
+      }
+    },
+    {
+      "cmd": {
+        "action": "wait",
+        "ms": 3000
+      },
+      "result": {
+        "hash": "a4e84278059a711738b9149a331f916496dee79140384c021e11052187baef26",
+        "startedHash": "a4e84278059a711738b9149a331f916496dee79140384c021e11052187baef26",
+        "clock": 58,
+        "sequence": 104,
+        "schema": 5,
+        "location": "foundation_start.shelter",
+        "money": 102,
+        "inventory": {
+          "{\"id\":\"Cheap leather pants\",\"quality\":40}": {
+            "count": 1
+          },
+          "{\"id\":\"Stale bread\"}": {
+            "count": 5
+          },
+          "{\"id\":\"foundation_start.clasp\"}": {
+            "count": 1
+          }
+        },
+        "powers": {},
+        "custody": {},
+        "structured": {
+          "schema": 1,
+          "packs": {},
+          "registered": {
+            "foundation_start": {
+              "worldId": "foundation_start.workroom",
+              "locationIds": [
+                "foundation_start.shelter"
+              ],
+              "itemIds": [
+                "foundation_start.work_coat",
+                "foundation_start.wood_blank",
+                "foundation_start.clasp"
+              ]
+            }
+          },
+          "structured": {
+            "schema": 2,
+            "packId": "foundation_start",
+            "revision": 1,
+            "contentHash": "sha256:9d09e527259b3a926d00c901598c8e6522974c19c94ae62b8ecbd3acb0d546a7",
+            "startId": "foundation_start.paired_start",
+            "seed": 1,
+            "originSequence": 100,
+            "instanceId": "foundation_start.run.1.100",
+            "worldId": "foundation_start.workroom",
+            "locationId": "foundation_start.shelter",
+            "locationIds": [
+              "foundation_start.shelter"
+            ],
+            "containerBindings": [],
+            "peopleIds": [],
+            "units": [],
+            "initializedAt": 0,
+            "snapshotHash": "sha256:41d87cb0a52cd0094bd30d09d1e45f912c1ea9b2b5029d7e8549277edf1b48ad",
+            "choice": 0,
+            "startCount": 2,
+            "bodyId": "foundation_start.player.body",
+            "controllerId": "player",
+            "playerActorId": "player",
+            "life": "alive",
+            "lifeId": "foundation_start.run.1.100.life",
+            "bodyInstanceId": "foundation_start.run.1.100.body"
+          }
+        },
+        "body": {
+          "id": "foundation_start.player.body",
+          "ownerId": "player",
+          "controllerId": "player",
+          "form": "human",
+          "lifeStage": "adult",
+          "hands": 2,
+          "mobile": true,
+          "instanceId": "foundation_start.run.1.100.body"
+        },
+        "character": {
+          "name": "Mira Proof",
+          "bio": {
+            "age": "adult",
+            "height": "average",
+            "race": "human",
+            "gender": "female"
+          },
+          "equipment": {
+            "torso": {
+              "name": "Work coat",
+              "id": "foundation_start.work_coat",
+              "description": "Your ordinary layered coat. Fit its clasp to receive its full protection.",
+              "saturates_market": true,
+              "material_type": null,
+              "use_quality": false,
+              "quality": 100,
+              "value": 1,
+              "tags": {
+                "expedition": true,
+                "structuredEquipment": true,
+                "item": true,
+                "equippable": true,
+                "component": true,
+                "armor component": true,
+                "clothing": true,
+                "armor": true
+              },
+              "market_saturation_group": {
+                "group_key": "type_clothing",
+                "group_tier": 0
+              },
+              "item_type": "EQUIPPABLE",
+              "component_stats": {},
+              "component_bonus_skill_levels": {},
+              "component_type": "chestplate interior",
+              "component_tier": 1,
+              "base_defense": 0,
+              "equip_slot": "torso",
+              "defense_value": 0,
+              "stats": {},
+              "bonus_skill_levels": {},
+              "inventory_key": "{\"id\":\"foundation_start.work_coat\"}"
+            }
+          }
+        },
+        "rng": 1,
+        "buttons": [
+          {
+            "text": "Inventory",
+            "id": "switch_to_inventory",
+            "attrs": []
+          },
+          {
+            "text": "Combat",
+            "id": "switch_to_combat",
+            "attrs": []
+          },
+          {
+            "text": "Stats",
+            "id": "character_show_stats",
+            "attrs": [
+              [
+                "data-translation",
+                "ui show stats"
+              ]
+            ]
+          },
+          {
+            "text": "Bio",
+            "id": "character_show_bio",
+            "attrs": [
+              [
+                "data-translation",
+                "ui show bio"
+              ]
+            ]
+          },
+          {
+            "text": "Equipment",
+            "id": "character_show_equipment",
+            "attrs": [
+              [
+                "data-translation",
+                "ui show equipment"
+              ]
+            ]
+          },
+          {
+            "text": "Tools",
+            "id": "character_show_tools",
+            "attrs": [
+              [
+                "data-translation",
+                "ui show tools"
+              ]
+            ]
+          },
+          {
+            "text": "Sort by name",
+            "id": "inventory_sort_by_name",
+            "attrs": [
+              [
+                "data-translation",
+                "ui sort name"
+              ]
+            ]
+          },
+          {
+            "text": "Sort by value",
+            "id": "inventory_sort_by_price",
+            "attrs": [
+              [
+                "data-translation",
+                "ui sort value"
+              ]
+            ]
+          },
+          {
+            "text": "Sort by type",
+            "id": "inventory_sort_by_type",
+            "attrs": [
+              [
+                "data-translation",
+                "ui sort type"
+              ]
+            ]
+          },
+          {
+            "text": "All",
+            "id": "inventory_show_all",
+            "attrs": [
+              [
+                "data-translation",
+                "ui show all"
+              ]
+            ]
+          },
+          {
+            "text": "Equipment",
+            "id": "inventory_show_equipment",
+            "attrs": [
+              [
+                "data-translation",
+                "ui show equipment"
+              ]
+            ]
+          },
+          {
+            "text": "Usable",
+            "id": "inventory_show_consumable",
+            "attrs": [
+              [
+                "data-translation",
+                "ui show usable"
+              ]
+            ]
+          },
+          {
+            "text": "Other",
+            "id": "inventory_show_other",
+            "attrs": [
+              [
+                "data-translation",
+                "ui show other"
+              ]
+            ]
+          },
+          {
+            "text": "Favs",
+            "id": "inventory_show_favs",
+            "attrs": [
+              [
+                "data-translation",
+                "ui show favs"
+              ]
+            ]
+          },
+          {
+            "text": "Complete experimental admission drill",
+            "disabled": false,
+            "id": "",
+            "attrs": [
+              [
+                "data-foundation-probe",
+                "enroll"
+              ]
+            ]
+          },
+          {
+            "text": "Quests",
+            "id": "journal_show_quests",
+            "attrs": []
+          },
+          {
+            "text": "Bestiary",
+            "id": "journal_show_bestiary",
+            "attrs": []
+          },
+          {
+            "text": "Anthology",
+            "id": "journal_show_books",
+            "attrs": []
+          },
+          {
+            "text": "Data",
+            "id": "journal_show_data",
+            "attrs": []
+          },
+          {
+            "text": "Notebook",
+            "disabled": false,
+            "id": "journal_show_notebook",
+            "attrs": []
+          },
+          {
+            "text": "Sort by name",
+            "id": "skill_sort_by_name",
+            "attrs": []
+          },
+          {
+            "text": "Sort by level",
+            "id": "skill_sort_by_level",
+            "attrs": []
+          },
+          {
+            "text": "Sort by progress",
+            "id": "skill_sort_by_progress",
+            "attrs": []
+          },
+          {
+            "text": "Skills",
+            "id": "show_skills",
+            "attrs": []
+          },
+          {
+            "text": "Stances",
+            "id": "show_stances",
+            "attrs": []
+          },
+          {
+            "text": "Magic",
+            "id": "show_magic",
+            "attrs": []
+          },
+          {
+            "text": "Remember this day",
+            "disabled": false,
+            "id": "life_remember_day",
+            "attrs": []
+          },
+          {
+            "text": "Accept renewal",
+            "disabled": true,
+            "id": "",
+            "attrs": [
+              [
+                "data-structured-renewal",
+                "accept"
+              ]
+            ]
+          },
+          {
+            "text": "Shape a clasp at the bench · 1 blank · 2 min",
+            "disabled": true,
+            "id": "",
+            "attrs": [
+              [
+                "data-structured-action",
+                "foundation_start.shape"
+              ]
+            ]
+          },
+          {
+            "text": "Repeat Shape a clasp at the bench · 1 blank · 2 min 3 times",
+            "disabled": true,
+            "id": "",
+            "attrs": [
+              [
+                "data-structured-repeat",
+                "foundation_start.shape"
+              ]
+            ]
+          },
+          {
+            "text": "Shape a clasp with the holding jig · 1 blank · 3 min",
+            "disabled": true,
+            "id": "",
+            "attrs": [
+              [
+                "data-structured-action",
+                "foundation_start.jig_shape"
+              ]
+            ]
+          },
+          {
+            "text": "Repeat Shape a clasp with the holding jig · 1 blank · 3 min 3 times",
+            "disabled": true,
+            "id": "",
+            "attrs": [
+              [
+                "data-structured-repeat",
+                "foundation_start.jig_shape"
+              ]
+            ]
+          },
+          {
+            "text": "Fit your coat clasp · 1 clasp · 1 min",
+            "disabled": true,
+            "id": "",
+            "attrs": [
+              [
+                "data-structured-action",
+                "foundation_start.refit"
+              ]
+            ]
+          }
+        ],
+        "errors": []
+      }
+    },
+    {
+      "cmd": {
+        "action": "save",
+        "name": "two-continued"
+      },
+      "result": {
+        "hash": "a4e84278059a711738b9149a331f916496dee79140384c021e11052187baef26",
+        "startedHash": "a4e84278059a711738b9149a331f916496dee79140384c021e11052187baef26",
+        "clock": 59,
+        "sequence": 104,
+        "schema": 5,
+        "location": "foundation_start.shelter",
+        "money": 102,
+        "inventory": {
+          "{\"id\":\"Cheap leather pants\",\"quality\":40}": {
+            "count": 1
+          },
+          "{\"id\":\"Stale bread\"}": {
+            "count": 5
+          },
+          "{\"id\":\"foundation_start.clasp\"}": {
+            "count": 1
+          }
+        },
+        "powers": {},
+        "custody": {},
+        "structured": {
+          "schema": 1,
+          "packs": {},
+          "registered": {
+            "foundation_start": {
+              "worldId": "foundation_start.workroom",
+              "locationIds": [
+                "foundation_start.shelter"
+              ],
+              "itemIds": [
+                "foundation_start.work_coat",
+                "foundation_start.wood_blank",
+                "foundation_start.clasp"
+              ]
+            }
+          },
+          "structured": {
+            "schema": 2,
+            "packId": "foundation_start",
+            "revision": 1,
+            "contentHash": "sha256:9d09e527259b3a926d00c901598c8e6522974c19c94ae62b8ecbd3acb0d546a7",
+            "startId": "foundation_start.paired_start",
+            "seed": 1,
+            "originSequence": 100,
+            "instanceId": "foundation_start.run.1.100",
+            "worldId": "foundation_start.workroom",
+            "locationId": "foundation_start.shelter",
+            "locationIds": [
+              "foundation_start.shelter"
+            ],
+            "containerBindings": [],
+            "peopleIds": [],
+            "units": [],
+            "initializedAt": 0,
+            "snapshotHash": "sha256:41d87cb0a52cd0094bd30d09d1e45f912c1ea9b2b5029d7e8549277edf1b48ad",
+            "choice": 0,
+            "startCount": 2,
+            "bodyId": "foundation_start.player.body",
+            "controllerId": "player",
+            "playerActorId": "player",
+            "life": "alive",
+            "lifeId": "foundation_start.run.1.100.life",
+            "bodyInstanceId": "foundation_start.run.1.100.body"
+          }
+        },
+        "body": {
+          "id": "foundation_start.player.body",
+          "ownerId": "player",
+          "controllerId": "player",
+          "form": "human",
+          "lifeStage": "adult",
+          "hands": 2,
+          "mobile": true,
+          "instanceId": "foundation_start.run.1.100.body"
+        },
+        "character": {
+          "name": "Mira Proof",
+          "bio": {
+            "age": "adult",
+            "height": "average",
+            "race": "human",
+            "gender": "female"
+          },
+          "equipment": {
+            "torso": {
+              "name": "Work coat",
+              "id": "foundation_start.work_coat",
+              "description": "Your ordinary layered coat. Fit its clasp to receive its full protection.",
+              "saturates_market": true,
+              "material_type": null,
+              "use_quality": false,
+              "quality": 100,
+              "value": 1,
+              "tags": {
+                "expedition": true,
+                "structuredEquipment": true,
+                "item": true,
+                "equippable": true,
+                "component": true,
+                "armor component": true,
+                "clothing": true,
+                "armor": true
+              },
+              "market_saturation_group": {
+                "group_key": "type_clothing",
+                "group_tier": 0
+              },
+              "item_type": "EQUIPPABLE",
+              "component_stats": {},
+              "component_bonus_skill_levels": {},
+              "component_type": "chestplate interior",
+              "component_tier": 1,
+              "base_defense": 0,
+              "equip_slot": "torso",
+              "defense_value": 0,
+              "stats": {},
+              "bonus_skill_levels": {},
+              "inventory_key": "{\"id\":\"foundation_start.work_coat\"}"
+            }
+          }
+        },
+        "rng": 1,
+        "buttons": [
+          {
+            "text": "Inventory",
+            "id": "switch_to_inventory",
+            "attrs": []
+          },
+          {
+            "text": "Combat",
+            "id": "switch_to_combat",
+            "attrs": []
+          },
+          {
+            "text": "Stats",
+            "id": "character_show_stats",
+            "attrs": [
+              [
+                "data-translation",
+                "ui show stats"
+              ]
+            ]
+          },
+          {
+            "text": "Bio",
+            "id": "character_show_bio",
+            "attrs": [
+              [
+                "data-translation",
+                "ui show bio"
+              ]
+            ]
+          },
+          {
+            "text": "Equipment",
+            "id": "character_show_equipment",
+            "attrs": [
+              [
+                "data-translation",
+                "ui show equipment"
+              ]
+            ]
+          },
+          {
+            "text": "Tools",
+            "id": "character_show_tools",
+            "attrs": [
+              [
+                "data-translation",
+                "ui show tools"
+              ]
+            ]
+          },
+          {
+            "text": "Sort by name",
+            "id": "inventory_sort_by_name",
+            "attrs": [
+              [
+                "data-translation",
+                "ui sort name"
+              ]
+            ]
+          },
+          {
+            "text": "Sort by value",
+            "id": "inventory_sort_by_price",
+            "attrs": [
+              [
+                "data-translation",
+                "ui sort value"
+              ]
+            ]
+          },
+          {
+            "text": "Sort by type",
+            "id": "inventory_sort_by_type",
+            "attrs": [
+              [
+                "data-translation",
+                "ui sort type"
+              ]
+            ]
+          },
+          {
+            "text": "All",
+            "id": "inventory_show_all",
+            "attrs": [
+              [
+                "data-translation",
+                "ui show all"
+              ]
+            ]
+          },
+          {
+            "text": "Equipment",
+            "id": "inventory_show_equipment",
+            "attrs": [
+              [
+                "data-translation",
+                "ui show equipment"
+              ]
+            ]
+          },
+          {
+            "text": "Usable",
+            "id": "inventory_show_consumable",
+            "attrs": [
+              [
+                "data-translation",
+                "ui show usable"
+              ]
+            ]
+          },
+          {
+            "text": "Other",
+            "id": "inventory_show_other",
+            "attrs": [
+              [
+                "data-translation",
+                "ui show other"
+              ]
+            ]
+          },
+          {
+            "text": "Favs",
+            "id": "inventory_show_favs",
+            "attrs": [
+              [
+                "data-translation",
+                "ui show favs"
+              ]
+            ]
+          },
+          {
+            "text": "Complete experimental admission drill",
+            "disabled": false,
+            "id": "",
+            "attrs": [
+              [
+                "data-foundation-probe",
+                "enroll"
+              ]
+            ]
+          },
+          {
+            "text": "Quests",
+            "id": "journal_show_quests",
+            "attrs": []
+          },
+          {
+            "text": "Bestiary",
+            "id": "journal_show_bestiary",
+            "attrs": []
+          },
+          {
+            "text": "Anthology",
+            "id": "journal_show_books",
+            "attrs": []
+          },
+          {
+            "text": "Data",
+            "id": "journal_show_data",
+            "attrs": []
+          },
+          {
+            "text": "Notebook",
+            "disabled": false,
+            "id": "journal_show_notebook",
+            "attrs": []
+          },
+          {
+            "text": "Sort by name",
+            "id": "skill_sort_by_name",
+            "attrs": []
+          },
+          {
+            "text": "Sort by level",
+            "id": "skill_sort_by_level",
+            "attrs": []
+          },
+          {
+            "text": "Sort by progress",
+            "id": "skill_sort_by_progress",
+            "attrs": []
+          },
+          {
+            "text": "Skills",
+            "id": "show_skills",
+            "attrs": []
+          },
+          {
+            "text": "Stances",
+            "id": "show_stances",
+            "attrs": []
+          },
+          {
+            "text": "Magic",
+            "id": "show_magic",
+            "attrs": []
+          },
+          {
+            "text": "Remember this day",
+            "disabled": false,
+            "id": "life_remember_day",
+            "attrs": []
+          },
+          {
+            "text": "Accept renewal",
+            "disabled": true,
+            "id": "",
+            "attrs": [
+              [
+                "data-structured-renewal",
+                "accept"
+              ]
+            ]
+          },
+          {
+            "text": "Shape a clasp at the bench · 1 blank · 2 min",
+            "disabled": true,
+            "id": "",
+            "attrs": [
+              [
+                "data-structured-action",
+                "foundation_start.shape"
+              ]
+            ]
+          },
+          {
+            "text": "Repeat Shape a clasp at the bench · 1 blank · 2 min 3 times",
+            "disabled": true,
+            "id": "",
+            "attrs": [
+              [
+                "data-structured-repeat",
+                "foundation_start.shape"
+              ]
+            ]
+          },
+          {
+            "text": "Shape a clasp with the holding jig · 1 blank · 3 min",
+            "disabled": true,
+            "id": "",
+            "attrs": [
+              [
+                "data-structured-action",
+                "foundation_start.jig_shape"
+              ]
+            ]
+          },
+          {
+            "text": "Repeat Shape a clasp with the holding jig · 1 blank · 3 min 3 times",
+            "disabled": true,
+            "id": "",
+            "attrs": [
+              [
+                "data-structured-repeat",
+                "foundation_start.jig_shape"
+              ]
+            ]
+          },
+          {
+            "text": "Fit your coat clasp · 1 clasp · 1 min",
+            "disabled": true,
+            "id": "",
+            "attrs": [
+              [
+                "data-structured-action",
+                "foundation_start.refit"
+              ]
+            ]
+          }
+        ],
+        "errors": []
+      }
+    }
+  ]
+}

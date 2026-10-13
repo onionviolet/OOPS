@@ -1,0 +1,33 @@
+{
+  "purpose": "input identity including dirty live owners; private paths carry no source prose",
+  "files": [
+    {
+      "path": "PROJECT.md",
+      "sha256": "9192d213171d5cc3ed9288527acdc102817732a8d378c7d3f89e9cb9aa15d5cb"
+    },
+    {
+      "path": "docs/GAME_MASTER_PROMPT.md",
+      "sha256": "9524d382c81a981af02bd2cf9288f410fe9a09b9c6f8d99f7075c6245653de56"
+    },
+    {
+      "path": "docs/TIMELINES_AND_DIVERGENCE.md",
+      "sha256": "ddbd89552dc53a8f830b2f43c65fcc4f639c23aca450c3e99440152f9d1588ee"
+    },
+    {
+      "path": "docs/research/LORE_TIMELINE_AUDIT_CONTRACT.md",
+      "sha256": "997770b7fe9816e141dbdb2653da03587d17e63e1540ac093c49dc771d095b25"
+    },
+    {
+      "path": "docs/research/novels/lore-timelines-2026-10-11/AUDIT.md",
+      "sha256": "bd83eea2ea98d2b7ec6efd4520d1e38f29548c5613755d0d290962ab19036b3e"
+    },
+    {
+      "path": "docs/research/novels/lore-timelines-2026-10-11/ACQUISITION.json",
+      "sha256": "ef5b78ac4e8dc50e610e5cb8c47ddd993e2fba6b867b87f3164008aa49192683"
+    },
+    {
+      "path": "docs/research/novels/lore-timelines-2026-10-11/LOCAL_SOURCES.json",
+      "sha256": "b3893cdec899d411270c372a2118c2762ad59e06f02f6bdcdc855b8f53c4abaa"
+    }
+  ]
+}

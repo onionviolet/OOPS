@@ -1,5 +1,151 @@
 # Timelines and divergence: the natural course standard
 
+Source-facing audits use the [lore and timeline contract](research/LORE_TIMELINE_AUDIT_CONTRACT.md)
+to establish version-qualified event causes, chronology, knowledge and deliberate
+departures before proposing their implementation.
+
+## Implementation planning: starts, histories and parallel worlds, 2026-10-11
+
+Requested extension: "What about implementing timelines, different starting
+poitns, parallel worlds and more?" The following is a proposed implementation
+route linked to the [actionability prompt](gm/WORLD_ACTIONABILITY_GM_PROMPT.md)
+and [completion standard](WORLD_COMPLETION_STANDARD.md). It does not implement
+new timeline machinery or settle every world's time rules.
+
+### T1. Separate the identities before adding branches
+
+A world definition supplies a rules/source family. A continuity is a particular
+causal history. An era is a starting historical context. An instance owns durable
+changes, people, claims and local state. A visit records presence in that instance.
+A region or scenario is not automatically another universe. Parallel means
+coexisting histories or spaces, not necessarily that all of them advance on the
+same clock. A time loop, historical start, new parallel branch and actual travel
+into the past are distinct functions.
+
+Every selected option needs an author-only identity/binding record: source and
+definition revision, continuity/instance/era, region, entry snapshot, actual actor
+IDs, parent/history relation when relevant, knowledge, cargo, claims, commitments
+and clock policy. These are authoring requirements, not a proposed replacement
+save schema. Map them to inspected existing owners and identify missing bindings.
+
+### T2. Author meaningful before/during/after starting snapshots
+
+Each eligible start provides the people, institutions, physical conditions,
+resources and ongoing events appropriate to its chosen era and premise. Starting
+late must not resurrect a lost teacher or refill spent unique goods. Starting
+early must not grant later training, titles, relationships or future knowledge.
+Mid-event starts need actual first actions and commitments, not a story summary
+followed by the generic opening. No prerequisite Frontier playthrough.
+
+Use baseline snapshots plus declared changes where they genuinely preserve the
+selected state; do not assume a full historical simulation is needed for every
+start. Later travel into the same instance resumes that state. Selecting another
+starting history creates the declared new run/instance or uses an explicit
+world-supported travel mechanism; it does not silently edit an existing save.
+Keep the committed random choice and candidate revision across reload/import.
+
+### T3. Make timelines causal and reactive
+
+For each important natural-course event record trigger/preconditions, participants
+and means, ordering/window, actual effects and information channels. Source
+events happen when their relevant causes still hold. Removing a cause changes
+the event or makes the old event ineligible; do not force canon through a dead
+participant or manufacture another actor merely to restore its plot.
+
+Connect micro actions to regional and world consequences through declared
+dependencies and actor responses. Reevaluate affected events, not every molecule
+in the universe. Independent plans can still produce similar outcomes if their
+real causes survive. Distinguish no intervention, attempted intervention,
+successful disturbance and later repair. NPCs learn changes through their own
+means; a globally updated fact does not imply globally shared knowledge.
+
+### T4. Give parallel worlds independent state and selected clocks
+
+Parallel histories can share immutable definitions while keeping mutable actors,
+stock, relationships, projects, knowledge, claims and committed RNG separate.
+Counterparts can be related without being the same inventory or actor record.
+Travelers and actual transferred objects retain their declared identities and
+custody. A branch creation plan must say what is copied, referenced, retained,
+remapped or excluded; a `parentInstanceId` alone is not a fork implementation.
+
+A saved branch archive needs enough source/content revision, actor, custody,
+event, RNG, knowledge and commitment state to restore its promised resume scope.
+A seed plus canon is insufficient for arbitrary previously played history.
+Compressed summaries can preserve a chronicle without proving playable resume;
+regenerated detail cannot replace actual prior ownership or consequences.
+Archive imports, conflicting revisions and missing packs need compatibility
+decisions. Storage estimates in the earlier considerations are proposals, not
+measured guarantees. Branch labels and visit history alone are not the archive.
+
+Each world declares the meaning of presence, absence, local calendar and traveler
+exposure. Options include freeze, bounded advancement of relevant actors/events,
+chapter snapshots and supported unequal/stopped/reversed time mechanisms.
+Different policies require explicit adapters and acceptance. Use one durable
+scheduling/publication authority, not another uncontrolled timer per world.
+Two visitors must not advance a world twice. An offscreen update cannot create
+unpaid production or invent aging/death because a genre often includes it.
+
+Supported crossings need an actual carrier, destination/access, body/source
+compatibility, cargo/companion custody and interrupted/failed return rules.
+Travel does not reset first-visit claims. Meeting alternate selves, nested realms,
+simultaneous bodies, merges and imports from parallel worlds each need a selected
+identity/conservation contract; they are not automatic side effects of branching.
+
+### T5. Treat time cheats as actual state transformations
+
+For regression, loops, timeline branching, restoration, forecasting, genuine
+future sight and temporal travel, specify the exact affected history/actors/time
+domain, entry trigger, memory/source/body/stock retention, RNG behavior and
+external-world interactions. If a cheat can restore people or duplicate objects
+in its premise, model that explicitly rather than denying it through a universal
+conservation rule. Without such a mechanism, duplicating exports or rewards is
+an implementation bug. Outside observers and exported things follow the chosen
+scope, not whichever behavior is easiest to implement.
+
+Partial rewinds and full-history rollback are distinct. Simulated futures stay
+isolated unless an explicit mechanism commits selected outcomes. True future
+knowledge implements its actual information scope. Branch merging cannot erase
+conflicting actors, debts, objects or events by simply comparing branch labels.
+Hidden timelines and outcomes stay sealed until the character can discover them.
+
+### Source-inspected groundwork and limits
+
+Inspection on 2026-10-11 found concrete primitives, not just taxonomy:
+
+| Existing source | Present function | Limit of this inspection |
+|---|---|---|
+| [world instances](../src/world_instances.js) | Instance/visit identity, revision guards, local facts/sites/unique claims, occupied-interval clock and knowledge-filtered views | Constructor uses freeze-absence played minutes. Parent ID is metadata; these functions do not themselves author an era, fork all native owners or initialize a new player's body |
+| [native destination consumer](../src/feature_expansion_destination_host.js), [nested-world consumer](../src/feature_expansion_nested_host.js) | Concrete callers create instances/visits and reconcile clocks for selected content | Does not qualify arbitrary book worlds or every start/parallel variant; behavior not exercised in this planning turn |
+| [scenario rewind](../src/expansion_engine.js) | Checkpoint restores one scenario; preview explicitly retains campaign, journey, actors, worlds, random stream and receipts | Not a whole-world rollback or complete regression cheat; broad rollback needs the promised scope's owners and compatibility proof |
+| [clock leases](../src/realm_clock_leases.js) | Validated authorizations and supported intervals for observation/work on the joined played clock | A selected lease consumer can advance supported activity beyond simple occupied visits; this does not establish arbitrary time rates or a general offscreen-world simulator |
+| [multiverse owner](worlds/MULTIVERSE_STRUCTURES.md), [origin/time owner](worlds/ORIGINS_AND_WORLD_TIMELINES.md) | Existing instance, local-calendar, passage and snapshot planning; finite deliveries have their own evidence | Dated delivery entries are not fresh acceptance for new temporal options |
+
+Transit extensions also exist in the repository; the exact selected
+unequal/stopped-time function requires its own consumer inspection.
+Do not recreate a parallel scheduler or claim those options absent merely from
+this bounded review. No build, browser or save tests were run here.
+
+### Proposed dependency-ordered implementation packets
+
+| Packet | Concrete result | Required proof |
+|---|---|---|
+| TIME-P1 starts and historical snapshots | A bounded set of source-qualified early/current/later starts with actual first actions, actor means and hidden knowledge | Fresh starts from each selected snapshot; committed selection survives reload/import; no fabricated player history |
+| TIME-P2 natural course and disturbance | One significant event and its dependent aftermath respond to real intervention or abstention | Event can occur, change or fail for its declared causes; NPC report arrival and persistent changed state are correct |
+| TIME-P3 parallel-state isolation and archive | Two histories of a selected setting coexist; allowed visits and selected archived resumes restore their promised prior state | Changes cannot leak between local actors/stock/claims; transferred objects follow crossing policy; archive/export/import retains sufficient actual history and content revision |
+| TIME-P4 clock and absence policy | One selected offscreen/rate policy beyond any reused existing freeze behavior | Correct local calendar/exposure mapping, simultaneous visits, bounded absence and no double progress or retroactive free rewards |
+| TIME-P5 temporal cheat and cross-history aftermath | One selected rewind/loop/branch/travel function with its full retention scope | Correct restoration versus retained state, external exports/observers, RNG, repeat claims, failed publication and save/reload/import |
+
+This order is a proposed dependency path, not a requirement to implement all
+policies before any historical start works. Original snapshots can be developed
+while a selected temporal adapter is unresolved. G4 owns causal/knowledge design;
+G1 owns entry/body options, G2 cheat functions, and G5 inspected contracts and
+integration. One shared writer handles clock/persistence/identity changes.
+Each world owner supplies its local rules and source-qualified events. Freeze
+each selected packet's required cases before code; retain broader options in
+the full design horizon and report unplayed variants as open.
+
+## Earlier timeline considerations
+
 > **How to use this doc (Weibao, 2026-10-10):** these are considerations
 > for established and future worlds, to help ideaboard and implement
 > fitting characters at fitting times. Tiers, lists and tables are

@@ -1,0 +1,25 @@
+{
+  "status": "NO_NATIVE_ATTEMPT_SELECTED",
+  "declaredTotal": {
+    "coins": 0,
+    "materials": 0,
+    "tools": 0,
+    "custodyContainers": 0,
+    "staminaHealthAttentionSatiety": 0,
+    "jobsControllersCollectionsTrainingPreparationBattlesPlansAttemptsTravelCancellation": 0,
+    "playedMinutes": 0,
+    "cleanupActions": 0
+  },
+  "actualTotal": {
+    "coins": 0,
+    "materials": 0,
+    "tools": 0,
+    "custodyContainers": 0,
+    "staminaHealthAttentionSatiety": 0,
+    "jobsControllersCollectionsTrainingPreparationBattlesPlansAttemptsTravelCancellation": 0,
+    "playedMinutes": 0,
+    "cleanupActions": 0
+  },
+  "reason": "No dependency-ready natural dual fixture/notebook consumer; no forced acquisition/grind. No PLAY/spend/wait/travel/job or native state-changing action. Zero is not a retry allowance. SOURCE fixtures are separate.",
+  "cleanup": "NOT_APPLICABLE; no profile created"
+}

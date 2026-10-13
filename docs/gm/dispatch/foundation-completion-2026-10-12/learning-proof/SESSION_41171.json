@@ -1,0 +1,25 @@
+{
+  "pid": 41171,
+  "origin": "http://127.0.0.1:18643",
+  "startedHash": "21eedf8476a91a867ef91b997889cf02fefdb2f653bd613b80680029328fa3f1",
+  "endedHash": "21eedf8476a91a867ef91b997889cf02fefdb2f653bd613b80680029328fa3f1",
+  "events": [
+    {
+      "action": "click",
+      "selector": "#notebook_tab_here"
+    },
+    {
+      "action": "panel",
+      "selector": "#feature_expansion_panel"
+    },
+    {
+      "action": "panel",
+      "selector": "#feature_expansion_panel details:has(>summary:text-is(\"A useful lens with a return obligation\"))"
+    },
+    {
+      "action": "save",
+      "name": "worker-b1-before-rain"
+    }
+  ],
+  "errors": []
+}

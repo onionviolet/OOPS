@@ -1,0 +1,507 @@
+--- a/src/main.js
++++ b/src/main.js
+@@ -4,6 +4,7 @@
+ import {createCustomizationUI} from './customization_ui.js';
+ import {createWorkLedgerAuthorUI} from './work_ledger_author_ui.js';
+ import {createSettledTextEffects} from './settled_text_effects.js';
++import {createQuietPlaceDetail} from './quiet_place_detail.js';
+ import {createWorkLedger,migrateWorkLedger,validateWorkLedger,transitionWorkLedger,observeWorkLedgerCraft,modifyWorkLedgerChance,modifyWorkLedgerQuality,workLedgerPresentation,createWorkLedgerRulesDraft,applyWorkLedgerRulesDraft,resetWorkLedgerRules} from './work_ledger_system.js';
+ import {createWorkLedgerUI} from './work_ledger_ui.js';
+ import {normalizeElementalOption,describeElementalPreparation,ELEMENTAL_SETTING_DESCRIPTION} from './absorb_e3/elemental_affinities.js';
+@@ -1037,7 +1038,7 @@
+     const view=structuredCampaignView(expansionState,d,record,context);
+     if(optionalPackState.pendingStructured){requireStructuredSelection(optionalPackState.pendingStructured,structuredPacks);view.beginLabel='Continue beginning';}
+     if(record&&d.renewal)view.renewal=previewStructuredRenewal(expansionState,d,context);
+-    return {...view,canWrite:canWrite&&(record||current_location?.id==='Village'&&!nativeOccupationReason()&&!context.busy),error:structuredNotice};
++    return {...view,pauseReason:feedbackClockPauseReason(),canWrite:canWrite&&(record||current_location?.id==='Village'&&!nativeOccupationReason()&&!context.busy),error:structuredNotice};
+ }
+ function commandStructuredCampaign(command) {
+     try {
+@@ -2156,6 +2157,13 @@
+ export function nativeWorkLedgerChance(baseChance,category,subcategory) {return modifyWorkLedgerChance(workLedger,baseChance,workLedgerContext({category,subcategory})).value;}
+ export function nativeWorkLedgerQuality(baseQuality,category,subcategory,qualityCap) {return modifyWorkLedgerQuality(workLedger,baseQuality,workLedgerContext({category,subcategory,qualityCap})).value;}
+ function workLedgerCanWrite(){return ownsSave&&!foundationSaveBlocked&&!importProbeToken&&!expansionError&&!is_loading_error;}
++function feedbackClockPauseReason() {
++    if(!workLedgerCanWrite())return 'Paused until saving is restored.';
++    if(expansionState.simulation?.sessions.player||waitingSimulationChoice(expansionState))return 'Waiting for your response.';
++    if(backlogNativeClockPaused(expansionState))return 'Waiting for the current local situation.';
++    if(expansionState.chronicle?.life.endedAt!=null)return 'This life has ended.';
++    return '';
++}
+ function publishWorkLedger(plan,anchor) {
+     if(!workLedgerCanWrite())throw new Error('Saving must be available before the Work Ledger can settle.');
+     const serialized=create_save();if(!serialized)throw new Error('The Work Ledger could not create a save.');
+@@ -2175,9 +2183,9 @@
+     publishWorkLedger(transitionWorkLedger(workLedger,command,workLedgerContext()));
+ }
+ function settleWorkLedgerCraft(evidence,anchor) {
+-    if(!workLedgerCanWrite() || (['offered','refused'].includes(workLedger.connection)&&!workLedger.precisionKnown&&!workLedger.assistUnlocked))return;
++    if(!workLedgerCanWrite())return;
+     try {publishWorkLedger(observeWorkLedgerCraft(workLedger,evidence,workLedgerContext()),anchor);}
+-    catch(error){log_message('Work Ledger receipt was not settled: '+error.message,'notification');}
++    catch(error){log_message('Craft receipt could not be saved: '+error.message,'notification');}
+ }
+ 
+ function watchcraftKnown() {return villageCareer.watchcraft.tutorMinutes===6 || book_stats[WATCHCRAFT_BOOK].accumulated_time>=WATCHCRAFT_READING;}
+@@ -2279,6 +2287,7 @@
+ 
+ function end_activity() {
+     if(!current_activity)return;
++    const paidRoundCompleted=current_activity.earnings>0;
+     if(villageTeachingBusy(villageCareer)){log_message('Finish the agreed teaching minutes before leaving this round.');return;}
+     if(current_location.id === 'Village' && current_activity.id === 'patrolling' && villageCareer.loan?.status === 'active') {
+         const bonus=villageShiftBonus(villageCareer,current_activity.earnings>0);
+@@ -2301,7 +2310,7 @@
+         log_message('Tessa notes how your shift went. Bring back the loaned lantern and baton before taking another round.');
+     }
+     
+-    log_message(`%HeroName% finished ${current_activity.activity_name}`, "activity_finished");
++    log_message(`%HeroName% stopped ${current_activity.activity_name}${activities[current_activity.activity_name].type === "JOB" && !paidRoundCompleted ? ": no paid round completed" : ""}`, "activity_finished");
+     
+     if(current_activity.earnings) {
+         log_message(`%HeroName% earned ${format_money(current_activity.earnings)}`, "activity_money");
+@@ -4117,7 +4126,7 @@
+                     }
+                 });
+                 
+-                settleWorkLedgerCraft({sequence:workLedger.sequence+1,category,subcategory,recipeId:recipe_id,attempts:attempted_crafting_ammount,successes:successful_crafting_ammount,outputs:final_count,chanceBefore,chanceAfter:success_chance},recipe_div);
++                settleWorkLedgerCraft({sequence:workLedger.sequence+1,category,subcategory,recipeId:recipe_id,attempts:attempted_crafting_ammount,successes:successful_crafting_ammount,outputs:final_count,outputLabel:item_templates[result_id].getName(),chanceBefore,chanceAfter:success_chance},recipe_div);
+                 if(attempted_crafting_ammount < ammount_that_can_be_crafted) {
+                     use_recipe(target, ammount_that_can_be_crafted - attempted_crafting_ammount);
+                 }
+@@ -4224,7 +4233,7 @@
+ 
+                     //remove used mats
+                     character.removeFromInventory([{item_key: material_1_key, item_count: recipe_material.count*ammount_that_can_be_crafted}]);
+-                    settleWorkLedgerCraft({sequence:workLedger.sequence+1,category,subcategory,recipeId:recipe_id,attempts:ammount_that_can_be_crafted,successes:ammount_that_can_be_crafted,outputs:to_add.reduce((n,r)=>n+r.count,0),...ledgerQuality},recipe_div);
++                    settleWorkLedgerCraft({sequence:workLedger.sequence+1,category,subcategory,recipeId:recipe_id,attempts:ammount_that_can_be_crafted,successes:ammount_that_can_be_crafted,outputs:to_add.reduce((n,r)=>n+r.count,0),outputLabel:result.getName(),...ledgerQuality},recipe_div);
+ 
+                     //update display
+                     material_div.classList.remove("selected_material");
+@@ -6805,7 +6814,7 @@
+                 start_activity(activity_id);
+                 if(activities[current_location.activities[activity_id].activity_name].type === "JOB") {
+                     current_activity.earnings = save_data.current_activity.earnings * ((is_from_before_eco_rework == 1)*10 || 1);
+-                    document.getElementById("action_end_earnings").innerText = `(earnings: ${format_money(current_activity.earnings)})`;
++                    document.getElementById("action_end_earnings").innerText = `(pay accrued on stopping: ${format_money(current_activity.earnings)})`;
+                 } else if(activities[current_location.activities[activity_id].activity_name].type === "GATHERING") {
+                     //current_activity.gathered_materials = save_data.current_activity.gathered_materials || {};
+                     //pretty sure this was used only for logging purposes, but let's just leave it commented out instead of deleting
+@@ -8004,13 +8013,13 @@
+ if(!importProbeToken && !foundationSaveBlocked && !is_loading_error) {
+     if(structuredPacks.size)structuredPanel=createStructuredPackPanel({read:readStructuredCampaign,command:commandStructuredCampaign});
+     optionalPackPanel=createContentPackPanel({definitions:optionalPacks,
+-        read:()=>({state:optionalPackState,canEnter:ownsSave&&current_location?.id==='Village'&&!nativeOccupationReason()&&!current_activity&&!current_game_action&&!current_combat&&!current_dialogue&&!is_sleeping&&!is_reading&&!is_in_trade(),canAct:ownsSave&&!foundationSaveBlocked&&!lifeStorageFailure,
++        read:()=>({state:optionalPackState,pauseReason:feedbackClockPauseReason(),canEnter:ownsSave&&current_location?.id==='Village'&&!nativeOccupationReason()&&!current_activity&&!current_game_action&&!current_combat&&!current_dialogue&&!is_sleeping&&!is_reading&&!is_in_trade(),canAct:ownsSave&&!foundationSaveBlocked&&!lifeStorageFailure,
+             reference:villageCareer.rank>=1&&!villageCareer.loan&&!villageCareer.debt}),command:commandOptionalPack});
+     renderWorldIdentity();
+     validateNativeGameplayReferences([...expeditionRegistry.actions.values()].flatMap(action =>
+         [action.costs, action.effects || [], ...action.outcomes.map(outcome => outcome.effects || [])])
+         .concat([...expeditionRegistry.rollTables.values()].flatMap(table => table.outcomes.map(outcome => outcome.effects || []))));
+-    const readProgression = () => ({state: expansionState, context: {...expeditionContext(),busy:!!(current_activity || current_game_action || current_combat || current_dialogue || is_sleeping || is_reading || is_in_trade())}, error: expansionError,
++    const readProgression = () => ({canAdvance:!feedbackClockPauseReason(),pauseReason:feedbackClockPauseReason(),state: expansionState, context: {...expeditionContext(),busy:!!(current_activity || current_game_action || current_combat || current_dialogue || is_sleeping || is_reading || is_in_trade())}, error: expansionError,
+         enabled: ownsSave && !current_activity && !current_game_action && !current_combat && !is_sleeping && !is_reading && !is_in_trade()});
+     expeditionPanel = createExpeditionPanel({registry: expeditionRegistry, read: readProgression,
+         command: startExpedition, cancel: cancelExpedition});
+@@ -8091,8 +8100,13 @@
+     const customizationHost=document.createElement('div');customizationHost.id='customization_host';document.getElementById('location_actions_div').append(customizationHost);
+     customizationPanel=createCustomizationUI({container:customizationHost,read:()=>customization,save:saveCustomization,season:()=>current_game_time.getSeason(),canWrite:workLedgerCanWrite,moduleIds:['ledger','crafting','local-actions','vitals','preparation','belongings','records','time','location','skills','messages','notebook','customization']});
+     workLedgerAuthor=createWorkLedgerAuthorUI({container:customizationHost,read:()=>createWorkLedgerRulesDraft(workLedger),apply:draft=>publishWorkLedger(applyWorkLedgerRulesDraft(workLedger,draft,workLedgerContext(),{sequence:workLedger.sequence+1})),reset:()=>publishWorkLedger(resetWorkLedgerRules(workLedger,workLedgerContext(),{sequence:workLedger.sequence+1})),canWrite:()=>workLedgerCanWrite()&&workLedgerContext().alive&&!workLedgerContext().busy&&workLedgerContext().locationId==='Village'});
++    const quietPlaceDetail=createQuietPlaceDetail({container:document.getElementById('location_div'),before:document.getElementById('location_description_div'),read:()=>({
++        knownVillage:expansionState.actors.player.worldId==='base.frontier'&&current_location?.id==='Village',
++        roofed:!!current_location?.is_under_roof,raining:is_raining(),daylight:current_game_time.getTimeOfDaySimple(),
++        effects:getCustomizationSettings(customization,'location',{season:current_game_time.getSeason()}).effects
++    })});
+     refreshCustomization();
+-    setInterval(()=>{workLedgerPanel?.render();customizationPanel?.refresh();if(!workspaceOwns(customizationHost)&&!customizationHost.isConnected)document.getElementById('location_actions_div')?.append(customizationHost);workLedgerAuthor?.refresh();},250);
++    setInterval(()=>{quietPlaceDetail.render();workLedgerPanel?.render();customizationPanel?.refresh();if(!workspaceOwns(customizationHost)&&!customizationHost.isConnected)document.getElementById('location_actions_div')?.append(customizationHost);workLedgerAuthor?.refresh();},250);
+     villageCareerControls = createVillageCareerControls({read:()=>({state:villageCareer,study:watchcraftPresentation(villageCareer,watchcraftKnown()),hasNotes:!!character.getItems()[item_templates[WATCHCRAFT_BOOK].getInventoryKey()],
+         visible:current_location?.id==='Village' && expansionState.actors.player.worldId==='base.frontier' && !current_dialogue && !current_combat && !is_sleeping && !is_reading && !is_in_trade() && !current_game_action,
+         canWrite:ownsSave&&!foundationSaveBlocked&&!importProbeToken,
+@@ -8127,7 +8141,7 @@
+     elementalPanel=createElementalPanel();
+     setKnownClearTextReader(location=>knownClearText(location,fortDisclosures(book_stats[FORT.notes].accumulated_time>=4)));
+     fortControls=createFortControls({read:readFortFrame,act:actFort});
+-    if(current_location?.tags.safe_zone) reload_normal_location();
++    if(current_location?.tags.safe_zone && !current_activity && !current_game_action && !current_combat && !current_dialogue && !is_sleeping && !is_reading && !is_in_trade()) reload_normal_location();
+     lifeRecordPanel = createLifeRecordPanel({read:()=>({record:lifeRecord,canWrite:ownsSave&&!foundationSaveBlocked&&!importProbeToken}),remember:()=>{
+         if(!ownsSave || foundationSaveBlocked || importProbeToken) throw new Error("This life cannot be written right now.");
+         const serialized=create_save(); if(!serialized) throw new Error("This day could not be remembered.");
+--- a/src/display.js
++++ b/src/display.js
+@@ -4238,14 +4238,14 @@
+     action_end_div.id = "action_end_div";
+ 
+     const action_end_text = document.createElement("div");
+-    action_end_text.innerText = `Finish ${current_activity.activity_name}`;
++    action_end_text.innerText = `Stop ${current_activity.activity_name}`;
+     action_end_text.id = "action_end_text";
+ 
+     action_end_div.appendChild(action_end_text);
+ 
+     if(is_job) {
+         const action_end_earnings = document.createElement("div");        
+-        action_end_earnings.innerText = `(earnings: ${format_money(0)})`;
++        action_end_earnings.innerText = `(pay accrued on stopping: ${format_money(0)})`;
+         action_end_earnings.id = "action_end_earnings";
+ 
+         action_end_div.appendChild(action_end_earnings);
+@@ -4284,13 +4284,13 @@
+     const base_activity = activities[current_activity.activity_name];
+ 
+     if(base_activity.type === "JOB") {
+-        set_HTML(document.getElementById("action_end_earnings"), `(earnings: ${format_money(current_activity.earnings)})`);
++        set_HTML(document.getElementById("action_end_earnings"), `(pay accrued on stopping: ${format_money(current_activity.earnings)})`);
+         const time_info_div = document.getElementById("time_for_earnings_div");
+         
+         if(!enough_time_for_earnings(current_activity)) {
+-            time_info_div.innerText = `There's not enough time left to earn more, but ${character.name} might still learn something...`;
++            time_info_div.innerText = `No time for another full paid round. Stopping pays accrued earnings only; ${character.name} can still learn.`;
+         } else {
+-            time_info_div.innerText = `Next earnings in: ${format_working_time(current_activity.gathering_time_needed - current_activity.gathering_time%current_activity.gathering_time_needed)}`;
++            time_info_div.innerText = `Full-round pay in: ${format_working_time(current_activity.gathering_time_needed - current_activity.gathering_time%current_activity.gathering_time_needed)}. Stop early: no pay for the unfinished round.`;
+         }
+     }
+ 
+--- a/src/content_pack_ui.js
++++ b/src/content_pack_ui.js
+@@ -3,29 +3,45 @@
+     if(!definitions.size)return null;
+     const panel=document.createElement('details');panel.id='optional_content_panel';panel.open=true;
+     const summary=document.createElement('summary');summary.textContent='Optional worlds';panel.append(summary);
+-    const body=document.createElement('div');panel.append(body);let signature,notice='';
+-    const button=(label,id,fn,disabled=false)=>{const b=document.createElement('button');b.type='button';b.textContent=label;b.dataset.packAction=id;b.disabled=disabled;b.onclick=()=>{try{fn();notice='Saved.';}catch(error){notice=error.message;}render(true);};return b;};
++    const body=document.createElement('div');panel.append(body);
++    const node=(tag,parent)=>{const n=document.createElement(tag);parent.append(n);return n;};
++    const message=node('p',panel),packs=new Map();let signature,notice='',noticeError=false,lastWork=null;
++    const button=(label,id,packId,action)=>{const b=document.createElement('button');b.type='button';b.textContent=label;b.dataset.packAction=id;
++        b.onclick=()=>{notice='Command requested; saving…';message.textContent=notice;
++            try{command(packId,action);noticeError=false;const row=read().state.packs[packId],definition=definitions.get(packId)?.activities.find(a=>a.id===action);
++                notice='Command saved.';
++                if(definition){lastWork={packId,actionId:action,hadJob:!!row?.job,label:definition.label};if(!row?.job)notice+=' Immediate action settled.';}
++                else if(action==='return'&&row?.job){lastWork={packId,actionId:row.job.actionId,hadJob:true,label:definitions.get(packId).activities.find(a=>a.id===row.job.actionId)?.label||'Local work'};notice+=' Work paused while away; no completion pay.';}
++            }catch(error){noticeError=true;notice=error.message;}render(true);};return b;};
+     function render(force=false) {
+-        // Native location refreshes can detach the panel without changing its view.
+         const host=document.getElementById('location_actions_div');if(host&&panel.parentElement!==host)host.prepend(panel);
+-        const view=read(),next=JSON.stringify(view);if(!force&&signature===next)return;signature=next;body.replaceChildren();
+-        const p=text=>{const n=document.createElement('p');n.textContent=text;body.append(n);};
+-        const active=Object.entries(view.state.packs).find(([,r])=>r.active);
+-        for(const [id,d] of definitions) {
+-            if(active&&active[0]!==id)continue;
+-            const row=view.state.packs[id];p(d.title);
+-            if(!row?.active) {p(d.description);body.append(button('Visit '+d.title,id+'.enter',()=>command(id,'enter'),!view.canEnter));continue;}
+-            p(d.locations[0].label);p(d.locations[0].description);
+-            p(d.people.map(person=>person.label+': '+(person.memoryField&&d.displays?.[person.memoryField]?.[row.values[person.memoryField]]||person.description||'')).join(' · '));
+-            for(const [key,label] of Object.entries(d.status||{}))p(label+': '+(d.displays?.[key]?.[row.values[key]]??row.values[key]));
+-            if(view.reference)p('Tessa’s reference recognizes your resolved Village patrol history. Local rank remains separate.');
+-            if(row.job)p((d.activities.find(a=>a.id===row.job.actionId)?.label||'Local work')+' · '+row.job.remaining+' played minutes remaining. Leaving pauses this work without pay.');
+-            for(const a of d.activities)if(packConditions(row.values,a.visibleWhen)) {
+-                p(a.description);body.append(button(a.label,a.id,()=>command(id,a.id),!view.canAct||!!row.job||!packConditions(row.values,a.requires)));
++        const view=read(),next=JSON.stringify(view);if(!force&&signature===next)return;signature=next;
++        const active=Object.entries(view.state.packs).find(([,r])=>r.active),wanted=new Set();
++        for(const [id,d]of definitions){if(active&&active[0]!==id)continue;wanted.add(id);
++            let cache=packs.get(id);if(!cache){const card=node('section',body),info=node('section',card),work=node('p',card),actions=node('section',card);
++                const enter=button('Visit '+d.title,id+'.enter',id,'enter'),leave=button('Return to Village',id+'.return',id,'return');card.append(enter,leave);cache={card,info,work,actions,enter,leave,rows:new Map()};packs.set(id,cache);}
++            const row=view.state.packs[id];cache.info.replaceChildren();const p=text=>{const n=node('p',cache.info);n.textContent=text;};
++            p(d.title);cache.enter.hidden=!!row?.active;cache.enter.disabled=!view.canEnter;cache.leave.hidden=!row?.active;cache.leave.disabled=!view.canAct;
++            const visible=new Set();cache.work.hidden=!row?.job;
++            if(!row?.active){p(d.description);cache.work.textContent=row?.job?'Paused while away. '+row.job.remaining+' played minutes remain.':'';}
++            else{p(d.locations[0].label);p(d.locations[0].description);
++                p(d.people.map(person=>person.label+': '+(person.memoryField&&d.displays?.[person.memoryField]?.[row.values[person.memoryField]]||person.description||'')).join(' · '));
++                for(const [key,label]of Object.entries(d.status||{}))p(label+': '+(d.displays?.[key]?.[row.values[key]]??row.values[key]));
++                if(view.reference)p('Tessa’s reference recognizes your resolved Village patrol history. Local rank remains separate.');
++                if(row.job)cache.work.textContent=(d.activities.find(a=>a.id===row.job.actionId)?.label||'Local work')+' · '+(view.pauseReason?view.pauseReason+' ':!view.canAct?'Paused until saving is restored. ':'Running. ')+row.job.remaining+' played minutes remaining. Leaving pauses this work without pay.';
++                for(const a of d.activities)if(packConditions(row.values,a.visibleWhen)){visible.add(a.id);let r=cache.rows.get(a.id);
++                    if(!r){const card=node('section',cache.actions);card.className='action-legibility__card';card.dataset.packRow=a.id;
++                        const title=node('h4',card),description=node('p',card),duration=node('p',card),blockers=node('p',card),control=button(a.label,a.id,id,a.id);card.append(control);r={card,title,description,duration,blockers,control};cache.rows.set(a.id,r);}
++                    const allowed=view.canAct&&!row.job&&packConditions(row.values,a.requires);
++                    r.title.textContent=a.label;r.description.textContent=a.description||'';r.duration.textContent='Time terms: '+(a.duration?`${a.duration} played minutes.`:'Immediate.');
++                    r.blockers.textContent=!view.canAct?'Restore saving before acting.':row.job?'Finish or leave the current work first.':!packConditions(row.values,a.requires)?'Local prerequisites are not met.':'';r.blockers.hidden=!r.blockers.textContent;r.blockers.dataset.themeState='warning';r.control.disabled=!allowed;
++                }
+             }
+-            body.append(button('Return to Village',id+'.return',()=>command(id,'return'),!view.canAct));
++            for(const [key,r]of cache.rows)if(!visible.has(key)){if(r.card.contains(document.activeElement))summary.focus?.();r.card.remove();cache.rows.delete(key);}
+         }
+-        if(notice)p(notice);
++        for(const [id,cache]of packs)if(!wanted.has(id)){cache.card.remove();packs.delete(id);}
++        if(lastWork&&!noticeError){const row=view.state.packs[lastWork.packId];if(lastWork.hadJob&&row?.active&&!row.job){notice='Command saved. '+lastWork.label+' settled.';lastWork=null;}}
++        message.textContent=notice;message.hidden=!notice;message.dataset.themeState=noticeError?'error':'status';message.setAttribute('role',noticeError?'alert':'status');
+     }
+     render();const timer=setInterval(render,250);return {render,destroy(){clearInterval(timer);panel.remove();}};
+ }
+--- a/src/structured_pack_ui.js
++++ b/src/structured_pack_ui.js
+@@ -3,25 +3,29 @@
+ export function createStructuredPackPanel({read,command}) {
+     const panel=document.createElement('details');panel.id='structured_pack_panel';panel.open=true;
+     const summary=document.createElement('summary');summary.textContent='Your beginning';panel.append(summary);
+-    const body=document.createElement('div');panel.append(body);let signature,notice='',repetition=null;
++    const body=document.createElement('div');panel.append(body);let signature,notice='',repetition=null,noticeError=false;
++    const node=(tag,parent)=>{const n=document.createElement(tag);parent.append(n);return n;};
++    const info=node('section',body),work=node('section',body),plans=node('section',body),renewal=node('section',body),actions=node('section',body),message=node('p',body);
++    const actionRows=new Map(),jobRows=new Map();
++    const trim=(cache,ids)=>{for(const [id,row]of cache)if(!ids.has(id)){if(row.card.contains(document.activeElement))summary.focus?.();row.card.remove();cache.delete(id);}};
+     const projected=()=>{const v=read();return {
+         available:!!v.available,active:!!v.active,title:v.title,place:v.place,description:v.description,
+         people:(v.people||[]).map(p=>({name:p.name,details:p.details||[]})),
+         status:(v.status||[]).map(s=>({label:s.label,value:s.value})),
+         actions:(v.actions||[]).map(a=>({id:a.id,label:a.label,description:a.description,eligible:!!a.eligible,reasons:a.reasons||[],duration:a.duration||0,costs:a.costs||[],completed:a.completed||0,repeatable:!!a.repeatable})),
+         jobs:(v.jobs||[]).map(j=>({id:j.id,commandId:j.commandId,label:j.label,remaining:j.remaining,duration:j.duration||0,cancellable:!!j.cancellable})),
+-        beginLabel:v.beginLabel,renewal:v.renewal?{visible:!!v.renewal.visible,eligible:!!v.renewal.eligible,label:v.renewal.label,description:v.renewal.description,lost:v.renewal.lost,retain:v.renewal.retain,reward:v.renewal.reward,reasons:v.renewal.reasons}:null,canWrite:!!v.canWrite,error:v.error};};
++        pauseReason:v.pauseReason||'',beginLabel:v.beginLabel,renewal:v.renewal?{visible:!!v.renewal.visible,eligible:!!v.renewal.eligible,label:v.renewal.label,description:v.renewal.description,lost:v.renewal.lost,retain:v.renewal.retain,reward:v.renewal.reward,reasons:v.renewal.reasons}:null,canWrite:!!v.canWrite,error:v.error};};
+     const button=(label,data,request,disabled)=>{
+         const b=document.createElement('button');b.type='button';b.textContent=label;Object.assign(b.dataset,data);b.disabled=disabled;
+         b.onclick=()=>{
+             repetition=null;
+-            if(request.type==='stop-repeat'){notice='Further repetitions stopped. Current work continues.';render(true);return;}
++            if(request.type==='stop-repeat'){notice='Further repetitions stopped. Current work is unchanged.';render(true);return;}
+             const times=request.times||1,actual={...request};delete actual.times;
+             const before=projected().actions.find(a=>a.id===actual.id);
+-            try{command(actual);notice='Saved.';
++            try{command(actual);noticeError=false;const after=projected();notice=actual.type==='cancel'?'Command saved. Selected work stopped.':actual.type==='action'&&!after.jobs.some(j=>j.commandId===actual.id)&&after.actions.find(a=>a.id===actual.id)?.completed>before.completed?'Command saved. Action settled.':'Command saved.';
+                 if(times>1){const job=projected().jobs.find(j=>j.commandId===actual.id);
+                     if(job)repetition={id:actual.id,label:before.label,remaining:times-1,jobId:job.id,completed:before.completed};}
+-            }catch{notice=projected().error||'The action could not be saved.';}render(true);
++            }catch{noticeError=true;notice=projected().error||'The action could not be saved.';}render(true);
+         };return b;
+     };
+     function render(force=false) {
+@@ -37,44 +41,62 @@
+                 try{command({type:'action',id:pending.id});const fresh=projected(),job=fresh.jobs.find(j=>j.commandId===pending.id);
+                     pending.remaining--;pending.completed=a.completed;pending.jobId=job?.id;
+                     if(job&&pending.remaining>0)repetition=pending;
+-                    notice='Next repetition saved.';
+-                }catch{notice=projected().error||'Repeated work could not be saved.';repetition=null;}
++                    notice='Next repetition command saved.';
++                }catch{noticeError=true;notice=projected().error||'Repeated work could not be saved.';repetition=null;}
+                 return render(true);
+             }
+         }
+         const next=JSON.stringify({view,repetition,notice});if(!force&&signature===next)return;signature=next;
+         const focused=document.activeElement,focusKey=focused&&body.contains(focused)?Object.entries(focused.dataset||{}).find(([key])=>key.startsWith('structured')):null;
+-        body.replaceChildren();
+         panel.hidden=!view.available&&!view.active;
+-        const p=text=>{if(text==null||text==='')return;const n=document.createElement('p');n.textContent=String(text);body.append(n);};
++        info.replaceChildren();plans.replaceChildren();renewal.replaceChildren();
++        const p=(text,parent=info)=>{if(text==null||text==='')return;const n=node('p',parent);n.textContent=String(text);return n;};
++        info.hidden=work.hidden=plans.hidden=renewal.hidden=actions.hidden=!(view.available||view.active);
+         if(view.available||view.active){
+             p(view.title);p(view.description);
+-            if(!view.active)body.append(button(view.beginLabel||'Begin',{structuredBegin:'begin'},{type:'begin'},!view.canWrite));
++            if(!view.active)info.append(button(view.beginLabel||'Begin',{structuredBegin:'begin'},{type:'begin'},!view.canWrite));
+             else {
+                 p(view.place);
+                 for(const person of view.people){p(person.name);for(const detail of person.details)p(detail);}
+                 for(const row of view.status)p(`${row.label}: ${row.value}`);
+-                for(const job of view.jobs){p(`${job.label} · ${job.remaining} played minutes remaining.`);
+-                    if(job.duration>0){const progress=document.createElement('progress');progress.max=job.duration;progress.value=Math.max(0,Math.min(job.duration,job.duration-job.remaining));progress.setAttribute?.('aria-label',job.label+' progress');body.append(progress);}
+-                    if(job.cancellable)body.append(button('Cancel '+job.label,{structuredCancel:job.id},{type:'cancel',jobId:job.id},!view.canWrite));}
+-                if(repetition){p(`${repetition.label}: ${repetition.remaining} further repetitions planned. Each rechecks inputs; closing this page stops the plan.`);
+-                    body.append(button('Stop repeated work',{structuredRepeat:'stop'},{type:'stop-repeat'},false));}
++                for(const job of view.jobs){
++                    let row=jobRows.get(job.id);
++                    if(!row){const card=node('section',work);card.className='action-legibility__card action-legibility__work';card.dataset.structuredJob=job.id;
++                        const text=node('p',card),progress=node('progress',card),cancel=button('Cancel '+job.label,{structuredCancel:job.id},{type:'cancel',jobId:job.id},false);card.append(cancel);row={card,text,progress,cancel};jobRows.set(job.id,row);}
++                    row.text.textContent=`${job.label} · ${view.pauseReason?view.pauseReason+' ':!view.canWrite?'Paused until saving is restored. ':'Running. '}${job.remaining} played minutes remaining.`;
++                    row.progress.hidden=!(job.duration>0);row.progress.max=job.duration;row.progress.value=Math.max(0,Math.min(job.duration,job.duration-job.remaining));row.progress.setAttribute?.('aria-label',job.label+' progress');
++                    row.cancel.textContent='Cancel '+job.label;row.cancel.hidden=!job.cancellable;row.cancel.disabled=!view.canWrite;
++                }
++                if(repetition){p(`${repetition.label}: ${repetition.remaining} further repetitions planned. Each rechecks inputs; closing this page stops the plan.`,plans);
++                    plans.append(button('Stop repeated work',{structuredRepeat:'stop'},{type:'stop-repeat'},false));}
+                 if(view.renewal?.visible){
+-                    p(view.renewal.label);p(view.renewal.description);
+-                    for(const text of view.renewal.lost||[])p(text);
+-                    for(const text of view.renewal.retain||[])p(text);p(view.renewal.reward);
+-                    for(const reason of view.renewal.reasons||[])p(reason);
+-                    body.append(button('Accept renewal',{structuredRenewal:'accept'},{type:'renewal'},!view.canWrite||!view.renewal.eligible));
++                    p(view.renewal.label,renewal);p(view.renewal.description,renewal);
++                    for(const text of view.renewal.lost||[])p(text,renewal);
++                    for(const text of view.renewal.retain||[])p(text,renewal);p(view.renewal.reward,renewal);
++                    for(const reason of view.renewal.reasons||[])p(reason,renewal);
++                    renewal.append(button('Accept renewal',{structuredRenewal:'accept'},{type:'renewal'},!view.canWrite||!view.renewal.eligible));
+                 }
+-                for(const action of view.actions){p(action.description);
+-                    p(action.duration>0?`${action.duration} played minutes.`:'Immediate.');
+-                    if(action.costs.length)p('Inputs: '+action.costs.join(', ')+'.');
+-                    for(const reason of action.reasons)p(reason);
+-                    body.append(button(action.label,{structuredAction:action.id},{type:'action',id:action.id},!view.canWrite||!action.eligible));
+-                    if(action.repeatable)body.append(button('Repeat '+action.label+' 3 times',{structuredRepeat:action.id},{type:'action',id:action.id,times:3},!view.canWrite||!action.eligible));}
++                for(const action of view.actions){
++                    let row=actionRows.get(action.id);
++                    if(!row){const card=node('section',actions);card.className='action-legibility__card';card.dataset.structuredRow=action.id;
++                        const heading=node('h4',card),description=node('p',card),state=node('p',card),duration=node('p',card),costs=node('p',card),blockers=node('p',card);
++                        const act=button(action.label,{structuredAction:action.id},{type:'action',id:action.id},false),repeat=button('',{structuredRepeat:action.id},{type:'action',id:action.id,times:3},false);card.append(act,repeat);
++                        row={card,heading,description,state,duration,costs,blockers,act,repeat};actionRows.set(action.id,row);}
++                    row.heading.textContent=action.label;row.description.textContent=action.description||'';
++                    const pending=view.jobs.find(j=>j.commandId===action.id);row.state.textContent=pending?(view.pauseReason?view.pauseReason+' ':!view.canWrite?'Paused. ':'Running. ')+pending.remaining+' played minutes remaining.':action.completed>0?'Settled completions: '+action.completed+'.':action.eligible?'Available.':'Unavailable.';
++                    row.duration.textContent='Time quote: '+(action.duration>0?`${action.duration} played minutes.`:'Immediate.');
++                    row.costs.textContent='Inputs: '+(action.costs.length?action.costs.join(', ')+'.':'None quoted.');
++                    row.blockers.textContent=action.reasons.join(' ');row.blockers.hidden=!action.reasons.length;row.blockers.dataset.themeState='warning';
++                    for(const [key,n]of [['duration',row.duration],['costs',row.costs],['blockers',row.blockers]])n.id='structured-'+encodeURIComponent(action.id)+'-'+key;
++                    row.act.setAttribute?.('aria-describedby',[row.duration.id,row.costs.id,...(action.reasons.length?[row.blockers.id]:[])].join(' '));
++                    row.act.textContent=action.label;row.act.disabled=!view.canWrite||!action.eligible;
++                    row.repeat.textContent='Repeat '+action.label+' 3 times';row.repeat.hidden=!action.repeatable;row.repeat.disabled=row.act.disabled;
++                }
+             }
+-            p(view.error||notice);
+         }
++        trim(actionRows,new Set(view.active?view.actions.map(a=>a.id):[]));trim(jobRows,new Set(view.active?view.jobs.map(j=>j.id):[]));
++        message.textContent=view.error||notice;message.hidden=!message.textContent;
++        message.dataset.themeState=view.error||noticeError?'error':'status';message.setAttribute('role',view.error||noticeError?'alert':'status');
+         if(focusKey){const find=node=>node.dataset?.[focusKey[0]]===focusKey[1]?node:[...node.children].map(find).find(Boolean);find(body)?.focus();}
+     }
+     render();const timer=setInterval(render,250);return {render,destroy(){clearInterval(timer);panel.remove();}};
+--- a/src/simulation_ui.js
++++ b/src/simulation_ui.js
+@@ -11,8 +11,8 @@
+     const conversation = node("details"), conversations = node("div"); conversation.id = "workshop_conversation";
+     conversation.open = true; conversation.append(node("summary", "Conversation & rest"), conversations);
+     panel.append(body); body.append(description, personal, status, conversation, buttons, people, events, history); let notice = "", eventSignature = "", encounterSignature = "", wasIrritated = false;
+-    const run = c => {try {command(c); const disclosure=registry.simulation.commands.get(c.id)?.effects.find(e=>e.type === "knowledge" && !e.actor && e.key.startsWith("body.feedback."));
+-        notice=disclosure ? read().state.simulation.knowledge.player[disclosure.key].value : "Progress saved.";} catch(e) {notice = e.message;} render();};
++    const run = c => {try {command(c);status.dataset.themeState='status';status.setAttribute('role','status'); const disclosure=registry.simulation.commands.get(c.id)?.effects.find(e=>e.type === "knowledge" && !e.actor && e.key.startsWith("body.feedback."));
++        notice=disclosure ? read().state.simulation.knowledge.player[disclosure.key].value : c.type === "cancel" ? "Command saved. Current work stopped." : c.type === "withdraw" ? "Command saved. Encounter withdrawn." : "Command saved.";} catch(e) {status.dataset.themeState='error';status.setAttribute('role','alert');notice = e.message;} render();};
+     const button = (label, id, c) => {const b = node("button", label); b.type = "button"; b.dataset.simulation = id; b.addEventListener("click", () => run(c)); return b;};
+     const enroll = button("Follow local people and work", "enroll", {type: "enroll"}); buttons.append(enroll);
+     const controls = new Map();
+@@ -29,6 +29,7 @@
+         const snapshot = read(), {state, context, enabled, error} = snapshot, s = state.simulation;
+         const records = knownPeopleView(state, context.facts);
+         panel.hidden = !["Village", "Shack"].includes(context.facts.location) || !records.some(r => r.id === "oldCraftsman") || snapshot.inDialogue;
++        if(panel.hidden)return;
+         enroll.hidden = !!s; enroll.disabled = !enabled || !!error;
+         description.textContent = s ? "His supplies, work and agreements are remembered between visits." : "Follow the craftsman's work and local changes. This begins now, with no invented past history or closed-browser losses.";
+         personal.textContent = s ? everydayScene(state, context.facts) : ""; personal.hidden = !personal.textContent;
+@@ -47,9 +48,12 @@
+         resume.hidden = s?.programs.player?.status !== "paused" || !s?.programs.player?.remaining; resume.disabled = !!error || !enabled;
+         // These hosts own their exact scene/descriptor cancellation controls.
+         const job = s?.jobs.find(j => j.actorId === "player" && !STEAM_ABSORPTION_GROUPS.includes(registry.simulation.commands.get(j.commandId)?.group) && !["game_absorption_assay","contextual_balm","cooling_refinement","home_furnishings","proto23","factorio_retort","book_mol","book_mol_npc","book_paradise","book_paradise_npc","book_paradise_campaign","book_paradise_campaign_npc","status_care","field_care","book_care","book_care_npc","lore_work","lore_warning","artifact_collection","causal_story","causal_story_npc","audit_remainder","remainder_livelihood","remainder_home","remainder_offers","remainder_consequences","remainder_combat_fit","remainder_combat_objectives"].includes(registry.simulation.commands.get(j.commandId)?.group)); cancel.hidden = !job || job.cancellation === "none"; cancel.disabled = !!error;
+-        const work = s?.jobs.filter(j => j.actorId === "player" || j.actorId === "oldCraftsman").map(j => `${j.actorId === "player" ? "You" : "Old craftsman"}: ${j.label}, ${j.due - state.clock} game minutes left.`).join(" ") || "No reserved workshop work.";
++        const work = s?.jobs.filter(j => j.actorId === "player" || j.actorId === "oldCraftsman").map(j => `${j.actorId === "player" ? "You" : "Old craftsman"}: ${j.label}, ${snapshot.pauseReason || (error || snapshot.canAdvance === false ? "paused until saving is restored" : "running")}, ${j.due - state.clock} game minutes left.`).join(" ") || "No reserved workshop work.";
+         const practice = state.actors.player.resources.practice || 0;
+-        status.textContent = error || `${notice ? notice + " " : ""}${work} Completed packing practice: ${practice}.`;
++        const program = s?.programs.player;
++        const routineState = program ? program.status === "paused" ? ` Routine paused${s.jobs.some(j=>j.actorId === "player") ? " after current work" : ""}. ${program.reason || ""}` : program.status === "running" ? " Routine running." : s.jobs.some(j=>j.actorId === "player" && j.commandId === program.commandId) ? " Final routine work pending; no further repetitions." : " Routine settled." : "";
++        const waiting = s?.sessions.player || inspectSimulationEvents(state).some(e=>e.actorId === "player" && e.status === "open" && e.mode === "decision") ? " Waiting for your response." : "";
++        status.textContent = error || `${notice ? notice + " " : ""}${work}${routineState}${waiting} Completed packing practice: ${practice}.`;
+         const localPeople = Object.entries(s?.people || {}).filter(([id,p]) => p.createdBy === "player" && !["original_frontier.","artifact_collection.","causal.story.","remainder_","remainder."].some(prefix=>p.definitionId?.startsWith(prefix)) && state.actors[id].worldId === state.actors.player.worldId);
+         people.hidden = !localPeople.length;
+         for(const [index,[id,p]] of localPeople.entries()) {
+--- a/src/work_ledger_ui.js
++++ b/src/work_ledger_ui.js
+@@ -18,13 +18,17 @@
+     async function submit(action, payload) {
+         const current = read();
+         if (busy || !current?.canWrite || !current?.available) return;
+-        effects.gesture(); busy = true; notice.textContent = 'Saving…'; render(true);
++        effects.gesture(); busy = true; notice.dataset.themeState='status'; notice.setAttribute('role','status'); notice.textContent = 'Saving…'; render(true);
+         try {
+             const outcome = await command({action, sequence: current.state.sequence + 1, ...(payload ? {payload} : {})});
+             // The host may signal a refused/failed commit without throwing.
+-            if (outcome?.ok === false) notice.textContent = outcome.reason || outcome.error || 'The action could not be saved.';
+-            else notice.textContent = 'Saved.';
+-        } catch (error) { notice.textContent = error?.message || 'The action could not be saved.'; }
++            if (outcome?.ok === false) {notice.dataset.themeState='error';notice.setAttribute('role','alert');notice.textContent = outcome.reason || outcome.error || 'The action could not be saved.';}
++            else {
++                const settled = read()?.state;
++                const receipt = settled?.receipts?.findLast(r => r.sequence === current.state.sequence + 1 && r.type === action);
++                notice.textContent = receipt ? 'Command saved. ' + receipt.text : 'Command saved.';
++            }
++        } catch (error) { notice.dataset.themeState='error';notice.setAttribute('role','alert');notice.textContent = error?.message || 'The action could not be saved.'; }
+         finally { busy = false; render(true); }
+     }
+     function render(force = false) {
+--- a/src/work_ledger_system.js
++++ b/src/work_ledger_system.js
+@@ -130,6 +130,14 @@
+     }
+     if(evidence.outputs>0&&evidence.successes>0&&next.precisionKnown&&evidence.subcategory==='items'&&number(evidence.chanceBefore,0,1)&&number(evidence.chanceAfter,0,1)&&evidence.chanceAfter===Math.min(1,evidence.chanceBefore+precisionBonus(next))&&evidence.chanceAfter>evidence.chanceBefore) events.push(receipt('applied-precision',next.actorId,next.sequence,`Your taught precision method aided this native ${evidence.recipeId} craft.`,{before:evidence.chanceBefore,after:evidence.chanceAfter}));
+     if(evidence.outputs>0&&evidence.successes>0&&next.connection==='connected'&&next.assistUnlocked&&evidence.category==='woodworking'&&evidence.subcategory==='components'&&number(evidence.qualityCap,10,200)&&number(evidence.qualityBefore,10,evidence.qualityCap)&&evidence.qualityAfter===Math.min(evidence.qualityCap,evidence.qualityBefore+assistBonus(next))&&evidence.qualityAfter>evidence.qualityBefore) events.push(receipt('applied-assist',next.actorId,next.sequence,`Your leased assist improved the quality of this native ${evidence.recipeId}.`,{before:evidence.qualityBefore,after:evidence.qualityAfter}));
++    // The native caller supplies its already-applied output, not a promised reward.
++    // Existing schema2 receipts accept arbitrary types and retain plain history.
++    const output=evidence.outputLabel||evidence.recipeId;
++    const succeeded=evidence.outputs>0&&evidence.successes>0;
++    const text=succeeded
++        ? `Craft settled: ${output} ×${evidence.outputs}. ${evidence.successes}/${evidence.attempts} attempts succeeded.`
++        : `Craft settled: no output from ${output}. 0/${evidence.attempts} attempts succeeded.`;
++    events.push(receipt(succeeded?'native-craft':'native-craft-failed',next.actorId,next.sequence,text,succeeded?{}:{motif:'closing'}));
+     return finish(next,events);
+ }
+ export function modifyWorkLedgerChance(state,baseChance,context) {
+--- a/src/settled_text_effects.js
++++ b/src/settled_text_effects.js
+@@ -17,6 +17,12 @@
+         if (!pulse || !anchor || !container.contains(anchor)) return;
+         const outer = container.getBoundingClientRect(), target = anchor.getBoundingClientRect();
+         Object.assign(pulse.style, {left: `${target.left - outer.left}px`, top: `${target.top - outer.top}px`, width: `${target.width}px`, height: `${target.height}px`});
++        // Crafting may be a long scroll region. Place its receipt at the actual
++        // recipe, not at the hidden bottom of the entire crafting sheet.
++        if(container.classList.contains('settled-effects-host')) {
++            const width=overlay.getBoundingClientRect().width;
++            Object.assign(overlay.style,{left:`${Math.max(4,target.right-outer.left-width-4)}px`,top:`${Math.max(4,target.top-outer.top+4)}px`,right:'auto',bottom:'auto'});
++        }
+     };
+     const resize = globalThis.ResizeObserver ? new ResizeObserver(positionPulse) : null;
+     resize?.observe(container);
+@@ -28,6 +34,7 @@
+         pulse?.remove(); pulse = null; anchor = null;
+         try { oscillator?.stop(); } catch { /* A completed tone needs no cleanup. */ }
+         oscillator = null; overlay.hidden = true; overlay.replaceChildren();
++        Object.assign(overlay.style,{left:'',top:'',right:'',bottom:''});
+     }
+     function gesture() {
+         if (!settings().sound) return;
+@@ -60,6 +67,8 @@
+             try { definition = validatePresentationSettings({effectDefinition: options.effectDefinition}, true).effectDefinition; } catch { /* Malformed external presentation cannot affect a receipt. */ }
+         }
+         const kind = definition && definition.motif !== 'receipt' ? definition.motif : ['closing', 'guidance', 'seal'].includes(receipt.motif) ? receipt.motif : /disconnect|service.*end|lease.*end/.test(receipt.type) ? 'closing' : /learn|precision|acquir|unlock|applied/.test(receipt.type) ? 'guidance' : 'seal';
++        const craftReceipt=receipt.type==='native-craft';
++        overlay.dataset.craftReceipt=String(craftReceipt);
+         overlay.dataset.motif = kind; overlay.dataset.presentation = options.presentation;
+         overlay.dataset.plain = String(!!definition?.plain);
+         overlay.style.setProperty('--settled-color', definition?.color || '');
+@@ -73,9 +82,12 @@
+             mark.setAttribute('stroke-linecap', 'round'); mark.setAttribute('pathLength', '1'); glyph.append(mark); return mark;
+         };
+         // Three visible motifs describe settled causes, never unearned powers.
+-        const outline = path(kind === 'closing' ? 'M8 14H40M8 34H40M8 14V34M40 14V34' : kind === 'guidance' ? 'M24 4L44 24L24 44L4 24Z' : 'M24 4A20 20 0 1 1 23.99 4');
+-        const detail = path(kind === 'closing' ? 'M14 24H34' : kind === 'guidance' ? 'M14 29L24 19L34 29M24 19V35M14 10L10 14M34 10L38 14' : 'M13 24L21 32L35 17');
++        const outline = path(craftReceipt ? 'M11 5H30L38 13V43H11ZM30 5V13H38' : kind === 'closing' ? 'M8 14H40M8 34H40M8 14V34M40 14V34' : kind === 'guidance' ? 'M24 4L44 24L24 44L4 24Z' : 'M24 4A20 20 0 1 1 23.99 4');
++        const detail = path(craftReceipt ? 'M17 19H31M17 25H27M19 34L23 38L31 30' : kind === 'closing' ? 'M14 24H34' : kind === 'guidance' ? 'M14 29L24 19L34 29M24 19V35M14 10L10 14M34 10L38 14' : 'M13 24L21 32L35 17');
+         if (!definition?.plain) overlay.append(glyph);
++        // The mark is decorative receipt ink, never item identity or a bonus.
++        if(craftReceipt)overlay.setAttribute('data-mark','decorative-receipt');
++        else overlay.removeAttribute('data-mark');
+         if (options.presentation !== 'margin' || definition?.plain) {
+             const caption = document.createElement('span'); caption.textContent = receipt.text; overlay.append(caption);
+         }
+--- /dev/null
++++ b/src/quiet_place_detail.js
+@@ -0,0 +1,15 @@
++// Cosmetic detail from the same known native place/calendar/weather as the UI.
++// No objects, rewards, concealed places, alternate clocks or durable lore.
++export function quietPlaceText(view) {
++    if(!view.knownVillage || view.effects==='off')return '';
++    if(view.roofed)return 'The village weather stays outside.';
++    if(view.raining)return 'Rain dots the village path.';
++    if(view.daylight==='Night')return 'The village path lies in darkness.';
++    return 'Daylight falls across the village path.';
++}
++export function createQuietPlaceDetail({container,before,read}) {
++    const detail=document.createElement('small');detail.id='quiet_place_detail';detail.className='quiet-place-detail';
++    detail.setAttribute('aria-label','Local atmosphere');container.insertBefore(detail,before||null);
++    const render=()=>{const text=quietPlaceText(read());if(detail.textContent!==text)detail.textContent=text;detail.hidden=!text;};
++    render();return {render,destroy(){detail.remove();}};
++}
+--- a/styles/settled_text_effects.css
++++ b/styles/settled_text_effects.css
+@@ -41,3 +41,8 @@
+ .work-ledger-effect[data-motif='guidance'], .work-ledger-effect[data-motif='closing'] { border-color: var(--settled-color, #9bb4ae); }
+ 
+ #cancel_craft_visual_effect {position:absolute;right:.5rem;bottom:2.8rem;z-index:4;max-width:calc(100% - 1rem);white-space:normal;}
++
++/* Original paper receipt and decorative ink. No item/reward implication. */
++.work-ledger-effect[data-craft-receipt='true'] { border-radius: 2px; border-inline-start-width: 3px; }
++.quiet-place-detail { display:block; font-size:.8em; line-height:1.3; color:var(--text-color); opacity:.8; padding:.15rem .35rem; overflow-wrap:anywhere; }
++.quiet-place-detail[hidden] { display:none; }

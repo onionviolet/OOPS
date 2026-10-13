@@ -1,5 +1,7 @@
 # GM capacity, delegation and fresh-context succession
 
+> **Historical (marked 2026-10-13).** Lane reservations, rosters and test deferral below are dated context, not current policy. Current rules: [GAME_MASTER_PROMPT.md Delegation and succession](../../GAME_MASTER_PROMPT.md#delegation-and-succession) and AGENTS.md Verification.
+
 Direct human authority, 2026-10-04:
 
 > is there only 4 slots? open more as needed or would be useful? also allow each chat to use subagents, internal or otherwise as well, and to clone itself into a new one with fresh conext as needed?

@@ -1,0 +1,50 @@
+{
+  "pid": 57544,
+  "origin": "http://127.0.0.1:18643",
+  "startedHash": "ef2e248bc8fdd21323e7becb1277ac45bc2537bdcf8e9630e5c688c60bc48d6a",
+  "endedHash": "ef2e248bc8fdd21323e7becb1277ac45bc2537bdcf8e9630e5c688c60bc48d6a",
+  "events": [
+    {
+      "action": "click",
+      "selector": "text=Stop woodcutting"
+    },
+    {
+      "action": "save",
+      "name": "worker-acquired-stock-stopped"
+    },
+    {
+      "action": "click",
+      "selector": "#feature_expansion_panel > summary"
+    },
+    {
+      "action": "click",
+      "selector": "#feature_expansion_panel summary:has-text('Earned feats')"
+    },
+    {
+      "error": "locator.evaluate: Timeout 6000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('#activity_div')\u001b[22m\n"
+    },
+    {
+      "action": "wait",
+      "ms": 2000
+    },
+    {
+      "action": "click",
+      "name": "Do this: Open your feat record"
+    },
+    {
+      "action": "save",
+      "name": "worker-feat-enrollment"
+    },
+    {
+      "error": "locator.innerText: Error: strict mode violation: locator('#feature_expansion_panel [role=status]') resolved to 16 elements:\n    1) <p hidden=\"\" role=\"status\" class=\"expedition_notice\"></p> aka locator('p').nth(5)\n    2) <p hidden=\"\" role=\"status\" tabindex=\"-1\" aria-live=\"polite\" class=\"action-legibility__notice\"></p> aka locator('.action-legibility__notice').first()\n    3) <p hidden=\"\" role=\"status\" tabindex=\"-1\" aria-live=\"polite\" class=\"action-legibility__notice\"></p> aka locator('details:nth-child(2) > div > .action-legibility > .action-legibility__notice')\n    4) <p hidden=\"\" role=\"status\" tabindex=\"-1\" aria-live=\"polite\" class=\"action-legibility__notice\"></p> aka locator('details:nth-child(3) > div > .action-legibility > .action-legibility__notice')\n    5) <p hidden=\"\" role=\"status\" tabindex=\"-1\" aria-live=\"polite\" class=\"action-legibility__notice\"></p> aka locator('details:nth-child(4) > div > .action-legibility > .action-legibility__notice')\n    6) <p hidden=\"\" role=\"status\" tabindex=\"-1\" aria-live=\"polite\" class=\"action-legibility__notice\"></p> aka locator('details:nth-child(5) > div > .action-legibility > .action-legibility__notice')\n    7) <p hidden=\"\" role=\"status\" tabindex=\"-1\" aria-live=\"polite\" class=\"action-legibility__notice\"></p> aka locator('details:nth-child(6) > div > .action-legibility > .action-legibility__notice')\n    8) <p hidden=\"\" role=\"status\" tabindex=\"-1\" aria-live=\"polite\" class=\"action-legibility__notice\"></p> aka locator('details:nth-child(7) > div > .action-legibility > .action-legibility__notice')\n    9) <p hidden=\"\" role=\"status\" tabindex=\"-1\" aria-live=\"polite\" class=\"action-legibility__notice\"></p> aka locator('details:nth-child(8) > div > .action-legibility > .action-legibility__notice')\n    10) <p hidden=\"\" role=\"status\" tabindex=\"-1\" aria-live=\"polite\" class=\"action-legibility__notice\"></p> aka locator('details:nth-child(9) > div > .action-legibility > .action-legibility__notice')\n    ...\n\nCall log:\n\u001b[2m  - waiting for locator('#feature_expansion_panel [role=status]')\u001b[22m\n"
+    },
+    {
+      "action": "reload"
+    },
+    {
+      "action": "click",
+      "selector": "#feature_expansion_panel > summary"
+    }
+  ],
+  "errors": []
+}

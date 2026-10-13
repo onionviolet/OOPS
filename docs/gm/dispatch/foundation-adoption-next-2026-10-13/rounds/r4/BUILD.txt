@@ -1,0 +1,1 @@
+npm run build executed successfully from authorized dirty checkout before native R4. No runtime repairs afterward. Built bundle unchanged from recorded R3 final. Current project source-map exact matches: 439; external embedded inkjs TypeScript sources excluded from filesystem match claim.

@@ -1,0 +1,17 @@
+{
+  "status": "FAIL",
+  "bundle": "cb0c11d04b3e13c16aac5cd930314cfb78d654c326f07d2b9140f14e739ff175",
+  "base": "dd3efe3383f12f0aac22e4f390aae90fae2e7fc4",
+  "fixture": "docs/gm/dispatch/foundation-adoption-next-2026-10-13/rounds/r1/natural-prerequisite/natural-prerequisite-save.txt",
+  "fixtureHash": "09b9c035789844eedaf3c7d5a00fcf1436c84c638d2366646aeda591e98a1fd6",
+  "checks": {},
+  "events": [],
+  "errors": [],
+  "timePolicy": "Normal native browser timers; no resource/history/clock fields injected",
+  "console": [
+    "Failed to load resource: the server responded with a status of 404 (Not Found)",
+    "Failed to load resource: the server responded with a status of 404 (Not Found)",
+    "Failed to load resource: the server responded with a status of 404 (Not Found)"
+  ],
+  "failure": "locator.focus: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('[data-action-legibility-key=\"action:objects-begin\"]').locator('.action-legibility__primary')\u001b[22m\n\n    at action (/Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/foundation-adoption-next-2026-10-13/rounds/r3/native.cjs:21:378)\n    at async /Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/foundation-adoption-next-2026-10-13/rounds/r3/native.cjs:35:2"
+}

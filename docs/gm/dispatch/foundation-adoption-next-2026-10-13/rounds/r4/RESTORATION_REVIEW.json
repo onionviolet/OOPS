@@ -1,0 +1,14 @@
+{
+  "status": "PASS",
+  "exactPairs": [
+    "program-pending",
+    "reserve-held-four",
+    "reserve-paused-two",
+    "reserve-pending",
+    "released-three-overshoot-five",
+    "protected-pump-completed",
+    "mixed-manual-travel-paused",
+    "mixed-and-program-completed"
+  ],
+  "fields": "money, inventories, actors/worlds/RNG/clock/calendar/vitals/effects and simulation job/site/custody/source knowledge owners plus exact workPlans/programs"
+}

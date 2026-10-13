@@ -1,0 +1,102 @@
+--- a/src/customization_ui.js
++++ b/src/customization_ui.js
+@@ -1,6 +1,7 @@
+-import {defaultCustomizationState, defaultPresentationSettings, validateCustomizationState, getCustomizationSettings, mergePresentationSettings} from './customization_profiles.js';
++import {COMPONENT_THEMES} from './component_themes.js';
++import {defaultCustomizationState, defaultPresentationSettings, validateCustomizationState, getCustomizationSettings, mergePresentationSettings, applyCustomizationProfile} from './customization_profiles.js';
+ 
+-export function createCustomizationUI({container, read, save, season = () => '', canWrite = () => true, moduleIds = []}) {
++export function createCustomizationUI({container, read, save, season = () => '', canWrite = () => true, moduleIds = [], readPreview = () => []}) {
+     const panel = document.createElement('details'); panel.className = 'customization-panel';
+     const summary = document.createElement('summary'); summary.textContent = 'Presentation profiles'; panel.append(summary);
+     const body = document.createElement('div'); body.className = 'customization-editor'; panel.append(body); container.append(panel);
+@@ -13,33 +14,45 @@
+     const input = (label, type, min, max) => { const element = document.createElement('input'); element.type = type; if (min !== undefined) element.min = min; if (max !== undefined) element.max = max; return row(label, element); };
+     const profile = select('Profile', []), module = select('Native module', ['', ...moduleIds]);
+     const theme = select('Seasonal theme', ['off','automatic','manual']), manualSeason = select('Manual season', ['spring','summer','autumn','winter']);
++    const componentTheme = select('Component theme', Object.keys(COMPONENT_THEMES));
+     const name = input('New profile name', 'text'); name.maxLength = 40;
+     const font = select('Font', ['system','serif','mono']), size = input('Font size', 'number', 10, 28);
+     const background = input('Background', 'color'), text = input('Text', 'color'), accent = input('Accent', 'color'), spacing = input('Spacing', 'number', 0, 32);
+     const effects = select('Effects', ['off','reduced','full']), sound = input('Sound after gesture', 'checkbox'), presentation = select('Receipt placement', ['inline','margin']);
+     const motif = select('Original VFX motif', ['receipt','seal','guidance','closing']), duration = input('Receipt duration (ms)', 'number', 200, 10000);
+     const effectColor = input('VFX color', 'color'), effectBackground = input('VFX background', 'color'), staticMode = input('Static VFX', 'checkbox'), plain = input('Plain text VFX', 'checkbox');
++    const preview = document.createElement('section'); preview.className = 'theme-preview'; preview.setAttribute('aria-label','Component theme preview');
++    const previewModule = document.createElement('div'); preview.append(previewModule); body.append(preview);
++    previewModule.innerHTML = '<h4>Component preview · sample controls</h4><nav class="theme-preview-tabs" aria-label="Sample tabs"><button type="button" aria-pressed="true">Selected tab</button><button type="button">A longer comparison label</button></nav><div class="theme-action-row"><button type="button">Inspect sample action</button><button type="button" disabled>Unavailable action</button></div><label>Sample input <input value="Readable text and numbers" readonly></label><table><thead><tr><th>Sample material</th><th>Amount</th></tr></thead><tbody><tr><td>Prepared component</td><td>12 units</td></tr></tbody></table><p class="theme-warning">Warning: sample requirement unmet.</p><p class="theme-danger">Error: sample write unavailable.</p>';
++    const knownFacts = document.createElement('dl'); previewModule.append(knownFacts);
++    const contrastNotice = document.createElement('p'); preview.append(contrastNotice);
++    function renderPreview() {
++        applyCustomizationProfile(draft,{season:season(),moduleNodes:{[target || 'customization']:previewModule}});
++        knownFacts.replaceChildren(); for (const fact of readPreview()) { const label = document.createElement('dt'), value = document.createElement('dd'); label.textContent = fact.label; value.textContent = fact.value; knownFacts.append(label,value); }
++        contrastNotice.textContent = previewModule.dataset.contrastRecovered === '1' ? 'Low contrast palette: readable text and accent are recovered on live components. Reset draft restores defaults.' : 'Draft preview only. Apply activates these component states. Cosmetic themes grant no powers.';
++    }
+     const actions = document.createElement('div'); actions.className = 'customization-actions'; body.append(actions);
+     const button = (label, callback) => { const node = document.createElement('button'); node.type = 'button'; node.textContent = label; node.addEventListener('click', callback); actions.append(node); return node; };
+     const jsonLabel = document.createElement('label'); jsonLabel.textContent = 'Profile import / export JSON '; const json = document.createElement('textarea'); json.rows = 8; json.spellcheck = false; jsonLabel.append(json); body.append(jsonLabel);
+     const allowed = () => typeof canWrite === 'function' ? canWrite() : !!canWrite;
+-    const status = text => { notice.textContent = text; };
++    const status = text => { notice.textContent = text; notice.dataset.themeState = /^(Not applied|Import rejected)/.test(text) ? 'error' : text.startsWith('Read-only') ? 'warning' : ''; };
+     function editable() { fields.disabled = busy || !allowed() || !validSaved; for (const node of actions.querySelectorAll('button[data-write]')) node.disabled = busy || !allowed() || !validSaved; }
+     function render() {
+         profile.replaceChildren(); for (const key of Object.keys(draft.profiles)) { const node = document.createElement('option'); node.value = key; node.textContent = key; profile.append(node); } profile.value = draft.active;
+         module.value = target; theme.value = draft.theme.mode; manualSeason.value = draft.theme.season;
+         const settings = mergePresentationSettings(draft.profiles[draft.active].settings, draft.profiles[draft.active].modules[target]);
+         renderedSettings = structuredClone(settings);
++        componentTheme.value = settings.componentTheme || 'neutral';
+         font.value = settings.typography.font; size.value = settings.typography.size;
+         background.value = settings.palette.background; text.value = settings.palette.text; accent.value = settings.palette.accent; spacing.value = settings.spacing;
+         effects.value = settings.effects; sound.checked = settings.sound; presentation.value = settings.presentation;
+         motif.value = settings.effectDefinition.motif; duration.value = settings.effectDefinition.duration; effectColor.value = settings.effectDefinition.color; effectBackground.value = settings.effectDefinition.background; staticMode.checked = settings.effectDefinition.static; plain.checked = settings.effectDefinition.plain;
+         manualSeason.disabled = draft.theme.mode !== 'manual';
+         for(const node of [effects,sound,presentation,motif,duration,effectColor,effectBackground,staticMode,plain])node.disabled=!!target&&!['ledger','crafting'].includes(target);
+-        editable();
++        editable(); renderPreview();
+     }
+     function capture() {
+-        const settings = {typography: {font: font.value, size: Number(size.value)}, palette: {background: background.value, text: text.value, accent: accent.value}, spacing: Number(spacing.value), effects: effects.value, sound: sound.checked, presentation: presentation.value, effectDefinition: {motif: motif.value, duration: Number(duration.value), color: effectColor.value, background: effectBackground.value, static: staticMode.checked, plain: plain.checked}};
++        const settings = {componentTheme: componentTheme.value, typography: {font: font.value, size: Number(size.value)}, palette: {background: background.value, text: text.value, accent: accent.value}, spacing: Number(spacing.value), effects: effects.value, sound: sound.checked, presentation: presentation.value, effectDefinition: {motif: motif.value, duration: Number(duration.value), color: effectColor.value, background: effectBackground.value, static: staticMode.checked, plain: plain.checked}};
+         const next = structuredClone(draft); next.theme = {mode: theme.value, season: manualSeason.value};
+         if (target) {
+             const inherited = next.profiles[next.active].settings;
+@@ -64,8 +77,10 @@
+         draft = validateCustomizationState(next);
+         renderedSettings = structuredClone(settings);
+     }
+-    function changed() { try { capture(); status('Draft changed. Apply saves and activates it.'); } catch (error) { status(error.message); } }
++    function changed() { try { capture(); renderPreview(); status('Draft changed. Apply saves and activates it.'); } catch (error) { status(error.message); } }
+     for (const node of [theme,manualSeason,font,size,background,text,accent,spacing,effects,sound,presentation,motif,duration,effectColor,effectBackground,staticMode,plain]) node.addEventListener('change', changed);
++    componentTheme.addEventListener('change', () => { const preset = COMPONENT_THEMES[componentTheme.value]; background.value = preset.background; text.value = preset.text; accent.value = preset.accent; changed(); render(); });
++    for (const node of [size,spacing,background,text,accent]) node.addEventListener('input', changed);
+     theme.addEventListener('change', () => { manualSeason.disabled = theme.value !== 'manual'; });
+     profile.addEventListener('change', () => { try { capture(); draft.active = profile.value; render(); status('Draft profile selected. Apply to activate.'); } catch (error) { status(error.message); } });
+     module.addEventListener('change', () => { try { capture(); target = module.value; render(); status(target ? `Editing ${target} override. Apply to save.` : 'Editing whole profile. Apply to save.'); } catch (error) { status(error.message); } });
+@@ -85,7 +100,7 @@
+             const saved = validateCustomizationState(read()), signature = JSON.stringify(saved);
+             validSaved = true;
+             if (force || signature !== savedSignature) { draft = saved; target = ''; savedSignature = signature; render(); }
+-            else editable();
++            else { editable(); renderPreview(); }
+             if (!allowed()) status('Read-only: profile changes require the active save owner.');
+         } catch (error) { validSaved = false; editable(); status(error.message); }
+     }
+--- a/src/main.js
++++ b/src/main.js
+@@ -2138,7 +2138,7 @@
+ }
+ function refreshCustomization() {
+     if(!customization)return;
+-    applyCustomizationProfile(customization,{season:current_game_time.getSeason(),moduleNodes:{ledger:document.getElementById('work_ledger_panel'),crafting:document.getElementById('crafting_window'),'local-actions':document.getElementById('location_related_div'),vitals:document.getElementById('basic_character_info_div'),preparation:document.getElementById('character_div'),belongings:document.getElementById('inventory_div'),records:document.getElementById('journal_div'),time:document.getElementById('time_and_location'),location:document.getElementById('location_div'),skills:document.getElementById('skills_and_stances_div'),messages:document.getElementById('message_log_div'),notebook:document.getElementById('adventure_notebook'),customization:document.getElementById('customization_host')}});
++    applyCustomizationProfile(customization,{season:current_game_time.getSeason(),moduleNodes:{ledger:document.getElementById('work_ledger_panel'),crafting:document.getElementById('crafting_window'),'local-actions':document.getElementById('location_related_div'),vitals:document.getElementById('basic_character_info_div'),preparation:document.getElementById('character_div'),belongings:[document.getElementById('inventory_div'),document.getElementById('inventory_combat_switch_selection')],records:document.getElementById('journal_div'),time:document.getElementById('time_and_location'),location:document.getElementById('location_div'),skills:document.getElementById('skills_and_stances_div'),messages:document.getElementById('message_log_div'),notebook:document.getElementById('adventure_notebook'),customization:document.getElementById('customization_host')}});
+     customizationPanel?.refresh();workLedgerAuthor?.refresh();
+ }
+ function saveCustomization(next) {
+@@ -8089,7 +8089,7 @@
+     const cancelCraftEffect=document.createElement('button');cancelCraftEffect.type='button';cancelCraftEffect.textContent='Cancel visual effect';cancelCraftEffect.id='cancel_craft_visual_effect';cancelCraftEffect.addEventListener('click',()=>workLedgerCraftEffects.cancel());document.getElementById('crafting_window').append(cancelCraftEffect);
+     workLedgerPanel=createWorkLedgerUI({container:document.getElementById('location_actions_div'),readSettings:()=>getCustomizationSettings(customization,'ledger',{season:current_game_time.getSeason()}),cancelExternalEffects:()=>workLedgerCraftEffects?.cancel(),read:()=>({...workLedgerPresentation(workLedger,workLedgerContext()),canWrite:workLedgerCanWrite()&&workLedgerContext().alive&&!workLedgerContext().busy&&workLedgerContext().locationId==='Village',reason:!workLedgerCanWrite()?'Saving unavailable; ledger is read-only.':workLedgerContext().busy?'Finish current work before choosing.':''}),command:actWorkLedger});
+     const customizationHost=document.createElement('div');customizationHost.id='customization_host';document.getElementById('location_actions_div').append(customizationHost);
+-    customizationPanel=createCustomizationUI({container:customizationHost,read:()=>customization,save:saveCustomization,season:()=>current_game_time.getSeason(),canWrite:workLedgerCanWrite,moduleIds:['ledger','crafting','local-actions','vitals','preparation','belongings','records','time','location','skills','messages','notebook','customization']});
++    customizationPanel=createCustomizationUI({container:customizationHost,read:()=>customization,save:saveCustomization,season:()=>current_game_time.getSeason(),canWrite:workLedgerCanWrite,readPreview:()=>[{label:'Current known place',value:document.getElementById('location_name_span')?.innerText.trim()||'Unavailable'},{label:'Current level',value:document.getElementById('character_level_div')?.innerText.trim()||'Unavailable'}],moduleIds:['ledger','crafting','local-actions','vitals','preparation','belongings','records','time','location','skills','messages','notebook','customization']});
+     workLedgerAuthor=createWorkLedgerAuthorUI({container:customizationHost,read:()=>createWorkLedgerRulesDraft(workLedger),apply:draft=>publishWorkLedger(applyWorkLedgerRulesDraft(workLedger,draft,workLedgerContext(),{sequence:workLedger.sequence+1})),reset:()=>publishWorkLedger(resetWorkLedgerRules(workLedger,workLedgerContext(),{sequence:workLedger.sequence+1})),canWrite:()=>workLedgerCanWrite()&&workLedgerContext().alive&&!workLedgerContext().busy&&workLedgerContext().locationId==='Village'});
+     refreshCustomization();
+     setInterval(()=>{workLedgerPanel?.render();customizationPanel?.refresh();if(!workspaceOwns(customizationHost)&&!customizationHost.isConnected)document.getElementById('location_actions_div')?.append(customizationHost);workLedgerAuthor?.refresh();},250);

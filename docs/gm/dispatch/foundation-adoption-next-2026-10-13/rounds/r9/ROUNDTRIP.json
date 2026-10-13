@@ -1,0 +1,29 @@
+{
+  "conversation_url": "https://chatgpt.com/c/6ace53cc-c9e0-83ea-9136-05a645c47797",
+  "route": "ordinary signed-in Chrome extension via cua_repl",
+  "model_mode": "ordinary Chat; model name not visibly shown",
+  "effort": "High3of3 visibly checked",
+  "previous_effort": "R8High3of3",
+  "capture_complete": true,
+  "completion": "Response complete status; Stop absent; final full response-level Copy",
+  "response_chars": 21424,
+  "failed_attempts": [
+    "Composer auto-converted to pasted attachment; Show in text field restored intact body before singleSend"
+  ],
+  "implementation_authorized": true,
+  "new_chat_dispatched": true,
+  "sha256": {
+    "PROMPT_SENT.md": "4d399ec479fa73a4ba5fbf0481c8fae5decb0d23c5342ea607e2f3ae05fe1230",
+    "CHATGPT_RESPONSE.md": "95dabc82ca6ff36c5dac3eff9c2f5dde9c6a9ce44290b6320355eeddc671f971",
+    "DRAFT.md": "b49f5dde6f87429868fdf32dc7c593a89c8cfd26287c47e36aeaae824f10f4ad",
+    "PROMPT_OUTBOUND.md": "259ac4d3c089502f252e721b56515609cb47ef733e8c64bd0c082e52b67a1ebc",
+    "PROMPT_RECONCILED.md": "d0956b1e88360df618c61dacd50391834f86a63d890c850e039cfa5702229555",
+    "RECONCILIATION_NOTES.md": "43f1116cc73dab26cc21dfcb12bc0523840401462a7979d88f49f95f6a721876",
+    "REVIEW_PROOF.png": "70c0b24ef805ba0cde8794e1a87db29c0bad23c91b98ba5d45aa6ce9f14c7003"
+  },
+  "stage": "complete captured/reconciled; confirmed fresh local GM; predecessor release effective at transfer record",
+  "sent_at": "2026-10-13T15:53:28.287Z",
+  "captured_at": "2026-10-13T15:56:25.900Z",
+  "successorThreadId": "01a135fb-6b58-70f2-ae86-a1359f1ae4ce",
+  "hostId": "local"
+}

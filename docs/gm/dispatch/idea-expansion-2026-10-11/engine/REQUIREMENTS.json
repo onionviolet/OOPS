@@ -1,0 +1,898 @@
+{
+  "lane": "G5",
+  "status": "planning-reviewed-by-worker",
+  "date": "2026-10-11",
+  "revision": 2,
+  "inputs": [
+    {
+      "path": "AGENTS.md",
+      "coverage": "Current repository agreement; read-only scope and sealing boundary",
+      "sha256": "2dd0e8a273ff4c292231409f4c7d0c776015a67833206d3c6b5bb56d919ab1fc"
+    },
+    {
+      "path": "PROJECT.md",
+      "coverage": "Current decisions and implementation status, including optional Frontier/random-start direction",
+      "sha256": "652552a764912ed77bab73539585056e1e33e82b82dbc68fb315054eeb40d8a8"
+    },
+    {
+      "path": "docs/WORLD_COMPLETION_STANDARD.md",
+      "coverage": "Sections S00-S14, detail/interaction hierarchy, random-start and completion-level contracts",
+      "sha256": "05fb2097b74a01f82679cc32946c215cdfdf7054a35f1ec57007a20dc1918468"
+    },
+    {
+      "path": "docs/gm/WORLD_ACTIONABILITY_GM_PROMPT.md",
+      "coverage": "Whole-world actionability prompt, G5 mandate and inspected-contract requirements",
+      "sha256": "ea48641284aaa76aa02ed4dff05f1a7e713838c29387b7a984f7cb6d1048e961"
+    },
+    {
+      "path": "docs/gm/completion/AUDIT_INTAKE.json",
+      "coverage": "Artifact inventory metadata only; 396 artifact contents not individually read",
+      "sha256": "83b1bc4ab7c67dcdb16bf0bc751c5b0239162795680661d919a3871ec2068abc"
+    },
+    {
+      "path": "docs/gm/world-implementation/second-pass/absorption-incorporation/RECONCILIATION.json",
+      "coverage": "Sampled header and first existing-owner mapping; historical planning scope only",
+      "sha256": "bc7b997407da484cbd659951182c65ada36f54814f2a01cfd2d2c3235116f84c"
+    },
+    {
+      "path": "docs/gm/world-implementation/second-pass/integration/IMPLEMENTATION_DAG.json",
+      "coverage": "Sampled historical header, scope and prior dependency owner; not current implementation proof",
+      "sha256": "2444d086824e47282d915dc6b5db7e6f151ed7993c50ae9f58d0a071bab27556"
+    },
+    {
+      "path": "docs/ENGINE_AUTHORING.md",
+      "coverage": "Sampled current native/simulation/world/knowledge/custody/persistence owner contracts; source cross-check",
+      "sha256": "9655b51dc030e5881a128f267e9c4728bcf013fb8e9052401c13db107d01995b"
+    },
+    {
+      "path": "docs/ENGINE_EXPANSION.md",
+      "coverage": "Sampled shared simulation and authored expansion contracts; not refreshed browser proof",
+      "sha256": "94c5f606dcc80a4048fa0b937df7c82a18ee3ea41daa540e05a3383db9bb1ebf"
+    },
+    {
+      "path": "src/expansion_engine.js",
+      "coverage": "Initializer, schema constants, bounded scheduler, action and scenario-rewind exports",
+      "sha256": "bb9b59ce0400528ee006dc5846bb8ff85453ea7aa450d2875c37da29f754a829"
+    },
+    {
+      "path": "src/simulation.js",
+      "coverage": "Command/export inventory; full origin and campaign transition implementations",
+      "sha256": "3f7ecf0f208edc1edff502d7e1f5076ad1e1a435630a020658eb922d3287d3f3"
+    },
+    {
+      "path": "src/simulation_contracts.js",
+      "coverage": "Registry/effect families and sampled persistent actor/state/claim validators",
+      "sha256": "0b048cb891b0e30abeb7f97125d8fe62ca9abe03c7fc7697e0078ae4a72501de"
+    },
+    {
+      "path": "src/simulation_effects.js",
+      "coverage": "Actor inventory/fact construction; effect dispatcher, body/vitals/relocation paths",
+      "sha256": "bd9dde5ea0e09510a6111ac6c99e139c89ce94afc2ae4ae9772213b089408620"
+    },
+    {
+      "path": "src/expansion_persistence.js",
+      "coverage": "Full sole expansion envelope publisher",
+      "sha256": "779a82715884c48f3d2338816d76b90e5e894b625f2fb7daec174091c73bc966"
+    },
+    {
+      "path": "src/main.js",
+      "coverage": "Native publication pipeline lines 640-756, lifeSaveStorage, source RNG search and pack consumer search",
+      "sha256": "701917267fddc03ee5b6414145aa4f70ceee894eeca7d6255701fdbc9a6eab40"
+    },
+    {
+      "path": "src/save_files.js",
+      "coverage": "Save import/decode/export and 4 MiB guarded storage implementations",
+      "sha256": "766e3b77cc8771171b75690f41cc5e3e48abfdc46c4fc5b545d5b54e058aad32"
+    },
+    {
+      "path": "src/save_compatibility.js",
+      "coverage": "Legacy/dormant-content compatibility function and preservation semantics",
+      "sha256": "4800cd976ac5fa7edb6598f5deacc35d0d246c4d773315f889310297c4367334"
+    },
+    {
+      "path": "src/save_migration.js",
+      "coverage": "v0.6 additive conversion and legacy kit conversion",
+      "sha256": "feb8d7c31aad7a2793e75e2aa455af89f87ec101ab4e1b42cd3da2379988689f"
+    },
+    {
+      "path": "src/world_instances.js",
+      "coverage": "Definition/instance/bindings/visits/clock/update/view exports and constructors/validators",
+      "sha256": "cf15bd3c1d34153c541617fdd83a45d9b9faddd98b64b20edd0160d9547720fd"
+    },
+    {
+      "path": "src/realm_clock_leases.js",
+      "coverage": "Supported activity lease planner and exact support/boundary checks",
+      "sha256": "2daa0cd9778f52e5e2d69834fe65aa87b643d14f3ec7f49f8aae3a5c7718cb3e"
+    },
+    {
+      "path": "src/realm_state.js",
+      "coverage": "Glasshouse syncRealmClock, paid observation lease opening/closure consumers",
+      "sha256": "9bf436dd0e40f1f6de8a5db48baeab2e75cf012386c889d8c01207dbd76cfa0f"
+    },
+    {
+      "path": "src/native_realm_traveler.js",
+      "coverage": "Full native single-body traveler/cargo projection",
+      "sha256": "9c06b1fb6381781e000e6187220e9e005cd40b13eb356402a3bd9b52e48b9c51"
+    },
+    {
+      "path": "src/realm_cargo.js",
+      "coverage": "Export inventory, stock/custody allocation and directed permission/passage checks",
+      "sha256": "8895fc5c0a0e6224182e64b4e976c6496ea4a598f0e5756fed6e7cefa1dcabaa"
+    },
+    {
+      "path": "src/world_knowledge.js",
+      "coverage": "Full knowledge-qualified world identity view",
+      "sha256": "c724bb5ba4644573b685c5d55333531bf2645f55dea5a4f4f52ed404d90c9442"
+    },
+    {
+      "path": "src/people_knowledge.js",
+      "coverage": "Knowledge-only People projection, sampled individual/native-world joins",
+      "sha256": "e52bf2508ab626785ad66074179f33916aaed7946fbd403706cb59303e851261"
+    },
+    {
+      "path": "src/observation_channels.js",
+      "coverage": "Export inventory of activation/sample/detection/notice/identity/closure planners",
+      "sha256": "fa1ae671a2d4864c4589f185e47884b9feb0fa74908bf0c24e567b1f11fb0314"
+    },
+    {
+      "path": "src/body_progression.js",
+      "coverage": "Native body training content, condition/source consumers and exported body views",
+      "sha256": "47e8de67bdb099fb41365afafbf3081e342e734d97615850f921e0b280dfe84e"
+    },
+    {
+      "path": "src/backlog_expansion_body.js",
+      "coverage": "Finite body/property proofs, origin, possession/inheritance definitions and native input gate",
+      "sha256": "a1524bf27c8ecf0aae1c0241e7b685ce7d8d993a79ec53830042f854167237a4"
+    },
+    {
+      "path": "src/backlog_expansion_time.js",
+      "coverage": "Finite local loop save/seal/restore contracts, reviewed offline settlement and validation",
+      "sha256": "4f8e6b065ad76370671cf878a203cd1d9d3966a290268e3897684e690a0478fb"
+    },
+    {
+      "path": "src/content_packs.js",
+      "coverage": "Full pack validation, registration, loading, local activities and unavailable-pack preparation",
+      "sha256": "65c72a9510cb87bab963ef508c62a82af9918c5ff869338e50aab0503fef87ad"
+    },
+    {
+      "path": "src/power_models.js",
+      "coverage": "Full scoped power model preview and typed numeric amount resolver",
+      "sha256": "cbf6d86aea5cdfd1fda9bb39dddb208944c210e91c60196283f5ea731d3c23b7"
+    },
+    {
+      "path": "src/site_projects.js",
+      "coverage": "Full phase compiler and known progress projection",
+      "sha256": "0a9eeb705992b988e5d678f2bd9f4d62f1fc4e911cdb1b456df69787c042583c"
+    },
+    {
+      "path": "src/gameplay_transactions.js",
+      "coverage": "Export inventory and native effect/envelope owner signatures",
+      "sha256": "3279d063a16a5cd90504420edeaa104512cb24b8eacb185e8df6cec9bb4d4d81"
+    },
+    {
+      "path": "src/acquisition.js",
+      "coverage": "Export inventory, stage transfer/consume/grant and publication signatures",
+      "sha256": "4d665d4532ac87312034f763b3e598ae7314ee11fec1805e42df2e44fd9b5b29"
+    },
+    {
+      "path": "src/crafting_visibility.js",
+      "coverage": "recipeMakeableNow exported signature",
+      "sha256": "cedb3c64fd9ccc0708956c600e94a67840547399fc196bed8979e162e12f0d93"
+    },
+    {
+      "path": "src/absorb_c2/local_life.js",
+      "coverage": "Live absorption export inventory and RNG signature only; changing owner remains read-only",
+      "sha256": "36ce011163574f92340182497ad608f44c25f2a7979c304840c45376d59dbfc4"
+    },
+    {
+      "path": "src/world_rhythm.js",
+      "coverage": "Full saved-calendar conversion and recurring-window functions",
+      "sha256": "a6d3f7e63f2627aac99ff5e9f16b62e6a41c59a27a235f7365f48952b0d2d3e6"
+    },
+    {
+      "path": "src/game_time.js",
+      "coverage": "Calendar export and time owner routing; not full time implementation",
+      "sha256": "ae58e07158d52962cc8e0735b2e30af803f85bba4e68881038127a2b6b9cbf6c"
+    },
+    {
+      "path": "src/simulation_resolution.js",
+      "coverage": "Seed derivation and prepared effects/outcome weights export inventory",
+      "sha256": "b47789d1959d5e43fcce298b3631830169aa0d89b972cd7d08da1a55e4c2fd94"
+    },
+    {
+      "path": "src/world_completion_native.js",
+      "coverage": "Full measured stock receipt and custody envelope validation example",
+      "sha256": "85e2d33413f7145370d15096b45f8a83bc107dfce69714937992f3a42c5b0fc7"
+    },
+    {
+      "path": "src/world_completion_host.js",
+      "coverage": "Export signatures for native command and presentation adapter",
+      "sha256": "42556c485626407270cf2408f8fdc1599ef72643de450032c69561dedcd43bcf"
+    },
+    {
+      "path": "src/book_world_mol_host.js",
+      "coverage": "Instance activation call and native snapshot ownership evidence",
+      "sha256": "d5d4417217390d0d15c7ec732c99d33c244eb23867869673da7defdaef9c3879"
+    },
+    {
+      "path": "src/book_world_paradise_host.js",
+      "coverage": "Instance activation call and native snapshot ownership evidence",
+      "sha256": "fee5536e90b63c4cbcadffb709dfe5930f25a7fb903bf95c9a35096ee422f90d"
+    },
+    {
+      "path": "src/proto23_world_host.js",
+      "coverage": "Instance activation call evidence",
+      "sha256": "a9da4d20a50710d396c6bdb290d1ec72f70de562f427fc2f6674a33c63c3e9f8"
+    }
+  ],
+  "requirements": [
+    {
+      "id": "G5-01",
+      "sections": [
+        "S00",
+        "S14"
+      ],
+      "sourceRefs": [
+        {
+          "path": "docs/gm/completion/AUDIT_INTAKE.json",
+          "locator": "See inputs.coverage and requirement engineConsumerOrGap for inspected functions"
+        },
+        {
+          "path": "docs/gm/world-implementation/second-pass/absorption-incorporation/RECONCILIATION.json",
+          "locator": "See inputs.coverage and requirement engineConsumerOrGap for inspected functions"
+        },
+        {
+          "path": "docs/gm/world-implementation/second-pass/integration/IMPLEMENTATION_DAG.json",
+          "locator": "See inputs.coverage and requirement engineConsumerOrGap for inspected functions"
+        }
+      ],
+      "criterion": "Each selected leaf maps to one current owner, exact content/contract revision and observable consumer; historical planning status is never runtime completion.",
+      "proposedExpansion": "Join stable lane IDs to existing audit/owner IDs and classify content-over-existing-contract, new consumer, shared extension, source question or design question. Preserve variants and rejection reasons at leaf level.",
+      "dependencies": [
+        "Final G1-G4/G6/G7 requirement outputs"
+      ],
+      "engineConsumerOrGap": "AUDIT_INTAKE is path inventory only. Earlier RECONCILIATION/DAG are historical owners. Current expansion registry and main dispatcher must be joined to every selected leaf, not recreated.",
+      "acceptanceCases": [
+        "Duplicate wording merges while distinct mechanics remain separate leaves",
+        "An implemented-unverified consumer retains its outstanding browser/save gate",
+        "A changing source hash invalidates only affected feasibility rows"
+      ],
+      "remaining": "Await final lane joins; all public artifact contents remain unextracted at this pass."
+    },
+    {
+      "id": "G5-02",
+      "sections": [
+        "S02",
+        "S09",
+        "S13",
+        "S14"
+      ],
+      "sourceRefs": [
+        {
+          "path": "src/expansion_engine.js",
+          "locator": "See inputs.coverage and requirement engineConsumerOrGap for inspected functions"
+        },
+        {
+          "path": "src/simulation.js",
+          "locator": "See inputs.coverage and requirement engineConsumerOrGap for inspected functions"
+        },
+        {
+          "path": "src/expansion_persistence.js",
+          "locator": "See inputs.coverage and requirement engineConsumerOrGap for inspected functions"
+        },
+        {
+          "path": "src/main.js",
+          "locator": "See inputs.coverage and requirement engineConsumerOrGap for inspected functions"
+        }
+      ],
+      "criterion": "A committed suspenseful starting snapshot initializes actual native and simulation owners without required Frontier history, revealed candidate catalogs or reroll on read/reload.",
+      "proposedExpansion": "Add a versioned start-selection transaction above existing initializer/publication: installed qualified pool revision, seed policy, opaque selected candidate, snapshot revision, native creation/locations/quests/inventories/skills/body/knowledge and authored prior history. Start pool eligibility must be proven before drawing.",
+      "dependencies": [
+        "G5-01",
+        "G5-03",
+        "G5-04",
+        "G5-10",
+        "G5-11",
+        "G1 start snapshot/compatibility outputs"
+      ],
+      "engineConsumerOrGap": "createExpansionState(seed) starts base.frontier. chooseSimulationOrigin(...) checks origin.selected then applies effects; it does not initialize an arbitrary world/era/body/native game. commitCampaignTransition can stage authored nativePatch/replacementEnvelope and reload, but new-game selection needs its own admission path using the same envelope owner.",
+      "acceptanceCases": [
+        "Two qualified synthetic starts have coherent actual first actions with no Village prerequisite",
+        "Preview and failed write leave RNG/selection/native state unchanged; retry follows explicit policy",
+        "Reload/import retain pool/seed/snapshot/selection; old save gets no second beginning",
+        "Initial player record contains no fictitious deed/reward history"
+      ],
+      "remaining": "Seed/distribution/reroll/old-save/missing-pack policies are proposed contracts requiring chosen finite implementation scope."
+    },
+    {
+      "id": "G5-03",
+      "sections": [
+        "S01",
+        "S03",
+        "S04",
+        "S11",
+        "S12",
+        "S14"
+      ],
+      "sourceRefs": [
+        {
+          "path": "src/world_instances.js",
+          "locator": "See inputs.coverage and requirement engineConsumerOrGap for inspected functions"
+        },
+        {
+          "path": "src/simulation_contracts.js",
+          "locator": "See inputs.coverage and requirement engineConsumerOrGap for inspected functions"
+        },
+        {
+          "path": "src/simulation_effects.js",
+          "locator": "See inputs.coverage and requirement engineConsumerOrGap for inspected functions"
+        },
+        {
+          "path": "src/book_world_mol_host.js",
+          "locator": "See inputs.coverage and requirement engineConsumerOrGap for inspected functions"
+        },
+        {
+          "path": "src/book_world_paradise_host.js",
+          "locator": "See inputs.coverage and requirement engineConsumerOrGap for inspected functions"
+        },
+        {
+          "path": "src/realm_state.js",
+          "locator": "See inputs.coverage and requirement engineConsumerOrGap for inspected functions"
+        }
+      ],
+      "criterion": "Two instances of one world retain separate actors, claims, stock, quests, history and causes through departure/return.",
+      "proposedExpansion": "Extend current world host authoring bindings to compiled instance-scoped actor/site/claim/event/quest/stock IDs and a declared traveler owner. Serialize bindings and native projections once; do not mirror facts into a second authoritative store.",
+      "dependencies": [
+        "G5-01",
+        "G4 instance/history outputs"
+      ],
+      "engineConsumerOrGap": "createWorldInstance/createWorldBindings/validateWorldRecords/worldInstanceFacts already exist and are used by multiple world hosts. However simulation people/owners/claims and state.worlds are keyed globally, actor locations are strings and many definitions bind worldId rather than instanceId. Existing independent named instances do not establish arbitrary duplicate-world native isolation.",
+      "acceptanceCases": [
+        "Same definition instantiated twice yields different claims/stock/actor receipts",
+        "Return resumes exact local quest and stock progress without first-entry rewards",
+        "Stale instance/native revision and wrong-instance target reject before publication",
+        "Travelers carry one owner across instances, locals stay local"
+      ],
+      "remaining": "Inspect concrete native binding modules fully before assigning duplicate-instance implementation. Historical era state compilation remains a distinct contract."
+    },
+    {
+      "id": "G5-04",
+      "sections": [
+        "S01",
+        "S05",
+        "S11",
+        "S12",
+        "S14"
+      ],
+      "sourceRefs": [
+        {
+          "path": "src/world_instances.js",
+          "locator": "See inputs.coverage and requirement engineConsumerOrGap for inspected functions"
+        },
+        {
+          "path": "src/realm_clock_leases.js",
+          "locator": "See inputs.coverage and requirement engineConsumerOrGap for inspected functions"
+        },
+        {
+          "path": "src/realm_state.js",
+          "locator": "See inputs.coverage and requirement engineConsumerOrGap for inspected functions"
+        },
+        {
+          "path": "src/world_rhythm.js",
+          "locator": "See inputs.coverage and requirement engineConsumerOrGap for inspected functions"
+        },
+        {
+          "path": "src/expansion_engine.js",
+          "locator": "See inputs.coverage and requirement engineConsumerOrGap for inspected functions"
+        }
+      ],
+      "criterion": "Every time consumer declares whether it uses joined played time, native calendar, local elapsed time or supported activity, with exact ordering and no duplicate elapsed credit.",
+      "proposedExpansion": "Add only selected local policies to existing scheduler/world hosts: prior-history snapshots, independent event deadlines and supported absence/rate policies with clock conversion, lease/source expiry and causality boundaries. Historical authored snapshots and coarse catch-up must disclose their scope.",
+      "dependencies": [
+        "G5-03",
+        "G4 timeline outputs",
+        "G2 temporal functions"
+      ],
+      "engineConsumerOrGap": "Generic createWorldInstance/planWorldClock uses absence freeze and active visits. Glasshouse syncRealmClock consumes planRealmActivityClock plus paid observation leases, so supported activity already progresses beyond occupancy. This is not generic autonomous absence/rate simulation. world_rhythm derives recurring windows from saved native calendar. advanceSimulation yields unspent time at choices or 512 causal boundaries.",
+      "acceptanceCases": [
+        "Split and large advancement agree at selected event/expiry boundaries",
+        "Overlapping supported visits/leases advance local elapsed once",
+        "Loss of contact/source ends actual supported activity, with no invisible catch-up credit",
+        "Return resolves the selected local policy without replaying occurred rewards"
+      ],
+      "remaining": "No universal frozen absence imposed. Rate/absence/mid-history policy, causal scheduler projection and native calendar join require selected world rules."
+    },
+    {
+      "id": "G5-05",
+      "sections": [
+        "S02",
+        "S07",
+        "S08",
+        "S12",
+        "S13"
+      ],
+      "sourceRefs": [
+        {
+          "path": "src/body_progression.js",
+          "locator": "See inputs.coverage and requirement engineConsumerOrGap for inspected functions"
+        },
+        {
+          "path": "src/backlog_expansion_body.js",
+          "locator": "See inputs.coverage and requirement engineConsumerOrGap for inspected functions"
+        },
+        {
+          "path": "src/native_realm_traveler.js",
+          "locator": "See inputs.coverage and requirement engineConsumerOrGap for inspected functions"
+        },
+        {
+          "path": "src/simulation_effects.js",
+          "locator": "See inputs.coverage and requirement engineConsumerOrGap for inspected functions"
+        }
+      ],
+      "criterion": "Actual body/controller/identity/means determine available actions, rather than changing only race or flavor text.",
+      "proposedExpansion": "Extend current body/traveler/native adapters for one selected alternate form first, with form-specific interaction providers, native vitals/equipment/care/time and controller return. Keep body identity, memory, faculty, installed component, property and permission distinct.",
+      "dependencies": [
+        "G5-02",
+        "G5-03",
+        "G1 body/age/function outputs",
+        "G2 host/possession outputs"
+      ],
+      "engineConsumerOrGap": "simulation body effects write scalar properties; native vital effects need supplied real actor adapters. backlog body has finite reedling/clay/installed-device examples and restrictive actual human creation gate. previewNativeRealmTraveler is a single native-body physical passage projection, not infant/object/hive/system-entity gameplay.",
+      "acceptanceCases": [
+        "A stationary or dependent start has an actual reachable first action and continuing route",
+        "Unavailable hands/mobility prevents the relevant native craft/travel consumer",
+        "Control return preserves host stock and spent physical means",
+        "Memory or potential alone cannot execute an absent faculty; copied method uses actual supporting body"
+      ],
+      "remaining": "Full nonhuman/infant/system native action menus, lifecycle/care and multiple-presence support remain additional selected adapters."
+    },
+    {
+      "id": "G5-06",
+      "sections": [
+        "S07",
+        "S08",
+        "S11",
+        "S12",
+        "S14"
+      ],
+      "sourceRefs": [
+        {
+          "path": "src/power_models.js",
+          "locator": "See inputs.coverage and requirement engineConsumerOrGap for inspected functions"
+        },
+        {
+          "path": "src/simulation_resolution.js",
+          "locator": "See inputs.coverage and requirement engineConsumerOrGap for inspected functions"
+        },
+        {
+          "path": "src/simulation_effects.js",
+          "locator": "See inputs.coverage and requirement engineConsumerOrGap for inspected functions"
+        },
+        {
+          "path": "src/expansion_engine.js",
+          "locator": "See inputs.coverage and requirement engineConsumerOrGap for inspected functions"
+        },
+        {
+          "path": "src/backlog_expansion_time.js",
+          "locator": "See inputs.coverage and requirement engineConsumerOrGap for inspected functions"
+        }
+      ],
+      "criterion": "Each exceptional function changes its promised real target/state within an explicit retention/isolation boundary.",
+      "proposedExpansion": "Author cheats over current capability/source/power/effect owners; add narrowly selected missing target/effect adapters. Regression defines rollback domain, retained domains, cross-boundary causes/cargo/knowledge/RNG and actual restoration. Simulation declares isolation and fidelity. Real future knowledge needs a matching mechanism, not a guessed forecast.",
+      "dependencies": [
+        "G5-03",
+        "G5-04",
+        "G5-05",
+        "G2 functional-card outputs"
+      ],
+      "engineConsumerOrGap": "previewPowerModel/resolveEffectAmount/prepareSimulationEffects already provide scoped execution; acquisition operations distinguish copy/transfer/faculty. rewindScenario restores only scenario state while retaining RNG/receipts/worlds/actors. backlog local loop restores actual selected local person/body/facts under a finite stock seal; neither proves arbitrary world regression, exact future sight or summon autonomy.",
+      "acceptanceCases": [
+        "Copied information fails to grant missing physical source; transfer reflects specified donor consequence",
+        "Selected actual rollback restores only declared owner domains and keeps retained effects",
+        "Import/repeated rewind cannot duplicate unique rewards or cargo",
+        "A summon acts through registered actor commands and its own resources/knowledge"
+      ],
+      "remaining": "Missing target adapters, exact futures, large rollback coverage, combination order and macro consequences remain selected implementation contracts, not design rejection."
+    },
+    {
+      "id": "G5-07",
+      "sections": [
+        "S04",
+        "S05",
+        "S09",
+        "S10",
+        "S13"
+      ],
+      "sourceRefs": [
+        {
+          "path": "src/simulation.js",
+          "locator": "See inputs.coverage and requirement engineConsumerOrGap for inspected functions"
+        },
+        {
+          "path": "src/people_knowledge.js",
+          "locator": "See inputs.coverage and requirement engineConsumerOrGap for inspected functions"
+        },
+        {
+          "path": "src/world_knowledge.js",
+          "locator": "See inputs.coverage and requirement engineConsumerOrGap for inspected functions"
+        },
+        {
+          "path": "src/observation_channels.js",
+          "locator": "See inputs.coverage and requirement engineConsumerOrGap for inspected functions"
+        },
+        {
+          "path": "src/simulation_effects.js",
+          "locator": "See inputs.coverage and requirement engineConsumerOrGap for inspected functions"
+        }
+      ],
+      "criterion": "Player and NPC commands use their own knowledge, means, current access and actual ownership; presentation leaks no hidden actor/world catalog.",
+      "proposedExpansion": "Use existing actor command evaluator/knowledge observations to bind selected household/institution/service interactions and independent intentions. Add a content admission/presentation audit for any new state projection, including hidden availability and error reasons.",
+      "dependencies": [
+        "G5-03",
+        "G5-05",
+        "G3 social/institution outputs",
+        "G4 knowledge outputs"
+      ],
+      "engineConsumerOrGap": "inspectActorChoices/acceptActorProposal bind registered commands and reject authoritative effects supplied by external planners. knownPeopleView projects received accounts; worldIdentityView hides undiscovered identity. Observation channel planners have explicit activation/sample/detection/notice/closure. Existing fact aggregators contain many world-specific joins, requiring consumer-level review rather than exposing full state.",
+      "acceptanceCases": [
+        "NPC with no lead cannot act on hidden player abilities/location",
+        "Acquired report or held observation means changes only supported knowledge/action",
+        "Renderer/tooltip/error output shows no sealed truth or candidate catalog",
+        "Institution responds to changed actual means/history and retains disagreement/refusal"
+      ],
+      "remaining": "Independent intentions/world-wide social consequences and actor-specific projection across arbitrary instances need chosen content and joins; no generic society completion claim."
+    },
+    {
+      "id": "G5-08",
+      "sections": [
+        "S05",
+        "S06",
+        "S12",
+        "S14"
+      ],
+      "sourceRefs": [
+        {
+          "path": "src/acquisition.js",
+          "locator": "See inputs.coverage and requirement engineConsumerOrGap for inspected functions"
+        },
+        {
+          "path": "src/gameplay_transactions.js",
+          "locator": "See inputs.coverage and requirement engineConsumerOrGap for inspected functions"
+        },
+        {
+          "path": "src/realm_cargo.js",
+          "locator": "See inputs.coverage and requirement engineConsumerOrGap for inspected functions"
+        },
+        {
+          "path": "src/native_realm_traveler.js",
+          "locator": "See inputs.coverage and requirement engineConsumerOrGap for inspected functions"
+        },
+        {
+          "path": "src/world_completion_native.js",
+          "locator": "See inputs.coverage and requirement engineConsumerOrGap for inspected functions"
+        }
+      ],
+      "criterion": "Ordinary transfers/work conserve the goods, rights, payment and claims they move or reserve. Explicitly supported source/world/cheat creation, destruction, duplication or restoration executes its promised transformation with declared identity, scope and provenance; failed publication creates no unintended partial result.",
+      "proposedExpansion": "Reuse current acquisition/gameplay/claim/custody owners for functional economy details and macro production. Native quotes and staged transfers must bind exact itemKey/count/holder/owner/revision, completion support and once/repeat policy. Rights or ownership do not automatically grant export permission. Conservation applies to ordinary transfer and incidental replay errors, not as a universal cosmological prohibition. An authorized transformation declares which owner domains are created/destroyed/copied/restored, resulting identity/provenance and any actual selected resource constraints; source-supported free/inexhaustible functions need no invented debit.",
+      "dependencies": [
+        "G5-03",
+        "G5-07",
+        "G3 economy outputs",
+        "G6 material outputs"
+      ],
+      "engineConsumerOrGap": "stageAcquisition and gameplay_transactions stage actual transfer/consume/grant/native inventory. realm cargo binds real inventory/equipment/custody; current native Pocket passage rejects borrowed goods and passes no consent/permission grants. Pure permission planners exist, but this consumer is not a borrowed-cargo consent UI. Measured-material native validator illustrates provenance/custody uniqueness across inventories and reservations.",
+      "acceptanceCases": [
+        "Reserved material cannot be sold/equipped/borrowed again",
+        "Lost support triggers selected refund/forfeit policy with no unpaid output",
+        "Two instance-local workshops do not share stock/claims accidentally",
+        "Loan export fails until exact supported permission exists; returning retained loans conserves holder/owner",
+        "Explicit creation or duplication succeeds with distinct supported provenance; no generic stock invariant rejects the promised new output",
+        "Restore/duplicate across a reset follows selected external-export, item-identity and claim scope rather than generic once-only suppression",
+        "Repeated command/cause delivery is rejected only outside the mechanism's explicit repetition/duplication allowance"
+      ],
+      "remaining": "Full inspected native buy/sell pricing/dynamic regional supply consumers remain needed for selected market requirements. No new economy ledger per content family. G4-10 and G4-11 define selected temporal/crossing transformation scope; finalized G2 duplication/creation card join remains pending."
+    },
+    {
+      "id": "G5-09",
+      "sections": [
+        "S03",
+        "S05",
+        "S06",
+        "S07",
+        "S14"
+      ],
+      "sourceRefs": [
+        {
+          "path": "src/site_projects.js",
+          "locator": "See inputs.coverage and requirement engineConsumerOrGap for inspected functions"
+        },
+        {
+          "path": "src/crafting_visibility.js",
+          "locator": "See inputs.coverage and requirement engineConsumerOrGap for inspected functions"
+        },
+        {
+          "path": "src/world_completion_native.js",
+          "locator": "See inputs.coverage and requirement engineConsumerOrGap for inspected functions"
+        },
+        {
+          "path": "src/simulation.js",
+          "locator": "See inputs.coverage and requirement engineConsumerOrGap for inspected functions"
+        }
+      ],
+      "criterion": "Each promised craft/device/facility has actual inputs, useful operating outputs, interruption/support policy and later consumers.",
+      "proposedExpansion": "Compile selected production chains through compileSiteProject and ordinary native recipe/job/effect consumers; extend exact item metadata/provenance or operating adapters only where their promised physical function requires it. Environment comes from bound local state with declared consumers, not an extra universal world model.",
+      "dependencies": [
+        "G5-04",
+        "G5-05",
+        "G5-08",
+        "G6 crafting/technology/environment outputs"
+      ],
+      "engineConsumerOrGap": "compileSiteProject already emits phased commands using claims, real costs, completionRequires/CoLocated/Failure and existing scheduler. recipeMakeableNow has native admission signature. Existing measured-material envelope proves one specific provenance consumer, not general material chemistry or functional electronics.",
+      "acceptanceCases": [
+        "Inputs debit at reservation and actual usable product returns once",
+        "Facility output changes actual subsequent crafting/learning/work consumer",
+        "Tool/fuel/operator/environment support lost during work follows frozen chosen policy",
+        "Distinct devices remain mechanically distinct; decorative labels do not count as function"
+      ],
+      "remaining": "Selected recipe executor/station/device/quality/material environment bindings must be read in full before runtime packets; detailed native crafting internals not fully audited in this pass."
+    },
+    {
+      "id": "G5-10",
+      "sections": [
+        "S02",
+        "S06",
+        "S11",
+        "S14"
+      ],
+      "sourceRefs": [
+        {
+          "path": "src/expansion_engine.js",
+          "locator": "See inputs.coverage and requirement engineConsumerOrGap for inspected functions"
+        },
+        {
+          "path": "src/simulation.js",
+          "locator": "See inputs.coverage and requirement engineConsumerOrGap for inspected functions"
+        },
+        {
+          "path": "src/simulation_resolution.js",
+          "locator": "See inputs.coverage and requirement engineConsumerOrGap for inspected functions"
+        },
+        {
+          "path": "src/main.js",
+          "locator": "See inputs.coverage and requirement engineConsumerOrGap for inspected functions"
+        },
+        {
+          "path": "src/absorb_c2/local_life.js",
+          "locator": "See inputs.coverage and requirement engineConsumerOrGap for inspected functions"
+        }
+      ],
+      "criterion": "Saved randomness and cause receipts prevent read-time reroll, duplicate settlement and replay drift within the promised mechanism.",
+      "proposedExpansion": "Use versioned deterministic selection/check streams inside existing durable state. Bind draw order/seed/pool revision/cause and scope; preserve frozen jobs and outcome receipts. Exact simulation/regression must either include native random consumers or clearly exclude them from fidelity.",
+      "dependencies": [
+        "G5-02",
+        "G5-04",
+        "G5-06"
+      ],
+      "engineConsumerOrGap": "Expansion uses rng, simulation uses seed and saved per-event check rng; deriveSimulationSeed provides a reusable path. Native main still calls Math.random for multiple action/combat/crafting/reward consumers; active absorption advanceLocalLife defaults rng=Math.random. These are inspected seams, not proof of a current bug in every consumer.",
+      "acceptanceCases": [
+        "Opening menus/previews consumes no start/event draw",
+        "Failed writes do not publish new seed/claim/receipt; explicit retry policy is stable",
+        "Same committed fixture split/reload/import yields same selected mechanism outcome",
+        "A loop does not restore retained randomness unless its authored mechanism says so"
+      ],
+      "remaining": "Inspect exact affected native draws when selecting deterministic historical/temporal scope. Do not rewrite all native randomness speculatively."
+    },
+    {
+      "id": "G5-11",
+      "sections": [
+        "S02",
+        "S12",
+        "S14"
+      ],
+      "sourceRefs": [
+        {
+          "path": "src/expansion_persistence.js",
+          "locator": "See inputs.coverage and requirement engineConsumerOrGap for inspected functions"
+        },
+        {
+          "path": "src/save_files.js",
+          "locator": "See inputs.coverage and requirement engineConsumerOrGap for inspected functions"
+        },
+        {
+          "path": "src/save_compatibility.js",
+          "locator": "See inputs.coverage and requirement engineConsumerOrGap for inspected functions"
+        },
+        {
+          "path": "src/save_migration.js",
+          "locator": "See inputs.coverage and requirement engineConsumerOrGap for inspected functions"
+        },
+        {
+          "path": "src/content_packs.js",
+          "locator": "See inputs.coverage and requirement engineConsumerOrGap for inspected functions"
+        },
+        {
+          "path": "src/main.js",
+          "locator": "See inputs.coverage and requirement engineConsumerOrGap for inspected functions"
+        }
+      ],
+      "criterion": "Old saves, dormant content and missing private packs retain their owned state without invented grants, new starts or destructive migration.",
+      "proposedExpansion": "Choose additive optional schema admission; validate unknown/new data and preserve original envelope on failure. Private pack infrastructure remains public/generic while selected direct-source definitions remain outside bundle/git. Missing required-start content needs a deliberate recovery policy compatible with suspense and preserved life.",
+      "dependencies": [
+        "G5-02",
+        "G5-03",
+        "G5-06"
+      ],
+      "engineConsumerOrGap": "persistExpansionPlan writes copied envelope then host publishes live state; importSaveFile validates plus real-loader preflight before guarded write. prepareFoundationSave retains retired data and prepareV06Save migrates known legacy fields. content_packs schema1 supports scalar local state/activity jobs with namespace collision checks; preparePackSave retains unavailable pack state but moves active native location to Village/base.frontier. That legacy fallback does not meet a new no-mandatory-Frontier start policy by itself.",
+      "acceptanceCases": [
+        "Synthetic old save without new namespace stays unchanged/unselected",
+        "Unsupported schema/missing essential start pack shows recovery with original state retained",
+        "Failed write/preflight publishes no reward/body/location/seed",
+        "Save/reload/import retains optional pack/instance/cargo/knowledge and dormant history"
+      ],
+      "remaining": "Choose new-start missing-pack and migration policy explicitly; no private pack/source library/save was opened. Future richer pack schema must use shared executor rather than duplicate save/reward ownership."
+    },
+    {
+      "id": "G5-12",
+      "sections": [
+        "S00",
+        "S11",
+        "S13",
+        "S14"
+      ],
+      "sourceRefs": [
+        {
+          "path": "src/expansion_engine.js",
+          "locator": "See inputs.coverage and requirement engineConsumerOrGap for inspected functions"
+        },
+        {
+          "path": "src/save_files.js",
+          "locator": "See inputs.coverage and requirement engineConsumerOrGap for inspected functions"
+        },
+        {
+          "path": "src/simulation_contracts.js",
+          "locator": "See inputs.coverage and requirement engineConsumerOrGap for inspected functions"
+        },
+        {
+          "path": "src/site_projects.js",
+          "locator": "See inputs.coverage and requirement engineConsumerOrGap for inspected functions"
+        },
+        {
+          "path": "docs/WORLD_COMPLETION_STANDARD.md",
+          "locator": "See inputs.coverage and requirement engineConsumerOrGap for inspected functions"
+        }
+      ],
+      "criterion": "Each implementation packet has finite represented scope, native consumer evidence, bounded resource use and an explicit unverified remainder.",
+      "proposedExpansion": "Freeze selected leaf IDs/source hashes and synthetic fixture cases, integrate one connected journey at a time, rebuild then exercise from fresh origin. Measure selected content scale using saved-size/boundary/actor/job constraints; disclose coarse history where chosen. Author content via validated definitions and existing compiler/export contracts.",
+      "dependencies": [
+        "G5-01",
+        "G5-02",
+        "G5-03",
+        "G5-04",
+        "G5-05",
+        "G5-06",
+        "G5-07",
+        "G5-08",
+        "G5-09",
+        "G5-10",
+        "G5-11",
+        "G7 coverage and usability outputs"
+      ],
+      "engineConsumerOrGap": "advanceSimulation stops after 512 boundaries and returns remaining/budgetExhausted; save_files guards 4 MiB origin budget; simulation logs/transitions are bounded. Those safeguards require observed workload measurement for many actors/eras/instances. Build/native browser/save gates remain future acceptance work; source inspection establishes signatures only.",
+      "acceptanceCases": [
+        "Stress chosen finite actor/event/job content and retain unspent time at budget stop",
+        "Save quota failure retains last durable save and pauses live progress",
+        "Fresh-origin native journey tests selected start/use/refusal/interruption/aftereffect",
+        "Rebuild plus save/reload/import/failure/knowledge/director gates qualify exact revision"
+      ],
+      "remaining": "No runtime tests, rebuild, browser or private-save checks were run for this planning lane. Broad audit extraction and whole-world source fidelity remain elsewhere."
+    }
+  ],
+  "provisionalPacketOrder": [
+    {
+      "id": "G5-P1",
+      "scope": "Qualify one generic local-world dossier and compile exact start/instance/native owner bindings",
+      "requirements": [
+        "G5-01",
+        "G5-03",
+        "G5-11"
+      ],
+      "dependsOn": [],
+      "gate": "Synthetic duplicate-instance/native projection and additive old-save cases pass before new starts."
+    },
+    {
+      "id": "G5-P2",
+      "scope": "One committed suspenseful start with supported body/first actions/knowledge and saved deterministic selection",
+      "requirements": [
+        "G5-02",
+        "G5-05",
+        "G5-10"
+      ],
+      "dependsOn": [
+        "G5-P1"
+      ],
+      "gate": "Rebuilt fresh-origin native start/use/save/reload/import/failure journey, sealed pool review."
+    },
+    {
+      "id": "G5-P3",
+      "scope": "One actual local time/event/absence or temporal-function contract joined to prior history",
+      "requirements": [
+        "G5-04",
+        "G5-06"
+      ],
+      "dependsOn": [
+        "G5-P1"
+      ],
+      "gate": "Clock/lease/ordering/isolation/retention cases and native/save proofs. Select exact scope before implementation."
+    },
+    {
+      "id": "G5-P4",
+      "scope": "One connected power or material/social livelihood journey and its macro consequence",
+      "requirements": [
+        "G5-06",
+        "G5-07",
+        "G5-08",
+        "G5-09"
+      ],
+      "dependsOn": [
+        "G5-P2"
+      ],
+      "gate": "Acquire/use/develop/respond/retain path plus refusal/lost-support/custody/knowledge cases."
+    },
+    {
+      "id": "G5-P5",
+      "scope": "Section coverage closeout and scoped performance/usability/director review",
+      "requirements": [
+        "G5-12"
+      ],
+      "dependsOn": [
+        "G5-P2",
+        "G5-P3",
+        "G5-P4"
+      ],
+      "gate": "Every selected leaf/interaction has evidence or precise open gate; C2/C3/C4/C5 kept distinct."
+    }
+  ],
+  "migrationDecisions": [
+    {
+      "id": "G5-M1",
+      "status": "proposal",
+      "decision": "New initialization and instance metadata are optional and additive; existing completed origin or loaded life cannot receive a random second beginning."
+    },
+    {
+      "id": "G5-M2",
+      "status": "proposal",
+      "decision": "Freeze accepted old jobs/receipts; new scoped bindings need versioned validators or explicit compatible mappings, with original envelope preserved on unsupported data."
+    },
+    {
+      "id": "G5-M3",
+      "status": "open-design-decision",
+      "decision": "Legacy unavailable-pack Village fallback is insufficient for a newly selected no-mandatory-Frontier opening; choose suspend/recovery/explicit alternate arrival without silently rerolling."
+    },
+    {
+      "id": "G5-M4",
+      "status": "proposal",
+      "decision": "A stronger rollback or duplicate-instance feature declares included native domains, retained state and private-pack revision before migration or live write."
+    }
+  ],
+  "unreadRemainder": [
+    "Final G1-G4/G6/G7 outputs and cross-lane conflict joins pending integrator request.",
+    "396 research artifacts inventoried, contents not exhaustively extracted; inventory is not source reading or reconciliation.",
+    "Native crafting/market/combat/lifecycle and world-specific bindings only sampled as stated; selected implementation must inspect exact consumers fully.",
+    "No sealed source truths, private pack content, novels, personal saves or newly acquired sources were inspected.",
+    "No arbitrary multi-era native initializer, complete duplicate-world isolation, universal future simulation or whole-world completion is claimed."
+  ],
+  "sourceSnapshotPolicy": "Inputs hashes capture a dirty moving tree after inspection. Concurrent absorption modifies main/save/build and related new sources. A runtime writer must compare hashes/re-read affected exports before using this plan; this is no immutable integrated snapshot.",
+  "noRuntimeClaim": true,
+  "clarifications": [
+    {
+      "id": "G5-C1",
+      "date": "2026-10-11",
+      "requirements": [
+        "G5-08"
+      ],
+      "reason": "Cross-lane G4-10/G4-11 and G3-012 review: ordinary conservation cannot deny explicit source-supported creation/duplication/restoration.",
+      "status": "planning clarification; runtime untouched",
+      "pending": "Final G2 powers and G8 micro contracts."
+    }
+  ]
+}

@@ -23,7 +23,7 @@ export function commitWorldCompletionCommand(state,registry,command,context,sequ
         const out=cancelSimulationJob(state,registry,job.id,{...current,actorId:job.actorId,worldCompletionLensReservation:job},sequence);
         if(supplied&&out.state.worlds['base.frontier'].facts['world.completion.learning.released']!==true){
             const release=commitWorldCompletionLearningCommand(out.state,registry,{type:'world_completion',id:context.facts?.location==='Shack'?'world.completion.learning.release_neri_shack':'world.completion.learning.release_neri',sequence:out.state.sequence},
-                worldCompletionContext(out.state,{...current,actorId:'player',external:out.external,gameplay:out.gameplay,vitals:out.vitals,equipment:out.equipment}),out.state.sequence);
+                worldCompletionContext(out.state,{...current,actorId:'player',worldCompletionHost:true,external:out.external,gameplay:out.gameplay,vitals:out.vitals,equipment:out.equipment}),out.state.sequence);
             release.acquisitions=[...(out.acquisitions||[]),...(release.acquisitions||[])];release.unlocks=[...(out.unlocks||[]),...(release.unlocks||[])];
             validateWorldCompletionState(release.state,registry);return release;
         }

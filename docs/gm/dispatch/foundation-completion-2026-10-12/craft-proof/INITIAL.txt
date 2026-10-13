@@ -1,0 +1,50 @@
+Yet Another Idle RPG
+by Miktaew 🐱
+LOADING
+No issues in the loading process :)
+
+
+0/0 mana
+ 
+Inventory
+Combat
+Clears: [0]
+Enemy groups left: 
+ Hide max level skills
+Sort by name
+Sort by level
+Sort by progress
+Skills
+Stances
+Magic
+Quests
+Bestiary
+Anthology
+Data
+= Quests =
+Hide completed 
+Lvl: 0
+Strength: 
+Agility: 
+Dexterity: 
+Intuition 
+Defense: 
+Magic: 
+Atk power: 
+Atk spd: 
+Crit rate: 
+Crit mult: 
+AP: 
+ 
+Active effects: 0
+Levels / unlocks
+Events
+Crafting
+Combat
+Loot
+BGM
+Save
+Export
+Import
+settings
+help_outline

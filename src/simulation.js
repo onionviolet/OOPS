@@ -1,3 +1,5 @@
+import {admitFoundationInteraction,freezeFoundationInteractionActivation,advanceFoundationInteractions,nextFoundationInteractionBoundary} from './foundation_interaction_policy.js';
+import {foundationInteractionProbeGuard} from './foundation_interaction_content.js';
 import {guardSteamLambAdmission,stampSteamLambAcceptedJob,steamLambCompletionContext} from './steam_lamb_runtime.js';
 import {guardSteamONIAdmission,stampSteamONIAcceptedJob,steamONICompletionContext} from './steam_oni_runtime.js';
 import {guardSteamBOHAdmission,stampSteamBOHAcceptedJob,steamBOHCompletionContext} from './steam_boh_runtime.js';
@@ -5,6 +7,7 @@ import {alloyTechniqueEffects} from "./alloy_equipment.js";
 import {guardSteamDFAdmission,stampSteamDFAcceptedJob,steamDFCompletionContext} from './steam_df_runtime.js';
 import {agreedDutyCompletionEffects,agreedDutyCancellationEffects,agreedDutyStoppedEffects,agreedDutyRefusalEffects} from './agreed_duty_host.js';
 import {agreedDutySelectedCommand} from './agreed_duty_facts.js';
+import {stampAgreedDutyContinuationJob} from './agreed_duty_continuation.js';
 import {paradiseCampaignControllerAllowed} from './book_world_paradise_campaign_runtime.js';
 import {paradiseCampaignExistingCommandGate} from './book_world_paradise_campaign_facts.js';
 import {worldCompletionJobContext,stampWorldCompletionAcceptedJob,recordWorldCompletionJobCompletion,worldCompletionTimersSupported,reconcileWorldCompletionPlan} from './world_completion_runtime.js';
@@ -20,7 +23,7 @@ import {remainderConsequencesExistingCommandGate} from './audit_remainder_conseq
 import {advanceWorkPlansBoundary} from './feature_expansion_work_plan.js';
 import {activePractice} from "./techniques.js";
 import {assert, natural, copy, stableId, meets, createSimulationState, validateSimulationState} from "./simulation_contracts.js";
-import {person, participant, simulationFacts, applySimulationEffects, refundCosts, inventory} from "./simulation_effects.js";
+import {person, participant, simulationFacts, applySimulationEffects, refundCosts, inventory, advanceNativeContainerClocks,resolveSimulationCostKeys} from "./simulation_effects.js";
 import {previewPowerModel, resolveEffectAmount} from "./power_models.js";
 import {prepareSimulationEffects, resolveOutcomeWeights} from "./simulation_resolution.js";
 import {pursuitReservesActor,nextPursuitBoundary,advancePursuits} from "./pursuit.js";
@@ -99,6 +102,7 @@ export function previewSimulationCommand(state, registry, commandId, context) {
     for(const id of commandParticipants(d,context,s).filter(id => id !== context.actorId)) {
         const p = s.people[id];
         if(!p || p.life !== "alive" || state.actors[id].worldId !== state.actors[context.actorId].worldId || simulationOccupiesActor(state,id,d.pursuitId) || state.pending.some(j=>j.context.actorId === id) || activePractice(state.actors[id])) reasons.push("A participating person is unavailable or already working.");
+        if(d.participantsCoLocated===true&&p?.location!==(context.facts?.location||s.people[context.actorId]?.location))reasons.push('Meet all required participants at this location.');
     }
     if(context.actorId === "player" && (state.chronicle?.session || state.chronicle?.life.endedAt != null || waitingSimulationChoice(state))) reasons.push("Resolve the waiting encounter or life ending first.");
     if(d.once && state.actors[context.actorId].completed[d.id]) reasons.push("This action has already been completed.");
@@ -126,7 +130,7 @@ export function previewSimulationCommand(state, registry, commandId, context) {
     const resolve = effects => (alloyTechniqueEffects(d, effects, facts, value => resolveEffectAmount(value, facts, model || {})) || []).map(e => e.amount != null ? {...e, amount: resolveEffectAmount(e.amount, facts, model || {})} : copy(e));
     let costs = [], effects = [], weights = null;
     try {
-        costs = resolve(d.costs); effects = resolve(d.effects); if(d.outcomes) weights = resolveOutcomeWeights(d.outcomes, facts, model || {});
+        costs = resolveSimulationCostKeys(test,resolve(d.costs),context); effects = resolve(d.effects); if(d.outcomes) weights = resolveOutcomeWeights(d.outcomes, facts, model || {});
         applySimulationEffects(test, costs, context, registry, "preview", {spending: true});
         if(d.claim && !s.claims[d.claim]) applySimulationEffects(test,[{type:"claim",operation:"acquire",key:d.claim}],context,registry,"preview");
         for(const [index,possible] of (d.outcomes || [{effects:[]}]).entries()) {
@@ -161,6 +165,8 @@ function startCommand(out, registry, commandId, context, immediatePreview, conte
     // plan. Reuse it only here, before any mutation; never cache a player quote.
     const preview = immediatePreview || previewSimulationCommand(state, registry, commandId, {...context, external: out.external, gameplay: out.gameplay});
     assert(preview.eligible, preview.reasons.join(" ") || "This command is hidden.");
+    foundationInteractionProbeGuard(state,d,context);
+    admitFoundationInteraction(state,[...(d.effects||[]),...(d.outcomes||[]).flatMap(o=>o.effects||[])],context);
     const cause = `simulation:${++state.sequence}`;
     if(d.group === "pursuit")s.schema=Math.max(s.schema,2);
     if(context.actorId === "player" && context.facts?.location) s.people.player.location = context.facts.location;
@@ -177,7 +183,7 @@ function startCommand(out, registry, commandId, context, immediatePreview, conte
         if(index < 0) index = preview.weights.findLastIndex(w => w > 0);
         chosen = d.outcomes[index].effects || []; outcomeId = d.outcomes[index].id; s.seed = check.rng;
     }
-    const effects = prepareSimulationEffects([...preview.effects, ...chosen], facts, registry, cause, preview.model || {});
+    const effects = freezeFoundationInteractionActivation(state,prepareSimulationEffects([...preview.effects, ...chosen], facts, registry, cause, preview.model || {}),context);
     if(d.group === "original_frontier") {
         s.schema = Math.max(s.schema, 4);
         const returns = new Map();
@@ -215,6 +221,7 @@ function startCommand(out, registry, commandId, context, immediatePreview, conte
     stampSteamLambAcceptedJob(state,job,context);
     stampLorePracticeJob(state,job,context);
     stampWorldCompletionAcceptedJob(state,job,context);
+    stampAgreedDutyContinuationJob(state,job);
     if(d.encounterId) {
         assert(!d.duration && !(d.effects || []).length, "Encounters start without overlapping jobs.");
         const encounter = registry.simulation.encounters.get(d.encounterId);
@@ -224,7 +231,7 @@ function startCommand(out, registry, commandId, context, immediatePreview, conte
         s.sessions[context.actorId].participants = job.participants;
         if(d.pursuitId) {const p=s.pursuits[d.pursuitId];p.status="encounter";p.due=null;s.sessions[context.actorId].pursuitId=d.pursuitId;}
     } else if(job.due > state.clock) {s.jobs.push(job); if(job.siteId) s.sites[job.siteId].reservations[job.id] = job.actorId;}
-    else completeJob(out, job, registry, d.group?.startsWith('world_completion_')?{...contexts,[context.actorId]:context,player:contexts.player||context}:['causal_story','causal_story_npc'].includes(d.group) ?
+    else completeJob(out, job, registry, effects.some(e=>e.type==='container'||e.type==='relocate')?{[context.actorId]:context}:d.group?.startsWith('world_completion_')?{...contexts,[context.actorId]:context,player:contexts.player||context}:['causal_story','causal_story_npc'].includes(d.group) ?
         currentCausalStoryContexts(out,{...contexts,[context.actorId]:context}) : ['proto23','book_paradise_npc','book_mol','book_mol_npc','book_paradise_campaign','book_paradise_campaign_npc'].includes(d.group)?{[context.actorId]:context}:{});
     return job;
 }
@@ -272,7 +279,8 @@ function completeJob(out, job, registry, contexts = {}, beforeJob=null) {
             return;
         }
     }
-    const effectContext=wcContext||(['proto23','book_care_npc','book_paradise_npc','book_mol','book_mol_npc','book_paradise_campaign','book_paradise_campaign_npc','causal_story','causal_story_npc'].includes(completionGroup)?{...contexts[job.actorId],...job.context,...(['book_mol','book_mol_npc'].includes(completionGroup)?{molAcceptedJob:job}:{}),
+    const containerContext=job.effects.some(e=>e.type==='container'||e.type==='relocate')?{...contexts[job.actorId],...job.context,external:out.external,gameplay:out.gameplay,vitals:out.vitals}:null;
+    const effectContext=containerContext||wcContext||(['proto23','book_care_npc','book_paradise_npc','book_mol','book_mol_npc','book_paradise_campaign','book_paradise_campaign_npc','causal_story','causal_story_npc'].includes(completionGroup)?{...contexts[job.actorId],...job.context,...(['book_mol','book_mol_npc'].includes(completionGroup)?{molAcceptedJob:job}:{}),
             ...(['book_paradise_campaign','book_paradise_campaign_npc'].includes(completionGroup)?{paradiseCampaignAcceptedJob:job}:{}),external:out.external,gameplay:out.gameplay,vitals:out.vitals,vitalsByActor:out.vitals,equipment:out.equipment}:job.context);
     applySimulationEffects(out, job.effects, effectContext, registry, job.id);
     if(job.claim && s.claims[job.claim]?.status === "held") applySimulationEffects(out, [{type: "claim", operation: "settle", key: job.claim}], job.context, registry, job.id);
@@ -354,9 +362,11 @@ function answerEncounterInto(out, registry, responseId, context) {
     const next = session, frozen = next.turns[next.turn];
     const response = frozen.responses.find(r => r.id === responseId); assert(response, "Unknown encounter response.");
     const ctx = {...context, targetId: session.targetId, partyIds: session.partyIds || []}, facts = simulationFacts(state, ctx, registry); assert(meets(response.visibleWhen, facts) && meets(response.requires, facts), "Response requirements are missing.");
+    foundationInteractionProbeGuard(state,registry.simulation.commands.get(session.commandId),ctx);
+    admitFoundationInteraction(state,response.effects||[],ctx);
     const cause = `response:${++out.state.sequence}`;
     assert(next.lethal || !(response.effects || []).some(e => e.type === "life" && e.status === "dead"), "This encounter is nonlethal.");
-    const costs = prepareSimulationEffects(response.costs, facts, registry, cause), effects = prepareSimulationEffects(response.effects, facts, registry, cause);
+    const costs = prepareSimulationEffects(response.costs, facts, registry, cause), effects = freezeFoundationInteractionActivation(state,prepareSimulationEffects(response.effects, facts, registry, cause),ctx);
     applySimulationEffects(out, costs, ctx, registry, cause, {spending: true});
     applySimulationEffects(out, effects, ctx, registry, cause);
     next.answers.push(responseId); next.turn++;
@@ -439,7 +449,7 @@ export function previewSimulationResponse(state, registry, choice, context) {
 
 export function nextSimulationBoundary(state,{skipLoreJobs=false,skipCompletionJobs=false,skipCompletionCropChecks=false}={}) {
     const s = state.simulation; if(!s) return Infinity;
-    return Math.min(nextPursuitBoundary(state), ...s.jobs.filter(j=>(!skipLoreJobs||!/^lore\.(?:work|warning)\./.test(j.commandId))&&(!skipCompletionJobs||!j.commandId.startsWith("world.completion."))).map(j => j.due), ...Object.values(s.checks).filter(c=>!skipCompletionCropChecks||!["remainder_consequences.frost_warning","remainder_consequences.frost_settlement"].includes(c.definitionId)).map(c => c.due), ...Object.values(s.controllers).filter(c => s.people[c.actorId].life === "alive"&&(!skipCompletionJobs||c.definitionId!=="world.completion.learning.neri_controller")).map(c => c.due),
+    return Math.min(nextFoundationInteractionBoundary(state),nextPursuitBoundary(state), ...s.jobs.filter(j=>(!skipLoreJobs||!/^lore\.(?:work|warning)\./.test(j.commandId))&&(!skipCompletionJobs||!j.commandId.startsWith("world.completion."))).map(j => j.due), ...Object.values(s.checks).filter(c=>!skipCompletionCropChecks||!["remainder_consequences.frost_warning","remainder_consequences.frost_settlement"].includes(c.definitionId)).map(c => c.due), ...Object.values(s.controllers).filter(c => s.people[c.actorId].life === "alive"&&(!skipCompletionJobs||c.definitionId!=="world.completion.learning.neri_controller")).map(c => c.due),
         ...Object.values(s.events).filter(e => e.status === "open" && e.expiresAt != null && (e.mode !== "decision" || e.actorId !== "player" || !e.discoveredBy.includes("player"))).map(e => e.expiresAt),
         ...Object.values(s.conditions).flatMap(cs => Object.values(cs).flatMap(c => [c.expiresAt != null && c.expiresAt > state.clock ? c.expiresAt : Infinity, c.nextTick ?? Infinity])),
         ...Object.values(s.people).filter(p => p.life === "alive" && p.lifePolicy).map(p => p.bornAt + p.lifePolicy.lifespan));
@@ -449,9 +459,10 @@ export function nextSimulationBoundary(state,{skipLoreJobs=false,skipCompletionJ
 export function advanceSimulationBoundary(out, registry, contexts = {}) {
     const state = out.state, s = state.simulation; if(!s) return 0;
     out.unlocks ||= []; out.acquisitions ||= [];
+    advanceNativeContainerClocks(out,registry,contexts);
     contexts = currentCausalStoryContexts(out,contexts);
     invalidateCausalStorySupport(out,registry,contexts);
-    let work = 0;
+    let work = advanceFoundationInteractions(state);
     const loreSupported=lorePracticeTimersSupported(state,{...contexts,player:{...contexts.player,gameplay:out.gameplay,vitals:out.vitals,equipment:out.equipment}});
     const wcSupported=worldCompletionTimersSupported(state,{...contexts,player:{...contexts.player,gameplay:out.gameplay,vitals:out.vitals,equipment:out.equipment}});
     for(const j of s.jobs.filter(j => j.due <= state.clock && (loreSupported || !/^lore\.(?:work|warning)\./.test(j.commandId)) && (wcSupported || !j.commandId.startsWith("world.completion."))).sort((a,b) => a.due - b.due || a.sequence - b.sequence)) {

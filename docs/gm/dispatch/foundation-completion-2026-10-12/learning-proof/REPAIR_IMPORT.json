@@ -1,0 +1,19 @@
+{
+  "status": "PASS",
+  "pid": 30446,
+  "origin": "http://127.0.0.1:18642",
+  "bundle": "9b130b295f8464eb770f603afd68d31166569901bd9f0af2acda93192007fcae",
+  "input": "/tmp/yairpg-foundation-learning-equipment-blocker.json",
+  "route": [
+    "fresh PLAY/Confirm",
+    "actual file input import of encoded exact generated blocker",
+    "reload PLAY",
+    "four native ticks",
+    "actual saveProgress"
+  ],
+  "clockBefore": 0,
+  "clockAfter": 2,
+  "simulationEquipmentUnchanged": true,
+  "noInventedNativeOrrOwner": true,
+  "errors": []
+}

@@ -1,15 +1,43 @@
+import {validateItemKey} from './gameplay_transactions.js';
 import {createContentRegistry} from './expansion_engine.js';
 import {stableId, jsonData} from './simulation_contracts.js';
+import {validateStructuredRecord,validateStructuredSelection} from './structured_pack_state.js';
 const object=v=>v!==null&&typeof v==='object'&&!Array.isArray(v);
 const check=(ok,message)=>{if(!ok)throw Error(message);};
 const scalar=v=>['string','boolean','number'].includes(typeof v)&& (typeof v!=='number'||Number.isFinite(v));
 export const emptyPackState=()=>({schema:1,packs:{}});
 export function validatePackState(state) {
     check(object(state)&&state.schema===1&&object(state.packs),'Unsupported optional content state.');jsonData(state);
+    validateStructuredRecord(state.structured);
+    validateStructuredSelection(state.pendingStructured);
+    check(!(state.structured&&state.pendingStructured),'A beginning cannot be pending and initialized.');
     for(const [id,row] of Object.entries(state.packs)) {
         check(stableId(id)&&object(row)&&stableId(row.worldId)&&Array.isArray(row.locationIds)&&row.locationIds.every(stableId)&&typeof row.active==='boolean'&&object(row.values),'Invalid optional content visit.');
         check(Object.values(row.values).every(scalar),'Invalid optional content values.');
         check(row.job===null||object(row.job)&&stableId(row.job.actionId)&&Number.isSafeInteger(row.job.remaining)&&row.job.remaining>0,'Invalid optional content work.');
+    }
+    if(state.registered!=null) {
+        check(object(state.registered),'Invalid optional registration provenance.');
+        for(const [id,row] of Object.entries(state.registered)) {
+            check(stableId(id)&&object(row)&&stableId(row.worldId)&&row.worldId.startsWith(id+'.')&&Array.isArray(row.locationIds)&&row.locationIds.length>0&&new Set(row.locationIds).size===row.locationIds.length&&row.locationIds.every(l=>stableId(l)&&l.startsWith(id+'.')),'Invalid optional registration provenance.');
+            if(row.itemIds!=null)check(Array.isArray(row.itemIds)&&new Set(row.itemIds).size===row.itemIds.length&&row.itemIds.every(item=>stableId(item)&&item.startsWith(id+'.')),'Invalid optional native item provenance.');
+            if(row.inventoryBindings!=null)check(Array.isArray(row.inventoryBindings)&&new Set(row.inventoryBindings.map(b=>b.id)).size===row.inventoryBindings.length&&row.inventoryBindings.every(b=>b.category==='storage'&&stableId(b.id)&&b.id.startsWith(id+'.')),'Invalid optional native inventory provenance.');
+            if(row.native!=null) {
+                check(object(row.native)&&object(row.native.locations)&&object(row.native.availability),'Invalid dormant optional records.');
+                check([...Object.keys(row.native.locations),...Object.keys(row.native.availability)].every(l=>row.locationIds.includes(l)),'Unowned dormant optional record.');
+                if(row.native.inventories!=null) {
+                    check(object(row.native.inventories),'Invalid dormant native inventory records.');
+                    for(const [category,owners]of Object.entries(row.native.inventories)) {
+                        check(object(owners),'Invalid dormant native owners.');
+                        for(const [owner,rows]of Object.entries(owners)) {
+                            check(row.inventoryBindings?.some(b=>b.category===category&&b.id===owner)&&object(rows),'Unowned dormant native inventory.');
+                            for(const [key,value]of Object.entries(rows)){validateItemKey(key);check(object(value)&&Number.isSafeInteger(value.count)&&value.count>0,'Invalid dormant native quantity.');}
+                        }
+                    }
+                }
+                if(row.native.itemAvailability!=null)check(object(row.native.itemAvailability)&&Object.keys(row.native.itemAvailability).every(item=>row.itemIds?.includes(item)),'Unowned dormant optional item availability.');
+            }
+        }
     }
     check(Object.values(state.packs).filter(r=>r.active).length<=1,'Overlapping optional visits.');return state;
 }
@@ -51,7 +79,7 @@ export function registerPack(pack,registry,locations,makeLocation) {
     for(const [id,value] of native)locations[id]=value;
     return d;
 }
-export async function loadContentPacks({registry,locations,makeLocation,fetchFile=fetch,onError=()=>{}}) {
+export async function loadContentPacks({registry,locations,makeLocation,registerStructured,fetchFile=fetch,onError=()=>{}}) {
     const loaded=new Map();
     try {
         const response=await fetchFile('private_packs/manifest.json');if(response.status===404)return loaded;
@@ -59,7 +87,7 @@ export async function loadContentPacks({registry,locations,makeLocation,fetchFil
         check(manifest.schema===1&&Array.isArray(manifest.packs)&&manifest.packs.every(p=>typeof p==='string'&&/^[a-z0-9_-]+\/pack\.json$/i.test(p)),'Invalid optional manifest.');
         for(const path of manifest.packs)try {
             const file=await fetchFile('private_packs/'+path);if(file.status===404)continue;check(file.ok,'Optional content unavailable.');
-            const data=await file.json();check(!loaded.has(data.id),'Duplicate optional pack.');const d=registerPack(data,registry,locations,makeLocation);loaded.set(d.id,d);
+            const data=await file.json();check(!loaded.has(data.id),'Duplicate optional pack.');const d=data.schema===2&&registerStructured?await registerStructured(data):registerPack(data,registry,locations,makeLocation);loaded.set(d.id,d);
         }catch(error){onError(error);}
     }catch(error){onError(error);}
     return loaded;
@@ -86,16 +114,57 @@ export function advancePack(state,definitions,minutes) {
     }
     return validatePackState(next);
 }
-// Unavailable packs retain their opaque state while native loading uses Village.
+// Registration provenance is distinct from a visit: installing content earns no
+// actions, custody, work or wages. Existing visited schema-1 saves supply their
+// own provenance; legacy unvisited records without it remain protected unknowns.
+export function packSaveState(state,definitions) {
+    validatePackState(state);const next=structuredClone(state);next.registered??={};
+    for(const [id,d] of definitions) {
+        const prior=next.registered[id],locationIds=d.locations.map(l=>l.id);
+        check(!prior||prior.worldId===d.world.id&&JSON.stringify(prior.locationIds)===JSON.stringify(locationIds),'Optional registration needs an explicit migration.');
+        const itemIds=(d.items||[]).map(item=>item.id);
+        check(prior?.itemIds==null||JSON.stringify(prior.itemIds)===JSON.stringify(itemIds),'Optional item registration needs an explicit migration.');
+        const inventoryBindings=(d.simulation?.containers||[]).map(c=>({category:c.category,id:c.id}));
+        check(prior?.inventoryBindings==null||JSON.stringify(prior.inventoryBindings)===JSON.stringify(inventoryBindings),'Optional inventory registration needs an explicit migration.');
+        next.registered[id]={...prior,worldId:d.world.id,locationIds,...(d.schema===2?{itemIds,...(inventoryBindings.length?{inventoryBindings}:{})}:{})};
+    }
+    return validatePackState(next);
+}
+// Unavailable native records are parked, not discarded. Restore only the exact
+// registered identity; arbitrary unknown native locations keep loader protection.
 export function preparePackSave(original,definitions) {
     const save=structuredClone(original);if(save.content_packs==null)return save;
-    validatePackState(save.content_packs);
-    for(const [id,row] of Object.entries(save.content_packs.packs))if(!definitions.has(id)) {
-        if(row.active) {row.active=false;row.resumeAvailable=true;save['current location']='Village';}
-        for(const location of row.locationIds) {delete save.locations?.[location];delete save.availabilities?.location?.[location];}
-        if(save.expansion?.actors?.player.worldId===row.worldId)save.expansion.actors.player.worldId='base.frontier';
-        if(save.expansion?.worlds?.[row.worldId]) {row.domain=save.expansion.worlds[row.worldId];delete save.expansion.worlds[row.worldId];}
-        if(save.expansion?.simulation?.people?.player?.location&&row.locationIds.includes(save.expansion.simulation.people.player.location))save.expansion.simulation.people.player.location='Village';
+    validatePackState(save.content_packs);save.content_packs.registered??={};
+    for(const [id,row] of Object.entries(save.content_packs.packs))
+        save.content_packs.registered[id]??={worldId:row.worldId,locationIds:[...row.locationIds]};
+    for(const [id,registration] of Object.entries(save.content_packs.registered)) {
+        const d=definitions.get(id),row=save.content_packs.packs[id];
+        if(d) {
+            if(registration.inventoryBindings!=null)check(JSON.stringify(registration.inventoryBindings)===JSON.stringify((d.simulation?.containers||[]).map(c=>({category:c.category,id:c.id}))), 'Optional inventory restoration needs an explicit migration.');
+            if(registration.itemIds!=null)check(JSON.stringify(registration.itemIds)===JSON.stringify((d.items||[]).map(i=>i.id)), 'Optional item restoration needs an explicit migration.');
+            check(registration.worldId===d.world.id&&JSON.stringify(registration.locationIds)===JSON.stringify(d.locations.map(l=>l.id)),'Optional registration needs an explicit migration.');
+            if(registration.native) {
+                Object.assign(save.locations??={},registration.native.locations);
+                Object.assign((save.availabilities??={}).location??={},registration.native.availability);
+                if(Object.keys(registration.native.itemAvailability||{}).length)Object.assign(save.availabilities.item??={},registration.native.itemAvailability);
+                for(const [category,owners]of Object.entries(registration.native.inventories||{}))Object.assign((save.inventories??={})[category]??={},owners);
+                delete registration.native;
+            }
+            continue;
+        }
+        const native=registration.native??={locations:{},availability:{}};
+        for(const binding of registration.inventoryBindings||[])if(Object.hasOwn(save.inventories?.[binding.category]||{},binding.id)) {
+            (native.inventories??={})[binding.category]??={};native.inventories[binding.category][binding.id]=save.inventories[binding.category][binding.id];delete save.inventories[binding.category][binding.id];
+        }
+        for(const item of registration.itemIds||[])if(Object.hasOwn(save.availabilities?.item??{},item)){(native.itemAvailability??={})[item]=save.availabilities.item[item];delete save.availabilities.item[item];}
+        for(const location of registration.locationIds) {
+            if(Object.hasOwn(save.locations??{},location)){native.locations[location]=save.locations[location];delete save.locations[location];}
+            if(Object.hasOwn(save.availabilities?.location??{},location)){native.availability[location]=save.availabilities.location[location];delete save.availabilities.location[location];}
+        }
+        if(row?.active) {row.active=false;row.resumeAvailable=true;save['current location']='Village';}
+        if(save.expansion?.actors?.player.worldId===registration.worldId)save.expansion.actors.player.worldId='base.frontier';
+        if(row&&save.expansion?.worlds?.[registration.worldId]) {row.domain=save.expansion.worlds[registration.worldId];delete save.expansion.worlds[registration.worldId];}
+        if(save.expansion?.simulation?.people?.player?.location&&registration.locationIds.includes(save.expansion.simulation.people.player.location))save.expansion.simulation.people.player.location='Village';
     }
-    return save;
+    validatePackState(save.content_packs);return save;
 }

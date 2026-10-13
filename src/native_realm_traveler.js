@@ -4,6 +4,13 @@ const nativeCargoSnapshot=(state,context)=>buildNativeRealmCargoSnapshot({
  actorId:'player',bodyId:'native.player.body',sequence:state.sequence,revision:state.sequence+1,
  inventory:context.gameplay?.player?.inventory,equipment:context.equipment?.player,custody:state.simulation?.custody
 });
+// Retain a reference to the actual learned owner. Passage never grants execution
+// in another world, copies mastery, or treats a fragment as a learned method.
+export function nativeRetainedMethods(state){
+ const p=state.simulation?.powers?.player?.['tidemark.counterweight'];
+ return p?.owned===true&&Number.isSafeInteger(p.revision)&&p.revision>0?
+  [{id:'tidemark.counterweight',revision:p.revision,ownerId:'player',sourceId:null,stage:'learned'}]:[];
+}
 // The host calls this for each directed passage; no consent is enrolled here.
 export function buildNativePocketCargo(state,context,{from,to,connectionId}){
  try{
@@ -40,7 +47,7 @@ export function previewNativeRealmTraveler(state,context,routeContext,passage){
   itemKey:c.itemKey,count:c.count,kind:'owned',stockRef:structuredClone(c.stockRef),loan:null}));
  const available=routeContext.life==='alive'&&(v.health??1)>0&&!context.busy;
  const profile={schema:1,id:'traveler.native_player',revision:state.sequence+1,actorId:'player',identityRef,mindRef:identityRef,currentBodyId:bodyId,
-  embodiment:{mode:'single',sourceId:null,supportId:null},memories:[],methods:[],sources:[],obligations:[],companions:[],cargo,
+  embodiment:{mode:'single',sourceId:null,supportId:null},memories:[],methods:nativeRetainedMethods(state),sources:[],obligations:[],companions:[],cargo,
   bodies:[{id:bodyId,revision:1,ownerId:'player',identityId:'player',mindId:'player',form:routeContext.body.form,endpoint:routeContext.endpoint,life:available?'alive':'incapacitated',available,
    functions:available&&state.simulation?.people.player?.body?.mobile!==false?['travel.physical']:[],poolIds:['native.player.vitals'],conditionRef}],
   pools:[{id:'native.player.vitals',revision:1,ownerId:'player',ownerRef:poolRef,balances:[{resourceId:'health',amount:Math.max(0,v.health??0)},{resourceId:'stamina',amount:Math.max(0,v.stamina??0)}]}]};

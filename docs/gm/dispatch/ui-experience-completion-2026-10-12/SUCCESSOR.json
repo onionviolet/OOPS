@@ -1,0 +1,15 @@
+{
+  "predecessor": "01a12e84-0958-7381-862a-69a174050353",
+  "status": "confirmed-active",
+  "scope": "same-role UI integrator, actual shared G5 completion",
+  "candidate": "/Users/weiwei/.codex/candidates/yairpg-laptop-customization-2026-10-12",
+  "sharedSoleWriter": "01a12ebf-d9a5-7ce0-94ba-469228eef444",
+  "transitionWriter": "successor",
+  "successor": "01a12ecd-062c-71a0-b850-fee703d9d304",
+  "host": "local",
+  "predecessorReadOnly": true,
+  "launchEvidence": "wait_threads active initial commentary + completed tool marker",
+  "ownership": "Successor exclusively owns named candidate and integrator docs/dispatch; predecessor read-only. Transition recording complete and transition file released to successor.",
+  "sharedSourceStatus": "Foundation sole writer confirms24path union source applied three-way, old9b130 build intentionally frozen for prerequisite native journeys; G5 rebuild/proofs open",
+  "sharedPlayerProjectionRepair": "Fresh shared main restricts waiting work-list/predicate to player actor; preserve and qualify NPC negative, not yet in isolated candidate"
+}

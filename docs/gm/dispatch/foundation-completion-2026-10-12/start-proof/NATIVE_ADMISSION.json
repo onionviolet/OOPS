@@ -1,0 +1,37 @@
+{
+  "started": "ef2e248bc8fdd21323e7becb1277ac45bc2537bdcf8e9630e5c688c60bc48d6a",
+  "ended": "ef2e248bc8fdd21323e7becb1277ac45bc2537bdcf8e9630e5c688c60bc48d6a",
+  "results": [
+    {
+      "name": "unsupported-nonhuman native creator\u2192Begin refuses with exact owners/RNG unchanged",
+      "status": "PASS"
+    },
+    {
+      "name": "unsupported-lifestage native creator\u2192Begin refuses with exact owners/RNG unchanged",
+      "status": "PASS"
+    }
+  ],
+  "errors": [],
+  "stopped": true,
+  "sourceQualification": "Source/main/build read-only; only fresh native creator form/stage negatives, no completed10boundary rerun.",
+  "bundleQualification": "ef2e248bc8fdd21323e7becb1277ac45bc2537bdcf8e9630e5c688c60bc48d6a frozen by root; start/end hash equal; shared original typed/start source unchanged.",
+  "means": "Actual native creator selects nekomimi/adult or human/young. No unsupported start, grants, source edits or save mutation. Seed1 is preinitialization fixture only.",
+  "evidenceHashes": {
+    "unsupported-lifestage-after.json": "90cf3a9f553ed814e69d3ddfdd2adc438db35bdf44cb39fb2883c344b9d9c0a2",
+    "unsupported-lifestage-before.json": "90cf3a9f553ed814e69d3ddfdd2adc438db35bdf44cb39fb2883c344b9d9c0a2",
+    "unsupported-nonhuman.png": "72db370b0741b04cf5dc3e5d213371836000edfba899eafc05a1ed943f53aa9c",
+    "admission-negatives.cjs": "85a560de48e15afa0ed883bac0830a08b151ce4ebe7ec9a3d9a46d737fdac12e",
+    "unsupported-nonhuman-after.json": "1d861859177cc072e3113a8acf0896b4e7f0929b00e0f8bff159d31478bfc9f8",
+    "unsupported-nonhuman-before.json": "1d861859177cc072e3113a8acf0896b4e7f0929b00e0f8bff159d31478bfc9f8",
+    "unsupported-lifestage-ui.json": "eb728ae51f5e10c3c6ad28410654999d44a944da84371bb1d3ceee0276f50624",
+    "unsupported-lifestage.png": "72db370b0741b04cf5dc3e5d213371836000edfba899eafc05a1ed943f53aa9c",
+    "unsupported-nonhuman-ui.json": "fcb842432b2be1553ec362eafa11ac5ca9736eb0683fd2047275f26f6b1b9572"
+  },
+  "inputHashes": {
+    "src/main.js": "525167973b83e9fcf17838d090f4155acbbf961ba91880b453d0253761b213b5",
+    "src/foundation_start_content.js": "c355f66c301b48dbed3f96d1ae79bd287a043c553ac6ab92de4ade4579b0378a",
+    "src/structured_pack_runtime.js": "67661360d5875ebd4daa3166a41f569a999671e8bcb12b3f741e70c67bdc5661",
+    "src/structured_pack_state.js": "8565b66675eca5dfec3f81c4a449b7d147baaa22fab49fb96a57c574994dcb10",
+    "dist/bundle.js": "ef2e248bc8fdd21323e7becb1277ac45bc2537bdcf8e9630e5c688c60bc48d6a"
+  }
+}

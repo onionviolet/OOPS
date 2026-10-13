@@ -1,0 +1,361 @@
+{
+  "date": "2026-10-11",
+  "revision": 3,
+  "status": "reviewed planning proposal; no runtime assignments",
+  "runtimeDispatchAuthorizedByThisFile": false,
+  "readinessRule": "Dependencies name selected consumer contracts. Do not require every possible body/clock/branch/cheat adapter before a conventional ready slice. Each runtime part ends at its playable gate. Current absorption source writers retain their paths.",
+  "packets": [
+    {
+      "id": "PLAN-P0",
+      "title": "Qualify a selected world/feature and delivery revision",
+      "state": "planning-proposal; not runtime-dispatched",
+      "dependsOnPackets": [],
+      "requirementRefs": [
+        "G1-028",
+        "G3-022",
+        "G5-01",
+        "G7-08"
+      ],
+      "proposedOwner": "World GM/source owner",
+      "observableGate": "Source-bound full blueprint, local option compatibility, represented scope and exact executable leaf cases; private/hidden content stays in its owner.",
+      "selectionRequired": "Exact local content/function subset, revisions, inspected contracts and file reservations must be frozen; this packet never silently selects every referenced variant."
+    },
+    {
+      "id": "PLAN-P1",
+      "title": "Bind identity, native state and durable publication",
+      "state": "planning-proposal; not runtime-dispatched",
+      "dependsOnPackets": [
+        "PLAN-P0"
+      ],
+      "requirementRefs": [
+        "G1-001",
+        "G1-029",
+        "G4-01",
+        "G4-04",
+        "G5-02",
+        "G5-03",
+        "G5-08",
+        "G5-10",
+        "G5-11"
+      ],
+      "proposedOwner": "Shared native/persistence integrator",
+      "observableGate": "Actual actor/location/body/stock/knowledge/claims and installed pack revision bind atomically; old saves keep original state; failed publication has no half-start.",
+      "selectionRequired": "Exact local content/function subset, revisions, inspected contracts and file reservations must be frozen; this packet never silently selects every referenced variant."
+    },
+    {
+      "id": "PLAN-P2",
+      "title": "Deliver a suspenseful committed start",
+      "state": "planning-proposal; not runtime-dispatched",
+      "dependsOnPackets": [
+        "PLAN-P1"
+      ],
+      "requirementRefs": [
+        "G1-002",
+        "G1-003",
+        "G1-013",
+        "G1-027",
+        "G4-02",
+        "G4-17",
+        "G7-01",
+        "G7-02"
+      ],
+      "proposedOwner": "Selected start/world owner plus native integrator",
+      "observableGate": "Selected snapshots have viable first actions and coherent prior world causes; selection and revealed knowledge survive reload/import without reroll or fabricated player deeds.",
+      "selectionRequired": "Exact local content/function subset, revisions, inspected contracts and file reservations must be frozen; this packet never silently selects every referenced variant."
+    },
+    {
+      "id": "PLAN-P3",
+      "title": "Audit and deepen one native micro-progression family",
+      "state": "planning-proposal; not runtime-dispatched",
+      "dependsOnPackets": [
+        "PLAN-P0"
+      ],
+      "requirementRefs": [
+        "G2-010",
+        "G2-011",
+        "G2-023",
+        "G7-05",
+        "G7-07",
+        "G8-001",
+        "G8-002",
+        "G8-003",
+        "G8-004",
+        "G8-006",
+        "G8-008",
+        "G8-009",
+        "G8-010",
+        "G8-011",
+        "G8-013",
+        "G8-015",
+        "G8-017",
+        "G8-018",
+        "G8-019",
+        "G8-023"
+      ],
+      "proposedOwner": "Micro-progression owner; G8 audit pending",
+      "observableGate": "Read definition/caller/UI/save first; repair selected source mismatch or add a meaningful title/milestone/trait/status variant, then test actual function and stacking/removal/retention.",
+      "selectionRequired": "Exact local content/function subset, revisions, inspected contracts and file reservations must be frozen; this packet never silently selects every referenced variant.",
+      "sourceAuditFindings": [
+        "Capped-XP guard source-inspected unreachable; inspect caller intent/compatibility and reproduce before repair.",
+        "Native title absence claim superseded by current catalogue/caller/UI/save source.",
+        "Native and simulation-issued title owners need selected semantic bridge, not blanket merging.",
+        "Milestone replay and active-effect rejection/duration ordering need exact consumer reproduction; no blanket runtime-failure claim."
+      ]
+    },
+    {
+      "id": "PLAN-P4",
+      "title": "Complete one lived-material causal journey",
+      "state": "planning-proposal; not runtime-dispatched",
+      "dependsOnPackets": [
+        "PLAN-P0"
+      ],
+      "requirementRefs": [
+        "G3-005",
+        "G3-009",
+        "G3-010",
+        "G3-012",
+        "G3-013",
+        "G3-019",
+        "G6-003",
+        "G6-011",
+        "G6-016",
+        "G6-017",
+        "G6-021",
+        "G5-09"
+      ],
+      "proposedOwner": "Disjoint G3/G6 content writers plus shared integrator",
+      "observableGate": "Acquire/learn/make/use leads to actual recipient work/service and funded response, with ordinary and stronger means, retention and useful continuing play.",
+      "selectionRequired": "Exact local content/function subset, revisions, inspected contracts and file reservations must be frozen; this packet never silently selects every referenced variant."
+    },
+    {
+      "id": "PLAN-P5",
+      "title": "Implement one actual exceptional function",
+      "state": "planning-proposal; not runtime-dispatched",
+      "dependsOnPackets": [
+        "PLAN-P0"
+      ],
+      "requirementRefs": [
+        "G2-001",
+        "G2-002",
+        "G2-003",
+        "G2-015",
+        "G2-017",
+        "G2-029",
+        "G5-06"
+      ],
+      "proposedOwner": "Power-function owner plus actual native target owner",
+      "observableGate": "Selected method/faculty/body/authority output and target effects work as promised; no invented weakness; explicit creation/duplication is recorded and retained under declared scope.",
+      "selectionRequired": "Exact local content/function subset, revisions, inspected contracts and file reservations must be frozen; this packet never silently selects every referenced variant.",
+      "conditionalDependencies": [
+        {
+          "packet": "PLAN-P1",
+          "when": "Selected function needs new admission/owner bindings beyond the current native consumer"
+        }
+      ]
+    },
+    {
+      "id": "PLAN-P6",
+      "title": "Apply prior VFX to real function receipts",
+      "state": "planning-proposal; not runtime-dispatched",
+      "dependsOnPackets": [
+        "PLAN-P0"
+      ],
+      "requirementRefs": [
+        "G2-028",
+        "G4-14",
+        "G7-03",
+        "G7-10",
+        "G7-11",
+        "G7-12",
+        "G7-13",
+        "G7-14"
+      ],
+      "proposedOwner": "Presentation writer after selected function/outcome contract settles",
+      "observableGate": "Preserved earlier effect family renders actual perceptible phases/collision/aftermath; full/static/plain/off preserve supported information and control; output creates no damage/knowledge.",
+      "selectionRequired": "Exact local content/function subset, revisions, inspected contracts and file reservations must be frozen; this packet never silently selects every referenced variant."
+    },
+    {
+      "id": "PLAN-P7",
+      "title": "Author a causal timeline and selected clock/absence policy",
+      "state": "planning-proposal; not runtime-dispatched",
+      "dependsOnPackets": [
+        "PLAN-P0"
+      ],
+      "requirementRefs": [
+        "G4-03",
+        "G4-05",
+        "G4-06",
+        "G4-07",
+        "G4-14",
+        "G3-021",
+        "G5-04"
+      ],
+      "proposedOwner": "Temporal integrator and world event owner",
+      "observableGate": "Actual intervention/abstention changes events and reports; relevant offscreen/rate policy uses existing scheduler with no double progress or unsupported production.",
+      "selectionRequired": "Exact local content/function subset, revisions, inspected contracts and file reservations must be frozen; this packet never silently selects every referenced variant.",
+      "conditionalDependencies": [
+        {
+          "packet": "PLAN-P1",
+          "when": "Selected event/history introduces new instance/owner bindings"
+        }
+      ]
+    },
+    {
+      "id": "PLAN-P8",
+      "title": "Prove parallel history/return/archive or selected time cheat",
+      "state": "planning-proposal; not runtime-dispatched",
+      "dependsOnPackets": [
+        "PLAN-P1"
+      ],
+      "requirementRefs": [
+        "G4-04",
+        "G4-08",
+        "G4-09",
+        "G4-10",
+        "G4-11",
+        "G4-12",
+        "G4-18",
+        "G2-004",
+        "G2-005",
+        "G2-006",
+        "G2-026"
+      ],
+      "proposedOwner": "Shared identity/temporal owner and selected source-function owner",
+      "observableGate": "Two same-family histories isolate native state; selected archive/rollback/retention restores its promised domains and preserves declared external observers/exports/RNG.",
+      "selectionRequired": "Exact local content/function subset, revisions, inspected contracts and file reservations must be frozen; this packet never silently selects every referenced variant.",
+      "conditionalDependencies": [
+        {
+          "packet": "PLAN-P7",
+          "when": "Selected function needs additional event/rate/offscreen policy beyond inspected existing support"
+        },
+        {
+          "packet": "PLAN-P5",
+          "when": "Selected cheat transformation needs its new function/target contract"
+        }
+      ]
+    },
+    {
+      "id": "PLAN-P9",
+      "title": "Qualify alternate body/host/system life",
+      "state": "planning-proposal; not runtime-dispatched",
+      "dependsOnPackets": [
+        "PLAN-P0"
+      ],
+      "requirementRefs": [
+        "G1-006",
+        "G1-015",
+        "G1-016",
+        "G1-019",
+        "G1-020",
+        "G1-021",
+        "G2-012",
+        "G3-007",
+        "G5-05"
+      ],
+      "proposedOwner": "Body/action owner plus world/society/system owner",
+      "observableGate": "One selected nonstandard form has actual means, first verbs, continued pursuits, control/knowledge/custody and meaningful progression; other families stay visible as later scope.",
+      "selectionRequired": "Exact local content/function subset, revisions, inspected contracts and file reservations must be frozen; this packet never silently selects every referenced variant.",
+      "conditionalDependencies": [
+        {
+          "packet": "PLAN-P1",
+          "when": "Chosen body/control state needs additional native admission/identity/persistence"
+        },
+        {
+          "packet": "PLAN-P2",
+          "when": "Chosen packet includes a new initial body/start rather than later transformation"
+        }
+      ]
+    },
+    {
+      "id": "PLAN-P10",
+      "title": "Close selected section/whole-world revision",
+      "state": "planning-proposal; not runtime-dispatched",
+      "dependsOnPackets": [
+        "PLAN-P0"
+      ],
+      "requirementRefs": [
+        "G1-030",
+        "G3-020",
+        "G3-022",
+        "G5-12",
+        "G6-030",
+        "G7-04",
+        "G7-05",
+        "G7-06",
+        "G7-07",
+        "G7-08",
+        "G7-09"
+      ],
+      "proposedOwner": "World owner, native integrator and independent reviewer",
+      "observableGate": "Every selected existing-entry or new-start detail/variant/join has exact-revision evidence, current rebuild/fresh-origin journey and persistence proof as applicable; only required local dependencies gate completion; director review remains separate.",
+      "selectionRequired": "Exact local content/function subset, revisions, inspected contracts and file reservations must be frozen; this packet never silently selects every referenced variant.",
+      "conditionalDependencies": [
+        {
+          "packet": "PLAN-P2",
+          "when": "Completion revision includes a newly initialized start"
+        },
+        {
+          "packet": "PLAN-P3",
+          "when": "Its functions/interactions are selected requirements of this frozen completion revision"
+        },
+        {
+          "packet": "PLAN-P4",
+          "when": "Its functions/interactions are selected requirements of this frozen completion revision"
+        },
+        {
+          "packet": "PLAN-P5",
+          "when": "Its functions/interactions are selected requirements of this frozen completion revision"
+        },
+        {
+          "packet": "PLAN-P6",
+          "when": "Its functions/interactions are selected requirements of this frozen completion revision"
+        },
+        {
+          "packet": "PLAN-P7",
+          "when": "Its functions/interactions are selected requirements of this frozen completion revision"
+        },
+        {
+          "packet": "PLAN-P8",
+          "when": "Its functions/interactions are selected requirements of this frozen completion revision"
+        },
+        {
+          "packet": "PLAN-P9",
+          "when": "Its functions/interactions are selected requirements of this frozen completion revision"
+        }
+      ]
+    }
+  ],
+  "conditionalGates": [
+    "PLAN-P6 requires a real existing or selected function receipt; it need not wait for every cheat.",
+    "PLAN-P8 rate/absence gates apply only when the chosen temporal function needs them; snapshots/parallel frozen histories can proceed under selected supported freeze.",
+    "PLAN-P10 depends on all packets selected for its revision, not every packet in this horizon.",
+    "G8 refines PLAN-P3; native title/XP/effect bookkeeping stays distinct from supernatural authority and G2 functional power promises."
+  ],
+  "reviewCorrections": [
+    {
+      "id": "G7R-01",
+      "status": "applied",
+      "change": "Existing-entry sections can complete without new-start PLAN-P2; frozen revision selects exact dependencies."
+    }
+  ],
+  "parallelAfterSelectedContracts": [
+    {
+      "after": "PLAN-P0",
+      "packets": [
+        "PLAN-P3",
+        "PLAN-P4",
+        "PLAN-P6"
+      ],
+      "condition": "Each selected interface and real outcome dependency settled; exact writer scopes disjoint"
+    },
+    {
+      "after": "PLAN-P1",
+      "packets": [
+        "PLAN-P2",
+        "PLAN-P5",
+        "PLAN-P7"
+      ],
+      "condition": "Only locally required dependencies settled; shared source/clock/save/build writes remain one owner"
+    }
+  ]
+}

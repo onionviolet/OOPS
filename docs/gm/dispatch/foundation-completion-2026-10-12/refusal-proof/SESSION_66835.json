@@ -1,0 +1,24 @@
+{
+  "pid": 66835,
+  "servedHash": "555216ac778b8bc55d27f12317f450a61bf28f04344f94a93691ad34c4cf53da",
+  "origin": "http://127.0.0.1:18645",
+  "startedHash": "555216ac778b8bc55d27f12317f450a61bf28f04344f94a93691ad34c4cf53da",
+  "endedHash": "555216ac778b8bc55d27f12317f450a61bf28f04344f94a93691ad34c4cf53da",
+  "events": [
+    {
+      "workflowStep": {
+        "action": "completed",
+        "id": "remainder_home.dry_offcuts",
+        "count": 2,
+        "save": "materials-ready"
+      },
+      "index": 0,
+      "clock": 11812,
+      "sequence": 1378
+    },
+    {
+      "error": "page.waitForFunction: Timeout 10000ms exceeded."
+    }
+  ],
+  "errors": []
+}

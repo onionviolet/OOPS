@@ -1,0 +1,211 @@
+{
+  "head": "dd3efe3383f12f0aac22e4f390aae90fae2e7fc4",
+  "observed_utc": "2026-10-13T05:02:24.985623+00:00",
+  "dirty_status": " M AGENTS.md\n M CLAUDE.md\n M PROJECT.md\n M dist/bundle.js\n M dist/bundle.js.map\n M docs/GAME_IMPLEMENTER_TEMPLATE.md\n M docs/GAME_MASTER_PROMPT.md\n M docs/IDEA_INDEX.md\n M docs/LIFE_SIM_NORTH_STAR.md\n M docs/RULES_FROM_SCRATCH.md\n M docs/TECHNOLOGY_AND_PROGRESSION.md\n M docs/TIMELINES_AND_DIVERGENCE.md\n M docs/USER_VISION.md\n M docs/WORLD_GAME_MASTER_TEMPLATE.md\n M docs/gm/README.md\n M docs/gm/WORLD_EXPANSION_GM_PROMPT.md\n M docs/gm/dispatch/absorb-2026-10-11/CHECKPOINT.md\n M docs/research/SCIFI_AND_JOJO_PLAN_2026-10-10.md\n M docs/research/SOURCE_DEEP_DIVE_PLAYBOOK.md\n M docs/worlds/CAMPAIGN_FRAMEWORK.md\n M docs/worlds/original-frontier/RULES_AND_STARTS.md\n M index.html\n M scripts/compile_feature_ink.mjs\n M src/adventure_notebook.js\n M src/audit_remainder_combat_fit_host.js\n M src/audit_remainder_consequences_host.js\n M src/content_pack_ui.js\n M src/content_packs.js\n M src/display.js\n M src/expansion_engine.js\n M src/expedition_content.js\n M src/feature_expansion_destination_host.js\n M src/feature_expansion_nested_host.js\n M src/feature_expansion_nested_ink_ui.js\n M src/import_probe.js\n M src/ink_narrative.js\n M src/ink_scene_content.js\n M src/items.js\n M src/lore_practice_runtime.js\n M src/main.js\n M src/models/hero.js\n M src/native_equipment_transaction.js\n M src/native_gameplay_adapter.js\n M src/native_realm_traveler.js\n M src/realm_state.js\n M src/realm_traveler_profiles.js\n M src/reference_gameplay_host.js\n M src/save_files.js\n M src/simulation.js\n M src/simulation_content.js\n M src/simulation_contracts.js\n M src/simulation_effects.js\n M src/simulation_ui.js\n M src/village_career_ui.js\n M src/world_completion_bridge.js\n M src/world_completion_host.js\n M src/world_completion_native.js\n M src/world_completion_runtime.js\n M stories/feature_wave.ink\n M stories/feature_wave.json\n?? \"ChatGPT Image Oct 9, 2026, 12_40_59 AM.png\"\n?? docs/ENGINE_SAVES_AND_SCALE_REVIEW_2026-10-11.md\n?? docs/GENETICS_CONSTITUTIONS_AND_BROOD_PLAY.md\n?? docs/SHARED_FOUNDATIONS_AUDIT_2026-10-12.md\n?? docs/STARTS_ENDINGS_AND_RANDOMNESS_PALETTE.md\n?? docs/THEMATIC_UI_AND_INFORMATION_DESIGN_2026-10-12.md\n?? docs/UI_CONSISTENCY_AND_MODULARITY_AUDIT_2026-10-11.md\n?? docs/UI_EXPERIENCE_AUDIT_2026-10-12.md\n?? docs/WORLD_COMPLETION_STANDARD.md\n?? docs/gm/AUDIT_RECONCILIATION_METHOD_2026-10-11.md\n?? docs/gm/CROSS_WORLD_DETAIL_REVIEW.md\n?? docs/gm/FIRST_LEVEL_BREADTH_EXTENSION_2026-10-11.md\n?? docs/gm/FIRST_LEVEL_COMPLETENESS_PROMPT.md\n?? docs/gm/MICRO_MESO_MACRO_IMPLEMENTATION_SUPPORT.md\n?? docs/gm/UI_DENSITY_AUDIT_PROMPT.md\n?? docs/gm/WORLD_ACTIONABILITY_GM_PROMPT.md\n?? docs/gm/completion/\n?? docs/gm/coordination/\n?? docs/gm/dispatch/absorb-2026-10-11/OWNERSHIP_RELEASE_2026-10-11.json\n?? docs/gm/dispatch/body-lineage-expansion-2026-10-11/\n?? docs/gm/dispatch/cheats-sfx-implementation-2026-10-12/\n?? docs/gm/dispatch/connection-detail-2026-10-12/\n?? docs/gm/dispatch/cross-world-rulebook-expansion-2026-10-12/\n?? docs/gm/dispatch/dependable-local-livelihood-2026-10-12/\n?? docs/gm/dispatch/dnd-world-2026-10-11/\n?? docs/gm/dispatch/dual-gm-2026-10-11/\n?? docs/gm/dispatch/foundation-completion-2026-10-12/\n?? docs/gm/dispatch/harry-potter-craft-research-2026-10-12/\n?? docs/gm/dispatch/harry-potter-world-2026-10-11/\n?? docs/gm/dispatch/idea-expansion-2026-10-11/\n?? docs/gm/dispatch/lore-timelines-2026-10-11/\n?? docs/gm/dispatch/macro-micro-detail-2026-10-11/\n?? docs/gm/dispatch/minigames-2026-10-11/\n?? docs/gm/dispatch/parallel-book-design-2026-10-11/\n?? docs/gm/dispatch/starts-talents-continuity-2026-10-11/\n?? docs/gm/dispatch/systems-cheats-expansion-2026-10-11/\n?? docs/gm/dispatch/ui-experience-completion-2026-10-12/\n?? docs/gm/dispatch/ui-modularity-2026-10-11/\n?? docs/gm/dispatch/wider-gameplay-2026-10-11/\n?? docs/gm/dispatch/workflow-foundation-audit-2026-10-12/\n?? docs/gm/dispatch/world1-expansion-2026-10-11/\n?? docs/gm/dispatch/world1-full-completion-2026-10-11/\n?? docs/gm/feature-wave/ink/FOUNDATION_V3_PATH_RELEASE_2026-10-12.json\n?? docs/gm/feature-wave/ink/content/feature_wave_v3.json\n?? docs/research/CRAFTING_TECH_MICRO_MACRO_2026-10-11.md\n?? docs/research/GAME_AUDIT_COVERAGE_RECONCILIATION_2026-10-13.md\n?? docs/research/GAME_RESEARCH_AUDIT_CHATGPT_PROOF_2026-10-13.png\n?? docs/research/GAME_RESEARCH_AUDIT_CHATGPT_RESPONSE_2026-10-13.md\n?? docs/research/GAME_RESEARCH_AUDIT_PROMPT_OUTBOUND_2026-10-13.md\n?? docs/research/GAME_RESEARCH_AUDIT_PROMPT_RECONCILED_2026-10-13.md\n?? docs/research/GAME_RESEARCH_AUDIT_PROMPT_SENT_2026-10-13.md\n?? docs/research/GAME_RESEARCH_AUDIT_ROUNDTRIP_2026-10-13.json\n?? docs/research/JOJO_AUDIT_SCOPE_REFINEMENT_2026-10-11.md\n?? docs/research/LORE_TIMELINE_AUDIT_CONTRACT.md\n?? docs/research/REVERSE_ENGINEERING_TOOL_FIT_2026-10-13.md\n?? docs/research/SOURCE_ACQUISITION_TOOLS.md\n?? docs/research/TECHNOLOGY_KNOWLEDGE_AND_SUBTLE_PLAY_AUDIT_2026-10-11.md\n?? docs/research/WORLD_SOURCE_FIT_COMPARISON_2026-10-11.md\n?? docs/research/game-research-adoption-audit-2026-10-13/\n?? docs/research/jojo-audit-2026-10-11/\n?? docs/reviews/\n?? docs/worlds/dnd/\n?? docs/worlds/templates/\n?? src/component_themes.js\n?? src/customization_profiles.js\n?? src/customization_ui.js\n?? src/foundation_interaction_content.js\n?? src/foundation_interaction_policy.js\n?? src/foundation_interaction_ui.js\n?? src/foundation_start_content.js\n?? src/local_livelihood_content.js\n?? src/native_craft_transaction.js\n?? src/quiet_place_detail.js\n?? src/settled_text_effects.js\n?? src/structured_container_runtime.js\n?? src/structured_equipment_runtime.js\n?? src/structured_pack_definitions.js\n?? src/structured_pack_runtime.js\n?? src/structured_pack_state.js\n?? src/structured_pack_ui.js\n?? src/structured_renewal.js\n?? src/work_ledger_author_ui.js\n?? src/work_ledger_system.js\n?? src/work_ledger_ui.js\n?? src/workspace_layout.js\n?? src/workspace_state.js\n?? src/workspace_views.js\n?? styles/component_themes.css\n?? styles/customization.css\n?? styles/settled_text_effects.css\n?? styles/workspace.css\n?? tests/content_pack_provenance.test.js\n?? tests/content_pack_ui.test.js\n?? tests/foundation_interaction_policy.test.js\n?? tests/foundation_start_content.test.js\n?? tests/ink_lin_parity.test.js\n?? tests/local_livelihood.test.js\n?? tests/lore_immediate_definition.test.js\n?? tests/native_craft_transaction.test.js\n?? tests/native_equipment_ownership.test.js\n?? tests/native_gameplay_binding.test.js\n?? tests/native_retained_method.test.js\n?? tests/realm_dormant_structured.test.js\n?? tests/realm_optional_context.test.js\n?? tests/reference_optional_target.test.js\n?? tests/remainder_consequences_native_context.test.js\n?? tests/simulation_optional_enrollment.test.js\n?? tests/simulation_ui_hidden.test.js\n?? tests/structured_container_development.test.js\n?? tests/structured_container_integration.test.js\n?? tests/structured_container_preparation.test.js\n?? tests/structured_container_runtime.test.js\n?? tests/structured_equipment_runtime.test.js\n?? tests/structured_origins.test.js\n?? tests/structured_pack_definitions.test.js\n?? tests/structured_pack_runtime.test.js\n?? tests/structured_pack_ui.test.js\n?? tests/structured_renewal.test.js\n?? tests/world_completion_actor_context.test.js\n?? tests/world_completion_native_restore.test.js\n?? tests/world_completion_sample_owner.test.js\n",
+  "bindings": [
+    {
+      "path": "AGENTS.md",
+      "sha256": "7fccb57130106b634ddce5190a0645724535c7a50faabd382bb235128290e288"
+    },
+    {
+      "path": "PROJECT.md",
+      "sha256": "7c884c48aa76518d84e5da41ca589c693a946aac59bf60cf58a0155bd83dabf4"
+    },
+    {
+      "path": "docs/IDEA_INDEX.md",
+      "sha256": "8dc8b9a12a3e54dff5272f1f3bea32dc6b912a67f53b31b9968c65757b258973"
+    },
+    {
+      "path": "docs/ENGINE_EXPANSION.md",
+      "sha256": "94c5f606dcc80a4048fa0b937df7c82a18ee3ea41daa540e05a3383db9bb1ebf"
+    },
+    {
+      "path": "docs/research/GAME_RESEARCH_AUDIT_ROUNDTRIP_2026-10-13.json",
+      "sha256": "a328e68d0c686dc0776dc7874946a5d28d7b935333354ed7b45daf6a1d6f3d43"
+    },
+    {
+      "path": "docs/research/GAME_AUDIT_COVERAGE_RECONCILIATION_2026-10-13.md",
+      "sha256": "40eceeca962916e9fff63f0fc17e5b2e7ff1252eae86152552d4b70f5c4f7b50"
+    },
+    {
+      "path": "docs/research/REVERSE_ENGINEERING_TOOL_FIT_2026-10-13.md",
+      "sha256": "2bc0f475ab7eec5a6de6d00a47d76c0e2bce115fc86310d88102d792510dde5c"
+    },
+    {
+      "path": "docs/research/factorio/native/CHECKPOINT.md",
+      "sha256": "aa1b58b142fc55e8e0306d1eff648fe01021cfe661d872ff2de8691191d2d2d9"
+    },
+    {
+      "path": "docs/research/amazing-cultivation-simulator/DEEPER_RESEARCH.md",
+      "sha256": "88e881b5febc3410b80fb952d23c1b41f0784c2db2baf9f4a2789f2b8503ab9e"
+    },
+    {
+      "path": "docs/gm/world-implementation/second-pass/repository-bank-absorption/COVERAGE.json",
+      "sha256": "80b470c1af4ba18491bcbae70593efee5625fcdee921606a618c48dd15f06e5c"
+    },
+    {
+      "path": "docs/gm/feature-wave/repositories/SOURCE_MATRIX.json",
+      "sha256": "8ad377e0c892f89a964f4734770a22cd26f5955ae614e63bf4601198c7f4d535"
+    },
+    {
+      "path": "src/main.js",
+      "sha256": "f9810d76e2fb140a33581d915b477c3eb57ba27260932a4e1dbc67b896c75483"
+    },
+    {
+      "path": "src/simulation.js",
+      "sha256": "554d12c0a0f30cf67b03e0381338e4258200902ccf991032c47c045a46665e99"
+    },
+    {
+      "path": "src/contextual_balm_host.js",
+      "sha256": "4b63298dea287c8cbba599a2a18ad1875c1bd9d04cbf77bb170e48ab7893515e"
+    },
+    {
+      "path": "src/contextual_balm_content.js",
+      "sha256": "41f9d95c7ef9ec1811e8da60ad86ae9822dd24841ccf51e8b7e047f2d9deb26e"
+    },
+    {
+      "path": "src/cooling_refinement_content.js",
+      "sha256": "fb1bebff00ae4d0f4a9aaa22ef81fc5dd62f9b599638af7d315a99b06d9661a4"
+    },
+    {
+      "path": "src/cooling_refinement_host.js",
+      "sha256": "11b379c4ee6bca0072a226e11e50e1321795281c2aa9e9ba5758134aaa8cc3fa"
+    },
+    {
+      "path": "src/agreed_duty_host.js",
+      "sha256": "d9a685655a57e84641580c094c9a88f075ad4eb710de0f4afd65864a7665d9f0"
+    },
+    {
+      "path": "src/steam_boh_content.js",
+      "sha256": "9367325369ba5e88de34acc6d48dd730ad3b4a8bbfbde9de786dd4d00702e6f7"
+    },
+    {
+      "path": "src/steam_boh_host.js",
+      "sha256": "4ad3095087daf798162c44c122e3108f70b937a93eb958bf8cfa8d91bd1f4d03"
+    },
+    {
+      "path": "src/feature_expansion_work_plan.js",
+      "sha256": "611483d42d6f75100db469ddc6b648a63dcb757f3f31e56982e18e7841e24f25"
+    },
+    {
+      "path": "src/factorio_retort_content.js",
+      "sha256": "e617c1ac206d3d75e48ee80b027c0a878d7cc745f26797877ed1a838b89aec3f"
+    },
+    {
+      "path": "src/factorio_retort_host.js",
+      "sha256": "3b22946a10fc4f021721283ec3cee0ce05c44b663c61b9879b335ade7f4c4e99"
+    },
+    {
+      "path": "src/factorio_retort_native.js",
+      "sha256": "906d15465db4a40248afd869ad9189d43d9b6bb01ec8766902e3ad44c41ac4e0"
+    },
+    {
+      "path": "src/local_livelihood_content.js",
+      "sha256": "f6f941a81947e50694722df80a382d0db5c94250dec78fe2cd2dc6adc350f41d"
+    },
+    {
+      "path": "src/reference_gameplay_feats.js",
+      "sha256": "77b3e5265b19c0f7085f5ac068de789cf293039e585d7a37438548c24945325a"
+    },
+    {
+      "path": "src/items.js",
+      "sha256": "bf39177717442dfcb7112e2f10d146828ccf79de6dd71e0fc14cb951667f032f"
+    },
+    {
+      "path": "src/structured_container_runtime.js",
+      "sha256": "b50fecd3c630237112826f2cdac9b7ba6e6551277482efb3472bdf4e1d856696"
+    },
+    {
+      "path": "src/action_legibility.js",
+      "sha256": "c5eef75524b22bc6accbde8ad3d40e3d5e7cdf71cf608d461c4082a594b59d4d"
+    },
+    {
+      "path": "src/repository_absorption_content.js",
+      "sha256": "a19041c9444e8a25b8624cb4031e463adaf4fcb4e8e27d24986244b548615d94"
+    },
+    {
+      "path": "src/repository_absorption_workplan.js",
+      "sha256": "188e4a9a2888feea98742d3433c487ae9089ebea770f94c72bb28ffe748300c9"
+    },
+    {
+      "path": "src/site_projects.js",
+      "sha256": "0a9eeb705992b988e5d678f2bd9f4d62f1fc4e911cdb1b456df69787c042583c"
+    },
+    {
+      "path": "src/life_record.js",
+      "sha256": "21ac5f17fff62794ba26d7180deb6a9c0ad85060d79134e5d6ce83de51d1d9bd"
+    },
+    {
+      "path": "src/npc_lives.js",
+      "sha256": "abef56e7d73a0e17a3ba551608eafc4fb7f9f1660c17a445cfe96ae9869eb804"
+    },
+    {
+      "path": "src/skill_expansion_content.js",
+      "sha256": "00af80d274139fd5eac61b56923bbe8b348f24ab4fe4a0c9be5a7436ad3bd6a2"
+    },
+    {
+      "path": "docs/USER_VISION.md",
+      "sha256": "fd80d8a43b8b05f1ecf68324ed0dda535a171da10766bcc7f67c6782fb636900"
+    },
+    {
+      "path": "docs/RESEARCH_IDLE_GAMES.md",
+      "sha256": "2bd63f3aad5f77f2e735ad2fce93a636cf0cae068dd2919890347308646259c6"
+    },
+    {
+      "path": "docs/NICHE_GAME_REFERENCES.md",
+      "sha256": "113ee5c9de664240136f19c0cea2092977efa64b675035fc19cc13a973ae3e9b"
+    },
+    {
+      "path": "docs/research/kenshi/second-pass/REPORT.md",
+      "sha256": "8ca87ab4415a737cf0c523f347645cd0d3ceefbe344a20e576f74439fb9dd9ae"
+    },
+    {
+      "path": "docs/research/idle-social-engine-scout-2026-10-06/QUD_REAUDIT.md",
+      "sha256": "d505cbb6b7973927451e289f4ae6969bd8f44c0ab5e695c7aa6886d920269a89"
+    },
+    {
+      "path": "docs/research/game-discovery-2026-10-06/CHECKPOINT.md",
+      "sha256": "19b13ccae0dc27ffaedbc7e821baa9c55c6170cd570aa7f191926c61b8202ea6"
+    },
+    {
+      "path": "docs/research/game-discovery-2026-10-06/DEEPER_QUEUE.json",
+      "sha256": "a5787e0638c08ddbc4370a6fb2585322c9844db7e314e6083fb6fbd14879b352"
+    },
+    {
+      "path": "docs/gm/dispatch/game-source-research-2026-10-06/DEPTH_QUEUE.json",
+      "sha256": "b19584f6a3e613321234ed0abd4bb6cedd97c07d5fec1f45bf74b3541beb4e84"
+    },
+    {
+      "path": "docs/gm/dispatch/foundation-completion-2026-10-12/REPORT.md",
+      "sha256": "0dca0672345c32c2665565268f77704164967e2ee6325d6894c89b4e233a88e2"
+    },
+    {
+      "path": "docs/gm/dispatch/dependable-local-livelihood-2026-10-12/REPORT.md",
+      "sha256": "8c7f81a34614b499b23d518ac36aa3b2861f6a11235e7c7f34a3891a62ad1772"
+    },
+    {
+      "path": "docs/gm/dispatch/minigames-2026-10-11/REPORT.md",
+      "sha256": "b5dbd1224848ed2f0c4357e2f7f7ce9a3e7ee4cab8a9a96eb2d6e909b5e4da20"
+    },
+    {
+      "path": "src/nethack_fieldcraft_content.js",
+      "sha256": "06f1eb8333289d37e5225feba5b055c8c576ee152097d91b02f151cb87e47641"
+    },
+    {
+      "path": "src/game_absorption_assay_facts.js",
+      "sha256": "4d221169ee1dc040b06660038939bdaeae6a2598b50e6a594333dca2f2ca6ee6"
+    },
+    {
+      "path": "src/audit_remainder_livelihood_content.js",
+      "sha256": "7e40a52a72cea552f4067d829d39f39fb33913921dc8a7b2dd261160d3dab2ae"
+    },
+    {
+      "path": "src/steam_boh_runtime.js",
+      "sha256": "11a0db97310e5ee03e38148e17fef9c6a8d08e28ebcdadc5fcc1a9c15d50df81"
+    },
+    {
+      "path": "src/absorb_c2/local_life.js",
+      "sha256": "36ce011163574f92340182497ad608f44c25f2a7979c304840c45376d59dbfc4"
+    }
+  ]
+}

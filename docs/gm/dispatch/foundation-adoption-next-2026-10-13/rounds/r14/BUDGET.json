@@ -1,0 +1,21 @@
+{
+  "status": "ZERO_ATTEMPT_ACCOUNTING_NOT_ALLOWANCE",
+  "attempts": 0,
+  "PLAYMinutes": 0,
+  "coin": 0,
+  "materials": 0,
+  "tools": 0,
+  "custodyChanges": 0,
+  "vitalityChanges": 0,
+  "jobs": 0,
+  "controllers": 0,
+  "training": 0,
+  "preparation": 0,
+  "collections": 0,
+  "battleActions": 0,
+  "plans": 0,
+  "travel": 0,
+  "cancellations": 0,
+  "cleanupActions": 0,
+  "reason": "No authorized untouched compatible changed-positive recovery route established; all inherited stop/loss boundaries retained."
+}

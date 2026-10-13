@@ -1,0 +1,42 @@
+{
+  "schema": "w1-planning-validation-1",
+  "revision": 1,
+  "status": "passed artifact validation; independent review separate",
+  "checks": {
+    "jsonParsed": 18,
+    "uniqueSelectedLeaves": 49,
+    "engineContracts": 12,
+    "parentDispositions": 179,
+    "deepJoinedParentCount": 89,
+    "sections": 15,
+    "packets": 8,
+    "specifiedNotRunCases": 173,
+    "dependencyDAG": "acyclic",
+    "privateIgnore": "passed all generated private files",
+    "privacy": "passed bounded exact-name/token scan plus independent public-safe review",
+    "fivePinnedOriginalHashes": "source lane rechecked all five matches; inherited edition authentication limits retained",
+    "trailingWhitespace": "passed"
+  },
+  "movingSourceDrift": [
+    "PROJECT.md",
+    "src/main.js"
+  ],
+  "driftReview": [
+    {
+      "path": "PROJECT.md",
+      "sha256": "4bf264534c1c67efa87675bcba71a680512d443cbc06ea18db48f619bac60400",
+      "inspection": "Reread changed Next step and absorption proposal sections; dual-GM task scope unchanged. Other owner completion assertions not adopted as world1 evidence."
+    },
+    {
+      "path": "src/main.js",
+      "sha256": "5b595f75c35e16ed0c3c02e35549abce00eec041371db1984e2be86ee0810bd3",
+      "inspection": "Reread commandOptionalPack/native occupation and optional update_timer branch; cited entry/custody/calendar/durable boundaries unchanged in concurrent source revision. Other native changes not qualified."
+    }
+  ],
+  "runtimeTests": "not run",
+  "build": "not run",
+  "browser": "not run",
+  "userSaves": "untouched",
+  "directorAcceptance": "open",
+  "scopeLimit": "Parent dispositions and sampled private inventories do not prove complete raw-prose entity extraction or all variants deeply specified."
+}

@@ -1,0 +1,28 @@
+{
+  "started": "a4e84278059a711738b9149a331f916496dee79140384c021e11052187baef26",
+  "ended": "a4e84278059a711738b9149a331f916496dee79140384c021e11052187baef26",
+  "results": [
+    {
+      "name": "failed selection leaves no receipt stock body or RNG draw; retry once",
+      "status": "PASS"
+    },
+    {
+      "name": "failed initialization leaves exact durable pending selection; reload Continue begins same snapshot",
+      "status": "PASS"
+    },
+    {
+      "name": "one-hand blocked bench and viable jig/refit/renewal/continued native route",
+      "status": "PASS"
+    },
+    {
+      "name": "native imported midjob changed hands refunds blank without output; boundary fixture no player transformation claimed",
+      "status": "PASS"
+    },
+    {
+      "name": "refused native work write keeps stock jobs and learned owners unchanged",
+      "status": "FAIL",
+      "error": "AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:\n+ actual - expected\n... Skipped lines\n\n  {\n    actors: {\n      player: {\n        completed: {},\n        facts: {\n...\n    chronicle: null,\n+   clock: 1,\n-   clock: 0,\n    history: [],\n    journey: {\n      completed: {},\n      facts: {},\n      id: 'journey-1',\n\n    at /Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/foundation-completion-2026-10-12/start-proof/boundaries.cjs:23:298\n    at async run (/Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/foundation-completion-2026-10-12/start-proof/boundaries.cjs:17:33)\n    at async /Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/foundation-completion-2026-10-12/start-proof/boundaries.cjs:23:1"
+    }
+  ],
+  "errors": []
+}

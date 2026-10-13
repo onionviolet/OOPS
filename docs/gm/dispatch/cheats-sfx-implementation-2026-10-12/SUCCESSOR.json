@@ -1,0 +1,16 @@
+{
+  "predecessor": "01a12e4f-e060-70b2-9f2a-3937a896b532",
+  "successor": "01a12e63-3b14-7112-adb2-aea3e5dc7a98",
+  "host": "local",
+  "status": "confirmed active; exclusive transfer effective",
+  "transferred": [
+    "dispatch except creator DISPATCH.json",
+    "/Users/weiwei/.codex/candidates/yairpg-customization-2026-10-12"
+  ],
+  "predecessorState": "read-only; frozen preview18581 retained",
+  "sharedRuntimeTransferred": false,
+  "uiCandidateTransferred": false,
+  "unit": "NEXT_CYCLE.md",
+  "evidence": "REPORT.md and evidence/RESULT.json",
+  "firstObserved": "recover checkpoint and ownership; current first turn in progress"
+}

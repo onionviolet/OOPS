@@ -1,0 +1,1720 @@
+{
+  "hash": "a4e84278059a711738b9149a331f916496dee79140384c021e11052187baef26",
+  "startedHash": "a4e84278059a711738b9149a331f916496dee79140384c021e11052187baef26",
+  "clock": 2,
+  "sequence": 33,
+  "schema": 5,
+  "location": "Village",
+  "money": 102,
+  "inventory": {
+    "{\"id\":\"Cheap leather pants\",\"quality\":40}": {
+      "count": 1
+    },
+    "{\"id\":\"Stale bread\"}": {
+      "count": 5
+    }
+  },
+  "arena": {
+    "schema": 1,
+    "instances": {},
+    "history": []
+  },
+  "arenaActors": {
+    "foundation.probe.a": {
+      "facts": {},
+      "resources": {
+        "demonstrationFuel": 30
+      },
+      "completed": {},
+      "sources": {},
+      "techniques": {},
+      "worldId": "base.frontier"
+    },
+    "foundation.probe.b": {
+      "facts": {},
+      "resources": {
+        "demonstrationFuel": 30
+      },
+      "completed": {},
+      "sources": {
+        "foundation.probe.control": {
+          "acquiredAt": 0,
+          "expiresAt": null,
+          "receiptId": "simulation:33",
+          "worldId": "base.frontier",
+          "revision": 1,
+          "origin": "trained"
+        }
+      },
+      "techniques": {},
+      "worldId": "base.frontier"
+    },
+    "foundation.probe.c": {
+      "facts": {},
+      "resources": {
+        "demonstrationFuel": 30
+      },
+      "completed": {},
+      "sources": {
+        "foundation.probe.control": {
+          "acquiredAt": 0,
+          "expiresAt": null,
+          "receiptId": "simulation:33",
+          "worldId": "base.frontier",
+          "revision": 1,
+          "origin": "trained"
+        }
+      },
+      "techniques": {},
+      "worldId": "base.frontier"
+    }
+  },
+  "arenaPeople": {
+    "foundation.probe.a": {
+      "life": "alive",
+      "inventory": "simulation",
+      "location": "Foundation test room",
+      "bornAt": 0,
+      "definitionId": "foundation.probe.a",
+      "definitionRevision": 1,
+      "createdBy": "player",
+      "vitals": {
+        "health": 40,
+        "max_health": 40,
+        "stamina": 20,
+        "max_stamina": 20
+      },
+      "body": {
+        "id": "foundation.probe.a.body",
+        "ownerId": "foundation.probe.a",
+        "controllerId": "foundation.probe.a",
+        "mobile": true,
+        "form": "humanoid",
+        "hands": 2,
+        "handsUsable": true
+      }
+    },
+    "foundation.probe.b": {
+      "life": "alive",
+      "inventory": "simulation",
+      "location": "Foundation test room",
+      "bornAt": 0,
+      "definitionId": "foundation.probe.b",
+      "definitionRevision": 1,
+      "createdBy": "player",
+      "vitals": {
+        "health": 40,
+        "max_health": 40,
+        "stamina": 20,
+        "max_stamina": 20
+      },
+      "body": {
+        "id": "foundation.probe.b.body",
+        "ownerId": "foundation.probe.b",
+        "controllerId": "foundation.probe.b",
+        "mobile": true,
+        "form": "humanoid",
+        "hands": 2,
+        "handsUsable": true
+      }
+    },
+    "foundation.probe.c": {
+      "life": "alive",
+      "inventory": "simulation",
+      "location": "Foundation test room",
+      "bornAt": 0,
+      "definitionId": "foundation.probe.c",
+      "definitionRevision": 1,
+      "createdBy": "player",
+      "vitals": {
+        "health": 40,
+        "max_health": 40,
+        "stamina": 20,
+        "max_stamina": 20
+      },
+      "body": {
+        "id": "foundation.probe.c.body",
+        "ownerId": "foundation.probe.c",
+        "controllerId": "foundation.probe.c",
+        "mobile": true,
+        "form": "humanoid",
+        "hands": 2,
+        "handsUsable": true
+      }
+    }
+  },
+  "jobs": [],
+  "panelText": "Experimental interaction arena\n\nOriginal development policies: P-A closes incoming magic including aid. P-B admits named aid and needs sustained control. Physical projectiles remain independent after release. Demonstration fuel belongs only to identified arena actors.\n\nUse a disposable test save. Actions and aftermath use the current durable publisher and played-time clock.\n\nArena A\n\nActual health 40 / 40; own demonstration fuel 30; acquired control removed.\n\nP-A barrier · 1 demonstration fuel · 10 minP-B barrier · 1 demonstration fuel · 10 minDeliver magical injury · 1 demonstration fuelOffer magical aid · 1 demonstration fuelSelf treatment · 1 demonstration fuelSustain magical delivery · 1 fuel · 2 minRelease physical projectile · 1 demonstration fuelCommit released projectile flight · 1 fuel · 2 minApply s1 sustained counter · 1 fuel · 5 minRemove owned s1 counterApply s2 sustained counter · 1 fuel · 5 minRemove owned s2 counterApply activation activation counter · 1 fuel · 5 minRemove owned activation counterApply delivery delivery counter · 1 fuel · 5 minRemove owned delivery counterRemove owned P-A barrierRemove owned P-B barrierOpen delivery encounter\nArena B\n\nActual health 40 / 40; own demonstration fuel 30; acquired control present.\n\nP-A barrier · 1 demonstration fuel · 10 minP-B barrier · 1 demonstration fuel · 10 minDeliver magical injury · 1 demonstration fuelOffer magical aid · 1 demonstration fuelSelf treatment · 1 demonstration fuelSustain magical delivery · 1 fuel · 2 minRelease physical projectile · 1 demonstration fuelCommit released projectile flight · 1 fuel · 2 minApply s1 sustained counter · 1 fuel · 5 minRemove owned s1 counterApply s2 sustained counter · 1 fuel · 5 minRemove owned s2 counterApply activation activation counter · 1 fuel · 5 minRemove owned activation counterApply delivery delivery counter · 1 fuel · 5 minRemove owned delivery counterRemove owned P-A barrierRemove owned P-B barrierOpen delivery encounter\nArena C\n\nActual health 40 / 40; own demonstration fuel 30; acquired control present.\n\nC removes A's acquired sourceC removes B's acquired source\nA · observed lifecycle and aftermath\nB · observed lifecycle and aftermath\nC · observed lifecycle and aftermath",
+  "buttons": [
+    {
+      "text": "Authoring",
+      "disabled": false,
+      "id": "",
+      "attrs": [
+        [
+          "data-workspace-action",
+          "context"
+        ]
+      ]
+    },
+    {
+      "text": "Edit layout",
+      "disabled": false,
+      "id": "",
+      "attrs": [
+        [
+          "data-workspace-action",
+          "edit-layout"
+        ]
+      ]
+    },
+    {
+      "text": "Reset layout",
+      "disabled": false,
+      "id": "",
+      "attrs": [
+        [
+          "data-workspace-action",
+          "reset"
+        ]
+      ]
+    },
+    {
+      "text": "↕",
+      "disabled": false,
+      "id": "",
+      "attrs": [
+        [
+          "data-workspace-action",
+          "handle"
+        ],
+        [
+          "data-module",
+          "vitals"
+        ]
+      ]
+    },
+    {
+      "text": "",
+      "disabled": false,
+      "id": "",
+      "attrs": [
+        [
+          "data-resize",
+          "e"
+        ],
+        [
+          "data-module",
+          "vitals"
+        ]
+      ]
+    },
+    {
+      "text": "",
+      "disabled": false,
+      "id": "",
+      "attrs": [
+        [
+          "data-resize",
+          "s"
+        ],
+        [
+          "data-module",
+          "vitals"
+        ]
+      ]
+    },
+    {
+      "text": "",
+      "disabled": false,
+      "id": "",
+      "attrs": [
+        [
+          "data-resize",
+          "se"
+        ],
+        [
+          "data-module",
+          "vitals"
+        ]
+      ]
+    },
+    {
+      "text": "↕",
+      "disabled": false,
+      "id": "",
+      "attrs": [
+        [
+          "data-workspace-action",
+          "handle"
+        ],
+        [
+          "data-module",
+          "combat-controls"
+        ]
+      ]
+    },
+    {
+      "text": "Inventory",
+      "id": "switch_to_inventory",
+      "attrs": []
+    },
+    {
+      "text": "Combat",
+      "id": "switch_to_combat",
+      "attrs": []
+    },
+    {
+      "text": "",
+      "disabled": false,
+      "id": "",
+      "attrs": [
+        [
+          "data-resize",
+          "e"
+        ],
+        [
+          "data-module",
+          "combat-controls"
+        ]
+      ]
+    },
+    {
+      "text": "",
+      "disabled": false,
+      "id": "",
+      "attrs": [
+        [
+          "data-resize",
+          "s"
+        ],
+        [
+          "data-module",
+          "combat-controls"
+        ]
+      ]
+    },
+    {
+      "text": "",
+      "disabled": false,
+      "id": "",
+      "attrs": [
+        [
+          "data-resize",
+          "se"
+        ],
+        [
+          "data-module",
+          "combat-controls"
+        ]
+      ]
+    },
+    {
+      "text": "↕",
+      "disabled": false,
+      "id": "",
+      "attrs": [
+        [
+          "data-workspace-action",
+          "handle"
+        ],
+        [
+          "data-module",
+          "preparation"
+        ]
+      ]
+    },
+    {
+      "text": "Stats",
+      "id": "character_show_stats",
+      "attrs": [
+        [
+          "data-translation",
+          "ui show stats"
+        ]
+      ]
+    },
+    {
+      "text": "Bio",
+      "id": "character_show_bio",
+      "attrs": [
+        [
+          "data-translation",
+          "ui show bio"
+        ]
+      ]
+    },
+    {
+      "text": "Equipment",
+      "id": "character_show_equipment",
+      "attrs": [
+        [
+          "data-translation",
+          "ui show equipment"
+        ]
+      ]
+    },
+    {
+      "text": "Tools",
+      "id": "character_show_tools",
+      "attrs": [
+        [
+          "data-translation",
+          "ui show tools"
+        ]
+      ]
+    },
+    {
+      "text": "",
+      "disabled": false,
+      "id": "",
+      "attrs": [
+        [
+          "data-resize",
+          "e"
+        ],
+        [
+          "data-module",
+          "preparation"
+        ]
+      ]
+    },
+    {
+      "text": "",
+      "disabled": false,
+      "id": "",
+      "attrs": [
+        [
+          "data-resize",
+          "s"
+        ],
+        [
+          "data-module",
+          "preparation"
+        ]
+      ]
+    },
+    {
+      "text": "",
+      "disabled": false,
+      "id": "",
+      "attrs": [
+        [
+          "data-resize",
+          "se"
+        ],
+        [
+          "data-module",
+          "preparation"
+        ]
+      ]
+    },
+    {
+      "text": "↕",
+      "disabled": false,
+      "id": "",
+      "attrs": [
+        [
+          "data-workspace-action",
+          "handle"
+        ],
+        [
+          "data-module",
+          "belongings"
+        ]
+      ]
+    },
+    {
+      "text": "Sort by name",
+      "id": "inventory_sort_by_name",
+      "attrs": [
+        [
+          "data-translation",
+          "ui sort name"
+        ]
+      ]
+    },
+    {
+      "text": "Sort by value",
+      "id": "inventory_sort_by_price",
+      "attrs": [
+        [
+          "data-translation",
+          "ui sort value"
+        ]
+      ]
+    },
+    {
+      "text": "Sort by type",
+      "id": "inventory_sort_by_type",
+      "attrs": [
+        [
+          "data-translation",
+          "ui sort type"
+        ]
+      ]
+    },
+    {
+      "text": "All",
+      "id": "inventory_show_all",
+      "attrs": [
+        [
+          "data-translation",
+          "ui show all"
+        ]
+      ]
+    },
+    {
+      "text": "Equipment",
+      "id": "inventory_show_equipment",
+      "attrs": [
+        [
+          "data-translation",
+          "ui show equipment"
+        ]
+      ]
+    },
+    {
+      "text": "Usable",
+      "id": "inventory_show_consumable",
+      "attrs": [
+        [
+          "data-translation",
+          "ui show usable"
+        ]
+      ]
+    },
+    {
+      "text": "Other",
+      "id": "inventory_show_other",
+      "attrs": [
+        [
+          "data-translation",
+          "ui show other"
+        ]
+      ]
+    },
+    {
+      "text": "Favs",
+      "id": "inventory_show_favs",
+      "attrs": [
+        [
+          "data-translation",
+          "ui show favs"
+        ]
+      ]
+    },
+    {
+      "text": "",
+      "disabled": false,
+      "id": "",
+      "attrs": [
+        [
+          "data-resize",
+          "e"
+        ],
+        [
+          "data-module",
+          "belongings"
+        ]
+      ]
+    },
+    {
+      "text": "",
+      "disabled": false,
+      "id": "",
+      "attrs": [
+        [
+          "data-resize",
+          "s"
+        ],
+        [
+          "data-module",
+          "belongings"
+        ]
+      ]
+    },
+    {
+      "text": "",
+      "disabled": false,
+      "id": "",
+      "attrs": [
+        [
+          "data-resize",
+          "se"
+        ],
+        [
+          "data-module",
+          "belongings"
+        ]
+      ]
+    },
+    {
+      "text": "↕",
+      "disabled": false,
+      "id": "",
+      "attrs": [
+        [
+          "data-workspace-action",
+          "handle"
+        ],
+        [
+          "data-module",
+          "equipment-comparison"
+        ]
+      ]
+    },
+    {
+      "text": "↕",
+      "disabled": false,
+      "id": "",
+      "attrs": [
+        [
+          "data-workspace-action",
+          "handle"
+        ],
+        [
+          "data-module",
+          "notebook"
+        ]
+      ]
+    },
+    {
+      "text": "",
+      "disabled": false,
+      "id": "",
+      "attrs": [
+        [
+          "data-resize",
+          "e"
+        ],
+        [
+          "data-module",
+          "notebook"
+        ]
+      ]
+    },
+    {
+      "text": "",
+      "disabled": false,
+      "id": "",
+      "attrs": [
+        [
+          "data-resize",
+          "s"
+        ],
+        [
+          "data-module",
+          "notebook"
+        ]
+      ]
+    },
+    {
+      "text": "",
+      "disabled": false,
+      "id": "",
+      "attrs": [
+        [
+          "data-resize",
+          "se"
+        ],
+        [
+          "data-module",
+          "notebook"
+        ]
+      ]
+    },
+    {
+      "text": "↕",
+      "disabled": false,
+      "id": "",
+      "attrs": [
+        [
+          "data-workspace-action",
+          "handle"
+        ],
+        [
+          "data-module",
+          "time"
+        ]
+      ]
+    },
+    {
+      "text": "",
+      "disabled": false,
+      "id": "",
+      "attrs": [
+        [
+          "data-resize",
+          "e"
+        ],
+        [
+          "data-module",
+          "time"
+        ]
+      ]
+    },
+    {
+      "text": "",
+      "disabled": false,
+      "id": "",
+      "attrs": [
+        [
+          "data-resize",
+          "s"
+        ],
+        [
+          "data-module",
+          "time"
+        ]
+      ]
+    },
+    {
+      "text": "",
+      "disabled": false,
+      "id": "",
+      "attrs": [
+        [
+          "data-resize",
+          "se"
+        ],
+        [
+          "data-module",
+          "time"
+        ]
+      ]
+    },
+    {
+      "text": "↕",
+      "disabled": false,
+      "id": "",
+      "attrs": [
+        [
+          "data-workspace-action",
+          "handle"
+        ],
+        [
+          "data-module",
+          "location"
+        ]
+      ]
+    },
+    {
+      "text": "",
+      "disabled": false,
+      "id": "",
+      "attrs": [
+        [
+          "data-resize",
+          "e"
+        ],
+        [
+          "data-module",
+          "location"
+        ]
+      ]
+    },
+    {
+      "text": "",
+      "disabled": false,
+      "id": "",
+      "attrs": [
+        [
+          "data-resize",
+          "s"
+        ],
+        [
+          "data-module",
+          "location"
+        ]
+      ]
+    },
+    {
+      "text": "",
+      "disabled": false,
+      "id": "",
+      "attrs": [
+        [
+          "data-resize",
+          "se"
+        ],
+        [
+          "data-module",
+          "location"
+        ]
+      ]
+    },
+    {
+      "text": "↕",
+      "disabled": false,
+      "id": "",
+      "attrs": [
+        [
+          "data-workspace-action",
+          "handle"
+        ],
+        [
+          "data-module",
+          "current-work"
+        ]
+      ]
+    },
+    {
+      "text": "",
+      "disabled": false,
+      "id": "",
+      "attrs": [
+        [
+          "data-resize",
+          "e"
+        ],
+        [
+          "data-module",
+          "current-work"
+        ]
+      ]
+    },
+    {
+      "text": "",
+      "disabled": false,
+      "id": "",
+      "attrs": [
+        [
+          "data-resize",
+          "s"
+        ],
+        [
+          "data-module",
+          "current-work"
+        ]
+      ]
+    },
+    {
+      "text": "",
+      "disabled": false,
+      "id": "",
+      "attrs": [
+        [
+          "data-resize",
+          "se"
+        ],
+        [
+          "data-module",
+          "current-work"
+        ]
+      ]
+    },
+    {
+      "text": "↕",
+      "disabled": false,
+      "id": "",
+      "attrs": [
+        [
+          "data-workspace-action",
+          "handle"
+        ],
+        [
+          "data-module",
+          "local-actions"
+        ]
+      ]
+    },
+    {
+      "text": "Ask for repair notes (one field clear)",
+      "disabled": true,
+      "id": "",
+      "attrs": [
+        [
+          "data-fort-action",
+          "notes"
+        ]
+      ]
+    },
+    {
+      "text": "Buy repair notes (10 coins)",
+      "disabled": false,
+      "id": "",
+      "attrs": [
+        [
+          "data-fort-action",
+          "buy_notes"
+        ]
+      ]
+    },
+    {
+      "text": "question_answer Talk to someone",
+      "id": "",
+      "attrs": [
+        [
+          "data-native-keyboard",
+          "true"
+        ]
+      ]
+    },
+    {
+      "text": "work_outline Find work",
+      "id": "",
+      "attrs": [
+        [
+          "data-native-keyboard",
+          "true"
+        ]
+      ]
+    },
+    {
+      "text": "P-A barrier · 1 demonstration fuel · 10 min",
+      "disabled": true,
+      "id": "",
+      "attrs": [
+        [
+          "data-foundation-probe",
+          "foundation.probe.a.barrier.p-a"
+        ]
+      ]
+    },
+    {
+      "text": "P-B barrier · 1 demonstration fuel · 10 min",
+      "disabled": true,
+      "id": "",
+      "attrs": [
+        [
+          "data-foundation-probe",
+          "foundation.probe.a.barrier.p-b"
+        ]
+      ]
+    },
+    {
+      "text": "Deliver magical injury · 1 demonstration fuel",
+      "disabled": true,
+      "id": "",
+      "attrs": [
+        [
+          "data-foundation-probe",
+          "foundation.probe.a.attack"
+        ]
+      ]
+    },
+    {
+      "text": "Offer magical aid · 1 demonstration fuel",
+      "disabled": true,
+      "id": "",
+      "attrs": [
+        [
+          "data-foundation-probe",
+          "foundation.probe.a.aid"
+        ]
+      ]
+    },
+    {
+      "text": "Self treatment · 1 demonstration fuel",
+      "disabled": true,
+      "id": "",
+      "attrs": [
+        [
+          "data-foundation-probe",
+          "foundation.probe.a.self_aid"
+        ]
+      ]
+    },
+    {
+      "text": "Sustain magical delivery · 1 fuel · 2 min",
+      "disabled": true,
+      "id": "",
+      "attrs": [
+        [
+          "data-foundation-probe",
+          "foundation.probe.a.construct"
+        ]
+      ]
+    },
+    {
+      "text": "Release physical projectile · 1 demonstration fuel",
+      "disabled": true,
+      "id": "",
+      "attrs": [
+        [
+          "data-foundation-probe",
+          "foundation.probe.a.launch"
+        ]
+      ]
+    },
+    {
+      "text": "Commit released projectile flight · 1 fuel · 2 min",
+      "disabled": true,
+      "id": "",
+      "attrs": [
+        [
+          "data-foundation-probe",
+          "foundation.probe.a.flight"
+        ]
+      ]
+    },
+    {
+      "text": "Apply s1 sustained counter · 1 fuel · 5 min",
+      "disabled": true,
+      "id": "",
+      "attrs": [
+        [
+          "data-foundation-probe",
+          "foundation.probe.a.s1"
+        ]
+      ]
+    },
+    {
+      "text": "Remove owned s1 counter",
+      "disabled": true,
+      "id": "",
+      "attrs": [
+        [
+          "data-foundation-probe",
+          "foundation.probe.a.s1.remove"
+        ]
+      ]
+    },
+    {
+      "text": "Apply s2 sustained counter · 1 fuel · 5 min",
+      "disabled": true,
+      "id": "",
+      "attrs": [
+        [
+          "data-foundation-probe",
+          "foundation.probe.a.s2"
+        ]
+      ]
+    },
+    {
+      "text": "Remove owned s2 counter",
+      "disabled": true,
+      "id": "",
+      "attrs": [
+        [
+          "data-foundation-probe",
+          "foundation.probe.a.s2.remove"
+        ]
+      ]
+    },
+    {
+      "text": "Apply activation activation counter · 1 fuel · 5 min",
+      "disabled": true,
+      "id": "",
+      "attrs": [
+        [
+          "data-foundation-probe",
+          "foundation.probe.a.activation"
+        ]
+      ]
+    },
+    {
+      "text": "Remove owned activation counter",
+      "disabled": true,
+      "id": "",
+      "attrs": [
+        [
+          "data-foundation-probe",
+          "foundation.probe.a.activation.remove"
+        ]
+      ]
+    },
+    {
+      "text": "Apply delivery delivery counter · 1 fuel · 5 min",
+      "disabled": true,
+      "id": "",
+      "attrs": [
+        [
+          "data-foundation-probe",
+          "foundation.probe.a.delivery"
+        ]
+      ]
+    },
+    {
+      "text": "Remove owned delivery counter",
+      "disabled": true,
+      "id": "",
+      "attrs": [
+        [
+          "data-foundation-probe",
+          "foundation.probe.a.delivery.remove"
+        ]
+      ]
+    },
+    {
+      "text": "Remove owned P-A barrier",
+      "disabled": true,
+      "id": "",
+      "attrs": [
+        [
+          "data-foundation-probe",
+          "foundation.probe.a.remove.p-a"
+        ]
+      ]
+    },
+    {
+      "text": "Remove owned P-B barrier",
+      "disabled": true,
+      "id": "",
+      "attrs": [
+        [
+          "data-foundation-probe",
+          "foundation.probe.a.remove.p-b"
+        ]
+      ]
+    },
+    {
+      "text": "Open delivery encounter",
+      "disabled": false,
+      "id": "",
+      "attrs": [
+        [
+          "data-foundation-probe",
+          "foundation.probe.a.encounter"
+        ]
+      ]
+    },
+    {
+      "text": "P-A barrier · 1 demonstration fuel · 10 min",
+      "disabled": false,
+      "id": "",
+      "attrs": [
+        [
+          "data-foundation-probe",
+          "foundation.probe.b.barrier.p-a"
+        ]
+      ]
+    },
+    {
+      "text": "P-B barrier · 1 demonstration fuel · 10 min",
+      "disabled": false,
+      "id": "",
+      "attrs": [
+        [
+          "data-foundation-probe",
+          "foundation.probe.b.barrier.p-b"
+        ]
+      ]
+    },
+    {
+      "text": "Deliver magical injury · 1 demonstration fuel",
+      "disabled": false,
+      "id": "",
+      "attrs": [
+        [
+          "data-foundation-probe",
+          "foundation.probe.b.attack"
+        ]
+      ]
+    },
+    {
+      "text": "Offer magical aid · 1 demonstration fuel",
+      "disabled": false,
+      "id": "",
+      "attrs": [
+        [
+          "data-foundation-probe",
+          "foundation.probe.b.aid"
+        ]
+      ]
+    },
+    {
+      "text": "Self treatment · 1 demonstration fuel",
+      "disabled": false,
+      "id": "",
+      "attrs": [
+        [
+          "data-foundation-probe",
+          "foundation.probe.b.self_aid"
+        ]
+      ]
+    },
+    {
+      "text": "Sustain magical delivery · 1 fuel · 2 min",
+      "disabled": false,
+      "id": "",
+      "attrs": [
+        [
+          "data-foundation-probe",
+          "foundation.probe.b.construct"
+        ]
+      ]
+    },
+    {
+      "text": "Release physical projectile · 1 demonstration fuel",
+      "disabled": false,
+      "id": "",
+      "attrs": [
+        [
+          "data-foundation-probe",
+          "foundation.probe.b.launch"
+        ]
+      ]
+    },
+    {
+      "text": "Commit released projectile flight · 1 fuel · 2 min",
+      "disabled": true,
+      "id": "",
+      "attrs": [
+        [
+          "data-foundation-probe",
+          "foundation.probe.b.flight"
+        ]
+      ]
+    },
+    {
+      "text": "Apply s1 sustained counter · 1 fuel · 5 min",
+      "disabled": false,
+      "id": "",
+      "attrs": [
+        [
+          "data-foundation-probe",
+          "foundation.probe.b.s1"
+        ]
+      ]
+    },
+    {
+      "text": "Remove owned s1 counter",
+      "disabled": true,
+      "id": "",
+      "attrs": [
+        [
+          "data-foundation-probe",
+          "foundation.probe.b.s1.remove"
+        ]
+      ]
+    },
+    {
+      "text": "Apply s2 sustained counter · 1 fuel · 5 min",
+      "disabled": false,
+      "id": "",
+      "attrs": [
+        [
+          "data-foundation-probe",
+          "foundation.probe.b.s2"
+        ]
+      ]
+    },
+    {
+      "text": "Remove owned s2 counter",
+      "disabled": true,
+      "id": "",
+      "attrs": [
+        [
+          "data-foundation-probe",
+          "foundation.probe.b.s2.remove"
+        ]
+      ]
+    },
+    {
+      "text": "Apply activation activation counter · 1 fuel · 5 min",
+      "disabled": false,
+      "id": "",
+      "attrs": [
+        [
+          "data-foundation-probe",
+          "foundation.probe.b.activation"
+        ]
+      ]
+    },
+    {
+      "text": "Remove owned activation counter",
+      "disabled": true,
+      "id": "",
+      "attrs": [
+        [
+          "data-foundation-probe",
+          "foundation.probe.b.activation.remove"
+        ]
+      ]
+    },
+    {
+      "text": "Apply delivery delivery counter · 1 fuel · 5 min",
+      "disabled": false,
+      "id": "",
+      "attrs": [
+        [
+          "data-foundation-probe",
+          "foundation.probe.b.delivery"
+        ]
+      ]
+    },
+    {
+      "text": "Remove owned delivery counter",
+      "disabled": true,
+      "id": "",
+      "attrs": [
+        [
+          "data-foundation-probe",
+          "foundation.probe.b.delivery.remove"
+        ]
+      ]
+    },
+    {
+      "text": "Remove owned P-A barrier",
+      "disabled": true,
+      "id": "",
+      "attrs": [
+        [
+          "data-foundation-probe",
+          "foundation.probe.b.remove.p-a"
+        ]
+      ]
+    },
+    {
+      "text": "Remove owned P-B barrier",
+      "disabled": true,
+      "id": "",
+      "attrs": [
+        [
+          "data-foundation-probe",
+          "foundation.probe.b.remove.p-b"
+        ]
+      ]
+    },
+    {
+      "text": "Open delivery encounter",
+      "disabled": false,
+      "id": "",
+      "attrs": [
+        [
+          "data-foundation-probe",
+          "foundation.probe.b.encounter"
+        ]
+      ]
+    },
+    {
+      "text": "C removes A's acquired source",
+      "disabled": false,
+      "id": "",
+      "attrs": [
+        [
+          "data-foundation-probe",
+          "foundation.probe.c.strip.a"
+        ]
+      ]
+    },
+    {
+      "text": "C removes B's acquired source",
+      "disabled": false,
+      "id": "",
+      "attrs": [
+        [
+          "data-foundation-probe",
+          "foundation.probe.c.strip.b"
+        ]
+      ]
+    },
+    {
+      "text": "",
+      "disabled": false,
+      "id": "",
+      "attrs": [
+        [
+          "data-resize",
+          "e"
+        ],
+        [
+          "data-module",
+          "local-actions"
+        ]
+      ]
+    },
+    {
+      "text": "",
+      "disabled": false,
+      "id": "",
+      "attrs": [
+        [
+          "data-resize",
+          "s"
+        ],
+        [
+          "data-module",
+          "local-actions"
+        ]
+      ]
+    },
+    {
+      "text": "",
+      "disabled": false,
+      "id": "",
+      "attrs": [
+        [
+          "data-resize",
+          "se"
+        ],
+        [
+          "data-module",
+          "local-actions"
+        ]
+      ]
+    },
+    {
+      "text": "↕",
+      "disabled": false,
+      "id": "",
+      "attrs": [
+        [
+          "data-workspace-action",
+          "handle"
+        ],
+        [
+          "data-module",
+          "ledger"
+        ]
+      ]
+    },
+    {
+      "text": "",
+      "disabled": false,
+      "id": "",
+      "attrs": [
+        [
+          "data-resize",
+          "e"
+        ],
+        [
+          "data-module",
+          "ledger"
+        ]
+      ]
+    },
+    {
+      "text": "",
+      "disabled": false,
+      "id": "",
+      "attrs": [
+        [
+          "data-resize",
+          "s"
+        ],
+        [
+          "data-module",
+          "ledger"
+        ]
+      ]
+    },
+    {
+      "text": "",
+      "disabled": false,
+      "id": "",
+      "attrs": [
+        [
+          "data-resize",
+          "se"
+        ],
+        [
+          "data-module",
+          "ledger"
+        ]
+      ]
+    },
+    {
+      "text": "↕",
+      "disabled": false,
+      "id": "",
+      "attrs": [
+        [
+          "data-workspace-action",
+          "handle"
+        ],
+        [
+          "data-module",
+          "records"
+        ]
+      ]
+    },
+    {
+      "text": "Quests",
+      "id": "journal_show_quests",
+      "attrs": []
+    },
+    {
+      "text": "Bestiary",
+      "id": "journal_show_bestiary",
+      "attrs": []
+    },
+    {
+      "text": "Anthology",
+      "id": "journal_show_books",
+      "attrs": []
+    },
+    {
+      "text": "Data",
+      "id": "journal_show_data",
+      "attrs": []
+    },
+    {
+      "text": "Notebook",
+      "disabled": false,
+      "id": "journal_show_notebook",
+      "attrs": []
+    },
+    {
+      "text": "",
+      "disabled": false,
+      "id": "",
+      "attrs": [
+        [
+          "data-resize",
+          "e"
+        ],
+        [
+          "data-module",
+          "records"
+        ]
+      ]
+    },
+    {
+      "text": "",
+      "disabled": false,
+      "id": "",
+      "attrs": [
+        [
+          "data-resize",
+          "s"
+        ],
+        [
+          "data-module",
+          "records"
+        ]
+      ]
+    },
+    {
+      "text": "",
+      "disabled": false,
+      "id": "",
+      "attrs": [
+        [
+          "data-resize",
+          "se"
+        ],
+        [
+          "data-module",
+          "records"
+        ]
+      ]
+    },
+    {
+      "text": "↕",
+      "disabled": false,
+      "id": "",
+      "attrs": [
+        [
+          "data-workspace-action",
+          "handle"
+        ],
+        [
+          "data-module",
+          "skills"
+        ]
+      ]
+    },
+    {
+      "text": "Sort by name",
+      "id": "skill_sort_by_name",
+      "attrs": []
+    },
+    {
+      "text": "Sort by level",
+      "id": "skill_sort_by_level",
+      "attrs": []
+    },
+    {
+      "text": "Sort by progress",
+      "id": "skill_sort_by_progress",
+      "attrs": []
+    },
+    {
+      "text": "Skills",
+      "id": "show_skills",
+      "attrs": []
+    },
+    {
+      "text": "Stances",
+      "id": "show_stances",
+      "attrs": []
+    },
+    {
+      "text": "Magic",
+      "id": "show_magic",
+      "attrs": []
+    },
+    {
+      "text": "",
+      "disabled": false,
+      "id": "",
+      "attrs": [
+        [
+          "data-resize",
+          "e"
+        ],
+        [
+          "data-module",
+          "skills"
+        ]
+      ]
+    },
+    {
+      "text": "",
+      "disabled": false,
+      "id": "",
+      "attrs": [
+        [
+          "data-resize",
+          "s"
+        ],
+        [
+          "data-module",
+          "skills"
+        ]
+      ]
+    },
+    {
+      "text": "",
+      "disabled": false,
+      "id": "",
+      "attrs": [
+        [
+          "data-resize",
+          "se"
+        ],
+        [
+          "data-module",
+          "skills"
+        ]
+      ]
+    },
+    {
+      "text": "↕",
+      "disabled": false,
+      "id": "",
+      "attrs": [
+        [
+          "data-workspace-action",
+          "handle"
+        ],
+        [
+          "data-module",
+          "messages"
+        ]
+      ]
+    },
+    {
+      "text": "Remember this day",
+      "disabled": false,
+      "id": "life_remember_day",
+      "attrs": []
+    },
+    {
+      "text": "",
+      "disabled": false,
+      "id": "",
+      "attrs": [
+        [
+          "data-resize",
+          "e"
+        ],
+        [
+          "data-module",
+          "messages"
+        ]
+      ]
+    },
+    {
+      "text": "",
+      "disabled": false,
+      "id": "",
+      "attrs": [
+        [
+          "data-resize",
+          "s"
+        ],
+        [
+          "data-module",
+          "messages"
+        ]
+      ]
+    },
+    {
+      "text": "",
+      "disabled": false,
+      "id": "",
+      "attrs": [
+        [
+          "data-resize",
+          "se"
+        ],
+        [
+          "data-module",
+          "messages"
+        ]
+      ]
+    },
+    {
+      "text": "↕",
+      "disabled": false,
+      "id": "",
+      "attrs": [
+        [
+          "data-workspace-action",
+          "handle"
+        ],
+        [
+          "data-module",
+          "optional-worlds"
+        ]
+      ]
+    },
+    {
+      "text": "↕",
+      "disabled": false,
+      "id": "",
+      "attrs": [
+        [
+          "data-workspace-action",
+          "handle"
+        ],
+        [
+          "data-module",
+          "beginning"
+        ]
+      ]
+    },
+    {
+      "text": "↕",
+      "disabled": false,
+      "id": "",
+      "attrs": [
+        [
+          "data-workspace-action",
+          "handle"
+        ],
+        [
+          "data-module",
+          "patrol"
+        ]
+      ]
+    },
+    {
+      "text": "",
+      "disabled": false,
+      "id": "",
+      "attrs": [
+        [
+          "data-divider",
+          "0"
+        ]
+      ]
+    },
+    {
+      "text": "",
+      "disabled": false,
+      "id": "",
+      "attrs": [
+        [
+          "data-divider",
+          "1"
+        ]
+      ]
+    }
+  ],
+  "errors": []
+}

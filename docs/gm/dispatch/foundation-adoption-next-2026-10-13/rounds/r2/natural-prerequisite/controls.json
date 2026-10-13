@@ -1,0 +1,6416 @@
+[
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Authoring",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "↕",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Collapse",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Earlier",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Later",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Pin",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Hide",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "←",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "↑",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "↓",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "→",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "↕",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Collapse",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Earlier",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Later",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Pin",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Hide",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "←",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "↑",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "↓",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "→",
+    "onclick": null
+  },
+  {
+    "tag": "DIV",
+    "id": "switch_to_inventory",
+    "text": "Inventory",
+    "onclick": "switchToInventory()"
+  },
+  {
+    "tag": "DIV",
+    "id": "switch_to_combat",
+    "text": "Combat",
+    "onclick": "switchToCombat()"
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "↕",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Collapse",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Earlier",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Later",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Pin",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Hide",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "←",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "↑",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "↓",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "→",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "↕",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Collapse",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Earlier",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Later",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Pin",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Hide",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "←",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "↑",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "↓",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "→",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Evasion",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Cold resistance",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Breathing",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Open practice notes",
+    "onclick": null
+  },
+  {
+    "tag": "DIV",
+    "id": "character_show_stats",
+    "text": "Stats",
+    "onclick": "showCharacterStats()"
+  },
+  {
+    "tag": "DIV",
+    "id": "character_show_bio",
+    "text": "Bio",
+    "onclick": "showCharacterBio()"
+  },
+  {
+    "tag": "DIV",
+    "id": "character_show_equipment",
+    "text": "Equipment",
+    "onclick": "showCharacterEquipment()"
+  },
+  {
+    "tag": "DIV",
+    "id": "character_show_tools",
+    "text": "Tools",
+    "onclick": "showCharacterTools()"
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "↕",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Collapse",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Earlier",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Later",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Pin",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Hide",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "←",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "↑",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "↓",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "→",
+    "onclick": null
+  },
+  {
+    "tag": "DIV",
+    "id": "inventory_sort_by_name",
+    "text": "Sort by name",
+    "onclick": "sortCharacterInventory(\"name\")"
+  },
+  {
+    "tag": "DIV",
+    "id": "inventory_sort_by_price",
+    "text": "Sort by value",
+    "onclick": "sortCharacterInventory(\"price\")"
+  },
+  {
+    "tag": "DIV",
+    "id": "inventory_sort_by_type",
+    "text": "Sort by type",
+    "onclick": "sortCharacterInventory(\"type\")"
+  },
+  {
+    "tag": "DIV",
+    "id": "inventory_show_all",
+    "text": "All",
+    "onclick": "showAllItems()"
+  },
+  {
+    "tag": "DIV",
+    "id": "inventory_show_equipment",
+    "text": "Equipment",
+    "onclick": "showOnlyEquipment()"
+  },
+  {
+    "tag": "DIV",
+    "id": "inventory_show_consumable",
+    "text": "Usable",
+    "onclick": "showOnlyConsumables()"
+  },
+  {
+    "tag": "DIV",
+    "id": "inventory_show_other",
+    "text": "Other",
+    "onclick": "showOnlyOther()"
+  },
+  {
+    "tag": "DIV",
+    "id": "inventory_show_favs",
+    "text": "Favs",
+    "onclick": "showOnlyFavs()"
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "↕",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Expand",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Earlier",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Later",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Pin",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Hide",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "←",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "↑",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "↓",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "→",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "↕",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Collapse",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Earlier",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Later",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Pin",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Hide",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "←",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "↑",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "↓",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "→",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "↕",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Collapse",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Earlier",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Later",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Pin",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Hide",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "←",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "↑",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "↓",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "→",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Create profile draft",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Apply and save",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Reset draft",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Discard draft",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Import to draft",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Export draft JSON",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "↕",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Collapse",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Earlier",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Later",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Pin",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Hide",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "←",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "↑",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "↓",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "→",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "apply_work_ledger_rules",
+    "text": "Apply rules",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "reload_work_ledger_draft",
+    "text": "Discard draft",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "reset_work_ledger_rules",
+    "text": "Reset original rules",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "export_work_ledger_rules",
+    "text": "Export rules",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "↕",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Collapse",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Earlier",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Later",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Pin",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Hide",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "←",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "↑",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "↓",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "→",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "↕",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Collapse",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Earlier",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Later",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Pin",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Hide",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "←",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "↑",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "↓",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "→",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "More about this place",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "↕",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Collapse",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Earlier",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Later",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Pin",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Hide",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "←",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "↑",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "↓",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "→",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Open local controls",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "↕",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Collapse",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Earlier",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Later",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Pin",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Hide",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "←",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "↑",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "↓",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "→",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "↕",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Collapse",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Earlier",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Later",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Pin",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Hide",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "←",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "↑",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "↓",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "→",
+    "onclick": null
+  },
+  {
+    "tag": "DIV",
+    "id": "",
+    "text": "check_box_outline_blank Go to [Shack] [10m]",
+    "onclick": "change_location({location_id: this.getAttribute('data-travel')});"
+  },
+  {
+    "tag": "DIV",
+    "id": "",
+    "text": "check_box_outline_blank Go to [Nearby cave] [1h]",
+    "onclick": "change_location({location_id: this.getAttribute('data-travel')});"
+  },
+  {
+    "tag": "DIV",
+    "id": "",
+    "text": "warning_amber  Enter the [Infested field] [15m]",
+    "onclick": "change_location({location_id: this.getAttribute('data-travel')});"
+  },
+  {
+    "tag": "DIV",
+    "id": "",
+    "text": "bed Travel to [Shack] [10m]",
+    "onclick": "change_location({location_id:this.getAttribute('data-travel'), event});"
+  },
+  {
+    "tag": "DIV",
+    "id": "",
+    "text": "warning_amber Travel to [Infested field] [15m] ",
+    "onclick": "change_location({location_id: this.getAttribute('data-travel'), event});"
+  },
+  {
+    "tag": "DIV",
+    "id": "",
+    "text": "construction Try to craft something",
+    "onclick": "openCraftingWindow()"
+  },
+  {
+    "tag": "DIV",
+    "id": "",
+    "text": "check_box_outline_blank Talk to village elder",
+    "onclick": "start_dialogue(this.getAttribute('data-dialogue'));"
+  },
+  {
+    "tag": "DIV",
+    "id": "",
+    "text": "check_box_outline_blank Talk to old craftsman",
+    "onclick": "start_dialogue(this.getAttribute('data-dialogue'));"
+  },
+  {
+    "tag": "DIV",
+    "id": "",
+    "text": "check_box_outline_blank Trade on the village market",
+    "onclick": "startTrade(this.getAttribute('data-trader'));"
+  },
+  {
+    "tag": "DIV",
+    "id": "",
+    "text": "Pays 5C per every 2 hours workedcheck_box_outline_blank Take a loaned kit and patrol with Tessa (2 hours, 50 coins).",
+    "onclick": "start_activity(this.getAttribute('data-activity'));"
+  },
+  {
+    "tag": "DIV",
+    "id": "",
+    "text": "check_box_outline_blank Go for a run around the village",
+    "onclick": "start_activity(this.getAttribute('data-activity'));"
+  },
+  {
+    "tag": "DIV",
+    "id": "",
+    "text": "check_box_outline_blank Try to carry some bags of grain",
+    "onclick": "start_activity(this.getAttribute('data-activity'));"
+  },
+  {
+    "tag": "DIV",
+    "id": "",
+    "text": "Efficiency scaling:\"Woodcutting\" skill lvl 0 to 15Every 19 minutes, chance to find:x1 \"Rough wood log\" at 65%x1 \"Tree sap\" at 2%check_box_outline_blank Gather wood on the outskirts",
+    "onclick": "start_activity(this.getAttribute('data-activity'));"
+  },
+  {
+    "tag": "DIV",
+    "id": "",
+    "text": "Not available during Winter Efficiency scaling:\"?????\" skill lvl 0 to 15Every 1 hour 13 minutes, chance to find:x1 \"???\" at 31%x1 \"???\" at 11%x1 \"???\" at 1%x1 \"???\" at 0%check_box_outline_blank Try fishing in the river",
+    "onclick": "start_activity(this.getAttribute('data-activity'));"
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Ask for repair notes (one field clear)",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Buy repair notes (10 coins)",
+    "onclick": null
+  },
+  {
+    "tag": "DIV",
+    "id": "trader_sort_by_name",
+    "text": "Sort by name",
+    "onclick": "sortTraderInventory(\"name\")"
+  },
+  {
+    "tag": "DIV",
+    "id": "trader_sort_by_price",
+    "text": "Sort by value",
+    "onclick": "sortTraderInventory(\"price\")"
+  },
+  {
+    "tag": "DIV",
+    "id": "trader_sort_by_type",
+    "text": "Sort by type",
+    "onclick": "sortTraderInventory(\"type\")"
+  },
+  {
+    "tag": "DIV",
+    "id": "trader_category_all",
+    "text": "\n                                all\n                            ",
+    "onclick": "showAllTraderItems()"
+  },
+  {
+    "tag": "DIV",
+    "id": "trader_category_equipment",
+    "text": "\n                                equipment\n                            ",
+    "onclick": "showOnlyTraderEquipment()"
+  },
+  {
+    "tag": "DIV",
+    "id": "trader_category_usable",
+    "text": "\n                                usable\n                            ",
+    "onclick": "showOnlyTraderConsumables()"
+  },
+  {
+    "tag": "DIV",
+    "id": "trader_category_other",
+    "text": "\n                                other\n                            ",
+    "onclick": "showOnlyTraderOther()"
+  },
+  {
+    "tag": "DIV",
+    "id": "accept_trade_button",
+    "text": "\n                                Accept\n                            ",
+    "onclick": "acceptTrade()"
+  },
+  {
+    "tag": "DIV",
+    "id": "cancel_trade_button",
+    "text": "\n                                Cancel\n                            ",
+    "onclick": "cancelTrade()"
+  },
+  {
+    "tag": "DIV",
+    "id": "exit_trade_button",
+    "text": "\n                                Exit\n                            ",
+    "onclick": "exitTrade()"
+  },
+  {
+    "tag": "DIV",
+    "id": "storage_sort_by_name",
+    "text": "Sort by name",
+    "onclick": "sortStorageInventory(\"name\")"
+  },
+  {
+    "tag": "DIV",
+    "id": "storage_sort_by_price",
+    "text": "Sort by value",
+    "onclick": "sortStorageInventory(\"price\")"
+  },
+  {
+    "tag": "DIV",
+    "id": "storage_sort_by_type",
+    "text": "Sort by type",
+    "onclick": "sortStorageInventory(\"type\")"
+  },
+  {
+    "tag": "DIV",
+    "id": "storage_category_all",
+    "text": "\n                                all\n                            ",
+    "onclick": "switchStorageItemVisibility()"
+  },
+  {
+    "tag": "DIV",
+    "id": "storage_category_equipment",
+    "text": "\n                                equipment\n                            ",
+    "onclick": "switchStorageItemVisibility('equipment')"
+  },
+  {
+    "tag": "DIV",
+    "id": "storage_category_usable",
+    "text": "\n                                usable\n                            ",
+    "onclick": "switchStorageItemVisibility('consumables')"
+  },
+  {
+    "tag": "DIV",
+    "id": "storage_category_other",
+    "text": "\n                                other\n                            ",
+    "onclick": "switchStorageItemVisibility('other')"
+  },
+  {
+    "tag": "DIV",
+    "id": "exit_storage_button",
+    "text": "\n                                Exit\n                            ",
+    "onclick": "exitStorage()"
+  },
+  {
+    "tag": "DIV",
+    "id": "",
+    "text": "Tinkering",
+    "onclick": "switchCraftingRecipesPage('crafting')"
+  },
+  {
+    "tag": "DIV",
+    "id": "",
+    "text": "Butchering",
+    "onclick": "switchCraftingRecipesPage('butchering')"
+  },
+  {
+    "tag": "DIV",
+    "id": "",
+    "text": "Cooking",
+    "onclick": "switchCraftingRecipesPage('cooking')"
+  },
+  {
+    "tag": "DIV",
+    "id": "",
+    "text": "Woodworking",
+    "onclick": "switchCraftingRecipesPage('woodworking')"
+  },
+  {
+    "tag": "DIV",
+    "id": "",
+    "text": "Smelting",
+    "onclick": "switchCraftingRecipesPage('smelting')"
+  },
+  {
+    "tag": "DIV",
+    "id": "",
+    "text": "Forging",
+    "onclick": "switchCraftingRecipesPage('forging')"
+  },
+  {
+    "tag": "DIV",
+    "id": "",
+    "text": "Alchemy",
+    "onclick": "switchCraftingRecipesPage('alchemy')"
+  },
+  {
+    "tag": "DIV",
+    "id": "",
+    "text": "Items/trinkets",
+    "onclick": "switchCraftingRecipesSubpage('items')"
+  },
+  {
+    "tag": "DIV",
+    "id": "",
+    "text": "Components",
+    "onclick": "switchCraftingRecipesSubpage('components')"
+  },
+  {
+    "tag": "DIV",
+    "id": "",
+    "text": "Equipment",
+    "onclick": "switchCraftingRecipesSubpage('equipment')"
+  },
+  {
+    "tag": "DIV",
+    "id": "exit_crafting_button",
+    "text": "\n                            Exit\n                        ",
+    "onclick": "closeCraftingWindow()"
+  },
+  {
+    "tag": "BUTTON",
+    "id": "cancel_craft_visual_effect",
+    "text": "Cancel visual effect",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "↕",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Collapse",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Earlier",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Later",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Pin",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Hide",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "←",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "↑",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "↓",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "→",
+    "onclick": null
+  },
+  {
+    "tag": "DIV",
+    "id": "journal_show_quests",
+    "text": "Quests",
+    "onclick": "showQuests()"
+  },
+  {
+    "tag": "DIV",
+    "id": "journal_show_bestiary",
+    "text": "Bestiary",
+    "onclick": "showBestiary()"
+  },
+  {
+    "tag": "DIV",
+    "id": "journal_show_books",
+    "text": "Anthology",
+    "onclick": "showReadBooks()"
+  },
+  {
+    "tag": "DIV",
+    "id": "journal_show_data",
+    "text": "Data",
+    "onclick": "showData()"
+  },
+  {
+    "tag": "BUTTON",
+    "id": "journal_show_notebook",
+    "text": "Notebook",
+    "onclick": "showNotebook()"
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "INPUT",
+    "id": "quest_hiding_button",
+    "text": "",
+    "onclick": "changeCompletedQuestVisibility()"
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "↕",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Collapse",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Earlier",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Later",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Pin",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Hide",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "←",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "↑",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "↓",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "→",
+    "onclick": null
+  },
+  {
+    "tag": "INPUT",
+    "id": "options_hide_max_level_skills",
+    "text": "",
+    "onclick": "option_hide_max_level_skills()"
+  },
+  {
+    "tag": "DIV",
+    "id": "skill_sort_by_name",
+    "text": "Sort by name",
+    "onclick": "sortSkills({sort_by:\"name\"})"
+  },
+  {
+    "tag": "DIV",
+    "id": "skill_sort_by_level",
+    "text": "Sort by level",
+    "onclick": "sortSkills({sort_by:\"level\"})"
+  },
+  {
+    "tag": "DIV",
+    "id": "skill_sort_by_progress",
+    "text": "Sort by progress",
+    "onclick": "sortSkills({sort_by:\"progress\"})"
+  },
+  {
+    "tag": "INPUT",
+    "id": "stances_fav_normal",
+    "text": "",
+    "onclick": "fav_stance('normal')"
+  },
+  {
+    "tag": "INPUT",
+    "id": "stances_select_normal",
+    "text": "",
+    "onclick": "select_stance('normal')"
+  },
+  {
+    "tag": "DIV",
+    "id": "show_skills",
+    "text": "Skills",
+    "onclick": "showSkills()"
+  },
+  {
+    "tag": "DIV",
+    "id": "show_stances",
+    "text": "Stances",
+    "onclick": "showStances()"
+  },
+  {
+    "tag": "DIV",
+    "id": "show_magic",
+    "text": "Magic",
+    "onclick": "showMagic()"
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "↕",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Collapse",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Earlier",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Later",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Pin",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Hide",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "←",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "↑",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "↓",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "→",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "life_remember_day",
+    "text": "Remember this day",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "meet_village_neighbors",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "DIV",
+    "id": "message_show_unlocks",
+    "text": "Levels / unlocks",
+    "onclick": "showUnlocksMessages()"
+  },
+  {
+    "tag": "DIV",
+    "id": "message_show_events",
+    "text": "Events",
+    "onclick": "showEventsMessages()"
+  },
+  {
+    "tag": "DIV",
+    "id": "message_show_crafting",
+    "text": "Crafting",
+    "onclick": "showCraftingMessages()"
+  },
+  {
+    "tag": "DIV",
+    "id": "message_show_combat",
+    "text": "Combat",
+    "onclick": "showCombatMessages()"
+  },
+  {
+    "tag": "DIV",
+    "id": "message_show_loot",
+    "text": "Loot",
+    "onclick": "showLootMessages()"
+  },
+  {
+    "tag": "DIV",
+    "id": "message_show_background",
+    "text": "BGM",
+    "onclick": "showBackgroundMessages()"
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "↕",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Expand",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Earlier",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Later",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Pin",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Hide",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "←",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "↑",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "↓",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "→",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Begin",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "↕",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Expand",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Earlier",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Later",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Pin",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Hide",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "←",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "↑",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "↓",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "→",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "village_promotion",
+    "text": "Ask Tessa: Dependable worker",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "↕",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Collapse",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Earlier",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Later",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Pin",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Hide",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "←",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "↑",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "↓",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "→",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "notebook_tab_here",
+    "text": "Here",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "notebook_tab_practice",
+    "text": "Practice",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "notebook_tab_people",
+    "text": "People",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Unavailable: Discuss the offered work",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Ask about local parcel work",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Cancel · forfeit spent inputs",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Pause after current work",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Resume remaining target",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Withdraw · spent inputs stay spent",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Open or reopen the folded doorway · 1 wooden coin",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Step into the Glasshouse · carry your actual belongings",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Return to the Village · keep carried belongings",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Close the doorway · keep the interior",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Ask Iona about the folded workshop frame",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Meet the caretaker · no repair promise",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Fit an ordinary frame brace · 2 logs + kit + 2 stamina · 4 min",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Brace with Load-bearing Step · log + 3 drive + 1 stamina · 2 min",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Leave the repair to Joss · no debt",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Ask how Joss fixed the frame",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Test dry packing with Joss · kit + 1 stamina each · 3 min",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Receive Joss’s one template · unique gift",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Pack two dry survey kits · 2 logs + 2 stamina · 3 min",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Rest in the dry corner · 4 min · recover 2 stamina",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Cover the bench against dust",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Uncover the repaired bench",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Ask Joss about your earlier visit",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Ask Joss what staying here involves",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Make Joss a kit · log + 1 stamina · 4 min · wages 2 coins",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Test a damp blank · blank + 1 stamina · 2 min · expected failure",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Fit a sound calibration seal · blank + 1 stamina · 3 min",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Ask for a joint packing trial · kit each + 1 stamina each · 3 min",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Build a calibration shelf · fitted seal + 2 logs + 2 coins · 5 min",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Ask what bench work Joss wants to share",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Compare this visit with the earlier work",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Decline new residence work · no debt",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Ask about leaving or closing the route · no commitment",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Contribute to Joss’s bench fund · 1 wooden coin",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Pack with Joss’s pattern · 2 logs + 2 stamina · 3 min",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Calibrate Joss’s Frame listener here · 1 coin",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Craft your paired viewing device here · template + 2 logs + kit + 2 stamina",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Activate the Village viewing slit · 1 coin · 12 played min",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Shut your actual viewing device",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Send the deliberate claim “visiting artisan”",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Introduce locally for calibration · 1 coin",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Replay your stored viewing evidence · no sample or cost",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Cancel your current Glasshouse work",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Ask about the survey notice",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Visit the town survey office",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Check the forest road for the survey office",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Prepare two wood logs for the town markers",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Deliver your contribution to the survey office",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Share the corrected ledger in Village",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Cancel unfinished town work",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Cancel accepted work · spent inputs remain",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Withdraw from the agreed press · keep spent inputs",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Follow local people and work",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Observe a wolf rat at the field edge",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Study the Rat-step pattern",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Internalize Rat-step",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Practice Rat-step slowly",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Practice Rat-step decisions",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Cancel timed practice · no practice reward",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Begin a body record",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Study your footing · 2 min",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Practice careful grips · 3 min · 2 stamina",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Keep the practiced grip",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Shape a rough kit · 1 log + 1 coin · 3 min",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Rest your hands · 3 min",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Cancel body work · spent stamina is lost",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Pause future preparation",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Resume the next legal preparation step",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Cancel future preparation",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Remove the ended preparation phase",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Begin chronicle · age 18, no old-age ending",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Begin mortal chronicle · age 18, life ends at 80",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Inspect the elder",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Request a control challenge",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Attack the elder · hostile confrontation",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Guard",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Ordinary sidestep",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Use earned Rat-step",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Strike / counterattack",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Withdraw / concede",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Untimed manual responses",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Idle plan: guard, then counter",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Idle plan: move on sweeps, guard tracking, then counter",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Hear local reports",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Attend the cartographer briefing",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Accept archive duty · a concrete promise",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Keep archive promise · 5 min, 1 coin",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Cancel archive work · reserved coin refunded",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Claim the archive succession",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Discuss the observed counter",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Attend the private guard lesson",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Settle the assault grievance · 3 coins",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Write down reading the road",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Teach your apprentice reading the road · 5 minutes",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Write down a patient guard",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Teach your apprentice a patient guard · 5 minutes",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Write down watching an opponent",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Teach your apprentice watching an opponent · 5 minutes",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Ask about his working habits",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Ask for his attention at the busy bench",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Give him a quiet moment · 3 min",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Apologize and contribute a log",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Take a quiet break in the Shack · 3 min",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Let him see your tender hands",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Show your practiced grip",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Let him see the palm mark",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Demonstrate your steady footing",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Follow local people and work",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Meet Lio, the association porter",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Prepare a peaceful settlement kit · 1 log + 2 stamina + 3 min",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Help Lio rest and re-rig one guard · 1 kit + 3 min",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Speak to the wary traveler",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Compare the mill slip · 2 min",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Fit a new cart brace · 1 log + 4 stamina · 3 min",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Decline the repair request",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Hear Tamsin's register reply",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Ask how the repaired cart fared",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Ask for the bracing description",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Practice bracing with Tamsin · 2 stamina · 2 min",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Pack a braced survey kit · 1 log + 2 stamina · 2 min",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Hear how Tamsin continued",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Hear how Tamsin continued",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Meet the rival road scout",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Accept the native combat duel",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Settle the route dispute · 1 kit",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Mask the trail · 2 stamina + 2 min",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Call off this contest",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Ask for Mara's current road report",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Help Mara recover · 1 kit + 3 min",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Arrange another road contest",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Hire a pathfinder · 1 log + 3 coins",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Commission a kit · 2 logs + 1 coin",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Collect the finished commissioned kit",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Pack carefully · 1 log + 2 coins · 3 min",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Learn measured packing · 1 coin",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Ask Tamsin about a shared cart check",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Patient load check · 1 log + 2 stamina · 5 min",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Quicker carry · 4 stamina · 2 min",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Decline this outing · no duty or cost",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Hear Tamsin’s account of your shared check",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Hear Tamsin’s account of your shared check",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Pack one measured kit with Tamsin · 1 log + 1 stamina · 3 min",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Pack one measured kit with Tamsin · 1 log + 2 stamina · 4 min",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Ask Eda about measured cooling",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Buy one actual charged cooling sleeve · 2 coins",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Buy one actual salt packet · 1 coin",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Set one sap with an ordinary sleeve · 1 stamina + 3 min",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Bind two sound staves with set resin · two survey kits + 3 min",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Recharge your empty sleeve · 1 salt + 1 stamina + 3 min",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Learn measured cooling from Eda · 1 coin + 3 min",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Practice one supervised cooling trial · 1 coin + 1 salt + 3 min",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Cool Oren's exposed hook grip · charged sleeve + 2 stamina",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Ask Eda about her pale vials and workshop dog",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Buy one Unmarked pale vial · 2 coins",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Buy one Workshop ration · 1 coin",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Observe one pale vial on the bench sample · 1 stamina + 3 min",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Apply a pale vial to your own dull plain knife · 1 stamina + 3 min",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Apply a pale vial to your own dull fine guided knife · 1 stamina + 3 min",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Scent Eda's recess with identified reed oil · 1 stamina",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Feed Rill one Workshop ration · up to 2 satiety + 2 dog stamina",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Practice one ordinary scent lesson with Rill · 2 min + care effort",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Recover one of Eda's actual pins by hand · 2 stamina + 4 min",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Ask trained Rill to retrieve one actual pin · care + 1 stamina + 1 min",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Bind one pin, sound stave and set resin into a survey kit · 1 stamina + 3 min",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Hand Rill's workshop attention back to Eda",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Ask Eda and Rill to resume willing workshop practice",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Hear Eda's ordinary frame terms · free, optional",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Commission the clamping frame · 2 logs + 1 Survey rope + 3 coins + 2 stamina + 5 min",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Bind two kits on your ordinary frame · 1 sap + 2 sound staves + 2 stamina + 6 min",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Ask Eda about your earned workshop choice",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Choose one actual stocked charged sleeve · forego the focused lesson",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Choose controlled resin-setting instruction · 1 coin + 1 salt + 3 min",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Leave the earned choice open",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Set one sap with controlled cooling · 1 stamina + 2 min",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Connect your local work into a home-world chapter · free",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Publish an accountable local report with Eda · 1 coin + 1 stamina + 2 min",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Keep an honest private working record · 1 min",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Read your changed home-world return · free",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Apply your tested loaded control at the blocked drain · held kit + 1 stamina + 2 min",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Line the inspected notch with your measured strip · strip + held kit + 1 stamina + 2 min",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Ask Vela about a current sample and a lens loan · free",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Borrow Vela’s one amber prism · 4-coin refundable deposit + 30 supported min",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Return Vela’s exact loose lens · refund original 4-coin deposit once",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Return Vela’s exact loose lens · refund original 4-coin deposit once",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Accompany willing Vela to the repaired room · her 1 stamina + 2 min",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Accompany Vela back to her Village stall · her 1 stamina + 2 min",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Hear Vela’s late-return terms · free",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Hear Vela’s late-return terms · free",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Measure the current notch outdoors with your owned prism · your 1 stamina + 4 min",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Measure the current notch in the dry room with your owned prism · your 1 stamina + 2 min",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Measure the current notch outdoors with Vela’s exact borrowed prism · your 1 stamina + 4 min",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Measure the current notch in the dry room with Vela’s exact borrowed prism · your 1 stamina + 2 min",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Measure the current notch outdoors with Vela’s owner-operated prism · 1 coin + Vela’s 1 stamina + 4 min",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Measure the current notch in the dry room with Vela’s owner-operated prism · 1 coin + Vela’s 1 stamina + 2 min",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Hear Eda’s separate datum lesson terms · optional",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Learn datum marking yourself · 2 coins + held offcut + our effort + 5 min",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Offer Neri datum instruction · 1 offcut + 2 coins escrow",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Fit your measured drain strip · 1 offcut + 1 stamina + 2 min",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Receive Neri’s exact produced strip · separate handover",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Release Neri from this unfinished new work · retain any learned procedure",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Withdraw unchanged lesson escrow · 1 offcut + 2 coins returned",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Withdraw unchanged lesson escrow · 1 offcut + 2 coins returned",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Hear Neri’s current lesson and product account",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Hear Neri’s current lesson and product account",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Keep ordinary larger-material lining · no lesson or fee",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Release Neri from this unfinished new work · retain any learned procedure",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Fit the measured bed cover · 2 compatible offcuts + 2 stamina + 2 min · 5 herbs",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Fit the narrow bed opening · measured strip + 1 stamina + 2 min · 5 herbs",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Keep your two green scraps for ordinary drying · free",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Block the inspected notch · 2 green offcuts + 1 stamina + 1 min",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Inspect the changed notch and material account · free",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Ask the same office staff about relay work",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Decline the extra relay work and badge",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Do ordinary relay packing · kit + 1 coin",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Borrow Eda’s actual physical relay badge",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Use the badge fastening in one demonstration",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Make a compatible badge fastening · 1 log + 1 sap",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Repair Eda’s exact loose badge · 1 fastening",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Return Eda’s sound relay badge",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Return Eda’s relay badge loose",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Use the real office right to pack your kit",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Deliver your real relay parcel · 3 coins",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Unpack the undelivered parcel into your same kit",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Credit Bera’s actual case repair",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Claim Bera’s old repair and take its invitation",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Use the allocated invitation · kit + 2 coins",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Hear Bera’s correction · return the unused invitation",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Hear Bera’s correction after the invitation was spent",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Compensate Bera’s diverted opportunity · 2 coins",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Witness Bera perform her rightful invitation",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Buy Bera’s actual kit · 3 coins",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Meet the relay staff later · remembered history",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Meet the relay staff later · remembered history",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Meet the relay staff later · remembered history",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Meet the relay staff later · known unpaid compensation",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Ask Orrin about the office entry",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Compare the actual appointment with the name claim",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Compare the old report with the returned office",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Ask what Bera’s own comparison established",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Listen while Orrin straightens the counter",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Leave the comparison for another day",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Return to the same people and remembered discussion",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Read the service-district entry terms",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Approve the voluntary side-entry resident",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Meet Lin and Mara’s service district",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Accept employee service approval",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Accept contractor assignment approval",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Work Lin’s funded service shift · 6 min · earn 4 hub credits",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Take Lin’s paid staff supply · 1 employee-owned kit · 1 credit",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Rest in Lin’s paid room · 2 credits · 4 min",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Use subsidized staff rest · 1 credit · 4 min",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Pay Oren for body care · 2 credits · 3 min",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Refit owned rope into a survey kit · 2 credits · 3 min",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Study Oren’s attributed pressure fragment · 2 credits",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Learn the supported return stroke · 2 credits + log · 3 min",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Hear Lin’s household concern",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Inspect the actual waterworks · 2 min",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Work Brin’s funded landing shift · earn 2 credits · 3 min",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Brace local water pumps · 2 logs + rope · 4 min",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Stabilize the pump by learned pressure · kit + rope support · 2 min",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Authorize the finite export duty",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Record refusal of the export allocation",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Inspect the disputed record · 2 min",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Register a bounded claim from actual evidence",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Record unresolved evidence and refuse registration",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Preserve the witness sheet by supported pressure · 2 min",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Buy one kit · 3 hub credits",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Buy one rope · 2 hub credits",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Buy one log · 2 hub credits",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Buy one kit · 3 hub credits",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Buy one rope · 2 hub credits",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Buy one log · 2 hub credits",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Buy one kit · 3 hub credits",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Buy one rope · 2 hub credits",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Buy one log · 2 hub credits",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Recover one unclaimed local log",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Recover one unclaimed local rope",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Recover one unclaimed local rope",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Hear the disputed catalogue appointment",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Ask what the badge actually authorizes",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Hear the records-room witness",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Compare the dated repair minutes · reusable kit",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Request a corroborated correction and qualified appointment",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Negotiate credited joint work under registrar oversight",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Decline to decide another archive’s appointment",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Demand the office by displaying your hub contract",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Report the actual appointment disposition to the hub",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Record that you returned without deciding the appointment",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Hear the jurisdiction review and retained later treatment",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Make bounded restitution for the jurisdiction demand · 2 credits",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Meet the same archive under its retained appointment",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Meet the same archive under its retained appointment",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Meet the same archive under its retained appointment",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Meet the same archive under its retained appointment",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Hear export terms and the keeper’s water duty",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Inspect the shared outlet with the foreman",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Repair both lines and honor the export · 2 logs + rope",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Honor the export through the already repaired works · 1 owned rope",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Deliver the export through the intact outlet · 1 owned rope",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Support rationing and record a partial export · 1 log",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Withhold the export and decline the repair commitment",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Force the outlet and seize the delivered-export claim",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Account for the export decision that already happened",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Account for the export decision that already happened",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Account for the export decision that already happened",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Record your return without a local allocation decision",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Return a truthful export and welfare report",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Accept the separate issuer and water accounts",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Fulfill the retained water duty on reentry · 2 logs + rope",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Hear the keeper’s changed later water account",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Hear the keeper’s changed later water account",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Hear the keeper’s changed later water account",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Hear the keeper’s changed later water account",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Hear the keeper’s changed later water account",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Hear the keeper’s changed later water account",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Ask the trainer what the fragment leaves out",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Test an ordinary brace before learning the pulse",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Distinguish your earned lesson from the written fragment",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Use the supported pulse on the real water brace · log + effort",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Observe the retained counter and correct your inference",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Pay for reversal refinement · 2 credits + paired effort",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Keep the old pulse and state its actual limit",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Decline the pulse path and build an ordinary bypass · 2 logs + rope",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Publish the incomplete fragment as your exclusive invention",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Correct the false attribution and compensate one lost lesson · 1 credit",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Teach the foreman a consented reversal lesson · rope + 1 credit + paired effort",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Observe the foreman’s own taught operation",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Protect the later archive evidence with reversal control",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Resolve the later archive work under your retained method limits",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Resolve the later archive work under your retained method limits",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Resolve the later archive work under your retained method limits",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Hear Lin’s one supply request and open its one finite demand",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Do Lin’s one supply request · 4 min · earn 3 credits",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Decline Lin’s one supply request without spending materials",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Spend a quiet moment with Lin",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Hear Lin’s retained local account",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Hear Brin’s one maintenance request and open its one finite demand",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Do Brin’s one maintenance request · 3 min · earn 2 credits",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Decline Brin’s one maintenance request without spending materials",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Spend a quiet moment with Brin",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Hear Brin’s retained local account",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Hear Ivo’s one shelf request and open its one finite demand",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Do Ivo’s one shelf request · 4 min · earn 1 credits",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Decline Ivo’s one shelf request without spending materials",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Spend a quiet moment with Ivo",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Hear Ivo’s retained local account",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Buy one of Brin’s actual maintained kits · 1 credit",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Use Ivo’s shelf for one organized tool exchange · rope + 1 credit · 2 min",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Complete experimental admission drill · demonstration actors and budgets only",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Pack 3 kits automatically · reserve each kit's inputs when work starts",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Pause automatic packing after the current kit",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Resume the remaining packing target",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Cancel your current work · refund reserved inputs",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Arrange Neri's trail test",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Keep a low profile · 2 stamina + 2 min",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Call off the field test",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Ask for Neri's field report",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Settle the challenge over tea · 1 coin",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Accept the nonlethal footwork test",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Arrange the marked-trail test",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Call off the marked-trail test",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Settle the meeting peacefully · 1 coin",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Answer the nonlethal encounter",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Ask for the agreed follow-up report",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Wash off the ink mark · 1 coin + 2 min",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Mask this trail · 2 stamina + 2 min",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Accept a timed heavenly writ · 4 min",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Dismiss this demonstration",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Settle the meeting peacefully · 1 coin",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Answer the nonlethal encounter",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Ask for the agreed follow-up report",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Arrange a review after workshop assembly",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Dismiss this demonstration",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Settle the meeting peacefully · 1 coin",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Answer the nonlethal encounter",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Ask for the agreed follow-up report",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Meet the rival road scout",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Accept the native combat duel",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Settle the route dispute · 1 kit",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Mask the trail · 2 stamina + 2 min",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Call off this contest",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Ask for Mara's current road report",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Help Mara recover · 1 kit + 3 min",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Arrange another road contest",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Start / resume the native duel",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Withdraw · keep injuries and spent stamina",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Review the field renewal",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Confirm field renewal",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Keep current training",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Meet Lio, the association porter",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Prepare a peaceful settlement kit · 1 log + 2 stamina + 3 min",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Help Lio rest and re-rig one guard · 1 kit + 3 min",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Cancel preparation / re-rig · reserved inputs return",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Ask whether Lio can assist · no commitment",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Decline assistance · no cost",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Accept with Lio · 1 coin",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Offer a kit instead of fighting",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Ask Lio to step out · costs stay spent",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Speak to the clerk with a damp parcel",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Accept one seal order · payment 2 wooden coins",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Leave the parcel work to Iona · no debt",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Buy one damp blank · 1 wooden coin",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Buy one sound blank · 3 wooden coins",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Dry one damp blank · 1 stamina · 4 min",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Fit with a survey kit · blank + kit + 2 stamina · 5 min",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Borrow Iona’s gauge for this order · return required",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Return the borrowed gauge",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Fit with practiced bracing · blank + 4 stamina · 2 min",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Deliver one fitted seal · collect 2 wooden coins",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Withdraw the order · keep purchased stock",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Ask how the seal worked · receive the template",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Ask how Iona continued with the parcel",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Ask how Iona continued with the parcel",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Ask how Iona continued with the parcel",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Buy the template and instruction · 5 wooden coins",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Pack two kits with the template · 2 logs + 2 stamina · 3 min",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Cancel reserved work · inputs return",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Look through the paired glass · anonymous live view",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Close the outer shutter · 1 log + 2 stamina",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Introduce yourself for calibration · 1 wooden coin",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Return to the glass and inspect what remains",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Return to the glass and inspect what remains",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Return to the glass and inspect what remains",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Read the stored impression · no live sampling",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Speak to the wary traveler",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Compare the mill slip · 2 min",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Fit a new cart brace · 1 log + 4 stamina · 3 min",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Decline the repair request",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Hear Tamsin's register reply",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Ask how the repaired cart fared",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Ask for the bracing description",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Practice bracing with Tamsin · 2 stamina · 2 min",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Pack a braced survey kit · 1 log + 2 stamina · 2 min",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Hear how Tamsin continued",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Hear how Tamsin continued",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Ask Tamsin about a shared cart check",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Patient load check · 1 log + 2 stamina · 5 min",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Quicker carry · 4 stamina · 2 min",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Decline this outing · no duty or cost",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Hear Tamsin’s account of your shared check",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Hear Tamsin’s account of your shared check",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Pack one measured kit with Tamsin · 1 log + 1 stamina · 3 min",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Pack one measured kit with Tamsin · 1 log + 2 stamina · 4 min",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Cancel accepted work · return each participant’s reserved inputs",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "↕",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Collapse",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Earlier",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Later",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Pin",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Hide",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "←",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "↑",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "↓",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "→",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "↕",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Collapse",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Earlier",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Later",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Pin",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Hide",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "←",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "↑",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "↓",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "→",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "↕",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Collapse",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Earlier",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Later",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Pin",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Hide",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "←",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "↑",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "↓",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "→",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Apply and save",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Reset draft",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Discard draft",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Preview receipt",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Cancel preview",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "↕",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Collapse",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Earlier",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Later",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Pin",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Hide",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "←",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "↑",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "↓",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "→",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Selected tab",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "A longer comparison label",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Inspect sample action",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Unavailable action",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "",
+    "onclick": null
+  },
+  {
+    "tag": "DIV",
+    "id": "save_button",
+    "text": "Save",
+    "onclick": "saveProgress()"
+  },
+  {
+    "tag": "DIV",
+    "id": "save_to_file_button",
+    "text": "Export\nReward available in: 3:3:9 real time",
+    "onclick": "saveToFile()"
+  },
+  {
+    "tag": "DIV",
+    "id": "options_button",
+    "text": "settings",
+    "onclick": "openOptions()"
+  },
+  {
+    "tag": "INPUT",
+    "id": "options_textsize",
+    "text": "",
+    "onclick": "option_uniform_textsize()"
+  },
+  {
+    "tag": "INPUT",
+    "id": "options_bar_outline",
+    "text": "",
+    "onclick": "option_use_text_outlines_for_bars()"
+  },
+  {
+    "tag": "INPUT",
+    "id": "options_tooltip_outline",
+    "text": "",
+    "onclick": "option_use_text_outlines_for_tooltips()"
+  },
+  {
+    "tag": "INPUT",
+    "id": "options_bed_return",
+    "text": "",
+    "onclick": "option_bed_return()"
+  },
+  {
+    "tag": "INPUT",
+    "id": "options_save_messagelog_settings",
+    "text": "",
+    "onclick": "option_remember_filters()"
+  },
+  {
+    "tag": "INPUT",
+    "id": "options_dont_autoswitch_to_combat",
+    "text": "",
+    "onclick": "option_combat_autoswitch()"
+  },
+  {
+    "tag": "INPUT",
+    "id": "options_dynamic_message",
+    "text": "",
+    "onclick": "option_do_dynamic_loot_message()"
+  },
+  {
+    "tag": "INPUT",
+    "id": "options_use_uncivilised_temperature_scale",
+    "text": "",
+    "onclick": "option_use_uncivilised_temperature_scale()"
+  },
+  {
+    "tag": "INPUT",
+    "id": "options_do_background_animations",
+    "text": "",
+    "onclick": "option_do_background_animations()"
+  },
+  {
+    "tag": "INPUT",
+    "id": "options_change_background_color",
+    "text": "",
+    "onclick": "option_change_background_color()"
+  },
+  {
+    "tag": "INPUT",
+    "id": "options_do_enemy_onhit_animations",
+    "text": "",
+    "onclick": "option_do_enemy_onhit_animations()"
+  },
+  {
+    "tag": "INPUT",
+    "id": "options_skip_play_button",
+    "text": "",
+    "onclick": "option_skip_play_button()"
+  },
+  {
+    "tag": "INPUT",
+    "id": "options_mofu_mofu_mode",
+    "text": "",
+    "onclick": "option_mofu_mofu_mode()"
+  },
+  {
+    "tag": "DIV",
+    "id": "close_options",
+    "text": " X ",
+    "onclick": "closeOptions()"
+  },
+  {
+    "tag": "DIV",
+    "id": "backup_load_button",
+    "text": "Load the backup autosave",
+    "onclick": "loadTheBackup()"
+  },
+  {
+    "tag": "DIV",
+    "id": "import_other_save_button",
+    "text": "Import save from dev version",
+    "onclick": "importOtherSave()"
+  },
+  {
+    "tag": "DIV",
+    "id": "hard_reset_button",
+    "text": " Hard reset the game  warning_amber  ",
+    "onclick": "hardReset()"
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Export this saved life",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Begin an heir · fresh body, one lesson",
+    "onclick": null
+  },
+  {
+    "tag": "BUTTON",
+    "id": "",
+    "text": "Start a new game · resets all progress",
+    "onclick": null
+  }
+]

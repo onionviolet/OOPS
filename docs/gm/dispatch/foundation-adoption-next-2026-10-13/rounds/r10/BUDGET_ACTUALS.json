@@ -1,0 +1,19 @@
+{
+  "fixed": "NATIVE_BUDGET.json",
+  "knownPlayedMinutes": 3,
+  "lostUncommittedSessionDebit": 4,
+  "finalCleanupClock": "unknown after ambiguous withdrawal; no exact budget pass claimed",
+  "coinsGross": 0,
+  "kitGross": 1,
+  "padCraftedReservedConsumed": 1,
+  "jobs": 1,
+  "enrollments": 1,
+  "battleSessions": 1,
+  "battleActionsKnown": 2,
+  "playerActionsKnown": 1,
+  "npcActionsKnown": 1,
+  "staminaGrossKnown": 4,
+  "npcStaminaKnown": 1,
+  "noRetry": true,
+  "finalActuals": "OPEN pending genuine latest native commitment; no replacement allowance"
+}

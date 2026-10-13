@@ -1,0 +1,20 @@
+{
+  "schema": 1,
+  "inputs": {
+    "docs/research/novels/world-depth-2026-10-11/source/SOURCE_INVENTORY.json": "0bada23c414ac9260719acea564c503cc0a18aa9c97b29f124927f00b9507582",
+    "docs/research/novels/world-depth-2026-10-11/source/SOURCE_LEDGER.json": "86fa16cee0d1351913ed91fc6e3232b9134006bf04a29aa85ee239a47f2a254a",
+    "docs/research/novels/world-depth-2026-10-11/integration/DETAIL_LEDGER.json": "ac99e62f3152f7d4f7800a75be661f935462cca39ca656449c6e5fdfc1d4788f",
+    "docs/research/novels/world-depth-2026-10-11/starts/STARTS.json": "4ff4cfbc46fa1821017fb3bf6ae64f44ae102b225e7ecbe89f32723c9f81d5c6",
+    "docs/research/novels/world-depth-2026-10-11/starts/VARIANTS.json": "c782c2ede61b55844b65fef7fcda6ec06cc924599e481f8f1944770509e9cc3d",
+    "docs/research/novels/world-depth-2026-10-11/starts/VFX.json": "5e5fd70cd9a69925ba74906c773d142ce35f12c990de1e3e919542b201093dee",
+    "docs/research/novels/world-depth-2026-10-11/audits/source-v1/ENTITY_FUNCTIONS.json": "9a2af2345c1e1163a7f68752556c89a4a9be206dd530762bdba5997774f1e6b1",
+    "docs/research/novels/world-depth-2026-10-11/audits/source-v1/REMAINING_MANIFEST.json": "7a22817e103c22da594d2749a89e474efe7d4fabbb9836dbefb894c3439ac049",
+    "docs/research/novels/world-depth-2026-10-11/audits/journey/JOURNEY.json": "4efaa3814d8d314c96ef1f940f8491b623dbbb21c22eaac0a747a57448d0fc65",
+    "docs/gm/dispatch/dual-gm-2026-10-11/expansion/INPUT_DISPOSITIONS.json": "870ea77d30a0efa41f8bed32c1f83d420cd77dfe8f3d945223b552e4b64f0194",
+    "docs/gm/dispatch/dual-gm-2026-10-11/expansion/CROSS_SYSTEM_CASES.json": "120e2829926ac59a3f70fc03cb3108ba75b5402c6d799f7bcd80cfcc0f61697d",
+    "docs/research/novels/world-depth-2026-10-11/audits/source-v1/RECONCILIATION.json": "60ef383426798e2833c5e06a47bdce2121f10b8f150c522e21e196af5204b751",
+    "docs/research/novels/world-depth-2026-10-11/audits/join-review/SOURCE_CORRECTION_JOIN.json": "bd668e305c67d3d0ab6b115562dad4a29477dd54546d1d406142f6ad31e60e7e",
+    "docs/research/novels/world-depth-2026-10-11/audits/journey/SOURCE_RECEIPTS.json": "ff6c96bc2d4be615e1a70d4c1dc31c024cd60105a0f2f3cea364f17fbfcdda5f"
+  },
+  "private_ledger_sha256": "c8c2aa39bd720e9ef2479f0ca35d4ea0b2b0a53f1d2d021fe89ca26fc996bcf0"
+}

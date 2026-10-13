@@ -1,0 +1,21 @@
+{
+  "bundle": "cabf15ab8c078dce08e569514ae30bff782599e0d353374c2f9ed1da4438096c",
+  "rows": [
+    {
+      "kind": "malformed",
+      "unchanged": true,
+      "notice": "Import rejected. Current save kept. The file is not a valid base64 JSON save. "
+    },
+    {
+      "kind": "future",
+      "unchanged": true,
+      "notice": "Import rejected. Current save kept. This expansion save needs a compatible engine schema. "
+    },
+    {
+      "kind": "mismatched",
+      "unchanged": true,
+      "notice": "Import rejected. Current save kept. Received strip needs the same real Neri production. "
+    }
+  ],
+  "errors": []
+}

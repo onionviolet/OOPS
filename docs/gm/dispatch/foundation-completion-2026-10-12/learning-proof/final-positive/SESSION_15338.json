@@ -1,0 +1,101 @@
+{
+  "pid": 15338,
+  "servedHash": "cabf15ab8c078dce08e569514ae30bff782599e0d353374c2f9ed1da4438096c",
+  "origin": "http://127.0.0.1:18647",
+  "startedHash": "cabf15ab8c078dce08e569514ae30bff782599e0d353374c2f9ed1da4438096c",
+  "endedHash": "cabf15ab8c078dce08e569514ae30bff782599e0d353374c2f9ed1da4438096c",
+  "events": [
+    {
+      "workflowStep": {
+        "action": "completed",
+        "id": "remainder_consequences.plot_plant",
+        "save": "takeover-planted"
+      },
+      "index": 0,
+      "clock": 11759,
+      "sequence": 1332
+    },
+    {
+      "workflowStep": {
+        "action": "click",
+        "selector": "[data-action-legibility-key=\"action:world.completion.materials.cover_measured\"] button",
+        "save": "takeover-cover-accepted"
+      },
+      "index": 1,
+      "clock": 11764,
+      "sequence": 1338
+    },
+    {
+      "workflowStep": {
+        "action": "completed",
+        "id": "world.completion.materials.cover_measured",
+        "save": "takeover-cover-used"
+      },
+      "index": 2,
+      "clock": 11765,
+      "sequence": 1339
+    },
+    {
+      "workflowStep": {
+        "action": "export",
+        "name": "takeover-cover-used"
+      },
+      "index": 3,
+      "clock": 11765,
+      "sequence": 1339
+    },
+    {
+      "workflowStep": {
+        "action": "reload",
+        "save": "takeover-cover-reloaded"
+      },
+      "index": 4,
+      "clock": 11765,
+      "sequence": 1339
+    },
+    {
+      "workflowStep": {
+        "action": "literalImport",
+        "path": "/tmp/yairpg-foundation-learning-takeover-cover-used.txt",
+        "save": "takeover-cover-imported"
+      },
+      "index": 5,
+      "clock": 11765,
+      "sequence": 1339
+    },
+    {
+      "action": "workflow",
+      "steps": [
+        {
+          "action": "completed",
+          "id": "remainder_consequences.plot_plant",
+          "save": "takeover-planted"
+        },
+        {
+          "action": "click",
+          "selector": "[data-action-legibility-key=\"action:world.completion.materials.cover_measured\"] button",
+          "save": "takeover-cover-accepted"
+        },
+        {
+          "action": "completed",
+          "id": "world.completion.materials.cover_measured",
+          "save": "takeover-cover-used"
+        },
+        {
+          "action": "export",
+          "name": "takeover-cover-used"
+        },
+        {
+          "action": "reload",
+          "save": "takeover-cover-reloaded"
+        },
+        {
+          "action": "literalImport",
+          "path": "/tmp/yairpg-foundation-learning-takeover-cover-used.txt",
+          "save": "takeover-cover-imported"
+        }
+      ]
+    }
+  ],
+  "errors": []
+}

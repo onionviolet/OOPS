@@ -1,0 +1,27 @@
+{
+  "declaredBeforeNativePlay": true,
+  "startExport": "../r5/copy-completed-native.txt",
+  "startHash": "7104e70248ed35f4ee8e74457d643904a69eb761d76f6da97c844f4df82a8c21",
+  "startClock": 684,
+  "maxima": {
+    "coinsSpent": 6,
+    "logsSpent": 8,
+    "sapSpent": 2,
+    "soundStavesSpent": 2,
+    "wetStavesSpent": 2,
+    "playerStaminaSpent": 24,
+    "playedMinutes": 100,
+    "acquisitionAttempts": 4,
+    "merchantChecks": 2,
+    "retortJobs": 6,
+    "workPlans": 1,
+    "residueDisposals": 2,
+    "cancellations": 3,
+    "soundCutJobs": 1,
+    "soundDryJobs": 2,
+    "kitJobs": 1,
+    "usefulKitUses": 1,
+    "travel": 0
+  },
+  "route": "Village installation2logs2coins1stamina;2sap supports2completed batches plus1refund cancellation. Plan pauses after filled receivers, clear and explicit resume; third input shortage remains. One owned sharp knife cuts1log into2wet in4min2stamina, ordinary shade dries each6min2stamina; resin_kits1resin2sound1stamina3min gives2kits. Existing local downstream/native consumer selected from actual UI. No merchant purchases needed. Budget includes all ordinary PLAY ticking and inspection. Save/reload startup pause between analysis; no clock editing."
+}

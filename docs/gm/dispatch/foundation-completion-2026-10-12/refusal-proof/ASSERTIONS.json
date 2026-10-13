@@ -1,0 +1,37 @@
+{
+  "status": "PASS",
+  "assertions": {
+    "R1_genuine_first_service_and_optional_second_bind": true,
+    "R2_finite_attention_spent_without_refill": true,
+    "R3_supported_normal_material_and_shutter_history": true,
+    "R4_native_sponsor_real_refusal": true,
+    "R5_new_offcut_and_two_coins_exactly_escrowed": true,
+    "R6_refusal_spent_no_npc_body_attention_wage_or_tool": true,
+    "R7_no_lesson_or_product": true,
+    "R8_actual_account_then_exact_withdrawal": true,
+    "R9_old_resident_state_preserved": true,
+    "R10_reload_exact_obligations_and_state": true,
+    "R10_literal_import_exact_obligations_and_state": true,
+    "R11_final_served_bundle_no_drift_or_page_errors": true
+  },
+  "finalBundle": "e73550a4344ec549b67b830112200a10f9ed1a6f652c8c54c1b1c1ee95bff7a9",
+  "finalOrigin": "http://127.0.0.1:18645",
+  "finalSequence": 1409,
+  "finalClock": 11842,
+  "branchOrigin": "STOP.json historical origin exact match",
+  "settledOrigin": "/tmp/yairpg-foundation-learning-refusal-final-refusal-extra-account.json",
+  "settledOriginSha256": "bd8a547a72a6ebe23d3bb370185445fc31f6e96b82c9215ea393e694cb299eb8",
+  "actualExport": "/tmp/yairpg-foundation-learning-refusal-final-withdrawn.txt",
+  "actualExportSha256": "72ba50e03588c648fe8bdfca74a5eddfe780c6d9f36f53f74dc432b4a0c76de8",
+  "privateFinalSave": "/tmp/yairpg-foundation-learning-refusal-final-natural-refusal-literal-imported.json",
+  "privateFinalSaveSha256": "9f5c8b9dda7351455a456755229fde43d7ce8b58d1b586406bbb81c044aee6fb",
+  "sourceHashes": {
+    "src/lore_practice_content.js": "dee0031568ae955b2d2d297d086eab468e3f8ccc0786045c811873e29b13edff",
+    "src/lore_practice_facts.js": "11e65fe0f0e67892e1f1de42f4d3132c1b90c47b96b924652dff1fd2b9644de8",
+    "src/audit_remainder_home_facts.js": "d1a38bd540474cce688a4c8dda5d85b69ee7b2affebbfdebdee47c63585ee95d",
+    "src/world_completion_learning_content.js": "9a905256fb3ead0d50c7c292b5b0529eb842dcb8c661eabe21324074e6c00070",
+    "src/world_completion_learning_facts.js": "6a1507d0e40fbbf07e087080e1eaebc67042d8118152616d125502c5d270c0a2",
+    "src/import_probe.js": "193653eac5a8a9df54c2c242c12ee2d2c75a88d274b97981e3af525d917e175b",
+    "src/main.js": "d75e214231b5b516cfc6511fdd82e13f9a6a4082e8993c622fd59bd04e6bf023"
+  }
+}

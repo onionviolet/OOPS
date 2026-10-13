@@ -1,0 +1,16 @@
+{
+  "id": "TEN-VALIDATION",
+  "executed_utc": "2026-10-11T16:09:16.850851+00:00",
+  "status": "passed",
+  "counts": {
+    "members": 304,
+    "inherited_claims": 1007,
+    "direct_claims": 44,
+    "events": 26,
+    "proposals": 12,
+    "downloaded_alternate_volume_bodies": 17
+  },
+  "runtime_checks": "none; research-only task",
+  "checks_passed": 129,
+  "checks_scope": "JSON, IDs/links, source identity/coverage, hashes, exact locators and private/public boundaries"
+}

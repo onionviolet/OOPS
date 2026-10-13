@@ -1,0 +1,62 @@
+{
+  "status": "ASSESSMENT_NO_AUTHORIZED_POSITIVE_ROUTE",
+  "assessmentAcceptance": "PASS_AFTER_INDEPENDENT_RECONCILIATION",
+  "technicalChain": "INCOMPLETE",
+  "nativeAttemptSelected": false,
+  "changedSystems": [
+    {
+      "id": "FA06/R1",
+      "paths": [
+        "src/agreed_duty_continuation.js",
+        "src/agreed_duty_facts.js",
+        "src/agreed_duty_host.js"
+      ],
+      "compatibility": "Exact prior outcome, fresh assent, finite reservation, terminal accounts and actual publisher; native R1 proof input-bound."
+    },
+    {
+      "id": "FA08/R3",
+      "paths": [
+        "src/cooling_refinement_content.js",
+        "src/cooling_refinement_facts.js",
+        "src/expansion_persistence.js",
+        "src/feature_expansion_battle_host.js"
+      ],
+      "compatibility": "Legacy known typo migration preserves paid costs/roll/due, frozen result and native combat startup. R3 exact evidence retained."
+    },
+    {
+      "id": "FA18/R11",
+      "paths": [
+        "src/absorb_c2/local_life.js"
+      ],
+      "compatibility": "Schema2 tickets; schema1/schema-less history yields zero retroactive tickets; coin/item/account atomic publication. Positive native missing."
+    }
+  ],
+  "actualArtifacts": [
+    {
+      "path": "rounds/r8/final-earned-native.txt",
+      "sha256": "f8bbef830d9a187a1e994a3cf05e960e2371aaa2c94e5e9f6a4beee33ad3a862",
+      "existsAndHashVerified": true,
+      "eligibility": "HISTORICAL_PRE_R10_ONLY; import would contradict paid R10 lineage if called current; R8 attempt permanently stopped."
+    },
+    {
+      "path": "rounds/r10/PAD_USED_PAUSED.json",
+      "eligibility": "Stored actual Save observation, not supported Export; ephemeral browser gone; withdrawal ambiguous; no reconstruction/replay."
+    },
+    {
+      "path": "/Users/weiwei/.codex/candidates/yairpg-foundation-adoption-2026-10-13-r11-native-profile",
+      "directoryVerified": true,
+      "eligibility": "Preserved stopped independent attempt at clock0/purse102/zero paid or tickets; no retry or unused allowance. Does not contain changed-positive evidence."
+    }
+  ],
+  "ownership": {
+    "sharedFoundation": "01a1363b-fa9f-7e71-9887-6983303952aa, effective R14 transfer",
+    "FA17": "Experience lane docs/gm/life-sim-experience-2026-10-07/CHECKPOINT.md; no exact current chat confirmation/transfer recovered",
+    "FA21": "cheats-sfx authoring lane checkpoint; UI successor release applies UI only, authoring open",
+    "FA22": "01a12ba4-8a07-7711-892c-6cbc1f278ee2; isolated candidate, integration unassigned",
+    "World1": "Paused; no resume",
+    "UI": "Excluded; serialized UI-adjacent ownership required"
+  },
+  "usefulNonRetryRoute": "None established for currently required positive integrated gate. No grinding, new test world, injection, awards or reconstructed export selected. Read-only provenance/hash/schema assessment can pass without closing native gates.",
+  "inputDrift": "R13 19 source/test hashes unchanged; R11 manifest 431 unchanged, six separate presentation/shared-main inputs drift. Exact old browser receipts retained at old bytes; no new browser compatibility claim.",
+  "remainingGate": "Current compatible legitimately earned changed-positive Save/reload/Export/literal-file Import and separate lane integration remain OPEN."
+}

@@ -1,0 +1,7 @@
+{
+  "src/lore_practice_runtime.js": "76fab55db9f453dad3e0c99a822430352fcecb7a64e97e45d0917196fff796ec",
+  "tests/lore_immediate_definition.test.js": "6d40dcc26893103fbe69318bd0f6bf1ad12ae0ca1c58643884292234259fcbf5",
+  "dist/bundle.js": "0e6d54c89228ace73ceaa6c964364a99eb13915fb66aa00f2838e4970470479b",
+  "dist/bundle.js.map": "9224e9cc31ecb2b0a1c667a453ed6ff523aef49fbfd8ca3effa093d7cd0fd245",
+  "index.html": "8d5a1963dc1b4ba89560a6cd5a7b3dc91ae2901a71174d9f388a2c17386d278c"
+}

@@ -1,0 +1,247 @@
+Tools, practice & local lives
+Eda’s fitting agreement
+Bench clearance study
+Eda’s offered-stock reports
+Optional paid cooling refinement
+A jointly agreed next duty
+Connect the home-world chapter
+Current condition & small preparations
+Fitting tools & materials
+Household work & apprenticeship
+The terraced harbor chart
+The sluice claim
+
+Known local opponents with separate native bodies and equipment. Your methods change targets, held guards, paid material support, gate progress and retreat. The slower drainage walk remains viable.
+
+Known actions
+Strike Nera
+
+Available
+
+Stated costs
+1 actual stamina · prior wounds/materials persist
+Do this: Strike Nera
+Track Nera’s opening
+
+Unavailable
+
+Why this is unavailable
+Track only the current learned capacity of visible active opponents.
+Stated costs
+2 actual stamina · prior wounds/materials persist
+Unavailable: Track Nera’s opening
+Read Nera’s response
+
+Unavailable
+
+Why this is unavailable
+Read one present opponent using the acquired shared-inquiry source.
+Stated costs
+2 actual stamina · prior wounds/materials persist
+Unavailable: Read Nera’s response
+Strike Oren
+
+Available
+
+Stated costs
+1 actual stamina · prior wounds/materials persist
+Do this: Strike Oren
+Track Oren’s opening
+
+Unavailable
+
+Why this is unavailable
+Track only the current learned capacity of visible active opponents.
+Stated costs
+2 actual stamina · prior wounds/materials persist
+Unavailable: Track Oren’s opening
+Read Oren’s response
+
+Unavailable
+
+Why this is unavailable
+Read one present opponent using the acquired shared-inquiry source.
+Stated costs
+2 actual stamina · prior wounds/materials persist
+Unavailable: Read Oren’s response
+Track both native opponents
+
+Unavailable
+
+Why this is unavailable
+Track only the current learned capacity of visible active opponents.
+Stated costs
+2 actual stamina · prior wounds/materials persist
+Unavailable: Track both native opponents
+Split the native strike across both tracked opponents
+
+Unavailable
+
+Why this is unavailable
+Splitting a strike needs mastery six, opening training and both currently tracked targets.
+Stated costs
+2 actual stamina · prior wounds/materials persist
+Unavailable: Split the native strike across both tracked opponents
+Hold an ordinary self guard
+
+Available
+
+Stated costs
+2 actual stamina · prior wounds/materials persist
+Do this: Hold an ordinary self guard
+Prepare the release-pressure counter
+
+Unavailable
+
+Why this is unavailable
+Release-pressure training guards the player alone.
+Stated costs
+2 actual stamina · prior wounds/materials persist
+Unavailable: Prepare the release-pressure counter
+Interpose for yourself
+
+Unavailable
+
+Why this is unavailable
+Shared-frame targets exceed the currently learned function.
+Stated costs
+2 actual stamina · prior wounds/materials persist
+Unavailable: Interpose for yourself
+Lash one kit into your next guard
+
+Unavailable
+
+Why this is unavailable
+A kit lash needs the learned load-bearing frame and one ally.
+Stated costs
+2 actual stamina · prior wounds/materials persist
+Unavailable: Lash one kit into your next guard
+Split the anchored support with one log
+
+Unavailable
+
+Why this is unavailable
+Split the support once using learned timber judgment and a real log.
+Stated costs
+2 actual stamina · prior wounds/materials persist
+Unavailable: Split the anchored support with one log
+Give Lio the release signal
+
+Unavailable
+
+Why this is unavailable
+A signal needs your learned coordination and willing supported Lio, without an already waiting signal.
+Stated costs
+1 actual stamina · prior wounds/materials persist
+Unavailable: Give Lio the release signal
+Use defended opening: retreat two steps · 1 stamina
+
+Available
+
+Stated costs
+1 actual stamina · prior wounds/materials persist
+Do this: Use defended opening: retreat two steps · 1 stamina
+Use defended opening: counter its attacker (+20% aim/damage) · 2 stamina
+
+Available
+
+Stated costs
+2 actual stamina · prior wounds/materials persist
+Do this: Use defended opening: counter its attacker (+20% aim/damage) · 2 stamina
+Use prepared conditioned self-guard · 1 stamina, once
+
+Unavailable
+
+Why this is unavailable
+No unspent grip practice is reserved to this actual attempt.
+Current living recovered hands and the same actual active trained grip must support this guard.
+Stated costs
+2 actual stamina · prior wounds/materials persist
+Unavailable: Use prepared conditioned self-guard · 1 stamina, once
+Sure-footed balance step · 2 stamina, 2 retreat progress
+
+Unavailable
+
+Why this is unavailable
+Use this learned-body route only with your current recovered supported Village body.
+Awaken and activate your actual inherited Natural balance first; suppressed or dormant balance supplies no step.
+Stated costs
+2 actual stamina · prior wounds/materials persist
+Unavailable: Sure-footed balance step · 2 stamina, 2 retreat progress
+Conditioned grip and owned rope · 1 stamina, 1 retreat progress
+
+Unavailable
+
+Why this is unavailable
+Use this learned-body route only with your current recovered supported Village body.
+This rope maneuver needs your actual earned active trained Conditioned grip.
+Carry one actual owned unequipped unborrowed Survey rope, or use this attempt's exact already reserved rope; this maneuver keeps it.
+Stated costs
+1 actual stamina · prior wounds/materials persist
+Unavailable: Conditioned grip and owned rope · 1 stamina, 1 retreat progress
+Maintain one brace for yourself · 2 stamina + 1 per incoming attempt
+
+Unavailable
+
+Why this is unavailable
+Maintain one free allied target with actual mastery six, Shared frame training, active acquired source and supported body.
+Stated costs
+2 actual stamina · prior wounds/materials persist
+Unavailable: Maintain one brace for yourself · 2 stamina + 1 per incoming attempt
+Raise the gate one step
+
+Unavailable
+
+Why this is unavailable
+The braced shield blocks the gate. Make its holder yield or split the actual support first.
+Stated costs
+2 actual stamina · prior wounds/materials persist
+Unavailable: Raise the gate one step
+Advance the retreat line
+
+Available
+
+Stated costs
+1 actual stamina · prior wounds/materials persist
+Do this: Advance the retreat line
+Withdraw with spent inputs retained
+
+Available
+
+Stated costs
+0 actual stamina · prior wounds/materials persist
+Do this: Withdraw with spent inputs retained
+Nera holds a braced shield at the sluice; Oren carries a hooked pole and follows exposed frames. Their toll claim blocks the direct gate. A slower drainage walk remains open. They yield at one HP; no player level changes their bodies.
+Sluice result: withdrawn; 5 committed native actions, gate 0/3, escape 0/3, 1 guarded attempts. Spent materials, fatigue and wounds remain. Encounter receipt: simulation:4122.
+The held defense earned one next-choice opening: retreat for 1 stamina or counter for 2; any other player choice lets it expire. Oren committed a pole pull. Oren hit You for 1 [anchored: fatigue counter resisted]. Gate 0/3; retreat 0/3; 1 guarded attempts.
+You: active, HP 79/80, stamina 46.8/50.849999999999994.
+Nera: active.
+Oren: active.
+Field feats
+Mastery and combinations
+Optional passage challenges
+Measured cooling with Eda
+Your two-receiver retort
+Proto23 · your furnished visitor life
+Eda's bench fieldcraft
+Eda's clouded batch
+Eda’s clamping frame
+Finite survey-kit reserve
+Finite resident shifts and toolkit allocation
+Permitted home & measuring work
+Three finite pathfinder offers
+Ressa’s funded local supply request
+Your finite association herb bed
+Physical preparation and optional objectives
+Vela's prism collection
+Paradise · your independent Goa branch
+Mother of Learning · your Cyoria guest life
+Service-district side entry
+Normal Stance
+Atk: 5dmg| Spd: 0.71| AP: 37| EP: 39| Def: 1
+Nera
+Atk: 5dmg| Spd: 0.9| Hit: 32%| 🛡️: 42345| Def: 5
+34/34 hp
+Oren
+Atk: 5dmg| Spd: 1.1| Hit: 43%| Ddg: 35%| Def: 1
+24/24 hp

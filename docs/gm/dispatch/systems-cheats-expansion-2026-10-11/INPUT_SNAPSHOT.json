@@ -1,0 +1,178 @@
+{
+  "head": "53dc1df15889be6ebb1bae403497041f0672db46",
+  "date": "2026-10-11",
+  "inputs": [
+    {
+      "path": "AGENTS.md",
+      "sha256": "2dd0e8a273ff4c292231409f4c7d0c776015a67833206d3c6b5bb56d919ab1fc"
+    },
+    {
+      "path": "PROJECT.md",
+      "sha256": "5fa867b61f122a01223ced9ee5f65abc97dc9ea6b993d00d7b5276428c6de46f"
+    },
+    {
+      "path": "docs/GAME_MASTER_PROMPT.md",
+      "sha256": "9524d382c81a981af02bd2cf9288f410fe9a09b9c6f8d99f7075c6245653de56"
+    },
+    {
+      "path": "docs/IDEA_INDEX.md",
+      "sha256": "8dc8b9a12a3e54dff5272f1f3bea32dc6b912a67f53b31b9968c65757b258973"
+    },
+    {
+      "path": "docs/gm/FIRST_LEVEL_COMPLETENESS_PROMPT.md",
+      "sha256": "0b1d7205416ba16dc07bf0fdde25dbbf1e0bb4af3d182fc7ce3fa7abffb7e807"
+    },
+    {
+      "path": "docs/gm/FIRST_LEVEL_BREADTH_EXTENSION_2026-10-11.md",
+      "sha256": "aceda441fe1c71a110a22bdea286adbc029be2d13ccfbf4f4e7ab1168de75bca"
+    },
+    {
+      "path": "docs/WORLD_COMPLETION_STANDARD.md",
+      "sha256": "e3c8ddc8c559204736d2ff5d8efdfd1e1f769fdbc5bc8ed2c6c86862169b2bf4"
+    },
+    {
+      "path": "docs/gm/dispatch/idea-expansion-2026-10-11/DETAIL_LEDGER.json",
+      "sha256": "3fe75c8f33d0ed57c2c067b232de0dd64e3fc364ab3a34ba5e8e4d6123cfae54"
+    },
+    {
+      "path": "docs/gm/dispatch/idea-expansion-2026-10-11/RECONCILIATION.md",
+      "sha256": "946dafae94720c2b3e3995a523845ec9d0c854f154a807eecc60faf4fe41d788"
+    },
+    {
+      "path": "docs/gm/dispatch/idea-expansion-2026-10-11/IMPLEMENTATION_QUEUE.json",
+      "sha256": "fe8bd3b57a30273d9c050d6427dcfdec6bf6000e4b19e9aaa8aed48197820cf3"
+    },
+    {
+      "path": "docs/gm/dispatch/idea-expansion-2026-10-11/CHECKPOINT.md",
+      "sha256": "51e1137f3c57a4b5374571fdce2428aba73134f6e93250da0e616c56d0afe820"
+    },
+    {
+      "path": "docs/gm/dispatch/absorb-2026-10-11/CHECKPOINT.md",
+      "sha256": "d8f6bde01f8b748f7032e99a1b99effbf42818a52552912f06dd415971362525"
+    },
+    {
+      "path": "docs/gm/dispatch/world1-expansion-2026-10-11/CHECKPOINT.md",
+      "sha256": "a21c5432b56ede3a99330af7c5659d340589b31332d11d7f41d88aff9731b1b7"
+    }
+  ],
+  "missing_assignment_pointer": "docs/gm/dispatch/idea-expansion-2026-10-11/REPORT.md; substitute live RECONCILIATION.md",
+  "verification": "source/doc planning only",
+  "sourceFiles": [
+    {
+      "path": "src/acquisition.js",
+      "sha256": "4d665d4532ac87312034f763b3e598ae7314ee11fec1805e42df2e44fd9b5b29",
+      "coverage": "selected symbols/ranges; not whole file audit"
+    },
+    {
+      "path": "src/causal_situations.js",
+      "sha256": "3bd9a375ce95f9666cbf8081706272c3358186f647681a7db2330f328a2d0366",
+      "coverage": "selected symbols/ranges; not whole file audit"
+    },
+    {
+      "path": "src/content_packs.js",
+      "sha256": "65c72a9510cb87bab963ef508c62a82af9918c5ff869338e50aab0503fef87ad",
+      "coverage": "selected symbols/ranges; not whole file audit"
+    },
+    {
+      "path": "src/expansion_engine.js",
+      "sha256": "bb9b59ce0400528ee006dc5846bb8ff85453ea7aa450d2875c37da29f754a829",
+      "coverage": "selected symbols/ranges; not whole file audit"
+    },
+    {
+      "path": "src/expansion_persistence.js",
+      "sha256": "779a82715884c48f3d2338816d76b90e5e894b625f2fb7daec174091c73bc966",
+      "coverage": "selected symbols/ranges; not whole file audit"
+    },
+    {
+      "path": "src/expansion_quest_ui.js",
+      "sha256": "6a0a7d2bc44a1a5586e3c1bfedacedc78818979776b1c3c6ca1eeef4e39f8d5e",
+      "coverage": "selected symbols/ranges; not whole file audit"
+    },
+    {
+      "path": "src/gameplay_transactions.js",
+      "sha256": "3279d063a16a5cd90504420edeaa104512cb24b8eacb185e8df6cec9bb4d4d81",
+      "coverage": "selected symbols/ranges; not whole file audit"
+    },
+    {
+      "path": "src/main.js",
+      "sha256": "5b595f75c35e16ed0c3c02e35549abce00eec041371db1984e2be86ee0810bd3",
+      "coverage": "selected symbols/ranges; not whole file audit"
+    },
+    {
+      "path": "src/observation_channels.js",
+      "sha256": "fa1ae671a2d4864c4589f185e47884b9feb0fa74908bf0c24e567b1f11fb0314",
+      "coverage": "selected symbols/ranges; not whole file audit"
+    },
+    {
+      "path": "src/people_knowledge.js",
+      "sha256": "e52bf2508ab626785ad66074179f33916aaed7946fbd403706cb59303e851261",
+      "coverage": "selected symbols/ranges; not whole file audit"
+    },
+    {
+      "path": "src/power_models.js",
+      "sha256": "cbf6d86aea5cdfd1fda9bb39dddb208944c210e91c60196283f5ea731d3c23b7",
+      "coverage": "selected symbols/ranges; not whole file audit"
+    },
+    {
+      "path": "src/quests.js",
+      "sha256": "19f14bec33bb8782a3ae6f8c827c8bea1136bc65afd99e7733f598ecd9246ca8",
+      "coverage": "selected symbols/ranges; not whole file audit"
+    },
+    {
+      "path": "src/realm_clock_leases.js",
+      "sha256": "2daa0cd9778f52e5e2d69834fe65aa87b643d14f3ec7f49f8aae3a5c7718cb3e",
+      "coverage": "selected symbols/ranges; not whole file audit"
+    },
+    {
+      "path": "src/realm_state.js",
+      "sha256": "9bf436dd0e40f1f6de8a5db48baeab2e75cf012386c889d8c01207dbd76cfa0f",
+      "coverage": "selected symbols/ranges; not whole file audit"
+    },
+    {
+      "path": "src/rewards.js",
+      "sha256": "9f23d3e3a2abe6f354ccb66da262296d1aee9a89c5e6bea1c0bef7c494a52109",
+      "coverage": "selected symbols/ranges; not whole file audit"
+    },
+    {
+      "path": "src/save_files.js",
+      "sha256": "c8424cb96d43847a89d6077ce5766d8302256f9b5f521faf4181b333e250db50",
+      "coverage": "selected symbols/ranges; not whole file audit"
+    },
+    {
+      "path": "src/simulation.js",
+      "sha256": "3f7ecf0f208edc1edff502d7e1f5076ad1e1a435630a020658eb922d3287d3f3",
+      "coverage": "selected symbols/ranges; not whole file audit"
+    },
+    {
+      "path": "src/simulation_contracts.js",
+      "sha256": "0b048cb891b0e30abeb7f97125d8fe62ca9abe03c7fc7697e0078ae4a72501de",
+      "coverage": "selected symbols/ranges; not whole file audit"
+    },
+    {
+      "path": "src/simulation_effects.js",
+      "sha256": "bd9dde5ea0e09510a6111ac6c99e139c89ce94afc2ae4ae9772213b089408620",
+      "coverage": "selected symbols/ranges; not whole file audit"
+    },
+    {
+      "path": "src/simulation_resolution.js",
+      "sha256": "b47789d1959d5e43fcce298b3631830169aa0d89b972cd7d08da1a55e4c2fd94",
+      "coverage": "selected symbols/ranges; not whole file audit"
+    },
+    {
+      "path": "src/simulation_ui.js",
+      "sha256": "48a8aa25b5bc1b1f30a17899baf92d9ee0f0c2a481cb0b40e06ae7600ede1405",
+      "coverage": "selected symbols/ranges; not whole file audit"
+    },
+    {
+      "path": "src/world_instances.js",
+      "sha256": "cf15bd3c1d34153c541617fdd83a45d9b9faddd98b64b20edd0160d9547720fd",
+      "coverage": "selected symbols/ranges; not whole file audit"
+    },
+    {
+      "path": "src/world_knowledge.js",
+      "sha256": "c724bb5ba4644573b685c5d55333531bf2645f55dea5a4f4f52ed404d90c9442",
+      "coverage": "selected symbols/ranges; not whole file audit"
+    }
+  ],
+  "finalOwnerDrift": []
+}

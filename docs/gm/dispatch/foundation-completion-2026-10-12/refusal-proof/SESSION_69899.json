@@ -1,0 +1,110 @@
+{
+  "pid": 69899,
+  "servedHash": "e73550a4344ec549b67b830112200a10f9ed1a6f652c8c54c1b1c1ee95bff7a9",
+  "origin": "http://127.0.0.1:18645",
+  "startedHash": "e73550a4344ec549b67b830112200a10f9ed1a6f652c8c54c1b1c1ee95bff7a9",
+  "endedHash": "e73550a4344ec549b67b830112200a10f9ed1a6f652c8c54c1b1c1ee95bff7a9",
+  "events": [
+    {
+      "workflowStep": {
+        "action": "click",
+        "selector": "#notebook_tab_here"
+      },
+      "index": 0,
+      "clock": 11839,
+      "sequence": 1403
+    },
+    {
+      "workflowStep": {
+        "action": "panel",
+        "selector": "#feature_expansion_panel"
+      },
+      "index": 1,
+      "clock": 11839,
+      "sequence": 1403
+    },
+    {
+      "workflowStep": {
+        "action": "panel",
+        "selector": "#feature_expansion_panel details:has(>summary:text-is(\"A taught procedure, useful material\"))"
+      },
+      "index": 2,
+      "clock": 11839,
+      "sequence": 1403
+    },
+    {
+      "workflowStep": {
+        "action": "click",
+        "selector": "[data-action-legibility-key=\"action:world.completion.learning.sponsor\"] button",
+        "save": "natural-refusal-offered"
+      },
+      "index": 3,
+      "clock": 11840,
+      "sequence": 1405
+    },
+    {
+      "workflowStep": {
+        "action": "completed",
+        "actor": "remainder_home.neri",
+        "id": "world.completion.learning.refuse",
+        "save": "natural-refusal-resolved"
+      },
+      "index": 4,
+      "clock": 11840,
+      "sequence": 1405
+    },
+    {
+      "workflowStep": {
+        "action": "click",
+        "selector": "[data-action-legibility-key=\"action:world.completion.learning.account_shack\"] button",
+        "save": "natural-refusal-received"
+      },
+      "index": 5,
+      "clock": 11841,
+      "sequence": 1407
+    },
+    {
+      "workflowStep": {
+        "action": "click",
+        "selector": "[data-action-legibility-key=\"action:world.completion.learning.withdraw_shack\"] button",
+        "save": "natural-refusal-withdrawn"
+      },
+      "index": 6,
+      "clock": 11842,
+      "sequence": 1409
+    },
+    {
+      "workflowStep": {
+        "action": "export",
+        "name": "withdrawn"
+      },
+      "index": 7,
+      "clock": 11842,
+      "sequence": 1409
+    },
+    {
+      "workflowStep": {
+        "action": "reload",
+        "save": "natural-refusal-reloaded"
+      },
+      "index": 8,
+      "clock": 11842,
+      "sequence": 1409
+    },
+    {
+      "workflowStep": {
+        "action": "literalImport",
+        "path": "/tmp/yairpg-foundation-learning-refusal-final-withdrawn.txt",
+        "save": "natural-refusal-literal-imported"
+      },
+      "index": 9,
+      "clock": 11842,
+      "sequence": 1409
+    },
+    {
+      "action": "workflow",
+      "file": "FINAL_REPLAY_WORKFLOW.json"
+    }
+  ],
+  "errors": []
+}

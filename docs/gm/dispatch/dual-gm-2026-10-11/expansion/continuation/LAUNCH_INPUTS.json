@@ -1,0 +1,80 @@
+{
+  "schema": "world1-completion-launch-inputs-1",
+  "auditGatePassed": true,
+  "sourceScope": "Fresh first supplied volume only; later precise existing spot evidence qualifies independently",
+  "inputHashes": [
+    {
+      "path": "docs/gm/dispatch/dual-gm-2026-10-11/expansion/continuation/CONTRACT.md",
+      "sha256": "1e5a9fdcf8af0c70c6ee1ccdd1ae711915c62a33c6d8db4383ee180693869255"
+    },
+    {
+      "path": "docs/gm/dispatch/dual-gm-2026-10-11/expansion/continuation/LAUNCH_PROMPT.md",
+      "sha256": "6361e222570a6096f146fdbcd0fd1f3f0f92142cd6ac66da08baf43b9b8e6542"
+    },
+    {
+      "path": "docs/gm/dispatch/dual-gm-2026-10-11/expansion/continuation/JOINED_AUDIT_RETURN.md",
+      "sha256": "8dbc3b9be359a29e709a8c443cee5e211220f76e7868ce195a583d879b22bef4"
+    },
+    {
+      "path": "docs/gm/dispatch/dual-gm-2026-10-11/expansion/continuation/audit-review/REVIEW.json",
+      "sha256": "f5cf02856e4a6f90b5695d47790aec8388623a5d0c4b8522d46fcd1a85f70c44"
+    },
+    {
+      "path": "docs/gm/dispatch/dual-gm-2026-10-11/expansion/continuation/audit-review/CORRECTION_PROJECTION.json",
+      "sha256": "b592b480d1556a3cf7dc74ba960c85332c6f3f712c5146ba02feb59af420dd39"
+    },
+    {
+      "path": "docs/gm/dispatch/dual-gm-2026-10-11/expansion/continuation/audit-review/REPAIR_INPUTS.json",
+      "sha256": "7359f5a3d1f4f931c5dbe7833ce0969d7d87962ccc5ae1aabc2631739f72ced0"
+    }
+  ],
+  "auditEvidenceHashes": [
+    {
+      "path": "docs/research/novels/world-depth-2026-10-11/audits/source-v1/READ_COVERAGE.json",
+      "sha256": "749281620023a40ff887881a549b267ff0d37dab182a39ef97b8228d89dd3da6"
+    },
+    {
+      "path": "docs/research/novels/world-depth-2026-10-11/audits/source-v1/ENTITY_FUNCTIONS.json",
+      "sha256": "9a2af2345c1e1163a7f68752556c89a4a9be206dd530762bdba5997774f1e6b1"
+    },
+    {
+      "path": "docs/research/novels/world-depth-2026-10-11/audits/source-v1/RECONCILIATION.json",
+      "sha256": "60ef383426798e2833c5e06a47bdce2121f10b8f150c522e21e196af5204b751"
+    },
+    {
+      "path": "docs/research/novels/world-depth-2026-10-11/audits/source-v1/VALIDATION.json",
+      "sha256": "d6b03dab10f64e1dc7f24bcd8f506697137dd67bc4708b02263e0e510aae49b1"
+    },
+    {
+      "path": "docs/research/novels/world-depth-2026-10-11/audits/journey/JOURNEY.json",
+      "sha256": "4efaa3814d8d314c96ef1f940f8491b623dbbb21c22eaac0a747a57448d0fc65"
+    },
+    {
+      "path": "docs/research/novels/world-depth-2026-10-11/audits/journey/SOURCE_RECEIPTS.json",
+      "sha256": "ff6c96bc2d4be615e1a70d4c1dc31c024cd60105a0f2f3cea364f17fbfcdda5f"
+    },
+    {
+      "path": "docs/research/novels/world-depth-2026-10-11/audits/journey/CHECKPOINT.json",
+      "sha256": "91ef8e0214a5d72b44b6a39a42d040c689d8b5f593bbb36a1134029ff3613771"
+    },
+    {
+      "path": "docs/gm/dispatch/dual-gm-2026-10-11/expansion/audits/native-proof/status.json",
+      "sha256": "49c403063c4054dc2a4400e2f9b48d14beb54fb2b7aa49cae7cabb8303a239ba"
+    },
+    {
+      "path": "docs/gm/dispatch/dual-gm-2026-10-11/expansion/audits/native-proof/REPORT.md",
+      "sha256": "d0b2d65c702fd25b1ffd14b71d506a9340150037926153d72364a7714a00fea9"
+    },
+    {
+      "path": "docs/gm/dispatch/dual-gm-2026-10-11/expansion/audits/native-proof/CHECKPOINT.md",
+      "sha256": "337e5f370798561bf6f7a8ffc0145bda5aa041c805e4f6ab769b993c9239967b"
+    },
+    {
+      "path": "docs/gm/dispatch/dual-gm-2026-10-11/expansion/audits/native-proof/REPAIR_PACKETS.md",
+      "sha256": "8aa43c1e2d1157be6bb8e7023216f98c7bbd4e5e8e4ac5033c2e88f54944d274"
+    }
+  ],
+  "nativeBase": "53dc1df15889be6ebb1bae403497041f0672db46",
+  "runtimeEdits": "none by launcher",
+  "candidateOwnership": "Future completion GM isolated path reservation after recovery; original runtime read-only"
+}

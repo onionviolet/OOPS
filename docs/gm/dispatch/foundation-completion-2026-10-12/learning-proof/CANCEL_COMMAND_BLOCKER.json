@@ -1,0 +1,22 @@
+{
+  "status": "actual-cancel-command-rejected",
+  "runnerPid": 50985,
+  "session": 28056,
+  "process": "cleanSTOP exit0",
+  "servedHash": "c0a5e5cccd37c59b1265dee554c051deefef360659c5d6dfffe4f9eb6ff328c3",
+  "input": "/tmp/yairpg-foundation-learning-worker-neri-cancel-debug.json",
+  "sha256": "7d13e1285a344bd3ab9bc3eb75f5630158633a2347541193759fd27e300dfbb2",
+  "clock": 11722,
+  "sequence": 1295,
+  "actualJob": {
+    "id": "simulation:1294",
+    "commandId": "world.completion.learning.walk_to_bench",
+    "due": 11723
+  },
+  "exception": "Use the current connected-world controls and their physical quote.",
+  "debugReceipt": "CANCEL_DEBUG_50985.json",
+  "nativeControlReceipt": "CANCEL_CLICK_50985.json",
+  "sourceInference": "World completion supplier cancel/refund/release misses required worldCompletionHost context flag; root diagnoses exact gate.",
+  "noCancelClaim": true,
+  "owner": "root sole source integrator"
+}

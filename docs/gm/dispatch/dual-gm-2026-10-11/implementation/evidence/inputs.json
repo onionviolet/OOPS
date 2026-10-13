@@ -1,0 +1,29 @@
+{
+  "base": "8a4c82d9022ed158841e416abf90fa4afe263874",
+  "worktree": "/Users/weiwei/.codex/worktrees/micro-p1-xp/yet-another-idle-rpg",
+  "node": "v26.4.0",
+  "esbuild": "0.25.10",
+  "productionSourceChanges": [
+    "src/components/levelable_component.js"
+  ],
+  "sha256": {
+    "src/components/levelable_component.js": "d48f4a9e411dab0a0e7f45ac47f6413a5c0a3cce20b41ed8d3acb7b7b73d62a4",
+    "src/models/skill.js": "efa7050dd81d4aefba26db70ba044e7b73313a56fb7535616e90087555834dd8",
+    "src/models/person.js": "6bb8bfa30d23e0bbfc3f4e31acee71fd400dc74e832c3b9e300e51570a19763f",
+    "src/main.js": "a684e0aa23581aad3ffafd9de4b24a9e40cfd352ebb4891b253d3f4b3b2f4cd1",
+    "src/config.js": "19f710242546540b4677d9b893733496fccf9842ef597fad7dc0935fa3375195",
+    "src/data/skills.js": "8edce9a32137c3432f2bd2953908c84f7e8ed3f676018dababef2b193463a671",
+    "src/save_files.js": "c8424cb96d43847a89d6077ce5766d8302256f9b5f521faf4181b333e250db50",
+    "tests/micro_p1_xp.test.js": "1fffa83340255a7912665cf68e22c1cb17dfdd0e69c1cfd32e14747a4cba6fff",
+    "tests/micro_p1_browser.cjs": "88e6c2a001881589b30126e42d1c036a59483668ee93e685c15120fab0fe760c",
+    "package-lock.json": "42f2e809f9055a84c99959f12a0b17adfbbc150d5d748b5d5ce2b9f85de9df99",
+    "build.js": "8561349784483242a15ce4208b9180651c1aaf03c3d8ff1379de8c7d8065fea5",
+    "dist/bundle.js": "77c29780b6eb04fc928bf6bf6ea0ced012d9bf643e55fe6f09a9a3b78e78efe1",
+    "dist/bundle.js.map": "50362e5b6bf0284527ac4136bc9d7ff499e6574aa934c1bc3f16cd5ae877027b",
+    "index.html": "6d06ce8b8dee20bafef55e3be10a41020eb284b40e02ae5e5cdc76a5ea47ec25"
+  },
+  "buildCommand": "npm run build",
+  "testCommand": "node --test tests/micro_p1_xp.test.js tests/alloy_equipment.test.js tests/gameplay_foundations.test.js tests/skill_discovery.test.js",
+  "regressionPassed": 17,
+  "browserCommand": "YAIRPG_PLAYWRIGHT=/Users/weiwei/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright YAIRPG_PROOF_DIR=/Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/dual-gm-2026-10-11/implementation/evidence node tests/micro_p1_browser.cjs"
+}

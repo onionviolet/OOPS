@@ -10,7 +10,11 @@ import {remainderConsequencesFacts, validateRemainderConsequences, planRemainder
     pruneRemainderConsequencesChecks} from './audit_remainder_consequences_facts.js';
 
 export function remainderConsequencesContext(state, context = {}) {
-    return {...context, facts: {...context.facts, ...remainderConsequencesFacts(state, context)}};
+    // Scheduler actor frames carry flat native vitals; command plans carry
+    // keyed owners. Normalize the read view without changing either frame.
+    const vitals = context.vitals?.player ? context.vitals : context.vitalsByActor ||
+        (Number.isFinite(context.vitals?.health) ? {[context.actorId || 'player']: context.vitals} : context.vitals);
+    return {...context, facts: {...context.facts, ...remainderConsequencesFacts(state, {...context, vitals})}};
 }
 
 // Compose after current nested native/context joins. The finite simulation

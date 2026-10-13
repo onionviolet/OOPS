@@ -1,0 +1,209 @@
+{
+  "source_fingerprints": [
+    {
+      "path": "src/simulation.js",
+      "recorded": "4de64133474c6c61035fd931bc5d5099a311e09100269d83b862e3016f40ea24",
+      "live": "4de64133474c6c61035fd931bc5d5099a311e09100269d83b862e3016f40ea24",
+      "matches": true
+    },
+    {
+      "path": "src/simulation_effects.js",
+      "recorded": "c803e81778a260916d2b96771ebef0a501090db0609c3314c1151c67c6f3b502",
+      "live": "c803e81778a260916d2b96771ebef0a501090db0609c3314c1151c67c6f3b502",
+      "matches": true
+    },
+    {
+      "path": "src/simulation_contracts.js",
+      "recorded": "c4d56bfe33f7e89dda8788e44760060363193190f1bb909ca39d6a25a6e554be",
+      "live": "c4d56bfe33f7e89dda8788e44760060363193190f1bb909ca39d6a25a6e554be",
+      "matches": true
+    },
+    {
+      "path": "src/structured_pack_state.js",
+      "recorded": "8565b66675eca5dfec3f81c4a449b7d147baaa22fab49fb96a57c574994dcb10",
+      "live": "8565b66675eca5dfec3f81c4a449b7d147baaa22fab49fb96a57c574994dcb10",
+      "matches": true
+    },
+    {
+      "path": "src/structured_container_runtime.js",
+      "recorded": "b50fecd3c630237112826f2cdac9b7ba6e6551277482efb3472bdf4e1d856696",
+      "live": "b50fecd3c630237112826f2cdac9b7ba6e6551277482efb3472bdf4e1d856696",
+      "matches": true
+    },
+    {
+      "path": "src/content_packs.js",
+      "recorded": "399730352eac8882361d17ef055042ec6e7337859bf905d6a6d1b6d7ad045255",
+      "live": "399730352eac8882361d17ef055042ec6e7337859bf905d6a6d1b6d7ad045255",
+      "matches": true
+    },
+    {
+      "path": "src/main.js",
+      "recorded": "18c3b69d47a0e7eeaf113c5e392a4435587638c6e56fb003989bf1da8c502035",
+      "live": "18c3b69d47a0e7eeaf113c5e392a4435587638c6e56fb003989bf1da8c502035",
+      "matches": true
+    },
+    {
+      "path": "src/crafting_recipes.js",
+      "recorded": "9a196429052a1ad8d0ff6e48ff978e638f6c8956a9ef429040720ed71143c3a3",
+      "live": "9a196429052a1ad8d0ff6e48ff978e638f6c8956a9ef429040720ed71143c3a3",
+      "matches": true
+    },
+    {
+      "path": "src/expansion_persistence.js",
+      "recorded": "779a82715884c48f3d2338816d76b90e5e894b625f2fb7daec174091c73bc966",
+      "live": "779a82715884c48f3d2338816d76b90e5e894b625f2fb7daec174091c73bc966",
+      "matches": true
+    }
+  ],
+  "additional_reads": [
+    {
+      "book": "01",
+      "page": 137,
+      "start_line": 4601,
+      "end_line": 4636
+    },
+    {
+      "book": "01",
+      "page": 138,
+      "start_line": 4637,
+      "end_line": 4671
+    },
+    {
+      "book": "06",
+      "page": 3131,
+      "start_line": 8124,
+      "end_line": 8152
+    },
+    {
+      "book": "06",
+      "page": 3132,
+      "start_line": 8153,
+      "end_line": 8180
+    },
+    {
+      "book": "06",
+      "page": 3133,
+      "start_line": 8181,
+      "end_line": 8207
+    }
+  ],
+  "ignored_private_files": [
+    "docs/research/novels/harry-potter/craft-integration-2026-10-12/FAN_INPUT_HASHES.json",
+    "docs/research/novels/harry-potter/craft-integration-2026-10-12/ENGINE_SEAMS.md",
+    "docs/research/novels/harry-potter/craft-integration-2026-10-12/BEGINNER_POTION_PROPOSAL.md",
+    "docs/research/novels/harry-potter/craft-integration-2026-10-12/SOURCE_READ_LEDGER.md",
+    "docs/research/novels/harry-potter/craft-integration-2026-10-12/BRANCHES_SPELLCRAFT_AND_SCALE.md",
+    "docs/research/novels/harry-potter/craft-integration-2026-10-12/FAN_CRAFT_EVIDENCE.md",
+    "docs/research/novels/harry-potter/craft-integration-2026-10-12/CANON_CRAFT_EVIDENCE.md",
+    "docs/research/novels/harry-potter/craft-integration-2026-10-12/FEATURE_CONTRACTS.md"
+  ],
+  "claim": "artifact identity/exclusion/read-only source checks, no gameplay evidence",
+  "report_links": [
+    {
+      "owner": "docs/gm/dispatch/harry-potter-craft-research-2026-10-12/REPORT.md",
+      "label": "Joined source/read ledger",
+      "exists": true
+    },
+    {
+      "owner": "docs/gm/dispatch/harry-potter-craft-research-2026-10-12/REPORT.md",
+      "label": "canon evidence",
+      "exists": true
+    },
+    {
+      "owner": "docs/gm/dispatch/harry-potter-craft-research-2026-10-12/REPORT.md",
+      "label": "fan evidence",
+      "exists": true
+    },
+    {
+      "owner": "docs/gm/dispatch/harry-potter-craft-research-2026-10-12/REPORT.md",
+      "label": "Feature contracts",
+      "exists": true
+    },
+    {
+      "owner": "docs/gm/dispatch/harry-potter-craft-research-2026-10-12/REPORT.md",
+      "label": "Branches, spellcraft and scale",
+      "exists": true
+    },
+    {
+      "owner": "docs/gm/dispatch/harry-potter-craft-research-2026-10-12/REPORT.md",
+      "label": "Beginner potion proposal",
+      "exists": true
+    },
+    {
+      "owner": "docs/gm/dispatch/harry-potter-craft-research-2026-10-12/REPORT.md",
+      "label": "engine seams",
+      "exists": true
+    },
+    {
+      "owner": "docs/gm/dispatch/harry-potter-craft-research-2026-10-12/REPORT.md",
+      "label": "CHECKS.json",
+      "exists": true
+    },
+    {
+      "owner": "docs/gm/dispatch/harry-potter-craft-research-2026-10-12/REPORT.md",
+      "label": "CHECKPOINT.md",
+      "exists": true
+    }
+  ],
+  "issues": [],
+  "artifact_hashes": {
+    "docs/research/novels/harry-potter/craft-integration-2026-10-12/FAN_INPUT_HASHES.json": "ffc7c12598f40354484d6c0b115199e57f231d607ada2d0bdf04475e6970b430",
+    "docs/research/novels/harry-potter/craft-integration-2026-10-12/ENGINE_SEAMS.md": "52397289c6bc52b7d2c25f29c6d793c9dd961d2b86261d128c617f541d92ba2d",
+    "docs/research/novels/harry-potter/craft-integration-2026-10-12/BEGINNER_POTION_PROPOSAL.md": "827aaea34594f8ded30c21979b733fb63a19cde193ac674ee5a669366d3d4d87",
+    "docs/research/novels/harry-potter/craft-integration-2026-10-12/SOURCE_READ_LEDGER.md": "a977b68a1587df8ef7edc893560f0a3bd4e17578869c91a86c378df513cf0294",
+    "docs/research/novels/harry-potter/craft-integration-2026-10-12/BRANCHES_SPELLCRAFT_AND_SCALE.md": "f8a729c16d1f8fdb4340e3824f936311f95bdf20d0c85f5487632d679be05dc2",
+    "docs/research/novels/harry-potter/craft-integration-2026-10-12/FAN_CRAFT_EVIDENCE.md": "47a7a3d4e5d030ed3a5e6107c4abb547679b8d58fdb7805a66bc419d62525e30",
+    "docs/research/novels/harry-potter/craft-integration-2026-10-12/CANON_CRAFT_EVIDENCE.md": "8fbfbff95c0736141434f238205f4bcc99a8a4bb62bff164a332d93e59d161d9",
+    "docs/research/novels/harry-potter/craft-integration-2026-10-12/FEATURE_CONTRACTS.md": "580bde4c4fd86cb0dd94040db6380485b3e857fea865f2b17ad269a283c33c53"
+  },
+  "runtime_cases": "specified-not-run",
+  "followup": {
+    "addendum": "docs/research/novels/harry-potter/craft-integration-2026-10-12/SPECIAL_RULES_AND_EVERYDAY_CONSEQUENCES.md",
+    "sha256": "5e1c5343a6ccad0417559ceb30dd82018ac492688623a89fca34fd03197138ff",
+    "ignored": true,
+    "report_links": [
+      {
+        "path": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/harry-potter/craft-integration-2026-10-12/SOURCE_READ_LEDGER.md",
+        "exists": true
+      },
+      {
+        "path": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/harry-potter/craft-integration-2026-10-12/CANON_CRAFT_EVIDENCE.md",
+        "exists": true
+      },
+      {
+        "path": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/harry-potter/craft-integration-2026-10-12/FAN_CRAFT_EVIDENCE.md",
+        "exists": true
+      },
+      {
+        "path": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/harry-potter/craft-integration-2026-10-12/FEATURE_CONTRACTS.md",
+        "exists": true
+      },
+      {
+        "path": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/harry-potter/craft-integration-2026-10-12/BRANCHES_SPELLCRAFT_AND_SCALE.md",
+        "exists": true
+      },
+      {
+        "path": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/harry-potter/craft-integration-2026-10-12/BEGINNER_POTION_PROPOSAL.md",
+        "exists": true
+      },
+      {
+        "path": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/harry-potter/craft-integration-2026-10-12/ENGINE_SEAMS.md",
+        "exists": true
+      },
+      {
+        "path": "/Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/harry-potter-craft-research-2026-10-12/CHECKS.json",
+        "exists": true
+      },
+      {
+        "path": "/Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/harry-potter-craft-research-2026-10-12/CHECKPOINT.md",
+        "exists": true
+      },
+      {
+        "path": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/harry-potter/craft-integration-2026-10-12/SPECIAL_RULES_AND_EVERYDAY_CONSEQUENCES.md",
+        "exists": true
+      }
+    ],
+    "runtime_cases": "specified-not-run",
+    "reading": "new targeted B2/B3/B6 and separately qualified CC2016 snippets; no full reading"
+  }
+}

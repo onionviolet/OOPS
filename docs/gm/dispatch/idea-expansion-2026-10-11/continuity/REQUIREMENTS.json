@@ -1,0 +1,861 @@
+{
+  "lane": "G4",
+  "status": "planning-reviewed-by-worker",
+  "inputs": [
+    {
+      "path": "docs/gm/WORLD_ACTIONABILITY_GM_PROMPT.md",
+      "coverage": "Role and required fields; recommended family-first dispatch; P1-P5 and return format inspected."
+    },
+    {
+      "path": "docs/WORLD_COMPLETION_STANDARD.md",
+      "coverage": "S00-S14 taxonomy, depth, random starts, C0-C5 and planning/runtime gates inspected."
+    },
+    {
+      "path": "docs/TIMELINES_AND_DIVERGENCE.md",
+      "coverage": "Implementation annex T1-T5 and TIME-P1-P5 fully inspected; earlier natural-course/branch/archive/return/selves considerations inspected through targeted reads, with some long output truncated."
+    },
+    {
+      "path": "docs/worlds/MULTIVERSE_STRUCTURES.md",
+      "coverage": "Cosmology/persistence distinctions, typed structures, represented scopes, finite instance-consumer readback and current gates inspected; no new source-world research."
+    },
+    {
+      "path": "docs/worlds/ORIGINS_AND_WORLD_TIMELINES.md",
+      "coverage": "Origin composition, frozen random generation, local-calendar/exposure, missing initializer and finite same-body delivery boundaries inspected."
+    },
+    {
+      "path": "docs/MEANS_AND_APPRAISAL.md",
+      "coverage": "Means principle/MN domains/AP types and stages, subtlety tables, implementation proposals and later means lifecycle/networks inspected in bounded excerpts; linked external contests unread."
+    },
+    {
+      "path": "docs/worlds/WORLD_SECRETS_AND_DISCOVERY.md",
+      "coverage": "Generic anatomy/stages/routes, sealing/engine/tests/fairness and next P1-P5 considerations inspected; public-canon examples are not reproduced or source-verified."
+    },
+    {
+      "path": "docs/SELVES_AND_ECHOES.md",
+      "coverage": "Recognition, same/different kit, G1-G9 families, transforms, source/dials, temporal selves and expanded response/storage joins inspected in excerpts; source references not re-audited."
+    },
+    {
+      "path": "src/world_instances.js",
+      "coverage": "Definition/endpoint/instance/binding/visit/clock/departure/update/view functions inspected; no runtime exercises."
+    },
+    {
+      "path": "src/expansion_engine.js",
+      "coverage": "checkpointScenario/previewScenarioRewind/rewindScenario and checkpoint export constraints inspected."
+    },
+    {
+      "path": "src/realm_state.js",
+      "coverage": "Exact single-instance binding, knowledge projection and observation activity-clock consumer inspected."
+    },
+    {
+      "path": "src/book_world_paradise_state.js",
+      "coverage": "Finite exact two-instance identities, source/body/absence policy and clock consumer inspected; setting truths omitted."
+    },
+    {
+      "path": "src/feature_expansion_destination_host.js",
+      "coverage": "Finite destination creation/visit consumer targeted inspection."
+    },
+    {
+      "path": "src/feature_expansion_nested_host.js",
+      "coverage": "Instance/visit/clock import and constructor usages located; complete module not read."
+    },
+    {
+      "path": "src/proto23_world_state.js",
+      "coverage": "Fixed local footprint/clock binding targeted inspection."
+    },
+    {
+      "path": "src/realm_clock_leases.js",
+      "coverage": "Lease identity/support/expiry/boundary schemas and validation excerpts inspected."
+    },
+    {
+      "path": "src/backlog_expansion_transit.js",
+      "coverage": "Clock lane validation, real-instance 1:1 restriction, support/deadline preview and carrier rules excerpts inspected; actual publication consumers not qualified."
+    },
+    {
+      "path": "src/simulation.js",
+      "coverage": "chooseSimulationOrigin one-time claim/effects inspected through current and earlier bounded reads."
+    },
+    {
+      "path": "src/simulation_contracts.js",
+      "coverage": "Knowledge shape/basis and reset-policy validators located; entire validator suite not read."
+    },
+    {
+      "path": "src/simulation_effects.js",
+      "coverage": "Observer fact projection and knowledge stage-rank update inspected."
+    },
+    {
+      "path": "src/action_legibility.js",
+      "coverage": "Observer-only aftermath and addressed private-ledger disclosure boundaries inspected; complete UI adapter not audited."
+    },
+    {
+      "path": "src/people_knowledge.js",
+      "coverage": "Known-person projection/introduction gates inspected; complete current consumer set not exercised."
+    },
+    {
+      "path": "src/world_knowledge.js",
+      "coverage": "Unknown-versus-known identity projection inspected."
+    }
+  ],
+  "requirements": [
+    {
+      "id": "G4-01",
+      "title": "Identity and provenance",
+      "sections": [
+        "S00",
+        "S01",
+        "S11",
+        "S12",
+        "S14"
+      ],
+      "sourceRefs": [
+        "docs/TIMELINES_AND_DIVERGENCE.md",
+        "docs/worlds/MULTIVERSE_STRUCTURES.md",
+        "src/world_instances.js"
+      ],
+      "criterion": "A selected history has stable source/definition, continuity, era, instance and visit identities, distinct from its display label.",
+      "proposedExpansion": [
+        "Define historical counterpart relation separately from actual traveler identity and nested parent relation.",
+        "Freeze revision and source range per instance; new source material creates a reviewed revision/branch rather than changing already played history.",
+        "Model ordinary shared space, independent universe, branch, nested realm and merge as typed relations; none implies automatic cloning or authority."
+      ],
+      "dependencies": [
+        "G5 schema/binding integrator",
+        "world source ledger"
+      ],
+      "engineConsumerOrGap": "validateWorldDefinition/Instance/Endpoint/Records exist; createWorldInstance accepts continuityId/eraId/parentInstanceId. Native host registrations remain finite. A parent ID is not fork state.",
+      "acceptanceCases": [
+        "Rename label without changing identity.",
+        "Two histories share one immutable definition and retain different facts.",
+        "Reject unknown definition revision before publication.",
+        "Nested parent does not give parent automatic knowledge/control."
+      ],
+      "remaining": [
+        "Choose first represented source family and two histories.",
+        "Review identity namespaces across all affected native owners."
+      ]
+    },
+    {
+      "id": "G4-02",
+      "title": "Historical snapshots and prior causes",
+      "sections": [
+        "S01",
+        "S02",
+        "S04",
+        "S11",
+        "S14"
+      ],
+      "sourceRefs": [
+        "docs/TIMELINES_AND_DIVERGENCE.md",
+        "docs/worlds/ORIGINS_AND_WORLD_TIMELINES.md"
+      ],
+      "criterion": "Each selected before/during/after snapshot initializes causally coherent institutions, actors, stock and commitments without fabricating player deeds.",
+      "proposedExpansion": [
+        "Represent settled prior events, ongoing events and future eligible events separately.",
+        "Late starts keep actual losses; early starts use contemporary bodies, offices, training and available materials.",
+        "Mid-event arrival exposes current actionable circumstances, without requiring the inherited Frontier opening.",
+        "A source endpoint is author context, not automatically character knowledge."
+      ],
+      "dependencies": [
+        "G1 eligible entry/body/initial actions",
+        "G3 local institutions/economy",
+        "G4-01"
+      ],
+      "engineConsumerOrGap": "chooseSimulationOrigin is one-time registered-origin effects, not a world/body/era initializer. createWorldInstance initializes supplied facts/sites, not a full historical snapshot.",
+      "acceptanceCases": [
+        "Selected earlier era lacks later office and resources unless the variant explains them.",
+        "Late snapshot preserves unavailable participants and changed stock.",
+        "Mid-event start records ongoing causes without fake player receipts.",
+        "Reload/import retains selected era and prior causes."
+      ],
+      "remaining": [
+        "Actual snapshot content and native initializer are not selected here.",
+        "G1 owns option candidates, weights and body legal-action proof."
+      ]
+    },
+    {
+      "id": "G4-03",
+      "title": "Natural course and disturbance",
+      "sections": [
+        "S01",
+        "S04",
+        "S10",
+        "S11",
+        "S14"
+      ],
+      "sourceRefs": [
+        "docs/TIMELINES_AND_DIVERGENCE.md",
+        "docs/MEANS_AND_APPRAISAL.md"
+      ],
+      "criterion": "An event occurs, changes or becomes ineligible because its actual causes and actor means changed.",
+      "proposedExpansion": [
+        "Event card: stable ID, source anchor, predicates, participant identity/role, means, cause-relative window, effects, dependents and reports.",
+        "Record abstention, unsuccessful intervention, successful disturbance and later repair as distinct histories.",
+        "Recompute affected dependencies rather than invent universal butterfly effects.",
+        "A replacement actor requires its own motive, information, availability and means; similar outcomes may legitimately recur.",
+        "Inertia scores and role casting are optional models, never a license to force canon through removed causes."
+      ],
+      "dependencies": [
+        "G4-01",
+        "G3 NPC goals/supply",
+        "G5 event scheduler integration"
+      ],
+      "engineConsumerOrGap": "simulation events/controllers and causal effects exist in source; general source-event graph and disturbance resolver are not established by this review. Timeline C1-C6 remain proposals.",
+      "acceptanceCases": [
+        "Abstention preserves eligible natural event.",
+        "Remove required communication/tool and event changes.",
+        "Failed intervention does not falsely mark the cause removed.",
+        "Independent surviving plan can produce a similar outcome.",
+        "Only dependent events change, and effects settle once."
+      ],
+      "remaining": [
+        "Inspect exact chosen events/controllers and boundary scheduling before runtime packet.",
+        "Choose one local source-qualified event chain."
+      ]
+    },
+    {
+      "id": "G4-04",
+      "title": "Parallel state isolation and fork transaction",
+      "sections": [
+        "S01",
+        "S04",
+        "S06",
+        "S09",
+        "S11",
+        "S12",
+        "S14"
+      ],
+      "sourceRefs": [
+        "docs/TIMELINES_AND_DIVERGENCE.md",
+        "docs/worlds/MULTIVERSE_STRUCTURES.md",
+        "src/world_instances.js",
+        "src/realm_state.js",
+        "src/book_world_paradise_state.js"
+      ],
+      "criterion": "Two instances of one selected family coexist without aliasing their local actors, objects, claims, knowledge or commitments.",
+      "proposedExpansion": [
+        "Fork manifest declares copy/reference/remap/exclude for actors, items, sites, jobs, relationships, knowledge, claims, RNG and provenance.",
+        "Mutable counterpart IDs are instance-qualified; a shared source character name is not one custody account.",
+        "Actual traveler migration remains distinct from cloning.",
+        "Creation validates all downstream owners and publishes atomically; failure exposes neither a partial branch nor new rewards."
+      ],
+      "dependencies": [
+        "G4-01",
+        "G5 native owner integration",
+        "G2 explicit duplication mechanisms"
+      ],
+      "engineConsumerOrGap": "World record/binding primitives and finite hosts exist. Glasshouse admits exactly one known instance; Paradise admits two exact footprints. Arbitrary same-family instances need generalized bindings to native owners.",
+      "acceptanceCases": [
+        "Change stock in instance A and B remains unchanged.",
+        "Claim a local unique reward in A without consuming B unless selected shared scope says so.",
+        "Same display name keeps different relationship/knowledge ledgers.",
+        "Failed save leaves no half-created cast or branch.",
+        "An explicitly shared traveler is not cloned at both endpoints."
+      ],
+      "remaining": [
+        "Determine exact owner scopes for the first fork.",
+        "Do not infer all-instance support from metadata constructors."
+      ]
+    },
+    {
+      "id": "G4-05",
+      "title": "Local calendars and clock mapping",
+      "sections": [
+        "S01",
+        "S02",
+        "S05",
+        "S11",
+        "S12",
+        "S14"
+      ],
+      "sourceRefs": [
+        "docs/TIMELINES_AND_DIVERGENCE.md",
+        "docs/worlds/ORIGINS_AND_WORLD_TIMELINES.md",
+        "src/world_instances.js",
+        "src/backlog_expansion_transit.js"
+      ],
+      "criterion": "Displayed calendars, traveler exposure and deadline resolution follow declared mappings from one authoritative played clock.",
+      "proposedExpansion": [
+        "Separate common played time, local calendar anchor, biological exposure, subjective time, hub time and transit time.",
+        "Specify rational rate, rounding carry, boundary order and calendar conversion; no wall-time inference.",
+        "Different calendar labels do not merge histories.",
+        "Transit delay, extraction deadline and contract settlement use their declared clocks."
+      ],
+      "dependencies": [
+        "G1 age/body exposure",
+        "G2 temporal mechanism scope",
+        "G5 scheduling/publication"
+      ],
+      "engineConsumerOrGap": "world_instances clock uses played_minutes. backlog_expansion_transit exposes explicit clock lanes/rational rates, but hub/local lanes require actual instance clocks at 1:1; other local rates need another admitted owner. This is source presence, not exercised behavior.",
+      "acceptanceCases": [
+        "Two visitors union intervals rather than doubling world time.",
+        "Fractional mapping preserves residual across reload/import.",
+        "Travel crosses a local deadline exactly once.",
+        "New calendar anchor does not age a body retroactively.",
+        "Unsupported rate fails before publication."
+      ],
+      "remaining": [
+        "Inspect selected transit consumer and native calendar owners.",
+        "No general unequal local world calendar is proven."
+      ]
+    },
+    {
+      "id": "G4-06",
+      "title": "Presence, absence and offscreen resolution",
+      "sections": [
+        "S04",
+        "S05",
+        "S09",
+        "S11",
+        "S12",
+        "S14"
+      ],
+      "sourceRefs": [
+        "docs/TIMELINES_AND_DIVERGENCE.md",
+        "docs/worlds/MULTIVERSE_STRUCTURES.md",
+        "docs/worlds/ORIGINS_AND_WORLD_TIMELINES.md",
+        "src/realm_clock_leases.js",
+        "src/realm_state.js"
+      ],
+      "criterion": "Offscreen progress is bounded by the selected policy and actual supported actor activity, with discoverable return evidence.",
+      "proposedExpansion": [
+        "Retain freeze, funded bounded actors/events, chapter snapshots and aggregate policies as separate options.",
+        "Declare what qualifies as presence: body visit, supported observation, authorized work, projected contact or other selected means.",
+        "Observation/work lease support has issuer/source/anchor/contact/expiry; losing support stops only affected advancement.",
+        "Materialize offscreen people with stable prior commitments; authored background is not a fake fully simulated economy."
+      ],
+      "dependencies": [
+        "G3 funded independent projects",
+        "G4-05",
+        "G5 lease/boundary integrator"
+      ],
+      "engineConsumerOrGap": "planWorldClock freezes unsupported absence; Glasshouse uses realm_clock_leases for supported observation/work. Finite lease consumer does not implement general offscreen history or offline years.",
+      "acceptanceCases": [
+        "No active visit/support freezes local elapsed time.",
+        "Supported contact advances declared intervals once.",
+        "Expiry/lost source prevents unsupported production.",
+        "Return report arrives through an actual observer/channel.",
+        "Chapter jump preserves selected commitments and actual stock."
+      ],
+      "remaining": [
+        "Select policy per world and declared resume scope.",
+        "Inspect exact aggregate/controller owners for bounded advancement."
+      ]
+    },
+    {
+      "id": "G4-07",
+      "title": "Unequal, stopped and reversed temporal layers",
+      "sections": [
+        "S01",
+        "S07",
+        "S08",
+        "S11",
+        "S12",
+        "S14"
+      ],
+      "sourceRefs": [
+        "docs/TIMELINES_AND_DIVERGENCE.md",
+        "docs/worlds/MULTIVERSE_STRUCTURES.md",
+        "src/backlog_expansion_transit.js",
+        "src/realm_clock_leases.js"
+      ],
+      "criterion": "A selected special-time mechanism affects only its declared layers, actors, processes and information channels.",
+      "proposedExpansion": [
+        "Define stopped external clock versus active subjective processes, incoming signals, fuel use and body exposure.",
+        "Unequal rates require admitted local owners; stopped time must not imply every inhabitant stops or every actor can act.",
+        "Reversed elapsed history is a state transformation, not merely a negative scheduler tick.",
+        "Nested rates compose only where source mechanisms support them; track entry/exit and contact boundaries."
+      ],
+      "dependencies": [
+        "G2 exact time function/acquisition",
+        "G4-05 G4-06",
+        "G5 runtime boundary contract"
+      ],
+      "engineConsumerOrGap": "Carrier clock adapter has freeze/presence/supported lanes and rational rates for admitted clocks; native instance clock validates nonnegative forward played time. General reversed history needs transformation, and arbitrary stopped nested worlds are not proven.",
+      "acceptanceCases": [
+        "Stopping one layer leaves unaffected external commitments running as declared.",
+        "Actor exposure differs from world calendar only under supported mapping.",
+        "A signal cannot arrive through a stopped channel unless the mechanism permits it.",
+        "Nested rates preserve exact residual and no double advancement.",
+        "Negative common-clock requests are rejected; authorized reversal uses its own scope."
+      ],
+      "remaining": [
+        "Selected mechanism and exact actual consumer inspection pending.",
+        "No blanket temporal disadvantage or invented fuel cost."
+      ]
+    },
+    {
+      "id": "G4-08",
+      "title": "Archives, chronicles and resume fidelity",
+      "sections": [
+        "S00",
+        "S09",
+        "S11",
+        "S12",
+        "S14"
+      ],
+      "sourceRefs": [
+        "docs/TIMELINES_AND_DIVERGENCE.md",
+        "docs/worlds/MULTIVERSE_STRUCTURES.md"
+      ],
+      "criterion": "Archived histories retain enough state to fulfill their declared readable or playable resume promises.",
+      "proposedExpansion": [
+        "Archive header: identity, parent relation, revisions, selected policies and provenance; retain changed actors/custody/events/RNG/knowledge/commitments.",
+        "Offer full/pinned, delta with reconstructible frozen baseline, or explicitly lossy chronicle.",
+        "Lossy summary cannot promise exact historical playable restore.",
+        "Seed regeneration may fill never-committed background but never replaces actual prior stock, deaths, obligations or discoveries.",
+        "Measure storage on representative histories rather than adopting earlier size estimates."
+      ],
+      "dependencies": [
+        "G4-04",
+        "G5 archive persistence/import",
+        "G3 meaningful lifetime changes"
+      ],
+      "engineConsumerOrGap": "Current instances/visits are not a full branch archive. Timeline seed-plus-canon and 10-50 KB estimates are proposals; broad reconstruction and atlas remain missing.",
+      "acceptanceCases": [
+        "Pinned archive restores actual custody and open commitments.",
+        "Delta retains needed frozen baseline revision.",
+        "Chronicle clearly declares unavailable resume scope.",
+        "Missing content pack preserves opaque IDs without revealing private names.",
+        "Regrown background cannot create a previously lost item."
+      ],
+      "remaining": [
+        "Choose supported archive modes and measure size/time.",
+        "Chronicle fade and branch threshold policies need continuity decisions."
+      ]
+    },
+    {
+      "id": "G4-09",
+      "title": "Branch return, restoration and original baseline",
+      "sections": [
+        "S01",
+        "S03",
+        "S11",
+        "S12",
+        "S14"
+      ],
+      "sourceRefs": [
+        "docs/TIMELINES_AND_DIVERGENCE.md",
+        "docs/worlds/MULTIVERSE_STRUCTURES.md"
+      ],
+      "criterion": "Selecting a fresh baseline, re-entering a lived history and repairing that history produce distinct outcomes.",
+      "proposedExpansion": [
+        "Support R1 new-run baseline, R2 travel between actual instances, R3 actual restoration and R4 regression through separate contracts.",
+        "An immutable source baseline is not itself an occupied live canon instance; instantiate when required.",
+        "Repair changes actual causes/actors and does not erase receipts or claim that past harm never occurred.",
+        "One persistent timeline is a valid alternate run policy.",
+        "Merge preserves conflicting people, obligations, custody and provenance under explicit rules."
+      ],
+      "dependencies": [
+        "G4-01 G4-04 G4-08",
+        "G2 restoration/regression mechanisms",
+        "G1 run selection"
+      ],
+      "engineConsumerOrGap": "Finite travel/revisit consumers exist; general branch selection, clean-baseline initializer, restoration merge and atlas travel are not established.",
+      "acceptanceCases": [
+        "Return to lived instance retains previous changes.",
+        "Fresh baseline has a new identity without erasing old instance.",
+        "Repair does not retroactively grant unperformed achievements.",
+        "Blocked return reflects actual lost route.",
+        "Conflicting merges remain explicit rather than silently overwriting."
+      ],
+      "remaining": [
+        "Select baseline versus persistent-history policy per world.",
+        "R3 matching canon is not proof that every historical record can merge."
+      ]
+    },
+    {
+      "id": "G4-10",
+      "title": "Reset, loop and regression retention",
+      "sections": [
+        "S01",
+        "S07",
+        "S09",
+        "S11",
+        "S12",
+        "S14"
+      ],
+      "sourceRefs": [
+        "docs/TIMELINES_AND_DIVERGENCE.md",
+        "docs/worlds/ORIGINS_AND_WORLD_TIMELINES.md",
+        "src/expansion_engine.js",
+        "src/simulation_contracts.js"
+      ],
+      "criterion": "Temporal reset restores and retains exactly the selected domains, including external observers, exports and RNG.",
+      "proposedExpansion": [
+        "Transformation manifest lists body/source/memory/stock/custody/people/events/knowledge/RNG/claims/obligations and external domains.",
+        "Partial scenario reset, repeated trial, historical fork and full rollback remain distinct.",
+        "Explicit restore/duplicate cheats may recreate people/items when their mechanism permits; record new versus restored identity.",
+        "Replayed settlements are bugs only outside the selected repeat/duplication scope.",
+        "Define what remembered evidence survives when its cause no longer exists."
+      ],
+      "dependencies": [
+        "G2 function and authority",
+        "G4-04 G4-05",
+        "G5 durable transformation"
+      ],
+      "engineConsumerOrGap": "checkpointScenario/rewindScenario restore one isolated scenario and retain campaign/journey/actors/worlds/random stream/receipts; sequence advances. Simulation reset policies exist but do not establish arbitrary full-world regression.",
+      "acceptanceCases": [
+        "Scenario rewind does not change unrelated native body/inventory.",
+        "Authorized full restore affects every declared owner atomically.",
+        "External carried object follows selected duplicate/merge/fade rule.",
+        "RNG retained or restored exactly as declared across import.",
+        "Failed publication cannot leave a partial reset."
+      ],
+      "remaining": [
+        "Exact selected cheat/world reset policy and owner set pending.",
+        "No universal conservation rule or compulsory cost."
+      ]
+    },
+    {
+      "id": "G4-11",
+      "title": "Cross-history passage and carriers",
+      "sections": [
+        "S03",
+        "S04",
+        "S06",
+        "S07",
+        "S11",
+        "S12",
+        "S14"
+      ],
+      "sourceRefs": [
+        "docs/worlds/MULTIVERSE_STRUCTURES.md",
+        "docs/TIMELINES_AND_DIVERGENCE.md",
+        "src/realm_connections.js",
+        "src/backlog_expansion_transit.js"
+      ],
+      "criterion": "A crossing moves or creates only what its actual mechanism permits and records resulting custody, obligations and local support.",
+      "proposedExpansion": [
+        "Separate retained identity from usable power, office jurisdiction, fuel support and local access.",
+        "Body, memories, methods, sources, cargo, companions, curses, debts and duties have explicit directed-edge rules.",
+        "Interrupted arrival/return needs bounded state and clear actual location.",
+        "Counterpart-resonance/shared-account/duplication links are authored exceptions rather than inferred from matching names."
+      ],
+      "dependencies": [
+        "G2 portable function policy",
+        "G3 ownership/economy",
+        "G4-04 G4-05",
+        "G5 carrier host"
+      ],
+      "engineConsumerOrGap": "Realm endpoint/connections and carrierTransit context/snapshot/preview exist with actual owner binding; finite hosts support selected passages. Arbitrary actor migration/branch crossing still needs actual consumer qualification.",
+      "acceptanceCases": [
+        "Retained office lacks authority in destination until locally recognized.",
+        "Borrowed object moves under actual custody.",
+        "Blocked fuel stops use without deleting held method/source.",
+        "Interrupted crossing leaves no actor or cargo at two unintended locations.",
+        "An explicitly authorized duplicate creates distinct provenance."
+      ],
+      "remaining": [
+        "Inspect actual selected carrier publication consumer.",
+        "Companion identity and local source support joins require G2/G3 input."
+      ]
+    },
+    {
+      "id": "G4-12",
+      "title": "Past selves, counterparts and recognition",
+      "sections": [
+        "S02",
+        "S04",
+        "S09",
+        "S10",
+        "S11",
+        "S12",
+        "S14"
+      ],
+      "sourceRefs": [
+        "docs/SELVES_AND_ECHOES.md",
+        "docs/TIMELINES_AND_DIVERGENCE.md"
+      ],
+      "criterion": "Real counterparts and selves have distinct causal identities and recognize each other only through held means and evidence.",
+      "proposedExpansion": [
+        "Trace records itinerary/milestones/relationships/key acts/habits at actual dates, with interpolation fidelity declared.",
+        "An undisturbed real past self follows eligible trace causes; disturbance yields new choices from goals/means rather than forced replay.",
+        "Soul, face and habits are compatible recognition routes; impressions may be wrong, partial or delayed.",
+        "A successor/heir is not predecessor mental mastery unless a carrier actually provides it.",
+        "Meet, warn, teach, trade, recruit, oppose or replace through actual local access and identity rules."
+      ],
+      "dependencies": [
+        "G1 body/entry",
+        "G2 special recognition/carry",
+        "G3 relationships/behavior",
+        "G4-04 G4-08"
+      ],
+      "engineConsumerOrGap": "Actor knowledge, relationships and finite NPC controllers exist; general recorded-life actor, trace-to-controller adapter and counterpart identity bindings are not established.",
+      "acceptanceCases": [
+        "Same face without prior evidence does not grant private knowledge.",
+        "Soul recognition works where held scope permits even with changed body.",
+        "Warned self deviates only after receiving credible information.",
+        "Distinct counterparts retain distinct kit and obligations.",
+        "Heir receives actual journal rather than automatic predecessor mastery."
+      ],
+      "remaining": [
+        "Recorded versus generated identity and trace fidelity must be selected.",
+        "No automatic unique-item suppression when explicit duplicate mechanism exists."
+      ]
+    },
+    {
+      "id": "G4-13",
+      "title": "Generated selves and future information provenance",
+      "sections": [
+        "S04",
+        "S07",
+        "S09",
+        "S10",
+        "S11",
+        "S14"
+      ],
+      "sourceRefs": [
+        "docs/SELVES_AND_ECHOES.md",
+        "docs/TIMELINES_AND_DIVERGENCE.md"
+      ],
+      "criterion": "A demonstration, projection, alternate possibility and real visiting self disclose their distinct fidelity and causal status.",
+      "proposedExpansion": [
+        "Preserve perfect/extra-ability/projected/alternate/potential/shadow/worst/real-past/real-future families.",
+        "Generated models do not become actual people unless their mechanism creates them.",
+        "Model reveals only what its source can know; actual future sight grants its promised scope.",
+        "Projected habits or imagined ceilings remain readings rather than final destiny.",
+        "Optional coaching/replay can feed observed/understood learning only through declared acquisition."
+      ],
+      "dependencies": [
+        "G2 generation/function/fidelity",
+        "G3 meaningful responses",
+        "G4-08 G4-12"
+      ],
+      "engineConsumerOrGap": "Technique knowledge steps and actual actor ledgers are available foundations. General self transforms/replay actor realization require their own inspected implementation.",
+      "acceptanceCases": [
+        "Model self cannot spend native goods without explicit commitment mechanism.",
+        "Real future visitor carries actual stale knowledge.",
+        "Projection changes when inputs change and labels prior result appropriately.",
+        "Strong true-sight scope may expose previously unknown facts through discovery route.",
+        "An optimal demonstration can report no winning line without inventing hidden tools."
+      ],
+      "remaining": [
+        "G2 owns functional cards and optimization costs/performance.",
+        "Source-specific examples were not re-audited."
+      ]
+    },
+    {
+      "id": "G4-14",
+      "title": "Actor-private knowledge and communication chains",
+      "sections": [
+        "S04",
+        "S09",
+        "S10",
+        "S11",
+        "S13",
+        "S14"
+      ],
+      "sourceRefs": [
+        "docs/MEANS_AND_APPRAISAL.md",
+        "docs/worlds/WORLD_SECRETS_AND_DISCOVERY.md",
+        "src/simulation_effects.js",
+        "src/action_legibility.js",
+        "src/people_knowledge.js"
+      ],
+      "criterion": "Every actor responds to supported observation, inference, recollection or communication rather than author truth.",
+      "proposedExpansion": [
+        "Knowledge record retains observer, target/history, cause, channel, attribution, timestamp, confidence and scope.",
+        "Communication requires actual message/report means, recipient and arrival timing; deception, interception and non-delivery are separate outcomes.",
+        "Institution escalation follows justified report and held resources, not enemy omniscience.",
+        "World event truth and local/public belief remain separate; absent observer sees aftermath only via supported route."
+      ],
+      "dependencies": [
+        "G3 actor goals/contact networks",
+        "G2 extraordinary information scope",
+        "G4-03 G4-05"
+      ],
+      "engineConsumerOrGap": "simulation.knowledge is per actor with seen/interpreted/understood records, timestamp/cause/optional basis. projectSimulationAftermath uses observer ledger; addressed accounts require actual viewer recipient. General appraisal/communication network remains proposed.",
+      "acceptanceCases": [
+        "NPC who never receives a warning does not react to its contents.",
+        "Messenger delay matters before event boundary.",
+        "False report can drive a mistaken actual action.",
+        "Private rival observation is absent from player notebook.",
+        "Strong held global communication bypasses ordinary travel delays if its scope supports it."
+      ],
+      "remaining": [
+        "Inspect selected means and NPC planning consumers.",
+        "Confidence, origin-instance provenance and scalable message ordering need schema review."
+      ]
+    },
+    {
+      "id": "G4-15",
+      "title": "Appraisal scope, uncertainty and staleness",
+      "sections": [
+        "S04",
+        "S07",
+        "S09",
+        "S11",
+        "S13",
+        "S14"
+      ],
+      "sourceRefs": [
+        "docs/MEANS_AND_APPRAISAL.md",
+        "docs/SELVES_AND_ECHOES.md",
+        "src/simulation_effects.js",
+        "src/action_legibility.js"
+      ],
+      "criterion": "Readings remain attributable moment-specific information and can become outdated without erasing what was actually observed.",
+      "proposedExpansion": [
+        "Appraisal axes: target/channel/mode/range/time/schema/output/reliability/notice with confidence per field.",
+        "Unknown, blocked, unreadable, wrong-schema and absent results are distinct only when observer can distinguish them.",
+        "Separate equipped/base state, alias/legal/true name and current versus remembered location.",
+        "Changing conditions invalidates application of a prior reading; retain evidence and dated competing interpretations.",
+        "Means acquired/lost/restored changes future reading capability, not automatically historical memory."
+      ],
+      "dependencies": [
+        "G2 actual sensing function",
+        "G3 contacts/institutions",
+        "G4-14",
+        "G5 knowledge schema"
+      ],
+      "engineConsumerOrGap": "Knowledge effect currently overwrites only at equal/higher seen/interpreted/understood rank. This is not a full contradictory/stale reading ledger; a lower-confidence corrective account can require a separate key/history rather than destructive downgrade. Action legibility retains attributed aftermath.",
+      "acceptanceCases": [
+        "Observed equipped strength does not become timeless intrinsic strength.",
+        "Losing a lens stops new lens reads but keeps prior recorded account unless memory mechanism says otherwise.",
+        "A mistaken confident reading can coexist with corrective evidence.",
+        "Beyond-scope result does not reveal a hidden cause.",
+        "Authorized precise appraisal is not arbitrarily capped by generic AP ladder."
+      ],
+      "remaining": [
+        "Choose per-field confidence and stale/history representation.",
+        "AP0-AP9 ladder, universal upkeep/counters/rank ceilings are examples, not laws."
+      ]
+    },
+    {
+      "id": "G4-16",
+      "title": "Discovery routes and useful pre-certainty action",
+      "sections": [
+        "S03",
+        "S04",
+        "S05",
+        "S07",
+        "S09",
+        "S10",
+        "S11",
+        "S14"
+      ],
+      "sourceRefs": [
+        "docs/worlds/WORLD_SECRETS_AND_DISCOVERY.md",
+        "docs/MEANS_AND_APPRAISAL.md"
+      ],
+      "criterion": "A selected mystery supports fitting investigation, useful actions before certainty and actual consequences of mistaken conclusions.",
+      "proposedExpansion": [
+        "Retain unnoticed/sensed/suspected/known/usable as optional local stages distinct from generic ledger stages.",
+        "Routes can use skills, experiment, trusted testimony, inherited records or extraordinary means.",
+        "Comparing accounts, protective preparation, controlled tests, specialist commission and public/private disclosure can matter before full truth.",
+        "Discovery modifies access/use/treatment through actual means rather than simply incrementing a completion counter.",
+        "False rumors can be disproved; moving truths become stale; findings can be taught/traded/hidden under actual communication."
+      ],
+      "dependencies": [
+        "G3 meaningful local actions/payoffs",
+        "G2 revealing function",
+        "G4-14 G4-15"
+      ],
+      "engineConsumerOrGap": "Knowledge/observation effects, action legibility and skill discovery modules exist; generic per-secret route evaluator and five-stage per-life records are not established by this inspection.",
+      "acceptanceCases": [
+        "One useful preparation is reachable while merely suspicious.",
+        "Two fitting routes can reach the same selected revelation without leaking each other.",
+        "Mistaken hypothesis produces its declared consequence and can be revised.",
+        "Unshared discovery does not inform every NPC.",
+        "Truth change retains dated earlier evidence and new discovery."
+      ],
+      "remaining": [
+        "No selected secret truth or candidate catalogue included.",
+        "Inspect exact skill discovery/native consumers for first chosen route."
+      ]
+    },
+    {
+      "id": "G4-17",
+      "title": "Sealing, private packs and information-safe UI",
+      "sections": [
+        "S00",
+        "S02",
+        "S09",
+        "S11",
+        "S13",
+        "S14"
+      ],
+      "sourceRefs": [
+        "docs/worlds/WORLD_SECRETS_AND_DISCOVERY.md",
+        "docs/WORLD_COMPLETION_STANDARD.md",
+        "src/world_knowledge.js",
+        "src/world_instances.js",
+        "src/action_legibility.js"
+      ],
+      "criterion": "Before its supported discovery route, hidden truth or candidate identity appears in no player-facing UI, hint, log, error, report or index.",
+      "proposedExpansion": [
+        "Public requirement criteria remain generic; selected truth/variant/route particulars live in sealed or private owners.",
+        "Random truth/start selection freezes IDs and revision once; render/preview/failed save cannot reroll.",
+        "Do not reveal secret count or existence unless a selected disclosure route supports it.",
+        "Missing private pack preserves opaque state and uses neutral placeholders; no canon prose in export.",
+        "Fresh test origins may use debug unseal; never inspect director private saves."
+      ],
+      "dependencies": [
+        "G1 selected random start",
+        "G2 actual reveal scope",
+        "G4-08 G4-16",
+        "G5 renderer/save boundary"
+      ],
+      "engineConsumerOrGap": "worldIdentityView hides unknown identity; worldInstanceView takes discovered/identityKnown/clockKnown and fact/site/actor/claim allowlists; action_legibility excludes hidden outcomes/private facts. Callers must derive those allowlists from actual actor means. No exhaustive leak audit is claimed.",
+      "acceptanceCases": [
+        "Unknown identity leaves no revealing author checklist.",
+        "Supported discovery reveals only scoped fields.",
+        "Console/error/tooltip/disabled-action output contains no truth before route.",
+        "Reload/import preserves chosen hidden variant.",
+        "Unavailable pack does not reveal a sealed filename or source name."
+      ],
+      "remaining": [
+        "Selected sealed reviewer must inspect truth separately.",
+        "Private franchise runtime location/public-build exclusion requires selected integration audit."
+      ]
+    },
+    {
+      "id": "G4-18",
+      "title": "Archive import, conflicts and migration",
+      "sections": [
+        "S00",
+        "S11",
+        "S12",
+        "S14"
+      ],
+      "sourceRefs": [
+        "docs/TIMELINES_AND_DIVERGENCE.md",
+        "docs/worlds/MULTIVERSE_STRUCTURES.md",
+        "src/simulation_contracts.js"
+      ],
+      "criterion": "Import validates histories and their dependencies without losing live play, rewriting conflicting identities or fabricating exact restoration.",
+      "proposedExpansion": [
+        "Bundled live-save/atlas, separate atlas, allowed folder and optional explicit private sync remain distinct routes.",
+        "Same-ID divergent revisions require explicit conflict lineage rather than naive union; parent IDs do not prove compatibility.",
+        "Two independently played live runs can be retained as separate histories with verified owner mappings.",
+        "Checksums identify corruption but do not prove semantic consistency.",
+        "Missing referenced content requires preserved unresolved state or explicit non-playable chronicle, not silent mutable-history repair."
+      ],
+      "dependencies": [
+        "G4-01 G4-04 G4-08",
+        "G5 guarded import/export",
+        "G1 selected resume start"
+      ],
+      "engineConsumerOrGap": "Existing save export/import and validators are foundations, not tested branch-atlas merge or live-run conversion. Per-world state validates exact supported revisions. General archive schema/migration remains pending.",
+      "acceptanceCases": [
+        "Two unchanged identical archives are idempotent.",
+        "Same ID/different state retains both under explicit conflict policy.",
+        "Invalid parent/owner reference rejects affected restore before live publication.",
+        "Missing pack preserves neutral record for future compatible reader.",
+        "Failed import retains current live game unchanged."
+      ],
+      "remaining": [
+        "Separate atlas semantics and migration scope need selected implementation.",
+        "No external sync authorization or acquisition in this pass."
+      ]
+    }
+  ],
+  "unreadRemainder": [
+    "No exhaustive audit of all 396 public intake artifacts, every historical rollout or local source dossier. This lane accounts for the temporal/identity/discovery families identified in its named inspected owners.",
+    "Linked LIFE_SIM_NORTH_STAR, PRESENTATION_AND_FOURTH_WALL, E7/E8 source-axis, dialogue, lore/continuity, trials, enemy-protagonist, cheat-cosmology and full simulator source dossiers are not fully reread in this wave; G2/G3/G5 and selected world owners must adjudicate their joins.",
+    "No sealed truth files, private book packs, source-library prose, director saves or actual random candidate catalogues were read or emitted.",
+    "Full transit publication/clock consumer set, native calendar/aging adapters, skill_discovery and skill_discovery_native consumers, fork migration, import/archive storage and performance need selected code inspection.",
+    "Some combined long tool outputs truncated. Coverage claims above are bounded excerpts, not whole-document/source-completion claims; selected world audits must reread exact cited mechanisms before code.",
+    "No source world selected, events authored, runtime packet assigned or behavior exercised. Numerical clock policies, archive limits, distributions, merge/loss rules and new lore remain proposals."
+  ],
+  "noRuntimeClaim": true
+}

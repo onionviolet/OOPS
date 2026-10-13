@@ -1,0 +1,7 @@
+{
+  "src/world_completion_bridge.js": "87649131d42d4f41145ce51f1944abe83faeb0691c1aa4e402b851d2da498b58",
+  "tests/world_completion_sample_owner.test.js": "13deae5e073e8cddb778795ca9abad61caa04b4e6ea5943f57e0b2603b2e260a",
+  "dist/bundle.js": "c0a5e5cccd37c59b1265dee554c051deefef360659c5d6dfffe4f9eb6ff328c3",
+  "dist/bundle.js.map": "1cd06c16e7b951169150faf2f26ef24eecc114830ba8cfb17ba19d82a7830f76",
+  "index.html": "f7c0d2799dda25b18a8498f93ae1d5477acb3b2e3fb4c1aee6b1fdc247099171"
+}

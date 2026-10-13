@@ -1,0 +1,15 @@
+# Foundation / research-adoption current checkpoint
+
+October 13, 2026. Predecessor GM 01a133d9-faa9-71a1-a513-7131efbc8613.
+
+R1 technical PASS for FA06. See rounds/r1/REPORT.md, ACCEPTANCE_BACKLOG.md, FINAL_BINDINGS.json and NATIVE_RESULT.json. Current 13/13 focused source checks, earlier 70/70 affected slice (overlapping), 14 native groups and 10 exact restore comparisons. All 439 source-map entries match. Final native bundle cb0c11d04b3e13c16aac5cd930314cfb78d654c326f07d2b9140f14e739ff175. Frozen public candidate rebuilt to identical bundle and serving disposable origin18724, session79973. No personal saves accessed. Primary/secondary browser and old baseline worker stopped. Workers released all writes.
+
+Shared source reservation was transferred directly by human from finished livelihood owner to this GM in reservations/SHARED_TRANSFER.json. Eight bounded R1 paths integrated; huge unrelated dirty work preserved. Concurrent separate desktop UI edits are bound in FINAL_BINDINGS.json, not owned or credited to R1. No director taste acceptance, commit, push or publication claimed.
+
+Next substantive unit: reviewed R2 FA07 existing contextual balm. Its own ordinary signed-in ChatGPT review was captured before dispatch at https://chatgpt.com/c/6acdd318-fe58-83e9-b7d0-644e7433488e; High3of3, model not exposed. Recover rounds/r2/PROMPT_RECONCILED.md plus RECONCILIATION_NOTES.md/ROUNDTRIP.json. It is also the fresh successor's reviewed substantive objective. Preparation said R1 pending; execution-time R1 gate is now passed. FA07 remains implemented-unverified until its own legitimate balm/scrape, treatment timing, failure and actual export/reload/import gates pass.
+
+HORIZON.md is the finite FA01–FA23 denominator. FA17 heir requires separate owner/compatibility recovery; FA18 recovery continuation and FA20 bounded useful configuration are real gaps for later separately reviewed rounds. FA21 editor, FA22 minigames and FA23 UI remain separate. No paused World1, new acquisition/install, private packs/source libraries, personal saves or sender seven immutable artifacts authorized. Final integrated persistence/recovery and independent bounded gap review remain required for chain closure.
+
+Fresh successor 01a13425-517a-7442-83b6-34929c57dfab created in the same saved project and checkout. Shared ownership transfers effectively in reservations/SUCCESSOR_TRANSFER.json; predecessor stops all shared writes. Initial progress confirmation is handled through bounded wait, not additional source mutation. Successor recovers live branch/HEAD/dirty/writers first, then executes reviewed R2. R2 closure does not finish this continuing chain; choose the next useful horizon unit, review it through ordinary ChatGPT before execution, and create fresh GM successors at meaningful boundaries under existing human authority.
+
+Earlier progress and retained corrections: execution/CHECKPOINT_PRE_R1_CLOSURE.md. Initial binding: execution/RECOVERY_INPUTS.json and INITIAL_STATUS.txt. These are history, not current proof. No older counts inherited.

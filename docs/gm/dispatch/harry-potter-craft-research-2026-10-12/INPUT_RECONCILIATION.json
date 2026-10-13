@@ -1,0 +1,38 @@
+[
+  {
+    "path": "AGENTS.md",
+    "sha256": "7fccb57130106b634ddce5190a0645724535c7a50faabd382bb235128290e288",
+    "live_sha256": "7fccb57130106b634ddce5190a0645724535c7a50faabd382bb235128290e288",
+    "matches": true
+  },
+  {
+    "path": "PROJECT.md",
+    "sha256": "95b33815185e84bc3fbfcf840af70754fdc84ff52a5bc2f24fb0cf937b97c9c0",
+    "live_sha256": "95b33815185e84bc3fbfcf840af70754fdc84ff52a5bc2f24fb0cf937b97c9c0",
+    "matches": true
+  },
+  {
+    "path": "docs/research/SOURCE_ACQUISITION_TOOLS.md",
+    "sha256": "fd026b03d75eb81cade5cf5614dfe3a890daadd36d071211ce339305ca59259e",
+    "live_sha256": "fd026b03d75eb81cade5cf5614dfe3a890daadd36d071211ce339305ca59259e",
+    "matches": true
+  },
+  {
+    "path": "docs/gm/dispatch/harry-potter-world-2026-10-11/CHECKPOINT.md",
+    "sha256": "086dee3f6c94db93622c4999c9cd0d2025cc62890b9a6ac72ced12d22a78ab1a",
+    "live_sha256": "086dee3f6c94db93622c4999c9cd0d2025cc62890b9a6ac72ced12d22a78ab1a",
+    "matches": true
+  },
+  {
+    "path": "docs/research/novels/harry-potter/world-audit-2026-10-11/fan-platform-expansion-2026-10-11/REPORT.md",
+    "sha256": "324b12da2125bc1720f671e732cd224b3591a10a275357c0553faf7f5f0b7c2e",
+    "live_sha256": "324b12da2125bc1720f671e732cd224b3591a10a275357c0553faf7f5f0b7c2e",
+    "matches": true
+  },
+  {
+    "path": "docs/research/novels/harry-potter/world-audit-2026-10-11/fan-crafting-expansion-2026-10-11/REPORT.md",
+    "sha256": "6b1fab7081a8c33146d8832347a8bed5f2f32325050e229f6501b3404199e720",
+    "live_sha256": "6b1fab7081a8c33146d8832347a8bed5f2f32325050e229f6501b3404199e720",
+    "matches": true
+  }
+]

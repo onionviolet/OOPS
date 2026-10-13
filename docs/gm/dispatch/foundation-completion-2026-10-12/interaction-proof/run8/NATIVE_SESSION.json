@@ -1,0 +1,55 @@
+{
+  "pid": 11664,
+  "origin": "http://127.0.0.1:18645",
+  "startedHash": "a4e84278059a711738b9149a331f916496dee79140384c021e11052187baef26",
+  "endedHash": "a4e84278059a711738b9149a331f916496dee79140384c021e11052187baef26",
+  "events": [
+    {
+      "action": "sequence",
+      "selectors": [
+        "[data-foundation-probe=\"foundation.probe.a.barrier.p-a\"]",
+        "[data-foundation-probe=\"foundation.probe.b.s1\"]"
+      ]
+    },
+    {
+      "action": "failClick",
+      "selector": "[data-foundation-probe=\"foundation.probe.b.attack\"]"
+    },
+    {
+      "action": "reload"
+    },
+    {
+      "action": "invoke",
+      "selector": "[data-foundation-probe=\"foundation.probe.b.attack\"]"
+    },
+    {
+      "action": "wait",
+      "ms": 3500
+    },
+    {
+      "action": "invoke",
+      "selector": "[data-foundation-probe=\"foundation.probe.b.attack\"]"
+    },
+    {
+      "action": "wait",
+      "ms": 5500
+    },
+    {
+      "action": "invoke",
+      "selector": "[data-foundation-probe=\"foundation.probe.b.attack\"]"
+    },
+    {
+      "action": "save",
+      "name": "expiry-aftermath"
+    },
+    {
+      "action": "reload"
+    },
+    {
+      "action": "import",
+      "path": "/tmp/yairpg-foundation-interaction-expiry-aftermath.json"
+    }
+  ],
+  "errors": [],
+  "failures": []
+}

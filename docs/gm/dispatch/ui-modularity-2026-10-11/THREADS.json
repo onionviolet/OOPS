@@ -1,0 +1,9 @@
+{
+  "parent": "01a12e0e-b2d8-7043-bb1e-bb43d7585002",
+  "gm": "01a12e1c-b84f-74a0-9638-295e0facdd5e",
+  "host": "local",
+  "dispatch": "created successfully",
+  "authority": "implement accordingly with new gm",
+  "ownership": "GM owns UI task checkpoint and reserved candidate; parent owns this dispatch receipt only and has relinquished runtime writes. Shared incumbent reservations retained.",
+  "projectId": "2874e5d5-3794-407a-9051-47fe7e4843ba"
+}

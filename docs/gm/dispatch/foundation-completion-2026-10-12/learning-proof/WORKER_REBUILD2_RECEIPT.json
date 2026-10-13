@@ -1,0 +1,25 @@
+{
+  "worker": "/root/learning_native",
+  "bundle": "a4e84278059a711738b9149a331f916496dee79140384c021e11052187baef26",
+  "savePath": "/tmp/yairpg-foundation-learning-worker-rebuild2-boundary.json",
+  "sha256": "1603d10a4f286032eb8152146b6157f2e91c1f81792accced6ba405393eba7bc",
+  "pid": 57610,
+  "session": 51537,
+  "origin": "http://127.0.0.1:18643",
+  "stopped": true,
+  "clock": 11138,
+  "sequence": 726,
+  "money": 96,
+  "activity": {
+    "activity_id": "woodcutting",
+    "earnings": 0,
+    "gathering_time": 8,
+    "gathered_materials": {
+      "Rough wood log": 351,
+      "Tree sap": 18
+    }
+  },
+  "jobs": [],
+  "interruption": "Host capacity failure interrupted agent while live native gathering process continued at ordinary1x. Natural stock accumulated351logs18sap. No fabricated progress or speed modification.",
+  "next": "After root rebuild, resume exact actual save and immediately Stop woodcutting through native UI. Then reference feat enrollment / audit remainder / field workshop / home / learning gates."
+}

@@ -1,0 +1,33 @@
+{
+  "date": "2026-10-12",
+  "status": "passed document gate",
+  "actual_thread": "01a12e72-1b40-7580-a66f-262a1c27cb41",
+  "families": 36,
+  "connected_examples": 6,
+  "local_links_and_anchors_checked": 75,
+  "link_errors": [],
+  "trailing_whitespace_errors": [],
+  "original_rulebook_sha256": "301945dadb33383063f17264718acc73be07a8d8be17cbbe1ac079bb57d6ae46",
+  "original_whole_rulebook_preserved": true,
+  "outside_section_byte_preservation": true,
+  "all_fingerprinted_read_only_inputs_unchanged": true,
+  "public_new_reference_private_raw_links": 0,
+  "manual_review": [
+    "accepted twelve rules unchanged; no thirteenth law",
+    "hypothetical cases source-neutral; no actual lore assertion requiring novel/web verification",
+    "private inputs used for method only; no raw prose/sealed truths exported",
+    "strong/OP/free/exceptional means retained; no universal restrictions",
+    "actual native bindings uninspected; all gameplay cases specified-not-run"
+  ],
+  "independent_review": "GAP_REVIEW.md final review: no concrete remaining defect",
+  "scoped_git_diff_check": "passed",
+  "gameplay_cases": "specified-not-run",
+  "runtime_tests_build_browser_save": "not run; out of scope",
+  "output_hashes": {
+    "docs/gm/CROSS_WORLD_DETAIL_REVIEW.md": "56f84e4ece960034735f1e9ec464e26f3cd81de44eabbb3dfb93af37b9534a35",
+    "docs/RULES_FROM_SCRATCH.md": "9d7300c466f61650c6b0e489fb863f7d1966a7c0b0305beab2d9978c50c6a8c1",
+    "docs/gm/dispatch/cross-world-rulebook-expansion-2026-10-12/REPORT.md": "5cbedda9c509747c0c886b1c55ed6cb39cff1c02b24b7a8f12deee815aa7d52b",
+    "docs/gm/dispatch/cross-world-rulebook-expansion-2026-10-12/CHECKPOINT.md": "4e9ceb8d51b8c08a402860b84ee4bea15cd5dd1333db2f54ce61026f9ac0237d",
+    "docs/gm/dispatch/cross-world-rulebook-expansion-2026-10-12/GAP_REVIEW.md": "d6da72cb9fdb44c2b49e35d22ab345cb2510591c8b465eba5b4b54589e4a7b09"
+  }
+}

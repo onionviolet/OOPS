@@ -3,6 +3,7 @@
 // and calls completion before the generic job path. Nothing publishes here.
 import {assert, copy, natural, meets} from './simulation_contracts.js';
 import {applySimulationEffects, refundCosts} from './simulation_effects.js';
+import {prepareSimulationEffects} from './simulation_resolution.js';
 import {applySituationEffect} from './causal_situations.js';
 import {LORE_PRACTICE_IDS as I, LORE_PRACTICE_KEYS as K, lorePracticeDefinitions as D, lorePracticeCommand, lorePracticeKnowledge} from './lore_practice_content.js';
 import {lorePracticeFacts, lorePracticeLocalSupported, exactLorePracticeJob, lorePracticeSame} from './lore_practice_facts.js';
@@ -167,12 +168,18 @@ function rain(out, registry, contexts, job) {
     apply(out, effects, registry, ctx, cause);
     applySituationEffect(state, {type: 'situation', operation: 'advance', situationId: I.rain, expected: [r.phase], phase: 'rained'}, registry.simulation, cause);
 }
+export function exactImmediateLorePracticeJob(job, registry) {
+    const d = lorePracticeCommand(job?.commandId);
+    return !!d && !d.duration && job.revision === d.revision && job.actorId === d.actorId &&
+        job.targetId === (d.targetId || null) && lorePracticeSame(job.costs, d.costs) &&
+        lorePracticeSame(job.effects, prepareSimulationEffects(d.effects, {}, registry, job.id));
+}
 export function completeLorePracticeJob(out, job, registry, contexts = {}) {
     const d = lorePracticeCommand(job?.commandId);
     if(!d) return false;
     const state = out.state, ctx = {...contextFor(out, contexts, job.actorId), ...job.context, lorePracticeHost: true, lorePracticeReservation: job};
     if(d.duration) assert(exactLorePracticeJob(state, job, {popped: true}), 'This popped lore job lost its exact accepted definition/reservation.');
-    else assert(lorePracticeSame(job.costs, d.costs) && lorePracticeSame(job.effects, d.effects) && job.revision === 1, 'Unsupported immediate lore command.');
+    else assert(exactImmediateLorePracticeJob(job, registry), 'Unsupported immediate lore command.');
     const f = lorePracticeFacts(state, ctx);
     const present = (job.participants || [job.actorId]).every(id => state.simulation.people[id]?.life === 'alive' && state.actors[id]?.worldId === I.world &&
         (!job.completionSupport?.coLocated || state.simulation.people[id].location === job.completionSupport.location || id === 'player' && contexts.player?.facts?.location === job.completionSupport.location));

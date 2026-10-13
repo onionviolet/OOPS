@@ -1,0 +1,79 @@
+[
+ {
+  "id": "I1",
+  "item": "Vivid default for fresh browsers",
+  "check": "browser.cjs I1",
+  "passes": true,
+  "notes": "PASS 2026-10-13 (Claude worker). src/workspace_layout.js readColorScheme() falls back to 'vivid' when no valid stored choice; stored 'standard' stays Standard."
+ },
+ {
+  "id": "I2",
+  "item": "Vivid bars retuned",
+  "check": "browser.cjs I2",
+  "passes": true,
+  "notes": "PASS 2026-10-13. styles/workspace.css vivid block: per-bar vars on #basic_character_info_div (skipped under data-custom-palette=true). Fills xp #ffbf3d, stamina #4fe36f, mana #9db3ff, health #ff7d87; opaque tracks #8f7a4e/#538a60/#6476bc/#a8666e; 1px light outline; stronger value text shadow. Standard fills unchanged."
+ },
+ {
+  "id": "I3",
+  "item": "Rarity palette readable on Vivid",
+  "check": "unit.mjs + browser.cjs I3",
+  "passes": true,
+  "notes": "New src/rarity_palette.js; display.js routes rarity colors through it, recolors in place on scheme change. Coordinator: unit + browser PASS."
+ },
+ {
+  "id": "I4",
+  "item": "Discovery-gated Combat panel reveal once",
+  "check": "browser.cjs I4",
+  "passes": true,
+  "notes": "discovered() predicate separate from eligible(); undiscovered shells in hidden unlabelled holder; combat/stance from last_combat_location||total_hits_done (main.js:8307 one line); reveal attr once after 1.2s settle; styles/workspace_discovery.css. Coordinator full check.sh PASS. Unexercised: notebook/people/routes in-play reveals, Classic reveal animation."
+ },
+ {
+  "id": "I5",
+  "item": "New item marker clears when seen",
+  "check": "browser.cjs I5",
+  "passes": true,
+  "notes": "display.js session-only Sets; data-item-new on rows acquired after first trusted input; clears on mouseover/focusin. Coordinator PASS. Keyboard clearing untested."
+ },
+ {
+  "id": "I6",
+  "item": "Anchored coin float on spend",
+  "check": "browser.cjs I6",
+  "passes": true,
+  "notes": "installCoinFeedback() appended to src/settled_text_effects.js (self-installs; no main.js), .coin-float in styles/settled_text_effects.css. Watches #money_div total; arms after start screen closes, so loads/imports never float. Coordinator run PASS. Note: any purse decrease after PLAY floats (upkeep too); follows prefers-reduced-motion only."
+ },
+ {
+  "id": "I7",
+  "item": "Semantic color tokens",
+  "check": "browser.cjs I7",
+  "passes": true,
+  "notes": "NOT PASSING (blocked on scope). Tokens done and PASS contrast both schemes: style.css :root --sem-gain #6ad37a/--sem-loss #ff7b7b/--sem-money #ffd700/--sem-blocked #f0a35e; Vivid override in workspace.css (#66e39a/#ff7d86/#ffd54f/#ffb36b). display.js has new log type 'purchase' (message_notification + message_money -> var(--sem-money)), CSS verified. Missing: main.js actFort logs the buy as generic 'notification' (shared with errors); needs log_message(plan.message, action==='buy_notes'?'purchase':'notification') at src/main.js:653, outside this worker's files. | Coordinator: added minimal src/main.js:653 hook (buy_notes logs as 'purchase'; 'notification' is shared by ~37 error lines, so coloring it would mislabel). Rebuilt; I7 PASS in coordinator run."
+ },
+ {
+  "id": "I8",
+  "item": "Log unread without jump",
+  "check": "browser.cjs I8",
+  "passes": true,
+  "notes": "display.js log_message holds position when >24px from bottom; sticky <button data-log-unread> 'N new'. Coordinator PASS."
+ },
+ {
+  "id": "I9",
+  "item": "Desktop viewports clean",
+  "check": "browser.cjs I9",
+  "passes": true,
+  "notes": "Regression guard; PASS in final full check.sh."
+ },
+ {
+  "id": "I10",
+  "item": "Character vitals aligned (Proto23 compact rows)",
+  "check": "browser.cjs I10",
+  "passes": true,
+  "notes": "PASS 2026-10-13. index.html: added #character_vitals_level span in #character_name_div (all IDs kept). src/display.js: one line in update_displayed_character_xp sets 'Lv N'. styles/workspace.css (workspace-active): name row flex (name left-aligned with bars, level right), all four bars 16px, values absolute 16px line-height 13px centred. Both schemes."
+ },
+ {
+  "id": "L1",
+  "item": "Proto23 absorption ledger complete",
+  "check": "ledger.mjs",
+  "passes": true,
+  "notes": "Coordinator ran ledger.mjs: PASS 95 entries (16 adopted w/ evidence, 32 adapt-next, 15 parked, 6 rejected, 26 n/a). Adopted rows point to absorb-2026-10-11 evidence, titles/native_discovery tests, proto23-vfx REPORT."
+ }
+]

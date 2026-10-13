@@ -1,0 +1,17 @@
+{
+  "scope": "launch resource probe only; no gameplay counted; candidate public resource omissions corrected",
+  "checks": [
+    {
+      "origin": "http://127.0.0.1:18725",
+      "missing": [
+        "http://127.0.0.1:18725/private_packs/manifest.json"
+      ]
+    },
+    {
+      "origin": "http://127.0.0.1:18724",
+      "missing": [
+        "http://127.0.0.1:18724/private_packs/manifest.json"
+      ]
+    }
+  ]
+}

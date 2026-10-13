@@ -1,0 +1,32 @@
+{
+  "owner": "01a12e63-3b14-7112-adb2-aea3e5dc7a98",
+  "candidate": "/Users/weiwei/.codex/candidates/yairpg-customization-2026-10-12",
+  "transfer": "Confirmed current successor launched; predecessor read-only; DISPATCH.json creator reserved",
+  "baselineMatches": {
+    "src/main.js": true,
+    "src/save_files.js": true,
+    "src/display.js": true,
+    "index.html": true,
+    "src/work_ledger_system.js": true,
+    "src/work_ledger_ui.js": true,
+    "src/settled_text_effects.js": true,
+    "styles/settled_text_effects.css": true,
+    "dist/bundle.js": true
+  },
+  "units": {
+    "C3.1": "Native calendar themes/profile/module overrides/editable settled original VFX",
+    "C3.2": "Original rules draft/apply/reset/export/import and accepted commission frozen terms",
+    "C3.3": "Final workspace single native node adoption and actual movement",
+    "C3.4": "Natural native acquisition journey and connected browser/save proof"
+  },
+  "limits": [
+    "No shared main/build/PROJECT writes",
+    "No commits/push/publication/personal saves/source acquisition"
+  ],
+  "workers": {
+    "rules": "src/work_ledger_system.js",
+    "presentation": "src/customization*.js, styles/customization.css, settled_text_effects files",
+    "workspace": "workspace-specific modules/styles only"
+  },
+  "root": "main.js, save_files.js, index.html integration and browser qualification"
+}

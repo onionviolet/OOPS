@@ -1,0 +1,69 @@
+{
+  "schema": "w1-a5-completion-repair-inputs-1",
+  "revision": 1,
+  "stage": "audit reviewed, repair not performed",
+  "casesOwner": "../../audits/native-proof/status.json + REPORT.md case table",
+  "repairs": [
+    {
+      "id": "A5-F1",
+      "classification": "reproduced-production-defect; completion repair input",
+      "caseIds": [
+        "C0",
+        "C13"
+      ],
+      "consumer": "src/content_pack_ui.js render signature/mount; native safe-location refresh clears host",
+      "candidatePaths": [
+        "src/content_pack_ui.js",
+        "isolated synthetic DOM lifecycle regression",
+        "isolated native browser proof"
+      ],
+      "requiredBehavior": "Reconcile actual host before unchanged-view fast return, preserving callbacks/eligibility/notices/focus. Actual fresh/reload/no-job/entry/return/re-entry controls work without forced render.",
+      "compatibility": "No migration expected; pending jobs retain progress.",
+      "nextProof": "Current rebuilt production native fresh-origin normal entry and keyboard; detached unchanged view; failed entry; actual return/re-entry. Diagnostic force render cannot close this gate."
+    },
+    {
+      "id": "A5-F2",
+      "classification": "reproduced-production-defect; completion repair input",
+      "caseIds": [
+        "F2production",
+        "C8R",
+        "C9fresh"
+      ],
+      "consumer": "src/content_packs.js preparePackSave plus native save/load registered location provenance",
+      "candidatePaths": [
+        "src/content_packs.js",
+        "src/main.js narrow create_save/load binding",
+        "save compatibility/validation if explicit additive metadata needed",
+        "generated installed-unvisited and visited fixtures"
+      ],
+      "requiredBehavior": "Generic unavailable-content provenance covers installed-but-unvisited native records without inventing a visit, discarding unknown records or disabling warnings. Old emitted unvisited envelopes receive declared backward handling.",
+      "compatibility": "Versioned retention/migration or explicit safe rejection; dormant original data preserved; private identity never hardcoded.",
+      "nextProof": "Installed/unvisited -> absent/malformed -> save/export/reload/import -> restored same revision; visited active/completed comparators, unrelated unknown native record, failed-write no mutation."
+    },
+    {
+      "id": "A5-F3",
+      "classification": "reproduced-production-defect; completion repair input",
+      "caseIds": [
+        "C11",
+        "F3production"
+      ],
+      "consumer": "src/main.js optional update_timer calendar path vs joined expansion/chronicle clock",
+      "candidatePaths": [
+        "src/main.js narrow optional timer publication",
+        "existing joined-clock/calendar helpers",
+        "explicit save compatibility recovery",
+        "generated mixed-state fixtures"
+      ],
+      "requiredBehavior": "One staged compatible publication advances intended optional job/calendar/clock domains using existing authoritative owners. Validation stays enabled; no unrelated world ticking/history reset or duplicated settlement.",
+      "compatibility": "Choose clock/absence semantics and recovery or safe rejection for already emitted mismatches explicitly, preserving XP/wages/history.",
+      "nextProof": "Normal native timers with enrolled current/legacy active/completed saves stay validator-valid across return/save/reload/import. Failed entry/return/tick/completion publish no premature state. No-chronicle and absent/reinstalled comparators."
+    }
+  ],
+  "proofBoundary": "A5 executed cases; this review inspected saved evidence and current source interfaces only. No native tests/builds/browser rerun here.",
+  "residuals": [
+    "Full native mobile layout overflow remains observed, not comfortable mobile usability.",
+    "Only actual static/reduced-motion/accessibility panel inspected; no distinct VFX/plain/off renderer exists.",
+    "Three known introductory person rows are current adapted slice UI, not general observer-safe private knowledge projection.",
+    "Unselected premises/function switches and later true source rules remain precise future tranches."
+  ]
+}

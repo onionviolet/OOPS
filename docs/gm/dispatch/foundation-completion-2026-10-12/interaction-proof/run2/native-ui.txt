@@ -1,0 +1,188 @@
+Authoring
+Edit layout
+Layout
+Workspace
+Classic
+Focus
+Compare
+Reset layout
+Density
+compact
+comfortable
+inspection
+Panels
+Layout configuration
+Drag headers · Shift+drag to float · Resize edges or dividers
+↕
+Character vitals
+0 / 10 xp
+40/40 stamina
+0/0 mana
+60/60 hp
+↕
+Inventory & combat view
+Inventory
+Combat
+↕
+Character & preparation
+Lvl: 0
+Strength:
+12.0
+Agility:
+8.0
+Dexterity:
+10.0
+Intuition
+10.0
+Defense:
+1.0
+Magic:
+0.0
+Atk power:
+1.2
+Atk spd:
+1.0
+Crit rate:
+5.0%
+Crit mult:
+130.0%
+AP:
+32
+EP :
+25
+Active effects: 0
+Stats
+Bio
+Equipment
+Tools
+↕
+Belongings
+Your purse contains: 10C 2W
+star_borderStale bread x5
+[use]
+auto
+2C
+star_border[legs] Cheap leather pants [40%]
+[equip]
+4C 6W
+Sort by name
+Sort by value
+Sort by type
+All
+Equipment
+Usable
+Other
+Favs
+↕
+Equipment comparison
+↕
+Notes, practice & people
+Notes, practice & people
+Here
+People
+Tools, practice & local lives
+Village crossroads
+Routes & supplies
+↕
+Time & weather
+01/04/999 08:35, Summer, Mon, Day
+15.4°C
+↕
+Current location
+star_border Village
+Daylight falls across the village path.
+Medium-sized village, built at the foot of the mountains, with rocks preventing any expansions towards north. It's surrounded by many fields, most of them infested by huge rats. There is a relatively calm, somewhat small river south of it with no bridges over it, and with some old structures on the other side, clearly not used for years if not longer. Many villagers seem to have nothing to do and are just sitting around.
+↕
+Current work & saving
+
+No work running.
+
+Saving available.
+
+↕
+Local actions
+Waypost supply clerk
+Clerk purse: 180 coins. Paid so far: 0. Supplies change hands immediately; no shift, promotion or patrol credit. After one Infested field clear the clerk offers free repair notes, or buy a copy for 10 coins.
+Ask for repair notes (one field clear)Buy repair notes (10 coins)
+question_answer Talk to someone
+work_outline Find work
+Local life
+Optional pacing
+Equipment condition and repair
+Elemental preparation
+Experimental interaction arena
+
+Original development policies: P-A closes incoming magic including aid. P-B admits named aid and needs sustained control. Physical projectiles remain independent after release. Demonstration fuel belongs only to identified arena actors.
+
+Published experimental action.
+
+Arena A
+
+Actual health 30 / 40; own demonstration fuel 30; acquired control present.
+
+P-A barrier · 1 demonstration fuel · 10 minP-B barrier · 1 demonstration fuel · 10 minDeliver magical injury · 1 demonstration fuelOffer magical aid · 1 demonstration fuelSelf treatment · 1 demonstration fuelSustain magical delivery · 1 fuel · 2 minRelease physical projectile · 1 demonstration fuelCommit released projectile flight · 1 fuel · 2 minApply s1 sustained counter · 1 fuel · 5 minRemove owned s1 counterApply s2 sustained counter · 1 fuel · 5 minRemove owned s2 counterApply activation activation counter · 1 fuel · 5 minRemove owned activation counterApply delivery delivery counter · 1 fuel · 5 minRemove owned delivery counterRemove owned P-A barrierRemove owned P-B barrierOpen delivery encounter
+Arena B
+
+Actual health 40 / 40; own demonstration fuel 28; acquired control present.
+
+P-A barrier · 1 demonstration fuel · 10 minP-B barrier · 1 demonstration fuel · 10 minDeliver magical injury · 1 demonstration fuelOffer magical aid · 1 demonstration fuelSelf treatment · 1 demonstration fuelSustain magical delivery · 1 fuel · 2 minRelease physical projectile · 1 demonstration fuelCommit released projectile flight · 1 fuel · 2 minApply s1 sustained counter · 1 fuel · 5 minRemove owned s1 counterApply s2 sustained counter · 1 fuel · 5 minRemove owned s2 counterApply activation activation counter · 1 fuel · 5 minRemove owned activation counterApply delivery delivery counter · 1 fuel · 5 minRemove owned delivery counterRemove owned P-A barrierRemove owned P-B barrierOpen delivery encounter
+Arena C
+
+Actual health 40 / 40; own demonstration fuel 30; acquired control present.
+
+C removes A's acquired sourceC removes B's acquired source
+A · observed lifecycle and aftermath
+2: delivered (delivered).
+3: delivered (delivered).
+B · observed lifecycle and aftermath
+2: delivered (delivered).
+3: delivered (delivered).
+C · observed lifecycle and aftermath
+↕
+Work Ledger
+Work ledger
+↕
+Journal & received accounts
+Quests
+Bestiary
+Anthology
+Data
+Notebook
+Lost memory
+Hide completed 
+↕
+Skills & practice
+ Hide max level skills
+Sort by name
+Sort by level
+Sort by progress
+Skills
+Stances
+Magic
+↕
+Reports
+Remembered years · 1 memories
+Remember this day
+
+Years remembered
+Village neighbors
+Saved the game manually
+Saved the game manually
+Levels / unlocks
+Events
+Crafting
+Combat
+Loot
+BGM
+↕
+Optional worlds
+↕
+Your beginning
+↕
+Patrol & custody
+Save
+Export
+Import
+settings
+v0.6
+help_outline

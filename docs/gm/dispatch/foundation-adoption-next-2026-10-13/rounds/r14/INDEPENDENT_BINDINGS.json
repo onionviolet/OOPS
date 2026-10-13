@@ -1,0 +1,221 @@
+{
+  "schemaVersion": 1,
+  "atUTC": "2026-10-13T17:13:24.498164+00:00",
+  "reviewer": "/root/r14_independent_review",
+  "parentChat": "01a1363b-fa9f-7e71-9887-6983303952aa",
+  "exclusiveWrites": [
+    "INDEPENDENT_REPORT.md",
+    "INDEPENDENT_BINDINGS.json"
+  ],
+  "branch": "codex/gameplay-foundations",
+  "head": "dd3efe3383f12f0aac22e4f390aae90fae2e7fc4",
+  "inspection": "bounded source/evidence excerpts, exact hash comparison; no test/build/native rerun",
+  "hashes": {
+    "AGENTS.md": "0aecd5d70ed7f6c7815c81b66ac6137da49b1c04573ac785007cfb38ad559026",
+    "PROJECT.md": "7af27fe57eae7689b485db1cdfdb68f1be5bd8bc955eca3d0973320752fd6412",
+    "docs/USER_VISION.md": "273687b20278130c1bcf03b6b8580eec74c243c6c5af450ea19d42f5e4df0524",
+    "docs/GAME_MASTER_PROMPT.md": "3897f042930bea3545b3e63dbe332f90a14f0077727f1670996a6c75fe1381cc",
+    "docs/RULES_FROM_SCRATCH.md": "9d7300c466f61650c6b0e489fb863f7d1966a7c0b0305beab2d9978c50c6a8c1",
+    "src/home_furnishing_content.js": "de307466f4db3b9e25d1a3ad7729edbc45c5eb02a28e65131c77415d0d58f2a2",
+    "src/home_furnishing_host.js": "e82613df4b5f1af55b17d4715551626f54abaaca8b6cae2d290879ff9d9b8128",
+    "src/home_furnishing_facts.js": "24e8c63ee4e37c5cb6f7da2a3208446587dcd5b9f402ff71538c89f52f76e8c2",
+    "src/field_workshop.js": "b9ab567ff075e1a4cb224d1e464dff07befeaedd935afb31f46e4ebdf4d86b05",
+    "src/simulation.js": "d56256a701b9190e4a143e63fea2cdcb7df3538dfe59aba9cfaef31544bee388",
+    "src/absorb_c2/local_life.js": "8f16213ad7869716e976a897c20422c78c46c8ae33744ce09c2bd56fa0185412",
+    "tests/fa18_runner_consequence.test.js": "e6d9c3af7bff04505c3522a26b3dbd081b83b847c47d5621b2203c8994d63579",
+    "src/life_experience_host.js": "02e1041513a0ebb3f4a97733bae3b95544e463e6c89d58922dd0860f4c0bc0df",
+    "src/life_experience.js": "c1753b6bbbcd63180e729f67bfd9c0260ee981bfc1329d7a1287d5b63e1adb6c",
+    "src/chronicle.js": "d07eaa2df0d8616adc67bfae4cf80441d0c8f8c38270a15254b4bf34dfe8bd71",
+    "src/chronicle_ui.js": "280db6e29dcb548d03b797d69da7117a068d12c687cedba9533a04096a5595f4",
+    "docs/gm/life-sim-experience-2026-10-07/CHECKPOINT.md": "fd06a46b76a61578903ad9014db48e2bd85ea4c7399402d7693d114142899586",
+    "docs/gm/life-sim-experience-2026-10-07/REPORT.md": "25482614032b993aea395cabe546c115db460829bea0772c47b70e97f99b01f8",
+    "docs/gm/dispatch/cheats-sfx-implementation-2026-10-12/CHECKPOINT.md": "dfe9466c3313f02b1f7aff0733221ae00447efd269b259dcf20aadf0dbc7e284",
+    "docs/gm/dispatch/cheats-sfx-implementation-2026-10-12/AUTHORING_SUCCESSOR_INPUT.json": "2044d06dfce90721b74e30528d35da4dc6d824f9392d81230717c8afac51ad07",
+    "docs/gm/dispatch/minigames-2026-10-11/CHECKPOINT.md": "7a51b369242576807f088e4495d58c32e3e2aabf6b0711671cbe6f37fc840b47",
+    "docs/gm/dispatch/world1-full-completion-2026-10-11/PAUSED_HANDOFF.md": "257660fdbb409f38cd91e3cd237883ab71ffb960eb4478b617f702923fa179dc",
+    "docs/gm/dispatch/foundation-adoption-next-2026-10-13/HORIZON.md": "bae853f843744f267c62a8eff930dfc6e9a7c65c4295c2ddf855886a536cce9b",
+    "docs/gm/dispatch/foundation-adoption-next-2026-10-13/CHECKPOINT.md": "0149d1990f2471727a8055812a79d2cc02330e689d66d8abfc176b52bec224e1",
+    "docs/gm/dispatch/foundation-adoption-next-2026-10-13/reservations/R14_SUCCESSOR_TRANSFER.json": "5fb33b6682013a4ad1c6eb8fa3f46ca9269b464903d9585e0a80ca0ff248cf1b",
+    "docs/gm/dispatch/foundation-adoption-next-2026-10-13/rounds/r1/REPORT.md": "1cf8b71a39b5eb0619947de1092c2bba1768812a56cf4a9daf36805f21068fa7",
+    "docs/gm/dispatch/foundation-adoption-next-2026-10-13/rounds/r2/REPORT.md": "c87658baa7ef453cc242a25f4d4b6fa33baa504cafdbd755729e17d258667742",
+    "docs/gm/dispatch/foundation-adoption-next-2026-10-13/rounds/r3/REPORT.md": "c1883daa47c08c795806f0c5440d715c53d35b992b0380b9bf7baf34743f8f9a",
+    "docs/gm/dispatch/foundation-adoption-next-2026-10-13/rounds/r4/REPORT.md": "ac481407224347107daaee86dbab1ac6334f915417b276be35798bd18dc8ba4b",
+    "docs/gm/dispatch/foundation-adoption-next-2026-10-13/rounds/r5/REPORT.md": "ccf7521d1b60b87bdea31c776ad3cb5b6ae053977d0fcb811401d13489731cef",
+    "docs/gm/dispatch/foundation-adoption-next-2026-10-13/rounds/r6/REPORT.md": "f465cc455bd7ec9fbb7dc19a4640e568446119c37a76fa7243ff2b98b11ce9c4",
+    "docs/gm/dispatch/foundation-adoption-next-2026-10-13/rounds/r7/REPORT.md": "2cd4c0029b4801e225d19681893c3546b70bb8fadfca8436b44f2575f18892b8",
+    "docs/gm/dispatch/foundation-adoption-next-2026-10-13/rounds/r4/ACCEPTANCE_BACKLOG.md": "48aecb9b2989b6f263a0daa868a4ba844a287935b59c4f31c7055390a7f72fb0",
+    "docs/gm/dispatch/foundation-adoption-next-2026-10-13/rounds/r5/ACCEPTANCE_BACKLOG.md": "604f10b77810f3271739d17189bbde8fcca212374f3af82a75bd5dfd5bfef1d2",
+    "docs/gm/dispatch/foundation-adoption-next-2026-10-13/rounds/r6/ACCEPTANCE_BACKLOG.md": "cb30d381755092254941e94a316cae85592930b8be5e7e1855ee84802f5d6fbd",
+    "docs/gm/dispatch/foundation-adoption-next-2026-10-13/rounds/r3/NATIVE_RESULT.json": "716b45fc2c0c5166c7a8e7501fa154fb142047a4184db9060ff25fe0b87ddc79",
+    "docs/gm/dispatch/foundation-adoption-next-2026-10-13/rounds/r8/NATIVE_RESULT.json": "8b29ab6dcf97c32ae9718c657e0504fe9c6c1ef95798a053d7384e899c4ec01a",
+    "docs/gm/dispatch/foundation-adoption-next-2026-10-13/rounds/r10/NATIVE_RESULT.json": "e8999f95dceea11b4665684dbfa80612f30e2512fca5b737eb37a72d5d2a897c",
+    "docs/gm/dispatch/foundation-adoption-next-2026-10-13/rounds/r11/NATIVE_RESULT.json": "cdd55df9f15eb3fb71d7427614c3bcec48ecf953cabcc0f0866d4d6cb2c4b2d6",
+    "docs/gm/dispatch/foundation-adoption-next-2026-10-13/rounds/r9/BACKLOG.md": "9244db7d5bcd8f5dab0b9f292ca77a7b9d905aaeb8e78fa572dfaf32abef528b",
+    "docs/gm/dispatch/foundation-adoption-next-2026-10-13/rounds/r10/BACKLOG.md": "431b5bff90beea0c8f27d3668445032389a57a6dcaabd44f9cc02a0371f74c13",
+    "docs/gm/dispatch/foundation-adoption-next-2026-10-13/rounds/r13/BACKLOG.md": "fd4963cad137a062c508e82714ce30f6638528c509dcebe5a47eeb9957054dc8",
+    "docs/gm/dispatch/foundation-adoption-next-2026-10-13/rounds/r8/final-earned-native.txt": "f8bbef830d9a187a1e994a3cf05e960e2371aaa2c94e5e9f6a4beee33ad3a862",
+    "docs/gm/dispatch/foundation-adoption-next-2026-10-13/rounds/r12/REPORT.md": "d8d6624d32e905a33bdd5528132cf2aab892f5826fb1c2185cfac11fcd6365ad",
+    "docs/gm/dispatch/foundation-adoption-next-2026-10-13/rounds/r13/INPUT_BINDINGS.json": "d833a1f760b1573cceec3b56b106a0ef23616ead089464a3606202a6f4c0013c",
+    "docs/gm/dispatch/foundation-adoption-next-2026-10-13/rounds/r13/FINAL_BINDINGS.json": "c0e376941b1499f816294ea14c7fc0f1098326751efa618b39d2cf4efffa3b76",
+    "docs/gm/dispatch/foundation-adoption-next-2026-10-13/rounds/r13/check-allocation.test.mjs": "5dfaa8e79de7328926fd98e574242f3a5357e7d7d5a56cc127d89f8f7af36b87",
+    "docs/gm/dispatch/foundation-adoption-next-2026-10-13/rounds/r13/SOURCE_RESULT.json": "1ceb8af3af5ff261cc6cdd8dcd718cfbcecd41acdddda83b5232ede83a1c3c15",
+    "docs/gm/dispatch/foundation-adoption-next-2026-10-13/rounds/r13/source-focused.tap": "bef7726caf7e2cda47457d83a00db4b218f4e75fe8150e656392efbacc083846",
+    "docs/gm/dispatch/foundation-adoption-next-2026-10-13/rounds/r13/APPLICABILITY.md": "e9d2ce522c6ee002aab95d55401291d667ce880a13899fe81acf6ec849cd4c15",
+    "docs/gm/dispatch/foundation-adoption-next-2026-10-13/rounds/r14/FINAL-reconciled.md": "537d369429e672632dcb5cfe3d1b0d9069c7098e45e1e31ceefe129ad5d893c2",
+    "docs/gm/dispatch/foundation-adoption-next-2026-10-13/rounds/r14/RECONCILIATION_NOTES.md": "8a27179d884cdc23a274f3345d5d8aa13eabaff9243904f742b8cead509bd9ab",
+    "docs/gm/dispatch/foundation-adoption-next-2026-10-13/rounds/r14/FINAL-roundtrip.json": "03ed4f96ec14ca02aef1de55df50d98d95bee895ef99f54884a45fbc2c8fc166",
+    "docs/gm/dispatch/foundation-adoption-next-2026-10-13/rounds/r14/INTEGRATED_RECOVERY.json": "52f58c0204e28328b0a6b2572acbbe99d53586b3e008929789cbe162c3219b65",
+    "docs/gm/dispatch/foundation-adoption-next-2026-10-13/rounds/r14/SOURCE_RESULT.json": "06b36ec82c566568cb70865ef4aafc61cdd4dd06f1a48c53db9c17632c45d49a",
+    "docs/gm/dispatch/foundation-adoption-next-2026-10-13/rounds/r14/NATIVE_RESULT.json": "dfd907204fafe1764c01e499c17553ffba6bfe97fd98a7447d796233aa17d0fc",
+    "docs/gm/dispatch/foundation-adoption-next-2026-10-13/rounds/r14/BUDGET.json": "0482e328460aa9033287a49828c6c9e797a0e373f32bd7583b9d3c276cadeda5",
+    "docs/gm/dispatch/foundation-adoption-next-2026-10-13/rounds/r14/source-final.tap": "c678ba811e821cd0d8b929d65c3c9e4cb5d952441eaeb7a9a60bd664bb172bc2"
+  },
+  "r13RecordedBindingComparison": [
+    {
+      "path": "src/home_furnishing_content.js",
+      "recorded": "de307466f4db3b9e25d1a3ad7729edbc45c5eb02a28e65131c77415d0d58f2a2",
+      "actual": "de307466f4db3b9e25d1a3ad7729edbc45c5eb02a28e65131c77415d0d58f2a2",
+      "matches": true
+    },
+    {
+      "path": "src/home_furnishing_facts.js",
+      "recorded": "24e8c63ee4e37c5cb6f7da2a3208446587dcd5b9f402ff71538c89f52f76e8c2",
+      "actual": "24e8c63ee4e37c5cb6f7da2a3208446587dcd5b9f402ff71538c89f52f76e8c2",
+      "matches": true
+    },
+    {
+      "path": "src/home_furnishing_host.js",
+      "recorded": "e82613df4b5f1af55b17d4715551626f54abaaca8b6cae2d290879ff9d9b8128",
+      "actual": "e82613df4b5f1af55b17d4715551626f54abaaca8b6cae2d290879ff9d9b8128",
+      "matches": true
+    },
+    {
+      "path": "src/site_projects.js",
+      "recorded": "0a9eeb705992b988e5d678f2bd9f4d62f1fc4e911cdb1b456df69787c042583c",
+      "actual": "0a9eeb705992b988e5d678f2bd9f4d62f1fc4e911cdb1b456df69787c042583c",
+      "matches": true
+    },
+    {
+      "path": "src/field_workshop.js",
+      "recorded": "b9ab567ff075e1a4cb224d1e464dff07befeaedd935afb31f46e4ebdf4d86b05",
+      "actual": "b9ab567ff075e1a4cb224d1e464dff07befeaedd935afb31f46e4ebdf4d86b05",
+      "matches": true
+    },
+    {
+      "path": "src/audit_remainder_home_content.js",
+      "recorded": "44421654ff0a6a1337b0843068457549cc8d5306dbf68a50f6ad2c1b4051f8d5",
+      "actual": "44421654ff0a6a1337b0843068457549cc8d5306dbf68a50f6ad2c1b4051f8d5",
+      "matches": true
+    },
+    {
+      "path": "src/simulation.js",
+      "recorded": "d56256a701b9190e4a143e63fea2cdcb7df3538dfe59aba9cfaef31544bee388",
+      "actual": "d56256a701b9190e4a143e63fea2cdcb7df3538dfe59aba9cfaef31544bee388",
+      "matches": true
+    },
+    {
+      "path": "src/simulation_effects.js",
+      "recorded": "d72c0b6984738b718faaf5afab29733290e4c487b5d953b0b1722dae29495b71",
+      "actual": "d72c0b6984738b718faaf5afab29733290e4c487b5d953b0b1722dae29495b71",
+      "matches": true
+    },
+    {
+      "path": "src/simulation_contracts.js",
+      "recorded": "bfcf6b671c00e2db774880a204fa94cba06cdbf43ac56bef30bf131fee19ac95",
+      "actual": "bfcf6b671c00e2db774880a204fa94cba06cdbf43ac56bef30bf131fee19ac95",
+      "matches": true
+    },
+    {
+      "path": "src/expansion_persistence.js",
+      "recorded": "779a82715884c48f3d2338816d76b90e5e894b625f2fb7daec174091c73bc966",
+      "actual": "779a82715884c48f3d2338816d76b90e5e894b625f2fb7daec174091c73bc966",
+      "matches": true
+    },
+    {
+      "path": "src/main.js",
+      "recorded": "d6a4359b2cf9fc493db9857d580077a930c4f826a24df2fb025590aa0d244857",
+      "actual": "d6a4359b2cf9fc493db9857d580077a930c4f826a24df2fb025590aa0d244857",
+      "matches": true
+    },
+    {
+      "path": "src/expansion_engine.js",
+      "recorded": "530eecd10b634f31e41679bbd983d9ebb73bc56ca8c48eff7d1c11da7e4a99bb",
+      "actual": "530eecd10b634f31e41679bbd983d9ebb73bc56ca8c48eff7d1c11da7e4a99bb",
+      "matches": true
+    },
+    {
+      "path": "src/book_world_mol_ids.js",
+      "recorded": "edcfdb180d2f9b9f3ea44abf932deef5386f1733aa76fa507240ce16669be195",
+      "actual": "edcfdb180d2f9b9f3ea44abf932deef5386f1733aa76fa507240ce16669be195",
+      "matches": true
+    },
+    {
+      "path": "src/book_world_mol_actions.js",
+      "recorded": "98213a044f808f67ecd64c3e5e4fb838aa664ba28d92578c580932bd3b51000d",
+      "actual": "98213a044f808f67ecd64c3e5e4fb838aa664ba28d92578c580932bd3b51000d",
+      "matches": true
+    },
+    {
+      "path": "tests/simulation.test.js",
+      "recorded": "48c580fdfffb79ea2277c081f31aecc82b1c2b4db8d13df9b8262a48321e8d49",
+      "actual": "48c580fdfffb79ea2277c081f31aecc82b1c2b4db8d13df9b8262a48321e8d49",
+      "matches": true
+    },
+    {
+      "path": "tests/simulation_extensions.test.js",
+      "recorded": "064ca0bc1158399a92516e8eb038ebff09cefe99661b481d0b0e8c1e09505689",
+      "actual": "064ca0bc1158399a92516e8eb038ebff09cefe99661b481d0b0e8c1e09505689",
+      "matches": true
+    },
+    {
+      "path": "tests/field_workshop.test.js",
+      "recorded": "4a591c610dacc6783544437ba073dafa1e77ae645f22d91eff38e26ff0815bc9",
+      "actual": "4a591c610dacc6783544437ba073dafa1e77ae645f22d91eff38e26ff0815bc9",
+      "matches": true
+    },
+    {
+      "path": "tests/absorb_b.test.js",
+      "recorded": "8e3bfdcdfc71c4082cfcf1e5dc70cd9783eee158e8014a30cae8aae91604461f",
+      "actual": "8e3bfdcdfc71c4082cfcf1e5dc70cd9783eee158e8014a30cae8aae91604461f",
+      "matches": true
+    },
+    {
+      "path": "tests/expansion_engine.test.js",
+      "recorded": "680175db9fbe05befdc5243cd4bf768c3683b49776ac3338a71f5d9f6bdde36f",
+      "actual": "680175db9fbe05befdc5243cd4bf768c3683b49776ac3338a71f5d9f6bdde36f",
+      "matches": true
+    },
+    {
+      "path": "docs/gm/dispatch/foundation-adoption-next-2026-10-13/rounds/r13/check-allocation.test.mjs",
+      "recorded": "5dfaa8e79de7328926fd98e574242f3a5357e7d7d5a56cc127d89f8f7af36b87",
+      "actual": "5dfaa8e79de7328926fd98e574242f3a5357e7d7d5a56cc127d89f8f7af36b87",
+      "matches": true
+    },
+    {
+      "path": "docs/gm/dispatch/foundation-adoption-next-2026-10-13/rounds/r13/FA20-reconciled.md",
+      "recorded": "30eb28fdc57d01ef30566e3e478cb6356a58b666e9d16acbbe61ee738a00b5ea",
+      "actual": "30eb28fdc57d01ef30566e3e478cb6356a58b666e9d16acbbe61ee738a00b5ea",
+      "matches": true
+    },
+    {
+      "path": "docs/gm/dispatch/foundation-adoption-next-2026-10-13/reservations/R13_SUCCESSOR_TRANSFER.json",
+      "recorded": "1cdef1527900a3c4960e6eabb8a7045c84dc7d7ad2b83336594c168c7e33a2ac",
+      "actual": "1cdef1527900a3c4960e6eabb8a7045c84dc7d7ad2b83336594c168c7e33a2ac",
+      "matches": true
+    }
+  ],
+  "reportHash": "395945bffe632cc1b73c20a1a6dc69a74456097a900ae9c142aedc4cae464b62",
+  "liveThreadReadLimitations": [
+    {
+      "thread": "01a12ba4-8a07-7711-892c-6cbc1f278ee2",
+      "result": "durable host unavailable/error; no retry"
+    },
+    {
+      "thread": "01a12ecd-062c-71a0-b850-fee703d9d304",
+      "result": "durable host unavailable/error; no retry"
+    }
+  ],
+  "nativeAttempts": 0,
+  "runtimeEdits": [],
+  "rootFinalSourceResult": "Recorded TAP51PASS only; not reviewer-run"
+}

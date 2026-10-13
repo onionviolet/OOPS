@@ -1,0 +1,13 @@
+AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
++ actual - expected
+
+  [
+    'Cooking : level 0/6080.5%32 / 40XP gain: x1XP cost scaling: x1.5id: "Cooking"Making the inedible edible',
++   'Crafting proficiency : level 0/6026.5%11 / 40XP gain: x1XP cost scaling: x1.5id: "Crafting mastery"A mastery of the minor crafting branches like tinkering, woodworking, or butcheringlvl 5: ???',
++   'Smelting : level 9/6099.9%1,538 / 1,538XP gain: x1XP cost scaling: x1.5id: "Smelting"Turning raw ore into raw metallvl 10: Unlocked a new recipelvl 10: ???',
+-   'Smelting : level 9/6099.9%1,538 / 1,538XP gain: x1XP cost scaling: x1.5id: "Smelting"Turning raw ore into raw metallvl 10: ???',
+    'Woodworking : level 0/6026.5%11 / 40XP gain: x1XP cost scaling: x1.5id: "Woodworking"Turning wood logs into something usefulParent skill: Crafting mastery'
+  ]
+
+    at rejected (/Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/foundation-completion-2026-10-12/craft-proof/native.cjs:43:344)
+    at async /Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/foundation-completion-2026-10-12/craft-proof/native.cjs:56:58

@@ -7,6 +7,19 @@ import {simulationOccupiesActor, waitingSimulationChoice} from "./simulation.js"
 
 // Native registries remain the owners. This bridge reads them, never enrolls actors.
 export function createNativeGameplayAdapter({player, getPerson, skills, getContext, bindings}) {
+    const stageBindings = (snapshot, state) => {
+      const staged = {...bindings};
+      const actors = Object.fromEntries(["player",...Object.keys(snapshot).filter(id => id !== "player")].map(id => {
+        const actor = id === "player" ? player : getPerson(id);
+        if(!actor) throw new Error(`No live actor binding for ${id}.`);
+        if(id !== "player" && !staged[id]) {
+            if(state.simulation?.people?.[id]?.inventory !== "native") throw new Error(`No native persistence owner for ${id}.`);
+            staged[id] = {category:"person",id};
+        }
+        return [id,actor];
+      }));
+      return {actors,bindings:staged};
+    };
     const actors = state => {
         const result = {player};
         for(const [id,p] of Object.entries(state.simulation?.people || {})) {
@@ -16,6 +29,9 @@ export function createNativeGameplayAdapter({player, getPerson, skills, getConte
     };
     return {
         actors,
+        // First enrollment can stage an NPC before it exists in live simulation.
+        // Resolve its registered native owner before preparing the save transaction.
+        stageBindings(snapshot = {}, state = {}) {return stageBindings(snapshot,state);},
         snapshot(state) {
             return Object.fromEntries(Object.entries(actors(state)).map(([id,actor]) => {
                 if(id !== "player") bindings[id] ||= {category:"person",id};

@@ -1,0 +1,19 @@
+{
+  "candidate": "/Users/weiwei/.codex/candidates/yairpg-cheats-sfx-2026-10-12",
+  "preview": "http://127.0.0.1:18581/",
+  "baseline": "/Users/weiwei/.codex/candidates/yairpg-cheats-sfx-base-2026-10-12",
+  "files": {
+    "src/main.js": "9d3eefdd0cf7b5c428d1c6277586c9a0faaba0730364a0c8ca915f49434affd9",
+    "src/save_files.js": "1a36af0b56b924469ef6ca097be905e759911e655b53b9f6b4f346a3dd29b21f",
+    "src/display.js": "fdbe17e64a0ea208e878973a86b10c11e78437c0606c9ac1fb7523d8b60e6425",
+    "index.html": "5d04961e09cf99a2165c4b791e6ef23ef3c7d4f2b012ac5b69fd6aee2dee6679",
+    "src/work_ledger_system.js": "15cb48397650eedeea0c69853fc2d1db897d2837393cd97a0b803287cb24677c",
+    "src/work_ledger_ui.js": "ab021d73eb2006df2bfd7f39c6bdbd91bc1c40fa3cd9457a65e4c6df97fba250",
+    "src/settled_text_effects.js": "370ad804f8d498aeac5e54c28535c644a909f0a48eebfaddb3f73fb1aec8c671",
+    "styles/settled_text_effects.css": "708da3a96e40b5904f9a531ac66fa5a0002664a39086fb7950c6ba3bc97303b4",
+    "dist/bundle.js": "c85fdbce370bdbeb1577571e2758b303f21fe4a20cc34ed8bea370a03125f7a5"
+  },
+  "patch": "CYCLE1.patch",
+  "sharedIntegration": false,
+  "assetAttribution": "original generated SVG/CSS and synthesized Web Audio; upstream LICENSE retained"
+}

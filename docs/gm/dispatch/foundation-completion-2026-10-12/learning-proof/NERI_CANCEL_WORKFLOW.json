@@ -1,0 +1,47 @@
+{
+  "action": "workflow",
+  "steps": [
+    {
+      "action": "click",
+      "selector": "[data-action-legibility-key=\"action:world.completion.learning.sponsor\"] button",
+      "save": "worker-neri-cancel-offered"
+    },
+    {
+      "action": "pending",
+      "actor": "remainder_home.neri",
+      "id": "world.completion.learning.walk_to_bench",
+      "save": "worker-neri-cancel-accepted"
+    },
+    {
+      "action": "panel",
+      "selector": "#feature_expansion_panel details:has(>summary:text-is(\"Your sponsored learner’s accepted work\"))"
+    },
+    {
+      "action": "click",
+      "name": "Do this: Cancel the sponsored work · return Neri’s reservations",
+      "save": "worker-neri-cancelled"
+    },
+    {
+      "action": "panel",
+      "selector": "#feature_expansion_panel details:has(>summary:text-is(\"A taught procedure, useful material\"))"
+    },
+    {
+      "action": "click",
+      "selector": "[data-action-legibility-key=\"action:world.completion.learning.withdraw_shack\"] button",
+      "save": "worker-neri-cancel-withdrawn"
+    },
+    {
+      "action": "export",
+      "name": "worker-neri-cancel-withdrawn"
+    },
+    {
+      "action": "reload",
+      "save": "worker-neri-cancel-reloaded"
+    },
+    {
+      "action": "literalImport",
+      "path": "/tmp/yairpg-foundation-learning-worker-neri-cancel-withdrawn.txt",
+      "save": "worker-neri-cancel-literal-imported"
+    }
+  ]
+}

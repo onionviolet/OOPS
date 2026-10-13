@@ -1,0 +1,20 @@
+Failed to load resource: net::ERR_CONNECTION_RESET
+Failed to load resource: net::ERR_CONNECTION_RESET
+Local life paused: Error: synthetic selected craft rejection
+    at Storage.setItem (eval at evaluate (:311:30), <anonymous>:1:199)
+    at ese (http://127.0.0.1:18647/dist/bundle.js?version=v0.6-6540b5a5701e:1050:55183)
+    at Object.setItem (http://127.0.0.1:18647/dist/bundle.js?version=v0.6-6540b5a5701e:1050:266668)
+    at IEe (http://127.0.0.1:18647/dist/bundle.js?version=v0.6-6540b5a5701e:1050:172794)
+    at Yo (http://127.0.0.1:18647/dist/bundle.js?version=v0.6-6540b5a5701e:1050:289742)
+    at MTe (http://127.0.0.1:18647/dist/bundle.js?version=v0.6-6540b5a5701e:1050:279457)
+    at RRe (http://127.0.0.1:18647/dist/bundle.js?version=v0.6-6540b5a5701e:1054:83128)
+    at http://127.0.0.1:18647/dist/bundle.js?version=v0.6-6540b5a5701e:1054:83813
+    at w.onmessage (http://127.0.0.1:18647/resources/js/HackTimer/HackTimer.min.js:1:1294)
+Something went wrong on saving the game!
+Error: Saving disabled after a loading error. Preserve the original save and use a compatible build.
+    at tw (http://127.0.0.1:18647/dist/bundle.js?version=v0.6-6540b5a5701e:1054:33570)
+    at p6 (http://127.0.0.1:18647/dist/bundle.js?version=v0.6-6540b5a5701e:1054:39242)
+    at mWe (http://127.0.0.1:18647/dist/bundle.js?version=v0.6-6540b5a5701e:1054:39447)
+    at eval (eval at evaluate (:311:30), <anonymous>:1:219)
+    at UtilityScript.evaluate (<anonymous>:313:16)
+    at UtilityScript.<anonymous> (<anonymous>:1:44)

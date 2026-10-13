@@ -1,0 +1,7 @@
+# R9 reconciliation
+
+F1: One ordinary signed-in Chrome ChatGPT High review completed, response-level final Copy and screenshot saved. High3of3 matched R8effort. The ordinary Chat UI did not show a model-name label in this review; no GPT-6verification claim. Sent body differs only one trailing newline after Show in text field restored the auto-converted pasted attachment.
+F2: Retained existing FA14 distinct consumer assessment and one useful native slice, conditional reproduced narrow repair, exact actual-ID predecessor release, independent fixed pre-PLAY budget and error cleanup. Boundedpartial is honest delivery status, not technical completion or whole-chain closure.
+F3: Removed reviewer-expanded generic-purchase exception. Generic purchases/battles0; existing finite FA14supplies only if declared initially. Retained paused persistence requirement when state changes; inability leaves gateOPEN, not waived. Added recurring-automation exclusion.
+F4: Qualified R8first timeout cause: batch contained Play and incorrect button role; exact blocked operation was lost. SUMMARYrole confirmed later. Last saved state equals original seven groups; no paid acquisition/outcome replay. R8observed108/100 plus35conservative debit remainsFAIL/CLOSED. Corrected session22867versus actual process distinction. R8reservation remains history, not an automatic worker reservation.
+F5: Reviewer21424chars exceeds1.5x preference slightly; complete response retained, no polishing secondreview. No source repair, native proof or FA14completion inferred from review/dispatch.

@@ -1,0 +1,19 @@
+{
+  "status": "implemented-source-verified; main/build/native pending root",
+  "command": "node --test tests/foundation_start_content.test.js",
+  "tests": 4,
+  "passed": 4,
+  "failed": 0,
+  "exit": 0,
+  "paths": {
+    "src/foundation_start_content.js": "c355f66c301b48dbed3f96d1ae79bd287a043c553ac6ab92de4ade4579b0378a",
+    "tests/foundation_start_content.test.js": "9f3b4202481aef1bbd38ef667861173ff2ff2450bb9a39e1176ba26977be8497",
+    "src/structured_pack_definitions.js": "73ecc5cdee21b422670fd3f211a220c605501f2879dd1b3c2bec02f08ea6c62e",
+    "src/structured_pack_runtime.js": "67661360d5875ebd4daa3166a41f569a999671e8bcb12b3f741e70c67bdc5661",
+    "src/structured_pack_state.js": "8565b66675eca5dfec3f81c4a449b7d147baaa22fab49fb96a57c574994dcb10",
+    "src/structured_renewal.js": "0475b893680b1432af10d180bc03440ba7bfa9fc4d3d65cc93b88a6fb52ac1d8",
+    "src/structured_equipment_runtime.js": "bc4394604030d7b2e6abb0095e5ab1abeda307bc728befc98a81115cfc9c1ab3",
+    "src/simulation.js": "4de64133474c6c61035fd931bc5d5099a311e09100269d83b862e3016f40ea24",
+    "src/simulation_effects.js": "c803e81778a260916d2b96771ebef0a501090db0609c3314c1151c67c6f3b502"
+  }
+}

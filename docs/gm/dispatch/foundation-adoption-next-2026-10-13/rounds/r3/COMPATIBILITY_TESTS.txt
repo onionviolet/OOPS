@@ -1,0 +1,124 @@
+TAP version 13
+# Subtest: preview is pure and explains knowledge, context, combined costs and actual odds
+ok 1 - preview is pure and explains knowledge, context, combined costs and actual odds
+  ---
+  duration_ms: 1.733375
+  type: 'test'
+  ...
+# Subtest: kit costs reserve once; frozen result survives reload, content revision and changed stats
+ok 2 - kit costs reserve once; frozen result survives reload, content revision and changed stats
+  ---
+  duration_ms: 17.786041
+  type: 'test'
+  ...
+# Subtest: both survey routes are viable and recorded guide condition changes departure rewards
+ok 3 - both survey routes are viable and recorded guide condition changes departure rewards
+  ---
+  duration_ms: 5.545708
+  type: 'test'
+  ...
+# Subtest: equal simulation duration in ticks or a travel jump crosses the same deadlines and expiry
+ok 4 - equal simulation duration in ticks or a travel jump crosses the same deadlines and expiry
+  ---
+  duration_ms: 34.51125
+  type: 'test'
+  ...
+# Subtest: repairing the crossing enables a more valuable delivery even if the guide needs rest
+ok 5 - repairing the crossing enables a more valuable delivery even if the guide needs rest
+  ---
+  duration_ms: 1.63925
+  type: 'test'
+  ...
+# Subtest: blocking scheduled choices stop exactly at their boundary and return unspent catch-up
+ok 6 - blocking scheduled choices stop exactly at their boundary and return unspent catch-up
+  ---
+  duration_ms: 1.269041
+  type: 'test'
+  ...
+# Subtest: actors have independent budgets and one assignment each, with stable same-time ordering
+ok 7 - actors have independent budgets and one assignment each, with stable same-time ordering
+  ---
+  duration_ms: 0.970792
+  type: 'test'
+  ...
+# Subtest: invalid content and effects fail before mutation or spending
+ok 8 - invalid content and effects fail before mutation or spending
+  ---
+  duration_ms: 0.395416
+  type: 'test'
+  ...
+# Subtest: isolated rewind previews losses, retains memory and cannot export temporary rewards
+ok 9 - isolated rewind previews losses, retains memory and cannot export temporary rewards
+  ---
+  duration_ms: 0.69975
+  type: 'test'
+  ...
+# Subtest: legacy migration, dormant payload and Unicode file roundtrip retain new commitments
+ok 10 - legacy migration, dormant payload and Unicode file roundtrip retain new commitments
+  ---
+  duration_ms: 3.303875
+  type: 'test'
+  ...
+# Subtest: durable envelope write is atomic on failure, includes costs, and preserves unrelated fields
+ok 11 - durable envelope write is atomic on failure, includes costs, and preserves unrelated fields
+  ---
+  duration_ms: 0.666333
+  type: 'test'
+  ...
+# Subtest: base saves gain no dormant payload and their state is unchanged
+ok 12 - base saves gain no dormant payload and their state is unchanged
+  ---
+  duration_ms: 0.700291
+  type: 'test'
+  ...
+# Subtest: prototype location, items, recipes and activity are preserved outside active content
+ok 13 - prototype location, items, recipes and activity are preserved outside active content
+  ---
+  duration_ms: 0.840333
+  type: 'test'
+  ...
+# Subtest: unsupported cultivation payloads stay opaque, but unknown retirement schemas block migration
+ok 14 - unsupported cultivation payloads stay opaque, but unknown retirement schemas block migration
+  ---
+  duration_ms: 0.165
+  type: 'test'
+  ...
+# Subtest: native file encoding preserves Unicode and legacy Latin-1 saves
+ok 15 - native file encoding preserves Unicode and legacy Latin-1 saves
+  ---
+  duration_ms: 4.05525
+  type: 'test'
+  ...
+# Subtest: malformed and incompatible imports cannot write over the current save
+ok 16 - malformed and incompatible imports cannot write over the current save
+  ---
+  duration_ms: 2.852709
+  type: 'test'
+  ...
+# Subtest: real-loader rejection and storage failure do not perform premature writes
+ok 17 - real-loader rejection and storage failure do not perform premature writes
+  ---
+  duration_ms: 1.054
+  type: 'test'
+  ...
+# Subtest: successful import commits only after preflight and retains retirement data once
+ok 18 - successful import commits only after preflight and retains retirement data once
+  ---
+  duration_ms: 0.601459
+  type: 'test'
+  ...
+# Subtest: failed export creation never encodes an undefined or invalid payload
+ok 19 - failed export creation never encodes an undefined or invalid payload
+  ---
+  duration_ms: 0.07775
+  type: 'test'
+  ...
+1..19
+# tests 19
+# suites 0
+# pass 19
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 274.911583

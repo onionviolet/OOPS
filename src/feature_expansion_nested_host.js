@@ -1,3 +1,4 @@
+import {auditRemainderControllerAllowed} from './audit_remainder_state.js';
 import {remainderConsequencesExistingCommandGate} from './audit_remainder_consequences_facts.js';
 import {previewNestedCarriers,stageNestedCarrierMove} from './feature_expansion_nested_carriers.js';
 import {NESTED_IDS as I,NESTED_LOCATIONS as L,NESTED_KEYS as K,NESTED_FOOTPRINTS as footprints,NESTED_INITIAL_FACTS,NESTED_MISSIONS as missions,
@@ -202,7 +203,7 @@ function receipt(plan,id){const d=plan.state.nestedCampaign;if(d){d.receipts.pus
 function attachResidents(next,registry){for(const id of personIds){const d=registry.simulation.people.get(id);assert(d?.inventory==='native'&&d.provision===false&&!next.actors[id],'Bind the exact new native resident definition once.');next.actors[id]={...domain(),worldId:d.worldId,resources:copy(d.resources)};
  next.simulation.people[id]={life:'alive',inventory:'native',location:d.location,bornAt:next.clock,definitionId:id,definitionRevision:d.revision,body:copy(d.body),vitals:copy(d.vitals)};}
  for(const site of nestedDefinitions.sites)next.simulation.sites[site.id]||={capacity:site.capacity,reservations:{}};
- for(const controller of registry.simulation.controllers.values())if(personIds.includes(controller.actorId)&&!next.simulation.controllers[controller.id])next.simulation.controllers[controller.id]={actorId:controller.actorId,due:next.clock+controller.interval,interval:controller.interval};
+ for(const controller of registry.simulation.controllers.values())if(personIds.includes(controller.actorId)&&auditRemainderControllerAllowed(next,controller)&&!next.simulation.controllers[controller.id])next.simulation.controllers[controller.id]={actorId:controller.actorId,due:next.clock+controller.interval,interval:controller.interval};
  for(const event of registry.simulation.events.values())if(event.id.startsWith('nested.')&&event.automatic&&!next.simulation.checks[event.id])next.simulation.checks[event.id]={due:next.clock+event.interval,interval:event.interval,rng:deriveSimulationSeed(next.simulation.seed,event.id),count:0};
 }
 function moveWorld(plan,worldId){const state=plan.state,d=state.nestedCampaign;syncNestedCampaignClock(state);const old=activeNestedVisit(state);

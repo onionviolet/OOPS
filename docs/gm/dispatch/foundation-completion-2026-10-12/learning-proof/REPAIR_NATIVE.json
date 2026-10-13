@@ -1,0 +1,29 @@
+{
+  "status": "PASS_REPAIRED_NATIVE_OWNER_BOUNDARY",
+  "bundle": "9b130b295f8464eb770f603afd68d31166569901bd9f0af2acda93192007fcae",
+  "generatedInput": "/tmp/yairpg-foundation-learning-equipment-blocker.json",
+  "ordinaryLoadedOrigin": "http://127.0.0.1:18641",
+  "ordinaryProcess": 24159,
+  "ordinaryClockBefore": 0,
+  "ordinaryClockAfter": 19,
+  "directNativeAction": "Hear Hessa\u2019s paid repair and access terms",
+  "checks": {
+    "commonClockAdvanced": true,
+    "simulationEquipmentUnchanged": true,
+    "OrrRemainsSimulationOwner": true,
+    "noNativeOrrEquipment": true,
+    "knownTermsCommittedExactlyOnce": true,
+    "inventoryUnchanged": true,
+    "moneyUnchanged": true
+  },
+  "literalImportReceipt": "REPAIR_IMPORT.json",
+  "literalImportProcess": 30446,
+  "literalImportOrigin": "http://127.0.0.1:18642",
+  "literalImportClockBefore": 0,
+  "literalImportClockAfter": 2,
+  "allProcessesClosed": true,
+  "harnessFailure": "Initial file-import attempts used incorrect root query routing and preflight iframe404. Fixed only proof-server path normalization; actual current reader then passed import/reload/PLAY/tick. Source was untouched.",
+  "handoffCombatCheckpoint": "/tmp/yairpg-foundation-learning-handoff-loaded.json",
+  "handoffCheckpointSha256": "a93c853812052d0c25b77f9f5ab05f8d597dedc0ee54233e76a9aaa4e1fa6710",
+  "F4LessonGate": "not run; successor preserves full remaining scope"
+}

@@ -1,0 +1,14 @@
+{
+  "created_utc": "2026-10-12T04:25:52.847025+00:00",
+  "threadId": "01a12e5b-ec19-71b0-b7aa-8d54725f132c",
+  "hostId": "local",
+  "title": "Harry Potter craft and fan-source integration GM",
+  "assignment": "ASSIGNMENT.md",
+  "state": "active; initial commentary acknowledges research-only lane",
+  "scope": "HP source/fan audit and craft/lived-world design integration; no runtime authorization",
+  "exclusive_private_lane": "docs/research/novels/harry-potter/craft-integration-2026-10-12/",
+  "predecessorThreadId": "01a12e0b-d61a-7ce0-8f5b-eafbdc46e988",
+  "predecessorObservedStatus": "idle; previous files read-only; no predecessor ownership revoked",
+  "observed_utc": "2026-10-12T04:26:02.369462+00:00",
+  "observed_turn": "01a12e5b-f790-7542-9773-15f909dcba2d"
+}

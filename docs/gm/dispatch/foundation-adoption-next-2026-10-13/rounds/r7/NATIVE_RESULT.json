@@ -1,0 +1,47 @@
+{
+  "budgetCaps": {
+    "coins": 0,
+    "materials": 0,
+    "staminaIntentionallySpent": 0,
+    "acquisitions": 0,
+    "merchantPurchases": 0,
+    "jobs": 0,
+    "plans": 0,
+    "cancellations": 0,
+    "travel": 0,
+    "playedMinutes": 20
+  },
+  "actual": {
+    "coins": 0,
+    "materials": 0,
+    "staminaIntentionallySpent": 0,
+    "acquisitions": 0,
+    "merchantPurchases": 0,
+    "jobs": 0,
+    "plans": 0,
+    "cancellations": 0,
+    "travel": 0,
+    "playedMinutes": 1
+  },
+  "startClock": 747,
+  "finalClock": 748,
+  "inventoryUnchanged": true,
+  "moneyUnchanged": true,
+  "rngUnchanged": true,
+  "jobsUnchanged": true,
+  "plansUnchanged": true,
+  "reloadExactExpansion": true,
+  "finalExportExactExpansion": true,
+  "latestGenuineExport": "rounds/r7/final-earned-native.txt",
+  "exportHash": "2b216463182c82582b1e67abb8a6f735e05017f7be3311178bfb50184b59172c",
+  "runtimeEdit": false,
+  "sourceDrift": [
+    "src/native_discovery_feedback.js"
+  ],
+  "browserErrors": [],
+  "currentCase": "0 sap; both receivers empty; cancelled future plan; no accepted job",
+  "exactTwoChoiceCurrentNative": "OPEN: no occupied residue; zero-spend budget forbids manufactured prerequisite",
+  "finalReloadSevenGroupsExact": true,
+  "finalExportSevenGroupsExact": false,
+  "exportCharacterDifference": "Export after normal reload contains character.equipment.weapon.rarity=common absent from saved snapshot. No other character difference; no exact character-export claim."
+}

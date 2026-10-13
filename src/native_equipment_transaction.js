@@ -1,5 +1,11 @@
 import {validateItemKey} from "./gameplay_transactions.js";
 import {stableId, record} from "./simulation_contracts.js";
+// Simulation-owned equipment lives in simulation.equipment. Context overlays
+// may carry its read snapshot, but it is not a native publication owner.
+export function nativeEquipmentSnapshot(equipment = {}, people = {}) {
+    if(!record(equipment) || !record(people)) throw new Error("Invalid equipment owner snapshot.");
+    return Object.fromEntries(Object.entries(equipment).filter(([id]) => people[id]?.inventory !== "simulation"));
+}
 export function readNativeEquipment(actors) {
     return Object.fromEntries(Object.entries(actors).map(([id,actor]) => [id, Object.fromEntries(Object.entries(actor.getEquipment()).filter(([,item]) => item).map(([slot,item]) => [slot,item.getInventoryKey()]))]));
 }

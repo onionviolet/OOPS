@@ -1,0 +1,16 @@
+{
+  "status": "STOPPED_ON_ERROR_NO_BUDGET_PASS_CLAIM",
+  "clockStart": 0,
+  "clockFinal": 0,
+  "playedMinutes": 0,
+  "grossCoins": 0,
+  "breadConsumed": 0,
+  "paidActions": 0,
+  "contactAttempts": 0,
+  "cleanup": "Confirm,Save,reload successful; durable profile retained; no retry or fallback",
+  "unusedEnvelopeNotPermissionForRetry": true,
+  "issuedClickAttempts": 7,
+  "observedSuccessfulClicks": 3,
+  "failedUncommittedClickAttempts": 4,
+  "countBasis": "PLAY1,blockedpanel1,threewrongSave-roleattempts3,cleanupConfirm1,cleanupactualSave1; queuedcontactwait notclick"
+}

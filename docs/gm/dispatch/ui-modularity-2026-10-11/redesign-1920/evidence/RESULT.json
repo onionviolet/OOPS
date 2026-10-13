@@ -1,0 +1,1149 @@
+{
+  "url": "http://127.0.0.1:18571",
+  "build": "http://127.0.0.1:18571/dist/bundle.js?version=v0.6-598f67420c6e",
+  "checks": [
+    "New fresh-origin Workspace default has work, local actions, vitals, belongings and journal on screen at1920x1080.",
+    "Direct title/header pointer drag previews a dock target and drops into right with one live gameplay node.",
+    "Float drop target creates in-page floating panel; header directly repositions it.",
+    "Floating header moves freely diagonally across underlying dock columns without automatic docking; explicit visible targets dock it.",
+    "Corner pointer resize enlarges actual floating width and height.",
+    "Escape cancels movement and restores geometry.",
+    "Pointer divider resizes neighbouring columns; dock modules fill freed space.",
+    "Dock lower edge changes actual inventory content area.",
+    "Saved column geometry and resized panel restore on reload; divider has keyboard equivalent.",
+    "390/768/1440/1920 Workspace and Classic have no horizontal document overflow and reachable local work.",
+    "CSS200% and960CSSpx equivalent of1920 window retain controls, text and no horizontal overflow.",
+    "Malformed configuration recovers useful Workspace; Reset layout does not reset generated game."
+  ],
+  "frames": [
+    {
+      "name": "after-opening",
+      "viewport": {
+        "width": 1920,
+        "height": 1080
+      },
+      "document": {
+        "width": 1920,
+        "height": 1084
+      },
+      "panels": [
+        {
+          "id": "vitals",
+          "x": 10,
+          "y": 60.390625,
+          "width": 503.59375,
+          "height": 182.375,
+          "collapsed": false
+        },
+        {
+          "id": "combat-controls",
+          "x": 10,
+          "y": 247.5625,
+          "width": 503.59375,
+          "height": 77.375,
+          "collapsed": false
+        },
+        {
+          "id": "preparation",
+          "x": 10,
+          "y": 329.734375,
+          "width": 503.59375,
+          "height": 277.375,
+          "collapsed": false
+        },
+        {
+          "id": "belongings",
+          "x": 10,
+          "y": 611.90625,
+          "width": 503.59375,
+          "height": 277.375,
+          "collapsed": false
+        },
+        {
+          "id": "equipment-comparison",
+          "x": 10,
+          "y": 894.078125,
+          "width": 503.59375,
+          "height": 36.375,
+          "collapsed": true
+        },
+        {
+          "id": "time",
+          "x": 529.59375,
+          "y": 60.390625,
+          "width": 804.40625,
+          "height": 77.375,
+          "collapsed": false
+        },
+        {
+          "id": "location",
+          "x": 529.59375,
+          "y": 142.5625,
+          "width": 804.40625,
+          "height": 187.375,
+          "collapsed": false
+        },
+        {
+          "id": "current-work",
+          "x": 529.59375,
+          "y": 334.734375,
+          "width": 804.40625,
+          "height": 137.375,
+          "collapsed": false
+        },
+        {
+          "id": "local-actions",
+          "x": 529.59375,
+          "y": 476.90625,
+          "width": 804.40625,
+          "height": 437.375,
+          "collapsed": false
+        },
+        {
+          "id": "records",
+          "x": 1350,
+          "y": 60.390625,
+          "width": 560,
+          "height": 177.375,
+          "collapsed": false
+        },
+        {
+          "id": "skills",
+          "x": 1350,
+          "y": 242.5625,
+          "width": 560,
+          "height": 187.375,
+          "collapsed": false
+        },
+        {
+          "id": "messages",
+          "x": 1350,
+          "y": 434.734375,
+          "width": 560,
+          "height": 257.375,
+          "collapsed": false
+        },
+        {
+          "id": "optional-worlds",
+          "x": 1350,
+          "y": 696.90625,
+          "width": 560,
+          "height": 36.375,
+          "collapsed": true
+        },
+        {
+          "id": "beginning",
+          "x": 1350,
+          "y": 738.078125,
+          "width": 560,
+          "height": 36.375,
+          "collapsed": true
+        },
+        {
+          "id": "patrol",
+          "x": 1350,
+          "y": 779.25,
+          "width": 560,
+          "height": 36.375,
+          "collapsed": true
+        },
+        {
+          "id": "supplies",
+          "x": 1350,
+          "y": 820.421875,
+          "width": 560,
+          "height": 36.375,
+          "collapsed": true
+        }
+      ]
+    },
+    {
+      "name": "after-movement",
+      "viewport": {
+        "width": 1920,
+        "height": 1080
+      },
+      "document": {
+        "width": 1920,
+        "height": 1084
+      },
+      "panels": [
+        {
+          "id": "vitals",
+          "x": 10,
+          "y": 60.390625,
+          "width": 503.59375,
+          "height": 182.375,
+          "collapsed": false
+        },
+        {
+          "id": "combat-controls",
+          "x": 10,
+          "y": 247.5625,
+          "width": 503.59375,
+          "height": 77.375,
+          "collapsed": false
+        },
+        {
+          "id": "preparation",
+          "x": 10,
+          "y": 329.734375,
+          "width": 503.59375,
+          "height": 277.375,
+          "collapsed": false
+        },
+        {
+          "id": "belongings",
+          "x": 10,
+          "y": 611.90625,
+          "width": 503.59375,
+          "height": 277.375,
+          "collapsed": false
+        },
+        {
+          "id": "equipment-comparison",
+          "x": 10,
+          "y": 894.078125,
+          "width": 503.59375,
+          "height": 36.375,
+          "collapsed": true
+        },
+        {
+          "id": "time",
+          "x": 529.59375,
+          "y": 60.390625,
+          "width": 804.40625,
+          "height": 77.375,
+          "collapsed": false
+        },
+        {
+          "id": "location",
+          "x": 529.59375,
+          "y": 142.5625,
+          "width": 804.40625,
+          "height": 187.375,
+          "collapsed": false
+        },
+        {
+          "id": "current-work",
+          "x": 529.59375,
+          "y": 334.734375,
+          "width": 804.40625,
+          "height": 137.375,
+          "collapsed": false
+        },
+        {
+          "id": "local-actions",
+          "x": 529.59375,
+          "y": 476.90625,
+          "width": 804.40625,
+          "height": 437.375,
+          "collapsed": false
+        },
+        {
+          "id": "records",
+          "x": 1350,
+          "y": 60.390625,
+          "width": 560,
+          "height": 177.375,
+          "collapsed": false
+        },
+        {
+          "id": "skills",
+          "x": 1350,
+          "y": 242.5625,
+          "width": 560,
+          "height": 187.375,
+          "collapsed": false
+        },
+        {
+          "id": "messages",
+          "x": 1350,
+          "y": 434.734375,
+          "width": 560,
+          "height": 257.375,
+          "collapsed": false
+        },
+        {
+          "id": "optional-worlds",
+          "x": 1350,
+          "y": 696.90625,
+          "width": 560,
+          "height": 36.375,
+          "collapsed": true
+        },
+        {
+          "id": "beginning",
+          "x": 1350,
+          "y": 738.078125,
+          "width": 560,
+          "height": 36.375,
+          "collapsed": true
+        },
+        {
+          "id": "patrol",
+          "x": 1350,
+          "y": 779.25,
+          "width": 560,
+          "height": 36.375,
+          "collapsed": true
+        },
+        {
+          "id": "supplies",
+          "x": 1350,
+          "y": 820.421875,
+          "width": 560,
+          "height": 36.375,
+          "collapsed": true
+        }
+      ]
+    },
+    {
+      "name": "after-busy",
+      "viewport": {
+        "width": 1920,
+        "height": 1080
+      },
+      "document": {
+        "width": 1920,
+        "height": 1084
+      },
+      "panels": [
+        {
+          "id": "vitals",
+          "x": 10,
+          "y": 60.390625,
+          "width": 503.59375,
+          "height": 182.375,
+          "collapsed": false
+        },
+        {
+          "id": "combat-controls",
+          "x": 10,
+          "y": 247.5625,
+          "width": 503.59375,
+          "height": 77.375,
+          "collapsed": false
+        },
+        {
+          "id": "preparation",
+          "x": 10,
+          "y": 329.734375,
+          "width": 503.59375,
+          "height": 277.375,
+          "collapsed": false
+        },
+        {
+          "id": "belongings",
+          "x": 10,
+          "y": 611.90625,
+          "width": 503.59375,
+          "height": 277.375,
+          "collapsed": false
+        },
+        {
+          "id": "equipment-comparison",
+          "x": 10,
+          "y": 894.078125,
+          "width": 503.59375,
+          "height": 36.375,
+          "collapsed": true
+        },
+        {
+          "id": "time",
+          "x": 529.59375,
+          "y": 60.390625,
+          "width": 804.40625,
+          "height": 77.375,
+          "collapsed": false
+        },
+        {
+          "id": "location",
+          "x": 529.59375,
+          "y": 142.5625,
+          "width": 804.40625,
+          "height": 187.375,
+          "collapsed": false
+        },
+        {
+          "id": "current-work",
+          "x": 529.59375,
+          "y": 334.734375,
+          "width": 804.40625,
+          "height": 137.375,
+          "collapsed": false
+        },
+        {
+          "id": "local-actions",
+          "x": 529.59375,
+          "y": 476.90625,
+          "width": 804.40625,
+          "height": 437.375,
+          "collapsed": false
+        },
+        {
+          "id": "records",
+          "x": 1350,
+          "y": 60.390625,
+          "width": 560,
+          "height": 177.375,
+          "collapsed": false
+        },
+        {
+          "id": "skills",
+          "x": 1350,
+          "y": 242.5625,
+          "width": 560,
+          "height": 187.375,
+          "collapsed": false
+        },
+        {
+          "id": "messages",
+          "x": 1350,
+          "y": 434.734375,
+          "width": 560,
+          "height": 257.375,
+          "collapsed": false
+        },
+        {
+          "id": "optional-worlds",
+          "x": 1350,
+          "y": 696.90625,
+          "width": 560,
+          "height": 36.375,
+          "collapsed": true
+        },
+        {
+          "id": "beginning",
+          "x": 1350,
+          "y": 738.078125,
+          "width": 560,
+          "height": 36.375,
+          "collapsed": true
+        },
+        {
+          "id": "patrol",
+          "x": 1350,
+          "y": 779.25,
+          "width": 560,
+          "height": 36.375,
+          "collapsed": true
+        },
+        {
+          "id": "supplies",
+          "x": 1350,
+          "y": 820.421875,
+          "width": 560,
+          "height": 36.375,
+          "collapsed": true
+        }
+      ]
+    },
+    {
+      "name": "responsive-390",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "document": {
+        "width": 390,
+        "height": 2585
+      },
+      "panels": [
+        {
+          "id": "time",
+          "x": 8,
+          "y": 155.578125,
+          "width": 374,
+          "height": 77.375,
+          "collapsed": false
+        },
+        {
+          "id": "location",
+          "x": 8,
+          "y": 237.75,
+          "width": 374,
+          "height": 187.375,
+          "collapsed": false
+        },
+        {
+          "id": "current-work",
+          "x": 8,
+          "y": 429.921875,
+          "width": 374,
+          "height": 137.375,
+          "collapsed": false
+        },
+        {
+          "id": "local-actions",
+          "x": 8,
+          "y": 572.09375,
+          "width": 374,
+          "height": 391.375,
+          "collapsed": false
+        },
+        {
+          "id": "vitals",
+          "x": 8,
+          "y": 968.265625,
+          "width": 374,
+          "height": 161.5625,
+          "collapsed": false
+        },
+        {
+          "id": "combat-controls",
+          "x": 8,
+          "y": 1134.625,
+          "width": 374,
+          "height": 77.375,
+          "collapsed": false
+        },
+        {
+          "id": "preparation",
+          "x": 8,
+          "y": 1216.796875,
+          "width": 374,
+          "height": 271.296875,
+          "collapsed": false
+        },
+        {
+          "id": "belongings",
+          "x": 8,
+          "y": 1492.890625,
+          "width": 374,
+          "height": 173.5625,
+          "collapsed": false
+        },
+        {
+          "id": "equipment-comparison",
+          "x": 8,
+          "y": 1671.25,
+          "width": 374,
+          "height": 36.375,
+          "collapsed": true
+        },
+        {
+          "id": "records",
+          "x": 8,
+          "y": 1712.421875,
+          "width": 374,
+          "height": 179.375,
+          "collapsed": false
+        },
+        {
+          "id": "skills",
+          "x": 8,
+          "y": 1896.59375,
+          "width": 374,
+          "height": 179.359375,
+          "collapsed": false
+        },
+        {
+          "id": "messages",
+          "x": 8,
+          "y": 2080.75,
+          "width": 374,
+          "height": 217.359375,
+          "collapsed": false
+        },
+        {
+          "id": "optional-worlds",
+          "x": 8,
+          "y": 2302.90625,
+          "width": 374,
+          "height": 36.375,
+          "collapsed": true
+        },
+        {
+          "id": "beginning",
+          "x": 8,
+          "y": 2344.078125,
+          "width": 374,
+          "height": 36.375,
+          "collapsed": true
+        },
+        {
+          "id": "patrol",
+          "x": 8,
+          "y": 2385.25,
+          "width": 374,
+          "height": 36.375,
+          "collapsed": true
+        },
+        {
+          "id": "supplies",
+          "x": 8,
+          "y": 2426.421875,
+          "width": 374,
+          "height": 36.375,
+          "collapsed": true
+        }
+      ]
+    },
+    {
+      "name": "responsive-768",
+      "viewport": {
+        "width": 768,
+        "height": 1024
+      },
+      "document": {
+        "width": 768,
+        "height": 2400
+      },
+      "panels": [
+        {
+          "id": "time",
+          "x": 8,
+          "y": 77.390625,
+          "width": 752,
+          "height": 77.375,
+          "collapsed": false
+        },
+        {
+          "id": "location",
+          "x": 8,
+          "y": 159.5625,
+          "width": 752,
+          "height": 187.375,
+          "collapsed": false
+        },
+        {
+          "id": "current-work",
+          "x": 8,
+          "y": 351.734375,
+          "width": 752,
+          "height": 129.734375,
+          "collapsed": false
+        },
+        {
+          "id": "local-actions",
+          "x": 8,
+          "y": 486.265625,
+          "width": 752,
+          "height": 392.96875,
+          "collapsed": false
+        },
+        {
+          "id": "vitals",
+          "x": 8,
+          "y": 884.03125,
+          "width": 752,
+          "height": 163.15625,
+          "collapsed": false
+        },
+        {
+          "id": "combat-controls",
+          "x": 8,
+          "y": 1051.984375,
+          "width": 752,
+          "height": 77.375,
+          "collapsed": false
+        },
+        {
+          "id": "preparation",
+          "x": 8,
+          "y": 1134.15625,
+          "width": 752,
+          "height": 272.890625,
+          "collapsed": false
+        },
+        {
+          "id": "belongings",
+          "x": 8,
+          "y": 1411.84375,
+          "width": 752,
+          "height": 175.15625,
+          "collapsed": false
+        },
+        {
+          "id": "equipment-comparison",
+          "x": 8,
+          "y": 1591.796875,
+          "width": 752,
+          "height": 36.375,
+          "collapsed": true
+        },
+        {
+          "id": "records",
+          "x": 8,
+          "y": 1632.96875,
+          "width": 752,
+          "height": 177.375,
+          "collapsed": false
+        },
+        {
+          "id": "skills",
+          "x": 8,
+          "y": 1815.140625,
+          "width": 752,
+          "height": 145.953125,
+          "collapsed": false
+        },
+        {
+          "id": "messages",
+          "x": 8,
+          "y": 1965.890625,
+          "width": 752,
+          "height": 186.953125,
+          "collapsed": false
+        },
+        {
+          "id": "optional-worlds",
+          "x": 8,
+          "y": 2157.640625,
+          "width": 752,
+          "height": 36.375,
+          "collapsed": true
+        },
+        {
+          "id": "beginning",
+          "x": 8,
+          "y": 2198.8125,
+          "width": 752,
+          "height": 36.375,
+          "collapsed": true
+        },
+        {
+          "id": "patrol",
+          "x": 8,
+          "y": 2239.984375,
+          "width": 752,
+          "height": 36.375,
+          "collapsed": true
+        },
+        {
+          "id": "supplies",
+          "x": 8,
+          "y": 2281.15625,
+          "width": 752,
+          "height": 36.375,
+          "collapsed": true
+        }
+      ]
+    },
+    {
+      "name": "responsive-1440",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "document": {
+        "width": 1440,
+        "height": 904
+      },
+      "panels": [
+        {
+          "id": "vitals",
+          "x": 10,
+          "y": 60.390625,
+          "width": 374,
+          "height": 182.375,
+          "collapsed": false
+        },
+        {
+          "id": "combat-controls",
+          "x": 10,
+          "y": 247.5625,
+          "width": 374,
+          "height": 77.375,
+          "collapsed": false
+        },
+        {
+          "id": "preparation",
+          "x": 10,
+          "y": 329.734375,
+          "width": 374,
+          "height": 277.375,
+          "collapsed": false
+        },
+        {
+          "id": "belongings",
+          "x": 10,
+          "y": 611.90625,
+          "width": 374,
+          "height": 277.375,
+          "collapsed": false
+        },
+        {
+          "id": "equipment-comparison",
+          "x": 10,
+          "y": 894.078125,
+          "width": 374,
+          "height": 36.375,
+          "collapsed": true
+        },
+        {
+          "id": "time",
+          "x": 400,
+          "y": 60.390625,
+          "width": 598,
+          "height": 77.375,
+          "collapsed": false
+        },
+        {
+          "id": "location",
+          "x": 400,
+          "y": 142.5625,
+          "width": 598,
+          "height": 187.375,
+          "collapsed": false
+        },
+        {
+          "id": "current-work",
+          "x": 400,
+          "y": 334.734375,
+          "width": 598,
+          "height": 137.375,
+          "collapsed": false
+        },
+        {
+          "id": "local-actions",
+          "x": 400,
+          "y": 476.90625,
+          "width": 598,
+          "height": 437.375,
+          "collapsed": false
+        },
+        {
+          "id": "records",
+          "x": 1014,
+          "y": 60.390625,
+          "width": 416,
+          "height": 177.375,
+          "collapsed": false
+        },
+        {
+          "id": "skills",
+          "x": 1014,
+          "y": 242.5625,
+          "width": 416,
+          "height": 187.375,
+          "collapsed": false
+        },
+        {
+          "id": "messages",
+          "x": 1014,
+          "y": 434.734375,
+          "width": 416,
+          "height": 257.375,
+          "collapsed": false
+        },
+        {
+          "id": "optional-worlds",
+          "x": 1014,
+          "y": 696.90625,
+          "width": 416,
+          "height": 36.375,
+          "collapsed": true
+        },
+        {
+          "id": "beginning",
+          "x": 1014,
+          "y": 738.078125,
+          "width": 416,
+          "height": 36.375,
+          "collapsed": true
+        },
+        {
+          "id": "patrol",
+          "x": 1014,
+          "y": 779.25,
+          "width": 416,
+          "height": 36.375,
+          "collapsed": true
+        },
+        {
+          "id": "supplies",
+          "x": 1014,
+          "y": 820.421875,
+          "width": 416,
+          "height": 36.375,
+          "collapsed": true
+        }
+      ]
+    },
+    {
+      "name": "responsive-1920",
+      "viewport": {
+        "width": 1920,
+        "height": 1080
+      },
+      "document": {
+        "width": 1920,
+        "height": 1084
+      },
+      "panels": [
+        {
+          "id": "vitals",
+          "x": 10,
+          "y": 60.390625,
+          "width": 503.59375,
+          "height": 182.375,
+          "collapsed": false
+        },
+        {
+          "id": "combat-controls",
+          "x": 10,
+          "y": 247.5625,
+          "width": 503.59375,
+          "height": 77.375,
+          "collapsed": false
+        },
+        {
+          "id": "preparation",
+          "x": 10,
+          "y": 329.734375,
+          "width": 503.59375,
+          "height": 277.375,
+          "collapsed": false
+        },
+        {
+          "id": "belongings",
+          "x": 10,
+          "y": 611.90625,
+          "width": 503.59375,
+          "height": 277.375,
+          "collapsed": false
+        },
+        {
+          "id": "equipment-comparison",
+          "x": 10,
+          "y": 894.078125,
+          "width": 503.59375,
+          "height": 36.375,
+          "collapsed": true
+        },
+        {
+          "id": "time",
+          "x": 529.59375,
+          "y": 60.390625,
+          "width": 804.40625,
+          "height": 77.375,
+          "collapsed": false
+        },
+        {
+          "id": "location",
+          "x": 529.59375,
+          "y": 142.5625,
+          "width": 804.40625,
+          "height": 187.375,
+          "collapsed": false
+        },
+        {
+          "id": "current-work",
+          "x": 529.59375,
+          "y": 334.734375,
+          "width": 804.40625,
+          "height": 137.375,
+          "collapsed": false
+        },
+        {
+          "id": "local-actions",
+          "x": 529.59375,
+          "y": 476.90625,
+          "width": 804.40625,
+          "height": 437.375,
+          "collapsed": false
+        },
+        {
+          "id": "records",
+          "x": 1350,
+          "y": 60.390625,
+          "width": 560,
+          "height": 177.375,
+          "collapsed": false
+        },
+        {
+          "id": "skills",
+          "x": 1350,
+          "y": 242.5625,
+          "width": 560,
+          "height": 187.375,
+          "collapsed": false
+        },
+        {
+          "id": "messages",
+          "x": 1350,
+          "y": 434.734375,
+          "width": 560,
+          "height": 257.375,
+          "collapsed": false
+        },
+        {
+          "id": "optional-worlds",
+          "x": 1350,
+          "y": 696.90625,
+          "width": 560,
+          "height": 36.375,
+          "collapsed": true
+        },
+        {
+          "id": "beginning",
+          "x": 1350,
+          "y": 738.078125,
+          "width": 560,
+          "height": 36.375,
+          "collapsed": true
+        },
+        {
+          "id": "patrol",
+          "x": 1350,
+          "y": 779.25,
+          "width": 560,
+          "height": 36.375,
+          "collapsed": true
+        },
+        {
+          "id": "supplies",
+          "x": 1350,
+          "y": 820.421875,
+          "width": 560,
+          "height": 36.375,
+          "collapsed": true
+        }
+      ]
+    },
+    {
+      "name": "zoom-200",
+      "viewport": {
+        "width": 1920,
+        "height": 1080
+      },
+      "document": {
+        "width": 1920,
+        "height": 2169
+      },
+      "panels": [
+        {
+          "id": "vitals",
+          "x": 20,
+          "y": 120.78125,
+          "width": 488.796875,
+          "height": 404.78125,
+          "collapsed": false
+        },
+        {
+          "id": "combat-controls",
+          "x": 20,
+          "y": 535.15625,
+          "width": 488.796875,
+          "height": 226.78125,
+          "collapsed": false
+        },
+        {
+          "id": "preparation",
+          "x": 20,
+          "y": 771.53125,
+          "width": 488.796875,
+          "height": 626.78125,
+          "collapsed": false
+        },
+        {
+          "id": "belongings",
+          "x": 20,
+          "y": 1407.90625,
+          "width": 488.796875,
+          "height": 562.78125,
+          "collapsed": false
+        },
+        {
+          "id": "equipment-comparison",
+          "x": 20,
+          "y": 1980.28125,
+          "width": 488.796875,
+          "height": 144.78125,
+          "collapsed": true
+        },
+        {
+          "id": "time",
+          "x": 540.796875,
+          "y": 120.78125,
+          "width": 783.203125,
+          "height": 154.78125,
+          "collapsed": false
+        },
+        {
+          "id": "location",
+          "x": 540.796875,
+          "y": 285.15625,
+          "width": 783.203125,
+          "height": 374.78125,
+          "collapsed": false
+        },
+        {
+          "id": "current-work",
+          "x": 540.796875,
+          "y": 669.53125,
+          "width": 783.203125,
+          "height": 274.78125,
+          "collapsed": false
+        },
+        {
+          "id": "local-actions",
+          "x": 540.796875,
+          "y": 953.90625,
+          "width": 783.203125,
+          "height": 874.78125,
+          "collapsed": false
+        },
+        {
+          "id": "records",
+          "x": 1356,
+          "y": 120.78125,
+          "width": 544,
+          "height": 394.78125,
+          "collapsed": false
+        },
+        {
+          "id": "skills",
+          "x": 1356,
+          "y": 525.15625,
+          "width": 544,
+          "height": 382.78125,
+          "collapsed": false
+        },
+        {
+          "id": "messages",
+          "x": 1356,
+          "y": 917.53125,
+          "width": 544,
+          "height": 514.78125,
+          "collapsed": false
+        },
+        {
+          "id": "optional-worlds",
+          "x": 1356,
+          "y": 1441.90625,
+          "width": 544,
+          "height": 80.78125,
+          "collapsed": true
+        },
+        {
+          "id": "beginning",
+          "x": 1356,
+          "y": 1532.28125,
+          "width": 544,
+          "height": 80.78125,
+          "collapsed": true
+        },
+        {
+          "id": "patrol",
+          "x": 1356,
+          "y": 1622.65625,
+          "width": 544,
+          "height": 80.78125,
+          "collapsed": true
+        },
+        {
+          "id": "supplies",
+          "x": 1356,
+          "y": 1713.03125,
+          "width": 544,
+          "height": 80.78125,
+          "collapsed": true
+        }
+      ]
+    }
+  ],
+  "errors": []
+}

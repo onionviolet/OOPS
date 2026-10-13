@@ -1,0 +1,17 @@
+{
+  "sourceRoot": "/Users/weiwei/code/yet-another-idle-rpg",
+  "sourceHead": "53dc1df15889be6ebb1bae403497041f0672db46",
+  "inputs": {
+    "PROJECT.md": "5fa867b61f122a01223ced9ee5f65abc97dc9ea6b993d00d7b5276428c6de46f",
+    "docs/GAME_MASTER_PROMPT.md": "9524d382c81a981af02bd2cf9288f410fe9a09b9c6f8d99f7075c6245653de56",
+    "docs/gm/WORLD_ACTIONABILITY_GM_PROMPT.md": "24f7ace729b0d92217b3da09482c0f646b899f71f9c31cf78e6c326663a8304a",
+    "docs/WORLD_COMPLETION_STANDARD.md": "e3c8ddc8c559204736d2ff5d8efdfd1e1f769fdbc5bc8ed2c6c86862169b2bf4",
+    "docs/STARTS_ENDINGS_AND_RANDOMNESS_PALETTE.md": "79a084cd8b3669750b0648ed1739df641a4e0df7c871ce08d83dfef438f88870",
+    "docs/SKILLS_AND_TALENTS.md": "2e8e3090803e8b493e0c61339eef8d257b1bedbd74764921cef86a4f1318e0bf",
+    "docs/TIMELINES_AND_DIVERGENCE.md": "ddbd89552dc53a8f830b2f43c65fcc4f639c23aca450c3e99440152f9d1588ee",
+    "docs/gm/dispatch/idea-expansion-2026-10-11/DETAIL_LEDGER.json": "3fe75c8f33d0ed57c2c067b232de0dd64e3fc364ab3a34ba5e8e4d6123cfae54",
+    "docs/gm/dispatch/idea-expansion-2026-10-11/RECONCILIATION.md": "946dafae94720c2b3e3995a523845ec9d0c854f154a807eecc60faf4fe41d788",
+    "docs/gm/dispatch/starts-talents-continuity-2026-10-11/ASSIGNMENT.md": "036cd8d3f1296c8fb2cefea7fc0e0353d8019c975f84452193c7c5d88713d57a"
+  },
+  "note": "Dirty documents hashed; shared runtime remains read-only. GM must identify and freeze actual implementation inputs."
+}

@@ -1,0 +1,33 @@
+{
+  "status": "STOP_REBUILD_BOUNDARY",
+  "branchOrigin": "/tmp/yairpg-foundation-learning-worker-refusal-extra-dry-accepted.json",
+  "branchOriginSha256": "3966d3a3c59966783538a0af9cb657c2525079e23e188f1d780aad0b9a6008a4",
+  "originMatchesHistoricalNativeReceipt": [
+    true
+  ],
+  "originReceipt": "learning-proof/WORKFLOW_53092.jsonl step7",
+  "latestActualSave": "/tmp/yairpg-foundation-learning-refusal-final-refusal-extra-account.json",
+  "latestActualSaveSha256": "bd8a547a72a6ebe23d3bb370185445fc31f6e96b82c9215ea393e694cb299eb8",
+  "freshOrigin": "http://127.0.0.1:18645",
+  "servedBundle": "555216ac778b8bc55d27f12317f450a61bf28f04344f94a93691ad34c4cf53da",
+  "latestClock": 11839,
+  "latestSequence": 1403,
+  "dryingCount": 2,
+  "nativeKnifeRepairCount": 1,
+  "neriPriorService": 1,
+  "neriOwnAttention": 0,
+  "neriOptionalBind": 1,
+  "sponsorCount": 0,
+  "refusalExercised": false,
+  "rawSavesKeptPrivate": true,
+  "sourceHashes": {
+    "src/lore_practice_content.js": "dee0031568ae955b2d2d297d086eab468e3f8ccc0786045c811873e29b13edff",
+    "src/lore_practice_facts.js": "11e65fe0f0e67892e1f1de42f4d3132c1b90c47b96b924652dff1fd2b9644de8",
+    "src/audit_remainder_home_facts.js": "d1a38bd540474cce688a4c8dda5d85b69ee7b2affebbfdebdee47c63585ee95d",
+    "src/world_completion_learning_content.js": "9a905256fb3ead0d50c7c292b5b0529eb842dcb8c661eabe21324074e6c00070",
+    "src/world_completion_learning_facts.js": "6a1507d0e40fbbf07e087080e1eaebc67042d8118152616d125502c5d270c0a2",
+    "dist/bundle.js": "555216ac778b8bc55d27f12317f450a61bf28f04344f94a93691ad34c4cf53da"
+  },
+  "neriOwnStamina": 4,
+  "ownPendingJobs": 0
+}

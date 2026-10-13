@@ -1,0 +1,3392 @@
+{
+  "schema": "systems-cheats-expansion-detail-ledger-v1",
+  "date": "2026-10-11",
+  "status": "finite planning expansion; runtime unrun",
+  "families": [
+    "SC01",
+    "SC02",
+    "SC03",
+    "SC04",
+    "SC05",
+    "SC06",
+    "SC07",
+    "SC08",
+    "SC09",
+    "SC10"
+  ],
+  "noGameplayCompletionClaim": true,
+  "sourceSnapshot": "INPUT_SNAPSHOT.json",
+  "requirements": [
+    {
+      "id": "SC01.01",
+      "family": "SC01",
+      "title": "Mastery and knowledge",
+      "inputIdeaRefs": [
+        "G2-010",
+        "G2-011",
+        "G8-006",
+        "G8-008",
+        "G8-011"
+      ],
+      "inputOwner": "docs/gm/dispatch/idea-expansion-2026-10-11/DETAIL_LEDGER.json",
+      "disposition": "expanded-proposal; not selected or runtime-dispatched",
+      "design": "Practice improves execution; research supplies a method; recognition can follow either without creating competence.",
+      "variants": [
+        "use-trained",
+        "transmitted",
+        "instant-comprehension"
+      ],
+      "owner": "systems-cheats GM planning; runtime reservation required before implementation",
+      "observableCriterion": "Execute the same work before and after retained learning and show the specific outcome changed.",
+      "dependencies": [
+        "SS03",
+        "SS05",
+        "SS10"
+      ],
+      "actualConsumerOrMissingBinding": {
+        "existingSourceOnly": [
+          "src/causal_situations.js:52",
+          "src/expansion_quest_ui.js:9",
+          "src/observation_channels.js:195",
+          "src/power_models.js:5",
+          "src/simulation.js:330",
+          "src/simulation_effects.js:225",
+          "src/simulation_effects.js:266",
+          "src/simulation_ui.js:6"
+        ],
+        "requiredBinding": "Practice improves execution; research supplies a method; recognition can follow either without creating competence.",
+        "state": "existing primitives inspected; selected native/local consumer not delivered by this task"
+      },
+      "persistenceDecision": "Earned native XP and learned method are authoritative; no backfilled mastery.",
+      "proposedCases": [
+        {
+          "id": "SC01.01.T1",
+          "criterion": "Observe a method without gaining its source",
+          "state": "specified-not-run"
+        },
+        {
+          "id": "SC01.01.T2",
+          "criterion": "Use a retained learned method after equipment changes",
+          "state": "specified-not-run"
+        },
+        {
+          "id": "SC01.01.T3",
+          "criterion": "Recognition alone does not alter output",
+          "state": "specified-not-run"
+        }
+      ],
+      "verificationState": "design-expanded; source-fit inspected via map; implementation/browser/save/human gates open",
+      "designVariantIds": [
+        "SC01.V01",
+        "SC01.V04"
+      ],
+      "sourcePointers": [
+        "src/causal_situations.js:52",
+        "src/expansion_quest_ui.js:9",
+        "src/observation_channels.js:195",
+        "src/power_models.js:5",
+        "src/simulation.js:330",
+        "src/simulation_effects.js:225",
+        "src/simulation_effects.js:266",
+        "src/simulation_ui.js:6"
+      ]
+    },
+    {
+      "id": "SC01.02",
+      "family": "SC01",
+      "title": "Body, source and equipment",
+      "inputIdeaRefs": [
+        "G2-001",
+        "G2-005",
+        "G8-015",
+        "G8-017",
+        "G8-020"
+      ],
+      "inputOwner": "docs/gm/dispatch/idea-expansion-2026-10-11/DETAIL_LEDGER.json",
+      "disposition": "expanded-proposal; not selected or runtime-dispatched",
+      "design": "Change physiology, source supply or installed/equipped means separately; each changes its actual consumer.",
+      "variants": [
+        "trained body",
+        "installed organ",
+        "leased source",
+        "portable equipment"
+      ],
+      "owner": "systems-cheats GM planning; runtime reservation required before implementation",
+      "observableCriterion": "A newly supported operation executes; removing its actual support affects that operation only.",
+      "dependencies": [
+        "SS01",
+        "SS02",
+        "SS03"
+      ],
+      "actualConsumerOrMissingBinding": {
+        "existingSourceOnly": [
+          "src/acquisition.js:39",
+          "src/power_models.js:5",
+          "src/simulation.js:231",
+          "src/simulation.js:330",
+          "src/simulation.js:81",
+          "src/simulation_contracts.js:205",
+          "src/simulation_effects.js:125",
+          "src/simulation_effects.js:266"
+        ],
+        "requiredBinding": "Change physiology, source supply or installed/equipped means separately; each changes its actual consumer.",
+        "state": "existing primitives inspected; selected native/local consumer not delivered by this task"
+      },
+      "persistenceDecision": "Save actual installed carrier and per-item custody; distinguish dormant ownership from active support.",
+      "proposedCases": [
+        {
+          "id": "SC01.02.T1",
+          "criterion": "Missing source blocks only source-dependent action",
+          "state": "specified-not-run"
+        },
+        {
+          "id": "SC01.02.T2",
+          "criterion": "Equip and remove a unique component",
+          "state": "specified-not-run"
+        },
+        {
+          "id": "SC01.02.T3",
+          "criterion": "Keep practice when leased support is lost",
+          "state": "specified-not-run"
+        }
+      ],
+      "verificationState": "design-expanded; source-fit inspected via map; implementation/browser/save/human gates open",
+      "designVariantIds": [
+        "SC01.V02",
+        "SC01.V03"
+      ],
+      "sourcePointers": [
+        "src/acquisition.js:39",
+        "src/power_models.js:5",
+        "src/simulation.js:231",
+        "src/simulation.js:330",
+        "src/simulation.js:81",
+        "src/simulation_contracts.js:205",
+        "src/simulation_effects.js:125",
+        "src/simulation_effects.js:266"
+      ]
+    },
+    {
+      "id": "SC01.03",
+      "family": "SC01",
+      "title": "Relationships, access and property",
+      "inputIdeaRefs": [
+        "G3-005",
+        "G3-009",
+        "G3-010",
+        "G3-013",
+        "G3-019"
+      ],
+      "inputOwner": "docs/gm/dispatch/idea-expansion-2026-10-11/DETAIL_LEDGER.json",
+      "disposition": "expanded-proposal; not selected or runtime-dispatched",
+      "design": "Earn trust, tenure, permission or facility ownership to open real work, instruction and production.",
+      "variants": [
+        "mentor access",
+        "office authority",
+        "household property",
+        "rented workshop"
+      ],
+      "owner": "systems-cheats GM planning; runtime reservation required before implementation",
+      "observableCriterion": "A specific holder permits a new useful action and reacts to the actual deed, not a universal reputation meter.",
+      "dependencies": [
+        "SS02",
+        "SS07",
+        "SS08"
+      ],
+      "actualConsumerOrMissingBinding": {
+        "existingSourceOnly": [
+          "src/acquisition.js:39",
+          "src/gameplay_transactions.js:48",
+          "src/main.js:811",
+          "src/rewards.js:3",
+          "src/simulation.js:505",
+          "src/simulation_contracts.js:205"
+        ],
+        "requiredBinding": "Earn trust, tenure, permission or facility ownership to open real work, instruction and production.",
+        "state": "existing primitives inspected; selected native/local consumer not delivered by this task"
+      },
+      "persistenceDecision": "Save directed relationship/credential/property; office succession differs from skill retention.",
+      "proposedCases": [
+        {
+          "id": "SC01.03.T1",
+          "criterion": "Rent grants use without ownership",
+          "state": "specified-not-run"
+        },
+        {
+          "id": "SC01.03.T2",
+          "criterion": "Lose office while retaining expertise",
+          "state": "specified-not-run"
+        },
+        {
+          "id": "SC01.03.T3",
+          "criterion": "Facility output reaches an actual customer",
+          "state": "specified-not-run"
+        }
+      ],
+      "verificationState": "design-expanded; source-fit inspected via map; implementation/browser/save/human gates open",
+      "designVariantIds": [
+        "SC01.V05",
+        "SC01.V06"
+      ],
+      "sourcePointers": [
+        "src/acquisition.js:39",
+        "src/gameplay_transactions.js:48",
+        "src/main.js:811",
+        "src/rewards.js:3",
+        "src/simulation.js:505",
+        "src/simulation_contracts.js:205"
+      ]
+    },
+    {
+      "id": "SC02.01",
+      "family": "SC02",
+      "title": "Acquisition and mastery of cheats",
+      "inputIdeaRefs": [
+        "G2-001",
+        "G2-003",
+        "G2-010",
+        "G2-028"
+      ],
+      "inputOwner": "docs/gm/dispatch/idea-expansion-2026-10-11/DETAIL_LEDGER.json",
+      "disposition": "expanded-proposal; not selected or runtime-dispatched",
+      "design": "Separate discovery, understanding, possession and execution; fixed functions deepen through target choice and combinations.",
+      "variants": [
+        "gift",
+        "theft",
+        "copy",
+        "earned unlock",
+        "random acquisition"
+      ],
+      "owner": "systems-cheats GM planning; runtime reservation required before implementation",
+      "observableCriterion": "Acquire one supported function, learn its scope and use it on two meaningfully different tasks.",
+      "dependencies": [
+        "SS01",
+        "SS02",
+        "SS03",
+        "SS05"
+      ],
+      "actualConsumerOrMissingBinding": {
+        "existingSourceOnly": [
+          "src/acquisition.js:39",
+          "src/causal_situations.js:52",
+          "src/observation_channels.js:195",
+          "src/power_models.js:5",
+          "src/simulation.js:231",
+          "src/simulation.js:330",
+          "src/simulation.js:81",
+          "src/simulation_contracts.js:205",
+          "src/simulation_effects.js:125",
+          "src/simulation_effects.js:225",
+          "src/simulation_effects.js:266"
+        ],
+        "requiredBinding": "Separate discovery, understanding, possession and execution; fixed functions deepen through target choice and combinations.",
+        "state": "existing primitives inspected; selected native/local consumer not delivered by this task"
+      },
+      "persistenceDecision": "Store holder, mechanism revision and actual carrier; do not treat tooltips as ownership.",
+      "proposedCases": [
+        {
+          "id": "SC02.01.T1",
+          "criterion": "Observe versus acquire",
+          "state": "specified-not-run"
+        },
+        {
+          "id": "SC02.01.T2",
+          "criterion": "Instant mastery grants its promised competence",
+          "state": "specified-not-run"
+        },
+        {
+          "id": "SC02.01.T3",
+          "criterion": "Second use changes a different actual recipient",
+          "state": "specified-not-run"
+        }
+      ],
+      "verificationState": "design-expanded; source-fit inspected via map; implementation/browser/save/human gates open",
+      "designVariantIds": [
+        "SC02.V01",
+        "SC02.V02",
+        "SC02.V03"
+      ],
+      "sourcePointers": [
+        "src/acquisition.js:39",
+        "src/causal_situations.js:52",
+        "src/observation_channels.js:195",
+        "src/power_models.js:5",
+        "src/simulation.js:231",
+        "src/simulation.js:330",
+        "src/simulation.js:81",
+        "src/simulation_contracts.js:205",
+        "src/simulation_effects.js:125",
+        "src/simulation_effects.js:225",
+        "src/simulation_effects.js:266"
+      ]
+    },
+    {
+      "id": "SC02.02",
+      "family": "SC02",
+      "title": "Evolution and combinations",
+      "inputIdeaRefs": [
+        "G2-002",
+        "G2-010",
+        "G2-025",
+        "G2-026"
+      ],
+      "inputOwner": "docs/gm/dispatch/idea-expansion-2026-10-11/DETAIL_LEDGER.json",
+      "disposition": "expanded-proposal; not selected or runtime-dispatched",
+      "design": "Holder growth, module unlock, cheat evolution and composition change different things; exact ordering determines combination output.",
+      "variants": [
+        "fixed function",
+        "tiered module",
+        "lateral replacement",
+        "fusion preserving functions"
+      ],
+      "owner": "systems-cheats GM planning; runtime reservation required before implementation",
+      "observableCriterion": "A selected upgrade changes one executable verb or scoped result and its joined action produces the declared output.",
+      "dependencies": [
+        "SS01",
+        "SS03",
+        "SS11"
+      ],
+      "actualConsumerOrMissingBinding": {
+        "existingSourceOnly": [
+          "src/expansion_persistence.js:7",
+          "src/power_models.js:5",
+          "src/save_files.js:36",
+          "src/simulation.js:231",
+          "src/simulation.js:330",
+          "src/simulation.js:81",
+          "src/simulation_effects.js:125",
+          "src/simulation_effects.js:266"
+        ],
+        "requiredBinding": "Holder growth, module unlock, cheat evolution and composition change different things; exact ordering determines combination output.",
+        "state": "existing primitives inspected; selected native/local consumer not delivered by this task"
+      },
+      "persistenceDecision": "Save old/new mechanism revisions and selected lineage; no silently invented slots, costs or cap.",
+      "proposedCases": [
+        {
+          "id": "SC02.02.T1",
+          "criterion": "Fixed cheat stays fixed while logistics improve",
+          "state": "specified-not-run"
+        },
+        {
+          "id": "SC02.02.T2",
+          "criterion": "Evolution changes target scope",
+          "state": "specified-not-run"
+        },
+        {
+          "id": "SC02.02.T3",
+          "criterion": "Two simultaneous effects use declared order",
+          "state": "specified-not-run"
+        }
+      ],
+      "verificationState": "design-expanded; source-fit inspected via map; implementation/browser/save/human gates open",
+      "designVariantIds": [
+        "SC02.V04",
+        "SC02.V05"
+      ],
+      "sourcePointers": [
+        "src/expansion_persistence.js:7",
+        "src/power_models.js:5",
+        "src/save_files.js:36",
+        "src/simulation.js:231",
+        "src/simulation.js:330",
+        "src/simulation.js:81",
+        "src/simulation_effects.js:125",
+        "src/simulation_effects.js:266"
+      ]
+    },
+    {
+      "id": "SC02.03",
+      "family": "SC02",
+      "title": "Transfer, loss and retention",
+      "inputIdeaRefs": [
+        "G2-018",
+        "G2-022",
+        "G2-026",
+        "G4-10",
+        "G4-11"
+      ],
+      "inputOwner": "docs/gm/dispatch/idea-expansion-2026-10-11/DETAIL_LEDGER.json",
+      "disposition": "expanded-proposal; not selected or runtime-dispatched",
+      "design": "Carry body, soul, item, credential and remote-provider faculties according to their actual backing across departure and life events.",
+      "variants": [
+        "copy leaves donor",
+        "transfer removes donor",
+        "suppression",
+        "permanent gift",
+        "leased power"
+      ],
+      "owner": "systems-cheats GM planning; runtime reservation required before implementation",
+      "observableCriterion": "Transfer affects both real holders, and travel/loss preserves exactly the supported retained uses.",
+      "dependencies": [
+        "SS02",
+        "SS09",
+        "SS11"
+      ],
+      "actualConsumerOrMissingBinding": {
+        "existingSourceOnly": [
+          "src/acquisition.js:39",
+          "src/expansion_persistence.js:7",
+          "src/realm_clock_leases.js:179",
+          "src/save_files.js:36",
+          "src/simulation_contracts.js:205",
+          "src/world_instances.js:271",
+          "src/world_instances.js:310"
+        ],
+        "requiredBinding": "Carry body, soul, item, credential and remote-provider faculties according to their actual backing across departure and life events.",
+        "state": "existing primitives inspected; selected native/local consumer not delivered by this task"
+      },
+      "persistenceDecision": "Freeze departure/death/prestige domains per selected card; missing content stays dormant under compatible policy.",
+      "proposedCases": [
+        {
+          "id": "SC02.03.T1",
+          "criterion": "Transfer is not duplication",
+          "state": "specified-not-run"
+        },
+        {
+          "id": "SC02.03.T2",
+          "criterion": "Provider disconnect leaves permanently learned method",
+          "state": "specified-not-run"
+        },
+        {
+          "id": "SC02.03.T3",
+          "criterion": "Return restores suppression without replayed acquisition",
+          "state": "specified-not-run"
+        }
+      ],
+      "verificationState": "design-expanded; source-fit inspected via map; implementation/browser/save/human gates open",
+      "designVariantIds": [
+        "SC02.V06"
+      ],
+      "sourcePointers": [
+        "src/acquisition.js:39",
+        "src/expansion_persistence.js:7",
+        "src/realm_clock_leases.js:179",
+        "src/save_files.js:36",
+        "src/simulation_contracts.js:205",
+        "src/world_instances.js:271",
+        "src/world_instances.js:310"
+      ]
+    },
+    {
+      "id": "SC03.01",
+      "family": "SC03",
+      "title": "Craft and research bridge",
+      "inputIdeaRefs": [
+        "G2-011",
+        "G3-020",
+        "G8-011"
+      ],
+      "inputOwner": "docs/gm/dispatch/idea-expansion-2026-10-11/DETAIL_LEDGER.json",
+      "disposition": "expanded-proposal; not selected or runtime-dispatched",
+      "design": "Ordinary craft makes improved tools; evidence-based research and a qualified material enable a genuinely new apparatus.",
+      "variants": [
+        "invention",
+        "exceptional material",
+        "recovered method"
+      ],
+      "owner": "systems-cheats GM planning; runtime reservation required before implementation",
+      "observableCriterion": "Gather, make tool, learn method, construct device and perform a newly possible task through actual outputs.",
+      "dependencies": [
+        "SS01",
+        "SS03",
+        "SS07",
+        "SS12"
+      ],
+      "actualConsumerOrMissingBinding": {
+        "existingSourceOnly": [
+          "src/content_packs.js:23",
+          "src/gameplay_transactions.js:48",
+          "src/main.js:811",
+          "src/power_models.js:5",
+          "src/rewards.js:3",
+          "src/simulation.js:231",
+          "src/simulation.js:330",
+          "src/simulation.js:81",
+          "src/simulation_contracts.js:93",
+          "src/simulation_effects.js:125",
+          "src/simulation_effects.js:266"
+        ],
+        "requiredBinding": "Ordinary craft makes improved tools; evidence-based research and a qualified material enable a genuinely new apparatus.",
+        "state": "existing primitives inspected; selected native/local consumer not delivered by this task"
+      },
+      "persistenceDecision": "Save recipe learning, consumed material and device identity; new source requires its own grant.",
+      "proposedCases": [
+        {
+          "id": "SC03.01.T1",
+          "criterion": "Knowledge alone does not create ingredient",
+          "state": "specified-not-run"
+        },
+        {
+          "id": "SC03.01.T2",
+          "criterion": "Failed prototype follows declared salvage",
+          "state": "specified-not-run"
+        },
+        {
+          "id": "SC03.01.T3",
+          "criterion": "Device has ordinary maintenance or useful support only where selected",
+          "state": "specified-not-run"
+        }
+      ],
+      "verificationState": "design-expanded; source-fit inspected via map; implementation/browser/save/human gates open",
+      "designVariantIds": [
+        "SC03.V01"
+      ],
+      "sourcePointers": [
+        "src/content_packs.js:23",
+        "src/gameplay_transactions.js:48",
+        "src/main.js:811",
+        "src/power_models.js:5",
+        "src/rewards.js:3",
+        "src/simulation.js:231",
+        "src/simulation.js:330",
+        "src/simulation.js:81",
+        "src/simulation_contracts.js:93",
+        "src/simulation_effects.js:125",
+        "src/simulation_effects.js:266"
+      ]
+    },
+    {
+      "id": "SC03.02",
+      "family": "SC03",
+      "title": "Institutional and bodily bridge",
+      "inputIdeaRefs": [
+        "G2-001",
+        "G3-009",
+        "G3-010",
+        "G3-013",
+        "G8-015"
+      ],
+      "inputOwner": "docs/gm/dispatch/idea-expansion-2026-10-11/DETAIL_LEDGER.json",
+      "disposition": "expanded-proposal; not selected or runtime-dispatched",
+      "design": "Expertise earns apprenticeship, access or a bargain; qualification supplies an actual source/body change when local fiction permits. Discovery or committed chance acquisition can also supply the bridge; a fitting observation and actual acquired source are distinct outputs.",
+      "variants": [
+        "licensed ritual",
+        "patron gift",
+        "apprenticeship",
+        "exposure adaptation"
+      ],
+      "owner": "systems-cheats GM planning; runtime reservation required before implementation",
+      "observableCriterion": "Ordinary work earns admission and new means enable an extraordinary action with an observable local consequence.",
+      "dependencies": [
+        "SS02",
+        "SS03",
+        "SS05",
+        "SS06",
+        "SS08"
+      ],
+      "actualConsumerOrMissingBinding": {
+        "existingSourceOnly": [
+          "src/acquisition.js:39",
+          "src/power_models.js:5",
+          "src/simulation.js:172",
+          "src/simulation.js:330",
+          "src/simulation.js:505",
+          "src/simulation_contracts.js:205",
+          "src/simulation_effects.js:225",
+          "src/simulation_effects.js:266"
+        ],
+        "requiredBinding": "Expertise earns apprenticeship, access or a bargain; qualification supplies an actual source/body change when local fiction permits. Discovery or committed chance acquisition can also supply the bridge; a fitting observation and actual acquired source are distinct outputs.",
+        "state": "existing primitives inspected; selected native/local consumer not delivered by this task"
+      },
+      "persistenceDecision": "Credential, taught knowledge and installed source remain separate records. Persist observed basis and selected acquisition outcome/attempt before revealing; no reload reroll.",
+      "proposedCases": [
+        {
+          "id": "SC03.02.T1",
+          "criterion": "Decline bargain and continue ordinary work",
+          "state": "specified-not-run"
+        },
+        {
+          "id": "SC03.02.T2",
+          "criterion": "Access without physiology remains limited",
+          "state": "specified-not-run"
+        },
+        {
+          "id": "SC03.02.T3",
+          "criterion": "Source grant survives only its declared policy",
+          "state": "specified-not-run"
+        },
+        {
+          "id": "SC03.02.T4",
+          "criterion": "Discover a fitting clue without receiving source automatically",
+          "state": "specified-not-run"
+        },
+        {
+          "id": "SC03.02.T5",
+          "criterion": "Committed chance acquisition persists exact support and result",
+          "state": "specified-not-run"
+        }
+      ],
+      "verificationState": "design-expanded; source-fit inspected via map; implementation/browser/save/human gates open",
+      "designVariantIds": [
+        "SC03.V02",
+        "SC03.V03"
+      ],
+      "sourcePointers": [
+        "src/acquisition.js:39",
+        "src/power_models.js:5",
+        "src/simulation.js:172",
+        "src/simulation.js:330",
+        "src/simulation.js:505",
+        "src/simulation_contracts.js:205",
+        "src/simulation_effects.js:225",
+        "src/simulation_effects.js:266"
+      ]
+    },
+    {
+      "id": "SC03.03",
+      "family": "SC03",
+      "title": "Useful ordinary life after transition",
+      "inputIdeaRefs": [
+        "G2-011",
+        "G3-020",
+        "G8-011"
+      ],
+      "inputOwner": "docs/gm/dispatch/idea-expansion-2026-10-11/DETAIL_LEDGER.json",
+      "disposition": "expanded-proposal; not selected or runtime-dispatched",
+      "design": "Preserve ordinary skill as targeting, diagnosis, production, social competence or chosen quiet life alongside overwhelming powers.",
+      "variants": [
+        "ordinary specialist",
+        "exceptional craftsman",
+        "hybrid practitioner"
+      ],
+      "owner": "systems-cheats GM planning; runtime reservation required before implementation",
+      "observableCriterion": "The advanced holder still makes a useful decision requiring retained ordinary means and can pursue noncombat continuation.",
+      "dependencies": [
+        "SS03",
+        "SS07",
+        "SS08"
+      ],
+      "actualConsumerOrMissingBinding": {
+        "existingSourceOnly": [
+          "src/gameplay_transactions.js:48",
+          "src/main.js:811",
+          "src/power_models.js:5",
+          "src/rewards.js:3",
+          "src/simulation.js:330",
+          "src/simulation.js:505",
+          "src/simulation_effects.js:266"
+        ],
+        "requiredBinding": "Preserve ordinary skill as targeting, diagnosis, production, social competence or chosen quiet life alongside overwhelming powers.",
+        "state": "existing primitives inspected; selected native/local consumer not delivered by this task"
+      },
+      "persistenceDecision": "No reset of ordinary expertise on exceptional acquisition; no forced awakening on skill threshold.",
+      "proposedCases": [
+        {
+          "id": "SC03.03.T1",
+          "criterion": "Powerful storage still requires appraisal",
+          "state": "specified-not-run"
+        },
+        {
+          "id": "SC03.03.T2",
+          "criterion": "Ordinary expert earns a distinct commission",
+          "state": "specified-not-run"
+        },
+        {
+          "id": "SC03.03.T3",
+          "criterion": "Stay ordinary without required magical gateway",
+          "state": "specified-not-run"
+        }
+      ],
+      "verificationState": "design-expanded; source-fit inspected via map; implementation/browser/save/human gates open",
+      "designVariantIds": [
+        "SC03.V04"
+      ],
+      "sourcePointers": [
+        "src/gameplay_transactions.js:48",
+        "src/main.js:811",
+        "src/power_models.js:5",
+        "src/rewards.js:3",
+        "src/simulation.js:330",
+        "src/simulation.js:505",
+        "src/simulation_effects.js:266"
+      ]
+    },
+    {
+      "id": "SC04.01",
+      "family": "SC04",
+      "title": "Starts, talents and coherent histories",
+      "inputIdeaRefs": [
+        "G1-001",
+        "G1-002",
+        "G1-003",
+        "G2-009",
+        "G4-02"
+      ],
+      "inputOwner": "docs/gm/dispatch/idea-expansion-2026-10-11/DETAIL_LEDGER.json",
+      "disposition": "expanded-proposal; not selected or runtime-dispatched",
+      "design": "Roll coherent eligibility-qualified bundles or conditional axes; freeze inherited circumstances apart from player achievements.",
+      "variants": [
+        "joint snapshot",
+        "independent compatible axes",
+        "authored history plus generated variation"
+      ],
+      "owner": "systems-cheats GM planning; runtime reservation required before implementation",
+      "observableCriterion": "Committed result contains a usable actual start/means and repeats identically after reload without fabricating earned history.",
+      "dependencies": [
+        "SS06",
+        "SS09",
+        "SS12"
+      ],
+      "actualConsumerOrMissingBinding": {
+        "existingSourceOnly": [
+          "src/content_packs.js:23",
+          "src/realm_clock_leases.js:179",
+          "src/simulation.js:172",
+          "src/simulation.js:483",
+          "src/simulation_contracts.js:93",
+          "src/simulation_resolution.js:36",
+          "src/world_instances.js:271",
+          "src/world_instances.js:310"
+        ],
+        "requiredBinding": "Roll coherent eligibility-qualified bundles or conditional axes; freeze inherited circumstances apart from player achievements.",
+        "state": "existing primitives inspected; selected native/local consumer not delivered by this task"
+      },
+      "persistenceDecision": "Persist pool/revision/result and admitted native snapshot before reveal; native initializer remains separate required adapter.",
+      "proposedCases": [
+        {
+          "id": "SC04.01.T1",
+          "criterion": "Reject incoherent combination before roll",
+          "state": "specified-not-run"
+        },
+        {
+          "id": "SC04.01.T2",
+          "criterion": "Preview consumes no draw",
+          "state": "specified-not-run"
+        },
+        {
+          "id": "SC04.01.T3",
+          "criterion": "Reload retains exact selected circumstances",
+          "state": "specified-not-run"
+        }
+      ],
+      "verificationState": "design-expanded; source-fit inspected via map; implementation/browser/save/human gates open",
+      "designVariantIds": [
+        "SC04.V01",
+        "SC04.V02"
+      ],
+      "sourcePointers": [
+        "src/content_packs.js:23",
+        "src/realm_clock_leases.js:179",
+        "src/simulation.js:172",
+        "src/simulation.js:483",
+        "src/simulation_contracts.js:93",
+        "src/simulation_resolution.js:36",
+        "src/world_instances.js:271",
+        "src/world_instances.js:310"
+      ]
+    },
+    {
+      "id": "SC04.02",
+      "family": "SC04",
+      "title": "Loot, craft and encounter uncertainty",
+      "inputIdeaRefs": [
+        "G2-009",
+        "G2-021",
+        "G4-03"
+      ],
+      "inputOwner": "docs/gm/dispatch/idea-expansion-2026-10-11/DETAIL_LEDGER.json",
+      "disposition": "expanded-proposal; not selected or runtime-dispatched",
+      "design": "Distinguish output identity/quantity/quality, process success, encounter occurrence and discovery; preparation changes eligible outcomes or weights.",
+      "variants": [
+        "weighted chance",
+        "conditional table",
+        "pity only where selected",
+        "guaranteed outcome power"
+      ],
+      "owner": "systems-cheats GM planning; runtime reservation required before implementation",
+      "observableCriterion": "Selected preparation changes the declared roll and the resulting item/event has an actual consumer.",
+      "dependencies": [
+        "SS01",
+        "SS04",
+        "SS06"
+      ],
+      "actualConsumerOrMissingBinding": {
+        "existingSourceOnly": [
+          "src/expansion_engine.js:619",
+          "src/simulation.js:172",
+          "src/simulation.js:231",
+          "src/simulation.js:440",
+          "src/simulation.js:449",
+          "src/simulation.js:483",
+          "src/simulation.js:81",
+          "src/simulation_effects.js:125",
+          "src/simulation_resolution.js:36"
+        ],
+        "requiredBinding": "Distinguish output identity/quantity/quality, process success, encounter occurrence and discovery; preparation changes eligible outcomes or weights.",
+        "state": "existing primitives inspected; selected native/local consumer not delivered by this task"
+      },
+      "persistenceDecision": "Persist commitment and charged attempt; old rules do not silently reroll finished jobs.",
+      "proposedCases": [
+        {
+          "id": "SC04.02.T1",
+          "criterion": "Craft eligibility differs from quality roll",
+          "state": "specified-not-run"
+        },
+        {
+          "id": "SC04.02.T2",
+          "criterion": "Guaranteed outcome fulfills scoped promise",
+          "state": "specified-not-run"
+        },
+        {
+          "id": "SC04.02.T3",
+          "criterion": "No-result and duplicate policy are observable",
+          "state": "specified-not-run"
+        }
+      ],
+      "verificationState": "design-expanded; source-fit inspected via map; implementation/browser/save/human gates open",
+      "designVariantIds": [
+        "SC04.V03",
+        "SC04.V04",
+        "SC04.V05"
+      ],
+      "sourcePointers": [
+        "src/expansion_engine.js:619",
+        "src/simulation.js:172",
+        "src/simulation.js:231",
+        "src/simulation.js:440",
+        "src/simulation.js:449",
+        "src/simulation.js:483",
+        "src/simulation.js:81",
+        "src/simulation_effects.js:125",
+        "src/simulation_resolution.js:36"
+      ]
+    },
+    {
+      "id": "SC04.03",
+      "family": "SC04",
+      "title": "Fortune, rerolls and stream ownership",
+      "inputIdeaRefs": [
+        "G2-021",
+        "G2-004",
+        "G2-007",
+        "G4-10"
+      ],
+      "inputOwner": "docs/gm/dispatch/idea-expansion-2026-10-11/DETAIL_LEDGER.json",
+      "disposition": "expanded-proposal; not selected or runtime-dispatched",
+      "design": "Probability shift, revealed precommitment, explicit reroll, forced result and history rollback are distinct means.",
+      "variants": [
+        "weight modifier",
+        "forced outcome",
+        "informed refusal",
+        "authored rewind"
+      ],
+      "owner": "systems-cheats GM planning; runtime reservation required before implementation",
+      "observableCriterion": "Each selected fortune power changes exactly its declared stage and uses its proper retained random-state contract.",
+      "dependencies": [
+        "SS01",
+        "SS05",
+        "SS06",
+        "SS11"
+      ],
+      "actualConsumerOrMissingBinding": {
+        "existingSourceOnly": [
+          "src/causal_situations.js:52",
+          "src/expansion_persistence.js:7",
+          "src/observation_channels.js:195",
+          "src/save_files.js:36",
+          "src/simulation.js:172",
+          "src/simulation.js:231",
+          "src/simulation.js:483",
+          "src/simulation.js:81",
+          "src/simulation_effects.js:125",
+          "src/simulation_effects.js:225",
+          "src/simulation_resolution.js:36"
+        ],
+        "requiredBinding": "Probability shift, revealed precommitment, explicit reroll, forced result and history rollback are distinct means.",
+        "state": "existing primitives inspected; selected native/local consumer not delivered by this task"
+      },
+      "persistenceDecision": "Selected rollback includes/excludes each stream explicitly; unrelated UI draws cannot alter an admitted outcome.",
+      "proposedCases": [
+        {
+          "id": "SC04.03.T1",
+          "criterion": "UI refresh has no draw",
+          "state": "specified-not-run"
+        },
+        {
+          "id": "SC04.03.T2",
+          "criterion": "Reroll pays only selected cost once",
+          "state": "specified-not-run"
+        },
+        {
+          "id": "SC04.03.T3",
+          "criterion": "Weight change cannot retroactively alter already committed result",
+          "state": "specified-not-run"
+        }
+      ],
+      "verificationState": "design-expanded; source-fit inspected via map; implementation/browser/save/human gates open",
+      "designVariantIds": [
+        "SC04.V06"
+      ],
+      "sourcePointers": [
+        "src/causal_situations.js:52",
+        "src/expansion_persistence.js:7",
+        "src/observation_channels.js:195",
+        "src/save_files.js:36",
+        "src/simulation.js:172",
+        "src/simulation.js:231",
+        "src/simulation.js:483",
+        "src/simulation.js:81",
+        "src/simulation_effects.js:125",
+        "src/simulation_effects.js:225",
+        "src/simulation_resolution.js:36"
+      ]
+    },
+    {
+      "id": "SC05.01",
+      "family": "SC05",
+      "title": "Rules and held information",
+      "inputIdeaRefs": [
+        "G2-021",
+        "G3-012",
+        "G4-14",
+        "G4-15"
+      ],
+      "inputOwner": "docs/gm/dispatch/idea-expansion-2026-10-11/DETAIL_LEDGER.json",
+      "disposition": "expanded-proposal; not selected or runtime-dispatched",
+      "design": "Choose public-risk dice, private-hand cards or wagers on causal events; legal knowledge differs from secret outcome knowledge.",
+      "variants": [
+        "dice risk choice",
+        "bluffing cards",
+        "event wager"
+      ],
+      "owner": "systems-cheats GM planning; runtime reservation required before implementation",
+      "observableCriterion": "Player chooses stake/rules or declines with information actually available to both participants.",
+      "dependencies": [
+        "SS02",
+        "SS05",
+        "SS06",
+        "SS08"
+      ],
+      "actualConsumerOrMissingBinding": {
+        "existingSourceOnly": [
+          "src/acquisition.js:39",
+          "src/causal_situations.js:52",
+          "src/observation_channels.js:195",
+          "src/simulation.js:172",
+          "src/simulation.js:483",
+          "src/simulation.js:505",
+          "src/simulation_contracts.js:205",
+          "src/simulation_effects.js:225",
+          "src/simulation_resolution.js:36"
+        ],
+        "requiredBinding": "Choose public-risk dice, private-hand cards or wagers on causal events; legal knowledge differs from secret outcome knowledge.",
+        "state": "existing primitives inspected; selected native/local consumer not delivered by this task"
+      },
+      "persistenceDecision": "Save table/round/rule revision, participant knowledge and committed phase.",
+      "proposedCases": [
+        {
+          "id": "SC05.01.T1",
+          "criterion": "Opponent cannot read hidden hand without means",
+          "state": "specified-not-run"
+        },
+        {
+          "id": "SC05.01.T2",
+          "criterion": "Leave before commitment preserves stake",
+          "state": "specified-not-run"
+        },
+        {
+          "id": "SC05.01.T3",
+          "criterion": "Appraisal reveals only supported scope",
+          "state": "specified-not-run"
+        }
+      ],
+      "verificationState": "design-expanded; source-fit inspected via map; implementation/browser/save/human gates open",
+      "designVariantIds": [
+        "SC05.V01",
+        "SC05.V02"
+      ],
+      "sourcePointers": [
+        "src/acquisition.js:39",
+        "src/causal_situations.js:52",
+        "src/observation_channels.js:195",
+        "src/simulation.js:172",
+        "src/simulation.js:483",
+        "src/simulation.js:505",
+        "src/simulation_contracts.js:205",
+        "src/simulation_effects.js:225",
+        "src/simulation_resolution.js:36"
+      ]
+    },
+    {
+      "id": "SC05.02",
+      "family": "SC05",
+      "title": "Cheating, fortune and detection",
+      "inputIdeaRefs": [
+        "G2-015",
+        "G2-021",
+        "G2-027",
+        "G3-014"
+      ],
+      "inputOwner": "docs/gm/dispatch/idea-expansion-2026-10-11/DETAIL_LEDGER.json",
+      "disposition": "expanded-proposal; not selected or runtime-dispatched",
+      "design": "Physical manipulation, probability control and causal edits act differently; witnesses detect only supported traces.",
+      "variants": [
+        "loaded implement",
+        "card marking",
+        "luck faculty",
+        "guaranteed outcome"
+      ],
+      "owner": "systems-cheats GM planning; runtime reservation required before implementation",
+      "observableCriterion": "Selected cheating changes the actual outcome and detection follows the opponent's specific held means.",
+      "dependencies": [
+        "SS01",
+        "SS05",
+        "SS08"
+      ],
+      "actualConsumerOrMissingBinding": {
+        "existingSourceOnly": [
+          "src/causal_situations.js:52",
+          "src/observation_channels.js:195",
+          "src/simulation.js:231",
+          "src/simulation.js:505",
+          "src/simulation.js:81",
+          "src/simulation_effects.js:125",
+          "src/simulation_effects.js:225"
+        ],
+        "requiredBinding": "Physical manipulation, probability control and causal edits act differently; witnesses detect only supported traces.",
+        "state": "existing primitives inspected; selected native/local consumer not delivered by this task"
+      },
+      "persistenceDecision": "Save cheating effect/cause separately from who observed it; no automatic world-wide guilt flag.",
+      "proposedCases": [
+        {
+          "id": "SC05.02.T1",
+          "criterion": "Undetected effect produces ordinary-looking result",
+          "state": "specified-not-run"
+        },
+        {
+          "id": "SC05.02.T2",
+          "criterion": "Witness without means stays uncertain",
+          "state": "specified-not-run"
+        },
+        {
+          "id": "SC05.02.T3",
+          "criterion": "Scoped counter defeats only the relevant mechanism",
+          "state": "specified-not-run"
+        }
+      ],
+      "verificationState": "design-expanded; source-fit inspected via map; implementation/browser/save/human gates open",
+      "designVariantIds": [
+        "SC05.V03"
+      ],
+      "sourcePointers": [
+        "src/causal_situations.js:52",
+        "src/observation_channels.js:195",
+        "src/simulation.js:231",
+        "src/simulation.js:505",
+        "src/simulation.js:81",
+        "src/simulation_effects.js:125",
+        "src/simulation_effects.js:225"
+      ]
+    },
+    {
+      "id": "SC05.03",
+      "family": "SC05",
+      "title": "Escrow, settlement and automation",
+      "inputIdeaRefs": [
+        "G2-024",
+        "G3-011",
+        "G3-012"
+      ],
+      "inputOwner": "docs/gm/dispatch/idea-expansion-2026-10-11/DETAIL_LEDGER.json",
+      "disposition": "expanded-proposal; not selected or runtime-dispatched",
+      "design": "Stake enters custody at acceptance; settlement binds result and payouts once; learned strategy may automate within explicit budget.",
+      "variants": [
+        "house-funded",
+        "peer escrow",
+        "credit wager",
+        "budgeted strategy"
+      ],
+      "owner": "systems-cheats GM planning; runtime reservation required before implementation",
+      "observableCriterion": "Win/loss/refusal/interruption settle actual resources and automatic play stops at its declared exposure boundary.",
+      "dependencies": [
+        "SS02",
+        "SS04",
+        "SS06",
+        "SS07",
+        "SS11"
+      ],
+      "actualConsumerOrMissingBinding": {
+        "existingSourceOnly": [
+          "src/acquisition.js:39",
+          "src/expansion_engine.js:619",
+          "src/expansion_persistence.js:7",
+          "src/gameplay_transactions.js:48",
+          "src/main.js:811",
+          "src/rewards.js:3",
+          "src/save_files.js:36",
+          "src/simulation.js:172",
+          "src/simulation.js:440",
+          "src/simulation.js:449",
+          "src/simulation.js:483",
+          "src/simulation_contracts.js:205",
+          "src/simulation_resolution.js:36"
+        ],
+        "requiredBinding": "Stake enters custody at acceptance; settlement binds result and payouts once; learned strategy may automate within explicit budget.",
+        "state": "existing primitives inspected; selected native/local consumer not delivered by this task"
+      },
+      "persistenceDecision": "One round identity includes stake, outcome and publication; failure retries same pending settlement.",
+      "proposedCases": [
+        {
+          "id": "SC05.03.T1",
+          "criterion": "Insufficient escrow rejects before draw",
+          "state": "specified-not-run"
+        },
+        {
+          "id": "SC05.03.T2",
+          "criterion": "Reload mid-round has same result",
+          "state": "specified-not-run"
+        },
+        {
+          "id": "SC05.03.T3",
+          "criterion": "Automation honors loss budget and stopping event",
+          "state": "specified-not-run"
+        }
+      ],
+      "verificationState": "design-expanded; source-fit inspected via map; implementation/browser/save/human gates open",
+      "designVariantIds": [
+        "SC05.V04"
+      ],
+      "sourcePointers": [
+        "src/acquisition.js:39",
+        "src/expansion_engine.js:619",
+        "src/expansion_persistence.js:7",
+        "src/gameplay_transactions.js:48",
+        "src/main.js:811",
+        "src/rewards.js:3",
+        "src/save_files.js:36",
+        "src/simulation.js:172",
+        "src/simulation.js:440",
+        "src/simulation.js:449",
+        "src/simulation.js:483",
+        "src/simulation_contracts.js:205",
+        "src/simulation_resolution.js:36"
+      ]
+    },
+    {
+      "id": "SC06.01",
+      "family": "SC06",
+      "title": "Cache origin, custody and appraisal",
+      "inputIdeaRefs": [
+        "G2-009",
+        "G2-016",
+        "G4-15"
+      ],
+      "inputOwner": "docs/gm/dispatch/idea-expansion-2026-10-11/DETAIL_LEDGER.json",
+      "disposition": "expanded-proposal; not selected or runtime-dispatched",
+      "design": "A found cache may contain already-existing goods; a paid draw may create its outcome later. Custody, appraisal and trade follow commitment policy.",
+      "variants": [
+        "creation-fixed chest",
+        "purchase-fixed pack",
+        "opening-fixed draw"
+      ],
+      "owner": "systems-cheats GM planning; runtime reservation required before implementation",
+      "observableCriterion": "Trade the sealed instance or inspect it, then open its declared actual contents without reroll or identity confusion.",
+      "dependencies": [
+        "SS02",
+        "SS05",
+        "SS06"
+      ],
+      "actualConsumerOrMissingBinding": {
+        "existingSourceOnly": [
+          "src/acquisition.js:39",
+          "src/causal_situations.js:52",
+          "src/observation_channels.js:195",
+          "src/simulation.js:172",
+          "src/simulation.js:483",
+          "src/simulation_contracts.js:205",
+          "src/simulation_effects.js:225",
+          "src/simulation_resolution.js:36"
+        ],
+        "requiredBinding": "A found cache may contain already-existing goods; a paid draw may create its outcome later. Custody, appraisal and trade follow commitment policy.",
+        "state": "existing primitives inspected; selected native/local consumer not delivered by this task"
+      },
+      "persistenceDecision": "Save container ID, pool revision, commitment point and custody; fixed item remains fixed after trade.",
+      "proposedCases": [
+        {
+          "id": "SC06.01.T1",
+          "criterion": "Appraise without opening changes knowledge only",
+          "state": "specified-not-run"
+        },
+        {
+          "id": "SC06.01.T2",
+          "criterion": "Trade transfers same instance",
+          "state": "specified-not-run"
+        },
+        {
+          "id": "SC06.01.T3",
+          "criterion": "Opening consumes entitlement once",
+          "state": "specified-not-run"
+        }
+      ],
+      "verificationState": "design-expanded; source-fit inspected via map; implementation/browser/save/human gates open",
+      "designVariantIds": [
+        "SC06.V01",
+        "SC06.V02"
+      ],
+      "sourcePointers": [
+        "src/acquisition.js:39",
+        "src/causal_situations.js:52",
+        "src/observation_channels.js:195",
+        "src/simulation.js:172",
+        "src/simulation.js:483",
+        "src/simulation_contracts.js:205",
+        "src/simulation_effects.js:225",
+        "src/simulation_resolution.js:36"
+      ]
+    },
+    {
+      "id": "SC06.02",
+      "family": "SC06",
+      "title": "Pools, duplicates and alternatives",
+      "inputIdeaRefs": [
+        "G2-009",
+        "G2-013",
+        "G2-029"
+      ],
+      "inputOwner": "docs/gm/dispatch/idea-expansion-2026-10-11/DETAIL_LEDGER.json",
+      "disposition": "expanded-proposal; not selected or runtime-dispatched",
+      "design": "Use source-qualified functional outcomes; duplicates may be kept, fused, refunded or exchanged only by selected local policy.",
+      "variants": [
+        "no pity",
+        "selected guarantee",
+        "fragments",
+        "choice shortlist",
+        "targeted purchase"
+      ],
+      "owner": "systems-cheats GM planning; runtime reservation required before implementation",
+      "observableCriterion": "Each admitted outcome class has a real use and duplicate handling changes actual owners rather than a rarity label.",
+      "dependencies": [
+        "SS03",
+        "SS06",
+        "SS07"
+      ],
+      "actualConsumerOrMissingBinding": {
+        "existingSourceOnly": [
+          "src/gameplay_transactions.js:48",
+          "src/main.js:811",
+          "src/power_models.js:5",
+          "src/rewards.js:3",
+          "src/simulation.js:172",
+          "src/simulation.js:330",
+          "src/simulation.js:483",
+          "src/simulation_effects.js:266",
+          "src/simulation_resolution.js:36"
+        ],
+        "requiredBinding": "Use source-qualified functional outcomes; duplicates may be kept, fused, refunded or exchanged only by selected local policy.",
+        "state": "existing primitives inspected; selected native/local consumer not delivered by this task"
+      },
+      "persistenceDecision": "Persist entitlement/duplicate transformation lineage; future pool revisions affect only uncommitted draws.",
+      "proposedCases": [
+        {
+          "id": "SC06.02.T1",
+          "criterion": "Duplicate becomes exact promised output",
+          "state": "specified-not-run"
+        },
+        {
+          "id": "SC06.02.T2",
+          "criterion": "Unusable to holder remains tradable if allowed",
+          "state": "specified-not-run"
+        },
+        {
+          "id": "SC06.02.T3",
+          "criterion": "Targeted alternative consumes its real cost",
+          "state": "specified-not-run"
+        }
+      ],
+      "verificationState": "design-expanded; source-fit inspected via map; implementation/browser/save/human gates open",
+      "designVariantIds": [
+        "SC06.V03",
+        "SC06.V04"
+      ],
+      "sourcePointers": [
+        "src/gameplay_transactions.js:48",
+        "src/main.js:811",
+        "src/power_models.js:5",
+        "src/rewards.js:3",
+        "src/simulation.js:172",
+        "src/simulation.js:330",
+        "src/simulation.js:483",
+        "src/simulation_effects.js:266",
+        "src/simulation_resolution.js:36"
+      ]
+    },
+    {
+      "id": "SC06.03",
+      "family": "SC06",
+      "title": "Opening and useful aftermath",
+      "inputIdeaRefs": [
+        "G2-001",
+        "G2-009",
+        "G2-028"
+      ],
+      "inputOwner": "docs/gm/dispatch/idea-expansion-2026-10-11/DETAIL_LEDGER.json",
+      "disposition": "expanded-proposal; not selected or runtime-dispatched",
+      "design": "Reveal creates/distributes actual content and joins ordinary work, exceptional means or a relationship instead of ending at animation. Copying, fortune, observation and restoration of a cache affect exact container, content, grant and retained-state owners rather than labels.",
+      "variants": [
+        "item reveal",
+        "method grant",
+        "companion contract",
+        "system module"
+      ],
+      "owner": "systems-cheats GM planning; runtime reservation required before implementation",
+      "observableCriterion": "Open, use reward and observe a consequence with save/reload/import identity and failed-save no-duplication proof.",
+      "dependencies": [
+        "SS01",
+        "SS02",
+        "SS05",
+        "SS06",
+        "SS07",
+        "SS10",
+        "SS11"
+      ],
+      "actualConsumerOrMissingBinding": {
+        "existingSourceOnly": [
+          "src/acquisition.js:39",
+          "src/expansion_persistence.js:7",
+          "src/expansion_quest_ui.js:9",
+          "src/gameplay_transactions.js:48",
+          "src/main.js:811",
+          "src/rewards.js:3",
+          "src/save_files.js:36",
+          "src/simulation.js:172",
+          "src/simulation.js:231",
+          "src/simulation.js:81",
+          "src/simulation_effects.js:125",
+          "src/simulation_effects.js:225",
+          "src/simulation_ui.js:6"
+        ],
+        "requiredBinding": "Reveal creates/distributes actual content and joins ordinary work, exceptional means or a relationship instead of ending at animation. Copying, fortune, observation and restoration of a cache affect exact container, content, grant and retained-state owners rather than labels.",
+        "state": "existing primitives inspected; selected native/local consumer not delivered by this task"
+      },
+      "persistenceDecision": "Atomic consume+grant+claim under same envelope; no second reward writer in UI. Freeze copied instance versus fresh draw, appraised truth stage, rollback included domains and retained external grants.",
+      "proposedCases": [
+        {
+          "id": "SC06.03.T1",
+          "criterion": "Failed save publishes no grant",
+          "state": "specified-not-run"
+        },
+        {
+          "id": "SC06.03.T2",
+          "criterion": "Repeated click does not duplicate",
+          "state": "specified-not-run"
+        },
+        {
+          "id": "SC06.03.T3",
+          "criterion": "Revealed method needs selected source support",
+          "state": "specified-not-run"
+        },
+        {
+          "id": "SC06.03.T4",
+          "criterion": "Copy fixed contents under selected actual authority without accidental fresh roll",
+          "state": "specified-not-run"
+        },
+        {
+          "id": "SC06.03.T5",
+          "criterion": "Restore container and outside reward under declared policy without unintended second grant",
+          "state": "specified-not-run"
+        }
+      ],
+      "verificationState": "design-expanded; source-fit inspected via map; implementation/browser/save/human gates open",
+      "designVariantIds": [
+        "SC06.V05"
+      ],
+      "sourcePointers": [
+        "src/acquisition.js:39",
+        "src/expansion_persistence.js:7",
+        "src/expansion_quest_ui.js:9",
+        "src/gameplay_transactions.js:48",
+        "src/main.js:811",
+        "src/rewards.js:3",
+        "src/save_files.js:36",
+        "src/simulation.js:172",
+        "src/simulation.js:231",
+        "src/simulation.js:81",
+        "src/simulation_effects.js:125",
+        "src/simulation_effects.js:225",
+        "src/simulation_ui.js:6"
+      ]
+    },
+    {
+      "id": "SC07.01",
+      "family": "SC07",
+      "title": "World law and source qualification",
+      "inputIdeaRefs": [
+        "G1-028",
+        "G3-022",
+        "G4-01",
+        "G7-08"
+      ],
+      "inputOwner": "docs/gm/dispatch/idea-expansion-2026-10-11/DETAIL_LEDGER.json",
+      "disposition": "expanded-proposal; not selected or runtime-dispatched",
+      "design": "Freeze source edition/range or original rulebook, local law, interpretation and invented adaptation premise; preserve unsampled source remainder.",
+      "variants": [
+        "original setting",
+        "bounded direct adaptation",
+        "divergent premise"
+      ],
+      "owner": "systems-cheats GM planning; runtime reservation required before implementation",
+      "observableCriterion": "A signature rule changes ordinary work, exceptional acquisition and one difficult situation with qualified provenance.",
+      "dependencies": [
+        "SS12"
+      ],
+      "actualConsumerOrMissingBinding": {
+        "existingSourceOnly": [
+          "src/content_packs.js:23",
+          "src/simulation_contracts.js:93"
+        ],
+        "requiredBinding": "Freeze source edition/range or original rulebook, local law, interpretation and invented adaptation premise; preserve unsampled source remainder.",
+        "state": "existing primitives inspected; selected native/local consumer not delivered by this task"
+      },
+      "persistenceDecision": "Content revisions preserve existing selected pack characters; unavailable packs remain compatible/dormant.",
+      "proposedCases": [
+        {
+          "id": "SC07.01.T1",
+          "criterion": "Source claim has locator",
+          "state": "specified-not-run"
+        },
+        {
+          "id": "SC07.01.T2",
+          "criterion": "Invention stays labelled",
+          "state": "specified-not-run"
+        },
+        {
+          "id": "SC07.01.T3",
+          "criterion": "Unknown identity stays sealed",
+          "state": "specified-not-run"
+        }
+      ],
+      "verificationState": "design-expanded; source-fit inspected via map; implementation/browser/save/human gates open",
+      "designVariantIds": [
+        "SC07.V01"
+      ],
+      "sourcePointers": [
+        "src/content_packs.js:23",
+        "src/simulation_contracts.js:93"
+      ]
+    },
+    {
+      "id": "SC07.02",
+      "family": "SC07",
+      "title": "Playable regional lives and starts",
+      "inputIdeaRefs": [
+        "G1-001",
+        "G1-013",
+        "G3-001",
+        "G3-013",
+        "G3-022"
+      ],
+      "inputOwner": "docs/gm/dispatch/idea-expansion-2026-10-11/DETAIL_LEDGER.json",
+      "disposition": "expanded-proposal; not selected or runtime-dispatched",
+      "design": "Build livelihoods, obligations, institutions and independent goals for each admitted start; protagonists' means are not defaults.",
+      "variants": [
+        "ordinary worker",
+        "trained outsider",
+        "established specialist",
+        "rare source-holder"
+      ],
+      "owner": "systems-cheats GM planning; runtime reservation required before implementation",
+      "observableCriterion": "Each selected start reaches work/learning/application/consequence/continuation through coherent native actions.",
+      "dependencies": [
+        "SS02",
+        "SS03",
+        "SS08",
+        "SS09",
+        "SS12"
+      ],
+      "actualConsumerOrMissingBinding": {
+        "existingSourceOnly": [
+          "src/acquisition.js:39",
+          "src/content_packs.js:23",
+          "src/power_models.js:5",
+          "src/realm_clock_leases.js:179",
+          "src/simulation.js:330",
+          "src/simulation.js:505",
+          "src/simulation_contracts.js:205",
+          "src/simulation_contracts.js:93",
+          "src/simulation_effects.js:266",
+          "src/world_instances.js:271",
+          "src/world_instances.js:310"
+        ],
+        "requiredBinding": "Build livelihoods, obligations, institutions and independent goals for each admitted start; protagonists' means are not defaults.",
+        "state": "existing primitives inspected; selected native/local consumer not delivered by this task"
+      },
+      "persistenceDecision": "Persist era/region/instance and authored prior circumstances separately from earned events.",
+      "proposedCases": [
+        {
+          "id": "SC07.02.T1",
+          "criterion": "Distinct start changes decisions",
+          "state": "specified-not-run"
+        },
+        {
+          "id": "SC07.02.T2",
+          "criterion": "NPC has usable own resources",
+          "state": "specified-not-run"
+        },
+        {
+          "id": "SC07.02.T3",
+          "criterion": "Ordinary start lacks unsupported rare faculty",
+          "state": "specified-not-run"
+        }
+      ],
+      "verificationState": "design-expanded; source-fit inspected via map; implementation/browser/save/human gates open",
+      "designVariantIds": [
+        "SC07.V02",
+        "SC07.V03",
+        "SC07.V04"
+      ],
+      "sourcePointers": [
+        "src/acquisition.js:39",
+        "src/content_packs.js:23",
+        "src/power_models.js:5",
+        "src/realm_clock_leases.js:179",
+        "src/simulation.js:330",
+        "src/simulation.js:505",
+        "src/simulation_contracts.js:205",
+        "src/simulation_contracts.js:93",
+        "src/simulation_effects.js:266",
+        "src/world_instances.js:271",
+        "src/world_instances.js:310"
+      ]
+    },
+    {
+      "id": "SC07.03",
+      "family": "SC07",
+      "title": "Early edition and full-world horizon",
+      "inputIdeaRefs": [
+        "G1-030",
+        "G3-022",
+        "G7-07"
+      ],
+      "inputOwner": "docs/gm/dispatch/idea-expansion-2026-10-11/DETAIL_LEDGER.json",
+      "disposition": "expanded-proposal; not selected or runtime-dispatched",
+      "design": "Keep whole-world actionability catalog, select finite early leaves and excluded horizons, and preserve evidence/revision boundaries.",
+      "variants": [
+        "one-region edition",
+        "multiple starts in one realm",
+        "later region expansion"
+      ],
+      "owner": "systems-cheats GM planning; runtime reservation required before implementation",
+      "observableCriterion": "Every selected leaf has real native consumer, persistence and observable evidence; later possibilities have named delivery route.",
+      "dependencies": [
+        "SS10",
+        "SS11",
+        "SS12"
+      ],
+      "actualConsumerOrMissingBinding": {
+        "existingSourceOnly": [
+          "src/content_packs.js:23",
+          "src/expansion_persistence.js:7",
+          "src/expansion_quest_ui.js:9",
+          "src/save_files.js:36",
+          "src/simulation_contracts.js:93",
+          "src/simulation_ui.js:6"
+        ],
+        "requiredBinding": "Keep whole-world actionability catalog, select finite early leaves and excluded horizons, and preserve evidence/revision boundaries.",
+        "state": "existing primitives inspected; selected native/local consumer not delivered by this task"
+      },
+      "persistenceDecision": "Existing era/pack revision remains bound unless compatible upgrade chosen; no silently replaced history.",
+      "proposedCases": [
+        {
+          "id": "SC07.03.T1",
+          "criterion": "Frozen edition counts required and open cases",
+          "state": "specified-not-run"
+        },
+        {
+          "id": "SC07.03.T2",
+          "criterion": "Later city is mapped outside gate",
+          "state": "specified-not-run"
+        },
+        {
+          "id": "SC07.03.T3",
+          "criterion": "Browser proof belongs to rebuilt revision only",
+          "state": "specified-not-run"
+        }
+      ],
+      "verificationState": "design-expanded; source-fit inspected via map; implementation/browser/save/human gates open",
+      "designVariantIds": [
+        "SC07.V05"
+      ],
+      "sourcePointers": [
+        "src/content_packs.js:23",
+        "src/expansion_persistence.js:7",
+        "src/expansion_quest_ui.js:9",
+        "src/save_files.js:36",
+        "src/simulation_contracts.js:93",
+        "src/simulation_ui.js:6"
+      ]
+    },
+    {
+      "id": "SC08.01",
+      "family": "SC08",
+      "title": "Territory and pocket realm promises",
+      "inputIdeaRefs": [
+        "G2-016",
+        "G4-04",
+        "G4-05",
+        "G4-11"
+      ],
+      "inputOwner": "docs/gm/dispatch/idea-expansion-2026-10-11/DETAIL_LEDGER.json",
+      "disposition": "expanded-proposal; not selected or runtime-dispatched",
+      "design": "Territory authority, storage space and created habitat have distinct ownership, inhabitants, clocks and exports.",
+      "variants": [
+        "rented territory",
+        "owned pocket habitat",
+        "time-stopped storage",
+        "independent realm"
+      ],
+      "owner": "systems-cheats GM planning; runtime reservation required before implementation",
+      "observableCriterion": "Create or claim, use, alter, leave and return to same actual place with named contents and local clock.",
+      "dependencies": [
+        "SS02",
+        "SS04",
+        "SS09",
+        "SS11"
+      ],
+      "actualConsumerOrMissingBinding": {
+        "existingSourceOnly": [
+          "src/acquisition.js:39",
+          "src/expansion_engine.js:619",
+          "src/expansion_persistence.js:7",
+          "src/realm_clock_leases.js:179",
+          "src/save_files.js:36",
+          "src/simulation.js:440",
+          "src/simulation.js:449",
+          "src/simulation_contracts.js:205",
+          "src/world_instances.js:271",
+          "src/world_instances.js:310"
+        ],
+        "requiredBinding": "Territory authority, storage space and created habitat have distinct ownership, inhabitants, clocks and exports.",
+        "state": "existing primitives inspected; selected native/local consumer not delivered by this task"
+      },
+      "persistenceDecision": "Save instance identity and carrier membership; destruction/loss handles inhabitants/contents under selected rule.",
+      "proposedCases": [
+        {
+          "id": "SC08.01.T1",
+          "criterion": "Land title does not imply matter creation",
+          "state": "specified-not-run"
+        },
+        {
+          "id": "SC08.01.T2",
+          "criterion": "Resident follows selected age clock",
+          "state": "specified-not-run"
+        },
+        {
+          "id": "SC08.01.T3",
+          "criterion": "Return preserves changed contents",
+          "state": "specified-not-run"
+        }
+      ],
+      "verificationState": "design-expanded; source-fit inspected via map; implementation/browser/save/human gates open",
+      "designVariantIds": [
+        "SC08.V01",
+        "SC08.V02"
+      ],
+      "sourcePointers": [
+        "src/acquisition.js:39",
+        "src/expansion_engine.js:619",
+        "src/expansion_persistence.js:7",
+        "src/realm_clock_leases.js:179",
+        "src/save_files.js:36",
+        "src/simulation.js:440",
+        "src/simulation.js:449",
+        "src/simulation_contracts.js:205",
+        "src/world_instances.js:271",
+        "src/world_instances.js:310"
+      ]
+    },
+    {
+      "id": "SC08.02",
+      "family": "SC08",
+      "title": "Dreams, models and simulations",
+      "inputIdeaRefs": [
+        "G2-007",
+        "G2-008",
+        "G4-13"
+      ],
+      "inputOwner": "docs/gm/dispatch/idea-expansion-2026-10-11/DETAIL_LEDGER.json",
+      "disposition": "expanded-proposal; not selected or runtime-dispatched",
+      "design": "Represent rehearsal, report-only model and materialized branch with separate truth, autonomy and export promises.",
+      "variants": [
+        "dream experience",
+        "local model",
+        "isolated fork",
+        "actual branch selection"
+      ],
+      "owner": "systems-cheats GM planning; runtime reservation required before implementation",
+      "observableCriterion": "Bounded run preserves real state while active and exports only selected report/experience/output at settlement.",
+      "dependencies": [
+        "SS04",
+        "SS05",
+        "SS06",
+        "SS09",
+        "SS11"
+      ],
+      "actualConsumerOrMissingBinding": {
+        "existingSourceOnly": [
+          "src/causal_situations.js:52",
+          "src/expansion_engine.js:619",
+          "src/expansion_persistence.js:7",
+          "src/observation_channels.js:195",
+          "src/realm_clock_leases.js:179",
+          "src/save_files.js:36",
+          "src/simulation.js:172",
+          "src/simulation.js:440",
+          "src/simulation.js:449",
+          "src/simulation.js:483",
+          "src/simulation_effects.js:225",
+          "src/simulation_resolution.js:36",
+          "src/world_instances.js:271",
+          "src/world_instances.js:310"
+        ],
+        "requiredBinding": "Represent rehearsal, report-only model and materialized branch with separate truth, autonomy and export promises.",
+        "state": "existing primitives inspected; selected native/local consumer not delivered by this task"
+      },
+      "persistenceDecision": "Save source revision, fork ID, seeds, policy and export receipt; resumable computation has explicit budget.",
+      "proposedCases": [
+        {
+          "id": "SC08.02.T1",
+          "criterion": "Real purse unchanged during rehearsal",
+          "state": "specified-not-run"
+        },
+        {
+          "id": "SC08.02.T2",
+          "criterion": "Cancel emits no unselected reward",
+          "state": "specified-not-run"
+        },
+        {
+          "id": "SC08.02.T3",
+          "criterion": "Report distinguishes model assumption from actual future",
+          "state": "specified-not-run"
+        }
+      ],
+      "verificationState": "design-expanded; source-fit inspected via map; implementation/browser/save/human gates open",
+      "designVariantIds": [
+        "SC08.V03",
+        "SC08.V04"
+      ],
+      "sourcePointers": [
+        "src/causal_situations.js:52",
+        "src/expansion_engine.js:619",
+        "src/expansion_persistence.js:7",
+        "src/observation_channels.js:195",
+        "src/realm_clock_leases.js:179",
+        "src/save_files.js:36",
+        "src/simulation.js:172",
+        "src/simulation.js:440",
+        "src/simulation.js:449",
+        "src/simulation.js:483",
+        "src/simulation_effects.js:225",
+        "src/simulation_resolution.js:36",
+        "src/world_instances.js:271",
+        "src/world_instances.js:310"
+      ]
+    },
+    {
+      "id": "SC08.03",
+      "family": "SC08",
+      "title": "Creation authority and inhabitants",
+      "inputIdeaRefs": [
+        "G1-021",
+        "G2-016",
+        "G2-025",
+        "G3-001"
+      ],
+      "inputOwner": "docs/gm/dispatch/idea-expansion-2026-10-11/DETAIL_LEDGER.json",
+      "disposition": "expanded-proposal; not selected or runtime-dispatched",
+      "design": "Define real create/edit rights, autonomous beings, rule scope and allowed transfer without substituting UI labels for reality. Creation lifecycle and exports include creator absence/loss, deletion with active visitors, local clocks, migration and actual retained export receipts.",
+      "variants": [
+        "empty habitat",
+        "copied template",
+        "autonomous settlement",
+        "rule-editing domain"
+      ],
+      "owner": "systems-cheats GM planning; runtime reservation required before implementation",
+      "observableCriterion": "A bounded selected created process runs autonomously and one actual export/interaction follows exact authority.",
+      "dependencies": [
+        "SS01",
+        "SS02",
+        "SS04",
+        "SS08",
+        "SS09",
+        "SS11"
+      ],
+      "actualConsumerOrMissingBinding": {
+        "existingSourceOnly": [
+          "src/acquisition.js:39",
+          "src/expansion_persistence.js:7",
+          "src/realm_clock_leases.js:179",
+          "src/simulation.js:231",
+          "src/simulation.js:440",
+          "src/simulation.js:505",
+          "src/simulation.js:81",
+          "src/simulation_contracts.js:205",
+          "src/simulation_effects.js:125",
+          "src/world_instances.js:271",
+          "src/world_instances.js:310"
+        ],
+        "requiredBinding": "Define real create/edit rights, autonomous beings, rule scope and allowed transfer without substituting UI labels for reality. Creation lifecycle and exports include creator absence/loss, deletion with active visitors, local clocks, migration and actual retained export receipts.",
+        "state": "existing primitives inspected; selected native/local consumer not delivered by this task"
+      },
+      "persistenceDecision": "Persist creator permissions and independent residents; finite representation does not impose fictional power cap. Deletion/transfer resolves active residents/visitors and cargo by selected local rule; export receipt and clock survive reload.",
+      "proposedCases": [
+        {
+          "id": "SC08.03.T1",
+          "criterion": "Creator control differs from resident knowledge",
+          "state": "specified-not-run"
+        },
+        {
+          "id": "SC08.03.T2",
+          "criterion": "Edit changes actual process",
+          "state": "specified-not-run"
+        },
+        {
+          "id": "SC08.03.T3",
+          "criterion": "Unsupported scale remains implementation gap",
+          "state": "specified-not-run"
+        },
+        {
+          "id": "SC08.03.T4",
+          "criterion": "Delete or lose creator with active visitor and resolve its actual location under declared rule",
+          "state": "specified-not-run"
+        },
+        {
+          "id": "SC08.03.T5",
+          "criterion": "Export and return/save/import retains one actual cargo identity and selected clock",
+          "state": "specified-not-run"
+        }
+      ],
+      "verificationState": "design-expanded; source-fit inspected via map; implementation/browser/save/human gates open",
+      "designVariantIds": [
+        "SC08.V05",
+        "SC08.V06"
+      ],
+      "sourcePointers": [
+        "src/acquisition.js:39",
+        "src/expansion_persistence.js:7",
+        "src/realm_clock_leases.js:179",
+        "src/simulation.js:231",
+        "src/simulation.js:440",
+        "src/simulation.js:505",
+        "src/simulation.js:81",
+        "src/simulation_contracts.js:205",
+        "src/simulation_effects.js:125",
+        "src/world_instances.js:271",
+        "src/world_instances.js:310"
+      ]
+    },
+    {
+      "id": "SC09.01",
+      "family": "SC09",
+      "title": "NPC development and economic consequences",
+      "inputIdeaRefs": [
+        "G2-027",
+        "G3-009",
+        "G3-012",
+        "G3-013"
+      ],
+      "inputOwner": "docs/gm/dispatch/idea-expansion-2026-10-11/DETAIL_LEDGER.json",
+      "disposition": "expanded-proposal; not selected or runtime-dispatched",
+      "design": "NPCs learn, produce, compete and use held powers; changed supply affects selected actual customers and institutions.",
+      "variants": [
+        "apprentice learning",
+        "rival source-holder",
+        "logistics institution",
+        "duplication economy"
+      ],
+      "owner": "systems-cheats GM planning; runtime reservation required before implementation",
+      "observableCriterion": "NPC performs learned action independently and changed production reaches a real stock/service consumer.",
+      "dependencies": [
+        "SS02",
+        "SS03",
+        "SS07",
+        "SS08"
+      ],
+      "actualConsumerOrMissingBinding": {
+        "existingSourceOnly": [
+          "src/acquisition.js:39",
+          "src/gameplay_transactions.js:48",
+          "src/main.js:811",
+          "src/power_models.js:5",
+          "src/rewards.js:3",
+          "src/simulation.js:330",
+          "src/simulation.js:505",
+          "src/simulation_contracts.js:205",
+          "src/simulation_effects.js:266"
+        ],
+        "requiredBinding": "NPCs learn, produce, compete and use held powers; changed supply affects selected actual customers and institutions.",
+        "state": "existing primitives inspected; selected native/local consumer not delivered by this task"
+      },
+      "persistenceDecision": "Save actor-specific competence/resources/memory; do not infer omniscient global economy.",
+      "proposedCases": [
+        {
+          "id": "SC09.01.T1",
+          "criterion": "Permanently taught NPC still works after teacher leaves",
+          "state": "specified-not-run"
+        },
+        {
+          "id": "SC09.01.T2",
+          "criterion": "Duplication supplies actual items",
+          "state": "specified-not-run"
+        },
+        {
+          "id": "SC09.01.T3",
+          "criterion": "Rival uses only own information",
+          "state": "specified-not-run"
+        }
+      ],
+      "verificationState": "design-expanded; source-fit inspected via map; implementation/browser/save/human gates open",
+      "designVariantIds": [
+        "SC09.V01",
+        "SC09.V02"
+      ],
+      "sourcePointers": [
+        "src/acquisition.js:39",
+        "src/gameplay_transactions.js:48",
+        "src/main.js:811",
+        "src/power_models.js:5",
+        "src/rewards.js:3",
+        "src/simulation.js:330",
+        "src/simulation.js:505",
+        "src/simulation_contracts.js:205",
+        "src/simulation_effects.js:266"
+      ]
+    },
+    {
+      "id": "SC09.02",
+      "family": "SC09",
+      "title": "Pacing, idle and failure redirection",
+      "inputIdeaRefs": [
+        "G2-024",
+        "G3-021",
+        "G4-06",
+        "G7-04",
+        "G7-05"
+      ],
+      "inputOwner": "docs/gm/dispatch/idea-expansion-2026-10-11/DETAIL_LEDGER.json",
+      "disposition": "expanded-proposal; not selected or runtime-dispatched",
+      "design": "Learned work can automate with inputs/stops; absence and failed pursuits have explicit continuation without mandatory chores.",
+      "variants": [
+        "played-only job",
+        "selected offline producer",
+        "local interruption",
+        "irreversible loss"
+      ],
+      "owner": "systems-cheats GM planning; runtime reservation required before implementation",
+      "observableCriterion": "Run/cancel/return shows truthful inputs and progress; failure leaves actual coherent next choices under local rule.",
+      "dependencies": [
+        "SS04",
+        "SS08",
+        "SS10"
+      ],
+      "actualConsumerOrMissingBinding": {
+        "existingSourceOnly": [
+          "src/expansion_engine.js:619",
+          "src/expansion_quest_ui.js:9",
+          "src/simulation.js:440",
+          "src/simulation.js:449",
+          "src/simulation.js:505",
+          "src/simulation_ui.js:6"
+        ],
+        "requiredBinding": "Learned work can automate with inputs/stops; absence and failed pursuits have explicit continuation without mandatory chores.",
+        "state": "existing primitives inspected; selected native/local consumer not delivered by this task"
+      },
+      "persistenceDecision": "No implicit browser-closed death; persist pending jobs and selected offline cap/pause policy.",
+      "proposedCases": [
+        {
+          "id": "SC09.02.T1",
+          "criterion": "Budget exhaustion stops automation",
+          "state": "specified-not-run"
+        },
+        {
+          "id": "SC09.02.T2",
+          "criterion": "Leave pauses or advances exactly as declared",
+          "state": "specified-not-run"
+        },
+        {
+          "id": "SC09.02.T3",
+          "criterion": "Failed access leaves ordinary continuation",
+          "state": "specified-not-run"
+        }
+      ],
+      "verificationState": "design-expanded; source-fit inspected via map; implementation/browser/save/human gates open",
+      "designVariantIds": [
+        "SC09.V03",
+        "SC09.V04",
+        "SC09.V05"
+      ],
+      "sourcePointers": [
+        "src/expansion_engine.js:619",
+        "src/expansion_quest_ui.js:9",
+        "src/simulation.js:440",
+        "src/simulation.js:449",
+        "src/simulation.js:505",
+        "src/simulation_ui.js:6"
+      ]
+    },
+    {
+      "id": "SC09.03",
+      "family": "SC09",
+      "title": "Knowledge, legacy and scale joins",
+      "inputIdeaRefs": [
+        "G2-026",
+        "G4-08",
+        "G4-10",
+        "G4-14",
+        "G7-09"
+      ],
+      "inputOwner": "docs/gm/dispatch/idea-expansion-2026-10-11/DETAIL_LEDGER.json",
+      "disposition": "expanded-proposal; not selected or runtime-dispatched",
+      "design": "Only supported information travels; event traces/archives retain their promised scope; explicit bounded scale avoids arbitrary completeness claims.",
+      "variants": [
+        "carrier memory",
+        "material heirloom",
+        "resumable archive",
+        "fixed bounded symbolic process"
+      ],
+      "owner": "systems-cheats GM planning; runtime reservation required before implementation",
+      "observableCriterion": "Selected travel or life transition preserves exact carrier effects, actor knowledge and archive scope at declared scale.",
+      "dependencies": [
+        "SS01",
+        "SS05",
+        "SS09",
+        "SS11"
+      ],
+      "actualConsumerOrMissingBinding": {
+        "existingSourceOnly": [
+          "src/causal_situations.js:52",
+          "src/expansion_persistence.js:7",
+          "src/observation_channels.js:195",
+          "src/realm_clock_leases.js:179",
+          "src/save_files.js:36",
+          "src/simulation.js:231",
+          "src/simulation.js:81",
+          "src/simulation_effects.js:125",
+          "src/simulation_effects.js:225",
+          "src/world_instances.js:271",
+          "src/world_instances.js:310"
+        ],
+        "requiredBinding": "Only supported information travels; event traces/archives retain their promised scope; explicit bounded scale avoids arbitrary completeness claims.",
+        "state": "existing primitives inspected; selected native/local consumer not delivered by this task"
+      },
+      "persistenceDecision": "Freeze domains and content revisions; broader regression is not proved by biography retention.",
+      "proposedCases": [
+        {
+          "id": "SC09.03.T1",
+          "criterion": "Witness memory stays local",
+          "state": "specified-not-run"
+        },
+        {
+          "id": "SC09.03.T2",
+          "criterion": "Heir receives object without donor physiology",
+          "state": "specified-not-run"
+        },
+        {
+          "id": "SC09.03.T3",
+          "criterion": "Long bounded process resumes same result",
+          "state": "specified-not-run"
+        }
+      ],
+      "verificationState": "design-expanded; source-fit inspected via map; implementation/browser/save/human gates open",
+      "designVariantIds": [
+        "SC09.V06",
+        "SC09.V07",
+        "SC09.V08"
+      ],
+      "sourcePointers": [
+        "src/causal_situations.js:52",
+        "src/expansion_persistence.js:7",
+        "src/observation_channels.js:195",
+        "src/realm_clock_leases.js:179",
+        "src/save_files.js:36",
+        "src/simulation.js:231",
+        "src/simulation.js:81",
+        "src/simulation_effects.js:125",
+        "src/simulation_effects.js:225",
+        "src/world_instances.js:271",
+        "src/world_instances.js:310"
+      ]
+    },
+    {
+      "id": "SC10.01",
+      "family": "SC10",
+      "title": "Provider, host and authority",
+      "inputIdeaRefs": [
+        "G1-021",
+        "G2-012",
+        "G2-022"
+      ],
+      "inputOwner": "docs/gm/dispatch/idea-expansion-2026-10-11/DETAIL_LEDGER.json",
+      "disposition": "expanded-proposal; not selected or runtime-dispatched",
+      "design": "A fictional System has provider/host identities, observation channels, jurisdiction and grant authority distinct from software engine services.",
+      "variants": [
+        "passive tool",
+        "sentient companion",
+        "patron service",
+        "native world law",
+        "player-as-System"
+      ],
+      "owner": "systems-cheats GM planning; runtime reservation required before implementation",
+      "observableCriterion": "Provider can observe/issue/change only its held means and host can act/refuse according to the selected relationship.",
+      "dependencies": [
+        "SS01",
+        "SS02",
+        "SS05",
+        "SS08"
+      ],
+      "actualConsumerOrMissingBinding": {
+        "existingSourceOnly": [
+          "src/acquisition.js:39",
+          "src/causal_situations.js:52",
+          "src/observation_channels.js:195",
+          "src/simulation.js:231",
+          "src/simulation.js:505",
+          "src/simulation.js:81",
+          "src/simulation_contracts.js:205",
+          "src/simulation_effects.js:125",
+          "src/simulation_effects.js:225"
+        ],
+        "requiredBinding": "A fictional System has provider/host identities, observation channels, jurisdiction and grant authority distinct from software engine services.",
+        "state": "existing primitives inspected; selected native/local consumer not delivered by this task"
+      },
+      "persistenceDecision": "Save provider-host link, authority revision and knowledge separately; hidden motive stays sealed.",
+      "proposedCases": [
+        {
+          "id": "SC10.01.T1",
+          "criterion": "Host refuses optional order",
+          "state": "specified-not-run"
+        },
+        {
+          "id": "SC10.01.T2",
+          "criterion": "Provider lacks unsupported observation",
+          "state": "specified-not-run"
+        },
+        {
+          "id": "SC10.01.T3",
+          "criterion": "Player-System guides without controlling host by implication",
+          "state": "specified-not-run"
+        }
+      ],
+      "verificationState": "design-expanded; source-fit inspected via map; implementation/browser/save/human gates open",
+      "designVariantIds": [
+        "SC10.V01"
+      ],
+      "sourcePointers": [
+        "src/acquisition.js:39",
+        "src/causal_situations.js:52",
+        "src/observation_channels.js:195",
+        "src/simulation.js:231",
+        "src/simulation.js:505",
+        "src/simulation.js:81",
+        "src/simulation_contracts.js:205",
+        "src/simulation_effects.js:125",
+        "src/simulation_effects.js:225"
+      ]
+    },
+    {
+      "id": "SC10.02",
+      "family": "SC10",
+      "title": "Quests and objective adjudication",
+      "inputIdeaRefs": [
+        "G2-012",
+        "G2-013",
+        "G3-011"
+      ],
+      "inputOwner": "docs/gm/dispatch/idea-expansion-2026-10-11/DETAIL_LEDGER.json",
+      "disposition": "expanded-proposal; not selected or runtime-dispatched",
+      "design": "Issue mission contract from actual provider; decide whether truth, observed evidence or submitted claim satisfies it; bind deadlines/repeat IDs.",
+      "variants": [
+        "factual completion",
+        "evidence submission",
+        "negotiated service",
+        "deceptive issuer"
+      ],
+      "owner": "systems-cheats GM planning; runtime reservation required before implementation",
+      "observableCriterion": "Real deed or evidence settles correct contract instance; abstention/interruption follow its actual terms.",
+      "dependencies": [
+        "SS02",
+        "SS04",
+        "SS05",
+        "SS07"
+      ],
+      "actualConsumerOrMissingBinding": {
+        "existingSourceOnly": [
+          "src/acquisition.js:39",
+          "src/causal_situations.js:52",
+          "src/expansion_engine.js:619",
+          "src/gameplay_transactions.js:48",
+          "src/main.js:811",
+          "src/observation_channels.js:195",
+          "src/rewards.js:3",
+          "src/simulation.js:440",
+          "src/simulation.js:449",
+          "src/simulation_contracts.js:205",
+          "src/simulation_effects.js:225"
+        ],
+        "requiredBinding": "Issue mission contract from actual provider; decide whether truth, observed evidence or submitted claim satisfies it; bind deadlines/repeat IDs.",
+        "state": "existing primitives inspected; selected native/local consumer not delivered by this task"
+      },
+      "persistenceDecision": "Save accepted revision, participant IDs, progress cause, deadline clock and settlement entitlement.",
+      "proposedCases": [
+        {
+          "id": "SC10.02.T1",
+          "criterion": "UI inspection adds no progress",
+          "state": "specified-not-run"
+        },
+        {
+          "id": "SC10.02.T2",
+          "criterion": "Counterfeit evidence accepted only if adjudicator fooled",
+          "state": "specified-not-run"
+        },
+        {
+          "id": "SC10.02.T3",
+          "criterion": "Repeat quest uses new round ID",
+          "state": "specified-not-run"
+        }
+      ],
+      "verificationState": "design-expanded; source-fit inspected via map; implementation/browser/save/human gates open",
+      "designVariantIds": [
+        "SC10.V02"
+      ],
+      "sourcePointers": [
+        "src/acquisition.js:39",
+        "src/causal_situations.js:52",
+        "src/expansion_engine.js:619",
+        "src/gameplay_transactions.js:48",
+        "src/main.js:811",
+        "src/observation_channels.js:195",
+        "src/rewards.js:3",
+        "src/simulation.js:440",
+        "src/simulation.js:449",
+        "src/simulation_contracts.js:205",
+        "src/simulation_effects.js:225"
+      ]
+    },
+    {
+      "id": "SC10.03",
+      "family": "SC10",
+      "title": "Milestones, titles and achievements",
+      "inputIdeaRefs": [
+        "G2-023",
+        "G8-001",
+        "G8-004",
+        "G8-009",
+        "G8-016"
+      ],
+      "inputOwner": "docs/gm/dispatch/idea-expansion-2026-10-11/DETAIL_LEDGER.json",
+      "disposition": "expanded-proposal; not selected or runtime-dispatched",
+      "design": "A milestone records an event; a title may convey recognition, a credential or actual power; achievement can be historical without bonus.",
+      "variants": [
+        "native lifetime title",
+        "issued title",
+        "hidden feat",
+        "institutional office"
+      ],
+      "owner": "systems-cheats GM planning; runtime reservation required before implementation",
+      "observableCriterion": "Completion records cause once and each promised recognition or function reaches its actual consumer.",
+      "dependencies": [
+        "SS03",
+        "SS05",
+        "SS08",
+        "SS10"
+      ],
+      "actualConsumerOrMissingBinding": {
+        "existingSourceOnly": [
+          "src/causal_situations.js:52",
+          "src/expansion_quest_ui.js:9",
+          "src/observation_channels.js:195",
+          "src/power_models.js:5",
+          "src/simulation.js:330",
+          "src/simulation.js:505",
+          "src/simulation_effects.js:225",
+          "src/simulation_effects.js:266",
+          "src/simulation_ui.js:6"
+        ],
+        "requiredBinding": "A milestone records an event; a title may convey recognition, a credential or actual power; achievement can be historical without bonus.",
+        "state": "existing primitives inspected; selected native/local consumer not delivered by this task"
+      },
+      "persistenceDecision": "Native and issued titles remain separate owners; hidden title effects reveal only supported observations.",
+      "proposedCases": [
+        {
+          "id": "SC10.03.T1",
+          "criterion": "Repeat cause adds no second title",
+          "state": "specified-not-run"
+        },
+        {
+          "id": "SC10.03.T2",
+          "criterion": "Title with no bonus makes no false stat claim",
+          "state": "specified-not-run"
+        },
+        {
+          "id": "SC10.03.T3",
+          "criterion": "Revocation leaves permanent learned skill",
+          "state": "specified-not-run"
+        }
+      ],
+      "verificationState": "design-expanded; source-fit inspected via map; implementation/browser/save/human gates open",
+      "designVariantIds": [
+        "SC10.V03"
+      ],
+      "sourcePointers": [
+        "src/causal_situations.js:52",
+        "src/expansion_quest_ui.js:9",
+        "src/observation_channels.js:195",
+        "src/power_models.js:5",
+        "src/simulation.js:330",
+        "src/simulation.js:505",
+        "src/simulation_effects.js:225",
+        "src/simulation_effects.js:266",
+        "src/simulation_ui.js:6"
+      ]
+    },
+    {
+      "id": "SC10.04",
+      "family": "SC10",
+      "title": "Reward source and claim settlement",
+      "inputIdeaRefs": [
+        "G2-012",
+        "G2-009",
+        "G2-029"
+      ],
+      "inputOwner": "docs/gm/dispatch/idea-expansion-2026-10-11/DETAIL_LEDGER.json",
+      "disposition": "expanded-proposal; not selected or runtime-dispatched",
+      "design": "Reward may transfer stocked goods, release escrow, create matter or grant knowledge/power under actual provider authority.",
+      "variants": [
+        "finite sponsor",
+        "conjuring provider",
+        "permanent teaching",
+        "leased boon"
+      ],
+      "owner": "systems-cheats GM planning; runtime reservation required before implementation",
+      "observableCriterion": "Claim charges the correct source and delivers usable reward once, preserving permanently gifted versus leased semantics.",
+      "dependencies": [
+        "SS01",
+        "SS02",
+        "SS07",
+        "SS11"
+      ],
+      "actualConsumerOrMissingBinding": {
+        "existingSourceOnly": [
+          "src/acquisition.js:39",
+          "src/expansion_persistence.js:7",
+          "src/gameplay_transactions.js:48",
+          "src/main.js:811",
+          "src/rewards.js:3",
+          "src/save_files.js:36",
+          "src/simulation.js:231",
+          "src/simulation.js:81",
+          "src/simulation_contracts.js:205",
+          "src/simulation_effects.js:125"
+        ],
+        "requiredBinding": "Reward may transfer stocked goods, release escrow, create matter or grant knowledge/power under actual provider authority.",
+        "state": "existing primitives inspected; selected native/local consumer not delivered by this task"
+      },
+      "persistenceDecision": "Durable entitlement+debit+grant before publication; invented reward source never substitutes for missing authority.",
+      "proposedCases": [
+        {
+          "id": "SC10.04.T1",
+          "criterion": "Empty stock blocks only stocked reward",
+          "state": "specified-not-run"
+        },
+        {
+          "id": "SC10.04.T2",
+          "criterion": "Conjuring source need not conserve supplied item",
+          "state": "specified-not-run"
+        },
+        {
+          "id": "SC10.04.T3",
+          "criterion": "Failed save has no public grant",
+          "state": "specified-not-run"
+        }
+      ],
+      "verificationState": "design-expanded; source-fit inspected via map; implementation/browser/save/human gates open",
+      "designVariantIds": [
+        "SC10.V04"
+      ],
+      "sourcePointers": [
+        "src/acquisition.js:39",
+        "src/expansion_persistence.js:7",
+        "src/gameplay_transactions.js:48",
+        "src/main.js:811",
+        "src/rewards.js:3",
+        "src/save_files.js:36",
+        "src/simulation.js:231",
+        "src/simulation.js:81",
+        "src/simulation_contracts.js:205",
+        "src/simulation_effects.js:125"
+      ]
+    },
+    {
+      "id": "SC10.05",
+      "family": "SC10",
+      "title": "Points, shops and exchange",
+      "inputIdeaRefs": [
+        "G2-012",
+        "G3-012"
+      ],
+      "inputOwner": "docs/gm/dispatch/idea-expansion-2026-10-11/DETAIL_LEDGER.json",
+      "disposition": "expanded-proposal; not selected or runtime-dispatched",
+      "design": "Earn points from actual cause, quote stocked or generated offer, and settle cost/purchase into actual native recipient.",
+      "variants": [
+        "closed ledger points",
+        "transferable currency",
+        "module market",
+        "generated shop"
+      ],
+      "owner": "systems-cheats GM planning; runtime reservation required before implementation",
+      "observableCriterion": "Purchase consumes correct purse and changes a usable item/module/permission without allowing unauthorized currency conversion.",
+      "dependencies": [
+        "SS02",
+        "SS06",
+        "SS07",
+        "SS10",
+        "SS11"
+      ],
+      "actualConsumerOrMissingBinding": {
+        "existingSourceOnly": [
+          "src/acquisition.js:39",
+          "src/expansion_persistence.js:7",
+          "src/expansion_quest_ui.js:9",
+          "src/gameplay_transactions.js:48",
+          "src/main.js:811",
+          "src/rewards.js:3",
+          "src/save_files.js:36",
+          "src/simulation.js:172",
+          "src/simulation.js:483",
+          "src/simulation_contracts.js:205",
+          "src/simulation_resolution.js:36",
+          "src/simulation_ui.js:6"
+        ],
+        "requiredBinding": "Earn points from actual cause, quote stocked or generated offer, and settle cost/purchase into actual native recipient.",
+        "state": "existing primitives inspected; selected native/local consumer not delivered by this task"
+      },
+      "persistenceDecision": "Save currency namespace, shop/offer revision, stock/reservation and receipt; quote drift revalidates.",
+      "proposedCases": [
+        {
+          "id": "SC10.05.T1",
+          "criterion": "Insufficient points spends nothing",
+          "state": "specified-not-run"
+        },
+        {
+          "id": "SC10.05.T2",
+          "criterion": "Double click buys once",
+          "state": "specified-not-run"
+        },
+        {
+          "id": "SC10.05.T3",
+          "criterion": "Shop item works outside shop view",
+          "state": "specified-not-run"
+        }
+      ],
+      "verificationState": "design-expanded; source-fit inspected via map; implementation/browser/save/human gates open",
+      "designVariantIds": [
+        "SC10.V05"
+      ],
+      "sourcePointers": [
+        "src/acquisition.js:39",
+        "src/expansion_persistence.js:7",
+        "src/expansion_quest_ui.js:9",
+        "src/gameplay_transactions.js:48",
+        "src/main.js:811",
+        "src/rewards.js:3",
+        "src/save_files.js:36",
+        "src/simulation.js:172",
+        "src/simulation.js:483",
+        "src/simulation_contracts.js:205",
+        "src/simulation_resolution.js:36",
+        "src/simulation_ui.js:6"
+      ]
+    },
+    {
+      "id": "SC10.06",
+      "family": "SC10",
+      "title": "Skills, abilities and body grants",
+      "inputIdeaRefs": [
+        "G2-001",
+        "G2-002",
+        "G2-010",
+        "G8-006",
+        "G8-015"
+      ],
+      "inputOwner": "docs/gm/dispatch/idea-expansion-2026-10-11/DETAIL_LEDGER.json",
+      "disposition": "expanded-proposal; not selected or runtime-dispatched",
+      "design": "Skill unlock, mastery upload, execution lease, permanent faculty and body installation have distinct actual outputs and support.",
+      "variants": [
+        "unlock-only",
+        "instant mastery",
+        "injected method",
+        "leased verb",
+        "source+body bundle"
+      ],
+      "owner": "systems-cheats GM planning; runtime reservation required before implementation",
+      "observableCriterion": "Grant enables exactly its promised capability and progression does not count leased boost as earned expertise.",
+      "dependencies": [
+        "SS01",
+        "SS02",
+        "SS03"
+      ],
+      "actualConsumerOrMissingBinding": {
+        "existingSourceOnly": [
+          "src/acquisition.js:39",
+          "src/power_models.js:5",
+          "src/simulation.js:231",
+          "src/simulation.js:330",
+          "src/simulation.js:81",
+          "src/simulation_contracts.js:205",
+          "src/simulation_effects.js:125",
+          "src/simulation_effects.js:266"
+        ],
+        "requiredBinding": "Skill unlock, mastery upload, execution lease, permanent faculty and body installation have distinct actual outputs and support.",
+        "state": "existing primitives inspected; selected native/local consumer not delivered by this task"
+      },
+      "persistenceDecision": "Store earned/leased/source/carrier provenance; disconnect removes only provider-backed contribution.",
+      "proposedCases": [
+        {
+          "id": "SC10.06.T1",
+          "criterion": "Method without fuel cannot cast",
+          "state": "specified-not-run"
+        },
+        {
+          "id": "SC10.06.T2",
+          "criterion": "Permanent knowledge remains after loss",
+          "state": "specified-not-run"
+        },
+        {
+          "id": "SC10.06.T3",
+          "criterion": "True source bundle executes native target effect",
+          "state": "specified-not-run"
+        }
+      ],
+      "verificationState": "design-expanded; source-fit inspected via map; implementation/browser/save/human gates open",
+      "designVariantIds": [],
+      "sourcePointers": [
+        "src/acquisition.js:39",
+        "src/power_models.js:5",
+        "src/simulation.js:231",
+        "src/simulation.js:330",
+        "src/simulation.js:81",
+        "src/simulation_contracts.js:205",
+        "src/simulation_effects.js:125",
+        "src/simulation_effects.js:266"
+      ]
+    },
+    {
+      "id": "SC10.07",
+      "family": "SC10",
+      "title": "Inventory, observation and assistants",
+      "inputIdeaRefs": [
+        "G2-007",
+        "G2-016",
+        "G2-019",
+        "G2-020",
+        "G4-14"
+      ],
+      "inputOwner": "docs/gm/dispatch/idea-expansion-2026-10-11/DETAIL_LEDGER.json",
+      "disposition": "expanded-proposal; not selected or runtime-dispatched",
+      "design": "Separate custody/storage, sensing/appraisal and a companion's own agency; modules implement real logistics, truth channels and work.",
+      "variants": [
+        "storage module",
+        "remote appraisal",
+        "resident guide",
+        "delegated worker"
+      ],
+      "owner": "systems-cheats GM planning; runtime reservation required before implementation",
+      "observableCriterion": "Store/retrieve same goods, obtain scoped information and delegate one action using assistant's actual means.",
+      "dependencies": [
+        "SS02",
+        "SS04",
+        "SS05",
+        "SS08"
+      ],
+      "actualConsumerOrMissingBinding": {
+        "existingSourceOnly": [
+          "src/acquisition.js:39",
+          "src/causal_situations.js:52",
+          "src/expansion_engine.js:619",
+          "src/observation_channels.js:195",
+          "src/simulation.js:440",
+          "src/simulation.js:449",
+          "src/simulation.js:505",
+          "src/simulation_contracts.js:205",
+          "src/simulation_effects.js:225"
+        ],
+        "requiredBinding": "Separate custody/storage, sensing/appraisal and a companion's own agency; modules implement real logistics, truth channels and work.",
+        "state": "existing primitives inspected; selected native/local consumer not delivered by this task"
+      },
+      "persistenceDecision": "Save unique items, source-linked observation evidence and independent assistant resources/clocks.",
+      "proposedCases": [
+        {
+          "id": "SC10.07.T1",
+          "criterion": "Assistant cannot spend host goods without custody",
+          "state": "specified-not-run"
+        },
+        {
+          "id": "SC10.07.T2",
+          "criterion": "Storage respects selected perishability clock",
+          "state": "specified-not-run"
+        },
+        {
+          "id": "SC10.07.T3",
+          "criterion": "Appraisal does not expose unrelated private truth",
+          "state": "specified-not-run"
+        }
+      ],
+      "verificationState": "design-expanded; source-fit inspected via map; implementation/browser/save/human gates open",
+      "designVariantIds": [
+        "SC10.V06",
+        "SC10.V07"
+      ],
+      "sourcePointers": [
+        "src/acquisition.js:39",
+        "src/causal_situations.js:52",
+        "src/expansion_engine.js:619",
+        "src/observation_channels.js:195",
+        "src/simulation.js:440",
+        "src/simulation.js:449",
+        "src/simulation.js:505",
+        "src/simulation_contracts.js:205",
+        "src/simulation_effects.js:225"
+      ]
+    },
+    {
+      "id": "SC10.08",
+      "family": "SC10",
+      "title": "System upgrades and module evolution",
+      "inputIdeaRefs": [
+        "G2-010",
+        "G2-012",
+        "G2-025",
+        "G2-026"
+      ],
+      "inputOwner": "docs/gm/dispatch/idea-expansion-2026-10-11/DETAIL_LEDGER.json",
+      "disposition": "expanded-proposal; not selected or runtime-dispatched",
+      "design": "Upgrade reach, function, allegiance, intelligence or form separately through selected use/repair/quest/merge triggers.",
+      "variants": [
+        "new module",
+        "lateral specialization",
+        "repair",
+        "liberation",
+        "host-created module"
+      ],
+      "owner": "systems-cheats GM planning; runtime reservation required before implementation",
+      "observableCriterion": "Selected change creates a new actual decision/function and preserves only stated predecessor promises.",
+      "dependencies": [
+        "SS01",
+        "SS03",
+        "SS07",
+        "SS11"
+      ],
+      "actualConsumerOrMissingBinding": {
+        "existingSourceOnly": [
+          "src/expansion_persistence.js:7",
+          "src/gameplay_transactions.js:48",
+          "src/main.js:811",
+          "src/power_models.js:5",
+          "src/rewards.js:3",
+          "src/save_files.js:36",
+          "src/simulation.js:231",
+          "src/simulation.js:330",
+          "src/simulation.js:81",
+          "src/simulation_effects.js:125",
+          "src/simulation_effects.js:266"
+        ],
+        "requiredBinding": "Upgrade reach, function, allegiance, intelligence or form separately through selected use/repair/quest/merge triggers.",
+        "state": "existing primitives inspected; selected native/local consumer not delivered by this task"
+      },
+      "persistenceDecision": "Version module contract; preserve receipts and prior learned outputs through compatible upgrade.",
+      "proposedCases": [
+        {
+          "id": "SC10.08.T1",
+          "criterion": "Upgrade comparison shows new executable use",
+          "state": "specified-not-run"
+        },
+        {
+          "id": "SC10.08.T2",
+          "criterion": "Lateral change is not falsely stronger",
+          "state": "specified-not-run"
+        },
+        {
+          "id": "SC10.08.T3",
+          "criterion": "Merge retains promised constituent functions",
+          "state": "specified-not-run"
+        }
+      ],
+      "verificationState": "design-expanded; source-fit inspected via map; implementation/browser/save/human gates open",
+      "designVariantIds": [
+        "SC10.V08"
+      ],
+      "sourcePointers": [
+        "src/expansion_persistence.js:7",
+        "src/gameplay_transactions.js:48",
+        "src/main.js:811",
+        "src/power_models.js:5",
+        "src/rewards.js:3",
+        "src/save_files.js:36",
+        "src/simulation.js:231",
+        "src/simulation.js:330",
+        "src/simulation.js:81",
+        "src/simulation_effects.js:125",
+        "src/simulation_effects.js:266"
+      ]
+    },
+    {
+      "id": "SC10.09",
+      "family": "SC10",
+      "title": "Loss, transfer and system-entity continuation",
+      "inputIdeaRefs": [
+        "G1-021",
+        "G2-012",
+        "G2-018",
+        "G2-026",
+        "G3-016"
+      ],
+      "inputOwner": "docs/gm/dispatch/idea-expansion-2026-10-11/DETAIL_LEDGER.json",
+      "disposition": "expanded-proposal; not selected or runtime-dispatched",
+      "design": "Disconnect, death, transfer, migration, retirement or liberation affect provider-backed modules, earned skills and unresolved obligations distinctly.",
+      "variants": [
+        "host outgrows System",
+        "provider dies",
+        "artifact transfer",
+        "heir link",
+        "playable freed entity"
+      ],
+      "owner": "systems-cheats GM planning; runtime reservation required before implementation",
+      "observableCriterion": "Lose or change provider, retain real gifted learning, resolve outstanding contract and continue as supported host/entity.",
+      "dependencies": [
+        "SS02",
+        "SS08",
+        "SS09",
+        "SS11"
+      ],
+      "actualConsumerOrMissingBinding": {
+        "existingSourceOnly": [
+          "src/acquisition.js:39",
+          "src/expansion_persistence.js:7",
+          "src/realm_clock_leases.js:179",
+          "src/save_files.js:36",
+          "src/simulation.js:505",
+          "src/simulation_contracts.js:205",
+          "src/world_instances.js:271",
+          "src/world_instances.js:310"
+        ],
+        "requiredBinding": "Disconnect, death, transfer, migration, retirement or liberation affect provider-backed modules, earned skills and unresolved obligations distinctly.",
+        "state": "existing primitives inspected; selected native/local consumer not delivered by this task"
+      },
+      "persistenceDecision": "Define carrier/domain matrix and pending settlements; no earned rewards fabricated on new host.",
+      "proposedCases": [
+        {
+          "id": "SC10.09.T1",
+          "criterion": "Host still uses permanently taught method",
+          "state": "specified-not-run"
+        },
+        {
+          "id": "SC10.09.T2",
+          "criterion": "New host gets no old completion credit",
+          "state": "specified-not-run"
+        },
+        {
+          "id": "SC10.09.T3",
+          "criterion": "Dormant module resumes without replayed payout",
+          "state": "specified-not-run"
+        }
+      ],
+      "verificationState": "design-expanded; source-fit inspected via map; implementation/browser/save/human gates open",
+      "designVariantIds": [
+        "SC10.V09"
+      ],
+      "sourcePointers": [
+        "src/acquisition.js:39",
+        "src/expansion_persistence.js:7",
+        "src/realm_clock_leases.js:179",
+        "src/save_files.js:36",
+        "src/simulation.js:505",
+        "src/simulation_contracts.js:205",
+        "src/world_instances.js:271",
+        "src/world_instances.js:310"
+      ]
+    }
+  ],
+  "crossFamilyJoins": [
+    {
+      "id": "J01",
+      "leaves": [
+        "SC10.02",
+        "SC10.04",
+        "SC10.05",
+        "SC10.06",
+        "SC10.08"
+      ],
+      "criterion": "Quest deed \u2192 entitlement \u2192 point purse \u2192 purchase \u2192 supported module use \u2192 upgrade; exactly one settlement owner.",
+      "state": "specified-not-run"
+    },
+    {
+      "id": "J02",
+      "leaves": [
+        "SC01.01",
+        "SC03.01",
+        "SC03.03",
+        "SC02.01"
+      ],
+      "criterion": "Ordinary method \u2192 device or access \u2192 extraordinary operation \u2192 retained ordinary logistics/diagnosis.",
+      "state": "specified-not-run"
+    },
+    {
+      "id": "J03",
+      "leaves": [
+        "SC04.03",
+        "SC05.02",
+        "SC05.03",
+        "SC06.01",
+        "SC06.03"
+      ],
+      "criterion": "Fortune affects chosen commitment stage; escrow/container/reward owners retain one result and scoped knowledge.",
+      "state": "specified-not-run"
+    },
+    {
+      "id": "J04",
+      "leaves": [
+        "SC08.01",
+        "SC08.02",
+        "SC08.03",
+        "SC09.03"
+      ],
+      "criterion": "Created territory/simulation authority, autonomous process, carrier exports and instance/persistence agree.",
+      "state": "specified-not-run"
+    },
+    {
+      "id": "J05",
+      "leaves": [
+        "SC10.06",
+        "SC10.09",
+        "SC02.03",
+        "SC09.01"
+      ],
+      "criterion": "Loss of provider changes leased support only; taught NPC and permanent host skill continue with their own means.",
+      "state": "specified-not-run"
+    },
+    {
+      "id": "J06",
+      "leaves": [
+        "SC07.01",
+        "SC07.02",
+        "SC07.03",
+        "SC04.01"
+      ],
+      "criterion": "Local law qualifies starts/pools; finite early edition does not certify the whole source world.",
+      "state": "specified-not-run"
+    },
+    {
+      "id": "J07",
+      "leaves": [
+        "SC09.02",
+        "SC10.02",
+        "SC10.07",
+        "SC05.03"
+      ],
+      "criterion": "One declared clock governs deadlines/assistant work/automatic wager stop; no implicit offline losses.",
+      "state": "specified-not-run"
+    }
+  ],
+  "scopeQuestions": [
+    {
+      "id": "Q1",
+      "question": "Which exact world/local System and early roster revision is selected?",
+      "blocks": "runtime packet admission only; original design can finish"
+    },
+    {
+      "id": "Q2",
+      "question": "Which RNG commitment/fortune/pity/duplicate policy does the selected source promise?",
+      "blocks": "selected chance adapter only"
+    },
+    {
+      "id": "Q3",
+      "question": "Which offline/loss/travel/prestige carriers are included in edition?",
+      "blocks": "that lifecycle contract only"
+    },
+    {
+      "id": "Q4",
+      "question": "Which source edition/range qualifies book-specific function?",
+      "blocks": "source-specific acceptance; original hypotheticals remain labelled"
+    }
+  ],
+  "previousIdeaDisposition": "Earlier G1\u2013G8 IDs remain canonical predecessor records. Mapped IDs refine functions; unmapped cards remain with previous ledger and are not rejected or called complete.",
+  "designVariants": [
+    {
+      "id": "SC01.V01",
+      "integratedLeaf": "SC01.01",
+      "specialistOriginalId": "SC01.01",
+      "disposition": "preserved as distinct optional design variant; not mandatory selection",
+      "owner": "DESIGN.md",
+      "verification": "specified-not-run"
+    },
+    {
+      "id": "SC01.V02",
+      "integratedLeaf": "SC01.02",
+      "specialistOriginalId": "SC01.02",
+      "disposition": "preserved as distinct optional design variant; not mandatory selection",
+      "owner": "DESIGN.md",
+      "verification": "specified-not-run"
+    },
+    {
+      "id": "SC01.V03",
+      "integratedLeaf": "SC01.02",
+      "specialistOriginalId": "SC01.03",
+      "disposition": "preserved as distinct optional design variant; not mandatory selection",
+      "owner": "DESIGN.md",
+      "verification": "specified-not-run"
+    },
+    {
+      "id": "SC01.V04",
+      "integratedLeaf": "SC01.01",
+      "specialistOriginalId": "SC01.04",
+      "disposition": "preserved as distinct optional design variant; not mandatory selection",
+      "owner": "DESIGN.md",
+      "verification": "specified-not-run"
+    },
+    {
+      "id": "SC01.V05",
+      "integratedLeaf": "SC01.03",
+      "specialistOriginalId": "SC01.05",
+      "disposition": "preserved as distinct optional design variant; not mandatory selection",
+      "owner": "DESIGN.md",
+      "verification": "specified-not-run"
+    },
+    {
+      "id": "SC01.V06",
+      "integratedLeaf": "SC01.03",
+      "specialistOriginalId": "SC01.06",
+      "disposition": "preserved as distinct optional design variant; not mandatory selection",
+      "owner": "DESIGN.md",
+      "verification": "specified-not-run"
+    },
+    {
+      "id": "SC02.V01",
+      "integratedLeaf": "SC02.01",
+      "specialistOriginalId": "SC02.01",
+      "disposition": "preserved as distinct optional design variant; not mandatory selection",
+      "owner": "DESIGN.md",
+      "verification": "specified-not-run"
+    },
+    {
+      "id": "SC02.V02",
+      "integratedLeaf": "SC02.01",
+      "specialistOriginalId": "SC02.02",
+      "disposition": "preserved as distinct optional design variant; not mandatory selection",
+      "owner": "DESIGN.md",
+      "verification": "specified-not-run"
+    },
+    {
+      "id": "SC02.V03",
+      "integratedLeaf": "SC02.01",
+      "specialistOriginalId": "SC02.03",
+      "disposition": "preserved as distinct optional design variant; not mandatory selection",
+      "owner": "DESIGN.md",
+      "verification": "specified-not-run"
+    },
+    {
+      "id": "SC02.V04",
+      "integratedLeaf": "SC02.02",
+      "specialistOriginalId": "SC02.04",
+      "disposition": "preserved as distinct optional design variant; not mandatory selection",
+      "owner": "DESIGN.md",
+      "verification": "specified-not-run"
+    },
+    {
+      "id": "SC02.V05",
+      "integratedLeaf": "SC02.02",
+      "specialistOriginalId": "SC02.05",
+      "disposition": "preserved as distinct optional design variant; not mandatory selection",
+      "owner": "DESIGN.md",
+      "verification": "specified-not-run"
+    },
+    {
+      "id": "SC02.V06",
+      "integratedLeaf": "SC02.03",
+      "specialistOriginalId": "SC02.06",
+      "disposition": "preserved as distinct optional design variant; not mandatory selection",
+      "owner": "DESIGN.md",
+      "verification": "specified-not-run"
+    },
+    {
+      "id": "SC03.V01",
+      "integratedLeaf": "SC03.01",
+      "specialistOriginalId": "SC03.01",
+      "disposition": "preserved as distinct optional design variant; not mandatory selection",
+      "owner": "DESIGN.md",
+      "verification": "specified-not-run"
+    },
+    {
+      "id": "SC03.V02",
+      "integratedLeaf": "SC03.02",
+      "specialistOriginalId": "SC03.02",
+      "disposition": "preserved as distinct optional design variant; not mandatory selection",
+      "owner": "DESIGN.md",
+      "verification": "specified-not-run"
+    },
+    {
+      "id": "SC03.V03",
+      "integratedLeaf": "SC03.02",
+      "specialistOriginalId": "SC03.03",
+      "disposition": "preserved as distinct optional design variant; not mandatory selection",
+      "owner": "DESIGN.md",
+      "verification": "specified-not-run"
+    },
+    {
+      "id": "SC03.V04",
+      "integratedLeaf": "SC03.03",
+      "specialistOriginalId": "SC03.04",
+      "disposition": "preserved as distinct optional design variant; not mandatory selection",
+      "owner": "DESIGN.md",
+      "verification": "specified-not-run"
+    },
+    {
+      "id": "SC10.V01",
+      "integratedLeaf": "SC10.01",
+      "specialistOriginalId": "SC10.01",
+      "disposition": "preserved as distinct optional design variant; not mandatory selection",
+      "owner": "DESIGN.md",
+      "verification": "specified-not-run"
+    },
+    {
+      "id": "SC10.V02",
+      "integratedLeaf": "SC10.02",
+      "specialistOriginalId": "SC10.02",
+      "disposition": "preserved as distinct optional design variant; not mandatory selection",
+      "owner": "DESIGN.md",
+      "verification": "specified-not-run"
+    },
+    {
+      "id": "SC10.V03",
+      "integratedLeaf": "SC10.03",
+      "specialistOriginalId": "SC10.03",
+      "disposition": "preserved as distinct optional design variant; not mandatory selection",
+      "owner": "DESIGN.md",
+      "verification": "specified-not-run"
+    },
+    {
+      "id": "SC10.V04",
+      "integratedLeaf": "SC10.04",
+      "specialistOriginalId": "SC10.04",
+      "disposition": "preserved as distinct optional design variant; not mandatory selection",
+      "owner": "DESIGN.md",
+      "verification": "specified-not-run"
+    },
+    {
+      "id": "SC10.V05",
+      "integratedLeaf": "SC10.05",
+      "specialistOriginalId": "SC10.05",
+      "disposition": "preserved as distinct optional design variant; not mandatory selection",
+      "owner": "DESIGN.md",
+      "verification": "specified-not-run"
+    },
+    {
+      "id": "SC10.V06",
+      "integratedLeaf": "SC10.07",
+      "specialistOriginalId": "SC10.06",
+      "disposition": "preserved as distinct optional design variant; not mandatory selection",
+      "owner": "DESIGN.md",
+      "verification": "specified-not-run"
+    },
+    {
+      "id": "SC10.V07",
+      "integratedLeaf": "SC10.07",
+      "specialistOriginalId": "SC10.07",
+      "disposition": "preserved as distinct optional design variant; not mandatory selection",
+      "owner": "DESIGN.md",
+      "verification": "specified-not-run"
+    },
+    {
+      "id": "SC10.V08",
+      "integratedLeaf": "SC10.08",
+      "specialistOriginalId": "SC10.08",
+      "disposition": "preserved as distinct optional design variant; not mandatory selection",
+      "owner": "DESIGN.md",
+      "verification": "specified-not-run"
+    },
+    {
+      "id": "SC10.V09",
+      "integratedLeaf": "SC10.09",
+      "specialistOriginalId": "SC10.09",
+      "disposition": "preserved as distinct optional design variant; not mandatory selection",
+      "owner": "DESIGN.md",
+      "verification": "specified-not-run"
+    },
+    {
+      "id": "SC04.V01",
+      "integratedLeaf": "SC04.01",
+      "specialistOriginalId": "SC04.01",
+      "disposition": "preserved as distinct optional design variant; not mandatory selection",
+      "owner": "DESIGN.md",
+      "verification": "specified-not-run"
+    },
+    {
+      "id": "SC04.V02",
+      "integratedLeaf": "SC04.01",
+      "specialistOriginalId": "SC04.02",
+      "disposition": "preserved as distinct optional design variant; not mandatory selection",
+      "owner": "DESIGN.md",
+      "verification": "specified-not-run"
+    },
+    {
+      "id": "SC04.V03",
+      "integratedLeaf": "SC04.02",
+      "specialistOriginalId": "SC04.03",
+      "disposition": "preserved as distinct optional design variant; not mandatory selection",
+      "owner": "DESIGN.md",
+      "verification": "specified-not-run"
+    },
+    {
+      "id": "SC04.V04",
+      "integratedLeaf": "SC04.02",
+      "specialistOriginalId": "SC04.04",
+      "disposition": "preserved as distinct optional design variant; not mandatory selection",
+      "owner": "DESIGN.md",
+      "verification": "specified-not-run"
+    },
+    {
+      "id": "SC04.V05",
+      "integratedLeaf": "SC04.02",
+      "specialistOriginalId": "SC04.05",
+      "disposition": "preserved as distinct optional design variant; not mandatory selection",
+      "owner": "DESIGN.md",
+      "verification": "specified-not-run"
+    },
+    {
+      "id": "SC04.V06",
+      "integratedLeaf": "SC04.03",
+      "specialistOriginalId": "SC04.06",
+      "disposition": "preserved as distinct optional design variant; not mandatory selection",
+      "owner": "DESIGN.md",
+      "verification": "specified-not-run"
+    },
+    {
+      "id": "SC05.V01",
+      "integratedLeaf": "SC05.01",
+      "specialistOriginalId": "SC05.01",
+      "disposition": "preserved as distinct optional design variant; not mandatory selection",
+      "owner": "DESIGN.md",
+      "verification": "specified-not-run"
+    },
+    {
+      "id": "SC05.V02",
+      "integratedLeaf": "SC05.01",
+      "specialistOriginalId": "SC05.02",
+      "disposition": "preserved as distinct optional design variant; not mandatory selection",
+      "owner": "DESIGN.md",
+      "verification": "specified-not-run"
+    },
+    {
+      "id": "SC05.V03",
+      "integratedLeaf": "SC05.02",
+      "specialistOriginalId": "SC05.03",
+      "disposition": "preserved as distinct optional design variant; not mandatory selection",
+      "owner": "DESIGN.md",
+      "verification": "specified-not-run"
+    },
+    {
+      "id": "SC05.V04",
+      "integratedLeaf": "SC05.03",
+      "specialistOriginalId": "SC05.04",
+      "disposition": "preserved as distinct optional design variant; not mandatory selection",
+      "owner": "DESIGN.md",
+      "verification": "specified-not-run"
+    },
+    {
+      "id": "SC06.V01",
+      "integratedLeaf": "SC06.01",
+      "specialistOriginalId": "SC06.01",
+      "disposition": "preserved as distinct optional design variant; not mandatory selection",
+      "owner": "DESIGN.md",
+      "verification": "specified-not-run"
+    },
+    {
+      "id": "SC06.V02",
+      "integratedLeaf": "SC06.01",
+      "specialistOriginalId": "SC06.02",
+      "disposition": "preserved as distinct optional design variant; not mandatory selection",
+      "owner": "DESIGN.md",
+      "verification": "specified-not-run"
+    },
+    {
+      "id": "SC06.V03",
+      "integratedLeaf": "SC06.02",
+      "specialistOriginalId": "SC06.03",
+      "disposition": "preserved as distinct optional design variant; not mandatory selection",
+      "owner": "DESIGN.md",
+      "verification": "specified-not-run"
+    },
+    {
+      "id": "SC06.V04",
+      "integratedLeaf": "SC06.02",
+      "specialistOriginalId": "SC06.04",
+      "disposition": "preserved as distinct optional design variant; not mandatory selection",
+      "owner": "DESIGN.md",
+      "verification": "specified-not-run"
+    },
+    {
+      "id": "SC06.V05",
+      "integratedLeaf": "SC06.03",
+      "specialistOriginalId": "SC06.05",
+      "disposition": "preserved as distinct optional design variant; not mandatory selection",
+      "owner": "DESIGN.md",
+      "verification": "specified-not-run"
+    },
+    {
+      "id": "SC07.V01",
+      "integratedLeaf": "SC07.01",
+      "specialistOriginalId": "SC07.01",
+      "disposition": "preserved as distinct optional design variant; not mandatory selection",
+      "owner": "DESIGN.md",
+      "verification": "specified-not-run"
+    },
+    {
+      "id": "SC07.V02",
+      "integratedLeaf": "SC07.02",
+      "specialistOriginalId": "SC07.02",
+      "disposition": "preserved as distinct optional design variant; not mandatory selection",
+      "owner": "DESIGN.md",
+      "verification": "specified-not-run"
+    },
+    {
+      "id": "SC07.V03",
+      "integratedLeaf": "SC07.02",
+      "specialistOriginalId": "SC07.03",
+      "disposition": "preserved as distinct optional design variant; not mandatory selection",
+      "owner": "DESIGN.md",
+      "verification": "specified-not-run"
+    },
+    {
+      "id": "SC07.V04",
+      "integratedLeaf": "SC07.02",
+      "specialistOriginalId": "SC07.04",
+      "disposition": "preserved as distinct optional design variant; not mandatory selection",
+      "owner": "DESIGN.md",
+      "verification": "specified-not-run"
+    },
+    {
+      "id": "SC07.V05",
+      "integratedLeaf": "SC07.03",
+      "specialistOriginalId": "SC07.05",
+      "disposition": "preserved as distinct optional design variant; not mandatory selection",
+      "owner": "DESIGN.md",
+      "verification": "specified-not-run"
+    },
+    {
+      "id": "SC08.V01",
+      "integratedLeaf": "SC08.01",
+      "specialistOriginalId": "SC08.01",
+      "disposition": "preserved as distinct optional design variant; not mandatory selection",
+      "owner": "DESIGN.md",
+      "verification": "specified-not-run"
+    },
+    {
+      "id": "SC08.V02",
+      "integratedLeaf": "SC08.01",
+      "specialistOriginalId": "SC08.02",
+      "disposition": "preserved as distinct optional design variant; not mandatory selection",
+      "owner": "DESIGN.md",
+      "verification": "specified-not-run"
+    },
+    {
+      "id": "SC08.V03",
+      "integratedLeaf": "SC08.02",
+      "specialistOriginalId": "SC08.03",
+      "disposition": "preserved as distinct optional design variant; not mandatory selection",
+      "owner": "DESIGN.md",
+      "verification": "specified-not-run"
+    },
+    {
+      "id": "SC08.V04",
+      "integratedLeaf": "SC08.02",
+      "specialistOriginalId": "SC08.04",
+      "disposition": "preserved as distinct optional design variant; not mandatory selection",
+      "owner": "DESIGN.md",
+      "verification": "specified-not-run"
+    },
+    {
+      "id": "SC08.V05",
+      "integratedLeaf": "SC08.03",
+      "specialistOriginalId": "SC08.05",
+      "disposition": "preserved as distinct optional design variant; not mandatory selection",
+      "owner": "DESIGN.md",
+      "verification": "specified-not-run"
+    },
+    {
+      "id": "SC08.V06",
+      "integratedLeaf": "SC08.03",
+      "specialistOriginalId": "SC08.06",
+      "disposition": "preserved as distinct optional design variant; not mandatory selection",
+      "owner": "DESIGN.md",
+      "verification": "specified-not-run"
+    },
+    {
+      "id": "SC09.V01",
+      "integratedLeaf": "SC09.01",
+      "specialistOriginalId": "SC09.01",
+      "disposition": "preserved as distinct optional design variant; not mandatory selection",
+      "owner": "DESIGN.md",
+      "verification": "specified-not-run"
+    },
+    {
+      "id": "SC09.V02",
+      "integratedLeaf": "SC09.01",
+      "specialistOriginalId": "SC09.02",
+      "disposition": "preserved as distinct optional design variant; not mandatory selection",
+      "owner": "DESIGN.md",
+      "verification": "specified-not-run"
+    },
+    {
+      "id": "SC09.V03",
+      "integratedLeaf": "SC09.02",
+      "specialistOriginalId": "SC09.03",
+      "disposition": "preserved as distinct optional design variant; not mandatory selection",
+      "owner": "DESIGN.md",
+      "verification": "specified-not-run"
+    },
+    {
+      "id": "SC09.V04",
+      "integratedLeaf": "SC09.02",
+      "specialistOriginalId": "SC09.04",
+      "disposition": "preserved as distinct optional design variant; not mandatory selection",
+      "owner": "DESIGN.md",
+      "verification": "specified-not-run"
+    },
+    {
+      "id": "SC09.V05",
+      "integratedLeaf": "SC09.02",
+      "specialistOriginalId": "SC09.05",
+      "disposition": "preserved as distinct optional design variant; not mandatory selection",
+      "owner": "DESIGN.md",
+      "verification": "specified-not-run"
+    },
+    {
+      "id": "SC09.V06",
+      "integratedLeaf": "SC09.03",
+      "specialistOriginalId": "SC09.06",
+      "disposition": "preserved as distinct optional design variant; not mandatory selection",
+      "owner": "DESIGN.md",
+      "verification": "specified-not-run"
+    },
+    {
+      "id": "SC09.V07",
+      "integratedLeaf": "SC09.03",
+      "specialistOriginalId": "SC09.07",
+      "disposition": "preserved as distinct optional design variant; not mandatory selection",
+      "owner": "DESIGN.md",
+      "verification": "specified-not-run"
+    },
+    {
+      "id": "SC09.V08",
+      "integratedLeaf": "SC09.03",
+      "specialistOriginalId": "SC09.08",
+      "disposition": "preserved as distinct optional design variant; not mandatory selection",
+      "owner": "DESIGN.md",
+      "verification": "specified-not-run"
+    }
+  ],
+  "reviewRepairs": [
+    "R1 discovery/chance bridge retains SS05/SS06 and commitment cases",
+    "R2 cache cross-power joins retain custody/knowledge/RNG and copy/restore cases",
+    "R3 creation lifecycle retains clock/persistence and visitor/export cases",
+    "R4 P03 proof is conditional on chosen fixed-function versus lens mechanism"
+  ]
+}

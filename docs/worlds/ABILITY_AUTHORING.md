@@ -91,3 +91,21 @@ Proposed conceptual contract: identify the affected state domain and target; est
 Original mechanical challenge examples: deny the opening contact while learning its trigger; use a repairable piece of cover to change a route; separate an imposed behavioral prohibition from the identity of its author; carry the eligible stolen tool while lacking the knowledge to operate it; choose a battle order that acquires a needed counter at an actual cost. These are original authoring examples, not claims of new canonical Stand rules.
 
 Keep numerical strength useful: sufficient supported force can still overpower an ordinary obstacle. Mechanical difficulty can depend on target access, timing, evidence, line of effect, fuel/control, source interaction and competing objectives. A conceptual power need not grant an automatic win, and an effective counter should work for its actual reason. No invented immunity solely to force a puzzle solution. Unknown dangers retain honest uncertainty and failure terms.
+
+## Coverage check and open angles (2026-10-13)
+
+Weibao asked whether ability implementations and variations have all been considered. Design coverage is broad: this contract, [skill variation axes](../SKILLS_AND_TALENTS.md#variation-axes), [ability shapes I1 to I22](../DEEP_CONCEPTS.md#ability-shapes), [conceptual reference cases](conceptual/REFERENCE_CASES.md), five world `ABILITY_VARIANTS` files plus [original frontier abilities](original-frontier/ABILITIES.md), [E8F adjectives](../emergent/E8F_ADJECTIVES.md) and the [cheat library](../CHEAT_LIBRARY.md). Runtime coverage is much thinner (techniques, stances, optional elemental preparation, four frontier skills whose behavior is still deferred).
+
+Recovery note: the 2026-10-11 [wider-gameplay](../gm/dispatch/wider-gameplay-2026-10-11/REPORT.md) candidate reported `structured_ability_runtime.js` (typed ability contracts compiled into native commands) as verified, but it was never committed and its worktree directory is gone (`git worktree list` marks it prunable). Treat that runtime as lost unless another copy turns up.
+
+Angles found thin or missing in the owners above (proposals, unselected):
+
+| ID | Angle | What is missing | Existing pointers |
+|---|---|---|---|
+| AB1 | Player-authored ability automation | Cast rules for an idle game: condition, ability, target, priority; offline policy; rules earned, taught or bought as an in-world means; bad rules failing honestly | [Earned Habit card](../CHEAT_LIBRARY.md#8-earned-habit-automation); GauTech and Magic Research 2 autocast in research only |
+| AB2 | Modifier and composition layer | Supports that change an ability's shape (split, delay, chain, widen, quicken, silent, empower) with compatibility rules and costs, per world (seals, metamagic, wand cards, support links) | PoE, Noita and Orb of Creation research reports; [combination kinds](../ENGINE_EXPANSION.md) |
+| AB3 | Party combinations | Setup and finisher pairs, unison techniques, ally-targeted effects, per-ability friendly fire, learned teamwork as its own mastery | [combat status and small interactions](../gm/world-implementation/second-pass/combat/STATUS_AND_SMALL_INTERACTIONS.md) |
+| AB4 | Event-fueled abilities | Moves powered by what happened (hits taken, near-death, emotion, a vow kept) rather than a pool; signature moves that need a built-up moment | Binding vows and tribulations touch it; no owner |
+| AB5 | Active ability budget | How many abilities a person can keep ready at once, why (focus, slots, prepared spells, stance), and swapping cost as a build choice | Gear loadouts exist; ability loadout has no owner |
+
+Each angle follows the causal execution contract above and stays per world: a world without a reason for slots or automation does not get them.

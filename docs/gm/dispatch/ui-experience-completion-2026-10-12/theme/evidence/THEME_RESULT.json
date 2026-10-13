@@ -1,0 +1,3037 @@
+{
+  "results": [
+    {
+      "theme": "neutral",
+      "before": "neutral",
+      "pageOverflow": false,
+      "states": {
+        "inventory_combat_switch_selection": {
+          "font": "14px",
+          "bg": "rgb(32, 42, 50)",
+          "color": "rgb(241, 244, 245)",
+          "height": 44,
+          "scroll": 44,
+          "client": 44,
+          "theme": "neutral",
+          "buttons": [
+            {
+              "text": "Inventory",
+              "width": 176.296875,
+              "height": 28,
+              "scroll": 26,
+              "client": 26,
+              "bg": "rgb(169, 200, 189)"
+            },
+            {
+              "text": "Combat",
+              "width": 164.921875,
+              "height": 28,
+              "scroll": 26,
+              "client": 26,
+              "bg": "rgb(59, 68, 75)"
+            }
+          ]
+        },
+        "character_control_div": {
+          "font": "14px",
+          "bg": "rgba(0, 0, 0, 0)",
+          "color": "rgb(255, 255, 255)",
+          "height": 30,
+          "scroll": 30,
+          "client": 30,
+          "theme": "neutral",
+          "buttons": [
+            {
+              "text": "Stats",
+              "width": 78.640625,
+              "height": 28,
+              "scroll": 26,
+              "client": 26,
+              "bg": "rgb(169, 200, 189)"
+            },
+            {
+              "text": "Bio",
+              "width": 62.75,
+              "height": 28,
+              "scroll": 26,
+              "client": 26,
+              "bg": "rgb(59, 68, 75)"
+            },
+            {
+              "text": "Equipment",
+              "width": 111.390625,
+              "height": 28,
+              "scroll": 26,
+              "client": 26,
+              "bg": "rgb(59, 68, 75)"
+            },
+            {
+              "text": "Tools",
+              "width": 76.4375,
+              "height": 28,
+              "scroll": 26,
+              "client": 26,
+              "bg": "rgb(59, 68, 75)"
+            }
+          ]
+        },
+        "inventory_control_div": {
+          "font": "20px",
+          "bg": "rgba(0, 0, 0, 0)",
+          "color": "rgb(241, 244, 245)",
+          "height": 30,
+          "scroll": 30,
+          "client": 30,
+          "theme": "neutral",
+          "buttons": [
+            {
+              "text": "All",
+              "width": 43.578125,
+              "height": 28,
+              "scroll": 26,
+              "client": 26,
+              "bg": "rgb(169, 200, 189)"
+            },
+            {
+              "text": "Equipment",
+              "width": 94.65625,
+              "height": 28,
+              "scroll": 26,
+              "client": 26,
+              "bg": "rgb(59, 68, 75)"
+            },
+            {
+              "text": "Usable",
+              "width": 70.140625,
+              "height": 28,
+              "scroll": 26,
+              "client": 26,
+              "bg": "rgb(59, 68, 75)"
+            },
+            {
+              "text": "Other",
+              "width": 62.234375,
+              "height": 28,
+              "scroll": 26,
+              "client": 26,
+              "bg": "rgb(59, 68, 75)"
+            },
+            {
+              "text": "Favs",
+              "width": 54.609375,
+              "height": 28,
+              "scroll": 26,
+              "client": 26,
+              "bg": "rgb(59, 68, 75)"
+            }
+          ]
+        },
+        "location_related_div": {
+          "font": "14px",
+          "bg": "rgb(32, 42, 50)",
+          "color": "rgb(241, 244, 245)",
+          "height": 842.3125,
+          "scroll": 842,
+          "client": 842,
+          "theme": "neutral",
+          "buttons": [
+            {
+              "text": "Ask Tessa: Dependable worker",
+              "width": 211.03125,
+              "height": 28,
+              "scroll": 26,
+              "client": 26,
+              "bg": "rgb(32, 42, 50)"
+            },
+            {
+              "text": "Ask for repair notes (one field clear)",
+              "width": 244.71875,
+              "height": 28,
+              "scroll": 26,
+              "client": 26,
+              "bg": "rgb(32, 42, 50)"
+            },
+            {
+              "text": "Buy repair notes (10 coins)",
+              "width": 185.859375,
+              "height": 28,
+              "scroll": 26,
+              "client": 26,
+              "bg": "rgb(59, 68, 75)"
+            },
+            {
+              "text": "question_answer Talk to someone",
+              "width": 567.21875,
+              "height": 42,
+              "scroll": 38,
+              "client": 38,
+              "bg": "rgba(0, 0, 0, 0)"
+            },
+            {
+              "text": "check_box_outline_blank Talk to village elder",
+              "width": 0,
+              "height": 0,
+              "scroll": 0,
+              "client": 0,
+              "bg": "rgb(59, 68, 75)"
+            },
+            {
+              "text": "work_outline Find work",
+              "width": 567.21875,
+              "height": 42,
+              "scroll": 38,
+              "client": 38,
+              "bg": "rgba(0, 0, 0, 0)"
+            },
+            {
+              "text": "Pays 5C per every 2 hours workedcheck_box_outline_blank Take a loaned kit and patrol with Tessa (2 hours, 50 coins).",
+              "width": 0,
+              "height": 0,
+              "scroll": 0,
+              "client": 0,
+              "bg": "rgb(59, 68, 75)"
+            },
+            {
+              "text": "",
+              "width": 93.296875,
+              "height": 28,
+              "scroll": 26,
+              "client": 26,
+              "bg": "rgb(59, 68, 75)"
+            },
+            {
+              "text": "",
+              "width": 343.109375,
+              "height": 28,
+              "scroll": 26,
+              "client": 26,
+              "bg": "rgb(32, 42, 50)"
+            },
+            {
+              "text": "Sort by name",
+              "width": 0,
+              "height": 0,
+              "scroll": 0,
+              "client": 0,
+              "bg": "rgb(169, 200, 189)"
+            },
+            {
+              "text": "Sort by value",
+              "width": 0,
+              "height": 0,
+              "scroll": 0,
+              "client": 0,
+              "bg": "rgb(59, 68, 75)"
+            },
+            {
+              "text": "Sort by type",
+              "width": 0,
+              "height": 0,
+              "scroll": 0,
+              "client": 0,
+              "bg": "rgb(59, 68, 75)"
+            },
+            {
+              "text": "\n                                all\n                            ",
+              "width": 0,
+              "height": 0,
+              "scroll": 0,
+              "client": 0,
+              "bg": "rgb(169, 200, 189)"
+            },
+            {
+              "text": "\n                                equipment\n                            ",
+              "width": 0,
+              "height": 0,
+              "scroll": 0,
+              "client": 0,
+              "bg": "rgb(59, 68, 75)"
+            },
+            {
+              "text": "\n                                usable\n                            ",
+              "width": 0,
+              "height": 0,
+              "scroll": 0,
+              "client": 0,
+              "bg": "rgb(59, 68, 75)"
+            },
+            {
+              "text": "\n                                other\n                            ",
+              "width": 0,
+              "height": 0,
+              "scroll": 0,
+              "client": 0,
+              "bg": "rgb(59, 68, 75)"
+            },
+            {
+              "text": "\n                                Accept\n                            ",
+              "width": 0,
+              "height": 0,
+              "scroll": 0,
+              "client": 0,
+              "bg": "rgb(0, 128, 0)"
+            },
+            {
+              "text": "\n                                Cancel\n                            ",
+              "width": 0,
+              "height": 0,
+              "scroll": 0,
+              "client": 0,
+              "bg": "rgb(255, 0, 0)"
+            },
+            {
+              "text": "\n                                Exit\n                            ",
+              "width": 0,
+              "height": 0,
+              "scroll": 0,
+              "client": 0,
+              "bg": "rgba(255, 241, 117, 0.2)"
+            },
+            {
+              "text": "Sort by name",
+              "width": 0,
+              "height": 0,
+              "scroll": 0,
+              "client": 0,
+              "bg": "rgb(169, 200, 189)"
+            },
+            {
+              "text": "Sort by value",
+              "width": 0,
+              "height": 0,
+              "scroll": 0,
+              "client": 0,
+              "bg": "rgb(59, 68, 75)"
+            },
+            {
+              "text": "Sort by type",
+              "width": 0,
+              "height": 0,
+              "scroll": 0,
+              "client": 0,
+              "bg": "rgb(59, 68, 75)"
+            },
+            {
+              "text": "\n                                all\n                            ",
+              "width": 0,
+              "height": 0,
+              "scroll": 0,
+              "client": 0,
+              "bg": "rgb(169, 200, 189)"
+            },
+            {
+              "text": "\n                                equipment\n                            ",
+              "width": 0,
+              "height": 0,
+              "scroll": 0,
+              "client": 0,
+              "bg": "rgb(59, 68, 75)"
+            },
+            {
+              "text": "\n                                usable\n                            ",
+              "width": 0,
+              "height": 0,
+              "scroll": 0,
+              "client": 0,
+              "bg": "rgb(59, 68, 75)"
+            },
+            {
+              "text": "\n                                other\n                            ",
+              "width": 0,
+              "height": 0,
+              "scroll": 0,
+              "client": 0,
+              "bg": "rgb(59, 68, 75)"
+            },
+            {
+              "text": "\n                                Exit\n                            ",
+              "width": 0,
+              "height": 0,
+              "scroll": 0,
+              "client": 0,
+              "bg": "rgba(255, 241, 117, 0.2)"
+            },
+            {
+              "text": "Tinkering",
+              "width": 0,
+              "height": 0,
+              "scroll": 0,
+              "client": 0,
+              "bg": "rgb(59, 68, 75)"
+            },
+            {
+              "text": "Butchering",
+              "width": 0,
+              "height": 0,
+              "scroll": 0,
+              "client": 0,
+              "bg": "rgb(59, 68, 75)"
+            },
+            {
+              "text": "Cooking",
+              "width": 0,
+              "height": 0,
+              "scroll": 0,
+              "client": 0,
+              "bg": "rgb(59, 68, 75)"
+            },
+            {
+              "text": "Woodworking",
+              "width": 0,
+              "height": 0,
+              "scroll": 0,
+              "client": 0,
+              "bg": "rgb(59, 68, 75)"
+            },
+            {
+              "text": "Smelting",
+              "width": 0,
+              "height": 0,
+              "scroll": 0,
+              "client": 0,
+              "bg": "rgb(59, 68, 75)"
+            },
+            {
+              "text": "Forging",
+              "width": 0,
+              "height": 0,
+              "scroll": 0,
+              "client": 0,
+              "bg": "rgb(59, 68, 75)"
+            },
+            {
+              "text": "Alchemy",
+              "width": 0,
+              "height": 0,
+              "scroll": 0,
+              "client": 0,
+              "bg": "rgb(59, 68, 75)"
+            },
+            {
+              "text": "Items/trinkets",
+              "width": 0,
+              "height": 0,
+              "scroll": 0,
+              "client": 0,
+              "bg": "rgb(169, 200, 189)"
+            },
+            {
+              "text": "Components",
+              "width": 0,
+              "height": 0,
+              "scroll": 0,
+              "client": 0,
+              "bg": "rgb(59, 68, 75)"
+            },
+            {
+              "text": "Equipment",
+              "width": 0,
+              "height": 0,
+              "scroll": 0,
+              "client": 0,
+              "bg": "rgb(59, 68, 75)"
+            },
+            {
+              "text": "\n                            Exit\n                        ",
+              "width": 0,
+              "height": 0,
+              "scroll": 0,
+              "client": 0,
+              "bg": "rgba(255, 241, 117, 0.2)"
+            },
+            {
+              "text": "Cancel visual effect",
+              "width": 0,
+              "height": 0,
+              "scroll": 0,
+              "client": 0,
+              "bg": "rgb(59, 68, 75)"
+            }
+          ]
+        },
+        "character_div": {
+          "font": "14px",
+          "bg": "rgb(32, 42, 50)",
+          "color": "rgb(241, 244, 245)",
+          "height": 237.171875,
+          "scroll": 237,
+          "client": 237,
+          "theme": "neutral",
+          "buttons": [
+            {
+              "text": "Open practice notes",
+              "width": 0,
+              "height": 0,
+              "scroll": 0,
+              "client": 0,
+              "bg": "rgb(59, 68, 75)"
+            },
+            {
+              "text": "Stats",
+              "width": 78.640625,
+              "height": 28,
+              "scroll": 26,
+              "client": 26,
+              "bg": "rgb(169, 200, 189)"
+            },
+            {
+              "text": "Bio",
+              "width": 62.75,
+              "height": 28,
+              "scroll": 26,
+              "client": 26,
+              "bg": "rgb(59, 68, 75)"
+            },
+            {
+              "text": "Equipment",
+              "width": 111.390625,
+              "height": 28,
+              "scroll": 26,
+              "client": 26,
+              "bg": "rgb(59, 68, 75)"
+            },
+            {
+              "text": "Tools",
+              "width": 76.4375,
+              "height": 28,
+              "scroll": 26,
+              "client": 26,
+              "bg": "rgb(59, 68, 75)"
+            }
+          ]
+        }
+      },
+      "preview": "Component preview · sample controls\nSelected tab\nA longer comparison label\nInspect sample action\nUnavailable action\nSample input\nSample material\tAmount\nPrepared component\t12 units\n\nWarning: sample requirement unmet.\n\nError: sample write unavailable.\n\nCurrent known place\nstar_border Village\nCurrent level\nLvl: 0\n\nDraft preview only. Apply activates these component states. Cosmetic themes grant no powers."
+    },
+    {
+      "theme": "arcane",
+      "before": "neutral",
+      "pageOverflow": false,
+      "states": {
+        "inventory_combat_switch_selection": {
+          "font": "14px",
+          "bg": "rgb(41, 38, 55)",
+          "color": "rgb(244, 240, 231)",
+          "height": 44,
+          "scroll": 44,
+          "client": 44,
+          "theme": "arcane",
+          "buttons": [
+            {
+              "text": "Inventory",
+              "width": 176.296875,
+              "height": 28,
+              "scroll": 26,
+              "client": 26,
+              "bg": "rgb(225, 199, 131)"
+            },
+            {
+              "text": "Combat",
+              "width": 164.921875,
+              "height": 28,
+              "scroll": 26,
+              "client": 26,
+              "bg": "rgb(67, 64, 79)"
+            }
+          ]
+        },
+        "character_control_div": {
+          "font": "14px",
+          "bg": "rgba(0, 0, 0, 0)",
+          "color": "rgb(255, 255, 255)",
+          "height": 30,
+          "scroll": 30,
+          "client": 30,
+          "theme": "arcane",
+          "buttons": [
+            {
+              "text": "Stats",
+              "width": 78.640625,
+              "height": 28,
+              "scroll": 26,
+              "client": 26,
+              "bg": "rgb(225, 199, 131)"
+            },
+            {
+              "text": "Bio",
+              "width": 62.75,
+              "height": 28,
+              "scroll": 26,
+              "client": 26,
+              "bg": "rgb(67, 64, 79)"
+            },
+            {
+              "text": "Equipment",
+              "width": 111.390625,
+              "height": 28,
+              "scroll": 26,
+              "client": 26,
+              "bg": "rgb(67, 64, 79)"
+            },
+            {
+              "text": "Tools",
+              "width": 76.4375,
+              "height": 28,
+              "scroll": 26,
+              "client": 26,
+              "bg": "rgb(67, 64, 79)"
+            }
+          ]
+        },
+        "inventory_control_div": {
+          "font": "20px",
+          "bg": "rgba(0, 0, 0, 0)",
+          "color": "rgb(244, 240, 231)",
+          "height": 30,
+          "scroll": 30,
+          "client": 30,
+          "theme": "arcane",
+          "buttons": [
+            {
+              "text": "All",
+              "width": 43.578125,
+              "height": 28,
+              "scroll": 26,
+              "client": 26,
+              "bg": "rgb(225, 199, 131)"
+            },
+            {
+              "text": "Equipment",
+              "width": 94.65625,
+              "height": 28,
+              "scroll": 26,
+              "client": 26,
+              "bg": "rgb(67, 64, 79)"
+            },
+            {
+              "text": "Usable",
+              "width": 70.140625,
+              "height": 28,
+              "scroll": 26,
+              "client": 26,
+              "bg": "rgb(67, 64, 79)"
+            },
+            {
+              "text": "Other",
+              "width": 62.234375,
+              "height": 28,
+              "scroll": 26,
+              "client": 26,
+              "bg": "rgb(67, 64, 79)"
+            },
+            {
+              "text": "Favs",
+              "width": 54.609375,
+              "height": 28,
+              "scroll": 26,
+              "client": 26,
+              "bg": "rgb(67, 64, 79)"
+            }
+          ]
+        },
+        "location_related_div": {
+          "font": "14px",
+          "bg": "rgb(41, 38, 55)",
+          "color": "rgb(244, 240, 231)",
+          "height": 842.3125,
+          "scroll": 842,
+          "client": 842,
+          "theme": "arcane",
+          "buttons": [
+            {
+              "text": "Ask Tessa: Dependable worker",
+              "width": 211.03125,
+              "height": 28,
+              "scroll": 26,
+              "client": 26,
+              "bg": "rgb(41, 38, 55)"
+            },
+            {
+              "text": "Ask for repair notes (one field clear)",
+              "width": 244.71875,
+              "height": 28,
+              "scroll": 26,
+              "client": 26,
+              "bg": "rgb(41, 38, 55)"
+            },
+            {
+              "text": "Buy repair notes (10 coins)",
+              "width": 185.859375,
+              "height": 28,
+              "scroll": 26,
+              "client": 26,
+              "bg": "rgb(67, 64, 79)"
+            },
+            {
+              "text": "question_answer Talk to someone",
+              "width": 567.21875,
+              "height": 42,
+              "scroll": 38,
+              "client": 38,
+              "bg": "rgba(0, 0, 0, 0)"
+            },
+            {
+              "text": "check_box_outline_blank Talk to village elder",
+              "width": 0,
+              "height": 0,
+              "scroll": 0,
+              "client": 0,
+              "bg": "rgb(67, 64, 79)"
+            },
+            {
+              "text": "work_outline Find work",
+              "width": 567.21875,
+              "height": 42,
+              "scroll": 38,
+              "client": 38,
+              "bg": "rgba(0, 0, 0, 0)"
+            },
+            {
+              "text": "Pays 5C per every 2 hours workedcheck_box_outline_blank Take a loaned kit and patrol with Tessa (2 hours, 50 coins).",
+              "width": 0,
+              "height": 0,
+              "scroll": 0,
+              "client": 0,
+              "bg": "rgb(67, 64, 79)"
+            },
+            {
+              "text": "",
+              "width": 93.296875,
+              "height": 28,
+              "scroll": 26,
+              "client": 26,
+              "bg": "rgb(67, 64, 79)"
+            },
+            {
+              "text": "",
+              "width": 342.421875,
+              "height": 28,
+              "scroll": 26,
+              "client": 26,
+              "bg": "rgb(41, 38, 55)"
+            },
+            {
+              "text": "Sort by name",
+              "width": 0,
+              "height": 0,
+              "scroll": 0,
+              "client": 0,
+              "bg": "rgb(225, 199, 131)"
+            },
+            {
+              "text": "Sort by value",
+              "width": 0,
+              "height": 0,
+              "scroll": 0,
+              "client": 0,
+              "bg": "rgb(67, 64, 79)"
+            },
+            {
+              "text": "Sort by type",
+              "width": 0,
+              "height": 0,
+              "scroll": 0,
+              "client": 0,
+              "bg": "rgb(67, 64, 79)"
+            },
+            {
+              "text": "\n                                all\n                            ",
+              "width": 0,
+              "height": 0,
+              "scroll": 0,
+              "client": 0,
+              "bg": "rgb(225, 199, 131)"
+            },
+            {
+              "text": "\n                                equipment\n                            ",
+              "width": 0,
+              "height": 0,
+              "scroll": 0,
+              "client": 0,
+              "bg": "rgb(67, 64, 79)"
+            },
+            {
+              "text": "\n                                usable\n                            ",
+              "width": 0,
+              "height": 0,
+              "scroll": 0,
+              "client": 0,
+              "bg": "rgb(67, 64, 79)"
+            },
+            {
+              "text": "\n                                other\n                            ",
+              "width": 0,
+              "height": 0,
+              "scroll": 0,
+              "client": 0,
+              "bg": "rgb(67, 64, 79)"
+            },
+            {
+              "text": "\n                                Accept\n                            ",
+              "width": 0,
+              "height": 0,
+              "scroll": 0,
+              "client": 0,
+              "bg": "rgb(0, 128, 0)"
+            },
+            {
+              "text": "\n                                Cancel\n                            ",
+              "width": 0,
+              "height": 0,
+              "scroll": 0,
+              "client": 0,
+              "bg": "rgb(255, 0, 0)"
+            },
+            {
+              "text": "\n                                Exit\n                            ",
+              "width": 0,
+              "height": 0,
+              "scroll": 0,
+              "client": 0,
+              "bg": "rgba(255, 241, 117, 0.2)"
+            },
+            {
+              "text": "Sort by name",
+              "width": 0,
+              "height": 0,
+              "scroll": 0,
+              "client": 0,
+              "bg": "rgb(225, 199, 131)"
+            },
+            {
+              "text": "Sort by value",
+              "width": 0,
+              "height": 0,
+              "scroll": 0,
+              "client": 0,
+              "bg": "rgb(67, 64, 79)"
+            },
+            {
+              "text": "Sort by type",
+              "width": 0,
+              "height": 0,
+              "scroll": 0,
+              "client": 0,
+              "bg": "rgb(67, 64, 79)"
+            },
+            {
+              "text": "\n                                all\n                            ",
+              "width": 0,
+              "height": 0,
+              "scroll": 0,
+              "client": 0,
+              "bg": "rgb(225, 199, 131)"
+            },
+            {
+              "text": "\n                                equipment\n                            ",
+              "width": 0,
+              "height": 0,
+              "scroll": 0,
+              "client": 0,
+              "bg": "rgb(67, 64, 79)"
+            },
+            {
+              "text": "\n                                usable\n                            ",
+              "width": 0,
+              "height": 0,
+              "scroll": 0,
+              "client": 0,
+              "bg": "rgb(67, 64, 79)"
+            },
+            {
+              "text": "\n                                other\n                            ",
+              "width": 0,
+              "height": 0,
+              "scroll": 0,
+              "client": 0,
+              "bg": "rgb(67, 64, 79)"
+            },
+            {
+              "text": "\n                                Exit\n                            ",
+              "width": 0,
+              "height": 0,
+              "scroll": 0,
+              "client": 0,
+              "bg": "rgba(255, 241, 117, 0.2)"
+            },
+            {
+              "text": "Tinkering",
+              "width": 0,
+              "height": 0,
+              "scroll": 0,
+              "client": 0,
+              "bg": "rgb(67, 64, 79)"
+            },
+            {
+              "text": "Butchering",
+              "width": 0,
+              "height": 0,
+              "scroll": 0,
+              "client": 0,
+              "bg": "rgb(67, 64, 79)"
+            },
+            {
+              "text": "Cooking",
+              "width": 0,
+              "height": 0,
+              "scroll": 0,
+              "client": 0,
+              "bg": "rgb(67, 64, 79)"
+            },
+            {
+              "text": "Woodworking",
+              "width": 0,
+              "height": 0,
+              "scroll": 0,
+              "client": 0,
+              "bg": "rgb(67, 64, 79)"
+            },
+            {
+              "text": "Smelting",
+              "width": 0,
+              "height": 0,
+              "scroll": 0,
+              "client": 0,
+              "bg": "rgb(67, 64, 79)"
+            },
+            {
+              "text": "Forging",
+              "width": 0,
+              "height": 0,
+              "scroll": 0,
+              "client": 0,
+              "bg": "rgb(67, 64, 79)"
+            },
+            {
+              "text": "Alchemy",
+              "width": 0,
+              "height": 0,
+              "scroll": 0,
+              "client": 0,
+              "bg": "rgb(67, 64, 79)"
+            },
+            {
+              "text": "Items/trinkets",
+              "width": 0,
+              "height": 0,
+              "scroll": 0,
+              "client": 0,
+              "bg": "rgb(225, 199, 131)"
+            },
+            {
+              "text": "Components",
+              "width": 0,
+              "height": 0,
+              "scroll": 0,
+              "client": 0,
+              "bg": "rgb(67, 64, 79)"
+            },
+            {
+              "text": "Equipment",
+              "width": 0,
+              "height": 0,
+              "scroll": 0,
+              "client": 0,
+              "bg": "rgb(67, 64, 79)"
+            },
+            {
+              "text": "\n                            Exit\n                        ",
+              "width": 0,
+              "height": 0,
+              "scroll": 0,
+              "client": 0,
+              "bg": "rgba(255, 241, 117, 0.2)"
+            },
+            {
+              "text": "Cancel visual effect",
+              "width": 0,
+              "height": 0,
+              "scroll": 0,
+              "client": 0,
+              "bg": "rgb(67, 64, 79)"
+            }
+          ]
+        },
+        "character_div": {
+          "font": "14px",
+          "bg": "rgb(41, 38, 55)",
+          "color": "rgb(244, 240, 231)",
+          "height": 237.171875,
+          "scroll": 237,
+          "client": 237,
+          "theme": "arcane",
+          "buttons": [
+            {
+              "text": "Open practice notes",
+              "width": 0,
+              "height": 0,
+              "scroll": 0,
+              "client": 0,
+              "bg": "rgb(67, 64, 79)"
+            },
+            {
+              "text": "Stats",
+              "width": 78.640625,
+              "height": 28,
+              "scroll": 26,
+              "client": 26,
+              "bg": "rgb(225, 199, 131)"
+            },
+            {
+              "text": "Bio",
+              "width": 62.75,
+              "height": 28,
+              "scroll": 26,
+              "client": 26,
+              "bg": "rgb(67, 64, 79)"
+            },
+            {
+              "text": "Equipment",
+              "width": 111.390625,
+              "height": 28,
+              "scroll": 26,
+              "client": 26,
+              "bg": "rgb(67, 64, 79)"
+            },
+            {
+              "text": "Tools",
+              "width": 76.4375,
+              "height": 28,
+              "scroll": 26,
+              "client": 26,
+              "bg": "rgb(67, 64, 79)"
+            }
+          ]
+        }
+      },
+      "preview": "Component preview · sample controls\nSelected tab\nA longer comparison label\nInspect sample action\nUnavailable action\nSample input\nSample material\tAmount\nPrepared component\t12 units\n\nWarning: sample requirement unmet.\n\nError: sample write unavailable.\n\nCurrent known place\nstar_border Village\nCurrent level\nLvl: 0\n\nDraft preview only. Apply activates these component states. Cosmetic themes grant no powers."
+    },
+    {
+      "theme": "workshop",
+      "before": "arcane",
+      "pageOverflow": false,
+      "states": {
+        "inventory_combat_switch_selection": {
+          "font": "14px",
+          "bg": "rgb(48, 43, 37)",
+          "color": "rgb(244, 238, 226)",
+          "height": 44,
+          "scroll": 44,
+          "client": 44,
+          "theme": "workshop",
+          "buttons": [
+            {
+              "text": "Inventory",
+              "width": 176.296875,
+              "height": 28,
+              "scroll": 26,
+              "client": 26,
+              "bg": "rgb(221, 187, 136)"
+            },
+            {
+              "text": "Combat",
+              "width": 164.921875,
+              "height": 28,
+              "scroll": 26,
+              "client": 26,
+              "bg": "rgb(73, 68, 63)"
+            }
+          ]
+        },
+        "character_control_div": {
+          "font": "14px",
+          "bg": "rgba(0, 0, 0, 0)",
+          "color": "rgb(255, 255, 255)",
+          "height": 30,
+          "scroll": 30,
+          "client": 30,
+          "theme": "workshop",
+          "buttons": [
+            {
+              "text": "Stats",
+              "width": 78.640625,
+              "height": 28,
+              "scroll": 26,
+              "client": 26,
+              "bg": "rgb(221, 187, 136)"
+            },
+            {
+              "text": "Bio",
+              "width": 62.75,
+              "height": 28,
+              "scroll": 26,
+              "client": 26,
+              "bg": "rgb(73, 68, 63)"
+            },
+            {
+              "text": "Equipment",
+              "width": 111.390625,
+              "height": 28,
+              "scroll": 26,
+              "client": 26,
+              "bg": "rgb(73, 68, 63)"
+            },
+            {
+              "text": "Tools",
+              "width": 76.4375,
+              "height": 28,
+              "scroll": 26,
+              "client": 26,
+              "bg": "rgb(73, 68, 63)"
+            }
+          ]
+        },
+        "inventory_control_div": {
+          "font": "20px",
+          "bg": "rgba(0, 0, 0, 0)",
+          "color": "rgb(244, 238, 226)",
+          "height": 30,
+          "scroll": 30,
+          "client": 30,
+          "theme": "workshop",
+          "buttons": [
+            {
+              "text": "All",
+              "width": 43.578125,
+              "height": 28,
+              "scroll": 26,
+              "client": 26,
+              "bg": "rgb(221, 187, 136)"
+            },
+            {
+              "text": "Equipment",
+              "width": 94.65625,
+              "height": 28,
+              "scroll": 26,
+              "client": 26,
+              "bg": "rgb(73, 68, 63)"
+            },
+            {
+              "text": "Usable",
+              "width": 70.140625,
+              "height": 28,
+              "scroll": 26,
+              "client": 26,
+              "bg": "rgb(73, 68, 63)"
+            },
+            {
+              "text": "Other",
+              "width": 62.234375,
+              "height": 28,
+              "scroll": 26,
+              "client": 26,
+              "bg": "rgb(73, 68, 63)"
+            },
+            {
+              "text": "Favs",
+              "width": 54.609375,
+              "height": 28,
+              "scroll": 26,
+              "client": 26,
+              "bg": "rgb(73, 68, 63)"
+            }
+          ]
+        },
+        "location_related_div": {
+          "font": "14px",
+          "bg": "rgb(48, 43, 37)",
+          "color": "rgb(244, 238, 226)",
+          "height": 842.3125,
+          "scroll": 842,
+          "client": 842,
+          "theme": "workshop",
+          "buttons": [
+            {
+              "text": "Ask Tessa: Dependable worker",
+              "width": 211.03125,
+              "height": 28,
+              "scroll": 26,
+              "client": 26,
+              "bg": "rgb(48, 43, 37)"
+            },
+            {
+              "text": "Ask for repair notes (one field clear)",
+              "width": 244.71875,
+              "height": 28,
+              "scroll": 26,
+              "client": 26,
+              "bg": "rgb(48, 43, 37)"
+            },
+            {
+              "text": "Buy repair notes (10 coins)",
+              "width": 185.859375,
+              "height": 28,
+              "scroll": 26,
+              "client": 26,
+              "bg": "rgb(73, 68, 63)"
+            },
+            {
+              "text": "question_answer Talk to someone",
+              "width": 567.21875,
+              "height": 42,
+              "scroll": 38,
+              "client": 38,
+              "bg": "rgba(0, 0, 0, 0)"
+            },
+            {
+              "text": "check_box_outline_blank Talk to village elder",
+              "width": 0,
+              "height": 0,
+              "scroll": 0,
+              "client": 0,
+              "bg": "rgb(73, 68, 63)"
+            },
+            {
+              "text": "work_outline Find work",
+              "width": 567.21875,
+              "height": 42,
+              "scroll": 38,
+              "client": 38,
+              "bg": "rgba(0, 0, 0, 0)"
+            },
+            {
+              "text": "Pays 5C per every 2 hours workedcheck_box_outline_blank Take a loaned kit and patrol with Tessa (2 hours, 50 coins).",
+              "width": 0,
+              "height": 0,
+              "scroll": 0,
+              "client": 0,
+              "bg": "rgb(73, 68, 63)"
+            },
+            {
+              "text": "",
+              "width": 93.296875,
+              "height": 28,
+              "scroll": 26,
+              "client": 26,
+              "bg": "rgb(73, 68, 63)"
+            },
+            {
+              "text": "",
+              "width": 342.546875,
+              "height": 28,
+              "scroll": 26,
+              "client": 26,
+              "bg": "rgb(48, 43, 37)"
+            },
+            {
+              "text": "Sort by name",
+              "width": 0,
+              "height": 0,
+              "scroll": 0,
+              "client": 0,
+              "bg": "rgb(221, 187, 136)"
+            },
+            {
+              "text": "Sort by value",
+              "width": 0,
+              "height": 0,
+              "scroll": 0,
+              "client": 0,
+              "bg": "rgb(73, 68, 63)"
+            },
+            {
+              "text": "Sort by type",
+              "width": 0,
+              "height": 0,
+              "scroll": 0,
+              "client": 0,
+              "bg": "rgb(73, 68, 63)"
+            },
+            {
+              "text": "\n                                all\n                            ",
+              "width": 0,
+              "height": 0,
+              "scroll": 0,
+              "client": 0,
+              "bg": "rgb(221, 187, 136)"
+            },
+            {
+              "text": "\n                                equipment\n                            ",
+              "width": 0,
+              "height": 0,
+              "scroll": 0,
+              "client": 0,
+              "bg": "rgb(73, 68, 63)"
+            },
+            {
+              "text": "\n                                usable\n                            ",
+              "width": 0,
+              "height": 0,
+              "scroll": 0,
+              "client": 0,
+              "bg": "rgb(73, 68, 63)"
+            },
+            {
+              "text": "\n                                other\n                            ",
+              "width": 0,
+              "height": 0,
+              "scroll": 0,
+              "client": 0,
+              "bg": "rgb(73, 68, 63)"
+            },
+            {
+              "text": "\n                                Accept\n                            ",
+              "width": 0,
+              "height": 0,
+              "scroll": 0,
+              "client": 0,
+              "bg": "rgb(0, 128, 0)"
+            },
+            {
+              "text": "\n                                Cancel\n                            ",
+              "width": 0,
+              "height": 0,
+              "scroll": 0,
+              "client": 0,
+              "bg": "rgb(255, 0, 0)"
+            },
+            {
+              "text": "\n                                Exit\n                            ",
+              "width": 0,
+              "height": 0,
+              "scroll": 0,
+              "client": 0,
+              "bg": "rgba(255, 241, 117, 0.2)"
+            },
+            {
+              "text": "Sort by name",
+              "width": 0,
+              "height": 0,
+              "scroll": 0,
+              "client": 0,
+              "bg": "rgb(221, 187, 136)"
+            },
+            {
+              "text": "Sort by value",
+              "width": 0,
+              "height": 0,
+              "scroll": 0,
+              "client": 0,
+              "bg": "rgb(73, 68, 63)"
+            },
+            {
+              "text": "Sort by type",
+              "width": 0,
+              "height": 0,
+              "scroll": 0,
+              "client": 0,
+              "bg": "rgb(73, 68, 63)"
+            },
+            {
+              "text": "\n                                all\n                            ",
+              "width": 0,
+              "height": 0,
+              "scroll": 0,
+              "client": 0,
+              "bg": "rgb(221, 187, 136)"
+            },
+            {
+              "text": "\n                                equipment\n                            ",
+              "width": 0,
+              "height": 0,
+              "scroll": 0,
+              "client": 0,
+              "bg": "rgb(73, 68, 63)"
+            },
+            {
+              "text": "\n                                usable\n                            ",
+              "width": 0,
+              "height": 0,
+              "scroll": 0,
+              "client": 0,
+              "bg": "rgb(73, 68, 63)"
+            },
+            {
+              "text": "\n                                other\n                            ",
+              "width": 0,
+              "height": 0,
+              "scroll": 0,
+              "client": 0,
+              "bg": "rgb(73, 68, 63)"
+            },
+            {
+              "text": "\n                                Exit\n                            ",
+              "width": 0,
+              "height": 0,
+              "scroll": 0,
+              "client": 0,
+              "bg": "rgba(255, 241, 117, 0.2)"
+            },
+            {
+              "text": "Tinkering",
+              "width": 0,
+              "height": 0,
+              "scroll": 0,
+              "client": 0,
+              "bg": "rgb(73, 68, 63)"
+            },
+            {
+              "text": "Butchering",
+              "width": 0,
+              "height": 0,
+              "scroll": 0,
+              "client": 0,
+              "bg": "rgb(73, 68, 63)"
+            },
+            {
+              "text": "Cooking",
+              "width": 0,
+              "height": 0,
+              "scroll": 0,
+              "client": 0,
+              "bg": "rgb(73, 68, 63)"
+            },
+            {
+              "text": "Woodworking",
+              "width": 0,
+              "height": 0,
+              "scroll": 0,
+              "client": 0,
+              "bg": "rgb(73, 68, 63)"
+            },
+            {
+              "text": "Smelting",
+              "width": 0,
+              "height": 0,
+              "scroll": 0,
+              "client": 0,
+              "bg": "rgb(73, 68, 63)"
+            },
+            {
+              "text": "Forging",
+              "width": 0,
+              "height": 0,
+              "scroll": 0,
+              "client": 0,
+              "bg": "rgb(73, 68, 63)"
+            },
+            {
+              "text": "Alchemy",
+              "width": 0,
+              "height": 0,
+              "scroll": 0,
+              "client": 0,
+              "bg": "rgb(73, 68, 63)"
+            },
+            {
+              "text": "Items/trinkets",
+              "width": 0,
+              "height": 0,
+              "scroll": 0,
+              "client": 0,
+              "bg": "rgb(221, 187, 136)"
+            },
+            {
+              "text": "Components",
+              "width": 0,
+              "height": 0,
+              "scroll": 0,
+              "client": 0,
+              "bg": "rgb(73, 68, 63)"
+            },
+            {
+              "text": "Equipment",
+              "width": 0,
+              "height": 0,
+              "scroll": 0,
+              "client": 0,
+              "bg": "rgb(73, 68, 63)"
+            },
+            {
+              "text": "\n                            Exit\n                        ",
+              "width": 0,
+              "height": 0,
+              "scroll": 0,
+              "client": 0,
+              "bg": "rgba(255, 241, 117, 0.2)"
+            },
+            {
+              "text": "Cancel visual effect",
+              "width": 0,
+              "height": 0,
+              "scroll": 0,
+              "client": 0,
+              "bg": "rgb(73, 68, 63)"
+            }
+          ]
+        },
+        "character_div": {
+          "font": "14px",
+          "bg": "rgb(48, 43, 37)",
+          "color": "rgb(244, 238, 226)",
+          "height": 237.171875,
+          "scroll": 237,
+          "client": 237,
+          "theme": "workshop",
+          "buttons": [
+            {
+              "text": "Open practice notes",
+              "width": 0,
+              "height": 0,
+              "scroll": 0,
+              "client": 0,
+              "bg": "rgb(73, 68, 63)"
+            },
+            {
+              "text": "Stats",
+              "width": 78.640625,
+              "height": 28,
+              "scroll": 26,
+              "client": 26,
+              "bg": "rgb(221, 187, 136)"
+            },
+            {
+              "text": "Bio",
+              "width": 62.75,
+              "height": 28,
+              "scroll": 26,
+              "client": 26,
+              "bg": "rgb(73, 68, 63)"
+            },
+            {
+              "text": "Equipment",
+              "width": 111.390625,
+              "height": 28,
+              "scroll": 26,
+              "client": 26,
+              "bg": "rgb(73, 68, 63)"
+            },
+            {
+              "text": "Tools",
+              "width": 76.4375,
+              "height": 28,
+              "scroll": 26,
+              "client": 26,
+              "bg": "rgb(73, 68, 63)"
+            }
+          ]
+        }
+      },
+      "preview": "Component preview · sample controls\nSelected tab\nA longer comparison label\nInspect sample action\nUnavailable action\nSample input\nSample material\tAmount\nPrepared component\t12 units\n\nWarning: sample requirement unmet.\n\nError: sample write unavailable.\n\nCurrent known place\nstar_border Village\nCurrent level\nLvl: 0\n\nDraft preview only. Apply activates these component states. Cosmetic themes grant no powers."
+    },
+    {
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "textSize": 20,
+      "pageOverflow": false,
+      "states": {
+        "inventory_combat_switch_selection": {
+          "font": "20px",
+          "bg": "rgb(48, 43, 37)",
+          "color": "rgb(244, 238, 226)",
+          "height": 72,
+          "scroll": 72,
+          "client": 72,
+          "theme": "workshop",
+          "buttons": [
+            {
+              "text": "Inventory",
+              "width": 169.953125,
+              "height": 40,
+              "scroll": 38,
+              "client": 38,
+              "bg": "rgb(221, 187, 136)"
+            },
+            {
+              "text": "Combat",
+              "width": 155.265625,
+              "height": 40,
+              "scroll": 38,
+              "client": 38,
+              "bg": "rgb(73, 68, 63)"
+            }
+          ]
+        },
+        "character_control_div": {
+          "font": "20px",
+          "bg": "rgba(0, 0, 0, 0)",
+          "color": "rgb(255, 255, 255)",
+          "height": 42,
+          "scroll": 42,
+          "client": 42,
+          "theme": "workshop",
+          "buttons": [
+            {
+              "text": "Stats",
+              "width": 73.4375,
+              "height": 40,
+              "scroll": 38,
+              "client": 38,
+              "bg": "rgb(221, 187, 136)"
+            },
+            {
+              "text": "Bio",
+              "width": 51.6875,
+              "height": 40,
+              "scroll": 38,
+              "client": 38,
+              "bg": "rgb(73, 68, 63)"
+            },
+            {
+              "text": "Equipment",
+              "width": 118.09375,
+              "height": 40,
+              "scroll": 38,
+              "client": 38,
+              "bg": "rgb(73, 68, 63)"
+            },
+            {
+              "text": "Tools",
+              "width": 70,
+              "height": 40,
+              "scroll": 38,
+              "client": 38,
+              "bg": "rgb(73, 68, 63)"
+            }
+          ]
+        },
+        "inventory_control_div": {
+          "font": "20px",
+          "bg": "rgba(0, 0, 0, 0)",
+          "color": "rgb(244, 238, 226)",
+          "height": 86,
+          "scroll": 86,
+          "client": 86,
+          "theme": "workshop",
+          "buttons": [
+            {
+              "text": "All",
+              "width": 45.359375,
+              "height": 40,
+              "scroll": 38,
+              "client": 38,
+              "bg": "rgb(221, 187, 136)"
+            },
+            {
+              "text": "Equipment",
+              "width": 115.21875,
+              "height": 40,
+              "scroll": 38,
+              "client": 38,
+              "bg": "rgb(73, 68, 63)"
+            },
+            {
+              "text": "Usable",
+              "width": 81.75,
+              "height": 40,
+              "scroll": 38,
+              "client": 38,
+              "bg": "rgb(73, 68, 63)"
+            },
+            {
+              "text": "Other",
+              "width": 70.890625,
+              "height": 40,
+              "scroll": 38,
+              "client": 38,
+              "bg": "rgb(73, 68, 63)"
+            },
+            {
+              "text": "Favs",
+              "width": 325.21875,
+              "height": 40,
+              "scroll": 38,
+              "client": 38,
+              "bg": "rgb(73, 68, 63)"
+            }
+          ]
+        },
+        "location_related_div": {
+          "font": "20px",
+          "bg": "rgb(48, 43, 37)",
+          "color": "rgb(244, 238, 226)",
+          "height": 1246,
+          "scroll": 1246,
+          "client": 1246,
+          "theme": "workshop",
+          "buttons": [
+            {
+              "text": "Ask Tessa: Dependable worker",
+              "width": 281.28125,
+              "height": 40,
+              "scroll": 38,
+              "client": 38,
+              "bg": "rgb(48, 43, 37)"
+            },
+            {
+              "text": "Ask for repair notes (one field clear)",
+              "width": 324,
+              "height": 40,
+              "scroll": 38,
+              "client": 38,
+              "bg": "rgb(48, 43, 37)"
+            },
+            {
+              "text": "Buy repair notes (10 coins)",
+              "width": 246.078125,
+              "height": 40,
+              "scroll": 38,
+              "client": 38,
+              "bg": "rgb(73, 68, 63)"
+            },
+            {
+              "text": "question_answer Talk to someone",
+              "width": 551.21875,
+              "height": 42,
+              "scroll": 38,
+              "client": 38,
+              "bg": "rgba(0, 0, 0, 0)"
+            },
+            {
+              "text": "check_box_outline_blank Talk to village elder",
+              "width": 0,
+              "height": 0,
+              "scroll": 0,
+              "client": 0,
+              "bg": "rgb(73, 68, 63)"
+            },
+            {
+              "text": "work_outline Find work",
+              "width": 551.21875,
+              "height": 42,
+              "scroll": 38,
+              "client": 38,
+              "bg": "rgba(0, 0, 0, 0)"
+            },
+            {
+              "text": "Pays 5C per every 2 hours workedcheck_box_outline_blank Take a loaned kit and patrol with Tessa (2 hours, 50 coins).",
+              "width": 0,
+              "height": 0,
+              "scroll": 0,
+              "client": 0,
+              "bg": "rgb(73, 68, 63)"
+            },
+            {
+              "text": "",
+              "width": 121.96875,
+              "height": 40,
+              "scroll": 38,
+              "client": 38,
+              "bg": "rgb(73, 68, 63)"
+            },
+            {
+              "text": "",
+              "width": 456.96875,
+              "height": 40,
+              "scroll": 38,
+              "client": 38,
+              "bg": "rgb(48, 43, 37)"
+            },
+            {
+              "text": "Sort by name",
+              "width": 0,
+              "height": 0,
+              "scroll": 0,
+              "client": 0,
+              "bg": "rgb(221, 187, 136)"
+            },
+            {
+              "text": "Sort by value",
+              "width": 0,
+              "height": 0,
+              "scroll": 0,
+              "client": 0,
+              "bg": "rgb(73, 68, 63)"
+            },
+            {
+              "text": "Sort by type",
+              "width": 0,
+              "height": 0,
+              "scroll": 0,
+              "client": 0,
+              "bg": "rgb(73, 68, 63)"
+            },
+            {
+              "text": "\n                                all\n                            ",
+              "width": 0,
+              "height": 0,
+              "scroll": 0,
+              "client": 0,
+              "bg": "rgb(221, 187, 136)"
+            },
+            {
+              "text": "\n                                equipment\n                            ",
+              "width": 0,
+              "height": 0,
+              "scroll": 0,
+              "client": 0,
+              "bg": "rgb(73, 68, 63)"
+            },
+            {
+              "text": "\n                                usable\n                            ",
+              "width": 0,
+              "height": 0,
+              "scroll": 0,
+              "client": 0,
+              "bg": "rgb(73, 68, 63)"
+            },
+            {
+              "text": "\n                                other\n                            ",
+              "width": 0,
+              "height": 0,
+              "scroll": 0,
+              "client": 0,
+              "bg": "rgb(73, 68, 63)"
+            },
+            {
+              "text": "\n                                Accept\n                            ",
+              "width": 0,
+              "height": 0,
+              "scroll": 0,
+              "client": 0,
+              "bg": "rgb(0, 128, 0)"
+            },
+            {
+              "text": "\n                                Cancel\n                            ",
+              "width": 0,
+              "height": 0,
+              "scroll": 0,
+              "client": 0,
+              "bg": "rgb(255, 0, 0)"
+            },
+            {
+              "text": "\n                                Exit\n                            ",
+              "width": 0,
+              "height": 0,
+              "scroll": 0,
+              "client": 0,
+              "bg": "rgba(255, 241, 117, 0.2)"
+            },
+            {
+              "text": "Sort by name",
+              "width": 0,
+              "height": 0,
+              "scroll": 0,
+              "client": 0,
+              "bg": "rgb(221, 187, 136)"
+            },
+            {
+              "text": "Sort by value",
+              "width": 0,
+              "height": 0,
+              "scroll": 0,
+              "client": 0,
+              "bg": "rgb(73, 68, 63)"
+            },
+            {
+              "text": "Sort by type",
+              "width": 0,
+              "height": 0,
+              "scroll": 0,
+              "client": 0,
+              "bg": "rgb(73, 68, 63)"
+            },
+            {
+              "text": "\n                                all\n                            ",
+              "width": 0,
+              "height": 0,
+              "scroll": 0,
+              "client": 0,
+              "bg": "rgb(221, 187, 136)"
+            },
+            {
+              "text": "\n                                equipment\n                            ",
+              "width": 0,
+              "height": 0,
+              "scroll": 0,
+              "client": 0,
+              "bg": "rgb(73, 68, 63)"
+            },
+            {
+              "text": "\n                                usable\n                            ",
+              "width": 0,
+              "height": 0,
+              "scroll": 0,
+              "client": 0,
+              "bg": "rgb(73, 68, 63)"
+            },
+            {
+              "text": "\n                                other\n                            ",
+              "width": 0,
+              "height": 0,
+              "scroll": 0,
+              "client": 0,
+              "bg": "rgb(73, 68, 63)"
+            },
+            {
+              "text": "\n                                Exit\n                            ",
+              "width": 0,
+              "height": 0,
+              "scroll": 0,
+              "client": 0,
+              "bg": "rgba(255, 241, 117, 0.2)"
+            },
+            {
+              "text": "Tinkering",
+              "width": 0,
+              "height": 0,
+              "scroll": 0,
+              "client": 0,
+              "bg": "rgb(73, 68, 63)"
+            },
+            {
+              "text": "Butchering",
+              "width": 0,
+              "height": 0,
+              "scroll": 0,
+              "client": 0,
+              "bg": "rgb(73, 68, 63)"
+            },
+            {
+              "text": "Cooking",
+              "width": 0,
+              "height": 0,
+              "scroll": 0,
+              "client": 0,
+              "bg": "rgb(73, 68, 63)"
+            },
+            {
+              "text": "Woodworking",
+              "width": 0,
+              "height": 0,
+              "scroll": 0,
+              "client": 0,
+              "bg": "rgb(73, 68, 63)"
+            },
+            {
+              "text": "Smelting",
+              "width": 0,
+              "height": 0,
+              "scroll": 0,
+              "client": 0,
+              "bg": "rgb(73, 68, 63)"
+            },
+            {
+              "text": "Forging",
+              "width": 0,
+              "height": 0,
+              "scroll": 0,
+              "client": 0,
+              "bg": "rgb(73, 68, 63)"
+            },
+            {
+              "text": "Alchemy",
+              "width": 0,
+              "height": 0,
+              "scroll": 0,
+              "client": 0,
+              "bg": "rgb(73, 68, 63)"
+            },
+            {
+              "text": "Items/trinkets",
+              "width": 0,
+              "height": 0,
+              "scroll": 0,
+              "client": 0,
+              "bg": "rgb(221, 187, 136)"
+            },
+            {
+              "text": "Components",
+              "width": 0,
+              "height": 0,
+              "scroll": 0,
+              "client": 0,
+              "bg": "rgb(73, 68, 63)"
+            },
+            {
+              "text": "Equipment",
+              "width": 0,
+              "height": 0,
+              "scroll": 0,
+              "client": 0,
+              "bg": "rgb(73, 68, 63)"
+            },
+            {
+              "text": "\n                            Exit\n                        ",
+              "width": 0,
+              "height": 0,
+              "scroll": 0,
+              "client": 0,
+              "bg": "rgba(255, 241, 117, 0.2)"
+            },
+            {
+              "text": "Cancel visual effect",
+              "width": 0,
+              "height": 0,
+              "scroll": 0,
+              "client": 0,
+              "bg": "rgb(73, 68, 63)"
+            }
+          ]
+        },
+        "character_div": {
+          "font": "20px",
+          "bg": "rgb(48, 43, 37)",
+          "color": "rgb(244, 238, 226)",
+          "height": 281.984375,
+          "scroll": 282,
+          "client": 282,
+          "theme": "workshop",
+          "buttons": [
+            {
+              "text": "Open practice notes",
+              "width": 0,
+              "height": 0,
+              "scroll": 0,
+              "client": 0,
+              "bg": "rgb(73, 68, 63)"
+            },
+            {
+              "text": "Stats",
+              "width": 73.4375,
+              "height": 40,
+              "scroll": 38,
+              "client": 38,
+              "bg": "rgb(221, 187, 136)"
+            },
+            {
+              "text": "Bio",
+              "width": 51.6875,
+              "height": 40,
+              "scroll": 38,
+              "client": 38,
+              "bg": "rgb(73, 68, 63)"
+            },
+            {
+              "text": "Equipment",
+              "width": 118.09375,
+              "height": 40,
+              "scroll": 38,
+              "client": 38,
+              "bg": "rgb(73, 68, 63)"
+            },
+            {
+              "text": "Tools",
+              "width": 70,
+              "height": 40,
+              "scroll": 38,
+              "client": 38,
+              "bg": "rgb(73, 68, 63)"
+            }
+          ]
+        }
+      },
+      "preview": "Component preview · sample controls\nSelected tab\nA longer comparison label\nInspect sample action\nUnavailable action\nSample input\nSample material\tAmount\nPrepared component\t12 units\n\nWarning: sample requirement unmet.\n\nError: sample write unavailable.\n\nCurrent known place\nstar_border Village\nCurrent level\nLvl: 0\n\nDraft preview only. Apply activates these component states. Cosmetic themes grant no powers."
+    },
+    {
+      "viewport": {
+        "width": 1512,
+        "height": 982
+      },
+      "textSize": 20,
+      "pageOverflow": false,
+      "states": {
+        "inventory_combat_switch_selection": {
+          "font": "20px",
+          "bg": "rgb(48, 43, 37)",
+          "color": "rgb(244, 238, 226)",
+          "height": 72,
+          "scroll": 72,
+          "client": 72,
+          "theme": "workshop",
+          "buttons": [
+            {
+              "text": "Inventory",
+              "width": 179.671875,
+              "height": 40,
+              "scroll": 38,
+              "client": 38,
+              "bg": "rgb(221, 187, 136)"
+            },
+            {
+              "text": "Combat",
+              "width": 164.984375,
+              "height": 40,
+              "scroll": 38,
+              "client": 38,
+              "bg": "rgb(73, 68, 63)"
+            }
+          ]
+        },
+        "character_control_div": {
+          "font": "20px",
+          "bg": "rgba(0, 0, 0, 0)",
+          "color": "rgb(255, 255, 255)",
+          "height": 42,
+          "scroll": 42,
+          "client": 42,
+          "theme": "workshop",
+          "buttons": [
+            {
+              "text": "Stats",
+              "width": 78.296875,
+              "height": 40,
+              "scroll": 38,
+              "client": 38,
+              "bg": "rgb(221, 187, 136)"
+            },
+            {
+              "text": "Bio",
+              "width": 56.546875,
+              "height": 40,
+              "scroll": 38,
+              "client": 38,
+              "bg": "rgb(73, 68, 63)"
+            },
+            {
+              "text": "Equipment",
+              "width": 122.953125,
+              "height": 40,
+              "scroll": 38,
+              "client": 38,
+              "bg": "rgb(73, 68, 63)"
+            },
+            {
+              "text": "Tools",
+              "width": 74.859375,
+              "height": 40,
+              "scroll": 38,
+              "client": 38,
+              "bg": "rgb(73, 68, 63)"
+            }
+          ]
+        },
+        "inventory_control_div": {
+          "font": "20px",
+          "bg": "rgba(0, 0, 0, 0)",
+          "color": "rgb(244, 238, 226)",
+          "height": 86,
+          "scroll": 86,
+          "client": 86,
+          "theme": "workshop",
+          "buttons": [
+            {
+              "text": "All",
+              "width": 50.21875,
+              "height": 40,
+              "scroll": 38,
+              "client": 38,
+              "bg": "rgb(221, 187, 136)"
+            },
+            {
+              "text": "Equipment",
+              "width": 120.078125,
+              "height": 40,
+              "scroll": 38,
+              "client": 38,
+              "bg": "rgb(73, 68, 63)"
+            },
+            {
+              "text": "Usable",
+              "width": 86.609375,
+              "height": 40,
+              "scroll": 38,
+              "client": 38,
+              "bg": "rgb(73, 68, 63)"
+            },
+            {
+              "text": "Other",
+              "width": 75.75,
+              "height": 40,
+              "scroll": 38,
+              "client": 38,
+              "bg": "rgb(73, 68, 63)"
+            },
+            {
+              "text": "Favs",
+              "width": 344.65625,
+              "height": 40,
+              "scroll": 38,
+              "client": 38,
+              "bg": "rgb(73, 68, 63)"
+            }
+          ]
+        },
+        "location_related_div": {
+          "font": "20px",
+          "bg": "rgb(48, 43, 37)",
+          "color": "rgb(244, 238, 226)",
+          "height": 1178,
+          "scroll": 1178,
+          "client": 1178,
+          "theme": "workshop",
+          "buttons": [
+            {
+              "text": "Ask Tessa: Dependable worker",
+              "width": 281.28125,
+              "height": 40,
+              "scroll": 38,
+              "client": 38,
+              "bg": "rgb(48, 43, 37)"
+            },
+            {
+              "text": "Ask for repair notes (one field clear)",
+              "width": 324,
+              "height": 40,
+              "scroll": 38,
+              "client": 38,
+              "bg": "rgb(48, 43, 37)"
+            },
+            {
+              "text": "Buy repair notes (10 coins)",
+              "width": 246.078125,
+              "height": 40,
+              "scroll": 38,
+              "client": 38,
+              "bg": "rgb(73, 68, 63)"
+            },
+            {
+              "text": "question_answer Talk to someone",
+              "width": 582.171875,
+              "height": 42,
+              "scroll": 38,
+              "client": 38,
+              "bg": "rgba(0, 0, 0, 0)"
+            },
+            {
+              "text": "check_box_outline_blank Talk to village elder",
+              "width": 0,
+              "height": 0,
+              "scroll": 0,
+              "client": 0,
+              "bg": "rgb(73, 68, 63)"
+            },
+            {
+              "text": "work_outline Find work",
+              "width": 582.171875,
+              "height": 42,
+              "scroll": 38,
+              "client": 38,
+              "bg": "rgba(0, 0, 0, 0)"
+            },
+            {
+              "text": "Pays 5C per every 2 hours workedcheck_box_outline_blank Take a loaned kit and patrol with Tessa (2 hours, 50 coins).",
+              "width": 0,
+              "height": 0,
+              "scroll": 0,
+              "client": 0,
+              "bg": "rgb(73, 68, 63)"
+            },
+            {
+              "text": "",
+              "width": 121.96875,
+              "height": 40,
+              "scroll": 38,
+              "client": 38,
+              "bg": "rgb(73, 68, 63)"
+            },
+            {
+              "text": "",
+              "width": 457.71875,
+              "height": 40,
+              "scroll": 38,
+              "client": 38,
+              "bg": "rgb(48, 43, 37)"
+            },
+            {
+              "text": "Sort by name",
+              "width": 0,
+              "height": 0,
+              "scroll": 0,
+              "client": 0,
+              "bg": "rgb(221, 187, 136)"
+            },
+            {
+              "text": "Sort by value",
+              "width": 0,
+              "height": 0,
+              "scroll": 0,
+              "client": 0,
+              "bg": "rgb(73, 68, 63)"
+            },
+            {
+              "text": "Sort by type",
+              "width": 0,
+              "height": 0,
+              "scroll": 0,
+              "client": 0,
+              "bg": "rgb(73, 68, 63)"
+            },
+            {
+              "text": "\n                                all\n                            ",
+              "width": 0,
+              "height": 0,
+              "scroll": 0,
+              "client": 0,
+              "bg": "rgb(221, 187, 136)"
+            },
+            {
+              "text": "\n                                equipment\n                            ",
+              "width": 0,
+              "height": 0,
+              "scroll": 0,
+              "client": 0,
+              "bg": "rgb(73, 68, 63)"
+            },
+            {
+              "text": "\n                                usable\n                            ",
+              "width": 0,
+              "height": 0,
+              "scroll": 0,
+              "client": 0,
+              "bg": "rgb(73, 68, 63)"
+            },
+            {
+              "text": "\n                                other\n                            ",
+              "width": 0,
+              "height": 0,
+              "scroll": 0,
+              "client": 0,
+              "bg": "rgb(73, 68, 63)"
+            },
+            {
+              "text": "\n                                Accept\n                            ",
+              "width": 0,
+              "height": 0,
+              "scroll": 0,
+              "client": 0,
+              "bg": "rgb(0, 128, 0)"
+            },
+            {
+              "text": "\n                                Cancel\n                            ",
+              "width": 0,
+              "height": 0,
+              "scroll": 0,
+              "client": 0,
+              "bg": "rgb(255, 0, 0)"
+            },
+            {
+              "text": "\n                                Exit\n                            ",
+              "width": 0,
+              "height": 0,
+              "scroll": 0,
+              "client": 0,
+              "bg": "rgba(255, 241, 117, 0.2)"
+            },
+            {
+              "text": "Sort by name",
+              "width": 0,
+              "height": 0,
+              "scroll": 0,
+              "client": 0,
+              "bg": "rgb(221, 187, 136)"
+            },
+            {
+              "text": "Sort by value",
+              "width": 0,
+              "height": 0,
+              "scroll": 0,
+              "client": 0,
+              "bg": "rgb(73, 68, 63)"
+            },
+            {
+              "text": "Sort by type",
+              "width": 0,
+              "height": 0,
+              "scroll": 0,
+              "client": 0,
+              "bg": "rgb(73, 68, 63)"
+            },
+            {
+              "text": "\n                                all\n                            ",
+              "width": 0,
+              "height": 0,
+              "scroll": 0,
+              "client": 0,
+              "bg": "rgb(221, 187, 136)"
+            },
+            {
+              "text": "\n                                equipment\n                            ",
+              "width": 0,
+              "height": 0,
+              "scroll": 0,
+              "client": 0,
+              "bg": "rgb(73, 68, 63)"
+            },
+            {
+              "text": "\n                                usable\n                            ",
+              "width": 0,
+              "height": 0,
+              "scroll": 0,
+              "client": 0,
+              "bg": "rgb(73, 68, 63)"
+            },
+            {
+              "text": "\n                                other\n                            ",
+              "width": 0,
+              "height": 0,
+              "scroll": 0,
+              "client": 0,
+              "bg": "rgb(73, 68, 63)"
+            },
+            {
+              "text": "\n                                Exit\n                            ",
+              "width": 0,
+              "height": 0,
+              "scroll": 0,
+              "client": 0,
+              "bg": "rgba(255, 241, 117, 0.2)"
+            },
+            {
+              "text": "Tinkering",
+              "width": 0,
+              "height": 0,
+              "scroll": 0,
+              "client": 0,
+              "bg": "rgb(73, 68, 63)"
+            },
+            {
+              "text": "Butchering",
+              "width": 0,
+              "height": 0,
+              "scroll": 0,
+              "client": 0,
+              "bg": "rgb(73, 68, 63)"
+            },
+            {
+              "text": "Cooking",
+              "width": 0,
+              "height": 0,
+              "scroll": 0,
+              "client": 0,
+              "bg": "rgb(73, 68, 63)"
+            },
+            {
+              "text": "Woodworking",
+              "width": 0,
+              "height": 0,
+              "scroll": 0,
+              "client": 0,
+              "bg": "rgb(73, 68, 63)"
+            },
+            {
+              "text": "Smelting",
+              "width": 0,
+              "height": 0,
+              "scroll": 0,
+              "client": 0,
+              "bg": "rgb(73, 68, 63)"
+            },
+            {
+              "text": "Forging",
+              "width": 0,
+              "height": 0,
+              "scroll": 0,
+              "client": 0,
+              "bg": "rgb(73, 68, 63)"
+            },
+            {
+              "text": "Alchemy",
+              "width": 0,
+              "height": 0,
+              "scroll": 0,
+              "client": 0,
+              "bg": "rgb(73, 68, 63)"
+            },
+            {
+              "text": "Items/trinkets",
+              "width": 0,
+              "height": 0,
+              "scroll": 0,
+              "client": 0,
+              "bg": "rgb(221, 187, 136)"
+            },
+            {
+              "text": "Components",
+              "width": 0,
+              "height": 0,
+              "scroll": 0,
+              "client": 0,
+              "bg": "rgb(73, 68, 63)"
+            },
+            {
+              "text": "Equipment",
+              "width": 0,
+              "height": 0,
+              "scroll": 0,
+              "client": 0,
+              "bg": "rgb(73, 68, 63)"
+            },
+            {
+              "text": "\n                            Exit\n                        ",
+              "width": 0,
+              "height": 0,
+              "scroll": 0,
+              "client": 0,
+              "bg": "rgba(255, 241, 117, 0.2)"
+            },
+            {
+              "text": "Cancel visual effect",
+              "width": 0,
+              "height": 0,
+              "scroll": 0,
+              "client": 0,
+              "bg": "rgb(73, 68, 63)"
+            }
+          ]
+        },
+        "character_div": {
+          "font": "20px",
+          "bg": "rgb(48, 43, 37)",
+          "color": "rgb(244, 238, 226)",
+          "height": 281.984375,
+          "scroll": 282,
+          "client": 282,
+          "theme": "workshop",
+          "buttons": [
+            {
+              "text": "Open practice notes",
+              "width": 0,
+              "height": 0,
+              "scroll": 0,
+              "client": 0,
+              "bg": "rgb(73, 68, 63)"
+            },
+            {
+              "text": "Stats",
+              "width": 78.296875,
+              "height": 40,
+              "scroll": 38,
+              "client": 38,
+              "bg": "rgb(221, 187, 136)"
+            },
+            {
+              "text": "Bio",
+              "width": 56.546875,
+              "height": 40,
+              "scroll": 38,
+              "client": 38,
+              "bg": "rgb(73, 68, 63)"
+            },
+            {
+              "text": "Equipment",
+              "width": 122.953125,
+              "height": 40,
+              "scroll": 38,
+              "client": 38,
+              "bg": "rgb(73, 68, 63)"
+            },
+            {
+              "text": "Tools",
+              "width": 74.859375,
+              "height": 40,
+              "scroll": 38,
+              "client": 38,
+              "bg": "rgb(73, 68, 63)"
+            }
+          ]
+        }
+      },
+      "preview": "Component preview · sample controls\nSelected tab\nA longer comparison label\nInspect sample action\nUnavailable action\nSample input\nSample material\tAmount\nPrepared component\t12 units\n\nWarning: sample requirement unmet.\n\nError: sample write unavailable.\n\nCurrent known place\nstar_border Village\nCurrent level\nLvl: 0\n\nDraft preview only. Apply activates these component states. Cosmetic themes grant no powers."
+    },
+    {
+      "viewport": {
+        "width": 1920,
+        "height": 1080
+      },
+      "textSize": 20,
+      "pageOverflow": false,
+      "states": {
+        "inventory_combat_switch_selection": {
+          "font": "20px",
+          "bg": "rgb(48, 43, 37)",
+          "color": "rgb(244, 238, 226)",
+          "height": 72,
+          "scroll": 72,
+          "client": 72,
+          "theme": "workshop",
+          "buttons": [
+            {
+              "text": "Inventory",
+              "width": 234.75,
+              "height": 40,
+              "scroll": 38,
+              "client": 38,
+              "bg": "rgb(221, 187, 136)"
+            },
+            {
+              "text": "Combat",
+              "width": 220.0625,
+              "height": 40,
+              "scroll": 38,
+              "client": 38,
+              "bg": "rgb(73, 68, 63)"
+            }
+          ]
+        },
+        "character_control_div": {
+          "font": "20px",
+          "bg": "rgba(0, 0, 0, 0)",
+          "color": "rgb(255, 255, 255)",
+          "height": 42,
+          "scroll": 42,
+          "client": 42,
+          "theme": "workshop",
+          "buttons": [
+            {
+              "text": "Stats",
+              "width": 105.828125,
+              "height": 40,
+              "scroll": 38,
+              "client": 38,
+              "bg": "rgb(221, 187, 136)"
+            },
+            {
+              "text": "Bio",
+              "width": 84.078125,
+              "height": 40,
+              "scroll": 38,
+              "client": 38,
+              "bg": "rgb(73, 68, 63)"
+            },
+            {
+              "text": "Equipment",
+              "width": 150.5,
+              "height": 40,
+              "scroll": 38,
+              "client": 38,
+              "bg": "rgb(73, 68, 63)"
+            },
+            {
+              "text": "Tools",
+              "width": 102.40625,
+              "height": 40,
+              "scroll": 38,
+              "client": 38,
+              "bg": "rgb(73, 68, 63)"
+            }
+          ]
+        },
+        "inventory_control_div": {
+          "font": "20px",
+          "bg": "rgba(0, 0, 0, 0)",
+          "color": "rgb(244, 238, 226)",
+          "height": 42,
+          "scroll": 42,
+          "client": 42,
+          "theme": "workshop",
+          "buttons": [
+            {
+              "text": "All",
+              "width": 58.328125,
+              "height": 40,
+              "scroll": 38,
+              "client": 38,
+              "bg": "rgb(221, 187, 136)"
+            },
+            {
+              "text": "Equipment",
+              "width": 128.1875,
+              "height": 40,
+              "scroll": 38,
+              "client": 38,
+              "bg": "rgb(73, 68, 63)"
+            },
+            {
+              "text": "Usable",
+              "width": 94.71875,
+              "height": 40,
+              "scroll": 38,
+              "client": 38,
+              "bg": "rgb(73, 68, 63)"
+            },
+            {
+              "text": "Other",
+              "width": 83.859375,
+              "height": 40,
+              "scroll": 38,
+              "client": 38,
+              "bg": "rgb(73, 68, 63)"
+            },
+            {
+              "text": "Favs",
+              "width": 73.71875,
+              "height": 40,
+              "scroll": 38,
+              "client": 38,
+              "bg": "rgb(73, 68, 63)"
+            }
+          ]
+        },
+        "location_related_div": {
+          "font": "20px",
+          "bg": "rgb(48, 43, 37)",
+          "color": "rgb(244, 238, 226)",
+          "height": 1094,
+          "scroll": 1094,
+          "client": 1094,
+          "theme": "workshop",
+          "buttons": [
+            {
+              "text": "Ask Tessa: Dependable worker",
+              "width": 281.28125,
+              "height": 40,
+              "scroll": 38,
+              "client": 38,
+              "bg": "rgb(48, 43, 37)"
+            },
+            {
+              "text": "Ask for repair notes (one field clear)",
+              "width": 324,
+              "height": 40,
+              "scroll": 38,
+              "client": 38,
+              "bg": "rgb(48, 43, 37)"
+            },
+            {
+              "text": "Buy repair notes (10 coins)",
+              "width": 246.078125,
+              "height": 40,
+              "scroll": 38,
+              "client": 38,
+              "bg": "rgb(73, 68, 63)"
+            },
+            {
+              "text": "question_answer Talk to someone",
+              "width": 757.625,
+              "height": 42,
+              "scroll": 38,
+              "client": 38,
+              "bg": "rgba(0, 0, 0, 0)"
+            },
+            {
+              "text": "check_box_outline_blank Talk to village elder",
+              "width": 0,
+              "height": 0,
+              "scroll": 0,
+              "client": 0,
+              "bg": "rgb(73, 68, 63)"
+            },
+            {
+              "text": "work_outline Find work",
+              "width": 757.625,
+              "height": 42,
+              "scroll": 38,
+              "client": 38,
+              "bg": "rgba(0, 0, 0, 0)"
+            },
+            {
+              "text": "Pays 5C per every 2 hours workedcheck_box_outline_blank Take a loaned kit and patrol with Tessa (2 hours, 50 coins).",
+              "width": 0,
+              "height": 0,
+              "scroll": 0,
+              "client": 0,
+              "bg": "rgb(73, 68, 63)"
+            },
+            {
+              "text": "",
+              "width": 121.96875,
+              "height": 40,
+              "scroll": 38,
+              "client": 38,
+              "bg": "rgb(73, 68, 63)"
+            },
+            {
+              "text": "",
+              "width": 457.65625,
+              "height": 40,
+              "scroll": 38,
+              "client": 38,
+              "bg": "rgb(48, 43, 37)"
+            },
+            {
+              "text": "Sort by name",
+              "width": 0,
+              "height": 0,
+              "scroll": 0,
+              "client": 0,
+              "bg": "rgb(221, 187, 136)"
+            },
+            {
+              "text": "Sort by value",
+              "width": 0,
+              "height": 0,
+              "scroll": 0,
+              "client": 0,
+              "bg": "rgb(73, 68, 63)"
+            },
+            {
+              "text": "Sort by type",
+              "width": 0,
+              "height": 0,
+              "scroll": 0,
+              "client": 0,
+              "bg": "rgb(73, 68, 63)"
+            },
+            {
+              "text": "\n                                all\n                            ",
+              "width": 0,
+              "height": 0,
+              "scroll": 0,
+              "client": 0,
+              "bg": "rgb(221, 187, 136)"
+            },
+            {
+              "text": "\n                                equipment\n                            ",
+              "width": 0,
+              "height": 0,
+              "scroll": 0,
+              "client": 0,
+              "bg": "rgb(73, 68, 63)"
+            },
+            {
+              "text": "\n                                usable\n                            ",
+              "width": 0,
+              "height": 0,
+              "scroll": 0,
+              "client": 0,
+              "bg": "rgb(73, 68, 63)"
+            },
+            {
+              "text": "\n                                other\n                            ",
+              "width": 0,
+              "height": 0,
+              "scroll": 0,
+              "client": 0,
+              "bg": "rgb(73, 68, 63)"
+            },
+            {
+              "text": "\n                                Accept\n                            ",
+              "width": 0,
+              "height": 0,
+              "scroll": 0,
+              "client": 0,
+              "bg": "rgb(0, 128, 0)"
+            },
+            {
+              "text": "\n                                Cancel\n                            ",
+              "width": 0,
+              "height": 0,
+              "scroll": 0,
+              "client": 0,
+              "bg": "rgb(255, 0, 0)"
+            },
+            {
+              "text": "\n                                Exit\n                            ",
+              "width": 0,
+              "height": 0,
+              "scroll": 0,
+              "client": 0,
+              "bg": "rgba(255, 241, 117, 0.2)"
+            },
+            {
+              "text": "Sort by name",
+              "width": 0,
+              "height": 0,
+              "scroll": 0,
+              "client": 0,
+              "bg": "rgb(221, 187, 136)"
+            },
+            {
+              "text": "Sort by value",
+              "width": 0,
+              "height": 0,
+              "scroll": 0,
+              "client": 0,
+              "bg": "rgb(73, 68, 63)"
+            },
+            {
+              "text": "Sort by type",
+              "width": 0,
+              "height": 0,
+              "scroll": 0,
+              "client": 0,
+              "bg": "rgb(73, 68, 63)"
+            },
+            {
+              "text": "\n                                all\n                            ",
+              "width": 0,
+              "height": 0,
+              "scroll": 0,
+              "client": 0,
+              "bg": "rgb(221, 187, 136)"
+            },
+            {
+              "text": "\n                                equipment\n                            ",
+              "width": 0,
+              "height": 0,
+              "scroll": 0,
+              "client": 0,
+              "bg": "rgb(73, 68, 63)"
+            },
+            {
+              "text": "\n                                usable\n                            ",
+              "width": 0,
+              "height": 0,
+              "scroll": 0,
+              "client": 0,
+              "bg": "rgb(73, 68, 63)"
+            },
+            {
+              "text": "\n                                other\n                            ",
+              "width": 0,
+              "height": 0,
+              "scroll": 0,
+              "client": 0,
+              "bg": "rgb(73, 68, 63)"
+            },
+            {
+              "text": "\n                                Exit\n                            ",
+              "width": 0,
+              "height": 0,
+              "scroll": 0,
+              "client": 0,
+              "bg": "rgba(255, 241, 117, 0.2)"
+            },
+            {
+              "text": "Tinkering",
+              "width": 0,
+              "height": 0,
+              "scroll": 0,
+              "client": 0,
+              "bg": "rgb(73, 68, 63)"
+            },
+            {
+              "text": "Butchering",
+              "width": 0,
+              "height": 0,
+              "scroll": 0,
+              "client": 0,
+              "bg": "rgb(73, 68, 63)"
+            },
+            {
+              "text": "Cooking",
+              "width": 0,
+              "height": 0,
+              "scroll": 0,
+              "client": 0,
+              "bg": "rgb(73, 68, 63)"
+            },
+            {
+              "text": "Woodworking",
+              "width": 0,
+              "height": 0,
+              "scroll": 0,
+              "client": 0,
+              "bg": "rgb(73, 68, 63)"
+            },
+            {
+              "text": "Smelting",
+              "width": 0,
+              "height": 0,
+              "scroll": 0,
+              "client": 0,
+              "bg": "rgb(73, 68, 63)"
+            },
+            {
+              "text": "Forging",
+              "width": 0,
+              "height": 0,
+              "scroll": 0,
+              "client": 0,
+              "bg": "rgb(73, 68, 63)"
+            },
+            {
+              "text": "Alchemy",
+              "width": 0,
+              "height": 0,
+              "scroll": 0,
+              "client": 0,
+              "bg": "rgb(73, 68, 63)"
+            },
+            {
+              "text": "Items/trinkets",
+              "width": 0,
+              "height": 0,
+              "scroll": 0,
+              "client": 0,
+              "bg": "rgb(221, 187, 136)"
+            },
+            {
+              "text": "Components",
+              "width": 0,
+              "height": 0,
+              "scroll": 0,
+              "client": 0,
+              "bg": "rgb(73, 68, 63)"
+            },
+            {
+              "text": "Equipment",
+              "width": 0,
+              "height": 0,
+              "scroll": 0,
+              "client": 0,
+              "bg": "rgb(73, 68, 63)"
+            },
+            {
+              "text": "\n                            Exit\n                        ",
+              "width": 0,
+              "height": 0,
+              "scroll": 0,
+              "client": 0,
+              "bg": "rgba(255, 241, 117, 0.2)"
+            },
+            {
+              "text": "Cancel visual effect",
+              "width": 0,
+              "height": 0,
+              "scroll": 0,
+              "client": 0,
+              "bg": "rgb(73, 68, 63)"
+            }
+          ]
+        },
+        "character_div": {
+          "font": "20px",
+          "bg": "rgb(48, 43, 37)",
+          "color": "rgb(244, 238, 226)",
+          "height": 281.984375,
+          "scroll": 282,
+          "client": 282,
+          "theme": "workshop",
+          "buttons": [
+            {
+              "text": "Open practice notes",
+              "width": 0,
+              "height": 0,
+              "scroll": 0,
+              "client": 0,
+              "bg": "rgb(73, 68, 63)"
+            },
+            {
+              "text": "Stats",
+              "width": 105.828125,
+              "height": 40,
+              "scroll": 38,
+              "client": 38,
+              "bg": "rgb(221, 187, 136)"
+            },
+            {
+              "text": "Bio",
+              "width": 84.078125,
+              "height": 40,
+              "scroll": 38,
+              "client": 38,
+              "bg": "rgb(73, 68, 63)"
+            },
+            {
+              "text": "Equipment",
+              "width": 150.5,
+              "height": 40,
+              "scroll": 38,
+              "client": 38,
+              "bg": "rgb(73, 68, 63)"
+            },
+            {
+              "text": "Tools",
+              "width": 102.40625,
+              "height": 40,
+              "scroll": 38,
+              "client": 38,
+              "bg": "rgb(73, 68, 63)"
+            }
+          ]
+        }
+      },
+      "preview": "Component preview · sample controls\nSelected tab\nA longer comparison label\nInspect sample action\nUnavailable action\nSample input\nSample material\tAmount\nPrepared component\t12 units\n\nWarning: sample requirement unmet.\n\nError: sample write unavailable.\n\nCurrent known place\nstar_border Village\nCurrent level\nLvl: 0\n\nDraft preview only. Apply activates these component states. Cosmetic themes grant no powers."
+    },
+    {
+      "contrastRecovery": "rgb(17, 17, 17)"
+    }
+  ],
+  "errors": [],
+  "persistence": "generated opening/save/reload/import",
+  "bundle": "dist/bundle.js?version=v0.6-b1057cac554a"
+}

@@ -1,0 +1,31 @@
+{
+  "owner": "01a13525-ab37-7311-926c-a39b01154282",
+  "transfer": "reservations/R6_SUCCESSOR_TRANSFER.json",
+  "releaseVerified": true,
+  "branch": "codex/gameplay-foundations",
+  "head": "dd3efe3383f12f0aac22e4f390aae90fae2e7fc4",
+  "viewport": [
+    1600,
+    1100
+  ],
+  "visibleOutcome": "Existing paid two-receiver retort and finite pause/resume with useful native kit consumer",
+  "deferred": [
+    "mobile",
+    "broad UI",
+    "FA10 study",
+    "new retort abstraction"
+  ],
+  "sourceHashes": {
+    "src/factorio_retort_content.js": "e617c1ac206d3d75e48ee80b027c0a878d7cc745f26797877ed1a838b89aec3f",
+    "src/factorio_retort_facts.js": "e47c5e936462a70d66b1535faded38955c59e1369c1035eb9eac2dd332f04e2a",
+    "src/factorio_retort_host.js": "3b22946a10fc4f021721283ec3cee0ce05c44b663c61b9879b335ade7f4c4e99",
+    "src/factorio_retort_native.js": "906d15465db4a40248afd869ad9189d43d9b6bb01ec8766902e3ad44c41ac4e0",
+    "src/main.js": "a1a4224182cbe4acbc6620499d5ff39d28367c3e5490c6e5a7b3b9048a2171be",
+    "src/simulation.js": "d56256a701b9190e4a143e63fea2cdcb7df3538dfe59aba9cfaef31544bee388",
+    "src/simulation_effects.js": "d72c0b6984738b718faaf5afab29733290e4c487b5d953b0b1722dae29495b71",
+    "src/feature_expansion_work_plan.js": "611483d42d6f75100db469ddc6b648a63dcb757f3f31e56982e18e7841e24f25",
+    "src/save_files.js": "9693989644833596a98379eececdc5a814e11845d27c1134b3e7dab3911b1120",
+    "src/reference_gameplay_host.js": "4be727ee6c811c2e5a56d8a06ffbec20c22f0ebb745dd000ee70c1c646cd777a",
+    "src/feature_expansion_objects.js": "d4d6c19ef677addd94b874dc37355465d3997d7cfbdf58ce00df379d5f02a0bd"
+  }
+}

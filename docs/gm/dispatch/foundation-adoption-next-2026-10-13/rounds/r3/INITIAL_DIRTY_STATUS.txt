@@ -1,0 +1,207 @@
+ M AGENTS.md
+ M CLAUDE.md
+ M PROJECT.md
+ M dist/bundle.js
+ M dist/bundle.js.map
+ M docs/GAME_IMPLEMENTER_TEMPLATE.md
+ M docs/GAME_MASTER_PROMPT.md
+ M docs/IDEA_INDEX.md
+ M docs/LIFE_SIM_NORTH_STAR.md
+ M docs/RULES_FROM_SCRATCH.md
+ M docs/TECHNOLOGY_AND_PROGRESSION.md
+ M docs/TIMELINES_AND_DIVERGENCE.md
+ M docs/USER_VISION.md
+ M docs/WORLD_GAME_MASTER_TEMPLATE.md
+ M docs/gm/README.md
+ M docs/gm/WORLD_EXPANSION_GM_PROMPT.md
+ M docs/gm/dispatch/AUTONOMOUS_GOALS_AND_FULL_BOOKS.md
+ M docs/gm/dispatch/GM_CAPACITY_AND_SUCCESSION.md
+ M docs/gm/dispatch/TRAILBLAZE_PARALLEL.md
+ M docs/gm/dispatch/absorb-2026-10-11/CHECKPOINT.md
+ M docs/research/SCIFI_AND_JOJO_PLAN_2026-10-10.md
+ M docs/research/SOURCE_DEEP_DIVE_PLAYBOOK.md
+ M docs/research/proto23/PROTO23_VS_YAIRPG_2026-10-10.md
+ M docs/worlds/CAMPAIGN_FRAMEWORK.md
+ M docs/worlds/original-frontier/RULES_AND_STARTS.md
+ M index.html
+ M scripts/compile_feature_ink.mjs
+ M src/absorb_d/ui.js
+ M src/adventure_notebook.js
+ M src/agreed_duty_content.js
+ M src/agreed_duty_facts.js
+ M src/agreed_duty_host.js
+ M src/audit_remainder_combat_fit_host.js
+ M src/audit_remainder_consequences_host.js
+ M src/content_pack_ui.js
+ M src/content_packs.js
+ M src/display.js
+ M src/expansion_engine.js
+ M src/expedition_content.js
+ M src/feature_expansion_destination_host.js
+ M src/feature_expansion_host.js
+ M src/feature_expansion_nested_host.js
+ M src/feature_expansion_nested_ink_ui.js
+ M src/feature_expansion_society.js
+ M src/import_probe.js
+ M src/ink_narrative.js
+ M src/ink_scene_content.js
+ M src/items.js
+ M src/lore_practice_runtime.js
+ M src/main.js
+ M src/models/hero.js
+ M src/native_equipment_transaction.js
+ M src/native_gameplay_adapter.js
+ M src/native_realm_traveler.js
+ M src/realm_state.js
+ M src/realm_traveler_profiles.js
+ M src/reference_gameplay_host.js
+ M src/save_files.js
+ M src/simulation.js
+ M src/simulation_content.js
+ M src/simulation_contracts.js
+ M src/simulation_effects.js
+ M src/simulation_ui.js
+ M src/village_career_ui.js
+ M src/world_completion_bridge.js
+ M src/world_completion_host.js
+ M src/world_completion_native.js
+ M src/world_completion_runtime.js
+ M stories/feature_wave.ink
+ M stories/feature_wave.json
+?? "ChatGPT Image Oct 9, 2026, 12_40_59 AM.png"
+?? docs/ENGINE_SAVES_AND_SCALE_REVIEW_2026-10-11.md
+?? docs/GENETICS_CONSTITUTIONS_AND_BROOD_PLAY.md
+?? docs/SHARED_FOUNDATIONS_AUDIT_2026-10-12.md
+?? docs/STARTS_ENDINGS_AND_RANDOMNESS_PALETTE.md
+?? docs/THEMATIC_UI_AND_INFORMATION_DESIGN_2026-10-12.md
+?? docs/UI_CONSISTENCY_AND_MODULARITY_AUDIT_2026-10-11.md
+?? docs/UI_DENSITY_AND_ORIGINAL_COMPARISON_AUDIT_2026-10-13.md
+?? docs/UI_DENSITY_NEXT_PARTS_CHATGPT_PROOF_2026-10-13.jpg
+?? docs/UI_DENSITY_NEXT_PARTS_CHATGPT_RESPONSE_2026-10-13.md
+?? docs/UI_DENSITY_NEXT_PARTS_PROMPT_OUTBOUND_2026-10-13.md
+?? docs/UI_DENSITY_NEXT_PARTS_PROMPT_RECONCILED_2026-10-13.md
+?? docs/UI_DENSITY_NEXT_PARTS_PROMPT_SENT_2026-10-13.md
+?? docs/UI_DENSITY_NEXT_PARTS_ROUNDTRIP_2026-10-13.json
+?? docs/UI_EXPERIENCE_AUDIT_2026-10-12.md
+?? docs/WORLD_COMPLETION_STANDARD.md
+?? docs/gm/AUDIT_RECONCILIATION_METHOD_2026-10-11.md
+?? docs/gm/CROSS_WORLD_DETAIL_REVIEW.md
+?? docs/gm/FIRST_LEVEL_BREADTH_EXTENSION_2026-10-11.md
+?? docs/gm/FIRST_LEVEL_COMPLETENESS_PROMPT.md
+?? docs/gm/MICRO_MESO_MACRO_IMPLEMENTATION_SUPPORT.md
+?? docs/gm/MODEL_ROUTING_CODEX.md
+?? docs/gm/UI_DENSITY_AUDIT_PROMPT.md
+?? docs/gm/WORLD_ACTIONABILITY_GM_PROMPT.md
+?? docs/gm/completion/
+?? docs/gm/coordination/
+?? docs/gm/dispatch/absorb-2026-10-11/OWNERSHIP_RELEASE_2026-10-11.json
+?? docs/gm/dispatch/body-lineage-expansion-2026-10-11/
+?? docs/gm/dispatch/cheats-sfx-implementation-2026-10-12/
+?? docs/gm/dispatch/connection-detail-2026-10-12/
+?? docs/gm/dispatch/cross-world-rulebook-expansion-2026-10-12/
+?? docs/gm/dispatch/dependable-local-livelihood-2026-10-12/
+?? docs/gm/dispatch/dnd-world-2026-10-11/
+?? docs/gm/dispatch/dual-gm-2026-10-11/
+?? docs/gm/dispatch/foundation-adoption-next-2026-10-13/
+?? docs/gm/dispatch/foundation-completion-2026-10-12/
+?? docs/gm/dispatch/harry-potter-craft-research-2026-10-12/
+?? docs/gm/dispatch/harry-potter-world-2026-10-11/
+?? docs/gm/dispatch/idea-expansion-2026-10-11/
+?? docs/gm/dispatch/lore-timelines-2026-10-11/
+?? docs/gm/dispatch/macro-micro-detail-2026-10-11/
+?? docs/gm/dispatch/minigames-2026-10-11/
+?? docs/gm/dispatch/parallel-book-design-2026-10-11/
+?? docs/gm/dispatch/starts-talents-continuity-2026-10-11/
+?? docs/gm/dispatch/systems-cheats-expansion-2026-10-11/
+?? docs/gm/dispatch/ui-density-slices-2026-10-13/
+?? docs/gm/dispatch/ui-experience-completion-2026-10-12/
+?? docs/gm/dispatch/ui-modularity-2026-10-11/
+?? docs/gm/dispatch/wider-gameplay-2026-10-11/
+?? docs/gm/dispatch/workflow-foundation-audit-2026-10-12/
+?? docs/gm/dispatch/world1-expansion-2026-10-11/
+?? docs/gm/dispatch/world1-full-completion-2026-10-11/
+?? docs/gm/feature-wave/ink/FOUNDATION_V3_PATH_RELEASE_2026-10-12.json
+?? docs/gm/feature-wave/ink/content/feature_wave_v3.json
+?? docs/gm/history/2026-10-13-prompt-slim-originals.md
+?? docs/research/CRAFTING_TECH_MICRO_MACRO_2026-10-11.md
+?? docs/research/GAME_AUDIT_COVERAGE_RECONCILIATION_2026-10-13.md
+?? docs/research/GAME_RESEARCH_AUDIT_CHATGPT_PROOF_2026-10-13.png
+?? docs/research/GAME_RESEARCH_AUDIT_CHATGPT_RESPONSE_2026-10-13.md
+?? docs/research/GAME_RESEARCH_AUDIT_PROMPT_OUTBOUND_2026-10-13.md
+?? docs/research/GAME_RESEARCH_AUDIT_PROMPT_RECONCILED_2026-10-13.md
+?? docs/research/GAME_RESEARCH_AUDIT_PROMPT_SENT_2026-10-13.md
+?? docs/research/GAME_RESEARCH_AUDIT_ROUNDTRIP_2026-10-13.json
+?? docs/research/JOJO_AUDIT_SCOPE_REFINEMENT_2026-10-11.md
+?? docs/research/LORE_TIMELINE_AUDIT_CONTRACT.md
+?? docs/research/REVERSE_ENGINEERING_TOOL_FIT_2026-10-13.md
+?? docs/research/SOURCE_ACQUISITION_TOOLS.md
+?? docs/research/TECHNOLOGY_KNOWLEDGE_AND_SUBTLE_PLAY_AUDIT_2026-10-11.md
+?? docs/research/WORLD_SOURCE_FIT_COMPARISON_2026-10-11.md
+?? docs/research/game-research-adoption-audit-2026-10-13/
+?? docs/research/jojo-audit-2026-10-11/
+?? docs/research/proto23/UI_AFTER_DIFFICULTY_2026-10-13.png
+?? docs/research/proto23/UI_SOURCE_ABSORPTION_2026-10-13.md
+?? docs/reviews/
+?? docs/worlds/dnd/
+?? docs/worlds/templates/
+?? src/agreed_duty_continuation.js
+?? src/component_themes.js
+?? src/customization_profiles.js
+?? src/customization_ui.js
+?? src/foundation_interaction_content.js
+?? src/foundation_interaction_policy.js
+?? src/foundation_interaction_ui.js
+?? src/foundation_start_content.js
+?? src/local_livelihood_content.js
+?? src/native_craft_transaction.js
+?? src/quiet_place_detail.js
+?? src/settled_text_effects.js
+?? src/structured_container_runtime.js
+?? src/structured_equipment_runtime.js
+?? src/structured_pack_definitions.js
+?? src/structured_pack_runtime.js
+?? src/structured_pack_state.js
+?? src/structured_pack_ui.js
+?? src/structured_renewal.js
+?? src/work_ledger_author_ui.js
+?? src/work_ledger_system.js
+?? src/work_ledger_ui.js
+?? src/workspace_layout.js
+?? src/workspace_state.js
+?? src/workspace_views.js
+?? styles/component_themes.css
+?? styles/customization.css
+?? styles/settled_text_effects.css
+?? styles/workspace.css
+?? tests/agreed_duty_continuation.test.js
+?? tests/content_pack_provenance.test.js
+?? tests/content_pack_ui.test.js
+?? tests/contextual_balm.test.js
+?? tests/foundation_interaction_policy.test.js
+?? tests/foundation_start_content.test.js
+?? tests/ink_lin_parity.test.js
+?? tests/local_livelihood.test.js
+?? tests/lore_immediate_definition.test.js
+?? tests/native_craft_transaction.test.js
+?? tests/native_equipment_ownership.test.js
+?? tests/native_gameplay_binding.test.js
+?? tests/native_retained_method.test.js
+?? tests/realm_dormant_structured.test.js
+?? tests/realm_optional_context.test.js
+?? tests/reference_optional_target.test.js
+?? tests/remainder_consequences_native_context.test.js
+?? tests/simulation_optional_enrollment.test.js
+?? tests/simulation_ui_hidden.test.js
+?? tests/structured_container_development.test.js
+?? tests/structured_container_integration.test.js
+?? tests/structured_container_preparation.test.js
+?? tests/structured_container_runtime.test.js
+?? tests/structured_equipment_runtime.test.js
+?? tests/structured_origins.test.js
+?? tests/structured_pack_definitions.test.js
+?? tests/structured_pack_runtime.test.js
+?? tests/structured_pack_ui.test.js
+?? tests/structured_renewal.test.js
+?? tests/world_completion_actor_context.test.js
+?? tests/world_completion_native_restore.test.js
+?? tests/world_completion_sample_owner.test.js

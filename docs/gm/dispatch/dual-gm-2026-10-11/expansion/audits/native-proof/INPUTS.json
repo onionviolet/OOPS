@@ -1,0 +1,23 @@
+{
+  "base": "53dc1df15889be6ebb1bae403497041f0672db46",
+  "worktree": "/Users/weiwei/.codex/worktrees/a5-native-audit/yet-another-idle-rpg",
+  "port": 18541,
+  "sources": {
+    "src/content_packs.js": "65c72a9510cb87bab963ef508c62a82af9918c5ff869338e50aab0503fef87ad",
+    "src/content_pack_ui.js": "53c0ee4c5ce3739e9fbee49cce48fdf5169f4f93c3ac2edb6d44ae4e2e3ec2e4",
+    "src/main.js": "5b595f75c35e16ed0c3c02e35549abce00eec041371db1984e2be86ee0810bd3",
+    "src/save_files.js": "c8424cb96d43847a89d6077ce5766d8302256f9b5f521faf4181b333e250db50",
+    "src/save_compatibility.js": "4800cd976ac5fa7edb6598f5deacc35d0d246c4d773315f889310297c4367334",
+    "src/expansion_engine.js": "bb9b59ce0400528ee006dc5846bb8ff85453ea7aa450d2875c37da29f754a829",
+    "src/game_time.js": "ae58e07158d52962cc8e0735b2e30af803f85bba4e68881038127a2b6b9cbf6c",
+    "build.js": "8561349784483242a15ce4208b9180651c1aaf03c3d8ff1379de8c7d8065fea5",
+    "package-lock.json": "42f2e809f9055a84c99959f12a0b17adfbbc150d5d748b5d5ce2b9f85de9df99"
+  },
+  "originalSourceParity": true,
+  "productionBundleSha256": "e8681b6bce6cb4ddf0ae7acd2d16a0c20110a354c63881d87926c5ca4a81d59e",
+  "bundleMapSha256": "efc38ee20385a78ee14da7c608532dafcb8bc3ed6602e88233f1bb75c602d27a",
+  "indexSha256": "46cead8d330a1e64d40ec852407bb4a4bfd9133b1e61dd63086ee43272f22e63",
+  "harnessSha256": "7a7d69ac7487234136dfa31e455127d804596fd4bf832da617807b53845dbd8c",
+  "diagnosticBundleSha256": "b25868a66914861e0f8970ff162f740095eaac88cd326c60556528afbf77953e",
+  "currentOriginalSourceParityAtClose": true
+}

@@ -1,0 +1,153 @@
+diff --git a/src/components/levelable_component.js b/src/components/levelable_component.js
+index 33170d6b..a0b643ff 100644
+--- a/src/components/levelable_component.js
++++ b/src/components/levelable_component.js
+@@ -131,7 +131,7 @@ class LevelableComponent extends StatHaver {
+             }
+         }
+ 
+-        if(cap_gained_xp && typeof skillXP.xp_to_next_lvl === Number) {
++        if(cap_gained_xp && Number.isFinite(skillXP.xp_to_next_lvl)) {
+             //cap on singular gains for non-crafting skills; cap for crafting skills handled in crafting code as it's dependent on how many items are made at once
+             xp_to_add = Math.min(xp_to_add, skillXP.xp_to_next_lvl*config.skill_xp_gains_cap);
+         }
+diff --git a/tests/micro_p1_xp.test.js b/tests/micro_p1_xp.test.js
+new file mode 100644
+index 00000000..18345957
+--- /dev/null
++++ b/tests/micro_p1_xp.test.js
+@@ -0,0 +1,82 @@
++import test from 'node:test';
++import assert from 'node:assert/strict';
++import {build} from 'esbuild';
++import {mkdtemp, readFile, rm} from 'node:fs/promises';
++import {tmpdir} from 'node:os';
++import {join, resolve} from 'node:path';
++import {pathToFileURL} from 'node:url';
++
++// Native catalog/actor/component, with only browser presentation disconnected.
++async function nativeModels() {
++    const dir = await mkdtemp(join(tmpdir(), 'micro-p1-'));
++    const outfile = join(dir, 'native.mjs');
++    await build({stdin: {contents: `
++        export {character} from './src/data/character.js';
++        export {skills} from './src/data/skills.js';
++        export {config} from './src/config.js';
++        export {fill_availability_methods} from './src/component_management.js';`,
++        resolveDir: resolve('.')}, bundle: true, format: 'esm', platform: 'node', outfile,
++        plugins: [{name: 'presentation-only', setup(b) {
++            b.onLoad({filter: /\/src\/(main|display)\.js$/}, async a => {
++                const source = await readFile(a.path, 'utf8');
++                const names = [...source.matchAll(/export\s*\{([^}]+)\}/g)]
++                    .flatMap(m => m[1].split(',').map(s => s.trim().split(/\s+as\s+/).at(-1)))
++                    .filter(s => /^[a-zA-Z_$][\w$]*$/.test(s));
++                return {contents: names.map(s => `export const ${s} = ${s === 'game_options' ? '{}' : s === 'current_stance' ? '({getStats:()=>({})})' : s === 'current_location' ? 'null' : s === 'capitalize_first_letter' ? 's=>s[0].toUpperCase()+s.slice(1)' : '()=>{}'};`).join('\n')};
++            });
++        }}]});
++    const native = await import(pathToFileURL(outfile));
++    native.fill_availability_methods();
++    return {native, cleanup: () => rm(dir, {recursive: true, force: true})};
++}
++
++test('native capped grants preserve ordering, uncapped restoration and parent catch-up', async () => {
++    const {native: {character, skills, config}, cleanup} = await nativeModels();
++    const grant = (id, xp, options = {}) => character.addXPToSkill({skill: skills[id], xp_to_add: xp,
++        use_bonus: false, cap_gained_xp: true, add_to_parent: false, ...options});
++    const xp = id => character.getSkillXPObject({skill_id: id});
++    try {
++        const limit = skills.Combat.base_xp_cost * config.skill_xp_gains_cap;
++        grant('Combat', 1000);
++        assert.equal(xp('Combat').total_xp, limit, 'finite capped native grant');
++        grant('Combat', limit / 2);
++        assert.equal(xp('Combat').total_xp, limit * 1.5, 'below-cap grant survives');
++        grant('Combat', limit);
++        assert.equal(xp('Combat').total_xp, limit * 2.5, 'exact boundary survives');
++
++        const lvl = character.getLevelableComponent();
++        lvl.xp_bonuses.total_multiplier.all_skill = 3;
++        grant('Combat', limit / 2, {use_bonus: true});
++        assert.equal(xp('Combat').total_xp, limit * 3.5, 'bonus applied before cap');
++        lvl.xp_bonuses.total_multiplier.all_skill = 1;
++
++        grant('Swords', 1000, {add_to_parent: true});
++        const childLimit = skills.Swords.base_xp_cost * config.skill_xp_gains_cap;
++        assert.equal(xp('Swords').total_xp, childLimit);
++        assert.equal(xp('Weapon mastery').total_xp, childLimit,
++            'parent receives accepted grant without a second cap or multiplier');
++        grant('Weapon mastery', 1000, {cap_gained_xp: false});
++        const parentBefore = xp('Weapon mastery').total_xp;
++        grant('Swords', 1000, {add_to_parent: true, use_bonus: true});
++        assert.equal(xp('Swords').total_xp, childLimit * 2, 'parent catch-up multiplier precedes cap');
++        assert.equal(xp('Weapon mastery').total_xp, parentBefore, 'ahead parent gets no extra XP');
++
++        grant('Sleeping', 10000, {cap_gained_xp: false});
++        const saved = structuredClone(xp('Sleeping'));
++        const milestones = structuredClone(lvl.stats.flat.skill_milestones);
++        grant('Sleeping', 1, {cap_gained_xp: false});
++        assert.deepEqual(lvl.stats.flat.skill_milestones, milestones, 'old milestone stats are not granted twice');
++        delete lvl.skill_progress.Sleeping;
++        grant('Sleeping', saved.total_xp, {cap_gained_xp: false});
++        assert.deepEqual(structuredClone(xp('Sleeping')), saved, 'load reconstructs earned XP exactly without cap');
++
++        grant('Smelting', 10000, {cap_gained_xp: false});
++        assert.equal(xp('Smelting').total_xp, 10000, 'bulk crafting grant retains its caller policy');
++
++        grant('Sleeping', 1e8, {cap_gained_xp: false});
++        assert.equal(xp('Sleeping').xp_to_next_lvl, Infinity);
++        const maxXP = xp('Sleeping').total_xp;
++        grant('Sleeping', 1000);
++        assert.equal(xp('Sleeping').total_xp, maxXP + 1000, 'max-level sentinel keeps existing semantics');
++    } finally {await cleanup();}
++});
+diff --git a/tests/micro_p1_browser.cjs b/tests/micro_p1_browser.cjs
+new file mode 100644
+index 00000000..312d4c0b
+--- /dev/null
++++ b/tests/micro_p1_browser.cjs
+@@ -0,0 +1,46 @@
++const {chromium}=require(process.env.YAIRPG_PLAYWRIGHT), {build}=require('esbuild');
++const fs=require('fs'),path=require('path'),assert=require('assert/strict'),crypto=require('crypto');
++const origin=process.env.YAIRPG_PROOF_URL||'http://127.0.0.1:18531/';
++const out=process.env.YAIRPG_PROOF_DIR;
++const sha=p=>crypto.createHash('sha256').update(fs.readFileSync(p)).digest('hex');
++(async()=>{
++ // Diagnostic entry only exposes actual singleton owners. No mocked/changed gameplay modules.
++ await build({stdin:{contents:`import * as main from './src/main.js'; import {character} from './src/data/character.js'; import {skills} from './src/data/skills.js'; import {config} from './src/config.js'; window.__micro={main,character,skills,config};`,resolveDir:process.cwd()},bundle:true,minify:true,format:'esm',platform:'browser',target:'es2022',outfile:'dist/micro-p1-probe.js'});
++ fs.writeFileSync('micro-p1-proof.html',fs.readFileSync('index.html','utf8').replace(/dist\/bundle\.js\?version=[^" ]+/, 'dist/micro-p1-probe.js'));
++ const b=await chromium.launch({headless:true,executablePath:'/Applications/Google Chrome.app/Contents/MacOS/Google Chrome'}),errors=[],expectedMissingResources=[];
++ async function open(seed,probe=true){const c=await b.newContext({viewport:{width:1440,height:1000}});if(seed)await c.addInitScript(s=>{if(!localStorage.getItem('save data'))localStorage.setItem('save data',JSON.stringify(s))},seed);const p=await c.newPage();p.on('pageerror',e=>errors.push(e.message));p.on('console',m=>{if(m.type()==='error'){if(m.text().includes('404'))expectedMissingResources.push(m.text());else errors.push(m.text());}});await p.goto(origin+(probe?'micro-p1-proof.html':''));try{await p.getByText('PLAY',{exact:true}).click({timeout:10000});}catch(e){console.log('OPEN FAILURE',await p.locator('body').innerText(),errors);await p.screenshot({path:path.join(out,'failure.png')});throw e;}if(await p.getByText('Confirm',{exact:true}).isVisible())await p.getByText('Confirm',{exact:true}).click();return {c,p};}
++ const save=async p=>{await p.evaluate(()=>window.saveProgress());return p.evaluate(()=>JSON.parse(localStorage.getItem('save data')));};
++ const grant=async(p,id,amount,options={})=>p.evaluate(({id,amount,options})=>{const {main,skills}=window.__micro;main.add_xp_to_skill({skill:skills[id],xp_to_add:amount,use_bonus:false,add_to_parent:false,...options});return structuredClone(window.__micro.character.getSkillXPObject({skill_id:id}));},{id,amount,options});
++ const snapshot=async p=>p.evaluate(()=>{const {character,skills}=window.__micro,l=character.getLevelableComponent();return {xp:structuredClone(l.skill_progress),stats:structuredClone(l.stats.flat.skill_milestones),multipliers:structuredClone(l.stats.multiplier.skill_milestones),xpBonuses:structuredClone(l.xp_bonuses.multiplier.skills),meditation:skills.Meditation.isUnlocked()};});
++ try{
++  let {c,p}=await open(null,false);const seed=await save(p);seed.availabilities.location.Shack=1;seed.levels.person.main_character.total_xp=1e15;seed.character.xp.total_xp=1e15;seed.character.hp_to_full=1000;seed.levels.person.main_character.skill_xp.Regeneration=499;seed.levels.person.main_character.skill_xp.Sleeping=300;await c.close();
++  // Unmodified npm build: actual sleep heals a generated high-health actor and trains Regeneration.
++  ({c,p}=await open(seed,false));await p.evaluate(()=>window.change_location({location_id:'Shack',skip_travel_time:true}));const preSleep=await save(p);await p.evaluate(()=>window.start_sleeping());await p.waitForTimeout(1300);await p.evaluate(()=>window.end_sleeping());const slept=await save(p);assert.ok(slept.levels.person.main_character.skill_xp.Sleeping>preSleep.levels.person.main_character.skill_xp.Sleeping);assert.equal(slept.levels.person.main_character.skill_xp.Regeneration-preSleep.levels.person.main_character.skill_xp.Regeneration,100);assert.ok(preSleep.character.hp_to_full-slept.character.hp_to_full>100);fs.writeFileSync(path.join(out,'generated-cap-preview.txt'),await p.evaluate(()=>window.save_to_file()));await p.locator('[data-skill_category]').evaluateAll(rows=>rows.forEach(n=>n.classList.add('skill_category_expanded')));await p.screenshot({path:path.join(out,'production-sleep.png'),fullPage:true});await c.close();
++  ({c,p}=await open(seed));
++  const capped=await grant(p,'Combat',1000);assert.equal(capped.total_xp,6);
++  const below=await grant(p,'Combat',3);assert.equal(below.total_xp,9);
++  const boundary=await grant(p,'Combat',6);assert.equal(boundary.total_xp,15);
++  await p.evaluate(()=>window.__micro.character.getLevelableComponent().xp_bonuses.total_multiplier.all_skill=3);
++  assert.equal((await grant(p,'Combat',3,{use_bonus:true})).total_xp,21);
++  await p.evaluate(()=>window.__micro.character.getLevelableComponent().xp_bonuses.total_multiplier.all_skill=1);
++  const child=await grant(p,'Swords',1000,{add_to_parent:true});assert.equal(child.total_xp,4);
++  assert.equal((await snapshot(p)).xp['Weapon mastery'].total_xp,4);
++  await grant(p,'Weapon mastery',1000,{cap_gained_xp:false});const parentXP=(await snapshot(p)).xp['Weapon mastery'].total_xp;
++  await grant(p,'Swords',1000,{add_to_parent:true,use_bonus:true});assert.equal((await snapshot(p)).xp['Weapon mastery'].total_xp,parentXP);
++  // Actual native reward consumer is deliberately uncapped (also used by the give cheat).
++  const uncappedMultiplier=await p.evaluate(()=>window.__micro.character.getSkillXPGain('Smelting'));await p.evaluate(()=>window.__micro.main.process_rewards({rewards:{skill_xp:{Smelting:10000}},inform_overall:false}));const uncappedXP=(await snapshot(p)).xp.Smelting.total_xp;assert.equal(uncappedXP,Math.round(10000*uncappedMultiplier*100)/100);assert.ok(uncappedXP>10000);
++  await grant(p,'Sleeping',30000,{cap_gained_xp:false});assert.equal((await snapshot(p)).meditation,false);
++  await grant(p,'Sleeping',1000,{cap_gained_xp:false});assert.equal((await snapshot(p)).meditation,true);
++  await grant(p,'Sleeping',32000,{cap_gained_xp:false});const level6=await snapshot(p);assert.equal(level6.xp.Sleeping.current_level,6);
++  await grant(p,'Sleeping',64000,{cap_gained_xp:false});const level7=await snapshot(p);assert.equal(level7.xp.Sleeping.current_level,7);assert.deepEqual(level7.stats,level6.stats);assert.deepEqual(level7.multipliers,level6.multipliers);assert.deepEqual(level7.xpBonuses,level6.xpBonuses);
++  const body=await p.locator('body').innerText();const notices=(body.match(/Unlocked new skill: Meditation/g)||[]).length;assert.equal(notices,1,'actual native consumer announces unlock once despite re-emitted ID');
++  await p.locator('[data-skill_category]').evaluateAll(rows=>rows.forEach(n=>n.classList.add('skill_category_expanded')));await p.screenshot({path:path.join(out,'native-progression.png'),fullPage:true});
++  await save(p);const before=await snapshot(p);await p.reload();await p.getByText('PLAY',{exact:true}).click();const reloaded=await snapshot(p);const normalize=s=>({...s,multipliers:Object.fromEntries(Object.entries(s.multipliers).map(([k,v])=>[k,Math.round(v*100)/100]))});assert.deepEqual(normalize(reloaded),normalize(before));
++  const encoded=await p.evaluate(()=>window.save_to_file());fs.writeFileSync(path.join(out,'generated-review.txt'),encoded);await Promise.all([p.waitForNavigation(),p.locator('#saved_file_input').setInputFiles({name:'generated-micro-p1.txt',mimeType:'text/plain',buffer:Buffer.from(encoded)})]);await p.getByText('PLAY',{exact:true}).click();assert.deepEqual(await snapshot(p),reloaded);await c.close();
++  // Legacy envelope takes the existing uncapped restoration route. No XP migration/clamp.
++  const legacy=structuredClone(seed);delete legacy.levels;legacy['game version']='v0.5';legacy.character.inventory=legacy.inventories.person.main_character;legacy.activities={};legacy.dialogues={};legacy.traders={};legacy.skills={Combat:{total_xp:10000},Swords:{total_xp:12345},'Weapon mastery':{total_xp:15000},Sleeping:{total_xp:127000}};
++  ({c,p}=await open(legacy));const restored=await snapshot(p);for(const[id,v]of Object.entries(legacy.skills))assert.equal(restored.xp[id].total_xp,v.total_xp);await save(p);await p.reload();await p.getByText('PLAY',{exact:true}).click();assert.deepEqual(await snapshot(p),restored);
++  const legacyEncoded=await p.evaluate(()=>window.save_to_file());await Promise.all([p.waitForNavigation(),p.locator('#saved_file_input').setInputFiles({name:'generated-legacy-micro.txt',mimeType:'text/plain',buffer:Buffer.from(legacyEncoded)})]);await p.getByText('PLAY',{exact:true}).click();assert.deepEqual(await snapshot(p),restored);await c.close();
++  assert.deepEqual(errors,[]);fs.writeFileSync(path.join(out,'browser.json'),JSON.stringify({origin,generatedFixturesOnly:true,productionBundle:sha('dist/bundle.js'),diagnosticBundle:sha('dist/micro-p1-probe.js'),component:sha('src/components/levelable_component.js'),capped,below,boundary,parentXP,notices,productionSleepingXP:slept.levels.person.main_character.skill_xp.Sleeping,productionRegenerationBefore:preSleep.levels.person.main_character.skill_xp.Regeneration||0,productionRegenerationAfter:slept.levels.person.main_character.skill_xp.Regeneration,productionHealing:preSleep.character.hp_to_full-slept.character.hp_to_full,preReloadMilestoneMultipliers:before.multipliers,reloadedMilestoneMultipliers:reloaded.multipliers,legacyXP:legacy.skills,checks:['unmodified production build native sleep','diagnostic entry native singleton capped/uncapped/multiplier/parent path','native bulk milestone skill unlock once and stats not repeated','current and legacy save/reload/import exact XP and flat milestones; existing factor rounding compared at two decimals; reload/import exact factors'],expectedMissingResourceCount:expectedMissingResources.length,errors},null,2));console.log('MICRO-P1 browser checks passed');
++ }finally{await b.close();}
++})().catch(e=>{console.error(e);process.exit(1)});

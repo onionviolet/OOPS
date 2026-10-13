@@ -1,0 +1,28 @@
+{
+  "schema": 1,
+  "sourceReview": "review/INTEGRATION_SOURCE_REVIEW.md",
+  "findings": [
+    {
+      "id": "F1",
+      "scope": "generic player panel NPC-only command projection",
+      "status": "source repaired;17focused checks pass;built/native pending",
+      "paths": [
+        "src/structured_pack_runtime.js",
+        "tests/structured_pack_runtime.test.js"
+      ],
+      "currentAuthoredOccurrence": false
+    },
+    {
+      "id": "F2",
+      "scope": "native-player identified unit title/recipient admission",
+      "status": "source repaired;actual reservation/refund/durable envelope check passes;built/native pending",
+      "paths": [
+        "src/structured_pack_definitions.js",
+        "src/structured_pack_state.js",
+        "tests/structured_pack_runtime.test.js"
+      ],
+      "currentAuthoredOccurrence": false
+    }
+  ],
+  "limits": "No full-world completion or unplayed generic NPC/player-unit gameplay claim. New unit native acceptance and independent final full-world gap audit still required."
+}

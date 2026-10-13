@@ -1,0 +1,159 @@
+{
+  "pid": 69174,
+  "servedHash": "555216ac778b8bc55d27f12317f450a61bf28f04344f94a93691ad34c4cf53da",
+  "origin": "http://127.0.0.1:18645",
+  "startedHash": "555216ac778b8bc55d27f12317f450a61bf28f04344f94a93691ad34c4cf53da",
+  "endedHash": "555216ac778b8bc55d27f12317f450a61bf28f04344f94a93691ad34c4cf53da",
+  "events": [
+    {
+      "workflowStep": {
+        "action": "completed",
+        "id": "remainder_home.dry_offcuts",
+        "count": 2,
+        "save": "materials-ready"
+      },
+      "index": 0,
+      "clock": 11812,
+      "sequence": 1378
+    },
+    {
+      "workflowStep": {
+        "action": "click",
+        "selector": "[data-travel=\"Shack\"]"
+      },
+      "index": 1,
+      "clock": 11823,
+      "sequence": 1380
+    },
+    {
+      "workflowStep": {
+        "action": "click",
+        "selector": "#notebook_tab_here"
+      },
+      "index": 2,
+      "clock": 11823,
+      "sequence": 1380
+    },
+    {
+      "workflowStep": {
+        "action": "panel",
+        "selector": "#feature_expansion_panel"
+      },
+      "index": 3,
+      "clock": 11823,
+      "sequence": 1380
+    },
+    {
+      "workflowStep": {
+        "action": "panel",
+        "selector": "#feature_expansion_panel details:has(>summary:text-is(\"Shutter, wages and overlapping shifts\"))"
+      },
+      "index": 4,
+      "clock": 11823,
+      "sequence": 1380
+    },
+    {
+      "workflowStep": {
+        "action": "panel",
+        "selector": "#feature_expansion_panel details:has(>summary:text-is(\"A taught procedure, useful material\"))"
+      },
+      "index": 5,
+      "clock": 11823,
+      "sequence": 1380
+    },
+    {
+      "workflowStep": {
+        "action": "click",
+        "selector": "[data-action-legibility-key=\"action:lore.work.begin\"] button",
+        "save": "refusal-extra-terms"
+      },
+      "index": 6,
+      "clock": 11824,
+      "sequence": 1382
+    },
+    {
+      "workflowStep": {
+        "action": "click",
+        "selector": "[data-action-legibility-key=\"action:lore.work.repair_player\"] button",
+        "save": "refusal-shutter-accepted"
+      },
+      "index": 7,
+      "clock": 11825,
+      "sequence": 1384
+    },
+    {
+      "workflowStep": {
+        "action": "completed",
+        "id": "lore.work.repair_player",
+        "count": 1,
+        "save": "refusal-shutter-completed"
+      },
+      "index": 8,
+      "clock": 11828,
+      "sequence": 1388
+    },
+    {
+      "workflowStep": {
+        "action": "click",
+        "selector": "#notebook_tab_here"
+      },
+      "index": 9,
+      "clock": 11828,
+      "sequence": 1388
+    },
+    {
+      "workflowStep": {
+        "action": "panel",
+        "selector": "#feature_expansion_panel details:has(>summary:text-is(\"Shutter, wages and overlapping shifts\"))"
+      },
+      "index": 10,
+      "clock": 11828,
+      "sequence": 1388
+    },
+    {
+      "workflowStep": {
+        "action": "click",
+        "selector": "[data-action-legibility-key=\"action:lore.work.fund_neri\"] button",
+        "save": "refusal-extra-funded"
+      },
+      "index": 11,
+      "clock": 11829,
+      "sequence": 1390
+    },
+    {
+      "workflowStep": {
+        "action": "completed",
+        "actor": "remainder_home.neri",
+        "id": "lore.work.neri_bind",
+        "save": "refusal-extra-duty-completed"
+      },
+      "index": 12,
+      "clock": 11835,
+      "sequence": 1396
+    },
+    {
+      "workflowStep": {
+        "action": "click",
+        "selector": "[data-action-legibility-key=\"action:lore.work.collect_kit\"] button",
+        "save": "refusal-extra-kit-collected"
+      },
+      "index": 13,
+      "clock": 11836,
+      "sequence": 1399
+    },
+    {
+      "workflowStep": {
+        "action": "click",
+        "selector": "[data-action-legibility-key=\"action:lore.work.account\"] button",
+        "save": "refusal-extra-account"
+      },
+      "index": 14,
+      "clock": 11839,
+      "sequence": 1403
+    },
+    {
+      "error": "page.evaluate: Target page, context or browser has been closed"
+    }
+  ],
+  "errors": []
+}

@@ -2,6 +2,7 @@
 import {assert, natural, record, stableId} from './simulation_contracts.js';
 import {SOCIETY_IDS as S, SOCIETY_ITEMS} from './feature_expansion_society.js';
 import {AGREED_DUTY_IDS as I, AGREED_DUTY_POLICY as P, agreedDutyDefinitions} from './agreed_duty_content.js';
+import {validateAgreedDutyContinuationState} from './agreed_duty_continuation.js';
 
 const seq = cause => {
     const match = /^(?:simulation|cancel|unsupported):([1-9][0-9]*)$/.exec(cause || '');
@@ -29,7 +30,7 @@ const dutyMeetingParticipants = ['player',S.household,S.craftsperson,S.apprentic
 export function agreedDutyReservationValid(state,job) {
     const d=job&&meetingDefinition(job.commandId),sequence=seq(job?.id),expectedSupport={schema:1,requires:d?.completionRequires||null,
         coLocated:!!d?.completionCoLocated,location:'Village',failure:d?.completionFailure||'refund'};
-    const frozenContext=record(job?.context)&&same(Object.keys(job.context).sort(),['actorId','targetId','partyIds'])&&job.context.actorId==='player'&&
+    const frozenContext=record(job?.context)&&same(Object.keys(job.context).sort(),['actorId','partyIds','targetId'])&&job.context.actorId==='player'&&
         job.context.targetId===S.household&&Array.isArray(job.context.partyIds)&&job.context.partyIds.length<=8&&
         new Set(job.context.partyIds).size===job.context.partyIds.length&&job.context.partyIds.every(stableId);
     return !!d && d.revision===1 && Number.isSafeInteger(sequence) && sequence>0 && sequence<=state.sequence && job.sequence===sequence &&
@@ -87,10 +88,25 @@ export function agreedDutyFacts(state,context={}) {
     const readiness = agreedDutyReadiness(state), preference = state.worlds?.[W]?.facts?.[`${PFX}.dutyPreference`];
     const priorAgreement = agreementRecord(state), priorResult = resultRecord(state);
     const recognizedAgreement = validAgreementReceipt(state, priorAgreement);
+    const priorOutcome = validResultReceipt(state, priorResult) ? JSON.parse(priorResult.value).status : null;
+    const person = state.simulation?.people?.player;
+    const body = person?.body?.id ? person.body : context.nativeBody;
     return {
+        // Absent optional state means no booking/order/terminal marker, not an
+        // unknown predicate that makes every negated controller guard fail.
+        [`world.${PFX}.dutyPrebooked`]: state.worlds?.[W]?.facts?.[`${PFX}.dutyPrebooked`] ?? false,
+        [`world.${PFX}.dutyPreference`]: preference ?? false,
+        [`world.${PFX}.dutyTerminalCommand`]: state.worlds?.[W]?.facts?.[`${PFX}.dutyTerminalCommand`] ?? false,
         'society.agreedDutyAvailable': readiness.ready && !idForPreference(preference) && !recognizedAgreement,
         'society.agreedDutySupport': agreedDutyReadiness(state,{ignoreMeetingLocks:true,reservation:context.agreedDutyReservation}).ready,
         'society.agreedDutyFollowupUnused': validResultReceipt(state, priorResult) && state.worlds?.[W]?.facts?.[`${PFX}.duty.followupUsed`] !== true,
+        'society.dutyContinuationKept': priorOutcome === 'kept',
+        'society.dutyContinuationInterrupted': ['cancelled','stopped','refused'].includes(priorOutcome),
+        'society.dutyContinuationCapability': !!state.simulation?.powers?.[S.craftsperson]?.[S.method]?.owned,
+        'society.dutyContinuationOpen': state.worlds?.[W]?.facts?.[`${PFX}.duty.continuationClosed`] !== true,
+        'society.dutyContinuationBody': !!body && person?.inventory === 'native' && person.life === 'alive' &&
+            context.nativeAlive === true && context.nativeReady !== false && body.id === 'native.player.body' &&
+            body.ownerId === 'player' && body.controllerId === 'player' && body.hands >= 2 && body.mobile === true,
     };
 }
 
@@ -157,6 +173,7 @@ export function validateAgreedDutyState(state) {
             followup.basis?.situationId === `${PFX}.home_agreement` && state.worlds?.[W]?.facts?.[`${PFX}.duty.followupUsed`] === true,
         'The optional second request must follow and consume the retained attributed duty result.');
     }
+    validateAgreedDutyContinuationState(state,validAgreementReceipt(state,agreement)&&validResultReceipt(state,result));
     return true;
 }
 

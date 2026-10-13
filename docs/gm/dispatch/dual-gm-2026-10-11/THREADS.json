@@ -1,0 +1,45 @@
+{
+  "date": "2026-10-11",
+  "status": "both chats active; initial progress observed",
+  "authorization": "User: send new chat with gm accordingly, more to consider? and then another gm to begin workingo n parts that can be worked on?",
+  "projectId": "2874e5d5-3794-407a-9051-47fe7e4843ba",
+  "sourceRoot": "/Users/weiwei/code/yet-another-idle-rpg",
+  "implementationBase": "8a4c82d9022ed158841e416abf90fa4afe263874",
+  "inputHashes": {
+    "PROJECT.md": "1b2b96b2c7e20ab5ee6b6aee2abefd46b4a4317c469c505b40200ff930712ae8",
+    "docs/gm/WORLD_ACTIONABILITY_GM_PROMPT.md": "24f7ace729b0d92217b3da09482c0f646b899f71f9c31cf78e6c326663a8304a",
+    "docs/WORLD_COMPLETION_STANDARD.md": "e3c8ddc8c559204736d2ff5d8efdfd1e1f769fdbc5bc8ed2c6c86862169b2bf4",
+    "docs/gm/dispatch/idea-expansion-2026-10-11/DETAIL_LEDGER.json": "3fe75c8f33d0ed57c2c067b232de0dd64e3fc364ab3a34ba5e8e4d6123cfae54",
+    "docs/gm/dispatch/idea-expansion-2026-10-11/micro/REPORT.md": "67f87127b9decdb1281b090e6986c178e5bc395aa2a36e7b6fe07f3ce3da7cab"
+  },
+  "threads": [
+    {
+      "role": "world expansion GM",
+      "threadId": "01a1297e-c3c2-7c23-b4ae-974565fb5cf5",
+      "hostId": "local",
+      "scope": "Existing private book world 1 depth and source-qualified actionability",
+      "publicWrites": "docs/gm/dispatch/dual-gm-2026-10-11/expansion/",
+      "privateWrites": "gitignored docs/research/novels/world-depth-2026-10-11/",
+      "runtimeWrites": false,
+      "observedState": "active/inProgress",
+      "verifiedOnly": "Chat started and read assignment; implementation/world depth not yet complete",
+      "progress": "Recovering existing world dossier and assigning two bounded private readers; joined public actionability owned by GM.",
+      "waitCursor": "219157e1-600f-40d0-b34a-00692f9d60f9:2"
+    },
+    {
+      "role": "ready implementation GM",
+      "threadId": "01a1297f-255e-74e0-bf56-9fb646acd29e",
+      "hostId": "local",
+      "scope": "MICRO-P1 capped native XP reproduction and compatible playable repair",
+      "publicWrites": "docs/gm/dispatch/dual-gm-2026-10-11/implementation/",
+      "runtimeWrites": "own managed isolated checkout; original source read-only",
+      "isolationBase": "8a4c82d9022ed158841e416abf90fa4afe263874",
+      "observedState": "active/inProgress",
+      "verifiedOnly": "Chat started and read assignment; implementation/world depth not yet complete",
+      "progress": "Reading live assignment before isolated capped-XP reproduction and browser/save gate.",
+      "waitCursor": "63e35388-d80b-4cdb-9a2b-132ddf6ba9db:2"
+    }
+  ],
+  "ownership": "Expansion owns expansion/ + private gitignored world-depth notes; builder owns implementation/ + its own managed isolated checkout. Parent owns THREADS.json and top-level assignment. Existing shared owners/source stay untouched by these handoffs.",
+  "commitsPushes": "Not authorized by this assignment; preserve unrelated incumbent authorization."
+}

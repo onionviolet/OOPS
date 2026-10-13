@@ -1,0 +1,65 @@
+{
+  "pid": 98959,
+  "origin": "http://127.0.0.1:18643",
+  "startedHash": "6540b5a5701e8279f43800a89988d1cf1b24986f360560159ee2d9121ce776f2",
+  "endedHash": "6540b5a5701e8279f43800a89988d1cf1b24986f360560159ee2d9121ce776f2",
+  "events": [
+    {
+      "action": "panel",
+      "selector": "#feature_expansion_panel"
+    },
+    {
+      "action": "click",
+      "selector": "#feature_expansion_panel summary:has-text('Permitted home & measuring work')"
+    },
+    {
+      "action": "click",
+      "name": "Hear Eda's measuring-strip terms",
+      "exact": false
+    },
+    {
+      "action": "click",
+      "name": "Do this: Use the uncovered measuring strip · 1 log + held sharp knife + 2 stamina + 5 min"
+    },
+    {
+      "action": "save",
+      "name": "worker-trim-pending"
+    },
+    {
+      "action": "wait",
+      "ms": 8000
+    },
+    {
+      "error": "locator.innerText: Timeout 6000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('body')\u001b[22m\n"
+    },
+    {
+      "action": "save",
+      "name": "worker-trim-done"
+    },
+    {
+      "error": "locator.innerText: Timeout 6000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('body')\u001b[22m\n"
+    },
+    {
+      "error": "locator.click: Timeout 6000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('button', { name: 'Do this: Dry two counted green offcuts · 2 stamina + 6 min', exact: true })\u001b[22m\n"
+    },
+    {
+      "action": "wait",
+      "ms": 8000
+    },
+    {
+      "error": "locator.innerText: Timeout 6000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('body')\u001b[22m\n"
+    },
+    {
+      "action": "save",
+      "name": "worker-offcuts-done"
+    },
+    {
+      "error": "locator.innerText: Timeout 6000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('body')\u001b[22m\n"
+    },
+    {
+      "action": "save",
+      "name": "worker-trim-complete-boundary"
+    }
+  ],
+  "errors": []
+}

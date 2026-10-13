@@ -1,0 +1,19 @@
+{
+  "head": "dd3efe3383f12f0aac22e4f390aae90fae2e7fc4",
+  "parent": "01a12e0e-b2d8-7043-bb1e-bb43d7585002",
+  "note": "Dirty shared inputs, fingerprints are routing evidence and not permission to overwrite newer changes.",
+  "sha256": {
+    "PROJECT.md": "78483a9ffcc98dd16d321a539b2fc0f713ed0adb6536936400e9809dc35c502f",
+    "docs/GAME_MASTER_PROMPT.md": "9524d382c81a981af02bd2cf9288f410fe9a09b9c6f8d99f7075c6245653de56",
+    "docs/UI_CONSISTENCY_AND_MODULARITY_AUDIT_2026-10-11.md": "c8ca0c9a5181706fc0c45c9415007552f63a33bb19e6a33e97d08689776b81b4",
+    "index.html": "ce4d492a309b469112baf0ad1f5af21b8f4004aa3cfbe0af1eecadbd73df2161",
+    "style.css": "9af1e67bb6ebfed0797b6194cc7c57b8b7ece75ba50cac688bc92701eb303485",
+    "styles/action_legibility.css": "721590da18e74e257aa7758db98b3b69871291e52f4b6d3a653278086ee25c3d",
+    "src/main.js": "e71568373f32c310117039b0c4d202b8f5e315696b48dceeab05f63428b6f41b",
+    "src/adventure_notebook.js": "3047a1aa41f750d5db6bdd70bb9510227a4a8acb65fa5eb19df8ecc399396891",
+    "src/action_legibility_ui.js": "62fe85800e8502c55812ae66fb6ae79e0fc22047401586c8e5064b407f68564d",
+    "src/content_pack_ui.js": "cc8c792e5d195fdf54643a947be1ad42884b9c64d10b61e2cf88d5dae230a42d",
+    "src/structured_pack_ui.js": "9059e0c25855d0065357044b58846f71dbe3190dadf4289e73cae5b48b2d9c82",
+    "src/village_career_ui.js": "a15951bd0684a541d7dde5c9df15c71aa6f1e81db541d0ea56f0b855d168a886"
+  }
+}

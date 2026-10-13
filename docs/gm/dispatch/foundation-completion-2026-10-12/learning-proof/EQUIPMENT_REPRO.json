@@ -1,0 +1,12 @@
+{
+  "mode": "REPRODUCED_SOURCE",
+  "scope": "One common advance/publication owner-boundary fixture, not native gameplay or durable storage",
+  "clock": 1,
+  "nativeSlots": {
+    "weapon": "{\"id\":\"Fixture sword\"}"
+  },
+  "simulationOwnerUnchanged": true,
+  "simulationExcludedFromNative": false,
+  "unknownNativeStillRejected": true,
+  "sourceSha256": "2b7d91ff28d099d43d4c688762524f63c607f37ea3ee514df32cd9de65771bd2"
+}

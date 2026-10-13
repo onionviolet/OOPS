@@ -1,0 +1,14 @@
+{
+  "state": "prepared, not run",
+  "output": "/Users/weiwei/.codex/candidates/yairpg-laptop-customization-2026-10-12/g5/final-retry/evidence",
+  "source": "/Users/weiwei/code/yet-another-idle-rpg",
+  "origin": "http://127.0.0.1:18680",
+  "requiredRootAction": "safe repaired shared rebuild, frozen exact hash",
+  "affectedSourceDelta": "destination-host retained receipt connectionRevision validator only",
+  "affectedRetry": [
+    "editor-craft-proof.cjs (actual native craft/rules/profile/output/save/reload/import/rejected Apply)",
+    "old-save-proof.cjs (earned legacy save migration/join)"
+  ],
+  "finalBinding": "Compare current source map contents to all compiled files, bind updated source/build/style/html hashes. Preserve original12 G5 a4e842 receipts. Additional source changes require named affected gate.",
+  "scope": "shared source/build read-only; sole root rebuild; no broad suite"
+}

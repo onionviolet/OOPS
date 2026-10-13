@@ -1,0 +1,22 @@
+[
+  {
+    "name": "candidate",
+    "url": "http://127.0.0.1:18571",
+    "bundle": "http://127.0.0.1:18571/dist/bundle.js?version=v0.6-411455e77529",
+    "document": {
+      "w": 1920,
+      "h": 1080,
+      "workspace": true
+    }
+  },
+  {
+    "name": "shared",
+    "url": "http://127.0.0.1:18555",
+    "bundle": "http://127.0.0.1:18555/dist/bundle.js?version=v0.6-5264019153ea",
+    "document": {
+      "w": 1920,
+      "h": 1080,
+      "workspace": false
+    }
+  }
+]

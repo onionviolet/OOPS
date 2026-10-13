@@ -74,7 +74,7 @@ export function createFeatureBattleHost({Combat,Enemy,registry,player,getState,g
                     act({...featureBattleToken(getState()),...value});
                 }catch(error){paused=`Native sluice combat paused before an uncommitted action: ${error.message}`;endCombat();fighters={};render(paused);}
             }});
-        combat.featureBattleSessionId=session.id;setCombat(combat);sync();paused='';combat.start();render();
+        combat.featureBattleSessionId=session.id;setCombat(combat);sync(false);paused='';combat.start();sync();render();
     }
     return {resume,act,readBindings,
         withdraw(token){const plan=withdrawFeatureBattle(getState(),registry,getContext(),token);persist(plan);paused='';endCombat();fighters={};render();return plan;},

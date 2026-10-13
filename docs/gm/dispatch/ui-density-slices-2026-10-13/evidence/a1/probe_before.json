@@ -1,0 +1,122 @@
+[
+ {
+  "name": "hub_1366x768_before",
+  "err": null,
+  "hs": {
+   "doc": false,
+   "sw": 1366,
+   "w": 1366,
+   "vscroll": false
+  },
+  "targets": {},
+  "actions": [
+   {
+    "id": "fort_supply_panel",
+    "cls": "village_career_panel",
+    "txt": "Waypost supply clerk Clerk purse: 180 coins. Paid so far: 0.",
+    "native": false,
+    "disp": "block",
+    "vis": false,
+    "why": "viewport"
+   },
+   {
+    "id": "",
+    "cls": "location_choice_dropdown choice_travel",
+    "txt": "directions Move somewhere else",
+    "native": true,
+    "disp": "block",
+    "vis": true
+   },
+   {
+    "id": "",
+    "cls": "location_choices choice_craft",
+    "txt": "construction Try to craft something",
+    "native": true,
+    "disp": "block",
+    "vis": false,
+    "why": "viewport"
+   },
+   {
+    "id": "",
+    "cls": "location_choice_dropdown choice_dialogue",
+    "txt": "question_answer Talk to someone",
+    "native": true,
+    "disp": "block",
+    "vis": true
+   },
+   {
+    "id": "",
+    "cls": "location_choice_dropdown choice_trade",
+    "txt": "storefront Visit a merchant",
+    "native": true,
+    "disp": "block",
+    "vis": false,
+    "why": "clipped:workspace-module-body"
+   },
+   {
+    "id": "",
+    "cls": "location_choice_dropdown choice_work",
+    "txt": "work_outline Find work",
+    "native": true,
+    "disp": "block",
+    "vis": false,
+    "why": "clipped:workspace-module-body"
+   },
+   {
+    "id": "",
+    "cls": "location_choice_dropdown choice_train",
+    "txt": "fitness_center Train",
+    "native": true,
+    "disp": "block",
+    "vis": false,
+    "why": "clipped:workspace-module-body"
+   },
+   {
+    "id": "",
+    "cls": "location_choice_dropdown choice_gather",
+    "txt": "search Gather resources",
+    "native": true,
+    "disp": "block",
+    "vis": false,
+    "why": "viewport"
+   },
+   {
+    "id": "local_life_panel",
+    "cls": "expedition_panel",
+    "txt": "Local life",
+    "native": false,
+    "disp": "block",
+    "vis": false,
+    "why": "viewport"
+   },
+   {
+    "id": "pacing_status_panel",
+    "cls": "expedition_panel",
+    "txt": "Optional pacing",
+    "native": false,
+    "disp": "block",
+    "vis": false,
+    "why": "viewport"
+   },
+   {
+    "id": "durability_panel",
+    "cls": "expedition_panel",
+    "txt": "Equipment condition and repair",
+    "native": false,
+    "disp": "block",
+    "vis": false,
+    "why": "viewport"
+   },
+   {
+    "id": "elemental_panel",
+    "cls": "expedition_panel",
+    "txt": "Elemental preparation",
+    "native": false,
+    "disp": "block",
+    "vis": false,
+    "why": "viewport"
+   }
+  ],
+  "errs": []
+ }
+]

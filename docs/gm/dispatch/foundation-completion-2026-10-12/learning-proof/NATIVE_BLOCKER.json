@@ -1,0 +1,47 @@
+{
+  "status": "BLOCKED_NATIVE",
+  "bundle": "dcf2ab53d4c3eb8a629652f9ca51277fb7f510a58fcc81b3bbbd04ee3c3086b1",
+  "origin": "http://127.0.0.1:18641",
+  "pid": 4348,
+  "processState": "stopped; browser closed, server node terminated after retained connection hang",
+  "naturalActions": [
+    "fresh PLAY/Confirm",
+    "elder hello",
+    "Notebook Here",
+    "Household work & apprenticeship / Meet household work circle"
+  ],
+  "generatedInput": "/tmp/yairpg-foundation-learning-equipment-blocker.json",
+  "actualError": "Progress paused: No native equipment owner feature_society.orr.",
+  "expansionClock": 0,
+  "sequence": 100,
+  "actorInventoryKinds": {
+    "player": "native",
+    "oldCraftsman": "native",
+    "feature_society.hessa": "simulation",
+    "feature_society.orr": "simulation",
+    "feature_society.vale": "simulation"
+  },
+  "sourceBoundary": "simulation inventory participants appear in plan.equipment, prepareNativeEquipment requires live native actor; exact producer needs root diagnosis",
+  "unrun": [
+    "Eda natural prerequisite introduction",
+    "datum lesson",
+    "Neri independent learning",
+    "stamped transfer/use",
+    "unsupported interval/return",
+    "cancel/source/body negatives",
+    "failed native write/retry",
+    "save/reload/import"
+  ],
+  "noUserSave": true,
+  "failedStartup": "first session observed build-write empty hash; exited with no progression and excluded",
+  "inputs": [
+    {
+      "path": "src/main.js",
+      "sha256": "15dd32a235ae263129fa40b9707f51ace54207cc4ea82a8c37858f06c2568c1f"
+    },
+    {
+      "path": "src/native_equipment_transaction.js",
+      "sha256": "2444a510789faeeaaf582e5039afc8404824fc6ab928be98678fa58540b6f170"
+    }
+  ]
+}

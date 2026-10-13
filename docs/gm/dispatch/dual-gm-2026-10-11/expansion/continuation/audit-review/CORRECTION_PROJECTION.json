@@ -1,0 +1,719 @@
+{
+  "schema": "w1-public-audit-correction-projection-1",
+  "revision": 1,
+  "sourceIdentity": "opaque-world-1",
+  "rows": [
+    {
+      "id": "W1-A1-RECON-001",
+      "sourceLeafIds": [
+        "W1-SRC-14"
+      ],
+      "journeyLeafIds": [],
+      "startIds": [],
+      "mechanismIds": [
+        "W1-C03"
+      ],
+      "candidatePacketIds": [
+        "W1-P5"
+      ],
+      "selectedRequiredPacketIds": [],
+      "disposition": "apply exact sealed source correction at matching future consumer; frozen owners retained",
+      "status": "reviewed; runtime proof remains open"
+    },
+    {
+      "id": "W1-A1-RECON-002",
+      "sourceLeafIds": [
+        "W1-SRC-02",
+        "W1-SRC-04"
+      ],
+      "journeyLeafIds": [
+        "W1-J12"
+      ],
+      "startIds": [
+        "W1-ST04"
+      ],
+      "mechanismIds": [],
+      "candidatePacketIds": [
+        "W1-P1",
+        "W1-P3",
+        "W1-P4",
+        "W1-P6",
+        "W1-P8"
+      ],
+      "selectedRequiredPacketIds": [
+        "W1-P1",
+        "W1-P3",
+        "W1-P4",
+        "W1-P8"
+      ],
+      "disposition": "apply exact sealed source correction at matching future consumer; frozen owners retained",
+      "status": "reviewed; runtime proof remains open"
+    },
+    {
+      "id": "W1-A1-RECON-003",
+      "sourceLeafIds": [],
+      "journeyLeafIds": [],
+      "startIds": [
+        "W1-ST04"
+      ],
+      "mechanismIds": [],
+      "candidatePacketIds": [
+        "W1-P6"
+      ],
+      "selectedRequiredPacketIds": [],
+      "disposition": "apply exact sealed source correction at matching future consumer; frozen owners retained",
+      "status": "reviewed; runtime proof remains open"
+    },
+    {
+      "id": "W1-A1-RECON-004",
+      "sourceLeafIds": [
+        "W1-SRC-09"
+      ],
+      "journeyLeafIds": [
+        "W1-J09"
+      ],
+      "startIds": [
+        "W1-ST02",
+        "W1-ST04"
+      ],
+      "mechanismIds": [],
+      "candidatePacketIds": [
+        "W1-P3",
+        "W1-P5",
+        "W1-P6"
+      ],
+      "selectedRequiredPacketIds": [],
+      "disposition": "apply exact sealed source correction at matching future consumer; frozen owners retained",
+      "status": "reviewed; runtime proof remains open"
+    },
+    {
+      "id": "W1-A1-RECON-005",
+      "sourceLeafIds": [
+        "W1-SRC-02",
+        "W1-SRC-03"
+      ],
+      "journeyLeafIds": [
+        "W1-J02",
+        "W1-J05"
+      ],
+      "startIds": [
+        "W1-ST03"
+      ],
+      "mechanismIds": [],
+      "candidatePacketIds": [
+        "W1-P3",
+        "W1-P4",
+        "W1-P6"
+      ],
+      "selectedRequiredPacketIds": [
+        "W1-P6"
+      ],
+      "disposition": "apply exact sealed source correction at matching future consumer; frozen owners retained",
+      "status": "reviewed; runtime proof remains open"
+    },
+    {
+      "id": "W1-A1-RECON-006",
+      "sourceLeafIds": [
+        "W1-SRC-11"
+      ],
+      "journeyLeafIds": [
+        "W1-J11"
+      ],
+      "startIds": [
+        "W1-ST04"
+      ],
+      "mechanismIds": [
+        "W1-C01"
+      ],
+      "candidatePacketIds": [
+        "W1-P3",
+        "W1-P5",
+        "W1-P6"
+      ],
+      "selectedRequiredPacketIds": [
+        "W1-P5"
+      ],
+      "disposition": "apply exact sealed source correction at matching future consumer; frozen owners retained",
+      "status": "reviewed; runtime proof remains open"
+    },
+    {
+      "id": "W1-A1-RECON-007",
+      "sourceLeafIds": [],
+      "journeyLeafIds": [],
+      "startIds": [],
+      "mechanismIds": [
+        "W1-C08"
+      ],
+      "candidatePacketIds": [],
+      "selectedRequiredPacketIds": [],
+      "disposition": "apply exact sealed source correction at matching future consumer; frozen owners retained",
+      "status": "reviewed; runtime proof remains open"
+    },
+    {
+      "id": "W1-A1-RECON-008",
+      "sourceLeafIds": [],
+      "journeyLeafIds": [],
+      "startIds": [],
+      "mechanismIds": [],
+      "candidatePacketIds": [],
+      "selectedRequiredPacketIds": [],
+      "disposition": "apply exact sealed source correction at matching future consumer; frozen owners retained",
+      "status": "reviewed; runtime proof remains open"
+    },
+    {
+      "id": "W1-A1-RECON-009",
+      "sourceLeafIds": [
+        "W1-SRC-04"
+      ],
+      "journeyLeafIds": [
+        "W1-J07",
+        "W1-J11",
+        "W1-J15"
+      ],
+      "startIds": [
+        "W1-ST04"
+      ],
+      "mechanismIds": [],
+      "candidatePacketIds": [
+        "W1-P1",
+        "W1-P3",
+        "W1-P4",
+        "W1-P6",
+        "W1-P8"
+      ],
+      "selectedRequiredPacketIds": [
+        "W1-P1",
+        "W1-P3",
+        "W1-P4",
+        "W1-P8"
+      ],
+      "disposition": "apply exact sealed source correction at matching future consumer; frozen owners retained",
+      "status": "reviewed; runtime proof remains open"
+    },
+    {
+      "id": "W1-A1-RECON-010",
+      "sourceLeafIds": [],
+      "journeyLeafIds": [],
+      "startIds": [
+        "W1-ST11"
+      ],
+      "mechanismIds": [],
+      "candidatePacketIds": [
+        "W1-P6"
+      ],
+      "selectedRequiredPacketIds": [],
+      "disposition": "apply exact sealed source correction at matching future consumer; frozen owners retained",
+      "status": "reviewed; runtime proof remains open"
+    },
+    {
+      "id": "W1-A1-RECON-011",
+      "sourceLeafIds": [],
+      "journeyLeafIds": [],
+      "startIds": [],
+      "mechanismIds": [
+        "W1-C08"
+      ],
+      "candidatePacketIds": [],
+      "selectedRequiredPacketIds": [],
+      "disposition": "apply exact sealed source correction at matching future consumer; frozen owners retained",
+      "status": "reviewed; runtime proof remains open"
+    },
+    {
+      "id": "W1-A1-RECON-012",
+      "sourceLeafIds": [
+        "W1-SRC-09"
+      ],
+      "journeyLeafIds": [
+        "W1-J09"
+      ],
+      "startIds": [
+        "W1-ST02",
+        "W1-ST04"
+      ],
+      "mechanismIds": [],
+      "candidatePacketIds": [
+        "W1-P3",
+        "W1-P5",
+        "W1-P6"
+      ],
+      "selectedRequiredPacketIds": [],
+      "disposition": "apply exact sealed source correction at matching future consumer; frozen owners retained",
+      "status": "reviewed; runtime proof remains open"
+    },
+    {
+      "id": "W1-A1-RECON-013",
+      "sourceLeafIds": [
+        "W1-SRC-07",
+        "W1-SRC-08"
+      ],
+      "journeyLeafIds": [
+        "W1-J08",
+        "W1-J14"
+      ],
+      "startIds": [
+        "W1-ST09"
+      ],
+      "mechanismIds": [],
+      "candidatePacketIds": [
+        "W1-P4",
+        "W1-P6",
+        "W1-P7",
+        "W1-P8"
+      ],
+      "selectedRequiredPacketIds": [
+        "W1-P4",
+        "W1-P7",
+        "W1-P8"
+      ],
+      "disposition": "apply exact sealed source correction at matching future consumer; frozen owners retained",
+      "status": "reviewed; runtime proof remains open"
+    },
+    {
+      "id": "W1-A1-RECON-014",
+      "sourceLeafIds": [],
+      "journeyLeafIds": [
+        "W1-J04",
+        "W1-J16"
+      ],
+      "startIds": [],
+      "mechanismIds": [],
+      "candidatePacketIds": [],
+      "selectedRequiredPacketIds": [],
+      "disposition": "apply exact sealed source correction at matching future consumer; frozen owners retained",
+      "status": "reviewed; runtime proof remains open"
+    },
+    {
+      "id": "W1-A1-RECON-015",
+      "sourceLeafIds": [],
+      "journeyLeafIds": [],
+      "startIds": [
+        "W1-ST09"
+      ],
+      "mechanismIds": [],
+      "candidatePacketIds": [
+        "W1-P6",
+        "W1-P7"
+      ],
+      "selectedRequiredPacketIds": [
+        "W1-P7"
+      ],
+      "disposition": "apply exact sealed source correction at matching future consumer; frozen owners retained",
+      "status": "reviewed; runtime proof remains open"
+    },
+    {
+      "id": "W1-A1-RECON-016",
+      "sourceLeafIds": [],
+      "journeyLeafIds": [
+        "W1-J04"
+      ],
+      "startIds": [],
+      "mechanismIds": [],
+      "candidatePacketIds": [],
+      "selectedRequiredPacketIds": [],
+      "disposition": "apply exact sealed source correction at matching future consumer; frozen owners retained",
+      "status": "reviewed; runtime proof remains open"
+    },
+    {
+      "id": "W1-A1-RECON-017",
+      "sourceLeafIds": [],
+      "journeyLeafIds": [],
+      "startIds": [
+        "W1-ST09"
+      ],
+      "mechanismIds": [],
+      "candidatePacketIds": [
+        "W1-P6",
+        "W1-P7"
+      ],
+      "selectedRequiredPacketIds": [
+        "W1-P7"
+      ],
+      "disposition": "apply exact sealed source correction at matching future consumer; frozen owners retained",
+      "status": "reviewed; runtime proof remains open"
+    },
+    {
+      "id": "W1-A1-RECON-018",
+      "sourceLeafIds": [],
+      "journeyLeafIds": [],
+      "startIds": [
+        "W1-ST09"
+      ],
+      "mechanismIds": [],
+      "candidatePacketIds": [
+        "W1-P6",
+        "W1-P7"
+      ],
+      "selectedRequiredPacketIds": [
+        "W1-P7"
+      ],
+      "disposition": "apply exact sealed source correction at matching future consumer; frozen owners retained",
+      "status": "reviewed; runtime proof remains open"
+    },
+    {
+      "id": "W1-A1-RECON-019",
+      "sourceLeafIds": [
+        "W1-SRC-14"
+      ],
+      "journeyLeafIds": [],
+      "startIds": [],
+      "mechanismIds": [
+        "W1-C03"
+      ],
+      "candidatePacketIds": [
+        "W1-P5"
+      ],
+      "selectedRequiredPacketIds": [],
+      "disposition": "apply exact sealed source correction at matching future consumer; frozen owners retained",
+      "status": "reviewed; runtime proof remains open"
+    },
+    {
+      "id": "W1-A1-RECON-020",
+      "sourceLeafIds": [],
+      "journeyLeafIds": [
+        "W1-J05"
+      ],
+      "startIds": [
+        "W1-ST09"
+      ],
+      "mechanismIds": [],
+      "candidatePacketIds": [
+        "W1-P6",
+        "W1-P7"
+      ],
+      "selectedRequiredPacketIds": [
+        "W1-P7"
+      ],
+      "disposition": "apply exact sealed source correction at matching future consumer; frozen owners retained",
+      "status": "reviewed; runtime proof remains open"
+    },
+    {
+      "id": "W1-A1-RECON-021",
+      "sourceLeafIds": [
+        "W1-SRC-09",
+        "W1-SRC-14"
+      ],
+      "journeyLeafIds": [
+        "W1-J09"
+      ],
+      "startIds": [
+        "W1-ST09"
+      ],
+      "mechanismIds": [
+        "W1-C03"
+      ],
+      "candidatePacketIds": [
+        "W1-P3",
+        "W1-P5",
+        "W1-P6",
+        "W1-P7"
+      ],
+      "selectedRequiredPacketIds": [
+        "W1-P7"
+      ],
+      "disposition": "apply exact sealed source correction at matching future consumer; frozen owners retained",
+      "status": "reviewed; runtime proof remains open"
+    },
+    {
+      "id": "W1-A1-RECON-022",
+      "sourceLeafIds": [
+        "W1-SRC-04"
+      ],
+      "journeyLeafIds": [
+        "W1-J06"
+      ],
+      "startIds": [
+        "W1-ST09"
+      ],
+      "mechanismIds": [],
+      "candidatePacketIds": [
+        "W1-P1",
+        "W1-P3",
+        "W1-P4",
+        "W1-P6",
+        "W1-P7",
+        "W1-P8"
+      ],
+      "selectedRequiredPacketIds": [
+        "W1-P1",
+        "W1-P3",
+        "W1-P4",
+        "W1-P7",
+        "W1-P8"
+      ],
+      "disposition": "apply exact sealed source correction at matching future consumer; frozen owners retained",
+      "status": "reviewed; runtime proof remains open"
+    },
+    {
+      "id": "W1-A1-RECON-023",
+      "sourceLeafIds": [
+        "W1-SRC-10"
+      ],
+      "journeyLeafIds": [
+        "W1-J06",
+        "W1-J09"
+      ],
+      "startIds": [
+        "W1-ST09"
+      ],
+      "mechanismIds": [],
+      "candidatePacketIds": [
+        "W1-P3",
+        "W1-P5",
+        "W1-P6",
+        "W1-P7"
+      ],
+      "selectedRequiredPacketIds": [
+        "W1-P7"
+      ],
+      "disposition": "apply exact sealed source correction at matching future consumer; frozen owners retained",
+      "status": "reviewed; runtime proof remains open"
+    },
+    {
+      "id": "W1-A1-RECON-024",
+      "sourceLeafIds": [
+        "W1-SRC-04",
+        "W1-SRC-11"
+      ],
+      "journeyLeafIds": [
+        "W1-J07",
+        "W1-J11"
+      ],
+      "startIds": [
+        "W1-ST04",
+        "W1-ST11"
+      ],
+      "mechanismIds": [
+        "W1-C01"
+      ],
+      "candidatePacketIds": [
+        "W1-P1",
+        "W1-P3",
+        "W1-P4",
+        "W1-P5",
+        "W1-P6",
+        "W1-P8"
+      ],
+      "selectedRequiredPacketIds": [
+        "W1-P1",
+        "W1-P3",
+        "W1-P4",
+        "W1-P5",
+        "W1-P8"
+      ],
+      "disposition": "apply exact sealed source correction at matching future consumer; frozen owners retained",
+      "status": "reviewed; runtime proof remains open"
+    },
+    {
+      "id": "W1-A1-RECON-025",
+      "sourceLeafIds": [],
+      "journeyLeafIds": [],
+      "startIds": [
+        "W1-ST09"
+      ],
+      "mechanismIds": [],
+      "candidatePacketIds": [
+        "W1-P6",
+        "W1-P7"
+      ],
+      "selectedRequiredPacketIds": [
+        "W1-P7"
+      ],
+      "disposition": "apply exact sealed source correction at matching future consumer; frozen owners retained",
+      "status": "reviewed; runtime proof remains open"
+    },
+    {
+      "id": "W1-A1-RECON-026",
+      "sourceLeafIds": [],
+      "journeyLeafIds": [],
+      "startIds": [
+        "W1-ST09"
+      ],
+      "mechanismIds": [],
+      "candidatePacketIds": [
+        "W1-P6",
+        "W1-P7"
+      ],
+      "selectedRequiredPacketIds": [
+        "W1-P7"
+      ],
+      "disposition": "apply exact sealed source correction at matching future consumer; frozen owners retained",
+      "status": "reviewed; runtime proof remains open"
+    },
+    {
+      "id": "W1-A1-RECON-027",
+      "sourceLeafIds": [
+        "W1-SRC-14"
+      ],
+      "journeyLeafIds": [
+        "W1-J11"
+      ],
+      "startIds": [
+        "W1-ST09"
+      ],
+      "mechanismIds": [
+        "W1-C03"
+      ],
+      "candidatePacketIds": [
+        "W1-P5",
+        "W1-P6",
+        "W1-P7"
+      ],
+      "selectedRequiredPacketIds": [
+        "W1-P7"
+      ],
+      "disposition": "apply exact sealed source correction at matching future consumer; frozen owners retained",
+      "status": "reviewed; runtime proof remains open"
+    },
+    {
+      "id": "W1-A1-RECON-028",
+      "sourceLeafIds": [],
+      "journeyLeafIds": [
+        "W1-J06",
+        "W1-J15"
+      ],
+      "startIds": [
+        "W1-ST09"
+      ],
+      "mechanismIds": [],
+      "candidatePacketIds": [
+        "W1-P6",
+        "W1-P7"
+      ],
+      "selectedRequiredPacketIds": [
+        "W1-P7"
+      ],
+      "disposition": "apply exact sealed source correction at matching future consumer; frozen owners retained",
+      "status": "reviewed; runtime proof remains open"
+    },
+    {
+      "id": "W1-A1-RECON-029",
+      "sourceLeafIds": [],
+      "journeyLeafIds": [
+        "W1-J06",
+        "W1-J15"
+      ],
+      "startIds": [
+        "W1-ST09"
+      ],
+      "mechanismIds": [],
+      "candidatePacketIds": [
+        "W1-P6",
+        "W1-P7"
+      ],
+      "selectedRequiredPacketIds": [
+        "W1-P7"
+      ],
+      "disposition": "apply exact sealed source correction at matching future consumer; frozen owners retained",
+      "status": "reviewed; runtime proof remains open"
+    },
+    {
+      "id": "W1-A1-RECON-030",
+      "sourceLeafIds": [],
+      "journeyLeafIds": [],
+      "startIds": [
+        "W1-ST09"
+      ],
+      "mechanismIds": [
+        "W1-C08"
+      ],
+      "candidatePacketIds": [
+        "W1-P6",
+        "W1-P7"
+      ],
+      "selectedRequiredPacketIds": [
+        "W1-P7"
+      ],
+      "disposition": "apply exact sealed source correction at matching future consumer; frozen owners retained",
+      "status": "reviewed; runtime proof remains open"
+    },
+    {
+      "id": "W1-A1-RECON-031",
+      "sourceLeafIds": [],
+      "journeyLeafIds": [],
+      "startIds": [
+        "W1-ST09",
+        "W1-ST10"
+      ],
+      "mechanismIds": [],
+      "candidatePacketIds": [
+        "W1-P6",
+        "W1-P7"
+      ],
+      "selectedRequiredPacketIds": [
+        "W1-P7"
+      ],
+      "disposition": "apply exact sealed source correction at matching future consumer; frozen owners retained",
+      "status": "reviewed; runtime proof remains open"
+    },
+    {
+      "id": "W1-A1-RECON-032",
+      "sourceLeafIds": [
+        "W1-SRC-14"
+      ],
+      "journeyLeafIds": [
+        "W1-J08",
+        "W1-J12"
+      ],
+      "startIds": [
+        "W1-ST09"
+      ],
+      "mechanismIds": [
+        "W1-C03"
+      ],
+      "candidatePacketIds": [
+        "W1-P5",
+        "W1-P6",
+        "W1-P7"
+      ],
+      "selectedRequiredPacketIds": [
+        "W1-P7"
+      ],
+      "disposition": "apply exact sealed source correction at matching future consumer; frozen owners retained",
+      "status": "reviewed; runtime proof remains open"
+    },
+    {
+      "id": "W1-A1-RECON-033",
+      "sourceLeafIds": [
+        "W1-SRC-02",
+        "W1-SRC-18"
+      ],
+      "journeyLeafIds": [
+        "W1-J17"
+      ],
+      "startIds": [
+        "W1-ST08"
+      ],
+      "mechanismIds": [],
+      "candidatePacketIds": [
+        "W1-P3",
+        "W1-P4",
+        "W1-P6",
+        "W1-P7"
+      ],
+      "selectedRequiredPacketIds": [],
+      "disposition": "apply exact sealed source correction at matching future consumer; frozen owners retained",
+      "status": "reviewed; runtime proof remains open"
+    },
+    {
+      "id": "W1-A1-RECON-034",
+      "sourceLeafIds": [],
+      "journeyLeafIds": [
+        "W1-J13"
+      ],
+      "startIds": [
+        "W1-ST09"
+      ],
+      "mechanismIds": [],
+      "candidatePacketIds": [
+        "W1-P6",
+        "W1-P7"
+      ],
+      "selectedRequiredPacketIds": [
+        "W1-P7"
+      ],
+      "disposition": "apply exact sealed source correction at matching future consumer; frozen owners retained",
+      "status": "reviewed; runtime proof remains open"
+    }
+  ],
+  "agentOnlyOwner": "docs/research/novels/world-depth-2026-10-11/audits/join-review/SOURCE_CORRECTION_JOIN.json"
+}

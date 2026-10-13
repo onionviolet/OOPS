@@ -1,5 +1,6 @@
 // Read-only projection from the actual Village calendar, a real current
 // preparation condition, paid completed failures and the attributed receipt.
+import {FEATURE_OBJECT_IDS} from './feature_expansion_objects.js';
 import {recurringWindow} from './world_rhythm.js';
 import {statusCareSupportedBody} from './status_care_facts.js';
 import {COOLING_REFINEMENT_DEFINITION_MAP, coolingRefinementReceiptEffects} from './cooling_refinement_content.js';
@@ -149,7 +150,7 @@ export function validateCoolingRefinement(state, registry) {
         const resultKnowledge = knowledge[`${PREFIX}${receipt.result}`];
         check(resultKnowledge?.stage === 'seen' && resultKnowledge.cause === receipt.cause &&
             resultKnowledge.at === receipt.acceptedAt + 3 && resultKnowledge.basis?.kind === 'observation' &&
-            resultKnowledge.basis?.attributedTo === 'player' && resultKnowledge.basis?.situationId === 'feature_objects.joint' &&
+            resultKnowledge.basis?.attributedTo === 'player' && resultKnowledge.basis?.situationId === FEATURE_OBJECT_IDS.situation &&
             resultKnowledge.value === coolingRefinementReceiptEffects(receipt).at(-1).value,
             'A completed cooling-refinement receipt has no matching attributed result record.');
     } else {
@@ -178,7 +179,7 @@ export function validateCoolingRefinement(state, registry) {
     check(coolingKnowledge.every(([, entry]) => entry?.stage === 'seen' && natural(entry.at) && entry.at <= state.clock &&
         same(Object.keys(entry).sort(), ['stage', 'value', 'at', 'cause', 'basis'].sort()) && typeof entry.value === 'string' &&
         typeof entry.cause === 'string' && /^simulation:[1-9][0-9]*$/.test(entry.cause) &&
-        same(entry.basis, {kind: 'observation', attributedTo: 'player', situationId: 'feature_objects.joint'})),
+        same(entry.basis, {kind: 'observation', attributedTo: 'player', situationId: FEATURE_OBJECT_IDS.situation})),
         'Invalid attributed cooling-refinement knowledge receipt.');
     const activeFailure = facts[lastKey] == null ? null : parseReceipt(facts[lastKey]);
     if(soreness && activeFailure?.result === 'failure' && soreness.cause === activeFailure.cause) {
@@ -204,4 +205,23 @@ export function validateCoolingRefinement(state, registry) {
             same(job.effects, coolingRefinementReceiptEffects(receipt)) && s.sites?.[d.siteId]?.reservations?.[job.id] === 'player',
             'An active cooling-refinement job changed its accepted roll or descriptor.');
     }
+}
+
+// Earlier pending jobs froze a misspelled situation ID and could not settle.
+// On load, repair only that descriptor. All costs, RNG, receipts and due times
+// remain frozen and the normal validator still rejects any other tampering.
+export function migrateCoolingRefinementSituation(state) {
+    if(!state.simulation?.situations?.[FEATURE_OBJECT_IDS.situation]) return state;
+    const repair = entry => {
+        if(entry?.basis?.kind === 'observation' && entry.basis.attributedTo === 'player' &&
+            entry.basis.situationId === 'feature_objects.joint') entry.basis.situationId = FEATURE_OBJECT_IDS.situation;
+    };
+    for(const job of state.simulation.jobs || []) {
+        if(!REFINE_SET.has(job.commandId) || job.actorId !== 'player') continue;
+        for(const effect of job.effects || []) {
+            if(effect.type === 'knowledge' && KNOWLEDGE_KEYS.has(effect.key) && effect.actor === 'player') repair(effect);
+        }
+    }
+    for(const [key, entry] of Object.entries(state.simulation.knowledge?.player || {})) if(KNOWLEDGE_KEYS.has(key)) repair(entry);
+    return state;
 }

@@ -1,0 +1,82 @@
+{
+  "status": "bounded positive verification; exact OPEN gates in ACCEPTANCE_BACKLOG.md",
+  "owner": "01a13455-03b5-7382-822a-b270d1abb48b",
+  "branch": "codex/gameplay-foundations",
+  "head": "dd3efe3383f12f0aac22e4f390aae90fae2e7fc4",
+  "origin": "http://127.0.0.1:18729",
+  "viewport": [
+    1600,
+    1100
+  ],
+  "servedBundleAssertedBy": "native-harness.cjs open() on each fresh/reopened session",
+  "bundle": "ffd6988c00a8c3be0f86a255cb8ced4b0652a97c551cbcc2da8bb09675549b5d",
+  "nativeEvidence": {
+    "program": "program-pending* and mixed-and-program-completed*: two finite programs, six completed paid jobs; late pause control not run before completion",
+    "reserve": "reserve-held-four*, reserve-held-three-native.txt, reserve-paused-two*, reserve-pending*, reserve-first-completed*, cancel-current*, future-cancel*, released-three-overshoot-five*, reserve-depleted*",
+    "repository": "projection-ready*, projection-single-pending*, second-seal*, third-seal*, matched-pair*, protected-pump-completed*",
+    "mixed": "mixed-plan-started*, mixed-plan-boundary*, mixed-manual-travel-paused*, mixed-personal-use-pending*, mixed-and-program-completed*",
+    "closedBrowser": "closed-browser-before/after.json exact clock/stock/cursor comparison",
+    "literalRestoration": "RESTORATION_REVIEW.json"
+  },
+  "openNative": [
+    "program shortage/pause/resume/current-cancel controls",
+    "mixed depletion/opposite cancellation",
+    "reserve third-acceptance exhaustion/support-failure refunded slot native",
+    "stale request/forgery and quota branches are SOURCE only",
+    "old-root1 native import and older reader rejection",
+    "exact native stamina debit/refund trace: post-tick saved snapshots full; contract SOURCE only"
+  ],
+  "sourceTests": 16,
+  "affectedTests": 52,
+  "overlap": "16 focused checks included in52; do not sum",
+  "sourceRepairs": [],
+  "harnessFailures": [
+    "commission immediate; resident job was actual timed owner",
+    "travel rows needed data-travel and completed location; exact text included icons",
+    "reserve is integrated generic section, not action-key row; timeout after paid preparation recovered unedited durable Save",
+    "lesson test batch exceeded harness deadline; unedited earned Save recovered",
+    "durable disposable browser profile installed locally in harness; no external install",
+    "program pause attempted after finite completion, timed out; no retry beyond budget"
+  ],
+  "transportRecovery": "Two exact earned native Save JSON records losslessly transported in supported file envelope after browser harness reset; no stock/history/clock/RNG edits. These recovery transports are not genuine Export evidence. Subsequent native exports/restoration are separate.",
+  "finalStock": {
+    "{\"id\":\"Cheap leather pants\",\"quality\":40}": {
+      "count": 1
+    },
+    "{\"id\":\"Stale bread\"}": {
+      "count": 5
+    },
+    "{\"id\":\"Old pickaxe\",\"quality\":100}": {
+      "count": 1
+    },
+    "{\"id\":\"Old sickle\",\"quality\":100}": {
+      "count": 1
+    },
+    "{\"id\":\"Old shovel\",\"quality\":100}": {
+      "count": 1
+    },
+    "{\"id\":\"Rough wood log\"}": {
+      "count": 83
+    },
+    "{\"id\":\"Tree sap\"}": {
+      "count": 1
+    },
+    "{\"id\":\"Cooling salt packet\"}": {
+      "count": 1
+    },
+    "{\"id\":\"Empty cooling sleeve\"}": {
+      "count": 2
+    },
+    "{\"id\":\"Prepared survey kit\"}": {
+      "count": 7
+    },
+    "{\"id\":\"Wax-sealed survey kit\"}": {
+      "count": 4
+    },
+    "{\"id\":\"Dulled field fitting knife\"}": {
+      "count": 1
+    }
+  },
+  "finalMoney": 58,
+  "commit": "uncommitted"
+}

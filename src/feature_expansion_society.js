@@ -33,7 +33,9 @@ const ready = all(eq(`faculty.${M}.active`), eq(`power.${M}.owned`), eq('society
     {fact: 'vital.health', op: 'gte', value: 2});
 const command = d => ({revision: 1, group: 'feature_society', worldId: W, actorId: 'player', location: 'Village',
     costs: [], effects: [], requires: all(introduced, local), visibleWhen: introduced, ...d});
-const npc = d => command({actorId: O, audience: ['$actor'], ...d});
+// Controller visibility cannot require the player's introduction fact on an NPC.
+// Their actual consent, means and offered-work requirements still govern admission.
+const npc = d => command({actorId: O, audience: ['$actor'], visibleWhen: null, ...d});
 const support = requires => ({completionRequires: all(local, requires), completionCoLocated: true,
     completionFailure: 'refund', cancellation: 'refund'});
 

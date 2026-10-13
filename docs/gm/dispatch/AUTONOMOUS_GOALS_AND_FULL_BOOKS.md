@@ -1,5 +1,7 @@
 # Autonomous GM goals and full-book reading
 
+> **Historical (marked 2026-10-13).** Lane reservations, rosters and test deferral below are dated context, not current policy. Current rules: [GAME_MASTER_PROMPT.md Delegation and succession](../../GAME_MASTER_PROMPT.md#delegation-and-succession) and AGENTS.md Verification.
+
 Direct human instruction, 2026-10-04:
 
 > allow the Gm's to pursue goals until completion? create new chats for each book as well? 'reach in large chunks, feel free to read hundreds of chapters at a time using sub agents and process autonomously until completion?'

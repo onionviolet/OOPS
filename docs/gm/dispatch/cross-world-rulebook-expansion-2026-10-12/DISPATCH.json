@@ -1,0 +1,9 @@
+{
+  "threadId": "01a12e72-1b40-7580-a66f-262a1c27cb41",
+  "hostId": "local",
+  "dispatcher": "01a12e5b-ec19-71b0-b7aa-8d54725f132c",
+  "assignment": "ASSIGNMENT.md",
+  "state": "active; initial commentary confirms reading owners and expanding authorized reference/section",
+  "ownership_transfer": "named cross-world precedent section in docs/RULES_FROM_SCRATCH.md released exclusively to receiver; dispatcher will not edit it",
+  "waitCursor": "43f7a63b-df58-427f-9c91-af4b00b4b1bc:1"
+}

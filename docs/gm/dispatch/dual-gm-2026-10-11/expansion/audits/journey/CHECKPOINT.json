@@ -1,0 +1,35 @@
+{
+  "revision": "audit-journey-r1",
+  "stage": "planning qualification complete; source aggregate and runtime consumer gates open",
+  "reservation_released": true,
+  "reservation": [
+    "docs/gm/dispatch/dual-gm-2026-10-11/expansion/audits/journey",
+    "docs/research/novels/world-depth-2026-10-11/audits/journey"
+  ],
+  "counts": {
+    "selected_candidate": 1,
+    "functional_leaves": 18,
+    "specified_not_run_cases": 90,
+    "direct_bounded_source_receipts": 8,
+    "captured_sibling_rows": 11,
+    "adapter_boundaries": 5,
+    "bounded_packets": 2
+  },
+  "checks": [
+    "JSON parsing",
+    "18 unique detail IDs",
+    "90 unique case IDs, all specified-not-run",
+    "cross-system references resolve",
+    "private writes ignored",
+    "public ledger has IDs/status only",
+    "mandatory content absence distinguished",
+    "source original hashes matched",
+    "11 captured source sibling joins recorded with input hash"
+  ],
+  "remaining": [
+    "Completed source sibling aggregate join by root",
+    "Source-local unresolved terms and native structured consumers",
+    "Separate rebuilt/native/persistence proof and director review"
+  ],
+  "case_stage": "specified-not-run; no execution evidence claimed"
+}

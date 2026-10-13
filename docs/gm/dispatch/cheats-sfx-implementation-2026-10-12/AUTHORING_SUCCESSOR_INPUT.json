@@ -1,0 +1,32 @@
+{
+  "candidate": "/Users/weiwei/.codex/candidates/yairpg-laptop-customization-2026-10-12",
+  "frozenFoundationCandidate": "/Users/weiwei/.codex/candidates/yairpg-customization-2026-10-12",
+  "preparedContentCandidate": "/Users/weiwei/.codex/candidates/yairpg-content-authoring-2026-10-12",
+  "sourceManifest": "FOUNDATION_MANIFEST.json",
+  "scope": "LAPTOP_LAYOUT_STEERING.md",
+  "baselineMatches": {
+    "src/main.js": true,
+    "src/save_files.js": true,
+    "src/work_ledger_system.js": true,
+    "src/work_ledger_ui.js": true,
+    "src/work_ledger_author_ui.js": true,
+    "src/customization_profiles.js": true,
+    "src/customization_ui.js": true,
+    "src/settled_text_effects.js": true,
+    "src/adventure_notebook.js": true,
+    "src/workspace_layout.js": true,
+    "src/workspace_state.js": true,
+    "src/workspace_views.js": true,
+    "styles/settled_text_effects.css": true,
+    "styles/customization.css": true,
+    "styles/workspace.css": true,
+    "index.html": true,
+    "dist/bundle.js": true,
+    "dist/bundle.js.map": true
+  },
+  "ownership": "Confirmed successor owns dispatch except creator DISPATCH.json and laptop candidate; predecessor read-only. Transition recording complete, transition file released to successor.",
+  "successor": "01a12e84-0958-7381-862a-69a174050353",
+  "host": "local",
+  "predecessor": "01a12e63-3b14-7112-adb2-aea3e5dc7a98",
+  "priority": "LAPTOP_LAYOUT_STEERING.md; content authoring after laptop boundary"
+}

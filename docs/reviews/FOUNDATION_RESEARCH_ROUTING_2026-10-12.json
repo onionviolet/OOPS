@@ -1,0 +1,378 @@
+{
+  "schema": 1,
+  "date": "2026-10-12",
+  "scope": "Public report entrypoints for named game families discovered with rg; not all artifacts, source findings, decompilation coverage or implemented features. No private novels or saves inventoried.",
+  "entries": [
+    {
+      "game_family": "amazing-cultivation-simulator",
+      "report": "docs/research/amazing-cultivation-simulator/REPORT.md",
+      "sha256": "5807ae2d22045da23209e81aa770b13d622a759836b2f5ef8506f91fe02bedd0",
+      "reconciliation": "entrypoint-discovered; consult local coverage and source locators before adopting",
+      "runtime_status": "not inferred from report presence"
+    },
+    {
+      "game_family": "ani-idle",
+      "report": "docs/research/ani-idle/REPORT.md",
+      "sha256": "c2e8bbbbb53d9e8a39819e86d533f6f5f4a8595026a2a772bf294f83f2fb1dbc",
+      "reconciliation": "entrypoint-discovered; consult local coverage and source locators before adopting",
+      "runtime_status": "not inferred from report presence"
+    },
+    {
+      "game_family": "bitburner",
+      "report": "docs/research/bitburner/REPORT.md",
+      "sha256": "629371ecb6e41ce47534e9c9c7bf5a3b1eca3873596a0adf0d13b3bb00504938",
+      "reconciliation": "entrypoint-discovered; consult local coverage and source locators before adopting",
+      "runtime_status": "not inferred from report presence"
+    },
+    {
+      "game_family": "book-of-hours",
+      "report": "docs/research/book-of-hours/REPORT.md",
+      "sha256": "fb5a93adb0183cdc56d58fdca57def4a50bed0ee13b84173f387e61a0ca37eca",
+      "reconciliation": "entrypoint-discovered; consult local coverage and source locators before adopting",
+      "runtime_status": "not inferred from report presence"
+    },
+    {
+      "game_family": "caves-of-qud",
+      "report": "docs/research/caves-of-qud/REPORT.md",
+      "sha256": "1f0ef52bcbf7174087d2fc12abb398bac10f1f2abb5d1c6a744390fe6a1f1058",
+      "reconciliation": "entrypoint-discovered; consult local coverage and source locators before adopting",
+      "runtime_status": "not inferred from report presence"
+    },
+    {
+      "game_family": "citizen-sleeper-2",
+      "report": "docs/research/citizen-sleeper-2/REPORT.md",
+      "sha256": "5933e61f8999aa8f7c0f5ec44041f25529e146100a62ba5dc469ec131c5fb423",
+      "reconciliation": "entrypoint-discovered; consult local coverage and source locators before adopting",
+      "runtime_status": "not inferred from report presence"
+    },
+    {
+      "game_family": "citizen-sleeper",
+      "report": "docs/research/citizen-sleeper/REPORT.md",
+      "sha256": "0cfffc9aa0abfcfbc1076886677713f3b930ff3bf216b689739d92ad5380677d",
+      "reconciliation": "entrypoint-discovered; consult local coverage and source locators before adopting",
+      "runtime_status": "not inferred from report presence"
+    },
+    {
+      "game_family": "crusader-kings-3",
+      "report": "docs/research/crusader-kings-3/REPORT.md",
+      "sha256": "4ac2bf486fb85338bfa046a74dfe9189a5b7535ed58b70628a24b12fa257ad88",
+      "reconciliation": "entrypoint-discovered; consult local coverage and source locators before adopting",
+      "runtime_status": "not inferred from report presence"
+    },
+    {
+      "game_family": "crush-crush",
+      "report": "docs/research/crush-crush/REPORT.md",
+      "sha256": "8fa528a75d1c74cb0f9468c3c9d6e7d7a6af9c7069681432ca49d8eb48d45458",
+      "reconciliation": "entrypoint-discovered; consult local coverage and source locators before adopting",
+      "runtime_status": "not inferred from report presence"
+    },
+    {
+      "game_family": "cult-of-the-lamb",
+      "report": "docs/research/cult-of-the-lamb/REPORT.md",
+      "sha256": "a8a1910111ee1ecd774319300bea14d493c2aa52904e33c94a8798aee2c59048",
+      "reconciliation": "entrypoint-discovered; consult local coverage and source locators before adopting",
+      "runtime_status": "not inferred from report presence"
+    },
+    {
+      "game_family": "cultist-simulator",
+      "report": "docs/research/cultist-simulator/REPORT.md",
+      "sha256": "ea03fc3f344fcbf658fcd08bf37ed5c3ede1d202c69a43fc9aa7a7d0f94bea7c",
+      "reconciliation": "entrypoint-discovered; consult local coverage and source locators before adopting",
+      "runtime_status": "not inferred from report presence"
+    },
+    {
+      "game_family": "disco-elysium",
+      "report": "docs/research/disco-elysium/REPORT.md",
+      "sha256": "52cdcf852ff5f4049b6a20a4e927edda8a2296b9efd33dc0d4e31230726aaa2a",
+      "reconciliation": "entrypoint-discovered; consult local coverage and source locators before adopting",
+      "runtime_status": "not inferred from report presence"
+    },
+    {
+      "game_family": "dwarf-fortress",
+      "report": "docs/research/dwarf-fortress/REPORT.md",
+      "sha256": "44a046ae3a77dc38f001f6c3483f6af73c310bf44d79e4ef087b36060b14c041",
+      "reconciliation": "entrypoint-discovered; consult local coverage and source locators before adopting",
+      "runtime_status": "not inferred from report presence"
+    },
+    {
+      "game_family": "elin",
+      "report": "docs/research/elin/REPORT.md",
+      "sha256": "eb0520ad82014a2eac6bd151dcddaadb11f9a2dbcbf857a393514a6ab1d9e56e",
+      "reconciliation": "entrypoint-discovered; consult local coverage and source locators before adopting",
+      "runtime_status": "not inferred from report presence"
+    },
+    {
+      "game_family": "endless-ascent",
+      "report": "docs/research/endless-ascent/REPORT.md",
+      "sha256": "b883769583be8c90f533798c9ee666cf3061d6ed136743578b493f515006ff1f",
+      "reconciliation": "entrypoint-discovered; consult local coverage and source locators before adopting",
+      "runtime_status": "not inferred from report presence"
+    },
+    {
+      "game_family": "factorio",
+      "report": "docs/research/factorio/REPORT.md",
+      "sha256": "0aa3a5ad7cdd54fb2566e4aaf2cb66f2b4d3f6a11c43d66cb87d2e269f5192c9",
+      "reconciliation": "entrypoint-discovered; consult local coverage and source locators before adopting",
+      "runtime_status": "not inferred from report presence"
+    },
+    {
+      "game_family": "factorio",
+      "report": "docs/research/factorio/native/REPORT.md",
+      "sha256": "111169f1c72d127eac8e09a909acda0464b4f892aea98ea803aede31ec104c9b",
+      "reconciliation": "entrypoint-discovered; consult local coverage and source locators before adopting",
+      "runtime_status": "not inferred from report presence"
+    },
+    {
+      "game_family": "factorio",
+      "report": "docs/research/factorio/native/readers/logistics-heat/REPORT.md",
+      "sha256": "3fb493a9907547b910c0c49dad89e1e4f26d647956bae9d5caa48356eb902d7e",
+      "reconciliation": "entrypoint-discovered; consult local coverage and source locators before adopting",
+      "runtime_status": "not inferred from report presence"
+    },
+    {
+      "game_family": "factorio",
+      "report": "docs/research/factorio/native/readers/production-early/REPORT.md",
+      "sha256": "f120ae714ab3f1041aa9d40b8e3d72793d7489efa0ebdf2934ccd707ac3df9ef",
+      "reconciliation": "entrypoint-discovered; consult local coverage and source locators before adopting",
+      "runtime_status": "not inferred from report presence"
+    },
+    {
+      "game_family": "factorio",
+      "report": "docs/research/factorio/native/readers/quality-spoilage/REPORT.md",
+      "sha256": "08ded6abddbff7de56abad2a3eed2dff1e07bf72e520387c80e033b8dc09d9e0",
+      "reconciliation": "entrypoint-discovered; consult local coverage and source locators before adopting",
+      "runtime_status": "not inferred from report presence"
+    },
+    {
+      "game_family": "idling-to-rule-the-gods",
+      "report": "docs/research/idling-to-rule-the-gods/REPORT.md",
+      "sha256": "54ff7b17b804215f83a264997c9a62f540aea703b6137cfa93bb6ed40092b82a",
+      "reconciliation": "entrypoint-discovered; consult local coverage and source locators before adopting",
+      "runtime_status": "not inferred from report presence"
+    },
+    {
+      "game_family": "increlution",
+      "report": "docs/research/increlution/REPORT.md",
+      "sha256": "87fd8970dc1c5eb4bc5f504f3da52d7969af568e366c65e765aeb95f28b684ee",
+      "reconciliation": "entrypoint-discovered; consult local coverage and source locators before adopting",
+      "runtime_status": "not inferred from report presence"
+    },
+    {
+      "game_family": "keeperrl",
+      "report": "docs/research/keeperrl/REPORT.md",
+      "sha256": "00e3b232af375474b7ee1f3ac9f909ef9bf378c8f02b62b05719ee6eb7eb7d67",
+      "reconciliation": "entrypoint-discovered; consult local coverage and source locators before adopting",
+      "runtime_status": "not inferred from report presence"
+    },
+    {
+      "game_family": "kenshi",
+      "report": "docs/research/kenshi/REPORT.md",
+      "sha256": "e7c37f172700bb7fa87be4026839afb0711396de063671f7cf22a30e864d2830",
+      "reconciliation": "entrypoint-discovered; consult local coverage and source locators before adopting",
+      "runtime_status": "not inferred from report presence"
+    },
+    {
+      "game_family": "kenshi",
+      "report": "docs/research/kenshi/second-pass/REPORT.md",
+      "sha256": "8ca87ab4415a737cf0c523f347645cd0d3ceefbe344a20e576f74439fb9dd9ae",
+      "reconciliation": "entrypoint-discovered; consult local coverage and source locators before adopting",
+      "runtime_status": "not inferred from report presence"
+    },
+    {
+      "game_family": "kill-the-lich-idle",
+      "report": "docs/research/kill-the-lich-idle/REPORT.md",
+      "sha256": "3f2858b30dfb7c85439d9f27cc4aa3c6658347d3c8fc1b346983f4c6fde046fb",
+      "reconciliation": "entrypoint-discovered; consult local coverage and source locators before adopting",
+      "runtime_status": "not inferred from report presence"
+    },
+    {
+      "game_family": "king-of-dragon-pass",
+      "report": "docs/research/king-of-dragon-pass/REPORT.md",
+      "sha256": "8b9ad0e3986fe0a69625efc37b7b6aca1673f925d4d4105d5e97bde3498cc4d1",
+      "reconciliation": "entrypoint-discovered; consult local coverage and source locators before adopting",
+      "runtime_status": "not inferred from report presence"
+    },
+    {
+      "game_family": "magic-research-2",
+      "report": "docs/research/magic-research-2/REPORT.md",
+      "sha256": "8709b98b3f9e76c106987e6478b2ec0a880ea19412c196f941b89b82546e3e1e",
+      "reconciliation": "entrypoint-discovered; consult local coverage and source locators before adopting",
+      "runtime_status": "not inferred from report presence"
+    },
+    {
+      "game_family": "melvor-idle",
+      "report": "docs/research/melvor-idle/REPORT.md",
+      "sha256": "361adb1d357e65e6b6af5885729bb161365721f0657c768f7eeb04638c08cc7d",
+      "reconciliation": "entrypoint-discovered; consult local coverage and source locators before adopting",
+      "runtime_status": "not inferred from report presence"
+    },
+    {
+      "game_family": "nethack",
+      "report": "docs/research/nethack/REPORT.md",
+      "sha256": "512a27df406ff0237f98462f698dc182b62954047c2f9c058137a5cb559e5742",
+      "reconciliation": "entrypoint-discovered; consult local coverage and source locators before adopting",
+      "runtime_status": "not inferred from report presence"
+    },
+    {
+      "game_family": "noita",
+      "report": "docs/research/noita/REPORT.md",
+      "sha256": "036eb18c4bbf87605bae11c9a834127655138433470e00c793748903b0284d40",
+      "reconciliation": "entrypoint-discovered; consult local coverage and source locators before adopting",
+      "runtime_status": "not inferred from report presence"
+    },
+    {
+      "game_family": "orb-of-creation",
+      "report": "docs/research/orb-of-creation/REPORT.md",
+      "sha256": "d26ff849eda5c17ca66dc8d5ddc6f218895654ae938a2dd666d332872762128c",
+      "reconciliation": "entrypoint-discovered; consult local coverage and source locators before adopting",
+      "runtime_status": "not inferred from report presence"
+    },
+    {
+      "game_family": "oxygen-not-included",
+      "report": "docs/research/oxygen-not-included/REPORT.md",
+      "sha256": "9d381475a873a160e2cb5698628c4e7f78225e444dfa3e296833ec1fda2f25e5",
+      "reconciliation": "entrypoint-discovered; consult local coverage and source locators before adopting",
+      "runtime_status": "not inferred from report presence"
+    },
+    {
+      "game_family": "path-of-achra",
+      "report": "docs/research/path-of-achra/REPORT.md",
+      "sha256": "2739b18bc95c01a4ac84f5c11e3b7afc8f8d9fe3d056147c3efc03bbedd5dafb",
+      "reconciliation": "entrypoint-discovered; consult local coverage and source locators before adopting",
+      "runtime_status": "not inferred from report presence"
+    },
+    {
+      "game_family": "planescape-torment",
+      "report": "docs/research/planescape-torment/REPORT.md",
+      "sha256": "10715a5ca6d6661129da14cb0087ec4dd15d1e52080c73bed9dcd82893ee90d6",
+      "reconciliation": "entrypoint-discovered; consult local coverage and source locators before adopting",
+      "runtime_status": "not inferred from report presence"
+    },
+    {
+      "game_family": "proto23",
+      "report": "docs/research/proto23/PROTO23_VS_YAIRPG_2026-10-10.md",
+      "sha256": "ca58c298b8bcddde59628128bc190ca2afa64b10856f708df91434487f7f71ef",
+      "reconciliation": "entrypoint-discovered; consult local coverage and source locators before adopting",
+      "runtime_status": "not inferred from report presence"
+    },
+    {
+      "game_family": "rimworld",
+      "report": "docs/research/rimworld/REPORT.md",
+      "sha256": "488849fc476772f4b39878065d36990c81b57b995de550be09fe4de4053ee7f4",
+      "reconciliation": "entrypoint-discovered; consult local coverage and source locators before adopting",
+      "runtime_status": "not inferred from report presence"
+    },
+    {
+      "game_family": "rogue-legacy",
+      "report": "docs/research/rogue-legacy/REPORT.md",
+      "sha256": "5308717b7cbcd66310665e7a263c5e1d4d1ecbb9273dba2c36ed478ceb17ba7f",
+      "reconciliation": "entrypoint-discovered; consult local coverage and source locators before adopting",
+      "runtime_status": "not inferred from report presence"
+    },
+    {
+      "game_family": "six-ages-2",
+      "report": "docs/research/six-ages-2/REPORT.md",
+      "sha256": "f011febc7421ece93adce3d7601e7abcb7214bc0a8e7369e059e326a33a3f56b",
+      "reconciliation": "entrypoint-discovered; consult local coverage and source locators before adopting",
+      "runtime_status": "not inferred from report presence"
+    },
+    {
+      "game_family": "six-ages",
+      "report": "docs/research/six-ages/REPORT.md",
+      "sha256": "79e66559f72896497fbf9c6645ca0466e9e54437e603cf65aa6e5d95aceff98d",
+      "reconciliation": "entrypoint-discovered; consult local coverage and source locators before adopting",
+      "runtime_status": "not inferred from report presence"
+    },
+    {
+      "game_family": "soulash-2",
+      "report": "docs/research/soulash-2/REPORT.md",
+      "sha256": "49d9b52cf04fe2648fffd7622f45247eb26f53d43e312b0605677f5ed36b7985",
+      "reconciliation": "entrypoint-discovered; consult local coverage and source locators before adopting",
+      "runtime_status": "not inferred from report presence"
+    },
+    {
+      "game_family": "streets-of-rogue",
+      "report": "docs/research/streets-of-rogue/REPORT.md",
+      "sha256": "c0c24db0c25db33bc1cde40163edff4ebfcaae7e69dce4a72f7070b6ea504718",
+      "reconciliation": "entrypoint-discovered; consult local coverage and source locators before adopting",
+      "runtime_status": "not inferred from report presence"
+    },
+    {
+      "game_family": "sucker-for-love-crush-landing",
+      "report": "docs/research/sucker-for-love-crush-landing/REPORT.md",
+      "sha256": "8d817f90d8d98ae48aaa5548a4a3524cf4ca5b85146ae587a3345d40f16c6f78",
+      "reconciliation": "entrypoint-discovered; consult local coverage and source locators before adopting",
+      "runtime_status": "not inferred from report presence"
+    },
+    {
+      "game_family": "sunless-sea",
+      "report": "docs/research/sunless-sea/REPORT.md",
+      "sha256": "f1d304374178016fc7dd88d750ecc5424e6802b4630432ad40b8792052639caa",
+      "reconciliation": "entrypoint-discovered; consult local coverage and source locators before adopting",
+      "runtime_status": "not inferred from report presence"
+    },
+    {
+      "game_family": "sunless-skies",
+      "report": "docs/research/sunless-skies/REPORT.md",
+      "sha256": "020a1fa827a0521a7e20dac3334491874695bc1c1bb7138e22fdfa6574764c96",
+      "reconciliation": "entrypoint-discovered; consult local coverage and source locators before adopting",
+      "runtime_status": "not inferred from report presence"
+    },
+    {
+      "game_family": "tale-of-immortal",
+      "report": "docs/research/tale-of-immortal/REPORT.md",
+      "sha256": "41c306c57f17557743c1b6c14def1717c37ae22fd1a42dbe07902bd95864b68b",
+      "reconciliation": "entrypoint-discovered; consult local coverage and source locators before adopting",
+      "runtime_status": "not inferred from report presence"
+    },
+    {
+      "game_family": "tales-of-maj-eyal",
+      "report": "docs/research/tales-of-maj-eyal/REPORT.md",
+      "sha256": "da9e75cfbf72ca32b7b59a3f7122532bd1d7a114ada59dfdc317c7abf2e3e3b0",
+      "reconciliation": "entrypoint-discovered; consult local coverage and source locators before adopting",
+      "runtime_status": "not inferred from report presence"
+    },
+    {
+      "game_family": "the-lands-of-eldyn",
+      "report": "docs/research/the-lands-of-eldyn/REPORT.md",
+      "sha256": "98304542ab78fbd1c2a2bb7251ce17624c45042b3f76fca62687305e5f4c1040",
+      "reconciliation": "entrypoint-discovered; consult local coverage and source locators before adopting",
+      "runtime_status": "not inferred from report presence"
+    },
+    {
+      "game_family": "theory-of-magic",
+      "report": "docs/research/theory-of-magic/REPORT.md",
+      "sha256": "d6d3534901a0c48978d253b257a703183cc0f4a470bbb29bbd39cc3da56a05e6",
+      "reconciliation": "entrypoint-discovered; consult local coverage and source locators before adopting",
+      "runtime_status": "not inferred from report presence"
+    },
+    {
+      "game_family": "upload-labs",
+      "report": "docs/research/upload-labs/REPORT.md",
+      "sha256": "cb487dd94f8cab1e4fbfe0fa48b478aa3499e7097af5a1fae1429b3b95f5b108",
+      "reconciliation": "entrypoint-discovered; consult local coverage and source locators before adopting",
+      "runtime_status": "not inferred from report presence"
+    },
+    {
+      "game_family": "vagrus",
+      "report": "docs/research/vagrus/REPORT.md",
+      "sha256": "23dec08afa14456cb3ccdd7d4006a3dd5789fc2c9d2017c05712abc685917395",
+      "reconciliation": "entrypoint-discovered; consult local coverage and source locators before adopting",
+      "runtime_status": "not inferred from report presence"
+    },
+    {
+      "game_family": "wildermyth",
+      "report": "docs/research/wildermyth/REPORT.md",
+      "sha256": "ed948e317c08b7d7ffd0e6bcb30d2fa47e440eea34e89e1403ce08b59f8af2f8",
+      "reconciliation": "entrypoint-discovered; consult local coverage and source locators before adopting",
+      "runtime_status": "not inferred from report presence"
+    },
+    {
+      "game_family": "your-chronicle",
+      "report": "docs/research/your-chronicle/REPORT.md",
+      "sha256": "e3115b2723e5077cbb7e076080de558e94b38a85245ef255dcc5534c59c051d5",
+      "reconciliation": "entrypoint-discovered; consult local coverage and source locators before adopting",
+      "runtime_status": "not inferred from report presence"
+    }
+  ]
+}

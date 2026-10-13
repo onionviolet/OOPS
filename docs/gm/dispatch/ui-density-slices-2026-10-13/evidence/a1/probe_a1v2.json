@@ -1,0 +1,264 @@
+[
+ {
+  "name": "hub_400x800_a1v2",
+  "err": null,
+  "hs": {
+   "doc": false,
+   "sw": 400,
+   "w": 400,
+   "vscroll": true
+  },
+  "targets": {},
+  "actions": [
+   {
+    "id": "fort_supply_panel",
+    "cls": "village_career_panel",
+    "txt": "Waypost supply clerk Clerk purse: 180 coins. Paid so far: 0.",
+    "native": false,
+    "disp": "block",
+    "vis": false,
+    "why": "viewport"
+   },
+   {
+    "id": "",
+    "cls": "location_choice_dropdown choice_travel",
+    "txt": "directions Move somewhere else",
+    "native": true,
+    "disp": "block",
+    "vis": true
+   },
+   {
+    "id": "",
+    "cls": "location_choices choice_craft",
+    "txt": "construction Try to craft something",
+    "native": true,
+    "disp": "block",
+    "vis": true
+   },
+   {
+    "id": "",
+    "cls": "location_choice_dropdown choice_dialogue",
+    "txt": "question_answer Talk to someone",
+    "native": true,
+    "disp": "block",
+    "vis": true
+   },
+   {
+    "id": "",
+    "cls": "location_choice_dropdown choice_trade",
+    "txt": "storefront Visit a merchant",
+    "native": true,
+    "disp": "block",
+    "vis": true
+   },
+   {
+    "id": "",
+    "cls": "location_choice_dropdown choice_work",
+    "txt": "work_outline Find work",
+    "native": true,
+    "disp": "block",
+    "vis": true
+   },
+   {
+    "id": "",
+    "cls": "location_choice_dropdown choice_train",
+    "txt": "fitness_center Train",
+    "native": true,
+    "disp": "block",
+    "vis": true
+   },
+   {
+    "id": "",
+    "cls": "location_choice_dropdown choice_gather",
+    "txt": "search Gather resources",
+    "native": true,
+    "disp": "block",
+    "vis": false,
+    "why": "covered:hits_counter"
+   },
+   {
+    "id": "local_life_panel",
+    "cls": "expedition_panel",
+    "txt": "Local life",
+    "native": false,
+    "disp": "block",
+    "vis": false,
+    "why": "viewport"
+   },
+   {
+    "id": "pacing_status_panel",
+    "cls": "expedition_panel",
+    "txt": "Optional pacing",
+    "native": false,
+    "disp": "block",
+    "vis": false,
+    "why": "viewport"
+   },
+   {
+    "id": "durability_panel",
+    "cls": "expedition_panel",
+    "txt": "Equipment condition and repair",
+    "native": false,
+    "disp": "block",
+    "vis": false,
+    "why": "viewport"
+   },
+   {
+    "id": "elemental_panel",
+    "cls": "expedition_panel",
+    "txt": "Elemental preparation",
+    "native": false,
+    "disp": "block",
+    "vis": false,
+    "why": "viewport"
+   }
+  ],
+  "errs": []
+ },
+ {
+  "name": "hub-Classic_1366x768_a1v2",
+  "err": null,
+  "hs": {
+   "doc": false,
+   "sw": 1366,
+   "w": 1366,
+   "vscroll": true
+  },
+  "targets": {},
+  "actions": [
+   {
+    "id": "fort_supply_panel",
+    "cls": "village_career_panel",
+    "txt": "Waypost supply clerk Clerk purse: 180 coins. Paid so far: 0.",
+    "native": false,
+    "disp": "block",
+    "vis": false,
+    "why": "viewport"
+   },
+   {
+    "id": "",
+    "cls": "location_choice_dropdown choice_travel",
+    "txt": "directions Move somewhere else",
+    "native": true,
+    "disp": "block",
+    "vis": true
+   },
+   {
+    "id": "",
+    "cls": "location_choices choice_craft",
+    "txt": "construction Try to craft something",
+    "native": true,
+    "disp": "block",
+    "vis": true
+   },
+   {
+    "id": "",
+    "cls": "location_choice_dropdown choice_dialogue",
+    "txt": "question_answer Talk to someone",
+    "native": true,
+    "disp": "block",
+    "vis": true
+   },
+   {
+    "id": "",
+    "cls": "location_choice_dropdown choice_trade",
+    "txt": "storefront Visit a merchant",
+    "native": true,
+    "disp": "block",
+    "vis": false,
+    "why": "covered:bottom_panel_div"
+   },
+   {
+    "id": "",
+    "cls": "location_choice_dropdown choice_work",
+    "txt": "work_outline Find work",
+    "native": true,
+    "disp": "block",
+    "vis": false,
+    "why": "viewport"
+   },
+   {
+    "id": "",
+    "cls": "location_choice_dropdown choice_train",
+    "txt": "fitness_center Train",
+    "native": true,
+    "disp": "block",
+    "vis": false,
+    "why": "viewport"
+   },
+   {
+    "id": "",
+    "cls": "location_choice_dropdown choice_gather",
+    "txt": "search Gather resources",
+    "native": true,
+    "disp": "block",
+    "vis": false,
+    "why": "viewport"
+   },
+   {
+    "id": "local_life_panel",
+    "cls": "expedition_panel",
+    "txt": "Local life",
+    "native": false,
+    "disp": "block",
+    "vis": false,
+    "why": "viewport"
+   },
+   {
+    "id": "pacing_status_panel",
+    "cls": "expedition_panel",
+    "txt": "Optional pacing",
+    "native": false,
+    "disp": "block",
+    "vis": false,
+    "why": "viewport"
+   },
+   {
+    "id": "durability_panel",
+    "cls": "expedition_panel",
+    "txt": "Equipment condition and repair",
+    "native": false,
+    "disp": "block",
+    "vis": false,
+    "why": "viewport"
+   },
+   {
+    "id": "elemental_panel",
+    "cls": "expedition_panel",
+    "txt": "Elemental preparation",
+    "native": false,
+    "disp": "block",
+    "vis": false,
+    "why": "viewport"
+   },
+   {
+    "id": "structured_pack_panel",
+    "cls": "",
+    "txt": "Your beginning A livelihood in Reedbank Optional original lo",
+    "native": false,
+    "disp": "block",
+    "vis": false,
+    "why": "viewport"
+   },
+   {
+    "id": "optional_content_panel",
+    "cls": "",
+    "txt": "Optional worlds A Soldier’s Life An optional Lion Legion pos",
+    "native": false,
+    "disp": "block",
+    "vis": false,
+    "why": "viewport"
+   },
+   {
+    "id": "village_career_controls",
+    "cls": "",
+    "txt": "Village patrol · Apprentice Take a loaned lantern and baton ",
+    "native": false,
+    "disp": "block",
+    "vis": false,
+    "why": "viewport"
+   }
+  ],
+  "errs": []
+ }
+]

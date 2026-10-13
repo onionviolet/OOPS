@@ -1,0 +1,181 @@
+{
+  "status": "PARTIAL_NATIVE_PREREQUISITE_CHECKPOINT",
+  "worker": "/root/learning_native",
+  "bundle": "21eedf8476a91a867ef91b997889cf02fefdb2f653bd613b80680029328fa3f1",
+  "save": "/tmp/yairpg-foundation-learning-worker-neri-settled-handoff.json",
+  "saveSha256": "3a8ae73957c6bdd99c3964618ea430ecf7bd8c82b03b0447a7b1d082568da05d",
+  "origin": "http://127.0.0.1:18643",
+  "pid": 25674,
+  "session": 52777,
+  "stopped": true,
+  "clock": 11460,
+  "sequence": 1046,
+  "schema": 11,
+  "location": "Shack",
+  "moneyBaseUnits": 76,
+  "nativeActivity": null,
+  "pendingJobs": [],
+  "playerStock": {
+    "{\"id\":\"Stale bread\"}": {
+      "count": 3
+    },
+    "{\"id\":\"Rat tail\"}": {
+      "count": 1
+    },
+    "{\"id\":\"Old pickaxe\",\"quality\":100}": {
+      "count": 1
+    },
+    "{\"id\":\"Old sickle\",\"quality\":100}": {
+      "count": 1
+    },
+    "{\"id\":\"Old shovel\",\"quality\":100}": {
+      "count": 1
+    },
+    "{\"id\":\"Rough wood log\"}": {
+      "count": 342
+    },
+    "{\"id\":\"Tree sap\"}": {
+      "count": 18
+    },
+    "{\"id\":\"Dulled field fitting knife\"}": {
+      "count": 1
+    },
+    "{\"id\":\"Wet repair stave\"}": {
+      "count": 1
+    },
+    "{\"id\":\"Compatible repair offcut\"}": {
+      "count": 2
+    },
+    "{\"id\":\"Prepared survey kit\"}": {
+      "count": 1
+    }
+  },
+  "playerGearKeys": {
+    "weapon": "{\"components\":{\"head\":\"Cheap iron axe head\",\"handle\":\"Simple wooden medium handle\"},\"quality\":50}",
+    "legs": "{\"id\":\"Cheap leather pants\",\"quality\":40}",
+    "axe": "{\"id\":\"Old axe\",\"quality\":100}"
+  },
+  "completed": {
+    "feature_objects.begin": 1,
+    "feature_objects.inspect": 1,
+    "feature_objects.buy": 1,
+    "audit_remainder.enroll": 1,
+    "remainder_home.terms": 1,
+    "remainder_home.trim_uncovered": 1,
+    "remainder_home.dry_offcuts": 1,
+    "field.begin": 1,
+    "field.join_craft": 1,
+    "field.project_start": 1,
+    "field.inspect": 4,
+    "frontier.kit": 1,
+    "field.workshop.assembly": 1,
+    "remainder_home.room_terms": 1,
+    "remainder_home.room.frame": 1,
+    "remainder_home.room.finish": 1,
+    "remainder_home.meet_resident": 1,
+    "remainder_home.invite": 1,
+    "remainder_home.hear_resident": 1,
+    "remainder_home.collect_resident": 1
+  },
+  "lastPublicAccount": {
+    "stage": "seen",
+    "value": "I met Neri at the real Shack room. Arrival, occupancy, her funded work and collection are separate commitments. Her completed public work is available through its own known collection control; this meeting grants no stock, occupation or wage.",
+    "at": 11406,
+    "cause": "simulation:991",
+    "basis": {
+      "kind": "recollection",
+      "attributedTo": "remainder_home.neri",
+      "situationId": "remainder_home.terms"
+    }
+  },
+  "actualCollection": {
+    "stage": "seen",
+    "value": "Neri transferred the one actual Prepared survey kit produced by her completed paid service. Her returned tool kit, unspent coin, body and previous work remain hers. This kit supports the existing native field preparation, packing, orders and trade; collection cannot repeat.",
+    "at": 11458,
+    "cause": "simulation:1044",
+    "basis": {
+      "kind": "observation",
+      "attributedTo": "player",
+      "situationId": "remainder_home.terms"
+    }
+  },
+  "privateReceiverState": {
+    "person": {
+      "life": "alive",
+      "inventory": "simulation",
+      "location": "Shack",
+      "bornAt": 11392,
+      "definitionId": "remainder_home.neri",
+      "definitionRevision": 1,
+      "createdBy": "player",
+      "vitals": {
+        "health": 18,
+        "max_health": 18,
+        "stamina": 6,
+        "max_stamina": 8
+      },
+      "body": {
+        "hands": 2
+      }
+    },
+    "actor": {
+      "facts": {
+        "remainder_home.willing": true,
+        "remainder_home.invitationPending": false,
+        "remainder_home.accepted": true,
+        "remainder_home.serviceOffered": false,
+        "remainder_home.serviceDone": true
+      },
+      "resources": {
+        "coins": 1,
+        "attention": 1
+      },
+      "completed": {
+        "remainder_home.resident_accept": 1,
+        "remainder_home.resident_bind": 1
+      },
+      "sources": {
+        "remainder_home.kit_binding": {
+          "acquiredAt": 11392,
+          "expiresAt": null,
+          "receiptId": "simulation:975",
+          "worldId": "base.frontier",
+          "revision": 1,
+          "origin": "trained"
+        }
+      },
+      "techniques": {},
+      "worldId": "base.frontier"
+    },
+    "ownedStock": {
+      "{\"id\":\"Prepared survey kit\"}": 1
+    },
+    "controllers": {
+      "remainder_home.neri:remainder_home.resident_controller": {
+        "definitionId": "remainder_home.resident_controller",
+        "actorId": "remainder_home.neri",
+        "due": 11461,
+        "interval": 1,
+        "lastAction": {
+          "at": 11398,
+          "kind": "command",
+          "subject": "remainder_home.resident_bind"
+        }
+      }
+    }
+  },
+  "neverRun": [
+    "world.completion.begin",
+    "notch sampling",
+    "Vela meeting/sample measurement",
+    "world.completion.learning.begin",
+    "player/Neri datum lesson",
+    "stamped strip production/handover/use",
+    "learning unsupported interval",
+    "learning cancellation/refusal",
+    "failed-write learning commit",
+    "F4 native export/reload/import/negative import"
+  ],
+  "nextNativeAction": "Shack native Go outside to [Village], data-travel='Village', scope actual local actions to avoid duplicate fast-travel selectors.",
+  "acceptanceRemaining": "Complete remaining B1 then NPC-first/player-second B2-B5; exact final actual save for root G6; combined source suite with root."
+}

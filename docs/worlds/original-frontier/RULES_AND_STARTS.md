@@ -4,6 +4,14 @@ Planning revision 1, 2026-10-05. Required IDs and delivery gate are in [WORLD_CO
 
 ## Start and access
 
+Current routing clarification, 2026-10-11: the rules below describe this optional
+Frontier campaign and compatibility with its existing saves. They are not a
+mandatory opening for expanded runs. The intended suspenseful random entry is
+specified by the shared [completion standard](../../WORLD_COMPLETION_STANDARD.md);
+its selector and native initialization remain to be implemented. This routing
+change does not rewrite Frontier's frozen campaign requirements or invent a
+new origin in an existing save.
+
 Keep the existing player, body, money, equipment, native skill XP, quest progress and current `base.frontier`. An old save acquires no campaign enrollment, actor stock, discovery, debt or mastery from loading. An explicit optional meeting begins the campaign now. Short Measure still requires the native elder meeting and actual Town square access. A known inaccessible place displays its known route/access reason; an undiscovered place is not revealed through a locked future panel.
 
 No new random origin is required for Frontier. Fixed opening facts and the three-log Short Measure discrepancy stay fixed. A retained native or imported power counts only if its actual acquisition/body/fuel/authority and local function work; a remembered name grants nothing. Any future new-life start is a separate shared design decision, not a way to reset these saves.

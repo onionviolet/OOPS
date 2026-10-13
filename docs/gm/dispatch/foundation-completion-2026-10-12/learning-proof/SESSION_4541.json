@@ -1,0 +1,73 @@
+{
+  "pid": 4541,
+  "origin": "http://127.0.0.1:18643",
+  "startedHash": "6540b5a5701e8279f43800a89988d1cf1b24986f360560159ee2d9121ce776f2",
+  "endedHash": "6540b5a5701e8279f43800a89988d1cf1b24986f360560159ee2d9121ce776f2",
+  "events": [
+    {
+      "action": "panel",
+      "selector": "#feature_expansion_panel"
+    },
+    {
+      "action": "click",
+      "selector": "#feature_expansion_panel summary:has-text('Permitted home & measuring work')"
+    },
+    {
+      "action": "click",
+      "name": "Do this: Dry two counted green offcuts · 2 stamina + 6 min"
+    },
+    {
+      "action": "save",
+      "name": "worker-dry-pending"
+    },
+    {
+      "action": "wait",
+      "ms": 15000
+    },
+    {
+      "action": "save",
+      "name": "worker-dry-complete"
+    },
+    {
+      "action": "panel",
+      "selector": "#field_panel"
+    },
+    {
+      "action": "click",
+      "selector": "[data-field-command='field.begin']"
+    },
+    {
+      "action": "click",
+      "selector": "[data-field-command='field.join_craft']"
+    },
+    {
+      "action": "wait",
+      "ms": 10000
+    },
+    {
+      "action": "click",
+      "selector": "#field_panel summary:has-text('Project & production')"
+    },
+    {
+      "action": "click",
+      "selector": "[data-field-command='field.project_start']"
+    },
+    {
+      "action": "wait",
+      "ms": 10000
+    },
+    {
+      "action": "click",
+      "selector": "[data-field-command='field.inspect']"
+    },
+    {
+      "action": "save",
+      "name": "worker-field-reports"
+    },
+    {
+      "action": "save",
+      "name": "worker-brief-harness-boundary"
+    }
+  ],
+  "errors": []
+}

@@ -219,3 +219,133 @@ needs; rule 12 adds his "there can be outliers".
   all at once (from Weibao's earlier direction on the UI,
   `gm/PROJECT_LOG.md:322`).
 - **Sources first:** for book worlds, check the book before inventing.
+
+## Cross-world audit precedent: special rules and little details (2026-10-12)
+
+**Human-directed workflow:** Weibao asked to consider timelines, branches,
+starting and ending points, butterfly effects on canon, character interactions,
+potion craft, spellcraft and macro/micro details, then specifically raised
+Time-Turners, Polyjuice and other little things. He asked to "write down this
+precidence" and make future work easier across worlds. Record that direction
+here as an audit practice. It does not add a thirteenth universal world law,
+accept the HP proposals, require every world to contain these mechanics or
+authorize implementation.
+
+**Precedent:** do not stop at the world's headline power system. Examine its
+small, ordinary and exceptional mechanisms and connect them to the life of the
+world. A disguise may affect clothing, recognition and access; a time device
+may affect study, projects and history; a repair may restore a vessel without
+restoring its contents. Determine each source's actual behavior instead of
+copying these example outcomes into other worlds.
+
+The world GM integrates these joins. A specialist can research a named craft,
+time, body, economy or information uncertainty, with disjoint outputs, but does
+not decide another world's laws or shared state. Use existing world detail
+owners and S00–S14 in the [completion standard](WORLD_COMPLETION_STANDARD.md);
+do not create a separate GM, subsystem, stat or document for every small detail.
+
+### Five review lenses
+
+| Code | Examine | Required distinction or connection |
+|---|---|---|
+| CP1 Source and exceptions | Ordinary rules, special devices, rare cases, contradictory versions, fan/AU additions | Exact selected source/edition and scene; shown effect versus attributed explanation, inference, invention and unknown. An outlier is not a universal law; unknown is not forbidden |
+| CP2 Life and means | Starts/eras, bodies, identity, skills, tools, material preparation, storage, households and ordinary work | What the actor can actually do, knows, owns, holds or may use; acquisition, reading, practice, execution and product possession remain distinct where the source makes them distinct |
+| CP3 People and institutions | Recognition, trust, helpers, teachers, customers, permissions, communication and obligations | Who witnesses or learns what, what they want and can do, what they remember and how the result changes a particular interaction or service |
+| CP4 History and scale | Local actions, projects, supply, careers, canon events, branches, endings, heirs and continuing life | Trace represented causes from micro to macro. Record intervention, refusal, abstention and aftermath; changed causes may change later events. Do not restore a canonical outcome merely because it appeared in the source |
+| CP5 Persistence and proof | Time/expiry, interruption, cancellation, transformation, travel, repetition, loss, reload/import and missing content | Name sole state owners and conservation/compatibility decisions. Source research, authored contract, code, build, observed gameplay and director acceptance remain separate |
+
+These are lenses, not mandatory player mechanics. A world may have a fixed
+history, mutable branches, selective memory, copying, free production or unusual
+retention if its actual source or selected premise supports that behavior. Do
+not invent fatigue, scarcity, decay, paradox punishment, consent mechanics,
+power ceilings or a universal prohibition simply to fill a review row.
+
+### Reusable detail record
+
+The following record shape is an authoring aid, not an accepted engine schema.
+Keep it in the relevant world's existing ledger or brief; a compact paragraph
+is enough for a small feature.
+
+| Field | Record |
+|---|---|
+| ID and source | Stable detail ID, sections, selected continuity/version, exact locator and actual read scope |
+| Rule and uncertainty | What is shown/stated, exceptions, competing interpretation and explicit authored/unknown fields |
+| Player choice and means | Available approaches, actual body/method/tool/access/stock, disclosed costs or source-supported absence of cost |
+| Micro consumer | Concrete changed item, action, condition, place, record or interaction; atmosphere may remain text without saved state |
+| People and knowledge | Actors, motives, witnessed evidence, attributed claims, recognition and particular remembered response |
+| Macro/time connection | Applicable start/era, causal dependencies, branch/canon effect, absence/expiry, ending and continuing-life consequences |
+| State and acceptance | Sole owner, persistence/compatibility, observable cases, evidence stage and remaining gate |
+| Disposition | Investigated, source gap, authored proposal, selected work, deferred or not applicable with a reason; only human acceptance promotes a decision |
+
+For a substantive world audit, give each relevant family a disposition rather
+than silently omitting it. Check represented joins rather than every possible
+combination. Prioritize details that change a decision or reveal a source
+contradiction; familiar ordinary work should stay simple and repeatable.
+Preserve the broader horizon while delivering finite connected slices.
+
+Worked reference: [HP craft report](gm/dispatch/harry-potter-craft-research-2026-10-12/REPORT.md)
+links the private source/read ledger, branch/spellcraft contracts and
+Time-Turner/Polyjuice/everyday-consequence register. The reusable precedent is
+the review method. HP-specific laws, numerical proposals and sealed truths stay
+in their own qualified owners.
+
+### Expanded future-world reference
+
+The [cross-world detail review](gm/CROSS_WORLD_DETAIL_REVIEW.md) expands this
+precedent into 36 source-neutral families and six connected hypothetical cases.
+It covers everyday bodies and households; materials, potion/other craft,
+spell application and control; people, institutions, identity and information;
+and calendars, history, starts, branches, endings, legacies and crossings.
+The inventory is a proposed authoring aid. Its rows are not required mechanics,
+accepted laws, source facts or implemented functions.
+
+For future world work, select relevant families inside the world's existing
+scope and ledger. Retain local detail IDs and sole owners; tag applicable
+S00–S14 joins rather than making a subsystem for every row. Mark irrelevant
+families with a scope-grounded reason, source gaps as unknown, and later useful
+families as deferred. A missing native consumer is missing work, not proof that
+the feature is irrelevant. Keep the broad campaign horizon while selecting a
+finite connected slice.
+
+### Small detail to causal consequence
+
+Trace only the represented joins that matter:
+
+`held means → actual operation → changed object/service → particular observer
+or recipient response → affected plan/event → continuation or legacy`.
+
+For example, a repaired tool may support production, a delivered product may
+change one recipient's availability, and their message may change a meeting.
+Each link needs its actual cause and consumer. A tool repair does not by itself
+create the product, inform absent witnesses or reform an institution. Strong
+means can skip links or solve the whole problem where supported; the review
+must account for that result instead of adding a resistance tax.
+
+Record the causal cut as well: which later event stays unchanged, which cause
+was removed, and which downstream future remains unmodeled. Natural-course
+source events are expectations, not an instruction to restore their outcomes
+when their causes no longer hold. Refusal, abstention and another actor's
+independent intervention can matter as much as the player's success.
+
+### Source admission and integration
+
+Keep shown effects, attributed explanations, interpretations, other source
+versions/AUs, authored additions and unknown/outlier cases separate. A warning
+is not automatically a metaphysical law; one occurrence is not a universal
+range or duration. A source's extraordinary copying, free production, perfect
+knowledge or full restoration is allowed when that mechanism actually supports
+it. Save bugs remain bugs even in a world with a legitimate copying mechanism.
+
+World GMs qualify bodies/persons/controllers, actual means, physical custody,
+observer evidence, local and experienced time, historical causes and continuing
+claims at the joins. They reconcile specialist outputs against the chosen
+source/era/premise and current owners. Buying, reading, practicing, executing,
+teaching and reproducing at scale are separate review questions, not compulsory
+progression gates. They can coincide when the world supports it.
+
+Before a selected detail becomes a runtime packet, name the reachable native
+consumer, sole state owner or missing seam, compatibility decision and observable
+acceptance cases. The six reference examples are specified-not-run. Source
+review, authored contract, code, rebuild, fresh-origin gameplay, save/reload/import
+and Weibao's acceptance remain distinct. This documentation expansion changes
+no runtime and adds no world mechanic to the accepted twelve rules.

@@ -1,0 +1,70 @@
+{
+  "status": "SOURCE-ONLY / BLOCKED",
+  "playClicked": false,
+  "viewport": [
+    1600,
+    1100
+  ],
+  "clock": 856,
+  "calendar": {
+    "year": 999,
+    "month": 4,
+    "day": 4,
+    "hour": 19,
+    "minute": 54,
+    "day_count": 4
+  },
+  "pausedPlayVisible": true,
+  "restoration": [
+    {
+      "group": "character",
+      "equal": true
+    },
+    {
+      "group": "inventories",
+      "equal": true
+    },
+    {
+      "group": "expansion",
+      "equal": true
+    },
+    {
+      "group": "current time",
+      "equal": true
+    },
+    {
+      "group": "current location",
+      "equal": true
+    },
+    {
+      "group": "npcs",
+      "equal": true
+    },
+    {
+      "group": "npc_equipment",
+      "equal": true
+    }
+  ],
+  "pageErrors": [],
+  "bindings": [
+    {
+      "url": "http://127.0.0.1:18740/dist/bundle.js?version=v0.6-2025657de8b6",
+      "loadedHash": "2025657de8b67c59914c809cc172a6dc2b4f0151a7f5b1766d10f53d1ef4bd5e",
+      "candidateHash": "2025657de8b67c59914c809cc172a6dc2b4f0151a7f5b1766d10f53d1ef4bd5e",
+      "fetchHash": "2025657de8b67c59914c809cc172a6dc2b4f0151a7f5b1766d10f53d1ef4bd5e"
+    },
+    {
+      "url": "http://127.0.0.1:18740/dist/bundle.js?version=v0.6-2025657de8b6",
+      "loadedHash": "2025657de8b67c59914c809cc172a6dc2b4f0151a7f5b1766d10f53d1ef4bd5e",
+      "candidateHash": "2025657de8b67c59914c809cc172a6dc2b4f0151a7f5b1766d10f53d1ef4bd5e",
+      "fetchHash": "2025657de8b67c59914c809cc172a6dc2b4f0151a7f5b1766d10f53d1ef4bd5e"
+    },
+    {
+      "url": "http://127.0.0.1:18740/dist/bundle.js?version=v0.6-2025657de8b6",
+      "loadedHash": "2025657de8b67c59914c809cc172a6dc2b4f0151a7f5b1766d10f53d1ef4bd5e",
+      "candidateHash": "2025657de8b67c59914c809cc172a6dc2b4f0151a7f5b1766d10f53d1ef4bd5e",
+      "fetchHash": "2025657de8b67c59914c809cc172a6dc2b4f0151a7f5b1766d10f53d1ef4bd5e"
+    }
+  ],
+  "text": "Yet Another Idle RPG\nby Miktaew 🐱\nLOADING\nWaiting for you to click 'PLAY'\nSave game version: v0.6\nCurrent game version: v0.6\n\nNo changes since the last time you played~\nNo issues in the loading process :)\nPLAY\nCharacter vitals\n0 / 26 xp\n51/51 stamina\n0/0 mana\n80/80 hp\nInventory & combat view\nInventory\nCombat\nCharacter & preparation\nLevel: 2\nStrength:\n13.2\nAgility:\n11.2\nDexterity:\n11.0\nIntuition\n11.0\nDefense:\n1.0\nMagic:\n0.0\nAtk power:\n4.8\nAtk spd:\n0.7\nCrit rate:\n5.0%\nCrit mult:\n130.0%\nAP:\n37\nEP :\n39\nActive effects: 2\nStats\nBio\nEquipment\nTools\nBelongings\nYour purse contains: 4C 7W\nstar_border[weapon] Cheap iron axe [50%]\n[take off]\n14C 4W\nstar_borderBench clearance manual\n4W\nstar_borderCooling salt packet\n1W\nstar_borderDulled field fitting knife x2\n4W\nstar_borderEmpty bench vial\n1W\nstar_borderEmpty cooling sleeve x2\n1W\nstar_borderEmpty retort residue tray\n1W\nstar_borderEmpty retort resin tray\n1W\nstar_borderPrepared survey kit x7\n2W\nstar_borderRough wood log x78\n1C\nstar_borderSet repair resin\n2W\nstar_borderStale bread x5\n[use]\nauto\n2C\nstar_borderUnmarked pale vial\n2W\nstar_borderWax-sealed survey kit x4\n3W\nstar_border[legs] Cheap leather pants [40%]\n[equip]\n4C 6W\nstar_border[tool] Old pickaxe\n[equip]\n1C\nstar_border[tool] Old shovel\n[equip]\n1C\nstar_border[tool] Old sickle\n[equip]\n1C\nSort by name\nSort by value\nSort by type\nAll\nEquipment\nUsable\nOther\nFavs\nEquipment comparison\nPeople you know\nPeople you know\n\nWhat you have learned and what happened between you. Locations are last known or agreed, rather than live reports.\n\nVillage elder\nOld craftsman\nEda, sluice fitter\nHessa, household steward\nOrr, household craftsperson\nVale, household apprentice\n04/04/999 19:54, Summer, Thu, Day\ncloud21.5°C\nstar_border Village\nRain dots the village path.\nMedium-sized village, built at the foot of the mountains, with rocks preventing any expansions towards north. It's surrounded by many fields, most of them infested by huge rats. There is a relatively calm, somewhat small river south of it with no bridges over it, and with some old structures on the other side, clearly not used for years if not longer. Many villagers seem to have nothing to do and are just sitting around.\nMore about this place\n\nNo work running.\n\nSaving available.\n\nLocal actions\ndirections Move somewhere else\ndirections Fast travel\nconstruction Try to craft something\nquestion_answer Talk to someone\nwork_outline Find work\nfitness_center Train\nsearch Gather resources\nLocal life\nWaypost supply clerk\nClerk purse: 180"
+}

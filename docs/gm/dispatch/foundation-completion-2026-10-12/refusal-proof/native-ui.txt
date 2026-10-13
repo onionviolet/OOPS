@@ -1,0 +1,27 @@
+Waypost supply clerk
+Clerk purse: 180 coins. Paid so far: 0. Supplies change hands immediately; no shift, promotion or patrol credit. After one Infested field clear the clerk offers free repair notes, or buy a copy for 10 coins.
+Ask for repair notes (one field clear)Buy repair notes (10 coins)
+Learned item sources
+Cheap iron axe: villageElder (observed, contact)
+Rat tail: Infested field (observed, drop)
+Old pickaxe: oldCraftsman (observed, contact)
+Old axe: oldCraftsman (observed, contact)
+Old sickle: oldCraftsman (observed, contact)
+Old shovel: oldCraftsman (observed, contact)
+Rough wood log: Village (observed, gather)
+Tree sap: Village (observed, gather)
+directions Move somewhere else
+Go to [Shack] [10m]
+Go to [Nearby cave] [1h]
+warning_amber
+Enter the [Infested field] [15m]
+directions Fast travel
+construction Try to craft something
+question_answer Talk to someone
+work_outline Find work
+fitness_center Train
+search Gather resources
+Local life
+Optional pacing
+Equipment condition and repair
+Elemental preparation

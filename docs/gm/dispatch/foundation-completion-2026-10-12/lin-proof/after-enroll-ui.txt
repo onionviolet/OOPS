@@ -1,0 +1,503 @@
+0 / 10 xp
+40/40 stamina
+0/0 mana
+60/60 hp
+01/04/999 08:04, Summer, Mon, Day 20.0°C
+Your purse contains: 10C 2W
+star_borderStale bread x5
+[use]
+auto
+2C
+star_border[legs] Cheap leather pants [40%]
+[equip]
+4C 6W
+Sort by name
+Sort by value
+Sort by type
+All
+Equipment
+Usable
+Other
+Favs
+Inventory
+Combat
+star_border Paradise service street
+Lin keeps a service desk beside Mara’s assignment counter. Rooms, staff shifts, finite shops and return reports make this a lived district. Use Notebook to approve a role, accept terms or move to Oren’s workroom.
+Optional worlds
+
+A Soldier’s Life
+
+An optional Lion Legion posting. Choose an opening and a storage method before accepting duty. Village skills, money and commitments remain separate. No forced restart.
+
+Visit A Soldier’s Life
+Your beginning
+
+A new beginning
+
+Begin an independent local life. Your existing progress stays in this save.
+
+Begin
+Optional pacing
+Equipment condition and repair
+Elemental preparation
+ Hide max level skills
+Sort by name
+Sort by level
+Sort by progress
+Skills
+Stances
+Magic
+Quests
+Bestiary
+Anthology
+Data
+Notebook
+Notes, practice & people
+Here
+People
+Local conversations and return accounts
+Between journeys
+
+Conversation not started.
+
+Conversation controls
+Known actions
+Discuss the offered work
+
+Available
+
+Stated costs
+0 played minutes
+Completion terms
+Only this accepted native step is committed. Mission outcome, actual arrival, local welfare and settlement stay separate.
+Do this: Discuss the offered work
+Tools, practice & local lives
+Paradise service district
+
+Resident work, actual shops and learned methods share the joined played clock. Only the place containing your actual body advances locally; absent instances keep their people, stock, claims and history. You hold 0 hub credits.
+
+Known actions
+Meet Lin and Mara’s service district
+
+Available
+
+Stated costs
+0 played minutes
+Do this: Meet Lin and Mara’s service district
+Accept employee service approval
+
+Available
+
+Stated costs
+0 played minutes
+Do this: Accept employee service approval
+Accept contractor assignment approval
+
+Available
+
+Stated costs
+0 played minutes
+Do this: Accept contractor assignment approval
+Work Lin’s funded service shift · 6 min · earn 4 hub credits
+
+Unavailable
+
+Why this is unavailable
+The required knowledge, means or circumstances are missing.
+Stated costs
+Provider reserves 4 hub credits · Provider supplies 1 Rough wood log · 2 stamina · 6 played minutes · Cancel accepted work to return its reserved inputs.
+Unavailable: Work Lin’s funded service shift · 6 min · earn 4 hub credits
+Take Lin’s paid staff supply · 1 employee-owned kit · 1 credit
+
+Unavailable
+
+Why this is unavailable
+The required knowledge, means or circumstances are missing.
+Stated costs
+Pay 1 hub credits · 0 played minutes
+Unavailable: Take Lin’s paid staff supply · 1 employee-owned kit · 1 credit
+Rest in Lin’s paid room · 2 credits · 4 min
+
+Unavailable
+
+Why this is unavailable
+This action needs the stated available hub credits.
+Stated costs
+Pay 2 hub credits · 4 played minutes · Cancel accepted work to return its reserved inputs.
+Unavailable: Rest in Lin’s paid room · 2 credits · 4 min
+Use subsidized staff rest · 1 credit · 4 min
+
+Unavailable
+
+Why this is unavailable
+The required knowledge, means or circumstances are missing.
+Stated costs
+Pay 1 hub credits · 4 played minutes · Cancel accepted work to return its reserved inputs.
+Unavailable: Use subsidized staff rest · 1 credit · 4 min
+Pay Oren for body care · 2 credits · 3 min
+
+Unavailable
+
+Why this is unavailable
+Return to Paradise workroom.
+Meet the participant at their location.
+Stated costs
+Pay 2 hub credits · 3 played minutes · Cancel accepted work to return its reserved inputs.
+Unavailable: Pay Oren for body care · 2 credits · 3 min
+Refit owned rope into a survey kit · 2 credits · 3 min
+
+Unavailable
+
+Why this is unavailable
+Return to Paradise workroom.
+Meet the participant at their location.
+Stated costs
+Pay 2 hub credits · 1 Survey rope · 3 played minutes · Cancel accepted work to return its reserved inputs.
+Unavailable: Refit owned rope into a survey kit · 2 credits · 3 min
+Study Oren’s attributed pressure fragment · 2 credits
+
+Unavailable
+
+Why this is unavailable
+Return to Paradise workroom.
+Meet the participant at their location.
+Stated costs
+Pay 2 hub credits · 0 played minutes
+Unavailable: Study Oren’s attributed pressure fragment · 2 credits
+Learn the supported return stroke · 2 credits + log · 3 min
+
+Unavailable
+
+Why this is unavailable
+The required knowledge, means or circumstances are missing.
+Return to Paradise workroom.
+Meet the participant at their location.
+Stated costs
+Pay 2 hub credits · 1 Rough wood log · 3 played minutes · Cancel accepted work to return its reserved inputs.
+Unavailable: Learn the supported return stroke · 2 credits + log · 3 min
+Hear Lin’s household concern
+
+Available
+
+Stated costs
+0 played minutes
+Do this: Hear Lin’s household concern
+Inspect the actual waterworks · 2 min
+
+Unavailable
+
+Why this is unavailable
+This command belongs to another world.
+Return to Saltworks enginehouse.
+That participant is unavailable.
+Meet the participant at their location.
+A participating person is unavailable or already working.
+Stated costs
+2 played minutes · Cancel accepted work to return its reserved inputs.
+Unavailable: Inspect the actual waterworks · 2 min
+Work Brin’s funded landing shift · earn 2 credits · 3 min
+
+Unavailable
+
+Why this is unavailable
+This command belongs to another world.
+Return to Saltworks enginehouse.
+That participant is unavailable.
+Meet the participant at their location.
+A participating person is unavailable or already working.
+Stated costs
+Provider reserves 2 hub credits · Requires the participant’s agreed attention and available time. · 1 stamina · 3 played minutes · Cancel accepted work to return its reserved inputs.
+Unavailable: Work Brin’s funded landing shift · earn 2 credits · 3 min
+Brace local water pumps · 2 logs + rope · 4 min
+
+Unavailable
+
+Why this is unavailable
+The required knowledge, means or circumstances are missing.
+This command belongs to another world.
+Return to Saltworks enginehouse.
+That participant is unavailable.
+Meet the participant at their location.
+A participating person is unavailable or already working.
+Stated costs
+2 Rough wood log · 1 Survey rope · 2 stamina · 4 played minutes · Cancel accepted work to return its reserved inputs.
+Unavailable: Brace local water pumps · 2 logs + rope · 4 min
+Stabilize the pump by learned pressure · kit + rope support · 2 min
+
+Unavailable
+
+Why this is unavailable
+The required knowledge, means or circumstances are missing.
+This command belongs to another world.
+Return to Saltworks enginehouse.
+That participant is unavailable.
+Meet the participant at their location.
+A participating person is unavailable or already working.
+Stated costs
+1 Prepared survey kit · 1 Survey rope · 1 stamina · 2 played minutes · Cancel accepted work to return its reserved inputs.
+Unavailable: Stabilize the pump by learned pressure · kit + rope support · 2 min
+Authorize the finite export duty
+
+Unavailable
+
+Why this is unavailable
+The required knowledge, means or circumstances are missing.
+This command belongs to another world.
+Return to Saltworks enginehouse.
+That participant is unavailable.
+Meet the participant at their location.
+Stated costs
+1 Survey rope handed over · 0 played minutes
+Unavailable: Authorize the finite export duty
+Record refusal of the export allocation
+
+Unavailable
+
+Why this is unavailable
+The required knowledge, means or circumstances are missing.
+This command belongs to another world.
+Return to Saltworks landing.
+That participant is unavailable.
+Meet the participant at their location.
+Stated costs
+0 played minutes
+Unavailable: Record refusal of the export allocation
+Inspect the disputed record · 2 min
+
+Unavailable
+
+Why this is unavailable
+This command belongs to another world.
+Return to Archive records room.
+That participant is unavailable.
+Meet the participant at their location.
+A participating person is unavailable or already working.
+Stated costs
+2 played minutes · Cancel accepted work to return its reserved inputs.
+Unavailable: Inspect the disputed record · 2 min
+Register a bounded claim from actual evidence
+
+Unavailable
+
+Why this is unavailable
+The required knowledge, means or circumstances are missing.
+This command belongs to another world.
+Return to Archive reception.
+That participant is unavailable.
+Meet the participant at their location.
+Stated costs
+Pay 1 hub credits · 0 played minutes
+Unavailable: Register a bounded claim from actual evidence
+Record unresolved evidence and refuse registration
+
+Unavailable
+
+Why this is unavailable
+The required knowledge, means or circumstances are missing.
+This command belongs to another world.
+Return to Archive reception.
+That participant is unavailable.
+Meet the participant at their location.
+Stated costs
+0 played minutes
+Unavailable: Record unresolved evidence and refuse registration
+Preserve the witness sheet by supported pressure · 2 min
+
+Unavailable
+
+Why this is unavailable
+This command belongs to another world.
+Return to Archive records room.
+That participant is unavailable.
+Meet the participant at their location.
+A participating person is unavailable or already working.
+Stated costs
+1 Prepared survey kit · 1 Survey rope · 1 stamina · 2 played minutes · Cancel accepted work to return its reserved inputs.
+Unavailable: Preserve the witness sheet by supported pressure · 2 min
+Buy one kit · 3 hub credits
+
+Unavailable
+
+Why this is unavailable
+This action needs the stated available hub credits.
+Stated costs
+Pay 3 hub credits · 0 played minutes
+Unavailable: Buy one kit · 3 hub credits
+Buy one rope · 2 hub credits
+
+Unavailable
+
+Why this is unavailable
+This action needs the stated available hub credits.
+Stated costs
+Pay 2 hub credits · 0 played minutes
+Unavailable: Buy one rope · 2 hub credits
+Buy one log · 2 hub credits
+
+Unavailable
+
+Why this is unavailable
+This action needs the stated available hub credits.
+Stated costs
+Pay 2 hub credits · 0 played minutes
+Unavailable: Buy one log · 2 hub credits
+Buy one kit · 3 hub credits
+
+Unavailable
+
+Why this is unavailable
+This command belongs to another world.
+Return to Saltworks landing.
+That participant is unavailable.
+Meet the participant at their location.
+Stated costs
+Pay 3 hub credits · 0 played minutes
+Unavailable: Buy one kit · 3 hub credits
+Buy one rope · 2 hub credits
+
+Unavailable
+
+Why this is unavailable
+This command belongs to another world.
+Return to Saltworks landing.
+That participant is unavailable.
+Meet the participant at their location.
+Stated costs
+Pay 2 hub credits · 0 played minutes
+Unavailable: Buy one rope · 2 hub credits
+Buy one log · 2 hub credits
+
+Unavailable
+
+Why this is unavailable
+The required knowledge, means or circumstances are missing.
+This command belongs to another world.
+Return to Saltworks landing.
+That participant is unavailable.
+Meet the participant at their location.
+Stated costs
+Pay 2 hub credits · 0 played minutes
+Unavailable: Buy one log · 2 hub credits
+Buy one kit · 3 hub credits
+
+Unavailable
+
+Why this is unavailable
+This command belongs to another world.
+Return to Archive reception.
+That participant is unavailable.
+Meet the participant at their location.
+Stated costs
+Pay 3 hub credits · 0 played minutes
+Unavailable: Buy one kit · 3 hub credits
+Buy one rope · 2 hub credits
+
+Unavailable
+
+Why this is unavailable
+The required knowledge, means or circumstances are missing.
+This command belongs to another world.
+Return to Archive reception.
+That participant is unavailable.
+Meet the participant at their location.
+Stated costs
+Pay 2 hub credits · 0 played minutes
+Unavailable: Buy one rope · 2 hub credits
+Buy one log · 2 hub credits
+
+Unavailable
+
+Why this is unavailable
+This command belongs to another world.
+Return to Archive reception.
+That participant is unavailable.
+Meet the participant at their location.
+Stated costs
+Pay 2 hub credits · 0 played minutes
+Unavailable: Buy one log · 2 hub credits
+Recover one unclaimed local log
+
+Unavailable
+
+Why this is unavailable
+This command belongs to another world.
+Return to Saltworks landing.
+Stated costs
+0 played minutes
+Unavailable: Recover one unclaimed local log
+Recover one unclaimed local rope
+
+Unavailable
+
+Why this is unavailable
+This command belongs to another world.
+Return to Saltworks landing.
+Stated costs
+0 played minutes
+Unavailable: Recover one unclaimed local rope
+Recover one unclaimed local rope
+
+Unavailable
+
+Why this is unavailable
+This command belongs to another world.
+Return to Archive reception.
+Stated costs
+0 played minutes
+Unavailable: Recover one unclaimed local rope
+Return to Village with owned cargo
+
+Available
+
+Stated costs
+0 played minutes
+Do this: Return to Village with owned cargo
+Visit Oren’s workroom
+
+Available
+
+Stated costs
+0 played minutes
+Do this: Visit Oren’s workroom
+Retained account · A voluntary original side entry leads to the qualified Paradise service district. Approval carries the same living body and owned cargo. Employee work and contractor missions are separate approvals. Credits stay separate from wooden coins and XP; this entry grants no Hunter status, resurrection or copied rights. · Recorded at played minute 0.
+Retained account · Approved a voluntary resident side entry. Finite district and destination owners were created once. No mission, wage, source growth or new body was awarded. · Recorded at played minute 1.
+Retained account · Arrived in the service district in the same living native body with complete owned/equipped cargo. Local clocks resume; prior owners and histories remain. · Recorded at played minute 2.
+Lin’s one supply request
+Known routes
+Lvl: 0
+Strength: 12.0
+Agility: 8.0
+Dexterity: 10.0
+Intuition 10.0
+Defense: 1.0
+Magic: 0.0
+Atk power: 1.2
+Atk spd: 1.0
+Crit rate: 5.0%
+Crit mult: 130.0%
+AP: 32
+EP : 25
+Active effects: 0
+Stats
+Bio
+Equipment
+Tools
+Remembered years · 2 memories
+Remember this day
+
+Years remembered
+Started a new quest: Lost memory
+Saved the game manually
+[ Entering Paradise service street ]
+Levels / unlocks
+Events
+Crafting
+Combat
+Loot
+BGM
+Save
+Export
+Import
+settings
+v0.6
+help_outline

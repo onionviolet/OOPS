@@ -1,0 +1,148 @@
+TAP version 13
+# Subtest: old saves remain unenrolled with unchanged legacy origins and no body rewards
+ok 1 - old saves remain unenrolled with unchanged legacy origins and no body rewards
+  ---
+  duration_ms: 13.148375
+  type: 'test'
+  ...
+# Subtest: an innate trait stays latent until its saved discovery, without invented ancestry or NPC knowledge
+ok 2 - an innate trait stays latent until its saved discovery, without invented ancestry or NPC knowledge
+  ---
+  duration_ms: 44.425791
+  type: 'test'
+  ...
+# Subtest: drills spend actual stamina and teach native XP; recovery keeps two drills and one trained grip
+ok 3 - drills spend actual stamina and teach native XP; recovery keeps two drills and one trained grip
+  ---
+  duration_ms: 78.446541
+  type: 'test'
+  ...
+# Subtest: rough kit cancellation refunds real inputs; completion leaves a temporary scrape and acquired mark
+ok 4 - rough kit cancellation refunds real inputs; completion leaves a temporary scrape and acquired mark
+  ---
+  duration_ms: 52.315083
+  type: 'test'
+  ...
+# Subtest: condition recovery in batches or reloaded ticks agrees and never erases acquired body evidence
+ok 5 - condition recovery in batches or reloaded ticks agrees and never erases acquired body evidence
+  ---
+  duration_ms: 99.613709
+  type: 'test'
+  ...
+# Subtest: craftsman recognition records only demonstrated visible evidence and cannot farm familiarity
+ok 6 - craftsman recognition records only demonstrated visible evidence and cannot farm familiarity
+  ---
+  duration_ms: 38.646833
+  type: 'test'
+  ...
+# Subtest: tender hands add actual work time while legacy packing reduction and vanilla timing remain intact
+ok 7 - tender hands add actual work time while legacy packing reduction and vanilla timing remain intact
+  ---
+  duration_ms: 25.591667
+  type: 'test'
+  ...
+# Subtest: failed body enrollment publication retains exact old bytes with no partial services or hidden gift
+ok 8 - failed body enrollment publication retains exact old bytes with no partial services or hidden gift
+  ---
+  duration_ms: 8.404584
+  type: 'test'
+  ...
+# Subtest: unsupported trait origins fail definition validation rather than being guessed
+ok 9 - unsupported trait origins fail definition validation rather than being guessed
+  ---
+  duration_ms: 0.430125
+  type: 'test'
+  ...
+# Subtest: absent feature remains absent and reserved dressing survives exact JSON restoration
+ok 10 - absent feature remains absent and reserved dressing survives exact JSON restoration
+  ---
+  duration_ms: 50.753291
+  type: 'test'
+  ...
+# Subtest: actual joined advance finishes at one minute and preserves soreness, body and independent state
+ok 11 - actual joined advance finishes at one minute and preserves soreness, body and independent state
+  ---
+  duration_ms: 23.655542
+  type: 'test'
+  ...
+# Subtest: cancellation refunds the exact balm without a receipt or native effect and allows retry
+ok 12 - cancellation refunds the exact balm without a receipt or native effect and allows retry
+  ---
+  duration_ms: 22.766041
+  type: 'test'
+  ...
+# Subtest: support loss and scrape expiry refund rather than inventing treatment
+ok 13 - support loss and scrape expiry refund rather than inventing treatment
+  ---
+  duration_ms: 73.741583
+  type: 'test'
+  ...
+# Subtest: missing stock, custody, equipment, unsupported body/place and busy state refuse without mutation
+ok 14 - missing stock, custody, equipment, unsupported body/place and busy state refuse without mutation
+  ---
+  duration_ms: 28.915709
+  type: 'test'
+  ...
+# Subtest: stale and repeated commands cannot reserve twice; presentation facts refresh at actual time
+ok 15 - stale and repeated commands cannot reserve twice; presentation facts refresh at actual time
+  ---
+  duration_ms: 10.307292
+  type: 'test'
+  ...
+# Subtest: pending restoration rejects modified cost, effect, time, participants and support contract
+ok 16 - pending restoration rejects modified cost, effect, time, participants and support contract
+  ---
+  duration_ms: 11.979042
+  type: 'test'
+  ...
+# Subtest: receipt restoration rejects altered stage/value/cause/time, namespace copies and missing receipt
+ok 17 - receipt restoration rejects altered stage/value/cause/time, namespace copies and missing receipt
+  ---
+  duration_ms: 16.141458
+  type: 'test'
+  ...
+# Subtest: joined multi-minute advance ages the new effect from actual completion; re-staging is idempotent
+ok 18 - joined multi-minute advance ages the new effect from actual completion; re-staging is idempotent
+  ---
+  duration_ms: 155.418875
+  type: 'test'
+  ...
+# Subtest: native staging preserves longer weak balm and distinct stronger effects until durable publication
+ok 19 - native staging preserves longer weak balm and distinct stronger effects until durable publication
+  ---
+  duration_ms: 17.460834
+  type: 'test'
+  ...
+# Subtest: failed durable write publishes no live native effect and retry uses the same caused completion
+ok 20 - failed durable write publishes no live native effect and retry uses the same caused completion
+  ---
+  duration_ms: 14.01425
+  type: 'test'
+  ...
+# Subtest: existing native pending work and running routine block the reservation
+ok 21 - existing native pending work and running routine block the reservation
+  ---
+  duration_ms: 10.71325
+  type: 'test'
+  ...
+# Subtest: native staging rejects mismatched clock envelopes and altered actual template contract
+ok 22 - native staging rejects mismatched clock envelopes and altered actual template contract
+  ---
+  duration_ms: 13.366125
+  type: 'test'
+  ...
+# Subtest: copied feature pending job, condition, routine or player record cannot restore as valid care
+ok 23 - copied feature pending job, condition, routine or player record cannot restore as valid care
+  ---
+  duration_ms: 10.425791
+  type: 'test'
+  ...
+1..23
+# tests 23
+# suites 0
+# pass 23
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 678.00225

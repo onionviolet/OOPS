@@ -1,0 +1,66 @@
+{
+  "snapshot": "public material inputs at capture, concurrent dirty work preserved",
+  "head": "53dc1df15889be6ebb1bae403497041f0672db46",
+  "files": [
+    {
+      "path": "AGENTS.md",
+      "sha256": "2dd0e8a273ff4c292231409f4c7d0c776015a67833206d3c6b5bb56d919ab1fc"
+    },
+    {
+      "path": "PROJECT.md",
+      "sha256": "5fa867b61f122a01223ced9ee5f65abc97dc9ea6b993d00d7b5276428c6de46f"
+    },
+    {
+      "path": "docs/GAME_MASTER_PROMPT.md",
+      "sha256": "9524d382c81a981af02bd2cf9288f410fe9a09b9c6f8d99f7075c6245653de56"
+    },
+    {
+      "path": "docs/IDEA_INDEX.md",
+      "sha256": "8dc8b9a12a3e54dff5272f1f3bea32dc6b912a67f53b31b9968c65757b258973"
+    },
+    {
+      "path": "docs/USER_VISION.md",
+      "sha256": "fd80d8a43b8b05f1ecf68324ed0dda535a171da10766bcc7f67c6782fb636900"
+    },
+    {
+      "path": "docs/WORLD_COMPLETION_STANDARD.md",
+      "sha256": "e3c8ddc8c559204736d2ff5d8efdfd1e1f769fdbc5bc8ed2c6c86862169b2bf4"
+    },
+    {
+      "path": "docs/gm/WORLD_ACTIONABILITY_GM_PROMPT.md",
+      "sha256": "24f7ace729b0d92217b3da09482c0f646b899f71f9c31cf78e6c326663a8304a"
+    },
+    {
+      "path": "docs/gm/dispatch/idea-expansion-2026-10-11/DETAIL_LEDGER.json",
+      "sha256": "3fe75c8f33d0ed57c2c067b232de0dd64e3fc364ab3a34ba5e8e4d6123cfae54"
+    },
+    {
+      "path": "docs/gm/dispatch/idea-expansion-2026-10-11/RECONCILIATION.md",
+      "sha256": "946dafae94720c2b3e3995a523845ec9d0c854f154a807eecc60faf4fe41d788"
+    },
+    {
+      "path": "docs/gm/dispatch/idea-expansion-2026-10-11/CHECKPOINT.md",
+      "sha256": "51e1137f3c57a4b5374571fdce2428aba73134f6e93250da0e616c56d0afe820"
+    },
+    {
+      "path": "docs/gm/dispatch/absorb-2026-10-11/CHECKPOINT.md",
+      "sha256": "d8f6bde01f8b748f7032e99a1b99effbf42818a52552912f06dd415971362525"
+    },
+    {
+      "path": "docs/gm/dispatch/world1-full-completion-2026-10-11/CHECKPOINT.md",
+      "sha256": "1796ee85aa0363f15f73be1162377f95cb23e6a8743456773d38c04bd50996c9"
+    },
+    {
+      "path": "docs/worlds/original-frontier/WORLD_BRIEF.md",
+      "sha256": "7712218c9f268b5381946a68bb8af9ec0c9ed4317c372623987d258e360d5193"
+    },
+    {
+      "path": "docs/worlds/proto23/WORLD_BRIEF.md",
+      "sha256": "4d96a1e09ed8a89e8061e779f404caec58f25f720998bae89bb04b28b71fd131"
+    }
+  ],
+  "readBoundary": "COVERAGE.md and packet specialist source evidence; hash is identity, not full-read proof",
+  "runtime": false,
+  "specialistSourceEvidence": "IMPLEMENTATION_PACKETS.md exact lines/functions; 22 source paths sampled by packet worker, not all read by root",
+  "inspectionCorrection": "Current World1 full-completion checkpoint recovered after its prepared-only initial snapshot. Active owner/candidate reservation supersedes dated memory. Coverage records this explicitly."
+}

@@ -1,0 +1,72 @@
+{
+  "status": "FAIL",
+  "bundle": "cb0c11d04b3e13c16aac5cd930314cfb78d654c326f07d2b9140f14e739ff175",
+  "base": "dd3efe3383f12f0aac22e4f390aae90fae2e7fc4",
+  "fixture": "docs/gm/dispatch/foundation-adoption-next-2026-10-13/rounds/r3/earned-harness-failure.txt",
+  "fixtureHash": "27c62ce558a2dd0edb447d783182460cdd07645032f06a1c3a4428264c451d6d",
+  "checks": {
+    "finitePaidStockSeparateFromKnowledge": true
+  },
+  "events": [
+    {
+      "id": "objects-begin",
+      "clock": 1
+    },
+    {
+      "id": "feature_objects.inspect",
+      "clock": 2
+    },
+    {
+      "id": "reference.enroll",
+      "clock": 4
+    },
+    {
+      "id": "reference_gameplay.open",
+      "clock": 5
+    },
+    {
+      "id": "reference_gameplay.buy_sleeve",
+      "clock": 6
+    },
+    {
+      "id": "reference_gameplay.buy_salt",
+      "clock": 7
+    },
+    {
+      "id": "reference_gameplay.buy_salt",
+      "clock": 8
+    },
+    {
+      "id": "reference_gameplay.buy_salt",
+      "clock": 9
+    },
+    {
+      "id": "reference_gameplay.buy_salt",
+      "clock": 10
+    },
+    {
+      "id": "reference_gameplay.buy_salt",
+      "clock": 11
+    },
+    {
+      "id": "reference_gameplay.buy_salt",
+      "clock": 12
+    },
+    {
+      "id": "reference_gameplay.buy_salt",
+      "clock": 13
+    },
+    {
+      "id": "reference_gameplay.buy_salt",
+      "clock": 14
+    }
+  ],
+  "errors": [],
+  "timePolicy": "Normal native browser timers; no resource/history/clock fields injected",
+  "console": [
+    "Failed to load resource: the server responded with a status of 404 (Not Found)",
+    "Failed to load resource: the server responded with a status of 404 (Not Found)",
+    "Failed to load resource: the server responded with a status of 404 (Not Found)"
+  ],
+  "failure": "locator.waitFor: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('[data-action-legibility-key=\"action:reference_gameplay.learn\"]')\u001b[22m\n\n    at action (/Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/foundation-adoption-next-2026-10-13/rounds/r3/native.cjs:21:137)\n    at async /Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/foundation-adoption-next-2026-10-13/rounds/r3/native.cjs:41:2"
+}

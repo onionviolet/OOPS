@@ -1,3 +1,4 @@
+import {registerWorkspaceModule, workspaceOwns, unregisterWorkspaceModule} from './workspace_layout.js';
 import {CAREER_RANKS,KIT_DEBT,villagePromotionRequirements,villageColleagueMemory,WATCHCRAFT_BOOK,WATCHCRAFT_BONUS,WATCHCRAFT_PRACTICE, recruitMemory, TEACHING_TERMS} from './village_career.js';
 const node=(tag,text='')=>{const n=document.createElement(tag);n.textContent=text;return n;};
 // Lives inside the native center menu, including the ongoing patrol display.
@@ -57,7 +58,7 @@ export function createVillageCareerControls({read,resolve,promote,notes,readNote
             if(s.rank<2)controls.push(action('village_promotion',`Ask Tessa: ${CAREER_RANKS[s.rank+1]}`,promote,disabled||!!unmet.length));
             buttons.replaceChildren(...controls);
         }
-        const host=document.getElementById('location_actions_div');if(host && panel.parentElement!==host)host.prepend(panel);
+        const host=document.getElementById('location_actions_div');if(host && !workspaceOwns(panel) && panel.parentElement!==host)host.append(panel);
     }
-    render();const timer=setInterval(render,250);return {render,destroy:()=>{clearInterval(timer);panel.remove();}};
+    render();registerWorkspaceModule({id:'patrol',title:'Patrol & custody',node:panel,home:'right',eligible:()=>!panel.hidden});const timer=setInterval(render,250);return {render,destroy:()=>{clearInterval(timer);unregisterWorkspaceModule('patrol');panel.remove();}};
 }

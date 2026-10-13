@@ -18,6 +18,37 @@ Remaining gaps, in order:
 
 ## How ideas are kept
 
+[Engine, saves, scale and app portability](ENGINE_SAVES_AND_SCALE_REVIEW_2026-10-11.md)
+owns the 2026-10-11 engineering proposal set under I29: save/recovery and history
+contracts, performance gates, language/architecture choices, Godot/Rust/browser
+comparisons, desktop/mobile app hosts and small portability details. The requested
+direction is to preserve an easy future app path; stack selection, installation,
+migration and implementation remain unselected. Source inspection and referenced
+documentation are evidence; comparative benchmarks and app acceptance are unrun.
+
+[Genetics, constitutions and brood play](GENETICS_CONSTITUTIONS_AND_BROOD_PLAY.md)
+owns the 2026-10-11 proposal palette: body-to-civilization consequences,
+individual/brood perspectives, and cultivation/wizardry distinctions among
+physiques, bloodlines, aptitudes, methods and learned powers. It records design
+considerations, not accepted mechanics or implemented gameplay.
+Its [parallel specialist return](gm/dispatch/body-lineage-expansion-2026-10-11/INTEGRATION.md)
+adds 48 proposed micro/intermediate/macro/world-fit cards and 12 causal journeys,
+with overlap reconciliation and separate source/gameplay gates.
+
+Current idea-expansion return, 2026-10-11:
+[joined planning](gm/dispatch/idea-expansion-2026-10-11/RECONCILIATION.md) retains
+eight lane outputs, 179 proposed detail contracts, earlier VFX-family mappings
+and titles/skills/progression micro-audits. Linked ledger/queue route actual
+consumers, missing contracts and 693 unrun acceptance cases. This finite return
+does not adjudicate every artifact or finish local source worlds/gameplay.
+
+For whole book/anime worlds or a broad feature family, start with the
+[actionability GM prompt](gm/WORLD_ACTIONABILITY_GM_PROMPT.md): recover and expand
+audits, cover macro/micro detail and start/cheat variants, name engine gaps, then
+return sectioned requirements and implementation packets. Preserve the full
+design horizon while selecting finite playable revisions. This is a prepared
+workflow, not a completed world audit.
+
 Current completion routing, 2026-10-11: [completion standard](WORLD_COMPLETION_STANDARD.md)
 sections S00–S14 retain individual details, interactions and separate evidence
 stages for worlds and shared systems. [Contract template](worlds/templates/WORLD_COMPLETION_TEMPLATE.md),
@@ -45,6 +76,8 @@ Research and proposals. [Comics report](research/comics/REPORT.md) owns the Marv
 ## Minigames, city building, romance and new genres, 2026-10-10
 
 Proposal from chat. [North star section](LIFE_SIM_NORTH_STAR.md#minigames-city-building-and-other-feature-families-claude-2026-10-10) owns minigame rules M1 to M3 (part of a skill, idle auto-resolve, world-shaped), the settlement scale ladder, the little-to-big zoom ladder per family, about 40 minigame candidates, expanded romance, 24 genres not yet considered, and three ranked first slices. Nothing selected for a build.
+
+Follow-up, 2026-10-11: [Investing, property management and more side activities](LIFE_SIM_NORTH_STAR.md#investing-property-management-and-more-side-activities-2026-10-11) extends the minigame inventory with MG01-MG10: investing/patronage, property, shops/inns, auctions, caravans, farming, workshop scheduling, lending, events and restoration. It proposes detailed investment/property loops, delegation and one connected workshop/room candidate. No runtime implementation or host world selected.
 
 ## JJK, adaptation and the Proving Ground, 2026-10-10
 

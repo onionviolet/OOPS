@@ -1,0 +1,1014 @@
+{
+  "schema": "cheats-sfx-breadth-ledger-v1",
+  "date": "2026-10-12",
+  "owner": "/root integration; design artifact /root/ideaboard",
+  "status": "expanded proposals; first-cycle recommendation awaiting exact source-ready freeze",
+  "authority": "ASSIGNMENT.md",
+  "design": "IDEABOARD_EXPANSION.md",
+  "priorLedger": "docs/gm/dispatch/systems-cheats-expansion-2026-10-11/DETAIL_LEDGER.json",
+  "priorLedgerSha256": "c38e1884448ef3e6505c8b3af78c6b1e1f0a26cc5b6d1400edbff269858ba391",
+  "acceptedDirection": [
+    "expand ideaboard then implement documented features then prototype remaining presentation choices",
+    "actor-qualified held means and sealed truth protection",
+    "no universal cap/cost/drawback/mastery loop"
+  ],
+  "acceptedExactDesigns": [],
+  "noGameplayCompletionClaim": true,
+  "requirements": [
+    {
+      "id": "SC01.01",
+      "title": "Mastery and knowledge",
+      "family": "SC01",
+      "inputIdeaRefs": [
+        "G2-010",
+        "G2-011",
+        "G8-006",
+        "G8-008",
+        "G8-011"
+      ],
+      "designVariantIds": [
+        "SC01.V01",
+        "SC01.V04"
+      ],
+      "priorDisposition": "expanded-proposal; not selected or runtime-dispatched",
+      "priorVerificationState": "design-expanded; source-fit inspected via map; implementation/browser/save/human gates open",
+      "disposition": "recommended-first-cycle-portion; integrator freezes exact source-ready selection",
+      "firstCyclePortion": "P02 retained taught preparation with real native craft effect; other mastery/research variants retained",
+      "remainingOwner": "cheats/SFX dispatch integrator or existing specialized owner before runtime reservation",
+      "verificationState": "design-only; runtime/browser/persistence/human gates not run"
+    },
+    {
+      "id": "SC01.02",
+      "title": "Body, source and equipment",
+      "family": "SC01",
+      "inputIdeaRefs": [
+        "G2-001",
+        "G2-005",
+        "G8-015",
+        "G8-017",
+        "G8-020"
+      ],
+      "designVariantIds": [
+        "SC01.V02",
+        "SC01.V03"
+      ],
+      "priorDisposition": "expanded-proposal; not selected or runtime-dispatched",
+      "priorVerificationState": "design-expanded; source-fit inspected via map; implementation/browser/save/human gates open",
+      "disposition": "expanded-proposal-retained; deferred outside finite first-cycle",
+      "firstCyclePortion": null,
+      "remainingOwner": "cheats/SFX dispatch integrator or existing specialized owner before runtime reservation",
+      "verificationState": "design-only; runtime/browser/persistence/human gates not run"
+    },
+    {
+      "id": "SC01.03",
+      "title": "Relationships, access and property",
+      "family": "SC01",
+      "inputIdeaRefs": [
+        "G3-005",
+        "G3-009",
+        "G3-010",
+        "G3-013",
+        "G3-019"
+      ],
+      "designVariantIds": [
+        "SC01.V05",
+        "SC01.V06"
+      ],
+      "priorDisposition": "expanded-proposal; not selected or runtime-dispatched",
+      "priorVerificationState": "design-expanded; source-fit inspected via map; implementation/browser/save/human gates open",
+      "disposition": "expanded-proposal-retained; deferred outside finite first-cycle",
+      "firstCyclePortion": null,
+      "remainingOwner": "cheats/SFX dispatch integrator or existing specialized owner before runtime reservation",
+      "verificationState": "design-only; runtime/browser/persistence/human gates not run"
+    },
+    {
+      "id": "SC02.01",
+      "title": "Acquisition and mastery of cheats",
+      "family": "SC02",
+      "inputIdeaRefs": [
+        "G2-001",
+        "G2-003",
+        "G2-010",
+        "G2-028"
+      ],
+      "designVariantIds": [
+        "SC02.V01",
+        "SC02.V02",
+        "SC02.V03"
+      ],
+      "priorDisposition": "expanded-proposal; not selected or runtime-dispatched",
+      "priorVerificationState": "design-expanded; source-fit inspected via map; implementation/browser/save/human gates open",
+      "disposition": "recommended-first-cycle-portion; integrator freezes exact source-ready selection",
+      "firstCyclePortion": "P02 voluntary acquisition and immediate use; other acquisition/mastery routes retained",
+      "remainingOwner": "cheats/SFX dispatch integrator or existing specialized owner before runtime reservation",
+      "verificationState": "design-only; runtime/browser/persistence/human gates not run"
+    },
+    {
+      "id": "SC02.02",
+      "title": "Evolution and combinations",
+      "family": "SC02",
+      "inputIdeaRefs": [
+        "G2-002",
+        "G2-010",
+        "G2-025",
+        "G2-026"
+      ],
+      "designVariantIds": [
+        "SC02.V04",
+        "SC02.V05"
+      ],
+      "priorDisposition": "expanded-proposal; not selected or runtime-dispatched",
+      "priorVerificationState": "design-expanded; source-fit inspected via map; implementation/browser/save/human gates open",
+      "disposition": "recommended-first-cycle-portion; integrator freezes exact source-ready selection",
+      "firstCyclePortion": "P02 one leased module with changed actual consumer; fusion and broad evolution retained",
+      "remainingOwner": "cheats/SFX dispatch integrator or existing specialized owner before runtime reservation",
+      "verificationState": "design-only; runtime/browser/persistence/human gates not run"
+    },
+    {
+      "id": "SC02.03",
+      "title": "Transfer, loss and retention",
+      "family": "SC02",
+      "inputIdeaRefs": [
+        "G2-018",
+        "G2-022",
+        "G2-026",
+        "G4-10",
+        "G4-11"
+      ],
+      "designVariantIds": [
+        "SC02.V06"
+      ],
+      "priorDisposition": "expanded-proposal; not selected or runtime-dispatched",
+      "priorVerificationState": "design-expanded; source-fit inspected via map; implementation/browser/save/human gates open",
+      "disposition": "recommended-first-cycle-portion; integrator freezes exact source-ready selection",
+      "firstCyclePortion": "P02 disconnect distinguishes settled teaching/goods from leased assistance; transfer/legacy retained",
+      "remainingOwner": "cheats/SFX dispatch integrator or existing specialized owner before runtime reservation",
+      "verificationState": "design-only; runtime/browser/persistence/human gates not run"
+    },
+    {
+      "id": "SC03.01",
+      "title": "Craft and research bridge",
+      "family": "SC03",
+      "inputIdeaRefs": [
+        "G2-011",
+        "G3-020",
+        "G8-011"
+      ],
+      "designVariantIds": [
+        "SC03.V01"
+      ],
+      "priorDisposition": "expanded-proposal; not selected or runtime-dispatched",
+      "priorVerificationState": "design-expanded; source-fit inspected via map; implementation/browser/save/human gates open",
+      "disposition": "recommended-first-cycle-portion; integrator freezes exact source-ready selection",
+      "firstCyclePortion": "P02 useful preparation joins existing craft consumer; full lens/research bridge remains P03",
+      "remainingOwner": "cheats/SFX dispatch integrator or existing specialized owner before runtime reservation",
+      "verificationState": "design-only; runtime/browser/persistence/human gates not run"
+    },
+    {
+      "id": "SC03.02",
+      "title": "Institutional and bodily bridge",
+      "family": "SC03",
+      "inputIdeaRefs": [
+        "G2-001",
+        "G3-009",
+        "G3-010",
+        "G3-013",
+        "G8-015"
+      ],
+      "designVariantIds": [
+        "SC03.V02",
+        "SC03.V03"
+      ],
+      "priorDisposition": "expanded-proposal; not selected or runtime-dispatched",
+      "priorVerificationState": "design-expanded; source-fit inspected via map; implementation/browser/save/human gates open",
+      "disposition": "expanded-proposal-retained; deferred outside finite first-cycle",
+      "firstCyclePortion": null,
+      "remainingOwner": "cheats/SFX dispatch integrator or existing specialized owner before runtime reservation",
+      "verificationState": "design-only; runtime/browser/persistence/human gates not run"
+    },
+    {
+      "id": "SC03.03",
+      "title": "Useful ordinary life after transition",
+      "family": "SC03",
+      "inputIdeaRefs": [
+        "G2-011",
+        "G3-020",
+        "G8-011"
+      ],
+      "designVariantIds": [
+        "SC03.V04"
+      ],
+      "priorDisposition": "expanded-proposal; not selected or runtime-dispatched",
+      "priorVerificationState": "design-expanded; source-fit inspected via map; implementation/browser/save/human gates open",
+      "disposition": "recommended-first-cycle-portion; integrator freezes exact source-ready selection",
+      "firstCyclePortion": "P02 ordinary craft remains useful after acquisition and disconnect",
+      "remainingOwner": "cheats/SFX dispatch integrator or existing specialized owner before runtime reservation",
+      "verificationState": "design-only; runtime/browser/persistence/human gates not run"
+    },
+    {
+      "id": "SC04.01",
+      "title": "Starts, talents and coherent histories",
+      "family": "SC04",
+      "inputIdeaRefs": [
+        "G1-001",
+        "G1-002",
+        "G1-003",
+        "G2-009",
+        "G4-02"
+      ],
+      "designVariantIds": [
+        "SC04.V01",
+        "SC04.V02"
+      ],
+      "priorDisposition": "expanded-proposal; not selected or runtime-dispatched",
+      "priorVerificationState": "design-expanded; source-fit inspected via map; implementation/browser/save/human gates open",
+      "disposition": "expanded-proposal-retained; deferred outside finite first-cycle",
+      "firstCyclePortion": null,
+      "remainingOwner": "cheats/SFX dispatch integrator or existing specialized owner before runtime reservation",
+      "verificationState": "design-only; runtime/browser/persistence/human gates not run"
+    },
+    {
+      "id": "SC04.02",
+      "title": "Loot, craft and encounter uncertainty",
+      "family": "SC04",
+      "inputIdeaRefs": [
+        "G2-009",
+        "G2-021",
+        "G4-03"
+      ],
+      "designVariantIds": [
+        "SC04.V03",
+        "SC04.V04",
+        "SC04.V05"
+      ],
+      "priorDisposition": "expanded-proposal; not selected or runtime-dispatched",
+      "priorVerificationState": "design-expanded; source-fit inspected via map; implementation/browser/save/human gates open",
+      "disposition": "expanded-proposal-retained; deferred outside finite first-cycle",
+      "firstCyclePortion": null,
+      "remainingOwner": "cheats/SFX dispatch integrator or existing specialized owner before runtime reservation",
+      "verificationState": "design-only; runtime/browser/persistence/human gates not run"
+    },
+    {
+      "id": "SC04.03",
+      "title": "Fortune, rerolls and stream ownership",
+      "family": "SC04",
+      "inputIdeaRefs": [
+        "G2-021",
+        "G2-004",
+        "G2-007",
+        "G4-10"
+      ],
+      "designVariantIds": [
+        "SC04.V06"
+      ],
+      "priorDisposition": "expanded-proposal; not selected or runtime-dispatched",
+      "priorVerificationState": "design-expanded; source-fit inspected via map; implementation/browser/save/human gates open",
+      "disposition": "expanded-proposal-retained; deferred outside finite first-cycle",
+      "firstCyclePortion": null,
+      "remainingOwner": "cheats/SFX dispatch integrator or existing specialized owner before runtime reservation",
+      "verificationState": "design-only; runtime/browser/persistence/human gates not run"
+    },
+    {
+      "id": "SC05.01",
+      "title": "Rules and held information",
+      "family": "SC05",
+      "inputIdeaRefs": [
+        "G2-021",
+        "G3-012",
+        "G4-14",
+        "G4-15"
+      ],
+      "designVariantIds": [
+        "SC05.V01",
+        "SC05.V02"
+      ],
+      "priorDisposition": "expanded-proposal; not selected or runtime-dispatched",
+      "priorVerificationState": "design-expanded; source-fit inspected via map; implementation/browser/save/human gates open",
+      "disposition": "expanded-proposal-retained; deferred outside finite first-cycle",
+      "firstCyclePortion": null,
+      "remainingOwner": "cheats/SFX dispatch integrator or existing specialized owner before runtime reservation",
+      "verificationState": "design-only; runtime/browser/persistence/human gates not run"
+    },
+    {
+      "id": "SC05.02",
+      "title": "Cheating, fortune and detection",
+      "family": "SC05",
+      "inputIdeaRefs": [
+        "G2-015",
+        "G2-021",
+        "G2-027",
+        "G3-014"
+      ],
+      "designVariantIds": [
+        "SC05.V03"
+      ],
+      "priorDisposition": "expanded-proposal; not selected or runtime-dispatched",
+      "priorVerificationState": "design-expanded; source-fit inspected via map; implementation/browser/save/human gates open",
+      "disposition": "expanded-proposal-retained; deferred outside finite first-cycle",
+      "firstCyclePortion": null,
+      "remainingOwner": "cheats/SFX dispatch integrator or existing specialized owner before runtime reservation",
+      "verificationState": "design-only; runtime/browser/persistence/human gates not run"
+    },
+    {
+      "id": "SC05.03",
+      "title": "Escrow, settlement and automation",
+      "family": "SC05",
+      "inputIdeaRefs": [
+        "G2-024",
+        "G3-011",
+        "G3-012"
+      ],
+      "designVariantIds": [
+        "SC05.V04"
+      ],
+      "priorDisposition": "expanded-proposal; not selected or runtime-dispatched",
+      "priorVerificationState": "design-expanded; source-fit inspected via map; implementation/browser/save/human gates open",
+      "disposition": "expanded-proposal-retained; deferred outside finite first-cycle",
+      "firstCyclePortion": null,
+      "remainingOwner": "cheats/SFX dispatch integrator or existing specialized owner before runtime reservation",
+      "verificationState": "design-only; runtime/browser/persistence/human gates not run"
+    },
+    {
+      "id": "SC06.01",
+      "title": "Cache origin, custody and appraisal",
+      "family": "SC06",
+      "inputIdeaRefs": [
+        "G2-009",
+        "G2-016",
+        "G4-15"
+      ],
+      "designVariantIds": [
+        "SC06.V01",
+        "SC06.V02"
+      ],
+      "priorDisposition": "expanded-proposal; not selected or runtime-dispatched",
+      "priorVerificationState": "design-expanded; source-fit inspected via map; implementation/browser/save/human gates open",
+      "disposition": "expanded-proposal-retained; deferred outside finite first-cycle",
+      "firstCyclePortion": null,
+      "remainingOwner": "cheats/SFX dispatch integrator or existing specialized owner before runtime reservation",
+      "verificationState": "design-only; runtime/browser/persistence/human gates not run"
+    },
+    {
+      "id": "SC06.02",
+      "title": "Pools, duplicates and alternatives",
+      "family": "SC06",
+      "inputIdeaRefs": [
+        "G2-009",
+        "G2-013",
+        "G2-029"
+      ],
+      "designVariantIds": [
+        "SC06.V03",
+        "SC06.V04"
+      ],
+      "priorDisposition": "expanded-proposal; not selected or runtime-dispatched",
+      "priorVerificationState": "design-expanded; source-fit inspected via map; implementation/browser/save/human gates open",
+      "disposition": "expanded-proposal-retained; deferred outside finite first-cycle",
+      "firstCyclePortion": null,
+      "remainingOwner": "cheats/SFX dispatch integrator or existing specialized owner before runtime reservation",
+      "verificationState": "design-only; runtime/browser/persistence/human gates not run"
+    },
+    {
+      "id": "SC06.03",
+      "title": "Opening and useful aftermath",
+      "family": "SC06",
+      "inputIdeaRefs": [
+        "G2-001",
+        "G2-009",
+        "G2-028"
+      ],
+      "designVariantIds": [
+        "SC06.V05"
+      ],
+      "priorDisposition": "expanded-proposal; not selected or runtime-dispatched",
+      "priorVerificationState": "design-expanded; source-fit inspected via map; implementation/browser/save/human gates open",
+      "disposition": "expanded-proposal-retained; deferred outside finite first-cycle",
+      "firstCyclePortion": null,
+      "remainingOwner": "cheats/SFX dispatch integrator or existing specialized owner before runtime reservation",
+      "verificationState": "design-only; runtime/browser/persistence/human gates not run"
+    },
+    {
+      "id": "SC07.01",
+      "title": "World law and source qualification",
+      "family": "SC07",
+      "inputIdeaRefs": [
+        "G1-028",
+        "G3-022",
+        "G4-01",
+        "G7-08"
+      ],
+      "designVariantIds": [
+        "SC07.V01"
+      ],
+      "priorDisposition": "expanded-proposal; not selected or runtime-dispatched",
+      "priorVerificationState": "design-expanded; source-fit inspected via map; implementation/browser/save/human gates open",
+      "disposition": "expanded-proposal-retained; deferred outside finite first-cycle",
+      "firstCyclePortion": null,
+      "remainingOwner": "cheats/SFX dispatch integrator or existing specialized owner before runtime reservation",
+      "verificationState": "design-only; runtime/browser/persistence/human gates not run"
+    },
+    {
+      "id": "SC07.02",
+      "title": "Playable regional lives and starts",
+      "family": "SC07",
+      "inputIdeaRefs": [
+        "G1-001",
+        "G1-013",
+        "G3-001",
+        "G3-013",
+        "G3-022"
+      ],
+      "designVariantIds": [
+        "SC07.V02",
+        "SC07.V03",
+        "SC07.V04"
+      ],
+      "priorDisposition": "expanded-proposal; not selected or runtime-dispatched",
+      "priorVerificationState": "design-expanded; source-fit inspected via map; implementation/browser/save/human gates open",
+      "disposition": "expanded-proposal-retained; deferred outside finite first-cycle",
+      "firstCyclePortion": null,
+      "remainingOwner": "cheats/SFX dispatch integrator or existing specialized owner before runtime reservation",
+      "verificationState": "design-only; runtime/browser/persistence/human gates not run"
+    },
+    {
+      "id": "SC07.03",
+      "title": "Early edition and full-world horizon",
+      "family": "SC07",
+      "inputIdeaRefs": [
+        "G1-030",
+        "G3-022",
+        "G7-07"
+      ],
+      "designVariantIds": [
+        "SC07.V05"
+      ],
+      "priorDisposition": "expanded-proposal; not selected or runtime-dispatched",
+      "priorVerificationState": "design-expanded; source-fit inspected via map; implementation/browser/save/human gates open",
+      "disposition": "expanded-proposal-retained; deferred outside finite first-cycle",
+      "firstCyclePortion": null,
+      "remainingOwner": "cheats/SFX dispatch integrator or existing specialized owner before runtime reservation",
+      "verificationState": "design-only; runtime/browser/persistence/human gates not run"
+    },
+    {
+      "id": "SC08.01",
+      "title": "Territory and pocket realm promises",
+      "family": "SC08",
+      "inputIdeaRefs": [
+        "G2-016",
+        "G4-04",
+        "G4-05",
+        "G4-11"
+      ],
+      "designVariantIds": [
+        "SC08.V01",
+        "SC08.V02"
+      ],
+      "priorDisposition": "expanded-proposal; not selected or runtime-dispatched",
+      "priorVerificationState": "design-expanded; source-fit inspected via map; implementation/browser/save/human gates open",
+      "disposition": "expanded-proposal-retained; deferred outside finite first-cycle",
+      "firstCyclePortion": null,
+      "remainingOwner": "cheats/SFX dispatch integrator or existing specialized owner before runtime reservation",
+      "verificationState": "design-only; runtime/browser/persistence/human gates not run"
+    },
+    {
+      "id": "SC08.02",
+      "title": "Dreams, models and simulations",
+      "family": "SC08",
+      "inputIdeaRefs": [
+        "G2-007",
+        "G2-008",
+        "G4-13"
+      ],
+      "designVariantIds": [
+        "SC08.V03",
+        "SC08.V04"
+      ],
+      "priorDisposition": "expanded-proposal; not selected or runtime-dispatched",
+      "priorVerificationState": "design-expanded; source-fit inspected via map; implementation/browser/save/human gates open",
+      "disposition": "expanded-proposal-retained; deferred outside finite first-cycle",
+      "firstCyclePortion": null,
+      "remainingOwner": "cheats/SFX dispatch integrator or existing specialized owner before runtime reservation",
+      "verificationState": "design-only; runtime/browser/persistence/human gates not run"
+    },
+    {
+      "id": "SC08.03",
+      "title": "Creation authority and inhabitants",
+      "family": "SC08",
+      "inputIdeaRefs": [
+        "G1-021",
+        "G2-016",
+        "G2-025",
+        "G3-001"
+      ],
+      "designVariantIds": [
+        "SC08.V05",
+        "SC08.V06"
+      ],
+      "priorDisposition": "expanded-proposal; not selected or runtime-dispatched",
+      "priorVerificationState": "design-expanded; source-fit inspected via map; implementation/browser/save/human gates open",
+      "disposition": "expanded-proposal-retained; deferred outside finite first-cycle",
+      "firstCyclePortion": null,
+      "remainingOwner": "cheats/SFX dispatch integrator or existing specialized owner before runtime reservation",
+      "verificationState": "design-only; runtime/browser/persistence/human gates not run"
+    },
+    {
+      "id": "SC09.01",
+      "title": "NPC development and economic consequences",
+      "family": "SC09",
+      "inputIdeaRefs": [
+        "G2-027",
+        "G3-009",
+        "G3-012",
+        "G3-013"
+      ],
+      "designVariantIds": [
+        "SC09.V01",
+        "SC09.V02"
+      ],
+      "priorDisposition": "expanded-proposal; not selected or runtime-dispatched",
+      "priorVerificationState": "design-expanded; source-fit inspected via map; implementation/browser/save/human gates open",
+      "disposition": "expanded-proposal-retained; deferred outside finite first-cycle",
+      "firstCyclePortion": null,
+      "remainingOwner": "cheats/SFX dispatch integrator or existing specialized owner before runtime reservation",
+      "verificationState": "design-only; runtime/browser/persistence/human gates not run"
+    },
+    {
+      "id": "SC09.02",
+      "title": "Pacing, idle and failure redirection",
+      "family": "SC09",
+      "inputIdeaRefs": [
+        "G2-024",
+        "G3-021",
+        "G4-06",
+        "G7-04",
+        "G7-05"
+      ],
+      "designVariantIds": [
+        "SC09.V03",
+        "SC09.V04",
+        "SC09.V05"
+      ],
+      "priorDisposition": "expanded-proposal; not selected or runtime-dispatched",
+      "priorVerificationState": "design-expanded; source-fit inspected via map; implementation/browser/save/human gates open",
+      "disposition": "recommended-first-cycle-portion; integrator freezes exact source-ready selection",
+      "firstCyclePortion": "P02 refusal/failure/redirection and quiet repeated receipts; autonomous/offline breadth retained",
+      "remainingOwner": "cheats/SFX dispatch integrator or existing specialized owner before runtime reservation",
+      "verificationState": "design-only; runtime/browser/persistence/human gates not run"
+    },
+    {
+      "id": "SC09.03",
+      "title": "Knowledge, legacy and scale joins",
+      "family": "SC09",
+      "inputIdeaRefs": [
+        "G2-026",
+        "G4-08",
+        "G4-10",
+        "G4-14",
+        "G7-09"
+      ],
+      "designVariantIds": [
+        "SC09.V06",
+        "SC09.V07",
+        "SC09.V08"
+      ],
+      "priorDisposition": "expanded-proposal; not selected or runtime-dispatched",
+      "priorVerificationState": "design-expanded; source-fit inspected via map; implementation/browser/save/human gates open",
+      "disposition": "recommended-first-cycle-portion; integrator freezes exact source-ready selection",
+      "firstCyclePortion": "P02 actor-qualified own receipt and observation; legacy/scale deferred",
+      "remainingOwner": "cheats/SFX dispatch integrator or existing specialized owner before runtime reservation",
+      "verificationState": "design-only; runtime/browser/persistence/human gates not run"
+    },
+    {
+      "id": "SC10.01",
+      "title": "Provider, host and authority",
+      "family": "SC10",
+      "inputIdeaRefs": [
+        "G1-021",
+        "G2-012",
+        "G2-022"
+      ],
+      "designVariantIds": [
+        "SC10.V01"
+      ],
+      "priorDisposition": "expanded-proposal; not selected or runtime-dispatched",
+      "priorVerificationState": "design-expanded; source-fit inspected via map; implementation/browser/save/human gates open",
+      "disposition": "recommended-first-cycle-portion; integrator freezes exact source-ready selection",
+      "firstCyclePortion": "P02 original provider/host/service authority",
+      "remainingOwner": "cheats/SFX dispatch integrator or existing specialized owner before runtime reservation",
+      "verificationState": "design-only; runtime/browser/persistence/human gates not run"
+    },
+    {
+      "id": "SC10.02",
+      "title": "Quests and objective adjudication",
+      "family": "SC10",
+      "inputIdeaRefs": [
+        "G2-012",
+        "G2-013",
+        "G3-011"
+      ],
+      "designVariantIds": [
+        "SC10.V02"
+      ],
+      "priorDisposition": "expanded-proposal; not selected or runtime-dispatched",
+      "priorVerificationState": "design-expanded; source-fit inspected via map; implementation/browser/save/human gates open",
+      "disposition": "recommended-first-cycle-portion; integrator freezes exact source-ready selection",
+      "firstCyclePortion": "P02 accepted frozen objective adjudicated by actual native production/submission",
+      "remainingOwner": "cheats/SFX dispatch integrator or existing specialized owner before runtime reservation",
+      "verificationState": "design-only; runtime/browser/persistence/human gates not run"
+    },
+    {
+      "id": "SC10.03",
+      "title": "Milestones, titles and achievements",
+      "family": "SC10",
+      "inputIdeaRefs": [
+        "G2-023",
+        "G8-001",
+        "G8-004",
+        "G8-009",
+        "G8-016"
+      ],
+      "designVariantIds": [
+        "SC10.V03"
+      ],
+      "priorDisposition": "expanded-proposal; not selected or runtime-dispatched",
+      "priorVerificationState": "design-expanded; source-fit inspected via map; implementation/browser/save/human gates open",
+      "disposition": "recommended-first-cycle-portion; integrator freezes exact source-ready selection",
+      "firstCyclePortion": "P02 receipt record only; title privileges/body effects deferred",
+      "remainingOwner": "cheats/SFX dispatch integrator or existing specialized owner before runtime reservation",
+      "verificationState": "design-only; runtime/browser/persistence/human gates not run"
+    },
+    {
+      "id": "SC10.04",
+      "title": "Reward source and claim settlement",
+      "family": "SC10",
+      "inputIdeaRefs": [
+        "G2-012",
+        "G2-009",
+        "G2-029"
+      ],
+      "designVariantIds": [
+        "SC10.V04"
+      ],
+      "priorDisposition": "expanded-proposal; not selected or runtime-dispatched",
+      "priorVerificationState": "design-expanded; source-fit inspected via map; implementation/browser/save/human gates open",
+      "disposition": "recommended-first-cycle-portion; integrator freezes exact source-ready selection",
+      "firstCyclePortion": "P02 actual points and taught/leased grants settled once",
+      "remainingOwner": "cheats/SFX dispatch integrator or existing specialized owner before runtime reservation",
+      "verificationState": "design-only; runtime/browser/persistence/human gates not run"
+    },
+    {
+      "id": "SC10.05",
+      "title": "Points, shops and exchange",
+      "family": "SC10",
+      "inputIdeaRefs": [
+        "G2-012",
+        "G3-012"
+      ],
+      "designVariantIds": [
+        "SC10.V05"
+      ],
+      "priorDisposition": "expanded-proposal; not selected or runtime-dispatched",
+      "priorVerificationState": "design-expanded; source-fit inspected via map; implementation/browser/save/human gates open",
+      "disposition": "recommended-first-cycle-portion; integrator freezes exact source-ready selection",
+      "firstCyclePortion": "P02 exact purchase with useful output; broad economy deferred",
+      "remainingOwner": "cheats/SFX dispatch integrator or existing specialized owner before runtime reservation",
+      "verificationState": "design-only; runtime/browser/persistence/human gates not run"
+    },
+    {
+      "id": "SC10.06",
+      "title": "Skills, abilities and body grants",
+      "family": "SC10",
+      "inputIdeaRefs": [
+        "G2-001",
+        "G2-002",
+        "G2-010",
+        "G8-006",
+        "G8-015"
+      ],
+      "designVariantIds": [],
+      "priorDisposition": "expanded-proposal; not selected or runtime-dispatched",
+      "priorVerificationState": "design-expanded; source-fit inspected via map; implementation/browser/save/human gates open",
+      "disposition": "recommended-first-cycle-portion; integrator freezes exact source-ready selection",
+      "firstCyclePortion": "P02 permanent taught preparation only; body/faculty grants deferred",
+      "remainingOwner": "cheats/SFX dispatch integrator or existing specialized owner before runtime reservation",
+      "verificationState": "design-only; runtime/browser/persistence/human gates not run"
+    },
+    {
+      "id": "SC10.07",
+      "title": "Inventory, observation and assistants",
+      "family": "SC10",
+      "inputIdeaRefs": [
+        "G2-007",
+        "G2-016",
+        "G2-019",
+        "G2-020",
+        "G4-14"
+      ],
+      "designVariantIds": [
+        "SC10.V06",
+        "SC10.V07"
+      ],
+      "priorDisposition": "expanded-proposal; not selected or runtime-dispatched",
+      "priorVerificationState": "design-expanded; source-fit inspected via map; implementation/browser/save/human gates open",
+      "disposition": "recommended-first-cycle-portion; integrator freezes exact source-ready selection",
+      "firstCyclePortion": "P02 own receipt measurement/actor projection; storage and assistant labor deferred",
+      "remainingOwner": "cheats/SFX dispatch integrator or existing specialized owner before runtime reservation",
+      "verificationState": "design-only; runtime/browser/persistence/human gates not run"
+    },
+    {
+      "id": "SC10.08",
+      "title": "System upgrades and module evolution",
+      "family": "SC10",
+      "inputIdeaRefs": [
+        "G2-010",
+        "G2-012",
+        "G2-025",
+        "G2-026"
+      ],
+      "designVariantIds": [
+        "SC10.V08"
+      ],
+      "priorDisposition": "expanded-proposal; not selected or runtime-dispatched",
+      "priorVerificationState": "design-expanded; source-fit inspected via map; implementation/browser/save/human gates open",
+      "disposition": "recommended-first-cycle-portion; integrator freezes exact source-ready selection",
+      "firstCyclePortion": "P02 one real service expansion and second useful native consumer",
+      "remainingOwner": "cheats/SFX dispatch integrator or existing specialized owner before runtime reservation",
+      "verificationState": "design-only; runtime/browser/persistence/human gates not run"
+    },
+    {
+      "id": "SC10.09",
+      "title": "Loss, transfer and system-entity continuation",
+      "family": "SC10",
+      "inputIdeaRefs": [
+        "G1-021",
+        "G2-012",
+        "G2-018",
+        "G2-026",
+        "G3-016"
+      ],
+      "designVariantIds": [
+        "SC10.V09"
+      ],
+      "priorDisposition": "expanded-proposal; not selected or runtime-dispatched",
+      "priorVerificationState": "design-expanded; source-fit inspected via map; implementation/browser/save/human gates open",
+      "disposition": "recommended-first-cycle-portion; integrator freezes exact source-ready selection",
+      "firstCyclePortion": "P02 voluntary disconnect/reconnect and retained carrier distinctions; host transfer/player-System deferred",
+      "remainingOwner": "cheats/SFX dispatch integrator or existing specialized owner before runtime reservation",
+      "verificationState": "design-only; runtime/browser/persistence/human gates not run"
+    }
+  ],
+  "additions": [
+    {
+      "id": "CS.01",
+      "inheritedSC": [
+        "SC10.02",
+        "SC10.04"
+      ],
+      "presentationRefs": [
+        "TX1",
+        "TX2",
+        "TX13"
+      ],
+      "title": "commission receipt",
+      "disposition": "recommended-first-cycle-portion",
+      "verificationState": "specified-not-run"
+    },
+    {
+      "id": "CS.02",
+      "inheritedSC": [
+        "SC01.01",
+        "SC03.01",
+        "SC10.06"
+      ],
+      "presentationRefs": [
+        "TX1",
+        "TX2"
+      ],
+      "title": "useful preparation",
+      "disposition": "recommended-first-cycle-portion",
+      "verificationState": "specified-not-run"
+    },
+    {
+      "id": "CS.03",
+      "inheritedSC": [
+        "SC02.02",
+        "SC10.08"
+      ],
+      "presentationRefs": [
+        "X4",
+        "X6"
+      ],
+      "title": "module expansion",
+      "disposition": "recommended-first-cycle-portion",
+      "verificationState": "specified-not-run"
+    },
+    {
+      "id": "CS.04",
+      "inheritedSC": [
+        "SC02.03",
+        "SC10.09"
+      ],
+      "presentationRefs": [
+        "TX1",
+        "TX13"
+      ],
+      "title": "provider loss",
+      "disposition": "recommended-first-cycle-portion",
+      "verificationState": "specified-not-run"
+    },
+    {
+      "id": "CS.05",
+      "inheritedSC": [
+        "SC09.03",
+        "SC10.07"
+      ],
+      "presentationRefs": [
+        "VP1",
+        "VP2",
+        "VP3",
+        "VP4",
+        "TX13"
+      ],
+      "title": "observation fidelity",
+      "disposition": "recommended-first-cycle-portion",
+      "verificationState": "specified-not-run"
+    },
+    {
+      "id": "CS.06",
+      "inheritedSC": [
+        "SC02.03"
+      ],
+      "presentationRefs": [
+        "TX5",
+        "TX9"
+      ],
+      "title": "suppression collision",
+      "disposition": "adjacent-proposal-retained",
+      "verificationState": "specified-not-run"
+    },
+    {
+      "id": "CS.07",
+      "inheritedSC": [
+        "SC09.02"
+      ],
+      "presentationRefs": [
+        "X4",
+        "X5",
+        "TX7",
+        "TX8"
+      ],
+      "title": "repeat silence",
+      "disposition": "recommended-first-cycle-portion",
+      "verificationState": "specified-not-run"
+    },
+    {
+      "id": "CS.08",
+      "inheritedSC": [],
+      "presentationRefs": [
+        "P1",
+        "TX12"
+      ],
+      "title": "workspace anchor",
+      "disposition": "recommended-first-cycle-portion",
+      "verificationState": "specified-not-run"
+    },
+    {
+      "id": "CS.09",
+      "inheritedSC": [
+        "SC10.01"
+      ],
+      "presentationRefs": [
+        "X6"
+      ],
+      "title": "safe fourth-wall reach",
+      "disposition": "recommended-first-cycle-portion",
+      "verificationState": "specified-not-run"
+    },
+    {
+      "id": "CS.10",
+      "inheritedSC": [
+        "SC05.01",
+        "SC05.02"
+      ],
+      "presentationRefs": [
+        "BF8",
+        "AB10"
+      ],
+      "title": "counterfeit/information play",
+      "disposition": "adjacent-proposal-retained",
+      "verificationState": "specified-not-run"
+    },
+    {
+      "id": "CS.11",
+      "inheritedSC": [
+        "SC02.01",
+        "SC02.03",
+        "SC09.01"
+      ],
+      "presentationRefs": [
+        "TX1"
+      ],
+      "title": "fixed-power depth",
+      "disposition": "adjacent-proposal-retained",
+      "verificationState": "specified-not-run"
+    },
+    {
+      "id": "CS.12",
+      "inheritedSC": [
+        "SC09.02"
+      ],
+      "presentationRefs": [
+        "X7"
+      ],
+      "title": "overwhelming precision",
+      "disposition": "adjacent-proposal-retained",
+      "verificationState": "specified-not-run"
+    }
+  ],
+  "firstCycle": {
+    "id": "CS-CYCLE-01",
+    "priorPackets": [
+      "P01",
+      "P02"
+    ],
+    "fiction": "original work-ledger System; proposal",
+    "nativeConsumer": "root freezes reachable existing recipe/material/output and genuine native modifier after current-source qualification",
+    "requiredChain": [
+      "offer/refuse/bind",
+      "accept actual craft commission",
+      "obtain ordinary native inputs",
+      "native craft and useful output submission",
+      "claim exact points once",
+      "buy permanent taught preparation",
+      "apply actual native effect",
+      "upgrade leased assistance for useful second consumer",
+      "disconnect and retain permanent teaching/goods",
+      "continue ordinary craft"
+    ],
+    "exclusions": [
+      "other world selection",
+      "new source acquisition",
+      "universal System engine",
+      "generated quests",
+      "model pretending to export real goods",
+      "demo-only effect as gameplay",
+      "shared runtime or global doc writes without owner release"
+    ],
+    "gates": [
+      {
+        "id": "G1",
+        "state": "specified-not-run",
+        "owner": "/root",
+        "detailOwner": "IDEABOARD_EXPANSION.md"
+      },
+      {
+        "id": "G2",
+        "state": "specified-not-run",
+        "owner": "/root",
+        "detailOwner": "IDEABOARD_EXPANSION.md"
+      },
+      {
+        "id": "G3",
+        "state": "specified-not-run",
+        "owner": "/root",
+        "detailOwner": "IDEABOARD_EXPANSION.md"
+      },
+      {
+        "id": "G4",
+        "state": "specified-not-run",
+        "owner": "/root",
+        "detailOwner": "IDEABOARD_EXPANSION.md"
+      },
+      {
+        "id": "G5",
+        "state": "specified-not-run",
+        "owner": "/root",
+        "detailOwner": "IDEABOARD_EXPANSION.md"
+      }
+    ],
+    "requiredVisualExpressions": [
+      "real guided calibration produces aligning glyphs and brief stable-layer content-surface convergence",
+      "real upgraded service produces brief frame expansion",
+      "actual provider loss breaks only leased service connection stroke"
+    ]
+  },
+  "nextVisualSlice": {
+    "id": "CS-VFX-02",
+    "title": "original adaptive ward rehearsal",
+    "state": "proposal; after CS-CYCLE-01 playable gate",
+    "requires": [
+      "actual hazard/effect consumer",
+      "retained type-qualified response",
+      "native recovery",
+      "save/reload/import"
+    ],
+    "noGameplayCompletionClaim": true
+  },
+  "foundationCycle": {
+    "manifest": "FOUNDATION_MANIFEST.json",
+    "report": "FOUNDATION_REPORT.md",
+    "boundedStatus": "implemented and technically qualified in isolated candidate; human/shared gates open",
+    "next": "NEXT_AUTHORING_CYCLE.md",
+    "broaderAuthoringInventory": "AUTHORING_ADAPTERS.md"
+  }
+}

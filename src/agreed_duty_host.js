@@ -5,6 +5,7 @@ import {AGREED_DUTY_IDS as I, AGREED_DUTY_POLICY as P, agreedDutyController,
 import {agreedDutyFacts, agreedDutyReadiness, agreedDutyReceiptValue,
     agreedDutyReceiptMatches, agreedDutySelectedCommand, validateAgreedDutyState} from './agreed_duty_facts.js';
 import {SOCIETY_IDS as S} from './feature_expansion_society.js';
+import {AGREED_DUTY_CONTINUATION_IDS as C,continuationAccountValue} from './agreed_duty_continuation.js';
 import {commitSimulationCommand,previewSimulationCommand,simulationFacts} from './simulation.js';
 
 const know = (key, value, attributedTo) => ({type:'knowledge',actor:'player',key:`${S.prefix}.duty.${key}`,stage:'seen',value,
@@ -81,7 +82,7 @@ export function agreedDutyPresentation(state,registry,context) {
 }
 
 export function commitAgreedDutyAction(state,registry,context,commandId,expectedSequence=state.sequence) {
-    if(!commandIds.has(commandId)) throw new Error('This is not one of the five bounded household scheduling choices.');
+    if(!commandIds.has(commandId)) throw new Error('This is not a supported household scheduling or later workshop choice.');
     const admission=agreedDutySocietyCommandAdmission(state,commandId);
     if(!admission.allowed) throw new Error(admission.reason);
     const definition=registry.simulation.commands.get(commandId);
@@ -90,7 +91,17 @@ export function commitAgreedDutyAction(state,registry,context,commandId,expected
     return commitSimulationCommand(state,registry,{id:commandId,targetId:definition.targetId||null},ctx,expectedSequence);
 }
 
+function continuationAccount(state, job, status) {
+    if(!job || ![C.sponsored,C.paid].includes(job.commandId) || !agreedDutyReceiptMatches(state)) return null;
+    const prior = state.simulation.knowledge.player[I.resultKey];
+    const value = continuationAccountValue(job,status,prior.cause);
+    return [{type:'knowledge',actor:'player',key:`${S.prefix}.duty.continuation.account.${job.sequence}`,
+        stage:'seen',value,basis:{kind:'observation',attributedTo:'player',situationId:`${S.prefix}.home_agreement`}}];
+}
+
 export function agreedDutyCompletionEffects(state, job) {
+    const continuation = continuationAccount(state,job,'completed');
+    if(continuation) return continuation;
     const selected = agreedDutySelectedCommand(state);
     if(!selected || !job || job.commandId !== selected) return [];
     const value = agreedDutyReceiptValue(state,job,'kept');
@@ -98,6 +109,8 @@ export function agreedDutyCompletionEffects(state, job) {
 }
 
 export function agreedDutyCancellationEffects(state, job) {
+    const continuation = continuationAccount(state,job,'cancelled');
+    if(continuation) return continuation;
     const selected = agreedDutySelectedCommand(state);
     if(!selected || !job || job.commandId !== selected) return [];
     const value = agreedDutyReceiptValue(state,job,'cancelled');
@@ -105,6 +118,8 @@ export function agreedDutyCancellationEffects(state, job) {
 }
 
 export function agreedDutyStoppedEffects(state, job) {
+    const continuation = continuationAccount(state,job,'stopped');
+    if(continuation) return continuation;
     const selected=agreedDutySelectedCommand(state);
     if(!selected||!job||job.commandId!==selected)return [];
     const value=agreedDutyReceiptValue(state,job,'stopped');

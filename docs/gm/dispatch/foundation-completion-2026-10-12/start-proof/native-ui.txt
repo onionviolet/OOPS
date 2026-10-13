@@ -1,0 +1,150 @@
+Authoring
+Edit layout
+Layout
+Workspace
+Classic
+Focus
+Compare
+Reset layout
+Density
+compact
+comfortable
+inspection
+Panels
+Layout configuration
+Drag headers · Shift+drag to float · Resize edges or dividers
+↕
+Character vitals
+0 / 10 xp
+40/40 stamina
+0/0 mana
+60/60 hp
+↕
+Inventory & combat view
+Inventory
+Combat
+↕
+Character & preparation
+Lvl: 0
+Strength:
+12.0
+Agility:
+8.0
+Dexterity:
+10.0
+Intuition
+10.0
+Defense:
+3.0
+Magic:
+0.0
+Atk power:
+1.2
+Atk spd:
+1.0
+Crit rate:
+5.0%
+Crit mult:
+130.0%
+AP:
+32
+EP :
+25
+Active effects: 1
+Stats
+Bio
+Equipment
+Tools
+↕
+Belongings
+Your purse contains: 10C 2W
+star_border[torso] Work coat
+[take off]
+1W
+star_borderStale bread x5
+[use]
+auto
+2C
+star_borderWooden clasp
+1W
+star_border[legs] Cheap leather pants [40%]
+[equip]
+4C 6W
+Sort by name
+Sort by value
+Sort by type
+All
+Equipment
+Usable
+Other
+Favs
+↕
+Equipment comparison
+↕
+Time & weather
+01/04/999 10:38, Summer, Mon, Day
+17.9°C
+↕
+Current location
+star_border Sheltered workroom
+A dry bench, a seated holding jig and an ordinary coat offer two ways to begin working.
+↕
+Current work & saving
+
+No work running.
+
+Saving available.
+
+↕
+Local actions
+Optional pacing
+Equipment condition and repair
+Elemental preparation
+Experimental interaction arena
+
+Original development policies: P-A closes incoming magic including aid. P-B admits named aid and needs sustained control. Physical projectiles remain independent after release. Demonstration fuel belongs only to identified arena actors.
+
+Use a disposable test save. Actions and aftermath use the current durable publisher and played-time clock.
+
+Complete experimental admission drill
+↕
+Journal & received accounts
+Quests
+Bestiary
+Anthology
+Data
+Notebook
+Lost memory
+Hide completed 
+↕
+Skills & practice
+ Hide max level skills
+Sort by name
+Sort by level
+Sort by progress
+Skills
+Stances
+Magic
+↕
+Reports
+Remembered years · 2 memories
+Remember this day
+
+Years remembered
+Progress is paused until saving is restored. Reload before continuing.
+Saved the game manually
+Saved the game manually
+Levels / unlocks
+Events
+Crafting
+Combat
+Loot
+BGM
+↕
+Your beginning
+Save
+Export
+Import
+settings
+v0.6
+help_outline

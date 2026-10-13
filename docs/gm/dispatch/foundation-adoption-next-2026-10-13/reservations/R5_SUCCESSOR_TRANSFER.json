@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "atUTC": "2026-10-13T08:52:03.854266+00:00",
+  "fromThread": "01a13455-03b5-7382-822a-b270d1abb48b",
+  "toThread": "01a13475-d052-7320-b98e-0d5cedf58838",
+  "hostId": "local",
+  "status": "effective",
+  "authority": "Existing direct human authorization for finite Foundation/research-adoption fresh-GM chain; explicit predecessor shared writer release",
+  "checkout": "/Users/weiwei/code/yet-another-idle-rpg",
+  "head": "dd3efe3383f12f0aac22e4f390aae90fae2e7fc4",
+  "reserved": "Existing finite Foundation shared runtime/state/save/story/compiler/main/tests/generated-build integrator scope; first reviewed R5 FA10",
+  "supersedes": "R4_SUCCESSOR_TRANSFER.json; R3 and earlier SUCCESSOR transfers historical",
+  "exclusions": [
+    "separate UI/density/theme/workspace lane",
+    "separate live editor/minigame/heir owners until legitimate transfer",
+    "paused full-world World1",
+    "private packs/source libraries/personal saves",
+    "sender seven immutable originals",
+    "frozen R1/R3/R4 public candidate files/builds/processes",
+    "R4 report/evidence artifacts frozen at handoff"
+  ],
+  "predecessorState": "R4 bounded native positive round closed with exact native opposite gates OPEN; source worker complete/released,18729native browser/server stopped. No carryover writers. Parent relinquishes ALL shared writes immediately after this record. FA07native gates OPEN; current R4 exact stamina debit/refund trace OPEN.",
+  "review": "rounds/r5/ROUNDTRIP.json",
+  "preview": [
+    {
+      "origin": "http://127.0.0.1:18724",
+      "state": "frozen read-only R1"
+    },
+    {
+      "origin": "http://127.0.0.1:18728",
+      "state": "frozen read-only R3"
+    },
+    {
+      "origin": "http://127.0.0.1:18730",
+      "root": "/Users/weiwei/.codex/candidates/yairpg-foundation-adoption-2026-10-13-r4",
+      "sessionId": 7391,
+      "pid": 3271,
+      "state": "frozen read-only R4public preview and genuine disposable exports"
+    }
+  ],
+  "next": "Recover actual-ID ownership, live bindings/current legitimate lineage; execute reviewed FA10; continue whole finite horizon through useful independent own-reviewed units"
+}

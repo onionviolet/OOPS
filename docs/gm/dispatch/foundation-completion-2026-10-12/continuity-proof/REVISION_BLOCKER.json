@@ -1,0 +1,6846 @@
+[
+  {
+    "cmd": {
+      "action": "panel",
+      "selector": "#feature_expansion_panel"
+    },
+    "result": {
+      "hash": "a4e84278059a711738b9149a331f916496dee79140384c021e11052187baef26",
+      "startedHash": "a4e84278059a711738b9149a331f916496dee79140384c021e11052187baef26",
+      "clock": 21,
+      "sequence": 616,
+      "schema": 5,
+      "location": "Village",
+      "money": 94,
+      "inventory": {
+        "{\"id\":\"Stale bread\"}": {
+          "count": 3
+        },
+        "{\"id\":\"Rat tail\"}": {
+          "count": 1
+        },
+        "{\"id\":\"Prepared survey kit\"}": {
+          "count": 1
+        }
+      },
+      "powers": {},
+      "custody": {},
+      "buttons": [
+        {
+          "text": "Authoring",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-workspace-action",
+              "context"
+            ]
+          ]
+        },
+        {
+          "text": "Edit layout",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-workspace-action",
+              "edit-layout"
+            ]
+          ]
+        },
+        {
+          "text": "Reset layout",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-workspace-action",
+              "reset"
+            ]
+          ]
+        },
+        {
+          "text": "↕",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-workspace-action",
+              "handle"
+            ],
+            [
+              "data-module",
+              "vitals"
+            ]
+          ]
+        },
+        {
+          "text": "",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-resize",
+              "e"
+            ],
+            [
+              "data-module",
+              "vitals"
+            ]
+          ]
+        },
+        {
+          "text": "",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-resize",
+              "s"
+            ],
+            [
+              "data-module",
+              "vitals"
+            ]
+          ]
+        },
+        {
+          "text": "",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-resize",
+              "se"
+            ],
+            [
+              "data-module",
+              "vitals"
+            ]
+          ]
+        },
+        {
+          "text": "↕",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-workspace-action",
+              "handle"
+            ],
+            [
+              "data-module",
+              "combat-controls"
+            ]
+          ]
+        },
+        {
+          "text": "Inventory",
+          "id": "switch_to_inventory",
+          "attrs": []
+        },
+        {
+          "text": "Combat",
+          "id": "switch_to_combat",
+          "attrs": []
+        },
+        {
+          "text": "",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-resize",
+              "e"
+            ],
+            [
+              "data-module",
+              "combat-controls"
+            ]
+          ]
+        },
+        {
+          "text": "",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-resize",
+              "s"
+            ],
+            [
+              "data-module",
+              "combat-controls"
+            ]
+          ]
+        },
+        {
+          "text": "",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-resize",
+              "se"
+            ],
+            [
+              "data-module",
+              "combat-controls"
+            ]
+          ]
+        },
+        {
+          "text": "↕",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-workspace-action",
+              "handle"
+            ],
+            [
+              "data-module",
+              "preparation"
+            ]
+          ]
+        },
+        {
+          "text": "Stats",
+          "id": "character_show_stats",
+          "attrs": [
+            [
+              "data-translation",
+              "ui show stats"
+            ]
+          ]
+        },
+        {
+          "text": "Bio",
+          "id": "character_show_bio",
+          "attrs": [
+            [
+              "data-translation",
+              "ui show bio"
+            ]
+          ]
+        },
+        {
+          "text": "Equipment",
+          "id": "character_show_equipment",
+          "attrs": [
+            [
+              "data-translation",
+              "ui show equipment"
+            ]
+          ]
+        },
+        {
+          "text": "Tools",
+          "id": "character_show_tools",
+          "attrs": [
+            [
+              "data-translation",
+              "ui show tools"
+            ]
+          ]
+        },
+        {
+          "text": "",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-resize",
+              "e"
+            ],
+            [
+              "data-module",
+              "preparation"
+            ]
+          ]
+        },
+        {
+          "text": "",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-resize",
+              "s"
+            ],
+            [
+              "data-module",
+              "preparation"
+            ]
+          ]
+        },
+        {
+          "text": "",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-resize",
+              "se"
+            ],
+            [
+              "data-module",
+              "preparation"
+            ]
+          ]
+        },
+        {
+          "text": "↕",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-workspace-action",
+              "handle"
+            ],
+            [
+              "data-module",
+              "belongings"
+            ]
+          ]
+        },
+        {
+          "text": "Sort by name",
+          "id": "inventory_sort_by_name",
+          "attrs": [
+            [
+              "data-translation",
+              "ui sort name"
+            ]
+          ]
+        },
+        {
+          "text": "Sort by value",
+          "id": "inventory_sort_by_price",
+          "attrs": [
+            [
+              "data-translation",
+              "ui sort value"
+            ]
+          ]
+        },
+        {
+          "text": "Sort by type",
+          "id": "inventory_sort_by_type",
+          "attrs": [
+            [
+              "data-translation",
+              "ui sort type"
+            ]
+          ]
+        },
+        {
+          "text": "All",
+          "id": "inventory_show_all",
+          "attrs": [
+            [
+              "data-translation",
+              "ui show all"
+            ]
+          ]
+        },
+        {
+          "text": "Equipment",
+          "id": "inventory_show_equipment",
+          "attrs": [
+            [
+              "data-translation",
+              "ui show equipment"
+            ]
+          ]
+        },
+        {
+          "text": "Usable",
+          "id": "inventory_show_consumable",
+          "attrs": [
+            [
+              "data-translation",
+              "ui show usable"
+            ]
+          ]
+        },
+        {
+          "text": "Other",
+          "id": "inventory_show_other",
+          "attrs": [
+            [
+              "data-translation",
+              "ui show other"
+            ]
+          ]
+        },
+        {
+          "text": "Favs",
+          "id": "inventory_show_favs",
+          "attrs": [
+            [
+              "data-translation",
+              "ui show favs"
+            ]
+          ]
+        },
+        {
+          "text": "",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-resize",
+              "e"
+            ],
+            [
+              "data-module",
+              "belongings"
+            ]
+          ]
+        },
+        {
+          "text": "",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-resize",
+              "s"
+            ],
+            [
+              "data-module",
+              "belongings"
+            ]
+          ]
+        },
+        {
+          "text": "",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-resize",
+              "se"
+            ],
+            [
+              "data-module",
+              "belongings"
+            ]
+          ]
+        },
+        {
+          "text": "↕",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-workspace-action",
+              "handle"
+            ],
+            [
+              "data-module",
+              "equipment-comparison"
+            ]
+          ]
+        },
+        {
+          "text": "↕",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-workspace-action",
+              "handle"
+            ],
+            [
+              "data-module",
+              "notebook"
+            ]
+          ]
+        },
+        {
+          "text": "Unavailable: Discuss the offered work",
+          "disabled": false,
+          "id": "",
+          "attrs": []
+        },
+        {
+          "text": "",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-resize",
+              "e"
+            ],
+            [
+              "data-module",
+              "notebook"
+            ]
+          ]
+        },
+        {
+          "text": "",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-resize",
+              "s"
+            ],
+            [
+              "data-module",
+              "notebook"
+            ]
+          ]
+        },
+        {
+          "text": "",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-resize",
+              "se"
+            ],
+            [
+              "data-module",
+              "notebook"
+            ]
+          ]
+        },
+        {
+          "text": "↕",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-workspace-action",
+              "handle"
+            ],
+            [
+              "data-module",
+              "time"
+            ]
+          ]
+        },
+        {
+          "text": "",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-resize",
+              "e"
+            ],
+            [
+              "data-module",
+              "time"
+            ]
+          ]
+        },
+        {
+          "text": "",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-resize",
+              "s"
+            ],
+            [
+              "data-module",
+              "time"
+            ]
+          ]
+        },
+        {
+          "text": "",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-resize",
+              "se"
+            ],
+            [
+              "data-module",
+              "time"
+            ]
+          ]
+        },
+        {
+          "text": "↕",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-workspace-action",
+              "handle"
+            ],
+            [
+              "data-module",
+              "location"
+            ]
+          ]
+        },
+        {
+          "text": "",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-resize",
+              "e"
+            ],
+            [
+              "data-module",
+              "location"
+            ]
+          ]
+        },
+        {
+          "text": "",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-resize",
+              "s"
+            ],
+            [
+              "data-module",
+              "location"
+            ]
+          ]
+        },
+        {
+          "text": "",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-resize",
+              "se"
+            ],
+            [
+              "data-module",
+              "location"
+            ]
+          ]
+        },
+        {
+          "text": "↕",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-workspace-action",
+              "handle"
+            ],
+            [
+              "data-module",
+              "current-work"
+            ]
+          ]
+        },
+        {
+          "text": "",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-resize",
+              "e"
+            ],
+            [
+              "data-module",
+              "current-work"
+            ]
+          ]
+        },
+        {
+          "text": "",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-resize",
+              "s"
+            ],
+            [
+              "data-module",
+              "current-work"
+            ]
+          ]
+        },
+        {
+          "text": "",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-resize",
+              "se"
+            ],
+            [
+              "data-module",
+              "current-work"
+            ]
+          ]
+        },
+        {
+          "text": "↕",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-workspace-action",
+              "handle"
+            ],
+            [
+              "data-module",
+              "local-actions"
+            ]
+          ]
+        },
+        {
+          "text": "Ask for repair notes (one field clear)",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-fort-action",
+              "notes"
+            ]
+          ]
+        },
+        {
+          "text": "Buy repair notes (10 coins)",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-fort-action",
+              "buy_notes"
+            ]
+          ]
+        },
+        {
+          "text": "directions Move somewhere else",
+          "id": "",
+          "attrs": [
+            [
+              "data-native-keyboard",
+              "true"
+            ]
+          ]
+        },
+        {
+          "text": "directions Fast travel",
+          "id": "",
+          "attrs": [
+            [
+              "data-native-keyboard",
+              "true"
+            ]
+          ]
+        },
+        {
+          "text": "question_answer Talk to someone",
+          "id": "",
+          "attrs": [
+            [
+              "data-native-keyboard",
+              "true"
+            ]
+          ]
+        },
+        {
+          "text": "work_outline Find work",
+          "id": "",
+          "attrs": [
+            [
+              "data-native-keyboard",
+              "true"
+            ]
+          ]
+        },
+        {
+          "text": "fitness_center Train",
+          "id": "",
+          "attrs": [
+            [
+              "data-native-keyboard",
+              "true"
+            ]
+          ]
+        },
+        {
+          "text": "",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-resize",
+              "e"
+            ],
+            [
+              "data-module",
+              "local-actions"
+            ]
+          ]
+        },
+        {
+          "text": "",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-resize",
+              "s"
+            ],
+            [
+              "data-module",
+              "local-actions"
+            ]
+          ]
+        },
+        {
+          "text": "",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-resize",
+              "se"
+            ],
+            [
+              "data-module",
+              "local-actions"
+            ]
+          ]
+        },
+        {
+          "text": "↕",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-workspace-action",
+              "handle"
+            ],
+            [
+              "data-module",
+              "ledger"
+            ]
+          ]
+        },
+        {
+          "text": "",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-resize",
+              "e"
+            ],
+            [
+              "data-module",
+              "ledger"
+            ]
+          ]
+        },
+        {
+          "text": "",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-resize",
+              "s"
+            ],
+            [
+              "data-module",
+              "ledger"
+            ]
+          ]
+        },
+        {
+          "text": "",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-resize",
+              "se"
+            ],
+            [
+              "data-module",
+              "ledger"
+            ]
+          ]
+        },
+        {
+          "text": "↕",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-workspace-action",
+              "handle"
+            ],
+            [
+              "data-module",
+              "records"
+            ]
+          ]
+        },
+        {
+          "text": "Quests",
+          "id": "journal_show_quests",
+          "attrs": []
+        },
+        {
+          "text": "Bestiary",
+          "id": "journal_show_bestiary",
+          "attrs": []
+        },
+        {
+          "text": "Anthology",
+          "id": "journal_show_books",
+          "attrs": []
+        },
+        {
+          "text": "Data",
+          "id": "journal_show_data",
+          "attrs": []
+        },
+        {
+          "text": "Notebook",
+          "disabled": false,
+          "id": "journal_show_notebook",
+          "attrs": []
+        },
+        {
+          "text": "",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-resize",
+              "e"
+            ],
+            [
+              "data-module",
+              "records"
+            ]
+          ]
+        },
+        {
+          "text": "",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-resize",
+              "s"
+            ],
+            [
+              "data-module",
+              "records"
+            ]
+          ]
+        },
+        {
+          "text": "",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-resize",
+              "se"
+            ],
+            [
+              "data-module",
+              "records"
+            ]
+          ]
+        },
+        {
+          "text": "↕",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-workspace-action",
+              "handle"
+            ],
+            [
+              "data-module",
+              "skills"
+            ]
+          ]
+        },
+        {
+          "text": "Sort by name",
+          "id": "skill_sort_by_name",
+          "attrs": []
+        },
+        {
+          "text": "Sort by level",
+          "id": "skill_sort_by_level",
+          "attrs": []
+        },
+        {
+          "text": "Sort by progress",
+          "id": "skill_sort_by_progress",
+          "attrs": []
+        },
+        {
+          "text": "Skills",
+          "id": "show_skills",
+          "attrs": []
+        },
+        {
+          "text": "Stances",
+          "id": "show_stances",
+          "attrs": []
+        },
+        {
+          "text": "Magic",
+          "id": "show_magic",
+          "attrs": []
+        },
+        {
+          "text": "",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-resize",
+              "e"
+            ],
+            [
+              "data-module",
+              "skills"
+            ]
+          ]
+        },
+        {
+          "text": "",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-resize",
+              "s"
+            ],
+            [
+              "data-module",
+              "skills"
+            ]
+          ]
+        },
+        {
+          "text": "",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-resize",
+              "se"
+            ],
+            [
+              "data-module",
+              "skills"
+            ]
+          ]
+        },
+        {
+          "text": "↕",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-workspace-action",
+              "handle"
+            ],
+            [
+              "data-module",
+              "messages"
+            ]
+          ]
+        },
+        {
+          "text": "Remember this day",
+          "disabled": false,
+          "id": "life_remember_day",
+          "attrs": []
+        },
+        {
+          "text": "",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-resize",
+              "e"
+            ],
+            [
+              "data-module",
+              "messages"
+            ]
+          ]
+        },
+        {
+          "text": "",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-resize",
+              "s"
+            ],
+            [
+              "data-module",
+              "messages"
+            ]
+          ]
+        },
+        {
+          "text": "",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-resize",
+              "se"
+            ],
+            [
+              "data-module",
+              "messages"
+            ]
+          ]
+        },
+        {
+          "text": "↕",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-workspace-action",
+              "handle"
+            ],
+            [
+              "data-module",
+              "optional-worlds"
+            ]
+          ]
+        },
+        {
+          "text": "↕",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-workspace-action",
+              "handle"
+            ],
+            [
+              "data-module",
+              "beginning"
+            ]
+          ]
+        },
+        {
+          "text": "↕",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-workspace-action",
+              "handle"
+            ],
+            [
+              "data-module",
+              "patrol"
+            ]
+          ]
+        },
+        {
+          "text": "↕",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-workspace-action",
+              "handle"
+            ],
+            [
+              "data-module",
+              "known-people"
+            ]
+          ]
+        },
+        {
+          "text": "",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-resize",
+              "e"
+            ],
+            [
+              "data-module",
+              "known-people"
+            ]
+          ]
+        },
+        {
+          "text": "",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-resize",
+              "s"
+            ],
+            [
+              "data-module",
+              "known-people"
+            ]
+          ]
+        },
+        {
+          "text": "",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-resize",
+              "se"
+            ],
+            [
+              "data-module",
+              "known-people"
+            ]
+          ]
+        },
+        {
+          "text": "",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-divider",
+              "0"
+            ]
+          ]
+        },
+        {
+          "text": "",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-divider",
+              "1"
+            ]
+          ]
+        }
+      ],
+      "errors": []
+    }
+  },
+  {
+    "cmd": {
+      "action": "click",
+      "selector": "#feature_expansion_panel summary:has-text(\"The terraced harbor chart\")"
+    },
+    "result": {
+      "hash": "a4e84278059a711738b9149a331f916496dee79140384c021e11052187baef26",
+      "startedHash": "a4e84278059a711738b9149a331f916496dee79140384c021e11052187baef26",
+      "clock": 22,
+      "sequence": 616,
+      "schema": 5,
+      "location": "Village",
+      "money": 94,
+      "inventory": {
+        "{\"id\":\"Stale bread\"}": {
+          "count": 3
+        },
+        "{\"id\":\"Rat tail\"}": {
+          "count": 1
+        },
+        "{\"id\":\"Prepared survey kit\"}": {
+          "count": 1
+        }
+      },
+      "powers": {},
+      "custody": {},
+      "buttons": [
+        {
+          "text": "Authoring",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-workspace-action",
+              "context"
+            ]
+          ]
+        },
+        {
+          "text": "Edit layout",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-workspace-action",
+              "edit-layout"
+            ]
+          ]
+        },
+        {
+          "text": "Reset layout",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-workspace-action",
+              "reset"
+            ]
+          ]
+        },
+        {
+          "text": "↕",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-workspace-action",
+              "handle"
+            ],
+            [
+              "data-module",
+              "vitals"
+            ]
+          ]
+        },
+        {
+          "text": "",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-resize",
+              "e"
+            ],
+            [
+              "data-module",
+              "vitals"
+            ]
+          ]
+        },
+        {
+          "text": "",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-resize",
+              "s"
+            ],
+            [
+              "data-module",
+              "vitals"
+            ]
+          ]
+        },
+        {
+          "text": "",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-resize",
+              "se"
+            ],
+            [
+              "data-module",
+              "vitals"
+            ]
+          ]
+        },
+        {
+          "text": "↕",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-workspace-action",
+              "handle"
+            ],
+            [
+              "data-module",
+              "combat-controls"
+            ]
+          ]
+        },
+        {
+          "text": "Inventory",
+          "id": "switch_to_inventory",
+          "attrs": []
+        },
+        {
+          "text": "Combat",
+          "id": "switch_to_combat",
+          "attrs": []
+        },
+        {
+          "text": "",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-resize",
+              "e"
+            ],
+            [
+              "data-module",
+              "combat-controls"
+            ]
+          ]
+        },
+        {
+          "text": "",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-resize",
+              "s"
+            ],
+            [
+              "data-module",
+              "combat-controls"
+            ]
+          ]
+        },
+        {
+          "text": "",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-resize",
+              "se"
+            ],
+            [
+              "data-module",
+              "combat-controls"
+            ]
+          ]
+        },
+        {
+          "text": "↕",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-workspace-action",
+              "handle"
+            ],
+            [
+              "data-module",
+              "preparation"
+            ]
+          ]
+        },
+        {
+          "text": "Stats",
+          "id": "character_show_stats",
+          "attrs": [
+            [
+              "data-translation",
+              "ui show stats"
+            ]
+          ]
+        },
+        {
+          "text": "Bio",
+          "id": "character_show_bio",
+          "attrs": [
+            [
+              "data-translation",
+              "ui show bio"
+            ]
+          ]
+        },
+        {
+          "text": "Equipment",
+          "id": "character_show_equipment",
+          "attrs": [
+            [
+              "data-translation",
+              "ui show equipment"
+            ]
+          ]
+        },
+        {
+          "text": "Tools",
+          "id": "character_show_tools",
+          "attrs": [
+            [
+              "data-translation",
+              "ui show tools"
+            ]
+          ]
+        },
+        {
+          "text": "",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-resize",
+              "e"
+            ],
+            [
+              "data-module",
+              "preparation"
+            ]
+          ]
+        },
+        {
+          "text": "",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-resize",
+              "s"
+            ],
+            [
+              "data-module",
+              "preparation"
+            ]
+          ]
+        },
+        {
+          "text": "",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-resize",
+              "se"
+            ],
+            [
+              "data-module",
+              "preparation"
+            ]
+          ]
+        },
+        {
+          "text": "↕",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-workspace-action",
+              "handle"
+            ],
+            [
+              "data-module",
+              "belongings"
+            ]
+          ]
+        },
+        {
+          "text": "Sort by name",
+          "id": "inventory_sort_by_name",
+          "attrs": [
+            [
+              "data-translation",
+              "ui sort name"
+            ]
+          ]
+        },
+        {
+          "text": "Sort by value",
+          "id": "inventory_sort_by_price",
+          "attrs": [
+            [
+              "data-translation",
+              "ui sort value"
+            ]
+          ]
+        },
+        {
+          "text": "Sort by type",
+          "id": "inventory_sort_by_type",
+          "attrs": [
+            [
+              "data-translation",
+              "ui sort type"
+            ]
+          ]
+        },
+        {
+          "text": "All",
+          "id": "inventory_show_all",
+          "attrs": [
+            [
+              "data-translation",
+              "ui show all"
+            ]
+          ]
+        },
+        {
+          "text": "Equipment",
+          "id": "inventory_show_equipment",
+          "attrs": [
+            [
+              "data-translation",
+              "ui show equipment"
+            ]
+          ]
+        },
+        {
+          "text": "Usable",
+          "id": "inventory_show_consumable",
+          "attrs": [
+            [
+              "data-translation",
+              "ui show usable"
+            ]
+          ]
+        },
+        {
+          "text": "Other",
+          "id": "inventory_show_other",
+          "attrs": [
+            [
+              "data-translation",
+              "ui show other"
+            ]
+          ]
+        },
+        {
+          "text": "Favs",
+          "id": "inventory_show_favs",
+          "attrs": [
+            [
+              "data-translation",
+              "ui show favs"
+            ]
+          ]
+        },
+        {
+          "text": "",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-resize",
+              "e"
+            ],
+            [
+              "data-module",
+              "belongings"
+            ]
+          ]
+        },
+        {
+          "text": "",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-resize",
+              "s"
+            ],
+            [
+              "data-module",
+              "belongings"
+            ]
+          ]
+        },
+        {
+          "text": "",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-resize",
+              "se"
+            ],
+            [
+              "data-module",
+              "belongings"
+            ]
+          ]
+        },
+        {
+          "text": "↕",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-workspace-action",
+              "handle"
+            ],
+            [
+              "data-module",
+              "equipment-comparison"
+            ]
+          ]
+        },
+        {
+          "text": "↕",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-workspace-action",
+              "handle"
+            ],
+            [
+              "data-module",
+              "notebook"
+            ]
+          ]
+        },
+        {
+          "text": "Do this: Open the Tidemark passage · 1 wooden coin",
+          "disabled": false,
+          "id": "",
+          "attrs": []
+        },
+        {
+          "text": "Unavailable: Discuss the offered work",
+          "disabled": false,
+          "id": "",
+          "attrs": []
+        },
+        {
+          "text": "",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-resize",
+              "e"
+            ],
+            [
+              "data-module",
+              "notebook"
+            ]
+          ]
+        },
+        {
+          "text": "",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-resize",
+              "s"
+            ],
+            [
+              "data-module",
+              "notebook"
+            ]
+          ]
+        },
+        {
+          "text": "",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-resize",
+              "se"
+            ],
+            [
+              "data-module",
+              "notebook"
+            ]
+          ]
+        },
+        {
+          "text": "↕",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-workspace-action",
+              "handle"
+            ],
+            [
+              "data-module",
+              "time"
+            ]
+          ]
+        },
+        {
+          "text": "",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-resize",
+              "e"
+            ],
+            [
+              "data-module",
+              "time"
+            ]
+          ]
+        },
+        {
+          "text": "",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-resize",
+              "s"
+            ],
+            [
+              "data-module",
+              "time"
+            ]
+          ]
+        },
+        {
+          "text": "",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-resize",
+              "se"
+            ],
+            [
+              "data-module",
+              "time"
+            ]
+          ]
+        },
+        {
+          "text": "↕",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-workspace-action",
+              "handle"
+            ],
+            [
+              "data-module",
+              "location"
+            ]
+          ]
+        },
+        {
+          "text": "",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-resize",
+              "e"
+            ],
+            [
+              "data-module",
+              "location"
+            ]
+          ]
+        },
+        {
+          "text": "",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-resize",
+              "s"
+            ],
+            [
+              "data-module",
+              "location"
+            ]
+          ]
+        },
+        {
+          "text": "",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-resize",
+              "se"
+            ],
+            [
+              "data-module",
+              "location"
+            ]
+          ]
+        },
+        {
+          "text": "↕",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-workspace-action",
+              "handle"
+            ],
+            [
+              "data-module",
+              "current-work"
+            ]
+          ]
+        },
+        {
+          "text": "",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-resize",
+              "e"
+            ],
+            [
+              "data-module",
+              "current-work"
+            ]
+          ]
+        },
+        {
+          "text": "",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-resize",
+              "s"
+            ],
+            [
+              "data-module",
+              "current-work"
+            ]
+          ]
+        },
+        {
+          "text": "",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-resize",
+              "se"
+            ],
+            [
+              "data-module",
+              "current-work"
+            ]
+          ]
+        },
+        {
+          "text": "↕",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-workspace-action",
+              "handle"
+            ],
+            [
+              "data-module",
+              "local-actions"
+            ]
+          ]
+        },
+        {
+          "text": "Ask for repair notes (one field clear)",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-fort-action",
+              "notes"
+            ]
+          ]
+        },
+        {
+          "text": "Buy repair notes (10 coins)",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-fort-action",
+              "buy_notes"
+            ]
+          ]
+        },
+        {
+          "text": "directions Move somewhere else",
+          "id": "",
+          "attrs": [
+            [
+              "data-native-keyboard",
+              "true"
+            ]
+          ]
+        },
+        {
+          "text": "directions Fast travel",
+          "id": "",
+          "attrs": [
+            [
+              "data-native-keyboard",
+              "true"
+            ]
+          ]
+        },
+        {
+          "text": "question_answer Talk to someone",
+          "id": "",
+          "attrs": [
+            [
+              "data-native-keyboard",
+              "true"
+            ]
+          ]
+        },
+        {
+          "text": "work_outline Find work",
+          "id": "",
+          "attrs": [
+            [
+              "data-native-keyboard",
+              "true"
+            ]
+          ]
+        },
+        {
+          "text": "fitness_center Train",
+          "id": "",
+          "attrs": [
+            [
+              "data-native-keyboard",
+              "true"
+            ]
+          ]
+        },
+        {
+          "text": "",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-resize",
+              "e"
+            ],
+            [
+              "data-module",
+              "local-actions"
+            ]
+          ]
+        },
+        {
+          "text": "",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-resize",
+              "s"
+            ],
+            [
+              "data-module",
+              "local-actions"
+            ]
+          ]
+        },
+        {
+          "text": "",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-resize",
+              "se"
+            ],
+            [
+              "data-module",
+              "local-actions"
+            ]
+          ]
+        },
+        {
+          "text": "↕",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-workspace-action",
+              "handle"
+            ],
+            [
+              "data-module",
+              "ledger"
+            ]
+          ]
+        },
+        {
+          "text": "",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-resize",
+              "e"
+            ],
+            [
+              "data-module",
+              "ledger"
+            ]
+          ]
+        },
+        {
+          "text": "",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-resize",
+              "s"
+            ],
+            [
+              "data-module",
+              "ledger"
+            ]
+          ]
+        },
+        {
+          "text": "",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-resize",
+              "se"
+            ],
+            [
+              "data-module",
+              "ledger"
+            ]
+          ]
+        },
+        {
+          "text": "↕",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-workspace-action",
+              "handle"
+            ],
+            [
+              "data-module",
+              "records"
+            ]
+          ]
+        },
+        {
+          "text": "Quests",
+          "id": "journal_show_quests",
+          "attrs": []
+        },
+        {
+          "text": "Bestiary",
+          "id": "journal_show_bestiary",
+          "attrs": []
+        },
+        {
+          "text": "Anthology",
+          "id": "journal_show_books",
+          "attrs": []
+        },
+        {
+          "text": "Data",
+          "id": "journal_show_data",
+          "attrs": []
+        },
+        {
+          "text": "Notebook",
+          "disabled": false,
+          "id": "journal_show_notebook",
+          "attrs": []
+        },
+        {
+          "text": "",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-resize",
+              "e"
+            ],
+            [
+              "data-module",
+              "records"
+            ]
+          ]
+        },
+        {
+          "text": "",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-resize",
+              "s"
+            ],
+            [
+              "data-module",
+              "records"
+            ]
+          ]
+        },
+        {
+          "text": "",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-resize",
+              "se"
+            ],
+            [
+              "data-module",
+              "records"
+            ]
+          ]
+        },
+        {
+          "text": "↕",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-workspace-action",
+              "handle"
+            ],
+            [
+              "data-module",
+              "skills"
+            ]
+          ]
+        },
+        {
+          "text": "Sort by name",
+          "id": "skill_sort_by_name",
+          "attrs": []
+        },
+        {
+          "text": "Sort by level",
+          "id": "skill_sort_by_level",
+          "attrs": []
+        },
+        {
+          "text": "Sort by progress",
+          "id": "skill_sort_by_progress",
+          "attrs": []
+        },
+        {
+          "text": "Skills",
+          "id": "show_skills",
+          "attrs": []
+        },
+        {
+          "text": "Stances",
+          "id": "show_stances",
+          "attrs": []
+        },
+        {
+          "text": "Magic",
+          "id": "show_magic",
+          "attrs": []
+        },
+        {
+          "text": "",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-resize",
+              "e"
+            ],
+            [
+              "data-module",
+              "skills"
+            ]
+          ]
+        },
+        {
+          "text": "",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-resize",
+              "s"
+            ],
+            [
+              "data-module",
+              "skills"
+            ]
+          ]
+        },
+        {
+          "text": "",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-resize",
+              "se"
+            ],
+            [
+              "data-module",
+              "skills"
+            ]
+          ]
+        },
+        {
+          "text": "↕",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-workspace-action",
+              "handle"
+            ],
+            [
+              "data-module",
+              "messages"
+            ]
+          ]
+        },
+        {
+          "text": "Remember this day",
+          "disabled": false,
+          "id": "life_remember_day",
+          "attrs": []
+        },
+        {
+          "text": "",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-resize",
+              "e"
+            ],
+            [
+              "data-module",
+              "messages"
+            ]
+          ]
+        },
+        {
+          "text": "",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-resize",
+              "s"
+            ],
+            [
+              "data-module",
+              "messages"
+            ]
+          ]
+        },
+        {
+          "text": "",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-resize",
+              "se"
+            ],
+            [
+              "data-module",
+              "messages"
+            ]
+          ]
+        },
+        {
+          "text": "↕",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-workspace-action",
+              "handle"
+            ],
+            [
+              "data-module",
+              "optional-worlds"
+            ]
+          ]
+        },
+        {
+          "text": "↕",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-workspace-action",
+              "handle"
+            ],
+            [
+              "data-module",
+              "beginning"
+            ]
+          ]
+        },
+        {
+          "text": "↕",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-workspace-action",
+              "handle"
+            ],
+            [
+              "data-module",
+              "patrol"
+            ]
+          ]
+        },
+        {
+          "text": "↕",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-workspace-action",
+              "handle"
+            ],
+            [
+              "data-module",
+              "known-people"
+            ]
+          ]
+        },
+        {
+          "text": "",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-resize",
+              "e"
+            ],
+            [
+              "data-module",
+              "known-people"
+            ]
+          ]
+        },
+        {
+          "text": "",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-resize",
+              "s"
+            ],
+            [
+              "data-module",
+              "known-people"
+            ]
+          ]
+        },
+        {
+          "text": "",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-resize",
+              "se"
+            ],
+            [
+              "data-module",
+              "known-people"
+            ]
+          ]
+        },
+        {
+          "text": "",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-divider",
+              "0"
+            ]
+          ]
+        },
+        {
+          "text": "",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-divider",
+              "1"
+            ]
+          ]
+        }
+      ],
+      "errors": []
+    }
+  },
+  {
+    "cmd": {
+      "action": "click",
+      "name": "Do this: Open the Tidemark passage · 1 wooden coin"
+    },
+    "result": {
+      "hash": "a4e84278059a711738b9149a331f916496dee79140384c021e11052187baef26",
+      "startedHash": "a4e84278059a711738b9149a331f916496dee79140384c021e11052187baef26",
+      "clock": 24,
+      "sequence": 617,
+      "schema": 6,
+      "location": "Village",
+      "money": 93,
+      "inventory": {
+        "{\"id\":\"Stale bread\"}": {
+          "count": 3
+        },
+        "{\"id\":\"Rat tail\"}": {
+          "count": 1
+        },
+        "{\"id\":\"Prepared survey kit\"}": {
+          "count": 1
+        }
+      },
+      "powers": {},
+      "destination": {
+        "schema": 1,
+        "definitionRevision": 1,
+        "initializedAt": 22,
+        "nativeRevision": 3,
+        "bodyPolicy": "same_native_body",
+        "sourcePolicy": "local_counterweight_only",
+        "absence": "freeze",
+        "instance": {
+          "schema": 1,
+          "id": "feature.tidemark.harbor",
+          "definitionId": "feature.tidemark.definition",
+          "definitionRevision": 1,
+          "worldId": "feature.tidemark",
+          "continuityId": "tidemark.original",
+          "eraId": "tidemark.breakwater.present",
+          "revision": 3,
+          "parentInstanceId": null,
+          "clock": {
+            "elapsed": 0,
+            "observedAt": 24,
+            "unit": "played_minutes",
+            "absence": "freeze"
+          },
+          "sites": {
+            "tidemark.landing": {
+              "open": true
+            },
+            "tidemark.sluice": {
+              "open": true
+            }
+          },
+          "facts": {},
+          "claims": {},
+          "actorIds": [
+            "tidemark.keeper",
+            "tidemark.wright"
+          ]
+        },
+        "visits": [],
+        "activeVisitId": null,
+        "connection": {
+          "schema": 1,
+          "open": true,
+          "bidirectional": true,
+          "openedAt": 22,
+          "expiresAt": null,
+          "lifetime": null,
+          "duration": 0,
+          "costs": [],
+          "openingCosts": [
+            {
+              "ownerId": "player",
+              "resourceId": "money",
+              "amount": 1
+            }
+          ],
+          "chronology": {
+            "mode": "present"
+          },
+          "layerPolicy": {
+            "passage": true,
+            "manifestation": false,
+            "contact": false
+          },
+          "cargoPolicy": {
+            "allowed": true,
+            "maxUnits": 9007199254740991,
+            "allowEquipped": true,
+            "classes": [
+              "carried"
+            ]
+          },
+          "observationPolicy": {
+            "sense": false,
+            "identify": false,
+            "reach": false,
+            "contact": false,
+            "identification": "none"
+          },
+          "flows": [
+            "body",
+            "cargo"
+          ],
+          "id": "tidemark.passage",
+          "revision": 2,
+          "from": {
+            "worldId": "base.frontier",
+            "instanceId": "frontier.main",
+            "regionId": "frontier.village",
+            "layerId": "surface"
+          },
+          "to": {
+            "worldId": "feature.tidemark",
+            "instanceId": "feature.tidemark.harbor",
+            "regionId": "tidemark.harbor",
+            "layerId": "tidemark.surface"
+          },
+          "kind": "physical",
+          "controllerId": "player",
+          "requirements": {
+            "id": "tidemark.present_passage",
+            "revision": 1,
+            "operations": [
+              "passage"
+            ],
+            "bodyForms": [
+              "human"
+            ],
+            "costs": []
+          }
+        },
+        "receipts": [
+          {
+            "id": "tidemark.open",
+            "at": 22,
+            "sequence": 617
+          }
+        ]
+      },
+      "custody": {},
+      "buttons": [
+        {
+          "text": "Authoring",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-workspace-action",
+              "context"
+            ]
+          ]
+        },
+        {
+          "text": "Edit layout",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-workspace-action",
+              "edit-layout"
+            ]
+          ]
+        },
+        {
+          "text": "Reset layout",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-workspace-action",
+              "reset"
+            ]
+          ]
+        },
+        {
+          "text": "↕",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-workspace-action",
+              "handle"
+            ],
+            [
+              "data-module",
+              "vitals"
+            ]
+          ]
+        },
+        {
+          "text": "",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-resize",
+              "e"
+            ],
+            [
+              "data-module",
+              "vitals"
+            ]
+          ]
+        },
+        {
+          "text": "",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-resize",
+              "s"
+            ],
+            [
+              "data-module",
+              "vitals"
+            ]
+          ]
+        },
+        {
+          "text": "",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-resize",
+              "se"
+            ],
+            [
+              "data-module",
+              "vitals"
+            ]
+          ]
+        },
+        {
+          "text": "↕",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-workspace-action",
+              "handle"
+            ],
+            [
+              "data-module",
+              "combat-controls"
+            ]
+          ]
+        },
+        {
+          "text": "Inventory",
+          "id": "switch_to_inventory",
+          "attrs": []
+        },
+        {
+          "text": "Combat",
+          "id": "switch_to_combat",
+          "attrs": []
+        },
+        {
+          "text": "",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-resize",
+              "e"
+            ],
+            [
+              "data-module",
+              "combat-controls"
+            ]
+          ]
+        },
+        {
+          "text": "",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-resize",
+              "s"
+            ],
+            [
+              "data-module",
+              "combat-controls"
+            ]
+          ]
+        },
+        {
+          "text": "",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-resize",
+              "se"
+            ],
+            [
+              "data-module",
+              "combat-controls"
+            ]
+          ]
+        },
+        {
+          "text": "↕",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-workspace-action",
+              "handle"
+            ],
+            [
+              "data-module",
+              "preparation"
+            ]
+          ]
+        },
+        {
+          "text": "Stats",
+          "id": "character_show_stats",
+          "attrs": [
+            [
+              "data-translation",
+              "ui show stats"
+            ]
+          ]
+        },
+        {
+          "text": "Bio",
+          "id": "character_show_bio",
+          "attrs": [
+            [
+              "data-translation",
+              "ui show bio"
+            ]
+          ]
+        },
+        {
+          "text": "Equipment",
+          "id": "character_show_equipment",
+          "attrs": [
+            [
+              "data-translation",
+              "ui show equipment"
+            ]
+          ]
+        },
+        {
+          "text": "Tools",
+          "id": "character_show_tools",
+          "attrs": [
+            [
+              "data-translation",
+              "ui show tools"
+            ]
+          ]
+        },
+        {
+          "text": "",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-resize",
+              "e"
+            ],
+            [
+              "data-module",
+              "preparation"
+            ]
+          ]
+        },
+        {
+          "text": "",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-resize",
+              "s"
+            ],
+            [
+              "data-module",
+              "preparation"
+            ]
+          ]
+        },
+        {
+          "text": "",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-resize",
+              "se"
+            ],
+            [
+              "data-module",
+              "preparation"
+            ]
+          ]
+        },
+        {
+          "text": "↕",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-workspace-action",
+              "handle"
+            ],
+            [
+              "data-module",
+              "belongings"
+            ]
+          ]
+        },
+        {
+          "text": "Sort by name",
+          "id": "inventory_sort_by_name",
+          "attrs": [
+            [
+              "data-translation",
+              "ui sort name"
+            ]
+          ]
+        },
+        {
+          "text": "Sort by value",
+          "id": "inventory_sort_by_price",
+          "attrs": [
+            [
+              "data-translation",
+              "ui sort value"
+            ]
+          ]
+        },
+        {
+          "text": "Sort by type",
+          "id": "inventory_sort_by_type",
+          "attrs": [
+            [
+              "data-translation",
+              "ui sort type"
+            ]
+          ]
+        },
+        {
+          "text": "All",
+          "id": "inventory_show_all",
+          "attrs": [
+            [
+              "data-translation",
+              "ui show all"
+            ]
+          ]
+        },
+        {
+          "text": "Equipment",
+          "id": "inventory_show_equipment",
+          "attrs": [
+            [
+              "data-translation",
+              "ui show equipment"
+            ]
+          ]
+        },
+        {
+          "text": "Usable",
+          "id": "inventory_show_consumable",
+          "attrs": [
+            [
+              "data-translation",
+              "ui show usable"
+            ]
+          ]
+        },
+        {
+          "text": "Other",
+          "id": "inventory_show_other",
+          "attrs": [
+            [
+              "data-translation",
+              "ui show other"
+            ]
+          ]
+        },
+        {
+          "text": "Favs",
+          "id": "inventory_show_favs",
+          "attrs": [
+            [
+              "data-translation",
+              "ui show favs"
+            ]
+          ]
+        },
+        {
+          "text": "",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-resize",
+              "e"
+            ],
+            [
+              "data-module",
+              "belongings"
+            ]
+          ]
+        },
+        {
+          "text": "",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-resize",
+              "s"
+            ],
+            [
+              "data-module",
+              "belongings"
+            ]
+          ]
+        },
+        {
+          "text": "",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-resize",
+              "se"
+            ],
+            [
+              "data-module",
+              "belongings"
+            ]
+          ]
+        },
+        {
+          "text": "↕",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-workspace-action",
+              "handle"
+            ],
+            [
+              "data-module",
+              "equipment-comparison"
+            ]
+          ]
+        },
+        {
+          "text": "↕",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-workspace-action",
+              "handle"
+            ],
+            [
+              "data-module",
+              "notebook"
+            ]
+          ]
+        },
+        {
+          "text": "Do this: Visit Tidemark · carry your body and belongings",
+          "disabled": false,
+          "id": "",
+          "attrs": []
+        },
+        {
+          "text": "Unavailable: Discuss the offered work",
+          "disabled": false,
+          "id": "",
+          "attrs": []
+        },
+        {
+          "text": "",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-resize",
+              "e"
+            ],
+            [
+              "data-module",
+              "notebook"
+            ]
+          ]
+        },
+        {
+          "text": "",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-resize",
+              "s"
+            ],
+            [
+              "data-module",
+              "notebook"
+            ]
+          ]
+        },
+        {
+          "text": "",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-resize",
+              "se"
+            ],
+            [
+              "data-module",
+              "notebook"
+            ]
+          ]
+        },
+        {
+          "text": "↕",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-workspace-action",
+              "handle"
+            ],
+            [
+              "data-module",
+              "known-routes"
+            ]
+          ]
+        },
+        {
+          "text": "",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-resize",
+              "e"
+            ],
+            [
+              "data-module",
+              "known-routes"
+            ]
+          ]
+        },
+        {
+          "text": "",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-resize",
+              "s"
+            ],
+            [
+              "data-module",
+              "known-routes"
+            ]
+          ]
+        },
+        {
+          "text": "",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-resize",
+              "se"
+            ],
+            [
+              "data-module",
+              "known-routes"
+            ]
+          ]
+        },
+        {
+          "text": "↕",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-workspace-action",
+              "handle"
+            ],
+            [
+              "data-module",
+              "time"
+            ]
+          ]
+        },
+        {
+          "text": "",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-resize",
+              "e"
+            ],
+            [
+              "data-module",
+              "time"
+            ]
+          ]
+        },
+        {
+          "text": "",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-resize",
+              "s"
+            ],
+            [
+              "data-module",
+              "time"
+            ]
+          ]
+        },
+        {
+          "text": "",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-resize",
+              "se"
+            ],
+            [
+              "data-module",
+              "time"
+            ]
+          ]
+        },
+        {
+          "text": "↕",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-workspace-action",
+              "handle"
+            ],
+            [
+              "data-module",
+              "location"
+            ]
+          ]
+        },
+        {
+          "text": "",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-resize",
+              "e"
+            ],
+            [
+              "data-module",
+              "location"
+            ]
+          ]
+        },
+        {
+          "text": "",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-resize",
+              "s"
+            ],
+            [
+              "data-module",
+              "location"
+            ]
+          ]
+        },
+        {
+          "text": "",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-resize",
+              "se"
+            ],
+            [
+              "data-module",
+              "location"
+            ]
+          ]
+        },
+        {
+          "text": "↕",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-workspace-action",
+              "handle"
+            ],
+            [
+              "data-module",
+              "current-work"
+            ]
+          ]
+        },
+        {
+          "text": "",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-resize",
+              "e"
+            ],
+            [
+              "data-module",
+              "current-work"
+            ]
+          ]
+        },
+        {
+          "text": "",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-resize",
+              "s"
+            ],
+            [
+              "data-module",
+              "current-work"
+            ]
+          ]
+        },
+        {
+          "text": "",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-resize",
+              "se"
+            ],
+            [
+              "data-module",
+              "current-work"
+            ]
+          ]
+        },
+        {
+          "text": "↕",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-workspace-action",
+              "handle"
+            ],
+            [
+              "data-module",
+              "local-actions"
+            ]
+          ]
+        },
+        {
+          "text": "Ask for repair notes (one field clear)",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-fort-action",
+              "notes"
+            ]
+          ]
+        },
+        {
+          "text": "Buy repair notes (10 coins)",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-fort-action",
+              "buy_notes"
+            ]
+          ]
+        },
+        {
+          "text": "directions Move somewhere else",
+          "id": "",
+          "attrs": [
+            [
+              "data-native-keyboard",
+              "true"
+            ]
+          ]
+        },
+        {
+          "text": "directions Fast travel",
+          "id": "",
+          "attrs": [
+            [
+              "data-native-keyboard",
+              "true"
+            ]
+          ]
+        },
+        {
+          "text": "question_answer Talk to someone",
+          "id": "",
+          "attrs": [
+            [
+              "data-native-keyboard",
+              "true"
+            ]
+          ]
+        },
+        {
+          "text": "work_outline Find work",
+          "id": "",
+          "attrs": [
+            [
+              "data-native-keyboard",
+              "true"
+            ]
+          ]
+        },
+        {
+          "text": "fitness_center Train",
+          "id": "",
+          "attrs": [
+            [
+              "data-native-keyboard",
+              "true"
+            ]
+          ]
+        },
+        {
+          "text": "",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-resize",
+              "e"
+            ],
+            [
+              "data-module",
+              "local-actions"
+            ]
+          ]
+        },
+        {
+          "text": "",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-resize",
+              "s"
+            ],
+            [
+              "data-module",
+              "local-actions"
+            ]
+          ]
+        },
+        {
+          "text": "",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-resize",
+              "se"
+            ],
+            [
+              "data-module",
+              "local-actions"
+            ]
+          ]
+        },
+        {
+          "text": "↕",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-workspace-action",
+              "handle"
+            ],
+            [
+              "data-module",
+              "ledger"
+            ]
+          ]
+        },
+        {
+          "text": "",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-resize",
+              "e"
+            ],
+            [
+              "data-module",
+              "ledger"
+            ]
+          ]
+        },
+        {
+          "text": "",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-resize",
+              "s"
+            ],
+            [
+              "data-module",
+              "ledger"
+            ]
+          ]
+        },
+        {
+          "text": "",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-resize",
+              "se"
+            ],
+            [
+              "data-module",
+              "ledger"
+            ]
+          ]
+        },
+        {
+          "text": "↕",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-workspace-action",
+              "handle"
+            ],
+            [
+              "data-module",
+              "records"
+            ]
+          ]
+        },
+        {
+          "text": "Quests",
+          "id": "journal_show_quests",
+          "attrs": []
+        },
+        {
+          "text": "Bestiary",
+          "id": "journal_show_bestiary",
+          "attrs": []
+        },
+        {
+          "text": "Anthology",
+          "id": "journal_show_books",
+          "attrs": []
+        },
+        {
+          "text": "Data",
+          "id": "journal_show_data",
+          "attrs": []
+        },
+        {
+          "text": "Notebook",
+          "disabled": false,
+          "id": "journal_show_notebook",
+          "attrs": []
+        },
+        {
+          "text": "",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-resize",
+              "e"
+            ],
+            [
+              "data-module",
+              "records"
+            ]
+          ]
+        },
+        {
+          "text": "",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-resize",
+              "s"
+            ],
+            [
+              "data-module",
+              "records"
+            ]
+          ]
+        },
+        {
+          "text": "",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-resize",
+              "se"
+            ],
+            [
+              "data-module",
+              "records"
+            ]
+          ]
+        },
+        {
+          "text": "↕",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-workspace-action",
+              "handle"
+            ],
+            [
+              "data-module",
+              "skills"
+            ]
+          ]
+        },
+        {
+          "text": "Sort by name",
+          "id": "skill_sort_by_name",
+          "attrs": []
+        },
+        {
+          "text": "Sort by level",
+          "id": "skill_sort_by_level",
+          "attrs": []
+        },
+        {
+          "text": "Sort by progress",
+          "id": "skill_sort_by_progress",
+          "attrs": []
+        },
+        {
+          "text": "Skills",
+          "id": "show_skills",
+          "attrs": []
+        },
+        {
+          "text": "Stances",
+          "id": "show_stances",
+          "attrs": []
+        },
+        {
+          "text": "Magic",
+          "id": "show_magic",
+          "attrs": []
+        },
+        {
+          "text": "",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-resize",
+              "e"
+            ],
+            [
+              "data-module",
+              "skills"
+            ]
+          ]
+        },
+        {
+          "text": "",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-resize",
+              "s"
+            ],
+            [
+              "data-module",
+              "skills"
+            ]
+          ]
+        },
+        {
+          "text": "",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-resize",
+              "se"
+            ],
+            [
+              "data-module",
+              "skills"
+            ]
+          ]
+        },
+        {
+          "text": "↕",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-workspace-action",
+              "handle"
+            ],
+            [
+              "data-module",
+              "messages"
+            ]
+          ]
+        },
+        {
+          "text": "Remember this day",
+          "disabled": false,
+          "id": "life_remember_day",
+          "attrs": []
+        },
+        {
+          "text": "",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-resize",
+              "e"
+            ],
+            [
+              "data-module",
+              "messages"
+            ]
+          ]
+        },
+        {
+          "text": "",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-resize",
+              "s"
+            ],
+            [
+              "data-module",
+              "messages"
+            ]
+          ]
+        },
+        {
+          "text": "",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-resize",
+              "se"
+            ],
+            [
+              "data-module",
+              "messages"
+            ]
+          ]
+        },
+        {
+          "text": "↕",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-workspace-action",
+              "handle"
+            ],
+            [
+              "data-module",
+              "optional-worlds"
+            ]
+          ]
+        },
+        {
+          "text": "↕",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-workspace-action",
+              "handle"
+            ],
+            [
+              "data-module",
+              "beginning"
+            ]
+          ]
+        },
+        {
+          "text": "↕",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-workspace-action",
+              "handle"
+            ],
+            [
+              "data-module",
+              "patrol"
+            ]
+          ]
+        },
+        {
+          "text": "↕",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-workspace-action",
+              "handle"
+            ],
+            [
+              "data-module",
+              "known-people"
+            ]
+          ]
+        },
+        {
+          "text": "",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-resize",
+              "e"
+            ],
+            [
+              "data-module",
+              "known-people"
+            ]
+          ]
+        },
+        {
+          "text": "",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-resize",
+              "s"
+            ],
+            [
+              "data-module",
+              "known-people"
+            ]
+          ]
+        },
+        {
+          "text": "",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-resize",
+              "se"
+            ],
+            [
+              "data-module",
+              "known-people"
+            ]
+          ]
+        },
+        {
+          "text": "",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-divider",
+              "0"
+            ]
+          ]
+        },
+        {
+          "text": "",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-divider",
+              "1"
+            ]
+          ]
+        }
+      ],
+      "errors": []
+    }
+  },
+  {
+    "cmd": {
+      "action": "click",
+      "name": "Do this: Visit Tidemark · carry your body and belongings"
+    },
+    "result": {
+      "hash": "a4e84278059a711738b9149a331f916496dee79140384c021e11052187baef26",
+      "startedHash": "a4e84278059a711738b9149a331f916496dee79140384c021e11052187baef26",
+      "clock": 25,
+      "sequence": 617,
+      "schema": 6,
+      "location": "Village",
+      "money": 93,
+      "inventory": {
+        "{\"id\":\"Stale bread\"}": {
+          "count": 3
+        },
+        "{\"id\":\"Rat tail\"}": {
+          "count": 1
+        },
+        "{\"id\":\"Prepared survey kit\"}": {
+          "count": 1
+        }
+      },
+      "powers": {},
+      "destination": {
+        "schema": 1,
+        "definitionRevision": 1,
+        "initializedAt": 22,
+        "nativeRevision": 4,
+        "bodyPolicy": "same_native_body",
+        "sourcePolicy": "local_counterweight_only",
+        "absence": "freeze",
+        "instance": {
+          "schema": 1,
+          "id": "feature.tidemark.harbor",
+          "definitionId": "feature.tidemark.definition",
+          "definitionRevision": 1,
+          "worldId": "feature.tidemark",
+          "continuityId": "tidemark.original",
+          "eraId": "tidemark.breakwater.present",
+          "revision": 4,
+          "parentInstanceId": null,
+          "clock": {
+            "elapsed": 0,
+            "observedAt": 25,
+            "unit": "played_minutes",
+            "absence": "freeze"
+          },
+          "sites": {
+            "tidemark.landing": {
+              "open": true
+            },
+            "tidemark.sluice": {
+              "open": true
+            }
+          },
+          "facts": {},
+          "claims": {},
+          "actorIds": [
+            "tidemark.keeper",
+            "tidemark.wright"
+          ]
+        },
+        "visits": [],
+        "activeVisitId": null,
+        "connection": {
+          "schema": 1,
+          "open": true,
+          "bidirectional": true,
+          "openedAt": 22,
+          "expiresAt": null,
+          "lifetime": null,
+          "duration": 0,
+          "costs": [],
+          "openingCosts": [
+            {
+              "ownerId": "player",
+              "resourceId": "money",
+              "amount": 1
+            }
+          ],
+          "chronology": {
+            "mode": "present"
+          },
+          "layerPolicy": {
+            "passage": true,
+            "manifestation": false,
+            "contact": false
+          },
+          "cargoPolicy": {
+            "allowed": true,
+            "maxUnits": 9007199254740991,
+            "allowEquipped": true,
+            "classes": [
+              "carried"
+            ]
+          },
+          "observationPolicy": {
+            "sense": false,
+            "identify": false,
+            "reach": false,
+            "contact": false,
+            "identification": "none"
+          },
+          "flows": [
+            "body",
+            "cargo"
+          ],
+          "id": "tidemark.passage",
+          "revision": 2,
+          "from": {
+            "worldId": "base.frontier",
+            "instanceId": "frontier.main",
+            "regionId": "frontier.village",
+            "layerId": "surface"
+          },
+          "to": {
+            "worldId": "feature.tidemark",
+            "instanceId": "feature.tidemark.harbor",
+            "regionId": "tidemark.harbor",
+            "layerId": "tidemark.surface"
+          },
+          "kind": "physical",
+          "controllerId": "player",
+          "requirements": {
+            "id": "tidemark.present_passage",
+            "revision": 1,
+            "operations": [
+              "passage"
+            ],
+            "bodyForms": [
+              "human"
+            ],
+            "costs": []
+          }
+        },
+        "receipts": [
+          {
+            "id": "tidemark.open",
+            "at": 22,
+            "sequence": 617
+          }
+        ]
+      },
+      "custody": {},
+      "buttons": [
+        {
+          "text": "Authoring",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-workspace-action",
+              "context"
+            ]
+          ]
+        },
+        {
+          "text": "Edit layout",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-workspace-action",
+              "edit-layout"
+            ]
+          ]
+        },
+        {
+          "text": "Reset layout",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-workspace-action",
+              "reset"
+            ]
+          ]
+        },
+        {
+          "text": "↕",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-workspace-action",
+              "handle"
+            ],
+            [
+              "data-module",
+              "vitals"
+            ]
+          ]
+        },
+        {
+          "text": "",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-resize",
+              "e"
+            ],
+            [
+              "data-module",
+              "vitals"
+            ]
+          ]
+        },
+        {
+          "text": "",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-resize",
+              "s"
+            ],
+            [
+              "data-module",
+              "vitals"
+            ]
+          ]
+        },
+        {
+          "text": "",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-resize",
+              "se"
+            ],
+            [
+              "data-module",
+              "vitals"
+            ]
+          ]
+        },
+        {
+          "text": "↕",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-workspace-action",
+              "handle"
+            ],
+            [
+              "data-module",
+              "combat-controls"
+            ]
+          ]
+        },
+        {
+          "text": "Inventory",
+          "id": "switch_to_inventory",
+          "attrs": []
+        },
+        {
+          "text": "Combat",
+          "id": "switch_to_combat",
+          "attrs": []
+        },
+        {
+          "text": "",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-resize",
+              "e"
+            ],
+            [
+              "data-module",
+              "combat-controls"
+            ]
+          ]
+        },
+        {
+          "text": "",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-resize",
+              "s"
+            ],
+            [
+              "data-module",
+              "combat-controls"
+            ]
+          ]
+        },
+        {
+          "text": "",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-resize",
+              "se"
+            ],
+            [
+              "data-module",
+              "combat-controls"
+            ]
+          ]
+        },
+        {
+          "text": "↕",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-workspace-action",
+              "handle"
+            ],
+            [
+              "data-module",
+              "preparation"
+            ]
+          ]
+        },
+        {
+          "text": "Stats",
+          "id": "character_show_stats",
+          "attrs": [
+            [
+              "data-translation",
+              "ui show stats"
+            ]
+          ]
+        },
+        {
+          "text": "Bio",
+          "id": "character_show_bio",
+          "attrs": [
+            [
+              "data-translation",
+              "ui show bio"
+            ]
+          ]
+        },
+        {
+          "text": "Equipment",
+          "id": "character_show_equipment",
+          "attrs": [
+            [
+              "data-translation",
+              "ui show equipment"
+            ]
+          ]
+        },
+        {
+          "text": "Tools",
+          "id": "character_show_tools",
+          "attrs": [
+            [
+              "data-translation",
+              "ui show tools"
+            ]
+          ]
+        },
+        {
+          "text": "",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-resize",
+              "e"
+            ],
+            [
+              "data-module",
+              "preparation"
+            ]
+          ]
+        },
+        {
+          "text": "",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-resize",
+              "s"
+            ],
+            [
+              "data-module",
+              "preparation"
+            ]
+          ]
+        },
+        {
+          "text": "",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-resize",
+              "se"
+            ],
+            [
+              "data-module",
+              "preparation"
+            ]
+          ]
+        },
+        {
+          "text": "↕",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-workspace-action",
+              "handle"
+            ],
+            [
+              "data-module",
+              "belongings"
+            ]
+          ]
+        },
+        {
+          "text": "Sort by name",
+          "id": "inventory_sort_by_name",
+          "attrs": [
+            [
+              "data-translation",
+              "ui sort name"
+            ]
+          ]
+        },
+        {
+          "text": "Sort by value",
+          "id": "inventory_sort_by_price",
+          "attrs": [
+            [
+              "data-translation",
+              "ui sort value"
+            ]
+          ]
+        },
+        {
+          "text": "Sort by type",
+          "id": "inventory_sort_by_type",
+          "attrs": [
+            [
+              "data-translation",
+              "ui sort type"
+            ]
+          ]
+        },
+        {
+          "text": "All",
+          "id": "inventory_show_all",
+          "attrs": [
+            [
+              "data-translation",
+              "ui show all"
+            ]
+          ]
+        },
+        {
+          "text": "Equipment",
+          "id": "inventory_show_equipment",
+          "attrs": [
+            [
+              "data-translation",
+              "ui show equipment"
+            ]
+          ]
+        },
+        {
+          "text": "Usable",
+          "id": "inventory_show_consumable",
+          "attrs": [
+            [
+              "data-translation",
+              "ui show usable"
+            ]
+          ]
+        },
+        {
+          "text": "Other",
+          "id": "inventory_show_other",
+          "attrs": [
+            [
+              "data-translation",
+              "ui show other"
+            ]
+          ]
+        },
+        {
+          "text": "Favs",
+          "id": "inventory_show_favs",
+          "attrs": [
+            [
+              "data-translation",
+              "ui show favs"
+            ]
+          ]
+        },
+        {
+          "text": "",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-resize",
+              "e"
+            ],
+            [
+              "data-module",
+              "belongings"
+            ]
+          ]
+        },
+        {
+          "text": "",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-resize",
+              "s"
+            ],
+            [
+              "data-module",
+              "belongings"
+            ]
+          ]
+        },
+        {
+          "text": "",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-resize",
+              "se"
+            ],
+            [
+              "data-module",
+              "belongings"
+            ]
+          ]
+        },
+        {
+          "text": "↕",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-workspace-action",
+              "handle"
+            ],
+            [
+              "data-module",
+              "equipment-comparison"
+            ]
+          ]
+        },
+        {
+          "text": "↕",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-workspace-action",
+              "handle"
+            ],
+            [
+              "data-module",
+              "notebook"
+            ]
+          ]
+        },
+        {
+          "text": "Do this: Visit Tidemark · carry your body and belongings",
+          "disabled": false,
+          "id": "",
+          "attrs": []
+        },
+        {
+          "text": "Unavailable: Discuss the offered work",
+          "disabled": false,
+          "id": "",
+          "attrs": []
+        },
+        {
+          "text": "",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-resize",
+              "e"
+            ],
+            [
+              "data-module",
+              "notebook"
+            ]
+          ]
+        },
+        {
+          "text": "",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-resize",
+              "s"
+            ],
+            [
+              "data-module",
+              "notebook"
+            ]
+          ]
+        },
+        {
+          "text": "",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-resize",
+              "se"
+            ],
+            [
+              "data-module",
+              "notebook"
+            ]
+          ]
+        },
+        {
+          "text": "↕",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-workspace-action",
+              "handle"
+            ],
+            [
+              "data-module",
+              "known-routes"
+            ]
+          ]
+        },
+        {
+          "text": "",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-resize",
+              "e"
+            ],
+            [
+              "data-module",
+              "known-routes"
+            ]
+          ]
+        },
+        {
+          "text": "",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-resize",
+              "s"
+            ],
+            [
+              "data-module",
+              "known-routes"
+            ]
+          ]
+        },
+        {
+          "text": "",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-resize",
+              "se"
+            ],
+            [
+              "data-module",
+              "known-routes"
+            ]
+          ]
+        },
+        {
+          "text": "↕",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-workspace-action",
+              "handle"
+            ],
+            [
+              "data-module",
+              "time"
+            ]
+          ]
+        },
+        {
+          "text": "",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-resize",
+              "e"
+            ],
+            [
+              "data-module",
+              "time"
+            ]
+          ]
+        },
+        {
+          "text": "",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-resize",
+              "s"
+            ],
+            [
+              "data-module",
+              "time"
+            ]
+          ]
+        },
+        {
+          "text": "",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-resize",
+              "se"
+            ],
+            [
+              "data-module",
+              "time"
+            ]
+          ]
+        },
+        {
+          "text": "↕",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-workspace-action",
+              "handle"
+            ],
+            [
+              "data-module",
+              "location"
+            ]
+          ]
+        },
+        {
+          "text": "",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-resize",
+              "e"
+            ],
+            [
+              "data-module",
+              "location"
+            ]
+          ]
+        },
+        {
+          "text": "",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-resize",
+              "s"
+            ],
+            [
+              "data-module",
+              "location"
+            ]
+          ]
+        },
+        {
+          "text": "",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-resize",
+              "se"
+            ],
+            [
+              "data-module",
+              "location"
+            ]
+          ]
+        },
+        {
+          "text": "↕",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-workspace-action",
+              "handle"
+            ],
+            [
+              "data-module",
+              "current-work"
+            ]
+          ]
+        },
+        {
+          "text": "",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-resize",
+              "e"
+            ],
+            [
+              "data-module",
+              "current-work"
+            ]
+          ]
+        },
+        {
+          "text": "",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-resize",
+              "s"
+            ],
+            [
+              "data-module",
+              "current-work"
+            ]
+          ]
+        },
+        {
+          "text": "",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-resize",
+              "se"
+            ],
+            [
+              "data-module",
+              "current-work"
+            ]
+          ]
+        },
+        {
+          "text": "↕",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-workspace-action",
+              "handle"
+            ],
+            [
+              "data-module",
+              "local-actions"
+            ]
+          ]
+        },
+        {
+          "text": "Ask for repair notes (one field clear)",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-fort-action",
+              "notes"
+            ]
+          ]
+        },
+        {
+          "text": "Buy repair notes (10 coins)",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-fort-action",
+              "buy_notes"
+            ]
+          ]
+        },
+        {
+          "text": "directions Move somewhere else",
+          "id": "",
+          "attrs": [
+            [
+              "data-native-keyboard",
+              "true"
+            ]
+          ]
+        },
+        {
+          "text": "directions Fast travel",
+          "id": "",
+          "attrs": [
+            [
+              "data-native-keyboard",
+              "true"
+            ]
+          ]
+        },
+        {
+          "text": "question_answer Talk to someone",
+          "id": "",
+          "attrs": [
+            [
+              "data-native-keyboard",
+              "true"
+            ]
+          ]
+        },
+        {
+          "text": "work_outline Find work",
+          "id": "",
+          "attrs": [
+            [
+              "data-native-keyboard",
+              "true"
+            ]
+          ]
+        },
+        {
+          "text": "fitness_center Train",
+          "id": "",
+          "attrs": [
+            [
+              "data-native-keyboard",
+              "true"
+            ]
+          ]
+        },
+        {
+          "text": "",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-resize",
+              "e"
+            ],
+            [
+              "data-module",
+              "local-actions"
+            ]
+          ]
+        },
+        {
+          "text": "",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-resize",
+              "s"
+            ],
+            [
+              "data-module",
+              "local-actions"
+            ]
+          ]
+        },
+        {
+          "text": "",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-resize",
+              "se"
+            ],
+            [
+              "data-module",
+              "local-actions"
+            ]
+          ]
+        },
+        {
+          "text": "↕",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-workspace-action",
+              "handle"
+            ],
+            [
+              "data-module",
+              "ledger"
+            ]
+          ]
+        },
+        {
+          "text": "",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-resize",
+              "e"
+            ],
+            [
+              "data-module",
+              "ledger"
+            ]
+          ]
+        },
+        {
+          "text": "",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-resize",
+              "s"
+            ],
+            [
+              "data-module",
+              "ledger"
+            ]
+          ]
+        },
+        {
+          "text": "",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-resize",
+              "se"
+            ],
+            [
+              "data-module",
+              "ledger"
+            ]
+          ]
+        },
+        {
+          "text": "↕",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-workspace-action",
+              "handle"
+            ],
+            [
+              "data-module",
+              "records"
+            ]
+          ]
+        },
+        {
+          "text": "Quests",
+          "id": "journal_show_quests",
+          "attrs": []
+        },
+        {
+          "text": "Bestiary",
+          "id": "journal_show_bestiary",
+          "attrs": []
+        },
+        {
+          "text": "Anthology",
+          "id": "journal_show_books",
+          "attrs": []
+        },
+        {
+          "text": "Data",
+          "id": "journal_show_data",
+          "attrs": []
+        },
+        {
+          "text": "Notebook",
+          "disabled": false,
+          "id": "journal_show_notebook",
+          "attrs": []
+        },
+        {
+          "text": "",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-resize",
+              "e"
+            ],
+            [
+              "data-module",
+              "records"
+            ]
+          ]
+        },
+        {
+          "text": "",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-resize",
+              "s"
+            ],
+            [
+              "data-module",
+              "records"
+            ]
+          ]
+        },
+        {
+          "text": "",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-resize",
+              "se"
+            ],
+            [
+              "data-module",
+              "records"
+            ]
+          ]
+        },
+        {
+          "text": "↕",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-workspace-action",
+              "handle"
+            ],
+            [
+              "data-module",
+              "skills"
+            ]
+          ]
+        },
+        {
+          "text": "Sort by name",
+          "id": "skill_sort_by_name",
+          "attrs": []
+        },
+        {
+          "text": "Sort by level",
+          "id": "skill_sort_by_level",
+          "attrs": []
+        },
+        {
+          "text": "Sort by progress",
+          "id": "skill_sort_by_progress",
+          "attrs": []
+        },
+        {
+          "text": "Skills",
+          "id": "show_skills",
+          "attrs": []
+        },
+        {
+          "text": "Stances",
+          "id": "show_stances",
+          "attrs": []
+        },
+        {
+          "text": "Magic",
+          "id": "show_magic",
+          "attrs": []
+        },
+        {
+          "text": "",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-resize",
+              "e"
+            ],
+            [
+              "data-module",
+              "skills"
+            ]
+          ]
+        },
+        {
+          "text": "",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-resize",
+              "s"
+            ],
+            [
+              "data-module",
+              "skills"
+            ]
+          ]
+        },
+        {
+          "text": "",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-resize",
+              "se"
+            ],
+            [
+              "data-module",
+              "skills"
+            ]
+          ]
+        },
+        {
+          "text": "↕",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-workspace-action",
+              "handle"
+            ],
+            [
+              "data-module",
+              "messages"
+            ]
+          ]
+        },
+        {
+          "text": "Remember this day",
+          "disabled": false,
+          "id": "life_remember_day",
+          "attrs": []
+        },
+        {
+          "text": "",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-resize",
+              "e"
+            ],
+            [
+              "data-module",
+              "messages"
+            ]
+          ]
+        },
+        {
+          "text": "",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-resize",
+              "s"
+            ],
+            [
+              "data-module",
+              "messages"
+            ]
+          ]
+        },
+        {
+          "text": "",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-resize",
+              "se"
+            ],
+            [
+              "data-module",
+              "messages"
+            ]
+          ]
+        },
+        {
+          "text": "↕",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-workspace-action",
+              "handle"
+            ],
+            [
+              "data-module",
+              "optional-worlds"
+            ]
+          ]
+        },
+        {
+          "text": "↕",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-workspace-action",
+              "handle"
+            ],
+            [
+              "data-module",
+              "beginning"
+            ]
+          ]
+        },
+        {
+          "text": "↕",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-workspace-action",
+              "handle"
+            ],
+            [
+              "data-module",
+              "patrol"
+            ]
+          ]
+        },
+        {
+          "text": "↕",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-workspace-action",
+              "handle"
+            ],
+            [
+              "data-module",
+              "known-people"
+            ]
+          ]
+        },
+        {
+          "text": "",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-resize",
+              "e"
+            ],
+            [
+              "data-module",
+              "known-people"
+            ]
+          ]
+        },
+        {
+          "text": "",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-resize",
+              "s"
+            ],
+            [
+              "data-module",
+              "known-people"
+            ]
+          ]
+        },
+        {
+          "text": "",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-resize",
+              "se"
+            ],
+            [
+              "data-module",
+              "known-people"
+            ]
+          ]
+        },
+        {
+          "text": "",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-divider",
+              "0"
+            ]
+          ]
+        },
+        {
+          "text": "",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-divider",
+              "1"
+            ]
+          ]
+        }
+      ],
+      "errors": []
+    }
+  },
+  {
+    "cmd": {
+      "action": "save",
+      "name": "opened-before-revision-repair"
+    },
+    "result": {
+      "hash": "a4e84278059a711738b9149a331f916496dee79140384c021e11052187baef26",
+      "startedHash": "a4e84278059a711738b9149a331f916496dee79140384c021e11052187baef26",
+      "clock": 44,
+      "sequence": 617,
+      "schema": 6,
+      "location": "Village",
+      "money": 93,
+      "inventory": {
+        "{\"id\":\"Stale bread\"}": {
+          "count": 3
+        },
+        "{\"id\":\"Rat tail\"}": {
+          "count": 1
+        },
+        "{\"id\":\"Prepared survey kit\"}": {
+          "count": 1
+        }
+      },
+      "powers": {},
+      "destination": {
+        "schema": 1,
+        "definitionRevision": 1,
+        "initializedAt": 22,
+        "nativeRevision": 23,
+        "bodyPolicy": "same_native_body",
+        "sourcePolicy": "local_counterweight_only",
+        "absence": "freeze",
+        "instance": {
+          "schema": 1,
+          "id": "feature.tidemark.harbor",
+          "definitionId": "feature.tidemark.definition",
+          "definitionRevision": 1,
+          "worldId": "feature.tidemark",
+          "continuityId": "tidemark.original",
+          "eraId": "tidemark.breakwater.present",
+          "revision": 23,
+          "parentInstanceId": null,
+          "clock": {
+            "elapsed": 0,
+            "observedAt": 44,
+            "unit": "played_minutes",
+            "absence": "freeze"
+          },
+          "sites": {
+            "tidemark.landing": {
+              "open": true
+            },
+            "tidemark.sluice": {
+              "open": true
+            }
+          },
+          "facts": {},
+          "claims": {},
+          "actorIds": [
+            "tidemark.keeper",
+            "tidemark.wright"
+          ]
+        },
+        "visits": [],
+        "activeVisitId": null,
+        "connection": {
+          "schema": 1,
+          "open": true,
+          "bidirectional": true,
+          "openedAt": 22,
+          "expiresAt": null,
+          "lifetime": null,
+          "duration": 0,
+          "costs": [],
+          "openingCosts": [
+            {
+              "ownerId": "player",
+              "resourceId": "money",
+              "amount": 1
+            }
+          ],
+          "chronology": {
+            "mode": "present"
+          },
+          "layerPolicy": {
+            "passage": true,
+            "manifestation": false,
+            "contact": false
+          },
+          "cargoPolicy": {
+            "allowed": true,
+            "maxUnits": 9007199254740991,
+            "allowEquipped": true,
+            "classes": [
+              "carried"
+            ]
+          },
+          "observationPolicy": {
+            "sense": false,
+            "identify": false,
+            "reach": false,
+            "contact": false,
+            "identification": "none"
+          },
+          "flows": [
+            "body",
+            "cargo"
+          ],
+          "id": "tidemark.passage",
+          "revision": 2,
+          "from": {
+            "worldId": "base.frontier",
+            "instanceId": "frontier.main",
+            "regionId": "frontier.village",
+            "layerId": "surface"
+          },
+          "to": {
+            "worldId": "feature.tidemark",
+            "instanceId": "feature.tidemark.harbor",
+            "regionId": "tidemark.harbor",
+            "layerId": "tidemark.surface"
+          },
+          "kind": "physical",
+          "controllerId": "player",
+          "requirements": {
+            "id": "tidemark.present_passage",
+            "revision": 1,
+            "operations": [
+              "passage"
+            ],
+            "bodyForms": [
+              "human"
+            ],
+            "costs": []
+          }
+        },
+        "receipts": [
+          {
+            "id": "tidemark.open",
+            "at": 22,
+            "sequence": 617
+          }
+        ]
+      },
+      "custody": {},
+      "buttons": [
+        {
+          "text": "Authoring",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-workspace-action",
+              "context"
+            ]
+          ]
+        },
+        {
+          "text": "Edit layout",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-workspace-action",
+              "edit-layout"
+            ]
+          ]
+        },
+        {
+          "text": "Reset layout",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-workspace-action",
+              "reset"
+            ]
+          ]
+        },
+        {
+          "text": "↕",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-workspace-action",
+              "handle"
+            ],
+            [
+              "data-module",
+              "vitals"
+            ]
+          ]
+        },
+        {
+          "text": "",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-resize",
+              "e"
+            ],
+            [
+              "data-module",
+              "vitals"
+            ]
+          ]
+        },
+        {
+          "text": "",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-resize",
+              "s"
+            ],
+            [
+              "data-module",
+              "vitals"
+            ]
+          ]
+        },
+        {
+          "text": "",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-resize",
+              "se"
+            ],
+            [
+              "data-module",
+              "vitals"
+            ]
+          ]
+        },
+        {
+          "text": "↕",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-workspace-action",
+              "handle"
+            ],
+            [
+              "data-module",
+              "combat-controls"
+            ]
+          ]
+        },
+        {
+          "text": "Inventory",
+          "id": "switch_to_inventory",
+          "attrs": []
+        },
+        {
+          "text": "Combat",
+          "id": "switch_to_combat",
+          "attrs": []
+        },
+        {
+          "text": "",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-resize",
+              "e"
+            ],
+            [
+              "data-module",
+              "combat-controls"
+            ]
+          ]
+        },
+        {
+          "text": "",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-resize",
+              "s"
+            ],
+            [
+              "data-module",
+              "combat-controls"
+            ]
+          ]
+        },
+        {
+          "text": "",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-resize",
+              "se"
+            ],
+            [
+              "data-module",
+              "combat-controls"
+            ]
+          ]
+        },
+        {
+          "text": "↕",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-workspace-action",
+              "handle"
+            ],
+            [
+              "data-module",
+              "preparation"
+            ]
+          ]
+        },
+        {
+          "text": "Stats",
+          "id": "character_show_stats",
+          "attrs": [
+            [
+              "data-translation",
+              "ui show stats"
+            ]
+          ]
+        },
+        {
+          "text": "Bio",
+          "id": "character_show_bio",
+          "attrs": [
+            [
+              "data-translation",
+              "ui show bio"
+            ]
+          ]
+        },
+        {
+          "text": "Equipment",
+          "id": "character_show_equipment",
+          "attrs": [
+            [
+              "data-translation",
+              "ui show equipment"
+            ]
+          ]
+        },
+        {
+          "text": "Tools",
+          "id": "character_show_tools",
+          "attrs": [
+            [
+              "data-translation",
+              "ui show tools"
+            ]
+          ]
+        },
+        {
+          "text": "",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-resize",
+              "e"
+            ],
+            [
+              "data-module",
+              "preparation"
+            ]
+          ]
+        },
+        {
+          "text": "",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-resize",
+              "s"
+            ],
+            [
+              "data-module",
+              "preparation"
+            ]
+          ]
+        },
+        {
+          "text": "",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-resize",
+              "se"
+            ],
+            [
+              "data-module",
+              "preparation"
+            ]
+          ]
+        },
+        {
+          "text": "↕",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-workspace-action",
+              "handle"
+            ],
+            [
+              "data-module",
+              "belongings"
+            ]
+          ]
+        },
+        {
+          "text": "Sort by name",
+          "id": "inventory_sort_by_name",
+          "attrs": [
+            [
+              "data-translation",
+              "ui sort name"
+            ]
+          ]
+        },
+        {
+          "text": "Sort by value",
+          "id": "inventory_sort_by_price",
+          "attrs": [
+            [
+              "data-translation",
+              "ui sort value"
+            ]
+          ]
+        },
+        {
+          "text": "Sort by type",
+          "id": "inventory_sort_by_type",
+          "attrs": [
+            [
+              "data-translation",
+              "ui sort type"
+            ]
+          ]
+        },
+        {
+          "text": "All",
+          "id": "inventory_show_all",
+          "attrs": [
+            [
+              "data-translation",
+              "ui show all"
+            ]
+          ]
+        },
+        {
+          "text": "Equipment",
+          "id": "inventory_show_equipment",
+          "attrs": [
+            [
+              "data-translation",
+              "ui show equipment"
+            ]
+          ]
+        },
+        {
+          "text": "Usable",
+          "id": "inventory_show_consumable",
+          "attrs": [
+            [
+              "data-translation",
+              "ui show usable"
+            ]
+          ]
+        },
+        {
+          "text": "Other",
+          "id": "inventory_show_other",
+          "attrs": [
+            [
+              "data-translation",
+              "ui show other"
+            ]
+          ]
+        },
+        {
+          "text": "Favs",
+          "id": "inventory_show_favs",
+          "attrs": [
+            [
+              "data-translation",
+              "ui show favs"
+            ]
+          ]
+        },
+        {
+          "text": "",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-resize",
+              "e"
+            ],
+            [
+              "data-module",
+              "belongings"
+            ]
+          ]
+        },
+        {
+          "text": "",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-resize",
+              "s"
+            ],
+            [
+              "data-module",
+              "belongings"
+            ]
+          ]
+        },
+        {
+          "text": "",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-resize",
+              "se"
+            ],
+            [
+              "data-module",
+              "belongings"
+            ]
+          ]
+        },
+        {
+          "text": "↕",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-workspace-action",
+              "handle"
+            ],
+            [
+              "data-module",
+              "equipment-comparison"
+            ]
+          ]
+        },
+        {
+          "text": "↕",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-workspace-action",
+              "handle"
+            ],
+            [
+              "data-module",
+              "notebook"
+            ]
+          ]
+        },
+        {
+          "text": "Do this: Visit Tidemark · carry your body and belongings",
+          "disabled": false,
+          "id": "",
+          "attrs": []
+        },
+        {
+          "text": "Unavailable: Discuss the offered work",
+          "disabled": false,
+          "id": "",
+          "attrs": []
+        },
+        {
+          "text": "",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-resize",
+              "e"
+            ],
+            [
+              "data-module",
+              "notebook"
+            ]
+          ]
+        },
+        {
+          "text": "",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-resize",
+              "s"
+            ],
+            [
+              "data-module",
+              "notebook"
+            ]
+          ]
+        },
+        {
+          "text": "",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-resize",
+              "se"
+            ],
+            [
+              "data-module",
+              "notebook"
+            ]
+          ]
+        },
+        {
+          "text": "↕",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-workspace-action",
+              "handle"
+            ],
+            [
+              "data-module",
+              "known-routes"
+            ]
+          ]
+        },
+        {
+          "text": "",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-resize",
+              "e"
+            ],
+            [
+              "data-module",
+              "known-routes"
+            ]
+          ]
+        },
+        {
+          "text": "",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-resize",
+              "s"
+            ],
+            [
+              "data-module",
+              "known-routes"
+            ]
+          ]
+        },
+        {
+          "text": "",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-resize",
+              "se"
+            ],
+            [
+              "data-module",
+              "known-routes"
+            ]
+          ]
+        },
+        {
+          "text": "↕",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-workspace-action",
+              "handle"
+            ],
+            [
+              "data-module",
+              "time"
+            ]
+          ]
+        },
+        {
+          "text": "",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-resize",
+              "e"
+            ],
+            [
+              "data-module",
+              "time"
+            ]
+          ]
+        },
+        {
+          "text": "",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-resize",
+              "s"
+            ],
+            [
+              "data-module",
+              "time"
+            ]
+          ]
+        },
+        {
+          "text": "",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-resize",
+              "se"
+            ],
+            [
+              "data-module",
+              "time"
+            ]
+          ]
+        },
+        {
+          "text": "↕",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-workspace-action",
+              "handle"
+            ],
+            [
+              "data-module",
+              "location"
+            ]
+          ]
+        },
+        {
+          "text": "",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-resize",
+              "e"
+            ],
+            [
+              "data-module",
+              "location"
+            ]
+          ]
+        },
+        {
+          "text": "",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-resize",
+              "s"
+            ],
+            [
+              "data-module",
+              "location"
+            ]
+          ]
+        },
+        {
+          "text": "",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-resize",
+              "se"
+            ],
+            [
+              "data-module",
+              "location"
+            ]
+          ]
+        },
+        {
+          "text": "↕",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-workspace-action",
+              "handle"
+            ],
+            [
+              "data-module",
+              "current-work"
+            ]
+          ]
+        },
+        {
+          "text": "",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-resize",
+              "e"
+            ],
+            [
+              "data-module",
+              "current-work"
+            ]
+          ]
+        },
+        {
+          "text": "",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-resize",
+              "s"
+            ],
+            [
+              "data-module",
+              "current-work"
+            ]
+          ]
+        },
+        {
+          "text": "",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-resize",
+              "se"
+            ],
+            [
+              "data-module",
+              "current-work"
+            ]
+          ]
+        },
+        {
+          "text": "↕",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-workspace-action",
+              "handle"
+            ],
+            [
+              "data-module",
+              "local-actions"
+            ]
+          ]
+        },
+        {
+          "text": "Ask for repair notes (one field clear)",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-fort-action",
+              "notes"
+            ]
+          ]
+        },
+        {
+          "text": "Buy repair notes (10 coins)",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-fort-action",
+              "buy_notes"
+            ]
+          ]
+        },
+        {
+          "text": "directions Move somewhere else",
+          "id": "",
+          "attrs": [
+            [
+              "data-native-keyboard",
+              "true"
+            ]
+          ]
+        },
+        {
+          "text": "directions Fast travel",
+          "id": "",
+          "attrs": [
+            [
+              "data-native-keyboard",
+              "true"
+            ]
+          ]
+        },
+        {
+          "text": "question_answer Talk to someone",
+          "id": "",
+          "attrs": [
+            [
+              "data-native-keyboard",
+              "true"
+            ]
+          ]
+        },
+        {
+          "text": "work_outline Find work",
+          "id": "",
+          "attrs": [
+            [
+              "data-native-keyboard",
+              "true"
+            ]
+          ]
+        },
+        {
+          "text": "fitness_center Train",
+          "id": "",
+          "attrs": [
+            [
+              "data-native-keyboard",
+              "true"
+            ]
+          ]
+        },
+        {
+          "text": "",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-resize",
+              "e"
+            ],
+            [
+              "data-module",
+              "local-actions"
+            ]
+          ]
+        },
+        {
+          "text": "",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-resize",
+              "s"
+            ],
+            [
+              "data-module",
+              "local-actions"
+            ]
+          ]
+        },
+        {
+          "text": "",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-resize",
+              "se"
+            ],
+            [
+              "data-module",
+              "local-actions"
+            ]
+          ]
+        },
+        {
+          "text": "↕",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-workspace-action",
+              "handle"
+            ],
+            [
+              "data-module",
+              "ledger"
+            ]
+          ]
+        },
+        {
+          "text": "",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-resize",
+              "e"
+            ],
+            [
+              "data-module",
+              "ledger"
+            ]
+          ]
+        },
+        {
+          "text": "",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-resize",
+              "s"
+            ],
+            [
+              "data-module",
+              "ledger"
+            ]
+          ]
+        },
+        {
+          "text": "",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-resize",
+              "se"
+            ],
+            [
+              "data-module",
+              "ledger"
+            ]
+          ]
+        },
+        {
+          "text": "↕",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-workspace-action",
+              "handle"
+            ],
+            [
+              "data-module",
+              "records"
+            ]
+          ]
+        },
+        {
+          "text": "Quests",
+          "id": "journal_show_quests",
+          "attrs": []
+        },
+        {
+          "text": "Bestiary",
+          "id": "journal_show_bestiary",
+          "attrs": []
+        },
+        {
+          "text": "Anthology",
+          "id": "journal_show_books",
+          "attrs": []
+        },
+        {
+          "text": "Data",
+          "id": "journal_show_data",
+          "attrs": []
+        },
+        {
+          "text": "Notebook",
+          "disabled": false,
+          "id": "journal_show_notebook",
+          "attrs": []
+        },
+        {
+          "text": "",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-resize",
+              "e"
+            ],
+            [
+              "data-module",
+              "records"
+            ]
+          ]
+        },
+        {
+          "text": "",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-resize",
+              "s"
+            ],
+            [
+              "data-module",
+              "records"
+            ]
+          ]
+        },
+        {
+          "text": "",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-resize",
+              "se"
+            ],
+            [
+              "data-module",
+              "records"
+            ]
+          ]
+        },
+        {
+          "text": "↕",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-workspace-action",
+              "handle"
+            ],
+            [
+              "data-module",
+              "skills"
+            ]
+          ]
+        },
+        {
+          "text": "Sort by name",
+          "id": "skill_sort_by_name",
+          "attrs": []
+        },
+        {
+          "text": "Sort by level",
+          "id": "skill_sort_by_level",
+          "attrs": []
+        },
+        {
+          "text": "Sort by progress",
+          "id": "skill_sort_by_progress",
+          "attrs": []
+        },
+        {
+          "text": "Skills",
+          "id": "show_skills",
+          "attrs": []
+        },
+        {
+          "text": "Stances",
+          "id": "show_stances",
+          "attrs": []
+        },
+        {
+          "text": "Magic",
+          "id": "show_magic",
+          "attrs": []
+        },
+        {
+          "text": "",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-resize",
+              "e"
+            ],
+            [
+              "data-module",
+              "skills"
+            ]
+          ]
+        },
+        {
+          "text": "",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-resize",
+              "s"
+            ],
+            [
+              "data-module",
+              "skills"
+            ]
+          ]
+        },
+        {
+          "text": "",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-resize",
+              "se"
+            ],
+            [
+              "data-module",
+              "skills"
+            ]
+          ]
+        },
+        {
+          "text": "↕",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-workspace-action",
+              "handle"
+            ],
+            [
+              "data-module",
+              "messages"
+            ]
+          ]
+        },
+        {
+          "text": "Remember this day",
+          "disabled": false,
+          "id": "life_remember_day",
+          "attrs": []
+        },
+        {
+          "text": "",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-resize",
+              "e"
+            ],
+            [
+              "data-module",
+              "messages"
+            ]
+          ]
+        },
+        {
+          "text": "",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-resize",
+              "s"
+            ],
+            [
+              "data-module",
+              "messages"
+            ]
+          ]
+        },
+        {
+          "text": "",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-resize",
+              "se"
+            ],
+            [
+              "data-module",
+              "messages"
+            ]
+          ]
+        },
+        {
+          "text": "↕",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-workspace-action",
+              "handle"
+            ],
+            [
+              "data-module",
+              "optional-worlds"
+            ]
+          ]
+        },
+        {
+          "text": "↕",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-workspace-action",
+              "handle"
+            ],
+            [
+              "data-module",
+              "beginning"
+            ]
+          ]
+        },
+        {
+          "text": "↕",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-workspace-action",
+              "handle"
+            ],
+            [
+              "data-module",
+              "patrol"
+            ]
+          ]
+        },
+        {
+          "text": "↕",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-workspace-action",
+              "handle"
+            ],
+            [
+              "data-module",
+              "known-people"
+            ]
+          ]
+        },
+        {
+          "text": "",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-resize",
+              "e"
+            ],
+            [
+              "data-module",
+              "known-people"
+            ]
+          ]
+        },
+        {
+          "text": "",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-resize",
+              "s"
+            ],
+            [
+              "data-module",
+              "known-people"
+            ]
+          ]
+        },
+        {
+          "text": "",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-resize",
+              "se"
+            ],
+            [
+              "data-module",
+              "known-people"
+            ]
+          ]
+        },
+        {
+          "text": "",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-divider",
+              "0"
+            ]
+          ]
+        },
+        {
+          "text": "",
+          "disabled": false,
+          "id": "",
+          "attrs": [
+            [
+              "data-divider",
+              "1"
+            ]
+          ]
+        }
+      ],
+      "errors": []
+    }
+  }
+]

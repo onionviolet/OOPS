@@ -1,0 +1,27 @@
+{
+  "status": "NO_EDIT_SOURCE_SUFFICIENT",
+  "focused": {
+    "command": "node --test docs/gm/dispatch/foundation-adoption-next-2026-10-13/rounds/r13/check-allocation.test.mjs",
+    "pass": 5,
+    "fail": 0,
+    "evidence": "source-focused.tap",
+    "scope": "Synthetic exact furnishing host/validator + shared scheduler boundary; supplied body/stock/source-bound campaign receipts; NOT full-root save/import/native acquisition"
+  },
+  "affected": {
+    "command": "node --test tests/simulation.test.js tests/simulation_extensions.test.js tests/field_workshop.test.js tests/absorb_b.test.js tests/expansion_engine.test.js",
+    "pass": 69,
+    "fail": 0,
+    "evidence": "source-affected.tap"
+  },
+  "publisher": "Existing expansion_engine test durable envelope write atomic on failure passes; not a new furnishing-specific full-envelope proof",
+  "fixtureRepairHistory": [
+    "missing situations/enrollment fixture fields",
+    "full root rejected deliberately incomplete synthetic campaign; narrowed fixture to actual host and scheduler boundary, disclosed scope",
+    "controller boundary stepping corrected to per-minute source steps",
+    "registered campaign persons/situation context supplied",
+    "dry stock consumed by bench construction; generated one additional actual SOURCE drying batch before dual eligibility",
+    "falsy held-notebook result assertion corrected"
+  ],
+  "runtimeDefectReproduced": false,
+  "native": "OPEN"
+}

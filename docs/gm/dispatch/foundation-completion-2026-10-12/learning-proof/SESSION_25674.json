@@ -1,0 +1,193 @@
+{
+  "pid": 25674,
+  "origin": "http://127.0.0.1:18643",
+  "startedHash": "21eedf8476a91a867ef91b997889cf02fefdb2f653bd613b80680029328fa3f1",
+  "endedHash": "21eedf8476a91a867ef91b997889cf02fefdb2f653bd613b80680029328fa3f1",
+  "events": [
+    {
+      "action": "wait",
+      "ms": 35000
+    },
+    {
+      "action": "panel",
+      "selector": "#field_panel"
+    },
+    {
+      "action": "click",
+      "selector": "#field_panel summary:has-text('Project & production')"
+    },
+    {
+      "action": "click",
+      "selector": "[data-field-command='field.inspect']"
+    },
+    {
+      "action": "save",
+      "name": "worker-survey-complete"
+    },
+    {
+      "action": "panel",
+      "selector": "#expedition_panel"
+    },
+    {
+      "action": "click",
+      "selector": "[data-expedition-action='frontier.kit']"
+    },
+    {
+      "action": "click",
+      "selector": ".location_choice_dropdown:has-text('Move somewhere else')"
+    },
+    {
+      "error": "locator.click: Error: strict mode violation: locator('[data-travel=\\'Shack\\']') resolved to 2 elements:\n    1) <div tabindex=\"0\" role=\"button\" data-travel=\"Shack\" aria-disabled=\"false\" data-native-keyboard=\"true\" class=\"travel_normal action_travel location_choice\" onclick=\"change_location({location_id: this.getAttribute('data-travel')});\">…</div> aka getByRole('button', { name: 'Go to [Shack] [10m]', exact: true })\n    2) <div tabindex=\"0\" role=\"button\" data-travel=\"Shack\" aria-disabled=\"false\" data-native-keyboard=\"true\" class=\"travel_normal action_travel location_choice\" onclick=\"change_location({location_id:this.getAttribute('data-travel'), event});\">…</div> aka getByText('bed Travel to [Shack] [10m]')\n\nCall log:\n\u001b[2m  - waiting for locator('[data-travel=\\'Shack\\']')\u001b[22m\n"
+    },
+    {
+      "action": "wait",
+      "ms": 20000
+    },
+    {
+      "action": "panel",
+      "selector": "#field_panel"
+    },
+    {
+      "action": "click",
+      "selector": "#field_panel summary:has-text('Project & production')"
+    },
+    {
+      "action": "panel",
+      "selector": "#field_panel details:has(>summary:text-is('Project & production'))"
+    },
+    {
+      "action": "click",
+      "selector": "[data-field-command='field.inspect']"
+    },
+    {
+      "action": "save",
+      "name": "worker-survey-reported"
+    },
+    {
+      "action": "click",
+      "selector": ".location_choice_dropdown:has-text('Move somewhere else') [data-travel='Shack']"
+    },
+    {
+      "action": "wait",
+      "ms": 12000
+    },
+    {
+      "action": "panel",
+      "selector": "#field_panel"
+    },
+    {
+      "action": "panel",
+      "selector": "#field_panel details:has(>summary:text-is('Project & production'))"
+    },
+    {
+      "action": "click",
+      "selector": "[data-field-command='field.workshop.assembly']"
+    },
+    {
+      "action": "save",
+      "name": "worker-assembly-pending"
+    },
+    {
+      "action": "wait",
+      "ms": 30000
+    },
+    {
+      "action": "save",
+      "name": "worker-assembly-complete"
+    },
+    {
+      "action": "panel",
+      "selector": "#feature_expansion_panel"
+    },
+    {
+      "action": "panel",
+      "selector": "#feature_expansion_panel details:has(>summary:text-is('Permitted home & measuring work'))"
+    },
+    {
+      "action": "click",
+      "name": "Choose one permitted guest-room plan",
+      "exact": false
+    },
+    {
+      "action": "click",
+      "name": "Frame the permitted guest room",
+      "exact": false
+    },
+    {
+      "action": "save",
+      "name": "worker-room-frame-pending"
+    },
+    {
+      "action": "wait",
+      "ms": 35000
+    },
+    {
+      "action": "save",
+      "name": "worker-room-frame-done"
+    },
+    {
+      "action": "click",
+      "name": "Finish one guest room",
+      "exact": false
+    },
+    {
+      "action": "save",
+      "name": "worker-room-finish-pending"
+    },
+    {
+      "action": "wait",
+      "ms": 35000
+    },
+    {
+      "action": "save",
+      "name": "worker-room-finished"
+    },
+    {
+      "error": "page.evaluate: SyntaxError: Failed to execute 'querySelector' on 'Document': '#feature_expansion_panel details:has(>summary:text-is('Permitted home & measuring work'))' is not a valid selector.\n    at eval (eval at evaluate (:311:30), <anonymous>:1:20)\n    at UtilityScript.evaluate (<anonymous>:313:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+    },
+    {
+      "action": "click",
+      "name": "Meet Neri's actual bounded residence and work terms",
+      "exact": false
+    },
+    {
+      "action": "save",
+      "name": "worker-neri-met"
+    },
+    {
+      "action": "click",
+      "name": "Offer funded invitation · transfer 1 kit + 1 log + 2 coins",
+      "exact": false
+    },
+    {
+      "action": "save",
+      "name": "worker-neri-invited"
+    },
+    {
+      "action": "wait",
+      "ms": 45000
+    },
+    {
+      "action": "click",
+      "name": "Hear Neri's current public residence and work account",
+      "exact": false
+    },
+    {
+      "action": "save",
+      "name": "worker-neri-old-service"
+    },
+    {
+      "error": "page.evaluate: SyntaxError: Failed to execute 'querySelector' on 'Document': '#feature_expansion_panel details:has(>summary:text-is('Permitted home & measuring work'))' is not a valid selector.\n    at eval (eval at evaluate (:311:30), <anonymous>:1:20)\n    at UtilityScript.evaluate (<anonymous>:313:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+    },
+    {
+      "action": "click",
+      "name": "Collect Neri's one actually produced kit",
+      "exact": false
+    },
+    {
+      "action": "save",
+      "name": "worker-neri-settled-handoff"
+    }
+  ],
+  "errors": []
+}

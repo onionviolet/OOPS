@@ -1,0 +1,4282 @@
+{
+  "schema": "w1-parent-dispositions-1",
+  "revision": 1,
+  "parentRevision": 3,
+  "parentHash": "3fe75c8f33d0ed57c2c067b232de0dd64e3fc364ab3a34ba5e8e4d6123cfae54",
+  "count": 179,
+  "casesInherited": 693,
+  "extractionBoundary": "All parent card IDs/sections and selected current lane reports; not a reread of every predecessor artifact or source.",
+  "parents": [
+    {
+      "id": "G1-001",
+      "origin": "docs/gm/dispatch/idea-expansion-2026-10-11/starts/REQUIREMENTS.json",
+      "sections": [
+        "S02",
+        "S01",
+        "S14"
+      ],
+      "disposition": "retain as conditional palette; local grounding required",
+      "localEngineCards": [
+        "W1-E01"
+      ],
+      "qualificationRoutes": [
+        "private starts/continuity/variant qualification",
+        "public integration and source boundary review"
+      ],
+      "localStatus": "selected exact leaves specified; other variants remain conditional palette",
+      "canonClaim": false,
+      "runtimeClaim": false,
+      "localLeafIds": [
+        "W1-ST01",
+        "W1-ST02",
+        "W1-ST03",
+        "W1-ST04",
+        "W1-ST05",
+        "W1-ST06",
+        "W1-ST07",
+        "W1-ST08",
+        "W1-ST09",
+        "W1-ST10",
+        "W1-ST11",
+        "W1-ST12",
+        "W1-ST13",
+        "W1-ST14",
+        "W1-ST15",
+        "W1-ST16",
+        "W1-ST17",
+        "W1-ST18"
+      ],
+      "familyRecord": "starts/VARIANTS.json#G1-001"
+    },
+    {
+      "id": "G1-002",
+      "origin": "docs/gm/dispatch/idea-expansion-2026-10-11/starts/REQUIREMENTS.json",
+      "sections": [
+        "S02",
+        "S09",
+        "S13",
+        "S14"
+      ],
+      "disposition": "retain as conditional palette; local grounding required",
+      "localEngineCards": [
+        "W1-E01"
+      ],
+      "qualificationRoutes": [
+        "private starts/continuity/variant qualification",
+        "public integration and source boundary review"
+      ],
+      "localStatus": "family disposition accounted; individual local qualification in named remaining manifest, not C1 deep leaf",
+      "canonClaim": false,
+      "runtimeClaim": false,
+      "localLeafIds": [],
+      "familyRecord": "starts/VARIANTS.json#G1-002"
+    },
+    {
+      "id": "G1-003",
+      "origin": "docs/gm/dispatch/idea-expansion-2026-10-11/starts/REQUIREMENTS.json",
+      "sections": [
+        "S02",
+        "S01",
+        "S11"
+      ],
+      "disposition": "retain as conditional palette; local grounding required",
+      "localEngineCards": [],
+      "qualificationRoutes": [
+        "private starts/continuity/variant qualification"
+      ],
+      "localStatus": "selected exact leaves specified; other variants remain conditional palette",
+      "canonClaim": false,
+      "runtimeClaim": false,
+      "localLeafIds": [
+        "W1-ST01",
+        "W1-ST02",
+        "W1-ST03",
+        "W1-ST04",
+        "W1-ST05",
+        "W1-ST06",
+        "W1-ST07",
+        "W1-ST08",
+        "W1-ST09",
+        "W1-ST10",
+        "W1-ST11",
+        "W1-ST12",
+        "W1-ST13",
+        "W1-ST14",
+        "W1-ST15",
+        "W1-ST16",
+        "W1-ST17",
+        "W1-ST18"
+      ],
+      "familyRecord": "starts/VARIANTS.json#G1-003"
+    },
+    {
+      "id": "G1-004",
+      "origin": "docs/gm/dispatch/idea-expansion-2026-10-11/starts/REQUIREMENTS.json",
+      "sections": [
+        "S02",
+        "S04",
+        "S05",
+        "S07"
+      ],
+      "disposition": "retain as conditional palette; local grounding required",
+      "localEngineCards": [],
+      "qualificationRoutes": [
+        "private starts/continuity/variant qualification",
+        "private source/functional leaf qualification"
+      ],
+      "localStatus": "selected exact leaves specified; other variants remain conditional palette",
+      "canonClaim": false,
+      "runtimeClaim": false,
+      "localLeafIds": [
+        "W1-ST01",
+        "W1-ST02",
+        "W1-ST03",
+        "W1-ST04",
+        "W1-ST05",
+        "W1-ST06",
+        "W1-ST07",
+        "W1-ST08",
+        "W1-ST09",
+        "W1-ST10",
+        "W1-ST11",
+        "W1-ST12",
+        "W1-ST13",
+        "W1-ST14",
+        "W1-ST15",
+        "W1-ST16",
+        "W1-ST17",
+        "W1-ST18"
+      ],
+      "familyRecord": "starts/VARIANTS.json#G1-004"
+    },
+    {
+      "id": "G1-005",
+      "origin": "docs/gm/dispatch/idea-expansion-2026-10-11/starts/REQUIREMENTS.json",
+      "sections": [
+        "S02",
+        "S04",
+        "S05",
+        "S14"
+      ],
+      "disposition": "retain as conditional palette; local grounding required",
+      "localEngineCards": [],
+      "qualificationRoutes": [
+        "private starts/continuity/variant qualification",
+        "private source/functional leaf qualification",
+        "public integration and source boundary review"
+      ],
+      "localStatus": "selected exact leaves specified; other variants remain conditional palette",
+      "canonClaim": false,
+      "runtimeClaim": false,
+      "localLeafIds": [
+        "W1-ST06",
+        "W1-ST07"
+      ],
+      "familyRecord": "starts/VARIANTS.json#G1-005"
+    },
+    {
+      "id": "G1-006",
+      "origin": "docs/gm/dispatch/idea-expansion-2026-10-11/starts/REQUIREMENTS.json",
+      "sections": [
+        "S02",
+        "S04",
+        "S05",
+        "S07",
+        "S13"
+      ],
+      "disposition": "retain as conditional palette; local grounding required",
+      "localEngineCards": [
+        "W1-E11"
+      ],
+      "qualificationRoutes": [
+        "private starts/continuity/variant qualification",
+        "private source/functional leaf qualification"
+      ],
+      "localStatus": "selected exact leaves specified; other variants remain conditional palette",
+      "canonClaim": false,
+      "runtimeClaim": false,
+      "localLeafIds": [
+        "W1-ST06",
+        "W1-ST07"
+      ],
+      "familyRecord": "starts/VARIANTS.json#G1-006"
+    },
+    {
+      "id": "G1-007",
+      "origin": "docs/gm/dispatch/idea-expansion-2026-10-11/starts/REQUIREMENTS.json",
+      "sections": [
+        "S02",
+        "S07",
+        "S11",
+        "S14"
+      ],
+      "disposition": "retain as conditional palette; local grounding required",
+      "localEngineCards": [],
+      "qualificationRoutes": [
+        "private starts/continuity/variant qualification",
+        "private source/functional leaf qualification",
+        "public integration and source boundary review"
+      ],
+      "localStatus": "selected exact leaves specified; other variants remain conditional palette",
+      "canonClaim": false,
+      "runtimeClaim": false,
+      "localLeafIds": [
+        "W1-ST06",
+        "W1-ST07"
+      ],
+      "familyRecord": "starts/VARIANTS.json#G1-007"
+    },
+    {
+      "id": "G1-008",
+      "origin": "docs/gm/dispatch/idea-expansion-2026-10-11/starts/REQUIREMENTS.json",
+      "sections": [
+        "S02",
+        "S09",
+        "S07",
+        "S13"
+      ],
+      "disposition": "retain as conditional palette; local grounding required",
+      "localEngineCards": [],
+      "qualificationRoutes": [
+        "private starts/continuity/variant qualification",
+        "private source/functional leaf qualification"
+      ],
+      "localStatus": "selected exact leaves specified; other variants remain conditional palette",
+      "canonClaim": false,
+      "runtimeClaim": false,
+      "localLeafIds": [
+        "W1-SRC-01",
+        "W1-ST01",
+        "W1-ST02",
+        "W1-ST03",
+        "W1-ST04",
+        "W1-ST05",
+        "W1-ST06",
+        "W1-ST07",
+        "W1-ST08",
+        "W1-ST09",
+        "W1-ST10",
+        "W1-ST11",
+        "W1-ST12",
+        "W1-ST13",
+        "W1-ST14",
+        "W1-ST15",
+        "W1-ST16",
+        "W1-ST17",
+        "W1-ST18"
+      ],
+      "familyRecord": "starts/VARIANTS.json#G1-008"
+    },
+    {
+      "id": "G1-009",
+      "origin": "docs/gm/dispatch/idea-expansion-2026-10-11/starts/REQUIREMENTS.json",
+      "sections": [
+        "S02",
+        "S07",
+        "S08",
+        "S13",
+        "S14"
+      ],
+      "disposition": "retain as conditional palette; local grounding required",
+      "localEngineCards": [
+        "W1-E05"
+      ],
+      "qualificationRoutes": [
+        "private starts/continuity/variant qualification",
+        "private source/functional leaf qualification",
+        "public integration and source boundary review"
+      ],
+      "localStatus": "selected exact leaves specified; other variants remain conditional palette",
+      "canonClaim": false,
+      "runtimeClaim": false,
+      "localLeafIds": [
+        "W1-ST13",
+        "W1-ST14",
+        "W1-ST15"
+      ],
+      "familyRecord": "starts/VARIANTS.json#G1-009"
+    },
+    {
+      "id": "G1-010",
+      "origin": "docs/gm/dispatch/idea-expansion-2026-10-11/starts/REQUIREMENTS.json",
+      "sections": [
+        "S02",
+        "S07",
+        "S09"
+      ],
+      "disposition": "retain as conditional palette; local grounding required",
+      "localEngineCards": [],
+      "qualificationRoutes": [
+        "private starts/continuity/variant qualification",
+        "private source/functional leaf qualification"
+      ],
+      "localStatus": "selected exact leaves specified; other variants remain conditional palette",
+      "canonClaim": false,
+      "runtimeClaim": false,
+      "localLeafIds": [
+        "W1-ST13",
+        "W1-ST14",
+        "W1-ST15",
+        "W1-ST16"
+      ],
+      "familyRecord": "starts/VARIANTS.json#G1-010"
+    },
+    {
+      "id": "G1-011",
+      "origin": "docs/gm/dispatch/idea-expansion-2026-10-11/starts/REQUIREMENTS.json",
+      "sections": [
+        "S02",
+        "S04",
+        "S07",
+        "S09"
+      ],
+      "disposition": "retain as conditional palette; local grounding required",
+      "localEngineCards": [],
+      "qualificationRoutes": [
+        "private starts/continuity/variant qualification",
+        "private source/functional leaf qualification"
+      ],
+      "localStatus": "family disposition accounted; individual local qualification in named remaining manifest, not C1 deep leaf",
+      "canonClaim": false,
+      "runtimeClaim": false,
+      "localLeafIds": [],
+      "familyRecord": "starts/VARIANTS.json#G1-011"
+    },
+    {
+      "id": "G1-012",
+      "origin": "docs/gm/dispatch/idea-expansion-2026-10-11/starts/REQUIREMENTS.json",
+      "sections": [
+        "S02",
+        "S12",
+        "S04"
+      ],
+      "disposition": "retain as conditional palette; local grounding required",
+      "localEngineCards": [],
+      "qualificationRoutes": [
+        "private starts/continuity/variant qualification",
+        "private source/functional leaf qualification"
+      ],
+      "localStatus": "family disposition accounted; individual local qualification in named remaining manifest, not C1 deep leaf",
+      "canonClaim": false,
+      "runtimeClaim": false,
+      "localLeafIds": [],
+      "familyRecord": "starts/VARIANTS.json#G1-012"
+    },
+    {
+      "id": "G1-013",
+      "origin": "docs/gm/dispatch/idea-expansion-2026-10-11/starts/REQUIREMENTS.json",
+      "sections": [
+        "S02",
+        "S05",
+        "S06",
+        "S14"
+      ],
+      "disposition": "retain as conditional palette; local grounding required",
+      "localEngineCards": [],
+      "qualificationRoutes": [
+        "private starts/continuity/variant qualification",
+        "private source/functional leaf qualification",
+        "public integration and source boundary review"
+      ],
+      "localStatus": "selected exact leaves specified; other variants remain conditional palette",
+      "canonClaim": false,
+      "runtimeClaim": false,
+      "localLeafIds": [
+        "W1-ST01",
+        "W1-ST02",
+        "W1-ST03",
+        "W1-ST04",
+        "W1-ST05",
+        "W1-ST06",
+        "W1-ST07",
+        "W1-ST08",
+        "W1-ST09",
+        "W1-ST10",
+        "W1-ST11",
+        "W1-ST12",
+        "W1-ST13",
+        "W1-ST14",
+        "W1-ST15",
+        "W1-ST16",
+        "W1-ST17",
+        "W1-ST18"
+      ],
+      "familyRecord": "starts/VARIANTS.json#G1-013"
+    },
+    {
+      "id": "G1-014",
+      "origin": "docs/gm/dispatch/idea-expansion-2026-10-11/starts/REQUIREMENTS.json",
+      "sections": [
+        "S02",
+        "S04",
+        "S07",
+        "S08"
+      ],
+      "disposition": "retain as conditional palette; local grounding required",
+      "localEngineCards": [],
+      "qualificationRoutes": [
+        "private starts/continuity/variant qualification",
+        "private source/functional leaf qualification"
+      ],
+      "localStatus": "selected exact leaves specified; other variants remain conditional palette",
+      "canonClaim": false,
+      "runtimeClaim": false,
+      "localLeafIds": [
+        "W1-ST16",
+        "W1-ST17"
+      ],
+      "familyRecord": "starts/VARIANTS.json#G1-014"
+    },
+    {
+      "id": "G1-015",
+      "origin": "docs/gm/dispatch/idea-expansion-2026-10-11/starts/REQUIREMENTS.json",
+      "sections": [
+        "S02",
+        "S03",
+        "S05",
+        "S07"
+      ],
+      "disposition": "retain as conditional palette; local grounding required",
+      "localEngineCards": [],
+      "qualificationRoutes": [
+        "private starts/continuity/variant qualification",
+        "private source/functional leaf qualification"
+      ],
+      "localStatus": "family disposition accounted; individual local qualification in named remaining manifest, not C1 deep leaf",
+      "canonClaim": false,
+      "runtimeClaim": false,
+      "localLeafIds": [],
+      "familyRecord": "starts/VARIANTS.json#G1-015"
+    },
+    {
+      "id": "G1-016",
+      "origin": "docs/gm/dispatch/idea-expansion-2026-10-11/starts/REQUIREMENTS.json",
+      "sections": [
+        "S02",
+        "S06",
+        "S04",
+        "S12"
+      ],
+      "disposition": "retain as conditional palette; local grounding required",
+      "localEngineCards": [
+        "W1-E11"
+      ],
+      "qualificationRoutes": [
+        "private starts/continuity/variant qualification",
+        "private source/functional leaf qualification"
+      ],
+      "localStatus": "family disposition accounted; individual local qualification in named remaining manifest, not C1 deep leaf",
+      "canonClaim": false,
+      "runtimeClaim": false,
+      "localLeafIds": [],
+      "familyRecord": "starts/VARIANTS.json#G1-016"
+    },
+    {
+      "id": "G1-017",
+      "origin": "docs/gm/dispatch/idea-expansion-2026-10-11/starts/REQUIREMENTS.json",
+      "sections": [
+        "S02",
+        "S07",
+        "S08",
+        "S04"
+      ],
+      "disposition": "retain as conditional palette; local grounding required",
+      "localEngineCards": [],
+      "qualificationRoutes": [
+        "private starts/continuity/variant qualification",
+        "private source/functional leaf qualification"
+      ],
+      "localStatus": "family disposition accounted; individual local qualification in named remaining manifest, not C1 deep leaf",
+      "canonClaim": false,
+      "runtimeClaim": false,
+      "localLeafIds": [],
+      "familyRecord": "starts/VARIANTS.json#G1-017"
+    },
+    {
+      "id": "G1-018",
+      "origin": "docs/gm/dispatch/idea-expansion-2026-10-11/starts/REQUIREMENTS.json",
+      "sections": [
+        "S02",
+        "S06",
+        "S07",
+        "S05"
+      ],
+      "disposition": "retain as conditional palette; local grounding required",
+      "localEngineCards": [],
+      "qualificationRoutes": [
+        "private starts/continuity/variant qualification",
+        "private source/functional leaf qualification"
+      ],
+      "localStatus": "family disposition accounted; individual local qualification in named remaining manifest, not C1 deep leaf",
+      "canonClaim": false,
+      "runtimeClaim": false,
+      "localLeafIds": [],
+      "familyRecord": "starts/VARIANTS.json#G1-018"
+    },
+    {
+      "id": "G1-019",
+      "origin": "docs/gm/dispatch/idea-expansion-2026-10-11/starts/REQUIREMENTS.json",
+      "sections": [
+        "S02",
+        "S03",
+        "S04",
+        "S06"
+      ],
+      "disposition": "retain as conditional palette; local grounding required",
+      "localEngineCards": [],
+      "qualificationRoutes": [
+        "private starts/continuity/variant qualification",
+        "private source/functional leaf qualification"
+      ],
+      "localStatus": "family disposition accounted; individual local qualification in named remaining manifest, not C1 deep leaf",
+      "canonClaim": false,
+      "runtimeClaim": false,
+      "localLeafIds": [],
+      "familyRecord": "starts/VARIANTS.json#G1-019"
+    },
+    {
+      "id": "G1-020",
+      "origin": "docs/gm/dispatch/idea-expansion-2026-10-11/starts/REQUIREMENTS.json",
+      "sections": [
+        "S02",
+        "S04",
+        "S07",
+        "S14"
+      ],
+      "disposition": "retain as conditional palette; local grounding required",
+      "localEngineCards": [],
+      "qualificationRoutes": [
+        "private starts/continuity/variant qualification",
+        "private source/functional leaf qualification",
+        "public integration and source boundary review"
+      ],
+      "localStatus": "family disposition accounted; individual local qualification in named remaining manifest, not C1 deep leaf",
+      "canonClaim": false,
+      "runtimeClaim": false,
+      "localLeafIds": [],
+      "familyRecord": "starts/VARIANTS.json#G1-020"
+    },
+    {
+      "id": "G1-021",
+      "origin": "docs/gm/dispatch/idea-expansion-2026-10-11/starts/REQUIREMENTS.json",
+      "sections": [
+        "S02",
+        "S04",
+        "S07",
+        "S13"
+      ],
+      "disposition": "retain as conditional palette; local grounding required",
+      "localEngineCards": [
+        "W1-E11"
+      ],
+      "qualificationRoutes": [
+        "private starts/continuity/variant qualification",
+        "private source/functional leaf qualification"
+      ],
+      "localStatus": "selected exact leaves specified; other variants remain conditional palette",
+      "canonClaim": false,
+      "runtimeClaim": false,
+      "localLeafIds": [
+        "W1-ST18"
+      ],
+      "familyRecord": "starts/VARIANTS.json#G1-021"
+    },
+    {
+      "id": "G1-022",
+      "origin": "docs/gm/dispatch/idea-expansion-2026-10-11/starts/REQUIREMENTS.json",
+      "sections": [
+        "S02",
+        "S03",
+        "S09",
+        "S07"
+      ],
+      "disposition": "retain as conditional palette; local grounding required",
+      "localEngineCards": [],
+      "qualificationRoutes": [
+        "private starts/continuity/variant qualification",
+        "private source/functional leaf qualification"
+      ],
+      "localStatus": "family disposition accounted; individual local qualification in named remaining manifest, not C1 deep leaf",
+      "canonClaim": false,
+      "runtimeClaim": false,
+      "localLeafIds": [],
+      "familyRecord": "starts/VARIANTS.json#G1-022"
+    },
+    {
+      "id": "G1-023",
+      "origin": "docs/gm/dispatch/idea-expansion-2026-10-11/starts/REQUIREMENTS.json",
+      "sections": [
+        "S02",
+        "S04",
+        "S11",
+        "S12"
+      ],
+      "disposition": "retain as conditional palette; local grounding required",
+      "localEngineCards": [],
+      "qualificationRoutes": [
+        "private starts/continuity/variant qualification",
+        "private source/functional leaf qualification"
+      ],
+      "localStatus": "family disposition accounted; individual local qualification in named remaining manifest, not C1 deep leaf",
+      "canonClaim": false,
+      "runtimeClaim": false,
+      "localLeafIds": [],
+      "familyRecord": "starts/VARIANTS.json#G1-023"
+    },
+    {
+      "id": "G1-024",
+      "origin": "docs/gm/dispatch/idea-expansion-2026-10-11/starts/REQUIREMENTS.json",
+      "sections": [
+        "S02",
+        "S11",
+        "S12",
+        "S14"
+      ],
+      "disposition": "retain as conditional palette; local grounding required",
+      "localEngineCards": [],
+      "qualificationRoutes": [
+        "private starts/continuity/variant qualification",
+        "public integration and source boundary review"
+      ],
+      "localStatus": "family disposition accounted; individual local qualification in named remaining manifest, not C1 deep leaf",
+      "canonClaim": false,
+      "runtimeClaim": false,
+      "localLeafIds": [],
+      "familyRecord": "starts/VARIANTS.json#G1-024"
+    },
+    {
+      "id": "G1-025",
+      "origin": "docs/gm/dispatch/idea-expansion-2026-10-11/starts/REQUIREMENTS.json",
+      "sections": [
+        "S02",
+        "S12",
+        "S07",
+        "S14"
+      ],
+      "disposition": "retain as conditional palette; local grounding required",
+      "localEngineCards": [],
+      "qualificationRoutes": [
+        "private starts/continuity/variant qualification",
+        "private source/functional leaf qualification",
+        "public integration and source boundary review"
+      ],
+      "localStatus": "selected exact leaves specified; other variants remain conditional palette",
+      "canonClaim": false,
+      "runtimeClaim": false,
+      "localLeafIds": [
+        "W1-SRC-25"
+      ],
+      "familyRecord": "starts/VARIANTS.json#G1-025"
+    },
+    {
+      "id": "G1-026",
+      "origin": "docs/gm/dispatch/idea-expansion-2026-10-11/starts/REQUIREMENTS.json",
+      "sections": [
+        "S02",
+        "S11",
+        "S12",
+        "S09"
+      ],
+      "disposition": "retain as conditional palette; local grounding required",
+      "localEngineCards": [],
+      "qualificationRoutes": [
+        "private starts/continuity/variant qualification"
+      ],
+      "localStatus": "family disposition accounted; individual local qualification in named remaining manifest, not C1 deep leaf",
+      "canonClaim": false,
+      "runtimeClaim": false,
+      "localLeafIds": [],
+      "familyRecord": "starts/VARIANTS.json#G1-026"
+    },
+    {
+      "id": "G1-027",
+      "origin": "docs/gm/dispatch/idea-expansion-2026-10-11/starts/REQUIREMENTS.json",
+      "sections": [
+        "S02",
+        "S09",
+        "S13"
+      ],
+      "disposition": "retain as conditional palette; local grounding required",
+      "localEngineCards": [],
+      "qualificationRoutes": [
+        "private starts/continuity/variant qualification"
+      ],
+      "localStatus": "selected exact leaves specified; other variants remain conditional palette",
+      "canonClaim": false,
+      "runtimeClaim": false,
+      "localLeafIds": [
+        "W1-ST01",
+        "W1-ST02",
+        "W1-ST03",
+        "W1-ST04",
+        "W1-ST05",
+        "W1-ST06",
+        "W1-ST07",
+        "W1-ST08",
+        "W1-ST09",
+        "W1-ST10",
+        "W1-ST11",
+        "W1-ST12",
+        "W1-ST13",
+        "W1-ST14",
+        "W1-ST15",
+        "W1-ST16",
+        "W1-ST17",
+        "W1-ST18"
+      ],
+      "familyRecord": "starts/VARIANTS.json#G1-027"
+    },
+    {
+      "id": "G1-028",
+      "origin": "docs/gm/dispatch/idea-expansion-2026-10-11/starts/REQUIREMENTS.json",
+      "sections": [
+        "S00",
+        "S02",
+        "S14"
+      ],
+      "disposition": "retain as conditional palette; local grounding required",
+      "localEngineCards": [],
+      "qualificationRoutes": [
+        "private starts/continuity/variant qualification",
+        "public integration and source boundary review"
+      ],
+      "localStatus": "family disposition accounted; individual local qualification in named remaining manifest, not C1 deep leaf",
+      "canonClaim": false,
+      "runtimeClaim": false,
+      "localLeafIds": [],
+      "familyRecord": "starts/VARIANTS.json#G1-028"
+    },
+    {
+      "id": "G1-029",
+      "origin": "docs/gm/dispatch/idea-expansion-2026-10-11/starts/REQUIREMENTS.json",
+      "sections": [
+        "S02",
+        "S14"
+      ],
+      "disposition": "retain as conditional palette; local grounding required",
+      "localEngineCards": [
+        "W1-E01"
+      ],
+      "qualificationRoutes": [
+        "private starts/continuity/variant qualification",
+        "public integration and source boundary review"
+      ],
+      "localStatus": "selected exact leaves specified; other variants remain conditional palette",
+      "canonClaim": false,
+      "runtimeClaim": false,
+      "localLeafIds": [
+        "W1-ST01",
+        "W1-ST02",
+        "W1-ST03",
+        "W1-ST04",
+        "W1-ST05",
+        "W1-ST06",
+        "W1-ST07",
+        "W1-ST08",
+        "W1-ST09",
+        "W1-ST10",
+        "W1-ST11",
+        "W1-ST12",
+        "W1-ST13",
+        "W1-ST14",
+        "W1-ST15",
+        "W1-ST16",
+        "W1-ST17",
+        "W1-ST18"
+      ],
+      "familyRecord": "starts/VARIANTS.json#G1-029"
+    },
+    {
+      "id": "G1-030",
+      "origin": "docs/gm/dispatch/idea-expansion-2026-10-11/starts/REQUIREMENTS.json",
+      "sections": [
+        "S00",
+        "S02",
+        "S14"
+      ],
+      "disposition": "retain as conditional palette; local grounding required",
+      "localEngineCards": [],
+      "qualificationRoutes": [
+        "private starts/continuity/variant qualification",
+        "public integration and source boundary review"
+      ],
+      "localStatus": "family disposition accounted; individual local qualification in named remaining manifest, not C1 deep leaf",
+      "canonClaim": false,
+      "runtimeClaim": false,
+      "localLeafIds": [],
+      "familyRecord": "starts/VARIANTS.json#G1-030"
+    },
+    {
+      "id": "G2-001",
+      "origin": "docs/gm/dispatch/idea-expansion-2026-10-11/powers/REQUIREMENTS.json",
+      "sections": [
+        "S02",
+        "S07",
+        "S09",
+        "S14"
+      ],
+      "disposition": "retain as conditional palette; local grounding required",
+      "localEngineCards": [
+        "W1-E05"
+      ],
+      "qualificationRoutes": [
+        "private starts/continuity/variant qualification",
+        "private source/functional leaf qualification",
+        "public integration and source boundary review"
+      ],
+      "localStatus": "selected exact leaves specified; other variants remain conditional palette",
+      "canonClaim": false,
+      "runtimeClaim": false,
+      "localLeafIds": [
+        "W1-SRC-01",
+        "W1-SRC-10",
+        "W1-SRC-22"
+      ],
+      "familyRecord": null
+    },
+    {
+      "id": "G2-002",
+      "origin": "docs/gm/dispatch/idea-expansion-2026-10-11/powers/REQUIREMENTS.json",
+      "sections": [
+        "S07",
+        "S08",
+        "S14"
+      ],
+      "disposition": "retain as conditional palette; local grounding required",
+      "localEngineCards": [
+        "W1-E06"
+      ],
+      "qualificationRoutes": [
+        "private source/functional leaf qualification",
+        "public integration and source boundary review"
+      ],
+      "localStatus": "selected exact leaves specified; other variants remain conditional palette",
+      "canonClaim": false,
+      "runtimeClaim": false,
+      "localLeafIds": [
+        "W1-SRC-12"
+      ],
+      "familyRecord": null
+    },
+    {
+      "id": "G2-003",
+      "origin": "docs/gm/dispatch/idea-expansion-2026-10-11/powers/REQUIREMENTS.json",
+      "sections": [
+        "S06",
+        "S07",
+        "S08",
+        "S09",
+        "S14"
+      ],
+      "disposition": "retain as conditional palette; local grounding required",
+      "localEngineCards": [],
+      "qualificationRoutes": [
+        "private starts/continuity/variant qualification",
+        "private source/functional leaf qualification",
+        "public integration and source boundary review"
+      ],
+      "localStatus": "selected exact leaves specified; other variants remain conditional palette",
+      "canonClaim": false,
+      "runtimeClaim": false,
+      "localLeafIds": [
+        "W1-SRC-14"
+      ],
+      "familyRecord": null
+    },
+    {
+      "id": "G2-004",
+      "origin": "docs/gm/dispatch/idea-expansion-2026-10-11/powers/REQUIREMENTS.json",
+      "sections": [
+        "S07",
+        "S11",
+        "S12",
+        "S14"
+      ],
+      "disposition": "retain as conditional palette; local grounding required",
+      "localEngineCards": [
+        "W1-E09"
+      ],
+      "qualificationRoutes": [
+        "private starts/continuity/variant qualification",
+        "private source/functional leaf qualification",
+        "public integration and source boundary review"
+      ],
+      "localStatus": "family disposition accounted; individual local qualification in named remaining manifest, not C1 deep leaf",
+      "canonClaim": false,
+      "runtimeClaim": false,
+      "localLeafIds": [],
+      "familyRecord": null
+    },
+    {
+      "id": "G2-005",
+      "origin": "docs/gm/dispatch/idea-expansion-2026-10-11/powers/REQUIREMENTS.json",
+      "sections": [
+        "S02",
+        "S07",
+        "S08",
+        "S11",
+        "S14"
+      ],
+      "disposition": "retain as conditional palette; local grounding required",
+      "localEngineCards": [],
+      "qualificationRoutes": [
+        "private starts/continuity/variant qualification",
+        "private source/functional leaf qualification",
+        "public integration and source boundary review"
+      ],
+      "localStatus": "family disposition accounted; individual local qualification in named remaining manifest, not C1 deep leaf",
+      "canonClaim": false,
+      "runtimeClaim": false,
+      "localLeafIds": [],
+      "familyRecord": null
+    },
+    {
+      "id": "G2-006",
+      "origin": "docs/gm/dispatch/idea-expansion-2026-10-11/powers/REQUIREMENTS.json",
+      "sections": [
+        "S05",
+        "S07",
+        "S11",
+        "S12",
+        "S14"
+      ],
+      "disposition": "retain as conditional palette; local grounding required",
+      "localEngineCards": [],
+      "qualificationRoutes": [
+        "private starts/continuity/variant qualification",
+        "private source/functional leaf qualification",
+        "public integration and source boundary review"
+      ],
+      "localStatus": "selected exact leaves specified; other variants remain conditional palette",
+      "canonClaim": false,
+      "runtimeClaim": false,
+      "localLeafIds": [
+        "W1-SRC-25"
+      ],
+      "familyRecord": null
+    },
+    {
+      "id": "G2-007",
+      "origin": "docs/gm/dispatch/idea-expansion-2026-10-11/powers/REQUIREMENTS.json",
+      "sections": [
+        "S07",
+        "S09",
+        "S11",
+        "S13",
+        "S14"
+      ],
+      "disposition": "retain as conditional palette; local grounding required",
+      "localEngineCards": [],
+      "qualificationRoutes": [
+        "private starts/continuity/variant qualification",
+        "private source/functional leaf qualification",
+        "public integration and source boundary review"
+      ],
+      "localStatus": "family disposition accounted; individual local qualification in named remaining manifest, not C1 deep leaf",
+      "canonClaim": false,
+      "runtimeClaim": false,
+      "localLeafIds": [],
+      "familyRecord": null
+    },
+    {
+      "id": "G2-008",
+      "origin": "docs/gm/dispatch/idea-expansion-2026-10-11/powers/REQUIREMENTS.json",
+      "sections": [
+        "S02",
+        "S07",
+        "S09",
+        "S11",
+        "S12",
+        "S14"
+      ],
+      "disposition": "retain as conditional palette; local grounding required",
+      "localEngineCards": [
+        "W1-E09"
+      ],
+      "qualificationRoutes": [
+        "private starts/continuity/variant qualification",
+        "private source/functional leaf qualification",
+        "public integration and source boundary review"
+      ],
+      "localStatus": "selected exact leaves specified; other variants remain conditional palette",
+      "canonClaim": false,
+      "runtimeClaim": false,
+      "localLeafIds": [
+        "W1-SRC-24"
+      ],
+      "familyRecord": null
+    },
+    {
+      "id": "G2-009",
+      "origin": "docs/gm/dispatch/idea-expansion-2026-10-11/powers/REQUIREMENTS.json",
+      "sections": [
+        "S07",
+        "S09",
+        "S14"
+      ],
+      "disposition": "retain as conditional palette; local grounding required",
+      "localEngineCards": [],
+      "qualificationRoutes": [
+        "private starts/continuity/variant qualification",
+        "private source/functional leaf qualification",
+        "public integration and source boundary review"
+      ],
+      "localStatus": "family disposition accounted; individual local qualification in named remaining manifest, not C1 deep leaf",
+      "canonClaim": false,
+      "runtimeClaim": false,
+      "localLeafIds": [],
+      "familyRecord": null
+    },
+    {
+      "id": "G2-010",
+      "origin": "docs/gm/dispatch/idea-expansion-2026-10-11/powers/REQUIREMENTS.json",
+      "sections": [
+        "S01",
+        "S07",
+        "S09",
+        "S14"
+      ],
+      "disposition": "retain as conditional palette; local grounding required",
+      "localEngineCards": [],
+      "qualificationRoutes": [
+        "private starts/continuity/variant qualification",
+        "private source/functional leaf qualification",
+        "public integration and source boundary review"
+      ],
+      "localStatus": "selected exact leaves specified; other variants remain conditional palette",
+      "canonClaim": false,
+      "runtimeClaim": false,
+      "localLeafIds": [
+        "W1-SRC-10",
+        "W1-SRC-24"
+      ],
+      "familyRecord": null
+    },
+    {
+      "id": "G2-011",
+      "origin": "docs/gm/dispatch/idea-expansion-2026-10-11/powers/REQUIREMENTS.json",
+      "sections": [
+        "S04",
+        "S05",
+        "S06",
+        "S07",
+        "S09"
+      ],
+      "disposition": "retain as conditional palette; local grounding required",
+      "localEngineCards": [],
+      "qualificationRoutes": [
+        "private starts/continuity/variant qualification",
+        "private source/functional leaf qualification"
+      ],
+      "localStatus": "family disposition accounted; individual local qualification in named remaining manifest, not C1 deep leaf",
+      "canonClaim": false,
+      "runtimeClaim": false,
+      "localLeafIds": [],
+      "familyRecord": null
+    },
+    {
+      "id": "G2-012",
+      "origin": "docs/gm/dispatch/idea-expansion-2026-10-11/powers/REQUIREMENTS.json",
+      "sections": [
+        "S02",
+        "S04",
+        "S05",
+        "S07",
+        "S10",
+        "S14"
+      ],
+      "disposition": "retain as conditional palette; local grounding required",
+      "localEngineCards": [],
+      "qualificationRoutes": [
+        "private starts/continuity/variant qualification",
+        "private source/functional leaf qualification",
+        "public integration and source boundary review"
+      ],
+      "localStatus": "selected exact leaves specified; other variants remain conditional palette",
+      "canonClaim": false,
+      "runtimeClaim": false,
+      "localLeafIds": [
+        "W1-ST18"
+      ],
+      "familyRecord": null
+    },
+    {
+      "id": "G2-013",
+      "origin": "docs/gm/dispatch/idea-expansion-2026-10-11/powers/REQUIREMENTS.json",
+      "sections": [
+        "S03",
+        "S07",
+        "S09",
+        "S11",
+        "S14"
+      ],
+      "disposition": "retain as conditional palette; local grounding required",
+      "localEngineCards": [],
+      "qualificationRoutes": [
+        "private starts/continuity/variant qualification",
+        "private source/functional leaf qualification",
+        "public integration and source boundary review"
+      ],
+      "localStatus": "family disposition accounted; individual local qualification in named remaining manifest, not C1 deep leaf",
+      "canonClaim": false,
+      "runtimeClaim": false,
+      "localLeafIds": [],
+      "familyRecord": null
+    },
+    {
+      "id": "G2-014",
+      "origin": "docs/gm/dispatch/idea-expansion-2026-10-11/powers/REQUIREMENTS.json",
+      "sections": [
+        "S04",
+        "S05",
+        "S07",
+        "S14"
+      ],
+      "disposition": "retain as conditional palette; local grounding required",
+      "localEngineCards": [],
+      "qualificationRoutes": [
+        "private source/functional leaf qualification",
+        "public integration and source boundary review"
+      ],
+      "localStatus": "family disposition accounted; individual local qualification in named remaining manifest, not C1 deep leaf",
+      "canonClaim": false,
+      "runtimeClaim": false,
+      "localLeafIds": [],
+      "familyRecord": null
+    },
+    {
+      "id": "G2-015",
+      "origin": "docs/gm/dispatch/idea-expansion-2026-10-11/powers/REQUIREMENTS.json",
+      "sections": [
+        "S05",
+        "S06",
+        "S07",
+        "S09",
+        "S14"
+      ],
+      "disposition": "retain as conditional palette; local grounding required",
+      "localEngineCards": [],
+      "qualificationRoutes": [
+        "private starts/continuity/variant qualification",
+        "private source/functional leaf qualification",
+        "public integration and source boundary review"
+      ],
+      "localStatus": "family disposition accounted; individual local qualification in named remaining manifest, not C1 deep leaf",
+      "canonClaim": false,
+      "runtimeClaim": false,
+      "localLeafIds": [],
+      "familyRecord": null
+    },
+    {
+      "id": "G2-016",
+      "origin": "docs/gm/dispatch/idea-expansion-2026-10-11/powers/REQUIREMENTS.json",
+      "sections": [
+        "S03",
+        "S05",
+        "S06",
+        "S07",
+        "S12",
+        "S14"
+      ],
+      "disposition": "retain as conditional palette; local grounding required",
+      "localEngineCards": [
+        "W1-E06"
+      ],
+      "qualificationRoutes": [
+        "private starts/continuity/variant qualification",
+        "private source/functional leaf qualification",
+        "public integration and source boundary review"
+      ],
+      "localStatus": "selected exact leaves specified; other variants remain conditional palette",
+      "canonClaim": false,
+      "runtimeClaim": false,
+      "localLeafIds": [
+        "W1-SRC-11",
+        "W1-SRC-12",
+        "W1-SRC-13"
+      ],
+      "familyRecord": null
+    },
+    {
+      "id": "G2-017",
+      "origin": "docs/gm/dispatch/idea-expansion-2026-10-11/powers/REQUIREMENTS.json",
+      "sections": [
+        "S05",
+        "S06",
+        "S07",
+        "S14"
+      ],
+      "disposition": "retain as conditional palette; local grounding required",
+      "localEngineCards": [],
+      "qualificationRoutes": [
+        "private source/functional leaf qualification",
+        "public integration and source boundary review"
+      ],
+      "localStatus": "family disposition accounted; individual local qualification in named remaining manifest, not C1 deep leaf",
+      "canonClaim": false,
+      "runtimeClaim": false,
+      "localLeafIds": [],
+      "familyRecord": null
+    },
+    {
+      "id": "G2-018",
+      "origin": "docs/gm/dispatch/idea-expansion-2026-10-11/powers/REQUIREMENTS.json",
+      "sections": [
+        "S02",
+        "S04",
+        "S07",
+        "S09",
+        "S14"
+      ],
+      "disposition": "retain as conditional palette; local grounding required",
+      "localEngineCards": [],
+      "qualificationRoutes": [
+        "private starts/continuity/variant qualification",
+        "private source/functional leaf qualification",
+        "public integration and source boundary review"
+      ],
+      "localStatus": "family disposition accounted; individual local qualification in named remaining manifest, not C1 deep leaf",
+      "canonClaim": false,
+      "runtimeClaim": false,
+      "localLeafIds": [],
+      "familyRecord": null
+    },
+    {
+      "id": "G2-019",
+      "origin": "docs/gm/dispatch/idea-expansion-2026-10-11/powers/REQUIREMENTS.json",
+      "sections": [
+        "S04",
+        "S07",
+        "S08",
+        "S12",
+        "S14"
+      ],
+      "disposition": "retain as conditional palette; local grounding required",
+      "localEngineCards": [],
+      "qualificationRoutes": [
+        "private starts/continuity/variant qualification",
+        "private source/functional leaf qualification",
+        "public integration and source boundary review"
+      ],
+      "localStatus": "family disposition accounted; individual local qualification in named remaining manifest, not C1 deep leaf",
+      "canonClaim": false,
+      "runtimeClaim": false,
+      "localLeafIds": [],
+      "familyRecord": null
+    },
+    {
+      "id": "G2-020",
+      "origin": "docs/gm/dispatch/idea-expansion-2026-10-11/powers/REQUIREMENTS.json",
+      "sections": [
+        "S04",
+        "S07",
+        "S09",
+        "S10",
+        "S14"
+      ],
+      "disposition": "retain as conditional palette; local grounding required",
+      "localEngineCards": [],
+      "qualificationRoutes": [
+        "private starts/continuity/variant qualification",
+        "private source/functional leaf qualification",
+        "public integration and source boundary review"
+      ],
+      "localStatus": "family disposition accounted; individual local qualification in named remaining manifest, not C1 deep leaf",
+      "canonClaim": false,
+      "runtimeClaim": false,
+      "localLeafIds": [],
+      "familyRecord": null
+    },
+    {
+      "id": "G2-021",
+      "origin": "docs/gm/dispatch/idea-expansion-2026-10-11/powers/REQUIREMENTS.json",
+      "sections": [
+        "S01",
+        "S07",
+        "S09",
+        "S11",
+        "S14"
+      ],
+      "disposition": "retain as conditional palette; local grounding required",
+      "localEngineCards": [],
+      "qualificationRoutes": [
+        "private starts/continuity/variant qualification",
+        "private source/functional leaf qualification",
+        "public integration and source boundary review"
+      ],
+      "localStatus": "family disposition accounted; individual local qualification in named remaining manifest, not C1 deep leaf",
+      "canonClaim": false,
+      "runtimeClaim": false,
+      "localLeafIds": [],
+      "familyRecord": null
+    },
+    {
+      "id": "G2-022",
+      "origin": "docs/gm/dispatch/idea-expansion-2026-10-11/powers/REQUIREMENTS.json",
+      "sections": [
+        "S04",
+        "S05",
+        "S07",
+        "S09",
+        "S14"
+      ],
+      "disposition": "retain as conditional palette; local grounding required",
+      "localEngineCards": [],
+      "qualificationRoutes": [
+        "private starts/continuity/variant qualification",
+        "private source/functional leaf qualification",
+        "public integration and source boundary review"
+      ],
+      "localStatus": "family disposition accounted; individual local qualification in named remaining manifest, not C1 deep leaf",
+      "canonClaim": false,
+      "runtimeClaim": false,
+      "localLeafIds": [],
+      "familyRecord": null
+    },
+    {
+      "id": "G2-023",
+      "origin": "docs/gm/dispatch/idea-expansion-2026-10-11/powers/REQUIREMENTS.json",
+      "sections": [
+        "S04",
+        "S07",
+        "S09",
+        "S10",
+        "S14"
+      ],
+      "disposition": "retain as conditional palette; local grounding required",
+      "localEngineCards": [],
+      "qualificationRoutes": [
+        "private starts/continuity/variant qualification",
+        "private source/functional leaf qualification",
+        "public integration and source boundary review"
+      ],
+      "localStatus": "family disposition accounted; individual local qualification in named remaining manifest, not C1 deep leaf",
+      "canonClaim": false,
+      "runtimeClaim": false,
+      "localLeafIds": [],
+      "familyRecord": null
+    },
+    {
+      "id": "G2-024",
+      "origin": "docs/gm/dispatch/idea-expansion-2026-10-11/powers/REQUIREMENTS.json",
+      "sections": [
+        "S05",
+        "S07",
+        "S11",
+        "S14"
+      ],
+      "disposition": "retain as conditional palette; local grounding required",
+      "localEngineCards": [],
+      "qualificationRoutes": [
+        "private starts/continuity/variant qualification",
+        "private source/functional leaf qualification",
+        "public integration and source boundary review"
+      ],
+      "localStatus": "family disposition accounted; individual local qualification in named remaining manifest, not C1 deep leaf",
+      "canonClaim": false,
+      "runtimeClaim": false,
+      "localLeafIds": [],
+      "familyRecord": null
+    },
+    {
+      "id": "G2-025",
+      "origin": "docs/gm/dispatch/idea-expansion-2026-10-11/powers/REQUIREMENTS.json",
+      "sections": [
+        "S01",
+        "S07",
+        "S09",
+        "S14"
+      ],
+      "disposition": "retain as conditional palette; local grounding required",
+      "localEngineCards": [],
+      "qualificationRoutes": [
+        "private starts/continuity/variant qualification",
+        "private source/functional leaf qualification",
+        "public integration and source boundary review"
+      ],
+      "localStatus": "family disposition accounted; individual local qualification in named remaining manifest, not C1 deep leaf",
+      "canonClaim": false,
+      "runtimeClaim": false,
+      "localLeafIds": [],
+      "familyRecord": null
+    },
+    {
+      "id": "G2-026",
+      "origin": "docs/gm/dispatch/idea-expansion-2026-10-11/powers/REQUIREMENTS.json",
+      "sections": [
+        "S01",
+        "S07",
+        "S12",
+        "S14"
+      ],
+      "disposition": "retain as conditional palette; local grounding required",
+      "localEngineCards": [
+        "W1-E05"
+      ],
+      "qualificationRoutes": [
+        "private starts/continuity/variant qualification",
+        "private source/functional leaf qualification",
+        "public integration and source boundary review"
+      ],
+      "localStatus": "selected exact leaves specified; other variants remain conditional palette",
+      "canonClaim": false,
+      "runtimeClaim": false,
+      "localLeafIds": [
+        "W1-SRC-10",
+        "W1-SRC-22",
+        "W1-SRC-26"
+      ],
+      "familyRecord": null
+    },
+    {
+      "id": "G2-027",
+      "origin": "docs/gm/dispatch/idea-expansion-2026-10-11/powers/REQUIREMENTS.json",
+      "sections": [
+        "S04",
+        "S05",
+        "S07",
+        "S09",
+        "S10",
+        "S14"
+      ],
+      "disposition": "retain as conditional palette; local grounding required",
+      "localEngineCards": [],
+      "qualificationRoutes": [
+        "private starts/continuity/variant qualification",
+        "private source/functional leaf qualification",
+        "public integration and source boundary review"
+      ],
+      "localStatus": "selected exact leaves specified; other variants remain conditional palette",
+      "canonClaim": false,
+      "runtimeClaim": false,
+      "localLeafIds": [
+        "W1-SRC-13"
+      ],
+      "familyRecord": null
+    },
+    {
+      "id": "G2-028",
+      "origin": "docs/gm/dispatch/idea-expansion-2026-10-11/powers/REQUIREMENTS.json",
+      "sections": [
+        "S09",
+        "S13",
+        "S14"
+      ],
+      "disposition": "retain as conditional palette; local grounding required",
+      "localEngineCards": [],
+      "qualificationRoutes": [
+        "private starts/continuity/variant qualification",
+        "public integration and source boundary review"
+      ],
+      "localStatus": "family disposition accounted; individual local qualification in named remaining manifest, not C1 deep leaf",
+      "canonClaim": false,
+      "runtimeClaim": false,
+      "localLeafIds": [],
+      "familyRecord": null
+    },
+    {
+      "id": "G2-029",
+      "origin": "docs/gm/dispatch/idea-expansion-2026-10-11/powers/REQUIREMENTS.json",
+      "sections": [
+        "S07",
+        "S14"
+      ],
+      "disposition": "retain as conditional palette; local grounding required",
+      "localEngineCards": [],
+      "qualificationRoutes": [
+        "private source/functional leaf qualification",
+        "public integration and source boundary review"
+      ],
+      "localStatus": "family disposition accounted; individual local qualification in named remaining manifest, not C1 deep leaf",
+      "canonClaim": false,
+      "runtimeClaim": false,
+      "localLeafIds": [],
+      "familyRecord": null
+    },
+    {
+      "id": "G3-001",
+      "origin": "docs/gm/dispatch/idea-expansion-2026-10-11/life/REQUIREMENTS.json",
+      "sections": [
+        "S04",
+        "S05",
+        "S10"
+      ],
+      "disposition": "retain as conditional palette; local grounding required",
+      "localEngineCards": [
+        "W1-E07"
+      ],
+      "qualificationRoutes": [
+        "private starts/continuity/variant qualification",
+        "private source/functional leaf qualification"
+      ],
+      "localStatus": "family disposition accounted; individual local qualification in named remaining manifest, not C1 deep leaf",
+      "canonClaim": false,
+      "runtimeClaim": false,
+      "localLeafIds": [],
+      "familyRecord": null
+    },
+    {
+      "id": "G3-002",
+      "origin": "docs/gm/dispatch/idea-expansion-2026-10-11/life/REQUIREMENTS.json",
+      "sections": [
+        "S04",
+        "S09",
+        "S10",
+        "S14"
+      ],
+      "disposition": "retain as conditional palette; local grounding required",
+      "localEngineCards": [],
+      "qualificationRoutes": [
+        "private starts/continuity/variant qualification",
+        "private source/functional leaf qualification",
+        "public integration and source boundary review"
+      ],
+      "localStatus": "selected exact leaves specified; other variants remain conditional palette",
+      "canonClaim": false,
+      "runtimeClaim": false,
+      "localLeafIds": [
+        "W1-RET-01"
+      ],
+      "familyRecord": null
+    },
+    {
+      "id": "G3-003",
+      "origin": "docs/gm/dispatch/idea-expansion-2026-10-11/life/REQUIREMENTS.json",
+      "sections": [
+        "S04",
+        "S09",
+        "S10",
+        "S13"
+      ],
+      "disposition": "retain as conditional palette; local grounding required",
+      "localEngineCards": [],
+      "qualificationRoutes": [
+        "private starts/continuity/variant qualification",
+        "private source/functional leaf qualification"
+      ],
+      "localStatus": "selected exact leaves specified; other variants remain conditional palette",
+      "canonClaim": false,
+      "runtimeClaim": false,
+      "localLeafIds": [
+        "W1-SRC-01"
+      ],
+      "familyRecord": null
+    },
+    {
+      "id": "G3-004",
+      "origin": "docs/gm/dispatch/idea-expansion-2026-10-11/life/REQUIREMENTS.json",
+      "sections": [
+        "S04",
+        "S09",
+        "S10"
+      ],
+      "disposition": "retain as conditional palette; local grounding required",
+      "localEngineCards": [],
+      "qualificationRoutes": [
+        "private starts/continuity/variant qualification",
+        "private source/functional leaf qualification"
+      ],
+      "localStatus": "family disposition accounted; individual local qualification in named remaining manifest, not C1 deep leaf",
+      "canonClaim": false,
+      "runtimeClaim": false,
+      "localLeafIds": [],
+      "familyRecord": null
+    },
+    {
+      "id": "G3-005",
+      "origin": "docs/gm/dispatch/idea-expansion-2026-10-11/life/REQUIREMENTS.json",
+      "sections": [
+        "S03",
+        "S04",
+        "S05",
+        "S06",
+        "S14"
+      ],
+      "disposition": "retain as conditional palette; local grounding required",
+      "localEngineCards": [],
+      "qualificationRoutes": [
+        "private source/functional leaf qualification",
+        "public integration and source boundary review"
+      ],
+      "localStatus": "selected exact leaves specified; other variants remain conditional palette",
+      "canonClaim": false,
+      "runtimeClaim": false,
+      "localLeafIds": [
+        "W1-SRC-17"
+      ],
+      "familyRecord": null
+    },
+    {
+      "id": "G3-006",
+      "origin": "docs/gm/dispatch/idea-expansion-2026-10-11/life/REQUIREMENTS.json",
+      "sections": [
+        "S02",
+        "S04",
+        "S09",
+        "S11"
+      ],
+      "disposition": "retain as conditional palette; local grounding required",
+      "localEngineCards": [],
+      "qualificationRoutes": [
+        "private starts/continuity/variant qualification",
+        "private source/functional leaf qualification"
+      ],
+      "localStatus": "family disposition accounted; individual local qualification in named remaining manifest, not C1 deep leaf",
+      "canonClaim": false,
+      "runtimeClaim": false,
+      "localLeafIds": [],
+      "familyRecord": null
+    },
+    {
+      "id": "G3-007",
+      "origin": "docs/gm/dispatch/idea-expansion-2026-10-11/life/REQUIREMENTS.json",
+      "sections": [
+        "S04",
+        "S05",
+        "S07",
+        "S11"
+      ],
+      "disposition": "retain as conditional palette; local grounding required",
+      "localEngineCards": [],
+      "qualificationRoutes": [
+        "private starts/continuity/variant qualification",
+        "private source/functional leaf qualification"
+      ],
+      "localStatus": "selected exact leaves specified; other variants remain conditional palette",
+      "canonClaim": false,
+      "runtimeClaim": false,
+      "localLeafIds": [
+        "W1-SRC-16",
+        "W1-SRC-17"
+      ],
+      "familyRecord": null
+    },
+    {
+      "id": "G3-008",
+      "origin": "docs/gm/dispatch/idea-expansion-2026-10-11/life/REQUIREMENTS.json",
+      "sections": [
+        "S05",
+        "S07",
+        "S12"
+      ],
+      "disposition": "retain as conditional palette; local grounding required",
+      "localEngineCards": [],
+      "qualificationRoutes": [
+        "private starts/continuity/variant qualification",
+        "private source/functional leaf qualification"
+      ],
+      "localStatus": "selected exact leaves specified; other variants remain conditional palette",
+      "canonClaim": false,
+      "runtimeClaim": false,
+      "localLeafIds": [
+        "W1-SRC-05",
+        "W1-SRC-06"
+      ],
+      "familyRecord": null
+    },
+    {
+      "id": "G3-009",
+      "origin": "docs/gm/dispatch/idea-expansion-2026-10-11/life/REQUIREMENTS.json",
+      "sections": [
+        "S04",
+        "S05",
+        "S07",
+        "S10",
+        "S11"
+      ],
+      "disposition": "retain as conditional palette; local grounding required",
+      "localEngineCards": [],
+      "qualificationRoutes": [
+        "private starts/continuity/variant qualification",
+        "private source/functional leaf qualification"
+      ],
+      "localStatus": "selected exact leaves specified; other variants remain conditional palette",
+      "canonClaim": false,
+      "runtimeClaim": false,
+      "localLeafIds": [
+        "W1-SRC-02",
+        "W1-SRC-18"
+      ],
+      "familyRecord": null
+    },
+    {
+      "id": "G3-010",
+      "origin": "docs/gm/dispatch/idea-expansion-2026-10-11/life/REQUIREMENTS.json",
+      "sections": [
+        "S04",
+        "S05",
+        "S07"
+      ],
+      "disposition": "retain as conditional palette; local grounding required",
+      "localEngineCards": [],
+      "qualificationRoutes": [
+        "private source/functional leaf qualification"
+      ],
+      "localStatus": "selected exact leaves specified; other variants remain conditional palette",
+      "canonClaim": false,
+      "runtimeClaim": false,
+      "localLeafIds": [
+        "W1-SRC-18"
+      ],
+      "familyRecord": null
+    },
+    {
+      "id": "G3-011",
+      "origin": "docs/gm/dispatch/idea-expansion-2026-10-11/life/REQUIREMENTS.json",
+      "sections": [
+        "S04",
+        "S05",
+        "S10",
+        "S14"
+      ],
+      "disposition": "retain as conditional palette; local grounding required",
+      "localEngineCards": [
+        "W1-E03"
+      ],
+      "qualificationRoutes": [
+        "private starts/continuity/variant qualification",
+        "private source/functional leaf qualification",
+        "public integration and source boundary review"
+      ],
+      "localStatus": "selected exact leaves specified; other variants remain conditional palette",
+      "canonClaim": false,
+      "runtimeClaim": false,
+      "localLeafIds": [
+        "W1-SRC-02",
+        "W1-SRC-04",
+        "W1-SRC-20"
+      ],
+      "familyRecord": null
+    },
+    {
+      "id": "G3-012",
+      "origin": "docs/gm/dispatch/idea-expansion-2026-10-11/life/REQUIREMENTS.json",
+      "sections": [
+        "S03",
+        "S04",
+        "S05",
+        "S06"
+      ],
+      "disposition": "retain as conditional palette; local grounding required",
+      "localEngineCards": [
+        "W1-E03"
+      ],
+      "qualificationRoutes": [
+        "private source/functional leaf qualification"
+      ],
+      "localStatus": "selected exact leaves specified; other variants remain conditional palette",
+      "canonClaim": false,
+      "runtimeClaim": false,
+      "localLeafIds": [
+        "W1-SRC-02",
+        "W1-SRC-08",
+        "W1-SRC-16",
+        "W1-SRC-20"
+      ],
+      "familyRecord": null
+    },
+    {
+      "id": "G3-013",
+      "origin": "docs/gm/dispatch/idea-expansion-2026-10-11/life/REQUIREMENTS.json",
+      "sections": [
+        "S04",
+        "S05",
+        "S10",
+        "S11"
+      ],
+      "disposition": "retain as conditional palette; local grounding required",
+      "localEngineCards": [
+        "W1-E07"
+      ],
+      "qualificationRoutes": [
+        "private starts/continuity/variant qualification",
+        "private source/functional leaf qualification"
+      ],
+      "localStatus": "selected exact leaves specified; other variants remain conditional palette",
+      "canonClaim": false,
+      "runtimeClaim": false,
+      "localLeafIds": [
+        "W1-SRC-07",
+        "W1-SRC-08",
+        "W1-SRC-17",
+        "W1-SRC-20"
+      ],
+      "familyRecord": null
+    },
+    {
+      "id": "G3-014",
+      "origin": "docs/gm/dispatch/idea-expansion-2026-10-11/life/REQUIREMENTS.json",
+      "sections": [
+        "S04",
+        "S05",
+        "S08",
+        "S10",
+        "S11"
+      ],
+      "disposition": "retain as conditional palette; local grounding required",
+      "localEngineCards": [],
+      "qualificationRoutes": [
+        "private starts/continuity/variant qualification",
+        "private source/functional leaf qualification"
+      ],
+      "localStatus": "selected exact leaves specified; other variants remain conditional palette",
+      "canonClaim": false,
+      "runtimeClaim": false,
+      "localLeafIds": [
+        "W1-SRC-14",
+        "W1-SRC-18"
+      ],
+      "familyRecord": null
+    },
+    {
+      "id": "G3-015",
+      "origin": "docs/gm/dispatch/idea-expansion-2026-10-11/life/REQUIREMENTS.json",
+      "sections": [
+        "S04",
+        "S05",
+        "S10",
+        "S11",
+        "S12"
+      ],
+      "disposition": "retain as conditional palette; local grounding required",
+      "localEngineCards": [],
+      "qualificationRoutes": [
+        "private starts/continuity/variant qualification",
+        "private source/functional leaf qualification"
+      ],
+      "localStatus": "selected exact leaves specified; other variants remain conditional palette",
+      "canonClaim": false,
+      "runtimeClaim": false,
+      "localLeafIds": [
+        "W1-SRC-05"
+      ],
+      "familyRecord": null
+    },
+    {
+      "id": "G3-016",
+      "origin": "docs/gm/dispatch/idea-expansion-2026-10-11/life/REQUIREMENTS.json",
+      "sections": [
+        "S04",
+        "S05",
+        "S11",
+        "S12",
+        "S14"
+      ],
+      "disposition": "retain as conditional palette; local grounding required",
+      "localEngineCards": [],
+      "qualificationRoutes": [
+        "private starts/continuity/variant qualification",
+        "private source/functional leaf qualification",
+        "public integration and source boundary review"
+      ],
+      "localStatus": "selected exact leaves specified; other variants remain conditional palette",
+      "canonClaim": false,
+      "runtimeClaim": false,
+      "localLeafIds": [
+        "W1-SRC-18"
+      ],
+      "familyRecord": null
+    },
+    {
+      "id": "G3-017",
+      "origin": "docs/gm/dispatch/idea-expansion-2026-10-11/life/REQUIREMENTS.json",
+      "sections": [
+        "S03",
+        "S04",
+        "S05",
+        "S10",
+        "S11"
+      ],
+      "disposition": "retain as conditional palette; local grounding required",
+      "localEngineCards": [],
+      "qualificationRoutes": [
+        "private starts/continuity/variant qualification",
+        "private source/functional leaf qualification"
+      ],
+      "localStatus": "family disposition accounted; individual local qualification in named remaining manifest, not C1 deep leaf",
+      "canonClaim": false,
+      "runtimeClaim": false,
+      "localLeafIds": [],
+      "familyRecord": null
+    },
+    {
+      "id": "G3-018",
+      "origin": "docs/gm/dispatch/idea-expansion-2026-10-11/life/REQUIREMENTS.json",
+      "sections": [
+        "S04",
+        "S05",
+        "S06",
+        "S09",
+        "S10"
+      ],
+      "disposition": "retain as conditional palette; local grounding required",
+      "localEngineCards": [],
+      "qualificationRoutes": [
+        "private starts/continuity/variant qualification",
+        "private source/functional leaf qualification"
+      ],
+      "localStatus": "family disposition accounted; individual local qualification in named remaining manifest, not C1 deep leaf",
+      "canonClaim": false,
+      "runtimeClaim": false,
+      "localLeafIds": [],
+      "familyRecord": null
+    },
+    {
+      "id": "G3-019",
+      "origin": "docs/gm/dispatch/idea-expansion-2026-10-11/life/REQUIREMENTS.json",
+      "sections": [
+        "S03",
+        "S04",
+        "S05",
+        "S06",
+        "S11"
+      ],
+      "disposition": "retain as conditional palette; local grounding required",
+      "localEngineCards": [
+        "W1-E07"
+      ],
+      "qualificationRoutes": [
+        "private starts/continuity/variant qualification",
+        "private source/functional leaf qualification"
+      ],
+      "localStatus": "selected exact leaves specified; other variants remain conditional palette",
+      "canonClaim": false,
+      "runtimeClaim": false,
+      "localLeafIds": [
+        "W1-SRC-17"
+      ],
+      "familyRecord": null
+    },
+    {
+      "id": "G3-020",
+      "origin": "docs/gm/dispatch/idea-expansion-2026-10-11/life/REQUIREMENTS.json",
+      "sections": [
+        "S04",
+        "S05",
+        "S07",
+        "S10",
+        "S11"
+      ],
+      "disposition": "retain as conditional palette; local grounding required",
+      "localEngineCards": [
+        "W1-E07"
+      ],
+      "qualificationRoutes": [
+        "private starts/continuity/variant qualification",
+        "private source/functional leaf qualification"
+      ],
+      "localStatus": "family disposition accounted; individual local qualification in named remaining manifest, not C1 deep leaf",
+      "canonClaim": false,
+      "runtimeClaim": false,
+      "localLeafIds": [],
+      "familyRecord": null
+    },
+    {
+      "id": "G3-021",
+      "origin": "docs/gm/dispatch/idea-expansion-2026-10-11/life/REQUIREMENTS.json",
+      "sections": [
+        "S04",
+        "S05",
+        "S11",
+        "S12",
+        "S14"
+      ],
+      "disposition": "retain as conditional palette; local grounding required",
+      "localEngineCards": [],
+      "qualificationRoutes": [
+        "private starts/continuity/variant qualification",
+        "private source/functional leaf qualification",
+        "public integration and source boundary review"
+      ],
+      "localStatus": "selected exact leaves specified; other variants remain conditional palette",
+      "canonClaim": false,
+      "runtimeClaim": false,
+      "localLeafIds": [
+        "W1-SRC-05"
+      ],
+      "familyRecord": null
+    },
+    {
+      "id": "G3-022",
+      "origin": "docs/gm/dispatch/idea-expansion-2026-10-11/life/REQUIREMENTS.json",
+      "sections": [
+        "S00",
+        "S01",
+        "S04",
+        "S05",
+        "S10",
+        "S14"
+      ],
+      "disposition": "retain as conditional palette; local grounding required",
+      "localEngineCards": [],
+      "qualificationRoutes": [
+        "private starts/continuity/variant qualification",
+        "private source/functional leaf qualification",
+        "public integration and source boundary review"
+      ],
+      "localStatus": "family disposition accounted; individual local qualification in named remaining manifest, not C1 deep leaf",
+      "canonClaim": false,
+      "runtimeClaim": false,
+      "localLeafIds": [],
+      "familyRecord": null
+    },
+    {
+      "id": "G4-01",
+      "origin": "docs/gm/dispatch/idea-expansion-2026-10-11/continuity/REQUIREMENTS.json",
+      "sections": [
+        "S00",
+        "S01",
+        "S11",
+        "S12",
+        "S14"
+      ],
+      "disposition": "retain as conditional palette; local grounding required",
+      "localEngineCards": [],
+      "qualificationRoutes": [
+        "private starts/continuity/variant qualification",
+        "public integration and source boundary review"
+      ],
+      "localStatus": "selected exact leaves specified; other variants remain conditional palette",
+      "canonClaim": false,
+      "runtimeClaim": false,
+      "localLeafIds": [
+        "W1-SRC-26"
+      ],
+      "familyRecord": null
+    },
+    {
+      "id": "G4-02",
+      "origin": "docs/gm/dispatch/idea-expansion-2026-10-11/continuity/REQUIREMENTS.json",
+      "sections": [
+        "S01",
+        "S02",
+        "S04",
+        "S11",
+        "S14"
+      ],
+      "disposition": "retain as conditional palette; local grounding required",
+      "localEngineCards": [
+        "W1-E02"
+      ],
+      "qualificationRoutes": [
+        "private starts/continuity/variant qualification",
+        "private source/functional leaf qualification",
+        "public integration and source boundary review"
+      ],
+      "localStatus": "family disposition accounted; individual local qualification in named remaining manifest, not C1 deep leaf",
+      "canonClaim": false,
+      "runtimeClaim": false,
+      "localLeafIds": [],
+      "familyRecord": null
+    },
+    {
+      "id": "G4-03",
+      "origin": "docs/gm/dispatch/idea-expansion-2026-10-11/continuity/REQUIREMENTS.json",
+      "sections": [
+        "S01",
+        "S04",
+        "S10",
+        "S11",
+        "S14"
+      ],
+      "disposition": "retain as conditional palette; local grounding required",
+      "localEngineCards": [
+        "W1-E08"
+      ],
+      "qualificationRoutes": [
+        "private starts/continuity/variant qualification",
+        "private source/functional leaf qualification",
+        "public integration and source boundary review"
+      ],
+      "localStatus": "selected exact leaves specified; other variants remain conditional palette",
+      "canonClaim": false,
+      "runtimeClaim": false,
+      "localLeafIds": [
+        "W1-SRC-20"
+      ],
+      "familyRecord": null
+    },
+    {
+      "id": "G4-04",
+      "origin": "docs/gm/dispatch/idea-expansion-2026-10-11/continuity/REQUIREMENTS.json",
+      "sections": [
+        "S01",
+        "S04",
+        "S06",
+        "S09",
+        "S11",
+        "S12",
+        "S14"
+      ],
+      "disposition": "retain as conditional palette; local grounding required",
+      "localEngineCards": [
+        "W1-E02"
+      ],
+      "qualificationRoutes": [
+        "private starts/continuity/variant qualification",
+        "private source/functional leaf qualification",
+        "public integration and source boundary review"
+      ],
+      "localStatus": "family disposition accounted; individual local qualification in named remaining manifest, not C1 deep leaf",
+      "canonClaim": false,
+      "runtimeClaim": false,
+      "localLeafIds": [],
+      "familyRecord": null
+    },
+    {
+      "id": "G4-05",
+      "origin": "docs/gm/dispatch/idea-expansion-2026-10-11/continuity/REQUIREMENTS.json",
+      "sections": [
+        "S01",
+        "S02",
+        "S05",
+        "S11",
+        "S12",
+        "S14"
+      ],
+      "disposition": "retain as conditional palette; local grounding required",
+      "localEngineCards": [
+        "W1-E08"
+      ],
+      "qualificationRoutes": [
+        "private starts/continuity/variant qualification",
+        "private source/functional leaf qualification",
+        "public integration and source boundary review"
+      ],
+      "localStatus": "family disposition accounted; individual local qualification in named remaining manifest, not C1 deep leaf",
+      "canonClaim": false,
+      "runtimeClaim": false,
+      "localLeafIds": [],
+      "familyRecord": null
+    },
+    {
+      "id": "G4-06",
+      "origin": "docs/gm/dispatch/idea-expansion-2026-10-11/continuity/REQUIREMENTS.json",
+      "sections": [
+        "S04",
+        "S05",
+        "S09",
+        "S11",
+        "S12",
+        "S14"
+      ],
+      "disposition": "retain as conditional palette; local grounding required",
+      "localEngineCards": [
+        "W1-E08"
+      ],
+      "qualificationRoutes": [
+        "private starts/continuity/variant qualification",
+        "private source/functional leaf qualification",
+        "public integration and source boundary review"
+      ],
+      "localStatus": "selected exact leaves specified; other variants remain conditional palette",
+      "canonClaim": false,
+      "runtimeClaim": false,
+      "localLeafIds": [
+        "W1-SRC-11"
+      ],
+      "familyRecord": null
+    },
+    {
+      "id": "G4-07",
+      "origin": "docs/gm/dispatch/idea-expansion-2026-10-11/continuity/REQUIREMENTS.json",
+      "sections": [
+        "S01",
+        "S07",
+        "S08",
+        "S11",
+        "S12",
+        "S14"
+      ],
+      "disposition": "retain as conditional palette; local grounding required",
+      "localEngineCards": [],
+      "qualificationRoutes": [
+        "private starts/continuity/variant qualification",
+        "private source/functional leaf qualification",
+        "public integration and source boundary review"
+      ],
+      "localStatus": "selected exact leaves specified; other variants remain conditional palette",
+      "canonClaim": false,
+      "runtimeClaim": false,
+      "localLeafIds": [
+        "W1-SRC-25"
+      ],
+      "familyRecord": null
+    },
+    {
+      "id": "G4-08",
+      "origin": "docs/gm/dispatch/idea-expansion-2026-10-11/continuity/REQUIREMENTS.json",
+      "sections": [
+        "S00",
+        "S09",
+        "S11",
+        "S12",
+        "S14"
+      ],
+      "disposition": "retain as conditional palette; local grounding required",
+      "localEngineCards": [
+        "W1-E09"
+      ],
+      "qualificationRoutes": [
+        "private starts/continuity/variant qualification",
+        "public integration and source boundary review"
+      ],
+      "localStatus": "family disposition accounted; individual local qualification in named remaining manifest, not C1 deep leaf",
+      "canonClaim": false,
+      "runtimeClaim": false,
+      "localLeafIds": [],
+      "familyRecord": null
+    },
+    {
+      "id": "G4-09",
+      "origin": "docs/gm/dispatch/idea-expansion-2026-10-11/continuity/REQUIREMENTS.json",
+      "sections": [
+        "S01",
+        "S03",
+        "S11",
+        "S12",
+        "S14"
+      ],
+      "disposition": "retain as conditional palette; local grounding required",
+      "localEngineCards": [],
+      "qualificationRoutes": [
+        "private starts/continuity/variant qualification",
+        "private source/functional leaf qualification",
+        "public integration and source boundary review"
+      ],
+      "localStatus": "family disposition accounted; individual local qualification in named remaining manifest, not C1 deep leaf",
+      "canonClaim": false,
+      "runtimeClaim": false,
+      "localLeafIds": [],
+      "familyRecord": null
+    },
+    {
+      "id": "G4-10",
+      "origin": "docs/gm/dispatch/idea-expansion-2026-10-11/continuity/REQUIREMENTS.json",
+      "sections": [
+        "S01",
+        "S07",
+        "S09",
+        "S11",
+        "S12",
+        "S14"
+      ],
+      "disposition": "retain as conditional palette; local grounding required",
+      "localEngineCards": [
+        "W1-E09"
+      ],
+      "qualificationRoutes": [
+        "private starts/continuity/variant qualification",
+        "private source/functional leaf qualification",
+        "public integration and source boundary review"
+      ],
+      "localStatus": "family disposition accounted; individual local qualification in named remaining manifest, not C1 deep leaf",
+      "canonClaim": false,
+      "runtimeClaim": false,
+      "localLeafIds": [],
+      "familyRecord": null
+    },
+    {
+      "id": "G4-11",
+      "origin": "docs/gm/dispatch/idea-expansion-2026-10-11/continuity/REQUIREMENTS.json",
+      "sections": [
+        "S03",
+        "S04",
+        "S06",
+        "S07",
+        "S11",
+        "S12",
+        "S14"
+      ],
+      "disposition": "retain as conditional palette; local grounding required",
+      "localEngineCards": [],
+      "qualificationRoutes": [
+        "private starts/continuity/variant qualification",
+        "private source/functional leaf qualification",
+        "public integration and source boundary review"
+      ],
+      "localStatus": "selected exact leaves specified; other variants remain conditional palette",
+      "canonClaim": false,
+      "runtimeClaim": false,
+      "localLeafIds": [
+        "W1-SRC-07",
+        "W1-SRC-26"
+      ],
+      "familyRecord": null
+    },
+    {
+      "id": "G4-12",
+      "origin": "docs/gm/dispatch/idea-expansion-2026-10-11/continuity/REQUIREMENTS.json",
+      "sections": [
+        "S02",
+        "S04",
+        "S09",
+        "S10",
+        "S11",
+        "S12",
+        "S14"
+      ],
+      "disposition": "retain as conditional palette; local grounding required",
+      "localEngineCards": [],
+      "qualificationRoutes": [
+        "private starts/continuity/variant qualification",
+        "private source/functional leaf qualification",
+        "public integration and source boundary review"
+      ],
+      "localStatus": "family disposition accounted; individual local qualification in named remaining manifest, not C1 deep leaf",
+      "canonClaim": false,
+      "runtimeClaim": false,
+      "localLeafIds": [],
+      "familyRecord": null
+    },
+    {
+      "id": "G4-13",
+      "origin": "docs/gm/dispatch/idea-expansion-2026-10-11/continuity/REQUIREMENTS.json",
+      "sections": [
+        "S04",
+        "S07",
+        "S09",
+        "S10",
+        "S11",
+        "S14"
+      ],
+      "disposition": "retain as conditional palette; local grounding required",
+      "localEngineCards": [],
+      "qualificationRoutes": [
+        "private starts/continuity/variant qualification",
+        "private source/functional leaf qualification",
+        "public integration and source boundary review"
+      ],
+      "localStatus": "selected exact leaves specified; other variants remain conditional palette",
+      "canonClaim": false,
+      "runtimeClaim": false,
+      "localLeafIds": [
+        "W1-SRC-24"
+      ],
+      "familyRecord": null
+    },
+    {
+      "id": "G4-14",
+      "origin": "docs/gm/dispatch/idea-expansion-2026-10-11/continuity/REQUIREMENTS.json",
+      "sections": [
+        "S04",
+        "S09",
+        "S10",
+        "S11",
+        "S13",
+        "S14"
+      ],
+      "disposition": "retain as conditional palette; local grounding required",
+      "localEngineCards": [
+        "W1-E04"
+      ],
+      "qualificationRoutes": [
+        "private starts/continuity/variant qualification",
+        "private source/functional leaf qualification",
+        "public integration and source boundary review"
+      ],
+      "localStatus": "selected exact leaves specified; other variants remain conditional palette",
+      "canonClaim": false,
+      "runtimeClaim": false,
+      "localLeafIds": [
+        "W1-SRC-13",
+        "W1-RET-01"
+      ],
+      "familyRecord": null
+    },
+    {
+      "id": "G4-15",
+      "origin": "docs/gm/dispatch/idea-expansion-2026-10-11/continuity/REQUIREMENTS.json",
+      "sections": [
+        "S04",
+        "S07",
+        "S09",
+        "S11",
+        "S13",
+        "S14"
+      ],
+      "disposition": "retain as conditional palette; local grounding required",
+      "localEngineCards": [],
+      "qualificationRoutes": [
+        "private starts/continuity/variant qualification",
+        "private source/functional leaf qualification",
+        "public integration and source boundary review"
+      ],
+      "localStatus": "selected exact leaves specified; other variants remain conditional palette",
+      "canonClaim": false,
+      "runtimeClaim": false,
+      "localLeafIds": [
+        "W1-SRC-09",
+        "W1-SRC-26"
+      ],
+      "familyRecord": null
+    },
+    {
+      "id": "G4-16",
+      "origin": "docs/gm/dispatch/idea-expansion-2026-10-11/continuity/REQUIREMENTS.json",
+      "sections": [
+        "S03",
+        "S04",
+        "S05",
+        "S07",
+        "S09",
+        "S10",
+        "S11",
+        "S14"
+      ],
+      "disposition": "retain as conditional palette; local grounding required",
+      "localEngineCards": [],
+      "qualificationRoutes": [
+        "private starts/continuity/variant qualification",
+        "private source/functional leaf qualification",
+        "public integration and source boundary review"
+      ],
+      "localStatus": "family disposition accounted; individual local qualification in named remaining manifest, not C1 deep leaf",
+      "canonClaim": false,
+      "runtimeClaim": false,
+      "localLeafIds": [],
+      "familyRecord": null
+    },
+    {
+      "id": "G4-17",
+      "origin": "docs/gm/dispatch/idea-expansion-2026-10-11/continuity/REQUIREMENTS.json",
+      "sections": [
+        "S00",
+        "S02",
+        "S09",
+        "S11",
+        "S13",
+        "S14"
+      ],
+      "disposition": "retain as conditional palette; local grounding required",
+      "localEngineCards": [],
+      "qualificationRoutes": [
+        "private starts/continuity/variant qualification",
+        "public integration and source boundary review"
+      ],
+      "localStatus": "family disposition accounted; individual local qualification in named remaining manifest, not C1 deep leaf",
+      "canonClaim": false,
+      "runtimeClaim": false,
+      "localLeafIds": [],
+      "familyRecord": null
+    },
+    {
+      "id": "G4-18",
+      "origin": "docs/gm/dispatch/idea-expansion-2026-10-11/continuity/REQUIREMENTS.json",
+      "sections": [
+        "S00",
+        "S11",
+        "S12",
+        "S14"
+      ],
+      "disposition": "retain as conditional palette; local grounding required",
+      "localEngineCards": [],
+      "qualificationRoutes": [
+        "private starts/continuity/variant qualification",
+        "public integration and source boundary review"
+      ],
+      "localStatus": "family disposition accounted; individual local qualification in named remaining manifest, not C1 deep leaf",
+      "canonClaim": false,
+      "runtimeClaim": false,
+      "localLeafIds": [],
+      "familyRecord": null
+    },
+    {
+      "id": "G5-01",
+      "origin": "docs/gm/dispatch/idea-expansion-2026-10-11/engine/REQUIREMENTS.json",
+      "sections": [
+        "S00",
+        "S14"
+      ],
+      "disposition": "retain as conditional palette; local grounding required",
+      "localEngineCards": [],
+      "qualificationRoutes": [
+        "public integration and source boundary review"
+      ],
+      "localStatus": "family disposition accounted; individual local qualification in named remaining manifest, not C1 deep leaf",
+      "canonClaim": false,
+      "runtimeClaim": false,
+      "localLeafIds": [],
+      "familyRecord": null
+    },
+    {
+      "id": "G5-02",
+      "origin": "docs/gm/dispatch/idea-expansion-2026-10-11/engine/REQUIREMENTS.json",
+      "sections": [
+        "S02",
+        "S09",
+        "S13",
+        "S14"
+      ],
+      "disposition": "retain as conditional palette; local grounding required",
+      "localEngineCards": [
+        "W1-E01"
+      ],
+      "qualificationRoutes": [
+        "private starts/continuity/variant qualification",
+        "public integration and source boundary review"
+      ],
+      "localStatus": "family disposition accounted; individual local qualification in named remaining manifest, not C1 deep leaf",
+      "canonClaim": false,
+      "runtimeClaim": false,
+      "localLeafIds": [],
+      "familyRecord": null
+    },
+    {
+      "id": "G5-03",
+      "origin": "docs/gm/dispatch/idea-expansion-2026-10-11/engine/REQUIREMENTS.json",
+      "sections": [
+        "S01",
+        "S03",
+        "S04",
+        "S11",
+        "S12",
+        "S14"
+      ],
+      "disposition": "retain as conditional palette; local grounding required",
+      "localEngineCards": [
+        "W1-E02"
+      ],
+      "qualificationRoutes": [
+        "private starts/continuity/variant qualification",
+        "private source/functional leaf qualification",
+        "public integration and source boundary review"
+      ],
+      "localStatus": "family disposition accounted; individual local qualification in named remaining manifest, not C1 deep leaf",
+      "canonClaim": false,
+      "runtimeClaim": false,
+      "localLeafIds": [],
+      "familyRecord": null
+    },
+    {
+      "id": "G5-04",
+      "origin": "docs/gm/dispatch/idea-expansion-2026-10-11/engine/REQUIREMENTS.json",
+      "sections": [
+        "S01",
+        "S05",
+        "S11",
+        "S12",
+        "S14"
+      ],
+      "disposition": "retain as conditional palette; local grounding required",
+      "localEngineCards": [
+        "W1-E08"
+      ],
+      "qualificationRoutes": [
+        "private starts/continuity/variant qualification",
+        "private source/functional leaf qualification",
+        "public integration and source boundary review"
+      ],
+      "localStatus": "selected exact leaves specified; other variants remain conditional palette",
+      "canonClaim": false,
+      "runtimeClaim": false,
+      "localLeafIds": [
+        "W1-SRC-07"
+      ],
+      "familyRecord": null
+    },
+    {
+      "id": "G5-05",
+      "origin": "docs/gm/dispatch/idea-expansion-2026-10-11/engine/REQUIREMENTS.json",
+      "sections": [
+        "S02",
+        "S07",
+        "S08",
+        "S12",
+        "S13"
+      ],
+      "disposition": "retain as conditional palette; local grounding required",
+      "localEngineCards": [
+        "W1-E05",
+        "W1-E11"
+      ],
+      "qualificationRoutes": [
+        "private starts/continuity/variant qualification",
+        "private source/functional leaf qualification"
+      ],
+      "localStatus": "selected exact leaves specified; other variants remain conditional palette",
+      "canonClaim": false,
+      "runtimeClaim": false,
+      "localLeafIds": [
+        "W1-ST18"
+      ],
+      "familyRecord": null
+    },
+    {
+      "id": "G5-06",
+      "origin": "docs/gm/dispatch/idea-expansion-2026-10-11/engine/REQUIREMENTS.json",
+      "sections": [
+        "S07",
+        "S08",
+        "S11",
+        "S12",
+        "S14"
+      ],
+      "disposition": "retain as conditional palette; local grounding required",
+      "localEngineCards": [
+        "W1-E06"
+      ],
+      "qualificationRoutes": [
+        "private starts/continuity/variant qualification",
+        "private source/functional leaf qualification",
+        "public integration and source boundary review"
+      ],
+      "localStatus": "family disposition accounted; individual local qualification in named remaining manifest, not C1 deep leaf",
+      "canonClaim": false,
+      "runtimeClaim": false,
+      "localLeafIds": [],
+      "familyRecord": null
+    },
+    {
+      "id": "G5-07",
+      "origin": "docs/gm/dispatch/idea-expansion-2026-10-11/engine/REQUIREMENTS.json",
+      "sections": [
+        "S04",
+        "S05",
+        "S09",
+        "S10",
+        "S13"
+      ],
+      "disposition": "retain as conditional palette; local grounding required",
+      "localEngineCards": [
+        "W1-E04"
+      ],
+      "qualificationRoutes": [
+        "private starts/continuity/variant qualification",
+        "private source/functional leaf qualification"
+      ],
+      "localStatus": "selected exact leaves specified; other variants remain conditional palette",
+      "canonClaim": false,
+      "runtimeClaim": false,
+      "localLeafIds": [
+        "W1-RET-01"
+      ],
+      "familyRecord": null
+    },
+    {
+      "id": "G5-08",
+      "origin": "docs/gm/dispatch/idea-expansion-2026-10-11/engine/REQUIREMENTS.json",
+      "sections": [
+        "S05",
+        "S06",
+        "S12",
+        "S14"
+      ],
+      "disposition": "retain as conditional palette; local grounding required",
+      "localEngineCards": [
+        "W1-E03"
+      ],
+      "qualificationRoutes": [
+        "private starts/continuity/variant qualification",
+        "private source/functional leaf qualification",
+        "public integration and source boundary review"
+      ],
+      "localStatus": "selected exact leaves specified; other variants remain conditional palette",
+      "canonClaim": false,
+      "runtimeClaim": false,
+      "localLeafIds": [
+        "W1-SRC-04"
+      ],
+      "familyRecord": null
+    },
+    {
+      "id": "G5-09",
+      "origin": "docs/gm/dispatch/idea-expansion-2026-10-11/engine/REQUIREMENTS.json",
+      "sections": [
+        "S03",
+        "S05",
+        "S06",
+        "S07",
+        "S14"
+      ],
+      "disposition": "retain as conditional palette; local grounding required",
+      "localEngineCards": [
+        "W1-E10"
+      ],
+      "qualificationRoutes": [
+        "private source/functional leaf qualification",
+        "public integration and source boundary review"
+      ],
+      "localStatus": "family disposition accounted; individual local qualification in named remaining manifest, not C1 deep leaf",
+      "canonClaim": false,
+      "runtimeClaim": false,
+      "localLeafIds": [],
+      "familyRecord": null
+    },
+    {
+      "id": "G5-10",
+      "origin": "docs/gm/dispatch/idea-expansion-2026-10-11/engine/REQUIREMENTS.json",
+      "sections": [
+        "S02",
+        "S06",
+        "S11",
+        "S14"
+      ],
+      "disposition": "retain as conditional palette; local grounding required",
+      "localEngineCards": [],
+      "qualificationRoutes": [
+        "private starts/continuity/variant qualification",
+        "private source/functional leaf qualification",
+        "public integration and source boundary review"
+      ],
+      "localStatus": "family disposition accounted; individual local qualification in named remaining manifest, not C1 deep leaf",
+      "canonClaim": false,
+      "runtimeClaim": false,
+      "localLeafIds": [],
+      "familyRecord": null
+    },
+    {
+      "id": "G5-11",
+      "origin": "docs/gm/dispatch/idea-expansion-2026-10-11/engine/REQUIREMENTS.json",
+      "sections": [
+        "S02",
+        "S12",
+        "S14"
+      ],
+      "disposition": "retain as conditional palette; local grounding required",
+      "localEngineCards": [
+        "W1-E12"
+      ],
+      "qualificationRoutes": [
+        "private starts/continuity/variant qualification",
+        "public integration and source boundary review"
+      ],
+      "localStatus": "selected exact leaves specified; other variants remain conditional palette",
+      "canonClaim": false,
+      "runtimeClaim": false,
+      "localLeafIds": [
+        "W1-RET-01"
+      ],
+      "familyRecord": null
+    },
+    {
+      "id": "G5-12",
+      "origin": "docs/gm/dispatch/idea-expansion-2026-10-11/engine/REQUIREMENTS.json",
+      "sections": [
+        "S00",
+        "S11",
+        "S13",
+        "S14"
+      ],
+      "disposition": "retain as conditional palette; local grounding required",
+      "localEngineCards": [
+        "W1-E12"
+      ],
+      "qualificationRoutes": [
+        "private starts/continuity/variant qualification",
+        "public integration and source boundary review"
+      ],
+      "localStatus": "family disposition accounted; individual local qualification in named remaining manifest, not C1 deep leaf",
+      "canonClaim": false,
+      "runtimeClaim": false,
+      "localLeafIds": [],
+      "familyRecord": null
+    },
+    {
+      "id": "G6-001",
+      "origin": "docs/gm/dispatch/idea-expansion-2026-10-11/material/REQUIREMENTS.json",
+      "sections": [
+        "S01",
+        "S06",
+        "S14"
+      ],
+      "disposition": "retain as conditional palette; local grounding required",
+      "localEngineCards": [
+        "W1-E10"
+      ],
+      "qualificationRoutes": [
+        "private starts/continuity/variant qualification",
+        "private source/functional leaf qualification",
+        "public integration and source boundary review"
+      ],
+      "localStatus": "selected exact leaves specified; other variants remain conditional palette",
+      "canonClaim": false,
+      "runtimeClaim": false,
+      "localLeafIds": [
+        "W1-SRC-15",
+        "W1-SRC-19",
+        "W1-SRC-23"
+      ],
+      "familyRecord": null
+    },
+    {
+      "id": "G6-002",
+      "origin": "docs/gm/dispatch/idea-expansion-2026-10-11/material/REQUIREMENTS.json",
+      "sections": [
+        "S06",
+        "S07",
+        "S14"
+      ],
+      "disposition": "retain as conditional palette; local grounding required",
+      "localEngineCards": [],
+      "qualificationRoutes": [
+        "private source/functional leaf qualification",
+        "public integration and source boundary review"
+      ],
+      "localStatus": "selected exact leaves specified; other variants remain conditional palette",
+      "canonClaim": false,
+      "runtimeClaim": false,
+      "localLeafIds": [
+        "W1-SRC-15"
+      ],
+      "familyRecord": null
+    },
+    {
+      "id": "G6-003",
+      "origin": "docs/gm/dispatch/idea-expansion-2026-10-11/material/REQUIREMENTS.json",
+      "sections": [
+        "S06",
+        "S09",
+        "S13"
+      ],
+      "disposition": "retain as conditional palette; local grounding required",
+      "localEngineCards": [],
+      "qualificationRoutes": [
+        "private starts/continuity/variant qualification",
+        "private source/functional leaf qualification"
+      ],
+      "localStatus": "family disposition accounted; individual local qualification in named remaining manifest, not C1 deep leaf",
+      "canonClaim": false,
+      "runtimeClaim": false,
+      "localLeafIds": [],
+      "familyRecord": null
+    },
+    {
+      "id": "G6-004",
+      "origin": "docs/gm/dispatch/idea-expansion-2026-10-11/material/REQUIREMENTS.json",
+      "sections": [
+        "S06",
+        "S09",
+        "S14"
+      ],
+      "disposition": "retain as conditional palette; local grounding required",
+      "localEngineCards": [],
+      "qualificationRoutes": [
+        "private starts/continuity/variant qualification",
+        "private source/functional leaf qualification",
+        "public integration and source boundary review"
+      ],
+      "localStatus": "selected exact leaves specified; other variants remain conditional palette",
+      "canonClaim": false,
+      "runtimeClaim": false,
+      "localLeafIds": [
+        "W1-SRC-15"
+      ],
+      "familyRecord": null
+    },
+    {
+      "id": "G6-005",
+      "origin": "docs/gm/dispatch/idea-expansion-2026-10-11/material/REQUIREMENTS.json",
+      "sections": [
+        "S06",
+        "S07",
+        "S09"
+      ],
+      "disposition": "retain as conditional palette; local grounding required",
+      "localEngineCards": [],
+      "qualificationRoutes": [
+        "private starts/continuity/variant qualification",
+        "private source/functional leaf qualification"
+      ],
+      "localStatus": "family disposition accounted; individual local qualification in named remaining manifest, not C1 deep leaf",
+      "canonClaim": false,
+      "runtimeClaim": false,
+      "localLeafIds": [],
+      "familyRecord": null
+    },
+    {
+      "id": "G6-006",
+      "origin": "docs/gm/dispatch/idea-expansion-2026-10-11/material/REQUIREMENTS.json",
+      "sections": [
+        "S06",
+        "S07"
+      ],
+      "disposition": "retain as conditional palette; local grounding required",
+      "localEngineCards": [],
+      "qualificationRoutes": [
+        "private source/functional leaf qualification"
+      ],
+      "localStatus": "selected exact leaves specified; other variants remain conditional palette",
+      "canonClaim": false,
+      "runtimeClaim": false,
+      "localLeafIds": [
+        "W1-SRC-19"
+      ],
+      "familyRecord": null
+    },
+    {
+      "id": "G6-007",
+      "origin": "docs/gm/dispatch/idea-expansion-2026-10-11/material/REQUIREMENTS.json",
+      "sections": [
+        "S06",
+        "S12",
+        "S14"
+      ],
+      "disposition": "retain as conditional palette; local grounding required",
+      "localEngineCards": [],
+      "qualificationRoutes": [
+        "private starts/continuity/variant qualification",
+        "private source/functional leaf qualification",
+        "public integration and source boundary review"
+      ],
+      "localStatus": "family disposition accounted; individual local qualification in named remaining manifest, not C1 deep leaf",
+      "canonClaim": false,
+      "runtimeClaim": false,
+      "localLeafIds": [],
+      "familyRecord": null
+    },
+    {
+      "id": "G6-008",
+      "origin": "docs/gm/dispatch/idea-expansion-2026-10-11/material/REQUIREMENTS.json",
+      "sections": [
+        "S06",
+        "S05"
+      ],
+      "disposition": "retain as conditional palette; local grounding required",
+      "localEngineCards": [],
+      "qualificationRoutes": [
+        "private source/functional leaf qualification"
+      ],
+      "localStatus": "selected exact leaves specified; other variants remain conditional palette",
+      "canonClaim": false,
+      "runtimeClaim": false,
+      "localLeafIds": [
+        "W1-SRC-03",
+        "W1-SRC-15"
+      ],
+      "familyRecord": null
+    },
+    {
+      "id": "G6-009",
+      "origin": "docs/gm/dispatch/idea-expansion-2026-10-11/material/REQUIREMENTS.json",
+      "sections": [
+        "S06",
+        "S14"
+      ],
+      "disposition": "retain as conditional palette; local grounding required",
+      "localEngineCards": [],
+      "qualificationRoutes": [
+        "private source/functional leaf qualification",
+        "public integration and source boundary review"
+      ],
+      "localStatus": "selected exact leaves specified; other variants remain conditional palette",
+      "canonClaim": false,
+      "runtimeClaim": false,
+      "localLeafIds": [
+        "W1-SRC-03",
+        "W1-SRC-06"
+      ],
+      "familyRecord": null
+    },
+    {
+      "id": "G6-010",
+      "origin": "docs/gm/dispatch/idea-expansion-2026-10-11/material/REQUIREMENTS.json",
+      "sections": [
+        "S03",
+        "S05",
+        "S06"
+      ],
+      "disposition": "retain as conditional palette; local grounding required",
+      "localEngineCards": [],
+      "qualificationRoutes": [
+        "private source/functional leaf qualification"
+      ],
+      "localStatus": "selected exact leaves specified; other variants remain conditional palette",
+      "canonClaim": false,
+      "runtimeClaim": false,
+      "localLeafIds": [
+        "W1-SRC-21"
+      ],
+      "familyRecord": null
+    },
+    {
+      "id": "G6-011",
+      "origin": "docs/gm/dispatch/idea-expansion-2026-10-11/material/REQUIREMENTS.json",
+      "sections": [
+        "S05",
+        "S06",
+        "S07",
+        "S14"
+      ],
+      "disposition": "retain as conditional palette; local grounding required",
+      "localEngineCards": [],
+      "qualificationRoutes": [
+        "private source/functional leaf qualification",
+        "public integration and source boundary review"
+      ],
+      "localStatus": "family disposition accounted; individual local qualification in named remaining manifest, not C1 deep leaf",
+      "canonClaim": false,
+      "runtimeClaim": false,
+      "localLeafIds": [],
+      "familyRecord": null
+    },
+    {
+      "id": "G6-012",
+      "origin": "docs/gm/dispatch/idea-expansion-2026-10-11/material/REQUIREMENTS.json",
+      "sections": [
+        "S05",
+        "S06",
+        "S14"
+      ],
+      "disposition": "retain as conditional palette; local grounding required",
+      "localEngineCards": [],
+      "qualificationRoutes": [
+        "private source/functional leaf qualification",
+        "public integration and source boundary review"
+      ],
+      "localStatus": "selected exact leaves specified; other variants remain conditional palette",
+      "canonClaim": false,
+      "runtimeClaim": false,
+      "localLeafIds": [
+        "W1-SRC-02"
+      ],
+      "familyRecord": null
+    },
+    {
+      "id": "G6-013",
+      "origin": "docs/gm/dispatch/idea-expansion-2026-10-11/material/REQUIREMENTS.json",
+      "sections": [
+        "S06",
+        "S07",
+        "S14"
+      ],
+      "disposition": "retain as conditional palette; local grounding required",
+      "localEngineCards": [],
+      "qualificationRoutes": [
+        "private source/functional leaf qualification",
+        "public integration and source boundary review"
+      ],
+      "localStatus": "selected exact leaves specified; other variants remain conditional palette",
+      "canonClaim": false,
+      "runtimeClaim": false,
+      "localLeafIds": [
+        "W1-SRC-21",
+        "W1-SRC-23"
+      ],
+      "familyRecord": null
+    },
+    {
+      "id": "G6-014",
+      "origin": "docs/gm/dispatch/idea-expansion-2026-10-11/material/REQUIREMENTS.json",
+      "sections": [
+        "S05",
+        "S06",
+        "S11",
+        "S14"
+      ],
+      "disposition": "retain as conditional palette; local grounding required",
+      "localEngineCards": [],
+      "qualificationRoutes": [
+        "private starts/continuity/variant qualification",
+        "private source/functional leaf qualification",
+        "public integration and source boundary review"
+      ],
+      "localStatus": "family disposition accounted; individual local qualification in named remaining manifest, not C1 deep leaf",
+      "canonClaim": false,
+      "runtimeClaim": false,
+      "localLeafIds": [],
+      "familyRecord": null
+    },
+    {
+      "id": "G6-015",
+      "origin": "docs/gm/dispatch/idea-expansion-2026-10-11/material/REQUIREMENTS.json",
+      "sections": [
+        "S06",
+        "S07",
+        "S13"
+      ],
+      "disposition": "retain as conditional palette; local grounding required",
+      "localEngineCards": [],
+      "qualificationRoutes": [
+        "private starts/continuity/variant qualification",
+        "private source/functional leaf qualification"
+      ],
+      "localStatus": "selected exact leaves specified; other variants remain conditional palette",
+      "canonClaim": false,
+      "runtimeClaim": false,
+      "localLeafIds": [
+        "W1-SRC-16",
+        "W1-SRC-23"
+      ],
+      "familyRecord": null
+    },
+    {
+      "id": "G6-016",
+      "origin": "docs/gm/dispatch/idea-expansion-2026-10-11/material/REQUIREMENTS.json",
+      "sections": [
+        "S03",
+        "S05",
+        "S06",
+        "S14"
+      ],
+      "disposition": "retain as conditional palette; local grounding required",
+      "localEngineCards": [],
+      "qualificationRoutes": [
+        "private source/functional leaf qualification",
+        "public integration and source boundary review"
+      ],
+      "localStatus": "family disposition accounted; individual local qualification in named remaining manifest, not C1 deep leaf",
+      "canonClaim": false,
+      "runtimeClaim": false,
+      "localLeafIds": [],
+      "familyRecord": null
+    },
+    {
+      "id": "G6-017",
+      "origin": "docs/gm/dispatch/idea-expansion-2026-10-11/material/REQUIREMENTS.json",
+      "sections": [
+        "S05",
+        "S06",
+        "S07",
+        "S11"
+      ],
+      "disposition": "retain as conditional palette; local grounding required",
+      "localEngineCards": [],
+      "qualificationRoutes": [
+        "private starts/continuity/variant qualification",
+        "private source/functional leaf qualification"
+      ],
+      "localStatus": "family disposition accounted; individual local qualification in named remaining manifest, not C1 deep leaf",
+      "canonClaim": false,
+      "runtimeClaim": false,
+      "localLeafIds": [],
+      "familyRecord": null
+    },
+    {
+      "id": "G6-018",
+      "origin": "docs/gm/dispatch/idea-expansion-2026-10-11/material/REQUIREMENTS.json",
+      "sections": [
+        "S05",
+        "S06",
+        "S12",
+        "S14"
+      ],
+      "disposition": "retain as conditional palette; local grounding required",
+      "localEngineCards": [],
+      "qualificationRoutes": [
+        "private starts/continuity/variant qualification",
+        "private source/functional leaf qualification",
+        "public integration and source boundary review"
+      ],
+      "localStatus": "selected exact leaves specified; other variants remain conditional palette",
+      "canonClaim": false,
+      "runtimeClaim": false,
+      "localLeafIds": [
+        "W1-SRC-04",
+        "W1-SRC-08",
+        "W1-SRC-11"
+      ],
+      "familyRecord": null
+    },
+    {
+      "id": "G6-019",
+      "origin": "docs/gm/dispatch/idea-expansion-2026-10-11/material/REQUIREMENTS.json",
+      "sections": [
+        "S03",
+        "S06",
+        "S11"
+      ],
+      "disposition": "retain as conditional palette; local grounding required",
+      "localEngineCards": [],
+      "qualificationRoutes": [
+        "private starts/continuity/variant qualification",
+        "private source/functional leaf qualification"
+      ],
+      "localStatus": "selected exact leaves specified; other variants remain conditional palette",
+      "canonClaim": false,
+      "runtimeClaim": false,
+      "localLeafIds": [
+        "W1-SRC-06"
+      ],
+      "familyRecord": null
+    },
+    {
+      "id": "G6-020",
+      "origin": "docs/gm/dispatch/idea-expansion-2026-10-11/material/REQUIREMENTS.json",
+      "sections": [
+        "S03",
+        "S05",
+        "S06"
+      ],
+      "disposition": "retain as conditional palette; local grounding required",
+      "localEngineCards": [],
+      "qualificationRoutes": [
+        "private source/functional leaf qualification"
+      ],
+      "localStatus": "family disposition accounted; individual local qualification in named remaining manifest, not C1 deep leaf",
+      "canonClaim": false,
+      "runtimeClaim": false,
+      "localLeafIds": [],
+      "familyRecord": null
+    },
+    {
+      "id": "G6-021",
+      "origin": "docs/gm/dispatch/idea-expansion-2026-10-11/material/REQUIREMENTS.json",
+      "sections": [
+        "S03",
+        "S05",
+        "S06",
+        "S11"
+      ],
+      "disposition": "retain as conditional palette; local grounding required",
+      "localEngineCards": [],
+      "qualificationRoutes": [
+        "private starts/continuity/variant qualification",
+        "private source/functional leaf qualification"
+      ],
+      "localStatus": "selected exact leaves specified; other variants remain conditional palette",
+      "canonClaim": false,
+      "runtimeClaim": false,
+      "localLeafIds": [
+        "W1-SRC-21"
+      ],
+      "familyRecord": null
+    },
+    {
+      "id": "G6-022",
+      "origin": "docs/gm/dispatch/idea-expansion-2026-10-11/material/REQUIREMENTS.json",
+      "sections": [
+        "S04",
+        "S06",
+        "S11"
+      ],
+      "disposition": "retain as conditional palette; local grounding required",
+      "localEngineCards": [],
+      "qualificationRoutes": [
+        "private starts/continuity/variant qualification",
+        "private source/functional leaf qualification"
+      ],
+      "localStatus": "family disposition accounted; individual local qualification in named remaining manifest, not C1 deep leaf",
+      "canonClaim": false,
+      "runtimeClaim": false,
+      "localLeafIds": [],
+      "familyRecord": null
+    },
+    {
+      "id": "G6-023",
+      "origin": "docs/gm/dispatch/idea-expansion-2026-10-11/material/REQUIREMENTS.json",
+      "sections": [
+        "S01",
+        "S06",
+        "S12"
+      ],
+      "disposition": "retain as conditional palette; local grounding required",
+      "localEngineCards": [],
+      "qualificationRoutes": [
+        "private starts/continuity/variant qualification",
+        "private source/functional leaf qualification"
+      ],
+      "localStatus": "family disposition accounted; individual local qualification in named remaining manifest, not C1 deep leaf",
+      "canonClaim": false,
+      "runtimeClaim": false,
+      "localLeafIds": [],
+      "familyRecord": null
+    },
+    {
+      "id": "G6-024",
+      "origin": "docs/gm/dispatch/idea-expansion-2026-10-11/material/REQUIREMENTS.json",
+      "sections": [
+        "S06",
+        "S09",
+        "S12"
+      ],
+      "disposition": "retain as conditional palette; local grounding required",
+      "localEngineCards": [],
+      "qualificationRoutes": [
+        "private starts/continuity/variant qualification",
+        "private source/functional leaf qualification"
+      ],
+      "localStatus": "selected exact leaves specified; other variants remain conditional palette",
+      "canonClaim": false,
+      "runtimeClaim": false,
+      "localLeafIds": [
+        "W1-SRC-14",
+        "W1-SRC-19"
+      ],
+      "familyRecord": null
+    },
+    {
+      "id": "G6-025",
+      "origin": "docs/gm/dispatch/idea-expansion-2026-10-11/material/REQUIREMENTS.json",
+      "sections": [
+        "S02",
+        "S06",
+        "S07"
+      ],
+      "disposition": "retain as conditional palette; local grounding required",
+      "localEngineCards": [],
+      "qualificationRoutes": [
+        "private starts/continuity/variant qualification",
+        "private source/functional leaf qualification"
+      ],
+      "localStatus": "family disposition accounted; individual local qualification in named remaining manifest, not C1 deep leaf",
+      "canonClaim": false,
+      "runtimeClaim": false,
+      "localLeafIds": [],
+      "familyRecord": null
+    },
+    {
+      "id": "G6-026",
+      "origin": "docs/gm/dispatch/idea-expansion-2026-10-11/material/REQUIREMENTS.json",
+      "sections": [
+        "S04",
+        "S05",
+        "S06",
+        "S11"
+      ],
+      "disposition": "retain as conditional palette; local grounding required",
+      "localEngineCards": [],
+      "qualificationRoutes": [
+        "private starts/continuity/variant qualification",
+        "private source/functional leaf qualification"
+      ],
+      "localStatus": "family disposition accounted; individual local qualification in named remaining manifest, not C1 deep leaf",
+      "canonClaim": false,
+      "runtimeClaim": false,
+      "localLeafIds": [],
+      "familyRecord": null
+    },
+    {
+      "id": "G6-027",
+      "origin": "docs/gm/dispatch/idea-expansion-2026-10-11/material/REQUIREMENTS.json",
+      "sections": [
+        "S06",
+        "S11",
+        "S12",
+        "S14"
+      ],
+      "disposition": "retain as conditional palette; local grounding required",
+      "localEngineCards": [],
+      "qualificationRoutes": [
+        "private starts/continuity/variant qualification",
+        "private source/functional leaf qualification",
+        "public integration and source boundary review"
+      ],
+      "localStatus": "family disposition accounted; individual local qualification in named remaining manifest, not C1 deep leaf",
+      "canonClaim": false,
+      "runtimeClaim": false,
+      "localLeafIds": [],
+      "familyRecord": null
+    },
+    {
+      "id": "G6-028",
+      "origin": "docs/gm/dispatch/idea-expansion-2026-10-11/material/REQUIREMENTS.json",
+      "sections": [
+        "S06",
+        "S09",
+        "S13"
+      ],
+      "disposition": "retain as conditional palette; local grounding required",
+      "localEngineCards": [],
+      "qualificationRoutes": [
+        "private starts/continuity/variant qualification",
+        "private source/functional leaf qualification"
+      ],
+      "localStatus": "family disposition accounted; individual local qualification in named remaining manifest, not C1 deep leaf",
+      "canonClaim": false,
+      "runtimeClaim": false,
+      "localLeafIds": [],
+      "familyRecord": null
+    },
+    {
+      "id": "G6-029",
+      "origin": "docs/gm/dispatch/idea-expansion-2026-10-11/material/REQUIREMENTS.json",
+      "sections": [
+        "S06",
+        "S11",
+        "S14"
+      ],
+      "disposition": "retain as conditional palette; local grounding required",
+      "localEngineCards": [],
+      "qualificationRoutes": [
+        "private starts/continuity/variant qualification",
+        "private source/functional leaf qualification",
+        "public integration and source boundary review"
+      ],
+      "localStatus": "family disposition accounted; individual local qualification in named remaining manifest, not C1 deep leaf",
+      "canonClaim": false,
+      "runtimeClaim": false,
+      "localLeafIds": [],
+      "familyRecord": null
+    },
+    {
+      "id": "G6-030",
+      "origin": "docs/gm/dispatch/idea-expansion-2026-10-11/material/REQUIREMENTS.json",
+      "sections": [
+        "S00",
+        "S06",
+        "S14"
+      ],
+      "disposition": "retain as conditional palette; local grounding required",
+      "localEngineCards": [],
+      "qualificationRoutes": [
+        "private source/functional leaf qualification",
+        "public integration and source boundary review"
+      ],
+      "localStatus": "family disposition accounted; individual local qualification in named remaining manifest, not C1 deep leaf",
+      "canonClaim": false,
+      "runtimeClaim": false,
+      "localLeafIds": [],
+      "familyRecord": null
+    },
+    {
+      "id": "G7-01",
+      "origin": "docs/gm/dispatch/idea-expansion-2026-10-11/review/REQUIREMENTS.json",
+      "sections": [
+        "S02",
+        "S13",
+        "S14"
+      ],
+      "disposition": "retain as conditional palette; local grounding required",
+      "localEngineCards": [
+        "W1-E11"
+      ],
+      "qualificationRoutes": [
+        "private starts/continuity/variant qualification",
+        "public integration and source boundary review"
+      ],
+      "localStatus": "family disposition accounted; individual local qualification in named remaining manifest, not C1 deep leaf",
+      "canonClaim": false,
+      "runtimeClaim": false,
+      "localLeafIds": [],
+      "familyRecord": null
+    },
+    {
+      "id": "G7-02",
+      "origin": "docs/gm/dispatch/idea-expansion-2026-10-11/review/REQUIREMENTS.json",
+      "sections": [
+        "S09",
+        "S10",
+        "S13",
+        "S14"
+      ],
+      "disposition": "retain as conditional palette; local grounding required",
+      "localEngineCards": [
+        "W1-E04"
+      ],
+      "qualificationRoutes": [
+        "private starts/continuity/variant qualification",
+        "public integration and source boundary review"
+      ],
+      "localStatus": "selected exact leaves specified; other variants remain conditional palette",
+      "canonClaim": false,
+      "runtimeClaim": false,
+      "localLeafIds": [
+        "W1-RET-01"
+      ],
+      "familyRecord": null
+    },
+    {
+      "id": "G7-03",
+      "origin": "docs/gm/dispatch/idea-expansion-2026-10-11/review/REQUIREMENTS.json",
+      "sections": [
+        "S07",
+        "S09",
+        "S13",
+        "S14"
+      ],
+      "disposition": "retain as conditional palette; local grounding required",
+      "localEngineCards": [
+        "W1-E10"
+      ],
+      "qualificationRoutes": [
+        "private starts/continuity/variant qualification",
+        "private source/functional leaf qualification",
+        "public integration and source boundary review"
+      ],
+      "localStatus": "family disposition accounted; individual local qualification in named remaining manifest, not C1 deep leaf",
+      "canonClaim": false,
+      "runtimeClaim": false,
+      "localLeafIds": [],
+      "familyRecord": null
+    },
+    {
+      "id": "G7-04",
+      "origin": "docs/gm/dispatch/idea-expansion-2026-10-11/review/REQUIREMENTS.json",
+      "sections": [
+        "S05",
+        "S07",
+        "S11",
+        "S13",
+        "S14"
+      ],
+      "disposition": "retain as conditional palette; local grounding required",
+      "localEngineCards": [],
+      "qualificationRoutes": [
+        "private starts/continuity/variant qualification",
+        "private source/functional leaf qualification",
+        "public integration and source boundary review"
+      ],
+      "localStatus": "family disposition accounted; individual local qualification in named remaining manifest, not C1 deep leaf",
+      "canonClaim": false,
+      "runtimeClaim": false,
+      "localLeafIds": [],
+      "familyRecord": null
+    },
+    {
+      "id": "G7-05",
+      "origin": "docs/gm/dispatch/idea-expansion-2026-10-11/review/REQUIREMENTS.json",
+      "sections": [
+        "S02",
+        "S05",
+        "S07",
+        "S11",
+        "S14"
+      ],
+      "disposition": "retain as conditional palette; local grounding required",
+      "localEngineCards": [],
+      "qualificationRoutes": [
+        "private starts/continuity/variant qualification",
+        "private source/functional leaf qualification",
+        "public integration and source boundary review"
+      ],
+      "localStatus": "family disposition accounted; individual local qualification in named remaining manifest, not C1 deep leaf",
+      "canonClaim": false,
+      "runtimeClaim": false,
+      "localLeafIds": [],
+      "familyRecord": null
+    },
+    {
+      "id": "G7-06",
+      "origin": "docs/gm/dispatch/idea-expansion-2026-10-11/review/REQUIREMENTS.json",
+      "sections": [
+        "S00",
+        "S02",
+        "S12",
+        "S14"
+      ],
+      "disposition": "retain as conditional palette; local grounding required",
+      "localEngineCards": [
+        "W1-E12"
+      ],
+      "qualificationRoutes": [
+        "private starts/continuity/variant qualification",
+        "public integration and source boundary review"
+      ],
+      "localStatus": "family disposition accounted; individual local qualification in named remaining manifest, not C1 deep leaf",
+      "canonClaim": false,
+      "runtimeClaim": false,
+      "localLeafIds": [],
+      "familyRecord": null
+    },
+    {
+      "id": "G7-07",
+      "origin": "docs/gm/dispatch/idea-expansion-2026-10-11/review/REQUIREMENTS.json",
+      "sections": [
+        "S00",
+        "S14"
+      ],
+      "disposition": "retain as conditional palette; local grounding required",
+      "localEngineCards": [
+        "W1-E12"
+      ],
+      "qualificationRoutes": [
+        "public integration and source boundary review"
+      ],
+      "localStatus": "family disposition accounted; individual local qualification in named remaining manifest, not C1 deep leaf",
+      "canonClaim": false,
+      "runtimeClaim": false,
+      "localLeafIds": [],
+      "familyRecord": null
+    },
+    {
+      "id": "G7-08",
+      "origin": "docs/gm/dispatch/idea-expansion-2026-10-11/review/REQUIREMENTS.json",
+      "sections": [
+        "S00",
+        "S01",
+        "S10",
+        "S11",
+        "S14"
+      ],
+      "disposition": "retain as conditional palette; local grounding required",
+      "localEngineCards": [],
+      "qualificationRoutes": [
+        "private starts/continuity/variant qualification",
+        "public integration and source boundary review"
+      ],
+      "localStatus": "family disposition accounted; individual local qualification in named remaining manifest, not C1 deep leaf",
+      "canonClaim": false,
+      "runtimeClaim": false,
+      "localLeafIds": [],
+      "familyRecord": null
+    },
+    {
+      "id": "G7-09",
+      "origin": "docs/gm/dispatch/idea-expansion-2026-10-11/review/REQUIREMENTS.json",
+      "sections": [
+        "S04",
+        "S11",
+        "S13",
+        "S14"
+      ],
+      "disposition": "retain as conditional palette; local grounding required",
+      "localEngineCards": [],
+      "qualificationRoutes": [
+        "private starts/continuity/variant qualification",
+        "private source/functional leaf qualification",
+        "public integration and source boundary review"
+      ],
+      "localStatus": "family disposition accounted; individual local qualification in named remaining manifest, not C1 deep leaf",
+      "canonClaim": false,
+      "runtimeClaim": false,
+      "localLeafIds": [],
+      "familyRecord": null
+    },
+    {
+      "id": "G7-10",
+      "origin": "docs/gm/dispatch/idea-expansion-2026-10-11/review/REQUIREMENTS.json",
+      "sections": [
+        "S07",
+        "S08",
+        "S09",
+        "S13"
+      ],
+      "disposition": "retain as conditional palette; local grounding required",
+      "localEngineCards": [],
+      "qualificationRoutes": [
+        "private starts/continuity/variant qualification",
+        "private source/functional leaf qualification"
+      ],
+      "localStatus": "family disposition accounted; individual local qualification in named remaining manifest, not C1 deep leaf",
+      "canonClaim": false,
+      "runtimeClaim": false,
+      "localLeafIds": [],
+      "familyRecord": null
+    },
+    {
+      "id": "G7-11",
+      "origin": "docs/gm/dispatch/idea-expansion-2026-10-11/review/REQUIREMENTS.json",
+      "sections": [
+        "S03",
+        "S07",
+        "S11",
+        "S13"
+      ],
+      "disposition": "retain as conditional palette; local grounding required",
+      "localEngineCards": [],
+      "qualificationRoutes": [
+        "private starts/continuity/variant qualification",
+        "private source/functional leaf qualification"
+      ],
+      "localStatus": "family disposition accounted; individual local qualification in named remaining manifest, not C1 deep leaf",
+      "canonClaim": false,
+      "runtimeClaim": false,
+      "localLeafIds": [],
+      "familyRecord": null
+    },
+    {
+      "id": "G7-12",
+      "origin": "docs/gm/dispatch/idea-expansion-2026-10-11/review/REQUIREMENTS.json",
+      "sections": [
+        "S04",
+        "S05",
+        "S06",
+        "S07",
+        "S13"
+      ],
+      "disposition": "retain as conditional palette; local grounding required",
+      "localEngineCards": [],
+      "qualificationRoutes": [
+        "private starts/continuity/variant qualification",
+        "private source/functional leaf qualification"
+      ],
+      "localStatus": "family disposition accounted; individual local qualification in named remaining manifest, not C1 deep leaf",
+      "canonClaim": false,
+      "runtimeClaim": false,
+      "localLeafIds": [],
+      "familyRecord": null
+    },
+    {
+      "id": "G7-13",
+      "origin": "docs/gm/dispatch/idea-expansion-2026-10-11/review/REQUIREMENTS.json",
+      "sections": [
+        "S07",
+        "S09",
+        "S10",
+        "S13"
+      ],
+      "disposition": "retain as conditional palette; local grounding required",
+      "localEngineCards": [],
+      "qualificationRoutes": [
+        "private starts/continuity/variant qualification",
+        "private source/functional leaf qualification"
+      ],
+      "localStatus": "family disposition accounted; individual local qualification in named remaining manifest, not C1 deep leaf",
+      "canonClaim": false,
+      "runtimeClaim": false,
+      "localLeafIds": [],
+      "familyRecord": null
+    },
+    {
+      "id": "G7-14",
+      "origin": "docs/gm/dispatch/idea-expansion-2026-10-11/review/REQUIREMENTS.json",
+      "sections": [
+        "S00",
+        "S07",
+        "S13",
+        "S14"
+      ],
+      "disposition": "retain as conditional palette; local grounding required",
+      "localEngineCards": [],
+      "qualificationRoutes": [
+        "private starts/continuity/variant qualification",
+        "private source/functional leaf qualification",
+        "public integration and source boundary review"
+      ],
+      "localStatus": "family disposition accounted; individual local qualification in named remaining manifest, not C1 deep leaf",
+      "canonClaim": false,
+      "runtimeClaim": false,
+      "localLeafIds": [],
+      "familyRecord": null
+    },
+    {
+      "id": "G8-001",
+      "origin": "docs/gm/dispatch/idea-expansion-2026-10-11/micro/REQUIREMENTS.json",
+      "sections": [
+        "S04",
+        "S07",
+        "S14"
+      ],
+      "disposition": "retain as conditional palette; local grounding required",
+      "localEngineCards": [],
+      "qualificationRoutes": [
+        "private source/functional leaf qualification",
+        "public integration and source boundary review"
+      ],
+      "localStatus": "selected exact leaves specified; other variants remain conditional palette",
+      "canonClaim": false,
+      "runtimeClaim": false,
+      "localLeafIds": [
+        "W1-MIC-01"
+      ],
+      "familyRecord": null
+    },
+    {
+      "id": "G8-002",
+      "origin": "docs/gm/dispatch/idea-expansion-2026-10-11/micro/REQUIREMENTS.json",
+      "sections": [
+        "S04",
+        "S07",
+        "S14"
+      ],
+      "disposition": "retain as conditional palette; local grounding required",
+      "localEngineCards": [],
+      "qualificationRoutes": [
+        "private source/functional leaf qualification",
+        "public integration and source boundary review"
+      ],
+      "localStatus": "selected exact leaves specified; other variants remain conditional palette",
+      "canonClaim": false,
+      "runtimeClaim": false,
+      "localLeafIds": [
+        "W1-MIC-01"
+      ],
+      "familyRecord": null
+    },
+    {
+      "id": "G8-003",
+      "origin": "docs/gm/dispatch/idea-expansion-2026-10-11/micro/REQUIREMENTS.json",
+      "sections": [
+        "S09",
+        "S13",
+        "S14"
+      ],
+      "disposition": "retain as conditional palette; local grounding required",
+      "localEngineCards": [],
+      "qualificationRoutes": [
+        "private starts/continuity/variant qualification",
+        "public integration and source boundary review"
+      ],
+      "localStatus": "selected exact leaves specified; other variants remain conditional palette",
+      "canonClaim": false,
+      "runtimeClaim": false,
+      "localLeafIds": [
+        "W1-MIC-01"
+      ],
+      "familyRecord": null
+    },
+    {
+      "id": "G8-004",
+      "origin": "docs/gm/dispatch/idea-expansion-2026-10-11/micro/REQUIREMENTS.json",
+      "sections": [
+        "S07",
+        "S12",
+        "S13",
+        "S14"
+      ],
+      "disposition": "retain as conditional palette; local grounding required",
+      "localEngineCards": [],
+      "qualificationRoutes": [
+        "private starts/continuity/variant qualification",
+        "private source/functional leaf qualification",
+        "public integration and source boundary review"
+      ],
+      "localStatus": "selected exact leaves specified; other variants remain conditional palette",
+      "canonClaim": false,
+      "runtimeClaim": false,
+      "localLeafIds": [
+        "W1-SRC-18",
+        "W1-MIC-01"
+      ],
+      "familyRecord": null
+    },
+    {
+      "id": "G8-005",
+      "origin": "docs/gm/dispatch/idea-expansion-2026-10-11/micro/REQUIREMENTS.json",
+      "sections": [
+        "S02",
+        "S07",
+        "S11",
+        "S14"
+      ],
+      "disposition": "retain as conditional palette; local grounding required",
+      "localEngineCards": [],
+      "qualificationRoutes": [
+        "private starts/continuity/variant qualification",
+        "private source/functional leaf qualification",
+        "public integration and source boundary review"
+      ],
+      "localStatus": "selected exact leaves specified; other variants remain conditional palette",
+      "canonClaim": false,
+      "runtimeClaim": false,
+      "localLeafIds": [
+        "W1-SRC-25"
+      ],
+      "familyRecord": null
+    },
+    {
+      "id": "G8-006",
+      "origin": "docs/gm/dispatch/idea-expansion-2026-10-11/micro/REQUIREMENTS.json",
+      "sections": [
+        "S07",
+        "S14"
+      ],
+      "disposition": "retain as conditional palette; local grounding required",
+      "localEngineCards": [],
+      "qualificationRoutes": [
+        "private source/functional leaf qualification",
+        "public integration and source boundary review"
+      ],
+      "localStatus": "selected exact leaves specified; other variants remain conditional palette",
+      "canonClaim": false,
+      "runtimeClaim": false,
+      "localLeafIds": [
+        "W1-MIC-02"
+      ],
+      "familyRecord": null
+    },
+    {
+      "id": "G8-007",
+      "origin": "docs/gm/dispatch/idea-expansion-2026-10-11/micro/REQUIREMENTS.json",
+      "sections": [
+        "S07",
+        "S14"
+      ],
+      "disposition": "retain as conditional palette; local grounding required",
+      "localEngineCards": [],
+      "qualificationRoutes": [
+        "private source/functional leaf qualification",
+        "public integration and source boundary review"
+      ],
+      "localStatus": "selected exact leaves specified; other variants remain conditional palette",
+      "canonClaim": false,
+      "runtimeClaim": false,
+      "localLeafIds": [
+        "W1-MIC-02"
+      ],
+      "familyRecord": null
+    },
+    {
+      "id": "G8-008",
+      "origin": "docs/gm/dispatch/idea-expansion-2026-10-11/micro/REQUIREMENTS.json",
+      "sections": [
+        "S07",
+        "S06",
+        "S13"
+      ],
+      "disposition": "retain as conditional palette; local grounding required",
+      "localEngineCards": [],
+      "qualificationRoutes": [
+        "private starts/continuity/variant qualification",
+        "private source/functional leaf qualification"
+      ],
+      "localStatus": "selected exact leaves specified; other variants remain conditional palette",
+      "canonClaim": false,
+      "runtimeClaim": false,
+      "localLeafIds": [
+        "W1-SRC-09",
+        "W1-MIC-02"
+      ],
+      "familyRecord": null
+    },
+    {
+      "id": "G8-009",
+      "origin": "docs/gm/dispatch/idea-expansion-2026-10-11/micro/REQUIREMENTS.json",
+      "sections": [
+        "S07",
+        "S13",
+        "S14"
+      ],
+      "disposition": "retain as conditional palette; local grounding required",
+      "localEngineCards": [],
+      "qualificationRoutes": [
+        "private starts/continuity/variant qualification",
+        "private source/functional leaf qualification",
+        "public integration and source boundary review"
+      ],
+      "localStatus": "selected exact leaves specified; other variants remain conditional palette",
+      "canonClaim": false,
+      "runtimeClaim": false,
+      "localLeafIds": [
+        "W1-MIC-02"
+      ],
+      "familyRecord": null
+    },
+    {
+      "id": "G8-010",
+      "origin": "docs/gm/dispatch/idea-expansion-2026-10-11/micro/REQUIREMENTS.json",
+      "sections": [
+        "S09",
+        "S07",
+        "S13",
+        "S14"
+      ],
+      "disposition": "retain as conditional palette; local grounding required",
+      "localEngineCards": [],
+      "qualificationRoutes": [
+        "private starts/continuity/variant qualification",
+        "private source/functional leaf qualification",
+        "public integration and source boundary review"
+      ],
+      "localStatus": "selected exact leaves specified; other variants remain conditional palette",
+      "canonClaim": false,
+      "runtimeClaim": false,
+      "localLeafIds": [
+        "W1-MIC-04"
+      ],
+      "familyRecord": null
+    },
+    {
+      "id": "G8-011",
+      "origin": "docs/gm/dispatch/idea-expansion-2026-10-11/micro/REQUIREMENTS.json",
+      "sections": [
+        "S05",
+        "S06",
+        "S07",
+        "S10"
+      ],
+      "disposition": "retain as conditional palette; local grounding required",
+      "localEngineCards": [],
+      "qualificationRoutes": [
+        "private starts/continuity/variant qualification",
+        "private source/functional leaf qualification"
+      ],
+      "localStatus": "selected exact leaves specified; other variants remain conditional palette",
+      "canonClaim": false,
+      "runtimeClaim": false,
+      "localLeafIds": [
+        "W1-SRC-19",
+        "W1-SRC-24",
+        "W1-MIC-04"
+      ],
+      "familyRecord": null
+    },
+    {
+      "id": "G8-012",
+      "origin": "docs/gm/dispatch/idea-expansion-2026-10-11/micro/REQUIREMENTS.json",
+      "sections": [
+        "S07",
+        "S14"
+      ],
+      "disposition": "retain as conditional palette; local grounding required",
+      "localEngineCards": [],
+      "qualificationRoutes": [
+        "private source/functional leaf qualification",
+        "public integration and source boundary review"
+      ],
+      "localStatus": "selected exact leaves specified; other variants remain conditional palette",
+      "canonClaim": false,
+      "runtimeClaim": false,
+      "localLeafIds": [
+        "W1-MIC-02"
+      ],
+      "familyRecord": null
+    },
+    {
+      "id": "G8-013",
+      "origin": "docs/gm/dispatch/idea-expansion-2026-10-11/micro/REQUIREMENTS.json",
+      "sections": [
+        "S07",
+        "S11",
+        "S14"
+      ],
+      "disposition": "retain as conditional palette; local grounding required",
+      "localEngineCards": [],
+      "qualificationRoutes": [
+        "private starts/continuity/variant qualification",
+        "private source/functional leaf qualification",
+        "public integration and source boundary review"
+      ],
+      "localStatus": "family disposition accounted; individual local qualification in named remaining manifest, not C1 deep leaf",
+      "canonClaim": false,
+      "runtimeClaim": false,
+      "localLeafIds": [],
+      "familyRecord": null
+    },
+    {
+      "id": "G8-014",
+      "origin": "docs/gm/dispatch/idea-expansion-2026-10-11/micro/REQUIREMENTS.json",
+      "sections": [
+        "S07",
+        "S12",
+        "S14"
+      ],
+      "disposition": "retain as conditional palette; local grounding required",
+      "localEngineCards": [],
+      "qualificationRoutes": [
+        "private starts/continuity/variant qualification",
+        "private source/functional leaf qualification",
+        "public integration and source boundary review"
+      ],
+      "localStatus": "family disposition accounted; individual local qualification in named remaining manifest, not C1 deep leaf",
+      "canonClaim": false,
+      "runtimeClaim": false,
+      "localLeafIds": [],
+      "familyRecord": null
+    },
+    {
+      "id": "G8-015",
+      "origin": "docs/gm/dispatch/idea-expansion-2026-10-11/micro/REQUIREMENTS.json",
+      "sections": [
+        "S02",
+        "S07",
+        "S09"
+      ],
+      "disposition": "retain as conditional palette; local grounding required",
+      "localEngineCards": [],
+      "qualificationRoutes": [
+        "private starts/continuity/variant qualification",
+        "private source/functional leaf qualification"
+      ],
+      "localStatus": "selected exact leaves specified; other variants remain conditional palette",
+      "canonClaim": false,
+      "runtimeClaim": false,
+      "localLeafIds": [
+        "W1-SRC-09",
+        "W1-SRC-10",
+        "W1-SRC-22",
+        "W1-MIC-03"
+      ],
+      "familyRecord": null
+    },
+    {
+      "id": "G8-016",
+      "origin": "docs/gm/dispatch/idea-expansion-2026-10-11/micro/REQUIREMENTS.json",
+      "sections": [
+        "S07",
+        "S09",
+        "S13",
+        "S14"
+      ],
+      "disposition": "retain as conditional palette; local grounding required",
+      "localEngineCards": [],
+      "qualificationRoutes": [
+        "private starts/continuity/variant qualification",
+        "private source/functional leaf qualification",
+        "public integration and source boundary review"
+      ],
+      "localStatus": "family disposition accounted; individual local qualification in named remaining manifest, not C1 deep leaf",
+      "canonClaim": false,
+      "runtimeClaim": false,
+      "localLeafIds": [],
+      "familyRecord": null
+    },
+    {
+      "id": "G8-017",
+      "origin": "docs/gm/dispatch/idea-expansion-2026-10-11/micro/REQUIREMENTS.json",
+      "sections": [
+        "S06",
+        "S07",
+        "S08",
+        "S14"
+      ],
+      "disposition": "retain as conditional palette; local grounding required",
+      "localEngineCards": [],
+      "qualificationRoutes": [
+        "private source/functional leaf qualification",
+        "public integration and source boundary review"
+      ],
+      "localStatus": "selected exact leaves specified; other variants remain conditional palette",
+      "canonClaim": false,
+      "runtimeClaim": false,
+      "localLeafIds": [
+        "W1-SRC-03",
+        "W1-MIC-03"
+      ],
+      "familyRecord": null
+    },
+    {
+      "id": "G8-018",
+      "origin": "docs/gm/dispatch/idea-expansion-2026-10-11/micro/REQUIREMENTS.json",
+      "sections": [
+        "S07",
+        "S08",
+        "S14"
+      ],
+      "disposition": "retain as conditional palette; local grounding required",
+      "localEngineCards": [],
+      "qualificationRoutes": [
+        "private source/functional leaf qualification",
+        "public integration and source boundary review"
+      ],
+      "localStatus": "selected exact leaves specified; other variants remain conditional palette",
+      "canonClaim": false,
+      "runtimeClaim": false,
+      "localLeafIds": [
+        "W1-MIC-03"
+      ],
+      "familyRecord": null
+    },
+    {
+      "id": "G8-019",
+      "origin": "docs/gm/dispatch/idea-expansion-2026-10-11/micro/REQUIREMENTS.json",
+      "sections": [
+        "S05",
+        "S07",
+        "S11",
+        "S14"
+      ],
+      "disposition": "retain as conditional palette; local grounding required",
+      "localEngineCards": [],
+      "qualificationRoutes": [
+        "private starts/continuity/variant qualification",
+        "private source/functional leaf qualification",
+        "public integration and source boundary review"
+      ],
+      "localStatus": "selected exact leaves specified; other variants remain conditional palette",
+      "canonClaim": false,
+      "runtimeClaim": false,
+      "localLeafIds": [
+        "W1-MIC-03"
+      ],
+      "familyRecord": null
+    },
+    {
+      "id": "G8-020",
+      "origin": "docs/gm/dispatch/idea-expansion-2026-10-11/micro/REQUIREMENTS.json",
+      "sections": [
+        "S02",
+        "S07",
+        "S08",
+        "S14"
+      ],
+      "disposition": "retain as conditional palette; local grounding required",
+      "localEngineCards": [],
+      "qualificationRoutes": [
+        "private starts/continuity/variant qualification",
+        "private source/functional leaf qualification",
+        "public integration and source boundary review"
+      ],
+      "localStatus": "selected exact leaves specified; other variants remain conditional palette",
+      "canonClaim": false,
+      "runtimeClaim": false,
+      "localLeafIds": [
+        "W1-SRC-09",
+        "W1-SRC-12",
+        "W1-SRC-22",
+        "W1-MIC-03"
+      ],
+      "familyRecord": null
+    },
+    {
+      "id": "G8-021",
+      "origin": "docs/gm/dispatch/idea-expansion-2026-10-11/micro/REQUIREMENTS.json",
+      "sections": [
+        "S05",
+        "S07",
+        "S13",
+        "S14"
+      ],
+      "disposition": "retain as conditional palette; local grounding required",
+      "localEngineCards": [],
+      "qualificationRoutes": [
+        "private starts/continuity/variant qualification",
+        "private source/functional leaf qualification",
+        "public integration and source boundary review"
+      ],
+      "localStatus": "selected exact leaves specified; other variants remain conditional palette",
+      "canonClaim": false,
+      "runtimeClaim": false,
+      "localLeafIds": [
+        "W1-MIC-04"
+      ],
+      "familyRecord": null
+    },
+    {
+      "id": "G8-022",
+      "origin": "docs/gm/dispatch/idea-expansion-2026-10-11/micro/REQUIREMENTS.json",
+      "sections": [
+        "S09",
+        "S13",
+        "S14"
+      ],
+      "disposition": "retain as conditional palette; local grounding required",
+      "localEngineCards": [],
+      "qualificationRoutes": [
+        "private starts/continuity/variant qualification",
+        "public integration and source boundary review"
+      ],
+      "localStatus": "selected exact leaves specified; other variants remain conditional palette",
+      "canonClaim": false,
+      "runtimeClaim": false,
+      "localLeafIds": [
+        "W1-MIC-04"
+      ],
+      "familyRecord": null
+    },
+    {
+      "id": "G8-023",
+      "origin": "docs/gm/dispatch/idea-expansion-2026-10-11/micro/REQUIREMENTS.json",
+      "sections": [
+        "S07",
+        "S14"
+      ],
+      "disposition": "retain as conditional palette; local grounding required",
+      "localEngineCards": [],
+      "qualificationRoutes": [
+        "private source/functional leaf qualification",
+        "public integration and source boundary review"
+      ],
+      "localStatus": "selected exact leaves specified; other variants remain conditional palette",
+      "canonClaim": false,
+      "runtimeClaim": false,
+      "localLeafIds": [
+        "W1-MIC-04"
+      ],
+      "familyRecord": null
+    },
+    {
+      "id": "G8-024",
+      "origin": "docs/gm/dispatch/idea-expansion-2026-10-11/micro/REQUIREMENTS.json",
+      "sections": [
+        "S00",
+        "S07",
+        "S14"
+      ],
+      "disposition": "retain as conditional palette; local grounding required",
+      "localEngineCards": [],
+      "qualificationRoutes": [
+        "private source/functional leaf qualification",
+        "public integration and source boundary review"
+      ],
+      "localStatus": "selected exact leaves specified; other variants remain conditional palette",
+      "canonClaim": false,
+      "runtimeClaim": false,
+      "localLeafIds": [
+        "W1-MIC-04"
+      ],
+      "familyRecord": null
+    }
+  ]
+}

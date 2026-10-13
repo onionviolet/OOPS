@@ -1,0 +1,101 @@
+{
+  "pid": 42002,
+  "servedHash": "21eedf8476a91a867ef91b997889cf02fefdb2f653bd613b80680029328fa3f1",
+  "origin": "http://127.0.0.1:18643",
+  "startedHash": "21eedf8476a91a867ef91b997889cf02fefdb2f653bd613b80680029328fa3f1",
+  "endedHash": "21eedf8476a91a867ef91b997889cf02fefdb2f653bd613b80680029328fa3f1",
+  "events": [
+    {
+      "action": "click",
+      "selector": "#notebook_tab_people"
+    },
+    {
+      "action": "panel",
+      "selector": "#exchange_panel"
+    },
+    {
+      "action": "click",
+      "selector": "[data-exchange=\"exchange.begin\"]"
+    },
+    {
+      "action": "click",
+      "selector": "[data-exchange=\"exchange.decline\"]"
+    },
+    {
+      "action": "wait",
+      "ms": 14000
+    },
+    {
+      "action": "click",
+      "selector": "[data-exchange=\"exchange.hear_declined\"]"
+    },
+    {
+      "action": "click",
+      "selector": "[data-exchange=\"exchange.buy_template\"]"
+    },
+    {
+      "action": "click",
+      "selector": "#notebook_tab_here"
+    },
+    {
+      "action": "panel",
+      "selector": "#pocket_realm_panel"
+    },
+    {
+      "action": "click",
+      "name": "Ask Iona about the folded workshop frame"
+    },
+    {
+      "action": "click",
+      "selector": "[data-pocket-realm=\"pocket.open\"]"
+    },
+    {
+      "action": "save",
+      "name": "worker-b1-ready-before-warning"
+    },
+    {
+      "action": "save",
+      "name": "worker-pocket-open-blocker"
+    }
+  ],
+  "errors": [
+    "Cannot read properties of undefined (reading 'worldId')",
+    "Cannot read properties of undefined (reading 'worldId')",
+    "Cannot read properties of undefined (reading 'worldId')",
+    "Cannot read properties of undefined (reading 'worldId')",
+    "Cannot read properties of undefined (reading 'worldId')",
+    "Cannot read properties of undefined (reading 'worldId')",
+    "Cannot read properties of undefined (reading 'worldId')",
+    "Cannot read properties of undefined (reading 'worldId')",
+    "Cannot read properties of undefined (reading 'worldId')",
+    "Cannot read properties of undefined (reading 'worldId')",
+    "Cannot read properties of undefined (reading 'worldId')",
+    "Cannot read properties of undefined (reading 'worldId')",
+    "Cannot read properties of undefined (reading 'worldId')",
+    "Cannot read properties of undefined (reading 'worldId')",
+    "Cannot read properties of undefined (reading 'worldId')",
+    "Cannot read properties of undefined (reading 'worldId')",
+    "Cannot read properties of undefined (reading 'worldId')",
+    "Cannot read properties of undefined (reading 'worldId')",
+    "Cannot read properties of undefined (reading 'worldId')",
+    "Cannot read properties of undefined (reading 'worldId')",
+    "Cannot read properties of undefined (reading 'worldId')",
+    "Cannot read properties of undefined (reading 'worldId')",
+    "Cannot read properties of undefined (reading 'worldId')",
+    "Cannot read properties of undefined (reading 'worldId')",
+    "Cannot read properties of undefined (reading 'worldId')",
+    "Cannot read properties of undefined (reading 'worldId')",
+    "Cannot read properties of undefined (reading 'worldId')",
+    "Cannot read properties of undefined (reading 'worldId')",
+    "Cannot read properties of undefined (reading 'worldId')",
+    "Cannot read properties of undefined (reading 'worldId')",
+    "Cannot read properties of undefined (reading 'worldId')",
+    "Cannot read properties of undefined (reading 'worldId')",
+    "Cannot read properties of undefined (reading 'worldId')",
+    "Cannot read properties of undefined (reading 'worldId')",
+    "Cannot read properties of undefined (reading 'worldId')",
+    "Cannot read properties of undefined (reading 'worldId')",
+    "Cannot read properties of undefined (reading 'worldId')",
+    "Cannot read properties of undefined (reading 'worldId')"
+  ]
+}

@@ -1,0 +1,84 @@
+{
+  "state": "prepared, all12 driver syntax checks passed, no shared browser run",
+  "drivers": [
+    {
+      "path": "/Users/weiwei/.codex/candidates/yairpg-laptop-customization-2026-10-12/g5/evidence/laptop-journey.cjs",
+      "copiedDriverSha256": "5e7337698f0cb56950f629fedc5d84452c6e07d25c26fbf5dc2f5c3176babee1",
+      "originalDriverSha256": "5e7337698f0cb56950f629fedc5d84452c6e07d25c26fbf5dc2f5c3176babee1"
+    },
+    {
+      "path": "/Users/weiwei/.codex/candidates/yairpg-laptop-customization-2026-10-12/g5/evidence/laptop-inspect.cjs",
+      "copiedDriverSha256": "855fce039f17fc3b7c20b52e7af021f9fbf427708f092f337239759ae4a64171",
+      "originalDriverSha256": "855fce039f17fc3b7c20b52e7af021f9fbf427708f092f337239759ae4a64171"
+    },
+    {
+      "path": "/Users/weiwei/.codex/candidates/yairpg-laptop-customization-2026-10-12/g5/evidence/editor-craft-proof.cjs",
+      "copiedDriverSha256": "db1980a45442c711f6255e3aa08061bef4056417001b552fdd1c015ff7b48e51",
+      "originalDriverSha256": "db1980a45442c711f6255e3aa08061bef4056417001b552fdd1c015ff7b48e51"
+    },
+    {
+      "path": "/Users/weiwei/.codex/candidates/yairpg-laptop-customization-2026-10-12/g5/evidence/combined-theme-proof.cjs",
+      "copiedDriverSha256": "901b054df32633cc6483675e9f4582af60bf16ad5c0c56fa54dffa218df6e316",
+      "originalDriverSha256": "901b054df32633cc6483675e9f4582af60bf16ad5c0c56fa54dffa218df6e316"
+    },
+    {
+      "path": "/Users/weiwei/.codex/candidates/yairpg-laptop-customization-2026-10-12/g5/evidence/combined-decisions.cjs",
+      "copiedDriverSha256": "0076db7bb8ae16d04eef25f07fe5f52dc10a3c8de2d3d9ae4609400720b8422b",
+      "originalDriverSha256": "7efe0093ec2263e6b1e9ceff429cd038c83a323c21a7d866a7b85c114faff443"
+    },
+    {
+      "path": "/Users/weiwei/.codex/candidates/yairpg-laptop-customization-2026-10-12/g5/evidence/old-save-proof.cjs",
+      "copiedDriverSha256": "7c5cfda96294a34cb5b7f039b6c4da23633134b2e8e3663c8e23a7584f040117",
+      "originalDriverSha256": "7c5cfda96294a34cb5b7f039b6c4da23633134b2e8e3663c8e23a7584f040117"
+    },
+    {
+      "path": "/Users/weiwei/.codex/candidates/yairpg-laptop-customization-2026-10-12/g5/evidence/pointer-craft-proof.cjs",
+      "copiedDriverSha256": "3c906edd36f9b2f056dfae81270670fa0f9d175821b43ae8b8945a2315adf62e",
+      "originalDriverSha256": "ccb8d2e866b3bea40e9afeae3dee20d921337455e82d9d8d2f723e51e7ba455c"
+    },
+    {
+      "path": "/Users/weiwei/.codex/candidates/yairpg-laptop-customization-2026-10-12/g5/evidence/combined-feedback/feedback-proof.cjs",
+      "copiedDriverSha256": "7ed838fbea28c3860df377c0ddfb8b457d7aefe67625a7642ba631a8c6eb9d59",
+      "originalDriverSha256": "89c085c2cee53fa285e349e941a637dfcc496c0f74223ecb3b033a66fc47931f"
+    },
+    {
+      "path": "/Users/weiwei/.codex/candidates/yairpg-laptop-customization-2026-10-12/g5/evidence/combined-feedback/f7-browser.cjs",
+      "copiedDriverSha256": "c014f7de2143fbe258b5e521efa83d8328d4dae6914ff4960a3ddaaac96a8eef",
+      "originalDriverSha256": "c014f7de2143fbe258b5e521efa83d8328d4dae6914ff4960a3ddaaac96a8eef"
+    },
+    {
+      "path": "/Users/weiwei/.codex/candidates/yairpg-laptop-customization-2026-10-12/g5/evidence/combined-feedback/status-proof.cjs",
+      "copiedDriverSha256": "db2d3e2c30113caa98e881749a955dba93d64d37dd3b13d480867810db2e3b43",
+      "originalDriverSha256": "db2d3e2c30113caa98e881749a955dba93d64d37dd3b13d480867810db2e3b43"
+    },
+    {
+      "path": "/Users/weiwei/.codex/candidates/yairpg-laptop-customization-2026-10-12/g5/evidence/combined-feedback/storage-failure.cjs",
+      "copiedDriverSha256": "f70129e9ff89a5f8022a020b187f95ac1d77b6efce5d7233df53db88dc6a0663",
+      "originalDriverSha256": "f70129e9ff89a5f8022a020b187f95ac1d77b6efce5d7233df53db88dc6a0663"
+    },
+    {
+      "path": "/Users/weiwei/.codex/candidates/yairpg-laptop-customization-2026-10-12/g5/evidence/combined-feedback/audio-gesture.cjs",
+      "copiedDriverSha256": "b660544c79c396cf3a001727e588abd51211ae1632bbbf2b8359eef37b335381",
+      "originalDriverSha256": "0118b10854860c0063b69c321c1681348a97511efb00acf75b1ea47116dc1349"
+    }
+  ],
+  "copiedResultFilesRemoved": [
+    "LAPTOP_JOURNEY.json",
+    "LAPTOP_INSPECTION.json",
+    "COMBINED_DECISIONS.json",
+    "OLD_SAVE_RESULT.json",
+    "EDITOR_CRAFT_RESULT.json",
+    "COMBINED_THEME_RESULT.json",
+    "BINDING_RESULT.json",
+    "POINTER_CRAFT_RESULT.json",
+    "FOUNDATION_RESULT.json",
+    "combined-feedback/AUDIO_GESTURE_RESULT.json",
+    "combined-feedback/FINAL_SMOKE_RESULT.json",
+    "combined-feedback/STATUS_RESULT.json",
+    "combined-feedback/F7_BROWSER_RESULT.json",
+    "combined-feedback/FAILED_WRITE_RESULT.json",
+    "natural-route/RESULT.json"
+  ],
+  "changes": "Source defaults/current bundle hash bound to UI_SOURCE; discovered NPC-owned negative added. Assertions retained.",
+  "outputDirectory": "/Users/weiwei/.codex/candidates/yairpg-laptop-customization-2026-10-12/g5/evidence"
+}

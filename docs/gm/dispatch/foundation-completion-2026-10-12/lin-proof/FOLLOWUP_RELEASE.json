@@ -1,0 +1,28 @@
+{
+  "worker": "/root/lin_proof",
+  "reopenedScope": "only missing G2 provider funds/hands/departed contact native reasons",
+  "status": "delivered and released",
+  "bundle": "9b130b295f8464eb770f603afd68d31166569901bd9f0af2acda93192007fcae",
+  "sourceRuntimeBuildWrites": false,
+  "processes": {
+    "server": {
+      "pid": 18744,
+      "execSession": 7841,
+      "port": 18632,
+      "status": "Ctrl-C exit0"
+    },
+    "fixtureOpening": 22250,
+    "firstEligibilityRun": 41588,
+    "correctedExplanationRun": 23820,
+    "status": "browser runs exited0"
+  },
+  "qualification": "three source-valid controlled negative native imports; unavailable real work; pointer attempts unchanged cursor/jobs/claims/material/wage",
+  "sourceBoundRemainder": "site absence/authoring-invalid state not claimed as actual native eligibility",
+  "receiptHashes": {
+    "G2_NEGATIVE_FIXTURES.json": "46043372c91c39ed2e10cf225efae697fffceeba6079ebcc8208029ae3033ece",
+    "G2_NATIVE_ELIGIBILITY.json": "21de4e427512380979e830e1448cd642f456d4066d9444781d18dfb00faf7410",
+    "REPORT.md": "09088487ff2605c56e331a423df43e189285d3daa0a08b298f30fc16f3c33411"
+  },
+  "userSavesUsed": false,
+  "reservation": "lin-proof released to root; no owned browser/server remains"
+}

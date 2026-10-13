@@ -1,0 +1,7 @@
+{
+  "error": "page.waitForResponse: Target page, context or browser has been closed",
+  "errors": [],
+  "info": {
+    "readError": "page.evaluate: Target page, context or browser has been closed"
+  }
+}

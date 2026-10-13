@@ -1,6 +1,30 @@
 # Game master roles and local ownership
 
-Latest finite runtime delivery,2026-10-06: [audited parallel workshop wave](audit-implementation/DELIVERY.md), root01a10fe7-c3cd-79a2-86d0-2eba1fcfcefd, canonical revision20, bundle `0365f6afe27c`, **implemented-unverified**. Three disjoint internal workers and one source-only reviewer completed/released; root shared/canonical scope is released at this finite source/UI/build completion. [Resume/ownership](audit-implementation/CHECKPOINT.md), [remaining candidates](audit-implementation/QUEUE.json) and [deferred gates](audit-implementation/ACCEPTANCE_BACKLOG.md) own the next state. Prior Paradise/fieldcraft and Reference deliveries remain historical; current input/output hashes live in the new BUILD. No competing shared writer or background automation was started.
+Completed finite idea-planning return, 2026-10-11:
+[idea-expansion dispatch](dispatch/idea-expansion-2026-10-11/README.md). Seven
+internal agents delivered eight exact additive lane folders; root owns integration
+and checkpoint. 179 proposed cards/693 specified-not-run cases include prior
+ability VFX, native title/skill micro-audit, material/technology and independent
+coverage alongside starts, powers, life, continuity and engine seams. Engine and
+combined reviews passed; world-source and runtime acceptance remain open.
+Existing runtime/absorption owners remain separate.
+
+Whole-world audit/expansion entry point:
+[World Actionability GM](WORLD_ACTIONABILITY_GM_PROMPT.md). One world owner
+retains the setting; bounded source/life/start-cheat/engine specialists and a
+reviewer supply evidence and details. These are responsibilities to combine or
+split under actual host capacity, not mandatory permanent agents. The prompt
+returns a full blueprint and executable packets before runtime implementation.
+
+Current completion planning, 2026-10-11: use the
+[world/system completion standard](../WORLD_COMPLETION_STANDARD.md), linked
+contract and detail ledger templates. S00–S14 route the small details and their
+interaction cases to existing owners. [Public audit intake](completion/AUDIT_INTAKE.json)
+is inventoried only, with idea reconciliation pending. Starts are an independent
+section: suspenseful random entry, optional Frontier, actual actor knowledge and
+save-stable selection. Existing delivered statuses below remain wave-specific.
+
+Latest finite runtime delivery, 2026-10-06: [audited parallel workshop wave](audit-implementation/DELIVERY.md), root 01a10fe7-c3cd-79a2-86d0-2eba1fcfcefd, canonical revision 20, bundle `0365f6afe27c`, **implemented-unverified**. Three disjoint internal workers and one source-only reviewer completed/released; root shared/canonical scope is released at this finite source/UI/build completion. [Resume/ownership](audit-implementation/CHECKPOINT.md), [remaining candidates](audit-implementation/QUEUE.json) and [deferred gates](audit-implementation/ACCEPTANCE_BACKLOG.md) own the next state. Prior Paradise/fieldcraft and Reference deliveries remain historical; current input/output hashes live in the new BUILD. No competing shared writer or background automation was started.
 
 The [master prompt](../GAME_MASTER_PROMPT.md) coordinates the workflow. These are sibling specializations at the world-GM tier; implementers remain bounded leaves. User-visible specialist chats are authorized in the current session. Reusable prompts do not start chats or agents by themselves.
 
@@ -48,15 +72,15 @@ PROJECT's active checkpoint owns live statuses and returned thread IDs. After re
 
 ## Iteration across roles
 
-All active roles use the shared [autonomous iteration loop](../GAME_MASTER_PROMPT.md#autonomous-iteration). Reuse current owners and inspect actual output, adapt after evidence or steering, continue useful assigned work after a packet, and stop at the requested result. Design/source roles do not need to implement gameplay to finish their assigned finding; implementation roles do not finish at a plan. Current test deferral and delivery/acceptance distinctions remain in force.
+All active roles use the shared [autonomous iteration loop](../GAME_MASTER_PROMPT.md#autonomous-iteration). Reuse current owners and inspect actual output, adapt after evidence or steering, continue useful assigned work after a packet, and stop at the requested result. Design/source roles do not need to implement gameplay to finish their assigned finding; implementation roles do not finish at a plan. AGENTS.md Verification and delivery/acceptance distinctions remain in force; a deferral applies only when an assignment names it.
 
 ## Current expanded implementation wave, 2026-10-04
 
 [Capacity and succession](dispatch/GM_CAPACITY_AND_SUCCESSION.md) is the current human-authorized policy: project-wide four-role cap removed, bounded internal agents/useful project chats and fresh-context same-role successors permitted under actual host tools and exclusive ownership. [Parallel packet](dispatch/TRAILBLAZE_PARALLEL.md) owns the first code lanes; current queue/run/checkpoint track actual IDs and release. Current lanes: main native integration, World instances/content, Conceptual passage/boundary, Dialogue scenes, traveler/body profiles and Paradise source. Deferred tests are explicit; new native integration is unverified. Original opening/current baseline/private saves/attribution remain preserved.
 
-## Autonomous assigned goals, latest human authority2026-10-04
+## Autonomous assigned goals
 
-Assigned goals follow [autonomous completion/full books](dispatch/AUTONOMOUS_GOALS_AND_FULL_BOOKS.md) and the shared [iteration loop](../GAME_MASTER_PROMPT.md#autonomous-iteration). Packet/context boundaries are checkpoints. Preserve actual authority, source coverage, exclusive succession and current test deferral; stop at the assigned finite result.
+Follow the master prompt's [Autonomous assigned goals](../GAME_MASTER_PROMPT.md#autonomous-assigned-goals) and [Delegation and succession](../GAME_MASTER_PROMPT.md#delegation-and-succession). Stop at the assigned finite result.
 
 ## Instruction upgrade, 2026-10-06
 

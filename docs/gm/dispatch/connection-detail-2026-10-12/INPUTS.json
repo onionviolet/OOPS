@@ -1,0 +1,296 @@
+{
+  "revision": 2,
+  "recorded": "2026-10-12",
+  "head": "dd3efe3383f12f0aac22e4f390aae90fae2e7fc4",
+  "hashBoundary": "inspection-end baseline; hashes do not claim full read or clean git tree",
+  "inputs": [
+    {
+      "path": "AGENTS.md",
+      "sha256": "7fccb57130106b634ddce5190a0645724535c7a50faabd382bb235128290e288",
+      "inspection": "selected ranges/source symbols unless coverage states otherwise"
+    },
+    {
+      "path": "PROJECT.md",
+      "sha256": "46dab6f21ff9801bf1512b37b82582ed2ce49e37680736723187afdc6980be45",
+      "inspection": "selected ranges/source symbols unless coverage states otherwise"
+    },
+    {
+      "path": "docs/GAME_MASTER_PROMPT.md",
+      "sha256": "9524d382c81a981af02bd2cf9288f410fe9a09b9c6f8d99f7075c6245653de56",
+      "inspection": "selected ranges/source symbols unless coverage states otherwise"
+    },
+    {
+      "path": "docs/gm/MICRO_MESO_MACRO_IMPLEMENTATION_SUPPORT.md",
+      "sha256": "47ed79e22d512a5e2a5914a7bb5d8f140a1349298c46fd37990b68e5361d22d1",
+      "inspection": "selected ranges/source symbols unless coverage states otherwise"
+    },
+    {
+      "path": "docs/WORLD_COMPLETION_STANDARD.md",
+      "sha256": "e3c8ddc8c559204736d2ff5d8efdfd1e1f769fdbc5bc8ed2c6c86862169b2bf4",
+      "inspection": "selected ranges/source symbols unless coverage states otherwise"
+    },
+    {
+      "path": "docs/MEANS_AND_APPRAISAL.md",
+      "sha256": "149a85a6fea41b1fedee52ab225da318d0d76751e422bd3a4143dfbfda839bd6",
+      "inspection": "selected ranges/source symbols unless coverage states otherwise"
+    },
+    {
+      "path": "docs/worlds/ORIGINS_AND_WORLD_TIMELINES.md",
+      "sha256": "ff928265b787cbece0dcc7e4634df8f5bb4cd6009b70a0f8fe246fb66f4ed403",
+      "inspection": "selected ranges/source symbols unless coverage states otherwise"
+    },
+    {
+      "path": "docs/worlds/CAMPAIGN_FRAMEWORK.md",
+      "sha256": "679feddcd8572f75525cd598d54243353883ad86fd99a5584fa46dfb6e4d081d",
+      "inspection": "selected ranges/source symbols unless coverage states otherwise"
+    },
+    {
+      "path": "docs/worlds/original-frontier/WORLD_BRIEF.md",
+      "sha256": "7712218c9f268b5381946a68bb8af9ec0c9ed4317c372623987d258e360d5193",
+      "inspection": "selected ranges/source symbols unless coverage states otherwise"
+    },
+    {
+      "path": "docs/worlds/proto23/WORLD_BRIEF.md",
+      "sha256": "4d96a1e09ed8a89e8061e779f404caec58f25f720998bae89bb04b28b71fd131",
+      "inspection": "selected ranges/source symbols unless coverage states otherwise"
+    },
+    {
+      "path": "docs/worlds/proto23/IMPLEMENTATION_STATUS.md",
+      "sha256": "0ceade75734c289478352c4c855f4b8317071b838402c5bdbf7e67e720e4fe87",
+      "inspection": "selected ranges/source symbols unless coverage states otherwise"
+    },
+    {
+      "path": "docs/LIFE_SIM_NORTH_STAR.md",
+      "sha256": "ab84edd4d258fd2d2c5dfc62cf18e956e5e9f1835e182d4b257571441d1fd8b2",
+      "inspection": "selected ranges/source symbols unless coverage states otherwise"
+    },
+    {
+      "path": "docs/gm/dispatch/macro-micro-detail-2026-10-11/MANIFEST.json",
+      "sha256": "1027f5c2db04a55af158b905d031fc0eac1bf5ecd70296ebcde1111927c3212d",
+      "inspection": "selected ranges/source symbols unless coverage states otherwise"
+    },
+    {
+      "path": "docs/gm/dispatch/macro-micro-detail-2026-10-11/REPORT.md",
+      "sha256": "e7b8182e691b163220d6183503b33d9270b3e34cb6350f6f64ec9b701a8ae3de",
+      "inspection": "selected ranges/source symbols unless coverage states otherwise"
+    },
+    {
+      "path": "docs/gm/dispatch/starts-talents-continuity-2026-10-11/DETAIL_LEDGER.json",
+      "sha256": "931332265b5ab57a44ac60f40ee8b56f8a5cf12fd8443b8d077c1fa7d6f10dfd",
+      "inspection": "selected ranges/source symbols unless coverage states otherwise"
+    },
+    {
+      "path": "docs/gm/dispatch/starts-talents-continuity-2026-10-11/REPORT.md",
+      "sha256": "133fdf81877d1b36e35bdcc815a93eb59b5de6c63bb72253bfdc04c48eca924f",
+      "inspection": "selected ranges/source symbols unless coverage states otherwise"
+    },
+    {
+      "path": "docs/gm/dispatch/idea-expansion-2026-10-11/DETAIL_LEDGER.json",
+      "sha256": "3fe75c8f33d0ed57c2c067b232de0dd64e3fc364ab3a34ba5e8e4d6123cfae54",
+      "inspection": "selected ranges/source symbols unless coverage states otherwise"
+    },
+    {
+      "path": "docs/gm/dispatch/minigames-2026-10-11/REPORT.md",
+      "sha256": "b5dbd1224848ed2f0c4357e2f7f7ce9a3e7ee4cab8a9a96eb2d6e909b5e4da20",
+      "inspection": "selected ranges/source symbols unless coverage states otherwise"
+    },
+    {
+      "path": "src/main.js",
+      "sha256": "18c3b69d47a0e7eeaf113c5e392a4435587638c6e56fb003989bf1da8c502035",
+      "inspection": "selected ranges/source symbols unless coverage states otherwise"
+    },
+    {
+      "path": "src/structured_pack_runtime.js",
+      "sha256": "67661360d5875ebd4daa3166a41f569a999671e8bcb12b3f741e70c67bdc5661",
+      "inspection": "selected ranges/source symbols unless coverage states otherwise"
+    },
+    {
+      "path": "src/structured_pack_state.js",
+      "sha256": "8565b66675eca5dfec3f81c4a449b7d147baaa22fab49fb96a57c574994dcb10",
+      "inspection": "selected ranges/source symbols unless coverage states otherwise"
+    },
+    {
+      "path": "src/structured_pack_definitions.js",
+      "sha256": "73ecc5cdee21b422670fd3f211a220c605501f2879dd1b3c2bec02f08ea6c62e",
+      "inspection": "selected ranges/source symbols unless coverage states otherwise"
+    },
+    {
+      "path": "src/simulation.js",
+      "sha256": "4de64133474c6c61035fd931bc5d5099a311e09100269d83b862e3016f40ea24",
+      "inspection": "selected ranges/source symbols unless coverage states otherwise"
+    },
+    {
+      "path": "src/simulation_effects.js",
+      "sha256": "c803e81778a260916d2b96771ebef0a501090db0609c3314c1151c67c6f3b502",
+      "inspection": "selected ranges/source symbols unless coverage states otherwise"
+    },
+    {
+      "path": "src/simulation_contracts.js",
+      "sha256": "c4d56bfe33f7e89dda8788e44760060363193190f1bb909ca39d6a25a6e554be",
+      "inspection": "selected ranges/source symbols unless coverage states otherwise"
+    },
+    {
+      "path": "src/crush_social_content.js",
+      "sha256": "d86b864863bdb516aec260cfcb63db077a37cee0c83f7407ea26d3216d2bc7ba",
+      "inspection": "selected ranges/source symbols unless coverage states otherwise"
+    },
+    {
+      "path": "src/crush_social_host.js",
+      "sha256": "e3ab705936e938ba30c9c469ce23e14b362e672d9931589e7c7181fa185a0333",
+      "inspection": "selected ranges/source symbols unless coverage states otherwise"
+    },
+    {
+      "path": "src/crush_social_views.js",
+      "sha256": "3c78862b88d3ecda48ac93a9c6af02faf82645615ed9a1bae771fd8affc086ed",
+      "inspection": "selected ranges/source symbols unless coverage states otherwise"
+    },
+    {
+      "path": "src/village_career.js",
+      "sha256": "6e8cf84ace080b1955ff4c21e32b11fbc78c52ac1728ac989c66593aada2f962",
+      "inspection": "selected ranges/source symbols unless coverage states otherwise"
+    },
+    {
+      "path": "src/world_instances.js",
+      "sha256": "cf15bd3c1d34153c541617fdd83a45d9b9faddd98b64b20edd0160d9547720fd",
+      "inspection": "selected ranges/source symbols unless coverage states otherwise"
+    },
+    {
+      "path": "src/realm_clock_leases.js",
+      "sha256": "2daa0cd9778f52e5e2d69834fe65aa87b643d14f3ec7f49f8aae3a5c7718cb3e",
+      "inspection": "selected ranges/source symbols unless coverage states otherwise"
+    },
+    {
+      "path": "src/native_realm_traveler.js",
+      "sha256": "9c06b1fb6381781e000e6187220e9e005cd40b13eb356402a3bd9b52e48b9c51",
+      "inspection": "selected ranges/source symbols unless coverage states otherwise"
+    },
+    {
+      "path": "src/everyday_life.js",
+      "sha256": "48245620df7273b720afd230b130341e06e5cc5e08c3ff32b071cd2485e0d9df",
+      "inspection": "specialist selected source ranges/symbols, source-only; baseline recorded at integrated review"
+    },
+    {
+      "path": "src/life_record.js",
+      "sha256": "21ac5f17fff62794ba26d7180deb6a9c0ad85060d79134e5d6ce83de51d1d9bd",
+      "inspection": "specialist selected source ranges/symbols, source-only; baseline recorded at integrated review"
+    },
+    {
+      "path": "src/proto23_world_content.js",
+      "sha256": "b7787e8d88d64b9adb3340896ed50ea12ca6625808188758aac4aa85a0db1a39",
+      "inspection": "specialist selected source ranges/symbols, source-only; baseline recorded at integrated review"
+    },
+    {
+      "path": "src/proto23_world_actions.js",
+      "sha256": "bce1a1b809448f76812a4c900415d5cfbd05ec62a4d1f97fcb12ea9c23f96303",
+      "inspection": "specialist selected source ranges/symbols, source-only; baseline recorded at integrated review"
+    },
+    {
+      "path": "src/proto23_world_state.js",
+      "sha256": "c9daf321a3d481bf716210e79587c77feb4e34e48bbf897e1b1357d717352524",
+      "inspection": "specialist selected source ranges/symbols, source-only; baseline recorded at integrated review"
+    },
+    {
+      "path": "src/proto23_world_host.js",
+      "sha256": "a9da4d20a50710d396c6bdb290d1ec72f70de562f427fc2f6674a33c63c3e9f8",
+      "inspection": "specialist selected source ranges/symbols, source-only; baseline recorded at integrated review"
+    },
+    {
+      "path": "src/field_workshop.js",
+      "sha256": "b9ab567ff075e1a4cb224d1e464dff07befeaedd935afb31f46e4ebdf4d86b05",
+      "inspection": "specialist selected source ranges/symbols, source-only; baseline recorded at integrated review"
+    },
+    {
+      "path": "src/action_legibility.js",
+      "sha256": "c5eef75524b22bc6accbde8ad3d40e3d5e7cdf71cf608d461c4082a594b59d4d",
+      "inspection": "specialist selected source ranges/symbols, source-only; baseline recorded at integrated review"
+    },
+    {
+      "path": "src/causal_situations.js",
+      "sha256": "3bd9a375ce95f9666cbf8081706272c3358186f647681a7db2330f328a2d0366",
+      "inspection": "specialist selected source ranges/symbols, source-only; baseline recorded at integrated review"
+    },
+    {
+      "path": "src/character_creation.js",
+      "sha256": "f694b250830aaa50763bbe292367a7e8cf3c4b0c80ed851459d171257143024e",
+      "inspection": "specialist selected source ranges/symbols, source-only; baseline recorded at integrated review"
+    },
+    {
+      "path": "src/feature_expansion_nested_life.js",
+      "sha256": "55ac52bdeb23c0ee6f9460f6a055a9ce35085c2718cfe1b48e114a0c231b5cd0",
+      "inspection": "specialist selected source ranges/symbols, source-only; baseline recorded at integrated review"
+    },
+    {
+      "path": "src/feature_expansion_society.js",
+      "sha256": "13a3a22fcb523ab5f145aab1e2381ea40211a327f322d121e9fe62d99a481e8f",
+      "inspection": "specialist selected source ranges/symbols, source-only; baseline recorded at integrated review"
+    },
+    {
+      "path": "src/feature_expansion_society_host.js",
+      "sha256": "7e313f7dc2ce6ac2f2f7e7a08a49c207e43949ea71de08c4e85f6809cff610be",
+      "inspection": "specialist selected source ranges/symbols, source-only; baseline recorded at integrated review"
+    },
+    {
+      "path": "src/game_absorption_assay_content.js",
+      "sha256": "bc2a2e08c46c5f388fe34e856d070e35051ac4dd74fed12dbe7284312f989ca7",
+      "inspection": "specialist selected source ranges/symbols, source-only; baseline recorded at integrated review"
+    },
+    {
+      "path": "src/native_gameplay_adapter.js",
+      "sha256": "48d511cafef1f50c6f6fdb5727354bffa6f5cb049e5cf3030420e0568105ca6b",
+      "inspection": "specialist selected source ranges/symbols, source-only; baseline recorded at integrated review"
+    },
+    {
+      "path": "src/expansion_persistence.js",
+      "sha256": "779a82715884c48f3d2338816d76b90e5e894b625f2fb7daec174091c73bc966",
+      "inspection": "specialist selected source ranges/symbols, source-only; baseline recorded at integrated review"
+    },
+    {
+      "path": "src/content_packs.js",
+      "sha256": "399730352eac8882361d17ef055042ec6e7337859bf905d6a6d1b6d7ad045255",
+      "inspection": "specialist selected source ranges/symbols, source-only; baseline recorded at integrated review"
+    },
+    {
+      "path": "src/save_files.js",
+      "sha256": "6be05fcc757617a1304c65c68051042a59cad03216979221f1213d4011b06500",
+      "inspection": "specialist selected source ranges/symbols, source-only; baseline recorded at integrated review"
+    },
+    {
+      "path": "src/structured_pack_ui.js",
+      "sha256": "9059e0c25855d0065357044b58846f71dbe3190dadf4289e73cae5b48b2d9c82",
+      "inspection": "specialist selected source ranges/symbols, source-only; baseline recorded at integrated review"
+    },
+    {
+      "path": "src/power_models.js",
+      "sha256": "cbf6d86aea5cdfd1fda9bb39dddb208944c210e91c60196283f5ea731d3c23b7",
+      "inspection": "specialist selected source ranges/symbols, source-only; baseline recorded at integrated review"
+    },
+    {
+      "path": "src/realm_state.js",
+      "sha256": "9bf436dd0e40f1f6de8a5db48baeab2e75cf012386c889d8c01207dbd76cfa0f",
+      "inspection": "specialist selected source ranges/symbols, source-only; baseline recorded at integrated review"
+    },
+    {
+      "path": "src/observation_channels.js",
+      "sha256": "fa1ae671a2d4864c4589f185e47884b9feb0fa74908bf0c24e567b1f11fb0314",
+      "inspection": "specialist selected source ranges/symbols, source-only; baseline recorded at integrated review"
+    },
+    {
+      "path": "tests/structured_pack_definitions.test.js",
+      "sha256": "b507abfff136825ef48ef4d9f53cb38baf67d9267b0f29c81e9db2828b1f2932",
+      "inspection": "specialist selected source ranges/symbols, source-only; baseline recorded at integrated review"
+    }
+  ],
+  "driftReinspection": [
+    {
+      "path": "src/main.js",
+      "sha256": "549e39552e549e89dd9d984e34b8efc40156258f12a9e674444ebbb8b7e2fbd3",
+      "ranges": [
+        "737\u2013758 definition/writer gate",
+        "845\u2013890 durable storage-before-publication",
+        "1023\u20131055 typed pending selection/action/cancel",
+        "7793\u20137814 native structured registration"
+      ],
+      "result": "Referenced typed beginning, exact-content, action/cancel and durable staged publication meanings still present. Function definition corrected to737; registration offset moved. Whole concurrent diff not audited; runtime proof remains unrun."
+    }
+  ]
+}

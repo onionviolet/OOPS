@@ -15,7 +15,7 @@ export const INK_COMPILER_PIN = Object.freeze({
     storyFormat: 21,
     saveFormat: 10,
     storyId: 'feature-wave-negotiation',
-    storyRevision: 3,
+    storyRevision: 4,
     sceneIds: ['tidemark.negotiation', 'relay.office', 'nested.hub', 'nested.offer', 'nested.mission', 'nested.return'],
     metadataVersion: 1,
     integrity: 'sha512-EoPCYESIbMtfI8SqEDZCJwn+A5is0QozMLw250iic1ReJCgZpRKIezWj0VqgRUzAx0f3MmEbsUjY/ILe2815JQ==',
@@ -135,7 +135,7 @@ export async function compileFeatureInk({
     // Inspect generated choice evaluation strings, without Continue/selection.
     // A tag on chosen output cannot bind an offered choice to a host command.
     const responseIds = new Set();
-    const allowedResponses = new Set(['ask_terms', 'material', 'coin', 'borrow_tool', 'return_tool', 'use_tool', 'teach', 'refuse', 'leave', 'relay_terms', 'relay_honest', 'relay_alias', 'relay_credential', 'relay_registry', 'relay_personal', 'relay_office', 'relay_work', 'relay_correction', 'relay_refuse', 'relay_leave', 'nested_hub_terms', 'nested_hub_work', 'nested_hub_train', 'nested_hub_refit', 'nested_hub_role', 'nested_hub_leave', 'nested_offer_terms', 'nested_offer_accept', 'nested_offer_cooperate', 'nested_offer_decline', 'nested_offer_leave', 'nested_local_report', 'nested_local_objective', 'nested_local_support', 'nested_local_extend', 'nested_local_withdraw', 'nested_local_extract', 'nested_local_recover', 'nested_local_refuse', 'nested_local_leave', 'nested_return_report', 'nested_return_settle', 'nested_return_dispute', 'nested_return_refit', 'nested_return_revisit', 'nested_return_stay', 'nested_return_leave']);
+    const allowedResponses = new Set(['ask_terms', 'material', 'coin', 'borrow_tool', 'return_tool', 'use_tool', 'teach', 'refuse', 'leave', 'relay_terms', 'relay_honest', 'relay_alias', 'relay_credential', 'relay_registry', 'relay_personal', 'relay_office', 'relay_work', 'relay_correction', 'relay_refuse', 'relay_leave', 'nested_lin_open', 'nested_lin_work', 'nested_lin_refuse', 'nested_lin_texture', 'nested_lin_account', 'nested_lin_supply', 'nested_hub_terms', 'nested_hub_work', 'nested_hub_train', 'nested_hub_refit', 'nested_hub_role', 'nested_hub_leave', 'nested_offer_terms', 'nested_offer_accept', 'nested_offer_cooperate', 'nested_offer_decline', 'nested_offer_leave', 'nested_local_report', 'nested_local_objective', 'nested_local_support', 'nested_local_extend', 'nested_local_withdraw', 'nested_local_extract', 'nested_local_recover', 'nested_local_refuse', 'nested_local_leave', 'nested_return_report', 'nested_return_settle', 'nested_return_dispute', 'nested_return_refit', 'nested_return_revisit', 'nested_return_stay', 'nested_return_leave']);
     function checkChoiceTags(value) {
         if (Array.isArray(value)) {
             let segment = [];

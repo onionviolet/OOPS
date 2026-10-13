@@ -1,0 +1,106 @@
+TAP version 13
+# Subtest: SOURCE reserve 4 and held 3 reserve nothing and add no polling; released 2 starts one frozen batch
+ok 1 - SOURCE reserve 4 and held 3 reserve nothing and add no polling; released 2 starts one frozen batch
+  ---
+  duration_ms: 94.423584
+  type: 'test'
+  ...
+# Subtest: SOURCE previously released 3 completes full two-kit output at 5
+ok 2 - SOURCE previously released 3 completes full two-kit output at 5
+  ---
+  duration_ms: 43.81125
+  type: 'test'
+  ...
+# Subtest: SOURCE accepted support failure refunds, uses slot, pauses without silent restart; explicit resume consumes remainder
+ok 3 - SOURCE accepted support failure refunds, uses slot, pauses without silent restart; explicit resume consumes remainder
+  ---
+  duration_ms: 76.999167
+  type: 'test'
+  ...
+# Subtest: SOURCE future cancellation retains accepted job; current cancellation refunds it once
+ok 4 - SOURCE future cancellation retains accepted job; current cancellation refunds it once
+  ---
+  duration_ms: 54.539917
+  type: 'test'
+  ...
+# Subtest: SOURCE depleted inputs and manual pause do not silently restart; forged control rejected
+ok 5 - SOURCE depleted inputs and manual pause do not silently restart; forged control rejected
+  ---
+  duration_ms: 48.538666
+  type: 'test'
+  ...
+# Subtest: SOURCE carried reserve excludes custody, equipped, foreign and invalid stock
+ok 6 - SOURCE carried reserve excludes custody, equipped, foreign and invalid stock
+  ---
+  duration_ms: 27.726083
+  type: 'test'
+  ...
+# Subtest: SOURCE body, realm, location, clock and occupied bench block reserve admission or pause without charge
+ok 7 - SOURCE body, realm, location, clock and occupied bench block reserve admission or pause without charge
+  ---
+  duration_ms: 173.970375
+  type: 'test'
+  ...
+# Subtest: SOURCE root2 policy/receipt corruption rejects while exact held and pending clones restore
+ok 8 - SOURCE root2 policy/receipt corruption rejects while exact held and pending clones restore
+  ---
+  duration_ms: 80.99075
+  type: 'test'
+  ...
+# Subtest: SOURCE selected existing old measured-pack program spends each batch, completes, depletes and refunds current work
+ok 9 - SOURCE selected existing old measured-pack program spends each batch, completes, depletes and refunds current work
+  ---
+  duration_ms: 64.843834
+  type: 'test'
+  ...
+# Subtest: SOURCE actual legacy household mixed plan waits for resident and manual travel then produces useful kit
+ok 10 - SOURCE actual legacy household mixed plan waits for resident and manual travel then produces useful kit
+  ---
+  duration_ms: 177.523167
+  type: 'test'
+  ...
+# Subtest: SOURCE repository previews reserve nothing, selected next job only reserves current inputs and stale request rejects
+ok 11 - SOURCE repository previews reserve nothing, selected next job only reserves current inputs and stale request rejects
+  ---
+  duration_ms: 104.294417
+  type: 'test'
+  ...
+# Subtest: SOURCE repository exact 3 singles then pair remain manual proposals; current means lost rejects old suggestion
+ok 12 - SOURCE repository exact 3 singles then pair remain manual proposals; current means lost rejects old suggestion
+  ---
+  duration_ms: 274.2505
+  type: 'test'
+  ...
+# Subtest: SOURCE durable reserve staging publishes nothing on quota rejection; one retry preserves exact staged stock
+ok 13 - SOURCE durable reserve staging publishes nothing on quota rejection; one retry preserves exact staged stock
+  ---
+  duration_ms: 35.686583
+  type: 'test'
+  ...
+# Subtest: SOURCE repository stock band is 1/2 one-job proposal bounded at six and useful protected-kit consumer spends actual output
+ok 14 - SOURCE repository stock band is 1/2 one-job proposal bounded at six and useful protected-kit consumer spends actual output
+  ---
+  duration_ms: 201.79875
+  type: 'test'
+  ...
+# Subtest: SOURCE reserve attention/native activity and stamina loss pause without debit; restoring means needs explicit resume
+ok 15 - SOURCE reserve attention/native activity and stamina loss pause without debit; restoring means needs explicit resume
+  ---
+  duration_ms: 89.216292
+  type: 'test'
+  ...
+# Subtest: SOURCE actual mixed plan depletion and colleague attention pause; restoring stock never silently resumes
+ok 16 - SOURCE actual mixed plan depletion and colleague attention pause; restoring stock never silently resumes
+  ---
+  duration_ms: 110.652709
+  type: 'test'
+  ...
+1..16
+# tests 16
+# suites 0
+# pass 16
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 1849.41625

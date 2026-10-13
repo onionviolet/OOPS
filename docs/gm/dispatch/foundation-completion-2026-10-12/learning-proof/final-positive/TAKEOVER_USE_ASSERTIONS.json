@@ -1,0 +1,20 @@
+{
+  "bundle": "cabf15ab8c078dce08e569514ae30bff782599e0d353374c2f9ed1da4438096c",
+  "checks": {
+    "actualNeriStampedInput": true,
+    "actualCoverOnce": true,
+    "fiveActualHerbs": true,
+    "stripConsumedOnce": true,
+    "coveredFinitePlot": true,
+    "normalReloadExactExpansion": true,
+    "literalFileImportExactExpansion": true,
+    "reloadImportInventory": true
+  },
+  "workflow": "WORKFLOW_15338.jsonl",
+  "session": "SESSION_15338.json",
+  "recovery": "WORKFLOW_69832 exact recorded final-positive-received-reloaded state; no resource/history changes",
+  "artifacts": {
+    "takeover-cover-used": "8a89bc9198738c2aa06dac8f96e20c6d9cefce563a519e9bdad4b2ebb9b77c42",
+    "takeover-cover-imported": "9e4ef2e96e0decada4fe6ac121e0b5acdc87e7a2cfad5fab3c205a60c8f5cfe9"
+  }
+}

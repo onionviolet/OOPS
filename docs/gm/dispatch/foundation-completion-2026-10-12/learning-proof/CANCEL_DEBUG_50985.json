@@ -1,0 +1,530 @@
+[
+  {
+    "reason": "exception",
+    "exception": "SyntaxError: \"undefined\" is not valid JSON\n    at JSON.parse (<anonymous>)\n    at DR (http://127.0.0.1:18643/dist/bundle.js?version=v0.6-c0a5e5cccd37:108:114878)\n    at K6 (http://127.0.0.1:18643/dist/bundle.js?version=v0.6-c0a5e5cccd37:108:118226)\n    at fF (http://127.0.0.1:18643/dist/bundle.js?version=v0.6-c0a5e5cccd37:108:798816)\n    at Object.lB [as context] (http://127.0.0.1:18643/dist/bundle.js?version=v0.6-c0a5e5cccd37:1033:28674)\n    at http://127.0.0.1:18643/dist/bundle.js?version=v0.6-c0a5e5cccd37:1033:38667\n    at Array.reduce (<anonymous>)\n    at nSe (http://127.0.0.1:18643/dist/bundle.js?version=v0.6-c0a5e5cccd37:1033:38651)\n    at vh (http://127.0.0.1:18643/dist/bundle.js?version=v0.6-c0a5e5cccd37:1050:308442)\n    at Nse (http://127.0.0.1:18643/dist/bundle.js?version=v0.6-c0a5e5cccd37:1050:308559)",
+    "frames": [
+      {
+        "functionName": "DR",
+        "url": "",
+        "location": {
+          "scriptId": "6",
+          "lineNumber": 107,
+          "columnNumber": 114877
+        }
+      },
+      {
+        "functionName": "K6",
+        "url": "",
+        "location": {
+          "scriptId": "6",
+          "lineNumber": 107,
+          "columnNumber": 118225
+        }
+      },
+      {
+        "functionName": "fF",
+        "url": "",
+        "location": {
+          "scriptId": "6",
+          "lineNumber": 107,
+          "columnNumber": 798815
+        }
+      },
+      {
+        "functionName": "lB",
+        "url": "",
+        "location": {
+          "scriptId": "6",
+          "lineNumber": 1032,
+          "columnNumber": 28673
+        }
+      },
+      {
+        "functionName": "",
+        "url": "",
+        "location": {
+          "scriptId": "6",
+          "lineNumber": 1032,
+          "columnNumber": 38666
+        }
+      },
+      {
+        "functionName": "nSe",
+        "url": "",
+        "location": {
+          "scriptId": "6",
+          "lineNumber": 1032,
+          "columnNumber": 38650
+        }
+      },
+      {
+        "functionName": "vh",
+        "url": "",
+        "location": {
+          "scriptId": "6",
+          "lineNumber": 1049,
+          "columnNumber": 308441
+        }
+      },
+      {
+        "functionName": "Nse",
+        "url": "",
+        "location": {
+          "scriptId": "6",
+          "lineNumber": 1049,
+          "columnNumber": 308558
+        }
+      },
+      {
+        "functionName": "onAction",
+        "url": "",
+        "location": {
+          "scriptId": "6",
+          "lineNumber": 1032,
+          "columnNumber": 749256
+        }
+      },
+      {
+        "functionName": "A",
+        "url": "",
+        "location": {
+          "scriptId": "6",
+          "lineNumber": 1032,
+          "columnNumber": 523066
+        }
+      },
+      {
+        "functionName": "M.actionButton.onclick",
+        "url": "",
+        "location": {
+          "scriptId": "6",
+          "lineNumber": 1032,
+          "columnNumber": 526731
+        }
+      },
+      {
+        "functionName": "",
+        "url": "",
+        "location": {
+          "scriptId": "45470",
+          "lineNumber": 0,
+          "columnNumber": 319
+        }
+      },
+      {
+        "functionName": "evaluate",
+        "url": "",
+        "location": {
+          "scriptId": "10",
+          "lineNumber": 312,
+          "columnNumber": 15
+        }
+      },
+      {
+        "functionName": "",
+        "url": "",
+        "location": {
+          "scriptId": "45469",
+          "lineNumber": 0,
+          "columnNumber": 43
+        }
+      }
+    ]
+  },
+  {
+    "reason": "exception",
+    "exception": "SyntaxError: \"undefined\" is not valid JSON\n    at JSON.parse (<anonymous>)\n    at DR (http://127.0.0.1:18643/dist/bundle.js?version=v0.6-c0a5e5cccd37:108:114878)\n    at K6 (http://127.0.0.1:18643/dist/bundle.js?version=v0.6-c0a5e5cccd37:108:118226)\n    at fF (http://127.0.0.1:18643/dist/bundle.js?version=v0.6-c0a5e5cccd37:108:798816)\n    at fme (http://127.0.0.1:18643/dist/bundle.js?version=v0.6-c0a5e5cccd37:108:826515)\n    at Dr (http://127.0.0.1:18643/dist/bundle.js?version=v0.6-c0a5e5cccd37:962:362956)\n    at zt (http://127.0.0.1:18643/dist/bundle.js?version=v0.6-c0a5e5cccd37:962:367264)\n    at Vt (http://127.0.0.1:18643/dist/bundle.js?version=v0.6-c0a5e5cccd37:962:406184)\n    at GSe (http://127.0.0.1:18643/dist/bundle.js?version=v0.6-c0a5e5cccd37:1033:96218)\n    at Nse (http://127.0.0.1:18643/dist/bundle.js?version=v0.6-c0a5e5cccd37:1050:309179)",
+    "frames": [
+      {
+        "functionName": "DR",
+        "url": "",
+        "location": {
+          "scriptId": "6",
+          "lineNumber": 107,
+          "columnNumber": 114877
+        }
+      },
+      {
+        "functionName": "K6",
+        "url": "",
+        "location": {
+          "scriptId": "6",
+          "lineNumber": 107,
+          "columnNumber": 118225
+        }
+      },
+      {
+        "functionName": "fF",
+        "url": "",
+        "location": {
+          "scriptId": "6",
+          "lineNumber": 107,
+          "columnNumber": 798815
+        }
+      },
+      {
+        "functionName": "fme",
+        "url": "",
+        "location": {
+          "scriptId": "6",
+          "lineNumber": 107,
+          "columnNumber": 826514
+        }
+      },
+      {
+        "functionName": "Dr",
+        "url": "",
+        "location": {
+          "scriptId": "6",
+          "lineNumber": 961,
+          "columnNumber": 362955
+        }
+      },
+      {
+        "functionName": "zt",
+        "url": "",
+        "location": {
+          "scriptId": "6",
+          "lineNumber": 961,
+          "columnNumber": 367263
+        }
+      },
+      {
+        "functionName": "Vt",
+        "url": "",
+        "location": {
+          "scriptId": "6",
+          "lineNumber": 961,
+          "columnNumber": 406183
+        }
+      },
+      {
+        "functionName": "GSe",
+        "url": "",
+        "location": {
+          "scriptId": "6",
+          "lineNumber": 1032,
+          "columnNumber": 96217
+        }
+      },
+      {
+        "functionName": "Nse",
+        "url": "",
+        "location": {
+          "scriptId": "6",
+          "lineNumber": 1049,
+          "columnNumber": 309178
+        }
+      },
+      {
+        "functionName": "onAction",
+        "url": "",
+        "location": {
+          "scriptId": "6",
+          "lineNumber": 1032,
+          "columnNumber": 749256
+        }
+      },
+      {
+        "functionName": "A",
+        "url": "",
+        "location": {
+          "scriptId": "6",
+          "lineNumber": 1032,
+          "columnNumber": 523066
+        }
+      },
+      {
+        "functionName": "M.actionButton.onclick",
+        "url": "",
+        "location": {
+          "scriptId": "6",
+          "lineNumber": 1032,
+          "columnNumber": 526731
+        }
+      },
+      {
+        "functionName": "",
+        "url": "",
+        "location": {
+          "scriptId": "45470",
+          "lineNumber": 0,
+          "columnNumber": 319
+        }
+      },
+      {
+        "functionName": "evaluate",
+        "url": "",
+        "location": {
+          "scriptId": "10",
+          "lineNumber": 312,
+          "columnNumber": 15
+        }
+      },
+      {
+        "functionName": "",
+        "url": "",
+        "location": {
+          "scriptId": "45469",
+          "lineNumber": 0,
+          "columnNumber": 43
+        }
+      }
+    ]
+  },
+  {
+    "reason": "exception",
+    "exception": "SyntaxError: \"undefined\" is not valid JSON\n    at JSON.parse (<anonymous>)\n    at DR (http://127.0.0.1:18643/dist/bundle.js?version=v0.6-c0a5e5cccd37:108:114878)\n    at K6 (http://127.0.0.1:18643/dist/bundle.js?version=v0.6-c0a5e5cccd37:108:118226)\n    at fF (http://127.0.0.1:18643/dist/bundle.js?version=v0.6-c0a5e5cccd37:108:798816)\n    at fme (http://127.0.0.1:18643/dist/bundle.js?version=v0.6-c0a5e5cccd37:108:826515)\n    at Dr (http://127.0.0.1:18643/dist/bundle.js?version=v0.6-c0a5e5cccd37:962:362956)\n    at zt (http://127.0.0.1:18643/dist/bundle.js?version=v0.6-c0a5e5cccd37:962:367264)\n    at Vt (http://127.0.0.1:18643/dist/bundle.js?version=v0.6-c0a5e5cccd37:962:406614)\n    at GSe (http://127.0.0.1:18643/dist/bundle.js?version=v0.6-c0a5e5cccd37:1033:96218)\n    at Nse (http://127.0.0.1:18643/dist/bundle.js?version=v0.6-c0a5e5cccd37:1050:309179)",
+    "frames": [
+      {
+        "functionName": "DR",
+        "url": "",
+        "location": {
+          "scriptId": "6",
+          "lineNumber": 107,
+          "columnNumber": 114877
+        }
+      },
+      {
+        "functionName": "K6",
+        "url": "",
+        "location": {
+          "scriptId": "6",
+          "lineNumber": 107,
+          "columnNumber": 118225
+        }
+      },
+      {
+        "functionName": "fF",
+        "url": "",
+        "location": {
+          "scriptId": "6",
+          "lineNumber": 107,
+          "columnNumber": 798815
+        }
+      },
+      {
+        "functionName": "fme",
+        "url": "",
+        "location": {
+          "scriptId": "6",
+          "lineNumber": 107,
+          "columnNumber": 826514
+        }
+      },
+      {
+        "functionName": "Dr",
+        "url": "",
+        "location": {
+          "scriptId": "6",
+          "lineNumber": 961,
+          "columnNumber": 362955
+        }
+      },
+      {
+        "functionName": "zt",
+        "url": "",
+        "location": {
+          "scriptId": "6",
+          "lineNumber": 961,
+          "columnNumber": 367263
+        }
+      },
+      {
+        "functionName": "Vt",
+        "url": "",
+        "location": {
+          "scriptId": "6",
+          "lineNumber": 961,
+          "columnNumber": 406613
+        }
+      },
+      {
+        "functionName": "GSe",
+        "url": "",
+        "location": {
+          "scriptId": "6",
+          "lineNumber": 1032,
+          "columnNumber": 96217
+        }
+      },
+      {
+        "functionName": "Nse",
+        "url": "",
+        "location": {
+          "scriptId": "6",
+          "lineNumber": 1049,
+          "columnNumber": 309178
+        }
+      },
+      {
+        "functionName": "onAction",
+        "url": "",
+        "location": {
+          "scriptId": "6",
+          "lineNumber": 1032,
+          "columnNumber": 749256
+        }
+      },
+      {
+        "functionName": "A",
+        "url": "",
+        "location": {
+          "scriptId": "6",
+          "lineNumber": 1032,
+          "columnNumber": 523066
+        }
+      },
+      {
+        "functionName": "M.actionButton.onclick",
+        "url": "",
+        "location": {
+          "scriptId": "6",
+          "lineNumber": 1032,
+          "columnNumber": 526731
+        }
+      },
+      {
+        "functionName": "",
+        "url": "",
+        "location": {
+          "scriptId": "45470",
+          "lineNumber": 0,
+          "columnNumber": 319
+        }
+      },
+      {
+        "functionName": "evaluate",
+        "url": "",
+        "location": {
+          "scriptId": "10",
+          "lineNumber": 312,
+          "columnNumber": 15
+        }
+      },
+      {
+        "functionName": "",
+        "url": "",
+        "location": {
+          "scriptId": "45469",
+          "lineNumber": 0,
+          "columnNumber": 43
+        }
+      }
+    ]
+  },
+  {
+    "reason": "exception",
+    "exception": "Error: Use the current connected-world controls and their physical quote.\n    at _ (http://127.0.0.1:18643/dist/bundle.js?version=v0.6-c0a5e5cccd37:108:335257)\n    at xU (http://127.0.0.1:18643/dist/bundle.js?version=v0.6-c0a5e5cccd37:962:396229)\n    at Oe (http://127.0.0.1:18643/dist/bundle.js?version=v0.6-c0a5e5cccd37:962:401732)\n    at fae (http://127.0.0.1:18643/dist/bundle.js?version=v0.6-c0a5e5cccd37:1033:93501)\n    at GSe (http://127.0.0.1:18643/dist/bundle.js?version=v0.6-c0a5e5cccd37:1033:96385)\n    at Nse (http://127.0.0.1:18643/dist/bundle.js?version=v0.6-c0a5e5cccd37:1050:309179)\n    at onAction (http://127.0.0.1:18643/dist/bundle.js?version=v0.6-c0a5e5cccd37:1033:749257)\n    at A (http://127.0.0.1:18643/dist/bundle.js?version=v0.6-c0a5e5cccd37:1033:523067)\n    at M.actionButton.onclick (http://127.0.0.1:18643/dist/bundle.js?version=v0.6-c0a5e5cccd37:1033:526732)\n    at eval (eval at evaluate (:311:30), <anonymous>:1:320)",
+    "frames": [
+      {
+        "functionName": "_",
+        "url": "",
+        "location": {
+          "scriptId": "6",
+          "lineNumber": 107,
+          "columnNumber": 335250
+        }
+      },
+      {
+        "functionName": "xU",
+        "url": "",
+        "location": {
+          "scriptId": "6",
+          "lineNumber": 961,
+          "columnNumber": 396228
+        }
+      },
+      {
+        "functionName": "Oe",
+        "url": "",
+        "location": {
+          "scriptId": "6",
+          "lineNumber": 961,
+          "columnNumber": 401731
+        }
+      },
+      {
+        "functionName": "fae",
+        "url": "",
+        "location": {
+          "scriptId": "6",
+          "lineNumber": 1032,
+          "columnNumber": 93500
+        }
+      },
+      {
+        "functionName": "GSe",
+        "url": "",
+        "location": {
+          "scriptId": "6",
+          "lineNumber": 1032,
+          "columnNumber": 96384
+        }
+      },
+      {
+        "functionName": "Nse",
+        "url": "",
+        "location": {
+          "scriptId": "6",
+          "lineNumber": 1049,
+          "columnNumber": 309178
+        }
+      },
+      {
+        "functionName": "onAction",
+        "url": "",
+        "location": {
+          "scriptId": "6",
+          "lineNumber": 1032,
+          "columnNumber": 749256
+        }
+      },
+      {
+        "functionName": "A",
+        "url": "",
+        "location": {
+          "scriptId": "6",
+          "lineNumber": 1032,
+          "columnNumber": 523066
+        }
+      },
+      {
+        "functionName": "M.actionButton.onclick",
+        "url": "",
+        "location": {
+          "scriptId": "6",
+          "lineNumber": 1032,
+          "columnNumber": 526731
+        }
+      },
+      {
+        "functionName": "",
+        "url": "",
+        "location": {
+          "scriptId": "45470",
+          "lineNumber": 0,
+          "columnNumber": 319
+        }
+      },
+      {
+        "functionName": "evaluate",
+        "url": "",
+        "location": {
+          "scriptId": "10",
+          "lineNumber": 312,
+          "columnNumber": 15
+        }
+      },
+      {
+        "functionName": "",
+        "url": "",
+        "location": {
+          "scriptId": "45469",
+          "lineNumber": 0,
+          "columnNumber": 43
+        }
+      }
+    ]
+  }
+]

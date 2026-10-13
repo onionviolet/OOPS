@@ -1,5 +1,11 @@
 # Sci-fi deep dive and JoJo audit: plan
 
+JoJo update, 2026-10-11: Weibao authorized the expanded audit including engine
+and implementation concerns. [Current audit report](jojo-audit-2026-10-11/REPORT.md)
+owns execution, evidence and remaining coverage. The original JoJo evidence,
+route and dispatch assumptions below are historical; the sci-fi portion is
+unchanged and is not dispatched by that authorization.
+
 Proposal, 2026-10-10. Weibao: "we might need a deep dive across scifi next,
 consider what we should do to consider, need to send out a audit for Jojo's?"
 Method: [source deep dive playbook](SOURCE_DEEP_DIVE_PLAYBOOK.md). Feeds

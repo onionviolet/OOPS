@@ -1,0 +1,61 @@
+{
+  "base": "53dc1df15889be6ebb1bae403497041f0672db46",
+  "candidate": "/Users/weiwei/.codex/worktrees/systems-cheats-completion/yet-another-idle-rpg",
+  "inputs": [
+    {
+      "path": "AGENTS.md",
+      "sha256": "2dd0e8a273ff4c292231409f4c7d0c776015a67833206d3c6b5bb56d919ab1fc",
+      "purpose": "read-only instruction snapshot; excluded from delivery"
+    },
+    {
+      "path": "PROJECT.md",
+      "sha256": "5fa867b61f122a01223ced9ee5f65abc97dc9ea6b993d00d7b5276428c6de46f",
+      "purpose": "read-only instruction snapshot; excluded from delivery"
+    },
+    {
+      "path": "docs/GAME_MASTER_PROMPT.md",
+      "sha256": "9524d382c81a981af02bd2cf9288f410fe9a09b9c6f8d99f7075c6245653de56",
+      "purpose": "read-only instruction snapshot; excluded from delivery"
+    },
+    {
+      "path": "docs/GAME_IMPLEMENTER_TEMPLATE.md",
+      "sha256": "c8cd89d784bfb359d08317a1c0555574719db43d480f06131eced98a0f4ea262",
+      "purpose": "read-only instruction snapshot; excluded from delivery"
+    },
+    {
+      "path": "docs/LIFE_SIM_NORTH_STAR.md",
+      "sha256": "ab84edd4d258fd2d2c5dfc62cf18e956e5e9f1835e182d4b257571441d1fd8b2",
+      "purpose": "read-only instruction snapshot; excluded from delivery"
+    },
+    {
+      "path": "docs/IDEA_INDEX.md",
+      "sha256": "8dc8b9a12a3e54dff5272f1f3bea32dc6b912a67f53b31b9968c65757b258973",
+      "purpose": "read-only instruction snapshot; excluded from delivery"
+    },
+    {
+      "path": "docs/gm/dispatch/systems-cheats-expansion-2026-10-11/DESIGN.md",
+      "sha256": "270aa2054a5fde9acaf40377a9f00217e280b3f1b59ddef40d6cc4f677ed626c",
+      "purpose": "frozen predecessor input"
+    },
+    {
+      "path": "docs/gm/dispatch/systems-cheats-expansion-2026-10-11/SYSTEMS_MAP.md",
+      "sha256": "8640410e6a7d2d3095436e160d9c772d53699d9df9d3be8cd599e188b4fbe223",
+      "purpose": "frozen predecessor input"
+    },
+    {
+      "path": "docs/gm/dispatch/systems-cheats-expansion-2026-10-11/DETAIL_LEDGER.json",
+      "sha256": "c38e1884448ef3e6505c8b3af78c6b1e1f0a26cc5b6d1400edbff269858ba391",
+      "purpose": "frozen predecessor input"
+    },
+    {
+      "path": "docs/gm/dispatch/systems-cheats-expansion-2026-10-11/PACKETS.md",
+      "sha256": "f959534a4fe9178fa3469832787c0bba9bf5d1393b0e235a9cd87703d6db9d34",
+      "purpose": "frozen predecessor input"
+    },
+    {
+      "path": "docs/gm/dispatch/systems-cheats-expansion-2026-10-11/INPUT_SNAPSHOT.json",
+      "sha256": "f1c7d92d05216c3f1af831297fa3ed34041553f8bb9a711423b0039efb13947f",
+      "purpose": "frozen predecessor input"
+    }
+  ]
+}

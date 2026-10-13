@@ -1,0 +1,241 @@
+{
+  "scope": "Fresh hero editor inspection and native paid patrol start, no save import or full-shift completion",
+  "records": [
+    {
+      "kind": "workspace",
+      "url": "http://127.0.0.1:18571/",
+      "errors": [],
+      "workChoices": "question_answer Talk to someone\nwork_outline Find work\n Take a loaned kit and patrol with Tessa (2 hours, 50 coins).\nLocal life\nOptional pacing\nEquipment condition and repair\nElemental preparation",
+      "busy": [
+        {
+          "id": "location_actions_div",
+          "x": 407.390625,
+          "y": 519.671875,
+          "width": 583.21875,
+          "height": 424.625,
+          "scrollHeight": 425,
+          "clientHeight": 425,
+          "text": "Patrolling..\nGetting 1 base xp per in-game minute to ????? (2.5% [1 / 40])\nNext level in 39 minutes (1 minute realtime)\nNext earnings in: 1 hour 59 minutes\nFini"
+        },
+        {
+          "id": "character_div",
+          "x": 17.390625,
+          "y": 372.5,
+          "width": 359.21875,
+          "height": 222.734375,
+          "scrollHeight": 223,
+          "clientHeight": 223,
+          "text": "Lvl: 0\nStrength: 12.0\nAgility: 8.0\nDexterity: 10.0\nIntuition 10.0\nDefense: 1.0\nMagic: 0.0\nAtk power: 1.2\nAtk spd: 1.0\nCrit rate: 5.0%\nCrit mult: 130.0%\nAP: 32\nE"
+        },
+        {
+          "id": "inventory_combat_switch_selection",
+          "x": 17.390625,
+          "y": 290.328125,
+          "width": 359.21875,
+          "height": 35.375,
+          "scrollHeight": 35,
+          "clientHeight": 35,
+          "text": "Inventory\nCombat"
+        }
+      ],
+      "busyText": "Patrolling..\nGetting 1 base xp per in-game minute to ????? (2.5% [1 / 40])\nNext level in 39 minutes (1 minute realtime)\nNext earnings in: 1 hour 59 minutes\nFinish patrolling(earnings: nothing)\nOptional pacing\nEquipment condition and repair\nElemental preparation\nLocal life"
+    },
+    {
+      "kind": "customization",
+      "url": "http://127.0.0.1:18582/",
+      "errors": [],
+      "editorSummaries": [
+        "Presentation profiles",
+        "Original System rules"
+      ],
+      "editor": [
+        {
+          "id": "location_actions_div",
+          "x": 415.390625,
+          "y": 546.28125,
+          "width": 567.21875,
+          "height": 743.234375,
+          "scrollHeight": 743,
+          "clientHeight": 743,
+          "text": "Village patrol · Apprentice\n\nTake a loaned lantern and baton through the native patrol job below. Each full round pays 50 base coins; the report bonus is shown "
+        },
+        {
+          "id": "customization_host",
+          "x": 1021.390625,
+          "y": 384.671875,
+          "width": 401.21875,
+          "height": 1597.203125,
+          "scrollHeight": 1597,
+          "clientHeight": 1597,
+          "text": "Presentation profiles\n\nOriginal presentation only. Applied profiles style native modules and settled work receipts. Character rules and rewards have their own a"
+        },
+        {
+          "id": "character_div",
+          "x": 17.390625,
+          "y": 372.5,
+          "width": 359.21875,
+          "height": 266.984375,
+          "scrollHeight": 267,
+          "clientHeight": 267,
+          "text": "Lvl: 0\nStrength: 12.0\nAgility: 8.0\nDexterity: 10.0\nIntuition 10.0\nDefense: 1.0\nMagic: 0.0\nAtk power: 1.2\nAtk spd: 1.0\nCrit rate: 5.0%\nCrit mult: 130.0%\nAP: 32\nE"
+        },
+        {
+          "id": "inventory_combat_switch_selection",
+          "x": 17.390625,
+          "y": 290.328125,
+          "width": 359.21875,
+          "height": 48,
+          "scrollHeight": 48,
+          "clientHeight": 48,
+          "text": "Inventory\nCombat"
+        },
+        {
+          "id": "customization-actions",
+          "x": 1039.984375,
+          "y": 1252.375,
+          "width": 364.03125,
+          "height": 66.390625,
+          "scrollHeight": 66,
+          "clientHeight": 66,
+          "text": "Create profile draft\nApply and save\nReset draft\nDiscard draft\nImport to draft\nExport draft JSON"
+        },
+        {
+          "id": "work_ledger_author",
+          "x": 1029.390625,
+          "y": 1489.9375,
+          "width": 385.21875,
+          "height": 475.9375,
+          "scrollHeight": 474,
+          "clientHeight": 474,
+          "text": "Original System rules\n\nEdit the original Work Ledger. Power values affect acquired functions. Accepted commissions keep their saved terms. Native inputs, chance"
+        }
+      ],
+      "apply": [
+        {
+          "id": "location_actions_div",
+          "x": 415.390625,
+          "y": 546.28125,
+          "width": 567.21875,
+          "height": 743.234375,
+          "scrollHeight": 743,
+          "clientHeight": 743,
+          "text": "Village patrol · Apprentice\n\nTake a loaned lantern and baton through the native patrol job below. Each full round pays 50 base coins; the report bonus is shown "
+        },
+        {
+          "id": "customization_host",
+          "x": 1021.390625,
+          "y": -268.328125,
+          "width": 401.21875,
+          "height": 1597.203125,
+          "scrollHeight": 1597,
+          "clientHeight": 1597,
+          "text": "Presentation profiles\n\nOriginal presentation only. Applied profiles style native modules and settled work receipts. Character rules and rewards have their own a"
+        },
+        {
+          "id": "character_div",
+          "x": 17.390625,
+          "y": 372.5,
+          "width": 359.21875,
+          "height": 266.984375,
+          "scrollHeight": 267,
+          "clientHeight": 267,
+          "text": "Lvl: 0\nStrength: 12.0\nAgility: 8.0\nDexterity: 10.0\nIntuition 10.0\nDefense: 1.0\nMagic: 0.0\nAtk power: 1.2\nAtk spd: 1.0\nCrit rate: 5.0%\nCrit mult: 130.0%\nAP: 32\nE"
+        },
+        {
+          "id": "inventory_combat_switch_selection",
+          "x": 17.390625,
+          "y": 290.328125,
+          "width": 359.21875,
+          "height": 48,
+          "scrollHeight": 48,
+          "clientHeight": 48,
+          "text": "Inventory\nCombat"
+        },
+        {
+          "id": "customization-actions",
+          "x": 1039.984375,
+          "y": 599.375,
+          "width": 364.03125,
+          "height": 66.390625,
+          "scrollHeight": 66,
+          "clientHeight": 66,
+          "text": "Create profile draft\nApply and save\nReset draft\nDiscard draft\nImport to draft\nExport draft JSON"
+        },
+        {
+          "id": "work_ledger_author",
+          "x": 1029.390625,
+          "y": 836.9375,
+          "width": 385.21875,
+          "height": 475.9375,
+          "scrollHeight": 474,
+          "clientHeight": 474,
+          "text": "Original System rules\n\nEdit the original Work Ledger. Power values affect acquired functions. Accepted commissions keep their saved terms. Native inputs, chance"
+        }
+      ],
+      "workChoices": "Village patrol · Apprentice\n\nTake a loaned lantern and baton through the native patrol job below. Each full round pays 50 base coins; the report bonus is shown below.\n\nTessa, your patrol colleague: “I’ll lend you our lantern and baton. Walk the whole two-hour round, then bring them back.”\n\nNext: Dependable worker. Complete 2 full shifts (0/2). Return 2 completed-shift kits (0/2).\n\nWatchcraft: known no · practiced no (0/5 meditation minutes) · executable now no.\n\nNext full patrol: 50 coins. Read Tessa’s notes or learn from her in person, then rehearse calm sector scanning during five minutes of Village meditation for the tool-dependent report bonus.\n\nAsk Tessa: Dependable worker\n\nWaypost supply clerk\nClerk purse: 180 coins. Paid so far: 0. Supplies change hands immediately; no shift, promotion or patrol credit. After one Infested field clear the clerk offers free repair notes, or buy a copy for 10 coins.\nAsk for repair notes (one field clear)Buy repair notes (10 coins)\nquestion_answer Talk to someone\nwork_outline Find work\n Take a loaned kit and patrol with Tessa (2 hours, 50 coins).\nLocal life\nOptional pacing\nEquipment condition and repair\nElemental preparation",
+      "busy": [
+        {
+          "id": "location_actions_div",
+          "x": 414.390625,
+          "y": -60.328125,
+          "width": 567.21875,
+          "height": 822.84375,
+          "scrollHeight": 823,
+          "clientHeight": 823,
+          "text": "Waypost supply clerk\nClerk purse: 180 coins. Paid so far: 0. Supplies change hands immediately; no shift, promotion or patrol credit. After one Infested field c"
+        },
+        {
+          "id": "customization_host",
+          "x": 1021.390625,
+          "y": -272.328125,
+          "width": 401.21875,
+          "height": 1597.203125,
+          "scrollHeight": 1597,
+          "clientHeight": 1597,
+          "text": "Presentation profiles\n\nOriginal presentation only. Applied profiles style native modules and settled work receipts. Character rules and rewards have their own a"
+        },
+        {
+          "id": "character_div",
+          "x": 17.390625,
+          "y": 368.5,
+          "width": 359.21875,
+          "height": 266.984375,
+          "scrollHeight": 267,
+          "clientHeight": 267,
+          "text": "Lvl: 0\nStrength: 12.0\nAgility: 8.0\nDexterity: 10.0\nIntuition 10.0\nDefense: 1.0\nMagic: 0.0\nAtk power: 1.2\nAtk spd: 1.0\nCrit rate: 5.0%\nCrit mult: 130.0%\nAP: 32\nE"
+        },
+        {
+          "id": "inventory_combat_switch_selection",
+          "x": 17.390625,
+          "y": 286.328125,
+          "width": 359.21875,
+          "height": 48,
+          "scrollHeight": 48,
+          "clientHeight": 48,
+          "text": "Inventory\nCombat"
+        },
+        {
+          "id": "customization-actions",
+          "x": 1039.984375,
+          "y": 595.375,
+          "width": 364.03125,
+          "height": 66.390625,
+          "scrollHeight": 66,
+          "clientHeight": 66,
+          "text": "Create profile draft\nApply and save\nReset draft\nDiscard draft\nImport to draft\nExport draft JSON"
+        },
+        {
+          "id": "work_ledger_author",
+          "x": 1029.390625,
+          "y": 832.9375,
+          "width": 385.21875,
+          "height": 475.9375,
+          "scrollHeight": 474,
+          "clientHeight": 474,
+          "text": "Original System rules\n\nEdit the original Work Ledger. Power values affect acquired functions. Accepted commissions keep their saved terms. Native inputs, chance"
+        }
+      ],
+      "busyText": "Waypost supply clerk\nClerk purse: 180 coins. Paid so far: 0. Supplies change hands immediately; no shift, promotion or patrol credit. After one Infested field clear the clerk offers free repair notes, or buy a copy for 10 coins.\nAsk for repair notes (one field clear)Buy repair notes (10 coins)\nVillage patrol · Apprentice\n\nLoaned lantern and baton in your custody. Finish the two-hour round for 50 base coins; leaving early earns no shift credit.\n\nTessa, your patrol colleague: “I’ll lend you our lantern and baton. Walk the whole two-hour round, then bring them back.”\n\nNext: Dependable worker. Complete 2 full shifts (0/2). Return 2 completed-shift kits (0/2). Return the current loaned kit.\n\nWatchcraft: known no · practiced no (0/5 meditation minutes) · executable now no.\n\nThis full round: 50 coins. Watchcraft bonus unavailable on this round.\n\nAsk Tessa: Dependable worker\n\nPatrolling..\nGetting 1 base xp per in-game minute to ????? (5% [2 / 40])\nNext level in 38 minutes (1 minute realtime)\nNext earnings in: 1 hour 58 minutes\nFinish patrolling(earnings: nothing)\nOptional pacing\nEquipment condition and repair\nElemental preparation\nLocal life"
+    }
+  ]
+}

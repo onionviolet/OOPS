@@ -1,0 +1,29 @@
+{
+  "owner": "01a13475-d052-7320-b98e-0d5cedf58838",
+  "effectiveTransfer": "reservations/R5_SUCCESSOR_TRANSFER.json",
+  "releaseVerified": true,
+  "viewport": [
+    1600,
+    1100
+  ],
+  "visibleOutcome": "Existing physical manual study and learned kit consumer; legitimate acquisition first",
+  "deferred": [
+    "mobile",
+    "broad UI",
+    "new procurement/study framework"
+  ],
+  "sourceHashes": {
+    "src/steam_boh_facts.js": "5f5beb1dc2d40b05e14b8238deade4c976728e4ef21d8e6dee638761e61ee6e7",
+    "src/steam_boh_host.js": "4ad3095087daf798162c44c122e3108f70b937a93eb958bf8cfa8d91bd1f4d03",
+    "src/steam_boh_content.js": "9367325369ba5e88de34acc6d48dd730ad3b4a8bbfbde9de786dd4d00702e6f7",
+    "src/steam_boh_runtime.js": "11a0db97310e5ee03e38148e17fef9c6a8d08e28ebcdadc5fcc1a9c15d50df81",
+    "src/steam_absorption_host.js": "694bad6815235088ca439497d3befc311ccee418502c8ce5847f876683592e0a",
+    "src/simulation.js": "d56256a701b9190e4a143e63fea2cdcb7df3538dfe59aba9cfaef31544bee388"
+  },
+  "workerScope": [
+    "rounds/r5/SOURCE_REVIEW.md",
+    "rounds/r5/SOURCE_TESTS.txt",
+    "tests/fa10_manual.test.js"
+  ],
+  "runtimeWrites": "integrator only; reproduce before repair"
+}

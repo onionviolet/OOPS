@@ -1,0 +1,23 @@
+{
+  "scope": "G0 rebuilt unchanged shared baseline; no gameplay claim",
+  "release": "../world1-full-completion-2026-10-11/FOUNDATION_OWNERSHIP_RELEASE_2026-10-12.json",
+  "files": {
+    "src/ink_scene_content.js": "cd7dcd1368b6c63ceb0399c0893df0fbbde9a5579553d2cf111ea07875ed821f",
+    "src/ink_narrative.js": "0b1f4d4c1b42347ec9471cefbff8a1d3f70f6b739a52c711ad604f3bbeda16ac",
+    "src/feature_expansion_nested_ink_ui.js": "29c9c8bfc51d95f25cce8cef17e8c28e3d949315b61b9153b1b192465a84e5b1",
+    "src/feature_expansion_nested_life.js": "55ac52bdeb23c0ee6f9460f6a055a9ce35085c2718cfe1b48e114a0c231b5cd0",
+    "src/feature_expansion_nested_content.js": "eff78f2acfc74d8c1572375d6e3e5c88c4e7c1164b78f965bfcad5facc7f079a",
+    "src/main.js": "549e39552e549e89dd9d984e34b8efc40156258f12a9e674444ebbb8b7e2fbd3",
+    "stories/feature_wave.ink": "ad28348578d8e09e1c1582571ceffbaef584cc4accac0a6559304869939eadb5",
+    "stories/feature_wave.json": "a2688775a9adfd21b369f52e0f3fa07bdce8b084be9ce4fc1c385479f60648ed",
+    "scripts/compile_feature_ink.mjs": "510bde6397c684b1e24a9760d6fb9295265d5b857dafbfdf1b255c9eef50688b",
+    "build.js": "8561349784483242a15ce4208b9180651c1aaf03c3d8ff1379de8c7d8065fea5",
+    "package.json": "805269ecbf25287b2758391e718c805e1a4336b4b4f1c923a87b3712620e8e2c",
+    "package-lock.json": "42f2e809f9055a84c99959f12a0b17adfbbc150d5d748b5d5ce2b9f85de9df99",
+    "dist/bundle.js": "5b3863b2a2c2f04dfd4318b80349aca4610c2cf49ccb980bfe1a0777705055cf",
+    "dist/bundle.js.map": "f7a0847bdb3baf7200a6fe7fd2ef257e6e37124b876cef7a6ca3ed02ca8cddba",
+    "index.html": "b955739a4406c2e0973eb05d273db08b4d7ba2561e30b460d5072c266e2f2693",
+    "dist/INKJS_NOTICE.txt": "040e957a77e3e19432e265cb549d5c3b4ca6f3551e24d22b81785ffd1bc2b67b",
+    "dist/INKJS_AUTHORS.txt": "40cb9e4353e8b18a04079a1fd6f824540633aeae19b8a9d3da5e0d8b2983e014"
+  }
+}

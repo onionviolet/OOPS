@@ -1,0 +1,28 @@
+{
+  "json_parse": {
+    "PRIVATE_EVIDENCE_CHECKS.json": true,
+    "INPUTS.json": true,
+    "INVENTORY.json": true,
+    "UPSTREAM.json": true,
+    "VALIDATION.json": true
+  },
+  "original_titles": 21,
+  "routing_counts": {
+    "direct_report_directories": 60,
+    "game_focused_dossier_directories": 48,
+    "original_titles": 21,
+    "repository_rows": 30,
+    "related_works": 9
+  },
+  "canonical_game_ids_unique": true,
+  "bank_ids_unique": true,
+  "inventory_evidence_paths_missing": [],
+  "snapshot_drift": [],
+  "broken_markdown_links": [],
+  "symbol_binding_missing": [],
+  "em_dash_count": 0,
+  "scope": "documentation checks only; no gameplay/source tests, build, browser or trial executed",
+  "pass": true,
+  "final_checked_utc": "2026-10-13T05:13:20.281753+00:00",
+  "artifact_scope": "Only new files under assigned audit directory written. Existing inputs were read-only."
+}

@@ -1,0 +1,152 @@
+{
+  "schema": 1,
+  "candidate": "/Users/weiwei/.codex/worktrees/systems-cheats-completion/yet-another-idle-rpg",
+  "base": "53dc1df15889be6ebb1bae403497041f0672db46",
+  "status": "C4 verified selected local candidate; C5 human acceptance open",
+  "build": "2263243ff9531539cd47e2c36c663e4bf67c990c38877e5960d483c55fdc10eb",
+  "url": "http://127.0.0.1:18653/",
+  "servedHashes": {
+    "index.html": "2ed5f77beb76d323f9b14c2bac0d0d72db9a1d81d4c6f1335d43066046caaba4",
+    "dist/bundle.js": "2263243ff9531539cd47e2c36c663e4bf67c990c38877e5960d483c55fdc10eb"
+  },
+  "files": [
+    {
+      "path": "src/systems_irrigation_model.js",
+      "sha256": "76d45b99f993e7360b80a00d76634c423ed8820b781a268dd7f8538d0383b7b9"
+    },
+    {
+      "path": "src/systems_workshop_content.js",
+      "sha256": "ac8e5ad50acbd134cf546914da1ea82414842f656f9ed556149c2f5b5c243118"
+    },
+    {
+      "path": "src/systems_workshop_runtime.js",
+      "sha256": "5f7c0980e650578d63126df94f14a5d966b6497249cfddf9cfa934ad4c03d16a"
+    },
+    {
+      "path": "src/systems_workshop_ui.js",
+      "sha256": "33e358e59a9f3132e5614f2e01d9e9b80db348ba48321846b737441eb0780198"
+    },
+    {
+      "path": "src/systems_workshop_validation.js",
+      "sha256": "e1988fc26d0dd671374b6328b2c40f252d2b3f2c7023a0071ee99b9ad8f4d7d9"
+    },
+    {
+      "path": "src/expansion_engine.js",
+      "sha256": "c2ab468e94468e64db96e513fdf36729577b87219d4dd5486be82feae118e172"
+    },
+    {
+      "path": "src/items.js",
+      "sha256": "7f781da4b42eff813c3c9dc346f2648b3abc990d21c13a8db176f925330a5900"
+    },
+    {
+      "path": "src/main.js",
+      "sha256": "698943c1761b6b4ea54b0417a94914194ac78f48df5c6ff5bf8ef7376ee633de"
+    },
+    {
+      "path": "src/save_files.js",
+      "sha256": "0f3f31fe01912a4604e66ee045060f15b606496266446bb64d2584d8b9a4a399"
+    },
+    {
+      "path": "src/simulation_content.js",
+      "sha256": "658ae5d6f3c3e5021a0b6cede5aa2d92df26875c664cfacec1d661bcc9aef67f"
+    },
+    {
+      "path": "src/simulation_effects.js",
+      "sha256": "3f956179a04a72d4701dcaca638869b5fe6add3af8e36fe97be9eaf6d68af2a0"
+    },
+    {
+      "path": "src/simulation_ui.js",
+      "sha256": "39a149c377f0be9f6e3aa6e717606a624a769c4376d2fcda02ddab7c915c48d4"
+    },
+    {
+      "path": "tests/systems_irrigation_model.test.js",
+      "sha256": "28beac52e6b7ce67729933b060340ec9da542fafc4fcf8e2bb5c0988d68aca44"
+    },
+    {
+      "path": "tests/systems_workshop.test.js",
+      "sha256": "2022a3ff077c39d2e044c2eaf44b43f5f44c93de224c746cb770fa10d4904e13"
+    },
+    {
+      "path": "scripts/systems_workshop_browser.cjs",
+      "sha256": "73b27b0cf02ac92412501d1c8e0c9422a489f87377aee6184f1bca26bfbc2930"
+    },
+    {
+      "path": "scripts/systems_workshop_boundaries.cjs",
+      "sha256": "d06a5430f30a800cef7aa812c9e8b96ab0f541d369fd6a9f4a1f47a8d10dfaf4"
+    },
+    {
+      "path": "index.html",
+      "sha256": "2ed5f77beb76d323f9b14c2bac0d0d72db9a1d81d4c6f1335d43066046caaba4"
+    },
+    {
+      "path": "dist/bundle.js",
+      "sha256": "2263243ff9531539cd47e2c36c663e4bf67c990c38877e5960d483c55fdc10eb"
+    },
+    {
+      "path": "dist/bundle.js.map",
+      "sha256": "e481e1288045ce796021aa8a275aa168f6a8f49aa8a321195e257e05d25ec58f"
+    }
+  ],
+  "sourceTests": {
+    "pass": 346,
+    "fail": 0,
+    "log": "evidence/SOURCE_TESTS.log"
+  },
+  "focusedTests": {
+    "pass": 16,
+    "fail": 0,
+    "log": "evidence/TARGETED_TESTS.log"
+  },
+  "naturalNative": {
+    "groups": 10,
+    "errors": 0,
+    "proof": "evidence/NATIVE_PROOF.json",
+    "inputs": "Fresh browser origin, native controls only, no dev grants; clocks and materials earned naturally"
+  },
+  "nativeBoundaries": {
+    "groups": 10,
+    "errors": 0,
+    "proof": "evidence/BOUNDARY_PROOF.json",
+    "inputs": "Generated native saves from natural run; B06 intentionally removes only item carriers"
+  },
+  "nativeScreenshot": "evidence/natural-finished.png",
+  "deliveryPaths": [
+    "src/systems_irrigation_model.js",
+    "src/systems_workshop_content.js",
+    "src/systems_workshop_runtime.js",
+    "src/systems_workshop_ui.js",
+    "src/systems_workshop_validation.js",
+    "src/expansion_engine.js",
+    "src/items.js",
+    "src/main.js",
+    "src/save_files.js",
+    "src/simulation_content.js",
+    "src/simulation_effects.js",
+    "src/simulation_ui.js",
+    "tests/systems_irrigation_model.test.js",
+    "tests/systems_workshop.test.js",
+    "scripts/systems_workshop_browser.cjs",
+    "scripts/systems_workshop_boundaries.cjs",
+    "index.html",
+    "dist/bundle.js",
+    "dist/bundle.js.map"
+  ],
+  "excludedCopiedOwnerPaths": [
+    "AGENTS.md",
+    "PROJECT.md",
+    "docs/GAME_MASTER_PROMPT.md",
+    "docs/GAME_IMPLEMENTER_TEMPLATE.md",
+    "docs/LIFE_SIM_NORTH_STAR.md",
+    "docs/IDEA_INDEX.md"
+  ],
+  "sharedIntegration": "open, shared source unchanged",
+  "humanAcceptance": "C5 only Weibao",
+  "privateSourceGate": "WORLD_QUALIFICATION.md; no private book-world pack added or changed",
+  "counts": {
+    "commands": 55,
+    "playerCommands": 54,
+    "people": 2
+  },
+  "finalSourceChanges": "Actual provider title issuer and native recognition, actual kit-to-aligned-kit refit/custody, and source-presence lease renewal are in this exact rebuilt proof.",
+  "inputDrift": []
+}

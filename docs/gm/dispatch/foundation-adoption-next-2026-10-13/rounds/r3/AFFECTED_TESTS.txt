@@ -1,0 +1,142 @@
+TAP version 13
+# Subtest: ordinary absent capability explicitly exposes the paid lesson without supplied power facts
+ok 1 - ordinary absent capability explicitly exposes the paid lesson without supplied power facts
+  ---
+  duration_ms: 77.09325
+  type: 'test'
+  ...
+# Subtest: paid workshop stock and learned capability are separate, finite and three trials leave five salt attempts
+ok 2 - paid workshop stock and learned capability are separate, finite and three trials leave five salt attempts
+  ---
+  duration_ms: 161.275375
+  type: 'test'
+  ...
+# Subtest: pending refinement reserves exact inputs, freezes one roll/quote and restores unchanged
+ok 3 - pending refinement reserves exact inputs, freezes one roll/quote and restores unchanged
+  ---
+  duration_ms: 143.783792
+  type: 'test'
+  ...
+# Subtest: quiet window and actual focus select preparation; retry probability caps after three failures
+ok 4 - quiet window and actual focus select preparation; retry probability caps after three failures
+  ---
+  duration_ms: 261.9385
+  type: 'test'
+  ...
+# Subtest: cancel refunds salt and stamina without a result; repeated cancellation and stale reservation refuse
+ok 5 - cancel refunds salt and stamina without a result; repeated cancellation and stale reservation refuse
+  ---
+  duration_ms: 130.742375
+  type: 'test'
+  ...
+# Subtest: loss of body, source, power or Village support refunds pending work without completion
+ok 6 - loss of body, source, power or Village support refunds pending work without completion
+  ---
+  duration_ms: 634.984875
+  type: 'test'
+  ...
+# Subtest: success grants exactly one application; actual sleeve becomes empty and hook field lasts five minutes
+ok 7 - success grants exactly one application; actual sleeve becomes empty and hook field lasts five minutes
+  ---
+  duration_ms: 140.875834
+  type: 'test'
+  ...
+# Subtest: failure spends reserved costs, grants no application and adds exact five-minute max soreness and retry
+ok 8 - failure spends reserved costs, grants no application and adds exact five-minute max soreness and retry
+  ---
+  duration_ms: 839.389709
+  type: 'test'
+  ...
+# Subtest: old direct hook command still conserves sleeve and validates a four-minute field
+ok 9 - old direct hook command still conserves sleeve and validates a four-minute field
+  ---
+  duration_ms: 121.4115
+  type: 'test'
+  ...
+# Subtest: missing, borrowed, equipped or transferred sleeve and absent salt/body/source/calendar refuse atomically
+ok 10 - missing, borrowed, equipped or transferred sleeve and absent salt/body/source/calendar refuse atomically
+  ---
+  duration_ms: 965.065666
+  type: 'test'
+  ...
+# Subtest: pending restoration rejects tampered quote, roll, due, costs, support, reservation and duplicate job
+ok 11 - pending restoration rejects tampered quote, roll, due, costs, support, reservation and duplicate job
+  ---
+  duration_ms: 115.631125
+  type: 'test'
+  ...
+# Subtest: completed restoration rejects forged result, retry, knowledge attribution and copied foreign receipts
+ok 12 - completed restoration rejects forged result, retry, knowledge attribution and copied foreign receipts
+  ---
+  duration_ms: 116.365333
+  type: 'test'
+  ...
+# Subtest: each material boundary persists before publication; quota failure preserves original and successful retry publishes exact stock once
+ok 13 - each material boundary persists before publication; quota failure preserves original and successful retry publishes exact stock once
+  ---
+  duration_ms: 959.9025
+  type: 'test'
+  ...
+# Subtest: legacy typo basis pending migrates on copied load without altering paid terms or completing early
+ok 14 - legacy typo basis pending migrates on copied load without altering paid terms or completing early
+  ---
+  duration_ms: 109.289584
+  type: 'test'
+  ...
+# Subtest: source boundary returns all reserved stamina on support loss without changing frozen RNG
+ok 15 - source boundary returns all reserved stamina on support loss without changing frozen RNG
+  ---
+  duration_ms: 103.516542
+  type: 'test'
+  ...
+# Subtest: paid lesson needs current teacher contact and refinement needs free actual bench
+ok 16 - paid lesson needs current teacher contact and refinement needs free actual bench
+  ---
+  duration_ms: 224.733542
+  type: 'test'
+  ...
+# Subtest: cooling suppresses actual hook candidate while ordinary guard and jab remain available
+ok 17 - cooling suppresses actual hook candidate while ordinary guard and jab remain available
+  ---
+  duration_ms: 126.256709
+  type: 'test'
+  ...
+# Subtest: actual battle host initializes combat display before refreshing while syncing fighter state before start
+ok 18 - actual battle host initializes combat display before refreshing while syncing fighter state before start
+  ---
+  duration_ms: 129.121958
+  type: 'test'
+  ...
+# Subtest: first staged enrollment binds a registered native owner before durable writing
+ok 19 - first staged enrollment binds a registered native owner before durable writing
+  ---
+  duration_ms: 0.875959
+  type: 'test'
+  ...
+# Subtest: staged enrollment cannot invent a missing native owner or replace explicit bindings
+ok 20 - staged enrollment cannot invent a missing native owner or replace explicit bindings
+  ---
+  duration_ms: 0.110417
+  type: 'test'
+  ...
+# Subtest: lawful optional feat enrollment renders without introducing an unrelated encounter target
+ok 21 - lawful optional feat enrollment renders without introducing an unrelated encounter target
+  ---
+  duration_ms: 17.977792
+  type: 'test'
+  ...
+# Subtest: staged local-project projection does not inspect an unintroduced party member
+ok 22 - staged local-project projection does not inspect an unintroduced party member
+  ---
+  duration_ms: 9.246125
+  type: 'test'
+  ...
+1..22
+# tests 22
+# suites 0
+# pass 22
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 5568.260708

@@ -1,0 +1,25 @@
+{
+  "worker": "/root/learning_native",
+  "bundle": "9b130b295f8464eb770f603afd68d31166569901bd9f0af2acda93192007fcae",
+  "savePath": "/tmp/yairpg-foundation-learning-worker-ui-rebuild-boundary.json",
+  "saveSha256": "6d48547ff365d6d2a8bb9e1e97e69bcc9958c864f12b5e9a2ef32236a09366ea",
+  "origin": "http://127.0.0.1:18643",
+  "pid": 46935,
+  "session": 56590,
+  "stopped": true,
+  "location": "Village",
+  "moneyBaseUnits": 96,
+  "clock": 37,
+  "sequence": 726,
+  "jobs": [],
+  "clear": {
+    "enemy_groups_killed": 15
+  },
+  "completed": {
+    "feature_objects.begin": 1,
+    "feature_objects.inspect": 1,
+    "feature_objects.buy": 1
+  },
+  "learningComplete": false,
+  "pageErrors": []
+}

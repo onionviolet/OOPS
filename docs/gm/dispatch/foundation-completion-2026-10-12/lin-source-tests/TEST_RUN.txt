@@ -1,0 +1,47 @@
+✔ actual chart/enrollment leaves unapproved consequence controllers absent; Lin host equals native preview and staged plan (507.494125ms)
+✖ accepted Ink work reserves counted resources, survives reload, pays once and staff supply requires separate approval (967.79375ms)
+✔ texture and refusal conserve material and wage; native cancellation refunds accepted work without a kit (2414.132709ms)
+✔ losing actual supported body at completion refunds inputs and creates no wage or kit (2489.683625ms)
+✔ stale/double clock, sequence, revision, session and scope tokens cannot apply a second work effect (1988.968333ms)
+✔ wrong contact, unsupported body and native revision block bindings; adapters cannot invoke a different resident (1144.143416ms)
+✔ failed durable write preserves authoritative cursor/resources/jobs; retry publishes exactly one accepted effect (1027.892667ms)
+✖ retained v1/v2 legacy and v3 scoped opaque cursors reload without replacing paid receipt history (338.090792ms)
+✔ old absent enrollment and repeated read/preview create no demand, approval or Ink cursor (497.716ms)
+ℹ tests 9
+ℹ suites 0
+ℹ pass 7
+ℹ fail 2
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 12729.172916
+
+✖ failing tests:
+
+test at tests/ink_lin_parity.test.js:29:1
+✖ accepted Ink work reserves counted resources, survives reload, pays once and staff supply requires separate approval (967.79375ms)
+  TypeError: Cannot read properties of undefined (reading 'player')
+      at file:///Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/foundation-completion-2026-10-12/lin-source-tests/fixture.mjs:19:202
+      at Array.map (<anonymous>)
+      at advance (file:///Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/foundation-completion-2026-10-12/lin-source-tests/fixture.mjs:19:103)
+      at TestContext.<anonymous> (file:///Users/weiwei/code/yet-another-idle-rpg/tests/ink_lin_parity.test.js:35:74)
+      at Test.runInAsyncScope (node:async_hooks:226:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3)
+
+test at tests/ink_lin_parity.test.js:75:1
+✖ retained v1/v2 legacy and v3 scoped opaque cursors reload without replacing paid receipt history (338.090792ms)
+  Error: Nested campaign owners require an admitted expansion7/8/9/10 reader.
+      at check (file:///Users/weiwei/code/yet-another-idle-rpg/src/expansion_engine.js:69:61)
+      at validateExpansionState (file:///Users/weiwei/code/yet-another-idle-rpg/src/expansion_engine.js:162:5)
+      at loadExpansionState (file:///Users/weiwei/code/yet-another-idle-rpg/src/expansion_engine.js:265:12)
+      at reload (file:///Users/weiwei/code/yet-another-idle-rpg/tests/ink_lin_parity.test.js:18:36)
+      at TestContext.<anonymous> (file:///Users/weiwei/code/yet-another-idle-rpg/tests/ink_lin_parity.test.js:83:100)
+      at Test.runInAsyncScope (node:async_hooks:226:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)

@@ -1,0 +1,112 @@
+{
+  "bundle": "a4e84278059a711738b9149a331f916496dee79140384c021e11052187baef26",
+  "results": [
+    {
+      "code": "N01_PA",
+      "passed": true,
+      "evidence": "run2/receipt-1..7.json"
+    },
+    {
+      "code": "N02_PB_AID",
+      "passed": true,
+      "evidence": "run4/sequence-0.json rows0..3"
+    },
+    {
+      "code": "N03_SWAP",
+      "passed": true,
+      "evidence": "run4/sequence-0.json rows5..6"
+    },
+    {
+      "code": "N04_OVERLAPS",
+      "passed": true,
+      "evidence": "run4/sequence-0.json rows8..15"
+    },
+    {
+      "code": "N05_STALE_DUPLICATE",
+      "passed": true,
+      "evidence": "run4/DUPLICATE.json"
+    },
+    {
+      "code": "N06_PURE_OBSERVER",
+      "passed": true,
+      "evidence": "run4/PURE.json"
+    },
+    {
+      "code": "N07_ACTIVATION_PARITY",
+      "passed": true,
+      "evidence": "run5/sequence-0.json and receipt-1..2.json"
+    },
+    {
+      "code": "N08_DELIVERY_PARITY",
+      "passed": true,
+      "evidence": "run5/sequence-2.json rows0..3"
+    },
+    {
+      "code": "N09_PHYSICAL_SUSTAINED",
+      "passed": true,
+      "evidence": "run5/receipt-3..4.json"
+    },
+    {
+      "code": "N10_AFTER_RELOAD_IMPORT",
+      "passed": true,
+      "evidence": "run5/receipt-4..7.json"
+    },
+    {
+      "code": "N11_MID_LOAD_IMPORT",
+      "passed": true,
+      "evidence": "run3/receipt-0,6.json and generated actual mid-suppression save"
+    },
+    {
+      "code": "N12_MID_RELOAD",
+      "passed": true,
+      "evidence": "run3/receipt-4..5.json"
+    },
+    {
+      "code": "N13_NEGATIVE_GUARDS",
+      "passed": true,
+      "evidence": "run7/negative-*.json, CONTROLLED_FIXTURES.json: disabled handler dispatch actually exercised root guard"
+    },
+    {
+      "code": "N14_PB_SOURCE_LOSS",
+      "passed": true,
+      "evidence": "run7/receipt-20..25.json"
+    },
+    {
+      "code": "N15_REJECTION_RETRY",
+      "passed": true,
+      "evidence": "run8/FAILED_WRITE.json, receipt-2..4.json"
+    },
+    {
+      "code": "N16_EXACT_EXPIRY",
+      "passed": true,
+      "evidence": "run8/receipt-5..8.json, run9/receipt-1.json"
+    },
+    {
+      "code": "N17_EXPIRY_STALE",
+      "passed": true,
+      "evidence": "run8/receipt-7..8.json"
+    },
+    {
+      "code": "N18_OLD_ABSENT",
+      "passed": true,
+      "evidence": "receipt-3.json: actual old absent save reload before successful atomic drill"
+    },
+    {
+      "code": "N19_NATIVE_MONEY_PRESERVED",
+      "passed": true,
+      "evidence": "run9/receipt-0..5.json"
+    },
+    {
+      "code": "N20_FINAL_RELOAD_IMPORT",
+      "passed": true,
+      "evidence": "run9/receipt-2..5.json"
+    },
+    {
+      "code": "N21_HASH_ERRORS_PROCESSES",
+      "passed": true,
+      "evidence": "run4..9/NATIVE_SESSION.json, all exited"
+    }
+  ],
+  "nativePassed": true,
+  "authoringDefect": "Named-instance suppressor self-reference/missing-target needs root validation repair; native arena body-scoped consumers unaffected"
+}

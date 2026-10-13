@@ -1,0 +1,35 @@
+{
+  "status": "PASS",
+  "checks": {
+    "json_parse": true,
+    "families_covered": true,
+    "unique_leaf_ids": true,
+    "unique_case_ids": true,
+    "unique_variant_ids": true,
+    "variant_targets": true,
+    "join_targets": true,
+    "previous_ids_exist": true,
+    "service_ids_exist": true,
+    "local_links_exist": true,
+    "source_pointers_exist": true,
+    "source_head_stable": true,
+    "independent_review_repairs_confirmed": true,
+    "markdown_trailing_whitespace": true
+  },
+  "counts": {
+    "families": 10,
+    "leaves": 36,
+    "variants": 59,
+    "specified_cases": 114,
+    "joins": 7,
+    "preserved_previous_ids": 73,
+    "local_links": 55,
+    "source_pointers": 43,
+    "source_files": 23
+  },
+  "invalid_links": [],
+  "invalid_source_pointers": [],
+  "owner_drift": [],
+  "runtimeChecks": "not run; planning only",
+  "review": "Independent bounded review R1\u2013R4 repaired and readback-confirmed in specialists/INTEGRATION_REVIEW.md; no material source/API runtime overclaim."
+}

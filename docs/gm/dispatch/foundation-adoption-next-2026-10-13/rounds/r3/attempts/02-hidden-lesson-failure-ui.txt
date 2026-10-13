@@ -1,0 +1,806 @@
+Authoring
+Layout
+Character vitals
+0 / 26 xp
+51/51 stamina
+0/0 mana
+80/80 hp
+Inventory & combat view
+Inventory
+Combat
+Character & preparation
+Level: 2
+Strength:
+11.9
+Agility:
+11.2
+Dexterity:
+11.0
+Intuition
+11.0
+Defense:
+1.0
+Magic:
+0.0
+Atk power:
+4.3
+Atk spd:
+0.7
+Crit rate:
+5.0%
+Crit mult:
+130.0%
+AP:
+37
+EP :
+39
+Active effects: 2
+Stats
+Bio
+Equipment
+Tools
+Belongings
+Your purse contains: 9C 2W
+star_border[weapon] Cheap iron axe [50%]
+[take off]
+14C 4W
+star_borderCharged cooling sleeve
+3W
+star_borderCooling salt packet x8
+1W
+star_borderRough wood log x95
+1C
+star_borderStale bread x5
+[use]
+auto
+2C
+star_borderTree sap x3
+5W
+star_border[legs] Cheap leather pants [40%]
+[equip]
+4C 6W
+star_border[tool] Old pickaxe
+[equip]
+1C
+star_border[tool] Old shovel
+[equip]
+1C
+star_border[tool] Old sickle
+[equip]
+1C
+Sort by name
+Sort by value
+Sort by type
+All
+Equipment
+Usable
+Other
+Favs
+Equipment comparison
+People you know
+People you know
+
+What you have learned and what happened between you. Locations are last known or agreed, rather than live reports.
+
+Village elder
+Old craftsman
+Eda, sluice fitter
+04/04/999 05:59, Summer, Thu, Day
+cloud15.2°C
+star_border Village
+Rain dots the village path.
+Medium-sized village, built at the foot of the mountains, with rocks preventing any expansions towards north. It's surrounded by many fields, most of them infested by huge rats. There is a relatively calm, somewhat small river south of it with no bridges over it, and with some old structures on the other side, clearly not used for years if not longer. Many villagers seem to have nothing to do and are just sitting around.
+More about this place
+
+No work running.
+
+Saving available.
+
+Local actions
+directions Move somewhere else
+directions Fast travel
+construction Try to craft something
+question_answer Talk to someone
+work_outline Find work
+fitness_center Train
+search Gather resources
+Local life
+Waypost supply clerk
+Clerk purse: 180 coins. Paid so far: 0. Supplies change hands immediately; no shift, promotion or patrol credit. After one Infested field clear the clerk offers free repair notes, or buy a copy for 10 coins.
+Ask for repair notes (one field clear)Buy repair notes (10 coins)
+Learned item sources
+Cheap iron axe: village elder (observed, contact)
+Old pickaxe: old craftsman (observed, contact)
+Old axe: old craftsman (observed, contact)
+Old sickle: old craftsman (observed, contact)
+Old shovel: old craftsman (observed, contact)
+Rough wood log: Village (observed, gather)
+Tree sap: Village (observed, gather)
+Optional pacing
+Equipment condition and repair
+Elemental preparation
+Journal & received accounts
+Quests
+Bestiary
+Anthology
+Data
+Notebook
+Skills & practice
+keyboard_double_arrow_downCombat skills
+keyboard_arrow_up
+keyboard_arrow_down
+keyboard_double_arrow_downEnvironmental skills
+keyboard_arrow_up
+keyboard_arrow_down
+keyboard_double_arrow_downCharacter skills
+keyboard_arrow_up
+keyboard_arrow_down
+keyboard_double_arrow_downGathering skills
+keyboard_arrow_up
+keyboard_arrow_down
+ Hide max level skills
+Sort by name
+Sort by level
+Sort by progress
+Skills
+Stances
+Magic
+Reports
+World events
+Recent news
+Remembered years · 1 memories
+Remember this day
+
+Years remembered
+Village neighbors
+Finish your living-world work or decision first.
+Finish your living-world work or decision first.
+Finish your living-world work or decision first.
+Saved the game manually
+Finish your living-world work or decision first.
+Finish your living-world work or decision first.
+Finish your living-world work or decision first.
+Finish your living-world work or decision first.
+Finish your living-world work or decision first.
+Finish your living-world work or decision first.
+Finish your living-world work or decision first.
+Finish your living-world work or decision first.
+Finish your living-world work or decision first.
+Finish your living-world work or decision first.
+Finish your living-world work or decision first.
+Finish your living-world work or decision first.
+Finish your living-world work or decision first.
+Finish your living-world work or decision first.
+Finish your living-world work or decision first.
+Finish your living-world work or decision first.
+Finish your living-world work or decision first.
+Finish your living-world work or decision first.
+Finish your living-world work or decision first.
+Finish your living-world work or decision first.
+Finish your living-world work or decision first.
+Finish your living-world work or decision first.
+Finish your living-world work or decision first.
+Finish your living-world work or decision first.
+Finish your living-world work or decision first.
+Finish your living-world work or decision first.
+Finish your living-world work or decision first.
+Finish your living-world work or decision first.
+Finish your living-world work or decision first.
+Finish your living-world work or decision first.
+Finish your living-world work or decision first.
+Finish your living-world work or decision first.
+Finish your living-world work or decision first.
+Finish your living-world work or decision first.
+Finish your living-world work or decision first.
+Finish your living-world work or decision first.
+Finish your living-world work or decision first.
+Finish your living-world work or decision first.
+Finish your living-world work or decision first.
+Finish your living-world work or decision first.
+Saved the game manually
+Saved the game manually
+Saved the game manually
+Saved the game manually
+Saved the game manually
+Saved the game manually
+Saved the game manually
+Saved the game manually
+Saved the game manually
+Saved the game manually
+Saved the game manually
+Saved the game manually
+Saved the game manually
+Saved the game manually
+Saved the game manually
+Levels / unlocks
+Events
+Crafting
+Combat
+Loot
+BGM
+Your beginning
+Patrol & custody
+Notes, practice & people
+Notes, practice & people
+Here
+Practice
+People
+Tools, practice & local lives
+Current condition & small preparations
+Field remedies & optional wound consequences
+Fitting tools & materials
+
+Use, borrow, maintain and fit actual tools and materials.
+
+Known actions
+Borrow Eda's sharp fitting knife · refundable 2-coin deposit
+
+Loan permits named cutting and edge repair, not refitting, selling, spending, storage or onward transfer. A loan never creates an owned duplicate.
+
+Available
+
+Known requirements
+This Village work needs the current native body, location, stock and supported local clock.
+Recover your hands before fitting work.
+Recover above one HP before fitting work.
+Eda needs present consent, her own living body and free attention.
+Quoted costs
+2 coins. You have 92 available.
+
+Time quote: Immediate action.
+
+Reserved
+Eda, Village sluice fitter is reserved for this accepted work.
+Do this: Borrow Eda's sharp fitting knife · refundable 2-coin deposit
+Buy one actual sharp fitting knife · 6 coins
+
+Direct payer-to-owner transfer. Availability uses the same actual seller stock and player money as commitment.
+
+Available
+
+Known requirements
+This Village work needs the current native body, location, stock and supported local clock.
+Recover your hands before fitting work.
+Recover above one HP before fitting work.
+Eda needs present consent, her own living body and free attention.
+Quoted costs
+6 coins. You have 92 available.
+Eda, Village sluice fitter: 1 Field fitting knife.
+
+Time quote: Immediate action.
+
+Reserved
+Eda, Village sluice fitter is reserved for this accepted work.
+Do this: Buy one actual sharp fitting knife · 6 coins
+Buy Eda's one actual sound stave · 2 coins
+
+Available
+
+Known requirements
+This Village work needs the current native body, location, stock and supported local clock.
+Recover your hands before fitting work.
+Recover above one HP before fitting work.
+Eda needs present consent, her own living body and free attention.
+Quoted costs
+2 coins. You have 92 available.
+Eda, Village sluice fitter: 1 Sound repair stave.
+
+Time quote: Immediate action.
+
+Reserved
+Eda, Village sluice fitter is reserved for this accepted work.
+Do this: Buy Eda's one actual sound stave · 2 coins
+Cut one actual log into two wet staves · 4 min
+
+One log and two stamina become two wet staves, not two already sound parts. No native skill unlock or XP is inferred. The sharp knife becomes its dulled variant on completion. Cancellation restores reserved inputs, produces nothing and leaves the knife's condition unchanged. The owned knife is held in this job, so other work cannot spend it.
+
+Unavailable
+
+Known requirements
+This Village work needs the current native body, location, stock and supported local clock.
+Recover your hands before fitting work.
+Recover above one HP before fitting work.
+Carry an owned, unequipped and unborrowed knife in the declared condition.
+Why this is unavailable
+This action is not available under the current conditions. Review the known preparation or choose another action.
+Stated costs
+1 Rough wood log. You have 95 available.
+2 stamina. You have 50.849999999999994 available.
+1 Field fitting knife. You have 0 available.
+
+Time terms: 4 played minutes under the known terms.
+
+Cancellation: Cancelling returns reserved inputs. Time already played is not returned.
+
+Reserved
+Your attention is reserved while the accepted work runs.
+A place at Eda's dry fitting bench is reserved for this work.
+Unavailable: Cut one actual log into two wet staves · 4 min
+Cut one actual log into two wet staves · 4 min
+
+One log and two stamina become two wet staves, not two already sound parts. No native skill unlock or XP is inferred. The sharp knife becomes its dulled variant on completion. Cancellation restores reserved inputs, produces nothing and leaves the knife's condition unchanged. Eda is reserved with you; her same loan follows the worn tool and may then be returned.
+
+Unavailable
+
+Known requirements
+This Village work needs the current native body, location, stock and supported local clock.
+Recover your hands before fitting work.
+Recover above one HP before fitting work.
+Carry the exact matching Eda loan in the declared condition.
+Why this is unavailable
+This action is not available under the current conditions. Review the known preparation or choose another action.
+Stated costs
+1 Rough wood log. You have 95 available.
+2 stamina. You have 50.849999999999994 available.
+
+Time terms: 4 played minutes under the known terms.
+
+Cancellation: Cancelling returns reserved inputs. Time already played is not returned.
+
+Reserved
+Your attention is reserved while the accepted work runs.
+Eda, Village sluice fitter is reserved for this accepted work.
+A place at Eda's dry fitting bench is reserved for this work.
+Unavailable: Cut one actual log into two wet staves · 4 min
+Cut one actual log into two wet staves · 4 min
+
+One log and two stamina become two wet staves, not two already sound parts. No native skill unlock or XP is inferred. The sharp knife becomes its dulled variant on completion. Cancellation restores reserved inputs, produces nothing and leaves the knife's condition unchanged. The owned knife is held in this job, so other work cannot spend it.
+
+Unavailable
+
+Known requirements
+This Village work needs the current native body, location, stock and supported local clock.
+Recover your hands before fitting work.
+Recover above one HP before fitting work.
+Carry an owned, unequipped and unborrowed knife in the declared condition.
+Why this is unavailable
+This action is not available under the current conditions. Review the known preparation or choose another action.
+Stated costs
+1 Rough wood log. You have 95 available.
+2 stamina. You have 50.849999999999994 available.
+1 Fine field fitting knife. You have 0 available.
+
+Time terms: 4 played minutes under the known terms.
+
+Cancellation: Cancelling returns reserved inputs. Time already played is not returned.
+
+Reserved
+Your attention is reserved while the accepted work runs.
+A place at Eda's dry fitting bench is reserved for this work.
+Unavailable: Cut one actual log into two wet staves · 4 min
+Cut one actual log into two wet staves · 4 min
+
+One log and two stamina become two wet staves, not two already sound parts. No native skill unlock or XP is inferred. The sharp knife becomes its dulled variant on completion. Cancellation restores reserved inputs, produces nothing and leaves the knife's condition unchanged. Eda is reserved with you; her same loan follows the worn tool and may then be returned.
+
+Unavailable
+
+Known requirements
+This Village work needs the current native body, location, stock and supported local clock.
+Recover your hands before fitting work.
+Recover above one HP before fitting work.
+Carry the exact matching Eda loan in the declared condition.
+Why this is unavailable
+This action is not available under the current conditions. Review the known preparation or choose another action.
+Stated costs
+1 Rough wood log. You have 95 available.
+2 stamina. You have 50.849999999999994 available.
+
+Time terms: 4 played minutes under the known terms.
+
+Cancellation: Cancelling returns reserved inputs. Time already played is not returned.
+
+Reserved
+Your attention is reserved while the accepted work runs.
+Eda, Village sluice fitter is reserved for this accepted work.
+A place at Eda's dry fitting bench is reserved for this work.
+Unavailable: Cut one actual log into two wet staves · 4 min
+Cut two sound staves into two usable survey kits · 4 min
+
+Two sound staves, one Tree sap and two stamina become two ordinary native Prepared survey kits. The matching method is optional. The sharp knife becomes its dulled variant on completion. Cancellation restores reserved inputs, produces nothing and leaves the knife's condition unchanged. The owned knife is held in this job, so other work cannot spend it.
+
+Unavailable
+
+Known requirements
+This Village work needs the current native body, location, stock and supported local clock.
+Recover your hands before fitting work.
+Recover above one HP before fitting work.
+Carry an owned, unequipped and unborrowed knife in the declared condition.
+Why this is unavailable
+This action is not available under the current conditions. Review the known preparation or choose another action.
+Stated costs
+2 Sound repair stave. You have 0 available.
+1 Tree sap. You have 3 available.
+2 stamina. You have 50.849999999999994 available.
+1 Field fitting knife. You have 0 available.
+
+Time terms: 4 played minutes under the known terms.
+
+Cancellation: Cancelling returns reserved inputs. Time already played is not returned.
+
+Reserved
+Your attention is reserved while the accepted work runs.
+A place at Eda's dry fitting bench is reserved for this work.
+Unavailable: Cut two sound staves into two usable survey kits · 4 min
+Cut two sound staves into two usable survey kits · 4 min
+
+Two sound staves, one Tree sap and two stamina become two ordinary native Prepared survey kits. The matching method is optional. The sharp knife becomes its dulled variant on completion. Cancellation restores reserved inputs, produces nothing and leaves the knife's condition unchanged. Eda is reserved with you; her same loan follows the worn tool and may then be returned.
+
+Unavailable
+
+Known requirements
+This Village work needs the current native body, location, stock and supported local clock.
+Recover your hands before fitting work.
+Recover above one HP before fitting work.
+Carry the exact matching Eda loan in the declared condition.
+Why this is unavailable
+This action is not available under the current conditions. Review the known preparation or choose another action.
+Stated costs
+2 Sound repair stave. You have 0 available.
+1 Tree sap. You have 3 available.
+2 stamina. You have 50.849999999999994 available.
+
+Time terms: 4 played minutes under the known terms.
+
+Cancellation: Cancelling returns reserved inputs. Time already played is not returned.
+
+Reserved
+Your attention is reserved while the accepted work runs.
+Eda, Village sluice fitter is reserved for this accepted work.
+A place at Eda's dry fitting bench is reserved for this work.
+Unavailable: Cut two sound staves into two usable survey kits · 4 min
+Cut two sound staves into two usable survey kits · 4 min
+
+Two sound staves, one Tree sap and two stamina become two ordinary native Prepared survey kits. The matching method is optional. The sharp knife becomes its dulled variant on completion. Cancellation restores reserved inputs, produces nothing and leaves the knife's condition unchanged. The owned knife is held in this job, so other work cannot spend it.
+
+Unavailable
+
+Known requirements
+This Village work needs the current native body, location, stock and supported local clock.
+Recover your hands before fitting work.
+Recover above one HP before fitting work.
+Carry an owned, unequipped and unborrowed knife in the declared condition.
+Why this is unavailable
+This action is not available under the current conditions. Review the known preparation or choose another action.
+Stated costs
+2 Sound repair stave. You have 0 available.
+1 Tree sap. You have 3 available.
+2 stamina. You have 50.849999999999994 available.
+1 Fine field fitting knife. You have 0 available.
+
+Time terms: 4 played minutes under the known terms.
+
+Cancellation: Cancelling returns reserved inputs. Time already played is not returned.
+
+Reserved
+Your attention is reserved while the accepted work runs.
+A place at Eda's dry fitting bench is reserved for this work.
+Unavailable: Cut two sound staves into two usable survey kits · 4 min
+Cut two sound staves into two usable survey kits · 4 min
+
+Two sound staves, one Tree sap and two stamina become two ordinary native Prepared survey kits. The matching method is optional. The sharp knife becomes its dulled variant on completion. Cancellation restores reserved inputs, produces nothing and leaves the knife's condition unchanged. Eda is reserved with you; her same loan follows the worn tool and may then be returned.
+
+Unavailable
+
+Known requirements
+This Village work needs the current native body, location, stock and supported local clock.
+Recover your hands before fitting work.
+Recover above one HP before fitting work.
+Carry the exact matching Eda loan in the declared condition.
+Why this is unavailable
+This action is not available under the current conditions. Review the known preparation or choose another action.
+Stated costs
+2 Sound repair stave. You have 0 available.
+1 Tree sap. You have 3 available.
+2 stamina. You have 50.849999999999994 available.
+
+Time terms: 4 played minutes under the known terms.
+
+Cancellation: Cancelling returns reserved inputs. Time already played is not returned.
+
+Reserved
+Your attention is reserved while the accepted work runs.
+Eda, Village sluice fitter is reserved for this accepted work.
+A place at Eda's dry fitting bench is reserved for this work.
+Unavailable: Cut two sound staves into two usable survey kits · 4 min
+Dry in the ordinary sheltered rack · 6 min
+
+This spends the actual wet variant and returns a sound one after paid work. Grain matching cannot skip moisture; ordinary sheltered preparation remains viable.
+
+Unavailable
+
+Known requirements
+This Village work needs the current native body, location, stock and supported local clock.
+Recover your hands before fitting work.
+Recover above one HP before fitting work.
+Why this is unavailable
+This action is not available under the current conditions. Review the known preparation or choose another action.
+Stated costs
+1 Wet repair stave. You have 0 available.
+2 stamina. You have 50.849999999999994 available.
+
+Time terms: 6 played minutes under the known terms.
+
+Cancellation: Cancelling returns reserved inputs. Time already played is not returned.
+
+Reserved
+Your attention is reserved while the accepted work runs.
+A place at Eda's dry fitting bench is reserved for this work.
+Unavailable: Dry in the ordinary sheltered rack · 6 min
+Watch Eda cut her actual grain sample · 2 min
+
+Only a present reserved witness sees this discovery. Eda's real materials, guide, body, active source and stamina support it; merely hearing the offer grants nothing.
+
+Available
+
+Known requirements
+This Village work needs the current native body, location, stock and supported local clock.
+Recover your hands before fitting work.
+Recover above one HP before fitting work.
+Eda needs present consent, her own living body and free attention.
+Quoted costs
+Eda, Village sluice fitter: 1 Sound repair stave.
+Eda, Village sluice fitter: 1 Fine field fitting knife.
+Eda, Village sluice fitter: 1 stamina.
+
+Time quote: 2 played minutes.
+
+Cancellation: Cancelling returns reserved inputs. Time already played is not returned.
+
+Reserved
+Your attention is reserved while the accepted work runs.
+Eda, Village sluice fitter is reserved for this accepted work.
+A place at Eda's dry fitting bench is reserved for this work.
+Do this: Watch Eda cut her actual grain sample · 2 min
+Brace the leaking joint with ordinary stock · 5 min
+
+The installed part is consumed into this persistent target. Eda consents and witnesses the work; nothing grants an extra loose stave. A purchased matched part can be installed without copying its maker's method.
+
+Unavailable
+
+Known requirements
+This Village work needs the current native body, location, stock and supported local clock.
+Recover your hands before fitting work.
+Recover above one HP before fitting work.
+Eda needs present consent, her own living body and free attention.
+Why this is unavailable
+This action is not available under the current conditions. Review the known preparation or choose another action.
+Stated costs
+1 Sound repair stave. You have 0 available.
+1 Tree sap. You have 3 available.
+2 stamina. You have 50.849999999999994 available.
+
+Time terms: 5 played minutes under the known terms.
+
+Cancellation: Cancelling returns reserved inputs. Time already played is not returned.
+
+Reserved
+Your attention is reserved while the accepted work runs.
+Eda, Village sluice fitter is reserved for this accepted work.
+A place at Eda's dry fitting bench is reserved for this work.
+Unavailable: Brace the leaking joint with ordinary stock · 5 min
+Install your matched sealing insert · 3 min
+
+The installed part is consumed into this persistent target. Eda consents and witnesses the work; nothing grants an extra loose stave. A purchased matched part can be installed without copying its maker's method.
+
+Unavailable
+
+Known requirements
+This Village work needs the current native body, location, stock and supported local clock.
+Recover your hands before fitting work.
+Recover above one HP before fitting work.
+Eda needs present consent, her own living body and free attention.
+Why this is unavailable
+This action is not available under the current conditions. Review the known preparation or choose another action.
+Stated costs
+1 Matched repair stave. You have 0 available.
+1 Tree sap. You have 3 available.
+1 stamina. You have 50.849999999999994 available.
+
+Time terms: 3 played minutes under the known terms.
+
+Cancellation: Cancelling returns reserved inputs. Time already played is not returned.
+
+Reserved
+Your attention is reserved while the accepted work runs.
+Eda, Village sluice fitter is reserved for this accepted work.
+A place at Eda's dry fitting bench is reserved for this work.
+Unavailable: Install your matched sealing insert · 3 min
+Deliver two real survey kits to Eda · earn 2 coins
+
+Eda funds two orders. Only this accepted order reserves its kits, two coins and one demand unit. Cancellation returns that exact paired transfer and funding; it does not mint income.
+
+Unavailable
+
+Known requirements
+This Village work needs the current native body, location, stock and supported local clock.
+Recover your hands before fitting work.
+Recover above one HP before fitting work.
+Eda needs present consent, her own living body and free attention.
+Why this is unavailable
+This action is not available under the current conditions. Review the known preparation or choose another action.
+Stated costs
+2 Prepared survey kit to Eda, Village sluice fitter. You have 0 available.
+
+Time terms: 2 played minutes under the known terms.
+
+Cancellation: Cancelling returns reserved inputs. Time already played is not returned.
+
+Reserved
+Your attention is reserved while the accepted work runs.
+Eda, Village sluice fitter is reserved for this accepted work.
+Unavailable: Deliver two real survey kits to Eda · earn 2 coins
+Observed: Eda says a swollen joint drips onto her drying shelf. She offers a two-coin refundable knife deposit or a six-coin purchase. Bracing needs ordinary sound wood; an offered demonstration may reveal a more exact fitting method. · Recorded at played minute 0.
+Observed: Firsthand joint inspection: the cross-grain swollen stave leaks onto the one Village drying shelf. An ordinary brace can hold it clear while it still seeps; a matching sound-grain insert can seal this particular joint. · Recorded at played minute 3.
+Household work & apprenticeship
+The terraced harbor chart
+Proto23 · your furnished visitor life
+Paradise · your independent Goa branch
+Mother of Learning · your Cyoria guest life
+Service-district side entry
+Eda’s fitting agreement
+Bench clearance study
+Eda’s offered-stock reports
+Scraped-palm care
+Connect the home-world chapter
+Field feats
+Mastery and combinations
+Measured cooling with Eda
+
+Ordinary cooling and separate paid instruction use Eda’s finite stock.
+
+Known actions
+Buy one actual charged cooling sleeve · 2 coins
+
+Atomic paid stock transfer. No restock, loan appropriation, abstract material balance or new currency.
+
+Available
+
+Known requirements
+Return to the Village with your supported living native body and local clock.
+Recover your actual hands before handling a sleeve.
+Your health: at least 2. (met)
+Eda needs present willingness, her living body and the actual learned cooling source.
+Quoted costs
+2 coins. You have 92 available.
+Eda, Village sluice fitter: 1 Charged cooling sleeve.
+
+Time quote: Immediate action.
+
+Reserved
+Eda, Village sluice fitter is reserved for this accepted work.
+Do this: Buy one actual charged cooling sleeve · 2 coins
+Buy one actual salt packet · 1 coin
+
+Atomic paid stock transfer. No restock, loan appropriation, abstract material balance or new currency.
+
+Unavailable
+
+Known requirements
+Return to the Village with your supported living native body and local clock.
+Recover your actual hands before handling a sleeve.
+Your health: at least 2. (met)
+Eda needs present willingness, her living body and the actual learned cooling source.
+Why this is unavailable
+This action is not available under the current conditions. Review the known preparation or choose another action.
+Stated costs
+1 coins. You have 92 available.
+Eda, Village sluice fitter: 1 Cooling salt packet.
+
+Time terms: Immediate action.
+
+Reserved
+Eda, Village sluice fitter is reserved for this accepted work.
+Unavailable: Buy one actual salt packet · 1 coin
+Set one sap with an ordinary sleeve · 1 stamina + 3 min
+
+The physical charge performs this ordinary operation. Cancellation refunds actual reserved sleeve, sap and effort and creates no output.
+
+Available
+
+Known requirements
+Return to the Village with your supported living native body and local clock.
+Recover your actual hands before handling a sleeve.
+Your health: at least 2. (met)
+Carry an owned, unequipped and unborrowed charged sleeve.
+Quoted costs
+1 Charged cooling sleeve. You have 1 available.
+1 Tree sap. You have 3 available.
+1 stamina. You have 50.849999999999994 available.
+
+Time quote: 3 played minutes.
+
+Cancellation: Cancelling returns reserved inputs. Time already played is not returned.
+
+Reserved
+Your attention is reserved while the accepted work runs.
+A place at Eda's dry fitting bench is reserved for this work.
+Do this: Set one sap with an ordinary sleeve · 1 stamina + 3 min
+Bind two sound staves with set resin · two survey kits + 3 min
+
+A practical consumer of cooled material. Produces the existing ordinary kit item, with no skill or power required.
+
+Unavailable
+
+Known requirements
+Return to the Village with your supported living native body and local clock.
+Recover your actual hands before handling a sleeve.
+Your health: at least 2. (met)
+Why this is unavailable
+This action is not available under the current conditions. Review the known preparation or choose another action.
+Stated costs
+1 Set repair resin. You have 0 available.
+2 Sound repair stave. You have 0 available.
+1 stamina. You have 50.849999999999994 available.
+
+Time terms: 3 played minutes under the known terms.
+
+Cancellation: Cancelling returns reserved inputs. Time already played is not returned.
+
+Reserved
+Your attention is reserved while the accepted work runs.
+A place at Eda's dry fitting bench is reserved for this work.
+Unavailable: Bind two sound staves with set resin · two survey kits + 3 min
+Recharge your empty sleeve · 1 salt + 1 stamina + 3 min
+
+Recharge conserves the sleeve and spends finite native salt. The method, Eda's ongoing attention and magical fuel are unnecessary.
+
+Unavailable
+
+Known requirements
+Return to the Village with your supported living native body and local clock.
+Recover your actual hands before handling a sleeve.
+Your health: at least 2. (met)
+Why this is unavailable
+This action is not available under the current conditions. Review the known preparation or choose another action.
+Stated costs
+1 Empty cooling sleeve. You have 0 available.
+1 Cooling salt packet. You have 8 available.
+1 stamina. You have 50.849999999999994 available.
+
+Time terms: 3 played minutes under the known terms.
+
+Cancellation: Cancelling returns reserved inputs. Time already played is not returned.
+
+Reserved
+Your attention is reserved while the accepted work runs.
+A place at Eda's dry fitting bench is reserved for this work.
+Unavailable: Recharge your empty sleeve · 1 salt + 1 stamina + 3 min
+Eda’s account: After your firsthand joint inspection, Eda offers her measured-cooling bench: two stocked sleeves at two coins each, eight one-coin salt packets, a one-coin lesson, and up to three one-coin trials. Ordinary resin setting needs no method. Asking accepts no purchase, practice or debt. · minute 4
+Eda’s account: You paid Eda 2 native coins for one actual sleeve. Her finite stock decreased and her purse received the payment. Purchase grants no cooling knowledge. · minute 5
+Eda’s account: You paid Eda 1 native coin for one actual salt. Her finite stock decreased and her purse received the payment. Purchase grants no cooling knowledge. · minute 13
+Eda’s clamping frame
+Local projects and commissions
+Your two-receiver retort
+Eda's bench fieldcraft
+Finite survey-kit reserve
+Village crossroads
+Lantern & floodline work
+Optional lives and local experiments
+At the seal registry
+
+Conversation not started.
+
+Conversation controls
+Known actions
+Discuss the offered work
+
+Unavailable
+
+Why this is unavailable
+This action is not available under the current conditions. Review the known preparation or choose another action.
+Stated costs
+Hear the seal-steward’s terms
+Completion terms
+Meet the seal steward, counter clerk and a longtime colleague. Hearing their actual terms changes no identity, office, duty or possessions.
+Unavailable: Discuss the offered work
+Village notes
+Routes & supplies
+Field association & workshop
+Work Ledger
+Work ledger
+Save
+Export
+Import
+settings
+v0.6
+help_outline

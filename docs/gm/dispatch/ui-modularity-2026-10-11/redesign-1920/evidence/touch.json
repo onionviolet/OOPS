@@ -1,0 +1,10 @@
+{
+  "build": "http://127.0.0.1:18571/dist/bundle.js?version=v0.6-598f67420c6e",
+  "method": "Chrome CDP native touch input in temporary hasTouch context",
+  "checks": [
+    "Actual touch header input previews and docks Skills right to center.",
+    "Touch lower edge enlarges content area.",
+    "Touch cancellation restores original dock.",
+    "Shift+mouse header drag creates floating at the chosen position."
+  ]
+}

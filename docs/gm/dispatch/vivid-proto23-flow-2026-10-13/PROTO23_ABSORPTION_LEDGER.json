@@ -1,0 +1,838 @@
+[
+ {
+  "source": "docs/research/proto23/readers-2026-10-10/R1_core_time_titles_effects_furniture.md",
+  "heading": "Coverage",
+  "mechanism": "Reader scope statement: which Proto23 line ranges and YAIRPG files R1 read, not a game mechanism.",
+  "current": "n/a",
+  "disposition": "not-applicable",
+  "reason": "Meta heading describing read coverage; no mechanism to absorb."
+ },
+ {
+  "source": "docs/research/proto23/readers-2026-10-10/R1_core_time_titles_effects_furniture.md",
+  "heading": "1. Global state and save format (143-425)",
+  "mechanism": "One global registry bag saved as a pipe-delimited base64 string in one localStorage key, with no migration and a delete-the-save fallback on parse failure.",
+  "current": "Validated JSON envelope, versioned migration, import preflight, rolling backups (save_files.js, save_migration.js).",
+  "disposition": "rejected",
+  "owner": "src/save_files.js",
+  "reason": "YAIRPG persistence is strictly safer; AGENTS.md requires migrations, so the positional pipe format is not adopted."
+ },
+ {
+  "source": "docs/research/proto23/readers-2026-10-10/R1_core_time_titles_effects_furniture.md",
+  "heading": "1. Global state and save format (143-425)",
+  "mechanism": "Large lifetime counter bag (kills, money gained, deaths, time at home, cat pats, shop buys) that later feeds titles and milestones.",
+  "current": "titles.js reads a derived counter snapshot (kills, hits, deaths, crafts, gathered, level); no time-at-home or purchases counter found.",
+  "disposition": "adapt-next",
+  "owner": "src/titles.js",
+  "nextSlice": "Add a time-at-home and items-bought counter derived from existing saved facts, surfaced as two new public title goals in the Titles panel."
+ },
+ {
+  "source": "docs/research/proto23/readers-2026-10-10/R1_core_time_titles_effects_furniture.md",
+  "heading": "2. Time (953-965 and helpers 13630-13656, 13844-13880)",
+  "mechanism": "One master minute counter, 1 real second = 1 game minute, 30-day months, weekday and 8-phase moon derived by division; sleep runs time at 5x.",
+  "current": "game_time.js has the same 1 s = 1 min, 12x30-day calendar, 4-phase moon and a 6x sleep speedup.",
+  "disposition": "not-applicable",
+  "owner": "src/game_time.js",
+  "reason": "Native calendar already matches the pacing grammar; season offset and moon phase count are tuning, not a missing mechanism."
+ },
+ {
+  "source": "docs/research/proto23/readers-2026-10-10/R1_core_time_titles_effects_furniture.md",
+  "heading": "3. Titles (431-880, plus unlock tables 7262-7304 and giveTitle 13760)",
+  "mechanism": "Counter-driven titles (lifetime kills, deaths, level without death, crafts) granted once with a \"New Title Earned\" announcement and small optional talents.",
+  "current": "titles.js title_catalog (28 entries in 4 families) with derived bonuses; titles_ui.js panel; refresh_titles in main.js.",
+  "disposition": "adopted",
+  "owner": "src/titles.js",
+  "evidence": "tests/titles.test.js"
+ },
+ {
+  "source": "docs/research/proto23/readers-2026-10-10/R1_core_time_titles_effects_furniture.md",
+  "heading": "3. Titles (431-880, plus unlock tables 7262-7304 and giveTitle 13760)",
+  "mechanism": "Title earn moment is a visible event: grant, set as current title, announce once.",
+  "current": "Titles are granted and listed; earn feedback is a plain log line, no anchored once-only cue.",
+  "disposition": "adapt-next",
+  "owner": "src/titles_ui.js",
+  "nextSlice": "Route a newly earned title through the native_discovery_feedback cue (once, never on reload) anchored to the Titles panel row."
+ },
+ {
+  "source": "docs/research/proto23/readers-2026-10-10/R1_core_time_titles_effects_furniture.md",
+  "heading": "3. Titles (431-880, plus unlock tables 7262-7304 and giveTitle 13760)",
+  "mechanism": "Long-tail joke and anti-adventure titles (9999 cat pats, a decade at home, 1M kills, Glass Bones for losing to the weakest enemy).",
+  "current": "none found beyond the 28-entry catalog.",
+  "disposition": "parked",
+  "owner": "src/titles.js",
+  "reason": "Cheap flavour but needs counters (pats, continuous home time) that do not exist yet; wait for the counter slice."
+ },
+ {
+  "source": "docs/research/proto23/readers-2026-10-10/R1_core_time_titles_effects_furniture.md",
+  "heading": "4. Weather (883-923, 13207-13628)",
+  "mechanism": "Named weather states with per-state durations cycling by season, layered on top of an outdoor rain/Wet consequence.",
+  "current": "absorb_e1/pacing.js WEATHER_STATES: optional saved seasonal cycle (clear/breeze/fog/rain/overcast) layered on native temperature and rain; default off.",
+  "disposition": "adopted",
+  "owner": "src/absorb_e1/pacing.js",
+  "evidence": "docs/gm/dispatch/absorb-2026-10-11/evidence/E1-browser.json"
+ },
+ {
+  "source": "docs/research/proto23/readers-2026-10-10/R1_core_time_titles_effects_furniture.md",
+  "heading": "4. Weather (883-923, 13207-13628)",
+  "mechanism": "Thunderstorm lightning strike: 0.09% per outdoor tick for heavy, possibly lethal damage reduced by a resistance skill.",
+  "current": "none found (only a word in feature_expansion_book_cultivation.js).",
+  "disposition": "parked",
+  "owner": "src/weather.js",
+  "reason": "Rare lethal randomness conflicts with idle play unless warned and opt-in; no current owner wants it."
+ },
+ {
+  "source": "docs/research/proto23/readers-2026-10-10/R1_core_time_titles_effects_furniture.md",
+  "heading": "4. Weather (883-923, 13207-13628)",
+  "mechanism": "Winter cold arrives in gust bursts (200-1300 ticks on, 20-100 rest) rather than a constant drain.",
+  "current": "Native cold tiers derive from numeric temperature with a 60-tick onset.",
+  "disposition": "parked",
+  "owner": "src/weather.js",
+  "reason": "Native graduated cold already carries the system; bursts add drama but no named gap or playable route requests it."
+ },
+ {
+  "source": "docs/research/proto23/readers-2026-10-10/R1_core_time_titles_effects_furniture.md",
+  "heading": "5. Effects (972-1423; plumbing at 10774-10794, 13864)",
+  "mechanism": "Damage-over-time effects (poison, venom, bleeding, food poisoning) each train a matching resistance skill as they tick, tying status effects to the skill economy.",
+  "current": "Native poison variants and food poisoning in active_effects.js; absorb_c2 already trains resistance from native food-poison exposure. No Bleeding DoT found.",
+  "disposition": "adapt-next",
+  "owner": "src/active_effects.js",
+  "nextSlice": "Add a stackable Bleeding effect from one existing edged enemy that trains an existing resistance skill while it ticks, shown in the effects panel."
+ },
+ {
+  "source": "docs/research/proto23/readers-2026-10-10/R1_core_time_titles_effects_furniture.md",
+  "heading": "5. Effects (972-1423; plumbing at 10774-10794, 13864)",
+  "mechanism": "Item-gated auras: Sun/Moon charm day/night stat flips, Candlelight +light, Incense doubles meditation XP, Fireplace aura dries Wet and boosts cooking.",
+  "current": "None as worn charms; light levels exist in weather.js; absorb_c1 amulets cover a different utility set.",
+  "disposition": "parked",
+  "owner": "src/absorb_c1/accessories.js",
+  "reason": "Fits the amulet utility hook later; four amulets just landed and need acceptance before adding more."
+ },
+ {
+  "source": "docs/research/proto23/readers-2026-10-10/R1_core_time_titles_effects_furniture.md",
+  "heading": "5. Effects (972-1423; plumbing at 10774-10794, 13864)",
+  "mechanism": "Fei poisoning: a pill purification DoT that pays a large EXP reward if survived, a risk/reward cultivation loop.",
+  "current": "none found.",
+  "disposition": "parked",
+  "owner": "src/active_effects.js",
+  "reason": "Belongs to a cultivation-world power system, not the home world; park until such a world asks for it."
+ },
+ {
+  "source": "docs/research/proto23/readers-2026-10-10/R1_core_time_titles_effects_furniture.md",
+  "heading": "6. Furniture (1429-1583; giveFurniture 11477, home sector 8234-8280, bed 12845-12865)",
+  "mechanism": "Owned furniture grants passive local bonuses (bed quality to sleep, books stacking Literacy XP) only while the player is at home.",
+  "current": "absorb_b/furniture.js derives home bonuses from native housing, earned fixtures and owned books, never serialized.",
+  "disposition": "adopted",
+  "owner": "src/absorb_b/furniture.js",
+  "evidence": "docs/gm/dispatch/absorb-2026-10-11/evidence/B-browser.json"
+ },
+ {
+  "source": "docs/research/proto23/readers-2026-10-10/R1_core_time_titles_effects_furniture.md",
+  "heading": "6. Furniture (1429-1583; giveFurniture 11477, home sector 8234-8280, bed 12845-12865)",
+  "mechanism": "Cat companion grows, keeps a mood, can bring gifts and boosts bed regen; Home rating sums furniture value.",
+  "current": "none found (no pet or home rating).",
+  "disposition": "parked",
+  "owner": "src/absorb_b/furniture.js",
+  "reason": "A companion needs its own state and acceptance; home rating is presentation without a consumer yet."
+ },
+ {
+  "source": "docs/research/proto23/readers-2026-10-10/R1_core_time_titles_effects_furniture.md",
+  "heading": "7. Quests (1590-1683; givers 11939-12320)",
+  "mechanism": "Wait-out-a-shift repeatable quest: accept in a morning window, stand until evening, small pay plus Patience XP and rare passerby coins.",
+  "current": "Native quests support repeatable/hidden tasks; world_rhythm.js derives recurring windows; native jobs pay per working period.",
+  "disposition": "adapt-next",
+  "owner": "src/world_rhythm.js",
+  "nextSlice": "One hour-windowed repeatable Village watch shift built on world_rhythm windows and native job pay, with a visible open/closed reason."
+ },
+ {
+  "source": "docs/research/proto23/readers-2026-10-10/R1_core_time_titles_effects_furniture.md",
+  "heading": "Comparison table",
+  "mechanism": "Summary table classifying each R1 system against YAIRPG; mechanisms are mapped under the numbered headings.",
+  "current": "n/a",
+  "disposition": "not-applicable",
+  "reason": "Summary of mechanisms already mapped individually under R1 sections 1-7."
+ },
+ {
+  "source": "docs/research/proto23/readers-2026-10-10/R1_core_time_titles_effects_furniture.md",
+  "heading": "Gaps",
+  "mechanism": "List of what R1 did not read or could not confirm.",
+  "current": "n/a",
+  "disposition": "not-applicable",
+  "reason": "Meta heading listing unread ranges and unknowns, not a mechanism."
+ },
+ {
+  "source": "docs/research/proto23/readers-2026-10-10/R2_skills_items.md",
+  "heading": "1. Skill engine (Proto23)",
+  "mechanism": "Skill appears on its first level-up (51 XP), each milestone level runs a hand-written reward (stat, title, recipe, other skill multiplier) with a \"NEW PERK\" announcement.",
+  "current": "Native visibility_treshold plus skill_discovery*.js; proto23-vfx slice emits a once-only discovery cue for the hidden-to-visible transition.",
+  "disposition": "adapt-next",
+  "owner": "src/skill_discovery_native.js",
+  "nextSlice": "Extend the discovery decision to skill categories, search and picker labels so an unlearned skill name never appears anywhere before its native threshold."
+ },
+ {
+  "source": "docs/research/proto23/readers-2026-10-10/R2_skills_items.md",
+  "heading": "1. Skill engine (Proto23)",
+  "mechanism": "Skill reveal is a meaningful one-time event the player notices.",
+  "current": "native_discovery_policy.js and native_discovery_feedback.js present one anchored cue on the actual visibility transition, suppressed on load/restore.",
+  "disposition": "adopted",
+  "owner": "src/native_discovery_feedback.js",
+  "evidence": "tests/native_discovery_policy.test.js"
+ },
+ {
+  "source": "docs/research/proto23/readers-2026-10-10/R2_skills_items.md",
+  "heading": "1. Skill engine (Proto23)",
+  "mechanism": "Super-exponential uncapped XP curve with no per-gain cap; a 150k-XP book dumps straight into a skill.",
+  "current": "Geometric curve, max_level, 10% per-gain cap (models/skill.js, config.js).",
+  "disposition": "rejected",
+  "owner": "src/models/skill.js",
+  "reason": "Native capped curve is an accepted pacing contract; replacing it would rebalance every skill and save."
+ },
+ {
+  "source": "docs/research/proto23/readers-2026-10-10/R2_skills_items.md",
+  "heading": "2. Item engine (Proto23)",
+  "mechanism": "Holding a threshold stack of a material (50 Cure Grass) teaches a recipe once via an onGet hook, then the hook disarms.",
+  "current": "Recipes unlock via books, skill milestones and locations; no stack-threshold teaching found.",
+  "disposition": "adapt-next",
+  "owner": "src/crafting_recipes.js",
+  "nextSlice": "Holding 20 of one gathered herb unlocks one native preparation recipe once, recorded as an explicit fact, revealed with the discovery cue."
+ },
+ {
+  "source": "docs/research/proto23/readers-2026-10-10/R2_skills_items.md",
+  "heading": "2. Item engine (Proto23)",
+  "mechanism": "Long tail of instant-restore foods and drinks, alcohol with a Drinking skill, EXP pills, tactical consumables (smoke bomb, monster powder).",
+  "current": "About 30 timed-buff foods; Tipsy effect exists; no pills or tactical consumables.",
+  "disposition": "parked",
+  "owner": "src/items.js",
+  "reason": "Volume content with balance risk; instant restore conflicts with native timed-buff food design. Park until a world needs it."
+ },
+ {
+  "source": "docs/research/proto23/readers-2026-10-10/R2_skills_items.md",
+  "heading": "2. Item engine (Proto23)",
+  "mechanism": "Seasonal food spoilage planner: carried food rots faster in summer, slower in winter, slower in home storage.",
+  "current": "none found in src (only prose mentions).",
+  "disposition": "parked",
+  "owner": "src/items.js",
+  "reason": "Spoilage needs per-stack timestamps, a persistence change and a migration; no current direction asks for pantry pressure."
+ },
+ {
+  "source": "docs/research/proto23/readers-2026-10-10/R2_skills_items.md",
+  "heading": "3. Books and manuals (Proto23)",
+  "mechanism": "Reading time shrinks with Literacy, and finishing certain books unlocks a whole UI view (Bestiary, Journal, Marketplace).",
+  "current": "Native books give XP multipliers and rewards at constant reading time; adventure_notebook.js and bestiary exist; no book unlocks a panel.",
+  "disposition": "adapt-next",
+  "owner": "src/items.js",
+  "nextSlice": "Let one existing native book reveal a reference panel (via discovery, not a hard lock) and show remaining time plus Stop with partial progress kept."
+ },
+ {
+  "source": "docs/research/proto23/readers-2026-10-10/R2_skills_items.md",
+  "heading": "3. Books and manuals (Proto23)",
+  "mechanism": "Repeatable randomized book (Fairy Tales) that rerolls XP reward and reading time.",
+  "current": "none found.",
+  "disposition": "parked",
+  "owner": "src/feature_expansion_book_catalogue.js",
+  "reason": "Random-XP lottery book adds little beyond native books; no gap names it."
+ },
+ {
+  "source": "docs/research/proto23/readers-2026-10-10/R2_skills_items.md",
+  "heading": "4. YAIRPG equivalent and difference per system",
+  "mechanism": "Per-system comparison of skills, titles, items and books against YAIRPG; mechanisms mapped under sections 1-3.",
+  "current": "n/a",
+  "disposition": "not-applicable",
+  "reason": "Comparison section whose mechanisms are mapped under R2 sections 1-3 and R1 titles."
+ },
+ {
+  "source": "docs/research/proto23/readers-2026-10-10/R2_skills_items.md",
+  "heading": "5. Comparison table (summary)",
+  "mechanism": "Summary table of R2 classifications.",
+  "current": "n/a",
+  "disposition": "not-applicable",
+  "reason": "Summary table duplicating mechanisms already mapped."
+ },
+ {
+  "source": "docs/research/proto23/readers-2026-10-10/R2_skills_items.md",
+  "heading": "6. Gaps",
+  "mechanism": "Unread ranges and unconfirmed YAIRPG fork overlaps.",
+  "current": "n/a",
+  "disposition": "not-applicable",
+  "reason": "Meta heading listing what R2 did not read."
+ },
+ {
+  "source": "docs/research/proto23/readers-2026-10-10/R3_equipment_creatures_areas.md",
+  "heading": "1. Equipment: Eqp record (5595-5628)",
+  "mechanism": "Per-item durability points that wear on hits, scale damage down as they drop, and are restored by a cheap repair (whetstone).",
+  "current": "absorb_e2/durability.js: optional per-copy condition, 0.04 wear per landed hit, repair at 1-5 native coins.",
+  "disposition": "adopted",
+  "owner": "src/absorb_e2/durability.js",
+  "evidence": "docs/gm/dispatch/absorb-2026-10-11/evidence/E2-browser.json"
+ },
+ {
+  "source": "docs/research/proto23/readers-2026-10-10/R3_equipment_creatures_areas.md",
+  "heading": "1. Equipment: Eqp record (5595-5628)",
+  "mechanism": "Accessories as build/economy slot: luck, drop rate, shop price and cook-anywhere effects instead of raw stats.",
+  "current": "absorb_c1/accessories.js: four craftable utility amulets sharing the native amulet slot.",
+  "disposition": "adopted",
+  "owner": "src/absorb_c1/accessories.js",
+  "evidence": "docs/gm/dispatch/absorb-2026-10-11/evidence/C1-browser.json"
+ },
+ {
+  "source": "docs/research/proto23/readers-2026-10-10/R3_equipment_creatures_areas.md",
+  "heading": "1. Equipment: Eqp record (5595-5628)",
+  "mechanism": "Elemental affinity on armor reduces matching elemental damage, so armor choice matters per enemy.",
+  "current": "absorb_e3/elemental_affinities.js: optional matching worn protection adds capped defense.",
+  "disposition": "adopted",
+  "owner": "src/absorb_e3/elemental_affinities.js",
+  "evidence": "docs/gm/dispatch/absorb-2026-10-11/evidence/E3-browser.json"
+ },
+ {
+  "source": "docs/research/proto23/readers-2026-10-10/R3_equipment_creatures_areas.md",
+  "heading": "1. Equipment: Eqp record (5595-5628)",
+  "mechanism": "Items with arbitrary closures (Sword of Evolution grows with kills; duplicate-count onGet unlocks recipes).",
+  "current": "Equippables are data-only stats in items.js.",
+  "disposition": "parked",
+  "owner": "src/items.js",
+  "reason": "Kill-growth gear needs per-copy state beyond E2 identities; revisit after durability acceptance."
+ },
+ {
+  "source": "docs/research/proto23/readers-2026-10-10/R3_equipment_creatures_areas.md",
+  "heading": "2. Creatures (7393-7928)",
+  "mechanism": "Level-banded creatures: one creature id rolls stats per level with stat_p weights, plus per-creature battle_ai.",
+  "current": "Fixed templates per enemy with optional zone variation (enemies.js).",
+  "disposition": "parked",
+  "owner": "src/enemies.js",
+  "reason": "Native tiered templates already scale difficulty; no gap names level bands."
+ },
+ {
+  "source": "docs/research/proto23/readers-2026-10-10/R3_equipment_creatures_areas.md",
+  "heading": "2. Creatures (7393-7928)",
+  "mechanism": "Kill counts and a bestiary entry on first kill with drops revealed when first found.",
+  "current": "Native enemy_killcount and bestiary on first kill (display.js create_new_bestiary_entry).",
+  "disposition": "not-applicable",
+  "owner": "src/display.js",
+  "reason": "Native equivalent predates absorption (R3 classifies it SAME); nothing to import."
+ },
+ {
+  "source": "docs/research/proto23/readers-2026-10-10/R3_equipment_creatures_areas.md",
+  "heading": "3. Areas, sectors, spawning (8014-8307)",
+  "mechanism": "Per-place hidden find table rolled by a background Investigate action with a rising chance per miss and finite finds.",
+  "current": "absorb_c2/local_life.js: capped rising-chance idle search with finite finds at Village and Shack.",
+  "disposition": "adopted",
+  "owner": "src/absorb_c2/local_life.js",
+  "evidence": "docs/gm/dispatch/absorb-2026-10-11/evidence/C2-browser.json"
+ },
+ {
+  "source": "docs/research/proto23/readers-2026-10-10/R3_equipment_creatures_areas.md",
+  "heading": "3. Areas, sectors, spawning (8014-8307)",
+  "mechanism": "Area-level passive \"explored\" meter filled by fighting or scouting that pays a lump of EXP at completion.",
+  "current": "none found.",
+  "disposition": "parked",
+  "owner": "src/models/location.js",
+  "reason": "Native zones already pay first/repeatable clear rewards; a second meter would duplicate them."
+ },
+ {
+  "source": "docs/research/proto23/readers-2026-10-10/R3_equipment_creatures_areas.md",
+  "heading": "4. Comparison with YAIRPG",
+  "mechanism": "Table comparing equipment, creatures and areas; mechanisms mapped under R3 sections 1-3.",
+  "current": "n/a",
+  "disposition": "not-applicable",
+  "reason": "Comparison table summarizing mechanisms already mapped."
+ },
+ {
+  "source": "docs/research/proto23/readers-2026-10-10/R3_equipment_creatures_areas.md",
+  "heading": "5. Design observations worth acting on (opinion, label INFERRED)",
+  "mechanism": "Reader opinions: accessory utility slot, durability, kill-growth gear and level-banded creatures are the most transferable ideas.",
+  "current": "Accessory slot and durability delivered (C1, E2); kill growth and level bands parked above.",
+  "disposition": "adapt-next",
+  "owner": "src/absorb_c1/accessories.js",
+  "nextSlice": "Add one more amulet utility (e.g. better light or reading speed) through the existing accessory hook after C1 acceptance."
+ },
+ {
+  "source": "docs/research/proto23/readers-2026-10-10/R3_equipment_creatures_areas.md",
+  "heading": "Gaps",
+  "mechanism": "Unread ranges and unconfirmed YAIRPG overlaps for R3.",
+  "current": "n/a",
+  "disposition": "not-applicable",
+  "reason": "Meta heading listing what R3 did not read."
+ },
+ {
+  "source": "docs/research/proto23/readers-2026-10-10/R4_crafting_vendors_actions_combat.md",
+  "heading": "1. Recipes",
+  "mechanism": "Recipe view puts list, reagents, output and tools side by side; unknown ingredients show as ???; missing requirements are colored.",
+  "current": "Native crafting window with filters and crafting_visibility.js; no single authoritative quote shared by preview, button and execution.",
+  "disposition": "adapt-next",
+  "owner": "src/crafting_recipes.js",
+  "nextSlice": "A7: one native craft row shows the same quote, every missing requirement, button state and settled receipt from one owner result."
+ },
+ {
+  "source": "docs/research/proto23/readers-2026-10-10/R4_crafting_vendors_actions_combat.md",
+  "heading": "1. Recipes",
+  "mechanism": "Craft counter increments even when a missing second tool silently blocks output (canMake vs _fcraft disagreement).",
+  "current": "native_craft_transaction.js stages crafts atomically.",
+  "disposition": "rejected",
+  "owner": "src/native_craft_transaction.js",
+  "reason": "Source defect, reproduced by the probe; counters must only move after an actual craft."
+ },
+ {
+  "source": "docs/research/proto23/readers-2026-10-10/R4_crafting_vendors_actions_combat.md",
+  "heading": "2. Vendors and shops",
+  "mechanism": "Vendor stock templates with chance/count and periodic restock, discounts from Trading skill and reputation.",
+  "current": "Native trader_component.js template stock, 4-day refresh, Haggling and reputation discounts.",
+  "disposition": "not-applicable",
+  "owner": "src/components/trader_component.js",
+  "reason": "Native equivalent is structurally the same (R4: SIMILAR); nothing to import."
+ },
+ {
+  "source": "docs/research/proto23/readers-2026-10-10/R4_crafting_vendors_actions_combat.md",
+  "heading": "2. Vendors and shops",
+  "mechanism": "Accessories that reduce shop markup as a build choice.",
+  "current": "Market tally pendant in absorb_c1 cuts markup 5%.",
+  "disposition": "adopted",
+  "owner": "src/absorb_c1/accessories.js",
+  "evidence": "docs/gm/dispatch/absorb-2026-10-11/evidence/C1-browser.json"
+ },
+ {
+  "source": "docs/research/proto23/readers-2026-10-10/R4_crafting_vendors_actions_combat.md",
+  "heading": "2. Vendors and shops",
+  "mechanism": "Shop rows color the price red when unaffordable and gray when sold out, keeping quantity, price and bulk controls on one row.",
+  "current": "Native trade window lists price and quantity; no blocked/sold-out semantic color.",
+  "disposition": "adapt-next",
+  "owner": "src/display.js",
+  "nextSlice": "Use --sem-blocked for unaffordable prices and a muted sold-out state with words, on the existing trade rows."
+ },
+ {
+  "source": "docs/research/proto23/readers-2026-10-10/R4_crafting_vendors_actions_combat.md",
+  "heading": "3. Actions, rest, sleep, jobs, training",
+  "mechanism": "Energy/hunger meter drains with time and throttles EXP efficiency; eating restores it.",
+  "current": "absorb_e1/pacing.js optional hunger scales earned XP 80-100% on played native time.",
+  "disposition": "adopted",
+  "owner": "src/absorb_e1/pacing.js",
+  "evidence": "docs/gm/dispatch/absorb-2026-10-11/evidence/E1-browser.json"
+ },
+ {
+  "source": "docs/research/proto23/readers-2026-10-10/R4_crafting_vendors_actions_combat.md",
+  "heading": "3. Actions, rest, sleep, jobs, training",
+  "mechanism": "Run and Investigate are free toggles granted by milestones; a known action stays listed with a current reason it cannot run.",
+  "current": "Native activities/jobs are scheduled; skill_expansion_host.js lists learned methods with reasons.",
+  "disposition": "adapt-next",
+  "owner": "src/skill_expansion_host.js",
+  "nextSlice": "Trace one learned method from milestone grant to an Actions row that shows a visible current reason when blocked."
+ },
+ {
+  "source": "docs/research/proto23/readers-2026-10-10/R4_crafting_vendors_actions_combat.md",
+  "heading": "3. Actions, rest, sleep, jobs, training",
+  "mechanism": "Sleep as a time-skip (5x timescale in bed) and jobs that pay at end of shift.",
+  "current": "Native sleep 6x and native working periods with payment ticks.",
+  "disposition": "not-applicable",
+  "owner": "src/activities.js",
+  "reason": "Native equivalents already exist (R4: SIMILAR/DIFFERENT-TUNING only)."
+ },
+ {
+  "source": "docs/research/proto23/readers-2026-10-10/R4_crafting_vendors_actions_combat.md",
+  "heading": "4. Combat",
+  "mechanism": "Combat messages have a grammar: damage-type color, CRIT text, body-part suffix and a condensed multi-hit count line.",
+  "current": "Native log_message has typed categories; no damage-type color or condensed multi-hit line.",
+  "disposition": "adapt-next",
+  "owner": "src/display.js",
+  "nextSlice": "Condense consecutive native multi-hits into one log line with a count and mark crits with a word plus the gain/loss token."
+ },
+ {
+  "source": "docs/research/proto23/readers-2026-10-10/R4_crafting_vendors_actions_combat.md",
+  "heading": "4. Combat",
+  "mechanism": "Throwing attack (tattack) with cheap thrown items as a ranged option.",
+  "current": "none found as a native combat action.",
+  "disposition": "parked",
+  "owner": "src/models/combat.js",
+  "reason": "Needs a combat action design decision and ammo items; no current gap."
+ },
+ {
+  "source": "docs/research/proto23/readers-2026-10-10/R4_crafting_vendors_actions_combat.md",
+  "heading": "4. Combat",
+  "mechanism": "Speed-gap multi-hit bursts within a 1 s combat round.",
+  "current": "Native attack_count, attack_speed and stances.",
+  "disposition": "not-applicable",
+  "owner": "src/combat_math.js",
+  "reason": "Native combat already covers multi-attack; tick structure differs by design."
+ },
+ {
+  "source": "docs/research/proto23/readers-2026-10-10/R4_crafting_vendors_actions_combat.md",
+  "heading": "5. UI builders and state plumbing",
+  "mechanism": "Newly acquired inventory items blink until seen.",
+  "current": "none yet; vivid I5 targets a session-only data-item-new marker.",
+  "disposition": "adapt-next",
+  "owner": "src/display.js",
+  "nextSlice": "I5: data-item-new on a newly acquired inventory row, cleared on hover or focus."
+ },
+ {
+  "source": "docs/research/proto23/readers-2026-10-10/R4_crafting_vendors_actions_combat.md",
+  "heading": "5. UI builders and state plumbing",
+  "mechanism": "Log freezes on request but then drops new messages; otherwise forces scroll to bottom.",
+  "current": "Native typed log filters; scroll forcing still present; vivid I8 targets reading mode.",
+  "disposition": "adapt-next",
+  "owner": "src/display.js",
+  "nextSlice": "I8: scrolled-up log keeps position and shows a \"1 new\" unread control that jumps to newest."
+ },
+ {
+  "source": "docs/research/proto23/readers-2026-10-10/R4_crafting_vendors_actions_combat.md",
+  "heading": "6. Comparison table",
+  "mechanism": "Summary table of R4 classifications.",
+  "current": "n/a",
+  "disposition": "not-applicable",
+  "reason": "Summary table duplicating mechanisms mapped in R4 sections 1-5."
+ },
+ {
+  "source": "docs/research/proto23/readers-2026-10-10/R4_crafting_vendors_actions_combat.md",
+  "heading": "7. Gaps and unknowns",
+  "mechanism": "Unknown ranges, possible Proto23 bugs and verification state.",
+  "current": "n/a",
+  "disposition": "not-applicable",
+  "reason": "Meta heading listing unknowns and source defects, not mechanisms."
+ },
+ {
+  "source": "docs/research/proto23/readers-2026-10-10/R5_map_dialogue_time_save.md",
+  "heading": "1. Headline differences",
+  "mechanism": "Headline contrasts (screen menus vs travel graph, Markov weather, no offline progress, dojo spine, scouting).",
+  "current": "n/a",
+  "disposition": "not-applicable",
+  "reason": "Summary of differences each mapped under R5 sections 2-10."
+ },
+ {
+  "source": "docs/research/proto23/readers-2026-10-10/R5_map_dialogue_time_save.md",
+  "heading": "2. Time",
+  "mechanism": "Daily and weekly plan hooks: a once-per-day/week registry runs vendor restock, rat infestations and small events.",
+  "current": "world_rhythm.js derives recurring windows from the calendar; absorb_c2 midday bread table uses it.",
+  "disposition": "adapt-next",
+  "owner": "src/world_rhythm.js",
+  "nextSlice": "Add one weekly Village event (e.g. a market day) via world_rhythm with a visible next-occurrence label."
+ },
+ {
+  "source": "docs/research/proto23/readers-2026-10-10/R5_map_dialogue_time_save.md",
+  "heading": "3. Weather and seasonal effects",
+  "mechanism": "Seasonal weather states with durations and mood, outdoors rain applies Wet.",
+  "current": "absorb_e1 optional seasonal weather cycle layered on native temperature/rain.",
+  "disposition": "adopted",
+  "owner": "src/absorb_e1/pacing.js",
+  "evidence": "docs/gm/dispatch/absorb-2026-10-11/evidence/E1-browser.json"
+ },
+ {
+  "source": "docs/research/proto23/readers-2026-10-10/R5_map_dialogue_time_save.md",
+  "heading": "3. Weather and seasonal effects",
+  "mechanism": "Moon-gated herb that spawns only 00:00-03:59 on a new moon.",
+  "current": "Moon phase exists in game_time.js with no gameplay hook.",
+  "disposition": "parked",
+  "owner": "src/game_time.js",
+  "reason": "Small come-back-later hook; park until a gathering slice wants one."
+ },
+ {
+  "source": "docs/research/proto23/readers-2026-10-10/R5_map_dialogue_time_save.md",
+  "heading": "4. Map graph and location catalog",
+  "mechanism": "Menu screens per place with instant moves and a dojo training ladder as the progression spine.",
+  "current": "Native travel graph with travel_time; proto23_world_*.js original Village Center/Dojo visitor branch.",
+  "disposition": "not-applicable",
+  "owner": "src/data/locations.js",
+  "reason": "Different by design: YAIRPG travel graph is kept; the dojo is already represented by an original branch, not a port."
+ },
+ {
+  "source": "docs/research/proto23/readers-2026-10-10/R5_map_dialogue_time_save.md",
+  "heading": "4. Map graph and location catalog",
+  "mechanism": "Unlock-by-reading-a-pamphlet and random sub-visibility (Shady Kid 15%, pamphlet 40%) make the hub feel discovered.",
+  "current": "Fixed NPC lists per location; no random appearance chance found.",
+  "disposition": "adapt-next",
+  "owner": "src/data/locations.js",
+  "nextSlice": "One Village visitor appears with a capped chance per visit, revealed once into the location list after first meeting."
+ },
+ {
+  "source": "docs/research/proto23/readers-2026-10-10/R5_map_dialogue_time_save.md",
+  "heading": "5. NPCs, dialogue and quest hooks",
+  "mechanism": "Parcel relay errand across several NPCs that doubles as a map tour; one mentor tells you what to do next.",
+  "current": "Data-driven textline dialogue and quests; parcel errands exist in fork content.",
+  "disposition": "adapt-next",
+  "owner": "src/quests.js",
+  "nextSlice": "A three-stop Village errand quest whose next stop is shown in the quest panel, using existing NPCs and travel."
+ },
+ {
+  "source": "docs/research/proto23/readers-2026-10-10/R5_map_dialogue_time_save.md",
+  "heading": "5. NPCs, dialogue and quest hooks",
+  "mechanism": "Pet-bonding loop (100 pets adopts the cat) and moral choice with karma/luck reward.",
+  "current": "none found (no karma, no pet).",
+  "disposition": "parked",
+  "owner": "src/data/dialogues.js",
+  "reason": "Companions and karma need their own owner and save field; not requested now."
+ },
+ {
+  "source": "docs/research/proto23/readers-2026-10-10/R5_map_dialogue_time_save.md",
+  "heading": "6. Scouting and discovery",
+  "mechanism": "Toggleable background search with a hidden per-room table and rising chance per miss.",
+  "current": "absorb_c2 capped rising-chance search with finite finds.",
+  "disposition": "adopted",
+  "owner": "src/absorb_c2/local_life.js",
+  "evidence": "docs/gm/dispatch/absorb-2026-10-11/evidence/C2-browser.json"
+ },
+ {
+  "source": "docs/research/proto23/readers-2026-10-10/R5_map_dialogue_time_save.md",
+  "heading": "6. Scouting and discovery",
+  "mechanism": "Search tells you whether anything remains (\"you sense something\" / \"nothing of interest left\").",
+  "current": "Local search reports finds; known-remaining cue not confirmed.",
+  "disposition": "adapt-next",
+  "owner": "src/absorb_c2/panel.js",
+  "nextSlice": "Show remaining-finds and stop reason on the Local life search row."
+ },
+ {
+  "source": "docs/research/proto23/readers-2026-10-10/R5_map_dialogue_time_save.md",
+  "heading": "7. Titles (as granted in range)",
+  "mechanism": "Milestone titles granted once with an announcement (no deaths to level 20, Initiate).",
+  "current": "titles.js includes Unbroken (level 10 without losing consciousness).",
+  "disposition": "adopted",
+  "owner": "src/titles.js",
+  "evidence": "tests/titles.test.js"
+ },
+ {
+  "source": "docs/research/proto23/readers-2026-10-10/R5_map_dialogue_time_save.md",
+  "heading": "8. Save, load, import and export",
+  "mechanism": "Positional pipe save, import writes a different key than load reads, delete via localStorage.clear(), no migration.",
+  "current": "Validated envelope, preflight import, migrations, backups.",
+  "disposition": "rejected",
+  "owner": "src/save_files.js",
+  "reason": "R5 P5: do not copy; native save pipeline is safer and AGENTS.md requires migrations."
+ },
+ {
+  "source": "docs/research/proto23/readers-2026-10-10/R5_map_dialogue_time_save.md",
+  "heading": "9. Offline progress and tick rate",
+  "mechanism": "No offline catch-up; a dormant price drift index slowly inflates shop prices.",
+  "current": "Native: no offline catch-up, drift-corrected tick, market saturation.",
+  "disposition": "not-applicable",
+  "owner": "src/main.js",
+  "reason": "Both games lack offline gains; hidden inflation would need a visible explanation and has no consumer."
+ },
+ {
+  "source": "docs/research/proto23/readers-2026-10-10/R5_map_dialogue_time_save.md",
+  "heading": "10. Startup and misc",
+  "mechanism": "Opening is a staged reveal: each introduction response shows the next panel (time, stats, inventory, nav/log, enemy panel).",
+  "current": "workspace_layout.js eligible() exists but ineligible modules still appear as disabled picker names; vivid I4 targets Combat.",
+  "disposition": "adapt-next",
+  "owner": "src/workspace_layout.js",
+  "nextSlice": "I4/A6: Combat panel absent with no picker label until the first real fight, revealed once with data-workspace-reveal, never on reload."
+ },
+ {
+  "source": "docs/research/proto23/readers-2026-10-10/R5_map_dialogue_time_save.md",
+  "heading": "10. Startup and misc",
+  "mechanism": "Rounding RNG helper that favors middle entries (2500/5000/2500) and an unseeded-clock Mersenne Twister.",
+  "current": "Native random selection; probe recorded the bias.",
+  "disposition": "rejected",
+  "owner": "src/combat_math.js",
+  "reason": "Source defect; use uniform sampling or explicit weights instead."
+ },
+ {
+  "source": "docs/research/proto23/readers-2026-10-10/R5_map_dialogue_time_save.md",
+  "heading": "11. Master comparison table",
+  "mechanism": "Master table of 25 R5 classifications.",
+  "current": "n/a",
+  "disposition": "not-applicable",
+  "reason": "Summary table duplicating mechanisms mapped in R5 sections 2-10."
+ },
+ {
+  "source": "docs/research/proto23/readers-2026-10-10/R5_map_dialogue_time_save.md",
+  "heading": "12. Ideas worth carrying (proposals, not decisions)",
+  "mechanism": "Reader proposals P1-P5: weather chain, hour/weekday windows, opt-in room search, rare hub encounters, do not copy save.",
+  "current": "P1 and P3 delivered as E1 and C2; P2 and P4 mapped as adapt-next; P5 as rejected.",
+  "disposition": "not-applicable",
+  "reason": "Proposal list whose items are mapped under R5 sections 2-8."
+ },
+ {
+  "source": "docs/research/proto23/readers-2026-10-10/R5_map_dialogue_time_save.md",
+  "heading": "Gaps",
+  "mechanism": "Unread ranges and unknowns for R5.",
+  "current": "n/a",
+  "disposition": "not-applicable",
+  "reason": "Meta heading listing what R5 did not read."
+ },
+ {
+  "source": "docs/research/proto23/UI_SOURCE_ABSORPTION_2026-10-13.md",
+  "heading": "Evidence and correction",
+  "mechanism": "Records the browser observation after difficulty selection and the source hash; corrects the earlier stop at difficulty.",
+  "current": "n/a",
+  "disposition": "not-applicable",
+  "reason": "Evidence/provenance heading, not a mechanism."
+ },
+ {
+  "source": "docs/research/proto23/UI_SOURCE_ABSORPTION_2026-10-13.md",
+  "heading": "F1: Meaningful events reveal the interface",
+  "mechanism": "Real events reveal panels: first recipe shows Assemble, first skill shows Skills, first fight shows the enemy panel, wallet reveals money.",
+  "current": "workspace_layout.js registers modules with eligible(); picker still names ineligible modules; vivid I4 in progress.",
+  "disposition": "adapt-next",
+  "owner": "src/workspace_layout.js",
+  "nextSlice": "I4: Combat panel discovered by the first real fight, no picker entry before, reveal once, derived from save facts."
+ },
+ {
+  "source": "docs/research/proto23/UI_SOURCE_ABSORPTION_2026-10-13.md",
+  "heading": "F2: Colors, VFX, spacing and detailed states",
+  "mechanism": "P2 per-region gradients and colored quantities/events with consistent semantic meanings.",
+  "current": "component_themes.js, Vivid option in workspace_layout.js; vivid I1/I2/I7 in progress.",
+  "disposition": "adapt-next",
+  "owner": "src/component_themes.js",
+  "nextSlice": "I1+I7: Vivid default for fresh browsers with --sem-gain/loss/money/blocked tokens used by the purchase log line."
+ },
+ {
+  "source": "docs/research/proto23/UI_SOURCE_ABSORPTION_2026-10-13.md",
+  "heading": "F2: Colors, VFX, spacing and detailed states",
+  "mechanism": "P3 effects: panel appear ramp, coin floating text on spend, new-item blink.",
+  "current": "settled_text_effects.js renderer; vivid I5/I6 in progress.",
+  "disposition": "adapt-next",
+  "owner": "src/settled_text_effects.js",
+  "nextSlice": "I6: one anchored .coin-float per spend at the purse line, removed within 4 s, none under reduced motion."
+ },
+ {
+  "source": "docs/research/proto23/UI_SOURCE_ABSORPTION_2026-10-13.md",
+  "heading": "F2: Colors, VFX, spacing and detailed states",
+  "mechanism": "P4 tight data rows with thin separators, ~30 px action rows, compact place header, dedicated log scroller.",
+  "current": "workspace.css density presets; vivid I10 vitals rows in progress.",
+  "disposition": "adapt-next",
+  "owner": "src/workspace_views.js",
+  "nextSlice": "I10: four vitals bars share edges and height with centred value text and visible empty tracks."
+ },
+ {
+  "source": "docs/research/proto23/UI_SOURCE_ABSORPTION_2026-10-13.md",
+  "heading": "F2: Colors, VFX, spacing and detailed states",
+  "mechanism": "P5 unknown recipe ingredients shown as ???, colored requirements, restored settings/log labels.",
+  "current": "Native crafting window; no unknown-ingredient disclosure.",
+  "disposition": "adapt-next",
+  "owner": "src/crafting_recipes.js",
+  "nextSlice": "Show an unknown ingredient as an unnamed placeholder until first held, with missing requirements in --sem-blocked."
+ },
+ {
+  "source": "docs/research/proto23/UI_SOURCE_ABSORPTION_2026-10-13.md",
+  "heading": "F3: Full-source coverage and integration",
+  "mechanism": "Process: each candidate needs mechanism, equivalent, disposition, owner, failure case; license provenance unresolved so reimplement behavior only.",
+  "current": "This ledger.",
+  "disposition": "not-applicable",
+  "reason": "Process and license guidance, realized by this ledger itself."
+ },
+ {
+  "source": "docs/research/proto23/UI_SOURCE_ABSORPTION_2026-10-13.md",
+  "heading": "First playable slice and remaining gate",
+  "mechanism": "Proposed first slice: one discovery-aware reveal, a vivid semantic palette and short reveal feedback, checked at three desktop viewports.",
+  "current": "vivid-proto23-flow dispatch I1-I10 owns it.",
+  "disposition": "adapt-next",
+  "owner": "docs/gm/dispatch/vivid-proto23-flow-2026-10-13/GOAL.md",
+  "nextSlice": "Pass check.sh: Vivid default plus Combat reveal plus coin float at 1366x768, 1440x900 and 1920x1080."
+ },
+ {
+  "source": "docs/research/proto23/SOURCE_MECHANISMS_AND_ADOPTION_2026-10-13.md",
+  "heading": "Evidence scope",
+  "mechanism": "Pinned source revision, hash and probe script scope.",
+  "current": "n/a",
+  "disposition": "not-applicable",
+  "reason": "Evidence scope heading, not a mechanism."
+ },
+ {
+  "source": "docs/research/proto23/SOURCE_MECHANISMS_AND_ADOPTION_2026-10-13.md",
+  "heading": "F4: The strongest pattern is a chain from experience to capability to UI",
+  "mechanism": "Walking practice levels, grants Run, which reveals the Actions tab; holding 50 Cure Grass teaches a recipe and reveals Assemble.",
+  "current": "skill_discovery_native.js thresholds, skill_expansion_host.js learned methods; proto23-vfx cue on skill reveal.",
+  "disposition": "adapt-next",
+  "owner": "src/skill_expansion_host.js",
+  "nextSlice": "One native skill milestone grants a learned method whose first grant reveals its Actions row once, with a blocked reason when it cannot run."
+ },
+ {
+  "source": "docs/research/proto23/SOURCE_MECHANISMS_AND_ADOPTION_2026-10-13.md",
+  "heading": "F4: The strongest pattern is a chain from experience to capability to UI",
+  "mechanism": "Skill reveal on actual level threshold with once-only presentation (corrected: reveal at level 1, not first XP).",
+  "current": "Native threshold plus native_discovery_feedback cue.",
+  "disposition": "adopted",
+  "owner": "src/native_discovery_policy.js",
+  "evidence": "docs/gm/dispatch/proto23-vfx-2026-10-13/REPORT.md"
+ },
+ {
+  "source": "docs/research/proto23/SOURCE_MECHANISMS_AND_ADOPTION_2026-10-13.md",
+  "heading": "F4: The strongest pattern is a chain from experience to capability to UI",
+  "mechanism": "Use a wallet to reveal money denominations; a book grants a Bestiary/Journal view.",
+  "current": "Money is always shown; bestiary exists natively without a book gate.",
+  "disposition": "adapt-next",
+  "owner": "src/display.js",
+  "nextSlice": "Show copper/silver/gold style denominations only once the player has handled coins in an unfamiliar world, keeping balances readable."
+ },
+ {
+  "source": "docs/research/proto23/SOURCE_MECHANISMS_AND_ADOPTION_2026-10-13.md",
+  "heading": "F5: Colors and effects form several distinct vocabularies",
+  "mechanism": "Separate color vocabularies: item subtype in inventory, rarity on equipped gear, red/gray in shops, damage type in combat, weather glyphs in place header.",
+  "current": "display.js rarity colors; vivid I3 adds rarity_palette.js.",
+  "disposition": "adapt-next",
+  "owner": "src/display.js",
+  "nextSlice": "I3: rarityColor(rarity, scheme) readable on all Vivid surfaces, kept distinct from category color."
+ },
+ {
+  "source": "docs/research/proto23/SOURCE_MECHANISMS_AND_ADOPTION_2026-10-13.md",
+  "heading": "F6: Dense UI works because details have a nearby place to go",
+  "mechanism": "List beside detail: recipe list next to reagents/output/tools, enemy beside player above actions, shop rows with quantity, price and bulk controls.",
+  "current": "Workspace flexible panels; no explicit selected-row detail region for crafting.",
+  "disposition": "adapt-next",
+  "owner": "src/workspace_views.js",
+  "nextSlice": "Crafting list with a selected-row detail region that keeps selection, focus and scroll across updates at 1366x768."
+ },
+ {
+  "source": "docs/research/proto23/SOURCE_MECHANISMS_AND_ADOPTION_2026-10-13.md",
+  "heading": "F6: Dense UI works because details have a nearby place to go",
+  "mechanism": "Keyboard handling exists but inventory focus is assigned only on mouse hover.",
+  "current": "Native buttons are focusable; parity of hover vs focus details unverified.",
+  "disposition": "adapt-next",
+  "owner": "src/display.js",
+  "nextSlice": "Inventory tooltip details shown on keyboard focus as well as hover."
+ },
+ {
+  "source": "docs/research/proto23/SOURCE_MECHANISMS_AND_ADOPTION_2026-10-13.md",
+  "heading": "F7: Preserve strong behavior while correcting source coupling",
+  "mechanism": "Overflow XP calls side-effect hooks twice; hover on a description grants Literacy XP; acquire and restore share onGet code; visual timers drive jobs.",
+  "current": "Native discovery policy suppresses events on restore; played-time owners settle work.",
+  "disposition": "rejected",
+  "owner": "src/native_discovery_policy.js",
+  "reason": "Source coupling defects; adopt the behavior with once-per-settled-award side effects and read-only rendering instead."
+ },
+ {
+  "source": "docs/research/proto23/SOURCE_MECHANISMS_AND_ADOPTION_2026-10-13.md",
+  "heading": "F7: Preserve strong behavior while correcting source coupling",
+  "mechanism": "Log freeze drops new receipts instead of retaining them.",
+  "current": "Native log retains messages; vivid I8 adds unread count.",
+  "disposition": "adapt-next",
+  "owner": "src/display.js",
+  "nextSlice": "I8: reading the log stops auto-scroll and exposes an unread count, never dropping receipts."
+ },
+ {
+  "source": "docs/research/proto23/SOURCE_MECHANISMS_AND_ADOPTION_2026-10-13.md",
+  "heading": "F8: Current adoption map, checked against live source",
+  "mechanism": "Home/furnishing bonuses from owned fixtures and books.",
+  "current": "absorb_b/furniture.js.",
+  "disposition": "adopted",
+  "owner": "src/absorb_b/furniture.js",
+  "evidence": "docs/gm/dispatch/absorb-2026-10-11/evidence/B-browser.json"
+ },
+ {
+  "source": "docs/research/proto23/SOURCE_MECHANISMS_AND_ADOPTION_2026-10-13.md",
+  "heading": "F8: Current adoption map, checked against live source",
+  "mechanism": "Utility equipment, finite local search, optional hunger/weather and equipment condition.",
+  "current": "absorb_c1, absorb_c2, absorb_e1, absorb_e2 owners.",
+  "disposition": "adopted",
+  "owner": "src/absorb_c2/local_life.js",
+  "evidence": "docs/gm/dispatch/absorb-2026-10-11/evidence/combined-browser.json"
+ },
+ {
+  "source": "docs/research/proto23/SOURCE_MECHANISMS_AND_ADOPTION_2026-10-13.md",
+  "heading": "F8: Current adoption map, checked against live source",
+  "mechanism": "Titles panel shows unearned goals; equipment condition and weather consequences need exact presentation.",
+  "current": "titles_ui.js, absorb_e2/durability.js, absorb_e1/pacing.js.",
+  "disposition": "adapt-next",
+  "owner": "src/absorb_e2/durability.js",
+  "nextSlice": "Show exact held-copy condition and repair cost on the inventory row of each worn item."
+ },
+ {
+  "source": "docs/research/proto23/SOURCE_MECHANISMS_AND_ADOPTION_2026-10-13.md",
+  "heading": "Proposed adoption order",
+  "mechanism": "A6 discovery, A7 action explanation, A8 presentation coherence, A9 extend absorbed systems.",
+  "current": "Mapped as adapt-next entries above.",
+  "disposition": "not-applicable",
+  "reason": "Ordering proposal whose items A6-A9 are mapped under F4-F8 and UI F1/F2."
+ },
+ {
+  "source": "docs/research/proto23/SOURCE_MECHANISMS_AND_ADOPTION_2026-10-13.md",
+  "heading": "Checks and open work",
+  "mechanism": "Probe run results and what remains open.",
+  "current": "n/a",
+  "disposition": "not-applicable",
+  "reason": "Meta heading recording checks run and open work."
+ }
+]

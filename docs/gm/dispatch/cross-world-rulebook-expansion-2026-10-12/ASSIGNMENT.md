@@ -1,0 +1,27 @@
+# Fresh GM: cross-world rulebook and subtle-detail expansion
+
+Human authority2026-10-12: “send out GM to expand rulbook line for further and future reference and more little stuff to consider and more?” This continues the human-directed cross-world audit precedent added after HP Time-Turner, Polyjuice, craft, spellcraft and branch discussion. Expand useful future GM reference, not universal game laws or runtime.
+
+## Deliverable
+
+Build durable, practical cross-world review guidance: expand the rulebook's existing cross-world precedent, create its linked detail reference, and preserve ordinary/exceptional micro details plus connected macro consequences. Give future world GMs useful questions, source admission distinctions, interaction patterns and bounded acceptance cases without forcing every world through identical mechanics. The twelve accepted world rules stay intact.
+
+Read AGENTS.md, PROJECT.md, docs/GAME_MASTER_PROMPT.md refresh protocol, docs/RULES_FROM_SCRATCH.md, WORLD_COMPLETION_STANDARD.md and relevant existing timelines/body/life/craft/discovery owners first. Read the HP craft report and private SPECIAL_RULES_AND_EVERYDAY_CONSEQUENCES/BRANCHES_SPELLCRAFT_AND_SCALE/FEATURE_CONTRACTS as worked inputs, not universal canon. SOURCE_ACQUISITION_TOOLS.md governs any acquisition; local evidence first. This packet does not require downloads or new web research.
+
+## Exclusive write transfer
+
+Dispatcher releases ONLY the section beginning “## Cross-world audit precedent: special rules and little details (2026-10-12)” in docs/RULES_FROM_SCRATCH.md to the new GM after confirmed dispatch. Preserve the rest of that file byte-for-byte, including accepted twelve rules and earlier candidate text. Receiver also owns new docs/gm/CROSS_WORLD_DETAIL_REVIEW.md and this dispatch directory except dispatcher-owned ASSIGNMENT.md, INPUT_SNAPSHOT.json and DISPATCH.json. New private evidence, if needed, belongs only under ignored docs/research/novels/cross-world-detail-reference-2026-10-12/. Dispatcher keeps this HP lane; all previous HP dossiers are read-only.
+
+PROJECT.md, shared GM/templates/indexes/completion owners, all existing world lanes, runtime/src/dist/tests, source originals/library, scraper fork and user saves are read-only. No commits/pushes, installs, purchases, publication, automations, or cross-chat messages. Bounded internal research subagents may use disjoint new outputs if useful; one integrator. Inspect dirty/live writer state; do not overwrite unrelated edits. Human-authorized daisy chaining may create a successor only if meaningful assigned work remains, with checkpoint and explicit exclusive transfer; do not create a chain merely to retry a unchanged access failure.
+
+## Reference content
+
+Develop a source-neutral inventory covering relevant families, not only headline power systems: body/person/identity/recognition and disguise, memory and testimony, temporal devices/loops/history/branching/aging/absence, birth/care/kinship/heirs/endings, ingredient/tool/procedure/testing/failure/repair/storage/maintenance, ordinary household products, spells/enchantments/control/counters, materials/provenance/substitution/scale, supply/work/prices/customers/commissions, helpers/teachers/apprentices/relationships/institutions, messages/maps/portraits/records/access/permissions, promises and magical obligations, luck/fate/prophesy/cheats/outliers, environmental/body affordances, departure/return/retention, and native UI/save compatibility. Add overlooked families when the existing owners suggest a concrete useful connection.
+
+Aim for roughly25–40 compact reference families as an inventory, each with a micro choice, actual consumer, people/knowledge effects, timeline/macro join, source uncertainty and example verification case. Do not invent a mechanical system for decorative atmosphere. Give at least six connected examples spanning ordinary life, production, identity/information, temporal/history and cross-world continuity. Use source-neutral hypothetical examples or currently source-qualified private examples; no unverified franchise lore in public tables. Treat those numbers as a finite reviewable target, not a quality substitute.
+
+Include a lightweight reuse path: selecting relevant families for a world, assigning stable local detail IDs/owners, source/canon/AU status, dispositions, prioritizing meaningful joins, integrating specialist outputs, recording native consumers/missing seams, preserving horizon while delivering finite slices, and updating evidence after source/runtime/director review. Separate workflow accepted by human from new agent-made template proposals. No scarcity/fatigue/paradox penalty/mandatory restriction or accepted world mechanic just because a checklist row exists. Preserve strong/OP means and source-supported exceptions.
+
+## Gate and checkpoint
+
+Save actual thread/authority, current hashes/drift, exclusive reservations, children/status, checks and one resume action in CHECKPOINT.md. Return REPORT.md linking final rulebook section and new detail reference. Check source bindings for any actual lore claims, links/anchors, preservation of the other rulebook text, sealed/private exclusions and contradictions with existing rulebook. Mark all runtime cases specified-not-run; no full-reading/implemented/accepted-mechanic claims. Complete at a useful finite reference result, not endless catalogue gathering.

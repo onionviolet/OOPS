@@ -1,0 +1,29 @@
+{
+  "pid": 43004,
+  "servedHash": "72cb3b8487715bbbe9fe61f57ed15779051eaf648c45eff9142edf83a689fa85",
+  "origin": "http://127.0.0.1:18643",
+  "startedHash": "72cb3b8487715bbbe9fe61f57ed15779051eaf648c45eff9142edf83a689fa85",
+  "endedHash": "72cb3b8487715bbbe9fe61f57ed15779051eaf648c45eff9142edf83a689fa85",
+  "events": [
+    {
+      "action": "click",
+      "selector": "#notebook_tab_here"
+    },
+    {
+      "action": "panel",
+      "selector": "#feature_expansion_panel"
+    },
+    {
+      "action": "panel",
+      "selector": "#feature_expansion_panel details:has(>summary:text-is(\"A dated warning and one physical rain\"))"
+    },
+    {
+      "action": "debugWarning"
+    },
+    {
+      "action": "save",
+      "name": "worker-warning-debug-blocker"
+    }
+  ],
+  "errors": []
+}

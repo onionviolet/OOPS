@@ -1,0 +1,21 @@
+{
+  "action": "workflow",
+  "steps": [
+    {
+      "action": "click",
+      "selector": "[data-action-legibility-key=\"action:world.completion.learning.sponsor\"] button",
+      "save": "worker-neri-cancel-offered"
+    },
+    {
+      "action": "pending",
+      "actor": "remainder_home.neri",
+      "id": "world.completion.learning.walk_to_bench",
+      "save": "worker-neri-cancel-accepted"
+    },
+    {
+      "action": "debugCancel",
+      "selector": "[data-action-legibility-key^=\"action:cancel:simulation:\"] button",
+      "save": "worker-neri-cancel-debug"
+    }
+  ]
+}

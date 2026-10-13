@@ -1,0 +1,19 @@
+{
+  "owner": "01a135b7-58d7-7a13-8bb2-228ac80cb004",
+  "declaredBeforePlay": true,
+  "diagnosis": "Six SOURCE checks PASS; no functional defect reproduced. Existing surfaces jointly expose counts and choices. No paid probe selected.",
+  "totalCaps": {
+    "coins": 0,
+    "materials": 0,
+    "staminaIntentionallySpent": 0,
+    "acquisitions": 0,
+    "merchantPurchases": 0,
+    "jobs": 0,
+    "plans": 0,
+    "cancellations": 0,
+    "travel": 0,
+    "playedMinutes": 20
+  },
+  "noAdditiveAllowance": true,
+  "enteredExportHash": "5abd536f1dc0616ee39b59bde28477456bc2f6d304935752acad4d924db0ae72"
+}

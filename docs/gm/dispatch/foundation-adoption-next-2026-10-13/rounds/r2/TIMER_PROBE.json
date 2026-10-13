@@ -1,0 +1,8 @@
+{
+  "events": [],
+  "errors": [],
+  "timePolicy": "Deliver only actual queued native update callbacks; no game state, RNG, clock, stock or reward injected",
+  "status": "FAIL",
+  "failure": "page.evaluate: Error: No native timer callback queued\n    at window.__r2Deliver (<anonymous>:2:473)\n    at eval (eval at evaluate (:311:30), <anonymous>:1:12)\n    at UtilityScript.evaluate (<anonymous>:313:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)\n    at /Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/foundation-adoption-next-2026-10-13/rounds/r2/timer_probe.cjs:10:29",
+  "observed": []
+}

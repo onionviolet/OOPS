@@ -1,0 +1,136 @@
+[
+  {
+    "name": "negative-pending-boundary",
+    "export": {
+      "file": "/Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/foundation-adoption-next-2026-10-13/rounds/r8/negative-pending-boundary-native.txt",
+      "hash": "6137a46fa632bf4fc3f90df19d53fce85350921bf083aa0f157c1784084ae63c"
+    },
+    "reload": [
+      {
+        "key": "character",
+        "equal": true
+      },
+      {
+        "key": "inventories",
+        "equal": true
+      },
+      {
+        "key": "expansion",
+        "equal": true
+      },
+      {
+        "key": "current time",
+        "equal": true
+      },
+      {
+        "key": "current location",
+        "equal": true
+      },
+      {
+        "key": "npcs",
+        "equal": true
+      },
+      {
+        "key": "npc_equipment",
+        "equal": true
+      }
+    ],
+    "literalImport": [
+      {
+        "key": "character",
+        "equal": true
+      },
+      {
+        "key": "inventories",
+        "equal": true
+      },
+      {
+        "key": "expansion",
+        "equal": true
+      },
+      {
+        "key": "current time",
+        "equal": true
+      },
+      {
+        "key": "current location",
+        "equal": true
+      },
+      {
+        "key": "npcs",
+        "equal": true
+      },
+      {
+        "key": "npc_equipment",
+        "equal": true
+      }
+    ]
+  },
+  {
+    "name": "final-earned",
+    "export": {
+      "file": "/Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/foundation-adoption-next-2026-10-13/rounds/r8/final-earned-native.txt",
+      "hash": "f8bbef830d9a187a1e994a3cf05e960e2371aaa2c94e5e9f6a4beee33ad3a862"
+    },
+    "reload": [
+      {
+        "key": "character",
+        "equal": true
+      },
+      {
+        "key": "inventories",
+        "equal": true
+      },
+      {
+        "key": "expansion",
+        "equal": true
+      },
+      {
+        "key": "current time",
+        "equal": true
+      },
+      {
+        "key": "current location",
+        "equal": true
+      },
+      {
+        "key": "npcs",
+        "equal": true
+      },
+      {
+        "key": "npc_equipment",
+        "equal": true
+      }
+    ],
+    "literalImport": [
+      {
+        "key": "character",
+        "equal": true
+      },
+      {
+        "key": "inventories",
+        "equal": true
+      },
+      {
+        "key": "expansion",
+        "equal": true
+      },
+      {
+        "key": "current time",
+        "equal": true
+      },
+      {
+        "key": "current location",
+        "equal": true
+      },
+      {
+        "key": "npcs",
+        "equal": true
+      },
+      {
+        "key": "npc_equipment",
+        "equal": true
+      }
+    ]
+  }
+]

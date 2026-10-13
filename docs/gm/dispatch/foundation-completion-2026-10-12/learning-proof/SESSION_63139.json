@@ -1,0 +1,19 @@
+{
+  "pid": 63139,
+  "origin": "http://127.0.0.1:18643",
+  "startedHash": "ef2e248bc8fdd21323e7becb1277ac45bc2537bdcf8e9630e5c688c60bc48d6a",
+  "endedHash": "ef2e248bc8fdd21323e7becb1277ac45bc2537bdcf8e9630e5c688c60bc48d6a",
+  "events": [
+    {
+      "action": "click",
+      "selector": "#feature_expansion_panel > summary"
+    },
+    {
+      "action": "save",
+      "name": "worker-feat-projection-blocker"
+    }
+  ],
+  "errors": [
+    "Unknown simulation participant featureBattleHook."
+  ]
+}

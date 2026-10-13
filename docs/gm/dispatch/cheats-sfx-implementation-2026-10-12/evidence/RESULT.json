@@ -1,0 +1,259 @@
+{
+  "candidate": "/Users/weiwei/.codex/candidates/yairpg-cheats-sfx-2026-10-12",
+  "bundle": "dist/bundle.js?version=v0.6-c85fdbce370b",
+  "results": [
+    "native meal output/material debit -> completion -> claim once -> taught method",
+    "native component -> claim/shop -> real quality changed + native card pulse",
+    "disconnect retains method, lease stops by runtime check, visual cancel",
+    "failed write does not publish System choice",
+    "off/plain equivalence, reduced motion, saved margin option",
+    "generated native reload and actual import preserve exact ledger",
+    "effects remain inside actual relocated/resized panel at1920/390"
+  ],
+  "errors": [],
+  "input": "fresh generated native opening plus explicit test materials/crafting flag, no personal save",
+  "remaining": [
+    "natural material acquisition/pacing",
+    "shared integration",
+    "human acceptance",
+    "workspace drag integration"
+  ],
+  "finalLedger": {
+    "schema": 1,
+    "actorId": "player",
+    "sequence": 29,
+    "connection": "connected",
+    "points": 0,
+    "precisionKnown": true,
+    "assistUnlocked": true,
+    "commissions": {
+      "meal": {
+        "status": "claimed",
+        "acceptedSequence": 3
+      },
+      "hilt": {
+        "status": "claimed",
+        "acceptedSequence": 11
+      }
+    },
+    "settings": {
+      "effects": "full",
+      "sound": false,
+      "presentation": "margin"
+    },
+    "receipts": [
+      {
+        "id": "work-ledger:1:refuse",
+        "type": "refuse",
+        "motif": "seal",
+        "actorId": "player",
+        "sequence": 1,
+        "text": "You refuse the Work Ledger. You may return to its offer."
+      },
+      {
+        "id": "work-ledger:2:accept",
+        "type": "accept",
+        "motif": "seal",
+        "actorId": "player",
+        "sequence": 2,
+        "text": "You connect to the Work Ledger. Commissions require your own native crafting."
+      },
+      {
+        "id": "work-ledger:3:accept-meal",
+        "type": "accept-meal",
+        "motif": "seal",
+        "actorId": "player",
+        "sequence": 3,
+        "text": "Commission accepted: A cooked meal. Only a new native result counts."
+      },
+      {
+        "id": "work-ledger:4:settings",
+        "type": "settings",
+        "motif": "seal",
+        "actorId": "player",
+        "sequence": 4,
+        "text": "Work Ledger presentation settings saved."
+      },
+      {
+        "id": "work-ledger:7:completed-meal",
+        "type": "completed-meal",
+        "motif": "seal",
+        "actorId": "player",
+        "sequence": 7,
+        "text": "Native crafting completed A cooked meal. Its 2-point reward is ready to claim."
+      },
+      {
+        "id": "work-ledger:8:claim-meal",
+        "type": "claim-meal",
+        "motif": "seal",
+        "actorId": "player",
+        "sequence": 8,
+        "text": "Commission reward claimed: A cooked meal, 2 Work Ledger points."
+      },
+      {
+        "id": "work-ledger:9:learn-precision",
+        "type": "learn-precision",
+        "motif": "seal",
+        "actorId": "player",
+        "sequence": 9,
+        "text": "Precision method taught permanently. Native item recipes gain 15 percentage points of success chance, up to certainty."
+      },
+      {
+        "id": "work-ledger:11:accept-hilt",
+        "type": "accept-hilt",
+        "motif": "seal",
+        "actorId": "player",
+        "sequence": 11,
+        "text": "Commission accepted: A wooden hilt. Only a new native result counts."
+      },
+      {
+        "id": "work-ledger:12:completed-hilt",
+        "type": "completed-hilt",
+        "motif": "seal",
+        "actorId": "player",
+        "sequence": 12,
+        "text": "Native crafting completed A wooden hilt. Its 2-point reward is ready to claim."
+      },
+      {
+        "id": "work-ledger:13:claim-hilt",
+        "type": "claim-hilt",
+        "motif": "seal",
+        "actorId": "player",
+        "sequence": 13,
+        "text": "Commission reward claimed: A wooden hilt, 2 Work Ledger points."
+      },
+      {
+        "id": "work-ledger:14:unlock-assist",
+        "type": "unlock-assist",
+        "motif": "seal",
+        "actorId": "player",
+        "sequence": 14,
+        "text": "Woodworking assist leased. While connected, native woodworking components gain 10 quality points within their recipe limit."
+      },
+      {
+        "id": "work-ledger:15:applied-assist",
+        "type": "applied-assist",
+        "motif": "guidance",
+        "actorId": "player",
+        "sequence": 15,
+        "text": "Your leased assist improved the quality of this native Short hilt.",
+        "before": 76,
+        "after": 86
+      },
+      {
+        "id": "work-ledger:16:disconnect",
+        "type": "disconnect",
+        "motif": "closing",
+        "actorId": "player",
+        "sequence": 16,
+        "text": "You disconnect. The leased assist stops; your taught precision method remains."
+      },
+      {
+        "id": "work-ledger:17:applied-precision",
+        "type": "applied-precision",
+        "motif": "guidance",
+        "actorId": "player",
+        "sequence": 17,
+        "text": "Your taught precision method aided this native Roasted rat meat craft.",
+        "before": 0.7,
+        "after": 0.85
+      },
+      {
+        "id": "work-ledger:18:reconnect",
+        "type": "reconnect",
+        "motif": "seal",
+        "actorId": "player",
+        "sequence": 18,
+        "text": "You reconnect. Your unlocked leased assist is usable again."
+      },
+      {
+        "id": "work-ledger:19:settings",
+        "type": "settings",
+        "motif": "seal",
+        "actorId": "player",
+        "sequence": 19,
+        "text": "Work Ledger presentation settings saved."
+      },
+      {
+        "id": "work-ledger:20:settings",
+        "type": "settings",
+        "motif": "seal",
+        "actorId": "player",
+        "sequence": 20,
+        "text": "Work Ledger presentation settings saved."
+      },
+      {
+        "id": "work-ledger:21:disconnect",
+        "type": "disconnect",
+        "motif": "closing",
+        "actorId": "player",
+        "sequence": 21,
+        "text": "You disconnect. The leased assist stops; your taught precision method remains."
+      },
+      {
+        "id": "work-ledger:22:settings",
+        "type": "settings",
+        "motif": "seal",
+        "actorId": "player",
+        "sequence": 22,
+        "text": "Work Ledger presentation settings saved."
+      },
+      {
+        "id": "work-ledger:23:reconnect",
+        "type": "reconnect",
+        "motif": "seal",
+        "actorId": "player",
+        "sequence": 23,
+        "text": "You reconnect. Your unlocked leased assist is usable again."
+      },
+      {
+        "id": "work-ledger:24:settings",
+        "type": "settings",
+        "motif": "seal",
+        "actorId": "player",
+        "sequence": 24,
+        "text": "Work Ledger presentation settings saved."
+      },
+      {
+        "id": "work-ledger:25:disconnect",
+        "type": "disconnect",
+        "motif": "closing",
+        "actorId": "player",
+        "sequence": 25,
+        "text": "You disconnect. The leased assist stops; your taught precision method remains."
+      },
+      {
+        "id": "work-ledger:26:reconnect",
+        "type": "reconnect",
+        "motif": "seal",
+        "actorId": "player",
+        "sequence": 26,
+        "text": "You reconnect. Your unlocked leased assist is usable again."
+      },
+      {
+        "id": "work-ledger:27:settings",
+        "type": "settings",
+        "motif": "seal",
+        "actorId": "player",
+        "sequence": 27,
+        "text": "Work Ledger presentation settings saved."
+      },
+      {
+        "id": "work-ledger:28:disconnect",
+        "type": "disconnect",
+        "motif": "closing",
+        "actorId": "player",
+        "sequence": 28,
+        "text": "You disconnect. The leased assist stops; your taught precision method remains."
+      },
+      {
+        "id": "work-ledger:29:reconnect",
+        "type": "reconnect",
+        "motif": "seal",
+        "actorId": "player",
+        "sequence": 29,
+        "text": "You reconnect. Your unlocked leased assist is usable again."
+      }
+    ]
+  }
+}

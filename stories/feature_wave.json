@@ -309,6 +309,36 @@
         },
         false,
         {
+          "VAR=": "nested_lin_open_offered"
+        },
+        false,
+        {
+          "VAR=": "nested_lin_work_offered"
+        },
+        false,
+        {
+          "VAR=": "nested_lin_refuse_offered"
+        },
+        false,
+        {
+          "VAR=": "nested_lin_texture_offered"
+        },
+        false,
+        {
+          "VAR=": "nested_lin_account_offered"
+        },
+        false,
+        {
+          "VAR=": "nested_lin_supply_offered"
+        },
+        "str",
+        "^",
+        "/str",
+        {
+          "VAR=": "nested_lin_report"
+        },
+        false,
+        {
           "VAR=": "nested_hub_present"
         },
         false,
@@ -1088,6 +1118,128 @@
       "nested_hub_options": [
         [
           "ev",
+          {
+            "VAR?": "nested_lin_report"
+          },
+          "str",
+          "^",
+          "/str",
+          "!=",
+          "/ev",
+          [
+            {
+              "->": ".^.b",
+              "c": true
+            },
+            {
+              "b": [
+                "^ ",
+                "ev",
+                {
+                  "VAR?": "nested_lin_report"
+                },
+                "out",
+                "/ev",
+                {
+                  "->": ".^.^.^.8"
+                },
+                null
+              ]
+            }
+          ],
+          "nop",
+          "\n",
+          "ev",
+          "str",
+          "^Ask Lin about her one supply request. ",
+          "#",
+          "^response:nested_lin_open ",
+          "/#",
+          "/str",
+          {
+            "VAR?": "nested_lin_open_offered"
+          },
+          "/ev",
+          {
+            "*": ".^.c-0",
+            "flg": 21
+          },
+          "ev",
+          "str",
+          "^Accept Lin’s supply job under its displayed terms. ",
+          "#",
+          "^response:nested_lin_work ",
+          "/#",
+          "/str",
+          {
+            "VAR?": "nested_lin_work_offered"
+          },
+          "/ev",
+          {
+            "*": ".^.c-1",
+            "flg": 21
+          },
+          "ev",
+          "str",
+          "^Decline Lin’s supply request. ",
+          "#",
+          "^response:nested_lin_refuse ",
+          "/#",
+          "/str",
+          {
+            "VAR?": "nested_lin_refuse_offered"
+          },
+          "/ev",
+          {
+            "*": ".^.c-2",
+            "flg": 21
+          },
+          "ev",
+          "str",
+          "^Sit with Lin for a quiet moment. ",
+          "#",
+          "^response:nested_lin_texture ",
+          "/#",
+          "/str",
+          {
+            "VAR?": "nested_lin_texture_offered"
+          },
+          "/ev",
+          {
+            "*": ".^.c-3",
+            "flg": 21
+          },
+          "ev",
+          "str",
+          "^Ask Lin for the retained supply account. ",
+          "#",
+          "^response:nested_lin_account ",
+          "/#",
+          "/str",
+          {
+            "VAR?": "nested_lin_account_offered"
+          },
+          "/ev",
+          {
+            "*": ".^.c-4",
+            "flg": 21
+          },
+          "ev",
+          "str",
+          "^Buy one actual kit under staff approval and the displayed price. ",
+          "#",
+          "^response:nested_lin_supply ",
+          "/#",
+          "/str",
+          {
+            "VAR?": "nested_lin_supply_offered"
+          },
+          "/ev",
+          {
+            "*": ".^.c-5",
+            "flg": 21
+          },
+          "ev",
           "str",
           "^Ask about the services, roles and their current terms. ",
           "#",
@@ -1096,7 +1248,7 @@
           "/str",
           "/ev",
           {
-            "*": ".^.c-0",
+            "*": ".^.c-6",
             "flg": 20
           },
           "ev",
@@ -1115,7 +1267,7 @@
           "&&",
           "/ev",
           {
-            "*": ".^.c-1",
+            "*": ".^.c-7",
             "flg": 21
           },
           "ev",
@@ -1134,7 +1286,7 @@
           "&&",
           "/ev",
           {
-            "*": ".^.c-2",
+            "*": ".^.c-8",
             "flg": 21
           },
           "ev",
@@ -1153,7 +1305,7 @@
           "&&",
           "/ev",
           {
-            "*": ".^.c-3",
+            "*": ".^.c-9",
             "flg": 21
           },
           "ev",
@@ -1172,7 +1324,7 @@
           "&&",
           "/ev",
           {
-            "*": ".^.c-4",
+            "*": ".^.c-10",
             "flg": 21
           },
           "ev",
@@ -1184,14 +1336,48 @@
           "/str",
           "/ev",
           {
-            "*": ".^.c-5",
+            "*": ".^.c-11",
             "flg": 20
           },
           {
             "c-0": [
               "\n",
+              "^\"One kit,\" Lin says. \"The slip has the materials and wage; the bench has to stay clear while we work.\"",
+              "\n",
+              "ev",
               {
-                "->": "nested_hub_terms"
+                "VAR?": "nested_lin_report"
+              },
+              "str",
+              "^",
+              "/str",
+              "!=",
+              "/ev",
+              [
+                {
+                  "->": ".^.b",
+                  "c": true
+                },
+                {
+                  "b": [
+                    "^ ",
+                    "ev",
+                    {
+                      "VAR?": "nested_lin_report"
+                    },
+                    "out",
+                    "/ev",
+                    {
+                      "->": ".^.^.^.11"
+                    },
+                    null
+                  ]
+                }
+              ],
+              "nop",
+              "\n",
+              {
+                "->": ".^.^.^"
               },
               {
                 "#f": 5
@@ -1199,32 +1385,46 @@
             ],
             "c-1": [
               "\n",
-              {
-                "->": "nested_hub_work"
-              },
-              {
-                "#f": 5
-              }
-            ],
-            "c-2": [
+              "^\"I'll keep the bench clear,\" Lin says. \"We can talk again when the work is done.\"",
               "\n",
+              "ev",
               {
-                "->": "nested_hub_train"
+                "VAR?": "nested_lin_report"
               },
-              {
-                "#f": 5
-              }
-            ],
-            "c-3": [
+              "str",
+              "^",
+              "/str",
+              "!=",
+              "/ev",
+              [
+                {
+                  "->": ".^.b",
+                  "c": true
+                },
+                {
+                  "b": [
+                    "^ ",
+                    "ev",
+                    {
+                      "VAR?": "nested_lin_report"
+                    },
+                    "out",
+                    "/ev",
+                    {
+                      "->": ".^.^.^.11"
+                    },
+                    null
+                  ]
+                }
+              ],
+              "nop",
               "\n",
-              {
-                "->": "nested_hub_refit"
-              },
+              "end",
               {
                 "#f": 5
               }
             ],
-            "c-4": [
+            "c-10": [
               "\n",
               {
                 "->": "nested_hub_role"
@@ -1233,10 +1433,146 @@
                 "#f": 5
               }
             ],
-            "c-5": [
+            "c-11": [
               "\n",
               {
                 "->": "nested_hub_leave"
+              },
+              {
+                "#f": 5
+              }
+            ],
+            "c-2": [
+              "\n",
+              "^\"All right,\" Lin says, folding the request slip. \"The desk is still here.\"",
+              "\n",
+              "ev",
+              {
+                "VAR?": "nested_lin_report"
+              },
+              "str",
+              "^",
+              "/str",
+              "!=",
+              "/ev",
+              [
+                {
+                  "->": ".^.b",
+                  "c": true
+                },
+                {
+                  "b": [
+                    "^ ",
+                    "ev",
+                    {
+                      "VAR?": "nested_lin_report"
+                    },
+                    "out",
+                    "/ev",
+                    {
+                      "->": ".^.^.^.11"
+                    },
+                    null
+                  ]
+                }
+              ],
+              "nop",
+              "\n",
+              "end",
+              {
+                "#f": 5
+              }
+            ],
+            "c-3": [
+              "\n",
+              "^Lin straightens the parcel tags beside the cooling cup. The lantern keeps burning.",
+              "\n",
+              "end",
+              {
+                "#f": 5
+              }
+            ],
+            "c-4": [
+              "\n",
+              "^\"Here is how we left it,\" Lin says.",
+              "\n",
+              "ev",
+              {
+                "VAR?": "nested_lin_report"
+              },
+              "str",
+              "^",
+              "/str",
+              "!=",
+              "/ev",
+              [
+                {
+                  "->": ".^.b",
+                  "c": true
+                },
+                {
+                  "b": [
+                    "^ ",
+                    "ev",
+                    {
+                      "VAR?": "nested_lin_report"
+                    },
+                    "out",
+                    "/ev",
+                    {
+                      "->": ".^.^.^.11"
+                    },
+                    null
+                  ]
+                }
+              ],
+              "nop",
+              "\n",
+              "end",
+              {
+                "#f": 5
+              }
+            ],
+            "c-5": [
+              "\n",
+              "^Lin checks your staff approval and counts the paid kit out of her stock.",
+              "\n",
+              "end",
+              {
+                "#f": 5
+              }
+            ],
+            "c-6": [
+              "\n",
+              {
+                "->": "nested_hub_terms"
+              },
+              {
+                "#f": 5
+              }
+            ],
+            "c-7": [
+              "\n",
+              {
+                "->": "nested_hub_work"
+              },
+              {
+                "#f": 5
+              }
+            ],
+            "c-8": [
+              "\n",
+              {
+                "->": "nested_hub_train"
+              },
+              {
+                "#f": 5
+              }
+            ],
+            "c-9": [
+              "\n",
+              {
+                "->": "nested_hub_refit"
               },
               {
                 "#f": 5
@@ -5835,7 +6171,7 @@
   "yairpgInk": {
     "schemaVersion": 1,
     "storyId": "feature-wave-negotiation",
-    "storyRevision": 3,
+    "storyRevision": 4,
     "sceneIds": [
       "tidemark.negotiation",
       "relay.office",
@@ -5846,8 +6182,8 @@
     ],
     "compilerPackage": "inkjs",
     "compilerVersion": "2.4.0",
-    "sourceSha256": "ad28348578d8e09e1c1582571ceffbaef584cc4accac0a6559304869939eadb5",
-    "compiledSha256": "72faf9b6431a00129cd1f959d4a67a5066bee59eca55c94741c15c236e7dc293",
-    "contentHash": "sha256:f914d6a60616e31e382c34658f207c64f63a1d6c9ea707e58d0737f9a2770e3f"
+    "sourceSha256": "a4d470baa3ce27e44087bbf213a51cc9d98e8afeefd5a08bdd2bb54281785d8a",
+    "compiledSha256": "9f9f8b32940353a39c0862ef00be16c8883055cb7af4d135cda0ea171689bfdd",
+    "contentHash": "sha256:d193eb3a33eb66ba8825e6a15819f2920fe2a6b65ed27a24e5613e91015ccb43"
   }
 }

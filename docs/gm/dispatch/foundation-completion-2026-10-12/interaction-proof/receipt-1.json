@@ -1,0 +1,1103 @@
+{
+  "hash": "a4e84278059a711738b9149a331f916496dee79140384c021e11052187baef26",
+  "startedHash": "a4e84278059a711738b9149a331f916496dee79140384c021e11052187baef26",
+  "clock": 0,
+  "sequence": 30,
+  "schema": 5,
+  "location": "Village",
+  "money": 102,
+  "inventory": {
+    "{\"id\":\"Cheap leather pants\",\"quality\":40}": {
+      "count": 1
+    },
+    "{\"id\":\"Stale bread\"}": {
+      "count": 5
+    }
+  },
+  "arenaActors": {},
+  "arenaPeople": {},
+  "panelText": "Experimental interaction arena\n\nOriginal development policies: P-A closes incoming magic including aid. P-B admits named aid and needs sustained control. Physical projectiles remain independent after release. Demonstration fuel belongs only to identified arena actors.\n\nYour browser has no room for this life. Export your save to a file; your last saved life is still safe.\n\nComplete experimental admission drill",
+  "buttons": [
+    {
+      "text": "Authoring",
+      "disabled": false,
+      "id": "",
+      "attrs": [
+        [
+          "data-workspace-action",
+          "context"
+        ]
+      ]
+    },
+    {
+      "text": "Edit layout",
+      "disabled": false,
+      "id": "",
+      "attrs": [
+        [
+          "data-workspace-action",
+          "edit-layout"
+        ]
+      ]
+    },
+    {
+      "text": "Reset layout",
+      "disabled": false,
+      "id": "",
+      "attrs": [
+        [
+          "data-workspace-action",
+          "reset"
+        ]
+      ]
+    },
+    {
+      "text": "↕",
+      "disabled": false,
+      "id": "",
+      "attrs": [
+        [
+          "data-workspace-action",
+          "handle"
+        ],
+        [
+          "data-module",
+          "vitals"
+        ]
+      ]
+    },
+    {
+      "text": "",
+      "disabled": false,
+      "id": "",
+      "attrs": [
+        [
+          "data-resize",
+          "e"
+        ],
+        [
+          "data-module",
+          "vitals"
+        ]
+      ]
+    },
+    {
+      "text": "",
+      "disabled": false,
+      "id": "",
+      "attrs": [
+        [
+          "data-resize",
+          "s"
+        ],
+        [
+          "data-module",
+          "vitals"
+        ]
+      ]
+    },
+    {
+      "text": "",
+      "disabled": false,
+      "id": "",
+      "attrs": [
+        [
+          "data-resize",
+          "se"
+        ],
+        [
+          "data-module",
+          "vitals"
+        ]
+      ]
+    },
+    {
+      "text": "↕",
+      "disabled": false,
+      "id": "",
+      "attrs": [
+        [
+          "data-workspace-action",
+          "handle"
+        ],
+        [
+          "data-module",
+          "combat-controls"
+        ]
+      ]
+    },
+    {
+      "text": "Inventory",
+      "id": "switch_to_inventory",
+      "attrs": []
+    },
+    {
+      "text": "Combat",
+      "id": "switch_to_combat",
+      "attrs": []
+    },
+    {
+      "text": "",
+      "disabled": false,
+      "id": "",
+      "attrs": [
+        [
+          "data-resize",
+          "e"
+        ],
+        [
+          "data-module",
+          "combat-controls"
+        ]
+      ]
+    },
+    {
+      "text": "",
+      "disabled": false,
+      "id": "",
+      "attrs": [
+        [
+          "data-resize",
+          "s"
+        ],
+        [
+          "data-module",
+          "combat-controls"
+        ]
+      ]
+    },
+    {
+      "text": "",
+      "disabled": false,
+      "id": "",
+      "attrs": [
+        [
+          "data-resize",
+          "se"
+        ],
+        [
+          "data-module",
+          "combat-controls"
+        ]
+      ]
+    },
+    {
+      "text": "↕",
+      "disabled": false,
+      "id": "",
+      "attrs": [
+        [
+          "data-workspace-action",
+          "handle"
+        ],
+        [
+          "data-module",
+          "preparation"
+        ]
+      ]
+    },
+    {
+      "text": "Stats",
+      "id": "character_show_stats",
+      "attrs": [
+        [
+          "data-translation",
+          "ui show stats"
+        ]
+      ]
+    },
+    {
+      "text": "Bio",
+      "id": "character_show_bio",
+      "attrs": [
+        [
+          "data-translation",
+          "ui show bio"
+        ]
+      ]
+    },
+    {
+      "text": "Equipment",
+      "id": "character_show_equipment",
+      "attrs": [
+        [
+          "data-translation",
+          "ui show equipment"
+        ]
+      ]
+    },
+    {
+      "text": "Tools",
+      "id": "character_show_tools",
+      "attrs": [
+        [
+          "data-translation",
+          "ui show tools"
+        ]
+      ]
+    },
+    {
+      "text": "",
+      "disabled": false,
+      "id": "",
+      "attrs": [
+        [
+          "data-resize",
+          "e"
+        ],
+        [
+          "data-module",
+          "preparation"
+        ]
+      ]
+    },
+    {
+      "text": "",
+      "disabled": false,
+      "id": "",
+      "attrs": [
+        [
+          "data-resize",
+          "s"
+        ],
+        [
+          "data-module",
+          "preparation"
+        ]
+      ]
+    },
+    {
+      "text": "",
+      "disabled": false,
+      "id": "",
+      "attrs": [
+        [
+          "data-resize",
+          "se"
+        ],
+        [
+          "data-module",
+          "preparation"
+        ]
+      ]
+    },
+    {
+      "text": "↕",
+      "disabled": false,
+      "id": "",
+      "attrs": [
+        [
+          "data-workspace-action",
+          "handle"
+        ],
+        [
+          "data-module",
+          "belongings"
+        ]
+      ]
+    },
+    {
+      "text": "Sort by name",
+      "id": "inventory_sort_by_name",
+      "attrs": [
+        [
+          "data-translation",
+          "ui sort name"
+        ]
+      ]
+    },
+    {
+      "text": "Sort by value",
+      "id": "inventory_sort_by_price",
+      "attrs": [
+        [
+          "data-translation",
+          "ui sort value"
+        ]
+      ]
+    },
+    {
+      "text": "Sort by type",
+      "id": "inventory_sort_by_type",
+      "attrs": [
+        [
+          "data-translation",
+          "ui sort type"
+        ]
+      ]
+    },
+    {
+      "text": "All",
+      "id": "inventory_show_all",
+      "attrs": [
+        [
+          "data-translation",
+          "ui show all"
+        ]
+      ]
+    },
+    {
+      "text": "Equipment",
+      "id": "inventory_show_equipment",
+      "attrs": [
+        [
+          "data-translation",
+          "ui show equipment"
+        ]
+      ]
+    },
+    {
+      "text": "Usable",
+      "id": "inventory_show_consumable",
+      "attrs": [
+        [
+          "data-translation",
+          "ui show usable"
+        ]
+      ]
+    },
+    {
+      "text": "Other",
+      "id": "inventory_show_other",
+      "attrs": [
+        [
+          "data-translation",
+          "ui show other"
+        ]
+      ]
+    },
+    {
+      "text": "Favs",
+      "id": "inventory_show_favs",
+      "attrs": [
+        [
+          "data-translation",
+          "ui show favs"
+        ]
+      ]
+    },
+    {
+      "text": "",
+      "disabled": false,
+      "id": "",
+      "attrs": [
+        [
+          "data-resize",
+          "e"
+        ],
+        [
+          "data-module",
+          "belongings"
+        ]
+      ]
+    },
+    {
+      "text": "",
+      "disabled": false,
+      "id": "",
+      "attrs": [
+        [
+          "data-resize",
+          "s"
+        ],
+        [
+          "data-module",
+          "belongings"
+        ]
+      ]
+    },
+    {
+      "text": "",
+      "disabled": false,
+      "id": "",
+      "attrs": [
+        [
+          "data-resize",
+          "se"
+        ],
+        [
+          "data-module",
+          "belongings"
+        ]
+      ]
+    },
+    {
+      "text": "↕",
+      "disabled": false,
+      "id": "",
+      "attrs": [
+        [
+          "data-workspace-action",
+          "handle"
+        ],
+        [
+          "data-module",
+          "equipment-comparison"
+        ]
+      ]
+    },
+    {
+      "text": "↕",
+      "disabled": false,
+      "id": "",
+      "attrs": [
+        [
+          "data-workspace-action",
+          "handle"
+        ],
+        [
+          "data-module",
+          "time"
+        ]
+      ]
+    },
+    {
+      "text": "",
+      "disabled": false,
+      "id": "",
+      "attrs": [
+        [
+          "data-resize",
+          "e"
+        ],
+        [
+          "data-module",
+          "time"
+        ]
+      ]
+    },
+    {
+      "text": "",
+      "disabled": false,
+      "id": "",
+      "attrs": [
+        [
+          "data-resize",
+          "s"
+        ],
+        [
+          "data-module",
+          "time"
+        ]
+      ]
+    },
+    {
+      "text": "",
+      "disabled": false,
+      "id": "",
+      "attrs": [
+        [
+          "data-resize",
+          "se"
+        ],
+        [
+          "data-module",
+          "time"
+        ]
+      ]
+    },
+    {
+      "text": "↕",
+      "disabled": false,
+      "id": "",
+      "attrs": [
+        [
+          "data-workspace-action",
+          "handle"
+        ],
+        [
+          "data-module",
+          "location"
+        ]
+      ]
+    },
+    {
+      "text": "",
+      "disabled": false,
+      "id": "",
+      "attrs": [
+        [
+          "data-resize",
+          "e"
+        ],
+        [
+          "data-module",
+          "location"
+        ]
+      ]
+    },
+    {
+      "text": "",
+      "disabled": false,
+      "id": "",
+      "attrs": [
+        [
+          "data-resize",
+          "s"
+        ],
+        [
+          "data-module",
+          "location"
+        ]
+      ]
+    },
+    {
+      "text": "",
+      "disabled": false,
+      "id": "",
+      "attrs": [
+        [
+          "data-resize",
+          "se"
+        ],
+        [
+          "data-module",
+          "location"
+        ]
+      ]
+    },
+    {
+      "text": "↕",
+      "disabled": false,
+      "id": "",
+      "attrs": [
+        [
+          "data-workspace-action",
+          "handle"
+        ],
+        [
+          "data-module",
+          "current-work"
+        ]
+      ]
+    },
+    {
+      "text": "Open local controls",
+      "disabled": false,
+      "id": "",
+      "attrs": []
+    },
+    {
+      "text": "",
+      "disabled": false,
+      "id": "",
+      "attrs": [
+        [
+          "data-resize",
+          "e"
+        ],
+        [
+          "data-module",
+          "current-work"
+        ]
+      ]
+    },
+    {
+      "text": "",
+      "disabled": false,
+      "id": "",
+      "attrs": [
+        [
+          "data-resize",
+          "s"
+        ],
+        [
+          "data-module",
+          "current-work"
+        ]
+      ]
+    },
+    {
+      "text": "",
+      "disabled": false,
+      "id": "",
+      "attrs": [
+        [
+          "data-resize",
+          "se"
+        ],
+        [
+          "data-module",
+          "current-work"
+        ]
+      ]
+    },
+    {
+      "text": "↕",
+      "disabled": false,
+      "id": "",
+      "attrs": [
+        [
+          "data-workspace-action",
+          "handle"
+        ],
+        [
+          "data-module",
+          "local-actions"
+        ]
+      ]
+    },
+    {
+      "text": "Ask for repair notes (one field clear)",
+      "disabled": true,
+      "id": "",
+      "attrs": [
+        [
+          "data-fort-action",
+          "notes"
+        ]
+      ]
+    },
+    {
+      "text": "Buy repair notes (10 coins)",
+      "disabled": false,
+      "id": "",
+      "attrs": [
+        [
+          "data-fort-action",
+          "buy_notes"
+        ]
+      ]
+    },
+    {
+      "text": "question_answer Talk to someone",
+      "id": "",
+      "attrs": [
+        [
+          "data-native-keyboard",
+          "true"
+        ]
+      ]
+    },
+    {
+      "text": "work_outline Find work",
+      "id": "",
+      "attrs": [
+        [
+          "data-native-keyboard",
+          "true"
+        ]
+      ]
+    },
+    {
+      "text": "Complete experimental admission drill",
+      "disabled": true,
+      "id": "",
+      "attrs": [
+        [
+          "data-foundation-probe",
+          "enroll"
+        ]
+      ]
+    },
+    {
+      "text": "",
+      "disabled": false,
+      "id": "",
+      "attrs": [
+        [
+          "data-resize",
+          "e"
+        ],
+        [
+          "data-module",
+          "local-actions"
+        ]
+      ]
+    },
+    {
+      "text": "",
+      "disabled": false,
+      "id": "",
+      "attrs": [
+        [
+          "data-resize",
+          "s"
+        ],
+        [
+          "data-module",
+          "local-actions"
+        ]
+      ]
+    },
+    {
+      "text": "",
+      "disabled": false,
+      "id": "",
+      "attrs": [
+        [
+          "data-resize",
+          "se"
+        ],
+        [
+          "data-module",
+          "local-actions"
+        ]
+      ]
+    },
+    {
+      "text": "↕",
+      "disabled": false,
+      "id": "",
+      "attrs": [
+        [
+          "data-workspace-action",
+          "handle"
+        ],
+        [
+          "data-module",
+          "ledger"
+        ]
+      ]
+    },
+    {
+      "text": "",
+      "disabled": false,
+      "id": "",
+      "attrs": [
+        [
+          "data-resize",
+          "e"
+        ],
+        [
+          "data-module",
+          "ledger"
+        ]
+      ]
+    },
+    {
+      "text": "",
+      "disabled": false,
+      "id": "",
+      "attrs": [
+        [
+          "data-resize",
+          "s"
+        ],
+        [
+          "data-module",
+          "ledger"
+        ]
+      ]
+    },
+    {
+      "text": "",
+      "disabled": false,
+      "id": "",
+      "attrs": [
+        [
+          "data-resize",
+          "se"
+        ],
+        [
+          "data-module",
+          "ledger"
+        ]
+      ]
+    },
+    {
+      "text": "↕",
+      "disabled": false,
+      "id": "",
+      "attrs": [
+        [
+          "data-workspace-action",
+          "handle"
+        ],
+        [
+          "data-module",
+          "records"
+        ]
+      ]
+    },
+    {
+      "text": "Quests",
+      "id": "journal_show_quests",
+      "attrs": []
+    },
+    {
+      "text": "Bestiary",
+      "id": "journal_show_bestiary",
+      "attrs": []
+    },
+    {
+      "text": "Anthology",
+      "id": "journal_show_books",
+      "attrs": []
+    },
+    {
+      "text": "Data",
+      "id": "journal_show_data",
+      "attrs": []
+    },
+    {
+      "text": "",
+      "disabled": false,
+      "id": "",
+      "attrs": [
+        [
+          "data-resize",
+          "e"
+        ],
+        [
+          "data-module",
+          "records"
+        ]
+      ]
+    },
+    {
+      "text": "",
+      "disabled": false,
+      "id": "",
+      "attrs": [
+        [
+          "data-resize",
+          "s"
+        ],
+        [
+          "data-module",
+          "records"
+        ]
+      ]
+    },
+    {
+      "text": "",
+      "disabled": false,
+      "id": "",
+      "attrs": [
+        [
+          "data-resize",
+          "se"
+        ],
+        [
+          "data-module",
+          "records"
+        ]
+      ]
+    },
+    {
+      "text": "↕",
+      "disabled": false,
+      "id": "",
+      "attrs": [
+        [
+          "data-workspace-action",
+          "handle"
+        ],
+        [
+          "data-module",
+          "skills"
+        ]
+      ]
+    },
+    {
+      "text": "Sort by name",
+      "id": "skill_sort_by_name",
+      "attrs": []
+    },
+    {
+      "text": "Sort by level",
+      "id": "skill_sort_by_level",
+      "attrs": []
+    },
+    {
+      "text": "Sort by progress",
+      "id": "skill_sort_by_progress",
+      "attrs": []
+    },
+    {
+      "text": "Skills",
+      "id": "show_skills",
+      "attrs": []
+    },
+    {
+      "text": "Stances",
+      "id": "show_stances",
+      "attrs": []
+    },
+    {
+      "text": "Magic",
+      "id": "show_magic",
+      "attrs": []
+    },
+    {
+      "text": "",
+      "disabled": false,
+      "id": "",
+      "attrs": [
+        [
+          "data-resize",
+          "e"
+        ],
+        [
+          "data-module",
+          "skills"
+        ]
+      ]
+    },
+    {
+      "text": "",
+      "disabled": false,
+      "id": "",
+      "attrs": [
+        [
+          "data-resize",
+          "s"
+        ],
+        [
+          "data-module",
+          "skills"
+        ]
+      ]
+    },
+    {
+      "text": "",
+      "disabled": false,
+      "id": "",
+      "attrs": [
+        [
+          "data-resize",
+          "se"
+        ],
+        [
+          "data-module",
+          "skills"
+        ]
+      ]
+    },
+    {
+      "text": "↕",
+      "disabled": false,
+      "id": "",
+      "attrs": [
+        [
+          "data-workspace-action",
+          "handle"
+        ],
+        [
+          "data-module",
+          "messages"
+        ]
+      ]
+    },
+    {
+      "text": "Remember this day",
+      "disabled": false,
+      "id": "life_remember_day",
+      "attrs": []
+    },
+    {
+      "text": "",
+      "disabled": false,
+      "id": "",
+      "attrs": [
+        [
+          "data-resize",
+          "e"
+        ],
+        [
+          "data-module",
+          "messages"
+        ]
+      ]
+    },
+    {
+      "text": "",
+      "disabled": false,
+      "id": "",
+      "attrs": [
+        [
+          "data-resize",
+          "s"
+        ],
+        [
+          "data-module",
+          "messages"
+        ]
+      ]
+    },
+    {
+      "text": "",
+      "disabled": false,
+      "id": "",
+      "attrs": [
+        [
+          "data-resize",
+          "se"
+        ],
+        [
+          "data-module",
+          "messages"
+        ]
+      ]
+    },
+    {
+      "text": "↕",
+      "disabled": false,
+      "id": "",
+      "attrs": [
+        [
+          "data-workspace-action",
+          "handle"
+        ],
+        [
+          "data-module",
+          "optional-worlds"
+        ]
+      ]
+    },
+    {
+      "text": "↕",
+      "disabled": false,
+      "id": "",
+      "attrs": [
+        [
+          "data-workspace-action",
+          "handle"
+        ],
+        [
+          "data-module",
+          "beginning"
+        ]
+      ]
+    },
+    {
+      "text": "↕",
+      "disabled": false,
+      "id": "",
+      "attrs": [
+        [
+          "data-workspace-action",
+          "handle"
+        ],
+        [
+          "data-module",
+          "patrol"
+        ]
+      ]
+    },
+    {
+      "text": "",
+      "disabled": false,
+      "id": "",
+      "attrs": [
+        [
+          "data-divider",
+          "0"
+        ]
+      ]
+    },
+    {
+      "text": "",
+      "disabled": false,
+      "id": "",
+      "attrs": [
+        [
+          "data-divider",
+          "1"
+        ]
+      ]
+    }
+  ],
+  "errors": []
+}

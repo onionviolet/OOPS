@@ -18,6 +18,8 @@ export function referenceGameplayFacts(state, context = {}, registry) {
     const hook = s?.people?.[I.hook];
     return {
         'reference.workshop.opened': enabled && opened,
+        // Absence is explicitly unowned so the first paid lesson is discoverable.
+        [`power.${I.cooling}.owned`]: s?.powers?.player?.[I.cooling]?.owned === true,
         'reference.workshop.supported': enabled && objects['featureObjects.supported'] === true,
         'reference.workshop.handsUsable': objects['featureObjects.handsUsable'] === true,
         'reference.workshop.edaPresent': teacher,
@@ -85,6 +87,9 @@ export function referenceGameplayPresentation(state, registry, context) {
     const actions = [];
     for(const d of referenceGameplayDefinitions.commands) {
         if(d.once && state.actors?.player?.completed?.[d.id]) continue;
+        // Optional workshops and encounters introduce their own participants.
+        // Rendering an unrelated feat record cannot create or inspect them.
+        if(d.targetId&&(!state.simulation?.people?.[d.targetId]||!state.actors?.[d.targetId]))continue;
         const ctx = {...current, targetId: d.targetId || null};
         if(!meets(d.visibleWhen, simulationFacts(state, ctx, registry))) continue;
         const p = previewSimulationCommand(state, registry, d.id, ctx);

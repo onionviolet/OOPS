@@ -1,0 +1,43 @@
+{
+  "node": "v26.4.0",
+  "baseline": {
+    "schemaVersion": 1,
+    "storyId": "feature-wave-negotiation",
+    "storyRevision": 3,
+    "sceneIds": [
+      "tidemark.negotiation",
+      "relay.office",
+      "nested.hub",
+      "nested.offer",
+      "nested.mission",
+      "nested.return"
+    ],
+    "compilerPackage": "inkjs",
+    "compilerVersion": "2.4.0",
+    "sourceSha256": "ad28348578d8e09e1c1582571ceffbaef584cc4accac0a6559304869939eadb5",
+    "compiledSha256": "72faf9b6431a00129cd1f959d4a67a5066bee59eca55c94741c15c236e7dc293",
+    "contentHash": "sha256:f914d6a60616e31e382c34658f207c64f63a1d6c9ea707e58d0737f9a2770e3f",
+    "outputSha256": "a2688775a9adfd21b369f52e0f3fa07bdce8b084be9ce4fc1c385479f60648ed",
+    "bytes": 124528,
+    "diagnostics": [],
+    "exactCurrentArtifact": true
+  },
+  "trials": [
+    {
+      "name": "unknown-response",
+      "rejected": true,
+      "message": "Each offered Ink choice needs its unique stable response tag inside the choice-only string."
+    },
+    {
+      "name": "include-boundary",
+      "rejected": true,
+      "message": "Feature-wave compilation uses one source file. INCLUDE requires a new deterministic input recipe."
+    },
+    {
+      "name": "source-line-error",
+      "rejected": true,
+      "message": "ERROR: 'stories/feature_wave.ink' line 601: Divert target not found: '-> research_missing_knot'"
+    }
+  ],
+  "inputSha256": "ad28348578d8e09e1c1582571ceffbaef584cc4accac0a6559304869939eadb5"
+}

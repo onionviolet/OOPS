@@ -1,0 +1,93 @@
+{
+  "schema": "world1-p1-proof-1",
+  "checkout": "/Users/weiwei/.codex/worktrees/world1-completion/yet-another-idle-rpg",
+  "origin": "http://127.0.0.1:18551/",
+  "productionPage": "index.html rebuilt from candidate source; no force-render helper or source patch injection",
+  "cases": [
+    {
+      "id": "P1-UI-natural-entry-return-reload-keyboard",
+      "status": "PASS"
+    },
+    {
+      "id": "P1-unvisited-absent-roundtrip-restored",
+      "status": "PASS"
+    },
+    {
+      "id": "P1-unvisited-malformed-roundtrip-restored",
+      "status": "PASS"
+    },
+    {
+      "id": "P1-natural-duty-storage-payment-once",
+      "status": "PASS"
+    },
+    {
+      "id": "P1-write-failed-entry",
+      "status": "PASS"
+    },
+    {
+      "id": "P1-write-failed-return-tick",
+      "status": "PASS"
+    },
+    {
+      "id": "P1-joined-active-current",
+      "status": "PASS"
+    },
+    {
+      "id": "P1-joined-active-legacy",
+      "status": "PASS"
+    },
+    {
+      "id": "P1-joined-completed-current",
+      "status": "PASS"
+    },
+    {
+      "id": "P1-joined-completed-legacy",
+      "status": "PASS"
+    },
+    {
+      "id": "P1-visited-absent-restore-paused-work",
+      "status": "PASS"
+    },
+    {
+      "id": "P1-write-failed-completion",
+      "status": "PASS"
+    },
+    {
+      "id": "P1-write-failed-settlement",
+      "status": "PASS"
+    },
+    {
+      "id": "P1-unrelated-unknown-protection",
+      "status": "PASS"
+    },
+    {
+      "id": "P1-old-unvisited-no-provenance-safe-rejection",
+      "status": "PASS"
+    },
+    {
+      "id": "P1-mixed-dormant-instance-protected-deadline",
+      "status": "PASS",
+      "evidence": "candidate ignored continuation/mixed-proof-private.json, mixed-before.json, mixed-after.json; original callback publication defect repaired"
+    },
+    {
+      "id": "P1-legacy-mismatch-safe-rejection",
+      "status": "PASS"
+    }
+  ],
+  "passed": 17,
+  "failed": 0,
+  "remaining": [],
+  "focusedTests": {
+    "latestSlice": 14,
+    "earlierSlice": 35,
+    "qualification": "Earlier35tests inherited exact prior scope; current14pack/UI/enrollment/new-binding tests pass"
+  },
+  "proofScriptsOwner": "/Users/weiwei/.codex/worktrees/world1-completion/yet-another-idle-rpg/docs/research/novels/world-depth-2026-10-11/continuation",
+  "harnessCorrection": "Restoration first run removed page route while route lived on context. Corrected context unroute; exact same source/build rechecked only failed cases. Original receipt retained.",
+  "disclosureBoundary": "Original baseline gameplay only; no new identity/truth/content added. Private logs/fixtures retained ignored. Full new edition projection gate remains open.",
+  "build": "latest exact hash in P1_INPUTS.json",
+  "review": "Independent source review passes on staged native owner repair; rebuilt native mixed join passes",
+  "bindingRegression": "9affected native/UI/failed-write/current-legacy clock cases rerun PASS on current rebuild, binding-regression-private.json",
+  "mixedHarnessCorrection": "Native idle Breathing XP legitimately continues. All other XP, wages and custody unchanged; dormant elapsed frozen and deadline retention exactly matched.",
+  "laterMixedRecheck": "Current rebuilt structured ordinary candidate mixed native comparator PASS; current hashes in P3_INPUTS.json. Other P1 evidence retains earlier exact input scope."
+}

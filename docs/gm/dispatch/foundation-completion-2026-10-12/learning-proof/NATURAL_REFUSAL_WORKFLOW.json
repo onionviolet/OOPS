@@ -1,0 +1,100 @@
+{
+  "action": "workflow",
+  "steps": [
+    {
+      "action": "click",
+      "selector": "#notebook_tab_here"
+    },
+    {
+      "action": "panel",
+      "selector": "#feature_expansion_panel"
+    },
+    {
+      "action": "panel",
+      "selector": "#feature_expansion_panel details:has(>summary:text-is(\"Shutter, wages and overlapping shifts\"))"
+    },
+    {
+      "action": "panel",
+      "selector": "#feature_expansion_panel details:has(>summary:text-is(\"A taught procedure, useful material\"))"
+    },
+    {
+      "action": "click",
+      "selector": "[data-action-legibility-key=\"action:lore.work.begin\"] button",
+      "save": "worker-refusal-extra-terms"
+    },
+    {
+      "action": "click",
+      "selector": "[data-action-legibility-key=\"action:lore.work.repair_player\"] button",
+      "save": "worker-refusal-shutter-accepted"
+    },
+    {
+      "action": "completed",
+      "id": "lore.work.repair_player",
+      "count": 1,
+      "save": "worker-refusal-shutter-completed"
+    },
+    {
+      "action": "click",
+      "selector": "#notebook_tab_here"
+    },
+    {
+      "action": "panel",
+      "selector": "#feature_expansion_panel details:has(>summary:text-is(\"Shutter, wages and overlapping shifts\"))"
+    },
+    {
+      "action": "click",
+      "selector": "[data-action-legibility-key=\"action:lore.work.fund_neri\"] button",
+      "save": "worker-refusal-extra-funded"
+    },
+    {
+      "action": "completed",
+      "actor": "remainder_home.neri",
+      "id": "lore.work.neri_bind",
+      "save": "worker-refusal-extra-duty-completed"
+    },
+    {
+      "action": "click",
+      "selector": "[data-action-legibility-key=\"action:lore.work.collect_kit\"] button",
+      "save": "worker-refusal-extra-kit-collected"
+    },
+    {
+      "action": "click",
+      "selector": "[data-action-legibility-key=\"action:lore.work.account\"] button",
+      "save": "worker-refusal-extra-account"
+    },
+    {
+      "action": "click",
+      "selector": "[data-action-legibility-key=\"action:world.completion.learning.sponsor\"] button",
+      "save": "worker-natural-refusal-offered"
+    },
+    {
+      "action": "completed",
+      "actor": "remainder_home.neri",
+      "id": "world.completion.learning.refuse",
+      "save": "worker-natural-refusal-resolved"
+    },
+    {
+      "action": "click",
+      "selector": "[data-action-legibility-key=\"action:world.completion.learning.account_shack\"] button",
+      "save": "worker-natural-refusal-received"
+    },
+    {
+      "action": "click",
+      "selector": "[data-action-legibility-key=\"action:world.completion.learning.withdraw_shack\"] button",
+      "save": "worker-natural-refusal-withdrawn"
+    },
+    {
+      "action": "export",
+      "name": "worker-natural-refusal-withdrawn"
+    },
+    {
+      "action": "reload",
+      "save": "worker-natural-refusal-reloaded"
+    },
+    {
+      "action": "literalImport",
+      "path": "/tmp/yairpg-foundation-learning-worker-natural-refusal-withdrawn.txt",
+      "save": "worker-natural-refusal-literal-imported"
+    }
+  ]
+}

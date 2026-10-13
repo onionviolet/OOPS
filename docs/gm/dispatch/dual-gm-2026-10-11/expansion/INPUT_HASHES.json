@@ -1,0 +1,90 @@
+{
+  "revision": 1,
+  "coverage": "Full loader/panel/persistence reads; targeted main/simulation/world/body/technique reads; source/library hashes recorded privately.",
+  "inputs": [
+    {
+      "path": "AGENTS.md",
+      "sha256": "2dd0e8a273ff4c292231409f4c7d0c776015a67833206d3c6b5bb56d919ab1fc"
+    },
+    {
+      "path": "PROJECT.md",
+      "sha256": "d3a2bdeb225737375a8fe08a5c7d171f322124f2530878707a5f6d1ee7c89b20"
+    },
+    {
+      "path": "docs/gm/dispatch/dual-gm-2026-10-11/ASSIGNMENT.md",
+      "sha256": "b99cc2a18751aec84a1b0e1433c32a62d96b599b6c4049e2d1819544c674905b"
+    },
+    {
+      "path": "docs/gm/WORLD_ACTIONABILITY_GM_PROMPT.md",
+      "sha256": "24f7ace729b0d92217b3da09482c0f646b899f71f9c31cf78e6c326663a8304a"
+    },
+    {
+      "path": "docs/WORLD_COMPLETION_STANDARD.md",
+      "sha256": "e3c8ddc8c559204736d2ff5d8efdfd1e1f769fdbc5bc8ed2c6c86862169b2bf4"
+    },
+    {
+      "path": "docs/gm/dispatch/idea-expansion-2026-10-11/DETAIL_LEDGER.json",
+      "sha256": "3fe75c8f33d0ed57c2c067b232de0dd64e3fc364ab3a34ba5e8e4d6123cfae54"
+    },
+    {
+      "path": "src/content_packs.js",
+      "sha256": "65c72a9510cb87bab963ef508c62a82af9918c5ff869338e50aab0503fef87ad"
+    },
+    {
+      "path": "src/content_pack_ui.js",
+      "sha256": "53c0ee4c5ce3739e9fbee49cce48fdf5169f4f93c3ac2edb6d44ae4e2e3ec2e4"
+    },
+    {
+      "path": "src/main.js",
+      "sha256": "cb23567965d67c4af1648015c71c37ced0d1a5e47919cc2e6604e46cb286c397"
+    },
+    {
+      "path": "src/save_files.js",
+      "sha256": "c8424cb96d43847a89d6077ce5766d8302256f9b5f521faf4181b333e250db50"
+    },
+    {
+      "path": "src/simulation.js",
+      "sha256": "3f7ecf0f208edc1edff502d7e1f5076ad1e1a435630a020658eb922d3287d3f3"
+    },
+    {
+      "path": "src/world_instances.js",
+      "sha256": "cf15bd3c1d34153c541617fdd83a45d9b9faddd98b64b20edd0160d9547720fd"
+    },
+    {
+      "path": "src/expansion_engine.js",
+      "sha256": "bb9b59ce0400528ee006dc5846bb8ff85453ea7aa450d2875c37da29f754a829"
+    },
+    {
+      "path": "src/people_knowledge.js",
+      "sha256": "e52bf2508ab626785ad66074179f33916aaed7946fbd403706cb59303e851261"
+    },
+    {
+      "path": "src/expansion_persistence.js",
+      "sha256": "779a82715884c48f3d2338816d76b90e5e894b625f2fb7daec174091c73bc966"
+    },
+    {
+      "path": "src/body_progression.js",
+      "sha256": "47e8de67bdb099fb41365afafbf3081e342e734d97615850f921e0b280dfe84e"
+    },
+    {
+      "path": "src/techniques.js",
+      "sha256": "e723f95c5c3c24376597d82c7c3a5786d060fc90911d21a208a314f81ebb9735"
+    },
+    {
+      "path": "src/native_realm_traveler.js",
+      "sha256": "9c06b1fb6381781e000e6187220e9e005cd40b13eb356402a3bd9b52e48b9c51"
+    }
+  ],
+  "refreshes": [
+    {
+      "path": "PROJECT.md",
+      "sha256": "4bf264534c1c67efa87675bcba71a680512d443cbc06ea18db48f619bac60400",
+      "inspection": "Reread changed Next step and absorption proposal sections; dual-GM task scope unchanged. Other owner completion assertions not adopted as world1 evidence."
+    },
+    {
+      "path": "src/main.js",
+      "sha256": "5b595f75c35e16ed0c3c02e35549abce00eec041371db1984e2be86ee0810bd3",
+      "inspection": "Reread commandOptionalPack/native occupation and optional update_timer branch; cited entry/custody/calendar/durable boundaries unchanged in concurrent source revision. Other native changes not qualified."
+    }
+  ]
+}

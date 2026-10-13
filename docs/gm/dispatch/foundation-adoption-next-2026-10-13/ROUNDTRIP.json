@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "stage": "dispatched",
+  "user_scope": [
+    "GM loop through applicable full micro/macro horizon",
+    "ChatGPT review each substantive round/successor",
+    "parallel specialists and bounded subagents",
+    "preserve separate UI and paused World1 boundaries"
+  ],
+  "outbound": "docs/gm/dispatch/foundation-adoption-next-2026-10-13/PROMPT_OUTBOUND.md",
+  "outbound_sha256": "e50bb8c5808206cf761bbbfd148b74c807833b6d120006af13c682b07de3f3db",
+  "submission": "one direct-fill multiline message; auto pasted attachment restored to text field; full innerText and flattened content verified before Send",
+  "sent_at_utc": "2026-10-13T05:56:35.599Z",
+  "browser": "signed-in Chrome extension, dedicated chat",
+  "observed_mode": "ordinary Chat",
+  "observed_effort": "High,3 of3 selected; retained default",
+  "model_identity": "not exposed; not inferred",
+  "destination_chat": {
+    "threadId": "01a133d9-faa9-71a1-a513-7131efbc8613",
+    "hostId": "local",
+    "projectId": "1c8082fc-3ad6-4a59-9755-006a14e48481",
+    "environment": "local",
+    "model": "configured default; no override"
+  },
+  "conversation_url": "https://chatgpt.com/c/6acdc813-e138-83ea-96b2-0b2baf60d61b",
+  "capture_at_utc": "2026-10-13T05:59:46.140Z",
+  "capture_state": "Response complete status; no Stop control; response-level Copy includes full fenced prompt and material-change notes",
+  "response_chars": 33677,
+  "submission_chars": 15250,
+  "files": {
+    "CHATGPT_RESPONSE.md": {
+      "sha256": "915cfbb8aba75737cfa452c40e79d7590a1c25c554be335e5d53cb3bc2ed369e",
+      "bytes": 33704
+    },
+    "PROMPT_OUTBOUND.md": {
+      "sha256": "e50bb8c5808206cf761bbbfd148b74c807833b6d120006af13c682b07de3f3db",
+      "bytes": 15252
+    },
+    "PROMPT_RECONCILED.md": {
+      "sha256": "2a77a8cc9b0ba38127d824dfc6bd767e39591a8dee294c2583b1dbf486fb54fc",
+      "bytes": 33000
+    },
+    "PREPARATION_INPUTS.json": {
+      "sha256": "3b43d4dba3b2390a06a9f95690d5243767bbbc7c256f67836880e373e7b31589",
+      "bytes": 1686
+    },
+    "RECONCILIATION_NOTES.md": {
+      "sha256": "448adf13f1bd7fd53910144a976d4f250aa29a8bfa2af2ff54da194ea7003d22",
+      "bytes": 1700
+    },
+    "REVIEW_PROOF.jpg": {
+      "sha256": "dc6ae66bc97156561ce00d84fb20e8aa333768b2bf71d56a5bcd9d65c5225c6d",
+      "bytes": 151974
+    }
+  },
+  "dispatched_at_utc": "2026-10-13T06:01:39.647081+00:00",
+  "ownership_handoff": "Execution/horizon/checkpoint/reservations/round subdirectories released to recipient; sender retains only seven preparation/review artifacts. No gameplay/shared/UI ownership released by sender.",
+  "destination_progress": "Confirmed active; recipient began live ownership/proof recovery and bounded horizon reconciliation; initial command completed. Implementation completion is not claimed.",
+  "initial_status_cursor": "6f4fecbe-2888-47a4-af8e-389c253c5bdb:1"
+}

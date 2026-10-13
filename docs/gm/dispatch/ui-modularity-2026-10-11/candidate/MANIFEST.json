@@ -1,0 +1,89 @@
+{
+  "paths": {
+    "index.html": {
+      "baseSha256": "ce4d492a309b469112baf0ad1f5af21b8f4004aa3cfbe0af1eecadbd73df2161",
+      "candidateSha256": "693c964f8e5dade6f686a5e3dd79dcc0f00bfe6f57d2e1c54b2b5f157e45a828",
+      "currentSharedSha256": "4f46af517cf59c3b41b3b28b9a6ecbfb2ae36b050959d71937b7a9522a061ea9"
+    },
+    "src/main.js": {
+      "baseSha256": "e71568373f32c310117039b0c4d202b8f5e315696b48dceeab05f63428b6f41b",
+      "candidateSha256": "009aedc8018c295434722af8a3adaae4f7a944bff39e3885a5970b50c3b98b3b",
+      "currentSharedSha256": "b8d6927fd24882332f6bd4f1ee3084868757ee0ecb9895b2734990c5b1bde1c6"
+    },
+    "src/adventure_notebook.js": {
+      "baseSha256": "3047a1aa41f750d5db6bdd70bb9510227a4a8acb65fa5eb19df8ecc399396891",
+      "candidateSha256": "69e8b497a960655a4335cf70d8cab58eb0909fd6a9765579971d7b3145f3add0",
+      "currentSharedSha256": "3047a1aa41f750d5db6bdd70bb9510227a4a8acb65fa5eb19df8ecc399396891"
+    },
+    "src/village_career_ui.js": {
+      "baseSha256": "a15951bd0684a541d7dde5c9df15c71aa6f1e81db541d0ea56f0b855d168a886",
+      "candidateSha256": "d553a10f6c1cf1b748857f156d1c67cbed669602edc9b6e131fc15cecb76c952",
+      "currentSharedSha256": "a15951bd0684a541d7dde5c9df15c71aa6f1e81db541d0ea56f0b855d168a886"
+    },
+    "src/content_pack_ui.js": {
+      "baseSha256": "cc8c792e5d195fdf54643a947be1ad42884b9c64d10b61e2cf88d5dae230a42d",
+      "candidateSha256": "1ba4711d3e37ae63c4798034b14bebed3a14e95b1c76fd223cebc33509fb3f5e",
+      "currentSharedSha256": "cc8c792e5d195fdf54643a947be1ad42884b9c64d10b61e2cf88d5dae230a42d"
+    },
+    "src/structured_pack_ui.js": {
+      "baseSha256": "9059e0c25855d0065357044b58846f71dbe3190dadf4289e73cae5b48b2d9c82",
+      "candidateSha256": "936d2a94f3aec2e714eead3adc2ed9383db05d81099ec73089259ee56d816c56",
+      "currentSharedSha256": "9059e0c25855d0065357044b58846f71dbe3190dadf4289e73cae5b48b2d9c82"
+    },
+    "src/absorb_d/ui.js": {
+      "baseSha256": "a7f269a2a4c5bd0a1c4adc1a58b5e3af62fc9bcb5be31c760f04df4cb628283c",
+      "candidateSha256": "b06fbd2c0f9f06d9de83b07e7f2c3fb31f873eeff4fba770961c16b152c0b3ed",
+      "currentSharedSha256": "a7f269a2a4c5bd0a1c4adc1a58b5e3af62fc9bcb5be31c760f04df4cb628283c"
+    },
+    "src/workspace_layout.js": {
+      "baseSha256": null,
+      "candidateSha256": "51cd3ea7948cc7934a475b51401847a5828fc1fbbbfd76e01e2198d55d057f82",
+      "currentSharedSha256": null
+    },
+    "src/workspace_state.js": {
+      "baseSha256": null,
+      "candidateSha256": "89e48289455440097236ca73ce6badb6fe63004be797578f95384024f22c1c89",
+      "currentSharedSha256": null
+    },
+    "src/workspace_views.js": {
+      "baseSha256": null,
+      "candidateSha256": "c53e916cfbdc458c9c183b3e7330723c37eecc91f2c3358a4f85184270a3d4f4",
+      "currentSharedSha256": null
+    },
+    "styles/workspace.css": {
+      "baseSha256": null,
+      "candidateSha256": "bd630dc5303acefb5ddfa0c9482626cf5bef56802f25a0c81ed9d1a7464ea17f",
+      "currentSharedSha256": null
+    },
+    "tests/workspace_state.test.js": {
+      "baseSha256": null,
+      "candidateSha256": "e91548d5cc79059809be5460b596972af51506e1effe93bc4eb81fea907fa774",
+      "currentSharedSha256": null
+    },
+    "scripts/ui_workspace_layout_browser.cjs": {
+      "baseSha256": null,
+      "candidateSha256": "1b6e3d66f49c3c04c227da8745bee16d686ceae2fce939c036b91d84f1d06753",
+      "currentSharedSha256": null
+    },
+    "scripts/ui_workspace_first_gate.cjs": {
+      "baseSha256": null,
+      "candidateSha256": "d29d3ba811f297e3d7488c22b023df1a0f01a56f9de65f247e86de5be1ec1320",
+      "currentSharedSha256": null
+    },
+    "scripts/ui_workspace_journeys.cjs": {
+      "baseSha256": null,
+      "candidateSha256": "057896b040e7ccfdab40850247aec0b14d52cc20345998e0cddf72c6f46123ad",
+      "currentSharedSha256": null
+    },
+    "scripts/ui_workspace_extra_browser.cjs": {
+      "baseSha256": null,
+      "candidateSha256": "bfd4aacc21bfc978013df41c18229657e3d05a539901ed832c44ffc73c254f48",
+      "currentSharedSha256": null
+    }
+  },
+  "movingSharedPaths": [
+    "index.html",
+    "src/main.js"
+  ],
+  "note": "Frozen exact base reconstructed and hash checked; index patch excludes generated bundle version. Integration must reconcile live main rather than overwrite candidate."
+}

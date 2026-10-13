@@ -1,0 +1,93 @@
+{
+  "candidate": "/Users/weiwei/.codex/candidates/yairpg-foundation-adoption-2026-10-13-r1",
+  "base": "dd3efe3383f12f0aac22e4f390aae90fae2e7fc4",
+  "branch": "codex/gameplay-foundations",
+  "manifestFilesChecked": 605,
+  "knownSourceMapDifference": {
+    "file": "dist/bundle.js.map",
+    "expectedSnapshot": "2f6823911ef2a392561d4a6c338d6957cda7485c6f0ff6924f4e90715bfc7b35",
+    "candidate": "b4fcf90018428e3e974a7aef9905a980e2d9cca7bdbe0efb2ad286b952f1d2df",
+    "note": "Separate sourcemap differs; candidate bundle bytes and sourcesContent were baseline build inputs. Candidate dist was not modified."
+  },
+  "sourceHashes": {
+    "src/data/dialogues.js": "277fce60a665df34f5869009c2e6d6f49baa064106e4b844a0dd13d6a553a8cf",
+    "src/data/locations.js": "6ab6c9781ec963b770cf00dcf0870884432960a7858fd66707074c0f6a20c393",
+    "src/items.js": "bf39177717442dfcb7112e2f10d146828ccf79de6dd71e0fc14cb951667f032f",
+    "src/main.js": "f9810d76e2fb140a33581d915b477c3eb57ba27260932a4e1dbc67b896c75483",
+    "index.html": "a122b2bb74526a5652711133430dbc12f72e2ca082e99a84c2efa3314dbf3eae",
+    "dist/bundle.js": "451be34e450e0b6e8f049018889c43711bc34e885c40c834d7f7bfc2d633ecbf"
+  },
+  "servedHashes": {
+    "/": {
+      "status": 200,
+      "sha256": "a122b2bb74526a5652711133430dbc12f72e2ca082e99a84c2efa3314dbf3eae"
+    },
+    "/dist/bundle.js": {
+      "status": 200,
+      "sha256": "451be34e450e0b6e8f049018889c43711bc34e885c40c834d7f7bfc2d633ecbf"
+    }
+  },
+  "naturalCheckpoint": {
+    "file": "earned-state-final.json",
+    "rawGeneratedSaveSHA256": "537c03bee44ab58ce00f74abf5219cd8cbcb270c13f42c7ae2c1976435457756",
+    "savedActivity": "woodcutting",
+    "activityGatheredLogCount": 95,
+    "inventoryLogCount": 95,
+    "fieldGroupsKilled": 16
+  },
+  "timerMethod": "Playwright page.clock.runFor(10000) advanced actual registered game timers in 360 bounded increments; no fastForward, speed setter, or state grants.",
+  "harnessCaveat": "The earlier UI loop read only the first matching inventory element and its fallback count (1), although the saved native inventory had 95 Rough wood logs. This finalizer inspected all native inventory controls and the exported save envelope.",
+  "export": {
+    "file": "natural-prerequisite-save.txt",
+    "sha256": "09b9c035789844eedaf3c7d5a00fcf1436c84c638d2366646aeda591e98a1fd6",
+    "bytes": 80184,
+    "roughWoodLogs": 95
+  },
+  "errors": [],
+  "transcript": [
+    {
+      "at": "2026-10-13T06:55:49.663Z",
+      "step": "restored-earned-save-in-fresh-disposable-origin",
+      "origin": "http://127.0.0.1:18721/",
+      "location": "Village",
+      "checkpointAt": "2026-10-13T06:54:13.132Z",
+      "checkpointBytes": 60267,
+      "checkpointSHA256": "537c03bee44ab58ce00f74abf5219cd8cbcb270c13f42c7ae2c1976435457756",
+      "generatedInventoryCount": 95,
+      "displayedLogControls": [
+        {
+          "label": "Rough wood log",
+          "count": 95,
+          "key": null
+        }
+      ],
+      "displayedCount": 95,
+      "currentActivity": "woodcutting",
+      "savedActivityLogCount": 95
+    },
+    {
+      "at": "2026-10-13T06:56:01.985Z",
+      "step": "woodcutting-stopped",
+      "displayedRoughWoodLogs": 95,
+      "activityTextAfterStop": null,
+      "stopButtonAbsent": true,
+      "activeCombat": false,
+      "hp": {
+        "current": 80,
+        "max": 80
+      }
+    },
+    {
+      "at": "2026-10-13T06:56:02.296Z",
+      "step": "exported-native-save",
+      "suggestedFilename": "yet-another-idle-rpg 2026-10-13 02_56_02.txt",
+      "file": "natural-prerequisite-save.txt",
+      "bytes": 80184,
+      "sha256": "09b9c035789844eedaf3c7d5a00fcf1436c84c638d2366646aeda591e98a1fd6",
+      "location": "Village",
+      "roughWoodLogsInSavedEnvelope": 95,
+      "nativeStopButtonAbsent": true,
+      "oldAxeEquipped": true
+    }
+  ]
+}

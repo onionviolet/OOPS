@@ -1,0 +1,51 @@
+{
+  "date": "2026-10-12",
+  "head": "dd3efe3383f12f0aac22e4f390aae90fae2e7fc4",
+  "scope": "Relevant moving input baseline, not clean-tree or gameplay proof",
+  "files": [
+    {
+      "path": "PROJECT.md",
+      "sha256": "338c163655c5bf916e5332fe71628935d7a1d682410de5dfb7e35cf8bf645340"
+    },
+    {
+      "path": "docs/gm/dispatch/workflow-foundation-audit-2026-10-12/REPORT.md",
+      "sha256": "fa491e0055043720a6b96c8c60cd091f077a3deb3c0bd47eea6075ab5b930c94"
+    },
+    {
+      "path": "docs/gm/dispatch/workflow-foundation-audit-2026-10-12/NEXT_PACKET.md",
+      "sha256": "e77641d968e4530e132b5ddc8ce30077c1b174c4a5289297c110278e23aa7f40"
+    },
+    {
+      "path": "docs/gm/dispatch/world1-full-completion-2026-10-11/CHECKPOINT.md",
+      "sha256": "151f0b9c19aa10f0aecf292977509e8e6b2076d7b65ddd695c95e889991ebdc9"
+    },
+    {
+      "path": "docs/gm/dispatch/world1-full-completion-2026-10-11/PAUSED_HANDOFF.md",
+      "sha256": "257660fdbb409f38cd91e3cd237883ab71ffb960eb4478b617f702923fa179dc"
+    },
+    {
+      "path": "docs/SHARED_FOUNDATIONS_AUDIT_2026-10-12.md",
+      "sha256": "b1a9c33ee53b751c3e5b4eca236e90519c871af86cf8c67086ef62cbeaeb76e3"
+    },
+    {
+      "path": "docs/reviews/FOUNDATIONS_DIALOGUE_AND_ABSORPTION_PLAN_2026-10-12.md",
+      "sha256": "fb27b8867fee4989b59e703ea800c713e16bb4ce52c7d922bfea06289f543848"
+    },
+    {
+      "path": "src/ink_narrative.js",
+      "sha256": "0b1f4d4c1b42347ec9471cefbff8a1d3f70f6b739a52c711ad604f3bbeda16ac"
+    },
+    {
+      "path": "src/ink_scene_content.js",
+      "sha256": "cd7dcd1368b6c63ceb0399c0893df0fbbde9a5579553d2cf111ea07875ed821f"
+    },
+    {
+      "path": "src/feature_expansion_nested_life.js",
+      "sha256": "55ac52bdeb23c0ee6f9460f6a055a9ce35085c2718cfe1b48e114a0c231b5cd0"
+    },
+    {
+      "path": "package.json",
+      "sha256": "805269ecbf25287b2758391e718c805e1a4336b4b4f1c923a87b3712620e8e2c"
+    }
+  ]
+}

@@ -1,0 +1,69 @@
+{
+  "schema": 1,
+  "status": "qualified-selected-native-craft-boundary",
+  "bundle": "6b3c8e392800cd43bfa850d314ae614cca7be3e26d6526a087af452c7d4d7a12",
+  "execution": "CRAFT_SKIP_COMPONENT_REJECT=1 CRAFT_BUNDLE=6b3c8e392800cd43bfa850d314ae614cca7be3e26d6526a087af452c7d4d7a12 node docs/gm/dispatch/foundation-completion-2026-10-12/craft-proof/native.cjs",
+  "exitCode": 0,
+  "currentSourceMapMatches": [
+    "src/main.js",
+    "src/display.js",
+    "src/native_craft_transaction.js",
+    "src/models/hero.js",
+    "src/components/inventory_component.js",
+    "src/components/levelable_component.js",
+    "src/components/availability_component.js",
+    "src/models/skill.js",
+    "src/work_ledger_system.js",
+    "src/save_files.js",
+    "src/quests.js"
+  ],
+  "sourceInputs": {
+    "src/main.js": "badbb853bed5c34078976511d5a63d8dce128d8036f59eaf6b66e790561a6527",
+    "src/display.js": "40becdb67fc654ae6edbd7a83dd487a3fddecaef49c3140923c6fa100b29ed3a",
+    "src/native_craft_transaction.js": "df314bdbde04ad3a5f413e9ff2d6bb5f323a6f444b430f8dc5921a3df2c898f5",
+    "src/models/hero.js": "5246158b0fc3e94e8e6b65b861f877a7bd9b43556e5f11224ddac9c89a10b06c",
+    "src/components/inventory_component.js": "7f1efc3709b7c89ab554c12f774578dd02568ef24f73c050935a7eb96c698bea",
+    "src/components/levelable_component.js": "2bbb959991710af8db41296090ba5f116f58f062548c12b67e4c7e79a9e5eee6",
+    "src/components/availability_component.js": "97979f350ff843ef70e83cb5bae14cc7e76d52caa49807769b4ef4ce5122c0f1",
+    "src/models/skill.js": "efa7050dd81d4aefba26db70ba044e7b73313a56fb7535616e90087555834dd8",
+    "src/work_ledger_system.js": "2697955b78d970a1dab6afec30828af17cd74825c23534a3d7b2b5e7c10279b2",
+    "src/save_files.js": "9693989644833596a98379eececdc5a814e11845d27c1134b3e7dab3911b1120",
+    "src/quests.js": "19f14bec33bb8782a3ae6f8c827c8bea1136bc65afd99e7733f598ecd9246ca8"
+  },
+  "artifactHashes": {
+    "native.cjs": "4846352b7bd8af9b566565cb75c22742ffe2b71efeb7abddfe5dea5f2c753cd0",
+    "generated-input.json": "63a396cc9873d8aad4ac98d09fe966f63e072d304b7ff8fea638dff3f209fe9f",
+    "RESULT.json": "0cdff95e7453270ac1e5eb722ed1a283908a13fcfb6b6f7c8c775854dbcc1ff6",
+    "PARTIAL.json": "3e1ef93a33024fa01590ceba5b71ad731ae2c3e3b0bdad83c8a191932fbdebec",
+    "POST_DURABLE_QUALITY.json": "6b6471a11215f3a46f7414b0ee6be5b35abd588ca53afcea51568734453dceb7",
+    "final-save.json": "f32109e67538d77eb3279dc66436f2f307aa964ff2d2146a502a58dd77d5b1cf",
+    "literal-export.txt": "5e16835ca33cad5e20ac1954abd1dda97aea497247ba813cd453a6afcd109d98",
+    "final.png": "6f24bd13517634faf6f8f274fa06e91aec02c85d54ae6726ffb2fb46dc82367e",
+    "BD1_FAILURE.md": "ff65584f9525a3d3bf5e3f7b20436622d362ba5353dc9cdc2380ff3162962a12",
+    "6540_FAILURE.md": "743ad4d4125cba8b65ff15ae20223301314dd218c2630224d180a4f19d854f23",
+    "REPORT.md": "2d7d9bcb2baaa2877ea7e46cba6de0f7cd4be96b9b90d0ee48a5d635067a77ea"
+  },
+  "retainedSlice": {
+    "bundle": "6540b5a5701e8279f43800a89988d1cf1b24986f360560159ee2d9121ce776f2",
+    "gate": "actual component failed-save live/stored rollback, no phantom later save, actual +20 quality retry",
+    "qualification": "passed before separate smelting milestone UI assertion failed; not whole-build qualification"
+  },
+  "processes": {
+    "driver85381": "exit0 browser finallyclosed",
+    "server19261": "stopped exit130 intentional KeyboardInterrupt; no18647 listener",
+    "priorServer80321": "stopped"
+  },
+  "limits": [
+    "Displayed stat and existing per-ID skill comparisons plus native serialized owner equality qualify rollback; private stat bonus containers separately source-tested. Unrelated ordinary played-clock Breathing XP is excluded from owner equality.",
+    "Recursive partial durable batches are source-tested, native selected paths are single-attempt."
+  ],
+  "rootSourceEditsByWorker": false,
+  "postProofAdditionalCompiledOwners": {
+    "src/crafting_recipes.js": "9a196429052a1ad8d0ff6e48ff978e638f6c8956a9ef429040720ed71143c3a3",
+    "src/items.js": "bf39177717442dfcb7112e2f10d146828ccf79de6dd71e0fc14cb951667f032f",
+    "src/absorb_d/fort.js": "b9260c1f66e903e01df3ca2da7887eaf1e47bf36643949e1eee560961bbe3576",
+    "src/models/stat_haver.js": "7f6f721b92e881abf3a9d2e4bfeef1f934d301b1ba9ea9d042bcdd25e8cee2ac",
+    "src/native_unlock_transaction.js": "2382bab9895016e22d6d25ba5f94929eac76ef14b9cfb7225cb77e08369f65ad",
+    "src/data/skills.js": "8edce9a32137c3432f2bd2953908c84f7e8ed3f676018dababef2b193463a671"
+  }
+}

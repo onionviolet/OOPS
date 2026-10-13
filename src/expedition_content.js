@@ -1,3 +1,4 @@
+import {foundationInteractionSources} from './foundation_interaction_content.js';
 import {crushSocialWorkPlans} from './crush_social_content.js';
 import {factorioRetortPlanDefinitions} from './factorio_retort_content.js';
 import {proto23Worlds} from './proto23_world_content.js';
@@ -60,7 +61,7 @@ export const expeditionRegistry = createContentRegistry({
             {id: "skill.climbing_preparation", kind: "skill", label: "Climbing 5", amount: 1,
                 when: {fact: "climbing", op: "gte", value: 5}}]},
     ],
-    sources: [...worldCompletionSources,...villageSources, ...simulationSources, ...townSources, ...bodySources, ...fieldSources, {id: "frontier.field_eye", label: "Field eye", kind: "trait", revision: 1,
+    sources: [...foundationInteractionSources,...worldCompletionSources,...villageSources, ...simulationSources, ...townSources, ...bodySources, ...fieldSources, {id: "frontier.field_eye", label: "Field eye", kind: "trait", revision: 1,
         description: "An earned knack for reading routes. Adds one route preparation source.",
         grants: [{capability: "frontier.preparation", amount: 1}]}],
     rollTables: [{id: "frontier.observation", label: "Inspection discovery", revision: 1,

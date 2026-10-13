@@ -1,0 +1,635 @@
+{
+  "schema": "w1-expansion-engine-planning-1",
+  "revision": 1,
+  "runtimeClaim": false,
+  "cards": [
+    {
+      "id": "W1-E01",
+      "sections": [
+        "S02",
+        "S14"
+      ],
+      "title": "Committed coherent entry",
+      "authority": "2026-10-11 expansion assignment; implementation remains unassigned",
+      "classification": "new consumer or shared extension; source inspected, runtime unverified",
+      "parentIds": [
+        "G1-001",
+        "G1-002",
+        "G1-029",
+        "G5-02"
+      ],
+      "unresolvedParentAliases": [],
+      "owner": "future reserved integrator; no runtime reservation",
+      "sourceRefs": [
+        "src/simulation.js:597",
+        "src/expansion_engine.js:69",
+        "src/main.js:961"
+      ],
+      "inspectedFact": "chooseSimulationOrigin settles origin.selected and authored effects; createExpansionState initializes base.frontier; commandOptionalPack enters from Village. None alone initializes a source-qualified random native beginning.",
+      "proposedInterface": "Proposed initializer input: poolRevision, pendingSeed, candidateId, contentRevision, actor/body/native snapshot, prior cause state, known means and location. Output: validated replacement envelope plus publication bindings; use persistExpansionPlan replacementEnvelope/nativePublication after compatible native creation is settled. Freeze result before live publication; never reroll on render/reload.",
+      "criterion": "Selected ordinary snapshot has real first work and recovery controls without Village enrollment.",
+      "dependencies": [
+        "W1-E02",
+        "W1-E04",
+        "W1-E05",
+        "W1-E12"
+      ],
+      "persistence": "One existing save envelope, durable before live; retain unrelated/dormant fields; generated fixtures only.",
+      "cases": [
+        {
+          "id": "W1-E01-C01",
+          "criterion": "Selected ordinary snapshot has real first work and recovery controls without Village enrollment.",
+          "status": "specified-not-run"
+        },
+        {
+          "id": "W1-E01-C02",
+          "criterion": "Stale/invalid candidate and failed write publish no body, claims or grant; retry retains the candidate.",
+          "status": "specified-not-run"
+        },
+        {
+          "id": "W1-E01-C03",
+          "criterion": "Loaded prior life preserves location and completed origin; unavailable mandatory pack pauses with export/recovery rather than automatic fresh random entry.",
+          "status": "specified-not-run"
+        }
+      ],
+      "remaining": "Reserve exact runtime paths; select private leaf bindings; implement and prove named cases.",
+      "conditionalDependencies": [
+        "W1-E11 when chosen body needs a nonconventional controller"
+      ]
+    },
+    {
+      "id": "W1-E02",
+      "sections": [
+        "S01",
+        "S11",
+        "S12",
+        "S14"
+      ],
+      "title": "Causal history and instance binding",
+      "authority": "2026-10-11 expansion assignment; implementation remains unassigned",
+      "classification": "new consumer or shared extension; source inspected, runtime unverified",
+      "parentIds": [
+        "G4-02",
+        "G4-04",
+        "G5-03"
+      ],
+      "unresolvedParentAliases": [],
+      "owner": "future reserved integrator; no runtime reservation",
+      "sourceRefs": [
+        "src/world_instances.js:136",
+        "src/world_instances.js:271",
+        "src/simulation.js:542"
+      ],
+      "inspectedFact": "World bindings namespace sites/facts/unique claims; simulation people, many native owners and quests remain separately keyed. An era label does not supply past causes.",
+      "proposedInterface": "Proposed compiler takes private era snapshot plus instanceId and maps people, stock, custody, relationships, quests, event causes, body records and native access. Return validated bindings and staged initial state, with no fabricated player deeds. Historical-content snapshots need not wait for a rewind engine.",
+      "criterion": "Two instances never share unique custody, reward claims or NPC memories.",
+      "dependencies": [
+        "W1-E04",
+        "W1-E12"
+      ],
+      "persistence": "One existing save envelope, durable before live; retain unrelated/dormant fields; generated fixtures only.",
+      "cases": [
+        {
+          "id": "W1-E02-C01",
+          "criterion": "Two instances never share unique custody, reward claims or NPC memories.",
+          "status": "specified-not-run"
+        },
+        {
+          "id": "W1-E02-C02",
+          "criterion": "After-event start contains the surviving stock/people and actual access changes, without replaying past wages.",
+          "status": "specified-not-run"
+        },
+        {
+          "id": "W1-E02-C03",
+          "criterion": "Return targets saved instance; removed pack retains opaque domain.",
+          "status": "specified-not-run"
+        }
+      ],
+      "remaining": "Reserve exact runtime paths; select private leaf bindings; implement and prove named cases.",
+      "conditionalDependencies": []
+    },
+    {
+      "id": "W1-E03",
+      "sections": [
+        "S05",
+        "S06",
+        "S14"
+      ],
+      "title": "Actual custody and local currency",
+      "authority": "2026-10-11 expansion assignment; implementation remains unassigned",
+      "classification": "new consumer or shared extension; source inspected, runtime unverified",
+      "parentIds": [
+        "G3-011",
+        "G3-012",
+        "G5-08"
+      ],
+      "unresolvedParentAliases": [],
+      "owner": "future reserved integrator; no runtime reservation",
+      "sourceRefs": [
+        "src/content_packs.js:19",
+        "src/acquisition.js:39",
+        "src/gameplay_transactions.js"
+      ],
+      "inspectedFact": "Current pack patches scalar compartments. stageAcquisition and simulation transfers model real owner inventories; pack-local silver is not native money.",
+      "proposedInterface": "Proposed pack adapter binds each material unit to an owner/custody identity, not both a counter and duplicate inventory item. Stage native item grants/consumes and local payment with the same envelope. Declarations identify owned, loaned and institutional stock; no Village auto-debit.",
+      "criterion": "One transfer conserves units across personal, issued and stored custody.",
+      "dependencies": [
+        "W1-E12"
+      ],
+      "persistence": "One existing save envelope, durable before live; retain unrelated/dormant fields; generated fixtures only.",
+      "cases": [
+        {
+          "id": "W1-E03-C01",
+          "criterion": "One transfer conserves units across personal, issued and stored custody.",
+          "status": "specified-not-run"
+        },
+        {
+          "id": "W1-E03-C02",
+          "criterion": "Double click, interrupted work or failed save cannot claim wage twice.",
+          "status": "specified-not-run"
+        },
+        {
+          "id": "W1-E03-C03",
+          "criterion": "Native equipped issued kit follows loan return and permission; unpaid attachment/free teaching variant introduces no invented fee.",
+          "status": "specified-not-run"
+        }
+      ],
+      "remaining": "Reserve exact runtime paths; select private leaf bindings; implement and prove named cases.",
+      "conditionalDependencies": []
+    },
+    {
+      "id": "W1-E04",
+      "sections": [
+        "S04",
+        "S09",
+        "S10",
+        "S13"
+      ],
+      "title": "Observed people and means",
+      "authority": "2026-10-11 expansion assignment; implementation remains unassigned",
+      "classification": "new consumer or shared extension; source inspected, runtime unverified",
+      "parentIds": [
+        "G4-14",
+        "G5-07",
+        "G7-02"
+      ],
+      "unresolvedParentAliases": [],
+      "owner": "future reserved integrator; no runtime reservation",
+      "sourceRefs": [
+        "src/content_pack_ui.js:18",
+        "src/people_knowledge.js:14",
+        "src/simulation_contracts.js"
+      ],
+      "inspectedFact": "Pack panel displays every listed person description/memoryField; knownPeopleView uses witnessed flags and attributed records for bounded public-world hosts. A general private pack projection is missing.",
+      "proposedInterface": "Proposed private-definition projection input: observerId, introduced people, observed memories with cause/channel/time, actually held appraisal means. Output: known rows only. Definition load does not introduce a person or grant their hidden score; NPC commands use the same supported means.",
+      "criterion": "Unmet person and unwitnessed event remain absent on every panel/export-friendly plain display.",
+      "dependencies": [
+        "W1-E12"
+      ],
+      "persistence": "One existing save envelope, durable before live; retain unrelated/dormant fields; generated fixtures only.",
+      "cases": [
+        {
+          "id": "W1-E04-C01",
+          "criterion": "Unmet person and unwitnessed event remain absent on every panel/export-friendly plain display.",
+          "status": "specified-not-run"
+        },
+        {
+          "id": "W1-E04-C02",
+          "criterion": "Receiving a local report changes the recipient only; an actual communication chain can spread it.",
+          "status": "specified-not-run"
+        },
+        {
+          "id": "W1-E04-C03",
+          "criterion": "Used qualified reveal means discloses its real scope, including genuinely promised future information, without exposing unrelated author data.",
+          "status": "specified-not-run"
+        }
+      ],
+      "remaining": "Reserve exact runtime paths; select private leaf bindings; implement and prove named cases.",
+      "conditionalDependencies": []
+    },
+    {
+      "id": "W1-E05",
+      "sections": [
+        "S02",
+        "S07",
+        "S08",
+        "S14"
+      ],
+      "title": "Body source and execution",
+      "authority": "2026-10-11 expansion assignment; implementation remains unassigned",
+      "classification": "new consumer or shared extension; source inspected, runtime unverified",
+      "parentIds": [
+        "G1-009",
+        "G2-001",
+        "G2-026",
+        "G5-05"
+      ],
+      "unresolvedParentAliases": [],
+      "owner": "future reserved integrator; no runtime reservation",
+      "sourceRefs": [
+        "src/body_progression.js:65",
+        "src/techniques.js:85",
+        "src/native_realm_traveler.js:22"
+      ],
+      "inspectedFact": "Existing body and technique records have finite consumers; conventional native traveler projects a physical single-body passage. Pack scalar mode is not a faculty or alternate body.",
+      "proposedInterface": "Proposed functional provider record separates source, body support, trained control, fuel, target scope and authority. Each selected action resolves actual provider and native effect; carrying remembered instruction alone is insufficient unless the declared mechanism grants execution. Retain full inherited faculty variants.",
+      "criterion": "Remembered method without its necessary support stays known but cannot execute.",
+      "dependencies": [
+        "W1-E12"
+      ],
+      "persistence": "One existing save envelope, durable before live; retain unrelated/dormant fields; generated fixtures only.",
+      "cases": [
+        {
+          "id": "W1-E05-C01",
+          "criterion": "Remembered method without its necessary support stays known but cannot execute.",
+          "status": "specified-not-run"
+        },
+        {
+          "id": "W1-E05-C02",
+          "criterion": "Full-source counterpart receives the actual promised execution, not only a bonus.",
+          "status": "specified-not-run"
+        },
+        {
+          "id": "W1-E05-C03",
+          "criterion": "Lost device/body support stops only dependent functions and restores them when support returns.",
+          "status": "specified-not-run"
+        }
+      ],
+      "remaining": "Reserve exact runtime paths; select private leaf bindings; implement and prove named cases.",
+      "conditionalDependencies": []
+    },
+    {
+      "id": "W1-E06",
+      "sections": [
+        "S07",
+        "S08",
+        "S09",
+        "S14"
+      ],
+      "title": "Ordered local special function",
+      "authority": "2026-10-11 expansion assignment; implementation remains unassigned",
+      "classification": "new consumer or shared extension; source inspected, runtime unverified",
+      "parentIds": [
+        "G2-002",
+        "G2-016",
+        "G5-06"
+      ],
+      "unresolvedParentAliases": [],
+      "owner": "future reserved integrator; no runtime reservation",
+      "sourceRefs": [
+        "src/content_packs.js:75",
+        "src/simulation_effects.js",
+        "src/expansion_persistence.js:7"
+      ],
+      "inspectedFact": "Pack actions apply scalar start/complete patches; they do not perform live-target containment, resistance, partial geometry or exceptional authority.",
+      "proposedInterface": "Proposed selected-function planner takes actor/target IDs, supported source/control, target owner state and observed channel; outputs one ordered envelope plan plus result/observer receipt. Private rules decide successful, resisted and exceptional cases. No universal cap/cost or automatic fairness counter.",
+      "criterion": "Function changes actual target state and custody, including the source-supported stronger variant.",
+      "dependencies": [
+        "W1-E03",
+        "W1-E04",
+        "W1-E05",
+        "W1-E12"
+      ],
+      "persistence": "One existing save envelope, durable before live; retain unrelated/dormant fields; generated fixtures only.",
+      "cases": [
+        {
+          "id": "W1-E06-C01",
+          "criterion": "Function changes actual target state and custody, including the source-supported stronger variant.",
+          "status": "specified-not-run"
+        },
+        {
+          "id": "W1-E06-C02",
+          "criterion": "Failure or interruption leaves the exact declared aftermath and spends only declared consumed means.",
+          "status": "specified-not-run"
+        },
+        {
+          "id": "W1-E06-C03",
+          "criterion": "A later exception uses its own source authority; early character belief remains an attributed belief.",
+          "status": "specified-not-run"
+        }
+      ],
+      "remaining": "Reserve exact runtime paths; select private leaf bindings; implement and prove named cases.",
+      "conditionalDependencies": [
+        "W1-E09 only for selected temporal function"
+      ]
+    },
+    {
+      "id": "W1-E07",
+      "sections": [
+        "S04",
+        "S05",
+        "S10",
+        "S11"
+      ],
+      "title": "Work to institutional consequence",
+      "authority": "2026-10-11 expansion assignment; implementation remains unassigned",
+      "classification": "new consumer or shared extension; source inspected, runtime unverified",
+      "parentIds": [
+        "G3-001",
+        "G3-013",
+        "G3-019",
+        "G3-020"
+      ],
+      "unresolvedParentAliases": [],
+      "owner": "future reserved integrator; no runtime reservation",
+      "sourceRefs": [
+        "src/content_packs.js:81",
+        "src/simulation.js:449",
+        "src/world_instances.js:310"
+      ],
+      "inspectedFact": "Current pack runs one active timed job, paused outside its visit. It does not schedule an independent institution or workforce.",
+      "proposedInterface": "Proposed local institutional plan binds actual staff, orders, stock and completed work to one downstream route/service/project. Reuse simulation jobs and boundary host after pack-to-simulation binding exists; declared absence policy applies to this local campaign only.",
+      "criterion": "Successful ordinary work changes available supply and a real later opportunity.",
+      "dependencies": [
+        "W1-E03",
+        "W1-E04",
+        "W1-E12"
+      ],
+      "persistence": "One existing save envelope, durable before live; retain unrelated/dormant fields; generated fixtures only.",
+      "cases": [
+        {
+          "id": "W1-E07-C01",
+          "criterion": "Successful ordinary work changes available supply and a real later opportunity.",
+          "status": "specified-not-run"
+        },
+        {
+          "id": "W1-E07-C02",
+          "criterion": "Exceptional production changes throughput and institutional demand rather than being secretly throttled.",
+          "status": "specified-not-run"
+        },
+        {
+          "id": "W1-E07-C03",
+          "criterion": "Unavailable staff/stock prevents only dependent work; completed contribution survives retirement and return.",
+          "status": "specified-not-run"
+        }
+      ],
+      "remaining": "Reserve exact runtime paths; select private leaf bindings; implement and prove named cases.",
+      "conditionalDependencies": [
+        "W1-E08 when selected independent institution advances offscreen"
+      ]
+    },
+    {
+      "id": "W1-E08",
+      "sections": [
+        "S01",
+        "S10",
+        "S11",
+        "S14"
+      ],
+      "title": "Natural course and changed causes",
+      "authority": "2026-10-11 expansion assignment; implementation remains unassigned",
+      "classification": "new consumer or shared extension; source inspected, runtime unverified",
+      "parentIds": [
+        "G4-03",
+        "G4-05",
+        "G4-06",
+        "G5-04"
+      ],
+      "unresolvedParentAliases": [],
+      "owner": "future reserved integrator; no runtime reservation",
+      "sourceRefs": [
+        "src/world_instances.js:310",
+        "src/simulation.js:440",
+        "src/expansion_engine.js:582",
+        "src/main.js:6737"
+      ],
+      "inspectedFact": "Generic world clock consumes occupied intervals; optional clock branch advances calendar and local job only. Existing other hosts have distinct activity policies. There is no selected world-wide causal event program in this pack.",
+      "proposedInterface": "Proposed selected event definition records predecessor causes, participants/means, resource requirements, earliest boundary, occurrence, observation routes and changed availability. Disturbing a cause changes its dependent outcomes; no lore-forced replacement. Local policy specifies offscreen/stopped/rate behavior separately.",
+      "criterion": "Abstaining lets valid causes proceed; absent failed causes cannot produce their original outcome.",
+      "dependencies": [
+        "W1-E02",
+        "W1-E04",
+        "W1-E12"
+      ],
+      "persistence": "One existing save envelope, durable before live; retain unrelated/dormant fields; generated fixtures only.",
+      "cases": [
+        {
+          "id": "W1-E08-C01",
+          "criterion": "Abstaining lets valid causes proceed; absent failed causes cannot produce their original outcome.",
+          "status": "specified-not-run"
+        },
+        {
+          "id": "W1-E08-C02",
+          "criterion": "Intervening changes downstream actors/access/resources, not only narration.",
+          "status": "specified-not-run"
+        },
+        {
+          "id": "W1-E08-C03",
+          "criterion": "Exact event boundary and failed-save retry settle once; hidden occurrence does not reveal itself to everyone.",
+          "status": "specified-not-run"
+        }
+      ],
+      "remaining": "Reserve exact runtime paths; select private leaf bindings; implement and prove named cases.",
+      "conditionalDependencies": []
+    },
+    {
+      "id": "W1-E09",
+      "sections": [
+        "S11",
+        "S12",
+        "S14"
+      ],
+      "title": "Parallel replay rollback and carriers",
+      "authority": "2026-10-11 expansion assignment; implementation remains unassigned",
+      "classification": "new consumer or shared extension; source inspected, runtime unverified",
+      "parentIds": [
+        "G2-004",
+        "G2-008",
+        "G4-08",
+        "G4-10"
+      ],
+      "unresolvedParentAliases": [],
+      "owner": "future reserved integrator; no runtime reservation",
+      "sourceRefs": [
+        "src/expansion_engine.js:652",
+        "src/expansion_engine.js:668",
+        "src/native_realm_traveler.js:8"
+      ],
+      "inspectedFact": "Scenario rewind has finite scope; world records and cargo owners exist. None prove arbitrary parallel native history, exact future sight or full-world rollback.",
+      "proposedInterface": "Proposed selected temporal contract lists included snapshot domains, retained domains, exported transfers/receipts, branch identity and content revision. Exact prediction needs isolated actual dynamics and affected RNG; modeled forecast states its boundary. Rollback resolves external transfers explicitly rather than cloning them.",
+      "criterion": "Replay does not clone a previously exported unique item or erase an external recipient.",
+      "dependencies": [
+        "W1-E02",
+        "W1-E03",
+        "W1-E04",
+        "W1-E05",
+        "W1-E08",
+        "W1-E12"
+      ],
+      "persistence": "One existing save envelope, durable before live; retain unrelated/dormant fields; generated fixtures only.",
+      "cases": [
+        {
+          "id": "W1-E09-C01",
+          "criterion": "Replay does not clone a previously exported unique item or erase an external recipient.",
+          "status": "specified-not-run"
+        },
+        {
+          "id": "W1-E09-C02",
+          "criterion": "Parallel histories preserve independent people/claims and known-history provenance.",
+          "status": "specified-not-run"
+        },
+        {
+          "id": "W1-E09-C03",
+          "criterion": "Exact resume uses archived real state; lossy biography cannot reconstruct it.",
+          "status": "specified-not-run"
+        }
+      ],
+      "remaining": "Reserve exact runtime paths; select private leaf bindings; implement and prove named cases.",
+      "conditionalDependencies": []
+    },
+    {
+      "id": "W1-E10",
+      "sections": [
+        "S06",
+        "S07",
+        "S13",
+        "S14"
+      ],
+      "title": "Material device fixture and presentation",
+      "authority": "2026-10-11 expansion assignment; implementation remains unassigned",
+      "classification": "new consumer or shared extension; source inspected, runtime unverified",
+      "parentIds": [
+        "G6-001",
+        "G5-09",
+        "G7-03"
+      ],
+      "unresolvedParentAliases": [],
+      "owner": "future reserved integrator; no runtime reservation",
+      "sourceRefs": [
+        "src/content_packs.js:23",
+        "src/main.js",
+        "src/techniques.js:85"
+      ],
+      "inspectedFact": "Private pack schema has no generic recipe/device renderer or equipment/fixture integration. Native mechanisms exist but each selected consumer must be bound.",
+      "proposedInterface": "Proposed material/device record states actual inputs, assembly, ownership, function, maintenance if sourced and later consumer; fixtures contribute only to an inspected relevant activity. VFX receives actual resolved outcome plus observer projection, never determines the outcome.",
+      "criterion": "Device output is usable by the later craft/work/function consumer.",
+      "dependencies": [
+        "W1-E03",
+        "W1-E04",
+        "W1-E05",
+        "W1-E12"
+      ],
+      "persistence": "One existing save envelope, durable before live; retain unrelated/dormant fields; generated fixtures only.",
+      "cases": [
+        {
+          "id": "W1-E10-C01",
+          "criterion": "Device output is usable by the later craft/work/function consumer.",
+          "status": "specified-not-run"
+        },
+        {
+          "id": "W1-E10-C02",
+          "criterion": "Moving/removing a fixture changes only its actual local effect and reload cannot multiply it.",
+          "status": "specified-not-run"
+        },
+        {
+          "id": "W1-E10-C03",
+          "criterion": "Quiet/craft/show-power full/static/plain/off forms keep equivalent supported knowledge and controls.",
+          "status": "specified-not-run"
+        }
+      ],
+      "remaining": "Reserve exact runtime paths; select private leaf bindings; implement and prove named cases.",
+      "conditionalDependencies": []
+    },
+    {
+      "id": "W1-E11",
+      "sections": [
+        "S02",
+        "S13",
+        "S14"
+      ],
+      "title": "Nonconventional agency",
+      "authority": "2026-10-11 expansion assignment; implementation remains unassigned",
+      "classification": "new consumer or shared extension; source inspected, runtime unverified",
+      "parentIds": [
+        "G1-006",
+        "G1-016",
+        "G1-021",
+        "G5-05",
+        "G7-01"
+      ],
+      "unresolvedParentAliases": [],
+      "owner": "future reserved integrator; no runtime reservation",
+      "sourceRefs": [
+        "src/content_pack_ui.js:2",
+        "src/body_progression.js:32",
+        "src/main.js:978"
+      ],
+      "inspectedFact": "Pack panel assumes the existing adult actor can issue actions. A family label, infant label, object label or host relation supplies no viable perception/control.",
+      "proposedInterface": "Proposed per-selected-form controller declares legal perception/signaling/command actions, actual holder/caregiver/host roles and identity transition. For dependent bodies, support is held by actual people with their own means. Free/perpetual/powerful support remains possible where premise grants it.",
+      "criterion": "Chosen form has a real first action and an observable continuing effect.",
+      "dependencies": [
+        "W1-E04",
+        "W1-E05",
+        "W1-E12"
+      ],
+      "persistence": "One existing save envelope, durable before live; retain unrelated/dormant fields; generated fixtures only.",
+      "cases": [
+        {
+          "id": "W1-E11-C01",
+          "criterion": "Chosen form has a real first action and an observable continuing effect.",
+          "status": "specified-not-run"
+        },
+        {
+          "id": "W1-E11-C02",
+          "criterion": "Caregiver/host refusal or lost support follows the actual mechanism; no invented guaranteed care.",
+          "status": "specified-not-run"
+        },
+        {
+          "id": "W1-E11-C03",
+          "criterion": "Stage transition preserves actual means/relationships, grants no unexplained adulthood mastery and keeps recovery/export reachable.",
+          "status": "specified-not-run"
+        }
+      ],
+      "remaining": "Reserve exact runtime paths; select private leaf bindings; implement and prove named cases.",
+      "conditionalDependencies": []
+    },
+    {
+      "id": "W1-E12",
+      "sections": [
+        "S00",
+        "S14"
+      ],
+      "title": "Private admission migration and proof",
+      "authority": "2026-10-11 expansion assignment; implementation remains unassigned",
+      "classification": "new consumer or shared extension; source inspected, runtime unverified",
+      "parentIds": [
+        "G7-06",
+        "G7-07",
+        "G5-11",
+        "G5-12"
+      ],
+      "unresolvedParentAliases": [],
+      "owner": "future reserved integrator; no runtime reservation",
+      "sourceRefs": [
+        "src/content_packs.js:23",
+        "src/content_packs.js:67",
+        "src/content_packs.js:90",
+        "src/save_files.js:38"
+      ],
+      "inspectedFact": "Installed schema1 uses stable identity/location lists, additive initial scalars and dormant absent-pack preservation; changed identity needs explicit migration. No full schema2 world model is present.",
+      "proposedInterface": "Proposed admission keeps source-specific definitions outside git/bundle, pins content and source revisions, validates adapter capabilities before registration, stages additive migrations and preserves unsupported originals. Each packet freezes actual paths only after writer reservation, then binds input hashes/build/browser/save evidence.",
+      "criterion": "No source identity/truth appears in public source, bundle, synthetic fixtures or reports.",
+      "dependencies": [],
+      "persistence": "One existing save envelope, durable before live; retain unrelated/dormant fields; generated fixtures only.",
+      "cases": [
+        {
+          "id": "W1-E12-C01",
+          "criterion": "No source identity/truth appears in public source, bundle, synthetic fixtures or reports.",
+          "status": "specified-not-run"
+        },
+        {
+          "id": "W1-E12-C02",
+          "criterion": "Absent/restored unchanged pack preserves pending work and paid receipts; changed identity has explicit migration or safe rejection.",
+          "status": "specified-not-run"
+        },
+        {
+          "id": "W1-E12-C03",
+          "criterion": "Generated old/new saves, failed-write rollback, rebuilt fresh browser and import qualify only the selected packet; director acceptance stays separate.",
+          "status": "specified-not-run"
+        }
+      ],
+      "remaining": "Reserve exact runtime paths; select private leaf bindings; implement and prove named cases.",
+      "conditionalDependencies": []
+    }
+  ]
+}

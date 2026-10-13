@@ -1,0 +1,13 @@
+AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+
+64 !== 65
+
+    at /Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/foundation-adoption-next-2026-10-13/rounds/r3/refine-native.cjs:68:739 {
+  generatedMessage: true,
+  code: 'ERR_ASSERTION',
+  actual: 64,
+  expected: 65,
+  operator: 'strictEqual',
+  diff: 'simple'
+}
+{"status":"FAIL","checks":{"earnedPendingPreservedAfterHarnessFailure":true,"frozenPendingLiteralRestoration":true,"completedLiteralRestoration":true,"actualPaidFailureSorenessAndRetry":true,"exactDurablePaidStaminaReservation":true,"finiteRngAttempts":true,"applicationFailedWrite":true},"failure":"AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n\n64 !== 65\n\n    at /Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/foundation-adoption-next-2026-10-13/rounds/r3/refine-native.cjs:68:739"}

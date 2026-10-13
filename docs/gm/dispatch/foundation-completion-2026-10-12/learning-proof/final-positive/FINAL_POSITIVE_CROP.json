@@ -1,0 +1,51 @@
+{
+  "steps": [
+    {
+      "action": "click",
+      "selector": "#notebook_tab_here"
+    },
+    {
+      "action": "click",
+      "selector": "[data-action-legibility-key=\"action:remainder_consequences.plot_terms\"] button",
+      "save": "final-positive-crop-terms"
+    },
+    {
+      "action": "click",
+      "selector": "[data-action-legibility-key=\"action:remainder_consequences.plot_buy_seed\"] button",
+      "save": "final-positive-crop-seed"
+    },
+    {
+      "action": "click",
+      "selector": "[data-action-legibility-key=\"action:remainder_consequences.plot_plant\"] button",
+      "save": "final-positive-crop-planting"
+    },
+    {
+      "action": "completed",
+      "id": "remainder_consequences.plot_plant",
+      "save": "final-positive-crop-planted"
+    },
+    {
+      "action": "click",
+      "selector": "[data-action-legibility-key=\"action:world.completion.materials.cover_measured\"] button",
+      "save": "final-positive-crop-use-accepted"
+    },
+    {
+      "action": "completed",
+      "id": "world.completion.materials.cover_measured",
+      "save": "final-positive-crop-used"
+    },
+    {
+      "action": "export",
+      "name": "final-positive-crop-used"
+    },
+    {
+      "action": "reload",
+      "save": "final-positive-crop-used-reloaded"
+    },
+    {
+      "action": "literalImport",
+      "path": "/tmp/yairpg-foundation-learning-final-positive-crop-used.txt",
+      "save": "final-positive-crop-used-imported"
+    }
+  ]
+}

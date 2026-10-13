@@ -1,0 +1,19 @@
+{"action": "import", "path": "/tmp/yairpg-foundation-interaction-negative-immobile.json"}
+{"action": "negative", "name": "immobile", "selector": "[data-foundation-probe=\"foundation.probe.a.attack\"]"}
+{"action": "import", "path": "/tmp/yairpg-foundation-interaction-negative-no-hands.json"}
+{"action": "negative", "name": "no-hands", "selector": "[data-foundation-probe=\"foundation.probe.a.attack\"]"}
+{"action": "import", "path": "/tmp/yairpg-foundation-interaction-negative-mist-form.json"}
+{"action": "negative", "name": "mist-form", "selector": "[data-foundation-probe=\"foundation.probe.a.attack\"]"}
+{"action": "import", "path": "/tmp/yairpg-foundation-interaction-negative-wrong-controller.json"}
+{"action": "negative", "name": "wrong-controller", "selector": "[data-foundation-probe=\"foundation.probe.a.attack\"]"}
+{"action": "import", "path": "/tmp/yairpg-foundation-interaction-negative-dormant-faculty.json"}
+{"action": "negative", "name": "dormant-faculty", "selector": "[data-foundation-probe=\"foundation.probe.a.attack\"]"}
+{"action": "import", "path": "/tmp/yairpg-foundation-interaction-negative-no-fuel.json"}
+{"action": "negative", "name": "no-fuel", "selector": "[data-foundation-probe=\"foundation.probe.a.attack\"]"}
+{"action": "import", "path": "/tmp/yairpg-foundation-interaction-negative-no-contact.json"}
+{"action": "negative", "name": "no-contact", "selector": "[data-foundation-probe=\"foundation.probe.a.attack\"]"}
+{"action": "import", "path": "/tmp/yairpg-foundation-interaction-negative-stale-target-body.json"}
+{"action": "negative", "name": "stale-target-body", "selector": "[data-foundation-probe=\"foundation.probe.a.attack\"]"}
+{"action": "import", "path": "/tmp/yairpg-foundation-interaction-negative-no-source.json"}
+{"action": "negative", "name": "no-source", "selector": "[data-foundation-probe=\"foundation.probe.a.attack\"]"}
+{"action": "stop"}

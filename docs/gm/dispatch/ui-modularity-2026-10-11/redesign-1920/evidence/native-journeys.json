@@ -1,0 +1,18 @@
+{
+  "url": "http://127.0.0.1:18571/",
+  "fingerprint": "http://127.0.0.1:18571/dist/bundle.js?version=v0.6-598f67420c6e",
+  "generatedSavesOnly": true,
+  "checks": [
+    "Native meditation starts, survives dock/keyboard move with identical DOM owner, gains XP, cancels and updates current work.",
+    "Native local action starts/cancels after movement and refresh.",
+    "Actual native item craft retains inventory consequences in modular presentation.",
+    "Equipment comparison retains selected item and focus across docking and native refresh.",
+    "Hidden comparison restored through panel picker.",
+    "Native combat continues after dock movement and real return travel works with one local controls owner.",
+    "Generated native save/reload/import retains earned meditation XP and crafted inventory without duplicate commands.",
+    "Ordinary native elder greeting introduces only that witnessed person; movable known-people view preserves disclosure, focus and selected prose through native refresh.",
+    "Second tab shares same browser origin and has read-only current-work status before and after moving that module; no observer commands or saves were sent."
+  ],
+  "errors": [],
+  "scope": "Native progressed work/local action/crafting/combat/movement/save roundtrip; optional world journey remains separate."
+}

@@ -1,0 +1,120 @@
+{
+  "status": "PASS bounded F3 plus original same-person renewal native comparison; not whole horizon",
+  "bundle": "a4e84278059a711738b9149a331f916496dee79140384c021e11052187baef26",
+  "nativeOrigin": "http://127.0.0.1:18646/?foundation_probe=1",
+  "countsAreScopes": true,
+  "boundaries": [
+    {
+      "name": "failed selection leaves no receipt stock body or RNG draw; retry once",
+      "status": "PASS"
+    },
+    {
+      "name": "failed initialization leaves exact durable pending selection; reload Continue begins same snapshot",
+      "status": "PASS"
+    },
+    {
+      "name": "one-hand blocked bench and viable jig/refit/renewal/continued native route",
+      "status": "PASS"
+    },
+    {
+      "name": "native imported midjob changed hands refunds blank without output; boundary fixture no player transformation claimed",
+      "status": "PASS"
+    },
+    {
+      "name": "refused native work write keeps stock jobs and learned owners unchanged",
+      "status": "PASS"
+    },
+    {
+      "name": "actual old absent namespace native import invents no beginning",
+      "status": "PASS"
+    },
+    {
+      "name": "missing exact beginning content actual native import preserves current; restored exact content imports original",
+      "status": "PASS"
+    },
+    {
+      "name": "pure menus/reload preserve unissued RNG and stale beginning callback cannot duplicate receipt or goods",
+      "status": "PASS"
+    },
+    {
+      "name": "actual downloaded export imports literally; mismatch exact hash rejects without replacement",
+      "status": "PASS"
+    },
+    {
+      "name": "actual native poor-fit versus fitted worn garment: coat0.5 to2 and total defense1.5 to3",
+      "status": "PASS"
+    }
+  ],
+  "twoNaturalJourney": "TWO_NATURAL_SESSION.json",
+  "twoPersistence": "TWO_PERSIST_SESSION.json",
+  "oneNaturalJourney": "one-native-continued.json",
+  "coatNativeUI": "COAT_NATIVE_UI.json",
+  "literalExport": "two-native-export.txt",
+  "privateContent": "All private_packs requests fulfilled404 without file reads or edits. Only new original development consumer exercised.",
+  "fixtures": "Seeds1/4294967295 overridden before new-world initialization only; no stock/money/history grants. Hands-change input is generated midjob save with hands2\u21921 only, explicitly boundary fixture. Mismatched content input changes hash only, not progression.",
+  "harnessCorrections": [
+    "Restore publisher requires normal reload before controls unblock. First immediate-retry timeout was harness misuse, corrected.",
+    "Pre-click clock advanced between snapshots. Refused work baseline captured authoritative storage at refusal; current exact domains comparison passes.",
+    "One early server restart collided with closing owned port; old session confirmed exited before restart."
+  ],
+  "errors": [],
+  "inputHashes": {
+    "dist/bundle.js": "a4e84278059a711738b9149a331f916496dee79140384c021e11052187baef26",
+    "src/main.js": "525167973b83e9fcf17838d090f4155acbbf961ba91880b453d0253761b213b5",
+    "src/foundation_start_content.js": "c355f66c301b48dbed3f96d1ae79bd287a043c553ac6ab92de4ade4579b0378a",
+    "src/structured_pack_runtime.js": "67661360d5875ebd4daa3166a41f569a999671e8bcb12b3f741e70c67bdc5661",
+    "src/structured_pack_state.js": "8565b66675eca5dfec3f81c4a449b7d147baaa22fab49fb96a57c574994dcb10",
+    "src/structured_pack_definitions.js": "73ecc5cdee21b422670fd3f211a220c605501f2879dd1b3c2bec02f08ea6c62e",
+    "src/structured_renewal.js": "0475b893680b1432af10d180bc03440ba7bfa9fc4d3d65cc93b88a6fb52ac1d8",
+    "src/structured_equipment_runtime.js": "bc4394604030d7b2e6abb0095e5ab1abeda307bc728befc98a81115cfc9c1ab3",
+    "src/structured_pack_ui.js": "c5e0acb902e29924ac4a9dd90507a6d13fa370e4ac9dc2d65583248d677ba294",
+    "src/simulation.js": "554d12c0a0f30cf67b03e0381338e4258200902ccf991032c47c045a46665e99",
+    "src/expansion_persistence.js": "779a82715884c48f3d2338816d76b90e5e894b625f2fb7daec174091c73bc966"
+  },
+  "evidenceHashes": {
+    "one-native-continued.json": "6f843c330a0e713825bfcb5eacc02d494969b17f0415d8a4b3437e7f5db0b5a5",
+    "COAT_NATIVE_UI.json": "7b8aefaba1ed817afb4c6b2a1d468437d65df925d624b7faa6c6db007acaa131",
+    "mismatched-content-input.json": "163a28eff35903b2672902532c4452f54d7a41bb0ad9da7bfb38eac30d37d2ab",
+    "EXTRA_BOUNDARIES.json": "f63b6789c730a8379ef9b108e80ae2a29346c776b7dd518945a79a8a43040de1",
+    "coat-poor-fit.png": "3c2884a2d4a6fd36731471f7111eed4faf7d9b0b75763356f204fb4c130aad66",
+    "hand-support-pending.json": "9fc3647ba5c84dc01bdbf92c9f6475ac4e4ed8e50de871ec7ac2ca5401a6662c",
+    "generated-two-continued.json": "3c2b9190a0ee287729628b404d975dc0ffb5e8f77fcad5813a1d3d9552bb8a1a",
+    "BOUNDARIES.json": "c4a96d774a2a2328914a7194677e6743d9432964216bc8d416da44bc7b3c5c63",
+    "TWO_PERSIST_SESSION.json": "59529f80ddc54a988fcc3cdbc5694e57fdac853fc41def15b1ad9ff54e12f1a9",
+    "TWO_NATURAL_SNAPSHOTS.json": "bc85e3f3f20dfa21ad8aeb01f7109ef6c2c1110a48c1114ab61f3059e469eaa2",
+    "boundaries.cjs": "c8c68b192cb349d05bd28ab9eef0a95076e5df16d70eb5c9787eedc1df982b89",
+    "NATIVE_SESSION.json": "59529f80ddc54a988fcc3cdbc5694e57fdac853fc41def15b1ad9ff54e12f1a9",
+    "SNAPSHOTS.json": "cf406dee1e865be9dcfba7d162d62bb8dbdff7eda6946d3d2b7dcaf690b87d92",
+    "stale-begin-after.json": "e48683ae79c5e9841d48b35955755a9f363728adfbf8f16dde3394b51b9a5b50",
+    "pending-initialization.json": "31f9a85fb66bac1df191833accac89d12f6e70c87755d0944b7f364e05f0b5b8",
+    "work-refused-after.json": "fe54226c165de59a09a94d201053f66f669fe357571e4e4877e26490f263e36e",
+    "generated-two-begin.json": "6dd3c24fd84ba52aa0e06c05ce260495596964d69b7fbe8cb05662cdf397ea07",
+    "mismatched-content-retained.json": "39e7c25e12d2866a88b3f91b0a4223accbcb50f3255431b1920ac94fd1c541bb",
+    "native-ui.txt": "c1429a44469ce514cfeee9164a8b39fe1566ac8e4cd836c69b89462f201d9aea",
+    "literal-export-imported.json": "885d6a0fa352c40eec5716da651ee374d1457b9dd87dbfe5e5c8648501a54c38",
+    "BOUNDARIES_INITIAL.json": "35110da3cc7c3d23defe4cf3d2c787dd60c419150b03aab12d66d8b04705c479",
+    "selection-after.json": "e8a352f2d1ab69253dcce95cc985b85b0884d5d892cc810060668fd86b84e478",
+    "generated-two-imported.json": "b1b8ba2685cdb7ccb4f0faca62cebb80513a4fd6c997ffad4899c6139643d4a9",
+    "restored-content-imported.json": "2a1c9de371179e96404b571c231ff65f26638cc2ff3b104f3c8fcb7f1288e9ee",
+    "generated-two-shaped.json": "a4ddda20c7d886b1718573bbe0ad1f9e0b45325b37b448545f4c6fe9777a5356",
+    "hand-support-stopped.json": "23c66cbe4212027d22c737f8bc280963e1727da59ecc7da68c19bdfb5a06d127",
+    "menu-unissued.json": "79f3802e96b02b50936bc19b445f7d299dd53e4984c08dc4b7f64a93bba26aa9",
+    "old-absent-imported.json": "d1fbada28bbb00df545f23d175e6fc3fd2cac6a2aab9101edb7a3da2714ffb33",
+    "old-absent-native.json": "90e8b1abe05106325a176308acbe05a05f15e60d7214f91afa934133e3a63cf6",
+    "generated-two-reload.json": "572d28e03850620c21074de39782df878cd5ec86f46ba0d74eccef9e8ffeaf1b",
+    "hand-support-changed-input.json": "10d7cae308facf28deb6dec1be8dce72af84fdfda2ac1eef412b455fcb515189",
+    "TWO_NATURAL_SESSION.json": "2ae9981e8fee67e977b3180ac30b26ec7e5d785d8af09b5241e2f89a4d325a20",
+    "two-native-export.txt": "884133bf4f896abdbdb4800db94c7a1c7841487c3cb5acaaa0592934d8e8cf97",
+    "continued-initialization.json": "b5cdacdedcdfadd0e3e94be1b82bdc8005dcf2400239f3ecd5cf9563fe880cf1",
+    "coat-fitted.png": "48be7f335b6464527660cf23bce1557791185a9721df3cde2fe5f753abc7bf17",
+    "selection-before.json": "3a0a732393275e4b8a015338e9d59ce03b2d231e8a37270101af9583cf972e2b",
+    "native.cjs": "fba900021a71790a32682da15d935c7154b092b00391c3550eb57d1d05c6dadb",
+    "missing-content-current.json": "c7068ed88adb5999da9d57bbfc884d729e587c369e9a98d7503cacf0d64976eb",
+    "extras.cjs": "77bf0e878d0a970c4cf6a7a5dc961357993ce65427bb53b34ab00941b31735e7",
+    "generated-two-fitted.json": "768eff2e4d9134c0d72dfa5994922dd62bf32c6916407013529b201686d282d5",
+    "generated-two-renewed.json": "1df7770159ea2bc26a079173904c71b43df16c427bc684228b5ab1c4e31f5704",
+    "work-refused-before.json": "fe54226c165de59a09a94d201053f66f669fe357571e4e4877e26490f263e36e"
+  },
+  "processes": "All owned browser/server runners returned exit0. Port18646 release checked separately.",
+  "humanAcceptance": "open"
+}

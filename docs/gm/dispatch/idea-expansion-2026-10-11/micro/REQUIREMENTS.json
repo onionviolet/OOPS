@@ -1,0 +1,939 @@
+{
+  "lane": "G8",
+  "status": "planning-reviewed-by-worker",
+  "inputs": [
+    {
+      "path": "PROJECT.md",
+      "coverage": "Current accepted decisions and existing-wave status; preserves dirty concurrent work."
+    },
+    {
+      "path": "docs/gm/WORLD_ACTIONABILITY_GM_PROMPT.md",
+      "coverage": "Current family/leaf/consumer/planning contract; no new research launched."
+    },
+    {
+      "path": "docs/WORLD_COMPLETION_STANDARD.md",
+      "coverage": "S00-S14 and observable detail/persistence gates."
+    },
+    {
+      "path": "docs/SKILLS_AND_TALENTS.md",
+      "coverage": "Finite sections 30-88, growth palette 468-547, lifecycle/implementation 727-end; headings inventoried elsewhere."
+    },
+    {
+      "path": "docs/worlds/PROGRESSION_AND_ASSEMBLY.md",
+      "coverage": "Current shared progression/assembly contract read; G2/G3 functional ownership retained."
+    },
+    {
+      "path": "docs/research/proto23/readers-2026-10-10/R1_core_time_titles_effects_furniture.md",
+      "coverage": "Title/effect section and comparison/gaps; prior absence claims reconciled with current native source, no fresh Proto23 audit."
+    },
+    {
+      "path": "docs/research/skill-growth-2026-10-10/LEVEL_SCALES_AUDIT.md",
+      "coverage": "Implementation considerations lines381-414; source formulas rechecked, no re-audit of book examples."
+    },
+    {
+      "path": "docs/gm/world-implementation/engine/SKILLS_DELIVERY.md",
+      "coverage": "Existing exact four-family integration and deferred gameplay boundary."
+    },
+    {
+      "path": "docs/gm/status-care-2026-10-06/ACCEPTANCE_BACKLOG.md",
+      "coverage": "Existing five unrun native/persistence/UI gate groups; preserved."
+    },
+    {
+      "path": "src/titles.js",
+      "coverage": "Full native title catalog/helpers; public lifetime family mechanics only, no candidate secrets."
+    },
+    {
+      "path": "src/titles_ui.js",
+      "coverage": "Full native panel rendering/counts."
+    },
+    {
+      "path": "tests/titles.test.js",
+      "coverage": "Read existing source test assertions only; not run."
+    },
+    {
+      "path": "src/skill_discovery.js",
+      "coverage": "Full pure feature/native/technique/catalog projection contract."
+    },
+    {
+      "path": "src/skill_discovery_native.js",
+      "coverage": "Full native stored-XP/read-only adapter."
+    },
+    {
+      "path": "src/models/skill.js",
+      "coverage": "Constructor/name/add_xp/milestone/coefficient sections; remaining format/helper code bounded search only."
+    },
+    {
+      "path": "src/components/levelable_component.js",
+      "coverage": "XP publication lines110-166 and total-level/coefficient methods; broader character-level formulas not fully audited."
+    },
+    {
+      "path": "src/models/hero.js",
+      "coverage": "Title replacement and active-effect aggregation sections."
+    },
+    {
+      "path": "src/models/person.js",
+      "coverage": "Skill dispatch, bonus skill/stat recalculation sections and relevant lookup; full model not audited."
+    },
+    {
+      "path": "src/body_progression.js",
+      "coverage": "Existing human trait/faculty/condition source and consumers read during G1; current read-only reused."
+    },
+    {
+      "path": "src/active_effects.js",
+      "coverage": "Constructor and effect/group representation; full effect template catalog not individually reconciled."
+    },
+    {
+      "path": "src/skill_expansion_host.js",
+      "coverage": "Presentation/discovery/current method caller contract; no full consumer behavior exercise."
+    },
+    {
+      "path": "src/skill_expansion_content.js",
+      "coverage": "Four-family catalog/command excerpt; historical stable IDs retained, not whole command audit."
+    },
+    {
+      "path": "src/status_care_host.js",
+      "coverage": "Commit/reconcile/presentation host read; no gameplay exercise."
+    },
+    {
+      "path": "src/status_care_facts.js",
+      "coverage": "Path/exports and native reader references only; full implementation explicitly remains to review."
+    },
+    {
+      "path": "src/simulation_effects.js",
+      "coverage": "Title grant/remove/facts and equipment staging excerpts."
+    },
+    {
+      "path": "src/main.js",
+      "coverage": "Targeted XP, title polling/counters/grant/save/load, native effect application/expiry/final publication and panel/reader bindings."
+    },
+    {
+      "path": "src/save_files.js",
+      "coverage": "Targeted title/envelope validation field search; full numeric/migration path not inspected."
+    },
+    {
+      "path": "src/data/skills.js",
+      "coverage": "Representative Haggling definition and milestone metadata reference searches only; full native catalog remains."
+    },
+    {
+      "path": "src/display.js",
+      "coverage": "Targeted nativeSkillDiscovery consumers; full UI audit remains."
+    },
+    {
+      "path": "src/capabilities.js",
+      "coverage": "Referenced existing scoped numeric-capability owner; not reread fully in G8."
+    },
+    {
+      "path": "src/trade.js",
+      "coverage": "Targeted native price/counter caller search; trader component implementation remains uninspected."
+    }
+  ],
+  "requirements": [
+    {
+      "id": "G8-001",
+      "title": "Title acquisition and truthful counters",
+      "sections": [
+        "S04",
+        "S07",
+        "S14"
+      ],
+      "sourceRefs": [
+        "src/titles.js",
+        "src/main.js",
+        "docs/research/proto23/readers-2026-10-10/R1_core_time_titles_effects_furniture.md"
+      ],
+      "criterion": "A title is awarded once from its actual eligible deed/counter and issuer.",
+      "proposedExpansion": "Preserve lifetime count, distinct-type, threshold, one-result feat, witnessed recognition and issued-office variants. Sampled polling is different from event-time credit: a transient threshold may be missed; declare intended acquisition moment. A social title does not automatically imply a stat effect.",
+      "dependencies": [
+        "G3 witnesses/organizations",
+        "G4 deed/history"
+      ],
+      "engineConsumerOrGap": "Native readTitleCounters/refresh_titles use saved bestiary/stats/books/current money and grantEarnedTitles; simulation title effects use issuer/world/cause. Native UI caller and save serialization inspected; event-time or witness-conditioned title grant is a selected extension.",
+      "acceptanceCases": [
+        "Counter reaches threshold: one award",
+        "duplicate tick/load: none",
+        "transient holdings between checks follow declared policy."
+      ],
+      "remaining": [
+        "Select per-title eligibility before batching more counters."
+      ],
+      "disposition": "expand-existing-family-and-audit-native-seam",
+      "runtimeStatus": "source-inspected-no-runtime-verification",
+      "detailOwner": "G8-001"
+    },
+    {
+      "id": "G8-002",
+      "title": "Title revocation, suspension and reinstatement",
+      "sections": [
+        "S04",
+        "S07",
+        "S14"
+      ],
+      "sourceRefs": [
+        "src/titles.js",
+        "src/simulation_effects.js",
+        "docs/SKILLS_AND_TALENTS.md"
+      ],
+      "criterion": "Loss of a title removes only effects/authority its local rule ties to continued possession.",
+      "proposedExpansion": "Separate permanent historical achievement, revocable office, temporary honor, concealed title, disputed claim and suspended functional right. Historical achievement can remain in biography while office/bonus ceases. Free reinstatement or permanent retention remains allowed where local rules support it.",
+      "dependencies": [
+        "G3 issuer authority",
+        "G2 actual title powers"
+      ],
+      "engineConsumerOrGap": "Native titles grant forever and titleBonuses derives from all held IDs; simulation effect supports remove. No inspected bridge reconciles native bonuses with simulation-issued revocation.",
+      "acceptanceCases": [
+        "Revoke office: authority/selected bonus stops",
+        "historical achievement persists",
+        "reinstall/removal/reload cannot stack effects."
+      ],
+      "remaining": [
+        "A typed native title lifecycle and issuer/claim mapping is a gap."
+      ],
+      "disposition": "expand-existing-family-and-audit-native-seam",
+      "runtimeStatus": "source-inspected-no-runtime-verification",
+      "detailOwner": "G8-002"
+    },
+    {
+      "id": "G8-003",
+      "title": "Hidden titles and safe presentation",
+      "sections": [
+        "S09",
+        "S13",
+        "S14"
+      ],
+      "sourceRefs": [
+        "src/titles.js",
+        "src/titles_ui.js",
+        "src/skill_discovery.js"
+      ],
+      "criterion": "Undiscovered title details do not escape through rows, counts, search or notification.",
+      "proposedExpansion": "Keep public progress goals, secret feat, unknown recognition, partially known issuer and hidden functional effect distinct. Hints have independent public labels. Powerful appraisal may reveal its supported scope; no mandatory secret title chooser.",
+      "dependencies": [
+        "G4 discovery",
+        "presentation lane"
+      ],
+      "engineConsumerOrGap": "titleView returns every catalog row and createTitlesPanel counts/renders every row; current catalog has no hidden field. projectDiscoveryFeature/catalog can filter unknowns but is not integrated with native titles. This is a gap for adding hidden titles, not proof current public titles leak a secret.",
+      "acceptanceCases": [
+        "Hidden fixture leaves no label/count/search token",
+        "known hint stays readable",
+        "acquisition message reveals only supported knowledge."
+      ],
+      "remaining": [
+        "Need title-specific known projection before adding secret catalog entries."
+      ],
+      "disposition": "expand-existing-family-and-audit-native-seam",
+      "runtimeStatus": "source-inspected-no-runtime-verification",
+      "detailOwner": "G8-003"
+    },
+    {
+      "id": "G8-004",
+      "title": "Title effects, displayed identity and retention",
+      "sections": [
+        "S07",
+        "S12",
+        "S13",
+        "S14"
+      ],
+      "sourceRefs": [
+        "src/titles.js",
+        "src/models/hero.js",
+        "src/main.js",
+        "src/simulation_effects.js"
+      ],
+      "criterion": "Held recognition, displayed title and functional effect have explicit independent owners and retention.",
+      "proposedExpansion": "Support selected display title, multiple simultaneous known honors, office badge and no display selection. Effects may grant actual verbs, access, resistance, stat/XP changes or pure recognition. Historical/body/world/soul/carrier retention follows local rule, without universal equip slot.",
+      "dependencies": [
+        "G2 mechanisms/carriers",
+        "G4 crossing"
+      ],
+      "engineConsumerOrGap": "setTitleBonus replaces native derived contribution; titleBonuses sums flats/multiplies bonuses. Simulation titles produce facts and issuer metadata; they do not automatically enter native title panel/bonus owner.",
+      "acceptanceCases": [
+        "Display change does not multiply effects",
+        "world departure follows scoped rule",
+        "removed holder contribution stops while unrelated training remains."
+      ],
+      "remaining": [
+        "Keep domains separate unless explicit bridge is selected."
+      ],
+      "disposition": "expand-existing-family-and-audit-native-seam",
+      "runtimeStatus": "source-inspected-no-runtime-verification",
+      "detailOwner": "G8-004"
+    },
+    {
+      "id": "G8-005",
+      "title": "Life-duration titles and new starts",
+      "sections": [
+        "S02",
+        "S07",
+        "S11",
+        "S14"
+      ],
+      "sourceRefs": [
+        "src/titles.js",
+        "src/main.js",
+        "docs/worlds/ORIGINS_AND_WORLD_TIMELINES.md"
+      ],
+      "criterion": "Life/tenure duration measures the selected actor’s actual exposure rather than unrelated era date.",
+      "proposedExpansion": "Distinct elapsed-life, time-in-office, time-at-home, local age, traveler exposure and real playtime titles. Historical starts may have authored background, which is not newly earned player duration. No passive offline aging introduced.",
+      "dependencies": [
+        "G1 origin ID/time",
+        "G4 clock mapping"
+      ],
+      "engineConsumerOrGap": "TITLE_START is fixed year999/month4/day1 and readTitleCounters years uses current calendar. This may match inherited opening but needs explicit adaptation for arbitrary new historical starts.",
+      "acceptanceCases": [
+        "Late-era newborn does not earn lifetime years merely from date",
+        "long-lived actor retains supported history",
+        "chapter advance follows selected duration semantics."
+      ],
+      "remaining": [
+        "New start integration must define duration anchor and old-save compatibility."
+      ],
+      "disposition": "expand-existing-family-and-audit-native-seam",
+      "runtimeStatus": "source-inspected-no-runtime-verification",
+      "detailOwner": "G8-005"
+    },
+    {
+      "id": "G8-006",
+      "title": "XP acquisition, cap intent and provenance",
+      "sections": [
+        "S07",
+        "S14"
+      ],
+      "sourceRefs": [
+        "src/components/levelable_component.js",
+        "src/models/skill.js",
+        "src/main.js"
+      ],
+      "criterion": "Each XP source publishes its intended amount, bonuses, cap policy and cause once.",
+      "proposedExpansion": "Separate use, quest completion, crafting batches, observation, instruction, failed attempt, damage exposure, party shares, traded XP and direct cheat grant. Apply only the selected source’s conditions, no universal risk weighting or diminished weak-enemy rule.",
+      "dependencies": [
+        "G2 direct XP cheat",
+        "G5 native publication"
+      ],
+      "engineConsumerOrGap": "LevelableComponent.addXPToSkill guard typeof skillXP.xp_to_next_lvl === Number is impossible because typeof returns a string. Source-inspected capped-gain branch mismatch; actual XP cap intent and current integrated behavior need reproduction. Main routes cap_gained_xp differently by source.",
+      "acceptanceCases": [
+        "Finite capped gain follows intended amount",
+        "deliberate uncapped craft grant remains uncapped",
+        "loading/preview cannot award fresh XP."
+      ],
+      "remaining": [
+        "Repair compatibility must consider existing saves and callers relying on actual uncapped behavior."
+      ],
+      "disposition": "expand-existing-family-and-audit-native-seam",
+      "runtimeStatus": "source-inspected-no-runtime-verification",
+      "detailOwner": "G8-006"
+    },
+    {
+      "id": "G8-007",
+      "title": "Skill growth curve and cap changes",
+      "sections": [
+        "S07",
+        "S14"
+      ],
+      "sourceRefs": [
+        "src/models/skill.js",
+        "docs/research/skill-growth-2026-10-10/LEVEL_SCALES_AUDIT.md",
+        "docs/SKILLS_AND_TALENTS.md"
+      ],
+      "criterion": "A growth-policy change preserves declared progress and functional strength through explicit compatibility.",
+      "proposedExpansion": "Retain fixed, geometric, linear, staged, rank, soft/hard/no-cap, body ceiling and local breakthrough models as alternatives. Raising cap must not silently dilute existing coefficients. Strong outliers or fixed powers need no artificial progression ceiling.",
+      "dependencies": [
+        "G2 world growth models",
+        "G5 numeric policy"
+      ],
+      "engineConsumerOrGap": "Skill defaults max60/base40/scaling1.8; low scaling coerces1.6; coefficients normalize by max_level; add_xp pre-clamp while loop gathers unlocks then clamps level. Catalog cap change is not a label edit.",
+      "acceptanceCases": [
+        "Existing level contribution follows migration contract",
+        "large finite award handles cap/overflow",
+        "above-cap unlock cannot accidentally grant an unintended reward."
+      ],
+      "remaining": [
+        "Full non-native curve adapter is not present in inspected Skill constructor."
+      ],
+      "disposition": "expand-existing-family-and-audit-native-seam",
+      "runtimeStatus": "source-inspected-no-runtime-verification",
+      "detailOwner": "G8-007"
+    },
+    {
+      "id": "G8-008",
+      "title": "Earned and effective skill levels",
+      "sections": [
+        "S07",
+        "S06",
+        "S13"
+      ],
+      "sourceRefs": [
+        "src/components/levelable_component.js",
+        "src/models/skill.js",
+        "src/models/hero.js",
+        "src/models/person.js"
+      ],
+      "criterion": "Temporary skill-level bonuses affect selected functions without fabricating earned progress.",
+      "proposedExpansion": "Earned XP/level, equipment bonus, status bonus, trained-method mastery and institutional rank remain separate. Effective level can exceed earned cap where supported. Borrowed skill gear should function immediately if it actually grants competence, without invented mastery tax.",
+      "dependencies": [
+        "G2 copied/granted function",
+        "G3 equipment"
+      ],
+      "engineConsumerOrGap": "LevelableComponent.getTotalSkillLevel adds earned+bonus and coefficient uses result; person recalculates equipment/status/skill bonus contributions. Earned milestone effects belong to add_xp/get_bonus_stats, not generic total level.",
+      "acceptanceCases": [
+        "Equip grants effective function without earned milestone",
+        "removal stops it",
+        "earned XP survives and native tooltip explains contributions."
+      ],
+      "remaining": [
+        "Audit individual consumers for effective versus earned semantics; do not assume all use one."
+      ],
+      "disposition": "expand-existing-family-and-audit-native-seam",
+      "runtimeStatus": "source-inspected-no-runtime-verification",
+      "detailOwner": "G8-008"
+    },
+    {
+      "id": "G8-009",
+      "title": "Milestones, names and bulk grants",
+      "sections": [
+        "S07",
+        "S13",
+        "S14"
+      ],
+      "sourceRefs": [
+        "src/models/skill.js",
+        "src/main.js",
+        "src/data/skills.js"
+      ],
+      "criterion": "Crossed selected milestones publish actual rewards once and names reflect known current state.",
+      "proposedExpansion": "Milestones can grant stats, recipes, skills, quests, concrete action or nothing. Name changes and social recognition do not equal new mechanics. Bulk levels need a readable summary with individually meaningful choices retained.",
+      "dependencies": [
+        "G5 unlock publication"
+      ],
+      "engineConsumerOrGap": "Skill.add_xp collects unlocks; get_bonus_stats returns crossed stats/XP bonuses; main processes rewards and updates bar/effects. Loop starts from calculated level zero and may collect earlier unlocks again on later level-up; reward consumers need idempotence review.",
+      "acceptanceCases": [
+        "Cross several milestones: one correct result each",
+        "subsequent level does not duplicate prior grant",
+        "hidden name remains hidden until actual discovery."
+      ],
+      "remaining": [
+        "Source concern is specific; actual duplicate outcome not exercised."
+      ],
+      "disposition": "expand-existing-family-and-audit-native-seam",
+      "runtimeStatus": "source-inspected-no-runtime-verification",
+      "detailOwner": "G8-009"
+    },
+    {
+      "id": "G8-010",
+      "title": "Discovery and zero-write inspection",
+      "sections": [
+        "S09",
+        "S07",
+        "S13",
+        "S14"
+      ],
+      "sourceRefs": [
+        "src/skill_discovery.js",
+        "src/skill_discovery_native.js",
+        "src/display.js",
+        "src/models/skill.js"
+      ],
+      "criterion": "Skill projection reads existing progress and reveals only actual unlock/XP-qualified content.",
+      "proposedExpansion": "Discovery, availability to learn, acquisition and execution eligibility are separate. Method hint can be known before skill name. Unknown rows remain absent from search/count/category. Core save/recovery is always reachable.",
+      "dependencies": [
+        "G4 observer knowledge"
+      ],
+      "engineConsumerOrGap": "nativeSkillDiscovery reads persisted progress and Skill threshold; display uses it at inspected skill-bar functions. projectDiscoveryFeature/native/catalog/panel are pure; getName/getDefaultSkillXP elsewhere may initialize storage.",
+      "acceptanceCases": [
+        "Repeated tooltip read changes no XP/state",
+        "below threshold produces no name/bar/count",
+        "known blocked function shows only qualified reasons."
+      ],
+      "remaining": [
+        "Audit all native tooltip/category callers beyond inspected slice."
+      ],
+      "disposition": "expand-existing-family-and-audit-native-seam",
+      "runtimeStatus": "source-inspected-no-runtime-verification",
+      "detailOwner": "G8-010"
+    },
+    {
+      "id": "G8-011",
+      "title": "Ordinary skills with late functional usefulness",
+      "sections": [
+        "S05",
+        "S06",
+        "S07",
+        "S10"
+      ],
+      "sourceRefs": [
+        "docs/SKILLS_AND_TALENTS.md",
+        "src/data/skills.js",
+        "src/skill_expansion_content.js",
+        "docs/worlds/PROGRESSION_AND_ASSEMBLY.md"
+      ],
+      "criterion": "A selected ordinary skill changes a meaningful late action through a concrete consumer.",
+      "proposedExpansion": "Woodworking can fit high-grade components; literacy can compare actual technical notes; haggling changes a supported market; perception can supply evidence for a mechanism; running/climbing can control timing or access. Extraordinary materials still need real support. No forced lower-tier niche when an advanced method fully supersedes an old one.",
+      "dependencies": [
+        "G2 technique development",
+        "G3 actual production",
+        "G4 knowledge"
+      ],
+      "engineConsumerOrGap": "Native data has stat milestones and task coefficients; four skillExpansion families connect ordinary XP to learned-method application, kit output and reports. Their old delivery evidence explicitly defers gameplay proof. Generic infinite-skill escalation is not present.",
+      "acceptanceCases": [
+        "Late ordinary skill alters product/route/evidence",
+        "absence gives a real alternative",
+        "powerful means may solve task outright."
+      ],
+      "remaining": [
+        "Choose one native task and real input/output before adding descriptions."
+      ],
+      "disposition": "expand-existing-family-and-audit-native-seam",
+      "runtimeStatus": "source-inspected-no-runtime-verification",
+      "detailOwner": "G8-011"
+    },
+    {
+      "id": "G8-012",
+      "title": "Parent skills and transfer between methods",
+      "sections": [
+        "S07",
+        "S14"
+      ],
+      "sourceRefs": [
+        "src/components/levelable_component.js",
+        "src/models/skill.js",
+        "docs/SKILLS_AND_TALENTS.md"
+      ],
+      "criterion": "Learning transfer follows the actual related-skill rule without duplicate XP or unearned methods.",
+      "proposedExpansion": "Retain parent XP catch-up, practice-specific technique, cross-discipline insight, teaching transfer, no transfer and full-copy faculty as different mechanisms. Memorized method does not equal donor anatomy unless actual source supplies it.",
+      "dependencies": [
+        "G2 copying/fusion"
+      ],
+      "engineConsumerOrGap": "Component grants parent XP when child total exceeds parent and limits amount to difference/current award; skill parent multiplier and dependency maps exist. Foreign fusion requires G2 contract rather than abusing parent_skill.",
+      "acceptanceCases": [
+        "Child completion updates parent once",
+        "disabled transfer remains disabled",
+        "changing equipment does not rewrite earned transfer."
+      ],
+      "remaining": [
+        "Full cross-skill semantic catalog remains uninspected."
+      ],
+      "disposition": "expand-existing-family-and-audit-native-seam",
+      "runtimeStatus": "source-inspected-no-runtime-verification",
+      "detailOwner": "G8-012"
+    },
+    {
+      "id": "G8-013",
+      "title": "Character progression branches and consolidation",
+      "sections": [
+        "S07",
+        "S11",
+        "S14"
+      ],
+      "sourceRefs": [
+        "docs/SKILLS_AND_TALENTS.md",
+        "src/components/levelable_component.js",
+        "src/simulation_effects.js"
+      ],
+      "criterion": "A selected character-growth branch produces its promised function and retained consequences.",
+      "proposedExpansion": "Character level, spent points, profession, race stage, cultivation realm, comprehension and role digestion can coexist with separate meaning. Immediate/after-rest/shrine consolidation, choices/no choices and full/no heal remain local alternatives. Prestige, travel and death are distinct.",
+      "dependencies": [
+        "G2 broad progression",
+        "G4 reset",
+        "G5 owners"
+      ],
+      "engineConsumerOrGap": "Native LevelableComponent handles level bonuses; simulation progression stores values/branches/receipts. A progress number alone does not add a new class/rank/realm functional consumer.",
+      "acceptanceCases": [
+        "Branch unlock changes actual action",
+        "voluntary refusal leaves other paths",
+        "saved consolidation pending state cannot reward twice."
+      ],
+      "remaining": [
+        "Choose local branch/function; no universal class tree or level currency."
+      ],
+      "disposition": "expand-existing-family-and-audit-native-seam",
+      "runtimeStatus": "source-inspected-no-runtime-verification",
+      "detailOwner": "G8-013"
+    },
+    {
+      "id": "G8-014",
+      "title": "Level loss, reset and relearning",
+      "sections": [
+        "S07",
+        "S12",
+        "S14"
+      ],
+      "sourceRefs": [
+        "docs/SKILLS_AND_TALENTS.md",
+        "src/models/skill.js",
+        "src/components/levelable_component.js"
+      ],
+      "criterion": "Selected loss removes only its declared support while preserving unrelated earned state.",
+      "proposedExpansion": "Drain, disuse, injury, spent level, source confiscation, voluntary reset, forgotten method and broken body are different. Restore by real retained source or retraining when available; permanent/full recovery both possible.",
+      "dependencies": [
+        "G2 temporal/reset/retention"
+      ],
+      "engineConsumerOrGap": "Native component rejects negative XP; Skill.add_xp is forward-growth path with additive milestone rewards. No selected inverse milestone/revocation/recompute path inspected.",
+      "acceptanceCases": [
+        "Loss cannot leave phantom bonus",
+        "body injury can suppress execution without deleting knowledge",
+        "restoration applies selected contribution once."
+      ],
+      "remaining": [
+        "New loss transaction cannot be implemented by passing negative XP into existing forward API."
+      ],
+      "disposition": "expand-existing-family-and-audit-native-seam",
+      "runtimeStatus": "source-inspected-no-runtime-verification",
+      "detailOwner": "G8-014"
+    },
+    {
+      "id": "G8-015",
+      "title": "Traits, aptitude, faculties and constitution",
+      "sections": [
+        "S02",
+        "S07",
+        "S09"
+      ],
+      "sourceRefs": [
+        "src/body_progression.js",
+        "src/capabilities.js",
+        "docs/SKILLS_AND_TALENTS.md"
+      ],
+      "criterion": "A trait has provenance and its promised functional consumer, not merely a tag.",
+      "proposedExpansion": "Inherited/trained/acquired, dormant/active/suppressed, physical/mental/source traits can alter learning, verb, sensing, recovery or a process. Scar/habit can remain texture. No compulsory flaw or symmetry; actual superiority remains superior.",
+      "dependencies": [
+        "G1 body initializer",
+        "G2 faculty",
+        "G4 appraisal"
+      ],
+      "engineConsumerOrGap": "body_progression has source/faculty and palm-condition consumers for existing human; capabilities provide scoped numeric grants. General arbitrary trait/perk catalog-to-native function is not established.",
+      "acceptanceCases": [
+        "Dormant faculty reveals only through means",
+        "activated grant changes consumer",
+        "removing source stops grant without losing unrelated practice."
+      ],
+      "remaining": [
+        "Select one aptitude and one functional constitution process rather than stat-only renaming."
+      ],
+      "disposition": "expand-existing-family-and-audit-native-seam",
+      "runtimeStatus": "source-inspected-no-runtime-verification",
+      "detailOwner": "G8-015"
+    },
+    {
+      "id": "G8-016",
+      "title": "Perks, achievements, feats and quirks",
+      "sections": [
+        "S07",
+        "S09",
+        "S13",
+        "S14"
+      ],
+      "sourceRefs": [
+        "docs/SKILLS_AND_TALENTS.md",
+        "src/simulation_effects.js",
+        "src/titles.js"
+      ],
+      "criterion": "Each recognition or rule change is classified by actual ownership and function.",
+      "proposedExpansion": "Achievement can record history; feat can unlock function; perk may grant a verb or rule exception; quirk may shape authored behavior; title recognition may grant none. These are not necessarily small, rare or level-picked despite old palette wording.",
+      "dependencies": [
+        "G2 powerful rule functions",
+        "G3 social recognition"
+      ],
+      "engineConsumerOrGap": "Native titles and simulation facts/claims/progress can store evidence; no universal perk/achievement UI/state machine identified in bounded search. Use existing owner unless selected function requires adapter.",
+      "acceptanceCases": [
+        "Texture does not promise an absent bonus",
+        "once-only feat needs actual result cause",
+        "hidden perk effect respects supported revelation."
+      ],
+      "remaining": [
+        "Need concrete acquisition-to-consumer packet, not a new generic bar for each label."
+      ],
+      "disposition": "expand-existing-family-and-audit-native-seam",
+      "runtimeStatus": "source-inspected-no-runtime-verification",
+      "detailOwner": "G8-016"
+    },
+    {
+      "id": "G8-017",
+      "title": "Equipment and status contribution composition",
+      "sections": [
+        "S06",
+        "S07",
+        "S08",
+        "S14"
+      ],
+      "sourceRefs": [
+        "src/models/hero.js",
+        "src/models/person.js",
+        "src/simulation_effects.js"
+      ],
+      "criterion": "Actual equipped items and supported effects derive one correct effective result.",
+      "proposedExpansion": "Stack flats, multiplicative bonuses, replacement, strongest-only, additive duration, refresh, independent instances and incompatible source as local policies. Global fixed slots or caps are not imposed beyond existing native semantics.",
+      "dependencies": [
+        "G2 effect order",
+        "G3 equipment",
+        "G5 namespace"
+      ],
+      "engineConsumerOrGap": "Hero.addActiveEffectBonus replaces category maps from native plus simulation projections; spread merge gives simulation matching key precedence. person sums flats and multiplies category contributions; equipment effect stages custody with native bindings.",
+      "acceptanceCases": [
+        "Equip/remove retains same physical item once",
+        "expired/suppressed effect disappears",
+        "matching effect IDs use declared collision policy."
+      ],
+      "remaining": [
+        "Qualify real native combat/work consumer, not only tooltip total."
+      ],
+      "disposition": "expand-existing-family-and-audit-native-seam",
+      "runtimeStatus": "source-inspected-no-runtime-verification",
+      "detailOwner": "G8-017"
+    },
+    {
+      "id": "G8-018",
+      "title": "Effect-group replacement without partial mutation",
+      "sections": [
+        "S07",
+        "S08",
+        "S14"
+      ],
+      "sourceRefs": [
+        "src/main.js",
+        "src/active_effects.js"
+      ],
+      "criterion": "Rejected stronger/weaker group application leaves all existing effects unchanged.",
+      "proposedExpansion": "Declare strongest-only or coexisting-group behavior per local effect; choose proposal eligibility before removals. Same-effect refresh/extension and equal-group replacement need explicit semantics. No universal weakness or restricted stacking added.",
+      "dependencies": [
+        "G5 native effect transaction"
+      ],
+      "engineConsumerOrGap": "add_active_effect deletes weaker matching effects as it scans, then can encounter stronger group and return. Source-inspected order-dependent partial mutation risk for multi-group fixtures; native supported actual templates need repro before defect claim.",
+      "acceptanceCases": [
+        "New effect blocked by one stronger group leaves weaker effects intact",
+        "inverse insertion order same result",
+        "approved replacement recalculates stats and UI."
+      ],
+      "remaining": [
+        "Inspect candidate multi-group templates and reproduced branch before editing."
+      ],
+      "disposition": "expand-existing-family-and-audit-native-seam",
+      "runtimeStatus": "source-inspected-no-runtime-verification",
+      "detailOwner": "G8-018"
+    },
+    {
+      "id": "G8-019",
+      "title": "Effect expiry, travel, rest and joined clock",
+      "sections": [
+        "S05",
+        "S07",
+        "S11",
+        "S14"
+      ],
+      "sourceRefs": [
+        "src/main.js",
+        "src/status_care_host.js",
+        "src/status_care_facts.js"
+      ],
+      "criterion": "Expiry consumes exactly the declared supported duration once under native/joined time.",
+      "proposedExpansion": "Ordinary expiry, travel pause, sleep acceleration, indefinite condition, unsupported body suppression and curable status are distinct. Cure can remove exact condition without erasing scars, cold or unrelated learning.",
+      "dependencies": [
+        "G4 authoritative clock",
+        "G5 final publisher"
+      ],
+      "engineConsumerOrGap": "update_effect_durations mutates shared time_in_minutes when a debuff is processed during sleep; later rows may inherit that change. Joined publisher has separate planned effectDurations. Source-inspected ordering concern, not verified active joined-clock bug.",
+      "acceptanceCases": [
+        "Same effect set ordered differently has declared equal expiry",
+        "travel exempt remains",
+        "joined time cannot decay twice",
+        "cure removes only intended status."
+      ],
+      "remaining": [
+        "Determine live route/clock mode and isolated reproduction before repair."
+      ],
+      "disposition": "expand-existing-family-and-audit-native-seam",
+      "runtimeStatus": "source-inspected-no-runtime-verification",
+      "detailOwner": "G8-019"
+    },
+    {
+      "id": "G8-020",
+      "title": "Stats, body support and synergies",
+      "sections": [
+        "S02",
+        "S07",
+        "S08",
+        "S14"
+      ],
+      "sourceRefs": [
+        "src/models/hero.js",
+        "src/models/person.js",
+        "src/components/levelable_component.js",
+        "src/body_progression.js"
+      ],
+      "criterion": "Stat sources and supported combinations affect their actual native task/combat consumers.",
+      "proposedExpansion": "Body/source, earned skill, equipment, titles, posture, fatigue, furnishing and status contributions keep provenance. Changes can affect precision, recovery, capacity or method availability, not only aggregate damage. Overwhelming stat function remains valid.",
+      "dependencies": [
+        "G1 effective body",
+        "G2 power synergy"
+      ],
+      "engineConsumerOrGap": "Person recalculates stat sums/multipliers and health from missing-health preservation; native derived attack/evasion use skill coefficients. Body/capability sources require their selected adapter; a simulation fact alone does not modify native stats.",
+      "acceptanceCases": [
+        "Remove one source preserves all others",
+        "lower max health follows selected missing-health policy",
+        "synergy changes actual task result not only displayed number."
+      ],
+      "remaining": [
+        "Audit selected task getters and native publication signatures before broad combinations."
+      ],
+      "disposition": "expand-existing-family-and-audit-native-seam",
+      "runtimeStatus": "source-inspected-no-runtime-verification",
+      "detailOwner": "G8-020"
+    },
+    {
+      "id": "G8-021",
+      "title": "Status care and learned-method native integration",
+      "sections": [
+        "S05",
+        "S07",
+        "S13",
+        "S14"
+      ],
+      "sourceRefs": [
+        "src/status_care_host.js",
+        "src/skill_expansion_host.js",
+        "src/main.js",
+        "docs/gm/status-care-2026-10-06/ACCEPTANCE_BACKLOG.md",
+        "docs/gm/world-implementation/engine/SKILLS_DELIVERY.md"
+      ],
+      "criterion": "Existing selected preparations/methods remain functional through their actual host and current verification scope.",
+      "proposedExpansion": "Deepen available observation→learning→practice→application→response→retained-use loops; ordinary refusal/self-care/alternative method remain. Prevent participant/custody/source duplication when extending.",
+      "dependencies": [
+        "G3 care/work",
+        "G2 method function"
+      ],
+      "engineConsumerOrGap": "Main binds simulation effect reader, final publication and creates native skill panel; status host binds commands/native drying. Existing delivery/backlog calls gameplay deferred. This pass confirms source callers, not fresh gameplay proof.",
+      "acceptanceCases": [
+        "Preparation affects actual supported work",
+        "unavailable participant blocks only shared method",
+        "cancel/reload restores exact reservations and discovery."
+      ],
+      "remaining": [
+        "Current rebuild/browser/save gates remain open where owners say deferred."
+      ],
+      "disposition": "expand-existing-family-and-audit-native-seam",
+      "runtimeStatus": "source-inspected-no-runtime-verification",
+      "detailOwner": "G8-021"
+    },
+    {
+      "id": "G8-022",
+      "title": "Feedback, progress explanation and known modifiers",
+      "sections": [
+        "S09",
+        "S13",
+        "S14"
+      ],
+      "sourceRefs": [
+        "src/titles.js",
+        "src/titles_ui.js",
+        "src/display.js",
+        "src/skill_discovery.js",
+        "src/main.js"
+      ],
+      "criterion": "UI explains known earned/effective progress and outcomes without a false promise or secret reveal.",
+      "proposedExpansion": "Separate title history, functional effect, XP rate, earned versus effective level, known milestone, actual application and active condition. Bulk outcomes summarize with details; failures identify known missing means; unknown reading is unknown, not zero.",
+      "dependencies": [
+        "presentation lane",
+        "G4 knowledge"
+      ],
+      "engineConsumerOrGap": "Existing title panel shows bonuses/progress; native skill display uses pure discovery but other tooltip/name callers require audit. Notifications run via refresh_titles/main. No generic source-wise skill audit UI inspected.",
+      "acceptanceCases": [
+        "Removing effect updates both bar/tooltip and task",
+        "hidden row cannot inflate badge",
+        "batch levels/recognition readable without repeating rewards."
+      ],
+      "remaining": [
+        "Select UI journey and verify keyboard/focus/recovery in later implementation."
+      ],
+      "disposition": "expand-existing-family-and-audit-native-seam",
+      "runtimeStatus": "source-inspected-no-runtime-verification",
+      "detailOwner": "G8-022"
+    },
+    {
+      "id": "G8-023",
+      "title": "Persistence, numeric limits and compatibility",
+      "sections": [
+        "S07",
+        "S14"
+      ],
+      "sourceRefs": [
+        "src/main.js",
+        "src/save_files.js",
+        "src/components/levelable_component.js",
+        "src/models/skill.js",
+        "src/titles.js"
+      ],
+      "criterion": "Progress/effects restore their actual owner state without repeated rewards or unsupported numeric claims.",
+      "proposedExpansion": "New IDs add version-qualified definitions; renamed/removed IDs need mapping/dormancy, not reset. Finite huge numbers, max-state Infinity/sentinels, negative/loss paths and large catalogs need explicit numerical/serialization decisions. Import from future/private content retains dormant records when selected policy allows.",
+      "dependencies": [
+        "G5 save/numeric",
+        "G2 absolute functions"
+      ],
+      "engineConsumerOrGap": "Native save serializes titles, XP and active_effects; normalizes titles on load. Simulation durable publisher stages native XP/equipment/effects. Skill max uses Infinity/text sentinels; global numeric/export validators require selected full inspection.",
+      "acceptanceCases": [
+        "Save/reload/import preserves contributions once",
+        "future unknown title retained inertly",
+        "unsupported/nonfinite growth rejected or intentionally encoded",
+        "failed save no partial reward."
+      ],
+      "remaining": [
+        "Document migration with generated fixtures; this pass ran no test or browser."
+      ],
+      "disposition": "expand-existing-family-and-audit-native-seam",
+      "runtimeStatus": "source-inspected-no-runtime-verification",
+      "detailOwner": "G8-023"
+    },
+    {
+      "id": "G8-024",
+      "title": "Ownership and finite detail completion",
+      "sections": [
+        "S00",
+        "S07",
+        "S14"
+      ],
+      "sourceRefs": [
+        "docs/WORLD_COMPLETION_STANDARD.md",
+        "docs/gm/WORLD_ACTIONABILITY_GM_PROMPT.md",
+        "docs/SKILLS_AND_TALENTS.md",
+        "docs/worlds/PROGRESSION_AND_ASSEMBLY.md"
+      ],
+      "criterion": "Every selected micro-detail has one owner, actual consumer and explicit acceptance remainder.",
+      "proposedExpansion": "Retain native catalog semantics and existing stable family/source IDs. G8 owns native XP/title/stat/effect seams; G2 owns broader power/cheat mechanisms; world owners qualify their local rules. Small tests qualify only selected source slice.",
+      "dependencies": [
+        "G5 ledger reconciliation"
+      ],
+      "engineConsumerOrGap": "No runtime work in this planning pass; report distinguishes declared/caller-integrated/persisted/UI/unknown behavior per family.",
+      "acceptanceCases": [
+        "One leaf has positive/removal/retention cases",
+        "duplicate ownership resolved before writes",
+        "unresolved adapter remains named implementation gap."
+      ],
+      "remaining": [
+        "Full individual native skill catalog and all title/source worlds are remaining tranches."
+      ],
+      "disposition": "expand-existing-family-and-audit-native-seam",
+      "runtimeStatus": "source-inspected-no-runtime-verification",
+      "detailOwner": "G8-024"
+    }
+  ],
+  "unreadRemainder": [
+    {
+      "path": "src/data/skills.js",
+      "scope": "Every individual native skill, all milestone values, conditions and actual combat/work callers need further bounded slices."
+    },
+    {
+      "path": "src/active_effects.js",
+      "scope": "Each actual group combination and effect template; live joined/native timing route needs reproduction assignment."
+    },
+    {
+      "path": "src/main.js",
+      "scope": "Full save/load/UI/action/clock pathways not reviewed; targeted source seams only."
+    },
+    {
+      "path": "docs/research",
+      "scope": "Other game/book perk/title/achievement audit leaves and raw sources not read by this finite native-feature pass."
+    },
+    {
+      "path": "docs/SKILLS_AND_TALENTS.md",
+      "scope": "All unlisted skill-family/detail and source examples remain unread in G8; G2 may cover overlapping design separately."
+    }
+  ],
+  "noRuntimeClaim": true
+}

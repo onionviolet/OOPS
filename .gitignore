@@ -32,3 +32,6 @@ __pycache__/
 
 # Local-only: stray novel chapter reviews belong with docs/research/novels/
 /workers/
+
+# Throwaway proof-browser profiles (caches, cookies) stay local
+disposable-profile/

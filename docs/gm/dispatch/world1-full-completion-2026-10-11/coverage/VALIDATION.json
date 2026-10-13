@@ -1,0 +1,21 @@
+{
+  "schema": 1,
+  "status": "passed",
+  "checks": {
+    "unique_ids": true,
+    "projection_matches_all_ids": true,
+    "projection_allowed_row_fields": true,
+    "all_sections_retained": true,
+    "all_direct_occurrences_retained": true,
+    "all_direct_occurrences_have_context": true,
+    "all_direct_contexts_retained": true,
+    "all_literal_labels_retained": true,
+    "input_hashes_current": true,
+    "no_new_runtime_evidence_claim": true,
+    "all15_section_gates_open": true,
+    "no_source_truth_fields_in_public": true
+  },
+  "row_count": 3575,
+  "occurrence_count": 1033,
+  "claim_limit": "Owner accounting/projection consistency only; semantic child decomposition, runtime/build/browser/director acceptance remain open."
+}

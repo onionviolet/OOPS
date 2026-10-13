@@ -1,0 +1,24 @@
+{
+  "candidate": "/Users/weiwei/.codex/candidates/yairpg-laptop-customization-2026-10-12",
+  "owner": "01a12e84-0958-7381-862a-69a174050353",
+  "sourceFreeze": "7c8624fba650; all24 UI_UNION_INPUT after hashes verified current, no delta outstanding",
+  "unionSha256": "f1406d9fa8482e9e501f18b85ec2dca101f57d6caaff1c5c77b114c97725eda2",
+  "unionInputSha256": "a8a9337b2485a5d4adb3dcaa32baa75cfbcf0b1f851a3202bc15ce737f5943b2",
+  "candidateManifest": "CANDIDATE_MANIFEST.json",
+  "sharedOwner": "01a12ebf-d9a5-7ce0-94ba-469228eef444",
+  "sharedWindow": false,
+  "scripts": {
+    "laptop-journey.cjs": "5e7337698f0cb56950f629fedc5d84452c6e07d25c26fbf5dc2f5c3176babee1",
+    "laptop-inspect.cjs": "855fce039f17fc3b7c20b52e7af021f9fbf427708f092f337239759ae4a64171",
+    "editor-craft-proof.cjs": "db1980a45442c711f6255e3aa08061bef4056417001b552fdd1c015ff7b48e51",
+    "combined-theme-proof.cjs": "901b054df32633cc6483675e9f4582af60bf16ad5c0c56fa54dffa218df6e316",
+    "combined-decisions.cjs": "7efe0093ec2263e6b1e9ceff429cd038c83a323c21a7d866a7b85c114faff443",
+    "old-save-proof.cjs": "7c5cfda96294a34cb5b7f039b6c4da23633134b2e8e3663c8e23a7584f040117",
+    "pointer-craft-proof.cjs": "ccb8d2e866b3bea40e9afeae3dee20d921337455e82d9d8d2f723e51e7ba455c",
+    "combined-feedback/feedback-proof.cjs": "89c085c2cee53fa285e349e941a637dfcc496c0f74223ecb3b033a66fc47931f",
+    "combined-feedback/f7-browser.cjs": "c014f7de2143fbe258b5e521efa83d8328d4dae6914ff4960a3ddaaac96a8eef",
+    "combined-feedback/status-proof.cjs": "db2d3e2c30113caa98e881749a955dba93d64d37dd3b13d480867810db2e3b43",
+    "combined-feedback/storage-failure.cjs": "f70129e9ff89a5f8022a020b187f95ac1d77b6efce5d7233df53db88dc6a0663",
+    "combined-feedback/audio-gesture.cjs": "0118b10854860c0063b69c321c1681348a97511efb00acf75b1ea47116dc1349"
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "pid": 13194,
+  "origin": "http://127.0.0.1:18645",
+  "startedHash": "a4e84278059a711738b9149a331f916496dee79140384c021e11052187baef26",
+  "endedHash": "a4e84278059a711738b9149a331f916496dee79140384c021e11052187baef26",
+  "events": [
+    {
+      "action": "sequence",
+      "selectors": [
+        "[data-foundation-probe=\"foundation.probe.b.attack\"]"
+      ]
+    },
+    {
+      "action": "save",
+      "name": "final-expired-aftermath"
+    },
+    {
+      "action": "reload"
+    },
+    {
+      "action": "import",
+      "path": "/tmp/yairpg-foundation-interaction-final-expired-aftermath.json"
+    },
+    {
+      "action": "shot"
+    }
+  ],
+  "errors": [],
+  "failures": []
+}

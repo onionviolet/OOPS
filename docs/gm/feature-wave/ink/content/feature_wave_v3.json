@@ -1,0 +1,5853 @@
+{
+  "inkVersion": 21,
+  "listDefs": {},
+  "root": [
+    [
+      "ev",
+      {
+        "VAR?": "host_scene"
+      },
+      "/ev",
+      [
+        "du",
+        "ev",
+        "str",
+        "^relay.office",
+        "/str",
+        "==",
+        "/ev",
+        {
+          "->": ".^.b",
+          "c": true
+        },
+        {
+          "b": [
+            "pop",
+            "\n",
+            {
+              "->": "relay_meeting"
+            },
+            {
+              "->": "0.9"
+            },
+            null
+          ]
+        }
+      ],
+      [
+        "du",
+        "ev",
+        "str",
+        "^nested.hub",
+        "/str",
+        "==",
+        "/ev",
+        {
+          "->": ".^.b",
+          "c": true
+        },
+        {
+          "b": [
+            "pop",
+            "\n",
+            {
+              "->": "nested_hub"
+            },
+            {
+              "->": "0.9"
+            },
+            null
+          ]
+        }
+      ],
+      [
+        "du",
+        "ev",
+        "str",
+        "^nested.offer",
+        "/str",
+        "==",
+        "/ev",
+        {
+          "->": ".^.b",
+          "c": true
+        },
+        {
+          "b": [
+            "pop",
+            "\n",
+            {
+              "->": "nested_offer"
+            },
+            {
+              "->": "0.9"
+            },
+            null
+          ]
+        }
+      ],
+      [
+        "du",
+        "ev",
+        "str",
+        "^nested.mission",
+        "/str",
+        "==",
+        "/ev",
+        {
+          "->": ".^.b",
+          "c": true
+        },
+        {
+          "b": [
+            "pop",
+            "\n",
+            {
+              "->": "nested_mission"
+            },
+            {
+              "->": "0.9"
+            },
+            null
+          ]
+        }
+      ],
+      [
+        "du",
+        "ev",
+        "str",
+        "^nested.return",
+        "/str",
+        "==",
+        "/ev",
+        {
+          "->": ".^.b",
+          "c": true
+        },
+        {
+          "b": [
+            "pop",
+            "\n",
+            {
+              "->": "nested_return"
+            },
+            {
+              "->": "0.9"
+            },
+            null
+          ]
+        }
+      ],
+      [
+        {
+          "->": ".^.b"
+        },
+        {
+          "b": [
+            "pop",
+            "\n",
+            {
+              "->": "meeting"
+            },
+            {
+              "->": "0.9"
+            },
+            null
+          ]
+        }
+      ],
+      "nop",
+      "\n",
+      [
+        "done",
+        {
+          "#n": "g-0"
+        }
+      ],
+      null
+    ],
+    "done",
+    {
+      "coin_acceptance": [
+        "^Venn records the agreed payment and hands over one real log from the local shop stock.",
+        "\n",
+        "^\"That one is yours,\" ",
+        "ev",
+        {
+          "VAR?": "keeper_name"
+        },
+        "out",
+        "/ev",
+        "^ says. \"Buying timber and agreeing to repair the sluice are separate things.\"",
+        "\n",
+        "^The log joins your actual bag. Another purchase needs another payment and available stock.",
+        "\n",
+        "end",
+        null
+      ],
+      "global decl": [
+        "ev",
+        "str",
+        "^the bench keeper",
+        "/str",
+        {
+          "VAR=": "keeper_name"
+        },
+        "str",
+        "^the terrace",
+        "/str",
+        {
+          "VAR=": "place_name"
+        },
+        false,
+        {
+          "VAR=": "terms_known"
+        },
+        false,
+        {
+          "VAR=": "material_known"
+        },
+        false,
+        {
+          "VAR=": "tool_known"
+        },
+        false,
+        {
+          "VAR=": "lesson_known"
+        },
+        "str",
+        "^",
+        "/str",
+        {
+          "VAR=": "prior_agreement"
+        },
+        false,
+        {
+          "VAR=": "lesson_done"
+        },
+        false,
+        {
+          "VAR=": "tool_held"
+        },
+        "str",
+        "^tidemark.negotiation",
+        "/str",
+        {
+          "VAR=": "host_scene"
+        },
+        "str",
+        "^the rightful keeper",
+        "/str",
+        {
+          "VAR=": "relay_keeper_name"
+        },
+        "str",
+        "^the registry clerk",
+        "/str",
+        {
+          "VAR=": "relay_clerk_name"
+        },
+        "str",
+        "^the familiar local",
+        "/str",
+        {
+          "VAR=": "relay_witness_name"
+        },
+        false,
+        {
+          "VAR=": "relay_terms_known"
+        },
+        "str",
+        "^unknown",
+        "/str",
+        {
+          "VAR=": "credential_result"
+        },
+        "str",
+        "^unknown",
+        "/str",
+        {
+          "VAR=": "registry_result"
+        },
+        "str",
+        "^unknown",
+        "/str",
+        {
+          "VAR=": "personal_result"
+        },
+        false,
+        {
+          "VAR=": "office_held"
+        },
+        false,
+        {
+          "VAR=": "duty_done"
+        },
+        "str",
+        "^",
+        "/str",
+        {
+          "VAR=": "prior_relay_choice"
+        },
+        "str",
+        "^The desk is open; the work still has to be done.",
+        "/str",
+        {
+          "VAR=": "voice_greeting"
+        },
+        "str",
+        "^A cup cools beside the ledger. A used cloth keeps the seal clean.",
+        "/str",
+        {
+          "VAR=": "voice_detail"
+        },
+        "str",
+        "^The stamp is quicker than the paperwork. Most things are.",
+        "/str",
+        {
+          "VAR=": "voice_aside"
+        },
+        false,
+        {
+          "VAR=": "nested_hub_present"
+        },
+        false,
+        {
+          "VAR=": "nested_local_present"
+        },
+        false,
+        {
+          "VAR=": "nested_return_arrived"
+        },
+        false,
+        {
+          "VAR=": "nested_offer_visible"
+        },
+        "str",
+        "^",
+        "/str",
+        {
+          "VAR=": "nested_destination_kind"
+        },
+        "str",
+        "^the person across from you",
+        "/str",
+        {
+          "VAR=": "nested_contact_name"
+        },
+        "str",
+        "^",
+        "/str",
+        {
+          "VAR=": "nested_hub_name"
+        },
+        "str",
+        "^",
+        "/str",
+        {
+          "VAR=": "nested_destination_name"
+        },
+        "str",
+        "^",
+        "/str",
+        {
+          "VAR=": "nested_issuer_name"
+        },
+        "str",
+        "^",
+        "/str",
+        {
+          "VAR=": "nested_entry_context"
+        },
+        "str",
+        "^",
+        "/str",
+        {
+          "VAR=": "nested_purpose"
+        },
+        "str",
+        "^",
+        "/str",
+        {
+          "VAR=": "nested_role_terms"
+        },
+        "str",
+        "^",
+        "/str",
+        {
+          "VAR=": "nested_mission_terms"
+        },
+        "str",
+        "^",
+        "/str",
+        {
+          "VAR=": "nested_cost_terms"
+        },
+        "str",
+        "^",
+        "/str",
+        {
+          "VAR=": "nested_welfare_terms"
+        },
+        "str",
+        "^",
+        "/str",
+        {
+          "VAR=": "nested_portability_terms"
+        },
+        "str",
+        "^",
+        "/str",
+        {
+          "VAR=": "nested_extraction_terms"
+        },
+        false,
+        {
+          "VAR=": "nested_terms_known"
+        },
+        false,
+        {
+          "VAR=": "nested_work_offered"
+        },
+        false,
+        {
+          "VAR=": "nested_training_offered"
+        },
+        false,
+        {
+          "VAR=": "nested_refit_offered"
+        },
+        false,
+        {
+          "VAR=": "nested_role_offered"
+        },
+        false,
+        {
+          "VAR=": "nested_cooperation_offered"
+        },
+        false,
+        {
+          "VAR=": "nested_objective_offered"
+        },
+        false,
+        {
+          "VAR=": "nested_support_offered"
+        },
+        false,
+        {
+          "VAR=": "nested_extension_offered"
+        },
+        false,
+        {
+          "VAR=": "nested_withdrawal_offered"
+        },
+        false,
+        {
+          "VAR=": "nested_extraction_offered"
+        },
+        false,
+        {
+          "VAR=": "nested_recovery_offered"
+        },
+        false,
+        {
+          "VAR=": "nested_settlement_offered"
+        },
+        false,
+        {
+          "VAR=": "nested_dispute_offered"
+        },
+        false,
+        {
+          "VAR=": "nested_revisit_offered"
+        },
+        false,
+        {
+          "VAR=": "nested_residence_offered"
+        },
+        "str",
+        "^",
+        "/str",
+        {
+          "VAR=": "nested_issuer_outcome"
+        },
+        "str",
+        "^",
+        "/str",
+        {
+          "VAR=": "nested_local_outcome"
+        },
+        "str",
+        "^",
+        "/str",
+        {
+          "VAR=": "nested_recognition_report"
+        },
+        "str",
+        "^",
+        "/str",
+        {
+          "VAR=": "nested_method_report"
+        },
+        "str",
+        "^",
+        "/str",
+        {
+          "VAR=": "nested_welfare_report"
+        },
+        "str",
+        "^",
+        "/str",
+        {
+          "VAR=": "nested_extraction_report"
+        },
+        "str",
+        "^",
+        "/str",
+        {
+          "VAR=": "nested_request_report"
+        },
+        "str",
+        "^",
+        "/str",
+        {
+          "VAR=": "nested_prior_exchange"
+        },
+        "/ev",
+        "end",
+        null
+      ],
+      "inspection": [
+        "^You reserve a supported work period to inspect the linked floats with the actual reusable kit.",
+        "\n",
+        "^The finding arrives after that inspection finishes. The kit still has its owner and return duty.",
+        "\n",
+        "end",
+        null
+      ],
+      "leaving": [
+        "^You step away from the pump bench without accepting an arrangement.",
+        "\n",
+        "ev",
+        {
+          "VAR?": "keeper_name"
+        },
+        "out",
+        "/ev",
+        "^ returns to the stock book. The local work goes on under its own supported clock; this conversation makes no new reservation.",
+        "\n",
+        "end",
+        null
+      ],
+      "lesson_acceptance": [
+        "ev",
+        {
+          "VAR?": "keeper_name"
+        },
+        "out",
+        "/ev",
+        "^ agrees to the funded instruction and records the commitment.",
+        "\n",
+        "^\"We'll work through it with the right tool and time,\" they say. \"An agreement to teach isn't the completed lesson.\"",
+        "\n",
+        "^The actual teaching and learned result stay in the local work record.",
+        "\n",
+        "end",
+        null
+      ],
+      "loan_acceptance": [
+        "ev",
+        {
+          "VAR?": "keeper_name"
+        },
+        "out",
+        "/ev",
+        "^ checks the agreed purpose before handing over the available tool.",
+        "\n",
+        "^\"Use it to inspect the floats and return it. It's reusable, and it's still mine between visits.\"",
+        "\n",
+        "^The tool and its return duty remain in your actual belongings and loan record.",
+        "\n",
+        {
+          "->": "options"
+        },
+        null
+      ],
+      "material_acceptance": [
+        "^The agreed timber is reserved for the accepted repair. ",
+        "ev",
+        {
+          "VAR?": "keeper_name"
+        },
+        "out",
+        "/ev",
+        "^ enters the commitment in the stock book.",
+        "\n",
+        "^\"That's material set aside for this work now,\" they say. \"We can do the job we actually have supplies and time for.\"",
+        "\n",
+        "^The repair and any later result remain in the local work record.",
+        "\n",
+        "end",
+        null
+      ],
+      "meeting": [
+        "^The pump bench stands above the wet steps at ",
+        "ev",
+        {
+          "VAR?": "place_name"
+        },
+        "out",
+        "/ev",
+        "^. ",
+        "ev",
+        {
+          "VAR?": "keeper_name"
+        },
+        "out",
+        "/ev",
+        "^ keeps one hand on the stock book and the other on the unfinished repair.",
+        "\n",
+        "ev",
+        {
+          "VAR?": "prior_agreement"
+        },
+        "str",
+        "^",
+        "/str",
+        "!=",
+        "/ev",
+        [
+          {
+            "->": ".^.b",
+            "c": true
+          },
+          {
+            "b": [
+              "\n",
+              "ev",
+              {
+                "VAR?": "prior_agreement"
+              },
+              "/ev",
+              [
+                "du",
+                "ev",
+                "str",
+                "^material",
+                "/str",
+                "==",
+                "/ev",
+                {
+                  "->": ".^.b",
+                  "c": true
+                },
+                {
+                  "b": [
+                    "pop",
+                    "\n",
+                    "^\"I remember the timber,\" ",
+                    "ev",
+                    {
+                      "VAR?": "keeper_name"
+                    },
+                    "out",
+                    "/ev",
+                    "^ says. \"It went into our working stock. It wasn't a gift back to you.\"",
+                    "\n",
+                    {
+                      "->": ".^.^.^.11"
+                    },
+                    null
+                  ]
+                }
+              ],
+              [
+                "du",
+                "ev",
+                "str",
+                "^coin",
+                "/str",
+                "==",
+                "/ev",
+                {
+                  "->": ".^.b",
+                  "c": true
+                },
+                {
+                  "b": [
+                    "pop",
+                    "\n",
+                    "^\"Venn sold you a real log last time,\" ",
+                    "ev",
+                    {
+                      "VAR?": "keeper_name"
+                    },
+                    "out",
+                    "/ev",
+                    "^ says. \"A new purchase needs new stock and payment.\"",
+                    "\n",
+                    {
+                      "->": ".^.^.^.11"
+                    },
+                    null
+                  ]
+                }
+              ],
+              [
+                "du",
+                "ev",
+                "str",
+                "^loan",
+                "/str",
+                "==",
+                "/ev",
+                {
+                  "->": ".^.b",
+                  "c": true
+                },
+                {
+                  "b": [
+                    "pop",
+                    "\n",
+                    "^\"That tool still has an owner,\" ",
+                    "ev",
+                    {
+                      "VAR?": "keeper_name"
+                    },
+                    "out",
+                    "/ev",
+                    "^ says. \"Bring it back before arranging another loan.\"",
+                    "\n",
+                    {
+                      "->": ".^.^.^.11"
+                    },
+                    null
+                  ]
+                }
+              ],
+              [
+                "du",
+                "ev",
+                "str",
+                "^returned",
+                "/str",
+                "==",
+                "/ev",
+                {
+                  "->": ".^.b",
+                  "c": true
+                },
+                {
+                  "b": [
+                    "pop",
+                    "\n",
+                    "^\"You brought the inspection kit back,\" ",
+                    "ev",
+                    {
+                      "VAR?": "keeper_name"
+                    },
+                    "out",
+                    "/ev",
+                    "^ says. \"I remember that too.\"",
+                    "\n",
+                    {
+                      "->": ".^.^.^.11"
+                    },
+                    null
+                  ]
+                }
+              ],
+              [
+                "du",
+                "ev",
+                "str",
+                "^lesson",
+                "/str",
+                "==",
+                "/ev",
+                {
+                  "->": ".^.b",
+                  "c": true
+                },
+                {
+                  "b": [
+                    "pop",
+                    "\n",
+                    "ev",
+                    {
+                      "VAR?": "lesson_done"
+                    },
+                    "/ev",
+                    [
+                      {
+                        "->": ".^.b",
+                        "c": true
+                      },
+                      {
+                        "b": [
+                          "\n",
+                          "^\"You've put the method to work since we spoke,\" ",
+                          "ev",
+                          {
+                            "VAR?": "keeper_name"
+                          },
+                          "out",
+                          "/ev",
+                          "^ says. \"Knowing it and having a sound pump are still different things.\"",
+                          "\n",
+                          {
+                            "->": ".^.^.^.7"
+                          },
+                          null
+                        ]
+                      }
+                    ],
+                    [
+                      {
+                        "->": ".^.b"
+                      },
+                      {
+                        "b": [
+                          "\n",
+                          "^\"We agreed to instruction,\" ",
+                          "ev",
+                          {
+                            "VAR?": "keeper_name"
+                          },
+                          "out",
+                          "/ev",
+                          "^ says. \"The actual lesson still has to fit our time and means.\"",
+                          "\n",
+                          {
+                            "->": ".^.^.^.7"
+                          },
+                          null
+                        ]
+                      }
+                    ],
+                    "nop",
+                    "\n",
+                    {
+                      "->": ".^.^.^.11"
+                    },
+                    null
+                  ]
+                }
+              ],
+              [
+                "du",
+                "ev",
+                "str",
+                "^refused",
+                "/str",
+                "==",
+                "/ev",
+                {
+                  "->": ".^.b",
+                  "c": true
+                },
+                {
+                  "b": [
+                    "pop",
+                    "\n",
+                    "^\"You declined last time,\" ",
+                    "ev",
+                    {
+                      "VAR?": "keeper_name"
+                    },
+                    "out",
+                    "/ev",
+                    "^ says. \"I remember. It didn't turn the whole town against you.\"",
+                    "\n",
+                    {
+                      "->": ".^.^.^.11"
+                    },
+                    null
+                  ]
+                }
+              ],
+              "pop",
+              "nop",
+              "\n",
+              {
+                "->": ".^.^.^.21"
+              },
+              null
+            ]
+          }
+        ],
+        [
+          {
+            "->": ".^.b"
+          },
+          {
+            "b": [
+              "\n",
+              "^\"The tide won't argue,\" ",
+              "ev",
+              {
+                "VAR?": "keeper_name"
+              },
+              "out",
+              "/ev",
+              "^ says. \"We still can. Before you offer anything, ask what it is meant to do.\"",
+              "\n",
+              {
+                "->": ".^.^.^.21"
+              },
+              null
+            ]
+          }
+        ],
+        "nop",
+        "\n",
+        {
+          "->": "options"
+        },
+        null
+      ],
+      "nested_hub": [
+        "ev",
+        {
+          "VAR?": "nested_hub_present"
+        },
+        false,
+        "==",
+        "/ev",
+        [
+          {
+            "->": ".^.b",
+            "c": true
+          },
+          {
+            "b": [
+              "\n",
+              "^No current conversation at the hub has been confirmed.",
+              "\n",
+              "end",
+              {
+                "->": ".^.^.^.6"
+              },
+              null
+            ]
+          }
+        ],
+        "nop",
+        "\n",
+        "ev",
+        {
+          "VAR?": "nested_hub_name"
+        },
+        "str",
+        "^",
+        "/str",
+        "!=",
+        "/ev",
+        [
+          {
+            "->": ".^.b",
+            "c": true
+          },
+          {
+            "b": [
+              "^ You are at ",
+              "ev",
+              {
+                "VAR?": "nested_hub_name"
+              },
+              "out",
+              "/ev",
+              "^.",
+              {
+                "->": ".^.^.^.16"
+              },
+              null
+            ]
+          }
+        ],
+        "nop",
+        "\n",
+        "^A spoon rests across a cooling cup. ",
+        "ev",
+        {
+          "VAR?": "nested_contact_name"
+        },
+        "out",
+        "/ev",
+        "^ turns the cup's chipped edge away from their hand.",
+        "\n",
+        "^\"Some days I finish the tea,\" they say. \"What did you come for?\"",
+        "\n",
+        "ev",
+        {
+          "VAR?": "nested_prior_exchange"
+        },
+        "str",
+        "^",
+        "/str",
+        "!=",
+        "/ev",
+        [
+          {
+            "->": ".^.b",
+            "c": true
+          },
+          {
+            "b": [
+              "^ Your earlier exchange here: ",
+              "ev",
+              {
+                "VAR?": "nested_prior_exchange"
+              },
+              "out",
+              "/ev",
+              {
+                "->": ".^.^.^.35"
+              },
+              null
+            ]
+          }
+        ],
+        "nop",
+        "\n",
+        "ev",
+        {
+          "VAR?": "nested_role_terms"
+        },
+        "str",
+        "^",
+        "/str",
+        "!=",
+        "/ev",
+        [
+          {
+            "->": ".^.b",
+            "c": true
+          },
+          {
+            "b": [
+              "^ Your currently disclosed role terms: ",
+              "ev",
+              {
+                "VAR?": "nested_role_terms"
+              },
+              "out",
+              "/ev",
+              {
+                "->": ".^.^.^.45"
+              },
+              null
+            ]
+          }
+        ],
+        "nop",
+        "\n",
+        {
+          "->": "nested_hub_options"
+        },
+        null
+      ],
+      "nested_hub_leave": [
+        "^You end the discussion. The spoon is still balanced across the cup.",
+        "\n",
+        "ev",
+        {
+          "VAR?": "nested_request_report"
+        },
+        "str",
+        "^",
+        "/str",
+        "!=",
+        "/ev",
+        [
+          {
+            "->": ".^.b",
+            "c": true
+          },
+          {
+            "b": [
+              "^ ",
+              "ev",
+              {
+                "VAR?": "nested_request_report"
+              },
+              "out",
+              "/ev",
+              {
+                "->": ".^.^.^.10"
+              },
+              null
+            ]
+          }
+        ],
+        "nop",
+        "\n",
+        "end",
+        null
+      ],
+      "nested_hub_options": [
+        [
+          "ev",
+          "str",
+          "^Ask about the services, roles and their current terms. ",
+          "#",
+          "^response:nested_hub_terms ",
+          "/#",
+          "/str",
+          "/ev",
+          {
+            "*": ".^.c-0",
+            "flg": 20
+          },
+          "ev",
+          "str",
+          "^Request the offered paid work. ",
+          "#",
+          "^response:nested_hub_work ",
+          "/#",
+          "/str",
+          {
+            "VAR?": "nested_terms_known"
+          },
+          {
+            "VAR?": "nested_work_offered"
+          },
+          "&&",
+          "/ev",
+          {
+            "*": ".^.c-1",
+            "flg": 21
+          },
+          "ev",
+          "str",
+          "^Request the offered practical training. ",
+          "#",
+          "^response:nested_hub_train ",
+          "/#",
+          "/str",
+          {
+            "VAR?": "nested_terms_known"
+          },
+          {
+            "VAR?": "nested_training_offered"
+          },
+          "&&",
+          "/ev",
+          {
+            "*": ".^.c-2",
+            "flg": 21
+          },
+          "ev",
+          "str",
+          "^Request the offered repair or refit. ",
+          "#",
+          "^response:nested_hub_refit ",
+          "/#",
+          "/str",
+          {
+            "VAR?": "nested_terms_known"
+          },
+          {
+            "VAR?": "nested_refit_offered"
+          },
+          "&&",
+          "/ev",
+          {
+            "*": ".^.c-3",
+            "flg": 21
+          },
+          "ev",
+          "str",
+          "^Request the offered role assessment. ",
+          "#",
+          "^response:nested_hub_role ",
+          "/#",
+          "/str",
+          {
+            "VAR?": "nested_terms_known"
+          },
+          {
+            "VAR?": "nested_role_offered"
+          },
+          "&&",
+          "/ev",
+          {
+            "*": ".^.c-4",
+            "flg": 21
+          },
+          "ev",
+          "str",
+          "^Leave this discussion without taking another service. ",
+          "#",
+          "^response:nested_hub_leave ",
+          "/#",
+          "/str",
+          "/ev",
+          {
+            "*": ".^.c-5",
+            "flg": 20
+          },
+          {
+            "c-0": [
+              "\n",
+              {
+                "->": "nested_hub_terms"
+              },
+              {
+                "#f": 5
+              }
+            ],
+            "c-1": [
+              "\n",
+              {
+                "->": "nested_hub_work"
+              },
+              {
+                "#f": 5
+              }
+            ],
+            "c-2": [
+              "\n",
+              {
+                "->": "nested_hub_train"
+              },
+              {
+                "#f": 5
+              }
+            ],
+            "c-3": [
+              "\n",
+              {
+                "->": "nested_hub_refit"
+              },
+              {
+                "#f": 5
+              }
+            ],
+            "c-4": [
+              "\n",
+              {
+                "->": "nested_hub_role"
+              },
+              {
+                "#f": 5
+              }
+            ],
+            "c-5": [
+              "\n",
+              {
+                "->": "nested_hub_leave"
+              },
+              {
+                "#f": 5
+              }
+            ]
+          }
+        ],
+        null
+      ],
+      "nested_hub_refit": [
+        "^Your refit request is accepted under the displayed terms. The actual item's current condition remains in its repair record.",
+        "\n",
+        "ev",
+        {
+          "VAR?": "nested_request_report"
+        },
+        "str",
+        "^",
+        "/str",
+        "!=",
+        "/ev",
+        [
+          {
+            "->": ".^.b",
+            "c": true
+          },
+          {
+            "b": [
+              "^ ",
+              "ev",
+              {
+                "VAR?": "nested_request_report"
+              },
+              "out",
+              "/ev",
+              {
+                "->": ".^.^.^.10"
+              },
+              null
+            ]
+          }
+        ],
+        "nop",
+        "\n",
+        "end",
+        null
+      ],
+      "nested_hub_role": [
+        "^Your role request is accepted for assessment under the offered rights and duties.",
+        "\n",
+        "^\"An appointment has work attached,\" ",
+        "ev",
+        {
+          "VAR?": "nested_contact_name"
+        },
+        "out",
+        "/ev",
+        "^ says. \"A borrowed name won't carry it for you.\"",
+        "\n",
+        "ev",
+        {
+          "VAR?": "nested_request_report"
+        },
+        "str",
+        "^",
+        "/str",
+        "!=",
+        "/ev",
+        [
+          {
+            "->": ".^.b",
+            "c": true
+          },
+          {
+            "b": [
+              "^ ",
+              "ev",
+              {
+                "VAR?": "nested_request_report"
+              },
+              "out",
+              "/ev",
+              {
+                "->": ".^.^.^.17"
+              },
+              null
+            ]
+          }
+        ],
+        "nop",
+        "\n",
+        "ev",
+        {
+          "VAR?": "nested_recognition_report"
+        },
+        "str",
+        "^",
+        "/str",
+        "!=",
+        "/ev",
+        [
+          {
+            "->": ".^.b",
+            "c": true
+          },
+          {
+            "b": [
+              "^ Your disclosed recognition record: ",
+              "ev",
+              {
+                "VAR?": "nested_recognition_report"
+              },
+              "out",
+              "/ev",
+              {
+                "->": ".^.^.^.27"
+              },
+              null
+            ]
+          }
+        ],
+        "nop",
+        "\n",
+        "end",
+        null
+      ],
+      "nested_hub_terms": [
+        "^\"Work, instruction and a place to sleep are different arrangements,\" ",
+        "ev",
+        {
+          "VAR?": "nested_contact_name"
+        },
+        "out",
+        "/ev",
+        "^ says. \"Tell me which you want.\"",
+        "\n",
+        "ev",
+        {
+          "VAR?": "nested_role_terms"
+        },
+        "str",
+        "^",
+        "/str",
+        "!=",
+        "/ev",
+        [
+          {
+            "->": ".^.b",
+            "c": true
+          },
+          {
+            "b": [
+              "^ Offered roles and their rights: ",
+              "ev",
+              {
+                "VAR?": "nested_role_terms"
+              },
+              "out",
+              "/ev",
+              {
+                "->": ".^.^.^.15"
+              },
+              null
+            ]
+          }
+        ],
+        "nop",
+        "\n",
+        "ev",
+        {
+          "VAR?": "nested_cost_terms"
+        },
+        "str",
+        "^",
+        "/str",
+        "!=",
+        "/ev",
+        [
+          {
+            "->": ".^.b",
+            "c": true
+          },
+          {
+            "b": [
+              "^ Current service costs: ",
+              "ev",
+              {
+                "VAR?": "nested_cost_terms"
+              },
+              "out",
+              "/ev",
+              {
+                "->": ".^.^.^.25"
+              },
+              null
+            ]
+          }
+        ],
+        "nop",
+        "\n",
+        "ev",
+        {
+          "VAR?": "nested_portability_terms"
+        },
+        "str",
+        "^",
+        "/str",
+        "!=",
+        "/ev",
+        [
+          {
+            "->": ".^.b",
+            "c": true
+          },
+          {
+            "b": [
+              "^ Disclosed passage conditions: ",
+              "ev",
+              {
+                "VAR?": "nested_portability_terms"
+              },
+              "out",
+              "/ev",
+              {
+                "->": ".^.^.^.35"
+              },
+              null
+            ]
+          }
+        ],
+        "nop",
+        "\n",
+        "^The offer beside each response states its means and conditions.",
+        "\n",
+        {
+          "->": "nested_hub_options"
+        },
+        null
+      ],
+      "nested_hub_train": [
+        "^Your instruction request is accepted for its stated next step. Requesting a lesson does not supply a teacher's practiced skill.",
+        "\n",
+        "ev",
+        {
+          "VAR?": "nested_request_report"
+        },
+        "str",
+        "^",
+        "/str",
+        "!=",
+        "/ev",
+        [
+          {
+            "->": ".^.b",
+            "c": true
+          },
+          {
+            "b": [
+              "^ ",
+              "ev",
+              {
+                "VAR?": "nested_request_report"
+              },
+              "out",
+              "/ev",
+              {
+                "->": ".^.^.^.10"
+              },
+              null
+            ]
+          }
+        ],
+        "nop",
+        "\n",
+        "ev",
+        {
+          "VAR?": "nested_method_report"
+        },
+        "str",
+        "^",
+        "/str",
+        "!=",
+        "/ev",
+        [
+          {
+            "->": ".^.b",
+            "c": true
+          },
+          {
+            "b": [
+              "^ Your disclosed method record: ",
+              "ev",
+              {
+                "VAR?": "nested_method_report"
+              },
+              "out",
+              "/ev",
+              {
+                "->": ".^.^.^.20"
+              },
+              null
+            ]
+          }
+        ],
+        "nop",
+        "\n",
+        "end",
+        null
+      ],
+      "nested_hub_work": [
+        "^Your request for the offered work is accepted for its stated next step.",
+        "\n",
+        "^\"I'll need the work as well as your name,\" ",
+        "ev",
+        {
+          "VAR?": "nested_contact_name"
+        },
+        "out",
+        "/ev",
+        "^ says.",
+        "\n",
+        "ev",
+        {
+          "VAR?": "nested_request_report"
+        },
+        "str",
+        "^",
+        "/str",
+        "!=",
+        "/ev",
+        [
+          {
+            "->": ".^.b",
+            "c": true
+          },
+          {
+            "b": [
+              "^ ",
+              "ev",
+              {
+                "VAR?": "nested_request_report"
+              },
+              "out",
+              "/ev",
+              {
+                "->": ".^.^.^.17"
+              },
+              null
+            ]
+          }
+        ],
+        "nop",
+        "\n",
+        "end",
+        null
+      ],
+      "nested_known_reports": [
+        "ev",
+        {
+          "VAR?": "nested_issuer_outcome"
+        },
+        "str",
+        "^",
+        "/str",
+        "!=",
+        "/ev",
+        [
+          {
+            "->": ".^.b",
+            "c": true
+          },
+          {
+            "b": [
+              "\n",
+              "^The issuer's disclosed outcome: ",
+              "ev",
+              {
+                "VAR?": "nested_issuer_outcome"
+              },
+              "out",
+              "/ev",
+              "\n",
+              {
+                "->": ".^.^.^.9"
+              },
+              null
+            ]
+          }
+        ],
+        [
+          {
+            "->": ".^.b"
+          },
+          {
+            "b": [
+              "\n",
+              "^No issuer outcome has been disclosed here.",
+              "\n",
+              {
+                "->": ".^.^.^.9"
+              },
+              null
+            ]
+          }
+        ],
+        "nop",
+        "\n",
+        "ev",
+        {
+          "VAR?": "nested_local_outcome"
+        },
+        "str",
+        "^",
+        "/str",
+        "!=",
+        "/ev",
+        [
+          {
+            "->": ".^.b",
+            "c": true
+          },
+          {
+            "b": [
+              "\n",
+              "^The separately disclosed local outcome: ",
+              "ev",
+              {
+                "VAR?": "nested_local_outcome"
+              },
+              "out",
+              "/ev",
+              "\n",
+              {
+                "->": ".^.^.^.20"
+              },
+              null
+            ]
+          }
+        ],
+        [
+          {
+            "->": ".^.b"
+          },
+          {
+            "b": [
+              "\n",
+              "^No local welfare outcome has been disclosed here.",
+              "\n",
+              {
+                "->": ".^.^.^.20"
+              },
+              null
+            ]
+          }
+        ],
+        "nop",
+        "\n",
+        "ev",
+        {
+          "VAR?": "nested_recognition_report"
+        },
+        "str",
+        "^",
+        "/str",
+        "!=",
+        "/ev",
+        [
+          {
+            "->": ".^.b",
+            "c": true
+          },
+          {
+            "b": [
+              "^ Your disclosed recognition record: ",
+              "ev",
+              {
+                "VAR?": "nested_recognition_report"
+              },
+              "out",
+              "/ev",
+              {
+                "->": ".^.^.^.30"
+              },
+              null
+            ]
+          }
+        ],
+        "nop",
+        "\n",
+        "ev",
+        {
+          "VAR?": "nested_method_report"
+        },
+        "str",
+        "^",
+        "/str",
+        "!=",
+        "/ev",
+        [
+          {
+            "->": ".^.b",
+            "c": true
+          },
+          {
+            "b": [
+              "^ Your disclosed method record: ",
+              "ev",
+              {
+                "VAR?": "nested_method_report"
+              },
+              "out",
+              "/ev",
+              {
+                "->": ".^.^.^.40"
+              },
+              null
+            ]
+          }
+        ],
+        "nop",
+        "\n",
+        "ev",
+        {
+          "VAR?": "nested_welfare_report"
+        },
+        "str",
+        "^",
+        "/str",
+        "!=",
+        "/ev",
+        [
+          {
+            "->": ".^.b",
+            "c": true
+          },
+          {
+            "b": [
+              "^ Your disclosed welfare record: ",
+              "ev",
+              {
+                "VAR?": "nested_welfare_report"
+              },
+              "out",
+              "/ev",
+              {
+                "->": ".^.^.^.50"
+              },
+              null
+            ]
+          }
+        ],
+        "nop",
+        "\n",
+        "ev",
+        "void",
+        "/ev",
+        "->->",
+        null
+      ],
+      "nested_local_extend": [
+        "^Your extension request is accepted for the stage permitted by the current contract. A request is not an unstated extra period.",
+        "\n",
+        "ev",
+        {
+          "VAR?": "nested_request_report"
+        },
+        "str",
+        "^",
+        "/str",
+        "!=",
+        "/ev",
+        [
+          {
+            "->": ".^.b",
+            "c": true
+          },
+          {
+            "b": [
+              "^ ",
+              "ev",
+              {
+                "VAR?": "nested_request_report"
+              },
+              "out",
+              "/ev",
+              {
+                "->": ".^.^.^.10"
+              },
+              null
+            ]
+          }
+        ],
+        "nop",
+        "\n",
+        "end",
+        null
+      ],
+      "nested_local_extract": [
+        "^Your request for the offered extraction stage is accepted. Initiating extraction does not confirm hub arrival.",
+        "\n",
+        "ev",
+        {
+          "VAR?": "nested_request_report"
+        },
+        "str",
+        "^",
+        "/str",
+        "!=",
+        "/ev",
+        [
+          {
+            "->": ".^.b",
+            "c": true
+          },
+          {
+            "b": [
+              "^ ",
+              "ev",
+              {
+                "VAR?": "nested_request_report"
+              },
+              "out",
+              "/ev",
+              {
+                "->": ".^.^.^.10"
+              },
+              null
+            ]
+          }
+        ],
+        "nop",
+        "\n",
+        "ev",
+        {
+          "VAR?": "nested_extraction_report"
+        },
+        "str",
+        "^",
+        "/str",
+        "!=",
+        "/ev",
+        [
+          {
+            "->": ".^.b",
+            "c": true
+          },
+          {
+            "b": [
+              "^ Your disclosed extraction record: ",
+              "ev",
+              {
+                "VAR?": "nested_extraction_report"
+              },
+              "out",
+              "/ev",
+              {
+                "->": ".^.^.^.20"
+              },
+              null
+            ]
+          }
+        ],
+        "nop",
+        "\n",
+        "end",
+        null
+      ],
+      "nested_local_leave": [
+        "^You end the local discussion. The existing mission and local records remain as they were accepted.",
+        "\n",
+        "ev",
+        {
+          "VAR?": "nested_request_report"
+        },
+        "str",
+        "^",
+        "/str",
+        "!=",
+        "/ev",
+        [
+          {
+            "->": ".^.b",
+            "c": true
+          },
+          {
+            "b": [
+              "^ ",
+              "ev",
+              {
+                "VAR?": "nested_request_report"
+              },
+              "out",
+              "/ev",
+              {
+                "->": ".^.^.^.10"
+              },
+              null
+            ]
+          }
+        ],
+        "nop",
+        "\n",
+        "end",
+        null
+      ],
+      "nested_local_objective": [
+        "^Your request for the offered objective work is accepted for its stated next step.",
+        "\n",
+        "ev",
+        {
+          "VAR?": "nested_destination_kind"
+        },
+        "str",
+        "^saltworks",
+        "/str",
+        "==",
+        "/ev",
+        [
+          {
+            "->": ".^.b",
+            "c": true
+          },
+          {
+            "b": [
+              "\n",
+              "^\"The machinery has its own needs,\" ",
+              "ev",
+              {
+                "VAR?": "nested_contact_name"
+              },
+              "out",
+              "/ev",
+              "^ says. \"Tell me which work you've taken.\"",
+              "\n",
+              {
+                "->": ".^.^.^.11"
+              },
+              null
+            ]
+          }
+        ],
+        [
+          {
+            "->": ".^.b"
+          },
+          {
+            "b": [
+              "\n",
+              "^\"The commission names its question,\" ",
+              "ev",
+              {
+                "VAR?": "nested_contact_name"
+              },
+              "out",
+              "/ev",
+              "^ says. \"That isn't every question in this room.\"",
+              "\n",
+              {
+                "->": ".^.^.^.11"
+              },
+              null
+            ]
+          }
+        ],
+        "nop",
+        "\n",
+        "ev",
+        {
+          "VAR?": "nested_request_report"
+        },
+        "str",
+        "^",
+        "/str",
+        "!=",
+        "/ev",
+        [
+          {
+            "->": ".^.b",
+            "c": true
+          },
+          {
+            "b": [
+              "^ ",
+              "ev",
+              {
+                "VAR?": "nested_request_report"
+              },
+              "out",
+              "/ev",
+              {
+                "->": ".^.^.^.21"
+              },
+              null
+            ]
+          }
+        ],
+        "nop",
+        "\n",
+        "end",
+        null
+      ],
+      "nested_local_recover": [
+        "^Your request for the currently offered recovery is accepted for its stated step. Its result applies to this extraction.",
+        "\n",
+        "ev",
+        {
+          "VAR?": "nested_request_report"
+        },
+        "str",
+        "^",
+        "/str",
+        "!=",
+        "/ev",
+        [
+          {
+            "->": ".^.b",
+            "c": true
+          },
+          {
+            "b": [
+              "^ ",
+              "ev",
+              {
+                "VAR?": "nested_request_report"
+              },
+              "out",
+              "/ev",
+              {
+                "->": ".^.^.^.10"
+              },
+              null
+            ]
+          }
+        ],
+        "nop",
+        "\n",
+        "ev",
+        {
+          "VAR?": "nested_extraction_report"
+        },
+        "str",
+        "^",
+        "/str",
+        "!=",
+        "/ev",
+        [
+          {
+            "->": ".^.b",
+            "c": true
+          },
+          {
+            "b": [
+              "^ Your disclosed extraction record: ",
+              "ev",
+              {
+                "VAR?": "nested_extraction_report"
+              },
+              "out",
+              "/ev",
+              {
+                "->": ".^.^.^.20"
+              },
+              null
+            ]
+          }
+        ],
+        "nop",
+        "\n",
+        "end",
+        null
+      ],
+      "nested_local_refuse": [
+        "^You refuse the proposed local arrangement. An existing mission or accepted duty still has its recorded terms.",
+        "\n",
+        "ev",
+        {
+          "VAR?": "nested_request_report"
+        },
+        "str",
+        "^",
+        "/str",
+        "!=",
+        "/ev",
+        [
+          {
+            "->": ".^.b",
+            "c": true
+          },
+          {
+            "b": [
+              "^ ",
+              "ev",
+              {
+                "VAR?": "nested_request_report"
+              },
+              "out",
+              "/ev",
+              {
+                "->": ".^.^.^.10"
+              },
+              null
+            ]
+          }
+        ],
+        "nop",
+        "\n",
+        "end",
+        null
+      ],
+      "nested_local_report": [
+        "ev",
+        {
+          "VAR?": "nested_mission_terms"
+        },
+        "str",
+        "^",
+        "/str",
+        "!=",
+        "/ev",
+        [
+          {
+            "->": ".^.b",
+            "c": true
+          },
+          {
+            "b": [
+              "^ Current mission obligations: ",
+              "ev",
+              {
+                "VAR?": "nested_mission_terms"
+              },
+              "out",
+              "/ev",
+              {
+                "->": ".^.^.^.8"
+              },
+              null
+            ]
+          }
+        ],
+        "nop",
+        "\n",
+        "ev",
+        {
+          "VAR?": "nested_cost_terms"
+        },
+        "str",
+        "^",
+        "/str",
+        "!=",
+        "/ev",
+        [
+          {
+            "->": ".^.b",
+            "c": true
+          },
+          {
+            "b": [
+              "^ Current costs and reservations: ",
+              "ev",
+              {
+                "VAR?": "nested_cost_terms"
+              },
+              "out",
+              "/ev",
+              {
+                "->": ".^.^.^.18"
+              },
+              null
+            ]
+          }
+        ],
+        "nop",
+        "\n",
+        "ev",
+        {
+          "VAR?": "nested_extraction_terms"
+        },
+        "str",
+        "^",
+        "/str",
+        "!=",
+        "/ev",
+        [
+          {
+            "->": ".^.b",
+            "c": true
+          },
+          {
+            "b": [
+              "^ Known withdrawal, extraction and recovery terms: ",
+              "ev",
+              {
+                "VAR?": "nested_extraction_terms"
+              },
+              "out",
+              "/ev",
+              {
+                "->": ".^.^.^.28"
+              },
+              null
+            ]
+          }
+        ],
+        "nop",
+        "\n",
+        {
+          "->t->": "nested_known_reports"
+        },
+        {
+          "->": "nested_mission_options"
+        },
+        null
+      ],
+      "nested_local_support": [
+        "^Your local-support request is accepted under the offered means and assent.",
+        "\n",
+        "ev",
+        {
+          "VAR?": "nested_destination_kind"
+        },
+        "str",
+        "^saltworks",
+        "/str",
+        "==",
+        "/ev",
+        [
+          {
+            "->": ".^.b",
+            "c": true
+          },
+          {
+            "b": [
+              "\n",
+              "^\"We have to work with the supplies on hand,\" ",
+              "ev",
+              {
+                "VAR?": "nested_contact_name"
+              },
+              "out",
+              "/ev",
+              "^ says. \"We can discuss whose work comes first.\"",
+              "\n",
+              {
+                "->": ".^.^.^.11"
+              },
+              null
+            ]
+          }
+        ],
+        [
+          {
+            "->": ".^.b"
+          },
+          {
+            "b": [
+              "\n",
+              "^\"A claim needs its evidence heard,\" ",
+              "ev",
+              {
+                "VAR?": "nested_contact_name"
+              },
+              "out",
+              "/ev",
+              "^ says. \"The issuer's seal doesn't answer for the witness.\"",
+              "\n",
+              {
+                "->": ".^.^.^.11"
+              },
+              null
+            ]
+          }
+        ],
+        "nop",
+        "\n",
+        "ev",
+        {
+          "VAR?": "nested_request_report"
+        },
+        "str",
+        "^",
+        "/str",
+        "!=",
+        "/ev",
+        [
+          {
+            "->": ".^.b",
+            "c": true
+          },
+          {
+            "b": [
+              "^ ",
+              "ev",
+              {
+                "VAR?": "nested_request_report"
+              },
+              "out",
+              "/ev",
+              {
+                "->": ".^.^.^.21"
+              },
+              null
+            ]
+          }
+        ],
+        "nop",
+        "\n",
+        "ev",
+        {
+          "VAR?": "nested_welfare_report"
+        },
+        "str",
+        "^",
+        "/str",
+        "!=",
+        "/ev",
+        [
+          {
+            "->": ".^.b",
+            "c": true
+          },
+          {
+            "b": [
+              "^ Your disclosed welfare record: ",
+              "ev",
+              {
+                "VAR?": "nested_welfare_report"
+              },
+              "out",
+              "/ev",
+              {
+                "->": ".^.^.^.31"
+              },
+              null
+            ]
+          }
+        ],
+        "nop",
+        "\n",
+        "end",
+        null
+      ],
+      "nested_local_withdraw": [
+        "^Your withdrawal request is accepted under the disclosed terms. The actual mission outcome and return stage remain separate.",
+        "\n",
+        "ev",
+        {
+          "VAR?": "nested_request_report"
+        },
+        "str",
+        "^",
+        "/str",
+        "!=",
+        "/ev",
+        [
+          {
+            "->": ".^.b",
+            "c": true
+          },
+          {
+            "b": [
+              "^ ",
+              "ev",
+              {
+                "VAR?": "nested_request_report"
+              },
+              "out",
+              "/ev",
+              {
+                "->": ".^.^.^.10"
+              },
+              null
+            ]
+          }
+        ],
+        "nop",
+        "\n",
+        "end",
+        null
+      ],
+      "nested_mission": [
+        "ev",
+        {
+          "VAR?": "nested_local_present"
+        },
+        false,
+        "==",
+        {
+          "VAR?": "nested_entry_context"
+        },
+        "str",
+        "^",
+        "/str",
+        "==",
+        "||",
+        "/ev",
+        [
+          {
+            "->": ".^.b",
+            "c": true
+          },
+          {
+            "b": [
+              "\n",
+              "^A current local meeting and its entry context have not been confirmed.",
+              "\n",
+              "end",
+              {
+                "->": ".^.^.^.12"
+              },
+              null
+            ]
+          }
+        ],
+        "nop",
+        "\n",
+        "ev",
+        {
+          "VAR?": "nested_destination_kind"
+        },
+        "str",
+        "^saltworks",
+        "/str",
+        "!=",
+        {
+          "VAR?": "nested_destination_kind"
+        },
+        "str",
+        "^archive",
+        "/str",
+        "!=",
+        "&&",
+        "/ev",
+        [
+          {
+            "->": ".^.b",
+            "c": true
+          },
+          {
+            "b": [
+              "\n",
+              "^This conversation has no confirmed local setting.",
+              "\n",
+              "end",
+              {
+                "->": ".^.^.^.28"
+              },
+              null
+            ]
+          }
+        ],
+        "nop",
+        "\n",
+        "ev",
+        {
+          "VAR?": "nested_destination_name"
+        },
+        "str",
+        "^",
+        "/str",
+        "!=",
+        "/ev",
+        [
+          {
+            "->": ".^.b",
+            "c": true
+          },
+          {
+            "b": [
+              "^ You are at ",
+              "ev",
+              {
+                "VAR?": "nested_destination_name"
+              },
+              "out",
+              "/ev",
+              "^.",
+              {
+                "->": ".^.^.^.38"
+              },
+              null
+            ]
+          }
+        ],
+        "nop",
+        "\n",
+        "^Your known entry context: ",
+        "ev",
+        {
+          "VAR?": "nested_entry_context"
+        },
+        "out",
+        "/ev",
+        "\n",
+        "ev",
+        {
+          "VAR?": "nested_destination_kind"
+        },
+        "str",
+        "^saltworks",
+        "/str",
+        "==",
+        "/ev",
+        [
+          {
+            "->": ".^.b",
+            "c": true
+          },
+          {
+            "b": [
+              "\n",
+              "^Salt dust outlines the hooks by the door. ",
+              "ev",
+              {
+                "VAR?": "nested_contact_name"
+              },
+              "out",
+              "/ev",
+              "^ rubs a stiff cloth between two fingers.",
+              "\n",
+              "^\"I used to get that clean,\" they say. \"Before lunch, usually. Tell me what you've agreed to do.\"",
+              "\n",
+              {
+                "->": ".^.^.^.55"
+              },
+              null
+            ]
+          }
+        ],
+        [
+          {
+            "->": ".^.b"
+          },
+          {
+            "b": [
+              "\n",
+              "^A blotter covers one corner of the desk. ",
+              "ev",
+              {
+                "VAR?": "nested_contact_name"
+              },
+              "out",
+              "/ev",
+              "^ returns a bookmark to its place before looking up.",
+              "\n",
+              "^\"You may disagree with the entry,\" they say. \"Let me find the right page first.\"",
+              "\n",
+              {
+                "->": ".^.^.^.55"
+              },
+              null
+            ]
+          }
+        ],
+        "nop",
+        "\n",
+        "ev",
+        {
+          "VAR?": "nested_prior_exchange"
+        },
+        "str",
+        "^",
+        "/str",
+        "!=",
+        "/ev",
+        [
+          {
+            "->": ".^.b",
+            "c": true
+          },
+          {
+            "b": [
+              "^ Your earlier exchange in this local mission: ",
+              "ev",
+              {
+                "VAR?": "nested_prior_exchange"
+              },
+              "out",
+              "/ev",
+              {
+                "->": ".^.^.^.65"
+              },
+              null
+            ]
+          }
+        ],
+        "nop",
+        "\n",
+        "ev",
+        {
+          "VAR?": "nested_purpose"
+        },
+        "str",
+        "^",
+        "/str",
+        "!=",
+        "/ev",
+        [
+          {
+            "->": ".^.b",
+            "c": true
+          },
+          {
+            "b": [
+              "^ Your disclosed mission purpose: ",
+              "ev",
+              {
+                "VAR?": "nested_purpose"
+              },
+              "out",
+              "/ev",
+              {
+                "->": ".^.^.^.75"
+              },
+              null
+            ]
+          }
+        ],
+        "nop",
+        "\n",
+        "ev",
+        {
+          "VAR?": "nested_welfare_terms"
+        },
+        "str",
+        "^",
+        "/str",
+        "!=",
+        "/ev",
+        [
+          {
+            "->": ".^.b",
+            "c": true
+          },
+          {
+            "b": [
+              "^ The disclosed local concern: ",
+              "ev",
+              {
+                "VAR?": "nested_welfare_terms"
+              },
+              "out",
+              "/ev",
+              {
+                "->": ".^.^.^.85"
+              },
+              null
+            ]
+          }
+        ],
+        "nop",
+        "\n",
+        {
+          "->": "nested_mission_options"
+        },
+        null
+      ],
+      "nested_mission_options": [
+        [
+          "ev",
+          "str",
+          "^Ask for the currently disclosed local and mission account. ",
+          "#",
+          "^response:nested_local_report ",
+          "/#",
+          "/str",
+          "/ev",
+          {
+            "*": ".^.c-0",
+            "flg": 20
+          },
+          "ev",
+          "str",
+          "^Request the offered objective work. ",
+          "#",
+          "^response:nested_local_objective ",
+          "/#",
+          "/str",
+          {
+            "VAR?": "nested_terms_known"
+          },
+          {
+            "VAR?": "nested_objective_offered"
+          },
+          "&&",
+          "/ev",
+          {
+            "*": ".^.c-1",
+            "flg": 21
+          },
+          "ev",
+          "str",
+          "^Request the offered help for the local concern. ",
+          "#",
+          "^response:nested_local_support ",
+          "/#",
+          "/str",
+          {
+            "VAR?": "nested_terms_known"
+          },
+          {
+            "VAR?": "nested_support_offered"
+          },
+          "&&",
+          "/ev",
+          {
+            "*": ".^.c-2",
+            "flg": 21
+          },
+          "ev",
+          "str",
+          "^Request the stated mission extension. ",
+          "#",
+          "^response:nested_local_extend ",
+          "/#",
+          "/str",
+          {
+            "VAR?": "nested_terms_known"
+          },
+          {
+            "VAR?": "nested_extension_offered"
+          },
+          "&&",
+          "/ev",
+          {
+            "*": ".^.c-3",
+            "flg": 21
+          },
+          "ev",
+          "str",
+          "^Request withdrawal under the known terms. ",
+          "#",
+          "^response:nested_local_withdraw ",
+          "/#",
+          "/str",
+          {
+            "VAR?": "nested_terms_known"
+          },
+          {
+            "VAR?": "nested_withdrawal_offered"
+          },
+          "&&",
+          "/ev",
+          {
+            "*": ".^.c-4",
+            "flg": 21
+          },
+          "ev",
+          "str",
+          "^Request the offered extraction stage. ",
+          "#",
+          "^response:nested_local_extract ",
+          "/#",
+          "/str",
+          {
+            "VAR?": "nested_terms_known"
+          },
+          {
+            "VAR?": "nested_extraction_offered"
+          },
+          "&&",
+          "/ev",
+          {
+            "*": ".^.c-5",
+            "flg": 21
+          },
+          "ev",
+          "str",
+          "^Request the disclosed extraction recovery. ",
+          "#",
+          "^response:nested_local_recover ",
+          "/#",
+          "/str",
+          {
+            "VAR?": "nested_terms_known"
+          },
+          {
+            "VAR?": "nested_recovery_offered"
+          },
+          "&&",
+          "/ev",
+          {
+            "*": ".^.c-6",
+            "flg": 21
+          },
+          "ev",
+          "str",
+          "^Refuse the currently proposed local arrangement. ",
+          "#",
+          "^response:nested_local_refuse ",
+          "/#",
+          "/str",
+          "/ev",
+          {
+            "*": ".^.c-7",
+            "flg": 20
+          },
+          "ev",
+          "str",
+          "^End this local discussion. ",
+          "#",
+          "^response:nested_local_leave ",
+          "/#",
+          "/str",
+          "/ev",
+          {
+            "*": ".^.c-8",
+            "flg": 20
+          },
+          {
+            "c-0": [
+              "\n",
+              {
+                "->": "nested_local_report"
+              },
+              {
+                "#f": 5
+              }
+            ],
+            "c-1": [
+              "\n",
+              {
+                "->": "nested_local_objective"
+              },
+              {
+                "#f": 5
+              }
+            ],
+            "c-2": [
+              "\n",
+              {
+                "->": "nested_local_support"
+              },
+              {
+                "#f": 5
+              }
+            ],
+            "c-3": [
+              "\n",
+              {
+                "->": "nested_local_extend"
+              },
+              {
+                "#f": 5
+              }
+            ],
+            "c-4": [
+              "\n",
+              {
+                "->": "nested_local_withdraw"
+              },
+              {
+                "#f": 5
+              }
+            ],
+            "c-5": [
+              "\n",
+              {
+                "->": "nested_local_extract"
+              },
+              {
+                "#f": 5
+              }
+            ],
+            "c-6": [
+              "\n",
+              {
+                "->": "nested_local_recover"
+              },
+              {
+                "#f": 5
+              }
+            ],
+            "c-7": [
+              "\n",
+              {
+                "->": "nested_local_refuse"
+              },
+              {
+                "#f": 5
+              }
+            ],
+            "c-8": [
+              "\n",
+              {
+                "->": "nested_local_leave"
+              },
+              {
+                "#f": 5
+              }
+            ]
+          }
+        ],
+        null
+      ],
+      "nested_offer": [
+        "ev",
+        {
+          "VAR?": "nested_hub_present"
+        },
+        false,
+        "==",
+        {
+          "VAR?": "nested_offer_visible"
+        },
+        false,
+        "==",
+        "||",
+        "/ev",
+        [
+          {
+            "->": ".^.b",
+            "c": true
+          },
+          {
+            "b": [
+              "\n",
+              "^No current mission offer has been disclosed here.",
+              "\n",
+              "end",
+              {
+                "->": ".^.^.^.10"
+              },
+              null
+            ]
+          }
+        ],
+        "nop",
+        "\n",
+        "ev",
+        {
+          "VAR?": "nested_issuer_name"
+        },
+        "str",
+        "^",
+        "/str",
+        "!=",
+        "/ev",
+        [
+          {
+            "->": ".^.b",
+            "c": true
+          },
+          {
+            "b": [
+              "^ The disclosed issuer is ",
+              "ev",
+              {
+                "VAR?": "nested_issuer_name"
+              },
+              "out",
+              "/ev",
+              "^.",
+              {
+                "->": ".^.^.^.20"
+              },
+              null
+            ]
+          }
+        ],
+        "nop",
+        "\n",
+        "ev",
+        {
+          "VAR?": "nested_destination_name"
+        },
+        "str",
+        "^",
+        "/str",
+        "!=",
+        "/ev",
+        [
+          {
+            "->": ".^.b",
+            "c": true
+          },
+          {
+            "b": [
+              "^ The offered destination is ",
+              "ev",
+              {
+                "VAR?": "nested_destination_name"
+              },
+              "out",
+              "/ev",
+              "^.",
+              {
+                "->": ".^.^.^.30"
+              },
+              null
+            ]
+          }
+        ],
+        "nop",
+        "\n",
+        "ev",
+        {
+          "VAR?": "nested_purpose"
+        },
+        "str",
+        "^",
+        "/str",
+        "!=",
+        "/ev",
+        [
+          {
+            "->": ".^.b",
+            "c": true
+          },
+          {
+            "b": [
+              "^ The stated purpose: ",
+              "ev",
+              {
+                "VAR?": "nested_purpose"
+              },
+              "out",
+              "/ev",
+              {
+                "->": ".^.^.^.40"
+              },
+              null
+            ]
+          }
+        ],
+        "nop",
+        "\n",
+        "ev",
+        {
+          "VAR?": "nested_prior_exchange"
+        },
+        "str",
+        "^",
+        "/str",
+        "!=",
+        "/ev",
+        [
+          {
+            "->": ".^.b",
+            "c": true
+          },
+          {
+            "b": [
+              "^ Your earlier exchange about this offer: ",
+              "ev",
+              {
+                "VAR?": "nested_prior_exchange"
+              },
+              "out",
+              "/ev",
+              {
+                "->": ".^.^.^.50"
+              },
+              null
+            ]
+          }
+        ],
+        "nop",
+        "\n",
+        "ev",
+        {
+          "VAR?": "nested_contact_name"
+        },
+        "out",
+        "/ev",
+        "^ straightens a corner of the offer sheet, then gives up on it.",
+        "\n",
+        "^\"Read it crooked, then. The terms are the same.\"",
+        "\n",
+        {
+          "->": "nested_offer_options"
+        },
+        null
+      ],
+      "nested_offer_accept": [
+        "^Your acceptance is recorded under the offered commitment and entry terms. Acceptance and arrival have separate records.",
+        "\n",
+        "ev",
+        {
+          "VAR?": "nested_request_report"
+        },
+        "str",
+        "^",
+        "/str",
+        "!=",
+        "/ev",
+        [
+          {
+            "->": ".^.b",
+            "c": true
+          },
+          {
+            "b": [
+              "^ ",
+              "ev",
+              {
+                "VAR?": "nested_request_report"
+              },
+              "out",
+              "/ev",
+              {
+                "->": ".^.^.^.10"
+              },
+              null
+            ]
+          }
+        ],
+        "nop",
+        "\n",
+        "end",
+        null
+      ],
+      "nested_offer_cooperate": [
+        "^Your request for the offered cooperative approach is accepted for its stated next step.",
+        "\n",
+        "^Local assent, shared means and the issuer's obligation still have their own terms.",
+        "\n",
+        "ev",
+        {
+          "VAR?": "nested_request_report"
+        },
+        "str",
+        "^",
+        "/str",
+        "!=",
+        "/ev",
+        [
+          {
+            "->": ".^.b",
+            "c": true
+          },
+          {
+            "b": [
+              "^ ",
+              "ev",
+              {
+                "VAR?": "nested_request_report"
+              },
+              "out",
+              "/ev",
+              {
+                "->": ".^.^.^.12"
+              },
+              null
+            ]
+          }
+        ],
+        "nop",
+        "\n",
+        "end",
+        null
+      ],
+      "nested_offer_decline": [
+        "^You decline the offer. ",
+        "ev",
+        {
+          "VAR?": "nested_contact_name"
+        },
+        "out",
+        "/ev",
+        "^ draws the sheet back without an argument.",
+        "\n",
+        "ev",
+        {
+          "VAR?": "nested_request_report"
+        },
+        "str",
+        "^",
+        "/str",
+        "!=",
+        "/ev",
+        [
+          {
+            "->": ".^.b",
+            "c": true
+          },
+          {
+            "b": [
+              "^ ",
+              "ev",
+              {
+                "VAR?": "nested_request_report"
+              },
+              "out",
+              "/ev",
+              {
+                "->": ".^.^.^.15"
+              },
+              null
+            ]
+          }
+        ],
+        "nop",
+        "\n",
+        "end",
+        null
+      ],
+      "nested_offer_leave": [
+        "^You end the offer discussion without selecting another response.",
+        "\n",
+        "ev",
+        {
+          "VAR?": "nested_request_report"
+        },
+        "str",
+        "^",
+        "/str",
+        "!=",
+        "/ev",
+        [
+          {
+            "->": ".^.b",
+            "c": true
+          },
+          {
+            "b": [
+              "^ ",
+              "ev",
+              {
+                "VAR?": "nested_request_report"
+              },
+              "out",
+              "/ev",
+              {
+                "->": ".^.^.^.10"
+              },
+              null
+            ]
+          }
+        ],
+        "nop",
+        "\n",
+        "end",
+        null
+      ],
+      "nested_offer_options": [
+        [
+          "ev",
+          "str",
+          "^Read the actual offer, entry and return conditions. ",
+          "#",
+          "^response:nested_offer_terms ",
+          "/#",
+          "/str",
+          "/ev",
+          {
+            "*": ".^.c-0",
+            "flg": 20
+          },
+          "ev",
+          "str",
+          "^Accept this offered mission under its current terms. ",
+          "#",
+          "^response:nested_offer_accept ",
+          "/#",
+          "/str",
+          {
+            "VAR?": "nested_terms_known"
+          },
+          "/ev",
+          {
+            "*": ".^.c-1",
+            "flg": 21
+          },
+          "ev",
+          "str",
+          "^Request the offered cooperative approach. ",
+          "#",
+          "^response:nested_offer_cooperate ",
+          "/#",
+          "/str",
+          {
+            "VAR?": "nested_terms_known"
+          },
+          {
+            "VAR?": "nested_cooperation_offered"
+          },
+          "&&",
+          "/ev",
+          {
+            "*": ".^.c-2",
+            "flg": 21
+          },
+          "ev",
+          "str",
+          "^Decline this mission offer. ",
+          "#",
+          "^response:nested_offer_decline ",
+          "/#",
+          "/str",
+          "/ev",
+          {
+            "*": ".^.c-3",
+            "flg": 20
+          },
+          "ev",
+          "str",
+          "^Leave the offer discussion open for now. ",
+          "#",
+          "^response:nested_offer_leave ",
+          "/#",
+          "/str",
+          "/ev",
+          {
+            "*": ".^.c-4",
+            "flg": 20
+          },
+          {
+            "c-0": [
+              "\n",
+              {
+                "->": "nested_offer_terms"
+              },
+              {
+                "#f": 5
+              }
+            ],
+            "c-1": [
+              "\n",
+              {
+                "->": "nested_offer_accept"
+              },
+              {
+                "#f": 5
+              }
+            ],
+            "c-2": [
+              "\n",
+              {
+                "->": "nested_offer_cooperate"
+              },
+              {
+                "#f": 5
+              }
+            ],
+            "c-3": [
+              "\n",
+              {
+                "->": "nested_offer_decline"
+              },
+              {
+                "#f": 5
+              }
+            ],
+            "c-4": [
+              "\n",
+              {
+                "->": "nested_offer_leave"
+              },
+              {
+                "#f": 5
+              }
+            ]
+          }
+        ],
+        null
+      ],
+      "nested_offer_terms": [
+        "ev",
+        {
+          "VAR?": "nested_mission_terms"
+        },
+        "str",
+        "^",
+        "/str",
+        "!=",
+        "/ev",
+        [
+          {
+            "->": ".^.b",
+            "c": true
+          },
+          {
+            "b": [
+              "^ Mission obligations and issuer authority: ",
+              "ev",
+              {
+                "VAR?": "nested_mission_terms"
+              },
+              "out",
+              "/ev",
+              {
+                "->": ".^.^.^.8"
+              },
+              null
+            ]
+          }
+        ],
+        "nop",
+        "\n",
+        "ev",
+        {
+          "VAR?": "nested_entry_context"
+        },
+        "str",
+        "^",
+        "/str",
+        "!=",
+        "/ev",
+        [
+          {
+            "->": ".^.b",
+            "c": true
+          },
+          {
+            "b": [
+              "^ Disclosed entry context: ",
+              "ev",
+              {
+                "VAR?": "nested_entry_context"
+              },
+              "out",
+              "/ev",
+              {
+                "->": ".^.^.^.18"
+              },
+              null
+            ]
+          }
+        ],
+        "nop",
+        "\n",
+        "ev",
+        {
+          "VAR?": "nested_cost_terms"
+        },
+        "str",
+        "^",
+        "/str",
+        "!=",
+        "/ev",
+        [
+          {
+            "->": ".^.b",
+            "c": true
+          },
+          {
+            "b": [
+              "^ Current costs and reservations: ",
+              "ev",
+              {
+                "VAR?": "nested_cost_terms"
+              },
+              "out",
+              "/ev",
+              {
+                "->": ".^.^.^.28"
+              },
+              null
+            ]
+          }
+        ],
+        "nop",
+        "\n",
+        "ev",
+        {
+          "VAR?": "nested_welfare_terms"
+        },
+        "str",
+        "^",
+        "/str",
+        "!=",
+        "/ev",
+        [
+          {
+            "->": ".^.b",
+            "c": true
+          },
+          {
+            "b": [
+              "^ The separately disclosed local concern: ",
+              "ev",
+              {
+                "VAR?": "nested_welfare_terms"
+              },
+              "out",
+              "/ev",
+              {
+                "->": ".^.^.^.38"
+              },
+              null
+            ]
+          }
+        ],
+        "nop",
+        "\n",
+        "ev",
+        {
+          "VAR?": "nested_portability_terms"
+        },
+        "str",
+        "^",
+        "/str",
+        "!=",
+        "/ev",
+        [
+          {
+            "->": ".^.b",
+            "c": true
+          },
+          {
+            "b": [
+              "^ Body, belongings and method passage: ",
+              "ev",
+              {
+                "VAR?": "nested_portability_terms"
+              },
+              "out",
+              "/ev",
+              {
+                "->": ".^.^.^.48"
+              },
+              null
+            ]
+          }
+        ],
+        "nop",
+        "\n",
+        "ev",
+        {
+          "VAR?": "nested_extraction_terms"
+        },
+        "str",
+        "^",
+        "/str",
+        "!=",
+        "/ev",
+        [
+          {
+            "->": ".^.b",
+            "c": true
+          },
+          {
+            "b": [
+              "^ Return, extension and recovery terms: ",
+              "ev",
+              {
+                "VAR?": "nested_extraction_terms"
+              },
+              "out",
+              "/ev",
+              {
+                "->": ".^.^.^.58"
+              },
+              null
+            ]
+          }
+        ],
+        "nop",
+        "\n",
+        "^\"I can issue this offer,\" ",
+        "ev",
+        {
+          "VAR?": "nested_contact_name"
+        },
+        "out",
+        "/ev",
+        "^ says. \"That doesn't let me speak for everyone you'll meet.\"",
+        "\n",
+        {
+          "->": "nested_offer_options"
+        },
+        null
+      ],
+      "nested_return": [
+        "ev",
+        {
+          "VAR?": "nested_hub_present"
+        },
+        false,
+        "==",
+        {
+          "VAR?": "nested_return_arrived"
+        },
+        false,
+        "==",
+        "||",
+        "/ev",
+        [
+          {
+            "->": ".^.b",
+            "c": true
+          },
+          {
+            "b": [
+              "\n",
+              "^Actual arrival at the hub has not been confirmed for this return.",
+              "\n",
+              "end",
+              {
+                "->": ".^.^.^.10"
+              },
+              null
+            ]
+          }
+        ],
+        "nop",
+        "\n",
+        "ev",
+        {
+          "VAR?": "nested_hub_name"
+        },
+        "str",
+        "^",
+        "/str",
+        "!=",
+        "/ev",
+        [
+          {
+            "->": ".^.b",
+            "c": true
+          },
+          {
+            "b": [
+              "^ You have arrived at ",
+              "ev",
+              {
+                "VAR?": "nested_hub_name"
+              },
+              "out",
+              "/ev",
+              "^.",
+              {
+                "->": ".^.^.^.20"
+              },
+              null
+            ]
+          }
+        ],
+        "nop",
+        "\n",
+        "ev",
+        {
+          "VAR?": "nested_contact_name"
+        },
+        "out",
+        "/ev",
+        "^ has a fresh cup and the same chipped saucer.",
+        "\n",
+        "^\"You can sit,\" they say. \"I'll read while you drink.\"",
+        "\n",
+        "ev",
+        {
+          "VAR?": "nested_prior_exchange"
+        },
+        "str",
+        "^",
+        "/str",
+        "!=",
+        "/ev",
+        [
+          {
+            "->": ".^.b",
+            "c": true
+          },
+          {
+            "b": [
+              "^ Your earlier exchange about this return: ",
+              "ev",
+              {
+                "VAR?": "nested_prior_exchange"
+              },
+              "out",
+              "/ev",
+              {
+                "->": ".^.^.^.38"
+              },
+              null
+            ]
+          }
+        ],
+        "nop",
+        "\n",
+        "ev",
+        {
+          "VAR?": "nested_extraction_report"
+        },
+        "str",
+        "^",
+        "/str",
+        "!=",
+        "/ev",
+        [
+          {
+            "->": ".^.b",
+            "c": true
+          },
+          {
+            "b": [
+              "^ Your disclosed return record: ",
+              "ev",
+              {
+                "VAR?": "nested_extraction_report"
+              },
+              "out",
+              "/ev",
+              {
+                "->": ".^.^.^.48"
+              },
+              null
+            ]
+          }
+        ],
+        "nop",
+        "\n",
+        {
+          "->t->": "nested_known_reports"
+        },
+        {
+          "->": "nested_return_options"
+        },
+        null
+      ],
+      "nested_return_dispute": [
+        "^Your review request is accepted with the available account and evidence. A requested review is not a favorable ruling.",
+        "\n",
+        "ev",
+        {
+          "VAR?": "nested_request_report"
+        },
+        "str",
+        "^",
+        "/str",
+        "!=",
+        "/ev",
+        [
+          {
+            "->": ".^.b",
+            "c": true
+          },
+          {
+            "b": [
+              "^ ",
+              "ev",
+              {
+                "VAR?": "nested_request_report"
+              },
+              "out",
+              "/ev",
+              {
+                "->": ".^.^.^.10"
+              },
+              null
+            ]
+          }
+        ],
+        "nop",
+        "\n",
+        "ev",
+        {
+          "VAR?": "nested_recognition_report"
+        },
+        "str",
+        "^",
+        "/str",
+        "!=",
+        "/ev",
+        [
+          {
+            "->": ".^.b",
+            "c": true
+          },
+          {
+            "b": [
+              "^ Your disclosed recognition record: ",
+              "ev",
+              {
+                "VAR?": "nested_recognition_report"
+              },
+              "out",
+              "/ev",
+              {
+                "->": ".^.^.^.20"
+              },
+              null
+            ]
+          }
+        ],
+        "nop",
+        "\n",
+        "ev",
+        {
+          "VAR?": "nested_welfare_report"
+        },
+        "str",
+        "^",
+        "/str",
+        "!=",
+        "/ev",
+        [
+          {
+            "->": ".^.b",
+            "c": true
+          },
+          {
+            "b": [
+              "^ Your disclosed welfare record: ",
+              "ev",
+              {
+                "VAR?": "nested_welfare_report"
+              },
+              "out",
+              "/ev",
+              {
+                "->": ".^.^.^.30"
+              },
+              null
+            ]
+          }
+        ],
+        "nop",
+        "\n",
+        "end",
+        null
+      ],
+      "nested_return_leave": [
+        "^You end the report discussion. ",
+        "ev",
+        {
+          "VAR?": "nested_contact_name"
+        },
+        "out",
+        "/ev",
+        "^ moves the cup out of the way of the papers.",
+        "\n",
+        "ev",
+        {
+          "VAR?": "nested_request_report"
+        },
+        "str",
+        "^",
+        "/str",
+        "!=",
+        "/ev",
+        [
+          {
+            "->": ".^.b",
+            "c": true
+          },
+          {
+            "b": [
+              "^ ",
+              "ev",
+              {
+                "VAR?": "nested_request_report"
+              },
+              "out",
+              "/ev",
+              {
+                "->": ".^.^.^.15"
+              },
+              null
+            ]
+          }
+        ],
+        "nop",
+        "\n",
+        "end",
+        null
+      ],
+      "nested_return_options": [
+        [
+          "ev",
+          "str",
+          "^Review the issuer result and separate local aftermath. ",
+          "#",
+          "^response:nested_return_report ",
+          "/#",
+          "/str",
+          "/ev",
+          {
+            "*": ".^.c-0",
+            "flg": 20
+          },
+          "ev",
+          "str",
+          "^Request the offered mission settlement. ",
+          "#",
+          "^response:nested_return_settle ",
+          "/#",
+          "/str",
+          {
+            "VAR?": "nested_terms_known"
+          },
+          {
+            "VAR?": "nested_settlement_offered"
+          },
+          "&&",
+          "/ev",
+          {
+            "*": ".^.c-1",
+            "flg": 21
+          },
+          "ev",
+          "str",
+          "^Request review of the disclosed disputed account. ",
+          "#",
+          "^response:nested_return_dispute ",
+          "/#",
+          "/str",
+          {
+            "VAR?": "nested_terms_known"
+          },
+          {
+            "VAR?": "nested_dispute_offered"
+          },
+          "&&",
+          "/ev",
+          {
+            "*": ".^.c-2",
+            "flg": 21
+          },
+          "ev",
+          "str",
+          "^Go to the offered workroom to arrange a refit. ",
+          "#",
+          "^response:nested_return_refit ",
+          "/#",
+          "/str",
+          {
+            "VAR?": "nested_terms_known"
+          },
+          {
+            "VAR?": "nested_refit_offered"
+          },
+          "&&",
+          "/ev",
+          {
+            "*": ".^.c-3",
+            "flg": 21
+          },
+          "ev",
+          "str",
+          "^Request the offered revisit to the retained destination. ",
+          "#",
+          "^response:nested_return_revisit ",
+          "/#",
+          "/str",
+          {
+            "VAR?": "nested_terms_known"
+          },
+          {
+            "VAR?": "nested_revisit_offered"
+          },
+          "&&",
+          "/ev",
+          {
+            "*": ".^.c-4",
+            "flg": 21
+          },
+          "ev",
+          "str",
+          "^Request the offered continued hub residence. ",
+          "#",
+          "^response:nested_return_stay ",
+          "/#",
+          "/str",
+          {
+            "VAR?": "nested_terms_known"
+          },
+          {
+            "VAR?": "nested_residence_offered"
+          },
+          "&&",
+          "/ev",
+          {
+            "*": ".^.c-5",
+            "flg": 21
+          },
+          "ev",
+          "str",
+          "^End the return discussion. ",
+          "#",
+          "^response:nested_return_leave ",
+          "/#",
+          "/str",
+          "/ev",
+          {
+            "*": ".^.c-6",
+            "flg": 20
+          },
+          {
+            "c-0": [
+              "\n",
+              {
+                "->": "nested_return_report"
+              },
+              {
+                "#f": 5
+              }
+            ],
+            "c-1": [
+              "\n",
+              {
+                "->": "nested_return_settle"
+              },
+              {
+                "#f": 5
+              }
+            ],
+            "c-2": [
+              "\n",
+              {
+                "->": "nested_return_dispute"
+              },
+              {
+                "#f": 5
+              }
+            ],
+            "c-3": [
+              "\n",
+              {
+                "->": "nested_return_refit"
+              },
+              {
+                "#f": 5
+              }
+            ],
+            "c-4": [
+              "\n",
+              {
+                "->": "nested_return_revisit"
+              },
+              {
+                "#f": 5
+              }
+            ],
+            "c-5": [
+              "\n",
+              {
+                "->": "nested_return_stay"
+              },
+              {
+                "#f": 5
+              }
+            ],
+            "c-6": [
+              "\n",
+              {
+                "->": "nested_return_leave"
+              },
+              {
+                "#f": 5
+              }
+            ]
+          }
+        ],
+        null
+      ],
+      "nested_return_refit": [
+        "^Your visit to the workroom is accepted. Arrange the actual refit there under its own stated means and costs.",
+        "\n",
+        "ev",
+        {
+          "VAR?": "nested_request_report"
+        },
+        "str",
+        "^",
+        "/str",
+        "!=",
+        "/ev",
+        [
+          {
+            "->": ".^.b",
+            "c": true
+          },
+          {
+            "b": [
+              "^ ",
+              "ev",
+              {
+                "VAR?": "nested_request_report"
+              },
+              "out",
+              "/ev",
+              {
+                "->": ".^.^.^.10"
+              },
+              null
+            ]
+          }
+        ],
+        "nop",
+        "\n",
+        "ev",
+        {
+          "VAR?": "nested_method_report"
+        },
+        "str",
+        "^",
+        "/str",
+        "!=",
+        "/ev",
+        [
+          {
+            "->": ".^.b",
+            "c": true
+          },
+          {
+            "b": [
+              "^ Your disclosed method record: ",
+              "ev",
+              {
+                "VAR?": "nested_method_report"
+              },
+              "out",
+              "/ev",
+              {
+                "->": ".^.^.^.20"
+              },
+              null
+            ]
+          }
+        ],
+        "nop",
+        "\n",
+        "end",
+        null
+      ],
+      "nested_return_report": [
+        "ev",
+        {
+          "VAR?": "nested_mission_terms"
+        },
+        "str",
+        "^",
+        "/str",
+        "!=",
+        "/ev",
+        [
+          {
+            "->": ".^.b",
+            "c": true
+          },
+          {
+            "b": [
+              "^ Disclosed settlement and review terms: ",
+              "ev",
+              {
+                "VAR?": "nested_mission_terms"
+              },
+              "out",
+              "/ev",
+              {
+                "->": ".^.^.^.8"
+              },
+              null
+            ]
+          }
+        ],
+        "nop",
+        "\n",
+        "ev",
+        {
+          "VAR?": "nested_cost_terms"
+        },
+        "str",
+        "^",
+        "/str",
+        "!=",
+        "/ev",
+        [
+          {
+            "->": ".^.b",
+            "c": true
+          },
+          {
+            "b": [
+              "^ Current settlement, residence or service costs: ",
+              "ev",
+              {
+                "VAR?": "nested_cost_terms"
+              },
+              "out",
+              "/ev",
+              {
+                "->": ".^.^.^.18"
+              },
+              null
+            ]
+          }
+        ],
+        "nop",
+        "\n",
+        "ev",
+        {
+          "VAR?": "nested_portability_terms"
+        },
+        "str",
+        "^",
+        "/str",
+        "!=",
+        "/ev",
+        [
+          {
+            "->": ".^.b",
+            "c": true
+          },
+          {
+            "b": [
+              "^ Known retained-carrier conditions: ",
+              "ev",
+              {
+                "VAR?": "nested_portability_terms"
+              },
+              "out",
+              "/ev",
+              {
+                "->": ".^.^.^.28"
+              },
+              null
+            ]
+          }
+        ],
+        "nop",
+        "\n",
+        {
+          "->t->": "nested_known_reports"
+        },
+        "^\"The issuer's account and the local account can differ,\" ",
+        "ev",
+        {
+          "VAR?": "nested_contact_name"
+        },
+        "out",
+        "/ev",
+        "^ says. \"I'll keep their names on their own pages.\"",
+        "\n",
+        {
+          "->": "nested_return_options"
+        },
+        null
+      ],
+      "nested_return_revisit": [
+        "^Your revisit request is accepted under the currently offered passage terms. That request does not establish another arrival.",
+        "\n",
+        "ev",
+        {
+          "VAR?": "nested_request_report"
+        },
+        "str",
+        "^",
+        "/str",
+        "!=",
+        "/ev",
+        [
+          {
+            "->": ".^.b",
+            "c": true
+          },
+          {
+            "b": [
+              "^ ",
+              "ev",
+              {
+                "VAR?": "nested_request_report"
+              },
+              "out",
+              "/ev",
+              {
+                "->": ".^.^.^.10"
+              },
+              null
+            ]
+          }
+        ],
+        "nop",
+        "\n",
+        "ev",
+        {
+          "VAR?": "nested_welfare_report"
+        },
+        "str",
+        "^",
+        "/str",
+        "!=",
+        "/ev",
+        [
+          {
+            "->": ".^.b",
+            "c": true
+          },
+          {
+            "b": [
+              "^ Your disclosed retained local record: ",
+              "ev",
+              {
+                "VAR?": "nested_welfare_report"
+              },
+              "out",
+              "/ev",
+              {
+                "->": ".^.^.^.20"
+              },
+              null
+            ]
+          }
+        ],
+        "nop",
+        "\n",
+        "end",
+        null
+      ],
+      "nested_return_settle": [
+        "^Your settlement request is accepted for the offered stage. Any delivered award belongs to its actual settlement record.",
+        "\n",
+        "ev",
+        {
+          "VAR?": "nested_request_report"
+        },
+        "str",
+        "^",
+        "/str",
+        "!=",
+        "/ev",
+        [
+          {
+            "->": ".^.b",
+            "c": true
+          },
+          {
+            "b": [
+              "^ ",
+              "ev",
+              {
+                "VAR?": "nested_request_report"
+              },
+              "out",
+              "/ev",
+              {
+                "->": ".^.^.^.10"
+              },
+              null
+            ]
+          }
+        ],
+        "nop",
+        "\n",
+        {
+          "->t->": "nested_known_reports"
+        },
+        "end",
+        null
+      ],
+      "nested_return_stay": [
+        "^Your request to remain at the hub is accepted under the offered residence terms.",
+        "\n",
+        "ev",
+        {
+          "VAR?": "nested_request_report"
+        },
+        "str",
+        "^",
+        "/str",
+        "!=",
+        "/ev",
+        [
+          {
+            "->": ".^.b",
+            "c": true
+          },
+          {
+            "b": [
+              "^ ",
+              "ev",
+              {
+                "VAR?": "nested_request_report"
+              },
+              "out",
+              "/ev",
+              {
+                "->": ".^.^.^.10"
+              },
+              null
+            ]
+          }
+        ],
+        "nop",
+        "\n",
+        "end",
+        null
+      ],
+      "options": [
+        [
+          "ev",
+          "str",
+          "^Ask what is being offered, and on whose terms. ",
+          "#",
+          "^response:ask_terms ",
+          "/#",
+          "/str",
+          "/ev",
+          {
+            "*": ".^.c-0",
+            "flg": 20
+          },
+          "ev",
+          "str",
+          "^Offer timber for the agreed local repair. ",
+          "#",
+          "^response:material ",
+          "/#",
+          "/str",
+          {
+            "VAR?": "terms_known"
+          },
+          {
+            "VAR?": "material_known"
+          },
+          "&&",
+          "/ev",
+          {
+            "*": ".^.c-1",
+            "flg": 21
+          },
+          "ev",
+          "str",
+          "^Buy one actual local log from Venn. ",
+          "#",
+          "^response:coin ",
+          "/#",
+          "/str",
+          {
+            "VAR?": "terms_known"
+          },
+          "/ev",
+          {
+            "*": ".^.c-2",
+            "flg": 21
+          },
+          "ev",
+          "str",
+          "^Ask for a purpose-bound tool loan. ",
+          "#",
+          "^response:borrow_tool ",
+          "/#",
+          "/str",
+          {
+            "VAR?": "terms_known"
+          },
+          {
+            "VAR?": "tool_known"
+          },
+          "&&",
+          "/ev",
+          {
+            "*": ".^.c-3",
+            "flg": 21
+          },
+          "ev",
+          "str",
+          "^Return the borrowed tool to its owner. ",
+          "#",
+          "^response:return_tool ",
+          "/#",
+          "/str",
+          {
+            "VAR?": "terms_known"
+          },
+          {
+            "VAR?": "tool_held"
+          },
+          "&&",
+          "/ev",
+          {
+            "*": ".^.c-4",
+            "flg": 21
+          },
+          "ev",
+          "str",
+          "^Use the reusable kit to inspect the linked floats. ",
+          "#",
+          "^response:use_tool ",
+          "/#",
+          "/str",
+          {
+            "VAR?": "terms_known"
+          },
+          {
+            "VAR?": "tool_held"
+          },
+          "&&",
+          "/ev",
+          {
+            "*": ".^.c-5",
+            "flg": 21
+          },
+          "ev",
+          "str",
+          "^Ask for the agreed instruction. ",
+          "#",
+          "^response:teach ",
+          "/#",
+          "/str",
+          {
+            "VAR?": "terms_known"
+          },
+          {
+            "VAR?": "lesson_known"
+          },
+          "&&",
+          "/ev",
+          {
+            "*": ".^.c-6",
+            "flg": 21
+          },
+          "ev",
+          "str",
+          "^Decline the proposed arrangement. ",
+          "#",
+          "^response:refuse ",
+          "/#",
+          "/str",
+          "/ev",
+          {
+            "*": ".^.c-7",
+            "flg": 20
+          },
+          "ev",
+          "str",
+          "^Leave the discussion open for another visit. ",
+          "#",
+          "^response:leave ",
+          "/#",
+          "/str",
+          "/ev",
+          {
+            "*": ".^.c-8",
+            "flg": 20
+          },
+          {
+            "c-0": [
+              "\n",
+              {
+                "->": "terms"
+              },
+              {
+                "#f": 5
+              }
+            ],
+            "c-1": [
+              "\n",
+              {
+                "->": "material_acceptance"
+              },
+              {
+                "#f": 5
+              }
+            ],
+            "c-2": [
+              "\n",
+              {
+                "->": "coin_acceptance"
+              },
+              {
+                "#f": 5
+              }
+            ],
+            "c-3": [
+              "\n",
+              {
+                "->": "loan_acceptance"
+              },
+              {
+                "#f": 5
+              }
+            ],
+            "c-4": [
+              "\n",
+              {
+                "->": "returned"
+              },
+              {
+                "#f": 5
+              }
+            ],
+            "c-5": [
+              "\n",
+              {
+                "->": "inspection"
+              },
+              {
+                "#f": 5
+              }
+            ],
+            "c-6": [
+              "\n",
+              {
+                "->": "lesson_acceptance"
+              },
+              {
+                "#f": 5
+              }
+            ],
+            "c-7": [
+              "\n",
+              {
+                "->": "refusal"
+              },
+              {
+                "#f": 5
+              }
+            ],
+            "c-8": [
+              "\n",
+              {
+                "->": "leaving"
+              },
+              {
+                "#f": 5
+              }
+            ]
+          }
+        ],
+        null
+      ],
+      "refusal": [
+        "^\"All right,\" ",
+        "ev",
+        {
+          "VAR?": "keeper_name"
+        },
+        "out",
+        "/ev",
+        "^ says. \"I'll use the means we have.\"",
+        "\n",
+        "^The refusal stays a remembered exchange. It spends no repair payment and creates no loan or taught method.",
+        "\n",
+        "end",
+        null
+      ],
+      "relay_alias": [
+        "^You make the declared claim to its actual listener. The listener's recorded response is an attributed belief; your real identity remains separate.",
+        "\n",
+        "ev",
+        {
+          "VAR?": "personal_result"
+        },
+        "str",
+        "^mismatch",
+        "/str",
+        "==",
+        "/ev",
+        [
+          {
+            "->": ".^.b",
+            "c": true
+          },
+          {
+            "b": [
+              "^ \"That doesn't match the person I remember,\" ",
+              "ev",
+              {
+                "VAR?": "relay_witness_name"
+              },
+              "out",
+              "/ev",
+              "^ says.",
+              {
+                "->": ".^.^.^.10"
+              },
+              null
+            ]
+          }
+        ],
+        "nop",
+        "\n",
+        "ev",
+        {
+          "VAR?": "credential_result"
+        },
+        "str",
+        "^accepted",
+        "/str",
+        "==",
+        "/ev",
+        [
+          {
+            "->": ".^.b",
+            "c": true
+          },
+          {
+            "b": [
+              "^ The credential observer accepted the presented credential. That is not the registry's appointment test.",
+              {
+                "->": ".^.^.^.20"
+              },
+              null
+            ]
+          }
+        ],
+        "nop",
+        "\n",
+        "ev",
+        {
+          "VAR?": "registry_result"
+        },
+        "str",
+        "^not_holder",
+        "/str",
+        "==",
+        "/ev",
+        [
+          {
+            "->": ".^.b",
+            "c": true
+          },
+          {
+            "b": [
+              "^ The clerk's current record does not appoint you.",
+              {
+                "->": ".^.^.^.30"
+              },
+              null
+            ]
+          }
+        ],
+        "nop",
+        "\n",
+        {
+          "->": "relay_options"
+        },
+        null
+      ],
+      "relay_correction": [
+        "^The earlier claim and the accepted evidence correction remain separately recorded for the actual listener.",
+        "\n",
+        "^\"I'll keep both entries,\" ",
+        "ev",
+        {
+          "VAR?": "relay_clerk_name"
+        },
+        "out",
+        "/ev",
+        "^ says. \"A correction changes the account; it doesn't erase what happened.\"",
+        "\n",
+        {
+          "->": "relay_options"
+        },
+        null
+      ],
+      "relay_credential": [
+        "^The credential observer checks the actual presented evidence.",
+        "\n",
+        "ev",
+        {
+          "VAR?": "credential_result"
+        },
+        "/ev",
+        [
+          "du",
+          "ev",
+          "str",
+          "^accepted",
+          "/str",
+          "==",
+          "/ev",
+          {
+            "->": ".^.b",
+            "c": true
+          },
+          {
+            "b": [
+              "pop",
+              "\n",
+              "^\"This evidence passes the credential check,\" the observer says. \"I haven't checked your office appointment or personal history.\"",
+              "\n",
+              {
+                "->": ".^.^.^.8"
+              },
+              null
+            ]
+          }
+        ],
+        [
+          "du",
+          "ev",
+          "str",
+          "^rejected",
+          "/str",
+          "==",
+          "/ev",
+          {
+            "->": ".^.b",
+            "c": true
+          },
+          {
+            "b": [
+              "pop",
+              "\n",
+              "^\"This evidence does not pass my check,\" the observer says.",
+              "\n",
+              {
+                "->": ".^.^.^.8"
+              },
+              null
+            ]
+          }
+        ],
+        [
+          {
+            "->": ".^.b"
+          },
+          {
+            "b": [
+              "pop",
+              "\n",
+              "^The reported check remains limited to what this observer has actually disclosed.",
+              "\n",
+              {
+                "->": ".^.^.^.8"
+              },
+              null
+            ]
+          }
+        ],
+        "nop",
+        "\n",
+        {
+          "->": "relay_options"
+        },
+        null
+      ],
+      "relay_honest": [
+        "^Your own identity is recorded for the ordinary route. Nobody's old affection, personal methods or completed work becomes yours.",
+        "\n",
+        "^\"Then let's discuss what you can actually do,\" ",
+        "ev",
+        {
+          "VAR?": "relay_keeper_name"
+        },
+        "out",
+        "/ev",
+        "^ says.",
+        "\n",
+        "end",
+        null
+      ],
+      "relay_leave": [
+        "^You leave the conversation without making another commitment. The living people, their own work and earlier actual history remain.",
+        "\n",
+        "end",
+        null
+      ],
+      "relay_meeting": [
+        "ev",
+        {
+          "VAR?": "voice_detail"
+        },
+        "out",
+        "/ev",
+        "\n",
+        "ev",
+        {
+          "VAR?": "relay_keeper_name"
+        },
+        "out",
+        "/ev",
+        "^ sits beside the counter with their own bundle and tools. They leave space in the ledger for another hand.",
+        "\n",
+        "^\"",
+        "ev",
+        {
+          "VAR?": "voice_greeting"
+        },
+        "out",
+        "/ev",
+        "^\"",
+        "\n",
+        "ev",
+        {
+          "VAR?": "prior_relay_choice"
+        },
+        "str",
+        "^",
+        "/str",
+        "!=",
+        "/ev",
+        [
+          {
+            "->": ".^.b",
+            "c": true
+          },
+          {
+            "b": [
+              "\n",
+              "ev",
+              {
+                "VAR?": "prior_relay_choice"
+              },
+              "/ev",
+              [
+                "du",
+                "ev",
+                "str",
+                "^honest",
+                "/str",
+                "==",
+                "/ev",
+                {
+                  "->": ".^.b",
+                  "c": true
+                },
+                {
+                  "b": [
+                    "pop",
+                    "\n",
+                    "^\"You gave your own name last time,\" ",
+                    "ev",
+                    {
+                      "VAR?": "relay_keeper_name"
+                    },
+                    "out",
+                    "/ev",
+                    "^ says. \"That was enough to discuss ordinary work.\"",
+                    "\n",
+                    {
+                      "->": ".^.^.^.12"
+                    },
+                    null
+                  ]
+                }
+              ],
+              [
+                "du",
+                "ev",
+                "str",
+                "^alias",
+                "/str",
+                "==",
+                "/ev",
+                {
+                  "->": ".^.b",
+                  "c": true
+                },
+                {
+                  "b": [
+                    "pop",
+                    "\n",
+                    "^\"You claimed another person's name,\" ",
+                    "ev",
+                    {
+                      "VAR?": "relay_witness_name"
+                    },
+                    "out",
+                    "/ev",
+                    "^ says. \"What I believed then and what the register said were separate things.\"",
+                    "\n",
+                    {
+                      "->": ".^.^.^.12"
+                    },
+                    null
+                  ]
+                }
+              ],
+              [
+                "du",
+                "ev",
+                "str",
+                "^credential",
+                "/str",
+                "==",
+                "/ev",
+                {
+                  "->": ".^.b",
+                  "c": true
+                },
+                {
+                  "b": [
+                    "pop",
+                    "\n",
+                    "^\"You showed a credential,\" ",
+                    "ev",
+                    {
+                      "VAR?": "relay_clerk_name"
+                    },
+                    "out",
+                    "/ev",
+                    "^ says. \"Possessing it didn't settle the appointment.\"",
+                    "\n",
+                    {
+                      "->": ".^.^.^.12"
+                    },
+                    null
+                  ]
+                }
+              ],
+              [
+                "du",
+                "ev",
+                "str",
+                "^office",
+                "/str",
+                "==",
+                "/ev",
+                {
+                  "->": ".^.b",
+                  "c": true
+                },
+                {
+                  "b": [
+                    "pop",
+                    "\n",
+                    "^\"We agreed to the office transfer,\" ",
+                    "ev",
+                    {
+                      "VAR?": "relay_keeper_name"
+                    },
+                    "out",
+                    "/ev",
+                    "^ says. \"My private possessions and learned methods stayed mine.\"",
+                    "\n",
+                    {
+                      "->": ".^.^.^.12"
+                    },
+                    null
+                  ]
+                }
+              ],
+              [
+                "du",
+                "ev",
+                "str",
+                "^corrected",
+                "/str",
+                "==",
+                "/ev",
+                {
+                  "->": ".^.b",
+                  "c": true
+                },
+                {
+                  "b": [
+                    "pop",
+                    "\n",
+                    "^\"You corrected the earlier account,\" ",
+                    "ev",
+                    {
+                      "VAR?": "relay_witness_name"
+                    },
+                    "out",
+                    "/ev",
+                    "^ says. \"I remember the correction as well as the claim.\"",
+                    "\n",
+                    {
+                      "->": ".^.^.^.12"
+                    },
+                    null
+                  ]
+                }
+              ],
+              [
+                "du",
+                "ev",
+                "str",
+                "^work",
+                "/str",
+                "==",
+                "/ev",
+                {
+                  "->": ".^.b",
+                  "c": true
+                },
+                {
+                  "b": [
+                    "pop",
+                    "\n",
+                    "ev",
+                    {
+                      "VAR?": "duty_done"
+                    },
+                    "/ev",
+                    [
+                      {
+                        "->": ".^.b",
+                        "c": true
+                      },
+                      {
+                        "b": [
+                          "\n",
+                          "^\"The accepted duty is now done,\" ",
+                          "ev",
+                          {
+                            "VAR?": "relay_clerk_name"
+                          },
+                          "out",
+                          "/ev",
+                          "^ says. \"That performance has its own record.\"",
+                          "\n",
+                          {
+                            "->": ".^.^.^.7"
+                          },
+                          null
+                        ]
+                      }
+                    ],
+                    [
+                      {
+                        "->": ".^.b"
+                      },
+                      {
+                        "b": [
+                          "\n",
+                          "^\"You accepted work here,\" ",
+                          "ev",
+                          {
+                            "VAR?": "relay_clerk_name"
+                          },
+                          "out",
+                          "/ev",
+                          "^ says. \"Check the actual work record before calling it finished.\"",
+                          "\n",
+                          {
+                            "->": ".^.^.^.7"
+                          },
+                          null
+                        ]
+                      }
+                    ],
+                    "nop",
+                    "\n",
+                    {
+                      "->": ".^.^.^.12"
+                    },
+                    null
+                  ]
+                }
+              ],
+              [
+                "du",
+                "ev",
+                "str",
+                "^refused",
+                "/str",
+                "==",
+                "/ev",
+                {
+                  "->": ".^.b",
+                  "c": true
+                },
+                {
+                  "b": [
+                    "pop",
+                    "\n",
+                    "^\"You declined the office,\" ",
+                    "ev",
+                    {
+                      "VAR?": "relay_keeper_name"
+                    },
+                    "out",
+                    "/ev",
+                    "^ says. \"We can still talk as ourselves.\"",
+                    "\n",
+                    {
+                      "->": ".^.^.^.12"
+                    },
+                    null
+                  ]
+                }
+              ],
+              "pop",
+              "nop",
+              "\n",
+              {
+                "->": ".^.^.^.26"
+              },
+              null
+            ]
+          }
+        ],
+        "nop",
+        "\n",
+        {
+          "->": "relay_options"
+        },
+        null
+      ],
+      "relay_office": [
+        "^The willing appointment and its stated duty are entered in the register.",
+        "\n",
+        "ev",
+        {
+          "VAR?": "relay_keeper_name"
+        },
+        "out",
+        "/ev",
+        "^ keeps their own tools and work. \"The counter key will not teach you my grip,\" they say.",
+        "\n",
+        "^\"Do the duty you accepted,\" they say. \"Wearing the title won't do it for you.\"",
+        "\n",
+        "end",
+        null
+      ],
+      "relay_options": [
+        [
+          "ev",
+          "str",
+          "^Ask which arrangements are actually offered. ",
+          "#",
+          "^response:relay_terms ",
+          "/#",
+          "/str",
+          "/ev",
+          {
+            "*": ".^.c-0",
+            "flg": 20
+          },
+          "ev",
+          "str",
+          "^Enter as yourself and use the ordinary work route. ",
+          "#",
+          "^response:relay_honest ",
+          "/#",
+          "/str",
+          {
+            "VAR?": "relay_terms_known"
+          },
+          "/ev",
+          {
+            "*": ".^.c-1",
+            "flg": 21
+          },
+          "ev",
+          "str",
+          "^Make the declared alias claim to this observer. ",
+          "#",
+          "^response:relay_alias ",
+          "/#",
+          "/str",
+          {
+            "VAR?": "relay_terms_known"
+          },
+          "/ev",
+          {
+            "*": ".^.c-2",
+            "flg": 21
+          },
+          "ev",
+          "str",
+          "^Ask this observer to check your actual credential. ",
+          "#",
+          "^response:relay_credential ",
+          "/#",
+          "/str",
+          {
+            "VAR?": "relay_terms_known"
+          },
+          "/ev",
+          {
+            "*": ".^.c-3",
+            "flg": 21
+          },
+          "ev",
+          "str",
+          "^Ask the clerk to check the office register. ",
+          "#",
+          "^response:relay_registry ",
+          "/#",
+          "/str",
+          {
+            "VAR?": "relay_terms_known"
+          },
+          "/ev",
+          {
+            "*": ".^.c-4",
+            "flg": 21
+          },
+          "ev",
+          "str",
+          "^Ask the familiar local to compare personal memory. ",
+          "#",
+          "^response:relay_personal ",
+          "/#",
+          "/str",
+          {
+            "VAR?": "relay_terms_known"
+          },
+          "/ev",
+          {
+            "*": ".^.c-5",
+            "flg": 21
+          },
+          "ev",
+          "str",
+          "^Accept the offered office and its stated duty. ",
+          "#",
+          "^response:relay_office ",
+          "/#",
+          "/str",
+          {
+            "VAR?": "relay_terms_known"
+          },
+          "/ev",
+          {
+            "*": ".^.c-6",
+            "flg": 21
+          },
+          "ev",
+          "str",
+          "^Perform the offered physical seal work. ",
+          "#",
+          "^response:relay_work ",
+          "/#",
+          "/str",
+          {
+            "VAR?": "relay_terms_known"
+          },
+          "/ev",
+          {
+            "*": ".^.c-7",
+            "flg": 21
+          },
+          "ev",
+          "str",
+          "^Correct the earlier claim with the available evidence. ",
+          "#",
+          "^response:relay_correction ",
+          "/#",
+          "/str",
+          {
+            "VAR?": "relay_terms_known"
+          },
+          "/ev",
+          {
+            "*": ".^.c-8",
+            "flg": 21
+          },
+          "ev",
+          "str",
+          "^Refuse the proposed office arrangement. ",
+          "#",
+          "^response:relay_refuse ",
+          "/#",
+          "/str",
+          "/ev",
+          {
+            "*": ".^.c-9",
+            "flg": 20
+          },
+          "ev",
+          "str",
+          "^Leave this conversation open for later. ",
+          "#",
+          "^response:relay_leave ",
+          "/#",
+          "/str",
+          "/ev",
+          {
+            "*": ".^.c-10",
+            "flg": 20
+          },
+          {
+            "c-0": [
+              "\n",
+              {
+                "->": "relay_terms"
+              },
+              {
+                "#f": 5
+              }
+            ],
+            "c-1": [
+              "\n",
+              {
+                "->": "relay_honest"
+              },
+              {
+                "#f": 5
+              }
+            ],
+            "c-10": [
+              "\n",
+              {
+                "->": "relay_leave"
+              },
+              {
+                "#f": 5
+              }
+            ],
+            "c-2": [
+              "\n",
+              {
+                "->": "relay_alias"
+              },
+              {
+                "#f": 5
+              }
+            ],
+            "c-3": [
+              "\n",
+              {
+                "->": "relay_credential"
+              },
+              {
+                "#f": 5
+              }
+            ],
+            "c-4": [
+              "\n",
+              {
+                "->": "relay_registry"
+              },
+              {
+                "#f": 5
+              }
+            ],
+            "c-5": [
+              "\n",
+              {
+                "->": "relay_personal"
+              },
+              {
+                "#f": 5
+              }
+            ],
+            "c-6": [
+              "\n",
+              {
+                "->": "relay_office"
+              },
+              {
+                "#f": 5
+              }
+            ],
+            "c-7": [
+              "\n",
+              {
+                "->": "relay_work"
+              },
+              {
+                "#f": 5
+              }
+            ],
+            "c-8": [
+              "\n",
+              {
+                "->": "relay_correction"
+              },
+              {
+                "#f": 5
+              }
+            ],
+            "c-9": [
+              "\n",
+              {
+                "->": "relay_refuse"
+              },
+              {
+                "#f": 5
+              }
+            ]
+          }
+        ],
+        null
+      ],
+      "relay_personal": [
+        "ev",
+        {
+          "VAR?": "relay_witness_name"
+        },
+        "out",
+        "/ev",
+        "^ compares the claim with their own remembered contact.",
+        "\n",
+        "ev",
+        {
+          "VAR?": "personal_result"
+        },
+        "/ev",
+        [
+          "du",
+          "ev",
+          "str",
+          "^match",
+          "/str",
+          "==",
+          "/ev",
+          {
+            "->": ".^.b",
+            "c": true
+          },
+          {
+            "b": [
+              "pop",
+              "\n",
+              "^\"That fits the person I remember,\" they say. \"My memory is not an institutional appointment.\"",
+              "\n",
+              {
+                "->": ".^.^.^.12"
+              },
+              null
+            ]
+          }
+        ],
+        [
+          "du",
+          "ev",
+          "str",
+          "^mismatch",
+          "/str",
+          "==",
+          "/ev",
+          {
+            "->": ".^.b",
+            "c": true
+          },
+          {
+            "b": [
+              "pop",
+              "\n",
+              "^\"The name doesn't make this the person I knew,\" they say.",
+              "\n",
+              {
+                "->": ".^.^.^.12"
+              },
+              null
+            ]
+          }
+        ],
+        [
+          {
+            "->": ".^.b"
+          },
+          {
+            "b": [
+              "pop",
+              "\n",
+              "^Their disclosed account does not establish a personal match.",
+              "\n",
+              {
+                "->": ".^.^.^.12"
+              },
+              null
+            ]
+          }
+        ],
+        "nop",
+        "\n",
+        {
+          "->": "relay_options"
+        },
+        null
+      ],
+      "relay_refuse": [
+        "^You refuse the office arrangement. Its rightful holder and possessions remain with their actual owners.",
+        "\n",
+        "^\"All right,\" ",
+        "ev",
+        {
+          "VAR?": "relay_keeper_name"
+        },
+        "out",
+        "/ev",
+        "^ says. \"You can still come back as yourself.\"",
+        "\n",
+        "end",
+        null
+      ],
+      "relay_registry": [
+        "ev",
+        {
+          "VAR?": "relay_clerk_name"
+        },
+        "out",
+        "/ev",
+        "^ checks the authoritative local office record.",
+        "\n",
+        "ev",
+        {
+          "VAR?": "registry_result"
+        },
+        "/ev",
+        [
+          "du",
+          "ev",
+          "str",
+          "^holder",
+          "/str",
+          "==",
+          "/ev",
+          {
+            "->": ".^.b",
+            "c": true
+          },
+          {
+            "b": [
+              "pop",
+              "\n",
+              "^\"The office is registered to you,\" the clerk says. \"The stated duty comes with it.\"",
+              "\n",
+              {
+                "->": ".^.^.^.12"
+              },
+              null
+            ]
+          }
+        ],
+        [
+          "du",
+          "ev",
+          "str",
+          "^not_holder",
+          "/str",
+          "==",
+          "/ev",
+          {
+            "->": ".^.b",
+            "c": true
+          },
+          {
+            "b": [
+              "pop",
+              "\n",
+              "^\"The office is not registered to you,\" the clerk says. \"A face or carried badge doesn't appoint its holder.\"",
+              "\n",
+              {
+                "->": ".^.^.^.12"
+              },
+              null
+            ]
+          }
+        ],
+        [
+          {
+            "->": ".^.b"
+          },
+          {
+            "b": [
+              "pop",
+              "\n",
+              "^No confirmed appointment has been disclosed by this check.",
+              "\n",
+              {
+                "->": ".^.^.^.12"
+              },
+              null
+            ]
+          }
+        ],
+        "nop",
+        "\n",
+        {
+          "->": "relay_options"
+        },
+        null
+      ],
+      "relay_terms": [
+        "^\"The office, a carried credential, and a person's name answer different questions,\" ",
+        "ev",
+        {
+          "VAR?": "relay_clerk_name"
+        },
+        "out",
+        "/ev",
+        "^ says. \"We check them separately.\"",
+        "\n",
+        "ev",
+        {
+          "VAR?": "relay_keeper_name"
+        },
+        "out",
+        "/ev",
+        "^ states the offered work and duties. Their own possessions, personal debt and learned methods remain with them.",
+        "\n",
+        "^The actual current costs, required consent and consequences accompany each offered response. Ordinary honest entry remains available.",
+        "\n",
+        "^\"",
+        "ev",
+        {
+          "VAR?": "voice_aside"
+        },
+        "out",
+        "/ev",
+        "^\"",
+        "\n",
+        {
+          "->": "relay_options"
+        },
+        null
+      ],
+      "relay_work": [
+        "^You deliver the two fitted seals to the counter. The accepted office duty is settled, and its funded payment is recorded once.",
+        "\n",
+        "^\"Those seals count because they were made and handed over,\" ",
+        "ev",
+        {
+          "VAR?": "relay_clerk_name"
+        },
+        "out",
+        "/ev",
+        "^ says. \"The badge alone would not have done it.\"",
+        "\n",
+        "end",
+        null
+      ],
+      "returned": [
+        "^The borrowed tool passes back to its owner with its current condition intact.",
+        "\n",
+        "ev",
+        {
+          "VAR?": "keeper_name"
+        },
+        "out",
+        "/ev",
+        "^ checks the record and closes this return. \"Good. Any next loan is a new agreement.\"",
+        "\n",
+        "end",
+        null
+      ],
+      "terms": [
+        "ev",
+        {
+          "VAR?": "keeper_name"
+        },
+        "out",
+        "/ev",
+        "^ turns the stock book so you can read the offered terms.",
+        "\n",
+        "^\"A repair uses real supplies. A loan leaves the tool mine. Instruction needs my assent and a funded work period. You can take an ordinary work route, or leave us to it.\"",
+        "\n",
+        "ev",
+        {
+          "VAR?": "material_known"
+        },
+        "/ev",
+        [
+          {
+            "->": ".^.b",
+            "c": true
+          },
+          {
+            "b": [
+              "^ A suitable timber contribution is an offered alternative to payment.",
+              {
+                "->": "terms.12"
+              },
+              null
+            ]
+          }
+        ],
+        "nop",
+        "\n",
+        "ev",
+        {
+          "VAR?": "tool_known"
+        },
+        "/ev",
+        [
+          {
+            "->": ".^.b",
+            "c": true
+          },
+          {
+            "b": [
+              "^ The available loan states its purpose, owner and return duty.",
+              {
+                "->": "terms.18"
+              },
+              null
+            ]
+          }
+        ],
+        "nop",
+        "\n",
+        "ev",
+        {
+          "VAR?": "lesson_known"
+        },
+        "/ev",
+        [
+          {
+            "->": ".^.b",
+            "c": true
+          },
+          {
+            "b": [
+              "^ The offered method has a separate teaching commitment; conversation alone does not teach it.",
+              {
+                "->": "terms.24"
+              },
+              null
+            ]
+          }
+        ],
+        "nop",
+        "\n",
+        "^The offered costs and conditions sit beside your responses. A promise is only accepted when those conditions still hold.",
+        "\n",
+        {
+          "->": "options"
+        },
+        null
+      ]
+    }
+  ],
+  "yairpgInk": {
+    "schemaVersion": 1,
+    "storyId": "feature-wave-negotiation",
+    "storyRevision": 3,
+    "sceneIds": [
+      "tidemark.negotiation",
+      "relay.office",
+      "nested.hub",
+      "nested.offer",
+      "nested.mission",
+      "nested.return"
+    ],
+    "compilerPackage": "inkjs",
+    "compilerVersion": "2.4.0",
+    "sourceSha256": "ad28348578d8e09e1c1582571ceffbaef584cc4accac0a6559304869939eadb5",
+    "compiledSha256": "72faf9b6431a00129cd1f959d4a67a5066bee59eca55c94741c15c236e7dc293",
+    "contentHash": "sha256:f914d6a60616e31e382c34658f207c64f63a1d6c9ea707e58d0737f9a2770e3f"
+  }
+}

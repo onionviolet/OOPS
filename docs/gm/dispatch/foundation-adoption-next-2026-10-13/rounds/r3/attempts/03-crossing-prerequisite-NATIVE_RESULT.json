@@ -1,0 +1,42 @@
+{
+  "status": "FAIL",
+  "bundle": "c5d852bbb3db26d4cef74772edf44c8b96ec2d96aac3b8eb7032624ce8f49402",
+  "base": "dd3efe3383f12f0aac22e4f390aae90fae2e7fc4",
+  "fixture": "docs/gm/dispatch/foundation-adoption-next-2026-10-13/rounds/r3/attempts/02-hidden-lesson-earned-harness-failure.txt",
+  "fixtureHash": "dc6e2635a0990e711dd4e9f9349f45c485738701856e20b96b8994be8b29a669",
+  "checks": {
+    "earnedPaidStockPreservedAfterRepair": true,
+    "actualLesson": true,
+    "threePaidTrials": true,
+    "masteryLiteralRestoration": true
+  },
+  "events": [
+    {
+      "id": "reference_gameplay.learn",
+      "clock": 22
+    },
+    {
+      "id": "reference_gameplay.practice",
+      "clock": 25
+    },
+    {
+      "id": "reference_gameplay.practice",
+      "clock": 28
+    },
+    {
+      "id": "reference_gameplay.practice",
+      "clock": 31
+    }
+  ],
+  "errors": [],
+  "timePolicy": "Normal native browser timers; no resource/history/clock fields injected",
+  "console": [
+    "Failed to load resource: the server responded with a status of 404 (Not Found)",
+    "Failed to load resource: the server responded with a status of 404 (Not Found)",
+    "Failed to load resource: the server responded with a status of 404 (Not Found)",
+    "Failed to load resource: the server responded with a status of 404 (Not Found)",
+    "Failed to load resource: the server responded with a status of 404 (Not Found)",
+    "Failed to load resource: the server responded with a status of 404 (Not Found)"
+  ],
+  "failure": "locator.waitFor: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('[data-action-legibility-key=\"action:feature_battle.inspect\"]')\u001b[22m\n\n    at action (/Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/foundation-adoption-next-2026-10-13/rounds/r3/native.cjs:21:137)\n    at async /Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/foundation-adoption-next-2026-10-13/rounds/r3/native.cjs:48:2"
+}

@@ -1,0 +1,52 @@
+TAP version 13
+# Subtest: unchanged projection retains focus and remounts the same controls
+ok 1 - unchanged projection retains focus and remounts the same controls
+  ---
+  duration_ms: 2.268375
+  type: 'test'
+  ...
+# Subtest: only projected rows render and raw extras do not change the controls
+ok 2 - only projected rows render and raw extras do not change the controls
+  ---
+  duration_ms: 0.385042
+  type: 'test'
+  ...
+# Subtest: inactive begin is neutral and rejection shows safe host error without success text
+ok 3 - inactive begin is neutral and rejection shows safe host error without success text
+  ---
+  duration_ms: 0.213333
+  type: 'test'
+  ...
+# Subtest: countdown preserves keyboard focus and host errors outrank old saved notice
+ok 4 - countdown preserves keyboard focus and host errors outrank old saved notice
+  ---
+  duration_ms: 0.720084
+  type: 'test'
+  ...
+# Subtest: repeated work rechecks completion and eligibility, including host reentrant render
+ok 5 - repeated work rechecks completion and eligibility, including host reentrant render
+  ---
+  duration_ms: 0.293584
+  type: 'test'
+  ...
+# Subtest: stopping repeats leaves current job intact; cancelled jobs never trigger another order
+ok 6 - stopping repeats leaves current job intact; cancelled jobs never trigger another order
+  ---
+  duration_ms: 0.185333
+  type: 'test'
+  ...
+# Subtest: loss of write ownership stops a plan while current job is still pending
+ok 7 - loss of write ownership stops a plan while current job is still pending
+  ---
+  duration_ms: 0.185083
+  type: 'test'
+  ...
+1..7
+# tests 7
+# suites 0
+# pass 7
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 47.022541

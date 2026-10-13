@@ -1,0 +1,31 @@
+{
+  "date": "2026-10-11",
+  "status": "reference-intake-acknowledged",
+  "senderThread": "01a1297e-c3c2-7c23-b4ae-974565fb5cf5",
+  "publicInputs": {
+    "REPORT.md": "05a4330d0be7065dd6976d37ed6ba6782104d5d415b0e621b94f602877417eff",
+    "review/REVIEW.md": "14ad1003490faacf63f392c93c204e22e09f26152ffae3b693a2daab3599e9b6",
+    "review/REVIEW.json": "c917ec36f5ffd7252508d5557aa695b2892929c7bc8856b1b51d81748aca83f7",
+    "ASSIGNMENT.md": "6cf842305bcbbc542809b4a881aa7bfbed9fbbd375e0f70d78924cd24d54f502",
+    "COMPLETION_REQUIREMENTS.json": "b0aed6f35534ce7053e2b7d4180875acf3d2f432caa054d54785c68a5e24f7b7",
+    "COMPLETION_MATRIX.json": "ac61f82f19a3918d085d60d0d00dc455e39d0905dca7b48d756772fd003ac5cf",
+    "VALIDATION.json": "ac09399db4b93330fd0a7e3e8f76a7e062410a3c6ebd73efa8a3a0199df9f2f9"
+  },
+  "privateSynthesis": {
+    "path": "docs/research/novels/lore-timelines-2026-10-11/gm/coordinator/SYNTHESIS.json",
+    "sha256": "416c5749617e1e194e941c1d8406495c464de4b817c1cc83e47a4ff2e57ba549",
+    "parsed": true
+  },
+  "privateWorldLedgersPresent": {
+    "bw1": 11,
+    "jjk": 11,
+    "jojo": 14,
+    "rezero": 10,
+    "tensura": 10
+  },
+  "use": "future source/version-qualified starts and causal continuity; occurrence/revelation/consumed causes/recipient channels remain distinct",
+  "limits": "sender review and validation read as checked-source evidence; no new independent source reread or gameplay proof",
+  "runtimeChanges": false,
+  "reservationsChanged": false,
+  "menuProposalChanged": false
+}

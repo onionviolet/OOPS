@@ -1,3 +1,4 @@
+import {foundationInteractionDefinitions} from './foundation_interaction_content.js';
 import {steamAbsorptionDefinitions} from './steam_absorption_content.js';
 import {CONTEXTUAL_BALM_DEFINITIONS} from './contextual_balm_content.js';
 import {coolingRefinementDefinitions} from './cooling_refinement_content.js';
@@ -123,3 +124,6 @@ for(const [key,rows] of Object.entries(steamAbsorptionDefinitions)) {
     simulationDefinitions[key] ||= [];
     simulationDefinitions[key].push(...rows);
 }
+
+// Optional original arena definitions do not provision actors on enrollment.
+for(const [key,rows]of Object.entries(foundationInteractionDefinitions))simulationDefinitions[key]=[...(simulationDefinitions[key]||[]),...rows];

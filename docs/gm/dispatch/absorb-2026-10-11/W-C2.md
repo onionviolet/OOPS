@@ -144,3 +144,7 @@ help/decline plus insufficient money; noon bread claim/duplicate/next-day;
 save, reload, export/import retaining all misses/finds/claims/pending contact.
 Also inject failed storage and confirm native rewards and claims remain absent.
 This worker alone is implemented-unverified gameplay until that integrated gate.
+
+## FA18 extension proposal, 2026-10-13
+
+Current optional local-life state writes schema2. Schema1 and schema-less historical help preserve their counters with zero meal tickets. Each actual newly paid runner help issues one ticket; later idleVillage use spends it and one coin for one Stale bread through the existing atomic native publisher. Issued/used accounts reject impossible schema2values, never settle through load/view/ticks. Ordinary rest/search/breadtable/exposure unchanged. No NPCprivate truth. [R11report](../foundation-adoption-next-2026-10-13/rounds/r11/REPORT.md) owns seven focused/32affected passes and native IMPLEMENTED_UNVERIFIED limits. The earlier schema1contract above is dated history. Native paid/use/food/persistence gate remainsOPEN.

@@ -1,0 +1,28 @@
+{
+  "status": "READY",
+  "bundle": "c5d852bbb3db26d4cef74772edf44c8b96ec2d96aac3b8eb7032624ce8f49402",
+  "base": "dd3efe3383f12f0aac22e4f390aae90fae2e7fc4",
+  "fixture": "docs/gm/dispatch/foundation-adoption-next-2026-10-13/rounds/r3/attempts/03-crossing-prerequisite-earned-harness-failure.txt",
+  "fixtureHash": "7b8c5a089912b51050dfb932761f0b40f18e4d8a0cca814c20981689a252e95d",
+  "checks": {
+    "threePaidTrialsRetained": true,
+    "masteryLiteralRestoration": true,
+    "reachableWorkshopAndHook": true
+  },
+  "events": [
+    {
+      "id": "feature_battle.inspect",
+      "clock": 45
+    }
+  ],
+  "errors": [],
+  "timePolicy": "Normal native browser timers; no resource/history/clock fields injected",
+  "console": [
+    "Failed to load resource: the server responded with a status of 404 (Not Found)",
+    "Failed to load resource: the server responded with a status of 404 (Not Found)",
+    "Failed to load resource: the server responded with a status of 404 (Not Found)",
+    "Failed to load resource: the server responded with a status of 404 (Not Found)",
+    "Failed to load resource: the server responded with a status of 404 (Not Found)",
+    "Failed to load resource: the server responded with a status of 404 (Not Found)"
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "bundle": "ef2e248bc8fdd21323e7becb1277ac45bc2537bdcf8e9630e5c688c60bc48d6a",
+  "instrumentation": "Appended read/actual-host closure observation hook only; no source/build mutation",
+  "results": [
+    {
+      "name": "actual stale sequence callback and old native cargo quote rejected after real stock purchase",
+      "status": "PASS"
+    },
+    {
+      "name": "controlled native imported incapacitated body cannot passage with same native owners",
+      "status": "PASS"
+    },
+    {
+      "name": "controlled native imported immobile body cannot passage with same native owners",
+      "status": "PASS"
+    },
+    {
+      "name": "literal native import future-definition rejected preserving current then exact restore",
+      "status": "FAIL",
+      "error": "Expected values to be strictly deep-equal:\n+ actual - expected\n... Skipped lines\n\n  {\n    legs: {\n      base_defense: 0,\n      bonus_skill_levels: {},\n      component_bonus_skill_levels: {},\n...\n      quality: 40,\n+     rarity: 'trash',\n      saturates_market: true,\n      stats: {\n        agility: {\n          multiplier: 0.99\n        },\n...\n      quality: 50,\n+     rarity: 'common',\n      saturates_market: true,\n      stats: {\n        attack_power: {},\n        attack_speed: {\n          multiplier: 0.71\n"
+    }
+  ],
+  "errors": []
+}

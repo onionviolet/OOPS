@@ -1,0 +1,26 @@
+{
+  "status": "actual-refusal-awaiting-support-diagnosis",
+  "runnerPid": 45365,
+  "session": 57963,
+  "process": "cleanSTOP exit0",
+  "servedHash": "96eefe92538e06364042fc069b7fd94834ddd6fb069b8d4db0f6ae0a7d4b9195",
+  "save": "/tmp/yairpg-foundation-learning-worker-neri-refused-withdrawn-literal-imported.json",
+  "sha256": "638ade1facbe51642d3c5c552676f0c5624947fcb06021e807a37ea99d4ef1ff",
+  "clock": 11772,
+  "sequence": 1347,
+  "receivedAccount": "actual account_shack then public refusal received; no outboundjob/lesson/product",
+  "actualWithdrawal": "new escrow2 +exactoffcut1 returned once; old service/residence preserved",
+  "restoration": "actualexport/reload/literalwithdrawnexport import passed",
+  "sourceInference": "NPC Shack currentSample false in bridge/lore may cause neriAccepts false despite offered valid player measurement",
+  "rootDiagnosesBeforeCounting": "Do not classify this refusal as intended positive or healthy-means refusal until current support cause is resolved.",
+  "positiveResume": "/tmp/yairpg-foundation-learning-worker-neri-presponsor.json",
+  "positiveExport": "/tmp/yairpg-foundation-learning-worker-neri-presponsor.txt",
+  "remaining": [
+    "genuine NPC positive lesson/make/handover/use",
+    "actual supported pending NPC interruption/unsupported/recovery",
+    "real cancellation and meaningful intended refusal",
+    "NPC produced/received/used export/reload/literal import",
+    "actual old absence and malformed/future/mismatch preservation",
+    "final actual same-save root G6 handoff"
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "date": "2026-10-12",
+  "result": "pass",
+  "required_outputs": {
+    "REPORT.md": true,
+    "WORKFLOW_MAP.md": true,
+    "TOOLING_DECISION.md": true,
+    "NEXT_PACKET.md": true,
+    "CHECKPOINT.md": true
+  },
+  "local_links_checked": 46,
+  "broken_local_links": [],
+  "routing_entries": 53,
+  "routing_family_labels": 48,
+  "routing_hash_mismatches": [],
+  "json_parse": "all dispatch JSON parse",
+  "whitespace_errors": [],
+  "dialogue_fingerprint_changes": [],
+  "baseline_drift_reread": [
+    "PROJECT.md",
+    "docs/reviews/FOUNDATIONS_DIALOGUE_AND_ABSORPTION_PLAN_2026-10-12.md",
+    "docs/gm/dispatch/world1-full-completion-2026-10-11/CHECKPOINT.md"
+  ],
+  "review_coverage": {
+    "authority": "structural current callers and overrides; no behavioral agent trial",
+    "planning_joins": "selected U/K/MM/CD/CW/S mapping; no universal complete engine audit",
+    "dialogue": "native/Ink/authoring/commit/current source, no gameplay",
+    "research": "53-entry index correspondence;four selected paths;not semantic complete library",
+    "tools": "primary docs/source-only;no installed editor/productivity trial"
+  },
+  "workers": "three completed/released;root reviewed output",
+  "unrun": [
+    "runtime edits",
+    "tests",
+    "build",
+    "browser/gameplay",
+    "save/reload/import",
+    "authoring-tool trial",
+    "shared integration",
+    "human acceptance"
+  ],
+  "dispatch_sha256": "5fe45a89658ace7ec7eee8bdfaf3ea80f2059517e984c99513273ebb112e38e6"
+}

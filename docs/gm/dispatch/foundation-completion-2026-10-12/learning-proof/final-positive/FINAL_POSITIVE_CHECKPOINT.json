@@ -1,0 +1,154 @@
+{
+  "scope": "Genuine finite Neri positive and pending unsupported absence; gameplay interrupted at literal import blocker",
+  "bundle": "555216ac778b8bc55d27f12317f450a61bf28f04344f94a93691ad34c4cf53da",
+  "origin": "http://127.0.0.1:18644",
+  "pid": 67997,
+  "input": "/tmp/yairpg-foundation-learning-worker-neri-presponsor.json",
+  "assertions": {
+    "actualIndependentLesson": true,
+    "actualPendingMakingWhileUnsupported": true,
+    "spentMinuteShiftsDueAndPauseExactly": true,
+    "unsupportedNoMakingCompletion": true,
+    "reloadRetainsPending": true,
+    "actualNeriMethodAbsentBeforeLesson": true,
+    "NeriOwnAttentionSpentExactlyOnce": true,
+    "NeriOwnStaminaSpentThreeThroughPendingMaking": true,
+    "lessonEvidenceActualActor": true
+  },
+  "checkpoints": {
+    "outbound": {
+      "path": "/tmp/yairpg-foundation-learning-final-positive-outbound.json",
+      "sha256": "15fcd1cec040d3cf68d912d9cbf0235abb11f6aff5608d420c707ead47b3cb8f",
+      "clock": 11723,
+      "sequence": 1296,
+      "completedLearning": {
+        "world.completion.learning.accept": 1
+      },
+      "pendingJobs": [
+        {
+          "id": "simulation:1296",
+          "commandId": "world.completion.learning.walk_to_bench",
+          "due": 11725,
+          "actorId": "remainder_home.neri",
+          "worldCompletionLearningClock": {
+            "schema": 1,
+            "acceptedAt": 11723,
+            "pausedMinutes": 0,
+            "bodyId": "remainder_home.neri.original_human_body"
+          }
+        }
+      ]
+    },
+    "absence-entered": {
+      "path": "/tmp/yairpg-foundation-learning-final-positive-absence-entered.json",
+      "sha256": "8417696092c1d2573fdac8af744189f451b315ca575b46c22898a4daf46b9618",
+      "clock": 11734,
+      "sequence": 1301,
+      "completedLearning": {
+        "world.completion.learning.accept": 1,
+        "world.completion.learning.walk_to_bench": 1,
+        "world.completion.learning.learn_neri": 1
+      },
+      "pendingJobs": [
+        {
+          "id": "simulation:1299",
+          "commandId": "world.completion.learning.make_neri",
+          "due": 11735,
+          "actorId": "remainder_home.neri",
+          "worldCompletionLearningClock": {
+            "schema": 1,
+            "acceptedAt": 11732,
+            "pausedMinutes": 1,
+            "bodyId": "remainder_home.neri.original_human_body"
+          }
+        }
+      ]
+    },
+    "absence-spent": {
+      "path": "/tmp/yairpg-foundation-learning-final-positive-absence-spent.json",
+      "sha256": "56599c2ab212a69d45a46cb0455607c46bf392709b46e4d26cf9ba320eda7821",
+      "clock": 11735,
+      "sequence": 1302,
+      "completedLearning": {
+        "world.completion.learning.accept": 1,
+        "world.completion.learning.walk_to_bench": 1,
+        "world.completion.learning.learn_neri": 1
+      },
+      "pendingJobs": [
+        {
+          "id": "simulation:1299",
+          "commandId": "world.completion.learning.make_neri",
+          "due": 11736,
+          "actorId": "remainder_home.neri",
+          "worldCompletionLearningClock": {
+            "schema": 1,
+            "acceptedAt": 11732,
+            "pausedMinutes": 2,
+            "bodyId": "remainder_home.neri.original_human_body"
+          }
+        }
+      ]
+    },
+    "absence-reloaded": {
+      "path": "/tmp/yairpg-foundation-learning-final-positive-absence-reloaded.json",
+      "sha256": "d56937b96eb42605065575e973d2255a827c38ee2caddecc1d3477a79ab304f4",
+      "clock": 11735,
+      "sequence": 1302,
+      "completedLearning": {
+        "world.completion.learning.accept": 1,
+        "world.completion.learning.walk_to_bench": 1,
+        "world.completion.learning.learn_neri": 1
+      },
+      "pendingJobs": [
+        {
+          "id": "simulation:1299",
+          "commandId": "world.completion.learning.make_neri",
+          "due": 11736,
+          "actorId": "remainder_home.neri",
+          "worldCompletionLearningClock": {
+            "schema": 1,
+            "acceptedAt": 11732,
+            "pausedMinutes": 2,
+            "bodyId": "remainder_home.neri.original_human_body"
+          }
+        }
+      ]
+    },
+    "import-rejected-preserved": {
+      "path": "/tmp/yairpg-foundation-learning-final-positive-import-rejected-preserved.json",
+      "sha256": "2f2663debc5ae1e0ebb3d94635cf52314fdaea725f9061e1256b8650f4f2de74",
+      "clock": 11746,
+      "sequence": 1313,
+      "completedLearning": {
+        "world.completion.learning.accept": 1,
+        "world.completion.learning.walk_to_bench": 1,
+        "world.completion.learning.learn_neri": 1
+      },
+      "pendingJobs": [
+        {
+          "id": "simulation:1299",
+          "commandId": "world.completion.learning.make_neri",
+          "due": 11747,
+          "actorId": "remainder_home.neri",
+          "worldCompletionLearningClock": {
+            "schema": 1,
+            "acceptedAt": 11732,
+            "pausedMinutes": 13,
+            "bodyId": "remainder_home.neri.original_human_body"
+          }
+        }
+      ]
+    }
+  },
+  "blocker": {
+    "nativeNotice": "Import rejected. Current save kept. Save compatibility check did not finish; current save kept.",
+    "source": "src/import_probe.js:26",
+    "invariant": "Actual exported paused pending job must complete real-loader preflight and restore through literal download import;15s timeout prevents B5",
+    "preserved": "/tmp/yairpg-foundation-learning-final-positive-import-rejected-preserved.json"
+  },
+  "remaining": [
+    "normal exit and actual making completion",
+    "production/account/transfer/actual crop use",
+    "literal import boundaries and negative compatibility"
+  ]
+}

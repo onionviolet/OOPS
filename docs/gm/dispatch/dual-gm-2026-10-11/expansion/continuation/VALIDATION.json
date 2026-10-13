@@ -1,0 +1,16 @@
+{
+  "schema": "world1-continuation-setup-proof-1",
+  "status": "setup-verified; audits pending; completion GM not yet launched",
+  "automation": {
+    "id": "launch-and-continue-world-1-completion-gm",
+    "status": "ACTIVE",
+    "kind": "heartbeat",
+    "targetThreadId": "01a1297e-c3c2-7c23-b4ae-974565fb5cf5",
+    "cadenceMinutes": 15
+  },
+  "stateJSON": "parsed; waiting gate and null successor confirmed",
+  "contractWhitespace": "passed",
+  "successorGate": "actual checked audit returns and releases; duplicate-safe dispatch required",
+  "persistentGoal": "required of future completion GM, not yet created",
+  "runtime": "no implementation or verification by launcher setup"
+}

@@ -1,5 +1,3 @@
-import {activeNestedVisit} from './feature_expansion_nested_host.js';
-import {activeTidemarkVisit} from './feature_expansion_destination_host.js';
 import {FOLDED_GLASSHOUSE_DEFINITION as baseDefinition, FOLDED_GLASSHOUSE_IDS as ids, createFoldedGlasshouseContent} from './pocket_realm_content.js';
 import {validateWorldRecords,planWorldClock,createWorldBindings,worldInstanceFacts} from './world_instances.js';
 import {POCKET_DOOR_BINDING} from './pocket_realm_rules.js';
@@ -31,8 +29,9 @@ export function validateRealmState(state){
  assert(r.connection,'Missing authored pocket doorway.');validateRealmConnectionBinding(r.connection,POCKET_DOOR_BINDING);
  assert((r.connection.openedAt===null||r.connection.openedAt<=state.clock)&&(!r.connection.closure||r.connection.closure.at<=state.clock),'Pocket route receipts exceed the joined played clock.');
  const active=activeRealmVisit(state);assert((r.activeVisitId===null&&!r.visits.some(v=>v.status==='active'))||(active&&active.actorId==='player'),'Invalid active pocket visit.');
- const sourceVisit=[state.bookWorldCampaign,state.motherOfLearning,state.proto23Village].map(d=>d?.visits?.find(v=>v.id===d.activeVisitId&&v.status==='active'&&v.actorId==='player')).find(v=>v?.endpoint.worldId===state.actors.player.worldId);
- assert(active ? state.actors.player.worldId===ids.worldId : (state.actors.player.worldId==='base.frontier'||state.actors.player.worldId==='feature.tidemark'&&!!activeTidemarkVisit(state)||!!activeNestedVisit(state)&&activeNestedVisit(state).endpoint.worldId===state.actors.player.worldId||!!sourceVisit),'Player world and pocket visit disagree.');
+ // A retained, inactive pocket owns no foreign player location. The current
+ // world's registry and native binding validate that location independently.
+ assert((state.actors.player.worldId===ids.worldId)===!!active,'Player world and pocket visit disagree.');
  if(active)assert(r.connection.open,'The conventional pocket visit needs its open return doorway.');
  if(active)assert(state.simulation?.people.player.location==='Folded Glasshouse','Player body is not at its visited pocket site.');
 }
@@ -139,6 +138,9 @@ export function expireRealmObservation(state){
 export function realmSimulationContexts(state,contexts){
  if(!state.realmPrototype)return contexts;
  const r=state.realmPrototype,i=r.instances[ids.instanceId],caretaker=content.caretakerId,present=!!activeRealmVisit(state);
+ // Opening the route creates its instance, not the resident. Contexts must
+ // refer only to actors actually introduced by their own meeting route.
+ if(!state.actors[caretaker]||!state.simulation?.people?.[caretaker])return contexts;
  const supported=!!r.activityClock&&i.clock.observedAt===state.clock&&realmClockActivation(i,r.activityClock,definition,activityContext(state,activitySupport(state,state.clock,state.clock))).supportedActivity;
  const active=(present||supported)&&state.actors[caretaker]?.worldId===ids.worldId&&i.actorIds.includes(caretaker);
  return {...contexts,[caretaker]:{...contexts[caretaker],busy:!active,facts:{...contexts[caretaker]?.facts,...realmFacts(state,caretaker),

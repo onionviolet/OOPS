@@ -1,0 +1,5522 @@
+{
+ "fingerprint": {
+  "audit_started": "2026-10-13T00:57-04:00",
+  "measured_through": "2026-10-13T01:34-04:00",
+  "current": {
+   "repo": "/Users/weiwei/code/yet-another-idle-rpg",
+   "branch": "codex/gameplay-foundations",
+   "head": "dd3efe3383f12f0aac22e4f390aae90fae2e7fc4",
+   "dirty_paths_at_start": 180,
+   "dirty_paths_at_end": 181,
+   "concurrent_changes": "docs/research/*, PROJECT.md, tests/structured_pack_ui.test.js (another session); no src/, styles/ or dist/bundle.js change during the audit",
+   "bundle_sha256": "451be34e450e0b6e8f049018889c43711bc34e885c40c834d7f7bfc2d633ecbf",
+   "bundle_freshness": "bundle newer than every src/ and styles/ file; only index.html (build stamp) newer",
+   "index_stamp": "v0.6-451be34e450e",
+   "served": "python3 http.server 127.0.0.1:18801 from the shared checkout (read only)"
+  },
+  "original": {
+   "ref": "upstream/master",
+   "commit": "e3356432ad5112f30842cfe6a6b5c3a4ced77de9",
+   "version": "v0.5.5.30",
+   "worktree": "scratch git worktree",
+   "served": "127.0.0.1:18802"
+  },
+  "v06_base": {
+   "commit": "25afe1a879459d85af609088a046ac4f1d3893e1",
+   "source": "miktaew yet-another-idle-rpg-dev, pinned base of the fork per docs/V06_MIGRATION.md",
+   "served": "127.0.0.1:18803 (loose ES modules, its own index.html)"
+  },
+  "proto23": {
+   "url": "https://23html.github.io/",
+   "repo": "github.com/23html/23html.github.io (last push 2022-10-22); live page byte-identical to repo index.html"
+  },
+  "browser": "Headless Google Chrome via Playwright (codex runtime); headed checks in Claude desktop browser pane, Chrome/152.0.7977.130",
+  "dpr": "1 for desktop sizes; 1.5 for the 150% zoom emulation",
+  "zoom_method": "150% browser zoom emulated as CSS viewport = physical/1.5 with deviceScaleFactor 1.5 (1366x768 -> 911x512 CSS px)",
+  "saves": "fresh disposable origins only; no personal save opened"
+ },
+ "states": {
+  "T1": "fresh hero, first village screen, no input",
+  "T6": "post-elder village hub (all elder dialogue exhausted via UI) + injected disposable save: 29 inventory stacks (9 equipment incl. 2 shields, 17 materials/consumables/book), money 5000, is_crafting_unlocked and is_gathering_unlocked flags, 14 skills given XP. Meditation excluded because its level reward crashes the original loader at injected XP.",
+  "T2": "T6 + Find work -> Work on the fields, 1.5 s after start",
+  "T3": "T6 + Move somewhere else -> Infested field, 5 s (15 s for log probe)",
+  "T4": "T6 + Visit a merchant -> first trader",
+  "T5": "T6 + Try to craft something",
+  "T7": "current only: T6 + Work ledger open, or Authoring context"
+ },
+ "t1": [
+  {
+   "build": "original",
+   "viewport": "1366x768",
+   "doc": {
+    "scrollW": 1656,
+    "scrollH": 811,
+    "hOverflow": true,
+    "vOverflow": true
+   },
+   "play": 15,
+   "playLabels": [
+    "Hero",
+    "[use]",
+    "auto",
+    "[equip]",
+    "Inventory",
+    "star_border",
+    "question_answer Talk to someone",
+    "on",
+    "Quests",
+    "Bestiary",
+    "Anthology",
+    "Data",
+    "quest_hiding_button",
+    "Stats",
+    "Tools"
+   ],
+   "chrome": 0,
+   "chromeAreaPct": 0,
+   "scrollers": [],
+   "nested": 0,
+   "buttons": {
+    "dom": 0,
+    "visible": 0
+   }
+  },
+  {
+   "build": "original",
+   "viewport": "1440x900",
+   "doc": {
+    "scrollW": 1656,
+    "scrollH": 900,
+    "hOverflow": true,
+    "vOverflow": false
+   },
+   "play": 21,
+   "playLabels": [
+    "Hero",
+    "[use]",
+    "auto",
+    "[equip]",
+    "Inventory",
+    "star_border",
+    "question_answer Talk to someone",
+    "on",
+    "Skills",
+    "Stances",
+    "Magic",
+    "Quests",
+    "Bestiary",
+    "Anthology",
+    "Data",
+    "quest_hiding_button",
+    "Stats",
+    "Tools",
+    "Levels / unlocks",
+    "Events",
+    "Crafting"
+   ],
+   "chrome": 0,
+   "chromeAreaPct": 0,
+   "scrollers": [],
+   "nested": 0,
+   "buttons": {
+    "dom": 0,
+    "visible": 0
+   }
+  },
+  {
+   "build": "original",
+   "viewport": "1920x1080",
+   "doc": {
+    "scrollW": 1920,
+    "scrollH": 1080,
+    "hOverflow": false,
+    "vOverflow": false
+   },
+   "play": 24,
+   "playLabels": [
+    "Hero",
+    "[use]",
+    "auto",
+    "[equip]",
+    "Inventory",
+    "star_border",
+    "question_answer Talk to someone",
+    "on",
+    "Skills",
+    "Stances",
+    "Magic",
+    "Quests",
+    "Bestiary",
+    "Anthology",
+    "Data",
+    "quest_hiding_button",
+    "Stats",
+    "Tools",
+    "Levels / unlocks",
+    "Events",
+    "Crafting",
+    "Combat",
+    "Loot",
+    "BGM"
+   ],
+   "chrome": 0,
+   "chromeAreaPct": 0,
+   "scrollers": [],
+   "nested": 0,
+   "buttons": {
+    "dom": 0,
+    "visible": 0
+   }
+  },
+  {
+   "build": "v06",
+   "viewport": "1366x768",
+   "doc": {
+    "scrollW": 1656,
+    "scrollH": 811,
+    "hOverflow": true,
+    "vOverflow": true
+   },
+   "play": 16,
+   "playLabels": [
+    "Audit",
+    "[use]",
+    "auto",
+    "[equip]",
+    "Inventory",
+    "star_border",
+    "question_answer Talk to someone",
+    "on",
+    "Quests",
+    "Bestiary",
+    "Anthology",
+    "Data",
+    "quest_hiding_button",
+    "Stats",
+    "Bio",
+    "Tools"
+   ],
+   "chrome": 0,
+   "chromeAreaPct": 0,
+   "scrollers": [],
+   "nested": 0,
+   "buttons": {
+    "dom": 0,
+    "visible": 0
+   }
+  },
+  {
+   "build": "v06",
+   "viewport": "1440x900",
+   "doc": {
+    "scrollW": 1656,
+    "scrollH": 900,
+    "hOverflow": true,
+    "vOverflow": false
+   },
+   "play": 22,
+   "playLabels": [
+    "Audit",
+    "[use]",
+    "auto",
+    "[equip]",
+    "Inventory",
+    "star_border",
+    "question_answer Talk to someone",
+    "on",
+    "Skills",
+    "Stances",
+    "Magic",
+    "Quests",
+    "Bestiary",
+    "Anthology",
+    "Data",
+    "quest_hiding_button",
+    "Stats",
+    "Bio",
+    "Tools",
+    "Levels / unlocks",
+    "Events",
+    "Crafting"
+   ],
+   "chrome": 0,
+   "chromeAreaPct": 0,
+   "scrollers": [],
+   "nested": 0,
+   "buttons": {
+    "dom": 0,
+    "visible": 0
+   }
+  },
+  {
+   "build": "v06",
+   "viewport": "1920x1080",
+   "doc": {
+    "scrollW": 1920,
+    "scrollH": 1080,
+    "hOverflow": false,
+    "vOverflow": false
+   },
+   "play": 25,
+   "playLabels": [
+    "Audit",
+    "[use]",
+    "auto",
+    "[equip]",
+    "Inventory",
+    "star_border",
+    "question_answer Talk to someone",
+    "on",
+    "Skills",
+    "Stances",
+    "Magic",
+    "Quests",
+    "Bestiary",
+    "Anthology",
+    "Data",
+    "quest_hiding_button",
+    "Stats",
+    "Bio",
+    "Tools",
+    "Levels / unlocks",
+    "Events",
+    "Crafting",
+    "Combat",
+    "Loot",
+    "BGM"
+   ],
+   "chrome": 0,
+   "chromeAreaPct": 0,
+   "scrollers": [],
+   "nested": 0,
+   "buttons": {
+    "dom": 0,
+    "visible": 0
+   }
+  },
+  {
+   "build": "current",
+   "viewport": "1366x768",
+   "doc": {
+    "scrollW": 1366,
+    "scrollH": 768,
+    "hOverflow": false,
+    "vOverflow": false
+   },
+   "play": 28,
+   "playLabels": [
+    "Audit",
+    "Inventory",
+    "Stats",
+    "Bio",
+    "Tools",
+    "star_border",
+    "question_answer Talk to someone",
+    "work_outline Find work",
+    "Work ledger",
+    "Quests",
+    "Bestiary",
+    "Anthology",
+    "Data",
+    "quest_hiding_button",
+    "on",
+    "Skills",
+    "Stances",
+    "Magic",
+    "Remembered years \u00b7 0 memories",
+    "Remember this day",
+    "Years remembered",
+    "Village neighbors",
+    "Levels / unlocks",
+    "Events",
+    "Crafting",
+    "Combat",
+    "Loot",
+    "BGM"
+   ],
+   "chrome": 53,
+   "chromeAreaPct": 26.5,
+   "scrollers": [
+    {
+     "id": "",
+     "cls": "workspace-dock",
+     "title": "",
+     "content": 800,
+     "visible": 637,
+     "ratio": 1.26,
+     "y": 83,
+     "inView": true
+    },
+    {
+     "id": "",
+     "cls": "workspace-module-body",
+     "title": "Character & preparation",
+     "content": 248,
+     "visible": 240,
+     "ratio": 1.03,
+     "y": 401,
+     "inView": true
+    },
+    {
+     "id": "",
+     "cls": "workspace-dock",
+     "title": "",
+     "content": 662,
+     "visible": 637,
+     "ratio": 1.04,
+     "y": 83,
+     "inView": true
+    },
+    {
+     "id": "",
+     "cls": "workspace-module-body",
+     "title": "Time & weather",
+     "content": 55,
+     "visible": 40,
+     "ratio": 1.38,
+     "y": 120,
+     "inView": true
+    },
+    {
+     "id": "",
+     "cls": "workspace-module-body",
+     "title": "Current location",
+     "content": 163,
+     "visible": 150,
+     "ratio": 1.09,
+     "y": 210,
+     "inView": true
+    },
+    {
+     "id": "location_description_div",
+     "cls": "",
+     "title": "Current location",
+     "content": 144,
+     "visible": 88,
+     "ratio": 1.64,
+     "y": 276,
+     "inView": true
+    },
+    {
+     "id": "",
+     "cls": "workspace-module-body",
+     "title": "Local actions",
+     "content": 554,
+     "visible": 143,
+     "ratio": 3.87,
+     "y": 492,
+     "inView": true
+    },
+    {
+     "id": "",
+     "cls": "workspace-dock",
+     "title": "",
+     "content": 758,
+     "visible": 637,
+     "ratio": 1.19,
+     "y": 83,
+     "inView": true
+    },
+    {
+     "id": "",
+     "cls": "workspace-module-body",
+     "title": "Journal & received accounts",
+     "content": 309,
+     "visible": 140,
+     "ratio": 2.21,
+     "y": 120,
+     "inView": true
+    }
+   ],
+   "nested": 6,
+   "buttons": {
+    "dom": 690,
+    "visible": 99
+   }
+  },
+  {
+   "build": "current",
+   "viewport": "1440x900",
+   "doc": {
+    "scrollW": 1440,
+    "scrollH": 900,
+    "hOverflow": false,
+    "vOverflow": false
+   },
+   "play": 33,
+   "playLabels": [
+    "Audit",
+    "Inventory",
+    "Stats",
+    "Bio",
+    "Tools",
+    "[use]",
+    "auto",
+    "[equip]",
+    "star_border",
+    "Ask for repair notes (one field clear)",
+    "Buy repair notes (10 coins)",
+    "question_answer Talk to someone",
+    "work_outline Find work",
+    "Work ledger",
+    "Quests",
+    "Bestiary",
+    "Anthology",
+    "Data",
+    "quest_hiding_button",
+    "on",
+    "Skills",
+    "Stances",
+    "Magic",
+    "Remembered years \u00b7 0 memories",
+    "Remember this day",
+    "Years remembered",
+    "Village neighbors",
+    "Levels / unlocks",
+    "Events",
+    "Crafting",
+    "Combat",
+    "Loot",
+    "BGM"
+   ],
+   "chrome": 60,
+   "chromeAreaPct": 25.6,
+   "scrollers": [
+    {
+     "id": "",
+     "cls": "workspace-dock",
+     "title": "",
+     "content": 800,
+     "visible": 769,
+     "ratio": 1.04,
+     "y": 83,
+     "inView": true
+    },
+    {
+     "id": "",
+     "cls": "workspace-module-body",
+     "title": "Character & preparation",
+     "content": 248,
+     "visible": 240,
+     "ratio": 1.03,
+     "y": 401,
+     "inView": true
+    },
+    {
+     "id": "",
+     "cls": "workspace-module-body",
+     "title": "Time & weather",
+     "content": 55,
+     "visible": 40,
+     "ratio": 1.38,
+     "y": 120,
+     "inView": true
+    },
+    {
+     "id": "",
+     "cls": "workspace-module-body",
+     "title": "Current location",
+     "content": 163,
+     "visible": 150,
+     "ratio": 1.09,
+     "y": 210,
+     "inView": true
+    },
+    {
+     "id": "location_description_div",
+     "cls": "",
+     "title": "Current location",
+     "content": 144,
+     "visible": 88,
+     "ratio": 1.64,
+     "y": 276,
+     "inView": true
+    },
+    {
+     "id": "",
+     "cls": "workspace-module-body",
+     "title": "Local actions",
+     "content": 554,
+     "visible": 252,
+     "ratio": 2.2,
+     "y": 492,
+     "inView": true
+    },
+    {
+     "id": "",
+     "cls": "workspace-module-body",
+     "title": "Journal & received accounts",
+     "content": 309,
+     "visible": 140,
+     "ratio": 2.21,
+     "y": 120,
+     "inView": true
+    }
+   ],
+   "nested": 2,
+   "buttons": {
+    "dom": 690,
+    "visible": 99
+   }
+  },
+  {
+   "build": "current",
+   "viewport": "1920x1080",
+   "doc": {
+    "scrollW": 1920,
+    "scrollH": 1080,
+    "hOverflow": false,
+    "vOverflow": false
+   },
+   "play": 36,
+   "playLabels": [
+    "Audit",
+    "Inventory",
+    "Stats",
+    "Bio",
+    "Tools",
+    "[use]",
+    "auto",
+    "[equip]",
+    "star_border",
+    "Ask for repair notes (one field clear)",
+    "Buy repair notes (10 coins)",
+    "question_answer Talk to someone",
+    "work_outline Find work",
+    "Local life",
+    "Optional pacing",
+    "Equipment condition and repair",
+    "Work ledger",
+    "Quests",
+    "Bestiary",
+    "Anthology",
+    "Data",
+    "quest_hiding_button",
+    "on",
+    "Skills",
+    "Stances",
+    "Magic",
+    "Remembered years \u00b7 0 memories",
+    "Remember this day",
+    "Years remembered",
+    "Village neighbors",
+    "Levels / unlocks",
+    "Events",
+    "Crafting",
+    "Combat",
+    "Loot",
+    "BGM"
+   ],
+   "chrome": 61,
+   "chromeAreaPct": 22,
+   "scrollers": [
+    {
+     "id": "",
+     "cls": "workspace-module-body",
+     "title": "Character & preparation",
+     "content": 248,
+     "visible": 240,
+     "ratio": 1.03,
+     "y": 401,
+     "inView": true
+    },
+    {
+     "id": "",
+     "cls": "workspace-module-body",
+     "title": "Time & weather",
+     "content": 55,
+     "visible": 40,
+     "ratio": 1.38,
+     "y": 120,
+     "inView": true
+    },
+    {
+     "id": "",
+     "cls": "workspace-module-body",
+     "title": "Current location",
+     "content": 163,
+     "visible": 150,
+     "ratio": 1.09,
+     "y": 210,
+     "inView": true
+    },
+    {
+     "id": "location_description_div",
+     "cls": "",
+     "title": "Current location",
+     "content": 101,
+     "visible": 88,
+     "ratio": 1.15,
+     "y": 276,
+     "inView": true
+    },
+    {
+     "id": "",
+     "cls": "workspace-module-body",
+     "title": "Local actions",
+     "content": 534,
+     "visible": 432,
+     "ratio": 1.24,
+     "y": 492,
+     "inView": true
+    },
+    {
+     "id": "",
+     "cls": "workspace-module-body",
+     "title": "Journal & received accounts",
+     "content": 309,
+     "visible": 140,
+     "ratio": 2.21,
+     "y": 120,
+     "inView": true
+    }
+   ],
+   "nested": 1,
+   "buttons": {
+    "dom": 690,
+    "visible": 99
+   }
+  }
+ ],
+ "rows": [
+  {
+   "build": "original",
+   "state": "T6:hub",
+   "viewport": "1366x768",
+   "zoom": 1,
+   "metric": "M1",
+   "value": 41,
+   "units": "on-screen play controls",
+   "method": "outermost semantic or cursor:pointer elements whose centre hit-tests to themselves inside the viewport above the bottom bar, excluding workspace chrome and list sort/filter rows; counts every visible control (tabs, inventory [use]) not only routine decisions",
+   "uncertainty": "heuristic; original uses divs so cursor:pointer is the only signal"
+  },
+  {
+   "build": "original",
+   "state": "T6:hub",
+   "viewport": "1366x768",
+   "zoom": 1,
+   "metric": "M2",
+   "value": {
+    "scroll_owners": 1,
+    "nested": 0,
+    "page_h_overflow": true,
+    "page_v_overflow": true,
+    "doc_scroll": [
+     1656,
+     811
+    ]
+   },
+   "units": "count",
+   "method": "visible elements with overflow-y auto/scroll and scrollHeight > clientHeight+4"
+  },
+  {
+   "build": "original",
+   "state": "T6:hub",
+   "viewport": "1366x768",
+   "zoom": 1,
+   "metric": "M3",
+   "value": null,
+   "units": "px content/visible of Local actions body",
+   "method": "scrollHeight/clientHeight of the Local actions workspace-module-body; original has no constrained action panel"
+  },
+  {
+   "build": "original",
+   "state": "T6:hub",
+   "viewport": "1366x768",
+   "zoom": 1,
+   "metric": "M4",
+   "value": 0,
+   "units": "% of viewport above bottom bar",
+   "method": "area of .workspace-toolbar + .workspace-module-header clipped to viewport; excludes grips, sort rows",
+   "uncertainty": "lower bound"
+  },
+  {
+   "build": "original",
+   "state": "T6:hub",
+   "viewport": "1366x768",
+   "zoom": 1,
+   "metric": "M4-controls",
+   "value": {
+    "chrome_controls_on_screen": 0,
+    "list_tools_on_screen": 1
+   },
+   "units": "count",
+   "method": "same hit-test as M1"
+  },
+  {
+   "build": "original",
+   "state": "T6:hub",
+   "viewport": "1366x768",
+   "zoom": 1,
+   "metric": "M6",
+   "value": {
+    "clicks": 0,
+    "scrolls": 0,
+    "log": []
+   },
+   "units": "clicks/scroll transitions from T6 neutral state",
+   "method": "a scroll is counted when the next target fails a centre hit-test before click"
+  },
+  {
+   "build": "original",
+   "state": "T6:hub",
+   "viewport": "1366x768",
+   "zoom": 1,
+   "metric": "M10",
+   "value": {
+    "steps": 10,
+    "first": [
+     [
+      "Talk to someone",
+      -1
+     ],
+     [
+      "Find work",
+      -1
+     ],
+     [
+      "Move somewhere else",
+      -1
+     ],
+     [
+      "Visit a merchant",
+      -1
+     ],
+     [
+      "craft",
+      -1
+     ]
+    ],
+    "chromeStops": 0,
+    "offscreenStops": 0,
+    "hiddenStops": 0,
+    "noRing": 0
+   },
+   "units": "Tab presses",
+   "method": "Tab from blurred body, up to 160 presses or loop; first = index of first focus containing the label (-1 = never reached)"
+  },
+  {
+   "build": "original",
+   "state": "T2:busy",
+   "viewport": "1366x768",
+   "zoom": 1,
+   "metric": "M1",
+   "value": 35,
+   "units": "on-screen play controls",
+   "method": "outermost semantic or cursor:pointer elements whose centre hit-tests to themselves inside the viewport above the bottom bar, excluding workspace chrome and list sort/filter rows; counts every visible control (tabs, inventory [use]) not only routine decisions",
+   "uncertainty": "heuristic; original uses divs so cursor:pointer is the only signal"
+  },
+  {
+   "build": "original",
+   "state": "T2:busy",
+   "viewport": "1366x768",
+   "zoom": 1,
+   "metric": "M2",
+   "value": {
+    "scroll_owners": 1,
+    "nested": 0,
+    "page_h_overflow": true,
+    "page_v_overflow": true,
+    "doc_scroll": [
+     1656,
+     811
+    ]
+   },
+   "units": "count",
+   "method": "visible elements with overflow-y auto/scroll and scrollHeight > clientHeight+4"
+  },
+  {
+   "build": "original",
+   "state": "T2:busy",
+   "viewport": "1366x768",
+   "zoom": 1,
+   "metric": "M3",
+   "value": null,
+   "units": "px content/visible of Local actions body",
+   "method": "scrollHeight/clientHeight of the Local actions workspace-module-body; original has no constrained action panel"
+  },
+  {
+   "build": "original",
+   "state": "T2:busy",
+   "viewport": "1366x768",
+   "zoom": 1,
+   "metric": "M4",
+   "value": 0,
+   "units": "% of viewport above bottom bar",
+   "method": "area of .workspace-toolbar + .workspace-module-header clipped to viewport; excludes grips, sort rows",
+   "uncertainty": "lower bound"
+  },
+  {
+   "build": "original",
+   "state": "T2:busy",
+   "viewport": "1366x768",
+   "zoom": 1,
+   "metric": "M4-controls",
+   "value": {
+    "chrome_controls_on_screen": 0,
+    "list_tools_on_screen": 1
+   },
+   "units": "count",
+   "method": "same hit-test as M1"
+  },
+  {
+   "build": "original",
+   "state": "T2:busy",
+   "viewport": "1366x768",
+   "zoom": 1,
+   "metric": "M6",
+   "value": {
+    "clicks": 2,
+    "scrolls": 0,
+    "log": [
+     "click Find work",
+     "click Work on the fields"
+    ]
+   },
+   "units": "clicks/scroll transitions from T6 neutral state",
+   "method": "a scroll is counted when the next target fails a centre hit-test before click"
+  },
+  {
+   "build": "original",
+   "state": "T2:busy",
+   "viewport": "1366x768",
+   "zoom": 1,
+   "metric": "M7",
+   "value": {
+    "#action_end_div": 0,
+    "#action_status_div": 0,
+    "#combat_div": 0,
+    "#enemies_div": 0,
+    "#message_log_div": 0
+   },
+   "units": "max px vertical movement over 6 s",
+   "method": "sampled every 250 ms",
+   "uncertainty": "anchors limited to existing ids; did not sample Local actions rows"
+  },
+  {
+   "build": "original",
+   "state": "T3:combat",
+   "viewport": "1366x768",
+   "zoom": 1,
+   "metric": "M1",
+   "value": 23,
+   "units": "on-screen play controls",
+   "method": "outermost semantic or cursor:pointer elements whose centre hit-tests to themselves inside the viewport above the bottom bar, excluding workspace chrome and list sort/filter rows; counts every visible control (tabs, inventory [use]) not only routine decisions",
+   "uncertainty": "heuristic; original uses divs so cursor:pointer is the only signal"
+  },
+  {
+   "build": "original",
+   "state": "T3:combat",
+   "viewport": "1366x768",
+   "zoom": 1,
+   "metric": "M2",
+   "value": {
+    "scroll_owners": 0,
+    "nested": 0,
+    "page_h_overflow": true,
+    "page_v_overflow": true,
+    "doc_scroll": [
+     1656,
+     811
+    ]
+   },
+   "units": "count",
+   "method": "visible elements with overflow-y auto/scroll and scrollHeight > clientHeight+4"
+  },
+  {
+   "build": "original",
+   "state": "T3:combat",
+   "viewport": "1366x768",
+   "zoom": 1,
+   "metric": "M3",
+   "value": null,
+   "units": "px content/visible of Local actions body",
+   "method": "scrollHeight/clientHeight of the Local actions workspace-module-body; original has no constrained action panel"
+  },
+  {
+   "build": "original",
+   "state": "T3:combat",
+   "viewport": "1366x768",
+   "zoom": 1,
+   "metric": "M4",
+   "value": 0,
+   "units": "% of viewport above bottom bar",
+   "method": "area of .workspace-toolbar + .workspace-module-header clipped to viewport; excludes grips, sort rows",
+   "uncertainty": "lower bound"
+  },
+  {
+   "build": "original",
+   "state": "T3:combat",
+   "viewport": "1366x768",
+   "zoom": 1,
+   "metric": "M4-controls",
+   "value": {
+    "chrome_controls_on_screen": 0,
+    "list_tools_on_screen": 1
+   },
+   "units": "count",
+   "method": "same hit-test as M1"
+  },
+  {
+   "build": "original",
+   "state": "T3:combat",
+   "viewport": "1366x768",
+   "zoom": 1,
+   "metric": "M6",
+   "value": {
+    "clicks": 2,
+    "scrolls": 0,
+    "log": [
+     "click Move",
+     "click Infested field"
+    ]
+   },
+   "units": "clicks/scroll transitions from T6 neutral state",
+   "method": "a scroll is counted when the next target fails a centre hit-test before click"
+  },
+  {
+   "build": "original",
+   "state": "T3:combat",
+   "viewport": "1366x768",
+   "zoom": 1,
+   "metric": "M7",
+   "value": {
+    "#combat_div": 0,
+    "#enemies_div": 0,
+    "#message_log_div": 0
+   },
+   "units": "max px vertical movement over 6 s",
+   "method": "sampled every 250 ms",
+   "uncertainty": "anchors limited to existing ids; did not sample Local actions rows"
+  },
+  {
+   "build": "original",
+   "state": "T4:merchant",
+   "viewport": "1366x768",
+   "zoom": 1,
+   "metric": "M1",
+   "value": 121,
+   "units": "on-screen play controls",
+   "method": "outermost semantic or cursor:pointer elements whose centre hit-tests to themselves inside the viewport above the bottom bar, excluding workspace chrome and list sort/filter rows; counts every visible control (tabs, inventory [use]) not only routine decisions",
+   "uncertainty": "heuristic; original uses divs so cursor:pointer is the only signal"
+  },
+  {
+   "build": "original",
+   "state": "T4:merchant",
+   "viewport": "1366x768",
+   "zoom": 1,
+   "metric": "M2",
+   "value": {
+    "scroll_owners": 2,
+    "nested": 0,
+    "page_h_overflow": true,
+    "page_v_overflow": true,
+    "doc_scroll": [
+     1656,
+     811
+    ]
+   },
+   "units": "count",
+   "method": "visible elements with overflow-y auto/scroll and scrollHeight > clientHeight+4"
+  },
+  {
+   "build": "original",
+   "state": "T4:merchant",
+   "viewport": "1366x768",
+   "zoom": 1,
+   "metric": "M3",
+   "value": null,
+   "units": "px content/visible of Local actions body",
+   "method": "scrollHeight/clientHeight of the Local actions workspace-module-body; original has no constrained action panel"
+  },
+  {
+   "build": "original",
+   "state": "T4:merchant",
+   "viewport": "1366x768",
+   "zoom": 1,
+   "metric": "M4",
+   "value": 0,
+   "units": "% of viewport above bottom bar",
+   "method": "area of .workspace-toolbar + .workspace-module-header clipped to viewport; excludes grips, sort rows",
+   "uncertainty": "lower bound"
+  },
+  {
+   "build": "original",
+   "state": "T4:merchant",
+   "viewport": "1366x768",
+   "zoom": 1,
+   "metric": "M4-controls",
+   "value": {
+    "chrome_controls_on_screen": 0,
+    "list_tools_on_screen": 4
+   },
+   "units": "count",
+   "method": "same hit-test as M1"
+  },
+  {
+   "build": "original",
+   "state": "T4:merchant",
+   "viewport": "1366x768",
+   "zoom": 1,
+   "metric": "M6",
+   "value": {
+    "clicks": 2,
+    "scrolls": 0,
+    "log": [
+     "click Visit a merchant",
+     "click trader"
+    ]
+   },
+   "units": "clicks/scroll transitions from T6 neutral state",
+   "method": "a scroll is counted when the next target fails a centre hit-test before click"
+  },
+  {
+   "build": "current",
+   "state": "T6:hub",
+   "viewport": "1366x768",
+   "zoom": 1,
+   "metric": "M1",
+   "value": 34,
+   "units": "on-screen play controls",
+   "method": "outermost semantic or cursor:pointer elements whose centre hit-tests to themselves inside the viewport above the bottom bar, excluding workspace chrome and list sort/filter rows; counts every visible control (tabs, inventory [use]) not only routine decisions",
+   "uncertainty": "heuristic; original uses divs so cursor:pointer is the only signal"
+  },
+  {
+   "build": "current",
+   "state": "T6:hub",
+   "viewport": "1366x768",
+   "zoom": 1,
+   "metric": "M2",
+   "value": {
+    "scroll_owners": 12,
+    "nested": 9,
+    "page_h_overflow": false,
+    "page_v_overflow": false,
+    "doc_scroll": [
+     1366,
+     768
+    ]
+   },
+   "units": "count",
+   "method": "visible elements with overflow-y auto/scroll and scrollHeight > clientHeight+4"
+  },
+  {
+   "build": "current",
+   "state": "T6:hub",
+   "viewport": "1366x768",
+   "zoom": 1,
+   "metric": "M3",
+   "value": "830/143",
+   "units": "px content/visible of Local actions body",
+   "method": "scrollHeight/clientHeight of the Local actions workspace-module-body; original has no constrained action panel"
+  },
+  {
+   "build": "current",
+   "state": "T6:hub",
+   "viewport": "1366x768",
+   "zoom": 1,
+   "metric": "M4",
+   "value": 26.4,
+   "units": "% of viewport above bottom bar",
+   "method": "area of .workspace-toolbar + .workspace-module-header clipped to viewport; excludes grips, sort rows",
+   "uncertainty": "lower bound"
+  },
+  {
+   "build": "current",
+   "state": "T6:hub",
+   "viewport": "1366x768",
+   "zoom": 1,
+   "metric": "M4-controls",
+   "value": {
+    "chrome_controls_on_screen": 53,
+    "list_tools_on_screen": 1
+   },
+   "units": "count",
+   "method": "same hit-test as M1"
+  },
+  {
+   "build": "current",
+   "state": "T6:hub",
+   "viewport": "1366x768",
+   "zoom": 1,
+   "metric": "M6",
+   "value": {
+    "clicks": 0,
+    "scrolls": 0,
+    "log": []
+   },
+   "units": "clicks/scroll transitions from T6 neutral state",
+   "method": "a scroll is counted when the next target fails a centre hit-test before click"
+  },
+  {
+   "build": "current",
+   "state": "T6:hub",
+   "viewport": "1366x768",
+   "zoom": 1,
+   "metric": "M10",
+   "value": {
+    "steps": 132,
+    "first": [
+     [
+      "Talk to someone",
+      70
+     ],
+     [
+      "Find work",
+      72
+     ],
+     [
+      "Move somewhere else",
+      68
+     ],
+     [
+      "Visit a merchant",
+      71
+     ],
+     [
+      "craft",
+      69
+     ]
+    ],
+    "chromeStops": 70,
+    "offscreenStops": 0,
+    "hiddenStops": 4,
+    "noRing": 0
+   },
+   "units": "Tab presses",
+   "method": "Tab from blurred body, up to 160 presses or loop; first = index of first focus containing the label (-1 = never reached)"
+  },
+  {
+   "build": "current",
+   "state": "T2:busy",
+   "viewport": "1366x768",
+   "zoom": 1,
+   "metric": "M1",
+   "value": 32,
+   "units": "on-screen play controls",
+   "method": "outermost semantic or cursor:pointer elements whose centre hit-tests to themselves inside the viewport above the bottom bar, excluding workspace chrome and list sort/filter rows; counts every visible control (tabs, inventory [use]) not only routine decisions",
+   "uncertainty": "heuristic; original uses divs so cursor:pointer is the only signal"
+  },
+  {
+   "build": "current",
+   "state": "T2:busy",
+   "viewport": "1366x768",
+   "zoom": 1,
+   "metric": "M2",
+   "value": {
+    "scroll_owners": 12,
+    "nested": 9,
+    "page_h_overflow": false,
+    "page_v_overflow": false,
+    "doc_scroll": [
+     1366,
+     768
+    ]
+   },
+   "units": "count",
+   "method": "visible elements with overflow-y auto/scroll and scrollHeight > clientHeight+4"
+  },
+  {
+   "build": "current",
+   "state": "T2:busy",
+   "viewport": "1366x768",
+   "zoom": 1,
+   "metric": "M3",
+   "value": "707/143",
+   "units": "px content/visible of Local actions body",
+   "method": "scrollHeight/clientHeight of the Local actions workspace-module-body; original has no constrained action panel"
+  },
+  {
+   "build": "current",
+   "state": "T2:busy",
+   "viewport": "1366x768",
+   "zoom": 1,
+   "metric": "M4",
+   "value": 26.4,
+   "units": "% of viewport above bottom bar",
+   "method": "area of .workspace-toolbar + .workspace-module-header clipped to viewport; excludes grips, sort rows",
+   "uncertainty": "lower bound"
+  },
+  {
+   "build": "current",
+   "state": "T2:busy",
+   "viewport": "1366x768",
+   "zoom": 1,
+   "metric": "M4-controls",
+   "value": {
+    "chrome_controls_on_screen": 53,
+    "list_tools_on_screen": 1
+   },
+   "units": "count",
+   "method": "same hit-test as M1"
+  },
+  {
+   "build": "current",
+   "state": "T2:busy",
+   "viewport": "1366x768",
+   "zoom": 1,
+   "metric": "M6",
+   "value": {
+    "clicks": 2,
+    "scrolls": 1,
+    "log": [
+     "scroll\u2192Find work",
+     "click Find work",
+     "click Work on the fields"
+    ]
+   },
+   "units": "clicks/scroll transitions from T6 neutral state",
+   "method": "a scroll is counted when the next target fails a centre hit-test before click"
+  },
+  {
+   "build": "current",
+   "state": "T2:busy",
+   "viewport": "1366x768",
+   "zoom": 1,
+   "metric": "M7",
+   "value": {
+    "#action_end_div": 0,
+    "#action_status_div": 0,
+    "#combat_div": 0,
+    "#enemies_div": 0,
+    "#message_log_div": 0
+   },
+   "units": "max px vertical movement over 6 s",
+   "method": "sampled every 250 ms",
+   "uncertainty": "anchors limited to existing ids; did not sample Local actions rows"
+  },
+  {
+   "build": "current",
+   "state": "T3:combat",
+   "viewport": "1366x768",
+   "zoom": 1,
+   "metric": "M1",
+   "value": 19,
+   "units": "on-screen play controls",
+   "method": "outermost semantic or cursor:pointer elements whose centre hit-tests to themselves inside the viewport above the bottom bar, excluding workspace chrome and list sort/filter rows; counts every visible control (tabs, inventory [use]) not only routine decisions",
+   "uncertainty": "heuristic; original uses divs so cursor:pointer is the only signal"
+  },
+  {
+   "build": "current",
+   "state": "T3:combat",
+   "viewport": "1366x768",
+   "zoom": 1,
+   "metric": "M2",
+   "value": {
+    "scroll_owners": 11,
+    "nested": 6,
+    "page_h_overflow": false,
+    "page_v_overflow": false,
+    "doc_scroll": [
+     1366,
+     768
+    ]
+   },
+   "units": "count",
+   "method": "visible elements with overflow-y auto/scroll and scrollHeight > clientHeight+4"
+  },
+  {
+   "build": "current",
+   "state": "T3:combat",
+   "viewport": "1366x768",
+   "zoom": 1,
+   "metric": "M3",
+   "value": "212/143",
+   "units": "px content/visible of Local actions body",
+   "method": "scrollHeight/clientHeight of the Local actions workspace-module-body; original has no constrained action panel"
+  },
+  {
+   "build": "current",
+   "state": "T3:combat",
+   "viewport": "1366x768",
+   "zoom": 1,
+   "metric": "M4",
+   "value": 24.5,
+   "units": "% of viewport above bottom bar",
+   "method": "area of .workspace-toolbar + .workspace-module-header clipped to viewport; excludes grips, sort rows",
+   "uncertainty": "lower bound"
+  },
+  {
+   "build": "current",
+   "state": "T3:combat",
+   "viewport": "1366x768",
+   "zoom": 1,
+   "metric": "M4-controls",
+   "value": {
+    "chrome_controls_on_screen": 38,
+    "list_tools_on_screen": 0
+   },
+   "units": "count",
+   "method": "same hit-test as M1"
+  },
+  {
+   "build": "current",
+   "state": "T3:combat",
+   "viewport": "1366x768",
+   "zoom": 1,
+   "metric": "M6",
+   "value": {
+    "clicks": 2,
+    "scrolls": 0,
+    "log": [
+     "click Move",
+     "click Infested field"
+    ]
+   },
+   "units": "clicks/scroll transitions from T6 neutral state",
+   "method": "a scroll is counted when the next target fails a centre hit-test before click"
+  },
+  {
+   "build": "current",
+   "state": "T3:combat",
+   "viewport": "1366x768",
+   "zoom": 1,
+   "metric": "M7",
+   "value": {
+    "#combat_div": 0,
+    "#enemies_div": 0,
+    "#message_log_div": 0
+   },
+   "units": "max px vertical movement over 6 s",
+   "method": "sampled every 250 ms",
+   "uncertainty": "anchors limited to existing ids; did not sample Local actions rows"
+  },
+  {
+   "build": "current",
+   "state": "T4:merchant",
+   "viewport": "1366x768",
+   "zoom": 1,
+   "metric": "M1",
+   "value": 44,
+   "units": "on-screen play controls",
+   "method": "outermost semantic or cursor:pointer elements whose centre hit-tests to themselves inside the viewport above the bottom bar, excluding workspace chrome and list sort/filter rows; counts every visible control (tabs, inventory [use]) not only routine decisions",
+   "uncertainty": "heuristic; original uses divs so cursor:pointer is the only signal"
+  },
+  {
+   "build": "current",
+   "state": "T4:merchant",
+   "viewport": "1366x768",
+   "zoom": 1,
+   "metric": "M2",
+   "value": {
+    "scroll_owners": 13,
+    "nested": 10,
+    "page_h_overflow": false,
+    "page_v_overflow": false,
+    "doc_scroll": [
+     1366,
+     768
+    ]
+   },
+   "units": "count",
+   "method": "visible elements with overflow-y auto/scroll and scrollHeight > clientHeight+4"
+  },
+  {
+   "build": "current",
+   "state": "T4:merchant",
+   "viewport": "1366x768",
+   "zoom": 1,
+   "metric": "M3",
+   "value": "454/143",
+   "units": "px content/visible of Local actions body",
+   "method": "scrollHeight/clientHeight of the Local actions workspace-module-body; original has no constrained action panel"
+  },
+  {
+   "build": "current",
+   "state": "T4:merchant",
+   "viewport": "1366x768",
+   "zoom": 1,
+   "metric": "M4",
+   "value": 26.4,
+   "units": "% of viewport above bottom bar",
+   "method": "area of .workspace-toolbar + .workspace-module-header clipped to viewport; excludes grips, sort rows",
+   "uncertainty": "lower bound"
+  },
+  {
+   "build": "current",
+   "state": "T4:merchant",
+   "viewport": "1366x768",
+   "zoom": 1,
+   "metric": "M4-controls",
+   "value": {
+    "chrome_controls_on_screen": 53,
+    "list_tools_on_screen": 1
+   },
+   "units": "count",
+   "method": "same hit-test as M1"
+  },
+  {
+   "build": "current",
+   "state": "T4:merchant",
+   "viewport": "1366x768",
+   "zoom": 1,
+   "metric": "M6",
+   "value": {
+    "clicks": 2,
+    "scrolls": 0,
+    "log": [
+     "click Visit a merchant",
+     "click trader"
+    ]
+   },
+   "units": "clicks/scroll transitions from T6 neutral state",
+   "method": "a scroll is counted when the next target fails a centre hit-test before click"
+  },
+  {
+   "build": "original",
+   "state": "T6:hub",
+   "viewport": "1440x900",
+   "zoom": 1,
+   "metric": "M1",
+   "value": 47,
+   "units": "on-screen play controls",
+   "method": "outermost semantic or cursor:pointer elements whose centre hit-tests to themselves inside the viewport above the bottom bar, excluding workspace chrome and list sort/filter rows; counts every visible control (tabs, inventory [use]) not only routine decisions",
+   "uncertainty": "heuristic; original uses divs so cursor:pointer is the only signal"
+  },
+  {
+   "build": "original",
+   "state": "T6:hub",
+   "viewport": "1440x900",
+   "zoom": 1,
+   "metric": "M2",
+   "value": {
+    "scroll_owners": 1,
+    "nested": 0,
+    "page_h_overflow": true,
+    "page_v_overflow": false,
+    "doc_scroll": [
+     1656,
+     900
+    ]
+   },
+   "units": "count",
+   "method": "visible elements with overflow-y auto/scroll and scrollHeight > clientHeight+4"
+  },
+  {
+   "build": "original",
+   "state": "T6:hub",
+   "viewport": "1440x900",
+   "zoom": 1,
+   "metric": "M3",
+   "value": null,
+   "units": "px content/visible of Local actions body",
+   "method": "scrollHeight/clientHeight of the Local actions workspace-module-body; original has no constrained action panel"
+  },
+  {
+   "build": "original",
+   "state": "T6:hub",
+   "viewport": "1440x900",
+   "zoom": 1,
+   "metric": "M4",
+   "value": 0,
+   "units": "% of viewport above bottom bar",
+   "method": "area of .workspace-toolbar + .workspace-module-header clipped to viewport; excludes grips, sort rows",
+   "uncertainty": "lower bound"
+  },
+  {
+   "build": "original",
+   "state": "T6:hub",
+   "viewport": "1440x900",
+   "zoom": 1,
+   "metric": "M4-controls",
+   "value": {
+    "chrome_controls_on_screen": 0,
+    "list_tools_on_screen": 12
+   },
+   "units": "count",
+   "method": "same hit-test as M1"
+  },
+  {
+   "build": "original",
+   "state": "T6:hub",
+   "viewport": "1440x900",
+   "zoom": 1,
+   "metric": "M6",
+   "value": {
+    "clicks": 0,
+    "scrolls": 0,
+    "log": []
+   },
+   "units": "clicks/scroll transitions from T6 neutral state",
+   "method": "a scroll is counted when the next target fails a centre hit-test before click"
+  },
+  {
+   "build": "original",
+   "state": "T2:busy",
+   "viewport": "1440x900",
+   "zoom": 1,
+   "metric": "M1",
+   "value": 41,
+   "units": "on-screen play controls",
+   "method": "outermost semantic or cursor:pointer elements whose centre hit-tests to themselves inside the viewport above the bottom bar, excluding workspace chrome and list sort/filter rows; counts every visible control (tabs, inventory [use]) not only routine decisions",
+   "uncertainty": "heuristic; original uses divs so cursor:pointer is the only signal"
+  },
+  {
+   "build": "original",
+   "state": "T2:busy",
+   "viewport": "1440x900",
+   "zoom": 1,
+   "metric": "M2",
+   "value": {
+    "scroll_owners": 1,
+    "nested": 0,
+    "page_h_overflow": true,
+    "page_v_overflow": false,
+    "doc_scroll": [
+     1656,
+     900
+    ]
+   },
+   "units": "count",
+   "method": "visible elements with overflow-y auto/scroll and scrollHeight > clientHeight+4"
+  },
+  {
+   "build": "original",
+   "state": "T2:busy",
+   "viewport": "1440x900",
+   "zoom": 1,
+   "metric": "M3",
+   "value": null,
+   "units": "px content/visible of Local actions body",
+   "method": "scrollHeight/clientHeight of the Local actions workspace-module-body; original has no constrained action panel"
+  },
+  {
+   "build": "original",
+   "state": "T2:busy",
+   "viewport": "1440x900",
+   "zoom": 1,
+   "metric": "M4",
+   "value": 0,
+   "units": "% of viewport above bottom bar",
+   "method": "area of .workspace-toolbar + .workspace-module-header clipped to viewport; excludes grips, sort rows",
+   "uncertainty": "lower bound"
+  },
+  {
+   "build": "original",
+   "state": "T2:busy",
+   "viewport": "1440x900",
+   "zoom": 1,
+   "metric": "M4-controls",
+   "value": {
+    "chrome_controls_on_screen": 0,
+    "list_tools_on_screen": 12
+   },
+   "units": "count",
+   "method": "same hit-test as M1"
+  },
+  {
+   "build": "original",
+   "state": "T2:busy",
+   "viewport": "1440x900",
+   "zoom": 1,
+   "metric": "M6",
+   "value": {
+    "clicks": 2,
+    "scrolls": 0,
+    "log": [
+     "click Find work",
+     "click Work on the fields"
+    ]
+   },
+   "units": "clicks/scroll transitions from T6 neutral state",
+   "method": "a scroll is counted when the next target fails a centre hit-test before click"
+  },
+  {
+   "build": "original",
+   "state": "T3:combat",
+   "viewport": "1440x900",
+   "zoom": 1,
+   "metric": "M1",
+   "value": 29,
+   "units": "on-screen play controls",
+   "method": "outermost semantic or cursor:pointer elements whose centre hit-tests to themselves inside the viewport above the bottom bar, excluding workspace chrome and list sort/filter rows; counts every visible control (tabs, inventory [use]) not only routine decisions",
+   "uncertainty": "heuristic; original uses divs so cursor:pointer is the only signal"
+  },
+  {
+   "build": "original",
+   "state": "T3:combat",
+   "viewport": "1440x900",
+   "zoom": 1,
+   "metric": "M2",
+   "value": {
+    "scroll_owners": 0,
+    "nested": 0,
+    "page_h_overflow": true,
+    "page_v_overflow": false,
+    "doc_scroll": [
+     1656,
+     900
+    ]
+   },
+   "units": "count",
+   "method": "visible elements with overflow-y auto/scroll and scrollHeight > clientHeight+4"
+  },
+  {
+   "build": "original",
+   "state": "T3:combat",
+   "viewport": "1440x900",
+   "zoom": 1,
+   "metric": "M3",
+   "value": null,
+   "units": "px content/visible of Local actions body",
+   "method": "scrollHeight/clientHeight of the Local actions workspace-module-body; original has no constrained action panel"
+  },
+  {
+   "build": "original",
+   "state": "T3:combat",
+   "viewport": "1440x900",
+   "zoom": 1,
+   "metric": "M4",
+   "value": 0,
+   "units": "% of viewport above bottom bar",
+   "method": "area of .workspace-toolbar + .workspace-module-header clipped to viewport; excludes grips, sort rows",
+   "uncertainty": "lower bound"
+  },
+  {
+   "build": "original",
+   "state": "T3:combat",
+   "viewport": "1440x900",
+   "zoom": 1,
+   "metric": "M4-controls",
+   "value": {
+    "chrome_controls_on_screen": 0,
+    "list_tools_on_screen": 4
+   },
+   "units": "count",
+   "method": "same hit-test as M1"
+  },
+  {
+   "build": "original",
+   "state": "T3:combat",
+   "viewport": "1440x900",
+   "zoom": 1,
+   "metric": "M6",
+   "value": {
+    "clicks": 2,
+    "scrolls": 0,
+    "log": [
+     "click Move",
+     "click Infested field"
+    ]
+   },
+   "units": "clicks/scroll transitions from T6 neutral state",
+   "method": "a scroll is counted when the next target fails a centre hit-test before click"
+  },
+  {
+   "build": "original",
+   "state": "T4:merchant",
+   "viewport": "1440x900",
+   "zoom": 1,
+   "metric": "M1",
+   "value": 130,
+   "units": "on-screen play controls",
+   "method": "outermost semantic or cursor:pointer elements whose centre hit-tests to themselves inside the viewport above the bottom bar, excluding workspace chrome and list sort/filter rows; counts every visible control (tabs, inventory [use]) not only routine decisions",
+   "uncertainty": "heuristic; original uses divs so cursor:pointer is the only signal"
+  },
+  {
+   "build": "original",
+   "state": "T4:merchant",
+   "viewport": "1440x900",
+   "zoom": 1,
+   "metric": "M2",
+   "value": {
+    "scroll_owners": 2,
+    "nested": 0,
+    "page_h_overflow": true,
+    "page_v_overflow": false,
+    "doc_scroll": [
+     1656,
+     900
+    ]
+   },
+   "units": "count",
+   "method": "visible elements with overflow-y auto/scroll and scrollHeight > clientHeight+4"
+  },
+  {
+   "build": "original",
+   "state": "T4:merchant",
+   "viewport": "1440x900",
+   "zoom": 1,
+   "metric": "M3",
+   "value": null,
+   "units": "px content/visible of Local actions body",
+   "method": "scrollHeight/clientHeight of the Local actions workspace-module-body; original has no constrained action panel"
+  },
+  {
+   "build": "original",
+   "state": "T4:merchant",
+   "viewport": "1440x900",
+   "zoom": 1,
+   "metric": "M4",
+   "value": 0,
+   "units": "% of viewport above bottom bar",
+   "method": "area of .workspace-toolbar + .workspace-module-header clipped to viewport; excludes grips, sort rows",
+   "uncertainty": "lower bound"
+  },
+  {
+   "build": "original",
+   "state": "T4:merchant",
+   "viewport": "1440x900",
+   "zoom": 1,
+   "metric": "M4-controls",
+   "value": {
+    "chrome_controls_on_screen": 0,
+    "list_tools_on_screen": 15
+   },
+   "units": "count",
+   "method": "same hit-test as M1"
+  },
+  {
+   "build": "original",
+   "state": "T4:merchant",
+   "viewport": "1440x900",
+   "zoom": 1,
+   "metric": "M6",
+   "value": {
+    "clicks": 2,
+    "scrolls": 0,
+    "log": [
+     "click Visit a merchant",
+     "click trader"
+    ]
+   },
+   "units": "clicks/scroll transitions from T6 neutral state",
+   "method": "a scroll is counted when the next target fails a centre hit-test before click"
+  },
+  {
+   "build": "current",
+   "state": "T6:hub",
+   "viewport": "1440x900",
+   "zoom": 1,
+   "metric": "M1",
+   "value": 39,
+   "units": "on-screen play controls",
+   "method": "outermost semantic or cursor:pointer elements whose centre hit-tests to themselves inside the viewport above the bottom bar, excluding workspace chrome and list sort/filter rows; counts every visible control (tabs, inventory [use]) not only routine decisions",
+   "uncertainty": "heuristic; original uses divs so cursor:pointer is the only signal"
+  },
+  {
+   "build": "current",
+   "state": "T6:hub",
+   "viewport": "1440x900",
+   "zoom": 1,
+   "metric": "M2",
+   "value": {
+    "scroll_owners": 11,
+    "nested": 6,
+    "page_h_overflow": false,
+    "page_v_overflow": false,
+    "doc_scroll": [
+     1440,
+     900
+    ]
+   },
+   "units": "count",
+   "method": "visible elements with overflow-y auto/scroll and scrollHeight > clientHeight+4"
+  },
+  {
+   "build": "current",
+   "state": "T6:hub",
+   "viewport": "1440x900",
+   "zoom": 1,
+   "metric": "M3",
+   "value": "830/252",
+   "units": "px content/visible of Local actions body",
+   "method": "scrollHeight/clientHeight of the Local actions workspace-module-body; original has no constrained action panel"
+  },
+  {
+   "build": "current",
+   "state": "T6:hub",
+   "viewport": "1440x900",
+   "zoom": 1,
+   "metric": "M4",
+   "value": 25.3,
+   "units": "% of viewport above bottom bar",
+   "method": "area of .workspace-toolbar + .workspace-module-header clipped to viewport; excludes grips, sort rows",
+   "uncertainty": "lower bound"
+  },
+  {
+   "build": "current",
+   "state": "T6:hub",
+   "viewport": "1440x900",
+   "zoom": 1,
+   "metric": "M4-controls",
+   "value": {
+    "chrome_controls_on_screen": 58,
+    "list_tools_on_screen": 1
+   },
+   "units": "count",
+   "method": "same hit-test as M1"
+  },
+  {
+   "build": "current",
+   "state": "T6:hub",
+   "viewport": "1440x900",
+   "zoom": 1,
+   "metric": "M6",
+   "value": {
+    "clicks": 0,
+    "scrolls": 0,
+    "log": []
+   },
+   "units": "clicks/scroll transitions from T6 neutral state",
+   "method": "a scroll is counted when the next target fails a centre hit-test before click"
+  },
+  {
+   "build": "current",
+   "state": "T2:busy",
+   "viewport": "1440x900",
+   "zoom": 1,
+   "metric": "M1",
+   "value": 36,
+   "units": "on-screen play controls",
+   "method": "outermost semantic or cursor:pointer elements whose centre hit-tests to themselves inside the viewport above the bottom bar, excluding workspace chrome and list sort/filter rows; counts every visible control (tabs, inventory [use]) not only routine decisions",
+   "uncertainty": "heuristic; original uses divs so cursor:pointer is the only signal"
+  },
+  {
+   "build": "current",
+   "state": "T2:busy",
+   "viewport": "1440x900",
+   "zoom": 1,
+   "metric": "M2",
+   "value": {
+    "scroll_owners": 11,
+    "nested": 6,
+    "page_h_overflow": false,
+    "page_v_overflow": false,
+    "doc_scroll": [
+     1440,
+     900
+    ]
+   },
+   "units": "count",
+   "method": "visible elements with overflow-y auto/scroll and scrollHeight > clientHeight+4"
+  },
+  {
+   "build": "current",
+   "state": "T2:busy",
+   "viewport": "1440x900",
+   "zoom": 1,
+   "metric": "M3",
+   "value": "707/242",
+   "units": "px content/visible of Local actions body",
+   "method": "scrollHeight/clientHeight of the Local actions workspace-module-body; original has no constrained action panel"
+  },
+  {
+   "build": "current",
+   "state": "T2:busy",
+   "viewport": "1440x900",
+   "zoom": 1,
+   "metric": "M4",
+   "value": 25.3,
+   "units": "% of viewport above bottom bar",
+   "method": "area of .workspace-toolbar + .workspace-module-header clipped to viewport; excludes grips, sort rows",
+   "uncertainty": "lower bound"
+  },
+  {
+   "build": "current",
+   "state": "T2:busy",
+   "viewport": "1440x900",
+   "zoom": 1,
+   "metric": "M4-controls",
+   "value": {
+    "chrome_controls_on_screen": 58,
+    "list_tools_on_screen": 1
+   },
+   "units": "count",
+   "method": "same hit-test as M1"
+  },
+  {
+   "build": "current",
+   "state": "T2:busy",
+   "viewport": "1440x900",
+   "zoom": 1,
+   "metric": "M6",
+   "value": {
+    "clicks": 2,
+    "scrolls": 0,
+    "log": [
+     "click Find work",
+     "click Work on the fields"
+    ]
+   },
+   "units": "clicks/scroll transitions from T6 neutral state",
+   "method": "a scroll is counted when the next target fails a centre hit-test before click"
+  },
+  {
+   "build": "current",
+   "state": "T3:combat",
+   "viewport": "1440x900",
+   "zoom": 1,
+   "metric": "M1",
+   "value": 21,
+   "units": "on-screen play controls",
+   "method": "outermost semantic or cursor:pointer elements whose centre hit-tests to themselves inside the viewport above the bottom bar, excluding workspace chrome and list sort/filter rows; counts every visible control (tabs, inventory [use]) not only routine decisions",
+   "uncertainty": "heuristic; original uses divs so cursor:pointer is the only signal"
+  },
+  {
+   "build": "current",
+   "state": "T3:combat",
+   "viewport": "1440x900",
+   "zoom": 1,
+   "metric": "M2",
+   "value": {
+    "scroll_owners": 11,
+    "nested": 6,
+    "page_h_overflow": false,
+    "page_v_overflow": false,
+    "doc_scroll": [
+     1440,
+     900
+    ]
+   },
+   "units": "count",
+   "method": "visible elements with overflow-y auto/scroll and scrollHeight > clientHeight+4"
+  },
+  {
+   "build": "current",
+   "state": "T3:combat",
+   "viewport": "1440x900",
+   "zoom": 1,
+   "metric": "M3",
+   "value": "212/143",
+   "units": "px content/visible of Local actions body",
+   "method": "scrollHeight/clientHeight of the Local actions workspace-module-body; original has no constrained action panel"
+  },
+  {
+   "build": "current",
+   "state": "T3:combat",
+   "viewport": "1440x900",
+   "zoom": 1,
+   "metric": "M4",
+   "value": 25,
+   "units": "% of viewport above bottom bar",
+   "method": "area of .workspace-toolbar + .workspace-module-header clipped to viewport; excludes grips, sort rows",
+   "uncertainty": "lower bound"
+  },
+  {
+   "build": "current",
+   "state": "T3:combat",
+   "viewport": "1440x900",
+   "zoom": 1,
+   "metric": "M4-controls",
+   "value": {
+    "chrome_controls_on_screen": 43,
+    "list_tools_on_screen": 0
+   },
+   "units": "count",
+   "method": "same hit-test as M1"
+  },
+  {
+   "build": "current",
+   "state": "T3:combat",
+   "viewport": "1440x900",
+   "zoom": 1,
+   "metric": "M6",
+   "value": {
+    "clicks": 2,
+    "scrolls": 0,
+    "log": [
+     "click Move",
+     "click Infested field"
+    ]
+   },
+   "units": "clicks/scroll transitions from T6 neutral state",
+   "method": "a scroll is counted when the next target fails a centre hit-test before click"
+  },
+  {
+   "build": "current",
+   "state": "T4:merchant",
+   "viewport": "1440x900",
+   "zoom": 1,
+   "metric": "M1",
+   "value": 58,
+   "units": "on-screen play controls",
+   "method": "outermost semantic or cursor:pointer elements whose centre hit-tests to themselves inside the viewport above the bottom bar, excluding workspace chrome and list sort/filter rows; counts every visible control (tabs, inventory [use]) not only routine decisions",
+   "uncertainty": "heuristic; original uses divs so cursor:pointer is the only signal"
+  },
+  {
+   "build": "current",
+   "state": "T4:merchant",
+   "viewport": "1440x900",
+   "zoom": 1,
+   "metric": "M2",
+   "value": {
+    "scroll_owners": 12,
+    "nested": 7,
+    "page_h_overflow": false,
+    "page_v_overflow": false,
+    "doc_scroll": [
+     1440,
+     900
+    ]
+   },
+   "units": "count",
+   "method": "visible elements with overflow-y auto/scroll and scrollHeight > clientHeight+4"
+  },
+  {
+   "build": "current",
+   "state": "T4:merchant",
+   "viewport": "1440x900",
+   "zoom": 1,
+   "metric": "M3",
+   "value": "454/252",
+   "units": "px content/visible of Local actions body",
+   "method": "scrollHeight/clientHeight of the Local actions workspace-module-body; original has no constrained action panel"
+  },
+  {
+   "build": "current",
+   "state": "T4:merchant",
+   "viewport": "1440x900",
+   "zoom": 1,
+   "metric": "M4",
+   "value": 25.3,
+   "units": "% of viewport above bottom bar",
+   "method": "area of .workspace-toolbar + .workspace-module-header clipped to viewport; excludes grips, sort rows",
+   "uncertainty": "lower bound"
+  },
+  {
+   "build": "current",
+   "state": "T4:merchant",
+   "viewport": "1440x900",
+   "zoom": 1,
+   "metric": "M4-controls",
+   "value": {
+    "chrome_controls_on_screen": 59,
+    "list_tools_on_screen": 4
+   },
+   "units": "count",
+   "method": "same hit-test as M1"
+  },
+  {
+   "build": "current",
+   "state": "T4:merchant",
+   "viewport": "1440x900",
+   "zoom": 1,
+   "metric": "M6",
+   "value": {
+    "clicks": 2,
+    "scrolls": 0,
+    "log": [
+     "click Visit a merchant",
+     "click trader"
+    ]
+   },
+   "units": "clicks/scroll transitions from T6 neutral state",
+   "method": "a scroll is counted when the next target fails a centre hit-test before click"
+  },
+  {
+   "build": "original",
+   "state": "T6:hub",
+   "viewport": "1920x1080",
+   "zoom": 1,
+   "metric": "M1",
+   "value": 50,
+   "units": "on-screen play controls",
+   "method": "outermost semantic or cursor:pointer elements whose centre hit-tests to themselves inside the viewport above the bottom bar, excluding workspace chrome and list sort/filter rows; counts every visible control (tabs, inventory [use]) not only routine decisions",
+   "uncertainty": "heuristic; original uses divs so cursor:pointer is the only signal"
+  },
+  {
+   "build": "original",
+   "state": "T6:hub",
+   "viewport": "1920x1080",
+   "zoom": 1,
+   "metric": "M2",
+   "value": {
+    "scroll_owners": 1,
+    "nested": 0,
+    "page_h_overflow": false,
+    "page_v_overflow": false,
+    "doc_scroll": [
+     1920,
+     1080
+    ]
+   },
+   "units": "count",
+   "method": "visible elements with overflow-y auto/scroll and scrollHeight > clientHeight+4"
+  },
+  {
+   "build": "original",
+   "state": "T6:hub",
+   "viewport": "1920x1080",
+   "zoom": 1,
+   "metric": "M3",
+   "value": null,
+   "units": "px content/visible of Local actions body",
+   "method": "scrollHeight/clientHeight of the Local actions workspace-module-body; original has no constrained action panel"
+  },
+  {
+   "build": "original",
+   "state": "T6:hub",
+   "viewport": "1920x1080",
+   "zoom": 1,
+   "metric": "M4",
+   "value": 0,
+   "units": "% of viewport above bottom bar",
+   "method": "area of .workspace-toolbar + .workspace-module-header clipped to viewport; excludes grips, sort rows",
+   "uncertainty": "lower bound"
+  },
+  {
+   "build": "original",
+   "state": "T6:hub",
+   "viewport": "1920x1080",
+   "zoom": 1,
+   "metric": "M4-controls",
+   "value": {
+    "chrome_controls_on_screen": 0,
+    "list_tools_on_screen": 12
+   },
+   "units": "count",
+   "method": "same hit-test as M1"
+  },
+  {
+   "build": "original",
+   "state": "T6:hub",
+   "viewport": "1920x1080",
+   "zoom": 1,
+   "metric": "M6",
+   "value": {
+    "clicks": 0,
+    "scrolls": 0,
+    "log": []
+   },
+   "units": "clicks/scroll transitions from T6 neutral state",
+   "method": "a scroll is counted when the next target fails a centre hit-test before click"
+  },
+  {
+   "build": "original",
+   "state": "T2:busy",
+   "viewport": "1920x1080",
+   "zoom": 1,
+   "metric": "M1",
+   "value": 44,
+   "units": "on-screen play controls",
+   "method": "outermost semantic or cursor:pointer elements whose centre hit-tests to themselves inside the viewport above the bottom bar, excluding workspace chrome and list sort/filter rows; counts every visible control (tabs, inventory [use]) not only routine decisions",
+   "uncertainty": "heuristic; original uses divs so cursor:pointer is the only signal"
+  },
+  {
+   "build": "original",
+   "state": "T2:busy",
+   "viewport": "1920x1080",
+   "zoom": 1,
+   "metric": "M2",
+   "value": {
+    "scroll_owners": 1,
+    "nested": 0,
+    "page_h_overflow": false,
+    "page_v_overflow": false,
+    "doc_scroll": [
+     1920,
+     1080
+    ]
+   },
+   "units": "count",
+   "method": "visible elements with overflow-y auto/scroll and scrollHeight > clientHeight+4"
+  },
+  {
+   "build": "original",
+   "state": "T2:busy",
+   "viewport": "1920x1080",
+   "zoom": 1,
+   "metric": "M3",
+   "value": null,
+   "units": "px content/visible of Local actions body",
+   "method": "scrollHeight/clientHeight of the Local actions workspace-module-body; original has no constrained action panel"
+  },
+  {
+   "build": "original",
+   "state": "T2:busy",
+   "viewport": "1920x1080",
+   "zoom": 1,
+   "metric": "M4",
+   "value": 0,
+   "units": "% of viewport above bottom bar",
+   "method": "area of .workspace-toolbar + .workspace-module-header clipped to viewport; excludes grips, sort rows",
+   "uncertainty": "lower bound"
+  },
+  {
+   "build": "original",
+   "state": "T2:busy",
+   "viewport": "1920x1080",
+   "zoom": 1,
+   "metric": "M4-controls",
+   "value": {
+    "chrome_controls_on_screen": 0,
+    "list_tools_on_screen": 12
+   },
+   "units": "count",
+   "method": "same hit-test as M1"
+  },
+  {
+   "build": "original",
+   "state": "T2:busy",
+   "viewport": "1920x1080",
+   "zoom": 1,
+   "metric": "M6",
+   "value": {
+    "clicks": 2,
+    "scrolls": 0,
+    "log": [
+     "click Find work",
+     "click Work on the fields"
+    ]
+   },
+   "units": "clicks/scroll transitions from T6 neutral state",
+   "method": "a scroll is counted when the next target fails a centre hit-test before click"
+  },
+  {
+   "build": "original",
+   "state": "T3:combat",
+   "viewport": "1920x1080",
+   "zoom": 1,
+   "metric": "M1",
+   "value": 32,
+   "units": "on-screen play controls",
+   "method": "outermost semantic or cursor:pointer elements whose centre hit-tests to themselves inside the viewport above the bottom bar, excluding workspace chrome and list sort/filter rows; counts every visible control (tabs, inventory [use]) not only routine decisions",
+   "uncertainty": "heuristic; original uses divs so cursor:pointer is the only signal"
+  },
+  {
+   "build": "original",
+   "state": "T3:combat",
+   "viewport": "1920x1080",
+   "zoom": 1,
+   "metric": "M2",
+   "value": {
+    "scroll_owners": 0,
+    "nested": 0,
+    "page_h_overflow": false,
+    "page_v_overflow": false,
+    "doc_scroll": [
+     1920,
+     1080
+    ]
+   },
+   "units": "count",
+   "method": "visible elements with overflow-y auto/scroll and scrollHeight > clientHeight+4"
+  },
+  {
+   "build": "original",
+   "state": "T3:combat",
+   "viewport": "1920x1080",
+   "zoom": 1,
+   "metric": "M3",
+   "value": null,
+   "units": "px content/visible of Local actions body",
+   "method": "scrollHeight/clientHeight of the Local actions workspace-module-body; original has no constrained action panel"
+  },
+  {
+   "build": "original",
+   "state": "T3:combat",
+   "viewport": "1920x1080",
+   "zoom": 1,
+   "metric": "M4",
+   "value": 0,
+   "units": "% of viewport above bottom bar",
+   "method": "area of .workspace-toolbar + .workspace-module-header clipped to viewport; excludes grips, sort rows",
+   "uncertainty": "lower bound"
+  },
+  {
+   "build": "original",
+   "state": "T3:combat",
+   "viewport": "1920x1080",
+   "zoom": 1,
+   "metric": "M4-controls",
+   "value": {
+    "chrome_controls_on_screen": 0,
+    "list_tools_on_screen": 4
+   },
+   "units": "count",
+   "method": "same hit-test as M1"
+  },
+  {
+   "build": "original",
+   "state": "T3:combat",
+   "viewport": "1920x1080",
+   "zoom": 1,
+   "metric": "M6",
+   "value": {
+    "clicks": 2,
+    "scrolls": 0,
+    "log": [
+     "click Move",
+     "click Infested field"
+    ]
+   },
+   "units": "clicks/scroll transitions from T6 neutral state",
+   "method": "a scroll is counted when the next target fails a centre hit-test before click"
+  },
+  {
+   "build": "original",
+   "state": "T4:merchant",
+   "viewport": "1920x1080",
+   "zoom": 1,
+   "metric": "M1",
+   "value": 133,
+   "units": "on-screen play controls",
+   "method": "outermost semantic or cursor:pointer elements whose centre hit-tests to themselves inside the viewport above the bottom bar, excluding workspace chrome and list sort/filter rows; counts every visible control (tabs, inventory [use]) not only routine decisions",
+   "uncertainty": "heuristic; original uses divs so cursor:pointer is the only signal"
+  },
+  {
+   "build": "original",
+   "state": "T4:merchant",
+   "viewport": "1920x1080",
+   "zoom": 1,
+   "metric": "M2",
+   "value": {
+    "scroll_owners": 2,
+    "nested": 0,
+    "page_h_overflow": false,
+    "page_v_overflow": false,
+    "doc_scroll": [
+     1920,
+     1080
+    ]
+   },
+   "units": "count",
+   "method": "visible elements with overflow-y auto/scroll and scrollHeight > clientHeight+4"
+  },
+  {
+   "build": "original",
+   "state": "T4:merchant",
+   "viewport": "1920x1080",
+   "zoom": 1,
+   "metric": "M3",
+   "value": null,
+   "units": "px content/visible of Local actions body",
+   "method": "scrollHeight/clientHeight of the Local actions workspace-module-body; original has no constrained action panel"
+  },
+  {
+   "build": "original",
+   "state": "T4:merchant",
+   "viewport": "1920x1080",
+   "zoom": 1,
+   "metric": "M4",
+   "value": 0,
+   "units": "% of viewport above bottom bar",
+   "method": "area of .workspace-toolbar + .workspace-module-header clipped to viewport; excludes grips, sort rows",
+   "uncertainty": "lower bound"
+  },
+  {
+   "build": "original",
+   "state": "T4:merchant",
+   "viewport": "1920x1080",
+   "zoom": 1,
+   "metric": "M4-controls",
+   "value": {
+    "chrome_controls_on_screen": 0,
+    "list_tools_on_screen": 15
+   },
+   "units": "count",
+   "method": "same hit-test as M1"
+  },
+  {
+   "build": "original",
+   "state": "T4:merchant",
+   "viewport": "1920x1080",
+   "zoom": 1,
+   "metric": "M6",
+   "value": {
+    "clicks": 2,
+    "scrolls": 0,
+    "log": [
+     "click Visit a merchant",
+     "click trader"
+    ]
+   },
+   "units": "clicks/scroll transitions from T6 neutral state",
+   "method": "a scroll is counted when the next target fails a centre hit-test before click"
+  },
+  {
+   "build": "current",
+   "state": "T6:hub",
+   "viewport": "1920x1080",
+   "zoom": 1,
+   "metric": "M1",
+   "value": 45,
+   "units": "on-screen play controls",
+   "method": "outermost semantic or cursor:pointer elements whose centre hit-tests to themselves inside the viewport above the bottom bar, excluding workspace chrome and list sort/filter rows; counts every visible control (tabs, inventory [use]) not only routine decisions",
+   "uncertainty": "heuristic; original uses divs so cursor:pointer is the only signal"
+  },
+  {
+   "build": "current",
+   "state": "T6:hub",
+   "viewport": "1920x1080",
+   "zoom": 1,
+   "metric": "M2",
+   "value": {
+    "scroll_owners": 11,
+    "nested": 6,
+    "page_h_overflow": false,
+    "page_v_overflow": false,
+    "doc_scroll": [
+     1920,
+     1080
+    ]
+   },
+   "units": "count",
+   "method": "visible elements with overflow-y auto/scroll and scrollHeight > clientHeight+4"
+  },
+  {
+   "build": "current",
+   "state": "T6:hub",
+   "viewport": "1920x1080",
+   "zoom": 1,
+   "metric": "M3",
+   "value": "811/432",
+   "units": "px content/visible of Local actions body",
+   "method": "scrollHeight/clientHeight of the Local actions workspace-module-body; original has no constrained action panel"
+  },
+  {
+   "build": "current",
+   "state": "T6:hub",
+   "viewport": "1920x1080",
+   "zoom": 1,
+   "metric": "M4",
+   "value": 23.9,
+   "units": "% of viewport above bottom bar",
+   "method": "area of .workspace-toolbar + .workspace-module-header clipped to viewport; excludes grips, sort rows",
+   "uncertainty": "lower bound"
+  },
+  {
+   "build": "current",
+   "state": "T6:hub",
+   "viewport": "1920x1080",
+   "zoom": 1,
+   "metric": "M4-controls",
+   "value": {
+    "chrome_controls_on_screen": 65,
+    "list_tools_on_screen": 1
+   },
+   "units": "count",
+   "method": "same hit-test as M1"
+  },
+  {
+   "build": "current",
+   "state": "T6:hub",
+   "viewport": "1920x1080",
+   "zoom": 1,
+   "metric": "M6",
+   "value": {
+    "clicks": 0,
+    "scrolls": 0,
+    "log": []
+   },
+   "units": "clicks/scroll transitions from T6 neutral state",
+   "method": "a scroll is counted when the next target fails a centre hit-test before click"
+  },
+  {
+   "build": "current",
+   "state": "T2:busy",
+   "viewport": "1920x1080",
+   "zoom": 1,
+   "metric": "M1",
+   "value": 42,
+   "units": "on-screen play controls",
+   "method": "outermost semantic or cursor:pointer elements whose centre hit-tests to themselves inside the viewport above the bottom bar, excluding workspace chrome and list sort/filter rows; counts every visible control (tabs, inventory [use]) not only routine decisions",
+   "uncertainty": "heuristic; original uses divs so cursor:pointer is the only signal"
+  },
+  {
+   "build": "current",
+   "state": "T2:busy",
+   "viewport": "1920x1080",
+   "zoom": 1,
+   "metric": "M2",
+   "value": {
+    "scroll_owners": 11,
+    "nested": 6,
+    "page_h_overflow": false,
+    "page_v_overflow": false,
+    "doc_scroll": [
+     1920,
+     1080
+    ]
+   },
+   "units": "count",
+   "method": "visible elements with overflow-y auto/scroll and scrollHeight > clientHeight+4"
+  },
+  {
+   "build": "current",
+   "state": "T2:busy",
+   "viewport": "1920x1080",
+   "zoom": 1,
+   "metric": "M3",
+   "value": "688/422",
+   "units": "px content/visible of Local actions body",
+   "method": "scrollHeight/clientHeight of the Local actions workspace-module-body; original has no constrained action panel"
+  },
+  {
+   "build": "current",
+   "state": "T2:busy",
+   "viewport": "1920x1080",
+   "zoom": 1,
+   "metric": "M4",
+   "value": 23.9,
+   "units": "% of viewport above bottom bar",
+   "method": "area of .workspace-toolbar + .workspace-module-header clipped to viewport; excludes grips, sort rows",
+   "uncertainty": "lower bound"
+  },
+  {
+   "build": "current",
+   "state": "T2:busy",
+   "viewport": "1920x1080",
+   "zoom": 1,
+   "metric": "M4-controls",
+   "value": {
+    "chrome_controls_on_screen": 65,
+    "list_tools_on_screen": 1
+   },
+   "units": "count",
+   "method": "same hit-test as M1"
+  },
+  {
+   "build": "current",
+   "state": "T2:busy",
+   "viewport": "1920x1080",
+   "zoom": 1,
+   "metric": "M6",
+   "value": {
+    "clicks": 2,
+    "scrolls": 0,
+    "log": [
+     "click Find work",
+     "click Work on the fields"
+    ]
+   },
+   "units": "clicks/scroll transitions from T6 neutral state",
+   "method": "a scroll is counted when the next target fails a centre hit-test before click"
+  },
+  {
+   "build": "current",
+   "state": "T3:combat",
+   "viewport": "1920x1080",
+   "zoom": 1,
+   "metric": "M1",
+   "value": 28,
+   "units": "on-screen play controls",
+   "method": "outermost semantic or cursor:pointer elements whose centre hit-tests to themselves inside the viewport above the bottom bar, excluding workspace chrome and list sort/filter rows; counts every visible control (tabs, inventory [use]) not only routine decisions",
+   "uncertainty": "heuristic; original uses divs so cursor:pointer is the only signal"
+  },
+  {
+   "build": "current",
+   "state": "T3:combat",
+   "viewport": "1920x1080",
+   "zoom": 1,
+   "metric": "M2",
+   "value": {
+    "scroll_owners": 10,
+    "nested": 4,
+    "page_h_overflow": false,
+    "page_v_overflow": false,
+    "doc_scroll": [
+     1920,
+     1080
+    ]
+   },
+   "units": "count",
+   "method": "visible elements with overflow-y auto/scroll and scrollHeight > clientHeight+4"
+  },
+  {
+   "build": "current",
+   "state": "T3:combat",
+   "viewport": "1920x1080",
+   "zoom": 1,
+   "metric": "M3",
+   "value": "212/192",
+   "units": "px content/visible of Local actions body",
+   "method": "scrollHeight/clientHeight of the Local actions workspace-module-body; original has no constrained action panel"
+  },
+  {
+   "build": "current",
+   "state": "T3:combat",
+   "viewport": "1920x1080",
+   "zoom": 1,
+   "metric": "M4",
+   "value": 21.5,
+   "units": "% of viewport above bottom bar",
+   "method": "area of .workspace-toolbar + .workspace-module-header clipped to viewport; excludes grips, sort rows",
+   "uncertainty": "lower bound"
+  },
+  {
+   "build": "current",
+   "state": "T3:combat",
+   "viewport": "1920x1080",
+   "zoom": 1,
+   "metric": "M4-controls",
+   "value": {
+    "chrome_controls_on_screen": 46,
+    "list_tools_on_screen": 1
+   },
+   "units": "count",
+   "method": "same hit-test as M1"
+  },
+  {
+   "build": "current",
+   "state": "T3:combat",
+   "viewport": "1920x1080",
+   "zoom": 1,
+   "metric": "M6",
+   "value": {
+    "clicks": 2,
+    "scrolls": 0,
+    "log": [
+     "click Move",
+     "click Infested field"
+    ]
+   },
+   "units": "clicks/scroll transitions from T6 neutral state",
+   "method": "a scroll is counted when the next target fails a centre hit-test before click"
+  },
+  {
+   "build": "current",
+   "state": "T4:merchant",
+   "viewport": "1920x1080",
+   "zoom": 1,
+   "metric": "M1",
+   "value": 78,
+   "units": "on-screen play controls",
+   "method": "outermost semantic or cursor:pointer elements whose centre hit-tests to themselves inside the viewport above the bottom bar, excluding workspace chrome and list sort/filter rows; counts every visible control (tabs, inventory [use]) not only routine decisions",
+   "uncertainty": "heuristic; original uses divs so cursor:pointer is the only signal"
+  },
+  {
+   "build": "current",
+   "state": "T4:merchant",
+   "viewport": "1920x1080",
+   "zoom": 1,
+   "metric": "M2",
+   "value": {
+    "scroll_owners": 11,
+    "nested": 5,
+    "page_h_overflow": false,
+    "page_v_overflow": false,
+    "doc_scroll": [
+     1920,
+     1080
+    ]
+   },
+   "units": "count",
+   "method": "visible elements with overflow-y auto/scroll and scrollHeight > clientHeight+4"
+  },
+  {
+   "build": "current",
+   "state": "T4:merchant",
+   "viewport": "1920x1080",
+   "zoom": 1,
+   "metric": "M3",
+   "value": "449/432",
+   "units": "px content/visible of Local actions body",
+   "method": "scrollHeight/clientHeight of the Local actions workspace-module-body; original has no constrained action panel"
+  },
+  {
+   "build": "current",
+   "state": "T4:merchant",
+   "viewport": "1920x1080",
+   "zoom": 1,
+   "metric": "M4",
+   "value": 22.9,
+   "units": "% of viewport above bottom bar",
+   "method": "area of .workspace-toolbar + .workspace-module-header clipped to viewport; excludes grips, sort rows",
+   "uncertainty": "lower bound"
+  },
+  {
+   "build": "current",
+   "state": "T4:merchant",
+   "viewport": "1920x1080",
+   "zoom": 1,
+   "metric": "M4-controls",
+   "value": {
+    "chrome_controls_on_screen": 65,
+    "list_tools_on_screen": 4
+   },
+   "units": "count",
+   "method": "same hit-test as M1"
+  },
+  {
+   "build": "current",
+   "state": "T4:merchant",
+   "viewport": "1920x1080",
+   "zoom": 1,
+   "metric": "M6",
+   "value": {
+    "clicks": 2,
+    "scrolls": 0,
+    "log": [
+     "click Visit a merchant",
+     "click trader"
+    ]
+   },
+   "units": "clicks/scroll transitions from T6 neutral state",
+   "method": "a scroll is counted when the next target fails a centre hit-test before click"
+  },
+  {
+   "build": "v06",
+   "state": "T6:hub",
+   "viewport": "1366x768",
+   "zoom": 1,
+   "metric": "M1",
+   "value": 40,
+   "units": "on-screen play controls",
+   "method": "outermost semantic or cursor:pointer elements whose centre hit-tests to themselves inside the viewport above the bottom bar, excluding workspace chrome and list sort/filter rows; counts every visible control (tabs, inventory [use]) not only routine decisions",
+   "uncertainty": "heuristic; original uses divs so cursor:pointer is the only signal"
+  },
+  {
+   "build": "v06",
+   "state": "T6:hub",
+   "viewport": "1366x768",
+   "zoom": 1,
+   "metric": "M2",
+   "value": {
+    "scroll_owners": 1,
+    "nested": 0,
+    "page_h_overflow": true,
+    "page_v_overflow": true,
+    "doc_scroll": [
+     1656,
+     811
+    ]
+   },
+   "units": "count",
+   "method": "visible elements with overflow-y auto/scroll and scrollHeight > clientHeight+4"
+  },
+  {
+   "build": "v06",
+   "state": "T6:hub",
+   "viewport": "1366x768",
+   "zoom": 1,
+   "metric": "M3",
+   "value": null,
+   "units": "px content/visible of Local actions body",
+   "method": "scrollHeight/clientHeight of the Local actions workspace-module-body; original has no constrained action panel"
+  },
+  {
+   "build": "v06",
+   "state": "T6:hub",
+   "viewport": "1366x768",
+   "zoom": 1,
+   "metric": "M4",
+   "value": 0,
+   "units": "% of viewport above bottom bar",
+   "method": "area of .workspace-toolbar + .workspace-module-header clipped to viewport; excludes grips, sort rows",
+   "uncertainty": "lower bound"
+  },
+  {
+   "build": "v06",
+   "state": "T6:hub",
+   "viewport": "1366x768",
+   "zoom": 1,
+   "metric": "M4-controls",
+   "value": {
+    "chrome_controls_on_screen": 0,
+    "list_tools_on_screen": 1
+   },
+   "units": "count",
+   "method": "same hit-test as M1"
+  },
+  {
+   "build": "v06",
+   "state": "T6:hub",
+   "viewport": "1366x768",
+   "zoom": 1,
+   "metric": "M6",
+   "value": {
+    "clicks": 0,
+    "scrolls": 0,
+    "log": []
+   },
+   "units": "clicks/scroll transitions from T6 neutral state",
+   "method": "a scroll is counted when the next target fails a centre hit-test before click"
+  },
+  {
+   "build": "v06",
+   "state": "T2:busy",
+   "viewport": "1366x768",
+   "zoom": 1,
+   "metric": "M1",
+   "value": 34,
+   "units": "on-screen play controls",
+   "method": "outermost semantic or cursor:pointer elements whose centre hit-tests to themselves inside the viewport above the bottom bar, excluding workspace chrome and list sort/filter rows; counts every visible control (tabs, inventory [use]) not only routine decisions",
+   "uncertainty": "heuristic; original uses divs so cursor:pointer is the only signal"
+  },
+  {
+   "build": "v06",
+   "state": "T2:busy",
+   "viewport": "1366x768",
+   "zoom": 1,
+   "metric": "M2",
+   "value": {
+    "scroll_owners": 1,
+    "nested": 0,
+    "page_h_overflow": true,
+    "page_v_overflow": true,
+    "doc_scroll": [
+     1656,
+     811
+    ]
+   },
+   "units": "count",
+   "method": "visible elements with overflow-y auto/scroll and scrollHeight > clientHeight+4"
+  },
+  {
+   "build": "v06",
+   "state": "T2:busy",
+   "viewport": "1366x768",
+   "zoom": 1,
+   "metric": "M3",
+   "value": null,
+   "units": "px content/visible of Local actions body",
+   "method": "scrollHeight/clientHeight of the Local actions workspace-module-body; original has no constrained action panel"
+  },
+  {
+   "build": "v06",
+   "state": "T2:busy",
+   "viewport": "1366x768",
+   "zoom": 1,
+   "metric": "M4",
+   "value": 0,
+   "units": "% of viewport above bottom bar",
+   "method": "area of .workspace-toolbar + .workspace-module-header clipped to viewport; excludes grips, sort rows",
+   "uncertainty": "lower bound"
+  },
+  {
+   "build": "v06",
+   "state": "T2:busy",
+   "viewport": "1366x768",
+   "zoom": 1,
+   "metric": "M4-controls",
+   "value": {
+    "chrome_controls_on_screen": 0,
+    "list_tools_on_screen": 1
+   },
+   "units": "count",
+   "method": "same hit-test as M1"
+  },
+  {
+   "build": "v06",
+   "state": "T2:busy",
+   "viewport": "1366x768",
+   "zoom": 1,
+   "metric": "M6",
+   "value": {
+    "clicks": 2,
+    "scrolls": 0,
+    "log": [
+     "click Find work",
+     "click Work on the fields"
+    ]
+   },
+   "units": "clicks/scroll transitions from T6 neutral state",
+   "method": "a scroll is counted when the next target fails a centre hit-test before click"
+  },
+  {
+   "build": "v06",
+   "state": "T3:combat",
+   "viewport": "1366x768",
+   "zoom": 1,
+   "metric": "M1",
+   "value": 22,
+   "units": "on-screen play controls",
+   "method": "outermost semantic or cursor:pointer elements whose centre hit-tests to themselves inside the viewport above the bottom bar, excluding workspace chrome and list sort/filter rows; counts every visible control (tabs, inventory [use]) not only routine decisions",
+   "uncertainty": "heuristic; original uses divs so cursor:pointer is the only signal"
+  },
+  {
+   "build": "v06",
+   "state": "T3:combat",
+   "viewport": "1366x768",
+   "zoom": 1,
+   "metric": "M2",
+   "value": {
+    "scroll_owners": 0,
+    "nested": 0,
+    "page_h_overflow": true,
+    "page_v_overflow": true,
+    "doc_scroll": [
+     1656,
+     811
+    ]
+   },
+   "units": "count",
+   "method": "visible elements with overflow-y auto/scroll and scrollHeight > clientHeight+4"
+  },
+  {
+   "build": "v06",
+   "state": "T3:combat",
+   "viewport": "1366x768",
+   "zoom": 1,
+   "metric": "M3",
+   "value": null,
+   "units": "px content/visible of Local actions body",
+   "method": "scrollHeight/clientHeight of the Local actions workspace-module-body; original has no constrained action panel"
+  },
+  {
+   "build": "v06",
+   "state": "T3:combat",
+   "viewport": "1366x768",
+   "zoom": 1,
+   "metric": "M4",
+   "value": 0,
+   "units": "% of viewport above bottom bar",
+   "method": "area of .workspace-toolbar + .workspace-module-header clipped to viewport; excludes grips, sort rows",
+   "uncertainty": "lower bound"
+  },
+  {
+   "build": "v06",
+   "state": "T3:combat",
+   "viewport": "1366x768",
+   "zoom": 1,
+   "metric": "M4-controls",
+   "value": {
+    "chrome_controls_on_screen": 0,
+    "list_tools_on_screen": 1
+   },
+   "units": "count",
+   "method": "same hit-test as M1"
+  },
+  {
+   "build": "v06",
+   "state": "T3:combat",
+   "viewport": "1366x768",
+   "zoom": 1,
+   "metric": "M6",
+   "value": {
+    "clicks": 2,
+    "scrolls": 0,
+    "log": [
+     "click Move",
+     "click Infested field"
+    ]
+   },
+   "units": "clicks/scroll transitions from T6 neutral state",
+   "method": "a scroll is counted when the next target fails a centre hit-test before click"
+  },
+  {
+   "build": "original",
+   "state": "T5:craft",
+   "viewport": "1366x768",
+   "zoom": 1,
+   "metric": "M1",
+   "value": 67,
+   "units": "on-screen play controls",
+   "method": "outermost semantic or cursor:pointer elements whose centre hit-tests to themselves inside the viewport above the bottom bar, excluding workspace chrome and list sort/filter rows; counts every visible control (tabs, inventory [use]) not only routine decisions",
+   "uncertainty": "heuristic; original uses divs so cursor:pointer is the only signal"
+  },
+  {
+   "build": "original",
+   "state": "T5:craft",
+   "viewport": "1366x768",
+   "zoom": 1,
+   "metric": "M2",
+   "value": {
+    "scroll_owners": 2,
+    "nested": 0,
+    "page_h_overflow": true,
+    "page_v_overflow": true,
+    "doc_scroll": [
+     1656,
+     811
+    ]
+   },
+   "units": "count",
+   "method": "visible elements with overflow-y auto/scroll and scrollHeight > clientHeight+4"
+  },
+  {
+   "build": "original",
+   "state": "T5:craft",
+   "viewport": "1366x768",
+   "zoom": 1,
+   "metric": "M3",
+   "value": null,
+   "units": "px content/visible of Local actions body",
+   "method": "scrollHeight/clientHeight of the Local actions workspace-module-body; original has no constrained action panel"
+  },
+  {
+   "build": "original",
+   "state": "T5:craft",
+   "viewport": "1366x768",
+   "zoom": 1,
+   "metric": "M4",
+   "value": 0,
+   "units": "% of viewport above bottom bar",
+   "method": "area of .workspace-toolbar + .workspace-module-header clipped to viewport; excludes grips, sort rows",
+   "uncertainty": "lower bound"
+  },
+  {
+   "build": "original",
+   "state": "T5:craft",
+   "viewport": "1366x768",
+   "zoom": 1,
+   "metric": "M4-controls",
+   "value": {
+    "chrome_controls_on_screen": 0,
+    "list_tools_on_screen": 2
+   },
+   "units": "count",
+   "method": "same hit-test as M1"
+  },
+  {
+   "build": "original",
+   "state": "T5:craft",
+   "viewport": "1366x768",
+   "zoom": 1,
+   "metric": "M6",
+   "value": {
+    "clicks": 1,
+    "scrolls": 0,
+    "log": [
+     "click Try to craft"
+    ]
+   },
+   "units": "clicks/scroll transitions from T6 neutral state",
+   "method": "a scroll is counted when the next target fails a centre hit-test before click"
+  },
+  {
+   "build": "original",
+   "state": "T5:craft",
+   "viewport": "1920x1080",
+   "zoom": 1,
+   "metric": "M1",
+   "value": 80,
+   "units": "on-screen play controls",
+   "method": "outermost semantic or cursor:pointer elements whose centre hit-tests to themselves inside the viewport above the bottom bar, excluding workspace chrome and list sort/filter rows; counts every visible control (tabs, inventory [use]) not only routine decisions",
+   "uncertainty": "heuristic; original uses divs so cursor:pointer is the only signal"
+  },
+  {
+   "build": "original",
+   "state": "T5:craft",
+   "viewport": "1920x1080",
+   "zoom": 1,
+   "metric": "M2",
+   "value": {
+    "scroll_owners": 2,
+    "nested": 0,
+    "page_h_overflow": false,
+    "page_v_overflow": false,
+    "doc_scroll": [
+     1920,
+     1080
+    ]
+   },
+   "units": "count",
+   "method": "visible elements with overflow-y auto/scroll and scrollHeight > clientHeight+4"
+  },
+  {
+   "build": "original",
+   "state": "T5:craft",
+   "viewport": "1920x1080",
+   "zoom": 1,
+   "metric": "M3",
+   "value": null,
+   "units": "px content/visible of Local actions body",
+   "method": "scrollHeight/clientHeight of the Local actions workspace-module-body; original has no constrained action panel"
+  },
+  {
+   "build": "original",
+   "state": "T5:craft",
+   "viewport": "1920x1080",
+   "zoom": 1,
+   "metric": "M4",
+   "value": 0,
+   "units": "% of viewport above bottom bar",
+   "method": "area of .workspace-toolbar + .workspace-module-header clipped to viewport; excludes grips, sort rows",
+   "uncertainty": "lower bound"
+  },
+  {
+   "build": "original",
+   "state": "T5:craft",
+   "viewport": "1920x1080",
+   "zoom": 1,
+   "metric": "M4-controls",
+   "value": {
+    "chrome_controls_on_screen": 0,
+    "list_tools_on_screen": 13
+   },
+   "units": "count",
+   "method": "same hit-test as M1"
+  },
+  {
+   "build": "original",
+   "state": "T5:craft",
+   "viewport": "1920x1080",
+   "zoom": 1,
+   "metric": "M6",
+   "value": {
+    "clicks": 1,
+    "scrolls": 0,
+    "log": [
+     "click Try to craft"
+    ]
+   },
+   "units": "clicks/scroll transitions from T6 neutral state",
+   "method": "a scroll is counted when the next target fails a centre hit-test before click"
+  },
+  {
+   "build": "original",
+   "state": "T6:hub",
+   "viewport": "400x800",
+   "zoom": 1,
+   "metric": "M1",
+   "value": 17,
+   "units": "on-screen play controls",
+   "method": "outermost semantic or cursor:pointer elements whose centre hit-tests to themselves inside the viewport above the bottom bar, excluding workspace chrome and list sort/filter rows; counts every visible control (tabs, inventory [use]) not only routine decisions",
+   "uncertainty": "heuristic; original uses divs so cursor:pointer is the only signal"
+  },
+  {
+   "build": "original",
+   "state": "T6:hub",
+   "viewport": "400x800",
+   "zoom": 1,
+   "metric": "M2",
+   "value": {
+    "scroll_owners": 1,
+    "nested": 0,
+    "page_h_overflow": true,
+    "page_v_overflow": true,
+    "doc_scroll": [
+     1656,
+     811
+    ]
+   },
+   "units": "count",
+   "method": "visible elements with overflow-y auto/scroll and scrollHeight > clientHeight+4"
+  },
+  {
+   "build": "original",
+   "state": "T6:hub",
+   "viewport": "400x800",
+   "zoom": 1,
+   "metric": "M3",
+   "value": null,
+   "units": "px content/visible of Local actions body",
+   "method": "scrollHeight/clientHeight of the Local actions workspace-module-body; original has no constrained action panel"
+  },
+  {
+   "build": "original",
+   "state": "T6:hub",
+   "viewport": "400x800",
+   "zoom": 1,
+   "metric": "M4",
+   "value": 0,
+   "units": "% of viewport above bottom bar",
+   "method": "area of .workspace-toolbar + .workspace-module-header clipped to viewport; excludes grips, sort rows",
+   "uncertainty": "lower bound"
+  },
+  {
+   "build": "original",
+   "state": "T6:hub",
+   "viewport": "400x800",
+   "zoom": 1,
+   "metric": "M4-controls",
+   "value": {
+    "chrome_controls_on_screen": 0,
+    "list_tools_on_screen": 9
+   },
+   "units": "count",
+   "method": "same hit-test as M1"
+  },
+  {
+   "build": "original",
+   "state": "T6:hub",
+   "viewport": "400x800",
+   "zoom": 1,
+   "metric": "M6",
+   "value": {
+    "clicks": 0,
+    "scrolls": 0,
+    "log": []
+   },
+   "units": "clicks/scroll transitions from T6 neutral state",
+   "method": "a scroll is counted when the next target fails a centre hit-test before click"
+  },
+  {
+   "build": "original",
+   "state": "T2:busy",
+   "viewport": "400x800",
+   "zoom": 1,
+   "metric": "M1",
+   "value": 2,
+   "units": "on-screen play controls",
+   "method": "outermost semantic or cursor:pointer elements whose centre hit-tests to themselves inside the viewport above the bottom bar, excluding workspace chrome and list sort/filter rows; counts every visible control (tabs, inventory [use]) not only routine decisions",
+   "uncertainty": "heuristic; original uses divs so cursor:pointer is the only signal"
+  },
+  {
+   "build": "original",
+   "state": "T2:busy",
+   "viewport": "400x800",
+   "zoom": 1,
+   "metric": "M2",
+   "value": {
+    "scroll_owners": 1,
+    "nested": 0,
+    "page_h_overflow": true,
+    "page_v_overflow": true,
+    "doc_scroll": [
+     1656,
+     811
+    ]
+   },
+   "units": "count",
+   "method": "visible elements with overflow-y auto/scroll and scrollHeight > clientHeight+4"
+  },
+  {
+   "build": "original",
+   "state": "T2:busy",
+   "viewport": "400x800",
+   "zoom": 1,
+   "metric": "M3",
+   "value": null,
+   "units": "px content/visible of Local actions body",
+   "method": "scrollHeight/clientHeight of the Local actions workspace-module-body; original has no constrained action panel"
+  },
+  {
+   "build": "original",
+   "state": "T2:busy",
+   "viewport": "400x800",
+   "zoom": 1,
+   "metric": "M4",
+   "value": 0,
+   "units": "% of viewport above bottom bar",
+   "method": "area of .workspace-toolbar + .workspace-module-header clipped to viewport; excludes grips, sort rows",
+   "uncertainty": "lower bound"
+  },
+  {
+   "build": "original",
+   "state": "T2:busy",
+   "viewport": "400x800",
+   "zoom": 1,
+   "metric": "M4-controls",
+   "value": {
+    "chrome_controls_on_screen": 0,
+    "list_tools_on_screen": 0
+   },
+   "units": "count",
+   "method": "same hit-test as M1"
+  },
+  {
+   "build": "original",
+   "state": "T2:busy",
+   "viewport": "400x800",
+   "zoom": 1,
+   "metric": "M6",
+   "value": {
+    "clicks": 2,
+    "scrolls": 1,
+    "log": [
+     "scroll\u2192Find work",
+     "click Find work",
+     "click Work on the fields"
+    ]
+   },
+   "units": "clicks/scroll transitions from T6 neutral state",
+   "method": "a scroll is counted when the next target fails a centre hit-test before click"
+  },
+  {
+   "build": "current",
+   "state": "T5:craft",
+   "viewport": "1366x768",
+   "zoom": 1,
+   "metric": "M1",
+   "value": 41,
+   "units": "on-screen play controls",
+   "method": "outermost semantic or cursor:pointer elements whose centre hit-tests to themselves inside the viewport above the bottom bar, excluding workspace chrome and list sort/filter rows; counts every visible control (tabs, inventory [use]) not only routine decisions",
+   "uncertainty": "heuristic; original uses divs so cursor:pointer is the only signal"
+  },
+  {
+   "build": "current",
+   "state": "T5:craft",
+   "viewport": "1366x768",
+   "zoom": 1,
+   "metric": "M2",
+   "value": {
+    "scroll_owners": 13,
+    "nested": 10,
+    "page_h_overflow": false,
+    "page_v_overflow": false,
+    "doc_scroll": [
+     1366,
+     768
+    ]
+   },
+   "units": "count",
+   "method": "visible elements with overflow-y auto/scroll and scrollHeight > clientHeight+4"
+  },
+  {
+   "build": "current",
+   "state": "T5:craft",
+   "viewport": "1366x768",
+   "zoom": 1,
+   "metric": "M3",
+   "value": "416/143",
+   "units": "px content/visible of Local actions body",
+   "method": "scrollHeight/clientHeight of the Local actions workspace-module-body; original has no constrained action panel"
+  },
+  {
+   "build": "current",
+   "state": "T5:craft",
+   "viewport": "1366x768",
+   "zoom": 1,
+   "metric": "M4",
+   "value": 26.4,
+   "units": "% of viewport above bottom bar",
+   "method": "area of .workspace-toolbar + .workspace-module-header clipped to viewport; excludes grips, sort rows",
+   "uncertainty": "lower bound"
+  },
+  {
+   "build": "current",
+   "state": "T5:craft",
+   "viewport": "1366x768",
+   "zoom": 1,
+   "metric": "M4-controls",
+   "value": {
+    "chrome_controls_on_screen": 53,
+    "list_tools_on_screen": 1
+   },
+   "units": "count",
+   "method": "same hit-test as M1"
+  },
+  {
+   "build": "current",
+   "state": "T5:craft",
+   "viewport": "1366x768",
+   "zoom": 1,
+   "metric": "M6",
+   "value": {
+    "clicks": 1,
+    "scrolls": 1,
+    "log": [
+     "scroll\u2192Try to craft",
+     "click Try to craft"
+    ]
+   },
+   "units": "clicks/scroll transitions from T6 neutral state",
+   "method": "a scroll is counted when the next target fails a centre hit-test before click"
+  },
+  {
+   "build": "current",
+   "state": "T5:craft",
+   "viewport": "1920x1080",
+   "zoom": 1,
+   "metric": "M1",
+   "value": 70,
+   "units": "on-screen play controls",
+   "method": "outermost semantic or cursor:pointer elements whose centre hit-tests to themselves inside the viewport above the bottom bar, excluding workspace chrome and list sort/filter rows; counts every visible control (tabs, inventory [use]) not only routine decisions",
+   "uncertainty": "heuristic; original uses divs so cursor:pointer is the only signal"
+  },
+  {
+   "build": "current",
+   "state": "T5:craft",
+   "viewport": "1920x1080",
+   "zoom": 1,
+   "metric": "M2",
+   "value": {
+    "scroll_owners": 11,
+    "nested": 6,
+    "page_h_overflow": false,
+    "page_v_overflow": false,
+    "doc_scroll": [
+     1920,
+     1080
+    ]
+   },
+   "units": "count",
+   "method": "visible elements with overflow-y auto/scroll and scrollHeight > clientHeight+4"
+  },
+  {
+   "build": "current",
+   "state": "T5:craft",
+   "viewport": "1920x1080",
+   "zoom": 1,
+   "metric": "M3",
+   "value": null,
+   "units": "px content/visible of Local actions body",
+   "method": "scrollHeight/clientHeight of the Local actions workspace-module-body; original has no constrained action panel"
+  },
+  {
+   "build": "current",
+   "state": "T5:craft",
+   "viewport": "1920x1080",
+   "zoom": 1,
+   "metric": "M4",
+   "value": 23.9,
+   "units": "% of viewport above bottom bar",
+   "method": "area of .workspace-toolbar + .workspace-module-header clipped to viewport; excludes grips, sort rows",
+   "uncertainty": "lower bound"
+  },
+  {
+   "build": "current",
+   "state": "T5:craft",
+   "viewport": "1920x1080",
+   "zoom": 1,
+   "metric": "M4-controls",
+   "value": {
+    "chrome_controls_on_screen": 65,
+    "list_tools_on_screen": 2
+   },
+   "units": "count",
+   "method": "same hit-test as M1"
+  },
+  {
+   "build": "current",
+   "state": "T5:craft",
+   "viewport": "1920x1080",
+   "zoom": 1,
+   "metric": "M6",
+   "value": {
+    "clicks": 1,
+    "scrolls": 1,
+    "log": [
+     "scroll\u2192Try to craft",
+     "click Try to craft"
+    ]
+   },
+   "units": "clicks/scroll transitions from T6 neutral state",
+   "method": "a scroll is counted when the next target fails a centre hit-test before click"
+  },
+  {
+   "build": "current",
+   "state": "T6:hub",
+   "viewport": "400x800",
+   "zoom": 1,
+   "metric": "M1",
+   "value": 5,
+   "units": "on-screen play controls",
+   "method": "outermost semantic or cursor:pointer elements whose centre hit-tests to themselves inside the viewport above the bottom bar, excluding workspace chrome and list sort/filter rows; counts every visible control (tabs, inventory [use]) not only routine decisions",
+   "uncertainty": "heuristic; original uses divs so cursor:pointer is the only signal"
+  },
+  {
+   "build": "current",
+   "state": "T6:hub",
+   "viewport": "400x800",
+   "zoom": 1,
+   "metric": "M2",
+   "value": {
+    "scroll_owners": 13,
+    "nested": 2,
+    "page_h_overflow": false,
+    "page_v_overflow": true,
+    "doc_scroll": [
+     400,
+     5671
+    ]
+   },
+   "units": "count",
+   "method": "visible elements with overflow-y auto/scroll and scrollHeight > clientHeight+4"
+  },
+  {
+   "build": "current",
+   "state": "T6:hub",
+   "viewport": "400x800",
+   "zoom": 1,
+   "metric": "M3",
+   "value": "886/400",
+   "units": "px content/visible of Local actions body",
+   "method": "scrollHeight/clientHeight of the Local actions workspace-module-body; original has no constrained action panel"
+  },
+  {
+   "build": "current",
+   "state": "T6:hub",
+   "viewport": "400x800",
+   "zoom": 1,
+   "metric": "M4",
+   "value": 36,
+   "units": "% of viewport above bottom bar",
+   "method": "area of .workspace-toolbar + .workspace-module-header clipped to viewport; excludes grips, sort rows",
+   "uncertainty": "lower bound"
+  },
+  {
+   "build": "current",
+   "state": "T6:hub",
+   "viewport": "400x800",
+   "zoom": 1,
+   "metric": "M4-controls",
+   "value": {
+    "chrome_controls_on_screen": 21,
+    "list_tools_on_screen": 0
+   },
+   "units": "count",
+   "method": "same hit-test as M1"
+  },
+  {
+   "build": "current",
+   "state": "T6:hub",
+   "viewport": "400x800",
+   "zoom": 1,
+   "metric": "M6",
+   "value": {
+    "clicks": 0,
+    "scrolls": 0,
+    "log": []
+   },
+   "units": "clicks/scroll transitions from T6 neutral state",
+   "method": "a scroll is counted when the next target fails a centre hit-test before click"
+  },
+  {
+   "build": "current",
+   "state": "T2:busy",
+   "viewport": "400x800",
+   "zoom": 1,
+   "metric": "M1",
+   "value": 3,
+   "units": "on-screen play controls",
+   "method": "outermost semantic or cursor:pointer elements whose centre hit-tests to themselves inside the viewport above the bottom bar, excluding workspace chrome and list sort/filter rows; counts every visible control (tabs, inventory [use]) not only routine decisions",
+   "uncertainty": "heuristic; original uses divs so cursor:pointer is the only signal"
+  },
+  {
+   "build": "current",
+   "state": "T2:busy",
+   "viewport": "400x800",
+   "zoom": 1,
+   "metric": "M2",
+   "value": {
+    "scroll_owners": 13,
+    "nested": 2,
+    "page_h_overflow": false,
+    "page_v_overflow": true,
+    "doc_scroll": [
+     400,
+     5681
+    ]
+   },
+   "units": "count",
+   "method": "visible elements with overflow-y auto/scroll and scrollHeight > clientHeight+4"
+  },
+  {
+   "build": "current",
+   "state": "T2:busy",
+   "viewport": "400x800",
+   "zoom": 1,
+   "metric": "M3",
+   "value": "802/400",
+   "units": "px content/visible of Local actions body",
+   "method": "scrollHeight/clientHeight of the Local actions workspace-module-body; original has no constrained action panel"
+  },
+  {
+   "build": "current",
+   "state": "T2:busy",
+   "viewport": "400x800",
+   "zoom": 1,
+   "metric": "M4",
+   "value": 27.7,
+   "units": "% of viewport above bottom bar",
+   "method": "area of .workspace-toolbar + .workspace-module-header clipped to viewport; excludes grips, sort rows",
+   "uncertainty": "lower bound"
+  },
+  {
+   "build": "current",
+   "state": "T2:busy",
+   "viewport": "400x800",
+   "zoom": 1,
+   "metric": "M4-controls",
+   "value": {
+    "chrome_controls_on_screen": 17,
+    "list_tools_on_screen": 0
+   },
+   "units": "count",
+   "method": "same hit-test as M1"
+  },
+  {
+   "build": "current",
+   "state": "T2:busy",
+   "viewport": "400x800",
+   "zoom": 1,
+   "metric": "M6",
+   "value": {
+    "clicks": 2,
+    "scrolls": 0,
+    "log": [
+     "click Find work",
+     "click Work on the fields"
+    ]
+   },
+   "units": "clicks/scroll transitions from T6 neutral state",
+   "method": "a scroll is counted when the next target fails a centre hit-test before click"
+  },
+  {
+   "build": "current",
+   "state": "T6:hub-Classic",
+   "viewport": "1366x768",
+   "zoom": 1,
+   "metric": "M1",
+   "value": 28,
+   "units": "on-screen play controls",
+   "method": "outermost semantic or cursor:pointer elements whose centre hit-tests to themselves inside the viewport above the bottom bar, excluding workspace chrome and list sort/filter rows; counts every visible control (tabs, inventory [use]) not only routine decisions",
+   "uncertainty": "heuristic; original uses divs so cursor:pointer is the only signal"
+  },
+  {
+   "build": "current",
+   "state": "T6:hub-Classic",
+   "viewport": "1366x768",
+   "zoom": 1,
+   "metric": "M2",
+   "value": {
+    "scroll_owners": 4,
+    "nested": 1,
+    "page_h_overflow": false,
+    "page_v_overflow": true,
+    "doc_scroll": [
+     1366,
+     1477
+    ]
+   },
+   "units": "count",
+   "method": "visible elements with overflow-y auto/scroll and scrollHeight > clientHeight+4"
+  },
+  {
+   "build": "current",
+   "state": "T6:hub-Classic",
+   "viewport": "1366x768",
+   "zoom": 1,
+   "metric": "M3",
+   "value": null,
+   "units": "px content/visible of Local actions body",
+   "method": "scrollHeight/clientHeight of the Local actions workspace-module-body; original has no constrained action panel"
+  },
+  {
+   "build": "current",
+   "state": "T6:hub-Classic",
+   "viewport": "1366x768",
+   "zoom": 1,
+   "metric": "M4",
+   "value": 6.8,
+   "units": "% of viewport above bottom bar",
+   "method": "area of .workspace-toolbar + .workspace-module-header clipped to viewport; excludes grips, sort rows",
+   "uncertainty": "lower bound"
+  },
+  {
+   "build": "current",
+   "state": "T6:hub-Classic",
+   "viewport": "1366x768",
+   "zoom": 1,
+   "metric": "M4-controls",
+   "value": {
+    "chrome_controls_on_screen": 7,
+    "list_tools_on_screen": 1
+   },
+   "units": "count",
+   "method": "same hit-test as M1"
+  },
+  {
+   "build": "current",
+   "state": "T6:hub-Classic",
+   "viewport": "1366x768",
+   "zoom": 1,
+   "metric": "M6",
+   "value": {
+    "clicks": 0,
+    "scrolls": 0,
+    "log": []
+   },
+   "units": "clicks/scroll transitions from T6 neutral state",
+   "method": "a scroll is counted when the next target fails a centre hit-test before click"
+  },
+  {
+   "build": "current",
+   "state": "T6:hub-Classic",
+   "viewport": "1366x768",
+   "zoom": 1,
+   "metric": "M10",
+   "value": {
+    "steps": 160,
+    "first": [
+     [
+      "Talk to someone",
+      22
+     ],
+     [
+      "Find work",
+      24
+     ],
+     [
+      "Move somewhere else",
+      20
+     ],
+     [
+      "Visit a merchant",
+      23
+     ],
+     [
+      "craft",
+      21
+     ]
+    ],
+    "chromeStops": 21,
+    "offscreenStops": 0,
+    "hiddenStops": 0,
+    "noRing": 0
+   },
+   "units": "Tab presses",
+   "method": "Tab from blurred body, up to 160 presses or loop; first = index of first focus containing the label (-1 = never reached)"
+  },
+  {
+   "build": "current",
+   "state": "T2:busy-Classic",
+   "viewport": "1366x768",
+   "zoom": 1,
+   "metric": "M1",
+   "value": 23,
+   "units": "on-screen play controls",
+   "method": "outermost semantic or cursor:pointer elements whose centre hit-tests to themselves inside the viewport above the bottom bar, excluding workspace chrome and list sort/filter rows; counts every visible control (tabs, inventory [use]) not only routine decisions",
+   "uncertainty": "heuristic; original uses divs so cursor:pointer is the only signal"
+  },
+  {
+   "build": "current",
+   "state": "T2:busy-Classic",
+   "viewport": "1366x768",
+   "zoom": 1,
+   "metric": "M2",
+   "value": {
+    "scroll_owners": 4,
+    "nested": 1,
+    "page_h_overflow": false,
+    "page_v_overflow": true,
+    "doc_scroll": [
+     1366,
+     1477
+    ]
+   },
+   "units": "count",
+   "method": "visible elements with overflow-y auto/scroll and scrollHeight > clientHeight+4"
+  },
+  {
+   "build": "current",
+   "state": "T2:busy-Classic",
+   "viewport": "1366x768",
+   "zoom": 1,
+   "metric": "M3",
+   "value": null,
+   "units": "px content/visible of Local actions body",
+   "method": "scrollHeight/clientHeight of the Local actions workspace-module-body; original has no constrained action panel"
+  },
+  {
+   "build": "current",
+   "state": "T2:busy-Classic",
+   "viewport": "1366x768",
+   "zoom": 1,
+   "metric": "M4",
+   "value": 6.8,
+   "units": "% of viewport above bottom bar",
+   "method": "area of .workspace-toolbar + .workspace-module-header clipped to viewport; excludes grips, sort rows",
+   "uncertainty": "lower bound"
+  },
+  {
+   "build": "current",
+   "state": "T2:busy-Classic",
+   "viewport": "1366x768",
+   "zoom": 1,
+   "metric": "M4-controls",
+   "value": {
+    "chrome_controls_on_screen": 7,
+    "list_tools_on_screen": 1
+   },
+   "units": "count",
+   "method": "same hit-test as M1"
+  },
+  {
+   "build": "current",
+   "state": "T2:busy-Classic",
+   "viewport": "1366x768",
+   "zoom": 1,
+   "metric": "M6",
+   "value": {
+    "clicks": 2,
+    "scrolls": 1,
+    "log": [
+     "scroll\u2192Find work",
+     "click Find work",
+     "click Work on the fields"
+    ]
+   },
+   "units": "clicks/scroll transitions from T6 neutral state",
+   "method": "a scroll is counted when the next target fails a centre hit-test before click"
+  },
+  {
+   "build": "current",
+   "state": "T6:hub-Classic",
+   "viewport": "1920x1080",
+   "zoom": 1,
+   "metric": "M1",
+   "value": 49,
+   "units": "on-screen play controls",
+   "method": "outermost semantic or cursor:pointer elements whose centre hit-tests to themselves inside the viewport above the bottom bar, excluding workspace chrome and list sort/filter rows; counts every visible control (tabs, inventory [use]) not only routine decisions",
+   "uncertainty": "heuristic; original uses divs so cursor:pointer is the only signal"
+  },
+  {
+   "build": "current",
+   "state": "T6:hub-Classic",
+   "viewport": "1920x1080",
+   "zoom": 1,
+   "metric": "M2",
+   "value": {
+    "scroll_owners": 4,
+    "nested": 1,
+    "page_h_overflow": false,
+    "page_v_overflow": false,
+    "doc_scroll": [
+     1920,
+     1080
+    ]
+   },
+   "units": "count",
+   "method": "visible elements with overflow-y auto/scroll and scrollHeight > clientHeight+4"
+  },
+  {
+   "build": "current",
+   "state": "T6:hub-Classic",
+   "viewport": "1920x1080",
+   "zoom": 1,
+   "metric": "M3",
+   "value": null,
+   "units": "px content/visible of Local actions body",
+   "method": "scrollHeight/clientHeight of the Local actions workspace-module-body; original has no constrained action panel"
+  },
+  {
+   "build": "current",
+   "state": "T6:hub-Classic",
+   "viewport": "1920x1080",
+   "zoom": 1,
+   "metric": "M4",
+   "value": 4.7,
+   "units": "% of viewport above bottom bar",
+   "method": "area of .workspace-toolbar + .workspace-module-header clipped to viewport; excludes grips, sort rows",
+   "uncertainty": "lower bound"
+  },
+  {
+   "build": "current",
+   "state": "T6:hub-Classic",
+   "viewport": "1920x1080",
+   "zoom": 1,
+   "metric": "M4-controls",
+   "value": {
+    "chrome_controls_on_screen": 7,
+    "list_tools_on_screen": 9
+   },
+   "units": "count",
+   "method": "same hit-test as M1"
+  },
+  {
+   "build": "current",
+   "state": "T6:hub-Classic",
+   "viewport": "1920x1080",
+   "zoom": 1,
+   "metric": "M6",
+   "value": {
+    "clicks": 0,
+    "scrolls": 0,
+    "log": []
+   },
+   "units": "clicks/scroll transitions from T6 neutral state",
+   "method": "a scroll is counted when the next target fails a centre hit-test before click"
+  },
+  {
+   "build": "current",
+   "state": "T7:hub-ledger",
+   "viewport": "1366x768",
+   "zoom": 1,
+   "metric": "M1",
+   "value": 34,
+   "units": "on-screen play controls",
+   "method": "outermost semantic or cursor:pointer elements whose centre hit-tests to themselves inside the viewport above the bottom bar, excluding workspace chrome and list sort/filter rows; counts every visible control (tabs, inventory [use]) not only routine decisions",
+   "uncertainty": "heuristic; original uses divs so cursor:pointer is the only signal"
+  },
+  {
+   "build": "current",
+   "state": "T7:hub-ledger",
+   "viewport": "1366x768",
+   "zoom": 1,
+   "metric": "M2",
+   "value": {
+    "scroll_owners": 13,
+    "nested": 10,
+    "page_h_overflow": false,
+    "page_v_overflow": false,
+    "doc_scroll": [
+     1366,
+     768
+    ]
+   },
+   "units": "count",
+   "method": "visible elements with overflow-y auto/scroll and scrollHeight > clientHeight+4"
+  },
+  {
+   "build": "current",
+   "state": "T7:hub-ledger",
+   "viewport": "1366x768",
+   "zoom": 1,
+   "metric": "M3",
+   "value": "830/143",
+   "units": "px content/visible of Local actions body",
+   "method": "scrollHeight/clientHeight of the Local actions workspace-module-body; original has no constrained action panel"
+  },
+  {
+   "build": "current",
+   "state": "T7:hub-ledger",
+   "viewport": "1366x768",
+   "zoom": 1,
+   "metric": "M4",
+   "value": 26.4,
+   "units": "% of viewport above bottom bar",
+   "method": "area of .workspace-toolbar + .workspace-module-header clipped to viewport; excludes grips, sort rows",
+   "uncertainty": "lower bound"
+  },
+  {
+   "build": "current",
+   "state": "T7:hub-ledger",
+   "viewport": "1366x768",
+   "zoom": 1,
+   "metric": "M4-controls",
+   "value": {
+    "chrome_controls_on_screen": 53,
+    "list_tools_on_screen": 1
+   },
+   "units": "count",
+   "method": "same hit-test as M1"
+  },
+  {
+   "build": "current",
+   "state": "T7:hub-ledger",
+   "viewport": "1366x768",
+   "zoom": 1,
+   "metric": "M6",
+   "value": {
+    "clicks": 0,
+    "scrolls": 0,
+    "log": []
+   },
+   "units": "clicks/scroll transitions from T6 neutral state",
+   "method": "a scroll is counted when the next target fails a centre hit-test before click"
+  },
+  {
+   "build": "current",
+   "state": "T7:hub-authoring",
+   "viewport": "1366x768",
+   "zoom": 1,
+   "metric": "M1",
+   "value": 20,
+   "units": "on-screen play controls",
+   "method": "outermost semantic or cursor:pointer elements whose centre hit-tests to themselves inside the viewport above the bottom bar, excluding workspace chrome and list sort/filter rows; counts every visible control (tabs, inventory [use]) not only routine decisions",
+   "uncertainty": "heuristic; original uses divs so cursor:pointer is the only signal"
+  },
+  {
+   "build": "current",
+   "state": "T7:hub-authoring",
+   "viewport": "1366x768",
+   "zoom": 1,
+   "metric": "M2",
+   "value": {
+    "scroll_owners": 4,
+    "nested": 1,
+    "page_h_overflow": false,
+    "page_v_overflow": false,
+    "doc_scroll": [
+     1366,
+     768
+    ]
+   },
+   "units": "count",
+   "method": "visible elements with overflow-y auto/scroll and scrollHeight > clientHeight+4"
+  },
+  {
+   "build": "current",
+   "state": "T7:hub-authoring",
+   "viewport": "1366x768",
+   "zoom": 1,
+   "metric": "M3",
+   "value": null,
+   "units": "px content/visible of Local actions body",
+   "method": "scrollHeight/clientHeight of the Local actions workspace-module-body; original has no constrained action panel"
+  },
+  {
+   "build": "current",
+   "state": "T7:hub-authoring",
+   "viewport": "1366x768",
+   "zoom": 1,
+   "metric": "M4",
+   "value": 11.3,
+   "units": "% of viewport above bottom bar",
+   "method": "area of .workspace-toolbar + .workspace-module-header clipped to viewport; excludes grips, sort rows",
+   "uncertainty": "lower bound"
+  },
+  {
+   "build": "current",
+   "state": "T7:hub-authoring",
+   "viewport": "1366x768",
+   "zoom": 1,
+   "metric": "M4-controls",
+   "value": {
+    "chrome_controls_on_screen": 31,
+    "list_tools_on_screen": 0
+   },
+   "units": "count",
+   "method": "same hit-test as M1"
+  },
+  {
+   "build": "current",
+   "state": "T7:hub-authoring",
+   "viewport": "1366x768",
+   "zoom": 1,
+   "metric": "M6",
+   "value": {
+    "clicks": 0,
+    "scrolls": 0,
+    "log": []
+   },
+   "units": "clicks/scroll transitions from T6 neutral state",
+   "method": "a scroll is counted when the next target fails a centre hit-test before click"
+  },
+  {
+   "build": "current",
+   "state": "T7:hub-authoring",
+   "viewport": "1920x1080",
+   "zoom": 1,
+   "metric": "M1",
+   "value": 39,
+   "units": "on-screen play controls",
+   "method": "outermost semantic or cursor:pointer elements whose centre hit-tests to themselves inside the viewport above the bottom bar, excluding workspace chrome and list sort/filter rows; counts every visible control (tabs, inventory [use]) not only routine decisions",
+   "uncertainty": "heuristic; original uses divs so cursor:pointer is the only signal"
+  },
+  {
+   "build": "current",
+   "state": "T7:hub-authoring",
+   "viewport": "1920x1080",
+   "zoom": 1,
+   "metric": "M2",
+   "value": {
+    "scroll_owners": 2,
+    "nested": 0,
+    "page_h_overflow": false,
+    "page_v_overflow": false,
+    "doc_scroll": [
+     1920,
+     1080
+    ]
+   },
+   "units": "count",
+   "method": "visible elements with overflow-y auto/scroll and scrollHeight > clientHeight+4"
+  },
+  {
+   "build": "current",
+   "state": "T7:hub-authoring",
+   "viewport": "1920x1080",
+   "zoom": 1,
+   "metric": "M3",
+   "value": null,
+   "units": "px content/visible of Local actions body",
+   "method": "scrollHeight/clientHeight of the Local actions workspace-module-body; original has no constrained action panel"
+  },
+  {
+   "build": "current",
+   "state": "T7:hub-authoring",
+   "viewport": "1920x1080",
+   "zoom": 1,
+   "metric": "M4",
+   "value": 8,
+   "units": "% of viewport above bottom bar",
+   "method": "area of .workspace-toolbar + .workspace-module-header clipped to viewport; excludes grips, sort rows",
+   "uncertainty": "lower bound"
+  },
+  {
+   "build": "current",
+   "state": "T7:hub-authoring",
+   "viewport": "1920x1080",
+   "zoom": 1,
+   "metric": "M4-controls",
+   "value": {
+    "chrome_controls_on_screen": 31,
+    "list_tools_on_screen": 0
+   },
+   "units": "count",
+   "method": "same hit-test as M1"
+  },
+  {
+   "build": "current",
+   "state": "T7:hub-authoring",
+   "viewport": "1920x1080",
+   "zoom": 1,
+   "metric": "M6",
+   "value": {
+    "clicks": 0,
+    "scrolls": 0,
+    "log": []
+   },
+   "units": "clicks/scroll transitions from T6 neutral state",
+   "method": "a scroll is counted when the next target fails a centre hit-test before click"
+  },
+  {
+   "build": "original",
+   "state": "T6:hub",
+   "viewport": "1366x768@150pct",
+   "zoom": 1.5,
+   "metric": "M1",
+   "value": 13,
+   "units": "on-screen play controls",
+   "method": "outermost semantic or cursor:pointer elements whose centre hit-tests to themselves inside the viewport above the bottom bar, excluding workspace chrome and list sort/filter rows; counts every visible control (tabs, inventory [use]) not only routine decisions",
+   "uncertainty": "heuristic; original uses divs so cursor:pointer is the only signal"
+  },
+  {
+   "build": "original",
+   "state": "T6:hub",
+   "viewport": "1366x768@150pct",
+   "zoom": 1.5,
+   "metric": "M2",
+   "value": {
+    "scroll_owners": 1,
+    "nested": 0,
+    "page_h_overflow": true,
+    "page_v_overflow": true,
+    "doc_scroll": [
+     1656,
+     811
+    ]
+   },
+   "units": "count",
+   "method": "visible elements with overflow-y auto/scroll and scrollHeight > clientHeight+4"
+  },
+  {
+   "build": "original",
+   "state": "T6:hub",
+   "viewport": "1366x768@150pct",
+   "zoom": 1.5,
+   "metric": "M3",
+   "value": null,
+   "units": "px content/visible of Local actions body",
+   "method": "scrollHeight/clientHeight of the Local actions workspace-module-body; original has no constrained action panel"
+  },
+  {
+   "build": "original",
+   "state": "T6:hub",
+   "viewport": "1366x768@150pct",
+   "zoom": 1.5,
+   "metric": "M4",
+   "value": 0,
+   "units": "% of viewport above bottom bar",
+   "method": "area of .workspace-toolbar + .workspace-module-header clipped to viewport; excludes grips, sort rows",
+   "uncertainty": "lower bound"
+  },
+  {
+   "build": "original",
+   "state": "T6:hub",
+   "viewport": "1366x768@150pct",
+   "zoom": 1.5,
+   "metric": "M4-controls",
+   "value": {
+    "chrome_controls_on_screen": 0,
+    "list_tools_on_screen": 1
+   },
+   "units": "count",
+   "method": "same hit-test as M1"
+  },
+  {
+   "build": "original",
+   "state": "T6:hub",
+   "viewport": "1366x768@150pct",
+   "zoom": 1.5,
+   "metric": "M6",
+   "value": {
+    "clicks": 0,
+    "scrolls": 0,
+    "log": []
+   },
+   "units": "clicks/scroll transitions from T6 neutral state",
+   "method": "a scroll is counted when the next target fails a centre hit-test before click"
+  },
+  {
+   "build": "original",
+   "state": "T2:busy",
+   "viewport": "1366x768@150pct",
+   "zoom": 1.5,
+   "metric": "M1",
+   "value": 19,
+   "units": "on-screen play controls",
+   "method": "outermost semantic or cursor:pointer elements whose centre hit-tests to themselves inside the viewport above the bottom bar, excluding workspace chrome and list sort/filter rows; counts every visible control (tabs, inventory [use]) not only routine decisions",
+   "uncertainty": "heuristic; original uses divs so cursor:pointer is the only signal"
+  },
+  {
+   "build": "original",
+   "state": "T2:busy",
+   "viewport": "1366x768@150pct",
+   "zoom": 1.5,
+   "metric": "M2",
+   "value": {
+    "scroll_owners": 1,
+    "nested": 0,
+    "page_h_overflow": true,
+    "page_v_overflow": true,
+    "doc_scroll": [
+     1656,
+     811
+    ]
+   },
+   "units": "count",
+   "method": "visible elements with overflow-y auto/scroll and scrollHeight > clientHeight+4"
+  },
+  {
+   "build": "original",
+   "state": "T2:busy",
+   "viewport": "1366x768@150pct",
+   "zoom": 1.5,
+   "metric": "M3",
+   "value": null,
+   "units": "px content/visible of Local actions body",
+   "method": "scrollHeight/clientHeight of the Local actions workspace-module-body; original has no constrained action panel"
+  },
+  {
+   "build": "original",
+   "state": "T2:busy",
+   "viewport": "1366x768@150pct",
+   "zoom": 1.5,
+   "metric": "M4",
+   "value": 0,
+   "units": "% of viewport above bottom bar",
+   "method": "area of .workspace-toolbar + .workspace-module-header clipped to viewport; excludes grips, sort rows",
+   "uncertainty": "lower bound"
+  },
+  {
+   "build": "original",
+   "state": "T2:busy",
+   "viewport": "1366x768@150pct",
+   "zoom": 1.5,
+   "metric": "M4-controls",
+   "value": {
+    "chrome_controls_on_screen": 0,
+    "list_tools_on_screen": 9
+   },
+   "units": "count",
+   "method": "same hit-test as M1"
+  },
+  {
+   "build": "original",
+   "state": "T2:busy",
+   "viewport": "1366x768@150pct",
+   "zoom": 1.5,
+   "metric": "M6",
+   "value": {
+    "clicks": 2,
+    "scrolls": 2,
+    "log": [
+     "scroll\u2192Find work",
+     "click Find work",
+     "scroll\u2192Work on the fields",
+     "click Work on the fields"
+    ]
+   },
+   "units": "clicks/scroll transitions from T6 neutral state",
+   "method": "a scroll is counted when the next target fails a centre hit-test before click"
+  },
+  {
+   "build": "current",
+   "state": "T6:hub",
+   "viewport": "1366x768@150pct",
+   "zoom": 1.5,
+   "metric": "M1",
+   "value": 1,
+   "units": "on-screen play controls",
+   "method": "outermost semantic or cursor:pointer elements whose centre hit-tests to themselves inside the viewport above the bottom bar, excluding workspace chrome and list sort/filter rows; counts every visible control (tabs, inventory [use]) not only routine decisions",
+   "uncertainty": "heuristic; original uses divs so cursor:pointer is the only signal"
+  },
+  {
+   "build": "current",
+   "state": "T6:hub",
+   "viewport": "1366x768@150pct",
+   "zoom": 1.5,
+   "metric": "M2",
+   "value": {
+    "scroll_owners": 14,
+    "nested": 2,
+    "page_h_overflow": false,
+    "page_v_overflow": true,
+    "doc_scroll": [
+     911,
+     4867
+    ]
+   },
+   "units": "count",
+   "method": "visible elements with overflow-y auto/scroll and scrollHeight > clientHeight+4"
+  },
+  {
+   "build": "current",
+   "state": "T6:hub",
+   "viewport": "1366x768@150pct",
+   "zoom": 1.5,
+   "metric": "M3",
+   "value": "811/333",
+   "units": "px content/visible of Local actions body",
+   "method": "scrollHeight/clientHeight of the Local actions workspace-module-body; original has no constrained action panel"
+  },
+  {
+   "build": "current",
+   "state": "T6:hub",
+   "viewport": "1366x768@150pct",
+   "zoom": 1.5,
+   "metric": "M4",
+   "value": 45.1,
+   "units": "% of viewport above bottom bar",
+   "method": "area of .workspace-toolbar + .workspace-module-header clipped to viewport; excludes grips, sort rows",
+   "uncertainty": "lower bound"
+  },
+  {
+   "build": "current",
+   "state": "T6:hub",
+   "viewport": "1366x768@150pct",
+   "zoom": 1.5,
+   "metric": "M4-controls",
+   "value": {
+    "chrome_controls_on_screen": 17,
+    "list_tools_on_screen": 0
+   },
+   "units": "count",
+   "method": "same hit-test as M1"
+  },
+  {
+   "build": "current",
+   "state": "T6:hub",
+   "viewport": "1366x768@150pct",
+   "zoom": 1.5,
+   "metric": "M6",
+   "value": {
+    "clicks": 0,
+    "scrolls": 0,
+    "log": []
+   },
+   "units": "clicks/scroll transitions from T6 neutral state",
+   "method": "a scroll is counted when the next target fails a centre hit-test before click"
+  },
+  {
+   "build": "current",
+   "state": "T2:busy",
+   "viewport": "1366x768@150pct",
+   "zoom": 1.5,
+   "metric": "M1",
+   "value": 2,
+   "units": "on-screen play controls",
+   "method": "outermost semantic or cursor:pointer elements whose centre hit-tests to themselves inside the viewport above the bottom bar, excluding workspace chrome and list sort/filter rows; counts every visible control (tabs, inventory [use]) not only routine decisions",
+   "uncertainty": "heuristic; original uses divs so cursor:pointer is the only signal"
+  },
+  {
+   "build": "current",
+   "state": "T2:busy",
+   "viewport": "1366x768@150pct",
+   "zoom": 1.5,
+   "metric": "M2",
+   "value": {
+    "scroll_owners": 14,
+    "nested": 2,
+    "page_h_overflow": false,
+    "page_v_overflow": true,
+    "doc_scroll": [
+     911,
+     4877
+    ]
+   },
+   "units": "count",
+   "method": "visible elements with overflow-y auto/scroll and scrollHeight > clientHeight+4"
+  },
+  {
+   "build": "current",
+   "state": "T2:busy",
+   "viewport": "1366x768@150pct",
+   "zoom": 1.5,
+   "metric": "M3",
+   "value": "688/333",
+   "units": "px content/visible of Local actions body",
+   "method": "scrollHeight/clientHeight of the Local actions workspace-module-body; original has no constrained action panel"
+  },
+  {
+   "build": "current",
+   "state": "T2:busy",
+   "viewport": "1366x768@150pct",
+   "zoom": 1.5,
+   "metric": "M4",
+   "value": 14.8,
+   "units": "% of viewport above bottom bar",
+   "method": "area of .workspace-toolbar + .workspace-module-header clipped to viewport; excludes grips, sort rows",
+   "uncertainty": "lower bound"
+  },
+  {
+   "build": "current",
+   "state": "T2:busy",
+   "viewport": "1366x768@150pct",
+   "zoom": 1.5,
+   "metric": "M4-controls",
+   "value": {
+    "chrome_controls_on_screen": 9,
+    "list_tools_on_screen": 0
+   },
+   "units": "count",
+   "method": "same hit-test as M1"
+  },
+  {
+   "build": "current",
+   "state": "T2:busy",
+   "viewport": "1366x768@150pct",
+   "zoom": 1.5,
+   "metric": "M6",
+   "value": {
+    "clicks": 2,
+    "scrolls": 1,
+    "log": [
+     "scroll\u2192Find work",
+     "click Find work",
+     "click Work on the fields"
+    ]
+   },
+   "units": "clicks/scroll transitions from T6 neutral state",
+   "method": "a scroll is counted when the next target fails a centre hit-test before click"
+  },
+  {
+   "build": "original",
+   "state": "T6:hub",
+   "viewport": "1366x768",
+   "zoom": 1,
+   "metric": "M9/M6-reach",
+   "value": {
+    "Talk to someone": "onscreen",
+    "Find work": "onscreen",
+    "Visit a merchant": "onscreen",
+    "Try to craft": "onscreen",
+    "Gather resources": "onscreen",
+    "first [use] food": "onscreen",
+    "inventory row 1": "absent"
+   },
+   "units": "onscreen|needs-scroll|hidden|absent",
+   "method": "first matching target, centre hit-test inside viewport above bottom bar",
+   "uncertainty": "absent can mean selector mismatch (e.g. inventory row selectors, enemy hp)"
+  },
+  {
+   "build": "original",
+   "state": "T2:busy",
+   "viewport": "1366x768",
+   "zoom": 1,
+   "metric": "M9/M6-reach",
+   "value": {
+    "job title": "onscreen",
+    "stop/finish": "onscreen",
+    "next earnings": "onscreen",
+    "progress bar": "absent"
+   },
+   "units": "onscreen|needs-scroll|hidden|absent",
+   "method": "first matching target, centre hit-test inside viewport above bottom bar",
+   "uncertainty": "absent can mean selector mismatch (e.g. inventory row selectors, enemy hp)"
+  },
+  {
+   "build": "original",
+   "state": "T3:combat",
+   "viewport": "1366x768",
+   "zoom": 1,
+   "metric": "M9/M6-reach",
+   "value": {
+    "enemy hp": "absent",
+    "go back": "onscreen",
+    "message log": "onscreen",
+    "enemy count": "onscreen"
+   },
+   "units": "onscreen|needs-scroll|hidden|absent",
+   "method": "first matching target, centre hit-test inside viewport above bottom bar",
+   "uncertainty": "absent can mean selector mismatch (e.g. inventory row selectors, enemy hp)"
+  },
+  {
+   "build": "original",
+   "state": "T4:merchant",
+   "viewport": "1366x768",
+   "zoom": 1,
+   "metric": "M9/M6-reach",
+   "value": {
+    "trader row 1": "onscreen",
+    "own sellable row 1": "absent",
+    "Accept": "needs-scroll",
+    "total price": "onscreen"
+   },
+   "units": "onscreen|needs-scroll|hidden|absent",
+   "method": "first matching target, centre hit-test inside viewport above bottom bar",
+   "uncertainty": "absent can mean selector mismatch (e.g. inventory row selectors, enemy hp)"
+  },
+  {
+   "build": "original",
+   "state": "T5:craft",
+   "viewport": "1366x768",
+   "zoom": 1,
+   "metric": "M9/M6-reach",
+   "value": {
+    "category tabs": "onscreen",
+    "makeable filter": "absent",
+    "recipe row 1": "onscreen",
+    "close crafting": "absent"
+   },
+   "units": "onscreen|needs-scroll|hidden|absent",
+   "method": "first matching target, centre hit-test inside viewport above bottom bar",
+   "uncertainty": "absent can mean selector mismatch (e.g. inventory row selectors, enemy hp)"
+  },
+  {
+   "build": "current",
+   "state": "T6:hub",
+   "viewport": "1366x768",
+   "zoom": 1,
+   "metric": "M9/M6-reach",
+   "value": {
+    "Talk to someone": "onscreen",
+    "Find work": "needs-scroll",
+    "Visit a merchant": "onscreen",
+    "Try to craft": "needs-scroll",
+    "Gather resources": "needs-scroll",
+    "first [use] food": "needs-scroll",
+    "inventory row 1": "absent"
+   },
+   "units": "onscreen|needs-scroll|hidden|absent",
+   "method": "first matching target, centre hit-test inside viewport above bottom bar",
+   "uncertainty": "absent can mean selector mismatch (e.g. inventory row selectors, enemy hp)"
+  },
+  {
+   "build": "current",
+   "state": "T2:busy",
+   "viewport": "1366x768",
+   "zoom": 1,
+   "metric": "M9/M6-reach",
+   "value": {
+    "job title": "needs-scroll",
+    "stop/finish": "onscreen",
+    "next earnings": "onscreen",
+    "progress bar": "absent"
+   },
+   "units": "onscreen|needs-scroll|hidden|absent",
+   "method": "first matching target, centre hit-test inside viewport above bottom bar",
+   "uncertainty": "absent can mean selector mismatch (e.g. inventory row selectors, enemy hp)"
+  },
+  {
+   "build": "current",
+   "state": "T3:combat",
+   "viewport": "1366x768",
+   "zoom": 1,
+   "metric": "M9/M6-reach",
+   "value": {
+    "enemy hp": "absent",
+    "go back": "needs-scroll",
+    "message log": "needs-scroll",
+    "enemy count": "onscreen"
+   },
+   "units": "onscreen|needs-scroll|hidden|absent",
+   "method": "first matching target, centre hit-test inside viewport above bottom bar",
+   "uncertainty": "absent can mean selector mismatch (e.g. inventory row selectors, enemy hp)"
+  },
+  {
+   "build": "current",
+   "state": "T4:merchant",
+   "viewport": "1366x768",
+   "zoom": 1,
+   "metric": "M9/M6-reach",
+   "value": {
+    "trader row 1": "onscreen",
+    "own sellable row 1": "absent",
+    "Accept": "needs-scroll",
+    "total price": "needs-scroll"
+   },
+   "units": "onscreen|needs-scroll|hidden|absent",
+   "method": "first matching target, centre hit-test inside viewport above bottom bar",
+   "uncertainty": "absent can mean selector mismatch (e.g. inventory row selectors, enemy hp)"
+  },
+  {
+   "build": "current",
+   "state": "T5:craft",
+   "viewport": "1366x768",
+   "zoom": 1,
+   "metric": "M9/M6-reach",
+   "value": {
+    "category tabs": "needs-scroll",
+    "makeable filter": "needs-scroll",
+    "recipe row 1": "needs-scroll",
+    "close crafting": "hidden"
+   },
+   "units": "onscreen|needs-scroll|hidden|absent",
+   "method": "first matching target, centre hit-test inside viewport above bottom bar",
+   "uncertainty": "absent can mean selector mismatch (e.g. inventory row selectors, enemy hp)"
+  },
+  {
+   "build": "original",
+   "state": "T6:hub",
+   "viewport": "1440x900",
+   "zoom": 1,
+   "metric": "M9/M6-reach",
+   "value": {
+    "Talk to someone": "onscreen",
+    "Find work": "onscreen",
+    "Visit a merchant": "onscreen",
+    "Try to craft": "onscreen",
+    "Gather resources": "onscreen",
+    "first [use] food": "onscreen",
+    "inventory row 1": "absent"
+   },
+   "units": "onscreen|needs-scroll|hidden|absent",
+   "method": "first matching target, centre hit-test inside viewport above bottom bar",
+   "uncertainty": "absent can mean selector mismatch (e.g. inventory row selectors, enemy hp)"
+  },
+  {
+   "build": "original",
+   "state": "T2:busy",
+   "viewport": "1440x900",
+   "zoom": 1,
+   "metric": "M9/M6-reach",
+   "value": {
+    "job title": "onscreen",
+    "stop/finish": "onscreen",
+    "next earnings": "onscreen",
+    "progress bar": "absent"
+   },
+   "units": "onscreen|needs-scroll|hidden|absent",
+   "method": "first matching target, centre hit-test inside viewport above bottom bar",
+   "uncertainty": "absent can mean selector mismatch (e.g. inventory row selectors, enemy hp)"
+  },
+  {
+   "build": "original",
+   "state": "T3:combat",
+   "viewport": "1440x900",
+   "zoom": 1,
+   "metric": "M9/M6-reach",
+   "value": {
+    "enemy hp": "absent",
+    "go back": "onscreen",
+    "message log": "onscreen",
+    "enemy count": "onscreen"
+   },
+   "units": "onscreen|needs-scroll|hidden|absent",
+   "method": "first matching target, centre hit-test inside viewport above bottom bar",
+   "uncertainty": "absent can mean selector mismatch (e.g. inventory row selectors, enemy hp)"
+  },
+  {
+   "build": "original",
+   "state": "T4:merchant",
+   "viewport": "1440x900",
+   "zoom": 1,
+   "metric": "M9/M6-reach",
+   "value": {
+    "trader row 1": "onscreen",
+    "own sellable row 1": "absent",
+    "Accept": "onscreen",
+    "total price": "onscreen"
+   },
+   "units": "onscreen|needs-scroll|hidden|absent",
+   "method": "first matching target, centre hit-test inside viewport above bottom bar",
+   "uncertainty": "absent can mean selector mismatch (e.g. inventory row selectors, enemy hp)"
+  },
+  {
+   "build": "original",
+   "state": "T5:craft",
+   "viewport": "1440x900",
+   "zoom": 1,
+   "metric": "M9/M6-reach",
+   "value": {
+    "category tabs": "onscreen",
+    "makeable filter": "absent",
+    "recipe row 1": "onscreen",
+    "close crafting": "absent"
+   },
+   "units": "onscreen|needs-scroll|hidden|absent",
+   "method": "first matching target, centre hit-test inside viewport above bottom bar",
+   "uncertainty": "absent can mean selector mismatch (e.g. inventory row selectors, enemy hp)"
+  },
+  {
+   "build": "current",
+   "state": "T6:hub",
+   "viewport": "1440x900",
+   "zoom": 1,
+   "metric": "M9/M6-reach",
+   "value": {
+    "Talk to someone": "onscreen",
+    "Find work": "onscreen",
+    "Visit a merchant": "onscreen",
+    "Try to craft": "needs-scroll",
+    "Gather resources": "needs-scroll",
+    "first [use] food": "onscreen",
+    "inventory row 1": "absent"
+   },
+   "units": "onscreen|needs-scroll|hidden|absent",
+   "method": "first matching target, centre hit-test inside viewport above bottom bar",
+   "uncertainty": "absent can mean selector mismatch (e.g. inventory row selectors, enemy hp)"
+  },
+  {
+   "build": "current",
+   "state": "T2:busy",
+   "viewport": "1440x900",
+   "zoom": 1,
+   "metric": "M9/M6-reach",
+   "value": {
+    "job title": "onscreen",
+    "stop/finish": "onscreen",
+    "next earnings": "onscreen",
+    "progress bar": "absent"
+   },
+   "units": "onscreen|needs-scroll|hidden|absent",
+   "method": "first matching target, centre hit-test inside viewport above bottom bar",
+   "uncertainty": "absent can mean selector mismatch (e.g. inventory row selectors, enemy hp)"
+  },
+  {
+   "build": "current",
+   "state": "T3:combat",
+   "viewport": "1440x900",
+   "zoom": 1,
+   "metric": "M9/M6-reach",
+   "value": {
+    "enemy hp": "absent",
+    "go back": "onscreen",
+    "message log": "onscreen",
+    "enemy count": "onscreen"
+   },
+   "units": "onscreen|needs-scroll|hidden|absent",
+   "method": "first matching target, centre hit-test inside viewport above bottom bar",
+   "uncertainty": "absent can mean selector mismatch (e.g. inventory row selectors, enemy hp)"
+  },
+  {
+   "build": "current",
+   "state": "T4:merchant",
+   "viewport": "1440x900",
+   "zoom": 1,
+   "metric": "M9/M6-reach",
+   "value": {
+    "trader row 1": "onscreen",
+    "own sellable row 1": "absent",
+    "Accept": "needs-scroll",
+    "total price": "needs-scroll"
+   },
+   "units": "onscreen|needs-scroll|hidden|absent",
+   "method": "first matching target, centre hit-test inside viewport above bottom bar",
+   "uncertainty": "absent can mean selector mismatch (e.g. inventory row selectors, enemy hp)"
+  },
+  {
+   "build": "current",
+   "state": "T5:craft",
+   "viewport": "1440x900",
+   "zoom": 1,
+   "metric": "M9/M6-reach",
+   "value": {
+    "category tabs": "needs-scroll",
+    "makeable filter": "needs-scroll",
+    "recipe row 1": "needs-scroll",
+    "close crafting": "hidden"
+   },
+   "units": "onscreen|needs-scroll|hidden|absent",
+   "method": "first matching target, centre hit-test inside viewport above bottom bar",
+   "uncertainty": "absent can mean selector mismatch (e.g. inventory row selectors, enemy hp)"
+  },
+  {
+   "build": "original",
+   "state": "T6:hub",
+   "viewport": "1920x1080",
+   "zoom": 1,
+   "metric": "M9/M6-reach",
+   "value": {
+    "Talk to someone": "onscreen",
+    "Find work": "onscreen",
+    "Visit a merchant": "onscreen",
+    "Try to craft": "onscreen",
+    "Gather resources": "onscreen",
+    "first [use] food": "onscreen",
+    "inventory row 1": "absent"
+   },
+   "units": "onscreen|needs-scroll|hidden|absent",
+   "method": "first matching target, centre hit-test inside viewport above bottom bar",
+   "uncertainty": "absent can mean selector mismatch (e.g. inventory row selectors, enemy hp)"
+  },
+  {
+   "build": "original",
+   "state": "T2:busy",
+   "viewport": "1920x1080",
+   "zoom": 1,
+   "metric": "M9/M6-reach",
+   "value": {
+    "job title": "onscreen",
+    "stop/finish": "onscreen",
+    "next earnings": "onscreen",
+    "progress bar": "absent"
+   },
+   "units": "onscreen|needs-scroll|hidden|absent",
+   "method": "first matching target, centre hit-test inside viewport above bottom bar",
+   "uncertainty": "absent can mean selector mismatch (e.g. inventory row selectors, enemy hp)"
+  },
+  {
+   "build": "original",
+   "state": "T3:combat",
+   "viewport": "1920x1080",
+   "zoom": 1,
+   "metric": "M9/M6-reach",
+   "value": {
+    "enemy hp": "absent",
+    "go back": "onscreen",
+    "message log": "onscreen",
+    "enemy count": "onscreen"
+   },
+   "units": "onscreen|needs-scroll|hidden|absent",
+   "method": "first matching target, centre hit-test inside viewport above bottom bar",
+   "uncertainty": "absent can mean selector mismatch (e.g. inventory row selectors, enemy hp)"
+  },
+  {
+   "build": "original",
+   "state": "T4:merchant",
+   "viewport": "1920x1080",
+   "zoom": 1,
+   "metric": "M9/M6-reach",
+   "value": {
+    "trader row 1": "onscreen",
+    "own sellable row 1": "absent",
+    "Accept": "onscreen",
+    "total price": "onscreen"
+   },
+   "units": "onscreen|needs-scroll|hidden|absent",
+   "method": "first matching target, centre hit-test inside viewport above bottom bar",
+   "uncertainty": "absent can mean selector mismatch (e.g. inventory row selectors, enemy hp)"
+  },
+  {
+   "build": "original",
+   "state": "T5:craft",
+   "viewport": "1920x1080",
+   "zoom": 1,
+   "metric": "M9/M6-reach",
+   "value": {
+    "category tabs": "onscreen",
+    "makeable filter": "absent",
+    "recipe row 1": "onscreen",
+    "close crafting": "absent"
+   },
+   "units": "onscreen|needs-scroll|hidden|absent",
+   "method": "first matching target, centre hit-test inside viewport above bottom bar",
+   "uncertainty": "absent can mean selector mismatch (e.g. inventory row selectors, enemy hp)"
+  },
+  {
+   "build": "current",
+   "state": "T6:hub",
+   "viewport": "1920x1080",
+   "zoom": 1,
+   "metric": "M9/M6-reach",
+   "value": {
+    "Talk to someone": "onscreen",
+    "Find work": "onscreen",
+    "Visit a merchant": "onscreen",
+    "Try to craft": "needs-scroll",
+    "Gather resources": "onscreen",
+    "first [use] food": "onscreen",
+    "inventory row 1": "absent"
+   },
+   "units": "onscreen|needs-scroll|hidden|absent",
+   "method": "first matching target, centre hit-test inside viewport above bottom bar",
+   "uncertainty": "absent can mean selector mismatch (e.g. inventory row selectors, enemy hp)"
+  },
+  {
+   "build": "current",
+   "state": "T2:busy",
+   "viewport": "1920x1080",
+   "zoom": 1,
+   "metric": "M9/M6-reach",
+   "value": {
+    "job title": "onscreen",
+    "stop/finish": "onscreen",
+    "next earnings": "onscreen",
+    "progress bar": "absent"
+   },
+   "units": "onscreen|needs-scroll|hidden|absent",
+   "method": "first matching target, centre hit-test inside viewport above bottom bar",
+   "uncertainty": "absent can mean selector mismatch (e.g. inventory row selectors, enemy hp)"
+  },
+  {
+   "build": "current",
+   "state": "T3:combat",
+   "viewport": "1920x1080",
+   "zoom": 1,
+   "metric": "M9/M6-reach",
+   "value": {
+    "enemy hp": "absent",
+    "go back": "onscreen",
+    "message log": "onscreen",
+    "enemy count": "onscreen"
+   },
+   "units": "onscreen|needs-scroll|hidden|absent",
+   "method": "first matching target, centre hit-test inside viewport above bottom bar",
+   "uncertainty": "absent can mean selector mismatch (e.g. inventory row selectors, enemy hp)"
+  },
+  {
+   "build": "current",
+   "state": "T4:merchant",
+   "viewport": "1920x1080",
+   "zoom": 1,
+   "metric": "M9/M6-reach",
+   "value": {
+    "trader row 1": "onscreen",
+    "own sellable row 1": "absent",
+    "Accept": "onscreen",
+    "total price": "onscreen"
+   },
+   "units": "onscreen|needs-scroll|hidden|absent",
+   "method": "first matching target, centre hit-test inside viewport above bottom bar",
+   "uncertainty": "absent can mean selector mismatch (e.g. inventory row selectors, enemy hp)"
+  },
+  {
+   "build": "current",
+   "state": "T5:craft",
+   "viewport": "1920x1080",
+   "zoom": 1,
+   "metric": "M9/M6-reach",
+   "value": {
+    "category tabs": "onscreen",
+    "makeable filter": "onscreen",
+    "recipe row 1": "onscreen",
+    "close crafting": "hidden"
+   },
+   "units": "onscreen|needs-scroll|hidden|absent",
+   "method": "first matching target, centre hit-test inside viewport above bottom bar",
+   "uncertainty": "absent can mean selector mismatch (e.g. inventory row selectors, enemy hp)"
+  },
+  {
+   "build": "current",
+   "state": "T6:hub-Classic",
+   "viewport": "1366x768",
+   "zoom": 1,
+   "metric": "M9/M6-reach",
+   "value": {
+    "Talk to someone": "onscreen",
+    "Find work": "needs-scroll",
+    "Visit a merchant": "onscreen",
+    "Try to craft": "needs-scroll",
+    "Gather resources": "needs-scroll",
+    "first [use] food": "onscreen",
+    "inventory row 1": "absent"
+   },
+   "units": "onscreen|needs-scroll|hidden|absent",
+   "method": "first matching target, centre hit-test inside viewport above bottom bar",
+   "uncertainty": "absent can mean selector mismatch (e.g. inventory row selectors, enemy hp)"
+  },
+  {
+   "build": "v06",
+   "state": "T6:hub",
+   "viewport": "1366x768",
+   "zoom": 1,
+   "metric": "M9/M6-reach",
+   "value": {
+    "Talk to someone": "onscreen",
+    "Find work": "onscreen",
+    "Visit a merchant": "onscreen",
+    "Try to craft": "onscreen",
+    "Gather resources": "onscreen",
+    "first [use] food": "onscreen",
+    "inventory row 1": "absent"
+   },
+   "units": "onscreen|needs-scroll|hidden|absent",
+   "method": "first matching target, centre hit-test inside viewport above bottom bar",
+   "uncertainty": "absent can mean selector mismatch (e.g. inventory row selectors, enemy hp)"
+  },
+  {
+   "build": "current",
+   "state": "T2:busy-Classic",
+   "viewport": "1366x768",
+   "zoom": 1,
+   "metric": "M9/M6-reach",
+   "value": {
+    "job title": "onscreen",
+    "stop/finish": "needs-scroll",
+    "next earnings": "onscreen",
+    "progress bar": "absent"
+   },
+   "units": "onscreen|needs-scroll|hidden|absent",
+   "method": "first matching target, centre hit-test inside viewport above bottom bar",
+   "uncertainty": "absent can mean selector mismatch (e.g. inventory row selectors, enemy hp)"
+  },
+  {
+   "build": "v06",
+   "state": "T2:busy",
+   "viewport": "1366x768",
+   "zoom": 1,
+   "metric": "M9/M6-reach",
+   "value": {
+    "job title": "onscreen",
+    "stop/finish": "onscreen",
+    "next earnings": "onscreen",
+    "progress bar": "absent"
+   },
+   "units": "onscreen|needs-scroll|hidden|absent",
+   "method": "first matching target, centre hit-test inside viewport above bottom bar",
+   "uncertainty": "absent can mean selector mismatch (e.g. inventory row selectors, enemy hp)"
+  },
+  {
+   "build": "current",
+   "state": "T3:combat-Classic",
+   "viewport": "1366x768",
+   "zoom": 1,
+   "metric": "M9/M6-reach",
+   "value": {
+    "enemy hp": "absent",
+    "go back": "onscreen",
+    "message log": "needs-scroll",
+    "enemy count": "needs-scroll"
+   },
+   "units": "onscreen|needs-scroll|hidden|absent",
+   "method": "first matching target, centre hit-test inside viewport above bottom bar",
+   "uncertainty": "absent can mean selector mismatch (e.g. inventory row selectors, enemy hp)"
+  },
+  {
+   "build": "v06",
+   "state": "T3:combat",
+   "viewport": "1366x768",
+   "zoom": 1,
+   "metric": "M9/M6-reach",
+   "value": {
+    "enemy hp": "absent",
+    "go back": "onscreen",
+    "message log": "onscreen",
+    "enemy count": "onscreen"
+   },
+   "units": "onscreen|needs-scroll|hidden|absent",
+   "method": "first matching target, centre hit-test inside viewport above bottom bar",
+   "uncertainty": "absent can mean selector mismatch (e.g. inventory row selectors, enemy hp)"
+  },
+  {
+   "build": "current",
+   "state": "T4:merchant-Classic",
+   "viewport": "1366x768",
+   "zoom": 1,
+   "metric": "M9/M6-reach",
+   "value": {
+    "trader row 1": "onscreen",
+    "own sellable row 1": "absent",
+    "Accept": "needs-scroll",
+    "total price": "needs-scroll"
+   },
+   "units": "onscreen|needs-scroll|hidden|absent",
+   "method": "first matching target, centre hit-test inside viewport above bottom bar",
+   "uncertainty": "absent can mean selector mismatch (e.g. inventory row selectors, enemy hp)"
+  },
+  {
+   "build": "v06",
+   "state": "T4:merchant",
+   "viewport": "1366x768",
+   "zoom": 1,
+   "metric": "M9/M6-reach",
+   "value": {
+    "trader row 1": "onscreen",
+    "own sellable row 1": "absent",
+    "Accept": "needs-scroll",
+    "total price": "onscreen"
+   },
+   "units": "onscreen|needs-scroll|hidden|absent",
+   "method": "first matching target, centre hit-test inside viewport above bottom bar",
+   "uncertainty": "absent can mean selector mismatch (e.g. inventory row selectors, enemy hp)"
+  },
+  {
+   "build": "current",
+   "state": "T5:craft-Classic",
+   "viewport": "1366x768",
+   "zoom": 1,
+   "metric": "M9/M6-reach",
+   "value": {
+    "category tabs": "onscreen",
+    "makeable filter": "onscreen",
+    "recipe row 1": "onscreen",
+    "close crafting": "hidden"
+   },
+   "units": "onscreen|needs-scroll|hidden|absent",
+   "method": "first matching target, centre hit-test inside viewport above bottom bar",
+   "uncertainty": "absent can mean selector mismatch (e.g. inventory row selectors, enemy hp)"
+  },
+  {
+   "build": "v06",
+   "state": "T5:craft",
+   "viewport": "1366x768",
+   "zoom": 1,
+   "metric": "M9/M6-reach",
+   "value": {
+    "category tabs": "onscreen",
+    "makeable filter": "absent",
+    "recipe row 1": "onscreen",
+    "close crafting": "absent"
+   },
+   "units": "onscreen|needs-scroll|hidden|absent",
+   "method": "first matching target, centre hit-test inside viewport above bottom bar",
+   "uncertainty": "absent can mean selector mismatch (e.g. inventory row selectors, enemy hp)"
+  },
+  {
+   "build": "original",
+   "state": "T3:combat+15s",
+   "viewport": "1366x768",
+   "zoom": 1,
+   "metric": "M12",
+   "value": {
+    "build": "original",
+    "vp": "1366x768",
+    "logBox": [
+     1235,
+     5,
+     421,
+     766
+    ],
+    "visibleBand": [
+     5,
+     726,
+     1235,
+     1366
+    ],
+    "rows": 6,
+    "visibleRows": 0,
+    "duplicateRows": 0,
+    "horizontallyVisible": true
+   },
+   "units": "rows",
+   "method": "leaf rows of #message_log_div inside the intersection of viewport and clipping ancestors",
+   "uncertainty": "only 6 rows existed after 15 s; combat hit lines may be filtered by default"
+  },
+  {
+   "build": "current",
+   "state": "T3:combat+15s",
+   "viewport": "1366x768",
+   "zoom": 1,
+   "metric": "M12",
+   "value": {
+    "build": "current",
+    "vp": "1366x768",
+    "logBox": [
+     961,
+     510,
+     388,
+     1015
+    ],
+    "visibleBand": [
+     510,
+     451,
+     961,
+     1349
+    ],
+    "rows": 6,
+    "visibleRows": 0,
+    "duplicateRows": 0,
+    "horizontallyVisible": true
+   },
+   "units": "rows",
+   "method": "leaf rows of #message_log_div inside the intersection of viewport and clipping ancestors",
+   "uncertainty": "only 6 rows existed after 15 s; combat hit lines may be filtered by default"
+  },
+  {
+   "build": "original",
+   "state": "T3:combat+15s",
+   "viewport": "1920x1080",
+   "zoom": 1,
+   "metric": "M12",
+   "value": {
+    "build": "original",
+    "vp": "1920x1080",
+    "logBox": [
+     1235,
+     5,
+     421,
+     766
+    ],
+    "visibleBand": [
+     5,
+     771,
+     1235,
+     1656
+    ],
+    "rows": 6,
+    "visibleRows": 6,
+    "duplicateRows": 0,
+    "horizontallyVisible": true
+   },
+   "units": "rows",
+   "method": "leaf rows of #message_log_div inside the intersection of viewport and clipping ancestors",
+   "uncertainty": "only 6 rows existed after 15 s; combat hit lines may be filtered by default"
+  },
+  {
+   "build": "current",
+   "state": "T3:combat+15s",
+   "viewport": "1920x1080",
+   "zoom": 1,
+   "metric": "M12",
+   "value": {
+    "build": "current",
+    "vp": "1920x1080",
+    "logBox": [
+     1349,
+     510,
+     554,
+     987
+    ],
+    "visibleBand": [
+     510,
+     638,
+     1349,
+     1903
+    ],
+    "rows": 6,
+    "visibleRows": 0,
+    "duplicateRows": 0,
+    "horizontallyVisible": true
+   },
+   "units": "rows",
+   "method": "leaf rows of #message_log_div inside the intersection of viewport and clipping ancestors",
+   "uncertainty": "only 6 rows existed after 15 s; combat hit lines may be filtered by default"
+  }
+ ],
+ "a11y_probe": {
+  "original": {
+   "boxes": [
+    {
+     "id": "options_hide_max_level_skills",
+     "associated": true,
+     "ariaLabel": null,
+     "cb": [
+      1049,
+      701
+     ],
+     "nearest": {
+      "d": 5,
+      "dy": 20,
+      "text": "Sort by level"
+     }
+    },
+    {
+     "id": "quest_hiding_button",
+     "associated": true,
+     "ariaLabel": null,
+     "cb": [
+      1197,
+      321
+     ],
+     "nearest": {
+      "d": 8,
+      "dy": 1,
+      "text": "Hide completed"
+     }
+    }
+   ],
+   "live": [],
+   "reducedMotionRules": false,
+   "logId": "message_log_div",
+   "tip": {
+    "focusable": false,
+    "focused": true,
+    "tooltipsVisibleOnFocus": 1
+   },
+   "hover": null
+  },
+  "current": {
+   "boxes": [
+    {
+     "id": "quest_hiding_button",
+     "associated": true,
+     "ariaLabel": null,
+     "cb": [
+      1310,
+      191
+     ],
+     "nearest": {
+      "d": 8,
+      "dy": 9,
+      "text": "Hide completed"
+     }
+    },
+    {
+     "id": "options_hide_max_level_skills",
+     "associated": true,
+     "ariaLabel": null,
+     "cb": [
+      1177,
+      488
+     ],
+     "nearest": {
+      "d": 7,
+      "dy": 9,
+      "text": "Hide max level skills"
+     }
+    }
+   ],
+   "live": [
+    "workspace-status:polite",
+    "action-legibility__notice:polite",
+    "action-legibility__notice:polite",
+    "action-legibility__notice:polite",
+    "action-legibility__notice:polite",
+    "action-legibility__notice:polite",
+    "action-legibility__notice:polite",
+    "action-legibility__notice:polite",
+    "action-legibility__notice:polite",
+    "expedition_notice:polite",
+    "expedition_preview:off",
+    "expedition_notice:polite",
+    ":polite",
+    "action-legibility__notice:polite",
+    "action-legibility__notice:polite",
+    "action-legibility__notice:polite",
+    "action-legibility__notice:polite",
+    "action-legibility__notice:polite",
+    ":polite"
+   ],
+   "reducedMotionRules": true,
+   "logId": "message_log_div",
+   "tip": {
+    "focusable": false,
+    "focused": true,
+    "tooltipsVisibleOnFocus": 1
+   },
+   "hover": null
+  }
+ },
+ "proto23_live": [
+  {
+   "vp": "1366x768",
+   "clicks": 4,
+   "trail": [
+    "\"...\"",
+    "\"?\"",
+    "\"!\"",
+    "\"...\""
+   ],
+   "m": {
+    "sw": 1366,
+    "sh": 768,
+    "W": 1366,
+    "H": 768,
+    "log": {
+     "lines": 2,
+     "ch": 702,
+     "sh": 702
+    },
+    "choices": [
+     "\"Easiest\"",
+     "\"Easy\"",
+     "\"Normal\""
+    ],
+    "tabindex": 0,
+    "msgsMax": 36
+   },
+   "errs": []
+  },
+  {
+   "vp": "1440x900",
+   "clicks": 4,
+   "trail": [
+    "\"...\"",
+    "\"?\"",
+    "\"!\"",
+    "\"...\""
+   ],
+   "m": {
+    "sw": 1440,
+    "sh": 900,
+    "W": 1440,
+    "H": 900,
+    "log": {
+     "lines": 2,
+     "ch": 702,
+     "sh": 702
+    },
+    "choices": [
+     "\"Easiest\"",
+     "\"Easy\"",
+     "\"Normal\""
+    ],
+    "tabindex": 0,
+    "msgsMax": 36
+   },
+   "errs": []
+  },
+  {
+   "vp": "1920x1080",
+   "clicks": 4,
+   "trail": [
+    "\"...\"",
+    "\"?\"",
+    "\"!\"",
+    "\"...\""
+   ],
+   "m": {
+    "sw": 1920,
+    "sh": 1080,
+    "W": 1920,
+    "H": 1080,
+    "log": {
+     "lines": 2,
+     "ch": 702,
+     "sh": 702
+    },
+    "choices": [
+     "\"Easiest\"",
+     "\"Easy\"",
+     "\"Normal\""
+    ],
+    "tabindex": 0,
+    "msgsMax": 36
+   },
+   "errs": []
+  },
+  {
+   "vp": "400x800",
+   "clicks": 4,
+   "trail": [
+    "\"...\"",
+    "\"?\"",
+    "\"!\"",
+    "\"...\""
+   ],
+   "m": {
+    "sw": 400,
+    "sh": 800,
+    "W": 400,
+    "H": 800,
+    "log": {
+     "lines": 2,
+     "ch": 702,
+     "sh": 702
+    },
+    "choices": [
+     "\"Easiest\"",
+     "\"Easy\"",
+     "\"Normal\""
+    ],
+    "tabindex": 0,
+    "msgsMax": 36
+   },
+   "errs": []
+  },
+  {
+   "vp": "1366x768@150pct",
+   "clicks": 4,
+   "trail": [
+    "\"...\"",
+    "\"?\"",
+    "\"!\"",
+    "\"...\""
+   ],
+   "m": {
+    "sw": 911,
+    "sh": 512,
+    "W": 911,
+    "H": 512,
+    "log": {
+     "lines": 2,
+     "ch": 702,
+     "sh": 702
+    },
+    "choices": [
+     "\"Easiest\"",
+     "\"Easy\"",
+     "\"Normal\""
+    ],
+    "tabindex": 0,
+    "msgsMax": 36
+   },
+   "errs": []
+  }
+ ],
+ "s1_findwork": {
+  "T1": {
+   "talk_visible_px_before": 42,
+   "after": 42,
+   "panel_scrollTop_after": 0
+  },
+  "T6": {
+   "talk_visible_px_before": 42,
+   "after": 0,
+   "panel_scrollTop_after": 132
+  },
+  "viewport": "1366x768",
+  "build": "current"
+ },
+ "zoom_play_blocker": {
+  "viewport": "1366x768 @150% (911x512 CSS)",
+  "both_builds": "PLAY rect y 470-541, elementFromPoint at its centre = #bottom_panel_div; wheel scroll does not move it (#loading_screen position:fixed); PLAY tabIndex -1; Tab lands on name field (original) or Authoring (current)"
+ },
+ "dom_buttons_T1": {
+  "current_1366": {
+   "button_elements": 690,
+   "visible": 95
+  },
+  "original": "0 <button> elements (div controls)"
+ }
+}

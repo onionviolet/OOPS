@@ -1,0 +1,64 @@
+{
+  "thread": "01a13438-4c15-7340-8c21-62a361b57d5c",
+  "head": "dd3efe3383f12f0aac22e4f390aae90fae2e7fc4",
+  "branch": "codex/gameplay-foundations",
+  "files": {
+    "dist/bundle.js": "cb0c11d04b3e13c16aac5cd930314cfb78d654c326f07d2b9140f14e739ff175",
+    "dist/bundle.js.map": "c3fbf4cc6a7f14eb091a2162ea79ca539fafa91578b5caa12fb99fbb87d1fe1d",
+    "index.html": "a414ac44c9a7c01a244dc4fd55a782241f3009a28a652a2adfc13f36d7227af4",
+    "scripts/compile_feature_ink.mjs": "f3f9c2ca77440435431e8da55bedd5c42bad2ea01768a4b899a80173d4e75987",
+    "src/agreed_duty_content.js": "b301f19de7f9be8bc28dfd8210957eff6163b6a40e8302a5d9e8920e1c538143",
+    "src/agreed_duty_continuation.js": "682ef12595d0db1572fe4a3f32189e942855c0f7b81c88a419b6fe1af6d188dc",
+    "src/agreed_duty_facts.js": "12f08f438f2484373a8a2eab86588a9af878666a968b92e1a2b37e8fa408fd80",
+    "src/agreed_duty_host.js": "802b8c7b1f31ed4849f304253cfd2d59c541a99a06015b7c1972a0968cfe884e",
+    "src/cooling_refinement_content.js": "fb1bebff00ae4d0f4a9aaa22ef81fc5dd62f9b599638af7d315a99b06d9661a4",
+    "src/cooling_refinement_facts.js": "507d964a364900881e271cd4f68b7370d81979537afcc10a69c5f52e64d1e521",
+    "src/cooling_refinement_host.js": "11b379c4ee6bca0072a226e11e50e1321795281c2aa9e9ba5758134aaa8cc3fa",
+    "src/expansion_persistence.js": "779a82715884c48f3d2338816d76b90e5e894b625f2fb7daec174091c73bc966",
+    "src/feature_expansion_battle.js": "9841f655183c6e867cc5223a676f20e74887a2ab94ee2617ad1a353857608d41",
+    "src/feature_expansion_host.js": "4e74f6e7bf71ac184aed711df0dd7ad95775153d11b4aaed70b70bab3e7b20f4",
+    "src/feature_expansion_objects.js": "d4d6c19ef677addd94b874dc37355465d3997d7cfbdf58ce00df379d5f02a0bd",
+    "src/feature_expansion_society.js": "61bd64da05682002326a6d7ca50bff4f1675ea0fe9fe06ac340a84121a38cc95",
+    "src/main.js": "a1a4224182cbe4acbc6620499d5ff39d28367c3e5490c6e5a7b3b9048a2171be",
+    "src/native_gameplay_adapter.js": "48d511cafef1f50c6f6fdb5727354bffa6f5cb049e5cf3030420e0568105ca6b",
+    "src/reference_gameplay_content.js": "3fa019466bb366e34e9c56a7973664c1c76cc6caa058bb2492b1406575efd61f",
+    "src/reference_gameplay_feats.js": "77b3e5265b19c0f7085f5ac068de789cf293039e585d7a37438548c24945325a",
+    "src/reference_gameplay_host.js": "8a2ab8bda1210edbb957719a3715c4d4f091b0ab3a707416dfae299f5ecf91f1",
+    "src/reference_gameplay_state.js": "9499390df80b452350ccfdd65cc125da92457bd7ed826f79738fd04bbc22b2a9",
+    "src/simulation.js": "d56256a701b9190e4a143e63fea2cdcb7df3538dfe59aba9cfaef31544bee388",
+    "stories/feature_wave.ink": "a4d470baa3ce27e44087bbf213a51cc9d98e8afeefd5a08bdd2bb54281785d8a",
+    "stories/feature_wave.json": "ffb07d934f656be98952aa2e3d181c585b3342090e1d033079dc819df311ac7c",
+    "tests/agreed_duty_continuation.test.js": "fcfc30994b1fda0a9233fbcf86bffcc7129272ae5d6415866c10aac0afd69b8b"
+  },
+  "priorR1Matches": {
+    "src/agreed_duty_content.js": true,
+    "src/agreed_duty_facts.js": true,
+    "src/agreed_duty_host.js": true,
+    "src/feature_expansion_society.js": true,
+    "src/agreed_duty_continuation.js": true,
+    "src/simulation.js": true,
+    "src/feature_expansion_host.js": true,
+    "tests/agreed_duty_continuation.test.js": true,
+    "dist/bundle.js": true,
+    "dist/bundle.js.map": true,
+    "index.html": true,
+    "stories/feature_wave.json": true,
+    "stories/feature_wave.ink": true,
+    "scripts/compile_feature_ink.mjs": true
+  },
+  "fixture": "docs/gm/dispatch/foundation-adoption-next-2026-10-13/rounds/r1/natural-prerequisite/natural-prerequisite-save.txt",
+  "fixtureHash": "09b9c035789844eedaf3c7d5a00fcf1436c84c638d2366646aeda591e98a1fd6",
+  "reservation": "reservations/R3_SUCCESSOR_TRANSFER.json",
+  "worker": {
+    "fa08_source_check": [
+      "tests/cooling_refinement.test.js",
+      "rounds/r3/SOURCE_REVIEW.md",
+      "rounds/r3/SOURCE_TESTS.txt"
+    ]
+  },
+  "viewport": [
+    1600,
+    1100
+  ],
+  "origin": "http://127.0.0.1:18727"
+}

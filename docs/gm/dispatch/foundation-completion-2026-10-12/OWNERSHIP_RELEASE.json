@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "effectiveAtUTC": "2026-10-13T04:10:21.125517+00:00",
+  "dateLocal": "2026-10-13",
+  "status": "effective; Foundation finite technical closure and sole-writer release",
+  "fromThread": "01a13357-2dcc-7d60-b0a8-c1d195e2651a",
+  "toThread": "01a13351-88e9-77d0-9de8-baaeebf319b8",
+  "authority": "Explicit human replacement approval and finite takeover assignment requiring completion then release for Dependable Local Livelihood",
+  "checkout": "/Users/weiwei/code/yet-another-idle-rpg",
+  "head": "dd3efe3383f12f0aac22e4f390aae90fae2e7fc4",
+  "branch": "codex/gameplay-foundations",
+  "authoritativeState": "current shared dirty checkout preserved; no older candidate copied",
+  "releasedReservations": [
+    "All Foundation-held shared src runtime/source/state/save/registry/main/UI paths, including both takeover repairs",
+    "All Foundation-held tests and shared generated build outputs dist/bundle.js,dist/bundle.js.map,index.html and retained license/notices",
+    "All continuing donor-held shared reservations transferred to Foundation under World1 FOUNDATION_OWNERSHIP_RELEASE_2026-10-12.json, within that donor boundary"
+  ],
+  "retainedFoundationReservations": [],
+  "excludedAndUnrelatedClaimsPreserved": [
+    "private_packs/** and frozen editions/manifests",
+    "docs/research/novels/** and source-library/paused source work",
+    "World1 dispatch/evidence/pause state and paused PROJECT resume block",
+    "isolated UI/customization/authoring candidates and unrelated owners",
+    "historical feature-wave retained v1/v2/v3 artifacts and frozen receipts",
+    "personal saves",
+    "Foundation DISPATCH.json and research/ unrelated ownership; closed proof artifacts retained as evidence, not livelihood write scope"
+  ],
+  "workers": {},
+  "activeFoundationProofProcesses": [],
+  "processEvidence": "lsof found no listeners18646/47/48/49/50; ps found no matching Foundation node proof runners; F4/G6/B5 browsers closed normally. Unrelated/static previews not stopped or released.",
+  "technicalStatus": "F1/F2/F3/F4/F5/C/UI applicable source/native/restoration/G6 bounded gates closed",
+  "humanOnlyGate": "Fiction/balance/pacing/visual/audio comfort/fun acceptance remains open; no director acceptance inferred",
+  "boundEvidence": {
+    "REPORT.md": "0dca0672345c32c2665565268f77704164967e2ee6325d6894c89b4e233a88e2",
+    "FOUNDATION_LEDGER.md": "7a1e909a1cd7eea80f383102e43fcb7fea16f224502ca1619ba60aa3bfff1465",
+    "FINAL_RECONCILIATION_DRAFT.md": "0e6b1eb04835c2cc4823121f8efb318bda7cd38c858155e3d4573f74c0f7727d",
+    "FINAL_RECONCILIATION_ASSERTIONS.json": "ceb97b0abe58a06bbbd68daab89add40663beaf08bd2f8401cad7995a0d3cf9a",
+    "learning-proof/final-positive/RETURN.md": "8204f5e31f867d912f051bb42eeb3691badde479d1ced2b3b88608ea14460dd6",
+    "learning-proof/final-positive/TAKEOVER_USE_ASSERTIONS.json": "e2ebda0f1fda5a9b1e85c24b790354f6a925c4743635f32a254215ca13b2e8ae",
+    "learning-proof/final-positive/TAKEOVER_B5.json": "97260f5c76538dd0e7346cac16764a95901a53cdb5d367ab918945684a575afa",
+    "refusal-proof/RETURN.md": "c19219ec86a38c0544b742f6fd7e8dce12c01f5327b607ef131fa8b873a3b6c2",
+    "refusal-proof/ASSERTIONS.json": "d89c396bd0658e4d110753b3a6c12600671400a373415901da949bb9107eb727",
+    "g6-proof/final-journey/RETURN.md": "4bbbaebc6708d4e26b30b27ce77a6af1d287fffd8b444b14ebd35d759583d2b1",
+    "g6-proof/final-journey/ASSERTIONS.json": "4354f59734f8a39036c738a14e2ca3781061d5611771fc08d0f03b426b5a2733",
+    "g6-proof/FINAL_JOIN_SOURCE_RUN.txt": "dcdb8fd082fc700756a16c6dfd19a47155d0e64d3867680699bb504e69ba2731",
+    "g6-proof/FINAL_INPUT_BINDING.json": "30a07be784754d3c15217b1fa8789d8a98c953ad3145660870024395cb5bdec3"
+  },
+  "finalBundle": "9c70c3de904bfecaf634a906ce0bbcbe87857fcc61390db6d6c9b77b884fba0d",
+  "stop": "Coordinator read-only after this release; no livelihood implementation or further successor/worker actions"
+}

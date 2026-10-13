@@ -55,6 +55,38 @@ every time.
 
 ## Animation style and coolness
 
+### Proto23 discovery and native signatures, 2026-10-13
+
+Weibao requested connecting the Proto23 source/UI findings to this VFX menu,
+reviewing a full-context prompt through ChatGPT, then implementing. The
+[source mechanisms](research/proto23/SOURCE_MECHANISMS_AND_ADOPTION_2026-10-13.md)
+own the reference evidence; the [implementation report](gm/dispatch/proto23-vfx-2026-10-13/REPORT.md)
+owns the bounded native delivery and exact unrun gates. This accepts the
+connection and implementation task, not every future effect or a fixed taxonomy.
+
+Discovery decides which facts and controls are known. A settled gameplay cause
+can then earn a fitting presentation signature. Neither color nor motion can
+grant knowledge, imply an unobserved truth, spend a resource or resolve an action.
+Native thresholds remain native; Proto23's numbers are reference behavior.
+
+| Reference family | Connection to this VFX menu | Current/future boundary |
+|---|---|---|
+| First useful skill, recipe or method | A brief known-name ink/guidance cue; repeated routine progress stays quiet | Native skill threshold cue is the first implemented consumer; other discovery carriers still need owner-specific settlement/disclosure hooks |
+| Earned title, owned fixture, newly useful tool | A material or mastery signature tied to actual provenance and local usefulness | Extend current title/furniture/equipment owners, not another grant system |
+| Damage/result/requirement text | Legible line grammar and distinct semantics for resource, category, rarity and outcome | Never display body-part/elemental mechanics that the active engine does not actually resolve |
+| Established extraordinary ability | Adaptation, spatial separation, erasure, time/rewind or a changed relation between text elements | Needs actual ability/world/observation authority; ordinary learning does not receive those signatures |
+| Exceptional event affecting represented space | Fracture, panel displacement or a bounded shattered-panel layer | Preserve usable underlying controls and settled facts; no fabricated power or fake loss |
+| Earned fourth-wall reach or deliberate absence | Rare whole-screen/meta composition, or silence/plain text when that fits better | Remains future world content; no host-file access, real save deletion or secret disclosure follows from presentation |
+
+The first slice reuses existing effect settings, quiet default reduced mode and
+native known-skill projection. It preserves the shared Stances pane, collapse
+choices and saved layout. Effects-off keeps native logs and gameplay usable;
+restores show learned state without replaying first-discovery flourishes. A
+transactional craft cannot publish a discovery cue until durable settlement;
+ordinary native XP keeps its existing synchronous settlement and autosave timing.
+Full reach, escalating signatures, world materials, returning-player summaries
+and extraordinary consumers remain in this document's menu, not delivery claims.
+
 Text-native animation first, since the game is text today:
 
 - **Kinetic type.** Words that move with meaning: *slowly* types in,

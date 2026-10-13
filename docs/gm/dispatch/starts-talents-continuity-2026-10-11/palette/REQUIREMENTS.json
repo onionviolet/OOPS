@@ -1,0 +1,593 @@
+{
+  "lane": "starts-talents-additive-palette",
+  "revision": "2026-10-11.1",
+  "worker": "/root/palette",
+  "integrator": "/root",
+  "status": "planning-proposal-awaiting-parent-review",
+  "noRuntimeClaim": true,
+  "scope": "Sixteen nearby lifecycle joins; exact world selection, source qualification, fiction, numbers and runtime paths remain with integrator/local owners.",
+  "inputs": [
+    {
+      "path": "docs/gm/dispatch/starts-talents-continuity-2026-10-11/ASSIGNMENT.md",
+      "readScope": "full"
+    },
+    {
+      "path": "docs/gm/dispatch/starts-talents-continuity-2026-10-11/INPUTS.json",
+      "readScope": "full; source hash manifest, not current-input reproduction proof"
+    },
+    {
+      "path": "AGENTS.md",
+      "readScope": "full"
+    },
+    {
+      "path": "PROJECT.md",
+      "readScope": "accepted decisions/current status/next step/repository/local proposal sections; combined output partially truncated"
+    },
+    {
+      "path": "docs/GAME_MASTER_PROMPT.md",
+      "readScope": "authority/design/mode/coordination/context-refresh; combined output partially truncated"
+    },
+    {
+      "path": "docs/STARTS_ENDINGS_AND_RANDOMNESS_PALETTE.md",
+      "readScope": "full P1–P5"
+    },
+    {
+      "path": "docs/SKILLS_AND_TALENTS.md",
+      "readScope": "headings/taxonomy refs; lines 198–304 and 839–870"
+    },
+    {
+      "path": "docs/GENETICS_CONSTITUTIONS_AND_BROOD_PLAY.md",
+      "readScope": "G1–G4, G6 body/process, G7–G10; combined output truncated G5/early G6"
+    },
+    {
+      "path": "docs/worlds/ORIGINS_AND_WORLD_TIMELINES.md",
+      "readScope": "composition, retention, household, body, time and implementation gate visible in combined output"
+    },
+    {
+      "path": "docs/gm/dispatch/idea-expansion-2026-10-11/starts/REPORT.md",
+      "readScope": "full report output"
+    },
+    {
+      "path": "docs/gm/dispatch/idea-expansion-2026-10-11/powers/REPORT.md",
+      "readScope": "bounded report output; findings, packets and joins, partly truncated"
+    },
+    {
+      "path": "docs/gm/dispatch/idea-expansion-2026-10-11/micro/REPORT.md",
+      "readScope": "full report output"
+    },
+    {
+      "path": "docs/gm/dispatch/idea-expansion-2026-10-11/starts/REQUIREMENTS.json",
+      "readScope": "full parsed requirement ID/title inventory; targeted rows G1-004/009/010/013, G2-001/009/011/023, G8-015/020; large row output partly truncated"
+    },
+    {
+      "path": "docs/gm/dispatch/idea-expansion-2026-10-11/powers/REQUIREMENTS.json",
+      "readScope": "full parsed requirement ID/title inventory; targeted rows G1-004/009/010/013, G2-001/009/011/023, G8-015/020; large row output partly truncated"
+    },
+    {
+      "path": "docs/gm/dispatch/idea-expansion-2026-10-11/micro/REQUIREMENTS.json",
+      "readScope": "full parsed requirement ID/title inventory; targeted rows G1-004/009/010/013, G2-001/009/011/023, G8-015/020; large row output partly truncated"
+    },
+    {
+      "path": "src/body_progression.js",
+      "readScope": "source/source grants, practice/faculty/capability/condition/scene portions; combined full-cat output partly truncated"
+    },
+    {
+      "path": "src/capabilities.js",
+      "readScope": "source validation and queryCapabilities contribution aggregation"
+    },
+    {
+      "path": "src/skill_expansion_host.js",
+      "readScope": "exports/presentation references only"
+    }
+  ],
+  "requirements": [
+    {
+      "id": "STP-001",
+      "title": "Interrupted ordinary life",
+      "parentIds": [
+        "G1-004",
+        "G1-013",
+        "G8-011"
+      ],
+      "disposition": "additive-refinement-of-existing-family",
+      "authority": "Generic invented proposal pending selected local source/premise qualification; no universal mechanics or compulsory drawbacks",
+      "decision": "Return to an existing unfinished repair, lesson or delivery rather than receive a generic tutorial quest.",
+      "acquisition": "Authored local background grants only a specified method, contact and actual owned/loaned tool. New arrival can instead learn the same work.",
+      "functionAndOrdinaryUse": "Complete, delegate, renegotiate or leave that commitment; downstream stock/contact differs.",
+      "changeAndLoss": "Repetition can deepen the method; switching careers preserves completed work without fabricating mastery; losing the tool removes only tool support.",
+      "combinations": "Practical repair + genuine permission + familiar customer; an exceptional faculty can finish directly.",
+      "consumerOrGap": "Selected native job completion and real stock/custody/NPC aftermath. Origin publication must not mark native historical quests done.",
+      "dependencies": [
+        "Local world owner qualifies faculty/start/body/support and source boundary",
+        "Integrator reserves exact native consumer and sole durable publication paths",
+        "Existing parent contracts remain owners of acquisition, time, knowledge, custody and persistence"
+      ],
+      "acceptanceCases": [
+        "Fresh start has a usable work verb",
+        "abandoned work creates no wages",
+        "import restores one commitment, not another delivery."
+      ],
+      "persistenceGate": "Rebuilt fresh-origin native journey plus save/reload/import, old-save handling, invalid/stale command and failed durable publication without costs/rewards/rerolls; not run by this worker",
+      "runtimeStatus": "not-implemented-by-this-worker"
+    },
+    {
+      "id": "STP-002",
+      "title": "A support relationship with limited reach",
+      "parentIds": [
+        "G1-005",
+        "G1-006",
+        "G1-013",
+        "G2-027"
+      ],
+      "disposition": "additive-refinement-of-existing-family",
+      "authority": "Generic invented proposal pending selected local source/premise qualification; no universal mechanics or compulsory drawbacks",
+      "decision": "Choose which actual household helper or sponsor to ask first, with their existing tools, time and knowledge.",
+      "acquisition": "Start grants a particular relation and known contact route, not ownership of the person's cash, skills or whole household.",
+      "functionAndOrdinaryUse": "Ask for transport, a tool loan, introduction or instruction; helper may agree, counteroffer, defer or refuse for a local cause.",
+      "changeAndLoss": "Cooperation or missed promises change that relationship; loss of contact removes access, while completed teaching remains.",
+      "combinations": "Infant signal + caregiver interpretation, outsider language help + local introduction; powerful independent starts need no helper.",
+      "consumerOrGap": "Actual NPC action/communication/custody consumer and ongoing schedule; generic influence alone is insufficient.",
+      "dependencies": [
+        "Local world owner qualifies faculty/start/body/support and source boundary",
+        "Integrator reserves exact native consumer and sole durable publication paths",
+        "Existing parent contracts remain owners of acquisition, time, knowledge, custody and persistence"
+      ],
+      "acceptanceCases": [
+        "Unreachable helper cannot act",
+        "request reveals only known offer",
+        "return leaves loan custody correct."
+      ],
+      "persistenceGate": "Rebuilt fresh-origin native journey plus save/reload/import, old-save handling, invalid/stale command and failed durable publication without costs/rewards/rerolls; not run by this worker",
+      "runtimeStatus": "not-implemented-by-this-worker"
+    },
+    {
+      "id": "STP-003",
+      "title": "Learning by correction or by insight",
+      "parentIds": [
+        "G1-008",
+        "G2-001",
+        "G2-010",
+        "G8-012",
+        "G8-015"
+      ],
+      "disposition": "additive-refinement-of-existing-family",
+      "authority": "Generic invented proposal pending selected local source/premise qualification; no universal mechanics or compulsory drawbacks",
+      "decision": "A talent changes which learning action is effective, rather than merely its label.",
+      "acquisition": "Local inherited aptitude, acquired teaching aid or usable insight faculty; each declares learning scope and actual support.",
+      "functionAndOrdinaryUse": "Correction may expose a specific error; insight may resolve it directly; ordinary repeated practice remains possible.",
+      "changeAndLoss": "Better control broadens supported method transfer; suppression removes speed benefit without deleting learned method; instant-mastery variants grant promised competence.",
+      "combinations": "Familiar motion + teacher correction, retained concept + new-body practice; works in cooking, writing or tool handling.",
+      "consumerOrGap": "Native selected XP/mastery completion adapter; queryCapabilities alone neither multiplies XP nor writes mastery.",
+      "dependencies": [
+        "Local world owner qualifies faculty/start/body/support and source boundary",
+        "Integrator reserves exact native consumer and sole durable publication paths",
+        "Existing parent contracts remain owners of acquisition, time, knowledge, custody and persistence"
+      ],
+      "acceptanceCases": [
+        "Matched aptitude changes measured selected learning output",
+        "unrelated learning unchanged",
+        "removing support retains previous learning."
+      ],
+      "persistenceGate": "Rebuilt fresh-origin native journey plus save/reload/import, old-save handling, invalid/stale command and failed durable publication without costs/rewards/rerolls; not run by this worker",
+      "runtimeStatus": "not-implemented-by-this-worker"
+    },
+    {
+      "id": "STP-004",
+      "title": "Test result, suspicion and usable faculty",
+      "parentIds": [
+        "G1-010",
+        "G2-007",
+        "G8-015",
+        "G8-022"
+      ],
+      "disposition": "additive-refinement-of-existing-family",
+      "authority": "Generic invented proposal pending selected local source/premise qualification; no universal mechanics or compulsory drawbacks",
+      "decision": "Act on a demonstrated effect, seek a different diagnosis or decline a test without treating an appraisal as body truth.",
+      "acquisition": "Faculty exists by its own acquisition; test grants observer evidence bounded by its instrument and method.",
+      "functionAndOrdinaryUse": "Known observed preparation benefit can be used before ancestry or mechanism is understood.",
+      "changeAndLoss": "Repeated controlled evidence can revise belief; a damaged test or corrected interpretation changes knowledge, not the actual body.",
+      "combinations": "Work demonstration + recordkeeping + second examiner; no necessity for a secret gift behind every negative result.",
+      "consumerOrGap": "Actor-specific knowledge projection plus actual faculty task consumer; diagnosis must not grant/remove sources.",
+      "dependencies": [
+        "Local world owner qualifies faculty/start/body/support and source boundary",
+        "Integrator reserves exact native consumer and sole durable publication paths",
+        "Existing parent contracts remain owners of acquisition, time, knowledge, custody and persistence"
+      ],
+      "acceptanceCases": [
+        "False negative leaves functioning faculty intact",
+        "NPC knows only their observation",
+        "no hidden faculty count appears in menu."
+      ],
+      "persistenceGate": "Rebuilt fresh-origin native journey plus save/reload/import, old-save handling, invalid/stale command and failed durable publication without costs/rewards/rerolls; not run by this worker",
+      "runtimeStatus": "not-implemented-by-this-worker"
+    },
+    {
+      "id": "STP-005",
+      "title": "Constitution changes a workflow",
+      "parentIds": [
+        "G1-009",
+        "G1-010",
+        "G2-011",
+        "G8-015",
+        "G8-020"
+      ],
+      "disposition": "additive-refinement-of-existing-family",
+      "authority": "Generic invented proposal pending selected local source/premise qualification; no universal mechanics or compulsory drawbacks",
+      "decision": "Choose batch work, immediate precision or a changed recovery rhythm because an actual process differs.",
+      "acquisition": "Local birth, acquired body change or supported carried source supplies the stated process; not necessarily hereditary.",
+      "functionAndOrdinaryUse": "A selected process changes actual handling time, support need, recovery or material transformation in one native task.",
+      "changeAndLoss": "Control can make benefit easier to apply; source/body loss recomputes only its contribution; permanent acquired learning stays.",
+      "combinations": "Steady hands + fitting tool, unusual digestion + food preparation, cold tolerance + real travel work; no compulsory drawback.",
+      "consumerOrGap": "Selected task duration/input/output/recovery derivation and sole publisher. body_progression is precedent, not a general constitution engine.",
+      "dependencies": [
+        "Local world owner qualifies faculty/start/body/support and source boundary",
+        "Integrator reserves exact native consumer and sole durable publication paths",
+        "Existing parent contracts remain owners of acquisition, time, knowledge, custody and persistence"
+      ],
+      "acceptanceCases": [
+        "Same task with/without process has different actual result",
+        "failed publication changes neither payment nor source",
+        "no repeated bonus after reload."
+      ],
+      "persistenceGate": "Rebuilt fresh-origin native journey plus save/reload/import, old-save handling, invalid/stale command and failed durable publication without costs/rewards/rerolls; not run by this worker",
+      "runtimeStatus": "not-implemented-by-this-worker"
+    },
+    {
+      "id": "STP-006",
+      "title": "Tools adapted to the current body",
+      "parentIds": [
+        "G1-009",
+        "G1-014",
+        "G1-018",
+        "G8-017",
+        "G8-020"
+      ],
+      "disposition": "additive-refinement-of-existing-family",
+      "authority": "Generic invented proposal pending selected local source/premise qualification; no universal mechanics or compulsory drawbacks",
+      "decision": "Refit an owned tool, commission an adapter or choose another technique after a real anatomical difference.",
+      "acquisition": "Start/body change supplies actual anatomy; craft, trade or supportive NPC supplies the one physical adapter.",
+      "functionAndOrdinaryUse": "Adapter enables its selected operation; it does not grant universal hands or all human gear compatibility.",
+      "changeAndLoss": "Refinement improves fit; body scale change can require reassessment; removing adapter disables only supported operations.",
+      "combinations": "Large grip + larger handle, telekinetic grasp + stable jig, construct port + workshop lead; perfect external means can bypass refitting.",
+      "consumerOrGap": "Native equipment/action legality and custody plus crafting output; current source grant labels do not qualify anatomy.",
+      "dependencies": [
+        "Local world owner qualifies faculty/start/body/support and source boundary",
+        "Integrator reserves exact native consumer and sole durable publication paths",
+        "Existing parent contracts remain owners of acquisition, time, knowledge, custody and persistence"
+      ],
+      "acceptanceCases": [
+        "No hands cannot use hand-only tool without support",
+        "one adapter remains one object on trade/import",
+        "alternative operation remains available where supported."
+      ],
+      "persistenceGate": "Rebuilt fresh-origin native journey plus save/reload/import, old-save handling, invalid/stale command and failed durable publication without costs/rewards/rerolls; not run by this worker",
+      "runtimeStatus": "not-implemented-by-this-worker"
+    },
+    {
+      "id": "STP-007",
+      "title": "A practiced habit becomes useful automation",
+      "parentIds": [
+        "G2-011",
+        "G2-024",
+        "G8-011",
+        "G8-021"
+      ],
+      "disposition": "additive-refinement-of-existing-family",
+      "authority": "Generic invented proposal pending selected local source/premise qualification; no universal mechanics or compulsory drawbacks",
+      "decision": "Choose a repeatable checking habit or a different routine with clear inputs and stop conditions.",
+      "acquisition": "Actual completed practice or an authored supported background gives the routine; a copied description alone does not execute it.",
+      "functionAndOrdinaryUse": "Settled work queues use an existing job/controller; changed material or meaningful unknown stops for a choice.",
+      "changeAndLoss": "Practice can broaden known inputs; injury/absence removes only required means; optional disuse occurs solely under selected local policy.",
+      "combinations": "Recordkeeping + packing check, cleanliness + workshop process, direction sense + established route.",
+      "consumerOrGap": "Existing authoritative queue/job completion consumer and clock; no parallel offline timer or new generic habit XP.",
+      "dependencies": [
+        "Local world owner qualifies faculty/start/body/support and source boundary",
+        "Integrator reserves exact native consumer and sole durable publication paths",
+        "Existing parent contracts remain owners of acquisition, time, knowledge, custody and persistence"
+      ],
+      "acceptanceCases": [
+        "Routine consumes actual inputs once",
+        "unfamiliar condition pauses without author-truth leak",
+        "browser closure follows existing selected policy."
+      ],
+      "persistenceGate": "Rebuilt fresh-origin native journey plus save/reload/import, old-save handling, invalid/stale command and failed durable publication without costs/rewards/rerolls; not run by this worker",
+      "runtimeStatus": "not-implemented-by-this-worker"
+    },
+    {
+      "id": "STP-008",
+      "title": "Useful tissue before complete understanding",
+      "parentIds": [
+        "G1-009",
+        "G1-010",
+        "G2-001",
+        "G2-003",
+        "G8-015"
+      ],
+      "disposition": "additive-refinement-of-existing-family",
+      "authority": "Generic invented proposal pending selected local source/premise qualification; no universal mechanics or compulsory drawbacks",
+      "decision": "Use a demonstrated secretion or organ function, investigate it or archive a sample without equating sample with mastery.",
+      "acquisition": "Qualified bodily inheritance, installed organ or supported transformation creates the producer; sample acquisition creates an asset only.",
+      "functionAndOrdinaryUse": "Produce a locally supported material for a real repair/craft/service, or use existing output directly.",
+      "changeAndLoss": "Control changes dosage/quality/shape where supported; removing tissue ends production; archived sample remains separate and may be nonheritable.",
+      "combinations": "Body resin + artisan seal, vibration sense + structural inspection, stored fuel + sustained work.",
+      "consumerOrGap": "Actual production/resource/custody consumer and installed-body adapter. No organ/transmission engine inferred from capability provenance.",
+      "dependencies": [
+        "Local world owner qualifies faculty/start/body/support and source boundary",
+        "Integrator reserves exact native consumer and sole durable publication paths",
+        "Existing parent contracts remain owners of acquisition, time, knowledge, custody and persistence"
+      ],
+      "acceptanceCases": [
+        "Held sample does not create source",
+        "output is physically owned once",
+        "body replacement retains only declared carriers."
+      ],
+      "persistenceGate": "Rebuilt fresh-origin native journey plus save/reload/import, old-save handling, invalid/stale command and failed durable publication without costs/rewards/rerolls; not run by this worker",
+      "runtimeStatus": "not-implemented-by-this-worker"
+    },
+    {
+      "id": "STP-009",
+      "title": "Changing body during committed work",
+      "parentIds": [
+        "G1-009",
+        "G1-010",
+        "G2-018",
+        "G2-026",
+        "G8-019",
+        "G8-020"
+      ],
+      "disposition": "additive-refinement-of-existing-family",
+      "authority": "Generic invented proposal pending selected local source/premise qualification; no universal mechanics or compulsory drawbacks",
+      "decision": "Continue with new support, switch method, delegate or cancel at a declared point when body means change.",
+      "acquisition": "A real body/carrier transition occurs through qualified local mechanism, preserving explicit identity and methods.",
+      "functionAndOrdinaryUse": "Re-evaluate current job prerequisites using actual new anatomy, tool access and source; do not silently complete or double-charge.",
+      "changeAndLoss": "Rehabilitation can restore control; replacement may retain memory but lose a tissue faculty; a fully compatible powerful body can continue without penalty.",
+      "combinations": "Known craft + refitted tool, helper + current unfinished stock, soul faculty + genuinely supported new body.",
+      "consumerOrGap": "Integrator-owned body transition and existing job/cost publication transaction; no invented inverse-XP or duplicate body save.",
+      "dependencies": [
+        "Local world owner qualifies faculty/start/body/support and source boundary",
+        "Integrator reserves exact native consumer and sole durable publication paths",
+        "Existing parent contracts remain owners of acquisition, time, knowledge, custody and persistence"
+      ],
+      "acceptanceCases": [
+        "Unsupported ongoing job stops with declared retained partial state",
+        "compatible body continues",
+        "reload cannot resurrect lost organ or duplicate input."
+      ],
+      "persistenceGate": "Rebuilt fresh-origin native journey plus save/reload/import, old-save handling, invalid/stale command and failed durable publication without costs/rewards/rerolls; not run by this worker",
+      "runtimeStatus": "not-implemented-by-this-worker"
+    },
+    {
+      "id": "STP-010",
+      "title": "Preparation substitutes for one faculty",
+      "parentIds": [
+        "G1-013",
+        "G2-011",
+        "G8-011",
+        "G8-015",
+        "G8-020"
+      ],
+      "disposition": "additive-refinement-of-existing-family",
+      "authority": "Generic invented proposal pending selected local source/premise qualification; no universal mechanics or compulsory drawbacks",
+      "decision": "Prepare with a tool, lesson or teammate instead of needing one talent, where those means genuinely suffice.",
+      "acquisition": "Earn/buy/borrow actual ordinary support, or start with the usable local faculty; free help and overwhelming powers remain valid.",
+      "functionAndOrdinaryUse": "Two approaches meet the same actual causal prerequisite through different means; outcomes need not grant identical rewards.",
+      "changeAndLoss": "New expertise can reduce preparation; exhausted/lost tool ceases support; learned method remains if its actual carrier survives.",
+      "combinations": "Measured setup + work jig versus bodily precision; local map + guide versus directional faculty.",
+      "consumerOrGap": "One real task/event prerequisite resolver accepting declared alternative means; selected native quote/completion consumer.",
+      "dependencies": [
+        "Local world owner qualifies faculty/start/body/support and source boundary",
+        "Integrator reserves exact native consumer and sole durable publication paths",
+        "Existing parent contracts remain owners of acquisition, time, knowledge, custody and persistence"
+      ],
+      "acceptanceCases": [
+        "Talent-only and ordinary-prepared routes change real outcome",
+        "neither label alone passes",
+        "a superior faculty actually resolves suitable obstacle."
+      ],
+      "persistenceGate": "Rebuilt fresh-origin native journey plus save/reload/import, old-save handling, invalid/stale command and failed durable publication without costs/rewards/rerolls; not run by this worker",
+      "runtimeStatus": "not-implemented-by-this-worker"
+    },
+    {
+      "id": "STP-011",
+      "title": "Specialist NPC takes a different approach",
+      "parentIds": [
+        "G2-027",
+        "G1-005",
+        "G8-015",
+        "G8-021"
+      ],
+      "disposition": "additive-refinement-of-existing-family",
+      "authority": "Generic invented proposal pending selected local source/premise qualification; no universal mechanics or compulsory drawbacks",
+      "decision": "Coordinate with, learn from, compete with or bypass a specialist pursuing their own supported aim.",
+      "acquisition": "NPC has particular earned/inherited/acquired means and observed knowledge, not a copy of all player faculties.",
+      "functionAndOrdinaryUse": "Its actual repair, evacuation, teaching or research action uses the same relevant support gates as player.",
+      "changeAndLoss": "NPC practice and resource loss affect only its supported course; communication can spread evidence, not private omniscience.",
+      "combinations": "Player supply + NPC precision, player warning + NPC transport, independent substitute actor preserving event cause.",
+      "consumerOrGap": "Existing NPC plan/controller and cause resources plus actor-safe knowledge; no hidden expert label as generic auto-success.",
+      "dependencies": [
+        "Local world owner qualifies faculty/start/body/support and source boundary",
+        "Integrator reserves exact native consumer and sole durable publication paths",
+        "Existing parent contracts remain owners of acquisition, time, knowledge, custody and persistence"
+      ],
+      "acceptanceCases": [
+        "Remove required tool and plan changes",
+        "uncontacted NPC gets no private player discovery",
+        "alternate sufficient cause can still yield similar outcome."
+      ],
+      "persistenceGate": "Rebuilt fresh-origin native journey plus save/reload/import, old-save handling, invalid/stale command and failed durable publication without costs/rewards/rerolls; not run by this worker",
+      "runtimeStatus": "not-implemented-by-this-worker"
+    },
+    {
+      "id": "STP-012",
+      "title": "Credential, feat and private competence",
+      "parentIds": [
+        "G2-023",
+        "G8-001",
+        "G8-002",
+        "G8-004",
+        "G8-016"
+      ],
+      "disposition": "additive-refinement-of-existing-family",
+      "authority": "Generic invented proposal pending selected local source/premise qualification; no universal mechanics or compulsory drawbacks",
+      "decision": "Show credentials, demonstrate competence or arrange a sponsor where the particular service permits it.",
+      "acquisition": "Actual issuer/deed grants recognition, recorded feat, functional exception or a declared combination.",
+      "functionAndOrdinaryUse": "Credential opens a real authorized service; a feat can remain history without authority; competence still performs physical work after revocation.",
+      "changeAndLoss": "Reinstatement affects permission only; displayed honor can change without recreating reward; actual local magical title may carry a separate source.",
+      "combinations": "Useful work + witness + office registry, private method + supervised test; forged belief and real ability remain distinct states.",
+      "consumerOrGap": "Existing native lifetime titles or simulation issuer title owner chosen by semantics, plus real service gate and knowledge channel.",
+      "dependencies": [
+        "Local world owner qualifies faculty/start/body/support and source boundary",
+        "Integrator reserves exact native consumer and sole durable publication paths",
+        "Existing parent contracts remain owners of acquisition, time, knowledge, custody and persistence"
+      ],
+      "acceptanceCases": [
+        "Revoked license closes permitted service without deleting learned skill",
+        "duplicate recognition no reward",
+        "unseen feat no regional knowledge."
+      ],
+      "persistenceGate": "Rebuilt fresh-origin native journey plus save/reload/import, old-save handling, invalid/stale command and failed durable publication without costs/rewards/rerolls; not run by this worker",
+      "runtimeStatus": "not-implemented-by-this-worker"
+    },
+    {
+      "id": "STP-013",
+      "title": "Shared technique across different bodies",
+      "parentIds": [
+        "G1-009",
+        "G1-020",
+        "G2-001",
+        "G2-011",
+        "G8-012"
+      ],
+      "disposition": "additive-refinement-of-existing-family",
+      "authority": "Generic invented proposal pending selected local source/premise qualification; no universal mechanics or compulsory drawbacks",
+      "decision": "Teach a principle, bodily motion or ready faculty as different supported transfers.",
+      "acquisition": "Teacher knows actual method and can communicate; recipient receives only promised information/control/source through real channel.",
+      "functionAndOrdinaryUse": "Different recipients can apply the same craft principle through different movements/tools; communication alone does not install anatomy.",
+      "changeAndLoss": "Practice adapts coordination; later teaching can transmit an improved method; source removal does not erase separately learned principle.",
+      "combinations": "Human jig method + construct gripper, rooted signal + mobile helper, master analysis + apprentice tool.",
+      "consumerOrGap": "Existing method-learning/teaching recipient support plus native consumer; a generic shared skill tag is insufficient.",
+      "dependencies": [
+        "Local world owner qualifies faculty/start/body/support and source boundary",
+        "Integrator reserves exact native consumer and sole durable publication paths",
+        "Existing parent contracts remain owners of acquisition, time, knowledge, custody and persistence"
+      ],
+      "acceptanceCases": [
+        "Teacher without execution can teach known principle if channel suffices",
+        "recipient lacking support cannot execute",
+        "network isolation limits only carried channel."
+      ],
+      "persistenceGate": "Rebuilt fresh-origin native journey plus save/reload/import, old-save handling, invalid/stale command and failed durable publication without costs/rewards/rerolls; not run by this worker",
+      "runtimeStatus": "not-implemented-by-this-worker"
+    },
+    {
+      "id": "STP-014",
+      "title": "A school or workshop outlives its founder",
+      "parentIds": [
+        "G1-023",
+        "G1-024",
+        "G2-014",
+        "G2-020",
+        "G2-026"
+      ],
+      "disposition": "additive-refinement-of-existing-family",
+      "authority": "Generic invented proposal pending selected local source/premise qualification; no universal mechanics or compulsory drawbacks",
+      "decision": "Leave teaching, a maintained tool, archive or appointment to actual recipients instead of a generic prestige bonus.",
+      "acquisition": "Real work/property/custody/teaching establishes surviving institution or relationship before departure.",
+      "functionAndOrdinaryUse": "Successor can access surviving record, teacher or owned asset under its current permission and actual means.",
+      "changeAndLoss": "Death/departure can change appointments and maintenance; adoption/apprenticeship can carry tradition without genetic inheritance; no automatic loyalty.",
+      "combinations": "Founder notes + literate apprentice + surviving workshop, archive + original teacher; heir body talent remains separately qualified.",
+      "consumerOrGap": "Existing custody/people/ending/next-life publication adapters; biography is not authoritative inventory or mastery.",
+      "dependencies": [
+        "Local world owner qualifies faculty/start/body/support and source boundary",
+        "Integrator reserves exact native consumer and sole durable publication paths",
+        "Existing parent contracts remain owners of acquisition, time, knowledge, custody and persistence"
+      ],
+      "acceptanceCases": [
+        "Destroyed workshop not restored by heir menu",
+        "successor acquires only surviving allowed means",
+        "unrelated next life gains no automatic property."
+      ],
+      "persistenceGate": "Rebuilt fresh-origin native journey plus save/reload/import, old-save handling, invalid/stale command and failed durable publication without costs/rewards/rerolls; not run by this worker",
+      "runtimeStatus": "not-implemented-by-this-worker"
+    },
+    {
+      "id": "STP-015",
+      "title": "First action through the actual communication channel",
+      "parentIds": [
+        "G1-006",
+        "G1-015",
+        "G1-016",
+        "G1-021",
+        "G1-022",
+        "G8-022"
+      ],
+      "disposition": "additive-refinement-of-existing-family",
+      "authority": "Generic invented proposal pending selected local source/premise qualification; no universal mechanics or compulsory drawbacks",
+      "decision": "Signal, demonstrate, listen through a supported sense or act directly instead of a human dialogue menu.",
+      "acquisition": "Body/system start provides one declared channel and reachable target; any acquired channel retains real carrier.",
+      "functionAndOrdinaryUse": "Signal changes what its actual recipient perceives; misunderstanding can become a revised belief, not secret revelation.",
+      "changeAndLoss": "Repeated interaction can form known vocabulary; lost connection removes contact only; exceptional perfect communication works as promised.",
+      "combinations": "Infant gesture + attentive caregiver, object effect + actual holder, rooted contact signal + tender.",
+      "consumerOrGap": "Native center actions filtered by actor senses/control/reach and recipient knowledge; nonhuman legality adapter remains missing until qualified.",
+      "dependencies": [
+        "Local world owner qualifies faculty/start/body/support and source boundary",
+        "Integrator reserves exact native consumer and sole durable publication paths",
+        "Existing parent contracts remain owners of acquisition, time, knowledge, custody and persistence"
+      ],
+      "acceptanceCases": [
+        "No hearing without channel",
+        "absent recipient gains no message",
+        "misunderstood signal does not change underlying intent or faculty."
+      ],
+      "persistenceGate": "Rebuilt fresh-origin native journey plus save/reload/import, old-save handling, invalid/stale command and failed durable publication without costs/rewards/rerolls; not run by this worker",
+      "runtimeStatus": "not-implemented-by-this-worker"
+    },
+    {
+      "id": "STP-016",
+      "title": "Background evidence without invented earned history",
+      "parentIds": [
+        "G1-001",
+        "G1-003",
+        "G1-004",
+        "G1-026",
+        "G1-029",
+        "G8-001",
+        "G8-006"
+      ],
+      "disposition": "additive-refinement-of-existing-family",
+      "authority": "Generic invented proposal pending selected local source/premise qualification; no universal mechanics or compulsory drawbacks",
+      "decision": "Use authored experience, uncertain remembered expectation or actual player-earned record as distinct grounds for action.",
+      "acquisition": "Start imports an explicit world-local background snapshot with declared methods/relationships, not fabricated native quest/counter history.",
+      "functionAndOrdinaryUse": "Known local practice can permit first work; past-source expectation guides inquiry but cannot certify present causes.",
+      "changeAndLoss": "Actual later deeds append their proper owner once; body/era transition retains only declared carriers; titles requiring current deeds do not backfill from biography.",
+      "combinations": "Established carpenter background + actual tool, remembered danger + current investigation, former office + renewed local recognition.",
+      "consumerOrGap": "Origin initializer/domain provenance and existing native counter/claim/save authority; life_record biography stays lossy.",
+      "dependencies": [
+        "Local world owner qualifies faculty/start/body/support and source boundary",
+        "Integrator reserves exact native consumer and sole durable publication paths",
+        "Existing parent contracts remain owners of acquisition, time, knowledge, custody and persistence"
+      ],
+      "acceptanceCases": [
+        "Veteran start does not mint historical wages/kills",
+        "remembered event is not guaranteed",
+        "old-save import invents no background or talent roll."
+      ],
+      "persistenceGate": "Rebuilt fresh-origin native journey plus save/reload/import, old-save handling, invalid/stale command and failed durable publication without costs/rewards/rerolls; not run by this worker",
+      "runtimeStatus": "not-implemented-by-this-worker"
+    }
+  ],
+  "recommendedJoin": [
+    "STP-001",
+    "STP-004",
+    "STP-005",
+    "STP-010",
+    "STP-011"
+  ],
+  "unreadRemainder": [
+    "Exact private selected source and hidden event truth",
+    "Full novels/north-star/audit catalog",
+    "Full native task XP/save/main integration",
+    "General anatomy/genetic transmission/network/childhood adapters",
+    "World-specific probabilities, balance and director acceptance"
+  ]
+}

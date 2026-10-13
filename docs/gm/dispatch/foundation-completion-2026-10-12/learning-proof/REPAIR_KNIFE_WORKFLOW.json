@@ -1,0 +1,10 @@
+{
+  "action": "workflow",
+  "steps": [
+    {
+      "action": "debugCancel",
+      "selector": "[data-action-legibility-key=\"action:feature_objects.repair_dull_own\"] button",
+      "save": "worker-refusal-knife-restored-actual"
+    }
+  ]
+}

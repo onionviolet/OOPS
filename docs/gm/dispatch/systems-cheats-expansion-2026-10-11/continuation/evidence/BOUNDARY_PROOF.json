@@ -1,0 +1,17 @@
+{
+  "url": "http://127.0.0.1:18653/",
+  "cases": [
+    "B01 representative absent-edition old native save preserves vanilla stock/purse and invents no ledger history",
+    "B02 native job reservation and cancellation return exact stock without output",
+    "B03 failed native storage leaves carried cache, purse and RNG unpublished; restored reload opens once",
+    "B04 both native win/loss outcomes settle exact player/rival funds once",
+    "B05 import rejection: unfunded points",
+    "B05 import rejection: false model result",
+    "B05 import rejection: moved expiry",
+    "B05 import rejection: unknown edition",
+    "B07 native contact return renews an ended lease through actual coin payment and useful output",
+    "B06 disposable removed-item fixture proves seal/lens means required; no source claim of natural transfer"
+  ],
+  "errors": [],
+  "fixtures": "Generated native saves from natural run; B06 intentionally removes only item carriers"
+}

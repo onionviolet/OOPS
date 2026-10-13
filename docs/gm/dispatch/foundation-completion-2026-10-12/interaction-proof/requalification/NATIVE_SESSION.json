@@ -1,0 +1,46 @@
+{
+  "pid": 63264,
+  "origin": "http://127.0.0.1:18645",
+  "startedHash": "ef2e248bc8fdd21323e7becb1277ac45bc2537bdcf8e9630e5c688c60bc48d6a",
+  "endedHash": "ef2e248bc8fdd21323e7becb1277ac45bc2537bdcf8e9630e5c688c60bc48d6a",
+  "events": [
+    {
+      "action": "pointerTick",
+      "selector": "[data-foundation-probe=\"foundation.probe.a.attack\"]"
+    },
+    {
+      "action": "sequence",
+      "selectors": [
+        "[data-foundation-probe=\"foundation.probe.a.barrier.p-b\"]",
+        "[data-foundation-probe=\"foundation.probe.b.s1\"]",
+        "[data-foundation-probe=\"foundation.probe.b.s2\"]",
+        "[data-foundation-probe=\"foundation.probe.b.attack\"]",
+        "[data-foundation-probe=\"foundation.probe.b.s1.remove\"]",
+        "[data-foundation-probe=\"foundation.probe.b.attack\"]",
+        "[data-foundation-probe=\"foundation.probe.b.s2.remove\"]",
+        "[data-foundation-probe=\"foundation.probe.b.attack\"]"
+      ]
+    },
+    {
+      "action": "staleHandler",
+      "selector": "[data-foundation-probe=\"foundation.probe.b.attack\"]"
+    },
+    {
+      "action": "failClick",
+      "selector": "[data-foundation-probe=\"foundation.probe.b.attack\"]"
+    },
+    {
+      "action": "reload"
+    },
+    {
+      "action": "click",
+      "selector": "[data-foundation-probe=\"foundation.probe.b.attack\"]"
+    },
+    {
+      "action": "save",
+      "name": "requal-aftermath"
+    }
+  ],
+  "errors": [],
+  "failures": []
+}

@@ -1,0 +1,7 @@
+{
+ "status":"FIXED BEFORE FIRST PLAY", "entryClock":856, "selectedLeaf":"paid kit brace pad admitted and spent in one existing native sluice encounter, then withdrawal", "playedMinutes":20, "coinsGross":0, "genericPurchases":0, "fundingOther":0,
+ "materialsGross":{"Prepared survey kit":1,"Kit brace pad crafted":1,"Kit brace pad reserved":1,"Kit brace pad consumed":1,"logs":0,"resin":0,"rope":0},
+ "custody":0,"containers":0,"tools":0,"playerStaminaGross":12,"playerHealthLossMax":79,"playerAttention":0,"playerSatiety":0,"npcStaminaGross":20,"npcAttention":0,"npcSatiety":0,"npcHealthLossMax":0,
+ "enrollments":1,"jobs":1,"collections":0,"controllers":1,"training":0,"preparations":1,"battleSessions":1,"battleActionsTotal":20,"playerBattleActions":8,"npcBattleActions":12,"supportActions":4,"travel":0,"cancellations":0,"plans":0,"consumerAttempts":1,"cleanupWithdrawals":1,"cleanupReserveMinutes":5,
+ "stopRule":"No fallback/retry/enlargement. Save and reload before diagnosis on error. Stop before action if remaining cap cannot support withdrawal and paused final persistence. Automatic battle actions count. One enrollment/craft/admission/use/withdraw path only."
+}

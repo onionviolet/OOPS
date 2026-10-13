@@ -1,0 +1,8 @@
+{
+  "focused": 7,
+  "existingLocalLife": 9,
+  "affectedIncludingEnvelopeAndEngine": 32,
+  "pass": true,
+  "command": "node --test tests/save_files.test.js tests/expansion_engine.test.js tests/absorb_c2.test.js tests/fa18_runner_consequence.test.js",
+  "log": "SOURCE_TEST_LOG.txt"
+}

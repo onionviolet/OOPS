@@ -1,0 +1,131 @@
+{
+  "candidate": "/Users/weiwei/.codex/candidates/yairpg-laptop-customization-2026-10-12",
+  "legacyBaseSnapshot": "cheats-sfx INPUT_SNAPSHOT exact hashes; original counterparts copied into integration-base for three-way reconciliation",
+  "files": {
+    "src/main.js": {
+      "before": "18c3b69d47a0e7eeaf113c5e392a4435587638c6e56fb003989bf1da8c502035",
+      "after": "b857d9ec7ad0e58149d5b710fe3c0c858a7379ebb57bd736e76420d4c7fd4379",
+      "base": "/Users/weiwei/.codex/candidates/yairpg-cheats-sfx-base-2026-10-12/src/main.js"
+    },
+    "src/save_files.js": {
+      "before": "6be05fcc757617a1304c65c68051042a59cad03216979221f1213d4011b06500",
+      "after": "9693989644833596a98379eececdc5a814e11845d27c1134b3e7dab3911b1120",
+      "base": "/Users/weiwei/.codex/candidates/yairpg-cheats-sfx-base-2026-10-12/src/save_files.js"
+    },
+    "src/display.js": {
+      "before": "ae702d726645f31d818842aae1be2338bb6bb00610a9898e9bffbf0e6799c5fa",
+      "after": "0714c5b2b278472cc6d6d3f0720090425f835f51b1818289c4ae89fce1a71d66",
+      "base": "/Users/weiwei/.codex/candidates/yairpg-cheats-sfx-base-2026-10-12/src/display.js"
+    },
+    "src/adventure_notebook.js": {
+      "before": "3047a1aa41f750d5db6bdd70bb9510227a4a8acb65fa5eb19df8ecc399396891",
+      "after": "a9c9f970ea45d6c9b1cd3dad32f6f23b8c5b46cb2c45d8cd055a5c941cb76b31",
+      "base": "/Users/weiwei/.codex/candidates/yairpg-cheats-sfx-2026-10-12/src/adventure_notebook.js"
+    },
+    "src/village_career_ui.js": {
+      "before": "a15951bd0684a541d7dde5c9df15c71aa6f1e81db541d0ea56f0b855d168a886",
+      "after": "3d5a83502a5acc288488e3efa898b8dd544ebdbb3d212a040ca2964a9df63c40",
+      "base": "/Users/weiwei/.codex/candidates/yairpg-cheats-sfx-2026-10-12/src/village_career_ui.js"
+    },
+    "src/content_pack_ui.js": {
+      "before": "cc8c792e5d195fdf54643a947be1ad42884b9c64d10b61e2cf88d5dae230a42d",
+      "after": "9f99f189a2e9491409490221596bea48a4433e3e174865dacb847408ec998853",
+      "base": "/Users/weiwei/.codex/candidates/yairpg-cheats-sfx-2026-10-12/src/content_pack_ui.js"
+    },
+    "src/structured_pack_ui.js": {
+      "before": "9059e0c25855d0065357044b58846f71dbe3190dadf4289e73cae5b48b2d9c82",
+      "after": "c5e0acb902e29924ac4a9dd90507a6d13fa370e4ac9dc2d65583248d677ba294",
+      "base": "/Users/weiwei/.codex/candidates/yairpg-cheats-sfx-2026-10-12/src/structured_pack_ui.js"
+    },
+    "src/simulation_ui.js": {
+      "before": "48a8aa25b5bc1b1f30a17899baf92d9ee0f0c2a481cb0b40e06ae7600ede1405",
+      "after": "a83c3fc6204cd7f70543de719558d5e88d86418875dc48013cb9a058718e1954",
+      "base": "/Users/weiwei/.codex/candidates/yairpg-cheats-sfx-2026-10-12/src/simulation_ui.js"
+    },
+    "index.html": {
+      "before": "77b186f782e01631a3356df315632886e0226fe9aca817b0357d69f986c9a803",
+      "after": "fe019905add5da45682c3f4e73aa50177a15ded6a566494107a28b38c2146c79",
+      "base": "/Users/weiwei/.codex/candidates/yairpg-cheats-sfx-base-2026-10-12/index.html"
+    },
+    "src/work_ledger_system.js": {
+      "before": null,
+      "after": "2697955b78d970a1dab6afec30828af17cd74825c23534a3d7b2b5e7c10279b2",
+      "base": null
+    },
+    "src/work_ledger_ui.js": {
+      "before": null,
+      "after": "aabbac7d5378cc19f38bb0234df4f2e2222c2181c49753d991650c15f3a5ea06",
+      "base": null
+    },
+    "src/work_ledger_author_ui.js": {
+      "before": null,
+      "after": "0e741e2c9878a0a27b12955df63579f5030fd27dd27d12dde215715d5c488c0f",
+      "base": null
+    },
+    "src/customization_profiles.js": {
+      "before": null,
+      "after": "f2f001da9a91f3761377ba1c15ed3cd7e56cb3cc5aeb43fb089f9f2b18329fd2",
+      "base": null
+    },
+    "src/customization_ui.js": {
+      "before": null,
+      "after": "ae5dc41ca48c1c36b59164a10ea0f752008c56dc23ddffe56bdd06a3fdcb37e4",
+      "base": null
+    },
+    "src/settled_text_effects.js": {
+      "before": null,
+      "after": "662f3ef2aec8924f7405956405847cee07141b02c7f99657d49adfb4eab57172",
+      "base": null
+    },
+    "src/workspace_layout.js": {
+      "before": null,
+      "after": "575fa462851e24205b512023088ac78bc2ce79cdb4c8aada0aa570f72e9d5425",
+      "base": null
+    },
+    "src/workspace_state.js": {
+      "before": null,
+      "after": "a61dee397bb02c321f76fb83020320d3e51d4f02cf4b6f4a87bf9228ee09e10b",
+      "base": null
+    },
+    "src/workspace_views.js": {
+      "before": null,
+      "after": "0ca6d536a43d15fb650b7a76eac2e0f8b522379317776e520b5899058118ad4b",
+      "base": null
+    },
+    "src/component_themes.js": {
+      "before": null,
+      "after": "51abc6c9e86e1337befe96bad2b8e0ac6817d30b68ed686c6b3c251ef3cfadf1",
+      "base": null
+    },
+    "src/quiet_place_detail.js": {
+      "before": null,
+      "after": "0329a13e275af681388da4a47d0284d5562b0eb30c97b4124bdf9d8baf32fb42",
+      "base": null
+    },
+    "styles/settled_text_effects.css": {
+      "before": null,
+      "after": "443d79db7cdf77d8c127e51047e78aface2f7c729e7d808d4cf98426372772b6",
+      "base": null
+    },
+    "styles/customization.css": {
+      "before": null,
+      "after": "6169ba1b5f7696f3b27a3daf66b1ad835a2d2966afd94f711d53443f20b23a50",
+      "base": null
+    },
+    "styles/workspace.css": {
+      "before": null,
+      "after": "b34888defef6637a10c22ecaf7496bb6fe75ea4d0acbc2a95174144a3b2c03b5",
+      "base": null
+    },
+    "styles/component_themes.css": {
+      "before": null,
+      "after": "f079243a625401dba90405b57bf4e162917debde2a760b1cae9f14a04cfe943a",
+      "base": null
+    }
+  },
+  "build": "7c8624fba650ea4ecc82ef2a150a1f6599db62efe8bee14b9ead2253a22b7f84",
+  "sharedIntegration": false,
+  "patch": "UI_UNION.patch",
+  "indexVersionPolicy": "Generated asset query versions deliberately excluded from union patch; shared owner rebuilds them.",
+  "limits": "Candidate remains isolated; these deltas do not reverse current shared foundation/World1 changes."
+}

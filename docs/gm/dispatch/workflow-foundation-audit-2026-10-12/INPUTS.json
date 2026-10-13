@@ -1,0 +1,59 @@
+{
+  "date": "2026-10-12",
+  "scope": "Targeted dirty-input snapshot; receiver must read live authority and qualify drift. No clean-tree or read-completeness claim.",
+  "head": "dd3efe3383f12f0aac22e4f390aae90fae2e7fc4",
+  "files": [
+    {
+      "path": "AGENTS.md",
+      "sha256": "7fccb57130106b634ddce5190a0645724535c7a50faabd382bb235128290e288"
+    },
+    {
+      "path": "PROJECT.md",
+      "sha256": "46dab6f21ff9801bf1512b37b82582ed2ce49e37680736723187afdc6980be45"
+    },
+    {
+      "path": "docs/GAME_MASTER_PROMPT.md",
+      "sha256": "9524d382c81a981af02bd2cf9288f410fe9a09b9c6f8d99f7075c6245653de56"
+    },
+    {
+      "path": "docs/reviews/FOUNDATIONS_DIALOGUE_AND_ABSORPTION_PLAN_2026-10-12.md",
+      "sha256": "fc0d3b429b936a2cc676449c506674c38ead40b6122307ffce98e5e3adcc7ea5"
+    },
+    {
+      "path": "docs/SHARED_FOUNDATIONS_AUDIT_2026-10-12.md",
+      "sha256": "b1a9c33ee53b751c3e5b4eca236e90519c871af86cf8c67086ef62cbeaeb76e3"
+    },
+    {
+      "path": "docs/gm/MICRO_MESO_MACRO_IMPLEMENTATION_SUPPORT.md",
+      "sha256": "47ed79e22d512a5e2a5914a7bb5d8f140a1349298c46fd37990b68e5361d22d1"
+    },
+    {
+      "path": "docs/gm/CROSS_WORLD_DETAIL_REVIEW.md",
+      "sha256": "56f84e4ece960034735f1e9ec464e26f3cd81de44eabbb3dfb93af37b9534a35"
+    },
+    {
+      "path": "docs/worlds/DIALOGUE_AND_INTERACTIONS.md",
+      "sha256": "6c9f867d703be28f0d406a18db260fe33c831299fd2eeaf18d49bf1016ea2be5"
+    },
+    {
+      "path": "docs/gm/dispatch/connection-detail-2026-10-12/CHECKPOINT.md",
+      "sha256": "48f25f74cfa3165aa4460833e73cc5d2e3b78f916ddcf7bc79f75f7b82f11bce"
+    },
+    {
+      "path": "docs/gm/dispatch/world1-full-completion-2026-10-11/CHECKPOINT.md",
+      "sha256": "c2f84d5fa9ed871d80ac0f4ef4eb620e554aa043010efb324e58c2be8c87957b"
+    },
+    {
+      "path": "src/ink_narrative.js",
+      "sha256": "0b1f4d4c1b42347ec9471cefbff8a1d3f70f6b739a52c711ad604f3bbeda16ac"
+    },
+    {
+      "path": "src/ink_scene_content.js",
+      "sha256": "cd7dcd1368b6c63ceb0399c0893df0fbbde9a5579553d2cf111ea07875ed821f"
+    },
+    {
+      "path": "package.json",
+      "sha256": "805269ecbf25287b2758391e718c805e1a4336b4b4f1c923a87b3712620e8e2c"
+    }
+  ]
+}

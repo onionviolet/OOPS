@@ -1,0 +1,10 @@
+{
+  "bundle": "6b3c8e392800cd43bfa850d314ae614cca7be3e26d6526a087af452c7d4d7a12",
+  "actualInput": "/tmp/yairpg-foundation-learning-worker-field-ready.json",
+  "nativeEvidence": "Actual commissioned surveyor owns1log/focus1 atVillage road, controllerdue advances, no survey job/outcome across11282\u219211289+",
+  "rawPreview": "eligible true on unchanged actual save with actor-owned location fallback",
+  "normalizerPreview": "worldCompletionSimulationContexts merges playerfacts.locationVillage into fieldSurveyor sourcefacts{}; preview rejects Return to Village road.",
+  "seam": "world_completion_runtime.js:worldCompletionSimulationContexts generic facts merge",
+  "repairConstraint": "Preserve same introduced actor actual location. No grants, no completed phase fabrication, no forced controller choice.",
+  "nativeRemaining": "Field survey/assembly and restB1\u2013B5"
+}

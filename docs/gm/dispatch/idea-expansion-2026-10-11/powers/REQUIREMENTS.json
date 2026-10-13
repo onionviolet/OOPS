@@ -1,0 +1,3816 @@
+{
+  "lane": "G2",
+  "status": "planning-reviewed-by-worker",
+  "revision": "2026-10-11.1",
+  "noRuntimeClaim": true,
+  "authority": "Current user-authorized parallel existing-idea planning. All expanded mechanics remain proposals.",
+  "inputs": [
+    {
+      "path": "AGENTS.md",
+      "coverage": "full",
+      "sha256": "2dd0e8a273ff4c292231409f4c7d0c776015a67833206d3c6b5bb56d919ab1fc"
+    },
+    {
+      "path": "PROJECT.md",
+      "coverage": "accepted decisions/current owners; status descriptions not gameplay proof",
+      "sha256": "652552a764912ed77bab73539585056e1e33e82b82dbc68fb315054eeb40d8a8"
+    },
+    {
+      "path": "docs/gm/WORLD_ACTIONABILITY_GM_PROMPT.md",
+      "coverage": "full functional requirements/dispatch contract",
+      "sha256": "ea48641284aaa76aa02ed4dff05f1a7e713838c29387b7a984f7cb6d1048e961"
+    },
+    {
+      "path": "docs/WORLD_COMPLETION_STANDARD.md",
+      "coverage": "full S00-S14/depth/gates",
+      "sha256": "05fb2097b74a01f82679cc32946c215cdfdf7054a35f1ec57007a20dc1918468"
+    },
+    {
+      "path": "docs/GAME_MASTER_PROMPT.md",
+      "coverage": "workflow ownership/refresh/role portions",
+      "sha256": "9524d382c81a981af02bd2cf9288f410fe9a09b9c6f8d99f7075c6245653de56"
+    },
+    {
+      "path": "docs/CHEAT_LIBRARY.md",
+      "coverage": "full tables/implementation/player cards, 49 families plus 12 cards",
+      "sha256": "43de3d764a7201db449fd52b00e3fc9b3fb6c6c5d12da6af79e692fc6b2569c6"
+    },
+    {
+      "path": "docs/CHEAT_COSMOLOGY.md",
+      "coverage": "backing/cards, simple cheats, intake, equalization, gifts, meeting cases, accepted winner/reset decisions, cap and scaling/name/craft/owned-world headings and returned excerpts; see unreadRemainder",
+      "sha256": "2d3bc445e35d2b17ff62a791ef29337e88d18c7eea917a27be9c14882872cb34"
+    },
+    {
+      "path": "docs/SIMULATORS_AND_CHEAT_IMPLEMENTATION.md",
+      "coverage": "all sections read in bounded excerpts, SA1-SA19,T1-T50,SM1-SM26",
+      "sha256": "909802f3258babf0ea0bcc5e6c756a18c5b8287f2e3859033dd3a56fff9daaca"
+    },
+    {
+      "path": "docs/SKILLS_AND_TALENTS.md",
+      "coverage": "full family/growth/level/scale/late-use sections and merged audit additions",
+      "sha256": "2e8e3090803e8b493e0c61339eef8d257b1bedbd74764921cef86a4f1318e0bf"
+    },
+    {
+      "path": "docs/DEEP_CONCEPTS.md",
+      "coverage": "full concept/implication tables; memory-derived fiction list remains unverified",
+      "sha256": "64ab239138200988f49ba1d44bdc838965a00a67493291cc7a5b226aa105ed31"
+    },
+    {
+      "path": "docs/worlds/ABILITY_AUTHORING.md",
+      "coverage": "full",
+      "sha256": "a6062efad9c196ab069bee910c543bca45f89ad9b74907f5f7cabb900e4b1687"
+    },
+    {
+      "path": "docs/audits/cheat-implementation-2026-10-10/REPORT.md",
+      "coverage": "findings/primitives/gaps/improvement; historical test claims not rerun",
+      "sha256": "793902dc79352c28aa1973d0dd1e9a414a5d1186896c5e3c033c8055fc0797fd"
+    },
+    {
+      "path": "docs/audits/cheat-implementation-2026-10-10/readers/B_doc_catalog.md",
+      "coverage": "catalog and authority/conflict structure; dated counts not adopted",
+      "sha256": "5ec431d155b332f0883d8d7242c3d4134e48e75a0f0f1e8b28e88eb19d43ae55"
+    },
+    {
+      "path": "docs/research/power-systems/anime-manga/REPORT.md",
+      "coverage": "mechanism, costs, carrier and contract audit proposals; primary chapters not verified here",
+      "sha256": "20ea324a2a600265fe21fc087b93a8636f25e9fcb0c8d6e3d970a1f6465cb7d9"
+    },
+    {
+      "path": "docs/CHEATS_BY_WORLD.md",
+      "coverage": "opening rows only; remainder explicitly uninspected",
+      "sha256": "af20bcc0af3e317c4a632ac0f713d310b6bd0fb764fa874ce6175cc0df0fa488"
+    },
+    {
+      "path": "src/expansion_engine.js",
+      "coverage": "selected exports, validation and effect/consumer implementations; not whole-module audit",
+      "sha256": "bb9b59ce0400528ee006dc5846bb8ff85453ea7aa450d2875c37da29f754a829"
+    },
+    {
+      "path": "src/capabilities.js",
+      "coverage": "selected exports, validation and effect/consumer implementations; not whole-module audit",
+      "sha256": "c72b4c32d26ffb4988e970e6aa849498e3fb79e5bd987b7ab86d449a15322b35"
+    },
+    {
+      "path": "src/power_models.js",
+      "coverage": "selected exports, validation and effect/consumer implementations; not whole-module audit",
+      "sha256": "cbf6d86aea5cdfd1fda9bb39dddb208944c210e91c60196283f5ea731d3c23b7"
+    },
+    {
+      "path": "src/simulation.js",
+      "coverage": "selected exports, validation and effect/consumer implementations; not whole-module audit",
+      "sha256": "3f7ecf0f208edc1edff502d7e1f5076ad1e1a435630a020658eb922d3287d3f3"
+    },
+    {
+      "path": "src/simulation_contracts.js",
+      "coverage": "selected exports, validation and effect/consumer implementations; not whole-module audit",
+      "sha256": "0b048cb891b0e30abeb7f97125d8fe62ca9abe03c7fc7697e0078ae4a72501de"
+    },
+    {
+      "path": "src/simulation_effects.js",
+      "coverage": "selected exports, validation and effect/consumer implementations; not whole-module audit",
+      "sha256": "bd9dde5ea0e09510a6111ac6c99e139c89ce94afc2ae4ae9772213b089408620"
+    },
+    {
+      "path": "src/life_experience_host.js",
+      "coverage": "selected exports, validation and effect/consumer implementations; not whole-module audit",
+      "sha256": "02e1041513a0ebb3f4a97733bae3b95544e463e6c89d58922dd0860f4c0bc0df"
+    },
+    {
+      "path": "src/body_progression.js",
+      "coverage": "selected exports, validation and effect/consumer implementations; not whole-module audit",
+      "sha256": "47e8de67bdb099fb41365afafbf3081e342e734d97615850f921e0b280dfe84e"
+    },
+    {
+      "path": "src/skill_expansion_host.js",
+      "coverage": "selected exports, validation and effect/consumer implementations; not whole-module audit",
+      "sha256": "1cc711679510eb661d130744177f7a80e07302fc7180f4c8b2c32af59882cf55"
+    },
+    {
+      "path": "src/skill_expansion_content.js",
+      "coverage": "selected exports, validation and effect/consumer implementations; not whole-module audit",
+      "sha256": "00af80d274139fd5eac61b56923bbe8b348f24ab4fe4a0c9be5a7436ad3bd6a2"
+    },
+    {
+      "path": "src/techniques.js",
+      "coverage": "selected exports, validation and effect/consumer implementations; not whole-module audit",
+      "sha256": "e723f95c5c3c24376597d82c7c3a5786d060fc90911d21a208a314f81ebb9735"
+    },
+    {
+      "path": "src/models/skill.js",
+      "coverage": "selected exports, validation and effect/consumer implementations; not whole-module audit",
+      "sha256": "efa7050dd81d4aefba26db70ba044e7b73313a56fb7535616e90087555834dd8"
+    },
+    {
+      "path": "src/feature_expansion_powers_host.js",
+      "coverage": "selected exports, validation and effect/consumer implementations; not whole-module audit",
+      "sha256": "8f58b5480035905f8c722ff0348f10ef4091e4852666f94cace78a9f30123e24"
+    },
+    {
+      "path": "src/main.js",
+      "coverage": "selected exports, validation and effect/consumer implementations; not whole-module audit",
+      "sha256": "91d15516b318e042f87ace82f00979dfeabe0376e37c5e2c11f43eb11b5ec555"
+    },
+    {
+      "path": "docs/PRESENTATION_AND_FOURTH_WALL.md",
+      "coverage": "Selected powers-that-touch-UI, shared signatures, extra UI powers, TX1-TX13 and VP1-VP4; G7 owns complete VFX audit.",
+      "sha256": "fc048f76cfc25d094a49299bd71e4b0cfa7cd73fba6da1c956764a67e2a9b13d"
+    }
+  ],
+  "requirements": [
+    {
+      "id": "G2-001",
+      "key": "acquisition",
+      "title": "Acquisition, information, mastery and actual authority",
+      "sections": [
+        "S02",
+        "S07",
+        "S09",
+        "S14"
+      ],
+      "sourceRefs": [
+        {
+          "path": "docs/worlds/ABILITY_AUTHORING.md",
+          "locator": "Similar results do not imply identical sources"
+        }
+      ],
+      "criterion": "Acquiring a method, faculty, source, body component or credential produces the specified distinct output.",
+      "proposedExpansion": "Track observed record, interpreted/understood procedure, owned faculty, executable power, source instance, installed body support and authority separately. An instant-mastery source can supply all promised layers immediately; ordinary observation supplies only what was observed.",
+      "dependencies": [],
+      "engineConsumerOrGap": "Existing: sources, faculties, powers and techniques. Gap: cross-domain source-instance/body/authority acquisition transaction and native consumer bindings.",
+      "acceptanceCases": [
+        "Compare observation-only, instant mastery, installed faculty and stolen credential on the same task",
+        "missing support prevents only the operation it actually supplies."
+      ],
+      "remaining": [
+        "Select finite world/card revision and local rules.",
+        "Freeze exact interface/files with shared-engine integrator.",
+        "Implement only under runtime assignment; rebuild/fresh-origin native proof and relevant old-save/save/reload/import remain open."
+      ],
+      "disposition": "expanded-proposal; pending-world-selection",
+      "functionalCard": {
+        "acquisition": "Per-world origin, in-play earned/found/taught/transferred route, or qualified random-start initializer; no universal Frontier gate.",
+        "functionAndScope": "Acquiring a method, faculty, source, body component or credential produces the specified distinct output.",
+        "growthAndVariants": "Track observed record, interpreted/understood procedure, owned faculty, executable power, source instance, installed body support and authority separately. An instant-mastery source can supply all promised layers immediately; ordinary observation supplies only what was observed.",
+        "executionAndInteractions": "Compare observation-only, instant mastery, installed faculty and stolen credential on the same task; missing support prevents only the operation it actually supplies.",
+        "backingAndSupport": "Record actual carrier/source/body/fuel/authority per selected variant; no mandatory cost or weakness.",
+        "otherActors": "Same selected function; knowledge and access depend on held means, not actor tag.",
+        "retentionAndCompatibility": "Join G2-026 and G4 domains; retention criterion includes actual consumer and source support.",
+        "presentationAndPersistence": "Join G2-028/G2-029; unknown truths use opaque IDs and in-play routes."
+      }
+    },
+    {
+      "id": "G2-002",
+      "key": "execution",
+      "title": "Real effects and ordered execution",
+      "sections": [
+        "S07",
+        "S08",
+        "S14"
+      ],
+      "sourceRefs": [
+        {
+          "path": "docs/worlds/ABILITY_AUTHORING.md",
+          "locator": "Causal execution contract"
+        }
+      ],
+      "criterion": "A committed function changes its actual target owner in the stated order and produces witness-limited consequences.",
+      "proposedExpansion": "Freeze actual participants, revision, support, body, range, mode and target identity; effects change inventory, body, vitals, world state, information or relationships. Add typed adapters for reflection, sustained effects, dimensions, negation and rule replacement only when selected.",
+      "dependencies": [
+        "G2-001"
+      ],
+      "engineConsumerOrGap": "Existing: commitSimulationCommand, typed effects, previewPowerModel. Gap: selected sustained/concurrent target resolver and native effect adapters.",
+      "acceptanceCases": [
+        "Preview spends nothing",
+        "target moves before resolution",
+        "support ends during channel",
+        "reflect a physical attack after its source effect",
+        "suppress and restore without deleting ownership."
+      ],
+      "remaining": [
+        "Select finite world/card revision and local rules.",
+        "Freeze exact interface/files with shared-engine integrator.",
+        "Implement only under runtime assignment; rebuild/fresh-origin native proof and relevant old-save/save/reload/import remain open."
+      ],
+      "disposition": "expanded-proposal; pending-world-selection",
+      "functionalCard": {
+        "acquisition": "Per-world origin, in-play earned/found/taught/transferred route, or qualified random-start initializer; no universal Frontier gate.",
+        "functionAndScope": "A committed function changes its actual target owner in the stated order and produces witness-limited consequences.",
+        "growthAndVariants": "Freeze actual participants, revision, support, body, range, mode and target identity; effects change inventory, body, vitals, world state, information or relationships. Add typed adapters for reflection, sustained effects, dimensions, negation and rule replacement only when selected.",
+        "executionAndInteractions": "Preview spends nothing; target moves before resolution; support ends during channel; reflect a physical attack after its source effect; suppress and restore without deleting ownership.",
+        "backingAndSupport": "Record actual carrier/source/body/fuel/authority per selected variant; no mandatory cost or weakness.",
+        "otherActors": "Same selected function; knowledge and access depend on held means, not actor tag.",
+        "retentionAndCompatibility": "Join G2-026 and G4 domains; retention criterion includes actual consumer and source support.",
+        "presentationAndPersistence": "Join G2-028/G2-029; unknown truths use opaque IDs and in-play routes."
+      }
+    },
+    {
+      "id": "G2-003",
+      "key": "copy",
+      "title": "Copying, harvest, absorption and template shelves",
+      "sections": [
+        "S06",
+        "S07",
+        "S08",
+        "S09",
+        "S14"
+      ],
+      "sourceRefs": [
+        {
+          "path": "docs/CHEAT_LIBRARY.md",
+          "locator": "Gameplay by cheat family; More cheat types"
+        }
+      ],
+      "criterion": "The selected copy or harvest variant produces its actual promised transferable output and donor consequence.",
+      "proposedExpansion": "Distinguish visual record, reconstructed procedure, temporary imitation, source copying, source transfer, anatomy installation, energy ingestion and authority theft. Keep lineage/revision; preserve full functions when fusion says it does, lose named functions only when selected lore says so. Dead targets, live grants and willing donors have separate eligibility.",
+      "dependencies": [
+        "G2-001",
+        "G2-002",
+        "G2-029"
+      ],
+      "engineConsumerOrGap": "Existing: power copy/transfer/refine/fragment/learn and fusion consume constituents. Gap: generic source-instance copy and physiology/authority consequences.",
+      "acceptanceCases": [
+        "Copy a method without its anatomy",
+        "copy source and anatomy with a superior variant",
+        "transfer disables donor",
+        "copied source leaves donor intact",
+        "absorb after defeat once under selected event",
+        "settlement reload preserves provenance."
+      ],
+      "remaining": [
+        "Select finite world/card revision and local rules.",
+        "Freeze exact interface/files with shared-engine integrator.",
+        "Implement only under runtime assignment; rebuild/fresh-origin native proof and relevant old-save/save/reload/import remain open."
+      ],
+      "disposition": "expanded-proposal; pending-world-selection",
+      "functionalCard": {
+        "acquisition": "Per-world origin, in-play earned/found/taught/transferred route, or qualified random-start initializer; no universal Frontier gate.",
+        "functionAndScope": "The selected copy or harvest variant produces its actual promised transferable output and donor consequence.",
+        "growthAndVariants": "Distinguish visual record, reconstructed procedure, temporary imitation, source copying, source transfer, anatomy installation, energy ingestion and authority theft. Keep lineage/revision; preserve full functions when fusion says it does, lose named functions only when selected lore says so. Dead targets, live grants and willing donors have separate eligibility.",
+        "executionAndInteractions": "Copy a method without its anatomy; copy source and anatomy with a superior variant; transfer disables donor; copied source leaves donor intact; absorb after defeat once under selected event; settlement reload preserves provenance.",
+        "backingAndSupport": "Record actual carrier/source/body/fuel/authority per selected variant; no mandatory cost or weakness.",
+        "otherActors": "Same selected function; knowledge and access depend on held means, not actor tag.",
+        "retentionAndCompatibility": "Join G2-026 and G4 domains; retention criterion includes actual consumer and source support.",
+        "presentationAndPersistence": "Join G2-028/G2-029; unknown truths use opaque IDs and in-play routes."
+      }
+    },
+    {
+      "id": "G2-004",
+      "key": "regression",
+      "title": "Regression, anchors and checkpoint load",
+      "sections": [
+        "S07",
+        "S11",
+        "S12",
+        "S14"
+      ],
+      "sourceRefs": [
+        {
+          "path": "docs/CHEAT_LIBRARY.md",
+          "locator": "Death-menu regression; Checkpoint save; Echo Anchor"
+        }
+      ],
+      "criterion": "The selected temporal function restores its declared domains and retains its promised carriers.",
+      "proposedExpansion": "Specify memory sent back versus region recreation versus full history rollback versus branch travel. Anchor authority, selectable carry sets, current body, borrowed power, erased causes and simultaneous holders join G4 domain policy. A free or exceptionless reset stays available where selected.",
+      "dependencies": [
+        "G2-001",
+        "G2-002",
+        "G2-029"
+      ],
+      "engineConsumerOrGap": "Existing: scenario checkpoint/rewind retains actors/worlds/random stream; fresh heir builder. Gap: G4 snapshot/rollback owner and G2 carrier retention migration, death/trigger native caller.",
+      "acceptanceCases": [
+        "Change inventory/body/NPC/world/RNG",
+        "reset and compare each selected domain",
+        "retain one actual power with its supporting carrier",
+        "nested reset ordering",
+        "repeated settlement under a new versus identical history."
+      ],
+      "remaining": [
+        "Select finite world/card revision and local rules.",
+        "Freeze exact interface/files with shared-engine integrator.",
+        "Implement only under runtime assignment; rebuild/fresh-origin native proof and relevant old-save/save/reload/import remain open."
+      ],
+      "disposition": "expanded-proposal; pending-world-selection",
+      "functionalCard": {
+        "acquisition": "Per-world origin, in-play earned/found/taught/transferred route, or qualified random-start initializer; no universal Frontier gate.",
+        "functionAndScope": "The selected temporal function restores its declared domains and retains its promised carriers.",
+        "growthAndVariants": "Specify memory sent back versus region recreation versus full history rollback versus branch travel. Anchor authority, selectable carry sets, current body, borrowed power, erased causes and simultaneous holders join G4 domain policy. A free or exceptionless reset stays available where selected.",
+        "executionAndInteractions": "Change inventory/body/NPC/world/RNG; reset and compare each selected domain; retain one actual power with its supporting carrier; nested reset ordering; repeated settlement under a new versus identical history.",
+        "backingAndSupport": "Record actual carrier/source/body/fuel/authority per selected variant; no mandatory cost or weakness.",
+        "otherActors": "Same selected function; knowledge and access depend on held means, not actor tag.",
+        "retentionAndCompatibility": "Join G2-026 and G4 domains; retention criterion includes actual consumer and source support.",
+        "presentationAndPersistence": "Join G2-028/G2-029; unknown truths use opaque IDs and in-play routes."
+      }
+    },
+    {
+      "id": "G2-005",
+      "key": "revival",
+      "title": "Revival, reserve bodies and adaptation",
+      "sections": [
+        "S02",
+        "S07",
+        "S08",
+        "S11",
+        "S14"
+      ],
+      "sourceRefs": [
+        {
+          "path": "docs/CHEAT_LIBRARY.md",
+          "locator": "Revival; Body growth; Instinct Inheritance"
+        }
+      ],
+      "criterion": "Revival returns the declared person/body and adaptation changes the future relevant interaction.",
+      "proposedExpansion": "Separate restore same body, recreate blueprint, return through a soul link to a reserve, local daily reset and resurrect a dead actor. Keep history of exposures with exact threat categories; adaption can grant immunity, new organ or technique where promised. Do not require death when selected adaptation learns nonlethally.",
+      "dependencies": [
+        "G2-001",
+        "G2-002",
+        "G2-029"
+      ],
+      "engineConsumerOrGap": "Existing: life resurrection effect, body fields, conditions/faculties. Gap: selected body blueprint/identity/reserve occupancy and adaptation-to-native-damage adapter.",
+      "acceptanceCases": [
+        "Restore wounded versus destroyed body",
+        "absent reserve link",
+        "gain resistance then face the same and changed threat",
+        "full immunity resolves threat",
+        "reentry does not clone reserve possessions."
+      ],
+      "remaining": [
+        "Select finite world/card revision and local rules.",
+        "Freeze exact interface/files with shared-engine integrator.",
+        "Implement only under runtime assignment; rebuild/fresh-origin native proof and relevant old-save/save/reload/import remain open."
+      ],
+      "disposition": "expanded-proposal; pending-world-selection",
+      "functionalCard": {
+        "acquisition": "Per-world origin, in-play earned/found/taught/transferred route, or qualified random-start initializer; no universal Frontier gate.",
+        "functionAndScope": "Revival returns the declared person/body and adaptation changes the future relevant interaction.",
+        "growthAndVariants": "Separate restore same body, recreate blueprint, return through a soul link to a reserve, local daily reset and resurrect a dead actor. Keep history of exposures with exact threat categories; adaption can grant immunity, new organ or technique where promised. Do not require death when selected adaptation learns nonlethally.",
+        "executionAndInteractions": "Restore wounded versus destroyed body; absent reserve link; gain resistance then face the same and changed threat; full immunity resolves threat; reentry does not clone reserve possessions.",
+        "backingAndSupport": "Record actual carrier/source/body/fuel/authority per selected variant; no mandatory cost or weakness.",
+        "otherActors": "Same selected function; knowledge and access depend on held means, not actor tag.",
+        "retentionAndCompatibility": "Join G2-026 and G4 domains; retention criterion includes actual consumer and source support.",
+        "presentationAndPersistence": "Join G2-028/G2-029; unknown truths use opaque IDs and in-play routes."
+      }
+    },
+    {
+      "id": "G2-006",
+      "key": "dilation",
+      "title": "Time dilation, acceleration and time stop",
+      "sections": [
+        "S05",
+        "S07",
+        "S11",
+        "S12",
+        "S14"
+      ],
+      "sourceRefs": [
+        {
+          "path": "docs/CHEAT_COSMOLOGY.md",
+          "locator": "Time cheats by how they work"
+        }
+      ],
+      "criterion": "The time power advances, halts or resets exactly the actors and processes it reaches.",
+      "proposedExpansion": "Card names holder/world/room/beneficiary clocks, age, work, fuel, crop, cooldown, draw and travel effects. Physical exceptions during stopped time are local rules, not inferred mandatory suffocation. Zero-rate and unbounded-rate functions need exact symbolic resolution or resumable computation.",
+      "dependencies": [
+        "G2-001",
+        "G2-002",
+        "G2-029"
+      ],
+      "engineConsumerOrGap": "Existing: common simulation boundary and local selected clocks. Gap: G4 clock-domain contract and native activity adapters for each selected process.",
+      "acceptanceCases": [
+        "Train in a fast room",
+        "check crop and outside appointment",
+        "scheduled draw obeys selected clock",
+        "leave/reenter",
+        "stop only permitted targets",
+        "self and allies remain active when promised."
+      ],
+      "remaining": [
+        "Select finite world/card revision and local rules.",
+        "Freeze exact interface/files with shared-engine integrator.",
+        "Implement only under runtime assignment; rebuild/fresh-origin native proof and relevant old-save/save/reload/import remain open."
+      ],
+      "disposition": "expanded-proposal; pending-world-selection",
+      "functionalCard": {
+        "acquisition": "Per-world origin, in-play earned/found/taught/transferred route, or qualified random-start initializer; no universal Frontier gate.",
+        "functionAndScope": "The time power advances, halts or resets exactly the actors and processes it reaches.",
+        "growthAndVariants": "Card names holder/world/room/beneficiary clocks, age, work, fuel, crop, cooldown, draw and travel effects. Physical exceptions during stopped time are local rules, not inferred mandatory suffocation. Zero-rate and unbounded-rate functions need exact symbolic resolution or resumable computation.",
+        "executionAndInteractions": "Train in a fast room; check crop and outside appointment; scheduled draw obeys selected clock; leave/reenter; stop only permitted targets; self and allies remain active when promised.",
+        "backingAndSupport": "Record actual carrier/source/body/fuel/authority per selected variant; no mandatory cost or weakness.",
+        "otherActors": "Same selected function; knowledge and access depend on held means, not actor tag.",
+        "retentionAndCompatibility": "Join G2-026 and G4 domains; retention criterion includes actual consumer and source support.",
+        "presentationAndPersistence": "Join G2-028/G2-029; unknown truths use opaque IDs and in-play routes."
+      }
+    },
+    {
+      "id": "G2-007",
+      "key": "futures",
+      "title": "Analysis, divination and actual future sight",
+      "sections": [
+        "S07",
+        "S09",
+        "S11",
+        "S13",
+        "S14"
+      ],
+      "sourceRefs": [
+        {
+          "path": "docs/SIMULATORS_AND_CHEAT_IMPLEMENTATION.md",
+          "locator": "Telling the future; grades"
+        }
+      ],
+      "criterion": "Guess, probabilities, projection, vision, prophecy and actual-future sight deliver distinct promised information.",
+      "proposedExpansion": "Freeze question, policy, state revision, horizon, truth reach and seed streams. Model outputs carry fidelity boundaries; actual sight accesses the represented future at its actual scope and can legitimately discover sealed truths in play. Do not downgrade actual sight because a native subsystem lacks deterministic support; add that adapter or keep criterion open.",
+      "dependencies": [
+        "G2-001",
+        "G2-002",
+        "G2-029"
+      ],
+      "engineConsumerOrGap": "Existing: advanceSimulation, seeded streams, pure preview functions, injected combat math RNG. Gap: isolated runner/report/knowledge access, complete native RNG adapters and prediction invalidation.",
+      "acceptanceCases": [
+        "Real-seed supported advance equals projection",
+        "alter policy and record first divergence",
+        "many fresh seeds produce distribution",
+        "sight learns otherwise-unknown in-scope fact in play",
+        "external reports do not leak it."
+      ],
+      "remaining": [
+        "Select finite world/card revision and local rules.",
+        "Freeze exact interface/files with shared-engine integrator.",
+        "Implement only under runtime assignment; rebuild/fresh-origin native proof and relevant old-save/save/reload/import remain open."
+      ],
+      "disposition": "expanded-proposal; pending-world-selection",
+      "functionalCard": {
+        "acquisition": "Per-world origin, in-play earned/found/taught/transferred route, or qualified random-start initializer; no universal Frontier gate.",
+        "functionAndScope": "Guess, probabilities, projection, vision, prophecy and actual-future sight deliver distinct promised information.",
+        "growthAndVariants": "Freeze question, policy, state revision, horizon, truth reach and seed streams. Model outputs carry fidelity boundaries; actual sight accesses the represented future at its actual scope and can legitimately discover sealed truths in play. Do not downgrade actual sight because a native subsystem lacks deterministic support; add that adapter or keep criterion open.",
+        "executionAndInteractions": "Real-seed supported advance equals projection; alter policy and record first divergence; many fresh seeds produce distribution; sight learns otherwise-unknown in-scope fact in play; external reports do not leak it.",
+        "backingAndSupport": "Record actual carrier/source/body/fuel/authority per selected variant; no mandatory cost or weakness.",
+        "otherActors": "Same selected function; knowledge and access depend on held means, not actor tag.",
+        "retentionAndCompatibility": "Join G2-026 and G4 domains; retention criterion includes actual consumer and source support.",
+        "presentationAndPersistence": "Join G2-028/G2-029; unknown truths use opaque IDs and in-play routes."
+      }
+    },
+    {
+      "id": "G2-008",
+      "key": "simulator",
+      "title": "Life simulators and outcome selection",
+      "sections": [
+        "S02",
+        "S07",
+        "S09",
+        "S11",
+        "S12",
+        "S14"
+      ],
+      "sourceRefs": [
+        {
+          "path": "docs/SIMULATORS_AND_CHEAT_IMPLEMENTATION.md",
+          "locator": "Three simulation engines; Simulation modes; SA1-SA19"
+        }
+      ],
+      "criterion": "Each simulator mode executes its selected fidelity, subject, control and settlement rather than a relabeled forecast.",
+      "proposedExpansion": "Dream/headless/spread/probe/forecast/rehearsal/shadow run through one request/report contract. Retain SA1-SA19 independently: runner, beneficiary, clock, starts, finish condition, ruleset and reward source. Outcome selection materializes the chosen branch when promised; report-only simulations discard it. Delegated runners keep actual goals, knowledge and negotiated reward split.",
+      "dependencies": [
+        "G2-001",
+        "G2-002",
+        "G2-029"
+      ],
+      "engineConsumerOrGap": "Existing: advanceSimulation returns stoppedAtChoice, remaining and budgetExhausted with a boundary cap. Gap: isolated all-owner fixture, runner policy, worker/time slicing, settlement identity and full-native adapters.",
+      "acceptanceCases": [
+        "Real envelope hash unchanged during fork",
+        "cancelled job publishes no reward",
+        "branch commit carries correct people/items/claims",
+        "runner and owner get declared different settlement",
+        "nested query terminates without invented false answer."
+      ],
+      "remaining": [
+        "Select finite world/card revision and local rules.",
+        "Freeze exact interface/files with shared-engine integrator.",
+        "Implement only under runtime assignment; rebuild/fresh-origin native proof and relevant old-save/save/reload/import remain open."
+      ],
+      "disposition": "expanded-proposal; pending-world-selection",
+      "functionalCard": {
+        "acquisition": "Per-world origin, in-play earned/found/taught/transferred route, or qualified random-start initializer; no universal Frontier gate.",
+        "functionAndScope": "Each simulator mode executes its selected fidelity, subject, control and settlement rather than a relabeled forecast.",
+        "growthAndVariants": "Dream/headless/spread/probe/forecast/rehearsal/shadow run through one request/report contract. Retain SA1-SA19 independently: runner, beneficiary, clock, starts, finish condition, ruleset and reward source. Outcome selection materializes the chosen branch when promised; report-only simulations discard it. Delegated runners keep actual goals, knowledge and negotiated reward split.",
+        "executionAndInteractions": "Real envelope hash unchanged during fork; cancelled job publishes no reward; branch commit carries correct people/items/claims; runner and owner get declared different settlement; nested query terminates without invented false answer.",
+        "backingAndSupport": "Record actual carrier/source/body/fuel/authority per selected variant; no mandatory cost or weakness.",
+        "otherActors": "Same selected function; knowledge and access depend on held means, not actor tag.",
+        "retentionAndCompatibility": "Join G2-026 and G4 domains; retention criterion includes actual consumer and source support.",
+        "presentationAndPersistence": "Join G2-028/G2-029; unknown truths use opaque IDs and in-play routes."
+      }
+    },
+    {
+      "id": "G2-009",
+      "key": "talent",
+      "title": "Talent lottery, accumulators and generated rewards",
+      "sections": [
+        "S07",
+        "S09",
+        "S14"
+      ],
+      "sourceRefs": [
+        {
+          "path": "docs/SIMULATORS_AND_CHEAT_IMPLEMENTATION.md",
+          "locator": "Talent generation T1-T50; SA reward axes"
+        }
+      ],
+      "criterion": "A reward follows the selected deed/odds/calendar/achievement mechanism with functioning effects.",
+      "proposedExpansion": "Separate action-themed draws, pure-luck draws, accumulation banks, staged pools, doubling prices, pity, chosen candidates, innate traits, copied racial traits and run-only equips. Every generated entry names a supported handler, provenance and actual beneficiary. Curses or jokes cannot replace a promised good reward unless that variant was selected.",
+      "dependencies": [
+        "G2-001",
+        "G2-002",
+        "G2-029"
+      ],
+      "engineConsumerOrGap": "Existing: roll tables and event pity, source/faculty and progression. Gap: reward generator/settlement owner, roll-table pity if selected, slot/loadout adapter only for slot-bearing variants.",
+      "acceptanceCases": [
+        "Same saved result survives reload",
+        "quiet-life theme has eligible output",
+        "current versus simulated realm uses selected authority",
+        "duplicate can upgrade or remain distinct",
+        "changed clock",
+        "held versus equipped changes actual effect."
+      ],
+      "remaining": [
+        "Select finite world/card revision and local rules.",
+        "Freeze exact interface/files with shared-engine integrator.",
+        "Implement only under runtime assignment; rebuild/fresh-origin native proof and relevant old-save/save/reload/import remain open."
+      ],
+      "disposition": "expanded-proposal; pending-world-selection",
+      "functionalCard": {
+        "acquisition": "Per-world origin, in-play earned/found/taught/transferred route, or qualified random-start initializer; no universal Frontier gate.",
+        "functionAndScope": "A reward follows the selected deed/odds/calendar/achievement mechanism with functioning effects.",
+        "growthAndVariants": "Separate action-themed draws, pure-luck draws, accumulation banks, staged pools, doubling prices, pity, chosen candidates, innate traits, copied racial traits and run-only equips. Every generated entry names a supported handler, provenance and actual beneficiary. Curses or jokes cannot replace a promised good reward unless that variant was selected.",
+        "executionAndInteractions": "Same saved result survives reload; quiet-life theme has eligible output; current versus simulated realm uses selected authority; duplicate can upgrade or remain distinct; changed clock; held versus equipped changes actual effect.",
+        "backingAndSupport": "Record actual carrier/source/body/fuel/authority per selected variant; no mandatory cost or weakness.",
+        "otherActors": "Same selected function; knowledge and access depend on held means, not actor tag.",
+        "retentionAndCompatibility": "Join G2-026 and G4 domains; retention criterion includes actual consumer and source support.",
+        "presentationAndPersistence": "Join G2-028/G2-029; unknown truths use opaque IDs and in-play routes."
+      }
+    },
+    {
+      "id": "G2-010",
+      "key": "growth",
+      "title": "Growth, levels, scales and mastery",
+      "sections": [
+        "S01",
+        "S07",
+        "S09",
+        "S14"
+      ],
+      "sourceRefs": [
+        {
+          "path": "docs/SKILLS_AND_TALENTS.md",
+          "locator": "G1-G40; L1-L23; S1-S14"
+        }
+      ],
+      "criterion": "Each represented growth model and displayed scale changes the correct operation rather than assuming universal XP or power.",
+      "proposedExpansion": "Retain all 40 growth models, 23 level meanings and 14 scale shapes as local variants. Separate competence, output, permission, capacity, age, debt, recognition and physical measurement. Apply selected overflow, loss, reset, deferred class, office succession, blocked domain, single-channel and delegation rules to actual consumers. Fixed powers may deepen through use without acquiring fake levels.",
+      "dependencies": [
+        "G2-001",
+        "G2-002",
+        "G2-029"
+      ],
+      "engineConsumerOrGap": "Existing: native Skill.add_xp, simulation progression/advancements and five power models. Gap: local level semantics and selected growth adapters plus numeric scale representation.",
+      "acceptanceCases": [
+        "Compare equal displayed levels with different real functions",
+        "office successor resets tenure only",
+        "use XP does not mint debt",
+        "no-growth power retains function",
+        "harvested growth leaves actual owner",
+        "cross-world conversion is explicit."
+      ],
+      "remaining": [
+        "Select finite world/card revision and local rules.",
+        "Freeze exact interface/files with shared-engine integrator.",
+        "Implement only under runtime assignment; rebuild/fresh-origin native proof and relevant old-save/save/reload/import remain open."
+      ],
+      "disposition": "expanded-proposal; pending-world-selection",
+      "functionalCard": {
+        "acquisition": "Per-world origin, in-play earned/found/taught/transferred route, or qualified random-start initializer; no universal Frontier gate.",
+        "functionAndScope": "Each represented growth model and displayed scale changes the correct operation rather than assuming universal XP or power.",
+        "growthAndVariants": "Retain all 40 growth models, 23 level meanings and 14 scale shapes as local variants. Separate competence, output, permission, capacity, age, debt, recognition and physical measurement. Apply selected overflow, loss, reset, deferred class, office succession, blocked domain, single-channel and delegation rules to actual consumers. Fixed powers may deepen through use without acquiring fake levels.",
+        "executionAndInteractions": "Compare equal displayed levels with different real functions; office successor resets tenure only; use XP does not mint debt; no-growth power retains function; harvested growth leaves actual owner; cross-world conversion is explicit.",
+        "backingAndSupport": "Record actual carrier/source/body/fuel/authority per selected variant; no mandatory cost or weakness.",
+        "otherActors": "Same selected function; knowledge and access depend on held means, not actor tag.",
+        "retentionAndCompatibility": "Join G2-026 and G4 domains; retention criterion includes actual consumer and source support.",
+        "presentationAndPersistence": "Join G2-028/G2-029; unknown truths use opaque IDs and in-play routes."
+      }
+    },
+    {
+      "id": "G2-011",
+      "key": "ordinary",
+      "title": "Ordinary skills remain useful at the top",
+      "sections": [
+        "S04",
+        "S05",
+        "S06",
+        "S07",
+        "S09"
+      ],
+      "sourceRefs": [
+        {
+          "path": "docs/SKILLS_AND_TALENTS.md",
+          "locator": "Bottom/middle/top; Little stuff"
+        }
+      ],
+      "criterion": "A humble skill has actual ongoing uses and selectable deepened functions without arbitrary weakness added to superior powers.",
+      "proposedExpansion": "Keep mundane yield, assessment, maintenance, teaching, expression and cooperation useful because their consumers exist. Add taught/invented branches with real operations: technique equipment/material preparation, anatomy-specific medical care, provenance assessment or exact precision work. If a superior cheat also handles those jobs, it really does; remaining ordinary play is optional.",
+      "dependencies": [
+        "G2-001",
+        "G2-002",
+        "G2-029"
+      ],
+      "engineConsumerOrGap": "Existing: skill_expansion_content catalogue and native XP/method mastery/stock joins; D1 owners read-only. Gap: selected local late-game consumers and cross-body skill eligibility.",
+      "acceptanceCases": [
+        "Same skill solves modest and advanced craft",
+        "mastery changes quality/precision/eligible object",
+        "injury changes supported action",
+        "teacher changes method",
+        "superior variant fully succeeds",
+        "late world has actual mundane demand."
+      ],
+      "remaining": [
+        "Select finite world/card revision and local rules.",
+        "Freeze exact interface/files with shared-engine integrator.",
+        "Implement only under runtime assignment; rebuild/fresh-origin native proof and relevant old-save/save/reload/import remain open."
+      ],
+      "disposition": "expanded-proposal; pending-world-selection",
+      "functionalCard": {
+        "acquisition": "Per-world origin, in-play earned/found/taught/transferred route, or qualified random-start initializer; no universal Frontier gate.",
+        "functionAndScope": "A humble skill has actual ongoing uses and selectable deepened functions without arbitrary weakness added to superior powers.",
+        "growthAndVariants": "Keep mundane yield, assessment, maintenance, teaching, expression and cooperation useful because their consumers exist. Add taught/invented branches with real operations: technique equipment/material preparation, anatomy-specific medical care, provenance assessment or exact precision work. If a superior cheat also handles those jobs, it really does; remaining ordinary play is optional.",
+        "executionAndInteractions": "Same skill solves modest and advanced craft; mastery changes quality/precision/eligible object; injury changes supported action; teacher changes method; superior variant fully succeeds; late world has actual mundane demand.",
+        "backingAndSupport": "Record actual carrier/source/body/fuel/authority per selected variant; no mandatory cost or weakness.",
+        "otherActors": "Same selected function; knowledge and access depend on held means, not actor tag.",
+        "retentionAndCompatibility": "Join G2-026 and G4 domains; retention criterion includes actual consumer and source support.",
+        "presentationAndPersistence": "Join G2-028/G2-029; unknown truths use opaque IDs and in-play routes."
+      }
+    },
+    {
+      "id": "G2-012",
+      "key": "quest-system",
+      "title": "Held systems, quests, shops and playable system entities",
+      "sections": [
+        "S02",
+        "S04",
+        "S05",
+        "S07",
+        "S10",
+        "S14"
+      ],
+      "sourceRefs": [
+        {
+          "path": "docs/CHEAT_LIBRARY.md",
+          "locator": "System with quests; Parasite system"
+        }
+      ],
+      "criterion": "Host and system have separate agency, knowledge, power supply and actual reward transactions.",
+      "proposedExpansion": "Host can accept/refuse where that system permits; system entity can issue/supply missions, negotiate rewards, observe through its channels and develop separately. Parasite, benefactor, con, trapped/throttled fragment and liberated system remain distinct premises; malicious edits are actual effects with source-based scope. Shops transact inventory/currency with provenance and actual offered supply.",
+      "dependencies": [
+        "G2-001",
+        "G2-002",
+        "G2-029"
+      ],
+      "engineConsumerOrGap": "Existing: people, jobs, events, resources, knowledge and paid commands. Gap: system/host identity, quest/currency/catalog owner and playable system native controls.",
+      "acceptanceCases": [
+        "Guide host using held channels",
+        "hidden intent stays hidden",
+        "quest deadline/loss and duplicate claim",
+        "shop purchase appears in authoritative owner",
+        "disconnect only borrowed execution",
+        "permanently taught skill remains."
+      ],
+      "remaining": [
+        "Select finite world/card revision and local rules.",
+        "Freeze exact interface/files with shared-engine integrator.",
+        "Implement only under runtime assignment; rebuild/fresh-origin native proof and relevant old-save/save/reload/import remain open."
+      ],
+      "disposition": "expanded-proposal; pending-world-selection",
+      "functionalCard": {
+        "acquisition": "Per-world origin, in-play earned/found/taught/transferred route, or qualified random-start initializer; no universal Frontier gate.",
+        "functionAndScope": "Host and system have separate agency, knowledge, power supply and actual reward transactions.",
+        "growthAndVariants": "Host can accept/refuse where that system permits; system entity can issue/supply missions, negotiate rewards, observe through its channels and develop separately. Parasite, benefactor, con, trapped/throttled fragment and liberated system remain distinct premises; malicious edits are actual effects with source-based scope. Shops transact inventory/currency with provenance and actual offered supply.",
+        "executionAndInteractions": "Guide host using held channels; hidden intent stays hidden; quest deadline/loss and duplicate claim; shop purchase appears in authoritative owner; disconnect only borrowed execution; permanently taught skill remains.",
+        "backingAndSupport": "Record actual carrier/source/body/fuel/authority per selected variant; no mandatory cost or weakness.",
+        "otherActors": "Same selected function; knowledge and access depend on held means, not actor tag.",
+        "retentionAndCompatibility": "Join G2-026 and G4 domains; retention criterion includes actual consumer and source support.",
+        "presentationAndPersistence": "Join G2-028/G2-029; unknown truths use opaque IDs and in-play routes."
+      }
+    },
+    {
+      "id": "G2-013",
+      "key": "periodic",
+      "title": "Sign-in, daily intelligence and choice rewards",
+      "sections": [
+        "S03",
+        "S07",
+        "S09",
+        "S11",
+        "S14"
+      ],
+      "sourceRefs": [
+        {
+          "path": "docs/CHEAT_LIBRARY.md",
+          "locator": "Sign-in and daily rewards"
+        }
+      ],
+      "criterion": "A qualifying visit/day/choice generates its actual selected reward at the declared clock boundary.",
+      "proposedExpansion": "Separate place, person, era and repeated-place policies; streak/lifetime reward, free reward, random draw, guaranteed intelligence and choice-trigger cards. Information reward has its own truth channel and relevance; not every visit requires danger. World travel and resets follow clock and entitlement decisions.",
+      "dependencies": [
+        "G2-001",
+        "G2-002",
+        "G2-029"
+      ],
+      "engineConsumerOrGap": "Existing: common boundary, claims and roll tables. Gap: periodic entitlement calendar/streak and intelligence generator/filter.",
+      "acceptanceCases": [
+        "Visit qualifying versus nonqualifying place",
+        "preview grants nothing",
+        "reload keeps claim",
+        "travel across clocks",
+        "choice reward without invented quest",
+        "daily intel reveals useful supported information."
+      ],
+      "remaining": [
+        "Select finite world/card revision and local rules.",
+        "Freeze exact interface/files with shared-engine integrator.",
+        "Implement only under runtime assignment; rebuild/fresh-origin native proof and relevant old-save/save/reload/import remain open."
+      ],
+      "disposition": "expanded-proposal; pending-world-selection",
+      "functionalCard": {
+        "acquisition": "Per-world origin, in-play earned/found/taught/transferred route, or qualified random-start initializer; no universal Frontier gate.",
+        "functionAndScope": "A qualifying visit/day/choice generates its actual selected reward at the declared clock boundary.",
+        "growthAndVariants": "Separate place, person, era and repeated-place policies; streak/lifetime reward, free reward, random draw, guaranteed intelligence and choice-trigger cards. Information reward has its own truth channel and relevance; not every visit requires danger. World travel and resets follow clock and entitlement decisions.",
+        "executionAndInteractions": "Visit qualifying versus nonqualifying place; preview grants nothing; reload keeps claim; travel across clocks; choice reward without invented quest; daily intel reveals useful supported information.",
+        "backingAndSupport": "Record actual carrier/source/body/fuel/authority per selected variant; no mandatory cost or weakness.",
+        "otherActors": "Same selected function; knowledge and access depend on held means, not actor tag.",
+        "retentionAndCompatibility": "Join G2-026 and G4 domains; retention criterion includes actual consumer and source support.",
+        "presentationAndPersistence": "Join G2-028/G2-029; unknown truths use opaque IDs and in-play routes."
+      }
+    },
+    {
+      "id": "G2-014",
+      "key": "returns",
+      "title": "Multiplier returns, disciples and follower power",
+      "sections": [
+        "S04",
+        "S05",
+        "S07",
+        "S14"
+      ],
+      "sourceRefs": [
+        {
+          "path": "docs/CHEAT_LIBRARY.md",
+          "locator": "Multiplier return; Follower power; Instant teaching"
+        }
+      ],
+      "criterion": "Gift, teaching or follower growth yields the actual multiplied return promised by its card.",
+      "proposedExpansion": "Preserve explicit self-gift-allowed and self-gift-excluded variants rather than importing one anti-abuse law. Recipient acceptance, giver property, bestowal output and returned resource have local rules. Teaching may transfer mastery instantly. Followers remain people; actual changed wealth/knowledge feeds their projects and regional supply.",
+      "dependencies": [
+        "G2-001",
+        "G2-002",
+        "G2-029"
+      ],
+      "engineConsumerOrGap": "Existing: transfer/custody, knowledge/power copy, relationships and typed resource effects. Gap: gift/teach semantic event and multiplier settlement/cause owner.",
+      "acceptanceCases": [
+        "Gift item transfers once then return multiplies actual promised type",
+        "recipient refusal if relevant",
+        "exceptionless self gift works",
+        "disciple progress return uses real growth cause",
+        "save failure cannot half-transfer gift."
+      ],
+      "remaining": [
+        "Select finite world/card revision and local rules.",
+        "Freeze exact interface/files with shared-engine integrator.",
+        "Implement only under runtime assignment; rebuild/fresh-origin native proof and relevant old-save/save/reload/import remain open."
+      ],
+      "disposition": "expanded-proposal; pending-world-selection",
+      "functionalCard": {
+        "acquisition": "Per-world origin, in-play earned/found/taught/transferred route, or qualified random-start initializer; no universal Frontier gate.",
+        "functionAndScope": "Gift, teaching or follower growth yields the actual multiplied return promised by its card.",
+        "growthAndVariants": "Preserve explicit self-gift-allowed and self-gift-excluded variants rather than importing one anti-abuse law. Recipient acceptance, giver property, bestowal output and returned resource have local rules. Teaching may transfer mastery instantly. Followers remain people; actual changed wealth/knowledge feeds their projects and regional supply.",
+        "executionAndInteractions": "Gift item transfers once then return multiplies actual promised type; recipient refusal if relevant; exceptionless self gift works; disciple progress return uses real growth cause; save failure cannot half-transfer gift.",
+        "backingAndSupport": "Record actual carrier/source/body/fuel/authority per selected variant; no mandatory cost or weakness.",
+        "otherActors": "Same selected function; knowledge and access depend on held means, not actor tag.",
+        "retentionAndCompatibility": "Join G2-026 and G4 domains; retention criterion includes actual consumer and source support.",
+        "presentationAndPersistence": "Join G2-028/G2-029; unknown truths use opaque IDs and in-play routes."
+      }
+    },
+    {
+      "id": "G2-015",
+      "key": "absolute",
+      "title": "Absolute knacks, stealth, perfect comprehension and perfect crafting",
+      "sections": [
+        "S05",
+        "S06",
+        "S07",
+        "S09",
+        "S14"
+      ],
+      "sourceRefs": [
+        {
+          "path": "docs/CHEAT_LIBRARY.md",
+          "locator": "Absolute knack; Notice-me-not; Perfect crafting"
+        }
+      ],
+      "criterion": "Selected absolute wording holds on every target and circumstance within its scope, including exceptionless variants.",
+      "proposedExpansion": "Store operational predicate/effect scope rather than only a numeric bonus. Never lost resolves navigation; notice-me-not changes actual eligible attention; comprehension supplies declared understanding/mastery; perfect craft yields actual valid quality/output. Reconcile each with actual target laws rather than adding hidden tolls, dormancy or forced scarcity.",
+      "dependencies": [
+        "G2-001",
+        "G2-002",
+        "G2-029"
+      ],
+      "engineConsumerOrGap": "Existing: capabilities are positive numeric provenance, command predicates/effects. Gap: exact functional adapters for selected absolute promise and native consumer use.",
+      "acceptanceCases": [
+        "Absolute pathfinding works where ordinary map fails",
+        "observers ignore when promised",
+        "instant perfect method executes with included support",
+        "perfect craft cannot fail for fabricated balancing reason",
+        "world economy responds to production."
+      ],
+      "remaining": [
+        "Select finite world/card revision and local rules.",
+        "Freeze exact interface/files with shared-engine integrator.",
+        "Implement only under runtime assignment; rebuild/fresh-origin native proof and relevant old-save/save/reload/import remain open."
+      ],
+      "disposition": "expanded-proposal; pending-world-selection",
+      "functionalCard": {
+        "acquisition": "Per-world origin, in-play earned/found/taught/transferred route, or qualified random-start initializer; no universal Frontier gate.",
+        "functionAndScope": "Selected absolute wording holds on every target and circumstance within its scope, including exceptionless variants.",
+        "growthAndVariants": "Store operational predicate/effect scope rather than only a numeric bonus. Never lost resolves navigation; notice-me-not changes actual eligible attention; comprehension supplies declared understanding/mastery; perfect craft yields actual valid quality/output. Reconcile each with actual target laws rather than adding hidden tolls, dormancy or forced scarcity.",
+        "executionAndInteractions": "Absolute pathfinding works where ordinary map fails; observers ignore when promised; instant perfect method executes with included support; perfect craft cannot fail for fabricated balancing reason; world economy responds to production.",
+        "backingAndSupport": "Record actual carrier/source/body/fuel/authority per selected variant; no mandatory cost or weakness.",
+        "otherActors": "Same selected function; knowledge and access depend on held means, not actor tag.",
+        "retentionAndCompatibility": "Join G2-026 and G4 domains; retention criterion includes actual consumer and source support.",
+        "presentationAndPersistence": "Join G2-028/G2-029; unknown truths use opaque IDs and in-play routes."
+      }
+    },
+    {
+      "id": "G2-016",
+      "key": "storage",
+      "title": "Storage, pocket worlds, territory and owned reality",
+      "sections": [
+        "S03",
+        "S05",
+        "S06",
+        "S07",
+        "S12",
+        "S14"
+      ],
+      "sourceRefs": [
+        {
+          "path": "docs/CHEAT_LIBRARY.md",
+          "locator": "Storage and space; Building or territory; Pocket world"
+        }
+      ],
+      "criterion": "Stored contents and owned-world residents retain their actual identities and rules through entry, retrieval and growth.",
+      "proposedExpansion": "Separate time-stopped inventory, living refuge, farm, territory-linked authority, personal universe, owner unaware of authority and rule-edited region. Capacity can be unlimited where selected. Item custody, installed devices, residents, material flow and clock follow actual carrier. Building effects affect named native consumers; mere land claim is not omnipotence.",
+      "dependencies": [
+        "G2-001",
+        "G2-002",
+        "G2-029"
+      ],
+      "engineConsumerOrGap": "Existing: inventory/custody/sites/worlds/carriers. Gap: carrier-container nesting, inhabitant/space instance and actual territory effect consumers.",
+      "acceptanceCases": [
+        "Store/retrieve unique item",
+        "resident enters/ages under local policy",
+        "revoke residence versus ownership",
+        "move building/cargo",
+        "return to same pocket history",
+        "infinite capacity uses finite address records."
+      ],
+      "remaining": [
+        "Select finite world/card revision and local rules.",
+        "Freeze exact interface/files with shared-engine integrator.",
+        "Implement only under runtime assignment; rebuild/fresh-origin native proof and relevant old-save/save/reload/import remain open."
+      ],
+      "disposition": "expanded-proposal; pending-world-selection",
+      "functionalCard": {
+        "acquisition": "Per-world origin, in-play earned/found/taught/transferred route, or qualified random-start initializer; no universal Frontier gate.",
+        "functionAndScope": "Stored contents and owned-world residents retain their actual identities and rules through entry, retrieval and growth.",
+        "growthAndVariants": "Separate time-stopped inventory, living refuge, farm, territory-linked authority, personal universe, owner unaware of authority and rule-edited region. Capacity can be unlimited where selected. Item custody, installed devices, residents, material flow and clock follow actual carrier. Building effects affect named native consumers; mere land claim is not omnipotence.",
+        "executionAndInteractions": "Store/retrieve unique item; resident enters/ages under local policy; revoke residence versus ownership; move building/cargo; return to same pocket history; infinite capacity uses finite address records.",
+        "backingAndSupport": "Record actual carrier/source/body/fuel/authority per selected variant; no mandatory cost or weakness.",
+        "otherActors": "Same selected function; knowledge and access depend on held means, not actor tag.",
+        "retentionAndCompatibility": "Join G2-026 and G4 domains; retention criterion includes actual consumer and source support.",
+        "presentationAndPersistence": "Join G2-028/G2-029; unknown truths use opaque IDs and in-play routes."
+      }
+    },
+    {
+      "id": "G2-017",
+      "key": "duplication",
+      "title": "Duplication and perfect production",
+      "sections": [
+        "S05",
+        "S06",
+        "S07",
+        "S14"
+      ],
+      "sourceRefs": [
+        {
+          "path": "docs/CHEAT_LIBRARY.md",
+          "locator": "Duplication; Perfect crafting"
+        }
+      ],
+      "criterion": "Duplication creates the exact permitted functional output and identity/bond consequences.",
+      "proposedExpansion": "Card names item/material/source/person eligibility and output count, quality, revision, memory and authority. Exact versus material-only versus template-derived copy differ. Unique copies may both function if promised; uniqueness is not an assumed nerf. Supply and distribution change because actual goods exist.",
+      "dependencies": [
+        "G2-001",
+        "G2-002",
+        "G2-029"
+      ],
+      "engineConsumerOrGap": "Existing: authoritative acquisition/item grants. Gap: item instance/provenance cloning, credential/bond lineage and functional duplicate consumers.",
+      "acceptanceCases": [
+        "Duplicate equipped/bound/consumable object",
+        "both copies work when specified",
+        "material copy lacks excluded credential",
+        "copy cannot inherit an already-settled transaction ID",
+        "save/reload inventory count and identity stable."
+      ],
+      "remaining": [
+        "Select finite world/card revision and local rules.",
+        "Freeze exact interface/files with shared-engine integrator.",
+        "Implement only under runtime assignment; rebuild/fresh-origin native proof and relevant old-save/save/reload/import remain open."
+      ],
+      "disposition": "expanded-proposal; pending-world-selection",
+      "functionalCard": {
+        "acquisition": "Per-world origin, in-play earned/found/taught/transferred route, or qualified random-start initializer; no universal Frontier gate.",
+        "functionAndScope": "Duplication creates the exact permitted functional output and identity/bond consequences.",
+        "growthAndVariants": "Card names item/material/source/person eligibility and output count, quality, revision, memory and authority. Exact versus material-only versus template-derived copy differ. Unique copies may both function if promised; uniqueness is not an assumed nerf. Supply and distribution change because actual goods exist.",
+        "executionAndInteractions": "Duplicate equipped/bound/consumable object; both copies work when specified; material copy lacks excluded credential; copy cannot inherit an already-settled transaction ID; save/reload inventory count and identity stable.",
+        "backingAndSupport": "Record actual carrier/source/body/fuel/authority per selected variant; no mandatory cost or weakness.",
+        "otherActors": "Same selected function; knowledge and access depend on held means, not actor tag.",
+        "retentionAndCompatibility": "Join G2-026 and G4 domains; retention criterion includes actual consumer and source support.",
+        "presentationAndPersistence": "Join G2-028/G2-029; unknown truths use opaque IDs and in-play routes."
+      }
+    },
+    {
+      "id": "G2-018",
+      "key": "minds-bodies",
+      "title": "Possession, swapping, shapeshifting and split carriers",
+      "sections": [
+        "S02",
+        "S04",
+        "S07",
+        "S09",
+        "S14"
+      ],
+      "sourceRefs": [
+        {
+          "path": "docs/CHEAT_LIBRARY.md",
+          "locator": "Body swap and possession; Shapeshift"
+        }
+      ],
+      "criterion": "Mind, body, power host, authority and stored memories move only according to the selected mechanism.",
+      "proposedExpansion": "Separate identity, consciousness container, controlled body, donor faculties, usable anatomy, legal recognition and carried possessions. Selected perfect transformation may replicate all faculties; partial mimicry only replicas what it promises. Host agency, occupied body, return route and actual relationships persist independently.",
+      "dependencies": [
+        "G2-001",
+        "G2-002",
+        "G2-029"
+      ],
+      "engineConsumerOrGap": "Existing: actors, body effects, sources, powers and custody. Gap: consciousness/body binding, control ownership and native body-stat/interaction remapping.",
+      "acceptanceCases": [
+        "Move mind without hosted power",
+        "full-copy transformation retains promised anatomy",
+        "two occupants/empty shell",
+        "return after changed custody",
+        "character knows only carried memories",
+        "native body controls use actual new form."
+      ],
+      "remaining": [
+        "Select finite world/card revision and local rules.",
+        "Freeze exact interface/files with shared-engine integrator.",
+        "Implement only under runtime assignment; rebuild/fresh-origin native proof and relevant old-save/save/reload/import remain open."
+      ],
+      "disposition": "expanded-proposal; pending-world-selection",
+      "functionalCard": {
+        "acquisition": "Per-world origin, in-play earned/found/taught/transferred route, or qualified random-start initializer; no universal Frontier gate.",
+        "functionAndScope": "Mind, body, power host, authority and stored memories move only according to the selected mechanism.",
+        "growthAndVariants": "Separate identity, consciousness container, controlled body, donor faculties, usable anatomy, legal recognition and carried possessions. Selected perfect transformation may replicate all faculties; partial mimicry only replicas what it promises. Host agency, occupied body, return route and actual relationships persist independently.",
+        "executionAndInteractions": "Move mind without hosted power; full-copy transformation retains promised anatomy; two occupants/empty shell; return after changed custody; character knows only carried memories; native body controls use actual new form.",
+        "backingAndSupport": "Record actual carrier/source/body/fuel/authority per selected variant; no mandatory cost or weakness.",
+        "otherActors": "Same selected function; knowledge and access depend on held means, not actor tag.",
+        "retentionAndCompatibility": "Join G2-026 and G4 domains; retention criterion includes actual consumer and source support.",
+        "presentationAndPersistence": "Join G2-028/G2-029; unknown truths use opaque IDs and in-play routes."
+      }
+    },
+    {
+      "id": "G2-019",
+      "key": "many-selves",
+      "title": "Clones, summons, heroic spirits and many selves",
+      "sections": [
+        "S04",
+        "S07",
+        "S08",
+        "S12",
+        "S14"
+      ],
+      "sourceRefs": [
+        {
+          "path": "docs/CHEAT_LIBRARY.md",
+          "locator": "Clones and many selves; Summon and army; Heroic spirit summoning"
+        }
+      ],
+      "criterion": "Each created or summoned actor performs real assigned actions with its selected command and retention scope.",
+      "proposedExpansion": "Separate independent person, commanded soldier, copied self, projected body and generated optimizer. Original consent/control/energy rules apply; unlimited army variant remains supported by aggregate/resumable execution without a hidden slot cap. Memory synchronization, beneficiary XP, simultaneous targets and death feedback are explicit per variant.",
+      "dependencies": [
+        "G2-001",
+        "G2-002",
+        "G2-029"
+      ],
+      "engineConsumerOrGap": "Existing: actors, people, controllers, party/jobs and selected native NPC equipment. Gap: controllable body roster and synchronization plus selected group combat adapters.",
+      "acceptanceCases": [
+        "Two bodies complete two different jobs",
+        "merge retains two actual receipts once",
+        "summon fights actual target",
+        "revoke command leaves person per local rule",
+        "no shared inventory duplication",
+        "free independent clone has no invented upkeep."
+      ],
+      "remaining": [
+        "Select finite world/card revision and local rules.",
+        "Freeze exact interface/files with shared-engine integrator.",
+        "Implement only under runtime assignment; rebuild/fresh-origin native proof and relevant old-save/save/reload/import remain open."
+      ],
+      "disposition": "expanded-proposal; pending-world-selection",
+      "functionalCard": {
+        "acquisition": "Per-world origin, in-play earned/found/taught/transferred route, or qualified random-start initializer; no universal Frontier gate.",
+        "functionAndScope": "Each created or summoned actor performs real assigned actions with its selected command and retention scope.",
+        "growthAndVariants": "Separate independent person, commanded soldier, copied self, projected body and generated optimizer. Original consent/control/energy rules apply; unlimited army variant remains supported by aggregate/resumable execution without a hidden slot cap. Memory synchronization, beneficiary XP, simultaneous targets and death feedback are explicit per variant.",
+        "executionAndInteractions": "Two bodies complete two different jobs; merge retains two actual receipts once; summon fights actual target; revoke command leaves person per local rule; no shared inventory duplication; free independent clone has no invented upkeep.",
+        "backingAndSupport": "Record actual carrier/source/body/fuel/authority per selected variant; no mandatory cost or weakness.",
+        "otherActors": "Same selected function; knowledge and access depend on held means, not actor tag.",
+        "retentionAndCompatibility": "Join G2-026 and G4 domains; retention criterion includes actual consumer and source support.",
+        "presentationAndPersistence": "Join G2-028/G2-029; unknown truths use opaque IDs and in-play routes."
+      }
+    },
+    {
+      "id": "G2-020",
+      "key": "spirits",
+      "title": "Resident spirits, companions and inheritance tests",
+      "sections": [
+        "S04",
+        "S07",
+        "S09",
+        "S10",
+        "S14"
+      ],
+      "sourceRefs": [
+        {
+          "path": "docs/CHEAT_LIBRARY.md",
+          "locator": "Companion or resident spirit; Inheritance system"
+        }
+      ],
+      "criterion": "A companion or legacy provider knows, teaches and acts through its actual held means and agency.",
+      "proposedExpansion": "Distinguish advice, archived personality, actual surviving mind, object-bound patron, technique persona and hosted ally. No generic feed/affinity cost unless card requires it. Test criteria grant real named legacy; false teachings can be verified later. Companion develops goals and supported new services, not repeated advice text.",
+      "dependencies": [
+        "G2-001",
+        "G2-002",
+        "G2-029"
+      ],
+      "engineConsumerOrGap": "Existing: people/knowledge/commands/dialogue and power transfers. Gap: selected residence/bond/legacy owner and companion authority/knowledge channels.",
+      "acceptanceCases": [
+        "Ask about unknown world and get supported response",
+        "teach real method",
+        "destroy/remove container",
+        "legacy claim once",
+        "voluntary refusal",
+        "companion with genuine foresight reveals in-scope future in play."
+      ],
+      "remaining": [
+        "Select finite world/card revision and local rules.",
+        "Freeze exact interface/files with shared-engine integrator.",
+        "Implement only under runtime assignment; rebuild/fresh-origin native proof and relevant old-save/save/reload/import remain open."
+      ],
+      "disposition": "expanded-proposal; pending-world-selection",
+      "functionalCard": {
+        "acquisition": "Per-world origin, in-play earned/found/taught/transferred route, or qualified random-start initializer; no universal Frontier gate.",
+        "functionAndScope": "A companion or legacy provider knows, teaches and acts through its actual held means and agency.",
+        "growthAndVariants": "Distinguish advice, archived personality, actual surviving mind, object-bound patron, technique persona and hosted ally. No generic feed/affinity cost unless card requires it. Test criteria grant real named legacy; false teachings can be verified later. Companion develops goals and supported new services, not repeated advice text.",
+        "executionAndInteractions": "Ask about unknown world and get supported response; teach real method; destroy/remove container; legacy claim once; voluntary refusal; companion with genuine foresight reveals in-scope future in play.",
+        "backingAndSupport": "Record actual carrier/source/body/fuel/authority per selected variant; no mandatory cost or weakness.",
+        "otherActors": "Same selected function; knowledge and access depend on held means, not actor tag.",
+        "retentionAndCompatibility": "Join G2-026 and G4 domains; retention criterion includes actual consumer and source support.",
+        "presentationAndPersistence": "Join G2-028/G2-029; unknown truths use opaque IDs and in-play routes."
+      }
+    },
+    {
+      "id": "G2-021",
+      "key": "edits",
+      "title": "Wishes, outcome edits, luck and incident direction",
+      "sections": [
+        "S01",
+        "S07",
+        "S09",
+        "S11",
+        "S14"
+      ],
+      "sourceRefs": [
+        {
+          "path": "docs/CHEAT_LIBRARY.md",
+          "locator": "Wish or edit; Fortune and fate; Loaded Dice; Fate Steward"
+        }
+      ],
+      "criterion": "A selected edit changes exactly the declared probability, result, causal fact or rule and survives publication.",
+      "proposedExpansion": "Distinguish weight shift, guaranteed outcome, incident scheduling, stealing fortune, protected outcome, wish execution, cause edit and rule replacement. Exact predicates and term interpreter keep wording and authority separate. An exceptionless wish can accomplish its scope; no hidden payer invented. Changes propagate into actual aftermath via G4.",
+      "dependencies": [
+        "G2-001",
+        "G2-002",
+        "G2-029"
+      ],
+      "engineConsumerOrGap": "Existing: roll tables/events/resource and fact effects. Gap: per-roll override owner, selected causal edit and world-law/native resolver adapters.",
+      "acceptanceCases": [
+        "Weights differ from forced result",
+        "100% guarantee succeeds",
+        "edit selected fact changes dependent event",
+        "incompatible simultaneous edits use authored ordering",
+        "preview does not draw",
+        "records match committed result."
+      ],
+      "remaining": [
+        "Select finite world/card revision and local rules.",
+        "Freeze exact interface/files with shared-engine integrator.",
+        "Implement only under runtime assignment; rebuild/fresh-origin native proof and relevant old-save/save/reload/import remain open."
+      ],
+      "disposition": "expanded-proposal; pending-world-selection",
+      "functionalCard": {
+        "acquisition": "Per-world origin, in-play earned/found/taught/transferred route, or qualified random-start initializer; no universal Frontier gate.",
+        "functionAndScope": "A selected edit changes exactly the declared probability, result, causal fact or rule and survives publication.",
+        "growthAndVariants": "Distinguish weight shift, guaranteed outcome, incident scheduling, stealing fortune, protected outcome, wish execution, cause edit and rule replacement. Exact predicates and term interpreter keep wording and authority separate. An exceptionless wish can accomplish its scope; no hidden payer invented. Changes propagate into actual aftermath via G4.",
+        "executionAndInteractions": "Weights differ from forced result; 100% guarantee succeeds; edit selected fact changes dependent event; incompatible simultaneous edits use authored ordering; preview does not draw; records match committed result.",
+        "backingAndSupport": "Record actual carrier/source/body/fuel/authority per selected variant; no mandatory cost or weakness.",
+        "otherActors": "Same selected function; knowledge and access depend on held means, not actor tag.",
+        "retentionAndCompatibility": "Join G2-026 and G4 domains; retention criterion includes actual consumer and source support.",
+        "presentationAndPersistence": "Join G2-028/G2-029; unknown truths use opaque IDs and in-play routes."
+      }
+    },
+    {
+      "id": "G2-022",
+      "key": "contracts",
+      "title": "Contracts, debts, karma, vows and authority",
+      "sections": [
+        "S04",
+        "S05",
+        "S07",
+        "S09",
+        "S14"
+      ],
+      "sourceRefs": [
+        {
+          "path": "docs/CHEAT_COSMOLOGY.md",
+          "locator": "Patron gifts; verse equalization; names"
+        }
+      ],
+      "criterion": "A contract or authority executes its actual terms without confusing payment, permission, anatomy or social rule.",
+      "proposedExpansion": "Classify self-vow/mutual pact/activation gate/innate constraint/body toll/ritual/institution/imposed law. Keep issuer interpretation, targets, fee timing, reserve, debt repayment, breach and recognized jurisdiction. Patron gift cannot be revoked by patron when irrevocable; third-party theft remains a distinct power. Karma measurement is an authored institution/rule, not universal morality.",
+      "dependencies": [
+        "G2-001",
+        "G2-002",
+        "G2-029"
+      ],
+      "engineConsumerOrGap": "Existing: power authority model, custody/claim/resources and selected agreements. Gap: term interpreter, accrued obligation/debt owner and revocation/authority entitlement transaction.",
+      "acceptanceCases": [
+        "Paid sacrifice not refunded on breach",
+        "failed activation not vow breach",
+        "loan revoked stops supply while gift stays",
+        "stolen bound item lacks credential",
+        "named contract recognition versus executable authority",
+        "future loan changes actual later holdings."
+      ],
+      "remaining": [
+        "Select finite world/card revision and local rules.",
+        "Freeze exact interface/files with shared-engine integrator.",
+        "Implement only under runtime assignment; rebuild/fresh-origin native proof and relevant old-save/save/reload/import remain open."
+      ],
+      "disposition": "expanded-proposal; pending-world-selection",
+      "functionalCard": {
+        "acquisition": "Per-world origin, in-play earned/found/taught/transferred route, or qualified random-start initializer; no universal Frontier gate.",
+        "functionAndScope": "A contract or authority executes its actual terms without confusing payment, permission, anatomy or social rule.",
+        "growthAndVariants": "Classify self-vow/mutual pact/activation gate/innate constraint/body toll/ritual/institution/imposed law. Keep issuer interpretation, targets, fee timing, reserve, debt repayment, breach and recognized jurisdiction. Patron gift cannot be revoked by patron when irrevocable; third-party theft remains a distinct power. Karma measurement is an authored institution/rule, not universal morality.",
+        "executionAndInteractions": "Paid sacrifice not refunded on breach; failed activation not vow breach; loan revoked stops supply while gift stays; stolen bound item lacks credential; named contract recognition versus executable authority; future loan changes actual later holdings.",
+        "backingAndSupport": "Record actual carrier/source/body/fuel/authority per selected variant; no mandatory cost or weakness.",
+        "otherActors": "Same selected function; knowledge and access depend on held means, not actor tag.",
+        "retentionAndCompatibility": "Join G2-026 and G4 domains; retention criterion includes actual consumer and source support.",
+        "presentationAndPersistence": "Join G2-028/G2-029; unknown truths use opaque IDs and in-play routes."
+      }
+    },
+    {
+      "id": "G2-023",
+      "key": "names-titles",
+      "title": "Names, titles, achievements, memory and recognition",
+      "sections": [
+        "S04",
+        "S07",
+        "S09",
+        "S10",
+        "S14"
+      ],
+      "sourceRefs": [
+        {
+          "path": "docs/CHEAT_COSMOLOGY.md",
+          "locator": "Names as an axis"
+        }
+      ],
+      "criterion": "Recognition, remembered identity and supernatural name authority have distinct actual consequences.",
+      "proposedExpansion": "Track registered/given/true/honorific/remembered/magic/hidden names only where applicable. Name/read/give/eat/force/call/change/hide/restore has actual target and knowledge scope. Title effects, social title, deed evidence and repeat reward separate. A forgotten person keeps faculties unless the specific name attack also removes them.",
+      "dependencies": [
+        "G2-001",
+        "G2-002",
+        "G2-029"
+      ],
+      "engineConsumerOrGap": "Existing: simulation title effects, knowledge, relationships and source grants. Gap: name identity/recognition channels and selected semantic name effect adapters.",
+      "acceptanceCases": [
+        "Rename does not duplicate achievement",
+        "forgotten actor retains real skill",
+        "call authorized bearer through name",
+        "given name grants bond without implied domination",
+        "memory restoration changes relationship knowledge without minting history."
+      ],
+      "remaining": [
+        "Select finite world/card revision and local rules.",
+        "Freeze exact interface/files with shared-engine integrator.",
+        "Implement only under runtime assignment; rebuild/fresh-origin native proof and relevant old-save/save/reload/import remain open."
+      ],
+      "disposition": "expanded-proposal; pending-world-selection",
+      "functionalCard": {
+        "acquisition": "Per-world origin, in-play earned/found/taught/transferred route, or qualified random-start initializer; no universal Frontier gate.",
+        "functionAndScope": "Recognition, remembered identity and supernatural name authority have distinct actual consequences.",
+        "growthAndVariants": "Track registered/given/true/honorific/remembered/magic/hidden names only where applicable. Name/read/give/eat/force/call/change/hide/restore has actual target and knowledge scope. Title effects, social title, deed evidence and repeat reward separate. A forgotten person keeps faculties unless the specific name attack also removes them.",
+        "executionAndInteractions": "Rename does not duplicate achievement; forgotten actor retains real skill; call authorized bearer through name; given name grants bond without implied domination; memory restoration changes relationship knowledge without minting history.",
+        "backingAndSupport": "Record actual carrier/source/body/fuel/authority per selected variant; no mandatory cost or weakness.",
+        "otherActors": "Same selected function; knowledge and access depend on held means, not actor tag.",
+        "retentionAndCompatibility": "Join G2-026 and G4 domains; retention criterion includes actual consumer and source support.",
+        "presentationAndPersistence": "Join G2-028/G2-029; unknown truths use opaque IDs and in-play routes."
+      }
+    },
+    {
+      "id": "G2-024",
+      "key": "automation",
+      "title": "Automation, offline growth and reading",
+      "sections": [
+        "S05",
+        "S07",
+        "S11",
+        "S14"
+      ],
+      "sourceRefs": [
+        {
+          "path": "docs/CHEAT_LIBRARY.md",
+          "locator": "Patient Furnace; Earned Habit; Reading growth"
+        }
+      ],
+      "criterion": "Automated work and continuous growth perform the actual promised operations on one authoritative clock.",
+      "proposedExpansion": "Separate idle cultivation, repeat native job, learned routine, autonomous follower, guaranteed effort and instant reading. Offline advancement respects selected dependencies only, not generic plateaus or artificial loss. Unlimited free progress uses exact aggregate math where possible; bounded runtime computation must defer computation rather than weaken fictional function.",
+      "dependencies": [
+        "G2-001",
+        "G2-002",
+        "G2-029"
+      ],
+      "engineConsumerOrGap": "Existing: simulation programs/jobs/boundaries, native books/reading and selected offline owner. Gap: general selected-native activity catch-up and job/cheat clock join.",
+      "acceptanceCases": [
+        "Active and chunked catch-up match",
+        "pause/resume",
+        "unavailable input according to selected source",
+        "free source grows without cost",
+        "repeated reading adds only promised output",
+        "public log never becomes reward authority."
+      ],
+      "remaining": [
+        "Select finite world/card revision and local rules.",
+        "Freeze exact interface/files with shared-engine integrator.",
+        "Implement only under runtime assignment; rebuild/fresh-origin native proof and relevant old-save/save/reload/import remain open."
+      ],
+      "disposition": "expanded-proposal; pending-world-selection",
+      "functionalCard": {
+        "acquisition": "Per-world origin, in-play earned/found/taught/transferred route, or qualified random-start initializer; no universal Frontier gate.",
+        "functionAndScope": "Automated work and continuous growth perform the actual promised operations on one authoritative clock.",
+        "growthAndVariants": "Separate idle cultivation, repeat native job, learned routine, autonomous follower, guaranteed effort and instant reading. Offline advancement respects selected dependencies only, not generic plateaus or artificial loss. Unlimited free progress uses exact aggregate math where possible; bounded runtime computation must defer computation rather than weaken fictional function.",
+        "executionAndInteractions": "Active and chunked catch-up match; pause/resume; unavailable input according to selected source; free source grows without cost; repeated reading adds only promised output; public log never becomes reward authority.",
+        "backingAndSupport": "Record actual carrier/source/body/fuel/authority per selected variant; no mandatory cost or weakness.",
+        "otherActors": "Same selected function; knowledge and access depend on held means, not actor tag.",
+        "retentionAndCompatibility": "Join G2-026 and G4 domains; retention criterion includes actual consumer and source support.",
+        "presentationAndPersistence": "Join G2-028/G2-029; unknown truths use opaque IDs and in-play routes."
+      }
+    },
+    {
+      "id": "G2-025",
+      "key": "infinity",
+      "title": "Deep concepts, optimizers and unbounded functions",
+      "sections": [
+        "S01",
+        "S07",
+        "S09",
+        "S14"
+      ],
+      "sourceRefs": [
+        {
+          "path": "docs/DEEP_CONCEPTS.md",
+          "locator": "K1-K31; I1-I22; T1-T10"
+        }
+      ],
+      "criterion": "A selected conceptual power changes actual decisions/state while unbounded scope remains faithfully represented.",
+      "proposedExpansion": "Separate mathematical inspiration from fictional law. Tagged magnitude/ordinal/absence, lazily materialized spaces, scoped constants, probability, dimensions, recursion, information channels and identity each need exact selected operations. Perfect optimizer defines objective and represented search space; worker budget yields/resumes, not fake fallibility. No universal self-blind spot, entropy toll or counter is inferred from mathematical analogy.",
+      "dependencies": [
+        "G2-001",
+        "G2-002",
+        "G2-029"
+      ],
+      "engineConsumerOrGap": "Existing: finite numeric power/resource operations and seeded layer. Gap: selected tagged numbers/comparators, optimizer runner, rule-domain and conceptual target/effect adapters.",
+      "acceptanceCases": [
+        "Symbolic infinity round-trips without null",
+        "optimum solved for qualified finite task",
+        "continue larger task responsively",
+        "change constant affects named native process",
+        "free negation of selected effect leaves physical aftermath by local law",
+        "recursion semantics decided before content."
+      ],
+      "remaining": [
+        "Select finite world/card revision and local rules.",
+        "Freeze exact interface/files with shared-engine integrator.",
+        "Implement only under runtime assignment; rebuild/fresh-origin native proof and relevant old-save/save/reload/import remain open."
+      ],
+      "disposition": "expanded-proposal; pending-world-selection",
+      "functionalCard": {
+        "acquisition": "Per-world origin, in-play earned/found/taught/transferred route, or qualified random-start initializer; no universal Frontier gate.",
+        "functionAndScope": "A selected conceptual power changes actual decisions/state while unbounded scope remains faithfully represented.",
+        "growthAndVariants": "Separate mathematical inspiration from fictional law. Tagged magnitude/ordinal/absence, lazily materialized spaces, scoped constants, probability, dimensions, recursion, information channels and identity each need exact selected operations. Perfect optimizer defines objective and represented search space; worker budget yields/resumes, not fake fallibility. No universal self-blind spot, entropy toll or counter is inferred from mathematical analogy.",
+        "executionAndInteractions": "Symbolic infinity round-trips without null; optimum solved for qualified finite task; continue larger task responsively; change constant affects named native process; free negation of selected effect leaves physical aftermath by local law; recursion semantics decided before content.",
+        "backingAndSupport": "Record actual carrier/source/body/fuel/authority per selected variant; no mandatory cost or weakness.",
+        "otherActors": "Same selected function; knowledge and access depend on held means, not actor tag.",
+        "retentionAndCompatibility": "Join G2-026 and G4 domains; retention criterion includes actual consumer and source support.",
+        "presentationAndPersistence": "Join G2-028/G2-029; unknown truths use opaque IDs and in-play routes."
+      }
+    },
+    {
+      "id": "G2-026",
+      "key": "portability",
+      "title": "Compatibility, conversion, suppression and retention",
+      "sections": [
+        "S01",
+        "S07",
+        "S12",
+        "S14"
+      ],
+      "sourceRefs": [
+        {
+          "path": "docs/CHEAT_COSMOLOGY.md",
+          "locator": "Backing; verse equalization; patron terms; meetings"
+        }
+      ],
+      "criterion": "Travel and reset keep exactly the carried faculties, support, knowledge, items and authority promised.",
+      "proposedExpansion": "For each constituent state actual carrier and backing, destination behavior and converter. Works/reread/rechannel/weaken/block are choices with source evidence, not global defaults. Equalization may normalize/scale/rate or preserve all strength. Knowledge travels only through actual carrier; remapping labels must not move ownership. Suppression preserves learning and possession unless rule erases it.",
+      "dependencies": [
+        "G2-001",
+        "G2-002",
+        "G2-029"
+      ],
+      "engineConsumerOrGap": "Existing: capabilities/provenance, authority jurisdiction and carrier/world infrastructure. Gap: composable per-source transit/retention contract and missing-pack state policy.",
+      "acceptanceCases": [
+        "Leave home with body/soul/item/system/record",
+        "remove patron reach",
+        "gifted faculty remains",
+        "return restores suppression",
+        "convert fuel without creating source",
+        "retained peak self includes actual promised support",
+        "old pack unavailable explicit compatibility."
+      ],
+      "remaining": [
+        "Select finite world/card revision and local rules.",
+        "Freeze exact interface/files with shared-engine integrator.",
+        "Implement only under runtime assignment; rebuild/fresh-origin native proof and relevant old-save/save/reload/import remain open."
+      ],
+      "disposition": "expanded-proposal; pending-world-selection",
+      "functionalCard": {
+        "acquisition": "Per-world origin, in-play earned/found/taught/transferred route, or qualified random-start initializer; no universal Frontier gate.",
+        "functionAndScope": "Travel and reset keep exactly the carried faculties, support, knowledge, items and authority promised.",
+        "growthAndVariants": "For each constituent state actual carrier and backing, destination behavior and converter. Works/reread/rechannel/weaken/block are choices with source evidence, not global defaults. Equalization may normalize/scale/rate or preserve all strength. Knowledge travels only through actual carrier; remapping labels must not move ownership. Suppression preserves learning and possession unless rule erases it.",
+        "executionAndInteractions": "Leave home with body/soul/item/system/record; remove patron reach; gifted faculty remains; return restores suppression; convert fuel without creating source; retained peak self includes actual promised support; old pack unavailable explicit compatibility.",
+        "backingAndSupport": "Record actual carrier/source/body/fuel/authority per selected variant; no mandatory cost or weakness.",
+        "otherActors": "Same selected function; knowledge and access depend on held means, not actor tag.",
+        "retentionAndCompatibility": "Join G2-026 and G4 domains; retention criterion includes actual consumer and source support.",
+        "presentationAndPersistence": "Join G2-028/G2-029; unknown truths use opaque IDs and in-play routes."
+      }
+    },
+    {
+      "id": "G2-027",
+      "key": "npc",
+      "title": "NPC holders, rival progression and institutional consequences",
+      "sections": [
+        "S04",
+        "S05",
+        "S07",
+        "S09",
+        "S10",
+        "S14"
+      ],
+      "sourceRefs": [
+        {
+          "path": "docs/CHEAT_LIBRARY.md",
+          "locator": "Enemies with cheats"
+        }
+      ],
+      "criterion": "NPCs use the same actual card functions through their own knowledge and means and cause durable local consequences.",
+      "proposedExpansion": "Holder policy selects legal actions on known targets; rival can genuinely outclass player. No automatic tell/counter/cost for every power. Seer markets, mass production, future insurers, teachers, patrons, control laws and collectors respond to observable changed supply/feats, not omniscient cheat identity. Theft/loss/death/carry follow same selected domains.",
+      "dependencies": [
+        "G2-001",
+        "G2-002",
+        "G2-029"
+      ],
+      "engineConsumerOrGap": "Existing: actors/controllers/knowledge/relationships/economy commands. Gap: card-equipped NPC policy/native consumers and selected institutional propagation.",
+      "acceptanceCases": [
+        "Hidden cheat remains unknown until real means reveal it",
+        "rival simulator uses its own policy",
+        "production changes actual stock",
+        "teacher transfers functioning power",
+        "no forced balancing hunter after harmless passive."
+      ],
+      "remaining": [
+        "Select finite world/card revision and local rules.",
+        "Freeze exact interface/files with shared-engine integrator.",
+        "Implement only under runtime assignment; rebuild/fresh-origin native proof and relevant old-save/save/reload/import remain open."
+      ],
+      "disposition": "expanded-proposal; pending-world-selection",
+      "functionalCard": {
+        "acquisition": "Per-world origin, in-play earned/found/taught/transferred route, or qualified random-start initializer; no universal Frontier gate.",
+        "functionAndScope": "NPCs use the same actual card functions through their own knowledge and means and cause durable local consequences.",
+        "growthAndVariants": "Holder policy selects legal actions on known targets; rival can genuinely outclass player. No automatic tell/counter/cost for every power. Seer markets, mass production, future insurers, teachers, patrons, control laws and collectors respond to observable changed supply/feats, not omniscient cheat identity. Theft/loss/death/carry follow same selected domains.",
+        "executionAndInteractions": "Hidden cheat remains unknown until real means reveal it; rival simulator uses its own policy; production changes actual stock; teacher transfers functioning power; no forced balancing hunter after harmless passive.",
+        "backingAndSupport": "Record actual carrier/source/body/fuel/authority per selected variant; no mandatory cost or weakness.",
+        "otherActors": "Same selected function; knowledge and access depend on held means, not actor tag.",
+        "retentionAndCompatibility": "Join G2-026 and G4 domains; retention criterion includes actual consumer and source support.",
+        "presentationAndPersistence": "Join G2-028/G2-029; unknown truths use opaque IDs and in-play routes."
+      }
+    },
+    {
+      "id": "G2-028",
+      "key": "presentation",
+      "title": "Known-card UI, reports and playability",
+      "sections": [
+        "S09",
+        "S13",
+        "S14"
+      ],
+      "sourceRefs": [
+        {
+          "path": "docs/CHEAT_LIBRARY.md",
+          "locator": "Library use; player-layer cards"
+        },
+        {
+          "path": "docs/PRESENTATION_AND_FOURTH_WALL.md",
+          "locator": "Powers that touch the UI; shared signature pieces; TX1-TX13; VP1-VP4"
+        }
+      ],
+      "criterion": "Native actions and reports expose usable functions and costs at character knowledge without author catalog spoilers.",
+      "proposedExpansion": "Shared original panels group quiet passives, actionable verbs, ongoing jobs, rosters, report highlights, selected loadouts and learned evidence. Library lists only discovered/held/rumored information. Actual-future sight is a legitimate in-play knowledge channel; worker reports are opaque. Long-run archives retain concise structured causes and known explanation. Join G7 existing effect forms: time-stop greys/paused timers; rewind reverse log/anchor; Infinity approach/halving gaps; adaptation wheel and actual changed resistance; domain borders; theft sliding source; copy offset; clone body split; possession style bleed; space-fold contact; pocket-world weather; fate threads; transformation and large-scale aftermath. Anticipation/activation/contact/counter/aftermath follow committed effect order, with persistent traces reflecting actual state and perception. Preserve distinctive prior forms rather than replacing them with generic flash.",
+      "dependencies": [
+        "G2-001",
+        "G2-002",
+        "G2-029",
+        "G7 presentation owner: review/REQUIREMENTS.json; exact returned IDs integrated by G5"
+      ],
+      "engineConsumerOrGap": "Existing: skillExpansionPresentation and featurePowerPresentation native descriptor routes. Gap: generic selected-card presentation/report filtering and control binding.",
+      "acceptanceCases": [
+        "Unknown card not listed",
+        "acquired quiet cheat works without a new panel",
+        "keyboard action",
+        "many reports readable",
+        "error/preview does not leak unknown target data",
+        "claim/reload same report",
+        "exact promise not disguised as estimate."
+      ],
+      "remaining": [
+        "Select finite world/card revision and local rules.",
+        "Freeze exact interface/files with shared-engine integrator.",
+        "Implement only under runtime assignment; rebuild/fresh-origin native proof and relevant old-save/save/reload/import remain open.",
+        "G7 owns visual infrastructure and effect acceptance; G2 supplies actual effect facts and observer scope. G8 micro owner owns native title/skill/perk milestone bookkeeping; G2 does not duplicate it."
+      ],
+      "disposition": "expanded-proposal; pending-world-selection",
+      "functionalCard": {
+        "acquisition": "Per-world origin, in-play earned/found/taught/transferred route, or qualified random-start initializer; no universal Frontier gate.",
+        "functionAndScope": "Native actions and reports expose usable functions and costs at character knowledge without author catalog spoilers.",
+        "growthAndVariants": "Shared original panels group quiet passives, actionable verbs, ongoing jobs, rosters, report highlights, selected loadouts and learned evidence. Library lists only discovered/held/rumored information. Actual-future sight is a legitimate in-play knowledge channel; worker reports are opaque. Long-run archives retain concise structured causes and known explanation.",
+        "executionAndInteractions": "Unknown card not listed; acquired quiet cheat works without a new panel; keyboard action; many reports readable; error/preview does not leak unknown target data; claim/reload same report; exact promise not disguised as estimate.",
+        "backingAndSupport": "Record actual carrier/source/body/fuel/authority per selected variant; no mandatory cost or weakness.",
+        "otherActors": "Same selected function; knowledge and access depend on held means, not actor tag.",
+        "retentionAndCompatibility": "Join G2-026 and G4 domains; retention criterion includes actual consumer and source support.",
+        "presentationAndPersistence": "Join G2-028/G2-029; unknown truths use opaque IDs and in-play routes."
+      },
+      "visualFunctionJoins": [
+        {
+          "requirementIds": [
+            "G2-004",
+            "G2-006",
+            "G2-007"
+          ],
+          "priorIds": [
+            "TX1",
+            "TX7",
+            "TX8"
+          ],
+          "form": "clock/rewind/forecast styles reflect actual temporal domains and qualified future information"
+        },
+        {
+          "requirementIds": [
+            "G2-002",
+            "G2-005",
+            "G2-025"
+          ],
+          "priorIds": [
+            "TX1",
+            "TX5",
+            "VP1",
+            "VP2",
+            "VP3",
+            "VP4"
+          ],
+          "form": "Infinity approach/halving, adaptation wheel/resistance, domain/negation collisions retain actual mechanic and viewer means"
+        },
+        {
+          "requirementIds": [
+            "G2-003",
+            "G2-018",
+            "G2-019"
+          ],
+          "priorIds": [
+            "TX5",
+            "TX11",
+            "TX13"
+          ],
+          "form": "copy offset/theft transit, body swap, possession bleed and clone split show actual transferred layer and known actor"
+        },
+        {
+          "requirementIds": [
+            "G2-016",
+            "G2-021"
+          ],
+          "priorIds": [
+            "TX6",
+            "TX10",
+            "TX13"
+          ],
+          "form": "space fold/pocket weather, fate thread and reality-layout forms use local style and supported causal change"
+        },
+        {
+          "requirementIds": [
+            "G2-010",
+            "G2-023"
+          ],
+          "priorIds": [
+            "TX2",
+            "TX3",
+            "TX8"
+          ],
+          "form": "breakthrough/title/discovery shared signatures retain quiet/reduced-motion variants and meaningful persistent marks"
+        }
+      ]
+    },
+    {
+      "id": "G2-029",
+      "key": "persistence",
+      "title": "Versioned card state and durable integration",
+      "sections": [
+        "S07",
+        "S14"
+      ],
+      "sourceRefs": [
+        {
+          "path": "docs/CHEAT_LIBRARY.md",
+          "locator": "Implementation shape"
+        }
+      ],
+      "criterion": "Each selected cheat has an authoritative validated state owner and durable-before-live settlement.",
+      "proposedExpansion": "Keep acquisition provenance in sources and runtime card state in an explicitly validated optional owner or defined schema extension. Store revision/lineage/anchor/result/claim/ruleset as needed, not arbitrary source properties. Migrate old saves with no invented cheat/history; preserve unsupported content through explicit refusal/disabled policy. No hook bus is presumed present: wire selected semantic events exactly once.",
+      "dependencies": [],
+      "engineConsumerOrGap": "Existing: acquisition validation, transaction planner, native durable publication patterns. Gap: validated runtime card owner, migration and selected semantic event/native publication integration.",
+      "acceptanceCases": [
+        "Old save without cheat unchanged",
+        "load/reload/import functioning state",
+        "unknown fields/schema and orphan claims explicit",
+        "failed save publishes no effects",
+        "repeated semantic trigger handled once",
+        "content revision upgrades or freezes by card."
+      ],
+      "remaining": [
+        "Select finite world/card revision and local rules.",
+        "Freeze exact interface/files with shared-engine integrator.",
+        "Implement only under runtime assignment; rebuild/fresh-origin native proof and relevant old-save/save/reload/import remain open."
+      ],
+      "disposition": "expanded-proposal; pending-world-selection",
+      "functionalCard": {
+        "acquisition": "Per-world origin, in-play earned/found/taught/transferred route, or qualified random-start initializer; no universal Frontier gate.",
+        "functionAndScope": "Each selected cheat has an authoritative validated state owner and durable-before-live settlement.",
+        "growthAndVariants": "Keep acquisition provenance in sources and runtime card state in an explicitly validated optional owner or defined schema extension. Store revision/lineage/anchor/result/claim/ruleset as needed, not arbitrary source properties. Migrate old saves with no invented cheat/history; preserve unsupported content through explicit refusal/disabled policy. No hook bus is presumed present: wire selected semantic events exactly once.",
+        "executionAndInteractions": "Old save without cheat unchanged; load/reload/import functioning state; unknown fields/schema and orphan claims explicit; failed save publishes no effects; repeated semantic trigger handled once; content revision upgrades or freezes by card.",
+        "backingAndSupport": "Record actual carrier/source/body/fuel/authority per selected variant; no mandatory cost or weakness.",
+        "otherActors": "Same selected function; knowledge and access depend on held means, not actor tag.",
+        "retentionAndCompatibility": "Join G2-026 and G4 domains; retention criterion includes actual consumer and source support.",
+        "presentationAndPersistence": "Join G2-028/G2-029; unknown truths use opaque IDs and in-play routes."
+      }
+    }
+  ],
+  "familyDisposition": [
+    {
+      "sourceFamily": "Death-menu regression",
+      "requirementIds": [
+        "G2-004"
+      ],
+      "disposition": "retained-and-expanded; variant-local-rules-pending",
+      "sourceRef": {
+        "path": "docs/CHEAT_LIBRARY.md",
+        "locator": "family table row Death-menu regression"
+      }
+    },
+    {
+      "sourceFamily": "Time loop",
+      "requirementIds": [
+        "G2-004"
+      ],
+      "disposition": "retained-and-expanded; variant-local-rules-pending",
+      "sourceRef": {
+        "path": "docs/CHEAT_LIBRARY.md",
+        "locator": "family table row Time loop"
+      }
+    },
+    {
+      "sourceFamily": "System with quests",
+      "requirementIds": [
+        "G2-012"
+      ],
+      "disposition": "retained-and-expanded; variant-local-rules-pending",
+      "sourceRef": {
+        "path": "docs/CHEAT_LIBRARY.md",
+        "locator": "family table row System with quests"
+      }
+    },
+    {
+      "sourceFamily": "Sign-in and daily rewards",
+      "requirementIds": [
+        "G2-013"
+      ],
+      "disposition": "retained-and-expanded; variant-local-rules-pending",
+      "sourceRef": {
+        "path": "docs/CHEAT_LIBRARY.md",
+        "locator": "family table row Sign-in and daily rewards"
+      }
+    },
+    {
+      "sourceFamily": "Multiplier return",
+      "requirementIds": [
+        "G2-014"
+      ],
+      "disposition": "retained-and-expanded; variant-local-rules-pending",
+      "sourceRef": {
+        "path": "docs/CHEAT_LIBRARY.md",
+        "locator": "family table row Multiplier return"
+      }
+    },
+    {
+      "sourceFamily": "Harvest and absorb",
+      "requirementIds": [
+        "G2-003"
+      ],
+      "disposition": "retained-and-expanded; variant-local-rules-pending",
+      "sourceRef": {
+        "path": "docs/CHEAT_LIBRARY.md",
+        "locator": "family table row Harvest and absorb"
+      }
+    },
+    {
+      "sourceFamily": "Copy",
+      "requirementIds": [
+        "G2-003"
+      ],
+      "disposition": "retained-and-expanded; variant-local-rules-pending",
+      "sourceRef": {
+        "path": "docs/CHEAT_LIBRARY.md",
+        "locator": "family table row Copy"
+      }
+    },
+    {
+      "sourceFamily": "Analysis",
+      "requirementIds": [
+        "G2-007"
+      ],
+      "disposition": "retained-and-expanded; variant-local-rules-pending",
+      "sourceRef": {
+        "path": "docs/CHEAT_LIBRARY.md",
+        "locator": "family table row Analysis"
+      }
+    },
+    {
+      "sourceFamily": "Storage and space",
+      "requirementIds": [
+        "G2-016"
+      ],
+      "disposition": "retained-and-expanded; variant-local-rules-pending",
+      "sourceRef": {
+        "path": "docs/CHEAT_LIBRARY.md",
+        "locator": "family table row Storage and space"
+      }
+    },
+    {
+      "sourceFamily": "Time dilation",
+      "requirementIds": [
+        "G2-006"
+      ],
+      "disposition": "retained-and-expanded; variant-local-rules-pending",
+      "sourceRef": {
+        "path": "docs/CHEAT_LIBRARY.md",
+        "locator": "family table row Time dilation"
+      }
+    },
+    {
+      "sourceFamily": "Fortune and fate",
+      "requirementIds": [
+        "G2-021"
+      ],
+      "disposition": "retained-and-expanded; variant-local-rules-pending",
+      "sourceRef": {
+        "path": "docs/CHEAT_LIBRARY.md",
+        "locator": "family table row Fortune and fate"
+      }
+    },
+    {
+      "sourceFamily": "Companion or resident spirit",
+      "requirementIds": [
+        "G2-020"
+      ],
+      "disposition": "retained-and-expanded; variant-local-rules-pending",
+      "sourceRef": {
+        "path": "docs/CHEAT_LIBRARY.md",
+        "locator": "family table row Companion or resident spirit"
+      }
+    },
+    {
+      "sourceFamily": "Summon and army",
+      "requirementIds": [
+        "G2-019"
+      ],
+      "disposition": "retained-and-expanded; variant-local-rules-pending",
+      "sourceRef": {
+        "path": "docs/CHEAT_LIBRARY.md",
+        "locator": "family table row Summon and army"
+      }
+    },
+    {
+      "sourceFamily": "Clones and many selves",
+      "requirementIds": [
+        "G2-019"
+      ],
+      "disposition": "retained-and-expanded; variant-local-rules-pending",
+      "sourceRef": {
+        "path": "docs/CHEAT_LIBRARY.md",
+        "locator": "family table row Clones and many selves"
+      }
+    },
+    {
+      "sourceFamily": "Follower power",
+      "requirementIds": [
+        "G2-014"
+      ],
+      "disposition": "retained-and-expanded; variant-local-rules-pending",
+      "sourceRef": {
+        "path": "docs/CHEAT_LIBRARY.md",
+        "locator": "family table row Follower power"
+      }
+    },
+    {
+      "sourceFamily": "Wish or edit",
+      "requirementIds": [
+        "G2-021"
+      ],
+      "disposition": "retained-and-expanded; variant-local-rules-pending",
+      "sourceRef": {
+        "path": "docs/CHEAT_LIBRARY.md",
+        "locator": "family table row Wish or edit"
+      }
+    },
+    {
+      "sourceFamily": "Knowledge of the future",
+      "requirementIds": [
+        "G2-007"
+      ],
+      "disposition": "retained-and-expanded; variant-local-rules-pending",
+      "sourceRef": {
+        "path": "docs/CHEAT_LIBRARY.md",
+        "locator": "family table row Knowledge of the future"
+      }
+    },
+    {
+      "sourceFamily": "Meta or fourth wall",
+      "requirementIds": [
+        "G2-025"
+      ],
+      "disposition": "retained-and-expanded; variant-local-rules-pending",
+      "sourceRef": {
+        "path": "docs/CHEAT_LIBRARY.md",
+        "locator": "family table row Meta or fourth wall"
+      }
+    },
+    {
+      "sourceFamily": "Body growth",
+      "requirementIds": [
+        "G2-005"
+      ],
+      "disposition": "retained-and-expanded; variant-local-rules-pending",
+      "sourceRef": {
+        "path": "docs/CHEAT_LIBRARY.md",
+        "locator": "family table row Body growth"
+      }
+    },
+    {
+      "sourceFamily": "Revival",
+      "requirementIds": [
+        "G2-005"
+      ],
+      "disposition": "retained-and-expanded; variant-local-rules-pending",
+      "sourceRef": {
+        "path": "docs/CHEAT_LIBRARY.md",
+        "locator": "family table row Revival"
+      }
+    },
+    {
+      "sourceFamily": "Building or territory",
+      "requirementIds": [
+        "G2-016"
+      ],
+      "disposition": "retained-and-expanded; variant-local-rules-pending",
+      "sourceRef": {
+        "path": "docs/CHEAT_LIBRARY.md",
+        "locator": "family table row Building or territory"
+      }
+    },
+    {
+      "sourceFamily": "Appraisal eye",
+      "requirementIds": [
+        "G2-007"
+      ],
+      "disposition": "retained-and-expanded; variant-local-rules-pending",
+      "sourceRef": {
+        "path": "docs/CHEAT_LIBRARY.md",
+        "locator": "family table row Appraisal eye"
+      }
+    },
+    {
+      "sourceFamily": "Absolute knack",
+      "requirementIds": [
+        "G2-015"
+      ],
+      "disposition": "retained-and-expanded; variant-local-rules-pending",
+      "sourceRef": {
+        "path": "docs/CHEAT_LIBRARY.md",
+        "locator": "family table row Absolute knack"
+      }
+    },
+    {
+      "sourceFamily": "Language and speech",
+      "requirementIds": [
+        "G2-015"
+      ],
+      "disposition": "retained-and-expanded; variant-local-rules-pending",
+      "sourceRef": {
+        "path": "docs/CHEAT_LIBRARY.md",
+        "locator": "family table row Language and speech"
+      }
+    },
+    {
+      "sourceFamily": "Instant teaching",
+      "requirementIds": [
+        "G2-014"
+      ],
+      "disposition": "retained-and-expanded; variant-local-rules-pending",
+      "sourceRef": {
+        "path": "docs/CHEAT_LIBRARY.md",
+        "locator": "family table row Instant teaching"
+      }
+    },
+    {
+      "sourceFamily": "Perfect crafting",
+      "requirementIds": [
+        "G2-015"
+      ],
+      "disposition": "retained-and-expanded; variant-local-rules-pending",
+      "sourceRef": {
+        "path": "docs/CHEAT_LIBRARY.md",
+        "locator": "family table row Perfect crafting"
+      }
+    },
+    {
+      "sourceFamily": "Duplication",
+      "requirementIds": [
+        "G2-017"
+      ],
+      "disposition": "retained-and-expanded; variant-local-rules-pending",
+      "sourceRef": {
+        "path": "docs/CHEAT_LIBRARY.md",
+        "locator": "family table row Duplication"
+      }
+    },
+    {
+      "sourceFamily": "Body swap and possession",
+      "requirementIds": [
+        "G2-018"
+      ],
+      "disposition": "retained-and-expanded; variant-local-rules-pending",
+      "sourceRef": {
+        "path": "docs/CHEAT_LIBRARY.md",
+        "locator": "family table row Body swap and possession"
+      }
+    },
+    {
+      "sourceFamily": "Shapeshift",
+      "requirementIds": [
+        "G2-018"
+      ],
+      "disposition": "retained-and-expanded; variant-local-rules-pending",
+      "sourceRef": {
+        "path": "docs/CHEAT_LIBRARY.md",
+        "locator": "family table row Shapeshift"
+      }
+    },
+    {
+      "sourceFamily": "Contract and bargain",
+      "requirementIds": [
+        "G2-022"
+      ],
+      "disposition": "retained-and-expanded; variant-local-rules-pending",
+      "sourceRef": {
+        "path": "docs/CHEAT_LIBRARY.md",
+        "locator": "family table row Contract and bargain"
+      }
+    },
+    {
+      "sourceFamily": "Debt to the future",
+      "requirementIds": [
+        "G2-022"
+      ],
+      "disposition": "retained-and-expanded; variant-local-rules-pending",
+      "sourceRef": {
+        "path": "docs/CHEAT_LIBRARY.md",
+        "locator": "family table row Debt to the future"
+      }
+    },
+    {
+      "sourceFamily": "Karma bank",
+      "requirementIds": [
+        "G2-022"
+      ],
+      "disposition": "retained-and-expanded; variant-local-rules-pending",
+      "sourceRef": {
+        "path": "docs/CHEAT_LIBRARY.md",
+        "locator": "family table row Karma bank"
+      }
+    },
+    {
+      "sourceFamily": "Dream walking",
+      "requirementIds": [
+        "G2-008"
+      ],
+      "disposition": "retained-and-expanded; variant-local-rules-pending",
+      "sourceRef": {
+        "path": "docs/CHEAT_LIBRARY.md",
+        "locator": "family table row Dream walking"
+      }
+    },
+    {
+      "sourceFamily": "Divination",
+      "requirementIds": [
+        "G2-007"
+      ],
+      "disposition": "retained-and-expanded; variant-local-rules-pending",
+      "sourceRef": {
+        "path": "docs/CHEAT_LIBRARY.md",
+        "locator": "family table row Divination"
+      }
+    },
+    {
+      "sourceFamily": "Outcome selection",
+      "requirementIds": [
+        "G2-008"
+      ],
+      "disposition": "retained-and-expanded; variant-local-rules-pending",
+      "sourceRef": {
+        "path": "docs/CHEAT_LIBRARY.md",
+        "locator": "family table row Outcome selection"
+      }
+    },
+    {
+      "sourceFamily": "Checkpoint save",
+      "requirementIds": [
+        "G2-004"
+      ],
+      "disposition": "retained-and-expanded; variant-local-rules-pending",
+      "sourceRef": {
+        "path": "docs/CHEAT_LIBRARY.md",
+        "locator": "family table row Checkpoint save"
+      }
+    },
+    {
+      "sourceFamily": "Talent lottery",
+      "requirementIds": [
+        "G2-009"
+      ],
+      "disposition": "retained-and-expanded; variant-local-rules-pending",
+      "sourceRef": {
+        "path": "docs/CHEAT_LIBRARY.md",
+        "locator": "family table row Talent lottery"
+      }
+    },
+    {
+      "sourceFamily": "Inheritance system",
+      "requirementIds": [
+        "G2-020"
+      ],
+      "disposition": "retained-and-expanded; variant-local-rules-pending",
+      "sourceRef": {
+        "path": "docs/CHEAT_LIBRARY.md",
+        "locator": "family table row Inheritance system"
+      }
+    },
+    {
+      "sourceFamily": "Title collector",
+      "requirementIds": [
+        "G2-023"
+      ],
+      "disposition": "retained-and-expanded; variant-local-rules-pending",
+      "sourceRef": {
+        "path": "docs/CHEAT_LIBRARY.md",
+        "locator": "family table row Title collector"
+      }
+    },
+    {
+      "sourceFamily": "Achievement system",
+      "requirementIds": [
+        "G2-023"
+      ],
+      "disposition": "retained-and-expanded; variant-local-rules-pending",
+      "sourceRef": {
+        "path": "docs/CHEAT_LIBRARY.md",
+        "locator": "family table row Achievement system"
+      }
+    },
+    {
+      "sourceFamily": "Notice-me-not",
+      "requirementIds": [
+        "G2-015"
+      ],
+      "disposition": "retained-and-expanded; variant-local-rules-pending",
+      "sourceRef": {
+        "path": "docs/CHEAT_LIBRARY.md",
+        "locator": "family table row Notice-me-not"
+      }
+    },
+    {
+      "sourceFamily": "Charisma or aura",
+      "requirementIds": [
+        "G2-027"
+      ],
+      "disposition": "retained-and-expanded; variant-local-rules-pending",
+      "sourceRef": {
+        "path": "docs/CHEAT_LIBRARY.md",
+        "locator": "family table row Charisma or aura"
+      }
+    },
+    {
+      "sourceFamily": "Reading growth",
+      "requirementIds": [
+        "G2-024"
+      ],
+      "disposition": "retained-and-expanded; variant-local-rules-pending",
+      "sourceRef": {
+        "path": "docs/CHEAT_LIBRARY.md",
+        "locator": "family table row Reading growth"
+      }
+    },
+    {
+      "sourceFamily": "Heroic spirit summoning",
+      "requirementIds": [
+        "G2-019"
+      ],
+      "disposition": "retained-and-expanded; variant-local-rules-pending",
+      "sourceRef": {
+        "path": "docs/CHEAT_LIBRARY.md",
+        "locator": "family table row Heroic spirit summoning"
+      }
+    },
+    {
+      "sourceFamily": "Pocket world",
+      "requirementIds": [
+        "G2-016"
+      ],
+      "disposition": "retained-and-expanded; variant-local-rules-pending",
+      "sourceRef": {
+        "path": "docs/CHEAT_LIBRARY.md",
+        "locator": "family table row Pocket world"
+      }
+    },
+    {
+      "sourceFamily": "Parasite system",
+      "requirementIds": [
+        "G2-012"
+      ],
+      "disposition": "retained-and-expanded; variant-local-rules-pending",
+      "sourceRef": {
+        "path": "docs/CHEAT_LIBRARY.md",
+        "locator": "family table row Parasite system"
+      }
+    },
+    {
+      "sourceFamily": "Sealed blessing",
+      "requirementIds": [
+        "G2-001"
+      ],
+      "disposition": "retained-and-expanded; variant-local-rules-pending",
+      "sourceRef": {
+        "path": "docs/CHEAT_LIBRARY.md",
+        "locator": "family table row Sealed blessing"
+      }
+    },
+    {
+      "sourceFamily": "Narrow curse",
+      "requirementIds": [
+        "G2-022"
+      ],
+      "disposition": "retained-and-expanded; variant-local-rules-pending",
+      "sourceRef": {
+        "path": "docs/CHEAT_LIBRARY.md",
+        "locator": "family table row Narrow curse"
+      }
+    },
+    {
+      "sourceFamily": "Threat sight",
+      "requirementIds": [
+        "G2-007"
+      ],
+      "disposition": "retained-and-expanded; variant-local-rules-pending",
+      "sourceRef": {
+        "path": "docs/CHEAT_LIBRARY.md",
+        "locator": "family table row Threat sight"
+      }
+    },
+    {
+      "sourceFamily": "Echo Anchor",
+      "requirementIds": [
+        "G2-004"
+      ],
+      "disposition": "retained-specific-variant; no-account-layer-power-unless-in-fiction-carrier-selected",
+      "sourceRef": {
+        "path": "docs/CHEAT_LIBRARY.md",
+        "locator": "Echo Anchor idea card"
+      }
+    },
+    {
+      "sourceFamily": "Patient Furnace",
+      "requirementIds": [
+        "G2-024"
+      ],
+      "disposition": "retained-specific-variant; no-account-layer-power-unless-in-fiction-carrier-selected",
+      "sourceRef": {
+        "path": "docs/CHEAT_LIBRARY.md",
+        "locator": "Patient Furnace idea card"
+      }
+    },
+    {
+      "sourceFamily": "Heirloom Compact",
+      "requirementIds": [
+        "G2-026"
+      ],
+      "disposition": "retained-specific-variant; no-account-layer-power-unless-in-fiction-carrier-selected",
+      "sourceRef": {
+        "path": "docs/CHEAT_LIBRARY.md",
+        "locator": "Heirloom Compact idea card"
+      }
+    },
+    {
+      "sourceFamily": "Traveler's Pattern Book",
+      "requirementIds": [
+        "G2-001"
+      ],
+      "disposition": "retained-specific-variant; no-account-layer-power-unless-in-fiction-carrier-selected",
+      "sourceRef": {
+        "path": "docs/CHEAT_LIBRARY.md",
+        "locator": "Traveler's Pattern Book idea card"
+      }
+    },
+    {
+      "sourceFamily": "Seed Cartographer",
+      "requirementIds": [
+        "G2-007"
+      ],
+      "disposition": "retained-specific-variant; no-account-layer-power-unless-in-fiction-carrier-selected",
+      "sourceRef": {
+        "path": "docs/CHEAT_LIBRARY.md",
+        "locator": "Seed Cartographer idea card"
+      }
+    },
+    {
+      "sourceFamily": "Rebirth Ledger",
+      "requirementIds": [
+        "G2-010"
+      ],
+      "disposition": "retained-specific-variant; no-account-layer-power-unless-in-fiction-carrier-selected",
+      "sourceRef": {
+        "path": "docs/CHEAT_LIBRARY.md",
+        "locator": "Rebirth Ledger idea card"
+      }
+    },
+    {
+      "sourceFamily": "Instinct Inheritance",
+      "requirementIds": [
+        "G2-005"
+      ],
+      "disposition": "retained-specific-variant; no-account-layer-power-unless-in-fiction-carrier-selected",
+      "sourceRef": {
+        "path": "docs/CHEAT_LIBRARY.md",
+        "locator": "Instinct Inheritance idea card"
+      }
+    },
+    {
+      "sourceFamily": "Earned Habit",
+      "requirementIds": [
+        "G2-024"
+      ],
+      "disposition": "retained-specific-variant; no-account-layer-power-unless-in-fiction-carrier-selected",
+      "sourceRef": {
+        "path": "docs/CHEAT_LIBRARY.md",
+        "locator": "Earned Habit idea card"
+      }
+    },
+    {
+      "sourceFamily": "Fate Steward",
+      "requirementIds": [
+        "G2-021"
+      ],
+      "disposition": "retained-specific-variant; no-account-layer-power-unless-in-fiction-carrier-selected",
+      "sourceRef": {
+        "path": "docs/CHEAT_LIBRARY.md",
+        "locator": "Fate Steward idea card"
+      }
+    },
+    {
+      "sourceFamily": "Loaded Dice",
+      "requirementIds": [
+        "G2-021"
+      ],
+      "disposition": "retained-specific-variant; no-account-layer-power-unless-in-fiction-carrier-selected",
+      "sourceRef": {
+        "path": "docs/CHEAT_LIBRARY.md",
+        "locator": "Loaded Dice idea card"
+      }
+    },
+    {
+      "sourceFamily": "Hall of Selves",
+      "requirementIds": [
+        "G2-019"
+      ],
+      "disposition": "retained-specific-variant; no-account-layer-power-unless-in-fiction-carrier-selected",
+      "sourceRef": {
+        "path": "docs/CHEAT_LIBRARY.md",
+        "locator": "Hall of Selves idea card"
+      }
+    },
+    {
+      "sourceFamily": "World Deeds",
+      "requirementIds": [
+        "G2-023"
+      ],
+      "disposition": "retained-specific-variant; no-account-layer-power-unless-in-fiction-carrier-selected",
+      "sourceRef": {
+        "path": "docs/CHEAT_LIBRARY.md",
+        "locator": "World Deeds idea card"
+      }
+    }
+  ],
+  "preservedPalettes": [
+    {
+      "sourceId": "G1",
+      "label": "Use XP",
+      "path": "docs/SKILLS_AND_TALENTS.md",
+      "requirementId": "G2-010",
+      "disposition": "retained-local-variant; selected-world-consumer-and-primary-source-check-open"
+    },
+    {
+      "sourceId": "G2",
+      "label": "Character level and points",
+      "path": "docs/SKILLS_AND_TALENTS.md",
+      "requirementId": "G2-010",
+      "disposition": "retained-local-variant; selected-world-consumer-and-primary-source-check-open"
+    },
+    {
+      "sourceId": "G3",
+      "label": "Level-up grants",
+      "path": "docs/SKILLS_AND_TALENTS.md",
+      "requirementId": "G2-010",
+      "disposition": "retained-local-variant; selected-world-consumer-and-primary-source-check-open"
+    },
+    {
+      "sourceId": "G4",
+      "label": "Ranks and grades",
+      "path": "docs/SKILLS_AND_TALENTS.md",
+      "requirementId": "G2-010",
+      "disposition": "retained-local-variant; selected-world-consumer-and-primary-source-check-open"
+    },
+    {
+      "sourceId": "G5",
+      "label": "Evolution",
+      "path": "docs/SKILLS_AND_TALENTS.md",
+      "requirementId": "G2-010",
+      "disposition": "retained-local-variant; selected-world-consumer-and-primary-source-check-open"
+    },
+    {
+      "sourceId": "G6",
+      "label": "Fusion and combination",
+      "path": "docs/SKILLS_AND_TALENTS.md",
+      "requirementId": "G2-010",
+      "disposition": "retained-local-variant; selected-world-consumer-and-primary-source-check-open"
+    },
+    {
+      "sourceId": "G7",
+      "label": "Proficiency stages",
+      "path": "docs/SKILLS_AND_TALENTS.md",
+      "requirementId": "G2-010",
+      "disposition": "retained-local-variant; selected-world-consumer-and-primary-source-check-open"
+    },
+    {
+      "sourceId": "G8",
+      "label": "Comprehension",
+      "path": "docs/SKILLS_AND_TALENTS.md",
+      "requirementId": "G2-010",
+      "disposition": "retained-local-variant; selected-world-consumer-and-primary-source-check-open"
+    },
+    {
+      "sourceId": "G9",
+      "label": "Realm breakthroughs",
+      "path": "docs/SKILLS_AND_TALENTS.md",
+      "requirementId": "G2-010",
+      "disposition": "retained-local-variant; selected-world-consumer-and-primary-source-check-open"
+    },
+    {
+      "sourceId": "G10",
+      "label": "Acting or digestion",
+      "path": "docs/SKILLS_AND_TALENTS.md",
+      "requirementId": "G2-010",
+      "disposition": "retained-local-variant; selected-world-consumer-and-primary-source-check-open"
+    },
+    {
+      "sourceId": "G11",
+      "label": "Consumption",
+      "path": "docs/SKILLS_AND_TALENTS.md",
+      "requirementId": "G2-010",
+      "disposition": "retained-local-variant; selected-world-consumer-and-primary-source-check-open"
+    },
+    {
+      "sourceId": "G12",
+      "label": "Purchase",
+      "path": "docs/SKILLS_AND_TALENTS.md",
+      "requirementId": "G2-010",
+      "disposition": "retained-local-variant; selected-world-consumer-and-primary-source-check-open"
+    },
+    {
+      "sourceId": "G13",
+      "label": "Items carry it",
+      "path": "docs/SKILLS_AND_TALENTS.md",
+      "requirementId": "G2-010",
+      "disposition": "retained-local-variant; selected-world-consumer-and-primary-source-check-open"
+    },
+    {
+      "sourceId": "G14",
+      "label": "Bonds and others",
+      "path": "docs/SKILLS_AND_TALENTS.md",
+      "requirementId": "G2-010",
+      "disposition": "retained-local-variant; selected-world-consumer-and-primary-source-check-open"
+    },
+    {
+      "sourceId": "G15",
+      "label": "Death and adaptation",
+      "path": "docs/SKILLS_AND_TALENTS.md",
+      "requirementId": "G2-010",
+      "disposition": "retained-local-variant; selected-world-consumer-and-primary-source-check-open"
+    },
+    {
+      "sourceId": "G16",
+      "label": "Loops and memory",
+      "path": "docs/SKILLS_AND_TALENTS.md",
+      "requirementId": "G2-010",
+      "disposition": "retained-local-variant; selected-world-consumer-and-primary-source-check-open"
+    },
+    {
+      "sourceId": "G17",
+      "label": "Inheritance",
+      "path": "docs/SKILLS_AND_TALENTS.md",
+      "requirementId": "G2-010",
+      "disposition": "retained-local-variant; selected-world-consumer-and-primary-source-check-open"
+    },
+    {
+      "sourceId": "G18",
+      "label": "Titles and feats",
+      "path": "docs/SKILLS_AND_TALENTS.md",
+      "requirementId": "G2-010",
+      "disposition": "retained-local-variant; selected-world-consumer-and-primary-source-check-open"
+    },
+    {
+      "sourceId": "G19",
+      "label": "Mutation and chance",
+      "path": "docs/SKILLS_AND_TALENTS.md",
+      "requirementId": "G2-010",
+      "disposition": "retained-local-variant; selected-world-consumer-and-primary-source-check-open"
+    },
+    {
+      "sourceId": "G20",
+      "label": "Research and tinkering",
+      "path": "docs/SKILLS_AND_TALENTS.md",
+      "requirementId": "G2-010",
+      "disposition": "retained-local-variant; selected-world-consumer-and-primary-source-check-open"
+    },
+    {
+      "sourceId": "G21",
+      "label": "Teaching",
+      "path": "docs/SKILLS_AND_TALENTS.md",
+      "requirementId": "G2-010",
+      "disposition": "retained-local-variant; selected-world-consumer-and-primary-source-check-open"
+    },
+    {
+      "sourceId": "G22",
+      "label": "No growth",
+      "path": "docs/SKILLS_AND_TALENTS.md",
+      "requirementId": "G2-010",
+      "disposition": "retained-local-variant; selected-world-consumer-and-primary-source-check-open"
+    },
+    {
+      "sourceId": "G23",
+      "label": "Harvest",
+      "path": "docs/SKILLS_AND_TALENTS.md",
+      "requirementId": "G2-010",
+      "disposition": "retained-local-variant; selected-world-consumer-and-primary-source-check-open"
+    },
+    {
+      "sourceId": "G24",
+      "label": "Banking",
+      "path": "docs/SKILLS_AND_TALENTS.md",
+      "requirementId": "G2-010",
+      "disposition": "retained-local-variant; selected-world-consumer-and-primary-source-check-open"
+    },
+    {
+      "sourceId": "G25",
+      "label": "Giving",
+      "path": "docs/SKILLS_AND_TALENTS.md",
+      "requirementId": "G2-010",
+      "disposition": "retained-local-variant; selected-world-consumer-and-primary-source-check-open"
+    },
+    {
+      "sourceId": "G26",
+      "label": "World-building",
+      "path": "docs/SKILLS_AND_TALENTS.md",
+      "requirementId": "G2-010",
+      "disposition": "retained-local-variant; selected-world-consumer-and-primary-source-check-open"
+    },
+    {
+      "sourceId": "G27",
+      "label": "Exposure",
+      "path": "docs/SKILLS_AND_TALENTS.md",
+      "requirementId": "G2-010",
+      "disposition": "retained-local-variant; selected-world-consumer-and-primary-source-check-open"
+    },
+    {
+      "sourceId": "G28",
+      "label": "Proxies",
+      "path": "docs/SKILLS_AND_TALENTS.md",
+      "requirementId": "G2-010",
+      "disposition": "retained-local-variant; selected-world-consumer-and-primary-source-check-open"
+    },
+    {
+      "sourceId": "G29",
+      "label": "Verdict",
+      "path": "docs/SKILLS_AND_TALENTS.md",
+      "requirementId": "G2-010",
+      "disposition": "retained-local-variant; selected-world-consumer-and-primary-source-check-open"
+    },
+    {
+      "sourceId": "G30",
+      "label": "Threshold titles",
+      "path": "docs/SKILLS_AND_TALENTS.md",
+      "requirementId": "G2-010",
+      "disposition": "retained-local-variant; selected-world-consumer-and-primary-source-check-open"
+    },
+    {
+      "sourceId": "G31",
+      "label": "Narrative role and tropes",
+      "path": "docs/SKILLS_AND_TALENTS.md",
+      "requirementId": "G2-010",
+      "disposition": "retained-local-variant; selected-world-consumer-and-primary-source-check-open"
+    },
+    {
+      "sourceId": "G32",
+      "label": "Ownership reforge",
+      "path": "docs/SKILLS_AND_TALENTS.md",
+      "requirementId": "G2-010",
+      "disposition": "retained-local-variant; selected-world-consumer-and-primary-source-check-open"
+    },
+    {
+      "sourceId": "G33",
+      "label": "Upward inheritance",
+      "path": "docs/SKILLS_AND_TALENTS.md",
+      "requirementId": "G2-010",
+      "disposition": "retained-local-variant; selected-world-consumer-and-primary-source-check-open"
+    },
+    {
+      "sourceId": "G34",
+      "label": "Office class",
+      "path": "docs/SKILLS_AND_TALENTS.md",
+      "requirementId": "G2-010",
+      "disposition": "retained-local-variant; selected-world-consumer-and-primary-source-check-open"
+    },
+    {
+      "sourceId": "G35",
+      "label": "In-world prestige",
+      "path": "docs/SKILLS_AND_TALENTS.md",
+      "requirementId": "G2-010",
+      "disposition": "retained-local-variant; selected-world-consumer-and-primary-source-check-open"
+    },
+    {
+      "sourceId": "G36",
+      "label": "Domain-split mark",
+      "path": "docs/SKILLS_AND_TALENTS.md",
+      "requirementId": "G2-010",
+      "disposition": "retained-local-variant; selected-world-consumer-and-primary-source-check-open"
+    },
+    {
+      "sourceId": "G37",
+      "label": "Practice tracks that unlock attributes",
+      "path": "docs/SKILLS_AND_TALENTS.md",
+      "requirementId": "G2-010",
+      "disposition": "retained-local-variant; selected-world-consumer-and-primary-source-check-open"
+    },
+    {
+      "sourceId": "G38",
+      "label": "Single XP channel",
+      "path": "docs/SKILLS_AND_TALENTS.md",
+      "requirementId": "G2-010",
+      "disposition": "retained-local-variant; selected-world-consumer-and-primary-source-check-open"
+    },
+    {
+      "sourceId": "G39",
+      "label": "Deferred commitment",
+      "path": "docs/SKILLS_AND_TALENTS.md",
+      "requirementId": "G2-010",
+      "disposition": "retained-local-variant; selected-world-consumer-and-primary-source-check-open"
+    },
+    {
+      "sourceId": "G40",
+      "label": "Delegation",
+      "path": "docs/SKILLS_AND_TALENTS.md",
+      "requirementId": "G2-010",
+      "disposition": "retained-local-variant; selected-world-consumer-and-primary-source-check-open"
+    },
+    {
+      "sourceId": "L11",
+      "label": "Years left to live",
+      "path": "docs/SKILLS_AND_TALENTS.md",
+      "requirementId": "G2-010",
+      "disposition": "retained-local-variant; selected-world-consumer-and-primary-source-check-open"
+    },
+    {
+      "sourceId": "L12",
+      "label": "A threat rating others file you under",
+      "path": "docs/SKILLS_AND_TALENTS.md",
+      "requirementId": "G2-010",
+      "disposition": "retained-local-variant; selected-world-consumer-and-primary-source-check-open"
+    },
+    {
+      "sourceId": "L13",
+      "label": "Which legal class of person you are",
+      "path": "docs/SKILLS_AND_TALENTS.md",
+      "requirementId": "G2-010",
+      "disposition": "retained-local-variant; selected-world-consumer-and-primary-source-check-open"
+    },
+    {
+      "sourceId": "L14",
+      "label": "A market price",
+      "path": "docs/SKILLS_AND_TALENTS.md",
+      "requirementId": "G2-010",
+      "disposition": "retained-local-variant; selected-world-consumer-and-primary-source-check-open"
+    },
+    {
+      "sourceId": "L15",
+      "label": "Where you stand: a floor, zone or tower story",
+      "path": "docs/SKILLS_AND_TALENTS.md",
+      "requirementId": "G2-010",
+      "disposition": "retained-local-variant; selected-world-consumer-and-primary-source-check-open"
+    },
+    {
+      "sourceId": "L16",
+      "label": "Your rank against everyone (top 1%)",
+      "path": "docs/SKILLS_AND_TALENTS.md",
+      "requirementId": "G2-010",
+      "disposition": "retained-local-variant; selected-world-consumer-and-primary-source-check-open"
+    },
+    {
+      "sourceId": "L17",
+      "label": "The system's moral or legal verdict",
+      "path": "docs/SKILLS_AND_TALENTS.md",
+      "requirementId": "G2-010",
+      "disposition": "retained-local-variant; selected-world-consumer-and-primary-source-check-open"
+    },
+    {
+      "sourceId": "L18",
+      "label": "A physical measurement in real units",
+      "path": "docs/SKILLS_AND_TALENTS.md",
+      "requirementId": "G2-010",
+      "disposition": "retained-local-variant; selected-world-consumer-and-primary-source-check-open"
+    },
+    {
+      "sourceId": "L19",
+      "label": "How often you can use it (shorter cooldowns)",
+      "path": "docs/SKILLS_AND_TALENTS.md",
+      "requirementId": "G2-010",
+      "disposition": "retained-local-variant; selected-world-consumer-and-primary-source-check-open"
+    },
+    {
+      "sourceId": "L20",
+      "label": "How close you are to your own cap; the cap is the talent",
+      "path": "docs/SKILLS_AND_TALENTS.md",
+      "requirementId": "G2-010",
+      "disposition": "retained-local-variant; selected-world-consumer-and-primary-source-check-open"
+    },
+    {
+      "sourceId": "L21",
+      "label": "How much the story protects you",
+      "path": "docs/SKILLS_AND_TALENTS.md",
+      "requirementId": "G2-010",
+      "disposition": "retained-local-variant; selected-world-consumer-and-primary-source-check-open"
+    },
+    {
+      "sourceId": "L22",
+      "label": "Time in an office; resets per holder",
+      "path": "docs/SKILLS_AND_TALENTS.md",
+      "requirementId": "G2-010",
+      "disposition": "retained-local-variant; selected-world-consumer-and-primary-source-check-open"
+    },
+    {
+      "sourceId": "L23",
+      "label": "A share of what your current body can do",
+      "path": "docs/SKILLS_AND_TALENTS.md",
+      "requirementId": "G2-010",
+      "disposition": "retained-local-variant; selected-world-consumer-and-primary-source-check-open"
+    },
+    {
+      "sourceId": "S1",
+      "label": "Small cap",
+      "path": "docs/SKILLS_AND_TALENTS.md",
+      "requirementId": "G2-010",
+      "disposition": "retained-local-variant; selected-world-consumer-and-primary-source-check-open"
+    },
+    {
+      "sourceId": "S2",
+      "label": "Hundred cap",
+      "path": "docs/SKILLS_AND_TALENTS.md",
+      "requirementId": "G2-010",
+      "disposition": "retained-local-variant; selected-world-consumer-and-primary-source-check-open"
+    },
+    {
+      "sourceId": "S3",
+      "label": "Soft thousand",
+      "path": "docs/SKILLS_AND_TALENTS.md",
+      "requirementId": "G2-010",
+      "disposition": "retained-local-variant; selected-world-consumer-and-primary-source-check-open"
+    },
+    {
+      "sourceId": "S4",
+      "label": "Uncapped and inflating",
+      "path": "docs/SKILLS_AND_TALENTS.md",
+      "requirementId": "G2-010",
+      "disposition": "retained-local-variant; selected-world-consumer-and-primary-source-check-open"
+    },
+    {
+      "sourceId": "S5",
+      "label": "Named realms",
+      "path": "docs/SKILLS_AND_TALENTS.md",
+      "requirementId": "G2-010",
+      "disposition": "retained-local-variant; selected-world-consumer-and-primary-source-check-open"
+    },
+    {
+      "sourceId": "S6",
+      "label": "Letter grades",
+      "path": "docs/SKILLS_AND_TALENTS.md",
+      "requirementId": "G2-010",
+      "disposition": "retained-local-variant; selected-world-consumer-and-primary-source-check-open"
+    },
+    {
+      "sourceId": "S7",
+      "label": "Metals and colors",
+      "path": "docs/SKILLS_AND_TALENTS.md",
+      "requirementId": "G2-010",
+      "disposition": "retained-local-variant; selected-world-consumer-and-primary-source-check-open"
+    },
+    {
+      "sourceId": "S8",
+      "label": "Ordered sequences counting down",
+      "path": "docs/SKILLS_AND_TALENTS.md",
+      "requirementId": "G2-010",
+      "disposition": "retained-local-variant; selected-world-consumer-and-primary-source-check-open"
+    },
+    {
+      "sourceId": "S9",
+      "label": "Tiers with sub-levels",
+      "path": "docs/SKILLS_AND_TALENTS.md",
+      "requirementId": "G2-010",
+      "disposition": "retained-local-variant; selected-world-consumer-and-primary-source-check-open"
+    },
+    {
+      "sourceId": "S10",
+      "label": "Logarithmic",
+      "path": "docs/SKILLS_AND_TALENTS.md",
+      "requirementId": "G2-010",
+      "disposition": "retained-local-variant; selected-world-consumer-and-primary-source-check-open"
+    },
+    {
+      "sourceId": "S11",
+      "label": "Percentile",
+      "path": "docs/SKILLS_AND_TALENTS.md",
+      "requirementId": "G2-010",
+      "disposition": "retained-local-variant; selected-world-consumer-and-primary-source-check-open"
+    },
+    {
+      "sourceId": "S12",
+      "label": "No scale",
+      "path": "docs/SKILLS_AND_TALENTS.md",
+      "requirementId": "G2-010",
+      "disposition": "retained-local-variant; selected-world-consumer-and-primary-source-check-open"
+    },
+    {
+      "sourceId": "S13",
+      "label": "Nested scales",
+      "path": "docs/SKILLS_AND_TALENTS.md",
+      "requirementId": "G2-010",
+      "disposition": "retained-local-variant; selected-world-consumer-and-primary-source-check-open"
+    },
+    {
+      "sourceId": "S14",
+      "label": "Two scales at once",
+      "path": "docs/SKILLS_AND_TALENTS.md",
+      "requirementId": "G2-010",
+      "disposition": "retained-local-variant; selected-world-consumer-and-primary-source-check-open"
+    },
+    {
+      "sourceId": "K1",
+      "label": "Kinds of infinity (countable vs uncountable, ordinals)",
+      "path": "docs/DEEP_CONCEPTS.md",
+      "requirementId": "G2-025",
+      "disposition": "retained-local-variant; selected-world-consumer-and-primary-source-check-open"
+    },
+    {
+      "sourceId": "K2",
+      "label": "Hilbert's hotel",
+      "path": "docs/DEEP_CONCEPTS.md",
+      "requirementId": "G2-025",
+      "disposition": "retained-local-variant; selected-world-consumer-and-primary-source-check-open"
+    },
+    {
+      "sourceId": "K3",
+      "label": "Entropy and heat death",
+      "path": "docs/DEEP_CONCEPTS.md",
+      "requirementId": "G2-025",
+      "disposition": "retained-local-variant; selected-world-consumer-and-primary-source-check-open"
+    },
+    {
+      "sourceId": "K4",
+      "label": "Nothingness and zero",
+      "path": "docs/DEEP_CONCEPTS.md",
+      "requirementId": "G2-025",
+      "disposition": "retained-local-variant; selected-world-consumer-and-primary-source-check-open"
+    },
+    {
+      "sourceId": "K5",
+      "label": "Self-reference and G\u00f6del",
+      "path": "docs/DEEP_CONCEPTS.md",
+      "requirementId": "G2-025",
+      "disposition": "retained-local-variant; selected-world-consumer-and-primary-source-check-open"
+    },
+    {
+      "sourceId": "K6",
+      "label": "Undecidability / halting",
+      "path": "docs/DEEP_CONCEPTS.md",
+      "requirementId": "G2-025",
+      "disposition": "retained-local-variant; selected-world-consumer-and-primary-source-check-open"
+    },
+    {
+      "sourceId": "K7",
+      "label": "Recursion and fixed points",
+      "path": "docs/DEEP_CONCEPTS.md",
+      "requirementId": "G2-025",
+      "disposition": "retained-local-variant; selected-world-consumer-and-primary-source-check-open"
+    },
+    {
+      "sourceId": "K8",
+      "label": "Eternal return",
+      "path": "docs/DEEP_CONCEPTS.md",
+      "requirementId": "G2-025",
+      "disposition": "retained-local-variant; selected-world-consumer-and-primary-source-check-open"
+    },
+    {
+      "sourceId": "K9",
+      "label": "Ship of Theseus",
+      "path": "docs/DEEP_CONCEPTS.md",
+      "requirementId": "G2-025",
+      "disposition": "retained-local-variant; selected-world-consumer-and-primary-source-check-open"
+    },
+    {
+      "sourceId": "K10",
+      "label": "Free will vs determinism",
+      "path": "docs/DEEP_CONCEPTS.md",
+      "requirementId": "G2-025",
+      "disposition": "retained-local-variant; selected-world-consumer-and-primary-source-check-open"
+    },
+    {
+      "sourceId": "K11",
+      "label": "Borges' library",
+      "path": "docs/DEEP_CONCEPTS.md",
+      "requirementId": "G2-025",
+      "disposition": "retained-local-variant; selected-world-consumer-and-primary-source-check-open"
+    },
+    {
+      "sourceId": "K12",
+      "label": "Observation",
+      "path": "docs/DEEP_CONCEPTS.md",
+      "requirementId": "G2-025",
+      "disposition": "retained-local-variant; selected-world-consumer-and-primary-source-check-open"
+    },
+    {
+      "sourceId": "K13",
+      "label": "Emergence",
+      "path": "docs/DEEP_CONCEPTS.md",
+      "requirementId": "G2-025",
+      "disposition": "retained-local-variant; selected-world-consumer-and-primary-source-check-open"
+    },
+    {
+      "sourceId": "K14",
+      "label": "Compression and information",
+      "path": "docs/DEEP_CONCEPTS.md",
+      "requirementId": "G2-025",
+      "disposition": "retained-local-variant; selected-world-consumer-and-primary-source-check-open"
+    },
+    {
+      "sourceId": "K15",
+      "label": "Measure and probability",
+      "path": "docs/DEEP_CONCEPTS.md",
+      "requirementId": "G2-025",
+      "disposition": "retained-local-variant; selected-world-consumer-and-primary-source-check-open"
+    },
+    {
+      "sourceId": "K16",
+      "label": "Scale invariance",
+      "path": "docs/DEEP_CONCEPTS.md",
+      "requirementId": "G2-025",
+      "disposition": "retained-local-variant; selected-world-consumer-and-primary-source-check-open"
+    },
+    {
+      "sourceId": "I1",
+      "label": "Learns",
+      "path": "docs/DEEP_CONCEPTS.md",
+      "requirementId": "G2-025",
+      "disposition": "retained-local-variant; selected-world-consumer-and-primary-source-check-open"
+    },
+    {
+      "sourceId": "I2",
+      "label": "Optimizes",
+      "path": "docs/DEEP_CONCEPTS.md",
+      "requirementId": "G2-025",
+      "disposition": "retained-local-variant; selected-world-consumer-and-primary-source-check-open"
+    },
+    {
+      "sourceId": "I3",
+      "label": "Copies or steals",
+      "path": "docs/DEEP_CONCEPTS.md",
+      "requirementId": "G2-025",
+      "disposition": "retained-local-variant; selected-world-consumer-and-primary-source-check-open"
+    },
+    {
+      "sourceId": "I4",
+      "label": "Negates",
+      "path": "docs/DEEP_CONCEPTS.md",
+      "requirementId": "G2-025",
+      "disposition": "retained-local-variant; selected-world-consumer-and-primary-source-check-open"
+    },
+    {
+      "sourceId": "I5",
+      "label": "Redirects",
+      "path": "docs/DEEP_CONCEPTS.md",
+      "requirementId": "G2-025",
+      "disposition": "retained-local-variant; selected-world-consumer-and-primary-source-check-open"
+    },
+    {
+      "sourceId": "I6",
+      "label": "Rewinds",
+      "path": "docs/DEEP_CONCEPTS.md",
+      "requirementId": "G2-025",
+      "disposition": "retained-local-variant; selected-world-consumer-and-primary-source-check-open"
+    },
+    {
+      "sourceId": "I7",
+      "label": "Predicts",
+      "path": "docs/DEEP_CONCEPTS.md",
+      "requirementId": "G2-025",
+      "disposition": "retained-local-variant; selected-world-consumer-and-primary-source-check-open"
+    },
+    {
+      "sourceId": "I8",
+      "label": "Reverses cause and effect",
+      "path": "docs/DEEP_CONCEPTS.md",
+      "requirementId": "G2-025",
+      "disposition": "retained-local-variant; selected-world-consumer-and-primary-source-check-open"
+    },
+    {
+      "sourceId": "I9",
+      "label": "Conserves and exchanges",
+      "path": "docs/DEEP_CONCEPTS.md",
+      "requirementId": "G2-025",
+      "disposition": "retained-local-variant; selected-world-consumer-and-primary-source-check-open"
+    },
+    {
+      "sourceId": "I10",
+      "label": "Defines or names",
+      "path": "docs/DEEP_CONCEPTS.md",
+      "requirementId": "G2-025",
+      "disposition": "retained-local-variant; selected-world-consumer-and-primary-source-check-open"
+    },
+    {
+      "sourceId": "I11",
+      "label": "Sees the end of things",
+      "path": "docs/DEEP_CONCEPTS.md",
+      "requirementId": "G2-025",
+      "disposition": "retained-local-variant; selected-world-consumer-and-primary-source-check-open"
+    },
+    {
+      "sourceId": "I12",
+      "label": "Multiplies self",
+      "path": "docs/DEEP_CONCEPTS.md",
+      "requirementId": "G2-025",
+      "disposition": "retained-local-variant; selected-world-consumer-and-primary-source-check-open"
+    },
+    {
+      "sourceId": "I13",
+      "label": "Remembers perfectly",
+      "path": "docs/DEEP_CONCEPTS.md",
+      "requirementId": "G2-025",
+      "disposition": "retained-local-variant; selected-world-consumer-and-primary-source-check-open"
+    },
+    {
+      "sourceId": "I14",
+      "label": "Stops time",
+      "path": "docs/DEEP_CONCEPTS.md",
+      "requirementId": "G2-025",
+      "disposition": "retained-local-variant; selected-world-consumer-and-primary-source-check-open"
+    },
+    {
+      "sourceId": "I15",
+      "label": "Accelerates time",
+      "path": "docs/DEEP_CONCEPTS.md",
+      "requirementId": "G2-025",
+      "disposition": "retained-local-variant; selected-world-consumer-and-primary-source-check-open"
+    },
+    {
+      "sourceId": "I16",
+      "label": "Bends probability",
+      "path": "docs/DEEP_CONCEPTS.md",
+      "requirementId": "G2-025",
+      "disposition": "retained-local-variant; selected-world-consumer-and-primary-source-check-open"
+    },
+    {
+      "sourceId": "I17",
+      "label": "Grows forever",
+      "path": "docs/DEEP_CONCEPTS.md",
+      "requirementId": "G2-025",
+      "disposition": "retained-local-variant; selected-world-consumer-and-primary-source-check-open"
+    },
+    {
+      "sourceId": "I18",
+      "label": "Duplicates matter",
+      "path": "docs/DEEP_CONCEPTS.md",
+      "requirementId": "G2-025",
+      "disposition": "retained-local-variant; selected-world-consumer-and-primary-source-check-open"
+    },
+    {
+      "sourceId": "I19",
+      "label": "Resets to zero",
+      "path": "docs/DEEP_CONCEPTS.md",
+      "requirementId": "G2-025",
+      "disposition": "retained-local-variant; selected-world-consumer-and-primary-source-check-open"
+    },
+    {
+      "sourceId": "I20",
+      "label": "Hides from records",
+      "path": "docs/DEEP_CONCEPTS.md",
+      "requirementId": "G2-025",
+      "disposition": "retained-local-variant; selected-world-consumer-and-primary-source-check-open"
+    },
+    {
+      "sourceId": "I21",
+      "label": "Grants wishes",
+      "path": "docs/DEEP_CONCEPTS.md",
+      "requirementId": "G2-025",
+      "disposition": "retained-local-variant; selected-world-consumer-and-primary-source-check-open"
+    },
+    {
+      "sourceId": "I22",
+      "label": "Changes the world's rules",
+      "path": "docs/DEEP_CONCEPTS.md",
+      "requirementId": "G2-025",
+      "disposition": "retained-local-variant; selected-world-consumer-and-primary-source-check-open"
+    },
+    {
+      "sourceId": "K17",
+      "label": "Noether's theorem (every symmetry gives a conservation law)",
+      "path": "docs/DEEP_CONCEPTS.md",
+      "requirementId": "G2-025",
+      "disposition": "retained-local-variant; selected-world-consumer-and-primary-source-check-open"
+    },
+    {
+      "sourceId": "K18",
+      "label": "Dimensionality",
+      "path": "docs/DEEP_CONCEPTS.md",
+      "requirementId": "G2-025",
+      "disposition": "retained-local-variant; selected-world-consumer-and-primary-source-check-open"
+    },
+    {
+      "sourceId": "K19",
+      "label": "Physical constants as dials",
+      "path": "docs/DEEP_CONCEPTS.md",
+      "requirementId": "G2-025",
+      "disposition": "retained-local-variant; selected-world-consumer-and-primary-source-check-open"
+    },
+    {
+      "sourceId": "K20",
+      "label": "Chaos",
+      "path": "docs/DEEP_CONCEPTS.md",
+      "requirementId": "G2-025",
+      "disposition": "retained-local-variant; selected-world-consumer-and-primary-source-check-open"
+    },
+    {
+      "sourceId": "K21",
+      "label": "Game theory",
+      "path": "docs/DEEP_CONCEPTS.md",
+      "requirementId": "G2-025",
+      "disposition": "retained-local-variant; selected-world-consumer-and-primary-source-check-open"
+    },
+    {
+      "sourceId": "K22",
+      "label": "Computational hardness (easy to check, hard to find)",
+      "path": "docs/DEEP_CONCEPTS.md",
+      "requirementId": "G2-025",
+      "disposition": "retained-local-variant; selected-world-consumer-and-primary-source-check-open"
+    },
+    {
+      "sourceId": "K23",
+      "label": "Topology",
+      "path": "docs/DEEP_CONCEPTS.md",
+      "requirementId": "G2-025",
+      "disposition": "retained-local-variant; selected-world-consumer-and-primary-source-check-open"
+    },
+    {
+      "sourceId": "K24",
+      "label": "Relativity of time",
+      "path": "docs/DEEP_CONCEPTS.md",
+      "requirementId": "G2-025",
+      "disposition": "retained-local-variant; selected-world-consumer-and-primary-source-check-open"
+    },
+    {
+      "sourceId": "K25",
+      "label": "Banach-Tarski",
+      "path": "docs/DEEP_CONCEPTS.md",
+      "requirementId": "G2-025",
+      "disposition": "retained-local-variant; selected-world-consumer-and-primary-source-check-open"
+    },
+    {
+      "sourceId": "K26",
+      "label": "Arrow's impossibility (no voting system is fair in every way)",
+      "path": "docs/DEEP_CONCEPTS.md",
+      "requirementId": "G2-025",
+      "disposition": "retained-local-variant; selected-world-consumer-and-primary-source-check-open"
+    },
+    {
+      "sourceId": "K27",
+      "label": "Goodhart's law (a measured number stops measuring once people chase it)",
+      "path": "docs/DEEP_CONCEPTS.md",
+      "requirementId": "G2-025",
+      "disposition": "retained-local-variant; selected-world-consumer-and-primary-source-check-open"
+    },
+    {
+      "sourceId": "K28",
+      "label": "Anthropic selection",
+      "path": "docs/DEEP_CONCEPTS.md",
+      "requirementId": "G2-025",
+      "disposition": "retained-local-variant; selected-world-consumer-and-primary-source-check-open"
+    },
+    {
+      "sourceId": "K29",
+      "label": "Maxwell's demon and the cost of forgetting",
+      "path": "docs/DEEP_CONCEPTS.md",
+      "requirementId": "G2-025",
+      "disposition": "retained-local-variant; selected-world-consumer-and-primary-source-check-open"
+    },
+    {
+      "sourceId": "K30",
+      "label": "Supertasks (infinitely many steps in finite time)",
+      "path": "docs/DEEP_CONCEPTS.md",
+      "requirementId": "G2-025",
+      "disposition": "retained-local-variant; selected-world-consumer-and-primary-source-check-open"
+    },
+    {
+      "sourceId": "K31",
+      "label": "Order-independent computation (*Permutation City*)",
+      "path": "docs/DEEP_CONCEPTS.md",
+      "requirementId": "G2-025",
+      "disposition": "retained-local-variant; selected-world-consumer-and-primary-source-check-open"
+    },
+    {
+      "sourceId": "SA1",
+      "path": "docs/SIMULATORS_AND_CHEAT_IMPLEMENTATION.md",
+      "requirementId": "G2-008",
+      "disposition": "retained-local-variant; no-global-rule-inferred"
+    },
+    {
+      "sourceId": "SA2",
+      "path": "docs/SIMULATORS_AND_CHEAT_IMPLEMENTATION.md",
+      "requirementId": "G2-008",
+      "disposition": "retained-local-variant; no-global-rule-inferred"
+    },
+    {
+      "sourceId": "SA3",
+      "path": "docs/SIMULATORS_AND_CHEAT_IMPLEMENTATION.md",
+      "requirementId": "G2-008",
+      "disposition": "retained-local-variant; no-global-rule-inferred"
+    },
+    {
+      "sourceId": "SA4",
+      "path": "docs/SIMULATORS_AND_CHEAT_IMPLEMENTATION.md",
+      "requirementId": "G2-008",
+      "disposition": "retained-local-variant; no-global-rule-inferred"
+    },
+    {
+      "sourceId": "SA5",
+      "path": "docs/SIMULATORS_AND_CHEAT_IMPLEMENTATION.md",
+      "requirementId": "G2-008",
+      "disposition": "retained-local-variant; no-global-rule-inferred"
+    },
+    {
+      "sourceId": "SA6",
+      "path": "docs/SIMULATORS_AND_CHEAT_IMPLEMENTATION.md",
+      "requirementId": "G2-008",
+      "disposition": "retained-local-variant; no-global-rule-inferred"
+    },
+    {
+      "sourceId": "SA7",
+      "path": "docs/SIMULATORS_AND_CHEAT_IMPLEMENTATION.md",
+      "requirementId": "G2-008",
+      "disposition": "retained-local-variant; no-global-rule-inferred"
+    },
+    {
+      "sourceId": "SA8",
+      "path": "docs/SIMULATORS_AND_CHEAT_IMPLEMENTATION.md",
+      "requirementId": "G2-008",
+      "disposition": "retained-local-variant; no-global-rule-inferred"
+    },
+    {
+      "sourceId": "SA9",
+      "path": "docs/SIMULATORS_AND_CHEAT_IMPLEMENTATION.md",
+      "requirementId": "G2-008",
+      "disposition": "retained-local-variant; no-global-rule-inferred"
+    },
+    {
+      "sourceId": "SA10",
+      "path": "docs/SIMULATORS_AND_CHEAT_IMPLEMENTATION.md",
+      "requirementId": "G2-008",
+      "disposition": "retained-local-variant; no-global-rule-inferred"
+    },
+    {
+      "sourceId": "SA11",
+      "path": "docs/SIMULATORS_AND_CHEAT_IMPLEMENTATION.md",
+      "requirementId": "G2-008",
+      "disposition": "retained-local-variant; no-global-rule-inferred"
+    },
+    {
+      "sourceId": "SA12",
+      "path": "docs/SIMULATORS_AND_CHEAT_IMPLEMENTATION.md",
+      "requirementId": "G2-008",
+      "disposition": "retained-local-variant; no-global-rule-inferred"
+    },
+    {
+      "sourceId": "SA13",
+      "path": "docs/SIMULATORS_AND_CHEAT_IMPLEMENTATION.md",
+      "requirementId": "G2-008",
+      "disposition": "retained-local-variant; no-global-rule-inferred"
+    },
+    {
+      "sourceId": "SA14",
+      "path": "docs/SIMULATORS_AND_CHEAT_IMPLEMENTATION.md",
+      "requirementId": "G2-008",
+      "disposition": "retained-local-variant; no-global-rule-inferred"
+    },
+    {
+      "sourceId": "SA15",
+      "path": "docs/SIMULATORS_AND_CHEAT_IMPLEMENTATION.md",
+      "requirementId": "G2-008",
+      "disposition": "retained-local-variant; no-global-rule-inferred"
+    },
+    {
+      "sourceId": "SA16",
+      "path": "docs/SIMULATORS_AND_CHEAT_IMPLEMENTATION.md",
+      "requirementId": "G2-008",
+      "disposition": "retained-local-variant; no-global-rule-inferred"
+    },
+    {
+      "sourceId": "SA17",
+      "path": "docs/SIMULATORS_AND_CHEAT_IMPLEMENTATION.md",
+      "requirementId": "G2-008",
+      "disposition": "retained-local-variant; no-global-rule-inferred"
+    },
+    {
+      "sourceId": "SA18",
+      "path": "docs/SIMULATORS_AND_CHEAT_IMPLEMENTATION.md",
+      "requirementId": "G2-008",
+      "disposition": "retained-local-variant; no-global-rule-inferred"
+    },
+    {
+      "sourceId": "SA19",
+      "path": "docs/SIMULATORS_AND_CHEAT_IMPLEMENTATION.md",
+      "requirementId": "G2-008",
+      "disposition": "retained-local-variant; no-global-rule-inferred"
+    },
+    {
+      "sourceId": "T1",
+      "path": "docs/SIMULATORS_AND_CHEAT_IMPLEMENTATION.md",
+      "requirementId": "G2-009",
+      "disposition": "retained-local-variant; no-global-rule-inferred"
+    },
+    {
+      "sourceId": "T2",
+      "path": "docs/SIMULATORS_AND_CHEAT_IMPLEMENTATION.md",
+      "requirementId": "G2-009",
+      "disposition": "retained-local-variant; no-global-rule-inferred"
+    },
+    {
+      "sourceId": "T3",
+      "path": "docs/SIMULATORS_AND_CHEAT_IMPLEMENTATION.md",
+      "requirementId": "G2-009",
+      "disposition": "retained-local-variant; no-global-rule-inferred"
+    },
+    {
+      "sourceId": "T4",
+      "path": "docs/SIMULATORS_AND_CHEAT_IMPLEMENTATION.md",
+      "requirementId": "G2-009",
+      "disposition": "retained-local-variant; no-global-rule-inferred"
+    },
+    {
+      "sourceId": "T5",
+      "path": "docs/SIMULATORS_AND_CHEAT_IMPLEMENTATION.md",
+      "requirementId": "G2-009",
+      "disposition": "retained-local-variant; no-global-rule-inferred"
+    },
+    {
+      "sourceId": "T6",
+      "path": "docs/SIMULATORS_AND_CHEAT_IMPLEMENTATION.md",
+      "requirementId": "G2-009",
+      "disposition": "retained-local-variant; no-global-rule-inferred"
+    },
+    {
+      "sourceId": "T7",
+      "path": "docs/SIMULATORS_AND_CHEAT_IMPLEMENTATION.md",
+      "requirementId": "G2-009",
+      "disposition": "retained-local-variant; no-global-rule-inferred"
+    },
+    {
+      "sourceId": "T8",
+      "path": "docs/SIMULATORS_AND_CHEAT_IMPLEMENTATION.md",
+      "requirementId": "G2-009",
+      "disposition": "retained-local-variant; no-global-rule-inferred"
+    },
+    {
+      "sourceId": "T9",
+      "path": "docs/SIMULATORS_AND_CHEAT_IMPLEMENTATION.md",
+      "requirementId": "G2-009",
+      "disposition": "retained-local-variant; no-global-rule-inferred"
+    },
+    {
+      "sourceId": "T10",
+      "path": "docs/SIMULATORS_AND_CHEAT_IMPLEMENTATION.md",
+      "requirementId": "G2-009",
+      "disposition": "retained-local-variant; no-global-rule-inferred"
+    },
+    {
+      "sourceId": "T11",
+      "path": "docs/SIMULATORS_AND_CHEAT_IMPLEMENTATION.md",
+      "requirementId": "G2-009",
+      "disposition": "retained-local-variant; no-global-rule-inferred"
+    },
+    {
+      "sourceId": "T12",
+      "path": "docs/SIMULATORS_AND_CHEAT_IMPLEMENTATION.md",
+      "requirementId": "G2-009",
+      "disposition": "retained-local-variant; no-global-rule-inferred"
+    },
+    {
+      "sourceId": "T13",
+      "path": "docs/SIMULATORS_AND_CHEAT_IMPLEMENTATION.md",
+      "requirementId": "G2-009",
+      "disposition": "retained-local-variant; no-global-rule-inferred"
+    },
+    {
+      "sourceId": "T14",
+      "path": "docs/SIMULATORS_AND_CHEAT_IMPLEMENTATION.md",
+      "requirementId": "G2-009",
+      "disposition": "retained-local-variant; no-global-rule-inferred"
+    },
+    {
+      "sourceId": "T15",
+      "path": "docs/SIMULATORS_AND_CHEAT_IMPLEMENTATION.md",
+      "requirementId": "G2-009",
+      "disposition": "retained-local-variant; no-global-rule-inferred"
+    },
+    {
+      "sourceId": "T16",
+      "path": "docs/SIMULATORS_AND_CHEAT_IMPLEMENTATION.md",
+      "requirementId": "G2-009",
+      "disposition": "retained-local-variant; no-global-rule-inferred"
+    },
+    {
+      "sourceId": "T17",
+      "path": "docs/SIMULATORS_AND_CHEAT_IMPLEMENTATION.md",
+      "requirementId": "G2-009",
+      "disposition": "retained-local-variant; no-global-rule-inferred"
+    },
+    {
+      "sourceId": "T18",
+      "path": "docs/SIMULATORS_AND_CHEAT_IMPLEMENTATION.md",
+      "requirementId": "G2-009",
+      "disposition": "retained-local-variant; no-global-rule-inferred"
+    },
+    {
+      "sourceId": "T19",
+      "path": "docs/SIMULATORS_AND_CHEAT_IMPLEMENTATION.md",
+      "requirementId": "G2-009",
+      "disposition": "retained-local-variant; no-global-rule-inferred"
+    },
+    {
+      "sourceId": "T20",
+      "path": "docs/SIMULATORS_AND_CHEAT_IMPLEMENTATION.md",
+      "requirementId": "G2-009",
+      "disposition": "retained-local-variant; no-global-rule-inferred"
+    },
+    {
+      "sourceId": "T21",
+      "path": "docs/SIMULATORS_AND_CHEAT_IMPLEMENTATION.md",
+      "requirementId": "G2-009",
+      "disposition": "retained-local-variant; no-global-rule-inferred"
+    },
+    {
+      "sourceId": "T22",
+      "path": "docs/SIMULATORS_AND_CHEAT_IMPLEMENTATION.md",
+      "requirementId": "G2-009",
+      "disposition": "retained-local-variant; no-global-rule-inferred"
+    },
+    {
+      "sourceId": "T23",
+      "path": "docs/SIMULATORS_AND_CHEAT_IMPLEMENTATION.md",
+      "requirementId": "G2-009",
+      "disposition": "retained-local-variant; no-global-rule-inferred"
+    },
+    {
+      "sourceId": "T24",
+      "path": "docs/SIMULATORS_AND_CHEAT_IMPLEMENTATION.md",
+      "requirementId": "G2-009",
+      "disposition": "retained-local-variant; no-global-rule-inferred"
+    },
+    {
+      "sourceId": "T25",
+      "path": "docs/SIMULATORS_AND_CHEAT_IMPLEMENTATION.md",
+      "requirementId": "G2-009",
+      "disposition": "retained-local-variant; no-global-rule-inferred"
+    },
+    {
+      "sourceId": "T26",
+      "path": "docs/SIMULATORS_AND_CHEAT_IMPLEMENTATION.md",
+      "requirementId": "G2-009",
+      "disposition": "retained-local-variant; no-global-rule-inferred"
+    },
+    {
+      "sourceId": "T27",
+      "path": "docs/SIMULATORS_AND_CHEAT_IMPLEMENTATION.md",
+      "requirementId": "G2-009",
+      "disposition": "retained-local-variant; no-global-rule-inferred"
+    },
+    {
+      "sourceId": "T28",
+      "path": "docs/SIMULATORS_AND_CHEAT_IMPLEMENTATION.md",
+      "requirementId": "G2-009",
+      "disposition": "retained-local-variant; no-global-rule-inferred"
+    },
+    {
+      "sourceId": "T29",
+      "path": "docs/SIMULATORS_AND_CHEAT_IMPLEMENTATION.md",
+      "requirementId": "G2-009",
+      "disposition": "retained-local-variant; no-global-rule-inferred"
+    },
+    {
+      "sourceId": "T30",
+      "path": "docs/SIMULATORS_AND_CHEAT_IMPLEMENTATION.md",
+      "requirementId": "G2-009",
+      "disposition": "retained-local-variant; no-global-rule-inferred"
+    },
+    {
+      "sourceId": "T31",
+      "path": "docs/SIMULATORS_AND_CHEAT_IMPLEMENTATION.md",
+      "requirementId": "G2-009",
+      "disposition": "retained-local-variant; no-global-rule-inferred"
+    },
+    {
+      "sourceId": "T32",
+      "path": "docs/SIMULATORS_AND_CHEAT_IMPLEMENTATION.md",
+      "requirementId": "G2-009",
+      "disposition": "retained-local-variant; no-global-rule-inferred"
+    },
+    {
+      "sourceId": "T33",
+      "path": "docs/SIMULATORS_AND_CHEAT_IMPLEMENTATION.md",
+      "requirementId": "G2-009",
+      "disposition": "retained-local-variant; no-global-rule-inferred"
+    },
+    {
+      "sourceId": "T34",
+      "path": "docs/SIMULATORS_AND_CHEAT_IMPLEMENTATION.md",
+      "requirementId": "G2-009",
+      "disposition": "retained-local-variant; no-global-rule-inferred"
+    },
+    {
+      "sourceId": "T35",
+      "path": "docs/SIMULATORS_AND_CHEAT_IMPLEMENTATION.md",
+      "requirementId": "G2-009",
+      "disposition": "retained-local-variant; no-global-rule-inferred"
+    },
+    {
+      "sourceId": "T36",
+      "path": "docs/SIMULATORS_AND_CHEAT_IMPLEMENTATION.md",
+      "requirementId": "G2-009",
+      "disposition": "retained-local-variant; no-global-rule-inferred"
+    },
+    {
+      "sourceId": "T37",
+      "path": "docs/SIMULATORS_AND_CHEAT_IMPLEMENTATION.md",
+      "requirementId": "G2-009",
+      "disposition": "retained-local-variant; no-global-rule-inferred"
+    },
+    {
+      "sourceId": "T38",
+      "path": "docs/SIMULATORS_AND_CHEAT_IMPLEMENTATION.md",
+      "requirementId": "G2-009",
+      "disposition": "retained-local-variant; no-global-rule-inferred"
+    },
+    {
+      "sourceId": "T39",
+      "path": "docs/SIMULATORS_AND_CHEAT_IMPLEMENTATION.md",
+      "requirementId": "G2-009",
+      "disposition": "retained-local-variant; no-global-rule-inferred"
+    },
+    {
+      "sourceId": "T40",
+      "path": "docs/SIMULATORS_AND_CHEAT_IMPLEMENTATION.md",
+      "requirementId": "G2-009",
+      "disposition": "retained-local-variant; no-global-rule-inferred"
+    },
+    {
+      "sourceId": "T41",
+      "path": "docs/SIMULATORS_AND_CHEAT_IMPLEMENTATION.md",
+      "requirementId": "G2-009",
+      "disposition": "retained-local-variant; no-global-rule-inferred"
+    },
+    {
+      "sourceId": "T42",
+      "path": "docs/SIMULATORS_AND_CHEAT_IMPLEMENTATION.md",
+      "requirementId": "G2-009",
+      "disposition": "retained-local-variant; no-global-rule-inferred"
+    },
+    {
+      "sourceId": "T43",
+      "path": "docs/SIMULATORS_AND_CHEAT_IMPLEMENTATION.md",
+      "requirementId": "G2-009",
+      "disposition": "retained-local-variant; no-global-rule-inferred"
+    },
+    {
+      "sourceId": "T44",
+      "path": "docs/SIMULATORS_AND_CHEAT_IMPLEMENTATION.md",
+      "requirementId": "G2-009",
+      "disposition": "retained-local-variant; no-global-rule-inferred"
+    },
+    {
+      "sourceId": "T45",
+      "path": "docs/SIMULATORS_AND_CHEAT_IMPLEMENTATION.md",
+      "requirementId": "G2-009",
+      "disposition": "retained-local-variant; no-global-rule-inferred"
+    },
+    {
+      "sourceId": "T46",
+      "path": "docs/SIMULATORS_AND_CHEAT_IMPLEMENTATION.md",
+      "requirementId": "G2-009",
+      "disposition": "retained-local-variant; no-global-rule-inferred"
+    },
+    {
+      "sourceId": "T47",
+      "path": "docs/SIMULATORS_AND_CHEAT_IMPLEMENTATION.md",
+      "requirementId": "G2-009",
+      "disposition": "retained-local-variant; no-global-rule-inferred"
+    },
+    {
+      "sourceId": "T48",
+      "path": "docs/SIMULATORS_AND_CHEAT_IMPLEMENTATION.md",
+      "requirementId": "G2-009",
+      "disposition": "retained-local-variant; no-global-rule-inferred"
+    },
+    {
+      "sourceId": "T49",
+      "path": "docs/SIMULATORS_AND_CHEAT_IMPLEMENTATION.md",
+      "requirementId": "G2-009",
+      "disposition": "retained-local-variant; no-global-rule-inferred"
+    },
+    {
+      "sourceId": "T50",
+      "path": "docs/SIMULATORS_AND_CHEAT_IMPLEMENTATION.md",
+      "requirementId": "G2-009",
+      "disposition": "retained-local-variant; no-global-rule-inferred"
+    },
+    {
+      "sourceId": "SM1",
+      "path": "docs/SIMULATORS_AND_CHEAT_IMPLEMENTATION.md",
+      "requirementId": "G2-008",
+      "disposition": "retained-local-variant; no-global-rule-inferred"
+    },
+    {
+      "sourceId": "SM2",
+      "path": "docs/SIMULATORS_AND_CHEAT_IMPLEMENTATION.md",
+      "requirementId": "G2-008",
+      "disposition": "retained-local-variant; no-global-rule-inferred"
+    },
+    {
+      "sourceId": "SM3",
+      "path": "docs/SIMULATORS_AND_CHEAT_IMPLEMENTATION.md",
+      "requirementId": "G2-008",
+      "disposition": "retained-local-variant; no-global-rule-inferred"
+    },
+    {
+      "sourceId": "SM4",
+      "path": "docs/SIMULATORS_AND_CHEAT_IMPLEMENTATION.md",
+      "requirementId": "G2-008",
+      "disposition": "retained-local-variant; no-global-rule-inferred"
+    },
+    {
+      "sourceId": "SM5",
+      "path": "docs/SIMULATORS_AND_CHEAT_IMPLEMENTATION.md",
+      "requirementId": "G2-008",
+      "disposition": "retained-local-variant; no-global-rule-inferred"
+    },
+    {
+      "sourceId": "SM6",
+      "path": "docs/SIMULATORS_AND_CHEAT_IMPLEMENTATION.md",
+      "requirementId": "G2-008",
+      "disposition": "retained-local-variant; no-global-rule-inferred"
+    },
+    {
+      "sourceId": "SM7",
+      "path": "docs/SIMULATORS_AND_CHEAT_IMPLEMENTATION.md",
+      "requirementId": "G2-008",
+      "disposition": "retained-local-variant; no-global-rule-inferred"
+    },
+    {
+      "sourceId": "SM8",
+      "path": "docs/SIMULATORS_AND_CHEAT_IMPLEMENTATION.md",
+      "requirementId": "G2-008",
+      "disposition": "retained-local-variant; no-global-rule-inferred"
+    },
+    {
+      "sourceId": "SM9",
+      "path": "docs/SIMULATORS_AND_CHEAT_IMPLEMENTATION.md",
+      "requirementId": "G2-008",
+      "disposition": "retained-local-variant; no-global-rule-inferred"
+    },
+    {
+      "sourceId": "SM10",
+      "path": "docs/SIMULATORS_AND_CHEAT_IMPLEMENTATION.md",
+      "requirementId": "G2-008",
+      "disposition": "retained-local-variant; no-global-rule-inferred"
+    },
+    {
+      "sourceId": "SM11",
+      "path": "docs/SIMULATORS_AND_CHEAT_IMPLEMENTATION.md",
+      "requirementId": "G2-008",
+      "disposition": "retained-local-variant; no-global-rule-inferred"
+    },
+    {
+      "sourceId": "SM12",
+      "path": "docs/SIMULATORS_AND_CHEAT_IMPLEMENTATION.md",
+      "requirementId": "G2-008",
+      "disposition": "retained-local-variant; no-global-rule-inferred"
+    },
+    {
+      "sourceId": "SM13",
+      "path": "docs/SIMULATORS_AND_CHEAT_IMPLEMENTATION.md",
+      "requirementId": "G2-008",
+      "disposition": "retained-local-variant; no-global-rule-inferred"
+    },
+    {
+      "sourceId": "SM14",
+      "path": "docs/SIMULATORS_AND_CHEAT_IMPLEMENTATION.md",
+      "requirementId": "G2-008",
+      "disposition": "retained-local-variant; no-global-rule-inferred"
+    },
+    {
+      "sourceId": "SM15",
+      "path": "docs/SIMULATORS_AND_CHEAT_IMPLEMENTATION.md",
+      "requirementId": "G2-008",
+      "disposition": "retained-local-variant; no-global-rule-inferred"
+    },
+    {
+      "sourceId": "SM16",
+      "path": "docs/SIMULATORS_AND_CHEAT_IMPLEMENTATION.md",
+      "requirementId": "G2-008",
+      "disposition": "retained-local-variant; no-global-rule-inferred"
+    },
+    {
+      "sourceId": "SM17",
+      "path": "docs/SIMULATORS_AND_CHEAT_IMPLEMENTATION.md",
+      "requirementId": "G2-008",
+      "disposition": "retained-local-variant; no-global-rule-inferred"
+    },
+    {
+      "sourceId": "SM18",
+      "path": "docs/SIMULATORS_AND_CHEAT_IMPLEMENTATION.md",
+      "requirementId": "G2-008",
+      "disposition": "retained-local-variant; no-global-rule-inferred"
+    },
+    {
+      "sourceId": "SM19",
+      "path": "docs/SIMULATORS_AND_CHEAT_IMPLEMENTATION.md",
+      "requirementId": "G2-008",
+      "disposition": "retained-local-variant; no-global-rule-inferred"
+    },
+    {
+      "sourceId": "SM20",
+      "path": "docs/SIMULATORS_AND_CHEAT_IMPLEMENTATION.md",
+      "requirementId": "G2-008",
+      "disposition": "retained-local-variant; no-global-rule-inferred"
+    },
+    {
+      "sourceId": "SM21",
+      "path": "docs/SIMULATORS_AND_CHEAT_IMPLEMENTATION.md",
+      "requirementId": "G2-008",
+      "disposition": "retained-local-variant; no-global-rule-inferred"
+    },
+    {
+      "sourceId": "SM22",
+      "path": "docs/SIMULATORS_AND_CHEAT_IMPLEMENTATION.md",
+      "requirementId": "G2-008",
+      "disposition": "retained-local-variant; no-global-rule-inferred"
+    },
+    {
+      "sourceId": "SM23",
+      "path": "docs/SIMULATORS_AND_CHEAT_IMPLEMENTATION.md",
+      "requirementId": "G2-008",
+      "disposition": "retained-local-variant; no-global-rule-inferred"
+    },
+    {
+      "sourceId": "SM24",
+      "path": "docs/SIMULATORS_AND_CHEAT_IMPLEMENTATION.md",
+      "requirementId": "G2-008",
+      "disposition": "retained-local-variant; no-global-rule-inferred"
+    },
+    {
+      "sourceId": "SM25",
+      "path": "docs/SIMULATORS_AND_CHEAT_IMPLEMENTATION.md",
+      "requirementId": "G2-008",
+      "disposition": "retained-local-variant; no-global-rule-inferred"
+    },
+    {
+      "sourceId": "SM26",
+      "path": "docs/SIMULATORS_AND_CHEAT_IMPLEMENTATION.md",
+      "requirementId": "G2-008",
+      "disposition": "retained-local-variant; no-global-rule-inferred"
+    },
+    {
+      "sourceId": "L1",
+      "label": "Competence",
+      "path": "docs/SKILLS_AND_TALENTS.md",
+      "requirementId": "G2-010",
+      "disposition": "retained-local-variant; selected-world-consumer-and-primary-source-check-open"
+    },
+    {
+      "sourceId": "L2",
+      "label": "Power",
+      "path": "docs/SKILLS_AND_TALENTS.md",
+      "requirementId": "G2-010",
+      "disposition": "retained-local-variant; selected-world-consumer-and-primary-source-check-open"
+    },
+    {
+      "sourceId": "L3",
+      "label": "Permission",
+      "path": "docs/SKILLS_AND_TALENTS.md",
+      "requirementId": "G2-010",
+      "disposition": "retained-local-variant; selected-world-consumer-and-primary-source-check-open"
+    },
+    {
+      "sourceId": "L4",
+      "label": "Capacity",
+      "path": "docs/SKILLS_AND_TALENTS.md",
+      "requirementId": "G2-010",
+      "disposition": "retained-local-variant; selected-world-consumer-and-primary-source-check-open"
+    },
+    {
+      "sourceId": "L5",
+      "label": "Status",
+      "path": "docs/SKILLS_AND_TALENTS.md",
+      "requirementId": "G2-010",
+      "disposition": "retained-local-variant; selected-world-consumer-and-primary-source-check-open"
+    },
+    {
+      "sourceId": "L6",
+      "label": "Age or time",
+      "path": "docs/SKILLS_AND_TALENTS.md",
+      "requirementId": "G2-010",
+      "disposition": "retained-local-variant; selected-world-consumer-and-primary-source-check-open"
+    },
+    {
+      "sourceId": "L7",
+      "label": "Purity",
+      "path": "docs/SKILLS_AND_TALENTS.md",
+      "requirementId": "G2-010",
+      "disposition": "retained-local-variant; selected-world-consumer-and-primary-source-check-open"
+    },
+    {
+      "sourceId": "L8",
+      "label": "Debt",
+      "path": "docs/SKILLS_AND_TALENTS.md",
+      "requirementId": "G2-010",
+      "disposition": "retained-local-variant; selected-world-consumer-and-primary-source-check-open"
+    },
+    {
+      "sourceId": "L9",
+      "label": "Visibility",
+      "path": "docs/SKILLS_AND_TALENTS.md",
+      "requirementId": "G2-010",
+      "disposition": "retained-local-variant; selected-world-consumer-and-primary-source-check-open"
+    },
+    {
+      "sourceId": "L10",
+      "label": "Distance",
+      "path": "docs/SKILLS_AND_TALENTS.md",
+      "requirementId": "G2-010",
+      "disposition": "retained-local-variant; selected-world-consumer-and-primary-source-check-open"
+    }
+  ],
+  "unreadRemainder": [
+    "Complete individual cards in docs/CHEATS_BY_WORLD.md beyond opening sampled rows.",
+    "Private source dossiers/full-book evidence and exact canon values were not reopened or newly audited. Public summaries retain their prior source-status labels.",
+    "CHEAT_COSMOLOGY source-specific placement provenance and full scaling institution/cap expansion prose were not exhaustively adjudicated; inspected structures are retained under G2-026/G2-027/G2-025.",
+    "Linked E8/E8B/E8C/E8D/E8E, SELVES_AND_ECHOES, LIFE_SIM_NORTH_STAR, skill-growth primary audits and individual ability variants remain their original owners and require world-specific packet extraction.",
+    "Code modules inspected selectively; tests/browser/native runtime were not exercised. No whole-system purity, complete combat, or runtime cheat delivery is established.",
+    "PRESENTATION_AND_FOURTH_WALL beyond named excerpts remains G7 owner; prior effect families retained through G7 cross-links, not claimed fully audited by G2."
+  ],
+  "memoryRoutingOnly": [
+    "MEMORY.md:381-388; current source verification supersedes recalled extension points."
+  ]
+}

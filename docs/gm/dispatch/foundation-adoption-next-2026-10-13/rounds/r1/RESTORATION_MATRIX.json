@@ -1,0 +1,55 @@
+{
+  "status": "PASS",
+  "comparisons": [
+    {
+      "stage": "pending-work",
+      "restore": "reloaded",
+      "bodyEffectsCalendarStockActorsWorldsSimulationRngClock": "exact"
+    },
+    {
+      "stage": "pending-work",
+      "restore": "imported",
+      "bodyEffectsCalendarStockActorsWorldsSimulationRngClock": "exact"
+    },
+    {
+      "stage": "completed-work",
+      "restore": "reloaded",
+      "bodyEffectsCalendarStockActorsWorldsSimulationRngClock": "exact"
+    },
+    {
+      "stage": "completed-work",
+      "restore": "imported",
+      "bodyEffectsCalendarStockActorsWorldsSimulationRngClock": "exact"
+    },
+    {
+      "stage": "useful-crossing",
+      "restore": "reloaded",
+      "bodyEffectsCalendarStockActorsWorldsSimulationRngClock": "exact"
+    },
+    {
+      "stage": "useful-crossing",
+      "restore": "imported",
+      "bodyEffectsCalendarStockActorsWorldsSimulationRngClock": "exact"
+    },
+    {
+      "stage": "paid-completed",
+      "restore": "reloaded",
+      "bodyEffectsCalendarStockActorsWorldsSimulationRngClock": "exact"
+    },
+    {
+      "stage": "paid-completed",
+      "restore": "imported",
+      "bodyEffectsCalendarStockActorsWorldsSimulationRngClock": "exact"
+    },
+    {
+      "stage": "refusal",
+      "restore": "reloaded",
+      "bodyEffectsCalendarStockActorsWorldsSimulationRngClock": "exact"
+    },
+    {
+      "stage": "refusal",
+      "restore": "imported",
+      "bodyEffectsCalendarStockActorsWorldsSimulationRngClock": "exact"
+    }
+  ]
+}

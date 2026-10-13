@@ -1,0 +1,122 @@
+{
+  "schema": "fiveworld-checked-delivery-fingerprints-1",
+  "status": "qualified five-world research scope source/artifact/delivery complete; no runtime/full-franchise claim",
+  "publicHashes": [
+    {
+      "path": "docs/gm/dispatch/lore-timelines-2026-10-11/ASSIGNMENT.md",
+      "sha256": "6cf842305bcbbc542809b4a881aa7bfbed9fbbd375e0f70d78924cd24d54f502"
+    },
+    {
+      "path": "docs/gm/dispatch/lore-timelines-2026-10-11/DELIVERY.json",
+      "sha256": "69f1951b5e66673cbe3245d1c7fe49182c5d24cffd104be3a055ef02888f27b1"
+    },
+    {
+      "path": "docs/gm/dispatch/lore-timelines-2026-10-11/REPORT.md",
+      "sha256": "05a4330d0be7065dd6976d37ed6ba6782104d5d415b0e621b94f602877417eff"
+    },
+    {
+      "path": "docs/gm/dispatch/lore-timelines-2026-10-11/SEND_RECEIPT.json",
+      "sha256": "ce83c8c1b122a082b0a200ee54160245154da6ecbe6207d7c86c342e64b1cdfd"
+    },
+    {
+      "path": "docs/gm/dispatch/lore-timelines-2026-10-11/DISPATCH.json",
+      "sha256": "08df0abd658879439dab74c839c5fbccc5fcd2afeafc6fb9375bdfae07a7aa12"
+    },
+    {
+      "path": "docs/gm/dispatch/lore-timelines-2026-10-11/CHECKPOINT.md",
+      "sha256": "bce9e2ab892691889fc912427324b97a8b34216cb2a9701104b12fb0ca8ede8b"
+    },
+    {
+      "path": "docs/gm/dispatch/lore-timelines-2026-10-11/INPUTS.json",
+      "sha256": "1cbd3075158f430019c371af9ea0fa065480cfd7cfb691c03572973f19be7384"
+    },
+    {
+      "path": "docs/gm/dispatch/lore-timelines-2026-10-11/VALIDATION.json",
+      "sha256": "a72ec863cde9b0e75019ac62ccd221f570a0adf0a2ab9d041ad956bb07f8c5af"
+    },
+    {
+      "path": "docs/gm/dispatch/lore-timelines-2026-10-11/COMPLETION_MATRIX.json",
+      "sha256": "84cfac82e9c885fbae3fb7437828cb62b92d52b1a010b6d6ab481cc49bcb3955"
+    },
+    {
+      "path": "docs/gm/dispatch/lore-timelines-2026-10-11/COMPLETION_REQUIREMENTS.json",
+      "sha256": "b0aed6f35534ce7053e2b7d4180875acf3d2f432caa054d54785c68a5e24f7b7"
+    },
+    {
+      "path": "docs/gm/dispatch/lore-timelines-2026-10-11/jjk/REPORT.md",
+      "sha256": "212196282ccbafdd4fb4038cd5ed2217230c48cc0775270120fd6a7ad1ae25bc"
+    },
+    {
+      "path": "docs/gm/dispatch/lore-timelines-2026-10-11/jjk/CHECKPOINT.md",
+      "sha256": "fec5df65e9f1e6457288d0cc2830505c8777fa47b5a1533959c2f0f266f7a657"
+    },
+    {
+      "path": "docs/gm/dispatch/lore-timelines-2026-10-11/jjk/VALIDATION.json",
+      "sha256": "d0a112f8247cdcfd69c0168b2b403db0de438916925e5b26aa2da9dd34bbb040"
+    },
+    {
+      "path": "docs/gm/dispatch/lore-timelines-2026-10-11/jojo/REPORT.md",
+      "sha256": "516c0e93fc507ff3829cfb33e238762aed74b41cef849053bd4981e33c9cb57a"
+    },
+    {
+      "path": "docs/gm/dispatch/lore-timelines-2026-10-11/jojo/CHECKPOINT.md",
+      "sha256": "4c0c3d3d1d1abf6f0c5a75e827d0d88ef71dbf921c1497d223bddcfc112da818"
+    },
+    {
+      "path": "docs/gm/dispatch/lore-timelines-2026-10-11/jojo/VALIDATION.json",
+      "sha256": "29eddc9bc2ee0e41185be1652a51edfd9177a1a672f6e2a13116cc2888b32737"
+    },
+    {
+      "path": "docs/gm/dispatch/lore-timelines-2026-10-11/rezero/REPORT.md",
+      "sha256": "e695f8dee5697fcbe8c62fd43f14bac6532ab40de4776fc91e2900c27342271a"
+    },
+    {
+      "path": "docs/gm/dispatch/lore-timelines-2026-10-11/rezero/CHECKPOINT.md",
+      "sha256": "b41038b7842597fa20866154493f2ea31697070a824ba1e9acd404647c030eb8"
+    },
+    {
+      "path": "docs/gm/dispatch/lore-timelines-2026-10-11/rezero/VALIDATION.json",
+      "sha256": "2f12124b4cf89213b9ad135808047f03765a5cba1a02b3c4937de7d7d1f12631"
+    },
+    {
+      "path": "docs/gm/dispatch/lore-timelines-2026-10-11/bw1/REPORT.md",
+      "sha256": "ece0b3449fe36be2464bf89b63ec0897177038387cb39cac34beb6ceb283cb4e"
+    },
+    {
+      "path": "docs/gm/dispatch/lore-timelines-2026-10-11/bw1/CHECKPOINT.md",
+      "sha256": "e764aebd8b8c0e36dd1cfd374690c271ab4d57757ddf00bf9c26991aee978421"
+    },
+    {
+      "path": "docs/gm/dispatch/lore-timelines-2026-10-11/bw1/VALIDATION.json",
+      "sha256": "6aba3f8e4b768e2e63f65785d7a428bddf9fdc243ebcd53f7413c71ca6296a3e"
+    },
+    {
+      "path": "docs/gm/dispatch/lore-timelines-2026-10-11/review/CHECKPOINT.md",
+      "sha256": "24fa0566b5dc8ac7960da054369ddbd6381f4d7183cfbd710b5a3317c422c50c"
+    },
+    {
+      "path": "docs/gm/dispatch/lore-timelines-2026-10-11/review/REVIEW.md",
+      "sha256": "14ad1003490faacf63f392c93c204e22e09f26152ffae3b693a2daab3599e9b6"
+    },
+    {
+      "path": "docs/gm/dispatch/lore-timelines-2026-10-11/review/REVIEW.json",
+      "sha256": "c917ec36f5ffd7252508d5557aa695b2892929c7bc8856b1b51d81748aca83f7"
+    },
+    {
+      "path": "docs/gm/dispatch/lore-timelines-2026-10-11/tensura/REPORT.md",
+      "sha256": "8e906a0d60fe5a0bfe6b963de0a3c380d0b5cdbb574ebcb9fe51f153f0236dee"
+    },
+    {
+      "path": "docs/gm/dispatch/lore-timelines-2026-10-11/tensura/CHECKPOINT.md",
+      "sha256": "767a8c2f67b894dd32216ff8d13ae0c66cf42db14e02796ded9d0958b1fabe3f"
+    },
+    {
+      "path": "docs/gm/dispatch/lore-timelines-2026-10-11/tensura/VALIDATION.json",
+      "sha256": "45fa73065fbf43b7d274b692ed3f0aa14a7862e58014f918593a16b6d0a43807"
+    }
+  ],
+  "privateSynthesisSha256": "f7c9d533f1f2507a2de833d4997a5e8c77c3a6fdaa7308fc4aabee8acb9fbbdd",
+  "privateFinalCheckSha256": "89e0092b14cb8938d651ec19d43e02039fc5bb282bb030be3fbf66c7f3121935",
+  "requirementsProven": "5worldsL1-L9reviewedwithlimits,L10actualsendreceipts",
+  "unrunGates": "All runtime/human acceptance; broader primary source/read residuals retained"
+}

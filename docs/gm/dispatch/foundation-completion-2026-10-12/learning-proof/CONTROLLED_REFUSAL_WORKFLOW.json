@@ -1,0 +1,51 @@
+{
+  "action": "workflow",
+  "steps": [
+    {
+      "action": "click",
+      "selector": "#notebook_tab_here"
+    },
+    {
+      "action": "panel",
+      "selector": "#feature_expansion_panel"
+    },
+    {
+      "action": "panel",
+      "selector": "#feature_expansion_panel details:has(>summary:text-is(\"A taught procedure, useful material\"))"
+    },
+    {
+      "action": "click",
+      "selector": "[data-action-legibility-key=\"action:world.completion.learning.sponsor\"] button",
+      "save": "worker-controlled-refusal-offered"
+    },
+    {
+      "action": "completed",
+      "actor": "remainder_home.neri",
+      "id": "world.completion.learning.refuse",
+      "save": "worker-controlled-refusal-resolved"
+    },
+    {
+      "action": "click",
+      "selector": "[data-action-legibility-key=\"action:world.completion.learning.account_shack\"] button",
+      "save": "worker-controlled-refusal-received"
+    },
+    {
+      "action": "click",
+      "selector": "[data-action-legibility-key=\"action:world.completion.learning.withdraw_shack\"] button",
+      "save": "worker-controlled-refusal-withdrawn"
+    },
+    {
+      "action": "export",
+      "name": "worker-controlled-refusal-withdrawn"
+    },
+    {
+      "action": "reload",
+      "save": "worker-controlled-refusal-reloaded"
+    },
+    {
+      "action": "literalImport",
+      "path": "/tmp/yairpg-foundation-learning-worker-controlled-refusal-withdrawn.txt",
+      "save": "worker-controlled-refusal-literal-imported"
+    }
+  ]
+}

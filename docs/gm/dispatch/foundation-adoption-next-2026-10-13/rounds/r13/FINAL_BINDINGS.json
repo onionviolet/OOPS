@@ -1,0 +1,26 @@
+{
+  "inputDrift": [],
+  "evidenceHashes": {
+    "FA20-response.md": "46ed6ddb242821c4810ce24a9d146bb13260ff16056b9b4ae9bce4a091804b7a",
+    "FA20-roundtrip.json": "a836672063c23f8a41ac996d89e416cbdd68aca34a05b84a3eff7cf63f02823c",
+    "FA20-sent.md": "c6799bf3454b112ca2b8df2b479f7eb2a8cbf9b08c575b9856032bc0b12c3748",
+    "source-affected.tap": "96826c1f2fa97076c2a7c2c47d3219564beb2471d0673f6f13aff93d44da0516",
+    "APPLICABILITY.md": "e9d2ce522c6ee002aab95d55401291d667ce880a13899fe81acf6ec849cd4c15",
+    "REPORT.md": "45bcb9067534605cb9a43c326f31d0e73c5a89a76c361032e9a031948fb34a26",
+    "NATIVE_RESULT.json": "19ad2e1ee711f476799716c0e667191099c42553e59d21d8dd019cb81d88561f",
+    "FA20-draft.md": "d7ce530c5ef08ebb3a3161b42567ca3ccd685b922048bcb48f7c89193ad53a80",
+    "source-focused.tap": "bef7726caf7e2cda47457d83a00db4b218f4e75fe8150e656392efbacc083846",
+    "FA20-reconciled.md": "30eb28fdc57d01ef30566e3e478cb6356a58b666e9d16acbbe61ee738a00b5ea",
+    "SOURCE_RESULT.json": "1ceb8af3af5ff261cc6cdd8dcd718cfbcecd41acdddda83b5232ede83a1c3c15",
+    "BUDGET.json": "cbf789dd0e272c57e6a2303c1a30626cd0b59c792a5d35824e314b2e7fb5cbf4",
+    "INPUT_BINDINGS.json": "d833a1f760b1573cceec3b56b106a0ef23616ead089464a3606202a6f4c0013c",
+    "RECONCILIATION_NOTES.md": "c1291b87fbfa64f3e33db75083d980a521ff4caf5c619cd887af58b6eac484fb",
+    "check-allocation.test.mjs": "5dfaa8e79de7328926fd98e574242f3a5357e7d7d5a56cc127d89f8f7af36b87",
+    "BACKLOG.md": "fd4963cad137a062c508e82714ce30f6638528c509dcebe5a47eeb9957054dc8",
+    "REVIEW_PROOF.png": "d8c6b54823267625e40c0aee0f2f6d34901069fec163c5a25deb89667303c0d0",
+    "FA20-outbound.md": "c6799bf3454b112ca2b8df2b479f7eb2a8cbf9b08c575b9856032bc0b12c3748"
+  },
+  "runtimeSourceEdits": [],
+  "build": "NOT_RUN",
+  "successor": "01a1363b-fa9f-7e71-9887-6983303952aa"
+}

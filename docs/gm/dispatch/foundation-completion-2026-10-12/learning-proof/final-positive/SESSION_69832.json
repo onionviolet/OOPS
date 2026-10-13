@@ -1,0 +1,147 @@
+{
+  "pid": 69832,
+  "servedHash": "e73550a4344ec549b67b830112200a10f9ed1a6f652c8c54c1b1c1ee95bff7a9",
+  "origin": "http://127.0.0.1:18644",
+  "startedHash": "e73550a4344ec549b67b830112200a10f9ed1a6f652c8c54c1b1c1ee95bff7a9",
+  "endedHash": "e73550a4344ec549b67b830112200a10f9ed1a6f652c8c54c1b1c1ee95bff7a9",
+  "events": [
+    {
+      "workflowStep": {
+        "action": "literalImport",
+        "path": "/tmp/yairpg-foundation-learning-final-positive-absence-spent.txt",
+        "save": "final-positive-absence-imported-requalified"
+      },
+      "index": 0,
+      "clock": 11749,
+      "sequence": 1316
+    },
+    {
+      "action": "workflow",
+      "file": "FINAL_POSITIVE_RETRY_IMPORT.json"
+    },
+    {
+      "workflowStep": {
+        "action": "batchClicks",
+        "selectors": [
+          "[data-pocket-realm=\"pocket.exit\"]"
+        ],
+        "save": "final-positive-supported-return"
+      },
+      "index": 0,
+      "clock": 11750,
+      "sequence": 1318
+    },
+    {
+      "workflowStep": {
+        "action": "completed",
+        "actor": "remainder_home.neri",
+        "id": "world.completion.learning.make_neri",
+        "save": "final-positive-produced"
+      },
+      "index": 1,
+      "clock": 11751,
+      "sequence": 1319
+    },
+    {
+      "workflowStep": {
+        "action": "export",
+        "name": "final-positive-produced"
+      },
+      "index": 2,
+      "clock": 11751,
+      "sequence": 1319
+    },
+    {
+      "workflowStep": {
+        "action": "reload",
+        "save": "final-positive-produced-reloaded"
+      },
+      "index": 3,
+      "clock": 11751,
+      "sequence": 1319
+    },
+    {
+      "workflowStep": {
+        "action": "literalImport",
+        "path": "/tmp/yairpg-foundation-learning-final-positive-produced.txt",
+        "save": "final-positive-produced-imported"
+      },
+      "index": 4,
+      "clock": 11751,
+      "sequence": 1319
+    },
+    {
+      "workflowStep": {
+        "action": "click",
+        "selector": "#notebook_tab_here"
+      },
+      "index": 5,
+      "clock": 11751,
+      "sequence": 1319
+    },
+    {
+      "workflowStep": {
+        "action": "panel",
+        "selector": "#feature_expansion_panel"
+      },
+      "index": 6,
+      "clock": 11751,
+      "sequence": 1319
+    },
+    {
+      "workflowStep": {
+        "action": "panel",
+        "selector": "#feature_expansion_panel details:has(>summary:text-is(\"A taught procedure, useful material\"))"
+      },
+      "index": 7,
+      "clock": 11751,
+      "sequence": 1319
+    },
+    {
+      "workflowStep": {
+        "action": "click",
+        "selector": "[data-action-legibility-key=\"action:world.completion.learning.account_village\"] button",
+        "save": "final-positive-account"
+      },
+      "index": 8,
+      "clock": 11752,
+      "sequence": 1321
+    },
+    {
+      "workflowStep": {
+        "action": "click",
+        "selector": "[data-action-legibility-key=\"action:world.completion.learning.collect\"] button",
+        "save": "final-positive-received"
+      },
+      "index": 9,
+      "clock": 11753,
+      "sequence": 1323
+    },
+    {
+      "workflowStep": {
+        "action": "export",
+        "name": "final-positive-received"
+      },
+      "index": 10,
+      "clock": 11753,
+      "sequence": 1323
+    },
+    {
+      "workflowStep": {
+        "action": "reload",
+        "save": "final-positive-received-reloaded"
+      },
+      "index": 11,
+      "clock": 11753,
+      "sequence": 1323
+    },
+    {
+      "error": "locator.evaluate: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('#loading_screen_play_button:not(.none_display)')\u001b[22m\n"
+    },
+    {
+      "action": "save",
+      "name": "final-positive-after-handover-import-attempt"
+    }
+  ],
+  "errors": []
+}

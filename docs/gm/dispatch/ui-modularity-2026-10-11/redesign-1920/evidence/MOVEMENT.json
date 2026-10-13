@@ -1,0 +1,299 @@
+{
+  "build": "http://127.0.0.1:18571/dist/bundle.js?version=v0.6-598f67420c6e",
+  "checks": [
+    "New fresh-origin Workspace default has work, local actions, vitals, belongings and journal on screen at1920x1080.",
+    "Direct title/header pointer drag previews a dock target and drops into right with one live gameplay node.",
+    "Float drop target creates in-page floating panel; header directly repositions it.",
+    "Floating header moves freely diagonally across underlying dock columns without automatic docking; explicit visible targets dock it.",
+    "Corner pointer resize enlarges actual floating width and height.",
+    "Escape cancels movement and restores geometry.",
+    "Pointer divider resizes neighbouring columns; dock modules fill freed space.",
+    "Dock lower edge changes actual inventory content area.",
+    "Saved column geometry and resized panel restore on reload; divider has keyboard equivalent."
+  ],
+  "frames": [
+    {
+      "name": "after-opening",
+      "viewport": {
+        "width": 1920,
+        "height": 1080
+      },
+      "document": {
+        "width": 1920,
+        "height": 1084
+      },
+      "panels": [
+        {
+          "id": "vitals",
+          "x": 10,
+          "y": 60.390625,
+          "width": 503.59375,
+          "height": 182.375,
+          "collapsed": false
+        },
+        {
+          "id": "combat-controls",
+          "x": 10,
+          "y": 247.5625,
+          "width": 503.59375,
+          "height": 77.375,
+          "collapsed": false
+        },
+        {
+          "id": "preparation",
+          "x": 10,
+          "y": 329.734375,
+          "width": 503.59375,
+          "height": 277.375,
+          "collapsed": false
+        },
+        {
+          "id": "belongings",
+          "x": 10,
+          "y": 611.90625,
+          "width": 503.59375,
+          "height": 277.375,
+          "collapsed": false
+        },
+        {
+          "id": "equipment-comparison",
+          "x": 10,
+          "y": 894.078125,
+          "width": 503.59375,
+          "height": 36.375,
+          "collapsed": true
+        },
+        {
+          "id": "time",
+          "x": 529.59375,
+          "y": 60.390625,
+          "width": 804.40625,
+          "height": 77.375,
+          "collapsed": false
+        },
+        {
+          "id": "location",
+          "x": 529.59375,
+          "y": 142.5625,
+          "width": 804.40625,
+          "height": 187.375,
+          "collapsed": false
+        },
+        {
+          "id": "current-work",
+          "x": 529.59375,
+          "y": 334.734375,
+          "width": 804.40625,
+          "height": 137.375,
+          "collapsed": false
+        },
+        {
+          "id": "local-actions",
+          "x": 529.59375,
+          "y": 476.90625,
+          "width": 804.40625,
+          "height": 437.375,
+          "collapsed": false
+        },
+        {
+          "id": "records",
+          "x": 1350,
+          "y": 60.390625,
+          "width": 560,
+          "height": 177.375,
+          "collapsed": false
+        },
+        {
+          "id": "skills",
+          "x": 1350,
+          "y": 242.5625,
+          "width": 560,
+          "height": 187.375,
+          "collapsed": false
+        },
+        {
+          "id": "messages",
+          "x": 1350,
+          "y": 434.734375,
+          "width": 560,
+          "height": 257.375,
+          "collapsed": false
+        },
+        {
+          "id": "optional-worlds",
+          "x": 1350,
+          "y": 696.90625,
+          "width": 560,
+          "height": 36.375,
+          "collapsed": true
+        },
+        {
+          "id": "beginning",
+          "x": 1350,
+          "y": 738.078125,
+          "width": 560,
+          "height": 36.375,
+          "collapsed": true
+        },
+        {
+          "id": "patrol",
+          "x": 1350,
+          "y": 779.25,
+          "width": 560,
+          "height": 36.375,
+          "collapsed": true
+        },
+        {
+          "id": "supplies",
+          "x": 1350,
+          "y": 820.421875,
+          "width": 560,
+          "height": 36.375,
+          "collapsed": true
+        }
+      ]
+    },
+    {
+      "name": "after-movement",
+      "viewport": {
+        "width": 1920,
+        "height": 1080
+      },
+      "document": {
+        "width": 1920,
+        "height": 1084
+      },
+      "panels": [
+        {
+          "id": "vitals",
+          "x": 10,
+          "y": 60.390625,
+          "width": 503.59375,
+          "height": 182.375,
+          "collapsed": false
+        },
+        {
+          "id": "combat-controls",
+          "x": 10,
+          "y": 247.5625,
+          "width": 503.59375,
+          "height": 77.375,
+          "collapsed": false
+        },
+        {
+          "id": "preparation",
+          "x": 10,
+          "y": 329.734375,
+          "width": 503.59375,
+          "height": 277.375,
+          "collapsed": false
+        },
+        {
+          "id": "belongings",
+          "x": 10,
+          "y": 611.90625,
+          "width": 503.59375,
+          "height": 277.375,
+          "collapsed": false
+        },
+        {
+          "id": "equipment-comparison",
+          "x": 10,
+          "y": 894.078125,
+          "width": 503.59375,
+          "height": 36.375,
+          "collapsed": true
+        },
+        {
+          "id": "time",
+          "x": 529.59375,
+          "y": 60.390625,
+          "width": 804.40625,
+          "height": 77.375,
+          "collapsed": false
+        },
+        {
+          "id": "location",
+          "x": 529.59375,
+          "y": 142.5625,
+          "width": 804.40625,
+          "height": 187.375,
+          "collapsed": false
+        },
+        {
+          "id": "current-work",
+          "x": 529.59375,
+          "y": 334.734375,
+          "width": 804.40625,
+          "height": 137.375,
+          "collapsed": false
+        },
+        {
+          "id": "local-actions",
+          "x": 529.59375,
+          "y": 476.90625,
+          "width": 804.40625,
+          "height": 437.375,
+          "collapsed": false
+        },
+        {
+          "id": "records",
+          "x": 1350,
+          "y": 60.390625,
+          "width": 560,
+          "height": 177.375,
+          "collapsed": false
+        },
+        {
+          "id": "skills",
+          "x": 1350,
+          "y": 242.5625,
+          "width": 560,
+          "height": 187.375,
+          "collapsed": false
+        },
+        {
+          "id": "messages",
+          "x": 1350,
+          "y": 434.734375,
+          "width": 560,
+          "height": 257.375,
+          "collapsed": false
+        },
+        {
+          "id": "optional-worlds",
+          "x": 1350,
+          "y": 696.90625,
+          "width": 560,
+          "height": 36.375,
+          "collapsed": true
+        },
+        {
+          "id": "beginning",
+          "x": 1350,
+          "y": 738.078125,
+          "width": 560,
+          "height": 36.375,
+          "collapsed": true
+        },
+        {
+          "id": "patrol",
+          "x": 1350,
+          "y": 779.25,
+          "width": 560,
+          "height": 36.375,
+          "collapsed": true
+        },
+        {
+          "id": "supplies",
+          "x": 1350,
+          "y": 820.421875,
+          "width": 560,
+          "height": 36.375,
+          "collapsed": true
+        }
+      ]
+    }
+  ],
+  "errors": []
+}

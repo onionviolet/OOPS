@@ -1,0 +1,19 @@
+{
+  "tokenCases": 45,
+  "oldProfile": "schema1 absent componentTheme normalizes neutral",
+  "partialInheritance": "unchanged serif leaf after profile apply",
+  "large": {
+    "overlaps": [],
+    "pageOverflow": false,
+    "fonts": [
+      "28px",
+      "28px",
+      "28px",
+      "28px"
+    ],
+    "previewFacts": "Current known place\nVillage\nCurrent level\nLvl: 0"
+  },
+  "zoom": "125% no horizontal page overflow",
+  "errors": [],
+  "bundle": "dist/bundle.js?version=v0.6-56a996f600cf"
+}

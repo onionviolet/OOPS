@@ -1,0 +1,18 @@
+{
+  "date": "2026-10-11",
+  "sourceChatId": "01a1297e-c3c2-7c23-b4ae-974565fb5cf5",
+  "recipientChatId": "01a12ba4-8a07-7711-892c-6cbc1f278ee2",
+  "status": "reference intake recorded; no new implementation scope",
+  "inspection": "public report and review; validation/completion status; private synthesis structural catalog only",
+  "sourceFingerprints": {
+    "docs/gm/dispatch/lore-timelines-2026-10-11/REPORT.md": "05a4330d0be7065dd6976d37ed6ba6782104d5d415b0e621b94f602877417eff",
+    "docs/gm/dispatch/lore-timelines-2026-10-11/review/REVIEW.md": "14ad1003490faacf63f392c93c204e22e09f26152ffae3b693a2daab3599e9b6",
+    "docs/gm/dispatch/lore-timelines-2026-10-11/VALIDATION.json": "a72ec863cde9b0e75019ac62ccd221f570a0adf0a2ab9d041ad956bb07f8c5af",
+    "docs/gm/dispatch/lore-timelines-2026-10-11/COMPLETION_MATRIX.json": "84cfac82e9c885fbae3fb7437828cb62b92d52b1a010b6d6ab481cc49bcb3955",
+    "docs/research/novels/lore-timelines-2026-10-11/gm/coordinator/SYNTHESIS.json": "f7c9d533f1f2507a2de833d4997a5e8c77c3a6fdaa7308fc4aabee8acb9fbbdd"
+  },
+  "candidateSourceAndArtifactHashes": "match existing EVIDENCE.json",
+  "runtimeModified": false,
+  "existingGameplayPersistenceGates": "unchanged, implemented-unverified",
+  "sourceDeliveryAccountingOwner": "source coordinator; other delivery receipts not certified here"
+}

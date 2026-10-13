@@ -1,0 +1,109 @@
+{
+  "steps": [
+    {
+      "action": "completed",
+      "id": "remainder_home.dry_offcuts",
+      "count": 2,
+      "save": "materials-ready"
+    },
+    {
+      "action": "click",
+      "selector": "[data-travel=\"Shack\"]"
+    },
+    {
+      "action": "click",
+      "selector": "#notebook_tab_here"
+    },
+    {
+      "action": "panel",
+      "selector": "#feature_expansion_panel"
+    },
+    {
+      "action": "panel",
+      "selector": "#feature_expansion_panel details:has(>summary:text-is(\"Shutter, wages and overlapping shifts\"))"
+    },
+    {
+      "action": "panel",
+      "selector": "#feature_expansion_panel details:has(>summary:text-is(\"A taught procedure, useful material\"))"
+    },
+    {
+      "action": "click",
+      "selector": "[data-action-legibility-key=\"action:lore.work.begin\"] button",
+      "save": "refusal-extra-terms"
+    },
+    {
+      "action": "click",
+      "selector": "[data-action-legibility-key=\"action:lore.work.repair_player\"] button",
+      "save": "refusal-shutter-accepted"
+    },
+    {
+      "action": "completed",
+      "id": "lore.work.repair_player",
+      "count": 1,
+      "save": "refusal-shutter-completed"
+    },
+    {
+      "action": "click",
+      "selector": "#notebook_tab_here"
+    },
+    {
+      "action": "panel",
+      "selector": "#feature_expansion_panel details:has(>summary:text-is(\"Shutter, wages and overlapping shifts\"))"
+    },
+    {
+      "action": "click",
+      "selector": "[data-action-legibility-key=\"action:lore.work.fund_neri\"] button",
+      "save": "refusal-extra-funded"
+    },
+    {
+      "action": "completed",
+      "actor": "remainder_home.neri",
+      "id": "lore.work.neri_bind",
+      "save": "refusal-extra-duty-completed"
+    },
+    {
+      "action": "click",
+      "selector": "[data-action-legibility-key=\"action:lore.work.collect_kit\"] button",
+      "save": "refusal-extra-kit-collected"
+    },
+    {
+      "action": "click",
+      "selector": "[data-action-legibility-key=\"action:lore.work.account\"] button",
+      "save": "refusal-extra-account"
+    },
+    {
+      "action": "click",
+      "selector": "[data-action-legibility-key=\"action:world.completion.learning.sponsor\"] button",
+      "save": "natural-refusal-offered"
+    },
+    {
+      "action": "completed",
+      "actor": "remainder_home.neri",
+      "id": "world.completion.learning.refuse",
+      "save": "natural-refusal-resolved"
+    },
+    {
+      "action": "click",
+      "selector": "[data-action-legibility-key=\"action:world.completion.learning.account_shack\"] button",
+      "save": "natural-refusal-received"
+    },
+    {
+      "action": "click",
+      "selector": "[data-action-legibility-key=\"action:world.completion.learning.withdraw_shack\"] button",
+      "save": "natural-refusal-withdrawn"
+    },
+    {
+      "action": "export",
+      "name": "withdrawn"
+    },
+    {
+      "action": "reload",
+      "save": "natural-refusal-reloaded"
+    },
+    {
+      "action": "literalImport",
+      "path": "/tmp/yairpg-foundation-learning-refusal-final-withdrawn.txt",
+      "save": "natural-refusal-literal-imported"
+    }
+  ]
+}

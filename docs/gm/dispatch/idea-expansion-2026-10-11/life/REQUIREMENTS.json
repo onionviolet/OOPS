@@ -1,0 +1,1146 @@
+{
+  "schemaVersion": 1,
+  "lane": "G3",
+  "status": "planning-reviewed-by-worker",
+  "date": "2026-10-11",
+  "inputs": [
+    {
+      "path": "AGENTS.md",
+      "coverage": "Full agent/project rules read.",
+      "sha256": "2dd0e8a273ff4c292231409f4c7d0c776015a67833206d3c6b5bb56d919ab1fc"
+    },
+    {
+      "path": "PROJECT.md",
+      "coverage": "Summary, accepted decisions, status, Village proposals read; output initially truncated; no claim of exhaustive log coverage.",
+      "sha256": "652552a764912ed77bab73539585056e1e33e82b82dbc68fb315054eeb40d8a8"
+    },
+    {
+      "path": "docs/GAME_MASTER_PROMPT.md",
+      "coverage": "Design, autonomy, world-GM and coordination sections read.",
+      "sha256": "9524d382c81a981af02bd2cf9288f410fe9a09b9c6f8d99f7075c6245653de56"
+    },
+    {
+      "path": "docs/gm/WORLD_ACTIONABILITY_GM_PROMPT.md",
+      "coverage": "Dispatch, role, P1-P3 and source/world coverage boundaries read.",
+      "sha256": "ea48641284aaa76aa02ed4dff05f1a7e713838c29387b7a984f7cb6d1048e961"
+    },
+    {
+      "path": "docs/WORLD_COMPLETION_STANDARD.md",
+      "coverage": "Opening and S00-S14 categories plus interaction cases read.",
+      "sha256": "05fb2097b74a01f82679cc32946c215cdfdf7054a35f1ec57007a20dc1918468"
+    },
+    {
+      "path": "docs/LIFE_SIM_NORTH_STAR.md",
+      "coverage": "Heading inventory; romance 1995-2022; heirs 3310-3419; body needs/hunger 4016-4119; minigames/city/features/romance/genres/details 6632-6817. Other passages only located, not exhausted.",
+      "sha256": "605053cc285e073a3e948f5222b94cf7109fbeeb27ad81b224a9668e1a431aa2"
+    },
+    {
+      "path": "docs/worlds/DIALOGUE_AND_INTERACTIONS.md",
+      "coverage": "Full scene contract through owned checkpoint read; local five dossiers not read.",
+      "sha256": "6c9f867d703be28f0d406a18db260fe33c831299fd2eeaf18d49bf1016ea2be5"
+    },
+    {
+      "path": "docs/emergent/E3_LIVING_PEOPLE.md",
+      "coverage": "Sections 1-3 opening and person/need proposals read; later planner detail not read.",
+      "sha256": "292190b45c4ff167d387aa5b2b9233220645cae1f4977844ccbf5257c93840c2"
+    },
+    {
+      "path": "docs/gm/world-implementation/second-pass/society/REPORT.md",
+      "coverage": "Full narrative report read.",
+      "sha256": "47894113d14932c27666d8570e7d980c667d5af18f3f46bd041236820ffa11c7"
+    },
+    {
+      "path": "docs/gm/world-implementation/second-pass/society/FINDINGS.json",
+      "coverage": "Opening metadata and first SOC01 entry partial read; report supplies SOC01-SOC15 routing, full findings not read.",
+      "sha256": "1e4f818350376de03a6c8d440dd2cf6df665cf39140474e6e998ea1345685b92"
+    },
+    {
+      "path": "docs/gm/world-implementation/second-pass/society/FAMILY_GENEALOGY_HISTORY.md",
+      "coverage": "Five family additions, example, graph/history and scope read.",
+      "sha256": "539fc4ccce03a88b053fe3481480e4473a333d851301ace769837f26a44272ce"
+    },
+    {
+      "path": "docs/gm/world-implementation/second-pass/society/branching/REPORT.md",
+      "coverage": "Full SB01/SB02 report read; detailed graphs not read.",
+      "sha256": "5936e0a008010c077669b061e040e548cd2151c07e4665b0ae64d2df29b57bea"
+    },
+    {
+      "path": "docs/gm/dispatch/village-choices-2026-10-09/REPORT.md",
+      "coverage": "Play and first audit rows read; detailed proof not revalidated.",
+      "sha256": "c00708b2974b45c71c6fb00f38ab0acc65ef4344080c9d741c4f07f26a749280"
+    },
+    {
+      "path": "docs/worlds/CAMPAIGN_FRAMEWORK.md",
+      "coverage": "Opening/composition/plot/scaling planning sections read; later sections not read.",
+      "sha256": "679feddcd8572f75525cd598d54243353883ad86fd99a5584fa46dfb6e4d081d"
+    },
+    {
+      "path": "docs/research/royal-road-2026-10-10/REPORT.md",
+      "coverage": "Opening findings, supplement and collection-method opening read; 275 idea cards not read.",
+      "sha256": "1dbf2a4795d5aeed1bb73a50699a377a2fc08c84146a935ed75c00845a30bfcb"
+    },
+    {
+      "path": "src/npc_lives.js",
+      "coverage": "Full bounded lives and recruit functions read.",
+      "sha256": "abef56e7d73a0e17a3ba551608eafc4fb7f9f1660c17a445cfe96ae9869eb804"
+    },
+    {
+      "path": "src/feature_expansion_society.js",
+      "coverage": "Opening helpers, eligibility, sources and beginning actor definitions read; wider commands not exhausted.",
+      "sha256": "13a3a22fcb523ab5f145aab1e2381ea40211a327f322d121e9fe62d99a481e8f"
+    },
+    {
+      "path": "src/world_completion_people.js",
+      "coverage": "Opening knowledge-projection functions read.",
+      "sha256": "47e95abfb47725d56de4080ac34c0c84e55961e60c8fa2a4de95822626633fe4"
+    },
+    {
+      "path": "src/people_knowledge.js",
+      "coverage": "Opening actor observation/presentation functions read.",
+      "sha256": "e52bf2508ab626785ad66074179f33916aaed7946fbd403706cb59303e851261"
+    },
+    {
+      "path": "src/village_career.js",
+      "coverage": "Opening schema/helpers read.",
+      "sha256": "6e8cf84ace080b1955ff4c21e32b11fbc78c52ac1728ac989c66593aada2f962"
+    },
+    {
+      "path": "src/original_frontier_career_content.js",
+      "coverage": "Opening finite charter/contract commands and targeted successor/return definitions read; full source not read.",
+      "sha256": "52c408cf90d3f28fd6a07f501a11251ba9ea49ebe1cadde5cf7604e3cc513a79"
+    },
+    {
+      "path": "src/simulation_effects.js",
+      "coverage": "Knowledge/relationship/claim effect branches 225-250 read; targeted symbol search.",
+      "sha256": "bd9dde5ea0e09510a6111ac6c99e139c89ce94afc2ae4ae9772213b089408620"
+    },
+    {
+      "path": "src/simulation_contracts.js",
+      "coverage": "Targeted validated knowledge/people/relationships/jobs/sites/controller record rules; not full module read.",
+      "sha256": "0b048cb891b0e30abeb7f97125d8fe62ca9abe03c7fc7697e0078ae4a72501de"
+    },
+    {
+      "path": "src/simulation.js",
+      "coverage": "Targeted enroll/preview/commit/controller/automation symbols; not full module read.",
+      "sha256": "3f7ecf0f208edc1edff502d7e1f5076ad1e1a435630a020658eb922d3287d3f3"
+    },
+    {
+      "path": "docs/gm/dispatch/idea-expansion-2026-10-11/material/REQUIREMENTS.json",
+      "coverage": "At closeout, only requirement IDs and criteria/titles inspected to route joins; complete sibling cards not reviewed.",
+      "sha256": "67d1bb96948897379720507ac2b60c0e0cdc0b92f04e7f2c4cad6e6f9e242c51"
+    },
+    {
+      "path": "docs/gm/dispatch/idea-expansion-2026-10-11/continuity/REQUIREMENTS.json",
+      "coverage": "At closeout, only requirement IDs and criteria/titles inspected to route joins; complete sibling cards not reviewed.",
+      "sha256": "6eaf6d626bc986dfd23413b0495f2ff84247c0766cb99c8c457a3402758efa6e"
+    },
+    {
+      "path": "docs/gm/dispatch/idea-expansion-2026-10-11/engine/REQUIREMENTS.json",
+      "coverage": "At closeout, only requirement IDs and criteria/titles inspected to route joins; complete sibling cards not reviewed.",
+      "sha256": "99365586a499d613189fcf1343c642e2f5e6a258dd187a0a6b3962f82f173539"
+    }
+  ],
+  "requirements": [
+    {
+      "id": "G3-001",
+      "title": "An inhabitant has a life beyond player service",
+      "sections": [
+        "S04",
+        "S05",
+        "S10"
+      ],
+      "sourceRefs": [
+        "docs/emergent/E3_LIVING_PEOPLE.md",
+        "docs/gm/world-implementation/second-pass/society/REPORT.md",
+        "src/feature_expansion_society.js"
+      ],
+      "auditGap": "Independent paid actions exist; a general utility planner and dynamic target selector cannot be inferred from a person record.",
+      "disposition": "retain-and-expand-proposal",
+      "criterion": "A named inhabitant can pursue a funded personal goal, defer the player for a known reason and change course when actual means or circumstances change.",
+      "proposedExpansion": {
+        "acquisition": "Meet through work, household or observed local activity.",
+        "function": "Authored priorities choose among feasible work, study, rest, helping or departure.",
+        "development": "A learner becomes a specialist; their improved means open a different project.",
+        "response": "The person reports only what they witnessed or were told.",
+        "consequence": "They retain their own pay, project and memory after the player leaves.",
+        "variants": [
+          "Finite authored controller",
+          "Goal/utility planner after target-selection contract",
+          "Quiet independent life without universal need bars"
+        ]
+      },
+      "dependencies": [
+        "G1 stable actor/start identity",
+        "G4 played/absence clock"
+      ],
+      "engineConsumerOrGap": "Existing simulation controllers and registered commands can serve finite cases; E3 target selection, independent goals, body-dependent needs and generated-actor validation require separate contracts.",
+      "acceptanceCases": [
+        "Last owned tool reserved for personal research remains unavailable to player loan.",
+        "Changing body/fuel invalidates that actor's job without fabricating another source.",
+        "Two simultaneous bookings cannot occupy the same actor."
+      ],
+      "remaining": "World GM chooses goals and cadence; broader planner remains a later packet."
+    },
+    {
+      "id": "G3-002",
+      "title": "Directed trust, fear, respect and particular memories",
+      "sections": [
+        "S04",
+        "S09",
+        "S10",
+        "S14"
+      ],
+      "sourceRefs": [
+        "docs/gm/world-implementation/second-pass/society/REPORT.md",
+        "src/simulation_effects.js",
+        "src/simulation_contracts.js"
+      ],
+      "auditGap": "A relationship axis is insufficient evidence of a loan, promise or remembered episode; clock-zero receipt truthiness is a concrete source risk.",
+      "disposition": "retain-and-expand-proposal",
+      "criterion": "Two people can interpret the same event differently; named obligations survive display pruning and repeated rendering earns nothing.",
+      "proposedExpansion": {
+        "acquisition": "An actual witnessed exchange or attributed report.",
+        "function": "Specific history changes one offer, response or refusal.",
+        "development": "Repair, restitution, collaboration and disagreement produce distinct episodes.",
+        "response": "Warmth and payment due can coexist; fear never proves affection.",
+        "consequence": "Permanent settlements are stable receipts, not prose matching.",
+        "variants": [
+          "No scalar relationship at all",
+          "Local axes where meaningful",
+          "Long rivalry or friendship without romance"
+        ]
+      },
+      "dependencies": [
+        "G4 provenance",
+        "G5 sole receipt writer and publication"
+      ],
+      "engineConsumerOrGap": "Directed simulation relationships, capped memories and causes exist. Future packet must close zero-clock dedupe and retain episode IDs independently of prose; no repair is made here.",
+      "acceptanceCases": [
+        "Replay same cause at clock zero grants once.",
+        "Prune display history and revise wording: returned kit remains returned.",
+        "NPC-to-NPC memory does not appear in player view without disclosure."
+      ],
+      "remaining": "Current bug needs runtime assignment; acceptance here is planning only."
+    },
+    {
+      "id": "G3-003",
+      "title": "Language, signs, interpretation and culture",
+      "sections": [
+        "S04",
+        "S09",
+        "S10",
+        "S13"
+      ],
+      "sourceRefs": [
+        "docs/worlds/DIALOGUE_AND_INTERACTIONS.md",
+        "docs/gm/world-implementation/second-pass/society/REPORT.md",
+        "docs/LIFE_SIM_NORTH_STAR.md"
+      ],
+      "auditGap": "Language and customs are documented but no general native speaker/channel bridge is proven.",
+      "disposition": "retain-and-expand-proposal",
+      "criterion": "Available communication means change what can be learned or agreed, without a universal fluency grind or omniscient translator.",
+      "proposedExpansion": {
+        "acquisition": "A local tutor, interpreter, record, familiar sign or actual faculty.",
+        "function": "Understand bounded terms or communicate a concrete request.",
+        "development": "Learn trade vocabulary, dialect or a sign system through real practice.",
+        "response": "Different individuals can tolerate, correct, exploit or ignore a mistake.",
+        "consequence": "A corrected interpretation changes a specific agreement or belief.",
+        "variants": [
+          "Translation cheat genuinely bypasses learning where its scope works",
+          "Nonverbal care signals",
+          "Culture with individual exceptions",
+          "No language barrier when source supports shared language"
+        ]
+      },
+      "dependencies": [
+        "G1 body/senses",
+        "G2 translation function",
+        "G4 knowledge projection"
+      ],
+      "engineConsumerOrGap": "Dialogue D1/D5 need speaker, listener, channel, provenance and hidden-reason filtering; native textlines alone do not establish them.",
+      "acceptanceCases": [
+        "Infant intent cannot speak an adult contract without actual means.",
+        "Translator identifies a word but not an unseen motive.",
+        "Unrecognized custom causes only its locally authored response."
+      ],
+      "remaining": "Canonical speech/customs require era-relevant primary passages before final writing."
+    },
+    {
+      "id": "G3-004",
+      "title": "Evidence, rumors and mistaken beliefs",
+      "sections": [
+        "S04",
+        "S09",
+        "S10"
+      ],
+      "sourceRefs": [
+        "docs/gm/world-implementation/second-pass/society/REPORT.md",
+        "docs/worlds/DIALOGUE_AND_INTERACTIONS.md",
+        "src/simulation_effects.js"
+      ],
+      "auditGap": "One actor/topic knowledge record replaces equal-stage values, so conflicting allegations need explicit retention.",
+      "disposition": "retain-and-expand-proposal",
+      "criterion": "A person can hear a rumor, believe or doubt it, obtain contrary evidence and revise an actual response without rewriting historical truth.",
+      "proposedExpansion": {
+        "acquisition": "Witness, letter, instrument, testimony or investigation.",
+        "function": "Use partial evidence to make a meaningful choice before certainty.",
+        "development": "Cross-check an assertion and establish provenance.",
+        "response": "Source credibility, local understanding and self-interest differ per person.",
+        "consequence": "Disclosure reaches a bounded audience and changes a fitting offer/access.",
+        "variants": [
+          "Finite authored disagreement graph first",
+          "Later rumor network",
+          "Lie, joke, error and uncertain report remain distinct"
+        ]
+      },
+      "dependencies": [
+        "G4 assertion/provenance contract",
+        "G5 projection integration"
+      ],
+      "engineConsumerOrGap": "Knowledge effects and basis exist; richer claim/evidence/belief records are missing. Reuse SOC01 and Dialogue D5 rather than create a second belief store.",
+      "acceptanceCases": [
+        "Hearing an allegation does not mark its content as fact.",
+        "A private correction changes one observer, not the whole town.",
+        "Parallel counterpart retains its own beliefs."
+      ],
+      "remaining": "G4 owns evidence representation; G3 owns motive and social responses."
+    },
+    {
+      "id": "G3-005",
+      "title": "Homes and households as real means",
+      "sections": [
+        "S03",
+        "S04",
+        "S05",
+        "S06",
+        "S14"
+      ],
+      "sourceRefs": [
+        "docs/gm/world-implementation/second-pass/society/FAMILY_GENEALOGY_HISTORY.md",
+        "docs/LIFE_SIM_NORTH_STAR.md",
+        "src/feature_expansion_society.js"
+      ],
+      "auditGap": "A home label does not specify occupants, actual stock, privacy, use rights or support.",
+      "disposition": "retain-and-expand-proposal",
+      "criterion": "An occupied home supports real rest, work, guests or care through actual space, supplies and people; losing one right changes only supported uses.",
+      "proposedExpansion": {
+        "acquisition": "Rent, invitation, ownership, shared tenancy, inheritance or seizure under local rules.",
+        "function": "Use a bed, shared meal, guest space or workbench through their actual owners.",
+        "development": "Improve household capacity and agree division of labor.",
+        "response": "Residents can reserve space, move, dispute use or welcome guests.",
+        "consequence": "Stock and use rights persist independently of affection and title.",
+        "variants": [
+          "Poverty/temporary shelter",
+          "Nonhuman habitat",
+          "Estate or ship household",
+          "Cozy home with optional bonus upkeep",
+          "Harsh shelter constraints where selected"
+        ]
+      },
+      "dependencies": [
+        "G1 household initialization",
+        "G6 fixtures/capacity/material flows",
+        "G5 site/native binding"
+      ],
+      "engineConsumerOrGap": "Society content has finite purses, rights, sites, custody and bodies. Wider tenancy, spatial occupancy and household stock authoring remain named gaps.",
+      "acceptanceCases": [
+        "Furniture sale stops its actual owned effect without deleting kinship.",
+        "Guest invitation supplies no duplicate bed/tool.",
+        "Departure obeys selected absence policy, not invented eviction."
+      ],
+      "remaining": "G6 owns fixture functions; world GM selects property/tenancy rules."
+    },
+    {
+      "id": "G3-006",
+      "title": "Kinship, upbringing and discovered genealogy",
+      "sections": [
+        "S02",
+        "S04",
+        "S09",
+        "S11"
+      ],
+      "sourceRefs": [
+        "docs/gm/world-implementation/second-pass/society/FAMILY_GENEALOGY_HISTORY.md",
+        "docs/LIFE_SIM_NORTH_STAR.md",
+        "src/npc_lives.js"
+      ],
+      "auditGap": "Village yearly public lives are separate from simulation actors, and parents/spouse fields are not a universal family graph.",
+      "disposition": "retain-and-expand-proposal",
+      "criterion": "Biological kin, adoption, guardianship, chosen family and teaching ancestry can differ and be discovered through actual evidence.",
+      "proposedExpansion": {
+        "acquisition": "Start household, adoption, researched archive or lived introduction.",
+        "function": "Seek care, introduction, tradition or a specific claim from actual kin.",
+        "development": "Growing independence changes household roles without erasing history.",
+        "response": "Family members have separate loyalties, careers and relationships.",
+        "consequence": "Unknown/disputed ancestry stays unknown until a fitting route reveals it.",
+        "variants": [
+          "No kin or heir",
+          "Branch families",
+          "Clone/soul/nonhuman kin under local laws",
+          "Chosen kin without bloodline powers"
+        ]
+      },
+      "dependencies": [
+        "G1 kin/origin snapshot",
+        "G4 temporal identity",
+        "G2 hereditary faculty"
+      ],
+      "engineConsumerOrGap": "Reuse SOC11/SOC12 typed, time-qualified links and stable actor identity; npc_lives public generation is not proof of promoted simulation people or actionable genealogy.",
+      "acceptanceCases": [
+        "Surname does not grant training or private knowledge.",
+        "Adopted heir can receive a tool without biological faculty.",
+        "Promote historical relative into scene without changing their identity or stock."
+      ],
+      "remaining": "No family generation or age transition is implemented in this lane."
+    },
+    {
+      "id": "G3-007",
+      "title": "Care, health, aging and bodily support",
+      "sections": [
+        "S04",
+        "S05",
+        "S07",
+        "S11"
+      ],
+      "sourceRefs": [
+        "docs/gm/world-implementation/second-pass/society/FAMILY_GENEALOGY_HISTORY.md",
+        "docs/LIFE_SIM_NORTH_STAR.md",
+        "docs/research/royal-road-2026-10-10/REPORT.md"
+      ],
+      "auditGap": "Care is easily reduced to generic healing; domestic nonhuman needs, chronic illness and elder support need distinct functions.",
+      "disposition": "retain-and-expand-proposal",
+      "criterion": "A real caregiver can perform a bounded useful task with compatible means while the recipient retains meaningful choices and pursuits.",
+      "proposedExpansion": {
+        "acquisition": "Household role, clinic, neighbor, trained companion or self-care.",
+        "function": "Prepare support, assist mobility, monitor a known condition or arrange a supported treatment.",
+        "development": "Learn accommodations, share care shifts or secure reliable supplies.",
+        "response": "Recipient can prefer help, refuse, negotiate or pursue their own ambitions.",
+        "consequence": "A successful care task changes its actual condition/support; it need not cure the underlying cause.",
+        "variants": [
+          "Child/infant care signals",
+          "Elder care",
+          "Chronic illness with stable accommodations",
+          "Robot repair or rooted plant support",
+          "Harsh scarcity with actual alternatives"
+        ]
+      },
+      "dependencies": [
+        "G1 body and agency",
+        "G2 treatment scope",
+        "G6 supplies",
+        "G4 life/age clocks"
+      ],
+      "engineConsumerOrGap": "Existing vitals, conditions, bodies and jobs are building blocks; general care/treatment/accommodation contracts need selection. No automatic hunger or offline damage is implied.",
+      "acceptanceCases": [
+        "Incompatible medicine cannot repair a robot; compatible exceptional repair can.",
+        "Caregiver cannot attend two occupied shifts simultaneously.",
+        "Safe stock depletion pauses only under the chosen policy; selected harsh mode remains explicit."
+      ],
+      "remaining": "World GM must specify needs and illness evidence; avoid one universal care meter."
+    },
+    {
+      "id": "G3-008",
+      "title": "Body needs and supply dependency",
+      "sections": [
+        "S05",
+        "S07",
+        "S12"
+      ],
+      "sourceRefs": [
+        "docs/LIFE_SIM_NORTH_STAR.md",
+        "src/feature_expansion_society.js"
+      ],
+      "auditGap": "North-star body tables are palettes, not evidence every ghost needs belief or every divine body needs worship; vanilla has no general hunger.",
+      "disposition": "retain-and-expand-proposal",
+      "criterion": "The selected body needs only its actual supported inputs, and a need-removing cheat really frees the associated time and supply.",
+      "proposedExpansion": {
+        "acquisition": "Declared body, injury, implant, pact or transformation.",
+        "function": "Acquire/allocate compatible food, power, repair or other local input.",
+        "development": "Find substitutes, improve storage, diversify supplier or remove need through actual function.",
+        "response": "Suppliers notice only supported purchases/tells; monopoly leverage requires actual supply control.",
+        "consequence": "Transformation changes future inputs without rewriting previous paid history.",
+        "variants": [
+          "No hunger",
+          "Optional well-fed bonus",
+          "Automatic stock/ration policy",
+          "Expedition-only needs",
+          "Full harsh survival locally selected",
+          "Bodies without these needs"
+        ]
+      },
+      "dependencies": [
+        "G1 exact physiology",
+        "G2 exemptions/substitutes",
+        "G6 supply consumers",
+        "G4 absence clock"
+      ],
+      "engineConsumerOrGap": "Existing body/vital/resource effects can fund bounded work. A universal upkeep loop is neither present nor selected; each added need requires its native consumer and stopping rule.",
+      "acceptanceCases": [
+        "Robot without organic organs buys no food for physiology.",
+        "Never-hungry function removes food need without compensatory new tax.",
+        "Arrive in incompatible supply world: reachable alternatives reflect actual means."
+      ],
+      "remaining": "G6 owns conversion/repair recipes; G3 owns supply access and social leverage."
+    },
+    {
+      "id": "G3-009",
+      "title": "Careers with competence and alternate livelihoods",
+      "sections": [
+        "S04",
+        "S05",
+        "S07",
+        "S10",
+        "S11"
+      ],
+      "sourceRefs": [
+        "docs/LIFE_SIM_NORTH_STAR.md",
+        "docs/research/royal-road-2026-10-10/REPORT.md",
+        "src/village_career.js",
+        "docs/gm/dispatch/village-choices-2026-10-09/REPORT.md"
+      ],
+      "auditGap": "Current patrol progression is a bounded exemplar; rank labels do not establish every vocation or decades-long professional life.",
+      "disposition": "retain-and-expand-proposal",
+      "criterion": "A career develops usable competence, responsibilities and chosen next opportunities; refusal leaves coherent alternative livelihoods.",
+      "proposedExpansion": {
+        "acquisition": "Application, family trade, apprenticeship, independent practice or exceptional appointment.",
+        "function": "Perform actual funded work with means, equipment and completion conditions.",
+        "development": "Learn, practice and execute improved methods; recognition follows applicable evidence.",
+        "response": "Employer and peers know actual witnessed performance; credentials and competence can differ.",
+        "consequence": "Retirement or career change retains earned methods/history without ending a life.",
+        "variants": [
+          "Military, athlete, artist, thief, investigator, healer, scholar or administrator",
+          "Independent specialist",
+          "Public service",
+          "Part-time quiet work",
+          "Career under disability accommodation"
+        ]
+      },
+      "dependencies": [
+        "G1 viable first livelihood",
+        "G2 methods",
+        "G5 native job/credit binding"
+      ],
+      "engineConsumerOrGap": "village_career and original_frontier_career_content demonstrate native/full-shift and finite-contract source consumers. New world careers need authored functional operations, credit rules and native adapters.",
+      "acceptanceCases": [
+        "Early cancellation earns only explicitly retained progress and no invented full wage.",
+        "Credentialed weak worker and unrecognized strong specialist differ.",
+        "A career closure leaves useful home/other career actions."
+      ],
+      "remaining": "No universal career XP/rank track; world/source chooses qualification rules."
+    },
+    {
+      "id": "G3-010",
+      "title": "Teaching, reciprocal learning and patronage",
+      "sections": [
+        "S04",
+        "S05",
+        "S07"
+      ],
+      "sourceRefs": [
+        "docs/gm/world-implementation/second-pass/society/REPORT.md",
+        "docs/gm/dispatch/village-choices-2026-10-09/REPORT.md",
+        "src/original_frontier_career_content.js"
+      ],
+      "auditGap": "Teaching often confuses information, practice, source and execution, or forces one price.",
+      "disposition": "retain-and-expand-proposal",
+      "criterion": "A teacher and learner agree locally possible terms and actually transmit what is teachable; either can later learn a useful refinement from the other.",
+      "proposedExpansion": {
+        "acquisition": "Introduction, interview, paid tutor, friend, school, manual or qualified self-study.",
+        "function": "Give knowledge/practice or transmissible source under its real requirements.",
+        "development": "Apprentice develops a supported refinement and demonstrates it.",
+        "response": "Teacher may adopt, dispute, credit, ignore or appropriate the refinement based on means/evidence.",
+        "consequence": "Each keeps their own mastery, tools, fees and obligations.",
+        "variants": [
+          "Coin",
+          "Time",
+          "Favor",
+          "Free",
+          "Job-funded mentorship",
+          "Exceptional instant teaching where supported"
+        ]
+      },
+      "dependencies": [
+        "G2 acquisition/mastery distinctions",
+        "G5 jobs/terms/receipts"
+      ],
+      "engineConsumerOrGap": "Village teaching alternatives and Jun independently supported operation are actual inspected source examples; general reciprocal teaching bridge remains a contract gap.",
+      "acceptanceCases": [
+        "Reading a method grants no missing body/fuel.",
+        "Free lesson creates no secret debt.",
+        "Student can outperform teacher when actual method supports it."
+      ],
+      "remaining": "NPCs can decline or be coerced only through actual local means; no universal consent mechanic is added."
+    },
+    {
+      "id": "G3-011",
+      "title": "Promises, favors, contracts and custody",
+      "sections": [
+        "S04",
+        "S05",
+        "S10",
+        "S14"
+      ],
+      "sourceRefs": [
+        "docs/gm/world-implementation/second-pass/society/REPORT.md",
+        "docs/worlds/DIALOGUE_AND_INTERACTIONS.md",
+        "src/original_frontier_career_content.js"
+      ],
+      "auditGap": "Custody and unique claims exist but are not a generic lifecycle for amended promises or favors.",
+      "disposition": "retain-and-expand-proposal",
+      "criterion": "A commitment freezes who agreed to what, actual inputs, deadline where any, amendment and settlement; unaccepted offers create no inferred debt.",
+      "proposedExpansion": {
+        "acquisition": "Explicit accepted terms or actual coercive/imposed obligation under selected local rules.",
+        "function": "Reserve and perform a specific favor/service/loan.",
+        "development": "Amend terms before later commitments or expand under new funding.",
+        "response": "Promise kept, apology and material restitution resolve different issues.",
+        "consequence": "Conserved transfers and closure publish together and replay once.",
+        "variants": [
+          "Informal promise",
+          "Finite funded charter",
+          "Personal favor",
+          "Loan",
+          "Compulsory duty with real authority"
+        ]
+      },
+      "dependencies": [
+        "G4 deadlines/provenance",
+        "G5 sole commitment binding"
+      ],
+      "engineConsumerOrGap": "Frontier finite charters and Village favors demonstrate bounded cases; reuse SOC02 for general lifecycle, preserve custody owner and atomic persistence.",
+      "acceptanceCases": [
+        "Signing a framework does not accept every future order.",
+        "Failed durable storage publishes no payment or memory.",
+        "A favor is spent once and does not auto-grant career credit."
+      ],
+      "remaining": "Local enforcement and forgiveness remain world-specific, not universal debt penalties."
+    },
+    {
+      "id": "G3-012",
+      "title": "Markets, wages, trade and circulation",
+      "sections": [
+        "S03",
+        "S04",
+        "S05",
+        "S06"
+      ],
+      "sourceRefs": [
+        "docs/worlds/CAMPAIGN_FRAMEWORK.md",
+        "docs/LIFE_SIM_NORTH_STAR.md",
+        "src/feature_expansion_society.js",
+        "src/original_frontier_career_content.js"
+      ],
+      "auditGap": "Finite resident wallets are source examples; endless repeat orders need replenishment causes, not restocked rendering.",
+      "disposition": "retain-and-expand-proposal",
+      "criterion": "A useful exchange conserves goods and payment, reflects an actual buyer/use and allows continuing trade through declared replenishment.",
+      "proposedExpansion": {
+        "acquisition": "Local market, commission, caravan, barter, broker or interworld carrier.",
+        "function": "Buy, sell, hire or exchange actual stock/rights under quoted terms.",
+        "development": "Reliable delivery, comparative advantage, buyer network and supply route.",
+        "response": "Cheap magical supply changes demand, competitors or distribution only through actual economic links.",
+        "consequence": "Delivered outputs feed a real household, workshop or institution.",
+        "variants": [
+          "Barter",
+          "Currency",
+          "Ration/public provision",
+          "Black market",
+          "Post-scarcity abundance",
+          "Local arbitrage and crossworld tariffs where selected"
+        ]
+      },
+      "dependencies": [
+        "G6 production/stock flows",
+        "G4 transport/time",
+        "G5 quote and conservation binding"
+      ],
+      "engineConsumerOrGap": "Finite coins/demand/escrow exist in society and Frontier career commands. Endogenous prices, demand renewal, transport and world currency bindings remain separate missing contracts.",
+      "acceptanceCases": [
+        "No buyer budget means no funded wage.",
+        "Render/reload does not refill demand.",
+        "Infinite production cheat works; downstream storage/transport/customs follow real causes rather than arbitrary output caps."
+      ],
+      "remaining": "Price simulation is optional; finite authored replenishment can qualify the first market."
+    },
+    {
+      "id": "G3-013",
+      "title": "Institutions have supply, staff, duties and authority",
+      "sections": [
+        "S04",
+        "S05",
+        "S10",
+        "S11"
+      ],
+      "sourceRefs": [
+        "docs/worlds/CAMPAIGN_FRAMEWORK.md",
+        "docs/LIFE_SIM_NORTH_STAR.md",
+        "src/original_frontier_career_content.js"
+      ],
+      "auditGap": "Charter/title can be mistaken for a functioning guild, clinic, school, sect or government.",
+      "disposition": "retain-and-expand-proposal",
+      "criterion": "A selected institution performs a continuing service using actual personnel, inputs, capacity, funding and recognized powers; changing these changes its real output.",
+      "proposedExpansion": {
+        "acquisition": "Join, found, fund, reform, inherit, conquer or work beside an existing institution.",
+        "function": "One actual service: teaching, care, security, repair, records, transport or adjudication.",
+        "development": "Recruit/train staff, procure supplies, expand capacity and delegate.",
+        "response": "Members, clients, rivals and governing powers react through their own interests and evidence.",
+        "consequence": "An office/right, personnel loyalty and facility ownership remain separate.",
+        "variants": [
+          "Family workshop",
+          "Public clinic",
+          "Private specialist firm",
+          "Sect",
+          "Academy",
+          "Faith community",
+          "Corrupt or predatory institution"
+        ]
+      },
+      "dependencies": [
+        "G6 facilities/input outputs",
+        "G1 actor staffing",
+        "G4 policy/timeline",
+        "G5 institution binding"
+      ],
+      "engineConsumerOrGap": "Frontier career source has finite institution choices and successor work; large-scale staffing, recurring funding and services need explicit institution contracts, not a label-only module.",
+      "acceptanceCases": [
+        "School with no teacher cannot teach unless an actual replacement means exists.",
+        "Office holder lacks personal mastery unless learned.",
+        "Reform changes procurement/service eligibility and local consequences, not only text."
+      ],
+      "remaining": "World GM selects jurisdiction and constitution; universal bureaucracy is not required."
+    },
+    {
+      "id": "G3-014",
+      "title": "Politics, force, crime and legitimacy",
+      "sections": [
+        "S04",
+        "S05",
+        "S08",
+        "S10",
+        "S11"
+      ],
+      "sourceRefs": [
+        "docs/worlds/CAMPAIGN_FRAMEWORK.md",
+        "docs/LIFE_SIM_NORTH_STAR.md",
+        "docs/worlds/DIALOGUE_AND_INTERACTIONS.md"
+      ],
+      "auditGap": "Politics easily becomes a favor threshold or omniscient crime response instead of conflicting means.",
+      "disposition": "retain-and-expand-proposal",
+      "criterion": "A dispute can be mediated, contested, won through force, evaded or ignored through actual local routes, with audience-specific aftermath.",
+      "proposedExpansion": {
+        "acquisition": "Witness conflict, claim office, take a contract, organize a coalition or enter a criminal opportunity.",
+        "function": "Negotiate, expose, vote where law permits, intimidate, smuggle or enforce with actual reach/means.",
+        "development": "Build coalition, records, supply, protection or an effective alternate institution.",
+        "response": "A powerful actor can compel compliance without affection; secrecy needs channels and witnesses.",
+        "consequence": "Control, recognition, material distribution and grievances can diverge.",
+        "variants": [
+          "Court etiquette",
+          "Sect council",
+          "Election",
+          "Feudal authority",
+          "Anarchy",
+          "Imperial coercion",
+          "No relevant political simulation in tiny scope"
+        ]
+      },
+      "dependencies": [
+        "G2 actual force/mental power",
+        "G4 evidence/cause",
+        "G6 logistics",
+        "G5 authority checks"
+      ],
+      "engineConsumerOrGap": "Claims, reputation, pursuit and situations are ingredients; law/jurisdiction, arrest, investigation or election consumers require exact world packets.",
+      "acceptanceCases": [
+        "Unobserved act causes no instant town-wide penalty.",
+        "Actual mind-control function applies its promised effect, without pretending it is mutual trust.",
+        "Abstention can allow another faction to win and preserve that outcome."
+      ],
+      "remaining": "Crime/war losses require selected failure policy; no new punishments are introduced."
+    },
+    {
+      "id": "G3-015",
+      "title": "Friendship, romance and shared continuing futures",
+      "sections": [
+        "S04",
+        "S05",
+        "S10",
+        "S11",
+        "S12"
+      ],
+      "sourceRefs": [
+        "docs/LIFE_SIM_NORTH_STAR.md",
+        "docs/gm/world-implementation/second-pass/society/REPORT.md",
+        "docs/worlds/DIALOGUE_AND_INTERACTIONS.md"
+      ],
+      "auditGap": "Affection layers and gifts alone omit partner independence, common plans and long marriage.",
+      "disposition": "retain-and-expand-proposal",
+      "criterion": "A relationship supports particular remembered details, shared plans and independent lives; friendship and nonromantic outcomes remain complete.",
+      "proposedExpansion": {
+        "acquisition": "Repeated meaningful encounters, shared work, introduced courtship or local arrangement.",
+        "function": "Choose a meeting, letter, date, household discussion or joint project.",
+        "development": "Negotiate incompatible careers, living arrangements, boundaries or distance.",
+        "response": "Reciprocity, refusal, rivalry, conflict and repair use actual persons and local norms.",
+        "consequence": "A saved preference changes a later action; separation, grief or continuing partnership is a life event.",
+        "variants": [
+          "Friendship/found family",
+          "Optional adult romance",
+          "Political union without assumed affection",
+          "Lifespan disparity",
+          "Spirit/AI relationship under local rules",
+          "Nonexclusive structures where authored"
+        ]
+      },
+      "dependencies": [
+        "G1 life/body eligibility",
+        "G4 clocks/letters/travel",
+        "G5 scene projection"
+      ],
+      "engineConsumerOrGap": "Directed memory/relationships and native textlines are foundations; shared-plan, preference and contact projection need bounded scene contracts, not universal affection bars.",
+      "acceptanceCases": [
+        "Repeated gift rendering never farms intimacy.",
+        "Partner's own career can conflict with a request to travel.",
+        "Counterpart in parallel world inherits no relationship; returning to same partner preserves real history."
+      ],
+      "remaining": "World-specific adult relationship eligibility and source characterization need local review; no mandatory romance."
+    },
+    {
+      "id": "G3-016",
+      "title": "Succession, retirement and legacy conservation",
+      "sections": [
+        "S04",
+        "S05",
+        "S11",
+        "S12",
+        "S14"
+      ],
+      "sourceRefs": [
+        "docs/gm/world-implementation/second-pass/society/FAMILY_GENEALOGY_HISTORY.md",
+        "docs/LIFE_SIM_NORTH_STAR.md",
+        "src/npc_lives.js"
+      ],
+      "auditGap": "Heir direction is accepted, but legacy must reflect what remains rather than recreate predecessor stock or powers.",
+      "disposition": "retain-and-expand-proposal",
+      "criterion": "An heir receives only surviving reachable assets, rights and transmissible knowledge through actual carriers; followers decide independently.",
+      "proposedExpansion": {
+        "acquisition": "Will, apprenticeship, adoption, contested claim, discovered cache or no heir.",
+        "function": "Prepare, accept, contest, divide or refuse a specific inheritance.",
+        "development": "Leave methods, capital, archive or organization during life; heir improves or abandons it.",
+        "response": "Kin/creditors/staff act on local law, obligations, feelings and opportunities.",
+        "consequence": "Retirement can transfer a role while elder remains alive; loss before succession is real.",
+        "variants": [
+          "Rich legacy with expectations",
+          "Poor/empty legacy",
+          "Unrelated apprentice",
+          "Lone wolf ending",
+          "Heir elsewhere with actual carrier",
+          "Contested or hidden legacy"
+        ]
+      },
+      "dependencies": [
+        "G1 heir identity",
+        "G2 source retention",
+        "G4 life event/carriers",
+        "G6 conserved assets",
+        "G5 migration"
+      ],
+      "engineConsumerOrGap": "SOC13 and family workshop planning own bequest distinctions. Village lives alone do not implement successor control, inheritance or conserved legacy.",
+      "acceptanceCases": [
+        "One unique tool cannot appear for two heirs.",
+        "Burned estate is not rebuilt by heir initializer.",
+        "Staff leave or stay for their own local reasons; retirement does not kill donor."
+      ],
+      "remaining": "G4 owns transition rules and historical continuity; no new death policy selected."
+    },
+    {
+      "id": "G3-017",
+      "title": "Local culture, seasons, ceremonies and ordinary texture",
+      "sections": [
+        "S03",
+        "S04",
+        "S05",
+        "S10",
+        "S11"
+      ],
+      "sourceRefs": [
+        "docs/gm/world-implementation/second-pass/society/FAMILY_GENEALOGY_HISTORY.md",
+        "docs/LIFE_SIM_NORTH_STAR.md",
+        "docs/worlds/DIALOGUE_AND_INTERACTIONS.md"
+      ],
+      "auditGap": "Texture is sometimes forced into bonus meters, while calendar events lack real participants/stock or local significance.",
+      "disposition": "retain-and-expand-proposal",
+      "criterion": "A selected tradition or occasion creates fitting contact or availability; purely decorative details are reviewed as fiction without invented rewards.",
+      "proposedExpansion": {
+        "acquisition": "Learn a custom through participation, instruction or ordinary observation.",
+        "function": "Attend, host, decline, make an offering, share a meal or mark an occasion.",
+        "development": "Carry a tradition, adapt it after migration or help a community preserve it.",
+        "response": "Individuals can differ from group expectations.",
+        "consequence": "Actual attendance/known event can be remembered; menu opening alone cannot record attendance.",
+        "variants": [
+          "Festival/market/tournament",
+          "Memorial",
+          "Reunion",
+          "Religious ceremony",
+          "Secular celebration",
+          "Quiet routine with no calendar pressure"
+        ]
+      },
+      "dependencies": [
+        "G4 seasonal/common clock",
+        "G6 supplies",
+        "G1 cultural snapshot"
+      ],
+      "engineConsumerOrGap": "Authored events and jobs can provide finite occasions; general seasonal/calendar availability and scheduled contact need explicit native/time binding.",
+      "acceptanceCases": [
+        "Weather changes selected route or work only when authored consumer reads it.",
+        "Absent person cannot join dinner by textline alone.",
+        "Declining decoration-only occasion creates no unexplained penalty."
+      ],
+      "remaining": "Canonical customs need era-relevant evidence; no mandatory calendar grind."
+    },
+    {
+      "id": "G3-018",
+      "title": "Books, letters, art, collections and public dissemination",
+      "sections": [
+        "S04",
+        "S05",
+        "S06",
+        "S09",
+        "S10"
+      ],
+      "sourceRefs": [
+        "docs/LIFE_SIM_NORTH_STAR.md",
+        "docs/worlds/DIALOGUE_AND_INTERACTIONS.md"
+      ],
+      "auditGap": "Authoring a book or creating art is shallow unless another actor can actually read/use/respond to the result.",
+      "disposition": "retain-and-expand-proposal",
+      "criterion": "A created work can carry a declared record, instruction or expression; actual recipients can learn or interpret within their own means.",
+      "proposedExpansion": {
+        "acquisition": "Learn craft/language, obtain medium or use an actual recording cheat.",
+        "function": "Write, perform, publish, exhibit, collect, annotate or send a message.",
+        "development": "Build an archive, school of thought, troupe, newsroom or museum.",
+        "response": "Recipients understand, disagree, copy, censor or spread only received content.",
+        "consequence": "Provenance and distribution survive alongside actual physical copies/records.",
+        "variants": [
+          "Private journal",
+          "Manual with executable instruction after practice",
+          "Art as texture",
+          "Magical song/image with real function",
+          "Letters across worlds",
+          "Living collection with actual custody"
+        ]
+      },
+      "dependencies": [
+        "G2 transmissible method",
+        "G4 knowledge/distribution",
+        "G6 media/copies",
+        "G5 content/claim binding"
+      ],
+      "engineConsumerOrGap": "Existing books/reading and knowledge effects are ingredients. Authored output payloads, NPC reading consumer and circulation are precise gaps; no LLM generation service is implied.",
+      "acceptanceCases": [
+        "Unsent letter changes no recipient belief.",
+        "Reading instruction does not grant unavailable anatomy/fuel.",
+        "A public work reaches actual audience; secrecy remains sealed outside discovered content."
+      ],
+      "remaining": "G6 owns material copying and storage; G4 owns report/publication evidence."
+    },
+    {
+      "id": "G3-019",
+      "title": "Scale from household to settlement and realm",
+      "sections": [
+        "S03",
+        "S04",
+        "S05",
+        "S06",
+        "S11"
+      ],
+      "sourceRefs": [
+        "docs/LIFE_SIM_NORTH_STAR.md",
+        "docs/worlds/CAMPAIGN_FRAMEWORK.md"
+      ],
+      "auditGap": "Room-to-realm ladder needs causal ownership and services, not repeated renamed building upgrades.",
+      "disposition": "retain-and-expand-proposal",
+      "criterion": "A small intervention alters an actual service or supply flow and can support regional change when reach, people and resources really scale.",
+      "proposedExpansion": {
+        "acquisition": "Live in, patronize, manage, advise, found or capture a local project.",
+        "function": "Improve one home/workplace/service through a specific capacity or supply change.",
+        "development": "Link workshops, neighborhood needs, transport and institutions.",
+        "response": "Benefits/burdens reach actual users; displaced rivals or vulnerable households have particular responses.",
+        "consequence": "A project continues, changes hands or fails through declared causes after intervention.",
+        "variants": [
+          "Tenant to patron",
+          "Workshop network",
+          "Village to city",
+          "Interworld hub",
+          "Quiet local improvement without rulership",
+          "Sabotage/destruction under local rules"
+        ]
+      },
+      "dependencies": [
+        "G6 capacity/production",
+        "G4 causal history/absence",
+        "G5 aggregation/isolation"
+      ],
+      "engineConsumerOrGap": "Sites, claims and finite funded projects exist. Regional aggregation, supply service consumers and delegation must be frozen contracts; labels do not establish city simulation.",
+      "acceptanceCases": [
+        "Faster repair operation actually shortens supported backlog/cost.",
+        "Unsupported road opens no cargo route.",
+        "Infinite-resource cheat can remove scarcity while political/transport effects reflect actual remaining causes."
+      ],
+      "remaining": "No mandatory scale escalation; a completed small life remains valid."
+    },
+    {
+      "id": "G3-020",
+      "title": "Quiet maturity and ordinary exceptional journeys",
+      "sections": [
+        "S04",
+        "S05",
+        "S07",
+        "S10",
+        "S11"
+      ],
+      "sourceRefs": [
+        "docs/LIFE_SIM_NORTH_STAR.md",
+        "docs/research/royal-road-2026-10-10/REPORT.md",
+        "src/original_frontier_career_content.js"
+      ],
+      "auditGap": "Cozy lives often escalate to forced catastrophe, while mature skill play becomes only bigger numbers.",
+      "disposition": "retain-and-expand-proposal",
+      "criterion": "A mature livelihood remains interesting through new useful functions, relationships and selected projects, with no compulsory apocalypse or upkeep burden.",
+      "proposedExpansion": {
+        "acquisition": "Develop a craft, care role, profession, art, community or study.",
+        "function": "Choose repeat supported work, an unfamiliar commission, teach, explore, host or rest.",
+        "development": "A distinctive refinement solves a new real problem; automation frees attention for another pursuit.",
+        "response": "Peers seek specific help or respond to witnessed achievement, without universal fame.",
+        "consequence": "Completed career arc leaves ongoing useful actions and changed local life.",
+        "variants": [
+          "Cozy cozy life",
+          "Ordinary decades-long career",
+          "Exceptional strong person living quietly",
+          "Disabled/poor life with real agency",
+          "Explicitly harsh or tragic world",
+          "Lone wanderer without household obligations"
+        ]
+      },
+      "dependencies": [
+        "G2 functional mastery",
+        "G4 chapters/continuing timelines",
+        "G6 commissions",
+        "G5 stop conditions"
+      ],
+      "engineConsumerOrGap": "Finite career source, bounded automation and native work supply foundations. A campaign's continuing service demand and mature feat need actual consumers and replenishment causes.",
+      "acceptanceCases": [
+        "A stronger method really improves applicable work without artificial equalization.",
+        "Closing public service leaves private livelihood/home use where means allow.",
+        "Quiet optional project gives a meaningful return without a timed attendance tax."
+      ],
+      "remaining": "World GM must author a finite continuing-play catalog and long-horizon remainder."
+    },
+    {
+      "id": "G3-021",
+      "title": "Delegation, travel and peoples own lives across absence",
+      "sections": [
+        "S04",
+        "S05",
+        "S11",
+        "S12",
+        "S14"
+      ],
+      "sourceRefs": [
+        "docs/worlds/CAMPAIGN_FRAMEWORK.md",
+        "docs/LIFE_SIM_NORTH_STAR.md",
+        "src/original_frontier_career_content.js"
+      ],
+      "auditGap": "Leaving often freezes or simulates everything by implication; follower dispatch is not proven by one supported NPC shift.",
+      "disposition": "retain-and-expand-proposal",
+      "criterion": "A delegated person acts with their own means and agreed task, while departure and return follow the selected clock without private omniscient telemetry.",
+      "proposedExpansion": {
+        "acquisition": "Hire, teach, invite companion, delegate office or fund an expedition.",
+        "function": "Assign a real task with supplies, route, capacity, stopping and reporting conditions.",
+        "development": "Worker learns, renegotiates or changes goals; delegation can become a continuing service.",
+        "response": "They may refuse, complete, fail, leave or pursue independent aims under local policy.",
+        "consequence": "Report provenance, pay, custody and changed local state remain tied to the same history.",
+        "variants": [
+          "Freeze during absence",
+          "Bounded catch-up",
+          "Parallel active world",
+          "Letter-based contact",
+          "No remote channel",
+          "Power-enabled remote communication"
+        ]
+      },
+      "dependencies": [
+        "G4 instance/absence clocks",
+        "G2 remote means",
+        "G6 transport/loadout",
+        "G5 atomic worker/native integration"
+      ],
+      "engineConsumerOrGap": "Jun supported command and Village solo patrol are bounded examples. General expeditions, cross-instance schedule and remote report channel are gaps.",
+      "acceptanceCases": [
+        "Delegated work cannot use player bag/stats without an actual transfer.",
+        "Returning never rerolls worker or refills job reward.",
+        "No contact means no exact progress display in character knowledge."
+      ],
+      "remaining": "G4 owns policy; no browser-closed mortality, loss or advancement added here."
+    },
+    {
+      "id": "G3-022",
+      "title": "World GM complete lived-world coverage and source variants",
+      "sections": [
+        "S00",
+        "S01",
+        "S04",
+        "S05",
+        "S10",
+        "S14"
+      ],
+      "sourceRefs": [
+        "docs/worlds/CAMPAIGN_FRAMEWORK.md",
+        "docs/gm/WORLD_ACTIONABILITY_GM_PROMPT.md",
+        "docs/WORLD_COMPLETION_STANDARD.md"
+      ],
+      "auditGap": "A few generic residents/services cannot establish an entire book/anime world, and source-version/premise alternatives can be lost in merged palettes.",
+      "disposition": "retain-and-expand-proposal",
+      "criterion": "Each declared world tranche maps significant inhabitants, institutions, livelihoods, places and recurring interactions to retained detail IDs, source boundaries and functional routes.",
+      "proposedExpansion": {
+        "acquisition": "World GM reads existing local dossier and exact supported source scope.",
+        "function": "Map every identified idea/detail to existing, incomplete, expanded, variant, queued, unresolved or intentionally decorative status.",
+        "development": "Promote a connected ready journey without waiting for infinite future coverage.",
+        "response": "Local cast and institutions retain their own era/medium rules and knowledge.",
+        "consequence": "Finite delivery and unread remainder remain explicit; an original example cannot certify source fidelity.",
+        "variants": [
+          "Canon",
+          "Different medium/edition",
+          "Divergent history",
+          "Remix/premise swap",
+          "Original setting"
+        ]
+      },
+      "dependencies": [
+        "G1 start qualification",
+        "G2 source powers",
+        "G4 chronology/knowledge",
+        "G6 material detail",
+        "G5 joined ledger"
+      ],
+      "engineConsumerOrGap": "Authoring/coverage contract only. Direct source-specific recreation stays in its private pack; public runtime infrastructure receives generic contracts. No APIs or full-world completion invented.",
+      "acceptanceCases": [
+        "No duplicate actor after two module casts use same source identity.",
+        "Pre-event institution does not inherit later stock/office automatically.",
+        "All declared tranche details have disposition; unread chapters remain retrieval/review tasks."
+      ],
+      "remaining": "No private source or sealed truth read here; full-source fidelity is explicitly unclaimed."
+    }
+  ],
+  "unreadRemainder": [
+    "World-specific local cast, institutions, INTERACTIONS dossiers and source ledgers for every selected book/anime world.",
+    "Private source library and sealed truth files entirely unread; no new acquisition authorized.",
+    "Full 275 Royal Road ideas and trope atlas beyond report synopsis.",
+    "Later E3 goals/utility/gossip/generation/LOD/performance sections.",
+    "Detailed society branching graphs/COVERAGE/CASES and full FINDINGS beyond report and first-entry opening.",
+    "Remaining LIFE_SIM_NORTH_STAR passages outside stated ranges, including broader body and power families.",
+    "Full runtime controllers, native menu/save adapters, current acceptance proof files and offscreen performance.",
+    "Full sibling evidence, cards and integration reconciliation; only IDs and criteria/titles inspected at closeout."
+  ],
+  "noRuntimeClaim": true,
+  "verification": "JSON shape/reference/ID/whitespace checks only; no runtime builds, gameplay tests or browser journeys run.",
+  "sourcePolicy": "All expansion examples are original proposals. Source-specific rules require local primary/source-ledger verification. No sealed truths included.",
+  "ownership": "Only life/ files written; existing owners, code, bundles and saves untouched."
+}

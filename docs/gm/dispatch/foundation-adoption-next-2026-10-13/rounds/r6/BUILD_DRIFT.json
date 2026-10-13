@@ -1,0 +1,22 @@
+{
+  "initialBuiltHash": "8d386d43f12e37bbcf019a134bf3673627599b1eb7dc38db2dadb6107cc9911e",
+  "finalFrozenCandidate": "/Users/weiwei/.codex/candidates/yairpg-foundation-adoption-2026-10-13-r6",
+  "finalHashes": {
+    "dist/bundle.js": "5a88823a77ba37b4eeeadd7364618d5599f3d2d6099006806662e0f960b9fe23",
+    "dist/bundle.js.map": "0f84e882b0a107351347188bab46e97d14ba0bef3aa35860f20693998afcbddb",
+    "index.html": "e31da5511907d3f3565594c7d30638627407786359e9f26d28a609b395c5e600"
+  },
+  "changedRecoveryInputs": {
+    "src/main.js": "e102ab4161db2846650f52378769e867b4a77b2443b18e79c850d23f56c352bb"
+  },
+  "mapDifferenceFromFrozenR4": [
+    "../src/workspace_layout.js",
+    "../src/customization_profiles.js",
+    "../src/settled_text_effects.js",
+    "../src/customization_ui.js",
+    "../src/native_discovery_policy.js",
+    "../src/native_discovery_feedback.js",
+    "../src/main.js"
+  ],
+  "boundary": "Earlier R6 loaded actual8d386d artifact matched fresh rebuild and fetch until concurrent live build5a888 drift detected during sound-cut reload. Native play paused. Earned state exported, root rebuild current inputs frozen separately for remaining play; no old paid result replay."
+}

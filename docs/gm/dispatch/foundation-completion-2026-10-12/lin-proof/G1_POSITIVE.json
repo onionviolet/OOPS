@@ -1,0 +1,24 @@
+{
+  "bundleHash": "dcf2ab53d4c3eb8a629652f9ca51277fb7f510a58fcc81b3bbbd04ee3c3086b1",
+  "checks": [
+    "natural entry+employee+funded shift+shop materials",
+    "Ink hear opens demand without wage",
+    "Ink accept reserves both actual materials/participants/site",
+    "native real timer survives reload and completes4 minutes",
+    "exact three-credit wage + exactly one additional Lin kit",
+    "retained account no repeated wage",
+    "separately priced staff supply transfers1 kit/1 credit"
+  ],
+  "offeredText": "Local conversations and return accounts\nBetween journeys\n\nConversation in progress.\n\n\"One kit,\" Lin says. \"The slip has the materials and wage; the bench has to stay clear while we work.\"\n\nLin offers three of her existing credits for one supply kit. Your one owned log and rope become Lin’s kit. This request grants no staff approval, affection, mission fee or replenished purse.\n\nLin offers three of her existing credits for one supply kit. Your one owned log and rope become Lin’s kit. This request grants no staff approval, affection, mission fee or replenished purse.\n\nYour response\n\nRequest sent. The updated state will appear when available.\n\nKnown actions\nAccept Lin’s supply job under its displayed terms.\n\nAvailable\n\nStated costs\nRequires the participant’s agreed attention and available time. · Provider reserves 3 hub credits · 1 Rough wood log · 1 Survey rope · 2 stamina · Requires the participant’s available body support. · 4 played minutes\nCompletion terms\nLin offers three of her existing credits for one supply kit. Your one owned log and rope become Lin’s kit. This request grants no staff approval, affection, mission fee or replenished purse. This accepted job reserves only its stated demand, existing wage, materials, both bodies and site. Cancellation or lost supported contact returns the reserved inputs and creates no result.\nDo this: Accept Lin’s supply job under its displayed terms.\nDecline Lin’s supply request.\n\nAvailable\n\nStated costs\nRequires the participant’s agreed attention and available time. · 0 played minutes\nCompletion terms\nOnly this accepted native step is committed. Mission outcome, actual arrival, local welfare and settlement stay separate.\nDo this: Decline Lin’s supply request.\nSit with Lin for a quiet moment.\n\nAvailable\n\nStated costs\n0 played minutes\nCompletion terms\nA free local meeting. It opens no work, quota, wage or mechanical reward.\nDo this: Sit with Lin for a quiet moment.\nBuy one actual kit under staff approval and the displayed price.\n\nUnavailable\n\nWhy this is unavailable\nThis action is not available under the current conditions. Review the known preparation or choose another action.\nStated costs\nPay 1 hub credits · 0 played minutes\nCompletion terms\nOnly this accepted native step is committed. Mission outcome, actual arrival, local welfare and settlement stay separate.\nUnavailable: Buy one actual kit under staff approval and the displayed price.\nAsk about the services, roles and their current terms.\n\nAvailable\n\nStated costs\n0 played minutes\nCompletion terms\nOnly this accepted native step is committed. Mission outcome, actual arrival, local welfare and settlement stay separate.\nDo this: Ask about the services, roles and their current terms.\nLeave this discussion without taking another service.\n\nAvailable\n\nStated costs\n0 played minutes\nCompletion terms\nOnly this accepted native step is committed. Mission outcome, actual arrival, local welfare and settlement stay separate.\nDo this: Leave this discussion without taking another service.\nConversation controls\n\nRequest sent. The updated state will appear when available.\n\nKnown actions\nInterrupt this conversation\n\nAvailable\n\nDo this: Interrupt this conversation",
+  "accountText": "Local conversations and return accounts\nBetween journeys\n\nConversation finished.\n\n\"Here is how we left it,\" Lin says.\n\nLin shows the kit supply receipt and the three-credit wage receipt. Her remaining kits and funds still belong to her; staff approval and later purchases remain separate.\n\nConversation controls\n\nRequest sent. The updated state will appear when available.\n\nKnown actions\nMeet again\n\nAvailable\n\nStated costs\n0 played minutes\nCompletion terms\nOnly this accepted native step is committed. Mission outcome, actual arrival, local welfare and settlement stay separate.\nDo this: Meet again",
+  "errors": [],
+  "states": {
+    "initialClock": 5,
+    "readyClock": 16,
+    "acceptedClock": 18,
+    "completedClock": 21,
+    "playerCredits": 2,
+    "linCredits": 10
+  },
+  "generatedSaves": "/tmp/yairpg-lin-natural-{pre-ink,ready,accepted,purchased}.json"
+}

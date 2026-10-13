@@ -1,0 +1,8 @@
+{
+  "poorText": "Lvl: 0\nStrength:\n12.0\nAgility:\n8.0\nDexterity:\n10.0\nIntuition\n10.0\nDefense:\n1.5\nMagic:\n0.0\nAtk power:\n1.2\nAtk spd:\n1.0\nCrit rate:\n5.0%\nCrit mult:\n130.0%\nAP:\n32\nEP :\n25\nActive effects: 0",
+  "fitText": "Lvl: 0\nStrength:\n12.0\nAgility:\n8.0\nDexterity:\n10.0\nIntuition\n10.0\nDefense:\n3.0\nMagic:\n0.0\nAtk power:\n1.2\nAtk spd:\n1.0\nCrit rate:\n5.0%\nCrit mult:\n130.0%\nAP:\n32\nEP :\n25\nActive effects: 1",
+  "baseDefense": 1,
+  "poorCoatContribution": 0.5,
+  "fittedCoatContribution": 2,
+  "generatedOnly": true
+}

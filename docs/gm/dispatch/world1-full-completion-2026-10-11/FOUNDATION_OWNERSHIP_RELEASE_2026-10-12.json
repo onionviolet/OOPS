@@ -1,0 +1,98 @@
+{
+  "schema": 1,
+  "date": "2026-10-12",
+  "status": "effective;World1 remains paused",
+  "fromThread": "01a12e25-4154-7090-bcc2-d434478da4cc",
+  "toThread": "01a12e94-7b63-7e12-b584-ae2265f579e1",
+  "authority": "Human foundation implementation through completion;foundation-completion ASSIGNMENT and explicit owner coordination",
+  "authoritativeCheckout": "/Users/weiwei/code/yet-another-idle-rpg",
+  "head": "dd3efe3383f12f0aac22e4f390aae90fae2e7fc4",
+  "firstPacket": "docs/gm/dispatch/workflow-foundation-audit-2026-10-12/NEXT_PACKET.md",
+  "exactFirstWritePaths": [
+    "src/ink_scene_content.js",
+    "src/ink_narrative.js",
+    "src/feature_expansion_nested_ink_ui.js",
+    "src/main.js (nested Ink imports/composition only for first packet)",
+    "stories/feature_wave.ink",
+    "stories/feature_wave.json",
+    "scripts/compile_feature_ink.mjs",
+    "tests/ink_lin_parity.test.js",
+    "dist/bundle.js",
+    "dist/bundle.js.map",
+    "index.html",
+    "dist/INKJS_NOTICE.txt",
+    "dist/INKJS_AUTHORS.txt"
+  ],
+  "readOnlyFirstInputs": [
+    "src/feature_expansion_nested_life.js",
+    "src/feature_expansion_nested_content.js",
+    "src/feature_expansion_presentation_costs.js"
+  ],
+  "continuingFoundationRelease": "Relinquish all World1-held shared runtime/source/state/save/registry/main/UI/test/generated-build reservations to the foundation coordinator as sole integrator. Record exact new paths/semantic changes in its live checkpoint before each further unit. This covers only donor-held claims; reconcile other live owners separately. No World1 runtime writer will compete.",
+  "buildOwner": "Foundation coordinator owns generated outputs and necessary build.js/package/tooling adjustments within its own authority, preserving notices and qualified incumbent dependencies. No dated candidate main/bundle replacement.",
+  "retentionArtifact": {
+    "path": "docs/gm/feature-wave/ink/content/feature_wave_v3.json",
+    "exists": false,
+    "World1Reservation": "none;World1 raises no ownership claim to authoring this new retention file under foundation authority",
+    "historicalOwnerBoundary": "NEXT_PACKET still requires feature-wave evidence-owner/current reservation reconciliation. This donor cannot transfer an unrelated retained evidence owner. Preserve existing v1/v2 artifacts/receipts; registry admission uses released runtime.",
+    "currentCompiledV3": "stories/feature_wave.json",
+    "currentCompiledV3Sha256": "a2688775a9adfd21b369f52e0f3fa07bdce8b084be9ce4fc1c385479f60648ed"
+  },
+  "excluded": [
+    "private_packs/** including manifest and frozen p01\u2013p08",
+    "docs/research/novels/** including source library/intake/pause capsules/generated saves",
+    "World1 dispatch/evidence except this ownership coordination",
+    "PROJECT.md paused World1 owner/resume block",
+    "personal saves and source-library files",
+    "isolated World1/UI/customization/authoring candidates and their owners",
+    "existing immutable predecessor/feature-wave historical receipts and retained v1/v2 content"
+  ],
+  "baselineHashes": {
+    "src/ink_scene_content.js": "cd7dcd1368b6c63ceb0399c0893df0fbbde9a5579553d2cf111ea07875ed821f",
+    "src/ink_narrative.js": "0b1f4d4c1b42347ec9471cefbff8a1d3f70f6b739a52c711ad604f3bbeda16ac",
+    "src/feature_expansion_nested_ink_ui.js": "29c9c8bfc51d95f25cce8cef17e8c28e3d949315b61b9153b1b192465a84e5b1",
+    "src/feature_expansion_nested_life.js": "55ac52bdeb23c0ee6f9460f6a055a9ce35085c2718cfe1b48e114a0c231b5cd0",
+    "src/feature_expansion_nested_content.js": "eff78f2acfc74d8c1572375d6e3e5c88c4e7c1164b78f965bfcad5facc7f079a",
+    "src/main.js": "549e39552e549e89dd9d984e34b8efc40156258f12a9e674444ebbb8b7e2fbd3",
+    "stories/feature_wave.ink": "ad28348578d8e09e1c1582571ceffbaef584cc4accac0a6559304869939eadb5",
+    "stories/feature_wave.json": "a2688775a9adfd21b369f52e0f3fa07bdce8b084be9ce4fc1c385479f60648ed",
+    "scripts/compile_feature_ink.mjs": "510bde6397c684b1e24a9760d6fb9295265d5b857dafbfdf1b255c9eef50688b",
+    "build.js": "8561349784483242a15ce4208b9180651c1aaf03c3d8ff1379de8c7d8065fea5",
+    "package.json": "805269ecbf25287b2758391e718c805e1a4336b4b4f1c923a87b3712620e8e2c",
+    "package-lock.json": "42f2e809f9055a84c99959f12a0b17adfbbc150d5d748b5d5ce2b9f85de9df99",
+    "dist/bundle.js": "5b3863b2a2c2f04dfd4318b80349aca4610c2cf49ccb980bfe1a0777705055cf",
+    "dist/bundle.js.map": "f7a0847bdb3baf7200a6fe7fd2ef257e6e37124b876cef7a6ca3ed02ca8cddba",
+    "index.html": "b955739a4406c2e0973eb05d273db08b4d7ba2561e30b460d5072c266e2f2693",
+    "dist/INKJS_NOTICE.txt": "040e957a77e3e19432e265cb549d5c3b4ca6f3551e24d22b81785ffd1bc2b67b",
+    "dist/INKJS_AUTHORS.txt": "40cb9e4353e8b18a04079a1fd6f824540633aeae19b8a9d3da5e0d8b2983e014"
+  },
+  "dirtyInputs": [
+    " M dist/bundle.js",
+    " M dist/bundle.js.map",
+    " M index.html",
+    " M src/main.js"
+  ],
+  "sourcePresence": "All Lin/Ink feature-wave source/story/compiler inputs above exist in shared. Initial omitted unchanged-file inventory was not absence. No candidate recovery needed.",
+  "pausedSnapshot": "docs/research/novels/world1-full-completion-2026-10-11/pause/INPUTS.json with recoverable runtime/build archive;preserve immutable baseline and requalify affected proof on changed source",
+  "workers": "all internal workers completed/released;none resumed",
+  "proofProcesses": "none from World1;all isolated proof browsers were closed at pause;no new proof launched",
+  "staticPreviews": [
+    {
+      "port": 18554,
+      "pid": 72991,
+      "state": "verified retained static candidate server"
+    },
+    {
+      "port": 18555,
+      "pid": 77327,
+      "state": "verified retained static shared server;foundation may use/restart this shared preview within integration scope"
+    },
+    {
+      "port": 18556,
+      "pid": 78836,
+      "state": "verified retained static shared proof server;not running gameplay proof"
+    }
+  ],
+  "worldGoal": "paused;requires explicit human resume;no successor/worker restart authorized by release",
+  "evidenceBoundary": "Release transfers writing,not gameplay verification or acceptance;World1 native gaps and earlier exact-input proofs remain unchanged."
+}

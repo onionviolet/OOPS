@@ -1,0 +1,2 @@
+page.waitForFunction: Timeout 4000ms exceeded.
+    at /Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/foundation-adoption-next-2026-10-13/rounds/r10/NATIVE_HARNESS.mjs:12:287

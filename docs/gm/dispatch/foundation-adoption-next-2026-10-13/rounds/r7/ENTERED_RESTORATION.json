@@ -1,0 +1,54 @@
+{
+  "entered": {
+    "expansion": true,
+    "inventories": true,
+    "character": true,
+    "current time": true,
+    "current location": true,
+    "npcs": true,
+    "npc_equipment": true
+  },
+  "saved": {
+    "expansion": true,
+    "inventories": true,
+    "character": true,
+    "current time": true,
+    "current location": true,
+    "npcs": true,
+    "npc_equipment": true
+  },
+  "clock": 747,
+  "minutes": 0,
+  "inputHash": "5abd536f1dc0616ee39b59bde28477456bc2f6d304935752acad4d924db0ae72",
+  "finalReachedState": {
+    "expansion": {
+      "reload": true,
+      "genuineExport": true
+    },
+    "inventories": {
+      "reload": true,
+      "genuineExport": true
+    },
+    "character": {
+      "reload": true,
+      "genuineExport": false
+    },
+    "current time": {
+      "reload": true,
+      "genuineExport": true
+    },
+    "current location": {
+      "reload": true,
+      "genuineExport": true
+    },
+    "npcs": {
+      "reload": true,
+      "genuineExport": true
+    },
+    "npc_equipment": {
+      "reload": true,
+      "genuineExport": true
+    }
+  },
+  "exportCharacterDifference": "Export after normal reload contains character.equipment.weapon.rarity=common absent from saved snapshot. No other character difference; no exact character-export claim."
+}

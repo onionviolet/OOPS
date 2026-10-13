@@ -1,0 +1,36 @@
+{
+  "pid": 73032,
+  "origin": "http://127.0.0.1:18645",
+  "startedHash": "a4e84278059a711738b9149a331f916496dee79140384c021e11052187baef26",
+  "endedHash": "a4e84278059a711738b9149a331f916496dee79140384c021e11052187baef26",
+  "events": [
+    {
+      "action": "invoke",
+      "selector": "[data-foundation-probe=\"foundation.probe.b.s1.remove\"]"
+    },
+    {
+      "action": "invoke",
+      "selector": "[data-foundation-probe=\"foundation.probe.b.attack\"]"
+    },
+    {
+      "action": "invoke",
+      "selector": "[data-foundation-probe=\"foundation.probe.b.attack\"]"
+    },
+    {
+      "action": "save",
+      "name": "overlap-aftermath"
+    },
+    {
+      "action": "reload"
+    },
+    {
+      "action": "import",
+      "path": "/tmp/yairpg-foundation-interaction-mid-suppression-real.json"
+    },
+    {
+      "action": "save",
+      "name": "mid-import-loaded"
+    }
+  ],
+  "errors": []
+}

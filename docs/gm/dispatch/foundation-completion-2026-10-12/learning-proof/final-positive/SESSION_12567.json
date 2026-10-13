@@ -1,0 +1,56 @@
+{
+  "pid": 12567,
+  "servedHash": "e73550a4344ec549b67b830112200a10f9ed1a6f652c8c54c1b1c1ee95bff7a9",
+  "origin": "http://127.0.0.1:18646",
+  "startedHash": "e73550a4344ec549b67b830112200a10f9ed1a6f652c8c54c1b1c1ee95bff7a9",
+  "endedHash": "e73550a4344ec549b67b830112200a10f9ed1a6f652c8c54c1b1c1ee95bff7a9",
+  "events": [
+    {
+      "workflowStep": {
+        "action": "click",
+        "selector": "#notebook_tab_here"
+      },
+      "index": 0,
+      "clock": 11754,
+      "sequence": 1324
+    },
+    {
+      "workflowStep": {
+        "action": "click",
+        "selector": "[data-action-legibility-key=\"action:remainder_consequences.plot_terms\"] button",
+        "save": "final-positive-crop-terms"
+      },
+      "index": 1,
+      "clock": 11755,
+      "sequence": 1326
+    },
+    {
+      "workflowStep": {
+        "action": "click",
+        "selector": "[data-action-legibility-key=\"action:remainder_consequences.plot_buy_seed\"] button",
+        "save": "final-positive-crop-seed"
+      },
+      "index": 2,
+      "clock": 11756,
+      "sequence": 1328
+    },
+    {
+      "workflowStep": {
+        "action": "click",
+        "selector": "[data-action-legibility-key=\"action:remainder_consequences.plot_plant\"] button",
+        "save": "final-positive-crop-planting"
+      },
+      "index": 3,
+      "clock": 11757,
+      "sequence": 1330
+    },
+    {
+      "error": "page.waitForFunction: Timeout 120000ms exceeded."
+    },
+    {
+      "action": "save",
+      "name": "takeover-crop-stalled"
+    }
+  ],
+  "errors": []
+}

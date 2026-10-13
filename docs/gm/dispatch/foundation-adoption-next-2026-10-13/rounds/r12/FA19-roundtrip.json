@@ -1,0 +1,29 @@
+{
+  "outbound": "FA19-outbound.md",
+  "sent": "FA19-sent.md",
+  "conversation_url": "https://chatgpt.com/c/6ace5e2a-a57c-83ea-b7ac-fa3988c0f4bd",
+  "route": "ordinary signed-inChrome extension via cua_repl",
+  "model_mode": "ordinary Chat; modelname notdisplayed",
+  "effort": "High,3of3 visiblyverified",
+  "previous_effort": "R11High3of3",
+  "sent_at": "2026-10-13T16:37:01.422636+00:00",
+  "sent_at_basis": "sent-filetimestamp immediately before supportedSend",
+  "captured_at": "2026-10-13T16:38:38.356417+00:00",
+  "capture_complete": true,
+  "failed_attempts": [
+    "directDOM assistant-selector capture failed; switched supported responseCopy"
+  ],
+  "response_chars": 13450,
+  "implementation_authorized": true,
+  "new_chat_dispatched": true,
+  "sha256": {
+    "FA19-outbound.md": "d12d996d397db14521181a8d56248ffbb444cf8e3551c3212fc65dd2bc637f58",
+    "FA19-sent.md": "e7819f5edc560317e9c313b63f039379c63b704890c23614b952a419610fa223",
+    "FA19-response.md": "98cef2ecf3a608a3daae0c0462af6014e48e814f54cf24bb474edc92f6efa645",
+    "FA19-reconciled.md": "366594edab6a2a95b6e24cfd989a9a6a6ab57707759743c3b2b1706517456d34",
+    "RECONCILIATION_NOTES.md": "a9701c2b39c4d6098c02d21c92f32ab1f1690f0488079d9cc383d027c8a30edf",
+    "REVIEW_PROOF.png": "c8d4317c8e2d1ed45ded247a09c3527d4e58c8f2acd5e33c0ab13f5e6f735949"
+  },
+  "successorThreadId": "01a13621-d902-7270-9b2d-cfb5672f3a13",
+  "transfer": "reservations/R12_SUCCESSOR_TRANSFER.json"
+}

@@ -1,0 +1,35 @@
+{
+  "fixture": "Controlled SOURCE only; fixture material/state changes are not native acquisition",
+  "results": [
+    {
+      "name": "Residue blocker is distinguishable by live receiver counts; rendering is read-only",
+      "status": "PASS",
+      "evidenceClass": "SOURCE"
+    },
+    {
+      "name": "Two actual legal choices disclose immediate collection versus paid one-minute disposal",
+      "status": "PASS",
+      "evidenceClass": "SOURCE"
+    },
+    {
+      "name": "Supported collection recomputes live controls without presentation mutation",
+      "status": "PASS",
+      "evidenceClass": "SOURCE"
+    },
+    {
+      "name": "Pending current reservation differs from unreserved future-plan inputs",
+      "status": "PASS",
+      "evidenceClass": "SOURCE"
+    },
+    {
+      "name": "Unusable custody and equipment are excluded from explicit available receiver counts",
+      "status": "PASS",
+      "evidenceClass": "SOURCE"
+    },
+    {
+      "name": "Depleted sap blocks current batch and refreshed stock changes eligibility",
+      "status": "PASS",
+      "evidenceClass": "SOURCE"
+    }
+  ]
+}

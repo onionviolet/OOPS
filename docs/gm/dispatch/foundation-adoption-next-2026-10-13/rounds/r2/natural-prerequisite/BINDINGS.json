@@ -1,0 +1,180 @@
+{
+  "status": "INCOMPLETE_PREREQUISITES",
+  "servedOrigin": "http://127.0.0.1:18725",
+  "servedBundle": "cb0c11d04b3e13c16aac5cd930314cfb78d654c326f07d2b9140f14e739ff175",
+  "files": {
+    "src/data/locations.js": "6ab6c9781ec963b770cf00dcf0870884432960a7858fd66707074c0f6a20c393",
+    "src/data/dialogues.js": "277fce60a665df34f5869009c2e6d6f49baa064106e4b844a0dd13d6a553a8cf",
+    "src/data/inventory_templates.js": "ae1dda0f899a5ec2fae7d4f128b9b48d6dd9723b4dd7e93b4f280d61a51f4a3b",
+    "src/components/trader_component.js": "d7c7b594f1528074edb04a2e0a8b57bba401f3c0f7c352976e9295362085f540",
+    "src/crafting_recipes.js": "9a196429052a1ad8d0ff6e48ff978e638f6c8956a9ef429040720ed71143c3a3",
+    "src/items.js": "bf39177717442dfcb7112e2f10d146828ccf79de6dd71e0fc14cb951667f032f",
+    "dist/bundle.js": "cb0c11d04b3e13c16aac5cd930314cfb78d654c326f07d2b9140f14e739ff175",
+    "docs/gm/dispatch/foundation-adoption-next-2026-10-13/rounds/r2/natural-prerequisite/BUDGET.md": "0ca9870a1fb8587818173ef27b7ee96ca8f1fff1affecd915d9bfd39859d1893",
+    "docs/gm/dispatch/foundation-adoption-next-2026-10-13/rounds/r2/natural-prerequisite/merchant-stock-1.txt": "d25f47a43943b304febdaed62c3ae93995a7665c27e4bad702ecfbff657d653a",
+    "docs/gm/dispatch/foundation-adoption-next-2026-10-13/rounds/r2/natural-prerequisite/merchant-stock-1.json": "a67ced5b9570b1a331be694c2d638e46cb031aa07558623fb35f33f363b28b73",
+    "docs/gm/dispatch/foundation-adoption-next-2026-10-13/rounds/r2/natural-prerequisite/route-boundary.txt": "31b829e69a1169cdde4b19c87cf364f94a80be0e695be2694a5460e974395725",
+    "docs/gm/dispatch/foundation-adoption-next-2026-10-13/rounds/r2/natural-prerequisite/route-boundary.json": "223c90caf0908297b3d0027beb0a986cdbcdd2be1d4f38c4cb8625465fb19b6e"
+  },
+  "nativeState": {
+    "money": 102,
+    "inventory": {
+      "{\"id\":\"Cheap leather pants\",\"quality\":40}": {
+        "count": 1
+      },
+      "{\"id\":\"Stale bread\"}": {
+        "count": 5
+      },
+      "{\"id\":\"Old pickaxe\",\"quality\":100}": {
+        "count": 1
+      },
+      "{\"id\":\"Old sickle\",\"quality\":100}": {
+        "count": 1
+      },
+      "{\"id\":\"Old shovel\",\"quality\":100}": {
+        "count": 1
+      },
+      "{\"id\":\"Rough wood log\"}": {
+        "count": 95
+      },
+      "{\"id\":\"Tree sap\"}": {
+        "count": 3
+      }
+    },
+    "availability": {
+      "Forest road": 0,
+      "Cave depths": 0,
+      "Downstream from the village": 0,
+      "Swampland tribe": 0
+    },
+    "traderStock": {
+      "{\"id\":\"Prepared survey kit\"}": {
+        "count": 3
+      },
+      "{\"id\":\"Survey rope\"}": {
+        "count": 1
+      },
+      "{\"components\":{\"head\":\"Cheap iron long blade\",\"handle\":\"Simple wooden short handle\"},\"quality\":80}": {
+        "count": 1
+      },
+      "{\"components\":{\"head\":\"Cheap iron axe head\",\"handle\":\"Simple wooden medium handle\"},\"quality\":47}": {
+        "count": 1
+      },
+      "{\"components\":{\"head\":\"Cheap iron hammer head\",\"handle\":\"Simple wooden medium handle\"},\"quality\":42}": {
+        "count": 1
+      },
+      "{\"components\":{\"head\":\"Cheap iron axe head\",\"handle\":\"Simple wooden medium handle\"},\"quality\":104}": {
+        "count": 1
+      },
+      "{\"components\":{\"head\":\"Cheap iron hammer head\",\"handle\":\"Simple wooden medium handle\"},\"quality\":98}": {
+        "count": 1
+      },
+      "{\"components\":{\"head\":\"Iron short blade\",\"handle\":\"Simple wooden long handle\"},\"quality\":79}": {
+        "count": 1
+      },
+      "{\"components\":{\"head\":\"Iron hammer head\",\"handle\":\"Simple wooden medium handle\"},\"quality\":79}": {
+        "count": 1
+      },
+      "{\"components\":{\"shield_base\":\"Wooden training shield base\",\"handle\":\"Simple wooden shield handle\"},\"quality\":100}": {
+        "count": 1
+      },
+      "{\"components\":{\"shield_base\":\"Cheap wooden shield base\",\"handle\":\"Simple wooden shield handle\"},\"quality\":43}": {
+        "count": 1
+      },
+      "{\"components\":{\"shield_base\":\"Cheap wooden shield base\",\"handle\":\"Simple wooden shield handle\"},\"quality\":92}": {
+        "count": 1
+      },
+      "{\"components\":{\"shield_base\":\"Simple wooden shield base\",\"handle\":\"Simple wooden shield handle\"},\"quality\":84}": {
+        "count": 1
+      },
+      "{\"components\":{\"shield_base\":\"Simple wooden shield base\",\"handle\":\"Simple wooden shield handle\"},\"quality\":109}": {
+        "count": 1
+      },
+      "{\"id\":\"Cheap leather vest\",\"quality\":70}": {
+        "count": 1
+      },
+      "{\"id\":\"Cheap leather vest\",\"quality\":98}": {
+        "count": 1
+      },
+      "{\"id\":\"Cheap leather pants\",\"quality\":83}": {
+        "count": 1
+      },
+      "{\"id\":\"Cheap leather pants\",\"quality\":97}": {
+        "count": 1
+      },
+      "{\"id\":\"Cheap leather hat\",\"quality\":67}": {
+        "count": 1
+      },
+      "{\"id\":\"Leather hat\",\"quality\":92}": {
+        "count": 1
+      },
+      "{\"id\":\"Leather gloves\",\"quality\":116}": {
+        "count": 1
+      },
+      "{\"id\":\"Work shoes\",\"quality\":100}": {
+        "count": 2
+      },
+      "{\"components\":{\"internal\":\"Leather vest\",\"external\":\"Wolf leather chestplate armor\"},\"quality\":110}": {
+        "count": 1
+      },
+      "{\"id\":\"Rat pelt cape\",\"quality\":98}": {
+        "count": 1
+      },
+      "{\"id\":\"Stale bread\"}": {
+        "count": 13
+      },
+      "{\"id\":\"Fresh bread\"}": {
+        "count": 6
+      },
+      "{\"id\":\"Weak healing powder\"}": {
+        "count": 2
+      },
+      "{\"id\":\"Coal\"}": {
+        "count": 5
+      },
+      "{\"id\":\"ABC for kids\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Old combat manual\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Glass phial\"}": {
+        "count": 7
+      },
+      "{\"id\":\"Glass bottle\"}": {
+        "count": 4
+      },
+      "{\"id\":\"Camping supplies\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Coil of rope\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Old pickaxe\",\"quality\":100}": {
+        "count": 1
+      },
+      "{\"id\":\"Old axe\",\"quality\":100}": {
+        "count": 1
+      },
+      "{\"id\":\"Old sickle\",\"quality\":100}": {
+        "count": 1
+      },
+      "{\"id\":\"Old shovel\",\"quality\":100}": {
+        "count": 1
+      }
+    }
+  },
+  "attempts": {
+    "stockCycles": 1,
+    "herbalism": 0,
+    "boarSearch": 0,
+    "fatCrafts": 0,
+    "balmCrafts": 0
+  },
+  "release": {
+    "sharedSource": "never owned",
+    "evidence": "released",
+    "server": "stopped",
+    "browser": "closed"
+  }
+}

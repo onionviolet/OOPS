@@ -1,0 +1,30 @@
+{
+  "baseline": "/Users/weiwei/.codex/candidates/yairpg-cheats-sfx-base-2026-10-12",
+  "files": {
+    "src/main.js": {
+      "expected": "18c3b69d47a0e7eeaf113c5e392a4435587638c6e56fb003989bf1da8c502035",
+      "live": "18c3b69d47a0e7eeaf113c5e392a4435587638c6e56fb003989bf1da8c502035",
+      "match": true
+    },
+    "src/save_files.js": {
+      "expected": "6be05fcc757617a1304c65c68051042a59cad03216979221f1213d4011b06500",
+      "live": "6be05fcc757617a1304c65c68051042a59cad03216979221f1213d4011b06500",
+      "match": true
+    },
+    "src/display.js": {
+      "expected": "ae702d726645f31d818842aae1be2338bb6bb00610a9898e9bffbf0e6799c5fa",
+      "live": "ae702d726645f31d818842aae1be2338bb6bb00610a9898e9bffbf0e6799c5fa",
+      "match": true
+    },
+    "index.html": {
+      "expected": "77b186f782e01631a3356df315632886e0226fe9aca817b0357d69f986c9a803",
+      "live": "77b186f782e01631a3356df315632886e0226fe9aca817b0357d69f986c9a803",
+      "match": true
+    },
+    "style.css": {
+      "expected": "9af1e67bb6ebfed0797b6194cc7c57b8b7ece75ba50cac688bc92701eb303485",
+      "live": "9af1e67bb6ebfed0797b6194cc7c57b8b7ece75ba50cac688bc92701eb303485",
+      "match": true
+    }
+  }
+}

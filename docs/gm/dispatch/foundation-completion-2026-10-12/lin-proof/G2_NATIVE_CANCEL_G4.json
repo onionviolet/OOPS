@@ -1,0 +1,10 @@
+{
+  "hash": "dcf2ab53d4c3eb8a629652f9ca51277fb7f510a58fcc81b3bbbd04ee3c3086b1",
+  "checks": [
+    "actual native local work accepted with keyboard focus+Enter",
+    "one job + timer visible after Ink text remains separate",
+    "actual native cancellation returns exact stock/player+Lin resources/no kit",
+    "no completed Lin result"
+  ],
+  "generatedOnly": true
+}

@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "atUTC": "2026-10-13T08:16:30.405704+00:00",
+  "fromThread": "01a13438-4c15-7340-8c21-62a361b57d5c",
+  "toThread": "01a13455-03b5-7382-822a-b270d1abb48b",
+  "hostId": "local",
+  "status": "effective",
+  "authority": "Existing direct human authorization for continuing finite Foundation chain through useful same-project fresh GMs; explicit predecessor shared writer release",
+  "checkout": "/Users/weiwei/code/yet-another-idle-rpg",
+  "head": "dd3efe3383f12f0aac22e4f390aae90fae2e7fc4",
+  "reserved": "Existing finite Foundation shared runtime/state/save/story/compiler/main/tests/generated-build integrator scope; first reviewed R4 FA09",
+  "exclusions": [
+    "separate UI/density/theme/workspace lane",
+    "separate live editor/minigame/heir owners until legitimate transfer",
+    "paused full-world World1",
+    "private packs/source libraries/personal saves",
+    "sender seven immutable originals",
+    "frozen R1 and R3 public preview files/builds/processes"
+  ],
+  "supersedes": "R3_SUCCESSOR_TRANSFER.json; earlier SUCCESSOR_TRANSFER.json is historical R1-to-R2",
+  "predecessorState": "R3 bounded technical/native-positive work closed at exact report/bindings, source worker complete/released, all18727native servers/browsers stopped. FA07 native gates OPEN. Predecessor relinquishes all shared writes immediately after this record.",
+  "preview": [
+    {
+      "origin": "http://127.0.0.1:18724",
+      "sessionId": 79973,
+      "pid": 95565,
+      "root": "/Users/weiwei/.codex/candidates/yairpg-foundation-adoption-2026-10-13-r1",
+      "state": "frozen read-only public R1 preview"
+    },
+    {
+      "origin": "http://127.0.0.1:18728",
+      "sessionId": 74161,
+      "root": "/Users/weiwei/.codex/candidates/yairpg-foundation-adoption-2026-10-13-r3",
+      "bundle": "ffd6988c00a8c3be0f86a255cb8ced4b0652a97c551cbcc2da8bb09675549b5d",
+      "state": "frozen read-only public R3 preview and earned disposable exports"
+    }
+  ],
+  "review": "rounds/r4/ROUNDTRIP.json",
+  "next": "Recover actual-ID ownership/current bindings, execute reviewed FA09 and continue remaining finite horizon with own future reviews"
+}

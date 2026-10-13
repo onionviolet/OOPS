@@ -1,0 +1,65 @@
+{
+  "schema": "jojo-lore-validation-1",
+  "checked_utc": "2026-10-11T17:50:37.945655+00:00",
+  "passed": true,
+  "checks": [
+    {
+      "id": "JSON",
+      "passed": true,
+      "detail": "All eight required JSON artifacts parsed; REPORT.md exists=True"
+    },
+    {
+      "id": "IDS",
+      "passed": true,
+      "detail": "116 unique IDs across primary artifact rows"
+    },
+    {
+      "id": "REFERENCES",
+      "passed": true,
+      "detail": "380 local event/summary/knowledge/expansion references resolve"
+    },
+    {
+      "id": "HASHES",
+      "passed": true,
+      "detail": "79 downloaded/reused source payload hashes match"
+    },
+    {
+      "id": "READONLY_INPUTS",
+      "passed": true,
+      "detail": "10 intake/current-owner fingerprints unchanged since artifact build"
+    },
+    {
+      "id": "IGNORE",
+      "passed": true,
+      "detail": "Private subtree matched repository ignore rule"
+    },
+    {
+      "id": "COVERAGE",
+      "passed": true,
+      "detail": "{'PB': 9, 'BT': 17, 'SC': 48, 'DU': 39, 'GW': 39, 'SO': 38}"
+    },
+    {
+      "id": "PRIOR_RANGE",
+      "passed": true,
+      "detail": "All23 prior represented claim rows qualified"
+    },
+    {
+      "id": "PUBLIC_PRIVACY",
+      "passed": true,
+      "detail": "Public Markdown contains no checked source/prototype truth terms; opaque IDs/status only"
+    },
+    {
+      "id": "LINKS",
+      "passed": true,
+      "detail": "2 public relative links resolve"
+    },
+    {
+      "id": "SEMANTIC_REVIEW",
+      "passed": true,
+      "detail": "Executed author review: summaries distinguished from direct scenes; late historical revelation and local repeated-result mechanisms separated; original C2-JF not source canon; chapter-number conflict retained; downloaded unread pages not claimed read; REV-JOJO-01 full-size recheck and REV-JOJO-02 carried-effect edge repair executed; newdirectchapter prognosis is attributed and version-qualified. Scope: authored artifacts, not independent review or gameplay."
+    }
+  ],
+  "runtime_checks_run": false,
+  "full_source_closure": false,
+  "remaining_available_work": "Broader direct-source coverage and extra unread PDF pages remain open; inspected31PDFscene pages plus boundary checks, all19exposed selectedchapter images and6officialstills. Exact source/index inventory remains private."
+}

@@ -1,3 +1,5 @@
+import {validateFoundationInteractionEffect,validateFoundationDelivery,validateFoundationInteractionState} from './foundation_interaction_policy.js';
+import {validateContainerDefinition,validateContainerEffect,validateContainerState} from './structured_container_runtime.js';
 import {validateSituationDefinition, validateSituationEffect, validateSituations, validateKnowledgeBasis} from "./causal_situations.js";
 import {evaluateRule} from "./rules.js";
 import {validateItemKey, validateGameplaySnapshot} from "./gameplay_transactions.js";
@@ -39,7 +41,7 @@ export function numeric(v) {return finite(v) || record(v) && typeof v.fact === "
 // Lazy and hoisted so declarative project compilation can validate through the
 // existing native-registry import cycle without weakening any effect checks.
 var operations;
-function simulationOperations() {return operations ||= new Set(["spawn", "relocate", "fact", "resource", "vital", "body", "item", "transfer", "xp", "reputation", "knowledge", "relationship", "claim", "condition", "life", "source", "faculty", "power", "progress", "title", "equipment", "custody", "unlock", "event", "world", "party", "energy", "observation", "site", "pursuit", "situation"]);}
+function simulationOperations() {return operations ||= new Set(["spawn", "relocate", "fact", "resource", "vital", "body", "item", "transfer", "xp", "reputation", "knowledge", "relationship", "claim", "condition", "life", "source", "faculty", "power", "progress", "title", "equipment", "custody", "unlock", "event", "world", "party", "energy", "observation", "site", "pursuit", "situation", "container", "foundationInteraction"]);}
 
 
 export function validateSimulationEffect(e) {
@@ -81,10 +83,16 @@ export function validateSimulationEffect(e) {
     if(e.type === "pursuit") validatePursuitEffect(e);
     if(e.type === "situation") validateSituationEffect(e);
     if(e.type === "knowledge") validateKnowledgeBasis(e.basis);
+    if(e.type === "container") validateContainerEffect(e);
+    if(e.type==='foundationInteraction')validateFoundationInteractionEffect(e);
+    if(e.delivery){
+        assert(e.type==='vital','Scoped delivery requires an actual vital recipient.');
+        validateFoundationDelivery(e.delivery);
+    }
     jsonData(e);
 }
 
-const families = ["people", "commands", "powers", "advancements", "sites", "events", "controllers", "transitions", "origins", "conditions", "encounters", "energies", "pursuits", "situations"];
+const families = ["people", "commands", "powers", "advancements", "sites", "events", "controllers", "transitions", "origins", "conditions", "encounters", "energies", "pursuits", "situations", "containers"];
 function validatePersonDefinition(d) {
     assert(stableId(d.id) && natural(d.revision) && d.revision > 0 && typeof d.label === "string" && stableId(d.worldId) && typeof d.location === "string" && ["native", "simulation"].includes(d.inventory), "Invalid person binding.");
     if(d.lifePolicy) assert(natural(d.lifePolicy.lifespan) && d.lifePolicy.lifespan > 0 && ["dead", "departed"].includes(d.lifePolicy.ending) && ["refund", "forfeit", "finish"].includes(d.lifePolicy.work), "Invalid authored lifespan/work policy.");
@@ -108,12 +116,14 @@ export function createSimulationRegistry(definitions = {}) {
     for(const d of registry.situations.values()) validateSituationDefinition(d);
     for(const d of registry.people.values()) validatePersonDefinition(d);
     for(const d of registry.energies.values()) validateEnergyPolicy(d);
+    for(const d of registry.containers.values()) {validateContainerDefinition(d); assert(registry.energies.has(d.energyId), "Unknown container energy.");}
     for(const d of registry.pursuits.values()) {
         validatePursuitDefinition(d);
         const c=registry.commands.get(d.encounterCommand);
         assert(registry.people.has(d.actorId) && c?.encounterId && c.pursuitId === d.id && c.actorId === d.targetId && c.targetId === d.actorId && c.participants?.includes("$target"), "Invalid pursuit encounter binding.");
     }
     for(const d of registry.commands.values()) {
+        if(d.participantsCoLocated!=null)assert(typeof d.participantsCoLocated==='boolean', 'Invalid participant contact policy.');
         assert(natural(d.duration || 0) && ["none", "refund", "forfeit"].includes(d.cancellation || "none"), "Invalid command timing.");
         assert(d.reservationReturns === undefined || d.reservationReturns === 1, 'Unsupported authored reservation return accounting.');
         if(d.completionRequires || d.completionCoLocated != null) {
@@ -160,6 +170,7 @@ export function createSimulationRegistry(definitions = {}) {
         for(const f of Object.values(d.functions || {})) assert(finite(f.capacity) && f.capacity >= 0, "Invalid designed function capacity.");
     }
     for(const d of registry.conditions.values()) {
+        if(d.absence!=null)assert(d.absence==='zero', 'Invalid condition absence policy.');
         validatePredicate(d.immunity);
         if(d.interval != null) assert(natural(d.interval) && d.interval > 0, "Invalid condition tick interval.");
         (d.onTick || []).forEach(validateSimulationEffect);
@@ -186,6 +197,7 @@ export function createSimulationRegistry(definitions = {}) {
         const inspect = value => {
             if(Array.isArray(value)) {value.forEach(inspect); return;}
             if(!record(value)) return;
+            if(value.type === "container") assert(registry.containers.has(value.containerId), "Unknown authored container.");
             if(value.type === "energy") assert(registry.energies.has(value.energyId), "Unknown authored energy.");
             if(value.type === "event") assert(registry.events.has(value.eventId), "Unknown authored caused event.");
             if(value.type === "site") assert(registry.sites.has(value.siteId), "Unknown authored site.");
@@ -208,13 +220,17 @@ export function createSimulationState(seed = 1) {
 
 export function validateSimulationState(s, state, registry) {
     if(s == null) return;
-    assert(record(s) && [1,2,3,4,5].includes(s.schema) && natural(s.seed) && s.seed > 0 && s.seed <= 0xffffffff && natural(s.enrolledAt) && s.enrolledAt <= state.clock, "Invalid simulation schema/anchor.");
-    assert(s.schema < 3 || record(s.situations) && Object.keys(s.situations).length > 0, "Simulation schema3+ needs a caused situation.");
+    assert(record(s) && [1,2,3,4,5,6].includes(s.schema) && natural(s.seed) && s.seed > 0 && s.seed <= 0xffffffff && natural(s.enrolledAt) && s.enrolledAt <= state.clock, "Invalid simulation schema/anchor.");
+    // Schema 3 is the caused-situation upgrade. Later versions can be
+    // entered independently for reservation/learning support before any situation.
+    assert(s.schema !== 3 || record(s.situations) && Object.keys(s.situations).length > 0, "Simulation schema3 needs a caused situation.");
     assert(s.pursuits == null || s.schema >= 2, "Pursuits need simulation schema2.");
+    validateFoundationInteractionState(state);
     jsonData(s);
     for(const key of ["people", "owners", "equipment", "custody", "knowledge", "relationships", "claims", "faculties", "powers", "progression", "titles", "conditions", "sites", "events", "checks", "controllers", "programs", "sessions", "causes"]) assert(record(s[key]), `Invalid simulation ${key}.`);
     for(const key of ["jobs", "party", "transitions", "log"]) assert(Array.isArray(s[key]), `Invalid simulation ${key}.`);
     const person = id => assert(stableId(id) && s.people[id] && state.actors[id], `Unknown persistent actor ${id}.`);
+    validateContainerState(s,state,registry,person);
     validateSituations(s, state, registry, person);
     for(const knowledge of Object.values(s.knowledge)) for(const k of Object.values(knowledge)) validateKnowledgeBasis(k.basis, person, s.situations || {});
     if(s.energies != null) validateEnergyState(s.energies, person, registry);

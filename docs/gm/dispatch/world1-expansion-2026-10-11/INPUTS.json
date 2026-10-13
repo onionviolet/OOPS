@@ -1,0 +1,9 @@
+{
+  "candidate": "/Users/weiwei/.codex/worktrees/world1-completion/yet-another-idle-rpg",
+  "files": {
+    "src/structured_pack_runtime.js": "eba657171859cc1134999519e6e563787171216d126ed8bbbff5b857381e8885",
+    "src/structured_pack_ui.js": "e76ec0706ff69947f607405cc0dcf0fbeb33b04d359c08d9d4b55c7c6dadb4a6",
+    "tests/structured_pack_runtime.test.js": "bad4723566ffe63da407b1c9d73cc280a4c20dbccbd9d96c337acdeab1404bc6",
+    "tests/structured_pack_ui.test.js": "d65709306a8c68b46fc8d60c687a761b0f6d25610c2b2f4f862351458273d8cc"
+  }
+}

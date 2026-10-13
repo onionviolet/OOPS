@@ -1,0 +1,20 @@
+<!doctype html><meta charset="utf-8"><title>Discovery renderer contract</title>
+<link rel="stylesheet" href="styles/settled_text_effects.css">
+<style>body{background:#1c243b;color:#f1f2f5;font:16px system-ui;padding:24px}#host{position:relative;width:360px;padding:12px;border:1px solid #9bb4ae}button{margin:5px}#quote{margin:10px 0}</style>
+<h1>Presentation contract harness</h1><p>Disposable renderer fixture. This is not native gameplay proof.</p>
+<div id="host"><div class="skill_category_div" data-skill_category="Activity"><div data-skill="Test practice">Known practice · 10 XP</div></div><p id="quote">Fixture XP 10 · coins 12 · no reward or save writer</p></div>
+<div id="controls"><button>Full</button><button>Reduced</button><button>Off</button><button>Static</button><button>Replay</button><button>Cancel</button><button>Unknown</button></div><p id="status" role="status">No event emitted</p>
+<script type="module">
+import {createNativeDiscoveryFeedback} from './src/native_discovery_feedback.js';
+import {defaultPresentationSettings} from './src/customization_profiles.js';
+let options=defaultPresentationSettings(),known=true;
+const feedback=createNativeDiscoveryFeedback({container:document.querySelector('#host'),readSettings:()=>options,resolve:()=>known?{label:'Test practice'}:null});
+const event={id:'Test practice',type:'native-skill-discovery',settled:true};
+for(const button of document.querySelectorAll('#controls button'))button.addEventListener('click',()=>{
+ const mode=button.textContent;
+ if(mode==='Cancel'){feedback.cancel();document.querySelector('#status').textContent='Canceled';return;}
+ if(mode==='Replay'){feedback.publish(event);document.querySelector('#status').textContent='Repeated event';return;}
+ feedback.reset();known=mode!=='Unknown';options={...defaultPresentationSettings(),effects:mode==='Off'?'off':mode==='Reduced'?'reduced':'full',sound:false,effectDefinition:{...defaultPresentationSettings().effectDefinition,duration:10000,static:mode==='Static'}};
+ setTimeout(()=>{feedback.publish(event);document.querySelector('#status').textContent=mode+' event processed';},200);document.querySelector('#status').textContent=mode+' pending';
+});
+</script>

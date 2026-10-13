@@ -1,0 +1,96 @@
+{
+  "bundle": "451be34e450e0b6e8f049018889c43711bc34e885c40c834d7f7bfc2d633ecbf",
+  "sourceMapFiles": 438,
+  "route": "Fresh disposable native origins, UI only for progression. Deterministic initial entropy chooses the supported two/one-hand snapshot; no save, resources, flags or progress are injected.",
+  "checks": {
+    "twoImmediateChoices": true,
+    "firstUsefulRecipientCycle": true,
+    "beforeMethodUnavailable": true,
+    "realCancellationRefund": true,
+    "afterMethodAvailable": true,
+    "intermediateLiteralRestoration": true,
+    "colleagueOwnMeans": true,
+    "secondUsefulCycleAndSplitPay": true,
+    "sameLifeLeaveRestore": true,
+    "historyDependentOpportunity": true,
+    "continuedOrdinaryPaidPlay": true,
+    "finalLiteralRestoration": true,
+    "writableAfterLiteralRestoration": true,
+    "secondaryNaturalFirstCycle": true
+  },
+  "events": [
+    "access",
+    "take_basket",
+    "repair_basket",
+    "deliver_basket",
+    "take_crate",
+    "learn",
+    "learn",
+    "joint_crate",
+    "deliver_crate_joint",
+    "leave",
+    "return",
+    "remember",
+    "routine",
+    "access",
+    "take_basket",
+    "repair_basket",
+    "deliver_basket"
+  ],
+  "errors": [],
+  "unavailableAssets": [
+    {
+      "url": "http://127.0.0.1:18710/private_packs/manifest.json",
+      "status": 404
+    },
+    {
+      "url": "http://127.0.0.1:18710/private_packs/manifest.json",
+      "status": 404
+    },
+    {
+      "url": "http://127.0.0.1:18710/private_packs/manifest.json",
+      "status": 404
+    },
+    {
+      "url": "http://127.0.0.1:18710/private_packs/manifest.json",
+      "status": 404
+    },
+    {
+      "url": "http://127.0.0.1:18710/private_packs/manifest.json",
+      "status": 404
+    },
+    {
+      "url": "http://127.0.0.1:18710/private_packs/manifest.json",
+      "status": 404
+    },
+    {
+      "url": "http://127.0.0.1:18710/private_packs/manifest.json",
+      "status": 404
+    },
+    {
+      "url": "http://127.0.0.1:18710/private_packs/manifest.json",
+      "status": 404
+    },
+    {
+      "url": "http://127.0.0.1:18710/private_packs/manifest.json",
+      "status": 404
+    },
+    {
+      "url": "http://127.0.0.1:18710/private_packs/manifest.json",
+      "status": 404
+    },
+    {
+      "url": "http://127.0.0.1:18710/private_packs/manifest.json",
+      "status": 404
+    }
+  ],
+  "primary": {
+    "start": "reedbank.paired_start",
+    "life": "reedbank.run.1.1.life",
+    "finalMoney": 107,
+    "deliveredBasket": 1,
+    "deliveredCrate": 1,
+    "fittings": 1
+  },
+  "status": "PASS"
+}

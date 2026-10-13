@@ -1,0 +1,49 @@
+{
+  "schema": 1,
+  "wholeWorldStatus": "open across S00-S14",
+  "sourceSuite": {
+    "passed": 401,
+    "failed": 0,
+    "log": "/private/tmp/world1-full-source-tests.log"
+  },
+  "build": {
+    "status": "rebuilt shared source",
+    "bundleSha256": "841c7d88f70215da45fa0fdf04bcd7515c1e18c3f7514214f04f8416097a1562"
+  },
+  "integration": {
+    "status": "source/tests and seven exact private packs installed in shared",
+    "plan": "INTEGRATION_PLAN.json",
+    "priorPackPolicy": "p01-p06 frozen; no automatic legacy migration"
+  },
+  "units": [
+    {
+      "id": "W1-FULL-U01",
+      "parents": [
+        "W1-SRC-01"
+      ],
+      "scope": "selected connected local variant, parent remains open",
+      "engineGroupsPassed": 10,
+      "browser": "PASS eight native groups including three beginnings and old-p05 compatibility",
+      "privateEvidence": "docs/research/novels/world1-full-completion-2026-10-11/native/LANGUAGE_NATIVE.json"
+    },
+    {
+      "id": "W1-FULL-U02",
+      "parents": [
+        "W1-SRC-03",
+        "W1-SRC-06"
+      ],
+      "scope": "selected connected local variant; full native-equipment and wider cases remain open",
+      "engineGroupsPassed": 9,
+      "browser": "PASS four current native groups; exact direct-vital observation separately retained",
+      "privateEvidence": "docs/research/novels/world1-full-completion-2026-10-11/native/"
+    }
+  ],
+  "review": "generic source integration plus F1/F2 fixes independently reviewed; full-world final gap review pending",
+  "director": "open human-only",
+  "committed": false,
+  "pushed": false,
+  "published": false,
+  "nativeGroups": 12,
+  "nativeFixtures": "Untouched authored initial means; kit seed pinned, language starts selected through actual random pool. Built-in manual export behavior remains native. No direct progress/stock enrichment.",
+  "nativeLimits": "Changed-participant/lost-support boundaries retain engine-only evidence; full equipment/language/source horizon and final independent C4 audit remain open."
+}

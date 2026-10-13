@@ -1,0 +1,2052 @@
+0 / 10 xp
+No global xp multipliers
+
+40/40 stamina
+Max stamina: 40
+
+Breakdown:
+Base value: 40
+0/0 mana
+60/60 hp
+Max health: 60
+
+Breakdown:
+Base value: 60
+------------------------
+Total health balance: 0
+
+01/04/999 08:17, Summer, Mon, Day
+20.0°C
+Lowest tolerable temperature: 14
+(14 base minus 0 cold protection)
+
+Breakdown:
+Base value: 0
+Your purse contains: 10C 2W
+star_border
+Rough wood log
+Rough wood log
+A big log of cheap and weak wood. At least it should be very easy to work with
+
+Material type: raw wood
+
+Count in player inventory: 1
+
+Value: 1C [originally 1C]
+5
+10
+all
+1C
+star_border
+Stale bread x5
+Stale bread
+Big piece of an old bread, still edible
+
+Effects:
+'Basic meal' : 1h
+
+Stam regen: +0.5
+
+
+Material type: bread
+
+Count in player inventory: 5
+
+Value: 2C
+Optional hunger: restores up to 15/100 fullness.
+[use]
+auto
+5
+10
+all
+2C
+star_border
+Survey rope
+Survey rope
+A lightweight reusable line for the Village crossing. Carry it to open the slower anchor route in the Field journal; the heavier Coil of rope has separate uses.
+
+Count in player inventory: 1
+
+Value: 4W [originally 4W]
+5
+10
+all
+4W
+star_border
+[legs] Cheap leather pants [40%]
+Cheap leather pants
+
+Quality: 40% [trash]
+Slot: legs
+
+Defense: 0
+
+Agility: x0.99
+Cold tolerance: +0.5
+
+Component tier: 1
+
+Basic stats:
+Agility: x0.99
+Cold tolerance: +0.5
+
+Value: 4C 6W [originally 4C 6W]
+[equip]
+5
+10
+all
+4C 6W
+Sort by name
+Sort by value
+Sort by type
+All
+Equipment
+Usable
+Other
+Favs
+Inventory
+Combat
+star_border Paradise service street
+Lin keeps a service desk beside Mara’s assignment counter. Rooms, staff shifts, finite shops and return reports make this a lived district. Use Notebook to approve a role, accept terms or move to Oren’s workroom.
+Optional worlds
+
+A Soldier’s Life
+
+An optional Lion Legion posting. Choose an opening and a storage method before accepting duty. Village skills, money and commitments remain separate. No forced restart.
+
+Visit A Soldier’s Life
+Your beginning
+
+A new beginning
+
+Begin an independent local life. Your existing progress stays in this save.
+
+Begin
+Optional pacing
+Equipment condition and repair
+Elemental preparation
+Sort by name
+Sort by value
+Sort by type
+all
+equipment
+usable
+other
+Prices:
+Total price:
+0C
+Accept
+Cancel
+Exit
+Sort by name
+Sort by value
+Sort by type
+all
+equipment
+usable
+other
+Exit
+Tinkering
+Butchering
+Cooking
+Woodworking
+Smelting
+Forging
+Alchemy
+Items/trinkets
+Components
+Equipment
+ Makeable now
+Wool cloth
+5
+10
+all
+Success rate: 4%
+
+Materials required:
+Unknown raw fabric x0/5
+
+XP value: 30.7
+Result:
+
+Wool cloth
+Thick and warm, might possibly absorb some punches
+
+Material type: fabric
+
+Value: 8W [originally 8W]
+Sinew string
+5
+10
+all
+Success rate: 11%
+
+Materials required:
+Unknown material x0/5
+
+XP value: 30.7
+Result:
+
+Sinew string
+Tough, durable fiber, processed from animal tissue
+
+Value: 2C [originally 2C]
+Flax string
+5
+10
+all
+Success rate: 1%
+
+Materials required:
+Unknown raw fabric x0/5
+
+XP value: 65.8
+Result:
+
+Flax string
+Strong and durable linen fiber
+
+Value: 3C 5W [originally 3C 5W]
+Bonemeal
+5
+10
+all
+Success rate: 10%
+
+Materials required:
+Any animal tooth: x0/20
+
+
+XP value: 24
+Result:
+
+Bonemeal
+Powdered bones and teeth, that can be used as an organic fertilizer
+
+Value: 10C [originally 10C]
+Wolf trophy
+5
+10
+all
+Success rate: 50%
+
+Materials required:
+Unknown miscellaneous x0/4
+
+XP value: 19.7
+Result:
+
+Wolf trophy
+Slot: artifact
+
+Armor penetration: +50
+Crit rate: +0.02
+
+Value: 10C [originally 10C]
+Boar trophy
+5
+10
+all
+Success rate: 39%
+
+Materials required:
+Unknown miscellaneous x0/4
+
+XP value: 30.7
+Result:
+
+Boar trophy
+Slot: artifact
+
+Attack power: x1.1
+Crit multiplier: +0.2
+
+Value: 16C [originally 16C]
+Mountain goat trophy
+5
+10
+all
+Success rate: 28%
+
+Materials required:
+Unknown miscellaneous x0/4
+
+XP value: 42.2
+Result:
+
+Mountain goat trophy
+Slot: artifact
+
+Attack power: x1.05
+Defense: +5
+Defense: x1.05
+
+Value: 25C [originally 25C]
+Bear trophy
+5
+10
+all
+Success rate: 6%
+
+Materials required:
+Unknown miscellaneous x0/4
+
+XP value: 53.9
+Result:
+
+Bear trophy
+Slot: artifact
+
+Attack power: x1.3
+Attack speed: x0.9
+
+Value: 40C [originally 40C]
+Crab trophy
+5
+10
+all
+Success rate: 2%
+
+Materials required:
+Unknown miscellaneous x0/4
+
+XP value: 65.8
+Result:
+
+Crab trophy
+Slot: artifact
+
+Attack points: x1.15
+Defense: x1.15
+
+Value: 65C [originally 65C]
+Bandersnatch trophy
+5
+10
+all
+Success rate: 2%
+
+Materials required:
+Unknown material x0/1
+Unknown material x0/4
+
+XP value: 78
+Result:
+
+Bandersnatch trophy
+Slot: artifact
+
+Armor penetration: +100
+Crit rate: +0.03
+Attack points: x1.2
+
+Value: 70C [originally 70C]
+Gryphon trophy
+5
+10
+all
+Success rate: 1%
+
+Materials required:
+Unknown material x0/10
+Unknown material x0/4
+Unknown material x0/1
+
+XP value: 78
+Result:
+
+Gryphon trophy
+Slot: artifact
+
+Value: 70C [originally 70C]
+Knotted chance charm
+5
+10
+all
+Success rate: 65%
+
+Materials required:
+Unknown material x0/2
+Unknown raw wood x0/1
+
+XP value: 15.4
+Result:
+
+Knotted chance charm
+While equipped: +2 percentage points to nonzero item-recipe success chance, capped at 100%. No effect on equipment quality.
+Slot: amulet
+
+Value: 8W
+Forager pendant
+5
+10
+all
+Success rate: 65%
+
+Materials required:
+Unknown animal tooth x0/3
+Unknown material x0/3
+
+XP value: 15.4
+Result:
+
+Forager pendant
+While equipped: +5% relative enemy item-drop chance. Does not increase drop quantity or combat rewards.
+Slot: amulet
+
+Value: 1C 2W
+Market tally pendant
+5
+10
+all
+Success rate: 65%
+
+Materials required:
+Unknown metal x0/1
+Unknown material x0/1
+
+XP value: 15.4
+Result:
+
+Market tally pendant
+While equipped: reduce shop markup by 5%. Base item value, selling prices and market saturation stay unchanged.
+Slot: amulet
+
+Value: 2C
+Travel hearth pendant
+5
+10
+all
+Success rate: 65%
+
+Materials required:
+Unknown metal x0/2
+Unknown raw wood x0/2
+
+XP value: 15.4
+Result:
+
+Travel hearth pendant
+While equipped: tier 1 cooking in any safe location after crafting is unlocked. Ingredients and Cooking skill still apply; better kitchens retain their tier.
+Slot: amulet
+
+Value: 3C
+keyboard_double_arrow_downShort hilt
+keyboard_double_arrow_downMedium handle
+keyboard_double_arrow_downLong shaft
+keyboard_double_arrow_downHelmet exterior
+keyboard_double_arrow_downChestplate exterior
+keyboard_double_arrow_downLeg armor exterior
+keyboard_double_arrow_downGlove exterior
+keyboard_double_arrow_downShoes exterior
+keyboard_double_arrow_downAxe
+keyboard_double_arrow_downSelect a [axe head]
+keyboard_double_arrow_downSelect a [medium handle]
+Create
+5
+10
+all
+Result:
+
+Select one component from each category
+keyboard_double_arrow_downDagger
+keyboard_double_arrow_downSelect a [short blade]
+keyboard_double_arrow_downSelect a [short handle]
+Create
+5
+10
+all
+Result:
+
+Select one component from each category
+keyboard_double_arrow_downHammer
+keyboard_double_arrow_downSelect a [hammer head]
+keyboard_double_arrow_downSelect a [medium handle]
+Create
+5
+10
+all
+Result:
+
+Select one component from each category
+keyboard_double_arrow_downSpear
+keyboard_double_arrow_downSelect a [short blade]
+keyboard_double_arrow_downSelect a [long handle]
+Create
+5
+10
+all
+Result:
+
+Select one component from each category
+keyboard_double_arrow_downSword
+keyboard_double_arrow_downSelect a [long blade]
+keyboard_double_arrow_downSelect a [short handle]
+Create
+5
+10
+all
+Result:
+
+Select one component from each category
+keyboard_double_arrow_downShield
+keyboard_double_arrow_downSelect a [shield base]
+keyboard_double_arrow_downSelect a [shield handle]
+Create
+5
+10
+all
+Result:
+
+Select one component from each category
+keyboard_double_arrow_downHelmet
+keyboard_double_arrow_downSelect a [helmet interior]
+keyboard_double_arrow_downSelect a [helmet exterior]
+Create
+5
+10
+all
+Result:
+
+Select one component from each category
+keyboard_double_arrow_downChestplate
+keyboard_double_arrow_downSelect a [chestplate interior]
+keyboard_double_arrow_downSelect a [chestplate exterior]
+Create
+5
+10
+all
+Result:
+
+Select one component from each category
+keyboard_double_arrow_downLeg armor
+keyboard_double_arrow_downSelect a [leg armor interior]
+keyboard_double_arrow_downSelect a [leg armor exterior]
+Create
+5
+10
+all
+Result:
+
+Select one component from each category
+keyboard_double_arrow_downGauntlets
+keyboard_double_arrow_downSelect a [glove interior]
+keyboard_double_arrow_downSelect a [glove exterior]
+Create
+5
+10
+all
+Result:
+
+Select one component from each category
+keyboard_double_arrow_downArmored shoes
+keyboard_double_arrow_downSelect a [shoes interior]
+keyboard_double_arrow_downSelect a [shoes exterior]
+Create
+5
+10
+all
+Result:
+
+Select one component from each category
+keyboard_double_arrow_downHat
+keyboard_double_arrow_downShirt
+keyboard_double_arrow_downPants
+keyboard_double_arrow_downGloves
+keyboard_double_arrow_downShoes
+keyboard_double_arrow_downAmulet
+keyboard_double_arrow_downCape
+Roasted rat meat
+5
+10
+all
+Success rate: 70%
+
+Materials required:
+Unknown material x0/2
+
+XP value: 9.2
+Result:
+
+Roasted rat meat
+Smell might be fine now, but it still seems like a bad idea to eat it
+
+Effects:
+'Cheap meat meal' : 45m
+
+Stam regen: +1
+'Slight food poisoning' : 45m
+
+Hp loss: -0.5
+
+
+Value: 1C
+Optional hunger: restores up to 13.8/100 fullness.
+Roasted purified rat meat
+5
+10
+all
+Success rate: 40%
+
+Materials required:
+Unknown material x0/2
+Unknown disinfectant herb x0/1
+
+XP value: 19.7
+Result:
+
+Roasted purified rat meat
+Smells alright and should be safe to eat, yet you still have some doubts
+
+Effects:
+'Cheap meat meal' : 45m
+
+Stam regen: +1
+
+
+Value: 2C
+Optional hunger: restores up to 13.8/100 fullness.
+Fried pork
+5
+10
+all
+Success rate: 31%
+
+Materials required:
+Unknown raw meat x0/2
+
+XP value: 30.7
+Result:
+
+Fried pork
+It's dripping with fat and smells fantastic, all it lacks is some spices and a good side dish
+
+Effects:
+'Simple meat meal' : 1h30m
+
+Stam regen: +1
+Hp regen: +1
+
+
+Value: 4C
+Optional hunger: restores up to 17.5/100 fullness.
+Fried goat meat
+5
+10
+all
+Success rate: 10%
+
+Materials required:
+Unknown raw meat x0/2
+
+XP value: 30.7
+Result:
+
+Fried goat meat
+It has a nice aroma, but is a bit too tough. Perhaps a stew would have been a better choice?
+
+Effects:
+'Simple meat meal' : 1h30m
+
+Stam regen: +1
+Hp regen: +1
+
+
+Value: 4C
+Optional hunger: restores up to 17.5/100 fullness.
+Pork roast
+5
+10
+all
+Success rate: 28%
+
+Materials required:
+Unknown raw meat x0/2
+Unknown culinary herb x0/3
+
+XP value: 42.2
+Result:
+
+Pork roast
+A generous amount of herbs has been rubbed into the meat, resulting in a hearty meal with a mouthwatering aroma
+
+Effects:
+'Decent meat meal' : 2h
+
+Stam regen: +2
+Hp regen: +2
+
+
+Value: 10C
+Optional hunger: restores up to 20/100 fullness.
+Goat stew
+5
+10
+all
+Success rate: 16%
+
+Materials required:
+Unknown raw meat x0/2
+Unknown culinary herb x0/2
+
+XP value: 46.8
+Result:
+
+Goat stew
+Goat meat boiled to tenderness in a herbal broth. Perfect to warm yourself up for the road
+
+Effects:
+'Decent meat meal' : 2h
+
+Stam regen: +2
+Hp regen: +2
+'Hot meal' : 1h
+
+Cold resistance: +3
+
+
+Value: 10C
+Optional hunger: restores up to 20/100 fullness.
+Bread
+5
+10
+all
+Success rate: 9%
+
+Materials required:
+Unknown material x0/5
+
+XP value: 24
+Result:
+
+Fresh bread
+Freshly baked bread, delicious
+
+Effects:
+'Basic meal' : 2h30m
+
+Stam regen: +0.5
+
+
+Material type: bread
+
+Value: 4C
+Optional hunger: restores up to 22.5/100 fullness.
+Apple pie
+5
+10
+all
+Success rate: 1%
+
+Materials required:
+Unknown material x0/5
+Unknown material x0/5
+
+XP value: 37.5
+Result:
+
+Apple pie
+A nice pie with a delightful crust and filled to the brim with delicious apple pieces
+
+Effects:
+'Sweet dessert' : 3h
+
+Str: x1.05
+Agl: x1.05
+Stam regen: +1
+All xp gain: x1.05
+
+
+Value: 10C
+Optional hunger: restores up to 25/100 fullness.
+Bread kwas
+5
+10
+all
+Success rate: 5%
+
+Materials required:
+Any bread: x5/2
+
+Stale bread x5/2
+
+Unknown material x0/1
+
+XP value: 30.7
+Result:
+
+Bread kwas
+Tastes like bread
+
+Effects:
+'Well hydrated' : 1h
+
+Stam regen: +1
+
+
+Value: 4C
+Cider
+5
+10
+all
+Success rate: 0%
+
+Materials required:
+Unknown material x0/4
+Unknown material x0/1
+
+XP value: 37.5
+Result:
+
+Cider
+Fermented apple juice with a slightly sweet, tart, and refreshing aroma
+
+Effects:
+'Well hydrated' : 2h
+
+Stam regen: +1
+'Tipsy' : 30m
+
+Agl: x1.1
+Dex: x0.8
+
+
+Value: 10C
+Fish skewer
+5
+10
+all
+Success rate: 50%
+
+Materials required:
+Any small fish: x0/5
+
+
+XP value: 19.7
+Result:
+
+Fish skewer
+Several small fish cooked together on a stick. While none of them have much meat on them individually, together they make for a servicable meal
+
+Effects:
+'Cheap meat meal' : 45m
+
+Stam regen: +1
+
+
+Value: 2C
+Optional hunger: restores up to 13.8/100 fullness.
+Fried fish
+5
+10
+all
+Success rate: 31%
+
+Materials required:
+Any medium fish: x0/1
+
+
+XP value: 30.7
+Result:
+
+Fried fish
+A fish fried whole. A simple but fulfilling meal
+
+Effects:
+'Simple meat meal' : 1h
+
+Stam regen: +1
+Hp regen: +1
+
+
+Value: 4C
+Optional hunger: restores up to 15/100 fullness.
+Fish steak
+5
+10
+all
+Success rate: 31%
+
+Materials required:
+Unknown material x0/1
+Unknown culinary herb x0/1
+
+XP value: 30.7
+Result:
+
+Fish steak
+Properly filleted and cooked. A much better experience than eating them whole
+
+Effects:
+'Decent meat meal' : 1h
+
+Stam regen: +2
+Hp regen: +2
+
+
+Value: 6C
+Optional hunger: restores up to 15/100 fullness.
+Fried frog meat
+5
+10
+all
+Success rate: 13%
+
+Materials required:
+Unknown raw meat x0/2
+
+XP value: 42.2
+Result:
+
+Fried frog meat
+Tastes a bit like bird, and a bit like fish
+
+Effects:
+'Decent meat meal' : 2h
+
+Stam regen: +2
+Hp regen: +2
+
+
+Value: 10C
+Optional hunger: restores up to 20/100 fullness.
+Kingsized frog legs
+5
+10
+all
+Success rate: 21%
+
+Materials required:
+Unknown raw meat x0/2
+Unknown culinary herb x0/2
+
+XP value: 53.9
+Result:
+
+Kingsized frog legs
+The legs are agreed to be the best part, and when cooked with proper seasoning, considered a delicacy by some
+
+Effects:
+'Tasty meat meal' : 2h
+
+Stam regen: +3
+Hp regen: +3
+
+
+Value: 20C
+Optional hunger: restores up to 20/100 fullness.
+Low quality iron ingot
+5
+10
+all
+Success rate: 60%
+
+Materials required:
+Unknown raw metal x0/5
+Any coal: x0/1
+
+
+XP value: 9.2
+Result:
+
+Low quality iron ingot
+It has a lot of impurities, resulting in it being noticeably below the market standard
+
+Material type: metal
+
+Value: 1C [originally 1C]
+Iron ingot
+5
+10
+all
+Success rate: 29%
+
+Materials required:
+Unknown raw metal x0/5
+Any coal: x0/1
+
+
+XP value: 30.7
+Result:
+
+Iron ingot
+It doesn't suffer from any excessive impurities and can be used without worries
+
+Material type: metal
+
+Value: 2C [originally 2C]
+Charcoal
+5
+10
+all
+Success rate: 40%
+
+Materials required:
+Any raw wood: x1/1
+
+Rough wood log x1/1
+
+
+XP value: 19.7
+Result:
+
+Charcoal
+A flammable material with extremely high carbon content, created by strongly heating wood
+
+Material type: coal
+
+Value: 5W [originally 5W]
+Iron chainmail
+5
+10
+all
+Success rate: 4%
+
+Materials required:
+Unknown metal x0/2
+
+XP value: 30.7
+Result:
+
+Iron chainmail
+Dozens of tiny iron rings linked together. Nowhere near a wearable form, turning it into armor will still take a lot of effort and focus
+
+Material type: chainmail
+
+Value: 3C [originally 3C]
+Steel chainmail
+5
+10
+all
+Success rate: 2%
+
+Materials required:
+Unknown metal x0/2
+
+XP value: 42.2
+Result:
+
+Steel chainmail
+Dozens of tiny steel rings linked together. Nowhere near a wearable form, turning it into armor will still take a lot of effort and focus
+
+Material type: chainmail
+
+Value: 6C [originally 6C]
+Metal fishing hook
+5
+10
+all
+Success rate: 4%
+
+Materials required:
+Any metal: x0/1
+
+
+XP value: 30.7
+Result:
+
+Metal fishing hook
+A small hook made of metal
+
+Value: 1C [originally 1C]
+Iron pickaxe
+5
+10
+all
+Success rate: 3%
+
+Materials required:
+Unknown medium handle x0/1
+Unknown long blade x0/1
+
+XP value: 35.3
+Result:
+
+Iron pickaxe
+A decent pickaxe made of iron, strong enough for most ores
+Slot: pickaxe
+
+????? level: +3
+
+Value: 1S [originally 1S]
+Steel pickaxe
+5
+10
+all
+Success rate: 1%
+
+Materials required:
+Unknown medium handle x0/1
+Unknown long blade x0/1
+
+XP value: 46.8
+Result:
+
+Steel pickaxe
+A sharp pickaxe made of steel, strong enough to break through even very tough rock
+Slot: pickaxe
+
+????? level: +5
+
+Value: 2S [originally 2S]
+Iron chopping axe
+5
+10
+all
+Success rate: 3%
+
+Materials required:
+Unknown medium handle x0/1
+Unknown axe head x0/1
+
+XP value: 35.3
+Result:
+
+Iron chopping axe
+A decent axe made of iron, hard and sharp enough for most of trees, even if they will still require an effort
+Slot: axe
+
+????? level: +3
+
+Value: 1S [originally 1S]
+Steel chopping axe
+5
+10
+all
+Success rate: 1%
+
+Materials required:
+Unknown medium handle x0/1
+Unknown axe head x0/1
+
+XP value: 46.8
+Result:
+
+Steel chopping axe
+A sharp axe made of steel, hard and sharp enough for most trees
+Slot: axe
+
+????? level: +5
+
+Value: 2S [originally 2S]
+Iron sickle
+5
+10
+all
+Success rate: 3%
+
+Materials required:
+Unknown short handle x0/1
+Unknown short blade x0/1
+
+XP value: 35.3
+Result:
+
+Iron sickle
+A decent sickle made of iron, sharp enough for most of plants
+Slot: sickle
+
+????? level: +3
+
+Value: 1S [originally 1S]
+Steel sickle
+5
+10
+all
+Success rate: 1%
+
+Materials required:
+Unknown short handle x0/1
+Unknown short blade x0/1
+
+XP value: 46.8
+Result:
+
+Steel sickle
+A sharp sickle made of steel, can esily cut through most of plants
+Slot: sickle
+
+????? level: +5
+
+Value: 2S [originally 2S]
+Iron shovel
+5
+10
+all
+Success rate: 3%
+
+Materials required:
+Unknown long handle x0/1
+Unknown axe head x0/1
+
+XP value: 35.3
+Result:
+
+Iron shovel
+A decent shovel made of iron, solid enough for most of your digging needs
+Slot: shovel
+
+????? level: +3
+
+Value: 1S [originally 1S]
+Steel shovel
+5
+10
+all
+Success rate: 1%
+
+Materials required:
+Unknown long handle x0/1
+Unknown axe head x0/1
+
+XP value: 46.8
+Result:
+
+Steel shovel
+A sturdy shovel made of steel, for heavy duty digging needs
+Slot: shovel
+
+????? level: +5
+
+Value: 2S [originally 2S]
+keyboard_double_arrow_downShort blade
+keyboard_double_arrow_downLong blade
+keyboard_double_arrow_downAxe head
+keyboard_double_arrow_downHammer head
+keyboard_double_arrow_downShort hilt
+keyboard_double_arrow_downMedium handle
+keyboard_double_arrow_downLong shaft
+keyboard_double_arrow_downShield base
+keyboard_double_arrow_downHelmet exterior
+keyboard_double_arrow_downChestplate exterior
+keyboard_double_arrow_downLeg armor exterior
+keyboard_double_arrow_downGlove exterior
+keyboard_double_arrow_downShoes exterior
+Piece of wolf rat leather
+5
+10
+all
+Success rate: 40%
+
+Materials required:
+Unknown pelt x0/6
+
+XP value: 9.2
+Result:
+
+Piece of wolf rat leather
+It's slightly damaged and seems useless for anything that requires precise work
+
+Material type: piece of leather
+
+Value: 2C [originally 2C]
+Piece of wolf leather
+5
+10
+all
+Success rate: 20%
+
+Materials required:
+Unknown pelt x0/6
+
+XP value: 19.7
+Result:
+
+Piece of wolf leather
+Somewhat strong, should offer some protection when turned into armor
+
+Material type: piece of leather
+
+Value: 3C [originally 3C]
+Piece of boar leather
+5
+10
+all
+Success rate: 11%
+
+Materials required:
+Unknown pelt x0/6
+
+XP value: 30.7
+Result:
+
+Piece of boar leather
+Thick and resistant leather, too stiff for clothes but perfect for armor
+
+Material type: piece of leather
+
+Value: 4C 5W [originally 4C 5W]
+Piece of goat leather
+5
+10
+all
+Success rate: 11%
+
+Materials required:
+Unknown pelt x0/6
+
+XP value: 30.7
+Result:
+
+Piece of goat leather
+Thick and resistant, just barely elastic enough to be used for clothing
+
+Material type: piece of leather
+
+Value: 6C [originally 6C]
+Piece of bear leather
+5
+10
+all
+Success rate: 6%
+
+Materials required:
+Unknown pelt x0/6
+
+XP value: 53.9
+Result:
+
+Piece of bear leather
+Strong and resistant, but too thick for clothing
+
+Material type: piece of leather
+
+Value: 9C [originally 9C]
+Piece of frog leather
+5
+10
+all
+Success rate: 6%
+
+Materials required:
+Unknown pelt x0/4
+Unknown disinfectant herb x0/2
+
+XP value: 53.9
+Result:
+
+Piece of frog leather
+The toxins have been removed and the slime coagulated into a waxy coating
+
+Material type: piece of leather
+
+Value: 6C [originally 6C]
+Processed rat pelt
+5
+10
+all
+Success rate: 40%
+
+Materials required:
+Unknown pelt x0/6
+
+XP value: 9.2
+Result:
+
+Processed rat pelt
+Processed pelt of a huge rat. It's of a barely acceptable quality, but it's still a miracle with how terrible the basic material was
+
+Material type: processed pelt
+
+Value: 2C [originally 2C]
+Processed wolf pelt
+5
+10
+all
+Success rate: 20%
+
+Materials required:
+Unknown pelt x0/6
+
+XP value: 19.7
+Result:
+
+Processed wolf pelt
+Processed pelt of a wild wolf. It's a nice, stylish material, with fur that's feels good to touch
+
+Material type: processed pelt
+
+Value: 3C [originally 3C]
+Processed boar hide
+5
+10
+all
+Success rate: 11%
+
+Materials required:
+Unknown pelt x0/6
+
+XP value: 30.7
+Result:
+
+Processed boar hide
+Processed hide of a wild boar. It's a thick, heavy material, with short rough fur, but it's quite strong
+
+Material type: processed pelt
+
+Value: 4C 5W [originally 4C 5W]
+Processed goat hide
+5
+10
+all
+Success rate: 11%
+
+Materials required:
+Unknown pelt x0/6
+
+XP value: 30.7
+Result:
+
+Processed goat hide
+Processed hide of a wild goat. It's a resistant material, with short and rough fur
+
+Material type: processed pelt
+
+Value: 6C [originally 6C]
+Processed bear hide
+5
+10
+all
+Success rate: 6%
+
+Materials required:
+Unknown pelt x0/6
+
+XP value: 53.9
+Result:
+
+Processed bear hide
+Strong, resistant, and warm, with fluffy fur
+
+Material type: piece of leather
+
+Value: 9C [originally 9C]
+Rat meat chunks
+5
+10
+all
+Success rate: 40%
+
+Materials required:
+Unknown material x0/3
+
+XP value: 9.2
+Result:
+
+Rat meat chunks
+Eww
+
+Value: 8W [originally 8W]
+Fish fillet x3
+5
+10
+all
+Success rate: 10%
+
+Materials required:
+Any large fish: x0/1
+
+
+XP value: 30.7
+Result:
+
+Fish fillet
+Cuts of meat from a fish that was too big to eat whole
+
+Value: 3C [originally 3C]
+Processed weak monster bone
+5
+10
+all
+Success rate: 2%
+
+Materials required:
+Unknown bone x0/5
+
+XP value: 42.2
+Result:
+
+Processed weak monster bone
+Polished and cleaned bones of a weak monster, just waiting to be turned into a piece of equipment
+
+Material type: bone
+
+Value: 4C [originally 4C]
+Processed monster bone
+5
+10
+all
+Success rate: 0%
+
+Materials required:
+Unknown bone x0/5
+
+XP value: 90.4
+Result:
+
+Processed monster bone
+Polished and cleaned bones of a dangerous monster, just waiting to be turned into a piece of equipment
+
+Material type: bone
+
+Value: 9C [originally 9C]
+High quality wolf fang
+5
+10
+all
+Success rate: 50%
+
+Materials required:
+Unknown animal tooth x0/50
+
+XP value: 13.3
+Result:
+
+High quality wolf fang
+Fang of a wild wolf. Very sharp, undamaged and surprisingly clean
+
+Material type: miscellaneous
+
+Value: 1C 5W [originally 1C 5W]
+High quality boar tusk
+5
+10
+all
+Success rate: 35%
+
+Materials required:
+Unknown material x0/50
+
+XP value: 24
+Result:
+
+High quality boar tusk
+Tusk of a wild boar. Sharp and long enough to easily kill an adult human
+
+Material type: miscellaneous
+
+Value: 2C 5W [originally 2C 5W]
+Pristine mountain goat horn
+5
+10
+all
+Success rate: 23%
+
+Materials required:
+Unknown material x0/50
+
+XP value: 35.3
+Result:
+
+Pristine mountain goat horn
+Curved and sturdy horn of a mountain goat. It's noticeably bigger than average and seems to be even sturdier
+
+Material type: miscellaneous
+
+Value: 7C [originally 7C]
+Sharp bear claw
+5
+10
+all
+Success rate: 18%
+
+Materials required:
+Unknown material x0/50
+
+XP value: 42.2
+Result:
+
+Sharp bear claw
+Large and dangerous claw of a wild bear, sharp enough to easily cut through meat
+
+Material type: miscellaneous
+
+Value: 8C [originally 8C]
+Giant crab claw
+5
+10
+all
+Success rate: 2%
+
+Materials required:
+Unknown material x0/50
+
+XP value: 53.9
+Result:
+
+Giant crab claw
+A large claw of a crab in pristine condition, still sharp and strong enough to take a finger off
+
+Material type: miscellaneous
+
+Value: 10C [originally 10C]
+Frumious claw
+5
+10
+all
+Success rate: 2%
+
+Materials required:
+Unknown material x0/50
+
+XP value: 58.6
+Result:
+
+Frumious claw
+A vicious claw of a bandernatch, sharpened by snatching countless prey
+
+Value: 25C [originally 25C]
+Gryphon pinion
+5
+10
+all
+Success rate: 2%
+
+Materials required:
+Unknown material x0/50
+
+XP value: 65.8
+Result:
+
+Gryphon pinion
+A particularly majestic feather from a gryphon
+
+Value: 40C [originally 40C]
+Sinew
+5
+10
+all
+Success rate: 2%
+
+Materials required:
+Any raw meat: x0/2
+
+
+XP value: 42.2
+Result:
+
+Sinew
+Strong, elastic fiber, rendered from animal tissue
+
+Value: 5W [originally 5W]
+Processed rough wood x3
+5
+10
+all
+Success rate: 30%
+
+Materials required:
+Rough wood log x1/1
+
+XP value: 15.4
+Result:
+
+Processed rough wood
+Cheapest form of wood, ready to be used. Despite being rather weak, it still has a lot of uses
+
+Material type: wood
+
+Value: 6W [originally 6W]
+Processed wood x3
+5
+10
+all
+Success rate: 17%
+
+Materials required:
+Unknown raw wood x0/1
+
+XP value: 33
+Result:
+
+Processed wood
+Average quality wood, ready to be used
+
+Material type: wood
+
+Value: 1C 1W [originally 1C 1W]
+Processed ash wood x3
+5
+10
+all
+Success rate: 11%
+
+Materials required:
+Unknown raw wood x0/1
+
+XP value: 46.8
+Result:
+
+Processed ash wood
+High quality wood, just waiting to be turned into a piece of equipment
+
+Material type: wood
+
+Value: 2C [originally 2C]
+Processed hickory wood x3
+5
+10
+all
+Success rate: 6%
+
+Materials required:
+Unknown raw wood x0/1
+
+XP value: 61
+Result:
+
+Processed hickory wood
+Top quality wood, suitable for all kinds of projects
+
+Material type: wood
+
+Value: 3C 5W [originally 3C 5W]
+Wicker
+5
+10
+all
+Success rate: 8%
+
+Materials required:
+Unknown raw wood x0/2
+
+XP value: 35.3
+Result:
+
+Wicker
+Light but sturdy plant fibers, ready to be woven into useable items
+
+Value: 1C [originally 1C]
+Willow bark x3
+5
+10
+all
+Success rate: 3%
+
+Materials required:
+Unknown raw wood x0/1
+
+XP value: 53.9
+Result:
+
+Willow bark
+Wood bark with medicinal properties, carefully scraped from the wood
+
+Value: 2C 5W [originally 2C 5W]
+Makeshift fishing pole
+5
+10
+all
+Success rate: 10%
+
+Materials required:
+Unknown long handle x0/1
+Unknown raw fabric x0/1
+
+XP value: 24
+Result:
+
+Makeshift fishing pole
+Little more than a piece of string tied to a stick, but sufficient to get a catch
+Slot: fishing_pole
+
+Value: 1C [originally 1C]
+Wooden fishing pole
+5
+10
+all
+Success rate: 3%
+
+Materials required:
+Unknown long handle x0/1
+Unknown material x0/1
+Unknown material x0/1
+
+XP value: 35.3
+Result:
+
+Wooden fishing pole
+A simple, but proper fishing pole
+Slot: fishing_pole
+
+????? level: +3
+
+Value: 20C [originally 20C]
+Ash wood fishing pole
+5
+10
+all
+Success rate: 1%
+
+Materials required:
+Unknown long handle x0/1
+Unknown material x0/1
+Unknown material x0/1
+
+XP value: 46.8
+Result:
+
+Ash wood fishing pole
+A decent fishing pole
+Slot: fishing_pole
+
+????? level: +5
+
+Value: 50C [originally 50C]
+Hickory wood fishing pole
+5
+10
+all
+Success rate: 0%
+
+Materials required:
+Unknown long handle x0/1
+Unknown material x0/1
+Unknown material x0/1
+
+XP value: 58.6
+Result:
+
+Hickory wood fishing pole
+A good fishing pole made out of quality materials
+Slot: fishing_pole
+
+????? level: +7
+
+Value: 90C [originally 90C]
+Alchemical wood fishing pole
+5
+10
+all
+Success rate: 0%
+
+Materials required:
+Unknown long handle x0/1
+Unknown material x0/1
+Unknown material x0/1
+
+XP value: 70.7
+Result:
+
+Alchemical wood fishing pole
+An excellent fishing pole made out of state-of-the-art materials
+Slot: fishing_pole
+
+????? level: +10
+
+Value: 1S 40C [originally 1S 40C]
+keyboard_double_arrow_downShort hilt
+keyboard_double_arrow_downMedium handle
+keyboard_double_arrow_downLong shaft
+keyboard_double_arrow_downShield base
+keyboard_double_arrow_downShield handle
+Exit
+keyboard_double_arrow_downCrafting skills
+keyboard_arrow_up
+keyboard_arrow_down
+Crafting proficiency : level 0/60
+30%
+12 / 40
+XP gain: x1
+XP cost scaling: x1.5
+id: "Crafting mastery"
+
+A mastery of the minor crafting branches like tinkering, woodworking, or butchering
+
+lvl 5: ???
+Tinkering : level 0/60
+30%
+12 / 40
+XP gain: x1
+XP cost scaling: x1.5
+id: "Crafting"
+
+Turn smaller pieces into one bigger thing
+
+Parent skill: Crafting mastery
+
+
+Quality cap: 100% for comps, 100% for eq
+ Hide max level skills
+Sort by name
+Sort by level
+Sort by progress
+Fav	Select	Name
+		Normal Stance	
+Normal Stance
+
+
+A normal and basic stance. It doesn't excell in anything, but also doesn't suffer any major flaws and is energy efficient.
+
+
+Stamina cost: 1
+Skills
+Stances
+Magic
+Quests
+Bestiary
+Anthology
+Data
+Notebook
+Notes, practice & people
+HerePeople
+Local conversations and return accounts
+Tools, practice & local lives
+Known routes
+Lvl: 0
+Strength:
+12.0
+Your strength. It affects power of physical attacks
+
+Breakdown:
+Base value: 12
+Agility:
+8.0
+Your agility. It affects your evasion chance
+
+Breakdown:
+Base value: 8
+Dexterity:
+10.0
+Your dexterity. It affects your chance to hit target
+
+Breakdown:
+Base value: 10
+Intuition
+10.0
+Your intuition. It's necessary for magic, while also providing slight bonus to hit chance and evasion
+
+Breakdown:
+Base value: 10
+Defense:
+1.0
+Your defense. Based on worn equipment, lowers damage taken
+
+Breakdown:
+Base value: 0
+Skills: +1
+Magic:
+0.0
+Your magic power. It affects the power of spells
+
+Breakdown:
+Base value: 0
+Atk power:
+1.2
+Attack power. Based on weapon statistics, strength and/or magic
+
+Breakdown:
+Base value (weapon * str/10): 1.2
+Atk spd:
+1.0
+Attack speed. Directly affects the attack frequency
+
+Breakdown:
+Base value: 1
+Crit rate:
+5.0%
+Your chance for critical attack
+
+Breakdown:
+Base value: 0.05
+Crit mult:
+130.0%
+Damage of your critical attacks
+
+Breakdown:
+Base value: 1.3
+AP:
+32
+Attack points, a total value of everything that contributes to the chance to hit an enemy, except for some situational skills and modifiers.
+
+Breakdown:
+Base value: 31.62
+EP :
+25
+Evasion points, a total value of everything that contributes to the evasion chance, except for some situational skills and modifiers
+
+Breakdown:
+Base value: 25.3
+Active effects:
+0
+No active effects
+Age: Adult
+Gender presentation: Ambiguous
+Some NPCs will assume you to be a woman, some to be a man
+Height: Average
+Race: Human
+The most basic and common race, unique by it's lack of unique characteristics. Average in almost every aspect, yet powerful as a whole.
+Titles · 0 / 26
+
+Your lasting discoveries will be recorded here.
+
+head slotYour head slot
+torso slotYour torso slot
+arms slotYour arms slot
+ring slotYour ring slot
+weapon slotYour weapon slot
+off-hand slotYour off-hand slot
+legs slotYour legs slot
+feet slotYour feet slot
+amulet slotYour amulet slot
+artifact slotYour artifact slot
+cape slotYour cape slot
+axe slotYour axe slot
+pickaxe slotYour pickaxe slot
+sickle slotYour sickle slot
+shovel slotYour shovel slot
+fishing pole slotYour fishing pole slot
+Stats
+Bio
+Equipment
+Tools
+World events · 1 available
+A short shower reaches the Village workbench
+
+4 game minutes remaining
+
+Return to Village
+Remembered years · 2 memories
+Remember this day
+
+Years remembered
+Levels / unlocks
+Events
+Crafting
+Combat
+Loot
+BGM
+Save
+Export
+Reward not available
+Import 
+settings
+v0.6
+help_outline
+ Increase textsize for dialogues and activities
+ Text outline on xp/stamina/mana/health bars
+ Text outline in item tooltips
+ Return to last bed upon defeat
+ Remember message log filters
+ Don't autoswitch out from inventory when starting combat
+ Use a single dynamically updated message for loot
+Use scientific notation for values over:  1e9
+ Use Fahrenheit instead of Celsius
+ Enable rain/snow/stars animations
+ Enable light-level based background color change
+ Enable on-hit / on-appear animations for combat
+ Automatically skip the loading screen
+ Enable kemonomimi mode
+Optional home-world pacing
+
+Home-world pacing paused outside the home world. Hunger off (native pacing). Weather off (native weather). Total XP ×1.000. Temperature +0°C over native temperature. Native rain is retained.
+
+HungerWeather
+
+Both start off to preserve existing pacing. Hunger drains over eight played hours and changes earned XP from 80% to 100%; native food refills it. Weather adds small outdoor temperature changes and fog gives 95% earned XP. Home world only; no offline drain. Turning an option off freezes its meter or duration.
+
+Equipment durability (off by default)Elemental preparation (off by default)
+X
+Load the backup autosave
+Import save from dev version
+Hard reset the game warning_amber

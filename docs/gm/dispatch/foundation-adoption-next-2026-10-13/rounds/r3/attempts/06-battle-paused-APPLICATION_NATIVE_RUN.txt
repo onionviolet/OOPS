@@ -1,0 +1,6 @@
+page.waitForFunction: Timeout 7000ms exceeded.
+    at /Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/foundation-adoption-next-2026-10-13/rounds/r3/application-native.cjs:49:10 {
+  log: [],
+  name: 'TimeoutError'
+}
+{"status":"FAIL","checks":{"exactEarnedApplicationLiteralRestoration":true},"failure":"page.waitForFunction: Timeout 7000ms exceeded.\n    at /Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/foundation-adoption-next-2026-10-13/rounds/r3/application-native.cjs:49:10"}

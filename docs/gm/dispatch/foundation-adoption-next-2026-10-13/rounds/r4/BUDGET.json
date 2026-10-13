@@ -1,0 +1,29 @@
+{
+  "owner": "01a13455-03b5-7382-822a-b270d1abb48b",
+  "lineage": "../r3/final-earned-native.txt",
+  "start": {
+    "coins": 86,
+    "logs": 95,
+    "sap": 3,
+    "salts": 3,
+    "emptySleeves": 2
+  },
+  "limits": {
+    "extraGathering": 0,
+    "newSaltPurchase": 0,
+    "resinBatches": 2,
+    "measuredPrograms": 2,
+    "measuredAcceptedJobs": 6,
+    "knifePurchases": 2,
+    "soundPurchases": 2,
+    "reservePlans": 4,
+    "repositoryPelletPurchase": 5,
+    "repositorySealSingles": 3,
+    "repositorySealPairs": 1,
+    "mixedHouseholdPlan": 1,
+    "externalAcquisition": 0
+  },
+  "boundary": "Stop on actual finite source/seller/dependency exhaustion; native unreachable negatives remain OPEN with SOURCE proof. Ordinary clock only.",
+  "harnessRecovery": "One exact resin-ready durable Save JSON was losslessly wrapped in supported envelope after node_repl timeout killed browser. No fields edited. Recovered natively exported; this transport is not an actual Export claim. Second exact latest earned lesson Save transported without edits after timeout. Disposable browser now uses its own persistent profile so reset cannot erase earned localStorage.",
+  "controlBudgetAmendment": "At held3, use two re-opt-ins over the same refunded inputs to exercise cancel-current then future cancellation/overshoot; fourth shortage-only opt-in consumes no new means. No material cap increased."
+}

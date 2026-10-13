@@ -1,0 +1,59 @@
+{
+  "runId": "R1 natural prerequisite, baseline candidate",
+  "origin": "http://127.0.0.1:18721/",
+  "candidate": "/Users/weiwei/.codex/candidates/yairpg-foundation-adoption-2026-10-13-r1",
+  "bundleSha256": "451be34e450e0b6e8f049018889c43711bc34e885c40c834d7f7bfc2d633ecbf",
+  "servedBundleSha256": "451be34e450e0b6e8f049018889c43711bc34e885c40c834d7f7bfc2d633ecbf",
+  "evidenceBasis": "Direct harness stdout/checkpoints, native screenshots, generated localStorage envelope, and final UI download. This consolidates multiple disposable harness contexts that continued the same naturally earned save after harness selector issues.",
+  "steps": [
+    {
+      "step": "fresh hero",
+      "result": "Native PLAY -> hero creation; named character R1 Natural.",
+      "screenshot": "01-new-hero.png"
+    },
+    {
+      "step": "elder opening route",
+      "result": "Native villageElder dialogue textline clicks, in order.",
+      "textlines": [
+        {"id": "hello", "displayedText": "Hello?"},
+        {"id": "what happened", "displayedText": "My head hurts.. What happened?"},
+        {"id": "ask to leave 1", "displayedText": "Great... Thank you for help, but I think I should go there then. Maybe it will help me remember more."},
+        {"id": "need to", "displayedText": "But I want to leave"},
+        {"id": "starting gear", "displayedText": "About the spare weapon..."},
+        {"id": "axe", "displayedText": "I would like an axe, for solid damage from every strike"}
+      ]
+    },
+    {
+      "step": "weapon and field",
+      "result": "Equipped the actual Cheap iron axe from the elder. Entered Infested field through normal travel. Native location had 15 groups; defeated the 15 required groups across trips, with normal retreat and Village rest between. Returned to Village after the first clear.",
+      "screenshot": "02-infested-field.png",
+      "clearScreenshot": "03-field-first-clear.png",
+      "generatedFieldGroupCounterAtFinalSave": 16
+    },
+    {
+      "step": "elder cleared-field response",
+      "result": "Clicked native elder line `cleared field`, displayed `I cleared the field, just as you asked me to`. The line had to be replayed after restoring a naturally generated checkpoint because the earlier checkpoint preceded its manual save.",
+      "screenshot": "04-elder-cleared-field.png"
+    },
+    {
+      "step": "craftsman tools",
+      "result": "Native oldCraftsman dialogue; clicked `hello` (displayed `Hello, I heard you wanted to talk to me?`) and `learn` (displayed `Sure, I'm in no hurry.`). Equipped the actual Old axe.",
+      "screenshot": "05-craftsman-tools.png"
+    },
+    {
+      "step": "woodcutting",
+      "result": "Started Village action `Gather wood on the outskirts` with Old axe equipped. Advanced actual registered game timers using Playwright page.clock.runFor(10000) in 360 bounded increments. No set_speed hook was available; fastForward and any state/resource grants were not used. Native saved activity and inventory both recorded 95 Rough wood logs.",
+      "screenshot": "06-woodcutting-started.png",
+      "earnedStateCheckpoint": "earned-state-final.json"
+    },
+    {
+      "step": "stop and export",
+      "result": "Restored the generated save in a fresh disposable context, verified the UI showed Rough wood log x95, stopped woodcutting through its native `Stop woodcutting` control, manually saved and used the native Export button. Final UI showed Village, no work running, and Cheap iron axe plus Old axe equipped.",
+      "beforeStopScreenshot": "07-earned-logs-before-stop.png",
+      "finalScreenshot": "09-final-native-export.png",
+      "export": "natural-prerequisite-save.txt",
+      "exportSha256": "09b9c035789844eedaf3c7d5a00fcf1436c84c638d2366646aeda591e98a1fd6"
+    }
+  ],
+  "harnessNote": "An early counter inspected only the first inventory control and fell back to one. The saved native activity and inventory each held 95 logs; the finalizer enumerated displayed controls and verified the exported envelope count."
+}

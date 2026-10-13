@@ -1,0 +1,21 @@
+{
+  "atUTC": "2026-10-13T07:39:59.167189+00:00",
+  "files": {
+    "src/contextual_balm_content.js": "41f9d95c7ef9ec1811e8da60ad86ae9822dd24841ccf51e8b7e047f2d9deb26e",
+    "src/contextual_balm_facts.js": "e665e303667aa780c3776164f98367f5288a2da45f122fd9ed8686fa832a104f",
+    "src/contextual_balm_host.js": "4b63298dea287c8cbba599a2a18ad1875c1bd9d04cbf77bb170e48ab7893515e",
+    "src/contextual_balm_native.js": "50ee6b79876a742183e9c3fbcfb603c3e818bf37b1641913b5e263b14de11476",
+    "src/main.js": "a1a4224182cbe4acbc6620499d5ff39d28367c3e5490c6e5a7b3b9048a2171be",
+    "src/simulation.js": "d56256a701b9190e4a143e63fea2cdcb7df3538dfe59aba9cfaef31544bee388",
+    "src/expansion_persistence.js": "779a82715884c48f3d2338816d76b90e5e894b625f2fb7daec174091c73bc966",
+    "tests/contextual_balm.test.js": "0630d9856d624a0d2f457b7224c3673e5bf944af73be70e428a77cc796f87b67",
+    "dist/bundle.js": "cb0c11d04b3e13c16aac5cd930314cfb78d654c326f07d2b9140f14e739ff175",
+    "dist/bundle.js.map": "c3fbf4cc6a7f14eb091a2162ea79ca539fafa91578b5caa12fb99fbb87d1fe1d",
+    "index.html": "a414ac44c9a7c01a244dc4fd55a782241f3009a28a652a2adfc13f36d7227af4"
+  },
+  "proof": "controlled source checks; legitimate acquisition incomplete; no FA07 native pass",
+  "affected": "23/23 includes focused14/14",
+  "build": "npm run build passed; bytes still cb0c",
+  "sourceEdits": "none; one focused test file added",
+  "preview": "R1 frozen18724 preserved"
+}

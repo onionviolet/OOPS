@@ -1,0 +1,114 @@
+{
+  "pid": 67997,
+  "servedHash": "555216ac778b8bc55d27f12317f450a61bf28f04344f94a93691ad34c4cf53da",
+  "origin": "http://127.0.0.1:18644",
+  "startedHash": "555216ac778b8bc55d27f12317f450a61bf28f04344f94a93691ad34c4cf53da",
+  "endedHash": "555216ac778b8bc55d27f12317f450a61bf28f04344f94a93691ad34c4cf53da",
+  "events": [
+    {
+      "action": "profile"
+    },
+    {
+      "workflowStep": {
+        "action": "click",
+        "selector": "#notebook_tab_here"
+      },
+      "index": 0,
+      "clock": 11720,
+      "sequence": 1292
+    },
+    {
+      "workflowStep": {
+        "action": "panel",
+        "selector": "#feature_expansion_panel"
+      },
+      "index": 1,
+      "clock": 11721,
+      "sequence": 1293
+    },
+    {
+      "workflowStep": {
+        "action": "panel",
+        "selector": "#feature_expansion_panel details:has(>summary:text-is(\"A taught procedure, useful material\"))"
+      },
+      "index": 2,
+      "clock": 11721,
+      "sequence": 1293
+    },
+    {
+      "workflowStep": {
+        "action": "click",
+        "selector": "[data-action-legibility-key=\"action:world.completion.learning.sponsor\"] button",
+        "save": "final-positive-sponsored"
+      },
+      "index": 3,
+      "clock": 11722,
+      "sequence": 1295
+    },
+    {
+      "workflowStep": {
+        "action": "pending",
+        "actor": "remainder_home.neri",
+        "id": "world.completion.learning.walk_to_bench",
+        "save": "final-positive-outbound"
+      },
+      "index": 4,
+      "clock": 11723,
+      "sequence": 1296
+    },
+    {
+      "workflowStep": {
+        "action": "batchClicks",
+        "selectors": [
+          "[data-travel=\"Village\"]",
+          "#notebook_tab_here",
+          "[data-pocket-realm=\"pocket.enter\"]"
+        ],
+        "save": "final-positive-absence-entered"
+      },
+      "index": 5,
+      "clock": 11734,
+      "sequence": 1301
+    },
+    {
+      "workflowStep": {
+        "action": "wait",
+        "ms": 2500,
+        "save": "final-positive-absence-spent"
+      },
+      "index": 6,
+      "clock": 11735,
+      "sequence": 1302
+    },
+    {
+      "workflowStep": {
+        "action": "export",
+        "name": "final-positive-absence-spent"
+      },
+      "index": 7,
+      "clock": 11735,
+      "sequence": 1302
+    },
+    {
+      "workflowStep": {
+        "action": "reload",
+        "save": "final-positive-absence-reloaded"
+      },
+      "index": 8,
+      "clock": 11735,
+      "sequence": 1302
+    },
+    {
+      "error": "page.waitForEvent: Timeout 30000ms exceeded while waiting for event \"domcontentloaded\"\n=========================== logs ===========================\nwaiting for event \"domcontentloaded\"\n============================================================"
+    },
+    {
+      "action": "save",
+      "name": "final-positive-import-status"
+    },
+    {
+      "action": "save",
+      "name": "final-positive-import-rejected-preserved"
+    }
+  ],
+  "errors": []
+}

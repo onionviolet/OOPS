@@ -1,0 +1,39 @@
+{
+  "owner": "01a12dee-d943-7cf2-ade3-8b5163bd0532",
+  "candidate": "/Users/weiwei/.codex/worktrees/world1-completion/yet-another-idle-rpg",
+  "frozenPacks": {
+    "private_packs/a-soldiers-life/pack.json": "b728aca3f3debece1b31eff356c5bf215c9020f29cfa6379520d25afb6e8b3c6",
+    "private_packs/p05/pack.json": "25b5d3c50dc42d8c46929a0f061f308c47f9f9665137d7473382012661ba6c4b",
+    "private_packs/p02/pack.json": "482fdbb749bbdf2a6384886fae14fee445bb6ba9446355342a43ad76badfb0a8",
+    "private_packs/p03/pack.json": "9d1c323014663fa01146d7e2fa8afe5be833ecac8ab076ed1128a0036a2c5abc",
+    "private_packs/p04/pack.json": "77a98f5e695ab98b4c52d077a63ccb9427e8cd8ee64c369d64e0cdbf5e7fbccc"
+  },
+  "runtime": {
+    "src/structured_renewal.js": "0475b893680b1432af10d180bc03440ba7bfa9fc4d3d65cc93b88a6fb52ac1d8",
+    "src/structured_pack_definitions.js": "745cf093d85aaab517ce359cd14bcd3ce2f75de3e51a26ac8e2dd5ddad706cbb",
+    "src/structured_pack_ui.js": "9059e0c25855d0065357044b58846f71dbe3190dadf4289e73cae5b48b2d9c82",
+    "src/structured_pack_runtime.js": "bb6ade4f21ee6312d3e968ac7e8e64c43fe94f3c0bf839f012b219b19256f9a1",
+    "src/structured_pack_state.js": "c957cd3f72c890d34e89ed8064359e7f0ab3bea97d0412041f9af721a46ef5f4",
+    "src/structured_container_runtime.js": "1ecce2ec727caab1ac24f7d322c3900a0e53740ba14fa77c599cdb74fbd58ad5",
+    "private_packs/manifest.json": "3b055da250f5ce184c508c2a96edca8514e31d5bcdcfc42e7fbe9089714cb95d",
+    "dist/bundle.js": "29f6f41efab629de503dc839324a7f9c441f890ea1d2faac6502f5dac6ca1aa0"
+  },
+  "source": "Explicit runtime/private release confirmed by 01a12a08; 01a1297e confirms no overlap reservation; prior packs immutable",
+  "shared": "read-only pending integration reservation",
+  "reservations": {
+    "root": [
+      "candidate manifest",
+      "candidate generic runtime/tests/build",
+      "candidate new full-completion native proof",
+      "dispatch except coverage"
+    ],
+    "language_unit": [
+      "candidate private_packs/p06/pack.json",
+      "candidate ignored full-completion/language"
+    ],
+    "coverage": [
+      "dispatch coverage",
+      "shared new ignored world1-full-completion/coverage"
+    ]
+  }
+}

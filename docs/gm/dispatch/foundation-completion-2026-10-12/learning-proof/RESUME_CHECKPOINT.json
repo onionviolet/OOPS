@@ -1,0 +1,67 @@
+{
+  "status": "SAFE_GENERATED_RESUME_CHECKPOINT",
+  "bundle": "9b130b295f8464eb770f603afd68d31166569901bd9f0af2acda93192007fcae",
+  "origin": "http://127.0.0.1:18641",
+  "naturalProcess": 13227,
+  "loadProcess": 15686,
+  "allProcesses": "closed",
+  "speedMultiplier": 1,
+  "checkpoint": "/tmp/yairpg-foundation-learning-handoff-checkpoint.json",
+  "loadedCheckpoint": "/tmp/yairpg-foundation-learning-handoff-loaded.json",
+  "checks": {
+    "current location": true,
+    "total_deaths": true,
+    "enemy_killcount": true,
+    "inventories": true,
+    "content_packs": true,
+    "equipment": true,
+    "native money": true,
+    "no expansion lesson introduced": true
+  },
+  "nativeLocation": "Village",
+  "nativeCalendar": {
+    "year": 999,
+    "month": 4,
+    "day": 1,
+    "hour": 11,
+    "minute": 46,
+    "day_count": 1
+  },
+  "deaths": 1,
+  "kills": 0,
+  "enemyKillcount": {
+    "Wolf rat": 2,
+    "Starving wolf rat": 2
+  },
+  "expansionSequence": 199,
+  "expansionClock": 0,
+  "equipmentSlots": [
+    "weapon",
+    "legs"
+  ],
+  "healthDeficit": 0,
+  "staminaDeficit": 0,
+  "reading": null,
+  "sleeping": false,
+  "expansionPending": 0,
+  "simulation": false,
+  "currentBundleVerified": true,
+  "sourceHashes": [
+    {
+      "path": "src/main.js",
+      "sha256": "0f011b576cc05449f33c900f61a61c9044625060905a933e8334748722eed641"
+    },
+    {
+      "path": "src/expansion_engine.js",
+      "sha256": "6c8c0b3eea99ab1a802e70f4b077cf8dbc0ae8940cb5df0d92b6a330239ec16a"
+    },
+    {
+      "path": "src/world_completion_learning_runtime.js",
+      "sha256": "40410651383d4bdfdb0ad236e0374af62bb4746e9f5f4238b8d24f596b94406e"
+    },
+    {
+      "path": "src/world_completion_learning_host.js",
+      "sha256": "578e5ffbb03e35d174c7c7c87c3d169b9bacc23d30d530805053faeef9e2f580"
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+[
+  {
+    "url": "http://127.0.0.1:18741/dist/bundle.js?version=v0.6-2025657de8b6",
+    "loadedHash": "2025657de8b67c59914c809cc172a6dc2b4f0151a7f5b1766d10f53d1ef4bd5e",
+    "candidateHash": "2025657de8b67c59914c809cc172a6dc2b4f0151a7f5b1766d10f53d1ef4bd5e",
+    "fetchHash": "2025657de8b67c59914c809cc172a6dc2b4f0151a7f5b1766d10f53d1ef4bd5e"
+  },
+  {
+    "url": "http://127.0.0.1:18741/dist/bundle.js?version=v0.6-2025657de8b6",
+    "loadedHash": "2025657de8b67c59914c809cc172a6dc2b4f0151a7f5b1766d10f53d1ef4bd5e",
+    "candidateHash": "2025657de8b67c59914c809cc172a6dc2b4f0151a7f5b1766d10f53d1ef4bd5e",
+    "fetchHash": "2025657de8b67c59914c809cc172a6dc2b4f0151a7f5b1766d10f53d1ef4bd5e"
+  },
+  {
+    "url": "http://127.0.0.1:18741/dist/bundle.js?version=v0.6-2025657de8b6",
+    "loadedHash": "2025657de8b67c59914c809cc172a6dc2b4f0151a7f5b1766d10f53d1ef4bd5e",
+    "candidateHash": "2025657de8b67c59914c809cc172a6dc2b4f0151a7f5b1766d10f53d1ef4bd5e",
+    "fetchHash": "2025657de8b67c59914c809cc172a6dc2b4f0151a7f5b1766d10f53d1ef4bd5e"
+  },
+  {
+    "url": "http://127.0.0.1:18741/dist/bundle.js?version=v0.6-2025657de8b6",
+    "loadedHash": "2025657de8b67c59914c809cc172a6dc2b4f0151a7f5b1766d10f53d1ef4bd5e",
+    "candidateHash": "2025657de8b67c59914c809cc172a6dc2b4f0151a7f5b1766d10f53d1ef4bd5e",
+    "fetchHash": "2025657de8b67c59914c809cc172a6dc2b4f0151a7f5b1766d10f53d1ef4bd5e"
+  }
+]

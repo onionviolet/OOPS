@@ -1,0 +1,151 @@
+{
+  "action": "workflow",
+  "steps": [
+    {
+      "action": "click",
+      "selector": "#notebook_tab_here"
+    },
+    {
+      "action": "panel",
+      "selector": "#feature_expansion_panel"
+    },
+    {
+      "action": "panel",
+      "selector": "#feature_expansion_panel details:has(>summary:text-is(\"A dated warning and one physical rain\"))"
+    },
+    {
+      "action": "panel",
+      "selector": "#feature_expansion_panel details:has(>summary:text-is(\"A useful lens with a return obligation\"))"
+    },
+    {
+      "action": "panel",
+      "selector": "#feature_expansion_panel details:has(>summary:text-is(\"A taught procedure, useful material\"))"
+    },
+    {
+      "action": "panel",
+      "selector": "#feature_expansion_panel details:has(>summary:text-is(\"Home-world chapter & changed return\"))"
+    },
+    {
+      "action": "click",
+      "selector": "[data-action-legibility-key=\"action:lore.warning.begin\"] button",
+      "save": "worker-b1-warning-sample"
+    },
+    {
+      "action": "click",
+      "selector": "[data-action-legibility-key=\"action:world.completion.lens.measure_service_outside\"] button",
+      "save": "worker-b1-measure-accepted"
+    },
+    {
+      "action": "completed",
+      "id": "world.completion.lens.measure_service_outside",
+      "save": "worker-b1-measured"
+    },
+    {
+      "action": "click",
+      "selector": "[data-action-legibility-key=\"action:world.completion.learning.begin\"] button",
+      "save": "worker-b1-learning-terms"
+    },
+    {
+      "action": "failClick",
+      "selector": "[data-action-legibility-key=\"action:world.completion.learning.learn_player\"] button",
+      "save": "worker-b5-failed-write-preserved"
+    },
+    {
+      "action": "click",
+      "selector": "[data-action-legibility-key=\"action:world.completion.learning.learn_player\"] button",
+      "save": "worker-player-lesson-accepted"
+    },
+    {
+      "action": "export",
+      "name": "worker-player-lesson-accepted"
+    },
+    {
+      "action": "reload",
+      "save": "worker-player-lesson-reloaded"
+    },
+    {
+      "action": "literalImport",
+      "path": "/tmp/yairpg-foundation-learning-worker-player-lesson-accepted.txt",
+      "save": "worker-player-lesson-literal-imported"
+    },
+    {
+      "action": "completed",
+      "id": "world.completion.learning.learn_player",
+      "save": "worker-player-learned"
+    },
+    {
+      "action": "click",
+      "selector": "#notebook_tab_here"
+    },
+    {
+      "action": "panel",
+      "selector": "#feature_expansion_panel"
+    },
+    {
+      "action": "panel",
+      "selector": "#feature_expansion_panel details:has(>summary:text-is(\"A taught procedure, useful material\"))"
+    },
+    {
+      "action": "panel",
+      "selector": "#feature_expansion_panel details:has(>summary:text-is(\"Home-world chapter & changed return\"))"
+    },
+    {
+      "action": "click",
+      "selector": "[data-action-legibility-key=\"action:world.completion.learning.make_player\"] button",
+      "save": "worker-player-strip-accepted"
+    },
+    {
+      "action": "completed",
+      "id": "world.completion.learning.make_player",
+      "save": "worker-player-strip-produced"
+    },
+    {
+      "action": "export",
+      "name": "worker-player-strip-produced"
+    },
+    {
+      "action": "reload",
+      "save": "worker-player-strip-reloaded"
+    },
+    {
+      "action": "literalImport",
+      "path": "/tmp/yairpg-foundation-learning-worker-player-strip-produced.txt",
+      "save": "worker-player-strip-literal-imported"
+    },
+    {
+      "action": "click",
+      "selector": "#notebook_tab_here"
+    },
+    {
+      "action": "panel",
+      "selector": "#feature_expansion_panel"
+    },
+    {
+      "action": "panel",
+      "selector": "#feature_expansion_panel details:has(>summary:text-is(\"Home-world chapter & changed return\"))"
+    },
+    {
+      "action": "click",
+      "selector": "[data-action-legibility-key=\"action:world.completion.life.measured_line\"] button",
+      "save": "worker-player-strip-use-accepted"
+    },
+    {
+      "action": "completed",
+      "id": "world.completion.life.measured_line",
+      "save": "worker-player-strip-used"
+    },
+    {
+      "action": "export",
+      "name": "worker-player-strip-used"
+    },
+    {
+      "action": "reload",
+      "save": "worker-player-strip-used-reloaded"
+    },
+    {
+      "action": "literalImport",
+      "path": "/tmp/yairpg-foundation-learning-worker-player-strip-used.txt",
+      "save": "worker-player-strip-used-literal-imported"
+    }
+  ]
+}

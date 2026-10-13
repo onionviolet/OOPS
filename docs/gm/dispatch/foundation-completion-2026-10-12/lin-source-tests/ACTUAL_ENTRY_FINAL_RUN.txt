@@ -1,0 +1,20 @@
+✔ actual chart/enrollment leaves unapproved consequence controllers absent; Lin host equals native preview and staged plan (2766.034791ms)
+✔ accepted Ink work reserves counted resources, survives reload, pays once and staff supply requires separate approval (10890.597417ms)
+✔ texture and refusal conserve material and wage; native cancellation refunds accepted work without a kit (6418.881084ms)
+✔ losing actual supported body at completion refunds inputs and creates no wage or kit (2683.061ms)
+✔ stale/double clock, sequence, revision, session and scope tokens cannot apply a second work effect (1367.062333ms)
+✔ wrong contact, unsupported body and native revision block bindings; adapters cannot invoke a different resident (726.01625ms)
+✔ failed durable write preserves authoritative cursor/resources/jobs; retry publishes exactly one accepted effect (1541.93675ms)
+✔ retained v1/v2 legacy and v3 scoped opaque cursors reload without replacing paid receipt history (3125.874833ms)
+✔ old absent enrollment and repeated read/preview create no demand, approval or Ink cursor (754.178125ms)
+✔ missing counted materials or provider funds block work; contractor cannot gain staff approval from making Lin’s kit (3261.163917ms)
+✔ the shared controller admission preserves explicit approved remainder policy and ordinary nested controllers (170.747625ms)
+✔ actual declared hub passage retains complete owned cargo; unsafe traveler input keys stay rejected (0.958959ms)
+ℹ tests 12
+ℹ suites 0
+ℹ pass 12
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 37627.992583

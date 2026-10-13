@@ -1,0 +1,10 @@
+{
+  "status": "NOT_RUN_ZERO_ATTEMPTS",
+  "candidateCreated": false,
+  "build": false,
+  "profileOpened": false,
+  "saveReloadExportImport": false,
+  "nativeGate": "OPEN",
+  "runtimeEdits": [],
+  "priorProfiles": "Untouched; R11 existence only inspected; GenericCUA16033 untouched; 18742 read-only listener observed PID71038."
+}

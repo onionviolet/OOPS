@@ -1,0 +1,8 @@
+{"action": "pointerTick", "selector": "[data-foundation-probe=\"foundation.probe.a.attack\"]"}
+{"action": "sequence", "selectors": ["[data-foundation-probe=\"foundation.probe.a.barrier.p-b\"]", "[data-foundation-probe=\"foundation.probe.b.s1\"]", "[data-foundation-probe=\"foundation.probe.b.s2\"]", "[data-foundation-probe=\"foundation.probe.b.attack\"]", "[data-foundation-probe=\"foundation.probe.b.s1.remove\"]", "[data-foundation-probe=\"foundation.probe.b.attack\"]", "[data-foundation-probe=\"foundation.probe.b.s2.remove\"]", "[data-foundation-probe=\"foundation.probe.b.attack\"]"]}
+{"action": "staleHandler", "selector": "[data-foundation-probe=\"foundation.probe.b.attack\"]"}
+{"action": "failClick", "selector": "[data-foundation-probe=\"foundation.probe.b.attack\"]"}
+{"action": "reload"}
+{"action": "click", "selector": "[data-foundation-probe=\"foundation.probe.b.attack\"]"}
+{"action": "save", "name": "requal-aftermath"}
+{"action": "stop"}

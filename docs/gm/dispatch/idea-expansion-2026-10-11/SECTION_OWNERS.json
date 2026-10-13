@@ -1,0 +1,184 @@
+{
+  "status": "planning-routing-proposal",
+  "runtimeOwnershipUnchanged": true,
+  "duplicateDetailRule": "One primary detail owner; cross-lane requirements link interfaces rather than duplicate state writers. Root resolves actual overlaps after outputs return.",
+  "sections": [
+    {
+      "id": "S00",
+      "leadPlanningLane": "G5",
+      "joinLanes": [
+        "G1",
+        "G2",
+        "G3",
+        "G4",
+        "G6",
+        "G7"
+      ],
+      "boundary": "Input provenance and reconciliation; each lane keeps its source evidence"
+    },
+    {
+      "id": "S01",
+      "leadPlanningLane": "G4",
+      "joinLanes": [
+        "G2",
+        "G3",
+        "G6"
+      ],
+      "boundary": "History and local rule semantics; future world owner supplies source fidelity"
+    },
+    {
+      "id": "S02",
+      "leadPlanningLane": "G1",
+      "joinLanes": [
+        "G2",
+        "G3",
+        "G4",
+        "G5",
+        "G7"
+      ],
+      "boundary": "Starting state and life form; timeline/cheat functions remain with their owners"
+    },
+    {
+      "id": "S03",
+      "leadPlanningLane": "G6",
+      "joinLanes": [
+        "G1",
+        "G3",
+        "G4",
+        "G7"
+      ],
+      "boundary": "Environment/material access; G4 timeline causes, G3 lived regional use"
+    },
+    {
+      "id": "S04",
+      "leadPlanningLane": "G3",
+      "joinLanes": [
+        "G1",
+        "G4",
+        "G5",
+        "G7"
+      ],
+      "boundary": "Actor lives, relationships, institutions and means"
+    },
+    {
+      "id": "S05",
+      "leadPlanningLane": "G3",
+      "joinLanes": [
+        "G1",
+        "G2",
+        "G6",
+        "G7"
+      ],
+      "boundary": "Livelihood, recovery/care, funded economy and quiet continuing play"
+    },
+    {
+      "id": "S06",
+      "leadPlanningLane": "G6",
+      "joinLanes": [
+        "G2",
+        "G3",
+        "G5",
+        "G7"
+      ],
+      "boundary": "Materials, ownership, crafting, devices, facilities and technology"
+    },
+    {
+      "id": "S07",
+      "leadPlanningLane": "G2",
+      "joinLanes": [
+        "G1",
+        "G3",
+        "G4",
+        "G5",
+        "G6",
+        "G7"
+      ],
+      "boundary": "Functional skills, powers, systems, cheat mechanisms and growth"
+    },
+    {
+      "id": "S08",
+      "leadPlanningLane": "G2",
+      "joinLanes": [
+        "G1",
+        "G3",
+        "G4",
+        "G5",
+        "G7"
+      ],
+      "boundary": "Actual function/target/danger; G7 meaningful presentation and usability"
+    },
+    {
+      "id": "S09",
+      "leadPlanningLane": "G4",
+      "joinLanes": [
+        "G1",
+        "G2",
+        "G3",
+        "G5",
+        "G7"
+      ],
+      "boundary": "Knowledge/observation/hidden truth semantics; G7 all-surface filtering and effects"
+    },
+    {
+      "id": "S10",
+      "leadPlanningLane": "G3",
+      "joinLanes": [
+        "G1",
+        "G2",
+        "G4",
+        "G7"
+      ],
+      "boundary": "Situation interaction, dialogue and actor response; G4 event/history semantics"
+    },
+    {
+      "id": "S11",
+      "leadPlanningLane": "G4",
+      "joinLanes": [
+        "G1",
+        "G2",
+        "G3",
+        "G7"
+      ],
+      "boundary": "Causal history, ending/aftermath and later state"
+    },
+    {
+      "id": "S12",
+      "leadPlanningLane": "G4",
+      "joinLanes": [
+        "G1",
+        "G2",
+        "G3",
+        "G5",
+        "G6",
+        "G7"
+      ],
+      "boundary": "Instance/clock/travel/retention semantics, carrier and custody joins"
+    },
+    {
+      "id": "S13",
+      "leadPlanningLane": "G7",
+      "joinLanes": [
+        "G1",
+        "G2",
+        "G3",
+        "G4",
+        "G5",
+        "G6"
+      ],
+      "boundary": "Earlier VFX palettes, native presentation, suspense, focus and accessibility"
+    },
+    {
+      "id": "S14",
+      "leadPlanningLane": "G5",
+      "joinLanes": [
+        "G1",
+        "G2",
+        "G3",
+        "G4",
+        "G6",
+        "G7"
+      ],
+      "boundary": "Runtime contracts/persistence; G7 independent evidence/acceptance review"
+    }
+  ]
+}

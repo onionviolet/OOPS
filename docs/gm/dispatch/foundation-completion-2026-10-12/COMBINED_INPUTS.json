@@ -1,0 +1,21 @@
+{
+  "src/main.js": "badbb853bed5c34078976511d5a63d8dce128d8036f59eaf6b66e790561a6527",
+  "src/simulation.js": "554d12c0a0f30cf67b03e0381338e4258200902ccf991032c47c045a46665e99",
+  "src/simulation_effects.js": "17ea9ca9f6f40119bc5169c127443e21266f4b376394dc3569f477c7443ad74b",
+  "src/simulation_contracts.js": "bfcf6b671c00e2db774880a204fa94cba06cdbf43ac56bef30bf131fee19ac95",
+  "src/simulation_content.js": "9c55fc6edeebb9f75027dcada4dcc44ebb1fc27e4815cac75731825e0f2252bc",
+  "src/expedition_content.js": "0b9030b096bbe4e2868e0686d9d51057e9c34e7ccd07781badbd46b83e38ff37",
+  "src/foundation_interaction_policy.js": "4e3abc409d7f291b00875c623678c1a5653b427e2a8a6b53c708bfd55d113bcd",
+  "src/foundation_interaction_content.js": "344c5d3da3eaf5e22c8beccda95e42fa810a14397fd6e876763a5647c392310a",
+  "src/foundation_interaction_ui.js": "d673c5b54cdfd45634a3dd75c57aa7b18b474a0ec16486027f65071c943d53f6",
+  "src/foundation_start_content.js": "c355f66c301b48dbed3f96d1ae79bd287a043c553ac6ab92de4ade4579b0378a",
+  "src/native_realm_traveler.js": "df41221c00073b7fe7fbc69baca6d549dc25291017b36eb1a3752af70250eb42",
+  "src/feature_expansion_destination_host.js": "d91f8c31d0ae72676bd327ab60134e66376ed04091127d4b98049db4fd0b92f0",
+  "dist/bundle.js": "21eedf8476a91a867ef91b997889cf02fefdb2f653bd613b80680029328fa3f1",
+  "index.html": "4bcb2db3c5324f1c99db61ed4185008cf60f40ebfd53bc7c7b67803fe2f49420",
+  "src/reference_gameplay_host.js": "8a2ab8bda1210edbb957719a3715c4d4f091b0ab3a707416dfae299f5ecf91f1",
+  "src/native_craft_transaction.js": "df314bdbde04ad3a5f413e9ff2d6bb5f323a6f444b430f8dc5921a3df2c898f5",
+  "src/audit_remainder_combat_fit_host.js": "23200da89a0eea004c380acb72e8221b4d9325a73cb3f1d743ac9b391529873a",
+  "src/world_completion_runtime.js": "7631b540b6de79653914ae5cf92f18c6549f43b9a5ca3c4cf144be7fb62bc9d5",
+  "src/display.js": "40becdb67fc654ae6edbd7a83dd487a3fddecaef49c3140923c6fa100b29ed3a"
+}

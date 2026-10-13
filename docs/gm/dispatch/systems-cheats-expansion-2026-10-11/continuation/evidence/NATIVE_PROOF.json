@@ -1,0 +1,20 @@
+{
+  "url": "http://127.0.0.1:18653/",
+  "bundle": "http://127.0.0.1:18653/dist/bundle.js?version=v0.6-2263243ff953",
+  "cases": [
+    "SYS-R01 natural quest acceptance, earned actual craft, pending reload and exactly-once funded reward",
+    "SYS-R07 taught NPC independently consumes own log after teacher leaves and provider disconnects",
+    "SYS-R01 retained method continues ordinary useful craft without lease",
+    "SYS-R02 acquired real glass/pins, learned method, crafted apparatus, new inspection and useful repair",
+    "SYS-R02 fixed revision-1 preservation serves provisions and sample dispatch with real input/output custody",
+    "SYS-R05 represented configuration/run/alter compares truthful knowledge only, then real materials create different actual fitting yields",
+    "SYS-R06 original Frontier local repair accepts actual fittings; private source-world adapter remains separately qualified",
+    "SYS-R04 informed optional funded draw, hidden committed result, pending reload, fold and exactly-once settlement",
+    "SYS-R03 both actual opening-time cache outcomes, no phantom appraisal, useful inputs and duplicate sale",
+    "SYS-R08 native save/reload and actual file-input import preserve grants, stream, settled outcome, permanent carrier and NPC custody"
+  ],
+  "errors": [],
+  "naturalInputs": true,
+  "devGrants": false,
+  "finalClock": 79
+}

@@ -1,0 +1,10 @@
+{
+  "bundleHash": "dcf2ab53d4c3eb8a629652f9ca51277fb7f510a58fcc81b3bbbd04ee3c3086b1",
+  "checks": [
+    "actual native role approval changes employee to contractor",
+    "rapid repeated Ink accept publishes exactly1 native job",
+    "real Lin work completes/pays3 but grants no employee approval",
+    "Ink staff purchase remains unavailable to contractor despite stock+funds"
+  ],
+  "generatedOnly": true
+}

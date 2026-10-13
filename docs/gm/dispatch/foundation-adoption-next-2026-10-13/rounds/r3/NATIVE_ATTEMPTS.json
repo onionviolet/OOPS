@@ -1,0 +1,38 @@
+[
+  {
+    "schema": 1,
+    "result": "failure",
+    "commandId": "reference_gameplay.refine_first",
+    "cause": "simulation:4107",
+    "acceptedAt": 48,
+    "acceptedSequence": 4107,
+    "calendarMinute": 518015906,
+    "quietWindowOpen": true,
+    "quietWindowRemaining": 94,
+    "prepared": true,
+    "preparedByFocus": false,
+    "retryCountBefore": 0,
+    "baseProbability": 0.7,
+    "successProbability": 0.7,
+    "roll": 0.9561483354773372,
+    "outcomeId": "failure_prepared"
+  },
+  {
+    "schema": 1,
+    "result": "success",
+    "commandId": "reference_gameplay.refine_second",
+    "cause": "simulation:4116",
+    "acceptedAt": 56,
+    "acceptedSequence": 4116,
+    "calendarMinute": 518015914,
+    "quietWindowOpen": true,
+    "quietWindowRemaining": 86,
+    "prepared": true,
+    "preparedByFocus": false,
+    "retryCountBefore": 1,
+    "baseProbability": 0.7,
+    "successProbability": 0.75,
+    "roll": 0.144435269292444,
+    "outcomeId": "success_prepared"
+  }
+]

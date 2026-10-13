@@ -1,0 +1,13 @@
+{
+  "bundle": "5b3863b2a2c2f04dfd4318b80349aca4610c2cf49ccb980bfe1a0777705055cf",
+  "origin": "http://127.0.0.1:18632",
+  "schema": 5,
+  "simulationSchema": 4,
+  "sequenceUnchanged": true,
+  "actualException": "New consequences require explicit expansion11/auditRemainder1; absence grants nothing to older saves.",
+  "path": "feature_expansion_nested_host.attachResidents blindly provisions remainder_consequences.brin_collection -> audit_remainder_consequences_facts.js:215",
+  "qualification": "chart passes; eligible enrollment durable write rejected; G0 hub/Ink blocked",
+  "generatedInput": "/tmp/yairpg-lin-before-enroll.json",
+  "facts": [],
+  "repair": "reuse auditRemainderControllerAllowed"
+}

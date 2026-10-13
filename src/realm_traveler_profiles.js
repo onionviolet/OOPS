@@ -244,7 +244,7 @@ function nativeBindings(profile, plan) {
 /** Eligibility from supplied actual snapshots; it never commits or enforces physiology. */
 export function previewRealmTraveler(profile, context, request) {
     validateRealmTraveler(profile); validateInputs(context, request);
-    const plan = {schema: 1, prototype: "implemented_unverified", nativeExecutable: false, allowed: false, eligible: false,
+    const plan = {schema: 1, implementationStatus: "implemented_unverified", nativeExecutable: false, allowed: false, eligible: false,
         travelerId: profile.id, actorId: profile.actorId, mode: request.mode, expectedSequence: context.sequence,
         duration: request.duration, reasons: [], costs: [], costScope: "traveler_source_only", requestedPresenceIds: copy(request.presenceIds),
         accessRef: null, bodyRefs: [], cargoRefs: [], companionRefs: [], supportRefs: [], guards: [ref("traveler_snapshot", profile),

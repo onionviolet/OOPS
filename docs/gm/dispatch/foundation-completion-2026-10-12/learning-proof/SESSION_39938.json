@@ -1,0 +1,88 @@
+{
+  "pid": 39938,
+  "origin": "http://127.0.0.1:18643",
+  "startedHash": "21eedf8476a91a867ef91b997889cf02fefdb2f653bd613b80680029328fa3f1",
+  "endedHash": "21eedf8476a91a867ef91b997889cf02fefdb2f653bd613b80680029328fa3f1",
+  "events": [
+    {
+      "error": "locator.click: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('#location_actions [data-travel=\"Village\"]')\u001b[22m\n"
+    },
+    {
+      "error": "locator.evaluate: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('#location_actions')\u001b[22m\n"
+    },
+    {
+      "error": "locator.click: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('#location_actions_div [data-travel=\"Village\"]')\u001b[22m\n\u001b[2m    - locator resolved to <div tabindex=\"0\" role=\"button\" data-travel=\"Village\" aria-disabled=\"false\" data-native-keyboard=\"true\" class=\"travel_normal action_travel location_choice\" onclick=\"change_location({location_id: this.getAttribute('data-travel')});\">…</div>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not visible\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    17 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m       - element is not visible\u001b[22m\n\u001b[2m     - retrying click action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n"
+    },
+    {
+      "error": "locator.click: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('button', { name: 'directions Move somewhere else', exact: true })\u001b[22m\n"
+    },
+    {
+      "action": "click",
+      "selector": ".location_choice_dropdown:has-text(\"Move somewhere else\")"
+    },
+    {
+      "action": "click",
+      "selector": ".location_choice_dropdown:has-text(\"Move somewhere else\") [data-travel=\"Village\"]"
+    },
+    {
+      "action": "wait",
+      "ms": 11000
+    },
+    {
+      "action": "click",
+      "selector": "#notebook_tab_here"
+    },
+    {
+      "action": "panel",
+      "selector": "#feature_expansion_panel"
+    },
+    {
+      "action": "panel",
+      "selector": "#feature_expansion_panel details:has(>summary:text-is(\"Connect the home-world chapter\"))"
+    },
+    {
+      "action": "click",
+      "selector": "[data-action-legibility-key=\"action:world.completion.begin\"] button"
+    },
+    {
+      "action": "save",
+      "name": "worker-b1-home-enrolled"
+    },
+    {
+      "action": "panel",
+      "selector": "#feature_expansion_panel details:has(>summary:text-is(\"Ressa’s funded local supply request\"))"
+    },
+    {
+      "error": "locator.click: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('[data-action-legibility-key=\"action:remainder.offers.hear_supply\"] button')\u001b[22m\n"
+    },
+    {
+      "action": "panel",
+      "selector": "#feature_expansion_panel details:has(>summary:text-is(\"Finite resident shifts and toolkit allocation\"))"
+    },
+    {
+      "action": "click",
+      "name": "Do this: Hear Ressa’s funded shortage report"
+    },
+    {
+      "action": "panel",
+      "selector": "#feature_expansion_panel details:has(>summary:text-is(\"Household work & apprenticeship\"))"
+    },
+    {
+      "action": "click",
+      "name": "Do this: Meet the household work circle"
+    },
+    {
+      "action": "panel",
+      "selector": "#feature_expansion_panel details:has(>summary:text-is(\"Vela's prism collection\"))"
+    },
+    {
+      "action": "click",
+      "name": "Do this: Ask Vela about her prism collection"
+    },
+    {
+      "action": "save",
+      "name": "worker-b1-pre-sample"
+    }
+  ],
+  "errors": []
+}

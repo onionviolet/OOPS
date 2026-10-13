@@ -1,0 +1,7 @@
+{
+  "src/realm_state.js": "bdfdbdb802bc56807ddf4a4ed981ad3ac42e19e0acb1f2644516c829dd54894c",
+  "tests/realm_optional_context.test.js": "a429500717d80cfd302f97fb19d3ffc262214631273f696e9167890bdb439bb2",
+  "dist/bundle.js": "72cb3b8487715bbbe9fe61f57ed15779051eaf648c45eff9142edf83a689fa85",
+  "dist/bundle.js.map": "85340b20b8c0747f16d268875d273b9d59334b71a321abd1449e46e289c3f141",
+  "index.html": "643ec88e049944ee98673366e28c6e7a18313dfbfb94d297390dafcbd013fe1c"
+}

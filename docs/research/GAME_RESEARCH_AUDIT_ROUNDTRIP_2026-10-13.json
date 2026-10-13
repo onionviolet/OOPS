@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-13",
+  "task": "Reference-game research/adoption audit prompt review and local handoff",
+  "review_chat_url": "https://chatgpt.com/c/6acdb933-fc80-83e9-aad0-1175c501f812",
+  "observed_mode": "ordinary ChatGPT Chat",
+  "observed_thinking_effort": "High",
+  "model_identity": "not exposed by the effort control; not inferred",
+  "submission": "one intact message via composer fill then Send",
+  "send_timestamp": "not recorded precisely",
+  "capture_timestamp_utc": "2026-10-13T04:55:37.351525+00:00",
+  "completion_evidence": "Response complete DOM status; full-response copy includes code block start/end and material-change notes; no Stop button",
+  "capture_state": "complete_verbatim_response",
+  "reconciliation": [
+    "Corrected Eldyn/Streets mistaken cross-reference in executable only",
+    "Added exclusive new audit-document directory and read-only input ownership",
+    "Kept audit-only scope; no gameplay implementation or REA trial authorization"
+  ],
+  "failed_attempts": [
+    {
+      "stage": "upload",
+      "status": "file URL access unavailable; switched to inline composer without changing extension permissions"
+    },
+    {
+      "stage": "multiline typeText",
+      "url": "https://chatgpt.com/c/6acdb90d-bd98-83ea-9925-6d90e6bb0e1c",
+      "status": "fragmented messages; discarded as review evidence, left undeleted, corrected in fresh chat"
+    }
+  ],
+  "artifacts": {
+    "GAME_RESEARCH_AUDIT_PROMPT_OUTBOUND_2026-10-13.md": {
+      "sha256": "c034e1c115ffab1c7d22cfbcdc611977fc267acf0af2189341ab6696283c946d",
+      "bytes": 10228
+    },
+    "GAME_RESEARCH_AUDIT_PROMPT_SENT_2026-10-13.md": {
+      "sha256": "f9d8bf8649c850feb0adbdc07a232c289ce8fe1d6ef6bfba6263b98fc273bdc6",
+      "bytes": 8865
+    },
+    "GAME_RESEARCH_AUDIT_CHATGPT_RESPONSE_2026-10-13.md": {
+      "sha256": "5f04373ba04ae3940d51e8d711d9935e1865d736551a660985b2d92834ccf118",
+      "bytes": 20105
+    },
+    "GAME_RESEARCH_AUDIT_PROMPT_RECONCILED_2026-10-13.md": {
+      "sha256": "98cc79e248e75028ca5e7c77ab88d51df53ff6ed0e0df13dd6239328eb93df8c",
+      "bytes": 20373
+    },
+    "GAME_RESEARCH_AUDIT_CHATGPT_PROOF_2026-10-13.png": {
+      "sha256": "84d41456e88e552e5534c95f0d1ed413d864356d810ddecca325c0467bdf9034",
+      "bytes": 143619
+    }
+  },
+  "destination_chat": {
+    "thread_id": "01a1339e-a653-7493-8609-b486a9c1cf42",
+    "host_id": "local",
+    "project_id": "1c8082fc-3ad6-4a59-9755-006a14e48481",
+    "title": "Reference-game research and adoption audit"
+  },
+  "destination_progress": "Observed active / inProgress with initial commentary and a completed tool marker via wait_threads.",
+  "write_transfer": "Recipient owns docs/research/game-research-adoption-audit-2026-10-13/; sender will not write there."
+}

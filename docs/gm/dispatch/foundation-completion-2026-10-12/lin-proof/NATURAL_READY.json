@@ -1,0 +1,13 @@
+{
+  "hash": "dcf2ab53d4c3eb8a629652f9ca51277fb7f510a58fcc81b3bbbd04ee3c3086b1",
+  "path": "/tmp/yairpg-lin-natural-ready.json",
+  "checks": [
+    "employee approval",
+    "six played-minute native funded shift",
+    "four existing Lin credits received",
+    "paid finite hub shop two credits for rope + two credits for log"
+  ],
+  "playerCredits": 0,
+  "initialCredits": 0,
+  "errors": []
+}

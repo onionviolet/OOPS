@@ -1,0 +1,907 @@
+diff --git a/src/data/expedition_items.js b/src/data/expedition_items.js
+index d91e184f..ea09c20c 100644
+--- a/src/data/expedition_items.js
++++ b/src/data/expedition_items.js
+@@ -1,3 +1,4 @@
++import {registerManagementItems} from '../management/foundation.js';
+ import {steamBOHItemSpecifications} from '../steam_boh_content.js';
+ import {registerGameAbsorptionAssayItems} from '../game_absorption_assay_content.js';
+ import {worldCompletionItemSpecifications} from '../world_completion_content.js';
+@@ -16,6 +17,8 @@ import {FEATURE_POWER_ITEMS} from '../feature_expansion_powers.js';
+ import {registerReferenceGameplayItems} from '../reference_gameplay_content.js';
+ import {item_templates, OtherItem} from "../items.js";
+ 
++registerManagementItems({itemTemplates:item_templates,OtherItem});
++
+ // Original provisional supplies, registered through the existing item model.
+ for(const [id, description, value] of [
+     // The Village trader's starting margin is four. Base values 2/4 produce
+diff --git a/src/expansion_engine.js b/src/expansion_engine.js
+index 7fcda55d..2fa2c159 100644
+--- a/src/expansion_engine.js
++++ b/src/expansion_engine.js
+@@ -1,3 +1,4 @@
++import {validateManagementState} from './management/validation.js';
+ import {validateSteamAbsorptionState} from './steam_absorption_facts.js';
+ import {validateContextualBalmState} from './contextual_balm_facts.js';
+ import {validateCoolingRefinement} from './cooling_refinement_facts.js';
+@@ -141,6 +142,7 @@ export function validateExpansionState(state, registry) {
+     validateAuditRemainderProjects(state,registry);
+     validateChronicle(state.chronicle, state.clock);
+     validateSimulationState(state.simulation, state, registry?.simulation);
++    validateManagementState(state,registry?.simulation);
+     validateHomeFurnishings(state,registry);
+     validateCrushSocial(state,registry);
+     validateStatusCareState(state,registry);
+diff --git a/src/feature_expansion_content.js b/src/feature_expansion_content.js
+index 69285762..cc14fb74 100644
+--- a/src/feature_expansion_content.js
++++ b/src/feature_expansion_content.js
+@@ -1,3 +1,4 @@
++import {managementDefinitions} from './management/content.js';
+ import {auditRemainderDefinitions as remainderDefinitions,auditRemainderSources} from './audit_remainder_content.js';
+ import {auditRemainderDefinitions} from './audit_remainder_state.js';
+ import {featureObjectDefinitions,featureObjectSources} from './feature_expansion_objects.js';
+@@ -21,7 +22,7 @@ const artifactDefinitions={...artifactWorkshopDefinitions,commands:artifactWorks
+         visibleWhen:{all:[artifactEnrollment,d.visibleWhen]}}:d)};
+ 
+ const keys=['people','sites','conditions','powers','advancements','encounters','commands','controllers','events','transitions','origins','energies','pursuits','situations'];
+-const families=[auditRemainderDefinitions,remainderDefinitions,featureObjectDefinitions,featurePowerDefinitions,featureBattleDefinitions,societyDefinitions,tidemarkDefinitions,referenceGameplayDefinitions,nethackFieldcraftDefinitions,auditedFixtureDefinitions,auditedLessonDefinitions,artifactDefinitions,causalStoryDefinitions];
++const families=[managementDefinitions,auditRemainderDefinitions,remainderDefinitions,featureObjectDefinitions,featurePowerDefinitions,featureBattleDefinitions,societyDefinitions,tidemarkDefinitions,referenceGameplayDefinitions,nethackFieldcraftDefinitions,auditedFixtureDefinitions,auditedLessonDefinitions,artifactDefinitions,causalStoryDefinitions];
+ export const featureExpansionDefinitions=Object.fromEntries(keys.map(key=>[key,families.flatMap(d=>d[key]||[])]));
+ // Native Causal means remain in its explicit host activation. Registry reading
+ // only registers these sources and provision:false people, with no seed effects.
+diff --git a/src/main.js b/src/main.js
+index b57d004d..f3c0e3eb 100644
+--- a/src/main.js
++++ b/src/main.js
+@@ -1,3 +1,5 @@
++import {commitManagement} from './management/host.js';
++import {createManagementPanel} from './management/ui.js';
+ import {normalizeElementalOption,describeElementalPreparation,ELEMENTAL_SETTING_DESCRIPTION} from './absorb_e3/elemental_affinities.js';
+ import {equipmentDurability as durability} from './absorb_e2/durability.js';
+ import {getPacingState,setPacingState,advancePacing,prepareFood,getPacingEffects} from './absorb_e1/pacing.js';
+@@ -380,6 +382,7 @@ let characterBio;
+ let bodyPanel;
+ let fieldPanel;
+ let promisePanel;
++let managementPanel;
+ let crushSocialPanel;
+ let worldEventFeed;
+ let frontierCampaignPanel;
+@@ -671,7 +674,7 @@ function simulationNativeContexts() {
+     for(const [id,ctx] of Object.entries(contexts))ctx.facts=featurePowerContext(expansionState,{...ctx,actorId:id,vitals:{[id]:ctx.vitals},equipment:{[id]:ctx.equipment}}).facts;
+     Object.assign(contexts.player.facts,techniqueFacts(expansionState.actors.player,expeditionRegistry,contexts.player));
+     const gameplay=gameplaySnapshot(),vitals=Object.fromEntries(Object.entries(contexts).map(([id,c])=>[id,c.vitals]));
+-    for(const [id,c] of Object.entries(contexts))Object.assign(c,{actorId:id,worldId:expansionState.actors[id].worldId,nativeBody:id==='player'?currentNativeBody():null,nativeCareFrame:nativeCareFrame(),gameplay,vitalsByActor:vitals,nativeAlive:character.is_alive===true,remainderLivelihoodClock:{calendarMinute:calendarMinutes(current_game_time),clock:expansionState.clock},facts:{...c.facts,"weather.raining":getPacingEffects(homePacingContext()).raining,...(id==='player'?{"village.shackUnlocked":!!locations.Shack.getAvailabilityComponent().getStatus().is_unlocked,"village.craftsmanMet":metVillageElder()&&expeditionContext().facts["village.craftsmanMet"],"village.craftsmanPresent":expansionState.simulation?.people.oldCraftsman?.life==='alive'&&expansionState.simulation.people.oldCraftsman.location==='Village'}:{})}});
++    for(const [id,c] of Object.entries(contexts))Object.assign(c,{managementPlayerLocation:current_location?.id,managementPlayerAlive:character.is_alive===true,actorId:id,worldId:expansionState.actors[id].worldId,nativeBody:id==='player'?currentNativeBody():null,nativeCareFrame:nativeCareFrame(),gameplay,vitalsByActor:vitals,nativeAlive:character.is_alive===true,remainderLivelihoodClock:{calendarMinute:calendarMinutes(current_game_time),clock:expansionState.clock},facts:{...c.facts,"weather.raining":getPacingEffects(homePacingContext()).raining,...(id==='player'?{"village.shackUnlocked":!!locations.Shack.getAvailabilityComponent().getStatus().is_unlocked,"village.craftsmanMet":metVillageElder()&&expeditionContext().facts["village.craftsmanMet"],"village.craftsmanPresent":expansionState.simulation?.people.oldCraftsman?.life==='alive'&&expansionState.simulation.people.oldCraftsman.location==='Village'}:{})}});
+     const joined=nestedChainSimulationContexts(expansionState,nestedSimulationContexts(expansionState,contexts));
+     for(const [id,c] of Object.entries(joined))joined[id]=nestedLifeContext(expansionState,c);
+     return proto23SimulationContexts(expansionState,worldCompletionSimulationContexts(expansionState,lorePracticeSimulationContexts(expansionState,causalStorySimulationContexts(expansionState,auditRemainderSimulationContexts(expansionState,molSimulationContexts(expansionState,paradiseSimulationContexts(expansionState,joined)))))));
+@@ -880,7 +883,7 @@ function persistExpansion(plan, ownershipBindings = {}, itemsByOwner = {}) {
+         expeditionPanel?.render(); techniquePanel?.render(); chroniclePanel?.render(); villagePanel?.render(); simulationPanel?.render(); townPanel?.render();
+         pursuitPanel?.render();
+         bodyPanel?.render();
+-        fieldPanel?.render(); promisePanel?.render(); crushSocialPanel?.render();
++        fieldPanel?.render(); promisePanel?.render(); crushSocialPanel?.render(); managementPanel?.render();
+         frontierCampaignPanel?.render();
+         partyPanel?.render(); exchangePanel?.render(); observationPanel?.render(); pocketRealmPanel?.render();skillExpansionPanel?.render();originalFrontierPanel?.render();featureExpansionPanel?.render();causalStoryPanel?.render();
+         backlogPanel?.render();replacementRecognitionPanel?.render();backlogOpeningPanel?.render();repositoryPanel?.render();inkPanel?.render();nestedInkPanels?.render();
+@@ -1017,7 +1020,7 @@ function advanceExpeditions(minutes) {
+     villagePanel?.render(); simulationPanel?.render(); townPanel?.render();
+     pursuitPanel?.render();
+     bodyPanel?.render();
+-    fieldPanel?.render(); promisePanel?.render(); crushSocialPanel?.render();
++    fieldPanel?.render(); promisePanel?.render(); crushSocialPanel?.render(); managementPanel?.render();
+     knownRoutesPanel?.render();adventureNotebook?.render();
+     expansionQuests?.render();
+     characterBio?.render();
+@@ -1087,6 +1090,9 @@ function actSimulation(command) {
+     const context = {...expeditionContext(), equipment: readNativeEquipment(equippedActors), targetId: command.targetId || null,
+         busy: !!(current_activity || current_game_action || current_combat || current_dialogue || is_sleeping || is_reading || is_in_trade()),
+         vitals: Object.fromEntries(Object.entries(simulationNativeContexts()).map(([id,c]) => [id,c.vitals]))};
++    if(command.id&&expeditionRegistry.simulation.commands.get(command.id)?.group==='management')throw new Error('Use the courtyard controls for this quoted commitment.');
++    if(['cancel','pause','resume'].includes(command.type)&&expansionState.simulation?.programs.player?.commandId.startsWith('mg.'))throw new Error('Use the courtyard mandate controls.');
++    if(command.type==='cancel'&&expansionState.simulation?.jobs.some(j=>j.actorId==='player'&&j.commandId.startsWith('mg.')))throw new Error('Cancel courtyard work through its current controls.');
+     if(command.type === "enroll" && !metVillageElder()) throw new Error("Speak to the Village elder first.");
+     if(command.id&&expeditionRegistry.simulation.commands.get(command.id)?.group?.startsWith('world_completion_'))throw new Error('Use the current home-world controls for this action.');
+     if(command.id && ['status_care','field_care','book_care','book_care_npc','lore_work','lore_warning'].includes(expeditionRegistry.simulation.commands.get(command.id)?.group))throw new Error('Use the current care controls for this preparation.');
+@@ -1152,6 +1158,12 @@ function featureWaveContext(){
+     const joined=coolingRefinementContext(expansionState,expeditionRegistry,contextualBalmContext(expansionState,gameAbsorptionAssayContext(expansionState,expeditionRegistry,factorioRetortContext(expansionState,expeditionRegistry,proto23Context(expansionState,worldCompletionContext(expansionState,auditRemainderContext(expansionState,expeditionRegistry,auditedWorkshopContext(expansionState,expeditionRegistry,nethackFieldcraftContext(expansionState,expeditionRegistry,current)))))))));
+     return steamAbsorptionContext(expansionState,expeditionRegistry,joined);
+ }
++function actManagement(command){
++    if(!ownsSave||importProbeToken||foundationSaveBlocked||expansionError||is_loading_error)throw new Error('Saving must be available before this courtyard choice.');
++    const context={...featureWaveContext(),managementHost:true};
++    persistExpansion(commitManagement(expansionState,expeditionRegistry,command,context,command.sequence??expansionState.sequence));
++    managementPanel?.render();
++}
+ function actFeatureExpansion(command){
+     if(!ownsSave||importProbeToken||foundationSaveBlocked||expansionError)throw new Error('Saving must be available before this action.');
+     const context=featureWaveContext(),sequence=command.sequence??expansionState.sequence;let plan;
+@@ -1354,7 +1366,7 @@ function actCrushSocial(command) {
+     if(command.type==='party_command'||command.type==='party_start')return actParty(command);
+     if(command.type==='audit_remainder')return actFeatureExpansion(command);
+     persistExpansion(commitCrushSocialAction(expansionState,expeditionRegistry,command,featureWaveContext(),command.sequence??expansionState.sequence));
+-    crushSocialPanel?.render();
++    crushSocialPanel?.render(); managementPanel?.render();
+ }
+ 
+ function actParty(command) {
+@@ -6756,7 +6768,7 @@ function update_timer(time_in_minutes, source = null) {
+     if(minutes === 0) return 0;
+     if(usesJoinedClock()) {
+         if(importProbeToken || !ownsSave || expansionError || foundationSaveBlocked || is_loading_error || expansionState.chronicle?.life.endedAt != null) return 0;
+-        if(expansionState.simulation?.sessions.player || waitingSimulationChoice(expansionState)) {frontierCampaignPanel?.render();featureExpansionPanel?.render();causalStoryPanel?.render();simulationPanel?.render(); pursuitPanel?.render(); fieldPanel?.render(); promisePanel?.render(); crushSocialPanel?.render(); knownRoutesPanel?.render();adventureNotebook?.render(); return 0;}
++        if(expansionState.simulation?.sessions.player || waitingSimulationChoice(expansionState)) {frontierCampaignPanel?.render();featureExpansionPanel?.render();causalStoryPanel?.render();simulationPanel?.render(); pursuitPanel?.render(); fieldPanel?.render(); promisePanel?.render(); crushSocialPanel?.render(); managementPanel?.render(); knownRoutesPanel?.render();adventureNotebook?.render(); return 0;}
+         if(expansionState.chronicle?.session?.policy === "manual") {chroniclePanel?.render(); return 0;}
+         try {
+             const response = expansionState.chronicle && automaticResponse(expansionState.chronicle);
+@@ -7485,7 +7497,7 @@ acquireSaveOwnership().then(owned => {
+     techniquePanel?.render(true);
+     chroniclePanel?.render(true);
+     villagePanel?.render(true);
+-    simulationPanel?.render(); pursuitPanel?.render(); fieldPanel?.render(); promisePanel?.render(); crushSocialPanel?.render(); bodyPanel?.render(); townPanel?.render();
++    simulationPanel?.render(); pursuitPanel?.render(); fieldPanel?.render(); promisePanel?.render(); crushSocialPanel?.render(); managementPanel?.render(); bodyPanel?.render(); townPanel?.render();
+     frontierCampaignPanel?.render();
+     featureExpansionPanel?.render();
+     knownRoutesPanel?.render();adventureNotebook?.render(); worldEventFeed?.render();
+@@ -7820,6 +7832,8 @@ if(!importProbeToken && !foundationSaveBlocked && !is_loading_error) {
+     observationPanel=createObservationPanel({registry:expeditionRegistry,read:()=>({...readProgression(),context:campaignContext(),inDialogue:!!current_dialogue,inCombat:!!current_combat,canWrite:ownsSave && !foundationSaveBlocked && !importProbeToken}),command:actObservation});
+     skillExpansionPanel=createSkillExpansionPanel({registry:expeditionRegistry,read:()=>({...readProgression(),context:campaignContext(),inDialogue:!!current_dialogue,inCombat:!!current_combat,enabled:ownsSave&&!foundationSaveBlocked&&!importProbeToken}),command:actSkillExpansion});
+     featureExpansionPanel=createFeatureExpansionPanel({read:()=>({...readProgression(),context:featureWaveContext(),battleView:featureBattleHost.view(),battleRunning:featureBattleHost.isRunning(),notice:featureBattleHost.pauseReason(),canWrite:ownsSave&&!foundationSaveBlocked&&!importProbeToken}),command:actFeatureExpansion,present:snapshot=>refinementPresentation(snapshot,expeditionRegistry,{base:featureWavePresentation,relayHost,referenceDeskHost,replacementContext:backlogContext})});
++    managementPanel=createManagementPanel({registry:expeditionRegistry,read:()=>({...readProgression(),context:featureWaveContext(),inDialogue:!!current_dialogue,inCombat:!!current_combat,canWrite:ownsSave&&!foundationSaveBlocked&&!importProbeToken}),command:actManagement});
++    managementPanel.render();
+     crushSocialPanel=createCrushSocialPanel({registry:expeditionRegistry,read:()=>({...readProgression(),context:featureWaveContext(),inDialogue:!!current_dialogue,inCombat:!!current_combat,canWrite:ownsSave&&!foundationSaveBlocked&&!importProbeToken}),command:actCrushSocial});
+     document.getElementById('location_actions_div')?.append(crushSocialPanel.element);
+     causalStoryPanel=createCausalStoryUI({registry:expeditionRegistry,read:()=>({...readProgression(),context:currentCausalContext(),canWrite:ownsSave&&!foundationSaveBlocked&&!importProbeToken}),command:actCausalStory});
+diff --git a/src/simulation.js b/src/simulation.js
+index 6252edf6..119186ad 100644
+--- a/src/simulation.js
++++ b/src/simulation.js
+@@ -312,6 +312,7 @@ export function setSimulationProgram(state, registry, commandId, count, context,
+     assert(!['status_care','field_care','book_care','book_care_npc','lore_work','lore_warning'].includes(registry.simulation.commands.get(commandId)?.group), 'Choose each care preparation deliberately; no care routine is registered.');
+     assert(state.sequence === expectedSequence && natural(count) && count > 0 && count <= 10000, "Invalid or stale automation target.");
+     const definition = registry.simulation.commands.get(commandId);
++    if(definition?.group==='management')assert(context.managementHost===true&&count<=3&&definition.repeatable===true&&state.actors[context.actorId].completed[commandId]>0,'Learn this courtyard recipe and use its finite mandate controls.');
+     assert(definition?.automatable && definition.duration > 0, "This command does not support automation.");
+     const out = plan(state, context), s = out.state.simulation;
+     assert(!s.programs[context.actorId] || s.programs[context.actorId].status !== "running", "Pause the existing routine first.");
+diff --git a/src/simulation_effects.js b/src/simulation_effects.js
+index 698a3a3c..2e517126 100644
+--- a/src/simulation_effects.js
++++ b/src/simulation_effects.js
+@@ -1,3 +1,4 @@
++import {managementFacts} from './management/facts.js';
+ import {alloyEquipmentFacts} from "./alloy_equipment.js";
+ import {steamAbsorptionFacts} from './steam_absorption_facts.js';
+ import {steamDFStockCount,recordSteamDFStockMutation} from './steam_df_runtime.js';
+@@ -65,7 +66,7 @@ export function simulationFacts(state, context, registry) {
+     const s = state.simulation, actor = context.actorId, a = state.actors[actor];
+     assert(s && a, "Enroll the living-world services first.");
+     const referenceFacts = referenceGameplayFacts(state, context, registry);
+-    const facts = {...context.facts,...gameAbsorptionAssayFacts(state,context,registry),...worldCompletionFacts(state,context),...statusCareFacts(state,context),...fieldCareFacts(state,context),...bookCareFacts(state,context),...lorePracticeFacts(state,context),...causalStoryFacts(state,context),...auditRemainderFacts(state),...relayFacts(state,context),...referenceDeskFacts(state,context),...nestedFacts(state,context,context.nestedNative),...nestedChainFacts(state,context),...nestedLifeFacts(state,context),...paradiseFacts(state,context),...paradiseCampaignFacts(state,context),...molFacts(state,context), ...featureObjectFacts(state,context,registry), ...referenceFacts, ...auditRemainderCombinedFacts(state,{...context,facts:{...context.facts,...referenceFacts,...auditRemainderFacts(state)}},registry), ...auditedWorkshopFacts(state,{...context,facts:{...context.facts,...referenceFacts}},registry), ...nethackFieldcraftFacts(state,context,registry), ...societyFacts(state,context), ...repositoryAbsorptionFacts(state,context), ...featurePowerFacts(state,context), ...featureBattleFacts(state,context), ...tidemarkContext(state,context).facts, ...originalFrontierFacts(state,context,registry), ...realmFacts(state,actor), clock: state.clock, "actor.life": s.people[actor]?.life, "actor.world": a.worldId, "actor.location": context.facts?.location || s.people[actor]?.location};
++    const facts = {...context.facts,...managementFacts(state,context),...gameAbsorptionAssayFacts(state,context,registry),...worldCompletionFacts(state,context),...statusCareFacts(state,context),...fieldCareFacts(state,context),...bookCareFacts(state,context),...lorePracticeFacts(state,context),...causalStoryFacts(state,context),...auditRemainderFacts(state),...relayFacts(state,context),...referenceDeskFacts(state,context),...nestedFacts(state,context,context.nestedNative),...nestedChainFacts(state,context),...nestedLifeFacts(state,context),...paradiseFacts(state,context),...paradiseCampaignFacts(state,context),...molFacts(state,context), ...featureObjectFacts(state,context,registry), ...referenceFacts, ...auditRemainderCombinedFacts(state,{...context,facts:{...context.facts,...referenceFacts,...auditRemainderFacts(state)}},registry), ...auditedWorkshopFacts(state,{...context,facts:{...context.facts,...referenceFacts}},registry), ...nethackFieldcraftFacts(state,context,registry), ...societyFacts(state,context), ...repositoryAbsorptionFacts(state,context), ...featurePowerFacts(state,context), ...featureBattleFacts(state,context), ...tidemarkContext(state,context).facts, ...originalFrontierFacts(state,context,registry), ...realmFacts(state,actor), clock: state.clock, "actor.life": s.people[actor]?.life, "actor.world": a.worldId, "actor.location": context.facts?.location || s.people[actor]?.location};
+     Object.assign(facts, alloyEquipmentFacts(state, context));
+     const owned = s.people[actor]?.inventory === "native" ? context.gameplay?.[actor]?.inventory : s.owners[actor];
+     Object.assign(facts,homeFurnishingFacts(state,context),crushSocialFacts(state,context),factorioRetortFacts(state,context,registry),proto23Facts(state,context));
+diff --git a/src/simulation_ui.js b/src/simulation_ui.js
+index 115b0b49..c7972cbc 100644
+--- a/src/simulation_ui.js
++++ b/src/simulation_ui.js
+@@ -16,7 +16,7 @@ export function createSimulationPanel({registry, read, command}) {
+     const button = (label, id, c) => {const b = node("button", label); b.type = "button"; b.dataset.simulation = id; b.addEventListener("click", () => run(c)); return b;};
+     const enroll = button("Follow local people and work", "enroll", {type: "enroll"}); buttons.append(enroll);
+     const controls = new Map();
+-    for(const d of registry.simulation.commands.values()) if(d.actorId === "player" && !d.targetDefinitionId && !STEAM_ABSORPTION_GROUPS.includes(d.group) && !["game_absorption_assay","contextual_balm","cooling_refinement","home_furnishings","proto23","factorio_retort","book_mol","book_mol_npc","book_paradise","book_paradise_npc","book_paradise_campaign","book_paradise_campaign_npc","status_care","field_care","book_care","book_care_npc","lore_work","lore_warning","body","field","pursuit","exchange","observation","glasshouse","skills","original_frontier","feature_objects","feature_society","feature_powers","feature_battle","tidemark","repositories","ink","backlog","artifact_collection","causal_story","causal_story_npc","audit_remainder","remainder_livelihood","remainder_home","remainder_offers","remainder_consequences","remainder_combat_fit","remainder_combat_objectives"].includes(d.group)) {
++    for(const d of registry.simulation.commands.values()) if(d.actorId === "player" && !d.targetDefinitionId && !STEAM_ABSORPTION_GROUPS.includes(d.group) && !["management","game_absorption_assay","contextual_balm","cooling_refinement","home_furnishings","proto23","factorio_retort","book_mol","book_mol_npc","book_paradise","book_paradise_npc","book_paradise_campaign","book_paradise_campaign_npc","status_care","field_care","book_care","book_care_npc","lore_work","lore_warning","body","field","pursuit","exchange","observation","glasshouse","skills","original_frontier","feature_objects","feature_society","feature_powers","feature_battle","tidemark","repositories","ink","backlog","artifact_collection","causal_story","causal_story_npc","audit_remainder","remainder_livelihood","remainder_home","remainder_offers","remainder_consequences","remainder_combat_fit","remainder_combat_objectives"].includes(d.group)) {
+         const b = button(d.label, d.id, {type: "command", id: d.id, targetId: d.targetId});
+         (d.group === "social" ? conversations : buttons).append(b); controls.set(d.id, b);
+     }
+@@ -46,7 +46,7 @@ export function createSimulationPanel({registry, read, command}) {
+         pause.hidden = s?.programs.player?.status !== "running"; pause.disabled = !!error;
+         resume.hidden = s?.programs.player?.status !== "paused" || !s?.programs.player?.remaining; resume.disabled = !!error || !enabled;
+         // These hosts own their exact scene/descriptor cancellation controls.
+-        const job = s?.jobs.find(j => j.actorId === "player" && !STEAM_ABSORPTION_GROUPS.includes(registry.simulation.commands.get(j.commandId)?.group) && !["game_absorption_assay","contextual_balm","cooling_refinement","home_furnishings","proto23","factorio_retort","book_mol","book_mol_npc","book_paradise","book_paradise_npc","book_paradise_campaign","book_paradise_campaign_npc","status_care","field_care","book_care","book_care_npc","lore_work","lore_warning","artifact_collection","causal_story","causal_story_npc","audit_remainder","remainder_livelihood","remainder_home","remainder_offers","remainder_consequences","remainder_combat_fit","remainder_combat_objectives"].includes(registry.simulation.commands.get(j.commandId)?.group)); cancel.hidden = !job || job.cancellation === "none"; cancel.disabled = !!error;
++        const job = s?.jobs.find(j => j.actorId === "player" && !STEAM_ABSORPTION_GROUPS.includes(registry.simulation.commands.get(j.commandId)?.group) && !["management","game_absorption_assay","contextual_balm","cooling_refinement","home_furnishings","proto23","factorio_retort","book_mol","book_mol_npc","book_paradise","book_paradise_npc","book_paradise_campaign","book_paradise_campaign_npc","status_care","field_care","book_care","book_care_npc","lore_work","lore_warning","artifact_collection","causal_story","causal_story_npc","audit_remainder","remainder_livelihood","remainder_home","remainder_offers","remainder_consequences","remainder_combat_fit","remainder_combat_objectives"].includes(registry.simulation.commands.get(j.commandId)?.group)); cancel.hidden = !job || job.cancellation === "none"; cancel.disabled = !!error;
+         const work = s?.jobs.filter(j => j.actorId === "player" || j.actorId === "oldCraftsman").map(j => `${j.actorId === "player" ? "You" : "Old craftsman"}: ${j.label}, ${j.due - state.clock} game minutes left.`).join(" ") || "No reserved workshop work.";
+         const practice = state.actors.player.resources.practice || 0;
+         status.textContent = error || `${notice ? notice + " " : ""}${work} Completed packing practice: ${practice}.`;
+diff --git a/src/management/capital_rooms.js b/src/management/capital_rooms.js
+new file mode 100644
+index 00000000..6f23d0d5
+--- /dev/null
++++ b/src/management/capital_rooms.js
+@@ -0,0 +1,68 @@
++import {I,K,eq,gte,all,any,not,af,item,money,coins,stamina,transfer,know,relationship,owned,contact,purse,command} from './shared.js';
++
++const P = 'actor.mg.';
++const branch = 'mg01.agreement';
++const sold = eq(`${P}capitalSold`);
++const room = eq(`${P}roomOwned`);
++const repaired = eq(`${P}roomRepaired`);
++const roomReady = all(room,repaired);
++const commands = [
++    command({id:'mg.orin.inspect',family:'MG01',label:'Inspect Orin’s small enterprise',description:'Hear the finite stock, one-batch terms and Bram’s quoted purchase. This inspection makes no promise and moves no goods or coins.',targetId:I.orin,coLocated:true,participants:['$target'],
++        support:contact(I.orin),effects:[know('orin.enterprise','Orin has six actual logs, a finite purse and one small batch he can make room for. Bram has one quoted purchase worth six coins if the crate is delivered. A share costs three coins and pays four from Orin only after that sale. A goods advance transfers two logs now; after the sale, repay three coins to Orin. The buyer must have the six coins at sale time.',I.orin)]}),
++
++    command({id:'mg.orin.share',family:'MG01',label:'Fund one production share · 3 coins',description:'Choose the share agreement. Orin transfers two real logs for one batch; after Bram buys the resulting crate, Orin pays the four-coin share return from his actual purse.',targetId:I.orin,coLocated:true,participants:['$target'],claim:branch,
++        support:contact(I.orin),requires:all(eq('knowledge.mg.orin.enterprise.seen'),gte(`management.stock.${I.orin}.log`,2)),costs:[money(-3),transfer(K.log,2,I.orin,'player')],effects:[coins(3,I.orin),af('capitalAgreement','share'),know('capitalAgreement','Share chosen: three coins invested; two Orin logs supplied; four coins return only after the actual Bram sale.',I.orin)]}),
++
++    command({id:'mg.orin.advance',family:'MG01',label:'Take Orin’s two-log goods advance',description:'Choose goods now instead of a share. Make and sell the batch, then repay three coins from the sale proceeds.',targetId:I.orin,coLocated:true,participants:['$target'],claim:branch,
++        support:contact(I.orin),requires:all(eq('knowledge.mg.orin.enterprise.seen'),gte(`management.stock.${I.orin}.log`,2)),costs:[transfer(K.log,2,I.orin,'player')],effects:[af('capitalAgreement','advance'),know('capitalAgreement','Goods advance chosen: two actual logs now; repay three coins to Orin after the actual Bram sale.',I.orin)]}),
++
++    command({id:'mg.orin.pass',family:'MG01',label:'Pass on Orin’s offer',description:'Close this offer without funding, borrowing or receiving stock.',targetId:I.orin,coLocated:true,participants:['$target'],claim:branch,
++        support:contact(I.orin),requires:eq('knowledge.mg.orin.enterprise.seen'),effects:[af('capitalAgreement','passed'),know('capitalAgreement','Passed on Orin’s one-batch terms; no cash, stock, debt or share changed.',I.orin)]}),
++
++    command({id:'mg.orin.make_batch',family:'MG01',label:'Make Orin’s one-batch crate · 2 logs + 2 stamina + 4 min',description:'Work the two supplied logs into one real crate. The reservation is refunded if this job is cancelled or its support fails.',
++        visibleWhen:all(any(eq(`${P}capitalAgreement`,'share'),eq(`${P}capitalAgreement`,'advance')),not(sold),not(eq(`${P}capitalBatchMade`))),support:contact(I.orin),requires:all(eq('knowledge.mg.orin.enterprise.seen'),gte(`item.${K.log}`,2)),duration:4,siteId:I.bench,
++        costs:[item(K.log,-2),stamina(-2)],effects:[item(K.crate,1),af('capitalBatchMade'),know('capitalBatch','Made one actual courtyard wood crate from the two reserved Orin logs. It remains unsold until delivered to Bram.')]}),
++
++    command({id:'mg.orin.sell_batch',family:'MG01',label:'Sell the share batch to Bram · 6 coins to Orin',description:'Transfer the actual crate to Bram. His six coins go to Orin’s enterprise account; the one share return unlocks only after this completed sale.',targetId:I.bram,coLocated:true,participants:['$target'],
++        visibleWhen:all(eq(`${P}capitalBatchMade`),eq(`${P}capitalAgreement`,'share'),not(sold)),support:all(contact(I.bram),purse(I.bram,6)),requires:owned('Courtyard wood crate'),costs:[transfer(K.crate,1,'player',I.bram)],effects:[coins(-6,I.bram),coins(6,I.orin),af('capitalSold'),know('capitalSale','Bram bought and received the actual share-batch crate for six coins paid to Orin.',I.bram),relationship(I.bram,1)]}),
++
++    command({id:'mg.orin.sell_advance_batch',family:'MG01',label:'Sell the advance batch to Bram · receive 6 coins',description:'Transfer the actual crate to Bram and receive his quoted six coins. The one three-coin repayment unlocks only after this completed sale.',targetId:I.bram,coLocated:true,participants:['$target'],
++        visibleWhen:all(eq(`${P}capitalBatchMade`),eq(`${P}capitalAgreement`,'advance'),not(sold)),support:all(contact(I.bram),purse(I.bram,6)),requires:owned('Courtyard wood crate'),costs:[transfer(K.crate,1,'player',I.bram)],effects:[coins(-6,I.bram),money(6),af('capitalSold'),know('capitalSale','Bram bought and received the actual advance-batch crate for six coins paid to the player.',I.bram),relationship(I.bram,1)]}),
++
++    command({id:'mg.orin.settle_share',family:'MG01',label:'Collect the one share return · 4 coins',description:'Orin pays the quoted share return from his actual purse after the recorded Bram sale. The agreement can settle only once.',targetId:I.orin,coLocated:true,participants:['$target'],claim:'mg01.share.settlement',
++        visibleWhen:all(eq(`${P}capitalAgreement`,'share'),sold),support:all(contact(I.orin),purse(I.orin,4)),effects:[coins(-4,I.orin),money(4),{type:'claim',key:branch,operation:'settle'},af('capitalAgreementSettled'),know('capitalSettlement','Orin paid the one four-coin share return after the actual sale; this share is settled.',I.orin),relationship(I.orin,1)]}),
++
++    command({id:'mg.orin.repay_advance',family:'MG01',label:'Repay the one goods advance · 3 coins',description:'Repay Orin from the completed sale proceeds. This closes the finite goods advance once.',targetId:I.orin,coLocated:true,participants:['$target'],claim:'mg01.advance.settlement',
++        visibleWhen:all(eq(`${P}capitalAgreement`,'advance'),sold),support:contact(I.orin),costs:[money(-3)],effects:[coins(3,I.orin),{type:'claim',key:branch,operation:'settle'},af('capitalAgreementSettled'),know('capitalSettlement','Repaid Orin three coins after the actual sale; the goods advance is settled.',I.orin),relationship(I.orin,1)]}),
++
++    command({id:'mg.mira.buy_room',family:'MG02',label:'Buy Mira’s one room concession · 5 coins',description:'Acquire the room right from Mira. The concession is distinct from permission to repair, personal use, rental, inn service or workshop use.',targetId:I.mira,coLocated:true,participants:['$target'],claim:'mg02.room.deed',
++        support:contact(I.mira),costs:[money(-5)],effects:[coins(5,I.mira),af('roomOwned'),af('roomRepaired',false),af('roomUse','unselected'),know('roomRight','Bought Mira’s one room concession. It grants the right to use the room; repair and each use remain separate choices.',I.mira)]}),
++
++    command({id:'mg.mira.repair_room',family:'MG02',label:'Repair the room · 1 actual log + 2 stamina + 4 min',description:'Spend one owned log to repair the concession. The real material and stamina are returned if the job is cancelled or loses support.',
++        visibleWhen:all(room,not(repaired)),support:all(contact(I.mira),room),requires:owned('Rough wood log'),duration:4,siteId:I.room,costs:[item(K.log,-1),stamina(-2)],effects:[af('roomRepaired'),af('roomUse','unselected'),know('roomCondition','Repaired the actual room concession with one log. The room can now be assigned one use at a time.')]}),
++
++    ...[
++        ['personal','Use the room personally','Keep the repaired room for personal use. No guest or work commitment is active.'],
++        ['rental','Prepare the room for rental','Choose a tenant stay; Sela may accept one finite paid lodging period.'],
++        ['inn','Prepare the room as an inn','Reserve the repaired room for a finite guest-service loop that can use its actual access and capacity.'],
++        ['workshop','Use the room as a workshop','Reserve its use for one real crate-making job; no guest can occupy the room during that job.'],
++    ].map(([mode,label,description])=>command({id:`mg.room.use_${mode}`,family:'MG02',label,description,
++        visibleWhen:all(roomReady,not(eq(`${P}roomUse`,mode))),requires:all(repaired,room),effects:[af('roomUse',mode),know('roomUse',`Assigned the repaired room to ${mode} use. Changing use requires the room to be free of an active commitment.`)]})),
++
++    command({id:'mg.room.sela_stay',family:'MG02',label:'Host Sela for one rental period · receive 2 coins',description:'Sela can choose one finite lodging period at the quoted two coins. Room access is reserved for the actual service; payment occurs only when the period completes.',targetId:I.sela,coLocated:true,participants:['$target'],
++        visibleWhen:all(roomReady,eq(`${P}roomUse`,'rental')),support:all(roomReady,eq(`${P}roomUse`,'rental'),contact(I.sela),purse(I.sela,2)),requires:all(roomReady,eq(`${P}roomUse`,'rental')),duration:5,siteId:I.room,effects:[coins(-2,I.sela),money(2),af('roomSelaHosted'),know('roomRental','Sela completed one paid lodging period in the repaired room. Her two coins transferred at completion.',I.sela),relationship(I.sela,1)]}),
++
++    command({id:'mg.room.sela_request',family:'MG02',label:'Hear Sela’s one room request',description:'After staying in the room, Sela asks for a small repair to keep it comfortable. Hear the request before choosing to help or end future rental.',targetId:I.sela,coLocated:true,participants:['$target'],claim:'mg02.sela.request',
++        visibleWhen:all(roomReady,eq(`${P}roomUse`,'rental'),eq(`${P}roomSelaHosted`)),support:contact(I.sela),requires:all(roomReady,eq(`${P}roomUse`,'rental'),eq(`${P}roomSelaHosted`)),effects:[af('roomTenantRequest'),know('roomTenantRequest','After her completed stay, Sela asked for one small room repair. You may spend a real log and time to help, or end future rental.',I.sela)]}),
++
++    command({id:'mg.room.answer_sela_repair',family:'MG02',label:'Answer Sela’s request · 1 log + 2 stamina + 3 min',description:'Use an actual log to make the requested repair. The room is reserved during the work; inputs return if the job is cancelled or support fails.',targetId:I.sela,coLocated:true,participants:['$target'],claim:'mg02.sela.request.response',
++        visibleWhen:all(roomReady,eq(`${P}roomUse`,'rental'),eq(`${P}roomTenantRequest`)),support:all(roomReady,eq(`${P}roomUse`,'rental'),eq(`${P}roomTenantRequest`),contact(I.sela)),requires:owned('Rough wood log'),duration:3,siteId:I.room,costs:[item(K.log,-1),stamina(-2)],effects:[af('roomTenantRequest',false),af('roomSelaHosted',false),know('roomTenantResponse','Used one real log and three minutes to complete Sela’s requested repair. Her completed stay remains a separate finite record.',I.sela),relationship(I.sela,1)]}),
++
++    command({id:'mg.room.end_sela_rental',family:'MG02',label:'End future rental to Sela',description:'Decline the requested repair and stop offering future stays. No debt or arrears are created; completed rent remains settled.',targetId:I.sela,coLocated:true,participants:['$target'],claim:'mg02.sela.request.response',
++        visibleWhen:all(roomReady,eq(`${P}roomUse`,'rental'),eq(`${P}roomTenantRequest`)),support:all(roomReady,eq(`${P}roomUse`,'rental'),eq(`${P}roomTenantRequest`),contact(I.sela)),effects:[af('roomTenantRequest',false),af('roomUse','unselected'),know('roomTenantResponse','Ended future rental after declining Sela’s repair request. Completed rent remains settled; no debt or arrears were created.',I.sela),relationship(I.sela,-1)]}),
++
++    command({id:'mg.room.workshop_batch',family:'MG02',label:'Make one crate in the room workshop · 1 log + 2 stamina + 4 min',description:'Use the repaired room as a workshop for one batch. The room site reservation prevents simultaneous guest service.',visibleWhen:all(roomReady,eq(`${P}roomUse`,'workshop')),
++        support:all(roomReady,eq(`${P}roomUse`,'workshop')),requires:all(roomReady,eq(`${P}roomUse`,'workshop'),gte(`item.${K.log}`,1)),duration:4,siteId:I.room,repeatable:true,automatable:true,costs:[item(K.log,-1),stamina(-2)],effects:[item(K.crate,1),know('roomWorkshop','Made one actual crate using the room as a workshop. The product is still player stock and can be sold through a supported buyer.')]}),
++];
++
++export {commands};
+diff --git a/src/management/content.js b/src/management/content.js
+new file mode 100644
+index 00000000..32d64992
+--- /dev/null
++++ b/src/management/content.js
+@@ -0,0 +1,8 @@
++import {commands as foreman} from './foreman.js';
++import {people,sites,situations,foundationCommands} from './foundation.js';
++import {commands as capitalRooms} from './capital_rooms.js';
++import {commands as shopsAuctions} from './shops_auctions.js';
++import {commands as shippingFarming} from './shipping_farming.js';
++import {commands as workshopAid} from './workshop_aid.js';
++import {commands as eventsRestoration} from './events_restoration.js';
++export const managementDefinitions={people,sites,situations,commands:[...foundationCommands,...foreman,...capitalRooms,...shopsAuctions,...shippingFarming,...workshopAid,...eventsRestoration]};
+diff --git a/src/management/events_restoration.js b/src/management/events_restoration.js
+new file mode 100644
+index 00000000..798d0a3c
+--- /dev/null
++++ b/src/management/events_restoration.js
+@@ -0,0 +1,87 @@
++import {I,K,command,eq,gte,all,any,not,af,item,money,coins,stamina,transfer,know,contact,purse,owned,relationship} from './shared.js';
++
++const P = 'actor.mg.';
++const booking = eq(`${P}eventBooked`);
++const program = value => eq(`${P}eventProgram`,value);
++const displayed = kind => eq(`${P}displayedKind`,kind);
++const displaySupport = kind => all(displayed(kind),gte(`management.stock.${I.mira}.${kind}`,1));
++
++export const commands = [
++    command({id:'mg.restoration.inspect',family:'MG10',label:'Inspect the damaged heirloom',description:'Look closely at the actual damaged heirloom you own. Its loose join and chipped surface support two known treatments; this inspection does not reveal hidden provenance or future value.',
++        visibleWhen:owned('Damaged courtyard heirloom'),requires:owned('Damaged courtyard heirloom'),
++        effects:[know('restoration.condition','The actual damaged courtyard heirloom has a loose join and chipped surface. A linen-cloth conservation can prepare it for a local display; a log-supported repair makes it sale-grade. This is an ordinary condition report, not a valuation or provenance claim.')] }),
++
++    command({id:'mg.restoration.conserve',family:'MG10',label:'Conserve for display · 1 cloth + 2 stamina + 5 min',description:'Use one real linen cloth, stamina and the shared bench to transform your damaged heirloom into one conserved object. Inputs return if the work is cancelled or support fails.',
++        targetId:I.mira,coLocated:true,participants:['$target'],
++        visibleWhen:all(eq('knowledge.mg.restoration.condition.seen'),owned('Damaged courtyard heirloom')),
++        support:all(contact(I.mira),eq('knowledge.mg.restoration.condition.seen')),
++        requires:all(eq('knowledge.mg.restoration.condition.seen'),owned('Damaged courtyard heirloom'),owned('Linen cloth')),
++        duration:5,siteId:I.bench,costs:[item(K.damaged,-1),item(K.cloth,-1),stamina(-2)],
++        effects:[item(K.conserved,1),know('restoration.conserved','Conserved one actual damaged heirloom with one real linen cloth at the shared bench. The resulting conserved object remains in your inventory until you display it or use another supported route.',I.mira)]}),
++
++    command({id:'mg.restoration.sale_grade',family:'MG10',label:'Repair to sale-grade · 1 log + 2 stamina + 6 min',description:'Use one real log, stamina and the shared bench to transform your damaged heirloom into one sale-grade restored object. Inputs return if the work is cancelled or support fails.',
++        targetId:I.mira,coLocated:true,participants:['$target'],
++        visibleWhen:all(eq('knowledge.mg.restoration.condition.seen'),owned('Damaged courtyard heirloom')),
++        support:all(contact(I.mira),eq('knowledge.mg.restoration.condition.seen')),
++        requires:all(eq('knowledge.mg.restoration.condition.seen'),owned('Damaged courtyard heirloom'),owned('Rough wood log')),
++        duration:6,siteId:I.bench,costs:[item(K.damaged,-1),item(K.log,-1),stamina(-2)],
++        effects:[item(K.restored,1),know('restoration.sale_grade','Repaired one actual damaged heirloom with one real log at the shared bench. The resulting restored object is sale-grade and remains your inventory.',I.mira)]}),
++
++    ...[
++        {kind:'conserved',item:K.conserved,ownedName:'conserved',label:'Conserved heirloom'},
++        {kind:'restored',item:K.restored,ownedName:'restored',label:'Restored heirloom'},
++    ].flatMap(d => [
++        command({id:`mg.restoration.display_${d.kind}`,family:'MG10',label:`Place ${d.label} in Mira’s courtyard display`,description:`Transfer your actual ${d.label.toLowerCase()} to Mira’s local display stock. The display record points to that same object; it is unavailable for sale or other use until you withdraw it.`,
++            targetId:I.mira,coLocated:true,participants:['$target'],
++            visibleWhen:all(not(any(displayed('conserved'),displayed('restored'))),owned(d.ownedName)),
++            support:contact(I.mira),requires:owned(d.ownedName),
++            costs:[],effects:[transfer(d.item,1,'player',I.mira),af('displayedKind',d.kind),know('restoration.display',`Placed one actual ${d.label.toLowerCase()} in Mira’s courtyard display. It is held in Mira’s stock and cannot also be sold. Withdraw the same object before taking it elsewhere.`,I.mira)]}),
++
++        command({id:`mg.restoration.withdraw_${d.kind}`,family:'MG10',label:`Withdraw ${d.label} from Mira’s display`,description:`Return the same actual ${d.label.toLowerCase()} from Mira’s display stock to your inventory. This clears the display record so the object can be used or sold through a supported route.`,
++            targetId:I.mira,coLocated:true,participants:['$target'],
++            visibleWhen:displayed(d.kind),support:all(contact(I.mira),displaySupport(d.kind)),requires:displaySupport(d.kind),
++            effects:[transfer(d.item,1,I.mira,'player'),af('displayedKind',false),know('restoration.display',`Withdrew the same actual ${d.label.toLowerCase()} from Mira’s courtyard display to your inventory. It is no longer available as an exhibition display.`,I.mira)]}),
++    ]),
++
++    command({id:'mg.restoration.sell_restored',family:'MG10',label:'Sell restored heirloom to Bram · 14 coins',description:'Transfer your actual sale-grade restored heirloom to Bram for fourteen coins from his finite purse. The sale consumes that object; a displayed object must first be withdrawn from Mira.',
++        targetId:I.bram,coLocated:true,participants:['$target'],
++        visibleWhen:all(not(displayed('restored')),owned('Restored courtyard heirloom')),
++        support:all(contact(I.bram),purse(I.bram,14)),requires:owned('Restored courtyard heirloom'),
++        costs:[transfer(K.restored,1,'player',I.bram)],effects:[coins(-14,I.bram),money(14),know('restoration.sale','Bram bought and received one actual sale-grade restored courtyard heirloom for fourteen of his coins.',I.bram),relationship(I.bram,1)]}),
++
++    command({id:'mg.event.book',family:'MG09',label:'Book the courtyard venue · 2 coins',description:'Pay Mira’s real two-coin venue fee and reserve this courtyard for one local programme. A booking grants no audience, food or display object.',
++        targetId:I.mira,coLocated:true,participants:['$target'],
++        visibleWhen:not(booking),support:contact(I.mira),requires:all(purse(I.mira,2)),
++        costs:[money(-2)],effects:[coins(2,I.mira),af('eventBooked'),af('eventProgram',false),know('event.booking','Booked the courtyard venue for one event by paying Mira two actual coins. Choose and prepare one programme before hosting.',I.mira)]}),
++
++    ...[
++        {id:'meal_greens',label:'Prepare a greens meal gathering',kind:'greens',item:K.greens,food:'Courtyard greens',guest:I.sela,pay:3,description:'Sela is the quoted local guest. The gathering uses one actual greens portion and pays three coins only if her finite purse still covers it.'},
++        {id:'meal_grain',label:'Prepare a grain meal gathering',kind:'grain',item:K.grain,food:'Courtyard grain',guest:I.bram,pay:5,description:'Bram is the quoted local guest. The gathering uses one actual grain portion and pays five coins only if his finite purse still covers it.'},
++        {id:'exhibition_conserved',label:'Prepare a conserved-object exhibition',kind:'exhibition_conserved',guest:I.bram,pay:8,display:'conserved',description:'Bram offers a finite eight-coin sponsorship for an exhibition featuring the actual conserved object in Mira’s display. The object stays with Mira.'},
++        {id:'exhibition_restored',label:'Prepare a restored-object exhibition',kind:'exhibition_restored',guest:I.bram,pay:8,display:'restored',description:'Bram offers a finite eight-coin sponsorship for an exhibition featuring the actual restored object in Mira’s display. The object stays with Mira.'},
++    ].map(d => command({id:`mg.event.prepare_${d.id}`,family:'MG09',label:d.label,description:`${d.description} Preparation records a distinct programme; hosting is a separate timed action.`,
++        targetId:I.mira,coLocated:true,participants:['$target'],
++        visibleWhen:all(booking,eq(`${P}eventProgram`,false)),
++        support:contact(I.mira),
++        requires:all(booking,...(d.item?[owned(d.food)]:[]),...(d.display?[displaySupport(d.display)]:[])),
++        effects:[af('eventProgram',d.kind),know(`event.program.${d.kind}`,`${d.label} is prepared for the booked courtyard. ${d.description}`,I.mira)]})),
++
++    ...[
++        {kind:'greens',label:'Host the greens gathering',guest:I.sela,pay:3,item:K.greens,food:'Courtyard greens',minutes:5,relationship:1,knowledge:'Sela attended the greens meal gathering, paid three actual coins from her purse and shared a local note about serving fresh greens.'},
++        {kind:'grain',label:'Host the grain gathering',guest:I.bram,pay:5,item:K.grain,food:'Courtyard grain',minutes:6,relationship:1,knowledge:'Bram attended the grain meal gathering and paid five actual coins from his purse. You learned that he values a filling local meal before a delivery.'},
++        {kind:'exhibition_conserved',label:'Host the conserved-object exhibition',guest:I.bram,pay:8,display:'conserved',minutes:7,relationship:1,knowledge:'Bram attended an exhibition featuring the actual conserved courtyard heirloom and paid eight actual sponsorship coins from his purse. Mira noted that the conservation is careful and suitable for display.'},
++        {kind:'exhibition_restored',label:'Host the restored-object exhibition',guest:I.bram,pay:8,display:'restored',minutes:7,relationship:1,knowledge:'Bram attended an exhibition featuring the actual restored courtyard heirloom and paid eight actual sponsorship coins from his purse. Mira noted that the repaired join is ready for practical use.'},
++    ].map(d => command({id:`mg.event.host_${d.kind}`,family:'MG09',label:`${d.label} · ${d.pay} coins + ${d.minutes} min`,description:`Host the prepared programme for ${d.minutes} played minutes. ${d.item?`One actual ${d.food} portion and two stamina are reserved and consumed only on completion; cancellation or lost support returns them.`:'The displayed object stays in Mira’s stock throughout the event.'} ${d.guest===I.sela?'Sela':'Bram'} pays from their actual finite purse at completion.`,
++        targetId:d.guest,coLocated:true,participants:['$target'],
++        visibleWhen:all(booking,program(d.kind)),
++        support:all(program(d.kind),contact(d.guest),purse(d.guest,d.pay),...(d.display?[displaySupport(d.display)]:[])),
++        requires:all(booking,program(d.kind),...(d.item?[owned(d.food)]:[]),...(d.display?[displaySupport(d.display)]:[])),
++        duration:d.minutes,siteId:I.venue,
++        costs:[...(d.item?[item(d.item,-1)]:[]),stamina(-2)],
++        effects:[coins(-d.pay,d.guest),money(d.pay),af('eventBooked',false),af('eventProgram',false),know(`event.attendance.${d.kind}`,d.knowledge,d.guest),relationship(d.guest,d.relationship),...(d.display?[relationship(I.mira,1)]:[])]})),
++
++    command({id:'mg.event.cancel_booking',family:'MG09',label:'Cancel the unhosted event booking',description:'Clear any unhosted booking and release the venue, whether or not a programme was prepared. Mira returns the two-coin fee from her actual purse; no food or display object is consumed by cancelling before hosting.',
++        targetId:I.mira,coLocated:true,participants:['$target'],
++        visibleWhen:booking,support:all(contact(I.mira),purse(I.mira,2)),requires:booking,
++        effects:[coins(-2,I.mira),money(2),af('eventBooked',false),af('eventProgram',false),know('event.cancellation','Cancelled the unhosted courtyard booking. Mira returned the same two-coin venue fee from her actual purse; no food or displayed object was consumed.',I.mira)]}),
++];
+diff --git a/src/management/facts.js b/src/management/facts.js
+new file mode 100644
+index 00000000..5413a814
+--- /dev/null
++++ b/src/management/facts.js
+@@ -0,0 +1,24 @@
++import {I,K} from './shared.js';
++// Public quotes come from means physically present now. No private motive or
++// future result is exported to the UI; observed terms live in player knowledge.
++export function managementFacts(state,context={}) {
++ const s=state.simulation,location=context.facts?.location||s?.people.player?.location;
++ const alive=context.nativeAlive===true&&context.nativeBody?.alive!==false;
++ const f={'management.supported':state.actors?.player?.worldId===I.world&&location==='Village'&&alive&&context.nativeBody!=null&&(!s||s.people.player?.life==='alive')};
++ f['management.foremanOutstanding']=state.actors?.[I.orin]?.facts?.['mg.foremanReady']===true;
++ f['management.foremanIdle']=!(s?.jobs||[]).some(j=>(j.participants||[j.actorId]).includes(I.orin));
++ f['management.foremanReturnAvailable']=state.actors?.player?.worldId===I.world&&(context.managementPlayerLocation||context.facts?.location)==='Village'&&(context.managementPlayerAlive??context.nativeAlive)===true&&s?.people[I.orin]?.life==='alive'&&s.people[I.orin].location==='Village'&&state.actors[I.orin]?.facts['mg.consent']===true;
++ const held=context.gameplay?.player?.inventory||{};
++ for(const [name,key] of Object.entries(K))f[`management.owned.${name}`]=Object.values(s?.custody||{}).some(c=>c.holder==='player'&&c.key===key)||Object.values(context.equipment?.player||s?.equipment.player||{}).includes(key)?0:(held[key]||0);
++ for(const id of [I.mira,I.orin,I.sela,I.bram]) {
++  const p=s?.people[id],a=state.actors?.[id];
++  // A completion may use its own reserved participant, but cannot borrow a
++  // participant from a different live job or encounter.
++  const relevant=s?.jobs?.find(j=>j.actorId==='player'&&j.commandId.startsWith('mg.')&&(j.participants||[]).includes(id));
++  const busy=(s?.jobs||[]).some(j=>j!==relevant&&(j.participants||[j.actorId]).includes(id))||Object.values(s?.sessions||{}).some(j=>(j.participants||[]).includes(id));
++  f[`management.present.${id}`]=!!p&&p.life==='alive'&&p.location===location&&a?.worldId===I.world&&a.facts['mg.consent']===true&&(p.vitals?.health||0)>1&&!busy;
++  f[`management.coins.${id}`]=a?.resources?.coins||0;
++  for(const [name,key] of Object.entries(K))f[`management.stock.${id}.${name}`]=s?.owners[id]?.[key]||0;
++ }
++ return f;
++}
+diff --git a/src/management/foreman.js b/src/management/foreman.js
+new file mode 100644
+index 00000000..4d0ec8d4
+--- /dev/null
++++ b/src/management/foreman.js
+@@ -0,0 +1,20 @@
++import {I,K,command,eq,all,not,af,item,money,coins,transfer,know,contact,owned} from './shared.js';
++export const commands=[
++ command({id:'mg.foreman.commission',family:'MG07',label:'Commission Orin as foreman · 2 logs + 2 coins',targetId:I.orin,coLocated:true,participants:['$target'],
++  description:'Give Orin exactly two owned logs and a two-coin labor fee for one crate. His own stamina and the shared bench supply the labor. The fee is paid when you commission him; cancelling the order returns the two actual logs, not the already-paid fee. No further purchases or orders are authorized.',
++  visibleWhen:not(eq('management.foremanOutstanding')),support:contact(I.orin),requires:owned('log'),
++  costs:[money(-2),transfer(K.log,2,'player',I.orin)],effects:[coins(2,I.orin),af('foremanReady',true,I.orin),know('foreman.terms','Commissioned Orin with exactly two logs and two coins. One order only; labor uses his own two stamina and four played minutes at the actual courtyard bench. Cancellation returns the two logs, not his already-paid fee.',I.orin)]}),
++ {id:'mg.foreman.execute',family:'MG07',label:'Let Orin execute the one commissioned crate · 4 played min',description:'Orin works independently using only his supplied two logs and two own stamina. The result is transferred once to your actual carried stock. His order reserves the shared bench. Departure or loss of contact stops delivery and refunds Orin’s held inputs; collect them locally before another order.',
++  revision:1,worldId:I.world,group:I.group,actorId:I.orin,location:'Village',duration:4,cancellation:'refund',reservationReturns:1,siteId:I.bench,
++  visibleWhen:eq('actor.mg.foremanReady'),requires:all(eq('actor.mg.foremanReady'),eq('management.foremanReturnAvailable')),
++  completionRequires:all(eq('actor.mg.foremanReady'),eq('management.foremanReturnAvailable')),completionFailure:'refund',
++  costs:[item(K.log,-2,I.orin),{type:'vital',actor:I.orin,key:'stamina',amount:-2}],
++  effects:[item(K.crate,1,I.orin),transfer(K.crate,1,I.orin,'player'),af('foremanReady',false,I.orin),know('foreman.delivered','Orin finished the one commissioned crate using two actual supplied logs and his own stamina. The crate returned to your carried inventory once; no extra spending or new order was authorized.',I.orin)]},
++ command({id:'mg.foreman.retrieve_inputs',family:'MG07',label:'Cancel Orin’s unstarted or stopped order · return 2 logs',targetId:I.orin,coLocated:true,participants:['$target'],
++  description:'With no Orin job running, collect the two actual supplied logs and close his mandate. His two-coin fee was already paid and remains with him.',
++  visibleWhen:eq('management.foremanOutstanding'),support:contact(I.orin),requires:all(eq('management.foremanOutstanding'),eq('management.foremanIdle')),
++  costs:[transfer(K.log,2,I.orin,'player')],effects:[af('foremanReady',false,I.orin),know('foreman.cancelled','Collected the two actual unused foreman logs and closed Orin’s one-order mandate. His already-paid two-coin fee was retained.',I.orin)]}),
++ command({id:'mg.room.personal_rest',family:'MG02',label:'Rest in your repaired private room · 3 played min',description:'Use the repaired room privately for a quiet rest that restores two actual stamina. It reserves the room, needs your living native body and cannot overlap paid lodging or workshop work.',
++  visibleWhen:eq('actor.mg.roomUse','personal'),support:all(eq('actor.mg.roomOwned'),eq('actor.mg.roomRepaired'),eq('actor.mg.roomUse','personal')),duration:3,siteId:I.room,
++  costs:[],effects:[{type:'vital',actor:'player',key:'stamina',amount:2},know('room.privateRest','Spent three played minutes resting in your repaired private room, restoring two stamina. No rent or guest commitment was created.')]})
++];
+diff --git a/src/management/foundation.js b/src/management/foundation.js
+new file mode 100644
+index 00000000..16c383a5
+--- /dev/null
++++ b/src/management/foundation.js
+@@ -0,0 +1,27 @@
++import {I,K,command,eq,gte,all,not,af,item,money,coins,transfer,know,contact} from './shared.js';
++export const itemSpecifications=[
++ ['Courtyard seed packet',1,'Local seeds for the rented courtyard plot.'],
++ ['Courtyard greens',2,'Fresh local greens. Courtyard meals and gatherings consume actual portions.'],
++ ['Courtyard grain',3,'A retained grain harvest useful for local meals and trade.'],
++ ['Courtyard wood crate',4,'A useful storage crate, made from actual wood at the shared bench.'],
++ ['Fine courtyard crate',7,'A carefully joined crate for a demanding customer.'],
++ ['Damaged courtyard heirloom',4,'A damaged ordinary heirloom. Inspect it before choosing treatment.'],
++ ['Conserved courtyard heirloom',8,'Conserved for a local collection and exhibition.'],
++ ['Restored courtyard heirloom',12,'Restored for practical use or a quoted local sale.'],
++].map(([id,value,description])=>({id,value,description}));
++export function registerManagementItems({itemTemplates,OtherItem}) {
++ for(const s of itemSpecifications){if(itemTemplates[s.id])throw new Error(`Duplicate management item ${s.id}`);itemTemplates[s.id]=new OtherItem({name:s.id,value:s.value,description:s.description,tags:{expedition:true}});}
++}
++export const people=[[I.mira,'Mira, courtyard concessioner',100],[I.orin,'Orin, wood-goods maker',30],[I.sela,'Sela, local worker and prospective tenant',40],[I.bram,'Bram, outlying goods buyer',200]].map(([id,label,coins])=>({id,revision:1,label,worldId:I.world,location:'Village',inventory:'simulation',provision:false,resources:{coins},body:{hands:2},vitals:{health:20,max_health:20,stamina:20,max_stamina:20}}));
++export const sites=[[I.bench,'Courtyard shared workbench'],[I.room,'Courtyard concession room'],[I.plot,'Courtyard planting plot'],[I.venue,'Courtyard gathering space'],[I.dispatch,'Courtyard dispatch and forwarding desk']].map(([id,label])=>({id,revision:1,label,capacity:1,provision:false}));
++export const situations=[{id:I.situation,revision:1,label:'Village market courtyard',context:{worldId:I.world,instanceId:'frontier.main',continuityId:'frontier.branch',eraId:'frontier.present',regionId:'frontier.village'},participants:['player',I.mira,I.orin,I.sela,I.bram],initialPhase:'charter',phases:['charter'],privateTruth:{institution:'courtyard_concession'}}];
++export const foundationCommands=[
++ command({id:I.begin,family:'charter',label:'Visit the market courtyard · optional, free',once:true,
++ description:'Meet four local residents and inspect finite offers. This gives access, not coins, goods, a deed or a debt. Work uses played time only; leaving pauses accepted work and browser closure creates no liabilities.',
++ effects:[...people.map(d=>({type:'spawn',personId:d.id,definitionId:d.id})),{type:'situation',situationId:I.situation,operation:'begin'},...sites.map(d=>({type:'site',siteId:d.id,actor:'player',operation:'open'})),
++ item(K.seed,16,I.mira),item(K.damaged,1,I.mira),item(K.log,20,I.mira),item(K.cloth,10,I.mira),item(K.log,6,I.orin),
++ ...people.map(d=>af('consent',true,d.id)),af('opened'),af('version',1),
++ know('charter','Mira offers a room concession, seeds, cloth and logs. Orin seeks a wood-goods partner. Sela wants useful work and lodging. Bram has a finite order budget. Their offers apply only in this Village courtyard.',I.mira)]}),
++ ...[['log',2],['cloth',3],['seed',2]].map(([name,price])=>command({id:`mg.supply.${name}`,family:'supplies',label:`Buy ${name==='log'?'one Rough wood log':name==='cloth'?'one Linen cloth':'one courtyard seed packet'} · ${price} coins`,targetId:I.mira,coLocated:true,participants:['$target'],
++ description:'Actual finite Mira stock changes owner. The purchase price enters her purse. No automatic restock.',requires:all(contact(I.mira),gte(`management.stock.${I.mira}.${name}`,1)),costs:[money(-price)],effects:[coins(price,I.mira),transfer(K[name],1,I.mira,'player')]})),
++];
+diff --git a/src/management/host.js b/src/management/host.js
+new file mode 100644
+index 00000000..f547799f
+--- /dev/null
++++ b/src/management/host.js
+@@ -0,0 +1,83 @@
++import {enrollSimulation,commitSimulationCommand,cancelSimulationJob,previewSimulationCommand,simulationFacts,setSimulationProgram,pauseSimulationProgram,resumeSimulationProgram} from '../simulation.js';
++import {meets} from '../simulation_contracts.js';
++import {I} from './shared.js';
++import {managementDefinitions} from './content.js';
++import {managementFacts} from './facts.js';
++import {validateManagementState} from './validation.js';
++export const managementContext=(state,context)=>({...context,facts:{...context.facts,...managementFacts(state,context)}});
++const check=(ok,msg)=>{if(!ok)throw new Error(msg);};
++export function commitManagement(state,registry,command,context,sequence=state.sequence) {
++ check(context.actorId==='player'&&sequence===state.sequence,'The courtyard choice is stale.');
++ check(['cancel','delegate_cancel','pause'].includes(command.type)||!context.busy,'Finish your current native activity before making a courtyard choice.');
++ let out;
++ if(command.type==='delegate_cancel') {
++  const j=state.simulation?.jobs.find(j=>j.id===command.id&&j.actorId===I.orin&&j.commandId==='mg.foreman.execute');
++  check(j,'Choose Orin’s actual commissioned job.');
++  check(managementFacts(state,context)['management.foremanReturnAvailable'],'Return locally to cancel and collect Orin’s held inputs.');
++  out=cancelSimulationJob(state,registry,j.id,{...managementContext(state,context),actorId:I.orin},sequence);
++ } else if(command.type==='cancel') {
++  const j=state.simulation?.jobs.find(j=>j.id===command.id&&j.actorId==='player');
++  check(j?.commandId.startsWith('mg.'),'Choose the actual accepted courtyard job.');
++  out=cancelSimulationJob(state,registry,j.id,managementContext(state,context),sequence);
++ } else if(command.type==='repeat') {
++  const d=registry.simulation.commands.get(command.id);
++  check(d?.group===I.group&&d.repeatable===true&&state.actors.player.completed[d.id]>0,'Complete this finite recipe manually before scheduling it.');
++  check(Number.isSafeInteger(command.count)&&command.count>=1&&command.count<=3,'Choose one to three repetitions within the finite mandate.');
++  out=setSimulationProgram(state,registry,d.id,command.count,managementContext(state,{...context,targetId:d.targetId||null}),sequence);
++ } else if(command.type==='resume') {
++  check(state.simulation?.programs.player?.commandId.startsWith('mg.'),'No courtyard work mandate is paused.');
++  const id=state.simulation.programs.player.commandId;
++  out=resumeSimulationProgram(state,registry,{...managementContext(state,context),targetId:registry.simulation.commands.get(id)?.targetId||null},sequence);
++ } else if(command.type==='pause') {
++  check(state.simulation?.programs.player?.commandId.startsWith('mg.'),'No courtyard work mandate is active.');
++  out=pauseSimulationProgram(state,context,sequence);
++ } else {
++  const d=registry.simulation.commands.get(command.id);
++  check(d?.group===I.group&&(d.actorId==='player'||d.id==='mg.foreman.execute'),'Choose a known courtyard command.');
++  if(d.id==='mg.foreman.execute'){
++   const npcContext={...context,actorId:I.orin,targetId:null,worldId:I.world,managementPlayerLocation:context.facts?.location,managementPlayerAlive:context.nativeAlive,vitals:{...context.vitals,[I.orin]:state.simulation.people[I.orin].vitals},facts:{...context.facts,location:state.simulation.people[I.orin].location}};
++   out=commitSimulationCommand(state,registry,{id:d.id},managementContext(state,npcContext),sequence);
++   validateManagementState(out.state,registry.simulation);return out;
++  }
++  const first=command.id===I.begin&&!state.simulation?enrollSimulation(state,registry,context,sequence):{state,...context};
++  out=commitSimulationCommand(first.state,registry,{id:d.id},managementContext(first.state,{...context,external:first.external,gameplay:first.gameplay,vitals:first.vitals||context.vitals,targetId:d.targetId||null}),first.state.sequence);
++  out.acquisitions=[...(first.acquisitions||[]),...(out.acquisitions||[])];
++  out.unlocks=[...(first.unlocks||[]),...(out.unlocks||[])];
++ }
++ validateManagementState(out.state,registry.simulation);
++ return out;
++}
++export const managementFamilies={charter:'Courtyard charter',supplies:'Finite supplies',MG01:'Investing and patronage',MG02:'Property management',MG03:'Shopkeeping and inn',MG04:'Auctions and appraisal',MG05:'Caravans and shipping',MG06:'Farming and care',MG07:'Workshop scheduling',MG08:'Lending and mutual aid',MG09:'Events and performances',MG10:'Restoration and collections'};
++export function managementPresentation(state,registry,context) {
++ const local=state.actors.player.worldId===I.world&&context.facts?.location==='Village';
++ if(!local)return {visible:false,sections:[],records:[]};
++ const opened=state.actors.player.facts['mg.opened']===true,current=managementContext(state,context),sections=[];
++ if(!opened) return {visible:true,opened:false,sections:[{id:'charter',label:managementFamilies.charter,actions:[{id:I.begin,label:'Visit the market courtyard · optional, free',description:managementDefinitions.commands.find(d=>d.id===I.begin).description,eligible:current.facts['management.supported']&&!context.busy,reasons:['No stock, money, deed or debt is granted by meeting the residents.'],duration:0}]}],records:[]};
++ const facts=simulationFacts(state,current,registry);
++ for(const [family,label] of Object.entries(managementFamilies)) {
++  const actions=[];
++  for(const d of managementDefinitions.commands.filter(d=>d.family===family)) {
++   if(d.once&&state.actors.player.completed[d.id]||d.id!=='mg.foreman.execute'&&!meets(d.visibleWhen,facts))continue;
++   const npc=d.id==='mg.foreman.execute';
++   const quoteContext=npc?{...current,actorId:I.orin,targetId:null,managementPlayerLocation:context.facts?.location,managementPlayerAlive:context.nativeAlive,vitals:{...context.vitals,[I.orin]:state.simulation.people[I.orin].vitals},facts:{...current.facts,location:state.simulation.people[I.orin].location}}:{...current,targetId:d.targetId||null};
++   // NPC readiness uses its own actor facts; player observation remains local.
++   if(npc&&!state.actors[I.orin]?.facts['mg.foremanReady'])continue;
++   const quote=previewSimulationCommand(state,registry,d.id,quoteContext);
++   if(quote.visible)actions.push({id:d.id,label:d.label,description:d.description,eligible:quote.eligible&&!context.busy,reasons:quote.reasons,duration:quote.duration,costs:quote.costs});
++   if(d.repeatable===true&&state.actors.player.completed[d.id]>0)actions.push({id:d.id,type:'repeat',count:3,label:'Schedule up to three of this learned recipe',description:'Each repetition reserves real inputs separately. Shortages stop the mandate; costs are refunded when cancelled. No extra purchases or changed terms.',eligible:quote.eligible&&!context.busy,reasons:quote.reasons});
++  }
++  if(actions.length)sections.push({id:family,label,actions});
++ }
++ const job=state.simulation.jobs.find(j=>j.actorId==='player'&&j.commandId.startsWith('mg.'));
++ if(job)sections.unshift({id:'work',label:'Accepted courtyard work',actions:[{id:job.id,type:'cancel',label:`Cancel ${registry.simulation.commands.get(job.commandId)?.label} · refund inputs`,description:`${Math.max(0,job.due-state.clock)} played minutes remain.`,eligible:true,reasons:[]}]});
++ const foremanJob=state.simulation.jobs.find(j=>j.actorId===I.orin&&j.commandId==='mg.foreman.execute');
++ if(foremanJob)sections.unshift({id:'foreman_work',label:'Orin’s commissioned work',actions:[{id:foremanJob.id,type:'delegate_cancel',label:'Stop Orin’s one-order job · return reserved inputs to him',description:`${Math.max(0,foremanJob.due-state.clock)} played minutes remain. Collect the logs through the foreman cancellation action after stopping. The paid fee is retained.`,eligible:current.facts['management.foremanReturnAvailable'],reasons:[]}]});
++ const program=state.simulation.programs.player;
++ if(program?.commandId.startsWith('mg.')&&program.status==='running')sections.unshift({id:'mandate',label:'Bounded work mandate',actions:[{type:'pause',label:'Pause the courtyard mandate',eligible:true,reasons:[],description:'Pause future repetitions; cancel the current job separately to refund its reservation.'}]});
++ if(program?.commandId.startsWith('mg.')&&program.status==='paused'&&program.remaining>0){
++  const d=registry.simulation.commands.get(program.commandId),q=previewSimulationCommand(state,registry,d.id,{...current,targetId:d.targetId||null});
++  sections.unshift({id:'resume_mandate',label:'Paused work mandate',actions:[{type:'resume',label:'Resume the remaining courtyard recipe repetitions',description:`${program.remaining} repetitions remain; each uses actual current stock and support.`,eligible:q.eligible&&!context.busy,reasons:q.reasons}]});
++ }
++ const records=Object.entries(state.simulation.knowledge.player||{}).filter(([id])=>id.startsWith('mg.')).map(([id,k])=>({id,text:k.value}));
++ return {visible:true,opened:true,sections,records};
++}
+diff --git a/src/management/shared.js b/src/management/shared.js
+new file mode 100644
+index 00000000..c3757cf8
+--- /dev/null
++++ b/src/management/shared.js
+@@ -0,0 +1,30 @@
++// Original local courtyard proposals. Pure authoring helpers, no state mutation.
++export const I = Object.freeze({world:'base.frontier',group:'management',begin:'mg.begin',mira:'mg.mira',orin:'mg.orin',sela:'mg.sela',bram:'mg.bram',bench:'mg.bench',room:'mg.room',plot:'mg.plot',venue:'mg.venue',situation:'mg.courtyard',dispatch:'mg.dispatch'});
++const key = id => JSON.stringify({id});
++export const K = Object.freeze({log:key('Rough wood log'),cloth:key('Linen cloth'),seed:key('Courtyard seed packet'),greens:key('Courtyard greens'),grain:key('Courtyard grain'),crate:key('Courtyard wood crate'),fine:key('Fine courtyard crate'),damaged:key('Damaged courtyard heirloom'),conserved:key('Conserved courtyard heirloom'),restored:key('Restored courtyard heirloom')});
++export const eq=(fact,value=true,reason)=>({fact,op:'eq',value,...(reason?{reason}:{})});
++export const gte=(fact,value,reason)=>({fact,op:'gte',value,...(reason?{reason}:{})});
++export const all=(...rules)=>({all:rules});
++export const any=(...rules)=>({any:rules});
++export const not=rule=>({not:rule});
++export const af=(name,value=true,actor='player')=>({type:'fact',actor,scope:'actor',key:`mg.${name}`,value});
++export const item=(key,amount,actor='player')=>({type:'item',actor,key,amount});
++export const money=amount=>({type:'resource',actor:'player',native:true,key:'money',amount});
++export const coins=(amount,actor)=>({type:'resource',actor,key:'coins',amount});
++export const stamina=amount=>({type:'vital',actor:'player',key:'stamina',amount});
++export const transfer=(key,count,from,to)=>({type:'transfer',key,count,from,to});
++export const know=(name,text,attributedTo='player',stage='seen')=>({type:'knowledge',actor:'player',key:`mg.${name}`,stage,value:text,basis:{kind:attributedTo==='player'?'observation':'instruction',attributedTo,situationId:I.situation}});
++export const relationship=(target,amount=1)=>({type:'relationship',actor:'player',target,axis:'trust',amount});
++export const owned=name=>{const entry=Object.entries(K).find(([n,k])=>n===name||k===name||JSON.parse(k).id===name);if(!entry)throw new Error(`Unknown management item ${name}`);return gte(`management.owned.${entry[0]}`,1,'Carry the actual owned, unequipped, unborrowed item.');};
++export const contact=actor=>eq(`management.present.${actor}`,true,'The named local person needs a living body, consent and available attention here.');
++export const purse=(actor,amount)=>gte(`management.coins.${actor}`,amount,'The quoted payer must have the actual coins; no automatic credit is created.');
++export const live=eq('management.supported',true,'Return to Village with your living native body and available played-time services.');
++export const opened=eq('actor.mg.opened');
++export function command(d) {
++ const support=all(live,opened,...(d.support?[d.support]:[]));
++ const req=all(support,...(d.requires?[d.requires]:[]));
++ return {revision:1,worldId:I.world,group:I.group,actorId:'player',location:'Village',costs:[],effects:[],...d,
++   requires:d.id===I.begin?live:req,
++   visibleWhen:d.id===I.begin?not(opened):all(opened,...(d.visibleWhen?[d.visibleWhen]:[])),
++   ...(d.duration?{cancellation:'refund',reservationReturns:1,completionRequires:support,completionFailure:'refund'}:{})};
++}
+diff --git a/src/management/shipping_farming.js b/src/management/shipping_farming.js
+new file mode 100644
+index 00000000..2045bdcc
+--- /dev/null
++++ b/src/management/shipping_farming.js
+@@ -0,0 +1,85 @@
++import {I,K,command,eq,gte,all,any,not,af,item,money,coins,transfer,know,contact,purse,owned,stamina,relationship} from './shared.js';
++
++const shipRight=eq('actor.mg.shippingRight');
++const shipOffer=eq('actor.mg.shippingPhase','offered');
++const shipUndelivered=not(eq('actor.mg.shippingDelivered'));
++const shippingSupport=(payment)=>all(contact(I.bram),shipRight,shipOffer,shipUndelivered,purse(I.bram,payment));
++
++const route=(cargo,cargoName,routeName,routeDescription,duration,payment,fee=0)=>command({
++ id:`mg.ship.${cargo}.${routeName}`,family:'MG05',label:`Ship ${cargoName} · ${routeName==='local'?'local run':'escorted shipment'} · ${duration} min${fee?` + ${fee} coin Orin escort fee`:''}`,
++ targetId:I.bram,coLocated:true,participants:['$target',...(fee?[I.orin]:[])],
++ description:`Transfer one actual ${cargoName} into Bram’s one-order manifest when accepted. The ${routeDescription} pays ${payment} coins from Bram’s finite purse only after arrival. Cancelling or losing support returns the held cargo${fee?` and ${fee} route coins`:''}; the order pays once.`,
++ visibleWhen:all(shipRight,shipOffer,shipUndelivered),
++ support:all(shippingSupport(payment),...(fee?[contact(I.orin)]:[])),
++ requires:all(shipRight,shipOffer,shipUndelivered,owned(cargoName)),
++ duration,siteId:I.dispatch,completionCoLocated:true,
++ costs:[transfer(K[cargo],1,'player',I.bram),...(fee?[money(-fee),{type:'vital',actor:I.orin,key:'stamina',amount:-2}]:[])],
++ effects:[...(fee?[coins(fee,I.orin)]:[]),coins(-payment,I.bram),money(payment),af('shippingDelivered'),af('shippingPhase','delivered'),know('shippingReceipt',`Bram received one actual ${cargoName} by ${routeName==='local'?'local route':'escorted route'} and paid ${payment} coins from his purse. This one-order shipment is settled.`,I.bram),relationship(I.bram,1)]
++});
++
++const cropStage='actor.mg.cropStage';
++const cropType='actor.mg.cropType';
++const plotRight=eq('actor.mg.plotRight');
++const plotEmpty=not(any(eq(cropStage,'planted'),eq(cropStage,'tended'),eq(cropStage,'ready')));
++const canPlant=all(plotRight,plotEmpty);
++
++export const commands=[
++ command({id:'mg.ship.hear_order',family:'MG05',label:'Hear Bram’s one-shipment offer · free',targetId:I.bram,coLocated:true,participants:['$target'],
++  description:'Bram authorizes one delivery from this courtyard and publishes a finite quote. This grants permission for the order, not goods or payment.',
++  visibleWhen:not(shipRight),support:contact(I.bram),requires:contact(I.bram),
++  effects:[af('shippingRight'),af('shippingPhase','offered'),know('shippingOffer','Bram authorized one shipment from the Village courtyard. Local quotes: one wood crate for 8 coins or one fine crate for 14. Escorted quotes: one wood crate for 12 coins or one fine crate for 18, with a 2-coin Orin escort fee. Bram pays only after actual delivery.',I.bram)]}),
++
++ // One quoted order has four real cargo/route choices. The manifest transfer
++ // is itself the reservation; completion pays once and never consumes it again.
++ route('crate','Courtyard wood crate','local','shorter and fee-free local run',3,8),
++ route('crate','Courtyard wood crate','escorted','longer dispatch with Orin’s actual escort labor',6,12,2),
++ route('fine','Fine courtyard crate','local','shorter and fee-free local run',3,14),
++ route('fine','Fine courtyard crate','escorted','longer dispatch with Orin’s actual escort labor',6,18,2),
++
++ command({id:'mg.farm.rent_plot',family:'MG06',label:'Rent Mira’s local plot · 4 coins',targetId:I.mira,coLocated:true,participants:['$target'],
++  description:'Pay Mira four actual coins for access to the courtyard plot. The right lets you plant one crop at a time; it creates no seeds or food.',
++  visibleWhen:not(plotRight),support:contact(I.mira),requires:contact(I.mira),costs:[money(-4)],
++  effects:[coins(4,I.mira),af('plotRight'),know('plotRight','Paid Mira four coins for use of the single Village courtyard plot. Seed, effort and each harvest remain separate.',I.mira)]}),
++
++ command({id:'mg.farm.plant_greens',family:'MG06',label:'Plant quick greens · 1 seed + 1 stamina + 2 min',
++  description:'Reserve one actual seed packet and plant quick greens in the rented plot. The seed and stamina return if planting is cancelled or plot access fails.',
++  visibleWhen:canPlant,support:all(plotRight,plotEmpty),requires:all(canPlant,gte(`item.${K.seed}`,1)),duration:2,siteId:I.plot,
++  costs:[item(K.seed,-1),stamina(-1)],effects:[af('cropStage','planted'),af('cropType','greens'),know('cropPlan','Planted one packet of quick greens. Tend the planted crop, then spend played time growing it to harvest readiness.')]}),
++
++ command({id:'mg.farm.plant_grain',family:'MG06',label:'Plant grain · 1 seed + 2 stamina + 3 min',
++  description:'Reserve one actual seed packet and plant grain in the rented plot. Grain takes longer to grow and yields more food; inputs return if planting is cancelled or plot access fails.',
++  visibleWhen:canPlant,support:all(plotRight,plotEmpty),requires:all(canPlant,gte(`item.${K.seed}`,1)),duration:3,siteId:I.plot,
++  costs:[item(K.seed,-1),stamina(-2)],effects:[af('cropStage','planted'),af('cropType','grain'),know('cropPlan','Planted one packet of grain. Tend the planted crop, then spend played time growing it to harvest readiness.')]}),
++
++ command({id:'mg.farm.tend_crop',family:'MG06',label:'Tend the planted crop · 1 stamina + 1 min',
++  description:'Spend a real minute and stamina tending the crop. This is the required care step before growth; the plot remains occupied until harvest.',
++  visibleWhen:all(plotRight,eq(cropStage,'planted')),support:all(plotRight,eq(cropStage,'planted')),
++  requires:all(plotRight,eq(cropStage,'planted')),duration:1,siteId:I.plot,costs:[stamina(-1)],
++  effects:[af('cropStage','tended'),know('cropCare','Tended the planted crop with one stamina. Growth can now be started; only a ready crop can be harvested.')]}),
++
++ command({id:'mg.farm.grow_greens',family:'MG06',label:'Grow tended greens · 3 played min',
++  description:'Advance the tended greens to harvest readiness using three played minutes. Browser-closed time does not advance the crop.',
++  visibleWhen:all(plotRight,eq(cropStage,'tended'),eq(cropType,'greens')),
++  support:all(plotRight,eq(cropStage,'tended'),eq(cropType,'greens')),
++  requires:all(plotRight,eq(cropStage,'tended'),eq(cropType,'greens')),duration:3,siteId:I.plot,
++  effects:[af('cropStage','ready'),know('cropReady','The tended greens are ready. Harvest the actual greens before planting another crop.')] }),
++
++ command({id:'mg.farm.grow_grain',family:'MG06',label:'Grow tended grain · 6 played min',
++  description:'Advance the tended grain to harvest readiness using six played minutes. Browser-closed time does not advance the crop.',
++  visibleWhen:all(plotRight,eq(cropStage,'tended'),eq(cropType,'grain')),
++  support:all(plotRight,eq(cropStage,'tended'),eq(cropType,'grain')),
++  requires:all(plotRight,eq(cropStage,'tended'),eq(cropType,'grain')),duration:6,siteId:I.plot,
++  effects:[af('cropStage','ready'),know('cropReady','The tended grain is ready. Harvest the actual grain before planting another crop.')] }),
++
++ command({id:'mg.farm.harvest_greens',family:'MG06',label:'Harvest ready greens · 3 actual portions',
++  description:'Collect three actual portions of greens from the ready, tended crop. The plot becomes available only after this one harvest.',
++  visibleWhen:all(plotRight,eq(cropStage,'ready'),eq(cropType,'greens')),
++  requires:all(plotRight,eq(cropStage,'ready'),eq(cropType,'greens')),
++  effects:[item(K.greens,3),af('cropStage','harvested'),know('cropHarvest','Harvested three actual portions of greens from the ready crop. This crop cannot be harvested again.')]}),
++
++ command({id:'mg.farm.harvest_grain',family:'MG06',label:'Harvest ready grain · 5 actual portions',
++  description:'Collect five actual portions of grain from the ready, tended crop. The plot becomes available only after this one harvest.',
++  visibleWhen:all(plotRight,eq(cropStage,'ready'),eq(cropType,'grain')),
++  requires:all(plotRight,eq(cropStage,'ready'),eq(cropType,'grain')),
++  effects:[item(K.grain,5),af('cropStage','harvested'),know('cropHarvest','Harvested five actual portions of grain from the ready crop. This crop cannot be harvested again.')]})
++];
+diff --git a/src/management/shops_auctions.js b/src/management/shops_auctions.js
+new file mode 100644
+index 00000000..f1cf3313
+--- /dev/null
++++ b/src/management/shops_auctions.js
+@@ -0,0 +1,47 @@
++import {I,K,command,eq,gte,all,not,af,item,money,coins,transfer,know,contact,purse,owned,stamina,relationship} from './shared.js';
++
++const P = 'actor.mg.';
++const inspectedShop = eq('knowledge.mg.shop.quotes.seen');
++const roomReady = all(eq(`${P}roomOwned`),eq(`${P}roomRepaired`),eq(`${P}roomUse`,'inn'));
++const auctionLot = 'mg04.auction.mira.heirloom';
++
++export const commands = [
++    command({id:'mg.shop.inspect',family:'MG03',label:'Check the courtyard customer board',description:'Hear three finite, quoted customer offers. Each named customer buys at most one matching item; full price pays more, while friendly service pays less and improves that person’s trust. Declining costs nothing.',targetId:I.mira,coLocated:true,participants:['$target'],
++        support:contact(I.mira),effects:[know('shop.quotes','Mira will buy one actual Courtyard wood crate for six coins at full price or five coins as friendly service. Sela will buy one actual Courtyard greens portion for four coins full or three coins friendly. Bram will buy one actual Fine courtyard crate for ten coins full or eight coins friendly. Each offer is finite, uses the buyer’s actual purse, and closes after one sale.',I.mira)]}),
++
++    ...[
++        {name:'mira_crate',target:I.mira,item:K.crate,ownedName:'Courtyard wood crate',full:6,friendly:5,good:'crate',label:'Mira · one wood crate'},
++        {name:'sela_greens',target:I.sela,item:K.greens,ownedName:'Courtyard greens',full:4,friendly:3,good:'greens',label:'Sela · one greens portion'},
++        {name:'bram_fine_crate',target:I.bram,item:K.fine,ownedName:'Fine courtyard crate',full:10,friendly:8,good:'fine crate',label:'Bram · one fine crate'},
++    ].flatMap(d => [
++        {price:d.full,service:'full',trust:0,label:`Sell ${d.label} at full price · ${d.full} coins`},
++        {price:d.friendly,service:'friendly',trust:1,label:`Offer ${d.label} at a friendly price · ${d.friendly} coins`},
++    ].map(option => command({id:`mg.shop.sell_${d.name}_${option.service}`,family:'MG03',label:option.label,
++        description:`Transfer your actual ${d.good} to ${d.target===I.mira?'Mira':d.target===I.sela?'Sela':'Bram'} for the quoted ${option.price} coins from that customer’s purse. This customer’s one demand closes after the sale.${option.trust?' Friendly service also improves their trust.':''}`,
++        targetId:d.target,coLocated:true,participants:['$target'],claim:`mg03.shop.${d.name}`,
++        visibleWhen:all(inspectedShop,not(eq(`${P}shop_${d.name}_closed`))),support:all(contact(d.target),purse(d.target,option.price)),
++        requires:owned(d.ownedName),costs:[transfer(d.item,1,'player',d.target)],effects:[coins(-option.price,d.target),money(option.price),af(`shop_${d.name}_closed`),know(`shop.${d.name}`,`Sold one actual ${d.good} to ${d.target===I.mira?'Mira':d.target===I.sela?'Sela':'Bram'} for ${option.price} coins${option.trust?' at the friendly price':''}. This finite customer offer is complete.`,d.target),...(option.trust?[relationship(d.target,1)]:[])]}))),
++
++    command({id:'mg.inn.sela_greens',family:'MG03',label:'Serve Sela a greens meal · 1 portion + 2 stamina + 4 min',description:'Sela accepts one greens meal for three coins from her actual purse. Her stay reserves your repaired inn room and consumes one real greens portion only when served; interruption returns the reserved meal.',targetId:I.sela,coLocated:true,participants:['$target'],claim:'mg03.inn.sela',
++        visibleWhen:all(roomReady,not(eq(`${P}inn_sela_served`))),support:all(roomReady,contact(I.sela),purse(I.sela,3)),requires:all(roomReady,owned('Courtyard greens')),duration:4,siteId:I.room,
++        costs:[item(K.greens,-1),stamina(-2)],effects:[coins(-3,I.sela),money(3),af('inn_sela_served'),know('inn.sela','Sela completed one greens meal in the repaired inn. One real greens portion was served and three of her coins were paid to you.',I.sela),relationship(I.sela,1)]}),
++
++    command({id:'mg.inn.bram_grain',family:'MG03',label:'Serve Bram a grain meal · 1 portion + 2 stamina + 5 min',description:'Bram accepts one grain meal for five coins from his actual purse. His stay reserves your repaired inn room and consumes one real grain portion only when served; interruption returns the reserved meal.',targetId:I.bram,coLocated:true,participants:['$target'],claim:'mg03.inn.bram',
++        visibleWhen:all(roomReady,not(eq(`${P}inn_bram_served`))),support:all(roomReady,contact(I.bram),purse(I.bram,5)),requires:all(roomReady,owned('Courtyard grain')),duration:5,siteId:I.room,
++        costs:[item(K.grain,-1),stamina(-2)],effects:[coins(-5,I.bram),money(5),af('inn_bram_served'),know('inn.bram','Bram completed one grain meal in the repaired inn. One real grain portion was served and five of his coins were paid to you.',I.bram),relationship(I.bram,1)]}),
++
++    command({id:'mg.auction.inspect',family:'MG04',label:'Inspect Mira’s damaged heirloom',description:'Inspect the single actual lot before bidding. The inspection reveals its ordinary condition and the treatment it needs, not a hidden value or future outcome.',targetId:I.mira,coLocated:true,participants:['$target'],claim:'mg04.auction.inspection',
++        support:contact(I.mira),requires:gte(`management.stock.${I.mira}.damaged`,1),effects:[know('auction.heirloom.condition','Mira’s one damaged courtyard heirloom is chipped and loose at the join. It is still a real damaged item and can be conserved with cloth or restored with wood. Inspection does not reveal a future value.',I.mira)]}),
++
++    command({id:'mg.auction.bid_low',family:'MG04',label:'Set a five-coin ceiling · lose to the seven-coin competing bid',description:'Choose a five-coin maximum. The disclosed competing bid is seven coins, so this lot goes to the other bidder and you spend nothing.',targetId:I.mira,coLocated:true,participants:['$target'],claim:auctionLot,
++        visibleWhen:all(eq('knowledge.mg.auction.heirloom.condition.seen'),not(eq(`${P}auctionResult`))),support:contact(I.mira),requires:eq('knowledge.mg.auction.heirloom.condition.seen'),
++        effects:[af('auctionResult','lost'),know('auction.result','Set a five-coin ceiling. The competing seven-coin bid won the lot; no money or item changed hands.',I.mira)]}),
++
++    command({id:'mg.auction.bid_high',family:'MG04',label:'Set a ten-coin ceiling · win at the eight-coin clearing price',description:'Choose a ten-coin maximum. The disclosed competing bid is seven coins, so you win at the eight-coin clearing price, not your ceiling. Transfer eight actual coins to Mira and receive her one actual damaged lot.',targetId:I.mira,coLocated:true,participants:['$target'],claim:auctionLot,
++        visibleWhen:all(eq('knowledge.mg.auction.heirloom.condition.seen'),not(eq(`${P}auctionResult`))),support:contact(I.mira),requires:eq('knowledge.mg.auction.heirloom.condition.seen'),
++        costs:[money(-8),transfer(K.damaged,1,I.mira,'player')],effects:[coins(8,I.mira),af('auctionResult','won'),know('auction.result','Set a ten-coin ceiling and won Mira’s actual damaged courtyard heirloom at the published eight-coin clearing price. The ceiling was not charged.',I.mira)]}),
++
++    command({id:'mg.auction.pass',family:'MG04',label:'Pass on Mira’s heirloom',description:'Close this one inspected lot without bidding or spending.',targetId:I.mira,coLocated:true,participants:['$target'],claim:auctionLot,
++        visibleWhen:all(eq('knowledge.mg.auction.heirloom.condition.seen'),not(eq(`${P}auctionResult`))),support:contact(I.mira),requires:eq('knowledge.mg.auction.heirloom.condition.seen'),
++        effects:[af('auctionResult','passed'),know('auction.result','Passed on Mira’s one damaged heirloom lot. No money or item changed hands.',I.mira)]}),
++];
+diff --git a/src/management/ui.js b/src/management/ui.js
+new file mode 100644
+index 00000000..3d702077
+--- /dev/null
++++ b/src/management/ui.js
+@@ -0,0 +1,33 @@
++import {managementPresentation} from './host.js';
++const node=(tag,text='')=>{const n=document.createElement(tag);n.textContent=text;return n;};
++export function createManagementPanel({read,registry,command}) {
++ const element=node('details');element.id='management_panel';element.className='expedition_panel';
++ const summary=node('summary','Market courtyard · trade, property and projects');summary.tabIndex=0;
++ const terms=node('p','Original local proposals. Work advances only during play. No browser-closed rent, upkeep or debt collection.');
++ const notice=node('p');notice.setAttribute('role','status');
++ const sections=node('div'),history=node('details'),hs=node('summary','Your courtyard records'),records=node('div');history.append(hs,records);element.append(summary,terms,notice,sections,history);
++ const rows=new Map(),groups=new Map();let message='';
++ function render() {
++  const host=document.getElementById('location_actions_div');if(host&&element.parentElement!==host)host.append(element);
++  const snapshot=read(),view=managementPresentation(snapshot.state,registry,snapshot.context);
++  element.hidden=!view.visible||snapshot.inDialogue||snapshot.inCombat;
++  notice.textContent=snapshot.error||message;notice.hidden=!notice.textContent;
++  const seen=new Set(),visibleGroups=new Set();
++  for(const s of view.sections) {
++   visibleGroups.add(s.id);let g=groups.get(s.id);
++   if(!g){g=node('details');g.className='expedition_card';g.append(node('summary',s.label));groups.set(s.id,g);sections.append(g);if(s.id==='charter'||s.id==='work')g.open=true;}
++   g.hidden=false;
++   for(const a of s.actions) {
++    const id=`${s.id}:${a.type||'command'}:${a.id||''}`;seen.add(id);let r=rows.get(id);
++    if(!r){const el=node('section'),button=node('button'),description=node('p'),reason=node('p');button.type='button';el.className='expedition_card';el.append(button,description,reason);g.append(el);r={el,button,description,reason,action:a};rows.set(id,r);
++     button.addEventListener('click',()=>{try{const current=read();command({...r.action,sequence:current.state.sequence});message='Courtyard change saved.';}catch(e){message=e.message;}render();});}
++    r.action=a;r.el.hidden=false;r.button.textContent=a.label;r.button.disabled=!snapshot.canWrite||!a.eligible;r.description.textContent=a.description||'';
++    r.reason.textContent=(a.reasons||[]).join(' ');r.reason.hidden=!r.reason.textContent;
++   }
++  }
++  for(const [id,r]of rows)if(!seen.has(id)){if(r.el.contains(document.activeElement))summary.focus();r.el.hidden=true;}
++  for(const [id,g]of groups)g.hidden=!visibleGroups.has(id);
++  records.replaceChildren(...view.records.map(k=>node('p',k.text)));history.hidden=!view.records.length;
++ }
++ return {element,render};
++}
+diff --git a/src/management/validation.js b/src/management/validation.js
+new file mode 100644
+index 00000000..cebeec9d
+--- /dev/null
++++ b/src/management/validation.js
+@@ -0,0 +1,49 @@
++import {I} from './shared.js';
++import {managementDefinitions} from './content.js';
++const check=(ok,msg)=>{if(!ok)throw new Error(`Courtyard: ${msg}`);};
++const natural=n=>Number.isSafeInteger(n)&&n>=0;
++const same=(a,b)=>JSON.stringify(a)===JSON.stringify(b);
++// This additive content has no second inventory/calendar/state namespace.
++// Validate real resident balances against exact authored transactions and held
++// costs. Old saves with no charter remain inert and gain no defaults.
++export function validateManagementState(state,registry) {
++ const s=state.simulation,opened=state.actors?.player?.facts?.['mg.opened']===true;
++ const related=Object.keys(state.actors||{}).some(id=>id.startsWith('mg.'))||Object.keys(s?.sites||{}).some(id=>id.startsWith('mg.'))||Object.keys(state.actors?.player?.facts||{}).some(id=>id.startsWith('mg.'));
++ if(!opened){check(!related,'local records require explicit charter activation.');return;}
++ check(s&&state.actors.player.facts['mg.version']===1&&state.actors.player.completed[I.begin]===1,'unsupported or duplicate charter revision.');
++ check(s.situations?.[I.situation]?.revision===1,'knowledge requires its actual courtyard context.');
++ const defs=new Map(managementDefinitions.commands.map(d=>[d.id,d]));
++ const knownFacts=new Map(),knownKnowledge=new Set();
++ for(const d of defs.values())for(const e of d.effects||[]){if(e.type==='fact'){const key=`${e.actor||'player'}:${e.key}`;if(!knownFacts.has(key))knownFacts.set(key,new Set());knownFacts.get(key).add(e.value);}if(e.type==='knowledge')knownKnowledge.add(e.key);}
++ const balances=Object.fromEntries(managementDefinitions.people.map(p=>[p.id,{coins:p.resources.coins,stock:{}}]));
++ const apply=e=>{
++  if(e.type==='resource'&&balances[e.actor]){check(e.key==='coins'&&Number.isSafeInteger(e.amount),'unsupported resident currency.');balances[e.actor].coins+=e.amount;}
++  if(e.type==='item'&&balances[e.actor])balances[e.actor].stock[e.key]=(balances[e.actor].stock[e.key]||0)+e.amount;
++  if(e.type==='transfer'){if(balances[e.from])balances[e.from].stock[e.key]=(balances[e.from].stock[e.key]||0)-e.count;if(balances[e.to])balances[e.to].stock[e.key]=(balances[e.to].stock[e.key]||0)+e.count;}
++ };
++ for(const [actor,a]of Object.entries(state.actors)) {
++  for(const [id,count]of Object.entries(a.completed||{}))if(id.startsWith('mg.')){
++   const d=defs.get(id);check(d&&natural(count)&&count<=1000000&&(d.actorId||'player')===actor,'unknown completed local command or unsafe count.');
++   if(d.once||d.claim)check(count<=1,'one agreement cannot settle twice.');
++   for(const e of [...d.costs,...d.effects]){if(e.type==='resource'||e.type==='item')apply({...e,amount:e.amount*count});else if(e.type==='transfer')apply({...e,count:e.count*count});}
++  }
++  for(const [key,value]of Object.entries(a.facts||{}))if(key.startsWith('mg.'))check(knownFacts.get(`${actor}:${key}`)?.has(value),'unsupported local permission/phase value.');
++ }
++ for(const j of s.jobs.filter(j=>j.commandId.startsWith('mg.'))) {
++  const d=defs.get(j.commandId);check(d&&d.duration>0&&j.actorId===d.actorId&&j.revision===d.revision&&j.siteId===(d.siteId||null)&&j.targetId===(d.targetId||null)&&j.reservationReturns===1&&j.cancellation==='refund','unsupported local work revision or owner.');
++  check(same(j.costs,d.costs)&&same(j.effects,d.effects)&&same(j.completionSupport,{schema:1,requires:d.completionRequires,coLocated:!!d.completionCoLocated,location:d.location,failure:'refund'}),'accepted local work lost exact reserved inputs/output/support.');
++  check(j.due>=state.clock&&j.due<=state.clock+d.duration,'unsupported local duration.');
++  for(const e of j.costs)apply(e);
++ }
++ for(const d of managementDefinitions.people) {
++  const a=state.actors[d.id],p=s.people[d.id],b=balances[d.id];
++  check(a&&p&&p.definitionId===d.id&&p.definitionRevision===d.revision&&p.inventory==='simulation'&&a.worldId===I.world,'missing real resident owner.');
++  check(natural(a.resources.coins)&&a.resources.coins===b.coins,'resident cash does not match completed sales/costs and held reservations.');
++  const actual=s.owners[d.id]||{};
++  check(Object.keys(actual).every(key=>(actual[key]||0)===(b.stock[key]||0))&&Object.keys(b.stock).every(key=>(actual[key]||0)===b.stock[key]),'resident stock was duplicated or lost from its authored transaction.');
++ }
++ for(const d of managementDefinitions.sites)check(s.sites[d.id]?.owner==='player'&&s.sites[d.id].capacity===d.capacity,'local site access/capacity changed.');
++ for(const [key,k]of Object.entries(s.knowledge.player||{}))if(key.startsWith('mg.'))check(knownKnowledge.has(key)&&k.basis?.situationId===I.situation,'unsupported player knowledge attribution.');
++ for(const p of Object.values(s.programs||{}))if(p.commandId.startsWith('mg.')){const d=defs.get(p.commandId);check(d?.repeatable===true&&d.automatable===true&&p.remaining<=3,'work mandate exceeded its learned finite recipe limit.');}
++ if(registry)for(const d of defs.values())check(same(registry.commands.get(d.id),d),'local content revision differs from the admitted reader.');
++}
+diff --git a/src/management/workshop_aid.js b/src/management/workshop_aid.js
+new file mode 100644
+index 00000000..1fa316cd
+--- /dev/null
++++ b/src/management/workshop_aid.js
+@@ -0,0 +1,59 @@
++import {I,K,command,eq,gte,all,any,not,af,item,money,coins,stamina,transfer,know,contact,purse,owned,relationship} from './shared.js';
++
++const P = 'actor.mg.';
++const bramOrder = 'mg07.bram.order';
++const bramDelivery = 'mg07.bram.delivery';
++const selaTerms = 'mg08.sela.terms';
++const selaWork = 'mg08.sela.work';
++const selaSettlement = 'mg08.sela.loan.settlement';
++const selaExtension = 'mg08.sela.loan.extension';
++const termsSeen = eq('knowledge.mg.sela.aid_request.seen');
++const aidChosen = any(eq(`${P}selaAidTerms`,'loan'),eq(`${P}selaAidTerms`,'gift'),eq(`${P}selaAidTerms`,'refused'));
++
++export const commands = [
++    command({id:'mg.workshop.bram_ordinary',family:'MG07',label:'Accept Bram’s ordinary crate order · 2 logs + 2 stamina + 4 min',description:'Accept Bram’s one finite ordinary-crate commission. Work two actual logs at the shared bench; the finished crate pays six coins from Bram’s purse when delivered. The order can be cancelled with its reserved inputs refunded.',targetId:I.bram,coLocated:true,participants:['$target'],claim:bramOrder,
++        support:contact(I.bram),requires:all(contact(I.bram),owned('Rough wood log'),gte('vital.stamina',2)),duration:4,siteId:I.bench,
++        costs:[item(K.log,-2),stamina(-2)],effects:[item(K.crate,1),af('bramOrder','ordinary'),af('bramOrderDelivered',false),know('bram.order','Accepted and completed Bram’s one ordinary-crate order at the shared bench. Two actual logs made one Courtyard wood crate; delivery is still required for the quoted six-coin payment.',I.bram)]}),
++
++    command({id:'mg.workshop.bram_careful',family:'MG07',label:'Accept Bram’s careful fine-crate order · 3 logs + 3 stamina + 8 min',description:'Accept Bram’s one finite careful-work commission. Use three actual logs and more stamina at the shared bench; the finished fine crate pays ten coins from Bram’s purse when delivered. The order can be cancelled with its reserved inputs refunded.',targetId:I.bram,coLocated:true,participants:['$target'],claim:bramOrder,
++        support:contact(I.bram),requires:all(contact(I.bram),owned('Rough wood log'),gte('vital.stamina',3)),duration:8,siteId:I.bench,
++        costs:[item(K.log,-3),stamina(-3)],effects:[item(K.fine,1),af('bramOrder','careful'),af('bramOrderDelivered',false),know('bram.order','Accepted and completed Bram’s one careful fine-crate order at the shared bench. Three actual logs made one Fine courtyard crate; delivery is still required for the quoted ten-coin payment.',I.bram)]}),
++
++    command({id:'mg.workshop.deliver_bram_ordinary',family:'MG07',label:'Deliver the ordinary crate to Bram · receive 6 coins',description:'Transfer the actual Courtyard wood crate to Bram. He pays six coins from his finite purse once for the accepted order.',targetId:I.bram,coLocated:true,participants:['$target'],claim:bramDelivery,
++        visibleWhen:all(eq(`${P}bramOrder`,'ordinary'),eq(`${P}bramOrderDelivered`,false)),support:all(contact(I.bram),purse(I.bram,6)),requires:all(eq(`${P}bramOrder`,'ordinary'),owned('Courtyard wood crate')),
++        costs:[transfer(K.crate,1,'player',I.bram)],effects:[coins(-6,I.bram),money(6),af('bramOrderDelivered',true),know('bram.delivery','Delivered the actual ordinary Courtyard wood crate to Bram. Six coins moved from his finite purse once for this accepted order.',I.bram),relationship(I.bram,1)]}),
++
++    command({id:'mg.workshop.deliver_bram_careful',family:'MG07',label:'Deliver the fine crate to Bram · receive 10 coins',description:'Transfer the actual Fine courtyard crate to Bram. He pays ten coins from his finite purse once for the accepted order.',targetId:I.bram,coLocated:true,participants:['$target'],claim:bramDelivery,
++        visibleWhen:all(eq(`${P}bramOrder`,'careful'),eq(`${P}bramOrderDelivered`,false)),support:all(contact(I.bram),purse(I.bram,10)),requires:all(eq(`${P}bramOrder`,'careful'),owned('Fine courtyard crate')),
++        costs:[transfer(K.fine,1,'player',I.bram)],effects:[coins(-10,I.bram),money(10),af('bramOrderDelivered',true),know('bram.delivery','Delivered the actual Fine courtyard crate to Bram. Ten coins moved from his finite purse once for this accepted order.',I.bram),relationship(I.bram,1)]}),
++
++    command({id:'mg.aid.sela_request',family:'MG08',label:'Hear Sela’s request for help',description:'Sela explains that she needs eight coins for a local expense. Choose a finite loan, a gift with no collectible debt, or refusal. No option changes until you choose.',targetId:I.sela,coLocated:true,participants:['$target'],claim:'mg08.sela.request',
++        support:contact(I.sela),effects:[af('selaAidTerms','pending'),af('selaDebtOutstanding',false),af('selaLoanExtended',false),af('selaWorkReady',false),af('selaWorkPaid',false),know('sela.aid_request','Sela needs eight coins for a local expense. A loan creates only an eight-coin principal claim; a gift creates no debt; refusal changes no money or obligation.',I.sela)]}),
++
++    command({id:'mg.aid.lend_sela',family:'MG08',label:'Lend Sela 8 coins · principal due after useful work',description:'Transfer eight actual coins to Sela as a finite loan. She can repay the same principal only after completing and delivering Mira’s funded work commission. There is no timer or automatic interest.',targetId:I.sela,coLocated:true,participants:['$target'],claim:selaTerms,
++        visibleWhen:all(termsSeen,eq(`${P}selaAidTerms`,'pending')),support:contact(I.sela),requires:all(termsSeen,eq(`${P}selaAidTerms`,'pending')),costs:[money(-8)],effects:[coins(8,I.sela),af('selaAidTerms','loan'),af('selaDebtOutstanding',true),know('sela.aid_terms','Chose an eight-coin loan. Sela received the actual coins; the same principal is collectible only after her useful commissioned work pays her.',I.sela)]}),
++
++    command({id:'mg.aid.gift_sela',family:'MG08',label:'Give Sela 8 coins · no debt',description:'Transfer eight actual coins to Sela as a gift. It records gratitude, not a loan, and creates no collectible debt.',targetId:I.sela,coLocated:true,participants:['$target'],claim:selaTerms,
++        visibleWhen:all(termsSeen,eq(`${P}selaAidTerms`,'pending')),support:contact(I.sela),requires:all(termsSeen,eq(`${P}selaAidTerms`,'pending')),costs:[money(-8)],effects:[coins(8,I.sela),af('selaAidTerms','gift'),af('selaDebtOutstanding',false),know('sela.aid_terms','Gave Sela eight actual coins as a gift. No principal, repayment claim or collectible debt exists.',I.sela),relationship(I.sela,1)]}),
++
++    command({id:'mg.aid.refuse_sela',family:'MG08',label:'Decline Sela’s request',description:'Refuse without changing either purse or creating an obligation. Sela may still take Mira’s finite work commission.',targetId:I.sela,coLocated:true,participants:['$target'],claim:selaTerms,
++        visibleWhen:all(termsSeen,eq(`${P}selaAidTerms`,'pending')),support:contact(I.sela),requires:all(termsSeen,eq(`${P}selaAidTerms`,'pending')),effects:[af('selaAidTerms','refused'),af('selaDebtOutstanding',false),know('sela.aid_terms','Declined Sela’s request. No money moved and no obligation was created.',I.sela),relationship(I.sela,-1)]}),
++
++    command({id:'mg.aid.extend_sela_loan',family:'MG08',label:'Accept Sela’s one repayment extension · no added money',description:'Sela asks to extend the same eight-coin principal until after Mira’s funded commission. Record her explicit consent and the unchanged amount; no coins move and no interest is added.',targetId:I.sela,coLocated:true,participants:['$target'],claim:selaExtension,
++        visibleWhen:all(eq(`${P}selaAidTerms`,'loan'),not(eq(`${P}selaLoanExtended`,true)),eq(`${P}selaDebtOutstanding`,true)),support:contact(I.sela),
++        requires:all(eq(`${P}selaAidTerms`,'loan'),eq(`${P}selaLoanExtended`,false),eq(`${P}selaDebtOutstanding`,true)),
++        effects:[af('selaLoanExtended',true),know('sela.loan_extension','Sela consented to one extension of the same eight-coin principal until after her funded work. No new money, interest or larger claim was added.',I.sela)]}),
++
++    command({id:'mg.aid.mira_funded_work',family:'MG08',label:'Complete Mira’s funded crate commission · 2 logs + 2 stamina + 5 min',description:'Use two actual logs at the shared bench to make one real Courtyard wood crate for Mira. The reserved materials return if cancelled or if either named person withdraws support; delivery pays Sela’s finite wage from Mira’s purse.',targetId:I.mira,coLocated:true,participants:['$target',I.sela],claim:selaWork,
++        support:all(contact(I.mira),contact(I.sela)),requires:all(aidChosen,owned('Rough wood log'),gte('vital.stamina',2)),duration:5,siteId:I.bench,
++        visibleWhen:all(aidChosen,eq(`${P}selaWorkReady`,false),eq(`${P}selaWorkPaid`,false)),costs:[item(K.log,-2),stamina(-2)],effects:[item(K.crate,1),af('selaWorkReady',true),know('sela.work_order','Completed one real Mira-funded crate commission for Sela at the shared bench. Two actual logs produced one actual crate; Mira’s finite wage is paid to Sela only when the crate is delivered.',I.mira)]}),
++
++    command({id:'mg.aid.deliver_mira_work',family:'MG08',label:'Deliver Sela’s crate to Mira · 10 coins to Sela, 2 to you',description:'Transfer the actual Courtyard wood crate to Mira. Her purse pays Sela a ten-coin wage and pays you two coins for the supplied work; both payments happen once with delivery.',targetId:I.mira,coLocated:true,participants:['$target',I.sela],claim:'mg08.sela.work.delivery',
++        visibleWhen:eq(`${P}selaWorkReady`,true),support:all(contact(I.mira),contact(I.sela),purse(I.mira,12)),requires:all(eq(`${P}selaWorkReady`,true),owned('Courtyard wood crate')),
++        costs:[transfer(K.crate,1,'player',I.mira)],effects:[coins(-12,I.mira),coins(10,I.sela),money(2),af('selaWorkReady',false),af('selaWorkPaid',true),know('sela.work_paid','Delivered the actual crate to Mira. Twelve coins left her finite purse: ten went to Sela as wages and two to you for the work.',I.mira),relationship(I.sela,1)]}),
++
++    command({id:'mg.aid.repay_sela_loan',family:'MG08',label:'Collect Sela’s 8-coin loan principal',description:'After Sela’s completed useful commission, collect the original eight-coin principal from her actual purse. The settlement closes once; no gift or refusal can be collected.',targetId:I.sela,coLocated:true,participants:['$target'],claim:selaSettlement,
++        visibleWhen:all(eq(`${P}selaAidTerms`,'loan'),eq(`${P}selaDebtOutstanding`,true),eq(`${P}selaWorkPaid`,true)),support:all(contact(I.sela),purse(I.sela,8)),
++        requires:all(eq(`${P}selaAidTerms`,'loan'),eq(`${P}selaDebtOutstanding`,true),eq(`${P}selaWorkPaid`,true)),costs:[coins(-8,I.sela)],
++        effects:[money(8),{type:'claim',operation:'settle',key:selaSettlement},af('selaDebtOutstanding',false),know('sela.loan_settlement','Collected the original eight-coin loan principal from Sela’s actual purse after her completed useful work. The claim is settled and cannot be collected again.',I.sela),relationship(I.sela,1)]}),
++];

@@ -1,0 +1,61 @@
+{
+  "date_local": "2026-10-13",
+  "outputs": [
+    {
+      "path": "docs/research/game-research-adoption-audit-2026-10-13/ADOPTION.md",
+      "sha256": "3987287db7bd9fba2758ccfde06d4a92b414633c377f47405ed708fbab8a9975",
+      "bytes": 12520
+    },
+    {
+      "path": "docs/research/game-research-adoption-audit-2026-10-13/CHECKPOINT.md",
+      "sha256": "8423a5da26e64613ed96de6aa201f8f161aadac9c1ac4f54c0dfc46e38ee68dd",
+      "bytes": 2414
+    },
+    {
+      "path": "docs/research/game-research-adoption-audit-2026-10-13/GAPS_AND_TOOLS.md",
+      "sha256": "b07ebd1ff6cf091a0408442dcbb76ac95e7380213c493e0852ec1e9e50d530ad",
+      "bytes": 13751
+    },
+    {
+      "path": "docs/research/game-research-adoption-audit-2026-10-13/INPUTS.json",
+      "sha256": "8f0592889e44166247b36f9575b6ac5f02eb6e40ec0943de920640c1743de3f7",
+      "bytes": 15168
+    },
+    {
+      "path": "docs/research/game-research-adoption-audit-2026-10-13/INVENTORY.json",
+      "sha256": "a060eb13fd9a26818363179606e56f7179be35d15423b964da454754ac8364c1",
+      "bytes": 631585
+    },
+    {
+      "path": "docs/research/game-research-adoption-audit-2026-10-13/INVENTORY.md",
+      "sha256": "59f6fd89ff40941e3c745de6c8d2f25deb2d97ee92dbf34c3453123644810b86",
+      "bytes": 14570
+    },
+    {
+      "path": "docs/research/game-research-adoption-audit-2026-10-13/PACKETS.md",
+      "sha256": "7e6465f00302e1948631308c20a46a3164f01cca515199433e342389675564ae",
+      "bytes": 12995
+    },
+    {
+      "path": "docs/research/game-research-adoption-audit-2026-10-13/PRIVATE_EVIDENCE_CHECKS.json",
+      "sha256": "cd55d850867affac80b8156644597fd52a398020c1d236bc62043d5628753b9e",
+      "bytes": 774
+    },
+    {
+      "path": "docs/research/game-research-adoption-audit-2026-10-13/REPORT.md",
+      "sha256": "15bafb78c00badf4e4ae48d4efab3658b8e76a8069764af5ab46237e2056c5cf",
+      "bytes": 9851
+    },
+    {
+      "path": "docs/research/game-research-adoption-audit-2026-10-13/UPSTREAM.json",
+      "sha256": "285f2f050d72755aef51573c5cf944c2b83ccd3e2a59fbe783e28953aba080eb",
+      "bytes": 1619
+    },
+    {
+      "path": "docs/research/game-research-adoption-audit-2026-10-13/VALIDATION.json",
+      "sha256": "fa2e1345b858ed8fc0813d9c6c3c8ae64aa37f651187478ab5cfc010bea50ec9",
+      "bytes": 886
+    }
+  ],
+  "gate": "audit complete; packets not run"
+}

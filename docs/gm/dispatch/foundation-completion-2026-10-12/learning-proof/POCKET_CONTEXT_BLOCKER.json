@@ -1,0 +1,23 @@
+{
+  "status": "failed-native-source-seam",
+  "runnerPid": 42002,
+  "runnerSession": 75848,
+  "origin": "http://127.0.0.1:18643",
+  "process": "clean STOP exit0",
+  "servedHash": "21eedf8476a91a867ef91b997889cf02fefdb2f653bd613b80680029328fa3f1",
+  "save": "/tmp/yairpg-foundation-learning-worker-pocket-open-blocker.json",
+  "saveSha256": "9785c3d2d2af8e97f4a83608afbc41c2d0ccf9de51d1d0886dec1d8369d5ce46",
+  "clock": 11585,
+  "sequence": 1173,
+  "location": "Village",
+  "error": "Cannot read properties of undefined (reading worldId)",
+  "nativeTrigger": "actual Iona purchased instruction/received lead then actual one-coin pocket.open",
+  "firstObservedAfterCommand": "pocket.open",
+  "sourceLocatorHypothesis": "main.js simulationContexts unguarded expansionState.actors[id].worldId around723, optional caretaker context before caretaker introduction",
+  "owner": "root sole shared source integrator",
+  "sharedEdits": false,
+  "rainStarted": false,
+  "learningStarted": false,
+  "positiveOrder": "Root D1 player first measured notch; actual resample/remeasure; Neri independent lesson/product/crop cover",
+  "nextAction": "Root repair and rebuild; reload exact actual blocker save, verify resumed clock and zero page errors; run PLAYER_WORKFLOW.json real button workflow."
+}

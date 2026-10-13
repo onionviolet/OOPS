@@ -1,0 +1,138 @@
+{
+  "state": "all12 completed compiled-runtime slices pass; current source/build destination mismatch still requires root reconciliation",
+  "bundle": "a4e84278059a711738b9149a331f916496dee79140384c021e11052187baef26",
+  "origin": "http://127.0.0.1:18680",
+  "source": "/Users/weiwei/code/yet-another-idle-rpg",
+  "inputs": "G5_SHARED_INPUTS.json",
+  "compiledSourceBinding": "G5_SOURCE_BUILD_BINDING.json",
+  "results": {
+    "LAPTOP_JOURNEY.json": {
+      "path": "/Users/weiwei/.codex/candidates/yairpg-laptop-customization-2026-10-12/g5/evidence/LAPTOP_JOURNEY.json",
+      "sha256": "e35a567030f9acc9f047b46ecf8b7874f2559d287360b0514bcafa8e928bd0d1",
+      "checks": null,
+      "errors": [],
+      "generated": true
+    },
+    "LAPTOP_INSPECTION.json": {
+      "path": "/Users/weiwei/.codex/candidates/yairpg-laptop-customization-2026-10-12/g5/evidence/LAPTOP_INSPECTION.json",
+      "sha256": "50082bf69f3db3a936c9d96e0255a14fa342536e2fe4c9040c89b84703a96f76",
+      "checks": "six measured play/editor views",
+      "errors": null,
+      "generated": true
+    },
+    "EDITOR_CRAFT_RESULT.json": {
+      "path": "/Users/weiwei/.codex/candidates/yairpg-laptop-customization-2026-10-12/g5/evidence/EDITOR_CRAFT_RESULT.json",
+      "sha256": "51aec95a20099690b39ec9e6944657e4b5fb108909681f3a1a155fa9a24d69b9",
+      "checks": [
+        "Shared split draft/target switching and partial inheritance; effect-side Apply saves appearance edits",
+        "Malformed profile import rejected, valid draft import/export and cross-surface Discard connected",
+        "Labeled receipt preview/cancel has no gameplay receipt or reward",
+        "Separate native rule Apply/Discard/export and malformed rejection",
+        "Native commission/lease and actual edited +20 quality reaches real output/material debit; cancel/Exit and held-item comparison",
+        "Generated native save/reload/import retains profiles, rules, actual lease/output and receipts",
+        "Generated failed native write leaves applied profile intact and factual error reachable"
+      ],
+      "errors": [],
+      "generated": true
+    },
+    "COMBINED_THEME_RESULT.json": {
+      "path": "/Users/weiwei/.codex/candidates/yairpg-laptop-customization-2026-10-12/g5/evidence/COMBINED_THEME_RESULT.json",
+      "sha256": "8e4fd2898f5b62260c235a97764897dbfb6f0647aaec7c8723038d8e24b5452a",
+      "checks": [
+        "neutral: actual components/sample same known facts and native tab keyboard focus/selected states",
+        "arcane: actual components/sample same known facts and native tab keyboard focus/selected states",
+        "workshop: actual components/sample same known facts and native tab keyboard focus/selected states",
+        "28px/32px spacing explicit editor reflow, no numeric overlap or horizontal overflow;125% zoom and reachable Apply",
+        "Recover16px/default spacing and theme native save/reload"
+      ],
+      "errors": [],
+      "generated": true
+    },
+    "COMBINED_DECISIONS.json": {
+      "path": "/Users/weiwei/.codex/candidates/yairpg-laptop-customization-2026-10-12/g5/evidence/COMBINED_DECISIONS.json",
+      "sha256": "704582e26dbcda74bece5242e33a4e668f45139b3b0a438ffee0be87e03ecf11",
+      "checks": [
+        "Generated witnessed decision recovers hidden notebook from critical current-work link; real keyboard response resolves once through authoritative handler.",
+        "Generated response status survives actual save/reload/native file import without second response or payment.",
+        "Undiscovered generated decision contributes no waiting message or actor detail to current-work projection.",
+        "Discovered NPC-owned decision contributes no player waiting message/recovery link or event response controls."
+      ],
+      "errors": [],
+      "generated": true
+    },
+    "OLD_SAVE_RESULT.json": {
+      "path": "/Users/weiwei/.codex/candidates/yairpg-laptop-customization-2026-10-12/g5/evidence/OLD_SAVE_RESULT.json",
+      "sha256": "cb71447ef38bea67b4e2081ec74b4fac001a8ec935b55c1b2f45dd714f0f8446",
+      "checks": [
+        "Naturally earned predecessor schema1 WorkLedger migrates schema2, retains acquired lease/actual66-quality output and legacy off/margin; absent componentTheme normalizes neutral"
+      ],
+      "errors": [],
+      "generated": true
+    },
+    "POINTER_CRAFT_RESULT.json": {
+      "path": "/Users/weiwei/.codex/candidates/yairpg-laptop-customization-2026-10-12/g5/evidence/POINTER_CRAFT_RESULT.json",
+      "sha256": "5d8dc02dd7170c9a757af443aba5e60dd186c48621dc4b458269b3ce17e6c9bc",
+      "checks": [
+        "Actual Shift/header drag floats native local-actions during settled craft effect; actual pointer corner resize changes width; pulse follows real recipe bounds; native Cancel/Exit keep one receipt"
+      ],
+      "errors": [],
+      "generated": true
+    },
+    "combined-feedback/FINAL_SMOKE_RESULT.json": {
+      "path": "/Users/weiwei/.codex/candidates/yairpg-laptop-customization-2026-10-12/g5/evidence/combined-feedback/FINAL_SMOKE_RESULT.json",
+      "sha256": "f1c1514ef07e09c56517dbf46bfda488ec0fbe78a4dea738604e9433c5fb8df2",
+      "checks": [
+        "actual generated native craft output, offered ledger unchanged, one durable receipt per craft, saved/reloaded/exported/imported without duplication",
+        "actual craft full/plain=false/static=false/systemReduce=false: quiet, history, cancellation, repeat, hidden, moving/resizing anchors; gesture audio technical consumer where enabled"
+      ],
+      "errors": [],
+      "generated": true
+    },
+    "combined-feedback/F7_BROWSER_RESULT.json": {
+      "path": "/Users/weiwei/.codex/candidates/yairpg-laptop-customization-2026-10-12/g5/evidence/combined-feedback/F7_BROWSER_RESULT.json",
+      "sha256": "aba7de018125be7990bf3b82a981789519edd7c08b35681c3151f67702c8d9ea",
+      "checks": [
+        "actual synthetic schema2 adapter begin/immediate settlement/reserved timed work/cancel refund/played-clock settlement; one resource completion and no native money reward",
+        "quoted time/input/blocker/control card identity survives actual clock/command updates; unknown-away place texture suppressed",
+        "actual schema1 adapter immediate/running/away paused/reenter/settled counter; no invented native pay/item"
+      ],
+      "errors": [],
+      "generated": true
+    },
+    "combined-feedback/STATUS_RESULT.json": {
+      "path": "/Users/weiwei/.codex/candidates/yairpg-laptop-customization-2026-10-12/g5/evidence/combined-feedback/STATUS_RESULT.json",
+      "sha256": "e91e39b99e446c164e5566cf036a9a4836d066ad00880c86b3173ae33ddc3f3f",
+      "checks": [
+        "actual native patrol start/early stop, truthful full-round condition, no payout; saved running job reload retains Stop and accrued-pay labels",
+        "explicit generated full-round accrued-pay fixture stops and pays exactly50 coins; natural round pacing not claimed"
+      ],
+      "errors": [],
+      "generated": true
+    },
+    "combined-feedback/FAILED_WRITE_RESULT.json": {
+      "path": "/Users/weiwei/.codex/candidates/yairpg-laptop-customization-2026-10-12/g5/evidence/combined-feedback/FAILED_WRITE_RESULT.json",
+      "sha256": "ef4f7447df4b5309ae833c0f638b80400f89e11b019b18e927287858ba108961",
+      "checks": [
+        "synthetic native craft receipt write failure shows exact failure text, no settled overlay and no saved receipt"
+      ],
+      "errors": null,
+      "generated": true
+    },
+    "combined-feedback/AUDIO_GESTURE_RESULT.json": {
+      "path": "/Users/weiwei/.codex/candidates/yairpg-laptop-customization-2026-10-12/g5/evidence/combined-feedback/AUDIO_GESTURE_RESULT.json",
+      "sha256": "5a775248444ddbc16d26b9fd3faf0f285b25ed62fef22b06e08c3c804194fda4",
+      "checks": [
+        "actual native recipe click resumes AudioContext; settled receipt sends one restrained oscillator to running default destination"
+      ],
+      "errors": null,
+      "generated": true
+    }
+  },
+  "limits": [
+    "Generated fixtures prove named behavior, not natural acquisition/new full pacing.",
+    "Director taste and audible comfort remain human-only.",
+    "Existing in-memory crafting rollback on failed envelope was not added or claimed.",
+    "Retained isolated mode matrix applies only unchanged input-bound effect code; full shared smoke requalifies consumer join."
+  ],
+  "receiptAssemblyCorrection": "First assembly assumed LAPTOP_INSPECTION was object; it is a six-view list. No partial receipt saved; corrected parser preserves layout assertions."
+}

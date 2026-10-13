@@ -1,0 +1,105 @@
+{
+  "schema": "world1-function-proof-1",
+  "status": "connected function slice native evidence; final edition still open",
+  "naturalJourney": {
+    "status": "PASS",
+    "naturalWallMs": 29400,
+    "fixtureEnrichment": false,
+    "bundleSha256": "865d58d4256f938ca8e2bcdad46fb097642bbab0b7a045dade768450e53e1354",
+    "details": []
+  },
+  "nativeCases": [
+    {
+      "id": "function-finish-reload-import",
+      "status": "PASS"
+    },
+    {
+      "id": "function-store_vial01-reload-import",
+      "status": "PASS"
+    },
+    {
+      "id": "function-committed-absent-restored",
+      "status": "PASS"
+    },
+    {
+      "id": "function-committed-malformed-restored",
+      "status": "PASS"
+    },
+    {
+      "id": "function-ordinary-alternative",
+      "status": "PASS"
+    },
+    {
+      "id": "function-absent-source-retains-stock",
+      "status": "PASS"
+    },
+    {
+      "id": "function-absent-fuel-retains-stock",
+      "status": "PASS"
+    },
+    {
+      "id": "function-absent-channel-retains-stock",
+      "status": "PASS"
+    },
+    {
+      "id": "function-outside-service-window-continues-while-stock-stored",
+      "status": "PASS"
+    },
+    {
+      "id": "function-practice-cancel-retains-stored-weight",
+      "status": "PASS"
+    },
+    {
+      "id": "function-practice-lost-teacher-refunds-no-development",
+      "status": "PASS"
+    },
+    {
+      "id": "function-no-duplicate-stored-unit",
+      "status": "PASS"
+    },
+    {
+      "id": "function-already-expired-native-store-retrieve",
+      "status": "PASS"
+    },
+    {
+      "id": "function-write-refused-open",
+      "status": "PASS"
+    },
+    {
+      "id": "function-write-refused-store_vial01",
+      "status": "PASS"
+    },
+    {
+      "id": "function-write-refused-retrieve_vial01",
+      "status": "PASS"
+    },
+    {
+      "id": "function-generated-incapacitation-retains-stock",
+      "status": "PASS"
+    }
+  ],
+  "passed": 17,
+  "failed": 0,
+  "sourceTests": {
+    "pass": 371,
+    "fail": 0
+  },
+  "focusedTests": {
+    "pass": 46,
+    "fail": 0
+  },
+  "ordinaryRegression": "rebuilt current natural ordinary slice PASS",
+  "sourceReview": "five independent specific findings repaired; final bounded read-only review no remaining prior finding",
+  "scope": "provisional function origin only; final two beginnings/random/renewal and full final joins open",
+  "unexercised": [
+    "Actual native combat knockout with live access refusal/recovery: generated zero-health reload restores health to1, so its refusal assertion cannot establish this; generated simulation incapacitation persistence/refusal PASS",
+    "Final-origin function-development and renewed continuing-job consumer",
+    "Full final observer surfaces and joins"
+  ],
+  "harnessCorrections": "wrong unit ID fixed in content; original failed receipts retained. Expired target command requires recipient introduction; write-failure notice uses native full-storage text; earlier weight frame was overwritten by later open frame. Corrected harness cases pass without forced renderer or direct caller.",
+  "privateEvidenceOwner": "/Users/weiwei/.codex/worktrees/world1-completion/yet-another-idle-rpg/docs/research/novels/world-depth-2026-10-11/continuation",
+  "mixedComparator": "PASS current broader provenance rebuild;17P1native regressions PASS after owned inventory parking repair",
+  "latestRestoration": "4PASS final owner/item identity guard build",
+  "nativeInputScopes": "Earlier unchanged function boundary cases and constructor proof retain exact earlier inputs; latest natural/restoration final bundle qualification is explicit",
+  "currentNatural": "PASS final rebuilt source, bundle fingerprint included; no enrichment"
+}

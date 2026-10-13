@@ -1,0 +1,59 @@
+{
+  "candidate": "/Users/weiwei/.codex/candidates/yairpg-ui-modularity-2026-10-11",
+  "frozenBaseline": "/Users/weiwei/.codex/candidates/yairpg-ui-baseline-1920-2026-10-11",
+  "paths": {
+    "src/workspace_layout.js": {
+      "baseline": "51cd3ea7948cc7934a475b51401847a5828fc1fbbbfd76e01e2198d55d057f82",
+      "candidate": "ffb1cad8beb7ba371393b514ba0701f02e7774f7944a8c3cd1be36d90f4d3ac1",
+      "currentShared": null
+    },
+    "src/workspace_state.js": {
+      "baseline": "89e48289455440097236ca73ce6badb6fe63004be797578f95384024f22c1c89",
+      "candidate": "22e824b8e6695d9749485223ff5a35ad8ae3d14273ad347eaf6baa4c5a12260c",
+      "currentShared": null
+    },
+    "styles/workspace.css": {
+      "baseline": "bd630dc5303acefb5ddfa0c9482626cf5bef56802f25a0c81ed9d1a7464ea17f",
+      "candidate": "e867eda204c907bbe11a204d83fc7ccf6e76f36efdb5f8a74c328ab61d9ec639",
+      "currentShared": null
+    },
+    "tests/workspace_state.test.js": {
+      "baseline": "e91548d5cc79059809be5460b596972af51506e1effe93bc4eb81fea907fa774",
+      "candidate": "aed6fb3d40b8364891918127304d105e8f33da99c5ab3483285fd4a5fb8122e1",
+      "currentShared": null
+    },
+    "scripts/ui_1920_redesign.cjs": {
+      "baseline": null,
+      "candidate": "4d505ff7af87949bddc0fac66b1512dc27553b85ac8f82a752b389705a003e86",
+      "currentShared": null
+    },
+    "scripts/ui_1920_gameplay.cjs": {
+      "baseline": null,
+      "candidate": "6a195c3c0b65d011ab970ada90c500f51862986cdd159d2949b0ae8b8f6ac2cb",
+      "currentShared": null
+    },
+    "scripts/ui_1920_decisions.cjs": {
+      "baseline": null,
+      "candidate": "5c0af5f1e295e538de6c53ba0e25d7d68ce4642c4ca463c1be342e50c7000dfb",
+      "currentShared": null
+    },
+    "scripts/ui_1920_comparison.cjs": {
+      "baseline": null,
+      "candidate": "df38d890453846dc2cb6b3aa1790d0560d3c0a3693188abb62df3a1e40dce4f7",
+      "currentShared": null
+    },
+    "scripts/ui_1920_touch.cjs": {
+      "baseline": null,
+      "candidate": "d96c132ba5c4f131ee1e7f929c6e16a00bff22d68cd8930e905c767f1f4d09b8",
+      "currentShared": null
+    }
+  },
+  "bundleSha256": "598f67420c6eb2122f2abc7a7e65d051d1625064ecbfe2c397154d7c020ee155",
+  "indexSha256": "485eea8709fa74f1181654433aaba1114a05a70e65b9bbf2a54b0d05d9cdad49",
+  "originalDelta": "../candidate/UI.patch",
+  "integrationOrder": [
+    "Reconcile original UI.patch against current shared source, especially main/index and pack hosts.",
+    "Apply REDESIGN.patch over reconciled UI source, rebuild and run combined source plus fresh shared-origin browser gate."
+  ],
+  "scope": "Presentation and proof scripts; no gameplay save schema or gameplay clock change."
+}

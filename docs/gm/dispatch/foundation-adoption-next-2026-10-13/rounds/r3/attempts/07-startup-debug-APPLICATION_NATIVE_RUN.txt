@@ -1,0 +1,26 @@
+locator.click: Timeout 15000ms exceeded.
+Call log:
+[2m  - waiting for locator('[data-action-legibility-key="action:feature_battle.start"]').locator('button.action-legibility__button').first()[22m
+[2m    - locator resolved to <button type="button" aria-disabled="false" class="action-legibility__button" aria-describedby="al-feature-mature_native_battle-feature_battle.start-costs">Do this: Challenge the sluice claim · 1 stamina</button>[22m
+[2m  - attempting click action[22m
+[2m    - waiting for element to be visible, enabled and stable[22m
+[2m    - element is visible, enabled and stable[22m
+[2m    - scrolling into view if needed[22m
+[2m    - done scrolling[22m
+[2m    - performing click action[22m
+
+    at action (/Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/foundation-adoption-next-2026-10-13/rounds/r3/application-native.cjs:21:579)
+    at async /Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/foundation-adoption-next-2026-10-13/rounds/r3/application-native.cjs:49:2 {
+  log: [
+    `  - waiting for locator('[data-action-legibility-key="action:feature_battle.start"]').locator('button.action-legibility__button').first()`,
+    '    - locator resolved to <button type="button" aria-disabled="false" class="action-legibility__button" aria-describedby="al-feature-mature_native_battle-feature_battle.start-costs">Do this: Challenge the sluice claim · 1 stamina</button>',
+    '  - attempting click action',
+    '    - waiting for element to be visible, enabled and stable',
+    '    - element is visible, enabled and stable',
+    '    - scrolling into view if needed',
+    '    - done scrolling',
+    '    - performing click action'
+  ],
+  name: 'TimeoutError'
+}
+{"status":"FAIL","checks":{"exactEarnedApplicationLiteralRestoration":true},"failure":"locator.click: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('[data-action-legibility-key=\"action:feature_battle.start\"]').locator('button.action-legibility__button').first()\u001b[22m\n\u001b[2m    - locator resolved to <button type=\"button\" aria-disabled=\"false\" class=\"action-legibility__button\" aria-describedby=\"al-feature-mature_native_battle-feature_battle.start-costs\">Do this: Challenge the sluice claim · 1 stamina</button>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m    - element is visible, enabled and stable\u001b[22m\n\u001b[2m    - scrolling into view if needed\u001b[22m\n\u001b[2m    - done scrolling\u001b[22m\n\u001b[2m    - performing click action\u001b[22m\n\n    at action (/Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/foundation-adoption-next-2026-10-13/rounds/r3/application-native.cjs:21:579)\n    at async /Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/foundation-adoption-next-2026-10-13/rounds/r3/application-native.cjs:49:2"}

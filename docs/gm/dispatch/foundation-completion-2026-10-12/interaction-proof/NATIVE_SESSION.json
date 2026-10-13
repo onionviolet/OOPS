@@ -1,0 +1,56 @@
+{
+  "pid": 59143,
+  "origin": "http://127.0.0.1:18645",
+  "startedHash": "a4e84278059a711738b9149a331f916496dee79140384c021e11052187baef26",
+  "endedHash": "a4e84278059a711738b9149a331f916496dee79140384c021e11052187baef26",
+  "events": [
+    {
+      "action": "failClick",
+      "selector": "[data-foundation-probe=enroll]"
+    },
+    {
+      "action": "save",
+      "name": "enrolled"
+    },
+    {
+      "action": "reload"
+    },
+    {
+      "action": "click",
+      "selector": "[data-foundation-probe=enroll]"
+    },
+    {
+      "action": "save",
+      "name": "enrolled"
+    },
+    {
+      "action": "click",
+      "selector": "[data-foundation-probe=\"foundation.probe.a.barrier.p-a\"]"
+    },
+    {
+      "action": "click",
+      "selector": "[data-foundation-probe=\"foundation.probe.b.attack\"]"
+    },
+    {
+      "action": "click",
+      "selector": "[data-foundation-probe=\"foundation.probe.b.aid\"]"
+    },
+    {
+      "action": "click",
+      "selector": "[data-foundation-probe=\"foundation.probe.b.s1\"]"
+    },
+    {
+      "action": "click",
+      "selector": "[data-foundation-probe=\"foundation.probe.b.s2\"]"
+    },
+    {
+      "action": "click",
+      "selector": "[data-foundation-probe=\"foundation.probe.b.attack\"]"
+    },
+    {
+      "action": "save",
+      "name": "mid-suppression"
+    }
+  ],
+  "errors": []
+}

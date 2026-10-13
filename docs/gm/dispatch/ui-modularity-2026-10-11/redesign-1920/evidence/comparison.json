@@ -1,0 +1,14 @@
+{
+  "build": "http://127.0.0.1:18571/dist/bundle.js?version=v0.6-598f67420c6e",
+  "generatedHeldVariants": true,
+  "checks": [
+    "Two actually held native quality variants shown side by side via existing actor-qualified comparison while native work runs.",
+    "Keyboard dock reorder and lower edge resize change useful table area."
+  ],
+  "bounds": {
+    "x": 1350,
+    "y": 60.390625,
+    "width": 560,
+    "height": 337.375
+  }
+}

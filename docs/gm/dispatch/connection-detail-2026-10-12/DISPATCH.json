@@ -1,0 +1,13 @@
+{
+  "status": "dispatched",
+  "input": "docs/gm/MICRO_MESO_MACRO_IMPLEMENTATION_SUPPORT.md",
+  "inputSha256": "47ed79e22d512a5e2a5914a7bb5d8f140a1349298c46fd37990b68e5361d22d1",
+  "assignmentSha256": "b6f48d6f95b481db30e76cb3ca38ac1796973d38e1b88899aa99b55f8df606dc",
+  "gmOwns": "this folder except DISPATCH.json",
+  "dispatcherOwns": "DISPATCH.json",
+  "sourceChanges": false,
+  "threadId": "01a12e6b-3e4b-7e13-9ec3-cdd0a37ceb89",
+  "hostId": "local",
+  "title": "Micro, middle and macro connection GM",
+  "ownershipTransfer": "Confirmed launch; GM exclusively owns folder except this file; dispatcher read-only elsewhere"
+}

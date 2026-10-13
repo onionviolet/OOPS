@@ -1,0 +1,55 @@
+{
+  "atUTC": "2026-10-13T06:34:25.400761+00:00",
+  "owner": "01a133d9-faa9-71a1-a513-7131efbc8613",
+  "head": "dd3efe3383f12f0aac22e4f390aae90fae2e7fc4",
+  "authority": "reservations/SHARED_TRANSFER.json",
+  "scope": "Eight inspected bounded files; no older whole tree/candidate copied",
+  "files": {
+    "src/agreed_duty_content.js": {
+      "before": "2364e9abf895cf36001dcf542a0213ca3c7fc0c4143d6b65906aab6fa1bbf91f",
+      "after": "b301f19de7f9be8bc28dfd8210957eff6163b6a40e8302a5d9e8920e1c538143"
+    },
+    "src/agreed_duty_facts.js": {
+      "before": "365e97051d4dda64e670152f2aca1b8de4edffd64f55819f0b9de3c5ba844354",
+      "after": "12f08f438f2484373a8a2eab86588a9af878666a968b92e1a2b37e8fa408fd80"
+    },
+    "src/agreed_duty_host.js": {
+      "before": "d9a685655a57e84641580c094c9a88f075ad4eb710de0f4afd65864a7665d9f0",
+      "after": "802b8c7b1f31ed4849f304253cfd2d59c541a99a06015b7c1972a0968cfe884e"
+    },
+    "src/feature_expansion_society.js": {
+      "before": "13a3a22fcb523ab5f145aab1e2381ea40211a327f322d121e9fe62d99a481e8f",
+      "after": "61bd64da05682002326a6d7ca50bff4f1675ea0fe9fe06ac340a84121a38cc95"
+    },
+    "src/agreed_duty_continuation.js": {
+      "before": null,
+      "after": "682ef12595d0db1572fe4a3f32189e942855c0f7b81c88a419b6fe1af6d188dc"
+    },
+    "src/simulation.js": {
+      "before": "554d12c0a0f30cf67b03e0381338e4258200902ccf991032c47c045a46665e99",
+      "after": "d56256a701b9190e4a143e63fea2cdcb7df3538dfe59aba9cfaef31544bee388"
+    },
+    "src/feature_expansion_host.js": {
+      "before": "7edd2edebb9b5e1b4dc95f9da7c24c1e30866ef702fa71e741ea4a136436f110",
+      "after": "4e74f6e7bf71ac184aed711df0dd7ad95775153d11b4aaed70b70bab3e7b20f4"
+    },
+    "tests/agreed_duty_continuation.test.js": {
+      "before": null,
+      "after": "fcfc30994b1fda0a9233fbcf86bffcc7129272ae5d6415866c10aac0afd69b8b"
+    }
+  },
+  "candidateBuildEmbargo": "Released by worker; frozen candidate rebuilt and matches proved cb0c bundle",
+  "status": "R1 technical PASS; final served binding in FINAL_BINDINGS.json",
+  "rebuilt": {
+    "dist/bundle.js": "414d064ca693185f5c40dc2523d022e33197a3340c1ab73ae55fd317f8b466c8",
+    "dist/bundle.js.map": "e656d7f2a85323893bac258867c4b96781d9cc1d54c19f3ae80dd4923daf0d08",
+    "index.html": "8d42ef9b9dd3a4c85af5e0c74dcaf91f0692264f5dd6631b958df23e7e028722",
+    "stories/feature_wave.json": "ffb07d934f656be98952aa2e3d181c585b3342090e1d033079dc819df311ac7c",
+    "stories/feature_wave.ink": "a4d470baa3ce27e44087bbf213a51cc9d98e8afeefd5a08bdd2bb54281785d8a",
+    "scripts/compile_feature_ink.mjs": "f3f9c2ca77440435431e8da55bedd5c42bad2ea01768a4b899a80173d4e75987"
+  },
+  "sourceChecks": "AFFECTED_TESTS.txt:70/70 on identical eight source/test paths; bounded independent review 12/12 new-consumer checks",
+  "servedSourceMapMatchCount": 439,
+  "proofHarnessSha256": "27d31e7b26db2f5a4a25504c48ae7a9e2e667d3d71aa9199bea21bd4d6fe73ed",
+  "intermediateBuildNote": "414d was intermediate; actual primary and secondary native proof use cb0c bundle"
+}

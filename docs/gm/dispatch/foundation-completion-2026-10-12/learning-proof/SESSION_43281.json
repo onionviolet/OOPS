@@ -1,0 +1,138 @@
+{
+  "pid": 43281,
+  "servedHash": "0e6d54c89228ace73ceaa6c964364a99eb13915fb66aa00f2838e4970470479b",
+  "origin": "http://127.0.0.1:18643",
+  "startedHash": "0e6d54c89228ace73ceaa6c964364a99eb13915fb66aa00f2838e4970470479b",
+  "endedHash": "0e6d54c89228ace73ceaa6c964364a99eb13915fb66aa00f2838e4970470479b",
+  "events": [
+    {
+      "workflowStep": {
+        "action": "click",
+        "selector": "#notebook_tab_here"
+      },
+      "index": 0,
+      "clock": 11628,
+      "sequence": 1218
+    },
+    {
+      "workflowStep": {
+        "action": "panel",
+        "selector": "#feature_expansion_panel"
+      },
+      "index": 1,
+      "clock": 11628,
+      "sequence": 1218
+    },
+    {
+      "workflowStep": {
+        "action": "panel",
+        "selector": "#feature_expansion_panel details:has(>summary:text-is(\"A dated warning and one physical rain\"))"
+      },
+      "index": 2,
+      "clock": 11628,
+      "sequence": 1218
+    },
+    {
+      "workflowStep": {
+        "action": "panel",
+        "selector": "#feature_expansion_panel details:has(>summary:text-is(\"A useful lens with a return obligation\"))"
+      },
+      "index": 3,
+      "clock": 11628,
+      "sequence": 1218
+    },
+    {
+      "workflowStep": {
+        "action": "panel",
+        "selector": "#feature_expansion_panel details:has(>summary:text-is(\"A taught procedure, useful material\"))"
+      },
+      "index": 4,
+      "clock": 11628,
+      "sequence": 1218
+    },
+    {
+      "workflowStep": {
+        "action": "panel",
+        "selector": "#feature_expansion_panel details:has(>summary:text-is(\"Home-world chapter & changed return\"))"
+      },
+      "index": 5,
+      "clock": 11628,
+      "sequence": 1218
+    },
+    {
+      "workflowStep": {
+        "action": "click",
+        "selector": "[data-action-legibility-key=\"action:lore.warning.begin\"] button",
+        "save": "worker-b1-warning-sample"
+      },
+      "index": 6,
+      "clock": 11629,
+      "sequence": 1220
+    },
+    {
+      "workflowStep": {
+        "action": "click",
+        "selector": "[data-action-legibility-key=\"action:world.completion.lens.measure_service_outside\"] button",
+        "save": "worker-b1-measure-accepted"
+      },
+      "index": 7,
+      "clock": 11630,
+      "sequence": 1222
+    },
+    {
+      "workflowStep": {
+        "action": "completed",
+        "id": "world.completion.lens.measure_service_outside",
+        "save": "worker-b1-measured"
+      },
+      "index": 8,
+      "clock": 11633,
+      "sequence": 1225
+    },
+    {
+      "workflowStep": {
+        "action": "click",
+        "selector": "[data-action-legibility-key=\"action:world.completion.learning.begin\"] button",
+        "save": "worker-b1-learning-terms"
+      },
+      "index": 9,
+      "clock": 11634,
+      "sequence": 1227
+    },
+    {
+      "failedWrite": {
+        "rejected": 1,
+        "unchanged": true,
+        "notice": ""
+      }
+    },
+    {
+      "workflowStep": {
+        "action": "failClick",
+        "selector": "[data-action-legibility-key=\"action:world.completion.learning.learn_player\"] button",
+        "save": "worker-b5-failed-write-preserved"
+      },
+      "index": 10,
+      "clock": 11634,
+      "sequence": 1227
+    },
+    {
+      "workflowStep": {
+        "action": "click",
+        "selector": "[data-action-legibility-key=\"action:world.completion.learning.learn_player\"] button",
+        "save": "worker-player-lesson-accepted"
+      },
+      "index": 11,
+      "clock": 11634,
+      "sequence": 1227
+    },
+    {
+      "error": "Actual native click committed no state: [data-action-legibility-key=\"action:world.completion.learning.learn_player\"] button; [\"This action could not be completed. Review the current requirements and try again.\"]"
+    },
+    {
+      "action": "save",
+      "name": "worker-player-retry-blocker"
+    }
+  ],
+  "errors": []
+}

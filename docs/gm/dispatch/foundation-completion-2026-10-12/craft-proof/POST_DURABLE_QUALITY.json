@@ -1,0 +1,15 @@
+{
+  "bundle": "6b3c8e392800cd43bfa850d314ae614cca7be3e26d6526a087af452c7d4d7a12",
+  "receipt": {
+    "id": "work-ledger:12:applied-assist",
+    "type": "applied-assist",
+    "motif": "guidance",
+    "actorId": "player",
+    "sequence": 12,
+    "text": "Your leased assist improved the quality of this native Short hilt.",
+    "before": 60,
+    "after": 80
+  },
+  "outputKey": "{\"id\":\"Simple wooden short handle\",\"quality\":80}",
+  "outputDelta": 1
+}

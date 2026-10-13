@@ -1,0 +1,503 @@
+{
+  "revision": "audit-journey-r1",
+  "stage": "planning qualification complete; source aggregate and runtime consumer gates open",
+  "candidateIds": [
+    "W1-ST03"
+  ],
+  "detailIds": [
+    "W1-J01",
+    "W1-J02",
+    "W1-J03",
+    "W1-J04",
+    "W1-J05",
+    "W1-J06",
+    "W1-J07",
+    "W1-J08",
+    "W1-J09",
+    "W1-J10",
+    "W1-J11",
+    "W1-J12",
+    "W1-J13",
+    "W1-J14",
+    "W1-J15",
+    "W1-J16",
+    "W1-J17",
+    "W1-J18"
+  ],
+  "counts": {
+    "selected_candidate": 1,
+    "functional_leaves": 18,
+    "specified_not_run_cases": 90,
+    "direct_bounded_source_receipts": 8,
+    "captured_sibling_rows": 11,
+    "adapter_boundaries": 5,
+    "bounded_packets": 2
+  },
+  "cases": [
+    {
+      "id": "W1-J01-P",
+      "status": "specified-not-run",
+      "criterion_location": "sealed owner"
+    },
+    {
+      "id": "W1-J01-N",
+      "status": "specified-not-run",
+      "criterion_location": "sealed owner"
+    },
+    {
+      "id": "W1-J01-K",
+      "status": "specified-not-run",
+      "criterion_location": "sealed owner"
+    },
+    {
+      "id": "W1-J01-S",
+      "status": "specified-not-run",
+      "criterion_location": "sealed owner"
+    },
+    {
+      "id": "W1-J02-P",
+      "status": "specified-not-run",
+      "criterion_location": "sealed owner"
+    },
+    {
+      "id": "W1-J02-N",
+      "status": "specified-not-run",
+      "criterion_location": "sealed owner"
+    },
+    {
+      "id": "W1-J02-K",
+      "status": "specified-not-run",
+      "criterion_location": "sealed owner"
+    },
+    {
+      "id": "W1-J02-S",
+      "status": "specified-not-run",
+      "criterion_location": "sealed owner"
+    },
+    {
+      "id": "W1-J03-P",
+      "status": "specified-not-run",
+      "criterion_location": "sealed owner"
+    },
+    {
+      "id": "W1-J03-N",
+      "status": "specified-not-run",
+      "criterion_location": "sealed owner"
+    },
+    {
+      "id": "W1-J03-K",
+      "status": "specified-not-run",
+      "criterion_location": "sealed owner"
+    },
+    {
+      "id": "W1-J03-S",
+      "status": "specified-not-run",
+      "criterion_location": "sealed owner"
+    },
+    {
+      "id": "W1-J04-P",
+      "status": "specified-not-run",
+      "criterion_location": "sealed owner"
+    },
+    {
+      "id": "W1-J04-N",
+      "status": "specified-not-run",
+      "criterion_location": "sealed owner"
+    },
+    {
+      "id": "W1-J04-K",
+      "status": "specified-not-run",
+      "criterion_location": "sealed owner"
+    },
+    {
+      "id": "W1-J04-S",
+      "status": "specified-not-run",
+      "criterion_location": "sealed owner"
+    },
+    {
+      "id": "W1-J05-P",
+      "status": "specified-not-run",
+      "criterion_location": "sealed owner"
+    },
+    {
+      "id": "W1-J05-N",
+      "status": "specified-not-run",
+      "criterion_location": "sealed owner"
+    },
+    {
+      "id": "W1-J05-K",
+      "status": "specified-not-run",
+      "criterion_location": "sealed owner"
+    },
+    {
+      "id": "W1-J05-S",
+      "status": "specified-not-run",
+      "criterion_location": "sealed owner"
+    },
+    {
+      "id": "W1-J06-P",
+      "status": "specified-not-run",
+      "criterion_location": "sealed owner"
+    },
+    {
+      "id": "W1-J06-N",
+      "status": "specified-not-run",
+      "criterion_location": "sealed owner"
+    },
+    {
+      "id": "W1-J06-K",
+      "status": "specified-not-run",
+      "criterion_location": "sealed owner"
+    },
+    {
+      "id": "W1-J06-S",
+      "status": "specified-not-run",
+      "criterion_location": "sealed owner"
+    },
+    {
+      "id": "W1-J07-P",
+      "status": "specified-not-run",
+      "criterion_location": "sealed owner"
+    },
+    {
+      "id": "W1-J07-N",
+      "status": "specified-not-run",
+      "criterion_location": "sealed owner"
+    },
+    {
+      "id": "W1-J07-K",
+      "status": "specified-not-run",
+      "criterion_location": "sealed owner"
+    },
+    {
+      "id": "W1-J07-S",
+      "status": "specified-not-run",
+      "criterion_location": "sealed owner"
+    },
+    {
+      "id": "W1-J08-P",
+      "status": "specified-not-run",
+      "criterion_location": "sealed owner"
+    },
+    {
+      "id": "W1-J08-N",
+      "status": "specified-not-run",
+      "criterion_location": "sealed owner"
+    },
+    {
+      "id": "W1-J08-K",
+      "status": "specified-not-run",
+      "criterion_location": "sealed owner"
+    },
+    {
+      "id": "W1-J08-S",
+      "status": "specified-not-run",
+      "criterion_location": "sealed owner"
+    },
+    {
+      "id": "W1-J09-P",
+      "status": "specified-not-run",
+      "criterion_location": "sealed owner"
+    },
+    {
+      "id": "W1-J09-N",
+      "status": "specified-not-run",
+      "criterion_location": "sealed owner"
+    },
+    {
+      "id": "W1-J09-K",
+      "status": "specified-not-run",
+      "criterion_location": "sealed owner"
+    },
+    {
+      "id": "W1-J09-S",
+      "status": "specified-not-run",
+      "criterion_location": "sealed owner"
+    },
+    {
+      "id": "W1-J10-P",
+      "status": "specified-not-run",
+      "criterion_location": "sealed owner"
+    },
+    {
+      "id": "W1-J10-N",
+      "status": "specified-not-run",
+      "criterion_location": "sealed owner"
+    },
+    {
+      "id": "W1-J10-K",
+      "status": "specified-not-run",
+      "criterion_location": "sealed owner"
+    },
+    {
+      "id": "W1-J10-S",
+      "status": "specified-not-run",
+      "criterion_location": "sealed owner"
+    },
+    {
+      "id": "W1-J11-P",
+      "status": "specified-not-run",
+      "criterion_location": "sealed owner"
+    },
+    {
+      "id": "W1-J11-N",
+      "status": "specified-not-run",
+      "criterion_location": "sealed owner"
+    },
+    {
+      "id": "W1-J11-K",
+      "status": "specified-not-run",
+      "criterion_location": "sealed owner"
+    },
+    {
+      "id": "W1-J11-S",
+      "status": "specified-not-run",
+      "criterion_location": "sealed owner"
+    },
+    {
+      "id": "W1-J12-P",
+      "status": "specified-not-run",
+      "criterion_location": "sealed owner"
+    },
+    {
+      "id": "W1-J12-N",
+      "status": "specified-not-run",
+      "criterion_location": "sealed owner"
+    },
+    {
+      "id": "W1-J12-K",
+      "status": "specified-not-run",
+      "criterion_location": "sealed owner"
+    },
+    {
+      "id": "W1-J12-S",
+      "status": "specified-not-run",
+      "criterion_location": "sealed owner"
+    },
+    {
+      "id": "W1-J13-P",
+      "status": "specified-not-run",
+      "criterion_location": "sealed owner"
+    },
+    {
+      "id": "W1-J13-N",
+      "status": "specified-not-run",
+      "criterion_location": "sealed owner"
+    },
+    {
+      "id": "W1-J13-K",
+      "status": "specified-not-run",
+      "criterion_location": "sealed owner"
+    },
+    {
+      "id": "W1-J13-S",
+      "status": "specified-not-run",
+      "criterion_location": "sealed owner"
+    },
+    {
+      "id": "W1-J14-P",
+      "status": "specified-not-run",
+      "criterion_location": "sealed owner"
+    },
+    {
+      "id": "W1-J14-N",
+      "status": "specified-not-run",
+      "criterion_location": "sealed owner"
+    },
+    {
+      "id": "W1-J14-K",
+      "status": "specified-not-run",
+      "criterion_location": "sealed owner"
+    },
+    {
+      "id": "W1-J14-S",
+      "status": "specified-not-run",
+      "criterion_location": "sealed owner"
+    },
+    {
+      "id": "W1-J15-P",
+      "status": "specified-not-run",
+      "criterion_location": "sealed owner"
+    },
+    {
+      "id": "W1-J15-N",
+      "status": "specified-not-run",
+      "criterion_location": "sealed owner"
+    },
+    {
+      "id": "W1-J15-K",
+      "status": "specified-not-run",
+      "criterion_location": "sealed owner"
+    },
+    {
+      "id": "W1-J15-S",
+      "status": "specified-not-run",
+      "criterion_location": "sealed owner"
+    },
+    {
+      "id": "W1-J16-P",
+      "status": "specified-not-run",
+      "criterion_location": "sealed owner"
+    },
+    {
+      "id": "W1-J16-N",
+      "status": "specified-not-run",
+      "criterion_location": "sealed owner"
+    },
+    {
+      "id": "W1-J16-K",
+      "status": "specified-not-run",
+      "criterion_location": "sealed owner"
+    },
+    {
+      "id": "W1-J16-S",
+      "status": "specified-not-run",
+      "criterion_location": "sealed owner"
+    },
+    {
+      "id": "W1-J17-P",
+      "status": "specified-not-run",
+      "criterion_location": "sealed owner"
+    },
+    {
+      "id": "W1-J17-N",
+      "status": "specified-not-run",
+      "criterion_location": "sealed owner"
+    },
+    {
+      "id": "W1-J17-K",
+      "status": "specified-not-run",
+      "criterion_location": "sealed owner"
+    },
+    {
+      "id": "W1-J17-S",
+      "status": "specified-not-run",
+      "criterion_location": "sealed owner"
+    },
+    {
+      "id": "W1-J18-P",
+      "status": "specified-not-run",
+      "criterion_location": "sealed owner"
+    },
+    {
+      "id": "W1-J18-N",
+      "status": "specified-not-run",
+      "criterion_location": "sealed owner"
+    },
+    {
+      "id": "W1-J18-K",
+      "status": "specified-not-run",
+      "criterion_location": "sealed owner"
+    },
+    {
+      "id": "W1-J18-S",
+      "status": "specified-not-run",
+      "criterion_location": "sealed owner"
+    },
+    {
+      "id": "W1-JX01",
+      "status": "specified-not-run",
+      "criterion_location": "sealed owner"
+    },
+    {
+      "id": "W1-JX02",
+      "status": "specified-not-run",
+      "criterion_location": "sealed owner"
+    },
+    {
+      "id": "W1-JX03",
+      "status": "specified-not-run",
+      "criterion_location": "sealed owner"
+    },
+    {
+      "id": "W1-JX04",
+      "status": "specified-not-run",
+      "criterion_location": "sealed owner"
+    },
+    {
+      "id": "W1-JX05",
+      "status": "specified-not-run",
+      "criterion_location": "sealed owner"
+    },
+    {
+      "id": "W1-JX06",
+      "status": "specified-not-run",
+      "criterion_location": "sealed owner"
+    },
+    {
+      "id": "W1-JX07",
+      "status": "specified-not-run",
+      "criterion_location": "sealed owner"
+    },
+    {
+      "id": "W1-JX08",
+      "status": "specified-not-run",
+      "criterion_location": "sealed owner"
+    },
+    {
+      "id": "W1-JX09",
+      "status": "specified-not-run",
+      "criterion_location": "sealed owner"
+    },
+    {
+      "id": "W1-JX10",
+      "status": "specified-not-run",
+      "criterion_location": "sealed owner"
+    },
+    {
+      "id": "W1-JX11",
+      "status": "specified-not-run",
+      "criterion_location": "sealed owner"
+    },
+    {
+      "id": "W1-JX12",
+      "status": "specified-not-run",
+      "criterion_location": "sealed owner"
+    },
+    {
+      "id": "W1-JX13",
+      "status": "specified-not-run",
+      "criterion_location": "sealed owner"
+    },
+    {
+      "id": "W1-JX14",
+      "status": "specified-not-run",
+      "criterion_location": "sealed owner"
+    },
+    {
+      "id": "W1-JX15",
+      "status": "specified-not-run",
+      "criterion_location": "sealed owner"
+    },
+    {
+      "id": "W1-JX16",
+      "status": "specified-not-run",
+      "criterion_location": "sealed owner"
+    },
+    {
+      "id": "W1-JX17",
+      "status": "specified-not-run",
+      "criterion_location": "sealed owner"
+    },
+    {
+      "id": "W1-JX18",
+      "status": "specified-not-run",
+      "criterion_location": "sealed owner"
+    }
+  ],
+  "findings": [
+    {
+      "id": "W1-J-F01",
+      "status": "Evidence locator precision corrected in additive audit owner; frozen inputs untouched."
+    },
+    {
+      "id": "W1-J-F02",
+      "status": "Distinct source scope and candidate means separated; unresolved terms retained."
+    },
+    {
+      "id": "W1-J-F03",
+      "status": "Earlier and later source coverage distinguished; residual remains explicit."
+    }
+  ],
+  "runtime_stage": "No edits/tests/build/browser proof by this lane; separate native audit retains ownership."
+}

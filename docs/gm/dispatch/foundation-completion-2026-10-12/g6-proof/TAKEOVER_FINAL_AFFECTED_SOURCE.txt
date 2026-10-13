@@ -1,0 +1,838 @@
+TAP version 13
+# Subtest: unvisited registration parks exact native records, retains unknowns and restores with no fabricated visit
+ok 1 - unvisited registration parks exact native records, retains unknowns and restores with no fabricated visit
+  ---
+  duration_ms: 1.817375
+  type: 'test'
+  ...
+# Subtest: same registration requires exact identity; dormant envelope cannot claim unrelated records
+ok 2 - same registration requires exact identity; dormant envelope cannot claim unrelated records
+  ---
+  duration_ms: 0.402417
+  type: 'test'
+  ...
+# Subtest: legacy unvisited unknown records without provenance remain protected, never guessed by prefix
+ok 3 - legacy unvisited unknown records without provenance remain protected, never guessed by prefix
+  ---
+  duration_ms: 0.2705
+  type: 'test'
+  ...
+# Subtest: unvisited registered native non-person inventories park and restore exact records
+ok 4 - unvisited registered native non-person inventories park and restore exact records
+  ---
+  duration_ms: 0.443084
+  type: 'test'
+  ...
+# Subtest: unchanged view remounts after native host clearing, retaining buttons and callbacks
+ok 5 - unchanged view remounts after native host clearing, retaining buttons and callbacks
+  ---
+  duration_ms: 5.556625
+  type: 'test'
+  ...
+# Subtest: active unchanged view retains focus, eligibility and callbacks across polling and host replacement
+ok 6 - active unchanged view retains focus, eligibility and callbacks across polling and host replacement
+  ---
+  duration_ms: 19.9585
+  type: 'test'
+  ...
+# Subtest: P-A blocks hostile and allied external magic; physical and self work remain lawful
+ok 7 - P-A blocks hostile and allied external magic; physical and self work remain lawful
+  ---
+  duration_ms: 0.851541
+  type: 'test'
+  ...
+# Subtest: P-B admits only explicit aid recipients and preserves hostile block
+ok 8 - P-B admits only explicit aid recipients and preserves hostile block
+  ---
+  duration_ms: 0.233042
+  type: 'test'
+  ...
+# Subtest: overlapping suppressors preserve original barrier identity, cause and expiry
+ok 9 - overlapping suppressors preserve original barrier identity, cause and expiry
+  ---
+  duration_ms: 0.590417
+  type: 'test'
+  ...
+# Subtest: exact clock boundary resumes unexpired barrier; expiry and removal never revive it
+ok 10 - exact clock boundary resumes unexpired barrier; expiry and removal never revive it
+  ---
+  duration_ms: 0.392459
+  type: 'test'
+  ...
+# Subtest: sustained support loss ends construct; released physical instance survives source loss
+ok 11 - sustained support loss ends construct; released physical instance survives source loss
+  ---
+  duration_ms: 0.121125
+  type: 'test'
+  ...
+# Subtest: admission rejects absent body, source, faculty, fuel or contact without mutating
+ok 12 - admission rejects absent body, source, faculty, fuel or contact without mutating
+  ---
+  duration_ms: 0.564541
+  type: 'test'
+  ...
+# Subtest: same rules follow exchanged actors; target-body changes cannot redirect impact
+ok 13 - same rules follow exchanged actors; target-body changes cannot redirect impact
+  ---
+  duration_ms: 0.074708
+  type: 'test'
+  ...
+# Subtest: delivery/activation counter stages stay distinct and cycles fail bounded validation
+ok 14 - delivery/activation counter stages stay distinct and cycles fail bounded validation
+  ---
+  duration_ms: 0.094459
+  type: 'test'
+  ...
+# Subtest: activation-only counter is frozen for completion even after its removal
+ok 15 - activation-only counter is frozen for completion even after its removal
+  ---
+  duration_ms: 0.272208
+  type: 'test'
+  ...
+# Subtest: preview is pure; delivered aftermath and mid-suppression lifecycle survive JSON reload
+ok 16 - preview is pure; delivered aftermath and mid-suppression lifecycle survive JSON reload
+  ---
+  duration_ms: 0.407417
+  type: 'test'
+  ...
+# Subtest: finite identity slots and exact boundary prevent reset or unbounded instance creation
+ok 17 - finite identity slots and exact boundary prevent reset or unbounded instance creation
+  ---
+  duration_ms: 1.289333
+  type: 'test'
+  ...
+# Subtest: blocked create has observed actor receipt without inventing an active instance
+ok 18 - blocked create has observed actor receipt without inventing an active instance
+  ---
+  duration_ms: 0.140333
+  type: 'test'
+  ...
+# Subtest: concrete arena remains optional and names identified owned bodies and separate release/flight
+ok 19 - concrete arena remains optional and names identified owned bodies and separate release/flight
+  ---
+  duration_ms: 0.226167
+  type: 'test'
+  ...
+# Subtest: full integrated registry enrolls explicit arena and command/encounter use shared delivery gate
+ok 20 - full integrated registry enrolls explicit arena and command/encounter use shared delivery gate
+  ---
+  duration_ms: 91.866792
+  type: 'test'
+  ...
+# Subtest: full integrated timer settles real released flight after source removal and forfeits unsupported magic
+ok 21 - full integrated timer settles real released flight after source removal and forfeits unsupported magic
+  ---
+  duration_ms: 51.800375
+  type: 'test'
+  ...
+# Subtest: named suppressors reject self cycles and absent, ended, wrong-body or non-barrier targets before spending
+ok 22 - named suppressors reject self cycles and absent, ended, wrong-body or non-barrier targets before spending
+  ---
+  duration_ms: 0.358
+  type: 'test'
+  ...
+# Subtest: saved and authored scoped deliveries cannot attach to a non-vital owner effect
+ok 23 - saved and authored scoped deliveries cannot attach to a non-vital owner effect
+  ---
+  duration_ms: 0.076916
+  type: 'test'
+  ...
+# Subtest: two typed living starts compile without native identity changes and admit a useful one-hand alternative
+ok 24 - two typed living starts compile without native identity changes and admit a useful one-hand alternative
+  ---
+  duration_ms: 62.316584
+  type: 'test'
+  ...
+# Subtest: loss of live hand support stops accepted work, refunds its actual blank and awards no output or practice
+ok 25 - loss of live hand support stops accepted work, refunds its actual blank and awards no output or practice
+  ---
+  duration_ms: 34.829917
+  type: 'test'
+  ...
+# Subtest: one-hand output is consumed in real refit and changes only actual worn garment protection
+ok 26 - one-hand output is consumed in real refit and changes only actual worn garment protection
+  ---
+  duration_ms: 24.377791
+  type: 'test'
+  ...
+# Subtest: earned renewal preserves actual carriers, resets exact practice owners once and allows continued useful work
+ok 27 - earned renewal preserves actual carriers, resets exact practice owners once and allows continued useful work
+  ---
+  duration_ms: 41.694667
+  type: 'test'
+  ...
+# Subtest: actual chart/enrollment leaves unapproved consequence controllers absent; Lin host equals native preview and staged plan
+ok 28 - actual chart/enrollment leaves unapproved consequence controllers absent; Lin host equals native preview and staged plan
+  ---
+  duration_ms: 131.085041
+  type: 'test'
+  ...
+# Subtest: accepted Ink work reserves counted resources, survives reload, pays once and staff supply requires separate approval
+ok 29 - accepted Ink work reserves counted resources, survives reload, pays once and staff supply requires separate approval
+  ---
+  duration_ms: 304.995334
+  type: 'test'
+  ...
+# Subtest: texture and refusal conserve material and wage; native cancellation refunds accepted work without a kit
+ok 30 - texture and refusal conserve material and wage; native cancellation refunds accepted work without a kit
+  ---
+  duration_ms: 228.872917
+  type: 'test'
+  ...
+# Subtest: losing actual supported body at completion refunds inputs and creates no wage or kit
+ok 31 - losing actual supported body at completion refunds inputs and creates no wage or kit
+  ---
+  duration_ms: 111.098084
+  type: 'test'
+  ...
+# Subtest: stale/double clock, sequence, revision, session and scope tokens cannot apply a second work effect
+ok 32 - stale/double clock, sequence, revision, session and scope tokens cannot apply a second work effect
+  ---
+  duration_ms: 71.996333
+  type: 'test'
+  ...
+# Subtest: wrong contact, unsupported body and native revision block bindings; adapters cannot invoke a different resident
+ok 33 - wrong contact, unsupported body and native revision block bindings; adapters cannot invoke a different resident
+  ---
+  duration_ms: 49.442792
+  type: 'test'
+  ...
+# Subtest: failed durable write preserves authoritative cursor/resources/jobs; retry publishes exactly one accepted effect
+ok 34 - failed durable write preserves authoritative cursor/resources/jobs; retry publishes exactly one accepted effect
+  ---
+  duration_ms: 72.579583
+  type: 'test'
+  ...
+# Subtest: retained v1/v2 legacy and v3 scoped opaque cursors reload without replacing paid receipt history
+ok 35 - retained v1/v2 legacy and v3 scoped opaque cursors reload without replacing paid receipt history
+  ---
+  duration_ms: 152.302916
+  type: 'test'
+  ...
+# Subtest: old absent enrollment and repeated read/preview create no demand, approval or Ink cursor
+ok 36 - old absent enrollment and repeated read/preview create no demand, approval or Ink cursor
+  ---
+  duration_ms: 54.859625
+  type: 'test'
+  ...
+# Subtest: missing counted materials or provider funds block work; contractor cannot gain staff approval from making Lin’s kit
+ok 37 - missing counted materials or provider funds block work; contractor cannot gain staff approval from making Lin’s kit
+  ---
+  duration_ms: 182.199833
+  type: 'test'
+  ...
+# Subtest: the shared controller admission preserves explicit approved remainder policy and ordinary nested controllers
+ok 38 - the shared controller admission preserves explicit approved remainder policy and ordinary nested controllers
+  ---
+  duration_ms: 0.498291
+  type: 'test'
+  ...
+# Subtest: actual declared hub passage retains complete owned cargo; unsafe traveler input keys stay rejected
+ok 39 - actual declared hub passage retains complete owned cargo; unsafe traveler input keys stay rejected
+  ---
+  duration_ms: 0.259833
+  type: 'test'
+  ...
+# Subtest: the actual warning accepts its shared-compiler frozen situation definition
+ok 40 - the actual warning accepts its shared-compiler frozen situation definition
+  ---
+  duration_ms: 1.379292
+  type: 'test'
+  ...
+# Subtest: immediate warning still rejects changed frozen content, effects, costs and participants
+ok 41 - immediate warning still rejects changed frozen content, effects, costs and participants
+  ---
+  duration_ms: 0.268166
+  type: 'test'
+  ...
+# Subtest: rejected write restores output, debit, XP milestones, unlocks, quests, records and identities
+ok 42 - rejected write restores output, debit, XP milestones, unlocks, quests, records and identities
+  ---
+  duration_ms: 2.522292
+  type: 'test'
+  ...
+# Subtest: success is retained when post-durable presentation throws
+ok 43 - success is retained when post-durable presentation throws
+  ---
+  duration_ms: 0.253541
+  type: 'test'
+  ...
+# Subtest: later recursive batch rejection preserves prior durable batch and allows retry
+ok 44 - later recursive batch rejection preserves prior durable batch and allows retry
+  ---
+  duration_ms: 0.261625
+  type: 'test'
+  ...
+# Subtest: array aliases, deleted descriptors and cycles survive rejection without replaying model setters
+ok 45 - array aliases, deleted descriptors and cycles survive rejection without replaying model setters
+  ---
+  duration_ms: 0.110666
+  type: 'test'
+  ...
+# Subtest: unsupported internal-slot owners fail before native mutation; redraw failure follows completed rollback
+ok 46 - unsupported internal-slot owners fail before native mutation; redraw failure follows completed rollback
+  ---
+  duration_ms: 0.160792
+  type: 'test'
+  ...
+# Subtest: actual private inventory and availability components restore without inventory/reward replay
+ok 47 - actual private inventory and availability components restore without inventory/reward replay
+  ---
+  duration_ms: 1.323708
+  type: 'test'
+  ...
+# Subtest: common clock keeps simulation-owned gear in its own state while preparing actual native equipment
+ok 48 - common clock keeps simulation-owned gear in its own state while preparing actual native equipment
+  ---
+  duration_ms: 49.2675
+  type: 'test'
+  ...
+# Subtest: direct plan staging excludes only explicit simulation owners and retains unknown-owner rejection
+ok 49 - direct plan staging excludes only explicit simulation owners and retains unknown-owner rejection
+  ---
+  duration_ms: 0.398958
+  type: 'test'
+  ...
+# Subtest: first staged enrollment binds a registered native owner before durable writing
+ok 50 - first staged enrollment binds a registered native owner before durable writing
+  ---
+  duration_ms: 0.943166
+  type: 'test'
+  ...
+# Subtest: staged enrollment cannot invent a missing native owner or replace explicit bindings
+ok 51 - staged enrollment cannot invent a missing native owner or replace explicit bindings
+  ---
+  duration_ms: 0.112375
+  type: 'test'
+  ...
+# Subtest: native passage references the actual learned Tidemark owner without copying mastery or private knowledge
+ok 52 - native passage references the actual learned Tidemark owner without copying mastery or private knowledge
+  ---
+  duration_ms: 2.246583
+  type: 'test'
+  ...
+# Subtest: chest splits and merges exact keys, clamps native quantities and roundtrips without rewards
+ok 53 - chest splits and merges exact keys, clamps native quantities and roundtrips without rewards
+  ---
+  duration_ms: 18.596292
+  type: 'test'
+  ...
+# Subtest: stale, duplicate, invalid quantity and unsupported holders reject without partial ownership
+ok 54 - stale, duplicate, invalid quantity and unsupported holders reject without partial ownership
+  ---
+  duration_ms: 1.052875
+  type: 'test'
+  ...
+# Subtest: equipment and real reserved work block chest disposal
+ok 55 - equipment and real reserved work block chest disposal
+  ---
+  duration_ms: 1.180042
+  type: 'test'
+  ...
+# Subtest: loan rejection retains custody and the existing lawful return settles once before storing owned stock
+ok 56 - loan rejection retains custody and the existing lawful return settles once before storing owned stock
+  ---
+  duration_ms: 55.728875
+  type: 'test'
+  ...
+# Subtest: failed persistence changes neither live inventory nor committed bytes; success publishes both once
+ok 57 - failed persistence changes neither live inventory nor committed bytes; success publishes both once
+  ---
+  duration_ms: 1.998125
+  type: 'test'
+  ...
+# Subtest: an opened doorway does not create a context for its unintroduced resident
+ok 58 - an opened doorway does not create a context for its unintroduced resident
+  ---
+  duration_ms: 0.848833
+  type: 'test'
+  ...
+# Subtest: an introduced resident still receives its existing dormant clock context
+ok 59 - an introduced resident still receives its existing dormant clock context
+  ---
+  duration_ms: 0.204709
+  type: 'test'
+  ...
+# Subtest: flat native scheduler vitals retain healthy consequence support through a second fact projection
+ok 60 - flat native scheduler vitals retain healthy consequence support through a second fact projection
+  ---
+  duration_ms: 22.196958
+  type: 'test'
+  ...
+# Subtest: base saves gain no dormant payload and their state is unchanged
+ok 61 - base saves gain no dormant payload and their state is unchanged
+  ---
+  duration_ms: 0.866417
+  type: 'test'
+  ...
+# Subtest: prototype location, items, recipes and activity are preserved outside active content
+ok 62 - prototype location, items, recipes and activity are preserved outside active content
+  ---
+  duration_ms: 2.810458
+  type: 'test'
+  ...
+# Subtest: unsupported cultivation payloads stay opaque, but unknown retirement schemas block migration
+ok 63 - unsupported cultivation payloads stay opaque, but unknown retirement schemas block migration
+  ---
+  duration_ms: 0.362167
+  type: 'test'
+  ...
+# Subtest: native file encoding preserves Unicode and legacy Latin-1 saves
+ok 64 - native file encoding preserves Unicode and legacy Latin-1 saves
+  ---
+  duration_ms: 17.520958
+  type: 'test'
+  ...
+# Subtest: malformed and incompatible imports cannot write over the current save
+ok 65 - malformed and incompatible imports cannot write over the current save
+  ---
+  duration_ms: 1.712666
+  type: 'test'
+  ...
+# Subtest: real-loader rejection and storage failure do not perform premature writes
+ok 66 - real-loader rejection and storage failure do not perform premature writes
+  ---
+  duration_ms: 1.742625
+  type: 'test'
+  ...
+# Subtest: successful import commits only after preflight and retains retirement data once
+ok 67 - successful import commits only after preflight and retains retirement data once
+  ---
+  duration_ms: 0.724208
+  type: 'test'
+  ...
+# Subtest: failed export creation never encodes an undefined or invalid payload
+ok 68 - failed export creation never encodes an undefined or invalid payload
+  ---
+  duration_ms: 0.089958
+  type: 'test'
+  ...
+# Subtest: repeatable actor creation binds distinct owners, freezes a delayed template and resumes birth once
+ok 69 - repeatable actor creation binds distinct owners, freezes a delayed template and resumes birth once
+  ---
+  duration_ms: 60.318292
+  type: 'test'
+  ...
+# Subtest: unknown aliases and insufficient supplies reject the whole hire without a debit or actor
+ok 70 - unknown aliases and insufficient supplies reject the whole hire without a debit or actor
+  ---
+  duration_ms: 9.190958
+  type: 'test'
+  ...
+# Subtest: NPC responses use real means, skip unaffordable priorities and persist a turn across reload
+ok 71 - NPC responses use real means, skip unaffordable priorities and persist a turn across reload
+  ---
+  duration_ms: 29.460958
+  type: 'test'
+  ...
+# Subtest: encounter success settles its claim once; withdrawal frees the claim while retaining spent means
+ok 72 - encounter success settles its claim once; withdrawal frees the claim while retaining spent means
+  ---
+  duration_ms: 16.213125
+  type: 'test'
+  ...
+# Subtest: dynamic outcome weights and effects share the pre-cost snapshot; inspection never draws
+ok 73 - dynamic outcome weights and effects share the pre-cost snapshot; inspection never draws
+  ---
+  duration_ms: 17.9795
+  type: 'test'
+  ...
+# Subtest: event guarantees count eligible misses; unmet conditions and open events do not consume attempts
+ok 74 - event guarantees count eligible misses; unmet conditions and open events do not consume attempts
+  ---
+  duration_ms: 12.623833
+  type: 'test'
+  ...
+# Subtest: caused NPC occurrences bind independently and unknown events cannot be answered by controllers
+ok 75 - caused NPC occurrences bind independently and unknown events cannot be answered by controllers
+  ---
+  duration_ms: 22.27025
+  type: 'test'
+  ...
+# Subtest: simulated movement respects work occupancy and native travel stays bound to its host
+ok 76 - simulated movement respects work occupancy and native travel stays bound to its host
+  ---
+  duration_ms: 13.558666
+  type: 'test'
+  ...
+# Subtest: two playable helpers finish independently and long advances match split/reloaded time
+ok 77 - two playable helpers finish independently and long advances match split/reloaded time
+  ---
+  duration_ms: 179.65225
+  type: 'test'
+  ...
+# Subtest: a failed durable hire preserves native supplies and creates no live actor or debit
+ok 78 - a failed durable hire preserves native supplies and creates no live actor or debit
+  ---
+  duration_ms: 6.2955
+  type: 'test'
+  ...
+# Subtest: inactive actors retain their memories without empty clock work; explicit return resumes future decisions
+ok 79 - inactive actors retain their memories without empty clock work; explicit return resumes future decisions
+  ---
+  duration_ms: 11.890375
+  type: 'test'
+  ...
+# Subtest: an NPC's private event response remains saved without disclosing its label to the player's history
+ok 80 - an NPC's private event response remains saved without disclosing its label to the player's history
+  ---
+  duration_ms: 10.66175
+  type: 'test'
+  ...
+# Subtest: reservation and later learning schemas can be entered before the first caused situation
+ok 81 - reservation and later learning schemas can be entered before the first caused situation
+  ---
+  duration_ms: 1.60875
+  type: 'test'
+  ...
+# Subtest: caused-situation schema and malformed later situation records keep causal validation
+ok 82 - caused-situation schema and malformed later situation records keep causal validation
+  ---
+  duration_ms: 2.848459
+  type: 'test'
+  ...
+# Subtest: hidden workshop never evaluates registered commands outside its actual scene
+ok 83 - hidden workshop never evaluates registered commands outside its actual scene
+  ---
+  duration_ms: 1.974209
+  type: 'test'
+  ...
+# Subtest: actual worn titled unit supplies native defense, exact regional gaps, weight and riding
+ok 84 - actual worn titled unit supplies native defense, exact regional gaps, weight and riding
+  ---
+  duration_ms: 1.499625
+  type: 'test'
+  ...
+# Subtest: carried only, wrong slot, wrong body and lost exact custody cannot supply defense
+ok 85 - carried only, wrong slot, wrong body and lost exact custody cannot supply defense
+  ---
+  duration_ms: 0.3805
+  type: 'test'
+  ...
+# Subtest: fit, upkeep, condition and padding reach physical defense and native stamina independently
+ok 86 - fit, upkeep, condition and padding reach physical defense and native stamina independently
+  ---
+  duration_ms: 0.104416
+  type: 'test'
+  ...
+# Subtest: cold, rain and heat use actual environment and dry/maintained layers
+ok 87 - cold, rain and heat use actual environment and dry/maintained layers
+  ---
+  duration_ms: 0.186625
+  type: 'test'
+  ...
+# Subtest: overlapping layers combine coverage without closing explicitly bare regions
+ok 88 - overlapping layers combine coverage without closing explicitly bare regions
+  ---
+  duration_ms: 0.118291
+  type: 'test'
+  ...
+# Subtest: legacy metadata absence leaves existing equipment and save input unchanged
+ok 89 - legacy metadata absence leaves existing equipment and save input unchanged
+  ---
+  duration_ms: 0.070875
+  type: 'test'
+  ...
+# Subtest: descriptor is accepted by the actual Hero effect consumer without consumable amplification
+ok 90 - descriptor is accepted by the actual Hero effect consumer without consumable amplification
+  ---
+  duration_ms: 1.112084
+  type: 'test'
+  ...
+# Subtest: malformed policy cannot create unknown coverage, slots or negative physical effects
+ok 91 - malformed policy cannot create unknown coverage, slots or negative physical effects
+  ---
+  duration_ms: 0.43475
+  type: 'test'
+  ...
+# Subtest: native durability identity preserves the same loan and actual worn condition reduces its physical effect
+ok 92 - native durability identity preserves the same loan and actual worn condition reduces its physical effect
+  ---
+  duration_ms: 0.400583
+  type: 'test'
+  ...
+# Subtest: durable typed selection stages only sequence, publishes no body, stock, actors or world
+ok 93 - durable typed selection stages only sequence, publishes no body, stock, actors or world
+  ---
+  duration_ms: 4.098084
+  type: 'test'
+  ...
+# Subtest: both equal seed ranges select genuinely distinct snapshots and restore exact origin
+ok 94 - both equal seed ranges select genuinely distinct snapshots and restore exact origin
+  ---
+  duration_ms: 19.04575
+  type: 'test'
+  ...
+# Subtest: failed selection and initialization writes preserve live state and exact retry receipt
+ok 95 - failed selection and initialization writes preserve live state and exact retry receipt
+  ---
+  duration_ms: 14.756
+  type: 'test'
+  ...
+# Subtest: selection tampering, absent content and incompatible exact snapshots refuse without mutation
+ok 96 - selection tampering, absent content and incompatible exact snapshots refuse without mutation
+  ---
+  duration_ms: 0.916792
+  type: 'test'
+  ...
+# Subtest: compiler checks duplicate starts, arbitrary body patches and unknown first-action references
+ok 97 - compiler checks duplicate starts, arbitrary body patches and unknown first-action references
+  ---
+  duration_ms: 0.776
+  type: 'test'
+  ...
+# Subtest: legacy single bootstrap keeps schema1 sequence and body contract
+ok 98 - legacy single bootstrap keeps schema1 sequence and body contract
+  ---
+  duration_ms: 3.584584
+  type: 'test'
+  ...
+# Subtest: native combat locations require a distinct owned peaceful parent
+ok 99 - native combat locations require a distinct owned peaceful parent
+  ---
+  duration_ms: 0.606333
+  type: 'test'
+  ...
+# Subtest: typed selection cannot revive an unconscious body or reissue prior pack actors and sources
+ok 100 - typed selection cannot revive an unconscious body or reissue prior pack actors and sources
+  ---
+  duration_ms: 1.356834
+  type: 'test'
+  ...
+# Subtest: schema2 permits declared undeployed empty owners, refuses invented stock and keeps legacy strict
+ok 101 - schema2 permits declared undeployed empty owners, refuses invented stock and keeps legacy strict
+  ---
+  duration_ms: 3.2875
+  type: 'test'
+  ...
+# Subtest: typed admission refuses incompatible native form and authored life stage before selection
+ok 102 - typed admission refuses incompatible native form and authored life stage before selection
+  ---
+  duration_ms: 0.5845
+  type: 'test'
+  ...
+# Subtest: current selected native lifetime is scoped to committed instance and retained through restoration
+ok 103 - current selected native lifetime is scoped to committed instance and retained through restoration
+  ---
+  duration_ms: 3.008333
+  type: 'test'
+  ...
+# Subtest: timed native route publishes exact arrival only after supported completion and cancellation retains origin
+ok 104 - timed native route publishes exact arrival only after supported completion and cancellation retains origin
+  ---
+  duration_ms: 28.06975
+  type: 'test'
+  ...
+# Subtest: structured compilation creates immutable definitions without registering or provisioning
+ok 105 - structured compilation creates immutable definitions without registering or provisioning
+  ---
+  duration_ms: 2.878833
+  type: 'test'
+  ...
+# Subtest: collision in a late simulation family leaves every live family unchanged
+ok 106 - collision in a late simulation family leaves every live family unchanged
+  ---
+  duration_ms: 0.836666
+  type: 'test'
+  ...
+# Subtest: unknown and unimplemented capabilities reject admission
+ok 107 - unknown and unimplemented capabilities reject admission
+  ---
+  duration_ms: 0.444625
+  type: 'test'
+  ...
+# Subtest: cross references use combined existing definitions without changing them
+ok 108 - cross references use combined existing definitions without changing them
+  ---
+  duration_ms: 0.363625
+  type: 'test'
+  ...
+# Subtest: unknown person, condition, source, native item and command power refuse
+ok 109 - unknown person, condition, source, native item and command power refuse
+  ---
+  duration_ms: 0.903542
+  type: 'test'
+  ...
+# Subtest: schema1 scalar data cannot become structured historical objects
+ok 110 - schema1 scalar data cannot become structured historical objects
+  ---
+  duration_ms: 0.120209
+  type: 'test'
+  ...
+# Subtest: observer declarations and pack ownership are required before registration
+ok 111 - observer declarations and pack ownership are required before registration
+  ---
+  duration_ms: 0.37025
+  type: 'test'
+  ...
+# Subtest: non-JSON executable content and unknown simulation families reject
+ok 112 - non-JSON executable content and unknown simulation families reject
+  ---
+  duration_ms: 0.086375
+  type: 'test'
+  ...
+# Subtest: refused native construction rolls back earlier availability side effects
+ok 113 - refused native construction rolls back earlier availability side effects
+  ---
+  duration_ms: 0.278042
+  type: 'test'
+  ...
+# Subtest: first initialization is staged once and never converts scalar legacy history
+ok 114 - first initialization is staged once and never converts scalar legacy history
+  ---
+  duration_ms: 23.159375
+  type: 'test'
+  ...
+# Subtest: receipt start, future time, instance and native domain mismatches reject
+ok 115 - receipt start, future time, instance and native domain mismatches reject
+  ---
+  duration_ms: 3.822334
+  type: 'test'
+  ...
+# Subtest: one titled unit survives reservation/refund and actual condition conversion
+ok 116 - one titled unit survives reservation/refund and actual condition conversion
+  ---
+  duration_ms: 25.369791
+  type: 'test'
+  ...
+# Subtest: actual recipient condition/vitals update service eligibility and facts tolerate no registry
+ok 117 - actual recipient condition/vitals update service eligibility and facts tolerate no registry
+  ---
+  duration_ms: 9.205333
+  type: 'test'
+  ...
+# Subtest: witnessed communication settles once and failed durable write changes no live state
+ok 118 - witnessed communication settles once and failed durable write changes no live state
+  ---
+  duration_ms: 18.121917
+  type: 'test'
+  ...
+# Subtest: observer action quote contains time and own inputs but no NPC reserves or hidden outputs
+ok 119 - observer action quote contains time and own inputs but no NPC reserves or hidden outputs
+  ---
+  duration_ms: 7.387167
+  type: 'test'
+  ...
+# Subtest: player panel excludes NPC-owned commands even when they are visible
+ok 120 - player panel excludes NPC-owned commands even when they are visible
+  ---
+  duration_ms: 6.864583
+  type: 'test'
+  ...
+# Subtest: player-owned identified unit keeps title through actual reservation, refund and saved publication
+ok 121 - player-owned identified unit keeps title through actual reservation, refund and saved publication
+  ---
+  duration_ms: 8.360875
+  type: 'test'
+  ...
+# Subtest: provider facts use the actual target body, renewable reserve and currently active faculty
+ok 122 - provider facts use the actual target body, renewable reserve and currently active faculty
+  ---
+  duration_ms: 3.885375
+  type: 'test'
+  ...
+# Subtest: a newly acquired identified unit conserves its variant through an authorized title sale
+ok 123 - a newly acquired identified unit conserves its variant through an authorized title sale
+  ---
+  duration_ms: 13.54875
+  type: 'test'
+  ...
+# Subtest: worn native identified equipment remains conserved and a duplicate carried copy fails
+ok 124 - worn native identified equipment remains conserved and a duplicate carried copy fails
+  ---
+  duration_ms: 1.346833
+  type: 'test'
+  ...
+# Subtest: explicit new condition absence policy exposes zero without changing frozen legacy absence
+ok 125 - explicit new condition absence policy exposes zero without changing frozen legacy absence
+  ---
+  duration_ms: 2.726834
+  type: 'test'
+  ...
+# Subtest: identified native loan returns the actual same copy and reserved owned work refunds its exact key
+ok 126 - identified native loan returns the actual same copy and reserved owned work refunds its exact key
+  ---
+  duration_ms: 11.552792
+  type: 'test'
+  ...
+# Subtest: canonical loan authority blocks transfer of its identified native copy to another claimant
+ok 127 - canonical loan authority blocks transfer of its identified native copy to another claimant
+  ---
+  duration_ms: 5.472125
+  type: 'test'
+  ...
+# Subtest: native local controls quote only the current location while departure actions remain reachable
+ok 128 - native local controls quote only the current location while departure actions remain reachable
+  ---
+  duration_ms: 8.293166
+  type: 'test'
+  ...
+# Subtest: renewal validates narrow author keys and hides unavailable presentation
+ok 129 - renewal validates narrow author keys and hides unavailable presentation
+  ---
+  duration_ms: 17.448917
+  type: 'test'
+  ...
+# Subtest: renewal resets exactly three selected values and stages one permanent claim
+ok 130 - renewal resets exactly three selected values and stages one permanent claim
+  ---
+  duration_ms: 13.931083
+  type: 'test'
+  ...
+# Subtest: failed durable publication preserves current bytes and all live domains
+ok 131 - failed durable publication preserves current bytes and all live domains
+  ---
+  duration_ms: 5.553125
+  type: 'test'
+  ...
+# Subtest: renewal refuses incapacitation, native occupation, practice, jobs and missing consequence
+ok 132 - renewal refuses incapacitation, native occupation, practice, jobs and missing consequence
+  ---
+  duration_ms: 28.652917
+  type: 'test'
+  ...
+# Subtest: repeatable real practice and a timed work consumer combine relearned mastery with retained legacy
+ok 133 - repeatable real practice and a timed work consumer combine relearned mastery with retained legacy
+  ---
+  duration_ms: 35.474
+  type: 'test'
+  ...
+# Subtest: connected-world scheduler preserves each actor location instead of borrowing the player location
+ok 134 - connected-world scheduler preserves each actor location instead of borrowing the player location
+  ---
+  duration_ms: 17.041542
+  type: 'test'
+  ...
+# Subtest: the saved-item helper preserves the canonical key and datum instead of the template key
+ok 135 - the saved-item helper preserves the canonical key and datum instead of the template key
+  ---
+  duration_ms: 1.166209
+  type: 'test'
+  ...
+# Subtest: plain legacy stock gains no stamp and malformed or duplicate stamped stock is rejected
+ok 136 - plain legacy stock gains no stamp and malformed or duplicate stamped stock is rejected
+  ---
+  duration_ms: 0.555209
+  type: 'test'
+  ...
+# Subtest: an independent learner at home can refer to the actual player-owned measured datum without being moved
+ok 137 - an independent learner at home can refer to the actual player-owned measured datum without being moved
+  ---
+  duration_ms: 1.602625
+  type: 'test'
+  ...
+# Subtest: changed site state or mismatched performed measurement invalidates that shared datum
+ok 138 - changed site state or mismatched performed measurement invalidates that shared datum
+  ---
+  duration_ms: 0.274542
+  type: 'test'
+  ...
+1..138
+# tests 138
+# suites 0
+# pass 138
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 1642.408708

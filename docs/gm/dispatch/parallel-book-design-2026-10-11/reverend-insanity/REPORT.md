@@ -1,0 +1,15 @@
+# Reverend Insanity design packet, 2026-10-11
+
+Bounded source audit/design unit delivered for parent review. These are proposals; no runtime implementation or director acceptance is claimed. Detailed starting snapshots, source mechanics and future-history material remain private.
+
+- **F1 source boundary:** reused the held-book checkpoint, synthesis and repaired final claim/audit owners. The edition fingerprint matches the recorded source. Its quality owner leaves every-clause conditions/knowledge and exhaustive numeric coverage open; this packet does not certify its tables.
+- **D1 opening recommendation:** a finite source-grounded practitioner opening with real acquisition, learning, upkeep, execution and progression, supported by ordinary livelihoods. A distinct civilian/low-power alternative and richer future practitioner routes remain available proposals. The signature progression is substantive rather than a household-job substitute.
+- **D2 coverage:** compared eight starting-life families, family/clan/outsider and related/reincarnated/outlier premises, identity/body/gender axes, era/continuity choices, lived institutions/economy, relationships and means-based discovery. Canon, uncertain mechanisms and authored alternative premises remain separate.
+- **F2 integration boundary:** twenty proposed acceptance leaves map S00–S14 and required interactions. Live structured-start, command/clock, energy, knowledge, custody, native actor and save seams were inspected; source-specific adapters and exact selected quantitative rules remain open. No existing engine or global file changed.
+- **A1 next gate:** parent reviews and selects a finite implementation scope with exclusive engine/save owners. Then rebuild and exercise the connected practitioner and civilian journeys on a fresh test origin, with save/reload/import and old-save/private-pack compatibility. Those checks are specified-not-run here.
+
+Agent-only owners: [design](../../../../research/novels/reverend-insanity/world-design-2026-10-11/DESIGN.md), [bindings](../../../../research/novels/reverend-insanity/world-design-2026-10-11/SOURCE_BINDINGS.json), [receipt](../../../../research/novels/reverend-insanity/world-design-2026-10-11/CHECK_RECEIPT.json). These links route authors to private detail; their contents must not be copied into public indexes or player reports.
+
+Checks: 12 corrected claim IDs resolve; five targeted passage ranges contain 130 blocks, with source/member fingerprints recorded; local links resolve; private detail is Git-ignored; public report/checkpoint contain no selected source revelation or sealed truth. Selected ranges were checked without repeating a full-book read. Builds, runtime tests, browser journeys and persistence checks were not run because the assignment permits design only. This is a useful design unit with open implementation prerequisites, not C2 gameplay.
+
+Ownership: worker `/root/ri_world_design` releases both assigned new directories to parent `/root`. No children, pending tools, runtime mutations, source-library writes, user-save edits, commits or publishing.

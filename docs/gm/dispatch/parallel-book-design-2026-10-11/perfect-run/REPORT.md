@@ -1,0 +1,11 @@
+# Perfect Run design return
+
+2026-10-11. Bounded source-qualified proposal packet complete. No runtime implementation or gameplay verification.
+
+- F1: The author lists the main serial as completed and Bad Runs as a three-entry inactive companion what-if anthology. Main history, authored branches, print volumes, any game adaptation and other same-author works remain separate source sets. [Main listing](https://www.royalroad.com/fiction/36735/the-perfect-run), [companion listing](https://www.royalroad.com/fiction/50539/the-perfect-run-bad-runs).
+- D1: Proposed a lived urban world with distinct individual powers, ordinary careers, homes, institutions and directed relationships. The first opening offers an immediately useful powered approach and a functional civilian alternative; broader family, outsider, body/identity, era and exceptional premises remain explicit proposals.
+- D2: Preserved source-bound and changed-premise histories separately. A particular holder's exceptional means is not silently granted to every resident. PR-S1 and PR-S2 discovery routes are specified only; no sealed truth or runtime evidence is claimed.
+- R1: Existing scenario checkpoints restore isolated scenario state while retaining actors/worlds. They do not establish source-faithful historical restoration. Acquisition/counters, observer knowledge, reset/retention exceptions and later timelines have named research gates.
+- A1: Read the first main chapter in full, targeted ranges in five further main chapters, and the three companion openings. Source acquisition/indexing is separately owned and does not prove full reading. Checks passed for 16 claim bindings, 196 locator references, nine source files, two local links and three ignored private paths; input fingerprints are in the private receipt; no build, browser or save/import checks ran.
+
+Agent-only detail owner: `docs/research/novels/perfect-run/world-design-2026-10-11/DESIGN.md`, with source bindings and check receipts beside it. [Checkpoint](CHECKPOINT.md) records scope and writer release. The remaining playable gate is separately authorized finite implementation, rebuild, fresh-origin powered/civilian journeys and applicable save/reload/import evidence.

@@ -1,6 +1,7 @@
 // Original, optional refinement of the existing measured-cooling method.
 // Real ownership, paid costs, one frozen RNG draw, and timed conditions remain
 // with the shared simulation owners.
+import {FEATURE_OBJECT_IDS} from './feature_expansion_objects.js';
 import {REFERENCE_GAMEPLAY_IDS as I, REFERENCE_GAMEPLAY_KEYS as K} from './reference_gameplay_content.js';
 
 const eq = (fact, value = true, reason) => ({fact, op: 'eq', value, ...(reason ? {reason} : {})});
@@ -18,7 +19,7 @@ const item = (key, amount, returned = false) => ({type: 'item', key, amount, act
 const stamina = amount => ({type: 'vital', actor: 'player', key: 'stamina', amount});
 const af = (key, value) => ({type: 'fact', scope: 'actor', actor: 'player', key: `reference.coolingRefinement.${key}`, value});
 const know = (key, value) => ({type: 'knowledge', actor: 'player', key: `reference.coolingRefinement.${key}`, stage: 'seen', value,
-    basis: {kind: 'observation', attributedTo: 'player', situationId: 'feature_objects.joint'}});
+    basis: {kind: 'observation', attributedTo: 'player', situationId: FEATURE_OBJECT_IDS.situation}});
 const resultText = receipt => `A paid three-minute cooling refinement completed ${receipt.result === 'success' ? 'successfully' : 'as a failure'}. ${receipt.result === 'failure' ? 'One actual salt packet and two stamina were spent. ' : ''}The accepted ${receipt.prepared ? 'prepared' : 'ordinary'} quote was ${(100 * receipt.successProbability).toFixed(0)}%, after ${receipt.retryCountBefore} completed failed ${receipt.retryCountBefore === 1 ? 'attempt' : 'attempts'}; the one frozen roll was ${receipt.roll.toFixed(6)}. ${receipt.result === 'success' ? 'This earns one attributed steadied-hook application, with no rank, free source, sleeve or quality bank.' : 'The completed failure adds one retry, capped at +15 percentage points, and five played minutes of soreness. No source, rank, application or quality bank was granted.'}`;
 
 export function coolingRefinementReceiptEffects(receipt) {

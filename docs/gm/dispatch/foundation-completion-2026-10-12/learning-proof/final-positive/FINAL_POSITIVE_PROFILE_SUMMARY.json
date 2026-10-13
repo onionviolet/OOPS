@@ -1,0 +1,44 @@
+{
+  "windowMicroseconds": 6660754,
+  "totalSamples": 4665,
+  "topFunctions": [
+    {
+      "function": "bD",
+      "samples": 913
+    },
+    {
+      "function": "Dr",
+      "samples": 885
+    },
+    {
+      "function": "WX",
+      "samples": 660
+    },
+    {
+      "function": "KW",
+      "samples": 243
+    },
+    {
+      "function": "",
+      "samples": 147
+    },
+    {
+      "function": "xD",
+      "samples": 119
+    },
+    {
+      "function": "(garbage collector)",
+      "samples": 98
+    },
+    {
+      "function": "U0",
+      "samples": 95
+    }
+  ],
+  "sourceMappings": {
+    "Dr": "src/simulation_effects.js:84 simulationFacts",
+    "bD": "src/audit_remainder_facts.js:12 auditRemainderCombinedFacts",
+    "WX": "src/world_completion_facts.js:15 worldCompletionFacts"
+  },
+  "interpretation": "Heavy common fact projection and garbage collection observed; no infinite loop or causal source defect established by sampling alone."
+}

@@ -368,3 +368,144 @@ TG3, TM and TA2 without touching vanilla balance.
 - **G3.** World reaction (TW) is what makes uplift worth doing. Even one
   diffusion event (a rival copies your invention) would make the world
   feel alive.
+
+## Crafting tiers and connected progression, 2026-10-11
+
+Weibao: "crafting teirs and tech progression considerations and more?"
+Expanded ideaboard only. No runtime work selected or new accepted rules.
+This develops S06 of the [completion standard](WORLD_COMPLETION_STANDARD.md),
+joining livelihood, mastery, discovery, continuity and persistence where relevant.
+[Assembly](worlds/PROGRESSION_AND_ASSEMBLY.md) retains component, installation,
+budget and refit contracts. TL/TG/TK above retain technology and knowledge gates.
+Examples below are original proposals, not source canon.
+
+### CT1. Separate capability from workmanship
+
+Native source inspected this turn: `src/crafting_recipes.js` has component
+tier, station tier, skill-dependent quality ranges/caps and component-weighted
+assembly quality. This is a source foundation, not browser proof of these
+expanded proposals. Preserve native numeric quality/rarity mappings unless a
+selected change supplies an explicit compatibility decision.
+
+| Dimension | Question | Example |
+|---|---|---|
+| Material properties | What can the material support? | A heat-resistant seal enables a hotter process |
+| Structural tier | Which new function or operating range exists? | Hand drill versus powered precision drill |
+| Workmanship quality | How well was this specimen made? | Alignment differs between otherwise identical drills |
+| Condition | What happened to this object? | Worn bearings impair current precision |
+| Maker mastery | What can this person execute reliably? | Repeating a tempering method |
+| Design knowledge | Which method does the actor possess? | A drawing without fitting notes |
+| Availability or rarity | How common is it here? | A standard imported part is locally scarce |
+
+No universal stone-to-godhood scale. Tracks can be metallurgical, biological,
+spiritual, computational or otherwise locally supported. Compare cross-world
+functions rather than tier numbers. Old tools may remain useful; genuinely
+superior replacements may simply supersede them without forced weaknesses.
+
+### CT2. Several kinds of breakthrough
+
+Illustrative shapes, not mandatory order or ceiling:
+
+| Advance | New play |
+|---|---|
+| Improvised work to dependable craft | Repeat useful results and accept ordinary commissions |
+| Dependable craft to specialist processes | Heat treatment, purification, weaving or local alternatives enable new applications |
+| Specialist work to assemblies | Components become a working pump, prosthesis, ward or other device |
+| Individual builds to reproducible production | Gauges, jigs, standards and trained workers make batches consistent |
+| Reproducible production to autonomous production | Supported machines or agents work without occupying the maker |
+| Established processes to a new substrate | A discovery enables functions the old process could not provide |
+
+A master artisan may make unique things a factory cannot; a factory may
+produce ordinary things at volumes one artisan cannot. Neither implies a
+universal ranking. Exceptional means may bypass steps when they genuinely
+provide the missing functions. Do not restore a ladder through arbitrary timers.
+
+### CT3. Each upgrade has an actual consumer
+
+Name a concrete return for each selected advance: new recipe, usable route,
+different technique, longer operating interval, finer appraisal, less waste,
+workers supplied or a previously impossible commission. Research must connect
+to use, rather than awarding a badge alone.
+
+Candidate example: prepare an improved tool, fit it and use it in a native
+profession to work a material the old tool cannot handle. The material opens
+one component application; mastery improves quality or yield within that
+process. Existing D1 alloy/equipment work keeps its own checkpoint and open
+browser gate. This example does not declare that work complete.
+
+Alternative routes include invention, teaching, purchase, a guild workshop,
+hired specialists, salvage and carried knowledge. Ownership, borrowing and
+paid fabrication grant different access and custody. Learning a recipe need
+not grant machinery, stock or practical mastery. Actor means determine access.
+
+### CT4. Details that make crafting a life
+
+| Code | Consideration | Choice or consequence |
+|---|---|---|
+| CD1 | Process order | Refine before forming, or use a local alternative |
+| CD2 | Ingredient properties | Purity, grain, freshness or provenance matter in recipes that actually use them |
+| CD3 | Design variants | Cheap, compact, precise, durable or locally superior designs serve actual purposes |
+| CD4 | Experiments | Freeze paid inputs/test conditions; failure can leave knowledge, recoverable parts or nothing under declared policy |
+| CD5 | Quality and certainty | Accept useful quality, inspect a batch or calibrate the process |
+| CD6 | Commissions | Meet a function or tolerance the customer can assess |
+| CD7 | Repair and replacement | Repair, refit, salvage or replace a specimen without duplicated parts or erased custody |
+| CD8 | Production depth | Batch familiar work; add manual stages where they create decisions or evidence |
+| CD9 | Teaching and standards | Share a method, apprentice a worker or introduce interchangeable parts |
+| CD10 | Distribution | Storage, transport, buyers and installed consumers make output useful |
+| CD11 | Reputation and provenance | Maker marks, copied designs, counterfeits or certification matter to fitting observers |
+| CD12 | Inheritance | Workshops, records and trained people survive; heirs do not gain unearned personal mastery |
+
+Inspection reveals what held means support. Unknown properties and world rules
+stay unknown; author catalogues do not become player menus. Strong means can
+reveal exact properties when supported. Maintenance, deterioration, forgetting
+and institutional resistance are local possibilities, not mandatory invention costs.
+
+### CT5. Progress outside the player
+
+A prototype, a working workshop and regional adoption are different achievements.
+Adoption needs what the locality actually requires: training, supplies, demand,
+distribution or permission. NPCs can invent independently, copy observable
+processes, improve shared designs or keep methods private. They cannot copy
+hidden knowledge merely because the player unlocked it. Natural development
+continues unless sufficiently disturbed.
+
+Housing, medicine, food preservation, communications, education and transport
+deserve technology paths alongside weapons. A pump supplying a settlement may
+matter more than another sword upgrade. Fields develop unevenly: advanced
+healing does not imply advanced metallurgy or plentiful electricity.
+
+Across worlds, a carried working device differs from the ability to reproduce
+it. Parts, energy and control must function locally. Adapters, substitute
+materials and hybrid processes are research possibilities; era labels alone
+neither grant nor deny compatibility.
+
+### Candidate proof and open choices
+
+Recommended candidate, not an assignment: one existing profession, one functional
+tool improvement, one changed gathering/production action and one resulting craft.
+Compare this with improving workmanship of the old tool so structural progress
+and mastery have visibly different returns. Include a fitting learning/service
+alternative if supported. Choose qualified content; Frontier is not a prerequisite.
+
+Resolve this slice's quality meaning, access gates, consumer effect, spending,
+cancellation and retention before implementation. Acceptance requires rebuild,
+fresh-origin native journey, absent/changed-tool cases, actual cost/result evidence
+and relevant old-save plus save/reload/import proof. Human review owns fiction,
+pacing and balance. Nested assemblies and autonomous production remain separate
+larger deliverables. No native caps, recipes, saves or bundles change here.
+
+## Micro, workshop and macro research, 2026-10-11
+
+Weibao: "Research and more? micro and macro level details?"
+[Research report](research/CRAFTING_TECH_MICRO_MACRO_2026-10-11.md) compares
+CDDA proficiencies, Vintage Story process access, Factorio quality/freshness,
+Victoria economic planning, NIST measurement and NASA technology readiness.
+Documented mechanisms and original proposals are separated; historical diaries
+do not establish current balance and no reference-game playthrough was run.
+
+Detail palette: MI01–MI12 for specimens/processes, WS01–WS08 for workshop
+capacity and work, MA01–MA14 for institutions/regions/worlds, IR01–IR08 for
+in-game research. J1–J3 connect these scales through water access, supply and
+preservation respectively. The report owns details, integration costs and
+acceptance cases. These expand considerations, not selected runtime assignments
+or accepted universal rules.

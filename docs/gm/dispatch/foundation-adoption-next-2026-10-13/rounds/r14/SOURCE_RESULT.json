@@ -1,0 +1,30 @@
+{
+  "status": "PASS_SOURCE_ONLY",
+  "command": "node --test tests/agreed_duty_continuation.test.js tests/cooling_refinement.test.js tests/fa18_runner_consequence.test.js tests/native_equipment_ownership.test.js tests/expansion_engine.test.js",
+  "pass": 51,
+  "fail": 0,
+  "evidence": "source-final.tap",
+  "scope": "R1/R3/R11 changed consumers, schema compatibility, native gear ownership, atomic envelope publisher. Controlled source checks; no native/save/import proof.",
+  "reused": [
+    {
+      "round": "R13",
+      "focused": 5,
+      "affected": 69,
+      "validation": "All19 bound source/test hashes unchanged; local furnishing/scheduler and synthetic prerequisites only; not root/native positive persistence."
+    },
+    {
+      "round": "R1",
+      "validation": "Eight relevant source/test bindings unchanged. Native proof reused only exact original artifact/consumer scope."
+    },
+    {
+      "round": "R3",
+      "validation": "21 relevant bindings unchanged; main differs. Exact old browser/paid RNG proof retained; current integrated main/browser gate OPEN."
+    },
+    {
+      "round": "R11",
+      "validation": "431 manifest inputs unchanged; main.js,display.js,settled_text_effects.js,workspace_views.js,workspace_layout.js,adventure_notebook.js drift. No renewed whole loaded-build claim."
+    }
+  ],
+  "runtimeEdits": [],
+  "build": "NOT_RUN; no conditional native route selected"
+}

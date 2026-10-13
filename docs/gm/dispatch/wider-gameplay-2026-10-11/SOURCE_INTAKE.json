@@ -1,0 +1,30 @@
+{
+  "schema": "wider-gameplay-source-intake-1",
+  "date": "2026-10-11",
+  "status": "reference pointers received; eight BW1 ledger hashes match independent review; frozen candidate hashes unchanged",
+  "publicReferences": {
+    "docs/gm/dispatch/lore-timelines-2026-10-11/REPORT.md": "05a4330d0be7065dd6976d37ed6ba6782104d5d415b0e621b94f602877417eff",
+    "docs/gm/dispatch/lore-timelines-2026-10-11/VALIDATION.json": "a72ec863cde9b0e75019ac62ccd221f570a0adf0a2ab9d041ad956bb07f8c5af",
+    "docs/gm/dispatch/lore-timelines-2026-10-11/bw1/REPORT.md": "ece0b3449fe36be2464bf89b63ec0897177038387cb39cac34beb6ceb283cb4e",
+    "docs/gm/dispatch/lore-timelines-2026-10-11/review/REVIEW.json": "c917ec36f5ffd7252508d5557aa695b2892929c7bc8856b1b51d81748aca83f7",
+    "docs/gm/dispatch/lore-timelines-2026-10-11/COMPLETION_REQUIREMENTS.json": "b0aed6f35534ce7053e2b7d4180875acf3d2f432caa054d54785c68a5e24f7b7",
+    "docs/gm/dispatch/lore-timelines-2026-10-11/COMPLETION_MATRIX.json": "84cfac82e9c885fbae3fb7437828cb62b92d52b1a010b6d6ab481cc49bcb3955"
+  },
+  "privateOwners": {
+    "BW1": "docs/research/novels/lore-timelines-2026-10-11/gm/bw1",
+    "synthesis": "docs/research/novels/lore-timelines-2026-10-11/gm/coordinator/SYNTHESIS.json"
+  },
+  "checkedLedgerIds": [
+    "SOURCE_MANIFEST",
+    "COVERAGE",
+    "CLAIMS",
+    "EVENTS",
+    "KNOWLEDGE",
+    "CONTINUITIES",
+    "EXPANSIONS",
+    "REMAINING"
+  ],
+  "limits": "BW1 supplied range1-319 is inherited full-reader plus targeted correction coverage, not a new full reread. Five-world source/design checks are not gameplay verification. Source-informed expansions and this candidate death continuation remain proposals.",
+  "runtimeDisposition": "Frozen candidate/proof unchanged. No runtime edits, integration, new tests, commits, pushes, source-library or user-save changes. No new world selected.",
+  "nextUse": "When later implementation is selected, resolve exact source/claim/dependency/knowledge/version IDs privately and qualify actual carriers/effects, baseline/disturbance/failure/delay/changed-knowledge and save/reload/import gates."
+}

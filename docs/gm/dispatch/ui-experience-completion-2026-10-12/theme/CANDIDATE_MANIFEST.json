@@ -1,0 +1,29 @@
+{
+  "candidate": "/Users/weiwei/.codex/candidates/yairpg-ui-theme-2026-10-12",
+  "baseline": "BASELINE.json",
+  "files": {
+    "src/component_themes.js": "51abc6c9e86e1337befe96bad2b8e0ac6817d30b68ed686c6b3c251ef3cfadf1",
+    "src/customization_profiles.js": "f2f001da9a91f3761377ba1c15ed3cd7e56cb3cc5aeb43fb089f9f2b18329fd2",
+    "styles/component_themes.css": "89d04c9783bbc952fd2e5da0e1b9ef19ec2bab87291a8e392831c79356cb6b58",
+    "src/customization_ui.js": "01fb62dc4b0503809dc7f67b700796b538da1d36f30100b9b028a6c59de40808",
+    "src/main.js": "e166d70f7fddcb7af9ab86d12330ac285e27fe2683ee060ed0fd858c5155b980",
+    "index.html": "b1470bc4cb8b002c318be952a14616a61405b5a119eb3ee58dfa821d96df7dc5",
+    "dist/bundle.js": "56a996f600cf76a777dbb9311b5dd2b0404d10254397e31defa807079b0b8fae",
+    "dist/bundle.js.map": "228b86c49c61b9d11625824b8c0cf1254ec4d846e965c50fa8c6a68eb722971e"
+  },
+  "patches": [
+    "COMPONENT.patch",
+    "UI_ADAPTER.patch"
+  ],
+  "sourceEdit": true,
+  "rebuilt": true,
+  "sharedIntegrated": false,
+  "humanAccepted": false,
+  "server": "http://127.0.0.1:18586",
+  "serverSession": 52405,
+  "proofFiles": {
+    "THEME_RESULT.json": "8a4b5ed5655bdbbc79b84735e03a6271b65a00fe14b64c279d8e7e32c00e5a5b",
+    "NATIVE_RESULT.json": "e1e84ab37f84894bb5abacd5f89953ec35bde8a5b9dfeeba8403821b194e3e7d",
+    "FINAL_RESULT.json": "f4a162540a1373e9937747495714338ba20057640ea64ba0ff9958347ce59c67"
+  }
+}

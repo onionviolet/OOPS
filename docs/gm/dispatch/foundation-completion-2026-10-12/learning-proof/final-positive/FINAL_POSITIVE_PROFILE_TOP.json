@@ -1,0 +1,86 @@
+[
+  {
+    "count": 100,
+    "function": "Dr",
+    "url": "http://127.0.0.1:18644/dist/bundle.js?version=v0.6-555216ac778b",
+    "line": 962,
+    "column": 361919
+  },
+  {
+    "count": 98,
+    "function": "(garbage collector)",
+    "url": "",
+    "line": 0,
+    "column": 0
+  },
+  {
+    "count": 78,
+    "function": "(program)",
+    "url": "",
+    "line": 0,
+    "column": 0
+  },
+  {
+    "count": 56,
+    "function": "Dr",
+    "url": "http://127.0.0.1:18644/dist/bundle.js?version=v0.6-555216ac778b",
+    "line": 962,
+    "column": 361919
+  },
+  {
+    "count": 54,
+    "function": "bD",
+    "url": "http://127.0.0.1:18644/dist/bundle.js?version=v0.6-555216ac778b",
+    "line": 108,
+    "column": 1184488
+  },
+  {
+    "count": 50,
+    "function": "Dr",
+    "url": "http://127.0.0.1:18644/dist/bundle.js?version=v0.6-555216ac778b",
+    "line": 962,
+    "column": 361919
+  },
+  {
+    "count": 47,
+    "function": "WX",
+    "url": "http://127.0.0.1:18644/dist/bundle.js?version=v0.6-555216ac778b",
+    "line": 108,
+    "column": 791955
+  },
+  {
+    "count": 41,
+    "function": "bD",
+    "url": "http://127.0.0.1:18644/dist/bundle.js?version=v0.6-555216ac778b",
+    "line": 108,
+    "column": 1184488
+  },
+  {
+    "count": 38,
+    "function": "bD",
+    "url": "http://127.0.0.1:18644/dist/bundle.js?version=v0.6-555216ac778b",
+    "line": 108,
+    "column": 1184488
+  },
+  {
+    "count": 36,
+    "function": "WX",
+    "url": "http://127.0.0.1:18644/dist/bundle.js?version=v0.6-555216ac778b",
+    "line": 108,
+    "column": 791955
+  },
+  {
+    "count": 36,
+    "function": "Dr",
+    "url": "http://127.0.0.1:18644/dist/bundle.js?version=v0.6-555216ac778b",
+    "line": 962,
+    "column": 361919
+  },
+  {
+    "count": 31,
+    "function": "bD",
+    "url": "http://127.0.0.1:18644/dist/bundle.js?version=v0.6-555216ac778b",
+    "line": 108,
+    "column": 1184488
+  }
+]

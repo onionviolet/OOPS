@@ -1,0 +1,221 @@
+{
+  "pid": 43718,
+  "servedHash": "0e6d54c89228ace73ceaa6c964364a99eb13915fb66aa00f2838e4970470479b",
+  "origin": "http://127.0.0.1:18643",
+  "startedHash": "0e6d54c89228ace73ceaa6c964364a99eb13915fb66aa00f2838e4970470479b",
+  "endedHash": "0e6d54c89228ace73ceaa6c964364a99eb13915fb66aa00f2838e4970470479b",
+  "events": [
+    {
+      "workflowStep": {
+        "action": "reload",
+        "save": "worker-player-write-failure-reloaded"
+      },
+      "index": 0,
+      "clock": 11634,
+      "sequence": 1227
+    },
+    {
+      "workflowStep": {
+        "action": "click",
+        "selector": "#notebook_tab_here"
+      },
+      "index": 1,
+      "clock": 11634,
+      "sequence": 1227
+    },
+    {
+      "workflowStep": {
+        "action": "panel",
+        "selector": "#feature_expansion_panel"
+      },
+      "index": 2,
+      "clock": 11634,
+      "sequence": 1227
+    },
+    {
+      "workflowStep": {
+        "action": "panel",
+        "selector": "#feature_expansion_panel details:has(>summary:text-is(\"A taught procedure, useful material\"))"
+      },
+      "index": 3,
+      "clock": 11634,
+      "sequence": 1227
+    },
+    {
+      "workflowStep": {
+        "action": "panel",
+        "selector": "#feature_expansion_panel details:has(>summary:text-is(\"Home-world chapter & changed return\"))"
+      },
+      "index": 4,
+      "clock": 11634,
+      "sequence": 1227
+    },
+    {
+      "workflowStep": {
+        "action": "click",
+        "selector": "[data-action-legibility-key=\"action:world.completion.learning.learn_player\"] button",
+        "save": "worker-player-lesson-accepted"
+      },
+      "index": 5,
+      "clock": 11635,
+      "sequence": 1229
+    },
+    {
+      "workflowStep": {
+        "action": "export",
+        "name": "worker-player-lesson-accepted"
+      },
+      "index": 6,
+      "clock": 11635,
+      "sequence": 1229
+    },
+    {
+      "workflowStep": {
+        "action": "reload",
+        "save": "worker-player-lesson-reloaded"
+      },
+      "index": 7,
+      "clock": 11635,
+      "sequence": 1229
+    },
+    {
+      "workflowStep": {
+        "action": "literalImport",
+        "path": "/tmp/yairpg-foundation-learning-worker-player-lesson-accepted.txt",
+        "save": "worker-player-lesson-literal-imported"
+      },
+      "index": 8,
+      "clock": 11635,
+      "sequence": 1229
+    },
+    {
+      "workflowStep": {
+        "action": "completed",
+        "id": "world.completion.learning.learn_player",
+        "save": "worker-player-learned"
+      },
+      "index": 9,
+      "clock": 11639,
+      "sequence": 1233
+    },
+    {
+      "workflowStep": {
+        "action": "click",
+        "selector": "#notebook_tab_here"
+      },
+      "index": 10,
+      "clock": 11639,
+      "sequence": 1233
+    },
+    {
+      "workflowStep": {
+        "action": "panel",
+        "selector": "#feature_expansion_panel"
+      },
+      "index": 11,
+      "clock": 11639,
+      "sequence": 1233
+    },
+    {
+      "workflowStep": {
+        "action": "panel",
+        "selector": "#feature_expansion_panel details:has(>summary:text-is(\"A taught procedure, useful material\"))"
+      },
+      "index": 12,
+      "clock": 11639,
+      "sequence": 1233
+    },
+    {
+      "workflowStep": {
+        "action": "panel",
+        "selector": "#feature_expansion_panel details:has(>summary:text-is(\"Home-world chapter & changed return\"))"
+      },
+      "index": 13,
+      "clock": 11639,
+      "sequence": 1233
+    },
+    {
+      "workflowStep": {
+        "action": "click",
+        "selector": "[data-action-legibility-key=\"action:world.completion.learning.make_player\"] button",
+        "save": "worker-player-strip-accepted"
+      },
+      "index": 14,
+      "clock": 11640,
+      "sequence": 1235
+    },
+    {
+      "workflowStep": {
+        "action": "completed",
+        "id": "world.completion.learning.make_player",
+        "save": "worker-player-strip-produced"
+      },
+      "index": 15,
+      "clock": 11641,
+      "sequence": 1236
+    },
+    {
+      "workflowStep": {
+        "action": "export",
+        "name": "worker-player-strip-produced"
+      },
+      "index": 16,
+      "clock": 11641,
+      "sequence": 1236
+    },
+    {
+      "workflowStep": {
+        "action": "reload",
+        "save": "worker-player-strip-reloaded"
+      },
+      "index": 17,
+      "clock": 11641,
+      "sequence": 1236
+    },
+    {
+      "workflowStep": {
+        "action": "literalImport",
+        "path": "/tmp/yairpg-foundation-learning-worker-player-strip-produced.txt",
+        "save": "worker-player-strip-literal-imported"
+      },
+      "index": 18,
+      "clock": 11641,
+      "sequence": 1236
+    },
+    {
+      "workflowStep": {
+        "action": "click",
+        "selector": "#notebook_tab_here"
+      },
+      "index": 19,
+      "clock": 11641,
+      "sequence": 1236
+    },
+    {
+      "workflowStep": {
+        "action": "panel",
+        "selector": "#feature_expansion_panel"
+      },
+      "index": 20,
+      "clock": 11641,
+      "sequence": 1236
+    },
+    {
+      "workflowStep": {
+        "action": "panel",
+        "selector": "#feature_expansion_panel details:has(>summary:text-is(\"Home-world chapter & changed return\"))"
+      },
+      "index": 21,
+      "clock": 11641,
+      "sequence": 1236
+    },
+    {
+      "error": "page.waitForFunction: Timeout 120000ms exceeded."
+    },
+    {
+      "action": "save",
+      "name": "worker-strip-restoration-blocker"
+    }
+  ],
+  "errors": []
+}

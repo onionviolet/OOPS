@@ -1,0 +1,71 @@
+{
+  "status": "PASS",
+  "bundle": "cb0c11d04b3e13c16aac5cd930314cfb78d654c326f07d2b9140f14e739ff175",
+  "base": "dd3efe3383f12f0aac22e4f390aae90fae2e7fc4",
+  "fixture": "docs/gm/dispatch/foundation-adoption-next-2026-10-13/rounds/r1/natural-prerequisite/natural-prerequisite-save.txt",
+  "fixtureHash": "09b9c035789844eedaf3c7d5a00fcf1436c84c638d2366646aeda591e98a1fd6",
+  "checks": {
+    "legitimateBooking": true,
+    "realFiniteReservation": true,
+    "pendingLiteralRestoration": true,
+    "usefulNativeOutput": true,
+    "completedLiteralRestoration": true,
+    "noReplay": true,
+    "actualKitUseAndOrdinaryContinuation": true,
+    "distinctFirstDutyOrder": true,
+    "preservedNoPreferenceOrder": true,
+    "truthfulInterruptionAndCancellation": true,
+    "distinctPaidTermsAndRestoration": true,
+    "explicitLaterRefusal": true,
+    "failedWriteRetry": true,
+    "keyboardControls": true
+  },
+  "events": [
+    "feature_society.stop_future",
+    "feature_society.duty.continuation_paid",
+    "cancel:simulation:4034",
+    "feature_society.duty.continuation_paid",
+    "feature_society.duty.continuation_decline",
+    "feature_society.duty.continuation_sponsored",
+    "feature_society.duty.continuation_sponsored"
+  ],
+  "errors": [],
+  "timePolicy": "Normal native browser timers; no resource/history/clock fields injected",
+  "console": [
+    "Failed to load resource: the server responded with a status of 404 (Not Found)",
+    "Failed to load resource: the server responded with a status of 404 (Not Found)",
+    "Failed to load resource: the server responded with a status of 404 (Not Found)",
+    "Failed to load resource: the server responded with a status of 404 (Not Found)",
+    "Failed to load resource: the server responded with a status of 404 (Not Found)",
+    "Failed to load resource: the server responded with a status of 404 (Not Found)",
+    "Failed to load resource: the server responded with a status of 404 (Not Found)",
+    "Failed to load resource: the server responded with a status of 404 (Not Found)",
+    "Failed to load resource: the server responded with a status of 404 (Not Found)",
+    "Failed to load resource: the server responded with a status of 404 (Not Found)",
+    "Failed to load resource: the server responded with a status of 404 (Not Found)",
+    "Failed to load resource: the server responded with a status of 404 (Not Found)",
+    "Failed to load resource: the server responded with a status of 404 (Not Found)",
+    "Failed to load resource: the server responded with a status of 404 (Not Found)",
+    "Failed to load resource: the server responded with a status of 404 (Not Found)",
+    "Failed to load resource: the server responded with a status of 404 (Not Found)"
+  ],
+  "proofComposition": {
+    "primary": "attempts/primary-with-cancel-selector-error.json: first9checks; exact same bundle; missing cancel selector caused subsequent harness stop",
+    "secondary": "NATIVE_RUN_SECONDARY.txt: remaining cancellation/paid/refusal/failed-write paths from actual primary exported files; no primary replay",
+    "harnessFailuresRetained": [
+      "initial accessible-name mismatch (recorded checkpoint)",
+      "attempts/initial-timer-assumption.json",
+      "attempts/virtual-clock-no-progress.json",
+      "attempts/primary-with-cancel-selector-error.json"
+    ]
+  },
+  "restorationMatrix": "RESTORATION_MATRIX.json:10 exact comparisons",
+  "inputs": {
+    "native.cjs": "db670297bff0b7d6bde1e43120d0e5fd21a9ba198b7d7f94b7528d48555a8c11",
+    "booking-branch.txt": "dca56d55a3719cd41297aea0cb32bbe2698f912d454f2de5bafd04d725ef8306",
+    "kept-branch.txt": "d43e43b0f73b6e22f756b283417fb4c026225a1af1116848b066d2ff1cab0aa9",
+    "supplied-branch.txt": "6cc4dd4eb7d6925e8c5f1172bf76af5596a12c715c90a9ef7212f9c03d3a6db8",
+    "attempts/primary-with-cancel-selector-error.json": "cdaf69f7f3c707d676ed9eda8843e8670243e5c9c1e508e88888c274799dea60",
+    "RESTORATION_MATRIX.json": "3d6d478993b4d865a9ea0b20d69f5a8be9609f02eca05e93613bc41e6bdc9f11"
+  }
+}

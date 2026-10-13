@@ -1,0 +1,26 @@
+{
+  "note": "TOP summary coordinates are one-based; corrected after inspecting exact function tokens. This profile explains CPU use, establishes no violated gameplay invariant.",
+  "locators": [
+    {
+      "profileLine1Based": 108,
+      "profileColumn1Based": 791955,
+      "source": "../src/world_completion_facts.js",
+      "line": 15,
+      "column": 17
+    },
+    {
+      "profileLine1Based": 108,
+      "profileColumn1Based": 1184488,
+      "source": "../src/audit_remainder_facts.js",
+      "line": 12,
+      "column": 17
+    },
+    {
+      "profileLine1Based": 962,
+      "profileColumn1Based": 361919,
+      "source": "../src/simulation_effects.js",
+      "line": 84,
+      "column": 17
+    }
+  ]
+}

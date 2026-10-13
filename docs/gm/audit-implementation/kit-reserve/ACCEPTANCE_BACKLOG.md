@@ -1,3 +1,14 @@
+# R4 evidence update, 2026-10-13
+
+The original pre-verification text below is historical. Current16SOURCE checks and
+bounded native held4/held3, pause at2/explicit resume, paid refill, current/future
+cancel,3→5overshoot and missing-input pause now exist. Exact held/paused/pending and
+completed restoration pass. [R4report](../../dispatch/foundation-adoption-next-2026-10-13/rounds/r4/REPORT.md)
+and [current remaining gates](../../dispatch/foundation-adoption-next-2026-10-13/rounds/r4/ACCEPTANCE_BACKLOG.md)
+own current verification limits. Native three-slot exhaustion, accepted-support-loss,
+failed durable publication and old-root1/older-reader gates remain OPEN; SOURCE proof
+is separate. No source repair or director acceptance.
+
 # Deferred P1 acceptance
 
 Implemented-unverified under the live implementation-first instruction. No unit/gameplay/browser/save/reload/import/failure/keyboard/regression/director acceptance suite ran. Source inspection and syntax/import/registry/link checks do not establish the following behavior.

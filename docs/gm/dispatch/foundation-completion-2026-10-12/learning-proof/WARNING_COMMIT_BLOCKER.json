@@ -1,0 +1,18 @@
+{
+  "status": "native-source-failed-warning",
+  "runnerPid": 43004,
+  "session": 54829,
+  "process": "clean STOP exit0",
+  "servedHash": "72cb3b8487715bbbe9fe61f57ed15779051eaf648c45eff9142edf83a689fa85",
+  "save": "/tmp/yairpg-foundation-learning-worker-warning-debug-blocker.json",
+  "saveSha256": "b544bd3668ef7b314a4bb6b33c864f764e7b8ccce5dca51a4748ff00aba353e5",
+  "clock": 11628,
+  "sequence": 1218,
+  "command": "lore.warning.begin",
+  "exception": "Unsupported immediate lore command.",
+  "sourceLocator": "src/lore_practice_runtime.js:175",
+  "observer": "Chrome CDP pause-on-exceptions observer immediately resumed; no source or game state edits",
+  "receipt": "WARNING_DEBUG_43004.json",
+  "rainAbsent": true,
+  "rootRepairOwner": true
+}

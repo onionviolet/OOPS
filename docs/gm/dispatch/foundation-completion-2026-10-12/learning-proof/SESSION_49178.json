@@ -1,0 +1,126 @@
+{
+  "pid": 49178,
+  "servedHash": "c0a5e5cccd37c59b1265dee554c051deefef360659c5d6dfffe4f9eb6ff328c3",
+  "origin": "http://127.0.0.1:18643",
+  "startedHash": "c0a5e5cccd37c59b1265dee554c051deefef360659c5d6dfffe4f9eb6ff328c3",
+  "endedHash": "c0a5e5cccd37c59b1265dee554c051deefef360659c5d6dfffe4f9eb6ff328c3",
+  "events": [
+    {
+      "action": "literalImport",
+      "path": "/tmp/yairpg-foundation-learning-worker-neri-presponsor.txt"
+    },
+    {
+      "action": "click",
+      "selector": "#notebook_tab_here"
+    },
+    {
+      "action": "panel",
+      "selector": "#feature_expansion_panel"
+    },
+    {
+      "action": "panel",
+      "selector": "#feature_expansion_panel details:has(>summary:text-is(\"A taught procedure, useful material\"))"
+    },
+    {
+      "workflowStep": {
+        "action": "click",
+        "selector": "[data-action-legibility-key=\"action:world.completion.learning.sponsor\"] button",
+        "save": "worker-neri-cancel-offered"
+      },
+      "index": 0,
+      "clock": 11719,
+      "sequence": 1292
+    },
+    {
+      "workflowStep": {
+        "action": "pending",
+        "actor": "remainder_home.neri",
+        "id": "world.completion.learning.walk_to_bench",
+        "save": "worker-neri-cancel-accepted"
+      },
+      "index": 1,
+      "clock": 11720,
+      "sequence": 1293
+    },
+    {
+      "error": "locator.evaluate: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('#feature_expansion_panel details:has(>summary:text-is(\"Your sponsored learner\\\\u2019s accepted work\"))')\u001b[22m\n"
+    },
+    {
+      "action": "save",
+      "name": "worker-neri-cancel-selector-boundary"
+    },
+    {
+      "action": "literalImport",
+      "path": "/tmp/yairpg-foundation-learning-worker-neri-presponsor.txt"
+    },
+    {
+      "action": "click",
+      "selector": "#notebook_tab_here"
+    },
+    {
+      "action": "panel",
+      "selector": "#feature_expansion_panel"
+    },
+    {
+      "action": "panel",
+      "selector": "#feature_expansion_panel details:has(>summary:text-is(\"A taught procedure, useful material\"))"
+    },
+    {
+      "workflowStep": {
+        "action": "click",
+        "selector": "[data-action-legibility-key=\"action:world.completion.learning.sponsor\"] button",
+        "save": "worker-neri-cancel-offered"
+      },
+      "index": 0,
+      "clock": 11719,
+      "sequence": 1292
+    },
+    {
+      "workflowStep": {
+        "action": "pending",
+        "actor": "remainder_home.neri",
+        "id": "world.completion.learning.walk_to_bench",
+        "save": "worker-neri-cancel-accepted"
+      },
+      "index": 1,
+      "clock": 11720,
+      "sequence": 1293
+    },
+    {
+      "workflowStep": {
+        "action": "panel",
+        "selector": "#feature_expansion_panel details:has(>summary:text-is(\"Your sponsored learner’s accepted work\"))"
+      },
+      "index": 2,
+      "clock": 11720,
+      "sequence": 1293
+    },
+    {
+      "workflowStep": {
+        "action": "click",
+        "name": "Do this: Cancel the sponsored work · return Neri’s reservations",
+        "save": "worker-neri-cancelled"
+      },
+      "index": 3,
+      "clock": 11720,
+      "sequence": 1293
+    },
+    {
+      "workflowStep": {
+        "action": "panel",
+        "selector": "#feature_expansion_panel details:has(>summary:text-is(\"A taught procedure, useful material\"))"
+      },
+      "index": 4,
+      "clock": 11720,
+      "sequence": 1293
+    },
+    {
+      "error": "page.waitForFunction: Timeout 10000ms exceeded."
+    },
+    {
+      "action": "save",
+      "name": "worker-neri-cancel-click-blocker"
+    }
+  ],
+  "errors": []
+}

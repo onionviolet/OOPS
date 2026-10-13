@@ -1,8 +1,11 @@
+import {validateCustomizationState} from './customization_profiles.js';
+import {migrateWorkLedger} from './work_ledger_system.js';
 import {createDurability} from './absorb_e2/durability.js';
 import {normalizePacing} from './absorb_e1/pacing.js';
 import {migrateFortSupply} from './absorb_d/fort.js';
 import {normalizeLocalLife} from './absorb_c2/local_life.js';
 import {validatePackState} from './content_packs.js';
+import {validateStructuredEnvelope} from './structured_pack_state.js';
 import {validateWorldCompletionNativeEnvelope} from './world_completion_native.js';
 import {validateCausalStoryEnvelope} from './causal_story_native.js';
 import {validateParadiseEnvelope} from './book_world_paradise_native.js';
@@ -35,7 +38,10 @@ const number = (value, label, minimum = 0) => {
 
 export function validateSaveEnvelope(original, currentVersion) {
     object(original, "Save");
+    if(original.customization!=null)validateCustomizationState(original.customization);
+    if(original.work_ledger!=null)migrateWorkLedger(original.work_ledger);
     if(original.content_packs!=null)validatePackState(original.content_packs);
+    validateStructuredEnvelope(original);
     if(original.village_career != null) {
         validateVillageCareer(original.village_career);
         if(original.village_career.recruit && !original.npc_lives?.people?.some(p=>p.id==='iona' && p.name==='Iona'))throw new Error('Village recruit needs her public life.');

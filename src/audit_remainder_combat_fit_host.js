@@ -51,6 +51,7 @@ export function remainderCombatFitPresentation(state, registry, context = {}) {
     const current = remainderCombatFitContext(state, context, registry), actions = [], actor = state.actors?.player;
     for(const d of remainderCombatFitDefinitions.commands) {
         if(d.once && actor?.completed?.[d.id]) continue;
+        if(d.targetId&&(!state.simulation?.people?.[d.targetId]||!state.actors?.[d.targetId]))continue;
         const ctx = {...current, targetId: d.targetId || null};
         if(!meets(d.visibleWhen, simulationFacts(state, ctx, registry))) continue;
         const p = previewSimulationCommand(state, registry, d.id, ctx);

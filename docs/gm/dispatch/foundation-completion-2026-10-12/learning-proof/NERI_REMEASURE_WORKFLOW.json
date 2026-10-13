@@ -1,0 +1,42 @@
+{
+  "action": "workflow",
+  "steps": [
+    {
+      "action": "click",
+      "selector": "#notebook_tab_here"
+    },
+    {
+      "action": "panel",
+      "selector": "#feature_expansion_panel"
+    },
+    {
+      "action": "panel",
+      "selector": "#feature_expansion_panel details:has(>summary:text-is(\"A dated warning and one physical rain\"))"
+    },
+    {
+      "action": "panel",
+      "selector": "#feature_expansion_panel details:has(>summary:text-is(\"A useful lens with a return obligation\"))"
+    },
+    {
+      "action": "click",
+      "selector": "[data-action-legibility-key=\"action:lore.warning.inspect_outside\"] button",
+      "save": "worker-notched-change-sample-accepted"
+    },
+    {
+      "action": "completed",
+      "id": "lore.warning.inspect_outside",
+      "save": "worker-notched-change-resampled"
+    },
+    {
+      "action": "click",
+      "selector": "[data-action-legibility-key=\"action:world.completion.lens.measure_service_outside\"] button",
+      "save": "worker-notched-change-remeasure-accepted"
+    },
+    {
+      "action": "completed",
+      "id": "world.completion.lens.measure_service_outside",
+      "count": 2,
+      "save": "worker-notched-change-remeasured"
+    }
+  ]
+}

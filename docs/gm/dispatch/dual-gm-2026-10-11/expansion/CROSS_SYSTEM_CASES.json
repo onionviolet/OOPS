@@ -1,0 +1,254 @@
+{
+  "schema": "w1-cross-system-planning-1",
+  "revision": 1,
+  "cases": [
+    {
+      "id": "W1-X01",
+      "sections": [
+        "S02",
+        "S03",
+        "S05",
+        "S14"
+      ],
+      "contracts": [
+        "W1-E01",
+        "W1-E02"
+      ],
+      "criterion": "A fresh ordinary snapshot can perform its actual local work without prior Village wages or biography; loaded prior lives retain their beginning.",
+      "status": "specified-not-run",
+      "privateSceneBinding": "integration/DETAIL_LEDGER.json after source joins"
+    },
+    {
+      "id": "W1-X02",
+      "sections": [
+        "S02",
+        "S04",
+        "S09"
+      ],
+      "contracts": [
+        "W1-E01",
+        "W1-E04"
+      ],
+      "criterion": "A household/support start has real people and actual care/access; starting relation grants no omniscient knowledge or loyalty.",
+      "status": "specified-not-run",
+      "privateSceneBinding": "integration/DETAIL_LEDGER.json after source joins"
+    },
+    {
+      "id": "W1-X03",
+      "sections": [
+        "S06",
+        "S07",
+        "S14"
+      ],
+      "contracts": [
+        "W1-E03",
+        "W1-E05"
+      ],
+      "criterion": "A learned method and a transferred source are separate; full source with supporting body executes, instruction without required source does not.",
+      "status": "specified-not-run",
+      "privateSceneBinding": "integration/DETAIL_LEDGER.json after source joins"
+    },
+    {
+      "id": "W1-X04",
+      "sections": [
+        "S04",
+        "S06",
+        "S10"
+      ],
+      "contracts": [
+        "W1-E03",
+        "W1-E04"
+      ],
+      "criterion": "Issued stock can be used only by actual custody/permission; witness remembers the actual report; repeated claim cannot duplicate stock or pay.",
+      "status": "specified-not-run",
+      "privateSceneBinding": "integration/DETAIL_LEDGER.json after source joins"
+    },
+    {
+      "id": "W1-X05",
+      "sections": [
+        "S05",
+        "S06",
+        "S11"
+      ],
+      "contracts": [
+        "W1-E03",
+        "W1-E07"
+      ],
+      "criterion": "An ordinary supply contribution changes a real downstream service; exceptional transport/production can exceed ordinary output and changes supply/demand.",
+      "status": "specified-not-run",
+      "privateSceneBinding": "integration/DETAIL_LEDGER.json after source joins"
+    },
+    {
+      "id": "W1-X06",
+      "sections": [
+        "S04",
+        "S07",
+        "S09",
+        "S10"
+      ],
+      "contracts": [
+        "W1-E04",
+        "W1-E05"
+      ],
+      "criterion": "A hidden ability affects only an observer with an actual channel; a communicated supported report changes a later response without sharing full private state.",
+      "status": "specified-not-run",
+      "privateSceneBinding": "integration/DETAIL_LEDGER.json after source joins"
+    },
+    {
+      "id": "W1-X07",
+      "sections": [
+        "S06",
+        "S07",
+        "S08"
+      ],
+      "contracts": [
+        "W1-E03",
+        "W1-E06"
+      ],
+      "criterion": "A source-qualified target effect changes real material/body/custody; invalid target, interruption and source loss produce exact declared consequences, not invented universal costs.",
+      "status": "specified-not-run",
+      "privateSceneBinding": "integration/DETAIL_LEDGER.json after source joins"
+    },
+    {
+      "id": "W1-X08",
+      "sections": [
+        "S01",
+        "S09",
+        "S11"
+      ],
+      "contracts": [
+        "W1-E04",
+        "W1-E08"
+      ],
+      "criterion": "Natural events proceed from valid causes under abstention; removing a material cause changes dependent results while remote intact causes continue.",
+      "status": "specified-not-run",
+      "privateSceneBinding": "integration/DETAIL_LEDGER.json after source joins"
+    },
+    {
+      "id": "W1-X09",
+      "sections": [
+        "S02",
+        "S10",
+        "S11"
+      ],
+      "contracts": [
+        "W1-E01",
+        "W1-E02",
+        "W1-E08"
+      ],
+      "criterion": "Before/during/after snapshots bind appropriate surviving people/resources/access; past source events are prior causes, not earned player deeds.",
+      "status": "specified-not-run",
+      "privateSceneBinding": "integration/DETAIL_LEDGER.json after source joins"
+    },
+    {
+      "id": "W1-X10",
+      "sections": [
+        "S04",
+        "S11",
+        "S12"
+      ],
+      "contracts": [
+        "W1-E02",
+        "W1-E04",
+        "W1-E09"
+      ],
+      "criterion": "Counterpart recognition uses witnessed identity/history; two histories never share actor memories merely because their definitions share a name.",
+      "status": "specified-not-run",
+      "privateSceneBinding": "integration/DETAIL_LEDGER.json after source joins"
+    },
+    {
+      "id": "W1-X11",
+      "sections": [
+        "S06",
+        "S11",
+        "S12",
+        "S14"
+      ],
+      "contracts": [
+        "W1-E03",
+        "W1-E09"
+      ],
+      "criterion": "An exported unique item and external recipient remain consistent across rollback; a local archived resume cannot clone that item or silently erase external history.",
+      "status": "specified-not-run",
+      "privateSceneBinding": "integration/DETAIL_LEDGER.json after source joins"
+    },
+    {
+      "id": "W1-X12",
+      "sections": [
+        "S07",
+        "S09",
+        "S11"
+      ],
+      "contracts": [
+        "W1-E04",
+        "W1-E09"
+      ],
+      "criterion": "Model forecast, actual future sight and practice simulation retain distinct fidelity/knowledge promises; their UI and effects do not mislabel them.",
+      "status": "specified-not-run",
+      "privateSceneBinding": "integration/DETAIL_LEDGER.json after source joins"
+    },
+    {
+      "id": "W1-X13",
+      "sections": [
+        "S06",
+        "S07",
+        "S13"
+      ],
+      "contracts": [
+        "W1-E10"
+      ],
+      "criterion": "Device/furniture acquisition changes the actual function consumer; removal stops only the contribution; quiet craft effects preserve usable information with effects off.",
+      "status": "specified-not-run",
+      "privateSceneBinding": "integration/DETAIL_LEDGER.json after source joins"
+    },
+    {
+      "id": "W1-X14",
+      "sections": [
+        "S02",
+        "S04",
+        "S07",
+        "S13"
+      ],
+      "contracts": [
+        "W1-E04",
+        "W1-E05",
+        "W1-E11"
+      ],
+      "criterion": "A limited-body/system-host start has viable legal actions and independent supporter/host means; stage/host transition retains actual identity and sources.",
+      "status": "specified-not-run",
+      "privateSceneBinding": "integration/DETAIL_LEDGER.json after source joins"
+    },
+    {
+      "id": "W1-X15",
+      "sections": [
+        "S11",
+        "S12",
+        "S14"
+      ],
+      "contracts": [
+        "W1-E02",
+        "W1-E08",
+        "W1-E12"
+      ],
+      "criterion": "Leaving and returning resumes the selected local absence policy and saved instance; missing/restored pack cannot pay twice or reroll entry.",
+      "status": "specified-not-run",
+      "privateSceneBinding": "integration/DETAIL_LEDGER.json after source joins"
+    },
+    {
+      "id": "W1-X16",
+      "sections": [
+        "S09",
+        "S13",
+        "S14"
+      ],
+      "contracts": [
+        "W1-E04",
+        "W1-E10",
+        "W1-E12"
+      ],
+      "criterion": "Strong show-of-power, quiet mastery, static/plain/copy and off forms expose the same supported impression; private author data never enters report/tooltip fixtures.",
+      "status": "specified-not-run",
+      "privateSceneBinding": "integration/DETAIL_LEDGER.json after source joins"
+    }
+  ]
+}

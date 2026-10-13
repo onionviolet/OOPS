@@ -1,0 +1,12 @@
+{
+  "recordedAt": "2026-10-12T05:44:22.927Z",
+  "paths": {
+    "tests/ink_lin_parity.test.js": "873a60d5410d2da28bd8d7415f06018f56563d1658daba9430e35ee1549d482c",
+    "docs/gm/dispatch/foundation-completion-2026-10-12/lin-source-tests/fixture.mjs": "69ffbedc37269554ecc1c97f6bef917fa0c028521b87cf25735f82a8c27bd367",
+    "stories/feature_wave.json": "ffb07d934f656be98952aa2e3d181c585b3342090e1d033079dc819df311ac7c",
+    "src/ink_scene_content.js": "17510921b76264463dfc68911f3179c407a2b1c7970d9431dfdb50ec5820d761",
+    "src/ink_narrative.js": "f54f3413232acb9f134028cfb78a58e5d029f903c0976e259169ac7e7e9607ff",
+    "src/feature_expansion_nested_host.js": "94c04d5c80b660d617b92b0341115f2bf97abe3a211c98fc66c70021233eff42",
+    "src/realm_traveler_profiles.js": "d4e98f8d9dd3fe2efe49e57ded583ef1ed2910b91d711eb2ece25f4f77aa774f"
+  }
+}

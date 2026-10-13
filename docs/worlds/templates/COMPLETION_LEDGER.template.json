@@ -1,0 +1,217 @@
+{
+  "schema": "completion-authoring-template-1",
+  "templateOnly": true,
+  "runtimeSaveSchema": false,
+  "scope": {
+    "id": null,
+    "type": null,
+    "revision": null,
+    "authority": null,
+    "owner": null,
+    "representedBoundary": null,
+    "outsideRevision": []
+  },
+  "coverage": {
+    "inputInventory": null,
+    "ideaExtraction": "pending",
+    "privateIntakeOwner": null,
+    "allAuditsReconciled": false
+  },
+  "sections": [
+    {
+      "id": "S00",
+      "name": "Scope, sources and audit reconciliation",
+      "applicability": "pending",
+      "reason": null,
+      "detailOwner": null,
+      "requiredIds": [],
+      "reviewEvidence": null
+    },
+    {
+      "id": "S01",
+      "name": "World identity, laws and history",
+      "applicability": "pending",
+      "reason": null,
+      "detailOwner": null,
+      "requiredIds": [],
+      "reviewEvidence": null
+    },
+    {
+      "id": "S02",
+      "name": "Starts, bodies and arrival",
+      "applicability": "pending",
+      "reason": null,
+      "detailOwner": null,
+      "requiredIds": [],
+      "reviewEvidence": null
+    },
+    {
+      "id": "S03",
+      "name": "Places, environment and exploration",
+      "applicability": "pending",
+      "reason": null,
+      "detailOwner": null,
+      "requiredIds": [],
+      "reviewEvidence": null
+    },
+    {
+      "id": "S04",
+      "name": "People, relationships and organizations",
+      "applicability": "pending",
+      "reason": null,
+      "detailOwner": null,
+      "requiredIds": [],
+      "reviewEvidence": null
+    },
+    {
+      "id": "S05",
+      "name": "Everyday life, work and economy",
+      "applicability": "pending",
+      "reason": null,
+      "detailOwner": null,
+      "requiredIds": [],
+      "reviewEvidence": null
+    },
+    {
+      "id": "S06",
+      "name": "Items, materials, crafting and technology",
+      "applicability": "pending",
+      "reason": null,
+      "detailOwner": null,
+      "requiredIds": [],
+      "reviewEvidence": null
+    },
+    {
+      "id": "S07",
+      "name": "Skills, bodies, powers and development",
+      "applicability": "pending",
+      "reason": null,
+      "detailOwner": null,
+      "requiredIds": [],
+      "reviewEvidence": null
+    },
+    {
+      "id": "S08",
+      "name": "Combat, danger and recovery",
+      "applicability": "pending",
+      "reason": null,
+      "detailOwner": null,
+      "requiredIds": [],
+      "reviewEvidence": null
+    },
+    {
+      "id": "S09",
+      "name": "Knowledge, discovery and secrets",
+      "applicability": "pending",
+      "reason": null,
+      "detailOwner": null,
+      "requiredIds": [],
+      "reviewEvidence": null
+    },
+    {
+      "id": "S10",
+      "name": "Situations, dialogue and narrative",
+      "applicability": "pending",
+      "reason": null,
+      "detailOwner": null,
+      "requiredIds": [],
+      "reviewEvidence": null
+    },
+    {
+      "id": "S11",
+      "name": "Timelines, endings and continuing life",
+      "applicability": "pending",
+      "reason": null,
+      "detailOwner": null,
+      "requiredIds": [],
+      "reviewEvidence": null
+    },
+    {
+      "id": "S12",
+      "name": "Travel, other worlds and other lives",
+      "applicability": "pending",
+      "reason": null,
+      "detailOwner": null,
+      "requiredIds": [],
+      "reviewEvidence": null
+    },
+    {
+      "id": "S13",
+      "name": "Presentation and usability",
+      "applicability": "pending",
+      "reason": null,
+      "detailOwner": null,
+      "requiredIds": [],
+      "reviewEvidence": null
+    },
+    {
+      "id": "S14",
+      "name": "Persistence, integration and acceptance",
+      "applicability": "pending",
+      "reason": null,
+      "detailOwner": null,
+      "requiredIds": [],
+      "reviewEvidence": null
+    }
+  ],
+  "requirements": [],
+  "detailRowTemplate": {
+    "id": null,
+    "parentId": null,
+    "primarySection": null,
+    "crossSections": [],
+    "authority": null,
+    "sourceClaimRefs": [],
+    "disposition": "unresolved",
+    "selection": "unselected",
+    "detailOwner": null,
+    "criterion": null,
+    "sealedDetailRef": null,
+    "dependencies": [],
+    "nativeConsumer": null,
+    "interactionCaseIds": [],
+    "persistenceDecision": null,
+    "evidence": {
+      "source": [],
+      "checks": [],
+      "build": [],
+      "browser": [],
+      "persistence": [],
+      "director": []
+    },
+    "remaining": []
+  },
+  "startCandidates": [],
+  "startCandidateTemplate": {
+    "id": null,
+    "sealedDefinitionRef": null,
+    "poolRevision": null,
+    "compatibilityBindings": [],
+    "initialActionCaseIds": [],
+    "knowledgeBoundaryCaseIds": [],
+    "commitReloadImportCaseIds": [],
+    "selectionPolicyOwner": null,
+    "eligible": false,
+    "evidence": []
+  },
+  "interactionCases": [],
+  "requiredIdsForRevision": [],
+  "targetCompletionLevel": null,
+  "evidencePolicy": {
+    "recordFields": [
+      "revisionOrBuild",
+      "inputStateRef",
+      "stepsOrCommand",
+      "actualResult",
+      "evidenceRef"
+    ],
+    "unrunIsPassed": false,
+    "humanAcceptanceImplied": false
+  },
+  "resume": {
+    "integrator": null,
+    "reservations": [],
+    "checkpoint": null,
+    "nextAction": null
+  }
+}

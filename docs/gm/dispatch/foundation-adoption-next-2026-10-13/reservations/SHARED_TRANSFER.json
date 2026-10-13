@@ -1,0 +1,62 @@
+{
+  "schemaVersion": 1,
+  "atUTC": "2026-10-13T06:08:51.039803+00:00",
+  "fromThread": "01a13351-88e9-77d0-9de8-baaeebf319b8",
+  "toThread": "01a133d9-faa9-71a1-a513-7131efbc8613",
+  "authority": "Direct human reply: Transfer finished shared-source reservation to this GM",
+  "checkout": "/Users/weiwei/code/yet-another-idle-rpg",
+  "head": "dd3efe3383f12f0aac22e4f390aae90fae2e7fc4",
+  "status": "historical effective transfer to predecessor; superseded by SUCCESSOR_TRANSFER.json",
+  "reserved": "Finished livelihood shared reservation inherited from Foundation release: runtime/state/save/story/compiler/main/tests/generated-build during serialized integration windows",
+  "exclusions": [
+    "separate UI/density/theme/workspace redesign and isolated candidates",
+    "separate authoring/editor lane",
+    "paused World1 assignment and private packs",
+    "source libraries and personal saves",
+    "sender seven immutable preparation/review artifacts"
+  ],
+  "workers": {
+    "research_horizon": "completed read-only",
+    "foundation_horizon": "completed R1 bounded independent source review;12/12consumer checks, original restored-output counterexample now rejects",
+    "duty_route": "completed read-only",
+    "continuation_content": {
+      "write": "candidate/src/agreed_duty_continuation.js only",
+      "snapshot": "execution/RECOVERY_INPUTS.json",
+      "status": "completed, explicit write release received; root inspected and corrected"
+    },
+    "natural_duty_prerequisite": {
+      "write": "rounds/r1/natural-prerequisite/** only",
+      "source": "candidate baseline bundle451be34e read-only",
+      "process": "port18721 and disposable browser",
+      "status": "completed; explicit release; server/browser stopped, genuine native export delivered"
+    }
+  },
+  "processes": [
+    {
+      "owner": "01a133d9-faa9-71a1-a513-7131efbc8613",
+      "origin": "http://127.0.0.1:18724",
+      "sessionId": 79973,
+      "root": "/Users/weiwei/.codex/candidates/yairpg-foundation-adoption-2026-10-13-r1",
+      "scope": "frozen R1 public review; no shared source writes"
+    }
+  ],
+  "baselineIncident": "One baseline shared build executed before transfer; SHA256 verified all five output bytes unchanged. No rollback performed.",
+  "r1RootCandidatePaths": [
+    "src/agreed_duty_content.js",
+    "src/agreed_duty_facts.js",
+    "src/agreed_duty_host.js",
+    "src/agreed_duty_continuation.js",
+    "src/feature_expansion_society.js",
+    "src/simulation.js",
+    "src/feature_expansion_host.js",
+    "tests/agreed_duty_continuation.test.js"
+  ],
+  "functionalIntegration": "feature_expansion_host.js reserved narrowly for rendering typed new workshop account note; no layout/density/theme changes",
+  "currentSharedBundle": "cb0c11d04b3e13c16aac5cd930314cfb78d654c326f07d2b9140f14e739ff175",
+  "r1RootProofProcess": {
+    "origin": "http://127.0.0.1:18722",
+    "harness": "rounds/r1/native.cjs",
+    "status": "completed, server/browser stopped"
+  },
+  "successorThread": "01a13425-517a-7442-83b6-34929c57dfab"
+}

@@ -1,0 +1,12 @@
+{
+  "bundle": "dist/bundle.js?version=v0.6-2025657de8b6",
+  "caption": "Discovered: Running\n×",
+  "cueVisible": true,
+  "known": [
+    "Running"
+  ],
+  "viewport": {
+    "height": 768,
+    "width": 1366
+  }
+}

@@ -1,0 +1,100 @@
+# Connected management design, 2026-10-11
+
+Status: all ten families expanded and reviewed before runtime edits. All local fiction, costs, numbers and host choices below are proposals. Scope is one substantive first loop per family, with deeper possibilities retained here. This is original side-branch content, not a franchise adaptation or a universal economic rule.
+
+## Host and causal connections
+
+Proposed opt-in Village market courtyard in base.frontier, available through native center controls without a required Frontier campaign enrollment. The ordinary opening remains. Acceptance of the market charter introduces actual local simulation actors and finite supplies, not a grant of money to the player. Mira holds the courtyard concession; Orin runs a small wood-goods enterprise; Sela wants a working lodging room and can supply work; Bram buys goods for an outlying delivery. Their purses and stock stay with existing actor resources and simulation inventory. The player retains the native money and carried inventory owners. A site record owns the courtyard's single shared bench and room capacity. Deed/permission facts identify these particular sites and do not travel as authority.
+
+A market charter gives access to offers, not ownership. Buying and repairing a room enables lodging, an inn, or a workshop. Farms supply food for inn guests and festivals; workshop goods supply shops and caravan manifests; auctions provide a damaged collectible; restoration gives it a useful display and a possible sale. Investments and lending finance the same people, but have different contracts and outcomes. Shared quantities cannot be spent in two loops. No loop silently accesses another world.
+
+## Shared implementation contract
+
+Use existing simulation enrollment, actor domains, people, owners, sites, facts, knowledge, jobs, reservations, refunds, commands and played clock. Native publisher stages cash, inventory, XP, resources and durable expansion together. All paid work has exact finite input reservations; cancellation or failed completion support refunds reservations without output. No promises of automatic ownership, distant contact or infinite NPC cash. Offers are authored and transparent about the current quoted terms; appraisal reveals condition, not unseen future outcomes. Actual player knowledge records support what the UI may display.
+
+Only played time advances accepted work. There is no wall-clock catch-up, browser-closed rent, compulsory maintenance, debt collection, aging, death or reset change. Work started by the player occupies that actor; routine execution can use the existing deliberate repeat-work route when an identical finite recipe is learned. Named delegation, when delivered, uses the NPC's real stock/purse, reserves capacity and stays within a frozen one-order mandate. A broad autonomous steward is retained design, not part of this first delivery. NPC refusal is represented by unavailable means, unmet consent/terms or finite budgets, not a hidden random punishment. Interruption retains the last durable transaction and exact pending inputs.
+
+No new top-level save namespace is needed. Old saves lacking mg.* facts/people/sites remain inert. Activation is explicit once, after enrollment. Existing expansion/simulation schemas remain compatible; mg content revision 1 is checked against actual actor/site/job definitions. Unsupported partial activation or altered frozen command costs/effects must fail closed. This candidate is not safe to load into an older reader lacking its definitions; preserve the original save and use a separate origin. No personal saves are inputs.
+
+Source-supported adapters inspected: simulation.js enrollment/preview/commit/cancel/played scheduler; simulation_effects.js spawn/site/resource/item/transfer/fact/knowledge/relationship/XP; simulation_contracts.js pure definition and state validation; main.persistExpansion durable native publication; native inventories and character.money. Missing authored work is the market charter, content, current-stock/purse/contact facts, native management panel and exact content validation. No isolated standalone game or duplicate economy is planned.
+
+## Coverage and playable journeys
+
+| ID | First substantive loop | Persistent owner and dependencies | Acceptance journey |
+|---|---|---|---|
+| MG01 | Inspect Orin's enterprise, fund a share or a goods advance, reserve one actual production batch, sell to a finite customer and settle one agreement | Orin actor stock/purse, player agreement facts, bench and jobs | Inspect -> choose share/advance/pass -> repair or supply -> actual goods/sale -> agreement-specific return, repeat settlement rejected |
+| MG02 | Buy one room concession, repair it, select personal use or negotiated lodging, respond to a tenant request and complete a rent period | Room site plus rights/use/occupant facts, Sela purse and consent | Buy -> real repair -> personal/lodging choice -> one supported tenant service -> finite rent, change use only without active commitment |
+| MG03 | Acquire or produce stock, choose honest market price or generous service, serve a finite customer; prepared room also hosts a paying guest | Native goods, customer stock/purse, room and sales receipts | Stock -> select price/service -> actual goods transfer/payment -> remembered service; inn consumes food and room access |
+| MG04 | Examine one damaged lot, choose low ceiling/high ceiling/pass, receive actual won item or outbid result | Mira lot inventory and competing bid facts | Examine -> ceiling -> lot resolution -> exact sale price/stock or no win; re-resolve rejected |
+| MG05 | Load real cargo, choose escorted premium delivery or shorter local run, reserve capacity/time and deliver to Bram's actual purse and manifest | Exact transferred/reserved native cargo, Bram inventory/purse, route facts and job | Cargo -> route/cost -> played journey -> delivery -> paid once; cancel before delivery returns goods |
+| MG06 | Rent a plot, choose quick greens or slower grain, reserve seed and effort, tend/harvest real food; keep animal care as a retained extension | Plot permission/site, player crop-stage facts, pending held inputs | Obtain seed -> plant -> water/tend -> harvest -> consume/sell; no harvesting an empty plot |
+| MG07 | Accept a concrete wood-goods commission, choose ordinary or careful workmanship, supply real logs and reserve shared bench, deliver to buyer | Buyer purse/order facts, bench reservations, actual native product | Accept -> exact materials -> normal/careful order -> useful product -> delivery; one order capacity; cancel/refund |
+| MG08 | Hear Sela's request, lend under a finite repayment agreement, give a gift or decline; assist her work and negotiate extension before collecting | Sela cash/means and player agreement/status facts | Inspect -> loan/gift/refusal -> work/extension -> actual finite repayment or outstanding agreement; no magical interest timer |
+| MG09 | Book courtyard venue, choose meal gathering or exhibition, supply food or restored display, prepare and host actual attendance outcome | Venue site, preparation/program facts, finite audience purses and knowledge | Book -> program -> actual supplies -> timed hosting -> bounded attendance/payment/relationships; cancel returns reserved inputs |
+| MG10 | Acquire damaged lot, inspect condition, choose useful conservation or sale-grade repair, spend materials/time then display or sell | Actual damaged/restored native objects, curator knowledge and display fact | Inspect -> treatment -> actual transform -> display/event or finite sale, no reward for same object twice |
+
+## MG01 Investing and patronage
+
+Fantasy: change a struggling enterprise's inputs and receive the rights you agreed to. Small: Orin's quoted repair and production needs, share, advance for goods or pass. First prototype separates a share payout after an actual sale from an advance delivered in goods. Funding is not itself profit. If the customer cannot afford the sale, settlement remains unavailable. A failed/cancelled production job returns its held material and spending; an accepted agreement stays recorded until its explicit settlement or cancellation route. Inspection reports tools and available stock, not perfect future profit. Woodworking supplies a practical repair route; local unusual crafting powers could later substitute if their actual means permit it.
+
+Middle: rolling accounts across several batches, co-investors splitting one distributable amount, reinvest versus withdraw and shortages changing sale choices. Large: syndicates, transferable local shares, competing enterprises and succession under local rules. NPC operators may refuse a production commitment when their bench, supplies or attention are occupied. Institutions are this courtyard's concession and written quotes. Delegation is a bounded batch, never a blank cheque. Useful progression is supply/access and repeat enterprise work, not arbitrary price noise.
+
+## MG02 Property is a place
+
+Fantasy: make a usable place and decide who it serves. Small: buy Mira's single room concession, spend actual repair material, personally use it or negotiate Sela's lodging. Ownership, alteration permission and lodging consent are separate recorded facts. Rent depends on the named occupant's finite cash and completed service; no unattended arrears or forced eviction appears. A tenant request makes the player choose material/time assistance or end future tenancy after the current commitment. Cancellation of repair returns inputs and leaves the room damaged. Unaffordable purchase/refusal changes no rights. Leaving pauses local active work.
+
+Middle: divide a building among clinic, forge, housing and inn; facility contents determine available work. Large: estates/districts, caretakers, local inheritance and contested concessions. Construction/repair skills and fitting tools can add alternatives without universally converting all skill levels into rent. NPC preferences and budgets limit occupancy; caretakers need a specific upkeep budget and exceptional-choice threshold. First useful progression is a genuinely reusable room for MG03/MG07, with personal use as a cost-free alternative to rent after repair. Room income cannot coexist with incompatible workshop/guest use.
+
+## MG03 Shops and inns
+
+Fantasy: learn what local customers want and serve them with real stock. Small: sell actual workshop goods at a quoted full price or choose cheaper friendly service. Sela/Bram/Mira remember the particular exchange, not universal region opinion. The buyer refuses above the authored willingness/budget or without stock; declining costs nothing. Inn service uses a repaired unoccupied room and actual food, with a finite guest purse. An accepted timed service reserves the room and goods. Cancellation refunds unserved supplies; completion records a lasting service and payment.
+
+Middle: suppliers, price bands, cooked meals, guest requests and finite seasonal demand. Large: chains with different local populations and clerks. Trading/Cooking means can create inspected demand or better products; they do not reveal everyone's private desire. Delegation requires stock bounds and minimum price, not automatic restocking. Useful progression is repeat customers, food use and room options. First delivery uses authored transparent customer quotations rather than a fake global market.
+
+## MG04 Auctions and appraisal
+
+Fantasy: decide what uncertain condition is worth to you. Small: Mira offers one damaged heirloom; observation identifies damage, and a further inspection reveals the treatment needed. Low ceiling may lose to a known competing bid without spending; high ceiling buys the actual item at the published clearing quote, never at an arbitrary ceiling. Pass preserves cash and closes only this lot. Replaying resolution cannot re-award the lot. Appraisal shows obtainable condition/provenance notes, not a secret value or future supernatural truth.
+
+Middle: sell collections, competing bidder budgets, reserve prices and multi-lot auctions. Large: specialist auction houses with regional legal provenance and unique discoveries. Inspection skills/tools add justified detail. A bidder's mandate must cap total spending over the sale, not cap every individual bid independently. First progression is restoration material and a reusable bidding account. No automated private-truth appraisal is assigned.
+
+## MG05 Caravans and shipping
+
+Fantasy: deliver useful goods with a chosen cost, destination and preparation. Small: make one actual goods manifest and choose a cheap local run or longer escorted shipment with a larger negotiated customer payment. A premium route spends escort coins; both use one retained finite customer demand and actual cargo transfer on delivery. Cancellation returns cargo and reserved costs before any delivery reward. Lost local support prevents completion and returns inputs. There is no undisclosed lethal road roll. A manifest is evidence of delivery, not two inventories of the same cargo.
+
+Middle: capacity, storage, spoilage where explicitly selected, route closure, escort NPC means and negotiated rescue. Large: fleets and interworld cargo only through real crossing carriers. Fieldcraft and route observation can open safer options. A leader can deliver one frozen manifest; changed destination or extra purchases require player instructions. First useful progression links workshop/shop output to outside demand without granting interworld rights.
+
+## MG06 Farming and animal care
+
+Fantasy: shape the next harvest and make daily care matter. Small: local plot permission, actual seed purchase, quick greens versus slower grain, watering/tending and actual harvested food. Empty/occupied plots reject planting; harvest only consumes a ready recorded crop once. The clock uses played crop work, not browser-closed spoilage. Planting/tending interruption preserves the committed stage and refunds any pending job inputs. Refusal to plant introduces no upkeep. Weather/soil influence is retained until an actual native binding is selected, not asserted by this prototype.
+
+Middle: animal feeding, milk/eggs, breeding with actual parents, storage and Cooking/Medicine recipes. Large: orchards that outlive a planter, regional seasons and hired plans. Practical tools/skills change supported labor/output through authored alternatives. Farmhands need seed/feed and intervention thresholds. First progression creates food for inn/event/sale and a meaningful choice between crop yields/durations. Animal care remains documented broader coverage, not a claimed implemented animal simulator.
+
+## MG07 Workshop scheduling
+
+Fantasy: decide which promise gets scarce materials and bench time. Small: an actual buyer order, one ordinary batch or a slower careful product, held logs and finite buyer budget. The courtyard bench is shared with restoration/enterprise craft and one capacity slot; accepted work prevents conflicting reservations. Completion makes an actual useful native item, not an order flag alone. Delivery consumes that product and moves payment from the buyer. Cancel returns held inputs without a product or payment.
+
+Middle: queues of orders, priority versus rush premiums, quality tied to materials/tools and changing customer relationships. Large: teams, specialized machinery, training and supply chains. Woodworking means supplies product recipes; ordinary play always retains a fitting local route. A foreman uses supplied stock and a frozen one-order spending ceiling, pausing on shortages. The first repeatable work is deliberately learned with real stopping conditions; broader automatic scheduling remains proposal.
+
+## MG08 Lending and mutual aid
+
+Fantasy: support someone and choose which obligation you create. Small: Sela's disclosed room/work need, loan versus gift versus refusal. Loan creates a principal claim; gift creates gratitude without a collectible debt. Finite repayment depends on her actual purse and useful work completed in this courtyard. An extension records new consent but does not generate interest or hidden defaults. Collection cannot repeat after settlement. No collateral theft, browser-closed penalties or global credit score is introduced.
+
+Middle: guarantors, mutual-aid pools, partial repayment, work-for-debt and consensual renegotiation. Large: local lending cooperatives and succession of surviving claims. Appraisal/accounting means reveal verified repayment sources, never certainty about intentions. A steward may track accounts but cannot spend unlimited cash or intimidate borrowers. First useful progression helps Sela earn through property/service and records relationship consequences specific to her. Failed publication leaves both cash and obligations unchanged.
+
+## MG09 Events and performances
+
+Fantasy: prepare an event people have a reason to attend. Small: book this venue, choose food gathering or exhibition, supply real food or a restored displayed object, prepare then host. Preparation changes which event is possible, not just a label on identical rewards. Gathering consumes food and draws finite paying meal customers; exhibition needs an actual restored collection/display and returns different relationships/knowledge or finite sponsorship. Guests may refuse without food/display or their own budget. Cancellation before hosting refunds reserved resources; no invitation message is sent outside the game.
+
+Middle: performers, local tournaments with actual competitors, scheduling clashes and remembered audience interests. Large: recurring festivals and civic institutions. Cooking/performance/relevant combat skills have distinct routes, not a universal event score. Organizer mandates cap preparation spending and programme changes. First progression connects MG06/MG10 with useful gatherings and retained attendance receipts; tournaments and music remain preserved extensions.
+
+## MG10 Restoration and collections
+
+Fantasy: turn a damaged object into useful history and learn through care. Small: inspect actual auction lot, choose conservation for display or sale-grade treatment, spend real logs/cloth and bench time, transform exactly one object, then display or sell it. Condition determines available treatment; inspection never hands over the object or produces perfect provenance. Unsupported tool/material/work rejects with no consumption. Cancellation returns inputs. Display keeps the object as local collection stock, so it cannot also be sold or carried without an explicit withdrawal.
+
+Middle: conservation specialties, records, knowledgeable visitors and supported discoveries. Large: museums, archive networks and inherited collections. Repair/Crafting/Appraisal means and rare powers can supply additional justified treatments. A conservator receives exact object custody and treatment limits. First usefulness is exhibition/finite buyer sale and player knowledge, not a free permanent global stat. No sealed truth is created or exposed by this original ordinary object.
+
+## Design review disposition
+
+All MG01–MG10 have concrete player decisions, finite means, refusal, interruption, success and persistent aftermath, fitting host institutions, information limits, native routes and observable first-loop gates. Scope retains middle/large variants without claiming them delivered. Priority MG01/MG02 is possible with existing normal stock and durable services; all other loops are connected and do not require upstream changes. Shared/global writers remain untouched.
+
+Phase-specific gate: live GAME_MASTER_PROMPT.md Autonomous iteration step 3 defers gameplay/browser/save/regression suites, while permitting build/syntax/import/link checks. Assignment says reconcile that deferral. Therefore source delivery can finish as implemented-unverified; exact later journeys, old-save/save/reload/import, failure publication and duplicate settlement checks must remain in ACCEPTANCE_BACKLOG.md. A build is not browser proof. Shared integration and director acceptance are external, separate gates.

@@ -1,0 +1,8 @@
+{
+  "src/main.js": "d75e214231b5b516cfc6511fdd82e13f9a6a4082e8993c622fd59bd04e6bf023",
+  "src/world_completion_native.js": "70aa86f190d0012d95c3af24d6827db8a20f477fd801a9dd1897cc734ac28c66",
+  "tests/world_completion_native_restore.test.js": "aa69ee5b2eef263e1bf7f0a272fac2b4c62459f87ef4b11ced1f7d8a0864c4d4",
+  "dist/bundle.js": "96eefe92538e06364042fc069b7fd94834ddd6fb069b8d4db0f6ae0a7d4b9195",
+  "dist/bundle.js.map": "e99ce759f8646e4ce1606aa5783e596e261c62c66ea306699e6faa7563c14ccc",
+  "index.html": "3b3b2ac27a11226ce945336c81651d3a98870e61abdeb414d20491231e2b8763"
+}

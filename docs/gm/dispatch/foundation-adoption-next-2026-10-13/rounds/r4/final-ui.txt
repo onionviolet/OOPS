@@ -1,0 +1,194 @@
+Authoring
+Layout
+Character vitals
+0 / 26 xp
+51/51 stamina
+0/0 mana
+80/80 hp
+Inventory & combat view
+Inventory
+Combat
+Character & preparation
+Level: 2
+Strength:
+13.2
+Agility:
+11.2
+Dexterity:
+11.0
+Intuition
+11.0
+Defense:
+1.0
+Magic:
+0.0
+Atk power:
+4.8
+Atk spd:
+0.7
+Crit rate:
+5.0%
+Crit mult:
+130.0%
+AP:
+37
+EP :
+39
+Active effects: 0
+Stats
+Bio
+Equipment
+Tools
+Belongings
+Your purse contains: 5C 8W
+star_border[weapon] Cheap iron axe [50%]
+[take off]
+14C 4W
+star_borderCooling salt packet
+1W
+star_borderDulled field fitting knife
+4W
+star_borderEmpty cooling sleeve x2
+1W
+star_borderPrepared survey kit x7
+2W
+star_borderRough wood log x83
+1C
+star_borderStale bread x5
+[use]
+auto
+2C
+star_borderTree sap
+5W
+star_borderWax-sealed survey kit x4
+3W
+star_border[legs] Cheap leather pants [40%]
+[equip]
+4C 6W
+star_border[tool] Old pickaxe
+[equip]
+1C
+star_border[tool] Old shovel
+[equip]
+1C
+star_border[tool] Old sickle
+[equip]
+1C
+Sort by name
+Sort by value
+Sort by type
+All
+Equipment
+Usable
+Other
+Favs
+Equipment comparison
+People you know
+People you know
+
+What you have learned and what happened between you. Locations are last known or agreed, rather than live reports.
+
+Village elder
+Old craftsman
+Eda, sluice fitter
+Hessa, household steward
+Orr, household craftsperson
+Vale, household apprentice
+04/04/999 15:54, Summer, Thu, Day
+21.5°C
+bed Shack
+This small shack was the only spare building in the village. It's surprisingly tidy
+
+No work running.
+
+Saving available.
+
+Local actions
+directions Move somewhere else
+directions Fast travel
+bed Take a nap
+inventory_2 Open your personal chest
+Furniture and home comforts
+Local life
+Optional pacing
+Equipment condition and repair
+Elemental preparation
+Journal & received accounts
+Quests
+Bestiary
+Anthology
+Data
+Notebook
+Skills & practice
+keyboard_double_arrow_downCombat skills
+keyboard_arrow_up
+keyboard_arrow_down
+keyboard_double_arrow_downEnvironmental skills
+keyboard_arrow_up
+keyboard_arrow_down
+keyboard_double_arrow_downCharacter skills
+keyboard_arrow_up
+keyboard_arrow_down
+keyboard_double_arrow_downGathering skills
+keyboard_arrow_up
+keyboard_arrow_down
+ Hide max level skills
+Sort by name
+Sort by level
+Sort by progress
+Skills
+Stances
+Magic
+Reports
+World events
+Recent news
+Remembered years · 1 memories
+Remember this day
+
+Years remembered
+Progress is paused until saving is restored. Reload before continuing.
+Saved the game manually
+Levels / unlocks
+Events
+Crafting
+Combat
+Loot
+BGM
+Your beginning
+Notes, practice & people
+Notes, practice & people
+Here
+Practice
+People
+Tools, practice & local lives
+Eda’s fitting agreement
+Your sheltered nursery
+Bench clearance study
+Eda’s offered-stock reports
+Scraped-palm care
+Optional paid cooling refinement
+A jointly agreed next duty
+Connect the home-world chapter
+Current condition & small preparations
+Field remedies & optional wound consequences
+Fitting tools & materials
+Household work & apprenticeship
+The sluice claim
+Field feats
+Mastery and combinations
+Optional passage challenges
+Measured cooling with Eda
+Your two-receiver retort
+Eda's bench fieldcraft
+Eda’s clamping frame
+Finite survey-kit reserve
+Local projects and commissions
+Optional lives and local experiments
+Village notes
+Field association & workshop
+Save
+Export
+Import
+settings
+v0.6
+help_outline

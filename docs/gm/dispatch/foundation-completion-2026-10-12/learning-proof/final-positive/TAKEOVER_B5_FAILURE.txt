@@ -1,0 +1,5 @@
+page.waitForEvent: Timeout 90000ms exceeded while waiting for event "domcontentloaded"
+=========================== logs ===========================
+waiting for event "domcontentloaded"
+============================================================
+    at /Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/foundation-completion-2026-10-12/learning-proof/final-positive/b5.cjs:9:150

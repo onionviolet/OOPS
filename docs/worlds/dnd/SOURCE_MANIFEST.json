@@ -1,0 +1,57 @@
+{
+  "revision": 1,
+  "date_client": "2026-10-11",
+  "authority": "Human permitted downloading sources and multiple rulebooks/eras in this chat; earlier no-acquisition exclusion superseded only for source downloads. No spending, library mutation, implementation, publication, or cross-chat messaging authorized.",
+  "storage": "Temporary copies outside git; may be cleared. URL and hash receipts are durable in this manifest.",
+  "sources": [
+    {
+      "id": "S02",
+      "filename": "SRD_CC_v5.2.1.pdf",
+      "url": "https://media.dndbeyond.com/compendium-images/srd/5.2/SRD_CC_v5.2.1.pdf",
+      "local_path": "/private/tmp/yairpg-dnd-sources-2026-10-11/SRD_CC_v5.2.1.pdf",
+      "bytes": 6031375,
+      "sha256": "8974902d109d6e63672d7c490bde9ccf052410503d9cfa768237154fbc5e3d87",
+      "pdf_pages": 364,
+      "coverage": "Selected pages 6,17-18,103,121,138,148,179,187; not read in full",
+      "acquisition": "downloaded; valid PDF signature; text extraction succeeded",
+      "route": "Approved network curl after sandbox DNS failed"
+    },
+    {
+      "id": "S06",
+      "filename": "SRD_CC_v5.1.pdf",
+      "url": "https://media.dndbeyond.com/compendium-images/srd/5.1/SRD_CC_v5.1.pdf",
+      "local_path": "/private/tmp/yairpg-dnd-sources-2026-10-11/SRD_CC_v5.1.pdf",
+      "bytes": 3158713,
+      "sha256": "2504d2a0abb0a4d491a939be4f17910a2dde0312570ab8d208080225ccf0a1f0",
+      "pdf_pages": 403,
+      "coverage": "Crafting page 88 only; not read in full",
+      "acquisition": "downloaded; valid PDF signature; text extraction succeeded",
+      "route": "Approved network curl after sandbox DNS failed"
+    },
+    {
+      "id": "S03",
+      "filename": "converting-to-srd-5.2.1.pdf",
+      "url": "https://media.dndbeyond.com/compendium-images/srd/guide/converting-to-srd-5.2.1.pdf",
+      "local_path": "/private/tmp/yairpg-dnd-sources-2026-10-11/converting-to-srd-5.2.1.pdf",
+      "bytes": 2472344,
+      "sha256": "f7290fb7568c5456066553885591d2adbb87745198c539c11e49740c4a6b1864",
+      "pdf_pages": 15,
+      "coverage": "Introduction and selected origin/crafting changes pages 1-2,9-10; not read in full",
+      "acquisition": "downloaded; valid PDF signature; text extraction succeeded",
+      "route": "Approved network curl after sandbox DNS failed"
+    }
+  ],
+  "input_head": "53dc1df15889be6ebb1bae403497041f0672db46",
+  "input_fingerprints": {
+    "PROJECT.md": "0a2e6115c2691ad3701ea411e14acffd46c2d5a68c07167ce3bf38797b6a4636",
+    "docs/GAME_MASTER_PROMPT.md": "9524d382c81a981af02bd2cf9288f410fe9a09b9c6f8d99f7075c6245653de56",
+    "docs/WORLD_COMPLETION_STANDARD.md": "e3c8ddc8c559204736d2ff5d8efdfd1e1f769fdbc5bc8ed2c6c86862169b2bf4",
+    "src/simulation.js": "86358d8b12246bed7f22a46fda6f18b4c5a5c10cbb178322b42333eb860dbb18",
+    "src/simulation_contracts.js": "05c861aed3bd315c5838905ebaacf69ee0361866900bde64ec6dce02c05748a1",
+    "src/simulation_effects.js": "4e83b442a9f85ec363c61c254ebe22b059dfcaf2b23d86565f86f0f0c52b1e97",
+    "src/native_gameplay_adapter.js": "48d511cafef1f50c6f6fdb5727354bffa6f5cb049e5cf3030420e0568105ca6b",
+    "src/combat_math.js": "ad191cf1e6ddafb2b895bb953829e27ec4abe3806a90b4b4d87f8bf27842c045",
+    "src/native_battle.js": "0eafceb761408d2d279d6037fceb92215745a73c0c64eb3a64a3be9bd268fee0",
+    "src/save_files.js": "6be05fcc757617a1304c65c68051042a59cad03216979221f1213d4011b06500"
+  }
+}

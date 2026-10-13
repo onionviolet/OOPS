@@ -15,9 +15,10 @@ export function worldCompletionTimersSupported(state,contexts={}){
 export function worldCompletionSimulationContexts(state,contexts={}){
     const joined=worldCompletionLearningSimulationContexts(state,contexts),result={...joined};
     for(const [id,source] of Object.entries(joined)){
+        const location=source.facts?.location??state.simulation?.people?.[id]?.location;
         const normalized=worldCompletionContext(state,{...joined.player,...source,actorId:id,
             nativeBody:source.nativeBody||joined.player?.nativeBody,nativeAlive:source.nativeAlive??joined.player?.nativeAlive,
-            facts:{...joined.player?.facts,...source.facts}});
+            facts:{...joined.player?.facts,...source.facts,location}});
         // Preserve flat native actor vitals for the incumbent initial snapshot.
         result[id]={...source,actorId:id,nativeBody:normalized.nativeBody,nativeAlive:normalized.nativeAlive,
             nativeCareFrame:source.nativeCareFrame||joined.player?.nativeCareFrame,facts:normalized.facts};

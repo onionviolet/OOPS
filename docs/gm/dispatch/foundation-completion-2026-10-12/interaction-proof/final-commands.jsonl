@@ -1,0 +1,6 @@
+{"action": "sequence", "selectors": ["[data-foundation-probe=\"foundation.probe.b.attack\"]"]}
+{"action": "save", "name": "final-expired-aftermath"}
+{"action": "reload"}
+{"action": "import", "path": "/tmp/yairpg-foundation-interaction-final-expired-aftermath.json"}
+{"action": "shot"}
+{"action": "stop"}

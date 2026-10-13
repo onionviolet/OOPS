@@ -1,0 +1,12 @@
+{
+  "status": "effective",
+  "owner": "01a13619-aa57-7ab1-8316-1ff42556a2bd",
+  "parent": "R11_SUCCESSOR_TRANSFER.json",
+  "paths": [
+    "src/absorb_c2/local_life.js",
+    "tests/fa18_runner_consequence.test.js"
+  ],
+  "serialized": true,
+  "inspection": "No active UI/Proto23 reservation claims this path; panel/main/item owners remain unchanged. Narrow gameplay labels only.",
+  "at": "2026-10-13T16:31:53.169710+00:00"
+}

@@ -1,0 +1,61 @@
+{
+  "status": "PASS",
+  "scope": "Five focused module-fixture groups, not native scheduler/publication/browser/save proof",
+  "groups": [
+    "exact body/sample/teacher-source job freeze and malformed cause rejection",
+    "unsupported form and tampered due reject exact native-body/job identity",
+    "actual sponsorship alone installs one controller; unsupported interval retains due and paused minutes",
+    "native item identity survives reconstitution and envelope rejects duplicate stamped stock across owners",
+    "one stamped Neri-owned output, exact collect transfer key, matching carrier evidence and duplicate-completion rejection"
+  ],
+  "inputs": [
+    {
+      "path": "src/world_completion_native.js",
+      "sha256": "85e2d33413f7145370d15096b45f8a83bc107dfce69714937992f3a42c5b0fc7"
+    },
+    {
+      "path": "src/world_completion_learning_content.js",
+      "sha256": "9a905256fb3ead0d50c7c292b5b0529eb842dcb8c661eabe21324074e6c00070"
+    },
+    {
+      "path": "src/world_completion_learning_facts.js",
+      "sha256": "6a1507d0e40fbbf07e087080e1eaebc67042d8118152616d125502c5d270c0a2"
+    },
+    {
+      "path": "src/world_completion_learning_runtime.js",
+      "sha256": "40410651383d4bdfdb0ad236e0374af62bb4746e9f5f4238b8d24f596b94406e"
+    },
+    {
+      "path": "src/world_completion_learning_host.js",
+      "sha256": "578e5ffbb03e35d174c7c7c87c3d169b9bacc23d30d530805053faeef9e2f580"
+    },
+    {
+      "path": "src/world_completion_content.js",
+      "sha256": "f421fa318ceaefc4a5afecb4aef1eb48ecc45aba2d29f4e98d5a16b061b9b182"
+    },
+    {
+      "path": "src/world_completion_host.js",
+      "sha256": "42556c485626407270cf2408f8fdc1599ef72643de450032c69561dedcd43bcf"
+    },
+    {
+      "path": "src/world_completion_runtime.js",
+      "sha256": "30d805ed9a2177888b29ff80fafc33fa5b8c785f0062fb2d060c96afaf39344c"
+    },
+    {
+      "path": "src/world_completion_facts.js",
+      "sha256": "f1d6ccd2f077b1596489d36359187193490771ec171de13458b3fbfcc4f0f4c4"
+    },
+    {
+      "path": "src/simulation_content.js",
+      "sha256": "ee64303f19bd78b926eda21dd9f11fac481eaea4b94fe1bfcbd76f0a7fd73185"
+    },
+    {
+      "path": "src/expedition_content.js",
+      "sha256": "556a01896eeda19266b5ed2dadcdfb4b7df5e0e0bb8b89beb7b22ed1bbb8ce9c"
+    },
+    {
+      "path": "src/feature_expansion_wave_host.js",
+      "sha256": "40fa05d57b4dcf589a9f1d46c89a114a71c7a3b8a2e93def8dda0c42b634f616"
+    }
+  ]
+}

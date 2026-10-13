@@ -1,0 +1,134 @@
+{
+  "privateContentSha256": "9fcbc51d282c3ae944a343a01c3d2754ed61111858de969c76073c8be342ed31",
+  "buildSha256": "29f6f41efab629de503dc839324a7f9c441f890ea1d2faac6502f5dac6ca1aa0",
+  "privateNativeDescriptionsExcluded": 4,
+  "predecessorEditionsBytePreserved": {
+    "p02": true,
+    "p03": true,
+    "p04": true,
+    "p05": true
+  },
+  "minorCopyRepair": "removed unsupported cancellation return promise; no consumer change",
+  "sourceChecks": 399,
+  "sourceFailed": 0,
+  "contentChecks": 8,
+  "contentFailed": 0,
+  "browser": "PASS: three natural native routes, five publication/compatibility boundaries, two actual unavailable-content recoveries",
+  "candidate": "/Users/weiwei/.codex/worktrees/starts-talents-continuity/yet-another-idle-rpg",
+  "sourceHead": "53dc1df15889be6ebb1bae403497041f0672db46",
+  "inputRevision": "FROZEN_INPUTS.json plus CANDIDATE_BASE.json donor snapshot",
+  "preview": "http://127.0.0.1:18557/",
+  "nativeJourneys": [
+    {
+      "route": "ordinary",
+      "status": "PASS",
+      "wallMs": 28091,
+      "nativeActions": 10,
+      "reloadImport": true,
+      "controlledFreshSeed": true,
+      "enrichedGameplay": false,
+      "pageErrors": []
+    },
+    {
+      "route": "faculty",
+      "status": "PASS",
+      "wallMs": 31055,
+      "nativeActions": 12,
+      "reloadImport": true,
+      "controlledFreshSeed": true,
+      "enrichedGameplay": false,
+      "pageErrors": []
+    },
+    {
+      "route": "abstention",
+      "status": "PASS",
+      "wallMs": 26838,
+      "nativeActions": 7,
+      "reloadImport": true,
+      "controlledFreshSeed": true,
+      "enrichedGameplay": false,
+      "pageErrors": []
+    }
+  ],
+  "nativeBoundaries": [
+    {
+      "case": "failed-all",
+      "status": "PASS",
+      "retainedChoice": true,
+      "noOriginPublication": true
+    },
+    {
+      "case": "failed-initialization",
+      "status": "PASS",
+      "retainedChoice": true,
+      "noOriginPublication": true
+    },
+    {
+      "case": "failed-faculty-stock-publication",
+      "status": "PASS",
+      "durableDomainsPreserved": true,
+      "liveInventoryPreserved": true,
+      "pausedExport": true,
+      "retryOnce": true
+    },
+    {
+      "case": "unbegun-native-save",
+      "status": "PASS",
+      "noInventedOrigin": true
+    },
+    {
+      "case": "actual-generated-predecessor-save-import",
+      "status": "PASS",
+      "personalSave": false,
+      "receiptAndExistingInventoryPreserved": true,
+      "newUndeployedOwnerEmpty": true
+    }
+  ],
+  "evidenceHashes": {
+    "docs/research/novels/starts-talents-continuity/root-browser/JOURNEYS.json": "5863d00e57e0368e3f456882d689443778a01c6446dfaf1dc6aadb32901d84db",
+    "docs/research/novels/starts-talents-continuity/root-browser/BOUNDARIES.json": "0f426bd5fe228a0bac2bd86ac3f46d8dbff2e70594b89bd385e07a07e8a88e22",
+    "docs/research/novels/starts-talents-continuity/root-browser/SOURCE_TESTS.log": "e5eee7efc02dd990c04bc0c39efac46c6533605418dfe8ea8147ad0bac8ad470",
+    "docs/research/novels/starts-talents-continuity/root-browser/FINAL_CONTENT_TESTS.log": "9abae9cf510a8cf0eab5075b1a5feb30c70fd44dd49faa22be9fae25a4aa1fc5",
+    "docs/research/novels/starts-talents-continuity/root-browser/RECOVERY.json": "3779cc357e727da68f624c141aabb6da5657759255e2bf39fdb5e8df11a3a352",
+    "docs/research/novels/starts-talents-continuity/root-browser/ordinary-finish.json": "df90cc960f5a8e1da61ddc2a8746ee80782fc253e8f528f714c00bfda38edff6",
+    "docs/research/novels/starts-talents-continuity/root-browser/faculty-finish.json": "a38e09ce7f9fff185f7a862729efde29f01fb2d167976808d9e24e03e0260df6",
+    "docs/research/novels/starts-talents-continuity/root-browser/abstention-finish.json": "b29bd7ac8691ef7516811e4621386614deb671bc5f15a983e2dacdd9926f4076"
+  },
+  "privateEvidenceOwner": "/Users/weiwei/.codex/worktrees/starts-talents-continuity/yet-another-idle-rpg/docs/research/novels/starts-talents-continuity/root-browser",
+  "packHashCurrent": "9fcbc51d282c3ae944a343a01c3d2754ed61111858de969c76073c8be342ed31",
+  "deliveryStates": {
+    "sourceImplemented": true,
+    "built": true,
+    "sourceAndContentTested": true,
+    "nativeJourneysAndPersistenceVerified": true,
+    "recovery": "browser-verified",
+    "sharedIntegrated": false,
+    "directorAccepted": false,
+    "committed": false,
+    "pushed": false,
+    "published": false
+  },
+  "nativeRecovery": [
+    {
+      "case": "missing-content-import",
+      "status": "PASS",
+      "keptNativeSave": true,
+      "restoredContentImport": true
+    },
+    {
+      "case": "malformed-content-import",
+      "status": "PASS",
+      "keptNativeSave": true,
+      "restoredContentImport": true
+    }
+  ],
+  "previewProcess": {
+    "pid": 76708,
+    "execSession": 27796
+  },
+  "whitespaceChecks": {
+    "sourceAndIndex": "pass",
+    "generatedBundle": "minifier output reports trailing whitespace; tested rebuilt bytes retained without manual edit"
+  },
+  "previewPanel": "open_in_codex returned queued, visibility not confirmed"
+}

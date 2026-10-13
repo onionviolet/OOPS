@@ -1,0 +1,39 @@
+{
+  "status": "passed",
+  "checks_executed": [
+    "JSON parse",
+    "504 exact member inventory/order",
+    "all ledger IDs unique",
+    "event/claim/knowledge/expansion references",
+    "primary heading and character bounds",
+    "inherited assets and downloaded/extracted hashes",
+    "private ignore rule",
+    "required core and continuity distinction",
+    "recursive nested ID uniqueness",
+    "category alias mapping",
+    "13 original consequential scope families",
+    "supplementary target/unreviewed interval bounds"
+  ],
+  "counts": {
+    "inherited_members": 504,
+    "claims": 581,
+    "events": 59,
+    "knowledge_entries": 31,
+    "expansions": 9,
+    "acquired_sources": 7
+  },
+  "nested_id_counts": {
+    "SOURCE_MANIFEST": 8,
+    "COVERAGE": 511,
+    "CLAIMS": 581,
+    "EVENTS": 59,
+    "KNOWLEDGE": 31,
+    "CONTINUITIES": 26,
+    "EXPANSIONS": 9,
+    "REMAINING": 21
+  },
+  "errors": [],
+  "runtime_tested": false,
+  "ownership": "released after checked return",
+  "scope": "artifact integrity and declared-depth source research only"
+}

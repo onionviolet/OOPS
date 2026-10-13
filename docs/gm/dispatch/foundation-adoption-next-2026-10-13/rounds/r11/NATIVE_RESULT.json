@@ -1,0 +1,32 @@
+{
+  "status": "IMPLEMENTED_UNVERIFIED",
+  "sourceFocusedPass": 7,
+  "affectedPass": 32,
+  "nativePaidCauseAndUse": "OPEN, never issued",
+  "naturalContact": "NOT REACHED, hero creation prevented played contact cadence",
+  "profilePreserved": "/Users/weiwei/.codex/candidates/yairpg-foundation-adoption-2026-10-13-r11-native-profile",
+  "origin": "http://127.0.0.1:18742/",
+  "clock": 0,
+  "purse": 102,
+  "ticketsIssued": 0,
+  "ticketsUsed": 0,
+  "helped": 0,
+  "actualSaveReload": {
+    "character": true,
+    "inventories": true,
+    "expansion": true,
+    "current time": true,
+    "current location": true,
+    "absorb_local_life": true
+  },
+  "literalImport": "OPEN; no earned changed positive state",
+  "loadedBindings": "LOADED_BINDINGS.json",
+  "errors": [
+    "stdin EOF closed first paused harness before any PLAY; reopened same durable profile",
+    "first PLAY exposed hero overlay; local panel click blocked; failed cleanup misidentified Save as button role",
+    "queued contact wait executed before prior error result surfaced; no clock/contact/funds commitment",
+    "cleanup cosmetic Confirm and actual #save_button then paused reload succeeded"
+  ],
+  "noPaidRetry": true,
+  "r10Recovery": "Unavailable supported surviving profile/export; snapshots never reconstructed"
+}

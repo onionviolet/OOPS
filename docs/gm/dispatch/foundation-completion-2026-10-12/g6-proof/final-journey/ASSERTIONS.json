@@ -1,0 +1,33 @@
+{
+  "status": "PASS",
+  "checks": {
+    "samePendingSelectionNoReroll": true,
+    "F4PlayerLearnMakeNotch": true,
+    "F4NeriSeparateLearnMake": true,
+    "F4HandoverAndUsefulCoverOnce": true,
+    "fiveHerbsRetained": true,
+    "LinCompletedOnce": true,
+    "LinPaidStaffTransfer": true,
+    "TidemarkLearnedUsedCollected": true,
+    "retainedMethodExecutionOnce": true,
+    "allRetainedVisitsInactive": true,
+    "typedOneHandJigRefit": true,
+    "earnedRenewalBeforeContinuedWork": true,
+    "fittedCoatWorn": true,
+    "ordinaryReloadExpansionExact": true,
+    "literalFileImportExpansionExact": true,
+    "inventoryEquipmentExact": true,
+    "typedBodyLocationRestored": true,
+    "noPendingJobs": true
+  },
+  "finalBundle": "9c70c3de904bfecaf634a906ce0bbcbe87857fcc61390db6d6c9b77b884fba0d",
+  "serializationNote": "Native restored weapon/legs add derived rarity common/trash from unchanged quality; all inventory and character/equipment owners otherwise match. src/items.js getRarity; no gameplay repair selected.",
+  "route": "WORKFLOW_69832 actual received checkpoint -> WORKFLOW_15338 crop -> WORKFLOW_15645 Lin/Tidemark -> same committed pending selection -> WORKFLOW_18148 typed/refit/renewal/persistence. No resource/history edits or splicing.",
+  "sessions": [
+    "SESSION_15645.json",
+    "NATIVE_SESSION.json"
+  ],
+  "literalFile": "/tmp/yairpg-foundation-learning-g6-final-literal.txt",
+  "literalFileHash": "88b50c0b34c0a5505fd0bfe1cb2a9827a9d9c46f08d7ec955d83684497905030",
+  "finalStateHash": "9f452a3b0cd287b34b7752e9e02d44306339ede29bc22cd7d4740fd35a92a85c"
+}

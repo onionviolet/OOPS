@@ -1,0 +1,8 @@
+const L=require('./lib.cjs');const fs=require('fs');const S=process.env.S;
+(async()=>{const b=await L.launch();for(const [bn,f] of [['original','orig'],['current','current']]){const ctx=await b.newContext({viewport:{width:911,height:512},deviceScaleFactor:1.5});const p=await ctx.newPage();
+await p.goto(L.URLS[bn]+'favicon.ico');await p.evaluate(s=>{localStorage.clear();localStorage.setItem('save data',s)},fs.readFileSync(`${S}/out/${f}_progressed.json`,'utf8'));await p.goto(L.URLS[bn]);await p.waitForTimeout(2500);
+await p.screenshot({path:`${S}/ev/Z_loading_1366x768@150pct_${bn}.png`});
+const info=await p.evaluate(()=>{const e=document.getElementById('loading_screen_play_button');const r=e.getBoundingClientRect();const t=document.elementFromPoint(r.x+r.width/2,r.y+r.height/2);return {r:[r.x,r.y,r.width,r.height],cls:e.className,top:t?.id||t?.className,docH:document.documentElement.scrollHeight,canScroll:getComputedStyle(document.body).overflow}});console.log(bn,JSON.stringify(info));
+await p.mouse.wheel(0,600);await p.waitForTimeout(300);const after=await p.evaluate(()=>{const e=document.getElementById('loading_screen_play_button');const r=e.getBoundingClientRect();const t=document.elementFromPoint(r.x+r.width/2,r.y+r.height/2);return {y:r.y,top:t?.id||t?.className,ls:getComputedStyle(document.getElementById('loading_screen')).position,tab:e.tabIndex}});console.log(' after wheel',JSON.stringify(after));
+await p.keyboard.press('Tab');console.log(' tab focus',await p.evaluate(()=>document.activeElement.id||document.activeElement.innerText?.slice(0,20)));
+await ctx.close();}await b.close();})();

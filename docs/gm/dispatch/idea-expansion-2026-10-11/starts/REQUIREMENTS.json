@@ -1,0 +1,1237 @@
+{
+  "lane": "G1",
+  "status": "planning-reviewed-by-worker",
+  "inputs": [
+    {
+      "path": "AGENTS.md",
+      "coverage": "Read current instructions in full; no runtime edits permitted by worker reservation."
+    },
+    {
+      "path": "PROJECT.md",
+      "coverage": "Read current owners, accepted random-entry/optional-Frontier/local-rule decisions and current dirty-wave status."
+    },
+    {
+      "path": "docs/gm/WORLD_ACTIONABILITY_GM_PROMPT.md",
+      "coverage": "Read G1/P1-P4 requirements and dispatch lane ownership; staff/context sections routing only."
+    },
+    {
+      "path": "docs/WORLD_COMPLETION_STANDARD.md",
+      "coverage": "Read S00-S14 taxonomy, detail/secret standards, random-start and C0-C5 gates."
+    },
+    {
+      "path": "docs/worlds/ORIGINS_AND_WORLD_TIMELINES.md",
+      "coverage": "Read full shared origin contract, including finite Paradise delivery clarification; all meaningful origin families mapped in G1-001 through G1-029."
+    },
+    {
+      "path": "docs/LIFE_SIM_NORTH_STAR.md",
+      "coverage": "Finite targeted pass: lines 23-64, 2160-2237, 2383-2638, 2777-2855, 3310-3396, 3705-3784, 3916-4085, 4207-4243, 4774-4869, 6818-6942; headings inventoried only elsewhere. Does not claim all 7514 lines reconciled."
+    },
+    {
+      "path": "docs/TIMELINES_AND_DIVERGENCE.md",
+      "coverage": "Read implementation plan T1-T5, groundwork and packets lines 1-142; B1-B4 branch-start table lines 349-357. Remaining timeline owner assigned to G4."
+    },
+    {
+      "path": "docs/worlds/original-frontier/RULES_AND_STARTS.md",
+      "coverage": "Read optional routing/start/access plus full original campaign rule context; compatibility-only disposition; no Frontier-first scope."
+    },
+    {
+      "path": "docs/worlds/harry-potter/WORLD_BRIEF.md",
+      "coverage": "Read origin palette and first-proof/limits with related local contexts; retained as candidate, not new source audit."
+    },
+    {
+      "path": "docs/worlds/harry-potter/SOURCE_LEDGER.md",
+      "coverage": "Read bounded source evidence/limits and source-question gate; no external verification or full-text read performed."
+    },
+    {
+      "path": "src/simulation.js",
+      "coverage": "Inspected chooseSimulationOrigin lines 597-604 and repo caller search; one-time claim/effects only."
+    },
+    {
+      "path": "src/character_creation.js",
+      "coverage": "Read current creation panel and confirm_hero_creation; cosmetic bio writes plus global creation flag."
+    },
+    {
+      "path": "src/config.js",
+      "coverage": "Inspected disabled use_racial_bonuses/use_height_bonuses flags."
+    },
+    {
+      "path": "src/races.js",
+      "coverage": "Inspected cosmetic header and representative race/stat declarations; no full balance audit."
+    },
+    {
+      "path": "src/models/person.js",
+      "coverage": "Read addRaceBonus/addHeightBonus methods; additive bonus behavior, conditional configuration."
+    },
+    {
+      "path": "src/body_progression.js",
+      "coverage": "Read human hand training/conditions/faculty commands, bodyFacts and display host; no generalized body-origin initialization."
+    },
+    {
+      "path": "src/life_record.js",
+      "coverage": "Read schema, bounded lossy biography, migration and view; explicitly non-authoritative for rewards/history."
+    },
+    {
+      "path": "src/world_instances.js",
+      "coverage": "Inspected constructors/visit bindings and export/index scan; identity, freeze clock and initial facts only for this start-lane review."
+    }
+  ],
+  "requirements": [
+    {
+      "id": "G1-001",
+      "title": "Frozen coherent origin composition",
+      "sections": [
+        "S02",
+        "S01",
+        "S14"
+      ],
+      "sourceRefs": [
+        "docs/worlds/ORIGINS_AND_WORLD_TIMELINES.md",
+        "docs/WORLD_COMPLETION_STANDARD.md"
+      ],
+      "criterion": "A selected origin binds one coherent world/history/body/life/means state before live publication.",
+      "proposedExpansion": [
+        "Author a compatibility graph rather than a free Cartesian product: each route declares which layers it keeps, creates, replaces or leaves unknown.",
+        "Separate definition, continuity, era, instance, visit, body, controlled actor and life identity; validate every actor/location/custody reference.",
+        "Keep known starting means separate from hidden candidate truth; conflicts name the failed causal support and a possible divergent route."
+      ],
+      "dependencies": [],
+      "engineConsumerOrGap": "chooseSimulationOrigin in src/simulation.js is a once-only claim/effects plan. createWorldInstance in src/world_instances.js binds IDs and initial facts but does not initialize all native character owners. Missing atomic origin initializer and typed cross-owner binding contract.",
+      "acceptanceCases": [
+        "Invalid world/era/body combination fails without any live edits.",
+        "A valid snapshot supplies legal first actions without Frontier enrollment.",
+        "Retry after failed durable publication uses the same pending selected result."
+      ],
+      "remaining": [
+        "Integrator must select state owners and durable transaction host; full initializer is absent from inspected consumers."
+      ],
+      "disposition": "expand-existing-family",
+      "authority": "Proposal implementing requested start coverage; world-local rules and exact variants remain unselected",
+      "detailOwner": "G1-001",
+      "runtimeStatus": "not-implemented-by-this-pass"
+    },
+    {
+      "id": "G1-002",
+      "title": "Suspenseful random entry and exact result retention",
+      "sections": [
+        "S02",
+        "S09",
+        "S13",
+        "S14"
+      ],
+      "sourceRefs": [
+        "docs/WORLD_COMPLETION_STANDARD.md",
+        "docs/LIFE_SIM_NORTH_STAR.md#the-next-life-is-random-unless-you-planned-it-2026-10-10"
+      ],
+      "criterion": "An eligible random result is committed once and revealed only through the active character’s available means.",
+      "proposedExpansion": [
+        "Pool records revision, pack availability, eligible snapshot IDs, weights or selection rule and reasons for exclusions in an author-only owner.",
+        "Random default, optional configuration, later discovered entries and prior-life planned entry are distinct modes. No mandatory chooser reveals the catalog.",
+        "Freeze selected snapshot and any family/body/private rolls before live publication; only an explicit local reroll mechanism creates another selection cause."
+      ],
+      "dependencies": [
+        "G1-001"
+      ],
+      "engineConsumerOrGap": "No runtime caller of chooseSimulationOrigin was found outside tests/simulation.test.js. Missing native new-game entry host and pending-selection persistence decision.",
+      "acceptanceCases": [
+        "Opening menus or previewing never rerolls.",
+        "Save/reload/import preserves the result and first-action state.",
+        "Candidate unavailable before commitment follows declared fallback; removed pack after commitment remains dormant or follows reviewed migration, without a free reroll."
+      ],
+      "remaining": [
+        "Exact seed/weights/reroll/fallback policies remain local proposals."
+      ],
+      "disposition": "expand-existing-family",
+      "authority": "Proposal implementing requested start coverage; world-local rules and exact variants remain unselected",
+      "detailOwner": "G1-002",
+      "runtimeStatus": "not-implemented-by-this-pass"
+    },
+    {
+      "id": "G1-003",
+      "title": "Historical early, mid-event and late snapshots",
+      "sections": [
+        "S02",
+        "S01",
+        "S11"
+      ],
+      "sourceRefs": [
+        "docs/TIMELINES_AND_DIVERGENCE.md#t2-author-meaningful-beforeduringafter-starting-snapshots",
+        "docs/worlds/ORIGINS_AND_WORLD_TIMELINES.md"
+      ],
+      "criterion": "Each selected historical start has era-appropriate actors, stock, institutions and usable actions.",
+      "proposedExpansion": [
+        "Before an event: its actual causes, preparation routes and unaware observers exist. During it: interruptions, commitments, routes and urgent actions are already situated. After it: changed possession, absences, recovery and succession remain real.",
+        "Separate pre-entry world causes from player-earned history: adult experience may be authored background with provenance, never invented completed player actions.",
+        "Use source-qualified baselines plus meaningful deltas; late starting stock cannot replenish an already consumed unique object."
+      ],
+      "dependencies": [
+        "G1-001",
+        "G4 timeline snapshot/event interface"
+      ],
+      "engineConsumerOrGap": "src/world_instances.js accepts eraId but constructor reads one definition.initialFacts and initial sites. Missing snapshot materializer for native actors, inventories, access, commitments and knowledge.",
+      "acceptanceCases": [
+        "Early start lacks unearned late offices and training.",
+        "Mid-event first action can change an actual pending cause.",
+        "Late snapshot does not resurrect a missing participant or reset unique claims."
+      ],
+      "remaining": [
+        "World owners must verify exact local chronology/cast; no new book audit performed."
+      ],
+      "disposition": "expand-existing-family",
+      "authority": "Proposal implementing requested start coverage; world-local rules and exact variants remain unselected",
+      "detailOwner": "G1-003",
+      "runtimeStatus": "not-implemented-by-this-pass"
+    },
+    {
+      "id": "G1-004",
+      "title": "Ordinary adult, outsider and established late life",
+      "sections": [
+        "S02",
+        "S04",
+        "S05",
+        "S07"
+      ],
+      "sourceRefs": [
+        "docs/worlds/ORIGINS_AND_WORLD_TIMELINES.md",
+        "docs/LIFE_SIM_NORTH_STAR.md#origins-and-starts"
+      ],
+      "criterion": "Starting age and history change actual means, legal actions and connected pursuits.",
+      "proposedExpansion": [
+        "New local adult: familiar language/customs with specific work, lodging and contacts; outsider: actual cargo, language gap and route to shelter or communication.",
+        "Retired soldier, elder, craft veteran and displaced professional variants keep bodily condition, particular knowledge and social history distinct. Advanced age is not a universal weakness and experience is not an automatic skill grant.",
+        "Immediate choices include local work, applying a retained method, contacting an acquaintance, seeking language aid or refusing old expectations; develop mentoring, repair, investigation and institution influence."
+      ],
+      "dependencies": [
+        "G1-001",
+        "G3 local livelihoods/actors"
+      ],
+      "engineConsumerOrGap": "src/character_creation.js writes bio.age and other cosmetics; it does not materialize authored careers, native skills or age physiology. Existing native activities can be reused only after snapshot access is bound.",
+      "acceptanceCases": [
+        "Two different age/history snapshots yield different working first actions.",
+        "Authored background marks its provenance rather than earned gameplay.",
+        "A veteran can use a genuinely retained supported faculty immediately."
+      ],
+      "remaining": [
+        "Select finite backgrounds and body policy per world."
+      ],
+      "disposition": "expand-existing-family",
+      "authority": "Proposal implementing requested start coverage; world-local rules and exact variants remain unselected",
+      "detailOwner": "G1-004",
+      "runtimeStatus": "not-implemented-by-this-pass"
+    },
+    {
+      "id": "G1-005",
+      "title": "Generated household with independent people",
+      "sections": [
+        "S02",
+        "S04",
+        "S05",
+        "S14"
+      ],
+      "sourceRefs": [
+        "docs/worlds/ORIGINS_AND_WORLD_TIMELINES.md#generated-families-and-fair-representation-of-unfairness",
+        "docs/LIFE_SIM_NORTH_STAR.md#families-live-their-own-lives"
+      ],
+      "criterion": "A generated family has durable people, actual relationships, care and property owners.",
+      "proposedExpansion": [
+        "Freeze members, age/stage, relations, residence, language, occupation, time/care means and public/private history from local templates. Include supportive poverty, restrictive wealth, communal care, foster/adoptive and isolated adult variants where coherent.",
+        "Each family member has an independent goal and known facts, not automatic loyalty or omniscient recognition. Household resources do not become player inventory through family membership.",
+        "Immediate requests, shared work, observation, refusals and trust lead to access, lessons, family disagreement, migration or independence; later members can leave, prosper or create new obligations."
+      ],
+      "dependencies": [
+        "G1-001",
+        "G3 people/custody/care contracts"
+      ],
+      "engineConsumerOrGap": "src/simulation.js and effect owners contain person/knowledge/relationship machinery; no selected deterministic family generator or native household initializer was identified. G3 owns subsequent family activity.",
+      "acceptanceCases": [
+        "Reload retains the same family members and holdings.",
+        "Loaned tool remains one object with actual custody.",
+        "A caregiver responds to demonstrated evidence without reading private memories."
+      ],
+      "remaining": [
+        "Template coverage, genealogy generation and bounded NPC advancement need selected contracts."
+      ],
+      "disposition": "expand-existing-family",
+      "authority": "Proposal implementing requested start coverage; world-local rules and exact variants remain unselected",
+      "detailOwner": "G1-005",
+      "runtimeStatus": "not-implemented-by-this-pass"
+    },
+    {
+      "id": "G1-006",
+      "title": "Infant agency and supported care",
+      "sections": [
+        "S02",
+        "S04",
+        "S05",
+        "S07",
+        "S13"
+      ],
+      "sourceRefs": [
+        "docs/worlds/ORIGINS_AND_WORLD_TIMELINES.md#infant-and-child-play-without-long-forced-waits",
+        "docs/LIFE_SIM_NORTH_STAR.md#origins-and-starts"
+      ],
+      "criterion": "An infant origin has useful limited-body actions and an explicit source of support.",
+      "proposedExpansion": [
+        "Observation, attention, recall, signaling and supported motor control use actual senses/body faculties; no adult speech or dexterity appears solely from old memories.",
+        "A first recognized signal, retained sensory association or deliberate choice of attention yields a real relationship/knowledge change. Care can be actual funded NPC activity or clearly bounded authored abstraction.",
+        "Offer quiet, unsafe and exceptional starts with honest agency; no automatic perfect caregiver, universal offline death or guaranteed rescue. Unusual faculties may bypass physical limits if they truly grant that function."
+      ],
+      "dependencies": [
+        "G1-005",
+        "G1-009",
+        "G3 care policy"
+      ],
+      "engineConsumerOrGap": "Existing native menus and combat assume the controlled adult actor. Missing age/body action legality, infant communication target and care-state consumer.",
+      "acceptanceCases": [
+        "Signal attempt produces only effects supported by body and observer.",
+        "An immediate useful action exists without waiting real-time years.",
+        "Caregiver unavailable follows chosen support policy, without silently creating a caretaker."
+      ],
+      "remaining": [
+        "Selected finite care/communication mechanics and optional danger terms remain open."
+      ],
+      "disposition": "expand-existing-family",
+      "authority": "Proposal implementing requested start coverage; world-local rules and exact variants remain unselected",
+      "detailOwner": "G1-006",
+      "runtimeStatus": "not-implemented-by-this-pass"
+    },
+    {
+      "id": "G1-007",
+      "title": "Child, adolescent and compressed development",
+      "sections": [
+        "S02",
+        "S07",
+        "S11",
+        "S14"
+      ],
+      "sourceRefs": [
+        "docs/worlds/ORIGINS_AND_WORLD_TIMELINES.md#infant-and-child-play-without-long-forced-waits",
+        "docs/TIMELINES_AND_DIVERGENCE.md#t2-author-meaningful-beforeduringafter-starting-snapshots"
+      ],
+      "criterion": "Meaningful childhood choices and a declared chapter advance change body, knowledge and world state coherently.",
+      "proposedExpansion": [
+        "Chores, literacy, movement, friendship, supervised experiment and apprenticeship become usable through local means, not a universal birthday level gate.",
+        "Chapter advance declares elapsed local/traveler time, unfinished jobs, care, participating actors, study outcomes, property, obligations and risks before commitment.",
+        "Retain chosen habits and taught knowledge; stage transitions may open autonomy, school access, leadership or a changed body without granting every unseen canon event."
+      ],
+      "dependencies": [
+        "G1-005",
+        "G1-009",
+        "G4 clock/event projection"
+      ],
+      "engineConsumerOrGap": "Missing chapter projector that reconciles native jobs/character, actor development and selected timeline scope through existing durable command authority. Biography is not an event simulator.",
+      "acceptanceCases": [
+        "A taught method survives a chapter jump but unsupported mastery does not appear.",
+        "Outstanding borrowed property and commitments remain accounted for.",
+        "Reload of the chapter result cannot grant another advance or reward."
+      ],
+      "remaining": [
+        "World-local ages and abstraction scope must be selected; no physiological schedule asserted."
+      ],
+      "disposition": "expand-existing-family",
+      "authority": "Proposal implementing requested start coverage; world-local rules and exact variants remain unselected",
+      "detailOwner": "G1-007",
+      "runtimeStatus": "not-implemented-by-this-pass"
+    },
+    {
+      "id": "G1-008",
+      "title": "Memory, language and amnesia are separate domains",
+      "sections": [
+        "S02",
+        "S09",
+        "S07",
+        "S13"
+      ],
+      "sourceRefs": [
+        "docs/worlds/ORIGINS_AND_WORLD_TIMELINES.md",
+        "docs/LIFE_SIM_NORTH_STAR.md#who-the-player-is-the-character-or-someone-living-through-them-proposal-2026-10-08",
+        "docs/LIFE_SIM_NORTH_STAR.md#origins-and-starts"
+      ],
+      "criterion": "Starting recollections, trained execution, language and unknown past remain separately represented.",
+      "proposedExpansion": [
+        "Native memory, previous-life memory, source-reader recollection, partial amnesia and total amnesia are meaningful variants. Preserved physical skill can be usable while unnamed only if its actual faculty remains.",
+        "Claims from recollection are leads with provenance; source history may already differ. Recall of a method is distinct from source/body/fuel/mastery necessary to execute it.",
+        "NPC recognition and existing property can expose an amnesiac’s past through letters, witnessed behavior or contacts; no automatic author notebook identifies hidden origin."
+      ],
+      "dependencies": [
+        "G1-001",
+        "G2 means/faculty retention",
+        "G4 knowledge projection"
+      ],
+      "engineConsumerOrGap": "Existing simulation knowledge/source/faculty owners support portions; no origin-domain mapping for implicit native abilities and language was found. src/life_record.js is a lossy biography, not knowledge authority.",
+      "acceptanceCases": [
+        "Old plot memory does not certify current branch outcomes.",
+        "Amnesiac can use a retained supported action without revealing an unobserved explanation.",
+        "Forgotten language and remembered written notes differ in communication access."
+      ],
+      "remaining": [
+        "Local knowledge labels, imperfect memory rules and native UI projections need selected integration."
+      ],
+      "disposition": "expand-existing-family",
+      "authority": "Proposal implementing requested start coverage; world-local rules and exact variants remain unselected",
+      "detailOwner": "G1-008",
+      "runtimeStatus": "not-implemented-by-this-pass"
+    },
+    {
+      "id": "G1-009",
+      "title": "Body capability, needs and legal native actions",
+      "sections": [
+        "S02",
+        "S07",
+        "S08",
+        "S13",
+        "S14"
+      ],
+      "sourceRefs": [
+        "docs/LIFE_SIM_NORTH_STAR.md#every-feature-family-in-every-kind-of-body-proposal-2026-10-10",
+        "docs/LIFE_SIM_NORTH_STAR.md#bodies-and-their-needs-a-spectrum-2026-10-10",
+        "docs/worlds/ORIGINS_AND_WORLD_TIMELINES.md"
+      ],
+      "criterion": "Body anatomy, senses, channels and needs drive real action and stat consumers.",
+      "proposedExpansion": [
+        "Author direct verbs, senses, functional supports, production, communication, exposure/time and ending/transition behavior; use extensible capabilities rather than fixed universal slots.",
+        "Represent organic, bio-synthetic, cyborg, full construct, plant, spirit and exceptional no-need bodies with their real requirements. Cheats that remove hunger or maintenance actually remove the relevant obligation.",
+        "Translate work, learning, social contact, crafting, exploration and conflict through direct means, helpers or real acquired adapters. Missing ability is not justification to expose a secret unlock hint."
+      ],
+      "dependencies": [
+        "G1-001",
+        "G2 body/faculty contracts",
+        "G3 supply/recovery"
+      ],
+      "engineConsumerOrGap": "src/body_progression.js implements hand conditions/training for the existing human. src/models/person.js has configurable stat bonus methods; src/config.js disables racial and height bonuses. Missing general body legality/needs binding and selected native recovery/combat consumers.",
+      "acceptanceCases": [
+        "An actor without hands cannot equip a human tool absent an actual adapter.",
+        "A full robot does not require ordinary food solely because upstream rest/food exists.",
+        "A supported exceptional body retains superior stats without imposed symmetric tradeoffs."
+      ],
+      "remaining": [
+        "One representative native action adapter must qualify before batching body families."
+      ],
+      "disposition": "expand-existing-family",
+      "authority": "Proposal implementing requested start coverage; world-local rules and exact variants remain unselected",
+      "detailOwner": "G1-009",
+      "runtimeStatus": "not-implemented-by-this-pass"
+    },
+    {
+      "id": "G1-010",
+      "title": "Species, genetics, constitution and physical identity",
+      "sections": [
+        "S02",
+        "S07",
+        "S09"
+      ],
+      "sourceRefs": [
+        "docs/LIFE_SIM_NORTH_STAR.md#layers-of-a-person",
+        "docs/LIFE_SIM_NORTH_STAR.md#genetics-made-a-system",
+        "docs/LIFE_SIM_NORTH_STAR.md#sex-gender-and-bodies-proposal-2026-10-08"
+      ],
+      "criterion": "Each selected personal layer has its own provenance and actual declared function.",
+      "proposedExpansion": [
+        "Keep species, genetic heredity, constitution, lineage, aptitude, senses, build, sex, presentation and name distinct; a world need not use every layer or reveal them at creation.",
+        "Fantasy genes can use local simplified rules or non-genetic inheritance; do not make two-copy dominance or mutation a universal cosmological rule. Adoption changes family and custody, not necessarily anatomy.",
+        "Physique can affect processes and healing, aptitude learning, lineage an actual faculty; dormant state differs from control and ancestry rumor. Cosmetic texture may remain texture where no causal use exists."
+      ],
+      "dependencies": [
+        "G1-009",
+        "G2 power/source development",
+        "G4 appraisal"
+      ],
+      "engineConsumerOrGap": "Existing race bonus methods could apply selected stats but global enabling would change old saves; missing world/body-scoped effective stat derivation and local inheritance contract.",
+      "acceptanceCases": [
+        "Changing a body recalculates the owned body contribution once.",
+        "A false lineage reading changes belief without rewriting genotype or faculties.",
+        "A adopted child gains real family ties without automatically receiving bodily lineage."
+      ],
+      "remaining": [
+        "Exact inheritance and stat contribution are local choices; no universal fairness/caps required."
+      ],
+      "disposition": "expand-existing-family",
+      "authority": "Proposal implementing requested start coverage; world-local rules and exact variants remain unselected",
+      "detailOwner": "G1-010",
+      "runtimeStatus": "not-implemented-by-this-pass"
+    },
+    {
+      "id": "G1-011",
+      "title": "Source role, counterpart and predecessor faculties",
+      "sections": [
+        "S02",
+        "S04",
+        "S07",
+        "S09"
+      ],
+      "sourceRefs": [
+        "docs/worlds/ORIGINS_AND_WORLD_TIMELINES.md#no-automatic-predecessor-power-inheritance",
+        "docs/LIFE_SIM_NORTH_STAR.md#born-arriving-or-taking-a-body"
+      ],
+      "criterion": "Role, actual body, learned technique, source, equipment and legitimate authority are independently initialized.",
+      "proposedExpansion": [
+        "Role-only counterpart, actual retained-body replacement, full inherited-function premise, shared inhabitant and altered-body divergence remain available when coherent.",
+        "A genuinely retained organ/faculty keeps its declared function; no invented cost or weakness is mandatory to permit it. No-power mode explicitly names removed domains.",
+        "Recognition can create expectations, assistance, investigation or hostility through actual witnesses; possessing a face or office label need not convey passwords, institutional acceptance or custody."
+      ],
+      "dependencies": [
+        "G1-001",
+        "G1-008",
+        "G2 faculty/source mapping",
+        "G3 office/relationships"
+      ],
+      "engineConsumerOrGap": "chooseSimulationOrigin can apply declared effects but does not move all native body/source/office owners or resolve multiple consciousnesses. Missing route-specific transfer/identity initializer.",
+      "acceptanceCases": [
+        "Role-only actor lacks a method but may seek teaching or buy help.",
+        "Actual operative inherited faculty works immediately when advertised.",
+        "A person who never met the predecessor cannot automatically recognize replacement."
+      ],
+      "remaining": [
+        "Exact source-role canon and private pack content require later world-qualified source work."
+      ],
+      "disposition": "expand-existing-family",
+      "authority": "Proposal implementing requested start coverage; world-local rules and exact variants remain unselected",
+      "detailOwner": "G1-011",
+      "runtimeStatus": "not-implemented-by-this-pass"
+    },
+    {
+      "id": "G1-012",
+      "title": "Arrival routes, sponsors and paid/free access",
+      "sections": [
+        "S02",
+        "S12",
+        "S04"
+      ],
+      "sourceRefs": [
+        "docs/LIFE_SIM_NORTH_STAR.md#entry-routes-how-you-break-into-a-world-2026-10-09",
+        "docs/LIFE_SIM_NORTH_STAR.md#more-entry-routes-and-paying-to-get-in-2026-10-09"
+      ],
+      "criterion": "Every identified route has a local cause, initiator, carrier, entry result and interruption behavior.",
+      "proposedExpansion": [
+        "Retain walk/portal, summon, invitation, assigned drop, reincarnation, host arrival, shared possession, projection, lineage anchor, passenger, smuggling, summon interception, ritual/dream/death passage, forced scenario and world collision/integration.",
+        "Constructed/bought pocket worlds need actual ownership and viable initial environment; buying a ticket is distinct from reaching a usable endpoint. Sponsors may supply terms, cover identity, cargo or none.",
+        "Paid currencies, collateral, service, fuel, coordinates, information and free access are route variants, not universal entry taxes. Taking entry away from its requester may have concrete local aftermath."
+      ],
+      "dependencies": [
+        "G1-001",
+        "G2 carrier/cheat functions",
+        "G4 travel/endpoints",
+        "G3 sponsoring actors"
+      ],
+      "engineConsumerOrGap": "src/world_instances.js createWorldVisit records already-authorized arrival and grants no passage. Missing selected route consumer binding actor/body/cargo/entry snapshot before visit publication.",
+      "acceptanceCases": [
+        "An authorized passenger retains separate custody from the main traveler.",
+        "Failed summon cannot publish a half-created origin.",
+        "Free passage works without invented payment where the selected rule grants it."
+      ],
+      "remaining": [
+        "Each world chooses permissible routes; source’s method is not automatically available to every actor."
+      ],
+      "disposition": "expand-existing-family",
+      "authority": "Proposal implementing requested start coverage; world-local rules and exact variants remain unselected",
+      "detailOwner": "G1-012",
+      "runtimeStatus": "not-implemented-by-this-pass"
+    },
+    {
+      "id": "G1-013",
+      "title": "Means, poverty, custody and initial reachability",
+      "sections": [
+        "S02",
+        "S05",
+        "S06",
+        "S14"
+      ],
+      "sourceRefs": [
+        "docs/worlds/ORIGINS_AND_WORLD_TIMELINES.md#origin-is-a-composition-not-one-bonus",
+        "docs/worlds/ORIGINS_AND_WORLD_TIMELINES.md#generated-families-and-fair-representation-of-unfairness"
+      ],
+      "criterion": "A start’s claimed resources, access and first actions correspond to actual held means.",
+      "proposedExpansion": [
+        "Initial body, cash, owned/borrowed gear, household permission, shelter, food or alternative support, documents, services and contacts each name holder and provenance.",
+        "Zero resources, extreme wealth and overwhelming retained powers remain coherent variants; they do not need balanced opening rewards. A sealed strong start can still expose only observed means.",
+        "First-action qualification checks a meaningful pursuit, interruption/refusal, needed support and an actual development route; an intentionally lethal/no-agency origin requires explicit selected terms, not accidental softlock."
+      ],
+      "dependencies": [
+        "G1-001",
+        "G3 custody/economy"
+      ],
+      "engineConsumerOrGap": "Existing native inventory, money, simulation resources and custody are multiple domains. Missing origin transaction reconciles them without duplicating household stock or loans.",
+      "acceptanceCases": [
+        "A wealthy family does not duplicate its entire stock into the child inventory.",
+        "Known inaccessible route explains known impediment without exposing unknown destination.",
+        "A powerful starting means solves its suitable obstacle directly."
+      ],
+      "remaining": [
+        "Select opening stock and support for each candidate; no new global starter kit."
+      ],
+      "disposition": "expand-existing-family",
+      "authority": "Proposal implementing requested start coverage; world-local rules and exact variants remain unselected",
+      "detailOwner": "G1-013",
+      "runtimeStatus": "not-implemented-by-this-pass"
+    },
+    {
+      "id": "G1-014",
+      "title": "Monster, beast and familiar lives",
+      "sections": [
+        "S02",
+        "S04",
+        "S07",
+        "S08"
+      ],
+      "sourceRefs": [
+        "docs/LIFE_SIM_NORTH_STAR.md#starting-realms",
+        "docs/LIFE_SIM_NORTH_STAR.md#the-translation-table"
+      ],
+      "criterion": "Creature anatomy, communication and independence produce distinct playable actions.",
+      "proposedExpansion": [
+        "Monster: hunt/hide/negotiate/territory and optional evolution; beast: forage/scout/guard/social pack; familiar: bond, terms, actual owner/partner and possible independence.",
+        "Human society response follows observed form, local laws and particular goals, not global hostility or universal lack of rights. A capable creature can craft or talk directly if supported.",
+        "Early useful action can sense shelter, choose a target, signal a keeper or fulfill/refuse a request; development connects diet/body, brood, cooperation, institutions and changed form."
+      ],
+      "dependencies": [
+        "G1-009",
+        "G2 evolution/bonds",
+        "G3 ecology/people"
+      ],
+      "engineConsumerOrGap": "No selected creature-origin native consumer identified; reuse encounter/action machinery after sensory, inventory, body and control adapters qualify.",
+      "acceptanceCases": [
+        "A familiar refuses a command if its selected agency permits.",
+        "Evolution changes real functions and retention, not only race label.",
+        "A creature that can speak negotiates through that real channel."
+      ],
+      "remaining": [
+        "Local species/rights/evolution source questions remain with world owners."
+      ],
+      "disposition": "expand-existing-family",
+      "authority": "Proposal implementing requested start coverage; world-local rules and exact variants remain unselected",
+      "detailOwner": "G1-014",
+      "runtimeStatus": "not-implemented-by-this-pass"
+    },
+    {
+      "id": "G1-015",
+      "title": "Plant and fungus-network lives",
+      "sections": [
+        "S02",
+        "S03",
+        "S05",
+        "S07"
+      ],
+      "sourceRefs": [
+        "docs/worlds/ORIGINS_AND_WORLD_TIMELINES.md#tree-and-other-bodies-change-available-actions",
+        "docs/LIFE_SIM_NORTH_STAR.md#a-tree-life-start-to-end-worked-example-original",
+        "docs/LIFE_SIM_NORTH_STAR.md#more-bodies-not-yet-listed"
+      ],
+      "criterion": "Rooted and distributed plant bodies have real perception, production and reach.",
+      "proposedExpansion": [
+        "Seed, egg-like dormant phase, sapling, mature tree and linked fungus network starts differ in supported senses, roots/nodes and actual useful actions.",
+        "Water/light/soil may be relevant support, while magical/perpetual variants follow their actual exceptions. No hearing every conversation without hearing or another real channel.",
+        "Tending relationships, selective supported outputs, grafting, shelter, habitat commerce, seed dispersal and transplant can connect to village, grove, mobile avatar or object-body transition. Each node/seed defines consciousness and source retention."
+      ],
+      "dependencies": [
+        "G1-009",
+        "G2 distributed consciousness/growth",
+        "G3 habitat/production",
+        "G4 carriers"
+      ],
+      "engineConsumerOrGap": "Origins owner explicitly lacks nonhuman native adapters; bodyProgression is human-specific. Missing rooted reach/senses and legitimate production/ownership consumer.",
+      "acceptanceCases": [
+        "Root-bound body cannot walk on human location controls.",
+        "Signal is readable only by a person holding its interpretation means.",
+        "Seed offspring does not duplicate parent consciousness unless its mechanism permits."
+      ],
+      "remaining": [
+        "Selected public generic proof can be authored without disclosing sealed world truths."
+      ],
+      "disposition": "expand-existing-family",
+      "authority": "Proposal implementing requested start coverage; world-local rules and exact variants remain unselected",
+      "detailOwner": "G1-015",
+      "runtimeStatus": "not-implemented-by-this-pass"
+    },
+    {
+      "id": "G1-016",
+      "title": "Object, artifact, ship and vehicle lives",
+      "sections": [
+        "S02",
+        "S06",
+        "S04",
+        "S12"
+      ],
+      "sourceRefs": [
+        "docs/LIFE_SIM_NORTH_STAR.md#starting-realms",
+        "docs/LIFE_SIM_NORTH_STAR.md#more-bodies-not-yet-listed"
+      ],
+      "criterion": "A conscious object has custody, supported senses and action authority distinct from its holder.",
+      "proposedExpansion": [
+        "Sword/ring/tool, relic, broken artifact, vehicle/ship and crewed mobile body are distinct variants. Being owned, being controlled and consenting to cooperate are different relations.",
+        "Immediate actions can affect a genuinely supported function, refuse an offered use, sense contact, communicate a pattern or maintain a component; not every object is immobile.",
+        "Reforging, upgrades, new wielders, theft, display, burial, crew replacement, navigation and later embodiment preserve particular history and actual parts."
+      ],
+      "dependencies": [
+        "G1-009",
+        "G2 artifact/source functions",
+        "G3 custody/repair/crews"
+      ],
+      "engineConsumerOrGap": "Native equipment treats objects as inventory, not controlled actor entities. Missing identity binding between actor and unique physical item/vehicle and holder-mediated command host.",
+      "acceptanceCases": [
+        "Trading the object changes custody once while retaining its actor memory.",
+        "Holder cannot wield an object’s independent faculty without its required authority.",
+        "Vehicle movement carries actual crew/cargo and consumes only its local declared support."
+      ],
+      "remaining": [
+        "Resolve inventory/actor dual reference with G5 before implementation."
+      ],
+      "disposition": "expand-existing-family",
+      "authority": "Proposal implementing requested start coverage; world-local rules and exact variants remain unselected",
+      "detailOwner": "G1-016",
+      "runtimeStatus": "not-implemented-by-this-pass"
+    },
+    {
+      "id": "G1-017",
+      "title": "Spirit, undead, divine and demonic lives",
+      "sections": [
+        "S02",
+        "S07",
+        "S08",
+        "S04"
+      ],
+      "sourceRefs": [
+        "docs/LIFE_SIM_NORTH_STAR.md#starting-realms",
+        "docs/LIFE_SIM_NORTH_STAR.md#bodies-and-their-needs-a-spectrum-2026-10-10"
+      ],
+      "criterion": "Nonordinary bodies use their actual manifestation, needs and survival rules.",
+      "proposedExpansion": [
+        "Spirit/ghost, undead, divine being and demon are separate families; belief, anchor, blood, mana, worship, ordinary food or no need depend on selected source.",
+        "Immediate observation, whisper, manifestation, contractual aid, haunting or embodied action follows actual interaction reach; material intangibility does not imply omniscience.",
+        "Growth through anchors, rites, body reconstruction, communities, domains, revival, law or negotiation has defined source/body retention; superior or immortal forms retain actual strength."
+      ],
+      "dependencies": [
+        "G1-009",
+        "G2 metaphysical source/retention",
+        "G3 followers/services",
+        "G4 death/revival"
+      ],
+      "engineConsumerOrGap": "Missing selected immaterial targeting/manifestation and body-specific recovery consumer; native human defeat must remain compatible.",
+      "acceptanceCases": [
+        "Material obstacle matters only where the selected faculty interacts with it.",
+        "Revival follows the actual surviving carrier and cannot be inferred from a biography.",
+        "Divine start has no compulsory worship resource when the local rule grants inherent power."
+      ],
+      "remaining": [
+        "Each family needs local source qualification; generic genre descriptions are proposals."
+      ],
+      "disposition": "expand-existing-family",
+      "authority": "Proposal implementing requested start coverage; world-local rules and exact variants remain unselected",
+      "detailOwner": "G1-017",
+      "runtimeStatus": "not-implemented-by-this-pass"
+    },
+    {
+      "id": "G1-018",
+      "title": "Construct, golem, cyborg and bio-synthetic lives",
+      "sections": [
+        "S02",
+        "S06",
+        "S07",
+        "S05"
+      ],
+      "sourceRefs": [
+        "docs/LIFE_SIM_NORTH_STAR.md#bodies-and-their-needs-a-spectrum-2026-10-10",
+        "docs/LIFE_SIM_NORTH_STAR.md#more-bodies-not-yet-listed"
+      ],
+      "criterion": "Manufactured and hybrid bodies have component-specific support and repair.",
+      "proposedExpansion": [
+        "Full machine, animated golem, homunculus, cyborg and bio-synthetic bodies keep biological needs, power, binding and stabilizers separate. Perpetual core and self-repair variants remain possible.",
+        "First action may self-diagnose, request authorized maintenance, use a functional attachment, compute or refuse creator orders. Ownership and repair supplier dependency are distinct.",
+        "Components, programs, self-modification, freedom, replacement chassis and source transfer change actual capabilities and custody; installing a device is not automatic mind duplication."
+      ],
+      "dependencies": [
+        "G1-009",
+        "G2 sources/control",
+        "G3 parts/repair/work"
+      ],
+      "engineConsumerOrGap": "Native food/rest/gear consumers need selected body binding. Existing repair/equipment structures are possible reuse, not inspected proof of complete construct origins.",
+      "acceptanceCases": [
+        "Machine restoration repairs the damaged component without human rest-only healing.",
+        "Replacing a part loses only its supported functions.",
+        "Free/self-sufficient body acts without invented recurring upkeep."
+      ],
+      "remaining": [
+        "Specific repair functions/parts and issuer authority require a qualified packet."
+      ],
+      "disposition": "expand-existing-family",
+      "authority": "Proposal implementing requested start coverage; world-local rules and exact variants remain unselected",
+      "detailOwner": "G1-018",
+      "runtimeStatus": "not-implemented-by-this-pass"
+    },
+    {
+      "id": "G1-019",
+      "title": "Place, dungeon, house, river and array lives",
+      "sections": [
+        "S02",
+        "S03",
+        "S04",
+        "S06"
+      ],
+      "sourceRefs": [
+        "docs/LIFE_SIM_NORTH_STAR.md#starting-realms",
+        "docs/LIFE_SIM_NORTH_STAR.md#more-bodies-not-yet-listed"
+      ],
+      "criterion": "A place-body can act through supported sites, residents and channels.",
+      "proposedExpansion": [
+        "Dungeon, house, river/lake, protective array and sanctuary differ in extent, controllable structures, visitors and real support.",
+        "Immediate actions can change one supported feature, route a real resource, signal an occupant, offer shelter or inspect a sensor; no automatic ability to create stock or control people.",
+        "Renovation, rooms, traps, hydrology, sect protection, trade, family generations and territorial expansion connect to existing places and claims. Site-body destruction/relocation must declare surviving core or substrate."
+      ],
+      "dependencies": [
+        "G1-009",
+        "G2 place faculties",
+        "G3 buildings/ecology/residents",
+        "G4 site identity"
+      ],
+      "engineConsumerOrGap": "World sites currently represent locations/facts, not full controlled body authority. Missing actor-to-place extent, native site commands and distinct resident consent ownership.",
+      "acceptanceCases": [
+        "Changing a room affects actual route/access or declared use.",
+        "Residents retain independent aims and property.",
+        "Moving a core changes only the body scope that its actual mechanism carries."
+      ],
+      "remaining": [
+        "Selected extent/performance boundary and site actor binding need G5 review."
+      ],
+      "disposition": "expand-existing-family",
+      "authority": "Proposal implementing requested start coverage; world-local rules and exact variants remain unselected",
+      "detailOwner": "G1-019",
+      "runtimeStatus": "not-implemented-by-this-pass"
+    },
+    {
+      "id": "G1-020",
+      "title": "Collective, symbiont, parasite and shared-body lives",
+      "sections": [
+        "S02",
+        "S04",
+        "S07",
+        "S14"
+      ],
+      "sourceRefs": [
+        "docs/LIFE_SIM_NORTH_STAR.md#starting-realms",
+        "docs/LIFE_SIM_NORTH_STAR.md#more-bodies-not-yet-listed",
+        "docs/LIFE_SIM_NORTH_STAR.md#who-the-player-is-the-character-or-someone-living-through-them-proposal-2026-10-08"
+      ],
+      "criterion": "Distributed or shared embodiment has explicit control, information and loss boundaries.",
+      "proposedExpansion": [
+        "Hive/swarm, multiple equal nodes, queen/core, symbiont, parasite and second soul variants state where mind resides, how messages travel and who commands each action.",
+        "A host can refuse a proposal, consent to cooperation or contest control according to the local mechanism; extraordinary total control may exist when truly provided.",
+        "Node loss, split, reunion, host change and removal preserve actual memory/source/custody under declared scope; a living host is a person and map of means, not just a hit-point container."
+      ],
+      "dependencies": [
+        "G1-009",
+        "G2 multi-actor/control functions",
+        "G3 host/custody",
+        "G4 identity retention"
+      ],
+      "engineConsumerOrGap": "Existing simulation actor/controller structures give useful primitives, but no generic multiple-controller-to-one-native-body arbitration inspected. Missing controlled body/action ownership and information-channel adapter.",
+      "acceptanceCases": [
+        "Two nodes do not spend the same held item twice.",
+        "Host refusal prevents effects unless an actual override function succeeds.",
+        "An isolated node lacks updates it cannot receive."
+      ],
+      "remaining": [
+        "Choose finite control/channel model before concurrent-body gameplay."
+      ],
+      "disposition": "expand-existing-family",
+      "authority": "Proposal implementing requested start coverage; world-local rules and exact variants remain unselected",
+      "detailOwner": "G1-020",
+      "runtimeStatus": "not-implemented-by-this-pass"
+    },
+    {
+      "id": "G1-021",
+      "title": "System, guide, lineage and fate perspectives",
+      "sections": [
+        "S02",
+        "S04",
+        "S07",
+        "S13"
+      ],
+      "sourceRefs": [
+        "docs/LIFE_SIM_NORTH_STAR.md#weibaos-answers-and-follow-up-2026-10-10",
+        "docs/LIFE_SIM_NORTH_STAR.md#who-the-player-is-the-character-or-someone-living-through-them-proposal-2026-10-08"
+      ],
+      "criterion": "The selected player perspective owns only the verbs and knowledge its actual role grants.",
+      "proposedExpansion": [
+        "Character, soul, guide, system, lineage focus and fate/storyteller perspectives remain separate possibilities; no one mode becomes compulsory.",
+        "System first play can offer a supported quest, grant a genuinely backed reward, advise, trade or observe its host. The host acts independently unless a real takeover faculty grants more.",
+        "Source identity, trust, authority, reward backing, observers, host death, replacement and evolution tie to G2 mechanics and G3 people; no mandatory influence resource, host dependence or growth limit is imposed."
+      ],
+      "dependencies": [
+        "G1-001",
+        "G2 system functions",
+        "G3 autonomous actors",
+        "G4 knowledge"
+      ],
+      "engineConsumerOrGap": "Native UI controls the main character. Missing selected system-as-controlled-actor native command and host outcome publication; controller primitives do not establish playable system role.",
+      "acceptanceCases": [
+        "Host can refuse an ordinary offer.",
+        "Reward consumes backing only if the source actually requires backing.",
+        "Guide view does not expose hidden host facts beyond its own means."
+      ],
+      "remaining": [
+        "Accepted system-entity possibility is preserved; actual local role protocol remains proposed."
+      ],
+      "disposition": "expand-existing-family",
+      "authority": "Proposal implementing requested start coverage; world-local rules and exact variants remain unselected",
+      "detailOwner": "G1-021",
+      "runtimeStatus": "not-implemented-by-this-pass"
+    },
+    {
+      "id": "G1-022",
+      "title": "Concept, rumor, weather, shadow and micro-scale lives",
+      "sections": [
+        "S02",
+        "S03",
+        "S09",
+        "S07"
+      ],
+      "sourceRefs": [
+        "docs/LIFE_SIM_NORTH_STAR.md#starting-realms",
+        "docs/LIFE_SIM_NORTH_STAR.md#more-bodies-not-yet-listed"
+      ],
+      "criterion": "Abstract and micro-scale forms specify a concrete substrate, reach and useful verbs.",
+      "proposedExpansion": [
+        "Story/song/rumor, disease/microbe, storm/element, reflection/shadow and national fortune are distinct proposed forms, not cosmetic races.",
+        "First actions can alter a supported transmission, manifestation, pattern, host-local contact or fate effect. Spread, mutation and forgetting only exist if the chosen mechanism uses them.",
+        "Cross scale through actual observed channels: a microscopic life cannot inspect the world map; a rumor may learn through retelling; a shadow may act independently only if it gains that faculty."
+      ],
+      "dependencies": [
+        "G1-009",
+        "G2 abstract powers",
+        "G3 transmission/world processes",
+        "G4 knowledge/scale"
+      ],
+      "engineConsumerOrGap": "Missing selected substrate/reach model and native commands. Do not build general physical simulation; author one finite causal consumer preserving its promised scope.",
+      "acceptanceCases": [
+        "Form acts on a real target in its supported scale.",
+        "Retelling changes a rumor only through an actual participant/channel.",
+        "Destroyed substrate follows selected persistence, without universal auto-death or immortality."
+      ],
+      "remaining": [
+        "Low-priority distinct adapter family retained; no source canon asserted."
+      ],
+      "disposition": "expand-existing-family",
+      "authority": "Proposal implementing requested start coverage; world-local rules and exact variants remain unselected",
+      "detailOwner": "G1-022",
+      "runtimeStatus": "not-implemented-by-this-pass"
+    },
+    {
+      "id": "G1-023",
+      "title": "Legacy, successor and unrelated next lives",
+      "sections": [
+        "S02",
+        "S04",
+        "S11",
+        "S12"
+      ],
+      "sourceRefs": [
+        "docs/LIFE_SIM_NORTH_STAR.md#heirs-families-and-life-beyond-the-first-character-proposal-2026-10-10",
+        "docs/LIFE_SIM_NORTH_STAR.md#the-next-life-is-random-unless-you-planned-it-2026-10-10"
+      ],
+      "criterion": "A next life receives only what actually survives and is transferred through its valid link.",
+      "proposedExpansion": [
+        "Child, apprentice, adopted ward, spouse, stranger, reincarnation, counterpart, companion and unrelated life retain different body, wishes, knowledge and obligations.",
+        "Will, letters, cache, taught method, institution, debt, inherited property and family reputation each use their actual owner and local recognition route. Unprepared destruction can leave nothing.",
+        "Successors and followers may refuse, leave, compete, betray or remain for their own reasons; no loyalty copy or full ancestor inventory clone. G1 owns entry snapshot; G4 owns actual ending transition."
+      ],
+      "dependencies": [
+        "G1-001",
+        "G3 people/custody/inheritance",
+        "G4 ending/life transition",
+        "G2 carriers"
+      ],
+      "engineConsumerOrGap": "src/life_record.js is explicitly lossy/non-authoritative. Missing selected next-life control transfer and inheritance materializer joining persistent actors, custody and local law.",
+      "acceptanceCases": [
+        "Destroyed legacy is absent from heir holdings.",
+        "Refusing an inheritance is a meaningful valid route where local law permits.",
+        "NPC’s loyalty remains their own saved relation, not ancestor player status."
+      ],
+      "remaining": [
+        "Local inheritance law, refusal, source/body retention and selected ending gate require reconciliation."
+      ],
+      "disposition": "expand-existing-family",
+      "authority": "Proposal implementing requested start coverage; world-local rules and exact variants remain unselected",
+      "detailOwner": "G1-023",
+      "runtimeStatus": "not-implemented-by-this-pass"
+    },
+    {
+      "id": "G1-024",
+      "title": "Planned resurrection and constrained next-entry randomness",
+      "sections": [
+        "S02",
+        "S11",
+        "S12",
+        "S14"
+      ],
+      "sourceRefs": [
+        "docs/LIFE_SIM_NORTH_STAR.md#the-next-life-is-random-unless-you-planned-it-2026-10-10"
+      ],
+      "criterion": "Surviving valid plans narrow or replace only the origin domains they actually control.",
+      "proposedExpansion": [
+        "Heir designation, soul anchor, ritual, phylactery, backup body, seal, clone/fragment, patron pact, letters and trained successor remain separate plans.",
+        "Full control, narrowed pool, weighted nudge and no control are distinct valid mechanisms. No global rising-cost ladder is required; a perfect free plan works if its source promises it.",
+        "Moving/breaking/stealing a carrier, refusal, elapsed era, patron changes and partial plans produce actual supported consequences. A plan may choose body but leave place/time random."
+      ],
+      "dependencies": [
+        "G1-002",
+        "G1-023",
+        "G2 revival functions",
+        "G4 carriers/endings"
+      ],
+      "engineConsumerOrGap": "Missing origin selection eligibility derived from actual surviving plans and ending receipts. Do not infer revival from saved narrative or reuse origin.selected as a per-life claim.",
+      "acceptanceCases": [
+        "Exact functioning plan overrides only named random dimensions.",
+        "Broken plan is excluded for its actual cause without fake universal penalty.",
+        "Failed durable next-life publication retains original life and pending selection consistently."
+      ],
+      "remaining": [
+        "Select one plan and finite transition proof first."
+      ],
+      "disposition": "expand-existing-family",
+      "authority": "Proposal implementing requested start coverage; world-local rules and exact variants remain unselected",
+      "detailOwner": "G1-024",
+      "runtimeStatus": "not-implemented-by-this-pass"
+    },
+    {
+      "id": "G1-025",
+      "title": "Immortal self with a new local beginning",
+      "sections": [
+        "S02",
+        "S12",
+        "S07",
+        "S14"
+      ],
+      "sourceRefs": [
+        "docs/LIFE_SIM_NORTH_STAR.md#immortal-in-one-world-beginning-in-another",
+        "docs/TIMELINES_AND_DIVERGENCE.md#t4-give-parallel-worlds-independent-state-and-selected-clocks"
+      ],
+      "criterion": "A second beginning states what remains of the first self and how the two communicate or transfer.",
+      "proposedExpansion": [
+        "In-person travel retains the actual body; projection/clone, soul fragment, sealed-body departure, possession and voluntary suppressed start are distinct. Immortality does not require a restart or loss of strength.",
+        "Strong full-power arrival, weaker created avatar, local fresh fragment and chosen locked power all remain possible; world-source interactions determine effects, not universal equalization.",
+        "Home self’s presence/absence, independent projects, rescue calls and resources remain real; exchanges require carriers and shared item/authority ownership, not cross-body duplication."
+      ],
+      "dependencies": [
+        "G1-009",
+        "G2 multi-body/source/retention",
+        "G4 clocks/travel",
+        "G3 independent projects"
+      ],
+      "engineConsumerOrGap": "world instance/visit primitives distinguish presence; no selected simultaneous native controlled-body initializer inspected. Missing body focus transfer and cross-body holdings protocol.",
+      "acceptanceCases": [
+        "Home and local body do not accidentally share one native health/equipment object.",
+        "Full-power compatible arrival stays powerful.",
+        "Switching focus does not advance world clocks twice or reroll a beginning."
+      ],
+      "remaining": [
+        "Cross-lane identity/time ownership is prerequisite; no mandatory weakness."
+      ],
+      "disposition": "expand-existing-family",
+      "authority": "Proposal implementing requested start coverage; world-local rules and exact variants remain unselected",
+      "detailOwner": "G1-025",
+      "runtimeStatus": "not-implemented-by-this-pass"
+    },
+    {
+      "id": "G1-026",
+      "title": "Parallel-history and replay-self starts",
+      "sections": [
+        "S02",
+        "S11",
+        "S12",
+        "S09"
+      ],
+      "sourceRefs": [
+        "docs/TIMELINES_AND_DIVERGENCE.md#four-ways-to-start-in-a-branch-all-reachable",
+        "docs/TIMELINES_AND_DIVERGENCE.md#t1-separate-the-identities-before-adding-branches"
+      ],
+      "criterion": "Premise start, successor, replay-self history and actual regression remain mechanically distinct.",
+      "proposedExpansion": [
+        "Branch premise materializes its authored changed history; successor resumes lived aftermath; replay-self contains a separately controlled counterpart with declared retained receipts; regression performs G2/G4’s actual rollback.",
+        "Similar name/body/date does not merge actor identity or custody. Older player records are not enough to fabricate exact past-self actions absent authoritative receipts.",
+        "First encounters and recognition follow actual means and local policy; branch entry cannot reveal author-only future differences in a public chooser."
+      ],
+      "dependencies": [
+        "G1-003",
+        "G4 branch/archive/history",
+        "G2 regression",
+        "G3 counterpart people"
+      ],
+      "engineConsumerOrGap": "createWorldInstance accepts parentInstanceId as metadata only. Missing snapshot/actor remapping and replay policy; src/life_record.js cannot recreate full history.",
+      "acceptanceCases": [
+        "Two counterparts hold distinct local items unless transfer occurs.",
+        "Historical start does not silently roll back the existing save.",
+        "Replay-self behaves only within its declared receipt/model fidelity."
+      ],
+      "remaining": [
+        "G4 owns history fidelity and G5 owns isolation contracts."
+      ],
+      "disposition": "expand-existing-family",
+      "authority": "Proposal implementing requested start coverage; world-local rules and exact variants remain unselected",
+      "detailOwner": "G1-026",
+      "runtimeStatus": "not-implemented-by-this-pass"
+    },
+    {
+      "id": "G1-027",
+      "title": "Start reveal, onboarding and recovery presentation",
+      "sections": [
+        "S02",
+        "S09",
+        "S13"
+      ],
+      "sourceRefs": [
+        "docs/WORLD_COMPLETION_STANDARD.md",
+        "docs/LIFE_SIM_NORTH_STAR.md#onboarding",
+        "docs/worlds/ORIGINS_AND_WORLD_TIMELINES.md"
+      ],
+      "criterion": "Opening UI communicates usable actions and known state without exposing candidate truths.",
+      "proposedExpansion": [
+        "Begin with present sensory situation, active body/control and meaningful actions. World identity, era, family motives, latent traits and special rules arrive only through discovery.",
+        "Known resources/support, cancel/refusal/recovery and where information is unavailable are readable in existing panels. Do not show grey future verbs that reveal a sealed power or predetermined outcome.",
+        "Name, pronouns, language and body-directed text adapt to controlled perspective; first-use prompts are optional and explain actual support rather than author mechanics."
+      ],
+      "dependencies": [
+        "G1-002",
+        "G1-009",
+        "G4 projection",
+        "presentation/accessibility review"
+      ],
+      "engineConsumerOrGap": "src/character_creation.js is one upstream creation panel and does not consume world-scoped hidden-start projections. Missing start presentation adapter over native center/UI.",
+      "acceptanceCases": [
+        "Low-information start still has a usable meaningful button.",
+        "Limited-body text never claims human sight/speech unsupported by its senses.",
+        "Unavailable pack/invalid candidate offers explicit recovery without revealing catalog."
+      ],
+      "remaining": [
+        "Reviewer must check suspense/clarity with representative body and failure states."
+      ],
+      "disposition": "expand-existing-family",
+      "authority": "Proposal implementing requested start coverage; world-local rules and exact variants remain unselected",
+      "detailOwner": "G1-027",
+      "runtimeStatus": "not-implemented-by-this-pass"
+    },
+    {
+      "id": "G1-028",
+      "title": "Source-specific candidate qualification and private content",
+      "sections": [
+        "S00",
+        "S02",
+        "S14"
+      ],
+      "sourceRefs": [
+        "docs/worlds/harry-potter/WORLD_BRIEF.md",
+        "docs/worlds/harry-potter/SOURCE_LEDGER.md",
+        "docs/worlds/ORIGINS_AND_WORLD_TIMELINES.md"
+      ],
+      "criterion": "Book/anime start candidates freeze source boundaries and label canon, interpretation and divergence.",
+      "proposedExpansion": [
+        "Existing household/child/outsider/role/tree candidate variants are reusable local study, not fully verified direct adaptation. Exact era/cast/admission/faculty questions stay source tasks.",
+        "Record book/manga/anime versions separately; a companion synopsis cannot establish entire-source coverage. Original nonhuman metaphysics remain proposals where unsupported.",
+        "World GM must locate relevant evidence and author private direct-recreation pack content while public infrastructure remains generic; candidate truth stays sealed independently of private-pack placement."
+      ],
+      "dependencies": [
+        "G1-001",
+        "selected world source owner"
+      ],
+      "engineConsumerOrGap": "Existing candidate brief explicitly has no registered destination/initializer. Public source ledger is bounded companion evidence, not full seven-book read.",
+      "acceptanceCases": [
+        "A candidate with unresolved canon faculty is kept as source question rather than fabricated canon.",
+        "Divergent variant declares changed local rule privately.",
+        "Source-specific runtime strings stay outside public bundle under PROJECT.md boundary."
+      ],
+      "remaining": [
+        "No new external/source audits launched; every future world requires its selected boundary."
+      ],
+      "disposition": "expand-existing-family",
+      "authority": "Proposal implementing requested start coverage; world-local rules and exact variants remain unselected",
+      "detailOwner": "G1-028",
+      "runtimeStatus": "not-implemented-by-this-pass"
+    },
+    {
+      "id": "G1-029",
+      "title": "Compatibility, idempotence and old-save protection",
+      "sections": [
+        "S02",
+        "S14"
+      ],
+      "sourceRefs": [
+        "PROJECT.md",
+        "src/character_creation.js",
+        "src/simulation.js",
+        "src/models/person.js",
+        "src/world_instances.js"
+      ],
+      "criterion": "New origins cannot silently overwrite old progress or apply body/start grants more than once.",
+      "proposedExpansion": [
+        "Old saves keep existing actor/body/inventory/quests and gain no fake birth/family/origin. New-life and new-game transactions are different entry commands.",
+        "Origin record is versioned additively under the selected existing save owner with explicit migrations, pack absence policy and rollback on failed persistence.",
+        "Selected body stats derive from current source contributions or idempotently replace one owned contribution; do not toggle racial bonuses globally or repeatedly invoke additive bonus methods."
+      ],
+      "dependencies": [
+        "G1-001",
+        "G5 save/native publication contract"
+      ],
+      "engineConsumerOrGap": "Person.addRaceBonus/addHeightBonus accumulate contributions if repeatedly called; config disables them. chooseSimulationOrigin has global once-only origin.selected. Missing per-life selected-origin ownership and native durable integration.",
+      "acceptanceCases": [
+        "Loading old save leaves all original stats/quests/means unchanged.",
+        "Repeated render/reload/import does not multiply a start grant or stat contribution.",
+        "Stale command, unsupported schema and failed save cannot publish partial origin."
+      ],
+      "remaining": [
+        "Actual fresh-origin build/browser/save proof required in later implementation."
+      ],
+      "disposition": "expand-existing-family",
+      "authority": "Proposal implementing requested start coverage; world-local rules and exact variants remain unselected",
+      "detailOwner": "G1-029",
+      "runtimeStatus": "not-implemented-by-this-pass"
+    },
+    {
+      "id": "G1-030",
+      "title": "Complete option coverage and representative qualification",
+      "sections": [
+        "S00",
+        "S02",
+        "S14"
+      ],
+      "sourceRefs": [
+        "docs/WORLD_COMPLETION_STANDARD.md",
+        "docs/gm/WORLD_ACTIONABILITY_GM_PROMPT.md"
+      ],
+      "criterion": "Every inspected family has a disposition and independently qualified selected details retain their remaining scope.",
+      "proposedExpansion": [
+        "Keep one primary owner per detail; cross-tag shared starts without creating duplicate G2/G3/G4 state writers. World source manifests can add new families later.",
+        "Qualify a representative ordinary/limited-body initializer and state transaction before repeating content packets; retain ambitious families whose adapters remain missing.",
+        "A functioning origin does not close a family, section or world. Developer selection coverage and player’s random experience are separate, so no player playthrough of every start is required."
+      ],
+      "dependencies": [
+        "G1-001",
+        "G5 reconciliation"
+      ],
+      "engineConsumerOrGap": "Planning acceptance contract only; no new gameplay or browser proof in this pass.",
+      "acceptanceCases": [
+        "Selected leaf has positive, changed-state and persistence criteria.",
+        "Unavailable adapter remains named remaining work rather than not-applicable.",
+        "Unchecked franchise/world families remain explicit unread/source work."
+      ],
+      "remaining": [
+        "Integrator review and finite implementation selection remain."
+      ],
+      "disposition": "expand-existing-family",
+      "authority": "Proposal implementing requested start coverage; world-local rules and exact variants remain unselected",
+      "detailOwner": "G1-030",
+      "runtimeStatus": "not-implemented-by-this-pass"
+    }
+  ],
+  "unreadRemainder": [
+    {
+      "path": "docs/LIFE_SIM_NORTH_STAR.md",
+      "scope": "All unlisted sections, linked novel/scout dossiers and their individual details remain unread or headings-only in G1; other lanes may inspect them. Especially nonhuman research lines 6969-7086 and later carrier findings 7412-7494 need a selected deeper pass."
+    },
+    {
+      "path": "docs/worlds",
+      "scope": "All other franchise/world dossiers and private packs are outside this finite G1 pass; no claim of complete world-candidate coverage."
+    },
+    {
+      "path": "src",
+      "scope": "Native main/save/equipment/combat/action timing and every existing travel consumer are not fully audited; G5 must qualify actual initializer/state transaction interfaces."
+    }
+  ],
+  "noRuntimeClaim": true
+}

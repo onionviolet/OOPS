@@ -1,0 +1,27 @@
+{
+  "schema": 1,
+  "date": "2026-10-12",
+  "fromThreadId": "01a12ebf-d9a5-7ce0-94ba-469228eef444",
+  "toThreadId": "01a1305a-d5c2-70b2-a96f-843fbee945e8",
+  "hostId": "local",
+  "status": "effective iff STATE.ownerThreadId matches successor; confirmed ready local task",
+  "objective": "ASSIGNMENT full shared-foundation technical completion, unfinished F4/G6/combined-suite/all applicable joins",
+  "checkout": "/Users/weiwei/code/yet-another-idle-rpg",
+  "scope": [
+    "foundation dispatch except dispatcher DISPATCH.json and research/",
+    "current released shared runtime/source/state/save/registry/main/UI/test/generated build; record exact per-unit reservations",
+    "new original foundation probe modules and native craft helper/tests, all predecessor specialist areas released",
+    "new v3 retention path only; historical Ink artifacts untouched"
+  ],
+  "exclusions": [
+    "World1 goal/campaign/source and PROJECT pause/resume owner",
+    "private packs/frozen manifests/p01-p08",
+    "source libraries/paused proofs/personal saves",
+    "isolated UI/customization/authoring candidates/owned docs",
+    "commits/push/publish/automation/acquisition/unrelated installs/settings"
+  ],
+  "workers": "all predecessor internal workers released; no active proof process",
+  "next": "SUCCESSOR_CORE_PROMPT.md; actual learning-proof/WORKER_RESUME",
+  "readyEvidence": "wait_threads active initial commentary plus completed recovery tool marker; actual local thread ID confirmed",
+  "predecessor": "read-only after effective STATE update; no new source/build/checkpoint work or repeated monitoring"
+}

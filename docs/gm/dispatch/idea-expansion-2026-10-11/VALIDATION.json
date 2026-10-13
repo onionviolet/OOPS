@@ -1,0 +1,26 @@
+{
+  "date": "2026-10-11",
+  "status": "passed planning-artifact gates",
+  "scope": "Eight-lane finite public idea-family pass; not all-source/all396-artifact or gameplay acceptance",
+  "checks": {
+    "uniqueRequirementIds": 179,
+    "uniqueSpecifiedAcceptanceCaseIds": 693,
+    "sectionsWithPlanningCards": 15,
+    "laneOutputHashesMatched": 8,
+    "dependencyPacketsAcyclicIncludingConditionalEdges": 11,
+    "localMarkdownLinksCheckedAtStructuralGate": 41,
+    "allWaveJsonParsed": true,
+    "sourceRefPathsAndExactIdsChecked": true,
+    "ownedWhitespaceChecked": true,
+    "modifiedOwnerDiffCheckPassed": true
+  },
+  "peerReviews": [
+    "engine/JOIN_REVIEW.md",
+    "review/INTEGRATION_REVIEW.md"
+  ],
+  "runtimeTestsRun": false,
+  "buildRun": false,
+  "browserRun": false,
+  "saveOrPrivateSourceAccess": false,
+  "sourceSnapshotPolicy": "Consulted source may change concurrently; re-inspect affected selected consumers at runtime assignment. Validating document pointers does not prove API/gameplay correctness."
+}

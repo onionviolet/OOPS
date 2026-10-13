@@ -1,5 +1,19 @@
 # Modular world campaigns
 
+## Current entry and completion direction, 2026-10-11
+
+The intended expanded run starts at a suspenseful random starting point.
+Frontier is optional; commissions from it are possible entry examples, not a
+required first campaign. Compatible direct starting snapshots are a first-class
+authoring route alongside later travel. The selected world/era/place/origin/
+situation must have actual starting means, usable native interactions and
+actor-specific knowledge, with committed selection retained on reload/import.
+The [completion standard](../WORLD_COMPLETION_STANDARD.md) and its templates
+own section/detail coverage and candidate qualification. This direction does not
+implement a selector, independent native instances or new-game body binding.
+
+## Earlier composition specification
+
 Status: requested design direction; frozen composition interface v1 with campaign-depth specialist extension v2, 2026-10-03. Master GM owner. This is an authoring specification, not a runtime registry or a save schema. The current playable realm remains `base.frontier` with its existing field renewal.
 
 ## Current assignment and shared boundary

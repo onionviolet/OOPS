@@ -1,0 +1,72 @@
+[
+  {
+    "name": "both-filled",
+    "export": {
+      "file": "/Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/foundation-adoption-next-2026-10-13/rounds/r6/both-filled-native.txt",
+      "hash": "8c401de502a2c1a2da4a9344077e0e8958ab55cbc647726f390d194fbf3a8089"
+    },
+    "importedFileHash": "8c401de502a2c1a2da4a9344077e0e8958ab55cbc647726f390d194fbf3a8089",
+    "reloadExact": true,
+    "importExact": true
+  },
+  {
+    "name": "resin-only",
+    "export": {
+      "file": "/Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/foundation-adoption-next-2026-10-13/rounds/r6/resin-only-native.txt",
+      "hash": "e85f83e88153cf2d68ac50255ec5d9a179fe29c622cd911b5c20aece1cff70d7"
+    },
+    "importedFileHash": "e85f83e88153cf2d68ac50255ec5d9a179fe29c622cd911b5c20aece1cff70d7",
+    "reloadExact": true,
+    "importExact": true
+  },
+  {
+    "name": "second-attempt-pending",
+    "export": {
+      "file": "/Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/foundation-adoption-next-2026-10-13/rounds/r6/second-attempt-pending-native.txt",
+      "hash": "d2ca6b282df9b8af5e45e3922433ccb9d30368f590eddd82e4db42721773911a"
+    },
+    "importedFileHash": "d2ca6b282df9b8af5e45e3922433ccb9d30368f590eddd82e4db42721773911a",
+    "reloadExact": true,
+    "importExact": true
+  },
+  {
+    "name": "both-cleared",
+    "export": {
+      "file": "/Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/foundation-adoption-next-2026-10-13/rounds/r6/both-cleared-native.txt",
+      "hash": "29b8fc9d4998ccc8851b84d390a329f038b346793e662e1d6f516dc57f5f9531"
+    },
+    "importedFileHash": "29b8fc9d4998ccc8851b84d390a329f038b346793e662e1d6f516dc57f5f9531",
+    "reloadExact": true,
+    "importExact": true
+  },
+  {
+    "name": "useful-kits-produced",
+    "export": {
+      "file": "/Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/foundation-adoption-next-2026-10-13/rounds/r6/useful-kits-produced-native.txt",
+      "hash": "a76a80f4325ae4750f59f34b5614d7c2f36887e5fd47352bb6c569068c032532"
+    },
+    "importedFileHash": "a76a80f4325ae4750f59f34b5614d7c2f36887e5fd47352bb6c569068c032532",
+    "reloadExact": true,
+    "importExact": true
+  },
+  {
+    "name": "useful-delivery",
+    "export": {
+      "file": "/Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/foundation-adoption-next-2026-10-13/rounds/r6/useful-delivery-native.txt",
+      "hash": "30a2746fe709f724f75d28b61d28a217ea2a40e089a5fc29a273a96013754955"
+    },
+    "importedFileHash": "30a2746fe709f724f75d28b61d28a217ea2a40e089a5fc29a273a96013754955",
+    "reloadExact": true,
+    "importExact": true
+  },
+  {
+    "name": "delivery-settled",
+    "export": {
+      "file": "/Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/foundation-adoption-next-2026-10-13/rounds/r6/delivery-settled-native.txt",
+      "hash": "709c92afc307323e04ba0799304aee1be8bff7d4090c9502427400caa3469b11"
+    },
+    "importedFileHash": "709c92afc307323e04ba0799304aee1be8bff7d4090c9502427400caa3469b11",
+    "reloadExact": true,
+    "importExact": true
+  }
+]

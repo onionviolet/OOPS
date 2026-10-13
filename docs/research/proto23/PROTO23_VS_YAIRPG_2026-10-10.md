@@ -3,6 +3,19 @@
 2026-10-10. Research only. Nothing here is an accepted decision, and no
 gameplay changed.
 
+2026-10-13 follow-up: [UI/source absorption](UI_SOURCE_ABSORPTION_2026-10-13.md)
+adds an introduction and post-difficulty browser check, exact reveal gates and
+colors/VFX/spacing proposals. The new download matches this audit's hash. The
+October 10 statement that neither game was run excludes this later check.
+
+2026-10-13 deeper correction: [mechanism report](SOURCE_MECHANISMS_AND_ADOPTION_2026-10-13.md)
+reproduces skill reveal at level 1 (not first XP), overflow-hook double counting,
+multi-tool preview/counter disagreement and biased integer sampling. Its live
+adoption map supersedes this dated audit's absence claims: titles, passive
+furnishing bonuses, utility accessories, local-life, optional pacing and condition
+systems now have source owners. Section 7's “choice stands” wording is historical;
+PROJECT.md records the October 11 decision accepting furnishing bonuses.
+
 ## 1. Sources and coverage
 
 - **Proto23**: the published single file at https://23html.github.io/,

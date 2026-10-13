@@ -1,0 +1,17 @@
+✔ actual chart/enrollment leaves unapproved consequence controllers absent; Lin host equals native preview and staged plan (461.662916ms)
+✔ accepted Ink work reserves counted resources, survives reload, pays once and staff supply requires separate approval (3961.257833ms)
+✔ texture and refusal conserve material and wage; native cancellation refunds accepted work without a kit (2818.510917ms)
+✔ losing actual supported body at completion refunds inputs and creates no wage or kit (961.719834ms)
+✔ stale/double clock, sequence, revision, session and scope tokens cannot apply a second work effect (688.091375ms)
+✔ wrong contact, unsupported body and native revision block bindings; adapters cannot invoke a different resident (506.702584ms)
+✔ failed durable write preserves authoritative cursor/resources/jobs; retry publishes exactly one accepted effect (821.273041ms)
+✔ retained v1/v2 legacy and v3 scoped opaque cursors reload without replacing paid receipt history (1521.670916ms)
+✔ old absent enrollment and repeated read/preview create no demand, approval or Ink cursor (553.030875ms)
+ℹ tests 9
+ℹ suites 0
+ℹ pass 9
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 15087.878791

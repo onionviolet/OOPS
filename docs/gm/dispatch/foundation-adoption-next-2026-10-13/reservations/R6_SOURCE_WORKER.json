@@ -1,0 +1,12 @@
+{
+  "owner": "01a13525-ab37-7311-926c-a39b01154282",
+  "sourceWorker": "/root/fa11_source",
+  "status": "complete/released",
+  "reservedPaths": [
+    "tests/fa11_retort.test.js",
+    "docs/gm/dispatch/foundation-adoption-next-2026-10-13/rounds/r6/SOURCE_REVIEW.md",
+    "docs/gm/dispatch/foundation-adoption-next-2026-10-13/rounds/r6/SOURCE_TESTS.txt"
+  ],
+  "proof": "bounded collaboration.spawn_agent assignment; no carryover source writer",
+  "productionRepair": false
+}

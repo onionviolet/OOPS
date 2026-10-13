@@ -1,5 +1,7 @@
 # Parallel implementation exploration, 2026-10-04
 
+> **Historical (marked 2026-10-13).** Lane reservations, rosters and test deferral below are dated context, not current policy. Current rules: [GAME_MASTER_PROMPT.md Delegation and succession](../../GAME_MASTER_PROMPT.md#delegation-and-succession) and AGENTS.md Verification.
+
 Latest direct human instruction:
 
 > continue accordingly, we can save tests for the future and trailblaze now, start as much parallel as possible?\

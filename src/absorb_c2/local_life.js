@@ -5,6 +5,7 @@ import {recurringWindow} from '../world_rhythm.js';
 export const LOCAL_LIFE_BALANCE = Object.freeze({searchMinutes:5,baseChance:.1,missStep:.05,chanceCap:.4,
     perceptionStep:.002,perceptionCap:.1,poisonXpPerMinute:.25,hubMinutes:15,hubBase:.2,hubStep:.1,hubCap:.5,
     helpCost:5,helpXp:2});
+export const RUNNER_MEAL_COST = 1;
 export const MEAL_SCHEDULE = Object.freeze({period:1440,opens:720,closes:840});
 const places = Object.freeze({Village:{item:'Linen cloth',label:'a dropped scrap of linen'},Shack:{item:'Stale bread',label:'a forgotten heel of bread'}});
 const natural = n => Number.isSafeInteger(n) && n>=0;
@@ -13,13 +14,17 @@ const count = n => natural(n)?n:0;
 const stamp = n => natural(n)?n:null;
 export function normalizeLocalLife(raw={}) {
     if(!raw || typeof raw!=='object' || Array.isArray(raw)) throw new Error('Invalid saved local life container.');
-    if(raw.schema!=null && raw.schema!==1) throw new Error('Unsupported saved local life schema.');
+    if(raw.schema!=null && raw.schema!==1 && raw.schema!==2) throw new Error('Unsupported saved local life schema.');
     const searches={};
     for(const id of Object.keys(places)) {
         const old=raw.searches?.[id];
         searches[id]={misses:Math.min(count(old?.misses),100),found:old?.found===true};
     }
-    return {schema:1,searches,looking:raw.looking===true,lookPlace:places[raw.lookPlace]?raw.lookPlace:null,
+    if(raw.schema===2 && (!natural(raw.runnerMealsIssued)||!natural(raw.runnerMealsUsed)))throw new Error('Invalid saved runner meal accounts.');
+    const issued=raw.schema===2?count(raw.runnerMealsIssued):0;
+    const used=raw.schema===2?count(raw.runnerMealsUsed):0;
+    if(used>issued || issued>count(raw.helped))throw new Error('Invalid saved runner meal accounts.');
+    return {schema:2,runnerMealsIssued:issued,runnerMealsUsed:used,searches,looking:raw.looking===true,lookPlace:places[raw.lookPlace]?raw.lookPlace:null,
         searchProgress:Math.min(finite(raw.searchProgress)?raw.searchProgress:0,4.999),lastClock:stamp(raw.lastClock),
         lastLocation:typeof raw.lastLocation==='string'?raw.lastLocation:null,poisonMinutes:finite(raw.poisonMinutes)?raw.poisonMinutes:0,
         lastHubAttempt:stamp(raw.lastHubAttempt),hubMisses:Math.min(count(raw.hubMisses),100),
@@ -92,11 +97,19 @@ export function localLifeAction(raw,c,id) {
     } else if(id==='help' || id==='decline') {
         if(c.location!=='Village' || !s.encounter) return fail('The runner is not waiting here.');
         if(id==='help') {
+            if(s.helped===Number.MAX_SAFE_INTEGER)return fail('The runner help account is full.');
             if(!finite(c.money) || c.money<LOCAL_LIFE_BALANCE.helpCost) return fail('You need five coins to offer a meal.');
-            p.native.money=-LOCAL_LIFE_BALANCE.helpCost;addXp(p,'Perception',LOCAL_LIFE_BALANCE.helpXp);s.helped++;
-            p.messages.push('You pay five coins for the runner’s meal and listen to their account of the road. Perception +2 XP.');
+            p.native.money=-LOCAL_LIFE_BALANCE.helpCost;addXp(p,'Perception',LOCAL_LIFE_BALANCE.helpXp);s.helped++;s.runnerMealsIssued++;
+            p.messages.push('You pay five coins for the runner’s meal and listen to their account of the road. Perception +2 XP. The runner leaves one meal ticket: later exchange it in Village with one coin for one Stale bread.');
         } else {s.declined++;p.messages.push('You wish the runner well and let them continue. No cost or penalty.');}
         s.encounter=null;
+    } else if(id==='runner_meal') {
+        if(c.location!=='Village')return fail('Use the runner meal ticket in Village.');
+        if(s.runnerMealsUsed>=s.runnerMealsIssued)return fail('No unused runner meal ticket.');
+        if(!finite(c.money)||c.money<RUNNER_MEAL_COST)return fail('The runner meal ticket needs one coin.');
+        s.runnerMealsUsed++;p.native.money=-RUNNER_MEAL_COST;
+        p.native.items.push({item_id:'Stale bread',count:1});
+        p.messages.push('One runner meal ticket and one coin exchanged for one Stale bread. Use it from inventory for its ordinary meal effect.');
     } else if(id==='meal') {
         if(c.location!=='Village') return fail('The midday bread table is in Village.');
         const window=recurringWindow(MEAL_SCHEDULE,c.calendarMinute,s.mealClaim);
@@ -117,7 +130,8 @@ export function localLifeView(raw,c) {
         readiness:available?'Ready. Search time passes while you remain idle here.': 'Finish combat, travel, dialogue, sleep or other work first.',
         rows:[{id:'look',label:s.looking?`Stop looking (${s.searchProgress}/5 minutes)`:'Look around',disabled:!available||found},
             ...(c.location==='Village'?[{id:'meal',label:window.open?'Take midday bread (free, one per game day)':window.claimed?'Midday bread already claimed today':`Midday bread: opens in ${window.nextIn} minutes (12:00–14:00)`,disabled:!available||!window.open},
-                ...(s.encounter?[{id:'help',label:'Offer runner a meal (5 coins; Perception +2 XP)',disabled:!available||!(c.money>=5)},
+                ...(s.runnerMealsIssued>s.runnerMealsUsed?[{id:'runner_meal',label:`Use runner meal ticket (${s.runnerMealsIssued-s.runnerMealsUsed} left; 1 coin → 1 Stale bread)`,disabled:!available||!(c.money>=RUNNER_MEAL_COST)}]:[]),
+                ...(s.encounter?[{id:'help',label:'Offer runner a meal (5 coins; Perception +2 XP; one meal ticket)',disabled:!available||!(c.money>=5)},
                     {id:'decline',label:'Let the runner continue (free)',disabled:!available}]:[])]:[])],
         encounter:c.location==='Village'?s.encounter?'A supply runner is waiting.':`A runner may stop by after fifteen quiet played minutes. Contact chance starts at 20%, rises on misses and caps at 50%; at most one contact per game day.`:''};
 }

@@ -1,0 +1,292 @@
+Authoring
+Edit layout
+Layout
+Workspace
+Classic
+Focus
+Compare
+Reset layout
+Density
+compact
+comfortable
+inspection
+Panels
+Layout configuration
+Drag headers · Shift+drag to float · Resize edges or dividers
+↕
+Character vitals
+15 / 16 xp
+47/47 stamina
+0/0 mana
+70/70 hp
+↕
+Inventory & combat view
+Inventory
+Combat
+↕
+Character & preparation
+Level: 1
+Strength:
+12.1
+Agility:
+10.2
+Dexterity:
+10.0
+Intuition
+12.0
+Defense:
+3.0
+Magic:
+0.0
+Atk power:
+4.4
+Atk spd:
+0.7
+Crit rate:
+5.0%
+Crit mult:
+130.0%
+AP:
+35
+EP :
+37
+Active effects: 3
+Stats
+Bio
+Equipment
+Tools
+↕
+Belongings
+Your purse contains: 5C 8W
+star_border[weapon] Cheap iron axe [50%]
+[take off]
+14C 4W
+star_border[legs] Cheap leather pants [40%]
+[take off]
+4C 6W
+star_border[torso] Work coat
+[take off]
+1W
+star_borderDulled field fitting knife
+4W
+star_borderParsley, sage, rosemary and thyme x5
+1C
+star_borderPrepared survey kit x2
+2W
+star_borderRat tail
+4W
+star_borderRough wood log x342
+1C
+star_borderSealing template
+5W
+star_borderStale bread x3
+[use]
+auto
+2C
+star_borderTree sap x18
+5W
+star_borderWet repair stave
+1W
+star_borderWooden clasp
+1W
+star_border[tool] Old pickaxe
+[equip]
+1C
+star_border[tool] Old shovel
+[equip]
+1C
+star_border[tool] Old sickle
+[equip]
+1C
+Sort by name
+Sort by value
+Sort by type
+All
+Equipment
+Usable
+Other
+Favs
+↕
+Equipment comparison
+↕
+People you know
+People you know
+
+What you have learned and what happened between you. Locations are last known or agreed, rather than live reports.
+
+Village elder
+Old craftsman
+Iona, visiting parcel clerk
+Nell, field-association steward
+Eda, sluice fitter
+Vela, Village instrument maker
+Neri, resident kit binder
+Hessa, household steward
+Orr, household craftsperson
+Vale, household apprentice
+Mara, assignment clerk
+Lin, service worker
+↕
+Time & weather
+10/04/999 04:52, Summer, Wed, Day
+11.1°C
+↕
+Current location
+star_border Sheltered workroom
+A dry bench, a seated holding jig and an ordinary coat offer two ways to begin working.
+↕
+Current work & saving
+
+No work running.
+
+Saving available.
+
+↕
+Local actions
+directions Fast travel
+Optional pacing
+Equipment condition and repair
+Elemental preparation
+Experimental interaction arena
+
+Original development policies: P-A closes incoming magic including aid. P-B admits named aid and needs sustained control. Physical projectiles remain independent after release. Demonstration fuel belongs only to identified arena actors.
+
+Use a disposable test save. Actions and aftermath use the current durable publisher and played-time clock.
+
+Complete experimental admission drill
+↕
+Journal & received accounts
+Quests
+Bestiary
+Anthology
+Data
+Notebook
+Lost memory
+Secure Tidemark’s sluice
+Service-district work ledger
+Shared field workshop
+Hide completed 
+↕
+Skills & practice
+keyboard_double_arrow_downCombat skills
+keyboard_arrow_up
+keyboard_arrow_down
+keyboard_double_arrow_downEnvironmental skills
+keyboard_arrow_up
+keyboard_arrow_down
+keyboard_double_arrow_downCharacter skills
+keyboard_arrow_up
+keyboard_arrow_down
+keyboard_double_arrow_downGathering skills
+keyboard_arrow_up
+keyboard_arrow_down
+keyboard_double_arrow_downCrafting skills
+keyboard_arrow_up
+keyboard_arrow_down
+ Hide max level skills
+Sort by name
+Sort by level
+Sort by progress
+Skills
+Stances
+Magic
+↕
+Reports
+World events
+Recent news
+Remembered years · 10 memories
+Remember this day
+
+Years remembered
+Saved the game manually
+Saved the game manually
+Saved the game manually
+Levels / unlocks
+Events
+Crafting
+Combat
+Loot
+BGM
+↕
+Your beginning
+Your beginning
+
+A sheltered workroom
+
+You begin with one usable hand. The seated holding jig supports the same useful clasp in three minutes. The ordinary two-hand bench is unavailable.
+
+Sheltered workroom
+
+Your opening: This sheltered workroom has a seated holding jig and two owned wood blanks. Your name and gender stay yours. The coat needs a clasp fitted before its full protection applies.
+
+Learned arrangement: You shaped an actual wooden clasp. The steady method and its practice reserve belong to you.
+
+Coat fit: You fitted the coat clasp. The same worn coat now fits; carrying it alone still gives no armor.
+
+Renew applied practice
+
+Choose a fresh round of practice in this same life. This resets applied mastery and earned reserve; it changes no body and creates no past deeds.
+
+Applied mastery returns to 1.
+
+Earned practice reserve returns to 0.
+
+The same person, body, known arrangement, fitted coat, actual remaining stock and witnessed work remain.
+
+One lasting renewal record. Further ordinary work remains available.
+
+This renewal has already been taken.
+
+Accept renewal
+Shape a clasp at the bench · 1 blank · 2 min
+
+Use one owned wood blank and 2 played minutes. If your body can no longer use this arrangement, its reserved blank returns and no clasp or practice is earned.
+
+Unavailable.
+
+Time quote: 2 played minutes.
+
+Inputs: None quoted.
+
+The required knowledge, means or circumstances are missing.
+
+Shape a clasp at the bench · 1 blank · 2 minRepeat Shape a clasp at the bench · 1 blank · 2 min 3 times
+Shape a clasp with the holding jig · 1 blank · 3 min
+
+Use one owned wood blank and 3 played minutes. If your body can no longer use this arrangement, its reserved blank returns and no clasp or practice is earned.
+
+Settled completions: 2.
+
+Time quote: 3 played minutes.
+
+Inputs: None quoted.
+
+Insufficient, stale or unavailable item quantity. Refresh the trade.
+
+Shape a clasp with the holding jig · 1 blank · 3 minRepeat Shape a clasp with the holding jig · 1 blank · 3 min 3 times
+Fit your coat clasp · 1 clasp · 1 min
+
+Unequip your owned coat, then fit one owned clasp to it. Both are reserved during work; interruption or cancellation returns them. The same coat supplies full protection when worn.
+
+Settled completions: 1.
+
+Time quote: 1 played minutes.
+
+Inputs: None quoted.
+
+This action has already been completed.
+
+Fit your coat clasp · 1 clasp · 1 min
+↕
+Notes, practice & people
+Notes, practice & people
+Here
+Practice
+People
+Tools, practice & local lives
+Save
+Export
+Import
+settings
+v0.6
+help_outline

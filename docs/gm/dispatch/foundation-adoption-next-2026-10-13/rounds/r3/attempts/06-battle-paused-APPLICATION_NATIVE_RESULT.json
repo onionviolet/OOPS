@@ -1,0 +1,27 @@
+{
+  "status": "FAIL",
+  "bundle": "c5d852bbb3db26d4cef74772edf44c8b96ec2d96aac3b8eb7032624ce8f49402",
+  "base": "dd3efe3383f12f0aac22e4f390aae90fae2e7fc4",
+  "fixture": "docs/gm/dispatch/foundation-adoption-next-2026-10-13/rounds/r3/attempts/05-posttick-expiry-refine-earned-harness-failure.txt",
+  "fixtureHash": "797688fa3336280c19d4702cb9bfcda695374fba5c7b3d88a21d17736289afb4",
+  "checks": {
+    "exactEarnedApplicationLiteralRestoration": true
+  },
+  "events": [
+    {
+      "id": "feature_battle.start",
+      "clock": 60
+    }
+  ],
+  "errors": [],
+  "timePolicy": "Normal native browser timers; no resource/history/clock fields injected",
+  "console": [
+    "Failed to load resource: the server responded with a status of 404 (Not Found)",
+    "Failed to load resource: the server responded with a status of 404 (Not Found)",
+    "Failed to load resource: the server responded with a status of 404 (Not Found)",
+    "Failed to load resource: the server responded with a status of 404 (Not Found)",
+    "Failed to load resource: the server responded with a status of 404 (Not Found)",
+    "Failed to load resource: the server responded with a status of 404 (Not Found)"
+  ],
+  "failure": "page.waitForFunction: Timeout 7000ms exceeded.\n    at /Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/foundation-adoption-next-2026-10-13/rounds/r3/application-native.cjs:49:10"
+}

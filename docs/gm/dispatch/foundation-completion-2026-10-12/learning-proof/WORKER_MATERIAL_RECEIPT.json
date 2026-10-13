@@ -1,0 +1,42 @@
+{
+  "bundle": "6540b5a5701e8279f43800a89988d1cf1b24986f360560159ee2d9121ce776f2",
+  "input": "/tmp/yairpg-foundation-learning-worker-brief-harness-boundary.json",
+  "hash": "9757e4c4254244b8ef40e342ee612e9cc5a5b23ba61744d9e471082027093800",
+  "clock": 11282,
+  "sequence": 865,
+  "money": 91,
+  "completed": {
+    "feature_objects.begin": 1,
+    "feature_objects.inspect": 1,
+    "feature_objects.buy": 1,
+    "audit_remainder.enroll": 1,
+    "remainder_home.terms": 1,
+    "remainder_home.trim_uncovered": 1,
+    "remainder_home.dry_offcuts": 1,
+    "field.begin": 1,
+    "field.join_craft": 1,
+    "field.project_start": 1,
+    "field.inspect": 1
+  },
+  "jobs": [],
+  "stock": {
+    "{\"id\":\"Rough wood log\"}": {
+      "count": 345
+    },
+    "{\"id\":\"Tree sap\"}": {
+      "count": 18
+    },
+    "{\"id\":\"Dulled field fitting knife\"}": {
+      "count": 1
+    },
+    "{\"id\":\"Wet repair stave\"}": {
+      "count": 1
+    },
+    "{\"id\":\"Compatible repair offcut\"}": {
+      "count": 2
+    }
+  },
+  "proof": "Natural native1log trim followed by6minute drying, actual brace and sharedworkshop commission. Each once, costs counted. No player/Neri lesson yet.",
+  "stopped": true,
+  "next": "Resume frozen rebuild, actual survey completion then field report\u2192Shack assembly\u2192kit/room/Neri/sample/Vela/B2-B5"
+}

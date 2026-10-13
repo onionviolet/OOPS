@@ -1,0 +1,19 @@
+{
+  "schema": "five-world-completion-obligations-1",
+  "authority": "ASSIGNMENT.md and docs/research/LORE_TIMELINE_AUDIT_CONTRACT.md, including direct acquisition clarification",
+  "worldIds": ["BW1", "JJK", "JOJO", "RZ", "TEN"],
+  "requirements": [
+    {"id":"L1-source","criterion":"Actual medium, edition/language, continuity, represented cutoff and direct/inherited/secondary/read coverage frozen; acquisition payloads/receipts/hashes distinguish availability from reading.","evidence":"Each private SOURCE_MANIFEST/COVERAGE plus acquired sources and original source fingerprints."},
+    {"id":"L2-claims","criterion":"Consequential claims have exact directly inspected locators or explicit lower-confidence/inaccessible primary status; attribution, interpretation, unknowns and project invention remain distinct.","evidence":"Each private CLAIMS ledger, primary-check receipts and source text/page matches."},
+    {"id":"L3-timelines","criterion":"Occurrence and revelation/publication orders separately recorded across represented existing dossier range, with supported time uncertainty and no invented calendar.","evidence":"Each EVENTS ledger and source/reader chronology references."},
+    {"id":"L4-causes","criterion":"Participant goals/means, material/institutional support, prerequisite effects, actual consequences and dependent versus independent causes are concrete; disturbance effects labeled counterfactual proposals.","evidence":"EVENTS dependency rows/graph, EXPANSIONS and explicit source qualifications."},
+    {"id":"L5-knowledge","criterion":"Actor knowledge uses witnessed/communicated/remembered channels and dates/order, preserving mistaken belief, reader foreknowledge, withheld facts and discarded-history distinction.","evidence":"KNOWLEDGE rows joined to events/claims/source observers."},
+    {"id":"L6-versions","criterion":"Continuity/media conflicts, source exceptions and unsupported futures remain qualified; no silent WN/LN/anime/manga/IF/fan merge.","evidence":"CONTINUITIES/contradiction register and source-version-specific references."},
+    {"id":"L7-expansions","criterion":"Source-grounded expansions retain existing idea IDs, before/during/after states, real first actions, ordinary and intervention routes, NPC-held means and downstream consequences; all are proposals unless independently authorized.","evidence":"EXPANSIONS rows, prior-owner links and exact source joins."},
+    {"id":"L8-gaps","criterion":"Whole represented dossier range accounted for, available assigned material reviewed to declared depth; remaining inaccessible primary ranges and future source/detail tasks exact, not scope shrunk to samples.","evidence":"COVERAGE/REMAINING manifests, explicit range accounting and acquisition alternatives."},
+    {"id":"L9-artifacts","criterion":"Actual artifacts inspected; JSON/unique IDs/local references/source hashes/private ignore/privacy checks and semantic/source review passed within their real scope.","evidence":"Per-world validation plus coordinator cross-checks, independent review and final VALIDATION.json."},
+    {"id":"L10-return","criterion":"Five checked returns integrated into public-safe coverage/report and private synthesis, then delivered via safe path/status/source limits only to relevant authorized current project GM/implementation chats.","evidence":"Final REPORT/private SYNTHESIS/DISPATCH/CHECKPOINT and actual delivery receipts."}
+  ],
+  "runtimeAcceptance":"Not assigned; all future baseline/disturbance/failure/delayed-arrival/knowledge/save cases remain explicitly unrun in this research tranche.",
+  "completionRule":"Every requirement assessed against actual artifacts for all five worlds; remaining inaccessible primaries qualify completed range but never establish full manga/series read. Required unfinished available work cannot be waived."
+}

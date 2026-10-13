@@ -1,0 +1,579 @@
+--- a/src/main.js
++++ b/src/main.js
+@@ -1,3 +1,6 @@
++import {createSettledTextEffects} from './settled_text_effects.js';
++import {createWorkLedger,migrateWorkLedger,validateWorkLedger,transitionWorkLedger,observeWorkLedgerCraft,modifyWorkLedgerChance,modifyWorkLedgerQuality,workLedgerPresentation} from './work_ledger_system.js';
++import {createWorkLedgerUI} from './work_ledger_ui.js';
+ import {normalizeElementalOption,describeElementalPreparation,ELEMENTAL_SETTING_DESCRIPTION} from './absorb_e3/elemental_affinities.js';
+ import {equipmentDurability as durability,createDurability} from './absorb_e2/durability.js';
+ import {getPacingState,setPacingState,advancePacing,prepareFood,getPacingEffects} from './absorb_e1/pacing.js';
+@@ -345,6 +348,9 @@
+ import {createVillageLivesPanel} from './npc_lives_ui.js';
+ import {createVillageCareer, migrateVillageCareer, beginVillageShift, finishVillageShift, resolveVillageKit, promoteVillageCareer, CAREER_RANKS, WATCHCRAFT_BOOK, WATCHCRAFT_READING, WATCHCRAFT_PRACTICE, issueWatchcraft, practiceWatchcraft, watchcraftPresentation, villageShiftBonus, assignVillageRecruit, beginVillageTeaching, beginRecruitSolo, advanceVillageMentor, villageTeachingCost, villageTeachingStipend, resolveIonaTuition, villageTeachingBusy, beginTessaInstruction, advanceTessaInstruction, COVER_PAYMENT, SOLO_PAYMENT} from './village_career.js';
+ import {createVillageCareerControls} from './village_career_ui.js';
++let workLedger = createWorkLedger();
++let workLedgerPanel;
++let workLedgerCraftEffects;
+ let villageCareer = createVillageCareer();
+ let villageCareerControls;
+ let npcLives = null;
+@@ -361,6 +367,8 @@
+     if(nextNpc) save.npc_lives = nextNpc;
+     writeGuardedSave(localStorage, key, JSON.stringify(save));
+     villageCareer = migrateVillageCareer(save);
++    workLedger=migrateWorkLedger(save.work_ledger);
++    workLedgerPanel?.render();
+     optionalPackState=validatePackState(save.content_packs??emptyPackState());
+     optionalPackPanel?.render();
+     villageCareerControls?.render();
+@@ -2113,6 +2121,37 @@
+  * 
+  * @param {Object} selected_activity - {id} of activity in Location's activities list??
+  */
++function workLedgerContext(extra={}) {
++    return {actorId:expansionState.actors.player.id || 'player', locationId:expansionState.actors.player.worldId==='base.frontier'?current_location?.id:'away', alive:character.is_alive===true,
++        busy:!!(current_activity||current_dialogue||current_game_action||current_combat||is_sleeping||is_reading||is_in_trade()||expeditionOccupiesPlayer()),...extra};
++}
++export function nativeWorkLedgerChance(baseChance,category,subcategory) {return modifyWorkLedgerChance(workLedger,baseChance,workLedgerContext({category,subcategory})).value;}
++export function nativeWorkLedgerQuality(baseQuality,category,subcategory,qualityCap) {return modifyWorkLedgerQuality(workLedger,baseQuality,workLedgerContext({category,subcategory,qualityCap})).value;}
++function workLedgerCanWrite(){return ownsSave&&!foundationSaveBlocked&&!importProbeToken&&!expansionError&&!is_loading_error;}
++function publishWorkLedger(plan,anchor) {
++    if(!workLedgerCanWrite())throw new Error('Saving must be available before the Work Ledger can settle.');
++    const serialized=create_save();if(!serialized)throw new Error('The Work Ledger could not create a save.');
++    const save=JSON.parse(serialized);save.work_ledger=plan.state;
++    validateSaveEnvelope(save,game_version);
++    // Native inventory, XP and recipe outputs are included in this same envelope.
++    // This existing durable owner publishes ledger state only after storage succeeds.
++    lifeSaveStorage.setItem(is_on_dev()?dev_save_key:save_key,JSON.stringify(save));
++    for(const event of plan.events) {
++        log_message(event.text,'crafting');
++        if(anchor&&document.getElementById('crafting_window')?.contains(anchor))workLedgerCraftEffects?.present(event,{anchor});
++        else workLedgerPanel?.present(event,{anchor:workLedgerPanel.panel.querySelector('.work-ledger-status')});
++    }
++}
++function actWorkLedger(command) {
++    if(!workLedgerCanWrite())throw new Error('Saving must be available before this choice.');
++    publishWorkLedger(transitionWorkLedger(workLedger,command,workLedgerContext()));
++}
++function settleWorkLedgerCraft(evidence,anchor) {
++    if(!workLedgerCanWrite() || (['offered','refused'].includes(workLedger.connection)&&!workLedger.precisionKnown&&!workLedger.assistUnlocked))return;
++    try {publishWorkLedger(observeWorkLedgerCraft(workLedger,evidence,workLedgerContext()),anchor);}
++    catch(error){log_message('Work Ledger receipt was not settled: '+error.message,'notification');}
++}
++
+ function watchcraftKnown() {return villageCareer.watchcraft.tutorMinutes===6 || book_stats[WATCHCRAFT_BOOK].accumulated_time>=WATCHCRAFT_READING;}
+ // Kit resolution, manual issuance and promotion publish their saved state together.
+ function writeVillageCareer(choice) {
+@@ -3900,7 +3939,8 @@
+ }
+ 
+ function use_recipe(target, ammount_wanted_to_craft = 1) {
+-    if(expeditionOccupiesPlayer()) return;
++    if(expeditionOccupiesPlayer() || !workLedgerCanWrite()) return;
++    workLedgerCraftEffects?.gesture();
+ 
+     const category = target.parentNode.parentNode.dataset.crafting_category;
+     const subcategory = target.parentNode.parentNode.dataset.crafting_subcategory;
+@@ -3937,7 +3977,8 @@
+             //all 3 are 'crafting actions', not result counts
+ 
+             if(ammount_that_can_be_crafted > 0) { 
+-                const success_chance = selected_recipe.get_success_chance(station_tier);
++                const chanceBefore=selected_recipe.get_success_chance(station_tier);
++                const success_chance = modifyWorkLedgerChance(workLedger,chanceBefore,workLedgerContext({category,subcategory})).value;
+                 let {result_id, count} = selected_recipe.getResult();
+ 
+                 const scale_results = selected_recipe.scale_results && count > 1;
+@@ -4048,6 +4089,7 @@
+                     }
+                 });
+                 
++                settleWorkLedgerCraft({sequence:workLedger.sequence+1,category,subcategory,recipeId:recipe_id,attempts:attempted_crafting_ammount,successes:successful_crafting_ammount,outputs:final_count,chanceBefore,chanceAfter:success_chance},recipe_div);
+                 if(attempted_crafting_ammount < ammount_that_can_be_crafted) {
+                     use_recipe(target, ammount_that_can_be_crafted - attempted_crafting_ammount);
+                 }
+@@ -4088,13 +4130,16 @@
+                     let crafted_count = 0;
+                     const all_crafted = {};
+                     const result = selected_recipe.getResult(character.getItems()[material_1_key].item, station_tier);
++                    let ledgerQuality;
+ 
+                     let quality;
+ 
+                     for(let i = 0; i < ammount_that_can_be_crafted; i++) {
+                         //loop for every item to be crafted, as they differ in quality and resultingly in xp too
+                         const result_tier = result.component_tier ?? result.item_tier;
+-                        quality = selected_recipe.roll_quality(station_tier - result_tier);
++                        const qualityBefore=selected_recipe.roll_quality(station_tier - result_tier);
++                        quality = modifyWorkLedgerQuality(workLedger,qualityBefore,workLedgerContext({category,subcategory,qualityCap:selected_recipe.get_quality_cap()})).value;
++                        if(!ledgerQuality || (ledgerQuality.qualityAfter===ledgerQuality.qualityBefore && quality>qualityBefore))ledgerQuality={qualityBefore,qualityAfter:quality,qualityCap:selected_recipe.get_quality_cap()};
+ 
+                         crafted_items[quality] = (crafted_items[quality]+1 || 1);
+                         all_crafted[quality] = (all_crafted[quality]+1 || 1);
+@@ -4151,6 +4196,7 @@
+ 
+                     //remove used mats
+                     character.removeFromInventory([{item_key: material_1_key, item_count: recipe_material.count*ammount_that_can_be_crafted}]);
++                    settleWorkLedgerCraft({sequence:workLedger.sequence+1,category,subcategory,recipeId:recipe_id,attempts:ammount_that_can_be_crafted,successes:ammount_that_can_be_crafted,outputs:to_add.reduce((n,r)=>n+r.count,0),...ledgerQuality},recipe_div);
+ 
+                     //update display
+                     material_div.classList.remove("selected_material");
+@@ -4909,6 +4955,7 @@
+         save_data.absorb_local_life=structuredClone(localLife);
+         save_data.content_packs = packSaveState(optionalPackState,packDefinitionsForSave());
+         save_data.village_career = structuredClone(villageCareer);
++        save_data.work_ledger=structuredClone(workLedger);
+         save_data.fork_schema = 1;
+         save_data.life_record = observeLifeSave(lifeRecord, {...save_data, expansion: expansionState});
+         if(npcLives) save_data.npc_lives = advanceVillageLives(npcLives, current_game_time.year);
+@@ -5021,6 +5068,8 @@
+             save_data = prepareV06Save(prepared.save);
+             retiredContent = prepared.retired;
+             villageCareer = migrateVillageCareer(save_data);
++            workLedger=migrateWorkLedger(save_data.work_ledger);
++            workLedgerPanel?.render();
+             lifeRecord = migrateLifeRecord(save_data);
+             npcLives = save_data.npc_lives == null ? null : advanceVillageLives(save_data.npc_lives, save_data["current time"].year);
+             expansionState = initializeExpedition(loadExpansionState(save_data.expansion, expeditionRegistry, expansionState.rng));
+@@ -7543,7 +7592,7 @@
+ window.fav_stance = fav_stance;
+ 
+ window.openCraftingWindow = open_crafting_window;
+-window.closeCraftingWindow = close_crafting_window;
++window.closeCraftingWindow = ()=>{workLedgerCraftEffects?.cancel();close_crafting_window();};
+ window.switchCraftingRecipesPage = switch_crafting_recipes_page;
+ window.switchCraftingRecipesSubpage = switch_crafting_recipes_subpage;
+ window.useRecipe = use_recipe;
+@@ -8003,6 +8052,11 @@
+         },command:command=>command.type?actFeatureExpansion(command):actPocketRealm(command)});
+     adventureNotebook = createAdventureNotebook({registry: expeditionRegistry,
+         read: () => ({...readProgression(), inDialogue: !!current_dialogue, inCombat: !!current_combat})});
++    document.getElementById('crafting_window').classList.add('settled-effects-host');
++    workLedgerCraftEffects=createSettledTextEffects({container:document.getElementById('crafting_window'),readSettings:()=>workLedger.settings});
++    const cancelCraftEffect=document.createElement('button');cancelCraftEffect.type='button';cancelCraftEffect.textContent='Cancel visual effect';cancelCraftEffect.id='cancel_craft_visual_effect';cancelCraftEffect.addEventListener('click',()=>workLedgerCraftEffects.cancel());document.getElementById('crafting_window').append(cancelCraftEffect);
++    workLedgerPanel=createWorkLedgerUI({container:document.getElementById('location_actions_div'),cancelExternalEffects:()=>workLedgerCraftEffects?.cancel(),read:()=>({...workLedgerPresentation(workLedger,workLedgerContext()),canWrite:workLedgerCanWrite()&&workLedgerContext().alive&&!workLedgerContext().busy&&workLedgerContext().locationId==='Village',reason:!workLedgerCanWrite()?'Saving unavailable; ledger is read-only.':workLedgerContext().busy?'Finish current work before choosing.':''}),command:actWorkLedger});
++    setInterval(()=>workLedgerPanel?.render(),250);
+     villageCareerControls = createVillageCareerControls({read:()=>({state:villageCareer,study:watchcraftPresentation(villageCareer,watchcraftKnown()),hasNotes:!!character.getItems()[item_templates[WATCHCRAFT_BOOK].getInventoryKey()],
+         visible:current_location?.id==='Village' && expansionState.actors.player.worldId==='base.frontier' && !current_dialogue && !current_combat && !is_sleeping && !is_reading && !is_in_trade() && !current_game_action,
+         canWrite:ownsSave&&!foundationSaveBlocked&&!importProbeToken,
+--- a/src/save_files.js
++++ b/src/save_files.js
+@@ -1,3 +1,4 @@
++import {migrateWorkLedger} from './work_ledger_system.js';
+ import {createDurability} from './absorb_e2/durability.js';
+ import {normalizePacing} from './absorb_e1/pacing.js';
+ import {migrateFortSupply} from './absorb_d/fort.js';
+@@ -36,6 +37,7 @@
+ 
+ export function validateSaveEnvelope(original, currentVersion) {
+     object(original, "Save");
++    if(original.work_ledger!=null)migrateWorkLedger(original.work_ledger);
+     if(original.content_packs!=null)validatePackState(original.content_packs);
+     validateStructuredEnvelope(original);
+     if(original.village_career != null) {
+--- a/src/display.js
++++ b/src/display.js
+@@ -21,7 +21,7 @@
+     travel_times, 
+     favourite_items,
+     get_context,
+-    canConsumeNativeCraftingItem,
++    canConsumeNativeCraftingItem, nativeWorkLedgerChance, nativeWorkLedgerQuality,
+     translate} from "./main.js";
+ import { activities } from "./activities.js";
+ import { format_time, current_game_time, seasons } from "./game_time.js";
+@@ -3217,7 +3217,7 @@
+     let tooltip = "";
+ 
+     if(subcategory === "items") {   //TODO base on result present? class?
+-        const success_chance = Math.round(100*recipe.get_success_chance(station_tier));
++        const success_chance = Math.round(100*nativeWorkLedgerChance(recipe.get_success_chance(station_tier),category,subcategory));
+         tooltip += `Success rate: <b><span style="color:${success_chance > 74?"lime":success_chance>49?"yellow":success_chance>24?"orange":"red"}">${success_chance}%</span></b><br><br>Materials required:<br>`;
+         for (let i = 0; i < recipe.materials.length; i++) {
+             const material = find_recipe_material({material: recipe.materials[i], ignore_stop: true});
+@@ -3255,7 +3255,7 @@
+         }
+ 
+         const result_tier = item_templates[material.result_id].component_tier ?? item_templates[material.result_id].item_tier;
+-        const quality_range = recipe.get_quality_range(station_tier - result_tier);
++        const quality_range = recipe.get_quality_range(station_tier - result_tier).map(q=>nativeWorkLedgerQuality(q,category,subcategory,recipe.get_quality_cap()));
+ 
+         const xp_val_1 = get_recipe_xp_value({category, subcategory, recipe_id, material_count: material.count, result_tier: result_tier, rarity_multiplier: rarity_multipliers[getItemRarity(quality_range[0])]});
+         const xp_val_2 = get_recipe_xp_value({category, subcategory, recipe_id, material_count: material.count, result_tier: result_tier, rarity_multiplier: rarity_multipliers[getItemRarity(quality_range[1])]});
+--- a/index.html
++++ b/index.html
+@@ -1,12 +1,13 @@
+ <!DOCTYPE html>
+ <HTML lang="en">
+     <head>
++        <link rel="stylesheet" href="styles/settled_text_effects.css">
+         <link rel = "stylesheet" href = "style.css?version=v0.6-9af1e67bb6eb">
+         <link rel="stylesheet" href="styles/action_legibility.css?version=721590da18e7">
+         
+         <script type="module" src="resources/js/HackTimer/HackTimer.min.js"></script>
+ 
+-        <script type="module" src="dist/bundle.js?version=v0.6-76d406049d1d"></script>
++        <script type="module" src="dist/bundle.js?version=v0.6-c85fdbce370b"></script>
+ 
+         <!--Icons-->
+         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+--- /dev/null
++++ b/src/work_ledger_system.js
+@@ -0,0 +1,111 @@
++// Original P02 proposal. Native crafting owns materials, output, XP and time.
++const SCHEMA = 1;
++const COMMISSIONS = Object.freeze({
++    meal: Object.freeze({category:'cooking',subcategory:'items',recipeId:'Roasted rat meat',title:'A cooked meal',requirement:'Create roasted rat meat after accepting this commission.'}),
++    hilt: Object.freeze({category:'woodworking',subcategory:'components',recipeId:'Short hilt',title:'A wooden hilt',requirement:'Create a short hilt after accepting this commission.'})
++});
++const DEFAULT_SETTINGS = Object.freeze({effects:'reduced',sound:false,presentation:'inline'});
++function assert(ok,message) {if(!ok) throw new Error(message);}
++function integer(value) {return Number.isSafeInteger(value)&&value>=0;}
++function number(value,min,max) {return typeof value==='number'&&Number.isFinite(value)&&value>=min&&value<=max;}
++function clone(value) {return JSON.parse(JSON.stringify(value));}
++function settingsValid(value) {return value&&['full','reduced','off'].includes(value.effects)&&typeof value.sound==='boolean'&&['inline','margin'].includes(value.presentation);}
++function receipt(type,actorId,sequence,text,extra={}) {return {id:`work-ledger:${sequence}:${type}`,type,motif:type==='disconnect'?'closing':type.startsWith('applied')?'guidance':'seal',actorId,sequence,text,...extra};}
++export function createWorkLedger(actorId='player') {
++    assert(typeof actorId==='string'&&actorId.length>0,'Work Ledger needs an actor.');
++    return {schema:SCHEMA,actorId,sequence:0,connection:'offered',points:0,precisionKnown:false,assistUnlocked:false,commissions:{meal:{status:'available',acceptedSequence:null},hilt:{status:'available',acceptedSequence:null}},settings:{...DEFAULT_SETTINGS},receipts:[]};
++}
++export function validateWorkLedger(state) {
++    assert(state&&state.schema===SCHEMA,'Unsupported Work Ledger schema.');
++    assert(typeof state.actorId==='string'&&state.actorId.length>0&&integer(state.sequence),'Invalid Work Ledger identity or sequence.');
++    assert(['offered','refused','connected','disconnected'].includes(state.connection),'Invalid Work Ledger connection.');
++    assert(integer(state.points)&&[0,2,4].includes(state.points)&&typeof state.precisionKnown==='boolean'&&typeof state.assistUnlocked==='boolean','Invalid Work Ledger rewards.');
++    assert(settingsValid(state.settings),'Invalid Work Ledger settings.');
++    assert(state.commissions&&Object.keys(state.commissions).length===2&&Object.keys(state.commissions).every(id=>Object.hasOwn(COMMISSIONS,id)),'Unknown Work Ledger commission.');
++    for(const id of Object.keys(COMMISSIONS)) {
++        const c=state.commissions?.[id];
++        assert(c&&['available','accepted','completed','claimed'].includes(c.status),'Invalid Work Ledger commission.');
++        assert(c.status==='available'?c.acceptedSequence===null:integer(c.acceptedSequence)&&c.acceptedSequence>0&&c.acceptedSequence<=state.sequence,'Invalid Work Ledger acceptance.');
++    }
++    const earned=Object.keys(COMMISSIONS).map(id=>state.commissions[id]).filter(c=>c.status==='claimed').length*2;
++    assert(state.points===earned-2*Number(state.precisionKnown)-2*Number(state.assistUnlocked),'Work Ledger point accounting changed.');
++    assert(!state.assistUnlocked||state.commissions.hilt.status==='claimed','Assist lease needs its commission.');
++    assert(!state.precisionKnown||state.commissions.meal.status==='claimed','Precision method needs its commission.');
++    assert(Array.isArray(state.receipts)&&state.receipts.length<=40,'Invalid Work Ledger receipt history.');
++    for(const r of state.receipts) assert(r&&typeof r.id==='string'&&typeof r.type==='string'&&typeof r.text==='string'&&['seal','guidance','closing'].includes(r.motif)&&r.actorId===state.actorId&&integer(r.sequence)&&r.sequence<=state.sequence,'Invalid Work Ledger receipt.');
++    return true;
++}
++export function migrateWorkLedger(raw,actorId='player') {
++    if(raw==null) return createWorkLedger(actorId);
++    const next=clone(raw); // schema 1 is additive to native saves; malformed future data is rejected.
++    next.settings??={...DEFAULT_SETTINGS}; next.receipts??=[];
++    validateWorkLedger(next); assert(next.actorId===actorId,'Work Ledger actor mismatch.'); return next;
++}
++function eligible(state,context,village=true) {
++    return context?.actorId===state.actorId&&context.alive===true&&context.busy===false&&typeof context.locationId==='string'&&(!village||context.locationId==='Village');
++}
++function begin(state,sequence,context,village=true) {
++    validateWorkLedger(state);
++    assert(eligible(state,context,village),'The Work Ledger needs its living, available holder at a valid location.');
++    assert(integer(sequence)&&sequence===state.sequence+1,'This Work Ledger choice is stale.');
++    const next=clone(state);next.sequence=sequence;return next;
++}
++function finish(next,events) {
++    // Application receipts replace their prior application, without limiting use of either benefit.
++    for(const event of events) {if(event.type.startsWith('applied')) next.receipts=next.receipts.filter(r=>r.type!==event.type); next.receipts.push(clone(event));}
++    next.receipts=next.receipts.slice(-40);validateWorkLedger(next);return {state:next,events:clone(events)};
++}
++export function transitionWorkLedger(state,command,context) {
++    const next=begin(state,command?.sequence,context);const action=command?.action;
++    let text;
++    if(action==='settings') {const settings=command.settings??command.payload;assert(settingsValid(settings),'Choose valid presentation settings.');next.settings={effects:settings.effects,sound:settings.sound,presentation:settings.presentation};text='Work Ledger presentation settings saved.';}
++    else if(action==='accept') {assert(['offered','refused'].includes(next.connection),'The Work Ledger has already been answered.');next.connection='connected';text='You connect to the Work Ledger. Commissions require your own native crafting.';}
++    else if(action==='refuse') {assert(next.connection==='offered','This offer has already been answered.');next.connection='refused';text='You refuse the Work Ledger. You may return to its offer.';}
++    else if(action==='disconnect') {assert(next.connection==='connected','The Work Ledger is already disconnected.');next.connection='disconnected';text='You disconnect. The leased assist stops; your taught precision method remains.';}
++    else if(action==='reconnect') {assert(next.connection==='disconnected','There is no disconnected Work Ledger to reconnect.');next.connection='connected';text='You reconnect. Your unlocked leased assist is usable again.';}
++    else {
++        assert(next.connection==='connected','Connect to the Work Ledger first.');
++        const match=/^(accept|claim)-(meal|hilt)$/.exec(action||'');
++        if(match) {
++            const [,verb,id]=match,c=next.commissions[id];
++            if(verb==='accept') {assert(c.status==='available','This commission has already been accepted.');c.status='accepted';c.acceptedSequence=next.sequence;text=`Commission accepted: ${COMMISSIONS[id].title}. Only a new native result counts.`;}
++            else {assert(c.status==='completed','Complete this commission before claiming it.');c.status='claimed';next.points+=2;text=`Commission reward claimed: ${COMMISSIONS[id].title}, 2 Work Ledger points.`;}
++        } else if(action==='learn-precision') {assert(!next.precisionKnown&&next.commissions.meal.status==='claimed'&&next.points>=2,'Claim the meal reward and keep 2 points for this method.');next.points-=2;next.precisionKnown=true;text='Precision method taught permanently. Native item recipes gain 15 percentage points of success chance, up to certainty.';}
++        else if(action==='unlock-assist') {assert(!next.assistUnlocked&&next.commissions.hilt.status==='claimed'&&next.points>=2,'Claim the hilt reward and keep 2 points for this lease.');next.points-=2;next.assistUnlocked=true;text='Woodworking assist leased. While connected, native woodworking components gain 10 quality points within their recipe limit.';}
++        else throw new Error('Unknown Work Ledger action.');
++    }
++    return finish(next,[receipt(action,next.actorId,next.sequence,text)]);
++}
++export function observeWorkLedgerCraft(state,evidence,context) {
++    const next=begin(state,evidence?.sequence,context,false);
++    assert(typeof evidence.category==='string'&&typeof evidence.subcategory==='string'&&typeof evidence.recipeId==='string','Native crafting must identify its exact recipe.');
++    assert(integer(evidence.attempts)&&evidence.attempts>0&&integer(evidence.successes)&&evidence.successes<=evidence.attempts&&integer(evidence.outputs),'Invalid native crafting receipt.');
++    const events=[];
++    if(context.locationId==='Village'&&next.connection==='connected'&&evidence.successes>0&&evidence.outputs>0) for(const [id,def] of Object.entries(COMMISSIONS)) {
++        const c=next.commissions[id];
++        if(c.status==='accepted'&&c.acceptedSequence<evidence.sequence&&def.category===evidence.category&&def.subcategory===evidence.subcategory&&def.recipeId===evidence.recipeId) {
++            c.status='completed';events.push(receipt(`completed-${id}`,next.actorId,next.sequence,`Native crafting completed ${def.title}. Its 2-point reward is ready to claim.`));
++        }
++    }
++    if(evidence.outputs>0&&evidence.successes>0&&next.precisionKnown&&evidence.subcategory==='items'&&number(evidence.chanceBefore,0,1)&&number(evidence.chanceAfter,0,1)&&evidence.chanceAfter===Math.min(1,evidence.chanceBefore+0.15)&&evidence.chanceAfter>evidence.chanceBefore) events.push(receipt('applied-precision',next.actorId,next.sequence,`Your taught precision method aided this native ${evidence.recipeId} craft.`,{before:evidence.chanceBefore,after:evidence.chanceAfter}));
++    if(evidence.outputs>0&&evidence.successes>0&&next.connection==='connected'&&next.assistUnlocked&&evidence.category==='woodworking'&&evidence.subcategory==='components'&&number(evidence.qualityCap,10,200)&&number(evidence.qualityBefore,10,evidence.qualityCap)&&evidence.qualityAfter===Math.min(evidence.qualityCap,evidence.qualityBefore+10)&&evidence.qualityAfter>evidence.qualityBefore) events.push(receipt('applied-assist',next.actorId,next.sequence,`Your leased assist improved the quality of this native ${evidence.recipeId}.`,{before:evidence.qualityBefore,after:evidence.qualityAfter}));
++    return finish(next,events);
++}
++export function modifyWorkLedgerChance(state,baseChance,context) {
++    validateWorkLedger(state);assert(number(baseChance,0,1),'Native crafting chance must be a probability.');
++    const value=state.precisionKnown&&eligible(state,context,false)&&context.subcategory==='items'?Math.min(1,baseChance+0.15):baseChance;
++    return {value,event:null}; // Only observe committed native output to publish an application event.
++}
++export function modifyWorkLedgerQuality(state,baseQuality,context) {
++    validateWorkLedger(state);assert(number(baseQuality,10,250),'Invalid native crafting quality.');
++    if(!state.assistUnlocked||state.connection!=='connected'||!eligible(state,context,false)||context.category!=='woodworking'||context.subcategory!=='components') return {value:baseQuality,event:null};
++    assert(number(context.qualityCap,10,200)&&baseQuality<=context.qualityCap,'The assist needs the native component recipe quality limit.');
++    return {value:Math.min(context.qualityCap,baseQuality+10),event:null};
++}
++export function workLedgerPresentation(state,context) {
++    validateWorkLedger(state);const canWrite=eligible(state,context);const connected=state.connection==='connected';
++    const actions=[['accept','Connect', ['offered','refused'].includes(state.connection)],['refuse','Refuse',state.connection==='offered'],['disconnect','Disconnect',connected],['reconnect','Reconnect',state.connection==='disconnected']];
++    for(const id of Object.keys(COMMISSIONS)) {actions.push([`accept-${id}`,`Accept ${COMMISSIONS[id].title}`,connected&&state.commissions[id].status==='available']);actions.push([`claim-${id}`,`Claim ${COMMISSIONS[id].title} reward`,connected&&state.commissions[id].status==='completed']);}
++    actions.push(['learn-precision','Learn precision method (2 points)',connected&&!state.precisionKnown&&state.points>=2&&state.commissions.meal.status==='claimed'],['unlock-assist','Lease woodworking assist (2 points)',connected&&!state.assistUnlocked&&state.points>=2&&state.commissions.hilt.status==='claimed']);
++    return {state:clone(state),available:context?.actorId===state.actorId&&context?.locationId==='Village',canWrite,reason:canWrite?'':'Requires the living, available holder at the Village.',commissions:Object.entries(COMMISSIONS).map(([id,c])=>({id,title:c.title,recipe:`${c.category}/${c.subcategory}/${c.recipeId}`,requirement:c.requirement,status:state.commissions[id].status})),benefits:{precision:state.precisionKnown?'Permanently taught: +15 percentage points to native item success chance.':'Not taught.',assist:state.assistUnlocked?(connected?'Leased and connected: +10 woodworking component quality within its native recipe limit.':'Lease disconnected; reconnect to use it.'):'No assist leased.'},actions:actions.map(([action,label,enabled])=>({action,label,enabled:canWrite&&enabled})),settings:{...state.settings}};
++}
+--- /dev/null
++++ b/src/work_ledger_ui.js
+@@ -0,0 +1,100 @@
++import {createSettledTextEffects} from './settled_text_effects.js';
++
++// The runtime supplies an actor-safe projection and owns all command settlement.
++export function createWorkLedgerUI({container, read, command, cancelExternalEffects = () => {}}) {
++    if (!container || typeof read !== 'function' || typeof command !== 'function') throw new TypeError('Work ledger needs its native host, projection and command path.');
++    const panel = document.createElement('details');
++    panel.id = 'work_ledger_panel'; panel.className = 'work-ledger-panel'; panel.open = false;
++    const summary = document.createElement('summary'); summary.textContent = 'Work ledger'; panel.append(summary);
++    const body = document.createElement('div'); body.className = 'work-ledger-body'; panel.append(body);
++    const notice = document.createElement('p'); notice.className = 'work-ledger-notice'; notice.setAttribute('role', 'status'); panel.append(notice);
++    container.append(panel);
++    let signature = '', busy = false, destroyed = false;
++    const options = () => { const view = read(); return view?.settings || view?.state?.settings || {effects: 'reduced', sound: false, presentation: 'inline'}; };
++    const effects = createSettledTextEffects({container: panel, readSettings: options});
++    const cancelEffects=()=>{effects.cancel();cancelExternalEffects();};
++    const element = (tag, text, parent = body) => { const node = document.createElement(tag); node.textContent = String(text); parent.append(node); return node; };
++    async function submit(action, payload) {
++        const current = read();
++        if (busy || !current?.canWrite || !current?.available) return;
++        effects.gesture(); busy = true; notice.textContent = 'Saving…'; render(true);
++        try {
++            const outcome = await command({action, sequence: current.state.sequence + 1, ...(payload ? {payload} : {})});
++            // The host may signal a refused/failed commit without throwing.
++            if (outcome?.ok === false) notice.textContent = outcome.reason || outcome.error || 'The action could not be saved.';
++            else notice.textContent = 'Saved.';
++        } catch (error) { notice.textContent = error?.message || 'The action could not be saved.'; }
++        finally { busy = false; render(true); }
++    }
++    function render(force = false) {
++        if (destroyed) return;
++        const host = container.isConnected ? container : container.id ? document.getElementById(container.id) : null;
++        if (host && panel.parentElement !== host) host.append(panel);
++        const view = read() || {}, state = view.state;
++        panel.hidden = !view.available;
++        const next = JSON.stringify({view, busy});
++        if (!force && next === signature) return;
++        signature = next;
++        const active = document.activeElement;
++        const focusKey = body.contains(active) ? active.dataset.ledgerControl : null;
++        body.replaceChildren();
++        if (!state) { element('p', view.reason || 'The work ledger is not available here.'); return; }
++        element('p', 'Complete work, claim points, then choose a taught method or a connected assistance service.');
++        const status = element('p', `Connection: ${state.connection}. Points: ${state.points}.`); status.className = 'work-ledger-status';
++        if (view.reason) element('p', view.reason);
++        if (!view.canWrite) element('p', 'Read-only: restore saving before changing the ledger. Saved receipts and choices remain visible.');
++        const commissionBox = element('section', ''); commissionBox.setAttribute('aria-label', 'Commissions');
++        element('h4', 'Commissions', commissionBox);
++        for (const row of view.commissions || []) {
++            const card = element('div', '', commissionBox); card.className = 'work-ledger-commission';
++            element('strong', row.title, card);
++            element('p', `${row.status}. ${row.requirement || ''}`, card);
++            if (row.recipe) element('p', `Recipe: ${row.recipe.split('/').at(-1)}.`, card);
++        }
++        const benefits = element('section', ''); benefits.setAttribute('aria-label', 'Acquired functions');
++        element('h4', 'Acquisition and execution', benefits);
++        if (view.benefits?.precision) element('p', view.benefits.precision, benefits);
++        else element('p', state.precisionKnown ? 'Precision method acquired permanently. Native crafting can use it with a valid recipe and inputs.' : 'Precision method not acquired. The shop price is 2 ledger points.', benefits);
++        if (view.benefits?.assist) element('p', view.benefits.assist, benefits);
++        else element('p', !state.assistUnlocked ? 'Woodworking assistance not acquired. The shop price is 2 ledger points.' : state.connection === 'connected' ? 'Woodworking assistance acquired; the connected service can assist native component work.' : 'Woodworking assistance acquired; execution is unavailable while disconnected.', benefits);
++        const actions = element('div', ''); actions.className = 'work-ledger-actions';
++        for (const row of view.actions || []) {
++            const button = element('button', row.label, actions); button.type = 'button'; button.dataset.ledgerControl = row.action;
++            button.disabled = busy || !view.canWrite || !view.available || !row.enabled;
++            button.onclick = () => submit(row.action);
++            if (row.reason) { button.title = row.reason; element('small', row.reason, actions); }
++        }
++        const presentation = element('fieldset', ''); presentation.className = 'work-ledger-presentation';
++        element('legend', 'Visual effects', presentation);
++        const settings = {effects: 'reduced', sound: false, presentation: 'inline', ...(view.settings || state.settings)};
++        const select = (label, key, choices) => {
++            const line = element('label', label + ' ', presentation);
++            const control = document.createElement('select'); control.dataset.ledgerControl = key;
++            for (const [value, title] of choices) { const option = element('option', title, control); option.value = value; }
++            control.value = settings[key]; control.disabled = busy || !view.canWrite || !view.available;
++            control.onchange = () => { cancelEffects(); submit('settings', {...settings, [key]: control.value}); };
++            line.append(control);
++        };
++        select('Motion', 'effects', [['off', 'Off'], ['reduced', 'Reduced'], ['full', 'Full']]);
++        select('Display', 'presentation', [['inline', 'Inline receipt seal'], ['margin', 'Margin glyph']]);
++        const soundLabel = element('label', ' ', presentation), sound = document.createElement('input');
++        sound.type = 'checkbox'; sound.checked = settings.sound; sound.disabled = busy || !view.canWrite || !view.available; sound.dataset.ledgerControl = 'sound';
++        sound.onchange = () => { cancelEffects(); submit('settings', {...settings, sound: sound.checked}); };
++        soundLabel.prepend(sound); soundLabel.append(document.createTextNode(' Receipt sound'));
++        const cancel = element('button', 'Cancel active effect', presentation); cancel.type = 'button'; cancel.dataset.ledgerControl = 'cancel-effect'; cancel.onclick = cancelEffects;
++        element('small', 'System reduced motion is respected. Text receipts remain when motion or sound is off. Effects never pause work.', presentation);
++        const history = element('section', ''); history.className = 'work-ledger-history'; history.setAttribute('aria-label', 'Saved receipts');
++        element('h4', 'Saved receipts', history);
++        const receipts = state.receipts || view.receipts || [];
++        if (!receipts.length) element('p', 'No saved receipts yet.', history);
++        else {
++            const list = element('ol', '', history);
++            for (const receipt of receipts) if (typeof receipt.text === 'string') element('li', receipt.text, list);
++        }
++        if (focusKey) [...body.querySelectorAll('[data-ledger-control]')].find(node => node.dataset.ledgerControl === focusKey)?.focus();
++    }
++    render();
++    return {panel, render, present: effects.present, cancel: cancelEffects, destroy() {
++        destroyed = true; effects.destroy(); panel.remove();
++    }};
++}
+--- /dev/null
++++ b/src/settled_text_effects.js
+@@ -0,0 +1,102 @@
++// Presentation only: callers pass receipts after the authoritative save settles.
++// No simulation, reward, save, or gameplay timer belongs in this module.
++export function createSettledTextEffects({container, readSettings = () => ({})}) {
++    const overlay = document.createElement('div');
++    overlay.className = 'work-ledger-effect';
++    overlay.hidden = true;
++    overlay.setAttribute('aria-hidden', 'true');
++    container.append(overlay);
++    const seen = new Set();
++    const motion = globalThis.matchMedia?.('(prefers-reduced-motion: reduce)');
++    let animation = null, context = null, oscillator = null;
++    let drawings = [], pulse = null, anchor = null;
++    const positionPulse = () => {
++        if (!pulse || !anchor || !container.contains(anchor)) return;
++        const outer = container.getBoundingClientRect(), target = anchor.getBoundingClientRect();
++        Object.assign(pulse.style, {left: `${target.left - outer.left}px`, top: `${target.top - outer.top}px`, width: `${target.width}px`, height: `${target.height}px`});
++    };
++    const resize = globalThis.ResizeObserver ? new ResizeObserver(positionPulse) : null;
++    resize?.observe(container);
++    const settings = () => ({effects: 'reduced', sound: false, presentation: 'inline', ...readSettings()});
++    function cancel() {
++        animation?.cancel(); animation = null;
++        for (const drawing of drawings) drawing.cancel(); drawings = [];
++        pulse?.remove(); pulse = null; anchor = null;
++        try { oscillator?.stop(); } catch { /* A completed tone needs no cleanup. */ }
++        oscillator = null; overlay.hidden = true; overlay.replaceChildren();
++    }
++    function gesture() {
++        if (!settings().sound) return;
++        const Audio = globalThis.AudioContext || globalThis.webkitAudioContext;
++        if (!Audio) return;
++        try { context ||= new Audio(); context.resume()?.catch(() => {}); } catch { /* Text remains sufficient. */ }
++    }
++    function tone() {
++        if (!settings().sound || context?.state !== 'running') return;
++        try {
++            const voice = context.createOscillator(), volume = context.createGain();
++            oscillator = voice; voice.type = 'sine'; voice.frequency.value = 440;
++            volume.gain.setValueAtTime(0.035, context.currentTime);
++            volume.gain.exponentialRampToValueAtTime(0.0001, context.currentTime + 0.12);
++            voice.connect(volume); volume.connect(context.destination);
++            voice.start(); voice.stop(context.currentTime + 0.13);
++            voice.onended = () => { voice.disconnect(); volume.disconnect(); if (oscillator === voice) oscillator = null; };
++        } catch { /* An unavailable audio device never affects gameplay. */ }
++    }
++    function present(receipt, target = {}) {
++        if (!receipt || typeof receipt.text !== 'string' || document.hidden) return false;
++        const key = `${receipt.actorId || ''}:${receipt.sequence}:${receipt.type}:${receipt.text}`;
++        if (seen.has(key)) return false;
++        seen.add(key); if (seen.size > 128) seen.delete(seen.values().next().value);
++        cancel();
++        const options = settings();
++        if (options.effects === 'off') return false;
++        const kind = ['closing', 'guidance', 'seal'].includes(receipt.motif) ? receipt.motif : /disconnect|service.*end|lease.*end/.test(receipt.type) ? 'closing' : /learn|precision|acquir|unlock|applied/.test(receipt.type) ? 'guidance' : 'seal';
++        overlay.dataset.motif = kind; overlay.dataset.presentation = options.presentation;
++        const namespace = 'http://www.w3.org/2000/svg';
++        const glyph = document.createElementNS(namespace, 'svg'); glyph.classList.add('work-ledger-effect-glyph');
++        glyph.setAttribute('viewBox', '0 0 48 48'); glyph.setAttribute('width', '48'); glyph.setAttribute('height', '48');
++        const path = data => {
++            const mark = document.createElementNS(namespace, 'path'); mark.setAttribute('d', data);
++            mark.setAttribute('fill', 'none'); mark.setAttribute('stroke', 'currentColor'); mark.setAttribute('stroke-width', '2');
++            mark.setAttribute('stroke-linecap', 'round'); mark.setAttribute('pathLength', '1'); glyph.append(mark); return mark;
++        };
++        // Three visible motifs describe settled causes, never unearned powers.
++        const outline = path(kind === 'closing' ? 'M8 14H40M8 34H40M8 14V34M40 14V34' : kind === 'guidance' ? 'M24 4L44 24L24 44L4 24Z' : 'M24 4A20 20 0 1 1 23.99 4');
++        const detail = path(kind === 'closing' ? 'M14 24H34' : kind === 'guidance' ? 'M14 29L24 19L34 29M24 19V35M14 10L10 14M34 10L38 14' : 'M13 24L21 32L35 17');
++        overlay.append(glyph);
++        if (options.presentation !== 'margin') {
++            const caption = document.createElement('span'); caption.textContent = receipt.text; overlay.append(caption);
++        }
++        overlay.hidden = false;
++        tone();
++        if (!overlay.animate) { overlay.hidden = true; return true; }
++        const reduced = options.effects === 'reduced' || motion?.matches;
++        if (!reduced) {
++            for (const mark of [outline, detail]) drawings.push(mark.animate([
++                {strokeDasharray: '1', strokeDashoffset: 1}, {strokeDasharray: '1', strokeDashoffset: 0}
++            ], {duration: 650, fill: 'forwards', easing: 'ease-out'}));
++            if (kind === 'closing') drawings.push(glyph.animate([{transform: 'scaleX(1)'}, {transform: 'scaleX(.15)', opacity: 0}], {duration: 650, delay: 750, fill: 'forwards'}));
++            if (kind === 'guidance') drawings.push(glyph.animate([{transform: 'scale(.85)'}, {transform: 'scale(1.12)'}, {transform: 'scale(1)'}], {duration: 650}));
++        }
++        if (target.anchor && container.contains(target.anchor)) {
++            anchor = target.anchor; pulse = document.createElement('div'); pulse.className = 'work-ledger-target-pulse';
++            pulse.setAttribute('aria-hidden', 'true'); container.append(pulse); positionPulse();
++            if (!reduced) drawings.push(pulse.animate([{opacity: 0, transform: 'scale(.98)'}, {opacity: 1, transform: 'scale(1.01)'}, {opacity: 0, transform: 'scale(1.03)'}], {duration: 900, fill: 'forwards'}));
++        }
++        animation = overlay.animate(reduced ? [{opacity: 1}, {opacity: 1}, {opacity: 0}] : [
++            {opacity: 0, transform: 'translateY(5px)'}, {opacity: 1, transform: 'translateY(0)', offset: 0.15},
++            {opacity: 1, transform: 'translateY(0)', offset: 0.8}, {opacity: 0, transform: 'translateY(-3px)'}
++        ], {duration: reduced ? 1000 : 1800, easing: 'ease-out'});
++        const current = animation;
++        current.finished.then(() => { if (animation === current) cancel(); }).catch(() => {});
++        return true;
++    }
++    const visibility = () => { if (document.hidden) cancel(); };
++    document.addEventListener('visibilitychange', visibility);
++    const motionChange = () => cancel(); motion?.addEventListener?.('change', motionChange);
++    return {present, cancel, gesture, destroy() {
++        cancel(); document.removeEventListener('visibilitychange', visibility);
++        motion?.removeEventListener?.('change', motionChange); resize?.disconnect(); context?.close()?.catch(() => {}); overlay.remove();
++    }};
++}
+--- /dev/null
++++ b/styles/settled_text_effects.css
+@@ -0,0 +1,35 @@
++/* Isolated panel geometry follows its workspace host when moved or resized. */
++.work-ledger-panel { position: relative; overflow: hidden; border: 1px solid var(--border-color, #747b83); border-radius: 5px; margin-block: .6rem; padding: .55rem; text-align: left; min-width: 0; }
++.work-ledger-panel > summary { cursor: pointer; font-weight: bold; }
++.work-ledger-body { overflow-wrap: anywhere; }
++.work-ledger-body p { margin-block: .45rem; }
++.work-ledger-body h4 { margin-block: .7rem .35rem; }
++.work-ledger-status { font-weight: bold; }
++.work-ledger-commission { padding: .4rem; margin-block: .4rem; border-left: 2px solid #829397; background: #81959612; }
++.work-ledger-actions { display: flex; flex-wrap: wrap; gap: .35rem; margin-block: .7rem; }
++.work-ledger-actions button { flex: 0 1 auto; white-space: normal; }
++.work-ledger-actions small { flex-basis: 100%; }
++.work-ledger-presentation { display: flex; flex-wrap: wrap; gap: .55rem; padding: .55rem; min-width: 0; }
++.work-ledger-presentation legend { font-size: .9rem; }
++.work-ledger-presentation label { display: inline-flex; align-items: center; gap: .3rem; }
++.work-ledger-presentation select { max-width: 100%; }
++.work-ledger-presentation small { flex-basis: 100%; }
++.work-ledger-history ol { padding-inline-start: 1.5rem; max-height: 14rem; overflow: auto; }
++.work-ledger-history li { margin-block: .3rem; }
++.work-ledger-notice { min-height: 1em; }
++.work-ledger-effect { pointer-events: none; position: absolute; box-sizing: border-box; inset: 2.3rem .5rem auto; display: flex; align-items: center; gap: .6rem; padding: .7rem; background: #162127ed; color: #e7ecea; border: 1px solid #9bb4ae; border-radius: 5px; z-index: 2; font: inherit; overflow-wrap: anywhere; box-shadow: 0 2px 8px #0004; }
++.work-ledger-effect[hidden] { display: none; }
++.work-ledger-effect-glyph { flex: 0 0 auto; font-size: 1.7em; }
++.work-ledger-effect[data-motif='guidance'] { border-color: #c9c49a; }
++.work-ledger-effect[data-motif='closing'] { border-color: #90999f; }
++.work-ledger-effect[data-presentation='margin'] { inset: 2.3rem .5rem auto auto; width: fit-content; max-width: calc(100% - 1rem); padding: .3rem .7rem; }
++@media (max-width: 480px) { .work-ledger-presentation label { width: 100%; flex-wrap: wrap; } .work-ledger-actions button { flex-basis: 100%; } }
++.work-ledger-effect-glyph { width: 48px; height: 48px; color: #b8d8cf; }
++.work-ledger-effect[data-motif='guidance'] .work-ledger-effect-glyph { color: #e2dca9; }
++.work-ledger-effect[data-motif='closing'] .work-ledger-effect-glyph { color: #aab6c0; }
++.work-ledger-target-pulse { position: absolute; pointer-events: none; box-sizing: border-box; border: 2px solid #c9c49a; border-radius: 4px; z-index: 1; }
++
++.settled-effects-host { position: relative; overflow: hidden; }
++
++.work-ledger-panel { background: #1c243bf7; color: #f1f2f5; }
++.settled-effects-host > .work-ledger-effect { inset: auto .5rem .5rem auto; max-width: min(340px, calc(100% - 1rem)); }

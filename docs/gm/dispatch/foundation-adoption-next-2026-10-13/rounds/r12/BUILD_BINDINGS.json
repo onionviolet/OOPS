@@ -1,0 +1,12 @@
+{
+  "status": "NOT_BUILT_NO_NATIVE_ATTEMPT",
+  "reason": "No gameplay/source edit and no eligible public consumer; source hashes recorded in INPUT_BINDINGS. No prebuilt/native behavior claim.",
+  "candidate": null,
+  "loaded": null,
+  "fetch": null,
+  "map": null,
+  "viewportIfFutureNative": [
+    1600,
+    1100
+  ]
+}

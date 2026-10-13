@@ -1,0 +1,204 @@
+--- /dev/null
++++ b/src/component_themes.js
+@@ -0,0 +1,28 @@
++// Original cosmetic directions. No world, actor or command authority.
++export const COMPONENT_THEMES = {
++    neutral: {label: 'Neutral', background: '#202a32', text: '#f1f4f5', accent: '#a9c8bd', radius: '4px', heading: 'system-ui, sans-serif'},
++    arcane: {label: 'Arcane', background: '#292637', text: '#f4f0e7', accent: '#e1c783', radius: '6px', heading: 'Georgia, serif'},
++    workshop: {label: 'Workshop', background: '#302b25', text: '#f4eee2', accent: '#ddbb88', radius: '2px', heading: 'system-ui, sans-serif'}
++};
++const rgb = hex => hex.slice(1).match(/../g).map(n => parseInt(n,16));
++const hex = values => '#' + values.map(n => Math.round(n).toString(16).padStart(2,'0')).join('');
++const mix = (a,b,t) => hex(rgb(a).map((v,i) => v*(1-t)+rgb(b)[i]*t));
++const luminance = color => rgb(color).map(v => {v/=255;return v<=.04045?v/12.92:((v+.055)/1.055)**2.4;}).reduce((sum,v,i) => sum+v*[.2126,.7152,.0722][i],0);
++export const contrast = (a,b) => (Math.max(luminance(a),luminance(b))+.05)/(Math.min(luminance(a),luminance(b))+.05);
++const readable = (color, background, ratio=4.5) => contrast(color,background)>=ratio ? color : contrast('#ffffff',background)>contrast('#000000',background)?'#ffffff':'#000000';
++export function componentThemeTokens(settings) {
++    const theme = COMPONENT_THEMES[settings.componentTheme || 'neutral'];
++    const background = settings.palette.background, text = readable(settings.palette.text,background);
++    const light = luminance(background)>.35;
++    const surface = mix(background, light?'#000000':'#ffffff', .07);
++    const control = mix(background, light?'#000000':'#ffffff', .12);
++    const accent = readable(settings.palette.accent,background);
++    const warning = readable(light?'#793d00':'#ffd391',background);
++    return {'--theme-bg':background,'--theme-surface':surface,'--theme-control':control,'--theme-text':text,
++        '--theme-surface-text':readable(text,surface),'--theme-control-text':readable(text,control),'--theme-muted':readable(mix(text,background,.2),background),
++        '--theme-accent':accent,'--theme-border':readable(mix(text,background,.45),background,3),
++        '--theme-selected':accent,'--theme-selected-text':readable(text,accent),'--theme-focus':readable(light?'#713ce5':'#b9ddff',background,3),
++        '--theme-warning':warning,'--theme-danger':readable(light?'#a11520':'#ffb2ba',background),
++        '--theme-radius':theme.radius,'--theme-heading-font':theme.heading,
++        '--theme-contrast-recovered':text!==settings.palette.text||accent!==settings.palette.accent?'1':'0'};
++}
+--- a/src/customization_profiles.js
++++ b/src/customization_profiles.js
+@@ -1,3 +1,4 @@
++import {COMPONENT_THEMES, componentThemeTokens} from './component_themes.js';
+ // Presentation data only. Never advances clocks or changes character rules.
+ const seasons = ['spring', 'summer', 'autumn', 'winter'];
+ const own = (object, key) => Object.prototype.hasOwnProperty.call(object, key);
+@@ -9,17 +10,18 @@
+ const keys = (value, allowed) => { if (!record(value) || Object.keys(value).some(key => !allowed.includes(key))) fail('unknown or malformed fields'); };
+ export const CUSTOMIZATION_MODULES = ['ledger', 'crafting', 'local-actions', 'vitals', 'preparation', 'belongings', 'records', 'time', 'location', 'skills', 'messages', 'notebook', 'customization'];
+ export function defaultPresentationSettings() {
+-    return {typography: {font: 'system', size: 14}, palette: {background: '#1c243b', text: '#f1f2f5', accent: '#9bb4ae'}, spacing: 8, effects: 'reduced', sound: false, presentation: 'inline', effectDefinition: {motif: 'receipt', duration: 1800, color: '#b8d8cf', background: '#162127', static: false, plain: false}};
++    return {componentTheme: 'neutral', typography: {font: 'system', size: 14}, palette: {background: '#1c243b', text: '#f1f2f5', accent: '#9bb4ae'}, spacing: 8, effects: 'reduced', sound: false, presentation: 'inline', effectDefinition: {motif: 'receipt', duration: 1800, color: '#b8d8cf', background: '#162127', static: false, plain: false}};
+ }
+ export function defaultCustomizationState() {
+     return {schema: 1, active: 'Default', theme: {mode: 'off', season: 'spring'}, profiles: {Default: {settings: defaultPresentationSettings(), modules: {}}}};
+ }
+ export function validatePresentationSettings(input, partial = false) {
+-    const allowed = ['typography', 'palette', 'spacing', 'effects', 'sound', 'presentation', 'effectDefinition'];
++    const allowed = ['componentTheme', 'typography', 'palette', 'spacing', 'effects', 'sound', 'presentation', 'effectDefinition'];
+     keys(input, allowed);
+-    if (!partial && allowed.some(key => !own(input, key))) fail('missing settings');
+-    const result = {};
++    if (!partial && allowed.filter(key => key !== 'componentTheme').some(key => !own(input, key))) fail('missing settings');
++    const result = partial ? {} : {componentTheme: 'neutral'};
+     for (const [key, value] of Object.entries(input)) {
++        if (key === 'componentTheme') result[key] = choice(value, Object.keys(COMPONENT_THEMES), 'component theme');
+         if (key === 'typography') {
+             keys(value, ['font', 'size']);
+             if (!partial && (!own(value,'font') || !own(value,'size'))) fail('incomplete typography');
+@@ -66,7 +68,7 @@
+         const modules = {};
+         for (const [id, settings] of Object.entries(profile.modules)) {
+             if (!CUSTOMIZATION_MODULES.includes(id)) fail('unsupported native module id');
+-            if(!['ledger','crafting'].includes(id)&&Object.keys(settings).some(key=>!['typography','palette','spacing'].includes(key)))fail('this module supports typography, palette and spacing only');
++            if(!['ledger','crafting'].includes(id)&&Object.keys(settings).some(key=>!['componentTheme','typography','palette','spacing'].includes(key)))fail('this module supports typography, palette and spacing only');
+             modules[id] = validatePresentationSettings(settings, true);
+         }
+         profiles[name] = {settings: validatePresentationSettings(profile.settings), modules};
+@@ -95,15 +97,39 @@
+     // Explicit module palettes remain exact even when the profile uses a season.
+     return {...settings, palette: {...settings.palette, ...(resolvedSeason && !own(profile.modules[moduleId]?.palette || {}, 'accent') ? {accent: seasonal[resolvedSeason]} : {}), ...(resolvedSeason && !own(profile.modules[moduleId]?.palette || {}, 'background') ? {background:seasonalBackground[resolvedSeason]} : {})}, resolvedSeason};
+ }
++const keyboardTabBars = new WeakSet();
++function qualifyNativeTabs(node) {
++    const bars = [node, ...node.querySelectorAll?.('.activable_buttons') || []].filter(bar => bar.classList?.contains?.('activable_buttons'));
++    for (const bar of bars) {
++        for (const control of bar.children) {
++            if (control.tagName !== 'DIV' || !control.hasAttribute?.('onclick')) continue;
++            control.setAttribute('role','button'); control.tabIndex = 0;
++            control.setAttribute('aria-pressed',String(control.classList.contains('active_selection_button')));
++        }
++        if (!keyboardTabBars.has(bar)) {
++            keyboardTabBars.add(bar);
++            bar.addEventListener('click', () => { for (const control of bar.children) if (control.getAttribute('role') === 'button') control.setAttribute('aria-pressed',String(control.classList.contains('active_selection_button'))); });
++            bar.addEventListener('keydown', event => {
++                const control = event.target;
++                if (control.parentElement !== bar || control.tagName !== 'DIV' || !['Enter',' '].includes(event.key)) return;
++                event.preventDefault(); if (control.getAttribute('aria-disabled') !== 'true') control.click();
++            });
++        }
++    }
++}
+ export function applyCustomizationProfile(state, {season, moduleNodes = {}} = {}) {
+     const valid = validateCustomizationState(state);
+     const entries = moduleNodes instanceof Map ? moduleNodes.entries() : Object.entries(moduleNodes);
+-    for (const [id, node] of entries) {
++    for (const [id, nodes] of entries) for (const node of (Array.isArray(nodes) ? nodes : [nodes])) {
+         if (!node?.style) continue;
+         const settings = getCustomizationSettings(valid, id, {season});
+         node.classList.add('customization-module');
++        qualifyNativeTabs(node);
++        node.dataset.componentTheme = settings.componentTheme || 'neutral';
+         node.dataset.customizationSeason = settings.resolvedSeason || 'off';
+         const vars = {'--custom-font': {system: 'system-ui, sans-serif', serif: 'Georgia, serif', mono: 'monospace'}[settings.typography.font], '--custom-size': `${settings.typography.size}px`, '--custom-spacing': `${settings.spacing}px`, '--custom-background': settings.palette.background, '--custom-text': settings.palette.text, '--custom-accent': settings.palette.accent};
++        Object.assign(vars, componentThemeTokens(settings));
++        node.dataset.contrastRecovered = vars['--theme-contrast-recovered'];
+         for (const [name, value] of Object.entries(vars)) node.style.setProperty(name, value);
+     }
+     return valid;
+--- /dev/null
++++ b/styles/component_themes.css
+@@ -0,0 +1,90 @@
++/* Original component contract. Cosmetics do not alter layout ownership or commands.
++   Explicit consumers avoid recoloring health/resource bars and rarity semantics. */
++:is(#main_content.workspace-active, .theme-preview) .customization-module {
++    --workspace-text: var(--theme-text); --workspace-muted: var(--theme-muted);
++    --workspace-accent: var(--theme-accent); --workspace-focus: var(--theme-focus);
++    --workspace-border: var(--theme-border); --workspace-button: var(--theme-control);
++    --al-muted: var(--theme-muted); --al-border: var(--theme-border);
++    --options_action_textsize: var(--custom-size);
++    --tooltip_background_color: var(--theme-surface);
++    color: var(--theme-text) !important; background-color: var(--theme-bg) !important;
++    border-color: var(--theme-border) !important; border-radius: var(--theme-radius);
++    line-height: 1.4; min-width: 0; box-sizing: border-box;
++}
++:is(#main_content.workspace-active, .theme-preview) .customization-module :is(button, .activable_buttons > div, .crafting_mainpage_button, .crafting_subpage_button, .recipe_name, .recipe_item_name, .recipe_comp_name, .selectable_material, .selectable_component, select, input:not([type=color]), textarea, .action_travel, .start_dialogue, .start_trade, .start_game_action, .start_activity, .location_choices, .choices_return_button, .dialogue_textline, .dialogue_trade, .end_dialogue_button, .backstep_dialogue_button) {
++    font-family: var(--custom-font); font-size: var(--custom-size) !important;
++    line-height: 1.3; color: var(--theme-control-text) !important;
++    background: var(--theme-control) !important; border: 1px solid var(--theme-border);
++    border-radius: var(--theme-radius); box-sizing: border-box;
++    min-height: 2em; height: auto; white-space: normal; overflow-wrap: anywhere;
++    max-width: 100%; min-width: 0;
++}
++:is(#main_content.workspace-active, .theme-preview) .customization-module :is(button, .activable_buttons > div, .action_travel, .start_dialogue, .start_trade, .start_game_action, .start_activity, .location_choices, .dialogue_textline):hover:not(:disabled):not([aria-disabled=true]) {
++    background: color-mix(in srgb, var(--theme-accent) 16%, var(--theme-control)) !important;
++}
++:is(#main_content.workspace-active, .theme-preview) .customization-module :is(button:disabled, button[aria-disabled=true], input:disabled, select:disabled, .action_unavailable, .activity_unavailable, .recipe_unavailable, .recipe_unavailable .recipe_item_name) {
++    color: var(--theme-muted) !important; background: var(--theme-bg) !important;
++    border-style: dashed; opacity: 1; cursor: not-allowed;
++}
++:is(#main_content.workspace-active, .theme-preview) .customization-module :is(.active_selection_button, .active_selection, .selected_recipe .recipe_name, .selected_material, .selected_component, [aria-selected=true], button[aria-pressed=true]) {
++    color: var(--theme-selected-text) !important; background: var(--theme-selected) !important;
++    box-shadow: inset 0 -3px 0 var(--theme-border); font-weight: 700;
++}
++:is(#main_content.workspace-active, .theme-preview) .customization-module :is(button, input, select, textarea, summary, a, [tabindex]):focus-visible {
++    outline: 3px solid var(--theme-focus) !important; outline-offset: 2px;
++}
++:is(#main_content.workspace-active, .theme-preview) .customization-module :is(h3, h4, summary) {
++    font-family: var(--theme-heading-font); color: var(--theme-accent);
++}
++:is(#main_content.workspace-active, .theme-preview) .customization-module :is(table, .character_bio_entry, .equipped_item_control, .inventory_item_control, #dialogue_answer_div, #dialogue_name_div, #effects_div, .customization-panel) {
++    background: var(--theme-surface) !important; color: var(--theme-surface-text) !important;
++    border-color: var(--theme-border); font-size: inherit;
++}
++:is(#main_content.workspace-active, .theme-preview) .customization-module table {
++    width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums;
++}
++:is(#main_content.workspace-active, .theme-preview) .customization-module :is(th, td) {
++    padding: .3em .45em; border-bottom: 1px solid var(--theme-border); text-align: left;
++}
++:is(#main_content.workspace-active, .theme-preview) .customization-module :is(.theme-warning, [data-theme-state=warning]) {color: var(--theme-warning) !important; border-inline-start: 3px solid var(--theme-warning); padding-inline-start: .5em;}
++:is(#main_content.workspace-active, .theme-preview) .customization-module :is(.theme-danger, [data-theme-state=error], [role=alert]) {color: var(--theme-danger) !important; border-inline-start: 3px solid var(--theme-danger); padding-inline-start: .5em;}
++:is(#main_content.workspace-active, .theme-preview) .customization-module :is(.bio_history > p, .work-ledger-receipt, .al-detail, .al-summary) {color: inherit;}
++/* Native tab bars grow when text grows. They stay in the owning panel's flow. */
++#main_content.workspace-active .customization-module :is(#character_control_div, #inventory_control_div) {
++    position: relative; inset: auto; display: flex; flex-wrap: wrap;
++    height: auto; min-height: min-content; flex-shrink: 0;
++}
++#main_content.workspace-active .customization-module :is(#character_control_div, #inventory_control_div) > :is(button, div) {
++    flex: 1 1 auto; width: auto; float: none;
++}
++#main_content.workspace-active #inventory_combat_switch_selection.customization-module { display: flex; flex-wrap: wrap; }
++#main_content.workspace-active #inventory_combat_switch_selection.customization-module > :is(button, div) {flex: 1 1 auto; width: auto; float: none; font-size: inherit;}
++#main_content.workspace-active .customization-module :is(#character_stats_div, #character_bio_div, #character_equipment_div, #character_tools_div) {width: 100%; max-width: 100%; min-width: 0; box-sizing: border-box;}
++.theme-preview {border: 1px solid currentColor; padding: .5rem; margin-block: .5rem; min-width: 0;}
++.theme-preview-tabs, .theme-action-row {display: flex; flex-wrap: wrap; gap: .35em; margin-block: .4em;}
++.theme-preview .customization-module {padding: var(--custom-spacing);}
++.theme-preview button {padding: .35em .5em;}
++.theme-preview label {display: flex; flex-wrap: wrap; gap: .3em;}
++.theme-preview :is(p, h4) {margin-block: .5em;}
++
++#main_content.workspace-active .customization-module .activable_buttons > div {width: auto; flex: 1 1 auto; float: none; padding: .25em .4em;}
++
++.theme-preview dl {display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); gap: .25em; font-variant-numeric: tabular-nums;}
++.theme-preview dd {margin: 0;}
++
++#main_content.workspace-active .customization-module :is(.recipe_div, .crafting_recipe_list) {width: 100%; max-width: 100%; box-sizing: border-box; font-size: inherit;}
++/* Native numeric pairs retain both label and number as typography grows. */
++#main_content.workspace-active .customization-module .grid_container:has(> .stat_slot_div) {
++    grid-template-columns: repeat(auto-fit, minmax(min(100%, 10em), 1fr)); gap: 1px;
++}
++#main_content.workspace-active .customization-module .stat_slot_div {
++    display: flex; flex-wrap: wrap; align-items: baseline; gap: .1em .35em;
++    height: auto; min-height: 1.6em; box-sizing: border-box; padding: .15em .3em;
++    outline-color: var(--theme-border); font-variant-numeric: tabular-nums;
++}
++#main_content.workspace-active .customization-module :is(.stat_name, .stat_name_short) {
++    width: auto; min-width: 0; padding: 0; flex: 1 1 auto; overflow-wrap: anywhere;
++}
++#main_content.workspace-active .customization-module :is(.stat_value, .stat_value_long) {
++    width: auto; max-width: 100%; flex: 0 0 auto; margin-inline-start: auto; overflow-wrap: anywhere;
++}

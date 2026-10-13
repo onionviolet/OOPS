@@ -1,0 +1,67 @@
+{
+  "pid": 50985,
+  "servedHash": "c0a5e5cccd37c59b1265dee554c051deefef360659c5d6dfffe4f9eb6ff328c3",
+  "origin": "http://127.0.0.1:18643",
+  "startedHash": "c0a5e5cccd37c59b1265dee554c051deefef360659c5d6dfffe4f9eb6ff328c3",
+  "endedHash": "c0a5e5cccd37c59b1265dee554c051deefef360659c5d6dfffe4f9eb6ff328c3",
+  "events": [
+    {
+      "action": "click",
+      "selector": "#notebook_tab_here"
+    },
+    {
+      "action": "panel",
+      "selector": "#feature_expansion_panel"
+    },
+    {
+      "action": "panel",
+      "selector": "#feature_expansion_panel details:has(>summary:text-is(\"A taught procedure, useful material\"))"
+    },
+    {
+      "workflowStep": {
+        "action": "click",
+        "selector": "[data-action-legibility-key=\"action:world.completion.learning.sponsor\"] button",
+        "save": "worker-neri-cancel-offered"
+      },
+      "index": 0,
+      "clock": 11720,
+      "sequence": 1293
+    },
+    {
+      "workflowStep": {
+        "action": "pending",
+        "actor": "remainder_home.neri",
+        "id": "world.completion.learning.walk_to_bench",
+        "save": "worker-neri-cancel-accepted"
+      },
+      "index": 1,
+      "clock": 11721,
+      "sequence": 1294
+    },
+    {
+      "debugCancel": {
+        "button": "<button class=\"action-legibility__button\" type=\"button\" aria-disabled=\"false\">Do this: Cancel the sponsored work · return Neri’s reservations</button>",
+        "beforeSequence": 1295,
+        "afterSequence": 1295,
+        "status": [
+          "This action could not be completed. Review the current requirements and try again."
+        ]
+      }
+    },
+    {
+      "workflowStep": {
+        "action": "debugCancel",
+        "selector": "[data-action-legibility-key^=\"action:cancel:simulation:\"] button",
+        "save": "worker-neri-cancel-debug"
+      },
+      "index": 2,
+      "clock": 11722,
+      "sequence": 1295
+    },
+    {
+      "action": "workflow",
+      "file": "NERI_CANCEL_DEBUG_WORKFLOW.json"
+    }
+  ],
+  "errors": []
+}

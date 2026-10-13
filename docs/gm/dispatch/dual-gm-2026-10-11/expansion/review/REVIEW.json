@@ -1,0 +1,166 @@
+{
+  "schema": "w1-expansion-independent-review-1",
+  "revision": 5,
+  "status": "pass-finite-planning-tranche",
+  "scope": "Final bounded review of public engine/intake/coverage/detail/packet/case/report/recovery artifacts and cited runtime consumers, plus private source ledger/cards/inventory, starts/variants/VFX/continuity, and final integration leaf/packet joins. Source locators sampled against recovered dossier and analytical owners; direct primary checks remain with source/root receipts. No runtime execution or complete raw-prose extraction review.",
+  "runtimeExecuted": false,
+  "sourceIdentityDisclosed": false,
+  "findings": [
+    {
+      "id": "F1",
+      "severity": "required-before-C1-close",
+      "status": "resolved",
+      "title": "Adapter dependencies need exact joins",
+      "owner": "expansion integrator",
+      "files": [
+        "ENGINE_CONTRACTS.json",
+        "build_planning.py"
+      ],
+      "evidence": "E07 explicitly waits for pack-to-simulation binding; E01 needs compatible native creation and publication; E06 needs provider/target/observer bindings; E10 needs material/native consumer binding. dependencies currently list only E12 for these cards.",
+      "fix": "Populate explicit per-card prerequisite IDs, distinguish independent preparation from runtime execution, and give selected packets a topological order. Include E03/E04/E05/E02 joins where actually required, rather than requiring all cards universally.",
+      "criterion": "Every selected private leaf and packet names prerequisite cards or a deliberately local alternative; no ready packet depends on an unnamed adapter.",
+      "resolution": "Explicit adapter DAG and conditional independent packet sequencing now present; dependencies inspected acyclic."
+    },
+    {
+      "id": "F2",
+      "severity": "required-before-C1-close",
+      "status": "resolved",
+      "title": "Parent accounting is intake, not local qualification",
+      "owner": "expansion integrator",
+      "files": [
+        "INPUT_DISPOSITIONS.json",
+        "COVERAGE_MAP.json"
+      ],
+      "evidence": "All 179 parent IDs exist; 136 currently have no localEngineCards. Every intake disposition is the same conditional-palette sentence. COVERAGE_MAP labels each section C1 finite tranche while no private leaves or start compatibility output existed at inspection.",
+      "fix": "Join exact selected local detail IDs and retained variant conditions to parent IDs; identify unselected parent families with ordered continuation/source questions or reasoned nonapplicability. Scope C1 only to reviewed selected details, keeping whole-horizon rows inventoried/open.",
+      "criterion": "Every parent family has a traceable selected leaf or explicit remaining-task route; C1 scope names the frozen reviewed subset.",
+      "resolution": "Exact selected parent/leaf links now present; remaining families explicitly conditional and C0 with named manifests."
+    },
+    {
+      "id": "F3",
+      "severity": "required-before-C1-close",
+      "status": "resolved",
+      "title": "Full-world/source/start finish gate remains unreviewed",
+      "owner": "private source and starts readers, then integrator",
+      "files": [
+        "COVERAGE_MAP.json"
+      ],
+      "evidence": "Current public map has 15 applicable section shells and engine cards; private world-depth directory was empty. Full-world macro/micro causal chains, exact edition locators, compatible starts, meaningful variants, mature journeys and source/detail remainder cannot yet be independently checked.",
+      "fix": "Notify review owner after source/starts artifacts and joined ledger/packets exist; preserve their source truths privately and provide only opaque IDs in public results.",
+      "criterion": "Independent agent reads private locators, selected start compatibility, functional leaves and cross-system cases; final report keeps unresolved retrieval/detail gaps explicit.",
+      "resolution": "Final private continuity, source inventory, supplemental locators, option policy and 49-leaf join inspected."
+    }
+  ],
+  "passedChecks": [
+    "All selected engine parent aliases resolve to actual parent requirements; sampled parent meanings align.",
+    "Loader scalar state, one active job/visit, missing-pack preservation and identity-migration checks match source.",
+    "Pack panel exposes all definition people; generic observer-qualified private projection is a valid gap.",
+    "Optional pack clock path advances pack work/native calendar separately from general simulation scheduler.",
+    "Scenario rewind restores isolated scenario only and preserves broader domains/random stream.",
+    "Body/technique/native-traveler claims are bounded; no arbitrary body/spell/parallel-history runtime support is falsely asserted.",
+    "No source identities or hidden truths were found in reviewed public artifact content.",
+    "Eight future packets separate ready validation/content work from adapter-blocked runtime and preserve exact path reservation gates.",
+    "Sixteen cross-system cases explicitly specified-not-run and cover selected high-consequence joins.",
+    "Private source cards retain source/direct/inherited/proposal distinction and unresolved local rules; sampled source locators match recovered dossier/chunks.",
+    "Private 18 starts are author candidates, not runtime eligible; sources/premises, held knowledge, viable actions and unresolved exact event snapshots are distinguished.",
+    "30 start families, 61 cheat families, 225 subvariant mappings and 14 VFX mappings are retained with implementation gaps; generic dispositions do not claim full detail qualification.",
+    "Source inventory explicitly accounts for 383 inherited claim rows, 102 indexed entity/function rows and named residual task families without claiming complete original-prose extraction.",
+    "48 joined leaf rows retain exact parent/engine/packet/case IDs; public projection omits hidden criteria and source text.",
+    "Seven local causal chains, eight deep mechanisms and six mature journeys preserve changed-cause, ordinary usefulness, genuine strong/free variants and actor-held knowledge.",
+    "Mandatory starting-pack suspension and separate swapped-system branch identity are explicit; historical optional visit fallback stays separately scoped.",
+    "P2 actual receipt leaf retains canonical A3/DESIGN pointers and once-only communication/publication cases.",
+    "Packet candidate pools and finite selectedRequiredDetailIds are distinct; P8 reciprocal links and nonconventional E11 joins corrected.",
+    "Supplemental multi-passage locators and five-range/five-chapter accounting corrected.",
+    "Final public REPORT and README reviewed: source identity/truth remains sealed, counts and C0/C1/runtime distinctions are scoped, recovery warns initial assembler resets later joins."
+  ],
+  "inspectedInputs": [
+    {
+      "path": "docs/gm/dispatch/dual-gm-2026-10-11/expansion/COVERAGE_MAP.json",
+      "sha256": "d670868baae1cdab7bd7510a79831f4f9089e70f3d8f81f107edf676f126e27a"
+    },
+    {
+      "path": "docs/gm/dispatch/dual-gm-2026-10-11/expansion/INPUT_DISPOSITIONS.json",
+      "sha256": "870ea77d30a0efa41f8bed32c1f83d420cd77dfe8f3d945223b552e4b64f0194"
+    },
+    {
+      "path": "docs/gm/dispatch/dual-gm-2026-10-11/expansion/ENGINE_CONTRACTS.json",
+      "sha256": "658df16b35e8b3344dbface15cc3d120eab927605991a273e747c69c284bd561"
+    },
+    {
+      "path": "docs/gm/dispatch/dual-gm-2026-10-11/expansion/REPORT.md",
+      "sha256": "1e5dbddd5807d420128e2d91d3eacfa8aaeca7e6bd32fa44305e69278812d005"
+    },
+    {
+      "path": "docs/gm/dispatch/dual-gm-2026-10-11/expansion/PACKETS.md",
+      "sha256": "5b22636bfbd72fd659a93f2c090d603490d8cf3daef6131a5d713e9999d1ce1a"
+    },
+    {
+      "path": "docs/gm/dispatch/dual-gm-2026-10-11/expansion/CROSS_SYSTEM_CASES.json",
+      "sha256": "120e2829926ac59a3f70fc03cb3108ba75b5402c6d799f7bcd80cfcc0f61697d"
+    },
+    {
+      "path": "docs/gm/dispatch/dual-gm-2026-10-11/expansion/CHECKPOINT.md",
+      "sha256": "f22253cdc835bd461ee2c65a5664a11938bd0b563c0fd2432cb44671bbca823b"
+    },
+    {
+      "path": "docs/gm/dispatch/dual-gm-2026-10-11/expansion/README.md",
+      "sha256": "3fa2b5b46e746031abeef5917e7cf1a394371bedf3736660af4e679caefdaa26"
+    },
+    {
+      "path": "docs/gm/dispatch/dual-gm-2026-10-11/expansion/build_planning.py",
+      "sha256": "502c81c56d33054e21dc35c2cb5ac452a452bea39d7fc789ba7ec101276ba5b3"
+    },
+    {
+      "path": "docs/gm/dispatch/dual-gm-2026-10-11/expansion/VALIDATION.json",
+      "sha256": "d44c1b9d60b5018d500d1a74e6a0067ab4a242be47be89d0cfe7fdefe9da0844"
+    },
+    {
+      "path": "docs/gm/dispatch/dual-gm-2026-10-11/expansion/REMAINING_MANIFEST.md",
+      "sha256": "9bca20d40074d0164a028f83aec5584d20a168e0680fd365ac06545abca76df1"
+    },
+    {
+      "path": "docs/gm/dispatch/dual-gm-2026-10-11/expansion/DETAIL_LEDGER.json",
+      "sha256": "c14f459867cefd871b63e08105ad9264803b9bbb722fa396687e6a9195dba230"
+    },
+    {
+      "path": "docs/gm/dispatch/dual-gm-2026-10-11/expansion/INPUT_HASHES.json",
+      "sha256": "d968ddd808141779ee110dc81e038dd196921af36b16ba0c64319ebb967fc4eb"
+    }
+  ],
+  "remainingReview": [],
+  "precisionNotes": [
+    {
+      "id": "F4",
+      "status": "resolved",
+      "scope": "private-source-metadata",
+      "criterion": "Supplemental source locators accompany merged multi-chapter source claims; bounded-read chapter count matches its actual list."
+    },
+    {
+      "id": "F5",
+      "status": "resolved",
+      "scope": "private-start-isolation",
+      "criterion": "Mandatory random-start pack recovery distinct from historical visit fallback; swapped-premise candidate uses distinct branch identity or clearly non-instance family identifier."
+    },
+    {
+      "id": "F6",
+      "status": "resolved",
+      "scope": "packet-leaf-binding",
+      "criterion": "P2 binds the actual installed receipt-to-return acknowledgement leaf; private packet lists distinguish candidates from selected required finite scope. P8 reciprocal leaf packetIds match."
+    },
+    {
+      "id": "F7",
+      "status": "resolved",
+      "scope": "nonconventional-start-binding",
+      "criterion": "ST16/ST17/ST18 and other nonconventional forms link their E11 action/controller and actual matching parent families explicitly, not infant/child string matching only."
+    }
+  ],
+  "residualRequiredFix": {
+    "id": "F8",
+    "criterion": "P7 selected ST09 belongs in candidateDetailIds and ST09 packetIds includes P7. Selected subset, required-case links and public projection then agree.",
+    "scope": "reference integrity only; selected packet remains explicitly not runtime-ready",
+    "status": "resolved",
+    "resolution": "P7 candidate list and ST09 private/public packet backreferences now agree."
+  },
+  "claimBoundary": "Pass qualifies finite planning actionability and explicit accounted remainder only. Source complete, implemented, built, browser verified and director accepted remain unclaimed.",
+  "reportWordingNote": "Prefer authored starting candidates with compatibility conditions over compatible snapshots; exact source-event qualification remains open."
+}

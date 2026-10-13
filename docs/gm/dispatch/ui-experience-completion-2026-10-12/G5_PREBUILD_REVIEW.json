@@ -1,0 +1,151 @@
+{
+  "state": "source only, no shared runtime G5 yet",
+  "files": [
+    {
+      "path": "src/main.js",
+      "hash": "4903ee489146618cd6f4713c5c56d3c47bc6e3a8b5cd7bf81fd2f0703164e577",
+      "matchesCandidate": false,
+      "matchesAppliedReceipt": false
+    },
+    {
+      "path": "src/save_files.js",
+      "hash": "9693989644833596a98379eececdc5a814e11845d27c1134b3e7dab3911b1120",
+      "matchesCandidate": true,
+      "matchesAppliedReceipt": true
+    },
+    {
+      "path": "src/display.js",
+      "hash": "0714c5b2b278472cc6d6d3f0720090425f835f51b1818289c4ae89fce1a71d66",
+      "matchesCandidate": true,
+      "matchesAppliedReceipt": true
+    },
+    {
+      "path": "src/adventure_notebook.js",
+      "hash": "a9c9f970ea45d6c9b1cd3dad32f6f23b8c5b46cb2c45d8cd055a5c941cb76b31",
+      "matchesCandidate": true,
+      "matchesAppliedReceipt": true
+    },
+    {
+      "path": "src/village_career_ui.js",
+      "hash": "3d5a83502a5acc288488e3efa898b8dd544ebdbb3d212a040ca2964a9df63c40",
+      "matchesCandidate": true,
+      "matchesAppliedReceipt": true
+    },
+    {
+      "path": "src/content_pack_ui.js",
+      "hash": "9f99f189a2e9491409490221596bea48a4433e3e174865dacb847408ec998853",
+      "matchesCandidate": true,
+      "matchesAppliedReceipt": true
+    },
+    {
+      "path": "src/structured_pack_ui.js",
+      "hash": "c5e0acb902e29924ac4a9dd90507a6d13fa370e4ac9dc2d65583248d677ba294",
+      "matchesCandidate": true,
+      "matchesAppliedReceipt": true
+    },
+    {
+      "path": "src/simulation_ui.js",
+      "hash": "68a00923a51ccb48a65b1ca170498c38c7ab94991160a3dfe6ce862ce837cce1",
+      "matchesCandidate": false,
+      "matchesAppliedReceipt": true
+    },
+    {
+      "path": "index.html",
+      "hash": "11c7ea2de9216cd151e0cc68bce85cf4cc64b084bc4e4e7408528ae7821769ef",
+      "matchesCandidate": false,
+      "matchesAppliedReceipt": true
+    },
+    {
+      "path": "src/work_ledger_system.js",
+      "hash": "2697955b78d970a1dab6afec30828af17cd74825c23534a3d7b2b5e7c10279b2",
+      "matchesCandidate": true,
+      "matchesAppliedReceipt": true
+    },
+    {
+      "path": "src/work_ledger_ui.js",
+      "hash": "aabbac7d5378cc19f38bb0234df4f2e2222c2181c49753d991650c15f3a5ea06",
+      "matchesCandidate": true,
+      "matchesAppliedReceipt": true
+    },
+    {
+      "path": "src/work_ledger_author_ui.js",
+      "hash": "0e741e2c9878a0a27b12955df63579f5030fd27dd27d12dde215715d5c488c0f",
+      "matchesCandidate": true,
+      "matchesAppliedReceipt": true
+    },
+    {
+      "path": "src/customization_profiles.js",
+      "hash": "f2f001da9a91f3761377ba1c15ed3cd7e56cb3cc5aeb43fb089f9f2b18329fd2",
+      "matchesCandidate": true,
+      "matchesAppliedReceipt": true
+    },
+    {
+      "path": "src/customization_ui.js",
+      "hash": "ae5dc41ca48c1c36b59164a10ea0f752008c56dc23ddffe56bdd06a3fdcb37e4",
+      "matchesCandidate": true,
+      "matchesAppliedReceipt": true
+    },
+    {
+      "path": "src/settled_text_effects.js",
+      "hash": "662f3ef2aec8924f7405956405847cee07141b02c7f99657d49adfb4eab57172",
+      "matchesCandidate": true,
+      "matchesAppliedReceipt": true
+    },
+    {
+      "path": "src/workspace_layout.js",
+      "hash": "575fa462851e24205b512023088ac78bc2ce79cdb4c8aada0aa570f72e9d5425",
+      "matchesCandidate": true,
+      "matchesAppliedReceipt": true
+    },
+    {
+      "path": "src/workspace_state.js",
+      "hash": "a61dee397bb02c321f76fb83020320d3e51d4f02cf4b6f4a87bf9228ee09e10b",
+      "matchesCandidate": true,
+      "matchesAppliedReceipt": true
+    },
+    {
+      "path": "src/workspace_views.js",
+      "hash": "0ca6d536a43d15fb650b7a76eac2e0f8b522379317776e520b5899058118ad4b",
+      "matchesCandidate": true,
+      "matchesAppliedReceipt": true
+    },
+    {
+      "path": "src/component_themes.js",
+      "hash": "51abc6c9e86e1337befe96bad2b8e0ac6817d30b68ed686c6b3c251ef3cfadf1",
+      "matchesCandidate": true,
+      "matchesAppliedReceipt": true
+    },
+    {
+      "path": "src/quiet_place_detail.js",
+      "hash": "0329a13e275af681388da4a47d0284d5562b0eb30c97b4124bdf9d8baf32fb42",
+      "matchesCandidate": true,
+      "matchesAppliedReceipt": true
+    },
+    {
+      "path": "styles/settled_text_effects.css",
+      "hash": "443d79db7cdf77d8c127e51047e78aface2f7c729e7d808d4cf98426372772b6",
+      "matchesCandidate": true,
+      "matchesAppliedReceipt": true
+    },
+    {
+      "path": "styles/customization.css",
+      "hash": "6169ba1b5f7696f3b27a3daf66b1ad835a2d2966afd94f711d53443f20b23a50",
+      "matchesCandidate": true,
+      "matchesAppliedReceipt": true
+    },
+    {
+      "path": "styles/workspace.css",
+      "hash": "b34888defef6637a10c22ecaf7496bb6fe75ea4d0acbc2a95174144a3b2c03b5",
+      "matchesCandidate": true,
+      "matchesAppliedReceipt": true
+    },
+    {
+      "path": "styles/component_themes.css",
+      "hash": "f079243a625401dba90405b57bf4e162917debde2a760b1cae9f14a04cfe943a",
+      "matchesCandidate": true,
+      "matchesAppliedReceipt": true
+    }
+  ],
+  "bundleSha256": "9b130b295f8464eb770f603afd68d31166569901bd9f0af2acda93192007fcae",
+  "waitingActorGuard": true
+}

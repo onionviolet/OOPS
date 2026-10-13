@@ -1,0 +1,1400 @@
+--- a/index.html
++++ b/index.html
+@@ -3,6 +3,7 @@
+     <head>
+         <link rel = "stylesheet" href = "style.css?version=v0.6-9af1e67bb6eb">
+         <link rel="stylesheet" href="styles/action_legibility.css?version=721590da18e7">
++        <link rel="stylesheet" href="styles/workspace.css">
+         
+         <script type="module" src="resources/js/HackTimer/HackTimer.min.js"></script>
+ 
+@@ -64,9 +65,9 @@
+             <div id ="loading_screen_status" class="loading_screen_status_good">
+                 No issues in the loading process :)
+             </div>
+-            <div id ="loading_screen_play_button" class="none_display">
++            <button type="button" id ="loading_screen_play_button" class="none_display">
+                 PLAY
+-            </div>
++            </button>
+         </div>
+ 
+         <div id = "hero_creation_panel">
+@@ -81,25 +82,25 @@
+                     <div id = "hero_creation_panel_gender_selection">
+                         <div data-translation="ui gender selection"></div>
+                         <div id="gender_selection" class="activable_buttons">
+-                            <div class="gender_selection_button" data-translation="ui female" data-gender="female"></div>
+-                            <div class="gender_selection_button active_selection_button" data-translation="ui ambiguous" data-gender="ambiguous" class="active_selection_button"></div>
+-                            <div class="gender_selection_button" data-translation="ui male" data-gender="male"></div>
++                            <button type="button" class="gender_selection_button" data-translation="ui female" data-gender="female"></button>
++                            <button type="button" class="gender_selection_button active_selection_button" data-translation="ui ambiguous" data-gender="ambiguous" class="active_selection_button"></button>
++                            <button type="button" class="gender_selection_button" data-translation="ui male" data-gender="male"></button>
+                         </div> 
+                     </div>
+                     <div id = "hero_creation_panel_height_selection">
+                         <div data-translation="ui height selection"></div>
+                         <div id="height_selection" class="activable_buttons">
+-                            <div class="height_selection_button" data-translation="ui short" data-height="short"></div>
+-                            <div class="height_selection_button active_selection_button" data-translation="ui average height" data-height="average" class="active_selection_button"></div>
+-                            <div class="height_selection_button" data-translation="ui tall" data-height="tall"></div>
++                            <button type="button" class="height_selection_button" data-translation="ui short" data-height="short"></button>
++                            <button type="button" class="height_selection_button active_selection_button" data-translation="ui average height" data-height="average" class="active_selection_button"></button>
++                            <button type="button" class="height_selection_button" data-translation="ui tall" data-height="tall"></button>
+                         </div> 
+                     </div>
+                     <div id = "hero_creation_panel_age_selection">
+                         <div data-translation="ui age selection"></div>
+                         <div id="age_selection" class="activable_buttons">
+-                            <div data-translation="ui young" data-age="young"></div>
+-                            <div data-translation="ui adult" data-age="adult" class="active_selection_button"></div>
+-                            <div data-translation="ui middle aged" data-age="middle aged"></div>
++                            <button type="button" data-translation="ui young" data-age="young"></button>
++                            <button type="button" data-translation="ui adult" data-age="adult" class="active_selection_button"></button>
++                            <button type="button" data-translation="ui middle aged" data-age="middle aged"></button>
+                         </div>
+                     </div>
+                 </div>
+@@ -114,9 +115,9 @@
+                         <div id = "race_kemonomimi_label" class="race_label" data-translation="ui race_kemonomimi_label"></div> </div>
+                 </div>
+                 <div id = "hero_creation_panel_confirmation_wrapper" class="race_selection_list">
+-                    <div id = "hero_creation_panel_confirmation" data-translation="ui confirm">
++                    <button type="button" id = "hero_creation_panel_confirmation" data-translation="ui confirm">
+                         
+-                    </div>
++                    </button>
+                 </div>
+             </div>
+         </div>
+@@ -191,25 +192,25 @@
+                     <div id = "inventory_content_div"> </div>
+ 
+                     <div id = "inventory_sorting_div" class="activable_buttons flex_wrap">
+-                        <div id = "inventory_sort_by_name" class = "character_sorting_button active_selection_button" onclick='sortCharacterInventory("name")' data-translation="ui sort name"></div>
+-                        <div id = "inventory_sort_by_price" class = "character_sorting_button" onclick='sortCharacterInventory("price")' data-translation="ui sort value"></div>
+-                        <div id = "inventory_sort_by_type" class = "character_sorting_button" onclick='sortCharacterInventory("type")' data-translation="ui sort type"></div>
++                        <button type="button" id = "inventory_sort_by_name" class = "character_sorting_button active_selection_button" onclick='sortCharacterInventory("name")' data-translation="ui sort name" aria-pressed="true"></button>
++                        <button type="button" id = "inventory_sort_by_price" class = "character_sorting_button" onclick='sortCharacterInventory("price")' data-translation="ui sort value" aria-pressed="false"></button>
++                        <button type="button" id = "inventory_sort_by_type" class = "character_sorting_button" onclick='sortCharacterInventory("type")' data-translation="ui sort type" aria-pressed="false"></button>
+                     </div>
+                     <div id = "inventory_control_div" class="activable_buttons flex_wrap">
+-                        <div id = "inventory_show_all" class = "inventory_control_button active_selection_button" onclick = "showAllItems()" data-translation="ui show all"></div>
+-                        <div id = "inventory_show_equipment" class = "inventory_control_button" onclick = "showOnlyEquipment()" data-translation="ui show equipment"></div>
+-                        <div id = "inventory_show_consumable" class = "inventory_control_button" onclick = "showOnlyConsumables()" data-translation="ui show usable"></div>
+-                        <div id = "inventory_show_other" class = "inventory_control_button" onclick = "showOnlyOther()" data-translation="ui show other"></div> 
+-                        <div id = "inventory_show_favs" class = "inventory_control_button" onclick = "showOnlyFavs()" data-translation="ui show favs"></div> 
++                        <button type="button" id = "inventory_show_all" class = "inventory_control_button active_selection_button" onclick = "showAllItems()" data-translation="ui show all" aria-pressed="true"></button>
++                        <button type="button" id = "inventory_show_equipment" class = "inventory_control_button" onclick = "showOnlyEquipment()" data-translation="ui show equipment" aria-pressed="false"></button>
++                        <button type="button" id = "inventory_show_consumable" class = "inventory_control_button" onclick = "showOnlyConsumables()" data-translation="ui show usable" aria-pressed="false"></button>
++                        <button type="button" id = "inventory_show_other" class = "inventory_control_button" onclick = "showOnlyOther()" data-translation="ui show other" aria-pressed="false"></button> 
++                        <button type="button" id = "inventory_show_favs" class = "inventory_control_button" onclick = "showOnlyFavs()" data-translation="ui show favs" aria-pressed="false"></button> 
+                     </div>
+                 </div>
+ 
+                 <div id = "character_combat_management" class = "box_div"></div>
+ 
+                 <div id = "inventory_combat_switch_selection" class="activable_buttons box_div flex_wrap">
+-                    <div id="switch_to_inventory" class="active_selection_button" onclick="switchToInventory()">Inventory
+-                    </div>
+-                    <div id="switch_to_combat" onclick="switchToCombat()">Combat</div>
++                    <button type="button" id="switch_to_inventory" class="active_selection_button" onclick="switchToInventory()" aria-pressed="true">Inventory
++                    </button>
++                    <button type="button" id="switch_to_combat" onclick="switchToCombat()" aria-pressed="false">Combat</button>
+                 </div>
+ 
+                 <!-- location info (name, types, description, etc?)-->
+@@ -259,23 +260,23 @@
+ 
+                     <div id = "trade_div">
+                         <div id = "trader_sorting_buttons" class="activable_buttons flex_wrap"> 
+-                            <div id = "trader_sort_by_name" class = "trader_sorting_button active_selection_button" onclick='sortTraderInventory("name")' data-translation="ui sort name"></div>
+-                            <div id = "trader_sort_by_price" class = "trader_sorting_button" onclick='sortTraderInventory("price")' data-translation="ui sort value"></div>
+-                            <div id = "trader_sort_by_type" class = "trader_sorting_button" onclick='sortTraderInventory("type")' data-translation="ui sort type"></div>
++                            <button type="button" id = "trader_sort_by_name" class = "trader_sorting_button active_selection_button" onclick='sortTraderInventory("name")' data-translation="ui sort name" aria-pressed="true"></button>
++                            <button type="button" id = "trader_sort_by_price" class = "trader_sorting_button" onclick='sortTraderInventory("price")' data-translation="ui sort value" aria-pressed="false"></button>
++                            <button type="button" id = "trader_sort_by_type" class = "trader_sorting_button" onclick='sortTraderInventory("type")' data-translation="ui sort type" aria-pressed="false"></button>
+                         </div>
+                         <div id = "trader_category_buttons" class="activable_buttons flex_wrap">
+-                            <div id = "trader_category_all" class = "trader_category_button active_selection_button" onclick='showAllTraderItems()'>
++                            <button type="button" id = "trader_category_all" class = "trader_category_button active_selection_button" onclick='showAllTraderItems()'>
+                                 all
+-                            </div>
+-                            <div id = "trader_category_equipment" class = "trader_category_button" onclick="showOnlyTraderEquipment()">
++                            </button>
++                            <button type="button" id = "trader_category_equipment" class = "trader_category_button" onclick="showOnlyTraderEquipment()">
+                                 equipment
+-                            </div>
+-                            <div id = "trader_category_usable" class = "trader_category_button" onclick="showOnlyTraderConsumables()">
++                            </button>
++                            <button type="button" id = "trader_category_usable" class = "trader_category_button" onclick="showOnlyTraderConsumables()">
+                                 usable
+-                            </div>
+-                            <div id = "trader_category_other" class = "trader_category_button" onclick="showOnlyTraderOther()">
++                            </button>
++                            <button type="button" id = "trader_category_other" class = "trader_category_button" onclick="showOnlyTraderOther()">
+                                 other
+-                            </div>
++                            </button>
+                         </div>
+ 
+ 
+@@ -294,37 +295,37 @@
+                                 <div id = "trade_price_value"> 0C </div>
+                             </div>
+ 
+-                            <div id = "accept_trade_button" onclick = "acceptTrade()">
++                            <button type="button" id = "accept_trade_button" onclick = "acceptTrade()">
+                                 Accept
+-                            </div> 
+-                            <div id = "cancel_trade_button" onclick = "cancelTrade()">
++                            </button> 
++                            <button type="button" id = "cancel_trade_button" onclick = "cancelTrade()">
+                                 Cancel
+-                            </div> 
+-                            <div id = "exit_trade_button" onclick = "exitTrade()">
++                            </button> 
++                            <button type="button" id = "exit_trade_button" onclick = "exitTrade()">
+                                 Exit
+-                            </div>
++                            </button>
+                         </div>
+                     </div>
+ 
+                     <div id = "storage_div">
+                         <div id = "storage_sorting_buttons" class="activable_buttons flex_wrap"> 
+-                            <div id = "storage_sort_by_name" class = "storage_sorting_button active_selection_button" onclick='sortStorageInventory("name")' data-translation="ui sort name"></div>
+-                            <div id = "storage_sort_by_price" class = "storage_sorting_button" onclick='sortStorageInventory("price")' data-translation="ui sort value"></div>
+-                            <div id = "storage_sort_by_type" class = "storage_sorting_button" onclick='sortStorageInventory("type")' data-translation="ui sort type"></div>
++                            <button type="button" id = "storage_sort_by_name" class = "storage_sorting_button active_selection_button" onclick='sortStorageInventory("name")' data-translation="ui sort name" aria-pressed="true"></button>
++                            <button type="button" id = "storage_sort_by_price" class = "storage_sorting_button" onclick='sortStorageInventory("price")' data-translation="ui sort value" aria-pressed="false"></button>
++                            <button type="button" id = "storage_sort_by_type" class = "storage_sorting_button" onclick='sortStorageInventory("type")' data-translation="ui sort type" aria-pressed="false"></button>
+                         </div>
+                         <div id = "storage_category_buttons" class="activable_buttons flex_wrap">
+-                            <div id = "storage_category_all" class = "storage_category_button active_selection_button" onclick='switchStorageItemVisibility()'>
++                            <button type="button" id = "storage_category_all" class = "storage_category_button active_selection_button" onclick='switchStorageItemVisibility()'>
+                                 all
+-                            </div>
+-                            <div id = "storage_category_equipment" class = "storage_category_button" onclick="switchStorageItemVisibility('equipment')">
++                            </button>
++                            <button type="button" id = "storage_category_equipment" class = "storage_category_button" onclick="switchStorageItemVisibility('equipment')">
+                                 equipment
+-                            </div>
+-                            <div id = "storage_category_usable" class = "storage_category_button" onclick="switchStorageItemVisibility('consumables')">
++                            </button>
++                            <button type="button" id = "storage_category_usable" class = "storage_category_button" onclick="switchStorageItemVisibility('consumables')">
+                                 usable
+-                            </div>
+-                            <div id = "storage_category_other" class = "storage_category_button" onclick="switchStorageItemVisibility('other')">
++                            </button>
++                            <button type="button" id = "storage_category_other" class = "storage_category_button" onclick="switchStorageItemVisibility('other')">
+                                 other
+-                            </div>
++                            </button>
+                         </div>
+ 
+ 
+@@ -332,35 +333,35 @@
+ 
+                         </div>
+                         <div id = "storage_control_div">
+-                            <div id = "exit_storage_button" onclick = "exitStorage()">
++                            <button type="button" id = "exit_storage_button" onclick = "exitStorage()">
+                                 Exit
+-                            </div>
++                            </button>
+                         </div>
+                     </div>
+ 
+                     <div id = "crafting_window" class="crafting_window">
+                         <div id="crafting_mainpage_buttons" class="activable_buttons crafting_mainpage_buttons flex_wrap">
+-                            <div class="crafting_mainpage_button" data-crafting_category="crafting" onclick="switchCraftingRecipesPage('crafting')">Tinkering</div>
+-                            <div class="crafting_mainpage_button" data-crafting_category="butchering" onclick="switchCraftingRecipesPage('butchering')">Butchering</div>
+-                            <div class="crafting_mainpage_button" data-crafting_category="cooking" onclick="switchCraftingRecipesPage('cooking')">Cooking</div>
+-                            <div class="crafting_mainpage_button" data-crafting_category="woodworking" onclick="switchCraftingRecipesPage('woodworking')">Woodworking</div>
+-                            <div class="crafting_mainpage_button" data-crafting_category="smelting" onclick="switchCraftingRecipesPage('smelting')">Smelting</div>
+-                            <div class="crafting_mainpage_button" data-crafting_category="forging" onclick="switchCraftingRecipesPage('forging')">Forging</div>
+-                            <div class="crafting_mainpage_button" data-crafting_category="alchemy" onclick="switchCraftingRecipesPage('alchemy')">Alchemy</div>
++                            <button type="button" class="crafting_mainpage_button" data-crafting_category="crafting" onclick="switchCraftingRecipesPage('crafting')">Tinkering</button>
++                            <button type="button" class="crafting_mainpage_button" data-crafting_category="butchering" onclick="switchCraftingRecipesPage('butchering')">Butchering</button>
++                            <button type="button" class="crafting_mainpage_button" data-crafting_category="cooking" onclick="switchCraftingRecipesPage('cooking')">Cooking</button>
++                            <button type="button" class="crafting_mainpage_button" data-crafting_category="woodworking" onclick="switchCraftingRecipesPage('woodworking')">Woodworking</button>
++                            <button type="button" class="crafting_mainpage_button" data-crafting_category="smelting" onclick="switchCraftingRecipesPage('smelting')">Smelting</button>
++                            <button type="button" class="crafting_mainpage_button" data-crafting_category="forging" onclick="switchCraftingRecipesPage('forging')">Forging</button>
++                            <button type="button" class="crafting_mainpage_button" data-crafting_category="alchemy" onclick="switchCraftingRecipesPage('alchemy')">Alchemy</button>
+                         </div>
+                         <div id="crafting_subpage_buttons" class="crafting_subpage_buttons activable_buttons flex_wrap">
+-                            <div class="crafting_subpage_button active_selection_button" data-crafting_subcategory="items" onclick="switchCraftingRecipesSubpage('items')">Items/trinkets</div>
+-                            <div class="crafting_subpage_button" data-crafting_subcategory="components" onclick="switchCraftingRecipesSubpage('components')">Components</div>
+-                            <div class="crafting_subpage_button" data-crafting_subcategory="equipment" onclick="switchCraftingRecipesSubpage('equipment')">Equipment</div>
++                            <button type="button" class="crafting_subpage_button active_selection_button" data-crafting_subcategory="items" onclick="switchCraftingRecipesSubpage('items')">Items/trinkets</button>
++                            <button type="button" class="crafting_subpage_button" data-crafting_subcategory="components" onclick="switchCraftingRecipesSubpage('components')">Components</button>
++                            <button type="button" class="crafting_subpage_button" data-crafting_subcategory="equipment" onclick="switchCraftingRecipesSubpage('equipment')">Equipment</button>
+                         </div>
+                         <label class="crafting_filter">
+                             <input id="crafting_makeable_filter" type="checkbox"> Makeable now
+                         </label>
+                         <p id="crafting_filter_empty" hidden>No known recipes can be made with your available materials. Turn off Makeable now to review requirements.</p>
+                         <div id="recipe_categories" class="crafting_category"></div>
+-                        <div id="exit_crafting_button" onclick="closeCraftingWindow()">
++                        <button type="button" id="exit_crafting_button" onclick="closeCraftingWindow()">
+                             Exit
+-                        </div>
++                        </button>
+                     </div>
+                 </div>
+ 
+@@ -374,15 +375,15 @@
+                                 <label for="options_hide_max_level_skills">Hide max level skills</label>
+                             </div>
+                             <div id="skill_sorting_buttons" class="activable_buttons flex_wrap">
+-                                <div id="skill_sort_by_name" class="skill_sorting_button active_selection_button" onclick='sortSkills({sort_by:"name"})' .>
++                                <button type="button" id="skill_sort_by_name" class="skill_sorting_button active_selection_button" onclick='sortSkills({sort_by:"name"})' aria-pressed="true">
+                                     Sort by name
+-                                </div>
+-                                <div id="skill_sort_by_level" class="skill_sorting_button" onclick='sortSkills({sort_by:"level"})'>
++                                </button>
++                                <button type="button" id="skill_sort_by_level" class="skill_sorting_button" onclick='sortSkills({sort_by:"level"})' aria-pressed="false">
+                                     Sort by level
+-                                </div>
+-                                <div id="skill_sort_by_progress" class="skill_sorting_button" onclick='sortSkills({sort_by:"progress"})'>
++                                </button>
++                                <button type="button" id="skill_sort_by_progress" class="skill_sorting_button" onclick='sortSkills({sort_by:"progress"})' aria-pressed="false">
+                                     Sort by progress
+-                                </div>
++                                </button>
+                             </div>
+                         </div>
+                         <div id = "stance_list_div">
+@@ -395,24 +396,24 @@
+                         </div>
+                     </div>
+                     <div id = "skill_and_stance_control_div" class="activable_buttons flex_wrap">
+-                        <div id="show_skills" class="skill_stance_control_button active_selection_button" onclick="showSkills()">
++                        <button type="button" id="show_skills" class="skill_stance_control_button active_selection_button" onclick="showSkills()" aria-pressed="true">
+                             Skills
+-                        </div>
+-                        <div id="show_stances" class="skill_stance_control_button" onclick="showStances()">
++                        </button>
++                        <button type="button" id="show_stances" class="skill_stance_control_button" onclick="showStances()" aria-pressed="false">
+                             Stances
+-                        </div>
+-                        <div id="show_magic" class="skill_stance_control_button" onclick="showMagic()">
++                        </button>
++                        <button type="button" id="show_magic" class="skill_stance_control_button" onclick="showMagic()" aria-pressed="false">
+                             Magic
+-                        </div>
++                        </button>
+                     </div>
+                 </div>
+ 
+                 <div id = "journal_div" class = "box_div">
+                     <div id = "journal_control_div" class="activable_buttons flex_wrap">
+-                        <div id = "journal_show_quests" class = "journal_control_button active_selection_button" onclick = "showQuests()"> Quests </div>
+-                        <div id = "journal_show_bestiary" class = "journal_control_button" onclick = "showBestiary()"> Bestiary </div>
+-                        <div id = "journal_show_books" class = "journal_control_button" onclick = "showReadBooks()"> Anthology </div>
+-                        <div id = "journal_show_data" class = "journal_control_button" onclick = "showData()"> Data </div>
++                        <button type="button" id = "journal_show_quests" class = "journal_control_button active_selection_button" onclick = "showQuests()" aria-pressed="true"> Quests </button>
++                        <button type="button" id = "journal_show_bestiary" class = "journal_control_button" onclick = "showBestiary()" aria-pressed="false"> Bestiary </button>
++                        <button type="button" id = "journal_show_books" class = "journal_control_button" onclick = "showReadBooks()" aria-pressed="false"> Anthology </button>
++                        <button type="button" id = "journal_show_data" class = "journal_control_button" onclick = "showData()" aria-pressed="false"> Data </button>
+                         <button id="journal_show_notebook" type="button" class="journal_control_button" onclick="showNotebook()" hidden>Notebook</button>
+                     </div>
+                     <div id = "journal_content_div">
+@@ -638,10 +639,10 @@
+                         </div>
+                     </div>
+                     <div id = "character_control_div" class="activable_buttons flex_wrap">
+-                        <div id = "character_show_stats" class = "character_control_button active_selection_button" onclick = "showCharacterStats()" data-translation="ui show stats"></div>
+-                        <div id = "character_show_bio" class = "character_control_button" onclick = "showCharacterBio()" data-translation="ui show bio"></div>
+-                        <div id = "character_show_equipment" class = "character_control_button" onclick = "showCharacterEquipment()" data-translation="ui show equipment"></div>
+-                        <div id = "character_show_tools" class = "character_control_button" onclick = "showCharacterTools()" data-translation="ui show tools"></div>
++                        <button type="button" id = "character_show_stats" class = "character_control_button active_selection_button" onclick = "showCharacterStats()" data-translation="ui show stats" aria-pressed="true"></button>
++                        <button type="button" id = "character_show_bio" class = "character_control_button" onclick = "showCharacterBio()" data-translation="ui show bio" aria-pressed="false"></button>
++                        <button type="button" id = "character_show_equipment" class = "character_control_button" onclick = "showCharacterEquipment()" data-translation="ui show equipment" aria-pressed="false"></button>
++                        <button type="button" id = "character_show_tools" class = "character_control_button" onclick = "showCharacterTools()" data-translation="ui show tools" aria-pressed="false"></button>
+                     </div>
+                 </div>
+             </div>
+@@ -652,36 +653,36 @@
+                 </div>
+                 <div id = "message_controls">
+ 
+-                    <div id = "message_show_unlocks" class = "message_control_button active_selection_button" onclick = "showUnlocksMessages()">
++                    <button type="button" id = "message_show_unlocks" class = "message_control_button active_selection_button" onclick = "showUnlocksMessages()" aria-pressed="true">
+                         Levels / unlocks
+-                    </div>
+-                    <div id = "message_show_events" class = "message_control_button active_selection_button" onclick = "showEventsMessages()">
++                    </button>
++                    <button type="button" id = "message_show_events" class = "message_control_button active_selection_button" onclick = "showEventsMessages()" aria-pressed="true">
+                         Events
+-                    </div>
+-                    <div id = "message_show_crafting" class = "message_control_button active_selection_button" onclick = "showCraftingMessages()">
++                    </button>
++                    <button type="button" id = "message_show_crafting" class = "message_control_button active_selection_button" onclick = "showCraftingMessages()" aria-pressed="true">
+                         Crafting
+-                    </div>
+-                    <div id = "message_show_combat" class = "message_control_button active_selection_button" onclick = "showCombatMessages()">
++                    </button>
++                    <button type="button" id = "message_show_combat" class = "message_control_button active_selection_button" onclick = "showCombatMessages()" aria-pressed="true">
+                         Combat
+-                    </div>
+-                    <div id = "message_show_loot" class = "message_control_button active_selection_button" onclick = "showLootMessages()">
++                    </button>
++                    <button type="button" id = "message_show_loot" class = "message_control_button active_selection_button" onclick = "showLootMessages()" aria-pressed="true">
+                         Loot
+-                    </div>
+-                    <div id = "message_show_background" class = "message_control_button active_selection_button" onclick = "showBackgroundMessages()">
++                    </button>
++                    <button type="button" id = "message_show_background" class = "message_control_button active_selection_button" onclick = "showBackgroundMessages()" aria-pressed="true">
+                         BGM
+-                    </div>
++                    </button>
+                     
+                 </div>
+             </div>
+         </div>
+ 
+         <div id = "bottom_panel_div" data-nosnippet>
+-            <div id = "save_button" class = "sl_button" onclick = "saveProgress()"> Save </div>
+-            <div id = "save_to_file_button" class = "sl_button" onclick = "saveToFile()"> Export <div id= "export_button_tooltip">Reward not available</div></div>
++            <button type="button" id = "save_button" class = "sl_button" onclick = "saveProgress()"> Save </button>
++            <button type="button" id = "save_to_file_button" class = "sl_button" onclick = "saveToFile()"> Export <span id= "export_button_tooltip">Reward not available</span></button>
+             <label id = "load_from_file_button" class = "sl_button" for = "saved_file_input"> Import </label> 
+             <input id = "saved_file_input" type='file' accept = 'text/plain' onchange = 'loadProgress(event)'>	
+ 
+-            <div id = "options_button" class = "game_info" onclick="openOptions()"><span><i class="material-icons">settings</i></span></div>
++            <button type="button" id = "options_button" class = "game_info" onclick="openOptions()" aria-label="Options"><span><i class="material-icons">settings</i></span></button>
+             <div id = "changelog_button" class = "game_info"><a href="changelog.html" target="_blank"></a></div>
+             <div id = "help_button" class = "game_info"><a href="help.html" target="_blank"><i class="material-icons">help_outline</i></a></div>
+ 
+@@ -750,10 +751,10 @@
+                 </div>
+ 
+             </div>
+-            <div id="close_options" onclick="closeOptions()"> X </div>
+-            <div id = "backup_load_button" class="options_button" onclick = "loadTheBackup()">Load the backup autosave</div>
+-            <div id = "import_other_save_button" class="options_button" onclick = "importOtherSave()"> Import save from </div>
+-            <div id = "hard_reset_button" class="options_button" onclick = "hardReset()"> Hard reset the game <i class="material-icons"> warning_amber </i> </div>
++            <button type="button" id="close_options" onclick="closeOptions()" aria-label="Close options"> X </button>
++            <button type="button" id = "backup_load_button" class="options_button" onclick = "loadTheBackup()">Load the backup autosave</button>
++            <button type="button" id = "import_other_save_button" class="options_button" onclick = "importOtherSave()"> Import save from </button>
++            <button type="button" id = "hard_reset_button" class="options_button" onclick = "hardReset()"> Hard reset the game <i class="material-icons"> warning_amber </i> </button>
+         </div>
+ 
+         <canvas id="foreground_canvas">
+@@ -939,6 +940,7 @@
+                 const control = document.getElementById("journal_show_notebook");
+                 for(const button of control.parentNode.children) {
+                     button.classList.toggle("active_selection_button", button === control);
++                    button.setAttribute("aria-pressed", String(button === control));
+                 }
+             }
+ 
+@@ -1727,8 +1729,10 @@
+                         //additional verification that it's an element that's meant to be activated and not some child of it
+                         for(let i = 0; i < clicked_element.parentNode.children.length; i++) {
+                             clicked_element.parentNode.children[i].classList.remove("active_selection_button");
++                            if (clicked_element.parentNode.children[i].matches("button")) clicked_element.parentNode.children[i].setAttribute("aria-pressed", "false");
+                         }
+                         clicked_element.classList.add("active_selection_button");
++                        if (clicked_element.matches("button")) clicked_element.setAttribute("aria-pressed", "true");
+                     }
+                 }
+ 
+@@ -1740,8 +1744,10 @@
+                     if(clicked_element.children.length == 0) {
+                         if(clicked_element.classList.contains("active_selection_button")) {
+                             clicked_element.classList.remove("active_selection_button");
++                            clicked_element.setAttribute("aria-pressed", "false");
+                         } else {
+                             clicked_element.classList.add("active_selection_button");
++                        if (clicked_element.matches("button")) clicked_element.setAttribute("aria-pressed", "true");
+                         }
+                     }
+                 }
+--- a/src/main.js
++++ b/src/main.js
+@@ -1,3 +1,5 @@
++import {mountWorkspace, registerWorkspaceModule} from './workspace_layout.js';
++import {createWorkspaceViews, createEquipmentComparison} from './workspace_views.js';
+ import {normalizeElementalOption,describeElementalPreparation,ELEMENTAL_SETTING_DESCRIPTION} from './absorb_e3/elemental_affinities.js';
+ import {equipmentDurability as durability} from './absorb_e2/durability.js';
+ import {getPacingState,setPacingState,advancePacing,prepareFood,getPacingEffects} from './absorb_e1/pacing.js';
+@@ -8036,6 +8038,40 @@
+             const target = control && !control.hidden && !control.disabled ? control : panel.querySelector("summary");
+             target?.focus(); target?.scrollIntoView({block:"nearest"});
+         }});
++    for(const [id,title,nodeId,home,critical] of [
++        ['vitals','Character vitals','basic_character_info_div','left',true],
++        ['time','Time & weather','time_and_location','center',true],
++        ['location','Current location','location_div','center',true],
++        ['combat-controls','Inventory & combat view','inventory_combat_switch_selection','left',true],
++        ['skills','Skills & practice','skills_and_stances_div','right',false],
++        ['records','Journal & received accounts','journal_div','right',false],
++        ['preparation','Character & preparation','character_div','left',false],
++        ['belongings','Belongings','inventory_div','left',false],
++        ['local-actions','Local actions','location_related_div','center',true],
++        ['messages','Reports','message_log_div','right',false],
++    ]) {const node=document.getElementById(nodeId);if(node)registerWorkspaceModule({id,title,node,home,critical});}
++    createEquipmentComparison({read:()=>{
++        const held=Object.entries(character.getItems()).map(([id,row])=>({id,item:row.item,label:'Held'}));
++        const worn=Object.entries(character.getEquipment()).filter(([,item])=>item).map(([id,item])=>({id:'worn:'+id,item,label:'Worn'}));
++        return [...held,...worn].filter(r=>r.item?.tags.equippable).map(({id,item,label})=>{
++            const stats={};if(item.getAttack)stats.Attack=item.getAttack();if(item.getDefense)stats.Defense=item.getDefense();
++            if(item.quality!=null)stats.Quality=item.quality+'%';
++            for(const [key,value]of Object.entries(item.getStats?.()||{}))stats[key]=[value.flat!=null?`+${value.flat}`:null,value.multiplier!=null?`×${value.multiplier}`:null].filter(Boolean).join(' ');
++            return {id,label:label+': '+item.getName(),slot:item.equip_slot,stats};
++        });
++    }});
++    createWorkspaceViews({read:()=>({
++        work:[current_activity?.name||current_activity?.activity_name||current_activity?.id,current_game_action?.name,
++            is_sleeping?'Sleeping':null,is_reading?'Reading':null,current_dialogue?'Conversation in progress':null,
++            current_combat?'Combat in progress':null,
++            ...expansionState.pending.filter(j=>j.context.actorId==='player').map(j=>`${j.label||expeditionRegistry.actions.get(j.actionId)?.label||'Current work'}: ${Math.max(0,j.due-expansionState.clock)} min remaining`),
++            ...(expansionState.simulation?.jobs||[]).filter(j=>j.actorId==='player').map(j=>`${j.label||'Current work'}: ${Math.max(0,j.due-expansionState.clock)} min remaining`),
++            expansionState.simulation?.sessions.player?'A response is waiting in your notes.':null,
++            ...Object.values(expansionState.simulation?.events||{}).filter(e=>e.mode==='decision'&&e.status==='open'&&e.discoveredBy.includes('player')).map(e=>'Waiting response: '+e.label),
++        ].filter(Boolean),waiting:!!expansionState.simulation?.sessions.player||Object.values(expansionState.simulation?.events||{}).some(e=>e.mode==='decision'&&e.status==='open'&&e.discoveredBy.includes('player')),canWrite:ownsSave&&!foundationSaveBlocked&&!importProbeToken,error:expansionError,
++        away:expansionState.actors.player.worldId!=='base.frontier'
++    })});
++    mountWorkspace();
+     expansionQuests = createExpansionQuests({read: readProgression});
+     const bodySkills = new Set(["Running","Weightlifting","Climbing","Equilibrium","Breathing","Swimming","Fortitude","Perception","Meditation","Sleeping","Cold resistance"]);
+     characterBio = createCharacterBio({registry: expeditionRegistry, read: readProgression,
+--- a/src/adventure_notebook.js
++++ b/src/adventure_notebook.js
+@@ -1,3 +1,4 @@
++import {registerWorkspaceModule, workspaceOwns, openWorkspaceModule} from './workspace_layout.js';
+ import {STEAM_ABSORPTION_GROUPS} from './steam_absorption_content.js';
+ import {isFeatureBattleSchema} from './feature_expansion_battle.js';
+ import {activePractice} from "./techniques.js";
+@@ -76,12 +77,12 @@
+         const active = attention(state,registry,snapshot.inCombat), familiar = knownPeople || state.chronicle || state.simulation || Object.keys(actor.techniques).length || actor.facts["town.joined"] || active;
+         root.hidden = !familiar;
+         const host = document.getElementById("notebook_box_div"), control = document.getElementById("journal_show_notebook");
+-        if(root.parentElement !== host && host) host.append(root);
++        if(!workspaceOwns(root) && root.parentElement !== host && host) host.append(root);
+         if(control) control.hidden = !familiar;
+         for(const [id] of panels) {
+             const panel = document.getElementById(id), wrap=wrappers.get(id);
+             wrap.hidden=!!state.realmPrototype?.activeVisitId&&id!=="pocket_realm_panel"&&id!=="known_routes_panel";
+-            if(panel && panel.parentElement !== wrap) wrap.append(panel);
++            if(panel && !workspaceOwns(panel) && panel.parentElement !== wrap) wrap.append(panel);
+         }
+         wrappers.get("expedition_panel").hidden = location !== "Village" && active?.panel !== "expedition_panel";
+         wrappers.get("chronicle_panel").hidden = location !== "Village" && active?.panel !== "chronicle_panel";
+@@ -92,7 +93,7 @@
+             selected=active.view; const panel=document.getElementById(active.panel); if(panel) panel.open=true;
+             // A newly waiting response must remain reachable after moving away
+             // from the location menu. User tab choices then survive later ticks.
+-            control?.click();
++            control?.click();openWorkspaceModule('notebook');
+         }
+         lastLocation=location; lastAttention=active?.id || null;
+         for(const [id,button] of buttons) {
+@@ -107,6 +108,9 @@
+         for(const [id,button] of buttons) {const isSelected=id===selected; button.setAttribute("aria-selected",String(isSelected)); button.tabIndex=isSelected ? 0 : -1; sections.get(id).hidden=!isSelected;}
+         const message = error || active?.text || ""; if(status.textContent !== message) status.textContent=message; status.hidden=!message;
+     }
+-    function open(view = selected) {render(); if(buttons.has(view) && !buttons.get(view).disabled) {selected=view; render();} document.getElementById("journal_show_notebook")?.click();}
+-    render(); return {render, open};
++    function open(view = selected) {openWorkspaceModule('notebook');render(); if(buttons.has(view) && !buttons.get(view).disabled) {selected=view; render();} document.getElementById("journal_show_notebook")?.click();}
++    render();registerWorkspaceModule({id:'notebook',title:'Notes, practice & people',node:root,home:'right',eligible:()=>!root.hidden});
++    registerWorkspaceModule({id:'known-people',title:'People you know',node:people.panel,home:'right',eligible:()=>!people.panel.hidden});
++    const routes=document.getElementById('known_routes_panel');if(routes)registerWorkspaceModule({id:'known-routes',title:'Known routes',node:routes,home:'right',eligible:()=>!routes.hidden});
++    return {render, open};
+ }
+--- a/src/village_career_ui.js
++++ b/src/village_career_ui.js
+@@ -1,9 +1,10 @@
++import {registerWorkspaceModule, workspaceOwns, unregisterWorkspaceModule} from './workspace_layout.js';
+ import {CAREER_RANKS,KIT_DEBT,villagePromotionRequirements,villageColleagueMemory,WATCHCRAFT_BOOK,WATCHCRAFT_BONUS,WATCHCRAFT_PRACTICE, recruitMemory, TEACHING_TERMS} from './village_career.js';
+ const node=(tag,text='')=>{const n=document.createElement(tag);n.textContent=text;return n;};
+ // Lives inside the native center menu, including the ongoing patrol display.
+ export function createVillageCareerControls({read,resolve,promote,notes,readNotes,practice,mentor,tutor}) {
+-    const panel=node('section');panel.id='village_career_controls';
+-    const title=node('h4'),status=node('p'),memory=node('p'),requirements=node('p'),study=node('p'),outcome=node('p'),buttons=node('div'),error=node('p');study.id='village_watchcraft_status';outcome.id='village_watchcraft_outcome';
++    const panel=node('details');panel.id='village_career_controls';panel.className='village_career_panel';
++    const title=node('summary'),status=node('p'),memory=node('p'),requirements=node('p'),study=node('p'),outcome=node('p'),buttons=node('div'),error=node('p');study.id='village_watchcraft_status';outcome.id='village_watchcraft_outcome';
+     const junior=node('p');junior.id='village_mentor_status';panel.append(title,status,memory,requirements,study,outcome,junior,buttons,error);let signature='';
+     const action=(id,label,fn,disabled)=>{const b=node('button',label);b.type='button';b.id=id;b.disabled=disabled;b.onclick=()=>{try{fn();error.textContent='';}catch(e){error.textContent=e.message;}render();};return b;};
+     function render() {
+@@ -55,9 +56,12 @@
+                 controls.push(s.debt?action('village_pay_debt',`Pay ${KIT_DEBT}-coin kit debt`,()=>resolve('pay'),disabled):action('village_keep_kit','Keep kit and record debt',()=>resolve('keep'),disabled));
+             }
+             if(s.rank<2)controls.push(action('village_promotion',`Ask Tessa: ${CAREER_RANKS[s.rank+1]}`,promote,disabled||!!unmet.length));
++            const focused=document.activeElement, key=buttons.contains?.(focused)?focused.id:null;
++            for(const control of controls) if(control.disabled) control.title=!v.canWrite?'Saving unavailable.':v.busy?'Finish current work first.':unmet.join(' ')||'The displayed requirements are not met.';
+             buttons.replaceChildren(...controls);
++            if(key) (controls.find(b=>b.id===key&&!b.disabled)||title).focus?.();
+         }
+-        const host=document.getElementById('location_actions_div');if(host && panel.parentElement!==host)host.prepend(panel);
++        const host=document.getElementById('location_actions_div');if(host && !workspaceOwns(panel) && panel.parentElement!==host)host.append(panel);
+     }
+-    render();const timer=setInterval(render,250);return {render,destroy:()=>{clearInterval(timer);panel.remove();}};
++    render();registerWorkspaceModule({id:'patrol',title:'Patrol & custody',node:panel,home:'center',eligible:()=>!panel.hidden});const timer=setInterval(render,250);return {render,destroy:()=>{clearInterval(timer);unregisterWorkspaceModule('patrol');panel.remove();}};
+ }
+--- a/src/content_pack_ui.js
++++ b/src/content_pack_ui.js
+@@ -1,31 +1,39 @@
++import {registerWorkspaceModule, workspaceOwns, unregisterWorkspaceModule} from './workspace_layout.js';
+ import {packConditions} from './content_packs.js';
+ export function createContentPackPanel({definitions,read,command}) {
+     if(!definitions.size)return null;
+     const panel=document.createElement('details');panel.id='optional_content_panel';panel.open=true;
+-    const summary=document.createElement('summary');summary.textContent='Optional worlds';panel.append(summary);
+-    const body=document.createElement('div');panel.append(body);let signature,notice='';
+-    const button=(label,id,fn,disabled=false)=>{const b=document.createElement('button');b.type='button';b.textContent=label;b.dataset.packAction=id;b.disabled=disabled;b.onclick=()=>{try{fn();notice='Saved.';}catch(error){notice=error.message;}render(true);};return b;};
++    const summary=document.createElement('summary');summary.textContent='Optional worlds';summary.tabIndex=0;panel.append(summary);
++    const body=document.createElement('div'),live=document.createElement('p');live.setAttribute?.('role','status');panel.append(body,live);let signature,notice='';
++    const button=(label,id,fn,disabled=false)=>{const b=document.createElement('button');b.type='button';b.textContent=label;b.dataset.packAction=id;b.disabled=disabled;b.onclick=()=>{try{fn();notice='Saved. '+label+' requested.';}catch(error){notice=error.message;}render(true);};return b;};
+     function render(force=false) {
+         // Native location refreshes can detach the panel without changing its view.
+-        const host=document.getElementById('location_actions_div');if(host&&panel.parentElement!==host)host.prepend(panel);
+-        const view=read(),next=JSON.stringify(view);if(!force&&signature===next)return;signature=next;body.replaceChildren();
++        const host=document.getElementById('location_actions_div');if(host&&!workspaceOwns(panel)&&panel.parentElement!==host)host.append(panel);
++        const view=read(),next=JSON.stringify(view);if(!force&&signature===next)return;signature=next;
++        const focused=document.activeElement,focusId=body.contains?.(focused)?focused.dataset?.packAction:null;
++        body.replaceChildren();
+         const p=text=>{const n=document.createElement('p');n.textContent=text;body.append(n);};
+         const active=Object.entries(view.state.packs).find(([,r])=>r.active);
+         for(const [id,d] of definitions) {
+             if(active&&active[0]!==id)continue;
+             const row=view.state.packs[id];p(d.title);
+-            if(!row?.active) {p(d.description);body.append(button('Visit '+d.title,id+'.enter',()=>command(id,'enter'),!view.canEnter));continue;}
++            if(!row?.active) {p(d.description);if(!view.canEnter)p('Entry currently unavailable. Finish current work and return to Village with saving available.');body.append(button('Visit '+d.title,id+'.enter',()=>command(id,'enter'),!view.canEnter));continue;}
+             p(d.locations[0].label);p(d.locations[0].description);
+             p(d.people.map(person=>person.label+': '+(person.memoryField&&d.displays?.[person.memoryField]?.[row.values[person.memoryField]]||person.description||'')).join(' · '));
+             for(const [key,label] of Object.entries(d.status||{}))p(label+': '+(d.displays?.[key]?.[row.values[key]]??row.values[key]));
+             if(view.reference)p('Tessa’s reference recognizes your resolved Village patrol history. Local rank remains separate.');
+             if(row.job)p((d.activities.find(a=>a.id===row.job.actionId)?.label||'Local work')+' · '+row.job.remaining+' played minutes remaining. Leaving pauses this work without pay.');
+             for(const a of d.activities)if(packConditions(row.values,a.visibleWhen)) {
+-                p(a.description);body.append(button(a.label,a.id,()=>command(id,a.id),!view.canAct||!!row.job||!packConditions(row.values,a.requires)));
++                p(a.description);p(a.duration>0?`${a.duration} played minutes. Leaving pauses unfinished work without pay.`:'Immediate.');
++                const unmet=(a.requires||[]).filter(r=>!packConditions(row.values,[r]));
++                const reasons=!view.canAct?['Saving unavailable.']:row.job?['Finish current work first.']:unmet.map(r=>d.status?.[r.field]?`${d.status[r.field]} requirement not met.`:'Known prerequisites are not met.');
++                if(reasons.length)p(reasons.join(' '));
++                const control=button(a.label,a.id,()=>command(id,a.id),reasons.length>0);control.title=reasons.join(' ');body.append(control);
+             }
+             body.append(button('Return to Village',id+'.return',()=>command(id,'return'),!view.canAct));
+         }
+-        if(notice)p(notice);
++        if(live.textContent!==notice)live.textContent=notice;
++        if(focusId){const find=node=>node.dataset?.packAction===focusId?node:[...node.children].map(find).find(Boolean);const target=find(body);if(target&&!target.disabled)target.focus();else summary.focus?.();}
+     }
+-    render();const timer=setInterval(render,250);return {render,destroy(){clearInterval(timer);panel.remove();}};
++    render();registerWorkspaceModule({id:'optional-worlds',title:'Optional worlds',node:panel,home:'center',eligible:()=>!panel.hidden});const timer=setInterval(render,250);return {render,destroy(){clearInterval(timer);unregisterWorkspaceModule('optional-worlds');panel.remove();}};
+ }
+--- a/src/structured_pack_ui.js
++++ b/src/structured_pack_ui.js
+@@ -1,9 +1,10 @@
++import {registerWorkspaceModule, workspaceOwns, unregisterWorkspaceModule} from './workspace_layout.js';
+ // The host supplies an observer-safe projection. This panel never reads pack
+ // definitions. Explicit session repeats dispatch through normal host commands.
+ export function createStructuredPackPanel({read,command}) {
+     const panel=document.createElement('details');panel.id='structured_pack_panel';panel.open=true;
+-    const summary=document.createElement('summary');summary.textContent='Your beginning';panel.append(summary);
+-    const body=document.createElement('div');panel.append(body);let signature,notice='',repetition=null;
++    const summary=document.createElement('summary');summary.textContent='Your beginning';summary.tabIndex=0;panel.append(summary);
++    const body=document.createElement('div'),live=document.createElement('p');live.setAttribute?.('role','status');panel.append(body,live);let signature,notice='',repetition=null;
+     const projected=()=>{const v=read();return {
+         available:!!v.available,active:!!v.active,title:v.title,place:v.place,description:v.description,
+         people:(v.people||[]).map(p=>({name:p.name,details:p.details||[]})),
+@@ -18,14 +19,14 @@
+             if(request.type==='stop-repeat'){notice='Further repetitions stopped. Current work continues.';render(true);return;}
+             const times=request.times||1,actual={...request};delete actual.times;
+             const before=projected().actions.find(a=>a.id===actual.id);
+-            try{command(actual);notice='Saved.';
++            try{command(actual);notice='Saved. '+(before?.label||({begin:'Beginning',cancel:'Cancellation',renewal:'Renewal'}[actual.type]||'Action'))+' requested.';
+                 if(times>1){const job=projected().jobs.find(j=>j.commandId===actual.id);
+                     if(job)repetition={id:actual.id,label:before.label,remaining:times-1,jobId:job.id,completed:before.completed};}
+             }catch{notice=projected().error||'The action could not be saved.';}render(true);
+         };return b;
+     };
+     function render(force=false) {
+-        const host=document.getElementById('location_actions_div');if(host&&panel.parentElement!==host)host.prepend(panel);
++        const host=document.getElementById('location_actions_div');if(host&&!workspaceOwns(panel)&&panel.parentElement!==host)host.append(panel);
+         const view=projected();
+         if(repetition&&(!view.canWrite||view.error)){notice='Repeated work stopped. '+(view.error||'Restore saving before continuing.');repetition=null;}
+         if(repetition&&!view.jobs.some(j=>j.id===repetition.jobId)){
+@@ -73,9 +74,9 @@
+                     body.append(button(action.label,{structuredAction:action.id},{type:'action',id:action.id},!view.canWrite||!action.eligible));
+                     if(action.repeatable)body.append(button('Repeat '+action.label+' 3 times',{structuredRepeat:action.id},{type:'action',id:action.id,times:3},!view.canWrite||!action.eligible));}
+             }
+-            p(view.error||notice);
++            const outcome=view.error||notice;if(live.textContent!==outcome)live.textContent=outcome;
+         }
+-        if(focusKey){const find=node=>node.dataset?.[focusKey[0]]===focusKey[1]?node:[...node.children].map(find).find(Boolean);find(body)?.focus();}
++        if(focusKey){const find=node=>node.dataset?.[focusKey[0]]===focusKey[1]?node:[...node.children].map(find).find(Boolean);const target=find(body);if(target&&!target.disabled)target.focus();else summary.focus?.();}
+     }
+-    render();const timer=setInterval(render,250);return {render,destroy(){clearInterval(timer);panel.remove();}};
++    render();registerWorkspaceModule({id:'beginning',title:'Your beginning',node:panel,home:'center',eligible:()=>!panel.hidden});const timer=setInterval(render,250);return {render,destroy(){clearInterval(timer);unregisterWorkspaceModule('beginning');panel.remove();}};
+ }
+--- a/src/absorb_d/ui.js
++++ b/src/absorb_d/ui.js
+@@ -1,16 +1,17 @@
++import {registerWorkspaceModule, workspaceOwns, unregisterWorkspaceModule} from '../workspace_layout.js';
+ import {FORT,ORDERS,itemSourceJournal,migrateFortSupply} from './fort.js';
+ 
+ // A projection inside native center actions; transactions belong to the caller.
+ export function createFortControls({read,act,document=globalThis.document}) {
+-    const panel=document.createElement('div');panel.id='fort_supply_panel';panel.className='village_career_panel';
+-    const title=document.createElement('strong'),text=document.createElement('div'),buttons=document.createElement('div'),journal=document.createElement('div');
++    const panel=document.createElement('details');panel.id='fort_supply_panel';panel.className='village_career_panel';
++    const title=document.createElement('summary'),text=document.createElement('div'),buttons=document.createElement('div'),journal=document.createElement('div');
+     title.textContent='Waypost supply clerk';panel.append(title,text,buttons,journal);
+     let previous='';
+     function render(){
+         const view=read();
+-        if(view.worldId!=='base.frontier'||!['Village',FORT.post].includes(view.location)){panel.remove();return;}
++        if(view.worldId!=='base.frontier'||!['Village',FORT.post].includes(view.location)){panel.hidden=true;return;}panel.hidden=false;
+         const host=document.getElementById('location_actions_div');if(!host)return;
+-        if(panel.parentElement!==host)host.prepend(panel);
++        if(!workspaceOwns(panel)&&panel.parentElement!==host)host.append(panel);
+         const fingerprint=JSON.stringify(view);if(previous===fingerprint)return;previous=fingerprint;
+         const f=migrateFortSupply({fort_supply:view.fort});
+         text.textContent=`Clerk purse: ${f.funds} coins. Paid so far: ${f.spent}. Supplies change hands immediately; no shift, promotion or patrol credit. `+
+@@ -27,5 +28,5 @@
+         if(entries.length){const heading=document.createElement('strong');heading.textContent='Learned item sources';journal.append(heading);
+             for(const edge of entries){const row=document.createElement('div');row.textContent=`${edge.itemId}: ${edge.label} (${edge.certainty}, ${edge.kind})`;journal.append(row);}}
+     }
+-    render();return {render,destroy:()=>panel.remove()};
++    render();registerWorkspaceModule({id:'supplies',title:'Local supplies',node:panel,home:'center',eligible:()=>!panel.hidden});return {render,destroy:()=>{unregisterWorkspaceModule('supplies');panel.remove();}};
+ }
+--- a/src/workspace_layout.js
++++ b/src/workspace_layout.js
+@@ -0,0 +1,162 @@
++import { normalizeLayout, parseLayout, presetLayout, changeModule, reorderModule, layoutStorageKey } from './workspace_state.js';
++const registry = new Map();
++let owner;
++const el = (tag, cls, text) => { const node = document.createElement(tag); if (cls) node.className = cls; if (text) node.textContent = text; return node; };
++function button(label, action, id) { const b = el('button', '', label); b.type = 'button'; b.dataset.workspaceAction = action; if (id) b.dataset.module = id; return b; }
++export function workspaceOwns(node) { return !!owner && [...registry.values()].some(v => v.node === node); }
++export function registerWorkspaceModule({ id, title, node, home = node?.parentNode, homeHost, defaultDock, eligible = () => true, critical = false }) {
++    if (!/^[a-z][a-z0-9_-]*$/.test(id) || !node || !home) throw new Error('Workspace modules require a stable safe ID, node and home.');
++    const old = registry.get(id);
++    if (old) { if (old.node !== node) { if (owner && old.node.parentNode) old.node.replaceWith(node); old.node = node; } old.eligible = eligible; old.critical = critical; updateWorkspace(); return old; }
++    const placeholder = null;
++    const dock = defaultDock || (typeof home === 'string' ? home : home?.dock);
++    const module = { id, title: String(title), node, home: (typeof homeHost === 'string' ? document.getElementById(homeHost) : homeHost) || (home?.append ? home : node.parentNode), homeId: typeof homeHost === 'string' ? homeHost : (node.parentNode?.id || null), defaultDock: ['left','center','right','float'].includes(dock) ? dock : undefined, eligible, critical, placeholder }; registry.set(id, module);
++    if (owner) { owner.layout = withDefaults(owner.layout); makeShell(module); updateWorkspace(); }
++    return module;
++}
++function makeShell(module) {
++    if (module.shell) return;
++    if (!module.placeholder) { module.placeholder = document.createComment(`workspace:${module.id}`); module.node.before(module.placeholder); }
++    const shell = el('section', 'workspace-module'); shell.dataset.module = module.id;
++    const header = el('div', 'workspace-module-header');
++    const handle = button('↕', 'handle', module.id); handle.className = 'workspace-drag-handle'; handle.draggable = true; handle.title = 'Drag to reorder or dock. Arrow keys move; left/right changes dock.'; handle.setAttribute('aria-label', `Move ${module.title}`);
++    const title = el('strong', '', module.title); header.append(handle, title, button('Collapse', 'collapse', module.id));
++    const details = el('details', 'workspace-module-controls'); const summary = el('summary', '', 'Panel controls'); details.append(summary); details.addEventListener('toggle', updateWorkspace);
++    const label = el('label', '', 'Dock '), select = el('select'); select.dataset.workspaceAction = 'dock'; select.dataset.module = module.id;
++    ['left', 'center', 'right', 'float'].forEach(d => { const option = el('option', '', d === 'float' ? 'Floating' : d); option.value = d; select.append(option); }); label.append(select); details.append(label);
++    details.append(button('Earlier', 'earlier', module.id), button('Later', 'later', module.id), button('Pin', 'pin', module.id), button('Hide', 'hide', module.id));
++    for (const dimension of ['width', 'height']) { const label = el('label', 'workspace-resize', `${dimension} `), range = el('input'); range.type = 'range'; range.min = dimension === 'width' ? '260' : '180'; range.max = '1000'; range.step = '20'; range.dataset.workspaceAction = dimension; range.dataset.module = module.id; range.setAttribute('aria-label', `${module.title} ${dimension}`); label.append(range); details.append(label); }
++    const moves = el('div', 'workspace-float-controls'); moves.append(button('←', 'float-left', module.id), button('↑', 'float-up', module.id), button('↓', 'float-down', module.id), button('→', 'float-right', module.id)); details.append(moves);
++    const body = el('div', 'workspace-module-body'); body.append(module.node); shell.append(header, details, body); module.shell = shell; module.body = body; owner.docks.left.append(shell);
++}
++function save() { try { localStorage.setItem(layoutStorageKey(owner.narrow), JSON.stringify(owner.layout)); } catch { owner.status.textContent = 'Layout works for this session; browser storage is unavailable.'; } }
++function withDefaults(layout) { const previous = new Set(layout?.modules?.map(v => v.id) || []); const result = normalizeLayout(layout, [...registry.keys()]); result.modules.forEach(v => { if (!previous.has(v.id) && registry.get(v.id).defaultDock) v.dock = registry.get(v.id).defaultDock; }); return result; }
++function makePreset(name) { const layout = presetLayout(name, [...registry.keys()]); layout.density = owner?.layout.density || 'compact'; if (name !== 'Focus') layout.modules.forEach(v => { if (registry.get(v.id).defaultDock) v.dock = registry.get(v.id).defaultDock; }); const context = new Set(['vitals','time','location','combat-nav','native-vitals','native-time','native-location','combat-navigation']); layout.modules.sort((a,b) => ((registry.get(a.id).critical || context.has(a.id)) ? 0 : 1) - ((registry.get(b.id).critical || context.has(b.id)) ? 0 : 1)); layout.modules.forEach((v,order) => { v.order=order; if(name==='Focus' && (registry.get(v.id).critical || context.has(v.id)))v.collapsed=false; }); return layout; }
++function read(narrow) { try { const raw = localStorage.getItem(layoutStorageKey(narrow)); return raw ? parseLayout(raw, [...registry.keys()]) : withDefaults(null); } catch { return withDefaults(null); } }
++function apply(id, patch) { owner.layout = changeModule(owner.layout, id, patch); save(); updateWorkspace(); }
++function action(event) {
++    const control = event.target.closest('[data-workspace-action]'); if (!control || !owner.root.contains(control)) return;
++    const a = control.dataset.workspaceAction, id = control.dataset.module, state = owner.layout.modules.find(v => v.id === id);
++    if (a === 'preset') { owner.layout = makePreset(control.value); save(); updateWorkspace(); return; }
++    if (a === 'density') { owner.layout.density = control.value; save(); updateWorkspace(); return; }
++    if (a === 'reset') { owner.layout = makePreset('Classic'); save(); updateWorkspace(); return; }
++    if (a === 'export') { owner.config.value = JSON.stringify(normalizeLayout(owner.layout, [...registry.keys()]), null, 2); owner.status.textContent = 'Layout configuration ready to copy. It contains panel IDs and positions only.'; return; }
++    if (a === 'import') { try { const raw = JSON.parse(owner.config.value); if (raw.version !== 1 || !Array.isArray(raw.modules)) throw Error(); owner.layout = normalizeLayout(raw, [...registry.keys()]); save(); updateWorkspace(); owner.status.textContent = 'Layout imported.'; } catch { owner.status.textContent = 'Invalid layout. Current layout preserved.'; } return; }
++    if (!state) return;
++    if (moduleCritical(id) && ['hide', 'collapse'].includes(a)) { owner.status.textContent = 'This panel contains required current actions and stays open.'; return; }
++    if (a === 'restore') openWorkspaceModule(id);
++    else if (a === 'collapse') apply(id, { collapsed: !state.collapsed });
++    else if (a === 'pin') apply(id, { pinned: !state.pinned });
++    else if (a === 'hide') { apply(id, { hidden: true }); owner.picker.querySelector(`[data-module="${id}"]`)?.focus(); }
++    else if (a === 'dock' && !state.pinned) apply(id, { dock: control.value });
++    else if (['width', 'height'].includes(a)) apply(id, { [a]: Number(control.value) });
++    else if (a === 'earlier' || a === 'later') { owner.layout = reorderModule(owner.layout, id, a === 'earlier' ? -1 : 1); save(); updateWorkspace(); }
++    else if (a.startsWith('float-') && !state.pinned) { const directions = { 'float-left': [-24, 0], 'float-right': [24, 0], 'float-up': [0, -24], 'float-down': [0, 24] }; const [x, y] = directions[a]; apply(id, { x: state.x + x, y: state.y + y }); }
++}
++function moduleCritical(id) { return registry.get(id)?.critical === true; }
++export function updateWorkspace() {
++    if (!owner) return;
++    const focused = document.activeElement; const counts = {};
++    owner.board.hidden = owner.layout.mode === 'classic'; owner.root.dataset.density = owner.layout.density; owner.toolbar.querySelector('[data-workspace-action="density"]').value = owner.layout.density;
++    const preset = owner.toolbar.querySelector('[data-workspace-action="preset"]'); if (owner.layout.mode === 'classic') preset.value = 'Classic'; else if (preset.value === 'Classic') preset.value = 'Compare'; owner.root.dataset.workspaceMode = owner.layout.mode;
++    if (owner.layout.mode === 'classic') {
++        owner.layout.modules.forEach(state => {
++            const module = registry.get(state.id); makeShell(module);
++            if (module.placeholder?.parentNode && module.node.previousSibling !== module.placeholder) module.placeholder.after(module.node);
++            else if (!module.placeholder?.parentNode) { const home = (module.homeId && document.getElementById(module.homeId)) || module.home; if(home?.isConnected && module.node.parentNode !== home)home.append(module.node); }
++            module.node.classList.toggle('workspace-user-hidden', state.hidden && !module.critical);
++            let restore = owner.picker.querySelector(`[data-module="${state.id}"]`); if (!restore) { restore = button(`Open ${module.title}`, 'restore', state.id); owner.picker.append(restore); } restore.disabled = module.eligible() === false;
++        });
++        if (focused?.isConnected && document.activeElement !== focused && !focused.closest('[hidden]')) focused.focus({preventScroll:true});
++        return;
++    }
++    owner.layout.modules.forEach(state => {
++        const module = registry.get(state.id); if (module.critical) { state.hidden = false; state.collapsed = false; } makeShell(module);
++        module.node.classList.remove('workspace-user-hidden');
++        if (module.node.parentNode !== module.body) module.body.append(module.node);
++        const shell = module.shell; const eligible = module.eligible() !== false;
++        shell.hidden = state.hidden || !eligible; shell.classList.toggle('workspace-floating', state.dock === 'float' && !owner.narrow); shell.classList.toggle('workspace-collapsed', state.collapsed);
++        shell.style.setProperty('--workspace-width', `${state.width}px`); shell.style.setProperty('--workspace-height', `${state.height}px`);
++        shell.dataset.pinned = String(state.pinned);
++        shell.style.left = `${Math.min(state.x, Math.max(0, window.innerWidth - Math.min(state.width, window.innerWidth - 24)))}px`;
++        shell.style.top = `${Math.min(state.y, Math.max(0, window.innerHeight - Math.min(shell.offsetHeight || state.height + 90, window.innerHeight - 24)))}px`;
++        if (state.dock !== 'float' || owner.narrow) { shell.style.left = ''; shell.style.top = ''; }
++        const d = owner.narrow ? 'center' : state.dock, destination = owner.docks[d], index = counts[d] || 0; counts[d] = index + 1;
++        if (destination.children[index] !== shell) destination.insertBefore(shell, destination.children[index] || null);
++        module.body.hidden = state.collapsed;
++        shell.querySelector('[data-workspace-action="hide"]').disabled = module.critical; shell.querySelector('[data-workspace-action="collapse"]').disabled = module.critical;
++        shell.querySelector('[data-workspace-action="collapse"]').textContent = state.collapsed ? 'Expand' : 'Collapse'; shell.querySelector('[data-workspace-action="collapse"]').setAttribute('aria-expanded', String(!state.collapsed));
++        shell.querySelector('[data-workspace-action="pin"]').textContent = state.pinned ? 'Unpin' : 'Pin'; shell.querySelector('[data-workspace-action="pin"]').setAttribute('aria-pressed', String(state.pinned));
++        shell.querySelector('[data-workspace-action="dock"]').value = state.dock;
++        ['width', 'height'].forEach(d => shell.querySelector(`[data-workspace-action="${d}"]`).value = state[d]);
++        ['handle', 'dock', 'earlier', 'later', 'float-left', 'float-right', 'float-up', 'float-down'].forEach(a => shell.querySelector(`[data-workspace-action="${a}"]`).disabled = state.pinned);
++        const restore = owner.picker.querySelector(`[data-module="${state.id}"]`); if (restore) { restore.disabled = !eligible; restore.textContent = `${state.hidden ? 'Show' : 'Open'} ${module.title}`; }
++        else owner.picker.append(button(`Open ${module.title}`, 'restore', state.id));
++    });
++    if (focused?.isConnected && document.activeElement !== focused && !focused.closest('[hidden]')) focused.focus({ preventScroll: true });
++}
++export function mountWorkspace({ root = document.getElementById('main_content') || document.getElementById('global_content') } = {}) {
++    if (owner) { updateWorkspace(); return owner; }
++    if (!root) return null;
++    const toolbar = el('nav', 'workspace-toolbar'); toolbar.setAttribute('aria-label', 'Workspace layout');
++    const presetLabel = el('label', '', 'Layout '), presets = el('select'); presets.dataset.workspaceAction = 'preset'; ['Classic', 'Focus', 'Compare'].forEach(v => { const o = el('option', '', v); o.value = v; presets.append(o); }); presetLabel.append(presets); toolbar.append(presetLabel, button('Reset layout', 'reset'));
++    const densityLabel = el('label', '', 'Density '), density = el('select'); density.dataset.workspaceAction='density'; ['compact','comfortable','inspection'].forEach(v=>{const o=el('option','',v);o.value=v;density.append(o);}); densityLabel.append(density);toolbar.append(densityLabel);
++    const picker = el('details', 'workspace-picker'); picker.append(el('summary', '', 'Panels')); toolbar.append(picker);
++    const transfer = el('details', 'workspace-transfer'); transfer.append(el('summary', '', 'Layout configuration'));
++    const config = el('textarea'); config.setAttribute('aria-label', 'Layout configuration'); config.rows = 5; transfer.append(config, button('Export layout', 'export'), button('Import layout', 'import')); toolbar.append(transfer);
++    const status = el('output', 'workspace-status'); status.setAttribute('aria-live', 'polite'); toolbar.append(status);
++    const board = el('div', 'workspace-board'), docks = {};
++    ['left', 'center', 'right', 'float'].forEach(d => { const dock = el('div', 'workspace-dock'); dock.dataset.dock = d; dock.setAttribute('aria-label', `${d} panel dock`); docks[d] = dock; board.append(dock); });
++    const media = window.matchMedia('(max-width: 760px)'); owner = { root, toolbar, board, docks, picker, config, status, media, narrow: media.matches, layout: read(media.matches), cleanup: [] };
++    root.classList.add('workspace-active'); root.prepend(toolbar, board);
++    function listen(target, name, handler) { target.addEventListener(name, handler); owner.cleanup.push(() => target.removeEventListener(name, handler)); }
++    listen(root, 'click', e => { if (e.target.closest('[data-workspace-action]')?.tagName !== 'SELECT' && e.target.closest('[data-workspace-action]')?.tagName !== 'INPUT') action(e); const floating = e.target.closest('.workspace-floating'); if (floating) { owner.front = (owner.front || 20) + 1; floating.style.zIndex = owner.front; } });
++    listen(root, 'change', action);
++    listen(root, 'keydown', e => {
++        const handle = e.target.closest('[data-workspace-action="handle"]'); if (!handle) return;
++        const state = owner.layout.modules.find(v => v.id === handle.dataset.module); if (!state || state.pinned) return;
++        if (['ArrowUp', 'ArrowDown'].includes(e.key)) { e.preventDefault(); owner.layout = reorderModule(owner.layout, state.id, e.key === 'ArrowUp' ? -1 : 1); save(); updateWorkspace(); }
++        else if (['ArrowLeft', 'ArrowRight'].includes(e.key)) { e.preventDefault(); const ds = ['left', 'center', 'right', 'float'], i = ds.indexOf(state.dock); apply(state.id, { dock: ds[Math.min(3, Math.max(0, i + (e.key === 'ArrowLeft' ? -1 : 1)))] }); }
++    });
++    listen(root, 'dragstart', e => { const handle = e.target.closest('.workspace-drag-handle'); if (!handle || handle.disabled) return; owner.drag = handle.dataset.module; e.dataTransfer.effectAllowed = 'move'; e.dataTransfer.setData('text/plain', owner.drag); });
++    listen(root, 'dragover', e => { if (owner.drag && e.target.closest('.workspace-dock')) { e.preventDefault(); e.dataTransfer.dropEffect = 'move'; } });
++    listen(root, 'drop', e => {
++        const dock = e.target.closest('.workspace-dock'); if (!owner.drag || !dock) return; e.preventDefault();
++        const id = owner.drag, state = owner.layout.modules.find(v => v.id === id); owner.drag = null; if (!state || state.pinned) return;
++        const target = e.target.closest('.workspace-module'); owner.layout = changeModule(owner.layout, id, { dock: dock.dataset.dock });
++        if (target && target.dataset.module !== id) { const list = owner.layout.modules.filter(v => v.id !== id); const index = list.findIndex(v => v.id === target.dataset.module); list.splice(index, 0, owner.layout.modules.find(v => v.id === id)); owner.layout = normalizeLayout({ version: 1, mode: 'dock', density: owner.layout.density, modules: list.map((v, order) => ({ ...v, order })) }, [...registry.keys()]); }
++        if (dock.dataset.dock === 'float') owner.layout = changeModule(owner.layout, id, { x: Math.max(0, e.clientX), y: Math.max(0, e.clientY) });
++        save(); updateWorkspace(); registry.get(id).shell.querySelector('.workspace-drag-handle').focus({ preventScroll: true });
++    });
++    listen(root, 'dragend', () => { owner.drag = null; });
++    listen(media, 'change', () => { owner.narrow = media.matches; owner.layout = read(owner.narrow); updateWorkspace(); });
++    listen(window, 'resize', updateWorkspace);
++    updateWorkspace(); return owner;
++}
++export function destroyWorkspace() {
++    if (!owner) return;
++    owner.cleanup.forEach(fn => fn());
++    registry.forEach(module => { if (module.placeholder?.parentNode) module.placeholder.after(module.node); else module.home?.append(module.node); module.shell?.remove(); module.shell = null; module.body = null; });
++    owner.toolbar.remove(); owner.board.remove(); owner.root.classList.remove('workspace-active'); delete owner.root.dataset.workspaceMode; delete owner.root.dataset.density; registry.forEach(module => module.placeholder?.remove()); registry.clear(); owner = null;
++}
++export function registerExisting(descriptors = []) { descriptors.forEach(v => { const node = document.getElementById(v.nodeId || v.id); if (node) registerWorkspaceModule({ ...v, node }); }); }
++
++export function unregisterWorkspaceModule(id) {
++    const module = registry.get(id); if (!module) return;
++    if (module.placeholder?.parentNode) module.placeholder.after(module.node); else if (module.home?.isConnected) module.home.append(module.node);
++    module.placeholder?.remove(); module.shell?.remove(); registry.delete(id);
++    if (owner) { owner.layout = normalizeLayout(owner.layout, [...registry.keys()]); owner.picker.querySelector(`[data-module="${id}"]`)?.remove(); save(); updateWorkspace(); }
++}
++
++export function openWorkspaceModule(id) {
++    const module = registry.get(id); if (!module) return false;
++    if (owner) apply(id, { hidden: false, collapsed: false });
++    if (['notebook','known-routes','known-people'].includes(id)) document.getElementById('journal_show_notebook')?.click();
++    for (let parent=module.node.parentElement;parent;parent=parent.parentElement) if(parent.tagName==='DETAILS')parent.open=true;
++    const target = owner && owner.layout.mode !== 'classic' ? module.shell : module.node;
++    if (!target || module.eligible() === false) return false;
++    if (owner && target.classList.contains('workspace-floating')) { owner.front = (owner.front || 20) + 1; target.style.zIndex=owner.front; }
++    target.scrollIntoView?.({block:'nearest',behavior:'instant'});
++    const focus = owner && owner.layout.mode !== 'classic' ? module.shell.querySelector('.workspace-drag-handle') : module.node.querySelector('button:not([hidden]):not(:disabled),summary,input:not([hidden]):not(:disabled),select:not([hidden]):not(:disabled)');
++    focus?.focus({preventScroll:true}); return true;
++}
+--- a/src/workspace_state.js
++++ b/src/workspace_state.js
+@@ -0,0 +1,44 @@
++/** Layout data contains registered presentation IDs only, never game state or text. */
++export const WORKSPACE_VERSION = 1;
++export const DOCKS = ['left', 'center', 'right', 'float'];
++const finite = (v, fallback) => Number.isFinite(Number(v)) ? Number(v) : fallback;
++const clamp = (v, low, high, fallback) => Math.min(high, Math.max(low, finite(v, fallback)));
++export function defaultModule(id, index = 0) {
++    return { id, dock: index % 2 ? 'right' : 'left', order: index, width: 400, height: 460, collapsed: false, pinned: false, hidden: false, x: 20 + index * 24, y: 20 + index * 24 };
++}
++export function normalizeLayout(raw, ids) {
++    const source = raw?.version === WORKSPACE_VERSION && Array.isArray(raw.modules) ? raw.modules : [];
++    const known = new Map(source.filter(v => v && typeof v.id === 'string').map(v => [v.id, v]));
++    return { version: WORKSPACE_VERSION, mode: raw?.mode === 'dock' ? 'dock' : 'classic', density: ['compact','comfortable','inspection'].includes(raw?.density) ? raw.density : 'compact', modules: [...new Set(ids)].map((id, index) => {
++        const base = defaultModule(id, index), value = known.get(id) || {};
++        return { ...base, dock: DOCKS.includes(value.dock) ? value.dock : base.dock,
++            order: clamp(value.order, 0, 1000, index), width: clamp(value.width, 260, 1000, 400), height: clamp(value.height, 180, 1000, 460),
++            x: clamp(value.x, 0, 10000, base.x), y: clamp(value.y, 0, 10000, base.y),
++            collapsed: value.collapsed === true, pinned: value.pinned === true, hidden: value.hidden === true };
++    }).sort((a, b) => a.order - b.order).map((v, order) => ({ ...v, order })) };
++}
++export function parseLayout(text, ids) {
++    try { return normalizeLayout(JSON.parse(text), ids); } catch { return normalizeLayout(null, ids); }
++}
++export function presetLayout(name, ids) {
++    const result = normalizeLayout(null, ids); result.mode = name === 'Classic' ? 'classic' : 'dock';
++    result.modules.forEach((v, i) => {
++        if (name === 'Focus') { v.dock = 'center'; v.collapsed = i > 0; }
++        if (name === 'Compare') { v.dock = i % 2 ? 'right' : 'left'; v.width = 460; }
++    });
++    return result;
++}
++export function changeModule(layout, id, patch) {
++    return normalizeLayout({ version: WORKSPACE_VERSION, mode: layout.mode, density: layout.density, modules: layout.modules.map(v => v.id === id ? { ...v, ...patch, id } : v) }, layout.modules.map(v => v.id));
++}
++export function reorderModule(layout, id, delta) {
++    const modules = layout.modules.map(v => ({ ...v }));
++    const index = modules.findIndex(v => v.id === id);
++    if (index < 0 || modules[index].pinned) return layout;
++    const neighbors = modules.filter(v => v.dock === modules[index].dock && !v.pinned);
++    const local = neighbors.findIndex(v => v.id === id), target = neighbors[local + delta];
++    if (!target) return layout;
++    const order = modules[index].order; modules[index].order = target.order; target.order = order;
++    return normalizeLayout({ version: WORKSPACE_VERSION, mode: layout.mode, modules }, modules.map(v => v.id));
++}
++export function layoutStorageKey(narrow) { return `yairpg.workspace.v${WORKSPACE_VERSION}.${narrow ? 'narrow' : 'desktop'}`; }
+--- a/src/workspace_views.js
++++ b/src/workspace_views.js
+@@ -0,0 +1,59 @@
++import {registerWorkspaceModule, updateWorkspace, openWorkspaceModule} from './workspace_layout.js';
++
++// Only host-supplied, already visible labels enter this presentation. No new
++// definition lookup, command dispatcher or gameplay timer belongs here.
++export function createWorkspaceViews({read}) {
++    const panel=document.createElement('section');panel.id='workspace_current_work';
++    const heading=document.createElement('strong');heading.textContent='Current work';
++    const work=document.createElement('p'),ownership=document.createElement('p');
++    const jump=document.createElement('button');jump.type='button';jump.textContent='Open local controls';
++    jump.onclick=()=>{if(read().waiting){openWorkspaceModule('notebook');return;}openWorkspaceModule('local-actions');const target=document.getElementById('location_related_div');target?.scrollIntoView({block:'nearest'});const first=target?.querySelector('button:not(:disabled),[role="button"],summary');first?.focus();};
++    panel.append(heading,work,ownership,jump);
++    document.getElementById('location_related_div')?.prepend(panel);
++    registerWorkspaceModule({id:'current-work',title:'Current work & saving',node:panel,home:'center',critical:true});
++    let signature='';
++    const render=()=>{
++        const view=read(),next=JSON.stringify(view);
++        if(next!==signature){signature=next;work.textContent=view.work.length?view.work.join(' · '):'No work running. Choose an action at your current location.';jump.textContent=view.waiting?'Open waiting response':'Open local controls';
++            ownership.textContent=view.canWrite?'Saving available.':view.error||'Read only. Restore saving before starting work.';
++            ownership.className=view.canWrite?'':'workspace-warning';}
++        // Generic world palettes stay deliberately independent of sealed IDs.
++        document.getElementById('main_content').dataset.worldTheme=view.away?'cool':'warm';
++        updateWorkspace();
++    };
++    const nativeHost=document.getElementById('location_related_div');
++    const decorate=()=>{for(const control of nativeHost?.querySelectorAll('div[onclick],.location_choice_dropdown')||[]){
++        control.setAttribute('role','button');control.tabIndex=0;control.dataset.nativeKeyboard='true';
++        control.setAttribute('aria-disabled',String(control.classList.contains('activity_unavailable')));
++        if(control.classList.contains('location_choice_dropdown'))control.setAttribute('aria-expanded',String(control.classList.contains('location_choice_dropdown_expanded')));
++        for(const icon of control.querySelectorAll('.material-icons'))icon.setAttribute('aria-hidden','true');
++    }};
++    const onKey=event=>{const control=event.target.closest('[data-native-keyboard]');
++        if(control===event.target&&['Enter',' '].includes(event.key)){event.preventDefault();if(control.getAttribute('aria-disabled')!=='true')control.click();}
++    };
++    nativeHost?.addEventListener('keydown',onKey);
++    const observer=new MutationObserver(decorate);if(nativeHost)observer.observe(nativeHost,{childList:true,subtree:true,attributes:true,attributeFilter:['onclick','class']});decorate();
++    render();const timer=setInterval(render,250);return {render,destroy(){clearInterval(timer);observer.disconnect();nativeHost?.removeEventListener('keydown',onKey);panel.remove();}};
++}
++
++export function createEquipmentComparison({read}) {
++    const panel=document.createElement('details');panel.id='workspace_equipment_comparison';const title=document.createElement('summary');title.textContent='Equipment comparison';panel.append(title);
++    const note=document.createElement('p');note.textContent='Compare equipment you hold or wear. Values describe each item, before your body, skills and situational effects. No equipment changes here.';
++    const choices=document.createElement('div'),table=document.createElement('table');table.setAttribute('aria-label','Held equipment comparison');
++    const selects=[0,1].map(i=>{const label=document.createElement('label');label.textContent=i?'Compare with ':'Compare item ';const select=document.createElement('select');select.setAttribute('aria-label',i?'Second equipment item':'First equipment item');label.append(select);choices.append(label);select.onchange=()=>render(true);return select;});
++    panel.append(note,choices,table);document.getElementById('character_div')?.append(panel);
++    registerWorkspaceModule({id:'equipment-comparison',title:'Equipment comparison',node:panel,home:'left'});
++    let last='';
++    function render(force=false){
++        const rows=read(),signature=JSON.stringify(rows);if(!force&&last===signature)return;
++        if(last!==signature){const previous=selects.map(s=>s.value);for(const [i,select]of selects.entries()){
++            select.replaceChildren(...rows.map(row=>{const o=document.createElement('option');o.value=row.id;o.textContent=row.label;return o;}));
++            select.value=rows.some(r=>r.id===previous[i])?previous[i]:rows[Math.min(i,rows.length-1)]?.id||'';
++        }last=signature;}
++        const chosen=selects.map(s=>rows.find(r=>r.id===s.value));
++        const makeRow=(label,values,header=false)=>{const tr=document.createElement('tr');for(const text of [label,...values]){const c=document.createElement(header?'th':'td');c.textContent=String(text??'None');tr.append(c);}return tr;};
++        const keys=[...new Set(chosen.flatMap(r=>Object.keys(r?.stats||{})))];
++        table.replaceChildren(makeRow('Item',chosen.map(r=>r?.label),true),makeRow('Slot',chosen.map(r=>r?.slot)),...keys.map(k=>makeRow(k,chosen.map(r=>r?.stats[k]??'No bonus'))));
++    }
++    render();const timer=setInterval(render,1000);return {render,destroy(){clearInterval(timer);panel.remove();}};
++}
+--- a/styles/workspace.css
++++ b/styles/workspace.css
+@@ -0,0 +1,270 @@
++/* Presentation configuration only. Existing gameplay commands and clocks stay native. */
++:root {
++    --workspace-accent: #92b7ee;
++    --workspace-surface: #181827;
++    --workspace-border: #797691;
++    --workspace-focus: #ffd87c;
++    --workspace-text: #f1f3fa;
++    --workspace-muted: #c4c9da;
++    --workspace-gap: .6rem;
++    --workspace-control-padding: .35rem .5rem;
++}
++body { overflow-wrap: break-word; }
++button, select, input { font: inherit; }
++button {
++    color: var(--workspace-text);
++    background: #292b44;
++    border: 1px solid var(--workspace-border);
++    border-radius: 3px;
++    padding: var(--workspace-control-padding);
++    min-height: 30px;
++    cursor: pointer;
++    line-height: 1.25;
++}
++button:hover:not(:disabled) { background: #363f60; }
++button:disabled, button[aria-disabled="true"] { color: var(--workspace-muted); cursor: not-allowed; opacity: .7; }
++button:focus-visible, input:focus-visible, select:focus-visible, summary:focus-visible,
++[tabindex="0"]:focus-visible, a:focus-visible {
++    outline: 3px solid var(--workspace-focus) !important;
++    outline-offset: 2px;
++}
++button[hidden], [hidden] { display: none !important; }
++.activable_buttons > button { flex: 1 1 auto; width: auto; float: none; margin: 1px; }
++button.active_selection_button { box-shadow: inset 0 -3px 0 var(--workspace-accent); }
++p, details, summary, .location_action_tooltip, #message_box_div, #journal_content_div,
++#location_description_div, #character_bio_div, .workspace-panel-content {
++    -webkit-user-select: text; user-select: text;
++}
++#main_content {
++    position: relative; inset: auto; width: auto; height: auto;
++    display: grid; grid-template-columns: repeat(3, minmax(0, 1fr));
++    gap: var(--workspace-gap); padding: 0 0 65px;
++}
++#global_content { display: contents; }
++#global_content > .box_div, #main_content > #message_log_div {
++    position: relative; inset: auto; width: auto; min-width: 0; max-width: none;
++    box-sizing: border-box; overflow-x: auto;
++}
++#location_div, #location_related_div, #time_and_location { grid-column: 2; }
++#basic_character_info_div, #character_div, #inventory_div, #inventory_combat_switch_selection,
++#character_combat_management { grid-column: 1; }
++#journal_div, #skills_and_stances_div { grid-column: 3; }
++#message_log_div { grid-column: 3; }
++#location_div { grid-row: 2; }
++#location_related_div { grid-row: 3 / span 3; min-height: 360px; }
++#time_and_location { grid-row: 1; }
++#basic_character_info_div { grid-row: 1; }
++#character_div { grid-row: 2; }
++#inventory_combat_switch_selection { grid-row: 3; }
++#inventory_div, #character_combat_management { grid-row: 4 / span 2; }
++#journal_div { grid-row: 1 / span 2; }
++#skills_and_stances_div { grid-row: 3 / span 3; }
++#message_box_div, #message_controls { width: 100%; box-sizing: border-box; }
++#message_controls { position: relative; display: flex; flex-wrap: wrap; }
++#message_log_div { height: auto; padding-right: 0; }
++#message_box_div { height: 370px; }
++#time_div { width: auto; }
++#weather_div { width: auto; float: right; }
++#location_name_div { max-width: 100%; box-sizing: border-box; }
++#location_types_div { right: 4px; left: auto; }
++#bottom_panel_div { flex-wrap: wrap; height: auto; min-height: 40px; align-items: center; }
++#bottom_panel_div button { flex-shrink: 0; }
++#bottom_panel_div .sl_button { width: auto; min-width: 50px; height: auto; }
++#bottom_panel_div .game_info { width: 38px; }
++#options_panel { max-width: calc(100vw - 24px); box-sizing: border-box; }
++#inventory_control_div, #character_control_div { width: 100%; }
++#inventory_control_div button, #character_control_div button { font-size: 15px; }
++#quest_hiding_div, #skill_hiding_div { width: 100%; box-sizing: border-box; }
++#stance_list_div { overflow-x: auto; }
++@media (min-width: 1700px) {
++    #main_content { grid-template-columns: repeat(4, minmax(0, 1fr)); }
++    #message_log_div { grid-column: 4; grid-row: 1 / span 5; }
++    #message_box_div { height: 690px; }
++}
++@media (max-width: 1000px) {
++    #main_content { grid-template-columns: repeat(2, minmax(0, 1fr)); }
++    #global_content > .box_div, #main_content > #message_log_div { grid-row: auto; grid-column: auto; }
++    #time_and_location { order: -3; }
++    #location_div { order: -2; }
++    #location_related_div { order: -1; }
++}
++@media (max-width: 600px) {
++    #main_content { grid-template-columns: minmax(0, 1fr); }
++    #location_related_div { min-height: 360px; height: auto; }
++    #location_actions_div { max-height: 60vh; min-height: 220px; }
++    #character_stats_div { width: min(350px, 100%); }
++    #character_equipment_div { max-width: 100%; }
++    #location_types_div { position: relative; text-align: left; width: auto; clear: both; }
++    #bottom_panel_div { gap: 2px; }
++    #bottom_panel_div .financial_link, #bottom_panel_div .repo_link { display: none; }
++    #main_content { padding-bottom: 90px; }
++}
++@media (prefers-reduced-motion: reduce) {
++    *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .001ms !important; animation-iteration-count: 1 !important; transition-duration: .001ms !important; }
++}
++/* The workspace owns shell geometry. Modules keep one live native view. */
++.workspace-toolbar {
++    grid-column: 1 / -1; display: flex; flex-wrap: wrap; align-items: center;
++    gap: .4rem; padding: .45rem; background: var(--workspace-surface);
++    border: 1px solid var(--workspace-border); position: relative; z-index: 5;
++}
++.workspace-toolbar label { display: inline-flex; align-items: center; gap: .3rem; }
++.workspace-toolbar select, .workspace-module-controls select { max-width: 100%; color: var(--workspace-text); background: #292b44; }
++.workspace-toolbar details { position: relative; }
++.workspace-picker[open] { border: 1px solid var(--workspace-border); padding: .4rem; }
++.workspace-picker label { display: flex; margin: .3rem 0; }
++.workspace-status { flex: 1 1 200px; color: var(--workspace-muted); font-size: .85rem; }
++.workspace-board {
++    grid-column: 1 / -1; display: grid;
++    grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr) minmax(0, 1fr);
++    gap: var(--workspace-gap); align-items: start; position: relative; min-width: 0;
++}
++.workspace-dock { display: flex; flex-direction: column; gap: var(--workspace-gap); min-width: 0; }
++.workspace-dock[data-dock="float"] { display: contents; }
++.workspace-module {
++    position: relative; border: 1px solid var(--workspace-border);
++    background: var(--workspace-surface); color: var(--workspace-text);
++    border-radius: 4px; min-width: 0; width: 100%; box-sizing: border-box;
++}
++.workspace-module-header {
++    display: flex; align-items: center; gap: .3rem; min-height: 35px;
++    padding: .3rem; background: #25263d; border-bottom: 1px solid var(--workspace-border);
++}
++.workspace-module-header strong { flex: 1 1 auto; min-width: 0; }
++.workspace-drag-handle { cursor: grab; touch-action: none; }
++.workspace-drag-handle:active { cursor: grabbing; }
++.workspace-module-controls { font-size: .85rem; padding: .35rem; border-bottom: 1px solid var(--workspace-border); }
++.workspace-module-controls summary { cursor: pointer; color: var(--workspace-muted); }
++.workspace-module-controls[open] { display: flex; flex-wrap: wrap; gap: .35rem; }
++.workspace-module-controls summary { width: 100%; }
++.workspace-module-controls label { display: inline-flex; align-items: center; flex-wrap: wrap; gap: .25rem; }
++.workspace-resize, .workspace-float-controls { display: flex; flex-wrap: wrap; gap: .3rem; width: 100%; }
++.workspace-resize input, .workspace-float-controls input { max-width: 130px; }
++.workspace-module-body {
++    min-width: 0; max-height: var(--workspace-height, 620px); overflow: auto;
++    scrollbar-gutter: stable; padding: .25rem;
++}
++.workspace-module-body > .box_div, .workspace-module-body > #message_log_div,
++.workspace-module-body > #inventory_combat_switch_selection {
++    position: relative !important; inset: auto !important; left: 0 !important; top: 0 !important;
++    width: 100% !important; max-width: none !important; box-sizing: border-box;
++    grid-row: auto !important; grid-column: auto !important; margin: 0;
++}
++.workspace-module-body > #location_related_div { height: auto; min-height: 280px; }
++.workspace-module-body #location_actions_div { height: auto; max-height: none; overflow-y: visible; }
++.workspace-floating {
++    position: fixed; width: min(var(--workspace-width, 420px), calc(100vw - 24px));
++    max-height: calc(100vh - 110px); z-index: 20;
++    box-shadow: 0 6px 24px #000a;
++}
++.workspace-floating .workspace-module-body { max-height: min(var(--workspace-height, 450px), calc(100vh - 230px)); }
++.workspace-collapsed > .workspace-module-body { display: none; }
++.workspace-module[data-pinned="true"] .workspace-module-header { border-left: 4px solid var(--workspace-accent); }
++.workspace-active #main_content { display: block; }
++.workspace-active #global_content { display: contents; }
++.workspace-active .workspace-toolbar { margin-bottom: var(--workspace-gap); }
++.workspace-active[data-density="compact"], .workspace-active.workspace-density-compact { --workspace-gap: .3rem; --workspace-control-padding: .2rem .35rem; }
++.workspace-active[data-density="comfortable"], .workspace-active.workspace-density-comfortable { --workspace-gap: .8rem; --workspace-control-padding: .5rem .65rem; }
++.workspace-active[data-density="inspection"], .workspace-active.workspace-density-inspection { font-size: 18px; --workspace-control-padding: .55rem .7rem; }
++.workspace-active[data-world-theme="warm"] { --workspace-accent: #dfb77c; --workspace-surface: #241d19; }
++.workspace-active[data-world-theme="cool"] { --workspace-accent: #8fd4d6; --workspace-surface: #152226; }
++@media (max-width: 1000px) {
++    .workspace-board { grid-template-columns: repeat(2, minmax(0, 1fr)); }
++    .workspace-dock[data-dock="center"] { grid-column: 1 / -1; grid-row: 1; }
++}
++@media (max-width: 600px) {
++    .workspace-board { display: flex; flex-direction: column; }
++    .workspace-dock { width: 100%; }
++    .workspace-dock[data-dock="center"] { order: -1; }
++    .workspace-floating { max-width: calc(100vw - 16px); }
++    .workspace-toolbar { align-items: stretch; }
++    .workspace-toolbar label { flex-wrap: wrap; }
++    .workspace-module-controls button { flex: 1 1 auto; }
++}
++/* Let growing control rows take space rather than cover native content. */
++#inventory_div { height: auto; min-height: 320px; }
++#inventory_content_div { height: 255px; }
++#inventory_control_div { position: relative; top: auto; }
++#character_div { height: auto; min-height: 230px; max-height: none; }
++#character_control_div { position: relative; bottom: auto; margin-top: .4rem; }
++#journal_div { height: auto; min-height: 330px; }
++#journal_control_div { display: flex; flex-wrap: wrap; }
++#journal_control_div > button { flex: 1 1 auto; width: auto; }
++#skills_and_stances_div { height: auto; min-height: 420px; }
++#skill_and_stance_control_div { position: relative; }
++#inventory_combat_switch_selection { height: auto; }
++#inventory_combat_switch_selection > button { min-width: 0; }
++@media (max-width: 600px) {
++    #character_bio_profile { grid-template-columns: minmax(0, 1fr); }
++    #character_equipment_div, #character_tools_div { width: 100%; box-sizing: border-box; }
++    #character_stats_div .stat_div { max-width: 100%; }
++}
++.workspace-dock > .workspace-module:not(.workspace-floating) {
++    width: min(100%, var(--workspace-width, 400px));
++}
++.workspace-module-body > .workspace-native-group {
++    display: flex; flex-direction: column; gap: .3rem; min-width: 0;
++}
++.workspace-native-group > .box_div {
++    position: relative !important; inset: auto !important; width: 100% !important;
++    max-width: none !important; box-sizing: border-box;
++}
++.workspace-module:not(.workspace-floating) { left: auto !important; top: auto !important; }
++#main_content.workspace-active[data-workspace-mode="classic"] {
++    display: block;
++}
++#main_content.workspace-active[data-workspace-mode="classic"] > .workspace-toolbar { margin-bottom: var(--workspace-gap); }
++#main_content.workspace-active[data-workspace-mode="classic"] #global_content {
++    display: grid; grid-template-columns: repeat(3, minmax(0, 1fr));
++    gap: var(--workspace-gap); align-items: start;
++}
++#main_content.workspace-active[data-workspace-mode="dock"] { display: block; }
++@media (min-width: 1700px) {
++    #main_content.workspace-active[data-workspace-mode="classic"] { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); }
++    #main_content.workspace-active[data-workspace-mode="classic"] > .workspace-toolbar { grid-column: 1 / -1; grid-row: 1; }
++    #main_content.workspace-active[data-workspace-mode="classic"] #global_content { grid-column: 1 / span 3; grid-row: 2; }
++    #main_content.workspace-active[data-workspace-mode="classic"] > #message_log_div { grid-column: 4; grid-row: 2; }
++}
++@media (max-width: 1000px) {
++    #main_content.workspace-active[data-workspace-mode="classic"] #global_content { grid-template-columns: repeat(2, minmax(0, 1fr)); }
++}
++@media (max-width: 600px) {
++    #main_content.workspace-active[data-workspace-mode="classic"] #global_content { grid-template-columns: minmax(0, 1fr); }
++}
++#bottom_panel_div button.game_info { padding: .35rem; min-height: 38px; }
++#bottom_panel_div button.game_info > span { padding: 0; height: auto; background: none; }
++#journal_control_div > button { padding: .35rem .45rem; font-size: 16px; }
++.workspace-module-controls select, .workspace-toolbar select { min-height: 30px; }
++.workspace-transfer textarea { display: block; max-width: 100%; width: min(420px, 100%); box-sizing: border-box; color: var(--workspace-text); background: #10111e; }
++
++.workspace-layout-hidden { display:none !important; }
++#workspace_current_work { padding:.4rem; border-bottom:1px solid var(--workspace-border); font-size:.9rem; }
++#workspace_current_work p { margin:.3rem 0; }
++#workspace_equipment_comparison { padding:.4rem; }
++#workspace_equipment_comparison select { max-width:100%; }
++#workspace_equipment_comparison table { width:100%; border-collapse:collapse; }
++#workspace_equipment_comparison th,#workspace_equipment_comparison td { padding:.25rem; border:1px solid var(--workspace-border); text-align:left; overflow-wrap:anywhere; }
++.workspace-warning { color:var(--workspace-focus); }
++
++.workspace-user-hidden { display:none !important; }
++@media (max-width: 1100px) {
++    #hero_creation_panel { overflow:auto; }
++    #hero_creation_panel_content { position:relative; top:auto; left:auto; margin:12px auto; width:calc(100% - 24px); height:auto; box-sizing:border-box; padding:12px; }
++    #hero_creation_panel_title,#hero_creation_panel_note,#hero_creation_panel_name,
++    #hero_creation_panel_gender_selection,#hero_creation_panel_age_selection,
++    #hero_creation_panel_height_selection,#hero_creation_name_field,
++    #hero_creation_panel_race_selection,#hero_creation_panel_race_default,
++    #hero_creation_panel_race_furless,#hero_creation_panel_race_kemonomimi,
++    #hero_creation_panel_confirmation_wrapper,#gender_selection,#age_selection,#height_selection {
++        position:relative; inset:auto; width:auto; height:auto; max-width:100%; margin:.4rem 0;
++    }
++    #hero_creation_panel_title { font-size:28px; }
++    #hero_creation_panel_race_selection { display:flex; flex-wrap:wrap; }
++    #hero_creation_panel_race_selection>div { flex:1 1 180px; }
++    #hero_creation_panel_confirmation_wrapper { position:sticky; bottom:0; background:#292b44; padding:.4rem 0; }
++    #hero_creation_panel_first_row { display:flex; flex-wrap:wrap; gap:.6rem; }
++    #hero_creation_panel_first_row>div { flex:1 1 170px; }
++}
++
++.workspace-toolbar { position:sticky; top:0; z-index:100000; }
++.workspace-transfer textarea { max-width:100%; box-sizing:border-box; }
+--- a/tests/workspace_state.test.js
++++ b/tests/workspace_state.test.js
+@@ -0,0 +1,36 @@
++import test from 'node:test';
++import assert from 'node:assert/strict';
++import { normalizeLayout, parseLayout, presetLayout, reorderModule, changeModule, layoutStorageKey } from '../src/workspace_state.js';
++test('corrupt and future state recovers with all registered modules', () => {
++    assert.deepEqual(parseLayout('{', ['skills', 'journal']), normalizeLayout(null, ['skills', 'journal']));
++    assert.equal(normalizeLayout({version: 99, modules: [{id:'skills', hidden:true}]}, ['skills']).modules[0].hidden, false);
++});
++test('import strips unknown ids and all text or game data; clamps geometry', () => {
++    const v = normalizeLayout({version:1, modules:[{id:'skills',dock:'secret-place',width:90000,height:-1,x:-30,y:Infinity,hidden:true,truth:'sealed'}, {id:'unknown'}]}, ['skills']);
++    assert.equal(v.modules.length,1); assert.equal(v.modules[0].width,1000); assert.equal(v.modules[0].height,180); assert.equal(v.modules[0].x,0); assert.equal(v.modules[0].dock,'left'); assert.equal('truth' in v.modules[0],false);
++});
++test('reordering is local to dock and pinned panel cannot move', () => {
++    let v = presetLayout('Focus',['a','b','c']);
++    v = reorderModule(v,'c',-1); assert.deepEqual(v.modules.map(v=>v.id),['a','c','b']);
++    v = changeModule(v,'c',{pinned:true}); assert.equal(reorderModule(v,'c',-1),v);
++    v = changeModule(v,'b',{dock:'right'}); assert.equal(reorderModule(v,'a',1).modules.find(v=>v.id==='b').dock,'right');
++});
++test('presets reset visibility, while new modules recover and device storage separates', () => {
++    let v = changeModule(presetLayout('Classic',['a']), 'a', {hidden:true});
++    v = normalizeLayout(v,['a','b']); assert.equal(v.modules[0].hidden,true); assert.equal(v.modules[1].hidden,false);
++    assert.equal(presetLayout('Classic',['a']).modules[0].hidden,false);
++    assert.notEqual(layoutStorageKey(true), layoutStorageKey(false));
++});
++test('Classic restores native mode; dock mode survives changes and layout roundtrip', () => {
++    assert.equal(presetLayout('Classic',['skills']).mode,'classic');
++    const dock = changeModule(presetLayout('Compare',['skills','journal']), 'skills', {collapsed:true});
++    assert.equal(dock.mode,'dock');
++    assert.equal(parseLayout(JSON.stringify(reorderModule(dock,'skills',1)), ['skills','journal']).mode,'dock');
++    assert.equal(normalizeLayout({version:1,mode:'unsafe',modules:[]}, ['skills']).mode,'classic');
++});
++test('density preferences survive mutations and export; unknown preferences recover', () => {
++    const layout = presetLayout('Compare',['skills']); layout.density='inspection';
++    assert.equal(changeModule(layout,'skills',{width:640}).density,'inspection');
++    assert.equal(parseLayout(JSON.stringify(layout),['skills']).density,'inspection');
++    assert.equal(normalizeLayout({version:1,density:'future',modules:[]},['skills']).density,'compact');
++});
+--- a/scripts/ui_workspace_layout_browser.cjs
++++ b/scripts/ui_workspace_layout_browser.cjs
+@@ -0,0 +1,24 @@
++const {chromium}=require('/Users/weiwei/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright');
++const assert=require('node:assert/strict'),fs=require('node:fs');
++const output='docs/gm/dispatch/ui-modularity-2026-10-11/browser';
++(async()=>{const b=await chromium.launch({headless:true,executablePath:'/Applications/Google Chrome.app/Contents/MacOS/Google Chrome'});const errors=[],findings=[];
++async function open(width,config){const c=await b.newContext({viewport:{width,height:1000},reducedMotion:'reduce'});if(config)await c.addInitScript(config=>localStorage.setItem('yairpg.workspace.v1.desktop',config),config);const p=await c.newPage();p.on('pageerror',e=>errors.push(e.message));await p.goto('http://127.0.0.1:18571/');await p.getByText('PLAY',{exact:true}).click();if(await p.getByText('Confirm',{exact:true}).isVisible())await p.getByText('Confirm',{exact:true}).click();await p.waitForTimeout(600);return {c,p};}
++for(const width of [390,768,1440,1920]){const {c,p}=await open(width);for(const preset of ['Classic','Compare','Focus']){await p.locator('[data-workspace-action="preset"]').selectOption(preset);await p.waitForTimeout(350);const geometry=await p.evaluate(()=>({w:innerWidth,scroll:document.documentElement.scrollWidth}));assert(geometry.scroll<=geometry.w,`${width} ${preset} overflow ${geometry.scroll}`);await p.locator('#location_actions_div').getByText('Talk to someone').scrollIntoViewIfNeeded();assert(await p.locator('#location_actions_div').getByText('Talk to someone').isVisible());findings.push({width,preset,withinViewport:true,localActions:true});if(preset==='Classic')await p.screenshot({path:`${output}/${width}-classic.png`,fullPage:true});}await c.close();}
++const {c,p}=await open(1440);await p.locator('[data-workspace-action="preset"]').selectOption('Compare');const shell=id=>p.locator(`.workspace-module[data-module="${id}"]`),control=(id,a)=>shell(id).locator(`[data-workspace-action="${a}"]`);
++await p.evaluate(()=>{window.savedSkillNode=document.getElementById('skills_and_stances_div');window.savedSkillSort=document.getElementById('skill_sort_by_name');});
++await shell('skills').locator('.workspace-module-controls>summary').click();await control('skills','dock').selectOption('center');await control('skills','handle').focus();await control('skills','handle').press('ArrowRight');assert.equal(await shell('skills').locator('..').getAttribute('data-dock'),'right');
++await p.locator('#skill_sort_by_name').focus();await p.waitForTimeout(600);assert.equal(await p.evaluate(()=>document.activeElement===window.savedSkillSort),true);
++await control('skills','handle').dragTo(shell('preparation').locator('.workspace-module-header'));assert.equal(await shell('skills').locator('..').getAttribute('data-dock'),'left');
++await control('skills','width').fill('620');await control('skills','width').press('ArrowRight');await control('skills','height').fill('540');await control('skills','height').press('ArrowRight');
++await control('skills','pin').click();assert(await control('skills','dock').isDisabled());await control('skills','pin').click();
++await control('skills','collapse').click();assert.equal(await shell('skills').locator('.workspace-module-body').isVisible(),false);await control('skills','collapse').click();
++await control('skills','hide').click();assert.equal(await shell('skills').isVisible(),false);if(!await p.locator('.workspace-picker').evaluate(n=>n.open))await p.locator('.workspace-picker>summary').click();await p.locator('.workspace-picker [data-module="skills"]').click();assert(await shell('skills').isVisible());
++await control('skills','dock').selectOption('float');await shell('skills').scrollIntoViewIfNeeded();let bounds=await shell('skills').boundingBox();assert(bounds.x>=0&&bounds.x+bounds.width<=1440&&bounds.y>=0&&bounds.y<1000);await control('skills','float-right').click();await control('skills','float-down').click();await shell('records').locator('.workspace-module-controls>summary').click();await control('records','dock').selectOption('float');if(!await p.locator('.workspace-picker').evaluate(n=>n.open))await p.locator('.workspace-picker>summary').click();await p.locator('.workspace-picker [data-module="skills"]').click();assert((await shell('skills').evaluate(n=>+n.style.zIndex))>(await shell('records').evaluate(n=>+n.style.zIndex||20)));
++assert.equal(await p.evaluate(()=>document.getElementById('skills_and_stances_div')===window.savedSkillNode),true);
++await p.locator('[data-workspace-action="density"]').selectOption('compact');
++const stored=await p.evaluate(()=>localStorage.getItem('yairpg.workspace.v1.desktop'));assert(JSON.parse(stored).modules.find(m=>m.id==='skills').dock==='float');await p.reload();await p.getByText('PLAY',{exact:true}).click();await p.waitForTimeout(500);assert.equal(await shell('skills').evaluate(n=>n.classList.contains('workspace-floating')),true);assert.equal(await p.locator('[data-workspace-action="density"]').inputValue(),'compact');
++await p.locator('.workspace-transfer>summary').click();await p.getByRole('button',{name:'Export layout',exact:true}).click();const exported=JSON.parse(await p.getByLabel('Layout configuration',{exact:true}).inputValue());assert(!JSON.stringify(exported).includes('workroom'));assert(exported.modules.every(m=>Object.keys(m).every(k=>['id','dock','order','width','height','collapsed','pinned','hidden','x','y'].includes(k))));
++exported.modules.push({id:'unknown-removed',title:'secret-fixture',dock:'float'});await p.getByLabel('Layout configuration',{exact:true}).fill(JSON.stringify(exported));await p.getByRole('button',{name:'Import layout',exact:true}).click();assert(!(await p.locator('.workspace-status').innerText()).includes('secret-fixture'));await p.getByLabel('Layout configuration',{exact:true}).fill('{broken');await p.getByRole('button',{name:'Import layout',exact:true}).click();assert((await p.locator('.workspace-status').innerText()).includes('Invalid'));
++await p.getByRole('button',{name:'Reset layout',exact:true}).click();assert.equal(await p.locator('.workspace-board').isVisible(),false);await p.evaluate(()=>document.documentElement.style.zoom='2');await p.waitForTimeout(300);assert(await p.locator('#location_actions_div').getByText('Talk to someone').isVisible());await p.screenshot({path:`${output}/zoom200-classic.png`,fullPage:true});await c.close();
++for(const raw of ['{broken',JSON.stringify({version:99,modules:[{id:'unknown',title:'sealed-fixture'}]})]){const {c,p}=await open(1440,raw);assert.equal(await p.locator('.workspace-board').isVisible(),false);assert(await p.locator('#location_actions_div').getByText('Talk to someone').isVisible());await c.close();}
++assert.deepEqual(errors,[]);fs.writeFileSync(`${output}/LAYOUT_RESULT.json`,JSON.stringify({passed:true,findings,mouseDock:true,keyboardDock:true,resize:true,pin:true,collapse:true,restore:true,floatBounds:true,overlap:true,liveNodeIdentity:true,refreshFocus:true,layoutReload:true,density:true,configRecovery:true,zoom200:true,errors},null,2));console.log('Layout browser passed: '+findings.length+' responsive cases and movement/persistence/recovery.');await b.close();})().catch(e=>{console.error(e.stack);process.exit(1);});
+--- a/scripts/ui_workspace_first_gate.cjs
++++ b/scripts/ui_workspace_first_gate.cjs
+@@ -0,0 +1,2 @@
++const {chromium}=require('/Users/weiwei/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright');const assert=require('node:assert/strict');
++(async()=>{const b=await chromium.launch({headless:true,executablePath:'/Applications/Google Chrome.app/Contents/MacOS/Google Chrome'}),p=await b.newPage({viewport:{width:1440,height:1000}});await p.goto('http://127.0.0.1:18571/');await p.getByText('PLAY',{exact:true}).click();if(await p.getByText('Confirm',{exact:true}).isVisible())await p.getByText('Confirm',{exact:true}).click();await p.waitForTimeout(600);assert.equal(await p.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true);const before=await p.evaluate(()=>{window.firstSkills=document.getElementById('skills_and_stances_div');window.firstRecords=document.getElementById('journal_div');return Array.from(document.querySelector('#location_actions_div').children).slice(0,2).map(n=>n.textContent.trim());});assert(before.some(s=>s.includes('Talk to someone')));await p.locator('[data-workspace-action="preset"]').selectOption('Compare');const shell=id=>p.locator(`.workspace-module[data-module="${id}"]`);await shell('skills').locator('summary').first().click();await shell('skills').locator('[data-workspace-action="dock"]').selectOption('center');const h=shell('records').locator('.workspace-drag-handle');await h.focus();await h.press('ArrowLeft');await p.waitForTimeout(700);assert.equal(await p.evaluate(()=>window.firstSkills===document.getElementById('skills_and_stances_div')&&window.firstRecords===document.getElementById('journal_div')),true);assert.equal(await shell('skills').locator('..').getAttribute('data-dock'),'center');console.log(JSON.stringify({firstUnit:'passed',sameInstances:true,openingActionsFirst:true,keyboardDock:true}));await b.close();})();
+--- a/scripts/ui_workspace_journeys.cjs
++++ b/scripts/ui_workspace_journeys.cjs
+@@ -0,0 +1,110 @@
++// Rebuilt candidate, fresh origins, generated saves only. No private state fixtures.
++const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path');
++const {chromium}=require(process.env.YAIRPG_PLAYWRIGHT||'/Users/weiwei/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright');
++const url=process.env.YAIRPG_PROOF_URL||'http://127.0.0.1:18571/';
++const output=process.env.YAIRPG_PROOF_DIR||path.resolve('docs/gm/dispatch/ui-modularity-2026-10-11/browser');
++fs.mkdirSync(output,{recursive:true});
++(async()=>{
++const browser=await chromium.launch({headless:true,executablePath:'/Applications/Google Chrome.app/Contents/MacOS/Google Chrome'}),errors=[],checks=[];
++let page,context;
++const open=async fixture=>{context=await browser.newContext({viewport:{width:1440,height:1100}});if(fixture)await context.addInitScript(s=>{if(!localStorage.getItem('save data'))localStorage.setItem('save data',JSON.stringify(s));},fixture);page=await context.newPage();page.setDefaultTimeout(12000);page.on('pageerror',e=>errors.push(e.message));page.on('dialog',d=>d.dismiss());await page.goto(url);await play();};
++const play=async()=>{await page.getByText('PLAY',{exact:true}).click();if(await page.getByText('Confirm',{exact:true}).isVisible())await page.getByText('Confirm',{exact:true}).click();};
++const save=async()=>{await page.evaluate(()=>window.saveProgress());return page.evaluate(()=>JSON.parse(localStorage.getItem('save data')));};
++const dock=async(id,where)=>{const shell=page.locator(`.workspace-module[data-module="${id}"]`);await shell.locator('.workspace-module-controls').evaluate(n=>n.open=true);await shell.locator('[data-workspace-action="dock"]').focus();await shell.locator('[data-workspace-action="dock"]').selectOption(where);};
++try{
++await open();const base=await save();await context.close();
++base.character.xp.total_xp=1e12;base.levels.person.main_character.total_xp=1e12;base['current time'].hour=12;base.global_flags.is_crafting_unlocked=true;base.availabilities.skill.Meditation=1;
++for(const id of ['Shack','Motherwood','Forest clearing'])base.availabilities.location[id]=1;
++for(const id of ['Rat tail','Rat fang','Piece of willow wood','Iron ingot','Rat meat chunks','Potato'])base.inventories.person.main_character[JSON.stringify({id})]={count:40};
++fs.writeFileSync(path.join(output,'generated-native-fixture.json'),JSON.stringify(base));
++if(process.env.YAIRPG_UI_FOCUSED){
++ await open(base);await page.locator('[data-workspace-action="preset"]').selectOption('Compare');
++ const workMenu=page.getByText('Find work',{exact:false});await workMenu.focus();assert.equal(await workMenu.getAttribute('role'),'button');await workMenu.press('Enter');assert.ok(await page.locator('[data-activity="patrolling"]').isVisible());assert.equal(await workMenu.getAttribute('aria-expanded'),'true');
++ await page.evaluate(()=>window.change_location({location_id:'Village',skip_travel_time:true}));
++ const talk=page.getByText('Talk to someone',{exact:false});await talk.focus();await talk.press('Space');assert.ok(await page.locator('[data-dialogue="villageElder"]').isVisible());
++ await page.locator('[data-dialogue="villageElder"]').focus();await page.locator('[data-dialogue="villageElder"]').press('Enter');assert.ok(await page.locator('[data-textline="hello"]').isVisible());await page.locator('.end_dialogue_button').click();
++ const observer=await context.newPage();observer.on('pageerror',e=>errors.push(e.message));await observer.goto(url);await observer.getByText('PLAY',{exact:true}).click();await observer.locator('[data-workspace-action="preset"]').selectOption('Compare');await observer.waitForFunction(()=>/Read only|read-only/.test(document.getElementById('workspace_current_work')?.textContent||''));
++ const statusBefore=await observer.locator('#workspace_current_work').innerText();assert.match(statusBefore,/Read only|read-only/);const observerDock=observer.locator('.workspace-module[data-module="current-work"]');await observerDock.locator('.workspace-module-controls').evaluate(n=>n.open=true);await observerDock.locator('[data-workspace-action="dock"]').selectOption('right');assert.match(await observer.locator('#workspace_current_work').innerText(),/Read only|read-only/);await observer.close();
++ const result={url,fingerprint:await page.evaluate(()=>performance.getEntriesByType('resource').find(e=>e.name.includes('/dist/bundle.js?version='))?.name),checks:['Find work Enter opens actual work choices and exposes expanded state.','Talk Space opens real dialogue choices; elder Enter opens actual greeting.','Same-origin second tab has read-only status before and after current-work docking; observer sends no gameplay commands/saves.'],errors};assert.deepEqual(errors,[]);fs.writeFileSync(path.join(output,'focused-keyboard-readonly.json'),JSON.stringify(result,null,2));console.log(JSON.stringify(result,null,2));return;
++}
++if(!process.env.YAIRPG_OPTIONAL_ONLY){await open(base);await page.locator('[data-workspace-action="preset"]').selectOption('Compare');
++const fingerprint=await page.evaluate(()=>performance.getEntriesByType('resource').find(e=>e.name.includes('/dist/bundle.js?version='))?.name);
++await page.evaluate(()=>{window.__localNode=document.getElementById('location_related_div');window.start_activity('meditating');});
++await page.waitForTimeout(1300);let before=await save();assert.equal(before.current_activity?.activity_id,'meditating');
++const currentWork=page.locator('#workspace_current_work');assert.match(await currentWork.innerText(),/Meditat|meditat/);
++await dock('local-actions','right');await page.locator('.workspace-module[data-module="local-actions"] [data-workspace-action="handle"]').press('ArrowLeft');
++assert.ok(await page.evaluate(()=>window.__localNode===document.getElementById('location_related_div')));
++assert.equal(await page.locator('#location_related_div').count(),1);assert.match(await currentWork.innerText(),/Meditat|meditat/);
++await page.waitForTimeout(1300);let after=await save();assert.ok(after.levels.person.main_character.skill_xp.Meditation>before.levels.person.main_character.skill_xp.Meditation);
++await page.evaluate(()=>window.end_activity());await page.waitForTimeout(300);assert.match(await currentWork.innerText(),/No work running/);
++checks.push('Native meditation starts, survives dock/keyboard move with identical DOM owner, gains XP, cancels and updates current work.');
++await page.evaluate(()=>window.change_location({location_id:'Motherwood',skip_travel_time:true}));
++await page.getByText('Take an action',{exact:false}).click();await page.evaluate(()=>window.start_game_action('search for plants'));await page.waitForTimeout(1200);await dock('local-actions','center');await page.evaluate(()=>window.end_game_action());
++checks.push('Native local action starts/cancels after movement and refresh.');
++await page.evaluate(()=>window.change_location({location_id:'Village',skip_travel_time:true}));await page.waitForTimeout(300);await page.evaluate(()=>Math.random=()=>0);await page.evaluate(()=>window.openCraftingWindow());
++await page.locator('[data-recipe_id="Knotted chance charm"] .recipe_item_name').click();await page.evaluate(()=>window.closeCraftingWindow());
++const crafted=await save();assert.ok(Object.keys(crafted.inventories.person.main_character).some(k=>k.includes('Knotted chance charm')));
++checks.push('Actual native item craft retains inventory consequences in modular presentation.');
++await page.locator('.workspace-module[data-module="equipment-comparison"] .workspace-module-controls').evaluate(n=>n.open=true);
++await page.locator('#workspace_equipment_comparison').evaluate(n=>n.open=true);const first=page.getByLabel('First equipment item');assert.ok(await first.isVisible());await page.waitForTimeout(1200);await first.focus();const comparisonValue=await first.inputValue();await page.waitForTimeout(1200);assert.ok(await first.evaluate(n=>n===document.activeElement));await dock('equipment-comparison','right');await page.waitForTimeout(1200);assert.equal(await first.inputValue(),comparisonValue);assert.ok(await page.locator('.workspace-module[data-module="equipment-comparison"] [data-workspace-action="dock"]').evaluate(n=>n===document.activeElement));
++checks.push('Equipment comparison retains selected item and focus across docking and native refresh.');
++const shell=page.locator('.workspace-module[data-module="equipment-comparison"]');await shell.locator('[data-workspace-action="hide"]').click();assert.equal(await shell.isVisible(),false);await page.locator('.workspace-picker').evaluate(n=>n.open=true);await page.locator('.workspace-picker [data-module="equipment-comparison"]').click();assert.equal(await shell.isVisible(),true);
++checks.push('Hidden comparison restored through panel picker.');
++await page.evaluate(()=>window.change_location({location_id:'Forest clearing',skip_travel_time:true}));await page.waitForTimeout(3000);const fighting=await save();assert.ok(fighting.total_hits_taken>0);await dock('local-actions','right');await page.waitForTimeout(1600);const fightingAfter=await save();assert.ok(fightingAfter.total_hits_taken>=fighting.total_hits_taken);assert.equal(await page.locator('#location_related_div').count(),1);
++await page.evaluate(()=>window.change_location({location_id:'Village',skip_travel_time:true}));await page.waitForTimeout(1100);
++checks.push('Native combat continues after dock movement and real return travel works with one local controls owner.');
++const saved=await save(),xp=saved.levels.person.main_character.skill_xp.Meditation;await page.reload();await play();let loaded=await save();assert.equal(loaded.levels.person.main_character.skill_xp.Meditation,xp);assert.ok(Object.keys(loaded.inventories.person.main_character).some(k=>k.includes('Knotted chance charm')));
++const encoded=await page.evaluate(()=>window.save_to_file());await Promise.all([page.waitForNavigation(),page.locator('#saved_file_input').setInputFiles({name:'generated-ui-native.txt',mimeType:'text/plain',buffer:Buffer.from(encoded)})]);await play();loaded=await save();assert.equal(loaded.levels.person.main_character.skill_xp.Meditation,xp);assert.ok(Object.keys(loaded.inventories.person.main_character).some(k=>k.includes('Knotted chance charm')));
++checks.push('Generated native save/reload/import retains earned meditation XP and crafted inventory without duplicate commands.');
++assert.equal(await page.locator('#known_people_panel [data-known-person]').count(),0);
++await page.getByText('Find work',{exact:false}).focus();await page.getByText('Find work',{exact:false}).press('Enter');assert.ok(await page.locator('[data-activity="patrolling"]').isVisible());await page.evaluate(()=>window.change_location({location_id:'Village',skip_travel_time:true}));await page.getByText('Talk to someone',{exact:false}).focus();await page.getByText('Talk to someone',{exact:false}).press('Enter');await page.locator('[data-dialogue="villageElder"]').click();await page.locator('[data-textline="hello"]').click();await page.locator('.end_dialogue_button').click();
++await page.waitForFunction(()=>document.querySelectorAll('#known_people_panel [data-known-person]').length===1);assert.equal(await page.locator('#known_people_panel [data-known-person]').count(),1);
++const person=page.locator('#known_people_panel [data-known-person="villageElder"]');await person.locator('summary').click();await person.locator('summary').focus();
++const selected=await person.locator('summary').evaluate(n=>{const range=document.createRange();range.selectNodeContents(n);const selection=window.getSelection();selection.removeAllRanges();selection.addRange(range);return selection.toString();});
++await page.waitForTimeout(1200);assert.ok(await person.evaluate(n=>n.open));assert.ok(await person.locator('summary').evaluate(n=>n===document.activeElement));assert.equal(await page.evaluate(()=>window.getSelection().toString()),selected);
++await dock('known-people','right');assert.equal(await page.locator('#known_people_panel').count(),1);assert.equal(await page.locator('#known_people_panel [data-known-person]').count(),1);
++checks.push('Ordinary native elder greeting introduces only that witnessed person; movable known-people view preserves disclosure, focus and selected prose through native refresh.');
++const observer=await context.newPage();observer.on('pageerror',e=>errors.push(e.message));await observer.goto(url);await observer.getByText('PLAY',{exact:true}).click();await observer.locator('[data-workspace-action="preset"]').selectOption('Compare');await observer.waitForFunction(()=>/Read only|read-only/.test(document.getElementById('workspace_current_work')?.textContent||''));
++assert.match(await observer.locator('#workspace_current_work').innerText(),/Read only|read-only/);const observerDock=observer.locator('.workspace-module[data-module="current-work"]');await observerDock.locator('.workspace-module-controls').evaluate(n=>n.open=true);await observerDock.locator('[data-workspace-action="dock"]').selectOption('right');assert.match(await observer.locator('#workspace_current_work').innerText(),/Read only|read-only/);await observer.close();
++checks.push('Second tab shares same browser origin and has read-only current-work status before and after moving that module; no observer commands or saves were sent.');
++await page.screenshot({path:path.join(output,'native-workspace.png'),fullPage:true});assert.deepEqual(errors,[]);
++const result={url,fingerprint,generatedSavesOnly:true,checks,errors,scope:'Native progressed work/local action/crafting/combat/movement/save roundtrip; optional world journey remains separate.'};fs.writeFileSync(path.join(output,'native-journeys.json'),JSON.stringify(result,null,2));console.log(JSON.stringify(result,null,2));
++await context.close();}
++const optionalFixture=structuredClone(base);optionalFixture.character.money=1000;optionalFixture.expansion.rng=42;await open(optionalFixture);await page.locator('[data-workspace-action="preset"]').selectOption('Compare');
++const beginning=page.locator('#structured_pack_panel');
++const optionalChecks=[];
++if(await beginning.isVisible()){
++ await page.locator('.workspace-module[data-module="beginning"] .workspace-module-controls').evaluate(n=>n.open=true);
++ await page.locator('.workspace-module[data-module="beginning"] [data-workspace-action="hide"]').click();
++ await page.route('**/private_packs/manifest.json',r=>r.fulfill({status:404,body:''}));await page.reload();await play();
++ assert.equal(await page.locator('#structured_pack_panel').count(),0);
++ assert.equal(await page.locator('.workspace-picker [data-module="beginning"]').count(),0);
++ await page.unroute('**/private_packs/manifest.json');await page.reload();await play();
++ assert.equal(await page.locator('.workspace-module[data-module="beginning"]').isVisible(),false);
++ await page.locator('.workspace-picker').evaluate(n=>n.open=true);await page.locator('.workspace-picker [data-module="beginning"]').click();
++ assert.ok(await beginning.isVisible());optionalChecks.push('Absent optional manifest discloses no beginning panel or picker; returning manifest restores hidden preference and allows explicit reopen.');
++}
++if(await beginning.isVisible() && await page.locator('[data-structured-begin]').count()){
++ await page.locator('[data-structured-begin]').click();await page.waitForTimeout(500);
++ assert.equal(await page.locator('[data-structured-begin]').count(),0);
++ const initialized=await save();assert.ok(initialized.content_packs.structured);
++ const action=page.locator('[data-structured-action]:not(:disabled)').first();assert.ok(await action.count());
++ const id=await action.getAttribute('data-structured-action');await action.focus();await page.waitForTimeout(600);assert.ok(await action.evaluate(n=>n===document.activeElement));
++ await action.click();const requested=await save();const sequence=requested.expansion.sequence;
++ await dock('beginning','right');await page.waitForTimeout(400);assert.equal(await beginning.count(),1);
++ const jobs=requested.expansion.simulation.jobs.filter(j=>j.actorId==='player');
++ if(jobs.length){assert.equal(jobs.length,1);await page.locator('[data-structured-cancel]').first().focus();await page.locator('[data-structured-cancel]').first().press('Enter');await page.waitForTimeout(300);assert.equal((await save()).expansion.simulation.jobs.filter(j=>j.actorId==='player').length,0);optionalChecks.push('Actual structured work starts once, survives docking, and cancels through authoritative controls.');}
++ else {assert.equal((await save()).expansion.sequence,sequence);optionalChecks.push('Actual structured immediate action dispatches once; docking dispatches no command.');}
++ const disabled=page.locator('[data-structured-action]:disabled');if(await disabled.count()){assert.ok((await disabled.first().evaluate(n=>n.previousElementSibling?.textContent||'')).length);optionalChecks.push('Structured disabled action retains adjacent blocker explanation.');}
++ const availableRows=async()=>page.locator('[data-structured-action]:not(:disabled)').evaluateAll(nodes=>nodes.map(node=>{let cursor=node.previousElementSibling,timed=false;while(cursor&&cursor.tagName!=='BUTTON'){if(/[1-9][0-9]* played minutes\./.test(cursor.textContent))timed=true;cursor=cursor.previousElementSibling;}return {id:node.dataset.structuredAction,timed};}));
++ let rows=await availableRows(),timedId=rows.find(r=>r.timed)?.id;const used=new Set([id]);
++ for(let attempt=0;!timedId&&attempt<3;attempt++){const next=rows.find(r=>!r.timed&&!used.has(r.id));if(!next)break;used.add(next.id);await page.locator('[data-structured-action]').evaluateAll((nodes,id)=>nodes.find(n=>n.dataset.structuredAction===id)?.click(),next.id);await page.waitForTimeout(300);rows=await availableRows();timedId=rows.find(r=>r.timed)?.id;}
++
++ if(timedId){await page.locator('[data-structured-action]').filter({hasNot:page.locator(':disabled')}).evaluateAll((nodes,id)=>nodes.find(n=>n.dataset.structuredAction===id)?.click(),timedId);const timed=await save();assert.equal(timed.expansion.simulation.jobs.filter(j=>j.actorId==='player').length,1);await dock('beginning','center');await page.locator('[data-structured-cancel]').first().focus();await page.locator('[data-structured-cancel]').first().press('Enter');const cancelled=await save();assert.equal(cancelled.expansion.simulation.jobs.filter(j=>j.actorId==='player').length,0);assert.equal(cancelled.expansion.actors.player.completed[timedId],timed.expansion.actors.player.completed[timedId]);optionalChecks.push('Available timed structured work starts once, docks while pending, and cancels without duplicate jobs.');}
++ else optionalChecks.push('No timed action eligible in this generated natural starting route; timed structured cancellation unrun.');
++ const held=await save();await page.reload();await play();const recovered=await save();assert.deepEqual(recovered.content_packs.structured,held.content_packs.structured);
++ optionalChecks.push('Generated structured origin saves and reloads identity while presentation moves.');
++}else optionalChecks.push('No available structured candidate world. Actual world journey unrun.');
++fs.writeFileSync(path.join(output,'optional-world-journeys.json'),JSON.stringify({url,fingerprint:await page.evaluate(()=>performance.getEntriesByType('resource').find(e=>e.name.includes('/dist/bundle.js?version='))?.name),generatedSavesOnly:true,generatedFundsAndFixedRng:true,checks:optionalChecks,errors},null,2));assert.deepEqual(errors,[]);console.log(JSON.stringify({optionalChecks,errors},null,2));
++}finally{await browser.close();}
++})().catch(e=>{console.error(e);process.exit(1)});
+--- a/scripts/ui_workspace_extra_browser.cjs
++++ b/scripts/ui_workspace_extra_browser.cjs
+@@ -0,0 +1,2 @@
++const {chromium}=require('/Users/weiwei/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright');const assert=require('node:assert/strict'),fs=require('node:fs');
++(async()=>{const b=await chromium.launch({headless:true,executablePath:'/Applications/Google Chrome.app/Contents/MacOS/Google Chrome'});const c=await b.newContext({viewport:{width:1440,height:1000}});const p=await c.newPage();const errors=[];p.on('pageerror',e=>errors.push(e.message));await p.goto('http://127.0.0.1:18571/');await p.getByText('PLAY',{exact:true}).click();if(await p.getByRole('button',{name:'Confirm',exact:true}).isVisible())await p.getByRole('button',{name:'Confirm',exact:true}).click();await p.locator('[data-workspace-action="preset"]').selectOption('Compare');const shell=p.locator('.workspace-module[data-module="skills"]');await shell.locator('.workspace-module-controls>summary').click();const slider=shell.locator('[data-workspace-action="width"]');await slider.scrollIntoViewIfNeeded();const original=await slider.inputValue(),bounds=await slider.boundingBox();await p.mouse.click(bounds.x+bounds.width*.85,bounds.y+bounds.height/2);assert.notEqual(await slider.inputValue(),original);const after=await slider.inputValue();await slider.focus();await slider.press('ArrowLeft');assert.notEqual(await slider.inputValue(),after);await p.setViewportSize({width:720,height:500});assert(await p.locator('#location_actions_div').getByRole('button',{name:/Talk to someone/}).isVisible());assert(await p.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));assert.equal(await p.locator('.workspace-floating:visible').count(),0);assert.deepEqual(errors,[]);const result={passed:true,mouseResize:true,keyboardResize:true,zoomEquivalent:'720 CSS px viewport representing a 1440 px window at 200%, alongside full-layout CSS zoom proof',localActions:true,errors};fs.writeFileSync('docs/gm/dispatch/ui-modularity-2026-10-11/browser/EXTRA_RESULT.json',JSON.stringify(result,null,2));console.log(JSON.stringify(result));await b.close();})().catch(e=>{console.error(e.stack);process.exit(1)});

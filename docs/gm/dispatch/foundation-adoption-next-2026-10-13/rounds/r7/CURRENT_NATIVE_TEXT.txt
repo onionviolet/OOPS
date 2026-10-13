@@ -1,0 +1,59 @@
+Your two-receiver retort
+
+Prepare three-minute batches with two actual empty trays. Collect resin and clear residue separately before another batch. Fuel stays unburned during preparation; cancellation returns the reserved inputs and trays.
+
+Three retort batches with separate receiver clearing: cancelled. Future steps cancelled. Any retained accepted job keeps its disclosed terms.
+
+Known actions
+Prepare one retort batch · sap + log fuel + both empty trays + 1 stamina + 3 min
+
+Reserve only this batch and both receiving objects. Preparation keeps fuel unburned until settlement. Cancellation or unsupported completion returns unchanged input, fuel, effort and both empty trays once.
+
+Unavailable
+
+Known requirements
+Return to the Village with your actual living native body, usable hands and supported local clock.
+Commission your own retort rack and two physical trays first.
+Retain your actual owned rack and the existing fitting-bench permission.
+The resin tray has no free receiving space. Collect its contents or recover the actual empty tray.
+The residue tray has no free receiving space. Collect or dispose of its contents before another batch.
+Carry one owned, unequipped and unborrowed Tree sap.
+Carry one owned, unequipped and unborrowed Rough wood log as this batch’s fuel.
+Why this is unavailable
+This action is not available under the current conditions. Review the known preparation or choose another action.
+Stated costs
+1 Tree sap. You have 0 available.
+1 Rough wood log. You have 78 available.
+1 Empty retort resin tray. You have 1 available.
+1 Empty retort residue tray. You have 1 available.
+1 stamina. You have 50.849999999999994 available.
+
+Time terms: 3 played minutes under the known terms.
+
+Cancellation: Cancelling returns reserved inputs. Time already played is not returned.
+
+Reserved
+Your attention is reserved while the accepted work runs.
+A place at Player’s Village retort rack is reserved for this work.
+Unavailable: Prepare one retort batch · sap + log fuel + both empty trays + 1 stamina + 3 min
+Plan three retort batches · pause until each actual receiver is cleared
+
+Available
+
+Stated costs
+Only the current batch is reserved. Either filled or unavailable tray pauses the next start before spending its input or fuel. Clear or recover both trays and explicitly resume.
+Do this: Plan three retort batches · pause until each actual receiver is cleared
+Remove ended retort plan
+
+Available
+
+Do this: Remove ended retort plan
+Available carried resin receiver: 1 empty / 0 filled. Residue receiver: 1 empty / 0 filled. Each holds one batch; stored, borrowed, equipped and other-held objects do not provide receiving capacity.
+Available owned batch inputs: 0 sap, 78 log fuel. Loose spent residue: 0. Each batch reserves one of each input and both actual empty trays, with one stamina and three supported played minutes.
+Collect one Set repair resin and use the existing resin route with two Sound repair staves to produce two Prepared survey kits. Clearing resin alone leaves the residue receiver occupied.
+Observed: Commissioned one fixed retort rack and cold disposal place beside the permitted Village bench. Two logs and my effort supplied its frame and wooden receiver fixtures; Eda received the separate two-coin fixture and placement fee. I received exactly one empty resin tray and one empty residue tray. Returning does not provide another pair. · Recorded at played minute 699.
+Observed: Prepared and settled one retort batch. Its reserved sap and log fuel were spent once; my two held empty receivers returned as distinct filled trays. Resin and spent residue remain in those physical trays until separate collection or disposal. No second batch input or fuel was reserved by this completion. · Recorded at played minute 716.
+Observed: Collected one Set repair resin from the held filled resin tray and retained that same receiver empty. The existing resin-and-two-sound-stave route can bind two survey kits. The separate residue tray was not cleared. · Recorded at played minute 720.
+Observed: Spent actual effort at my commissioned cold disposal place to discard the held tray’s spent contents. The same empty residue receiver returned once. I did not pour anything into the crop drain, clear resin, recover fuel or gain materials. · Recorded at played minute 712.
+Observed: Collected the spent residue into my bag and kept its same tray empty. The residue remains physical stock until transferred, stored or deliberately disposed of; clearing this tray did not clear resin or grant fuel. · Recorded at played minute 721.
+Observed: Spent actual effort and one supported minute disposing of one carried spent residue at my own commissioned cold disposal place. The material was removed once; no tray, resin, fuel, crop remedy or payout was created. · Recorded at played minute 723.

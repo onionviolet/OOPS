@@ -1,0 +1,41 @@
+[
+  {
+    "event": "import",
+    "data": {
+      "source": "docs/gm/dispatch/foundation-adoption-next-2026-10-13/rounds/r2/natural-prerequisite/merchant-stock-1.txt",
+      "hash": "d25f47a43943b304febdaed62c3ae93995a7665c27e4bad702ecfbff657d653a",
+      "bundle": "cb0c11d04b3e13c16aac5cd930314cfb78d654c326f07d2b9140f14e739ff175"
+    }
+  },
+  {
+    "event": "served-bundle",
+    "data": {
+      "sha256": "cb0c11d04b3e13c16aac5cd930314cfb78d654c326f07d2b9140f14e739ff175"
+    }
+  },
+  {
+    "event": "travel-choices",
+    "data": [
+      {
+        "id": "Shack",
+        "text": "check_box_outline_blank Go to [Shack] [10m]"
+      },
+      {
+        "id": "Nearby cave",
+        "text": "check_box_outline_blank Go to [Nearby cave] [1h]"
+      },
+      {
+        "id": "Infested field",
+        "text": "warning_amber  Enter the [Infested field] [15m]"
+      },
+      {
+        "id": "Shack",
+        "text": "bed Travel to [Shack] [10m]"
+      },
+      {
+        "id": "Infested field",
+        "text": "warning_amber Travel to [Infested field] [15m] "
+      }
+    ]
+  }
+]

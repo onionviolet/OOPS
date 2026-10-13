@@ -1,0 +1,28 @@
+{
+  "status": "NO_NATIVE_ATTEMPT_SELECTED",
+  "reason": "No dependency-ready authorized public identified exposure consumer. No fixture or private paused route permitted.",
+  "immutableTotals": {
+    "coins": 0,
+    "materials": 0,
+    "tools": 0,
+    "custody": 0,
+    "containers": 0,
+    "playerStamina": 0,
+    "npcStamina": 0,
+    "health": 0,
+    "attention": 0,
+    "satiety": 0,
+    "jobs": 0,
+    "controllers": 0,
+    "collections": 0,
+    "training": 0,
+    "preparation": 0,
+    "battles": 0,
+    "plans": 0,
+    "attempts": 0,
+    "travel": 0,
+    "cancellation": 0,
+    "playedMinutes": 0,
+    "cleanupActions": 0
+  }
+}

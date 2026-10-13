@@ -1,4 +1,5 @@
 import {foodPacingDescription} from './absorb_e1/panel.js';
+import {rarityColor} from './rarity_palette.js';
 import {accessoryCraftingTiers} from './absorb_c1/accessories.js';
 import {projectGameAbsorptionAssayItemView} from './game_absorption_assay_item_view.js';
 import {projectFieldcraftItemView} from './nethack_fieldcraft_item_view.js';
@@ -21,7 +22,7 @@ import { game_options,
     travel_times, 
     favourite_items,
     get_context,
-    canConsumeNativeCraftingItem,
+    canConsumeNativeCraftingItem, nativeWorkLedgerChance, nativeWorkLedgerQuality,
     translate} from "./main.js";
 import { activities } from "./activities.js";
 import { format_time, current_game_time, seasons } from "./game_time.js";
@@ -66,6 +67,8 @@ let background_animation_particles = [];
 //inventory display
 const inventory_div = document.getElementById("inventory_content_div");
 let item_divs = {};
+inventory_div?.addEventListener("mouseover", event => clear_inventory_new_marker(event));
+inventory_div?.addEventListener("focusin", event => clear_inventory_new_marker(event));
 let trader_item_divs = {};
 let storage_item_divs = {};
 let item_buying_divs = {};
@@ -75,6 +78,44 @@ const storage_inventory_div = document.getElementById("storage_inventory_div");
 
 //message log
 const message_log = document.getElementById("message_box_div");
+
+// Log reading: while the player is scrolled up, new lines do not move the log;
+// a sticky "N new" control at the log's bottom edge jumps to the newest line.
+let message_log_unread_count = 0;
+let message_log_unread_anchor = null;
+function is_message_log_near_bottom() {
+    if(!message_log) return true;
+    return message_log.scrollHeight - message_log.scrollTop - message_log.clientHeight < 24;
+}
+function hide_message_log_unread() {
+    message_log_unread_count = 0;
+    if(message_log_unread_anchor) message_log_unread_anchor.hidden = true;
+}
+function show_message_log_unread() {
+    if(!message_log) return;
+    if(!message_log_unread_anchor) {
+        message_log_unread_anchor = document.createElement("div");
+        message_log_unread_anchor.className = "log-unread-anchor";
+        const button = document.createElement("button");
+        button.type = "button";
+        button.className = "log-unread-button";
+        button.setAttribute("data-log-unread", "");
+        button.addEventListener("click", () => {
+            message_log.scrollTop = message_log.scrollHeight;
+            hide_message_log_unread();
+        });
+        message_log_unread_anchor.appendChild(button);
+    }
+    const button = message_log_unread_anchor.firstChild;
+    button.textContent = `${message_log_unread_count} new`;
+    button.setAttribute("aria-label", `${message_log_unread_count} new log ${message_log_unread_count === 1 ? "message" : "messages"}, jump to newest`);
+    //keep the anchor last so its sticky bottom edge sits over the visible log
+    message_log.appendChild(message_log_unread_anchor);
+    message_log_unread_anchor.hidden = false;
+}
+message_log?.addEventListener("scroll", () => {
+    if(message_log_unread_count && is_message_log_near_bottom()) hide_message_log_unread();
+}, {passive: true});
 let dynamic_loot_message = null;
 
 //enemy info
@@ -186,20 +227,61 @@ const equipment_slots_divs = {head: document.getElementById("head_slot"), torso:
                               fishing_pole: document.getElementById("fishing_slot"),
 };
 
-const rarity_colors = {
-    trash: "#d3d3d3",
-    common: "#ffffff",
-    uncommon: "#90ee90",
-    rare: "#0000ff",
-    epic: "#ffc0cb",
-    legendary: "#800080",
-    mythical: "#ffa500"
+// Rarity colors come from rarity_palette.js per color scheme (Standard keeps
+// the original colors). Rendered rarity spans carry data-rarity so a scheme
+// switch can recolor them in place.
+function current_color_scheme() {
+    return document.documentElement.dataset.colorScheme;
 }
+function rarity_color(rarity) {
+    return rarityColor(rarity, current_color_scheme());
+}
+function rarity_outline(rarity) {
+    return select_outline_class(rarity_color(rarity));
+}
+function recolor_rarity_spans() {
+    document.querySelectorAll("[data-rarity]").forEach(node => {
+        const rarity = node.dataset.rarity;
+        node.style.color = rarity_color(rarity);
+        node.classList.remove("outline_black", "outline_white");
+        node.classList.add(rarity_outline(rarity));
+    });
+}
+new MutationObserver(recolor_rarity_spans).observe(document.documentElement, {attributes: true, attributeFilter: ["data-color-scheme"]});
 
-const rarity_outlines = {};
-Object.keys(rarity_colors).forEach(rarity => {
-    rarity_outlines[rarity] = select_outline_class(rarity_colors[rarity]);
-});
+// Session-only "new item" marker. Items present when the player first acts in
+// game form the baseline; character inventory rows that appear later carry
+// data-item-new until hovered or focused. Nothing is saved.
+const inventory_known_keys = new Set();
+const inventory_new_keys = new Set();
+let inventory_baseline_taken = false;
+function take_inventory_baseline(event) {
+    if(inventory_baseline_taken || !event.isTrusted) return;
+    if(event.target?.closest?.("#loading_screen, #hero_creation_panel")) return;
+    inventory_baseline_taken = true;
+    Object.keys(character.getItems()).forEach(key => inventory_known_keys.add(key));
+    document.removeEventListener("pointerdown", take_inventory_baseline, true);
+    document.removeEventListener("keydown", take_inventory_baseline, true);
+}
+document.addEventListener("pointerdown", take_inventory_baseline, true);
+document.addEventListener("keydown", take_inventory_baseline, true);
+function apply_inventory_new_marker(row, key) {
+    if(!inventory_baseline_taken) {
+        inventory_known_keys.add(key);
+        return;
+    }
+    if(!inventory_known_keys.has(key)) {
+        inventory_known_keys.add(key);
+        inventory_new_keys.add(key);
+    }
+    if(inventory_new_keys.has(key)) row.setAttribute("data-item-new", "");
+}
+function clear_inventory_new_marker(event) {
+    const row = event.target?.closest?.("[data-item-new]");
+    if(!row) return;
+    inventory_new_keys.delete(row.dataset.character_item);
+    row.removeAttribute("data-item-new");
+}
 
 const crafting_pages = {};
 
@@ -437,15 +519,18 @@ function create_item_tooltip_content({item, options={}, is_trade = false}) {
 
     if(show_quality) {
         if(options?.quality?.length == 2) {
-            const outline_class_1 = rarity_outlines[item.getRarity(options.quality[0])];
-            const outline_class_2 = rarity_outlines[item.getRarity(options.quality[1])];
+            const rarity_1 = item.getRarity(options.quality[0]);
+            const rarity_2 = item.getRarity(options.quality[1]);
+            const outline_class_1 = rarity_outline(rarity_1);
+            const outline_class_2 = rarity_outline(rarity_2);
                 
-            item_tooltip += `<br><br><b>Quality: <span class="${outline_class_1}" style="color: ${rarity_colors[item.getRarity(options.quality[0])]}"> ${options.quality[0]}% </span> - <span class="${outline_class_2}" style="color: ${rarity_colors[item.getRarity(options.quality[1])]}"> ${options.quality[1]}% </span>`;
-            item_tooltip += `<br>[<span class="${outline_class_1}" style="color: ${rarity_colors[item.getRarity(options.quality[0])]}">${item.getRarity(options.quality[0])}</span>-<span class="${outline_class_2}" style="color: ${rarity_colors[item.getRarity(options.quality[1])]}">${item.getRarity(options.quality[1])}</span>] </b>`;
+            item_tooltip += `<br><br><b>Quality: <span class="${outline_class_1}" data-rarity="${rarity_1}" style="color: ${rarity_color(rarity_1)}"> ${options.quality[0]}% </span> - <span class="${outline_class_2}" data-rarity="${rarity_2}" style="color: ${rarity_color(rarity_2)}"> ${options.quality[1]}% </span>`;
+            item_tooltip += `<br>[<span class="${outline_class_1}" data-rarity="${rarity_1}" style="color: ${rarity_color(rarity_1)}">${rarity_1}</span>-<span class="${outline_class_2}" data-rarity="${rarity_2}" style="color: ${rarity_color(rarity_2)}">${rarity_2}</span>] </b>`;
         } else {
-            const outline_class = rarity_outlines[item.getRarity(quality)];
+            const rarity = item.getRarity(quality);
+            const outline_class = rarity_outline(rarity);
                 
-            item_tooltip += `<br><br><b class="${outline_class}" style="color: ${rarity_colors[item.getRarity(quality)]}">Quality: ${quality}% [${item.getRarity(quality)}]</b>`;
+            item_tooltip += `<br><br><b class="${outline_class}" data-rarity="${rarity}" style="color: ${rarity_color(rarity)}">Quality: ${quality}% [${rarity}]</b>`;
         }
     }
     if(item.tags.unique) {
@@ -901,6 +986,12 @@ function end_activity_animation(remove) {
             message_count.message_crafting +=1;
             group_to_add = "message_crafting";
             break;
+        case "purchase":
+            message_count.message_events += 1;
+            group_to_add = "message_events";
+            class_to_add = "message_notification";
+            message.classList.add("message_money");
+            break;
         case "message_critical":
             message_count.message_events += 1;
             group_to_add = "message_events";
@@ -930,6 +1021,8 @@ function end_activity_animation(remove) {
         message_count[group_to_add]--;
     }
         
+    const log_was_following = is_message_log_near_bottom();
+
     message.classList.add(class_to_add, group_to_add);
     set_HTML(message, message_to_add);
     //message.innerText = message_to_add;
@@ -940,7 +1033,13 @@ function end_activity_animation(remove) {
     const button_id = group_to_add.replace("_","_show_"); //not the best way but likelihood of the ids being changed is quite low
     if(document.getElementById(button_id).classList.contains("active_selection_button")) {
         //scroll the message log but only if added message is in a not hidden category
-        message_log.scrollTop = message_log.scrollHeight;
+        //and the player is not reading older lines; then count it as unread instead
+        if(log_was_following) {
+            message_log.scrollTop = message_log.scrollHeight;
+        } else {
+            message_log_unread_count += 1;
+            show_message_log_unread();
+        }
     }
     
 }
@@ -992,6 +1091,7 @@ function format_book_bonuses(bonuses) {
 
 function clear_message_log() {
     clear_HTML_content(message_log);
+    hide_message_log_unread();
 }
 
 /**
@@ -1870,7 +1970,8 @@ function create_inventory_item_div({key, item_count, target, is_equipped, trade_
     }
 
     if (target_item.use_quality && target_item.quality) {
-        item_name_div_content += ` [<b class="${rarity_outlines[target_item.getRarity()]}" style="color: ${ rarity_colors[target_item.getRarity()] } ">${target_item.quality}%</b>]`;
+        const item_rarity = target_item.getRarity();
+        item_name_div_content += ` [<b class="${rarity_outline(item_rarity)}" data-rarity="${item_rarity}" style="color: ${ rarity_color(item_rarity) } ">${target_item.quality}%</b>]`;
     }
 
     if(item_count > 1) {
@@ -1967,6 +2068,10 @@ function create_inventory_item_div({key, item_count, target, is_equipped, trade_
 
     if(typeof trade_index !== "undefined") {
         item_control_div.classList.add('item_to_trade');
+    }
+
+    if(target === "character" && !is_equipped && typeof trade_index === "undefined") {
+        apply_inventory_new_marker(item_control_div, key);
     }
 
     return item_control_div;
@@ -2217,6 +2322,8 @@ function update_displayed_normal_location(location) {
     }
 
 
+    // Native choices lead the action flow; fork panels appended later stay after them.
+    Object.values(location_choice_divs).forEach(choice => choice.dataset.nativeChoice = "location");
     action_div.append(...Object.values(location_choice_divs));
 }
 
@@ -2685,6 +2792,7 @@ function update_displayed_combat_location(location) {
     clear_count_div.children[0].children[0].innerText = knownClearReader(location);
 
     action = create_location_choices({location: location, category: "travel", is_combat: true});
+    action.forEach(choice => choice.dataset.nativeChoice = "combat");
 
     action_div.append(...action);
 
@@ -3217,7 +3325,7 @@ function create_recipe_tooltip_content({category, subcategory, recipe_id, materi
     let tooltip = "";
 
     if(subcategory === "items") {   //TODO base on result present? class?
-        const success_chance = Math.round(100*recipe.get_success_chance(station_tier));
+        const success_chance = Math.round(100*nativeWorkLedgerChance(recipe.get_success_chance(station_tier),category,subcategory));
         tooltip += `Success rate: <b><span style="color:${success_chance > 74?"lime":success_chance>49?"yellow":success_chance>24?"orange":"red"}">${success_chance}%</span></b><br><br>Materials required:<br>`;
         for (let i = 0; i < recipe.materials.length; i++) {
             const material = find_recipe_material({material: recipe.materials[i], ignore_stop: true});
@@ -3255,7 +3363,7 @@ function create_recipe_tooltip_content({category, subcategory, recipe_id, materi
         }
 
         const result_tier = item_templates[material.result_id].component_tier ?? item_templates[material.result_id].item_tier;
-        const quality_range = recipe.get_quality_range(station_tier - result_tier);
+        const quality_range = recipe.get_quality_range(station_tier - result_tier).map(q=>nativeWorkLedgerQuality(q,category,subcategory,recipe.get_quality_cap()));
 
         const xp_val_1 = get_recipe_xp_value({category, subcategory, recipe_id, material_count: material.count, result_tier: result_tier, rarity_multiplier: rarity_multipliers[getItemRarity(quality_range[0])]});
         const xp_val_2 = get_recipe_xp_value({category, subcategory, recipe_id, material_count: material.count, result_tier: result_tier, rarity_multiplier: rarity_multipliers[getItemRarity(quality_range[1])]});
@@ -3988,6 +4096,7 @@ function update_displayed_character_xp(did_level = false) {
     const levelable = character.getLevelableComponent();
     character_xp_div.children[0].children[0].style.width = `${100*levelable.current_xp/levelable.xp_to_next_lvl}%`;
     character_xp_div.children[1].innerText = `${expo({number: levelable.current_xp})} / ${expo({number: levelable.xp_to_next_lvl})} xp`;
+    document.getElementById("character_vitals_level").textContent = `Lv ${levelable.current_level}`;
 
     if(did_level) {
         character_level_div.innerText = `Level: ${levelable.current_level}`;
@@ -4054,10 +4163,11 @@ function update_displayed_item_log() {
         html_content += `<tr><td>${name}</td ><td>`;
 
         if(item.quality_highest > 0 && item_templates[item.id].use_quality) {
-            const color = rarity_colors[getItemRarity(item.quality_highest)];
+            const highest_rarity = getItemRarity(item.quality_highest);
+            const color = rarity_color(highest_rarity);
             const outline_class = select_outline_class(color);
             //html_content += `${item.quality_lowest}-${item.quality_highest}%`;
-            html_content += `<span class="${outline_class}" style="color: ${color}">${item.quality_highest}%</span>`; 
+            html_content += `<span class="${outline_class}" data-rarity="${highest_rarity}" style="color: ${color}">${item.quality_highest}%</span>`; 
             //skip the lowest and show just the highest, seems better for display purposes?
         }
 
@@ -4238,14 +4348,14 @@ function start_activity_display(current_activity) {
     action_end_div.id = "action_end_div";
 
     const action_end_text = document.createElement("div");
-    action_end_text.innerText = `Finish ${current_activity.activity_name}`;
+    action_end_text.innerText = `Stop ${current_activity.activity_name}`;
     action_end_text.id = "action_end_text";
 
     action_end_div.appendChild(action_end_text);
 
     if(is_job) {
         const action_end_earnings = document.createElement("div");        
-        action_end_earnings.innerText = `(earnings: ${format_money(0)})`;
+        action_end_earnings.innerText = `(pay accrued on stopping: ${format_money(0)})`;
         action_end_earnings.id = "action_end_earnings";
 
         action_end_div.appendChild(action_end_earnings);
@@ -4284,13 +4394,13 @@ function update_displayed_ongoing_activity(current_activity) {
     const base_activity = activities[current_activity.activity_name];
 
     if(base_activity.type === "JOB") {
-        set_HTML(document.getElementById("action_end_earnings"), `(earnings: ${format_money(current_activity.earnings)})`);
+        set_HTML(document.getElementById("action_end_earnings"), `(pay accrued on stopping: ${format_money(current_activity.earnings)})`);
         const time_info_div = document.getElementById("time_for_earnings_div");
         
         if(!enough_time_for_earnings(current_activity)) {
-            time_info_div.innerText = `There's not enough time left to earn more, but ${character.name} might still learn something...`;
+            time_info_div.innerText = `No time for another full paid round. Stopping pays accrued earnings only; ${character.name} can still learn.`;
         } else {
-            time_info_div.innerText = `Next earnings in: ${format_working_time(current_activity.gathering_time_needed - current_activity.gathering_time%current_activity.gathering_time_needed)}`;
+            time_info_div.innerText = `Full-round pay in: ${format_working_time(current_activity.gathering_time_needed - current_activity.gathering_time%current_activity.gathering_time_needed)}. Stop early: no pay for the unfinished round.`;
         }
     }
 
@@ -4671,9 +4781,8 @@ function update_displayed_skill_bar(skill, leveled_up=true) {
     skill_bar_divs[skill.category][skill.skill_id].children[0].children[1].style.width = `${100*skill.getCurrentXP()/skill.getXPToNextLvl()}%`;
     //skill_bar_current
 
-    if(get_unlocked_skill_rewards(skill.skill_id)) {
-        set_HTML(skill_bar_divs[skill.category][skill.skill_id].children[0].children[2].children[4], `<br>${get_unlocked_skill_rewards(skill.skill_id)}`);
-    }
+    const unlockedRewards=get_unlocked_skill_rewards(skill.skill_id);
+    set_HTML(skill_bar_divs[skill.category][skill.skill_id].children[0].children[2].children[4], unlockedRewards?`<br>${unlockedRewards}`:'');
 
     if(typeof get_next_skill_milestone(skill.skill_id) !== "undefined") {
         skill_bar_divs[skill.category][skill.skill_id].children[0].children[2].children[5].innerText  = `lvl ${get_next_skill_milestone(skill.skill_id)}: ???`;

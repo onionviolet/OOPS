@@ -1,0 +1,39 @@
+{
+  "scope": "Relevant dirty live source/test/build/receipt binding, not clean-tree or whole-goal acceptance",
+  "head": "dd3efe3383f12f0aac22e4f390aae90fae2e7fc4",
+  "files": {
+    "src/ink_scene_content.js": "17510921b76264463dfc68911f3179c407a2b1c7970d9431dfdb50ec5820d761",
+    "src/ink_narrative.js": "f54f3413232acb9f134028cfb78a58e5d029f903c0976e259169ac7e7e9607ff",
+    "src/feature_expansion_nested_ink_ui.js": "194bec9af4e0a8cf1e30bd2b8efbe67447e77cb342c803d8b081ac34b95c4ec7",
+    "src/feature_expansion_nested_host.js": "94c04d5c80b660d617b92b0341115f2bf97abe3a211c98fc66c70021233eff42",
+    "src/main.js": "0f011b576cc05449f33c900f61a61c9044625060905a933e8334748722eed641",
+    "stories/feature_wave.ink": "a4d470baa3ce27e44087bbf213a51cc9d98e8afeefd5a08bdd2bb54281785d8a",
+    "stories/feature_wave.json": "ffb07d934f656be98952aa2e3d181c585b3342090e1d033079dc819df311ac7c",
+    "scripts/compile_feature_ink.mjs": "f3f9c2ca77440435431e8da55bedd5c42bad2ea01768a4b899a80173d4e75987",
+    "docs/gm/feature-wave/ink/content/feature_wave_v3.json": "a2688775a9adfd21b369f52e0f3fa07bdce8b084be9ce4fc1c385479f60648ed",
+    "dist/bundle.js": "9b130b295f8464eb770f603afd68d31166569901bd9f0af2acda93192007fcae",
+    "dist/bundle.js.map": "ebe57989c344f944d2e45799c305d46742d81ca74b6d1a975edb706d39b8b116",
+    "index.html": "408961500078c83e3fa838d2c461a8c16ee20a50091ab13334f0722e15a7e210",
+    "src/realm_traveler_profiles.js": "d4e98f8d9dd3fe2efe49e57ded583ef1ed2910b91d711eb2ece25f4f77aa774f",
+    "src/native_equipment_transaction.js": "114abb2788c00cb62d396ad4ef40cdf98180d1f1203c3754d2f8de4c43588793",
+    "src/expansion_engine.js": "6c8c0b3eea99ab1a802e70f4b077cf8dbc0ae8940cb5df0d92b6a330239ec16a",
+    "tests/native_equipment_ownership.test.js": "4e32649f845561eeb2ee0e9d368dc761836f526fb8e8449ef9543cf3a3b0dd56",
+    "tests/ink_lin_parity.test.js": "873a60d5410d2da28bd8d7415f06018f56563d1658daba9430e35ee1549d482c",
+    "build.js": "8561349784483242a15ce4208b9180651c1aaf03c3d8ff1379de8c7d8065fea5",
+    "package.json": "805269ecbf25287b2758391e718c805e1a4336b4b4f1c923a87b3712620e8e2c",
+    "package-lock.json": "42f2e809f9055a84c99959f12a0b17adfbbc150d5d748b5d5ce2b9f85de9df99",
+    "docs/gm/feature-wave/ink/content/feature_wave_v1.json": "edcc739418595110cf6800d3f1befefec9248f79f0c2545f2d6174a9ca4b9462",
+    "docs/gm/feature-wave/ink/content/feature_wave_v2.json": "12ac8ccdca19c8e4c6b63fe79210efc4e267e4b1953b2c4c3b18a038e4876486",
+    "docs/gm/dispatch/foundation-completion-2026-10-12/FOUNDATION_LEDGER.md": "794905f022d897e188efa8b244ac8e97a05bce4f8f5dd65bf15a95e35b0b9982",
+    "docs/gm/dispatch/foundation-completion-2026-10-12/REPORT.md": "7e10375d4c3cc78879531b788b869047579c9f55578aa73722827077b0d4d15f",
+    "docs/gm/dispatch/foundation-completion-2026-10-12/lin-proof/REPORT.md": "09088487ff2605c56e331a423df43e189285d3daa0a08b298f30fc16f3c33411",
+    "docs/gm/dispatch/foundation-completion-2026-10-12/lin-proof/FOLLOWUP_RELEASE.json": "f678d98d497643c250d220b4d4ebac3f13b7630500ffae068d45c98e58e28969",
+    "docs/gm/dispatch/foundation-completion-2026-10-12/learning-proof/RESUME.md": "ea2dc4142d5e2d0004003bc775bb787871cd31d44b3ee4387a73344fe2a50de3",
+    "docs/gm/dispatch/foundation-completion-2026-10-12/learning-proof/RESUME_CHECKPOINT.json": "cbab80ff8816f7725cc33ea9cda79e462bb1294912731cd2cb0ed3a18e467655"
+  },
+  "generatedLearningCheckpoint": {
+    "path": "/tmp/yairpg-foundation-learning-handoff-loaded.json",
+    "sha256": "a93c853812052d0c25b77f9f5ab05f8d597dedc0ee54233e76a9aaa4e1fa6710"
+  },
+  "privatePackPolicy": "read-only;no pack/manifest/source/library/user-save mutation in this phase"
+}

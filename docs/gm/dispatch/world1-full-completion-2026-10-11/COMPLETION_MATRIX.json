@@ -1,0 +1,119 @@
+{
+  "schema": "world1-full-completion-matrix-1",
+  "goal": "ASSIGNMENT.md",
+  "wholeWorldStatus": "open, no required family silently excluded",
+  "ledgerOwner": "coverage/COVERAGE.json",
+  "sourceOwners": [
+    "docs/research/novels/world-depth-2026-10-11/source/SOURCE_INVENTORY.json",
+    "docs/research/novels/world-depth-2026-10-11/integration/DETAIL_LEDGER.json",
+    "docs/research/novels/lore-timelines-2026-10-11/gm/bw1/",
+    "docs/research/novels/world1-full-completion-2026-10-11/coverage/"
+  ],
+  "sections": [
+    {
+      "id": "S00",
+      "applicable": true,
+      "status": "whole-world open; inherited local evidence only",
+      "nextGate": "coverage ledger leaf qualification and consumer/native evidence"
+    },
+    {
+      "id": "S01",
+      "applicable": true,
+      "status": "whole-world open; inherited local evidence only",
+      "nextGate": "coverage ledger leaf qualification and consumer/native evidence"
+    },
+    {
+      "id": "S02",
+      "applicable": true,
+      "status": "whole-world open; inherited local evidence only",
+      "nextGate": "coverage ledger leaf qualification and consumer/native evidence"
+    },
+    {
+      "id": "S03",
+      "applicable": true,
+      "status": "whole-world open; inherited local evidence only",
+      "nextGate": "coverage ledger leaf qualification and consumer/native evidence"
+    },
+    {
+      "id": "S04",
+      "applicable": true,
+      "status": "whole-world open; inherited local evidence only",
+      "nextGate": "coverage ledger leaf qualification and consumer/native evidence"
+    },
+    {
+      "id": "S05",
+      "applicable": true,
+      "status": "whole-world open; inherited local evidence only",
+      "nextGate": "coverage ledger leaf qualification and consumer/native evidence"
+    },
+    {
+      "id": "S06",
+      "applicable": true,
+      "status": "whole-world open; inherited local evidence only",
+      "nextGate": "coverage ledger leaf qualification and consumer/native evidence"
+    },
+    {
+      "id": "S07",
+      "applicable": true,
+      "status": "whole-world open; inherited local evidence only",
+      "nextGate": "coverage ledger leaf qualification and consumer/native evidence"
+    },
+    {
+      "id": "S08",
+      "applicable": true,
+      "status": "whole-world open; inherited local evidence only",
+      "nextGate": "coverage ledger leaf qualification and consumer/native evidence"
+    },
+    {
+      "id": "S09",
+      "applicable": true,
+      "status": "whole-world open; inherited local evidence only",
+      "nextGate": "coverage ledger leaf qualification and consumer/native evidence"
+    },
+    {
+      "id": "S10",
+      "applicable": true,
+      "status": "whole-world open; inherited local evidence only",
+      "nextGate": "coverage ledger leaf qualification and consumer/native evidence"
+    },
+    {
+      "id": "S11",
+      "applicable": true,
+      "status": "whole-world open; inherited local evidence only",
+      "nextGate": "coverage ledger leaf qualification and consumer/native evidence"
+    },
+    {
+      "id": "S12",
+      "applicable": true,
+      "status": "whole-world open; inherited local evidence only",
+      "nextGate": "coverage ledger leaf qualification and consumer/native evidence"
+    },
+    {
+      "id": "S13",
+      "applicable": true,
+      "status": "whole-world open; inherited local evidence only",
+      "nextGate": "coverage ledger leaf qualification and consumer/native evidence"
+    },
+    {
+      "id": "S14",
+      "applicable": true,
+      "status": "whole-world open; inherited local evidence only",
+      "nextGate": "coverage ledger leaf qualification and consumer/native evidence"
+    }
+  ],
+  "currentUnit": {
+    "id": "W1-SRC-01",
+    "stage": "implementation in candidate p06",
+    "sourceGate": "direct pinned primary/context qualification",
+    "nativeGate": "rebuilt fresh native origins, actual alternatives and saved compatibility"
+  },
+  "delivery": {
+    "candidate": "inherited finite proofs; new unit unverified",
+    "shared": "exact runtime integration paths reserved; rebuilt native gate open",
+    "fullSource": "five supplied editions; residual extraction open",
+    "director": "human-only open"
+  },
+  "accountingRows": 3575,
+  "countsClaim": "mixed inventory/specification only, no percent or gameplay completion",
+  "sourceGaps": "private coverage retains V2\u2013V5 complete entity extraction, post319 unavailable source, prior public audit extraction"
+}

@@ -1,0 +1,10 @@
+const {chromium}=require('/Users/weiwei/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright');const fs=require('fs');const OUT=process.argv[2];
+(async()=>{const b=await chromium.launch({headless:true,executablePath:'/Applications/Google Chrome.app/Contents/MacOS/Google Chrome'});const res=[];
+for(const [w,h,z] of [[1366,768,1],[1440,900,1],[1920,1080,1],[400,800,1],[1366,768,1.5]]){const ctx=await b.newContext({viewport:{width:Math.round(w/z),height:Math.round(h/z)},deviceScaleFactor:z});const p=await ctx.newPage();const errs=[];p.on('pageerror',e=>errs.push(e.message));
+ await p.goto('https://23html.github.io/',{waitUntil:'load',timeout:60000});await p.waitForTimeout(2500);
+ let clicks=0,trail=[];for(let i=0;i<25;i++){const vis=await p.evaluate(()=>{const g=document.getElementById('gmsgs');return g&&getComputedStyle(g).display!=='none'&&getComputedStyle(g).opacity>0.5});if(vis&&i>3)break;
+   const opts=await p.locator('.chs').all();let done=false;for(const o of opts.reverse()){const t=(await o.innerText().catch(()=>'')).trim();if(t&&await o.isVisible()){try{await o.click({timeout:2000});trail.push(t.slice(0,30));clicks++;done=true;break;}catch{}}}if(!done)break;await p.waitForTimeout(700);}
+ await p.waitForTimeout(1500);const tag=`${w}x${h}${z!==1?'@150pct':''}`;await p.screenshot({path:`${OUT}/T1_opening_${tag}_proto23.png`});
+ const m=await p.evaluate(()=>({sw:document.documentElement.scrollWidth,sh:document.documentElement.scrollHeight,W:innerWidth,H:innerHeight,log:(()=>{const g=document.getElementById('mscont');return g?{lines:g.children.length,ch:g.clientHeight,sh:g.scrollHeight}:null})(),choices:[...document.querySelectorAll('.chs')].filter(e=>e.offsetParent).map(e=>e.innerText.trim().slice(0,30)),tabindex:document.querySelectorAll('[tabindex],button').length,msgsMax:window.global?.msgs_max}));
+ res.push({vp:tag,clicks,trail,m,errs});console.log(tag,JSON.stringify(m).slice(0,400));await ctx.close();}
+fs.writeFileSync(OUT+'/../proto23.json',JSON.stringify(res,null,1));await b.close();})();

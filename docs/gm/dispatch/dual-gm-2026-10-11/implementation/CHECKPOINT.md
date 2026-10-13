@@ -1,0 +1,12 @@
+# MICRO-P1 / G8-006 implementation checkpoint
+
+2026-10-11, final isolated candidate. Ready implementation GM; sole source/test/build writer in isolated checkout. Original writes limited to this implementation directory. No workers, commits, merges, pushes, publishing or private saves/packs.
+
+- Worktree: `/Users/weiwei/.codex/worktrees/micro-p1-xp/yet-another-idle-rpg`, managed/attached; base `8a4c82d9022ed158841e416abf90fa4afe263874`.
+- Frozen source: `src/components/levelable_component.js`. Tests: `tests/micro_p1_xp.test.js`, `tests/micro_p1_browser.cjs`. Generated production: `dist/bundle.js`, `.map`, `index.html`. Diagnostic outputs `dist/micro-p1-probe.js`, `micro-p1-proof.html` are excluded from integration.
+- Reproduced: native capped Combat 1000 stored 1000 instead of 6 before edit. Repair uses Number.isFinite; existing flags/order/uncapped routes/parent transfer/Infinity preserved; no save schema or migration, no retroactive XP clamp.
+- Checks: focused pass; relevant regression 17/17; build pass; final fresh-origin Chromium production/native diagnostic/save/reload/import pass; script syntax/diff check and combined patch reverse check pass. Production actual sleep healed114.45, Regen499→599. Legacy generated v0.5 XP retained exactly. [Inputs](evidence/inputs.json), [browser receipt](evidence/browser.json), [report](REPORT.md), [patch](MICRO-P1.patch).
+- Adjacent: past unlock IDs re-emitted but real selected consumer announces once; no source change. Existing factor aggregation rounding1.1232→1.12 at first reload documented F3; exact XP and flat milestones verified, reload→import factors exact. Do not claim exact pre-reload factor parity.
+- Preview: `http://127.0.0.1:18531/`, server exec session93858. Generated cap-preview file and click instructions in report. Background headless browser workers closed. App preview open request queued for this chat.
+- Next owner/gate: director review, then distinct incumbent combined-source integration and rebuild/browser regression. Read-only patch apply check passed on original HEAD `237cf128684d58480d7a211a46749c495461447c`; nothing applied. No further implementation in this finite slice. Do not overwrite original source or adopt old-base generated bundle. Original still had faulty guard at final inspection.
+- Recovery: read live original AGENTS/PROJECT/assignment and this report; inspect worktree status and server state before any resumed writes. Resume only outstanding authorized gate, preserving original lane ownership.

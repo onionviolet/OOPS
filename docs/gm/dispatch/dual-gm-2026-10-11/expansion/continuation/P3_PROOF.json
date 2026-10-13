@@ -1,0 +1,79 @@
+{
+  "schema": "world1-ordinary-proof-1",
+  "status": "ordinary slice verified; full edition open",
+  "nativeCases": [
+    {
+      "id": "ordinary-finish-reload-import",
+      "status": "PASS"
+    },
+    {
+      "id": "ordinary-committed-absent-recovery",
+      "status": "PASS"
+    },
+    {
+      "id": "ordinary-committed-malformed-recovery",
+      "status": "PASS"
+    },
+    {
+      "id": "ordinary-unvisited-absent-export-reload-restored",
+      "status": "PASS"
+    },
+    {
+      "id": "ordinary-native-cancel-reserved-repair",
+      "status": "PASS"
+    },
+    {
+      "id": "ordinary-refusal-and-unopened-return",
+      "status": "PASS"
+    },
+    {
+      "id": "ordinary-native-lost-issuer-support",
+      "status": "PASS"
+    },
+    {
+      "id": "ordinary-native-recipient-reinjury-refusal",
+      "status": "PASS"
+    },
+    {
+      "id": "ordinary-write-failed-begin",
+      "status": "PASS"
+    },
+    {
+      "id": "ordinary-write-failed-repair-start",
+      "status": "PASS"
+    },
+    {
+      "id": "ordinary-write-failed-repair-completion",
+      "status": "PASS"
+    },
+    {
+      "id": "ordinary-write-failed-settlement",
+      "status": "PASS"
+    },
+    {
+      "id": "ordinary-once-only-duplicate-settlement",
+      "status": "PASS"
+    },
+    {
+      "id": "ordinary-observer-introduction-projection",
+      "status": "PASS"
+    },
+    {
+      "id": "ordinary-legacy-scalar-baseline-retained",
+      "status": "PASS"
+    }
+  ],
+  "passed": 15,
+  "failed": 0,
+  "naturalJourney": "PASS; rebuilt native UI, fresh origin, no fixture enrichment, natural timer journey; final receipt in candidate ignored ordinary-proof-private.json",
+  "naturalWallMsObserved": 17100,
+  "focusedTests": {
+    "pass": 30,
+    "fail": 0
+  },
+  "review": "Independent read-only final ordinary source review passes after5specific source defects repaired",
+  "harnessCorrection": "First native creation needed ordinary Confirm; observer assertion used wrong capitalization. Corrected harness separately; no renderer/forced caller bypass. Original failed receipts retained.",
+  "scope": "first ordinary prototype path; no final two-start/function/renewal/full edition claim",
+  "privateEvidenceOwner": "/Users/weiwei/.codex/worktrees/world1-completion/yet-another-idle-rpg/docs/research/novels/world-depth-2026-10-11/continuation",
+  "buildInputOwner": "P3_INPUTS.json"
+}

@@ -1,5 +1,7 @@
 
 :root {
+	/* Semantic log/feedback tokens (I7): gain, loss, money, blocked. Vivid overrides in styles/workspace.css. */
+	--sem-gain: #6ad37a; --sem-loss: #ff7b7b; --sem-money: #ffd700; --sem-blocked: #f0a35e;
 	--background_gradient: linear-gradient(to bottom right, #232f47, #15152d);
 	--options_gradient: linear-gradient(to bottom right, #637088f7, #353572f7);
 	--options_display: none;
@@ -611,6 +613,8 @@ input[type=checkbox], input[type=radio] {
 	color: yellow;
 	text-align: left;
  }
+
+ .message_notification.message_money { color: var(--sem-money); }
 
  .message_export_reward {
 	font-size: 12px;

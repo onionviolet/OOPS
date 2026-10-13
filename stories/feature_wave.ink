@@ -24,6 +24,13 @@ VAR voice_detail = "A cup cools beside the ledger. A used cloth keeps the seal c
 VAR voice_aside = "The stamp is quicker than the paperwork. Most things are."
 
 
+VAR nested_lin_open_offered = false
+VAR nested_lin_work_offered = false
+VAR nested_lin_refuse_offered = false
+VAR nested_lin_texture_offered = false
+VAR nested_lin_account_offered = false
+VAR nested_lin_supply_offered = false
+VAR nested_lin_report = ""
 VAR nested_hub_present = false
 VAR nested_local_present = false
 VAR nested_return_arrived = false
@@ -301,6 +308,29 @@ A spoon rests across a cooling cup. {nested_contact_name} turns the cup's chippe
 -> nested_hub_options
 
 === nested_hub_options ===
+{nested_lin_report != "": {nested_lin_report}}
+* {nested_lin_open_offered} [Ask Lin about her one supply request. # response:nested_lin_open ]
+    "One kit," Lin says. "The slip has the materials and wage; the bench has to stay clear while we work."
+    {nested_lin_report != "": {nested_lin_report}}
+    -> nested_hub_options
+* {nested_lin_work_offered} [Accept Lin’s supply job under its displayed terms. # response:nested_lin_work ]
+    "I'll keep the bench clear," Lin says. "We can talk again when the work is done."
+    {nested_lin_report != "": {nested_lin_report}}
+    -> END
+* {nested_lin_refuse_offered} [Decline Lin’s supply request. # response:nested_lin_refuse ]
+    "All right," Lin says, folding the request slip. "The desk is still here."
+    {nested_lin_report != "": {nested_lin_report}}
+    -> END
+* {nested_lin_texture_offered} [Sit with Lin for a quiet moment. # response:nested_lin_texture ]
+    Lin straightens the parcel tags beside the cooling cup. The lantern keeps burning.
+    -> END
+* {nested_lin_account_offered} [Ask Lin for the retained supply account. # response:nested_lin_account ]
+    "Here is how we left it," Lin says.
+    {nested_lin_report != "": {nested_lin_report}}
+    -> END
+* {nested_lin_supply_offered} [Buy one actual kit under staff approval and the displayed price. # response:nested_lin_supply ]
+    Lin checks your staff approval and counts the paid kit out of her stock.
+    -> END
 * [Ask about the services, roles and their current terms. # response:nested_hub_terms ]
     -> nested_hub_terms
 * {nested_terms_known && nested_work_offered} [Request the offered paid work. # response:nested_hub_work ]

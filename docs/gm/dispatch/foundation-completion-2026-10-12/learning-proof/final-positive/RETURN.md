@@ -1,0 +1,19 @@
+# F4 final useful-output and B5 qualification
+
+Technical finite F4 gate closed October 13, 2026, America/New_York. Human fiction, balance and pacing acceptance stays open. No grants, fabricated jobs, edited histories or personal saves were used.
+
+## Exact evidence
+
+The incumbent's actual player-paid lesson, stamped making, useful notch application, failed-write preservation/reload/retry and literal restoration are preserved in learning-proof/WORKFLOW_43718/44551 and the live historical CHECKPOINT. Independent Neri sponsorship, her own teacher/source/attention/stamina, separate lesson/making, unsupported-world pending-work pause, actual account and handover are recorded in final-positive/WORKFLOW_65650/67997/69832 and SESSION_69832. Invalid reduced-attention fixtures and the earlier projection-defect refusal are excluded from natural proof. The legitimate finite-means refusal, withdrawal and exact export/reload/literal import are separately closed in refusal-proof/RETURN.md and ASSERTIONS.json (12 assertions, final e73550).
+
+The old /tmp positive artifacts were absent at takeover. WORKFLOW_69832 contains the exact recorded received/reloaded state at11753; it was serialized unchanged into a new disposable checkpoint. This is evidence recovery, not a resource/history patch. The actual exported text was newly downloaded by the browser for subsequent literal-file restoration. Historical exports are not falsely claimed to have been recovered byte-for-byte.
+
+Fresh origin18646 on e73550 exposed actual planting support refund. The saved pending job reproduced in source: flat native vitals produced stale false healthy-hand/support facts, overriding keyed completion facts. audit_remainder_consequences_host normalizes only its fact-read view and preserves the outgoing scheduler frame. A meaningful healthy/dead projection regression passes. Fresh rebuilt18647 on cabf15 resumed the same actual planting job. Planting completed, the actual current Neri-made stamped strip was reserved and consumed in the warned finite-bed cover, and exactly five native Cooking herbs were received once. Export, ordinary reload and literal downloaded-file import retained exact expansion and inventory. Eight checks in TAKEOVER_USE_ASSERTIONS.json bind WORKFLOW_15338 and SESSION_15338. Earlier failed attempt remains SESSION_12567, without a pass claim.
+
+B5: TAKEOVER_B5.json binds actual malformed, future-engine and mismatched production-evidence import refusals to cabf15. Mutation-observer capture at rejection confirms the persisted current save is byte-exact unchanged, with known diagnostics and zero pageerrors. The actual predecessor start-proof/old-absent-native.json imports without retroactive learning/Neri/strip provisioning. A disposable-server query-path404 caused earlier harness timeouts; corrected query handling enabled the actual gate. Failure artifacts remain debugging history, not gameplay defects or passes.
+
+## Final integrated scope
+
+G6/final-journey/ASSERTIONS.json then retains this F4 work in one continuous legitimate save alongside Lin and Tidemark, typed Begin/refit/earned renewal last and exact final export/reload/literal file import on9c70c3. The only subsequent source repair concerns dormant-pocket coexistence with typed Begin. Learning/sample/production/cover/negative importer semantics are unchanged by that repair; final G6 checks retain their receipts and actual five-herb ownership. No unchanged whole F4 rerun is required.
+
+Native command guards and qualified source/earlier UI gates remain bounded to their actual operations. Broad NPC AI, offline work, crop renewal, invented rest/refills, general inheritance and species support are not delivered here. Frozen source/world-specific dispositions remain unchanged. Both takeover F4 browsers/servers and B5/debug readers stopped; no F4 worker retains writes.

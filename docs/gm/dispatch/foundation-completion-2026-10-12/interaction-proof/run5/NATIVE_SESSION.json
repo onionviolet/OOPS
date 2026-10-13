@@ -1,0 +1,56 @@
+{
+  "pid": 83163,
+  "origin": "http://127.0.0.1:18645",
+  "startedHash": "a4e84278059a711738b9149a331f916496dee79140384c021e11052187baef26",
+  "endedHash": "a4e84278059a711738b9149a331f916496dee79140384c021e11052187baef26",
+  "events": [
+    {
+      "action": "sequence",
+      "selectors": [
+        "[data-foundation-probe=\"foundation.probe.a.barrier.p-a\"]",
+        "[data-foundation-probe=\"foundation.probe.b.activation\"]",
+        "[data-foundation-probe=\"foundation.probe.a.attack\"]",
+        "[data-foundation-probe=\"foundation.probe.a.encounter\"]",
+        "[data-foundation-probe=\"foundation.probe.a.response.attempt\"]",
+        "[data-foundation-probe=\"foundation.probe.a.construct\"]",
+        "[data-foundation-probe=\"foundation.probe.b.activation.remove\"]"
+      ]
+    },
+    {
+      "action": "wait",
+      "ms": 3500
+    },
+    {
+      "action": "sequence",
+      "selectors": [
+        "[data-foundation-probe=\"foundation.probe.b.delivery\"]",
+        "[data-foundation-probe=\"foundation.probe.a.attack\"]",
+        "[data-foundation-probe=\"foundation.probe.a.encounter\"]",
+        "[data-foundation-probe=\"foundation.probe.a.response.attempt\"]",
+        "[data-foundation-probe=\"foundation.probe.b.delivery.remove\"]",
+        "[data-foundation-probe=\"foundation.probe.a.launch\"]",
+        "[data-foundation-probe=\"foundation.probe.a.flight\"]",
+        "[data-foundation-probe=\"foundation.probe.c.strip.a\"]",
+        "[data-foundation-probe=\"foundation.probe.b.construct\"]",
+        "[data-foundation-probe=\"foundation.probe.c.strip.b\"]"
+      ]
+    },
+    {
+      "action": "wait",
+      "ms": 3500
+    },
+    {
+      "action": "save",
+      "name": "physical-construct-aftermath"
+    },
+    {
+      "action": "reload"
+    },
+    {
+      "action": "import",
+      "path": "/tmp/yairpg-foundation-interaction-physical-construct-aftermath.json"
+    }
+  ],
+  "errors": [],
+  "failures": []
+}

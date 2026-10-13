@@ -24,7 +24,10 @@ export function preflightImport(save) {
                 finish(event.data.ok ? null : new Error(event.data.error || "This save cannot be loaded by this build."));
             }
         };
-        const timer = setTimeout(() => finish(new Error("Save compatibility check did not finish; current save kept.")), 15000);
+        // The real loader shares browser resources with the current game. A
+        // progressed save can need longer to load without being incompatible.
+        // Keep the probe bounded and preserve the current save on any failure.
+        const timer = setTimeout(() => finish(new Error("Save compatibility check did not finish; current save kept.")), 60000);
         window.addEventListener("message", receive);
         document.body.append(frame);
     });

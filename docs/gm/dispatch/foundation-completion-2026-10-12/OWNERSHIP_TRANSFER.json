@@ -1,0 +1,26 @@
+{
+  "schema": 1,
+  "fromThreadId": "01a12e94-7b63-7e12-b584-ae2265f579e1",
+  "toThreadId": "01a12ebf-d9a5-7ce0-94ba-469228eef444",
+  "hostId": "local",
+  "status": "effective sole-writer transfer",
+  "objective": "ASSIGNMENT.md full continuing foundation horizon",
+  "scope": [
+    "foundation dispatch except dispatcher DISPATCH.json and research/",
+    "released shared runtime/source/state/save/registry/main/UI/test/build reservations with per-unit exact recording",
+    "new v3 retention artifact only;old frozen Ink evidence untouched"
+  ],
+  "exclusions": [
+    "private_packs/** manifests and frozen p01-p08",
+    "docs/research/novels/** source/library/private/paused evidence",
+    "World1 goal/campaign/source scope and PROJECT paused owner/resume",
+    "isolated UI/customization/authoring candidates/owned docs",
+    "personal saves",
+    "old immutable feature-wave receipts/v1/v2"
+  ],
+  "inputs": "SUCCESSOR_INPUTS.json",
+  "workers": "all3internal workers complete/released;all proof/server processes stopped",
+  "predecessor": "read-only after STATE effective record;no code/checkpoint/source/build writes afterward",
+  "next": "SUCCESSOR_PROMPT.md actual F4 prerequisite checkpoint,then fullF2/F3/F5/UI_G5/combined horizon",
+  "humanGate": "fiction/balance/pacing open separately;not whole-goal technical closure"
+}

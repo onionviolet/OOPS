@@ -1,0 +1,31 @@
+{
+  "url": "https://chatgpt.com/c/6ace41f7-c0a4-83ea-b53c-860d187d0f8d",
+  "sentAtUTC": "2026-10-13T14:37:04.124Z",
+  "capturedAtUTC": "2026-10-13T14:40:17.597Z",
+  "model": "GPT-6 visibly checked",
+  "effort": "High,3of3",
+  "previousEffort": "R6 High,3of3",
+  "route": "signed-in Chrome extension via cua_repl",
+  "mode": "ordinary Chat",
+  "captureComplete": true,
+  "responseChars": 20281,
+  "completion": "Response complete status; Stop absent; response-level last Copy",
+  "implementationAuthorized": true,
+  "newChatDispatched": true,
+  "outboundChars": 11101,
+  "stage": "captured/reconciled; fresh successor created; effective transfer recorded",
+  "files": {
+    "CHATGPT_RESPONSE.md": "9fe1f18ad5056aa9c91f64ea0d7fed4245fa074d8028302c0f435f97dfd2f533",
+    "PROMPT_OUTBOUND.md": "825567cc9540ed9e9b0a3105a5b6fbfb45b4ae046aae28d73dc3b26be6e51f30",
+    "PROMPT_SENT.md": "f1cb844fbd71d59c3d6cafd27dc2a6a8d7a1f3349d93b9cf0d5148d5b05d2413",
+    "PROMPT_RECONCILED.md": "906bc1e16a917943c650d67fd95a46789066ec8a426d39fe90869d514fdc6f3e",
+    "RECONCILIATION_NOTES.md": "8e771faaa3efa3eb55b6acb50823b08260a3eeed61274e3607f5df0b7ee8ddcc",
+    "REVIEW_PROOF.png": "95d62d59ab29e1368ad4783f5fbffffde45cf1471c5739516c02d1b36398adca"
+  },
+  "failedAttempts": [
+    "Composer auto-converted fill to pasted-text attachment; visible Show in text field restored one inline body before single Send. Exact sent text differs only trailing newline; saved."
+  ],
+  "threadId": "01a135b7-58d7-7a13-8bb2-228ac80cb004",
+  "hostId": "local",
+  "transfer": "reservations/R7_SUCCESSOR_TRANSFER.json"
+}

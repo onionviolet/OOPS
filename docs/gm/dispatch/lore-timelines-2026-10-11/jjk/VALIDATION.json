@@ -1,0 +1,32 @@
+{
+  "schema": "W2-validation-1",
+  "utc": "2026-10-11T16:07:09.609245+00:00",
+  "counts": {
+    "claims": 340,
+    "events": 19,
+    "knowledge": 22,
+    "continuities": 10,
+    "contradictions": 10,
+    "expansions": 34,
+    "unread_prequelchapters": 4,
+    "entirely_unread_main_integer_chapters": 267,
+    "not_fully_read_main_integer_chapters": 268
+  },
+  "checks": {
+    "json_parse": "passed9files",
+    "unique_ids": "passed fourledgers",
+    "event_references": "passedknowledge/expansion/dependency",
+    "input_source_hashes": "passed",
+    "acquisition_hashes": "passed74imagepayloads",
+    "private_ignore": "passed",
+    "semantic_review": "workerread primarylocators/knownscope and qualified sourcegaps; no independent reviewer claimed",
+    "L4_effect_binding": "passed:effect owners/states, consumers, evidence and necessity limits; temporal and unknown joins separate",
+    "L5_acquisition_moments": "passed:22 acquisition records qualified by actual evidence",
+    "rendered_source_receipts": "passed:12 private rendered snapshots with locator and hash receipts"
+  },
+  "primaryScope": "3fullopening storychapters +1partialhistoricalscene; summaryandfuturemetadataseparate",
+  "fullSeriesRead": false,
+  "runtimeVerification": "notassigned",
+  "spoilerSafety": "opaquepublicstatus; detailedsourceclaims/privateledger ignored",
+  "repair_revision_utc": "2026-10-11T17:10:56.416471+00:00"
+}

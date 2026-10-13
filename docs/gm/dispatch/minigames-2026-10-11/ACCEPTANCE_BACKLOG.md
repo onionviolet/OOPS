@@ -1,0 +1,38 @@
+# Acceptance backlog, 2026-10-11
+
+All cases below are **unrun**. Build/import/declaration checks are not gameplay or persistence proof. The live GM prompt Autonomous iteration step 3 defers gameplay/browser/save/regression suites; the assignment requires preserving this backlog when that applies. Shared integration and Weibao's acceptance remain separate gates. Run on a fresh isolated candidate origin using only generated saves after the phase permits.
+
+## Required connected journey
+
+Complete native character creation, stay/return in Village, open Market courtyard in the center Here controls. Get ordinary native cash through available native work; the charter supplies no player money. Visit courtyard free. Inspect Orin; take a share, make its two-log crate, sell it to Bram, collect the four-coin return once. Buy/repair the room; choose rental; host Sela and answer her repair request. Buy seed, rent plot, plant/tend/grow/harvest greens. Sell one at friendly price and use one at inn service after changing room to inn. Change room to workshop, make an actual crate and schedule a learned three-job mandate against finite own logs. Pause/resume/cancel with actual resources and job records. Place one exact two-log/two-coin foreman order; Orin independently consumes his own stamina, reserves the common bench and returns one real crate. Dispatch that crate through one shipping route; escorted branch requires actual Orin and reserves his stamina, with fee credited to him. Inspect auction, win the one damaged object, inspect/restore it and display the real object. Book/prepare/host an exhibition that checks the displayed object and finite sponsor purse. Hear Sela's need, lend/gift/refuse; produce/deliver Mira's commission and collect only an actual loan principal after her wage. Complete Bram's one careful commission and transfer that real product for his finite payment. Every cash/stock change joins the same native durable publisher.
+
+Natural play is the required reachability gate. A registry declaration or directly imported late-state fixture does not prove the journey is naturally reachable. Use generated branch fixtures only to extend acceptance after the natural path works.
+
+## Per-family cases
+
+| Case | Observable acceptance | Refusal/interruption/alternative |
+|---|---|---|
+| MG01-A | Inspect -> choose share -> exactly two Orin logs -> real crate -> sale6 into Orin -> one return4 to player | Advance instead: sale6 to player then principal3 to Orin; pass no goods/cash; double settlement rejected; cancel batch refunds log/stamina and produces no crate |
+| MG02-A | Deed5 to Mira -> log repair -> personal room restores native stamina, or rental5min transfers Sela2 -> request/log repair | No simultaneous inn/rental/workshop; end future rental clears use without debt; change during committed work rejected; repeated rent limited by actual purse |
+| MG03-A | Actual crate/greens/fine crate sale at full vs friendly price transfers one object and one finite payer budget; friendly trust affects only that NPC | Each buyer demand closes once; missing/unowned/equipped/borrowed stock rejected; inn consumes actual meal and reserves repaired inn room, finite payment only at completion |
+| MG04-A | Inspect actual Mira lot -> ceiling10 wins at clearing8 -> exactly one damaged object | Low ceiling5 loses to declared7 with no spend; pass no spend; repeat lot resolution rejected; no private-truth appraisal |
+| MG05-A | Actual single cargo manifest -> local/escorted dispatch -> actual payer money/received cargo once | Escorts require Orin consent/body/stamina and pay fee2 to him; cancel/support loss reverses cargo/fee/stamina; existing shipment cannot reopen; no interworld delivery |
+| MG06-A | Rent4 -> seed -> planted -> tended -> grow -> ready -> greens3 or grain5 in native bag -> consumed/sold | Empty plot cannot harvest; occupied crop cannot be replaced; repeated harvest rejected; cancel restores only held input without output; browser closure never advances/spoils |
+| MG07-A | Ordinary2log/4min versus careful3log/8min at shared bench -> actual crate/fine crate -> one delivery payment | Site capacity prevents concurrent foreman/restoration/production; foreman exact2log/2coin mandate, own stamina2, no extra order/spending; learned room recipe1-3 repeat stops on shortage, pause/resume/cancel work |
+| MG08-A | Request -> loan8/gift8/refuse -> actual2log commission -> transfer crate to Mira -> Mira pays Sela10/player2 -> loan principal8 from Sela once | Gift/refusal never collectible; extension no extra cash/interest; no repayment before real work paid; insufficient payer/refused contact stops without duplicate outcomes |
+| MG09-A | Book2 to Mira -> meal programme needs native food, exhibition needs actual display -> timed venue hosting -> finite attendance/payment/relationships | Greens and grain consume distinct actual products; exhibition keeps exact display object; cancel active host refunds held inputs, cancel unhosted booking refunds fee2 from Mira; host clears booking/program |
+| MG10-A | Auction lot -> inspection -> conserved1cloth/5min or restored1log/6min -> actual display/withdrawal or sale14 | Damaged item consumed exactly once; no double display or concurrent sale; display record references actual Mira stock; cancellation returns damaged object/material/stamina with no output |
+
+## Persistence and publication
+
+| Case | Exact required evidence |
+|---|---|
+| P1 | Save/reload at charter, agreement, repaired room, growing crop, held shipment, held NPC job, displayed object, booked event and owed loan. Counts, rights, locations, wallets, stock, due times and outcomes remain equal; load/render grants nothing |
+| P2 | Export/import those generated saves on a separate fresh origin. Repeat import/reload after completed sale/settlement/harvest/event must not pay/create again. Compare full native inventory and NPC stock/cash before and after |
+| P3 | Old generated native/expansion5+ save lacking mg.* data loads, remains absent and keeps native progress. Existing pending unrelated simulation jobs retain frozen definitions/results. Older content readers reject opted-in mg people rather than treating them as absent |
+| P4 | Inject failed durable localStorage publication at charter, funding, material purchase, room repair start, crop harvest, shipment completion, delegated completion, event payment and loan settlement. Live state/native money/items/vitals/rights/clocks must remain last published values; clear failure and retry once without duplication |
+| P5 | Cancel/lost-contact/leave/insufficient purse at relevant jobs returns exact held native/simulation stock and paid reservations once, deletes only its own site/job claim, gives no output, preserves already-paid foreman fee; collect two stopped foreman logs locally |
+| P6 | Imported edited/missing partial courtyard, unknown revision, changed job cost/effect/duration, inconsistent resident wallet/stock or exceeded work mandate fails before writing storage. Browser-closed wait does not create rent, farm growth, collections or other liabilities |
+| P7 | Keyboard/focus and Here-panel reattachment across native activities/location changes; all known costs/reasons readable, NPC-private motives/future truth absent. Human play confirms pacing/usefulness and accepts or revises proposed numbers/host/fiction |
+
+One remaining authoritative gameplay gate is the combined fresh-origin natural journey with its save/reload/import and failure cases, when the live phase permits it. Shared-source integration and director acceptance are separate, unassigned outcomes.

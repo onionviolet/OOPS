@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "atUTC": "2026-10-13T17:08:23.863811+00:00",
+  "fromThread": "01a13628-5ea2-7180-b967-7367baac8066",
+  "toThread": "01a1363b-fa9f-7e71-9887-6983303952aa",
+  "hostId": "local",
+  "status": "effective",
+  "authority": "Direct human-authorized finite FA01\u2013FA23 Foundation/research-adoption fresh-GM chain; confirmed local chat and explicit predecessor release",
+  "checkout": "/Users/weiwei/code/yet-another-idle-rpg",
+  "head": "dd3efe3383f12f0aac22e4f390aae90fae2e7fc4",
+  "reserved": "Existing finite Foundation runtime/state/save/story/compiler/main/tests/generated-build integrator scope; own-reviewed R14 final integrated recovery applicability and independently inspected bounded whole-chain gap review. Exact UI-adjacent path needs serialized reservation.",
+  "exclusions": [
+    "UI/Proto23",
+    "FA17/21/22 until legitimate transfer",
+    "pausedWorld1",
+    "privatepacks/library/personalsaves/sourceacquisition",
+    "predecessor frozen candidates/artifacts/originals",
+    "R8permanent failed budget",
+    "R10paidretry/reconstruction",
+    "R11errorstop/retryallowance"
+  ],
+  "supersedes": "R13_SUCCESSOR_TRANSFER.json and historical prior transfers",
+  "predecessorRelease": "ALL shared Foundation writes relinquished immediately when this exact record exists. No further source/native/worker/docs writes by R13. No R13 native harness/browser/server/profile/workers started.18742preview readonly;GenericCUA16033untouched.",
+  "prompt": "rounds/r14/FINAL-reconciled.md",
+  "promptHash": "537d369429e672632dcb5cfe3d1b0d9069c7098e45e1e31ceefe129ad5d893c2",
+  "review": "rounds/r14/FINAL-roundtrip.json",
+  "predecessorEvidence": "R13FA20 NO_EDIT_SOURCE_SUFFICIENT transient rack/bench one-slot useful assignment;5focusedSOURCEscopedhost/scheduler syntheticnotebook+69affectedPASS;no runtimeedit/build/nativeattempt. Native/fullrootpositivepersistenceOPEN.",
+  "remaining": "All inheritedOPEN/stops/loss; legitimateFA17/final integrated recovery+independent review; no wholechaincompletion"
+}

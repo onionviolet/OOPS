@@ -1,0 +1,443 @@
+{
+  "owner": "01a13525-ab37-7311-926c-a39b01154282",
+  "effectiveTransfer": "reservations/R6_SUCCESSOR_TRANSFER.json",
+  "source": {
+    "owner": "01a13525-ab37-7311-926c-a39b01154282",
+    "transfer": "reservations/R6_SUCCESSOR_TRANSFER.json",
+    "releaseVerified": true,
+    "branch": "codex/gameplay-foundations",
+    "head": "dd3efe3383f12f0aac22e4f390aae90fae2e7fc4",
+    "viewport": [
+      1600,
+      1100
+    ],
+    "visibleOutcome": "Existing paid two-receiver retort and finite pause/resume with useful native kit consumer",
+    "deferred": [
+      "mobile",
+      "broad UI",
+      "FA10 study",
+      "new retort abstraction"
+    ],
+    "sourceHashes": {
+      "src/factorio_retort_content.js": "e617c1ac206d3d75e48ee80b027c0a878d7cc745f26797877ed1a838b89aec3f",
+      "src/factorio_retort_facts.js": "e47c5e936462a70d66b1535faded38955c59e1369c1035eb9eac2dd332f04e2a",
+      "src/factorio_retort_host.js": "3b22946a10fc4f021721283ec3cee0ce05c44b663c61b9879b335ade7f4c4e99",
+      "src/factorio_retort_native.js": "906d15465db4a40248afd869ad9189d43d9b6bb01ec8766902e3ad44c41ac4e0",
+      "src/main.js": "a1a4224182cbe4acbc6620499d5ff39d28367c3e5490c6e5a7b3b9048a2171be",
+      "src/simulation.js": "d56256a701b9190e4a143e63fea2cdcb7df3538dfe59aba9cfaef31544bee388",
+      "src/simulation_effects.js": "d72c0b6984738b718faaf5afab29733290e4c487b5d953b0b1722dae29495b71",
+      "src/feature_expansion_work_plan.js": "611483d42d6f75100db469ddc6b648a63dcb757f3f31e56982e18e7841e24f25",
+      "src/save_files.js": "9693989644833596a98379eececdc5a814e11845d27c1134b3e7dab3911b1120",
+      "src/reference_gameplay_host.js": "4be727ee6c811c2e5a56d8a06ffbec20c22f0ebb745dd000ee70c1c646cd777a",
+      "src/feature_expansion_objects.js": "d4d6c19ef677addd94b874dc37355465d3997d7cfbdf58ce00df379d5f02a0bd"
+    }
+  },
+  "buildDrift": {
+    "initialBuiltHash": "8d386d43f12e37bbcf019a134bf3673627599b1eb7dc38db2dadb6107cc9911e",
+    "finalFrozenCandidate": "/Users/weiwei/.codex/candidates/yairpg-foundation-adoption-2026-10-13-r6",
+    "finalHashes": {
+      "dist/bundle.js": "5a88823a77ba37b4eeeadd7364618d5599f3d2d6099006806662e0f960b9fe23",
+      "dist/bundle.js.map": "0f84e882b0a107351347188bab46e97d14ba0bef3aa35860f20693998afcbddb",
+      "index.html": "e31da5511907d3f3565594c7d30638627407786359e9f26d28a609b395c5e600"
+    },
+    "changedRecoveryInputs": {
+      "src/main.js": "e102ab4161db2846650f52378769e867b4a77b2443b18e79c850d23f56c352bb"
+    },
+    "mapDifferenceFromFrozenR4": [
+      "../src/workspace_layout.js",
+      "../src/customization_profiles.js",
+      "../src/settled_text_effects.js",
+      "../src/customization_ui.js",
+      "../src/native_discovery_policy.js",
+      "../src/native_discovery_feedback.js",
+      "../src/main.js"
+    ],
+    "boundary": "Earlier R6 loaded actual8d386d artifact matched fresh rebuild and fetch until concurrent live build5a888 drift detected during sound-cut reload. Native play paused. Earned state exported, root rebuild current inputs frozen separately for remaining play; no old paid result replay."
+  },
+  "servedBindings": [
+    {
+      "label": "initial-earned-import",
+      "url": "http://127.0.0.1:18733/dist/bundle.js?version=v0.6-8d386d43f12e",
+      "actualLoadedHash": "8d386d43f12e37bbcf019a134bf3673627599b1eb7dc38db2dadb6107cc9911e",
+      "servedHash": "8d386d43f12e37bbcf019a134bf3673627599b1eb7dc38db2dadb6107cc9911e",
+      "builtHash": "8d386d43f12e37bbcf019a134bf3673627599b1eb7dc38db2dadb6107cc9911e",
+      "mapHash": "87cb5788b88fcac2889a4622c88bfd6b4832062174bde81d73681f567376d00b"
+    },
+    {
+      "label": "pre-install-inspected-reload",
+      "url": "http://127.0.0.1:18733/dist/bundle.js?version=v0.6-8d386d43f12e",
+      "actualLoadedHash": "8d386d43f12e37bbcf019a134bf3673627599b1eb7dc38db2dadb6107cc9911e",
+      "servedHash": "8d386d43f12e37bbcf019a134bf3673627599b1eb7dc38db2dadb6107cc9911e",
+      "builtHash": "8d386d43f12e37bbcf019a134bf3673627599b1eb7dc38db2dadb6107cc9911e",
+      "mapHash": "87cb5788b88fcac2889a4622c88bfd6b4832062174bde81d73681f567376d00b"
+    },
+    {
+      "label": "notebook-inspection-reload",
+      "url": "http://127.0.0.1:18733/dist/bundle.js?version=v0.6-8d386d43f12e",
+      "actualLoadedHash": "8d386d43f12e37bbcf019a134bf3673627599b1eb7dc38db2dadb6107cc9911e",
+      "servedHash": "8d386d43f12e37bbcf019a134bf3673627599b1eb7dc38db2dadb6107cc9911e",
+      "builtHash": "8d386d43f12e37bbcf019a134bf3673627599b1eb7dc38db2dadb6107cc9911e",
+      "mapHash": "87cb5788b88fcac2889a4622c88bfd6b4832062174bde81d73681f567376d00b"
+    },
+    {
+      "label": "installed-reload",
+      "url": "http://127.0.0.1:18733/dist/bundle.js?version=v0.6-8d386d43f12e",
+      "actualLoadedHash": "8d386d43f12e37bbcf019a134bf3673627599b1eb7dc38db2dadb6107cc9911e",
+      "servedHash": "8d386d43f12e37bbcf019a134bf3673627599b1eb7dc38db2dadb6107cc9911e",
+      "builtHash": "8d386d43f12e37bbcf019a134bf3673627599b1eb7dc38db2dadb6107cc9911e",
+      "mapHash": "87cb5788b88fcac2889a4622c88bfd6b4832062174bde81d73681f567376d00b"
+    },
+    {
+      "label": "first-batch-observed-reload",
+      "url": "http://127.0.0.1:18733/dist/bundle.js?version=v0.6-8d386d43f12e",
+      "actualLoadedHash": "8d386d43f12e37bbcf019a134bf3673627599b1eb7dc38db2dadb6107cc9911e",
+      "servedHash": "8d386d43f12e37bbcf019a134bf3673627599b1eb7dc38db2dadb6107cc9911e",
+      "builtHash": "8d386d43f12e37bbcf019a134bf3673627599b1eb7dc38db2dadb6107cc9911e",
+      "mapHash": "87cb5788b88fcac2889a4622c88bfd6b4832062174bde81d73681f567376d00b"
+    },
+    {
+      "label": "both-filled-reload",
+      "url": "http://127.0.0.1:18733/dist/bundle.js?version=v0.6-8d386d43f12e",
+      "actualLoadedHash": "8d386d43f12e37bbcf019a134bf3673627599b1eb7dc38db2dadb6107cc9911e",
+      "servedHash": "8d386d43f12e37bbcf019a134bf3673627599b1eb7dc38db2dadb6107cc9911e",
+      "builtHash": "8d386d43f12e37bbcf019a134bf3673627599b1eb7dc38db2dadb6107cc9911e",
+      "mapHash": "87cb5788b88fcac2889a4622c88bfd6b4832062174bde81d73681f567376d00b"
+    },
+    {
+      "label": "both-filled-import",
+      "url": "http://127.0.0.1:18733/dist/bundle.js?version=v0.6-8d386d43f12e",
+      "actualLoadedHash": "8d386d43f12e37bbcf019a134bf3673627599b1eb7dc38db2dadb6107cc9911e",
+      "servedHash": "8d386d43f12e37bbcf019a134bf3673627599b1eb7dc38db2dadb6107cc9911e",
+      "builtHash": "8d386d43f12e37bbcf019a134bf3673627599b1eb7dc38db2dadb6107cc9911e",
+      "mapHash": "87cb5788b88fcac2889a4622c88bfd6b4832062174bde81d73681f567376d00b"
+    },
+    {
+      "label": "resin-only-reload",
+      "url": "http://127.0.0.1:18733/dist/bundle.js?version=v0.6-8d386d43f12e",
+      "actualLoadedHash": "8d386d43f12e37bbcf019a134bf3673627599b1eb7dc38db2dadb6107cc9911e",
+      "servedHash": "8d386d43f12e37bbcf019a134bf3673627599b1eb7dc38db2dadb6107cc9911e",
+      "builtHash": "8d386d43f12e37bbcf019a134bf3673627599b1eb7dc38db2dadb6107cc9911e",
+      "mapHash": "87cb5788b88fcac2889a4622c88bfd6b4832062174bde81d73681f567376d00b"
+    },
+    {
+      "label": "resin-only-import",
+      "url": "http://127.0.0.1:18733/dist/bundle.js?version=v0.6-8d386d43f12e",
+      "actualLoadedHash": "8d386d43f12e37bbcf019a134bf3673627599b1eb7dc38db2dadb6107cc9911e",
+      "servedHash": "8d386d43f12e37bbcf019a134bf3673627599b1eb7dc38db2dadb6107cc9911e",
+      "builtHash": "8d386d43f12e37bbcf019a134bf3673627599b1eb7dc38db2dadb6107cc9911e",
+      "mapHash": "87cb5788b88fcac2889a4622c88bfd6b4832062174bde81d73681f567376d00b"
+    },
+    {
+      "label": "first-residue-disposed-reload",
+      "url": "http://127.0.0.1:18733/dist/bundle.js?version=v0.6-8d386d43f12e",
+      "actualLoadedHash": "8d386d43f12e37bbcf019a134bf3673627599b1eb7dc38db2dadb6107cc9911e",
+      "servedHash": "8d386d43f12e37bbcf019a134bf3673627599b1eb7dc38db2dadb6107cc9911e",
+      "builtHash": "8d386d43f12e37bbcf019a134bf3673627599b1eb7dc38db2dadb6107cc9911e",
+      "mapHash": "87cb5788b88fcac2889a4622c88bfd6b4832062174bde81d73681f567376d00b"
+    },
+    {
+      "label": "second-attempt-pending-reload",
+      "url": "http://127.0.0.1:18733/dist/bundle.js?version=v0.6-8d386d43f12e",
+      "actualLoadedHash": "8d386d43f12e37bbcf019a134bf3673627599b1eb7dc38db2dadb6107cc9911e",
+      "servedHash": "8d386d43f12e37bbcf019a134bf3673627599b1eb7dc38db2dadb6107cc9911e",
+      "builtHash": "8d386d43f12e37bbcf019a134bf3673627599b1eb7dc38db2dadb6107cc9911e",
+      "mapHash": "87cb5788b88fcac2889a4622c88bfd6b4832062174bde81d73681f567376d00b"
+    },
+    {
+      "label": "second-attempt-pending-import",
+      "url": "http://127.0.0.1:18733/dist/bundle.js?version=v0.6-8d386d43f12e",
+      "actualLoadedHash": "8d386d43f12e37bbcf019a134bf3673627599b1eb7dc38db2dadb6107cc9911e",
+      "servedHash": "8d386d43f12e37bbcf019a134bf3673627599b1eb7dc38db2dadb6107cc9911e",
+      "builtHash": "8d386d43f12e37bbcf019a134bf3673627599b1eb7dc38db2dadb6107cc9911e",
+      "mapHash": "87cb5788b88fcac2889a4622c88bfd6b4832062174bde81d73681f567376d00b"
+    },
+    {
+      "label": "after-cancel-route-inspection-reload",
+      "url": "http://127.0.0.1:18733/dist/bundle.js?version=v0.6-8d386d43f12e",
+      "actualLoadedHash": "8d386d43f12e37bbcf019a134bf3673627599b1eb7dc38db2dadb6107cc9911e",
+      "servedHash": "8d386d43f12e37bbcf019a134bf3673627599b1eb7dc38db2dadb6107cc9911e",
+      "builtHash": "8d386d43f12e37bbcf019a134bf3673627599b1eb7dc38db2dadb6107cc9911e",
+      "mapHash": "87cb5788b88fcac2889a4622c88bfd6b4832062174bde81d73681f567376d00b"
+    },
+    {
+      "label": "cancel-route-current-reload",
+      "url": "http://127.0.0.1:18733/dist/bundle.js?version=v0.6-8d386d43f12e",
+      "actualLoadedHash": "8d386d43f12e37bbcf019a134bf3673627599b1eb7dc38db2dadb6107cc9911e",
+      "servedHash": "8d386d43f12e37bbcf019a134bf3673627599b1eb7dc38db2dadb6107cc9911e",
+      "builtHash": "8d386d43f12e37bbcf019a134bf3673627599b1eb7dc38db2dadb6107cc9911e",
+      "mapHash": "87cb5788b88fcac2889a4622c88bfd6b4832062174bde81d73681f567376d00b"
+    },
+    {
+      "label": "both-cleared-reload",
+      "url": "http://127.0.0.1:18733/dist/bundle.js?version=v0.6-8d386d43f12e",
+      "actualLoadedHash": "8d386d43f12e37bbcf019a134bf3673627599b1eb7dc38db2dadb6107cc9911e",
+      "servedHash": "8d386d43f12e37bbcf019a134bf3673627599b1eb7dc38db2dadb6107cc9911e",
+      "builtHash": "8d386d43f12e37bbcf019a134bf3673627599b1eb7dc38db2dadb6107cc9911e",
+      "mapHash": "87cb5788b88fcac2889a4622c88bfd6b4832062174bde81d73681f567376d00b"
+    },
+    {
+      "label": "both-cleared-import",
+      "url": "http://127.0.0.1:18733/dist/bundle.js?version=v0.6-8d386d43f12e",
+      "actualLoadedHash": "8d386d43f12e37bbcf019a134bf3673627599b1eb7dc38db2dadb6107cc9911e",
+      "servedHash": "8d386d43f12e37bbcf019a134bf3673627599b1eb7dc38db2dadb6107cc9911e",
+      "builtHash": "8d386d43f12e37bbcf019a134bf3673627599b1eb7dc38db2dadb6107cc9911e",
+      "mapHash": "87cb5788b88fcac2889a4622c88bfd6b4832062174bde81d73681f567376d00b"
+    },
+    {
+      "label": "before-build-drift-rebind-reload",
+      "url": "http://127.0.0.1:18733/dist/bundle.js?version=v0.6-5a88823a77ba",
+      "actualLoadedHash": "5a88823a77ba37b4eeeadd7364618d5599f3d2d6099006806662e0f960b9fe23",
+      "servedHash": "5a88823a77ba37b4eeeadd7364618d5599f3d2d6099006806662e0f960b9fe23",
+      "builtHash": "5a88823a77ba37b4eeeadd7364618d5599f3d2d6099006806662e0f960b9fe23",
+      "mapHash": "0f84e882b0a107351347188bab46e97d14ba0bef3aa35860f20693998afcbddb"
+    },
+    {
+      "label": "final-origin-earned-import",
+      "url": "http://127.0.0.1:18735/dist/bundle.js?version=v0.6-5a88823a77ba",
+      "actualLoadedHash": "5a88823a77ba37b4eeeadd7364618d5599f3d2d6099006806662e0f960b9fe23",
+      "servedHash": "5a88823a77ba37b4eeeadd7364618d5599f3d2d6099006806662e0f960b9fe23",
+      "builtHash": "5a88823a77ba37b4eeeadd7364618d5599f3d2d6099006806662e0f960b9fe23",
+      "mapHash": "0f84e882b0a107351347188bab46e97d14ba0bef3aa35860f20693998afcbddb"
+    },
+    {
+      "label": "dry-first-completed-reload",
+      "url": "http://127.0.0.1:18735/dist/bundle.js?version=v0.6-5a88823a77ba",
+      "actualLoadedHash": "5a88823a77ba37b4eeeadd7364618d5599f3d2d6099006806662e0f960b9fe23",
+      "servedHash": "5a88823a77ba37b4eeeadd7364618d5599f3d2d6099006806662e0f960b9fe23",
+      "builtHash": "5a88823a77ba37b4eeeadd7364618d5599f3d2d6099006806662e0f960b9fe23",
+      "mapHash": "0f84e882b0a107351347188bab46e97d14ba0bef3aa35860f20693998afcbddb"
+    },
+    {
+      "label": "dry-first-settled-reload",
+      "url": "http://127.0.0.1:18735/dist/bundle.js?version=v0.6-5a88823a77ba",
+      "actualLoadedHash": "5a88823a77ba37b4eeeadd7364618d5599f3d2d6099006806662e0f960b9fe23",
+      "servedHash": "5a88823a77ba37b4eeeadd7364618d5599f3d2d6099006806662e0f960b9fe23",
+      "builtHash": "5a88823a77ba37b4eeeadd7364618d5599f3d2d6099006806662e0f960b9fe23",
+      "mapHash": "0f84e882b0a107351347188bab46e97d14ba0bef3aa35860f20693998afcbddb"
+    },
+    {
+      "label": "sound-earned-reload",
+      "url": "http://127.0.0.1:18735/dist/bundle.js?version=v0.6-5a88823a77ba",
+      "actualLoadedHash": "5a88823a77ba37b4eeeadd7364618d5599f3d2d6099006806662e0f960b9fe23",
+      "servedHash": "5a88823a77ba37b4eeeadd7364618d5599f3d2d6099006806662e0f960b9fe23",
+      "builtHash": "5a88823a77ba37b4eeeadd7364618d5599f3d2d6099006806662e0f960b9fe23",
+      "mapHash": "0f84e882b0a107351347188bab46e97d14ba0bef3aa35860f20693998afcbddb"
+    },
+    {
+      "label": "useful-kits-produced-reload",
+      "url": "http://127.0.0.1:18735/dist/bundle.js?version=v0.6-5a88823a77ba",
+      "actualLoadedHash": "5a88823a77ba37b4eeeadd7364618d5599f3d2d6099006806662e0f960b9fe23",
+      "servedHash": "5a88823a77ba37b4eeeadd7364618d5599f3d2d6099006806662e0f960b9fe23",
+      "builtHash": "5a88823a77ba37b4eeeadd7364618d5599f3d2d6099006806662e0f960b9fe23",
+      "mapHash": "0f84e882b0a107351347188bab46e97d14ba0bef3aa35860f20693998afcbddb"
+    },
+    {
+      "label": "useful-kits-produced-import",
+      "url": "http://127.0.0.1:18735/dist/bundle.js?version=v0.6-5a88823a77ba",
+      "actualLoadedHash": "5a88823a77ba37b4eeeadd7364618d5599f3d2d6099006806662e0f960b9fe23",
+      "servedHash": "5a88823a77ba37b4eeeadd7364618d5599f3d2d6099006806662e0f960b9fe23",
+      "builtHash": "5a88823a77ba37b4eeeadd7364618d5599f3d2d6099006806662e0f960b9fe23",
+      "mapHash": "0f84e882b0a107351347188bab46e97d14ba0bef3aa35860f20693998afcbddb"
+    },
+    {
+      "label": "useful-delivery-reload",
+      "url": "http://127.0.0.1:18735/dist/bundle.js?version=v0.6-5a88823a77ba",
+      "actualLoadedHash": "5a88823a77ba37b4eeeadd7364618d5599f3d2d6099006806662e0f960b9fe23",
+      "servedHash": "5a88823a77ba37b4eeeadd7364618d5599f3d2d6099006806662e0f960b9fe23",
+      "builtHash": "5a88823a77ba37b4eeeadd7364618d5599f3d2d6099006806662e0f960b9fe23",
+      "mapHash": "0f84e882b0a107351347188bab46e97d14ba0bef3aa35860f20693998afcbddb"
+    },
+    {
+      "label": "useful-delivery-import",
+      "url": "http://127.0.0.1:18735/dist/bundle.js?version=v0.6-5a88823a77ba",
+      "actualLoadedHash": "5a88823a77ba37b4eeeadd7364618d5599f3d2d6099006806662e0f960b9fe23",
+      "servedHash": "5a88823a77ba37b4eeeadd7364618d5599f3d2d6099006806662e0f960b9fe23",
+      "builtHash": "5a88823a77ba37b4eeeadd7364618d5599f3d2d6099006806662e0f960b9fe23",
+      "mapHash": "0f84e882b0a107351347188bab46e97d14ba0bef3aa35860f20693998afcbddb"
+    },
+    {
+      "label": "delivery-settled-reload",
+      "url": "http://127.0.0.1:18735/dist/bundle.js?version=v0.6-5a88823a77ba",
+      "actualLoadedHash": "5a88823a77ba37b4eeeadd7364618d5599f3d2d6099006806662e0f960b9fe23",
+      "servedHash": "5a88823a77ba37b4eeeadd7364618d5599f3d2d6099006806662e0f960b9fe23",
+      "builtHash": "5a88823a77ba37b4eeeadd7364618d5599f3d2d6099006806662e0f960b9fe23",
+      "mapHash": "0f84e882b0a107351347188bab46e97d14ba0bef3aa35860f20693998afcbddb"
+    },
+    {
+      "label": "delivery-settled-import",
+      "url": "http://127.0.0.1:18735/dist/bundle.js?version=v0.6-5a88823a77ba",
+      "actualLoadedHash": "5a88823a77ba37b4eeeadd7364618d5599f3d2d6099006806662e0f960b9fe23",
+      "servedHash": "5a88823a77ba37b4eeeadd7364618d5599f3d2d6099006806662e0f960b9fe23",
+      "builtHash": "5a88823a77ba37b4eeeadd7364618d5599f3d2d6099006806662e0f960b9fe23",
+      "mapHash": "0f84e882b0a107351347188bab46e97d14ba0bef3aa35860f20693998afcbddb"
+    }
+  ],
+  "budget": {
+    "declaredBeforeNativePlay": true,
+    "startExport": "../r5/copy-completed-native.txt",
+    "startHash": "7104e70248ed35f4ee8e74457d643904a69eb761d76f6da97c844f4df82a8c21",
+    "startClock": 684,
+    "maxima": {
+      "coinsSpent": 6,
+      "logsSpent": 8,
+      "sapSpent": 2,
+      "soundStavesSpent": 2,
+      "wetStavesSpent": 2,
+      "playerStaminaSpent": 24,
+      "playedMinutes": 100,
+      "acquisitionAttempts": 4,
+      "merchantChecks": 2,
+      "retortJobs": 6,
+      "workPlans": 1,
+      "residueDisposals": 2,
+      "cancellations": 3,
+      "soundCutJobs": 1,
+      "soundDryJobs": 2,
+      "kitJobs": 1,
+      "usefulKitUses": 1,
+      "travel": 0
+    },
+    "route": "Village installation2logs2coins1stamina;2sap supports2completed batches plus1refund cancellation. Plan pauses after filled receivers, clear and explicit resume; third input shortage remains. One owned sharp knife cuts1log into2wet in4min2stamina, ordinary shade dries each6min2stamina; resin_kits1resin2sound1stamina3min gives2kits. Existing local downstream/native consumer selected from actual UI. No merchant purchases needed. Budget includes all ordinary PLAY ticking and inspection. Save/reload startup pause between analysis; no clock editing."
+  },
+  "actual": {
+    "coinsSpent": 2,
+    "coinsEarned": 2,
+    "logsSpent": 5,
+    "sapSpent": 2,
+    "soundStavesSpent": 2,
+    "wetStavesSpent": 2,
+    "playerStaminaDeclaredCosts": 12,
+    "playedMinutes": 63,
+    "acquisitionAttempts": 4,
+    "merchantChecks": 0,
+    "retortJobs": 4,
+    "workPlans": 1,
+    "residueDisposals": 2,
+    "cancellations": 1,
+    "soundCutJobs": 1,
+    "soundDryJobs": 2,
+    "kitJobs": 1,
+    "usefulKitUses": 1,
+    "travel": 0
+  },
+  "unused": {
+    "coinsSpent": 4,
+    "logsSpent": 3,
+    "sapSpent": 0,
+    "soundStavesSpent": 0,
+    "wetStavesSpent": 0,
+    "playerStaminaSpent": 12,
+    "playedMinutes": 37,
+    "acquisitionAttempts": 0,
+    "merchantChecks": 2,
+    "retortJobs": 2,
+    "workPlans": 0,
+    "residueDisposals": 0,
+    "cancellations": 2,
+    "soundCutJobs": 0,
+    "soundDryJobs": 0,
+    "kitJobs": 0,
+    "usefulKitUses": 0,
+    "travel": 0
+  },
+  "checkpoints": [
+    {
+      "name": "both-filled",
+      "export": {
+        "file": "/Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/foundation-adoption-next-2026-10-13/rounds/r6/both-filled-native.txt",
+        "hash": "8c401de502a2c1a2da4a9344077e0e8958ab55cbc647726f390d194fbf3a8089"
+      },
+      "importedFileHash": "8c401de502a2c1a2da4a9344077e0e8958ab55cbc647726f390d194fbf3a8089",
+      "reloadExact": true,
+      "importExact": true
+    },
+    {
+      "name": "resin-only",
+      "export": {
+        "file": "/Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/foundation-adoption-next-2026-10-13/rounds/r6/resin-only-native.txt",
+        "hash": "e85f83e88153cf2d68ac50255ec5d9a179fe29c622cd911b5c20aece1cff70d7"
+      },
+      "importedFileHash": "e85f83e88153cf2d68ac50255ec5d9a179fe29c622cd911b5c20aece1cff70d7",
+      "reloadExact": true,
+      "importExact": true
+    },
+    {
+      "name": "second-attempt-pending",
+      "export": {
+        "file": "/Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/foundation-adoption-next-2026-10-13/rounds/r6/second-attempt-pending-native.txt",
+        "hash": "d2ca6b282df9b8af5e45e3922433ccb9d30368f590eddd82e4db42721773911a"
+      },
+      "importedFileHash": "d2ca6b282df9b8af5e45e3922433ccb9d30368f590eddd82e4db42721773911a",
+      "reloadExact": true,
+      "importExact": true
+    },
+    {
+      "name": "both-cleared",
+      "export": {
+        "file": "/Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/foundation-adoption-next-2026-10-13/rounds/r6/both-cleared-native.txt",
+        "hash": "29b8fc9d4998ccc8851b84d390a329f038b346793e662e1d6f516dc57f5f9531"
+      },
+      "importedFileHash": "29b8fc9d4998ccc8851b84d390a329f038b346793e662e1d6f516dc57f5f9531",
+      "reloadExact": true,
+      "importExact": true
+    },
+    {
+      "name": "useful-kits-produced",
+      "export": {
+        "file": "/Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/foundation-adoption-next-2026-10-13/rounds/r6/useful-kits-produced-native.txt",
+        "hash": "a76a80f4325ae4750f59f34b5614d7c2f36887e5fd47352bb6c569068c032532"
+      },
+      "importedFileHash": "a76a80f4325ae4750f59f34b5614d7c2f36887e5fd47352bb6c569068c032532",
+      "reloadExact": true,
+      "importExact": true
+    },
+    {
+      "name": "useful-delivery",
+      "export": {
+        "file": "/Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/foundation-adoption-next-2026-10-13/rounds/r6/useful-delivery-native.txt",
+        "hash": "30a2746fe709f724f75d28b61d28a217ea2a40e089a5fc29a273a96013754955"
+      },
+      "importedFileHash": "30a2746fe709f724f75d28b61d28a217ea2a40e089a5fc29a273a96013754955",
+      "reloadExact": true,
+      "importExact": true
+    },
+    {
+      "name": "delivery-settled",
+      "export": {
+        "file": "/Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/foundation-adoption-next-2026-10-13/rounds/r6/delivery-settled-native.txt",
+        "hash": "709c92afc307323e04ba0799304aee1be8bff7d4090c9502427400caa3469b11"
+      },
+      "importedFileHash": "709c92afc307323e04ba0799304aee1be8bff7d4090c9502427400caa3469b11",
+      "reloadExact": true,
+      "importExact": true
+    }
+  ],
+  "latestGenuineExport": "docs/gm/dispatch/foundation-adoption-next-2026-10-13/rounds/r6/final-earned-native.txt",
+  "latestHash": "5abd536f1dc0616ee39b59bde28477456bc2f6d304935752acad4d924db0ae72",
+  "latestClock": 747,
+  "nativeState": {
+    "money": 51,
+    "logs": 78,
+    "sap": 0,
+    "resin": 1,
+    "kits": 7,
+    "protectedKits": 4,
+    "dullKnives": 2,
+    "sharpKnives": 0,
+    "manual": 1,
+    "emptyResinTray": 1,
+    "emptyResidueTray": 1,
+    "jobs": 0,
+    "plan": "cancelled index0; no accepted plan batch"
+  },
+  "worker": "fa11_source completed/released three files",
+  "evidenceLimits": [
+    "SOURCE fixtures are not native",
+    "counted stock keys not unique per-copy IDs",
+    "retort positives initial8d actual bytes; downstream/current restoration final5a frozen bytes; main change discovery feedback hooks reviewed, dedicated retort/scheduler/save sources unchanged",
+    "Native cancellation missed completed work; no retry manufactured",
+    "Plan never accepted a batch natively; native resume shortage/pause/future stop proven only",
+    "Passive stamina recovery masks some native debit timing; declared12 costs supported by jobs/SOURCE, not12 net final deficit",
+    "sound-cut-completed and dry-first-completed filename labels were premature: raw files retain pending jobs. Settled proof is later native receipt deltas and states; no positive credited to those files"
+  ]
+}

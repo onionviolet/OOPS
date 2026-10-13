@@ -1,0 +1,11 @@
+{
+  "hash": "dcf2ab53d4c3eb8a629652f9ca51277fb7f510a58fcc81b3bbbd04ee3c3086b1",
+  "input": "/tmp/yairpg-lin-natural-ready.json natural acquisition output",
+  "checks": [
+    "quiet texture transfers no stock/wage and opens no demand",
+    "refusal closes demand without stock or wage transfer",
+    "actual durable write failure preserves cursor/jobs/claims/player+Lin credits/native stock; restored retry accepts exactly1 job"
+  ],
+  "errors": [],
+  "generatedOnly": true
+}

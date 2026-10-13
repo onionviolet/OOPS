@@ -1,0 +1,277 @@
+{
+  "revision": 1,
+  "frozenScope": "Ten connected design leaves, not ten whole feature families or implemented journeys",
+  "status": "selected-for-planning",
+  "authority": "ASSIGNMENT.md",
+  "leaves": [
+    {
+      "id": "MM01",
+      "title": "Work and custody",
+      "originalIds": [
+        "G1-013",
+        "G3-009",
+        "G3-011",
+        "G3-012",
+        "G6-012"
+      ],
+      "sections": [
+        "S04",
+        "S05",
+        "S06",
+        "S10",
+        "S14"
+      ],
+      "route": "MM-P1",
+      "owner": "DETAIL_CARDS.md",
+      "acceptance": "Functional card, causal consequence and precise implementation/source/design dependency; all runtime proof unrun"
+    },
+    {
+      "id": "MM02",
+      "title": "Household care",
+      "originalIds": [
+        "G1-005",
+        "G1-006",
+        "G1-009",
+        "G3-005",
+        "G3-007",
+        "G3-008",
+        "G3-020",
+        "G6-011",
+        "G8-021"
+      ],
+      "sections": [
+        "S02",
+        "S04",
+        "S05",
+        "S07",
+        "S08",
+        "S11",
+        "S14"
+      ],
+      "route": "MM-P2",
+      "owner": "DETAIL_CARDS.md",
+      "acceptance": "Functional card, causal consequence and precise implementation/source/design dependency; all runtime proof unrun"
+    },
+    {
+      "id": "MM03",
+      "title": "Material quality and repair",
+      "originalIds": [
+        "G3-011",
+        "G6-001",
+        "G6-003",
+        "G6-008",
+        "G6-009",
+        "G6-012",
+        "G6-021",
+        "G6-022"
+      ],
+      "sections": [
+        "S05",
+        "S06",
+        "S07",
+        "S09",
+        "S14"
+      ],
+      "route": "MM-P2",
+      "owner": "DETAIL_CARDS.md",
+      "acceptance": "Functional card, causal consequence and precise implementation/source/design dependency; all runtime proof unrun"
+    },
+    {
+      "id": "MM04",
+      "title": "Ecology and routes",
+      "originalIds": [
+        "G3-012",
+        "G3-017",
+        "G3-019",
+        "G4-03",
+        "G4-05",
+        "G6-018",
+        "G6-019",
+        "G6-020",
+        "G6-021"
+      ],
+      "sections": [
+        "S01",
+        "S03",
+        "S05",
+        "S06",
+        "S08",
+        "S11",
+        "S12"
+      ],
+      "route": "MM-P2",
+      "owner": "DETAIL_CARDS.md",
+      "acceptance": "Functional card, causal consequence and precise implementation/source/design dependency; all runtime proof unrun"
+    },
+    {
+      "id": "MM05",
+      "title": "Institutions and legitimacy",
+      "originalIds": [
+        "G2-022",
+        "G2-023",
+        "G2-027",
+        "G3-004",
+        "G3-013",
+        "G3-014",
+        "G3-018",
+        "G4-14",
+        "G4-15"
+      ],
+      "sections": [
+        "S01",
+        "S04",
+        "S05",
+        "S09",
+        "S10",
+        "S11"
+      ],
+      "route": "MM-P1",
+      "owner": "DETAIL_CARDS.md",
+      "acceptance": "Functional card, causal consequence and precise implementation/source/design dependency; all runtime proof unrun"
+    },
+    {
+      "id": "MM06",
+      "title": "Powerful duplication and creation",
+      "originalIds": [
+        "G2-002",
+        "G2-015",
+        "G2-017",
+        "G2-027",
+        "G3-012",
+        "G3-013",
+        "G6-012",
+        "G6-020",
+        "G6-021",
+        "G6-022"
+      ],
+      "sections": [
+        "S01",
+        "S05",
+        "S06",
+        "S07",
+        "S08",
+        "S10",
+        "S11",
+        "S14"
+      ],
+      "route": "MM-P3",
+      "owner": "DETAIL_CARDS.md",
+      "acceptance": "Functional card, causal consequence and precise implementation/source/design dependency; all runtime proof unrun"
+    },
+    {
+      "id": "MM07",
+      "title": "Changed body and equipment",
+      "originalIds": [
+        "G1-009",
+        "G1-010",
+        "G1-018",
+        "G1-020",
+        "G2-018",
+        "G2-026",
+        "G6-007",
+        "G6-025",
+        "G8-017",
+        "G8-020"
+      ],
+      "sections": [
+        "S02",
+        "S04",
+        "S06",
+        "S07",
+        "S08",
+        "S12",
+        "S13",
+        "S14"
+      ],
+      "route": "MM-P3",
+      "owner": "DETAIL_CARDS.md",
+      "acceptance": "Functional card, causal consequence and precise implementation/source/design dependency; all runtime proof unrun"
+    },
+    {
+      "id": "MM08",
+      "title": "Absence and return",
+      "originalIds": [
+        "G3-021",
+        "G4-01",
+        "G4-05",
+        "G4-06",
+        "G4-08",
+        "G4-09",
+        "G4-14",
+        "G4-15",
+        "G4-18",
+        "G6-027",
+        "G6-029"
+      ],
+      "sections": [
+        "S03",
+        "S04",
+        "S09",
+        "S11",
+        "S12",
+        "S13",
+        "S14"
+      ],
+      "route": "MM-P4",
+      "owner": "DETAIL_CARDS.md",
+      "acceptance": "Functional card, causal consequence and precise implementation/source/design dependency; all runtime proof unrun"
+    },
+    {
+      "id": "MM09",
+      "title": "Learning and transfer",
+      "originalIds": [
+        "G3-010",
+        "G3-018",
+        "G2-011",
+        "G6-005",
+        "G6-022",
+        "G8-008",
+        "G8-011",
+        "G8-012"
+      ],
+      "sections": [
+        "S04",
+        "S06",
+        "S07",
+        "S09",
+        "S10",
+        "S11",
+        "S13",
+        "S14"
+      ],
+      "route": "MM-D09",
+      "owner": "SUPPLEMENTAL_DETAILS.md",
+      "acceptance": "Functional card, causal consequence and precise implementation/source/design dependency; all runtime proof unrun"
+    },
+    {
+      "id": "MM10",
+      "title": "Ending and succession",
+      "originalIds": [
+        "G3-016",
+        "G3-020",
+        "G3-021",
+        "G4-03",
+        "G4-06",
+        "G4-09",
+        "G4-10",
+        "G4-11",
+        "G6-027",
+        "G8-002",
+        "G8-005"
+      ],
+      "sections": [
+        "S01",
+        "S02",
+        "S04",
+        "S05",
+        "S10",
+        "S11",
+        "S12",
+        "S14"
+      ],
+      "route": "MM-D10",
+      "owner": "SUPPLEMENTAL_DETAILS.md",
+      "acceptance": "Functional card, causal consequence and precise implementation/source/design dependency; all runtime proof unrun"
+    }
+  ]
+}

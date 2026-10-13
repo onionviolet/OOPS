@@ -1,0 +1,15 @@
+# Verified finite early edition candidate
+
+The isolated frozen early edition is implemented and browser-verified: all15required gates have evidence. This is one realm, two admitted beginnings and one optional renewal layer, not completion of the full world horizon or director acceptance.
+
+F1. Prototype single-origin initialization did not deliver distinct bodies/means or a durable selection. Current typed starts bind the selected snapshot, actor, actual native Bio compatibility, body and lifetime to a committed instance. A pending receipt saves before initial stock/body publication. Retry, reload, import and failed publication preserve selection and never reissue the opening. Incompatible native form/life stage refuses before selection.
+
+F2. Ordinary and function journeys now connect real kit/stock, present support, actual target effects, communicated settlement and continuing useful work. Ordinary stock condition ages before function acquisition without inventing a function. Further practiced development changes a later actual action cost. Repeated livelihood uses finite actual inputs/demand and an account with a real goods consumer.
+
+F3. The optional local renewal previews its narrow reset and retained domains, changes only selected applied mastery/training reserve, and keeps source/body/cargo/world/knowledge/native XP/history. Actual subsequent work uses its lasting contribution; rest and renewed practice regain the improved cost. Once-only and failed-write checks pass. Existing Frontier renewal remains intact; no heir, world reset or second layer was added.
+
+F4. Current rebuilt bundle has394passing source tests, two natural native journeys without enriched fixtures,34native boundary groups and8observer display cases passing. The measured guided paths, including continuation and renewal, took53.4s and72.8s. They establish this finite prototype recipe, not full campaign length or balance. Real native combat caused knockout, same-realm retreat and Recovering; the exact item survived, access refused during recovery and later retrieval worked. Expanded native/plain/title/aria surfaces pass; browser display conditions do not establish new application VFX modes. Exact source/build receipts are P5_INPUTS/P5_PROOF; exact content and generated saves remain ignored.
+
+F5. Original scalar baseline is byte-identical; p02/p03 stay exact and actual generated old/current import checks pass. Source library and personal saves were untouched. The candidate is built and native-verified; shared-source integration and director fiction/balance/pacing review remain separate open delivery states. No commit, push or publishing occurred. Full unselected starts, variants and mature source horizon remain with their original owners.
+
+Review: http://127.0.0.1:18552/. Select PLAY, keep a compatible adult human character, then Begin. Follow the local controls and discover through play. This fresh review origin does not reuse the older preview origin. The Codex browser tab was queued, not confirmed visible. Test preview remains http://127.0.0.1:18551/.

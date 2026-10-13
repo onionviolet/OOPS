@@ -1,0 +1,872 @@
+{
+  "lane": "STC-continuity",
+  "worker": "/root/continuity",
+  "status": "planning-return-not-runtime",
+  "date": "2026-10-11",
+  "sourceHead": "53dc1df15889be6ebb1bae403497041f0672db46",
+  "ownership": [
+    "docs/gm/dispatch/starts-talents-continuity-2026-10-11/continuity/REPORT.md",
+    "docs/gm/dispatch/starts-talents-continuity-2026-10-11/continuity/REQUIREMENTS.json"
+  ],
+  "inputs": [
+    {
+      "path": "docs/TIMELINES_AND_DIVERGENCE.md",
+      "sha256": "ddbd89552dc53a8f830b2f43c65fcc4f639c23aca450c3e99440152f9d1588ee",
+      "coverage": "Full T1-T5 annex and natural-course/inertia comparison; later archive/selves headings only."
+    },
+    {
+      "path": "docs/STARTS_ENDINGS_AND_RANDOMNESS_PALETTE.md",
+      "sha256": "79a084cd8b3669750b0648ed1739df641a4e0df7c871ce08d83dfef438f88870",
+      "coverage": "Full palette P1-P5."
+    },
+    {
+      "path": "docs/worlds/ORIGINS_AND_WORLD_TIMELINES.md",
+      "sha256": "ff928265b787cbece0dcc7e4634df8f5bb4cd6009b70a0f8fe246fb66f4ed403",
+      "coverage": "Origin axes, families, body/age/calendar and current initializer boundary; finite delivery appendix not qualified."
+    },
+    {
+      "path": "docs/worlds/CAMPAIGN_FRAMEWORK.md",
+      "sha256": "679feddcd8572f75525cd598d54243353883ad86fd99a5584fa46dfb6e4d081d",
+      "coverage": "Composition, plot causes, failure/transfer and dated runtime-fit excerpts; no source-world verification."
+    },
+    {
+      "path": "docs/MEANS_AND_APPRAISAL.md",
+      "sha256": "149a85a6fea41b1fedee52ab225da318d0d76751e422bd3a4143dfbfda839bd6",
+      "coverage": "Means/appraisal and canon/communication excerpts; full output was truncated."
+    },
+    {
+      "path": "docs/gm/causal-endings/CAUSAL_MODEL.md",
+      "sha256": "614067920e96aee92e5248d1f2b90880deb3312c24355be75d8b2d6bc97dfb62",
+      "coverage": "CSE-01-20, owner mapping, finite rule shape and attack/closure boundaries through line 112."
+    },
+    {
+      "path": "docs/gm/dispatch/idea-expansion-2026-10-11/RECONCILIATION.md",
+      "sha256": "946dafae94720c2b3e3995a523845ec9d0c854f154a807eecc60faf4fe41d788",
+      "coverage": "Full joined reconciliation."
+    },
+    {
+      "path": "docs/gm/dispatch/idea-expansion-2026-10-11/continuity/REPORT.md",
+      "sha256": "665a5e95dcd915c6f141dd1d43b7c31ee4a2ee54f0b8e67855fd2e329e5e0805",
+      "coverage": "Full public report."
+    },
+    {
+      "path": "docs/gm/dispatch/idea-expansion-2026-10-11/continuity/REQUIREMENTS.json",
+      "sha256": "6eaf6d626bc986dfd23413b0495f2ff84247c0766cb99c8c457a3402758efa6e",
+      "coverage": "Titles and bounded card excerpts; full long combined output truncated."
+    },
+    {
+      "path": "docs/gm/dispatch/idea-expansion-2026-10-11/starts/REQUIREMENTS.json",
+      "sha256": "86f2eecdfed8c5637912f513bb7e79ced0e7e7f760a88e567efd0923e1cf90de",
+      "coverage": "Titles and targeted entry/randomness/successor cards; not full 30-card re-audit."
+    },
+    {
+      "path": "src/simulation.js",
+      "sha256": "3f7ecf0f208edc1edff502d7e1f5076ad1e1a435630a020658eb922d3287d3f3",
+      "coverage": "Event check/controller lines 480-524; chooseSimulationOrigin lines 597-606; RNG and command draw locations."
+    },
+    {
+      "path": "src/simulation_contracts.js",
+      "sha256": "0b048cb891b0e30abeb7f97125d8fe62ca9abe03c7fc7697e0078ae4a72501de",
+      "coverage": "Event chance and saved-check validation located; no whole-validator proof."
+    }
+  ],
+  "requirements": [
+    {
+      "id": "STC-C01",
+      "title": "Conditional creation graph",
+      "status": "proposal-additive",
+      "priorIds": [
+        "G1-001",
+        "G1-002",
+        "G4-02"
+      ],
+      "sections": [
+        "S01",
+        "S02",
+        "S12"
+      ],
+      "criterion": "Generate connected axes in dependency order, retaining authorship cause and frozen actual result rather than an independent field lottery.",
+      "proposedExpansion": [
+        "First qualify source/era/place, then body/household, then resources/learning/relationships and supported first actions.",
+        "A comfortable skilled start needs plausible teachers and access; an exceptional faculty may remain an outlier without a forced flaw.",
+        "Empty compatibility sets use a declared fallback or fail before publication; do not silently discard a selected exceptional result."
+      ],
+      "dependencies": [
+        "G1 initializer and selected world qualification"
+      ],
+      "acceptanceCases": [
+        "Fixed fixture cannot produce a later institution in an earlier era.",
+        "A generated loan creates one owner and permission, not two owned tools.",
+        "Empty eligible pool preserves current game and pending attempt."
+      ],
+      "engineConsumerOrGap": "Existing origin service applies staged effects; coherent native composition remains a selected host join.",
+      "sourceRefs": [
+        "docs/TIMELINES_AND_DIVERGENCE.md",
+        "docs/STARTS_ENDINGS_AND_RANDOMNESS_PALETTE.md",
+        "docs/worlds/ORIGINS_AND_WORLD_TIMELINES.md",
+        "docs/worlds/CAMPAIGN_FRAMEWORK.md",
+        "docs/MEANS_AND_APPRAISAL.md",
+        "docs/gm/causal-endings/CAUSAL_MODEL.md"
+      ],
+      "unrunGates": [
+        "Selected local source/fiction qualification",
+        "Affected implementation and rebuilt fresh-origin native/browser proof",
+        "Generated save/reload/import and compatibility/failure cases"
+      ],
+      "scope": "Finite selected local policy; variants are not universal rules"
+    },
+    {
+      "id": "STC-C02",
+      "title": "World and local sampling distributions",
+      "status": "proposal-additive",
+      "priorIds": [
+        "G1-002"
+      ],
+      "sections": [
+        "S02",
+        "S12"
+      ],
+      "criterion": "The selected distribution is explicit and does not accidentally weight worlds by catalogue size.",
+      "proposedExpansion": [
+        "Support world-first equal/weighted selection, flat candidate weights and preference-conditioned surprise as different authored policies.",
+        "Record qualified pool revision and normalization; filters only describe experiences the character may select without listing sealed outcomes.",
+        "Conditional exclusion can change weights; measured selected distribution must match the declared algorithm."
+      ],
+      "dependencies": [
+        "G1 selector, world author private eligibility"
+      ],
+      "acceptanceCases": [
+        "Two worlds with 2 and 20 candidates show the intended world share in deterministic selector fixtures.",
+        "All zero weights reject cleanly.",
+        "Preference filtering leaves hidden candidate names absent from UI and errors."
+      ],
+      "engineConsumerOrGap": "Do not treat event-check RNG as an implemented new-game selector.",
+      "sourceRefs": [
+        "docs/TIMELINES_AND_DIVERGENCE.md",
+        "docs/STARTS_ENDINGS_AND_RANDOMNESS_PALETTE.md",
+        "docs/worlds/ORIGINS_AND_WORLD_TIMELINES.md",
+        "docs/worlds/CAMPAIGN_FRAMEWORK.md",
+        "docs/MEANS_AND_APPRAISAL.md",
+        "docs/gm/causal-endings/CAUSAL_MODEL.md"
+      ],
+      "unrunGates": [
+        "Selected local source/fiction qualification",
+        "Affected implementation and rebuilt fresh-origin native/browser proof",
+        "Generated save/reload/import and compatibility/failure cases"
+      ],
+      "scope": "Finite selected local policy; variants are not universal rules"
+    },
+    {
+      "id": "STC-C03",
+      "title": "Chosen, unknown and discoverable dimensions",
+      "status": "proposal-additive",
+      "priorIds": [
+        "G1-002",
+        "G1-027",
+        "G4-17"
+      ],
+      "sections": [
+        "S02",
+        "S09",
+        "S12"
+      ],
+      "criterion": "Player selection fixes only named dimensions; unknown dimensions remain real committed facts, discovered by held means.",
+      "proposedExpansion": [
+        "An experience preference can constrain ordinary/exceptional entry without revealing latent faculty or local hidden history.",
+        "Choose language familiarity but leave family relations unknown, or choose a supported next-body plan while era remains random.",
+        "Inspection changes knowledge, never the underlying household/body/latent result."
+      ],
+      "dependencies": [
+        "G1 selection/UI, talent discovery owner"
+      ],
+      "acceptanceCases": [
+        "Reveal then reload preserves the same fact.",
+        "Changing an unrelated display setting does not reroll.",
+        "A known chosen value does not reveal neighbouring private dimensions."
+      ],
+      "engineConsumerOrGap": "Selected result and actor-safe projection are separate consumers.",
+      "sourceRefs": [
+        "docs/TIMELINES_AND_DIVERGENCE.md",
+        "docs/STARTS_ENDINGS_AND_RANDOMNESS_PALETTE.md",
+        "docs/worlds/ORIGINS_AND_WORLD_TIMELINES.md",
+        "docs/worlds/CAMPAIGN_FRAMEWORK.md",
+        "docs/MEANS_AND_APPRAISAL.md",
+        "docs/gm/causal-endings/CAUSAL_MODEL.md"
+      ],
+      "unrunGates": [
+        "Selected local source/fiction qualification",
+        "Affected implementation and rebuilt fresh-origin native/browser proof",
+        "Generated save/reload/import and compatibility/failure cases"
+      ],
+      "scope": "Finite selected local policy; variants are not universal rules"
+    },
+    {
+      "id": "STC-C04",
+      "title": "Commitment and reproduction manifest",
+      "status": "proposal-additive",
+      "priorIds": [
+        "G1-001",
+        "G1-029",
+        "G4-18"
+      ],
+      "sections": [
+        "S12",
+        "S14"
+      ],
+      "criterion": "Actual committed selections and resolved variations survive persistence at a defined commitment point.",
+      "proposedExpansion": [
+        "Retain generator/pool revision, stream identity/cursor, actual selection, life/instance identity and transaction receipt in admitted owners.",
+        "Seed reproduction is guaranteed only for its exact content/generator revision and supported retained state.",
+        "Define pending-selection treatment before publication: proposal must retain the same pending result on save failure without publishing costs/effects."
+      ],
+      "dependencies": [
+        "G5 durable publisher and compatibility, G1 frozen selector"
+      ],
+      "acceptanceCases": [
+        "Preview/read/reload/import never change selected result.",
+        "Failed durable publication leaves rewards/costs untouched and retry uses the retained proposal.",
+        "Missing private pack suspends/rejects entry safely without replacing it with a different roll."
+      ],
+      "engineConsumerOrGap": "Current checks save RNG/counters; broader pending origin manifest needs inspected admission.",
+      "sourceRefs": [
+        "docs/TIMELINES_AND_DIVERGENCE.md",
+        "docs/STARTS_ENDINGS_AND_RANDOMNESS_PALETTE.md",
+        "docs/worlds/ORIGINS_AND_WORLD_TIMELINES.md",
+        "docs/worlds/CAMPAIGN_FRAMEWORK.md",
+        "docs/MEANS_AND_APPRAISAL.md",
+        "docs/gm/causal-endings/CAUSAL_MODEL.md"
+      ],
+      "unrunGates": [
+        "Selected local source/fiction qualification",
+        "Affected implementation and rebuilt fresh-origin native/browser proof",
+        "Generated save/reload/import and compatibility/failure cases"
+      ],
+      "scope": "Finite selected local policy; variants are not universal rules"
+    },
+    {
+      "id": "STC-C05",
+      "title": "Preparation changes specific chance or eligibility",
+      "status": "proposal-additive",
+      "priorIds": [
+        "G4-03",
+        "G1-013"
+      ],
+      "sections": [
+        "S03",
+        "S04",
+        "S12"
+      ],
+      "criterion": "A preparation action changes its actual named consumer rather than an unexplained global luck value.",
+      "proposedExpansion": [
+        "Scouting can reveal a route; stocking materials enables repair; demonstrated skill may change eligible resolution weights.",
+        "Some preparation guarantees an outcome when all actual causes suffice; other work only increases probability.",
+        "Absolute or exceptional means keep their actual efficacy without mandatory random failure."
+      ],
+      "dependencies": [
+        "Talent/skill native consumer and ordinary work owner"
+      ],
+      "acceptanceCases": [
+        "Without material the repair stays ineligible, independent of RNG.",
+        "Prepared/unprepared same-seed fixtures differ only at affected consumer.",
+        "A guaranteed functional solution completes without invented resistance."
+      ],
+      "engineConsumerOrGap": "Event chance expressions exist; exact skill/material facts and result effects must be wired and exercised.",
+      "sourceRefs": [
+        "docs/TIMELINES_AND_DIVERGENCE.md",
+        "docs/STARTS_ENDINGS_AND_RANDOMNESS_PALETTE.md",
+        "docs/worlds/ORIGINS_AND_WORLD_TIMELINES.md",
+        "docs/worlds/CAMPAIGN_FRAMEWORK.md",
+        "docs/MEANS_AND_APPRAISAL.md",
+        "docs/gm/causal-endings/CAUSAL_MODEL.md"
+      ],
+      "unrunGates": [
+        "Selected local source/fiction qualification",
+        "Affected implementation and rebuilt fresh-origin native/browser proof",
+        "Generated save/reload/import and compatibility/failure cases"
+      ],
+      "scope": "Finite selected local policy; variants are not universal rules"
+    },
+    {
+      "id": "STC-C06",
+      "title": "Eligible event trials and pacing",
+      "status": "proposal-additive",
+      "priorIds": [
+        "G4-03",
+        "G4-05",
+        "G4-06"
+      ],
+      "sections": [
+        "S07",
+        "S11",
+        "S12"
+      ],
+      "criterion": "Only trials eligible under the selected causes spend the declared random draw; deadlines and misses have explicit meaning.",
+      "proposedExpansion": [
+        "Distinguish scheduled check, eligible attempt, occurrence and resolved result.",
+        "Persist bounded interval/miss policy; guaranteeAfter and anti-repeat are optional local policies, never secret universal luck correction.",
+        "An unmet prerequisite is not a failed random attempt and does not earn pity; no global event timeline advancement from a disabled event."
+      ],
+      "dependencies": [
+        "Selected event definition and shared boundary integrator"
+      ],
+      "acceptanceCases": [
+        "Ineligible check advances schedule without occurrence or eligible-miss reward.",
+        "Reload before due time gives identical eligible trial.",
+        "Guaranteed-after policy, when selected, survives import and does not bypass missing causes."
+      ],
+      "engineConsumerOrGap": "simulation.js currently gates requires/alive/open occurrence before draw and supports guaranteeAfter; preserve this owner.",
+      "sourceRefs": [
+        "docs/TIMELINES_AND_DIVERGENCE.md",
+        "docs/STARTS_ENDINGS_AND_RANDOMNESS_PALETTE.md",
+        "docs/worlds/ORIGINS_AND_WORLD_TIMELINES.md",
+        "docs/worlds/CAMPAIGN_FRAMEWORK.md",
+        "docs/MEANS_AND_APPRAISAL.md",
+        "docs/gm/causal-endings/CAUSAL_MODEL.md"
+      ],
+      "unrunGates": [
+        "Selected local source/fiction qualification",
+        "Affected implementation and rebuilt fresh-origin native/browser proof",
+        "Generated save/reload/import and compatibility/failure cases"
+      ],
+      "scope": "Finite selected local policy; variants are not universal rules"
+    },
+    {
+      "id": "STC-C07",
+      "title": "Anti-repeat and intentional reroll",
+      "status": "proposal-additive",
+      "priorIds": [
+        "G1-002",
+        "G4-10"
+      ],
+      "sections": [
+        "S02",
+        "S12",
+        "S14"
+      ],
+      "criterion": "Anti-repeat and reroll are explicit selection policies with their own scope and recorded transitions.",
+      "proposedExpansion": [
+        "Offer optional prior-start exclusion, cooldown or weighted novelty where desired; ordinary repeated starts can remain eligible.",
+        "Reroll may be free, a new run, a paid local ritual or unavailable in a selected mode; do not add arbitrary cost.",
+        "Reroll distinguishes uncommitted preview, abandoned committed life and supported in-world alteration."
+      ],
+      "dependencies": [
+        "G1 selector and G4 life/reset contract"
+      ],
+      "acceptanceCases": [
+        "Empty novelty set uses declared fallback.",
+        "Reloading a committed life does not count as a new roll.",
+        "Selected reroll applies only named dimensions, preserving prior history if promised."
+      ],
+      "engineConsumerOrGap": "Not required for first slice unless its UI advertises it; broader policy unimplemented-unverified.",
+      "sourceRefs": [
+        "docs/TIMELINES_AND_DIVERGENCE.md",
+        "docs/STARTS_ENDINGS_AND_RANDOMNESS_PALETTE.md",
+        "docs/worlds/ORIGINS_AND_WORLD_TIMELINES.md",
+        "docs/worlds/CAMPAIGN_FRAMEWORK.md",
+        "docs/MEANS_AND_APPRAISAL.md",
+        "docs/gm/causal-endings/CAUSAL_MODEL.md"
+      ],
+      "unrunGates": [
+        "Selected local source/fiction qualification",
+        "Affected implementation and rebuilt fresh-origin native/browser proof",
+        "Generated save/reload/import and compatibility/failure cases"
+      ],
+      "scope": "Finite selected local policy; variants are not universal rules"
+    },
+    {
+      "id": "STC-C08",
+      "title": "Expected course versus actual history",
+      "status": "proposal-additive",
+      "priorIds": [
+        "G4-03",
+        "G4-02"
+      ],
+      "sections": [
+        "S01",
+        "S11",
+        "S12"
+      ],
+      "criterion": "Source-qualified expected events remain immutable expectations; only committed receipts establish that they occurred.",
+      "proposedExpansion": [
+        "Store expected causes and source revision separately from actual event status.",
+        "Earlier/later authored snapshots declare prior causes without inventing player-performed deeds.",
+        "Foreknowledge can be wrong after divergence and remains attributed recollection, never omniscient present fact."
+      ],
+      "dependencies": [
+        "World source ledger, CSE baseline/actual history owners"
+      ],
+      "acceptanceCases": [
+        "Abstention with surviving causes produces the eligible natural course.",
+        "Removing a necessary cause prevents that exact event.",
+        "A remembered prediction remains a recorded belief when actual outcome differs."
+      ],
+      "engineConsumerOrGap": "CSE-01/05/07 already specify the join; a divergence label alone fails this card.",
+      "sourceRefs": [
+        "docs/TIMELINES_AND_DIVERGENCE.md",
+        "docs/STARTS_ENDINGS_AND_RANDOMNESS_PALETTE.md",
+        "docs/worlds/ORIGINS_AND_WORLD_TIMELINES.md",
+        "docs/worlds/CAMPAIGN_FRAMEWORK.md",
+        "docs/MEANS_AND_APPRAISAL.md",
+        "docs/gm/causal-endings/CAUSAL_MODEL.md"
+      ],
+      "unrunGates": [
+        "Selected local source/fiction qualification",
+        "Affected implementation and rebuilt fresh-origin native/browser proof",
+        "Generated save/reload/import and compatibility/failure cases"
+      ],
+      "scope": "Finite selected local policy; variants are not universal rules"
+    },
+    {
+      "id": "STC-C09",
+      "title": "Necessary, sufficient and alternative causes",
+      "status": "proposal-additive",
+      "priorIds": [
+        "G4-03"
+      ],
+      "sections": [
+        "S07",
+        "S11",
+        "S12"
+      ],
+      "criterion": "Each selected event distinguishes necessary support from redundant paths and actual alternative causes.",
+      "proposedExpansion": [
+        "A named participant event requires that person; a role event may use another willing qualified actor only through an authored actual route.",
+        "An intact goal is not sufficient without reach, information, permission/resources and required skill.",
+        "Strong fate/anchor rules can constrain outcomes only through selected actual local protection, not genre plot weight."
+      ],
+      "dependencies": [
+        "CSE-05/06/16-20 and selected world actor contracts"
+      ],
+      "acceptanceCases": [
+        "Take the sole document/transport away and that delivery does not occur.",
+        "Second courier succeeds only with document, motive, access and funded means.",
+        "Unrelated weather continues after courier cancellation."
+      ],
+      "engineConsumerOrGap": "Timeline T3 supersedes automatic substitute/inertia readings of earlier C2/C5 proposals.",
+      "sourceRefs": [
+        "docs/TIMELINES_AND_DIVERGENCE.md",
+        "docs/STARTS_ENDINGS_AND_RANDOMNESS_PALETTE.md",
+        "docs/worlds/ORIGINS_AND_WORLD_TIMELINES.md",
+        "docs/worlds/CAMPAIGN_FRAMEWORK.md",
+        "docs/MEANS_AND_APPRAISAL.md",
+        "docs/gm/causal-endings/CAUSAL_MODEL.md"
+      ],
+      "unrunGates": [
+        "Selected local source/fiction qualification",
+        "Affected implementation and rebuilt fresh-origin native/browser proof",
+        "Generated save/reload/import and compatibility/failure cases"
+      ],
+      "scope": "Finite selected local policy; variants are not universal rules"
+    },
+    {
+      "id": "STC-C10",
+      "title": "Attempt, disturbance, repair and history",
+      "status": "proposal-additive",
+      "priorIds": [
+        "G4-03",
+        "G4-14"
+      ],
+      "sections": [
+        "S07",
+        "S09",
+        "S11"
+      ],
+      "criterion": "Failed intervention, successful disturbance and later restoration have distinct retained causes and consequences.",
+      "proposedExpansion": [
+        "A warning attempt may be ignored; a paid failed action still has its supported cost/witness effect.",
+        "Successful support removal cancels only dependents; subsequent repair reevaluates actual remaining window and means.",
+        "Repair does not erase grievances or recreate an already settled reward/expired opportunity."
+      ],
+      "dependencies": [
+        "Actual command/result receipt and event dependency integrator"
+      ],
+      "acceptanceCases": [
+        "Paid failed intervention leaves natural course possible.",
+        "Successful interruption changes dependent event.",
+        "Repair after window expiry cannot retroactively complete original event."
+      ],
+      "engineConsumerOrGap": "Reuse staged commands/CSE selected boundary; no new narrative-only disturbance meter required.",
+      "sourceRefs": [
+        "docs/TIMELINES_AND_DIVERGENCE.md",
+        "docs/STARTS_ENDINGS_AND_RANDOMNESS_PALETTE.md",
+        "docs/worlds/ORIGINS_AND_WORLD_TIMELINES.md",
+        "docs/worlds/CAMPAIGN_FRAMEWORK.md",
+        "docs/MEANS_AND_APPRAISAL.md",
+        "docs/gm/causal-endings/CAUSAL_MODEL.md"
+      ],
+      "unrunGates": [
+        "Selected local source/fiction qualification",
+        "Affected implementation and rebuilt fresh-origin native/browser proof",
+        "Generated save/reload/import and compatibility/failure cases"
+      ],
+      "scope": "Finite selected local policy; variants are not universal rules"
+    },
+    {
+      "id": "STC-C11",
+      "title": "NPC opportunity and independent agenda",
+      "status": "proposal-additive",
+      "priorIds": [
+        "G4-03",
+        "G4-14"
+      ],
+      "sections": [
+        "S05",
+        "S07",
+        "S11"
+      ],
+      "criterion": "NPC continuation selects legal actions from its actual ambitions, knowledge and remaining means.",
+      "proposedExpansion": [
+        "A rival may train, earn money, seek a supplier, change goal or retire when a route closes.",
+        "Local talents affect their supported work/action consumers just as player faculties do; do not let title labels grant every skill.",
+        "An actor may have overwhelming strength or free help when grounded; missing goods/finding channels remain actual constraints."
+      ],
+      "dependencies": [
+        "G3 people/work, talent lane, controller/native action owner"
+      ],
+      "acceptanceCases": [
+        "Uninformed NPC cannot retaliate to secret intervention.",
+        "Resource-poor actor may pursue paid work rather than auto-spawn replacement equipment.",
+        "Talent-qualified actor performs a distinct actual service and retains independent custody."
+      ],
+      "engineConsumerOrGap": "Controllers already select eligible commands; entire world intelligence is outside this finite card.",
+      "sourceRefs": [
+        "docs/TIMELINES_AND_DIVERGENCE.md",
+        "docs/STARTS_ENDINGS_AND_RANDOMNESS_PALETTE.md",
+        "docs/worlds/ORIGINS_AND_WORLD_TIMELINES.md",
+        "docs/worlds/CAMPAIGN_FRAMEWORK.md",
+        "docs/MEANS_AND_APPRAISAL.md",
+        "docs/gm/causal-endings/CAUSAL_MODEL.md"
+      ],
+      "unrunGates": [
+        "Selected local source/fiction qualification",
+        "Affected implementation and rebuilt fresh-origin native/browser proof",
+        "Generated save/reload/import and compatibility/failure cases"
+      ],
+      "scope": "Finite selected local policy; variants are not universal rules"
+    },
+    {
+      "id": "STC-C12",
+      "title": "Report delivery and stale knowledge",
+      "status": "proposal-additive",
+      "priorIds": [
+        "G4-14",
+        "G4-15",
+        "G4-16"
+      ],
+      "sections": [
+        "S05",
+        "S09",
+        "S11"
+      ],
+      "criterion": "Event occurrence, witness observation, transmitted report and recipient belief are separate supported causes.",
+      "proposedExpansion": [
+        "Use actual proximity/sense, carrier/channel, delay and audience; expose only what recipient can establish.",
+        "Hearsay retains author/source/time/reliability; contradiction can revise interpretation without erasing prior evidence.",
+        "Means loss prevents new observations; it does not automatically erase memories already retained."
+      ],
+      "dependencies": [
+        "G4 evidence design, G3 channel, G5 projection/save join"
+      ],
+      "acceptanceCases": [
+        "Same true event yields different knowledge for two observers.",
+        "Intercepted report does not reach destination.",
+        "Stale report remains attributed rather than updating itself to current truth."
+      ],
+      "engineConsumerOrGap": "Current rank-monotonic knowledge is not a complete contradictory evidence history; selected slice may retain bounded receipts.",
+      "sourceRefs": [
+        "docs/TIMELINES_AND_DIVERGENCE.md",
+        "docs/STARTS_ENDINGS_AND_RANDOMNESS_PALETTE.md",
+        "docs/worlds/ORIGINS_AND_WORLD_TIMELINES.md",
+        "docs/worlds/CAMPAIGN_FRAMEWORK.md",
+        "docs/MEANS_AND_APPRAISAL.md",
+        "docs/gm/causal-endings/CAUSAL_MODEL.md"
+      ],
+      "unrunGates": [
+        "Selected local source/fiction qualification",
+        "Affected implementation and rebuilt fresh-origin native/browser proof",
+        "Generated save/reload/import and compatibility/failure cases"
+      ],
+      "scope": "Finite selected local policy; variants are not universal rules"
+    },
+    {
+      "id": "STC-C13",
+      "title": "Scoped closure and mixed outcomes",
+      "status": "proposal-additive",
+      "priorIds": [
+        "G4-03"
+      ],
+      "sections": [
+        "S07",
+        "S11",
+        "S14"
+      ],
+      "criterion": "Task, relationship, arc, body, life, world and run closure are separate predicates over retained actual evidence.",
+      "proposedExpansion": [
+        "A paid objective can succeed while its issuer/faction loses; material safety and reputation may disagree.",
+        "Goal change, abandonment, expiry, defeat and peaceful retirement each name what ended and what continues.",
+        "Partial closure evaluates represented evidence, not the last visible log or a generic victory flag."
+      ],
+      "dependencies": [
+        "CSE-09/10 and selected campaign/local outcome owner"
+      ],
+      "acceptanceCases": [
+        "Local job closure leaves player life/world active.",
+        "Mixed result retains actual goods/debt/access instead of a single success boolean.",
+        "Wrong source revision or incomplete evidence cannot settle an ending."
+      ],
+      "engineConsumerOrGap": "Finite existing closures can be reused; general endings catalogue/whole-world endings remain open.",
+      "sourceRefs": [
+        "docs/TIMELINES_AND_DIVERGENCE.md",
+        "docs/STARTS_ENDINGS_AND_RANDOMNESS_PALETTE.md",
+        "docs/worlds/ORIGINS_AND_WORLD_TIMELINES.md",
+        "docs/worlds/CAMPAIGN_FRAMEWORK.md",
+        "docs/MEANS_AND_APPRAISAL.md",
+        "docs/gm/causal-endings/CAUSAL_MODEL.md"
+      ],
+      "unrunGates": [
+        "Selected local source/fiction qualification",
+        "Affected implementation and rebuilt fresh-origin native/browser proof",
+        "Generated save/reload/import and compatibility/failure cases"
+      ],
+      "scope": "Finite selected local policy; variants are not universal rules"
+    },
+    {
+      "id": "STC-C14",
+      "title": "Once-only settlement and ordinary aftermath",
+      "status": "proposal-additive",
+      "priorIds": [
+        "G4-03",
+        "G4-08"
+      ],
+      "sections": [
+        "S03",
+        "S05",
+        "S07",
+        "S11",
+        "S14"
+      ],
+      "criterion": "Closure settles once while ordinary life and consequential changed services remain usable.",
+      "proposedExpansion": [
+        "Retain closure receipt and actual material/social effects even after log pruning.",
+        "A repaired service can open wages/craft/care; failed supply can require relocation or alternate livelihood without spawning a replacement crisis.",
+        "Powerful characters may choose home, study, teaching, work or departure; no mandatory reset at climax."
+      ],
+      "dependencies": [
+        "G3 service/ordinary loop, CSE settlement, native UI"
+      ],
+      "acceptanceCases": [
+        "Reopen/reload/import cannot pay closure reward twice.",
+        "After abstention and intervention, at least one continuing action has materially different support/access.",
+        "Quiet post-arc life retains meaningful usable actions without replaying completed arc."
+      ],
+      "engineConsumerOrGap": "Best first-slice ending scope is local arc closure with one continuing ordinary consumer.",
+      "sourceRefs": [
+        "docs/TIMELINES_AND_DIVERGENCE.md",
+        "docs/STARTS_ENDINGS_AND_RANDOMNESS_PALETTE.md",
+        "docs/worlds/ORIGINS_AND_WORLD_TIMELINES.md",
+        "docs/worlds/CAMPAIGN_FRAMEWORK.md",
+        "docs/MEANS_AND_APPRAISAL.md",
+        "docs/gm/causal-endings/CAUSAL_MODEL.md"
+      ],
+      "unrunGates": [
+        "Selected local source/fiction qualification",
+        "Affected implementation and rebuilt fresh-origin native/browser proof",
+        "Generated save/reload/import and compatibility/failure cases"
+      ],
+      "scope": "Finite selected local policy; variants are not universal rules"
+    },
+    {
+      "id": "STC-C15",
+      "title": "Recovery, terminal loss and changed goals",
+      "status": "proposal-additive",
+      "priorIds": [
+        "G1-023",
+        "G1-024",
+        "G4-10"
+      ],
+      "sections": [
+        "S07",
+        "S11",
+        "S14"
+      ],
+      "criterion": "Loss severity follows the selected local mechanism; defeat is never silently reclassified into life/run loss.",
+      "proposedExpansion": [
+        "Keep native unconsciousness/recovery; a separate selected policy may implement capture, bodily death, terminal loss or return.",
+        "Recovery may restore capability while retaining lost opportunity/debt; changed career/place can remain an actual continuation.",
+        "Do not promise every loss repairable, or impose permadeath on existing saves."
+      ],
+      "dependencies": [
+        "Incumbent wider-gameplay death/recovery owner and G1 next entry"
+      ],
+      "acceptanceCases": [
+        "Native defeat remains native recovery on old-save fixture.",
+        "Supported recovery restores exactly named domains.",
+        "Terminal selected loss cannot still run the ended actor personal routine."
+      ],
+      "engineConsumerOrGap": "Do not duplicate incumbent loss adapter; first continuity slice need not implement terminal loss.",
+      "sourceRefs": [
+        "docs/TIMELINES_AND_DIVERGENCE.md",
+        "docs/STARTS_ENDINGS_AND_RANDOMNESS_PALETTE.md",
+        "docs/worlds/ORIGINS_AND_WORLD_TIMELINES.md",
+        "docs/worlds/CAMPAIGN_FRAMEWORK.md",
+        "docs/MEANS_AND_APPRAISAL.md",
+        "docs/gm/causal-endings/CAUSAL_MODEL.md"
+      ],
+      "unrunGates": [
+        "Selected local source/fiction qualification",
+        "Affected implementation and rebuilt fresh-origin native/browser proof",
+        "Generated save/reload/import and compatibility/failure cases"
+      ],
+      "scope": "Finite selected local policy; variants are not universal rules"
+    },
+    {
+      "id": "STC-C16",
+      "title": "Legacy beneficiaries, custody and refusal",
+      "status": "proposal-additive",
+      "priorIds": [
+        "G1-023",
+        "G4-11",
+        "G4-14"
+      ],
+      "sections": [
+        "S05",
+        "S11",
+        "S12",
+        "S14"
+      ],
+      "criterion": "Legacy is actual transferred/retained goods, rights, records, memories or institutions with explicit recipients and causes.",
+      "proposedExpansion": [
+        "Separate inheritor title, legal claim, physical possession and usable mastery; teachers can leave records without copying learned skill.",
+        "Beneficiaries may refuse, compete or lack access; obligations follow selected local law/terms, not automatic ancestor debt cloning.",
+        "A refuge/workshop continues only through real support/owner; an unrelated next life inherits nothing by label alone."
+      ],
+      "dependencies": [
+        "G1 successor snapshot, G3 material/social owner, G4 transition"
+      ],
+      "acceptanceCases": [
+        "Two heirs cannot duplicate a unique ordinary item.",
+        "Documented teaching persists after teacher loss while unavailable personal service ends.",
+        "Refusal leaves custody under declared estate/local owner."
+      ],
+      "engineConsumerOrGap": "Broad next-life inheritance is a future join; ordinary retained workshop access can qualify a bounded legacy without resurrection.",
+      "sourceRefs": [
+        "docs/TIMELINES_AND_DIVERGENCE.md",
+        "docs/STARTS_ENDINGS_AND_RANDOMNESS_PALETTE.md",
+        "docs/worlds/ORIGINS_AND_WORLD_TIMELINES.md",
+        "docs/worlds/CAMPAIGN_FRAMEWORK.md",
+        "docs/MEANS_AND_APPRAISAL.md",
+        "docs/gm/causal-endings/CAUSAL_MODEL.md"
+      ],
+      "unrunGates": [
+        "Selected local source/fiction qualification",
+        "Affected implementation and rebuilt fresh-origin native/browser proof",
+        "Generated save/reload/import and compatibility/failure cases"
+      ],
+      "scope": "Finite selected local policy; variants are not universal rules"
+    },
+    {
+      "id": "STC-C17",
+      "title": "Return, rebirth and loop retention",
+      "status": "proposal-additive",
+      "priorIds": [
+        "G1-024",
+        "G1-025",
+        "G1-026",
+        "G4-09",
+        "G4-10",
+        "G4-11"
+      ],
+      "sections": [
+        "S11",
+        "S12",
+        "S14"
+      ],
+      "criterion": "Each supported continuation states exactly what restores, retains, transfers or duplicates and why.",
+      "proposedExpansion": [
+        "Actual revisit resumes one instance; a new historical start does not undo that played history.",
+        "Body, memory, source, gear, relationships, clock, claims, random commitments and outside witnesses get separate local retention treatment.",
+        "Explicit creation/restoration/duplication may work when the mechanism grants it; ordinary repeated settlement remains a bug."
+      ],
+      "dependencies": [
+        "G2 function, G1 body/entry, G4 scope, G5 persistence"
+      ],
+      "acceptanceCases": [
+        "Return preserves changed local service and settled claim.",
+        "Supported loop follows its declared random commitment policy.",
+        "Exports/outside observers are handled according to scope; failed publication preserves prior state."
+      ],
+      "engineConsumerOrGap": "Scenario-only rewind is not a full-life/world loop; select promised owners before runtime reservation.",
+      "sourceRefs": [
+        "docs/TIMELINES_AND_DIVERGENCE.md",
+        "docs/STARTS_ENDINGS_AND_RANDOMNESS_PALETTE.md",
+        "docs/worlds/ORIGINS_AND_WORLD_TIMELINES.md",
+        "docs/worlds/CAMPAIGN_FRAMEWORK.md",
+        "docs/MEANS_AND_APPRAISAL.md",
+        "docs/gm/causal-endings/CAUSAL_MODEL.md"
+      ],
+      "unrunGates": [
+        "Selected local source/fiction qualification",
+        "Affected implementation and rebuilt fresh-origin native/browser proof",
+        "Generated save/reload/import and compatibility/failure cases"
+      ],
+      "scope": "Finite selected local policy; variants are not universal rules"
+    },
+    {
+      "id": "STC-C18",
+      "title": "Bounded connected continuity proof",
+      "status": "proposal-additive",
+      "priorIds": [
+        "G1-001",
+        "G1-002",
+        "G4-03",
+        "G4-14"
+      ],
+      "sections": [
+        "S02",
+        "S03",
+        "S07",
+        "S11",
+        "S12",
+        "S14"
+      ],
+      "criterion": "One selected qualified instance joins frozen entry, talent/ordinary preparation, real causal change, closure and continuing aftermath.",
+      "proposedExpansion": [
+        "Freeze a finite source-qualified causal situation and public machinery; direct setting details stay in ignored private pack.",
+        "Use paired abstention/preparation/intervention fixtures with identical selected commitment, plus observer/failure negatives.",
+        "Reuse qualified incumbent source/runtime evidence where released; integrate missing join without waiting for every future world or full lifespan engine."
+      ],
+      "dependencies": [
+        "Root integrator and released world/private pack owners"
+      ],
+      "acceptanceCases": [
+        "Rebuilt fresh-origin native entry has legal useful actions and faculty affects real consumer.",
+        "Abstention and relevant intervention produce different actual persistent dependent outcomes.",
+        "Save/reload/import, stale command and failed publication preserve committed RNG, costs, closure and actor-safe disclosure."
+      ],
+      "engineConsumerOrGap": "Selected native/browser evidence is the authoritative implementation gate; this specialist provides no runtime acceptance.",
+      "sourceRefs": [
+        "docs/TIMELINES_AND_DIVERGENCE.md",
+        "docs/STARTS_ENDINGS_AND_RANDOMNESS_PALETTE.md",
+        "docs/worlds/ORIGINS_AND_WORLD_TIMELINES.md",
+        "docs/worlds/CAMPAIGN_FRAMEWORK.md",
+        "docs/MEANS_AND_APPRAISAL.md",
+        "docs/gm/causal-endings/CAUSAL_MODEL.md"
+      ],
+      "unrunGates": [
+        "Selected local source/fiction qualification",
+        "Affected implementation and rebuilt fresh-origin native/browser proof",
+        "Generated save/reload/import and compatibility/failure cases"
+      ],
+      "scope": "Finite selected local policy; variants are not universal rules"
+    }
+  ],
+  "sourceBoundary": "No book/source-library/private-pack content read or re-audited. Generic design only. Exact source truths absent. Shared dirty owners read-only. Prior missing-consumer statements remain bounded historical evidence until current qualification.",
+  "implementationStates": {
+    "edited": "Two planning artifacts only",
+    "tests": "Structural JSON/path/card validation only",
+    "built": false,
+    "browserVerified": false,
+    "directorAccepted": false
+  },
+  "resume": "Root selects C18 and reserves native event/entry/consumer join; this worker reservations end after return."
+}

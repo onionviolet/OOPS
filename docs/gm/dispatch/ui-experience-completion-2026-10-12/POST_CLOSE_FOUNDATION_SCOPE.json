@@ -1,0 +1,14 @@
+{
+  "state": "Post-closure foundation-owned expanded gate; UI remains closed within qualified scope",
+  "priorUiReceipt": "G5_FINAL_RECEIPT.json",
+  "priorUiReceiptSha256": "22e729ac551102a639f1b2933ce49beba151785c12fd7cd744a9f9e0ffdcf624",
+  "testedUiBundle": "ef2e248bc8fdd21323e7becb1277ac45bc2537bdcf8e9630e5c688c60bc48d6a",
+  "rootReportedNewBundle": "bd1e547f019aecc03aeddce61b9cb1192fd21599b6c269aef7efc0c1b2f41c02",
+  "observedBundle": "bd1e547f019aecc03aeddce61b9cb1192fd21599b6c269aef7efc0c1b2f41c02",
+  "matchesRootReportedBuild": true,
+  "rootOwner": "01a12ebf-d9a5-7ce0-94ba-469228eef444",
+  "reportedDefect": "On rejected native craft receipt storage, live inventory/output/XP and assist may mutate while old ledger persists; later manual save can retain unmatched output/assist. Prior UI proof established durable receipt/effect suppression only, not rollback.",
+  "rootReportedRepairScope": "Selected items/components native batch rollback only; optional target projection guard. Root helper/source qualification and craft-proof specialist own expanded U09/K03 native acceptance.",
+  "verificationByUiThisTurn": "Read existing UI proof limits and observed bundle SHA only. No new gameplay/source tests or shared writes.",
+  "disposition": "Preserve existing12+2 receipts and qualified inputs; do not apply them automatically to new selected craft boundary or claim full foundation complete. No UI chain reopen unless root names affected specific seam."
+}

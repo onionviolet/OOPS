@@ -1,0 +1,90 @@
+[
+  {
+    "label": "recovery-genuine-R7-export",
+    "url": "http://127.0.0.1:18738/dist/bundle.js?version=v0.6-2025657de8b6",
+    "actualLoadedHash": "2025657de8b67c59914c809cc172a6dc2b4f0151a7f5b1766d10f53d1ef4bd5e",
+    "servedHash": "2025657de8b67c59914c809cc172a6dc2b4f0151a7f5b1766d10f53d1ef4bd5e",
+    "builtHash": "2025657de8b67c59914c809cc172a6dc2b4f0151a7f5b1766d10f53d1ef4bd5e",
+    "mapHash": "704c0946b53b377300663fe0cb8a510596c88c2d59b080932d9c27979ead9894"
+  },
+  {
+    "label": "fieldcraft-controls-reload",
+    "url": "http://127.0.0.1:18738/dist/bundle.js?version=v0.6-2025657de8b6",
+    "actualLoadedHash": "2025657de8b67c59914c809cc172a6dc2b4f0151a7f5b1766d10f53d1ef4bd5e",
+    "servedHash": "2025657de8b67c59914c809cc172a6dc2b4f0151a7f5b1766d10f53d1ef4bd5e",
+    "builtHash": "2025657de8b67c59914c809cc172a6dc2b4f0151a7f5b1766d10f53d1ef4bd5e",
+    "mapHash": "704c0946b53b377300663fe0cb8a510596c88c2d59b080932d9c27979ead9894"
+  },
+  {
+    "label": "before-enrollment-reload",
+    "url": "http://127.0.0.1:18738/dist/bundle.js?version=v0.6-2025657de8b6",
+    "actualLoadedHash": "2025657de8b67c59914c809cc172a6dc2b4f0151a7f5b1766d10f53d1ef4bd5e",
+    "servedHash": "2025657de8b67c59914c809cc172a6dc2b4f0151a7f5b1766d10f53d1ef4bd5e",
+    "builtHash": "2025657de8b67c59914c809cc172a6dc2b4f0151a7f5b1766d10f53d1ef4bd5e",
+    "mapHash": "704c0946b53b377300663fe0cb8a510596c88c2d59b080932d9c27979ead9894"
+  },
+  {
+    "label": "post-enrollment-click-reload",
+    "url": "http://127.0.0.1:18738/dist/bundle.js?version=v0.6-2025657de8b6",
+    "actualLoadedHash": "2025657de8b67c59914c809cc172a6dc2b4f0151a7f5b1766d10f53d1ef4bd5e",
+    "servedHash": "2025657de8b67c59914c809cc172a6dc2b4f0151a7f5b1766d10f53d1ef4bd5e",
+    "builtHash": "2025657de8b67c59914c809cc172a6dc2b4f0151a7f5b1766d10f53d1ef4bd5e",
+    "mapHash": "704c0946b53b377300663fe0cb8a510596c88c2d59b080932d9c27979ead9894"
+  },
+  {
+    "label": "fieldcraft-menu-reload",
+    "url": "http://127.0.0.1:18738/dist/bundle.js?version=v0.6-2025657de8b6",
+    "actualLoadedHash": "2025657de8b67c59914c809cc172a6dc2b4f0151a7f5b1766d10f53d1ef4bd5e",
+    "servedHash": "2025657de8b67c59914c809cc172a6dc2b4f0151a7f5b1766d10f53d1ef4bd5e",
+    "builtHash": "2025657de8b67c59914c809cc172a6dc2b4f0151a7f5b1766d10f53d1ef4bd5e",
+    "mapHash": "704c0946b53b377300663fe0cb8a510596c88c2d59b080932d9c27979ead9894"
+  },
+  {
+    "label": "negative-pending-reload",
+    "url": "http://127.0.0.1:18738/dist/bundle.js?version=v0.6-2025657de8b6",
+    "actualLoadedHash": "2025657de8b67c59914c809cc172a6dc2b4f0151a7f5b1766d10f53d1ef4bd5e",
+    "servedHash": "2025657de8b67c59914c809cc172a6dc2b4f0151a7f5b1766d10f53d1ef4bd5e",
+    "builtHash": "2025657de8b67c59914c809cc172a6dc2b4f0151a7f5b1766d10f53d1ef4bd5e",
+    "mapHash": "704c0946b53b377300663fe0cb8a510596c88c2d59b080932d9c27979ead9894"
+  },
+  {
+    "label": "negative-pending-boundary-reload",
+    "url": "http://127.0.0.1:18738/dist/bundle.js?version=v0.6-2025657de8b6",
+    "actualLoadedHash": "2025657de8b67c59914c809cc172a6dc2b4f0151a7f5b1766d10f53d1ef4bd5e",
+    "servedHash": "2025657de8b67c59914c809cc172a6dc2b4f0151a7f5b1766d10f53d1ef4bd5e",
+    "builtHash": "2025657de8b67c59914c809cc172a6dc2b4f0151a7f5b1766d10f53d1ef4bd5e",
+    "mapHash": "704c0946b53b377300663fe0cb8a510596c88c2d59b080932d9c27979ead9894"
+  },
+  {
+    "label": "negative-pending-boundary-literal-import",
+    "url": "http://127.0.0.1:18738/dist/bundle.js?version=v0.6-2025657de8b6",
+    "actualLoadedHash": "2025657de8b67c59914c809cc172a6dc2b4f0151a7f5b1766d10f53d1ef4bd5e",
+    "servedHash": "2025657de8b67c59914c809cc172a6dc2b4f0151a7f5b1766d10f53d1ef4bd5e",
+    "builtHash": "2025657de8b67c59914c809cc172a6dc2b4f0151a7f5b1766d10f53d1ef4bd5e",
+    "mapHash": "704c0946b53b377300663fe0cb8a510596c88c2d59b080932d9c27979ead9894"
+  },
+  {
+    "label": "post-control-purchase-reload",
+    "url": "http://127.0.0.1:18738/dist/bundle.js?version=v0.6-2025657de8b6",
+    "actualLoadedHash": "2025657de8b67c59914c809cc172a6dc2b4f0151a7f5b1766d10f53d1ef4bd5e",
+    "servedHash": "2025657de8b67c59914c809cc172a6dc2b4f0151a7f5b1766d10f53d1ef4bd5e",
+    "builtHash": "2025657de8b67c59914c809cc172a6dc2b4f0151a7f5b1766d10f53d1ef4bd5e",
+    "mapHash": "704c0946b53b377300663fe0cb8a510596c88c2d59b080932d9c27979ead9894"
+  },
+  {
+    "label": "final-earned-reload",
+    "url": "http://127.0.0.1:18738/dist/bundle.js?version=v0.6-2025657de8b6",
+    "actualLoadedHash": "2025657de8b67c59914c809cc172a6dc2b4f0151a7f5b1766d10f53d1ef4bd5e",
+    "servedHash": "2025657de8b67c59914c809cc172a6dc2b4f0151a7f5b1766d10f53d1ef4bd5e",
+    "builtHash": "2025657de8b67c59914c809cc172a6dc2b4f0151a7f5b1766d10f53d1ef4bd5e",
+    "mapHash": "704c0946b53b377300663fe0cb8a510596c88c2d59b080932d9c27979ead9894"
+  },
+  {
+    "label": "final-earned-literal-import",
+    "url": "http://127.0.0.1:18738/dist/bundle.js?version=v0.6-2025657de8b6",
+    "actualLoadedHash": "2025657de8b67c59914c809cc172a6dc2b4f0151a7f5b1766d10f53d1ef4bd5e",
+    "servedHash": "2025657de8b67c59914c809cc172a6dc2b4f0151a7f5b1766d10f53d1ef4bd5e",
+    "builtHash": "2025657de8b67c59914c809cc172a6dc2b4f0151a7f5b1766d10f53d1ef4bd5e",
+    "mapHash": "704c0946b53b377300663fe0cb8a510596c88c2d59b080932d9c27979ead9894"
+  }
+]

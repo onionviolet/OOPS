@@ -1,0 +1,88 @@
+TAP version 13
+# Subtest: fresh optional booking is visible and actually settles; both first-duty orders retain actual accounts
+ok 1 - fresh optional booking is visible and actually settles; both first-duty orders retain actual accounts
+  ---
+  duration_ms: 473.2435
+  type: 'test'
+  ...
+# Subtest: no-preference legacy controller preserves original order without any new booking or outcome history
+ok 2 - no-preference legacy controller preserves original order without any new booking or outcome history
+  ---
+  duration_ms: 67.955583
+  type: 'test'
+  ...
+# Subtest: pending original booking restores exact frozen terms and subsequent occupancy blocks a later workshop
+ok 3 - pending original booking restores exact frozen terms and subsequent occupancy blocks a later workshop
+  ---
+  duration_ms: 124.356458
+  type: 'test'
+  ...
+# Subtest: kept outcome enables fresh sponsored terms, real finite means and one useful native kit
+ok 4 - kept outcome enables fresh sponsored terms, real finite means and one useful native kit
+  ---
+  duration_ms: 334.316958
+  type: 'test'
+  ...
+# Subtest: actual consent withdrawal stops the earlier duty, refunds it and offers distinct personally funded work
+ok 5 - actual consent withdrawal stops the earlier duty, refunds it and offers distinct personally funded work
+  ---
+  duration_ms: 149.158959
+  type: 'test'
+  ...
+# Subtest: the original NPC cancellation authority keeps its distinct account and actual original refund
+ok 6 - the original NPC cancellation authority keeps its distinct account and actual original refund
+  ---
+  duration_ms: 48.456084
+  type: 'test'
+  ...
+# Subtest: later refusal changes no prior result, money, stock, mastery or rights and closes only its offer
+ok 7 - later refusal changes no prior result, money, stock, mastery or rights and closes only its offer
+  ---
+  duration_ms: 247.958208
+  type: 'test'
+  ...
+# Subtest: exact workshop cancellation refunds actual reservations and preserves account through retry
+ok 8 - exact workshop cancellation refunds actual reservations and preserves account through retry
+  ---
+  duration_ms: 323.427125
+  type: 'test'
+  ...
+# Subtest: controlled loss of actual method/body/contact/right support refunds with a truthful stopped account
+ok 9 - controlled loss of actual method/body/contact/right support refunds with a truthful stopped account
+  ---
+  duration_ms: 565.704041
+  type: 'test'
+  ...
+# Subtest: missing participant means, capability, contact, busy capacity, body and stale sequence never accept
+ok 10 - missing participant means, capability, contact, busy capacity, body and stale sequence never accept
+  ---
+  duration_ms: 977.937292
+  type: 'test'
+  ...
+# Subtest: forged or absent prior outcome cannot create a new later agreement
+ok 11 - forged or absent prior outcome cannot create a new later agreement
+  ---
+  duration_ms: 127.793708
+  type: 'test'
+  ...
+# Subtest: failed durable publication leaves live prior state untouched and offers one legitimate retry
+ok 12 - failed durable publication leaves live prior state untouched and offers one legitimate retry
+  ---
+  duration_ms: 170.859
+  type: 'test'
+  ...
+# Subtest: restoration rejects changed frozen output, costs, time, participants, accounts and closure
+ok 13 - restoration rejects changed frozen output, costs, time, participants, accounts and closure
+  ---
+  duration_ms: 150.861583
+  type: 'test'
+  ...
+1..13
+# tests 13
+# suites 0
+# pass 13
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 3971.384459

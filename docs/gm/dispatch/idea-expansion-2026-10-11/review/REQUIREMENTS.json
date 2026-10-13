@@ -1,0 +1,1028 @@
+{
+  "lane": "G7",
+  "status": "planning-reviewed-by-worker",
+  "inputs": [
+    {
+      "path": "PROJECT.md",
+      "coverage": "Accepted direction, current status and optional private-pack proposal; no current runtime audit."
+    },
+    {
+      "path": "docs/WORLD_COMPLETION_STANDARD.md",
+      "coverage": "Full current planning standard, section coverage, depth, random starts and completion gates."
+    },
+    {
+      "path": "docs/gm/WORLD_ACTIONABILITY_GM_PROMPT.md",
+      "coverage": "Full current reusable planning prompt and output contract."
+    },
+    {
+      "path": "docs/WORLD_GAME_MASTER_TEMPLATE.md",
+      "coverage": "World owner, assignment/resume, source and local acceptance fields."
+    },
+    {
+      "path": "docs/PRESENTATION_AND_FOURTH_WALL.md",
+      "coverage": "Targeted predecessor review: accepted restraint 20-94, UI power palette 103-136, shared signatures 231-285, set pieces 372-434, text/glyph rules 524-575, force/status/show-of-power 803-903, fourth-wall/cozy/collisions 925-1016, second-wave families 1117-1249, third-wave sound/grammar/emotion/idle/bluffs 1369-1462, ability bluffs 1529-1597 and plausibility 1661-1689, viewpoint/means 1767-1792 and 1986-2094, mastery/personal/NPC/cross-world/ASCII 2095-2198; implementation and TX7-TX13 ranges already inspected. Other entries remain unread."
+    },
+    {
+      "path": "docs/gm/world-implementation/second-pass/experience/SKILL_DISCOVERY_CONTRACT.md",
+      "coverage": "Full contract: safe projections, concrete native bindings, focus continuity and historical deferred gates."
+    },
+    {
+      "path": "docs/worlds/WORLD_SECRETS_AND_DISCOVERY.md",
+      "coverage": "Sealed standard and implementation/acceptance proposals, lines 103-151; no secret catalog reviewed."
+    },
+    {
+      "path": "docs/ENGINE_AUTHORING.md",
+      "coverage": "Targeted care/native bindings and saved-idea coverage/state ownership, lines 1-65 and 88-116; heading/keyword scan elsewhere, not full runtime readback."
+    },
+    {
+      "path": "docs/PLAYTEST.md",
+      "coverage": "Targeted early historical feature/skills/Frontier/Glasshouse receipts and visitor synthetic performance baseline; not all wave evidence."
+    },
+    {
+      "path": "docs/research/your-chronicle/IMPLEMENTATION_PACKETS.md",
+      "coverage": "Full four proposed packets, especially native reading/work-plan boundary and real costs/retention."
+    },
+    {
+      "path": "docs/research/your-chronicle/REPORT.md",
+      "coverage": "Targeted pacing/retention/career and repeat-reward claims via keyword search; source game not inspected or run."
+    },
+    {
+      "path": "docs/research/SOURCE_DEEP_DIVE_PLAYBOOK.md",
+      "coverage": "Targeted steps 58-94, synthesis/checklist 244-270 and routing heading scan; no source acquired/read."
+    },
+    {
+      "path": "docs/gm/dispatch/soldiers-life-world-2026-10-09/REPORT.md",
+      "coverage": "Full generic public pack lifecycle and bounded passing-receipt claims; underlying private evidence not inspected."
+    },
+    {
+      "path": "docs/IDEA_INDEX.md",
+      "coverage": "Presentation routing paragraph line 70; predecessor candidate inventory only, not other dossiers reviewed."
+    },
+    {
+      "path": "src/display.js",
+      "coverage": "Read-only source snippets set_HTML 242-246 and log_message 768-797; rarity/log keyword scan. No runtime readback."
+    },
+    {
+      "path": "src/main.js",
+      "coverage": "Read-only game_options 1439-1460 and option keyword scan; no save loader or gameplay audit."
+    },
+    {
+      "path": "docs/gm/world-implementation/depth/micro/COMPONENT_AND_EFFECT_CONTRACTS.md",
+      "coverage": "Targeted component/ownership proposal portion 1-65; effect-named candidate, not a VFX library or full dossier review."
+    },
+    {
+      "path": "docs/research/proto23/readers-2026-10-10/R1_core_time_titles_effects_furniture.md",
+      "coverage": "Heading/effect keyword snippets only; status-effect source comparison distinguished from visual-effect design, not adopted as a fresh absence claim."
+    }
+  ],
+  "requirements": [
+    {
+      "id": "G7-01",
+      "title": "Native control continuity",
+      "sections": [
+        "S02",
+        "S13",
+        "S14"
+      ],
+      "sourceRefs": [
+        {
+          "path": "docs/gm/world-implementation/second-pass/experience/SKILL_DISCOVERY_CONTRACT.md",
+          "locator": "Concrete native bindings and deferred acceptance"
+        }
+      ],
+      "criterion": "A qualified start and later state changes retain reachable current-work, cancel, recovery, save/export and navigation controls; focus never falls into a removed control.",
+      "proposedExpansion": "Add a per-start control map for keyboard, touch and assistive text. Specify focus destination when discovery or access removes a row, retained work location, known blocked explanations and once-per-new attention. Reuse native tab conventions.",
+      "dependencies": [
+        "G1 start/body interaction definitions",
+        "G5 integration/state contracts"
+      ],
+      "owner": "World owner specifies local card; named shared/UI/source integrator implements only after separate assignment. G7 owns planning/review evidence only.",
+      "engineConsumerOrGap": "Native UI integrator owns existing renderers and navigation; discovery projection supplies safe visibility. Current contract is not fresh evidence for every new body/start.",
+      "acceptanceCases": [
+        {
+          "id": "G7-01-AC01",
+          "criterion": "Keyboard-only acquire/start/cancel/recover/save journey for contrasting qualified starts.",
+          "status": "specified-not-run"
+        },
+        {
+          "id": "G7-01-AC02",
+          "criterion": "Change location, tool and discovery state during accepted work; active control or visible summary retains focus.",
+          "status": "specified-not-run"
+        },
+        {
+          "id": "G7-01-AC03",
+          "criterion": "Touch alternatives expose actions otherwise available only on hover.",
+          "status": "specified-not-run"
+        }
+      ],
+      "remaining": [
+        "Cross-lane peer review and exact local required-ID mapping pending.",
+        "Live source/API readback and runtime assignment pending where implementation is selected.",
+        "Browser/persistence/performance/director evidence not executed by G7."
+      ]
+    },
+    {
+      "id": "G7-02",
+      "title": "Whole-surface knowledge disclosure",
+      "sections": [
+        "S09",
+        "S10",
+        "S13",
+        "S14"
+      ],
+      "sourceRefs": [
+        {
+          "path": "docs/gm/world-implementation/second-pass/experience/SKILL_DISCOVERY_CONTRACT.md",
+          "locator": "Projection whitelist, player-qualified reasons and pending job labels"
+        },
+        {
+          "path": "docs/worlds/WORLD_SECRETS_AND_DISCOVERY.md",
+          "locator": "Sealed engine/tests proposals"
+        },
+        {
+          "path": "docs/PRESENTATION_AND_FOURTH_WALL.md",
+          "locator": "TX13; viewpoint filtering; knowledge works both ways"
+        }
+      ],
+      "criterion": "No surface reveals identities, future outcomes or measurements unsupported by the observer’s actually used means. A qualified reveal or actual-future-sight function can discover and display exactly its promised facts in play.",
+      "proposedExpansion": "Give each selected knowledge rule a surface matrix covering visible text, hidden DOM, counts/badges, search, tooltip, preview, accepted-work label, return recap, errors, plain text, copy and effect gallery/glossary. Define native numeric-readout compatibility explicitly before extending means-gated worlds.",
+      "dependencies": [
+        "G2 power/means scope",
+        "G4 observer/timeline records",
+        "G5 projection/serialization contracts"
+      ],
+      "owner": "World owner specifies local card; named shared/UI/source integrator implements only after separate assignment. G7 owns planning/review evidence only.",
+      "engineConsumerOrGap": "Knowledge/discovery owner supplies observer-qualified data; UI integrator binds every surface. Native readout policy is proposed, not established by this planning review.",
+      "acceptanceCases": [
+        {
+          "id": "G7-02-AC01",
+          "criterion": "Generated unknown/hint/known/temporarily-blocked states produce safe output on all listed surfaces.",
+          "status": "specified-not-run"
+        },
+        {
+          "id": "G7-02-AC02",
+          "criterion": "Lose and restore a reading means; readings change without erasing learned observations.",
+          "status": "specified-not-run"
+        },
+        {
+          "id": "G7-02-AC03",
+          "criterion": "Commit a hidden outcome and reload mid-work; current-work label remains safe.",
+          "status": "specified-not-run"
+        },
+        {
+          "id": "G7-02-AC04",
+          "criterion": "Join G2-007 actual-future sight with G4 observer records: its used in-scope faculty legitimately reveals the promised future fact in full/static/plain in-play output; unrelated facts and external worker reports remain sealed.",
+          "status": "specified-not-run"
+        }
+      ],
+      "remaining": [
+        "Cross-lane peer review and exact local required-ID mapping pending.",
+        "Live source/API readback and runtime assignment pending where implementation is selected.",
+        "Browser/persistence/performance/director evidence not executed by G7."
+      ]
+    },
+    {
+      "id": "G7-03",
+      "title": "VFX carry usable information",
+      "sections": [
+        "S07",
+        "S09",
+        "S13",
+        "S14"
+      ],
+      "sourceRefs": [
+        {
+          "path": "docs/PRESENTATION_AND_FOURTH_WALL.md",
+          "locator": "TX7-TX13; implementation considerations; IM3-IM10"
+        }
+      ],
+      "criterion": "Full, static, effects-off and plain forms preserve the same character-supported information and usable action targets.",
+      "proposedExpansion": "Create effect cards with viewpoint-qualified plain template, static fallback, glyph meaning, collision rule, visible-tab/repeat behavior and stable saved mark ID. Separate feedback time from gameplay clocks. Assign native option defaults, touch equivalents, glyph/localization fallback and detached-node cleanup.",
+      "dependencies": [
+        "G2 actual effect semantics",
+        "G4 viewpoint attribution",
+        "G5 option/save/log consumers"
+      ],
+      "owner": "World owner specifies local card; named shared/UI/source integrator implements only after separate assignment. G7 owns planning/review evidence only.",
+      "engineConsumerOrGap": "Presentation owner defines effect cards; native UI integrator binds actual log/Notebook/option consumers. Existing presentation document describes proposals and dated source observations, not a shipped effect registry.",
+      "acceptanceCases": [
+        {
+          "id": "G7-03-AC01",
+          "criterion": "Same generated observation renders identically in informational content across full/static/off/plain/copy outputs.",
+          "status": "specified-not-run"
+        },
+        {
+          "id": "G7-03-AC02",
+          "criterion": "Two effects collide without obscuring the actual consequence or moving a click target.",
+          "status": "specified-not-run"
+        },
+        {
+          "id": "G7-03-AC03",
+          "criterion": "Hidden tab/filter reentry does not replay missed films or mutate game state.",
+          "status": "specified-not-run"
+        },
+        {
+          "id": "G7-03-AC04",
+          "criterion": "Old save missing effect options loads defaults and save/reload/import retains chosen settings.",
+          "status": "specified-not-run"
+        }
+      ],
+      "remaining": [
+        "Cross-lane peer review and exact local required-ID mapping pending.",
+        "Live source/API readback and runtime assignment pending where implementation is selected.",
+        "Browser/persistence/performance/director evidence not executed by G7."
+      ]
+    },
+    {
+      "id": "G7-04",
+      "title": "Native activity and automation boundaries",
+      "sections": [
+        "S05",
+        "S07",
+        "S11",
+        "S13",
+        "S14"
+      ],
+      "sourceRefs": [
+        {
+          "path": "docs/research/your-chronicle/IMPLEMENTATION_PACKETS.md",
+          "locator": "YC-P4"
+        },
+        {
+          "path": "docs/ENGINE_AUTHORING.md",
+          "locator": "I24-I25; bounded advancement"
+        }
+      ],
+      "criterion": "An automated native activity advances its actual owner once, stops at declared boundaries, and displays the unspent budget and real pause reason.",
+      "proposedExpansion": "For each admitted native book/training/work block specify staged progress/reward receipt, clock policy, busy ownership, target, consent boundary, cancellation and support loss. Keep general browser-closed catch-up a separate selected policy; a visible-tab VFX summary does not imply offline world simulation.",
+      "dependencies": [
+        "G3 work/economy/actor occupation",
+        "G4 clock/absence policy",
+        "G5 native activity adapter"
+      ],
+      "owner": "World owner specifies local card; named shared/UI/source integrator implements only after separate assignment. G7 owns planning/review evidence only.",
+      "engineConsumerOrGap": "Work-plan and native activity owners require the exact receipt adapter identified by YC-P4; no parallel XP/book/clock ledger. Recheck live source before selecting it.",
+      "acceptanceCases": [
+        {
+          "id": "G7-04-AC01",
+          "criterion": "Manual and automated equivalent bounded work yield matching native progress and one completion reward.",
+          "status": "specified-not-run"
+        },
+        {
+          "id": "G7-04-AC02",
+          "criterion": "Finished/missing book, occupied actor or story decision pauses before another reservation.",
+          "status": "specified-not-run"
+        },
+        {
+          "id": "G7-04-AC03",
+          "criterion": "Reload/cancel/failed publication retains exact partial progress and remaining budget.",
+          "status": "specified-not-run"
+        },
+        {
+          "id": "G7-04-AC04",
+          "criterion": "Closed/reopened browser follows explicitly selected policy with no inferred missed wages or damage.",
+          "status": "specified-not-run"
+        }
+      ],
+      "remaining": [
+        "Cross-lane peer review and exact local required-ID mapping pending.",
+        "Live source/API readback and runtime assignment pending where implementation is selected.",
+        "Browser/persistence/performance/director evidence not executed by G7."
+      ]
+    },
+    {
+      "id": "G7-05",
+      "title": "Pacing and economy observation contract",
+      "sections": [
+        "S02",
+        "S05",
+        "S07",
+        "S11",
+        "S14"
+      ],
+      "sourceRefs": [
+        {
+          "path": "docs/research/your-chronicle/REPORT.md",
+          "locator": "Career, repeat-reward and retention comparisons"
+        },
+        {
+          "path": "docs/research/your-chronicle/IMPLEMENTATION_PACKETS.md",
+          "locator": "Exact costs, demand and retained consequences"
+        }
+      ],
+      "criterion": "Each selected journey has measured or explicitly proposed time/resource expectations and actual supply/demand consequences for its ordinary and exceptional routes.",
+      "proposedExpansion": "Add a pacing sheet per qualified start and development path: first meaningful action, first useful capability, established project, mature result, continuing life and intended idle/manual rhythm. Track actual producers, buyers, budgets and repeat rewards; distinguish elapsed played time, effort and waiting. Strong means change those measurements without automatic nerfs, tax or scaling.",
+      "dependencies": [
+        "G1 start means",
+        "G2 exceptional functions",
+        "G3 economic/livelihood flows",
+        "G6 production/material capacity"
+      ],
+      "owner": "World owner specifies local card; named shared/UI/source integrator implements only after separate assignment. G7 owns planning/review evidence only.",
+      "engineConsumerOrGap": "World owner authors pacing targets and economic consequences; native economy consumers enforce only selected real flows. Source-game rates are evidence of their source, not YAIRPG balance targets.",
+      "acceptanceCases": [
+        {
+          "id": "G7-05-AC01",
+          "criterion": "Record generated ordinary and strong-start journeys with actual elapsed time, actions, stock, money and changed access.",
+          "status": "specified-not-run"
+        },
+        {
+          "id": "G7-05-AC02",
+          "criterion": "Repeated work exhausts or renews demand by declared causes; visits do not invent funding.",
+          "status": "specified-not-run"
+        },
+        {
+          "id": "G7-05-AC03",
+          "criterion": "A strong functional route achieves its promised shortcut and resulting institutional response.",
+          "status": "specified-not-run"
+        },
+        {
+          "id": "G7-05-AC04",
+          "criterion": "Director reviews fiction/effort/idle feel independently of source or timing checks.",
+          "status": "specified-not-run"
+        }
+      ],
+      "remaining": [
+        "Cross-lane peer review and exact local required-ID mapping pending.",
+        "Live source/API readback and runtime assignment pending where implementation is selected.",
+        "Browser/persistence/performance/director evidence not executed by G7."
+      ]
+    },
+    {
+      "id": "G7-06",
+      "title": "Content revision and private-pack lifecycle",
+      "sections": [
+        "S00",
+        "S02",
+        "S12",
+        "S14"
+      ],
+      "sourceRefs": [
+        {
+          "path": "docs/gm/dispatch/soldiers-life-world-2026-10-09/REPORT.md",
+          "locator": "Loader before save loading; compatibility and removed/restored packs"
+        }
+      ],
+      "criterion": "Each supported content revision has explicit loading, committed-definition, removal, restoration and identity-change behavior without reward replay or unknown identity disclosure.",
+      "proposedExpansion": "Add a lifecycle card for version-pinned world/start/command/effect IDs: fresh entry, old/mid-work save, changed pack, missing/invalid pack, reinstallation and unsupported identity. Define whether committed old jobs use frozen compatible definitions or a named migration. Design fallback for random starts independently of the historical Village fallback.",
+      "dependencies": [
+        "G1 committed start/eligible pool",
+        "G4 instance/history identity",
+        "G5 loader/save migration"
+      ],
+      "owner": "World owner specifies local card; named shared/UI/source integrator implements only after separate assignment. G7 owns planning/review evidence only.",
+      "engineConsumerOrGap": "Private-pack loader and shared persistence integrator own lifecycle binding. Existing book-world receipt establishes its specific fallback only; it does not qualify arbitrary random bodies or worlds.",
+      "acceptanceCases": [
+        {
+          "id": "G7-06-AC01",
+          "criterion": "Generated saves load with present, absent, invalid, removed and restored pack fixtures.",
+          "status": "specified-not-run"
+        },
+        {
+          "id": "G7-06-AC02",
+          "criterion": "Restore access without replaying wages, stock, discovery or first-entry rewards.",
+          "status": "specified-not-run"
+        },
+        {
+          "id": "G7-06-AC03",
+          "criterion": "Changed IDs/revisions produce declared migration/rejection and retain recoverable dormant state.",
+          "status": "specified-not-run"
+        },
+        {
+          "id": "G7-06-AC04",
+          "criterion": "No private source identifiers appear in public bundle, report or loader error.",
+          "status": "specified-not-run"
+        }
+      ],
+      "remaining": [
+        "Cross-lane peer review and exact local required-ID mapping pending.",
+        "Live source/API readback and runtime assignment pending where implementation is selected.",
+        "Browser/persistence/performance/director evidence not executed by G7."
+      ]
+    },
+    {
+      "id": "G7-07",
+      "title": "Revision-scoped developer and director acceptance",
+      "sections": [
+        "S00",
+        "S14"
+      ],
+      "sourceRefs": [
+        {
+          "path": "docs/WORLD_COMPLETION_STANDARD.md",
+          "locator": "Completion levels and gates"
+        },
+        {
+          "path": "docs/PLAYTEST.md",
+          "locator": "Historical deferred versus exercised evidence"
+        },
+        {
+          "path": "AGENTS.md",
+          "locator": "Verification"
+        }
+      ],
+      "criterion": "Every selected requirement points to proof for its actual revision and explicit unrun cases; director acceptance names its reviewed scope without implying entire-world acceptance.",
+      "proposedExpansion": "Add a gate card per section/campaign revision with source/build identity, required start/branch/join cases, generated fixture ownership, evidence locations, current verification authority and director play questions. Historical deferrals or test totals cannot qualify new behavior. Complete alternative branches through agent evidence while director experiences a suspenseful route.",
+      "dependencies": [
+        "All lane required IDs and joins",
+        "G5 integrator build/publication identity"
+      ],
+      "owner": "World owner specifies local card; named shared/UI/source integrator implements only after separate assignment. G7 owns planning/review evidence only.",
+      "engineConsumerOrGap": "Named integrator owns combined rebuilt browser/save checks; independent reviewer checks coverage; director accepts scoped fiction/pacing/feel. No runtime checks assigned to this planning lane.",
+      "acceptanceCases": [
+        {
+          "id": "G7-07-AC01",
+          "criterion": "Each required leaf resolves to current proof or a named open gate, never an inherited pass by date/count.",
+          "status": "specified-not-run"
+        },
+        {
+          "id": "G7-07-AC02",
+          "criterion": "Rebuilt fresh-origin selected journeys include save/reload/import when persistence changes.",
+          "status": "specified-not-run"
+        },
+        {
+          "id": "G7-07-AC03",
+          "criterion": "Director acceptance receipt names revision and scope; unplayed branches remain distinct.",
+          "status": "specified-not-run"
+        },
+        {
+          "id": "G7-07-AC04",
+          "criterion": "Sealed proof outputs expose IDs/status rather than hidden truths.",
+          "status": "specified-not-run"
+        }
+      ],
+      "remaining": [
+        "Cross-lane peer review and exact local required-ID mapping pending.",
+        "Live source/API readback and runtime assignment pending where implementation is selected.",
+        "Browser/persistence/performance/director evidence not executed by G7."
+      ]
+    },
+    {
+      "id": "G7-08",
+      "title": "Whole-world source and medium coverage",
+      "sections": [
+        "S00",
+        "S01",
+        "S10",
+        "S11",
+        "S14"
+      ],
+      "sourceRefs": [
+        {
+          "path": "docs/gm/WORLD_ACTIONABILITY_GM_PROMPT.md",
+          "locator": "P1 source coverage; P2 whole-world map; required return"
+        },
+        {
+          "path": "docs/research/SOURCE_DEEP_DIVE_PLAYBOOK.md",
+          "locator": "Steps and reporting checklist"
+        }
+      ],
+      "criterion": "A source-grounded world plan accounts for its declared editions/media/ranges, with inspected-full, inspected-search, secondary-only and unread areas distinguished.",
+      "proposedExpansion": "Add a private coverage register by volume/chapter/episode/era/region and rule/content family, including revisions and medium contradictions. Attach explicit claims to locators and variant owners. Distinguish whole-horizon map completion from a detailed selected tranche; unread late material cannot be inferred from an early power catalog.",
+      "dependencies": [
+        "World source owner",
+        "G4 chronology/premise variants",
+        "All lane sourceRefs"
+      ],
+      "owner": "World owner specifies local card; named shared/UI/source integrator implements only after separate assignment. G7 owns planning/review evidence only.",
+      "engineConsumerOrGap": "World/source owner controls private evidence and continuity variants; coverage register is an authoring deliverable, not an engine state domain. New acquisition is outside this review.",
+      "acceptanceCases": [
+        {
+          "id": "G7-08-AC01",
+          "criterion": "Every source-grounded selected rule has a primary locator or labeled unresolved source task.",
+          "status": "specified-not-run"
+        },
+        {
+          "id": "G7-08-AC02",
+          "criterion": "Cross-medium contradictions map to variants or explicit questions rather than silently mixed canon.",
+          "status": "specified-not-run"
+        },
+        {
+          "id": "G7-08-AC03",
+          "criterion": "Coverage counts identify unread ranges and search-only claims; no whole-book/anime audit claim from keyword scans.",
+          "status": "specified-not-run"
+        },
+        {
+          "id": "G7-08-AC04",
+          "criterion": "Public export contains opaque routing only where source-specific private boundaries require it.",
+          "status": "specified-not-run"
+        }
+      ],
+      "remaining": [
+        "Cross-lane peer review and exact local required-ID mapping pending.",
+        "Live source/API readback and runtime assignment pending where implementation is selected.",
+        "Browser/persistence/performance/director evidence not executed by G7."
+      ]
+    },
+    {
+      "id": "G7-09",
+      "title": "Long-session performance and history continuity",
+      "sections": [
+        "S04",
+        "S11",
+        "S13",
+        "S14"
+      ],
+      "sourceRefs": [
+        {
+          "path": "docs/PLAYTEST.md",
+          "locator": "Measured technical baseline and correction"
+        },
+        {
+          "path": "docs/PRESENTATION_AND_FOURTH_WALL.md",
+          "locator": "IM8 long sessions; log caps and record-owned effects"
+        }
+      ],
+      "criterion": "The selected workload preserves actionable history and responsive controls under its declared actor/event/effect scale, without skipping causal decisions or duplicating rewards.",
+      "proposedExpansion": "Add a workload budget card for selected world depth: actor/controller scheduling, previews, DOM/log/effect caps, durable history size and save cost. Preserve essential facts/claims in owners when presentation logs prune. Profile generated normal and declared crowded workloads before selecting optimizations; retain unspent clock budget rather than silently truncating consequences.",
+      "dependencies": [
+        "G3 resident activity scale",
+        "G4 durable history/clock decisions",
+        "G5 performance/publication",
+        "G6 production chain size"
+      ],
+      "owner": "World owner specifies local card; named shared/UI/source integrator implements only after separate assignment. G7 owns planning/review evidence only.",
+      "engineConsumerOrGap": "Engine/performance integrator owns measured optimization; UI owns node/listener cleanup. The historical synthetic profile is a routing baseline, not current broad-world capacity proof.",
+      "acceptanceCases": [
+        {
+          "id": "G7-09-AC01",
+          "criterion": "Generated selected normal/crowded workloads record frame/control latency, save/load cost and history size against proposed target.",
+          "status": "specified-not-run"
+        },
+        {
+          "id": "G7-09-AC02",
+          "criterion": "Long effects/log run cleans detached listeners/nodes while durable claims and meaningful observations survive.",
+          "status": "specified-not-run"
+        },
+        {
+          "id": "G7-09-AC03",
+          "criterion": "Boundary-budget exhaustion returns remaining time; later resume settles each declared consequence once.",
+          "status": "specified-not-run"
+        }
+      ],
+      "remaining": [
+        "Cross-lane peer review and exact local required-ID mapping pending.",
+        "Live source/API readback and runtime assignment pending where implementation is selected.",
+        "Browser/persistence/performance/director evidence not executed by G7."
+      ]
+    },
+    {
+      "id": "G7-10",
+      "title": "Signature ability lifecycle composition",
+      "sections": [
+        "S07",
+        "S08",
+        "S09",
+        "S13"
+      ],
+      "sourceRefs": [
+        {
+          "path": "docs/PRESENTATION_AND_FOURTH_WALL.md",
+          "locator": "Prior coverage V2, V4, V8, V11"
+        }
+      ],
+      "priorCoverageIds": [
+        "V2",
+        "V4",
+        "V8",
+        "V11"
+      ],
+      "criterion": "Each selected signature/presentation family has coherent selected anticipation, activation, contact, counter/interruption and aftermath forms tied to actual G2 outcome receipts. Only meaningful selected stages apply; an ability with plain or world-only feedback remains complete without UI effects.",
+      "proposedExpansion": "Author generic barrier: a bracket frame closes around a protected target, contact compresses its edge, a real counter fractures the resolved segment, and remaining protection settles in a quiet frame. Author spatial cut: a line-offset contact and surviving seam. Author temporal skip: held sentence, gap, then observed aftermath. Each stage can be absent where the actual function has no such stage; preview spends no RNG or state. Selecting an ability does not automatically select its UI-effect lifecycle. Preserve plain/world-only presentation, quiet and effectless variants as complete choices.",
+      "dependencies": [
+        "G2 capability lifecycle/targets/order",
+        "G5 accepted outcome/observer projection"
+      ],
+      "owner": "Existing presentation owner supplies cards; G2 owns function/targets; G5 UI integrator receives sole reserved native renderer/log/options paths. G7 planning only.",
+      "engineConsumerOrGap": "Actual inspected native log_message(message_to_add, message_type) at src/display.js:768 and game_options at src/main.js:1439; structured VFX registry/receipt binding is proposed and requires exact G2/G5 contract, not an existing API claim.",
+      "acceptanceCases": [
+        {
+          "id": "G7-10-AC01",
+          "criterion": "Resolve block, bypass and interruption; each composited line reflects actual outcome once.",
+          "status": "specified-not-run"
+        },
+        {
+          "id": "G7-10-AC02",
+          "criterion": "Preview every stage without RNG draw, discovery grant, gameplay pause or state mutation.",
+          "status": "specified-not-run"
+        },
+        {
+          "id": "G7-10-AC03",
+          "criterion": "Unknown observer gets impression-only shape; used qualified means supplies permitted annotations.",
+          "status": "specified-not-run"
+        }
+      ],
+      "remaining": [
+        "Local selected ability IDs and G2/G5 contract approval/ownership mapping pending.",
+        "Runtime source edits, build/browser/save/director checks remain separately unassigned to G7."
+      ]
+    },
+    {
+      "id": "G7-11",
+      "title": "Transformation and large-scale power set pieces",
+      "sections": [
+        "S03",
+        "S07",
+        "S11",
+        "S13"
+      ],
+      "sourceRefs": [
+        {
+          "path": "docs/PRESENTATION_AND_FOURTH_WALL.md",
+          "locator": "Prior coverage V3, V5"
+        }
+      ],
+      "priorCoverageIds": [
+        "V3",
+        "V5"
+      ],
+      "criterion": "A selected transformation or world-scale effect displays its real changed body/target/aftermath without substituting animation for gameplay.",
+      "proposedExpansion": "Compose transformation as old name/form silhouette giving way to the actual supported new body, with restraint or effortless stillness variants. Compose a scale strike as drawing/anticipation, silent contact, delayed text thud and a persistent known scar/resource only when G2/G4 provide that result. Scale-flight can traverse available views or stay a log-scale diorama if map/atlas bindings are absent. Overwhelming quiet one-hit and failed measurement remain valid forms.",
+      "dependencies": [
+        "G2 transformation/destruction semantics",
+        "G4 durable world marks",
+        "G5 actual views and projections"
+      ],
+      "owner": "Existing presentation owner supplies cards; G2 owns function/targets; G5 UI integrator receives sole reserved native renderer/log/options paths. G7 planning only.",
+      "engineConsumerOrGap": "Actual inspected native log_message(message_to_add, message_type) at src/display.js:768 and game_options at src/main.js:1439; structured VFX registry/receipt binding is proposed and requires exact G2/G5 contract, not an existing API claim.",
+      "acceptanceCases": [
+        {
+          "id": "G7-11-AC01",
+          "criterion": "Skip/full/static versions yield identical body, damage and world consequences.",
+          "status": "specified-not-run"
+        },
+        {
+          "id": "G7-11-AC02",
+          "criterion": "Persistent scar exists in actual world owner and remains after log pruning/reload; animation alone creates none.",
+          "status": "specified-not-run"
+        },
+        {
+          "id": "G7-11-AC03",
+          "criterion": "Countered or interrupted set piece produces its actual changed outcome, not prewritten destruction.",
+          "status": "specified-not-run"
+        }
+      ],
+      "remaining": [
+        "Local selected ability IDs and G2/G5 contract approval/ownership mapping pending.",
+        "Runtime source edits, build/browser/save/director checks remain separately unassigned to G7."
+      ]
+    },
+    {
+      "id": "G7-12",
+      "title": "Quiet life, mastery and reactive signature effects",
+      "sections": [
+        "S04",
+        "S05",
+        "S06",
+        "S07",
+        "S13"
+      ],
+      "sourceRefs": [
+        {
+          "path": "docs/PRESENTATION_AND_FOURTH_WALL.md",
+          "locator": "Prior coverage V7, V9, V12, V13"
+        }
+      ],
+      "priorCoverageIds": [
+        "V7",
+        "V9",
+        "V12",
+        "V13"
+      ],
+      "criterion": "Selected quiet/crafting/social effects carry actual witnessed context and development without making every action an animated event.",
+      "proposedExpansion": "Retain forge beat/item-name formation, repaired kintsugi seam, letter unfolding in known sender voice, cozy steam, weather gutter marks, grief pause, kaomoji companion and ASCII scene. Mastery can shorten an uneven chant/hammer rhythm into one effortless word. Witnesses remember only seen cues; personal motifs require real acquired/customized technique and world-supported recognition. Text sound words remain sufficient with optional audio muted.",
+      "dependencies": [
+        "G2 method/mastery",
+        "G3 life/relationships",
+        "G6 craft outcomes",
+        "G4 witness records"
+      ],
+      "owner": "Existing presentation owner supplies cards; G2 owns function/targets; G5 UI integrator receives sole reserved native renderer/log/options paths. G7 planning only.",
+      "engineConsumerOrGap": "Actual inspected native log_message(message_to_add, message_type) at src/display.js:768 and game_options at src/main.js:1439; structured VFX registry/receipt binding is proposed and requires exact G2/G5 contract, not an existing API claim.",
+      "acceptanceCases": [
+        {
+          "id": "G7-12-AC01",
+          "criterion": "Ordinary, learner and master variants reflect actual stage and can all be rendered plain.",
+          "status": "specified-not-run"
+        },
+        {
+          "id": "G7-12-AC02",
+          "criterion": "Witness present/absent produces appropriate remembered response without remote omniscience.",
+          "status": "specified-not-run"
+        },
+        {
+          "id": "G7-12-AC03",
+          "criterion": "Decorative weather/rust/age does not silently add penalties or offline losses.",
+          "status": "specified-not-run"
+        },
+        {
+          "id": "G7-12-AC04",
+          "criterion": "ASCII/letter/audio-off versions retain a plain caption or sentence.",
+          "status": "specified-not-run"
+        }
+      ],
+      "remaining": [
+        "Local selected ability IDs and G2/G5 contract approval/ownership mapping pending.",
+        "Runtime source edits, build/browser/save/director checks remain separately unassigned to G7."
+      ]
+    },
+    {
+      "id": "G7-13",
+      "title": "Bluff and fourth-wall fictional composition",
+      "sections": [
+        "S07",
+        "S09",
+        "S10",
+        "S13"
+      ],
+      "sourceRefs": [
+        {
+          "path": "docs/PRESENTATION_AND_FOURTH_WALL.md",
+          "locator": "Prior coverage V6, V10, V11"
+        }
+      ],
+      "priorCoverageIds": [
+        "V6",
+        "V10",
+        "V11"
+      ],
+      "criterion": "A fake or meta effect follows its actual capability and observer belief without reading host/user data or revealing sealed truth.",
+      "proposedExpansion": "Compose a plausible generic false barrier with an authored observable tell; untrained observer sees stopped-looking contact, qualified investigation can reveal only supported discrepancy. Preserve hidden trump card/condition, misattribution, false limit, borrowed/copied visual and reputation variants. Fictional log/panel/tab deformation and a staged console note can be selected independently; actual save deletion, filesystem inspection and clipboard reading are not presentation effects.",
+      "dependencies": [
+        "G2 deception/meta scope",
+        "G4 beliefs/prior familiarity",
+        "G5 safe output/controls"
+      ],
+      "owner": "Existing presentation owner supplies cards; G2 owns function/targets; G5 UI integrator receives sole reserved native renderer/log/options paths. G7 planning only.",
+      "engineConsumerOrGap": "Actual inspected native log_message(message_to_add, message_type) at src/display.js:768 and game_options at src/main.js:1439; structured VFX registry/receipt binding is proposed and requires exact G2/G5 contract, not an existing API claim.",
+      "acceptanceCases": [
+        {
+          "id": "G7-13-AC01",
+          "criterion": "Unknown, familiar and qualified observers obtain different plausible interpretations.",
+          "status": "specified-not-run"
+        },
+        {
+          "id": "G7-13-AC02",
+          "criterion": "Copied visual never grants copied faculty; hidden trump card has no pre-use giveaway.",
+          "status": "specified-not-run"
+        },
+        {
+          "id": "G7-13-AC03",
+          "criterion": "Plain/copy/screen-reader forms preserve belief until a real reveal route.",
+          "status": "specified-not-run"
+        },
+        {
+          "id": "G7-13-AC04",
+          "criterion": "Meta interaction leaves save/host data untouched and keeps cancel/recovery controls usable.",
+          "status": "specified-not-run"
+        }
+      ],
+      "remaining": [
+        "Local selected ability IDs and G2/G5 contract approval/ownership mapping pending.",
+        "Runtime source edits, build/browser/save/director checks remain separately unassigned to G7."
+      ]
+    },
+    {
+      "id": "G7-14",
+      "title": "VFX authoring and native-log integration packet",
+      "sections": [
+        "S00",
+        "S07",
+        "S13",
+        "S14"
+      ],
+      "sourceRefs": [
+        {
+          "path": "docs/PRESENTATION_AND_FOURTH_WALL.md",
+          "locator": "Prior coverage V1, V4, V8, V9, V13"
+        }
+      ],
+      "priorCoverageIds": [
+        "V1",
+        "V4",
+        "V8",
+        "V9",
+        "V13"
+      ],
+      "criterion": "A bounded selected effect family has explicit data, safe native consumer, actual receipt binding and equivalent full/static/plain output.",
+      "proposedExpansion": "Prepare the packet below as ready for scoped assignment once G2 receipt/target schema and UI file reservation are confirmed. Preserve prior family/primitive IDs or add aliases; style choices are proposals. Use new structured presentation data beside legacy log calls, not unescaped markup from player names or invented log APIs.",
+      "dependencies": [
+        "G2 frozen observer-qualified receipt shape",
+        "G5 sole UI/log/options integrator",
+        "G6 craft case for quiet variant"
+      ],
+      "owner": "Existing presentation owner supplies cards; G2 owns function/targets; G5 UI integrator receives sole reserved native renderer/log/options paths. G7 planning only.",
+      "engineConsumerOrGap": "Actual inspected native log_message(message_to_add, message_type) at src/display.js:768 and game_options at src/main.js:1439; structured VFX registry/receipt binding is proposed and requires exact G2/G5 contract, not an existing API claim.",
+      "acceptanceCases": [
+        {
+          "id": "G7-14-AC01",
+          "criterion": "Legacy two-argument log calls retain their behavior.",
+          "status": "specified-not-run"
+        },
+        {
+          "id": "G7-14-AC02",
+          "criterion": "Escaped dynamic name and grapheme-aware transforms preserve text semantics.",
+          "status": "specified-not-run"
+        },
+        {
+          "id": "G7-14-AC03",
+          "criterion": "Saved settings default on old saves; full/static/off remain outcome-equivalent.",
+          "status": "specified-not-run"
+        },
+        {
+          "id": "G7-14-AC04",
+          "criterion": "Collisions, hidden tab cleanup, click/focus continuity and generated save/import cases pass for the selected packet.",
+          "status": "specified-not-run"
+        }
+      ],
+      "remaining": [
+        "Local selected ability IDs and G2/G5 contract approval/ownership mapping pending.",
+        "Runtime source edits, build/browser/save/director checks remain separately unassigned to G7."
+      ]
+    }
+  ],
+  "unreadRemainder": [
+    "Other active G1-G6 returns and integrated ledger not yet reviewed; final peer pass follows integration.",
+    "Public audit manifest idea extraction and all 396 idea-level adjudications not reviewed by this lane.",
+    "Unlisted source/medium materials, private packs, sealed truth catalogs and private gameplay evidence not inspected.",
+    "Most historical PLAYTEST/ENGINE_AUTHORING entries and presentation effect-family catalogs not deeply reviewed.",
+    "Current gameplay source, installed behavior, runtime performance and private saves not audited.",
+    "Broader predecessor candidates routed by IDEA_INDEX: COSMIC_EVENTS, emergent/E8F_ADJECTIVES, ABUSE_AND_LIMITS, TRIALS_AND_TRIBULATIONS, SELVES_AND_ECHOES, TIME_KEEPERS_AND_VARIANTS and Hanzi map owners not deeply reviewed here.",
+    "Presentation first-wave franchise-specific details outside inspected ranges, film research/decompilation notes, additional second-wave entries and detailed third-wave implementation refinements remain unread; no new source verification or asset acquisition."
+  ],
+  "noRuntimeClaim": true,
+  "vfxPriorCoverage": [
+    {
+      "id": "V1",
+      "priorIdsOrFamily": "X1-X7; P1-P7; accepted restraint",
+      "sourceRef": {
+        "path": "docs/PRESENTATION_AND_FOURTH_WALL.md",
+        "locator": "20-94"
+      },
+      "disposition": "retained",
+      "expansion": "Keep text/world first and impactful selective effects; numeric budgets and rarity ladders are proposals, not global caps."
+    },
+    {
+      "id": "V2",
+      "priorIdsOrFamily": "Shared house/family/personal motifs; UI power palette",
+      "sourceRef": {
+        "path": "docs/PRESENTATION_AND_FOURTH_WALL.md",
+        "locator": "103-136; 231-285"
+      },
+      "disposition": "deepened",
+      "expansion": "Compose capability lifecycle effects from actual G2 targets/body/source and learned observer means; local world laws remain distinct."
+    },
+    {
+      "id": "V3",
+      "priorIdsOrFamily": "SP1-SP8 cinematic telegraph/scale/activation/aftermath",
+      "sourceRef": {
+        "path": "docs/PRESENTATION_AND_FOURTH_WALL.md",
+        "locator": "372-434"
+      },
+      "disposition": "deepened",
+      "expansion": "Retain scale-flight, light-before-sound, telegraph drawing, surviving mark and return to control; missing map layers named, not fabricated."
+    },
+    {
+      "id": "V4",
+      "priorIdsOrFamily": "TX1-TX13; spacing/gap/strike/frame/tempo primitives",
+      "sourceRef": {
+        "path": "docs/PRESENTATION_AND_FOURTH_WALL.md",
+        "locator": "524-575; 1051-1062"
+      },
+      "disposition": "retained",
+      "expansion": "TX1 refers to actual cause or illusion mechanics; TX13/plain output remains perceived belief, never automatic private truth."
+    },
+    {
+      "id": "V5",
+      "priorIdsOrFamily": "Force/status/show-of-power; measurement/quiet impact",
+      "sourceRef": {
+        "path": "docs/PRESENTATION_AND_FOURTH_WALL.md",
+        "locator": "803-903; 1227-1249"
+      },
+      "disposition": "deepened",
+      "expansion": "Strong outcomes stay strong; magnitude and measurement effects require actual used means, not author-only numeric overflow."
+    },
+    {
+      "id": "V6",
+      "priorIdsOrFamily": "Fourth-wall/reach/meta variants",
+      "sourceRef": {
+        "path": "docs/PRESENTATION_AND_FOURTH_WALL.md",
+        "locator": "925-973; 1214-1226"
+      },
+      "disposition": "retained-with-gap",
+      "expansion": "Retain fictional panel/tab/console/copy-stage possibilities; host files/user data not queried. Clock/clipboard observations need separately selected exact policy and cannot become generic cheats."
+    },
+    {
+      "id": "V7",
+      "priorIdsOrFamily": "Cozy/craft/social/horror/comedy/world-scale/endings",
+      "sourceRef": {
+        "path": "docs/PRESENTATION_AND_FOURTH_WALL.md",
+        "locator": "974-998; 1117-1213"
+      },
+      "disposition": "deepened",
+      "expansion": "Carry quiet life, weather, craft rhythm, grief, ordinary emotion and continuing-world responses alongside combat; no universal ambient effect requirement."
+    },
+    {
+      "id": "V8",
+      "priorIdsOrFamily": "TX5 collisions; counters and information channel",
+      "sourceRef": {
+        "path": "docs/PRESENTATION_AND_FOURTH_WALL.md",
+        "locator": "999-1016; 1237-1249"
+      },
+      "disposition": "deepened",
+      "expansion": "Render actual result ordering through one composition; outcome and observer means determine what can be shown."
+    },
+    {
+      "id": "V9",
+      "priorIdsOrFamily": "ON sound words; GR1-GR8; emotion; ID1-ID8",
+      "sourceRef": {
+        "path": "docs/PRESENTATION_AND_FOURTH_WALL.md",
+        "locator": "1369-1443"
+      },
+      "disposition": "retained-with-gap",
+      "expansion": "Preserve text sounds, grammar, quiet mastery and cosmetic age; confirm actual timestamp owners before asserting no new save data."
+    },
+    {
+      "id": "V10",
+      "priorIdsOrFamily": "BL1-BL6; AB1-AB10; KN0-KN5; plausible bluffs",
+      "sourceRef": {
+        "path": "docs/PRESENTATION_AND_FOURTH_WALL.md",
+        "locator": "1444-1462; 1529-1597; 1661-1689"
+      },
+      "disposition": "deepened",
+      "expansion": "Retain deception variants; later accepted plain-impression/held-means refinement supersedes universal enemy dossiers and automatic technique identification."
+    },
+    {
+      "id": "V11",
+      "priorIdsOrFamily": "VP1-VP4; both-way means; self/other readouts",
+      "sourceRef": {
+        "path": "docs/PRESENTATION_AND_FOURTH_WALL.md",
+        "locator": "1767-1792; 1986-2094"
+      },
+      "disposition": "retained",
+      "expansion": "Actor-specific observation filters every form; numeric native compatibility remains explicit proposed policy."
+    },
+    {
+      "id": "V12",
+      "priorIdsOrFamily": "Mastery quietness; personal techniques; witness reactions",
+      "sourceRef": {
+        "path": "docs/PRESENTATION_AND_FOURTH_WALL.md",
+        "locator": "2095-2136"
+      },
+      "disposition": "deepened",
+      "expansion": "Growth may become quieter; G2 ownership/mastery and G3/G4 observed reactions provide actual causes and durable aftermath."
+    },
+    {
+      "id": "V13",
+      "priorIdsOrFamily": "Cross-world reskins/numerals; ASCII/braille/kaomoji/maps",
+      "sourceRef": {
+        "path": "docs/PRESENTATION_AND_FOURTH_WALL.md",
+        "locator": "2137-2198"
+      },
+      "disposition": "retained-with-gap",
+      "expansion": "Reskin a genuinely identical carried function; shared glyphs do not force identical world laws. Plain captions and glyph fallback retain meaning."
+    },
+    {
+      "id": "V14",
+      "priorIdsOrFamily": "Component/effect contracts and Proto23 status effects",
+      "sourceRef": {
+        "path": "docs/gm/world-implementation/depth/micro/COMPONENT_AND_EFFECT_CONTRACTS.md",
+        "locator": "Separate candidate owners"
+      },
+      "disposition": "not-VFX-equivalent",
+      "expansion": "Retain as mechanics/source dependencies; visual effects do not themselves install organs, alter stats or grant status outcomes."
+    }
+  ],
+  "vfxImplementationPacket": {
+    "id": "G7-VFX-P1",
+    "status": "assignment-ready-with-named-contract-dependencies",
+    "outcome": "One connected native-log signature journey: generic supported barrier contact/counter, temporal or spatial variant if its existing actual function is selected, plus one quiet craft/mastery contrast; full/static/plain presentations follow the same actual result.",
+    "requirements": [
+      "G7-02",
+      "G7-03",
+      "G7-10",
+      "G7-11",
+      "G7-12",
+      "G7-13",
+      "G7-14"
+    ],
+    "authority": "Planning package only; parent assigns runtime scope. No publication/commit/acquisition authorization.",
+    "inputs": [
+      "G2 selected capability IDs, actual target/effect ordering, outcome cause and observer qualification",
+      "Existing presentation palette and prior IDs with aliases",
+      "Live native log/options source and dirty-input snapshots"
+    ],
+    "interfaceToFreeze": {
+      "event": "stable cause/outcome ID, actual actor/target, actual resolved stage/result, viewer-qualified plain text and disclosed measurements only",
+      "presentation": "effect family/primitive IDs, stage, world reskin, motif/mastery variant, static/plain forms and collision composition",
+      "ownership": "Gameplay executes and saves once under existing owner; presentation observes accepted result and does not grant state/RNG/XP"
+    },
+    "writerReservationProposal": {
+      "contentWorker": "New pure presentation card/primitive module at an integrator-approved path; no shared save/log writes",
+      "integrator": "Existing src/display.js and src/main.js/options/save binding plus affected style/native consumers, only after live exclusive reservation",
+      "reviewer": "Read-only leak/focus/alias/collision review"
+    },
+    "nonSubstitution": "If selected function lacks a native result adapter, assign that exact G2/G5 dependency. Do not fake gameplay with an animation or force a new ability merely for an effect.",
+    "gate": "Current rebuild then fresh-origin selected lifecycle/counter/quiet journey; compare full/static/off/plain, preview no mutation, failure/hidden tab/focus, settings old-save/reload/import and director impact/restraint review. Unrun cases remain open."
+  }
+}

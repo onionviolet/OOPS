@@ -1,0 +1,13 @@
+{
+  "bundle": "a4e84278059a711738b9149a331f916496dee79140384c021e11052187baef26",
+  "sourceMap": "5359baca643058bd4f3abf6031de56f8abd7112075e6d2bebe29b40c75760f78",
+  "boundSourceFiles": 436,
+  "currentSourceDifferences": [
+    {
+      "path": "src/feature_expansion_destination_host.js",
+      "sourceSha256": "d91f8c31d0ae72676bd327ab60134e66376ed04091127d4b98049db4fd0b92f0",
+      "compiledSourceSha256": "f11d3f6b059133246c969c46b97918dd66c1cbeaf1f767b5b3880bf6d6182215"
+    }
+  ],
+  "state": "runtime proof may qualify compiled inputs only; final source/build receipt requires reconciliation"
+}

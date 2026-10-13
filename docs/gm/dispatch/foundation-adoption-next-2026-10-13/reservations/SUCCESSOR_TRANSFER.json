@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "atUTC": "2026-10-13T07:24:21.251636+00:00",
+  "fromThread": "01a133d9-faa9-71a1-a513-7131efbc8613",
+  "toThread": "01a13425-517a-7442-83b6-34929c57dfab",
+  "hostId": "local",
+  "status": "effective",
+  "authority": "Existing direct human authorization for continuing same-project fresh GM chain; completed livelihood reservation directly transferred by human to predecessor, now explicitly released to successor",
+  "checkout": "/Users/weiwei/code/yet-another-idle-rpg",
+  "head": "dd3efe3383f12f0aac22e4f390aae90fae2e7fc4",
+  "reserved": "Existing chain runtime/state/save/story/compiler/main/tests/generated-build shared integrator scope; first reviewed objective R2 FA07",
+  "exclusions": [
+    "separate UI/density/theme/workspace lane",
+    "separate live editor/minigame/heir owners until explicit legitimate transfer",
+    "paused full-world World1",
+    "private packs/source libraries/personal saves",
+    "sender original seven immutable review/preparation artifacts",
+    "frozen R1 public preview candidate/files/build/process"
+  ],
+  "predecessorState": "R1 technically delivered; all specialist workers released; all shared writes cease after this transfer record",
+  "preview": {
+    "origin": "http://127.0.0.1:18724",
+    "sessionId": 79973,
+    "pid": 95565,
+    "ownerThread": "01a133d9-faa9-71a1-a513-7131efbc8613",
+    "root": "/Users/weiwei/.codex/candidates/yairpg-foundation-adoption-2026-10-13-r1",
+    "state": "read-only frozen public R1 preview, no shared writer"
+  },
+  "review": "rounds/r2/ROUNDTRIP.json",
+  "next": "Recover current live inputs/authority, verify R1 entry gate, execute reviewed R2; no new substantive objective before its own ordinary ChatGPT review"
+}

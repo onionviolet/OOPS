@@ -1,0 +1,352 @@
+Authoring
+Layout
+Character vitals
+0 / 26 xp
+51/51 stamina
+0/0 mana
+80/80 hp
+Inventory & combat view
+Inventory
+Combat
+Character & preparation
+Level: 2
+Strength:
+11.9
+Agility:
+11.2
+Dexterity:
+11.0
+Intuition
+11.0
+Defense:
+1.0
+Magic:
+0.0
+Atk power:
+4.3
+Atk spd:
+0.7
+Crit rate:
+5.0%
+Crit mult:
+130.0%
+AP:
+37
+EP :
+39
+Active effects: 2
+Stats
+Bio
+Equipment
+Tools
+Belongings
+Your purse contains: 10C 2W
+star_border[weapon] Cheap iron axe [50%]
+[take off]
+14C 4W
+star_borderPrepared survey kit
+2W
+star_borderRough wood log x92
+1C
+star_borderStale bread x5
+[use]
+auto
+2C
+star_borderTree sap x3
+5W
+star_border[legs] Cheap leather pants [40%]
+[equip]
+4C 6W
+star_border[tool] Old pickaxe
+[equip]
+1C
+star_border[tool] Old shovel
+[equip]
+1C
+star_border[tool] Old sickle
+[equip]
+1C
+Sort by name
+Sort by value
+Sort by type
+All
+Equipment
+Usable
+Other
+Favs
+Equipment comparison
+People you know
+People you know
+
+What you have learned and what happened between you. Locations are last known or agreed, rather than live reports.
+
+Village elder
+Old craftsman
+Hessa, household steward
+Orr, household craftsperson
+Vale, household apprentice
+04/04/999 05:45, Summer, Thu, Day
+cloud14.9°C
+star_border Village
+Rain dots the village path.
+Medium-sized village, built at the foot of the mountains, with rocks preventing any expansions towards north. It's surrounded by many fields, most of them infested by huge rats. There is a relatively calm, somewhat small river south of it with no bridges over it, and with some old structures on the other side, clearly not used for years if not longer. Many villagers seem to have nothing to do and are just sitting around.
+More about this place
+
+No work running.
+
+Saving available.
+
+Local actions
+directions Move somewhere else
+directions Fast travel
+construction Try to craft something
+question_answer Talk to someone
+work_outline Find work
+fitness_center Train
+search Gather resources
+Local life
+Waypost supply clerk
+Clerk purse: 180 coins. Paid so far: 0. Supplies change hands immediately; no shift, promotion or patrol credit. After one Infested field clear the clerk offers free repair notes, or buy a copy for 10 coins.
+Ask for repair notes (one field clear)Buy repair notes (10 coins)
+Learned item sources
+Cheap iron axe: village elder (observed, contact)
+Old pickaxe: old craftsman (observed, contact)
+Old axe: old craftsman (observed, contact)
+Old sickle: old craftsman (observed, contact)
+Old shovel: old craftsman (observed, contact)
+Rough wood log: Village (observed, gather)
+Tree sap: Village (observed, gather)
+Optional pacing
+Equipment condition and repair
+Elemental preparation
+Journal & received accounts
+Quests
+Bestiary
+Anthology
+Data
+Notebook
+Skills & practice
+keyboard_double_arrow_downCombat skills
+keyboard_arrow_up
+keyboard_arrow_down
+keyboard_double_arrow_downEnvironmental skills
+keyboard_arrow_up
+keyboard_arrow_down
+keyboard_double_arrow_downCharacter skills
+keyboard_arrow_up
+keyboard_arrow_down
+keyboard_double_arrow_downGathering skills
+keyboard_arrow_up
+keyboard_arrow_down
+ Hide max level skills
+Sort by name
+Sort by level
+Sort by progress
+Skills
+Stances
+Magic
+Reports
+World events
+Recent news
+Remembered years · 1 memories
+Remember this day
+
+Years remembered
+Village neighbors
+Finish your living-world work or decision first.
+Finish your living-world work or decision first.
+Finish your living-world work or decision first.
+Finish your living-world work or decision first.
+Finish your living-world work or decision first.
+Finish your living-world work or decision first.
+Finish your living-world work or decision first.
+Finish your living-world work or decision first.
+Finish your living-world work or decision first.
+Finish your living-world work or decision first.
+Finish your living-world work or decision first.
+Finish your living-world work or decision first.
+Finish your living-world work or decision first.
+Finish your living-world work or decision first.
+Finish your living-world work or decision first.
+Finish your living-world work or decision first.
+Finish your living-world work or decision first.
+Finish your living-world work or decision first.
+Finish your living-world work or decision first.
+Finish your living-world work or decision first.
+Finish your living-world work or decision first.
+Finish your living-world work or decision first.
+Finish your living-world work or decision first.
+Finish your living-world work or decision first.
+Finish your living-world work or decision first.
+Finish your living-world work or decision first.
+Finish your living-world work or decision first.
+Finish your living-world work or decision first.
+Finish your living-world work or decision first.
+Finish your living-world work or decision first.
+Finish your living-world work or decision first.
+Finish your living-world work or decision first.
+Finish your living-world work or decision first.
+Finish your living-world work or decision first.
+Finish your living-world work or decision first.
+Finish your living-world work or decision first.
+Finish your living-world work or decision first.
+Finish your living-world work or decision first.
+Finish your living-world work or decision first.
+Finish your living-world work or decision first.
+Finish your living-world work or decision first.
+Levels / unlocks
+Events
+Crafting
+Combat
+Loot
+BGM
+Your beginning
+Patrol & custody
+Notes, practice & people
+Notes, practice & people
+Here
+Practice
+People
+Tools, practice & local lives
+Scraped-palm care
+A jointly agreed next duty
+
+An optional actual joint booking; original duties keep their finite stock, wages and participant consent.
+
+Known actions
+Ask once about another repair-first discussion · 1 minute
+
+Available
+
+Do this: Ask once about another repair-first discussion · 1 minute
+Ask once about another lesson-first discussion · 1 minute
+
+Available
+
+Do this: Ask once about another lesson-first discussion · 1 minute
+Hessa, Orr and Vale agreed that the funded home repair will come before Vale’s one funded lesson.
+The agreed repair-first job stopped when its existing completion support was lost. Its actual reservation followed the repair’s existing refund rule; Vale’s funded lesson and all settled terms remain separate.
+Connect the home-world chapter
+Current condition & small preparations
+Field remedies & optional wound consequences
+Household work & apprenticeship
+
+Each accepted job reserves its own funding and willing participants.
+
+Known actions
+Decline future household work
+
+Unavailable
+
+Known requirements
+This household has no supported local contact while you are in another realm.
+Why this is unavailable
+This action is not available under the current conditions. Review the known preparation or choose another action.
+
+Time terms: Immediate action.
+
+Unavailable: Decline future household work
+Meet Hessa and inspect the retained repair
+
+Unavailable
+
+Known requirements
+This household has no supported local contact while you are in another realm.
+Why this is unavailable
+This action is not available under the current conditions. Review the known preparation or choose another action.
+
+Time terms: Immediate action.
+
+Reserved
+Hessa, household keeper is reserved for this accepted work.
+Unavailable: Meet Hessa and inspect the retained repair
+Hear the completed lesson
+
+Unavailable
+
+Known requirements
+This household has no supported local contact while you are in another realm.
+Why this is unavailable
+This action is not available under the current conditions. Review the known preparation or choose another action.
+
+Time terms: Immediate action.
+
+Reserved
+Vale, prospective apprentice is reserved for this accepted work.
+Unavailable: Hear the completed lesson
+Learn Orr’s ordinary join yourself · 1 coin · 3 min
+
+Available
+
+Known requirements
+This household has no supported local contact while you are in another realm.
+Quoted costs
+1 coins. You have 102 available.
+1 stamina. You have 50.849999999999994 available.
+Orr, local joiner: 1 stamina.
+
+Time quote: 3 played minutes.
+
+Cancellation: Cancelling returns reserved inputs. Time already played is not returned.
+
+Reserved
+Your attention is reserved while the accepted work runs.
+Orr, local joiner is reserved for this accepted work.
+A place at Orr's agreed teaching bench is reserved for this work.
+Do this: Learn Orr’s ordinary join yourself · 1 coin · 3 min
+Follow finite itinerary: Supply, funded repair and a personal method · 7 steps
+
+Unavailable
+
+Why this is unavailable
+Hear and accept this itinerary’s known origin first.
+Unavailable: Follow finite itinerary: Supply, funded repair and a personal method · 7 steps
+Observed: Hessa keeps a household; Orr repairs locally; Vale is considering bounded teaching. Each has their own means and may refuse. Meeting them accepted no work. · Recorded at played minute 0.
+Observed: Hessa offers two coins for two actual player-owned logs, three coins to Orr for one home repair, and two coins for one later apprentice shelf. Home access is limited to accepted repairs. No exclusive service or affection is bought. · Recorded at played minute 1.
+Observed: Transferred two real logs to Hessa. Her reserved two coins paid the player. No replacement logs or wage were created. · Recorded at played minute 2.
+Observed: I agree that Orr may use my two supplied logs and three available coins for the home repair first; my household repair need remains bounded to this one job. · Recorded at played minute 4.
+Observed: I agree to complete the already funded repair before Vale’s already funded lesson, using my own kit, attention, stamina and ordinary join. Either job still waits for legal support. · Recorded at played minute 4.
+Observed: I agree to let Orr finish Hessa’s already funded repair before my one bounded lesson. This changes no future rights or wages. · Recorded at played minute 4.
+Observed: Hessa, Orr and Vale agreed that the funded home repair will come before Vale’s one funded lesson. · Recorded at played minute 4.
+Observed: Returned the limited home-work right to Hessa and ended future cooperation. Finished lawful pay/results remain; later live completion needs consent and returns reservations if consent is missing. No unpaid future worker or forfeited-sale reversal is inferred. · Recorded at played minute 4.
+Observed: {"schema":1,"status":"stopped","preference":"repair","agreementCause":"simulation:4029","dutyCommandId":"feature_society.orr_repair","jobId":"simulation:4030","note":"The agreed repair-first job stopped when its existing completion support was lost. Its actual reservation followed the repair’s existing refund rule; Vale’s funded lesson and all settled terms remain separate."} · Recorded at played minute 10.
+Observed: Completed Orr’s paid personal survey-kit workshop. The player supplied an actual log and native coin; Orr returned his counted kit and earned the coin. One finished survey kit entered the player’s native inventory. No method or mastery was granted. · Recorded at played minute 15.
+Observed: The later agreed workshop completed with its actual supplied means and native kit. · Recorded at played minute 15.
+The terraced harbor chart
+Earned feats
+Proto23 · your furnished visitor life
+Paradise · your independent Goa branch
+Mother of Learning · your Cyoria guest life
+Service-district side entry
+Fitting tools & materials
+Village crossroads
+Lantern & floodline work
+Optional lives and local experiments
+At the seal registry
+
+Conversation not started.
+
+Conversation controls
+Known actions
+Discuss the offered work
+
+Unavailable
+
+Why this is unavailable
+This action is not available under the current conditions. Review the known preparation or choose another action.
+Stated costs
+Hear the seal-steward’s terms
+Completion terms
+Meet the seal steward, counter clerk and a longtime colleague. Hearing their actual terms changes no identity, office, duty or possessions.
+Unavailable: Discuss the offered work
+Village notes
+Routes & supplies
+Field association & workshop
+Work Ledger
+Work ledger
+Save
+Export
+Import
+settings
+v0.6
+help_outline

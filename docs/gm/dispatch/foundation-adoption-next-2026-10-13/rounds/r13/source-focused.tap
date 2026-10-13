@@ -1,0 +1,40 @@
+TAP version 13
+# Subtest: SOURCE actual rack and bench outputs allocate the same single owned slot, repeat and downstream kit conserve stock
+ok 1 - SOURCE actual rack and bench outputs allocate the same single owned slot, repeat and downstream kit conserve stock
+  ---
+  duration_ms: 476.821042
+  type: 'test'
+  ...
+# Subtest: SOURCE pending A excludes B by actual capacity and actor; cancel before switch refunds exactly once
+ok 2 - SOURCE pending A excludes B by actual capacity and actor; cancel before switch refunds exactly once
+  ---
+  duration_ms: 307.925792
+  type: 'test'
+  ...
+# Subtest: SOURCE A and B refuse missing stock/location/body/rights/owner and loss at completion refunds no output
+ok 3 - SOURCE A and B refuse missing stock/location/body/rights/owner and loss at completion refunds no output
+  ---
+  duration_ms: 3899.679875
+  type: 'test'
+  ...
+# Subtest: SOURCE exact held notebook, re-entry pending roundtrip and second useful bench use retain single owner
+ok 4 - SOURCE exact held notebook, re-entry pending roundtrip and second useful bench use retain single owner
+  ---
+  duration_ms: 273.179667
+  type: 'test'
+  ...
+# Subtest: SOURCE absent furnishing state stays inert; flags or notebook counts cannot grant assignment
+ok 5 - SOURCE absent furnishing state stays inert; flags or notebook counts cannot grant assignment
+  ---
+  duration_ms: 83.558292
+  type: 'test'
+  ...
+1..5
+# tests 5
+# suites 0
+# pass 5
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 5312.545959

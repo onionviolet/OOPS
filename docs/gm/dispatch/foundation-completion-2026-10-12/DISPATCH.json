@@ -1,0 +1,43 @@
+{
+  "date": "2026-10-12",
+  "human_authority": "send out GMS accordingly until completion",
+  "coordinator": {
+    "threadId": "01a1305a-d5c2-70b2-a96f-843fbee945e8",
+    "hostId": "local",
+    "assignment": "docs/gm/dispatch/foundation-completion-2026-10-12/ASSIGNMENT.md",
+    "predecessorThreadId": "01a12ebf-d9a5-7ce0-94ba-469228eef444"
+  },
+  "research": {
+    "threadId": "01a12e94-6751-7642-a493-35d76016c5b6",
+    "hostId": "local",
+    "title": "Foundation research and authoring GM",
+    "assignment": "docs/gm/dispatch/foundation-completion-2026-10-12/research/ASSIGNMENT.md",
+    "state": "finite returns complete/released per STATE"
+  },
+  "predecessor_audit": "01a12e85-ef4b-7f81-9594-357d73d4b8ca",
+  "state": "current successor confirmed active; F4 and combined verification continue; full foundation horizon open",
+  "world1_goal": "remains paused",
+  "runtime_reservation": "effective released reservations inherited per OWNERSHIP_TRANSFER.json; exact per-unit recording remains coordinator-owned",
+  "successors": "authorized for unfinished same-goal work with exact writer transfer",
+  "coordinator_history": [
+    {
+      "threadId": "01a12e94-7b63-7e12-b584-ae2265f579e1",
+      "hostId": "local",
+      "title": "Shared foundations completion GM",
+      "assignment": "docs/gm/dispatch/foundation-completion-2026-10-12/ASSIGNMENT.md",
+      "state": "released/read-only",
+      "successorThreadId": "01a12ebf-d9a5-7ce0-94ba-469228eef444",
+      "evidence": "docs/gm/dispatch/foundation-completion-2026-10-12/OWNERSHIP_TRANSFER.json"
+    },
+    {
+      "threadId": "01a12ebf-d9a5-7ce0-94ba-469228eef444",
+      "hostId": "local",
+      "assignment": "docs/gm/dispatch/foundation-completion-2026-10-12/ASSIGNMENT.md",
+      "predecessorThreadId": "01a12e94-7b63-7e12-b584-ae2265f579e1",
+      "state": "released/read-only",
+      "successorThreadId": "01a1305a-d5c2-70b2-a96f-843fbee945e8",
+      "evidence": "docs/gm/dispatch/foundation-completion-2026-10-12/OWNERSHIP_TRANSFER_CORE.json"
+    }
+  ],
+  "ownership_transfer": "docs/gm/dispatch/foundation-completion-2026-10-12/OWNERSHIP_TRANSFER_CORE.json"
+}

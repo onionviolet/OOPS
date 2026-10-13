@@ -1,0 +1,10 @@
+{
+  "date": "2026-10-12",
+  "threadId": "01a12e85-ef4b-7f81-9594-357d73d4b8ca",
+  "hostId": "local",
+  "title": "YAIRPG workflow and foundation audit GM",
+  "assignment": "docs/gm/dispatch/workflow-foundation-audit-2026-10-12/ASSIGNMENT.md",
+  "state": "dispatched",
+  "ownership": "Receiver exclusively owns dispatch directory except this dispatcher-owned file; other paths read-only.",
+  "runtime_authorized": false
+}

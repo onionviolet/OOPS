@@ -1,0 +1,47 @@
+{
+  "sha256": "a43e55e2eeb455f1c1ae589e3fc074a588813fe6cd57cfba827dcf923f3755d5",
+  "scope": "Isolated exact source functions with disposable fixtures; no browser/save/full-game claim",
+  "skillReveal": {
+    "before": {
+      "xp": 1,
+      "level": 0,
+      "visible": 0,
+      "tab": "???????"
+    },
+    "after": {
+      "xp": 0,
+      "level": 1,
+      "visible": 1,
+      "tab": "skills"
+    }
+  },
+  "overflow": {
+    "award": 60,
+    "level": 1,
+    "remainingXP": 9,
+    "onGiveCalls": [
+      9,
+      60
+    ],
+    "onGiveTotal": 69
+  },
+  "craftRequirements": {
+    "requirements": [
+      1,
+      2
+    ],
+    "engineSuccess": false,
+    "uiSafe": true,
+    "outputs": 0,
+    "remainingMaterial": 2,
+    "craftCounter": 1
+  },
+  "randomDistribution": {
+    "fixture": "10000 evenly spaced midpoint samples in [0,1)",
+    "threeOptionCounts": [
+      2500,
+      5000,
+      2500
+    ]
+  }
+}

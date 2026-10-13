@@ -1,0 +1,28 @@
+{
+  "atUTC": "2026-10-13T17:15:52.156051+00:00",
+  "assessmentAcceptance": "PASS",
+  "technicalChain": "INCOMPLETE",
+  "nativeAttempts": 0,
+  "runtimeTestInputDrift": [],
+  "requiredReportLinksMissing": [],
+  "sourcePass": 51,
+  "sourceFail": 0,
+  "hashes": {
+    "docs/gm/dispatch/foundation-adoption-next-2026-10-13/rounds/r14/REPORT.md": "b3ae8621b9c10b6331876a697996b063f43637a5988829b404f1ad76ce0d0ba5",
+    "docs/gm/dispatch/foundation-adoption-next-2026-10-13/rounds/r14/BACKLOG.md": "87c557047961926bd40edc43c102e90487e8914a70d5507d371a3209749b9ba0",
+    "docs/gm/dispatch/foundation-adoption-next-2026-10-13/rounds/r14/INTEGRATED_RECOVERY.md": "9018d7fa9d4aefb5fa7e2206128a02305838e880ff55eefd7dd89b9e474a2425",
+    "docs/gm/dispatch/foundation-adoption-next-2026-10-13/CHECKPOINT.md": "912f75871346e0e4f404c86bb305b0566dda6d45fe76bfa59e52bf19d9543dc0",
+    "docs/gm/dispatch/foundation-adoption-next-2026-10-13/HORIZON.md": "27bd79cc580cdb26c8407e0926e5abcbfbb25b85dc20bd7331e6153377c73529",
+    "PROJECT.md": "4373a88766c408847f55afd728d348699f31399ebc24257f6a078b3bdd662c54",
+    "docs/gm/dispatch/foundation-adoption-next-2026-10-13/rounds/r14/ROOT_RECONCILIATION.md": "75f87df12fc49f352ce19095a154e332d4a0bea041995968e10baef4ae8191ce",
+    "docs/gm/dispatch/foundation-adoption-next-2026-10-13/rounds/r14/ROOT_RECONCILIATION.json": "44c9a5a367b6a302716efe76b8fe93f4780f7fd29c177fb73e3214cafe8adde5",
+    "docs/gm/dispatch/foundation-adoption-next-2026-10-13/rounds/r14/SOURCE_RESULT.json": "06b36ec82c566568cb70865ef4aafc61cdd4dd06f1a48c53db9c17632c45d49a",
+    "docs/gm/dispatch/foundation-adoption-next-2026-10-13/rounds/r14/NATIVE_RESULT.json": "dfd907204fafe1764c01e499c17553ffba6bfe97fd98a7447d796233aa17d0fc",
+    "docs/gm/dispatch/foundation-adoption-next-2026-10-13/rounds/r14/BUDGET.json": "0482e328460aa9033287a49828c6c9e797a0e373f32bd7583b9d3c276cadeda5",
+    "docs/gm/dispatch/foundation-adoption-next-2026-10-13/rounds/r14/INTEGRATED_RECOVERY.json": "4a682a2d630601a598646a116a93fcb606ed585af7d9105463260edd835da50a",
+    "docs/gm/dispatch/foundation-adoption-next-2026-10-13/rounds/r14/OWNER_INSPECTION.json": "406817d2799cc66e18d6b8499268b4534c3c9a8c0fb77bc8c9e0451e2b98c1e9",
+    "docs/gm/dispatch/foundation-adoption-next-2026-10-13/rounds/r14/INDEPENDENT_REPORT.md": "395945bffe632cc1b73c20a1a6dc69a74456097a900ae9c142aedc4cae464b62",
+    "docs/gm/dispatch/foundation-adoption-next-2026-10-13/rounds/r14/INDEPENDENT_BINDINGS.json": "abce779bfe8b8118508bff65133d4072d70c92b76fe5aee7afd0309cb3cf80ce",
+    "docs/gm/dispatch/foundation-adoption-next-2026-10-13/rounds/r14/source-final.tap": "c678ba811e821cd0d8b929d65c3c9e4cb5d952441eaeb7a9a60bd664bb172bc2"
+  }
+}

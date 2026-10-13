@@ -1,0 +1,6700 @@
+[
+  {
+    "name": "initial-earned",
+    "clock": 684,
+    "money": 51,
+    "staminaToFull": 0,
+    "inventory": {
+      "{\"id\":\"Cheap leather pants\",\"quality\":40}": {
+        "count": 1
+      },
+      "{\"id\":\"Stale bread\"}": {
+        "count": 5
+      },
+      "{\"id\":\"Old pickaxe\",\"quality\":100}": {
+        "count": 1
+      },
+      "{\"id\":\"Old sickle\",\"quality\":100}": {
+        "count": 1
+      },
+      "{\"id\":\"Old shovel\",\"quality\":100}": {
+        "count": 1
+      },
+      "{\"id\":\"Rough wood log\"}": {
+        "count": 83
+      },
+      "{\"id\":\"Tree sap\"}": {
+        "count": 2
+      },
+      "{\"id\":\"Cooling salt packet\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Empty cooling sleeve\"}": {
+        "count": 2
+      },
+      "{\"id\":\"Prepared survey kit\"}": {
+        "count": 7
+      },
+      "{\"id\":\"Wax-sealed survey kit\"}": {
+        "count": 4
+      },
+      "{\"id\":\"Dulled field fitting knife\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Field fitting knife\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Bench clearance manual\"}": {
+        "count": 1
+      }
+    },
+    "jobs": [],
+    "cursor": {
+      "id": "work-plan:4512",
+      "definitionId": "feature_society.household_itinerary",
+      "revision": 1,
+      "actorId": "player",
+      "origin": "feature_society.terms",
+      "label": "Supply, funded repair and a personal method",
+      "startedSequence": 4512,
+      "startedAt": 533,
+      "updatedAt": 577,
+      "steps": [
+        {
+          "id": "supply",
+          "kind": "command",
+          "commandId": "feature_society.supply",
+          "revision": 1,
+          "targetId": "feature_society.hessa"
+        },
+        {
+          "id": "permission",
+          "kind": "command",
+          "commandId": "feature_society.authorize_home",
+          "revision": 1,
+          "targetId": "feature_society.hessa"
+        },
+        {
+          "id": "wait_repair",
+          "kind": "wait",
+          "requires": {
+            "fact": "world.feature_society.homeRepaired",
+            "op": "eq",
+            "value": true
+          },
+          "actorId": "feature_society.orr",
+          "commandId": "feature_society.orr_repair",
+          "revision": 1,
+          "label": "Wait for Orr’s actual funded repair before hearing the result"
+        },
+        {
+          "id": "report",
+          "kind": "command",
+          "commandId": "feature_society.hear_home",
+          "revision": 1,
+          "targetId": "feature_society.hessa"
+        },
+        {
+          "id": "learn",
+          "kind": "command",
+          "commandId": "feature_society.personal_lesson",
+          "revision": 1,
+          "targetId": "feature_society.orr"
+        },
+        {
+          "id": "travel_home",
+          "kind": "travel",
+          "location": "Shack",
+          "label": "Travel to your Shack through native travel"
+        },
+        {
+          "id": "personal_use",
+          "kind": "command",
+          "commandId": "feature_society.personal_pack",
+          "revision": 1
+        }
+      ],
+      "index": 7,
+      "status": "complete",
+      "accepted": null,
+      "reason": ""
+    }
+  },
+  {
+    "name": "pre-install-inspected",
+    "clock": 693,
+    "money": 51,
+    "staminaToFull": 0,
+    "inventory": {
+      "{\"id\":\"Cheap leather pants\",\"quality\":40}": {
+        "count": 1
+      },
+      "{\"id\":\"Stale bread\"}": {
+        "count": 5
+      },
+      "{\"id\":\"Old pickaxe\",\"quality\":100}": {
+        "count": 1
+      },
+      "{\"id\":\"Old sickle\",\"quality\":100}": {
+        "count": 1
+      },
+      "{\"id\":\"Old shovel\",\"quality\":100}": {
+        "count": 1
+      },
+      "{\"id\":\"Rough wood log\"}": {
+        "count": 83
+      },
+      "{\"id\":\"Tree sap\"}": {
+        "count": 2
+      },
+      "{\"id\":\"Cooling salt packet\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Empty cooling sleeve\"}": {
+        "count": 2
+      },
+      "{\"id\":\"Prepared survey kit\"}": {
+        "count": 7
+      },
+      "{\"id\":\"Wax-sealed survey kit\"}": {
+        "count": 4
+      },
+      "{\"id\":\"Dulled field fitting knife\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Field fitting knife\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Bench clearance manual\"}": {
+        "count": 1
+      }
+    },
+    "jobs": [],
+    "cursor": {
+      "id": "work-plan:4512",
+      "definitionId": "feature_society.household_itinerary",
+      "revision": 1,
+      "actorId": "player",
+      "origin": "feature_society.terms",
+      "label": "Supply, funded repair and a personal method",
+      "startedSequence": 4512,
+      "startedAt": 533,
+      "updatedAt": 577,
+      "steps": [
+        {
+          "id": "supply",
+          "kind": "command",
+          "commandId": "feature_society.supply",
+          "revision": 1,
+          "targetId": "feature_society.hessa"
+        },
+        {
+          "id": "permission",
+          "kind": "command",
+          "commandId": "feature_society.authorize_home",
+          "revision": 1,
+          "targetId": "feature_society.hessa"
+        },
+        {
+          "id": "wait_repair",
+          "kind": "wait",
+          "requires": {
+            "fact": "world.feature_society.homeRepaired",
+            "op": "eq",
+            "value": true
+          },
+          "actorId": "feature_society.orr",
+          "commandId": "feature_society.orr_repair",
+          "revision": 1,
+          "label": "Wait for Orr’s actual funded repair before hearing the result"
+        },
+        {
+          "id": "report",
+          "kind": "command",
+          "commandId": "feature_society.hear_home",
+          "revision": 1,
+          "targetId": "feature_society.hessa"
+        },
+        {
+          "id": "learn",
+          "kind": "command",
+          "commandId": "feature_society.personal_lesson",
+          "revision": 1,
+          "targetId": "feature_society.orr"
+        },
+        {
+          "id": "travel_home",
+          "kind": "travel",
+          "location": "Shack",
+          "label": "Travel to your Shack through native travel"
+        },
+        {
+          "id": "personal_use",
+          "kind": "command",
+          "commandId": "feature_society.personal_pack",
+          "revision": 1
+        }
+      ],
+      "index": 7,
+      "status": "complete",
+      "accepted": null,
+      "reason": ""
+    }
+  },
+  {
+    "name": "notebook-inspection",
+    "clock": 699,
+    "money": 51,
+    "staminaToFull": 0,
+    "inventory": {
+      "{\"id\":\"Cheap leather pants\",\"quality\":40}": {
+        "count": 1
+      },
+      "{\"id\":\"Stale bread\"}": {
+        "count": 5
+      },
+      "{\"id\":\"Old pickaxe\",\"quality\":100}": {
+        "count": 1
+      },
+      "{\"id\":\"Old sickle\",\"quality\":100}": {
+        "count": 1
+      },
+      "{\"id\":\"Old shovel\",\"quality\":100}": {
+        "count": 1
+      },
+      "{\"id\":\"Rough wood log\"}": {
+        "count": 83
+      },
+      "{\"id\":\"Tree sap\"}": {
+        "count": 2
+      },
+      "{\"id\":\"Cooling salt packet\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Empty cooling sleeve\"}": {
+        "count": 2
+      },
+      "{\"id\":\"Prepared survey kit\"}": {
+        "count": 7
+      },
+      "{\"id\":\"Wax-sealed survey kit\"}": {
+        "count": 4
+      },
+      "{\"id\":\"Dulled field fitting knife\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Field fitting knife\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Bench clearance manual\"}": {
+        "count": 1
+      }
+    },
+    "jobs": [],
+    "cursor": {
+      "id": "work-plan:4512",
+      "definitionId": "feature_society.household_itinerary",
+      "revision": 1,
+      "actorId": "player",
+      "origin": "feature_society.terms",
+      "label": "Supply, funded repair and a personal method",
+      "startedSequence": 4512,
+      "startedAt": 533,
+      "updatedAt": 577,
+      "steps": [
+        {
+          "id": "supply",
+          "kind": "command",
+          "commandId": "feature_society.supply",
+          "revision": 1,
+          "targetId": "feature_society.hessa"
+        },
+        {
+          "id": "permission",
+          "kind": "command",
+          "commandId": "feature_society.authorize_home",
+          "revision": 1,
+          "targetId": "feature_society.hessa"
+        },
+        {
+          "id": "wait_repair",
+          "kind": "wait",
+          "requires": {
+            "fact": "world.feature_society.homeRepaired",
+            "op": "eq",
+            "value": true
+          },
+          "actorId": "feature_society.orr",
+          "commandId": "feature_society.orr_repair",
+          "revision": 1,
+          "label": "Wait for Orr’s actual funded repair before hearing the result"
+        },
+        {
+          "id": "report",
+          "kind": "command",
+          "commandId": "feature_society.hear_home",
+          "revision": 1,
+          "targetId": "feature_society.hessa"
+        },
+        {
+          "id": "learn",
+          "kind": "command",
+          "commandId": "feature_society.personal_lesson",
+          "revision": 1,
+          "targetId": "feature_society.orr"
+        },
+        {
+          "id": "travel_home",
+          "kind": "travel",
+          "location": "Shack",
+          "label": "Travel to your Shack through native travel"
+        },
+        {
+          "id": "personal_use",
+          "kind": "command",
+          "commandId": "feature_society.personal_pack",
+          "revision": 1
+        }
+      ],
+      "index": 7,
+      "status": "complete",
+      "accepted": null,
+      "reason": ""
+    }
+  },
+  {
+    "name": "installed-paused-read",
+    "clock": 700,
+    "money": 49,
+    "staminaToFull": 1,
+    "inventory": {
+      "{\"id\":\"Cheap leather pants\",\"quality\":40}": {
+        "count": 1
+      },
+      "{\"id\":\"Stale bread\"}": {
+        "count": 5
+      },
+      "{\"id\":\"Old pickaxe\",\"quality\":100}": {
+        "count": 1
+      },
+      "{\"id\":\"Old sickle\",\"quality\":100}": {
+        "count": 1
+      },
+      "{\"id\":\"Old shovel\",\"quality\":100}": {
+        "count": 1
+      },
+      "{\"id\":\"Rough wood log\"}": {
+        "count": 81
+      },
+      "{\"id\":\"Tree sap\"}": {
+        "count": 2
+      },
+      "{\"id\":\"Cooling salt packet\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Empty cooling sleeve\"}": {
+        "count": 2
+      },
+      "{\"id\":\"Prepared survey kit\"}": {
+        "count": 7
+      },
+      "{\"id\":\"Wax-sealed survey kit\"}": {
+        "count": 4
+      },
+      "{\"id\":\"Dulled field fitting knife\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Field fitting knife\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Bench clearance manual\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Empty retort resin tray\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Empty retort residue tray\"}": {
+        "count": 1
+      }
+    },
+    "jobs": [],
+    "retort": {
+      "schema": 1,
+      "installedAt": 699,
+      "installedSequence": 4678
+    },
+    "cursor": {
+      "id": "work-plan:4512",
+      "definitionId": "feature_society.household_itinerary",
+      "revision": 1,
+      "actorId": "player",
+      "origin": "feature_society.terms",
+      "label": "Supply, funded repair and a personal method",
+      "startedSequence": 4512,
+      "startedAt": 533,
+      "updatedAt": 577,
+      "steps": [
+        {
+          "id": "supply",
+          "kind": "command",
+          "commandId": "feature_society.supply",
+          "revision": 1,
+          "targetId": "feature_society.hessa"
+        },
+        {
+          "id": "permission",
+          "kind": "command",
+          "commandId": "feature_society.authorize_home",
+          "revision": 1,
+          "targetId": "feature_society.hessa"
+        },
+        {
+          "id": "wait_repair",
+          "kind": "wait",
+          "requires": {
+            "fact": "world.feature_society.homeRepaired",
+            "op": "eq",
+            "value": true
+          },
+          "actorId": "feature_society.orr",
+          "commandId": "feature_society.orr_repair",
+          "revision": 1,
+          "label": "Wait for Orr’s actual funded repair before hearing the result"
+        },
+        {
+          "id": "report",
+          "kind": "command",
+          "commandId": "feature_society.hear_home",
+          "revision": 1,
+          "targetId": "feature_society.hessa"
+        },
+        {
+          "id": "learn",
+          "kind": "command",
+          "commandId": "feature_society.personal_lesson",
+          "revision": 1,
+          "targetId": "feature_society.orr"
+        },
+        {
+          "id": "travel_home",
+          "kind": "travel",
+          "location": "Shack",
+          "label": "Travel to your Shack through native travel"
+        },
+        {
+          "id": "personal_use",
+          "kind": "command",
+          "commandId": "feature_society.personal_pack",
+          "revision": 1
+        }
+      ],
+      "index": 7,
+      "status": "complete",
+      "accepted": null,
+      "reason": ""
+    }
+  },
+  {
+    "name": "installed",
+    "clock": 702,
+    "money": 49,
+    "staminaToFull": 0,
+    "inventory": {
+      "{\"id\":\"Cheap leather pants\",\"quality\":40}": {
+        "count": 1
+      },
+      "{\"id\":\"Stale bread\"}": {
+        "count": 5
+      },
+      "{\"id\":\"Old pickaxe\",\"quality\":100}": {
+        "count": 1
+      },
+      "{\"id\":\"Old sickle\",\"quality\":100}": {
+        "count": 1
+      },
+      "{\"id\":\"Old shovel\",\"quality\":100}": {
+        "count": 1
+      },
+      "{\"id\":\"Rough wood log\"}": {
+        "count": 81
+      },
+      "{\"id\":\"Tree sap\"}": {
+        "count": 2
+      },
+      "{\"id\":\"Cooling salt packet\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Empty cooling sleeve\"}": {
+        "count": 2
+      },
+      "{\"id\":\"Prepared survey kit\"}": {
+        "count": 7
+      },
+      "{\"id\":\"Wax-sealed survey kit\"}": {
+        "count": 4
+      },
+      "{\"id\":\"Dulled field fitting knife\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Field fitting knife\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Bench clearance manual\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Empty retort resin tray\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Empty retort residue tray\"}": {
+        "count": 1
+      }
+    },
+    "jobs": [],
+    "retort": {
+      "schema": 1,
+      "installedAt": 699,
+      "installedSequence": 4678
+    },
+    "cursor": {
+      "id": "work-plan:4512",
+      "definitionId": "feature_society.household_itinerary",
+      "revision": 1,
+      "actorId": "player",
+      "origin": "feature_society.terms",
+      "label": "Supply, funded repair and a personal method",
+      "startedSequence": 4512,
+      "startedAt": 533,
+      "updatedAt": 577,
+      "steps": [
+        {
+          "id": "supply",
+          "kind": "command",
+          "commandId": "feature_society.supply",
+          "revision": 1,
+          "targetId": "feature_society.hessa"
+        },
+        {
+          "id": "permission",
+          "kind": "command",
+          "commandId": "feature_society.authorize_home",
+          "revision": 1,
+          "targetId": "feature_society.hessa"
+        },
+        {
+          "id": "wait_repair",
+          "kind": "wait",
+          "requires": {
+            "fact": "world.feature_society.homeRepaired",
+            "op": "eq",
+            "value": true
+          },
+          "actorId": "feature_society.orr",
+          "commandId": "feature_society.orr_repair",
+          "revision": 1,
+          "label": "Wait for Orr’s actual funded repair before hearing the result"
+        },
+        {
+          "id": "report",
+          "kind": "command",
+          "commandId": "feature_society.hear_home",
+          "revision": 1,
+          "targetId": "feature_society.hessa"
+        },
+        {
+          "id": "learn",
+          "kind": "command",
+          "commandId": "feature_society.personal_lesson",
+          "revision": 1,
+          "targetId": "feature_society.orr"
+        },
+        {
+          "id": "travel_home",
+          "kind": "travel",
+          "location": "Shack",
+          "label": "Travel to your Shack through native travel"
+        },
+        {
+          "id": "personal_use",
+          "kind": "command",
+          "commandId": "feature_society.personal_pack",
+          "revision": 1
+        }
+      ],
+      "index": 7,
+      "status": "complete",
+      "accepted": null,
+      "reason": ""
+    }
+  },
+  {
+    "name": "current-paused",
+    "clock": 702,
+    "money": 49,
+    "staminaToFull": 0,
+    "inventory": {
+      "{\"id\":\"Cheap leather pants\",\"quality\":40}": {
+        "count": 1
+      },
+      "{\"id\":\"Stale bread\"}": {
+        "count": 5
+      },
+      "{\"id\":\"Old pickaxe\",\"quality\":100}": {
+        "count": 1
+      },
+      "{\"id\":\"Old sickle\",\"quality\":100}": {
+        "count": 1
+      },
+      "{\"id\":\"Old shovel\",\"quality\":100}": {
+        "count": 1
+      },
+      "{\"id\":\"Rough wood log\"}": {
+        "count": 81
+      },
+      "{\"id\":\"Tree sap\"}": {
+        "count": 2
+      },
+      "{\"id\":\"Cooling salt packet\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Empty cooling sleeve\"}": {
+        "count": 2
+      },
+      "{\"id\":\"Prepared survey kit\"}": {
+        "count": 7
+      },
+      "{\"id\":\"Wax-sealed survey kit\"}": {
+        "count": 4
+      },
+      "{\"id\":\"Dulled field fitting knife\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Field fitting knife\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Bench clearance manual\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Empty retort resin tray\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Empty retort residue tray\"}": {
+        "count": 1
+      }
+    },
+    "jobs": [],
+    "retort": {
+      "schema": 1,
+      "installedAt": 699,
+      "installedSequence": 4678
+    },
+    "cursor": {
+      "id": "work-plan:4512",
+      "definitionId": "feature_society.household_itinerary",
+      "revision": 1,
+      "actorId": "player",
+      "origin": "feature_society.terms",
+      "label": "Supply, funded repair and a personal method",
+      "startedSequence": 4512,
+      "startedAt": 533,
+      "updatedAt": 577,
+      "steps": [
+        {
+          "id": "supply",
+          "kind": "command",
+          "commandId": "feature_society.supply",
+          "revision": 1,
+          "targetId": "feature_society.hessa"
+        },
+        {
+          "id": "permission",
+          "kind": "command",
+          "commandId": "feature_society.authorize_home",
+          "revision": 1,
+          "targetId": "feature_society.hessa"
+        },
+        {
+          "id": "wait_repair",
+          "kind": "wait",
+          "requires": {
+            "fact": "world.feature_society.homeRepaired",
+            "op": "eq",
+            "value": true
+          },
+          "actorId": "feature_society.orr",
+          "commandId": "feature_society.orr_repair",
+          "revision": 1,
+          "label": "Wait for Orr’s actual funded repair before hearing the result"
+        },
+        {
+          "id": "report",
+          "kind": "command",
+          "commandId": "feature_society.hear_home",
+          "revision": 1,
+          "targetId": "feature_society.hessa"
+        },
+        {
+          "id": "learn",
+          "kind": "command",
+          "commandId": "feature_society.personal_lesson",
+          "revision": 1,
+          "targetId": "feature_society.orr"
+        },
+        {
+          "id": "travel_home",
+          "kind": "travel",
+          "location": "Shack",
+          "label": "Travel to your Shack through native travel"
+        },
+        {
+          "id": "personal_use",
+          "kind": "command",
+          "commandId": "feature_society.personal_pack",
+          "revision": 1
+        }
+      ],
+      "index": 7,
+      "status": "complete",
+      "accepted": null,
+      "reason": ""
+    }
+  },
+  {
+    "name": "first-batch-observed",
+    "clock": 709,
+    "money": 49,
+    "staminaToFull": 0,
+    "inventory": {
+      "{\"id\":\"Cheap leather pants\",\"quality\":40}": {
+        "count": 1
+      },
+      "{\"id\":\"Stale bread\"}": {
+        "count": 5
+      },
+      "{\"id\":\"Old pickaxe\",\"quality\":100}": {
+        "count": 1
+      },
+      "{\"id\":\"Old sickle\",\"quality\":100}": {
+        "count": 1
+      },
+      "{\"id\":\"Old shovel\",\"quality\":100}": {
+        "count": 1
+      },
+      "{\"id\":\"Rough wood log\"}": {
+        "count": 80
+      },
+      "{\"id\":\"Tree sap\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Cooling salt packet\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Empty cooling sleeve\"}": {
+        "count": 2
+      },
+      "{\"id\":\"Prepared survey kit\"}": {
+        "count": 7
+      },
+      "{\"id\":\"Wax-sealed survey kit\"}": {
+        "count": 4
+      },
+      "{\"id\":\"Dulled field fitting knife\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Field fitting knife\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Bench clearance manual\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Filled retort resin tray\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Filled retort residue tray\"}": {
+        "count": 1
+      }
+    },
+    "jobs": [],
+    "retort": {
+      "schema": 1,
+      "installedAt": 699,
+      "installedSequence": 4678
+    },
+    "cursor": {
+      "id": "work-plan:4512",
+      "definitionId": "feature_society.household_itinerary",
+      "revision": 1,
+      "actorId": "player",
+      "origin": "feature_society.terms",
+      "label": "Supply, funded repair and a personal method",
+      "startedSequence": 4512,
+      "startedAt": 533,
+      "updatedAt": 577,
+      "steps": [
+        {
+          "id": "supply",
+          "kind": "command",
+          "commandId": "feature_society.supply",
+          "revision": 1,
+          "targetId": "feature_society.hessa"
+        },
+        {
+          "id": "permission",
+          "kind": "command",
+          "commandId": "feature_society.authorize_home",
+          "revision": 1,
+          "targetId": "feature_society.hessa"
+        },
+        {
+          "id": "wait_repair",
+          "kind": "wait",
+          "requires": {
+            "fact": "world.feature_society.homeRepaired",
+            "op": "eq",
+            "value": true
+          },
+          "actorId": "feature_society.orr",
+          "commandId": "feature_society.orr_repair",
+          "revision": 1,
+          "label": "Wait for Orr’s actual funded repair before hearing the result"
+        },
+        {
+          "id": "report",
+          "kind": "command",
+          "commandId": "feature_society.hear_home",
+          "revision": 1,
+          "targetId": "feature_society.hessa"
+        },
+        {
+          "id": "learn",
+          "kind": "command",
+          "commandId": "feature_society.personal_lesson",
+          "revision": 1,
+          "targetId": "feature_society.orr"
+        },
+        {
+          "id": "travel_home",
+          "kind": "travel",
+          "location": "Shack",
+          "label": "Travel to your Shack through native travel"
+        },
+        {
+          "id": "personal_use",
+          "kind": "command",
+          "commandId": "feature_society.personal_pack",
+          "revision": 1
+        }
+      ],
+      "index": 7,
+      "status": "complete",
+      "accepted": null,
+      "reason": ""
+    }
+  },
+  {
+    "name": "both-filled",
+    "clock": 709,
+    "money": 49,
+    "staminaToFull": 0,
+    "inventory": {
+      "{\"id\":\"Cheap leather pants\",\"quality\":40}": {
+        "count": 1
+      },
+      "{\"id\":\"Stale bread\"}": {
+        "count": 5
+      },
+      "{\"id\":\"Old pickaxe\",\"quality\":100}": {
+        "count": 1
+      },
+      "{\"id\":\"Old sickle\",\"quality\":100}": {
+        "count": 1
+      },
+      "{\"id\":\"Old shovel\",\"quality\":100}": {
+        "count": 1
+      },
+      "{\"id\":\"Rough wood log\"}": {
+        "count": 80
+      },
+      "{\"id\":\"Tree sap\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Cooling salt packet\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Empty cooling sleeve\"}": {
+        "count": 2
+      },
+      "{\"id\":\"Prepared survey kit\"}": {
+        "count": 7
+      },
+      "{\"id\":\"Wax-sealed survey kit\"}": {
+        "count": 4
+      },
+      "{\"id\":\"Dulled field fitting knife\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Field fitting knife\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Bench clearance manual\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Filled retort resin tray\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Filled retort residue tray\"}": {
+        "count": 1
+      }
+    },
+    "jobs": [],
+    "retort": {
+      "schema": 1,
+      "installedAt": 699,
+      "installedSequence": 4678
+    },
+    "cursor": {
+      "id": "work-plan:4512",
+      "definitionId": "feature_society.household_itinerary",
+      "revision": 1,
+      "actorId": "player",
+      "origin": "feature_society.terms",
+      "label": "Supply, funded repair and a personal method",
+      "startedSequence": 4512,
+      "startedAt": 533,
+      "updatedAt": 577,
+      "steps": [
+        {
+          "id": "supply",
+          "kind": "command",
+          "commandId": "feature_society.supply",
+          "revision": 1,
+          "targetId": "feature_society.hessa"
+        },
+        {
+          "id": "permission",
+          "kind": "command",
+          "commandId": "feature_society.authorize_home",
+          "revision": 1,
+          "targetId": "feature_society.hessa"
+        },
+        {
+          "id": "wait_repair",
+          "kind": "wait",
+          "requires": {
+            "fact": "world.feature_society.homeRepaired",
+            "op": "eq",
+            "value": true
+          },
+          "actorId": "feature_society.orr",
+          "commandId": "feature_society.orr_repair",
+          "revision": 1,
+          "label": "Wait for Orr’s actual funded repair before hearing the result"
+        },
+        {
+          "id": "report",
+          "kind": "command",
+          "commandId": "feature_society.hear_home",
+          "revision": 1,
+          "targetId": "feature_society.hessa"
+        },
+        {
+          "id": "learn",
+          "kind": "command",
+          "commandId": "feature_society.personal_lesson",
+          "revision": 1,
+          "targetId": "feature_society.orr"
+        },
+        {
+          "id": "travel_home",
+          "kind": "travel",
+          "location": "Shack",
+          "label": "Travel to your Shack through native travel"
+        },
+        {
+          "id": "personal_use",
+          "kind": "command",
+          "commandId": "feature_society.personal_pack",
+          "revision": 1
+        }
+      ],
+      "index": 7,
+      "status": "complete",
+      "accepted": null,
+      "reason": ""
+    }
+  },
+  {
+    "name": "both-filled-reloaded",
+    "clock": 709,
+    "money": 49,
+    "staminaToFull": 0,
+    "inventory": {
+      "{\"id\":\"Cheap leather pants\",\"quality\":40}": {
+        "count": 1
+      },
+      "{\"id\":\"Stale bread\"}": {
+        "count": 5
+      },
+      "{\"id\":\"Old pickaxe\",\"quality\":100}": {
+        "count": 1
+      },
+      "{\"id\":\"Old sickle\",\"quality\":100}": {
+        "count": 1
+      },
+      "{\"id\":\"Old shovel\",\"quality\":100}": {
+        "count": 1
+      },
+      "{\"id\":\"Rough wood log\"}": {
+        "count": 80
+      },
+      "{\"id\":\"Tree sap\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Cooling salt packet\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Empty cooling sleeve\"}": {
+        "count": 2
+      },
+      "{\"id\":\"Prepared survey kit\"}": {
+        "count": 7
+      },
+      "{\"id\":\"Wax-sealed survey kit\"}": {
+        "count": 4
+      },
+      "{\"id\":\"Dulled field fitting knife\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Field fitting knife\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Bench clearance manual\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Filled retort resin tray\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Filled retort residue tray\"}": {
+        "count": 1
+      }
+    },
+    "jobs": [],
+    "retort": {
+      "schema": 1,
+      "installedAt": 699,
+      "installedSequence": 4678
+    },
+    "cursor": {
+      "id": "work-plan:4512",
+      "definitionId": "feature_society.household_itinerary",
+      "revision": 1,
+      "actorId": "player",
+      "origin": "feature_society.terms",
+      "label": "Supply, funded repair and a personal method",
+      "startedSequence": 4512,
+      "startedAt": 533,
+      "updatedAt": 577,
+      "steps": [
+        {
+          "id": "supply",
+          "kind": "command",
+          "commandId": "feature_society.supply",
+          "revision": 1,
+          "targetId": "feature_society.hessa"
+        },
+        {
+          "id": "permission",
+          "kind": "command",
+          "commandId": "feature_society.authorize_home",
+          "revision": 1,
+          "targetId": "feature_society.hessa"
+        },
+        {
+          "id": "wait_repair",
+          "kind": "wait",
+          "requires": {
+            "fact": "world.feature_society.homeRepaired",
+            "op": "eq",
+            "value": true
+          },
+          "actorId": "feature_society.orr",
+          "commandId": "feature_society.orr_repair",
+          "revision": 1,
+          "label": "Wait for Orr’s actual funded repair before hearing the result"
+        },
+        {
+          "id": "report",
+          "kind": "command",
+          "commandId": "feature_society.hear_home",
+          "revision": 1,
+          "targetId": "feature_society.hessa"
+        },
+        {
+          "id": "learn",
+          "kind": "command",
+          "commandId": "feature_society.personal_lesson",
+          "revision": 1,
+          "targetId": "feature_society.orr"
+        },
+        {
+          "id": "travel_home",
+          "kind": "travel",
+          "location": "Shack",
+          "label": "Travel to your Shack through native travel"
+        },
+        {
+          "id": "personal_use",
+          "kind": "command",
+          "commandId": "feature_society.personal_pack",
+          "revision": 1
+        }
+      ],
+      "index": 7,
+      "status": "complete",
+      "accepted": null,
+      "reason": ""
+    }
+  },
+  {
+    "name": "both-filled-imported",
+    "clock": 709,
+    "money": 49,
+    "staminaToFull": 0,
+    "inventory": {
+      "{\"id\":\"Cheap leather pants\",\"quality\":40}": {
+        "count": 1
+      },
+      "{\"id\":\"Stale bread\"}": {
+        "count": 5
+      },
+      "{\"id\":\"Old pickaxe\",\"quality\":100}": {
+        "count": 1
+      },
+      "{\"id\":\"Old sickle\",\"quality\":100}": {
+        "count": 1
+      },
+      "{\"id\":\"Old shovel\",\"quality\":100}": {
+        "count": 1
+      },
+      "{\"id\":\"Rough wood log\"}": {
+        "count": 80
+      },
+      "{\"id\":\"Tree sap\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Cooling salt packet\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Empty cooling sleeve\"}": {
+        "count": 2
+      },
+      "{\"id\":\"Prepared survey kit\"}": {
+        "count": 7
+      },
+      "{\"id\":\"Wax-sealed survey kit\"}": {
+        "count": 4
+      },
+      "{\"id\":\"Dulled field fitting knife\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Field fitting knife\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Bench clearance manual\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Filled retort resin tray\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Filled retort residue tray\"}": {
+        "count": 1
+      }
+    },
+    "jobs": [],
+    "retort": {
+      "schema": 1,
+      "installedAt": 699,
+      "installedSequence": 4678
+    },
+    "cursor": {
+      "id": "work-plan:4512",
+      "definitionId": "feature_society.household_itinerary",
+      "revision": 1,
+      "actorId": "player",
+      "origin": "feature_society.terms",
+      "label": "Supply, funded repair and a personal method",
+      "startedSequence": 4512,
+      "startedAt": 533,
+      "updatedAt": 577,
+      "steps": [
+        {
+          "id": "supply",
+          "kind": "command",
+          "commandId": "feature_society.supply",
+          "revision": 1,
+          "targetId": "feature_society.hessa"
+        },
+        {
+          "id": "permission",
+          "kind": "command",
+          "commandId": "feature_society.authorize_home",
+          "revision": 1,
+          "targetId": "feature_society.hessa"
+        },
+        {
+          "id": "wait_repair",
+          "kind": "wait",
+          "requires": {
+            "fact": "world.feature_society.homeRepaired",
+            "op": "eq",
+            "value": true
+          },
+          "actorId": "feature_society.orr",
+          "commandId": "feature_society.orr_repair",
+          "revision": 1,
+          "label": "Wait for Orr’s actual funded repair before hearing the result"
+        },
+        {
+          "id": "report",
+          "kind": "command",
+          "commandId": "feature_society.hear_home",
+          "revision": 1,
+          "targetId": "feature_society.hessa"
+        },
+        {
+          "id": "learn",
+          "kind": "command",
+          "commandId": "feature_society.personal_lesson",
+          "revision": 1,
+          "targetId": "feature_society.orr"
+        },
+        {
+          "id": "travel_home",
+          "kind": "travel",
+          "location": "Shack",
+          "label": "Travel to your Shack through native travel"
+        },
+        {
+          "id": "personal_use",
+          "kind": "command",
+          "commandId": "feature_society.personal_pack",
+          "revision": 1
+        }
+      ],
+      "index": 7,
+      "status": "complete",
+      "accepted": null,
+      "reason": ""
+    }
+  },
+  {
+    "name": "resin-collected",
+    "clock": 710,
+    "money": 49,
+    "staminaToFull": 0,
+    "inventory": {
+      "{\"id\":\"Cheap leather pants\",\"quality\":40}": {
+        "count": 1
+      },
+      "{\"id\":\"Stale bread\"}": {
+        "count": 5
+      },
+      "{\"id\":\"Old pickaxe\",\"quality\":100}": {
+        "count": 1
+      },
+      "{\"id\":\"Old sickle\",\"quality\":100}": {
+        "count": 1
+      },
+      "{\"id\":\"Old shovel\",\"quality\":100}": {
+        "count": 1
+      },
+      "{\"id\":\"Rough wood log\"}": {
+        "count": 80
+      },
+      "{\"id\":\"Tree sap\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Cooling salt packet\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Empty cooling sleeve\"}": {
+        "count": 2
+      },
+      "{\"id\":\"Prepared survey kit\"}": {
+        "count": 7
+      },
+      "{\"id\":\"Wax-sealed survey kit\"}": {
+        "count": 4
+      },
+      "{\"id\":\"Dulled field fitting knife\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Field fitting knife\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Bench clearance manual\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Filled retort residue tray\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Empty retort resin tray\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Set repair resin\"}": {
+        "count": 1
+      }
+    },
+    "jobs": [],
+    "retort": {
+      "schema": 1,
+      "installedAt": 699,
+      "installedSequence": 4678
+    },
+    "cursor": {
+      "id": "work-plan:4512",
+      "definitionId": "feature_society.household_itinerary",
+      "revision": 1,
+      "actorId": "player",
+      "origin": "feature_society.terms",
+      "label": "Supply, funded repair and a personal method",
+      "startedSequence": 4512,
+      "startedAt": 533,
+      "updatedAt": 577,
+      "steps": [
+        {
+          "id": "supply",
+          "kind": "command",
+          "commandId": "feature_society.supply",
+          "revision": 1,
+          "targetId": "feature_society.hessa"
+        },
+        {
+          "id": "permission",
+          "kind": "command",
+          "commandId": "feature_society.authorize_home",
+          "revision": 1,
+          "targetId": "feature_society.hessa"
+        },
+        {
+          "id": "wait_repair",
+          "kind": "wait",
+          "requires": {
+            "fact": "world.feature_society.homeRepaired",
+            "op": "eq",
+            "value": true
+          },
+          "actorId": "feature_society.orr",
+          "commandId": "feature_society.orr_repair",
+          "revision": 1,
+          "label": "Wait for Orr’s actual funded repair before hearing the result"
+        },
+        {
+          "id": "report",
+          "kind": "command",
+          "commandId": "feature_society.hear_home",
+          "revision": 1,
+          "targetId": "feature_society.hessa"
+        },
+        {
+          "id": "learn",
+          "kind": "command",
+          "commandId": "feature_society.personal_lesson",
+          "revision": 1,
+          "targetId": "feature_society.orr"
+        },
+        {
+          "id": "travel_home",
+          "kind": "travel",
+          "location": "Shack",
+          "label": "Travel to your Shack through native travel"
+        },
+        {
+          "id": "personal_use",
+          "kind": "command",
+          "commandId": "feature_society.personal_pack",
+          "revision": 1
+        }
+      ],
+      "index": 7,
+      "status": "complete",
+      "accepted": null,
+      "reason": ""
+    }
+  },
+  {
+    "name": "resin-only",
+    "clock": 710,
+    "money": 49,
+    "staminaToFull": 0,
+    "inventory": {
+      "{\"id\":\"Cheap leather pants\",\"quality\":40}": {
+        "count": 1
+      },
+      "{\"id\":\"Stale bread\"}": {
+        "count": 5
+      },
+      "{\"id\":\"Old pickaxe\",\"quality\":100}": {
+        "count": 1
+      },
+      "{\"id\":\"Old sickle\",\"quality\":100}": {
+        "count": 1
+      },
+      "{\"id\":\"Old shovel\",\"quality\":100}": {
+        "count": 1
+      },
+      "{\"id\":\"Rough wood log\"}": {
+        "count": 80
+      },
+      "{\"id\":\"Tree sap\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Cooling salt packet\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Empty cooling sleeve\"}": {
+        "count": 2
+      },
+      "{\"id\":\"Prepared survey kit\"}": {
+        "count": 7
+      },
+      "{\"id\":\"Wax-sealed survey kit\"}": {
+        "count": 4
+      },
+      "{\"id\":\"Dulled field fitting knife\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Field fitting knife\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Bench clearance manual\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Filled retort residue tray\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Empty retort resin tray\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Set repair resin\"}": {
+        "count": 1
+      }
+    },
+    "jobs": [],
+    "retort": {
+      "schema": 1,
+      "installedAt": 699,
+      "installedSequence": 4678
+    },
+    "cursor": {
+      "id": "work-plan:4512",
+      "definitionId": "feature_society.household_itinerary",
+      "revision": 1,
+      "actorId": "player",
+      "origin": "feature_society.terms",
+      "label": "Supply, funded repair and a personal method",
+      "startedSequence": 4512,
+      "startedAt": 533,
+      "updatedAt": 577,
+      "steps": [
+        {
+          "id": "supply",
+          "kind": "command",
+          "commandId": "feature_society.supply",
+          "revision": 1,
+          "targetId": "feature_society.hessa"
+        },
+        {
+          "id": "permission",
+          "kind": "command",
+          "commandId": "feature_society.authorize_home",
+          "revision": 1,
+          "targetId": "feature_society.hessa"
+        },
+        {
+          "id": "wait_repair",
+          "kind": "wait",
+          "requires": {
+            "fact": "world.feature_society.homeRepaired",
+            "op": "eq",
+            "value": true
+          },
+          "actorId": "feature_society.orr",
+          "commandId": "feature_society.orr_repair",
+          "revision": 1,
+          "label": "Wait for Orr’s actual funded repair before hearing the result"
+        },
+        {
+          "id": "report",
+          "kind": "command",
+          "commandId": "feature_society.hear_home",
+          "revision": 1,
+          "targetId": "feature_society.hessa"
+        },
+        {
+          "id": "learn",
+          "kind": "command",
+          "commandId": "feature_society.personal_lesson",
+          "revision": 1,
+          "targetId": "feature_society.orr"
+        },
+        {
+          "id": "travel_home",
+          "kind": "travel",
+          "location": "Shack",
+          "label": "Travel to your Shack through native travel"
+        },
+        {
+          "id": "personal_use",
+          "kind": "command",
+          "commandId": "feature_society.personal_pack",
+          "revision": 1
+        }
+      ],
+      "index": 7,
+      "status": "complete",
+      "accepted": null,
+      "reason": ""
+    }
+  },
+  {
+    "name": "resin-only-reloaded",
+    "clock": 710,
+    "money": 49,
+    "staminaToFull": 0,
+    "inventory": {
+      "{\"id\":\"Cheap leather pants\",\"quality\":40}": {
+        "count": 1
+      },
+      "{\"id\":\"Stale bread\"}": {
+        "count": 5
+      },
+      "{\"id\":\"Old pickaxe\",\"quality\":100}": {
+        "count": 1
+      },
+      "{\"id\":\"Old sickle\",\"quality\":100}": {
+        "count": 1
+      },
+      "{\"id\":\"Old shovel\",\"quality\":100}": {
+        "count": 1
+      },
+      "{\"id\":\"Rough wood log\"}": {
+        "count": 80
+      },
+      "{\"id\":\"Tree sap\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Cooling salt packet\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Empty cooling sleeve\"}": {
+        "count": 2
+      },
+      "{\"id\":\"Prepared survey kit\"}": {
+        "count": 7
+      },
+      "{\"id\":\"Wax-sealed survey kit\"}": {
+        "count": 4
+      },
+      "{\"id\":\"Dulled field fitting knife\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Field fitting knife\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Bench clearance manual\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Filled retort residue tray\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Empty retort resin tray\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Set repair resin\"}": {
+        "count": 1
+      }
+    },
+    "jobs": [],
+    "retort": {
+      "schema": 1,
+      "installedAt": 699,
+      "installedSequence": 4678
+    },
+    "cursor": {
+      "id": "work-plan:4512",
+      "definitionId": "feature_society.household_itinerary",
+      "revision": 1,
+      "actorId": "player",
+      "origin": "feature_society.terms",
+      "label": "Supply, funded repair and a personal method",
+      "startedSequence": 4512,
+      "startedAt": 533,
+      "updatedAt": 577,
+      "steps": [
+        {
+          "id": "supply",
+          "kind": "command",
+          "commandId": "feature_society.supply",
+          "revision": 1,
+          "targetId": "feature_society.hessa"
+        },
+        {
+          "id": "permission",
+          "kind": "command",
+          "commandId": "feature_society.authorize_home",
+          "revision": 1,
+          "targetId": "feature_society.hessa"
+        },
+        {
+          "id": "wait_repair",
+          "kind": "wait",
+          "requires": {
+            "fact": "world.feature_society.homeRepaired",
+            "op": "eq",
+            "value": true
+          },
+          "actorId": "feature_society.orr",
+          "commandId": "feature_society.orr_repair",
+          "revision": 1,
+          "label": "Wait for Orr’s actual funded repair before hearing the result"
+        },
+        {
+          "id": "report",
+          "kind": "command",
+          "commandId": "feature_society.hear_home",
+          "revision": 1,
+          "targetId": "feature_society.hessa"
+        },
+        {
+          "id": "learn",
+          "kind": "command",
+          "commandId": "feature_society.personal_lesson",
+          "revision": 1,
+          "targetId": "feature_society.orr"
+        },
+        {
+          "id": "travel_home",
+          "kind": "travel",
+          "location": "Shack",
+          "label": "Travel to your Shack through native travel"
+        },
+        {
+          "id": "personal_use",
+          "kind": "command",
+          "commandId": "feature_society.personal_pack",
+          "revision": 1
+        }
+      ],
+      "index": 7,
+      "status": "complete",
+      "accepted": null,
+      "reason": ""
+    }
+  },
+  {
+    "name": "resin-only-imported",
+    "clock": 710,
+    "money": 49,
+    "staminaToFull": 0,
+    "inventory": {
+      "{\"id\":\"Cheap leather pants\",\"quality\":40}": {
+        "count": 1
+      },
+      "{\"id\":\"Stale bread\"}": {
+        "count": 5
+      },
+      "{\"id\":\"Old pickaxe\",\"quality\":100}": {
+        "count": 1
+      },
+      "{\"id\":\"Old sickle\",\"quality\":100}": {
+        "count": 1
+      },
+      "{\"id\":\"Old shovel\",\"quality\":100}": {
+        "count": 1
+      },
+      "{\"id\":\"Rough wood log\"}": {
+        "count": 80
+      },
+      "{\"id\":\"Tree sap\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Cooling salt packet\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Empty cooling sleeve\"}": {
+        "count": 2
+      },
+      "{\"id\":\"Prepared survey kit\"}": {
+        "count": 7
+      },
+      "{\"id\":\"Wax-sealed survey kit\"}": {
+        "count": 4
+      },
+      "{\"id\":\"Dulled field fitting knife\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Field fitting knife\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Bench clearance manual\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Filled retort residue tray\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Empty retort resin tray\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Set repair resin\"}": {
+        "count": 1
+      }
+    },
+    "jobs": [],
+    "retort": {
+      "schema": 1,
+      "installedAt": 699,
+      "installedSequence": 4678
+    },
+    "cursor": {
+      "id": "work-plan:4512",
+      "definitionId": "feature_society.household_itinerary",
+      "revision": 1,
+      "actorId": "player",
+      "origin": "feature_society.terms",
+      "label": "Supply, funded repair and a personal method",
+      "startedSequence": 4512,
+      "startedAt": 533,
+      "updatedAt": 577,
+      "steps": [
+        {
+          "id": "supply",
+          "kind": "command",
+          "commandId": "feature_society.supply",
+          "revision": 1,
+          "targetId": "feature_society.hessa"
+        },
+        {
+          "id": "permission",
+          "kind": "command",
+          "commandId": "feature_society.authorize_home",
+          "revision": 1,
+          "targetId": "feature_society.hessa"
+        },
+        {
+          "id": "wait_repair",
+          "kind": "wait",
+          "requires": {
+            "fact": "world.feature_society.homeRepaired",
+            "op": "eq",
+            "value": true
+          },
+          "actorId": "feature_society.orr",
+          "commandId": "feature_society.orr_repair",
+          "revision": 1,
+          "label": "Wait for Orr’s actual funded repair before hearing the result"
+        },
+        {
+          "id": "report",
+          "kind": "command",
+          "commandId": "feature_society.hear_home",
+          "revision": 1,
+          "targetId": "feature_society.hessa"
+        },
+        {
+          "id": "learn",
+          "kind": "command",
+          "commandId": "feature_society.personal_lesson",
+          "revision": 1,
+          "targetId": "feature_society.orr"
+        },
+        {
+          "id": "travel_home",
+          "kind": "travel",
+          "location": "Shack",
+          "label": "Travel to your Shack through native travel"
+        },
+        {
+          "id": "personal_use",
+          "kind": "command",
+          "commandId": "feature_society.personal_pack",
+          "revision": 1
+        }
+      ],
+      "index": 7,
+      "status": "complete",
+      "accepted": null,
+      "reason": ""
+    }
+  },
+  {
+    "name": "plan-blocked-residue",
+    "clock": 711,
+    "money": 49,
+    "staminaToFull": 0,
+    "inventory": {
+      "{\"id\":\"Cheap leather pants\",\"quality\":40}": {
+        "count": 1
+      },
+      "{\"id\":\"Stale bread\"}": {
+        "count": 5
+      },
+      "{\"id\":\"Old pickaxe\",\"quality\":100}": {
+        "count": 1
+      },
+      "{\"id\":\"Old sickle\",\"quality\":100}": {
+        "count": 1
+      },
+      "{\"id\":\"Old shovel\",\"quality\":100}": {
+        "count": 1
+      },
+      "{\"id\":\"Rough wood log\"}": {
+        "count": 80
+      },
+      "{\"id\":\"Tree sap\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Cooling salt packet\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Empty cooling sleeve\"}": {
+        "count": 2
+      },
+      "{\"id\":\"Prepared survey kit\"}": {
+        "count": 7
+      },
+      "{\"id\":\"Wax-sealed survey kit\"}": {
+        "count": 4
+      },
+      "{\"id\":\"Dulled field fitting knife\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Field fitting knife\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Bench clearance manual\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Filled retort residue tray\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Empty retort resin tray\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Set repair resin\"}": {
+        "count": 1
+      }
+    },
+    "jobs": [],
+    "retort": {
+      "schema": 1,
+      "installedAt": 699,
+      "installedSequence": 4678
+    },
+    "cursor": {
+      "id": "work-plan:4692",
+      "definitionId": "factorio_retort.three_batches",
+      "revision": 1,
+      "actorId": "player",
+      "origin": "factorio_retort.install",
+      "label": "Three retort batches with separate receiver clearing",
+      "startedSequence": 4692,
+      "startedAt": 710,
+      "updatedAt": 710,
+      "steps": [
+        {
+          "id": "batch_1",
+          "kind": "command",
+          "commandId": "factorio_retort.batch",
+          "revision": 1
+        },
+        {
+          "id": "batch_2",
+          "kind": "command",
+          "commandId": "factorio_retort.batch",
+          "revision": 1
+        },
+        {
+          "id": "batch_3",
+          "kind": "command",
+          "commandId": "factorio_retort.batch",
+          "revision": 1
+        }
+      ],
+      "index": 0,
+      "status": "paused",
+      "accepted": null,
+      "reason": "The required knowledge, means or circumstances are missing."
+    }
+  },
+  {
+    "name": "first-residue-disposed",
+    "clock": 713,
+    "money": 49,
+    "staminaToFull": 0,
+    "inventory": {
+      "{\"id\":\"Cheap leather pants\",\"quality\":40}": {
+        "count": 1
+      },
+      "{\"id\":\"Stale bread\"}": {
+        "count": 5
+      },
+      "{\"id\":\"Old pickaxe\",\"quality\":100}": {
+        "count": 1
+      },
+      "{\"id\":\"Old sickle\",\"quality\":100}": {
+        "count": 1
+      },
+      "{\"id\":\"Old shovel\",\"quality\":100}": {
+        "count": 1
+      },
+      "{\"id\":\"Rough wood log\"}": {
+        "count": 80
+      },
+      "{\"id\":\"Tree sap\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Cooling salt packet\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Empty cooling sleeve\"}": {
+        "count": 2
+      },
+      "{\"id\":\"Prepared survey kit\"}": {
+        "count": 7
+      },
+      "{\"id\":\"Wax-sealed survey kit\"}": {
+        "count": 4
+      },
+      "{\"id\":\"Dulled field fitting knife\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Field fitting knife\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Bench clearance manual\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Empty retort resin tray\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Set repair resin\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Empty retort residue tray\"}": {
+        "count": 1
+      }
+    },
+    "jobs": [],
+    "retort": {
+      "schema": 1,
+      "installedAt": 699,
+      "installedSequence": 4678
+    },
+    "cursor": {
+      "id": "work-plan:4692",
+      "definitionId": "factorio_retort.three_batches",
+      "revision": 1,
+      "actorId": "player",
+      "origin": "factorio_retort.install",
+      "label": "Three retort batches with separate receiver clearing",
+      "startedSequence": 4692,
+      "startedAt": 710,
+      "updatedAt": 710,
+      "steps": [
+        {
+          "id": "batch_1",
+          "kind": "command",
+          "commandId": "factorio_retort.batch",
+          "revision": 1
+        },
+        {
+          "id": "batch_2",
+          "kind": "command",
+          "commandId": "factorio_retort.batch",
+          "revision": 1
+        },
+        {
+          "id": "batch_3",
+          "kind": "command",
+          "commandId": "factorio_retort.batch",
+          "revision": 1
+        }
+      ],
+      "index": 0,
+      "status": "paused",
+      "accepted": null,
+      "reason": "The required knowledge, means or circumstances are missing."
+    }
+  },
+  {
+    "name": "first-residue-disposed-paused",
+    "clock": 713,
+    "money": 49,
+    "staminaToFull": 0,
+    "inventory": {
+      "{\"id\":\"Cheap leather pants\",\"quality\":40}": {
+        "count": 1
+      },
+      "{\"id\":\"Stale bread\"}": {
+        "count": 5
+      },
+      "{\"id\":\"Old pickaxe\",\"quality\":100}": {
+        "count": 1
+      },
+      "{\"id\":\"Old sickle\",\"quality\":100}": {
+        "count": 1
+      },
+      "{\"id\":\"Old shovel\",\"quality\":100}": {
+        "count": 1
+      },
+      "{\"id\":\"Rough wood log\"}": {
+        "count": 80
+      },
+      "{\"id\":\"Tree sap\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Cooling salt packet\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Empty cooling sleeve\"}": {
+        "count": 2
+      },
+      "{\"id\":\"Prepared survey kit\"}": {
+        "count": 7
+      },
+      "{\"id\":\"Wax-sealed survey kit\"}": {
+        "count": 4
+      },
+      "{\"id\":\"Dulled field fitting knife\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Field fitting knife\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Bench clearance manual\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Empty retort resin tray\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Set repair resin\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Empty retort residue tray\"}": {
+        "count": 1
+      }
+    },
+    "jobs": [],
+    "retort": {
+      "schema": 1,
+      "installedAt": 699,
+      "installedSequence": 4678
+    },
+    "cursor": {
+      "id": "work-plan:4692",
+      "definitionId": "factorio_retort.three_batches",
+      "revision": 1,
+      "actorId": "player",
+      "origin": "factorio_retort.install",
+      "label": "Three retort batches with separate receiver clearing",
+      "startedSequence": 4692,
+      "startedAt": 710,
+      "updatedAt": 710,
+      "steps": [
+        {
+          "id": "batch_1",
+          "kind": "command",
+          "commandId": "factorio_retort.batch",
+          "revision": 1
+        },
+        {
+          "id": "batch_2",
+          "kind": "command",
+          "commandId": "factorio_retort.batch",
+          "revision": 1
+        },
+        {
+          "id": "batch_3",
+          "kind": "command",
+          "commandId": "factorio_retort.batch",
+          "revision": 1
+        }
+      ],
+      "index": 0,
+      "status": "paused",
+      "accepted": null,
+      "reason": "The required knowledge, means or circumstances are missing."
+    }
+  },
+  {
+    "name": "second-attempt-pending",
+    "clock": 714,
+    "money": 49,
+    "staminaToFull": 0,
+    "inventory": {
+      "{\"id\":\"Cheap leather pants\",\"quality\":40}": {
+        "count": 1
+      },
+      "{\"id\":\"Stale bread\"}": {
+        "count": 5
+      },
+      "{\"id\":\"Old pickaxe\",\"quality\":100}": {
+        "count": 1
+      },
+      "{\"id\":\"Old sickle\",\"quality\":100}": {
+        "count": 1
+      },
+      "{\"id\":\"Old shovel\",\"quality\":100}": {
+        "count": 1
+      },
+      "{\"id\":\"Rough wood log\"}": {
+        "count": 79
+      },
+      "{\"id\":\"Cooling salt packet\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Empty cooling sleeve\"}": {
+        "count": 2
+      },
+      "{\"id\":\"Prepared survey kit\"}": {
+        "count": 7
+      },
+      "{\"id\":\"Wax-sealed survey kit\"}": {
+        "count": 4
+      },
+      "{\"id\":\"Dulled field fitting knife\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Field fitting knife\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Bench clearance manual\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Set repair resin\"}": {
+        "count": 1
+      }
+    },
+    "jobs": [
+      {
+        "id": "simulation:4697",
+        "sequence": 4697,
+        "commandId": "factorio_retort.batch",
+        "revision": 1,
+        "actorId": "player",
+        "targetId": null,
+        "due": 716,
+        "effects": [
+          {
+            "type": "item",
+            "actor": "player",
+            "key": "{\"id\":\"Filled retort resin tray\"}",
+            "amount": 1,
+            "reservationReturn": true
+          },
+          {
+            "type": "item",
+            "actor": "player",
+            "key": "{\"id\":\"Filled retort residue tray\"}",
+            "amount": 1,
+            "reservationReturn": true
+          },
+          {
+            "type": "knowledge",
+            "actor": "player",
+            "key": "factorio_retort.batch",
+            "stage": "seen",
+            "value": "Prepared and settled one retort batch. Its reserved sap and log fuel were spent once; my two held empty receivers returned as distinct filled trays. Resin and spent residue remain in those physical trays until separate collection or disposal. No second batch input or fuel was reserved by this completion.",
+            "basis": {
+              "kind": "observation",
+              "attributedTo": "player",
+              "situationId": "feature_objects.sluice"
+            }
+          }
+        ],
+        "costs": [
+          {
+            "type": "item",
+            "actor": "player",
+            "key": "{\"id\":\"Tree sap\"}",
+            "amount": -1
+          },
+          {
+            "type": "item",
+            "actor": "player",
+            "key": "{\"id\":\"Rough wood log\"}",
+            "amount": -1
+          },
+          {
+            "type": "item",
+            "actor": "player",
+            "key": "{\"id\":\"Empty retort resin tray\"}",
+            "amount": -1
+          },
+          {
+            "type": "item",
+            "actor": "player",
+            "key": "{\"id\":\"Empty retort residue tray\"}",
+            "amount": -1
+          },
+          {
+            "type": "vital",
+            "actor": "player",
+            "key": "stamina",
+            "amount": -1
+          }
+        ],
+        "cancellation": "refund",
+        "siteId": "factorio_retort.rack",
+        "claim": null,
+        "label": "Prepare one retort batch · sap + log fuel + both empty trays + 1 stamina + 3 min",
+        "roll": null,
+        "outcomeId": null,
+        "context": {
+          "actorId": "player",
+          "targetId": null,
+          "partyIds": []
+        },
+        "participants": [
+          "player"
+        ],
+        "reservationReturns": 1,
+        "completionSupport": {
+          "schema": 1,
+          "requires": {
+            "all": [
+              {
+                "fact": "factorioRetort.localSupported",
+                "op": "eq",
+                "value": true,
+                "reason": "Return to the Village with your actual living native body, usable hands and supported local clock."
+              },
+              {
+                "fact": "factorioRetort.installed",
+                "op": "eq",
+                "value": true,
+                "reason": "Commission your own retort rack and two physical trays first."
+              },
+              {
+                "fact": "factorioRetort.rackOwned",
+                "op": "eq",
+                "value": true,
+                "reason": "Retain your actual owned rack and the existing fitting-bench permission."
+              }
+            ]
+          },
+          "coLocated": false,
+          "location": "Village",
+          "failure": "refund"
+        }
+      }
+    ],
+    "retort": {
+      "schema": 1,
+      "installedAt": 699,
+      "installedSequence": 4678
+    },
+    "cursor": {
+      "id": "work-plan:4692",
+      "definitionId": "factorio_retort.three_batches",
+      "revision": 1,
+      "actorId": "player",
+      "origin": "factorio_retort.install",
+      "label": "Three retort batches with separate receiver clearing",
+      "startedSequence": 4692,
+      "startedAt": 710,
+      "updatedAt": 710,
+      "steps": [
+        {
+          "id": "batch_1",
+          "kind": "command",
+          "commandId": "factorio_retort.batch",
+          "revision": 1
+        },
+        {
+          "id": "batch_2",
+          "kind": "command",
+          "commandId": "factorio_retort.batch",
+          "revision": 1
+        },
+        {
+          "id": "batch_3",
+          "kind": "command",
+          "commandId": "factorio_retort.batch",
+          "revision": 1
+        }
+      ],
+      "index": 0,
+      "status": "paused",
+      "accepted": null,
+      "reason": "The required knowledge, means or circumstances are missing."
+    }
+  },
+  {
+    "name": "second-attempt-pending-reloaded",
+    "clock": 714,
+    "money": 49,
+    "staminaToFull": 0,
+    "inventory": {
+      "{\"id\":\"Cheap leather pants\",\"quality\":40}": {
+        "count": 1
+      },
+      "{\"id\":\"Stale bread\"}": {
+        "count": 5
+      },
+      "{\"id\":\"Old pickaxe\",\"quality\":100}": {
+        "count": 1
+      },
+      "{\"id\":\"Old sickle\",\"quality\":100}": {
+        "count": 1
+      },
+      "{\"id\":\"Old shovel\",\"quality\":100}": {
+        "count": 1
+      },
+      "{\"id\":\"Rough wood log\"}": {
+        "count": 79
+      },
+      "{\"id\":\"Cooling salt packet\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Empty cooling sleeve\"}": {
+        "count": 2
+      },
+      "{\"id\":\"Prepared survey kit\"}": {
+        "count": 7
+      },
+      "{\"id\":\"Wax-sealed survey kit\"}": {
+        "count": 4
+      },
+      "{\"id\":\"Dulled field fitting knife\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Field fitting knife\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Bench clearance manual\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Set repair resin\"}": {
+        "count": 1
+      }
+    },
+    "jobs": [
+      {
+        "id": "simulation:4697",
+        "sequence": 4697,
+        "commandId": "factorio_retort.batch",
+        "revision": 1,
+        "actorId": "player",
+        "targetId": null,
+        "due": 716,
+        "effects": [
+          {
+            "type": "item",
+            "actor": "player",
+            "key": "{\"id\":\"Filled retort resin tray\"}",
+            "amount": 1,
+            "reservationReturn": true
+          },
+          {
+            "type": "item",
+            "actor": "player",
+            "key": "{\"id\":\"Filled retort residue tray\"}",
+            "amount": 1,
+            "reservationReturn": true
+          },
+          {
+            "type": "knowledge",
+            "actor": "player",
+            "key": "factorio_retort.batch",
+            "stage": "seen",
+            "value": "Prepared and settled one retort batch. Its reserved sap and log fuel were spent once; my two held empty receivers returned as distinct filled trays. Resin and spent residue remain in those physical trays until separate collection or disposal. No second batch input or fuel was reserved by this completion.",
+            "basis": {
+              "kind": "observation",
+              "attributedTo": "player",
+              "situationId": "feature_objects.sluice"
+            }
+          }
+        ],
+        "costs": [
+          {
+            "type": "item",
+            "actor": "player",
+            "key": "{\"id\":\"Tree sap\"}",
+            "amount": -1
+          },
+          {
+            "type": "item",
+            "actor": "player",
+            "key": "{\"id\":\"Rough wood log\"}",
+            "amount": -1
+          },
+          {
+            "type": "item",
+            "actor": "player",
+            "key": "{\"id\":\"Empty retort resin tray\"}",
+            "amount": -1
+          },
+          {
+            "type": "item",
+            "actor": "player",
+            "key": "{\"id\":\"Empty retort residue tray\"}",
+            "amount": -1
+          },
+          {
+            "type": "vital",
+            "actor": "player",
+            "key": "stamina",
+            "amount": -1
+          }
+        ],
+        "cancellation": "refund",
+        "siteId": "factorio_retort.rack",
+        "claim": null,
+        "label": "Prepare one retort batch · sap + log fuel + both empty trays + 1 stamina + 3 min",
+        "roll": null,
+        "outcomeId": null,
+        "context": {
+          "actorId": "player",
+          "targetId": null,
+          "partyIds": []
+        },
+        "participants": [
+          "player"
+        ],
+        "reservationReturns": 1,
+        "completionSupport": {
+          "schema": 1,
+          "requires": {
+            "all": [
+              {
+                "fact": "factorioRetort.localSupported",
+                "op": "eq",
+                "value": true,
+                "reason": "Return to the Village with your actual living native body, usable hands and supported local clock."
+              },
+              {
+                "fact": "factorioRetort.installed",
+                "op": "eq",
+                "value": true,
+                "reason": "Commission your own retort rack and two physical trays first."
+              },
+              {
+                "fact": "factorioRetort.rackOwned",
+                "op": "eq",
+                "value": true,
+                "reason": "Retain your actual owned rack and the existing fitting-bench permission."
+              }
+            ]
+          },
+          "coLocated": false,
+          "location": "Village",
+          "failure": "refund"
+        }
+      }
+    ],
+    "retort": {
+      "schema": 1,
+      "installedAt": 699,
+      "installedSequence": 4678
+    },
+    "cursor": {
+      "id": "work-plan:4692",
+      "definitionId": "factorio_retort.three_batches",
+      "revision": 1,
+      "actorId": "player",
+      "origin": "factorio_retort.install",
+      "label": "Three retort batches with separate receiver clearing",
+      "startedSequence": 4692,
+      "startedAt": 710,
+      "updatedAt": 710,
+      "steps": [
+        {
+          "id": "batch_1",
+          "kind": "command",
+          "commandId": "factorio_retort.batch",
+          "revision": 1
+        },
+        {
+          "id": "batch_2",
+          "kind": "command",
+          "commandId": "factorio_retort.batch",
+          "revision": 1
+        },
+        {
+          "id": "batch_3",
+          "kind": "command",
+          "commandId": "factorio_retort.batch",
+          "revision": 1
+        }
+      ],
+      "index": 0,
+      "status": "paused",
+      "accepted": null,
+      "reason": "The required knowledge, means or circumstances are missing."
+    }
+  },
+  {
+    "name": "second-attempt-pending-imported",
+    "clock": 714,
+    "money": 49,
+    "staminaToFull": 0,
+    "inventory": {
+      "{\"id\":\"Cheap leather pants\",\"quality\":40}": {
+        "count": 1
+      },
+      "{\"id\":\"Stale bread\"}": {
+        "count": 5
+      },
+      "{\"id\":\"Old pickaxe\",\"quality\":100}": {
+        "count": 1
+      },
+      "{\"id\":\"Old sickle\",\"quality\":100}": {
+        "count": 1
+      },
+      "{\"id\":\"Old shovel\",\"quality\":100}": {
+        "count": 1
+      },
+      "{\"id\":\"Rough wood log\"}": {
+        "count": 79
+      },
+      "{\"id\":\"Cooling salt packet\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Empty cooling sleeve\"}": {
+        "count": 2
+      },
+      "{\"id\":\"Prepared survey kit\"}": {
+        "count": 7
+      },
+      "{\"id\":\"Wax-sealed survey kit\"}": {
+        "count": 4
+      },
+      "{\"id\":\"Dulled field fitting knife\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Field fitting knife\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Bench clearance manual\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Set repair resin\"}": {
+        "count": 1
+      }
+    },
+    "jobs": [
+      {
+        "id": "simulation:4697",
+        "sequence": 4697,
+        "commandId": "factorio_retort.batch",
+        "revision": 1,
+        "actorId": "player",
+        "targetId": null,
+        "due": 716,
+        "effects": [
+          {
+            "type": "item",
+            "actor": "player",
+            "key": "{\"id\":\"Filled retort resin tray\"}",
+            "amount": 1,
+            "reservationReturn": true
+          },
+          {
+            "type": "item",
+            "actor": "player",
+            "key": "{\"id\":\"Filled retort residue tray\"}",
+            "amount": 1,
+            "reservationReturn": true
+          },
+          {
+            "type": "knowledge",
+            "actor": "player",
+            "key": "factorio_retort.batch",
+            "stage": "seen",
+            "value": "Prepared and settled one retort batch. Its reserved sap and log fuel were spent once; my two held empty receivers returned as distinct filled trays. Resin and spent residue remain in those physical trays until separate collection or disposal. No second batch input or fuel was reserved by this completion.",
+            "basis": {
+              "kind": "observation",
+              "attributedTo": "player",
+              "situationId": "feature_objects.sluice"
+            }
+          }
+        ],
+        "costs": [
+          {
+            "type": "item",
+            "actor": "player",
+            "key": "{\"id\":\"Tree sap\"}",
+            "amount": -1
+          },
+          {
+            "type": "item",
+            "actor": "player",
+            "key": "{\"id\":\"Rough wood log\"}",
+            "amount": -1
+          },
+          {
+            "type": "item",
+            "actor": "player",
+            "key": "{\"id\":\"Empty retort resin tray\"}",
+            "amount": -1
+          },
+          {
+            "type": "item",
+            "actor": "player",
+            "key": "{\"id\":\"Empty retort residue tray\"}",
+            "amount": -1
+          },
+          {
+            "type": "vital",
+            "actor": "player",
+            "key": "stamina",
+            "amount": -1
+          }
+        ],
+        "cancellation": "refund",
+        "siteId": "factorio_retort.rack",
+        "claim": null,
+        "label": "Prepare one retort batch · sap + log fuel + both empty trays + 1 stamina + 3 min",
+        "roll": null,
+        "outcomeId": null,
+        "context": {
+          "actorId": "player",
+          "targetId": null,
+          "partyIds": []
+        },
+        "participants": [
+          "player"
+        ],
+        "reservationReturns": 1,
+        "completionSupport": {
+          "schema": 1,
+          "requires": {
+            "all": [
+              {
+                "fact": "factorioRetort.localSupported",
+                "op": "eq",
+                "value": true,
+                "reason": "Return to the Village with your actual living native body, usable hands and supported local clock."
+              },
+              {
+                "fact": "factorioRetort.installed",
+                "op": "eq",
+                "value": true,
+                "reason": "Commission your own retort rack and two physical trays first."
+              },
+              {
+                "fact": "factorioRetort.rackOwned",
+                "op": "eq",
+                "value": true,
+                "reason": "Retain your actual owned rack and the existing fitting-bench permission."
+              }
+            ]
+          },
+          "coLocated": false,
+          "location": "Village",
+          "failure": "refund"
+        }
+      }
+    ],
+    "retort": {
+      "schema": 1,
+      "installedAt": 699,
+      "installedSequence": 4678
+    },
+    "cursor": {
+      "id": "work-plan:4692",
+      "definitionId": "factorio_retort.three_batches",
+      "revision": 1,
+      "actorId": "player",
+      "origin": "factorio_retort.install",
+      "label": "Three retort batches with separate receiver clearing",
+      "startedSequence": 4692,
+      "startedAt": 710,
+      "updatedAt": 710,
+      "steps": [
+        {
+          "id": "batch_1",
+          "kind": "command",
+          "commandId": "factorio_retort.batch",
+          "revision": 1
+        },
+        {
+          "id": "batch_2",
+          "kind": "command",
+          "commandId": "factorio_retort.batch",
+          "revision": 1
+        },
+        {
+          "id": "batch_3",
+          "kind": "command",
+          "commandId": "factorio_retort.batch",
+          "revision": 1
+        }
+      ],
+      "index": 0,
+      "status": "paused",
+      "accepted": null,
+      "reason": "The required knowledge, means or circumstances are missing."
+    }
+  },
+  {
+    "name": "after-cancel-route-inspection",
+    "clock": 720,
+    "money": 49,
+    "staminaToFull": 0,
+    "inventory": {
+      "{\"id\":\"Cheap leather pants\",\"quality\":40}": {
+        "count": 1
+      },
+      "{\"id\":\"Stale bread\"}": {
+        "count": 5
+      },
+      "{\"id\":\"Old pickaxe\",\"quality\":100}": {
+        "count": 1
+      },
+      "{\"id\":\"Old sickle\",\"quality\":100}": {
+        "count": 1
+      },
+      "{\"id\":\"Old shovel\",\"quality\":100}": {
+        "count": 1
+      },
+      "{\"id\":\"Rough wood log\"}": {
+        "count": 79
+      },
+      "{\"id\":\"Cooling salt packet\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Empty cooling sleeve\"}": {
+        "count": 2
+      },
+      "{\"id\":\"Prepared survey kit\"}": {
+        "count": 7
+      },
+      "{\"id\":\"Wax-sealed survey kit\"}": {
+        "count": 4
+      },
+      "{\"id\":\"Dulled field fitting knife\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Field fitting knife\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Bench clearance manual\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Set repair resin\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Filled retort resin tray\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Filled retort residue tray\"}": {
+        "count": 1
+      }
+    },
+    "jobs": [],
+    "retort": {
+      "schema": 1,
+      "installedAt": 699,
+      "installedSequence": 4678
+    },
+    "cursor": {
+      "id": "work-plan:4692",
+      "definitionId": "factorio_retort.three_batches",
+      "revision": 1,
+      "actorId": "player",
+      "origin": "factorio_retort.install",
+      "label": "Three retort batches with separate receiver clearing",
+      "startedSequence": 4692,
+      "startedAt": 710,
+      "updatedAt": 710,
+      "steps": [
+        {
+          "id": "batch_1",
+          "kind": "command",
+          "commandId": "factorio_retort.batch",
+          "revision": 1
+        },
+        {
+          "id": "batch_2",
+          "kind": "command",
+          "commandId": "factorio_retort.batch",
+          "revision": 1
+        },
+        {
+          "id": "batch_3",
+          "kind": "command",
+          "commandId": "factorio_retort.batch",
+          "revision": 1
+        }
+      ],
+      "index": 0,
+      "status": "paused",
+      "accepted": null,
+      "reason": "The required knowledge, means or circumstances are missing."
+    }
+  },
+  {
+    "name": "cancel-route-current",
+    "clock": 720,
+    "money": 49,
+    "staminaToFull": 0,
+    "inventory": {
+      "{\"id\":\"Cheap leather pants\",\"quality\":40}": {
+        "count": 1
+      },
+      "{\"id\":\"Stale bread\"}": {
+        "count": 5
+      },
+      "{\"id\":\"Old pickaxe\",\"quality\":100}": {
+        "count": 1
+      },
+      "{\"id\":\"Old sickle\",\"quality\":100}": {
+        "count": 1
+      },
+      "{\"id\":\"Old shovel\",\"quality\":100}": {
+        "count": 1
+      },
+      "{\"id\":\"Rough wood log\"}": {
+        "count": 79
+      },
+      "{\"id\":\"Cooling salt packet\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Empty cooling sleeve\"}": {
+        "count": 2
+      },
+      "{\"id\":\"Prepared survey kit\"}": {
+        "count": 7
+      },
+      "{\"id\":\"Wax-sealed survey kit\"}": {
+        "count": 4
+      },
+      "{\"id\":\"Dulled field fitting knife\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Field fitting knife\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Bench clearance manual\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Set repair resin\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Filled retort resin tray\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Filled retort residue tray\"}": {
+        "count": 1
+      }
+    },
+    "jobs": [],
+    "retort": {
+      "schema": 1,
+      "installedAt": 699,
+      "installedSequence": 4678
+    },
+    "cursor": {
+      "id": "work-plan:4692",
+      "definitionId": "factorio_retort.three_batches",
+      "revision": 1,
+      "actorId": "player",
+      "origin": "factorio_retort.install",
+      "label": "Three retort batches with separate receiver clearing",
+      "startedSequence": 4692,
+      "startedAt": 710,
+      "updatedAt": 710,
+      "steps": [
+        {
+          "id": "batch_1",
+          "kind": "command",
+          "commandId": "factorio_retort.batch",
+          "revision": 1
+        },
+        {
+          "id": "batch_2",
+          "kind": "command",
+          "commandId": "factorio_retort.batch",
+          "revision": 1
+        },
+        {
+          "id": "batch_3",
+          "kind": "command",
+          "commandId": "factorio_retort.batch",
+          "revision": 1
+        }
+      ],
+      "index": 0,
+      "status": "paused",
+      "accepted": null,
+      "reason": "The required knowledge, means or circumstances are missing."
+    }
+  },
+  {
+    "name": "loose-residue-collected",
+    "clock": 722,
+    "money": 49,
+    "staminaToFull": 0,
+    "inventory": {
+      "{\"id\":\"Cheap leather pants\",\"quality\":40}": {
+        "count": 1
+      },
+      "{\"id\":\"Stale bread\"}": {
+        "count": 5
+      },
+      "{\"id\":\"Old pickaxe\",\"quality\":100}": {
+        "count": 1
+      },
+      "{\"id\":\"Old sickle\",\"quality\":100}": {
+        "count": 1
+      },
+      "{\"id\":\"Old shovel\",\"quality\":100}": {
+        "count": 1
+      },
+      "{\"id\":\"Rough wood log\"}": {
+        "count": 79
+      },
+      "{\"id\":\"Cooling salt packet\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Empty cooling sleeve\"}": {
+        "count": 2
+      },
+      "{\"id\":\"Prepared survey kit\"}": {
+        "count": 7
+      },
+      "{\"id\":\"Wax-sealed survey kit\"}": {
+        "count": 4
+      },
+      "{\"id\":\"Dulled field fitting knife\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Field fitting knife\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Bench clearance manual\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Set repair resin\"}": {
+        "count": 2
+      },
+      "{\"id\":\"Empty retort resin tray\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Empty retort residue tray\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Spent retort residue\"}": {
+        "count": 1
+      }
+    },
+    "jobs": [],
+    "retort": {
+      "schema": 1,
+      "installedAt": 699,
+      "installedSequence": 4678
+    },
+    "cursor": {
+      "id": "work-plan:4692",
+      "definitionId": "factorio_retort.three_batches",
+      "revision": 1,
+      "actorId": "player",
+      "origin": "factorio_retort.install",
+      "label": "Three retort batches with separate receiver clearing",
+      "startedSequence": 4692,
+      "startedAt": 710,
+      "updatedAt": 710,
+      "steps": [
+        {
+          "id": "batch_1",
+          "kind": "command",
+          "commandId": "factorio_retort.batch",
+          "revision": 1
+        },
+        {
+          "id": "batch_2",
+          "kind": "command",
+          "commandId": "factorio_retort.batch",
+          "revision": 1
+        },
+        {
+          "id": "batch_3",
+          "kind": "command",
+          "commandId": "factorio_retort.batch",
+          "revision": 1
+        }
+      ],
+      "index": 0,
+      "status": "paused",
+      "accepted": null,
+      "reason": "The required knowledge, means or circumstances are missing."
+    }
+  },
+  {
+    "name": "both-cleared",
+    "clock": 724,
+    "money": 49,
+    "staminaToFull": 0,
+    "inventory": {
+      "{\"id\":\"Cheap leather pants\",\"quality\":40}": {
+        "count": 1
+      },
+      "{\"id\":\"Stale bread\"}": {
+        "count": 5
+      },
+      "{\"id\":\"Old pickaxe\",\"quality\":100}": {
+        "count": 1
+      },
+      "{\"id\":\"Old sickle\",\"quality\":100}": {
+        "count": 1
+      },
+      "{\"id\":\"Old shovel\",\"quality\":100}": {
+        "count": 1
+      },
+      "{\"id\":\"Rough wood log\"}": {
+        "count": 79
+      },
+      "{\"id\":\"Cooling salt packet\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Empty cooling sleeve\"}": {
+        "count": 2
+      },
+      "{\"id\":\"Prepared survey kit\"}": {
+        "count": 7
+      },
+      "{\"id\":\"Wax-sealed survey kit\"}": {
+        "count": 4
+      },
+      "{\"id\":\"Dulled field fitting knife\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Field fitting knife\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Bench clearance manual\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Set repair resin\"}": {
+        "count": 2
+      },
+      "{\"id\":\"Empty retort resin tray\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Empty retort residue tray\"}": {
+        "count": 1
+      }
+    },
+    "jobs": [],
+    "retort": {
+      "schema": 1,
+      "installedAt": 699,
+      "installedSequence": 4678
+    },
+    "cursor": {
+      "id": "work-plan:4692",
+      "definitionId": "factorio_retort.three_batches",
+      "revision": 1,
+      "actorId": "player",
+      "origin": "factorio_retort.install",
+      "label": "Three retort batches with separate receiver clearing",
+      "startedSequence": 4692,
+      "startedAt": 710,
+      "updatedAt": 710,
+      "steps": [
+        {
+          "id": "batch_1",
+          "kind": "command",
+          "commandId": "factorio_retort.batch",
+          "revision": 1
+        },
+        {
+          "id": "batch_2",
+          "kind": "command",
+          "commandId": "factorio_retort.batch",
+          "revision": 1
+        },
+        {
+          "id": "batch_3",
+          "kind": "command",
+          "commandId": "factorio_retort.batch",
+          "revision": 1
+        }
+      ],
+      "index": 0,
+      "status": "paused",
+      "accepted": null,
+      "reason": "The required knowledge, means or circumstances are missing."
+    }
+  },
+  {
+    "name": "both-cleared-reloaded",
+    "clock": 724,
+    "money": 49,
+    "staminaToFull": 0,
+    "inventory": {
+      "{\"id\":\"Cheap leather pants\",\"quality\":40}": {
+        "count": 1
+      },
+      "{\"id\":\"Stale bread\"}": {
+        "count": 5
+      },
+      "{\"id\":\"Old pickaxe\",\"quality\":100}": {
+        "count": 1
+      },
+      "{\"id\":\"Old sickle\",\"quality\":100}": {
+        "count": 1
+      },
+      "{\"id\":\"Old shovel\",\"quality\":100}": {
+        "count": 1
+      },
+      "{\"id\":\"Rough wood log\"}": {
+        "count": 79
+      },
+      "{\"id\":\"Cooling salt packet\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Empty cooling sleeve\"}": {
+        "count": 2
+      },
+      "{\"id\":\"Prepared survey kit\"}": {
+        "count": 7
+      },
+      "{\"id\":\"Wax-sealed survey kit\"}": {
+        "count": 4
+      },
+      "{\"id\":\"Dulled field fitting knife\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Field fitting knife\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Bench clearance manual\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Set repair resin\"}": {
+        "count": 2
+      },
+      "{\"id\":\"Empty retort resin tray\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Empty retort residue tray\"}": {
+        "count": 1
+      }
+    },
+    "jobs": [],
+    "retort": {
+      "schema": 1,
+      "installedAt": 699,
+      "installedSequence": 4678
+    },
+    "cursor": {
+      "id": "work-plan:4692",
+      "definitionId": "factorio_retort.three_batches",
+      "revision": 1,
+      "actorId": "player",
+      "origin": "factorio_retort.install",
+      "label": "Three retort batches with separate receiver clearing",
+      "startedSequence": 4692,
+      "startedAt": 710,
+      "updatedAt": 710,
+      "steps": [
+        {
+          "id": "batch_1",
+          "kind": "command",
+          "commandId": "factorio_retort.batch",
+          "revision": 1
+        },
+        {
+          "id": "batch_2",
+          "kind": "command",
+          "commandId": "factorio_retort.batch",
+          "revision": 1
+        },
+        {
+          "id": "batch_3",
+          "kind": "command",
+          "commandId": "factorio_retort.batch",
+          "revision": 1
+        }
+      ],
+      "index": 0,
+      "status": "paused",
+      "accepted": null,
+      "reason": "The required knowledge, means or circumstances are missing."
+    }
+  },
+  {
+    "name": "both-cleared-imported",
+    "clock": 724,
+    "money": 49,
+    "staminaToFull": 0,
+    "inventory": {
+      "{\"id\":\"Cheap leather pants\",\"quality\":40}": {
+        "count": 1
+      },
+      "{\"id\":\"Stale bread\"}": {
+        "count": 5
+      },
+      "{\"id\":\"Old pickaxe\",\"quality\":100}": {
+        "count": 1
+      },
+      "{\"id\":\"Old sickle\",\"quality\":100}": {
+        "count": 1
+      },
+      "{\"id\":\"Old shovel\",\"quality\":100}": {
+        "count": 1
+      },
+      "{\"id\":\"Rough wood log\"}": {
+        "count": 79
+      },
+      "{\"id\":\"Cooling salt packet\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Empty cooling sleeve\"}": {
+        "count": 2
+      },
+      "{\"id\":\"Prepared survey kit\"}": {
+        "count": 7
+      },
+      "{\"id\":\"Wax-sealed survey kit\"}": {
+        "count": 4
+      },
+      "{\"id\":\"Dulled field fitting knife\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Field fitting knife\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Bench clearance manual\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Set repair resin\"}": {
+        "count": 2
+      },
+      "{\"id\":\"Empty retort resin tray\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Empty retort residue tray\"}": {
+        "count": 1
+      }
+    },
+    "jobs": [],
+    "retort": {
+      "schema": 1,
+      "installedAt": 699,
+      "installedSequence": 4678
+    },
+    "cursor": {
+      "id": "work-plan:4692",
+      "definitionId": "factorio_retort.three_batches",
+      "revision": 1,
+      "actorId": "player",
+      "origin": "factorio_retort.install",
+      "label": "Three retort batches with separate receiver clearing",
+      "startedSequence": 4692,
+      "startedAt": 710,
+      "updatedAt": 710,
+      "steps": [
+        {
+          "id": "batch_1",
+          "kind": "command",
+          "commandId": "factorio_retort.batch",
+          "revision": 1
+        },
+        {
+          "id": "batch_2",
+          "kind": "command",
+          "commandId": "factorio_retort.batch",
+          "revision": 1
+        },
+        {
+          "id": "batch_3",
+          "kind": "command",
+          "commandId": "factorio_retort.batch",
+          "revision": 1
+        }
+      ],
+      "index": 0,
+      "status": "paused",
+      "accepted": null,
+      "reason": "The required knowledge, means or circumstances are missing."
+    }
+  },
+  {
+    "name": "plan-explicit-resume-shortage",
+    "clock": 725,
+    "money": 49,
+    "staminaToFull": 0,
+    "inventory": {
+      "{\"id\":\"Cheap leather pants\",\"quality\":40}": {
+        "count": 1
+      },
+      "{\"id\":\"Stale bread\"}": {
+        "count": 5
+      },
+      "{\"id\":\"Old pickaxe\",\"quality\":100}": {
+        "count": 1
+      },
+      "{\"id\":\"Old sickle\",\"quality\":100}": {
+        "count": 1
+      },
+      "{\"id\":\"Old shovel\",\"quality\":100}": {
+        "count": 1
+      },
+      "{\"id\":\"Rough wood log\"}": {
+        "count": 79
+      },
+      "{\"id\":\"Cooling salt packet\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Empty cooling sleeve\"}": {
+        "count": 2
+      },
+      "{\"id\":\"Prepared survey kit\"}": {
+        "count": 7
+      },
+      "{\"id\":\"Wax-sealed survey kit\"}": {
+        "count": 4
+      },
+      "{\"id\":\"Dulled field fitting knife\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Field fitting knife\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Bench clearance manual\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Set repair resin\"}": {
+        "count": 2
+      },
+      "{\"id\":\"Empty retort resin tray\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Empty retort residue tray\"}": {
+        "count": 1
+      }
+    },
+    "jobs": [],
+    "retort": {
+      "schema": 1,
+      "installedAt": 699,
+      "installedSequence": 4678
+    },
+    "cursor": {
+      "id": "work-plan:4692",
+      "definitionId": "factorio_retort.three_batches",
+      "revision": 1,
+      "actorId": "player",
+      "origin": "factorio_retort.install",
+      "label": "Three retort batches with separate receiver clearing",
+      "startedSequence": 4692,
+      "startedAt": 710,
+      "updatedAt": 724,
+      "steps": [
+        {
+          "id": "batch_1",
+          "kind": "command",
+          "commandId": "factorio_retort.batch",
+          "revision": 1
+        },
+        {
+          "id": "batch_2",
+          "kind": "command",
+          "commandId": "factorio_retort.batch",
+          "revision": 1
+        },
+        {
+          "id": "batch_3",
+          "kind": "command",
+          "commandId": "factorio_retort.batch",
+          "revision": 1
+        }
+      ],
+      "index": 0,
+      "status": "paused",
+      "accepted": null,
+      "reason": "The required knowledge, means or circumstances are missing."
+    }
+  },
+  {
+    "name": "sound-cut-pending",
+    "clock": 727,
+    "money": 49,
+    "staminaToFull": 0,
+    "inventory": {
+      "{\"id\":\"Cheap leather pants\",\"quality\":40}": {
+        "count": 1
+      },
+      "{\"id\":\"Stale bread\"}": {
+        "count": 5
+      },
+      "{\"id\":\"Old pickaxe\",\"quality\":100}": {
+        "count": 1
+      },
+      "{\"id\":\"Old sickle\",\"quality\":100}": {
+        "count": 1
+      },
+      "{\"id\":\"Old shovel\",\"quality\":100}": {
+        "count": 1
+      },
+      "{\"id\":\"Rough wood log\"}": {
+        "count": 78
+      },
+      "{\"id\":\"Cooling salt packet\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Empty cooling sleeve\"}": {
+        "count": 2
+      },
+      "{\"id\":\"Prepared survey kit\"}": {
+        "count": 7
+      },
+      "{\"id\":\"Wax-sealed survey kit\"}": {
+        "count": 4
+      },
+      "{\"id\":\"Dulled field fitting knife\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Bench clearance manual\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Set repair resin\"}": {
+        "count": 2
+      },
+      "{\"id\":\"Empty retort resin tray\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Empty retort residue tray\"}": {
+        "count": 1
+      }
+    },
+    "jobs": [
+      {
+        "id": "simulation:4716",
+        "sequence": 4716,
+        "commandId": "feature_objects.cut_sharp_own",
+        "revision": 1,
+        "actorId": "player",
+        "targetId": null,
+        "due": 730,
+        "effects": [
+          {
+            "type": "item",
+            "key": "{\"id\":\"Dulled field fitting knife\"}",
+            "amount": 1,
+            "actor": "player",
+            "reservationReturn": true
+          },
+          {
+            "type": "item",
+            "key": "{\"id\":\"Wet repair stave\"}",
+            "amount": 2,
+            "actor": "player"
+          },
+          {
+            "type": "knowledge",
+            "actor": "player",
+            "key": "feature_objects.cut",
+            "stage": "seen",
+            "value": "You cut one real Rough wood log into two Wet repair staves. The knife dulled; these pieces still need drying.",
+            "basis": {
+              "kind": "observation",
+              "attributedTo": "player",
+              "situationId": "feature_objects.sluice"
+            }
+          }
+        ],
+        "costs": [
+          {
+            "type": "item",
+            "key": "{\"id\":\"Rough wood log\"}",
+            "amount": -1,
+            "actor": "player"
+          },
+          {
+            "type": "vital",
+            "key": "stamina",
+            "amount": -2,
+            "actor": "player"
+          },
+          {
+            "type": "item",
+            "key": "{\"id\":\"Field fitting knife\"}",
+            "amount": -1,
+            "actor": "player"
+          }
+        ],
+        "cancellation": "refund",
+        "siteId": "feature_objects.fitting_bench",
+        "claim": null,
+        "label": "Cut one actual log into two wet staves · 4 min",
+        "roll": null,
+        "outcomeId": null,
+        "context": {
+          "actorId": "player",
+          "targetId": null,
+          "partyIds": []
+        },
+        "participants": [
+          "player"
+        ],
+        "reservationReturns": 1,
+        "completionSupport": {
+          "schema": 1,
+          "requires": {
+            "all": [
+              {
+                "all": [
+                  {
+                    "fact": "featureObjects.supported",
+                    "op": "eq",
+                    "value": true,
+                    "reason": "This Village work needs the current native body, location, stock and supported local clock."
+                  },
+                  {
+                    "fact": "featureObjects.handsUsable",
+                    "op": "eq",
+                    "value": true,
+                    "reason": "Recover your hands before fitting work."
+                  },
+                  {
+                    "fact": "vital.health",
+                    "op": "gte",
+                    "value": 2,
+                    "reason": "Recover above one HP before fitting work."
+                  }
+                ]
+              }
+            ]
+          },
+          "coLocated": false,
+          "location": "Village",
+          "failure": "refund"
+        }
+      }
+    ],
+    "retort": {
+      "schema": 1,
+      "installedAt": 699,
+      "installedSequence": 4678
+    },
+    "cursor": {
+      "id": "work-plan:4692",
+      "definitionId": "factorio_retort.three_batches",
+      "revision": 1,
+      "actorId": "player",
+      "origin": "factorio_retort.install",
+      "label": "Three retort batches with separate receiver clearing",
+      "startedSequence": 4692,
+      "startedAt": 710,
+      "updatedAt": 725,
+      "steps": [
+        {
+          "id": "batch_1",
+          "kind": "command",
+          "commandId": "factorio_retort.batch",
+          "revision": 1
+        },
+        {
+          "id": "batch_2",
+          "kind": "command",
+          "commandId": "factorio_retort.batch",
+          "revision": 1
+        },
+        {
+          "id": "batch_3",
+          "kind": "command",
+          "commandId": "factorio_retort.batch",
+          "revision": 1
+        }
+      ],
+      "index": 0,
+      "status": "cancelled",
+      "accepted": null,
+      "reason": "Future steps cancelled. Any retained accepted job keeps its disclosed terms."
+    }
+  },
+  {
+    "name": "sound-cut-completed",
+    "clock": 727,
+    "money": 49,
+    "staminaToFull": 0,
+    "inventory": {
+      "{\"id\":\"Cheap leather pants\",\"quality\":40}": {
+        "count": 1
+      },
+      "{\"id\":\"Stale bread\"}": {
+        "count": 5
+      },
+      "{\"id\":\"Old pickaxe\",\"quality\":100}": {
+        "count": 1
+      },
+      "{\"id\":\"Old sickle\",\"quality\":100}": {
+        "count": 1
+      },
+      "{\"id\":\"Old shovel\",\"quality\":100}": {
+        "count": 1
+      },
+      "{\"id\":\"Rough wood log\"}": {
+        "count": 78
+      },
+      "{\"id\":\"Cooling salt packet\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Empty cooling sleeve\"}": {
+        "count": 2
+      },
+      "{\"id\":\"Prepared survey kit\"}": {
+        "count": 7
+      },
+      "{\"id\":\"Wax-sealed survey kit\"}": {
+        "count": 4
+      },
+      "{\"id\":\"Dulled field fitting knife\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Bench clearance manual\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Set repair resin\"}": {
+        "count": 2
+      },
+      "{\"id\":\"Empty retort resin tray\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Empty retort residue tray\"}": {
+        "count": 1
+      }
+    },
+    "jobs": [
+      {
+        "id": "simulation:4716",
+        "sequence": 4716,
+        "commandId": "feature_objects.cut_sharp_own",
+        "revision": 1,
+        "actorId": "player",
+        "targetId": null,
+        "due": 730,
+        "effects": [
+          {
+            "type": "item",
+            "key": "{\"id\":\"Dulled field fitting knife\"}",
+            "amount": 1,
+            "actor": "player",
+            "reservationReturn": true
+          },
+          {
+            "type": "item",
+            "key": "{\"id\":\"Wet repair stave\"}",
+            "amount": 2,
+            "actor": "player"
+          },
+          {
+            "type": "knowledge",
+            "actor": "player",
+            "key": "feature_objects.cut",
+            "stage": "seen",
+            "value": "You cut one real Rough wood log into two Wet repair staves. The knife dulled; these pieces still need drying.",
+            "basis": {
+              "kind": "observation",
+              "attributedTo": "player",
+              "situationId": "feature_objects.sluice"
+            }
+          }
+        ],
+        "costs": [
+          {
+            "type": "item",
+            "key": "{\"id\":\"Rough wood log\"}",
+            "amount": -1,
+            "actor": "player"
+          },
+          {
+            "type": "vital",
+            "key": "stamina",
+            "amount": -2,
+            "actor": "player"
+          },
+          {
+            "type": "item",
+            "key": "{\"id\":\"Field fitting knife\"}",
+            "amount": -1,
+            "actor": "player"
+          }
+        ],
+        "cancellation": "refund",
+        "siteId": "feature_objects.fitting_bench",
+        "claim": null,
+        "label": "Cut one actual log into two wet staves · 4 min",
+        "roll": null,
+        "outcomeId": null,
+        "context": {
+          "actorId": "player",
+          "targetId": null,
+          "partyIds": []
+        },
+        "participants": [
+          "player"
+        ],
+        "reservationReturns": 1,
+        "completionSupport": {
+          "schema": 1,
+          "requires": {
+            "all": [
+              {
+                "all": [
+                  {
+                    "fact": "featureObjects.supported",
+                    "op": "eq",
+                    "value": true,
+                    "reason": "This Village work needs the current native body, location, stock and supported local clock."
+                  },
+                  {
+                    "fact": "featureObjects.handsUsable",
+                    "op": "eq",
+                    "value": true,
+                    "reason": "Recover your hands before fitting work."
+                  },
+                  {
+                    "fact": "vital.health",
+                    "op": "gte",
+                    "value": 2,
+                    "reason": "Recover above one HP before fitting work."
+                  }
+                ]
+              }
+            ]
+          },
+          "coLocated": false,
+          "location": "Village",
+          "failure": "refund"
+        }
+      }
+    ],
+    "retort": {
+      "schema": 1,
+      "installedAt": 699,
+      "installedSequence": 4678
+    },
+    "cursor": {
+      "id": "work-plan:4692",
+      "definitionId": "factorio_retort.three_batches",
+      "revision": 1,
+      "actorId": "player",
+      "origin": "factorio_retort.install",
+      "label": "Three retort batches with separate receiver clearing",
+      "startedSequence": 4692,
+      "startedAt": 710,
+      "updatedAt": 725,
+      "steps": [
+        {
+          "id": "batch_1",
+          "kind": "command",
+          "commandId": "factorio_retort.batch",
+          "revision": 1
+        },
+        {
+          "id": "batch_2",
+          "kind": "command",
+          "commandId": "factorio_retort.batch",
+          "revision": 1
+        },
+        {
+          "id": "batch_3",
+          "kind": "command",
+          "commandId": "factorio_retort.batch",
+          "revision": 1
+        }
+      ],
+      "index": 0,
+      "status": "cancelled",
+      "accepted": null,
+      "reason": "Future steps cancelled. Any retained accepted job keeps its disclosed terms."
+    }
+  },
+  {
+    "name": "sound-cut-paused",
+    "clock": 727,
+    "money": 49,
+    "staminaToFull": 0,
+    "inventory": {
+      "{\"id\":\"Cheap leather pants\",\"quality\":40}": {
+        "count": 1
+      },
+      "{\"id\":\"Stale bread\"}": {
+        "count": 5
+      },
+      "{\"id\":\"Old pickaxe\",\"quality\":100}": {
+        "count": 1
+      },
+      "{\"id\":\"Old sickle\",\"quality\":100}": {
+        "count": 1
+      },
+      "{\"id\":\"Old shovel\",\"quality\":100}": {
+        "count": 1
+      },
+      "{\"id\":\"Rough wood log\"}": {
+        "count": 78
+      },
+      "{\"id\":\"Cooling salt packet\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Empty cooling sleeve\"}": {
+        "count": 2
+      },
+      "{\"id\":\"Prepared survey kit\"}": {
+        "count": 7
+      },
+      "{\"id\":\"Wax-sealed survey kit\"}": {
+        "count": 4
+      },
+      "{\"id\":\"Dulled field fitting knife\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Bench clearance manual\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Set repair resin\"}": {
+        "count": 2
+      },
+      "{\"id\":\"Empty retort resin tray\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Empty retort residue tray\"}": {
+        "count": 1
+      }
+    },
+    "jobs": [
+      {
+        "id": "simulation:4716",
+        "sequence": 4716,
+        "commandId": "feature_objects.cut_sharp_own",
+        "revision": 1,
+        "actorId": "player",
+        "targetId": null,
+        "due": 730,
+        "effects": [
+          {
+            "type": "item",
+            "key": "{\"id\":\"Dulled field fitting knife\"}",
+            "amount": 1,
+            "actor": "player",
+            "reservationReturn": true
+          },
+          {
+            "type": "item",
+            "key": "{\"id\":\"Wet repair stave\"}",
+            "amount": 2,
+            "actor": "player"
+          },
+          {
+            "type": "knowledge",
+            "actor": "player",
+            "key": "feature_objects.cut",
+            "stage": "seen",
+            "value": "You cut one real Rough wood log into two Wet repair staves. The knife dulled; these pieces still need drying.",
+            "basis": {
+              "kind": "observation",
+              "attributedTo": "player",
+              "situationId": "feature_objects.sluice"
+            }
+          }
+        ],
+        "costs": [
+          {
+            "type": "item",
+            "key": "{\"id\":\"Rough wood log\"}",
+            "amount": -1,
+            "actor": "player"
+          },
+          {
+            "type": "vital",
+            "key": "stamina",
+            "amount": -2,
+            "actor": "player"
+          },
+          {
+            "type": "item",
+            "key": "{\"id\":\"Field fitting knife\"}",
+            "amount": -1,
+            "actor": "player"
+          }
+        ],
+        "cancellation": "refund",
+        "siteId": "feature_objects.fitting_bench",
+        "claim": null,
+        "label": "Cut one actual log into two wet staves · 4 min",
+        "roll": null,
+        "outcomeId": null,
+        "context": {
+          "actorId": "player",
+          "targetId": null,
+          "partyIds": []
+        },
+        "participants": [
+          "player"
+        ],
+        "reservationReturns": 1,
+        "completionSupport": {
+          "schema": 1,
+          "requires": {
+            "all": [
+              {
+                "all": [
+                  {
+                    "fact": "featureObjects.supported",
+                    "op": "eq",
+                    "value": true,
+                    "reason": "This Village work needs the current native body, location, stock and supported local clock."
+                  },
+                  {
+                    "fact": "featureObjects.handsUsable",
+                    "op": "eq",
+                    "value": true,
+                    "reason": "Recover your hands before fitting work."
+                  },
+                  {
+                    "fact": "vital.health",
+                    "op": "gte",
+                    "value": 2,
+                    "reason": "Recover above one HP before fitting work."
+                  }
+                ]
+              }
+            ]
+          },
+          "coLocated": false,
+          "location": "Village",
+          "failure": "refund"
+        }
+      }
+    ],
+    "retort": {
+      "schema": 1,
+      "installedAt": 699,
+      "installedSequence": 4678
+    },
+    "cursor": {
+      "id": "work-plan:4692",
+      "definitionId": "factorio_retort.three_batches",
+      "revision": 1,
+      "actorId": "player",
+      "origin": "factorio_retort.install",
+      "label": "Three retort batches with separate receiver clearing",
+      "startedSequence": 4692,
+      "startedAt": 710,
+      "updatedAt": 725,
+      "steps": [
+        {
+          "id": "batch_1",
+          "kind": "command",
+          "commandId": "factorio_retort.batch",
+          "revision": 1
+        },
+        {
+          "id": "batch_2",
+          "kind": "command",
+          "commandId": "factorio_retort.batch",
+          "revision": 1
+        },
+        {
+          "id": "batch_3",
+          "kind": "command",
+          "commandId": "factorio_retort.batch",
+          "revision": 1
+        }
+      ],
+      "index": 0,
+      "status": "cancelled",
+      "accepted": null,
+      "reason": "Future steps cancelled. Any retained accepted job keeps its disclosed terms."
+    }
+  },
+  {
+    "name": "before-build-drift-rebind",
+    "clock": 727,
+    "money": 49,
+    "staminaToFull": 0,
+    "inventory": {
+      "{\"id\":\"Cheap leather pants\",\"quality\":40}": {
+        "count": 1
+      },
+      "{\"id\":\"Stale bread\"}": {
+        "count": 5
+      },
+      "{\"id\":\"Old pickaxe\",\"quality\":100}": {
+        "count": 1
+      },
+      "{\"id\":\"Old sickle\",\"quality\":100}": {
+        "count": 1
+      },
+      "{\"id\":\"Old shovel\",\"quality\":100}": {
+        "count": 1
+      },
+      "{\"id\":\"Rough wood log\"}": {
+        "count": 78
+      },
+      "{\"id\":\"Cooling salt packet\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Empty cooling sleeve\"}": {
+        "count": 2
+      },
+      "{\"id\":\"Prepared survey kit\"}": {
+        "count": 7
+      },
+      "{\"id\":\"Wax-sealed survey kit\"}": {
+        "count": 4
+      },
+      "{\"id\":\"Dulled field fitting knife\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Bench clearance manual\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Set repair resin\"}": {
+        "count": 2
+      },
+      "{\"id\":\"Empty retort resin tray\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Empty retort residue tray\"}": {
+        "count": 1
+      }
+    },
+    "jobs": [
+      {
+        "id": "simulation:4716",
+        "sequence": 4716,
+        "commandId": "feature_objects.cut_sharp_own",
+        "revision": 1,
+        "actorId": "player",
+        "targetId": null,
+        "due": 730,
+        "effects": [
+          {
+            "type": "item",
+            "key": "{\"id\":\"Dulled field fitting knife\"}",
+            "amount": 1,
+            "actor": "player",
+            "reservationReturn": true
+          },
+          {
+            "type": "item",
+            "key": "{\"id\":\"Wet repair stave\"}",
+            "amount": 2,
+            "actor": "player"
+          },
+          {
+            "type": "knowledge",
+            "actor": "player",
+            "key": "feature_objects.cut",
+            "stage": "seen",
+            "value": "You cut one real Rough wood log into two Wet repair staves. The knife dulled; these pieces still need drying.",
+            "basis": {
+              "kind": "observation",
+              "attributedTo": "player",
+              "situationId": "feature_objects.sluice"
+            }
+          }
+        ],
+        "costs": [
+          {
+            "type": "item",
+            "key": "{\"id\":\"Rough wood log\"}",
+            "amount": -1,
+            "actor": "player"
+          },
+          {
+            "type": "vital",
+            "key": "stamina",
+            "amount": -2,
+            "actor": "player"
+          },
+          {
+            "type": "item",
+            "key": "{\"id\":\"Field fitting knife\"}",
+            "amount": -1,
+            "actor": "player"
+          }
+        ],
+        "cancellation": "refund",
+        "siteId": "feature_objects.fitting_bench",
+        "claim": null,
+        "label": "Cut one actual log into two wet staves · 4 min",
+        "roll": null,
+        "outcomeId": null,
+        "context": {
+          "actorId": "player",
+          "targetId": null,
+          "partyIds": []
+        },
+        "participants": [
+          "player"
+        ],
+        "reservationReturns": 1,
+        "completionSupport": {
+          "schema": 1,
+          "requires": {
+            "all": [
+              {
+                "all": [
+                  {
+                    "fact": "featureObjects.supported",
+                    "op": "eq",
+                    "value": true,
+                    "reason": "This Village work needs the current native body, location, stock and supported local clock."
+                  },
+                  {
+                    "fact": "featureObjects.handsUsable",
+                    "op": "eq",
+                    "value": true,
+                    "reason": "Recover your hands before fitting work."
+                  },
+                  {
+                    "fact": "vital.health",
+                    "op": "gte",
+                    "value": 2,
+                    "reason": "Recover above one HP before fitting work."
+                  }
+                ]
+              }
+            ]
+          },
+          "coLocated": false,
+          "location": "Village",
+          "failure": "refund"
+        }
+      }
+    ],
+    "retort": {
+      "schema": 1,
+      "installedAt": 699,
+      "installedSequence": 4678
+    },
+    "cursor": {
+      "id": "work-plan:4692",
+      "definitionId": "factorio_retort.three_batches",
+      "revision": 1,
+      "actorId": "player",
+      "origin": "factorio_retort.install",
+      "label": "Three retort batches with separate receiver clearing",
+      "startedSequence": 4692,
+      "startedAt": 710,
+      "updatedAt": 725,
+      "steps": [
+        {
+          "id": "batch_1",
+          "kind": "command",
+          "commandId": "factorio_retort.batch",
+          "revision": 1
+        },
+        {
+          "id": "batch_2",
+          "kind": "command",
+          "commandId": "factorio_retort.batch",
+          "revision": 1
+        },
+        {
+          "id": "batch_3",
+          "kind": "command",
+          "commandId": "factorio_retort.batch",
+          "revision": 1
+        }
+      ],
+      "index": 0,
+      "status": "cancelled",
+      "accepted": null,
+      "reason": "Future steps cancelled. Any retained accepted job keeps its disclosed terms."
+    }
+  },
+  {
+    "name": "final-origin-earned",
+    "clock": 727,
+    "money": 49,
+    "staminaToFull": 0,
+    "inventory": {
+      "{\"id\":\"Cheap leather pants\",\"quality\":40}": {
+        "count": 1
+      },
+      "{\"id\":\"Stale bread\"}": {
+        "count": 5
+      },
+      "{\"id\":\"Old pickaxe\",\"quality\":100}": {
+        "count": 1
+      },
+      "{\"id\":\"Old sickle\",\"quality\":100}": {
+        "count": 1
+      },
+      "{\"id\":\"Old shovel\",\"quality\":100}": {
+        "count": 1
+      },
+      "{\"id\":\"Rough wood log\"}": {
+        "count": 78
+      },
+      "{\"id\":\"Cooling salt packet\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Empty cooling sleeve\"}": {
+        "count": 2
+      },
+      "{\"id\":\"Prepared survey kit\"}": {
+        "count": 7
+      },
+      "{\"id\":\"Wax-sealed survey kit\"}": {
+        "count": 4
+      },
+      "{\"id\":\"Dulled field fitting knife\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Bench clearance manual\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Set repair resin\"}": {
+        "count": 2
+      },
+      "{\"id\":\"Empty retort resin tray\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Empty retort residue tray\"}": {
+        "count": 1
+      }
+    },
+    "jobs": [
+      {
+        "id": "simulation:4716",
+        "sequence": 4716,
+        "commandId": "feature_objects.cut_sharp_own",
+        "revision": 1,
+        "actorId": "player",
+        "targetId": null,
+        "due": 730,
+        "effects": [
+          {
+            "type": "item",
+            "key": "{\"id\":\"Dulled field fitting knife\"}",
+            "amount": 1,
+            "actor": "player",
+            "reservationReturn": true
+          },
+          {
+            "type": "item",
+            "key": "{\"id\":\"Wet repair stave\"}",
+            "amount": 2,
+            "actor": "player"
+          },
+          {
+            "type": "knowledge",
+            "actor": "player",
+            "key": "feature_objects.cut",
+            "stage": "seen",
+            "value": "You cut one real Rough wood log into two Wet repair staves. The knife dulled; these pieces still need drying.",
+            "basis": {
+              "kind": "observation",
+              "attributedTo": "player",
+              "situationId": "feature_objects.sluice"
+            }
+          }
+        ],
+        "costs": [
+          {
+            "type": "item",
+            "key": "{\"id\":\"Rough wood log\"}",
+            "amount": -1,
+            "actor": "player"
+          },
+          {
+            "type": "vital",
+            "key": "stamina",
+            "amount": -2,
+            "actor": "player"
+          },
+          {
+            "type": "item",
+            "key": "{\"id\":\"Field fitting knife\"}",
+            "amount": -1,
+            "actor": "player"
+          }
+        ],
+        "cancellation": "refund",
+        "siteId": "feature_objects.fitting_bench",
+        "claim": null,
+        "label": "Cut one actual log into two wet staves · 4 min",
+        "roll": null,
+        "outcomeId": null,
+        "context": {
+          "actorId": "player",
+          "targetId": null,
+          "partyIds": []
+        },
+        "participants": [
+          "player"
+        ],
+        "reservationReturns": 1,
+        "completionSupport": {
+          "schema": 1,
+          "requires": {
+            "all": [
+              {
+                "all": [
+                  {
+                    "fact": "featureObjects.supported",
+                    "op": "eq",
+                    "value": true,
+                    "reason": "This Village work needs the current native body, location, stock and supported local clock."
+                  },
+                  {
+                    "fact": "featureObjects.handsUsable",
+                    "op": "eq",
+                    "value": true,
+                    "reason": "Recover your hands before fitting work."
+                  },
+                  {
+                    "fact": "vital.health",
+                    "op": "gte",
+                    "value": 2,
+                    "reason": "Recover above one HP before fitting work."
+                  }
+                ]
+              }
+            ]
+          },
+          "coLocated": false,
+          "location": "Village",
+          "failure": "refund"
+        }
+      }
+    ],
+    "retort": {
+      "schema": 1,
+      "installedAt": 699,
+      "installedSequence": 4678
+    },
+    "cursor": {
+      "id": "work-plan:4692",
+      "definitionId": "factorio_retort.three_batches",
+      "revision": 1,
+      "actorId": "player",
+      "origin": "factorio_retort.install",
+      "label": "Three retort batches with separate receiver clearing",
+      "startedSequence": 4692,
+      "startedAt": 710,
+      "updatedAt": 725,
+      "steps": [
+        {
+          "id": "batch_1",
+          "kind": "command",
+          "commandId": "factorio_retort.batch",
+          "revision": 1
+        },
+        {
+          "id": "batch_2",
+          "kind": "command",
+          "commandId": "factorio_retort.batch",
+          "revision": 1
+        },
+        {
+          "id": "batch_3",
+          "kind": "command",
+          "commandId": "factorio_retort.batch",
+          "revision": 1
+        }
+      ],
+      "index": 0,
+      "status": "cancelled",
+      "accepted": null,
+      "reason": "Future steps cancelled. Any retained accepted job keeps its disclosed terms."
+    }
+  },
+  {
+    "name": "dry-first-pending",
+    "clock": 731,
+    "money": 49,
+    "staminaToFull": 0,
+    "inventory": {
+      "{\"id\":\"Cheap leather pants\",\"quality\":40}": {
+        "count": 1
+      },
+      "{\"id\":\"Stale bread\"}": {
+        "count": 5
+      },
+      "{\"id\":\"Old pickaxe\",\"quality\":100}": {
+        "count": 1
+      },
+      "{\"id\":\"Old sickle\",\"quality\":100}": {
+        "count": 1
+      },
+      "{\"id\":\"Old shovel\",\"quality\":100}": {
+        "count": 1
+      },
+      "{\"id\":\"Rough wood log\"}": {
+        "count": 78
+      },
+      "{\"id\":\"Cooling salt packet\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Empty cooling sleeve\"}": {
+        "count": 2
+      },
+      "{\"id\":\"Prepared survey kit\"}": {
+        "count": 7
+      },
+      "{\"id\":\"Wax-sealed survey kit\"}": {
+        "count": 4
+      },
+      "{\"id\":\"Dulled field fitting knife\"}": {
+        "count": 2
+      },
+      "{\"id\":\"Bench clearance manual\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Set repair resin\"}": {
+        "count": 2
+      },
+      "{\"id\":\"Empty retort resin tray\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Empty retort residue tray\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Wet repair stave\"}": {
+        "count": 1
+      }
+    },
+    "jobs": [
+      {
+        "id": "simulation:4721",
+        "sequence": 4721,
+        "commandId": "feature_objects.dry_shade",
+        "revision": 1,
+        "actorId": "player",
+        "targetId": null,
+        "due": 736,
+        "effects": [
+          {
+            "type": "item",
+            "key": "{\"id\":\"Sound repair stave\"}",
+            "amount": 1,
+            "actor": "player"
+          },
+          {
+            "type": "knowledge",
+            "actor": "player",
+            "key": "feature_objects.dry_shade",
+            "stage": "seen",
+            "value": "One Wet repair stave dried into one actual Sound repair stave in 6 played minutes. The covered ordinary rack worked without a repaired joint or method.",
+            "basis": {
+              "kind": "observation",
+              "attributedTo": "player",
+              "situationId": "feature_objects.sluice"
+            }
+          }
+        ],
+        "costs": [
+          {
+            "type": "item",
+            "key": "{\"id\":\"Wet repair stave\"}",
+            "amount": -1,
+            "actor": "player"
+          },
+          {
+            "type": "vital",
+            "key": "stamina",
+            "amount": -2,
+            "actor": "player"
+          }
+        ],
+        "cancellation": "refund",
+        "siteId": "feature_objects.fitting_bench",
+        "claim": null,
+        "label": "Dry in the ordinary sheltered rack · 6 min",
+        "roll": null,
+        "outcomeId": null,
+        "context": {
+          "actorId": "player",
+          "targetId": null,
+          "partyIds": []
+        },
+        "participants": [
+          "player"
+        ],
+        "reservationReturns": 1,
+        "completionSupport": {
+          "schema": 1,
+          "requires": {
+            "all": [
+              {
+                "fact": "featureObjects.supported",
+                "op": "eq",
+                "value": true,
+                "reason": "This Village work needs the current native body, location, stock and supported local clock."
+              },
+              {
+                "fact": "featureObjects.handsUsable",
+                "op": "eq",
+                "value": true,
+                "reason": "Recover your hands before fitting work."
+              },
+              {
+                "fact": "vital.health",
+                "op": "gte",
+                "value": 2,
+                "reason": "Recover above one HP before fitting work."
+              }
+            ]
+          },
+          "coLocated": false,
+          "location": "Village",
+          "failure": "refund"
+        }
+      }
+    ],
+    "retort": {
+      "schema": 1,
+      "installedAt": 699,
+      "installedSequence": 4678
+    },
+    "cursor": {
+      "id": "work-plan:4692",
+      "definitionId": "factorio_retort.three_batches",
+      "revision": 1,
+      "actorId": "player",
+      "origin": "factorio_retort.install",
+      "label": "Three retort batches with separate receiver clearing",
+      "startedSequence": 4692,
+      "startedAt": 710,
+      "updatedAt": 725,
+      "steps": [
+        {
+          "id": "batch_1",
+          "kind": "command",
+          "commandId": "factorio_retort.batch",
+          "revision": 1
+        },
+        {
+          "id": "batch_2",
+          "kind": "command",
+          "commandId": "factorio_retort.batch",
+          "revision": 1
+        },
+        {
+          "id": "batch_3",
+          "kind": "command",
+          "commandId": "factorio_retort.batch",
+          "revision": 1
+        }
+      ],
+      "index": 0,
+      "status": "cancelled",
+      "accepted": null,
+      "reason": "Future steps cancelled. Any retained accepted job keeps its disclosed terms."
+    }
+  },
+  {
+    "name": "dry-first-completed",
+    "clock": 731,
+    "money": 49,
+    "staminaToFull": 0,
+    "inventory": {
+      "{\"id\":\"Cheap leather pants\",\"quality\":40}": {
+        "count": 1
+      },
+      "{\"id\":\"Stale bread\"}": {
+        "count": 5
+      },
+      "{\"id\":\"Old pickaxe\",\"quality\":100}": {
+        "count": 1
+      },
+      "{\"id\":\"Old sickle\",\"quality\":100}": {
+        "count": 1
+      },
+      "{\"id\":\"Old shovel\",\"quality\":100}": {
+        "count": 1
+      },
+      "{\"id\":\"Rough wood log\"}": {
+        "count": 78
+      },
+      "{\"id\":\"Cooling salt packet\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Empty cooling sleeve\"}": {
+        "count": 2
+      },
+      "{\"id\":\"Prepared survey kit\"}": {
+        "count": 7
+      },
+      "{\"id\":\"Wax-sealed survey kit\"}": {
+        "count": 4
+      },
+      "{\"id\":\"Dulled field fitting knife\"}": {
+        "count": 2
+      },
+      "{\"id\":\"Bench clearance manual\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Set repair resin\"}": {
+        "count": 2
+      },
+      "{\"id\":\"Empty retort resin tray\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Empty retort residue tray\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Wet repair stave\"}": {
+        "count": 1
+      }
+    },
+    "jobs": [
+      {
+        "id": "simulation:4721",
+        "sequence": 4721,
+        "commandId": "feature_objects.dry_shade",
+        "revision": 1,
+        "actorId": "player",
+        "targetId": null,
+        "due": 736,
+        "effects": [
+          {
+            "type": "item",
+            "key": "{\"id\":\"Sound repair stave\"}",
+            "amount": 1,
+            "actor": "player"
+          },
+          {
+            "type": "knowledge",
+            "actor": "player",
+            "key": "feature_objects.dry_shade",
+            "stage": "seen",
+            "value": "One Wet repair stave dried into one actual Sound repair stave in 6 played minutes. The covered ordinary rack worked without a repaired joint or method.",
+            "basis": {
+              "kind": "observation",
+              "attributedTo": "player",
+              "situationId": "feature_objects.sluice"
+            }
+          }
+        ],
+        "costs": [
+          {
+            "type": "item",
+            "key": "{\"id\":\"Wet repair stave\"}",
+            "amount": -1,
+            "actor": "player"
+          },
+          {
+            "type": "vital",
+            "key": "stamina",
+            "amount": -2,
+            "actor": "player"
+          }
+        ],
+        "cancellation": "refund",
+        "siteId": "feature_objects.fitting_bench",
+        "claim": null,
+        "label": "Dry in the ordinary sheltered rack · 6 min",
+        "roll": null,
+        "outcomeId": null,
+        "context": {
+          "actorId": "player",
+          "targetId": null,
+          "partyIds": []
+        },
+        "participants": [
+          "player"
+        ],
+        "reservationReturns": 1,
+        "completionSupport": {
+          "schema": 1,
+          "requires": {
+            "all": [
+              {
+                "fact": "featureObjects.supported",
+                "op": "eq",
+                "value": true,
+                "reason": "This Village work needs the current native body, location, stock and supported local clock."
+              },
+              {
+                "fact": "featureObjects.handsUsable",
+                "op": "eq",
+                "value": true,
+                "reason": "Recover your hands before fitting work."
+              },
+              {
+                "fact": "vital.health",
+                "op": "gte",
+                "value": 2,
+                "reason": "Recover above one HP before fitting work."
+              }
+            ]
+          },
+          "coLocated": false,
+          "location": "Village",
+          "failure": "refund"
+        }
+      }
+    ],
+    "retort": {
+      "schema": 1,
+      "installedAt": 699,
+      "installedSequence": 4678
+    },
+    "cursor": {
+      "id": "work-plan:4692",
+      "definitionId": "factorio_retort.three_batches",
+      "revision": 1,
+      "actorId": "player",
+      "origin": "factorio_retort.install",
+      "label": "Three retort batches with separate receiver clearing",
+      "startedSequence": 4692,
+      "startedAt": 710,
+      "updatedAt": 725,
+      "steps": [
+        {
+          "id": "batch_1",
+          "kind": "command",
+          "commandId": "factorio_retort.batch",
+          "revision": 1
+        },
+        {
+          "id": "batch_2",
+          "kind": "command",
+          "commandId": "factorio_retort.batch",
+          "revision": 1
+        },
+        {
+          "id": "batch_3",
+          "kind": "command",
+          "commandId": "factorio_retort.batch",
+          "revision": 1
+        }
+      ],
+      "index": 0,
+      "status": "cancelled",
+      "accepted": null,
+      "reason": "Future steps cancelled. Any retained accepted job keeps its disclosed terms."
+    }
+  },
+  {
+    "name": "dry-first-settled",
+    "clock": 736,
+    "money": 49,
+    "staminaToFull": 0,
+    "inventory": {
+      "{\"id\":\"Cheap leather pants\",\"quality\":40}": {
+        "count": 1
+      },
+      "{\"id\":\"Stale bread\"}": {
+        "count": 5
+      },
+      "{\"id\":\"Old pickaxe\",\"quality\":100}": {
+        "count": 1
+      },
+      "{\"id\":\"Old sickle\",\"quality\":100}": {
+        "count": 1
+      },
+      "{\"id\":\"Old shovel\",\"quality\":100}": {
+        "count": 1
+      },
+      "{\"id\":\"Rough wood log\"}": {
+        "count": 78
+      },
+      "{\"id\":\"Cooling salt packet\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Empty cooling sleeve\"}": {
+        "count": 2
+      },
+      "{\"id\":\"Prepared survey kit\"}": {
+        "count": 7
+      },
+      "{\"id\":\"Wax-sealed survey kit\"}": {
+        "count": 4
+      },
+      "{\"id\":\"Dulled field fitting knife\"}": {
+        "count": 2
+      },
+      "{\"id\":\"Bench clearance manual\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Set repair resin\"}": {
+        "count": 2
+      },
+      "{\"id\":\"Empty retort resin tray\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Empty retort residue tray\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Wet repair stave\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Sound repair stave\"}": {
+        "count": 1
+      }
+    },
+    "jobs": [],
+    "retort": {
+      "schema": 1,
+      "installedAt": 699,
+      "installedSequence": 4678
+    },
+    "cursor": {
+      "id": "work-plan:4692",
+      "definitionId": "factorio_retort.three_batches",
+      "revision": 1,
+      "actorId": "player",
+      "origin": "factorio_retort.install",
+      "label": "Three retort batches with separate receiver clearing",
+      "startedSequence": 4692,
+      "startedAt": 710,
+      "updatedAt": 725,
+      "steps": [
+        {
+          "id": "batch_1",
+          "kind": "command",
+          "commandId": "factorio_retort.batch",
+          "revision": 1
+        },
+        {
+          "id": "batch_2",
+          "kind": "command",
+          "commandId": "factorio_retort.batch",
+          "revision": 1
+        },
+        {
+          "id": "batch_3",
+          "kind": "command",
+          "commandId": "factorio_retort.batch",
+          "revision": 1
+        }
+      ],
+      "index": 0,
+      "status": "cancelled",
+      "accepted": null,
+      "reason": "Future steps cancelled. Any retained accepted job keeps its disclosed terms."
+    }
+  },
+  {
+    "name": "dry-second-pending",
+    "clock": 737,
+    "money": 49,
+    "staminaToFull": 0,
+    "inventory": {
+      "{\"id\":\"Cheap leather pants\",\"quality\":40}": {
+        "count": 1
+      },
+      "{\"id\":\"Stale bread\"}": {
+        "count": 5
+      },
+      "{\"id\":\"Old pickaxe\",\"quality\":100}": {
+        "count": 1
+      },
+      "{\"id\":\"Old sickle\",\"quality\":100}": {
+        "count": 1
+      },
+      "{\"id\":\"Old shovel\",\"quality\":100}": {
+        "count": 1
+      },
+      "{\"id\":\"Rough wood log\"}": {
+        "count": 78
+      },
+      "{\"id\":\"Cooling salt packet\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Empty cooling sleeve\"}": {
+        "count": 2
+      },
+      "{\"id\":\"Prepared survey kit\"}": {
+        "count": 7
+      },
+      "{\"id\":\"Wax-sealed survey kit\"}": {
+        "count": 4
+      },
+      "{\"id\":\"Dulled field fitting knife\"}": {
+        "count": 2
+      },
+      "{\"id\":\"Bench clearance manual\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Set repair resin\"}": {
+        "count": 2
+      },
+      "{\"id\":\"Empty retort resin tray\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Empty retort residue tray\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Sound repair stave\"}": {
+        "count": 1
+      }
+    },
+    "jobs": [
+      {
+        "id": "simulation:4728",
+        "sequence": 4728,
+        "commandId": "feature_objects.dry_shade",
+        "revision": 1,
+        "actorId": "player",
+        "targetId": null,
+        "due": 742,
+        "effects": [
+          {
+            "type": "item",
+            "key": "{\"id\":\"Sound repair stave\"}",
+            "amount": 1,
+            "actor": "player"
+          },
+          {
+            "type": "knowledge",
+            "actor": "player",
+            "key": "feature_objects.dry_shade",
+            "stage": "seen",
+            "value": "One Wet repair stave dried into one actual Sound repair stave in 6 played minutes. The covered ordinary rack worked without a repaired joint or method.",
+            "basis": {
+              "kind": "observation",
+              "attributedTo": "player",
+              "situationId": "feature_objects.sluice"
+            }
+          }
+        ],
+        "costs": [
+          {
+            "type": "item",
+            "key": "{\"id\":\"Wet repair stave\"}",
+            "amount": -1,
+            "actor": "player"
+          },
+          {
+            "type": "vital",
+            "key": "stamina",
+            "amount": -2,
+            "actor": "player"
+          }
+        ],
+        "cancellation": "refund",
+        "siteId": "feature_objects.fitting_bench",
+        "claim": null,
+        "label": "Dry in the ordinary sheltered rack · 6 min",
+        "roll": null,
+        "outcomeId": null,
+        "context": {
+          "actorId": "player",
+          "targetId": null,
+          "partyIds": []
+        },
+        "participants": [
+          "player"
+        ],
+        "reservationReturns": 1,
+        "completionSupport": {
+          "schema": 1,
+          "requires": {
+            "all": [
+              {
+                "fact": "featureObjects.supported",
+                "op": "eq",
+                "value": true,
+                "reason": "This Village work needs the current native body, location, stock and supported local clock."
+              },
+              {
+                "fact": "featureObjects.handsUsable",
+                "op": "eq",
+                "value": true,
+                "reason": "Recover your hands before fitting work."
+              },
+              {
+                "fact": "vital.health",
+                "op": "gte",
+                "value": 2,
+                "reason": "Recover above one HP before fitting work."
+              }
+            ]
+          },
+          "coLocated": false,
+          "location": "Village",
+          "failure": "refund"
+        }
+      }
+    ],
+    "retort": {
+      "schema": 1,
+      "installedAt": 699,
+      "installedSequence": 4678
+    },
+    "cursor": {
+      "id": "work-plan:4692",
+      "definitionId": "factorio_retort.three_batches",
+      "revision": 1,
+      "actorId": "player",
+      "origin": "factorio_retort.install",
+      "label": "Three retort batches with separate receiver clearing",
+      "startedSequence": 4692,
+      "startedAt": 710,
+      "updatedAt": 725,
+      "steps": [
+        {
+          "id": "batch_1",
+          "kind": "command",
+          "commandId": "factorio_retort.batch",
+          "revision": 1
+        },
+        {
+          "id": "batch_2",
+          "kind": "command",
+          "commandId": "factorio_retort.batch",
+          "revision": 1
+        },
+        {
+          "id": "batch_3",
+          "kind": "command",
+          "commandId": "factorio_retort.batch",
+          "revision": 1
+        }
+      ],
+      "index": 0,
+      "status": "cancelled",
+      "accepted": null,
+      "reason": "Future steps cancelled. Any retained accepted job keeps its disclosed terms."
+    }
+  },
+  {
+    "name": "sound-earned",
+    "clock": 742,
+    "money": 49,
+    "staminaToFull": 0,
+    "inventory": {
+      "{\"id\":\"Cheap leather pants\",\"quality\":40}": {
+        "count": 1
+      },
+      "{\"id\":\"Stale bread\"}": {
+        "count": 5
+      },
+      "{\"id\":\"Old pickaxe\",\"quality\":100}": {
+        "count": 1
+      },
+      "{\"id\":\"Old sickle\",\"quality\":100}": {
+        "count": 1
+      },
+      "{\"id\":\"Old shovel\",\"quality\":100}": {
+        "count": 1
+      },
+      "{\"id\":\"Rough wood log\"}": {
+        "count": 78
+      },
+      "{\"id\":\"Cooling salt packet\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Empty cooling sleeve\"}": {
+        "count": 2
+      },
+      "{\"id\":\"Prepared survey kit\"}": {
+        "count": 7
+      },
+      "{\"id\":\"Wax-sealed survey kit\"}": {
+        "count": 4
+      },
+      "{\"id\":\"Dulled field fitting knife\"}": {
+        "count": 2
+      },
+      "{\"id\":\"Bench clearance manual\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Set repair resin\"}": {
+        "count": 2
+      },
+      "{\"id\":\"Empty retort resin tray\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Empty retort residue tray\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Sound repair stave\"}": {
+        "count": 2
+      }
+    },
+    "jobs": [],
+    "retort": {
+      "schema": 1,
+      "installedAt": 699,
+      "installedSequence": 4678
+    },
+    "cursor": {
+      "id": "work-plan:4692",
+      "definitionId": "factorio_retort.three_batches",
+      "revision": 1,
+      "actorId": "player",
+      "origin": "factorio_retort.install",
+      "label": "Three retort batches with separate receiver clearing",
+      "startedSequence": 4692,
+      "startedAt": 710,
+      "updatedAt": 725,
+      "steps": [
+        {
+          "id": "batch_1",
+          "kind": "command",
+          "commandId": "factorio_retort.batch",
+          "revision": 1
+        },
+        {
+          "id": "batch_2",
+          "kind": "command",
+          "commandId": "factorio_retort.batch",
+          "revision": 1
+        },
+        {
+          "id": "batch_3",
+          "kind": "command",
+          "commandId": "factorio_retort.batch",
+          "revision": 1
+        }
+      ],
+      "index": 0,
+      "status": "cancelled",
+      "accepted": null,
+      "reason": "Future steps cancelled. Any retained accepted job keeps its disclosed terms."
+    }
+  },
+  {
+    "name": "resin-kits-pending",
+    "clock": 743,
+    "money": 49,
+    "staminaToFull": 0,
+    "inventory": {
+      "{\"id\":\"Cheap leather pants\",\"quality\":40}": {
+        "count": 1
+      },
+      "{\"id\":\"Stale bread\"}": {
+        "count": 5
+      },
+      "{\"id\":\"Old pickaxe\",\"quality\":100}": {
+        "count": 1
+      },
+      "{\"id\":\"Old sickle\",\"quality\":100}": {
+        "count": 1
+      },
+      "{\"id\":\"Old shovel\",\"quality\":100}": {
+        "count": 1
+      },
+      "{\"id\":\"Rough wood log\"}": {
+        "count": 78
+      },
+      "{\"id\":\"Cooling salt packet\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Empty cooling sleeve\"}": {
+        "count": 2
+      },
+      "{\"id\":\"Prepared survey kit\"}": {
+        "count": 7
+      },
+      "{\"id\":\"Wax-sealed survey kit\"}": {
+        "count": 4
+      },
+      "{\"id\":\"Dulled field fitting knife\"}": {
+        "count": 2
+      },
+      "{\"id\":\"Bench clearance manual\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Set repair resin\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Empty retort resin tray\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Empty retort residue tray\"}": {
+        "count": 1
+      }
+    },
+    "jobs": [
+      {
+        "id": "simulation:4735",
+        "sequence": 4735,
+        "commandId": "reference_gameplay.resin_kits",
+        "revision": 1,
+        "actorId": "player",
+        "targetId": null,
+        "due": 745,
+        "effects": [
+          {
+            "type": "item",
+            "key": "{\"id\":\"Prepared survey kit\"}",
+            "amount": 2,
+            "actor": "player"
+          },
+          {
+            "type": "knowledge",
+            "actor": "player",
+            "key": "reference_gameplay.kits",
+            "stage": "seen",
+            "value": "You consumed one actual Set repair resin and two Sound repair staves to bind two native Prepared survey kits. Existing native preparation, trade and Eda's finite orders use these same kits.",
+            "basis": {
+              "kind": "observation",
+              "attributedTo": "player",
+              "situationId": "feature_objects.sluice"
+            }
+          }
+        ],
+        "costs": [
+          {
+            "type": "item",
+            "key": "{\"id\":\"Set repair resin\"}",
+            "amount": -1,
+            "actor": "player"
+          },
+          {
+            "type": "item",
+            "key": "{\"id\":\"Sound repair stave\"}",
+            "amount": -2,
+            "actor": "player"
+          },
+          {
+            "type": "vital",
+            "actor": "player",
+            "key": "stamina",
+            "amount": -1
+          }
+        ],
+        "cancellation": "refund",
+        "siteId": "feature_objects.fitting_bench",
+        "claim": null,
+        "label": "Bind two sound staves with set resin · two survey kits + 3 min",
+        "roll": null,
+        "outcomeId": null,
+        "context": {
+          "actorId": "player",
+          "targetId": null,
+          "partyIds": []
+        },
+        "participants": [
+          "player"
+        ],
+        "reservationReturns": 1,
+        "completionSupport": {
+          "schema": 1,
+          "requires": {
+            "all": [
+              {
+                "fact": "reference.workshop.supported",
+                "op": "eq",
+                "value": true,
+                "reason": "Return to the Village with your supported living native body and local clock."
+              },
+              {
+                "fact": "reference.workshop.handsUsable",
+                "op": "eq",
+                "value": true,
+                "reason": "Recover your actual hands before handling a sleeve."
+              },
+              {
+                "fact": "vital.health",
+                "op": "gte",
+                "value": 2
+              }
+            ]
+          },
+          "coLocated": false,
+          "location": "Village",
+          "failure": "refund"
+        }
+      }
+    ],
+    "retort": {
+      "schema": 1,
+      "installedAt": 699,
+      "installedSequence": 4678
+    },
+    "cursor": {
+      "id": "work-plan:4692",
+      "definitionId": "factorio_retort.three_batches",
+      "revision": 1,
+      "actorId": "player",
+      "origin": "factorio_retort.install",
+      "label": "Three retort batches with separate receiver clearing",
+      "startedSequence": 4692,
+      "startedAt": 710,
+      "updatedAt": 725,
+      "steps": [
+        {
+          "id": "batch_1",
+          "kind": "command",
+          "commandId": "factorio_retort.batch",
+          "revision": 1
+        },
+        {
+          "id": "batch_2",
+          "kind": "command",
+          "commandId": "factorio_retort.batch",
+          "revision": 1
+        },
+        {
+          "id": "batch_3",
+          "kind": "command",
+          "commandId": "factorio_retort.batch",
+          "revision": 1
+        }
+      ],
+      "index": 0,
+      "status": "cancelled",
+      "accepted": null,
+      "reason": "Future steps cancelled. Any retained accepted job keeps its disclosed terms."
+    }
+  },
+  {
+    "name": "useful-kits-produced",
+    "clock": 745,
+    "money": 49,
+    "staminaToFull": 0,
+    "inventory": {
+      "{\"id\":\"Cheap leather pants\",\"quality\":40}": {
+        "count": 1
+      },
+      "{\"id\":\"Stale bread\"}": {
+        "count": 5
+      },
+      "{\"id\":\"Old pickaxe\",\"quality\":100}": {
+        "count": 1
+      },
+      "{\"id\":\"Old sickle\",\"quality\":100}": {
+        "count": 1
+      },
+      "{\"id\":\"Old shovel\",\"quality\":100}": {
+        "count": 1
+      },
+      "{\"id\":\"Rough wood log\"}": {
+        "count": 78
+      },
+      "{\"id\":\"Cooling salt packet\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Empty cooling sleeve\"}": {
+        "count": 2
+      },
+      "{\"id\":\"Prepared survey kit\"}": {
+        "count": 9
+      },
+      "{\"id\":\"Wax-sealed survey kit\"}": {
+        "count": 4
+      },
+      "{\"id\":\"Dulled field fitting knife\"}": {
+        "count": 2
+      },
+      "{\"id\":\"Bench clearance manual\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Set repair resin\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Empty retort resin tray\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Empty retort residue tray\"}": {
+        "count": 1
+      }
+    },
+    "jobs": [],
+    "retort": {
+      "schema": 1,
+      "installedAt": 699,
+      "installedSequence": 4678
+    },
+    "cursor": {
+      "id": "work-plan:4692",
+      "definitionId": "factorio_retort.three_batches",
+      "revision": 1,
+      "actorId": "player",
+      "origin": "factorio_retort.install",
+      "label": "Three retort batches with separate receiver clearing",
+      "startedSequence": 4692,
+      "startedAt": 710,
+      "updatedAt": 725,
+      "steps": [
+        {
+          "id": "batch_1",
+          "kind": "command",
+          "commandId": "factorio_retort.batch",
+          "revision": 1
+        },
+        {
+          "id": "batch_2",
+          "kind": "command",
+          "commandId": "factorio_retort.batch",
+          "revision": 1
+        },
+        {
+          "id": "batch_3",
+          "kind": "command",
+          "commandId": "factorio_retort.batch",
+          "revision": 1
+        }
+      ],
+      "index": 0,
+      "status": "cancelled",
+      "accepted": null,
+      "reason": "Future steps cancelled. Any retained accepted job keeps its disclosed terms."
+    }
+  },
+  {
+    "name": "useful-kits-produced-reloaded",
+    "clock": 745,
+    "money": 49,
+    "staminaToFull": 0,
+    "inventory": {
+      "{\"id\":\"Cheap leather pants\",\"quality\":40}": {
+        "count": 1
+      },
+      "{\"id\":\"Stale bread\"}": {
+        "count": 5
+      },
+      "{\"id\":\"Old pickaxe\",\"quality\":100}": {
+        "count": 1
+      },
+      "{\"id\":\"Old sickle\",\"quality\":100}": {
+        "count": 1
+      },
+      "{\"id\":\"Old shovel\",\"quality\":100}": {
+        "count": 1
+      },
+      "{\"id\":\"Rough wood log\"}": {
+        "count": 78
+      },
+      "{\"id\":\"Cooling salt packet\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Empty cooling sleeve\"}": {
+        "count": 2
+      },
+      "{\"id\":\"Prepared survey kit\"}": {
+        "count": 9
+      },
+      "{\"id\":\"Wax-sealed survey kit\"}": {
+        "count": 4
+      },
+      "{\"id\":\"Dulled field fitting knife\"}": {
+        "count": 2
+      },
+      "{\"id\":\"Bench clearance manual\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Set repair resin\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Empty retort resin tray\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Empty retort residue tray\"}": {
+        "count": 1
+      }
+    },
+    "jobs": [],
+    "retort": {
+      "schema": 1,
+      "installedAt": 699,
+      "installedSequence": 4678
+    },
+    "cursor": {
+      "id": "work-plan:4692",
+      "definitionId": "factorio_retort.three_batches",
+      "revision": 1,
+      "actorId": "player",
+      "origin": "factorio_retort.install",
+      "label": "Three retort batches with separate receiver clearing",
+      "startedSequence": 4692,
+      "startedAt": 710,
+      "updatedAt": 725,
+      "steps": [
+        {
+          "id": "batch_1",
+          "kind": "command",
+          "commandId": "factorio_retort.batch",
+          "revision": 1
+        },
+        {
+          "id": "batch_2",
+          "kind": "command",
+          "commandId": "factorio_retort.batch",
+          "revision": 1
+        },
+        {
+          "id": "batch_3",
+          "kind": "command",
+          "commandId": "factorio_retort.batch",
+          "revision": 1
+        }
+      ],
+      "index": 0,
+      "status": "cancelled",
+      "accepted": null,
+      "reason": "Future steps cancelled. Any retained accepted job keeps its disclosed terms."
+    }
+  },
+  {
+    "name": "useful-kits-produced-imported",
+    "clock": 745,
+    "money": 49,
+    "staminaToFull": 0,
+    "inventory": {
+      "{\"id\":\"Cheap leather pants\",\"quality\":40}": {
+        "count": 1
+      },
+      "{\"id\":\"Stale bread\"}": {
+        "count": 5
+      },
+      "{\"id\":\"Old pickaxe\",\"quality\":100}": {
+        "count": 1
+      },
+      "{\"id\":\"Old sickle\",\"quality\":100}": {
+        "count": 1
+      },
+      "{\"id\":\"Old shovel\",\"quality\":100}": {
+        "count": 1
+      },
+      "{\"id\":\"Rough wood log\"}": {
+        "count": 78
+      },
+      "{\"id\":\"Cooling salt packet\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Empty cooling sleeve\"}": {
+        "count": 2
+      },
+      "{\"id\":\"Prepared survey kit\"}": {
+        "count": 9
+      },
+      "{\"id\":\"Wax-sealed survey kit\"}": {
+        "count": 4
+      },
+      "{\"id\":\"Dulled field fitting knife\"}": {
+        "count": 2
+      },
+      "{\"id\":\"Bench clearance manual\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Set repair resin\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Empty retort resin tray\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Empty retort residue tray\"}": {
+        "count": 1
+      }
+    },
+    "jobs": [],
+    "retort": {
+      "schema": 1,
+      "installedAt": 699,
+      "installedSequence": 4678
+    },
+    "cursor": {
+      "id": "work-plan:4692",
+      "definitionId": "factorio_retort.three_batches",
+      "revision": 1,
+      "actorId": "player",
+      "origin": "factorio_retort.install",
+      "label": "Three retort batches with separate receiver clearing",
+      "startedSequence": 4692,
+      "startedAt": 710,
+      "updatedAt": 725,
+      "steps": [
+        {
+          "id": "batch_1",
+          "kind": "command",
+          "commandId": "factorio_retort.batch",
+          "revision": 1
+        },
+        {
+          "id": "batch_2",
+          "kind": "command",
+          "commandId": "factorio_retort.batch",
+          "revision": 1
+        },
+        {
+          "id": "batch_3",
+          "kind": "command",
+          "commandId": "factorio_retort.batch",
+          "revision": 1
+        }
+      ],
+      "index": 0,
+      "status": "cancelled",
+      "accepted": null,
+      "reason": "Future steps cancelled. Any retained accepted job keeps its disclosed terms."
+    }
+  },
+  {
+    "name": "useful-delivery",
+    "clock": 746,
+    "money": 49,
+    "staminaToFull": 0,
+    "inventory": {
+      "{\"id\":\"Cheap leather pants\",\"quality\":40}": {
+        "count": 1
+      },
+      "{\"id\":\"Stale bread\"}": {
+        "count": 5
+      },
+      "{\"id\":\"Old pickaxe\",\"quality\":100}": {
+        "count": 1
+      },
+      "{\"id\":\"Old sickle\",\"quality\":100}": {
+        "count": 1
+      },
+      "{\"id\":\"Old shovel\",\"quality\":100}": {
+        "count": 1
+      },
+      "{\"id\":\"Rough wood log\"}": {
+        "count": 78
+      },
+      "{\"id\":\"Cooling salt packet\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Empty cooling sleeve\"}": {
+        "count": 2
+      },
+      "{\"id\":\"Prepared survey kit\"}": {
+        "count": 7
+      },
+      "{\"id\":\"Wax-sealed survey kit\"}": {
+        "count": 4
+      },
+      "{\"id\":\"Dulled field fitting knife\"}": {
+        "count": 2
+      },
+      "{\"id\":\"Bench clearance manual\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Set repair resin\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Empty retort resin tray\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Empty retort residue tray\"}": {
+        "count": 1
+      }
+    },
+    "jobs": [
+      {
+        "id": "simulation:4739",
+        "sequence": 4739,
+        "commandId": "feature_objects.deliver_kits",
+        "revision": 1,
+        "actorId": "player",
+        "targetId": "feature_objects.miri",
+        "due": 747,
+        "effects": [
+          {
+            "type": "resource",
+            "native": true,
+            "key": "money",
+            "amount": 2,
+            "actor": "player"
+          },
+          {
+            "type": "knowledge",
+            "actor": "player",
+            "key": "feature_objects.kitDelivery",
+            "stage": "seen",
+            "value": "Eda received two actual Prepared survey kits and paid two coins from her own reserved purse for one finite order. Existing native kits work too; no phantom replacement or extra claim was awarded.",
+            "basis": {
+              "kind": "observation",
+              "attributedTo": "feature_objects.miri",
+              "situationId": "feature_objects.sluice"
+            }
+          }
+        ],
+        "costs": [
+          {
+            "type": "transfer",
+            "from": "player",
+            "to": "feature_objects.miri",
+            "key": "{\"id\":\"Prepared survey kit\"}",
+            "count": 2
+          },
+          {
+            "type": "resource",
+            "key": "coins",
+            "amount": -2,
+            "actor": "feature_objects.miri"
+          },
+          {
+            "type": "resource",
+            "actor": "feature_objects.miri",
+            "key": "kitOrders",
+            "amount": -1
+          }
+        ],
+        "cancellation": "refund",
+        "siteId": null,
+        "claim": null,
+        "label": "Deliver two real survey kits to Eda · earn 2 coins",
+        "roll": null,
+        "outcomeId": null,
+        "context": {
+          "actorId": "player",
+          "targetId": "feature_objects.miri",
+          "partyIds": []
+        },
+        "participants": [
+          "player",
+          "feature_objects.miri"
+        ],
+        "reservationReturns": 1,
+        "completionSupport": {
+          "schema": 1,
+          "requires": {
+            "all": [
+              {
+                "all": [
+                  {
+                    "fact": "featureObjects.supported",
+                    "op": "eq",
+                    "value": true,
+                    "reason": "This Village work needs the current native body, location, stock and supported local clock."
+                  },
+                  {
+                    "fact": "featureObjects.handsUsable",
+                    "op": "eq",
+                    "value": true,
+                    "reason": "Recover your hands before fitting work."
+                  },
+                  {
+                    "fact": "vital.health",
+                    "op": "gte",
+                    "value": 2,
+                    "reason": "Recover above one HP before fitting work."
+                  }
+                ]
+              },
+              {
+                "fact": "featureObjects.miriSupported",
+                "op": "eq",
+                "value": true,
+                "reason": "Eda needs present consent, her own living body and free attention."
+              }
+            ]
+          },
+          "coLocated": true,
+          "location": "Village",
+          "failure": "refund"
+        }
+      }
+    ],
+    "retort": {
+      "schema": 1,
+      "installedAt": 699,
+      "installedSequence": 4678
+    },
+    "cursor": {
+      "id": "work-plan:4692",
+      "definitionId": "factorio_retort.three_batches",
+      "revision": 1,
+      "actorId": "player",
+      "origin": "factorio_retort.install",
+      "label": "Three retort batches with separate receiver clearing",
+      "startedSequence": 4692,
+      "startedAt": 710,
+      "updatedAt": 725,
+      "steps": [
+        {
+          "id": "batch_1",
+          "kind": "command",
+          "commandId": "factorio_retort.batch",
+          "revision": 1
+        },
+        {
+          "id": "batch_2",
+          "kind": "command",
+          "commandId": "factorio_retort.batch",
+          "revision": 1
+        },
+        {
+          "id": "batch_3",
+          "kind": "command",
+          "commandId": "factorio_retort.batch",
+          "revision": 1
+        }
+      ],
+      "index": 0,
+      "status": "cancelled",
+      "accepted": null,
+      "reason": "Future steps cancelled. Any retained accepted job keeps its disclosed terms."
+    }
+  },
+  {
+    "name": "useful-delivery-reloaded",
+    "clock": 746,
+    "money": 49,
+    "staminaToFull": 0,
+    "inventory": {
+      "{\"id\":\"Cheap leather pants\",\"quality\":40}": {
+        "count": 1
+      },
+      "{\"id\":\"Stale bread\"}": {
+        "count": 5
+      },
+      "{\"id\":\"Old pickaxe\",\"quality\":100}": {
+        "count": 1
+      },
+      "{\"id\":\"Old sickle\",\"quality\":100}": {
+        "count": 1
+      },
+      "{\"id\":\"Old shovel\",\"quality\":100}": {
+        "count": 1
+      },
+      "{\"id\":\"Rough wood log\"}": {
+        "count": 78
+      },
+      "{\"id\":\"Cooling salt packet\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Empty cooling sleeve\"}": {
+        "count": 2
+      },
+      "{\"id\":\"Prepared survey kit\"}": {
+        "count": 7
+      },
+      "{\"id\":\"Wax-sealed survey kit\"}": {
+        "count": 4
+      },
+      "{\"id\":\"Dulled field fitting knife\"}": {
+        "count": 2
+      },
+      "{\"id\":\"Bench clearance manual\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Set repair resin\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Empty retort resin tray\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Empty retort residue tray\"}": {
+        "count": 1
+      }
+    },
+    "jobs": [
+      {
+        "id": "simulation:4739",
+        "sequence": 4739,
+        "commandId": "feature_objects.deliver_kits",
+        "revision": 1,
+        "actorId": "player",
+        "targetId": "feature_objects.miri",
+        "due": 747,
+        "effects": [
+          {
+            "type": "resource",
+            "native": true,
+            "key": "money",
+            "amount": 2,
+            "actor": "player"
+          },
+          {
+            "type": "knowledge",
+            "actor": "player",
+            "key": "feature_objects.kitDelivery",
+            "stage": "seen",
+            "value": "Eda received two actual Prepared survey kits and paid two coins from her own reserved purse for one finite order. Existing native kits work too; no phantom replacement or extra claim was awarded.",
+            "basis": {
+              "kind": "observation",
+              "attributedTo": "feature_objects.miri",
+              "situationId": "feature_objects.sluice"
+            }
+          }
+        ],
+        "costs": [
+          {
+            "type": "transfer",
+            "from": "player",
+            "to": "feature_objects.miri",
+            "key": "{\"id\":\"Prepared survey kit\"}",
+            "count": 2
+          },
+          {
+            "type": "resource",
+            "key": "coins",
+            "amount": -2,
+            "actor": "feature_objects.miri"
+          },
+          {
+            "type": "resource",
+            "actor": "feature_objects.miri",
+            "key": "kitOrders",
+            "amount": -1
+          }
+        ],
+        "cancellation": "refund",
+        "siteId": null,
+        "claim": null,
+        "label": "Deliver two real survey kits to Eda · earn 2 coins",
+        "roll": null,
+        "outcomeId": null,
+        "context": {
+          "actorId": "player",
+          "targetId": "feature_objects.miri",
+          "partyIds": []
+        },
+        "participants": [
+          "player",
+          "feature_objects.miri"
+        ],
+        "reservationReturns": 1,
+        "completionSupport": {
+          "schema": 1,
+          "requires": {
+            "all": [
+              {
+                "all": [
+                  {
+                    "fact": "featureObjects.supported",
+                    "op": "eq",
+                    "value": true,
+                    "reason": "This Village work needs the current native body, location, stock and supported local clock."
+                  },
+                  {
+                    "fact": "featureObjects.handsUsable",
+                    "op": "eq",
+                    "value": true,
+                    "reason": "Recover your hands before fitting work."
+                  },
+                  {
+                    "fact": "vital.health",
+                    "op": "gte",
+                    "value": 2,
+                    "reason": "Recover above one HP before fitting work."
+                  }
+                ]
+              },
+              {
+                "fact": "featureObjects.miriSupported",
+                "op": "eq",
+                "value": true,
+                "reason": "Eda needs present consent, her own living body and free attention."
+              }
+            ]
+          },
+          "coLocated": true,
+          "location": "Village",
+          "failure": "refund"
+        }
+      }
+    ],
+    "retort": {
+      "schema": 1,
+      "installedAt": 699,
+      "installedSequence": 4678
+    },
+    "cursor": {
+      "id": "work-plan:4692",
+      "definitionId": "factorio_retort.three_batches",
+      "revision": 1,
+      "actorId": "player",
+      "origin": "factorio_retort.install",
+      "label": "Three retort batches with separate receiver clearing",
+      "startedSequence": 4692,
+      "startedAt": 710,
+      "updatedAt": 725,
+      "steps": [
+        {
+          "id": "batch_1",
+          "kind": "command",
+          "commandId": "factorio_retort.batch",
+          "revision": 1
+        },
+        {
+          "id": "batch_2",
+          "kind": "command",
+          "commandId": "factorio_retort.batch",
+          "revision": 1
+        },
+        {
+          "id": "batch_3",
+          "kind": "command",
+          "commandId": "factorio_retort.batch",
+          "revision": 1
+        }
+      ],
+      "index": 0,
+      "status": "cancelled",
+      "accepted": null,
+      "reason": "Future steps cancelled. Any retained accepted job keeps its disclosed terms."
+    }
+  },
+  {
+    "name": "useful-delivery-imported",
+    "clock": 746,
+    "money": 49,
+    "staminaToFull": 0,
+    "inventory": {
+      "{\"id\":\"Cheap leather pants\",\"quality\":40}": {
+        "count": 1
+      },
+      "{\"id\":\"Stale bread\"}": {
+        "count": 5
+      },
+      "{\"id\":\"Old pickaxe\",\"quality\":100}": {
+        "count": 1
+      },
+      "{\"id\":\"Old sickle\",\"quality\":100}": {
+        "count": 1
+      },
+      "{\"id\":\"Old shovel\",\"quality\":100}": {
+        "count": 1
+      },
+      "{\"id\":\"Rough wood log\"}": {
+        "count": 78
+      },
+      "{\"id\":\"Cooling salt packet\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Empty cooling sleeve\"}": {
+        "count": 2
+      },
+      "{\"id\":\"Prepared survey kit\"}": {
+        "count": 7
+      },
+      "{\"id\":\"Wax-sealed survey kit\"}": {
+        "count": 4
+      },
+      "{\"id\":\"Dulled field fitting knife\"}": {
+        "count": 2
+      },
+      "{\"id\":\"Bench clearance manual\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Set repair resin\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Empty retort resin tray\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Empty retort residue tray\"}": {
+        "count": 1
+      }
+    },
+    "jobs": [
+      {
+        "id": "simulation:4739",
+        "sequence": 4739,
+        "commandId": "feature_objects.deliver_kits",
+        "revision": 1,
+        "actorId": "player",
+        "targetId": "feature_objects.miri",
+        "due": 747,
+        "effects": [
+          {
+            "type": "resource",
+            "native": true,
+            "key": "money",
+            "amount": 2,
+            "actor": "player"
+          },
+          {
+            "type": "knowledge",
+            "actor": "player",
+            "key": "feature_objects.kitDelivery",
+            "stage": "seen",
+            "value": "Eda received two actual Prepared survey kits and paid two coins from her own reserved purse for one finite order. Existing native kits work too; no phantom replacement or extra claim was awarded.",
+            "basis": {
+              "kind": "observation",
+              "attributedTo": "feature_objects.miri",
+              "situationId": "feature_objects.sluice"
+            }
+          }
+        ],
+        "costs": [
+          {
+            "type": "transfer",
+            "from": "player",
+            "to": "feature_objects.miri",
+            "key": "{\"id\":\"Prepared survey kit\"}",
+            "count": 2
+          },
+          {
+            "type": "resource",
+            "key": "coins",
+            "amount": -2,
+            "actor": "feature_objects.miri"
+          },
+          {
+            "type": "resource",
+            "actor": "feature_objects.miri",
+            "key": "kitOrders",
+            "amount": -1
+          }
+        ],
+        "cancellation": "refund",
+        "siteId": null,
+        "claim": null,
+        "label": "Deliver two real survey kits to Eda · earn 2 coins",
+        "roll": null,
+        "outcomeId": null,
+        "context": {
+          "actorId": "player",
+          "targetId": "feature_objects.miri",
+          "partyIds": []
+        },
+        "participants": [
+          "player",
+          "feature_objects.miri"
+        ],
+        "reservationReturns": 1,
+        "completionSupport": {
+          "schema": 1,
+          "requires": {
+            "all": [
+              {
+                "all": [
+                  {
+                    "fact": "featureObjects.supported",
+                    "op": "eq",
+                    "value": true,
+                    "reason": "This Village work needs the current native body, location, stock and supported local clock."
+                  },
+                  {
+                    "fact": "featureObjects.handsUsable",
+                    "op": "eq",
+                    "value": true,
+                    "reason": "Recover your hands before fitting work."
+                  },
+                  {
+                    "fact": "vital.health",
+                    "op": "gte",
+                    "value": 2,
+                    "reason": "Recover above one HP before fitting work."
+                  }
+                ]
+              },
+              {
+                "fact": "featureObjects.miriSupported",
+                "op": "eq",
+                "value": true,
+                "reason": "Eda needs present consent, her own living body and free attention."
+              }
+            ]
+          },
+          "coLocated": true,
+          "location": "Village",
+          "failure": "refund"
+        }
+      }
+    ],
+    "retort": {
+      "schema": 1,
+      "installedAt": 699,
+      "installedSequence": 4678
+    },
+    "cursor": {
+      "id": "work-plan:4692",
+      "definitionId": "factorio_retort.three_batches",
+      "revision": 1,
+      "actorId": "player",
+      "origin": "factorio_retort.install",
+      "label": "Three retort batches with separate receiver clearing",
+      "startedSequence": 4692,
+      "startedAt": 710,
+      "updatedAt": 725,
+      "steps": [
+        {
+          "id": "batch_1",
+          "kind": "command",
+          "commandId": "factorio_retort.batch",
+          "revision": 1
+        },
+        {
+          "id": "batch_2",
+          "kind": "command",
+          "commandId": "factorio_retort.batch",
+          "revision": 1
+        },
+        {
+          "id": "batch_3",
+          "kind": "command",
+          "commandId": "factorio_retort.batch",
+          "revision": 1
+        }
+      ],
+      "index": 0,
+      "status": "cancelled",
+      "accepted": null,
+      "reason": "Future steps cancelled. Any retained accepted job keeps its disclosed terms."
+    }
+  },
+  {
+    "name": "delivery-settled",
+    "clock": 747,
+    "money": 51,
+    "staminaToFull": 0,
+    "inventory": {
+      "{\"id\":\"Cheap leather pants\",\"quality\":40}": {
+        "count": 1
+      },
+      "{\"id\":\"Stale bread\"}": {
+        "count": 5
+      },
+      "{\"id\":\"Old pickaxe\",\"quality\":100}": {
+        "count": 1
+      },
+      "{\"id\":\"Old sickle\",\"quality\":100}": {
+        "count": 1
+      },
+      "{\"id\":\"Old shovel\",\"quality\":100}": {
+        "count": 1
+      },
+      "{\"id\":\"Rough wood log\"}": {
+        "count": 78
+      },
+      "{\"id\":\"Cooling salt packet\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Empty cooling sleeve\"}": {
+        "count": 2
+      },
+      "{\"id\":\"Prepared survey kit\"}": {
+        "count": 7
+      },
+      "{\"id\":\"Wax-sealed survey kit\"}": {
+        "count": 4
+      },
+      "{\"id\":\"Dulled field fitting knife\"}": {
+        "count": 2
+      },
+      "{\"id\":\"Bench clearance manual\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Set repair resin\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Empty retort resin tray\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Empty retort residue tray\"}": {
+        "count": 1
+      }
+    },
+    "jobs": [],
+    "retort": {
+      "schema": 1,
+      "installedAt": 699,
+      "installedSequence": 4678
+    },
+    "cursor": {
+      "id": "work-plan:4692",
+      "definitionId": "factorio_retort.three_batches",
+      "revision": 1,
+      "actorId": "player",
+      "origin": "factorio_retort.install",
+      "label": "Three retort batches with separate receiver clearing",
+      "startedSequence": 4692,
+      "startedAt": 710,
+      "updatedAt": 725,
+      "steps": [
+        {
+          "id": "batch_1",
+          "kind": "command",
+          "commandId": "factorio_retort.batch",
+          "revision": 1
+        },
+        {
+          "id": "batch_2",
+          "kind": "command",
+          "commandId": "factorio_retort.batch",
+          "revision": 1
+        },
+        {
+          "id": "batch_3",
+          "kind": "command",
+          "commandId": "factorio_retort.batch",
+          "revision": 1
+        }
+      ],
+      "index": 0,
+      "status": "cancelled",
+      "accepted": null,
+      "reason": "Future steps cancelled. Any retained accepted job keeps its disclosed terms."
+    }
+  },
+  {
+    "name": "delivery-settled-reloaded",
+    "clock": 747,
+    "money": 51,
+    "staminaToFull": 0,
+    "inventory": {
+      "{\"id\":\"Cheap leather pants\",\"quality\":40}": {
+        "count": 1
+      },
+      "{\"id\":\"Stale bread\"}": {
+        "count": 5
+      },
+      "{\"id\":\"Old pickaxe\",\"quality\":100}": {
+        "count": 1
+      },
+      "{\"id\":\"Old sickle\",\"quality\":100}": {
+        "count": 1
+      },
+      "{\"id\":\"Old shovel\",\"quality\":100}": {
+        "count": 1
+      },
+      "{\"id\":\"Rough wood log\"}": {
+        "count": 78
+      },
+      "{\"id\":\"Cooling salt packet\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Empty cooling sleeve\"}": {
+        "count": 2
+      },
+      "{\"id\":\"Prepared survey kit\"}": {
+        "count": 7
+      },
+      "{\"id\":\"Wax-sealed survey kit\"}": {
+        "count": 4
+      },
+      "{\"id\":\"Dulled field fitting knife\"}": {
+        "count": 2
+      },
+      "{\"id\":\"Bench clearance manual\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Set repair resin\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Empty retort resin tray\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Empty retort residue tray\"}": {
+        "count": 1
+      }
+    },
+    "jobs": [],
+    "retort": {
+      "schema": 1,
+      "installedAt": 699,
+      "installedSequence": 4678
+    },
+    "cursor": {
+      "id": "work-plan:4692",
+      "definitionId": "factorio_retort.three_batches",
+      "revision": 1,
+      "actorId": "player",
+      "origin": "factorio_retort.install",
+      "label": "Three retort batches with separate receiver clearing",
+      "startedSequence": 4692,
+      "startedAt": 710,
+      "updatedAt": 725,
+      "steps": [
+        {
+          "id": "batch_1",
+          "kind": "command",
+          "commandId": "factorio_retort.batch",
+          "revision": 1
+        },
+        {
+          "id": "batch_2",
+          "kind": "command",
+          "commandId": "factorio_retort.batch",
+          "revision": 1
+        },
+        {
+          "id": "batch_3",
+          "kind": "command",
+          "commandId": "factorio_retort.batch",
+          "revision": 1
+        }
+      ],
+      "index": 0,
+      "status": "cancelled",
+      "accepted": null,
+      "reason": "Future steps cancelled. Any retained accepted job keeps its disclosed terms."
+    }
+  },
+  {
+    "name": "delivery-settled-imported",
+    "clock": 747,
+    "money": 51,
+    "staminaToFull": 0,
+    "inventory": {
+      "{\"id\":\"Cheap leather pants\",\"quality\":40}": {
+        "count": 1
+      },
+      "{\"id\":\"Stale bread\"}": {
+        "count": 5
+      },
+      "{\"id\":\"Old pickaxe\",\"quality\":100}": {
+        "count": 1
+      },
+      "{\"id\":\"Old sickle\",\"quality\":100}": {
+        "count": 1
+      },
+      "{\"id\":\"Old shovel\",\"quality\":100}": {
+        "count": 1
+      },
+      "{\"id\":\"Rough wood log\"}": {
+        "count": 78
+      },
+      "{\"id\":\"Cooling salt packet\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Empty cooling sleeve\"}": {
+        "count": 2
+      },
+      "{\"id\":\"Prepared survey kit\"}": {
+        "count": 7
+      },
+      "{\"id\":\"Wax-sealed survey kit\"}": {
+        "count": 4
+      },
+      "{\"id\":\"Dulled field fitting knife\"}": {
+        "count": 2
+      },
+      "{\"id\":\"Bench clearance manual\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Set repair resin\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Empty retort resin tray\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Empty retort residue tray\"}": {
+        "count": 1
+      }
+    },
+    "jobs": [],
+    "retort": {
+      "schema": 1,
+      "installedAt": 699,
+      "installedSequence": 4678
+    },
+    "cursor": {
+      "id": "work-plan:4692",
+      "definitionId": "factorio_retort.three_batches",
+      "revision": 1,
+      "actorId": "player",
+      "origin": "factorio_retort.install",
+      "label": "Three retort batches with separate receiver clearing",
+      "startedSequence": 4692,
+      "startedAt": 710,
+      "updatedAt": 725,
+      "steps": [
+        {
+          "id": "batch_1",
+          "kind": "command",
+          "commandId": "factorio_retort.batch",
+          "revision": 1
+        },
+        {
+          "id": "batch_2",
+          "kind": "command",
+          "commandId": "factorio_retort.batch",
+          "revision": 1
+        },
+        {
+          "id": "batch_3",
+          "kind": "command",
+          "commandId": "factorio_retort.batch",
+          "revision": 1
+        }
+      ],
+      "index": 0,
+      "status": "cancelled",
+      "accepted": null,
+      "reason": "Future steps cancelled. Any retained accepted job keeps its disclosed terms."
+    }
+  },
+  {
+    "name": "final-earned",
+    "clock": 747,
+    "money": 51,
+    "staminaToFull": 0,
+    "inventory": {
+      "{\"id\":\"Cheap leather pants\",\"quality\":40}": {
+        "count": 1
+      },
+      "{\"id\":\"Stale bread\"}": {
+        "count": 5
+      },
+      "{\"id\":\"Old pickaxe\",\"quality\":100}": {
+        "count": 1
+      },
+      "{\"id\":\"Old sickle\",\"quality\":100}": {
+        "count": 1
+      },
+      "{\"id\":\"Old shovel\",\"quality\":100}": {
+        "count": 1
+      },
+      "{\"id\":\"Rough wood log\"}": {
+        "count": 78
+      },
+      "{\"id\":\"Cooling salt packet\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Empty cooling sleeve\"}": {
+        "count": 2
+      },
+      "{\"id\":\"Prepared survey kit\"}": {
+        "count": 7
+      },
+      "{\"id\":\"Wax-sealed survey kit\"}": {
+        "count": 4
+      },
+      "{\"id\":\"Dulled field fitting knife\"}": {
+        "count": 2
+      },
+      "{\"id\":\"Bench clearance manual\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Set repair resin\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Empty retort resin tray\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Empty retort residue tray\"}": {
+        "count": 1
+      }
+    },
+    "jobs": [],
+    "retort": {
+      "schema": 1,
+      "installedAt": 699,
+      "installedSequence": 4678
+    },
+    "cursor": {
+      "id": "work-plan:4692",
+      "definitionId": "factorio_retort.three_batches",
+      "revision": 1,
+      "actorId": "player",
+      "origin": "factorio_retort.install",
+      "label": "Three retort batches with separate receiver clearing",
+      "startedSequence": 4692,
+      "startedAt": 710,
+      "updatedAt": 725,
+      "steps": [
+        {
+          "id": "batch_1",
+          "kind": "command",
+          "commandId": "factorio_retort.batch",
+          "revision": 1
+        },
+        {
+          "id": "batch_2",
+          "kind": "command",
+          "commandId": "factorio_retort.batch",
+          "revision": 1
+        },
+        {
+          "id": "batch_3",
+          "kind": "command",
+          "commandId": "factorio_retort.batch",
+          "revision": 1
+        }
+      ],
+      "index": 0,
+      "status": "cancelled",
+      "accepted": null,
+      "reason": "Future steps cancelled. Any retained accepted job keeps its disclosed terms."
+    }
+  },
+  {
+    "name": "final-earned",
+    "clock": 747,
+    "money": 51,
+    "staminaToFull": 0,
+    "inventory": {
+      "{\"id\":\"Cheap leather pants\",\"quality\":40}": {
+        "count": 1
+      },
+      "{\"id\":\"Stale bread\"}": {
+        "count": 5
+      },
+      "{\"id\":\"Old pickaxe\",\"quality\":100}": {
+        "count": 1
+      },
+      "{\"id\":\"Old sickle\",\"quality\":100}": {
+        "count": 1
+      },
+      "{\"id\":\"Old shovel\",\"quality\":100}": {
+        "count": 1
+      },
+      "{\"id\":\"Rough wood log\"}": {
+        "count": 78
+      },
+      "{\"id\":\"Cooling salt packet\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Empty cooling sleeve\"}": {
+        "count": 2
+      },
+      "{\"id\":\"Prepared survey kit\"}": {
+        "count": 7
+      },
+      "{\"id\":\"Wax-sealed survey kit\"}": {
+        "count": 4
+      },
+      "{\"id\":\"Dulled field fitting knife\"}": {
+        "count": 2
+      },
+      "{\"id\":\"Bench clearance manual\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Set repair resin\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Empty retort resin tray\"}": {
+        "count": 1
+      },
+      "{\"id\":\"Empty retort residue tray\"}": {
+        "count": 1
+      }
+    },
+    "jobs": [],
+    "retort": {
+      "schema": 1,
+      "installedAt": 699,
+      "installedSequence": 4678
+    },
+    "cursor": {
+      "id": "work-plan:4692",
+      "definitionId": "factorio_retort.three_batches",
+      "revision": 1,
+      "actorId": "player",
+      "origin": "factorio_retort.install",
+      "label": "Three retort batches with separate receiver clearing",
+      "startedSequence": 4692,
+      "startedAt": 710,
+      "updatedAt": 725,
+      "steps": [
+        {
+          "id": "batch_1",
+          "kind": "command",
+          "commandId": "factorio_retort.batch",
+          "revision": 1
+        },
+        {
+          "id": "batch_2",
+          "kind": "command",
+          "commandId": "factorio_retort.batch",
+          "revision": 1
+        },
+        {
+          "id": "batch_3",
+          "kind": "command",
+          "commandId": "factorio_retort.batch",
+          "revision": 1
+        }
+      ],
+      "index": 0,
+      "status": "cancelled",
+      "accepted": null,
+      "reason": "Future steps cancelled. Any retained accepted job keeps its disclosed terms."
+    }
+  }
+]

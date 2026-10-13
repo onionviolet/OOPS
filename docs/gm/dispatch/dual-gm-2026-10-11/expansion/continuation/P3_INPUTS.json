@@ -1,0 +1,81 @@
+{
+  "schema": "world1-ordinary-inputs-1",
+  "checkout": "/Users/weiwei/.codex/worktrees/world1-completion/yet-another-idle-rpg",
+  "base": "53dc1df15889be6ebb1bae403497041f0672db46",
+  "sourceBuildHashes": [
+    {
+      "path": "src/main.js",
+      "sha256": "40facc33e6e1e0e5d2704c2a4b358f016b5fe2987e208b6e2af9fa393f4cb472"
+    },
+    {
+      "path": "src/content_packs.js",
+      "sha256": "1600b27696a51616e5d01d94422949c6d0415ba230ed948d4e443360e56b867a"
+    },
+    {
+      "path": "src/content_pack_ui.js",
+      "sha256": "cc8c792e5d195fdf54643a947be1ad42884b9c64d10b61e2cf88d5dae230a42d"
+    },
+    {
+      "path": "src/simulation_contracts.js",
+      "sha256": "bc7b0b356d6d459e9eff2a2e9ba7d34484f572c66fd3b1b8328591e75bc37e5d"
+    },
+    {
+      "path": "src/native_gameplay_adapter.js",
+      "sha256": "48d511cafef1f50c6f6fdb5727354bffa6f5cb049e5cf3030420e0568105ca6b"
+    },
+    {
+      "path": "src/save_files.js",
+      "sha256": "6be05fcc757617a1304c65c68051042a59cad03216979221f1213d4011b06500"
+    },
+    {
+      "path": "src/simulation_effects.js",
+      "sha256": "67663118756f407ff249a053e3987f42def538b79ad87688da1ac9e5fa7380f5"
+    },
+    {
+      "path": "src/structured_pack_definitions.js",
+      "sha256": "31e8419fede996ef72001a2ce8fd19adbc2bfd385827dedabc0a9bbac79bdd13"
+    },
+    {
+      "path": "src/structured_pack_runtime.js",
+      "sha256": "684757b5e020ff4afe5e450cde034927ea037ab2eeecb62a1d318d9f17107f73"
+    },
+    {
+      "path": "src/structured_pack_state.js",
+      "sha256": "00390a8b42a167ffebb67fa9398dcb32aecb0dc92a3769fd6467282d1a18c5d7"
+    },
+    {
+      "path": "src/structured_pack_ui.js",
+      "sha256": "fc142d7479beec4affb9cdf7004cc614099da3e8e93a2b5ab8738fc98a6d86da"
+    },
+    {
+      "path": "tests/native_gameplay_binding.test.js",
+      "sha256": "9fa9f5af4123bc3ae4fd787167242e1a90bee5a86493a9a62cf6c08cfe1c06b0"
+    },
+    {
+      "path": "tests/structured_pack_definitions.test.js",
+      "sha256": "45143752fb5bf959650488e3daf10cac3684a5e6582094d1e55bc463fa4cd31c"
+    },
+    {
+      "path": "tests/structured_pack_runtime.test.js",
+      "sha256": "bad4723566ffe63da407b1c9d73cc280a4c20dbccbd9d96c337acdeab1404bc6"
+    },
+    {
+      "path": "tests/structured_pack_ui.test.js",
+      "sha256": "d65709306a8c68b46fc8d60c687a761b0f6d25610c2b2f4f862351458273d8cc"
+    },
+    {
+      "path": "dist/bundle.js",
+      "sha256": "677e8ceaf830ace67c2c98286319a8576fcc535b4d6d4fe33a03db16e08cdaec"
+    },
+    {
+      "path": "dist/bundle.js.map",
+      "sha256": "40a6737609a08e5b9acaeb650473c96eccdd3d6a1d4bacc27fc98c71ed47a739"
+    },
+    {
+      "path": "index.html",
+      "sha256": "68bf5344f0debd044bb0a818c11b7ffff0d7d4f16a19d568357714f9aa90d047"
+    }
+  ],
+  "privateInputOwner": "/Users/weiwei/.codex/worktrees/world1-completion/yet-another-idle-rpg/docs/research/novels/world-depth-2026-10-11/continuation/P3_INPUT_RECEIPT.json",
+  "selected": "provisional first ordinary path only; final pair/function/renewal admission remains open"
+}

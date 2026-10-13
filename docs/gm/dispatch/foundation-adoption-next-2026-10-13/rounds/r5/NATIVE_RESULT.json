@@ -1,0 +1,56 @@
+{
+  "owner": "01a13475-d052-7320-b98e-0d5cedf58838",
+  "status": "bounded manual acquisition/commission verified; native study/kit OPEN",
+  "origin": "http://127.0.0.1:18731",
+  "viewport": [
+    1600,
+    1100
+  ],
+  "initial": {
+    "clock": 616,
+    "money": 58,
+    "location": "Shack"
+  },
+  "final": {
+    "clock": 684,
+    "money": 51,
+    "location": "Village",
+    "logs": 83,
+    "sap": 2,
+    "manual": 1,
+    "sharp": 1,
+    "dull": 1,
+    "sound": 0,
+    "ordinaryKits": 7,
+    "protectedKits": 4,
+    "procedure": false
+  },
+  "commission": {
+    "acceptedAt": 681,
+    "due": 684,
+    "pendingAt": 682,
+    "paperConsumed": 1,
+    "inkConsumed": 1,
+    "coinsReserved": 2,
+    "edaStaminaBefore": 8,
+    "edaStaminaPendingAndCompleted": 7,
+    "edaCoinsBefore": 38,
+    "edaCoinsPending": 38,
+    "edaCoinsCompleted": 40
+  },
+  "restoration": "PERSISTENCE.json",
+  "pageErrors": [],
+  "sourceBuildDrift": "BUILD_DRIFT.json",
+  "capHonored": true,
+  "runtimeRepair": false,
+  "harnessFailures": [
+    "wait-until-load external resource timeout; use loaded DOM",
+    "exact text travel locator missed actual data-travel control",
+    "old page closure helper reference then redundant profile launch rejected; recovered existing live context, exact pending state retained"
+  ],
+  "stockOrSaveInjection": false,
+  "clocksArtificiallyAdvanced": false,
+  "browserClosed": true,
+  "serverStopped": true,
+  "commit": false
+}

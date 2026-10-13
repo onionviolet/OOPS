@@ -4,6 +4,9 @@
 
 AGENTS.md is the shared rulebook for Codex and Claude. Edit it there, not here.
 
+For book/fanwork downloads, follow AGENTS.md's source acquisition tools link;
+it identifies the existing polite scraper and bridges before a new collector.
+
 PROJECT.md is a short summary. The full pre-2026-10-07 history is in
 `docs/gm/PROJECT_LOG.md` (about 170 KB): search it, do not read it whole.
 

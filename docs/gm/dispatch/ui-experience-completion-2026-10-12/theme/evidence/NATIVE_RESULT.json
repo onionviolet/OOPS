@@ -1,0 +1,41 @@
+{
+  "tabs": [
+    {
+      "id": "character_show_bio",
+      "pressed": "true",
+      "focusColor": "rgb(185, 221, 255)"
+    },
+    {
+      "id": "character_show_equipment",
+      "pressed": "true",
+      "focusColor": "rgb(185, 221, 255)"
+    },
+    {
+      "id": "character_show_tools",
+      "pressed": "true",
+      "focusColor": "rgb(185, 221, 255)"
+    },
+    {
+      "id": "character_show_stats",
+      "pressed": "true",
+      "focusColor": "rgb(185, 221, 255)"
+    },
+    {
+      "id": "switch_to_combat",
+      "pressed": "true",
+      "focusColor": "rgb(185, 221, 255)"
+    },
+    {
+      "id": "switch_to_inventory",
+      "pressed": "true",
+      "focusColor": "rgb(185, 221, 255)"
+    }
+  ],
+  "expansionControlMatchesPreview": true,
+  "crafting": {
+    "before": 20,
+    "after": 18,
+    "theme": "arcane"
+  },
+  "errors": []
+}

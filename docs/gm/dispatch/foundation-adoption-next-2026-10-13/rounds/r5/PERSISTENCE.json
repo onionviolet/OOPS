@@ -1,0 +1,12 @@
+{
+  "pending": {
+    "reload": true,
+    "literalImport": true,
+    "file": "copy-pending-native.txt"
+  },
+  "completed": {
+    "reload": true,
+    "literalImport": true,
+    "file": "copy-completed-native.txt"
+  }
+}

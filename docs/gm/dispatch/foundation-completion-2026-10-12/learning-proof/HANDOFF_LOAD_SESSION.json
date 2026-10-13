@@ -1,0 +1,13 @@
+{
+  "pid": 15686,
+  "origin": "http://127.0.0.1:18641",
+  "startedHash": "9b130b295f8464eb770f603afd68d31166569901bd9f0af2acda93192007fcae",
+  "endedHash": "9b130b295f8464eb770f603afd68d31166569901bd9f0af2acda93192007fcae",
+  "events": [
+    {
+      "action": "save",
+      "name": "handoff-loaded"
+    }
+  ],
+  "errors": []
+}

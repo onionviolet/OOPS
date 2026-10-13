@@ -1,0 +1,24 @@
+{
+  "pid": 68938,
+  "servedHash": "555216ac778b8bc55d27f12317f450a61bf28f04344f94a93691ad34c4cf53da",
+  "origin": "http://127.0.0.1:18645",
+  "startedHash": "555216ac778b8bc55d27f12317f450a61bf28f04344f94a93691ad34c4cf53da",
+  "endedHash": "555216ac778b8bc55d27f12317f450a61bf28f04344f94a93691ad34c4cf53da",
+  "events": [
+    {
+      "workflowStep": {
+        "action": "completed",
+        "id": "remainder_home.dry_offcuts",
+        "count": 2,
+        "save": "materials-ready"
+      },
+      "index": 0,
+      "clock": 11812,
+      "sequence": 1378
+    },
+    {
+      "error": "locator.evaluate: Error: strict mode violation: locator('[data-travel=\"Shack\"]') resolved to 2 elements:\n    1) <div tabindex=\"0\" role=\"button\" data-travel=\"Shack\" aria-disabled=\"false\" data-native-keyboard=\"true\" class=\"travel_normal action_travel location_choice\" onclick=\"change_location({location_id: this.getAttribute('data-travel')});\">…</div> aka getByText('check_box_outline_blank Go to [Shack] [10m]')\n    2) <div tabindex=\"0\" role=\"button\" data-travel=\"Shack\" aria-disabled=\"false\" data-native-keyboard=\"true\" class=\"travel_normal action_travel location_choice\" onclick=\"change_location({location_id:this.getAttribute('data-travel'), event});\">…</div> aka getByText('bed Travel to [Shack] [10m]')\n\nCall log:\n\u001b[2m  - waiting for locator('[data-travel=\"Shack\"]')\u001b[22m\n"
+    }
+  ],
+  "errors": []
+}

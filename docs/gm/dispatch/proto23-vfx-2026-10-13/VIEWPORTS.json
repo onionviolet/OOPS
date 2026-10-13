@@ -1,0 +1,54 @@
+[
+  {
+    "bundle": "dist/bundle.js?version=v0.6-2025657de8b6",
+    "cueHidden": true,
+    "height": 768,
+    "known": [
+      "Running",
+      "Weightlifting",
+      "Cold resistance",
+      "Night vision"
+    ],
+    "scrollWidth": 1366,
+    "width": 1366
+  },
+  {
+    "bundle": "dist/bundle.js?version=v0.6-2025657de8b6",
+    "cueHidden": true,
+    "height": 900,
+    "known": [
+      "Running",
+      "Weightlifting",
+      "Cold resistance",
+      "Night vision"
+    ],
+    "scrollWidth": 1440,
+    "width": 1440
+  },
+  {
+    "bundle": "dist/bundle.js?version=v0.6-2025657de8b6",
+    "cueHidden": true,
+    "height": 1080,
+    "known": [
+      "Running",
+      "Weightlifting",
+      "Cold resistance",
+      "Night vision"
+    ],
+    "scrollWidth": 1920,
+    "width": 1920
+  },
+  {
+    "bundle": "dist/bundle.js?version=v0.6-2025657de8b6",
+    "cueHidden": true,
+    "height": 512,
+    "known": [
+      "Running",
+      "Weightlifting",
+      "Cold resistance",
+      "Night vision"
+    ],
+    "scrollWidth": 896,
+    "width": 911
+  }
+]

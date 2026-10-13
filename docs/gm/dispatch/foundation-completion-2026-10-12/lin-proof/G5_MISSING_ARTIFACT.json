@@ -1,0 +1,9 @@
+{
+  "hash": "dcf2ab53d4c3eb8a629652f9ca51277fb7f510a58fcc81b3bbbd04ee3c3086b1",
+  "checks": [
+    "actual import rejected unavailable content hash with restore matching build instruction",
+    "retained current paid job history and completed/purchased native stock+credits+cursor"
+  ],
+  "message": "Import rejected. Current save kept. Saved conversation needs its retained compiled content. Keep its paid host effects and restore the matching build.",
+  "generatedOnly": true
+}

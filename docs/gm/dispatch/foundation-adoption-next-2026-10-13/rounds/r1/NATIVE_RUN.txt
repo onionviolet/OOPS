@@ -1,0 +1,11 @@
+locator.click: Timeout 15000ms exceeded.
+Call log:
+[2m  - waiting for locator('#feature_expansion_panel .action-legibility__cancel')[22m
+
+    at /Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/foundation-adoption-next-2026-10-13/rounds/r1/native.cjs:48:89 {
+  log: [
+    "  - waiting for locator('#feature_expansion_panel .action-legibility__cancel')"
+  ],
+  name: 'TimeoutError'
+}
+{"status":"FAIL","checks":{"legitimateBooking":true,"realFiniteReservation":true,"pendingLiteralRestoration":true,"usefulNativeOutput":true,"completedLiteralRestoration":true,"noReplay":true,"actualKitUseAndOrdinaryContinuation":true,"distinctFirstDutyOrder":true,"preservedNoPreferenceOrder":true},"failure":"locator.click: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('#feature_expansion_panel .action-legibility__cancel')\u001b[22m\n\n    at /Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/foundation-adoption-next-2026-10-13/rounds/r1/native.cjs:48:89"}

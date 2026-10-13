@@ -1,0 +1,37 @@
+{
+  "worker": "/root/lin_proof",
+  "scope": "lin-proof only; read-only source/build",
+  "status": "assigned browser qualification delivered; shared build reservation released",
+  "runtimeSourceWrites": false,
+  "personalSavesUsed": false,
+  "buildsRun": false,
+  "server": {
+    "port": 18632,
+    "pid": 75510,
+    "execSession": 52858,
+    "status": "stopped with Ctrl-C; exit0"
+  },
+  "currentBundle": "9b130b295f8464eb770f603afd68d31166569901bd9f0af2acda93192007fcae",
+  "story4": "sha256:d193eb3a33eb66ba8825e6a15819f2920fe2a6b65ed27a24e5613e91015ccb43",
+  "receipts": {
+    "G0_BLOCKER.json": "b6e2424838beb665e56186598d8e4b2b55f20bd028d1a324106748c6161ba021",
+    "SOURCE_ENROLL.json": "3384a743e1f3cbe74a27685a1088bc86b8a5ea44085f2ff4cb29e3969179f661",
+    "G0_SUCCESS.json": "03848fd891d6b0b6138ccd9a0fdf5df4494f26ef954459f1b030c1a8b8842c42",
+    "G1_POSITIVE.json": "b118ad86cfea38a3508134b58d2bb69f851bd5f1320f034fcd8a9d076b3b38fc",
+    "G2_G3.json": "627acf90f0419aa54f8dbcefdce69ed22ad926e245d924a132856dea61790d2e",
+    "G2_NATIVE_CANCEL_G4.json": "fe3dc3b5e183b741d1aaef7852e9e85e5fb94a447ebb17cb872f187c3c76abae",
+    "G2_CONTRACTOR_G4_RAPID.json": "9c3b7169d679bae69fd17bd6594f2a7a36dc1e94e4af71846f043c0a6be5391c",
+    "G5_NATIVE_IMPORT_pre_equipment_repair.json": "ee7ddbae57ea41dd88a34dada1bf26e3e798039970fea6affae90683a0776d55",
+    "G5_COMPAT_IMPORT.json": "4bea1b94cf42ad78e9ff37f3b8017ce111d857d5f465faf3d28982b36c462d95",
+    "G5_MISSING_ARTIFACT.json": "c46d9ac9bea9363adad8d4bff62568c8a49fac1ea5672dd52606aefab8caad69",
+    "G5_V3_CONTINUE.json": "45e98ce347ac1f2daed97e12498f9908c9c6813938a34915e82e1c76fa93932f",
+    "G5_NATIVE_IMPORT.json": "d0b0843353dc1436af52b84438cf1877283a5ca0e798dc890a77c9128634b41f",
+    "FINAL_ASSET_TIMER.json": "95fe1bf4d0155513a25bf15d21b0a7f3cd28b74ad31d5cb85621e39dca8b0629"
+  },
+  "openGates": [
+    "root-owned remaining foundation horizon/combined integration",
+    "human fiction/balance/pacing acceptance"
+  ],
+  "generatedSavePaths": "/tmp/yairpg-lin-* only",
+  "report": "REPORT.md"
+}

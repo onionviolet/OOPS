@@ -1,0 +1,69 @@
+{
+  "status": "PASS",
+  "testCount": 416,
+  "buildSha256": "c78d551082988d2291a448460d0ec1830429fac4e401cac371f9aecca83aed7f",
+  "sourceMapParity": {
+    "matched": 7,
+    "expected": 7
+  },
+  "browser": {
+    "EXPEDITIONS": {
+      "status": "PASS",
+      "results": [
+        {
+          "id": "E1",
+          "status": "PASS"
+        },
+        {
+          "id": "E2",
+          "status": "PASS"
+        }
+      ]
+    },
+    "EXTRA": {
+      "status": "PASS",
+      "results": [
+        {
+          "id": "E3",
+          "status": "PASS"
+        },
+        {
+          "id": "E4",
+          "status": "PASS"
+        }
+      ]
+    },
+    "DEATH": {
+      "status": "PASS",
+      "results": [
+        {
+          "id": "D1",
+          "status": "PASS"
+        },
+        {
+          "id": "D2",
+          "status": "PASS"
+        },
+        {
+          "id": "D3",
+          "status": "PASS"
+        },
+        {
+          "id": "D4",
+          "status": "PASS"
+        },
+        {
+          "id": "D5",
+          "status": "PASS"
+        },
+        {
+          "id": "C1",
+          "status": "PASS"
+        }
+      ]
+    }
+  },
+  "fixturePolicy": "Generated fresh and earlier proof saves only; user save files untouched.",
+  "details": "Private proof helpers, generated data and source-qualified pack remain Git-ignored.",
+  "delivery": "Isolated playable candidate; shared integration and director fiction/balance acceptance remain open; no commit/push/publication."
+}

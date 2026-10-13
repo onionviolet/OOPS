@@ -1,0 +1,30 @@
+{
+  "status": "PASS",
+  "bundle": "ef2e248bc8fdd21323e7becb1277ac45bc2537bdcf8e9630e5c688c60bc48d6a",
+  "checks": [
+    "actual lesson learned owned revision1, spent2 coins",
+    "actual return retains authoritative method unchanged",
+    "actual return receipt binds learned method/current connection revision",
+    "actual local execution and reserve settlement",
+    "actual inspection preserves borrowed custody and quantity",
+    "actual exact loan returned with no copied kit",
+    "refused durable passage preserves location sequence bag power visit receipts native revision",
+    "reload restores retained state after refused passage",
+    "actual exported file native import retains bag money method custody facts receipts",
+    "actual absence freezes local clock and real pending agreement while Frontier advances"
+  ],
+  "nativeFailures": [
+    "initial hardcoded revision repaired by root",
+    "aria-disabled loan passage prevented click as intended"
+  ],
+  "harnessDiscard": [
+    "initial startup timeouts",
+    "first reload re-seeded checkpoint; corrected one-time session seed"
+  ],
+  "unrun": [
+    "actual high-tide terrace walk (native eligibility observed)",
+    "compiled static Tidemark physical-content disappearance cannot be induced through external routing"
+  ],
+  "negativeEvidence": "NEGATIVES.json",
+  "separateRenewalEvidence": "../start-proof/RETURN.md and RESULT.json, actual original same-person mastery/reserve/legacy renewal followed by ordinary work, frozen a4e842 qualified slice reused"
+}

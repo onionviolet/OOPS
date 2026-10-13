@@ -1,0 +1,19 @@
+
+Interrupted while running:
+
+⚠ tests/ink_lin_parity.test.js (tests/ink_lin_parity.test.js:1:1)
+✖ tests/ink_lin_parity.test.js (71164.627417ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 0
+ℹ fail 0
+ℹ cancelled 1
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 71556.928
+
+✖ failing tests:
+
+test at tests/ink_lin_parity.test.js:1:1
+✖ tests/ink_lin_parity.test.js (71164.627417ms)
+  'Promise resolution is still pending but the event loop has already resolved'

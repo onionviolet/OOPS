@@ -1,0 +1,13 @@
+{
+  "candidate": "/tmp/yairpg-ui-modularity-2026-10-11",
+  "source": "/Users/weiwei/code/yet-another-idle-rpg",
+  "sha256": {
+    "index.html": "ce4d492a309b469112baf0ad1f5af21b8f4004aa3cfbe0af1eecadbd73df2161",
+    "style.css": "9af1e67bb6ebfed0797b6194cc7c57b8b7ece75ba50cac688bc92701eb303485",
+    "src/main.js": "e71568373f32c310117039b0c4d202b8f5e315696b48dceeab05f63428b6f41b",
+    "src/adventure_notebook.js": "3047a1aa41f750d5db6bdd70bb9510227a4a8acb65fa5eb19df8ecc399396891",
+    "src/village_career_ui.js": "a15951bd0684a541d7dde5c9df15c71aa6f1e81db541d0ea56f0b855d168a886",
+    "src/content_pack_ui.js": "cc8c792e5d195fdf54643a947be1ad42884b9c64d10b61e2cf88d5dae230a42d",
+    "src/structured_pack_ui.js": "9059e0c25855d0065357044b58846f71dbe3190dadf4289e73cae5b48b2d9c82"
+  }
+}

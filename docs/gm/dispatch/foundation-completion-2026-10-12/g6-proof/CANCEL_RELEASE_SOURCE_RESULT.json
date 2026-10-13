@@ -1,0 +1,11 @@
+{
+  "input": "/tmp/yairpg-foundation-learning-worker-neri-cancel-debug.json",
+  "sha256": "7d13e1285a344bd3ab9bc3eb75f5630158633a2347541193759fd27e300dfbb2",
+  "scope": "actual saved-job input with controlled native caller frame; no publisher/browser",
+  "checks": [
+    "entitled co-located cancellation plus staged release",
+    "separate unchanged escrow/fee owner until withdrawal",
+    "unchanged learned ownership",
+    "pure failed location/stale checks"
+  ]
+}

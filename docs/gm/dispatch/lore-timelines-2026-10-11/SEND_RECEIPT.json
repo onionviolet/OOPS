@@ -1,0 +1,11 @@
+{
+  "receiverThreadId": "01a1297e-c3c2-7c23-b4ae-974565fb5cf5",
+  "hostId": "local",
+  "messageDelivery": "tool confirmed",
+  "startup": "wait_threads confirmed active/inProgress",
+  "turnId": "01a12b9f-fedf-7af2-90c7-cf1bc110910a",
+  "waitCursor": "219157e1-600f-40d0-b34a-00692f9d60f9:5",
+  "senderWritesReleased": true,
+  "auditCompletion": "not yet observed",
+  "reservationAcknowledgment": "pending"
+}

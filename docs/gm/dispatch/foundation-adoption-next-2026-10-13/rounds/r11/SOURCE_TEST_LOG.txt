@@ -1,0 +1,202 @@
+TAP version 13
+# Subtest: C2 compatibility: absent saves default empty; unsupported or malformed containers reject
+ok 1 - C2 compatibility: absent saves default empty; unsupported or malformed containers reject
+  ---
+  duration_ms: 0.96825
+  type: 'test'
+  ...
+# Subtest: C2 source balance and readable documentation remain in agreement
+ok 2 - C2 source balance and readable documentation remain in agreement
+  ---
+  duration_ms: 0.313417
+  type: 'test'
+  ...
+# Subtest: C2 exposure is played, bounded by actual remaining poison and replay resistant
+ok 3 - C2 exposure is played, bounded by actual remaining poison and replay resistant
+  ---
+  duration_ms: 0.2395
+  type: 'test'
+  ...
+# Subtest: C2 five-minute searches persist misses, cap chance, and award a finite native item once
+ok 4 - C2 five-minute searches persist misses, cap chance, and award a finite native item once
+  ---
+  duration_ms: 0.384708
+  type: 'test'
+  ...
+# Subtest: C2 interruptions and clock jumps never replay unbounded idle searches
+ok 5 - C2 interruptions and clock jumps never replay unbounded idle searches
+  ---
+  duration_ms: 0.150875
+  type: 'test'
+  ...
+# Subtest: C2 hub contact has common-clock cadence, saved misses and one daily occurrence
+ok 6 - C2 hub contact has common-clock cadence, saved misses and one daily occurrence
+  ---
+  duration_ms: 0.128208
+  type: 'test'
+  ...
+# Subtest: C2 free meal derives from native calendar, persists claim, and skips missed days
+ok 7 - C2 free meal derives from native calendar, persists claim, and skips missed days
+  ---
+  duration_ms: 0.193291
+  type: 'test'
+  ...
+# Subtest: C2 no random rolls on rendering or invalid actions; rollback keeps claims and money unchanged
+ok 8 - C2 no random rolls on rendering or invalid actions; rollback keeps claims and money unchanged
+  ---
+  duration_ms: 0.189417
+  type: 'test'
+  ...
+# Subtest: C2 panel reattaches after native location menu clears unchanged view
+ok 9 - C2 panel reattaches after native location menu clears unchanged view
+  ---
+  duration_ms: 0.602084
+  type: 'test'
+  ...
+# Subtest: preview is pure and explains knowledge, context, combined costs and actual odds
+ok 10 - preview is pure and explains knowledge, context, combined costs and actual odds
+  ---
+  duration_ms: 1.71925
+  type: 'test'
+  ...
+# Subtest: kit costs reserve once; frozen result survives reload, content revision and changed stats
+ok 11 - kit costs reserve once; frozen result survives reload, content revision and changed stats
+  ---
+  duration_ms: 18.112541
+  type: 'test'
+  ...
+# Subtest: both survey routes are viable and recorded guide condition changes departure rewards
+ok 12 - both survey routes are viable and recorded guide condition changes departure rewards
+  ---
+  duration_ms: 5.701708
+  type: 'test'
+  ...
+# Subtest: equal simulation duration in ticks or a travel jump crosses the same deadlines and expiry
+ok 13 - equal simulation duration in ticks or a travel jump crosses the same deadlines and expiry
+  ---
+  duration_ms: 37.995875
+  type: 'test'
+  ...
+# Subtest: repairing the crossing enables a more valuable delivery even if the guide needs rest
+ok 14 - repairing the crossing enables a more valuable delivery even if the guide needs rest
+  ---
+  duration_ms: 1.893417
+  type: 'test'
+  ...
+# Subtest: blocking scheduled choices stop exactly at their boundary and return unspent catch-up
+ok 15 - blocking scheduled choices stop exactly at their boundary and return unspent catch-up
+  ---
+  duration_ms: 1.530167
+  type: 'test'
+  ...
+# Subtest: actors have independent budgets and one assignment each, with stable same-time ordering
+ok 16 - actors have independent budgets and one assignment each, with stable same-time ordering
+  ---
+  duration_ms: 0.996834
+  type: 'test'
+  ...
+# Subtest: invalid content and effects fail before mutation or spending
+ok 17 - invalid content and effects fail before mutation or spending
+  ---
+  duration_ms: 0.416667
+  type: 'test'
+  ...
+# Subtest: isolated rewind previews losses, retains memory and cannot export temporary rewards
+ok 18 - isolated rewind previews losses, retains memory and cannot export temporary rewards
+  ---
+  duration_ms: 0.702334
+  type: 'test'
+  ...
+# Subtest: legacy migration, dormant payload and Unicode file roundtrip retain new commitments
+ok 19 - legacy migration, dormant payload and Unicode file roundtrip retain new commitments
+  ---
+  duration_ms: 3.508334
+  type: 'test'
+  ...
+# Subtest: durable envelope write is atomic on failure, includes costs, and preserves unrelated fields
+ok 20 - durable envelope write is atomic on failure, includes costs, and preserves unrelated fields
+  ---
+  duration_ms: 0.926292
+  type: 'test'
+  ...
+# Subtest: FA18 new paid cause and finite later coin/bread conservation
+ok 21 - FA18 new paid cause and finite later coin/bread conservation
+  ---
+  duration_ms: 1.698583
+  type: 'test'
+  ...
+# Subtest: FA18 refusal and insufficient funds never issue or settle
+ok 22 - FA18 refusal and insufficient funds never issue or settle
+  ---
+  duration_ms: 0.389458
+  type: 'test'
+  ...
+# Subtest: FA18 actual current body/world/location/work requirements retain means
+ok 23 - FA18 actual current body/world/location/work requirements retain means
+  ---
+  duration_ms: 0.328916
+  type: 'test'
+  ...
+# Subtest: FA18 old help history never retroactively mints meal stock
+ok 24 - FA18 old help history never retroactively mints meal stock
+  ---
+  duration_ms: 0.110625
+  type: 'test'
+  ...
+# Subtest: FA18 persisted account invariants fail closed
+ok 25 - FA18 persisted account invariants fail closed
+  ---
+  duration_ms: 3.128667
+  type: 'test'
+  ...
+# Subtest: FA18 load/view/re-entry/ticks neither refill nor replay paid result
+ok 26 - FA18 load/view/re-entry/ticks neither refill nor replay paid result
+  ---
+  duration_ms: 0.759208
+  type: 'test'
+  ...
+# Subtest: FA18 failing real publisher retains ticket, money and bread then successful envelope joins all
+ok 27 - FA18 failing real publisher retains ticket, money and bread then successful envelope joins all
+  ---
+  duration_ms: 11.719708
+  type: 'test'
+  ...
+# Subtest: native file encoding preserves Unicode and legacy Latin-1 saves
+ok 28 - native file encoding preserves Unicode and legacy Latin-1 saves
+  ---
+  duration_ms: 4.299
+  type: 'test'
+  ...
+# Subtest: malformed and incompatible imports cannot write over the current save
+ok 29 - malformed and incompatible imports cannot write over the current save
+  ---
+  duration_ms: 1.454417
+  type: 'test'
+  ...
+# Subtest: real-loader rejection and storage failure do not perform premature writes
+ok 30 - real-loader rejection and storage failure do not perform premature writes
+  ---
+  duration_ms: 1.497875
+  type: 'test'
+  ...
+# Subtest: successful import commits only after preflight and retains retirement data once
+ok 31 - successful import commits only after preflight and retains retirement data once
+  ---
+  duration_ms: 0.876917
+  type: 'test'
+  ...
+# Subtest: failed export creation never encodes an undefined or invalid payload
+ok 32 - failed export creation never encodes an undefined or invalid payload
+  ---
+  duration_ms: 0.153375
+  type: 'test'
+  ...
+1..32
+# tests 32
+# suites 0
+# pass 32
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 291.899625

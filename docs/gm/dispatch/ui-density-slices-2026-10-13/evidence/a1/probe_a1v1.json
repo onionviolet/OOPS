@@ -1,0 +1,1039 @@
+[
+ {
+  "name": "findwork_1366x768_a1v1",
+  "err": null,
+  "hs": {
+   "doc": false,
+   "sw": 1366,
+   "w": 1366,
+   "vscroll": false
+  },
+  "targets": {
+   "Talk": {
+    "count": 1,
+    "vis": [
+     "Y"
+    ]
+   }
+  },
+  "actions": [
+   {
+    "id": "fort_supply_panel",
+    "cls": "village_career_panel",
+    "txt": "Waypost supply clerk Clerk purse: 180 coins. Paid so far: 0.",
+    "native": false,
+    "disp": "block",
+    "vis": false,
+    "why": "viewport"
+   },
+   {
+    "id": "",
+    "cls": "location_choice_dropdown choice_travel",
+    "txt": "directions Move somewhere else",
+    "native": true,
+    "disp": "block",
+    "vis": true
+   },
+   {
+    "id": "",
+    "cls": "location_choices choice_craft",
+    "txt": "construction Try to craft something",
+    "native": true,
+    "disp": "block",
+    "vis": true
+   },
+   {
+    "id": "",
+    "cls": "location_choice_dropdown choice_dialogue",
+    "txt": "question_answer Talk to someone",
+    "native": true,
+    "disp": "block",
+    "vis": true
+   },
+   {
+    "id": "",
+    "cls": "location_choice_dropdown choice_trade",
+    "txt": "storefront Visit a merchant",
+    "native": true,
+    "disp": "block",
+    "vis": true
+   },
+   {
+    "id": "",
+    "cls": "location_choice_dropdown choice_work location_choice_dropdown_expanded",
+    "txt": "work_outline Find work Work on the fields Take a loaned kit ",
+    "native": true,
+    "disp": "block",
+    "vis": true
+   },
+   {
+    "id": "",
+    "cls": "location_choice_dropdown choice_train",
+    "txt": "fitness_center Train",
+    "native": true,
+    "disp": "block",
+    "vis": false,
+    "why": "clipped:workspace-module-body"
+   },
+   {
+    "id": "",
+    "cls": "location_choice_dropdown choice_gather",
+    "txt": "search Gather resources",
+    "native": true,
+    "disp": "block",
+    "vis": false,
+    "why": "viewport"
+   },
+   {
+    "id": "local_life_panel",
+    "cls": "expedition_panel",
+    "txt": "Local life",
+    "native": false,
+    "disp": "block",
+    "vis": false,
+    "why": "viewport"
+   },
+   {
+    "id": "pacing_status_panel",
+    "cls": "expedition_panel",
+    "txt": "Optional pacing",
+    "native": false,
+    "disp": "block",
+    "vis": false,
+    "why": "viewport"
+   },
+   {
+    "id": "durability_panel",
+    "cls": "expedition_panel",
+    "txt": "Equipment condition and repair",
+    "native": false,
+    "disp": "block",
+    "vis": false,
+    "why": "viewport"
+   },
+   {
+    "id": "elemental_panel",
+    "cls": "expedition_panel",
+    "txt": "Elemental preparation",
+    "native": false,
+    "disp": "block",
+    "vis": false,
+    "why": "viewport"
+   }
+  ],
+  "errs": []
+ },
+ {
+  "name": "busy_1366x768_a1v1",
+  "err": null,
+  "hs": {
+   "doc": false,
+   "sw": 1366,
+   "w": 1366,
+   "vscroll": false
+  },
+  "targets": {
+   "job title": {
+    "count": 1,
+    "vis": [
+     "Y"
+    ]
+   },
+   "next pay": {
+    "count": 1,
+    "vis": [
+     "Y"
+    ]
+   },
+   "stop": {
+    "count": 1,
+    "vis": [
+     "Y"
+    ]
+   }
+  },
+  "actions": [
+   {
+    "id": "fort_supply_panel",
+    "cls": "village_career_panel",
+    "txt": "Waypost supply clerk Clerk purse: 180 coins. Paid so far: 0.",
+    "native": false,
+    "disp": "block",
+    "vis": false,
+    "why": "clipped:workspace-module-body"
+   },
+   {
+    "id": "action_status_div",
+    "cls": "",
+    "txt": "Working on the fields..",
+    "native": false,
+    "disp": "block",
+    "vis": true
+   },
+   {
+    "id": "action_xp_div",
+    "cls": "",
+    "txt": "Getting 1 base xp per in-game minute to ????? (5.8% [2 / 40]",
+    "native": false,
+    "disp": "block",
+    "vis": true
+   },
+   {
+    "id": "time_for_earnings_div",
+    "cls": "",
+    "txt": "Full-round pay in: 1 hour 58 minutes. Stop early: no pay for",
+    "native": false,
+    "disp": "block",
+    "vis": true
+   },
+   {
+    "id": "action_end_div",
+    "cls": "",
+    "txt": "Stop fieldwork(pay accrued on stopping: nothing)",
+    "native": true,
+    "disp": "block",
+    "vis": true
+   },
+   {
+    "id": "pacing_status_panel",
+    "cls": "expedition_panel",
+    "txt": "Optional pacing",
+    "native": false,
+    "disp": "block",
+    "vis": false,
+    "why": "viewport"
+   },
+   {
+    "id": "durability_panel",
+    "cls": "expedition_panel",
+    "txt": "Equipment condition and repair",
+    "native": false,
+    "disp": "block",
+    "vis": false,
+    "why": "viewport"
+   },
+   {
+    "id": "elemental_panel",
+    "cls": "expedition_panel",
+    "txt": "Elemental preparation",
+    "native": false,
+    "disp": "block",
+    "vis": false,
+    "why": "viewport"
+   },
+   {
+    "id": "local_life_panel",
+    "cls": "expedition_panel",
+    "txt": "Local life",
+    "native": false,
+    "disp": "block",
+    "vis": false,
+    "why": "viewport"
+   }
+  ],
+  "errs": []
+ },
+ {
+  "name": "craft_1366x768_a1v1",
+  "err": null,
+  "hs": {
+   "doc": false,
+   "sw": 1366,
+   "w": 1366,
+   "vscroll": false
+  },
+  "targets": {
+   "tabs": {
+    "count": 1,
+    "vis": [
+     "Y"
+    ]
+   },
+   "recipes": {
+    "count": 123,
+    "vis": [
+     "Y",
+     "Y",
+     "Y",
+     "Y",
+     "n:covered:cancel_craft_visual_effect",
+     "n:clipped:workspace-module-body",
+     "n:viewport",
+     "n:viewport"
+    ]
+   }
+  },
+  "actions": [
+   {
+    "id": "fort_supply_panel",
+    "cls": "village_career_panel",
+    "txt": "Waypost supply clerkClerk purse: 180 coins. Paid so far: 0. ",
+    "native": false,
+    "disp": "block",
+    "vis": false,
+    "why": "empty"
+   },
+   {
+    "id": "",
+    "cls": "location_choice_dropdown choice_travel",
+    "txt": "directions Move somewhere elsewarning_amber Enter the [Infes",
+    "native": true,
+    "disp": "block",
+    "vis": false,
+    "why": "empty"
+   },
+   {
+    "id": "",
+    "cls": "location_choices choice_craft",
+    "txt": "construction Try to craft something",
+    "native": true,
+    "disp": "block",
+    "vis": false,
+    "why": "empty"
+   },
+   {
+    "id": "",
+    "cls": "location_choice_dropdown choice_dialogue",
+    "txt": "question_answer Talk to someonecheck_box_outline_blank Talk ",
+    "native": true,
+    "disp": "block",
+    "vis": false,
+    "why": "empty"
+   },
+   {
+    "id": "",
+    "cls": "location_choice_dropdown choice_trade",
+    "txt": "storefront Visit a merchantcheck_box_outline_blank Trade on ",
+    "native": true,
+    "disp": "block",
+    "vis": false,
+    "why": "empty"
+   },
+   {
+    "id": "",
+    "cls": "location_choice_dropdown choice_work",
+    "txt": "work_outline Find workAvailable from 6 to 20 Not available d",
+    "native": true,
+    "disp": "block",
+    "vis": false,
+    "why": "empty"
+   },
+   {
+    "id": "",
+    "cls": "location_choice_dropdown choice_train",
+    "txt": "fitness_center Traincheck_box_outline_blank Go for a run aro",
+    "native": true,
+    "disp": "block",
+    "vis": false,
+    "why": "empty"
+   },
+   {
+    "id": "",
+    "cls": "location_choice_dropdown choice_gather",
+    "txt": "search Gather resourcesEfficiency scaling:\"Woodcutting\" skil",
+    "native": true,
+    "disp": "block",
+    "vis": false,
+    "why": "empty"
+   },
+   {
+    "id": "local_life_panel",
+    "cls": "expedition_panel",
+    "txt": "Local life10% find chance, capped at 40%. Five played minute",
+    "native": false,
+    "disp": "block",
+    "vis": false,
+    "why": "empty"
+   },
+   {
+    "id": "pacing_status_panel",
+    "cls": "expedition_panel",
+    "txt": "Optional pacingHome-world pacing. Hunger off (native pacing)",
+    "native": false,
+    "disp": "block",
+    "vis": false,
+    "why": "empty"
+   },
+   {
+    "id": "durability_panel",
+    "cls": "expedition_panel",
+    "txt": "Equipment condition and repairDurability is off. Existing co",
+    "native": false,
+    "disp": "block",
+    "vis": false,
+    "why": "empty"
+   },
+   {
+    "id": "elemental_panel",
+    "cls": "expedition_panel",
+    "txt": "Elemental preparationElemental preparation is off. Inherited",
+    "native": false,
+    "disp": "block",
+    "vis": false,
+    "why": "empty"
+   }
+  ],
+  "errs": []
+ },
+ {
+  "name": "merchant_1366x768_a1v1",
+  "err": null,
+  "hs": {
+   "doc": false,
+   "sw": 1366,
+   "w": 1366,
+   "vscroll": false
+  },
+  "targets": {
+   "trader row": {
+    "count": 381,
+    "vis": [
+     "Y",
+     "Y",
+     "Y",
+     "n:empty",
+     "Y",
+     "Y",
+     "n:empty",
+     "Y"
+    ]
+   },
+   "own row": "absent",
+   "qty": "absent",
+   "total": {
+    "count": 1,
+    "vis": [
+     "n:clipped:workspace-module-body"
+    ]
+   },
+   "accept": {
+    "count": 1,
+    "vis": [
+     "n:viewport"
+    ]
+   }
+  },
+  "actions": [
+   {
+    "id": "fort_supply_panel",
+    "cls": "village_career_panel",
+    "txt": "Waypost supply clerkClerk purse: 180 coins. Paid so far: 0. ",
+    "native": false,
+    "disp": "block",
+    "vis": false,
+    "why": "empty"
+   },
+   {
+    "id": "",
+    "cls": "location_choice_dropdown choice_travel",
+    "txt": "directions Move somewhere elsewarning_amber Enter the [Infes",
+    "native": true,
+    "disp": "block",
+    "vis": false,
+    "why": "empty"
+   },
+   {
+    "id": "",
+    "cls": "location_choices choice_craft",
+    "txt": "construction Try to craft something",
+    "native": true,
+    "disp": "block",
+    "vis": false,
+    "why": "empty"
+   },
+   {
+    "id": "",
+    "cls": "location_choice_dropdown choice_dialogue",
+    "txt": "question_answer Talk to someonecheck_box_outline_blank Talk ",
+    "native": true,
+    "disp": "block",
+    "vis": false,
+    "why": "empty"
+   },
+   {
+    "id": "",
+    "cls": "location_choice_dropdown choice_trade location_choice_dropdown_expanded",
+    "txt": "storefront Visit a merchantcheck_box_outline_blank Trade on ",
+    "native": true,
+    "disp": "block",
+    "vis": false,
+    "why": "empty"
+   },
+   {
+    "id": "",
+    "cls": "location_choice_dropdown choice_work",
+    "txt": "work_outline Find workAvailable from 6 to 20 Not available d",
+    "native": true,
+    "disp": "block",
+    "vis": false,
+    "why": "empty"
+   },
+   {
+    "id": "",
+    "cls": "location_choice_dropdown choice_train",
+    "txt": "fitness_center Traincheck_box_outline_blank Go for a run aro",
+    "native": true,
+    "disp": "block",
+    "vis": false,
+    "why": "empty"
+   },
+   {
+    "id": "",
+    "cls": "location_choice_dropdown choice_gather",
+    "txt": "search Gather resourcesEfficiency scaling:\"Woodcutting\" skil",
+    "native": true,
+    "disp": "block",
+    "vis": false,
+    "why": "empty"
+   },
+   {
+    "id": "local_life_panel",
+    "cls": "expedition_panel",
+    "txt": "Local life10% find chance, capped at 40%. Five played minute",
+    "native": false,
+    "disp": "block",
+    "vis": false,
+    "why": "empty"
+   },
+   {
+    "id": "pacing_status_panel",
+    "cls": "expedition_panel",
+    "txt": "Optional pacingHome-world pacing. Hunger off (native pacing)",
+    "native": false,
+    "disp": "block",
+    "vis": false,
+    "why": "empty"
+   },
+   {
+    "id": "durability_panel",
+    "cls": "expedition_panel",
+    "txt": "Equipment condition and repairDurability is off. Existing co",
+    "native": false,
+    "disp": "block",
+    "vis": false,
+    "why": "empty"
+   },
+   {
+    "id": "elemental_panel",
+    "cls": "expedition_panel",
+    "txt": "Elemental preparationElemental preparation is off. Inherited",
+    "native": false,
+    "disp": "block",
+    "vis": false,
+    "why": "empty"
+   }
+  ],
+  "errs": []
+ },
+ {
+  "name": "hub_1440x900_a1v1",
+  "err": null,
+  "hs": {
+   "doc": false,
+   "sw": 1440,
+   "w": 1440,
+   "vscroll": false
+  },
+  "targets": {},
+  "actions": [
+   {
+    "id": "fort_supply_panel",
+    "cls": "village_career_panel",
+    "txt": "Waypost supply clerk Clerk purse: 180 coins. Paid so far: 0.",
+    "native": false,
+    "disp": "block",
+    "vis": false,
+    "why": "covered:workspace-resize-grip"
+   },
+   {
+    "id": "",
+    "cls": "location_choice_dropdown choice_travel",
+    "txt": "directions Move somewhere else",
+    "native": true,
+    "disp": "block",
+    "vis": true
+   },
+   {
+    "id": "",
+    "cls": "location_choices choice_craft",
+    "txt": "construction Try to craft something",
+    "native": true,
+    "disp": "block",
+    "vis": true
+   },
+   {
+    "id": "",
+    "cls": "location_choice_dropdown choice_dialogue",
+    "txt": "question_answer Talk to someone",
+    "native": true,
+    "disp": "block",
+    "vis": true
+   },
+   {
+    "id": "",
+    "cls": "location_choice_dropdown choice_trade",
+    "txt": "storefront Visit a merchant",
+    "native": true,
+    "disp": "block",
+    "vis": true
+   },
+   {
+    "id": "",
+    "cls": "location_choice_dropdown choice_work",
+    "txt": "work_outline Find work",
+    "native": true,
+    "disp": "block",
+    "vis": true
+   },
+   {
+    "id": "",
+    "cls": "location_choice_dropdown choice_train",
+    "txt": "fitness_center Train",
+    "native": true,
+    "disp": "block",
+    "vis": true
+   },
+   {
+    "id": "",
+    "cls": "location_choice_dropdown choice_gather",
+    "txt": "search Gather resources",
+    "native": true,
+    "disp": "block",
+    "vis": true
+   },
+   {
+    "id": "local_life_panel",
+    "cls": "expedition_panel",
+    "txt": "Local life",
+    "native": false,
+    "disp": "block",
+    "vis": false,
+    "why": "viewport"
+   },
+   {
+    "id": "pacing_status_panel",
+    "cls": "expedition_panel",
+    "txt": "Optional pacing",
+    "native": false,
+    "disp": "block",
+    "vis": false,
+    "why": "viewport"
+   },
+   {
+    "id": "durability_panel",
+    "cls": "expedition_panel",
+    "txt": "Equipment condition and repair",
+    "native": false,
+    "disp": "block",
+    "vis": false,
+    "why": "viewport"
+   },
+   {
+    "id": "elemental_panel",
+    "cls": "expedition_panel",
+    "txt": "Elemental preparation",
+    "native": false,
+    "disp": "block",
+    "vis": false,
+    "why": "viewport"
+   }
+  ],
+  "errs": []
+ },
+ {
+  "name": "craft_1440x900_a1v1",
+  "err": null,
+  "hs": {
+   "doc": false,
+   "sw": 1440,
+   "w": 1440,
+   "vscroll": false
+  },
+  "targets": {
+   "tabs": {
+    "count": 1,
+    "vis": [
+     "Y"
+    ]
+   },
+   "recipes": {
+    "count": 123,
+    "vis": [
+     "Y",
+     "Y",
+     "Y",
+     "Y",
+     "Y",
+     "n:covered:cancel_craft_visual_effect",
+     "Y",
+     "n:clipped:crafting_category crafting_recipe_list"
+    ]
+   }
+  },
+  "actions": [
+   {
+    "id": "fort_supply_panel",
+    "cls": "village_career_panel",
+    "txt": "Waypost supply clerkClerk purse: 180 coins. Paid so far: 0. ",
+    "native": false,
+    "disp": "block",
+    "vis": false,
+    "why": "empty"
+   },
+   {
+    "id": "",
+    "cls": "location_choice_dropdown choice_travel",
+    "txt": "directions Move somewhere elsewarning_amber Enter the [Infes",
+    "native": true,
+    "disp": "block",
+    "vis": false,
+    "why": "empty"
+   },
+   {
+    "id": "",
+    "cls": "location_choices choice_craft",
+    "txt": "construction Try to craft something",
+    "native": true,
+    "disp": "block",
+    "vis": false,
+    "why": "empty"
+   },
+   {
+    "id": "",
+    "cls": "location_choice_dropdown choice_dialogue",
+    "txt": "question_answer Talk to someonecheck_box_outline_blank Talk ",
+    "native": true,
+    "disp": "block",
+    "vis": false,
+    "why": "empty"
+   },
+   {
+    "id": "",
+    "cls": "location_choice_dropdown choice_trade",
+    "txt": "storefront Visit a merchantcheck_box_outline_blank Trade on ",
+    "native": true,
+    "disp": "block",
+    "vis": false,
+    "why": "empty"
+   },
+   {
+    "id": "",
+    "cls": "location_choice_dropdown choice_work",
+    "txt": "work_outline Find workAvailable from 6 to 20 Not available d",
+    "native": true,
+    "disp": "block",
+    "vis": false,
+    "why": "empty"
+   },
+   {
+    "id": "",
+    "cls": "location_choice_dropdown choice_train",
+    "txt": "fitness_center Traincheck_box_outline_blank Go for a run aro",
+    "native": true,
+    "disp": "block",
+    "vis": false,
+    "why": "empty"
+   },
+   {
+    "id": "",
+    "cls": "location_choice_dropdown choice_gather",
+    "txt": "search Gather resourcesEfficiency scaling:\"Woodcutting\" skil",
+    "native": true,
+    "disp": "block",
+    "vis": false,
+    "why": "empty"
+   },
+   {
+    "id": "local_life_panel",
+    "cls": "expedition_panel",
+    "txt": "Local life10% find chance, capped at 40%. Five played minute",
+    "native": false,
+    "disp": "block",
+    "vis": false,
+    "why": "empty"
+   },
+   {
+    "id": "pacing_status_panel",
+    "cls": "expedition_panel",
+    "txt": "Optional pacingHome-world pacing. Hunger off (native pacing)",
+    "native": false,
+    "disp": "block",
+    "vis": false,
+    "why": "empty"
+   },
+   {
+    "id": "durability_panel",
+    "cls": "expedition_panel",
+    "txt": "Equipment condition and repairDurability is off. Existing co",
+    "native": false,
+    "disp": "block",
+    "vis": false,
+    "why": "empty"
+   },
+   {
+    "id": "elemental_panel",
+    "cls": "expedition_panel",
+    "txt": "Elemental preparationElemental preparation is off. Inherited",
+    "native": false,
+    "disp": "block",
+    "vis": false,
+    "why": "empty"
+   }
+  ],
+  "errs": []
+ },
+ {
+  "name": "hub_1920x1080_a1v1",
+  "err": null,
+  "hs": {
+   "doc": false,
+   "sw": 1920,
+   "w": 1920,
+   "vscroll": false
+  },
+  "targets": {},
+  "actions": [
+   {
+    "id": "fort_supply_panel",
+    "cls": "village_career_panel",
+    "txt": "Waypost supply clerk Clerk purse: 180 coins. Paid so far: 0.",
+    "native": false,
+    "disp": "block",
+    "vis": true
+   },
+   {
+    "id": "",
+    "cls": "location_choice_dropdown choice_travel",
+    "txt": "directions Move somewhere else",
+    "native": true,
+    "disp": "block",
+    "vis": true
+   },
+   {
+    "id": "",
+    "cls": "location_choices choice_craft",
+    "txt": "construction Try to craft something",
+    "native": true,
+    "disp": "block",
+    "vis": true
+   },
+   {
+    "id": "",
+    "cls": "location_choice_dropdown choice_dialogue",
+    "txt": "question_answer Talk to someone",
+    "native": true,
+    "disp": "block",
+    "vis": true
+   },
+   {
+    "id": "",
+    "cls": "location_choice_dropdown choice_trade",
+    "txt": "storefront Visit a merchant",
+    "native": true,
+    "disp": "block",
+    "vis": true
+   },
+   {
+    "id": "",
+    "cls": "location_choice_dropdown choice_work",
+    "txt": "work_outline Find work",
+    "native": true,
+    "disp": "block",
+    "vis": true
+   },
+   {
+    "id": "",
+    "cls": "location_choice_dropdown choice_train",
+    "txt": "fitness_center Train",
+    "native": true,
+    "disp": "block",
+    "vis": true
+   },
+   {
+    "id": "",
+    "cls": "location_choice_dropdown choice_gather",
+    "txt": "search Gather resources",
+    "native": true,
+    "disp": "block",
+    "vis": true
+   },
+   {
+    "id": "local_life_panel",
+    "cls": "expedition_panel",
+    "txt": "Local life",
+    "native": false,
+    "disp": "block",
+    "vis": true
+   },
+   {
+    "id": "pacing_status_panel",
+    "cls": "expedition_panel",
+    "txt": "Optional pacing",
+    "native": false,
+    "disp": "block",
+    "vis": true
+   },
+   {
+    "id": "durability_panel",
+    "cls": "expedition_panel",
+    "txt": "Equipment condition and repair",
+    "native": false,
+    "disp": "block",
+    "vis": false,
+    "why": "clipped:workspace-module-body"
+   },
+   {
+    "id": "elemental_panel",
+    "cls": "expedition_panel",
+    "txt": "Elemental preparation",
+    "native": false,
+    "disp": "block",
+    "vis": false,
+    "why": "viewport"
+   }
+  ],
+  "errs": []
+ },
+ {
+  "name": "craft_1920x1080_a1v1",
+  "err": null,
+  "hs": {
+   "doc": false,
+   "sw": 1920,
+   "w": 1920,
+   "vscroll": false
+  },
+  "targets": {
+   "tabs": {
+    "count": 1,
+    "vis": [
+     "Y"
+    ]
+   },
+   "recipes": {
+    "count": 123,
+    "vis": [
+     "Y",
+     "Y",
+     "Y",
+     "Y",
+     "Y",
+     "n:covered:cancel_craft_visual_effect",
+     "Y",
+     "n:clipped:crafting_category crafting_recipe_list"
+    ]
+   }
+  },
+  "actions": [
+   {
+    "id": "fort_supply_panel",
+    "cls": "village_career_panel",
+    "txt": "Waypost supply clerkClerk purse: 180 coins. Paid so far: 0. ",
+    "native": false,
+    "disp": "block",
+    "vis": false,
+    "why": "empty"
+   },
+   {
+    "id": "",
+    "cls": "location_choice_dropdown choice_travel",
+    "txt": "directions Move somewhere elsewarning_amber Enter the [Infes",
+    "native": true,
+    "disp": "block",
+    "vis": false,
+    "why": "empty"
+   },
+   {
+    "id": "",
+    "cls": "location_choices choice_craft",
+    "txt": "construction Try to craft something",
+    "native": true,
+    "disp": "block",
+    "vis": false,
+    "why": "empty"
+   },
+   {
+    "id": "",
+    "cls": "location_choice_dropdown choice_dialogue",
+    "txt": "question_answer Talk to someonecheck_box_outline_blank Talk ",
+    "native": true,
+    "disp": "block",
+    "vis": false,
+    "why": "empty"
+   },
+   {
+    "id": "",
+    "cls": "location_choice_dropdown choice_trade",
+    "txt": "storefront Visit a merchantcheck_box_outline_blank Trade on ",
+    "native": true,
+    "disp": "block",
+    "vis": false,
+    "why": "empty"
+   },
+   {
+    "id": "",
+    "cls": "location_choice_dropdown choice_work",
+    "txt": "work_outline Find workAvailable from 6 to 20 Not available d",
+    "native": true,
+    "disp": "block",
+    "vis": false,
+    "why": "empty"
+   },
+   {
+    "id": "",
+    "cls": "location_choice_dropdown choice_train",
+    "txt": "fitness_center Traincheck_box_outline_blank Go for a run aro",
+    "native": true,
+    "disp": "block",
+    "vis": false,
+    "why": "empty"
+   },
+   {
+    "id": "",
+    "cls": "location_choice_dropdown choice_gather",
+    "txt": "search Gather resourcesEfficiency scaling:\"Woodcutting\" skil",
+    "native": true,
+    "disp": "block",
+    "vis": false,
+    "why": "empty"
+   },
+   {
+    "id": "local_life_panel",
+    "cls": "expedition_panel",
+    "txt": "Local life10% find chance, capped at 40%. Five played minute",
+    "native": false,
+    "disp": "block",
+    "vis": false,
+    "why": "empty"
+   },
+   {
+    "id": "pacing_status_panel",
+    "cls": "expedition_panel",
+    "txt": "Optional pacingHome-world pacing. Hunger off (native pacing)",
+    "native": false,
+    "disp": "block",
+    "vis": false,
+    "why": "empty"
+   },
+   {
+    "id": "durability_panel",
+    "cls": "expedition_panel",
+    "txt": "Equipment condition and repairDurability is off. Existing co",
+    "native": false,
+    "disp": "block",
+    "vis": false,
+    "why": "empty"
+   },
+   {
+    "id": "elemental_panel",
+    "cls": "expedition_panel",
+    "txt": "Elemental preparationElemental preparation is off. Inherited",
+    "native": false,
+    "disp": "block",
+    "vis": false,
+    "why": "empty"
+   }
+  ],
+  "errs": []
+ }
+]

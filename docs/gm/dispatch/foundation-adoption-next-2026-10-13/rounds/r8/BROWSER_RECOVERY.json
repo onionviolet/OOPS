@@ -1,0 +1,18 @@
+{
+  "failure": "node_repl batch containing PLAY and wrong button-role lookup timed out; kernel reset killed ephemeral browser. Exact blocked operation not retained. Later SUMMARYrole independently confirmed.",
+  "resourcesSpent": 0,
+  "committedActions": "Initial PLAY and Save at clock748; failed later PLAY/control lookup created no acquisition, purchase, enrollment or job. Later elapsed state not retained.",
+  "recovery": "Plain JSON import was rejected without changes; supported genuine latest R7 literal-file import succeeded. Initial captured native Save at748 versus latest R7 export seven groups compared below; no committed purchase, job or enrollment lost/replayed.",
+  "unobservedTimeConservativeDebit": 35,
+  "limits": "No exact lost-interval state/RNG/clock conservation claim. Count35 against original100, no added budget.",
+  "saveVersusR7": {
+    "character": true,
+    "inventories": true,
+    "expansion": true,
+    "current time": true,
+    "current location": true,
+    "npcs": true,
+    "npc_equipment": true
+  },
+  "nativeRecoveryBinding": "SERVED_BINDINGS.json recovery-genuine-R7-export"
+}

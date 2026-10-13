@@ -1,0 +1,16 @@
+{
+  "initialServedHash": "ffd6988c00a8c3be0f86a255cb8ced4b0652a97c551cbcc2da8bb09675549b5d",
+  "currentBundle": "8d386d43f12e37bbcf019a134bf3673627599b1eb7dc38db2dadb6107cc9911e",
+  "changedBundleInputs": [
+    "../src/workspace_layout.js",
+    "../src/customization_profiles.js"
+  ],
+  "mapParity": 439,
+  "fa10SourceUnchanged": true,
+  "boundary": "Native acquisition began initial rebuilt bytes; later reload/import loaded current indexed bundle. Per-stage served hash not captured on each load. Exact state comparisons passed on those actual loads. No new gameplay credit from differing UI bytes.",
+  "currentReadOnlyHTTPRebind": {
+    "origin": "http://127.0.0.1:18732",
+    "bundle": "8d386d43f12e37bbcf019a134bf3673627599b1eb7dc38db2dadb6107cc9911e",
+    "nativeGameplayRun": false
+  }
+}

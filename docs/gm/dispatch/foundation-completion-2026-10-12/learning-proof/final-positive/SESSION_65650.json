@@ -1,0 +1,65 @@
+{
+  "pid": 65650,
+  "servedHash": "555216ac778b8bc55d27f12317f450a61bf28f04344f94a93691ad34c4cf53da",
+  "origin": "http://127.0.0.1:18644",
+  "startedHash": "555216ac778b8bc55d27f12317f450a61bf28f04344f94a93691ad34c4cf53da",
+  "endedHash": "555216ac778b8bc55d27f12317f450a61bf28f04344f94a93691ad34c4cf53da",
+  "events": [
+    {
+      "workflowStep": {
+        "action": "click",
+        "selector": "#notebook_tab_here"
+      },
+      "index": 0,
+      "clock": 11718,
+      "sequence": 1290
+    },
+    {
+      "workflowStep": {
+        "action": "panel",
+        "selector": "#feature_expansion_panel"
+      },
+      "index": 1,
+      "clock": 11718,
+      "sequence": 1290
+    },
+    {
+      "workflowStep": {
+        "action": "panel",
+        "selector": "#feature_expansion_panel details:has(>summary:text-is(\"A taught procedure, useful material\"))"
+      },
+      "index": 2,
+      "clock": 11718,
+      "sequence": 1290
+    },
+    {
+      "workflowStep": {
+        "action": "click",
+        "selector": "[data-action-legibility-key=\"action:world.completion.learning.sponsor\"] button",
+        "save": "final-positive-sponsored"
+      },
+      "index": 3,
+      "clock": 11719,
+      "sequence": 1292
+    },
+    {
+      "workflowStep": {
+        "action": "pending",
+        "actor": "remainder_home.neri",
+        "id": "world.completion.learning.walk_to_bench",
+        "save": "final-positive-outbound"
+      },
+      "index": 4,
+      "clock": 11720,
+      "sequence": 1293
+    },
+    {
+      "error": "page.evaluate: Error: Unavailable native [data-action-legibility-key=\"action:pocket.enter\"] button\n    at eval (eval at evaluate (:311:30), <anonymous>:1:153)\n    at UtilityScript.evaluate (<anonymous>:313:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+    },
+    {
+      "action": "save",
+      "name": "final-positive-route-diagnose"
+    }
+  ],
+  "errors": []
+}

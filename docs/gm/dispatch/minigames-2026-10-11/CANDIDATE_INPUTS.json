@@ -1,0 +1,11 @@
+{
+  "base": "53dc1df15889be6ebb1bae403497041f0672db46",
+  "carriedDirtyInstructions": {
+    "AGENTS.md": "2dd0e8a273ff4c292231409f4c7d0c776015a67833206d3c6b5bb56d919ab1fc",
+    "PROJECT.md": "5fa867b61f122a01223ced9ee5f65abc97dc9ea6b993d00d7b5276428c6de46f",
+    "docs/GAME_MASTER_PROMPT.md": "9524d382c81a981af02bd2cf9288f410fe9a09b9c6f8d99f7075c6245653de56",
+    "docs/LIFE_SIM_NORTH_STAR.md": "ab84edd4d258fd2d2c5dfc62cf18e956e5e9f1835e182d4b257571441d1fd8b2",
+    "docs/IDEA_INDEX.md": "03d097959349abf7fe37b002ab5fef32dc1e178641655fd4ca2922f9244e4e11"
+  },
+  "scope": "Candidate only; copied owner documents are read-only snapshots, excluded from implementation diff."
+}

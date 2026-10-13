@@ -1,0 +1,53 @@
+{
+  "state": "G1-G5 finite UI technical completion",
+  "owner": "01a12ecd-062c-71a0-b850-fee703d9d304",
+  "sharedSoleWriter": "01a12ebf-d9a5-7ce0-94ba-469228eef444",
+  "source": "/Users/weiwei/code/yet-another-idle-rpg",
+  "bundle": "ef2e248bc8fdd21323e7becb1277ac45bc2537bdcf8e9630e5c688c60bc48d6a",
+  "sourceMap": "a6c4e34fc357ced013aacaf23ad5ac8c96eef7cce449854060fe9e7b6066a5bb",
+  "inputs": "G5_FINAL_INPUTS.json",
+  "compiledSourcesMatchedAfterProof": 436,
+  "sourceBuildDifferences": [],
+  "finalPersistenceRetry": {
+    "EDITOR_CRAFT_RESULT.json": {
+      "path": "/Users/weiwei/.codex/candidates/yairpg-laptop-customization-2026-10-12/g5/final-retry/evidence/EDITOR_CRAFT_RESULT.json",
+      "sha256": "cfbbf3640b8bb1ad3ea7c9e21c78eedeea6acf50f4f0c0cda2f49d7edc4ac356",
+      "checks": [
+        "Shared split draft/target switching and partial inheritance; effect-side Apply saves appearance edits",
+        "Malformed profile import rejected, valid draft import/export and cross-surface Discard connected",
+        "Labeled receipt preview/cancel has no gameplay receipt or reward",
+        "Separate native rule Apply/Discard/export and malformed rejection",
+        "Native commission/lease and actual edited +20 quality reaches real output/material debit; cancel/Exit and held-item comparison",
+        "Generated native save/reload/import retains profiles, rules, actual lease/output and receipts",
+        "Generated failed native write leaves applied profile intact and factual error reachable"
+      ],
+      "errors": []
+    },
+    "OLD_SAVE_RESULT.json": {
+      "path": "/Users/weiwei/.codex/candidates/yairpg-laptop-customization-2026-10-12/g5/final-retry/evidence/OLD_SAVE_RESULT.json",
+      "sha256": "cb71447ef38bea67b4e2081ec74b4fac001a8ec935b55c1b2f45dd714f0f8446",
+      "checks": [
+        "Naturally earned predecessor schema1 WorkLedger migrates schema2, retains acquired lease/actual66-quality output and legacy off/margin; absent componentTheme normalizes neutral"
+      ],
+      "errors": []
+    }
+  },
+  "retainedSharedProofs": "G5_RUNTIME_RECEIPT.json: all12 pass on prior root releaseda4e842; exact UI24/native/profile/craft source unaffected by final root carrier/dev-probe delta",
+  "isolatedPreservation": "G5_ISOLATED_PRESERVATION.json",
+  "preview": "http://127.0.0.1:18680",
+  "serverSession": 17243,
+  "activeProofs": [],
+  "humanAccepted": false,
+  "humanGates": [
+    "layout/theme taste",
+    "new natural meal/Butchering/acquisition pacing",
+    "audio audibility/comfort"
+  ],
+  "scopeLimits": [
+    "No shared source/build writes by UI; root applied and rebuilt.",
+    "Generated fixtures establish named native/adapter/persistence slices, not natural whole-campaign play.",
+    "Failed native craft envelope suppresses saved receipt/effect; inherited in-memory inventory rollback was not added.",
+    "Mobile and original AU3/AU7 authoring remain separate; World1 remains paused.",
+    "No commits/push/publication/automation/acquisition or personal saves."
+  ]
+}

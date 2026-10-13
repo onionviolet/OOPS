@@ -1,0 +1,7 @@
+{"action": "sequence", "selectors": ["[data-foundation-probe=\"foundation.probe.b.attack\"]", "[data-foundation-probe=\"foundation.probe.a.barrier.p-b\"]", "[data-foundation-probe=\"foundation.probe.b.aid\"]", "[data-foundation-probe=\"foundation.probe.b.attack\"]", "[data-foundation-probe=\"foundation.probe.a.self_aid\"]", "[data-foundation-probe=\"foundation.probe.b.barrier.p-a\"]", "[data-foundation-probe=\"foundation.probe.a.attack\"]", "[data-foundation-probe=\"foundation.probe.b.remove.p-a\"]", "[data-foundation-probe=\"foundation.probe.b.barrier.p-b\"]", "[data-foundation-probe=\"foundation.probe.a.s1\"]", "[data-foundation-probe=\"foundation.probe.a.s2\"]", "[data-foundation-probe=\"foundation.probe.a.attack\"]", "[data-foundation-probe=\"foundation.probe.a.s1.remove\"]", "[data-foundation-probe=\"foundation.probe.a.attack\"]", "[data-foundation-probe=\"foundation.probe.a.s2.remove\"]", "[data-foundation-probe=\"foundation.probe.a.attack\"]"]}
+{"action": "duplicate", "selector": "[data-foundation-probe=\"foundation.probe.b.attack\"]"}
+{"action": "pure"}
+{"action": "save", "name": "p-b-aftermath"}
+{"action": "reload"}
+{"action": "import", "path": "/tmp/yairpg-foundation-interaction-p-b-aftermath.json"}
+{"action": "stop"}

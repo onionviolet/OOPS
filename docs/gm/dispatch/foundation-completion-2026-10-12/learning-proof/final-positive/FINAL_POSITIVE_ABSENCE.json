@@ -1,0 +1,54 @@
+{
+  "steps": [
+    {
+      "action": "click",
+      "selector": "#notebook_tab_here"
+    },
+    {
+      "action": "panel",
+      "selector": "#feature_expansion_panel"
+    },
+    {
+      "action": "panel",
+      "selector": "#feature_expansion_panel details:has(>summary:text-is(\"A taught procedure, useful material\"))"
+    },
+    {
+      "action": "click",
+      "selector": "[data-action-legibility-key=\"action:world.completion.learning.sponsor\"] button",
+      "save": "final-positive-sponsored"
+    },
+    {
+      "action": "pending",
+      "actor": "remainder_home.neri",
+      "id": "world.completion.learning.walk_to_bench",
+      "save": "final-positive-outbound"
+    },
+    {
+      "action": "batchClicks",
+      "selectors": [
+        "[data-travel=\"Village\"]",
+        "#notebook_tab_here",
+        "[data-pocket-realm=\"pocket.enter\"]"
+      ],
+      "save": "final-positive-absence-entered"
+    },
+    {
+      "action": "wait",
+      "ms": 2500,
+      "save": "final-positive-absence-spent"
+    },
+    {
+      "action": "export",
+      "name": "final-positive-absence-spent"
+    },
+    {
+      "action": "reload",
+      "save": "final-positive-absence-reloaded"
+    },
+    {
+      "action": "literalImport",
+      "path": "/tmp/yairpg-foundation-learning-final-positive-absence-spent.txt",
+      "save": "final-positive-absence-imported"
+    }
+  ]
+}

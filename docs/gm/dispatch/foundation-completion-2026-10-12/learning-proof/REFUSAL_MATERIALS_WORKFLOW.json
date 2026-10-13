@@ -1,0 +1,47 @@
+{
+  "action": "workflow",
+  "steps": [
+    {
+      "action": "click",
+      "selector": "#notebook_tab_here"
+    },
+    {
+      "action": "panel",
+      "selector": "#feature_expansion_panel"
+    },
+    {
+      "action": "panel",
+      "selector": "#feature_expansion_panel details:has(>summary:text-is(\"Permitted home & measuring work\"))"
+    },
+    {
+      "action": "click",
+      "selector": "[data-action-legibility-key=\"action:remainder_home.trim_uncovered\"] button",
+      "save": "worker-refusal-extra-trim-accepted"
+    },
+    {
+      "action": "completed",
+      "id": "remainder_home.trim_uncovered",
+      "count": 2,
+      "save": "worker-refusal-extra-trim-completed"
+    },
+    {
+      "action": "click",
+      "selector": "#notebook_tab_here"
+    },
+    {
+      "action": "panel",
+      "selector": "#feature_expansion_panel details:has(>summary:text-is(\"Permitted home & measuring work\"))"
+    },
+    {
+      "action": "click",
+      "selector": "[data-action-legibility-key=\"action:remainder_home.dry_offcuts\"] button",
+      "save": "worker-refusal-extra-dry-accepted"
+    },
+    {
+      "action": "completed",
+      "id": "remainder_home.dry_offcuts",
+      "count": 2,
+      "save": "worker-refusal-extra-materials-ready"
+    }
+  ]
+}

@@ -1,0 +1,430 @@
+TAP version 13
+# Subtest: fresh optional booking is visible and actually settles; both first-duty orders retain actual accounts
+ok 1 - fresh optional booking is visible and actually settles; both first-duty orders retain actual accounts
+  ---
+  duration_ms: 700.91475
+  type: 'test'
+  ...
+# Subtest: no-preference legacy controller preserves original order without any new booking or outcome history
+ok 2 - no-preference legacy controller preserves original order without any new booking or outcome history
+  ---
+  duration_ms: 91.457041
+  type: 'test'
+  ...
+# Subtest: pending original booking restores exact frozen terms and subsequent occupancy blocks a later workshop
+ok 3 - pending original booking restores exact frozen terms and subsequent occupancy blocks a later workshop
+  ---
+  duration_ms: 181.83975
+  type: 'test'
+  ...
+# Subtest: kept outcome enables fresh sponsored terms, real finite means and one useful native kit
+ok 4 - kept outcome enables fresh sponsored terms, real finite means and one useful native kit
+  ---
+  duration_ms: 444.141542
+  type: 'test'
+  ...
+# Subtest: actual consent withdrawal stops the earlier duty, refunds it and offers distinct personally funded work
+ok 5 - actual consent withdrawal stops the earlier duty, refunds it and offers distinct personally funded work
+  ---
+  duration_ms: 162.719083
+  type: 'test'
+  ...
+# Subtest: later refusal changes no prior result, money, stock, mastery or rights and closes only its offer
+ok 6 - later refusal changes no prior result, money, stock, mastery or rights and closes only its offer
+  ---
+  duration_ms: 319.117208
+  type: 'test'
+  ...
+# Subtest: exact workshop cancellation refunds actual reservations and preserves account through retry
+ok 7 - exact workshop cancellation refunds actual reservations and preserves account through retry
+  ---
+  duration_ms: 365.898167
+  type: 'test'
+  ...
+# Subtest: controlled loss of actual method/body/contact/right support refunds with a truthful stopped account
+ok 8 - controlled loss of actual method/body/contact/right support refunds with a truthful stopped account
+  ---
+  duration_ms: 686.897375
+  type: 'test'
+  ...
+# Subtest: missing participant means, capability, contact, busy capacity, body and stale sequence never accept
+ok 9 - missing participant means, capability, contact, busy capacity, body and stale sequence never accept
+  ---
+  duration_ms: 1099.076583
+  type: 'test'
+  ...
+# Subtest: forged or absent prior outcome cannot create a new later agreement
+ok 10 - forged or absent prior outcome cannot create a new later agreement
+  ---
+  duration_ms: 135.849333
+  type: 'test'
+  ...
+# Subtest: failed durable publication leaves live prior state untouched and offers one legitimate retry
+ok 11 - failed durable publication leaves live prior state untouched and offers one legitimate retry
+  ---
+  duration_ms: 209.268417
+  type: 'test'
+  ...
+# Subtest: restoration rejects changed frozen output, costs, time, participants, accounts and closure
+ok 12 - restoration rejects changed frozen output, costs, time, participants, accounts and closure
+  ---
+  duration_ms: 165.807167
+  type: 'test'
+  ...
+# Subtest: actual chart/enrollment leaves unapproved consequence controllers absent; Lin host equals native preview and staged plan
+ok 13 - actual chart/enrollment leaves unapproved consequence controllers absent; Lin host equals native preview and staged plan
+  ---
+  duration_ms: 133.031625
+  type: 'test'
+  ...
+# Subtest: accepted Ink work reserves counted resources, survives reload, pays once and staff supply requires separate approval
+ok 14 - accepted Ink work reserves counted resources, survives reload, pays once and staff supply requires separate approval
+  ---
+  duration_ms: 455.811875
+  type: 'test'
+  ...
+# Subtest: texture and refusal conserve material and wage; native cancellation refunds accepted work without a kit
+ok 15 - texture and refusal conserve material and wage; native cancellation refunds accepted work without a kit
+  ---
+  duration_ms: 315.495875
+  type: 'test'
+  ...
+# Subtest: losing actual supported body at completion refunds inputs and creates no wage or kit
+ok 16 - losing actual supported body at completion refunds inputs and creates no wage or kit
+  ---
+  duration_ms: 160.94825
+  type: 'test'
+  ...
+# Subtest: stale/double clock, sequence, revision, session and scope tokens cannot apply a second work effect
+ok 17 - stale/double clock, sequence, revision, session and scope tokens cannot apply a second work effect
+  ---
+  duration_ms: 93.648167
+  type: 'test'
+  ...
+# Subtest: wrong contact, unsupported body and native revision block bindings; adapters cannot invoke a different resident
+ok 18 - wrong contact, unsupported body and native revision block bindings; adapters cannot invoke a different resident
+  ---
+  duration_ms: 70.476792
+  type: 'test'
+  ...
+# Subtest: failed durable write preserves authoritative cursor/resources/jobs; retry publishes exactly one accepted effect
+ok 19 - failed durable write preserves authoritative cursor/resources/jobs; retry publishes exactly one accepted effect
+  ---
+  duration_ms: 113.727333
+  type: 'test'
+  ...
+# Subtest: retained v1/v2 legacy and v3 scoped opaque cursors reload without replacing paid receipt history
+ok 20 - retained v1/v2 legacy and v3 scoped opaque cursors reload without replacing paid receipt history
+  ---
+  duration_ms: 192.108041
+  type: 'test'
+  ...
+# Subtest: old absent enrollment and repeated read/preview create no demand, approval or Ink cursor
+ok 21 - old absent enrollment and repeated read/preview create no demand, approval or Ink cursor
+  ---
+  duration_ms: 70.811125
+  type: 'test'
+  ...
+# Subtest: missing counted materials or provider funds block work; contractor cannot gain staff approval from making Lin’s kit
+ok 22 - missing counted materials or provider funds block work; contractor cannot gain staff approval from making Lin’s kit
+  ---
+  duration_ms: 235.893958
+  type: 'test'
+  ...
+# Subtest: the shared controller admission preserves explicit approved remainder policy and ordinary nested controllers
+ok 23 - the shared controller admission preserves explicit approved remainder policy and ordinary nested controllers
+  ---
+  duration_ms: 0.56775
+  type: 'test'
+  ...
+# Subtest: actual declared hub passage retains complete owned cargo; unsafe traveler input keys stay rejected
+ok 24 - actual declared hub passage retains complete owned cargo; unsafe traveler input keys stay rejected
+  ---
+  duration_ms: 0.315708
+  type: 'test'
+  ...
+# Subtest: both supported starts naturally purchase actual access and deliver a useful first repair
+ok 25 - both supported starts naturally purchase actual access and deliver a useful first repair
+  ---
+  duration_ms: 142.564125
+  type: 'test'
+  ...
+# Subtest: player input quote names native coins and delivered objects without exposing NPC funds
+ok 26 - player input quote names native coins and delivered objects without exposing NPC funds
+  ---
+  duration_ms: 41.268333
+  type: 'test'
+  ...
+# Subtest: learned bracing changes execution, joint work uses independent finite means, later return unlocks funded continuation
+ok 27 - learned bracing changes execution, joint work uses independent finite means, later return unlocks funded continuation
+  ---
+  duration_ms: 134.752792
+  type: 'test'
+  ...
+# Subtest: missing colleague knowledge/tool/body/contact/attention/stock cannot borrow the player means
+ok 28 - missing colleague knowledge/tool/body/contact/attention/stock cannot borrow the player means
+  ---
+  duration_ms: 82.536125
+  type: 'test'
+  ...
+# Subtest: cancellation and lost colleague support return actual reserved inputs without pay, method or product
+ok 29 - cancellation and lost colleague support return actual reserved inputs without pay, method or product
+  ---
+  duration_ms: 71.033334
+  type: 'test'
+  ...
+# Subtest: personal second repair retains the colleague means, finite standing demand and stock stop repetition
+ok 30 - personal second repair retains the colleague means, finite standing demand and stock stop repetition
+  ---
+  duration_ms: 127.671542
+  type: 'test'
+  ...
+# Subtest: schema4 migrates without enrollment, rewards or reinterpreting a frozen commitment
+ok 31 - schema4 migrates without enrollment, rewards or reinterpreting a frozen commitment
+  ---
+  duration_ms: 11.3155
+  type: 'test'
+  ...
+# Subtest: inspection is pure, definitions are frozen and wrong actor, location or hidden means reject
+ok 32 - inspection is pure, definitions are frozen and wrong actor, location or hidden means reject
+  ---
+  duration_ms: 46.011917
+  type: 'test'
+  ...
+# Subtest: real native materials enter the NPC inventory; independent work, reload and collection settle once
+ok 33 - real native materials enter the NPC inventory; independent work, reload and collection settle once
+  ---
+  duration_ms: 55.422375
+  type: 'test'
+  ...
+# Subtest: one long advance and split/reloaded advances have equal actors, ownership, RNG and events
+ok 34 - one long advance and split/reloaded advances have equal actors, ownership, RNG and events
+  ---
+  duration_ms: 181.319667
+  type: 'test'
+  ...
+# Subtest: finite automation reserves each batch, returns cancellation inputs and pauses on shortage
+ok 35 - finite automation reserves each batch, returns cancellation inputs and pauses on shortage
+  ---
+  duration_ms: 101.380333
+  type: 'test'
+  ...
+# Subtest: shared site capacity and unique claims arbitrate across actors before costs or rewards
+ok 36 - shared site capacity and unique claims arbitrate across actors before costs or rewards
+  ---
+  duration_ms: 26.015667
+  type: 'test'
+  ...
+# Subtest: pending definitions freeze effects and reservations across content revisions
+ok 37 - pending definitions freeze effects and reservations across content revisions
+  ---
+  duration_ms: 11.003791
+  type: 'test'
+  ...
+# Subtest: life/conditions are durable; immunity, remedy and nonlethal encounters use explicit rules
+ok 38 - life/conditions are durable; immunity, remedy and nonlethal encounters use explicit rules
+  ---
+  duration_ms: 30.064167
+  type: 'test'
+  ...
+# Subtest: faculty possession, awakening, activation and suppression differ from remembered copies
+ok 39 - faculty possession, awakening, activation and suppression differ from remembered copies
+  ---
+  duration_ms: 43.45375
+  type: 'test'
+  ...
+# Subtest: execution uses actual target vitals, capacity, cooldown and native stamina/health projection
+ok 40 - execution uses actual target vitals, capacity, cooldown and native stamina/health projection
+  ---
+  duration_ms: 29.360625
+  type: 'test'
+  ...
+# Subtest: a saved encounter blocks ordinary time, resumes its frozen turn and settles once
+ok 41 - a saved encounter blocks ordinary time, resumes its frozen turn and settles once
+  ---
+  duration_ms: 21.551959
+  type: 'test'
+  ...
+# Subtest: tiers, origins and fusion have durable receipts, branches and constituent lineage
+ok 42 - tiers, origins and fusion have durable receipts, branches and constituent lineage
+  ---
+  duration_ms: 25.0565
+  type: 'test'
+  ...
+# Subtest: loans preserve owner/custody, block consumption and return the exact material
+ok 43 - loans preserve owner/custody, block consumption and return the exact material
+  ---
+  duration_ms: 29.77275
+  type: 'test'
+  ...
+# Subtest: world transitions preview explicit reset domains, preserve campaign knowledge/claims and stale previews reject
+ok 44 - world transitions preview explicit reset domains, preserve campaign knowledge/claims and stale previews reject
+  ---
+  duration_ms: 13.411791
+  type: 'test'
+  ...
+# Subtest: decisions retain unspent time; hidden occurrences require discovery and quiet checks award nothing
+ok 45 - decisions retain unspent time; hidden occurrences require discovery and quiet checks award nothing
+  ---
+  duration_ms: 15.463041
+  type: 'test'
+  ...
+# Subtest: bounded catch-up returns remaining work rather than skipping controller/event boundaries
+ok 46 - bounded catch-up returns remaining work rather than skipping controller/event boundaries
+  ---
+  duration_ms: 2910.510291
+  type: 'test'
+  ...
+# Subtest: failed durable write publishes no actors, claims, native transfers, resources or unlocks
+ok 47 - failed durable write publishes no actors, claims, native transfers, resources or unlocks
+  ---
+  duration_ms: 8.28125
+  type: 'test'
+  ...
+# Subtest: native unlocks stage access independently of publication and include recipe, skill, flag and quest
+ok 48 - native unlocks stage access independently of publication and include recipe, skill, flag and quest
+  ---
+  duration_ms: 0.212125
+  type: 'test'
+  ...
+# Subtest: malformed actor bindings, reservations, unknown definitions and future runtime schemas reject
+ok 49 - malformed actor bindings, reservations, unknown definitions and future runtime schemas reject
+  ---
+  duration_ms: 1.110166
+  type: 'test'
+  ...
+# Subtest: each power model enforces its own scope, cost and termination without a global rank
+ok 50 - each power model enforces its own scope, cost and termination without a global rank
+  ---
+  duration_ms: 1.457458
+  type: 'test'
+  ...
+# Subtest: formula-derived reservations remain negative and freeze the paid amount before later mastery
+ok 51 - formula-derived reservations remain negative and freeze the paid amount before later mastery
+  ---
+  duration_ms: 13.443
+  type: 'test'
+  ...
+# Subtest: fictional condition ticks and old-age endings preserve work/refund rules across reload
+ok 52 - fictional condition ticks and old-age endings preserve work/refund rules across reload
+  ---
+  duration_ms: 22.293708
+  type: 'test'
+  ...
+# Subtest: new actors are created once with stable identity, independent inventory and no invented past
+ok 53 - new actors are created once with stable identity, independent inventory and no invented past
+  ---
+  duration_ms: 10.065084
+  type: 'test'
+  ...
+# Subtest: external actor proposals are restricted to visible legal registered commands and stale proposals reject
+ok 54 - external actor proposals are restricted to visible legal registered commands and stale proposals reject
+  ---
+  duration_ms: 58.15475
+  type: 'test'
+  ...
+# Subtest: native equipment stages an owned quality-key swap, saves NPC gear and rebuilds without extra items
+ok 55 - native equipment stages an owned quality-key swap, saves NPC gear and rebuilds without extra items
+  ---
+  duration_ms: 7.347125
+  type: 'test'
+  ...
+# Subtest: authored native reset values survive serialization after ordinary domain patches
+ok 56 - authored native reset values survive serialization after ordinary domain patches
+  ---
+  duration_ms: 2.956083
+  type: 'test'
+  ...
+# Subtest: a party encounter freezes its participants and pays all member costs atomically
+ok 57 - a party encounter freezes its participants and pays all member costs atomically
+  ---
+  duration_ms: 33.428792
+  type: 'test'
+  ...
+# Subtest: delayed native equipment/vital effects require real bindings and preserve NPC body state
+ok 58 - delayed native equipment/vital effects require real bindings and preserve NPC body state
+  ---
+  duration_ms: 8.197208
+  type: 'test'
+  ...
+# Subtest: repeatable actor creation binds distinct owners, freezes a delayed template and resumes birth once
+ok 59 - repeatable actor creation binds distinct owners, freezes a delayed template and resumes birth once
+  ---
+  duration_ms: 61.093
+  type: 'test'
+  ...
+# Subtest: unknown aliases and insufficient supplies reject the whole hire without a debit or actor
+ok 60 - unknown aliases and insufficient supplies reject the whole hire without a debit or actor
+  ---
+  duration_ms: 9.468708
+  type: 'test'
+  ...
+# Subtest: NPC responses use real means, skip unaffordable priorities and persist a turn across reload
+ok 61 - NPC responses use real means, skip unaffordable priorities and persist a turn across reload
+  ---
+  duration_ms: 28.938042
+  type: 'test'
+  ...
+# Subtest: encounter success settles its claim once; withdrawal frees the claim while retaining spent means
+ok 62 - encounter success settles its claim once; withdrawal frees the claim while retaining spent means
+  ---
+  duration_ms: 22.961333
+  type: 'test'
+  ...
+# Subtest: dynamic outcome weights and effects share the pre-cost snapshot; inspection never draws
+ok 63 - dynamic outcome weights and effects share the pre-cost snapshot; inspection never draws
+  ---
+  duration_ms: 24.602166
+  type: 'test'
+  ...
+# Subtest: event guarantees count eligible misses; unmet conditions and open events do not consume attempts
+ok 64 - event guarantees count eligible misses; unmet conditions and open events do not consume attempts
+  ---
+  duration_ms: 15.381959
+  type: 'test'
+  ...
+# Subtest: caused NPC occurrences bind independently and unknown events cannot be answered by controllers
+ok 65 - caused NPC occurrences bind independently and unknown events cannot be answered by controllers
+  ---
+  duration_ms: 29.063667
+  type: 'test'
+  ...
+# Subtest: simulated movement respects work occupancy and native travel stays bound to its host
+ok 66 - simulated movement respects work occupancy and native travel stays bound to its host
+  ---
+  duration_ms: 19.113875
+  type: 'test'
+  ...
+# Subtest: two playable helpers finish independently and long advances match split/reloaded time
+ok 67 - two playable helpers finish independently and long advances match split/reloaded time
+  ---
+  duration_ms: 291.6015
+  type: 'test'
+  ...
+# Subtest: a failed durable hire preserves native supplies and creates no live actor or debit
+ok 68 - a failed durable hire preserves native supplies and creates no live actor or debit
+  ---
+  duration_ms: 9.409542
+  type: 'test'
+  ...
+# Subtest: inactive actors retain their memories without empty clock work; explicit return resumes future decisions
+ok 69 - inactive actors retain their memories without empty clock work; explicit return resumes future decisions
+  ---
+  duration_ms: 15.992041
+  type: 'test'
+  ...
+# Subtest: an NPC's private event response remains saved without disclosing its label to the player's history
+ok 70 - an NPC's private event response remains saved without disclosing its label to the player's history
+  ---
+  duration_ms: 17.063
+  type: 'test'
+  ...
+1..70
+# tests 70
+# suites 0
+# pass 70
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 4799.328542

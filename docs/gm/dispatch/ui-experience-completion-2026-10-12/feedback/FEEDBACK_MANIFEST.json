@@ -1,0 +1,61 @@
+{
+  "owner": "01a12e99-0821-7d33-bae9-099faa1b8b2a",
+  "integrator": "01a12e84-0958-7381-862a-69a174050353",
+  "candidate": "/Users/weiwei/.codex/candidates/yairpg-ui-feedback-2026-10-12",
+  "frozenFoundation": "/Users/weiwei/.codex/candidates/yairpg-customization-2026-10-12",
+  "frozenManifest": "../cheats-sfx-implementation-2026-10-12/FOUNDATION_MANIFEST.json",
+  "preview": "http://127.0.0.1:18593/",
+  "serverSession": 29517,
+  "files": {
+    "src/main.js": {
+      "before": "c36b6029b586bbce60bd8758038f0a2a79f08c031d088544ac41819b22f0d729",
+      "after": "6d4032475e1add29def9768f975698e84f328d61829326e8412f5656b6506d51"
+    },
+    "src/display.js": {
+      "before": "fdbe17e64a0ea208e878973a86b10c11e78437c0606c9ac1fb7523d8b60e6425",
+      "after": "0714c5b2b278472cc6d6d3f0720090425f835f51b1818289c4ae89fce1a71d66"
+    },
+    "src/content_pack_ui.js": {
+      "before": "cc8c792e5d195fdf54643a947be1ad42884b9c64d10b61e2cf88d5dae230a42d",
+      "after": "9740624c747e2ed6aa0339793b954a4f446ab4a7278e9214ee0116b99bf3d9f6"
+    },
+    "src/structured_pack_ui.js": {
+      "before": "9059e0c25855d0065357044b58846f71dbe3190dadf4289e73cae5b48b2d9c82",
+      "after": "91724147399fe651b8a47cdbd521955f76c98310f824870c3a38310b99a899b4"
+    },
+    "src/simulation_ui.js": {
+      "before": "48a8aa25b5bc1b1f30a17899baf92d9ee0f0c2a481cb0b40e06ae7600ede1405",
+      "after": "a83c3fc6204cd7f70543de719558d5e88d86418875dc48013cb9a058718e1954"
+    },
+    "src/work_ledger_ui.js": {
+      "before": "750b6ef218796e82d240e85e0f2d7ed49a6ed90dc3407d390c891f58443fcff0",
+      "after": "aabbac7d5378cc19f38bb0234df4f2e2222c2181c49753d991650c15f3a5ea06"
+    },
+    "src/work_ledger_system.js": {
+      "before": "f5119bc03af63779bce71755e981d69fda5fd0d0c449c977cd88a7e23d42d2a6",
+      "after": "2697955b78d970a1dab6afec30828af17cd74825c23534a3d7b2b5e7c10279b2"
+    },
+    "src/settled_text_effects.js": {
+      "before": "77ebc45d70c2c958b051a89a4462ea7dac43692ee51297d53119b17b2f11f40e",
+      "after": "662f3ef2aec8924f7405956405847cee07141b02c7f99657d49adfb4eab57172"
+    },
+    "src/quiet_place_detail.js": {
+      "before": null,
+      "after": "0329a13e275af681388da4a47d0284d5562b0eb30c97b4124bdf9d8baf32fb42"
+    },
+    "styles/settled_text_effects.css": {
+      "before": "32d50ebc710c134f3f9606da449856c1e4181d3fe8aa86e3fcc0bb9c09fe4b49",
+      "after": "443d79db7cdf77d8c127e51047e78aface2f7c729e7d808d4cf98426372772b6"
+    }
+  },
+  "build": {
+    "dist/bundle.js": "8516177475526dc8c4bdf5832946fa542eed0e2cc0478bbe63e9141d4af2774f",
+    "dist/bundle.js.map": "7a3c037ef1a6610d0c6b31bc62b65c1bb5f63dbf117466272f9e366f7ca2ba52",
+    "index.html": "fb095ba3fc0f23f0b988a03e634760957882daded176eecd5455f6e10c07c774"
+  },
+  "schemaChange": false,
+  "privatePacksBundled": false,
+  "sharedIntegrated": false,
+  "humanAccepted": false,
+  "patchReplay": "All10 source/style paths reproduced exactly from frozen foundation in disposable directory."
+}

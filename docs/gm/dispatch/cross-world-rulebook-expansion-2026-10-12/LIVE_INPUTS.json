@@ -1,0 +1,47 @@
+[
+  {
+    "path": "docs/RULES_FROM_SCRATCH.md",
+    "expected": "301945dadb33383063f17264718acc73be07a8d8be17cbbe1ac079bb57d6ae46",
+    "observed": "301945dadb33383063f17264718acc73be07a8d8be17cbbe1ac079bb57d6ae46",
+    "match": true
+  },
+  {
+    "path": "PROJECT.md",
+    "expected": "46dab6f21ff9801bf1512b37b82582ed2ce49e37680736723187afdc6980be45",
+    "observed": "46dab6f21ff9801bf1512b37b82582ed2ce49e37680736723187afdc6980be45",
+    "match": true
+  },
+  {
+    "path": "docs/WORLD_COMPLETION_STANDARD.md",
+    "expected": "e3c8ddc8c559204736d2ff5d8efdfd1e1f769fdbc5bc8ed2c6c86862169b2bf4",
+    "observed": "e3c8ddc8c559204736d2ff5d8efdfd1e1f769fdbc5bc8ed2c6c86862169b2bf4",
+    "match": true
+  },
+  {
+    "path": "docs/GAME_MASTER_PROMPT.md",
+    "expected": "9524d382c81a981af02bd2cf9288f410fe9a09b9c6f8d99f7075c6245653de56",
+    "observed": "9524d382c81a981af02bd2cf9288f410fe9a09b9c6f8d99f7075c6245653de56",
+    "match": true
+  },
+  {
+    "path": "docs/gm/dispatch/harry-potter-craft-research-2026-10-12/REPORT.md",
+    "expected": "36388028093e32eea28ed45b2ad615191994a6e9a90215821749eb19401bd0ce",
+    "observed": "36388028093e32eea28ed45b2ad615191994a6e9a90215821749eb19401bd0ce",
+    "match": true
+  },
+  {
+    "path": "docs/research/novels/harry-potter/craft-integration-2026-10-12/SPECIAL_RULES_AND_EVERYDAY_CONSEQUENCES.md",
+    "observed": "5e1c5343a6ccad0417559ceb30dd82018ac492688623a89fca34fd03197138ff",
+    "boundary": "read-only private worked input"
+  },
+  {
+    "path": "docs/research/novels/harry-potter/craft-integration-2026-10-12/BRANCHES_SPELLCRAFT_AND_SCALE.md",
+    "observed": "f8a729c16d1f8fdb4340e3824f936311f95bdf20d0c85f5487632d679be05dc2",
+    "boundary": "read-only private worked input"
+  },
+  {
+    "path": "docs/research/novels/harry-potter/craft-integration-2026-10-12/FEATURE_CONTRACTS.md",
+    "observed": "580bde4c4fd86cb0dd94040db6380485b3e857fea865f2b17ad269a283c33c53",
+    "boundary": "read-only private worked input"
+  }
+]

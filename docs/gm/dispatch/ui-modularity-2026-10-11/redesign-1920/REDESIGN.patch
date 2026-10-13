@@ -1,0 +1,659 @@
+--- a/src/workspace_layout.js
++++ b/src/workspace_layout.js
+@@ -1,4 +1,4 @@
+-import { normalizeLayout, parseLayout, presetLayout, changeModule, reorderModule, layoutStorageKey } from './workspace_state.js';
++import { normalizeLayout, parseLayout, presetLayout, changeModule, reorderModule, layoutStorageKey, normalizeColumns } from './workspace_state.js';
+ const registry = new Map();
+ let owner;
+ const el = (tag, cls, text) => { const node = document.createElement(tag); if (cls) node.className = cls; if (text) node.textContent = text; return node; };
+@@ -19,27 +19,27 @@
+     if (!module.placeholder) { module.placeholder = document.createComment(`workspace:${module.id}`); module.node.before(module.placeholder); }
+     const shell = el('section', 'workspace-module'); shell.dataset.module = module.id;
+     const header = el('div', 'workspace-module-header');
+-    const handle = button('↕', 'handle', module.id); handle.className = 'workspace-drag-handle'; handle.draggable = true; handle.title = 'Drag to reorder or dock. Arrow keys move; left/right changes dock.'; handle.setAttribute('aria-label', `Move ${module.title}`);
++    const handle = button('↕', 'handle', module.id); handle.className = 'workspace-drag-handle'; handle.draggable = false; handle.title = 'Drag to reorder or dock. Arrow keys move; left/right changes dock.'; handle.setAttribute('aria-label', `Move ${module.title}`);
+     const title = el('strong', '', module.title); header.append(handle, title, button('Collapse', 'collapse', module.id));
+-    const details = el('details', 'workspace-module-controls'); const summary = el('summary', '', 'Panel controls'); details.append(summary); details.addEventListener('toggle', updateWorkspace);
++    const details = el('details', 'workspace-module-controls'); const summary = el('summary', '', 'Options'); details.append(summary); 
+     const label = el('label', '', 'Dock '), select = el('select'); select.dataset.workspaceAction = 'dock'; select.dataset.module = module.id;
+     ['left', 'center', 'right', 'float'].forEach(d => { const option = el('option', '', d === 'float' ? 'Floating' : d); option.value = d; select.append(option); }); label.append(select); details.append(label);
+     details.append(button('Earlier', 'earlier', module.id), button('Later', 'later', module.id), button('Pin', 'pin', module.id), button('Hide', 'hide', module.id));
+-    for (const dimension of ['width', 'height']) { const label = el('label', 'workspace-resize', `${dimension} `), range = el('input'); range.type = 'range'; range.min = dimension === 'width' ? '260' : '180'; range.max = '1000'; range.step = '20'; range.dataset.workspaceAction = dimension; range.dataset.module = module.id; range.setAttribute('aria-label', `${module.title} ${dimension}`); label.append(range); details.append(label); }
++    for (const dimension of ['width', 'height']) { const label = el('label', 'workspace-resize', `${dimension} `), range = el('input'); range.type = 'range'; range.min = dimension === 'width' ? '260' : '40'; range.max = '1000'; range.step = '20'; range.dataset.workspaceAction = dimension; range.dataset.module = module.id; range.setAttribute('aria-label', `${module.title} ${dimension}`); label.append(range); details.append(label); }
+     const moves = el('div', 'workspace-float-controls'); moves.append(button('←', 'float-left', module.id), button('↑', 'float-up', module.id), button('↓', 'float-down', module.id), button('→', 'float-right', module.id)); details.append(moves);
+-    const body = el('div', 'workspace-module-body'); body.append(module.node); shell.append(header, details, body); module.shell = shell; module.body = body; owner.docks.left.append(shell);
++    const body = el('div', 'workspace-module-body'); body.append(module.node); header.append(details); shell.append(header, body); for (const edge of ['e','s','se']) { const grip = el('button','workspace-resize-grip'); grip.type='button'; grip.dataset.resize=edge; grip.dataset.module=module.id; grip.setAttribute('aria-label', `Resize ${module.title} ${edge === 'e' ? 'width' : edge === 's' ? 'height' : 'width and height'}`); shell.append(grip); } module.shell = shell; module.body = body; owner.docks.left.append(shell);
+ }
+ function save() { try { localStorage.setItem(layoutStorageKey(owner.narrow), JSON.stringify(owner.layout)); } catch { owner.status.textContent = 'Layout works for this session; browser storage is unavailable.'; } }
+ function withDefaults(layout) { const previous = new Set(layout?.modules?.map(v => v.id) || []); const result = normalizeLayout(layout, [...registry.keys()]); result.modules.forEach(v => { if (!previous.has(v.id) && registry.get(v.id).defaultDock) v.dock = registry.get(v.id).defaultDock; }); return result; }
+-function makePreset(name) { const layout = presetLayout(name, [...registry.keys()]); layout.density = owner?.layout.density || 'compact'; if (name !== 'Focus') layout.modules.forEach(v => { if (registry.get(v.id).defaultDock) v.dock = registry.get(v.id).defaultDock; }); const context = new Set(['vitals','time','location','combat-nav','native-vitals','native-time','native-location','combat-navigation']); layout.modules.sort((a,b) => ((registry.get(a.id).critical || context.has(a.id)) ? 0 : 1) - ((registry.get(b.id).critical || context.has(b.id)) ? 0 : 1)); layout.modules.forEach((v,order) => { v.order=order; if(name==='Focus' && (registry.get(v.id).critical || context.has(v.id)))v.collapsed=false; }); return layout; }
+-function read(narrow) { try { const raw = localStorage.getItem(layoutStorageKey(narrow)); return raw ? parseLayout(raw, [...registry.keys()]) : withDefaults(null); } catch { return withDefaults(null); } }
++function makePreset(name, narrow = owner?.narrow) { const layout = presetLayout(name, [...registry.keys()]); layout.density = owner?.layout.density || 'compact'; if (name !== 'Focus' && name !== 'Workspace') layout.modules.forEach(v => { if (registry.get(v.id).defaultDock) v.dock = registry.get(v.id).defaultDock; }); if(name==='Workspace') { const order=narrow ? ['time','location','current-work','local-actions','vitals','combat-controls','preparation','belongings','equipment-comparison','records','skills','messages','optional-worlds','beginning','patrol','supplies'] : ['vitals','combat-controls','preparation','belongings','equipment-comparison','time','location','current-work','local-actions','records','skills','messages','optional-worlds','beginning','patrol','supplies']; layout.modules.sort((a,b)=>(order.indexOf(a.id)<0?999:order.indexOf(a.id))-(order.indexOf(b.id)<0?999:order.indexOf(b.id))); layout.modules.forEach((v,i)=>v.order=i); return layout; } const context = new Set(['vitals','time','location','combat-nav','native-vitals','native-time','native-location','combat-navigation']); layout.modules.sort((a,b) => ((registry.get(a.id).critical || context.has(a.id)) ? 0 : 1) - ((registry.get(b.id).critical || context.has(b.id)) ? 0 : 1)); layout.modules.forEach((v,order) => { v.order=order; if(name==='Focus' && (registry.get(v.id).critical || context.has(v.id)))v.collapsed=false; }); return layout; }
++function read(narrow) { try { const raw = localStorage.getItem(layoutStorageKey(narrow)); if(!raw)return makePreset('Workspace', narrow); const value=JSON.parse(raw); return value?.version===1 && Array.isArray(value.modules) ? normalizeLayout(value,[...registry.keys()]) : makePreset('Workspace', narrow); } catch { return makePreset('Workspace', narrow); } }
+ function apply(id, patch) { owner.layout = changeModule(owner.layout, id, patch); save(); updateWorkspace(); }
+ function action(event) {
+     const control = event.target.closest('[data-workspace-action]'); if (!control || !owner.root.contains(control)) return;
+     const a = control.dataset.workspaceAction, id = control.dataset.module, state = owner.layout.modules.find(v => v.id === id);
+     if (a === 'preset') { owner.layout = makePreset(control.value); save(); updateWorkspace(); return; }
+     if (a === 'density') { owner.layout.density = control.value; save(); updateWorkspace(); return; }
+-    if (a === 'reset') { owner.layout = makePreset('Classic'); save(); updateWorkspace(); return; }
++    if (a === 'reset') { owner.layout = makePreset('Workspace'); save(); updateWorkspace(); return; }
+     if (a === 'export') { owner.config.value = JSON.stringify(normalizeLayout(owner.layout, [...registry.keys()]), null, 2); owner.status.textContent = 'Layout configuration ready to copy. It contains panel IDs and positions only.'; return; }
+     if (a === 'import') { try { const raw = JSON.parse(owner.config.value); if (raw.version !== 1 || !Array.isArray(raw.modules)) throw Error(); owner.layout = normalizeLayout(raw, [...registry.keys()]); save(); updateWorkspace(); owner.status.textContent = 'Layout imported.'; } catch { owner.status.textContent = 'Invalid layout. Current layout preserved.'; } return; }
+     if (!state) return;
+@@ -48,8 +48,9 @@
+     else if (a === 'collapse') apply(id, { collapsed: !state.collapsed });
+     else if (a === 'pin') apply(id, { pinned: !state.pinned });
+     else if (a === 'hide') { apply(id, { hidden: true }); owner.picker.querySelector(`[data-module="${id}"]`)?.focus(); }
+-    else if (a === 'dock' && !state.pinned) apply(id, { dock: control.value });
+-    else if (['width', 'height'].includes(a)) apply(id, { [a]: Number(control.value) });
++    else if (a === 'dock' && !state.pinned) { apply(id, { dock: control.value });const module=registry.get(id);module.shell.querySelector('.workspace-module-controls').open=false;module.shell.querySelector('.workspace-drag-handle').focus({preventScroll:true}); }
++    else if (a === 'width' && !state.pinned && state.dock !== 'float' && !owner.narrow) resizeColumn(state.dock, Number(control.value));
++    else if (['width', 'height'].includes(a) && !state.pinned) apply(id, { [a]: Number(control.value) });
+     else if (a === 'earlier' || a === 'later') { owner.layout = reorderModule(owner.layout, id, a === 'earlier' ? -1 : 1); save(); updateWorkspace(); }
+     else if (a.startsWith('float-') && !state.pinned) { const directions = { 'float-left': [-24, 0], 'float-right': [24, 0], 'float-up': [0, -24], 'float-down': [0, 24] }; const [x, y] = directions[a]; apply(id, { x: state.x + x, y: state.y + y }); }
+ }
+@@ -57,8 +58,9 @@
+ export function updateWorkspace() {
+     if (!owner) return;
+     const focused = document.activeElement; const counts = {};
++    ['left','center','right'].forEach((d,i) => owner.board.style.setProperty(`--workspace-${d}`, `${owner.layout.columns[i]}fr`));
+     owner.board.hidden = owner.layout.mode === 'classic'; owner.root.dataset.density = owner.layout.density; owner.toolbar.querySelector('[data-workspace-action="density"]').value = owner.layout.density;
+-    const preset = owner.toolbar.querySelector('[data-workspace-action="preset"]'); if (owner.layout.mode === 'classic') preset.value = 'Classic'; else if (preset.value === 'Classic') preset.value = 'Compare'; owner.root.dataset.workspaceMode = owner.layout.mode;
++    const preset = owner.toolbar.querySelector('[data-workspace-action="preset"]'); if (owner.layout.mode === 'classic') preset.value = 'Classic'; else if (preset.value === 'Classic') preset.value = 'Workspace'; owner.root.dataset.workspaceMode = owner.layout.mode;
+     if (owner.layout.mode === 'classic') {
+         owner.layout.modules.forEach(state => {
+             const module = registry.get(state.id); makeShell(module);
+@@ -78,8 +80,12 @@
+         shell.hidden = state.hidden || !eligible; shell.classList.toggle('workspace-floating', state.dock === 'float' && !owner.narrow); shell.classList.toggle('workspace-collapsed', state.collapsed);
+         shell.style.setProperty('--workspace-width', `${state.width}px`); shell.style.setProperty('--workspace-height', `${state.height}px`);
+         shell.dataset.pinned = String(state.pinned);
+-        shell.style.left = `${Math.min(state.x, Math.max(0, window.innerWidth - Math.min(state.width, window.innerWidth - 24)))}px`;
+-        shell.style.top = `${Math.min(state.y, Math.max(0, window.innerHeight - Math.min(shell.offsetHeight || state.height + 90, window.innerHeight - 24)))}px`;
++        shell.querySelectorAll('[data-resize], [data-workspace-action=width], [data-workspace-action=height]').forEach(grip => {grip.disabled=state.pinned;});
++        const available=floatAvailable(); shell.style.setProperty('--workspace-float-max-height', `${Math.max(48,available.bottom-available.top)}px`);
++        const bounds=floatBounds(shell,state.width);
++        shell.style.left = `${Math.max(bounds.left,Math.min(state.x,bounds.right))}px`;
++        shell.style.top = `${Math.max(bounds.top,Math.min(state.y,bounds.bottom))}px`;
++        if(owner.gesture?.kind==='move' && owner.gesture.active && owner.gesture.id===state.id && state.dock==='float') {shell.style.left=`${owner.gesture.x}px`;shell.style.top=`${owner.gesture.y}px`;}
+         if (state.dock !== 'float' || owner.narrow) { shell.style.left = ''; shell.style.top = ''; }
+         const d = owner.narrow ? 'center' : state.dock, destination = owner.docks[d], index = counts[d] || 0; counts[d] = index + 1;
+         if (destination.children[index] !== shell) destination.insertBefore(shell, destination.children[index] || null);
+@@ -91,44 +97,130 @@
+         ['width', 'height'].forEach(d => shell.querySelector(`[data-workspace-action="${d}"]`).value = state[d]);
+         ['handle', 'dock', 'earlier', 'later', 'float-left', 'float-right', 'float-up', 'float-down'].forEach(a => shell.querySelector(`[data-workspace-action="${a}"]`).disabled = state.pinned);
+         const restore = owner.picker.querySelector(`[data-module="${state.id}"]`); if (restore) { restore.disabled = !eligible; restore.textContent = `${state.hidden ? 'Show' : 'Open'} ${module.title}`; }
+-        else owner.picker.append(button(`Open ${module.title}`, 'restore', state.id));
++        else {const restore=button(`Open ${module.title}`, 'restore', state.id);restore.disabled=!eligible;owner.picker.append(restore);}
++    });
++    owner.board.querySelectorAll('[data-divider]').forEach(divider=>{
++        const index=Number(divider.dataset.divider), share=owner.layout.columns.slice(0,index+1).reduce((a,b)=>a+b,0);
++        divider.style.left=`calc(${share*100}% + ${6+index*12-24*share}px)`;
++        divider.style.top='0px';divider.style.height='100%';
+     });
+     if (focused?.isConnected && document.activeElement !== focused && !focused.closest('[hidden]')) focused.focus({ preventScroll: true });
+ }
++function resizeColumn(dock, pixels, persist = true) {
++    const index=['left','center','right'].indexOf(dock); if(index<0)return;
++    const width=Math.max(1,owner.board.getBoundingClientRect().width-24), columns=[...owner.layout.columns];
++    const next=Math.max(0.15,Math.min(0.65,pixels/width)), remaining=1-next, old=1-columns[index];
++    columns.forEach((v,i)=>{columns[i]=i===index?next:v/old*remaining;}); owner.layout.columns=normalizeColumns(columns);
++    if(persist)save(); updateWorkspace();
++}
++function resizeDivider(index, delta, persist = true) {
++    const width=Math.max(1,owner.board.getBoundingClientRect().width), columns=[...owner.layout.columns];
++    const shift=Math.max(0.15-columns[index],Math.min(columns[index+1]-0.15,delta/width));
++    columns[index]+=shift; columns[index+1]-=shift; owner.layout.columns=columns; if(persist)save(); updateWorkspace();
++}
++function presentationScale() { return owner.root.offsetWidth ? owner.root.getBoundingClientRect().width/owner.root.offsetWidth : 1; }
++function floatAvailable() {
++    const scale=presentationScale(), toolbarBottom=owner.toolbar.getBoundingClientRect().bottom/scale;
++    const footer=document.getElementById('bottom_panel_div')?.getBoundingClientRect();
++    const bottom=(footer && footer.top>0 && footer.top<window.innerHeight ? footer.top : window.innerHeight)/scale-8;
++    return {top:Math.max(8,toolbarBottom+6),bottom};
++}
++function floatBounds(shell,width) {
++    const scale=presentationScale(), {top,bottom}=floatAvailable(), height=Math.min(shell.getBoundingClientRect().height/scale || 120,Math.max(48,bottom-top));
++    return {left:8,right:Math.max(8,window.innerWidth/scale-Math.min(width,window.innerWidth/scale-16)-8),top,bottom:Math.max(top,bottom-height)};
++}
++function snap(value) { return Math.round(value/8)*8; }
++function finishGesture(cancel = false) {
++    const g=owner.gesture; if(!g)return;
++    if(cancel || !g.active) owner.layout=g.before;
++    else if(g.kind==='move' && g.drop) {
++        let modules=owner.layout.modules.map(v=>({...v})), moving=modules.find(v=>v.id===g.id); moving.dock=g.drop.dock;
++        if(moving.dock==='float') { moving.x=g.x; moving.y=g.y; }
++        else if(g.drop.target) { modules=modules.filter(v=>v.id!==g.id); let at=modules.findIndex(v=>v.id===g.drop.target); if(g.drop.after)at++; modules.splice(at,0,moving); }
++        else {modules=modules.filter(v=>v.id!==g.id); const last=modules.map(v=>v.dock).lastIndexOf(moving.dock); modules.splice(last+1,0,moving);}
++        owner.layout=normalizeLayout({...owner.layout, modules:modules.map((v,order)=>({...v,order}))},[...registry.keys()]);
++    }
++    registry.get(g.id)?.shell.classList.remove('workspace-moving'); owner.root.classList.remove('workspace-dragging','workspace-resizing'); owner.preview.hidden=true;
++    if(owner.root.hasPointerCapture?.(g.pointer))owner.root.releasePointerCapture(g.pointer);
++    delete owner.gesture; save(); updateWorkspace();
++    owner.status.textContent=cancel ? 'Layout change canceled.' : !g.active ? 'Drag headers · Shift+drag to float · Resize edges or dividers' : g.kind==='move' ? (g.drop ? `Panel moved to ${g.drop.dock === 'float' ? 'floating' : g.drop.dock + ' dock'}.` : 'No drop target. Layout preserved.') : 'Size saved. Resize edges or dividers to adjust.';
++}
++function installPointerInteractions(listen) {
++    listen(owner.root,'pointerdown',e=>{
++        if(e.button!==0 || owner.layout.mode==='classic')return;
++        const divider=e.target.closest('[data-divider]'), grip=e.target.closest('[data-resize]'), header=e.target.closest('.workspace-module-header');
++        if(!divider && !grip && (!header || (e.target.closest('button,input,select,summary,details,a') && !e.target.closest('.workspace-drag-handle'))))return;
++        const shell=(grip||header)?.closest('.workspace-module'), id=shell?.dataset.module, state=owner.layout.modules.find(v=>v.id===id);
++        if(state?.pinned)return;
++        if(!divider && !state)return;
++        const rect=shell?.getBoundingClientRect();
++        owner.gesture={kind:divider?'divider':grip?'resize':'move', id, edge:grip?.dataset.resize, divider:Number(divider?.dataset.divider), startX:e.clientX,startY:e.clientY, rect, state:state?{...state}:null, before:structuredClone(owner.layout), pointer:e.pointerId, active:false};
++        if(grip || divider)e.preventDefault();
++    });
++    listen(window,'pointermove',e=>{
++        const g=owner.gesture; if(!g || e.pointerId!==g.pointer)return;
++        const dx=e.clientX-g.startX,dy=e.clientY-g.startY;
++        if(!g.active && Math.hypot(dx,dy)<5)return;
++        if(!g.active)owner.root.setPointerCapture?.(g.pointer); g.active=true; e.preventDefault(); owner.root.classList.add(g.kind==='move'?'workspace-dragging':'workspace-resizing');
++        if(g.kind==='divider') {owner.layout.columns=[...g.before.columns];resizeDivider(g.divider,dx,false);return;}
++        if(g.kind==='resize') {
++            if(g.edge.includes('e')) { if(g.state.dock==='float') owner.layout=changeModule(owner.layout,g.id,{width:snap(g.state.width+dx/presentationScale())}); else {owner.layout.columns=[...g.before.columns];resizeColumn(g.state.dock,g.rect.width+dx,false);} }
++            if(g.edge.includes('s'))owner.layout=changeModule(owner.layout,g.id,{height:snap(g.state.height+dy/presentationScale())});
++            updateWorkspace();return;
++        }
++        const module=registry.get(g.id),shell=module.shell; shell.classList.add('workspace-moving');
++        const bounds=floatBounds(shell,g.state.width);
++        g.x=Math.max(bounds.left,Math.min(bounds.right,snap((g.rect.left+dx)/presentationScale())));
++        g.y=Math.max(bounds.top,Math.min(bounds.bottom,snap((g.rect.top+dy)/presentationScale())));
++        const hit=document.elementFromPoint(e.clientX,e.clientY), target=hit?.closest('.workspace-drop-target'), dock=hit?.closest('.workspace-dock');
++        let destination=e.shiftKey ? 'float' : target?.dataset.dock || (g.state.dock==='float' ? 'float' : dock?.dataset.dock);
++        if(owner.narrow && destination && destination!=='float')destination='center';
++        const other=hit?.closest('.workspace-module'); g.drop=destination?{dock:destination}:null;
++        if(destination && destination!=='float') {
++            if(other && other!==shell && other.parentNode===owner.docks[destination]) {const r=other.getBoundingClientRect();g.drop.target=other.dataset.module;g.drop.after=e.clientY>r.top+r.height/2; showPreview({left:r.left,top:g.drop.after?r.bottom:r.top,width:r.width,height:6});}
++            else {const r=owner.docks[destination].getBoundingClientRect();showPreview({left:r.left,top:r.top,width:r.width,height:Math.max(60,r.height)});}
++        } else {showPreview({left:g.x,top:g.y,width:Math.min(g.state.width,window.innerWidth/presentationScale()-24),height:Math.min(g.rect.height/presentationScale(),window.innerHeight/presentationScale()-48)},true);if(g.state.dock==='float') {shell.style.left=`${g.x}px`;shell.style.top=`${g.y}px`;g.drop={dock:'float'};}}
++        owner.targets.querySelectorAll('[data-dock]').forEach(t=>t.classList.toggle('workspace-target-active',t.dataset.dock===g.drop?.dock));
++    });
++    listen(window,'pointerup',e=>{if(owner.gesture?.pointer===e.pointerId)finishGesture();});
++    listen(window,'keydown',e=>{if(e.key==='Escape' && owner.gesture) {e.preventDefault();finishGesture(true);}});
++    listen(window,'pointercancel',()=>finishGesture(true));
++    listen(window,'blur',()=>finishGesture(true));
++}
++function showPreview(rect, cssPixels=false) {owner.preview.hidden=false;const scale=cssPixels?1:presentationScale();Object.entries(rect).forEach(([k,v])=>owner.preview.style[k]=`${v/scale}px`);}
+ export function mountWorkspace({ root = document.getElementById('main_content') || document.getElementById('global_content') } = {}) {
+     if (owner) { updateWorkspace(); return owner; }
+     if (!root) return null;
+     const toolbar = el('nav', 'workspace-toolbar'); toolbar.setAttribute('aria-label', 'Workspace layout');
+-    const presetLabel = el('label', '', 'Layout '), presets = el('select'); presets.dataset.workspaceAction = 'preset'; ['Classic', 'Focus', 'Compare'].forEach(v => { const o = el('option', '', v); o.value = v; presets.append(o); }); presetLabel.append(presets); toolbar.append(presetLabel, button('Reset layout', 'reset'));
++    const presetLabel = el('label', '', 'Layout '), presets = el('select'); presets.dataset.workspaceAction = 'preset'; ['Workspace', 'Classic', 'Focus', 'Compare'].forEach(v => { const o = el('option', '', v); o.value = v; presets.append(o); }); presetLabel.append(presets); toolbar.append(presetLabel, button('Reset layout', 'reset'));
+     const densityLabel = el('label', '', 'Density '), density = el('select'); density.dataset.workspaceAction='density'; ['compact','comfortable','inspection'].forEach(v=>{const o=el('option','',v);o.value=v;density.append(o);}); densityLabel.append(density);toolbar.append(densityLabel);
+     const picker = el('details', 'workspace-picker'); picker.append(el('summary', '', 'Panels')); toolbar.append(picker);
+     const transfer = el('details', 'workspace-transfer'); transfer.append(el('summary', '', 'Layout configuration'));
+     const config = el('textarea'); config.setAttribute('aria-label', 'Layout configuration'); config.rows = 5; transfer.append(config, button('Export layout', 'export'), button('Import layout', 'import')); toolbar.append(transfer);
+-    const status = el('output', 'workspace-status'); status.setAttribute('aria-live', 'polite'); toolbar.append(status);
++    const status = el('output', 'workspace-status', 'Drag headers · Shift+drag to float · Resize edges or dividers'); status.setAttribute('aria-live', 'polite'); toolbar.append(status);
+     const board = el('div', 'workspace-board'), docks = {};
+     ['left', 'center', 'right', 'float'].forEach(d => { const dock = el('div', 'workspace-dock'); dock.dataset.dock = d; dock.setAttribute('aria-label', `${d} panel dock`); docks[d] = dock; board.append(dock); });
+-    const media = window.matchMedia('(max-width: 760px)'); owner = { root, toolbar, board, docks, picker, config, status, media, narrow: media.matches, layout: read(media.matches), cleanup: [] };
++    for(let i=0;i<2;i++) { const divider=el('button','workspace-divider'); divider.type='button'; divider.dataset.divider=i; divider.setAttribute('aria-label', `Resize ${i === 0 ? 'left and center' : 'center and right'} columns`); board.append(divider); }
++    const targets=el('div','workspace-drop-targets'); ['left','center','right','float'].forEach(d => {const t=el('div','workspace-drop-target',d === 'float' ? 'Float panel' : `Dock ${d}`); t.dataset.dock=d; targets.append(t); }); board.append(targets);
++    const preview=el('div','workspace-drop-preview'); preview.hidden=true; board.append(preview);
++    const media = window.matchMedia('(max-width: 1000px)'); owner = { root, toolbar, board, docks, picker, config, status, media, narrow: media.matches, layout: read(media.matches), targets, preview, cleanup: [] };
+     root.classList.add('workspace-active'); root.prepend(toolbar, board);
+     function listen(target, name, handler) { target.addEventListener(name, handler); owner.cleanup.push(() => target.removeEventListener(name, handler)); }
+-    listen(root, 'click', e => { if (e.target.closest('[data-workspace-action]')?.tagName !== 'SELECT' && e.target.closest('[data-workspace-action]')?.tagName !== 'INPUT') action(e); const floating = e.target.closest('.workspace-floating'); if (floating) { owner.front = (owner.front || 20) + 1; floating.style.zIndex = owner.front; } });
++    listen(root, 'click', e => { if (e.target.closest('[data-workspace-action]')?.tagName !== 'SELECT' && e.target.closest('[data-workspace-action]')?.tagName !== 'INPUT') action(e); const floating = e.target.closest('.workspace-floating'); if (floating) { owner.front = (owner.front || 200) + 1; floating.style.zIndex = owner.front; } });
++    listen(root, 'pointerdown', e => {
++        root.querySelectorAll('.workspace-module-controls[open], .workspace-picker[open], .workspace-transfer[open]').forEach(details => {if(!details.contains(e.target))details.open=false;});
++    });
+     listen(root, 'change', action);
+     listen(root, 'keydown', e => {
++        if(e.key === 'Escape' && owner.gesture) { e.preventDefault(); finishGesture(true); return; }
++        const grip=e.target.closest('[data-resize], [data-divider]');
++        if(grip && ['ArrowLeft','ArrowRight','ArrowUp','ArrowDown'].includes(e.key)) { e.preventDefault(); const amount=e.key==='ArrowLeft'||e.key==='ArrowUp' ? -20 : 20; if(grip.dataset.divider !== undefined) resizeDivider(Number(grip.dataset.divider), amount); else { const st=owner.layout.modules.find(v=>v.id===grip.dataset.module); if(st && !st.pinned) { if(['ArrowLeft','ArrowRight'].includes(e.key) && grip.dataset.resize.includes('e')) { if(st.dock==='float')apply(st.id,{width:st.width+amount}); else resizeColumn(st.dock,registry.get(st.id).shell.getBoundingClientRect().width+amount); } else if(grip.dataset.resize.includes('s')) apply(st.id,{height:st.height+amount}); } } return; }
+         const handle = e.target.closest('[data-workspace-action="handle"]'); if (!handle) return;
+         const state = owner.layout.modules.find(v => v.id === handle.dataset.module); if (!state || state.pinned) return;
+         if (['ArrowUp', 'ArrowDown'].includes(e.key)) { e.preventDefault(); owner.layout = reorderModule(owner.layout, state.id, e.key === 'ArrowUp' ? -1 : 1); save(); updateWorkspace(); }
+         else if (['ArrowLeft', 'ArrowRight'].includes(e.key)) { e.preventDefault(); const ds = ['left', 'center', 'right', 'float'], i = ds.indexOf(state.dock); apply(state.id, { dock: ds[Math.min(3, Math.max(0, i + (e.key === 'ArrowLeft' ? -1 : 1)))] }); }
+     });
+-    listen(root, 'dragstart', e => { const handle = e.target.closest('.workspace-drag-handle'); if (!handle || handle.disabled) return; owner.drag = handle.dataset.module; e.dataTransfer.effectAllowed = 'move'; e.dataTransfer.setData('text/plain', owner.drag); });
+-    listen(root, 'dragover', e => { if (owner.drag && e.target.closest('.workspace-dock')) { e.preventDefault(); e.dataTransfer.dropEffect = 'move'; } });
+-    listen(root, 'drop', e => {
+-        const dock = e.target.closest('.workspace-dock'); if (!owner.drag || !dock) return; e.preventDefault();
+-        const id = owner.drag, state = owner.layout.modules.find(v => v.id === id); owner.drag = null; if (!state || state.pinned) return;
+-        const target = e.target.closest('.workspace-module'); owner.layout = changeModule(owner.layout, id, { dock: dock.dataset.dock });
+-        if (target && target.dataset.module !== id) { const list = owner.layout.modules.filter(v => v.id !== id); const index = list.findIndex(v => v.id === target.dataset.module); list.splice(index, 0, owner.layout.modules.find(v => v.id === id)); owner.layout = normalizeLayout({ version: 1, mode: 'dock', density: owner.layout.density, modules: list.map((v, order) => ({ ...v, order })) }, [...registry.keys()]); }
+-        if (dock.dataset.dock === 'float') owner.layout = changeModule(owner.layout, id, { x: Math.max(0, e.clientX), y: Math.max(0, e.clientY) });
+-        save(); updateWorkspace(); registry.get(id).shell.querySelector('.workspace-drag-handle').focus({ preventScroll: true });
+-    });
+-    listen(root, 'dragend', () => { owner.drag = null; });
++    installPointerInteractions(listen);
+     listen(media, 'change', () => { owner.narrow = media.matches; owner.layout = read(owner.narrow); updateWorkspace(); });
+     listen(window, 'resize', updateWorkspace);
+     updateWorkspace(); return owner;
+@@ -155,7 +247,7 @@
+     for (let parent=module.node.parentElement;parent;parent=parent.parentElement) if(parent.tagName==='DETAILS')parent.open=true;
+     const target = owner && owner.layout.mode !== 'classic' ? module.shell : module.node;
+     if (!target || module.eligible() === false) return false;
+-    if (owner && target.classList.contains('workspace-floating')) { owner.front = (owner.front || 20) + 1; target.style.zIndex=owner.front; }
++    if (owner && target.classList.contains('workspace-floating')) { owner.front = (owner.front || 200) + 1; target.style.zIndex=owner.front; }
+     target.scrollIntoView?.({block:'nearest',behavior:'instant'});
+     const focus = owner && owner.layout.mode !== 'classic' ? module.shell.querySelector('.workspace-drag-handle') : module.node.querySelector('button:not([hidden]):not(:disabled),summary,input:not([hidden]):not(:disabled),select:not([hidden]):not(:disabled)');
+     focus?.focus({preventScroll:true}); return true;
+--- a/src/workspace_state.js
++++ b/src/workspace_state.js
+@@ -3,16 +3,20 @@
+ export const DOCKS = ['left', 'center', 'right', 'float'];
+ const finite = (v, fallback) => Number.isFinite(Number(v)) ? Number(v) : fallback;
+ const clamp = (v, low, high, fallback) => Math.min(high, Math.max(low, finite(v, fallback)));
++export function normalizeColumns(values) {
++    const safe = Array.isArray(values) && values.length === 3 ? values.map(v => clamp(v, 0.15, 0.7, 1 / 3)) : [0.27, 0.43, 0.30];
++    const sum = safe.reduce((a, b) => a + b, 0); return safe.map(v => v / sum);
++}
+ export function defaultModule(id, index = 0) {
+     return { id, dock: index % 2 ? 'right' : 'left', order: index, width: 400, height: 460, collapsed: false, pinned: false, hidden: false, x: 20 + index * 24, y: 20 + index * 24 };
+ }
+ export function normalizeLayout(raw, ids) {
+     const source = raw?.version === WORKSPACE_VERSION && Array.isArray(raw.modules) ? raw.modules : [];
+     const known = new Map(source.filter(v => v && typeof v.id === 'string').map(v => [v.id, v]));
+-    return { version: WORKSPACE_VERSION, mode: raw?.mode === 'dock' ? 'dock' : 'classic', density: ['compact','comfortable','inspection'].includes(raw?.density) ? raw.density : 'compact', modules: [...new Set(ids)].map((id, index) => {
++    return { version: WORKSPACE_VERSION, mode: raw?.mode === 'dock' ? 'dock' : 'classic', columns: normalizeColumns(raw?.columns), density: ['compact','comfortable','inspection'].includes(raw?.density) ? raw.density : 'compact', modules: [...new Set(ids)].map((id, index) => {
+         const base = defaultModule(id, index), value = known.get(id) || {};
+         return { ...base, dock: DOCKS.includes(value.dock) ? value.dock : base.dock,
+-            order: clamp(value.order, 0, 1000, index), width: clamp(value.width, 260, 1000, 400), height: clamp(value.height, 180, 1000, 460),
++            order: clamp(value.order, 0, 1000, index), width: clamp(value.width, 260, 1000, 400), height: clamp(value.height, 40, 1000, 460),
+             x: clamp(value.x, 0, 10000, base.x), y: clamp(value.y, 0, 10000, base.y),
+             collapsed: value.collapsed === true, pinned: value.pinned === true, hidden: value.hidden === true };
+     }).sort((a, b) => a.order - b.order).map((v, order) => ({ ...v, order })) };
+@@ -23,13 +27,17 @@
+ export function presetLayout(name, ids) {
+     const result = normalizeLayout(null, ids); result.mode = name === 'Classic' ? 'classic' : 'dock';
+     result.modules.forEach((v, i) => {
++        if (name === 'Workspace') {
++            const defaults = { vitals:['left',145], 'combat-controls':['left',40], preparation:['left',240], belongings:['left',240], 'equipment-comparison':['left',200,true], time:['center',40], location:['center',150], 'current-work':['center',100], 'local-actions':['center',400], records:['right',140], skills:['right',150], messages:['right',220], 'optional-worlds':['right',200,true], beginning:['right',200,true], patrol:['right',200,true], supplies:['right',200,true] };
++            const config = defaults[v.id]; if(config) { v.dock=config[0]; v.height=config[1]; v.collapsed=!!config[2]; }
++        }
+         if (name === 'Focus') { v.dock = 'center'; v.collapsed = i > 0; }
+         if (name === 'Compare') { v.dock = i % 2 ? 'right' : 'left'; v.width = 460; }
+     });
+     return result;
+ }
+ export function changeModule(layout, id, patch) {
+-    return normalizeLayout({ version: WORKSPACE_VERSION, mode: layout.mode, density: layout.density, modules: layout.modules.map(v => v.id === id ? { ...v, ...patch, id } : v) }, layout.modules.map(v => v.id));
++    return normalizeLayout({ version: WORKSPACE_VERSION, mode: layout.mode, density: layout.density, columns: layout.columns, modules: layout.modules.map(v => v.id === id ? { ...v, ...patch, id } : v) }, layout.modules.map(v => v.id));
+ }
+ export function reorderModule(layout, id, delta) {
+     const modules = layout.modules.map(v => ({ ...v }));
+@@ -39,6 +47,6 @@
+     const local = neighbors.findIndex(v => v.id === id), target = neighbors[local + delta];
+     if (!target) return layout;
+     const order = modules[index].order; modules[index].order = target.order; target.order = order;
+-    return normalizeLayout({ version: WORKSPACE_VERSION, mode: layout.mode, modules }, modules.map(v => v.id));
++    return normalizeLayout({ version: WORKSPACE_VERSION, mode: layout.mode, density: layout.density, columns: layout.columns, modules }, modules.map(v => v.id));
+ }
+ export function layoutStorageKey(narrow) { return `yairpg.workspace.v${WORKSPACE_VERSION}.${narrow ? 'narrow' : 'desktop'}`; }
+--- a/styles/workspace.css
++++ b/styles/workspace.css
+@@ -268,3 +268,165 @@
+ 
+ .workspace-toolbar { position:sticky; top:0; z-index:100000; }
+ .workspace-transfer textarea { max-width:100%; box-sizing:border-box; }
++
++/* Revised workspace: wide useful columns, direct movement and content reflow. */
++#main_content.workspace-active[data-workspace-mode="dock"] {
++    padding: 0 0 52px; max-width: 100%;
++    --workspace-border: #515568;
++    --workspace-header: #262c3a;
++    --workspace-button: #30394a;
++}
++.workspace-active[data-world-theme="warm"] {
++    --workspace-header: #352d26; --workspace-button: #41382f;
++    --workspace-border: #685b4e; --workspace-surface: #241f1c;
++}
++.workspace-active[data-world-theme="cool"] {
++    --workspace-header: #22333a; --workspace-button: #2b4149;
++    --workspace-border: #50636b; --workspace-surface: #19272d;
++}
++.workspace-active button { background: var(--workspace-button, #30394a); border-color: var(--workspace-border); }
++.workspace-active button:hover:not(:disabled) { background: color-mix(in srgb, var(--workspace-accent) 18%, var(--workspace-button, #30394a)); }
++.workspace-toolbar { min-height: 36px; padding: .3rem .5rem; gap: .5rem; border-radius: 5px; z-index: 100000; }
++.workspace-toolbar summary { cursor: pointer; padding: .35rem .25rem; }
++.workspace-toolbar .workspace-picker[open], .workspace-toolbar .workspace-transfer[open] { background: var(--workspace-surface); }
++.workspace-picker[open] > :not(summary), .workspace-transfer[open] > :not(summary) { margin: .4rem 0; }
++.workspace-picker[open], .workspace-transfer[open] { position: absolute; top: 100%; right: .5rem; width: min(420px, calc(100vw - 32px)); padding: .6rem; box-sizing: border-box; border: 1px solid var(--workspace-border); box-shadow: 0 8px 24px #0008; max-height: 70vh; overflow: auto; }
++.workspace-picker[open] { right: 22rem; }
++.workspace-picker[open] > button { margin: .25rem; }
++.workspace-status { text-align: right; }
++.workspace-board {
++    grid-template-columns: minmax(0, var(--workspace-left, 27fr)) minmax(0, var(--workspace-center, 43fr)) minmax(0, var(--workspace-right, 30fr));
++    height: calc(100dvh - 116px); min-height: 360px; gap: 12px; align-items: stretch;
++}
++.workspace-dock:not([data-dock="float"]) { height: 100%; overflow-y: auto; overflow-x: clip; padding: 0 2px 12px; box-sizing: border-box; scrollbar-width: thin; scrollbar-color: #677084 transparent; }
++.workspace-dock > .workspace-module:not(.workspace-floating) { width: 100%; flex: 0 0 auto; }
++.workspace-module { border-radius: 5px; box-shadow: 0 1px 3px #0003; }
++.workspace-module-header { position: relative; min-height: 28px; padding: .2rem .45rem; gap: .4rem; border-bottom-color: color-mix(in srgb, var(--workspace-border) 65%, transparent); background: var(--workspace-header, #262c3a); cursor: grab; touch-action: none; user-select: none; }
++.workspace-module-header strong { font-size: .85rem; font-weight: 600; letter-spacing: .02em; }
++.workspace-module-header > button { min-height: 24px; padding: .12rem .35rem; border-color: transparent; background: transparent; }
++.workspace-drag-handle { opacity: .75; }
++.workspace-module-header:hover .workspace-drag-handle { opacity: 1; }
++.workspace-module-controls { position: relative; padding: 0; border: 0; font-size: .8rem; }
++.workspace-module-controls > summary { width: auto; white-space: nowrap; padding: .3rem; }
++.workspace-module-controls[open] { position: absolute; right: .4rem; top: 3px; z-index: 110; width: min(320px, calc(100vw - 32px)); padding: .4rem; border: 1px solid var(--workspace-border); border-radius: 4px; background: var(--workspace-surface); box-shadow: 0 8px 24px #0009; display: flex; }
++.workspace-module-controls[open] > summary { width: 100%; text-align: right; margin-bottom: .35rem; }
++.workspace-module-controls label { width: 100%; }
++.workspace-module-body { height: var(--workspace-height, 260px); max-height: none; min-height: 0; overflow: auto; padding: .4rem; box-sizing: border-box; scrollbar-width: thin; scrollbar-gutter: auto; }
++.workspace-collapsed .workspace-module-header { border-bottom: 0; }
++.workspace-floating { z-index: 200; min-width: 240px; border-color: var(--workspace-accent); }
++.workspace-floating .workspace-module-body { height: var(--workspace-height, 300px); max-height: calc(100dvh - 140px); }
++.workspace-module-body > .box_div, .workspace-module-body > #message_log_div,
++.workspace-native-group > .box_div { border: 0; background: none; min-height: 0 !important; height: auto !important; max-height: none !important; overflow: visible; }
++.workspace-module-body > #location_related_div { min-height: 0; }
++.workspace-module-body > #time_and_location { min-height: 32px; }
++.workspace-module-body > #inventory_combat_switch_selection { border: 0; background: transparent; }
++.workspace-module-body #character_div, .workspace-module-body #journal_div,
++.workspace-module-body #skills_and_stances_div, .workspace-module-body #inventory_div,
++.workspace-module-body #location_div, .workspace-module-body #location_related_div { height: auto; min-height: 0; }
++.workspace-module-body #inventory_content_div, .workspace-module-body #journal_content_div,
++.workspace-module-body #skill_list_div, .workspace-module-body #stance_list_div,
++.workspace-module-body #magic_list_div, .workspace-module-body #skill_list,
++.workspace-module-body #message_box_div, .workspace-module-body #location_description_div,
++.workspace-module-body #character_bio_div { height: auto; max-height: none; min-height: 0; overflow: visible; }
++.workspace-module-body #location_actions_div { min-height: 0; }
++.workspace-module-body #message_controls, .workspace-module-body #quest_hiding_div,
++.workspace-module-body #skill_hiding_div { position: relative; inset: auto; margin-top: .3rem; }
++.workspace-module-body #quests_header { display: none; }
++.workspace-module-body #character_stats_div, .workspace-module-body #character_equipment_div,
++.workspace-module-body #character_bio_div, .workspace-module-body #character_tools_div,
++.workspace-module-body #character_combat_stats { width: 100%; max-width: 100%; box-sizing: border-box; }
++.workspace-module-body #character_name_field { position: relative; left: auto; top: auto; display: block; width: min(180px, 80%); margin: 0 auto .4rem; }
++.workspace-module-body #character_health_div, .workspace-module-body #character_stamina_div,
++.workspace-module-body #character_mana_div, .workspace-module-body #character_xp_div { width: 100%; position: relative; margin-top: 8px; }
++.workspace-module-body #character_health_value, .workspace-module-body #character_health_text,
++.workspace-module-body #character_xp_value, .workspace-module-body #character_mana_value,
++.workspace-module-body #character_stamina_value { width: 100%; top: 0; }
++.workspace-module-body #character_healthbar_max { margin-top: 0; }
++.workspace-module-body #character_effects { position: relative; inset: auto; margin: .35rem 0; }
++.workspace-module-body #location_name_div { float: none; width: 100%; border-bottom-color: var(--workspace-border); }
++.workspace-module-body #location_types_div { position: relative; inset: auto; width: auto; height: auto; text-align: left; }
++.workspace-module-body #location_description_div { display: block; font-size: .95rem; line-height: 1.4; padding: .5rem 0; }
++.workspace-module-body #location_related_div .location_action_div { box-sizing: border-box; max-width: 100%; }
++.workspace-module-body #workspace_current_work { padding: .1rem .25rem; border: 0; }
++.workspace-module-body #workspace_equipment_comparison { padding: .35rem 0; }
++.workspace-module-body #journal_control_div, .workspace-module-body #inventory_control_div,
++.workspace-module-body #character_control_div { display: flex; flex-wrap: wrap; gap: 2px; }
++.workspace-module-body #journal_control_div > button, .workspace-module-body #character_control_div > button { flex: 1 1 auto; min-width: 0; }
++.workspace-module-body .grid_container { width: 100%; box-sizing: border-box; }
++.workspace-resize-grip { position: absolute; z-index: 6; padding: 0; border: 0; background: transparent !important; min-height: 0; opacity: .4; touch-action: none; }
++.workspace-resize-grip:hover, .workspace-resize-grip:focus-visible { opacity: 1; background: color-mix(in srgb, var(--workspace-accent) 24%, transparent) !important; }
++.workspace-resize-grip[data-resize="e"] { top: 34px; right: -4px; width: 8px; bottom: 12px; cursor: ew-resize; }
++.workspace-resize-grip[data-resize="s"] { left: 8px; right: 12px; bottom: -4px; height: 8px; cursor: ns-resize; }
++.workspace-resize-grip[data-resize="se"] { right: 0; bottom: 0; width: 14px; height: 14px; cursor: nwse-resize; background: linear-gradient(135deg, transparent 50%, var(--workspace-accent) 50%, var(--workspace-accent) 57%, transparent 57%, transparent 72%, var(--workspace-accent) 72%, var(--workspace-accent) 79%, transparent 79%) !important; }
++.workspace-collapsed > .workspace-resize-grip { display: none; }
++.workspace-divider { position: absolute; z-index: 9; width: 12px; top: 0; bottom: 0; cursor: col-resize; padding: 0; border: 0; background: transparent !important; min-height: 0; touch-action: none; transform: translateX(-50%); }
++.workspace-divider::after { content: ''; display: block; width: 3px; height: 40px; background: var(--workspace-border); position: absolute; top: 45%; left: 5px; border-radius: 4px; }
++.workspace-divider:hover::after, .workspace-divider:focus-visible::after { background: var(--workspace-accent); height: 70px; }
++.workspace-drop-target { position: fixed; z-index: 100010; border: 2px dashed var(--workspace-accent); border-radius: 6px; background: color-mix(in srgb, var(--workspace-surface) 88%, transparent); color: var(--workspace-text); padding: .7rem 1.1rem; pointer-events: none; }
++.workspace-drop-target[data-dock="left"] { left: 5%; top: 46%; }
++.workspace-drop-target[data-dock="center"] { left: 44%; top: 46%; }
++.workspace-drop-target[data-dock="right"] { right: 5%; top: 46%; }
++.workspace-drop-target[data-dock="float"] { left: 44%; top: 80%; }
++.workspace-drop-target.workspace-drop-active, .workspace-drop-target[data-active="true"] { background: var(--workspace-header); border-style: solid; box-shadow: 0 0 0 4px #92b7ee33; }
++.workspace-drop-preview { position: fixed; pointer-events: none; z-index: 100005; border: 2px solid var(--workspace-accent); background: #92b7ee20; border-radius: 5px; box-sizing: border-box; }
++.workspace-dragging, .workspace-resizing { user-select: none; }
++.workspace-dragging .workspace-module-header { cursor: grabbing; }
++.workspace-module.workspace-drag-source { opacity: .5; }
++@media (max-width: 1000px) {
++    .workspace-board { display: flex; flex-direction: column; height: auto; min-height: 0; gap: .7rem; }
++    .workspace-dock:not([data-dock="float"]) { width: 100%; height: auto; overflow: visible; padding: 0; }
++    .workspace-dock[data-dock="center"] { order: -1; }
++    .workspace-divider { display: none; }
++    .workspace-module-body { height: auto; max-height: min(var(--workspace-height, 360px), 65dvh); }
++    .workspace-floating .workspace-module-body { height: auto; }
++    .workspace-toolbar { position: relative; }
++    .workspace-status { text-align: left; flex-basis: 100%; }
++    .workspace-picker[open] { right: .5rem; }
++    .workspace-module-body #character_bio_profile { grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); }
++}
++@media (max-width: 600px) {
++    #main_content.workspace-active[data-workspace-mode="dock"] { padding-bottom: 92px; }
++    .workspace-toolbar { gap: .25rem .5rem; }
++    .workspace-toolbar label { font-size: .85rem; }
++    .workspace-module-header strong { font-size: .8rem; }
++    .workspace-module-controls > summary { font-size: .75rem; }
++    .workspace-module-body { padding: .35rem; }
++    .workspace-module-body #character_stats_div { min-width: 0; }
++    .workspace-module-body .grid_container .stat_slot_div { min-width: 0; }
++    .workspace-drop-target { font-size: .75rem; padding: .4rem; }
++}
++.workspace-drop-targets { display: none; position: absolute; inset: 0; pointer-events: none; }
++.workspace-dragging .workspace-drop-targets { display: block; }
++.workspace-drop-target { pointer-events: auto; }
++.workspace-target-active { background: var(--workspace-header) !important; border-style: solid; box-shadow: 0 0 0 4px #92b7ee33; }
++.workspace-module.workspace-moving { opacity: .45; }
++.workspace-module-controls summary { touch-action: manipulation; }
++/* Repair native bar spacing and keep floating controls inside the usable frame. */
++.workspace-module-body #character_xp_bar_max { margin-top: 0; }
++.workspace-module-body #character_level_div { width: 100%; box-sizing: border-box; }
++#main_content[data-workspace-mode="dock"] #workspace_current_work > strong { display: none; }
++.workspace-floating { max-height: calc(100dvh - 130px); display: flex; flex-direction: column; }
++.workspace-floating .workspace-module-header { flex: 0 0 auto; }
++.workspace-floating .workspace-module-body { flex: 0 1 auto; min-height: 0; max-height: calc(100dvh - 174px); overflow: auto; }
++
++/* Percent geometry also follows browser or CSS zoom. */
++#bottom_panel_div { width:100%; box-sizing:border-box; }
++.workspace-floating { max-height:var(--workspace-float-max-height, calc(100dvh - 130px)); }
++.workspace-floating .workspace-module-body { max-height:calc(var(--workspace-float-max-height, 800px) - 38px); }
++
++/* Startup shares the same small-height and zoom recovery boundary. */
++#loading_screen { z-index:200000; }
++@media (max-height:700px), (max-width:1000px) {
++    #loading_screen_game_title { top:10vh; width:min(90%,950px); font-size:clamp(32px,7vw,72px); text-align:center; }
++    #loading_screen_author { position:relative; top:auto; right:auto; rotate:none; animation:none; font-size:24px; }
++    #loading_screen_loading_text { top:35vh; font-size:32px; }
++    #loading_screen_loading_progress { top:47vh; }
++    #loading_screen_version_info { position:absolute; top:56vh; left:auto; max-width:80%; font-size:16px; }
++    #loading_screen_play_button { top:70vh; font-size:40px; width:180px; }
++}
++.workspace-module-controls[open] { max-height:65dvh; overflow:auto; }
++
++.workspace-module-controls[open] { top:100%; }
++
++.workspace-module-body > #inventory_combat_switch_selection { display:flex; gap:2px; }
++.workspace-module-body > #inventory_combat_switch_selection > button { width:auto; flex:1 1 0; }
+--- a/tests/workspace_state.test.js
++++ b/tests/workspace_state.test.js
+@@ -7,7 +7,7 @@
+ });
+ test('import strips unknown ids and all text or game data; clamps geometry', () => {
+     const v = normalizeLayout({version:1, modules:[{id:'skills',dock:'secret-place',width:90000,height:-1,x:-30,y:Infinity,hidden:true,truth:'sealed'}, {id:'unknown'}]}, ['skills']);
+-    assert.equal(v.modules.length,1); assert.equal(v.modules[0].width,1000); assert.equal(v.modules[0].height,180); assert.equal(v.modules[0].x,0); assert.equal(v.modules[0].dock,'left'); assert.equal('truth' in v.modules[0],false);
++    assert.equal(v.modules.length,1); assert.equal(v.modules[0].width,1000); assert.equal(v.modules[0].height,40); assert.equal(v.modules[0].x,0); assert.equal(v.modules[0].dock,'left'); assert.equal('truth' in v.modules[0],false);
+ });
+ test('reordering is local to dock and pinned panel cannot move', () => {
+     let v = presetLayout('Focus',['a','b','c']);
+@@ -34,3 +34,20 @@
+     assert.equal(parseLayout(JSON.stringify(layout),['skills']).density,'inspection');
+     assert.equal(normalizeLayout({version:1,density:'future',modules:[]},['skills']).density,'compact');
+ });
++
++test('Workspace preset has useful module defaults and saved column ratios', () => {
++    const layout=presetLayout('Workspace',['vitals','time','local-actions','optional-worlds']);
++    assert.equal(layout.mode,'dock'); assert.deepEqual(layout.columns,[0.27,0.43,0.3]);
++    assert.equal(layout.modules.find(v=>v.id==='time').height,40);
++    assert.equal(layout.modules.find(v=>v.id==='local-actions').dock,'center');
++    assert.equal(layout.modules.find(v=>v.id==='optional-worlds').collapsed,true);
++    layout.columns=[0.3,0.4,0.3]; layout.density='comfortable';
++    const reordered=reorderModule(changeModule(layout,'vitals',{height:144}),'vitals',1);
++    assert.deepEqual(parseLayout(JSON.stringify(reordered),layout.modules.map(v=>v.id)).columns,[0.3,0.4,0.3]);
++    assert.equal(reordered.density,'comfortable');
++});
++test('legacy layouts recover columns and malformed column values remain bounded', () => {
++    assert.deepEqual(normalizeLayout({version:1,mode:'dock',modules:[]},['a']).columns,[0.27,0.43,0.3]);
++    const columns=normalizeLayout({version:1,columns:[-1,Infinity,900],modules:[]},[]).columns;
++    assert.ok(columns.every(Number.isFinite)); assert.ok(Math.abs(columns.reduce((a,b)=>a+b)-1)<1e-9);
++});
+--- /dev/null
++++ b/scripts/ui_1920_redesign.cjs
+@@ -0,0 +1,28 @@
++// Actual pointer and keyboard evidence on temporary browser contexts; generated saves only.
++const {chromium}=require('/Users/weiwei/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright');
++const fs=require('fs'),assert=require('node:assert/strict'),path=require('path');
++const out=process.env.YAIRPG_PROOF_DIR||'/Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/ui-modularity-2026-10-11/redesign-1920/evidence';
++const url='http://127.0.0.1:18571';fs.mkdirSync(out,{recursive:true});
++(async()=>{const browser=await chromium.launch({headless:true,executablePath:'/Applications/Google Chrome.app/Contents/MacOS/Google Chrome'});const errors=[],checks=[],frames=[];let c,p;
++async function open(size={width:1920,height:1080},fixture){c=await browser.newContext({viewport:size});if(fixture)await c.addInitScript(s=>{if(!localStorage.getItem('save data'))localStorage.setItem('save data',JSON.stringify(s));},fixture);p=await c.newPage();p.setDefaultTimeout(30000);p.on('pageerror',e=>errors.push(e.message));await p.goto(url);await p.getByText('PLAY',{exact:true}).click();if(await p.getByText('Confirm',{exact:true}).isVisible())await p.getByText('Confirm',{exact:true}).click();await p.waitForTimeout(600)}
++const shell=id=>p.locator(`.workspace-module[data-module="${id}"]`);
++async function grab(locator){await locator.scrollIntoViewIfNeeded();const b=await locator.boundingBox();assert(b);await p.mouse.move(b.x+b.width*.35,b.y+b.height*.5);await p.mouse.down();return b}
++async function frame(name){await p.screenshot({path:path.join(out,name+'.png')});frames.push({name,viewport:p.viewportSize(),document:await p.evaluate(()=>({width:document.documentElement.scrollWidth,height:document.documentElement.scrollHeight})),panels:await p.locator('.workspace-module:visible').evaluateAll(ns=>ns.map(n=>{const r=n.getBoundingClientRect();return {id:n.dataset.module,x:r.x,y:r.y,width:r.width,height:r.height,collapsed:n.classList.contains('workspace-collapsed')}}))})}
++try{await open();assert.equal(await p.locator('[data-workspace-action=preset]').inputValue(),'Workspace');await frame('after-opening');for(const id of ['current-work','local-actions','vitals','belongings','records']){const b=await shell(id).boundingBox();assert(b&&b.y<1000&&b.x>=0&&b.x+b.width<=1920)}assert(await p.getByText('Talk to someone',{exact:false}).isVisible());assert(await p.getByText('Find work',{exact:false}).isVisible());checks.push('New fresh-origin Workspace default has work, local actions, vitals, belongings and journal on screen at1920x1080.');
++await p.evaluate(()=>window.__uiNode=document.getElementById('location_related_div'));
++const current=shell('current-work');await grab(current.locator('.workspace-module-header strong'));const target=await p.locator('.workspace-dock[data-dock=right]').boundingBox();await p.mouse.move(target.x+target.width/2,target.y+160,{steps:14});assert(await p.locator('.workspace-drop-preview').isVisible());await p.screenshot({path:path.join(out,'drag-preview.png')});await p.mouse.up();assert.equal(await current.evaluate(n=>n.parentElement.dataset.dock),'right');assert(await p.evaluate(()=>window.__uiNode===document.getElementById('location_related_div')));checks.push('Direct title/header pointer drag previews a dock target and drops into right with one live gameplay node.');
++await grab(current.locator('.workspace-module-header strong'));await p.mouse.move(850,180,{steps:8});const floatTarget=p.locator('.workspace-drop-target[data-dock=float]');assert(await floatTarget.isVisible());const ft=await floatTarget.boundingBox();await p.mouse.move(ft.x+ft.width/2,ft.y+ft.height/2,{steps:10});await p.mouse.up();assert(await current.evaluate(n=>n.classList.contains('workspace-floating')));let before=await current.boundingBox();await grab(current.locator('.workspace-module-header strong'));await p.mouse.move(before.x+200,before.y+150,{steps:12});await p.mouse.up();let after=await current.boundingBox();assert(Math.abs(after.x-before.x)>20||Math.abs(after.y-before.y)>20);checks.push('Float drop target creates in-page floating panel; header directly repositions it.');
++await grab(current.locator('.workspace-module-header strong'));await p.mouse.move(420,650,{steps:16});await p.mouse.up();assert(await current.evaluate(n=>n.classList.contains('workspace-floating')));after=await current.boundingBox();assert(after.x<500);checks.push('Floating header moves freely diagonally across underlying dock columns without automatic docking; explicit visible targets dock it.');
++await grab(current.locator('.workspace-resize-grip[data-resize=se]'));let start=await current.boundingBox();await p.mouse.move(start.x+start.width+110,start.y+start.height+70,{steps:12});await p.mouse.up();let enlarged=await current.boundingBox();assert(enlarged.width>start.width+30&&enlarged.height>start.height+20);checks.push('Corner pointer resize enlarges actual floating width and height.');
++const cancelled=await current.boundingBox();await grab(current.locator('.workspace-module-header strong'));await p.mouse.move(200,600,{steps:10});await p.keyboard.press('Escape');await p.mouse.up();const restored=await current.boundingBox();assert(Math.abs(restored.x-cancelled.x)<2&&Math.abs(restored.y-cancelled.y)<2);checks.push('Escape cancels movement and restores geometry.');
++await current.locator('[data-workspace-action=handle]').focus();await current.locator('[data-workspace-action=handle]').press('ArrowLeft');assert.equal(await current.evaluate(n=>n.parentElement.dataset.dock),'right');
++await p.locator('[data-workspace-action=preset]').selectOption('Workspace');let columnsBefore=await shell('local-actions').boundingBox();const divider=p.locator('.workspace-divider[data-divider="0"]');await grab(divider);let d=await divider.boundingBox();await p.mouse.move(d.x+100,d.y+d.height/2,{steps:16});await p.mouse.up();let columnsAfter=await shell('local-actions').boundingBox();assert(Math.abs(columnsBefore.width-columnsAfter.width)>40);assert.equal(Math.round((await shell('vitals').boundingBox()).width),Math.round((await shell('belongings').boundingBox()).width));checks.push('Pointer divider resizes neighbouring columns; dock modules fill freed space.');
++const inventory=shell('belongings');let heightBefore=await inventory.boundingBox();await grab(inventory.locator('.workspace-resize-grip[data-resize=s]'));await p.mouse.move(heightBefore.x+heightBefore.width/2,heightBefore.y+heightBefore.height+85,{steps:12});await p.mouse.up();let heightAfter=await inventory.boundingBox();assert(heightAfter.height>heightBefore.height+30);checks.push('Dock lower edge changes actual inventory content area.');
++await divider.focus();await divider.press('ArrowRight');const savedLayout=await p.evaluate(()=>JSON.parse(localStorage.getItem('yairpg.workspace.v1.desktop')));await p.reload();await p.getByText('PLAY',{exact:true}).click();assert.deepEqual((await p.evaluate(()=>JSON.parse(localStorage.getItem('yairpg.workspace.v1.desktop')))).columns,savedLayout.columns);checks.push('Saved column geometry and resized panel restore on reload; divider has keyboard equivalent.');
++await p.locator('[data-workspace-action=preset]').selectOption('Workspace');await frame('after-movement');fs.writeFileSync(path.join(out,'MOVEMENT.json'),JSON.stringify({build:await p.evaluate(()=>performance.getEntriesByType('resource').find(e=>e.name.includes('/dist/bundle.js'))?.name),checks:[...checks],frames:[...frames],errors:[...errors]},null,2));await p.evaluate(()=>window.saveProgress());const basic=await p.evaluate(()=>JSON.parse(localStorage.getItem('save data')));await c.close();
++const busy=JSON.parse(fs.readFileSync(out+'/generated-native-fixture.json'));await open({width:1920,height:1080},busy);await p.evaluate(()=>window.start_activity('meditating'));await p.waitForTimeout(1200);await frame('after-busy');assert.match(await p.locator('#workspace_current_work').innerText(),/Meditat|meditat/);await p.evaluate(()=>window.end_activity());await c.close();
++for(const size of [{width:390,height:844},{width:768,height:1024},{width:1440,height:900},{width:1920,height:1080}]){await open(size,basic);assert(await p.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));await frame('responsive-'+size.width);await p.getByText('Find work',{exact:false}).scrollIntoViewIfNeeded();assert(await p.getByText('Find work',{exact:false}).isVisible());await p.locator('[data-workspace-action=preset]').selectOption('Classic');assert(await p.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));await c.close()}checks.push('390/768/1440/1920 Workspace and Classic have no horizontal document overflow and reachable local work.');
++await open({width:1920,height:1080},basic);await p.evaluate(()=>document.body.style.zoom='2');assert(await p.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));await frame('zoom-200');await c.close();
++await open({width:960,height:540},basic);assert(await p.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));await p.getByText('Find work',{exact:false}).scrollIntoViewIfNeeded();assert(await p.getByText('Find work',{exact:false}).isVisible());await c.close();checks.push('CSS200% and960CSSpx equivalent of1920 window retain controls, text and no horizontal overflow.');
++await open({width:1920,height:1080},basic);await p.evaluate(()=>{localStorage.setItem('yairpg.workspace.v1.desktop','{broken');});await p.reload();await p.getByText('PLAY',{exact:true}).click();assert.equal(await p.locator('[data-workspace-action=preset]').inputValue(),'Workspace');await p.locator('[data-workspace-action=reset]').click();assert.equal(await p.locator('[data-workspace-action=preset]').inputValue(),'Workspace');assert.equal(await p.locator('#location_related_div').count(),1);checks.push('Malformed configuration recovers useful Workspace; Reset layout does not reset generated game.');assert.deepEqual(errors,[]);const result={url,build:await p.evaluate(()=>performance.getEntriesByType('resource').find(e=>e.name.includes('/dist/bundle.js'))?.name),checks,frames,errors};fs.writeFileSync(path.join(out,'RESULT.json'),JSON.stringify(result,null,2));console.log(JSON.stringify({build:result.build,checks,errors},null,2));
++}finally{await browser.close()}})().catch(e=>{console.error(e.stack);process.exit(1)});
+--- /dev/null
++++ b/scripts/ui_1920_gameplay.cjs
+@@ -0,0 +1,111 @@
++// Rebuilt candidate, fresh origins, generated saves only. No private state fixtures.
++const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path');
++const {chromium}=require(process.env.YAIRPG_PLAYWRIGHT||'/Users/weiwei/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright');
++const url=process.env.YAIRPG_PROOF_URL||'http://127.0.0.1:18571/';
++const output=process.env.YAIRPG_PROOF_DIR||path.resolve('docs/gm/dispatch/ui-modularity-2026-10-11/browser');
++fs.mkdirSync(output,{recursive:true});
++(async()=>{
++const browser=await chromium.launch({headless:true,executablePath:'/Applications/Google Chrome.app/Contents/MacOS/Google Chrome'}),errors=[],checks=[];
++let page,context;
++const open=async fixture=>{context=await browser.newContext({viewport:{width:1440,height:1100}});if(fixture)await context.addInitScript(s=>{if(!localStorage.getItem('save data'))localStorage.setItem('save data',JSON.stringify(s));},fixture);page=await context.newPage();page.setDefaultTimeout(30000);page.on('pageerror',e=>errors.push(e.message));page.on('dialog',d=>d.dismiss());await page.goto(url);await play();};
++const play=async()=>{await page.getByText('PLAY',{exact:true}).click();if(await page.getByText('Confirm',{exact:true}).isVisible())await page.getByText('Confirm',{exact:true}).click();};
++const save=async()=>{await page.evaluate(()=>window.saveProgress());return page.evaluate(()=>JSON.parse(localStorage.getItem('save data')));};
++const dock=async(id,where)=>{const shell=page.locator(`.workspace-module[data-module="${id}"]`);await shell.locator('.workspace-module-controls').evaluate(n=>n.open=true);await shell.locator('[data-workspace-action="dock"]').focus();await shell.locator('[data-workspace-action="dock"]').selectOption(where);};
++try{
++await open();const base=await save();await context.close();
++base.character.xp.total_xp=1e12;base.levels.person.main_character.total_xp=1e12;base['current time'].hour=12;base.global_flags.is_crafting_unlocked=true;base.availabilities.skill.Meditation=1;
++for(const id of ['Shack','Motherwood','Forest clearing'])base.availabilities.location[id]=1;
++for(const id of ['Rat tail','Rat fang','Piece of willow wood','Iron ingot','Rat meat chunks','Potato'])base.inventories.person.main_character[JSON.stringify({id})]={count:40};
++fs.writeFileSync(path.join(output,'generated-native-fixture.json'),JSON.stringify(base));
++if(process.env.YAIRPG_UI_FOCUSED){
++ await open(base);await page.locator('[data-workspace-action="preset"]').selectOption('Workspace');
++ const workMenu=page.getByText('Find work',{exact:false});await workMenu.focus();assert.equal(await workMenu.getAttribute('role'),'button');await workMenu.press('Enter');assert.ok(await page.locator('[data-activity="patrolling"]').isVisible());assert.equal(await workMenu.getAttribute('aria-expanded'),'true');
++ await page.evaluate(()=>window.change_location({location_id:'Village',skip_travel_time:true}));
++ const talk=page.getByText('Talk to someone',{exact:false});await talk.focus();await talk.press('Space');assert.ok(await page.locator('[data-dialogue="villageElder"]').isVisible());
++ await page.locator('[data-dialogue="villageElder"]').focus();await page.locator('[data-dialogue="villageElder"]').press('Enter');assert.ok(await page.locator('[data-textline="hello"]').isVisible());await page.locator('.end_dialogue_button').click();
++ const observer=await context.newPage();observer.on('pageerror',e=>errors.push(e.message));await observer.goto(url);await observer.getByText('PLAY',{exact:true}).click();await observer.locator('[data-workspace-action="preset"]').selectOption('Workspace');await observer.waitForFunction(()=>/Read only|read-only/.test(document.getElementById('workspace_current_work')?.textContent||''));
++ const statusBefore=await observer.locator('#workspace_current_work').innerText();assert.match(statusBefore,/Read only|read-only/);const observerDock=observer.locator('.workspace-module[data-module="current-work"]');await observerDock.locator('.workspace-module-controls').evaluate(n=>n.open=true);await observerDock.locator('[data-workspace-action="dock"]').selectOption('right');assert.match(await observer.locator('#workspace_current_work').innerText(),/Read only|read-only/);await observer.close();
++ const result={url,fingerprint:await page.evaluate(()=>performance.getEntriesByType('resource').find(e=>e.name.includes('/dist/bundle.js?version='))?.name),checks:['Find work Enter opens actual work choices and exposes expanded state.','Talk Space opens real dialogue choices; elder Enter opens actual greeting.','Same-origin second tab has read-only status before and after current-work docking; observer sends no gameplay commands/saves.'],errors};assert.deepEqual(errors,[]);fs.writeFileSync(path.join(output,'focused-keyboard-readonly.json'),JSON.stringify(result,null,2));console.log(JSON.stringify(result,null,2));return;
++}
++if(!process.env.YAIRPG_OPTIONAL_ONLY){await open(base);await page.locator('[data-workspace-action="preset"]').selectOption('Workspace');
++const fingerprint=await page.evaluate(()=>performance.getEntriesByType('resource').find(e=>e.name.includes('/dist/bundle.js?version='))?.name);
++await page.evaluate(()=>{window.__localNode=document.getElementById('location_related_div');window.start_activity('meditating');});
++await page.waitForTimeout(1300);let before=await save();assert.equal(before.current_activity?.activity_id,'meditating');
++const currentWork=page.locator('#workspace_current_work');assert.match(await currentWork.innerText(),/Meditat|meditat/);
++await dock('local-actions','right');await page.locator('.workspace-module[data-module="local-actions"] [data-workspace-action="handle"]').press('ArrowLeft');
++assert.ok(await page.evaluate(()=>window.__localNode===document.getElementById('location_related_div')));
++assert.equal(await page.locator('#location_related_div').count(),1);assert.match(await currentWork.innerText(),/Meditat|meditat/);
++await page.waitForTimeout(1300);let after=await save();assert.ok(after.levels.person.main_character.skill_xp.Meditation>before.levels.person.main_character.skill_xp.Meditation);
++await page.evaluate(()=>window.end_activity());await page.waitForTimeout(300);assert.match(await currentWork.innerText(),/No work running/);
++checks.push('Native meditation starts, survives dock/keyboard move with identical DOM owner, gains XP, cancels and updates current work.');
++await page.evaluate(()=>window.change_location({location_id:'Motherwood',skip_travel_time:true}));
++await page.getByText('Take an action',{exact:false}).click();await page.evaluate(()=>window.start_game_action('search for plants'));await page.waitForTimeout(1200);await dock('local-actions','center');await page.evaluate(()=>window.end_game_action());
++checks.push('Native local action starts/cancels after movement and refresh.');
++await page.evaluate(()=>window.change_location({location_id:'Village',skip_travel_time:true}));await page.waitForTimeout(300);await page.evaluate(()=>Math.random=()=>0);await page.evaluate(()=>window.openCraftingWindow());
++await page.locator('[data-recipe_id="Knotted chance charm"] .recipe_item_name').click();await page.evaluate(()=>window.closeCraftingWindow());
++const crafted=await save();assert.ok(Object.keys(crafted.inventories.person.main_character).some(k=>k.includes('Knotted chance charm')));
++checks.push('Actual native item craft retains inventory consequences in modular presentation.');
++
++await page.locator('.workspace-module[data-module="equipment-comparison"] [data-workspace-action="collapse"]').click();await page.locator('#workspace_equipment_comparison').evaluate(n=>n.open=true);const first=page.getByLabel('First equipment item');assert.ok(await first.isVisible());await page.waitForTimeout(1200);await first.focus();const comparisonValue=await first.inputValue();await page.waitForTimeout(1200);assert.ok(await first.evaluate(n=>n===document.activeElement));await dock('equipment-comparison','right');await page.waitForTimeout(1200);assert.equal(await first.inputValue(),comparisonValue);assert.ok(await page.locator('.workspace-module[data-module="equipment-comparison"] [data-workspace-action="handle"]').evaluate(n=>n===document.activeElement));
++checks.push('Equipment comparison retains selected item and focus across docking and native refresh.');
++const shell=page.locator('.workspace-module[data-module="equipment-comparison"]');await shell.locator('.workspace-module-controls').evaluate(n=>n.open=true);await shell.locator('[data-workspace-action="hide"]').click();assert.equal(await shell.isVisible(),false);await page.locator('.workspace-picker').evaluate(n=>n.open=true);await page.locator('.workspace-picker [data-module="equipment-comparison"]').click();assert.equal(await shell.isVisible(),true);
++checks.push('Hidden comparison restored through panel picker.');
++await page.evaluate(()=>window.change_location({location_id:'Forest clearing',skip_travel_time:true}));await page.waitForTimeout(3000);const fighting=await save();assert.ok(fighting.total_hits_taken>0);await dock('local-actions','right');await page.waitForTimeout(1600);const fightingAfter=await save();assert.ok(fightingAfter.total_hits_taken>=fighting.total_hits_taken);assert.equal(await page.locator('#location_related_div').count(),1);
++await page.evaluate(()=>window.change_location({location_id:'Village',skip_travel_time:true}));await page.waitForTimeout(1100);
++checks.push('Native combat continues after dock movement and real return travel works with one local controls owner.');
++const saved=await save(),xp=saved.levels.person.main_character.skill_xp.Meditation;await page.reload();await play();let loaded=await save();assert.equal(loaded.levels.person.main_character.skill_xp.Meditation,xp);assert.ok(Object.keys(loaded.inventories.person.main_character).some(k=>k.includes('Knotted chance charm')));
++const encoded=await page.evaluate(()=>window.save_to_file());await Promise.all([page.waitForNavigation(),page.locator('#saved_file_input').setInputFiles({name:'generated-ui-native.txt',mimeType:'text/plain',buffer:Buffer.from(encoded)})]);await play();loaded=await save();assert.equal(loaded.levels.person.main_character.skill_xp.Meditation,xp);assert.ok(Object.keys(loaded.inventories.person.main_character).some(k=>k.includes('Knotted chance charm')));
++checks.push('Generated native save/reload/import retains earned meditation XP and crafted inventory without duplicate commands.');
++assert.equal(await page.locator('#known_people_panel [data-known-person]').count(),0);
++await page.getByText('Find work',{exact:false}).focus();await page.getByText('Find work',{exact:false}).press('Enter');assert.ok(await page.locator('[data-activity="patrolling"]').isVisible());await page.evaluate(()=>window.change_location({location_id:'Village',skip_travel_time:true}));await page.getByText('Talk to someone',{exact:false}).focus();await page.getByText('Talk to someone',{exact:false}).press('Enter');await page.locator('[data-dialogue="villageElder"]').click();await page.locator('[data-textline="hello"]').click();await page.locator('.end_dialogue_button').click();
++await page.waitForFunction(()=>document.querySelectorAll('#known_people_panel [data-known-person]').length===1);assert.equal(await page.locator('#known_people_panel [data-known-person]').count(),1);
++const person=page.locator('#known_people_panel [data-known-person="villageElder"]');await person.locator('summary').click();await person.locator('summary').focus();
++const selected=await person.locator('summary').evaluate(n=>{const range=document.createRange();range.selectNodeContents(n);const selection=window.getSelection();selection.removeAllRanges();selection.addRange(range);return selection.toString();});
++await page.waitForTimeout(1200);assert.ok(await person.evaluate(n=>n.open));assert.ok(await person.locator('summary').evaluate(n=>n===document.activeElement));assert.equal(await page.evaluate(()=>window.getSelection().toString()),selected);
++await dock('known-people','right');assert.equal(await page.locator('#known_people_panel').count(),1);assert.equal(await page.locator('#known_people_panel [data-known-person]').count(),1);
++checks.push('Ordinary native elder greeting introduces only that witnessed person; movable known-people view preserves disclosure, focus and selected prose through native refresh.');
++const observer=await context.newPage();observer.on('pageerror',e=>errors.push(e.message));await observer.goto(url);await observer.getByText('PLAY',{exact:true}).click();await observer.locator('[data-workspace-action="preset"]').selectOption('Workspace');await observer.waitForFunction(()=>/Read only|read-only/.test(document.getElementById('workspace_current_work')?.textContent||''));
++assert.match(await observer.locator('#workspace_current_work').innerText(),/Read only|read-only/);const observerDock=observer.locator('.workspace-module[data-module="current-work"]');await observerDock.locator('.workspace-module-controls').evaluate(n=>n.open=true);await observerDock.locator('[data-workspace-action="dock"]').selectOption('right');assert.match(await observer.locator('#workspace_current_work').innerText(),/Read only|read-only/);await observer.close();
++checks.push('Second tab shares same browser origin and has read-only current-work status before and after moving that module; no observer commands or saves were sent.');
++await page.screenshot({path:path.join(output,'native-workspace.png'),fullPage:true});assert.deepEqual(errors,[]);
++const result={url,fingerprint,generatedSavesOnly:true,checks,errors,scope:'Native progressed work/local action/crafting/combat/movement/save roundtrip; optional world journey remains separate.'};fs.writeFileSync(path.join(output,'native-journeys.json'),JSON.stringify(result,null,2));console.log(JSON.stringify(result,null,2));
++await context.close();}
++const optionalFixture=structuredClone(base);optionalFixture.character.money=1000;optionalFixture.expansion.rng=42;await open(optionalFixture);await page.locator('[data-workspace-action="preset"]').selectOption('Workspace');
++const beginning=page.locator('#structured_pack_panel');
++if(await page.locator('.workspace-module[data-module="beginning"]:visible').count()){await page.locator('.workspace-picker').evaluate(n=>n.open=true);await page.locator('.workspace-picker [data-module="beginning"]').click();}
++const optionalChecks=[];
++if(await beginning.isVisible()){
++ await page.locator('.workspace-module[data-module="beginning"] .workspace-module-controls').evaluate(n=>n.open=true);
++ await page.locator('.workspace-module[data-module="beginning"] [data-workspace-action="hide"]').click();
++ await page.route('**/private_packs/manifest.json',r=>r.fulfill({status:404,body:''}));await page.reload();await play();
++ assert.equal(await page.locator('#structured_pack_panel').count(),0);
++ assert.equal(await page.locator('.workspace-picker [data-module="beginning"]').count(),0);
++ await page.unroute('**/private_packs/manifest.json');await page.reload();await play();
++ assert.equal(await page.locator('.workspace-module[data-module="beginning"]').isVisible(),false);
++ await page.locator('.workspace-picker').evaluate(n=>n.open=true);await page.locator('.workspace-picker [data-module="beginning"]').click();
++ assert.ok(await beginning.isVisible());optionalChecks.push('Absent optional manifest discloses no beginning panel or picker; returning manifest restores hidden preference and allows explicit reopen.');
++}
++if(await beginning.isVisible() && await page.locator('[data-structured-begin]').count()){
++ await page.locator('[data-structured-begin]').click();await page.waitForTimeout(500);
++ assert.equal(await page.locator('[data-structured-begin]').count(),0);
++ const initialized=await save();assert.ok(initialized.content_packs.structured);
++ const action=page.locator('[data-structured-action]:not(:disabled)').first();assert.ok(await action.count());
++ const id=await action.getAttribute('data-structured-action');await action.focus();await page.waitForTimeout(600);assert.ok(await action.evaluate(n=>n===document.activeElement));
++ await action.click();const requested=await save();const sequence=requested.expansion.sequence;
++ await dock('beginning','right');await page.waitForTimeout(400);assert.equal(await beginning.count(),1);
++ const jobs=requested.expansion.simulation.jobs.filter(j=>j.actorId==='player');
++ if(jobs.length){assert.equal(jobs.length,1);await page.locator('[data-structured-cancel]').first().focus();await page.locator('[data-structured-cancel]').first().press('Enter');await page.waitForTimeout(300);assert.equal((await save()).expansion.simulation.jobs.filter(j=>j.actorId==='player').length,0);optionalChecks.push('Actual structured work starts once, survives docking, and cancels through authoritative controls.');}
++ else {assert.equal((await save()).expansion.sequence,sequence);optionalChecks.push('Actual structured immediate action dispatches once; docking dispatches no command.');}
++ const disabled=page.locator('[data-structured-action]:disabled');if(await disabled.count()){assert.ok((await disabled.first().evaluate(n=>n.previousElementSibling?.textContent||'')).length);optionalChecks.push('Structured disabled action retains adjacent blocker explanation.');}
++ const availableRows=async()=>page.locator('[data-structured-action]:not(:disabled)').evaluateAll(nodes=>nodes.map(node=>{let cursor=node.previousElementSibling,timed=false;while(cursor&&cursor.tagName!=='BUTTON'){if(/[1-9][0-9]* played minutes\./.test(cursor.textContent))timed=true;cursor=cursor.previousElementSibling;}return {id:node.dataset.structuredAction,timed};}));
++ let rows=await availableRows(),timedId=rows.find(r=>r.timed)?.id;const used=new Set([id]);
++ for(let attempt=0;!timedId&&attempt<3;attempt++){const next=rows.find(r=>!r.timed&&!used.has(r.id));if(!next)break;used.add(next.id);await page.locator('[data-structured-action]').evaluateAll((nodes,id)=>nodes.find(n=>n.dataset.structuredAction===id)?.click(),next.id);await page.waitForTimeout(300);rows=await availableRows();timedId=rows.find(r=>r.timed)?.id;}
++
++ if(timedId){await page.locator('[data-structured-action]').filter({hasNot:page.locator(':disabled')}).evaluateAll((nodes,id)=>nodes.find(n=>n.dataset.structuredAction===id)?.click(),timedId);const timed=await save();assert.equal(timed.expansion.simulation.jobs.filter(j=>j.actorId==='player').length,1);await dock('beginning','center');await page.locator('[data-structured-cancel]').first().focus();await page.locator('[data-structured-cancel]').first().press('Enter');const cancelled=await save();assert.equal(cancelled.expansion.simulation.jobs.filter(j=>j.actorId==='player').length,0);assert.equal(cancelled.expansion.actors.player.completed[timedId],timed.expansion.actors.player.completed[timedId]);optionalChecks.push('Available timed structured work starts once, docks while pending, and cancels without duplicate jobs.');}
++ else optionalChecks.push('No timed action eligible in this generated natural starting route; timed structured cancellation unrun.');
++ const held=await save();await page.reload();await play();const recovered=await save();assert.deepEqual(recovered.content_packs.structured,held.content_packs.structured);
++ optionalChecks.push('Generated structured origin saves and reloads identity while presentation moves.');
++}else optionalChecks.push('No available structured candidate world. Actual world journey unrun.');
++fs.writeFileSync(path.join(output,'optional-world-journeys.json'),JSON.stringify({url,fingerprint:await page.evaluate(()=>performance.getEntriesByType('resource').find(e=>e.name.includes('/dist/bundle.js?version='))?.name),generatedSavesOnly:true,generatedFundsAndFixedRng:true,checks:optionalChecks,errors},null,2));assert.deepEqual(errors,[]);console.log(JSON.stringify({optionalChecks,errors},null,2));
++}finally{await browser.close();}
++})().catch(e=>{console.error(e);process.exit(1)});
+--- /dev/null
++++ b/scripts/ui_1920_decisions.cjs
+@@ -0,0 +1,12 @@
++// Generated witnessed decision fixture over real enrolled authority. No personal save.
++const assert=require('node:assert/strict'),fs=require('fs'),path=require('path');
++const{chromium}=require('/Users/weiwei/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright');
++const out='/Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/ui-modularity-2026-10-11/redesign-1920/evidence';
++(async()=>{const{simulationDefinitions}=await import('../src/simulation_content.js');const def=simulationDefinitions.events.find(e=>e.id==='village.shower');let b=await chromium.launch({headless:true,executablePath:'/Applications/Google Chrome.app/Contents/MacOS/Google Chrome'});const errors=[],checks=[];let c,p;
++async function open(fixture){c=await b.newContext({viewport:{width:1920,height:1080}});await c.addInitScript(s=>{if(!localStorage.getItem('save data'))localStorage.setItem('save data',JSON.stringify(s));},fixture);p=await c.newPage();p.setDefaultTimeout(30000);p.on('pageerror',e=>errors.push(e.message));await p.goto('http://127.0.0.1:18571');await p.getByText('PLAY',{exact:true}).click()}
++async function save(){await p.evaluate(()=>window.saveProgress());return p.evaluate(()=>JSON.parse(localStorage.getItem('save data')))}
++async function notes(){await p.locator('#journal_show_notebook').click();await p.locator('.workspace-picker').evaluate(n=>n.open=true);await p.locator('.workspace-picker [data-module=notebook]').click();await p.locator('[data-notebook-view=people]').click();await p.locator('#simulation_panel').evaluate(n=>n.open=true)}
++try{const base=JSON.parse(fs.readFileSync(out+'/generated-opening-fixture.json'));base.character.money=30;base.availabilities.person.oldCraftsman|=1;base.availabilities.dialogue.oldCraftsman|=1;base.availabilities.textline['oldCraftsman:hello']|=4;await open(base);await p.getByText('Talk to someone',{exact:false}).click();await p.locator('[data-dialogue="villageElder"]').click();await p.locator('[data-textline=hello]').click();await p.locator('.end_dialogue_button').click();await notes();await p.locator('[data-simulation=enroll]').click();await p.waitForTimeout(500);await p.waitForFunction(()=>JSON.parse(localStorage.getItem('save data'))?.expansion.simulation);const fixture=await save();assert(fixture.expansion.simulation);await c.close();const id='ui-waiting-decision';fixture.expansion.simulation.events[id]={id,definitionId:def.id,revision:def.revision,actorId:'player',targetId:null,mode:'decision',at:fixture.expansion.clock,expiresAt:null,status:'open',roll:0,label:def.label,responses:def.responses,onExpire:def.onExpire,discoveredBy:['player'],cause:id};fixture.expansion.worlds['base.frontier'].facts['workbench.wet']=true;
++await open(fixture);await p.waitForFunction(()=>document.getElementById('workspace_current_work')?.textContent.toLowerCase().includes('waiting'));let before=await save();await p.locator('.workspace-module[data-module=notebook] .workspace-module-controls').evaluate(n=>n.open=true);await p.locator('.workspace-module[data-module=notebook] [data-workspace-action=hide]').click();assert(!await p.locator('.workspace-module[data-module=notebook]').isVisible());await p.locator('#workspace_current_work button').click();await p.locator('#simulation_panel').evaluate(n=>n.open=true);assert(await p.locator('.workspace-module[data-module=notebook]').isVisible());const response=p.locator('[data-simulation="event.wait"]');await response.focus();await response.press('Enter');const settled=await save();assert.equal(settled.expansion.simulation.events[id].status,'resolved');assert.equal(settled.expansion.simulation.events[id].response.id,'wait');assert.equal(settled.expansion.worlds['base.frontier'].facts['workbench.wet'],false);assert.equal(settled.character.money,before.character.money);checks.push('Generated witnessed decision recovers hidden notebook from critical current-work link; real keyboard response resolves once through authoritative handler.');
++await p.reload();await p.getByText('PLAY',{exact:true}).click();assert.equal((await save()).expansion.simulation.events[id].status,'resolved');const encoded=await p.evaluate(()=>window.save_to_file());await Promise.all([p.waitForNavigation(),p.locator('#saved_file_input').setInputFiles({name:'generated-decision.txt',mimeType:'text/plain',buffer:Buffer.from(encoded)})]);await p.getByText('PLAY',{exact:true}).click();assert.equal((await save()).expansion.simulation.events[id].response.id,'wait');checks.push('Generated response status survives actual save/reload/native file import without second response or payment.');await c.close();
++const unseen=structuredClone(fixture);unseen.expansion.simulation.events[id].discoveredBy=[];unseen.expansion.simulation.events[id].expiresAt=unseen.expansion.clock+3;await open(unseen);assert(!await p.locator('#workspace_current_work').innerText().then(t=>t.toLowerCase().includes('waiting')));checks.push('Undiscovered generated decision contributes no waiting message or actor detail to current-work projection.');assert.deepEqual(errors,[]);fs.writeFileSync(path.join(out,'decisions.json'),JSON.stringify({build:await p.evaluate(()=>performance.getEntriesByType('resource').find(e=>e.name.includes('/dist/bundle.js'))?.name),generatedFixture:true,fixtureScope:'Real enrollment; public event definition explicitly made witnessed mandatory for UI recovery proof. This is not natural trigger proof.',checks,errors},null,2));console.log({checks,errors});}finally{await b.close()}})().catch(e=>{console.error(e.stack);process.exit(1)});
+--- /dev/null
++++ b/scripts/ui_1920_comparison.cjs
+@@ -0,0 +1,2 @@
++const{chromium}=require('/Users/weiwei/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright');const fs=require('fs'),assert=require('node:assert/strict');const out='/Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/ui-modularity-2026-10-11/redesign-1920/evidence';
++(async()=>{const b=await chromium.launch({headless:true,executablePath:'/Applications/Google Chrome.app/Contents/MacOS/Google Chrome'});try{const c=await b.newContext({viewport:{width:1920,height:1080}});const f=JSON.parse(fs.readFileSync(out+'/generated-native-fixture.json'));f.inventories.person.main_character[JSON.stringify({id:'Cheap leather pants',quality:70})]={count:1};await c.addInitScript(s=>localStorage.setItem('save data',JSON.stringify(s)),f);const p=await c.newPage();await p.goto('http://127.0.0.1:18571');await p.getByText('PLAY',{exact:true}).click();await p.waitForTimeout(500);for(const id of ['skills','messages'])await p.locator(`.workspace-module[data-module="${id}"] [data-workspace-action=collapse]`).click();const shell=p.locator('.workspace-module[data-module=equipment-comparison]');await shell.locator('[data-workspace-action=collapse]').click();await p.locator('#workspace_equipment_comparison').evaluate(n=>n.open=true);await shell.locator('.workspace-module-controls').evaluate(n=>n.open=true);await shell.locator('[data-workspace-action=dock]').selectOption('right');await shell.locator('[data-workspace-action=handle]').focus();for(let i=0;i<8;i++)await shell.locator('[data-workspace-action=handle]').press('ArrowUp');const choices=p.locator('#workspace_equipment_comparison select');const options=await choices.first().locator('option').evaluateAll(ns=>ns.map(n=>({value:n.value,text:n.textContent})));assert(options.length>=2);await choices.first().selectOption(options.find(o=>o.value.includes('40')).value);await choices.last().selectOption(options.find(o=>o.value.includes('70')).value);await p.locator('.workspace-module[data-module=equipment-comparison] .workspace-resize-grip[data-resize=s]').focus();for(let i=0;i<5;i++)await p.locator('.workspace-module[data-module=equipment-comparison] .workspace-resize-grip[data-resize=s]').press('ArrowDown');await p.evaluate(()=>window.start_activity('meditating'));await p.waitForTimeout(1200);assert(await p.locator('#workspace_equipment_comparison table').isVisible());await p.screenshot({path:out+'/after-comparison.png'});fs.writeFileSync(out+'/comparison.json',JSON.stringify({build:await p.evaluate(()=>performance.getEntriesByType('resource').find(e=>e.name.includes('/dist/bundle.js'))?.name),generatedHeldVariants:true,checks:['Two actually held native quality variants shown side by side via existing actor-qualified comparison while native work runs.','Keyboard dock reorder and lower edge resize change useful table area.'],bounds:await shell.boundingBox()},null,2));}finally{await b.close()}})().catch(e=>{console.error(e.stack);process.exit(1)});
+--- /dev/null
++++ b/scripts/ui_1920_touch.cjs
+@@ -0,0 +1,2 @@
++const{chromium}=require('/Users/weiwei/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright');const assert=require('node:assert/strict'),fs=require('fs');
++(async()=>{const b=await chromium.launch({headless:true,executablePath:'/Applications/Google Chrome.app/Contents/MacOS/Google Chrome'});try{const c=await b.newContext({hasTouch:true,viewport:{width:1920,height:1080}}),p=await c.newPage();p.setDefaultTimeout(30000);await p.goto('http://127.0.0.1:18571');await p.getByText('PLAY',{exact:true}).click();await p.getByText('Confirm',{exact:true}).click();await p.waitForTimeout(500);await p.evaluate(()=>{window.__touch=[];for(const type of ['pointerdown','pointermove','pointercancel','pointerup'])window.addEventListener(type,e=>window.__touch.push({type:e.type,pointer:e.pointerType,x:e.clientX,y:e.clientY,cls:e.target.className}));});p.setDefaultTimeout(30000);const cd=await c.newCDPSession(p),s=p.locator('.workspace-module[data-module=skills]');const send=(type,x,y)=>cd.send('Input.dispatchTouchEvent',{type,touchPoints:type==='touchEnd'||type==='touchCancel'?[]:[{x,y,id:0,radiusX:2,radiusY:2}]});let r=await s.locator('.workspace-module-header strong').boundingBox();await send('touchStart',r.x+50,r.y+12);for(let i=1;i<=8;i++)await send('touchMove',r.x+50+(820-r.x-50)*i/8,r.y+12+(350-r.y-12)*i/8);await p.waitForTimeout(100);assert(await p.locator('.workspace-drop-preview').isVisible());await send('touchEnd');assert.equal(await s.evaluate(n=>n.parentElement.dataset.dock),'center');let start=await s.boundingBox(),g=await s.locator('[data-resize=s]').boundingBox();await send('touchStart',g.x+g.width/2,g.y+g.height/2);await send('touchMove',g.x+g.width/2,g.y+g.height/2+64);await send('touchEnd');assert((await s.boundingBox()).height>start.height+30);r=await s.locator('.workspace-module-header strong').boundingBox();await send('touchStart',r.x+50,r.y+12);await send('touchMove',1400,400);await send('touchCancel');assert.equal(await s.evaluate(n=>n.parentElement.dataset.dock),'center');r=await s.locator('.workspace-module-header strong').boundingBox();await p.keyboard.down('Shift');await p.mouse.move(r.x+50,r.y+10);await p.mouse.down();await p.mouse.move(400,500,{steps:10});await p.mouse.up();await p.keyboard.up('Shift');assert(await s.evaluate(n=>n.classList.contains('workspace-floating')));fs.writeFileSync('/Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/ui-modularity-2026-10-11/redesign-1920/evidence/touch.json',JSON.stringify({build:await p.evaluate(()=>performance.getEntriesByType('resource').find(e=>e.name.includes('/dist/bundle.js'))?.name),method:'Chrome CDP native touch input in temporary hasTouch context',checks:['Actual touch header input previews and docks Skills right to center.','Touch lower edge enlarges content area.','Touch cancellation restores original dock.','Shift+mouse header drag creates floating at the chosen position.']},null,2));console.log('Touch drag, resize and cancellation passed.')}finally{await b.close()}})().catch(e=>{console.error(e.stack);process.exit(1)});

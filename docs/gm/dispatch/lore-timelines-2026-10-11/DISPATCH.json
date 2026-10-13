@@ -1,0 +1,105 @@
+{
+  "schema": "five-world-lore-dispatch-1",
+  "date": "2026-10-11",
+  "state": "checked five-world research return delivered; all writer/reviewer scopes released",
+  "coordinator": {
+    "threadId": "01a1297e-c3c2-7c23-b4ae-974565fb5cf5",
+    "task": "/root",
+    "publicOwner": "docs/gm/dispatch/lore-timelines-2026-10-11",
+    "privateOwner": "docs/research/novels/lore-timelines-2026-10-11/gm/coordinator/"
+  },
+  "lanes": [
+    {
+      "worldId": "BW1",
+      "worker": "/root/lore_bw1",
+      "publicOwner": "docs/gm/dispatch/lore-timelines-2026-10-11/bw1",
+      "privateOwner": "docs/research/novels/lore-timelines-2026-10-11/gm/bw1/",
+      "state": "released; actual source/semantic review L1-L9 qualifiedpass",
+      "childSlots": "none unless coordinator grants",
+      "sourcePolicy": "reuse local and inherited read receipts; accessible source acquisition authorized privately; exact direct-source gaps retained",
+      "observedArtifacts": [
+        "PRIMARY_CHECKS.json"
+      ],
+      "ownershipReleased": true
+    },
+    {
+      "worldId": "RZ",
+      "worker": "/root/lore_rezero",
+      "publicOwner": "docs/gm/dispatch/lore-timelines-2026-10-11/rezero",
+      "privateOwner": "docs/research/novels/lore-timelines-2026-10-11/gm/rezero/",
+      "state": "released; actual source/semantic review L1-L9 qualifiedpass",
+      "childSlots": "none unless coordinator grants",
+      "sourcePolicy": "reuse local and inherited read receipts; accessible source acquisition authorized privately; exact direct-source gaps retained",
+      "observedArtifacts": [
+        "TARGETS.json"
+      ],
+      "ownershipReleased": true
+    },
+    {
+      "worldId": "TEN",
+      "worker": "/root/lore_tensura",
+      "publicOwner": "docs/gm/dispatch/lore-timelines-2026-10-11/tensura",
+      "privateOwner": "docs/research/novels/lore-timelines-2026-10-11/gm/tensura/",
+      "state": "released; actual source/semantic review L1-L9 qualifiedpass",
+      "childSlots": "none unless coordinator grants",
+      "sourcePolicy": "reuse local and inherited read receipts; accessible source acquisition authorized privately; exact direct-source gaps retained",
+      "observedArtifacts": [],
+      "ownershipReleased": true
+    },
+    {
+      "worldId": "JJK",
+      "worker": "/root/lore_jjk",
+      "publicOwner": "docs/gm/dispatch/lore-timelines-2026-10-11/jjk",
+      "privateOwner": "docs/research/novels/lore-timelines-2026-10-11/gm/jjk/",
+      "state": "released; actual source/semantic review L1-L9 qualifiedpass",
+      "childSlots": "none unless coordinator grants",
+      "sourcePolicy": "reuse local and inherited read receipts; accessible source acquisition authorized privately; exact direct-source gaps retained",
+      "observedArtifacts": [],
+      "ownershipReleased": true
+    },
+    {
+      "worldId": "JOJO",
+      "worker": "/root/lore_jojo",
+      "publicOwner": "docs/gm/dispatch/lore-timelines-2026-10-11/jojo",
+      "privateOwner": "docs/research/novels/lore-timelines-2026-10-11/gm/jojo/",
+      "state": "released; actual source/semantic review L1-L9 qualifiedpass",
+      "childSlots": "none unless coordinator grants",
+      "sourcePolicy": "reuse local and inherited read receipts; accessible source acquisition authorized privately; exact direct-source gaps retained",
+      "observedArtifacts": [
+        "DIRECT_ACQUISITION.json",
+        "ACQUISITION.json",
+        "SUMMARIES.json"
+      ],
+      "ownershipReleased": true
+    }
+  ],
+  "sealing": "All source-specific claims/revelations/catalogs private; public IDs/status and generic source coverage only",
+  "runtimeWrites": false,
+  "priorWorld1Edition": "Closed verified candidate, not reopened",
+  "delivery": "Checked final returns may be sent to current relevant project GM/implementation chats only after actual review; no startup external messages inferred",
+  "completion": "Five checked source/coverage/claim/event/knowledge/continuity/expansion/gap returns, joined synthesis and artifact validation; actual inaccessible primary gaps explicit",
+  "inputDrift": [
+    {
+      "path": "PROJECT.md",
+      "pinned": "9192d213171d5cc3ed9288527acdc102817732a8d378c7d3f89e9cb9aa15d5cb",
+      "live": "5fa867b61f122a01223ced9ee5f65abc97dc9ea6b993d00d7b5276428c6de46f",
+      "disposition": "Live owner read; reconcile relevant change, never restore stale input"
+    }
+  ],
+  "latestUserSteering": "Download needed sources directly through available sources and alternatives; direct payload preferred to summary/link/visual-only access",
+  "acquisitionClarificationSentToAllFive": true,
+  "assignmentCurrentHash": "6cf842305bcbbc542809b4a881aa7bfbed9fbbd375e0f70d78924cd24d54f502",
+  "independentReviewer": {
+    "worker": "/root/lore_review",
+    "publicOwner": "docs/gm/dispatch/lore-timelines-2026-10-11/review",
+    "privateOwner": "docs/research/novels/lore-timelines-2026-10-11/gm/review/",
+    "state": "finished all5L1-L9qualifiedpass; correctionsresolved; ownershipreleased"
+  },
+  "coordinatorChecks": {
+    "acquisitionPayloadReceiptsChecked": 143,
+    "hashMatches": 143,
+    "ignoreMatches": 143,
+    "note": "Provisional acquired payload validation; does not imply fullread or finalcoverage"
+  },
+  "deliveryOwner": "DELIVERY.json"
+}

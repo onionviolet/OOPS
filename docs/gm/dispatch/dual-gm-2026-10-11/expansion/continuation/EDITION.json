@@ -1,0 +1,189 @@
+{
+  "schema": "world1-frozen-early-edition-1",
+  "revision": 1,
+  "status": "Verified isolated finite early edition; shared integration/director acceptance separate",
+  "scope": "one existing private world, same realm; two conventional beginnings; early connected livelihood/function arcs and continued local play; one compatible renewal layer",
+  "candidateIds": [
+    "ST03",
+    "ST04"
+  ],
+  "candidateAdmission": "Two selected beginnings admitted in isolated candidate after typed/native/selection proofs",
+  "sourceBoundary": "qualified first supplied volume plus independently qualified exact existing source receipts; final correction joins outrank frozen interpretations",
+  "privateCriteriaOwner": "docs/research/novels/world-depth-2026-10-11/continuation/EDITION_QUALIFICATION.json",
+  "horizonOwners": [
+    "../REPORT.md",
+    "../DETAIL_LEDGER.json",
+    "../PACKETS.md",
+    "../REMAINING_MANIFEST.md",
+    "../ENGINE_CONTRACTS.json"
+  ],
+  "required": [
+    {
+      "id": "W1-R01",
+      "criterion": "Three reproduced production defects repaired and ordinary native proof",
+      "status": "verified",
+      "evidence": [
+        "P1_REPORT.md",
+        "P1_INPUTS.json",
+        "P1_PROOF.json"
+      ]
+    },
+    {
+      "id": "W1-R02",
+      "criterion": "Versioned private revision admitted with explicit legacy compatibility",
+      "status": "verified",
+      "evidence": [
+        "P5_REPORT.md",
+        "P5_INPUTS.json",
+        "P5_PROOF.json"
+      ]
+    },
+    {
+      "id": "W1-R03",
+      "criterion": "Two distinct source-qualified conventional snapshots initialized with actual body/means/access",
+      "status": "verified",
+      "evidence": [
+        "P5_REPORT.md",
+        "P5_INPUTS.json",
+        "P5_PROOF.json"
+      ]
+    },
+    {
+      "id": "W1-R04",
+      "criterion": "Suspenseful committed selection durable before publication; retry/reload/import never reroll",
+      "status": "verified",
+      "evidence": [
+        "P5_REPORT.md",
+        "P5_INPUTS.json",
+        "P5_PROOF.json"
+      ]
+    },
+    {
+      "id": "W1-R05",
+      "criterion": "Ordinary work uses actual custody/stock/tools and skill-based useful result",
+      "status": "verified",
+      "evidence": [
+        "P5_REPORT.md",
+        "P5_INPUTS.json",
+        "P5_PROOF.json"
+      ]
+    },
+    {
+      "id": "W1-R06",
+      "criterion": "Local function acquired and executed against actual targets with source/support/custody consequences",
+      "status": "verified",
+      "evidence": [
+        "P5_REPORT.md",
+        "P5_INPUTS.json",
+        "P5_PROOF.json"
+      ]
+    },
+    {
+      "id": "W1-R07",
+      "criterion": "Ordinary alternative and refusal/cancellation/lost-support variants reachable",
+      "status": "verified",
+      "evidence": [
+        "P5_REPORT.md",
+        "P5_INPUTS.json",
+        "P5_PROOF.json"
+      ]
+    },
+    {
+      "id": "W1-R08",
+      "criterion": "Connected recipient response and subsequent service opportunity based on actual communicated knowledge",
+      "status": "verified",
+      "evidence": [
+        "P5_REPORT.md",
+        "P5_INPUTS.json",
+        "P5_PROOF.json"
+      ]
+    },
+    {
+      "id": "W1-R09",
+      "criterion": "Continuing repeat livelihood and function development stay useful after early checkpoint",
+      "status": "verified",
+      "evidence": [
+        "P5_REPORT.md",
+        "P5_INPUTS.json",
+        "P5_PROOF.json"
+      ]
+    },
+    {
+      "id": "W1-R10",
+      "criterion": "Native joined played-time and selected causal consequence obey scoped absence policy",
+      "status": "verified",
+      "evidence": [
+        "P5_REPORT.md",
+        "P5_INPUTS.json",
+        "P5_PROOF.json"
+      ]
+    },
+    {
+      "id": "W1-R11",
+      "criterion": "One compatible optional renewal layer with explicit retained domains and real lasting effect",
+      "status": "verified",
+      "evidence": [
+        "P5_REPORT.md",
+        "P5_INPUTS.json",
+        "P5_PROOF.json"
+      ]
+    },
+    {
+      "id": "W1-R12",
+      "criterion": "Once-only settlement and failed durable writes never publish premature effects",
+      "status": "verified",
+      "evidence": [
+        "P5_REPORT.md",
+        "P5_INPUTS.json",
+        "P5_PROOF.json"
+      ]
+    },
+    {
+      "id": "W1-R13",
+      "criterion": "Observed knowledge only across supported native/log/plain/tooltips/accessibility surfaces",
+      "status": "verified",
+      "evidence": [
+        "P5_REPORT.md",
+        "P5_INPUTS.json",
+        "P5_PROOF.json"
+      ]
+    },
+    {
+      "id": "W1-R14",
+      "criterion": "Generated old/current save/reload/import and missing/restored content preserve exact identity",
+      "status": "verified",
+      "evidence": [
+        "P5_REPORT.md",
+        "P5_INPUTS.json",
+        "P5_PROOF.json"
+      ]
+    },
+    {
+      "id": "W1-R15",
+      "criterion": "Natural progression from each beginning measured separately from enriched boundary fixtures",
+      "status": "verified",
+      "evidence": [
+        "P5_REPORT.md",
+        "P5_INPUTS.json",
+        "P5_PROOF.json"
+      ]
+    }
+  ],
+  "excluded": "later volumes/full world horizon, unselected forms and temporal variants, other worlds, shared original integration until released, director acceptance as agent claim",
+  "prototypePolicies": {
+    "pool": "equal selection of the two admitted beginnings; no author catalog shown; committed selection preserved",
+    "legacy": "p01 scalar state remains untouched; new objects are not retroactively fabricated",
+    "prestige": "compatible local narrow renewal counterpart, earned eligibility, retained body/world/belongings; no soul memory/world reset",
+    "compatibility": "new registration provenance retains unvisited records; old unknown unvisited and already-invalid clock envelopes safely rejected until restored compatible inputs; no guesses/reset"
+  },
+  "deliveryStates": {
+    "source": "implemented",
+    "build": "rebuilt",
+    "native": "verified finite scope",
+    "saveReloadImport": "verified generated old/current",
+    "sharedIntegration": "excluded pending incumbent release",
+    "directorAcceptance": "open human-only",
+    "committed": false,
+    "published": false
+  }
+}

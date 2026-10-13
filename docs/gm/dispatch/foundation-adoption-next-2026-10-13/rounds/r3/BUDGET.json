@@ -1,0 +1,8 @@
+{
+  "initialSellerSalts": 8,
+  "mandatoryTrialSalts": 3,
+  "otherSaltsSpent": 0,
+  "remainingSalts": 5,
+  "maxPaidRefinements": 5,
+  "policy": "One finite native lineage; cancellation returns reservations before settlement and is tested once without outcome selection; no RNG replay/refill/injection; source fixtures cover unavailable branches"
+}

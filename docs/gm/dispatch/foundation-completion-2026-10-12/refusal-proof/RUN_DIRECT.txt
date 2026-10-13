@@ -1,0 +1,24 @@
+locator.click: Timeout 30000ms exceeded.
+Call log:
+[2m  - waiting for locator('#loading_screen_play_button:not(.none_display)')[22m
+[2m    - locator resolved to <div class="fade_in" id="loading_screen_play_button">↵                PLAY↵            </div>[22m
+[2m  - attempting click action[22m
+[2m    - waiting for element to be visible, enabled and stable[22m
+[2m    - element is visible, enabled and stable[22m
+[2m    - scrolling into view if needed[22m
+[2m    - done scrolling[22m
+[2m    - performing click action[22m
+
+    at /Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/foundation-completion-2026-10-12/refusal-proof/native.cjs:9:938 {
+  log: [
+    "  - waiting for locator('#loading_screen_play_button:not(.none_display)')",
+    '    - locator resolved to <div class="fade_in" id="loading_screen_play_button">↵                PLAY↵            </div>',
+    '  - attempting click action',
+    '    - waiting for element to be visible, enabled and stable',
+    '    - element is visible, enabled and stable',
+    '    - scrolling into view if needed',
+    '    - done scrolling',
+    '    - performing click action'
+  ],
+  name: 'TimeoutError'
+}

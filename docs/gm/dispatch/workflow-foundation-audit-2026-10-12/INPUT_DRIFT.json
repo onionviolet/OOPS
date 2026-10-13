@@ -1,0 +1,278 @@
+{
+  "observed_at": "2026-10-12T05:12:47.258237+00:00",
+  "files": [
+    {
+      "path": "AGENTS.md",
+      "sha256": "7fccb57130106b634ddce5190a0645724535c7a50faabd382bb235128290e288",
+      "current_sha256": "7fccb57130106b634ddce5190a0645724535c7a50faabd382bb235128290e288",
+      "changed": false
+    },
+    {
+      "path": "PROJECT.md",
+      "sha256": "46dab6f21ff9801bf1512b37b82582ed2ce49e37680736723187afdc6980be45",
+      "current_sha256": "46dab6f21ff9801bf1512b37b82582ed2ce49e37680736723187afdc6980be45",
+      "changed": false
+    },
+    {
+      "path": "docs/GAME_MASTER_PROMPT.md",
+      "sha256": "9524d382c81a981af02bd2cf9288f410fe9a09b9c6f8d99f7075c6245653de56",
+      "current_sha256": "9524d382c81a981af02bd2cf9288f410fe9a09b9c6f8d99f7075c6245653de56",
+      "changed": false
+    },
+    {
+      "path": "docs/reviews/FOUNDATIONS_DIALOGUE_AND_ABSORPTION_PLAN_2026-10-12.md",
+      "sha256": "fc0d3b429b936a2cc676449c506674c38ead40b6122307ffce98e5e3adcc7ea5",
+      "current_sha256": "fc0d3b429b936a2cc676449c506674c38ead40b6122307ffce98e5e3adcc7ea5",
+      "changed": false
+    },
+    {
+      "path": "docs/SHARED_FOUNDATIONS_AUDIT_2026-10-12.md",
+      "sha256": "b1a9c33ee53b751c3e5b4eca236e90519c871af86cf8c67086ef62cbeaeb76e3",
+      "current_sha256": "b1a9c33ee53b751c3e5b4eca236e90519c871af86cf8c67086ef62cbeaeb76e3",
+      "changed": false
+    },
+    {
+      "path": "docs/gm/MICRO_MESO_MACRO_IMPLEMENTATION_SUPPORT.md",
+      "sha256": "47ed79e22d512a5e2a5914a7bb5d8f140a1349298c46fd37990b68e5361d22d1",
+      "current_sha256": "47ed79e22d512a5e2a5914a7bb5d8f140a1349298c46fd37990b68e5361d22d1",
+      "changed": false
+    },
+    {
+      "path": "docs/gm/CROSS_WORLD_DETAIL_REVIEW.md",
+      "sha256": "56f84e4ece960034735f1e9ec464e26f3cd81de44eabbb3dfb93af37b9534a35",
+      "current_sha256": "56f84e4ece960034735f1e9ec464e26f3cd81de44eabbb3dfb93af37b9534a35",
+      "changed": false
+    },
+    {
+      "path": "docs/worlds/DIALOGUE_AND_INTERACTIONS.md",
+      "sha256": "6c9f867d703be28f0d406a18db260fe33c831299fd2eeaf18d49bf1016ea2be5",
+      "current_sha256": "6c9f867d703be28f0d406a18db260fe33c831299fd2eeaf18d49bf1016ea2be5",
+      "changed": false
+    },
+    {
+      "path": "docs/gm/dispatch/connection-detail-2026-10-12/CHECKPOINT.md",
+      "sha256": "48f25f74cfa3165aa4460833e73cc5d2e3b78f916ddcf7bc79f75f7b82f11bce",
+      "current_sha256": "48f25f74cfa3165aa4460833e73cc5d2e3b78f916ddcf7bc79f75f7b82f11bce",
+      "changed": false
+    },
+    {
+      "path": "docs/gm/dispatch/world1-full-completion-2026-10-11/CHECKPOINT.md",
+      "sha256": "c2f84d5fa9ed871d80ac0f4ef4eb620e554aa043010efb324e58c2be8c87957b",
+      "current_sha256": "c2f84d5fa9ed871d80ac0f4ef4eb620e554aa043010efb324e58c2be8c87957b",
+      "changed": false
+    },
+    {
+      "path": "src/ink_narrative.js",
+      "sha256": "0b1f4d4c1b42347ec9471cefbff8a1d3f70f6b739a52c711ad604f3bbeda16ac",
+      "current_sha256": "0b1f4d4c1b42347ec9471cefbff8a1d3f70f6b739a52c711ad604f3bbeda16ac",
+      "changed": false
+    },
+    {
+      "path": "src/ink_scene_content.js",
+      "sha256": "cd7dcd1368b6c63ceb0399c0893df0fbbde9a5579553d2cf111ea07875ed821f",
+      "current_sha256": "cd7dcd1368b6c63ceb0399c0893df0fbbde9a5579553d2cf111ea07875ed821f",
+      "changed": false
+    },
+    {
+      "path": "package.json",
+      "sha256": "805269ecbf25287b2758391e718c805e1a4336b4b4f1c923a87b3712620e8e2c",
+      "current_sha256": "805269ecbf25287b2758391e718c805e1a4336b4b4f1c923a87b3712620e8e2c",
+      "changed": false
+    }
+  ],
+  "final_observed_at": "2026-10-12T05:21:15.569221+00:00",
+  "final_files": [
+    {
+      "path": "AGENTS.md",
+      "sha256": "7fccb57130106b634ddce5190a0645724535c7a50faabd382bb235128290e288",
+      "current_sha256": "7fccb57130106b634ddce5190a0645724535c7a50faabd382bb235128290e288",
+      "changed": false
+    },
+    {
+      "path": "PROJECT.md",
+      "sha256": "46dab6f21ff9801bf1512b37b82582ed2ce49e37680736723187afdc6980be45",
+      "current_sha256": "338c163655c5bf916e5332fe71628935d7a1d682410de5dfb7e35cf8bf645340",
+      "changed": true
+    },
+    {
+      "path": "docs/GAME_MASTER_PROMPT.md",
+      "sha256": "9524d382c81a981af02bd2cf9288f410fe9a09b9c6f8d99f7075c6245653de56",
+      "current_sha256": "9524d382c81a981af02bd2cf9288f410fe9a09b9c6f8d99f7075c6245653de56",
+      "changed": false
+    },
+    {
+      "path": "docs/reviews/FOUNDATIONS_DIALOGUE_AND_ABSORPTION_PLAN_2026-10-12.md",
+      "sha256": "fc0d3b429b936a2cc676449c506674c38ead40b6122307ffce98e5e3adcc7ea5",
+      "current_sha256": "fb27b8867fee4989b59e703ea800c713e16bb4ce52c7d922bfea06289f543848",
+      "changed": true
+    },
+    {
+      "path": "docs/SHARED_FOUNDATIONS_AUDIT_2026-10-12.md",
+      "sha256": "b1a9c33ee53b751c3e5b4eca236e90519c871af86cf8c67086ef62cbeaeb76e3",
+      "current_sha256": "b1a9c33ee53b751c3e5b4eca236e90519c871af86cf8c67086ef62cbeaeb76e3",
+      "changed": false
+    },
+    {
+      "path": "docs/gm/MICRO_MESO_MACRO_IMPLEMENTATION_SUPPORT.md",
+      "sha256": "47ed79e22d512a5e2a5914a7bb5d8f140a1349298c46fd37990b68e5361d22d1",
+      "current_sha256": "47ed79e22d512a5e2a5914a7bb5d8f140a1349298c46fd37990b68e5361d22d1",
+      "changed": false
+    },
+    {
+      "path": "docs/gm/CROSS_WORLD_DETAIL_REVIEW.md",
+      "sha256": "56f84e4ece960034735f1e9ec464e26f3cd81de44eabbb3dfb93af37b9534a35",
+      "current_sha256": "56f84e4ece960034735f1e9ec464e26f3cd81de44eabbb3dfb93af37b9534a35",
+      "changed": false
+    },
+    {
+      "path": "docs/worlds/DIALOGUE_AND_INTERACTIONS.md",
+      "sha256": "6c9f867d703be28f0d406a18db260fe33c831299fd2eeaf18d49bf1016ea2be5",
+      "current_sha256": "6c9f867d703be28f0d406a18db260fe33c831299fd2eeaf18d49bf1016ea2be5",
+      "changed": false
+    },
+    {
+      "path": "docs/gm/dispatch/connection-detail-2026-10-12/CHECKPOINT.md",
+      "sha256": "48f25f74cfa3165aa4460833e73cc5d2e3b78f916ddcf7bc79f75f7b82f11bce",
+      "current_sha256": "48f25f74cfa3165aa4460833e73cc5d2e3b78f916ddcf7bc79f75f7b82f11bce",
+      "changed": false
+    },
+    {
+      "path": "docs/gm/dispatch/world1-full-completion-2026-10-11/CHECKPOINT.md",
+      "sha256": "c2f84d5fa9ed871d80ac0f4ef4eb620e554aa043010efb324e58c2be8c87957b",
+      "current_sha256": "151f0b9c19aa10f0aecf292977509e8e6b2076d7b65ddd695c95e889991ebdc9",
+      "changed": true
+    },
+    {
+      "path": "src/ink_narrative.js",
+      "sha256": "0b1f4d4c1b42347ec9471cefbff8a1d3f70f6b739a52c711ad604f3bbeda16ac",
+      "current_sha256": "0b1f4d4c1b42347ec9471cefbff8a1d3f70f6b739a52c711ad604f3bbeda16ac",
+      "changed": false
+    },
+    {
+      "path": "src/ink_scene_content.js",
+      "sha256": "cd7dcd1368b6c63ceb0399c0893df0fbbde9a5579553d2cf111ea07875ed821f",
+      "current_sha256": "cd7dcd1368b6c63ceb0399c0893df0fbbde9a5579553d2cf111ea07875ed821f",
+      "changed": false
+    },
+    {
+      "path": "package.json",
+      "sha256": "805269ecbf25287b2758391e718c805e1a4336b4b4f1c923a87b3712620e8e2c",
+      "current_sha256": "805269ecbf25287b2758391e718c805e1a4336b4b4f1c923a87b3712620e8e2c",
+      "changed": false
+    }
+  ],
+  "selected_additional_final_hashes": [
+    {
+      "path": "docs/gm/dispatch/world1-full-completion-2026-10-11/STATE.json",
+      "sha256": "d7c4a8a432acad6c7f18f441e10c8b79e8afcfe20fa42487c3a783dbb02cc9d2"
+    },
+    {
+      "path": "docs/gm/dispatch/world1-full-completion-2026-10-11/PAUSE_COORDINATION.md",
+      "sha256": "93a90bd51e16d25ad5e1ab7128aac1383797a9756279a5f64b9735038a5bf368"
+    },
+    {
+      "path": "docs/gm/dispatch/ui-modularity-2026-10-11/CHECKPOINT.md",
+      "sha256": "a4fd0a8090e750c663768ca08627afbe9c523a98bff07f729787b105de395eb4"
+    },
+    {
+      "path": "src/main.js",
+      "sha256": "549e39552e549e89dd9d984e34b8efc40156258f12a9e674444ebbb8b7e2fbd3"
+    },
+    {
+      "path": "src/feature_expansion_nested_life.js",
+      "sha256": "55ac52bdeb23c0ee6f9460f6a055a9ce35085c2718cfe1b48e114a0c231b5cd0"
+    },
+    {
+      "path": "src/feature_expansion_nested_content.js",
+      "sha256": "eff78f2acfc74d8c1572375d6e3e5c88c4e7c1164b78f965bfcad5facc7f079a"
+    },
+    {
+      "path": "src/feature_expansion_nested_ink_ui.js",
+      "sha256": "29c9c8bfc51d95f25cce8cef17e8c28e3d949315b61b9153b1b192465a84e5b1"
+    },
+    {
+      "path": "scripts/compile_feature_ink.mjs",
+      "sha256": "510bde6397c684b1e24a9760d6fb9295265d5b857dafbfdf1b255c9eef50688b"
+    },
+    {
+      "path": "src/feature_expansion_presentation_costs.js",
+      "sha256": "a195808796a447ab8c17d1027f2d757a8ae528723dd0babf05169891cc137a13"
+    },
+    {
+      "path": "stories/feature_wave.ink",
+      "sha256": "ad28348578d8e09e1c1582571ceffbaef584cc4accac0a6559304869939eadb5"
+    },
+    {
+      "path": "stories/feature_wave.json",
+      "sha256": "a2688775a9adfd21b369f52e0f3fa07bdce8b084be9ce4fc1c385479f60648ed"
+    }
+  ],
+  "interpretation": "PROJECT and World1 CHECKPOINT now reflect final paused handoff; foundation plan added proposed finite chain, audit remains read-only. Re-read these changes and reconciled report/map/evidence. No runtime-adapter source drift from specialist fingerprints; not a built correspondence check.",
+  "dialogue_specialist_readback": [
+    {
+      "path": "src/ink_narrative.js",
+      "sha256": "0b1f4d4c1b42347ec9471cefbff8a1d3f70f6b739a52c711ad604f3bbeda16ac",
+      "changed_since_specialist": false
+    },
+    {
+      "path": "src/ink_scene_content.js",
+      "sha256": "cd7dcd1368b6c63ceb0399c0893df0fbbde9a5579553d2cf111ea07875ed821f",
+      "changed_since_specialist": false
+    },
+    {
+      "path": "src/ink_narrative_ui.js",
+      "sha256": "a23ca720ea5244cb006dbfbf7306838b4cc3540628707b00b022d0f23f7566bd",
+      "changed_since_specialist": false
+    },
+    {
+      "path": "src/feature_expansion_nested_ink_ui.js",
+      "sha256": "29c9c8bfc51d95f25cce8cef17e8c28e3d949315b61b9153b1b192465a84e5b1",
+      "changed_since_specialist": false
+    },
+    {
+      "path": "scripts/compile_feature_ink.mjs",
+      "sha256": "510bde6397c684b1e24a9760d6fb9295265d5b857dafbfdf1b255c9eef50688b",
+      "changed_since_specialist": false
+    },
+    {
+      "path": "stories/feature_wave.ink",
+      "sha256": "ad28348578d8e09e1c1582571ceffbaef584cc4accac0a6559304869939eadb5",
+      "changed_since_specialist": false
+    },
+    {
+      "path": "stories/feature_wave.json",
+      "sha256": "a2688775a9adfd21b369f52e0f3fa07bdce8b084be9ce4fc1c385479f60648ed",
+      "changed_since_specialist": false
+    },
+    {
+      "path": "src/feature_expansion_nested_life.js",
+      "sha256": "55ac52bdeb23c0ee6f9460f6a055a9ce35085c2718cfe1b48e114a0c231b5cd0",
+      "changed_since_specialist": false
+    },
+    {
+      "path": "src/feature_expansion_refinements_host.js",
+      "sha256": "277cef0a4bfce99af0a82ea550dc3961210e1bba0da80a255dc8d15b173d908c",
+      "changed_since_specialist": false
+    },
+    {
+      "path": "src/main.js",
+      "sha256": "549e39552e549e89dd9d984e34b8efc40156258f12a9e674444ebbb8b7e2fbd3",
+      "changed_since_specialist": false
+    },
+    {
+      "path": "src/expansion_persistence.js",
+      "sha256": "779a82715884c48f3d2338816d76b90e5e894b625f2fb7daec174091c73bc966",
+      "changed_since_specialist": false
+    },
+    {
+      "path": "package.json",
+      "sha256": "805269ecbf25287b2758391e718c805e1a4336b4b4f1c923a87b3712620e8e2c",
+      "changed_since_specialist": false
+    },
+    {
+      "path": "build.js",
+      "sha256": "8561349784483242a15ce4208b9180651c1aaf03c3d8ff1379de8c7d8065fea5",
+      "changed_since_specialist": false
+    }
+  ]
+}

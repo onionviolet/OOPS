@@ -1,0 +1,427 @@
+Authoring
+Edit layout
+Layout
+Workspace
+Classic
+Focus
+Compare
+Reset layout
+Density
+compact
+comfortable
+inspection
+Panels
+Layout configuration
+Drag headers · Shift+drag to float · Resize edges or dividers
+↕
+Character vitals
+15 / 16 xp
+47/47 stamina
+0/0 mana
+70/70 hp
+↕
+Inventory & combat view
+Inventory
+Combat
+↕
+Character & preparation
+Level: 1
+Strength:
+13.5
+Agility:
+10.2
+Dexterity:
+10.0
+Intuition
+12.0
+Defense:
+1.0
+Magic:
+0.0
+Atk power:
+4.8
+Atk spd:
+0.7
+Crit rate:
+5.0%
+Crit mult:
+130.0%
+AP:
+23
+EP :
+24
+Active effects: 1
+Stats
+Bio
+Equipment
+Tools
+↕
+Belongings
+Your purse contains: 6C 6W
+star_border[weapon] Cheap iron axe [50%]
+[take off]
+14C 4W
+star_border[legs] Cheap leather pants [40%]
+[take off]
+4C 6W
+star_borderCompatible repair offcut
+1W
+star_borderDulled field fitting knife
+4W
+star_borderPrepared survey kit
+2W
+star_borderRat tail
+4W
+star_borderRough wood log x342
+1C
+star_borderSealing template
+5W
+star_borderStale bread x3
+[use]
+auto
+2C
+star_borderTree sap x18
+5W
+star_borderWet repair stave
+1W
+star_border[tool] Old pickaxe
+[equip]
+1C
+star_border[tool] Old shovel
+[equip]
+1C
+star_border[tool] Old sickle
+[equip]
+1C
+Sort by name
+Sort by value
+Sort by type
+All
+Equipment
+Usable
+Other
+Favs
+↕
+Equipment comparison
+↕
+Notes, practice & people
+Notes, practice & people
+Here
+Practice
+People
+Tools, practice & local lives
+Eda’s fitting agreement
+
+Agree a local assessor appointment after Eda’s demonstration and supervised practice. One paid inspection can approve the kind of stave she needs for one small order.
+
+Bench clearance study
+Eda’s offered-stock reports
+Scraped-palm care
+A jointly agreed next duty
+Home-world chapter & changed return
+A useful lens with a return obligation
+A taught procedure, useful material
+Current condition & small preparations
+Field remedies & optional wound consequences
+Shutter, wages and overlapping shifts
+A dated warning and one physical rain
+Fitting tools & materials
+Household work & apprenticeship
+Field feats
+Mastery and combinations
+Measured cooling with Eda
+Your workshop furnishings
+Eda’s clamping frame
+Finite resident shifts and toolkit allocation
+Permitted home & measuring work
+
+One useful local cover, a paid measured salvage chain, one earned training choice and an actually constructed, funded residence.
+
+Known actions
+Build the outer measuring-strip cover · 2 logs + 2 coins + 2 stamina + 5 min
+
+Available
+
+Known requirements
+Accept the optional local remainder terms first.
+Use the actual permitted Eda bench in Village with your living native body and recovered hands.
+Hear and accept Eda's specific measuring-strip build and work permission.
+Eda must still be willing, present and physically able to attend this paid work.
+Quoted costs
+2 Rough wood log. You have 342 available.
+2 coins. You have 66 available.
+2 stamina. You have 46.574999999999996 available.
+
+Time quote: 5 played minutes.
+
+Cancellation: Cancelling returns reserved inputs. Time already played is not returned.
+
+Reserved
+Your attention is reserved while the accepted work runs.
+Eda, Village sluice fitter is reserved for this accepted work.
+A place at Eda's dry fitting bench is reserved for this work.
+Do this: Build the outer measuring-strip cover · 2 logs + 2 coins + 2 stamina + 5 min
+Use the uncovered measuring strip · 1 log + held sharp knife + 2 stamina + 5 min
+
+Unavailable
+
+Known requirements
+Accept the optional local remainder terms first.
+Use the actual permitted Eda bench in Village with your living native body and recovered hands.
+Hear and accept Eda's specific measuring-strip build and work permission.
+Rain interrupts the uncovered outer measuring strip. Build its actual cover or wait for dry weather.
+Why this is unavailable
+This action is not available under the current conditions. Review the known preparation or choose another action.
+Stated costs
+1 Rough wood log. You have 342 available.
+1 Field fitting knife. You have 0 available.
+2 stamina. You have 46.574999999999996 available.
+
+Time terms: 5 played minutes under the known terms.
+
+Cancellation: Cancelling returns reserved inputs. Time already played is not returned.
+
+Reserved
+Your attention is reserved while the accepted work runs.
+A place at Eda's dry fitting bench is reserved for this work.
+Unavailable: Use the uncovered measuring strip · 1 log + held sharp knife + 2 stamina + 5 min
+Dry two counted green offcuts · 2 stamina + 6 min
+
+Unavailable
+
+Known requirements
+Accept the optional local remainder terms first.
+Use the actual permitted Eda bench in Village with your living native body and recovered hands.
+Hear and accept Eda's specific measuring-strip build and work permission.
+Why this is unavailable
+This action is not available under the current conditions. Review the known preparation or choose another action.
+Stated costs
+2 Green repair offcut. You have 0 available.
+2 stamina. You have 46.574999999999996 available.
+
+Time terms: 6 played minutes under the known terms.
+
+Cancellation: Cancelling returns reserved inputs. Time already played is not returned.
+
+Reserved
+Your attention is reserved while the accepted work runs.
+A place at Eda's dry fitting bench is reserved for this work.
+Unavailable: Dry two counted green offcuts · 2 stamina + 6 min
+Make an ordinary loaded workshop survey · held log + held kit + 3 stamina + 4 min
+
+Unavailable
+
+Known requirements
+Accept the optional local remainder terms first.
+Why this is unavailable
+Return to Shack.
+Stated costs
+1 Rough wood log. You have 342 available.
+1 Prepared survey kit. You have 1 available.
+3 stamina. You have 46.574999999999996 available.
+
+Time terms: 4 played minutes under the known terms.
+
+Cancellation: Cancelling returns reserved inputs. Time already played is not returned.
+
+Reserved
+Your attention is reserved while the accepted work runs.
+A place at Field workshop is reserved for this work.
+Unavailable: Make an ordinary loaded workshop survey · held log + held kit + 3 stamina + 4 min
+Hear Neri's current public residence and work account
+
+Unavailable
+
+Known requirements
+Accept the optional local remainder terms first.
+Return to your actually assembled Shack field workshop with usable hands and actual build permission.
+Accept the stated room materials, site and residence limits.
+Neri must be alive, willing and physically present in the Shack with her own usable hands and attention.
+Why this is unavailable
+Return to Shack.
+Meet your agreed participant before taking this action.
+
+Time terms: Immediate action.
+
+Unavailable: Hear Neri's current public residence and work account
+Reported instruction: Eda permits one timber rain cover over the outer measuring strip of her real Village fitting-bench site. Two supplied logs, two coins, two stamina and five played minutes build it. The cover permits only the newly offered offcut-trimming job during actual rain; the old dry rack, shelf, recipes and regional weather keep their existing rules. Your own completed cutting and drying observations can support paid measuring research. One separate specialization requires actual recovered conditioning and an ordinary loaded-frame trial. · Recorded at played minute 11225.
+Observed: One real Rough wood log was divided into one Wet repair stave and two Green repair offcuts. Your owned sharp fitting knife became its dulled variant and stayed yours. These three counted green pieces account for the timber; none is sound or dry yet. The reusable measuring jig was not supplied. · Recorded at played minute 11240.
+Observed: Two actual Green repair offcuts from the disclosed local trimming stock dried into two Compatible repair offcuts over six played minutes. No piece was duplicated and no jig or fitting knowledge was awarded. · Recorded at played minute 11259.
+Observed: I authorize one guest room inside my actually assembled, player-owned field-workshop site at the native Shack. Two staged phases consume two logs, four construction coins, seven played minutes and three stamina; a counted kit is held and returned in finishing. Only the finished room grants one residence claim. A later one-time willing invitation requires a separate real kit, log and two-coin starter purse. No automatic rent, food drain or supply refill is created. · Recorded at played minute 11367.
+Observed: One supplied Rough wood log and two paid construction coins became the guest-room frame inside your earned Shack field-workshop site. Four played minutes and one stamina were spent. A frame grants no residence slot or resident. · Recorded at played minute 11374.
+Observed: The second real log and two construction coins finished one guest room at your earned Shack field workshop. Your counted kit was returned once. The completed room grants exactly one unoccupied residence claim; it grants no person, wood, kit, wage or service. No dismantling action is offered, and occupancy must end before any later removal design. · Recorded at played minute 11384.
+Reported instruction: Neri is an independent willing local kit binder with her own body, learned operation and finite attention. Meeting her supplies no tool, wage, residence or result. Invite supplies one actual kit, one log and two native coins to her own stock/purse. She independently accepts supported terms, occupies the one room and performs at most one material service. One coin pays her fittings expense; one remains hers. One produced kit may be collected after her actual job. Decline is free; departure ends future offers while retaining her identity and earned property. · Recorded at played minute 11392.
+Observed: I transferred one actual kit, one log and two native coins to Neri's separate stock and purse under her one-stay terms. This is a supplied invitation, not an immediate occupant or finished service. Her own controller must still accept with the completed vacant room, current willingness and living supported body. The supplies are hers; meeting or rendering cannot refill them. · Recorded at played minute 11396.
+Recollection: I met Neri at the real Shack room. Arrival, occupancy, her funded work and collection are separate commitments. Her completed public work is available through its own known collection control; this meeting grants no stock, occupation or wage. · Recorded at played minute 11406.
+Observed: Neri transferred the one actual Prepared survey kit produced by her completed paid service. Her returned tool kit, unspent coin, body and previous work remain hers. This kit supports the existing native field preparation, packing, orders and trade; collection cannot repeat. · Recorded at played minute 11458.
+Ressa’s funded local supply request
+Physical preparation and optional objectives
+Vela's prism collection
+Timber, drain and the finite herb bed
+The terraced harbor chart
+Proto23 · your furnished visitor life
+Iona’s recent exchange
+Your finite association herb bed
+Paradise · your independent Goa branch
+Mother of Learning · your Cyoria guest life
+Service-district side entry
+Village crossroads
+Lantern & floodline work
+Optional lives and local experiments
+At the seal registry
+
+Conversation not started.
+
+Conversation controls
+Known actions
+Discuss the offered work
+
+Unavailable
+
+Why this is unavailable
+This action is not available under the current conditions. Review the known preparation or choose another action.
+Stated costs
+Hear the seal-steward’s terms
+Completion terms
+Meet the seal steward, counter clerk and a longtime colleague. Hearing their actual terms changes no identity, office, duty or possessions.
+Unavailable: Discuss the offered work
+A folded doorway
+Village notes
+Routes & supplies
+Field association & workshop
+↕
+Known routes
+Known routes
+↕
+Time & weather
+10/04/999 01:19, Summer, Wed, Night
+13.7°C
+↕
+Current location
+star_border Village
+The village path lies in darkness.
+Medium-sized village, built at the foot of the mountains, with rocks preventing any expansions towards north. It's surrounded by many fields, most of them infested by huge rats. There is a relatively calm, somewhat small river south of it with no bridges over it, and with some old structures on the other side, clearly not used for years if not longer. Many villagers seem to have nothing to do and are just sitting around.
+↕
+Current work & saving
+
+No work running.
+
+Saving available.
+
+↕
+Local actions
+Waypost supply clerk
+Clerk purse: 180 coins. Paid so far: 0. Supplies change hands immediately; no shift, promotion or patrol credit. After one Infested field clear the clerk offers free repair notes, or buy a copy for 10 coins.
+Ask for repair notes (one field clear)Buy repair notes (10 coins)
+Learned item sources
+Cheap iron axe: villageElder (observed, contact)
+Rat tail: Infested field (observed, drop)
+Old pickaxe: oldCraftsman (observed, contact)
+Old axe: oldCraftsman (observed, contact)
+Old sickle: oldCraftsman (observed, contact)
+Old shovel: oldCraftsman (observed, contact)
+Rough wood log: Village (observed, gather)
+Tree sap: Village (observed, gather)
+directions Move somewhere else
+directions Fast travel
+construction Try to craft something
+question_answer Talk to someone
+work_outline Find work
+fitness_center Train
+search Gather resources
+Optional pacing
+Equipment condition and repair
+Elemental preparation
+Local life
+↕
+Work Ledger
+Work ledger
+↕
+Journal & received accounts
+Quests
+Bestiary
+Anthology
+Data
+Notebook
+Lost memory
+Shared field workshop
+Hide completed 
+↕
+Skills & practice
+keyboard_double_arrow_downCombat skills
+keyboard_arrow_up
+keyboard_arrow_down
+keyboard_double_arrow_downEnvironmental skills
+keyboard_arrow_up
+keyboard_arrow_down
+keyboard_double_arrow_downCharacter skills
+keyboard_arrow_up
+keyboard_arrow_down
+keyboard_double_arrow_downGathering skills
+keyboard_arrow_up
+keyboard_arrow_down
+ Hide max level skills
+Sort by name
+Sort by level
+Sort by progress
+Skills
+Stances
+Magic
+↕
+Reports
+World events
+Recent news
+Remembered years · 3 memories
+Remember this day
+
+Years remembered
+Village neighbors
+Saved the game manually
+Saved the game manually
+[ Entering Village ]
+Saved the game manually
+Saved the game manually
+Saved the game manually
+Saved the game manually
+Saved the game manually
+Saved the game manually
+Saved the game manually
+Saved the game manually
+Saved the game manually
+Saved the game manually
+Saved the game manually
+Saved the game manually
+Saved the game manually
+Levels / unlocks
+Events
+Crafting
+Combat
+Loot
+BGM
+↕
+Optional worlds
+↕
+Your beginning
+↕
+Patrol & custody
+↕
+People you know
+People you know
+
+What you have learned and what happened between you. Locations are last known or agreed, rather than live reports.
+
+Village elder
+Old craftsman
+Iona, visiting parcel clerk
+Eda, sluice fitter
+Vela, Village instrument maker
+Neri, resident kit binder
+Hessa, household steward
+Orr, household craftsperson
+Vale, household apprentice
+Save
+Export
+Import
+settings
+v0.6
+help_outline

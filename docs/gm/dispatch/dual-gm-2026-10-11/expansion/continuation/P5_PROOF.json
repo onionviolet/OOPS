@@ -1,0 +1,68 @@
+{
+  "schema": "world1-final-edition-proof-1",
+  "bundleSha256": "72282ab0a729715b6d413b1d213a61cd5cb1d94062181042b953b199d93911b7",
+  "sourceTests": {
+    "pass": 394,
+    "fail": 0
+  },
+  "naturalJourneys": [
+    {
+      "id": "ST03",
+      "status": "PASS",
+      "wallMs": 53403,
+      "fixtureEnrichment": false
+    },
+    {
+      "id": "ST04",
+      "status": "PASS",
+      "wallMs": 72750,
+      "fixtureEnrichment": false
+    }
+  ],
+  "nativeBoundaryGroups": {
+    "originPersistence": 14,
+    "consumerConditionAndLegacy": 13,
+    "durableTransaction": 6,
+    "actualNativeCombatKnockoutRecovery": 1,
+    "total": 34,
+    "failed": 0
+  },
+  "observerDisplayCases": {
+    "pass": 8,
+    "fail": 0,
+    "scope": "Expanded actual native DOM, plain text, titles and aria-labels under normal/reduced-motion/unstyled/decoration-off browser conditions; no new application VFX-mode claim"
+  },
+  "privateReceipts": [
+    {
+      "path": "/Users/weiwei/.codex/worktrees/world1-completion/yet-another-idle-rpg/docs/research/novels/world-depth-2026-10-11/continuation/final-natural-proof-private.json",
+      "sha256": "15c84666c0b914f184309627af6f5b7c88edc79f2ba22c429420553eba93d9da"
+    },
+    {
+      "path": "/Users/weiwei/.codex/worktrees/world1-completion/yet-another-idle-rpg/docs/research/novels/world-depth-2026-10-11/continuation/final-origin-boundaries-private.json",
+      "sha256": "1b91ef016a6bcaf274e8b4d35e2a9dfe46f7773f43f1fc7c5bba45cecd289a84"
+    },
+    {
+      "path": "/Users/weiwei/.codex/worktrees/world1-completion/yet-another-idle-rpg/docs/research/novels/world-depth-2026-10-11/continuation/final-consumer-boundaries-private.json",
+      "sha256": "ccd45a54e1a21eb1074bfc637aee33bc4b302fe1f06e124b3d66a15b4c949155"
+    },
+    {
+      "path": "/Users/weiwei/.codex/worktrees/world1-completion/yet-another-idle-rpg/docs/research/novels/world-depth-2026-10-11/continuation/final-transaction-boundaries-private.json",
+      "sha256": "b53f0f495abba0d96a81bf964ea586667d89c7f544924ba60bc5dfa264db58cb"
+    },
+    {
+      "path": "/Users/weiwei/.codex/worktrees/world1-completion/yet-another-idle-rpg/docs/research/novels/world-depth-2026-10-11/continuation/final-combat-proof-private.json",
+      "sha256": "bc313b70d66dd78bfe083a8904ec9be83e23a4e880ea0abbf34f2bf9b666ef11"
+    },
+    {
+      "path": "/Users/weiwei/.codex/worktrees/world1-completion/yet-another-idle-rpg/docs/research/novels/world-depth-2026-10-11/continuation/final-display-proof-private.json",
+      "sha256": "583a89725f1e686c7198b4e18a5b124f3e91bc2371eb085e5eab3fcca9880ff2"
+    }
+  ],
+  "review": "Two independent bounded source findings and actual native Bio mismatch repaired; current source/API/native guards verified. Final receipt lifetime binding reviewed by root and tested.",
+  "legacy": "Original scalar and p02/p03 remain exact; actual generated native reload/file import passes. Earlier prototype typed receipts remain exact without invented lifetime conversion; current receipts bind actual lifetime/body instance.",
+  "remaining": [
+    "Shared original-source integration remains excluded until incumbent release",
+    "Director fiction, balance and pacing acceptance remains human-only",
+    "Broader starts, variants, mature source horizon and VFX remain retained future tranches"
+  ]
+}

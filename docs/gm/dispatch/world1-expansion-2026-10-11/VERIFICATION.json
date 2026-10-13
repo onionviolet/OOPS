@@ -1,0 +1,39 @@
+{
+  "candidate": "/Users/weiwei/.codex/worktrees/world1-completion/yet-another-idle-rpg",
+  "sourceTests": {
+    "passed": 399,
+    "failed": 0
+  },
+  "files": {
+    "src/structured_pack_runtime.js": "bb6ade4f21ee6312d3e968ac7e8e64c43fe94f3c0bf839f012b219b19256f9a1",
+    "src/structured_pack_ui.js": "9059e0c25855d0065357044b58846f71dbe3190dadf4289e73cae5b48b2d9c82",
+    "tests/structured_pack_runtime.test.js": "008e9ae9922517eff1002603c09cb7bfcf1354edb89f726d3480d4ac4ac8e0f1",
+    "tests/structured_pack_ui.test.js": "e1a266971c0f8129d62762ae988de327ec6d423564e85a7300b3fc7ca804a365",
+    "dist/bundle.js": "29f6f41efab629de503dc839324a7f9c441f890ea1d2faac6502f5dac6ca1aa0",
+    "index.html": "123a0b9abcaf83a77ce445503b4bda0ee4dcf7888a4a3a885f9a48114be08ad4",
+    "dist/bundle.js.map": "34bbfaeea649200b5b36b45d76070ae910e914ec807150a33b092c9f3f4f0e3d"
+  },
+  "privateProofFiles": {
+    "docs/research/novels/world-depth-2026-10-11/further-ui/PROOF.json": "c709f3e2d8de068a12490193f1d038bd52819baad2e5061aaac2f8785b7fcdb9",
+    "docs/research/novels/world-depth-2026-10-11/further-food/NATIVE.json": "ff2e3cd8b58918ccb6959f24384deedcaf4a11813ec887b92282b909df3244fd",
+    "docs/research/novels/world-depth-2026-10-11/further-food/RECOVERY.json": "b8a3306379d86f20092ceb92b84c3700b97fedbf07a5e47ae3bfa4ea51673165",
+    "docs/research/novels/world-depth-2026-10-11/further-food/PROBE.json": "1e89ddfcc33bc21213697ba6d39c551433ae4bae55bf3d23cb89907be5012bf2",
+    "docs/research/novels/world-depth-2026-10-11/further-food/final-natural-proof-private.json": "8fc380c628f96f02b95cd4570e070df621399cab30f1b373c4d415a82820b9de"
+  },
+  "nativeUiGroups": 7,
+  "foodNativeBeginnings": 2,
+  "foodNativeReloadImport": true,
+  "existingP04NativeLoad": true,
+  "missingMalformedContentRestorationCases": 4,
+  "privateEngineCases": 10,
+  "inheritedNaturalRoutes": {
+    "beginnings": 2,
+    "status": "PASS",
+    "scope": "actual ordinary/function continued work and renewal with native control and atomic retained-domain comparison; no enriched progress"
+  },
+  "preview": "http://127.0.0.1:18553/",
+  "integration": "isolated candidate; shared source unchanged",
+  "commitPush": "not performed",
+  "independentUiReview": "pass; 13 focused checks; no native browser rerun by reviewer",
+  "finalRebuild": "passed; comment-only clarification leaves executable bundle byte-identical to browser-tested bundle"
+}

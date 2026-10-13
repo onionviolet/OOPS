@@ -1,0 +1,25 @@
+{
+  "inputs": [
+    {
+      "path": "docs/RULES_FROM_SCRATCH.md",
+      "sha256": "301945dadb33383063f17264718acc73be07a8d8be17cbbe1ac079bb57d6ae46"
+    },
+    {
+      "path": "PROJECT.md",
+      "sha256": "46dab6f21ff9801bf1512b37b82582ed2ce49e37680736723187afdc6980be45"
+    },
+    {
+      "path": "docs/WORLD_COMPLETION_STANDARD.md",
+      "sha256": "e3c8ddc8c559204736d2ff5d8efdfd1e1f769fdbc5bc8ed2c6c86862169b2bf4"
+    },
+    {
+      "path": "docs/GAME_MASTER_PROMPT.md",
+      "sha256": "9524d382c81a981af02bd2cf9288f410fe9a09b9c6f8d99f7075c6245653de56"
+    },
+    {
+      "path": "docs/gm/dispatch/harry-potter-craft-research-2026-10-12/REPORT.md",
+      "sha256": "36388028093e32eea28ed45b2ad615191994a6e9a90215821749eb19401bd0ce"
+    }
+  ],
+  "rulebook_preserved_prefix_sha256": "3aee453821becb216b60d526ba012d412fc5767fea58f9123dc9426e90edee19"
+}

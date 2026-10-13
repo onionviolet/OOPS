@@ -1,3 +1,6 @@
+import {applyFoundationInteractionEffect,resolveFoundationDelivery,recordFoundationDelivery} from './foundation_interaction_policy.js';
+import {foundationInteractionProbeFacts} from './foundation_interaction_content.js';
+import {applyContainerEffect,containerFacts,advanceContainerClocks} from './structured_container_runtime.js';
 import {alloyEquipmentFacts} from "./alloy_equipment.js";
 import {steamAbsorptionFacts} from './steam_absorption_facts.js';
 import {steamDFStockCount,recordSteamDFStockMutation} from './steam_df_runtime.js';
@@ -48,6 +51,7 @@ import {stageAcquisition} from "./acquisition.js";
 import {applyGameplayEffect} from "./gameplay_transactions.js";
 import {prepareSimulationEffects, deriveSimulationSeed} from "./simulation_resolution.js";
 import {applyEnergyEffect} from "./energy_resources.js";
+import {canonicalDurabilityKey} from './absorb_e2/durability.js';
 import {applyPursuitEffect,pursuitContact} from "./pursuit.js";
 
 export const participant = (value, context) => value === "$target" ? context.targetId : value === "$actor" || value == null ? context.actorId : value;
@@ -57,21 +61,43 @@ export function inventory(plan, id) {
     const owned = p.inventory === "native" ? plan.gameplay[id]?.inventory : plan.state.simulation.owners[id];
     assert(owned, `No inventory binding for ${id}.`); return owned;
 }
-function writeInventory(plan, id, value) {
+export function writeInventory(plan, id, value) {
     if(person(plan.state, id).inventory === "native") plan.gameplay[id].inventory = value;
     else plan.state.simulation.owners[id] = value;
+}
+// Preserve the actual identified native copy when authored unit keys name its
+// canonical item. An ambiguous collection needs an exact selected copy.
+export function resolveSimulationInventoryKey(rows,key) {
+    if(rows?.[key])return key;
+    const matches=Object.keys(rows||{}).filter(actual=>canonicalDurabilityKey(actual)===key);
+    assert(matches.length<=1,'Choose the exact identified item copy.');
+    return matches[0]||key;
+}
+export function resolveSimulationCostKeys(plan,costs,context) {
+    return costs.map(effect=>{
+        const e=effectContext(effect,context);
+        if(e.type==='item'&&e.amount<0)return {...effect,key:resolveSimulationInventoryKey(inventory(plan,e.actor),e.key)};
+        if(['transfer','custody'].includes(e.type))return {...effect,key:resolveSimulationInventoryKey(inventory(plan,e.from),e.key)};
+        return effect;
+    });
 }
 export function simulationFacts(state, context, registry) {
     const s = state.simulation, actor = context.actorId, a = state.actors[actor];
     assert(s && a, "Enroll the living-world services first.");
     const referenceFacts = referenceGameplayFacts(state, context, registry);
-    const facts = {...context.facts,...gameAbsorptionAssayFacts(state,context,registry),...worldCompletionFacts(state,context),...statusCareFacts(state,context),...fieldCareFacts(state,context),...bookCareFacts(state,context),...lorePracticeFacts(state,context),...causalStoryFacts(state,context),...auditRemainderFacts(state),...relayFacts(state,context),...referenceDeskFacts(state,context),...nestedFacts(state,context,context.nestedNative),...nestedChainFacts(state,context),...nestedLifeFacts(state,context),...paradiseFacts(state,context),...paradiseCampaignFacts(state,context),...molFacts(state,context), ...featureObjectFacts(state,context,registry), ...referenceFacts, ...auditRemainderCombinedFacts(state,{...context,facts:{...context.facts,...referenceFacts,...auditRemainderFacts(state)}},registry), ...auditedWorkshopFacts(state,{...context,facts:{...context.facts,...referenceFacts}},registry), ...nethackFieldcraftFacts(state,context,registry), ...societyFacts(state,context), ...repositoryAbsorptionFacts(state,context), ...featurePowerFacts(state,context), ...featureBattleFacts(state,context), ...tidemarkContext(state,context).facts, ...originalFrontierFacts(state,context,registry), ...realmFacts(state,actor), clock: state.clock, "actor.life": s.people[actor]?.life, "actor.world": a.worldId, "actor.location": context.facts?.location || s.people[actor]?.location};
+    const facts = {...context.facts,...gameAbsorptionAssayFacts(state,context,registry),...worldCompletionFacts(state,context),...statusCareFacts(state,context),...fieldCareFacts(state,context),...bookCareFacts(state,context),...lorePracticeFacts(state,context),...causalStoryFacts(state,context),...auditRemainderFacts(state),...relayFacts(state,context),...referenceDeskFacts(state,context),...nestedFacts(state,context,context.nestedNative),...nestedChainFacts(state,context),...nestedLifeFacts(state,context),...paradiseFacts(state,context),...paradiseCampaignFacts(state,context),...molFacts(state,context), ...featureObjectFacts(state,context,registry), ...referenceFacts, ...auditRemainderCombinedFacts(state,{...context,facts:{...context.facts,...referenceFacts,...auditRemainderFacts(state)}},registry), ...auditedWorkshopFacts(state,{...context,facts:{...context.facts,...referenceFacts}},registry), ...nethackFieldcraftFacts(state,context,registry), ...societyFacts(state,context), ...repositoryAbsorptionFacts(state,context), ...featurePowerFacts(state,context), ...featureBattleFacts(state,context), ...tidemarkContext(state,context).facts, ...originalFrontierFacts(state,context,registry), ...realmFacts(state,actor), clock: state.clock, "actor.life": s.people[actor]?.life, "native.alive": actor==='player'?context.nativeAlive===true:s.people[actor]?.life==='alive', "native.ready":context.nativeReady!==false, "actor.world": a.worldId, "actor.location": context.facts?.location || s.people[actor]?.location};
+    Object.assign(facts,foundationInteractionProbeFacts(state,context));
+    Object.assign(facts,containerFacts(state,context,registry));
     Object.assign(facts, alloyEquipmentFacts(state, context));
     const owned = s.people[actor]?.inventory === "native" ? context.gameplay?.[actor]?.inventory : s.owners[actor];
     Object.assign(facts,homeFurnishingFacts(state,context),crushSocialFacts(state,context),factorioRetortFacts(state,context,registry),proto23Facts(state,context));
     Object.assign(facts,contextualBalmFacts(state,context),coolingRefinementFacts(state,context),agreedDutyFacts(state,context));
     Object.assign(facts,steamAbsorptionFacts(state,context,registry));
     for(const [key,count] of Object.entries(owned || {})) facts[`item.${key}`] = count;
+    for(const [key,count] of Object.entries(owned||{})) {
+        const canonical=canonicalDurabilityKey(key);
+        if(canonical!==key)facts[`item.${canonical}`]=(facts[`item.${canonical}`]||0)+count;
+    }
     facts["actor.busyOrder"] = !!a.facts["work.order"];
     for(const [k,v] of Object.entries(a.facts)) facts[`actor.${k}`] = v;
     for(const [k,v] of Object.entries(a.resources)) facts[`resource.${k}`] = v;
@@ -92,6 +118,7 @@ export function simulationFacts(state, context, registry) {
         facts[`faculty.${id}.active`] = !!present && f.active && f.awakened && !f.suppressed;
         facts[`faculty.${id}.development`] = f.development;
     }
+    for(const [id,definition] of registry?.simulation?.conditions||[])if(definition.absence==='zero')facts[`condition.${id}`]=0;
     for(const [id,c] of Object.entries(s.conditions[actor] || {})) facts[`condition.${id}`] = c.expiresAt == null || c.expiresAt > state.clock ? c.intensity : 0;
     for(const [track,t] of Object.entries(s.progression[actor] || {})) {
         for(const [k,v] of Object.entries(t.values)) facts[`progress.${track}.${k}`] = v;
@@ -104,6 +131,27 @@ export function simulationFacts(state, context, registry) {
         const target = person(state, context.targetId); facts["target.life"] = target.life;
         facts["target.world"] = state.actors[context.targetId].worldId;
         facts["target.location"] = target.location;
+        for(const [key,value] of Object.entries(target.body||{}))facts[`target.body.${key}`]=value;
+        for(const [id,energy] of Object.entries(s.energies?.[context.targetId]||{})) {
+            facts[`target.energy.${id}.known`]=true;
+            facts[`target.energy.${id}.reserve`]=energy.reserve;
+            facts[`target.energy.${id}.strain`]=energy.strain;
+        }
+        for(const [id,faculty] of Object.entries(s.faculties[context.targetId]||{})) {
+            const source=state.actors[context.targetId].sources[id],present=source&&(source.expiresAt==null||source.expiresAt>state.clock);
+            facts[`target.faculty.${id}.active`]=!!present&&faculty.awakened&&faculty.active&&!faculty.suppressed;
+        }
+        // Execution predicates resolve the actual target. These internal facts
+        // do not introduce a person or disclose their condition to an observer.
+        for(const id of registry?.simulation?.conditions?.keys()||[])facts[`target.condition.${id}`]=0;
+        for(const [id,c]of Object.entries(s.conditions[context.targetId]||{}))facts[`target.condition.${id}`]=c.expiresAt==null||c.expiresAt>state.clock?c.intensity:0;
+        for(const [key,v]of Object.entries(context.vitals?.[context.targetId]||target.vitals||{}))facts[`target.vital.${key}`]=v;
+        for(const [key,count]of Object.entries(target.inventory==='native'?context.gameplay?.[context.targetId]?.inventory||{}:s.owners[context.targetId]||{}))facts[`target.item.${key}`]=count;
+        for(const [key,count]of Object.entries(state.actors[context.targetId]?.resources||{}))facts[`target.resource.${key}`]=count;
+        for(const [id,knowledge] of Object.entries(s.knowledge[context.targetId] || {})) {
+            facts[`target.knowledge.${id}.seen`] = true;
+            facts[`target.knowledge.${id}.understood`] = knowledge.stage === 'understood';
+        }
         for(const [k,v] of Object.entries(s.relationships[actor]?.[context.targetId]?.axes || {})) facts[`relationship.${k}`] = v;
         // Only observations are exposed here. Actual hidden builds remain private.
         for(const [k,v] of Object.entries(s.knowledge[actor] || {}).filter(([k]) => k.startsWith(`person.${context.targetId}.`))) facts[k] = v.value;
@@ -126,7 +174,7 @@ export function applySimulationEffects(plan, effects, context, registry, cause, 
     assert(stableId(cause), "Effects need a durable cause.");
     const state = plan.state, s = state.simulation;
     const expanded = [];
-    for(const e of prepareSimulationEffects(effects, simulationFacts(state, {...context, vitals: plan.vitals}), registry, cause)) {
+    for(const e of prepareSimulationEffects(effects, simulationFacts(state, {...context, vitals: plan.vitals},registry), registry, cause)) {
         const roster = context.partyIds || s.party;
         const actors = e.actor === "$party" ? roster : [e.actor];
         const targets = e.target === "$party" ? roster : [e.target];
@@ -142,6 +190,10 @@ export function applySimulationEffects(plan, effects, context, registry, cause, 
         const steamDFBefore=steamDFStockCount(state);
         validateSimulationEffect(original);
         const e = effectContext(original, context), actor = e.actor, p = person(state, actor), a = state.actors[actor];
+        if(e.delivery){const result=resolveFoundationDelivery(state,e,context);recordFoundationDelivery(state,e,context,cause,result);if(!result.allowed)continue;}
+        if(e.type==='foundationInteraction'){applyFoundationInteractionEffect(state,e,context,cause);continue;}
+        if(e.type==='item'&&e.amount<0||e.type==='equipment'&&e.key!=null)e.key=resolveSimulationInventoryKey(inventory(plan,actor),e.key);
+        if(['transfer','custody'].includes(e.type))e.key=resolveSimulationInventoryKey(inventory(plan,e.from),e.key);
         if(spending) assert(["resource", "vital", "item", "transfer", "custody", "energy"].includes(e.type) && (e.type !== "energy" || e.operation === "use") &&
             (!["resource", "vital", "item"].includes(e.type) || e.amount < 0), "Reservations must spend existing means.");
         if(e.type === "spawn") {
@@ -158,11 +210,13 @@ export function applySimulationEffects(plan, effects, context, registry, cause, 
             assert(!causalStoryOccupiesActor(state,actor), 'This actual body remains restrained. Release it before travel.');
             const sourceMove=p.inventory==='native'&&state.bookWorldCampaign&&actor!=='player'&&actor.startsWith('book.paradise.')&&PARADISE_FOOTPRINTS.some(f=>f.worldId===a.worldId&&f.native.locations.includes(e.location));
             const molMove=p.inventory==='native'&&state.motherOfLearning&&actor!=='player'&&actor.startsWith('book.mol.')&&MOL_FOOTPRINTS.some(f=>f.worldId===a.worldId&&f.native.locations.includes(e.location));
-            assert(p.inventory === "simulation" || sourceMove || molMove, "Native travel requires the exact source-world location adapter.");
+            const structuredMove=p.inventory==='native'&&actor==='player'&&context.structuredNative?.bound===true&&context.structuredNative.worldId===a.worldId&&context.structuredNative.locationIds?.includes(e.location)&&context.structuredNative.bodyId===p.body?.id&&p.body?.ownerId==='player'&&p.body?.controllerId==='player'&&p.body?.mobile!==false&&p.life==='alive'&&context.nativeAlive===true;
+            assert(p.inventory === "simulation" || sourceMove || molMove || structuredMove, "Native travel requires the exact source-world location adapter.");
             if(molMove)assert(context.molNative?.bound===true&&context.molNative.revision===state.motherOfLearning.nativeRevision&&p.body?.id===`native.person.${actor}.body`&&p.body.ownerId===actor&&p.body.controllerId===actor&&p.body.mobile!==false&&p.life==='alive','Cyoria movement requires its current actual native body and owners.');
             if(sourceMove)assert(context.paradiseNative?.bound===true&&context.paradiseNative.revision===state.bookWorldCampaign.nativeRevision&&p.body?.id===`native.person.${actor}.body`&&p.body.ownerId===actor&&p.body.controllerId===actor&&p.body.mobile!==false&&p.life==='alive','Source cast movement requires its current actual native body and owners.');
             assert(!state.pending.some(j => j.context.actorId === actor) && !s.jobs.some(j => j.actorId === actor), "Finish reserved work before relocating.");
             p.location = e.location;
+            if(structuredMove){plan.nativeLocation=e.location;plan.nativePatch={...plan.nativePatch,'current location':e.location};}
         } else if(e.type === "situation") applySituationEffect(state,e,registry.simulation,cause);
         else if(e.type === "site") {
             const d = registry.simulation.sites.get(e.siteId); assert(d, "Unsupported site.");
@@ -187,7 +241,8 @@ export function applySimulationEffects(plan, effects, context, registry, cause, 
             }
         } else if(e.type === "fact") {
             const d = e.scope === "actor" ? a : e.scope === "world" ? state.worlds[a.worldId] : state[e.scope]; d.facts[e.key] = e.value;
-        } else if(e.type === "world") {assert(state.worlds[e.worldId], "Unknown effect world."); if(!applyRealmWorldEffect(state,e))state.worlds[e.worldId].facts[e.key] = e.value;}
+        } else if(e.type === "container") applyContainerEffect(plan,e,context,registry,{readInventory:inventory,writeInventory});
+        else if(e.type === "world") {assert(state.worlds[e.worldId], "Unknown effect world."); if(!applyRealmWorldEffect(state,e))state.worlds[e.worldId].facts[e.key] = e.value;}
         else if(e.type === "resource") {
             const resources = e.native ? plan.external : a.resources;
             if(e.native) assert(actor === "player" && e.key === "money", "Unsupported native resource.");
@@ -199,7 +254,7 @@ export function applySimulationEffects(plan, effects, context, registry, cause, 
             const amount = e.amount;
             const custodySafe=e.custodyUse!=null&&worldCompletionLensCustodyUseAllowed(state,e,context);
             if(e.custodyUse!=null)assert(custodySafe,"Use only the exact declared non-consuming lens reservation or restore.");
-            if(amount < 0 && !e.breakCustody && !custodySafe) assert(!Object.values(s.custody).some(c => c.holder === actor && c.key === e.key), "Borrowed goods cannot be consumed without an explicit custody policy.");
+            if(amount < 0 && !e.breakCustody && !custodySafe) assert(!Object.values(s.custody).some(c => c.holder === actor && canonicalDurabilityKey(c.key) === canonicalDurabilityKey(e.key)), "Borrowed goods cannot be consumed without an explicit custody policy.");
             const next = stageAcquisition({owner: inventory(plan, actor)}, amount < 0
                 ? {consumes: [{owner: "owner", key: e.key, count: -amount}]}
                 : {grants: [{owner: "owner", key: e.key, count: amount}]}).owner;
@@ -210,7 +265,7 @@ export function applySimulationEffects(plan, effects, context, registry, cause, 
             assert(e.from !== e.to, "Transfer requires distinct owners.");
             assert(state.actors[e.from].worldId === state.actors[e.to].worldId, "Transfer participants are in different worlds.");
             assert(!Object.values(s.equipment[e.from] || {}).includes(e.key), "Unequip the item before transfer.");
-            if(!e.returning && !e.breakCustody) assert(!Object.values(s.custody).some(c => c.holder === e.from && c.key === e.key), "Borrowed goods cannot be transferred to another claimant.");
+            if(!e.returning && !e.breakCustody) assert(!Object.values(s.custody).some(c => c.holder === e.from && canonicalDurabilityKey(c.key) === canonicalDurabilityKey(e.key)), "Borrowed goods cannot be transferred to another claimant.");
             const owners = stageAcquisition({from: inventory(plan, e.from), to: inventory(plan, e.to)}, {transfers: [{from: "from", to: "to", key: e.key, count: e.count}]});
             writeInventory(plan, e.from, owners.from); writeInventory(plan, e.to, owners.to);
             if(!e.reservationReturn) plan.acquisitions.push({owner: e.to, key: e.key, count: e.count});
@@ -218,7 +273,7 @@ export function applySimulationEffects(plan, effects, context, registry, cause, 
                 if(e.loanId==="lore.instrument.amber"&&e.returning)assert(worldCompletionLensCustodyReturnAllowed(state,e,context),"Return the actual free lens under its exact conserved loan cause.");
                 assert(stableId(e.loanId), "Custody needs a loan ID.");
                 const prior = s.custody[e.loanId];
-                if(e.returning) {assert(prior && prior.owner === e.to && prior.holder === e.from && prior.key === e.key && prior.count === e.count, "Invalid loan return."); delete s.custody[e.loanId];}
+                if(e.returning) {assert(prior && prior.owner === e.to && prior.holder === e.from && canonicalDurabilityKey(prior.key) === canonicalDurabilityKey(e.key) && prior.count === e.count, "Invalid loan return."); delete s.custody[e.loanId];}
                 else {assert(!prior, "Loan already exists."); s.custody[e.loanId] = {owner: e.from, holder: e.to, key: e.key, count: e.count, at: state.clock, cause};}
             }
         } else if(e.type === "xp" || e.type === "reputation") applyGameplayEffect(plan.gameplay, e, actor);
@@ -334,3 +389,5 @@ export function refundCosts(costs, reservationReturn = false) {
     return costs.map(e => e.type === "energy" ? {...e,operation:"refund"} : ["resource", "vital", "item"].includes(e.type) ? {...e, amount: -e.amount, ...(reservationReturn && e.type === "item" ? {reservationReturn:true} : {})}
         : e.type === "transfer" ? {...e, from: e.to, to: e.from, ...(reservationReturn ? {reservationReturn:true} : {})} : {...e, from: e.to, to: e.from, returning: true});
 }
+
+export function advanceNativeContainerClocks(plan,registry,contexts) {return advanceContainerClocks(plan,registry,contexts,{readInventory:inventory,writeInventory});}

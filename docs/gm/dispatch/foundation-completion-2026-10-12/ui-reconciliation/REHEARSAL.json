@@ -1,0 +1,122 @@
+[
+  {
+    "path": "src/main.js",
+    "status": "clean",
+    "currentHash": "0f011b576cc05449f33c900f61a61c9044625060905a933e8334748722eed641"
+  },
+  {
+    "path": "src/save_files.js",
+    "status": "clean",
+    "currentHash": "6be05fcc757617a1304c65c68051042a59cad03216979221f1213d4011b06500"
+  },
+  {
+    "path": "src/display.js",
+    "status": "clean",
+    "currentHash": "ae702d726645f31d818842aae1be2338bb6bb00610a9898e9bffbf0e6799c5fa"
+  },
+  {
+    "path": "src/adventure_notebook.js",
+    "status": "clean",
+    "currentHash": "3047a1aa41f750d5db6bdd70bb9510227a4a8acb65fa5eb19df8ecc399396891"
+  },
+  {
+    "path": "src/village_career_ui.js",
+    "status": "clean",
+    "currentHash": "a15951bd0684a541d7dde5c9df15c71aa6f1e81db541d0ea56f0b855d168a886"
+  },
+  {
+    "path": "src/content_pack_ui.js",
+    "status": "clean",
+    "currentHash": "cc8c792e5d195fdf54643a947be1ad42884b9c64d10b61e2cf88d5dae230a42d"
+  },
+  {
+    "path": "src/structured_pack_ui.js",
+    "status": "clean",
+    "currentHash": "9059e0c25855d0065357044b58846f71dbe3190dadf4289e73cae5b48b2d9c82"
+  },
+  {
+    "path": "src/simulation_ui.js",
+    "status": "clean",
+    "currentHash": "e53504969db77e1b2bb4144ff7e1f0eb4f7716f1645ebb9245f66475481e3b7b"
+  },
+  {
+    "path": "index.html",
+    "status": "conflict",
+    "currentHash": "408961500078c83e3fa838d2c461a8c16ee20a50091ab13334f0722e15a7e210"
+  },
+  {
+    "path": "src/work_ledger_system.js",
+    "status": "new",
+    "currentHash": null
+  },
+  {
+    "path": "src/work_ledger_ui.js",
+    "status": "new",
+    "currentHash": null
+  },
+  {
+    "path": "src/work_ledger_author_ui.js",
+    "status": "new",
+    "currentHash": null
+  },
+  {
+    "path": "src/customization_profiles.js",
+    "status": "new",
+    "currentHash": null
+  },
+  {
+    "path": "src/customization_ui.js",
+    "status": "new",
+    "currentHash": null
+  },
+  {
+    "path": "src/settled_text_effects.js",
+    "status": "new",
+    "currentHash": null
+  },
+  {
+    "path": "src/workspace_layout.js",
+    "status": "new",
+    "currentHash": null
+  },
+  {
+    "path": "src/workspace_state.js",
+    "status": "new",
+    "currentHash": null
+  },
+  {
+    "path": "src/workspace_views.js",
+    "status": "new",
+    "currentHash": null
+  },
+  {
+    "path": "src/component_themes.js",
+    "status": "new",
+    "currentHash": null
+  },
+  {
+    "path": "src/quiet_place_detail.js",
+    "status": "new",
+    "currentHash": null
+  },
+  {
+    "path": "styles/settled_text_effects.css",
+    "status": "new",
+    "currentHash": null
+  },
+  {
+    "path": "styles/customization.css",
+    "status": "new",
+    "currentHash": null
+  },
+  {
+    "path": "styles/workspace.css",
+    "status": "new",
+    "currentHash": null
+  },
+  {
+    "path": "styles/component_themes.css",
+    "status": "new",
+    "currentHash": null
+  }
+]

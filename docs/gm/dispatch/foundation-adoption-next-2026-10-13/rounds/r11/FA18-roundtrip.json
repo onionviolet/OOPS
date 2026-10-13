@@ -1,0 +1,31 @@
+{
+  "outbound": "FA18-outbound.md",
+  "sent": "FA18-sent.md",
+  "conversation_url": "https://chatgpt.com/c/6ace5be0-b124-83e8-82af-e646140342f1",
+  "route": "ordinary signed-in Chrome extension via cua_repl",
+  "model_mode": "ordinary Chat; model name not displayed",
+  "effort": "High,3of3 visibly verified",
+  "previous_effort": "R10High3of3",
+  "sent_at": "2026-10-13T16:27:17.873282+00:00",
+  "captured_at": "2026-10-13T16:29:35.841606+00:00",
+  "capture_complete": true,
+  "failed_attempts": [
+    "Response Copy initially strict multiple-match; no action committed; full response-level last Copy then captured"
+  ],
+  "completion": "Response complete visible, Stop absent; full response-level Copy",
+  "response_chars": 14717,
+  "implementation_authorized": true,
+  "new_chat_dispatched": true,
+  "sha256": {
+    "FA18-outbound.md": "ddc46a4e8e7bb4427a5f5546347f53a411815db28c9829b65e9c0486b2a88bd1",
+    "FA18-sent.md": "e8262d5b7553145ba205dc727f5dc33dc75d6ef2e1380900ed0d99e0e98cf4e9",
+    "FA18-response.md": "23e9ab8ad04acb91bd94948db3672a12f7477ec293b5102a07ddf57103f03b26",
+    "FA18-reconciled.md": "e664fc72a6ae30f56948df167581012d913ec4c7a46e1716d50e10417c5a064c",
+    "RECONCILIATION_NOTES.md": "2aa3f6604eb422a9da4f22c454d1f3eb6c3f6e6114dfa2138d8ea2bc4886d572",
+    "REVIEW_PROOF.png": "c560dd0dfba863addb70eb41678a5011fea2233f9c311927b861e4fc169220cd"
+  },
+  "sent_at_basis": "FA18-sent file timestamp immediately before supported Send",
+  "successor_thread_id": "01a13619-aa57-7ab1-8316-1ff42556a2bd",
+  "hostId": "local",
+  "stage": "review complete reconciled; fresh local successor confirmed"
+}

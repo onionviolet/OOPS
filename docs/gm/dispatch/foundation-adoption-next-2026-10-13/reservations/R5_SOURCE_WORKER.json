@@ -1,0 +1,11 @@
+{
+  "status": "complete-released",
+  "integrator": "01a13475-d052-7320-b98e-0d5cedf58838",
+  "worker": "fa10_source",
+  "scope": [
+    "rounds/r5/SOURCE_REVIEW.md",
+    "rounds/r5/SOURCE_TESTS.txt",
+    "tests/fa10_manual.test.js"
+  ],
+  "production": "read only"
+}

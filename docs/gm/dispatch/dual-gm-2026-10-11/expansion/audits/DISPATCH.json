@@ -1,0 +1,57 @@
+{
+  "schema": "world1-followup-audit-dispatch-1",
+  "date": "2026-10-11",
+  "authorization": "User: send out accordingly, following five audit priorities and recommended paired execution",
+  "state": "all three lanes dispatched and observed active; results incomplete",
+  "assignment": "ASSIGNMENT.md",
+  "rootOwner": "/root in World expansion GM; owns top-level assignment/status and later joins only",
+  "lanes": [
+    {
+      "auditIds": [
+        "A1"
+      ],
+      "worker": "/root/source_leaves",
+      "dispatchTool": "collaboration.followup_task",
+      "observed": "running, acknowledged reservation; initial public checkpoint saved",
+      "publicOwner": "docs/gm/dispatch/dual-gm-2026-10-11/expansion/audits/source-v1",
+      "privateOwner": "docs/research/novels/world-depth-2026-10-11/audits/source-v1/",
+      "boundary": "First supplied volume Ch1\u201358; remaining four volumes explicitly later; source library read-only"
+    },
+    {
+      "auditIds": [
+        "A2",
+        "A3",
+        "A4"
+      ],
+      "worker": "/root/starts_continuity",
+      "dispatchTool": "collaboration.followup_task",
+      "observed": "running; public/private initial checkpoints present",
+      "publicOwner": "docs/gm/dispatch/dual-gm-2026-10-11/expansion/audits/journey",
+      "privateOwner": "docs/research/novels/world-depth-2026-10-11/audits/journey/",
+      "boundary": "One ordinary adult candidate and comparative means/function routes with connected established/mature consequences; exact selected family remainder explicit"
+    },
+    {
+      "auditIds": [
+        "A5"
+      ],
+      "threadId": "01a1297f-255e-74e0-bf56-9fb646acd29e",
+      "hostId": "local",
+      "title": "Ready implementation GM",
+      "dispatchTool": "send_message_to_thread",
+      "observed": "active/inProgress; wait_threads snapshot acknowledged separate audit checkout/reservation before native journey",
+      "waitCursor": "63e35388-d80b-4cdb-9a2b-132ddf6ba9db:3",
+      "publicOwner": "docs/gm/dispatch/dual-gm-2026-10-11/expansion/audits/native-proof",
+      "privateOwner": "docs/research/novels/world-depth-2026-10-11/audits/native-proof/",
+      "boundary": "P1 current installed private-world native duty/storage/return proof, generated saves and disclosure/failure cases; no shared source/pack fixes or XP candidate changes"
+    }
+  ],
+  "frozenPriorDelivery": "Read-only; additive audits do not retroactively change its scope or checks",
+  "sourceTruth": "All exact source identity, hidden outcomes and revealing fixtures/logs stay private ignored",
+  "completion": "None of the new audits complete; actual returns require later root integration",
+  "inputHashes": {
+    "docs/gm/dispatch/dual-gm-2026-10-11/expansion/AUDIT_PRIORITIES.md": "a99b5e8bb619cde5a91086637e4e23021aa65b28a57da76573969d8a96b0f56c",
+    "docs/gm/dispatch/dual-gm-2026-10-11/expansion/audits/ASSIGNMENT.md": "4840a13c6ef02ab4803e3093253ae3096c797c25b87d41c071a8678285e5df5a",
+    "docs/gm/dispatch/dual-gm-2026-10-11/expansion/DETAIL_LEDGER.json": "c14f459867cefd871b63e08105ad9264803b9bbb722fa396687e6a9195dba230",
+    "docs/gm/dispatch/dual-gm-2026-10-11/expansion/PACKETS.md": "5b22636bfbd72fd659a93f2c090d603490d8cf3daef6131a5d713e9999d1ce1a"
+  }
+}

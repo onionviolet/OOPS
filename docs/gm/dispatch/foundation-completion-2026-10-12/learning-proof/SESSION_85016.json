@@ -1,0 +1,35 @@
+{
+  "pid": 85016,
+  "origin": "http://127.0.0.1:18643",
+  "startedHash": "bd1e547f019aecc03aeddce61b9cb1192fd21599b6c269aef7efc0c1b2f41c02",
+  "endedHash": "bd1e547f019aecc03aeddce61b9cb1192fd21599b6c269aef7efc0c1b2f41c02",
+  "events": [
+    {
+      "action": "panel",
+      "selector": "#feature_expansion_panel"
+    },
+    {
+      "action": "click",
+      "selector": "#feature_expansion_panel summary:has-text('Local projects and commissions')"
+    },
+    {
+      "action": "click",
+      "name": "Explore optional local projects and commissions",
+      "exact": false
+    },
+    {
+      "action": "save",
+      "name": "worker-audit-enrolled"
+    },
+    {
+      "action": "reload"
+    },
+    {
+      "action": "save",
+      "name": "worker-audit-projection-blocker"
+    }
+  ],
+  "errors": [
+    "Unknown simulation participant partyPartner."
+  ]
+}

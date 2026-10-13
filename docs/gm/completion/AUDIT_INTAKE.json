@@ -1,0 +1,2254 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-11",
+  "status": "inventory-only",
+  "purpose": "Bounded public artifact intake for later idea-level reconciliation and section classification. Existing source owners remain authoritative for their stated evidence.",
+  "scope": {
+    "root": "docs/research",
+    "discovery_command": "rg --files docs/research",
+    "comprehensive_project_audit_inventory": false,
+    "reads": "Path names only; no idea extraction or document-content acceptance claims.",
+    "visibility": "rg-visible files respecting ignore rules; ignored private novels are not enumerated.",
+    "selection": "Markdown and JSON artifacts with audit, report, packets, findings, small_touches, proposals, reconciliation, coverage, review, validation or intake in their basename, plus the explicit related_research_detail whitelist.",
+    "related_research_detail_whitelist": [
+      "DEATH_AND_RESET_CONSIDERATIONS_2026-10-10.md",
+      "DEEPER_RESEARCH.md",
+      "IDEAS.md",
+      "LIVING_BESIDE_PROTAGONISTS_2026-10-10.md",
+      "MATURE_SYSTEMS_SURVEY.md",
+      "NEW_MECHANICS.md",
+      "PROTO23_VS_YAIRPG_2026-10-10.md",
+      "SCAN.md",
+      "SCIFI_AND_JOJO_PLAN_2026-10-10.md",
+      "SURVEY.md",
+      "TROPE_ATLAS.md",
+      "YAIRPG_STATE_AND_GAPS.md"
+    ],
+    "excluded": "Private novels; sealed/raw/history/reader/captured/source-trace directories; scripts and non-documents; DIGEST_ source summaries and named capture/request indexes. Excluded counts concern rg-visible files only.",
+    "other_project_owners": "Only the three requested prior owners are linked here; docs/worlds, docs/gm wave backlogs and other project audits are not covered by the research scan."
+  },
+  "coverage": {
+    "visible_research_files_scanned": 1044,
+    "included_artifact_count": 396,
+    "source_family_count": 66,
+    "excluded_visible_file_count": 648,
+    "excluded_visible_files_by_reason": {
+      "excluded_directory": 214,
+      "non_document_or_script": 37,
+      "outside_bounded_name_selection": 276,
+      "source_digest_or_capture_index": 121
+    },
+    "private_or_ignored_file_count": null,
+    "idea_extraction": "pending",
+    "section_classification": "pending",
+    "duplicate_idea_reconciliation": "pending",
+    "conflict_resolution": "pending",
+    "implementation_verification": "not_assessed",
+    "world_completion": "not_assessed"
+  },
+  "source_families": [
+    {
+      "family": "_cross-cutting",
+      "root": "docs/research",
+      "coverage_status": "inventory-only",
+      "idea_extraction_status": "pending",
+      "section_classification_status": "pending",
+      "artifacts": [
+        {
+          "path": "docs/research/AUDIT_CANDIDATES_2026-10-10.md",
+          "artifact_role": "audit"
+        },
+        {
+          "path": "docs/research/DEATH_AND_RESET_CONSIDERATIONS_2026-10-10.md",
+          "artifact_role": "related_research_detail"
+        },
+        {
+          "path": "docs/research/LIVING_BESIDE_PROTAGONISTS_2026-10-10.md",
+          "artifact_role": "related_research_detail"
+        },
+        {
+          "path": "docs/research/SCIFI_AND_JOJO_PLAN_2026-10-10.md",
+          "artifact_role": "related_research_detail"
+        },
+        {
+          "path": "docs/research/granular_audit_inputs_2026-10-02.json",
+          "artifact_role": "audit"
+        }
+      ]
+    },
+    {
+      "family": "alchemy-2026-10-10",
+      "root": "docs/research/alchemy-2026-10-10",
+      "coverage_status": "inventory-only",
+      "idea_extraction_status": "pending",
+      "section_classification_status": "pending",
+      "artifacts": [
+        {
+          "path": "docs/research/alchemy-2026-10-10/SCAN.md",
+          "artifact_role": "related_research_detail"
+        }
+      ]
+    },
+    {
+      "family": "amazing-cultivation-simulator",
+      "root": "docs/research/amazing-cultivation-simulator",
+      "coverage_status": "inventory-only",
+      "idea_extraction_status": "pending",
+      "section_classification_status": "pending",
+      "artifacts": [
+        {
+          "path": "docs/research/amazing-cultivation-simulator/COVERAGE.json",
+          "artifact_role": "coverage_evidence"
+        },
+        {
+          "path": "docs/research/amazing-cultivation-simulator/DEEPER_RESEARCH.md",
+          "artifact_role": "related_research_detail"
+        },
+        {
+          "path": "docs/research/amazing-cultivation-simulator/DLC_COVERAGE.json",
+          "artifact_role": "coverage_evidence"
+        },
+        {
+          "path": "docs/research/amazing-cultivation-simulator/FINDINGS.json",
+          "artifact_role": "findings"
+        },
+        {
+          "path": "docs/research/amazing-cultivation-simulator/IMPLEMENTATION_PACKETS.md",
+          "artifact_role": "implementation_packets"
+        },
+        {
+          "path": "docs/research/amazing-cultivation-simulator/INTAKE.json",
+          "artifact_role": "source_intake_evidence"
+        },
+        {
+          "path": "docs/research/amazing-cultivation-simulator/PACKETS.json",
+          "artifact_role": "implementation_packets"
+        },
+        {
+          "path": "docs/research/amazing-cultivation-simulator/REPORT.md",
+          "artifact_role": "report"
+        },
+        {
+          "path": "docs/research/amazing-cultivation-simulator/REVIEW.json",
+          "artifact_role": "review_evidence"
+        },
+        {
+          "path": "docs/research/amazing-cultivation-simulator/VALIDATION.json",
+          "artifact_role": "validation_evidence"
+        }
+      ]
+    },
+    {
+      "family": "ani-idle",
+      "root": "docs/research/ani-idle",
+      "coverage_status": "inventory-only",
+      "idea_extraction_status": "pending",
+      "section_classification_status": "pending",
+      "artifacts": [
+        {
+          "path": "docs/research/ani-idle/COVERAGE.json",
+          "artifact_role": "coverage_evidence"
+        },
+        {
+          "path": "docs/research/ani-idle/FINDINGS.json",
+          "artifact_role": "findings"
+        },
+        {
+          "path": "docs/research/ani-idle/IMPLEMENTATION_PACKETS.md",
+          "artifact_role": "implementation_packets"
+        },
+        {
+          "path": "docs/research/ani-idle/INTAKE.json",
+          "artifact_role": "source_intake_evidence"
+        },
+        {
+          "path": "docs/research/ani-idle/REPORT.md",
+          "artifact_role": "report"
+        }
+      ]
+    },
+    {
+      "family": "battle-brothers",
+      "root": "docs/research/battle-brothers",
+      "coverage_status": "inventory-only",
+      "idea_extraction_status": "pending",
+      "section_classification_status": "pending",
+      "artifacts": [
+        {
+          "path": "docs/research/battle-brothers/COVERAGE.json",
+          "artifact_role": "coverage_evidence"
+        },
+        {
+          "path": "docs/research/battle-brothers/DLC_COVERAGE.json",
+          "artifact_role": "coverage_evidence"
+        },
+        {
+          "path": "docs/research/battle-brothers/FINDINGS.json",
+          "artifact_role": "findings"
+        },
+        {
+          "path": "docs/research/battle-brothers/IMPLEMENTATION_PACKETS.md",
+          "artifact_role": "implementation_packets"
+        },
+        {
+          "path": "docs/research/battle-brothers/INTAKE.md",
+          "artifact_role": "source_intake_evidence"
+        },
+        {
+          "path": "docs/research/battle-brothers/REPORT.md",
+          "artifact_role": "report"
+        },
+        {
+          "path": "docs/research/battle-brothers/REVIEWED_SOURCES.json",
+          "artifact_role": "review_evidence"
+        },
+        {
+          "path": "docs/research/battle-brothers/SMALL_TOUCHES.md",
+          "artifact_role": "proposal_details"
+        },
+        {
+          "path": "docs/research/battle-brothers/VALIDATION.json",
+          "artifact_role": "validation_evidence"
+        }
+      ]
+    },
+    {
+      "family": "bitburner",
+      "root": "docs/research/bitburner",
+      "coverage_status": "inventory-only",
+      "idea_extraction_status": "pending",
+      "section_classification_status": "pending",
+      "artifacts": [
+        {
+          "path": "docs/research/bitburner/COVERAGE.json",
+          "artifact_role": "coverage_evidence"
+        },
+        {
+          "path": "docs/research/bitburner/FINDINGS.json",
+          "artifact_role": "findings"
+        },
+        {
+          "path": "docs/research/bitburner/IMPLEMENTATION_PACKETS.md",
+          "artifact_role": "implementation_packets"
+        },
+        {
+          "path": "docs/research/bitburner/INTAKE.json",
+          "artifact_role": "source_intake_evidence"
+        },
+        {
+          "path": "docs/research/bitburner/REPORT.md",
+          "artifact_role": "report"
+        }
+      ]
+    },
+    {
+      "family": "book-of-hours",
+      "root": "docs/research/book-of-hours",
+      "coverage_status": "inventory-only",
+      "idea_extraction_status": "pending",
+      "section_classification_status": "pending",
+      "artifacts": [
+        {
+          "path": "docs/research/book-of-hours/COVERAGE.json",
+          "artifact_role": "coverage_evidence"
+        },
+        {
+          "path": "docs/research/book-of-hours/DLC_COVERAGE.json",
+          "artifact_role": "coverage_evidence"
+        },
+        {
+          "path": "docs/research/book-of-hours/FINDINGS.json",
+          "artifact_role": "findings"
+        },
+        {
+          "path": "docs/research/book-of-hours/IMPLEMENTATION_PACKETS.md",
+          "artifact_role": "implementation_packets"
+        },
+        {
+          "path": "docs/research/book-of-hours/INTAKE.json",
+          "artifact_role": "source_intake_evidence"
+        },
+        {
+          "path": "docs/research/book-of-hours/PACKETS.json",
+          "artifact_role": "implementation_packets"
+        },
+        {
+          "path": "docs/research/book-of-hours/REPORT.md",
+          "artifact_role": "report"
+        }
+      ]
+    },
+    {
+      "family": "caves-of-qud",
+      "root": "docs/research/caves-of-qud",
+      "coverage_status": "inventory-only",
+      "idea_extraction_status": "pending",
+      "section_classification_status": "pending",
+      "artifacts": [
+        {
+          "path": "docs/research/caves-of-qud/FINDINGS.json",
+          "artifact_role": "findings"
+        },
+        {
+          "path": "docs/research/caves-of-qud/INTAKE.json",
+          "artifact_role": "source_intake_evidence"
+        },
+        {
+          "path": "docs/research/caves-of-qud/NPC_FINDINGS.json",
+          "artifact_role": "findings"
+        },
+        {
+          "path": "docs/research/caves-of-qud/REPORT.md",
+          "artifact_role": "report"
+        },
+        {
+          "path": "docs/research/caves-of-qud/VALIDATION.json",
+          "artifact_role": "validation_evidence"
+        }
+      ]
+    },
+    {
+      "family": "citizen-sleeper",
+      "root": "docs/research/citizen-sleeper",
+      "coverage_status": "inventory-only",
+      "idea_extraction_status": "pending",
+      "section_classification_status": "pending",
+      "artifacts": [
+        {
+          "path": "docs/research/citizen-sleeper/COVERAGE.json",
+          "artifact_role": "coverage_evidence"
+        },
+        {
+          "path": "docs/research/citizen-sleeper/FINDINGS.json",
+          "artifact_role": "findings"
+        },
+        {
+          "path": "docs/research/citizen-sleeper/IMPLEMENTATION_PACKETS.md",
+          "artifact_role": "implementation_packets"
+        },
+        {
+          "path": "docs/research/citizen-sleeper/INTAKE.json",
+          "artifact_role": "source_intake_evidence"
+        },
+        {
+          "path": "docs/research/citizen-sleeper/REPORT.md",
+          "artifact_role": "report"
+        },
+        {
+          "path": "docs/research/citizen-sleeper/SMALL_TOUCHES.md",
+          "artifact_role": "proposal_details"
+        },
+        {
+          "path": "docs/research/citizen-sleeper/SOURCE_VALIDATION.json",
+          "artifact_role": "validation_evidence"
+        },
+        {
+          "path": "docs/research/citizen-sleeper/VALIDATION.json",
+          "artifact_role": "validation_evidence"
+        }
+      ]
+    },
+    {
+      "family": "citizen-sleeper-2",
+      "root": "docs/research/citizen-sleeper-2",
+      "coverage_status": "inventory-only",
+      "idea_extraction_status": "pending",
+      "section_classification_status": "pending",
+      "artifacts": [
+        {
+          "path": "docs/research/citizen-sleeper-2/COVERAGE.json",
+          "artifact_role": "coverage_evidence"
+        },
+        {
+          "path": "docs/research/citizen-sleeper-2/FINDINGS.json",
+          "artifact_role": "findings"
+        },
+        {
+          "path": "docs/research/citizen-sleeper-2/IMPLEMENTATION_PACKETS.md",
+          "artifact_role": "implementation_packets"
+        },
+        {
+          "path": "docs/research/citizen-sleeper-2/INTAKE.json",
+          "artifact_role": "source_intake_evidence"
+        },
+        {
+          "path": "docs/research/citizen-sleeper-2/REPORT.md",
+          "artifact_role": "report"
+        },
+        {
+          "path": "docs/research/citizen-sleeper-2/SMALL_TOUCHES.md",
+          "artifact_role": "proposal_details"
+        },
+        {
+          "path": "docs/research/citizen-sleeper-2/SOURCE_VALIDATION.json",
+          "artifact_role": "validation_evidence"
+        },
+        {
+          "path": "docs/research/citizen-sleeper-2/VALIDATION.json",
+          "artifact_role": "validation_evidence"
+        }
+      ]
+    },
+    {
+      "family": "comics",
+      "root": "docs/research/comics",
+      "coverage_status": "inventory-only",
+      "idea_extraction_status": "pending",
+      "section_classification_status": "pending",
+      "artifacts": [
+        {
+          "path": "docs/research/comics/REPORT.md",
+          "artifact_role": "report"
+        }
+      ]
+    },
+    {
+      "family": "crusader-kings-3",
+      "root": "docs/research/crusader-kings-3",
+      "coverage_status": "inventory-only",
+      "idea_extraction_status": "pending",
+      "section_classification_status": "pending",
+      "artifacts": [
+        {
+          "path": "docs/research/crusader-kings-3/COVERAGE.json",
+          "artifact_role": "coverage_evidence"
+        },
+        {
+          "path": "docs/research/crusader-kings-3/DLC_COVERAGE.json",
+          "artifact_role": "coverage_evidence"
+        },
+        {
+          "path": "docs/research/crusader-kings-3/FINDINGS.json",
+          "artifact_role": "findings"
+        },
+        {
+          "path": "docs/research/crusader-kings-3/IMPLEMENTATION_PACKETS.json",
+          "artifact_role": "implementation_packets"
+        },
+        {
+          "path": "docs/research/crusader-kings-3/INTAKE.json",
+          "artifact_role": "source_intake_evidence"
+        },
+        {
+          "path": "docs/research/crusader-kings-3/REPORT.md",
+          "artifact_role": "report"
+        }
+      ]
+    },
+    {
+      "family": "crush-crush",
+      "root": "docs/research/crush-crush",
+      "coverage_status": "inventory-only",
+      "idea_extraction_status": "pending",
+      "section_classification_status": "pending",
+      "artifacts": [
+        {
+          "path": "docs/research/crush-crush/COVERAGE.json",
+          "artifact_role": "coverage_evidence"
+        },
+        {
+          "path": "docs/research/crush-crush/DLC_COVERAGE.json",
+          "artifact_role": "coverage_evidence"
+        },
+        {
+          "path": "docs/research/crush-crush/FINDINGS.json",
+          "artifact_role": "findings"
+        },
+        {
+          "path": "docs/research/crush-crush/IMPLEMENTATION_PACKETS.md",
+          "artifact_role": "implementation_packets"
+        },
+        {
+          "path": "docs/research/crush-crush/INTAKE.json",
+          "artifact_role": "source_intake_evidence"
+        },
+        {
+          "path": "docs/research/crush-crush/PACKETS.json",
+          "artifact_role": "implementation_packets"
+        },
+        {
+          "path": "docs/research/crush-crush/REPORT.md",
+          "artifact_role": "report"
+        }
+      ]
+    },
+    {
+      "family": "cult-of-the-lamb",
+      "root": "docs/research/cult-of-the-lamb",
+      "coverage_status": "inventory-only",
+      "idea_extraction_status": "pending",
+      "section_classification_status": "pending",
+      "artifacts": [
+        {
+          "path": "docs/research/cult-of-the-lamb/COVERAGE.json",
+          "artifact_role": "coverage_evidence"
+        },
+        {
+          "path": "docs/research/cult-of-the-lamb/DLC_COVERAGE.json",
+          "artifact_role": "coverage_evidence"
+        },
+        {
+          "path": "docs/research/cult-of-the-lamb/FINDINGS.json",
+          "artifact_role": "findings"
+        },
+        {
+          "path": "docs/research/cult-of-the-lamb/IMPLEMENTATION_PACKETS.md",
+          "artifact_role": "implementation_packets"
+        },
+        {
+          "path": "docs/research/cult-of-the-lamb/INTAKE.json",
+          "artifact_role": "source_intake_evidence"
+        },
+        {
+          "path": "docs/research/cult-of-the-lamb/PACKETS.json",
+          "artifact_role": "implementation_packets"
+        },
+        {
+          "path": "docs/research/cult-of-the-lamb/REPORT.md",
+          "artifact_role": "report"
+        },
+        {
+          "path": "docs/research/cult-of-the-lamb/VALIDATION.json",
+          "artifact_role": "validation_evidence"
+        }
+      ]
+    },
+    {
+      "family": "cultist-simulator",
+      "root": "docs/research/cultist-simulator",
+      "coverage_status": "inventory-only",
+      "idea_extraction_status": "pending",
+      "section_classification_status": "pending",
+      "artifacts": [
+        {
+          "path": "docs/research/cultist-simulator/COVERAGE.json",
+          "artifact_role": "coverage_evidence"
+        },
+        {
+          "path": "docs/research/cultist-simulator/DLC_COVERAGE.json",
+          "artifact_role": "coverage_evidence"
+        },
+        {
+          "path": "docs/research/cultist-simulator/FINDINGS.json",
+          "artifact_role": "findings"
+        },
+        {
+          "path": "docs/research/cultist-simulator/IMPLEMENTATION_PACKETS.md",
+          "artifact_role": "implementation_packets"
+        },
+        {
+          "path": "docs/research/cultist-simulator/INTAKE.json",
+          "artifact_role": "source_intake_evidence"
+        },
+        {
+          "path": "docs/research/cultist-simulator/REPORT.md",
+          "artifact_role": "report"
+        }
+      ]
+    },
+    {
+      "family": "dcss-dda-depth",
+      "root": "docs/research/dcss-dda-depth",
+      "coverage_status": "inventory-only",
+      "idea_extraction_status": "pending",
+      "section_classification_status": "pending",
+      "artifacts": [
+        {
+          "path": "docs/research/dcss-dda-depth/FINDINGS.json",
+          "artifact_role": "findings"
+        },
+        {
+          "path": "docs/research/dcss-dda-depth/REPORT.md",
+          "artifact_role": "report"
+        },
+        {
+          "path": "docs/research/dcss-dda-depth/VALIDATION.json",
+          "artifact_role": "validation_evidence"
+        }
+      ]
+    },
+    {
+      "family": "disco-elysium",
+      "root": "docs/research/disco-elysium",
+      "coverage_status": "inventory-only",
+      "idea_extraction_status": "pending",
+      "section_classification_status": "pending",
+      "artifacts": [
+        {
+          "path": "docs/research/disco-elysium/COVERAGE.md",
+          "artifact_role": "coverage_evidence"
+        },
+        {
+          "path": "docs/research/disco-elysium/FINDINGS.md",
+          "artifact_role": "findings"
+        },
+        {
+          "path": "docs/research/disco-elysium/IMPLEMENTATION_PACKETS.md",
+          "artifact_role": "implementation_packets"
+        },
+        {
+          "path": "docs/research/disco-elysium/INTAKE.md",
+          "artifact_role": "source_intake_evidence"
+        },
+        {
+          "path": "docs/research/disco-elysium/REPORT.md",
+          "artifact_role": "report"
+        },
+        {
+          "path": "docs/research/disco-elysium/SMALL_TOUCHES.md",
+          "artifact_role": "proposal_details"
+        }
+      ]
+    },
+    {
+      "family": "dwarf-fortress",
+      "root": "docs/research/dwarf-fortress",
+      "coverage_status": "inventory-only",
+      "idea_extraction_status": "pending",
+      "section_classification_status": "pending",
+      "artifacts": [
+        {
+          "path": "docs/research/dwarf-fortress/COVERAGE.json",
+          "artifact_role": "coverage_evidence"
+        },
+        {
+          "path": "docs/research/dwarf-fortress/DLC_COVERAGE.json",
+          "artifact_role": "coverage_evidence"
+        },
+        {
+          "path": "docs/research/dwarf-fortress/FINDINGS.json",
+          "artifact_role": "findings"
+        },
+        {
+          "path": "docs/research/dwarf-fortress/IMPLEMENTATION_PACKETS.md",
+          "artifact_role": "implementation_packets"
+        },
+        {
+          "path": "docs/research/dwarf-fortress/INTAKE.json",
+          "artifact_role": "source_intake_evidence"
+        },
+        {
+          "path": "docs/research/dwarf-fortress/PACKETS.json",
+          "artifact_role": "implementation_packets"
+        },
+        {
+          "path": "docs/research/dwarf-fortress/REPORT.md",
+          "artifact_role": "report"
+        },
+        {
+          "path": "docs/research/dwarf-fortress/VALIDATION.json",
+          "artifact_role": "validation_evidence"
+        }
+      ]
+    },
+    {
+      "family": "elin",
+      "root": "docs/research/elin",
+      "coverage_status": "inventory-only",
+      "idea_extraction_status": "pending",
+      "section_classification_status": "pending",
+      "artifacts": [
+        {
+          "path": "docs/research/elin/COVERAGE.json",
+          "artifact_role": "coverage_evidence"
+        },
+        {
+          "path": "docs/research/elin/FINDINGS.json",
+          "artifact_role": "findings"
+        },
+        {
+          "path": "docs/research/elin/IMPLEMENTATION_PACKETS.md",
+          "artifact_role": "implementation_packets"
+        },
+        {
+          "path": "docs/research/elin/INTAKE.json",
+          "artifact_role": "source_intake_evidence"
+        },
+        {
+          "path": "docs/research/elin/REPORT.md",
+          "artifact_role": "report"
+        },
+        {
+          "path": "docs/research/elin/ROOT_REVIEW.json",
+          "artifact_role": "review_evidence"
+        },
+        {
+          "path": "docs/research/elin/VALIDATION.json",
+          "artifact_role": "validation_evidence"
+        }
+      ]
+    },
+    {
+      "family": "endless-ascent",
+      "root": "docs/research/endless-ascent",
+      "coverage_status": "inventory-only",
+      "idea_extraction_status": "pending",
+      "section_classification_status": "pending",
+      "artifacts": [
+        {
+          "path": "docs/research/endless-ascent/COVERAGE.json",
+          "artifact_role": "coverage_evidence"
+        },
+        {
+          "path": "docs/research/endless-ascent/FINDINGS.json",
+          "artifact_role": "findings"
+        },
+        {
+          "path": "docs/research/endless-ascent/IMPLEMENTATION_PACKETS.md",
+          "artifact_role": "implementation_packets"
+        },
+        {
+          "path": "docs/research/endless-ascent/INTAKE.json",
+          "artifact_role": "source_intake_evidence"
+        },
+        {
+          "path": "docs/research/endless-ascent/REPORT.md",
+          "artifact_role": "report"
+        }
+      ]
+    },
+    {
+      "family": "factorio",
+      "root": "docs/research/factorio",
+      "coverage_status": "inventory-only",
+      "idea_extraction_status": "pending",
+      "section_classification_status": "pending",
+      "artifacts": [
+        {
+          "path": "docs/research/factorio/COVERAGE.json",
+          "artifact_role": "coverage_evidence"
+        },
+        {
+          "path": "docs/research/factorio/DLC_COVERAGE.json",
+          "artifact_role": "coverage_evidence"
+        },
+        {
+          "path": "docs/research/factorio/FINDINGS.json",
+          "artifact_role": "findings"
+        },
+        {
+          "path": "docs/research/factorio/IMPLEMENTATION_PACKETS.md",
+          "artifact_role": "implementation_packets"
+        },
+        {
+          "path": "docs/research/factorio/INSTALLED_INTAKE.json",
+          "artifact_role": "source_intake_evidence"
+        },
+        {
+          "path": "docs/research/factorio/INSTALLED_REVIEW.json",
+          "artifact_role": "review_evidence"
+        },
+        {
+          "path": "docs/research/factorio/INSTALLED_VALIDATION.json",
+          "artifact_role": "validation_evidence"
+        },
+        {
+          "path": "docs/research/factorio/INTAKE.json",
+          "artifact_role": "source_intake_evidence"
+        },
+        {
+          "path": "docs/research/factorio/PACKETS.json",
+          "artifact_role": "implementation_packets"
+        },
+        {
+          "path": "docs/research/factorio/REPORT.md",
+          "artifact_role": "report"
+        },
+        {
+          "path": "docs/research/factorio/VALIDATION.json",
+          "artifact_role": "validation_evidence"
+        },
+        {
+          "path": "docs/research/factorio/native/COVERAGE.json",
+          "artifact_role": "coverage_evidence"
+        },
+        {
+          "path": "docs/research/factorio/native/FINDINGS.json",
+          "artifact_role": "findings"
+        },
+        {
+          "path": "docs/research/factorio/native/INTAKE.json",
+          "artifact_role": "source_intake_evidence"
+        },
+        {
+          "path": "docs/research/factorio/native/REPORT.md",
+          "artifact_role": "report"
+        }
+      ]
+    },
+    {
+      "family": "fanfic",
+      "root": "docs/research/fanfic",
+      "coverage_status": "inventory-only",
+      "idea_extraction_status": "pending",
+      "section_classification_status": "pending",
+      "artifacts": [
+        {
+          "path": "docs/research/fanfic/REPORT.md",
+          "artifact_role": "report"
+        }
+      ]
+    },
+    {
+      "family": "far-field-tropes-2026-10-08",
+      "root": "docs/research/far-field-tropes-2026-10-08",
+      "coverage_status": "inventory-only",
+      "idea_extraction_status": "pending",
+      "section_classification_status": "pending",
+      "artifacts": [
+        {
+          "path": "docs/research/far-field-tropes-2026-10-08/PROPOSALS.md",
+          "artifact_role": "proposal_details"
+        },
+        {
+          "path": "docs/research/far-field-tropes-2026-10-08/REPORT.md",
+          "artifact_role": "report"
+        },
+        {
+          "path": "docs/research/far-field-tropes-2026-10-08/VALIDATION.json",
+          "artifact_role": "validation_evidence"
+        }
+      ]
+    },
+    {
+      "family": "game-discovery-2026-10-06",
+      "root": "docs/research/game-discovery-2026-10-06",
+      "coverage_status": "inventory-only",
+      "idea_extraction_status": "pending",
+      "section_classification_status": "pending",
+      "artifacts": [
+        {
+          "path": "docs/research/game-discovery-2026-10-06/DEEPER_RESEARCH.md",
+          "artifact_role": "related_research_detail"
+        },
+        {
+          "path": "docs/research/game-discovery-2026-10-06/FINDINGS.json",
+          "artifact_role": "findings"
+        },
+        {
+          "path": "docs/research/game-discovery-2026-10-06/FOLLOWUP_VALIDATION.json",
+          "artifact_role": "validation_evidence"
+        },
+        {
+          "path": "docs/research/game-discovery-2026-10-06/IMPLEMENTATION_PACKETS.md",
+          "artifact_role": "implementation_packets"
+        },
+        {
+          "path": "docs/research/game-discovery-2026-10-06/PACKETS.json",
+          "artifact_role": "implementation_packets"
+        },
+        {
+          "path": "docs/research/game-discovery-2026-10-06/VALIDATION.json",
+          "artifact_role": "validation_evidence"
+        }
+      ]
+    },
+    {
+      "family": "idle-social-engine-scout-2026-10-06",
+      "root": "docs/research/idle-social-engine-scout-2026-10-06",
+      "coverage_status": "inventory-only",
+      "idea_extraction_status": "pending",
+      "section_classification_status": "pending",
+      "artifacts": [
+        {
+          "path": "docs/research/idle-social-engine-scout-2026-10-06/CONTINUATION_PACKETS.md",
+          "artifact_role": "implementation_packets"
+        },
+        {
+          "path": "docs/research/idle-social-engine-scout-2026-10-06/IMPLEMENTATION_PACKETS.md",
+          "artifact_role": "implementation_packets"
+        },
+        {
+          "path": "docs/research/idle-social-engine-scout-2026-10-06/QUD_REAUDIT.json",
+          "artifact_role": "audit"
+        },
+        {
+          "path": "docs/research/idle-social-engine-scout-2026-10-06/QUD_REAUDIT.md",
+          "artifact_role": "audit"
+        },
+        {
+          "path": "docs/research/idle-social-engine-scout-2026-10-06/REPORT.md",
+          "artifact_role": "report"
+        }
+      ]
+    },
+    {
+      "family": "idling-to-rule-the-gods",
+      "root": "docs/research/idling-to-rule-the-gods",
+      "coverage_status": "inventory-only",
+      "idea_extraction_status": "pending",
+      "section_classification_status": "pending",
+      "artifacts": [
+        {
+          "path": "docs/research/idling-to-rule-the-gods/COVERAGE.json",
+          "artifact_role": "coverage_evidence"
+        },
+        {
+          "path": "docs/research/idling-to-rule-the-gods/CREATION_FINDINGS.json",
+          "artifact_role": "findings"
+        },
+        {
+          "path": "docs/research/idling-to-rule-the-gods/FINDINGS.json",
+          "artifact_role": "findings"
+        },
+        {
+          "path": "docs/research/idling-to-rule-the-gods/IMPLEMENTATION_PACKETS.md",
+          "artifact_role": "implementation_packets"
+        },
+        {
+          "path": "docs/research/idling-to-rule-the-gods/INTAKE.json",
+          "artifact_role": "source_intake_evidence"
+        },
+        {
+          "path": "docs/research/idling-to-rule-the-gods/INTAKE_SEED.json",
+          "artifact_role": "source_intake_evidence"
+        },
+        {
+          "path": "docs/research/idling-to-rule-the-gods/PACKETS.json",
+          "artifact_role": "implementation_packets"
+        },
+        {
+          "path": "docs/research/idling-to-rule-the-gods/PET_FINDINGS.json",
+          "artifact_role": "findings"
+        },
+        {
+          "path": "docs/research/idling-to-rule-the-gods/REBIRTH_FINDINGS.json",
+          "artifact_role": "findings"
+        },
+        {
+          "path": "docs/research/idling-to-rule-the-gods/REPORT.md",
+          "artifact_role": "report"
+        },
+        {
+          "path": "docs/research/idling-to-rule-the-gods/ROOT_FINDINGS.json",
+          "artifact_role": "findings"
+        },
+        {
+          "path": "docs/research/idling-to-rule-the-gods/VALIDATION.json",
+          "artifact_role": "validation_evidence"
+        },
+        {
+          "path": "docs/research/idling-to-rule-the-gods/YAIR_AUDIT.json",
+          "artifact_role": "audit"
+        }
+      ]
+    },
+    {
+      "family": "increlution",
+      "root": "docs/research/increlution",
+      "coverage_status": "inventory-only",
+      "idea_extraction_status": "pending",
+      "section_classification_status": "pending",
+      "artifacts": [
+        {
+          "path": "docs/research/increlution/COVERAGE.json",
+          "artifact_role": "coverage_evidence"
+        },
+        {
+          "path": "docs/research/increlution/FINDINGS.json",
+          "artifact_role": "findings"
+        },
+        {
+          "path": "docs/research/increlution/IMPLEMENTATION_PACKETS.md",
+          "artifact_role": "implementation_packets"
+        },
+        {
+          "path": "docs/research/increlution/INTAKE.md",
+          "artifact_role": "source_intake_evidence"
+        },
+        {
+          "path": "docs/research/increlution/REPORT.md",
+          "artifact_role": "report"
+        },
+        {
+          "path": "docs/research/increlution/SMALL_TOUCHES.md",
+          "artifact_role": "proposal_details"
+        }
+      ]
+    },
+    {
+      "family": "keeperrl",
+      "root": "docs/research/keeperrl",
+      "coverage_status": "inventory-only",
+      "idea_extraction_status": "pending",
+      "section_classification_status": "pending",
+      "artifacts": [
+        {
+          "path": "docs/research/keeperrl/COVERAGE.json",
+          "artifact_role": "coverage_evidence"
+        },
+        {
+          "path": "docs/research/keeperrl/FINDINGS.json",
+          "artifact_role": "findings"
+        },
+        {
+          "path": "docs/research/keeperrl/IMPLEMENTATION_PACKETS.md",
+          "artifact_role": "implementation_packets"
+        },
+        {
+          "path": "docs/research/keeperrl/INTAKE.json",
+          "artifact_role": "source_intake_evidence"
+        },
+        {
+          "path": "docs/research/keeperrl/REPORT.md",
+          "artifact_role": "report"
+        },
+        {
+          "path": "docs/research/keeperrl/VALIDATION.json",
+          "artifact_role": "validation_evidence"
+        }
+      ]
+    },
+    {
+      "family": "kenshi",
+      "root": "docs/research/kenshi",
+      "coverage_status": "inventory-only",
+      "idea_extraction_status": "pending",
+      "section_classification_status": "pending",
+      "artifacts": [
+        {
+          "path": "docs/research/kenshi/COVERAGE.json",
+          "artifact_role": "coverage_evidence"
+        },
+        {
+          "path": "docs/research/kenshi/DLC_COVERAGE.json",
+          "artifact_role": "coverage_evidence"
+        },
+        {
+          "path": "docs/research/kenshi/FINDINGS.md",
+          "artifact_role": "findings"
+        },
+        {
+          "path": "docs/research/kenshi/IMPLEMENTATION_PACKETS.md",
+          "artifact_role": "implementation_packets"
+        },
+        {
+          "path": "docs/research/kenshi/INTAKE.json",
+          "artifact_role": "source_intake_evidence"
+        },
+        {
+          "path": "docs/research/kenshi/REPORT.md",
+          "artifact_role": "report"
+        },
+        {
+          "path": "docs/research/kenshi/second-pass/COVERAGE.json",
+          "artifact_role": "coverage_evidence"
+        },
+        {
+          "path": "docs/research/kenshi/second-pass/FINDINGS.md",
+          "artifact_role": "findings"
+        },
+        {
+          "path": "docs/research/kenshi/second-pass/PROPOSALS.md",
+          "artifact_role": "proposal_details"
+        },
+        {
+          "path": "docs/research/kenshi/second-pass/REPORT.md",
+          "artifact_role": "report"
+        },
+        {
+          "path": "docs/research/kenshi/second-pass/SMALL_TOUCHES.md",
+          "artifact_role": "proposal_details"
+        },
+        {
+          "path": "docs/research/kenshi/second-pass/VALIDATION.json",
+          "artifact_role": "validation_evidence"
+        }
+      ]
+    },
+    {
+      "family": "kill-the-lich-idle",
+      "root": "docs/research/kill-the-lich-idle",
+      "coverage_status": "inventory-only",
+      "idea_extraction_status": "pending",
+      "section_classification_status": "pending",
+      "artifacts": [
+        {
+          "path": "docs/research/kill-the-lich-idle/COVERAGE.json",
+          "artifact_role": "coverage_evidence"
+        },
+        {
+          "path": "docs/research/kill-the-lich-idle/FINDINGS.json",
+          "artifact_role": "findings"
+        },
+        {
+          "path": "docs/research/kill-the-lich-idle/IMPLEMENTATION_PACKETS.md",
+          "artifact_role": "implementation_packets"
+        },
+        {
+          "path": "docs/research/kill-the-lich-idle/INTAKE.json",
+          "artifact_role": "source_intake_evidence"
+        },
+        {
+          "path": "docs/research/kill-the-lich-idle/REPORT.md",
+          "artifact_role": "report"
+        }
+      ]
+    },
+    {
+      "family": "king-of-dragon-pass",
+      "root": "docs/research/king-of-dragon-pass",
+      "coverage_status": "inventory-only",
+      "idea_extraction_status": "pending",
+      "section_classification_status": "pending",
+      "artifacts": [
+        {
+          "path": "docs/research/king-of-dragon-pass/COVERAGE.json",
+          "artifact_role": "coverage_evidence"
+        },
+        {
+          "path": "docs/research/king-of-dragon-pass/DLC_COVERAGE.json",
+          "artifact_role": "coverage_evidence"
+        },
+        {
+          "path": "docs/research/king-of-dragon-pass/FINDINGS.json",
+          "artifact_role": "findings"
+        },
+        {
+          "path": "docs/research/king-of-dragon-pass/IMPLEMENTATION_PACKETS.json",
+          "artifact_role": "implementation_packets"
+        },
+        {
+          "path": "docs/research/king-of-dragon-pass/INTAKE.json",
+          "artifact_role": "source_intake_evidence"
+        },
+        {
+          "path": "docs/research/king-of-dragon-pass/REPORT.md",
+          "artifact_role": "report"
+        }
+      ]
+    },
+    {
+      "family": "library-games-2026-10-09",
+      "root": "docs/research/library-games-2026-10-09",
+      "coverage_status": "inventory-only",
+      "idea_extraction_status": "pending",
+      "section_classification_status": "pending",
+      "artifacts": [
+        {
+          "path": "docs/research/library-games-2026-10-09/REPORT.md",
+          "artifact_role": "report"
+        },
+        {
+          "path": "docs/research/library-games-2026-10-09/VALIDATION.json",
+          "artifact_role": "validation_evidence"
+        }
+      ]
+    },
+    {
+      "family": "magic-research-2",
+      "root": "docs/research/magic-research-2",
+      "coverage_status": "inventory-only",
+      "idea_extraction_status": "pending",
+      "section_classification_status": "pending",
+      "artifacts": [
+        {
+          "path": "docs/research/magic-research-2/COVERAGE.json",
+          "artifact_role": "coverage_evidence"
+        },
+        {
+          "path": "docs/research/magic-research-2/FINDINGS.json",
+          "artifact_role": "findings"
+        },
+        {
+          "path": "docs/research/magic-research-2/IMPLEMENTATION_PACKETS.md",
+          "artifact_role": "implementation_packets"
+        },
+        {
+          "path": "docs/research/magic-research-2/INTAKE.json",
+          "artifact_role": "source_intake_evidence"
+        },
+        {
+          "path": "docs/research/magic-research-2/REPORT.md",
+          "artifact_role": "report"
+        },
+        {
+          "path": "docs/research/magic-research-2/VALIDATION.json",
+          "artifact_role": "validation_evidence"
+        }
+      ]
+    },
+    {
+      "family": "melvor-idle",
+      "root": "docs/research/melvor-idle",
+      "coverage_status": "inventory-only",
+      "idea_extraction_status": "pending",
+      "section_classification_status": "pending",
+      "artifacts": [
+        {
+          "path": "docs/research/melvor-idle/COVERAGE.json",
+          "artifact_role": "coverage_evidence"
+        },
+        {
+          "path": "docs/research/melvor-idle/DLC_COVERAGE.json",
+          "artifact_role": "coverage_evidence"
+        },
+        {
+          "path": "docs/research/melvor-idle/FINDINGS.json",
+          "artifact_role": "findings"
+        },
+        {
+          "path": "docs/research/melvor-idle/IMPLEMENTATION_PACKETS.md",
+          "artifact_role": "implementation_packets"
+        },
+        {
+          "path": "docs/research/melvor-idle/INTAKE.json",
+          "artifact_role": "source_intake_evidence"
+        },
+        {
+          "path": "docs/research/melvor-idle/PACKETS.json",
+          "artifact_role": "implementation_packets"
+        },
+        {
+          "path": "docs/research/melvor-idle/REPORT.md",
+          "artifact_role": "report"
+        },
+        {
+          "path": "docs/research/melvor-idle/VALIDATION.json",
+          "artifact_role": "validation_evidence"
+        },
+        {
+          "path": "docs/research/melvor-idle/YAIR_OWNER_AUDIT.json",
+          "artifact_role": "audit"
+        }
+      ]
+    },
+    {
+      "family": "nethack",
+      "root": "docs/research/nethack",
+      "coverage_status": "inventory-only",
+      "idea_extraction_status": "pending",
+      "section_classification_status": "pending",
+      "artifacts": [
+        {
+          "path": "docs/research/nethack/REPORT.md",
+          "artifact_role": "report"
+        }
+      ]
+    },
+    {
+      "family": "noita",
+      "root": "docs/research/noita",
+      "coverage_status": "inventory-only",
+      "idea_extraction_status": "pending",
+      "section_classification_status": "pending",
+      "artifacts": [
+        {
+          "path": "docs/research/noita/BODY_WORLD_FINDINGS.json",
+          "artifact_role": "findings"
+        },
+        {
+          "path": "docs/research/noita/COVERAGE.json",
+          "artifact_role": "coverage_evidence"
+        },
+        {
+          "path": "docs/research/noita/FINDINGS.json",
+          "artifact_role": "findings"
+        },
+        {
+          "path": "docs/research/noita/IMPLEMENTATION_PACKETS.json",
+          "artifact_role": "implementation_packets"
+        },
+        {
+          "path": "docs/research/noita/INTAKE.json",
+          "artifact_role": "source_intake_evidence"
+        },
+        {
+          "path": "docs/research/noita/PERKS_FINDINGS.md",
+          "artifact_role": "findings"
+        },
+        {
+          "path": "docs/research/noita/REPORT.md",
+          "artifact_role": "report"
+        },
+        {
+          "path": "docs/research/noita/VALIDATION.json",
+          "artifact_role": "validation_evidence"
+        }
+      ]
+    },
+    {
+      "family": "open-idle-games-2026-10-09",
+      "root": "docs/research/open-idle-games-2026-10-09",
+      "coverage_status": "inventory-only",
+      "idea_extraction_status": "pending",
+      "section_classification_status": "pending",
+      "artifacts": [
+        {
+          "path": "docs/research/open-idle-games-2026-10-09/PROPOSALS.md",
+          "artifact_role": "proposal_details"
+        },
+        {
+          "path": "docs/research/open-idle-games-2026-10-09/REPORT.md",
+          "artifact_role": "report"
+        },
+        {
+          "path": "docs/research/open-idle-games-2026-10-09/SMALL_TOUCHES.md",
+          "artifact_role": "proposal_details"
+        },
+        {
+          "path": "docs/research/open-idle-games-2026-10-09/VALIDATION.json",
+          "artifact_role": "validation_evidence"
+        }
+      ]
+    },
+    {
+      "family": "orb-of-creation",
+      "root": "docs/research/orb-of-creation",
+      "coverage_status": "inventory-only",
+      "idea_extraction_status": "pending",
+      "section_classification_status": "pending",
+      "artifacts": [
+        {
+          "path": "docs/research/orb-of-creation/COVERAGE.json",
+          "artifact_role": "coverage_evidence"
+        },
+        {
+          "path": "docs/research/orb-of-creation/DLC_COVERAGE.json",
+          "artifact_role": "coverage_evidence"
+        },
+        {
+          "path": "docs/research/orb-of-creation/FINDINGS.json",
+          "artifact_role": "findings"
+        },
+        {
+          "path": "docs/research/orb-of-creation/IMPLEMENTATION_PACKETS.md",
+          "artifact_role": "implementation_packets"
+        },
+        {
+          "path": "docs/research/orb-of-creation/INTAKE.json",
+          "artifact_role": "source_intake_evidence"
+        },
+        {
+          "path": "docs/research/orb-of-creation/PACKETS.json",
+          "artifact_role": "implementation_packets"
+        },
+        {
+          "path": "docs/research/orb-of-creation/REPORT.md",
+          "artifact_role": "report"
+        }
+      ]
+    },
+    {
+      "family": "oxygen-not-included",
+      "root": "docs/research/oxygen-not-included",
+      "coverage_status": "inventory-only",
+      "idea_extraction_status": "pending",
+      "section_classification_status": "pending",
+      "artifacts": [
+        {
+          "path": "docs/research/oxygen-not-included/COVERAGE.json",
+          "artifact_role": "coverage_evidence"
+        },
+        {
+          "path": "docs/research/oxygen-not-included/DLC_COVERAGE.json",
+          "artifact_role": "coverage_evidence"
+        },
+        {
+          "path": "docs/research/oxygen-not-included/FINDINGS.json",
+          "artifact_role": "findings"
+        },
+        {
+          "path": "docs/research/oxygen-not-included/IMPLEMENTATION_PACKETS.md",
+          "artifact_role": "implementation_packets"
+        },
+        {
+          "path": "docs/research/oxygen-not-included/INTAKE.json",
+          "artifact_role": "source_intake_evidence"
+        },
+        {
+          "path": "docs/research/oxygen-not-included/PACKETS.json",
+          "artifact_role": "implementation_packets"
+        },
+        {
+          "path": "docs/research/oxygen-not-included/REPORT.md",
+          "artifact_role": "report"
+        },
+        {
+          "path": "docs/research/oxygen-not-included/VALIDATION.json",
+          "artifact_role": "validation_evidence"
+        }
+      ]
+    },
+    {
+      "family": "path-of-achra",
+      "root": "docs/research/path-of-achra",
+      "coverage_status": "inventory-only",
+      "idea_extraction_status": "pending",
+      "section_classification_status": "pending",
+      "artifacts": [
+        {
+          "path": "docs/research/path-of-achra/COVERAGE.json",
+          "artifact_role": "coverage_evidence"
+        },
+        {
+          "path": "docs/research/path-of-achra/FINDINGS.json",
+          "artifact_role": "findings"
+        },
+        {
+          "path": "docs/research/path-of-achra/IMPLEMENTATION_PACKETS.md",
+          "artifact_role": "implementation_packets"
+        },
+        {
+          "path": "docs/research/path-of-achra/INTAKE.json",
+          "artifact_role": "source_intake_evidence"
+        },
+        {
+          "path": "docs/research/path-of-achra/REPORT.md",
+          "artifact_role": "report"
+        }
+      ]
+    },
+    {
+      "family": "planescape-torment",
+      "root": "docs/research/planescape-torment",
+      "coverage_status": "inventory-only",
+      "idea_extraction_status": "pending",
+      "section_classification_status": "pending",
+      "artifacts": [
+        {
+          "path": "docs/research/planescape-torment/COVERAGE.md",
+          "artifact_role": "coverage_evidence"
+        },
+        {
+          "path": "docs/research/planescape-torment/FINDINGS.md",
+          "artifact_role": "findings"
+        },
+        {
+          "path": "docs/research/planescape-torment/IMPLEMENTATION_PACKETS.md",
+          "artifact_role": "implementation_packets"
+        },
+        {
+          "path": "docs/research/planescape-torment/INTAKE.json",
+          "artifact_role": "source_intake_evidence"
+        },
+        {
+          "path": "docs/research/planescape-torment/REPORT.md",
+          "artifact_role": "report"
+        },
+        {
+          "path": "docs/research/planescape-torment/SMALL_TOUCHES.md",
+          "artifact_role": "proposal_details"
+        }
+      ]
+    },
+    {
+      "family": "power-scaling-2026-10-08",
+      "root": "docs/research/power-scaling-2026-10-08",
+      "coverage_status": "inventory-only",
+      "idea_extraction_status": "pending",
+      "section_classification_status": "pending",
+      "artifacts": [
+        {
+          "path": "docs/research/power-scaling-2026-10-08/PROPOSALS.md",
+          "artifact_role": "proposal_details"
+        },
+        {
+          "path": "docs/research/power-scaling-2026-10-08/REPORT.md",
+          "artifact_role": "report"
+        },
+        {
+          "path": "docs/research/power-scaling-2026-10-08/VALIDATION.json",
+          "artifact_role": "validation_evidence"
+        }
+      ]
+    },
+    {
+      "family": "power-systems",
+      "root": "docs/research/power-systems",
+      "coverage_status": "inventory-only",
+      "idea_extraction_status": "pending",
+      "section_classification_status": "pending",
+      "artifacts": [
+        {
+          "path": "docs/research/power-systems/anime-manga/REPORT.md",
+          "artifact_role": "report"
+        },
+        {
+          "path": "docs/research/power-systems/anime-manga/VALIDATION.json",
+          "artifact_role": "validation_evidence"
+        },
+        {
+          "path": "docs/research/power-systems/broad-scout/INPUT_RECONCILIATION.json",
+          "artifact_role": "reconciliation_evidence"
+        },
+        {
+          "path": "docs/research/power-systems/broad-scout/REPORT.md",
+          "artifact_role": "report"
+        },
+        {
+          "path": "docs/research/power-systems/broad-scout/VALIDATION.json",
+          "artifact_role": "validation_evidence"
+        },
+        {
+          "path": "docs/research/power-systems/novel-crawl/REPORT.md",
+          "artifact_role": "report"
+        },
+        {
+          "path": "docs/research/power-systems/novel-crawl/VALIDATION.json",
+          "artifact_role": "validation_evidence"
+        },
+        {
+          "path": "docs/research/power-systems/web-fiction/REPORT.md",
+          "artifact_role": "report"
+        },
+        {
+          "path": "docs/research/power-systems/western/REPORT.md",
+          "artifact_role": "report"
+        },
+        {
+          "path": "docs/research/power-systems/western/VALIDATION.json",
+          "artifact_role": "validation_evidence"
+        },
+        {
+          "path": "docs/research/power-systems/wiki-digests/DUMP_COVERAGE.json",
+          "artifact_role": "coverage_evidence"
+        },
+        {
+          "path": "docs/research/power-systems/wiki-digests/DUMP_REVIEW.json",
+          "artifact_role": "review_evidence"
+        },
+        {
+          "path": "docs/research/power-systems/wiki-digests/DUMP_VALIDATION.json",
+          "artifact_role": "validation_evidence"
+        },
+        {
+          "path": "docs/research/power-systems/wiki-digests/NEW_MECHANICS.md",
+          "artifact_role": "related_research_detail"
+        },
+        {
+          "path": "docs/research/power-systems/wiki-digests/REPORT.md",
+          "artifact_role": "report"
+        },
+        {
+          "path": "docs/research/power-systems/wiki-digests/REVIEW.json",
+          "artifact_role": "review_evidence"
+        },
+        {
+          "path": "docs/research/power-systems/wiki-digests/VALIDATION.json",
+          "artifact_role": "validation_evidence"
+        }
+      ]
+    },
+    {
+      "family": "proto23",
+      "root": "docs/research/proto23",
+      "coverage_status": "inventory-only",
+      "idea_extraction_status": "pending",
+      "section_classification_status": "pending",
+      "artifacts": [
+        {
+          "path": "docs/research/proto23/PROTO23_VS_YAIRPG_2026-10-10.md",
+          "artifact_role": "related_research_detail"
+        },
+        {
+          "path": "docs/research/proto23/xeus24-mod-2026-10-10/XEUS24_MOD_AUDIT_2026-10-10.md",
+          "artifact_role": "audit"
+        }
+      ]
+    },
+    {
+      "family": "relationships-2026-10-10",
+      "root": "docs/research/relationships-2026-10-10",
+      "coverage_status": "inventory-only",
+      "idea_extraction_status": "pending",
+      "section_classification_status": "pending",
+      "artifacts": [
+        {
+          "path": "docs/research/relationships-2026-10-10/MATURE_SYSTEMS_SURVEY.md",
+          "artifact_role": "related_research_detail"
+        },
+        {
+          "path": "docs/research/relationships-2026-10-10/REPORT.md",
+          "artifact_role": "report"
+        },
+        {
+          "path": "docs/research/relationships-2026-10-10/YAIRPG_STATE_AND_GAPS.md",
+          "artifact_role": "related_research_detail"
+        }
+      ]
+    },
+    {
+      "family": "rimworld",
+      "root": "docs/research/rimworld",
+      "coverage_status": "inventory-only",
+      "idea_extraction_status": "pending",
+      "section_classification_status": "pending",
+      "artifacts": [
+        {
+          "path": "docs/research/rimworld/BODY_SOCIAL_FINDINGS.json",
+          "artifact_role": "findings"
+        },
+        {
+          "path": "docs/research/rimworld/COVERAGE.json",
+          "artifact_role": "coverage_evidence"
+        },
+        {
+          "path": "docs/research/rimworld/FINDINGS.json",
+          "artifact_role": "findings"
+        },
+        {
+          "path": "docs/research/rimworld/IMPLEMENTATION_PACKETS.md",
+          "artifact_role": "implementation_packets"
+        },
+        {
+          "path": "docs/research/rimworld/INTAKE.json",
+          "artifact_role": "source_intake_evidence"
+        },
+        {
+          "path": "docs/research/rimworld/REPORT.md",
+          "artifact_role": "report"
+        },
+        {
+          "path": "docs/research/rimworld/STORYTELLER_FINDINGS.json",
+          "artifact_role": "findings"
+        },
+        {
+          "path": "docs/research/rimworld/VALIDATION.json",
+          "artifact_role": "validation_evidence"
+        }
+      ]
+    },
+    {
+      "family": "rogue-legacy",
+      "root": "docs/research/rogue-legacy",
+      "coverage_status": "inventory-only",
+      "idea_extraction_status": "pending",
+      "section_classification_status": "pending",
+      "artifacts": [
+        {
+          "path": "docs/research/rogue-legacy/COVERAGE.json",
+          "artifact_role": "coverage_evidence"
+        },
+        {
+          "path": "docs/research/rogue-legacy/FINDINGS.json",
+          "artifact_role": "findings"
+        },
+        {
+          "path": "docs/research/rogue-legacy/IMPLEMENTATION_PACKETS.md",
+          "artifact_role": "implementation_packets"
+        },
+        {
+          "path": "docs/research/rogue-legacy/INTAKE.json",
+          "artifact_role": "source_intake_evidence"
+        },
+        {
+          "path": "docs/research/rogue-legacy/REPORT.md",
+          "artifact_role": "report"
+        },
+        {
+          "path": "docs/research/rogue-legacy/VALIDATION.json",
+          "artifact_role": "validation_evidence"
+        }
+      ]
+    },
+    {
+      "family": "royal-road-2026-10-10",
+      "root": "docs/research/royal-road-2026-10-10",
+      "coverage_status": "inventory-only",
+      "idea_extraction_status": "pending",
+      "section_classification_status": "pending",
+      "artifacts": [
+        {
+          "path": "docs/research/royal-road-2026-10-10/IDEAS.md",
+          "artifact_role": "related_research_detail"
+        },
+        {
+          "path": "docs/research/royal-road-2026-10-10/REPORT.md",
+          "artifact_role": "report"
+        },
+        {
+          "path": "docs/research/royal-road-2026-10-10/TROPE_ATLAS.md",
+          "artifact_role": "related_research_detail"
+        }
+      ]
+    },
+    {
+      "family": "six-ages",
+      "root": "docs/research/six-ages",
+      "coverage_status": "inventory-only",
+      "idea_extraction_status": "pending",
+      "section_classification_status": "pending",
+      "artifacts": [
+        {
+          "path": "docs/research/six-ages/COVERAGE.json",
+          "artifact_role": "coverage_evidence"
+        },
+        {
+          "path": "docs/research/six-ages/DLC_COVERAGE.json",
+          "artifact_role": "coverage_evidence"
+        },
+        {
+          "path": "docs/research/six-ages/FINDINGS.json",
+          "artifact_role": "findings"
+        },
+        {
+          "path": "docs/research/six-ages/IMPLEMENTATION_PACKETS.json",
+          "artifact_role": "implementation_packets"
+        },
+        {
+          "path": "docs/research/six-ages/INTAKE.json",
+          "artifact_role": "source_intake_evidence"
+        },
+        {
+          "path": "docs/research/six-ages/REPORT.md",
+          "artifact_role": "report"
+        }
+      ]
+    },
+    {
+      "family": "six-ages-2",
+      "root": "docs/research/six-ages-2",
+      "coverage_status": "inventory-only",
+      "idea_extraction_status": "pending",
+      "section_classification_status": "pending",
+      "artifacts": [
+        {
+          "path": "docs/research/six-ages-2/COVERAGE.json",
+          "artifact_role": "coverage_evidence"
+        },
+        {
+          "path": "docs/research/six-ages-2/DLC_COVERAGE.json",
+          "artifact_role": "coverage_evidence"
+        },
+        {
+          "path": "docs/research/six-ages-2/FINDINGS.json",
+          "artifact_role": "findings"
+        },
+        {
+          "path": "docs/research/six-ages-2/IMPLEMENTATION_PACKETS.json",
+          "artifact_role": "implementation_packets"
+        },
+        {
+          "path": "docs/research/six-ages-2/INTAKE.json",
+          "artifact_role": "source_intake_evidence"
+        },
+        {
+          "path": "docs/research/six-ages-2/REPORT.md",
+          "artifact_role": "report"
+        }
+      ]
+    },
+    {
+      "family": "skill-growth-2026-10-10",
+      "root": "docs/research/skill-growth-2026-10-10",
+      "coverage_status": "inventory-only",
+      "idea_extraction_status": "pending",
+      "section_classification_status": "pending",
+      "artifacts": [
+        {
+          "path": "docs/research/skill-growth-2026-10-10/LEVEL_SCALES_AUDIT.md",
+          "artifact_role": "audit"
+        },
+        {
+          "path": "docs/research/skill-growth-2026-10-10/READ_HISTORY_AUDIT.md",
+          "artifact_role": "audit"
+        },
+        {
+          "path": "docs/research/skill-growth-2026-10-10/UNREAD_AUDIT.md",
+          "artifact_role": "audit"
+        },
+        {
+          "path": "docs/research/skill-growth-2026-10-10/WORLD_GROWTH_AUDIT.md",
+          "artifact_role": "audit"
+        }
+      ]
+    },
+    {
+      "family": "soulash-2",
+      "root": "docs/research/soulash-2",
+      "coverage_status": "inventory-only",
+      "idea_extraction_status": "pending",
+      "section_classification_status": "pending",
+      "artifacts": [
+        {
+          "path": "docs/research/soulash-2/COVERAGE.json",
+          "artifact_role": "coverage_evidence"
+        },
+        {
+          "path": "docs/research/soulash-2/FINDINGS.json",
+          "artifact_role": "findings"
+        },
+        {
+          "path": "docs/research/soulash-2/IMPLEMENTATION_PACKETS.md",
+          "artifact_role": "implementation_packets"
+        },
+        {
+          "path": "docs/research/soulash-2/INTAKE.json",
+          "artifact_role": "source_intake_evidence"
+        },
+        {
+          "path": "docs/research/soulash-2/REPORT.md",
+          "artifact_role": "report"
+        }
+      ]
+    },
+    {
+      "family": "steam-library-wave-2026-10-10",
+      "root": "docs/research/steam-library-wave-2026-10-10",
+      "coverage_status": "inventory-only",
+      "idea_extraction_status": "pending",
+      "section_classification_status": "pending",
+      "artifacts": [
+        {
+          "path": "docs/research/steam-library-wave-2026-10-10/CLOSURE_VALIDATION.json",
+          "artifact_role": "validation_evidence"
+        },
+        {
+          "path": "docs/research/steam-library-wave-2026-10-10/REPORT.md",
+          "artifact_role": "report"
+        }
+      ]
+    },
+    {
+      "family": "streets-of-rogue",
+      "root": "docs/research/streets-of-rogue",
+      "coverage_status": "inventory-only",
+      "idea_extraction_status": "pending",
+      "section_classification_status": "pending",
+      "artifacts": [
+        {
+          "path": "docs/research/streets-of-rogue/COVERAGE.json",
+          "artifact_role": "coverage_evidence"
+        },
+        {
+          "path": "docs/research/streets-of-rogue/FINDINGS.json",
+          "artifact_role": "findings"
+        },
+        {
+          "path": "docs/research/streets-of-rogue/IMPLEMENTATION_PACKETS.md",
+          "artifact_role": "implementation_packets"
+        },
+        {
+          "path": "docs/research/streets-of-rogue/INTAKE.json",
+          "artifact_role": "source_intake_evidence"
+        },
+        {
+          "path": "docs/research/streets-of-rogue/REPORT.md",
+          "artifact_role": "report"
+        },
+        {
+          "path": "docs/research/streets-of-rogue/VALIDATION.json",
+          "artifact_role": "validation_evidence"
+        }
+      ]
+    },
+    {
+      "family": "sucker-for-love-crush-landing",
+      "root": "docs/research/sucker-for-love-crush-landing",
+      "coverage_status": "inventory-only",
+      "idea_extraction_status": "pending",
+      "section_classification_status": "pending",
+      "artifacts": [
+        {
+          "path": "docs/research/sucker-for-love-crush-landing/COVERAGE.json",
+          "artifact_role": "coverage_evidence"
+        },
+        {
+          "path": "docs/research/sucker-for-love-crush-landing/FINDINGS.json",
+          "artifact_role": "findings"
+        },
+        {
+          "path": "docs/research/sucker-for-love-crush-landing/IMPLEMENTATION_PACKETS.md",
+          "artifact_role": "implementation_packets"
+        },
+        {
+          "path": "docs/research/sucker-for-love-crush-landing/INTAKE.json",
+          "artifact_role": "source_intake_evidence"
+        },
+        {
+          "path": "docs/research/sucker-for-love-crush-landing/REPORT.md",
+          "artifact_role": "report"
+        }
+      ]
+    },
+    {
+      "family": "sunless-sea",
+      "root": "docs/research/sunless-sea",
+      "coverage_status": "inventory-only",
+      "idea_extraction_status": "pending",
+      "section_classification_status": "pending",
+      "artifacts": [
+        {
+          "path": "docs/research/sunless-sea/COVERAGE.md",
+          "artifact_role": "coverage_evidence"
+        },
+        {
+          "path": "docs/research/sunless-sea/FINDINGS.md",
+          "artifact_role": "findings"
+        },
+        {
+          "path": "docs/research/sunless-sea/IMPLEMENTATION_PACKETS.md",
+          "artifact_role": "implementation_packets"
+        },
+        {
+          "path": "docs/research/sunless-sea/INTAKE.md",
+          "artifact_role": "source_intake_evidence"
+        },
+        {
+          "path": "docs/research/sunless-sea/REPORT.md",
+          "artifact_role": "report"
+        },
+        {
+          "path": "docs/research/sunless-sea/SMALL_TOUCHES.md",
+          "artifact_role": "proposal_details"
+        },
+        {
+          "path": "docs/research/sunless-sea/VALIDATION.json",
+          "artifact_role": "validation_evidence"
+        }
+      ]
+    },
+    {
+      "family": "sunless-skies",
+      "root": "docs/research/sunless-skies",
+      "coverage_status": "inventory-only",
+      "idea_extraction_status": "pending",
+      "section_classification_status": "pending",
+      "artifacts": [
+        {
+          "path": "docs/research/sunless-skies/COVERAGE.md",
+          "artifact_role": "coverage_evidence"
+        },
+        {
+          "path": "docs/research/sunless-skies/FINDINGS.md",
+          "artifact_role": "findings"
+        },
+        {
+          "path": "docs/research/sunless-skies/IMPLEMENTATION_PACKETS.md",
+          "artifact_role": "implementation_packets"
+        },
+        {
+          "path": "docs/research/sunless-skies/INTAKE.md",
+          "artifact_role": "source_intake_evidence"
+        },
+        {
+          "path": "docs/research/sunless-skies/REPORT.md",
+          "artifact_role": "report"
+        },
+        {
+          "path": "docs/research/sunless-skies/SMALL_TOUCHES.md",
+          "artifact_role": "proposal_details"
+        },
+        {
+          "path": "docs/research/sunless-skies/VALIDATION.json",
+          "artifact_role": "validation_evidence"
+        }
+      ]
+    },
+    {
+      "family": "system-evolution-2026-10-10",
+      "root": "docs/research/system-evolution-2026-10-10",
+      "coverage_status": "inventory-only",
+      "idea_extraction_status": "pending",
+      "section_classification_status": "pending",
+      "artifacts": [
+        {
+          "path": "docs/research/system-evolution-2026-10-10/SURVEY.md",
+          "artifact_role": "related_research_detail"
+        }
+      ]
+    },
+    {
+      "family": "tale-of-immortal",
+      "root": "docs/research/tale-of-immortal",
+      "coverage_status": "inventory-only",
+      "idea_extraction_status": "pending",
+      "section_classification_status": "pending",
+      "artifacts": [
+        {
+          "path": "docs/research/tale-of-immortal/COVERAGE.json",
+          "artifact_role": "coverage_evidence"
+        },
+        {
+          "path": "docs/research/tale-of-immortal/DLC_COVERAGE.json",
+          "artifact_role": "coverage_evidence"
+        },
+        {
+          "path": "docs/research/tale-of-immortal/FINDINGS.json",
+          "artifact_role": "findings"
+        },
+        {
+          "path": "docs/research/tale-of-immortal/IMPLEMENTATION_PACKETS.md",
+          "artifact_role": "implementation_packets"
+        },
+        {
+          "path": "docs/research/tale-of-immortal/INTAKE.json",
+          "artifact_role": "source_intake_evidence"
+        },
+        {
+          "path": "docs/research/tale-of-immortal/REPORT.md",
+          "artifact_role": "report"
+        },
+        {
+          "path": "docs/research/tale-of-immortal/SMALL_TOUCHES.md",
+          "artifact_role": "proposal_details"
+        },
+        {
+          "path": "docs/research/tale-of-immortal/VALIDATION.json",
+          "artifact_role": "validation_evidence"
+        }
+      ]
+    },
+    {
+      "family": "tales-of-maj-eyal",
+      "root": "docs/research/tales-of-maj-eyal",
+      "coverage_status": "inventory-only",
+      "idea_extraction_status": "pending",
+      "section_classification_status": "pending",
+      "artifacts": [
+        {
+          "path": "docs/research/tales-of-maj-eyal/COVERAGE.json",
+          "artifact_role": "coverage_evidence"
+        },
+        {
+          "path": "docs/research/tales-of-maj-eyal/FINDINGS.json",
+          "artifact_role": "findings"
+        },
+        {
+          "path": "docs/research/tales-of-maj-eyal/IMPLEMENTATION_PACKETS.md",
+          "artifact_role": "implementation_packets"
+        },
+        {
+          "path": "docs/research/tales-of-maj-eyal/INTAKE.json",
+          "artifact_role": "source_intake_evidence"
+        },
+        {
+          "path": "docs/research/tales-of-maj-eyal/REPORT.md",
+          "artifact_role": "report"
+        },
+        {
+          "path": "docs/research/tales-of-maj-eyal/VALIDATION.json",
+          "artifact_role": "validation_evidence"
+        }
+      ]
+    },
+    {
+      "family": "the-lands-of-eldyn",
+      "root": "docs/research/the-lands-of-eldyn",
+      "coverage_status": "inventory-only",
+      "idea_extraction_status": "pending",
+      "section_classification_status": "pending",
+      "artifacts": [
+        {
+          "path": "docs/research/the-lands-of-eldyn/COVERAGE.json",
+          "artifact_role": "coverage_evidence"
+        },
+        {
+          "path": "docs/research/the-lands-of-eldyn/FINDINGS.json",
+          "artifact_role": "findings"
+        },
+        {
+          "path": "docs/research/the-lands-of-eldyn/IMPLEMENTATION_PACKETS.md",
+          "artifact_role": "implementation_packets"
+        },
+        {
+          "path": "docs/research/the-lands-of-eldyn/INTAKE.json",
+          "artifact_role": "source_intake_evidence"
+        },
+        {
+          "path": "docs/research/the-lands-of-eldyn/REPORT.md",
+          "artifact_role": "report"
+        }
+      ]
+    },
+    {
+      "family": "theory-of-magic",
+      "root": "docs/research/theory-of-magic",
+      "coverage_status": "inventory-only",
+      "idea_extraction_status": "pending",
+      "section_classification_status": "pending",
+      "artifacts": [
+        {
+          "path": "docs/research/theory-of-magic/COVERAGE.json",
+          "artifact_role": "coverage_evidence"
+        },
+        {
+          "path": "docs/research/theory-of-magic/FINDINGS.json",
+          "artifact_role": "findings"
+        },
+        {
+          "path": "docs/research/theory-of-magic/IMPLEMENTATION_PACKETS.md",
+          "artifact_role": "implementation_packets"
+        },
+        {
+          "path": "docs/research/theory-of-magic/INTAKE.json",
+          "artifact_role": "source_intake_evidence"
+        },
+        {
+          "path": "docs/research/theory-of-magic/REPORT.md",
+          "artifact_role": "report"
+        }
+      ]
+    },
+    {
+      "family": "upload-labs",
+      "root": "docs/research/upload-labs",
+      "coverage_status": "inventory-only",
+      "idea_extraction_status": "pending",
+      "section_classification_status": "pending",
+      "artifacts": [
+        {
+          "path": "docs/research/upload-labs/COVERAGE.json",
+          "artifact_role": "coverage_evidence"
+        },
+        {
+          "path": "docs/research/upload-labs/FINDINGS.json",
+          "artifact_role": "findings"
+        },
+        {
+          "path": "docs/research/upload-labs/IMPLEMENTATION_PACKETS.md",
+          "artifact_role": "implementation_packets"
+        },
+        {
+          "path": "docs/research/upload-labs/INTAKE.json",
+          "artifact_role": "source_intake_evidence"
+        },
+        {
+          "path": "docs/research/upload-labs/REPORT.md",
+          "artifact_role": "report"
+        }
+      ]
+    },
+    {
+      "family": "vagrus",
+      "root": "docs/research/vagrus",
+      "coverage_status": "inventory-only",
+      "idea_extraction_status": "pending",
+      "section_classification_status": "pending",
+      "artifacts": [
+        {
+          "path": "docs/research/vagrus/COVERAGE.json",
+          "artifact_role": "coverage_evidence"
+        },
+        {
+          "path": "docs/research/vagrus/FINDINGS.json",
+          "artifact_role": "findings"
+        },
+        {
+          "path": "docs/research/vagrus/FINDINGS.md",
+          "artifact_role": "findings"
+        },
+        {
+          "path": "docs/research/vagrus/IMPLEMENTATION_PACKETS.md",
+          "artifact_role": "implementation_packets"
+        },
+        {
+          "path": "docs/research/vagrus/INTAKE.json",
+          "artifact_role": "source_intake_evidence"
+        },
+        {
+          "path": "docs/research/vagrus/RECONCILIATION.md",
+          "artifact_role": "reconciliation_evidence"
+        },
+        {
+          "path": "docs/research/vagrus/REPORT.md",
+          "artifact_role": "report"
+        },
+        {
+          "path": "docs/research/vagrus/SMALL_TOUCHES.md",
+          "artifact_role": "proposal_details"
+        },
+        {
+          "path": "docs/research/vagrus/VALIDATION.json",
+          "artifact_role": "validation_evidence"
+        }
+      ]
+    },
+    {
+      "family": "wildermyth",
+      "root": "docs/research/wildermyth",
+      "coverage_status": "inventory-only",
+      "idea_extraction_status": "pending",
+      "section_classification_status": "pending",
+      "artifacts": [
+        {
+          "path": "docs/research/wildermyth/COVERAGE.json",
+          "artifact_role": "coverage_evidence"
+        },
+        {
+          "path": "docs/research/wildermyth/DLC_COVERAGE.json",
+          "artifact_role": "coverage_evidence"
+        },
+        {
+          "path": "docs/research/wildermyth/FINDINGS.json",
+          "artifact_role": "findings"
+        },
+        {
+          "path": "docs/research/wildermyth/IMPLEMENTATION_PACKETS.json",
+          "artifact_role": "implementation_packets"
+        },
+        {
+          "path": "docs/research/wildermyth/INTAKE.json",
+          "artifact_role": "source_intake_evidence"
+        },
+        {
+          "path": "docs/research/wildermyth/REPORT.md",
+          "artifact_role": "report"
+        }
+      ]
+    },
+    {
+      "family": "your-chronicle",
+      "root": "docs/research/your-chronicle",
+      "coverage_status": "inventory-only",
+      "idea_extraction_status": "pending",
+      "section_classification_status": "pending",
+      "artifacts": [
+        {
+          "path": "docs/research/your-chronicle/COVERAGE.json",
+          "artifact_role": "coverage_evidence"
+        },
+        {
+          "path": "docs/research/your-chronicle/DLC_COVERAGE.json",
+          "artifact_role": "coverage_evidence"
+        },
+        {
+          "path": "docs/research/your-chronicle/FINDINGS.json",
+          "artifact_role": "findings"
+        },
+        {
+          "path": "docs/research/your-chronicle/IMPLEMENTATION_PACKETS.md",
+          "artifact_role": "implementation_packets"
+        },
+        {
+          "path": "docs/research/your-chronicle/INTAKE.json",
+          "artifact_role": "source_intake_evidence"
+        },
+        {
+          "path": "docs/research/your-chronicle/PACKETS.json",
+          "artifact_role": "implementation_packets"
+        },
+        {
+          "path": "docs/research/your-chronicle/REPORT.md",
+          "artifact_role": "report"
+        }
+      ]
+    }
+  ],
+  "prior_owners_outside_scan": [
+    {
+      "role": "absorption_reconciliation",
+      "path": "docs/gm/world-implementation/second-pass/absorption-incorporation/RECONCILIATION.json",
+      "status": "existing-owner-reference",
+      "contents_reconciled": false
+    },
+    {
+      "role": "implementation_dependencies",
+      "path": "docs/gm/world-implementation/second-pass/integration/IMPLEMENTATION_DAG.json",
+      "status": "existing-owner-reference",
+      "contents_reconciled": false
+    },
+    {
+      "role": "repository_implementation_matrix",
+      "path": "docs/gm/feature-wave/repositories/IMPLEMENTATION_MATRIX.json",
+      "status": "existing-owner-reference",
+      "contents_reconciled": false
+    }
+  ],
+  "next_processing_contract": {
+    "each_distinct_idea": "Assign a stable idea ID linked to exact source sections and its existing owner; preserve detailed subideas and conflicting variants.",
+    "public_secret_handling": "Do not copy sealed truths into this public inventory. Later sealed coverage may reference opaque IDs, routes and verification status.",
+    "completion_claim": "Inventory inclusion supplies no gameplay, fidelity, persistence, browser or director acceptance evidence."
+  }
+}

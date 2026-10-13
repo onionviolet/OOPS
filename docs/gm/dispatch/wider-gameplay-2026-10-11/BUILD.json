@@ -1,0 +1,15 @@
+{
+  "candidate": "/Users/weiwei/.codex/worktrees/wider-gameplay/yet-another-idle-rpg",
+  "publicSource": {
+    "src/main.js": "c04a2b1c9888ef5d7d6c307cf454c7d32d8bafd8e72e1462b5ea2e9c01efc2fa",
+    "src/structured_pack_definitions.js": "95a77221281060a7320c89ea0a07a3b5a580a66311a6a125317991bfd566d163",
+    "src/structured_pack_runtime.js": "55ccf19d85dfababb5c83fb59875c9c01ec93970d670f5d4f5693043865243ef",
+    "src/structured_pack_ui.js": "a4a6b07f25e37c7635b355a936ba49d0003a7f94e5ea372b45fdb9159912e7d6",
+    "src/structured_ability_runtime.js": "c6ac06274cf55ffd65cef864f71954d5e7fc2361b88903ea8b8af9882edc68bd",
+    "src/structured_expedition_runtime.js": "47ac4f0b1c318c2289f73a4323dcc088dcea7d624ee35ba2c89e428209ad3ae0",
+    "src/structured_life_runtime.js": "a24eaacf13295031a850bac18626e8c2625b1a0068d02b2b1f8b5f63cad41fff"
+  },
+  "bundleSha256": "c78d551082988d2291a448460d0ec1830429fac4e401cac371f9aecca83aed7f",
+  "p04Preserved": true,
+  "secrets": "Private content and generated fixtures remain ignored; receipts use public hashes only."
+}

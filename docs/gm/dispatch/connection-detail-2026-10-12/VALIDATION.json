@@ -1,0 +1,556 @@
+{
+  "scope": "document structure, public provenance IDs, links and inspection-end input drift only",
+  "families": 35,
+  "leaves": 36,
+  "joins": 6,
+  "packets": 5,
+  "localLinksChecked": 53,
+  "leafChecks": [
+    {
+      "id": "X01-A",
+      "words": 287,
+      "checks": {
+        "provenance": true,
+        "means": true,
+        "discovery_verb": true,
+        "order": true,
+        "consumer_response": true,
+        "continuation": true,
+        "refusal_interruption": true,
+        "save_gate": true,
+        "substantial": true
+      }
+    },
+    {
+      "id": "X01-B",
+      "words": 279,
+      "checks": {
+        "provenance": true,
+        "means": true,
+        "discovery_verb": true,
+        "order": true,
+        "consumer_response": true,
+        "continuation": true,
+        "refusal_interruption": true,
+        "save_gate": true,
+        "substantial": true
+      }
+    },
+    {
+      "id": "X02-A",
+      "words": 263,
+      "checks": {
+        "provenance": true,
+        "means": true,
+        "discovery_verb": true,
+        "order": true,
+        "consumer_response": true,
+        "continuation": true,
+        "refusal_interruption": true,
+        "save_gate": true,
+        "substantial": true
+      }
+    },
+    {
+      "id": "X02-B",
+      "words": 242,
+      "checks": {
+        "provenance": true,
+        "means": true,
+        "discovery_verb": true,
+        "order": true,
+        "consumer_response": true,
+        "continuation": true,
+        "refusal_interruption": true,
+        "save_gate": true,
+        "substantial": true
+      }
+    },
+    {
+      "id": "X03-A",
+      "words": 235,
+      "checks": {
+        "provenance": true,
+        "means": true,
+        "discovery_verb": true,
+        "order": true,
+        "consumer_response": true,
+        "continuation": true,
+        "refusal_interruption": true,
+        "save_gate": true,
+        "substantial": true
+      }
+    },
+    {
+      "id": "X03-B",
+      "words": 249,
+      "checks": {
+        "provenance": true,
+        "means": true,
+        "discovery_verb": true,
+        "order": true,
+        "consumer_response": true,
+        "continuation": true,
+        "refusal_interruption": true,
+        "save_gate": true,
+        "substantial": true
+      }
+    },
+    {
+      "id": "X04-A",
+      "words": 236,
+      "checks": {
+        "provenance": true,
+        "means": true,
+        "discovery_verb": true,
+        "order": true,
+        "consumer_response": true,
+        "continuation": true,
+        "refusal_interruption": true,
+        "save_gate": true,
+        "substantial": true
+      }
+    },
+    {
+      "id": "X04-B",
+      "words": 256,
+      "checks": {
+        "provenance": true,
+        "means": true,
+        "discovery_verb": true,
+        "order": true,
+        "consumer_response": true,
+        "continuation": true,
+        "refusal_interruption": true,
+        "save_gate": true,
+        "substantial": true
+      }
+    },
+    {
+      "id": "X05-A",
+      "words": 273,
+      "checks": {
+        "provenance": true,
+        "means": true,
+        "discovery_verb": true,
+        "order": true,
+        "consumer_response": true,
+        "continuation": true,
+        "refusal_interruption": true,
+        "save_gate": true,
+        "substantial": true
+      }
+    },
+    {
+      "id": "X05-B",
+      "words": 261,
+      "checks": {
+        "provenance": true,
+        "means": true,
+        "discovery_verb": true,
+        "order": true,
+        "consumer_response": true,
+        "continuation": true,
+        "refusal_interruption": true,
+        "save_gate": true,
+        "substantial": true
+      }
+    },
+    {
+      "id": "X06-A",
+      "words": 239,
+      "checks": {
+        "provenance": true,
+        "means": true,
+        "discovery_verb": true,
+        "order": true,
+        "consumer_response": true,
+        "continuation": true,
+        "refusal_interruption": true,
+        "save_gate": true,
+        "substantial": true
+      }
+    },
+    {
+      "id": "X06-B",
+      "words": 246,
+      "checks": {
+        "provenance": true,
+        "means": true,
+        "discovery_verb": true,
+        "order": true,
+        "consumer_response": true,
+        "continuation": true,
+        "refusal_interruption": true,
+        "save_gate": true,
+        "substantial": true
+      }
+    },
+    {
+      "id": "X07-A",
+      "words": 226,
+      "checks": {
+        "provenance": true,
+        "means": true,
+        "discovery_verb": true,
+        "order": true,
+        "consumer_response": true,
+        "continuation": true,
+        "refusal_interruption": true,
+        "save_gate": true,
+        "substantial": true
+      }
+    },
+    {
+      "id": "X07-B",
+      "words": 267,
+      "checks": {
+        "provenance": true,
+        "means": true,
+        "discovery_verb": true,
+        "order": true,
+        "consumer_response": true,
+        "continuation": true,
+        "refusal_interruption": true,
+        "save_gate": true,
+        "substantial": true
+      }
+    },
+    {
+      "id": "X08-A",
+      "words": 230,
+      "checks": {
+        "provenance": true,
+        "means": true,
+        "discovery_verb": true,
+        "order": true,
+        "consumer_response": true,
+        "continuation": true,
+        "refusal_interruption": true,
+        "save_gate": true,
+        "substantial": true
+      }
+    },
+    {
+      "id": "X08-B",
+      "words": 265,
+      "checks": {
+        "provenance": true,
+        "means": true,
+        "discovery_verb": true,
+        "order": true,
+        "consumer_response": true,
+        "continuation": true,
+        "refusal_interruption": true,
+        "save_gate": true,
+        "substantial": true
+      }
+    },
+    {
+      "id": "X09-A",
+      "words": 228,
+      "checks": {
+        "provenance": true,
+        "means": true,
+        "discovery_verb": true,
+        "order": true,
+        "consumer_response": true,
+        "continuation": true,
+        "refusal_interruption": true,
+        "save_gate": true,
+        "substantial": true
+      }
+    },
+    {
+      "id": "X09-B",
+      "words": 949,
+      "checks": {
+        "provenance": true,
+        "means": true,
+        "discovery_verb": true,
+        "order": true,
+        "consumer_response": true,
+        "continuation": true,
+        "refusal_interruption": true,
+        "save_gate": true,
+        "substantial": true
+      }
+    },
+    {
+      "id": "X10-A",
+      "words": 303,
+      "checks": {
+        "provenance": true,
+        "means": true,
+        "discovery_verb": true,
+        "order": true,
+        "consumer_response": true,
+        "continuation": true,
+        "refusal_interruption": true,
+        "save_gate": true,
+        "substantial": true
+      }
+    },
+    {
+      "id": "X10-B",
+      "words": 294,
+      "checks": {
+        "provenance": true,
+        "means": true,
+        "discovery_verb": true,
+        "order": true,
+        "consumer_response": true,
+        "continuation": true,
+        "refusal_interruption": true,
+        "save_gate": true,
+        "substantial": true
+      }
+    },
+    {
+      "id": "X11-A",
+      "words": 326,
+      "checks": {
+        "provenance": true,
+        "means": true,
+        "discovery_verb": true,
+        "order": true,
+        "consumer_response": true,
+        "continuation": true,
+        "refusal_interruption": true,
+        "save_gate": true,
+        "substantial": true
+      }
+    },
+    {
+      "id": "X11-B",
+      "words": 295,
+      "checks": {
+        "provenance": true,
+        "means": true,
+        "discovery_verb": true,
+        "order": true,
+        "consumer_response": true,
+        "continuation": true,
+        "refusal_interruption": true,
+        "save_gate": true,
+        "substantial": true
+      }
+    },
+    {
+      "id": "X12-A",
+      "words": 296,
+      "checks": {
+        "provenance": true,
+        "means": true,
+        "discovery_verb": true,
+        "order": true,
+        "consumer_response": true,
+        "continuation": true,
+        "refusal_interruption": true,
+        "save_gate": true,
+        "substantial": true
+      }
+    },
+    {
+      "id": "X12-B",
+      "words": 305,
+      "checks": {
+        "provenance": true,
+        "means": true,
+        "discovery_verb": true,
+        "order": true,
+        "consumer_response": true,
+        "continuation": true,
+        "refusal_interruption": true,
+        "save_gate": true,
+        "substantial": true
+      }
+    },
+    {
+      "id": "X13-A",
+      "words": 262,
+      "checks": {
+        "provenance": true,
+        "means": true,
+        "discovery_verb": true,
+        "order": true,
+        "consumer_response": true,
+        "continuation": true,
+        "refusal_interruption": true,
+        "save_gate": true,
+        "substantial": true
+      }
+    },
+    {
+      "id": "X13-B",
+      "words": 270,
+      "checks": {
+        "provenance": true,
+        "means": true,
+        "discovery_verb": true,
+        "order": true,
+        "consumer_response": true,
+        "continuation": true,
+        "refusal_interruption": true,
+        "save_gate": true,
+        "substantial": true
+      }
+    },
+    {
+      "id": "X14-A",
+      "words": 266,
+      "checks": {
+        "provenance": true,
+        "means": true,
+        "discovery_verb": true,
+        "order": true,
+        "consumer_response": true,
+        "continuation": true,
+        "refusal_interruption": true,
+        "save_gate": true,
+        "substantial": true
+      }
+    },
+    {
+      "id": "X14-B",
+      "words": 277,
+      "checks": {
+        "provenance": true,
+        "means": true,
+        "discovery_verb": true,
+        "order": true,
+        "consumer_response": true,
+        "continuation": true,
+        "refusal_interruption": true,
+        "save_gate": true,
+        "substantial": true
+      }
+    },
+    {
+      "id": "X15-A",
+      "words": 285,
+      "checks": {
+        "provenance": true,
+        "means": true,
+        "discovery_verb": true,
+        "order": true,
+        "consumer_response": true,
+        "continuation": true,
+        "refusal_interruption": true,
+        "save_gate": true,
+        "substantial": true
+      }
+    },
+    {
+      "id": "X15-B",
+      "words": 274,
+      "checks": {
+        "provenance": true,
+        "means": true,
+        "discovery_verb": true,
+        "order": true,
+        "consumer_response": true,
+        "continuation": true,
+        "refusal_interruption": true,
+        "save_gate": true,
+        "substantial": true
+      }
+    },
+    {
+      "id": "X16-A",
+      "words": 250,
+      "checks": {
+        "provenance": true,
+        "means": true,
+        "discovery_verb": true,
+        "order": true,
+        "consumer_response": true,
+        "continuation": true,
+        "refusal_interruption": true,
+        "save_gate": true,
+        "substantial": true
+      }
+    },
+    {
+      "id": "X16-B",
+      "words": 282,
+      "checks": {
+        "provenance": true,
+        "means": true,
+        "discovery_verb": true,
+        "order": true,
+        "consumer_response": true,
+        "continuation": true,
+        "refusal_interruption": true,
+        "save_gate": true,
+        "substantial": true
+      }
+    },
+    {
+      "id": "X17-A",
+      "words": 277,
+      "checks": {
+        "provenance": true,
+        "means": true,
+        "discovery_verb": true,
+        "order": true,
+        "consumer_response": true,
+        "continuation": true,
+        "refusal_interruption": true,
+        "save_gate": true,
+        "substantial": true
+      }
+    },
+    {
+      "id": "X17-B",
+      "words": 256,
+      "checks": {
+        "provenance": true,
+        "means": true,
+        "discovery_verb": true,
+        "order": true,
+        "consumer_response": true,
+        "continuation": true,
+        "refusal_interruption": true,
+        "save_gate": true,
+        "substantial": true
+      }
+    },
+    {
+      "id": "X18-A",
+      "words": 278,
+      "checks": {
+        "provenance": true,
+        "means": true,
+        "discovery_verb": true,
+        "order": true,
+        "consumer_response": true,
+        "continuation": true,
+        "refusal_interruption": true,
+        "save_gate": true,
+        "substantial": true
+      }
+    },
+    {
+      "id": "X18-B",
+      "words": 423,
+      "checks": {
+        "provenance": true,
+        "means": true,
+        "discovery_verb": true,
+        "order": true,
+        "consumer_response": true,
+        "continuation": true,
+        "refusal_interruption": true,
+        "save_gate": true,
+        "substantial": true
+      }
+    }
+  ],
+  "inputDrift": [
+    "src/main.js"
+  ],
+  "errors": [],
+  "runtimeTests": "not run",
+  "status": "pass"
+}

@@ -1,0 +1,29 @@
+{
+  "bundle": "ef2e248bc8fdd21323e7becb1277ac45bc2537bdcf8e9630e5c688c60bc48d6a",
+  "instrumentation": "Appended read/actual-host closure observation hook only; no source/build mutation",
+  "results": [
+    {
+      "name": "actual stale sequence callback and old native cargo quote rejected after real stock purchase",
+      "status": "PASS"
+    },
+    {
+      "name": "controlled native imported incapacitated body cannot passage with same native owners",
+      "status": "PASS"
+    },
+    {
+      "name": "controlled native imported immobile body cannot passage with same native owners",
+      "status": "PASS"
+    },
+    {
+      "name": "literal native import future-definition rejected preserving current then exact restore",
+      "status": "PASS"
+    },
+    {
+      "name": "literal native import mismatched-instance-definition rejected preserving current then exact restore",
+      "status": "PASS"
+    }
+  ],
+  "errors": [],
+  "status": "PASS bounded F5 native negatives",
+  "normalization": "Native import computes gear rarity; compare all remaining exact equipment fields, stock, slots and owners. Initial raw-rarity restore comparison discarded, content-only rerun passed."
+}

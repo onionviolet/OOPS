@@ -1,0 +1,22 @@
+{
+  "scope": "read-only current dirty shared source; not runtime proof",
+  "rootOwner": "01a12ebf-d9a5-7ce0-94ba-469228eef444",
+  "paths": {
+    "src/main.js": "0f011b576cc05449f33c900f61a61c9044625060905a933e8334748722eed641",
+    "src/structured_pack_runtime.js": "67661360d5875ebd4daa3166a41f569a999671e8bcb12b3f741e70c67bdc5661",
+    "src/structured_pack_state.js": "8565b66675eca5dfec3f81c4a449b7d147baaa22fab49fb96a57c574994dcb10",
+    "src/structured_renewal.js": "0475b893680b1432af10d180bc03440ba7bfa9fc4d3d65cc93b88a6fb52ac1d8",
+    "src/native_realm_traveler.js": "9c06b1fb6381781e000e6187220e9e005cd40b13eb356402a3bd9b52e48b9c51",
+    "src/realm_traveler_profiles.js": "d4e98f8d9dd3fe2efe49e57ded583ef1ed2910b91d711eb2ece25f4f77aa774f",
+    "src/feature_expansion_destination.js": "49677325123538b5174def8f8d87ed4f4f0ea4987bda2e8341968fa1962f8725",
+    "src/feature_expansion_destination_host.js": "7dbda82d57b43b45f35e8d2306a6ba7474eb6eaccb2a1e517a448c15d33f3b8d",
+    "src/simulation_effects.js": "c803e81778a260916d2b96771ebef0a501090db0609c3314c1151c67c6f3b502",
+    "src/structured_equipment_runtime.js": "bc4394604030d7b2e6abb0095e5ab1abeda307bc728befc98a81115cfc9c1ab3",
+    "src/character_bio.js": "f6dc97c32f651734fb1984df7a93b9c44b42b1078380b7df51a1b670c8dd959a",
+    "src/character_creation.js": "f694b250830aaa50763bbe292367a7e8cf3c4b0c80ed851459d171257143024e",
+    "src/display.js": "ae702d726645f31d818842aae1be2338bb6bb00610a9898e9bffbf0e6799c5fa",
+    "tests/structured_origins.test.js": "d240a680a73b250842629c198791f82881ec935dbd035cfd77d912e3530eaba1",
+    "docs/gm/dispatch/starts-talents-continuity-2026-10-11/REPORT.md": "133fdf81877d1b36e35bdcc815a93eb59b5de6c63bb72253bfdc04c48eca924f",
+    "docs/gm/dispatch/starts-talents-continuity-2026-10-11/VERIFICATION.json": "f46e50f789b665c3d1837a2fd6a8a90292bb30c003186707b051315fb6957246"
+  }
+}

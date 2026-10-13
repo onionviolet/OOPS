@@ -1,0 +1,15 @@
+{
+  "label": "Controlled negative native import fixtures, not earned gameplay results",
+  "generatedBase": "/tmp/yairpg-foundation-interaction-enrolled.json",
+  "cases": {
+    "immobile": "/tmp/yairpg-foundation-interaction-negative-immobile.json",
+    "no-hands": "/tmp/yairpg-foundation-interaction-negative-no-hands.json",
+    "mist-form": "/tmp/yairpg-foundation-interaction-negative-mist-form.json",
+    "wrong-controller": "/tmp/yairpg-foundation-interaction-negative-wrong-controller.json",
+    "dormant-faculty": "/tmp/yairpg-foundation-interaction-negative-dormant-faculty.json",
+    "no-fuel": "/tmp/yairpg-foundation-interaction-negative-no-fuel.json",
+    "no-contact": "/tmp/yairpg-foundation-interaction-negative-no-contact.json",
+    "stale-target-body": "/tmp/yairpg-foundation-interaction-negative-stale-target-body.json",
+    "no-source": "/tmp/yairpg-foundation-interaction-negative-no-source.json"
+  }
+}
