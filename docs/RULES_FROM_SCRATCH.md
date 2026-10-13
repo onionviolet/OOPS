@@ -53,10 +53,12 @@ Trade-offs, loyalty, losing everything, families with their own lives and
 play beyond the first character are in the north star's
 [heirs and families](LIFE_SIM_NORTH_STAR.md#heirs-families-and-life-beyond-the-first-character-proposal-2026-10-10)
 section. So a life that wrote, taught and built leaves a rich heir; a life that
-kept everything in its head leaves little. **Build status:** the current
-working tree still shows "Begin an heir · fresh body, one lesson"
-(`src/chronicle_ui.js`, `src/life_experience_host.js`). Replacing it is a
-gameplay slice that needs a build and a browser check; not started.
+kept everything in its head leaves little. **Build status (2026-10-13):** first
+slice built. The heir now receives the life's money, belongings, chest goods,
+home, written lessons as papers, taught lessons, half its reputation and its
+open obligations; old one-lesson heirs load unchanged. Living-world holdings,
+other land, carried debts and contested claims are not built yet.
+[R15 G5 report](gm/dispatch/foundation-adoption-next-2026-10-13/rounds/r15/g5/REPORT.md).
 
 ### Knowledge doesn't automatically cross
 
