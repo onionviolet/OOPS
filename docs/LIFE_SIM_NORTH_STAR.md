@@ -7619,3 +7619,19 @@ Three new research lanes, all proposals, none accepted:
 Future download and decompile passes for these and other unlogged games
 are queued in
 [docs/research/FUTURE_ACQUISITION_QUEUE_2026-10-13.md](research/FUTURE_ACQUISITION_QUEUE_2026-10-13.md).
+
+## Free reference lanes (pointer, 2026-10-13)
+
+Six more lanes, all proposals, none accepted:
+[Modding Tree](research/modding-tree/REPORT.md) (conditional keep rules
+and order cost for prestige layers),
+[Kingdom of Loathing](research/kingdom-of-loathing/REPORT.md) (fixed
+quest spine with rotating rule profiles; daily charges as the content
+unit), [Super Robot Wars](research/super-robot-wars/REPORT.md)
+(survivable canon deaths and canon/IF endings for canon-first worlds),
+[Discworld MUD](research/discworld-mud/REPORT.md) (canon as joinable
+institutions; lives and a psychopomp; a self-revealing skill tree),
+[cultivation idlers](research/cultivation-idlers/REPORT.md) (a
+revelation design law; skill-trial breakthroughs with multi-life seals)
+and [CivIdle](research/cividle/REPORT.md) (run/meta split with earned
+capped carry; derived item values; an opt-in absence split).
