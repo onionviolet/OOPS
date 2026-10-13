@@ -3,14 +3,15 @@ import {ageYears, lifespanDeadline, responseCost} from "./chronicle.js";
 import {Game_Time, format_time} from "./game_time.js";
 import {knownPeopleView} from "./people_knowledge.js";
 
-export function createChroniclePanel({read, command, duty, cancelDuty, exportSave, reset, beginHeir}) {
+export function createChroniclePanel({read, command, duty, cancelDuty, exportSave, reset, beginHeir, heirPreview}) {
     const node = (tag, text = "") => {const n = document.createElement(tag); n.textContent = text; return n;};
     const panel = node("details"); panel.id = "chronicle_panel"; panel.className = "expedition_panel chronicle_panel";
     panel.append(node("summary", "Elder & chronicle"));
     const body = node("div"); panel.append(body);
     const status = node("p"); status.setAttribute("role", "status"); body.append(status);
     const life = node("p"), relation = node("p"), encounter = node("p"), controls = node("div"), events = node("div"), history = node("ol");
-    body.append(life, relation, encounter, controls, events, history);
+    const inheritance = node("p"); inheritance.id = "chronicle_inheritance";
+    body.append(life, inheritance, relation, encounter, controls, events, history);
     let notice = "", signature, focusEnded = false;
     const buttons = new Map();
     const add = (id, label, action) => {
@@ -44,6 +45,7 @@ export function createChroniclePanel({read, command, duty, cancelDuty, exportSav
     for(const lesson of LIFE_LESSONS) {
         add(`reflect.${lesson.id}`, `Write down ${lesson.label}`, () => command({type:'reflect',lesson:lesson.id}));
         add(`teach.${lesson.id}`, `Teach your apprentice ${lesson.label} · 5 minutes`, () => command({type:'teach',lesson:lesson.id}));
+        add(`study.${lesson.id}`, `Study the old papers: ${lesson.label} · 5 minutes`, () => command({type:'study',lesson:lesson.id}));
     }
     const end = node("section"); end.id = "chronicle_life_end"; end.hidden = true;
     end.setAttribute("role", "dialog"); end.setAttribute("aria-modal", "true"); end.setAttribute("aria-label", "Mortal life ended");
@@ -53,7 +55,7 @@ export function createChroniclePanel({read, command, duty, cancelDuty, exportSav
         legacyHelp);
     const exportButton = node("button", "Export this saved life"); exportButton.addEventListener("click", exportSave);
     const resetButton = node("button", "Start a new game · resets all progress"); resetButton.addEventListener("click", reset);
-    const graveText=node('p'),bequestText=node('p'),heirButton=node('button','Begin an heir · fresh body, one lesson');
+    const graveText=node('p'),bequestText=node('ul'),heirButton=node('button','Begin an heir · they receive what this life left behind');bequestText.id='chronicle_heir_leftovers';
     heirButton.dataset.life='begin-heir';heirButton.type='button';
     const heirNotice=node('p');heirNotice.setAttribute('role','status');
     heirButton.addEventListener('click',()=>{try {beginHeir();}catch(e){heirNotice.textContent=e.message;}});
@@ -81,6 +83,10 @@ export function createChroniclePanel({read, command, duty, cancelDuty, exportSav
         }
         for(const [id,b] of buttons) {b.hidden = true; b.disabled = !!error || !canWrite;}
         const show = (id, disabled = false) => {const b = buttons.get(id); b.hidden = false; b.disabled ||= disabled;};
+        const h = c?.life.experience?.inheritance, from = c?.life.experience?.inheritedFrom;
+        const n = (k, word) => `${k} ${word}${k === 1 ? "" : "s"}`;
+        inheritance.textContent = h ? `Generation ${c.life.experience.generation}. ${h.recipient === "apprentice" ? "Apprentice" : "Next of kin"} of ${from.name}. Received ${n(h.money, "coin")}, ${n(h.belongings, "belonging")}, ${n(h.chest, "stored good")}${h.home ? ", the Shack" : ""}; ${n(h.papers.length, "written paper")}; ${n(h.obligations.length, "open obligation")}.`
+            : from ? `Generation ${c.life.experience.generation}. Heir of ${from.name}, begun under the earlier one-lesson rule.` : "";
         if(!c) {show("begin-open", !enabled); show("begin-mortal", !enabled);}
         else if(c.life.endedAt === null) {
             const r = c.relationships.villageElder, s = c.session, available = enabled && !occupied;
@@ -95,6 +101,7 @@ export function createChroniclePanel({read, command, duty, cancelDuty, exportSav
                 }
             } else {
                 const living=lifeExperienceView(c);
+                for(const id of c.life.experience?.inheritance?.papers || []) if(!c.knowledge[id]) show(`study.${id}`, !available);
                 for(const lesson of living.lessons) {
                     if(!c.life.experience?.reflected.includes(lesson.id)) show(`reflect.${lesson.id}`, !available);
                     if(living.teaching && !c.life.experience?.taught.includes(lesson.id)) show(`teach.${lesson.id}`, !available);
@@ -118,8 +125,10 @@ export function createChroniclePanel({read, command, duty, cancelDuty, exportSav
         const ended = !!c && c.life.endedAt !== null;
         end.hidden = !ended; document.getElementById("main_content").inert = ended;
         heirButton.hidden=!beginHeir;
-        legacyHelp.textContent=beginHeir ? 'An heir begins with their own body and belongings, and one lesson from the old papers.' : 'The old papers wait for someone to claim them. Export these memories to keep the whole life.';
-        if(ended){const grave=lifeGrave(c,context.heroName);graveText.textContent=`A quiet grave. ${grave.epitaph}`;bequestText.textContent=grave.lesson ? `In the old papers: ${LIFE_LESSONS.find(l=>l.id===grave.lesson).label}.` : 'The old papers hold no lesson. The name on the stone remains.';}
+        legacyHelp.textContent=beginHeir ? 'An heir begins with their own body, skills and starting things. They also receive what this life actually left behind:' : 'What this life left behind waits for someone to claim it. Export these memories to keep the whole life.';
+        if(ended){const grave=lifeGrave(c,context.heroName);graveText.textContent=`A quiet grave. ${grave.epitaph}`;
+            let lines;try{lines=heirPreview?heirPreview():[];}catch(e){lines=[e.message];}
+            bequestText.replaceChildren(...lines.map(t=>node('li',t)));}
         if(ended) endHeading.textContent = `${context.heroName || "Your character"}’s life ended at ${lifeExperienceView(c).age}`;
         if(ended && !focusEnded) {focusEnded = true; exportButton.focus();}
     }

@@ -326,7 +326,9 @@ import {bodyFacts, beginBodyRecord} from "./body_progression.js";
 import {createBodyPanel} from "./body_ui.js";
 import {createSimulationPanel} from "./simulation_ui.js";
 import {createEventFeed} from "./event_feed_ui.js";
-import {lifeLearningMultiplier} from './life_experience.js';
+import {lifeLearningMultiplier,LIFE_LESSONS} from './life_experience.js';
+import {buildLifeHeirSave} from './life_experience_host.js';
+import {deriveHeirLeftovers,heirLeftoverLines} from './heir_inheritance.js';
 import {enrollSimulation, commitSimulationCommand, cancelSimulationJob, setSimulationProgram, pauseSimulationProgram, resumeSimulationProgram, answerSimulationEncounter, withdrawSimulationEncounter,
     respondSimulationEvent, simulationOccupiesActor, waitingSimulationChoice} from "./simulation.js";
 import {prepareNativeUnlocks} from "./native_unlock_transaction.js";
@@ -350,6 +352,17 @@ const save_key = "save data";
 const dev_save_key = "dev save data";
 const backup_key = "backup save";
 const dev_backup_key = "dev backup save";
+// Heir succession: the ended life stays in the save slot until the heir's
+// envelope passes the real import check. Only a small request crosses reload.
+const heir_request_key = "heir request";
+const heirRequest = (() => {
+    if(importProbeToken) return null;
+    try {
+        const r = JSON.parse(localStorage.getItem(heir_request_key));
+        if(r?.error) localStorage.removeItem(heir_request_key);
+        return r?.schema === 1 ? r : null;
+    } catch {localStorage.removeItem(heir_request_key); return null;}
+})();
 
 registerBookSubtletyCatalogue(expeditionRegistry);
 const agencyIntegrity=validateBookWorldAgencyContracts();if(!agencyIntegrity.valid)throw new Error(`Invalid book-world source contracts: ${agencyIntegrity.errors.join('; ')}`);
@@ -1552,6 +1565,42 @@ function actChronicle(command) {
         expansionState.pending.some(j => j.context.actorId === "player") || activePractice(expansionState.actors.player)) throw new Error("Finish your current activity before this interaction.");
     if(command.type === "enroll" && !metVillageElder()) throw new Error("Speak to the Village elder first.");
     persistExpansion(makeChroniclePlan(command)); chroniclePauseReason = ""; chroniclePanel?.render(true);
+}
+
+// Heir succession (accepted 2026-10-10): count what the ended life left behind,
+// keep it saved, then build the heir on a pristine beginning after reload.
+const equippedInventoryKeys = () => Object.values(character.getEquipment()).filter(Boolean).map(item => item.getInventoryKey());
+const lessonLabels = () => Object.fromEntries(LIFE_LESSONS.map(l => [l.id, l.label]));
+let heirPreviewLines = null;
+function previewHeir() {
+    if(heirRequest?.error) return [heirRequest.error];
+    if(heirPreviewLines || expansionState.chronicle?.life.endedAt == null || !ownsSave) return heirPreviewLines || [];
+    const serialized = create_save(); if(!serialized) return ["What this life left cannot be counted while saving is unavailable."];
+    return heirPreviewLines ||= heirLeftoverLines(deriveHeirLeftovers(JSON.parse(serialized), {equippedKeys: equippedInventoryKeys()}), lessonLabels());
+}
+function beginHeir() {
+    if(!ownsSave || importProbeToken || foundationSaveBlocked || is_loading_error) throw new Error("Saving must be available before an heir can begin.");
+    const serialized = create_save(); if(!serialized) throw new Error("This life could not be saved, so the heir waits.");
+    const leftovers = deriveHeirLeftovers(JSON.parse(serialized), {equippedKeys: equippedInventoryKeys()});
+    lifeSaveStorage.setItem(is_on_dev() ? dev_save_key : save_key, serialized);
+    localStorage.setItem(heir_request_key, JSON.stringify({schema: 1, leftovers}));
+    window.location.reload();
+}
+async function completeHeirRequest(request) {
+    const key = is_on_dev() ? dev_save_key : save_key;
+    try {
+        if(!(await saveOwnership)) throw new Error("Another game tab owns the save.");
+        const previous = JSON.parse(localStorage.getItem(key)), fresh = create_save();
+        if(!fresh) throw new Error("No fresh beginning could be created.");
+        const next = buildLifeHeirSave(previous, JSON.parse(fresh), request.leftovers);
+        await importSaveFile(encodeSaveFile(JSON.stringify(next)), {currentVersion: game_version, preflight: preflightImport, storage: lifeSaveStorage, key});
+        localStorage.removeItem(heir_request_key);
+    } catch(error) {
+        console.error("Heir succession failed:", error);
+        localStorage.setItem(heir_request_key, JSON.stringify({schema: 1, error: `The heir could not begin; the ended life is kept. ${error.message}`}));
+    }
+    window.location.reload();
+    await new Promise(() => {});
 }
 
 const global_flags = {
@@ -7767,7 +7816,7 @@ window.get_game_version = get_game_version;
 window.run = run;
 
 // Do not suspend the legacy initialization before its onload UI has elements.
-acquireSaveOwnership().then(owned => {
+const saveOwnership = acquireSaveOwnership().then(owned => {
     ownsSave = owned;
     if(!owned) expansionError = "This tab is read-only. Close the other game tab and reload to save progress.";
     expeditionPanel?.render(true);
@@ -7778,6 +7827,7 @@ acquireSaveOwnership().then(owned => {
     frontierCampaignPanel?.render();
     featureExpansionPanel?.render();foundationInteractionPanel?.render();
     knownRoutesPanel?.render();adventureNotebook?.render(); worldEventFeed?.render();
+    return owned;
 });
 
 //Verify_Game_Objects();
@@ -8004,7 +8054,7 @@ translationManager.translateUI(language);
 //check if there's an existing save file, otherwise just do some initial setup
 if(importProbeToken) {
     // Probe uses fresh definitions and never reads another saved character.
-} else if(!is_on_dev() && save_key in localStorage || is_on_dev() && (dev_save_key in localStorage || !("skip_live_import" in localStorage) && save_key in localStorage )) {
+} else if(!heirRequest?.leftovers && (!is_on_dev() && save_key in localStorage || is_on_dev() && (dev_save_key in localStorage || !("skip_live_import" in localStorage) && save_key in localStorage ))) {
     load_from_localstorage();
     if(!is_loading_error) refresh_titles({silent: true});
     character.updateStatsAndDisplay();
@@ -8029,6 +8079,7 @@ if(importProbeToken) {
     questManager.startQuest({quest_id: "Lost memory"});
 
     last_rewarded_export = Date.now() - 1000*60*60*16; //reduces timer by 16 hours, making first reward export appear in 4 hours from starting
+    if(heirRequest?.leftovers) await completeHeirRequest(heirRequest);
 }
 
 if(suspendedStructuredSave) {
@@ -8174,7 +8225,8 @@ if(!importProbeToken && !foundationSaveBlocked && !is_loading_error) {
         dutyJob: expansionState.pending.find(j => j.actionId === "chronicle.archive_duty"), error: expansionError, pauseReason: chroniclePauseReason}),
         command: actChronicle, duty: () => startExpedition("chronicle.archive_duty", expansionState.sequence),
         cancelDuty: () => {const j = expansionState.pending.find(j => j.actionId === "chronicle.archive_duty"); if(j) cancelExpedition(j.id, expansionState.sequence);},
-        exportSave: () => {const serialized = create_save(); if(!serialized) return; const url = URL.createObjectURL(new Blob([encodeSaveFile(serialized)], {type: "text/plain"})); const a = document.createElement("a"); a.href = url; a.download = "YAIRPG-ended-life.txt"; a.click(); setTimeout(() => URL.revokeObjectURL(url), 1000);}, reset: hard_reset});
+        exportSave: () => {const serialized = create_save(); if(!serialized) return; const url = URL.createObjectURL(new Blob([encodeSaveFile(serialized)], {type: "text/plain"})); const a = document.createElement("a"); a.href = url; a.download = "YAIRPG-ended-life.txt"; a.click(); setTimeout(() => URL.revokeObjectURL(url), 1000);}, reset: hard_reset,
+        beginHeir, heirPreview: previewHeir});
     knownRoutesPanel=createKnownRoutesPanel({container:document.getElementById('location_actions_div'),focusFallback:document.getElementById('journal_show_notebook'),
         read:()=>({...readProgression(),context:featureWaveContext(),inDialogue:!!current_dialogue,inCombat:!!current_combat,canWrite:ownsSave&&!foundationSaveBlocked&&!importProbeToken}),
         present:snapshot=>{

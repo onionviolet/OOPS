@@ -1,4 +1,4 @@
-import {lifeVoice, learnedLifeLessons, lifeStage,lifeGrave} from './life_experience.js';
+import {LIFE_LESSONS, lifeVoice, learnedLifeLessons, lifeStage,lifeGrave} from './life_experience.js';
 // Original frontier content. Saved history is authoritative; views never roll events.
 export const GAME_YEAR = 360 * 24 * 60;
 const clone = value => structuredClone(value);
@@ -24,6 +24,11 @@ export function validateChronicle(c, clock) {
         check(x.generation==null||integer(x.generation)&&x.generation>0, "Invalid generation.");
         for(const grave of [x.grave,x.inheritedFrom].filter(v=>v!=null))check(object(grave)&&typeof grave.name==='string'&&grave.name.length<=80&&integer(grave.age)&&typeof grave.epitaph==='string'&&grave.epitaph.length<=512&&(grave.lesson===null||ids.includes(grave.lesson)), "Invalid remembered grave.");
         check(x.grave==null||c.life.endedAt!==null, "A living life cannot have its own grave.");
+        if(x.inheritance!=null) {
+            const h=x.inheritance, list=v=>Array.isArray(v)&&v.length<=3&&new Set(v).size===v.length&&v.every(id=>ids.includes(id));
+            check(object(h)&&['kin','apprentice'].includes(h.recipient)&&list(h.papers)&&list(h.apprentice)&&['money','belongings','chest'].every(k=>integer(h[k]))&&
+                typeof h.home==='boolean'&&typeof h.archiveLine==='boolean'&&(h.debtsPaid==null||integer(h.debtsPaid))&&Array.isArray(h.obligations)&&h.obligations.every(o=>['grievance','archiveDuty'].includes(o)), "Invalid inheritance record.");
+        }
     }
     check(object(c.knowledge) && Object.entries(c.knowledge).every(([k,v]) => key(k) && typeof v === "boolean"), "Invalid chronicle knowledge.");
     check(object(c.relationships) && Object.keys(c.relationships).length <= 64, "Invalid relationship owners.");
@@ -173,6 +178,13 @@ export function commandChronicle(state, command, context, expectedSequence = sta
             check(lifespanDeadline(c)-at>=5, "There is not enough time for a full lesson.");
             x.taught.push(command.lesson); x.bequest=command.lesson; minutes=5;
             note(c, `My apprentice sits beside me. I show them ${learnedLifeLessons(c).find(l=>l.id===command.lesson).label}. They try again, and this time their hands are steady.`,at,true);
+        } else if(command.type === "study") {
+            const lesson=LIFE_LESSONS.find(l=>l.id===command.lesson);
+            check(lesson && (c.life.experience?.inheritance?.papers||[]).includes(lesson.id), "The old papers do not hold that lesson.");
+            check(!c.knowledge[lesson.id], "You already know this lesson.");
+            check(c.life.mode!=='mortal' || lifespanDeadline(c)-at>=5, "There is not enough time to study.");
+            c.knowledge[lesson.id]=true; minutes=5;
+            note(c, `I work through the old papers on ${lesson.label}. It makes sense now, in my own way.`,at,true);
         } else if(command.type === "inspect") {
             check(!c.knowledge.elderClue, "This clue is already recorded.");
             c.knowledge.elderClue = true; note(c, "The elder carries his weight with unusual balance. His actual strength remains unknown.", at);
@@ -270,12 +282,34 @@ export const archiveDutyAction = {id: "chronicle.archive_duty", worldId: "base.f
     outcomes: [{id: "kept", label: "Archive promise fulfilled", chance: 1, effects: [{type: "chronicle", operation: "archive-duty"}]}]};
 
 // Builds a new age/relationship owner. Native body reset remains the host's job.
-export function createHeirChronicle(previous, clock, calendar, name) {
+// The heir receives what the ended life left behind (accepted 2026-10-10;
+// docs/RULES_FROM_SCRATCH.md#the-heir). Heirs saved under the earlier
+// one-lesson rule stay valid as saved; nothing is added or removed later.
+export function createHeirChronicle(previous, clock, calendar, name, leftovers) {
     check(previous.life.endedAt!==null, "There is no ended life to inherit.");
-    const grave=lifeGrave(previous,name), c=createChronicle(clock,calendar,previous.life.mode==='mortal');
-    c.knowledge={}; if(grave.lesson)c.knowledge[grave.lesson]=true;
-    c.life.experience={reflected:[],taught:[],bequest:null,generation:(previous.life.experience?.generation||1)+1,inheritedFrom:grave};
-    if(grave.lesson)note(c,`Among the old papers I find a lesson about ${learnedLifeLessons(c)[0].label}. I can put it to use, even though these hands are my own.`,clock,true);
-    else note(c,"There is no lesson in the old papers. Still, I know where the traveler rests.",clock,true);
+    check(leftovers && leftovers.schema===1, "The inheritance has not been counted.");
+    const grave=lifeGrave(previous,name), c=createChronicle(clock,calendar,previous.life.mode==='mortal'), l=leftovers;
+    c.knowledge={};
+    if(l.recipient==='apprentice')for(const id of l.apprentice)c.knowledge[id]=true;
+    c.life.experience={reflected:[],taught:[],bequest:null,generation:(previous.life.experience?.generation||1)+1,inheritedFrom:grave,
+        inheritance:{recipient:l.recipient,papers:[...l.papers],apprentice:[...l.apprentice],money:l.money,
+            belongings:l.belongings.reduce((n,r)=>n+r[1],0),chest:l.chest.reduce((n,r)=>n+r[1],0),home:l.home,obligations:[...l.obligations],archiveLine:l.archiveLine,debtsPaid:l.debts.reduce((n,d)=>n+d.paid,0)}};
+    const ties={rememberedPredecessor:grave.name};
+    if(l.obligations.includes('grievance'))ties.grievance=true;
+    if(l.obligations.includes('archiveDuty'))ties.archiveDuty=true;
+    if(l.archiveLine) {ties.successor=true;const e=c.events.inheritance;e.status="resolved";e.settledAt=clock;}
+    relationshipChange(c,"villageElder",{id:"heir.memory",ties,text:`Remembers ${grave.name}. ${l.obligations.length?'Old business with that life is still open.':'Nothing from that life is owed.'}`},clock);
+    const label=id=>LIFE_LESSONS.find(x=>x.id===id).label;
+    note(c,l.recipient==='apprentice'?`I was ${grave.name}'s apprentice. What I was taught is still in my hands: ${l.apprentice.map(label).join(', ')}.`:`I am ${grave.name}'s next of kin. What they left behind is mine now.`,clock,true);
+    const got=[];
+    if(l.money)got.push(`${l.money} coins`);
+    if(l.belongings.length)got.push('their belongings');
+    if(l.chest.length)got.push('the goods in their chest');
+    if(l.home)got.push('the Shack');
+    const debt=l.debts.reduce((n,d)=>n+d.owed,0);
+    if(debt)note(c,`Before anything passes to me, the estate settles ${debt} coins of debt to the Village guard.`,clock,true);
+    note(c,got.length?`From the estate I receive ${got.join(', ')}.`:'The estate is nearly empty. I start with what I carry myself.',clock,true);
+    if(l.papers.length)note(c,`The old papers hold ${l.papers.map(label).join(', ')}. I can study them.`,clock,true);
+    if(l.obligations.length)note(c,'The elder remembers what was left unfinished. Those obligations are mine now.',clock,true);
     return c;
 }

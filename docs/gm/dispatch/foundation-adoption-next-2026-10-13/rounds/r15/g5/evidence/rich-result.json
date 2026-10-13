@@ -1,0 +1,287 @@
+{
+ "kind": "rich",
+ "profile": "/private/tmp/r15-g5-profile-rich-1791918108271",
+ "errors": [],
+ "steps": [
+  {
+   "name": "fresh origin loaded",
+   "bundle": "http://127.0.0.1:19150/dist/bundle.js?version=v0.6-70684e001885",
+   "localBundleHash": "70684e0018858f0e",
+   "servedBundleHash": "70684e0018858f0e"
+  },
+  {
+   "name": "TEST FIXTURE R15 G5 rich life",
+   "file": "TEST-FIXTURE-R15-G5-rich-ended.txt",
+   "money": 400,
+   "heroCreated": true,
+   "inventory": {
+    "Stale bread": 5,
+    "Old combat manual": 1
+   },
+   "chest": {
+    "Iron ore": 12,
+    "Rough wood log": 6
+   },
+   "shack": 1,
+   "reputation": {
+    "Village": -2,
+    "Slums": 0,
+    "Town": 0
+   },
+   "xp": 0,
+   "knowledge": {
+    "routeSignals": true
+   },
+   "inheritance": null,
+   "inheritedFrom": null,
+   "generation": null,
+   "elderTies": {
+    "role": "acquaintance",
+    "archiveDuty": true,
+    "dutyKept": true,
+    "successor": true,
+    "grievance": true
+   },
+   "inheritanceEvent": "resolved",
+   "ended": 32140800,
+   "clock": 32140800,
+   "calendar": {
+    "year": 1061,
+    "month": 4,
+    "day": 1,
+    "hour": 8,
+    "minute": 0,
+    "day_count": 22321
+   }
+  },
+  {
+   "name": "ended-life dialog shows what will pass",
+   "button": "Begin an heir · they receive what this life left behind",
+   "help": "An heir begins with their own body, skills and starting things. They also receive what this life actually left behind:",
+   "preview": [
+    "Recipient: the apprentice you taught.",
+    "Money: 400 coins.",
+    "Belongings (7): Stale bread ×5, Old combat manual, Cheap leather pants.",
+    "Stored in the chest (18): Iron ore ×12, Rough wood log ×6.",
+    "Home: the Shack in the Village.",
+    "Written papers: reading the road (study each to learn it).",
+    "Taught to the apprentice: reading the road.",
+    "Family standing: Village -1.",
+    "The elder's archive stays with your line.",
+    "Obligation: An unsettled assault grievance with the elder (3-coin restitution still owed)."
+   ]
+  },
+  {
+   "name": "The heir",
+   "money": 502,
+   "heroCreated": false,
+   "inventory": {
+    "Cheap leather pants@40": 2,
+    "Stale bread": 10,
+    "Old combat manual": 1
+   },
+   "chest": {
+    "Iron ore": 12,
+    "Rough wood log": 6
+   },
+   "shack": 1,
+   "reputation": {
+    "Village": -1,
+    "Slums": 0,
+    "Town": 0
+   },
+   "xp": 0,
+   "knowledge": {
+    "routeSignals": true
+   },
+   "inheritance": {
+    "recipient": "apprentice",
+    "papers": [
+     "routeSignals"
+    ],
+    "apprentice": [
+     "routeSignals"
+    ],
+    "money": 400,
+    "belongings": 7,
+    "chest": 18,
+    "home": true,
+    "obligations": [
+     "grievance"
+    ],
+    "archiveLine": true,
+    "debtsPaid": 0
+   },
+   "inheritedFrom": "TEST FIXTURE R15 G5 rich life",
+   "generation": 2,
+   "elderTies": {
+    "role": "acquaintance",
+    "rememberedPredecessor": "TEST FIXTURE R15 G5 rich life",
+    "grievance": true,
+    "successor": true
+   },
+   "inheritanceEvent": "resolved",
+   "ended": null,
+   "clock": 0,
+   "calendar": {
+    "year": 1061,
+    "month": 4,
+    "day": 1,
+    "hour": 8,
+    "minute": 0,
+    "day_count": 22321
+   }
+  },
+  {
+   "name": "heir playing: what they actually received",
+   "inheritanceLine": "Generation 2. Apprentice of TEST FIXTURE R15 G5 rich life. Received 400 coins, 7 belongings, 18 stored goods, the Shack; 1 written paper; 1 open obligation.",
+   "journal": [
+    "The elder remembers what was left unfinished. Those obligations are mine now.",
+    "The old papers hold reading the road. I can study them.",
+    "From the estate I receive 400 coins, their belongings, the goods in their chest, the Shack.",
+    "I was TEST FIXTURE R15 G5 rich life's apprentice. What I was taught is still in my hands: reading the road.",
+    "A new chronicle begins. Local invitations have game-time deadlines; rumors can reach you later."
+   ],
+   "study": [],
+   "money": "Your purse contains: 50C 2W"
+  },
+  {
+   "name": "inherited obligations visible",
+   "ties": {
+    "role": "acquaintance",
+    "rememberedPredecessor": "TEST FIXTURE R15 G5 rich life",
+    "grievance": true,
+    "successor": true
+   },
+   "settleShown": true,
+   "dutyShown": false
+  },
+  {
+   "name": "TEST FIXTURE R15 G5 rich heir",
+   "equal": true,
+   "money": 502,
+   "heroCreated": true,
+   "inventory": {
+    "Cheap leather pants@40": 2,
+    "Stale bread": 10,
+    "Old combat manual": 1
+   },
+   "chest": {
+    "Iron ore": 12,
+    "Rough wood log": 6
+   },
+   "shack": 1,
+   "reputation": {
+    "Village": -1,
+    "Slums": 0,
+    "Town": 0
+   },
+   "xp": 0,
+   "knowledge": {
+    "routeSignals": true
+   },
+   "inheritance": {
+    "recipient": "apprentice",
+    "papers": [
+     "routeSignals"
+    ],
+    "apprentice": [
+     "routeSignals"
+    ],
+    "money": 400,
+    "belongings": 7,
+    "chest": 18,
+    "home": true,
+    "obligations": [
+     "grievance"
+    ],
+    "archiveLine": true,
+    "debtsPaid": 0
+   },
+   "inheritedFrom": "TEST FIXTURE R15 G5 rich life",
+   "generation": 2,
+   "elderTies": {
+    "role": "acquaintance",
+    "rememberedPredecessor": "TEST FIXTURE R15 G5 rich life",
+    "grievance": true,
+    "successor": true
+   },
+   "inheritanceEvent": "resolved",
+   "ended": null,
+   "clock": 0,
+   "calendar": {
+    "year": 1061,
+    "month": 4,
+    "day": 1,
+    "hour": 8,
+    "minute": 0,
+    "day_count": 22321
+   }
+  },
+  {
+   "name": "TEST FIXTURE R15 G5 rich heir",
+   "equalIgnoringTimestamps": true,
+   "chronicleEqual": true,
+   "inventoryEqual": true,
+   "moneyEqual": true,
+   "money": 502,
+   "heroCreated": true,
+   "inventory": {
+    "Cheap leather pants@40": 2,
+    "Stale bread": 10,
+    "Old combat manual": 1
+   },
+   "chest": {
+    "Iron ore": 12,
+    "Rough wood log": 6
+   },
+   "shack": 1,
+   "reputation": {
+    "Village": -1,
+    "Slums": 0,
+    "Town": 0
+   },
+   "xp": 0,
+   "knowledge": {
+    "routeSignals": true
+   },
+   "inheritance": {
+    "recipient": "apprentice",
+    "papers": [
+     "routeSignals"
+    ],
+    "apprentice": [
+     "routeSignals"
+    ],
+    "money": 400,
+    "belongings": 7,
+    "chest": 18,
+    "home": true,
+    "obligations": [
+     "grievance"
+    ],
+    "archiveLine": true,
+    "debtsPaid": 0
+   },
+   "inheritedFrom": "TEST FIXTURE R15 G5 rich life",
+   "generation": 2,
+   "elderTies": {
+    "role": "acquaintance",
+    "rememberedPredecessor": "TEST FIXTURE R15 G5 rich life",
+    "grievance": true,
+    "successor": true
+   },
+   "inheritanceEvent": "resolved",
+   "ended": null,
+   "clock": 0,
+   "calendar": {
+    "year": 1061,
+    "month": 4,
+    "day": 1,
+    "hour": 8,
+    "minute": 0,
+    "day_count": 22321
+   }
+  }
+ ]
+}

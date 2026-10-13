@@ -1,0 +1,201 @@
+{
+ "rich": {
+  "file": "TEST-FIXTURE-R15-G5-rich-ended.txt",
+  "name": "TEST FIXTURE R15 G5 rich life",
+  "money": 400,
+  "equippedKeys": [
+   "{\"id\":\"Cheap leather pants\",\"quality\":40}"
+  ],
+  "inventory": {
+   "{\"id\":\"Stale bread\"}": {
+    "count": 5
+   },
+   "{\"id\":\"Old combat manual\"}": {
+    "count": 1
+   }
+  },
+  "chest": {
+   "{\"id\":\"Iron ore\"}": {
+    "count": 12
+   },
+   "{\"id\":\"Rough wood log\"}": {
+    "count": 6
+   }
+  },
+  "shack": 1,
+  "reputation": {
+   "Village": -2,
+   "Slums": 0,
+   "Town": 0
+  },
+  "experience": {
+   "reflected": [
+    "routeSignals"
+   ],
+   "taught": [
+    "routeSignals"
+   ],
+   "bequest": "routeSignals",
+   "lastYear": true,
+   "grave": {
+    "name": "A traveler",
+    "age": 80,
+    "epitaph": "Here rests one who kept a promise when it mattered; learned to find a way home.",
+    "lesson": "routeSignals"
+   }
+  },
+  "elderTies": {
+   "role": "acquaintance",
+   "archiveDuty": true,
+   "dutyKept": true,
+   "successor": true,
+   "grievance": true
+  },
+  "clock": 32140800,
+  "calendar": {
+   "year": 1061,
+   "month": 4,
+   "day": 1,
+   "hour": 8,
+   "minute": 0,
+   "day_count": 22321
+  },
+  "log": [
+   {
+    "clock": 0,
+    "age": 18,
+    "text": "enrolled mortal chronicle"
+   },
+   {
+    "clock": 10,
+    "age": 18,
+    "text": "attended cartographer: routeSignals learned"
+   },
+   {
+    "clock": 10,
+    "age": 18,
+    "text": "wrote down routeSignals"
+   },
+   {
+    "clock": 15,
+    "age": 18,
+    "text": "kept archive promise (1 coin)"
+   },
+   {
+    "clock": 60,
+    "age": 18,
+    "text": "claimed archive succession: Old combat manual"
+   },
+   {
+    "clock": 60,
+    "age": 18,
+    "text": "stored 12 Iron ore and 6 Rough wood log in the Shack chest"
+   },
+   {
+    "clock": 60,
+    "age": 18,
+    "text": "wears Cheap leather pants"
+   },
+   {
+    "clock": 60,
+    "age": 18,
+    "text": "attacked the elder and withdrew: grievance unsettled"
+   },
+   {
+    "clock": 24624065,
+    "age": 65.5,
+    "text": "as an elder, taught routeSignals to an apprentice"
+   },
+   {
+    "clock": 32140800,
+    "age": 80,
+    "text": "life ended at 80"
+   }
+  ],
+  "nodeImport": "PASS (real importSaveFile + load, no warnings)"
+ },
+ "empty": {
+  "file": "TEST-FIXTURE-R15-G5-empty-ended.txt",
+  "name": "TEST FIXTURE R15 G5 empty life",
+  "money": 0,
+  "equippedKeys": [],
+  "inventory": {
+   "{\"id\":\"Cheap leather pants\",\"quality\":40}": {
+    "count": 1
+   }
+  },
+  "chest": {},
+  "shack": 0,
+  "reputation": {
+   "Village": 0,
+   "Slums": 0,
+   "Town": 0
+  },
+  "experience": {
+   "reflected": [],
+   "taught": [],
+   "bequest": null,
+   "lastYear": true,
+   "grave": {
+    "name": "A traveler",
+    "age": 80,
+    "epitaph": "Here rests a traveler. Not every kindness found its way into a book.",
+    "lesson": null
+   }
+  },
+  "elderTies": {
+   "role": "acquaintance"
+  },
+  "clock": 32140800,
+  "calendar": {
+   "year": 1061,
+   "month": 4,
+   "day": 1,
+   "hour": 8,
+   "minute": 0,
+   "day_count": 22321
+  },
+  "log": [
+   {
+    "clock": 0,
+    "age": 18,
+    "text": "enrolled mortal chronicle"
+   },
+   {
+    "clock": 0,
+    "age": 18,
+    "text": "spent all coins, ate the bread"
+   },
+   {
+    "clock": 32140800,
+    "age": 80,
+    "text": "life ended at 80"
+   }
+  ],
+  "nodeImport": "PASS (real importSaveFile + load, no warnings)"
+ },
+ "oldRuleHeir": {
+  "file": "TEST-FIXTURE-R15-G5-old-rule-heir.txt",
+  "builtBy": "git 4becff87 src/life_experience_host.js buildLifeHeirSave",
+  "knowledge": {
+   "routeSignals": true
+  },
+  "experience": {
+   "reflected": [],
+   "taught": [],
+   "bequest": null,
+   "generation": 2,
+   "inheritedFrom": {
+    "name": "TEST FIXTURE R15 G5 rich life",
+    "age": 80,
+    "epitaph": "Here rests one who kept a promise when it mattered; learned to find a way home.",
+    "lesson": "routeSignals"
+   }
+  },
+  "money": 102,
+  "newBuildNodeImport": "PASS",
+  "loadedKnowledge": {
+   "routeSignals": true
+  }
+ }
+}
