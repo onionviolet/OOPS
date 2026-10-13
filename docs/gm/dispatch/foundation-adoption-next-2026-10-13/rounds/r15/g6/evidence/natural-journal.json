@@ -1,0 +1,5637 @@
+{
+ "loaded": [
+  {
+   "url": "http://127.0.0.1:19160/dist/bundle.js?version=v0.6-6270d46aa670",
+   "loaded": "6270d46aa670a66789d99d7a2098fad27be6bb5fd0b2e2b886cd043a0f8dce37",
+   "disk": "6270d46aa670a66789d99d7a2098fad27be6bb5fd0b2e2b886cd043a0f8dce37"
+  },
+  {
+   "url": "http://127.0.0.1:19160/dist/bundle.js?version=v0.6-6270d46aa670",
+   "loaded": "6270d46aa670a66789d99d7a2098fad27be6bb5fd0b2e2b886cd043a0f8dce37",
+   "disk": "6270d46aa670a66789d99d7a2098fad27be6bb5fd0b2e2b886cd043a0f8dce37"
+  },
+  {
+   "url": "http://127.0.0.1:19160/dist/bundle.js?version=v0.6-6270d46aa670",
+   "loaded": "6270d46aa670a66789d99d7a2098fad27be6bb5fd0b2e2b886cd043a0f8dce37",
+   "disk": "6270d46aa670a66789d99d7a2098fad27be6bb5fd0b2e2b886cd043a0f8dce37"
+  },
+  {
+   "url": "http://127.0.0.1:19160/dist/bundle.js?version=v0.6-6270d46aa670",
+   "loaded": "6270d46aa670a66789d99d7a2098fad27be6bb5fd0b2e2b886cd043a0f8dce37",
+   "disk": "6270d46aa670a66789d99d7a2098fad27be6bb5fd0b2e2b886cd043a0f8dce37"
+  },
+  {
+   "url": "http://127.0.0.1:19160/dist/bundle.js?version=v0.6-6270d46aa670",
+   "loaded": "6270d46aa670a66789d99d7a2098fad27be6bb5fd0b2e2b886cd043a0f8dce37",
+   "disk": "6270d46aa670a66789d99d7a2098fad27be6bb5fd0b2e2b886cd043a0f8dce37"
+  },
+  {
+   "url": "http://127.0.0.1:19160/dist/bundle.js?version=v0.6-6270d46aa670",
+   "loaded": "6270d46aa670a66789d99d7a2098fad27be6bb5fd0b2e2b886cd043a0f8dce37",
+   "disk": "6270d46aa670a66789d99d7a2098fad27be6bb5fd0b2e2b886cd043a0f8dce37"
+  },
+  {
+   "url": "http://127.0.0.1:19160/dist/bundle.js?version=v0.6-6270d46aa670",
+   "loaded": "6270d46aa670a66789d99d7a2098fad27be6bb5fd0b2e2b886cd043a0f8dce37",
+   "disk": "6270d46aa670a66789d99d7a2098fad27be6bb5fd0b2e2b886cd043a0f8dce37"
+  }
+ ],
+ "errors": [],
+ "journal": [
+  {
+   "label": "MG01 before",
+   "money": 102,
+   "clock": 13,
+   "facts": {
+    "mg.opened": true,
+    "mg.version": 1
+   },
+   "npc": {
+    "mg.mira": {
+     "coins": 100,
+     "stock": {
+      "{\"id\":\"Courtyard seed packet\"}": 16,
+      "{\"id\":\"Damaged courtyard heirloom\"}": 1,
+      "{\"id\":\"Rough wood log\"}": 20,
+      "{\"id\":\"Linen cloth\"}": 10
+     },
+     "stamina": 20
+    },
+    "mg.orin": {
+     "coins": 30,
+     "stock": {
+      "{\"id\":\"Rough wood log\"}": 6
+     },
+     "stamina": 20
+    },
+    "mg.sela": {
+     "coins": 40,
+     "stock": {},
+     "stamina": 20
+    },
+    "mg.bram": {
+     "coins": 200,
+     "stock": {},
+     "stamina": 20
+    }
+   },
+   "jobs": [],
+   "program": null,
+   "completed": {
+    "mg.begin": 1
+   },
+   "inventory": {}
+  },
+  {
+   "label": "MG01 share chosen",
+   "money": 99,
+   "clock": 15,
+   "facts": {
+    "mg.opened": true,
+    "mg.version": 1,
+    "mg.capitalAgreement": "share"
+   },
+   "npc": {
+    "mg.mira": {
+     "coins": 100,
+     "stock": {
+      "{\"id\":\"Courtyard seed packet\"}": 16,
+      "{\"id\":\"Damaged courtyard heirloom\"}": 1,
+      "{\"id\":\"Rough wood log\"}": 20,
+      "{\"id\":\"Linen cloth\"}": 10
+     },
+     "stamina": 20
+    },
+    "mg.orin": {
+     "coins": 33,
+     "stock": {
+      "{\"id\":\"Rough wood log\"}": 4
+     },
+     "stamina": 20
+    },
+    "mg.sela": {
+     "coins": 40,
+     "stock": {},
+     "stamina": 20
+    },
+    "mg.bram": {
+     "coins": 200,
+     "stock": {},
+     "stamina": 20
+    }
+   },
+   "jobs": [],
+   "program": null,
+   "completed": {
+    "mg.begin": 1,
+    "mg.orin.inspect": 1,
+    "mg.orin.share": 1
+   },
+   "inventory": {
+    "Rough wood log": 2
+   }
+  },
+  {
+   "label": "MG01 batch started",
+   "money": 99,
+   "clock": 16,
+   "facts": {
+    "mg.opened": true,
+    "mg.version": 1,
+    "mg.capitalAgreement": "share"
+   },
+   "npc": {
+    "mg.mira": {
+     "coins": 100,
+     "stock": {
+      "{\"id\":\"Courtyard seed packet\"}": 16,
+      "{\"id\":\"Damaged courtyard heirloom\"}": 1,
+      "{\"id\":\"Rough wood log\"}": 20,
+      "{\"id\":\"Linen cloth\"}": 10
+     },
+     "stamina": 20
+    },
+    "mg.orin": {
+     "coins": 33,
+     "stock": {
+      "{\"id\":\"Rough wood log\"}": 4
+     },
+     "stamina": 20
+    },
+    "mg.sela": {
+     "coins": 40,
+     "stock": {},
+     "stamina": 20
+    },
+    "mg.bram": {
+     "coins": 200,
+     "stock": {},
+     "stamina": 20
+    }
+   },
+   "jobs": [
+    {
+     "actor": "player",
+     "command": "mg.orin.make_batch",
+     "due": 19
+    }
+   ],
+   "program": null,
+   "completed": {
+    "mg.begin": 1,
+    "mg.orin.inspect": 1,
+    "mg.orin.share": 1
+   },
+   "inventory": {}
+  },
+  {
+   "label": "MG01 batch cancelled",
+   "money": 99,
+   "clock": 18,
+   "facts": {
+    "mg.opened": true,
+    "mg.version": 1,
+    "mg.capitalAgreement": "share"
+   },
+   "npc": {
+    "mg.mira": {
+     "coins": 100,
+     "stock": {
+      "{\"id\":\"Courtyard seed packet\"}": 16,
+      "{\"id\":\"Damaged courtyard heirloom\"}": 1,
+      "{\"id\":\"Rough wood log\"}": 20,
+      "{\"id\":\"Linen cloth\"}": 10
+     },
+     "stamina": 20
+    },
+    "mg.orin": {
+     "coins": 33,
+     "stock": {
+      "{\"id\":\"Rough wood log\"}": 4
+     },
+     "stamina": 20
+    },
+    "mg.sela": {
+     "coins": 40,
+     "stock": {},
+     "stamina": 20
+    },
+    "mg.bram": {
+     "coins": 200,
+     "stock": {},
+     "stamina": 20
+    }
+   },
+   "jobs": [],
+   "program": null,
+   "completed": {
+    "mg.begin": 1,
+    "mg.orin.inspect": 1,
+    "mg.orin.share": 1
+   },
+   "inventory": {
+    "Rough wood log": 2
+   }
+  },
+  {
+   "label": "MG01 sold",
+   "money": 99,
+   "clock": 23,
+   "facts": {
+    "mg.opened": true,
+    "mg.version": 1,
+    "mg.capitalAgreement": "share",
+    "mg.capitalBatchMade": true,
+    "mg.capitalSold": true
+   },
+   "npc": {
+    "mg.mira": {
+     "coins": 100,
+     "stock": {
+      "{\"id\":\"Courtyard seed packet\"}": 16,
+      "{\"id\":\"Damaged courtyard heirloom\"}": 1,
+      "{\"id\":\"Rough wood log\"}": 20,
+      "{\"id\":\"Linen cloth\"}": 10
+     },
+     "stamina": 20
+    },
+    "mg.orin": {
+     "coins": 39,
+     "stock": {
+      "{\"id\":\"Rough wood log\"}": 4
+     },
+     "stamina": 20
+    },
+    "mg.sela": {
+     "coins": 40,
+     "stock": {},
+     "stamina": 20
+    },
+    "mg.bram": {
+     "coins": 194,
+     "stock": {
+      "{\"id\":\"Courtyard wood crate\"}": 1
+     },
+     "stamina": 20
+    }
+   },
+   "jobs": [],
+   "program": null,
+   "completed": {
+    "mg.begin": 1,
+    "mg.orin.inspect": 1,
+    "mg.orin.share": 1,
+    "mg.orin.make_batch": 1,
+    "mg.orin.sell_batch": 1
+   },
+   "inventory": {}
+  },
+  {
+   "label": "MG01 settled",
+   "money": 103,
+   "clock": 24,
+   "facts": {
+    "mg.opened": true,
+    "mg.version": 1,
+    "mg.capitalAgreement": "share",
+    "mg.capitalBatchMade": true,
+    "mg.capitalSold": true,
+    "mg.capitalAgreementSettled": true
+   },
+   "npc": {
+    "mg.mira": {
+     "coins": 100,
+     "stock": {
+      "{\"id\":\"Courtyard seed packet\"}": 16,
+      "{\"id\":\"Damaged courtyard heirloom\"}": 1,
+      "{\"id\":\"Rough wood log\"}": 20,
+      "{\"id\":\"Linen cloth\"}": 10
+     },
+     "stamina": 20
+    },
+    "mg.orin": {
+     "coins": 35,
+     "stock": {
+      "{\"id\":\"Rough wood log\"}": 4
+     },
+     "stamina": 20
+    },
+    "mg.sela": {
+     "coins": 40,
+     "stock": {},
+     "stamina": 20
+    },
+    "mg.bram": {
+     "coins": 194,
+     "stock": {
+      "{\"id\":\"Courtyard wood crate\"}": 1
+     },
+     "stamina": 20
+    }
+   },
+   "jobs": [],
+   "program": null,
+   "completed": {
+    "mg.begin": 1,
+    "mg.orin.inspect": 1,
+    "mg.orin.share": 1,
+    "mg.orin.make_batch": 1,
+    "mg.orin.sell_batch": 1,
+    "mg.orin.settle_share": 1
+   },
+   "inventory": {}
+  },
+  {
+   "label": "MG02 before",
+   "money": 103,
+   "clock": 38,
+   "facts": {
+    "mg.opened": true,
+    "mg.version": 1,
+    "mg.capitalAgreement": "share",
+    "mg.capitalBatchMade": true,
+    "mg.capitalSold": true,
+    "mg.capitalAgreementSettled": true
+   },
+   "npc": {
+    "mg.mira": {
+     "coins": 100,
+     "stock": {
+      "{\"id\":\"Courtyard seed packet\"}": 16,
+      "{\"id\":\"Damaged courtyard heirloom\"}": 1,
+      "{\"id\":\"Rough wood log\"}": 20,
+      "{\"id\":\"Linen cloth\"}": 10
+     },
+     "stamina": 20
+    },
+    "mg.orin": {
+     "coins": 35,
+     "stock": {
+      "{\"id\":\"Rough wood log\"}": 4
+     },
+     "stamina": 20
+    },
+    "mg.sela": {
+     "coins": 40,
+     "stock": {},
+     "stamina": 20
+    },
+    "mg.bram": {
+     "coins": 194,
+     "stock": {
+      "{\"id\":\"Courtyard wood crate\"}": 1
+     },
+     "stamina": 20
+    }
+   },
+   "jobs": [],
+   "program": null,
+   "completed": {
+    "mg.begin": 1,
+    "mg.orin.inspect": 1,
+    "mg.orin.share": 1,
+    "mg.orin.make_batch": 1,
+    "mg.orin.sell_batch": 1,
+    "mg.orin.settle_share": 1
+   },
+   "inventory": {}
+  },
+  {
+   "label": "MG02 bought 12 logs",
+   "money": 79,
+   "clock": 50,
+   "facts": {
+    "mg.opened": true,
+    "mg.version": 1,
+    "mg.capitalAgreement": "share",
+    "mg.capitalBatchMade": true,
+    "mg.capitalSold": true,
+    "mg.capitalAgreementSettled": true
+   },
+   "npc": {
+    "mg.mira": {
+     "coins": 124,
+     "stock": {
+      "{\"id\":\"Courtyard seed packet\"}": 16,
+      "{\"id\":\"Damaged courtyard heirloom\"}": 1,
+      "{\"id\":\"Rough wood log\"}": 8,
+      "{\"id\":\"Linen cloth\"}": 10
+     },
+     "stamina": 20
+    },
+    "mg.orin": {
+     "coins": 35,
+     "stock": {
+      "{\"id\":\"Rough wood log\"}": 4
+     },
+     "stamina": 20
+    },
+    "mg.sela": {
+     "coins": 40,
+     "stock": {},
+     "stamina": 20
+    },
+    "mg.bram": {
+     "coins": 194,
+     "stock": {
+      "{\"id\":\"Courtyard wood crate\"}": 1
+     },
+     "stamina": 20
+    }
+   },
+   "jobs": [],
+   "program": null,
+   "completed": {
+    "mg.begin": 1,
+    "mg.orin.inspect": 1,
+    "mg.orin.share": 1,
+    "mg.orin.make_batch": 1,
+    "mg.orin.sell_batch": 1,
+    "mg.orin.settle_share": 1,
+    "mg.supply.log": 12
+   },
+   "inventory": {
+    "Rough wood log": 12
+   }
+  },
+  {
+   "label": "MG02 repaired",
+   "money": 74,
+   "clock": 56,
+   "facts": {
+    "mg.opened": true,
+    "mg.version": 1,
+    "mg.capitalAgreement": "share",
+    "mg.capitalBatchMade": true,
+    "mg.capitalSold": true,
+    "mg.capitalAgreementSettled": true,
+    "mg.roomOwned": true,
+    "mg.roomRepaired": true,
+    "mg.roomUse": "unselected"
+   },
+   "npc": {
+    "mg.mira": {
+     "coins": 129,
+     "stock": {
+      "{\"id\":\"Courtyard seed packet\"}": 16,
+      "{\"id\":\"Damaged courtyard heirloom\"}": 1,
+      "{\"id\":\"Rough wood log\"}": 8,
+      "{\"id\":\"Linen cloth\"}": 10
+     },
+     "stamina": 20
+    },
+    "mg.orin": {
+     "coins": 35,
+     "stock": {
+      "{\"id\":\"Rough wood log\"}": 4
+     },
+     "stamina": 20
+    },
+    "mg.sela": {
+     "coins": 40,
+     "stock": {},
+     "stamina": 20
+    },
+    "mg.bram": {
+     "coins": 194,
+     "stock": {
+      "{\"id\":\"Courtyard wood crate\"}": 1
+     },
+     "stamina": 20
+    }
+   },
+   "jobs": [],
+   "program": null,
+   "completed": {
+    "mg.begin": 1,
+    "mg.orin.inspect": 1,
+    "mg.orin.share": 1,
+    "mg.orin.make_batch": 1,
+    "mg.orin.sell_batch": 1,
+    "mg.orin.settle_share": 1,
+    "mg.supply.log": 12,
+    "mg.mira.buy_room": 1,
+    "mg.mira.repair_room": 1
+   },
+   "inventory": {
+    "Rough wood log": 11
+   }
+  },
+  {
+   "label": "MG02 Sela staying",
+   "money": 74,
+   "clock": 58,
+   "facts": {
+    "mg.opened": true,
+    "mg.version": 1,
+    "mg.capitalAgreement": "share",
+    "mg.capitalBatchMade": true,
+    "mg.capitalSold": true,
+    "mg.capitalAgreementSettled": true,
+    "mg.roomOwned": true,
+    "mg.roomRepaired": true,
+    "mg.roomUse": "rental"
+   },
+   "npc": {
+    "mg.mira": {
+     "coins": 129,
+     "stock": {
+      "{\"id\":\"Courtyard seed packet\"}": 16,
+      "{\"id\":\"Damaged courtyard heirloom\"}": 1,
+      "{\"id\":\"Rough wood log\"}": 8,
+      "{\"id\":\"Linen cloth\"}": 10
+     },
+     "stamina": 20
+    },
+    "mg.orin": {
+     "coins": 35,
+     "stock": {
+      "{\"id\":\"Rough wood log\"}": 4
+     },
+     "stamina": 20
+    },
+    "mg.sela": {
+     "coins": 40,
+     "stock": {},
+     "stamina": 20
+    },
+    "mg.bram": {
+     "coins": 194,
+     "stock": {
+      "{\"id\":\"Courtyard wood crate\"}": 1
+     },
+     "stamina": 20
+    }
+   },
+   "jobs": [
+    {
+     "actor": "player",
+     "command": "mg.room.sela_stay",
+     "due": 62
+    }
+   ],
+   "program": null,
+   "completed": {
+    "mg.begin": 1,
+    "mg.orin.inspect": 1,
+    "mg.orin.share": 1,
+    "mg.orin.make_batch": 1,
+    "mg.orin.sell_batch": 1,
+    "mg.orin.settle_share": 1,
+    "mg.supply.log": 12,
+    "mg.mira.buy_room": 1,
+    "mg.mira.repair_room": 1,
+    "mg.room.use_rental": 1
+   },
+   "inventory": {
+    "Rough wood log": 11
+   }
+  },
+  {
+   "label": "MG02 stay complete",
+   "money": 76,
+   "clock": 63,
+   "facts": {
+    "mg.opened": true,
+    "mg.version": 1,
+    "mg.capitalAgreement": "share",
+    "mg.capitalBatchMade": true,
+    "mg.capitalSold": true,
+    "mg.capitalAgreementSettled": true,
+    "mg.roomOwned": true,
+    "mg.roomRepaired": true,
+    "mg.roomUse": "rental",
+    "mg.roomSelaHosted": true
+   },
+   "npc": {
+    "mg.mira": {
+     "coins": 129,
+     "stock": {
+      "{\"id\":\"Courtyard seed packet\"}": 16,
+      "{\"id\":\"Damaged courtyard heirloom\"}": 1,
+      "{\"id\":\"Rough wood log\"}": 8,
+      "{\"id\":\"Linen cloth\"}": 10
+     },
+     "stamina": 20
+    },
+    "mg.orin": {
+     "coins": 35,
+     "stock": {
+      "{\"id\":\"Rough wood log\"}": 4
+     },
+     "stamina": 20
+    },
+    "mg.sela": {
+     "coins": 38,
+     "stock": {},
+     "stamina": 20
+    },
+    "mg.bram": {
+     "coins": 194,
+     "stock": {
+      "{\"id\":\"Courtyard wood crate\"}": 1
+     },
+     "stamina": 20
+    }
+   },
+   "jobs": [],
+   "program": null,
+   "completed": {
+    "mg.begin": 1,
+    "mg.orin.inspect": 1,
+    "mg.orin.share": 1,
+    "mg.orin.make_batch": 1,
+    "mg.orin.sell_batch": 1,
+    "mg.orin.settle_share": 1,
+    "mg.supply.log": 12,
+    "mg.mira.buy_room": 1,
+    "mg.mira.repair_room": 1,
+    "mg.room.use_rental": 1,
+    "mg.room.sela_stay": 1
+   },
+   "inventory": {
+    "Rough wood log": 11
+   }
+  },
+  {
+   "label": "MG02 request answered",
+   "money": 76,
+   "clock": 68,
+   "facts": {
+    "mg.opened": true,
+    "mg.version": 1,
+    "mg.capitalAgreement": "share",
+    "mg.capitalBatchMade": true,
+    "mg.capitalSold": true,
+    "mg.capitalAgreementSettled": true,
+    "mg.roomOwned": true,
+    "mg.roomRepaired": true,
+    "mg.roomUse": "rental",
+    "mg.roomSelaHosted": false,
+    "mg.roomTenantRequest": false
+   },
+   "npc": {
+    "mg.mira": {
+     "coins": 129,
+     "stock": {
+      "{\"id\":\"Courtyard seed packet\"}": 16,
+      "{\"id\":\"Damaged courtyard heirloom\"}": 1,
+      "{\"id\":\"Rough wood log\"}": 8,
+      "{\"id\":\"Linen cloth\"}": 10
+     },
+     "stamina": 20
+    },
+    "mg.orin": {
+     "coins": 35,
+     "stock": {
+      "{\"id\":\"Rough wood log\"}": 4
+     },
+     "stamina": 20
+    },
+    "mg.sela": {
+     "coins": 38,
+     "stock": {},
+     "stamina": 20
+    },
+    "mg.bram": {
+     "coins": 194,
+     "stock": {
+      "{\"id\":\"Courtyard wood crate\"}": 1
+     },
+     "stamina": 20
+    }
+   },
+   "jobs": [],
+   "program": null,
+   "completed": {
+    "mg.begin": 1,
+    "mg.orin.inspect": 1,
+    "mg.orin.share": 1,
+    "mg.orin.make_batch": 1,
+    "mg.orin.sell_batch": 1,
+    "mg.orin.settle_share": 1,
+    "mg.supply.log": 12,
+    "mg.mira.buy_room": 1,
+    "mg.mira.repair_room": 1,
+    "mg.room.use_rental": 1,
+    "mg.room.sela_stay": 1,
+    "mg.room.sela_request": 1,
+    "mg.room.answer_sela_repair": 1
+   },
+   "inventory": {
+    "Rough wood log": 10
+   }
+  },
+  {
+   "label": "MG02 private rest",
+   "money": 76,
+   "clock": 73,
+   "facts": {
+    "mg.opened": true,
+    "mg.version": 1,
+    "mg.capitalAgreement": "share",
+    "mg.capitalBatchMade": true,
+    "mg.capitalSold": true,
+    "mg.capitalAgreementSettled": true,
+    "mg.roomOwned": true,
+    "mg.roomRepaired": true,
+    "mg.roomUse": "personal",
+    "mg.roomSelaHosted": false,
+    "mg.roomTenantRequest": false
+   },
+   "npc": {
+    "mg.mira": {
+     "coins": 129,
+     "stock": {
+      "{\"id\":\"Courtyard seed packet\"}": 16,
+      "{\"id\":\"Damaged courtyard heirloom\"}": 1,
+      "{\"id\":\"Rough wood log\"}": 8,
+      "{\"id\":\"Linen cloth\"}": 10
+     },
+     "stamina": 20
+    },
+    "mg.orin": {
+     "coins": 35,
+     "stock": {
+      "{\"id\":\"Rough wood log\"}": 4
+     },
+     "stamina": 20
+    },
+    "mg.sela": {
+     "coins": 38,
+     "stock": {},
+     "stamina": 20
+    },
+    "mg.bram": {
+     "coins": 194,
+     "stock": {
+      "{\"id\":\"Courtyard wood crate\"}": 1
+     },
+     "stamina": 20
+    }
+   },
+   "jobs": [],
+   "program": null,
+   "completed": {
+    "mg.begin": 1,
+    "mg.orin.inspect": 1,
+    "mg.orin.share": 1,
+    "mg.orin.make_batch": 1,
+    "mg.orin.sell_batch": 1,
+    "mg.orin.settle_share": 1,
+    "mg.supply.log": 12,
+    "mg.mira.buy_room": 1,
+    "mg.mira.repair_room": 1,
+    "mg.room.use_rental": 1,
+    "mg.room.sela_stay": 1,
+    "mg.room.sela_request": 1,
+    "mg.room.answer_sela_repair": 1,
+    "mg.room.use_personal": 1,
+    "mg.room.personal_rest": 1
+   },
+   "inventory": {
+    "Rough wood log": 10
+   }
+  },
+  {
+   "label": "MG07 before",
+   "money": 76,
+   "clock": 85,
+   "facts": {
+    "mg.opened": true,
+    "mg.version": 1,
+    "mg.capitalAgreement": "share",
+    "mg.capitalBatchMade": true,
+    "mg.capitalSold": true,
+    "mg.capitalAgreementSettled": true,
+    "mg.roomOwned": true,
+    "mg.roomRepaired": true,
+    "mg.roomUse": "personal",
+    "mg.roomSelaHosted": false,
+    "mg.roomTenantRequest": false
+   },
+   "npc": {
+    "mg.mira": {
+     "coins": 129,
+     "stock": {
+      "{\"id\":\"Courtyard seed packet\"}": 16,
+      "{\"id\":\"Damaged courtyard heirloom\"}": 1,
+      "{\"id\":\"Rough wood log\"}": 8,
+      "{\"id\":\"Linen cloth\"}": 10
+     },
+     "stamina": 20
+    },
+    "mg.orin": {
+     "coins": 35,
+     "stock": {
+      "{\"id\":\"Rough wood log\"}": 4
+     },
+     "stamina": 20
+    },
+    "mg.sela": {
+     "coins": 38,
+     "stock": {},
+     "stamina": 20
+    },
+    "mg.bram": {
+     "coins": 194,
+     "stock": {
+      "{\"id\":\"Courtyard wood crate\"}": 1
+     },
+     "stamina": 20
+    }
+   },
+   "jobs": [],
+   "program": null,
+   "completed": {
+    "mg.begin": 1,
+    "mg.orin.inspect": 1,
+    "mg.orin.share": 1,
+    "mg.orin.make_batch": 1,
+    "mg.orin.sell_batch": 1,
+    "mg.orin.settle_share": 1,
+    "mg.supply.log": 12,
+    "mg.mira.buy_room": 1,
+    "mg.mira.repair_room": 1,
+    "mg.room.use_rental": 1,
+    "mg.room.sela_stay": 1,
+    "mg.room.sela_request": 1,
+    "mg.room.answer_sela_repair": 1,
+    "mg.room.use_personal": 1,
+    "mg.room.personal_rest": 1
+   },
+   "inventory": {
+    "Rough wood log": 10
+   }
+  },
+  {
+   "label": "MG07 manual batch running",
+   "money": 76,
+   "clock": 87,
+   "facts": {
+    "mg.opened": true,
+    "mg.version": 1,
+    "mg.capitalAgreement": "share",
+    "mg.capitalBatchMade": true,
+    "mg.capitalSold": true,
+    "mg.capitalAgreementSettled": true,
+    "mg.roomOwned": true,
+    "mg.roomRepaired": true,
+    "mg.roomUse": "workshop",
+    "mg.roomSelaHosted": false,
+    "mg.roomTenantRequest": false
+   },
+   "npc": {
+    "mg.mira": {
+     "coins": 129,
+     "stock": {
+      "{\"id\":\"Courtyard seed packet\"}": 16,
+      "{\"id\":\"Damaged courtyard heirloom\"}": 1,
+      "{\"id\":\"Rough wood log\"}": 8,
+      "{\"id\":\"Linen cloth\"}": 10
+     },
+     "stamina": 20
+    },
+    "mg.orin": {
+     "coins": 35,
+     "stock": {
+      "{\"id\":\"Rough wood log\"}": 4
+     },
+     "stamina": 20
+    },
+    "mg.sela": {
+     "coins": 38,
+     "stock": {},
+     "stamina": 20
+    },
+    "mg.bram": {
+     "coins": 194,
+     "stock": {
+      "{\"id\":\"Courtyard wood crate\"}": 1
+     },
+     "stamina": 20
+    }
+   },
+   "jobs": [
+    {
+     "actor": "player",
+     "command": "mg.room.workshop_batch",
+     "due": 90
+    }
+   ],
+   "program": null,
+   "completed": {
+    "mg.begin": 1,
+    "mg.orin.inspect": 1,
+    "mg.orin.share": 1,
+    "mg.orin.make_batch": 1,
+    "mg.orin.sell_batch": 1,
+    "mg.orin.settle_share": 1,
+    "mg.supply.log": 12,
+    "mg.mira.buy_room": 1,
+    "mg.mira.repair_room": 1,
+    "mg.room.use_rental": 1,
+    "mg.room.sela_stay": 1,
+    "mg.room.sela_request": 1,
+    "mg.room.answer_sela_repair": 1,
+    "mg.room.use_personal": 1,
+    "mg.room.personal_rest": 1,
+    "mg.room.use_workshop": 1
+   },
+   "inventory": {
+    "Rough wood log": 9
+   }
+  },
+  {
+   "label": "MG07 recipe learned",
+   "money": 76,
+   "clock": 90,
+   "facts": {
+    "mg.opened": true,
+    "mg.version": 1,
+    "mg.capitalAgreement": "share",
+    "mg.capitalBatchMade": true,
+    "mg.capitalSold": true,
+    "mg.capitalAgreementSettled": true,
+    "mg.roomOwned": true,
+    "mg.roomRepaired": true,
+    "mg.roomUse": "workshop",
+    "mg.roomSelaHosted": false,
+    "mg.roomTenantRequest": false
+   },
+   "npc": {
+    "mg.mira": {
+     "coins": 129,
+     "stock": {
+      "{\"id\":\"Courtyard seed packet\"}": 16,
+      "{\"id\":\"Damaged courtyard heirloom\"}": 1,
+      "{\"id\":\"Rough wood log\"}": 8,
+      "{\"id\":\"Linen cloth\"}": 10
+     },
+     "stamina": 20
+    },
+    "mg.orin": {
+     "coins": 35,
+     "stock": {
+      "{\"id\":\"Rough wood log\"}": 4
+     },
+     "stamina": 20
+    },
+    "mg.sela": {
+     "coins": 38,
+     "stock": {},
+     "stamina": 20
+    },
+    "mg.bram": {
+     "coins": 194,
+     "stock": {
+      "{\"id\":\"Courtyard wood crate\"}": 1
+     },
+     "stamina": 20
+    }
+   },
+   "jobs": [],
+   "program": null,
+   "completed": {
+    "mg.begin": 1,
+    "mg.orin.inspect": 1,
+    "mg.orin.share": 1,
+    "mg.orin.make_batch": 1,
+    "mg.orin.sell_batch": 1,
+    "mg.orin.settle_share": 1,
+    "mg.supply.log": 12,
+    "mg.mira.buy_room": 1,
+    "mg.mira.repair_room": 1,
+    "mg.room.use_rental": 1,
+    "mg.room.sela_stay": 1,
+    "mg.room.sela_request": 1,
+    "mg.room.answer_sela_repair": 1,
+    "mg.room.use_personal": 1,
+    "mg.room.personal_rest": 1,
+    "mg.room.use_workshop": 1,
+    "mg.room.workshop_batch": 1
+   },
+   "inventory": {
+    "Rough wood log": 9,
+    "Courtyard wood crate": 1
+   }
+  },
+  {
+   "label": "MG07 mandate started",
+   "money": 76,
+   "clock": 91,
+   "facts": {
+    "mg.opened": true,
+    "mg.version": 1,
+    "mg.capitalAgreement": "share",
+    "mg.capitalBatchMade": true,
+    "mg.capitalSold": true,
+    "mg.capitalAgreementSettled": true,
+    "mg.roomOwned": true,
+    "mg.roomRepaired": true,
+    "mg.roomUse": "workshop",
+    "mg.roomSelaHosted": false,
+    "mg.roomTenantRequest": false
+   },
+   "npc": {
+    "mg.mira": {
+     "coins": 129,
+     "stock": {
+      "{\"id\":\"Courtyard seed packet\"}": 16,
+      "{\"id\":\"Damaged courtyard heirloom\"}": 1,
+      "{\"id\":\"Rough wood log\"}": 8,
+      "{\"id\":\"Linen cloth\"}": 10
+     },
+     "stamina": 20
+    },
+    "mg.orin": {
+     "coins": 35,
+     "stock": {
+      "{\"id\":\"Rough wood log\"}": 4
+     },
+     "stamina": 20
+    },
+    "mg.sela": {
+     "coins": 38,
+     "stock": {},
+     "stamina": 20
+    },
+    "mg.bram": {
+     "coins": 194,
+     "stock": {
+      "{\"id\":\"Courtyard wood crate\"}": 1
+     },
+     "stamina": 20
+    }
+   },
+   "jobs": [
+    {
+     "actor": "player",
+     "command": "mg.room.workshop_batch",
+     "due": 94
+    }
+   ],
+   "program": {
+    "commandId": "mg.room.workshop_batch",
+    "remaining": 2,
+    "status": "running",
+    "targetId": null
+   },
+   "completed": {
+    "mg.begin": 1,
+    "mg.orin.inspect": 1,
+    "mg.orin.share": 1,
+    "mg.orin.make_batch": 1,
+    "mg.orin.sell_batch": 1,
+    "mg.orin.settle_share": 1,
+    "mg.supply.log": 12,
+    "mg.mira.buy_room": 1,
+    "mg.mira.repair_room": 1,
+    "mg.room.use_rental": 1,
+    "mg.room.sela_stay": 1,
+    "mg.room.sela_request": 1,
+    "mg.room.answer_sela_repair": 1,
+    "mg.room.use_personal": 1,
+    "mg.room.personal_rest": 1,
+    "mg.room.use_workshop": 1,
+    "mg.room.workshop_batch": 1
+   },
+   "inventory": {
+    "Rough wood log": 8,
+    "Courtyard wood crate": 1
+   }
+  },
+  {
+   "label": "MG07 paused, current job done",
+   "money": 76,
+   "clock": 94,
+   "facts": {
+    "mg.opened": true,
+    "mg.version": 1,
+    "mg.capitalAgreement": "share",
+    "mg.capitalBatchMade": true,
+    "mg.capitalSold": true,
+    "mg.capitalAgreementSettled": true,
+    "mg.roomOwned": true,
+    "mg.roomRepaired": true,
+    "mg.roomUse": "workshop",
+    "mg.roomSelaHosted": false,
+    "mg.roomTenantRequest": false
+   },
+   "npc": {
+    "mg.mira": {
+     "coins": 129,
+     "stock": {
+      "{\"id\":\"Courtyard seed packet\"}": 16,
+      "{\"id\":\"Damaged courtyard heirloom\"}": 1,
+      "{\"id\":\"Rough wood log\"}": 8,
+      "{\"id\":\"Linen cloth\"}": 10
+     },
+     "stamina": 20
+    },
+    "mg.orin": {
+     "coins": 35,
+     "stock": {
+      "{\"id\":\"Rough wood log\"}": 4
+     },
+     "stamina": 20
+    },
+    "mg.sela": {
+     "coins": 38,
+     "stock": {},
+     "stamina": 20
+    },
+    "mg.bram": {
+     "coins": 194,
+     "stock": {
+      "{\"id\":\"Courtyard wood crate\"}": 1
+     },
+     "stamina": 20
+    }
+   },
+   "jobs": [],
+   "program": {
+    "commandId": "mg.room.workshop_batch",
+    "remaining": 2,
+    "status": "paused",
+    "targetId": null
+   },
+   "completed": {
+    "mg.begin": 1,
+    "mg.orin.inspect": 1,
+    "mg.orin.share": 1,
+    "mg.orin.make_batch": 1,
+    "mg.orin.sell_batch": 1,
+    "mg.orin.settle_share": 1,
+    "mg.supply.log": 12,
+    "mg.mira.buy_room": 1,
+    "mg.mira.repair_room": 1,
+    "mg.room.use_rental": 1,
+    "mg.room.sela_stay": 1,
+    "mg.room.sela_request": 1,
+    "mg.room.answer_sela_repair": 1,
+    "mg.room.use_personal": 1,
+    "mg.room.personal_rest": 1,
+    "mg.room.use_workshop": 1,
+    "mg.room.workshop_batch": 2
+   },
+   "inventory": {
+    "Rough wood log": 8,
+    "Courtyard wood crate": 2
+   }
+  },
+  {
+   "label": "MG07 resumed",
+   "money": 76,
+   "clock": 95,
+   "facts": {
+    "mg.opened": true,
+    "mg.version": 1,
+    "mg.capitalAgreement": "share",
+    "mg.capitalBatchMade": true,
+    "mg.capitalSold": true,
+    "mg.capitalAgreementSettled": true,
+    "mg.roomOwned": true,
+    "mg.roomRepaired": true,
+    "mg.roomUse": "workshop",
+    "mg.roomSelaHosted": false,
+    "mg.roomTenantRequest": false
+   },
+   "npc": {
+    "mg.mira": {
+     "coins": 129,
+     "stock": {
+      "{\"id\":\"Courtyard seed packet\"}": 16,
+      "{\"id\":\"Damaged courtyard heirloom\"}": 1,
+      "{\"id\":\"Rough wood log\"}": 8,
+      "{\"id\":\"Linen cloth\"}": 10
+     },
+     "stamina": 20
+    },
+    "mg.orin": {
+     "coins": 35,
+     "stock": {
+      "{\"id\":\"Rough wood log\"}": 4
+     },
+     "stamina": 20
+    },
+    "mg.sela": {
+     "coins": 38,
+     "stock": {},
+     "stamina": 20
+    },
+    "mg.bram": {
+     "coins": 194,
+     "stock": {
+      "{\"id\":\"Courtyard wood crate\"}": 1
+     },
+     "stamina": 20
+    }
+   },
+   "jobs": [
+    {
+     "actor": "player",
+     "command": "mg.room.workshop_batch",
+     "due": 98
+    }
+   ],
+   "program": {
+    "commandId": "mg.room.workshop_batch",
+    "remaining": 1,
+    "status": "running",
+    "targetId": null
+   },
+   "completed": {
+    "mg.begin": 1,
+    "mg.orin.inspect": 1,
+    "mg.orin.share": 1,
+    "mg.orin.make_batch": 1,
+    "mg.orin.sell_batch": 1,
+    "mg.orin.settle_share": 1,
+    "mg.supply.log": 12,
+    "mg.mira.buy_room": 1,
+    "mg.mira.repair_room": 1,
+    "mg.room.use_rental": 1,
+    "mg.room.sela_stay": 1,
+    "mg.room.sela_request": 1,
+    "mg.room.answer_sela_repair": 1,
+    "mg.room.use_personal": 1,
+    "mg.room.personal_rest": 1,
+    "mg.room.use_workshop": 1,
+    "mg.room.workshop_batch": 2
+   },
+   "inventory": {
+    "Rough wood log": 7,
+    "Courtyard wood crate": 2
+   }
+  },
+  {
+   "label": "MG07 current repetition cancelled",
+   "money": 76,
+   "clock": 96,
+   "facts": {
+    "mg.opened": true,
+    "mg.version": 1,
+    "mg.capitalAgreement": "share",
+    "mg.capitalBatchMade": true,
+    "mg.capitalSold": true,
+    "mg.capitalAgreementSettled": true,
+    "mg.roomOwned": true,
+    "mg.roomRepaired": true,
+    "mg.roomUse": "workshop",
+    "mg.roomSelaHosted": false,
+    "mg.roomTenantRequest": false
+   },
+   "npc": {
+    "mg.mira": {
+     "coins": 129,
+     "stock": {
+      "{\"id\":\"Courtyard seed packet\"}": 16,
+      "{\"id\":\"Damaged courtyard heirloom\"}": 1,
+      "{\"id\":\"Rough wood log\"}": 8,
+      "{\"id\":\"Linen cloth\"}": 10
+     },
+     "stamina": 20
+    },
+    "mg.orin": {
+     "coins": 35,
+     "stock": {
+      "{\"id\":\"Rough wood log\"}": 4
+     },
+     "stamina": 20
+    },
+    "mg.sela": {
+     "coins": 38,
+     "stock": {},
+     "stamina": 20
+    },
+    "mg.bram": {
+     "coins": 194,
+     "stock": {
+      "{\"id\":\"Courtyard wood crate\"}": 1
+     },
+     "stamina": 20
+    }
+   },
+   "jobs": [],
+   "program": {
+    "commandId": "mg.room.workshop_batch",
+    "remaining": 1,
+    "status": "paused",
+    "targetId": null
+   },
+   "completed": {
+    "mg.begin": 1,
+    "mg.orin.inspect": 1,
+    "mg.orin.share": 1,
+    "mg.orin.make_batch": 1,
+    "mg.orin.sell_batch": 1,
+    "mg.orin.settle_share": 1,
+    "mg.supply.log": 12,
+    "mg.mira.buy_room": 1,
+    "mg.mira.repair_room": 1,
+    "mg.room.use_rental": 1,
+    "mg.room.sela_stay": 1,
+    "mg.room.sela_request": 1,
+    "mg.room.answer_sela_repair": 1,
+    "mg.room.use_personal": 1,
+    "mg.room.personal_rest": 1,
+    "mg.room.use_workshop": 1,
+    "mg.room.workshop_batch": 2
+   },
+   "inventory": {
+    "Rough wood log": 8,
+    "Courtyard wood crate": 2
+   }
+  },
+  {
+   "label": "MG07 mandate end",
+   "money": 76,
+   "clock": 97,
+   "facts": {
+    "mg.opened": true,
+    "mg.version": 1,
+    "mg.capitalAgreement": "share",
+    "mg.capitalBatchMade": true,
+    "mg.capitalSold": true,
+    "mg.capitalAgreementSettled": true,
+    "mg.roomOwned": true,
+    "mg.roomRepaired": true,
+    "mg.roomUse": "workshop",
+    "mg.roomSelaHosted": false,
+    "mg.roomTenantRequest": false
+   },
+   "npc": {
+    "mg.mira": {
+     "coins": 129,
+     "stock": {
+      "{\"id\":\"Courtyard seed packet\"}": 16,
+      "{\"id\":\"Damaged courtyard heirloom\"}": 1,
+      "{\"id\":\"Rough wood log\"}": 8,
+      "{\"id\":\"Linen cloth\"}": 10
+     },
+     "stamina": 20
+    },
+    "mg.orin": {
+     "coins": 35,
+     "stock": {
+      "{\"id\":\"Rough wood log\"}": 4
+     },
+     "stamina": 20
+    },
+    "mg.sela": {
+     "coins": 38,
+     "stock": {},
+     "stamina": 20
+    },
+    "mg.bram": {
+     "coins": 194,
+     "stock": {
+      "{\"id\":\"Courtyard wood crate\"}": 1
+     },
+     "stamina": 20
+    }
+   },
+   "jobs": [],
+   "program": {
+    "commandId": "mg.room.workshop_batch",
+    "remaining": 1,
+    "status": "paused",
+    "targetId": null
+   },
+   "completed": {
+    "mg.begin": 1,
+    "mg.orin.inspect": 1,
+    "mg.orin.share": 1,
+    "mg.orin.make_batch": 1,
+    "mg.orin.sell_batch": 1,
+    "mg.orin.settle_share": 1,
+    "mg.supply.log": 12,
+    "mg.mira.buy_room": 1,
+    "mg.mira.repair_room": 1,
+    "mg.room.use_rental": 1,
+    "mg.room.sela_stay": 1,
+    "mg.room.sela_request": 1,
+    "mg.room.answer_sela_repair": 1,
+    "mg.room.use_personal": 1,
+    "mg.room.personal_rest": 1,
+    "mg.room.use_workshop": 1,
+    "mg.room.workshop_batch": 2
+   },
+   "inventory": {
+    "Rough wood log": 8,
+    "Courtyard wood crate": 2
+   }
+  },
+  {
+   "label": "MG07 Bram order made",
+   "money": 76,
+   "clock": 101,
+   "facts": {
+    "mg.opened": true,
+    "mg.version": 1,
+    "mg.capitalAgreement": "share",
+    "mg.capitalBatchMade": true,
+    "mg.capitalSold": true,
+    "mg.capitalAgreementSettled": true,
+    "mg.roomOwned": true,
+    "mg.roomRepaired": true,
+    "mg.roomUse": "workshop",
+    "mg.roomSelaHosted": false,
+    "mg.roomTenantRequest": false,
+    "mg.bramOrder": "ordinary",
+    "mg.bramOrderDelivered": false
+   },
+   "npc": {
+    "mg.mira": {
+     "coins": 129,
+     "stock": {
+      "{\"id\":\"Courtyard seed packet\"}": 16,
+      "{\"id\":\"Damaged courtyard heirloom\"}": 1,
+      "{\"id\":\"Rough wood log\"}": 8,
+      "{\"id\":\"Linen cloth\"}": 10
+     },
+     "stamina": 20
+    },
+    "mg.orin": {
+     "coins": 35,
+     "stock": {
+      "{\"id\":\"Rough wood log\"}": 4
+     },
+     "stamina": 20
+    },
+    "mg.sela": {
+     "coins": 38,
+     "stock": {},
+     "stamina": 20
+    },
+    "mg.bram": {
+     "coins": 194,
+     "stock": {
+      "{\"id\":\"Courtyard wood crate\"}": 1
+     },
+     "stamina": 20
+    }
+   },
+   "jobs": [],
+   "program": {
+    "commandId": "mg.room.workshop_batch",
+    "remaining": 1,
+    "status": "paused",
+    "targetId": null
+   },
+   "completed": {
+    "mg.begin": 1,
+    "mg.orin.inspect": 1,
+    "mg.orin.share": 1,
+    "mg.orin.make_batch": 1,
+    "mg.orin.sell_batch": 1,
+    "mg.orin.settle_share": 1,
+    "mg.supply.log": 12,
+    "mg.mira.buy_room": 1,
+    "mg.mira.repair_room": 1,
+    "mg.room.use_rental": 1,
+    "mg.room.sela_stay": 1,
+    "mg.room.sela_request": 1,
+    "mg.room.answer_sela_repair": 1,
+    "mg.room.use_personal": 1,
+    "mg.room.personal_rest": 1,
+    "mg.room.use_workshop": 1,
+    "mg.room.workshop_batch": 2,
+    "mg.workshop.bram_ordinary": 1
+   },
+   "inventory": {
+    "Rough wood log": 6,
+    "Courtyard wood crate": 3
+   }
+  },
+  {
+   "label": "MG07 Bram paid",
+   "money": 82,
+   "clock": 102,
+   "facts": {
+    "mg.opened": true,
+    "mg.version": 1,
+    "mg.capitalAgreement": "share",
+    "mg.capitalBatchMade": true,
+    "mg.capitalSold": true,
+    "mg.capitalAgreementSettled": true,
+    "mg.roomOwned": true,
+    "mg.roomRepaired": true,
+    "mg.roomUse": "workshop",
+    "mg.roomSelaHosted": false,
+    "mg.roomTenantRequest": false,
+    "mg.bramOrder": "ordinary",
+    "mg.bramOrderDelivered": true
+   },
+   "npc": {
+    "mg.mira": {
+     "coins": 129,
+     "stock": {
+      "{\"id\":\"Courtyard seed packet\"}": 16,
+      "{\"id\":\"Damaged courtyard heirloom\"}": 1,
+      "{\"id\":\"Rough wood log\"}": 8,
+      "{\"id\":\"Linen cloth\"}": 10
+     },
+     "stamina": 20
+    },
+    "mg.orin": {
+     "coins": 35,
+     "stock": {
+      "{\"id\":\"Rough wood log\"}": 4
+     },
+     "stamina": 20
+    },
+    "mg.sela": {
+     "coins": 38,
+     "stock": {},
+     "stamina": 20
+    },
+    "mg.bram": {
+     "coins": 188,
+     "stock": {
+      "{\"id\":\"Courtyard wood crate\"}": 2
+     },
+     "stamina": 20
+    }
+   },
+   "jobs": [],
+   "program": {
+    "commandId": "mg.room.workshop_batch",
+    "remaining": 1,
+    "status": "paused",
+    "targetId": null
+   },
+   "completed": {
+    "mg.begin": 1,
+    "mg.orin.inspect": 1,
+    "mg.orin.share": 1,
+    "mg.orin.make_batch": 1,
+    "mg.orin.sell_batch": 1,
+    "mg.orin.settle_share": 1,
+    "mg.supply.log": 12,
+    "mg.mira.buy_room": 1,
+    "mg.mira.repair_room": 1,
+    "mg.room.use_rental": 1,
+    "mg.room.sela_stay": 1,
+    "mg.room.sela_request": 1,
+    "mg.room.answer_sela_repair": 1,
+    "mg.room.use_personal": 1,
+    "mg.room.personal_rest": 1,
+    "mg.room.use_workshop": 1,
+    "mg.room.workshop_batch": 2,
+    "mg.workshop.bram_ordinary": 1,
+    "mg.workshop.deliver_bram_ordinary": 1
+   },
+   "inventory": {
+    "Rough wood log": 6,
+    "Courtyard wood crate": 2
+   }
+  },
+  {
+   "label": "MG07 foreman commissioned",
+   "money": 80,
+   "clock": 103,
+   "facts": {
+    "mg.opened": true,
+    "mg.version": 1,
+    "mg.capitalAgreement": "share",
+    "mg.capitalBatchMade": true,
+    "mg.capitalSold": true,
+    "mg.capitalAgreementSettled": true,
+    "mg.roomOwned": true,
+    "mg.roomRepaired": true,
+    "mg.roomUse": "workshop",
+    "mg.roomSelaHosted": false,
+    "mg.roomTenantRequest": false,
+    "mg.bramOrder": "ordinary",
+    "mg.bramOrderDelivered": true
+   },
+   "npc": {
+    "mg.mira": {
+     "coins": 129,
+     "stock": {
+      "{\"id\":\"Courtyard seed packet\"}": 16,
+      "{\"id\":\"Damaged courtyard heirloom\"}": 1,
+      "{\"id\":\"Rough wood log\"}": 8,
+      "{\"id\":\"Linen cloth\"}": 10
+     },
+     "stamina": 20
+    },
+    "mg.orin": {
+     "coins": 37,
+     "stock": {
+      "{\"id\":\"Rough wood log\"}": 6
+     },
+     "stamina": 20
+    },
+    "mg.sela": {
+     "coins": 38,
+     "stock": {},
+     "stamina": 20
+    },
+    "mg.bram": {
+     "coins": 188,
+     "stock": {
+      "{\"id\":\"Courtyard wood crate\"}": 2
+     },
+     "stamina": 20
+    }
+   },
+   "jobs": [],
+   "program": {
+    "commandId": "mg.room.workshop_batch",
+    "remaining": 1,
+    "status": "paused",
+    "targetId": null
+   },
+   "completed": {
+    "mg.begin": 1,
+    "mg.orin.inspect": 1,
+    "mg.orin.share": 1,
+    "mg.orin.make_batch": 1,
+    "mg.orin.sell_batch": 1,
+    "mg.orin.settle_share": 1,
+    "mg.supply.log": 12,
+    "mg.mira.buy_room": 1,
+    "mg.mira.repair_room": 1,
+    "mg.room.use_rental": 1,
+    "mg.room.sela_stay": 1,
+    "mg.room.sela_request": 1,
+    "mg.room.answer_sela_repair": 1,
+    "mg.room.use_personal": 1,
+    "mg.room.personal_rest": 1,
+    "mg.room.use_workshop": 1,
+    "mg.room.workshop_batch": 2,
+    "mg.workshop.bram_ordinary": 1,
+    "mg.workshop.deliver_bram_ordinary": 1,
+    "mg.foreman.commission": 1
+   },
+   "inventory": {
+    "Rough wood log": 4,
+    "Courtyard wood crate": 2
+   }
+  },
+  {
+   "label": "MG07 Orin working",
+   "money": 80,
+   "clock": 104,
+   "facts": {
+    "mg.opened": true,
+    "mg.version": 1,
+    "mg.capitalAgreement": "share",
+    "mg.capitalBatchMade": true,
+    "mg.capitalSold": true,
+    "mg.capitalAgreementSettled": true,
+    "mg.roomOwned": true,
+    "mg.roomRepaired": true,
+    "mg.roomUse": "workshop",
+    "mg.roomSelaHosted": false,
+    "mg.roomTenantRequest": false,
+    "mg.bramOrder": "ordinary",
+    "mg.bramOrderDelivered": true
+   },
+   "npc": {
+    "mg.mira": {
+     "coins": 129,
+     "stock": {
+      "{\"id\":\"Courtyard seed packet\"}": 16,
+      "{\"id\":\"Damaged courtyard heirloom\"}": 1,
+      "{\"id\":\"Rough wood log\"}": 8,
+      "{\"id\":\"Linen cloth\"}": 10
+     },
+     "stamina": 20
+    },
+    "mg.orin": {
+     "coins": 37,
+     "stock": {
+      "{\"id\":\"Rough wood log\"}": 4
+     },
+     "stamina": 18
+    },
+    "mg.sela": {
+     "coins": 38,
+     "stock": {},
+     "stamina": 20
+    },
+    "mg.bram": {
+     "coins": 188,
+     "stock": {
+      "{\"id\":\"Courtyard wood crate\"}": 2
+     },
+     "stamina": 20
+    }
+   },
+   "jobs": [
+    {
+     "actor": "mg.orin",
+     "command": "mg.foreman.execute",
+     "due": 107
+    }
+   ],
+   "program": {
+    "commandId": "mg.room.workshop_batch",
+    "remaining": 1,
+    "status": "paused",
+    "targetId": null
+   },
+   "completed": {
+    "mg.begin": 1,
+    "mg.orin.inspect": 1,
+    "mg.orin.share": 1,
+    "mg.orin.make_batch": 1,
+    "mg.orin.sell_batch": 1,
+    "mg.orin.settle_share": 1,
+    "mg.supply.log": 12,
+    "mg.mira.buy_room": 1,
+    "mg.mira.repair_room": 1,
+    "mg.room.use_rental": 1,
+    "mg.room.sela_stay": 1,
+    "mg.room.sela_request": 1,
+    "mg.room.answer_sela_repair": 1,
+    "mg.room.use_personal": 1,
+    "mg.room.personal_rest": 1,
+    "mg.room.use_workshop": 1,
+    "mg.room.workshop_batch": 2,
+    "mg.workshop.bram_ordinary": 1,
+    "mg.workshop.deliver_bram_ordinary": 1,
+    "mg.foreman.commission": 1
+   },
+   "inventory": {
+    "Rough wood log": 4,
+    "Courtyard wood crate": 2
+   }
+  },
+  {
+   "label": "MG07 foreman delivered",
+   "money": 80,
+   "clock": 107,
+   "facts": {
+    "mg.opened": true,
+    "mg.version": 1,
+    "mg.capitalAgreement": "share",
+    "mg.capitalBatchMade": true,
+    "mg.capitalSold": true,
+    "mg.capitalAgreementSettled": true,
+    "mg.roomOwned": true,
+    "mg.roomRepaired": true,
+    "mg.roomUse": "workshop",
+    "mg.roomSelaHosted": false,
+    "mg.roomTenantRequest": false,
+    "mg.bramOrder": "ordinary",
+    "mg.bramOrderDelivered": true
+   },
+   "npc": {
+    "mg.mira": {
+     "coins": 129,
+     "stock": {
+      "{\"id\":\"Courtyard seed packet\"}": 16,
+      "{\"id\":\"Damaged courtyard heirloom\"}": 1,
+      "{\"id\":\"Rough wood log\"}": 8,
+      "{\"id\":\"Linen cloth\"}": 10
+     },
+     "stamina": 20
+    },
+    "mg.orin": {
+     "coins": 37,
+     "stock": {
+      "{\"id\":\"Rough wood log\"}": 4
+     },
+     "stamina": 18
+    },
+    "mg.sela": {
+     "coins": 38,
+     "stock": {},
+     "stamina": 20
+    },
+    "mg.bram": {
+     "coins": 188,
+     "stock": {
+      "{\"id\":\"Courtyard wood crate\"}": 2
+     },
+     "stamina": 20
+    }
+   },
+   "jobs": [],
+   "program": {
+    "commandId": "mg.room.workshop_batch",
+    "remaining": 1,
+    "status": "paused",
+    "targetId": null
+   },
+   "completed": {
+    "mg.begin": 1,
+    "mg.orin.inspect": 1,
+    "mg.orin.share": 1,
+    "mg.orin.make_batch": 1,
+    "mg.orin.sell_batch": 1,
+    "mg.orin.settle_share": 1,
+    "mg.supply.log": 12,
+    "mg.mira.buy_room": 1,
+    "mg.mira.repair_room": 1,
+    "mg.room.use_rental": 1,
+    "mg.room.sela_stay": 1,
+    "mg.room.sela_request": 1,
+    "mg.room.answer_sela_repair": 1,
+    "mg.room.use_personal": 1,
+    "mg.room.personal_rest": 1,
+    "mg.room.use_workshop": 1,
+    "mg.room.workshop_batch": 2,
+    "mg.workshop.bram_ordinary": 1,
+    "mg.workshop.deliver_bram_ordinary": 1,
+    "mg.foreman.commission": 1
+   },
+   "inventory": {
+    "Rough wood log": 4,
+    "Courtyard wood crate": 3
+   }
+  },
+  {
+   "label": "MG06 before",
+   "money": 80,
+   "clock": 115,
+   "facts": {
+    "mg.opened": true,
+    "mg.version": 1,
+    "mg.capitalAgreement": "share",
+    "mg.capitalBatchMade": true,
+    "mg.capitalSold": true,
+    "mg.capitalAgreementSettled": true,
+    "mg.roomOwned": true,
+    "mg.roomRepaired": true,
+    "mg.roomUse": "workshop",
+    "mg.roomSelaHosted": false,
+    "mg.roomTenantRequest": false,
+    "mg.bramOrder": "ordinary",
+    "mg.bramOrderDelivered": true
+   },
+   "npc": {
+    "mg.mira": {
+     "coins": 129,
+     "stock": {
+      "{\"id\":\"Courtyard seed packet\"}": 16,
+      "{\"id\":\"Damaged courtyard heirloom\"}": 1,
+      "{\"id\":\"Rough wood log\"}": 8,
+      "{\"id\":\"Linen cloth\"}": 10
+     },
+     "stamina": 20
+    },
+    "mg.orin": {
+     "coins": 37,
+     "stock": {
+      "{\"id\":\"Rough wood log\"}": 4
+     },
+     "stamina": 18
+    },
+    "mg.sela": {
+     "coins": 38,
+     "stock": {},
+     "stamina": 20
+    },
+    "mg.bram": {
+     "coins": 188,
+     "stock": {
+      "{\"id\":\"Courtyard wood crate\"}": 2
+     },
+     "stamina": 20
+    }
+   },
+   "jobs": [],
+   "program": {
+    "commandId": "mg.room.workshop_batch",
+    "remaining": 1,
+    "status": "paused",
+    "targetId": null
+   },
+   "completed": {
+    "mg.begin": 1,
+    "mg.orin.inspect": 1,
+    "mg.orin.share": 1,
+    "mg.orin.make_batch": 1,
+    "mg.orin.sell_batch": 1,
+    "mg.orin.settle_share": 1,
+    "mg.supply.log": 12,
+    "mg.mira.buy_room": 1,
+    "mg.mira.repair_room": 1,
+    "mg.room.use_rental": 1,
+    "mg.room.sela_stay": 1,
+    "mg.room.sela_request": 1,
+    "mg.room.answer_sela_repair": 1,
+    "mg.room.use_personal": 1,
+    "mg.room.personal_rest": 1,
+    "mg.room.use_workshop": 1,
+    "mg.room.workshop_batch": 2,
+    "mg.workshop.bram_ordinary": 1,
+    "mg.workshop.deliver_bram_ordinary": 1,
+    "mg.foreman.commission": 1
+   },
+   "inventory": {
+    "Rough wood log": 4,
+    "Courtyard wood crate": 3
+   }
+  },
+  {
+   "label": "MG06 rented, 2 seeds",
+   "money": 72,
+   "clock": 118,
+   "facts": {
+    "mg.opened": true,
+    "mg.version": 1,
+    "mg.capitalAgreement": "share",
+    "mg.capitalBatchMade": true,
+    "mg.capitalSold": true,
+    "mg.capitalAgreementSettled": true,
+    "mg.roomOwned": true,
+    "mg.roomRepaired": true,
+    "mg.roomUse": "workshop",
+    "mg.roomSelaHosted": false,
+    "mg.roomTenantRequest": false,
+    "mg.bramOrder": "ordinary",
+    "mg.bramOrderDelivered": true,
+    "mg.plotRight": true
+   },
+   "npc": {
+    "mg.mira": {
+     "coins": 137,
+     "stock": {
+      "{\"id\":\"Courtyard seed packet\"}": 14,
+      "{\"id\":\"Damaged courtyard heirloom\"}": 1,
+      "{\"id\":\"Rough wood log\"}": 8,
+      "{\"id\":\"Linen cloth\"}": 10
+     },
+     "stamina": 20
+    },
+    "mg.orin": {
+     "coins": 37,
+     "stock": {
+      "{\"id\":\"Rough wood log\"}": 4
+     },
+     "stamina": 18
+    },
+    "mg.sela": {
+     "coins": 38,
+     "stock": {},
+     "stamina": 20
+    },
+    "mg.bram": {
+     "coins": 188,
+     "stock": {
+      "{\"id\":\"Courtyard wood crate\"}": 2
+     },
+     "stamina": 20
+    }
+   },
+   "jobs": [],
+   "program": {
+    "commandId": "mg.room.workshop_batch",
+    "remaining": 1,
+    "status": "paused",
+    "targetId": null
+   },
+   "completed": {
+    "mg.begin": 1,
+    "mg.orin.inspect": 1,
+    "mg.orin.share": 1,
+    "mg.orin.make_batch": 1,
+    "mg.orin.sell_batch": 1,
+    "mg.orin.settle_share": 1,
+    "mg.supply.log": 12,
+    "mg.mira.buy_room": 1,
+    "mg.mira.repair_room": 1,
+    "mg.room.use_rental": 1,
+    "mg.room.sela_stay": 1,
+    "mg.room.sela_request": 1,
+    "mg.room.answer_sela_repair": 1,
+    "mg.room.use_personal": 1,
+    "mg.room.personal_rest": 1,
+    "mg.room.use_workshop": 1,
+    "mg.room.workshop_batch": 2,
+    "mg.workshop.bram_ordinary": 1,
+    "mg.workshop.deliver_bram_ordinary": 1,
+    "mg.foreman.commission": 1,
+    "mg.farm.rent_plot": 1,
+    "mg.supply.seed": 2
+   },
+   "inventory": {
+    "Rough wood log": 4,
+    "Courtyard wood crate": 3,
+    "Courtyard seed packet": 2
+   }
+  },
+  {
+   "label": "MG06 planting",
+   "money": 72,
+   "clock": 119,
+   "facts": {
+    "mg.opened": true,
+    "mg.version": 1,
+    "mg.capitalAgreement": "share",
+    "mg.capitalBatchMade": true,
+    "mg.capitalSold": true,
+    "mg.capitalAgreementSettled": true,
+    "mg.roomOwned": true,
+    "mg.roomRepaired": true,
+    "mg.roomUse": "workshop",
+    "mg.roomSelaHosted": false,
+    "mg.roomTenantRequest": false,
+    "mg.bramOrder": "ordinary",
+    "mg.bramOrderDelivered": true,
+    "mg.plotRight": true
+   },
+   "npc": {
+    "mg.mira": {
+     "coins": 137,
+     "stock": {
+      "{\"id\":\"Courtyard seed packet\"}": 14,
+      "{\"id\":\"Damaged courtyard heirloom\"}": 1,
+      "{\"id\":\"Rough wood log\"}": 8,
+      "{\"id\":\"Linen cloth\"}": 10
+     },
+     "stamina": 20
+    },
+    "mg.orin": {
+     "coins": 37,
+     "stock": {
+      "{\"id\":\"Rough wood log\"}": 4
+     },
+     "stamina": 18
+    },
+    "mg.sela": {
+     "coins": 38,
+     "stock": {},
+     "stamina": 20
+    },
+    "mg.bram": {
+     "coins": 188,
+     "stock": {
+      "{\"id\":\"Courtyard wood crate\"}": 2
+     },
+     "stamina": 20
+    }
+   },
+   "jobs": [
+    {
+     "actor": "player",
+     "command": "mg.farm.plant_greens",
+     "due": 120
+    }
+   ],
+   "program": {
+    "commandId": "mg.room.workshop_batch",
+    "remaining": 1,
+    "status": "paused",
+    "targetId": null
+   },
+   "completed": {
+    "mg.begin": 1,
+    "mg.orin.inspect": 1,
+    "mg.orin.share": 1,
+    "mg.orin.make_batch": 1,
+    "mg.orin.sell_batch": 1,
+    "mg.orin.settle_share": 1,
+    "mg.supply.log": 12,
+    "mg.mira.buy_room": 1,
+    "mg.mira.repair_room": 1,
+    "mg.room.use_rental": 1,
+    "mg.room.sela_stay": 1,
+    "mg.room.sela_request": 1,
+    "mg.room.answer_sela_repair": 1,
+    "mg.room.use_personal": 1,
+    "mg.room.personal_rest": 1,
+    "mg.room.use_workshop": 1,
+    "mg.room.workshop_batch": 2,
+    "mg.workshop.bram_ordinary": 1,
+    "mg.workshop.deliver_bram_ordinary": 1,
+    "mg.foreman.commission": 1,
+    "mg.farm.rent_plot": 1,
+    "mg.supply.seed": 2
+   },
+   "inventory": {
+    "Rough wood log": 4,
+    "Courtyard wood crate": 3,
+    "Courtyard seed packet": 1
+   }
+  },
+  {
+   "label": "MG06 planting cancelled",
+   "money": 72,
+   "clock": 120,
+   "facts": {
+    "mg.opened": true,
+    "mg.version": 1,
+    "mg.capitalAgreement": "share",
+    "mg.capitalBatchMade": true,
+    "mg.capitalSold": true,
+    "mg.capitalAgreementSettled": true,
+    "mg.roomOwned": true,
+    "mg.roomRepaired": true,
+    "mg.roomUse": "workshop",
+    "mg.roomSelaHosted": false,
+    "mg.roomTenantRequest": false,
+    "mg.bramOrder": "ordinary",
+    "mg.bramOrderDelivered": true,
+    "mg.plotRight": true
+   },
+   "npc": {
+    "mg.mira": {
+     "coins": 137,
+     "stock": {
+      "{\"id\":\"Courtyard seed packet\"}": 14,
+      "{\"id\":\"Damaged courtyard heirloom\"}": 1,
+      "{\"id\":\"Rough wood log\"}": 8,
+      "{\"id\":\"Linen cloth\"}": 10
+     },
+     "stamina": 20
+    },
+    "mg.orin": {
+     "coins": 37,
+     "stock": {
+      "{\"id\":\"Rough wood log\"}": 4
+     },
+     "stamina": 18
+    },
+    "mg.sela": {
+     "coins": 38,
+     "stock": {},
+     "stamina": 20
+    },
+    "mg.bram": {
+     "coins": 188,
+     "stock": {
+      "{\"id\":\"Courtyard wood crate\"}": 2
+     },
+     "stamina": 20
+    }
+   },
+   "jobs": [],
+   "program": {
+    "commandId": "mg.room.workshop_batch",
+    "remaining": 1,
+    "status": "paused",
+    "targetId": null
+   },
+   "completed": {
+    "mg.begin": 1,
+    "mg.orin.inspect": 1,
+    "mg.orin.share": 1,
+    "mg.orin.make_batch": 1,
+    "mg.orin.sell_batch": 1,
+    "mg.orin.settle_share": 1,
+    "mg.supply.log": 12,
+    "mg.mira.buy_room": 1,
+    "mg.mira.repair_room": 1,
+    "mg.room.use_rental": 1,
+    "mg.room.sela_stay": 1,
+    "mg.room.sela_request": 1,
+    "mg.room.answer_sela_repair": 1,
+    "mg.room.use_personal": 1,
+    "mg.room.personal_rest": 1,
+    "mg.room.use_workshop": 1,
+    "mg.room.workshop_batch": 2,
+    "mg.workshop.bram_ordinary": 1,
+    "mg.workshop.deliver_bram_ordinary": 1,
+    "mg.foreman.commission": 1,
+    "mg.farm.rent_plot": 1,
+    "mg.supply.seed": 2
+   },
+   "inventory": {
+    "Rough wood log": 4,
+    "Courtyard wood crate": 3,
+    "Courtyard seed packet": 2
+   }
+  },
+  {
+   "label": "MG06 harvested",
+   "money": 72,
+   "clock": 127,
+   "facts": {
+    "mg.opened": true,
+    "mg.version": 1,
+    "mg.capitalAgreement": "share",
+    "mg.capitalBatchMade": true,
+    "mg.capitalSold": true,
+    "mg.capitalAgreementSettled": true,
+    "mg.roomOwned": true,
+    "mg.roomRepaired": true,
+    "mg.roomUse": "workshop",
+    "mg.roomSelaHosted": false,
+    "mg.roomTenantRequest": false,
+    "mg.bramOrder": "ordinary",
+    "mg.bramOrderDelivered": true,
+    "mg.plotRight": true,
+    "mg.cropStage": "harvested",
+    "mg.cropType": "greens"
+   },
+   "npc": {
+    "mg.mira": {
+     "coins": 137,
+     "stock": {
+      "{\"id\":\"Courtyard seed packet\"}": 14,
+      "{\"id\":\"Damaged courtyard heirloom\"}": 1,
+      "{\"id\":\"Rough wood log\"}": 8,
+      "{\"id\":\"Linen cloth\"}": 10
+     },
+     "stamina": 20
+    },
+    "mg.orin": {
+     "coins": 37,
+     "stock": {
+      "{\"id\":\"Rough wood log\"}": 4
+     },
+     "stamina": 18
+    },
+    "mg.sela": {
+     "coins": 38,
+     "stock": {},
+     "stamina": 20
+    },
+    "mg.bram": {
+     "coins": 188,
+     "stock": {
+      "{\"id\":\"Courtyard wood crate\"}": 2
+     },
+     "stamina": 20
+    }
+   },
+   "jobs": [],
+   "program": {
+    "commandId": "mg.room.workshop_batch",
+    "remaining": 1,
+    "status": "paused",
+    "targetId": null
+   },
+   "completed": {
+    "mg.begin": 1,
+    "mg.orin.inspect": 1,
+    "mg.orin.share": 1,
+    "mg.orin.make_batch": 1,
+    "mg.orin.sell_batch": 1,
+    "mg.orin.settle_share": 1,
+    "mg.supply.log": 12,
+    "mg.mira.buy_room": 1,
+    "mg.mira.repair_room": 1,
+    "mg.room.use_rental": 1,
+    "mg.room.sela_stay": 1,
+    "mg.room.sela_request": 1,
+    "mg.room.answer_sela_repair": 1,
+    "mg.room.use_personal": 1,
+    "mg.room.personal_rest": 1,
+    "mg.room.use_workshop": 1,
+    "mg.room.workshop_batch": 2,
+    "mg.workshop.bram_ordinary": 1,
+    "mg.workshop.deliver_bram_ordinary": 1,
+    "mg.foreman.commission": 1,
+    "mg.farm.rent_plot": 1,
+    "mg.supply.seed": 2,
+    "mg.farm.plant_greens": 1,
+    "mg.farm.tend_crop": 1,
+    "mg.farm.grow_greens": 1,
+    "mg.farm.harvest_greens": 1
+   },
+   "inventory": {
+    "Rough wood log": 4,
+    "Courtyard wood crate": 3,
+    "Courtyard seed packet": 1,
+    "Courtyard greens": 3
+   }
+  },
+  {
+   "label": "MG03 before",
+   "money": 72,
+   "clock": 165,
+   "facts": {
+    "mg.opened": true,
+    "mg.version": 1,
+    "mg.capitalAgreement": "share",
+    "mg.capitalBatchMade": true,
+    "mg.capitalSold": true,
+    "mg.capitalAgreementSettled": true,
+    "mg.roomOwned": true,
+    "mg.roomRepaired": true,
+    "mg.roomUse": "workshop",
+    "mg.roomSelaHosted": false,
+    "mg.roomTenantRequest": false,
+    "mg.bramOrder": "ordinary",
+    "mg.bramOrderDelivered": true,
+    "mg.plotRight": true,
+    "mg.cropStage": "harvested",
+    "mg.cropType": "greens"
+   },
+   "npc": {
+    "mg.mira": {
+     "coins": 137,
+     "stock": {
+      "{\"id\":\"Courtyard seed packet\"}": 14,
+      "{\"id\":\"Damaged courtyard heirloom\"}": 1,
+      "{\"id\":\"Rough wood log\"}": 8,
+      "{\"id\":\"Linen cloth\"}": 10
+     },
+     "stamina": 20
+    },
+    "mg.orin": {
+     "coins": 37,
+     "stock": {
+      "{\"id\":\"Rough wood log\"}": 4
+     },
+     "stamina": 18
+    },
+    "mg.sela": {
+     "coins": 38,
+     "stock": {},
+     "stamina": 20
+    },
+    "mg.bram": {
+     "coins": 188,
+     "stock": {
+      "{\"id\":\"Courtyard wood crate\"}": 2
+     },
+     "stamina": 20
+    }
+   },
+   "jobs": [],
+   "program": {
+    "commandId": "mg.room.workshop_batch",
+    "remaining": 1,
+    "status": "paused",
+    "targetId": null
+   },
+   "completed": {
+    "mg.begin": 1,
+    "mg.orin.inspect": 1,
+    "mg.orin.share": 1,
+    "mg.orin.make_batch": 1,
+    "mg.orin.sell_batch": 1,
+    "mg.orin.settle_share": 1,
+    "mg.supply.log": 12,
+    "mg.mira.buy_room": 1,
+    "mg.mira.repair_room": 1,
+    "mg.room.use_rental": 1,
+    "mg.room.sela_stay": 1,
+    "mg.room.sela_request": 1,
+    "mg.room.answer_sela_repair": 1,
+    "mg.room.use_personal": 1,
+    "mg.room.personal_rest": 1,
+    "mg.room.use_workshop": 1,
+    "mg.room.workshop_batch": 2,
+    "mg.workshop.bram_ordinary": 1,
+    "mg.workshop.deliver_bram_ordinary": 1,
+    "mg.foreman.commission": 1,
+    "mg.farm.rent_plot": 1,
+    "mg.supply.seed": 2,
+    "mg.farm.plant_greens": 2,
+    "mg.farm.tend_crop": 2,
+    "mg.farm.grow_greens": 2,
+    "mg.farm.harvest_greens": 2
+   },
+   "inventory": {
+    "Rough wood log": 4,
+    "Courtyard wood crate": 3,
+    "Courtyard greens": 6
+   }
+  },
+  {
+   "label": "MG03 crate sold full",
+   "money": 78,
+   "clock": 167,
+   "facts": {
+    "mg.opened": true,
+    "mg.version": 1,
+    "mg.capitalAgreement": "share",
+    "mg.capitalBatchMade": true,
+    "mg.capitalSold": true,
+    "mg.capitalAgreementSettled": true,
+    "mg.roomOwned": true,
+    "mg.roomRepaired": true,
+    "mg.roomUse": "workshop",
+    "mg.roomSelaHosted": false,
+    "mg.roomTenantRequest": false,
+    "mg.bramOrder": "ordinary",
+    "mg.bramOrderDelivered": true,
+    "mg.plotRight": true,
+    "mg.cropStage": "harvested",
+    "mg.cropType": "greens",
+    "mg.shop_mira_crate_closed": true
+   },
+   "npc": {
+    "mg.mira": {
+     "coins": 131,
+     "stock": {
+      "{\"id\":\"Courtyard seed packet\"}": 14,
+      "{\"id\":\"Damaged courtyard heirloom\"}": 1,
+      "{\"id\":\"Rough wood log\"}": 8,
+      "{\"id\":\"Linen cloth\"}": 10,
+      "{\"id\":\"Courtyard wood crate\"}": 1
+     },
+     "stamina": 20
+    },
+    "mg.orin": {
+     "coins": 37,
+     "stock": {
+      "{\"id\":\"Rough wood log\"}": 4
+     },
+     "stamina": 18
+    },
+    "mg.sela": {
+     "coins": 38,
+     "stock": {},
+     "stamina": 20
+    },
+    "mg.bram": {
+     "coins": 188,
+     "stock": {
+      "{\"id\":\"Courtyard wood crate\"}": 2
+     },
+     "stamina": 20
+    }
+   },
+   "jobs": [],
+   "program": {
+    "commandId": "mg.room.workshop_batch",
+    "remaining": 1,
+    "status": "paused",
+    "targetId": null
+   },
+   "completed": {
+    "mg.begin": 1,
+    "mg.orin.inspect": 1,
+    "mg.orin.share": 1,
+    "mg.orin.make_batch": 1,
+    "mg.orin.sell_batch": 1,
+    "mg.orin.settle_share": 1,
+    "mg.supply.log": 12,
+    "mg.mira.buy_room": 1,
+    "mg.mira.repair_room": 1,
+    "mg.room.use_rental": 1,
+    "mg.room.sela_stay": 1,
+    "mg.room.sela_request": 1,
+    "mg.room.answer_sela_repair": 1,
+    "mg.room.use_personal": 1,
+    "mg.room.personal_rest": 1,
+    "mg.room.use_workshop": 1,
+    "mg.room.workshop_batch": 2,
+    "mg.workshop.bram_ordinary": 1,
+    "mg.workshop.deliver_bram_ordinary": 1,
+    "mg.foreman.commission": 1,
+    "mg.farm.rent_plot": 1,
+    "mg.supply.seed": 2,
+    "mg.farm.plant_greens": 2,
+    "mg.farm.tend_crop": 2,
+    "mg.farm.grow_greens": 2,
+    "mg.farm.harvest_greens": 2,
+    "mg.shop.inspect": 1,
+    "mg.shop.sell_mira_crate_full": 1
+   },
+   "inventory": {
+    "Rough wood log": 4,
+    "Courtyard wood crate": 2,
+    "Courtyard greens": 6
+   }
+  },
+  {
+   "label": "MG03 greens sold friendly",
+   "money": 81,
+   "clock": 168,
+   "facts": {
+    "mg.opened": true,
+    "mg.version": 1,
+    "mg.capitalAgreement": "share",
+    "mg.capitalBatchMade": true,
+    "mg.capitalSold": true,
+    "mg.capitalAgreementSettled": true,
+    "mg.roomOwned": true,
+    "mg.roomRepaired": true,
+    "mg.roomUse": "workshop",
+    "mg.roomSelaHosted": false,
+    "mg.roomTenantRequest": false,
+    "mg.bramOrder": "ordinary",
+    "mg.bramOrderDelivered": true,
+    "mg.plotRight": true,
+    "mg.cropStage": "harvested",
+    "mg.cropType": "greens",
+    "mg.shop_mira_crate_closed": true,
+    "mg.shop_sela_greens_closed": true
+   },
+   "npc": {
+    "mg.mira": {
+     "coins": 131,
+     "stock": {
+      "{\"id\":\"Courtyard seed packet\"}": 14,
+      "{\"id\":\"Damaged courtyard heirloom\"}": 1,
+      "{\"id\":\"Rough wood log\"}": 8,
+      "{\"id\":\"Linen cloth\"}": 10,
+      "{\"id\":\"Courtyard wood crate\"}": 1
+     },
+     "stamina": 20
+    },
+    "mg.orin": {
+     "coins": 37,
+     "stock": {
+      "{\"id\":\"Rough wood log\"}": 4
+     },
+     "stamina": 18
+    },
+    "mg.sela": {
+     "coins": 35,
+     "stock": {
+      "{\"id\":\"Courtyard greens\"}": 1
+     },
+     "stamina": 20
+    },
+    "mg.bram": {
+     "coins": 188,
+     "stock": {
+      "{\"id\":\"Courtyard wood crate\"}": 2
+     },
+     "stamina": 20
+    }
+   },
+   "jobs": [],
+   "program": {
+    "commandId": "mg.room.workshop_batch",
+    "remaining": 1,
+    "status": "paused",
+    "targetId": null
+   },
+   "completed": {
+    "mg.begin": 1,
+    "mg.orin.inspect": 1,
+    "mg.orin.share": 1,
+    "mg.orin.make_batch": 1,
+    "mg.orin.sell_batch": 1,
+    "mg.orin.settle_share": 1,
+    "mg.supply.log": 12,
+    "mg.mira.buy_room": 1,
+    "mg.mira.repair_room": 1,
+    "mg.room.use_rental": 1,
+    "mg.room.sela_stay": 1,
+    "mg.room.sela_request": 1,
+    "mg.room.answer_sela_repair": 1,
+    "mg.room.use_personal": 1,
+    "mg.room.personal_rest": 1,
+    "mg.room.use_workshop": 1,
+    "mg.room.workshop_batch": 2,
+    "mg.workshop.bram_ordinary": 1,
+    "mg.workshop.deliver_bram_ordinary": 1,
+    "mg.foreman.commission": 1,
+    "mg.farm.rent_plot": 1,
+    "mg.supply.seed": 2,
+    "mg.farm.plant_greens": 2,
+    "mg.farm.tend_crop": 2,
+    "mg.farm.grow_greens": 2,
+    "mg.farm.harvest_greens": 2,
+    "mg.shop.inspect": 1,
+    "mg.shop.sell_mira_crate_full": 1,
+    "mg.shop.sell_sela_greens_friendly": 1
+   },
+   "inventory": {
+    "Rough wood log": 4,
+    "Courtyard wood crate": 2,
+    "Courtyard greens": 5
+   }
+  },
+  {
+   "label": "MG03 inn serving",
+   "money": 81,
+   "clock": 170,
+   "facts": {
+    "mg.opened": true,
+    "mg.version": 1,
+    "mg.capitalAgreement": "share",
+    "mg.capitalBatchMade": true,
+    "mg.capitalSold": true,
+    "mg.capitalAgreementSettled": true,
+    "mg.roomOwned": true,
+    "mg.roomRepaired": true,
+    "mg.roomUse": "inn",
+    "mg.roomSelaHosted": false,
+    "mg.roomTenantRequest": false,
+    "mg.bramOrder": "ordinary",
+    "mg.bramOrderDelivered": true,
+    "mg.plotRight": true,
+    "mg.cropStage": "harvested",
+    "mg.cropType": "greens",
+    "mg.shop_mira_crate_closed": true,
+    "mg.shop_sela_greens_closed": true
+   },
+   "npc": {
+    "mg.mira": {
+     "coins": 131,
+     "stock": {
+      "{\"id\":\"Courtyard seed packet\"}": 14,
+      "{\"id\":\"Damaged courtyard heirloom\"}": 1,
+      "{\"id\":\"Rough wood log\"}": 8,
+      "{\"id\":\"Linen cloth\"}": 10,
+      "{\"id\":\"Courtyard wood crate\"}": 1
+     },
+     "stamina": 20
+    },
+    "mg.orin": {
+     "coins": 37,
+     "stock": {
+      "{\"id\":\"Rough wood log\"}": 4
+     },
+     "stamina": 18
+    },
+    "mg.sela": {
+     "coins": 35,
+     "stock": {
+      "{\"id\":\"Courtyard greens\"}": 1
+     },
+     "stamina": 20
+    },
+    "mg.bram": {
+     "coins": 188,
+     "stock": {
+      "{\"id\":\"Courtyard wood crate\"}": 2
+     },
+     "stamina": 20
+    }
+   },
+   "jobs": [
+    {
+     "actor": "player",
+     "command": "mg.inn.sela_greens",
+     "due": 173
+    }
+   ],
+   "program": {
+    "commandId": "mg.room.workshop_batch",
+    "remaining": 1,
+    "status": "paused",
+    "targetId": null
+   },
+   "completed": {
+    "mg.begin": 1,
+    "mg.orin.inspect": 1,
+    "mg.orin.share": 1,
+    "mg.orin.make_batch": 1,
+    "mg.orin.sell_batch": 1,
+    "mg.orin.settle_share": 1,
+    "mg.supply.log": 12,
+    "mg.mira.buy_room": 1,
+    "mg.mira.repair_room": 1,
+    "mg.room.use_rental": 1,
+    "mg.room.sela_stay": 1,
+    "mg.room.sela_request": 1,
+    "mg.room.answer_sela_repair": 1,
+    "mg.room.use_personal": 1,
+    "mg.room.personal_rest": 1,
+    "mg.room.use_workshop": 1,
+    "mg.room.workshop_batch": 2,
+    "mg.workshop.bram_ordinary": 1,
+    "mg.workshop.deliver_bram_ordinary": 1,
+    "mg.foreman.commission": 1,
+    "mg.farm.rent_plot": 1,
+    "mg.supply.seed": 2,
+    "mg.farm.plant_greens": 2,
+    "mg.farm.tend_crop": 2,
+    "mg.farm.grow_greens": 2,
+    "mg.farm.harvest_greens": 2,
+    "mg.shop.inspect": 1,
+    "mg.shop.sell_mira_crate_full": 1,
+    "mg.shop.sell_sela_greens_friendly": 1,
+    "mg.room.use_inn": 1
+   },
+   "inventory": {
+    "Rough wood log": 4,
+    "Courtyard wood crate": 2,
+    "Courtyard greens": 4
+   }
+  },
+  {
+   "label": "MG03 inn cancelled",
+   "money": 81,
+   "clock": 171,
+   "facts": {
+    "mg.opened": true,
+    "mg.version": 1,
+    "mg.capitalAgreement": "share",
+    "mg.capitalBatchMade": true,
+    "mg.capitalSold": true,
+    "mg.capitalAgreementSettled": true,
+    "mg.roomOwned": true,
+    "mg.roomRepaired": true,
+    "mg.roomUse": "inn",
+    "mg.roomSelaHosted": false,
+    "mg.roomTenantRequest": false,
+    "mg.bramOrder": "ordinary",
+    "mg.bramOrderDelivered": true,
+    "mg.plotRight": true,
+    "mg.cropStage": "harvested",
+    "mg.cropType": "greens",
+    "mg.shop_mira_crate_closed": true,
+    "mg.shop_sela_greens_closed": true
+   },
+   "npc": {
+    "mg.mira": {
+     "coins": 131,
+     "stock": {
+      "{\"id\":\"Courtyard seed packet\"}": 14,
+      "{\"id\":\"Damaged courtyard heirloom\"}": 1,
+      "{\"id\":\"Rough wood log\"}": 8,
+      "{\"id\":\"Linen cloth\"}": 10,
+      "{\"id\":\"Courtyard wood crate\"}": 1
+     },
+     "stamina": 20
+    },
+    "mg.orin": {
+     "coins": 37,
+     "stock": {
+      "{\"id\":\"Rough wood log\"}": 4
+     },
+     "stamina": 18
+    },
+    "mg.sela": {
+     "coins": 35,
+     "stock": {
+      "{\"id\":\"Courtyard greens\"}": 1
+     },
+     "stamina": 20
+    },
+    "mg.bram": {
+     "coins": 188,
+     "stock": {
+      "{\"id\":\"Courtyard wood crate\"}": 2
+     },
+     "stamina": 20
+    }
+   },
+   "jobs": [],
+   "program": {
+    "commandId": "mg.room.workshop_batch",
+    "remaining": 1,
+    "status": "paused",
+    "targetId": null
+   },
+   "completed": {
+    "mg.begin": 1,
+    "mg.orin.inspect": 1,
+    "mg.orin.share": 1,
+    "mg.orin.make_batch": 1,
+    "mg.orin.sell_batch": 1,
+    "mg.orin.settle_share": 1,
+    "mg.supply.log": 12,
+    "mg.mira.buy_room": 1,
+    "mg.mira.repair_room": 1,
+    "mg.room.use_rental": 1,
+    "mg.room.sela_stay": 1,
+    "mg.room.sela_request": 1,
+    "mg.room.answer_sela_repair": 1,
+    "mg.room.use_personal": 1,
+    "mg.room.personal_rest": 1,
+    "mg.room.use_workshop": 1,
+    "mg.room.workshop_batch": 2,
+    "mg.workshop.bram_ordinary": 1,
+    "mg.workshop.deliver_bram_ordinary": 1,
+    "mg.foreman.commission": 1,
+    "mg.farm.rent_plot": 1,
+    "mg.supply.seed": 2,
+    "mg.farm.plant_greens": 2,
+    "mg.farm.tend_crop": 2,
+    "mg.farm.grow_greens": 2,
+    "mg.farm.harvest_greens": 2,
+    "mg.shop.inspect": 1,
+    "mg.shop.sell_mira_crate_full": 1,
+    "mg.shop.sell_sela_greens_friendly": 1,
+    "mg.room.use_inn": 1
+   },
+   "inventory": {
+    "Rough wood log": 4,
+    "Courtyard wood crate": 2,
+    "Courtyard greens": 5
+   }
+  },
+  {
+   "label": "MG03 inn served",
+   "money": 84,
+   "clock": 175,
+   "facts": {
+    "mg.opened": true,
+    "mg.version": 1,
+    "mg.capitalAgreement": "share",
+    "mg.capitalBatchMade": true,
+    "mg.capitalSold": true,
+    "mg.capitalAgreementSettled": true,
+    "mg.roomOwned": true,
+    "mg.roomRepaired": true,
+    "mg.roomUse": "inn",
+    "mg.roomSelaHosted": false,
+    "mg.roomTenantRequest": false,
+    "mg.bramOrder": "ordinary",
+    "mg.bramOrderDelivered": true,
+    "mg.plotRight": true,
+    "mg.cropStage": "harvested",
+    "mg.cropType": "greens",
+    "mg.shop_mira_crate_closed": true,
+    "mg.shop_sela_greens_closed": true,
+    "mg.inn_sela_served": true
+   },
+   "npc": {
+    "mg.mira": {
+     "coins": 131,
+     "stock": {
+      "{\"id\":\"Courtyard seed packet\"}": 14,
+      "{\"id\":\"Damaged courtyard heirloom\"}": 1,
+      "{\"id\":\"Rough wood log\"}": 8,
+      "{\"id\":\"Linen cloth\"}": 10,
+      "{\"id\":\"Courtyard wood crate\"}": 1
+     },
+     "stamina": 20
+    },
+    "mg.orin": {
+     "coins": 37,
+     "stock": {
+      "{\"id\":\"Rough wood log\"}": 4
+     },
+     "stamina": 18
+    },
+    "mg.sela": {
+     "coins": 32,
+     "stock": {
+      "{\"id\":\"Courtyard greens\"}": 1
+     },
+     "stamina": 20
+    },
+    "mg.bram": {
+     "coins": 188,
+     "stock": {
+      "{\"id\":\"Courtyard wood crate\"}": 2
+     },
+     "stamina": 20
+    }
+   },
+   "jobs": [],
+   "program": {
+    "commandId": "mg.room.workshop_batch",
+    "remaining": 1,
+    "status": "paused",
+    "targetId": null
+   },
+   "completed": {
+    "mg.begin": 1,
+    "mg.orin.inspect": 1,
+    "mg.orin.share": 1,
+    "mg.orin.make_batch": 1,
+    "mg.orin.sell_batch": 1,
+    "mg.orin.settle_share": 1,
+    "mg.supply.log": 12,
+    "mg.mira.buy_room": 1,
+    "mg.mira.repair_room": 1,
+    "mg.room.use_rental": 1,
+    "mg.room.sela_stay": 1,
+    "mg.room.sela_request": 1,
+    "mg.room.answer_sela_repair": 1,
+    "mg.room.use_personal": 1,
+    "mg.room.personal_rest": 1,
+    "mg.room.use_workshop": 1,
+    "mg.room.workshop_batch": 2,
+    "mg.workshop.bram_ordinary": 1,
+    "mg.workshop.deliver_bram_ordinary": 1,
+    "mg.foreman.commission": 1,
+    "mg.farm.rent_plot": 1,
+    "mg.supply.seed": 2,
+    "mg.farm.plant_greens": 2,
+    "mg.farm.tend_crop": 2,
+    "mg.farm.grow_greens": 2,
+    "mg.farm.harvest_greens": 2,
+    "mg.shop.inspect": 1,
+    "mg.shop.sell_mira_crate_full": 1,
+    "mg.shop.sell_sela_greens_friendly": 1,
+    "mg.room.use_inn": 1,
+    "mg.inn.sela_greens": 1
+   },
+   "inventory": {
+    "Rough wood log": 4,
+    "Courtyard wood crate": 2,
+    "Courtyard greens": 4
+   }
+  },
+  {
+   "label": "MG04 before",
+   "money": 84,
+   "clock": 187,
+   "facts": {
+    "mg.opened": true,
+    "mg.version": 1,
+    "mg.capitalAgreement": "share",
+    "mg.capitalBatchMade": true,
+    "mg.capitalSold": true,
+    "mg.capitalAgreementSettled": true,
+    "mg.roomOwned": true,
+    "mg.roomRepaired": true,
+    "mg.roomUse": "inn",
+    "mg.roomSelaHosted": false,
+    "mg.roomTenantRequest": false,
+    "mg.bramOrder": "ordinary",
+    "mg.bramOrderDelivered": true,
+    "mg.plotRight": true,
+    "mg.cropStage": "harvested",
+    "mg.cropType": "greens",
+    "mg.shop_mira_crate_closed": true,
+    "mg.shop_sela_greens_closed": true,
+    "mg.inn_sela_served": true
+   },
+   "npc": {
+    "mg.mira": {
+     "coins": 131,
+     "stock": {
+      "{\"id\":\"Courtyard seed packet\"}": 14,
+      "{\"id\":\"Damaged courtyard heirloom\"}": 1,
+      "{\"id\":\"Rough wood log\"}": 8,
+      "{\"id\":\"Linen cloth\"}": 10,
+      "{\"id\":\"Courtyard wood crate\"}": 1
+     },
+     "stamina": 20
+    },
+    "mg.orin": {
+     "coins": 37,
+     "stock": {
+      "{\"id\":\"Rough wood log\"}": 4
+     },
+     "stamina": 18
+    },
+    "mg.sela": {
+     "coins": 32,
+     "stock": {
+      "{\"id\":\"Courtyard greens\"}": 1
+     },
+     "stamina": 20
+    },
+    "mg.bram": {
+     "coins": 188,
+     "stock": {
+      "{\"id\":\"Courtyard wood crate\"}": 2
+     },
+     "stamina": 20
+    }
+   },
+   "jobs": [],
+   "program": {
+    "commandId": "mg.room.workshop_batch",
+    "remaining": 1,
+    "status": "paused",
+    "targetId": null
+   },
+   "completed": {
+    "mg.begin": 1,
+    "mg.orin.inspect": 1,
+    "mg.orin.share": 1,
+    "mg.orin.make_batch": 1,
+    "mg.orin.sell_batch": 1,
+    "mg.orin.settle_share": 1,
+    "mg.supply.log": 12,
+    "mg.mira.buy_room": 1,
+    "mg.mira.repair_room": 1,
+    "mg.room.use_rental": 1,
+    "mg.room.sela_stay": 1,
+    "mg.room.sela_request": 1,
+    "mg.room.answer_sela_repair": 1,
+    "mg.room.use_personal": 1,
+    "mg.room.personal_rest": 1,
+    "mg.room.use_workshop": 1,
+    "mg.room.workshop_batch": 2,
+    "mg.workshop.bram_ordinary": 1,
+    "mg.workshop.deliver_bram_ordinary": 1,
+    "mg.foreman.commission": 1,
+    "mg.farm.rent_plot": 1,
+    "mg.supply.seed": 2,
+    "mg.farm.plant_greens": 2,
+    "mg.farm.tend_crop": 2,
+    "mg.farm.grow_greens": 2,
+    "mg.farm.harvest_greens": 2,
+    "mg.shop.inspect": 1,
+    "mg.shop.sell_mira_crate_full": 1,
+    "mg.shop.sell_sela_greens_friendly": 1,
+    "mg.room.use_inn": 1,
+    "mg.inn.sela_greens": 1
+   },
+   "inventory": {
+    "Rough wood log": 4,
+    "Courtyard wood crate": 2,
+    "Courtyard greens": 4
+   }
+  },
+  {
+   "label": "MG04 won",
+   "money": 76,
+   "clock": 189,
+   "facts": {
+    "mg.opened": true,
+    "mg.version": 1,
+    "mg.capitalAgreement": "share",
+    "mg.capitalBatchMade": true,
+    "mg.capitalSold": true,
+    "mg.capitalAgreementSettled": true,
+    "mg.roomOwned": true,
+    "mg.roomRepaired": true,
+    "mg.roomUse": "inn",
+    "mg.roomSelaHosted": false,
+    "mg.roomTenantRequest": false,
+    "mg.bramOrder": "ordinary",
+    "mg.bramOrderDelivered": true,
+    "mg.plotRight": true,
+    "mg.cropStage": "harvested",
+    "mg.cropType": "greens",
+    "mg.shop_mira_crate_closed": true,
+    "mg.shop_sela_greens_closed": true,
+    "mg.inn_sela_served": true,
+    "mg.auctionResult": "won"
+   },
+   "npc": {
+    "mg.mira": {
+     "coins": 139,
+     "stock": {
+      "{\"id\":\"Courtyard seed packet\"}": 14,
+      "{\"id\":\"Rough wood log\"}": 8,
+      "{\"id\":\"Linen cloth\"}": 10,
+      "{\"id\":\"Courtyard wood crate\"}": 1
+     },
+     "stamina": 20
+    },
+    "mg.orin": {
+     "coins": 37,
+     "stock": {
+      "{\"id\":\"Rough wood log\"}": 4
+     },
+     "stamina": 18
+    },
+    "mg.sela": {
+     "coins": 32,
+     "stock": {
+      "{\"id\":\"Courtyard greens\"}": 1
+     },
+     "stamina": 20
+    },
+    "mg.bram": {
+     "coins": 188,
+     "stock": {
+      "{\"id\":\"Courtyard wood crate\"}": 2
+     },
+     "stamina": 20
+    }
+   },
+   "jobs": [],
+   "program": {
+    "commandId": "mg.room.workshop_batch",
+    "remaining": 1,
+    "status": "paused",
+    "targetId": null
+   },
+   "completed": {
+    "mg.begin": 1,
+    "mg.orin.inspect": 1,
+    "mg.orin.share": 1,
+    "mg.orin.make_batch": 1,
+    "mg.orin.sell_batch": 1,
+    "mg.orin.settle_share": 1,
+    "mg.supply.log": 12,
+    "mg.mira.buy_room": 1,
+    "mg.mira.repair_room": 1,
+    "mg.room.use_rental": 1,
+    "mg.room.sela_stay": 1,
+    "mg.room.sela_request": 1,
+    "mg.room.answer_sela_repair": 1,
+    "mg.room.use_personal": 1,
+    "mg.room.personal_rest": 1,
+    "mg.room.use_workshop": 1,
+    "mg.room.workshop_batch": 2,
+    "mg.workshop.bram_ordinary": 1,
+    "mg.workshop.deliver_bram_ordinary": 1,
+    "mg.foreman.commission": 1,
+    "mg.farm.rent_plot": 1,
+    "mg.supply.seed": 2,
+    "mg.farm.plant_greens": 2,
+    "mg.farm.tend_crop": 2,
+    "mg.farm.grow_greens": 2,
+    "mg.farm.harvest_greens": 2,
+    "mg.shop.inspect": 1,
+    "mg.shop.sell_mira_crate_full": 1,
+    "mg.shop.sell_sela_greens_friendly": 1,
+    "mg.room.use_inn": 1,
+    "mg.inn.sela_greens": 1,
+    "mg.auction.inspect": 1,
+    "mg.auction.bid_high": 1
+   },
+   "inventory": {
+    "Rough wood log": 4,
+    "Courtyard wood crate": 2,
+    "Courtyard greens": 4,
+    "Damaged courtyard heirloom": 1
+   }
+  },
+  {
+   "label": "MG10 conserving",
+   "money": 73,
+   "clock": 192,
+   "facts": {
+    "mg.opened": true,
+    "mg.version": 1,
+    "mg.capitalAgreement": "share",
+    "mg.capitalBatchMade": true,
+    "mg.capitalSold": true,
+    "mg.capitalAgreementSettled": true,
+    "mg.roomOwned": true,
+    "mg.roomRepaired": true,
+    "mg.roomUse": "inn",
+    "mg.roomSelaHosted": false,
+    "mg.roomTenantRequest": false,
+    "mg.bramOrder": "ordinary",
+    "mg.bramOrderDelivered": true,
+    "mg.plotRight": true,
+    "mg.cropStage": "harvested",
+    "mg.cropType": "greens",
+    "mg.shop_mira_crate_closed": true,
+    "mg.shop_sela_greens_closed": true,
+    "mg.inn_sela_served": true,
+    "mg.auctionResult": "won"
+   },
+   "npc": {
+    "mg.mira": {
+     "coins": 142,
+     "stock": {
+      "{\"id\":\"Courtyard seed packet\"}": 14,
+      "{\"id\":\"Rough wood log\"}": 8,
+      "{\"id\":\"Linen cloth\"}": 9,
+      "{\"id\":\"Courtyard wood crate\"}": 1
+     },
+     "stamina": 20
+    },
+    "mg.orin": {
+     "coins": 37,
+     "stock": {
+      "{\"id\":\"Rough wood log\"}": 4
+     },
+     "stamina": 18
+    },
+    "mg.sela": {
+     "coins": 32,
+     "stock": {
+      "{\"id\":\"Courtyard greens\"}": 1
+     },
+     "stamina": 20
+    },
+    "mg.bram": {
+     "coins": 188,
+     "stock": {
+      "{\"id\":\"Courtyard wood crate\"}": 2
+     },
+     "stamina": 20
+    }
+   },
+   "jobs": [
+    {
+     "actor": "player",
+     "command": "mg.restoration.conserve",
+     "due": 196
+    }
+   ],
+   "program": {
+    "commandId": "mg.room.workshop_batch",
+    "remaining": 1,
+    "status": "paused",
+    "targetId": null
+   },
+   "completed": {
+    "mg.begin": 1,
+    "mg.orin.inspect": 1,
+    "mg.orin.share": 1,
+    "mg.orin.make_batch": 1,
+    "mg.orin.sell_batch": 1,
+    "mg.orin.settle_share": 1,
+    "mg.supply.log": 12,
+    "mg.mira.buy_room": 1,
+    "mg.mira.repair_room": 1,
+    "mg.room.use_rental": 1,
+    "mg.room.sela_stay": 1,
+    "mg.room.sela_request": 1,
+    "mg.room.answer_sela_repair": 1,
+    "mg.room.use_personal": 1,
+    "mg.room.personal_rest": 1,
+    "mg.room.use_workshop": 1,
+    "mg.room.workshop_batch": 2,
+    "mg.workshop.bram_ordinary": 1,
+    "mg.workshop.deliver_bram_ordinary": 1,
+    "mg.foreman.commission": 1,
+    "mg.farm.rent_plot": 1,
+    "mg.supply.seed": 2,
+    "mg.farm.plant_greens": 2,
+    "mg.farm.tend_crop": 2,
+    "mg.farm.grow_greens": 2,
+    "mg.farm.harvest_greens": 2,
+    "mg.shop.inspect": 1,
+    "mg.shop.sell_mira_crate_full": 1,
+    "mg.shop.sell_sela_greens_friendly": 1,
+    "mg.room.use_inn": 1,
+    "mg.inn.sela_greens": 1,
+    "mg.auction.inspect": 1,
+    "mg.auction.bid_high": 1,
+    "mg.restoration.inspect": 1,
+    "mg.supply.cloth": 1
+   },
+   "inventory": {
+    "Rough wood log": 4,
+    "Courtyard wood crate": 2,
+    "Courtyard greens": 4
+   }
+  },
+  {
+   "label": "MG10 conserve cancelled",
+   "money": 73,
+   "clock": 193,
+   "facts": {
+    "mg.opened": true,
+    "mg.version": 1,
+    "mg.capitalAgreement": "share",
+    "mg.capitalBatchMade": true,
+    "mg.capitalSold": true,
+    "mg.capitalAgreementSettled": true,
+    "mg.roomOwned": true,
+    "mg.roomRepaired": true,
+    "mg.roomUse": "inn",
+    "mg.roomSelaHosted": false,
+    "mg.roomTenantRequest": false,
+    "mg.bramOrder": "ordinary",
+    "mg.bramOrderDelivered": true,
+    "mg.plotRight": true,
+    "mg.cropStage": "harvested",
+    "mg.cropType": "greens",
+    "mg.shop_mira_crate_closed": true,
+    "mg.shop_sela_greens_closed": true,
+    "mg.inn_sela_served": true,
+    "mg.auctionResult": "won"
+   },
+   "npc": {
+    "mg.mira": {
+     "coins": 142,
+     "stock": {
+      "{\"id\":\"Courtyard seed packet\"}": 14,
+      "{\"id\":\"Rough wood log\"}": 8,
+      "{\"id\":\"Linen cloth\"}": 9,
+      "{\"id\":\"Courtyard wood crate\"}": 1
+     },
+     "stamina": 20
+    },
+    "mg.orin": {
+     "coins": 37,
+     "stock": {
+      "{\"id\":\"Rough wood log\"}": 4
+     },
+     "stamina": 18
+    },
+    "mg.sela": {
+     "coins": 32,
+     "stock": {
+      "{\"id\":\"Courtyard greens\"}": 1
+     },
+     "stamina": 20
+    },
+    "mg.bram": {
+     "coins": 188,
+     "stock": {
+      "{\"id\":\"Courtyard wood crate\"}": 2
+     },
+     "stamina": 20
+    }
+   },
+   "jobs": [],
+   "program": {
+    "commandId": "mg.room.workshop_batch",
+    "remaining": 1,
+    "status": "paused",
+    "targetId": null
+   },
+   "completed": {
+    "mg.begin": 1,
+    "mg.orin.inspect": 1,
+    "mg.orin.share": 1,
+    "mg.orin.make_batch": 1,
+    "mg.orin.sell_batch": 1,
+    "mg.orin.settle_share": 1,
+    "mg.supply.log": 12,
+    "mg.mira.buy_room": 1,
+    "mg.mira.repair_room": 1,
+    "mg.room.use_rental": 1,
+    "mg.room.sela_stay": 1,
+    "mg.room.sela_request": 1,
+    "mg.room.answer_sela_repair": 1,
+    "mg.room.use_personal": 1,
+    "mg.room.personal_rest": 1,
+    "mg.room.use_workshop": 1,
+    "mg.room.workshop_batch": 2,
+    "mg.workshop.bram_ordinary": 1,
+    "mg.workshop.deliver_bram_ordinary": 1,
+    "mg.foreman.commission": 1,
+    "mg.farm.rent_plot": 1,
+    "mg.supply.seed": 2,
+    "mg.farm.plant_greens": 2,
+    "mg.farm.tend_crop": 2,
+    "mg.farm.grow_greens": 2,
+    "mg.farm.harvest_greens": 2,
+    "mg.shop.inspect": 1,
+    "mg.shop.sell_mira_crate_full": 1,
+    "mg.shop.sell_sela_greens_friendly": 1,
+    "mg.room.use_inn": 1,
+    "mg.inn.sela_greens": 1,
+    "mg.auction.inspect": 1,
+    "mg.auction.bid_high": 1,
+    "mg.restoration.inspect": 1,
+    "mg.supply.cloth": 1
+   },
+   "inventory": {
+    "Rough wood log": 4,
+    "Courtyard wood crate": 2,
+    "Courtyard greens": 4,
+    "Damaged courtyard heirloom": 1,
+    "Linen cloth": 1
+   }
+  },
+  {
+   "label": "MG10 conserved",
+   "money": 73,
+   "clock": 198,
+   "facts": {
+    "mg.opened": true,
+    "mg.version": 1,
+    "mg.capitalAgreement": "share",
+    "mg.capitalBatchMade": true,
+    "mg.capitalSold": true,
+    "mg.capitalAgreementSettled": true,
+    "mg.roomOwned": true,
+    "mg.roomRepaired": true,
+    "mg.roomUse": "inn",
+    "mg.roomSelaHosted": false,
+    "mg.roomTenantRequest": false,
+    "mg.bramOrder": "ordinary",
+    "mg.bramOrderDelivered": true,
+    "mg.plotRight": true,
+    "mg.cropStage": "harvested",
+    "mg.cropType": "greens",
+    "mg.shop_mira_crate_closed": true,
+    "mg.shop_sela_greens_closed": true,
+    "mg.inn_sela_served": true,
+    "mg.auctionResult": "won"
+   },
+   "npc": {
+    "mg.mira": {
+     "coins": 142,
+     "stock": {
+      "{\"id\":\"Courtyard seed packet\"}": 14,
+      "{\"id\":\"Rough wood log\"}": 8,
+      "{\"id\":\"Linen cloth\"}": 9,
+      "{\"id\":\"Courtyard wood crate\"}": 1
+     },
+     "stamina": 20
+    },
+    "mg.orin": {
+     "coins": 37,
+     "stock": {
+      "{\"id\":\"Rough wood log\"}": 4
+     },
+     "stamina": 18
+    },
+    "mg.sela": {
+     "coins": 32,
+     "stock": {
+      "{\"id\":\"Courtyard greens\"}": 1
+     },
+     "stamina": 20
+    },
+    "mg.bram": {
+     "coins": 188,
+     "stock": {
+      "{\"id\":\"Courtyard wood crate\"}": 2
+     },
+     "stamina": 20
+    }
+   },
+   "jobs": [],
+   "program": {
+    "commandId": "mg.room.workshop_batch",
+    "remaining": 1,
+    "status": "paused",
+    "targetId": null
+   },
+   "completed": {
+    "mg.begin": 1,
+    "mg.orin.inspect": 1,
+    "mg.orin.share": 1,
+    "mg.orin.make_batch": 1,
+    "mg.orin.sell_batch": 1,
+    "mg.orin.settle_share": 1,
+    "mg.supply.log": 12,
+    "mg.mira.buy_room": 1,
+    "mg.mira.repair_room": 1,
+    "mg.room.use_rental": 1,
+    "mg.room.sela_stay": 1,
+    "mg.room.sela_request": 1,
+    "mg.room.answer_sela_repair": 1,
+    "mg.room.use_personal": 1,
+    "mg.room.personal_rest": 1,
+    "mg.room.use_workshop": 1,
+    "mg.room.workshop_batch": 2,
+    "mg.workshop.bram_ordinary": 1,
+    "mg.workshop.deliver_bram_ordinary": 1,
+    "mg.foreman.commission": 1,
+    "mg.farm.rent_plot": 1,
+    "mg.supply.seed": 2,
+    "mg.farm.plant_greens": 2,
+    "mg.farm.tend_crop": 2,
+    "mg.farm.grow_greens": 2,
+    "mg.farm.harvest_greens": 2,
+    "mg.shop.inspect": 1,
+    "mg.shop.sell_mira_crate_full": 1,
+    "mg.shop.sell_sela_greens_friendly": 1,
+    "mg.room.use_inn": 1,
+    "mg.inn.sela_greens": 1,
+    "mg.auction.inspect": 1,
+    "mg.auction.bid_high": 1,
+    "mg.restoration.inspect": 1,
+    "mg.supply.cloth": 1,
+    "mg.restoration.conserve": 1
+   },
+   "inventory": {
+    "Rough wood log": 4,
+    "Courtyard wood crate": 2,
+    "Courtyard greens": 4,
+    "Conserved courtyard heirloom": 1
+   }
+  },
+  {
+   "label": "MG10 displayed",
+   "money": 73,
+   "clock": 199,
+   "facts": {
+    "mg.opened": true,
+    "mg.version": 1,
+    "mg.capitalAgreement": "share",
+    "mg.capitalBatchMade": true,
+    "mg.capitalSold": true,
+    "mg.capitalAgreementSettled": true,
+    "mg.roomOwned": true,
+    "mg.roomRepaired": true,
+    "mg.roomUse": "inn",
+    "mg.roomSelaHosted": false,
+    "mg.roomTenantRequest": false,
+    "mg.bramOrder": "ordinary",
+    "mg.bramOrderDelivered": true,
+    "mg.plotRight": true,
+    "mg.cropStage": "harvested",
+    "mg.cropType": "greens",
+    "mg.shop_mira_crate_closed": true,
+    "mg.shop_sela_greens_closed": true,
+    "mg.inn_sela_served": true,
+    "mg.auctionResult": "won",
+    "mg.displayedKind": "conserved"
+   },
+   "npc": {
+    "mg.mira": {
+     "coins": 142,
+     "stock": {
+      "{\"id\":\"Courtyard seed packet\"}": 14,
+      "{\"id\":\"Rough wood log\"}": 8,
+      "{\"id\":\"Linen cloth\"}": 9,
+      "{\"id\":\"Courtyard wood crate\"}": 1,
+      "{\"id\":\"Conserved courtyard heirloom\"}": 1
+     },
+     "stamina": 20
+    },
+    "mg.orin": {
+     "coins": 37,
+     "stock": {
+      "{\"id\":\"Rough wood log\"}": 4
+     },
+     "stamina": 18
+    },
+    "mg.sela": {
+     "coins": 32,
+     "stock": {
+      "{\"id\":\"Courtyard greens\"}": 1
+     },
+     "stamina": 20
+    },
+    "mg.bram": {
+     "coins": 188,
+     "stock": {
+      "{\"id\":\"Courtyard wood crate\"}": 2
+     },
+     "stamina": 20
+    }
+   },
+   "jobs": [],
+   "program": {
+    "commandId": "mg.room.workshop_batch",
+    "remaining": 1,
+    "status": "paused",
+    "targetId": null
+   },
+   "completed": {
+    "mg.begin": 1,
+    "mg.orin.inspect": 1,
+    "mg.orin.share": 1,
+    "mg.orin.make_batch": 1,
+    "mg.orin.sell_batch": 1,
+    "mg.orin.settle_share": 1,
+    "mg.supply.log": 12,
+    "mg.mira.buy_room": 1,
+    "mg.mira.repair_room": 1,
+    "mg.room.use_rental": 1,
+    "mg.room.sela_stay": 1,
+    "mg.room.sela_request": 1,
+    "mg.room.answer_sela_repair": 1,
+    "mg.room.use_personal": 1,
+    "mg.room.personal_rest": 1,
+    "mg.room.use_workshop": 1,
+    "mg.room.workshop_batch": 2,
+    "mg.workshop.bram_ordinary": 1,
+    "mg.workshop.deliver_bram_ordinary": 1,
+    "mg.foreman.commission": 1,
+    "mg.farm.rent_plot": 1,
+    "mg.supply.seed": 2,
+    "mg.farm.plant_greens": 2,
+    "mg.farm.tend_crop": 2,
+    "mg.farm.grow_greens": 2,
+    "mg.farm.harvest_greens": 2,
+    "mg.shop.inspect": 1,
+    "mg.shop.sell_mira_crate_full": 1,
+    "mg.shop.sell_sela_greens_friendly": 1,
+    "mg.room.use_inn": 1,
+    "mg.inn.sela_greens": 1,
+    "mg.auction.inspect": 1,
+    "mg.auction.bid_high": 1,
+    "mg.restoration.inspect": 1,
+    "mg.supply.cloth": 1,
+    "mg.restoration.conserve": 1,
+    "mg.restoration.display_conserved": 1
+   },
+   "inventory": {
+    "Rough wood log": 4,
+    "Courtyard wood crate": 2,
+    "Courtyard greens": 4
+   }
+  },
+  {
+   "label": "MG08 before",
+   "money": 73,
+   "clock": 207,
+   "facts": {
+    "mg.opened": true,
+    "mg.version": 1,
+    "mg.capitalAgreement": "share",
+    "mg.capitalBatchMade": true,
+    "mg.capitalSold": true,
+    "mg.capitalAgreementSettled": true,
+    "mg.roomOwned": true,
+    "mg.roomRepaired": true,
+    "mg.roomUse": "inn",
+    "mg.roomSelaHosted": false,
+    "mg.roomTenantRequest": false,
+    "mg.bramOrder": "ordinary",
+    "mg.bramOrderDelivered": true,
+    "mg.plotRight": true,
+    "mg.cropStage": "harvested",
+    "mg.cropType": "greens",
+    "mg.shop_mira_crate_closed": true,
+    "mg.shop_sela_greens_closed": true,
+    "mg.inn_sela_served": true,
+    "mg.auctionResult": "won",
+    "mg.displayedKind": "conserved"
+   },
+   "npc": {
+    "mg.mira": {
+     "coins": 142,
+     "stock": {
+      "{\"id\":\"Courtyard seed packet\"}": 14,
+      "{\"id\":\"Rough wood log\"}": 8,
+      "{\"id\":\"Linen cloth\"}": 9,
+      "{\"id\":\"Courtyard wood crate\"}": 1,
+      "{\"id\":\"Conserved courtyard heirloom\"}": 1
+     },
+     "stamina": 20
+    },
+    "mg.orin": {
+     "coins": 37,
+     "stock": {
+      "{\"id\":\"Rough wood log\"}": 4
+     },
+     "stamina": 18
+    },
+    "mg.sela": {
+     "coins": 32,
+     "stock": {
+      "{\"id\":\"Courtyard greens\"}": 1
+     },
+     "stamina": 20
+    },
+    "mg.bram": {
+     "coins": 188,
+     "stock": {
+      "{\"id\":\"Courtyard wood crate\"}": 2
+     },
+     "stamina": 20
+    }
+   },
+   "jobs": [],
+   "program": {
+    "commandId": "mg.room.workshop_batch",
+    "remaining": 1,
+    "status": "paused",
+    "targetId": null
+   },
+   "completed": {
+    "mg.begin": 1,
+    "mg.orin.inspect": 1,
+    "mg.orin.share": 1,
+    "mg.orin.make_batch": 1,
+    "mg.orin.sell_batch": 1,
+    "mg.orin.settle_share": 1,
+    "mg.supply.log": 12,
+    "mg.mira.buy_room": 1,
+    "mg.mira.repair_room": 1,
+    "mg.room.use_rental": 1,
+    "mg.room.sela_stay": 1,
+    "mg.room.sela_request": 1,
+    "mg.room.answer_sela_repair": 1,
+    "mg.room.use_personal": 1,
+    "mg.room.personal_rest": 1,
+    "mg.room.use_workshop": 1,
+    "mg.room.workshop_batch": 2,
+    "mg.workshop.bram_ordinary": 1,
+    "mg.workshop.deliver_bram_ordinary": 1,
+    "mg.foreman.commission": 1,
+    "mg.farm.rent_plot": 1,
+    "mg.supply.seed": 2,
+    "mg.farm.plant_greens": 2,
+    "mg.farm.tend_crop": 2,
+    "mg.farm.grow_greens": 2,
+    "mg.farm.harvest_greens": 2,
+    "mg.shop.inspect": 1,
+    "mg.shop.sell_mira_crate_full": 1,
+    "mg.shop.sell_sela_greens_friendly": 1,
+    "mg.room.use_inn": 1,
+    "mg.inn.sela_greens": 1,
+    "mg.auction.inspect": 1,
+    "mg.auction.bid_high": 1,
+    "mg.restoration.inspect": 1,
+    "mg.supply.cloth": 1,
+    "mg.restoration.conserve": 1,
+    "mg.restoration.display_conserved": 1
+   },
+   "inventory": {
+    "Rough wood log": 4,
+    "Courtyard wood crate": 2,
+    "Courtyard greens": 4
+   }
+  },
+  {
+   "label": "MG08 lent",
+   "money": 65,
+   "clock": 209,
+   "facts": {
+    "mg.opened": true,
+    "mg.version": 1,
+    "mg.capitalAgreement": "share",
+    "mg.capitalBatchMade": true,
+    "mg.capitalSold": true,
+    "mg.capitalAgreementSettled": true,
+    "mg.roomOwned": true,
+    "mg.roomRepaired": true,
+    "mg.roomUse": "inn",
+    "mg.roomSelaHosted": false,
+    "mg.roomTenantRequest": false,
+    "mg.bramOrder": "ordinary",
+    "mg.bramOrderDelivered": true,
+    "mg.plotRight": true,
+    "mg.cropStage": "harvested",
+    "mg.cropType": "greens",
+    "mg.shop_mira_crate_closed": true,
+    "mg.shop_sela_greens_closed": true,
+    "mg.inn_sela_served": true,
+    "mg.auctionResult": "won",
+    "mg.displayedKind": "conserved",
+    "mg.selaAidTerms": "loan",
+    "mg.selaDebtOutstanding": true,
+    "mg.selaLoanExtended": false,
+    "mg.selaWorkReady": false,
+    "mg.selaWorkPaid": false
+   },
+   "npc": {
+    "mg.mira": {
+     "coins": 142,
+     "stock": {
+      "{\"id\":\"Courtyard seed packet\"}": 14,
+      "{\"id\":\"Rough wood log\"}": 8,
+      "{\"id\":\"Linen cloth\"}": 9,
+      "{\"id\":\"Courtyard wood crate\"}": 1,
+      "{\"id\":\"Conserved courtyard heirloom\"}": 1
+     },
+     "stamina": 20
+    },
+    "mg.orin": {
+     "coins": 37,
+     "stock": {
+      "{\"id\":\"Rough wood log\"}": 4
+     },
+     "stamina": 18
+    },
+    "mg.sela": {
+     "coins": 40,
+     "stock": {
+      "{\"id\":\"Courtyard greens\"}": 1
+     },
+     "stamina": 20
+    },
+    "mg.bram": {
+     "coins": 188,
+     "stock": {
+      "{\"id\":\"Courtyard wood crate\"}": 2
+     },
+     "stamina": 20
+    }
+   },
+   "jobs": [],
+   "program": {
+    "commandId": "mg.room.workshop_batch",
+    "remaining": 1,
+    "status": "paused",
+    "targetId": null
+   },
+   "completed": {
+    "mg.begin": 1,
+    "mg.orin.inspect": 1,
+    "mg.orin.share": 1,
+    "mg.orin.make_batch": 1,
+    "mg.orin.sell_batch": 1,
+    "mg.orin.settle_share": 1,
+    "mg.supply.log": 12,
+    "mg.mira.buy_room": 1,
+    "mg.mira.repair_room": 1,
+    "mg.room.use_rental": 1,
+    "mg.room.sela_stay": 1,
+    "mg.room.sela_request": 1,
+    "mg.room.answer_sela_repair": 1,
+    "mg.room.use_personal": 1,
+    "mg.room.personal_rest": 1,
+    "mg.room.use_workshop": 1,
+    "mg.room.workshop_batch": 2,
+    "mg.workshop.bram_ordinary": 1,
+    "mg.workshop.deliver_bram_ordinary": 1,
+    "mg.foreman.commission": 1,
+    "mg.farm.rent_plot": 1,
+    "mg.supply.seed": 2,
+    "mg.farm.plant_greens": 2,
+    "mg.farm.tend_crop": 2,
+    "mg.farm.grow_greens": 2,
+    "mg.farm.harvest_greens": 2,
+    "mg.shop.inspect": 1,
+    "mg.shop.sell_mira_crate_full": 1,
+    "mg.shop.sell_sela_greens_friendly": 1,
+    "mg.room.use_inn": 1,
+    "mg.inn.sela_greens": 1,
+    "mg.auction.inspect": 1,
+    "mg.auction.bid_high": 1,
+    "mg.restoration.inspect": 1,
+    "mg.supply.cloth": 1,
+    "mg.restoration.conserve": 1,
+    "mg.restoration.display_conserved": 1,
+    "mg.aid.sela_request": 1,
+    "mg.aid.lend_sela": 1
+   },
+   "inventory": {
+    "Rough wood log": 4,
+    "Courtyard wood crate": 2,
+    "Courtyard greens": 4
+   }
+  },
+  {
+   "label": "MG08 extended",
+   "money": 65,
+   "clock": 210,
+   "facts": {
+    "mg.opened": true,
+    "mg.version": 1,
+    "mg.capitalAgreement": "share",
+    "mg.capitalBatchMade": true,
+    "mg.capitalSold": true,
+    "mg.capitalAgreementSettled": true,
+    "mg.roomOwned": true,
+    "mg.roomRepaired": true,
+    "mg.roomUse": "inn",
+    "mg.roomSelaHosted": false,
+    "mg.roomTenantRequest": false,
+    "mg.bramOrder": "ordinary",
+    "mg.bramOrderDelivered": true,
+    "mg.plotRight": true,
+    "mg.cropStage": "harvested",
+    "mg.cropType": "greens",
+    "mg.shop_mira_crate_closed": true,
+    "mg.shop_sela_greens_closed": true,
+    "mg.inn_sela_served": true,
+    "mg.auctionResult": "won",
+    "mg.displayedKind": "conserved",
+    "mg.selaAidTerms": "loan",
+    "mg.selaDebtOutstanding": true,
+    "mg.selaLoanExtended": true,
+    "mg.selaWorkReady": false,
+    "mg.selaWorkPaid": false
+   },
+   "npc": {
+    "mg.mira": {
+     "coins": 142,
+     "stock": {
+      "{\"id\":\"Courtyard seed packet\"}": 14,
+      "{\"id\":\"Rough wood log\"}": 8,
+      "{\"id\":\"Linen cloth\"}": 9,
+      "{\"id\":\"Courtyard wood crate\"}": 1,
+      "{\"id\":\"Conserved courtyard heirloom\"}": 1
+     },
+     "stamina": 20
+    },
+    "mg.orin": {
+     "coins": 37,
+     "stock": {
+      "{\"id\":\"Rough wood log\"}": 4
+     },
+     "stamina": 18
+    },
+    "mg.sela": {
+     "coins": 40,
+     "stock": {
+      "{\"id\":\"Courtyard greens\"}": 1
+     },
+     "stamina": 20
+    },
+    "mg.bram": {
+     "coins": 188,
+     "stock": {
+      "{\"id\":\"Courtyard wood crate\"}": 2
+     },
+     "stamina": 20
+    }
+   },
+   "jobs": [],
+   "program": {
+    "commandId": "mg.room.workshop_batch",
+    "remaining": 1,
+    "status": "paused",
+    "targetId": null
+   },
+   "completed": {
+    "mg.begin": 1,
+    "mg.orin.inspect": 1,
+    "mg.orin.share": 1,
+    "mg.orin.make_batch": 1,
+    "mg.orin.sell_batch": 1,
+    "mg.orin.settle_share": 1,
+    "mg.supply.log": 12,
+    "mg.mira.buy_room": 1,
+    "mg.mira.repair_room": 1,
+    "mg.room.use_rental": 1,
+    "mg.room.sela_stay": 1,
+    "mg.room.sela_request": 1,
+    "mg.room.answer_sela_repair": 1,
+    "mg.room.use_personal": 1,
+    "mg.room.personal_rest": 1,
+    "mg.room.use_workshop": 1,
+    "mg.room.workshop_batch": 2,
+    "mg.workshop.bram_ordinary": 1,
+    "mg.workshop.deliver_bram_ordinary": 1,
+    "mg.foreman.commission": 1,
+    "mg.farm.rent_plot": 1,
+    "mg.supply.seed": 2,
+    "mg.farm.plant_greens": 2,
+    "mg.farm.tend_crop": 2,
+    "mg.farm.grow_greens": 2,
+    "mg.farm.harvest_greens": 2,
+    "mg.shop.inspect": 1,
+    "mg.shop.sell_mira_crate_full": 1,
+    "mg.shop.sell_sela_greens_friendly": 1,
+    "mg.room.use_inn": 1,
+    "mg.inn.sela_greens": 1,
+    "mg.auction.inspect": 1,
+    "mg.auction.bid_high": 1,
+    "mg.restoration.inspect": 1,
+    "mg.supply.cloth": 1,
+    "mg.restoration.conserve": 1,
+    "mg.restoration.display_conserved": 1,
+    "mg.aid.sela_request": 1,
+    "mg.aid.lend_sela": 1,
+    "mg.aid.extend_sela_loan": 1
+   },
+   "inventory": {
+    "Rough wood log": 4,
+    "Courtyard wood crate": 2,
+    "Courtyard greens": 4
+   }
+  },
+  {
+   "label": "MG09 booked",
+   "money": 63,
+   "clock": 211,
+   "facts": {
+    "mg.opened": true,
+    "mg.version": 1,
+    "mg.capitalAgreement": "share",
+    "mg.capitalBatchMade": true,
+    "mg.capitalSold": true,
+    "mg.capitalAgreementSettled": true,
+    "mg.roomOwned": true,
+    "mg.roomRepaired": true,
+    "mg.roomUse": "inn",
+    "mg.roomSelaHosted": false,
+    "mg.roomTenantRequest": false,
+    "mg.bramOrder": "ordinary",
+    "mg.bramOrderDelivered": true,
+    "mg.plotRight": true,
+    "mg.cropStage": "harvested",
+    "mg.cropType": "greens",
+    "mg.shop_mira_crate_closed": true,
+    "mg.shop_sela_greens_closed": true,
+    "mg.inn_sela_served": true,
+    "mg.auctionResult": "won",
+    "mg.displayedKind": "conserved",
+    "mg.selaAidTerms": "loan",
+    "mg.selaDebtOutstanding": true,
+    "mg.selaLoanExtended": true,
+    "mg.selaWorkReady": false,
+    "mg.selaWorkPaid": false,
+    "mg.eventBooked": true,
+    "mg.eventProgram": false
+   },
+   "npc": {
+    "mg.mira": {
+     "coins": 144,
+     "stock": {
+      "{\"id\":\"Courtyard seed packet\"}": 14,
+      "{\"id\":\"Rough wood log\"}": 8,
+      "{\"id\":\"Linen cloth\"}": 9,
+      "{\"id\":\"Courtyard wood crate\"}": 1,
+      "{\"id\":\"Conserved courtyard heirloom\"}": 1
+     },
+     "stamina": 20
+    },
+    "mg.orin": {
+     "coins": 37,
+     "stock": {
+      "{\"id\":\"Rough wood log\"}": 4
+     },
+     "stamina": 18
+    },
+    "mg.sela": {
+     "coins": 40,
+     "stock": {
+      "{\"id\":\"Courtyard greens\"}": 1
+     },
+     "stamina": 20
+    },
+    "mg.bram": {
+     "coins": 188,
+     "stock": {
+      "{\"id\":\"Courtyard wood crate\"}": 2
+     },
+     "stamina": 20
+    }
+   },
+   "jobs": [],
+   "program": {
+    "commandId": "mg.room.workshop_batch",
+    "remaining": 1,
+    "status": "paused",
+    "targetId": null
+   },
+   "completed": {
+    "mg.begin": 1,
+    "mg.orin.inspect": 1,
+    "mg.orin.share": 1,
+    "mg.orin.make_batch": 1,
+    "mg.orin.sell_batch": 1,
+    "mg.orin.settle_share": 1,
+    "mg.supply.log": 12,
+    "mg.mira.buy_room": 1,
+    "mg.mira.repair_room": 1,
+    "mg.room.use_rental": 1,
+    "mg.room.sela_stay": 1,
+    "mg.room.sela_request": 1,
+    "mg.room.answer_sela_repair": 1,
+    "mg.room.use_personal": 1,
+    "mg.room.personal_rest": 1,
+    "mg.room.use_workshop": 1,
+    "mg.room.workshop_batch": 2,
+    "mg.workshop.bram_ordinary": 1,
+    "mg.workshop.deliver_bram_ordinary": 1,
+    "mg.foreman.commission": 1,
+    "mg.farm.rent_plot": 1,
+    "mg.supply.seed": 2,
+    "mg.farm.plant_greens": 2,
+    "mg.farm.tend_crop": 2,
+    "mg.farm.grow_greens": 2,
+    "mg.farm.harvest_greens": 2,
+    "mg.shop.inspect": 1,
+    "mg.shop.sell_mira_crate_full": 1,
+    "mg.shop.sell_sela_greens_friendly": 1,
+    "mg.room.use_inn": 1,
+    "mg.inn.sela_greens": 1,
+    "mg.auction.inspect": 1,
+    "mg.auction.bid_high": 1,
+    "mg.restoration.inspect": 1,
+    "mg.supply.cloth": 1,
+    "mg.restoration.conserve": 1,
+    "mg.restoration.display_conserved": 1,
+    "mg.aid.sela_request": 1,
+    "mg.aid.lend_sela": 1,
+    "mg.aid.extend_sela_loan": 1,
+    "mg.event.book": 1
+   },
+   "inventory": {
+    "Rough wood log": 4,
+    "Courtyard wood crate": 2,
+    "Courtyard greens": 4
+   }
+  },
+  {
+   "label": "MG09 booking cancelled",
+   "money": 65,
+   "clock": 212,
+   "facts": {
+    "mg.opened": true,
+    "mg.version": 1,
+    "mg.capitalAgreement": "share",
+    "mg.capitalBatchMade": true,
+    "mg.capitalSold": true,
+    "mg.capitalAgreementSettled": true,
+    "mg.roomOwned": true,
+    "mg.roomRepaired": true,
+    "mg.roomUse": "inn",
+    "mg.roomSelaHosted": false,
+    "mg.roomTenantRequest": false,
+    "mg.bramOrder": "ordinary",
+    "mg.bramOrderDelivered": true,
+    "mg.plotRight": true,
+    "mg.cropStage": "harvested",
+    "mg.cropType": "greens",
+    "mg.shop_mira_crate_closed": true,
+    "mg.shop_sela_greens_closed": true,
+    "mg.inn_sela_served": true,
+    "mg.auctionResult": "won",
+    "mg.displayedKind": "conserved",
+    "mg.selaAidTerms": "loan",
+    "mg.selaDebtOutstanding": true,
+    "mg.selaLoanExtended": true,
+    "mg.selaWorkReady": false,
+    "mg.selaWorkPaid": false,
+    "mg.eventBooked": false,
+    "mg.eventProgram": false
+   },
+   "npc": {
+    "mg.mira": {
+     "coins": 142,
+     "stock": {
+      "{\"id\":\"Courtyard seed packet\"}": 14,
+      "{\"id\":\"Rough wood log\"}": 8,
+      "{\"id\":\"Linen cloth\"}": 9,
+      "{\"id\":\"Courtyard wood crate\"}": 1,
+      "{\"id\":\"Conserved courtyard heirloom\"}": 1
+     },
+     "stamina": 20
+    },
+    "mg.orin": {
+     "coins": 37,
+     "stock": {
+      "{\"id\":\"Rough wood log\"}": 4
+     },
+     "stamina": 18
+    },
+    "mg.sela": {
+     "coins": 40,
+     "stock": {
+      "{\"id\":\"Courtyard greens\"}": 1
+     },
+     "stamina": 20
+    },
+    "mg.bram": {
+     "coins": 188,
+     "stock": {
+      "{\"id\":\"Courtyard wood crate\"}": 2
+     },
+     "stamina": 20
+    }
+   },
+   "jobs": [],
+   "program": {
+    "commandId": "mg.room.workshop_batch",
+    "remaining": 1,
+    "status": "paused",
+    "targetId": null
+   },
+   "completed": {
+    "mg.begin": 1,
+    "mg.orin.inspect": 1,
+    "mg.orin.share": 1,
+    "mg.orin.make_batch": 1,
+    "mg.orin.sell_batch": 1,
+    "mg.orin.settle_share": 1,
+    "mg.supply.log": 12,
+    "mg.mira.buy_room": 1,
+    "mg.mira.repair_room": 1,
+    "mg.room.use_rental": 1,
+    "mg.room.sela_stay": 1,
+    "mg.room.sela_request": 1,
+    "mg.room.answer_sela_repair": 1,
+    "mg.room.use_personal": 1,
+    "mg.room.personal_rest": 1,
+    "mg.room.use_workshop": 1,
+    "mg.room.workshop_batch": 2,
+    "mg.workshop.bram_ordinary": 1,
+    "mg.workshop.deliver_bram_ordinary": 1,
+    "mg.foreman.commission": 1,
+    "mg.farm.rent_plot": 1,
+    "mg.supply.seed": 2,
+    "mg.farm.plant_greens": 2,
+    "mg.farm.tend_crop": 2,
+    "mg.farm.grow_greens": 2,
+    "mg.farm.harvest_greens": 2,
+    "mg.shop.inspect": 1,
+    "mg.shop.sell_mira_crate_full": 1,
+    "mg.shop.sell_sela_greens_friendly": 1,
+    "mg.room.use_inn": 1,
+    "mg.inn.sela_greens": 1,
+    "mg.auction.inspect": 1,
+    "mg.auction.bid_high": 1,
+    "mg.restoration.inspect": 1,
+    "mg.supply.cloth": 1,
+    "mg.restoration.conserve": 1,
+    "mg.restoration.display_conserved": 1,
+    "mg.aid.sela_request": 1,
+    "mg.aid.lend_sela": 1,
+    "mg.aid.extend_sela_loan": 1,
+    "mg.event.book": 1,
+    "mg.event.cancel_booking": 1
+   },
+   "inventory": {
+    "Rough wood log": 4,
+    "Courtyard wood crate": 2,
+    "Courtyard greens": 4
+   }
+  },
+  {
+   "label": "MG09 prepared",
+   "money": 63,
+   "clock": 214,
+   "facts": {
+    "mg.opened": true,
+    "mg.version": 1,
+    "mg.capitalAgreement": "share",
+    "mg.capitalBatchMade": true,
+    "mg.capitalSold": true,
+    "mg.capitalAgreementSettled": true,
+    "mg.roomOwned": true,
+    "mg.roomRepaired": true,
+    "mg.roomUse": "inn",
+    "mg.roomSelaHosted": false,
+    "mg.roomTenantRequest": false,
+    "mg.bramOrder": "ordinary",
+    "mg.bramOrderDelivered": true,
+    "mg.plotRight": true,
+    "mg.cropStage": "harvested",
+    "mg.cropType": "greens",
+    "mg.shop_mira_crate_closed": true,
+    "mg.shop_sela_greens_closed": true,
+    "mg.inn_sela_served": true,
+    "mg.auctionResult": "won",
+    "mg.displayedKind": "conserved",
+    "mg.selaAidTerms": "loan",
+    "mg.selaDebtOutstanding": true,
+    "mg.selaLoanExtended": true,
+    "mg.selaWorkReady": false,
+    "mg.selaWorkPaid": false,
+    "mg.eventBooked": true,
+    "mg.eventProgram": "exhibition_conserved"
+   },
+   "npc": {
+    "mg.mira": {
+     "coins": 144,
+     "stock": {
+      "{\"id\":\"Courtyard seed packet\"}": 14,
+      "{\"id\":\"Rough wood log\"}": 8,
+      "{\"id\":\"Linen cloth\"}": 9,
+      "{\"id\":\"Courtyard wood crate\"}": 1,
+      "{\"id\":\"Conserved courtyard heirloom\"}": 1
+     },
+     "stamina": 20
+    },
+    "mg.orin": {
+     "coins": 37,
+     "stock": {
+      "{\"id\":\"Rough wood log\"}": 4
+     },
+     "stamina": 18
+    },
+    "mg.sela": {
+     "coins": 40,
+     "stock": {
+      "{\"id\":\"Courtyard greens\"}": 1
+     },
+     "stamina": 20
+    },
+    "mg.bram": {
+     "coins": 188,
+     "stock": {
+      "{\"id\":\"Courtyard wood crate\"}": 2
+     },
+     "stamina": 20
+    }
+   },
+   "jobs": [],
+   "program": {
+    "commandId": "mg.room.workshop_batch",
+    "remaining": 1,
+    "status": "paused",
+    "targetId": null
+   },
+   "completed": {
+    "mg.begin": 1,
+    "mg.orin.inspect": 1,
+    "mg.orin.share": 1,
+    "mg.orin.make_batch": 1,
+    "mg.orin.sell_batch": 1,
+    "mg.orin.settle_share": 1,
+    "mg.supply.log": 12,
+    "mg.mira.buy_room": 1,
+    "mg.mira.repair_room": 1,
+    "mg.room.use_rental": 1,
+    "mg.room.sela_stay": 1,
+    "mg.room.sela_request": 1,
+    "mg.room.answer_sela_repair": 1,
+    "mg.room.use_personal": 1,
+    "mg.room.personal_rest": 1,
+    "mg.room.use_workshop": 1,
+    "mg.room.workshop_batch": 2,
+    "mg.workshop.bram_ordinary": 1,
+    "mg.workshop.deliver_bram_ordinary": 1,
+    "mg.foreman.commission": 1,
+    "mg.farm.rent_plot": 1,
+    "mg.supply.seed": 2,
+    "mg.farm.plant_greens": 2,
+    "mg.farm.tend_crop": 2,
+    "mg.farm.grow_greens": 2,
+    "mg.farm.harvest_greens": 2,
+    "mg.shop.inspect": 1,
+    "mg.shop.sell_mira_crate_full": 1,
+    "mg.shop.sell_sela_greens_friendly": 1,
+    "mg.room.use_inn": 1,
+    "mg.inn.sela_greens": 1,
+    "mg.auction.inspect": 1,
+    "mg.auction.bid_high": 1,
+    "mg.restoration.inspect": 1,
+    "mg.supply.cloth": 1,
+    "mg.restoration.conserve": 1,
+    "mg.restoration.display_conserved": 1,
+    "mg.aid.sela_request": 1,
+    "mg.aid.lend_sela": 1,
+    "mg.aid.extend_sela_loan": 1,
+    "mg.event.book": 2,
+    "mg.event.cancel_booking": 1,
+    "mg.event.prepare_exhibition_conserved": 1
+   },
+   "inventory": {
+    "Rough wood log": 4,
+    "Courtyard wood crate": 2,
+    "Courtyard greens": 4
+   }
+  },
+  {
+   "label": "MG06 grain planted",
+   "money": 61,
+   "clock": 218,
+   "facts": {
+    "mg.opened": true,
+    "mg.version": 1,
+    "mg.capitalAgreement": "share",
+    "mg.capitalBatchMade": true,
+    "mg.capitalSold": true,
+    "mg.capitalAgreementSettled": true,
+    "mg.roomOwned": true,
+    "mg.roomRepaired": true,
+    "mg.roomUse": "inn",
+    "mg.roomSelaHosted": false,
+    "mg.roomTenantRequest": false,
+    "mg.bramOrder": "ordinary",
+    "mg.bramOrderDelivered": true,
+    "mg.plotRight": true,
+    "mg.cropStage": "planted",
+    "mg.cropType": "grain",
+    "mg.shop_mira_crate_closed": true,
+    "mg.shop_sela_greens_closed": true,
+    "mg.inn_sela_served": true,
+    "mg.auctionResult": "won",
+    "mg.displayedKind": "conserved",
+    "mg.selaAidTerms": "loan",
+    "mg.selaDebtOutstanding": true,
+    "mg.selaLoanExtended": true,
+    "mg.selaWorkReady": false,
+    "mg.selaWorkPaid": false,
+    "mg.eventBooked": true,
+    "mg.eventProgram": "exhibition_conserved"
+   },
+   "npc": {
+    "mg.mira": {
+     "coins": 146,
+     "stock": {
+      "{\"id\":\"Courtyard seed packet\"}": 13,
+      "{\"id\":\"Rough wood log\"}": 8,
+      "{\"id\":\"Linen cloth\"}": 9,
+      "{\"id\":\"Courtyard wood crate\"}": 1,
+      "{\"id\":\"Conserved courtyard heirloom\"}": 1
+     },
+     "stamina": 20
+    },
+    "mg.orin": {
+     "coins": 37,
+     "stock": {
+      "{\"id\":\"Rough wood log\"}": 4
+     },
+     "stamina": 18
+    },
+    "mg.sela": {
+     "coins": 40,
+     "stock": {
+      "{\"id\":\"Courtyard greens\"}": 1
+     },
+     "stamina": 20
+    },
+    "mg.bram": {
+     "coins": 188,
+     "stock": {
+      "{\"id\":\"Courtyard wood crate\"}": 2
+     },
+     "stamina": 20
+    }
+   },
+   "jobs": [],
+   "program": {
+    "commandId": "mg.room.workshop_batch",
+    "remaining": 1,
+    "status": "paused",
+    "targetId": null
+   },
+   "completed": {
+    "mg.begin": 1,
+    "mg.orin.inspect": 1,
+    "mg.orin.share": 1,
+    "mg.orin.make_batch": 1,
+    "mg.orin.sell_batch": 1,
+    "mg.orin.settle_share": 1,
+    "mg.supply.log": 12,
+    "mg.mira.buy_room": 1,
+    "mg.mira.repair_room": 1,
+    "mg.room.use_rental": 1,
+    "mg.room.sela_stay": 1,
+    "mg.room.sela_request": 1,
+    "mg.room.answer_sela_repair": 1,
+    "mg.room.use_personal": 1,
+    "mg.room.personal_rest": 1,
+    "mg.room.use_workshop": 1,
+    "mg.room.workshop_batch": 2,
+    "mg.workshop.bram_ordinary": 1,
+    "mg.workshop.deliver_bram_ordinary": 1,
+    "mg.foreman.commission": 1,
+    "mg.farm.rent_plot": 1,
+    "mg.supply.seed": 3,
+    "mg.farm.plant_greens": 2,
+    "mg.farm.tend_crop": 2,
+    "mg.farm.grow_greens": 2,
+    "mg.farm.harvest_greens": 2,
+    "mg.shop.inspect": 1,
+    "mg.shop.sell_mira_crate_full": 1,
+    "mg.shop.sell_sela_greens_friendly": 1,
+    "mg.room.use_inn": 1,
+    "mg.inn.sela_greens": 1,
+    "mg.auction.inspect": 1,
+    "mg.auction.bid_high": 1,
+    "mg.restoration.inspect": 1,
+    "mg.supply.cloth": 1,
+    "mg.restoration.conserve": 1,
+    "mg.restoration.display_conserved": 1,
+    "mg.aid.sela_request": 1,
+    "mg.aid.lend_sela": 1,
+    "mg.aid.extend_sela_loan": 1,
+    "mg.event.book": 2,
+    "mg.event.cancel_booking": 1,
+    "mg.event.prepare_exhibition_conserved": 1,
+    "mg.farm.plant_grain": 1
+   },
+   "inventory": {
+    "Rough wood log": 4,
+    "Courtyard wood crate": 2,
+    "Courtyard greens": 4
+   }
+  },
+  {
+   "label": "MG05 before",
+   "money": 61,
+   "clock": 236,
+   "facts": {
+    "mg.opened": true,
+    "mg.version": 1,
+    "mg.capitalAgreement": "share",
+    "mg.capitalBatchMade": true,
+    "mg.capitalSold": true,
+    "mg.capitalAgreementSettled": true,
+    "mg.roomOwned": true,
+    "mg.roomRepaired": true,
+    "mg.roomUse": "inn",
+    "mg.roomSelaHosted": false,
+    "mg.roomTenantRequest": false,
+    "mg.bramOrder": "ordinary",
+    "mg.bramOrderDelivered": true,
+    "mg.plotRight": true,
+    "mg.cropStage": "planted",
+    "mg.cropType": "grain",
+    "mg.shop_mira_crate_closed": true,
+    "mg.shop_sela_greens_closed": true,
+    "mg.inn_sela_served": true,
+    "mg.auctionResult": "won",
+    "mg.displayedKind": "conserved",
+    "mg.selaAidTerms": "loan",
+    "mg.selaDebtOutstanding": true,
+    "mg.selaLoanExtended": true,
+    "mg.selaWorkReady": false,
+    "mg.selaWorkPaid": false,
+    "mg.eventBooked": true,
+    "mg.eventProgram": "exhibition_conserved"
+   },
+   "npc": {
+    "mg.mira": {
+     "coins": 146,
+     "stock": {
+      "{\"id\":\"Courtyard seed packet\"}": 13,
+      "{\"id\":\"Rough wood log\"}": 8,
+      "{\"id\":\"Linen cloth\"}": 9,
+      "{\"id\":\"Courtyard wood crate\"}": 1,
+      "{\"id\":\"Conserved courtyard heirloom\"}": 1
+     },
+     "stamina": 20
+    },
+    "mg.orin": {
+     "coins": 37,
+     "stock": {
+      "{\"id\":\"Rough wood log\"}": 4
+     },
+     "stamina": 18
+    },
+    "mg.sela": {
+     "coins": 40,
+     "stock": {
+      "{\"id\":\"Courtyard greens\"}": 1
+     },
+     "stamina": 20
+    },
+    "mg.bram": {
+     "coins": 188,
+     "stock": {
+      "{\"id\":\"Courtyard wood crate\"}": 2
+     },
+     "stamina": 20
+    }
+   },
+   "jobs": [],
+   "program": {
+    "commandId": "mg.room.workshop_batch",
+    "remaining": 1,
+    "status": "paused",
+    "targetId": null
+   },
+   "completed": {
+    "mg.begin": 1,
+    "mg.orin.inspect": 1,
+    "mg.orin.share": 1,
+    "mg.orin.make_batch": 1,
+    "mg.orin.sell_batch": 1,
+    "mg.orin.settle_share": 1,
+    "mg.supply.log": 12,
+    "mg.mira.buy_room": 1,
+    "mg.mira.repair_room": 1,
+    "mg.room.use_rental": 1,
+    "mg.room.sela_stay": 1,
+    "mg.room.sela_request": 1,
+    "mg.room.answer_sela_repair": 1,
+    "mg.room.use_personal": 1,
+    "mg.room.personal_rest": 1,
+    "mg.room.use_workshop": 1,
+    "mg.room.workshop_batch": 2,
+    "mg.workshop.bram_ordinary": 1,
+    "mg.workshop.deliver_bram_ordinary": 1,
+    "mg.foreman.commission": 1,
+    "mg.farm.rent_plot": 1,
+    "mg.supply.seed": 3,
+    "mg.farm.plant_greens": 2,
+    "mg.farm.tend_crop": 2,
+    "mg.farm.grow_greens": 2,
+    "mg.farm.harvest_greens": 2,
+    "mg.shop.inspect": 1,
+    "mg.shop.sell_mira_crate_full": 1,
+    "mg.shop.sell_sela_greens_friendly": 1,
+    "mg.room.use_inn": 1,
+    "mg.inn.sela_greens": 1,
+    "mg.auction.inspect": 1,
+    "mg.auction.bid_high": 1,
+    "mg.restoration.inspect": 1,
+    "mg.supply.cloth": 1,
+    "mg.restoration.conserve": 1,
+    "mg.restoration.display_conserved": 1,
+    "mg.aid.sela_request": 1,
+    "mg.aid.lend_sela": 1,
+    "mg.aid.extend_sela_loan": 1,
+    "mg.event.book": 2,
+    "mg.event.cancel_booking": 1,
+    "mg.event.prepare_exhibition_conserved": 1,
+    "mg.farm.plant_grain": 1
+   },
+   "inventory": {
+    "Rough wood log": 4,
+    "Courtyard wood crate": 2,
+    "Courtyard greens": 4
+   }
+  },
+  {
+   "label": "P1 escorted shipment held",
+   "money": 59,
+   "clock": 238,
+   "facts": {
+    "mg.opened": true,
+    "mg.version": 1,
+    "mg.capitalAgreement": "share",
+    "mg.capitalBatchMade": true,
+    "mg.capitalSold": true,
+    "mg.capitalAgreementSettled": true,
+    "mg.roomOwned": true,
+    "mg.roomRepaired": true,
+    "mg.roomUse": "inn",
+    "mg.roomSelaHosted": false,
+    "mg.roomTenantRequest": false,
+    "mg.bramOrder": "ordinary",
+    "mg.bramOrderDelivered": true,
+    "mg.plotRight": true,
+    "mg.cropStage": "planted",
+    "mg.cropType": "grain",
+    "mg.shop_mira_crate_closed": true,
+    "mg.shop_sela_greens_closed": true,
+    "mg.inn_sela_served": true,
+    "mg.auctionResult": "won",
+    "mg.displayedKind": "conserved",
+    "mg.selaAidTerms": "loan",
+    "mg.selaDebtOutstanding": true,
+    "mg.selaLoanExtended": true,
+    "mg.selaWorkReady": false,
+    "mg.selaWorkPaid": false,
+    "mg.eventBooked": true,
+    "mg.eventProgram": "exhibition_conserved",
+    "mg.shippingRight": true,
+    "mg.shippingPhase": "offered"
+   },
+   "npc": {
+    "mg.mira": {
+     "coins": 146,
+     "stock": {
+      "{\"id\":\"Courtyard seed packet\"}": 13,
+      "{\"id\":\"Rough wood log\"}": 8,
+      "{\"id\":\"Linen cloth\"}": 9,
+      "{\"id\":\"Courtyard wood crate\"}": 1,
+      "{\"id\":\"Conserved courtyard heirloom\"}": 1
+     },
+     "stamina": 20
+    },
+    "mg.orin": {
+     "coins": 37,
+     "stock": {
+      "{\"id\":\"Rough wood log\"}": 4
+     },
+     "stamina": 16
+    },
+    "mg.sela": {
+     "coins": 40,
+     "stock": {
+      "{\"id\":\"Courtyard greens\"}": 1
+     },
+     "stamina": 20
+    },
+    "mg.bram": {
+     "coins": 188,
+     "stock": {
+      "{\"id\":\"Courtyard wood crate\"}": 3
+     },
+     "stamina": 20
+    }
+   },
+   "jobs": [
+    {
+     "actor": "player",
+     "command": "mg.ship.crate.escorted",
+     "due": 243
+    }
+   ],
+   "program": {
+    "commandId": "mg.room.workshop_batch",
+    "remaining": 1,
+    "status": "paused",
+    "targetId": null
+   },
+   "completed": {
+    "mg.begin": 1,
+    "mg.orin.inspect": 1,
+    "mg.orin.share": 1,
+    "mg.orin.make_batch": 1,
+    "mg.orin.sell_batch": 1,
+    "mg.orin.settle_share": 1,
+    "mg.supply.log": 12,
+    "mg.mira.buy_room": 1,
+    "mg.mira.repair_room": 1,
+    "mg.room.use_rental": 1,
+    "mg.room.sela_stay": 1,
+    "mg.room.sela_request": 1,
+    "mg.room.answer_sela_repair": 1,
+    "mg.room.use_personal": 1,
+    "mg.room.personal_rest": 1,
+    "mg.room.use_workshop": 1,
+    "mg.room.workshop_batch": 2,
+    "mg.workshop.bram_ordinary": 1,
+    "mg.workshop.deliver_bram_ordinary": 1,
+    "mg.foreman.commission": 1,
+    "mg.farm.rent_plot": 1,
+    "mg.supply.seed": 3,
+    "mg.farm.plant_greens": 2,
+    "mg.farm.tend_crop": 2,
+    "mg.farm.grow_greens": 2,
+    "mg.farm.harvest_greens": 2,
+    "mg.shop.inspect": 1,
+    "mg.shop.sell_mira_crate_full": 1,
+    "mg.shop.sell_sela_greens_friendly": 1,
+    "mg.room.use_inn": 1,
+    "mg.inn.sela_greens": 1,
+    "mg.auction.inspect": 1,
+    "mg.auction.bid_high": 1,
+    "mg.restoration.inspect": 1,
+    "mg.supply.cloth": 1,
+    "mg.restoration.conserve": 1,
+    "mg.restoration.display_conserved": 1,
+    "mg.aid.sela_request": 1,
+    "mg.aid.lend_sela": 1,
+    "mg.aid.extend_sela_loan": 1,
+    "mg.event.book": 2,
+    "mg.event.cancel_booking": 1,
+    "mg.event.prepare_exhibition_conserved": 1,
+    "mg.farm.plant_grain": 1,
+    "mg.ship.hear_order": 1
+   },
+   "inventory": {
+    "Rough wood log": 4,
+    "Courtyard wood crate": 1,
+    "Courtyard greens": 4
+   }
+  },
+  {
+   "label": "MG05 delivered",
+   "money": 71,
+   "clock": 248,
+   "facts": {
+    "mg.opened": true,
+    "mg.version": 1,
+    "mg.capitalAgreement": "share",
+    "mg.capitalBatchMade": true,
+    "mg.capitalSold": true,
+    "mg.capitalAgreementSettled": true,
+    "mg.roomOwned": true,
+    "mg.roomRepaired": true,
+    "mg.roomUse": "inn",
+    "mg.roomSelaHosted": false,
+    "mg.roomTenantRequest": false,
+    "mg.bramOrder": "ordinary",
+    "mg.bramOrderDelivered": true,
+    "mg.plotRight": true,
+    "mg.cropStage": "planted",
+    "mg.cropType": "grain",
+    "mg.shop_mira_crate_closed": true,
+    "mg.shop_sela_greens_closed": true,
+    "mg.inn_sela_served": true,
+    "mg.auctionResult": "won",
+    "mg.displayedKind": "conserved",
+    "mg.selaAidTerms": "loan",
+    "mg.selaDebtOutstanding": true,
+    "mg.selaLoanExtended": true,
+    "mg.selaWorkReady": false,
+    "mg.selaWorkPaid": false,
+    "mg.eventBooked": true,
+    "mg.eventProgram": "exhibition_conserved",
+    "mg.shippingRight": true,
+    "mg.shippingPhase": "delivered",
+    "mg.shippingDelivered": true
+   },
+   "npc": {
+    "mg.mira": {
+     "coins": 146,
+     "stock": {
+      "{\"id\":\"Courtyard seed packet\"}": 13,
+      "{\"id\":\"Rough wood log\"}": 8,
+      "{\"id\":\"Linen cloth\"}": 9,
+      "{\"id\":\"Courtyard wood crate\"}": 1,
+      "{\"id\":\"Conserved courtyard heirloom\"}": 1
+     },
+     "stamina": 20
+    },
+    "mg.orin": {
+     "coins": 39,
+     "stock": {
+      "{\"id\":\"Rough wood log\"}": 4
+     },
+     "stamina": 16
+    },
+    "mg.sela": {
+     "coins": 40,
+     "stock": {
+      "{\"id\":\"Courtyard greens\"}": 1
+     },
+     "stamina": 20
+    },
+    "mg.bram": {
+     "coins": 176,
+     "stock": {
+      "{\"id\":\"Courtyard wood crate\"}": 3
+     },
+     "stamina": 20
+    }
+   },
+   "jobs": [],
+   "program": {
+    "commandId": "mg.room.workshop_batch",
+    "remaining": 1,
+    "status": "paused",
+    "targetId": null
+   },
+   "completed": {
+    "mg.begin": 1,
+    "mg.orin.inspect": 1,
+    "mg.orin.share": 1,
+    "mg.orin.make_batch": 1,
+    "mg.orin.sell_batch": 1,
+    "mg.orin.settle_share": 1,
+    "mg.supply.log": 12,
+    "mg.mira.buy_room": 1,
+    "mg.mira.repair_room": 1,
+    "mg.room.use_rental": 1,
+    "mg.room.sela_stay": 1,
+    "mg.room.sela_request": 1,
+    "mg.room.answer_sela_repair": 1,
+    "mg.room.use_personal": 1,
+    "mg.room.personal_rest": 1,
+    "mg.room.use_workshop": 1,
+    "mg.room.workshop_batch": 2,
+    "mg.workshop.bram_ordinary": 1,
+    "mg.workshop.deliver_bram_ordinary": 1,
+    "mg.foreman.commission": 1,
+    "mg.farm.rent_plot": 1,
+    "mg.supply.seed": 3,
+    "mg.farm.plant_greens": 2,
+    "mg.farm.tend_crop": 2,
+    "mg.farm.grow_greens": 2,
+    "mg.farm.harvest_greens": 2,
+    "mg.shop.inspect": 1,
+    "mg.shop.sell_mira_crate_full": 1,
+    "mg.shop.sell_sela_greens_friendly": 1,
+    "mg.room.use_inn": 1,
+    "mg.inn.sela_greens": 1,
+    "mg.auction.inspect": 1,
+    "mg.auction.bid_high": 1,
+    "mg.restoration.inspect": 1,
+    "mg.supply.cloth": 1,
+    "mg.restoration.conserve": 1,
+    "mg.restoration.display_conserved": 1,
+    "mg.aid.sela_request": 1,
+    "mg.aid.lend_sela": 1,
+    "mg.aid.extend_sela_loan": 1,
+    "mg.event.book": 2,
+    "mg.event.cancel_booking": 1,
+    "mg.event.prepare_exhibition_conserved": 1,
+    "mg.farm.plant_grain": 1,
+    "mg.ship.hear_order": 1,
+    "mg.ship.crate.escorted": 1
+   },
+   "inventory": {
+    "Rough wood log": 4,
+    "Courtyard wood crate": 1,
+    "Courtyard greens": 4
+   }
+  },
+  {
+   "label": "finish before",
+   "money": 71,
+   "clock": 265,
+   "facts": {
+    "mg.opened": true,
+    "mg.version": 1,
+    "mg.capitalAgreement": "share",
+    "mg.capitalBatchMade": true,
+    "mg.capitalSold": true,
+    "mg.capitalAgreementSettled": true,
+    "mg.roomOwned": true,
+    "mg.roomRepaired": true,
+    "mg.roomUse": "inn",
+    "mg.roomSelaHosted": false,
+    "mg.roomTenantRequest": false,
+    "mg.bramOrder": "ordinary",
+    "mg.bramOrderDelivered": true,
+    "mg.plotRight": true,
+    "mg.cropStage": "planted",
+    "mg.cropType": "grain",
+    "mg.shop_mira_crate_closed": true,
+    "mg.shop_sela_greens_closed": true,
+    "mg.inn_sela_served": true,
+    "mg.auctionResult": "won",
+    "mg.displayedKind": "conserved",
+    "mg.selaAidTerms": "loan",
+    "mg.selaDebtOutstanding": true,
+    "mg.selaLoanExtended": true,
+    "mg.selaWorkReady": false,
+    "mg.selaWorkPaid": false,
+    "mg.eventBooked": true,
+    "mg.eventProgram": "exhibition_conserved",
+    "mg.shippingRight": true,
+    "mg.shippingPhase": "delivered",
+    "mg.shippingDelivered": true
+   },
+   "npc": {
+    "mg.mira": {
+     "coins": 146,
+     "stock": {
+      "{\"id\":\"Courtyard seed packet\"}": 13,
+      "{\"id\":\"Rough wood log\"}": 8,
+      "{\"id\":\"Linen cloth\"}": 9,
+      "{\"id\":\"Courtyard wood crate\"}": 1,
+      "{\"id\":\"Conserved courtyard heirloom\"}": 1
+     },
+     "stamina": 20
+    },
+    "mg.orin": {
+     "coins": 39,
+     "stock": {
+      "{\"id\":\"Rough wood log\"}": 4
+     },
+     "stamina": 16
+    },
+    "mg.sela": {
+     "coins": 40,
+     "stock": {
+      "{\"id\":\"Courtyard greens\"}": 1
+     },
+     "stamina": 20
+    },
+    "mg.bram": {
+     "coins": 176,
+     "stock": {
+      "{\"id\":\"Courtyard wood crate\"}": 3
+     },
+     "stamina": 20
+    }
+   },
+   "jobs": [],
+   "program": {
+    "commandId": "mg.room.workshop_batch",
+    "remaining": 1,
+    "status": "paused",
+    "targetId": null
+   },
+   "completed": {
+    "mg.begin": 1,
+    "mg.orin.inspect": 1,
+    "mg.orin.share": 1,
+    "mg.orin.make_batch": 1,
+    "mg.orin.sell_batch": 1,
+    "mg.orin.settle_share": 1,
+    "mg.supply.log": 12,
+    "mg.mira.buy_room": 1,
+    "mg.mira.repair_room": 1,
+    "mg.room.use_rental": 1,
+    "mg.room.sela_stay": 1,
+    "mg.room.sela_request": 1,
+    "mg.room.answer_sela_repair": 1,
+    "mg.room.use_personal": 1,
+    "mg.room.personal_rest": 1,
+    "mg.room.use_workshop": 1,
+    "mg.room.workshop_batch": 2,
+    "mg.workshop.bram_ordinary": 1,
+    "mg.workshop.deliver_bram_ordinary": 1,
+    "mg.foreman.commission": 1,
+    "mg.farm.rent_plot": 1,
+    "mg.supply.seed": 3,
+    "mg.farm.plant_greens": 2,
+    "mg.farm.tend_crop": 2,
+    "mg.farm.grow_greens": 2,
+    "mg.farm.harvest_greens": 2,
+    "mg.shop.inspect": 1,
+    "mg.shop.sell_mira_crate_full": 1,
+    "mg.shop.sell_sela_greens_friendly": 1,
+    "mg.room.use_inn": 1,
+    "mg.inn.sela_greens": 1,
+    "mg.auction.inspect": 1,
+    "mg.auction.bid_high": 1,
+    "mg.restoration.inspect": 1,
+    "mg.supply.cloth": 1,
+    "mg.restoration.conserve": 1,
+    "mg.restoration.display_conserved": 1,
+    "mg.aid.sela_request": 1,
+    "mg.aid.lend_sela": 1,
+    "mg.aid.extend_sela_loan": 1,
+    "mg.event.book": 2,
+    "mg.event.cancel_booking": 1,
+    "mg.event.prepare_exhibition_conserved": 1,
+    "mg.farm.plant_grain": 1,
+    "mg.ship.hear_order": 1,
+    "mg.ship.crate.escorted": 1
+   },
+   "inventory": {
+    "Rough wood log": 4,
+    "Courtyard wood crate": 1,
+    "Courtyard greens": 4
+   }
+  },
+  {
+   "label": "MG09 hosted",
+   "money": 79,
+   "clock": 272,
+   "facts": {
+    "mg.opened": true,
+    "mg.version": 1,
+    "mg.capitalAgreement": "share",
+    "mg.capitalBatchMade": true,
+    "mg.capitalSold": true,
+    "mg.capitalAgreementSettled": true,
+    "mg.roomOwned": true,
+    "mg.roomRepaired": true,
+    "mg.roomUse": "inn",
+    "mg.roomSelaHosted": false,
+    "mg.roomTenantRequest": false,
+    "mg.bramOrder": "ordinary",
+    "mg.bramOrderDelivered": true,
+    "mg.plotRight": true,
+    "mg.cropStage": "planted",
+    "mg.cropType": "grain",
+    "mg.shop_mira_crate_closed": true,
+    "mg.shop_sela_greens_closed": true,
+    "mg.inn_sela_served": true,
+    "mg.auctionResult": "won",
+    "mg.displayedKind": "conserved",
+    "mg.selaAidTerms": "loan",
+    "mg.selaDebtOutstanding": true,
+    "mg.selaLoanExtended": true,
+    "mg.selaWorkReady": false,
+    "mg.selaWorkPaid": false,
+    "mg.eventBooked": false,
+    "mg.eventProgram": false,
+    "mg.shippingRight": true,
+    "mg.shippingPhase": "delivered",
+    "mg.shippingDelivered": true
+   },
+   "npc": {
+    "mg.mira": {
+     "coins": 146,
+     "stock": {
+      "{\"id\":\"Courtyard seed packet\"}": 13,
+      "{\"id\":\"Rough wood log\"}": 8,
+      "{\"id\":\"Linen cloth\"}": 9,
+      "{\"id\":\"Courtyard wood crate\"}": 1,
+      "{\"id\":\"Conserved courtyard heirloom\"}": 1
+     },
+     "stamina": 20
+    },
+    "mg.orin": {
+     "coins": 39,
+     "stock": {
+      "{\"id\":\"Rough wood log\"}": 4
+     },
+     "stamina": 16
+    },
+    "mg.sela": {
+     "coins": 40,
+     "stock": {
+      "{\"id\":\"Courtyard greens\"}": 1
+     },
+     "stamina": 20
+    },
+    "mg.bram": {
+     "coins": 168,
+     "stock": {
+      "{\"id\":\"Courtyard wood crate\"}": 3
+     },
+     "stamina": 20
+    }
+   },
+   "jobs": [],
+   "program": {
+    "commandId": "mg.room.workshop_batch",
+    "remaining": 1,
+    "status": "paused",
+    "targetId": null
+   },
+   "completed": {
+    "mg.begin": 1,
+    "mg.orin.inspect": 1,
+    "mg.orin.share": 1,
+    "mg.orin.make_batch": 1,
+    "mg.orin.sell_batch": 1,
+    "mg.orin.settle_share": 1,
+    "mg.supply.log": 12,
+    "mg.mira.buy_room": 1,
+    "mg.mira.repair_room": 1,
+    "mg.room.use_rental": 1,
+    "mg.room.sela_stay": 1,
+    "mg.room.sela_request": 1,
+    "mg.room.answer_sela_repair": 1,
+    "mg.room.use_personal": 1,
+    "mg.room.personal_rest": 1,
+    "mg.room.use_workshop": 1,
+    "mg.room.workshop_batch": 2,
+    "mg.workshop.bram_ordinary": 1,
+    "mg.workshop.deliver_bram_ordinary": 1,
+    "mg.foreman.commission": 1,
+    "mg.farm.rent_plot": 1,
+    "mg.supply.seed": 3,
+    "mg.farm.plant_greens": 2,
+    "mg.farm.tend_crop": 2,
+    "mg.farm.grow_greens": 2,
+    "mg.farm.harvest_greens": 2,
+    "mg.shop.inspect": 1,
+    "mg.shop.sell_mira_crate_full": 1,
+    "mg.shop.sell_sela_greens_friendly": 1,
+    "mg.room.use_inn": 1,
+    "mg.inn.sela_greens": 1,
+    "mg.auction.inspect": 1,
+    "mg.auction.bid_high": 1,
+    "mg.restoration.inspect": 1,
+    "mg.supply.cloth": 1,
+    "mg.restoration.conserve": 1,
+    "mg.restoration.display_conserved": 1,
+    "mg.aid.sela_request": 1,
+    "mg.aid.lend_sela": 1,
+    "mg.aid.extend_sela_loan": 1,
+    "mg.event.book": 2,
+    "mg.event.cancel_booking": 1,
+    "mg.event.prepare_exhibition_conserved": 1,
+    "mg.farm.plant_grain": 1,
+    "mg.ship.hear_order": 1,
+    "mg.ship.crate.escorted": 1,
+    "mg.event.host_exhibition_conserved": 1
+   },
+   "inventory": {
+    "Rough wood log": 4,
+    "Courtyard wood crate": 1,
+    "Courtyard greens": 4
+   }
+  },
+  {
+   "label": "MG08 work paid",
+   "money": 81,
+   "clock": 278,
+   "facts": {
+    "mg.opened": true,
+    "mg.version": 1,
+    "mg.capitalAgreement": "share",
+    "mg.capitalBatchMade": true,
+    "mg.capitalSold": true,
+    "mg.capitalAgreementSettled": true,
+    "mg.roomOwned": true,
+    "mg.roomRepaired": true,
+    "mg.roomUse": "inn",
+    "mg.roomSelaHosted": false,
+    "mg.roomTenantRequest": false,
+    "mg.bramOrder": "ordinary",
+    "mg.bramOrderDelivered": true,
+    "mg.plotRight": true,
+    "mg.cropStage": "planted",
+    "mg.cropType": "grain",
+    "mg.shop_mira_crate_closed": true,
+    "mg.shop_sela_greens_closed": true,
+    "mg.inn_sela_served": true,
+    "mg.auctionResult": "won",
+    "mg.displayedKind": "conserved",
+    "mg.selaAidTerms": "loan",
+    "mg.selaDebtOutstanding": true,
+    "mg.selaLoanExtended": true,
+    "mg.selaWorkReady": false,
+    "mg.selaWorkPaid": true,
+    "mg.eventBooked": false,
+    "mg.eventProgram": false,
+    "mg.shippingRight": true,
+    "mg.shippingPhase": "delivered",
+    "mg.shippingDelivered": true
+   },
+   "npc": {
+    "mg.mira": {
+     "coins": 134,
+     "stock": {
+      "{\"id\":\"Courtyard seed packet\"}": 13,
+      "{\"id\":\"Rough wood log\"}": 8,
+      "{\"id\":\"Linen cloth\"}": 9,
+      "{\"id\":\"Courtyard wood crate\"}": 2,
+      "{\"id\":\"Conserved courtyard heirloom\"}": 1
+     },
+     "stamina": 20
+    },
+    "mg.orin": {
+     "coins": 39,
+     "stock": {
+      "{\"id\":\"Rough wood log\"}": 4
+     },
+     "stamina": 16
+    },
+    "mg.sela": {
+     "coins": 50,
+     "stock": {
+      "{\"id\":\"Courtyard greens\"}": 1
+     },
+     "stamina": 20
+    },
+    "mg.bram": {
+     "coins": 168,
+     "stock": {
+      "{\"id\":\"Courtyard wood crate\"}": 3
+     },
+     "stamina": 20
+    }
+   },
+   "jobs": [],
+   "program": {
+    "commandId": "mg.room.workshop_batch",
+    "remaining": 1,
+    "status": "paused",
+    "targetId": null
+   },
+   "completed": {
+    "mg.begin": 1,
+    "mg.orin.inspect": 1,
+    "mg.orin.share": 1,
+    "mg.orin.make_batch": 1,
+    "mg.orin.sell_batch": 1,
+    "mg.orin.settle_share": 1,
+    "mg.supply.log": 12,
+    "mg.mira.buy_room": 1,
+    "mg.mira.repair_room": 1,
+    "mg.room.use_rental": 1,
+    "mg.room.sela_stay": 1,
+    "mg.room.sela_request": 1,
+    "mg.room.answer_sela_repair": 1,
+    "mg.room.use_personal": 1,
+    "mg.room.personal_rest": 1,
+    "mg.room.use_workshop": 1,
+    "mg.room.workshop_batch": 2,
+    "mg.workshop.bram_ordinary": 1,
+    "mg.workshop.deliver_bram_ordinary": 1,
+    "mg.foreman.commission": 1,
+    "mg.farm.rent_plot": 1,
+    "mg.supply.seed": 3,
+    "mg.farm.plant_greens": 2,
+    "mg.farm.tend_crop": 2,
+    "mg.farm.grow_greens": 2,
+    "mg.farm.harvest_greens": 2,
+    "mg.shop.inspect": 1,
+    "mg.shop.sell_mira_crate_full": 1,
+    "mg.shop.sell_sela_greens_friendly": 1,
+    "mg.room.use_inn": 1,
+    "mg.inn.sela_greens": 1,
+    "mg.auction.inspect": 1,
+    "mg.auction.bid_high": 1,
+    "mg.restoration.inspect": 1,
+    "mg.supply.cloth": 1,
+    "mg.restoration.conserve": 1,
+    "mg.restoration.display_conserved": 1,
+    "mg.aid.sela_request": 1,
+    "mg.aid.lend_sela": 1,
+    "mg.aid.extend_sela_loan": 1,
+    "mg.event.book": 2,
+    "mg.event.cancel_booking": 1,
+    "mg.event.prepare_exhibition_conserved": 1,
+    "mg.farm.plant_grain": 1,
+    "mg.ship.hear_order": 1,
+    "mg.ship.crate.escorted": 1,
+    "mg.event.host_exhibition_conserved": 1,
+    "mg.aid.mira_funded_work": 1,
+    "mg.aid.deliver_mira_work": 1
+   },
+   "inventory": {
+    "Rough wood log": 2,
+    "Courtyard wood crate": 1,
+    "Courtyard greens": 4
+   }
+  },
+  {
+   "label": "MG08 principal collected",
+   "money": 89,
+   "clock": 279,
+   "facts": {
+    "mg.opened": true,
+    "mg.version": 1,
+    "mg.capitalAgreement": "share",
+    "mg.capitalBatchMade": true,
+    "mg.capitalSold": true,
+    "mg.capitalAgreementSettled": true,
+    "mg.roomOwned": true,
+    "mg.roomRepaired": true,
+    "mg.roomUse": "inn",
+    "mg.roomSelaHosted": false,
+    "mg.roomTenantRequest": false,
+    "mg.bramOrder": "ordinary",
+    "mg.bramOrderDelivered": true,
+    "mg.plotRight": true,
+    "mg.cropStage": "planted",
+    "mg.cropType": "grain",
+    "mg.shop_mira_crate_closed": true,
+    "mg.shop_sela_greens_closed": true,
+    "mg.inn_sela_served": true,
+    "mg.auctionResult": "won",
+    "mg.displayedKind": "conserved",
+    "mg.selaAidTerms": "loan",
+    "mg.selaDebtOutstanding": false,
+    "mg.selaLoanExtended": true,
+    "mg.selaWorkReady": false,
+    "mg.selaWorkPaid": true,
+    "mg.eventBooked": false,
+    "mg.eventProgram": false,
+    "mg.shippingRight": true,
+    "mg.shippingPhase": "delivered",
+    "mg.shippingDelivered": true
+   },
+   "npc": {
+    "mg.mira": {
+     "coins": 134,
+     "stock": {
+      "{\"id\":\"Courtyard seed packet\"}": 13,
+      "{\"id\":\"Rough wood log\"}": 8,
+      "{\"id\":\"Linen cloth\"}": 9,
+      "{\"id\":\"Courtyard wood crate\"}": 2,
+      "{\"id\":\"Conserved courtyard heirloom\"}": 1
+     },
+     "stamina": 20
+    },
+    "mg.orin": {
+     "coins": 39,
+     "stock": {
+      "{\"id\":\"Rough wood log\"}": 4
+     },
+     "stamina": 16
+    },
+    "mg.sela": {
+     "coins": 42,
+     "stock": {
+      "{\"id\":\"Courtyard greens\"}": 1
+     },
+     "stamina": 20
+    },
+    "mg.bram": {
+     "coins": 168,
+     "stock": {
+      "{\"id\":\"Courtyard wood crate\"}": 3
+     },
+     "stamina": 20
+    }
+   },
+   "jobs": [],
+   "program": {
+    "commandId": "mg.room.workshop_batch",
+    "remaining": 1,
+    "status": "paused",
+    "targetId": null
+   },
+   "completed": {
+    "mg.begin": 1,
+    "mg.orin.inspect": 1,
+    "mg.orin.share": 1,
+    "mg.orin.make_batch": 1,
+    "mg.orin.sell_batch": 1,
+    "mg.orin.settle_share": 1,
+    "mg.supply.log": 12,
+    "mg.mira.buy_room": 1,
+    "mg.mira.repair_room": 1,
+    "mg.room.use_rental": 1,
+    "mg.room.sela_stay": 1,
+    "mg.room.sela_request": 1,
+    "mg.room.answer_sela_repair": 1,
+    "mg.room.use_personal": 1,
+    "mg.room.personal_rest": 1,
+    "mg.room.use_workshop": 1,
+    "mg.room.workshop_batch": 2,
+    "mg.workshop.bram_ordinary": 1,
+    "mg.workshop.deliver_bram_ordinary": 1,
+    "mg.foreman.commission": 1,
+    "mg.farm.rent_plot": 1,
+    "mg.supply.seed": 3,
+    "mg.farm.plant_greens": 2,
+    "mg.farm.tend_crop": 2,
+    "mg.farm.grow_greens": 2,
+    "mg.farm.harvest_greens": 2,
+    "mg.shop.inspect": 1,
+    "mg.shop.sell_mira_crate_full": 1,
+    "mg.shop.sell_sela_greens_friendly": 1,
+    "mg.room.use_inn": 1,
+    "mg.inn.sela_greens": 1,
+    "mg.auction.inspect": 1,
+    "mg.auction.bid_high": 1,
+    "mg.restoration.inspect": 1,
+    "mg.supply.cloth": 1,
+    "mg.restoration.conserve": 1,
+    "mg.restoration.display_conserved": 1,
+    "mg.aid.sela_request": 1,
+    "mg.aid.lend_sela": 1,
+    "mg.aid.extend_sela_loan": 1,
+    "mg.event.book": 2,
+    "mg.event.cancel_booking": 1,
+    "mg.event.prepare_exhibition_conserved": 1,
+    "mg.farm.plant_grain": 1,
+    "mg.ship.hear_order": 1,
+    "mg.ship.crate.escorted": 1,
+    "mg.event.host_exhibition_conserved": 1,
+    "mg.aid.mira_funded_work": 1,
+    "mg.aid.deliver_mira_work": 1,
+    "mg.aid.repay_sela_loan": 1
+   },
+   "inventory": {
+    "Rough wood log": 2,
+    "Courtyard wood crate": 1,
+    "Courtyard greens": 4
+   }
+  },
+  {
+   "label": "MG10 withdrawn",
+   "money": 89,
+   "clock": 280,
+   "facts": {
+    "mg.opened": true,
+    "mg.version": 1,
+    "mg.capitalAgreement": "share",
+    "mg.capitalBatchMade": true,
+    "mg.capitalSold": true,
+    "mg.capitalAgreementSettled": true,
+    "mg.roomOwned": true,
+    "mg.roomRepaired": true,
+    "mg.roomUse": "inn",
+    "mg.roomSelaHosted": false,
+    "mg.roomTenantRequest": false,
+    "mg.bramOrder": "ordinary",
+    "mg.bramOrderDelivered": true,
+    "mg.plotRight": true,
+    "mg.cropStage": "planted",
+    "mg.cropType": "grain",
+    "mg.shop_mira_crate_closed": true,
+    "mg.shop_sela_greens_closed": true,
+    "mg.inn_sela_served": true,
+    "mg.auctionResult": "won",
+    "mg.displayedKind": false,
+    "mg.selaAidTerms": "loan",
+    "mg.selaDebtOutstanding": false,
+    "mg.selaLoanExtended": true,
+    "mg.selaWorkReady": false,
+    "mg.selaWorkPaid": true,
+    "mg.eventBooked": false,
+    "mg.eventProgram": false,
+    "mg.shippingRight": true,
+    "mg.shippingPhase": "delivered",
+    "mg.shippingDelivered": true
+   },
+   "npc": {
+    "mg.mira": {
+     "coins": 134,
+     "stock": {
+      "{\"id\":\"Courtyard seed packet\"}": 13,
+      "{\"id\":\"Rough wood log\"}": 8,
+      "{\"id\":\"Linen cloth\"}": 9,
+      "{\"id\":\"Courtyard wood crate\"}": 2
+     },
+     "stamina": 20
+    },
+    "mg.orin": {
+     "coins": 39,
+     "stock": {
+      "{\"id\":\"Rough wood log\"}": 4
+     },
+     "stamina": 16
+    },
+    "mg.sela": {
+     "coins": 42,
+     "stock": {
+      "{\"id\":\"Courtyard greens\"}": 1
+     },
+     "stamina": 20
+    },
+    "mg.bram": {
+     "coins": 168,
+     "stock": {
+      "{\"id\":\"Courtyard wood crate\"}": 3
+     },
+     "stamina": 20
+    }
+   },
+   "jobs": [],
+   "program": {
+    "commandId": "mg.room.workshop_batch",
+    "remaining": 1,
+    "status": "paused",
+    "targetId": null
+   },
+   "completed": {
+    "mg.begin": 1,
+    "mg.orin.inspect": 1,
+    "mg.orin.share": 1,
+    "mg.orin.make_batch": 1,
+    "mg.orin.sell_batch": 1,
+    "mg.orin.settle_share": 1,
+    "mg.supply.log": 12,
+    "mg.mira.buy_room": 1,
+    "mg.mira.repair_room": 1,
+    "mg.room.use_rental": 1,
+    "mg.room.sela_stay": 1,
+    "mg.room.sela_request": 1,
+    "mg.room.answer_sela_repair": 1,
+    "mg.room.use_personal": 1,
+    "mg.room.personal_rest": 1,
+    "mg.room.use_workshop": 1,
+    "mg.room.workshop_batch": 2,
+    "mg.workshop.bram_ordinary": 1,
+    "mg.workshop.deliver_bram_ordinary": 1,
+    "mg.foreman.commission": 1,
+    "mg.farm.rent_plot": 1,
+    "mg.supply.seed": 3,
+    "mg.farm.plant_greens": 2,
+    "mg.farm.tend_crop": 2,
+    "mg.farm.grow_greens": 2,
+    "mg.farm.harvest_greens": 2,
+    "mg.shop.inspect": 1,
+    "mg.shop.sell_mira_crate_full": 1,
+    "mg.shop.sell_sela_greens_friendly": 1,
+    "mg.room.use_inn": 1,
+    "mg.inn.sela_greens": 1,
+    "mg.auction.inspect": 1,
+    "mg.auction.bid_high": 1,
+    "mg.restoration.inspect": 1,
+    "mg.supply.cloth": 1,
+    "mg.restoration.conserve": 1,
+    "mg.restoration.display_conserved": 1,
+    "mg.aid.sela_request": 1,
+    "mg.aid.lend_sela": 1,
+    "mg.aid.extend_sela_loan": 1,
+    "mg.event.book": 2,
+    "mg.event.cancel_booking": 1,
+    "mg.event.prepare_exhibition_conserved": 1,
+    "mg.farm.plant_grain": 1,
+    "mg.ship.hear_order": 1,
+    "mg.ship.crate.escorted": 1,
+    "mg.event.host_exhibition_conserved": 1,
+    "mg.aid.mira_funded_work": 1,
+    "mg.aid.deliver_mira_work": 1,
+    "mg.aid.repay_sela_loan": 1,
+    "mg.restoration.withdraw_conserved": 1
+   },
+   "inventory": {
+    "Rough wood log": 2,
+    "Courtyard wood crate": 1,
+    "Courtyard greens": 4,
+    "Conserved courtyard heirloom": 1
+   }
+  },
+  {
+   "label": "MG06 grain harvested",
+   "money": 89,
+   "clock": 288,
+   "facts": {
+    "mg.opened": true,
+    "mg.version": 1,
+    "mg.capitalAgreement": "share",
+    "mg.capitalBatchMade": true,
+    "mg.capitalSold": true,
+    "mg.capitalAgreementSettled": true,
+    "mg.roomOwned": true,
+    "mg.roomRepaired": true,
+    "mg.roomUse": "inn",
+    "mg.roomSelaHosted": false,
+    "mg.roomTenantRequest": false,
+    "mg.bramOrder": "ordinary",
+    "mg.bramOrderDelivered": true,
+    "mg.plotRight": true,
+    "mg.cropStage": "harvested",
+    "mg.cropType": "grain",
+    "mg.shop_mira_crate_closed": true,
+    "mg.shop_sela_greens_closed": true,
+    "mg.inn_sela_served": true,
+    "mg.auctionResult": "won",
+    "mg.displayedKind": false,
+    "mg.selaAidTerms": "loan",
+    "mg.selaDebtOutstanding": false,
+    "mg.selaLoanExtended": true,
+    "mg.selaWorkReady": false,
+    "mg.selaWorkPaid": true,
+    "mg.eventBooked": false,
+    "mg.eventProgram": false,
+    "mg.shippingRight": true,
+    "mg.shippingPhase": "delivered",
+    "mg.shippingDelivered": true
+   },
+   "npc": {
+    "mg.mira": {
+     "coins": 134,
+     "stock": {
+      "{\"id\":\"Courtyard seed packet\"}": 13,
+      "{\"id\":\"Rough wood log\"}": 8,
+      "{\"id\":\"Linen cloth\"}": 9,
+      "{\"id\":\"Courtyard wood crate\"}": 2
+     },
+     "stamina": 20
+    },
+    "mg.orin": {
+     "coins": 39,
+     "stock": {
+      "{\"id\":\"Rough wood log\"}": 4
+     },
+     "stamina": 16
+    },
+    "mg.sela": {
+     "coins": 42,
+     "stock": {
+      "{\"id\":\"Courtyard greens\"}": 1
+     },
+     "stamina": 20
+    },
+    "mg.bram": {
+     "coins": 168,
+     "stock": {
+      "{\"id\":\"Courtyard wood crate\"}": 3
+     },
+     "stamina": 20
+    }
+   },
+   "jobs": [],
+   "program": {
+    "commandId": "mg.room.workshop_batch",
+    "remaining": 1,
+    "status": "paused",
+    "targetId": null
+   },
+   "completed": {
+    "mg.begin": 1,
+    "mg.orin.inspect": 1,
+    "mg.orin.share": 1,
+    "mg.orin.make_batch": 1,
+    "mg.orin.sell_batch": 1,
+    "mg.orin.settle_share": 1,
+    "mg.supply.log": 12,
+    "mg.mira.buy_room": 1,
+    "mg.mira.repair_room": 1,
+    "mg.room.use_rental": 1,
+    "mg.room.sela_stay": 1,
+    "mg.room.sela_request": 1,
+    "mg.room.answer_sela_repair": 1,
+    "mg.room.use_personal": 1,
+    "mg.room.personal_rest": 1,
+    "mg.room.use_workshop": 1,
+    "mg.room.workshop_batch": 2,
+    "mg.workshop.bram_ordinary": 1,
+    "mg.workshop.deliver_bram_ordinary": 1,
+    "mg.foreman.commission": 1,
+    "mg.farm.rent_plot": 1,
+    "mg.supply.seed": 3,
+    "mg.farm.plant_greens": 2,
+    "mg.farm.tend_crop": 3,
+    "mg.farm.grow_greens": 2,
+    "mg.farm.harvest_greens": 2,
+    "mg.shop.inspect": 1,
+    "mg.shop.sell_mira_crate_full": 1,
+    "mg.shop.sell_sela_greens_friendly": 1,
+    "mg.room.use_inn": 1,
+    "mg.inn.sela_greens": 1,
+    "mg.auction.inspect": 1,
+    "mg.auction.bid_high": 1,
+    "mg.restoration.inspect": 1,
+    "mg.supply.cloth": 1,
+    "mg.restoration.conserve": 1,
+    "mg.restoration.display_conserved": 1,
+    "mg.aid.sela_request": 1,
+    "mg.aid.lend_sela": 1,
+    "mg.aid.extend_sela_loan": 1,
+    "mg.event.book": 2,
+    "mg.event.cancel_booking": 1,
+    "mg.event.prepare_exhibition_conserved": 1,
+    "mg.farm.plant_grain": 1,
+    "mg.ship.hear_order": 1,
+    "mg.ship.crate.escorted": 1,
+    "mg.event.host_exhibition_conserved": 1,
+    "mg.aid.mira_funded_work": 1,
+    "mg.aid.deliver_mira_work": 1,
+    "mg.aid.repay_sela_loan": 1,
+    "mg.restoration.withdraw_conserved": 1,
+    "mg.farm.grow_grain": 1,
+    "mg.farm.harvest_grain": 1
+   },
+   "inventory": {
+    "Rough wood log": 2,
+    "Courtyard wood crate": 1,
+    "Courtyard greens": 4,
+    "Conserved courtyard heirloom": 1,
+    "Courtyard grain": 5
+   }
+  }
+ ]
+}

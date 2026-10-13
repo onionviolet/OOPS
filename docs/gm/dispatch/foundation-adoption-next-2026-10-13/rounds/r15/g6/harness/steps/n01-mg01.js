@@ -1,0 +1,25 @@
+// MG01 natural: inspect, share, cancel a started batch (refund), remake, sell, settle once.
+const out = [];
+const a = (await snap('MG01 before')).st;
+await h.mg('Inspect Orin’s small enterprise');
+expect(await enabled('Fund one production share'), 'share enabled after inspection');
+await h.mg('Fund one production share');
+const b = await snap('MG01 share chosen');
+expect(b.st.money === a.money - 3 && b.st.npc['mg.orin'].coins === 33, 'share moved 3 coins to Orin');
+expect(!(await enabled('Take Orin’s two-log goods advance')) && !(await enabled('Pass on Orin’s offer')), 'other branches closed (shown disabled with the claim reason)');
+await h.mg('Make Orin’s one-batch crate');
+const started = await snap('MG01 batch started');
+expect(started.st.jobs.length === 1, 'batch job held');
+await h.mg('Cancel Make Orin’s one-batch crate');
+const cancelled = await snap('MG01 batch cancelled');
+expect(!cancelled.st.jobs.length && JSON.stringify(cancelled.s.inventories.person.main_character).includes('Rough wood log'), 'cancel refunded logs, no crate');
+await h.mg('Make Orin’s one-batch crate');
+await idle();
+await h.mg('Sell the share batch to Bram');
+const sold = await snap('MG01 sold');
+expect(sold.st.npc['mg.orin'].coins === 39 && sold.st.npc['mg.bram'].coins === 194, 'sale paid Orin');
+await h.mg('Collect the one share return');
+const settled = await snap('MG01 settled');
+expect(settled.st.money === a.money + 1 && settled.st.npc['mg.orin'].coins === 35, 'return paid once');
+expect(!(await enabled('Collect the one share return')), 'settlement closed (disabled with claim reason)');
+return journal.slice(-6).map(j => ({label: j.label, money: j.money, orin: j.npc['mg.orin'], bram: j.npc['mg.bram']?.coins, inv: j.inventory, jobs: j.jobs}));

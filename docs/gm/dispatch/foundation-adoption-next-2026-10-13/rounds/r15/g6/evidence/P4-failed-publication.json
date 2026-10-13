@@ -1,0 +1,36 @@
+{
+ "notice": "Your browser has no room for this life. Export your save to a file; your last saved life is still safe.",
+ "purseBefore": "Your purse contains: 8C 9W",
+ "purseDuring": "Your purse contains: 8C 9W",
+ "purseAfterRecover": "Your purse contains: 8C 9W",
+ "retryNotice": "retry error: Courtyard button disabled: \"Buy one Rough wood log\"",
+ "storedUnchanged": true,
+ "recoveredSameAsBefore": {
+  "money": [
+   89,
+   89
+  ],
+  "logs": [
+   2,
+   2
+  ],
+  "mira": [
+   134,
+   134
+  ]
+ },
+ "afterRetry": {
+  "money": 89,
+  "logs": 2,
+  "mira": 134
+ },
+ "errors": [],
+ "afterReloadRetry": {
+  "note": "After page reload + PLAY, one retry purchase",
+  "retry": {
+   "money": 87,
+   "logs": 3,
+   "mira": 136
+  }
+ }
+}

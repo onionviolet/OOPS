@@ -1,0 +1,46 @@
+{
+ "base1VsBase2": [],
+ "baseVsCandidate": [
+  [
+   "item/Courtyard seed packet",
+   null,
+   "1"
+  ],
+  [
+   "item/Courtyard greens",
+   null,
+   "1"
+  ],
+  [
+   "item/Courtyard grain",
+   null,
+   "1"
+  ],
+  [
+   "item/Courtyard wood crate",
+   null,
+   "1"
+  ],
+  [
+   "item/Fine courtyard crate",
+   null,
+   "1"
+  ],
+  [
+   "item/Damaged courtyard heirloom",
+   null,
+   "1"
+  ],
+  [
+   "item/Conserved courtyard heirloom",
+   null,
+   "1"
+  ],
+  [
+   "item/Restored courtyard heirloom",
+   null,
+   "1"
+  ]
+ ],
+ "storedVsLoadedCandidate": 8
+}
