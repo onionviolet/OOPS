@@ -1,0 +1,17 @@
+{"lane":"kingdom-of-loathing","date":"2026-10-13","source":{"kolmafia_sha":"b11fc583b6872f1d56f5936803de2359cc962328","license":"BSD-3-Clause","wiki":"blocked 403 (api and html); coldfront mirror cert expired"},"labels":["verified (code)","verified (data)","inferred"],"findings":[
+{"id":"F1","label":"verified (code)","claim":"57 path entries, 23 with persistent points, isAvatar flag, per-path organ capacities (default 15/14/15)","locators":"AscensionPath.java:15-103,112-156"},
+{"id":"F2","label":"verified (code+data)","claim":"3 organs; capacity=class or path base+modifier; food 3.46 and booze 3.67 adv/unit; spleen mostly buffs; overdrink=fallingDown","locators":"KoLCharacter.java:562-690; fullness.txt; inebriety.txt; spleenhit.txt"},
+{"id":"F3","label":"verified (data)","claim":"Fixed council spine L02-L13 plus quest families added by content","locators":"questslog.txt"},
+{"id":"F4","label":"verified (code)/inferred","claim":"+N adventures per day modifier on 164 rows; base 40/cap 200 inferred","locators":"DoubleModifier.java:220"},
+{"id":"F5","label":"verified (data)","claim":"1090 daily counters; 442 daily limits; tome caps 3, shared pool inferred; 11 free-fight counters","locators":"defaults.txt; dailylimits.txt"},
+{"id":"F6","label":"verified (data)/inferred","claim":"6211 Last Available rows; 61 replica items in Replica Mr. Store","locators":"modifiers.txt; coinmasters.txt"},
+{"id":"F7","label":"verified (code)","claim":"Perm 100/200 karma refundable; astral deli 1, armory 10; ronin 1000 turns; 328 free pull, 102 softcore only","locators":"request/AfterLifeRequest.java:85-140; KoLCharacter.java:3145-3155; request/StorageRequest.java:40-57"},
+{"id":"F8","label":"verified (data)","claim":"12098 items, 3150 effects, 2971 monsters, 806 locations, 333 familiars, 1942 skills","locators":"items.txt; statuseffects.txt; monsters.txt; adventures.txt; familiars.txt; classskills.txt"},
+{"id":"F9","label":"verified (data)","claim":"16114 modifier rows, 675 keys, conditional expressions","locators":"modifiers.txt"},
+{"id":"F10","label":"verified (data)","claim":"Familiars from ability primitives; Familiar Weight on 443 rows","locators":"familiars.txt; modifiers.txt"},
+{"id":"F11","label":"verified (data)","claim":"73 craft method tags with skill/tool/day/path flags; 30 fold cycles; 227 zap groups; 542 pulverize rows","locators":"concoctions.txt; foldgroups.txt; zapgroups.txt; pulverize.txt"},
+{"id":"F12","label":"verified (data)","claim":"Yearly per-class Standard rewards since 2015","locators":"standard-rewards.txt"},
+{"id":"F13","label":"inferred","claim":"Clans are multiplayer; the solo analog is an NPC household stash"},
+{"id":"F14","label":"inferred","claim":"Fixed core plus additive modules keeps the learning cost low"},
+{"id":"F15","label":"inferred","claim":"Challenge runs, per-path carry, day slots and day budget already covered"}],
+"packets":["P1 rule profiles over fixed spine","P2 three named organs","P3 charges as module unit","P4 two-tier permanence","P5 requirement-flag crafting"]}

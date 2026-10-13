@@ -73,6 +73,7 @@ These are recorded by later research lanes. They have no mirror and no SOURCES.j
 |---|---|---|---|---|
 | [Immortality Idle](https://github.com/immortalityidle/immortalityidle.github.io) | progression / life-sim | `c7231bae717b` (main, 2026-10-13, v2.0.0) | None (README informal permission); ideas only | [immortality-idle lane](../immortality-idle/CHECKPOINT.md) |
 | [The Modding Tree](https://github.com/Acamaeda/The-Modding-Tree) (+ [Prestige Tree](https://github.com/Jacorb90/Prestige-Tree) `cec9198c8ce9`, [Profectus](https://github.com/profectus-engine/Profectus) `d69197d5c722`) | progression / layered prestige | `4d8a86cfb3c5` (master, 2024-10-28, TMT 2.7) | MIT (all three); reuse allowed with notice, ideas preferred | [modding-tree lane](../modding-tree/CHECKPOINT.md) |
+| [KoLmafia](https://github.com/kolmafia/kolmafia) (Kingdom of Loathing client) | text RPG mechanics data | `b11fc583b687` (main, 2026-10-13) | BSD-3-Clause; data citable with attribution | [kingdom-of-loathing lane](../kingdom-of-loathing/CHECKPOINT.md) |
 
 ## Related works
 
