@@ -22,3 +22,11 @@ RESUME: Finite permitted source delivery finished; all MG01–MG10 expanded, imp
 ## Reference intake, revision 4
 
 Five-world checked represented-range source/design pointers received from 01a1297e-c3c2-7c23-b4ae-974565fb5cf5 and stored in REFERENCE_INTAKE.md/REFERENCE_INTAKE.json. Public report/review and qualification statuses read; private synthesis catalog inspected without consuming scene-specific sources. Employer/institution/era, exact custody and received knowledge remain local; pay/service examples are not universal prices. Candidate source/artifact hashes still match EVIDENCE.json. Runtime/balance/build/save/global owners unchanged; no new workers or implementation scope. Existing implemented-unverified gates remain. Source coordinator retains its own L10 delivery accounting.
+
+## R15 integration, 2026-10-13
+
+Weibao added FA22 to the foundation chain. The candidate diff was applied to
+current code, four blocking defects were fixed, and all ten families passed
+natural browser play with persistence checks. Current status and remaining cases:
+[R15 G6 report](../foundation-adoption-next-2026-10-13/rounds/r15/g6/REPORT.md).
+The exclusive-ownership and no-merge rules above are superseded.
