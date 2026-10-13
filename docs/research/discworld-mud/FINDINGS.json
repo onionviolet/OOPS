@@ -1,0 +1,17 @@
+{"lane":"discworld-mud","date":"2026-10-13","status":"partial","blocked":["dwwiki.mooo.com: TLS fail + 403 bot challenge; no bypass","tvtropes 403","archive.org disallowed"],"labels":["verified (help)","verified (secondary)","verified (blog)","inferred"],"help_base":"https://discworld.starturtle.net/lpc/playing/documentation.c?path=","findings":[
+{"id":"F1","label":"secondary+help; NPC behaviour inferred","claim":"Canon as static institutions/places/holidays; divergence in player-run layers"},
+{"id":"F2","label":"help+secondary","claim":"7 starting lives, restock at a temple; Death attends one at a time; cannot self-raise; haunt; final return with growing skill cut and itemized losses"},
+{"id":"F3","label":"help+secondary","claim":"7 roots, dotted tree, parent needs depth*5 levels, tree reveals, level vs bonus, guild level avg of primaries, voluntary skillcap"},
+{"id":"F4","label":"help+blog","claim":"Taskmaster thresholds; guild advance; teaching margin etb > learner bonus; capped cost by gap; teacher reward on check; teaching takes time"},
+{"id":"F5","label":"help","claim":"XP currency from many sources; strict anti-automation"},
+{"id":"F6","label":"help","claim":"One-way newbie area; 13 nationalities bundle start city, currency, language; difficulty flags; early free rescue"},
+{"id":"F7","label":"help","claim":"Native language plus grunt; shared language removed"},
+{"id":"F8","label":"help+blog","claim":"400-day year, 8-day week, fixed holidays, mild clothing temperature model"},
+{"id":"F9","label":"help","claim":"Secret quests with hint ladder; public hideable achievements"},
+{"id":"F10","label":"help","claim":"Surname-only families; clubs with membership and voting rules"},
+{"id":"F11","label":"help+secondary","claim":"Citizenship for houses; elected magistrates write Nomic-style law"},
+{"id":"F12","label":"help","claim":"Deity pool refilled only by prayer; excommunication"},
+{"id":"F13","label":"help","claim":"One special ability via hero-statue meditation"},
+{"id":"F14","label":"help+secondary","claim":"Rented houses; furniture rewrites room text; inactivity forfeits property"},
+{"id":"F15","label":"help","claim":"Immersive mode, descriptive numbers, player-written descriptions"}],
+"packets":["P1 lives+psychopomp","P2 tree gate+level/bonus","P3 teaching margin+teaching XP","P4 per-world calendar+holidays","P5 origin bundle+language comprehension"],"accepted":false}
