@@ -79,3 +79,12 @@
 .customization-surface select:focus-visible,
 .customization-surface textarea:focus-visible,
 .customization-surface button:focus-visible { outline: 2px solid #cfe8ff; outline-offset: 2px; }
+
+/* C4 authored site editor: grouped fields, descriptions span the row. */
+#authored_site_editor .authored-site-wide { grid-column: 1 / -1; }
+#authored_site_editor textarea { font: inherit; }
+#authored_site_editor legend { font-weight: 600; }
+#authored_site_errors { margin: .3rem 0 0; padding-inline-start: 1.2rem; color: #ffb4a8; }
+#main_content.workspace-active[data-workspace-context="authoring"] .workspace-module[data-module="customization-effects"]:has(~ .workspace-module[data-module="customization-sites"]) { height: auto; flex: 0 0 auto; }
+#main_content.workspace-active[data-workspace-context="authoring"] .workspace-module[data-module="customization-effects"]:has(~ .workspace-module[data-module="customization-sites"]) .workspace-module-body > div { height: auto; }
+#main_content.workspace-active[data-workspace-context="authoring"] .workspace-module[data-module="customization-sites"] { flex: 1 1 auto; min-height: 420px; }

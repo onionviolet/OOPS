@@ -279,7 +279,9 @@ import {createExpansionState, loadExpansionState, commitAction, advanceSimulatio
 import {beginFieldWorkshop} from "./field_workshop.js";
 import {createFieldPanel} from "./field_ui.js";
 import {expeditionRegistry, initializeExpedition, SURVEY_KIT_KEY, SURVEY_ROPE_KEY} from "./expedition_content.js";
-import {loadContentPacks, emptyPackState, validatePackState, enterPack, leavePack, actPack, advancePack, preparePackSave, packSaveState} from './content_packs.js';
+import {loadContentPacks, emptyPackState, validatePackState, enterPack, leavePack, actPack, cancelPack, advancePackSettlement, preparePackSave, packSaveState} from './content_packs.js';
+import {syncAuthoredRegistration, applyAuthoredState, resetAuthoredState, AUTHORED_WORLD_ID} from './authored_site.js';
+import {createAuthoredSiteUI} from './authored_site_ui.js';
 import {compileStructuredPack,mergeStructuredPack,stageStructuredNativeObjects} from './structured_pack_definitions.js';
 import {beginStructuredCampaign,planStructuredSelection,validateStructuredBootstrap,structuredCampaignView} from './structured_pack_runtime.js';
 import {requireStructuredContent,requireStructuredSelection} from './structured_pack_state.js';
@@ -1089,11 +1091,29 @@ function commandStructuredCampaign(command) {
     }catch(error){structuredNotice=error.message;throw error;}
 }
 
+// C4 authored site: registration follows the saved draft; Apply/Reset persist
+// immediately and roll back registration if the save cannot be written.
+const authoredSiteOwners=()=>({registry:expeditionRegistry,locations,definitions:optionalPacks,
+    makeLocation:l=>new OptionalPackLocation({id:l.id,name:l.label,description:l.description,connected_locations:[],is_under_roof:true})});
+function syncAuthoredSite(draft){return syncAuthoredRegistration(draft,authoredSiteOwners());}
+function commandAuthoredSite(kind,draft) {
+    if(!ownsSave||foundationSaveBlocked||importProbeToken||lifeStorageFailure)throw Error('Restore saving before authoring.');
+    const previous=optionalPackState,next=kind==='apply'?applyAuthoredState(previous,draft):resetAuthoredState(previous);
+    syncAuthoredSite(next.authored?.draft??null);
+    let save;
+    try {
+        optionalPackState=next;save=JSON.parse(create_save());
+        if(kind==='reset'&&save.expansion?.worlds)delete save.expansion.worlds[AUTHORED_WORLD_ID];
+        validateSaveEnvelope(save,game_version);
+        lifeSaveStorage.setItem(is_on_dev()?dev_save_key:save_key,JSON.stringify(save));
+    }catch(error){optionalPackState=previous;syncAuthoredSite(previous.authored?.draft??null);throw error;}
+    expansionState=save.expansion;optionalPackPanel?.render(true);
+}
 function commandOptionalPack(id,action) {
     if(optionalPackState.pendingStructured||optionalPackState.structured)throw Error('Continue through your local routes.');
     const d=optionalPacks.get(id);if(!d||!ownsSave||foundationSaveBlocked||importProbeToken)throw Error('Optional content cannot be saved in this tab.');
     if(action==='enter'&&(current_location?.id!=='Village'||nativeOccupationReason()||current_activity||current_game_action||current_combat||current_dialogue||is_sleeping||is_reading||is_in_trade()))throw Error('Finish your Village activity before departing.');
-    const next=action==='enter'?enterPack(optionalPackState,d):action==='return'?leavePack(optionalPackState,id):actPack(optionalPackState,d,action);
+    const next=action==='enter'?enterPack(optionalPackState,d):action==='return'?leavePack(optionalPackState,id):action==='cancel'?cancelPack(optionalPackState,d):actPack(optionalPackState,d,action);
     const save=JSON.parse(create_save());save.content_packs=packSaveState(next,optionalPacks);
     const target=action==='enter'?d.locations[0].id:action==='return'?'Village':null;
     if(target) {
@@ -2193,7 +2213,7 @@ function saveCustomization(next) {
 
 function workLedgerContext(extra={}) {
     return {actorId:expansionState.actors.player.id || 'player', locationId:expansionState.actors.player.worldId==='base.frontier'?current_location?.id:'away', alive:character.is_alive===true,
-        busy:!!(current_activity||current_dialogue||current_game_action||current_combat||is_sleeping||is_reading||is_in_trade()||expeditionOccupiesPlayer()),...extra};
+        busy:!!(current_activity||current_dialogue||current_game_action||current_combat||is_sleeping||is_reading||is_in_trade()||nativeOccupationReason()),...extra};
 }
 export function nativeWorkLedgerChance(baseChance,category,subcategory) {return modifyWorkLedgerChance(workLedger,baseChance,workLedgerContext({category,subcategory})).value;}
 export function nativeWorkLedgerQuality(baseQuality,category,subcategory,qualityCap) {return modifyWorkLedgerQuality(workLedger,baseQuality,workLedgerContext({category,subcategory,qualityCap})).value;}
@@ -5183,6 +5203,7 @@ function load(save_data) {
         try {
             try {requireStructuredContent(save_data.content_packs?.structured,structuredPacks);requireStructuredSelection(save_data.content_packs?.pendingStructured,structuredPacks);}
             catch(error){suspendedStructuredSave=structuredClone(save_data);throw error;}
+            syncAuthoredSite(save_data.content_packs?.authored?.draft??null);
             save_data = preparePackSave(save_data,packDefinitionsForSave());
             save_data = validateSaveEnvelope(save_data, game_version);
             optionalPackState=validatePackState(save_data.content_packs??emptyPackState());
@@ -7032,10 +7053,13 @@ function update_timer(time_in_minutes, source = null) {
             const plan=advanceChroniclePlan({state:expansionState,external:{money:character.money},gameplay:gameplaySnapshot()},minutes);
             const consumed=plan.state.clock-expansionState.clock;
             if(!consumed)return 0;
-            const next=advancePack(optionalPackState,optionalPacks,consumed);
+            const {state:next,pay,settled}=advancePackSettlement(optionalPackState,optionalPacks,consumed);
+            plan.external.money+=pay;
             plan.nativePatch={...plan.nativePatch,content_packs:packSaveState(next,optionalPacks)};
             persistExpansion(plan);
-            optionalPackState=next;optionalPackPanel?.render();update_displayed_time();return consumed;
+            optionalPackState=next;optionalPackPanel?.render();update_displayed_time();
+            for(const s of settled)log_message(`${s.label} finished${s.pay?`; earned ${s.pay} wood coins`:''}.`,'notification');
+            return consumed;
         }catch(error){log_message('Optional work paused: '+error.message,'notification');return 0;}
     }
     if(backlogNativeClockPaused(expansionState)){backlogPanel?.render();replacementRecognitionPanel?.render();backlogOpeningPanel?.render();knownRoutesPanel?.render();adventureNotebook?.render();return 0;}
@@ -8106,7 +8130,7 @@ sort_displayed_inventory({sort_by: "name", target: "character"});
 
 if(!importProbeToken && !foundationSaveBlocked && !is_loading_error) {
     if(structuredPacks.size)structuredPanel=createStructuredPackPanel({read:readStructuredCampaign,command:commandStructuredCampaign});
-    optionalPackPanel=createContentPackPanel({definitions:optionalPacks,
+    optionalPackPanel=createContentPackPanel({definitions:optionalPacks,always:true,
         read:()=>({state:optionalPackState,pauseReason:feedbackClockPauseReason(),canEnter:ownsSave&&current_location?.id==='Village'&&!nativeOccupationReason()&&!current_activity&&!current_game_action&&!current_combat&&!current_dialogue&&!is_sleeping&&!is_reading&&!is_in_trade(),canAct:ownsSave&&!foundationSaveBlocked&&!lifeStorageFailure,
             reference:villageCareer.rank>=1&&!villageCareer.loan&&!villageCareer.debt}),command:commandOptionalPack});
     renderWorldIdentity();
@@ -8300,6 +8324,7 @@ if(!importProbeToken && !foundationSaveBlocked && !is_loading_error) {
             current_combat?'Combat in progress':null,
             ...expansionState.pending.filter(j=>j.context.actorId==='player').map(j=>`${j.label||expeditionRegistry.actions.get(j.actionId)?.label||'Current work'}: ${Math.max(0,j.due-expansionState.clock)} min remaining`),
             ...(expansionState.simulation?.jobs||[]).filter(j=>j.actorId==='player').map(j=>`${j.label||'Current work'}: ${Math.max(0,j.due-expansionState.clock)} min remaining`),
+            ...Object.entries(optionalPackState.packs).filter(([,r])=>r.active&&r.job).map(([id,r])=>`${optionalPacks.get(id)?.activities.find(a=>a.id===r.job.actionId)?.label||'Local work'}: ${r.job.remaining} min remaining`),
             expansionState.simulation?.sessions.player?'A response is waiting in your notes.':null,
             ...Object.values(expansionState.simulation?.events||{}).filter(e=>e.actorId==='player'&&e.mode==='decision'&&e.status==='open'&&e.discoveredBy.includes('player')).map(e=>'Waiting response: '+e.label),
         ].filter(Boolean),waiting:!!expansionState.simulation?.sessions.player||Object.values(expansionState.simulation?.events||{}).some(e=>e.actorId==='player'&&e.mode==='decision'&&e.status==='open'&&e.discoveredBy.includes('player')),canWrite:workLedgerCanWrite(),error:expansionError,
@@ -8310,6 +8335,14 @@ if(!importProbeToken && !foundationSaveBlocked && !is_loading_error) {
     registerWorkspaceModule({id:'customization-effects',title:'Effects & sound',node:effectsHost,home:'center'});
     registerWorkspaceModule({id:'customization-rules',title:'Original rules',node:rulesHost,home:'right'});
     registerWorkspaceModule({id:'customization-preview',title:'Draft preview',node:previewHost,home:'right'});
+    const authoredHost=document.createElement('div');authoredHost.id='customization_sites_host';document.getElementById('location_actions_div').append(authoredHost);
+    const authoredSiteEditor=createAuthoredSiteUI({container:authoredHost,
+        read:()=>({applied:optionalPackState.authored?.draft??null,canWrite:ownsSave&&!foundationSaveBlocked&&!lifeStorageFailure&&!optionalPackState.packs.authored_site?.active,
+            reason:optionalPackState.packs.authored_site?.active?'Return to the Village from the site to change it.':''}),
+        apply:draft=>commandAuthoredSite('apply',draft),reset:()=>commandAuthoredSite('reset'),openSite:()=>openWorkspaceModule('optional-worlds'),
+        download:(name,text)=>{const url=URL.createObjectURL(new Blob([text],{type:'application/json'})),a=document.createElement('a');a.href=url;a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(url),0);}});
+    setInterval(()=>authoredSiteEditor.refresh(),500);
+    registerWorkspaceModule({id:'customization-sites',title:'Original site',node:authoredHost,home:'center'});
     mountWorkspace();
     refreshCustomization();
     expansionQuests = createExpansionQuests({read: readProgression});

@@ -1,0 +1,190 @@
+{
+  "bundleSha256": "8e213cc89b1e0961a28fa463899c0b7d7226a4532de7a3a4baada72856e817df",
+  "viewport": "1600x1100",
+  "origin": "http://127.0.0.1:19170/",
+  "label": "natural (fresh new game, all steps through the UI; no seeded save)",
+  "results": [
+    {
+      "step": "fresh origin new game on rebuilt bundle",
+      "ok": true,
+      "served": "8e213cc89b1e0961a28fa463899c0b7d7226a4532de7a3a4baada72856e817df",
+      "built": "8e213cc89b1e0961a28fa463899c0b7d7226a4532de7a3a4baada72856e817df"
+    },
+    {
+      "step": "baseline save has no authored content",
+      "ok": true,
+      "money": 102
+    },
+    {
+      "step": "editor visible in Authoring with default proposal",
+      "ok": true
+    },
+    {
+      "step": "invalid draft rejected with reasons and save unchanged",
+      "ok": true,
+      "errs": [
+        "Site name is required.",
+        "Work time (played minutes) must be from 1 to 1440."
+      ]
+    },
+    {
+      "step": "valid draft applied by keyboard and saved",
+      "ok": true,
+      "status": "Applied and saved. Use Go to site, then Visit from the Village.",
+      "errors": [],
+      "minutes": "6",
+      "cost": "3"
+    },
+    {
+      "step": "Go to site opens play: panel summary focused, Tab reaches Visit",
+      "ok": true,
+      "focused0": "Optional worlds",
+      "focused1": "Visit Reed Hollow"
+    },
+    {
+      "step": "visit moves player to authored site",
+      "ok": true,
+      "loc": "authored_site.site",
+      "values": {
+        "input": 6,
+        "output": 0
+      }
+    },
+    {
+      "step": "activity start debits material and starts timed work",
+      "ok": true,
+      "values": {
+        "input": 3,
+        "output": 0
+      },
+      "job": {
+        "actionId": "authored_site.work",
+        "remaining": 6
+      }
+    },
+    {
+      "step": "current-work bar names the site work; no occupation-message spam while visiting",
+      "ok": true,
+      "bar": "Weave a reed mat: 4 min remaining\n\nSaving available.\n\nOpen local controls",
+      "spam": 0
+    },
+    {
+      "step": "settlement once: product +1 and native coin +8",
+      "ok": true,
+      "values": {
+        "input": 3,
+        "output": 1
+      },
+      "money0": 102,
+      "money": 110
+    },
+    {
+      "step": "no duplicate reward after more clock",
+      "ok": true
+    },
+    {
+      "step": "cancel refunds material, no product, no pay",
+      "ok": true,
+      "midInput": 0,
+      "values": {
+        "input": 3,
+        "output": 1
+      },
+      "money": 110
+    },
+    {
+      "step": "apply disabled while visiting the site",
+      "ok": true,
+      "applied": "Applied: Reed Hollow. Return to the Village from the site to change it."
+    },
+    {
+      "step": "edited requirement blocks the activity at 3 material",
+      "ok": true,
+      "blockerText": "Weave a fine mat\n\nTwist cut reeds into a sleeping mat a trader will buy.\n\nTime terms: 6 played minutes. Pays 8 wood coins on completion.\n\nLocal prerequisites are not met.\n\nWeave a fine mat"
+    },
+    {
+      "step": "gather settles on the clock and re-enables the activity",
+      "ok": true,
+      "values": {
+        "input": 5,
+        "output": 1
+      }
+    },
+    {
+      "step": "export writes authored-site.json",
+      "ok": true,
+      "exported": "Weave a fine mat"
+    },
+    {
+      "step": "reset removes site, its progress and registration; money kept",
+      "ok": true,
+      "packs": []
+    },
+    {
+      "step": "future-version import rejected",
+      "ok": true,
+      "futureErr": "This file was made by a newer version (2); this build reads version 1."
+    },
+    {
+      "step": "import fills the draft from file",
+      "ok": true
+    },
+    {
+      "step": "imported site runs: fresh progress after reset",
+      "ok": true,
+      "values": {
+        "input": 6,
+        "output": 0
+      }
+    },
+    {
+      "step": "reload restores authored site, location and running work",
+      "ok": true,
+      "job": {
+        "actionId": "authored_site.gather",
+        "remaining": 4
+      },
+      "preJob": {
+        "actionId": "authored_site.gather",
+        "remaining": 4
+      }
+    },
+    {
+      "step": "work resumed after reload settles once",
+      "ok": true,
+      "values": {
+        "input": 8,
+        "output": 0
+      }
+    },
+    {
+      "step": "exported save file written",
+      "ok": true
+    },
+    {
+      "step": "no page errors in main profile",
+      "ok": true,
+      "errors": []
+    },
+    {
+      "step": "literal-file import restores identical authored state and site",
+      "ok": true
+    },
+    {
+      "step": "no page errors (import-authored)",
+      "ok": true,
+      "errors": []
+    },
+    {
+      "step": "old save without authored content imports unchanged; no site",
+      "ok": true,
+      "name": "TEST FIXTURE R15 FA21",
+      "msgs": "Remembered years · 1 memories\nRemember this day\n\nYears remembered\nVillage neighbors\nLevels / unlocks\nEvents\nCrafting\nCombat\nLoot\nBGM"
+    },
+    {
+      "step": "no page errors (import-old)",
+      "ok": true,
+      "errors": []
+    }
+  ]
+}
