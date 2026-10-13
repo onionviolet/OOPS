@@ -1,0 +1,65 @@
+{
+  "money": 110,
+  "location": "Village",
+  "content_packs": {
+    "schema": 1,
+    "packs": {
+      "authored_site": {
+        "worldId": "authored_site.world",
+        "locationIds": [
+          "authored_site.site"
+        ],
+        "active": false,
+        "values": {
+          "input": 8,
+          "output": 0
+        },
+        "job": null
+      }
+    },
+    "registered": {
+      "reedbank": {
+        "worldId": "reedbank.district",
+        "locationIds": [
+          "reedbank.stall",
+          "reedbank.lane"
+        ],
+        "itemIds": [
+          "reedbank.coat",
+          "reedbank.kit",
+          "reedbank.wood",
+          "reedbank.basket_worn",
+          "reedbank.basket_fixed",
+          "reedbank.crate_worn",
+          "reedbank.crate_fixed",
+          "reedbank.fitting"
+        ]
+      },
+      "authored_site": {
+        "worldId": "authored_site.world",
+        "locationIds": [
+          "authored_site.site"
+        ]
+      }
+    },
+    "authored": {
+      "schema": 1,
+      "draft": {
+        "siteName": "Reed Hollow",
+        "siteDescription": "A damp hollow south of the Village where reeds grow thick enough to cut.",
+        "inputName": "Reeds",
+        "inputStart": 6,
+        "outputName": "Mats",
+        "activityName": "Weave a fine mat",
+        "activityDescription": "Twist cut reeds into a sleeping mat a trader will buy.",
+        "requiredInput": 5,
+        "inputCost": 3,
+        "minutes": 6,
+        "outputGain": 1,
+        "coinPay": 8,
+        "gatherMinutes": 4,
+        "gatherAmount": 2
+      }
+    }
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "format": "yairpg-authored-site",
+  "version": 1,
+  "draft": {
+    "siteName": "Reed Hollow",
+    "siteDescription": "A damp hollow south of the Village where reeds grow thick enough to cut.",
+    "inputName": "Reeds",
+    "inputStart": 6,
+    "outputName": "Mats",
+    "activityName": "Weave a fine mat",
+    "activityDescription": "Twist cut reeds into a sleeping mat a trader will buy.",
+    "requiredInput": 5,
+    "inputCost": 3,
+    "minutes": 6,
+    "outputGain": 1,
+    "coinPay": 8,
+    "gatherMinutes": 4,
+    "gatherAmount": 2
+  }
+}

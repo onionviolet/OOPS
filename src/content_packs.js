@@ -5,6 +5,7 @@ import {validateStructuredRecord,validateStructuredSelection} from './structured
 const object=v=>v!==null&&typeof v==='object'&&!Array.isArray(v);
 const check=(ok,message)=>{if(!ok)throw Error(message);};
 const scalar=v=>['string','boolean','number'].includes(typeof v)&& (typeof v!=='number'||Number.isFinite(v));
+export const MAX_PACK_PAY=10000;
 export const emptyPackState=()=>({schema:1,packs:{}});
 export function validatePackState(state) {
     check(object(state)&&state.schema===1&&object(state.packs),'Unsupported optional content state.');jsonData(state);
@@ -39,6 +40,9 @@ export function validatePackState(state) {
             }
         }
     }
+    // Live-authored original content (C4) is stored as its editor draft; the
+    // authored-site owner compiles and registers it before the save is prepared.
+    if(state.authored!=null)check(object(state.authored)&&state.authored.schema===1&&object(state.authored.draft),'Invalid authored optional content.');
     check(Object.values(state.packs).filter(r=>r.active).length<=1,'Overlapping optional visits.');return state;
 }
 export function packConditions(values,conditions=[]) {
@@ -57,6 +61,8 @@ export function validatePack(definition) {
     for(const item of [...d.locations,...d.people,...d.activities]) {check(stableId(item.id)&&item.id.startsWith(d.id+'.')&&!ids.has(item.id)&&typeof item.label==='string','Invalid or duplicate optional content ID.');ids.add(item.id);}
     for(const action of d.activities) {
         check(Number.isSafeInteger(action.duration)&&action.duration>=0&&typeof action.description==='string','Invalid optional activity.');
+        // Native coin paid once at timed settlement; immediate actions have no pay owner.
+        check(action.pay==null||Number.isSafeInteger(action.pay)&&action.pay>=0&&action.pay<=MAX_PACK_PAY&&(action.pay===0||action.duration>0),'Invalid optional activity pay.');
         for(const rules of [action.requires||[],action.visibleWhen||[]])for(const rule of rules)check(Object.hasOwn(d.initial,rule.field)&&['eq','gte','lte'].includes(rule.op)&&scalar(rule.value),'Invalid optional condition.');
         for(const changes of [action.start||{},action.complete||{}]) {
             for(const [key,val] of Object.entries(changes.set||{}))check(Object.hasOwn(d.initial,key)&&typeof val===typeof d.initial[key]&&scalar(val),'Invalid optional state change.');
@@ -106,13 +112,24 @@ export function actPack(state,d,actionId) {
     patch(row.values,action.start);if(action.duration)row.job={actionId,remaining:action.duration};else patch(row.values,action.complete);
     return validatePackState(next);
 }
-export function advancePack(state,definitions,minutes) {
-    check(Number.isSafeInteger(minutes)&&minutes>=0,'Invalid optional clock.');const next=structuredClone(state);
+export function advancePack(state,definitions,minutes) {return advancePackSettlement(state,definitions,minutes).state;}
+// Settlement reports native coin so the caller can stage it in the same durable
+// plan as the clock advance; pay is earned exactly when a job reaches zero.
+export function advancePackSettlement(state,definitions,minutes) {
+    check(Number.isSafeInteger(minutes)&&minutes>=0,'Invalid optional clock.');const next=structuredClone(state);let pay=0;const settled=[];
     for(const [id,row] of Object.entries(next.packs))if(row.active&&row.job) {
         const action=definitions.get(id)?.activities.find(a=>a.id===row.job.actionId);check(action,'Saved optional activity is unavailable.');
-        row.job.remaining-=Math.min(minutes,row.job.remaining);if(row.job.remaining===0){patch(row.values,action.complete);row.job=null;}
+        row.job.remaining-=Math.min(minutes,row.job.remaining);if(row.job.remaining===0){patch(row.values,action.complete);row.job=null;pay+=action.pay||0;settled.push({packId:id,actionId:action.id,label:action.label,pay:action.pay||0});}
     }
-    return validatePackState(next);
+    return {state:validatePackState(next),pay,settled};
+}
+// Cancelling timed work forfeits progress and pay and refunds the start's
+// numeric costs. Start "set" changes are not reversible and stay as they are.
+export function cancelPack(state,d) {
+    const next=structuredClone(state),row=next.packs[d.id];check(row?.active&&row.job,'There is no running local work to cancel.');
+    const action=d.activities.find(a=>a.id===row.job.actionId);check(action,'Saved optional activity is unavailable.');
+    for(const [key,amount] of Object.entries(action.start?.add||{}))if(typeof row.values[key]==='number'&&Number.isFinite(row.values[key]-amount)&&row.values[key]-amount>=0)row.values[key]-=amount;
+    row.job=null;return validatePackState(next);
 }
 // Registration provenance is distinct from a visit: installing content earns no
 // actions, custody, work or wages. Existing visited schema-1 saves supply their

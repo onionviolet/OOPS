@@ -352,7 +352,7 @@ export function setWorkspaceContext(context) {
         if(author?.version===1)owner.layout=normalizeLayout(author,[...registry.keys()]);
         else {
             owner.layout=makePreset('Workspace');owner.layout.columns=[.34,.30,.36];
-            const positions={'customization':'left','customization-effects':'center','customization-rules':'right'};
+            const positions={'customization':'left','customization-effects':'center','customization-sites':'center','customization-rules':'right'};
             owner.layout.modules.forEach(v=>{if(positions[v.id]){v.dock=positions[v.id];v.hidden=false;v.collapsed=false;v.height=1000;}});
             owner.layout.modules.sort((a,b)=>Number(!positions[a.id])-Number(!positions[b.id]));owner.layout.modules.forEach((v,i)=>v.order=i);
         }
