@@ -54,9 +54,10 @@ Earlier rounds' exact evidence stays as history. Do not rewrite it.
 | G3 knowledge/tools | FA10 manual study, FA13 fieldcraft/assay | r5, r8 backlogs |
 | G4 residents/sites | FA14 resident work, FA15 withdrawal/persistence, FA20 rack/bench | r9 BACKLOG, r10 CRITERION_LEDGER and BACKLOG, r13 BACKLOG |
 | G5 heir | FA17 leftovers heir (accepted 2026-10-10) | docs/RULES_FROM_SCRATCH.md#the-heir, LIFE_SIM_NORTH_STAR heirs section |
+| G6 minigames | FA22 MG01–MG10 integration (added by Weibao 2026-10-13) | docs/gm/dispatch/minigames-2026-10-11/ACCEPTANCE_BACKLOG.md, IMPLEMENTATION.diff |
 | Root | Integrated recovery, independent review, commits | r14/BACKLOG.md last rows |
 
-Not in R15: FA19 (World1 paused), FA21 authoring, FA22 minigames, FA23 UI.
+Not in R15: FA19 (World1 paused), FA21 authoring, FA23 UI.
 Their owners are unchanged.
 
 ## Rules for every group
