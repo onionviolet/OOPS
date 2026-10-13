@@ -1,0 +1,17 @@
+{"lane":"cividle","date":"2026-10-13","source":{"repo":"https://github.com/fishpondstudio/CivIdle","sha":"e15fe039ed5c0794df05e52258bc9663761a140a","license":"GPL-3.0 code; assets not redistributable","yair_license":"MIT (Miktaew 2021)","use":"ideas only"},"findings":[
+{"id":"F1","label":"verified (code)","claim":"Run/meta save split; rebirth replaces run state; carry = wonder-granted capped exceptions","yair":"partial"},
+{"id":"F2","label":"verified (code)","claim":"Age = column range of most advanced tech; cost 5^age*1.5^col*5000; age-up queues choices","yair":"new"},
+{"id":"F3","label":"verified (code)","claim":"Price/tier derived from recipe graph fixpoint with authoring asserts","yair":"new"},
+{"id":"F4","label":"verified (code)","claim":"Multipliers rebuilt each tick with source and stability flags","yair":"partial"},
+{"id":"F5","label":"verified (code)","claim":"Offline replay of player share of 4h via normal tick; remainder banked as capped reserve","yair":"new policy"},
+{"id":"F6","label":"verified (code)","claim":"Workers are per-tick flow; priority then low-tier allocation; idle workers make science","yair":"partial"},
+{"id":"F7","label":"verified (code)","claim":"Pull transport, source-order modes, workers as fuel, in-transit refunded at save","yair":"partial"},
+{"id":"F8","label":"verified (code)","claim":"Single ordered stall reason per building per tick","yair":"covered"},
+{"id":"F9","label":"verified (code)","claim":"Harmonic in-run stacking; permanent levels 2^(L-1); cbrt rebirth reward; filtered 1-of-3 rolls","yair":"new"},
+{"id":"F10","label":"verified (code)","claim":"Set-completion meta level","yair":"new"},
+{"id":"F11","label":"verified (code)","claim":"Wonder cost formula, per-tick builder capacity, upgrade groups","yair":"partial"},
+{"id":"F12","label":"verified (code)","claim":"TS registries with closures, startup asserts","yair":"take asserts only"},
+{"id":"F13","label":"verified (code)","claim":"Start variants gated by meta level","yair":"partial"},
+{"id":"F14","label":"verified (code)","claim":"Control features unlocked by tech","yair":"new (small)"},
+{"id":"F15","label":"verified (code)","claim":"JSON+checksum, version const 1, idempotent per-load repair","yair":"covered, stronger"}],
+"packets":["P1 fair value","P2 absence split","P3 era insights","P4 capped carry (merge Modding Tree P1)","P5 idle hands to knowledge"]}
