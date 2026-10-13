@@ -8,6 +8,17 @@ Engine and build notes marked *unverified* are my own background knowledge, not 
 
 Decompile or source-read every queued game Weibao already owns. Re-run the local inventory and do this again whenever things change: a new purchase, a new install, a new queue entry or a new local tool. Owned games need no further go-ahead for a read-only local pass. Buying a game still needs his explicit yes. Each pass still answers a named mechanic question and saves a lane under `docs/research/<game>/`; raw decompiled code and assets stay out of git.
 
+**Last inventory run, 2026-10-13:** none of the 12 queued paid games is owned or installed, so no decompile pass ran. Installed games already have lanes. Local RE tools: Ghidra 12.1.4 (Homebrew, with keg-only openjdk@21), `strings`, `otool`. Not installed: dotnet, ILSpy/ilspycmd, a runnable Cpp2IL, AssetRipper, Java decompilers, UndertaleModTool. A .NET or Unity pass would first need dotnet plus ilspycmd.
+
+**Free titles to consider** (on the account, not installed; Windows-only, so they need CrossOver or a Windows host plus a download go-ahead):
+
+| Rank | Game | Question it would answer |
+|---:|---|---|
+| 1 | Legends of Idleon | How each new world introduces a distinct system across one character roster |
+| 2 | NGU IDLE | How 10+ parallel progression systems unlock in order and stay legible across rebirths |
+| 3 | CivIdle | Age/tech prestige and production-chain offline catch-up; check for public source first |
+| 4 | Reverend Insanity playtest | How a licensed cultivation-novel adaptation turns Gu rules into game state; access may have closed |
+
 ## Short list
 
 **Decompile (closed builds, each needs a purchase go-ahead):**
