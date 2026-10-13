@@ -1,0 +1,26 @@
+// MG04 natural: inspect lot, win at clearing price 8 with the ten ceiling. MG10: inspect, conserve (cancel refunds), display.
+const inv = s => s.inventories.person.main_character;
+const damaged = '{"id":"Damaged courtyard heirloom"}', conserved = '{"id":"Conserved courtyard heirloom"}', cloth = '{"id":"Linen cloth"}';
+const a = await snap('MG04 before');
+expect(!(await has('Set a ten-coin ceiling')), 'no bid before inspection');
+await h.mg('Inspect Mira’s damaged heirloom');
+await h.mg('Set a ten-coin ceiling');
+const won = await snap('MG04 won');
+expect(won.st.money === a.st.money - 8 && inv(won.s)[damaged].count === 1 && won.st.npc['mg.mira'].coins === a.st.npc['mg.mira'].coins + 8, 'won at clearing 8, not the ceiling');
+expect(!(await enabled('Set a five-coin ceiling')) && !(await enabled('Pass on Mira’s heirloom')), 'lot resolved once');
+await h.mg('Inspect the damaged heirloom');
+await h.mg('Buy one Linen cloth');
+await h.mg('Conserve for display');
+const working = await snap('MG10 conserving');
+expect(!inv(working.s)[damaged] && !inv(working.s)[cloth], 'damaged item and cloth reserved');
+await h.mg('Cancel Conserve for display');
+const back = await snap('MG10 conserve cancelled');
+expect(inv(back.s)[damaged].count === 1 && inv(back.s)[cloth].count === 1 && !inv(back.s)[conserved], 'cancel returned object and cloth, no output');
+await h.mg('Conserve for display');
+await idle();
+const done = await snap('MG10 conserved');
+expect(inv(done.s)[conserved].count === 1 && !inv(done.s)[damaged], 'exactly one object transformed');
+await h.mg('Place Conserved heirloom in Mira’s courtyard display');
+const shown = await snap('MG10 displayed');
+expect(!inv(shown.s)[conserved] && shown.st.npc['mg.mira'].stock[conserved] === 1 && shown.st.facts['mg.displayedKind'] === 'conserved', 'same object now in Mira display stock');
+return journal.slice(-6).map(j => [j.label, j.money, JSON.stringify(j.inventory), j.npc['mg.mira'].coins, JSON.stringify(j.npc['mg.mira'].stock), j.facts['mg.displayedKind']]);

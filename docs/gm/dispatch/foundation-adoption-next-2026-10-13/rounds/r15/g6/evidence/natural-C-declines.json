@@ -1,0 +1,49 @@
+{
+ "before": {
+  "money": 102,
+  "npc": {
+   "mg.mira": 100,
+   "mg.orin": 30,
+   "mg.sela": 40,
+   "mg.bram": 200
+  }
+ },
+ "after": {
+  "money": 102,
+  "npc": {
+   "mg.mira": 100,
+   "mg.orin": 30,
+   "mg.sela": 40,
+   "mg.bram": 200
+  },
+  "facts": {
+   "mg.opened": true,
+   "mg.version": 1,
+   "mg.capitalAgreement": "passed",
+   "mg.auctionResult": "lost",
+   "mg.selaAidTerms": "refused",
+   "mg.selaDebtOutstanding": false,
+   "mg.selaLoanExtended": false,
+   "mg.selaWorkReady": false,
+   "mg.selaWorkPaid": false
+  },
+  "inventory": {
+   "{\"id\":\"Cheap leather pants\",\"quality\":40}": {
+    "count": 1
+   },
+   "{\"id\":\"Stale bread\"}": {
+    "count": 5
+   }
+  },
+  "miraLot": 1
+ },
+ "closedRows": [
+  "[x] Fund one production share · 3 coins",
+  "[x] Take Orin’s two-log goods advance",
+  "[x] Pass on Orin’s offer",
+  "[x] Set a five-coin ceiling · lose to the seven-coin competing bid",
+  "[x] Set a ten-coin ceiling · win at the eight-coin clearing price",
+  "[x] Pass on Mira’s heirloom"
+ ],
+ "errors": []
+}

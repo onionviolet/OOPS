@@ -1,3 +1,4 @@
+import {managementDefinitions} from './management/content.js';
 import {auditRemainderDefinitions as remainderDefinitions,auditRemainderSources} from './audit_remainder_content.js';
 import {auditRemainderDefinitions} from './audit_remainder_state.js';
 import {featureObjectDefinitions,featureObjectSources} from './feature_expansion_objects.js';
@@ -21,7 +22,7 @@ const artifactDefinitions={...artifactWorkshopDefinitions,commands:artifactWorks
         visibleWhen:{all:[artifactEnrollment,d.visibleWhen]}}:d)};
 
 const keys=['people','sites','conditions','powers','advancements','encounters','commands','controllers','events','transitions','origins','energies','pursuits','situations'];
-const families=[auditRemainderDefinitions,remainderDefinitions,featureObjectDefinitions,featurePowerDefinitions,featureBattleDefinitions,societyDefinitions,tidemarkDefinitions,referenceGameplayDefinitions,nethackFieldcraftDefinitions,auditedFixtureDefinitions,auditedLessonDefinitions,artifactDefinitions,causalStoryDefinitions];
+const families=[managementDefinitions,auditRemainderDefinitions,remainderDefinitions,featureObjectDefinitions,featurePowerDefinitions,featureBattleDefinitions,societyDefinitions,tidemarkDefinitions,referenceGameplayDefinitions,nethackFieldcraftDefinitions,auditedFixtureDefinitions,auditedLessonDefinitions,artifactDefinitions,causalStoryDefinitions];
 export const featureExpansionDefinitions=Object.fromEntries(keys.map(key=>[key,families.flatMap(d=>d[key]||[])]));
 // Native Causal means remain in its explicit host activation. Registry reading
 // only registers these sources and provision:false people, with no seed effects.

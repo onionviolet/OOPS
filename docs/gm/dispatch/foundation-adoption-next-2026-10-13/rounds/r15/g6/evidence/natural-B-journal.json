@@ -1,0 +1,400 @@
+{
+ "loaded": [
+  {
+   "url": "http://127.0.0.1:19160/dist/bundle.js?version=v0.6-6270d46aa670",
+   "loaded": "6270d46aa670a66789d99d7a2098fad27be6bb5fd0b2e2b886cd043a0f8dce37",
+   "disk": "6270d46aa670a66789d99d7a2098fad27be6bb5fd0b2e2b886cd043a0f8dce37"
+  }
+ ],
+ "errors": [],
+ "checks": {
+  "MG01": {
+   "advance": [
+    102,
+    108,
+    105,
+    33
+   ]
+  },
+  "MG08": {
+   "gift": [
+    105,
+    97,
+    48
+   ]
+  },
+  "MG07": {
+   "careful": [
+    81,
+    91
+   ],
+   "foremanFeeRetained": 35
+  },
+  "MG02": {
+   "endRental": [
+    86,
+    86,
+    "unselected"
+   ]
+  },
+  "MG06": {
+   "grain": 5
+  },
+  "MG03": {
+   "bramInn": [
+    80,
+    85
+   ]
+  },
+  "MG10": {
+   "saleGrade": [
+    77,
+    91
+   ]
+  },
+  "MG05": {
+   "local": [
+    91,
+    99
+   ]
+  },
+  "MG09": {
+   "grain": [
+    97,
+    102
+   ]
+  }
+ },
+ "journal": [
+  {
+   "label": "B charter",
+   "money": 102,
+   "inventory": {},
+   "jobs": [],
+   "npc": {
+    "mg.mira": 100,
+    "mg.orin": 30,
+    "mg.sela": 40,
+    "mg.bram": 200
+   }
+  },
+  {
+   "label": "B MG01 advance taken",
+   "money": 102,
+   "inventory": {
+    "Rough wood log": 2
+   },
+   "jobs": [],
+   "npc": {
+    "mg.mira": 100,
+    "mg.orin": 30,
+    "mg.sela": 40,
+    "mg.bram": 200
+   }
+  },
+  {
+   "label": "B MG01 sold",
+   "money": 108,
+   "inventory": {},
+   "jobs": [],
+   "npc": {
+    "mg.mira": 100,
+    "mg.orin": 30,
+    "mg.sela": 40,
+    "mg.bram": 194
+   }
+  },
+  {
+   "label": "B MG01 repaid",
+   "money": 105,
+   "inventory": {},
+   "jobs": [],
+   "npc": {
+    "mg.mira": 100,
+    "mg.orin": 33,
+    "mg.sela": 40,
+    "mg.bram": 194
+   }
+  },
+  {
+   "label": "B MG08 before",
+   "money": 105,
+   "inventory": {},
+   "jobs": [],
+   "npc": {
+    "mg.mira": 100,
+    "mg.orin": 33,
+    "mg.sela": 40,
+    "mg.bram": 194
+   }
+  },
+  {
+   "label": "B MG08 gift",
+   "money": 97,
+   "inventory": {},
+   "jobs": [],
+   "npc": {
+    "mg.mira": 100,
+    "mg.orin": 33,
+    "mg.sela": 48,
+    "mg.bram": 194
+   }
+  },
+  {
+   "label": "B MG07 before",
+   "money": 81,
+   "inventory": {
+    "Rough wood log": 8
+   },
+   "jobs": [],
+   "npc": {
+    "mg.mira": 116,
+    "mg.orin": 33,
+    "mg.sela": 48,
+    "mg.bram": 194
+   }
+  },
+  {
+   "label": "B MG07 fine made",
+   "money": 81,
+   "inventory": {
+    "Rough wood log": 5,
+    "Fine courtyard crate": 1
+   },
+   "jobs": [],
+   "npc": {
+    "mg.mira": 116,
+    "mg.orin": 33,
+    "mg.sela": 48,
+    "mg.bram": 194
+   }
+  },
+  {
+   "label": "B MG07 fine paid",
+   "money": 91,
+   "inventory": {
+    "Rough wood log": 5
+   },
+   "jobs": [],
+   "npc": {
+    "mg.mira": 116,
+    "mg.orin": 33,
+    "mg.sela": 48,
+    "mg.bram": 184
+   }
+  },
+  {
+   "label": "B foreman working",
+   "money": 89,
+   "inventory": {
+    "Rough wood log": 3
+   },
+   "jobs": [
+    {
+     "actor": "mg.orin",
+     "command": "mg.foreman.execute",
+     "due": 34
+    }
+   ],
+   "npc": {
+    "mg.mira": 116,
+    "mg.orin": 35,
+    "mg.sela": 48,
+    "mg.bram": 184
+   }
+  },
+  {
+   "label": "B foreman stopped",
+   "money": 89,
+   "inventory": {
+    "Rough wood log": 3
+   },
+   "jobs": [],
+   "npc": {
+    "mg.mira": 116,
+    "mg.orin": 35,
+    "mg.sela": 48,
+    "mg.bram": 184
+   }
+  },
+  {
+   "label": "B foreman inputs collected",
+   "money": 89,
+   "inventory": {
+    "Rough wood log": 5
+   },
+   "jobs": [],
+   "npc": {
+    "mg.mira": 116,
+    "mg.orin": 35,
+    "mg.sela": 48,
+    "mg.bram": 184
+   }
+  },
+  {
+   "label": "B MG02 request",
+   "money": 86,
+   "inventory": {
+    "Rough wood log": 4
+   },
+   "jobs": [],
+   "npc": {
+    "mg.mira": 121,
+    "mg.orin": 35,
+    "mg.sela": 46,
+    "mg.bram": 184
+   }
+  },
+  {
+   "label": "B MG02 ended",
+   "money": 86,
+   "inventory": {
+    "Rough wood log": 4
+   },
+   "jobs": [],
+   "npc": {
+    "mg.mira": 121,
+    "mg.orin": 35,
+    "mg.sela": 46,
+    "mg.bram": 184
+   }
+  },
+  {
+   "label": "B MG06 grain",
+   "money": 80,
+   "inventory": {
+    "Rough wood log": 4,
+    "Courtyard grain": 5
+   },
+   "jobs": [],
+   "npc": {
+    "mg.mira": 127,
+    "mg.orin": 35,
+    "mg.sela": 46,
+    "mg.bram": 184
+   }
+  },
+  {
+   "label": "B MG03 before",
+   "money": 80,
+   "inventory": {
+    "Rough wood log": 4,
+    "Courtyard grain": 5
+   },
+   "jobs": [],
+   "npc": {
+    "mg.mira": 127,
+    "mg.orin": 35,
+    "mg.sela": 46,
+    "mg.bram": 184
+   }
+  },
+  {
+   "label": "B MG03 Bram served",
+   "money": 85,
+   "inventory": {
+    "Rough wood log": 4,
+    "Courtyard grain": 4
+   },
+   "jobs": [],
+   "npc": {
+    "mg.mira": 127,
+    "mg.orin": 35,
+    "mg.sela": 46,
+    "mg.bram": 179
+   }
+  },
+  {
+   "label": "B MG10 restored",
+   "money": 77,
+   "inventory": {
+    "Rough wood log": 3,
+    "Courtyard grain": 4,
+    "Restored courtyard heirloom": 1
+   },
+   "jobs": [],
+   "npc": {
+    "mg.mira": 135,
+    "mg.orin": 35,
+    "mg.sela": 46,
+    "mg.bram": 179
+   }
+  },
+  {
+   "label": "B MG10 sold",
+   "money": 91,
+   "inventory": {
+    "Rough wood log": 3,
+    "Courtyard grain": 4
+   },
+   "jobs": [],
+   "npc": {
+    "mg.mira": 135,
+    "mg.orin": 35,
+    "mg.sela": 46,
+    "mg.bram": 165
+   }
+  },
+  {
+   "label": "B MG05 before",
+   "money": 91,
+   "inventory": {
+    "Rough wood log": 2,
+    "Courtyard grain": 4,
+    "Courtyard wood crate": 1
+   },
+   "jobs": [],
+   "npc": {
+    "mg.mira": 135,
+    "mg.orin": 35,
+    "mg.sela": 46,
+    "mg.bram": 165
+   }
+  },
+  {
+   "label": "B MG05 delivered",
+   "money": 99,
+   "inventory": {
+    "Rough wood log": 2,
+    "Courtyard grain": 4
+   },
+   "jobs": [],
+   "npc": {
+    "mg.mira": 135,
+    "mg.orin": 35,
+    "mg.sela": 46,
+    "mg.bram": 157
+   }
+  },
+  {
+   "label": "B MG09 prepared",
+   "money": 97,
+   "inventory": {
+    "Rough wood log": 2,
+    "Courtyard grain": 4
+   },
+   "jobs": [],
+   "npc": {
+    "mg.mira": 137,
+    "mg.orin": 35,
+    "mg.sela": 46,
+    "mg.bram": 157
+   }
+  },
+  {
+   "label": "B MG09 hosted",
+   "money": 102,
+   "inventory": {
+    "Rough wood log": 2,
+    "Courtyard grain": 3
+   },
+   "jobs": [],
+   "npc": {
+    "mg.mira": 137,
+    "mg.orin": 35,
+    "mg.sela": 46,
+    "mg.bram": 152
+   }
+  }
+ ]
+}

@@ -1,0 +1,77 @@
+{
+ "note": "Profile-1 natural run on pre-fix bundle: Orin batch completion threw Unknown acquired item; clock stuck at 46 with job due 47; last published save kept the held job and inputs.",
+ "loaded": [
+  {
+   "url": "http://127.0.0.1:19160/dist/bundle.js?version=v0.6-49f6ad906d59",
+   "loaded": "49f6ad906d5995d387b7b7a6f9c1f81cfef42b276f4be08769f42cfb88149775",
+   "disk": "49f6ad906d5995d387b7b7a6f9c1f81cfef42b276f4be08769f42cfb88149775"
+  }
+ ],
+ "journal": [
+  {
+   "label": "MG01 before",
+   "money": 102,
+   "clock": 30,
+   "jobs": [],
+   "inv": {}
+  },
+  {
+   "label": "MG01 share chosen",
+   "money": 99,
+   "clock": 32,
+   "jobs": [],
+   "inv": {
+    "Rough wood log": 2
+   }
+  },
+  {
+   "label": "MG01 batch started",
+   "money": 99,
+   "clock": 42,
+   "jobs": [
+    {
+     "actor": "player",
+     "command": "mg.orin.make_batch",
+     "due": 45
+    }
+   ],
+   "inv": {}
+  },
+  {
+   "label": "MG01 batch cancelled",
+   "money": 99,
+   "clock": 43,
+   "jobs": [],
+   "inv": {
+    "Rough wood log": 2
+   }
+  }
+ ],
+ "save": {
+  "clock": 46,
+  "jobs": [
+   [
+    "mg.orin.make_batch",
+    47,
+    [
+     {
+      "type": "item",
+      "actor": "player",
+      "key": "{\"id\":\"Rough wood log\"}",
+      "amount": -2
+     },
+     {
+      "type": "vital",
+      "actor": "player",
+      "key": "stamina",
+      "amount": -2
+     }
+    ]
+   ]
+  ],
+  "money": 99
+ },
+ "screen": [
+  "Unknown acquired item."
+ ]
+}

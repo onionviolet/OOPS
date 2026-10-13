@@ -320,6 +320,7 @@ export function setSimulationProgram(state, registry, commandId, count, context,
     assert(!['status_care','field_care','book_care','book_care_npc','lore_work','lore_warning'].includes(registry.simulation.commands.get(commandId)?.group), 'Choose each care preparation deliberately; no care routine is registered.');
     assert(state.sequence === expectedSequence && natural(count) && count > 0 && count <= 10000, "Invalid or stale automation target.");
     const definition = registry.simulation.commands.get(commandId);
+    if(definition?.group==='management')assert(context.managementHost===true&&count<=3&&definition.repeatable===true&&state.actors[context.actorId].completed[commandId]>0,'Learn this courtyard recipe and use its finite mandate controls.');
     assert(definition?.automatable && definition.duration > 0, "This command does not support automation.");
     const out = plan(state, context), s = out.state.simulation;
     assert(!s.programs[context.actorId] || s.programs[context.actorId].status !== "running", "Pause the existing routine first.");
@@ -537,7 +538,7 @@ export function advanceSimulationBoundary(out, registry, contexts = {}) {
         }
     }
     for(const [actorId,p] of Object.entries(s.programs).sort(([a],[b]) => a.localeCompare(b))) if(p.status === "running" && !simulationOccupiesActor(state, actorId) && !state.pending.some(j => j.context.actorId === actorId)) {
-        const ctx = {...contexts[actorId], actorId, targetId: p.targetId, gameplay: out.gameplay, external: out.external};
+        const ctx = {...contexts[actorId], actorId, targetId: p.targetId, gameplay: out.gameplay, external: out.external, vitals: out.vitals};
         if(p.remaining === 0) p.status = "complete";
         else {
             const preview = previewSimulationCommand(state, registry, p.commandId, ctx);

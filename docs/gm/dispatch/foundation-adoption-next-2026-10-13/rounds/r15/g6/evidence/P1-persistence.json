@@ -1,0 +1,1017 @@
+{
+ "reloadDiff": [],
+ "fileDiff": [],
+ "importDiff": [],
+ "exportedSha256": "a06935d30fa35e29b1ad40e800ea3d2f7b35155aa9c0e741b1f121fa232c26b5",
+ "emptyBefore": true,
+ "importErrors": [],
+ "importedPanel": true,
+ "original": {
+  "money": 71,
+  "bram": {
+   "coins": 176,
+   "stock": {
+    "{\"id\":\"Courtyard wood crate\"}": 3
+   },
+   "stamina": 20
+  },
+  "orin": {
+   "coins": 39,
+   "stock": {
+    "{\"id\":\"Rough wood log\"}": 4
+   },
+   "stamina": 16
+  },
+  "jobs": []
+ },
+ "importedAfterPlay": {
+  "money": 71,
+  "bram": {
+   "coins": 176,
+   "stock": {
+    "{\"id\":\"Courtyard wood crate\"}": 3
+   },
+   "stamina": 20
+  },
+  "orin": {
+   "coins": 39,
+   "stock": {
+    "{\"id\":\"Rough wood log\"}": 4
+   },
+   "stamina": 16
+  },
+  "jobs": []
+ },
+ "checkpoint": {
+  "money": 59,
+  "inventory": {
+   "{\"id\":\"Cheap leather pants\",\"quality\":40}": {
+    "count": 1
+   },
+   "{\"id\":\"Stale bread\"}": {
+    "count": 5
+   },
+   "{\"id\":\"Rough wood log\"}": {
+    "count": 4
+   },
+   "{\"id\":\"Courtyard wood crate\"}": {
+    "count": 1
+   },
+   "{\"id\":\"Courtyard greens\"}": {
+    "count": 4
+   }
+  },
+  "facts": {
+   "mg.opened": true,
+   "mg.version": 1,
+   "mg.capitalAgreement": "share",
+   "mg.capitalBatchMade": true,
+   "mg.capitalSold": true,
+   "mg.capitalAgreementSettled": true,
+   "mg.roomOwned": true,
+   "mg.roomRepaired": true,
+   "mg.roomUse": "inn",
+   "mg.roomSelaHosted": false,
+   "mg.roomTenantRequest": false,
+   "mg.bramOrder": "ordinary",
+   "mg.bramOrderDelivered": true,
+   "mg.plotRight": true,
+   "mg.cropStage": "planted",
+   "mg.cropType": "grain",
+   "mg.shop_mira_crate_closed": true,
+   "mg.shop_sela_greens_closed": true,
+   "mg.inn_sela_served": true,
+   "mg.auctionResult": "won",
+   "mg.displayedKind": "conserved",
+   "mg.selaAidTerms": "loan",
+   "mg.selaDebtOutstanding": true,
+   "mg.selaLoanExtended": true,
+   "mg.selaWorkReady": false,
+   "mg.selaWorkPaid": false,
+   "mg.eventBooked": true,
+   "mg.eventProgram": "exhibition_conserved",
+   "mg.shippingRight": true,
+   "mg.shippingPhase": "offered"
+  },
+  "completed": {
+   "mg.begin": 1,
+   "mg.orin.inspect": 1,
+   "mg.orin.share": 1,
+   "mg.orin.make_batch": 1,
+   "mg.orin.sell_batch": 1,
+   "mg.orin.settle_share": 1,
+   "mg.supply.log": 12,
+   "mg.mira.buy_room": 1,
+   "mg.mira.repair_room": 1,
+   "mg.room.use_rental": 1,
+   "mg.room.sela_stay": 1,
+   "mg.room.sela_request": 1,
+   "mg.room.answer_sela_repair": 1,
+   "mg.room.use_personal": 1,
+   "mg.room.personal_rest": 1,
+   "mg.room.use_workshop": 1,
+   "mg.room.workshop_batch": 2,
+   "mg.workshop.bram_ordinary": 1,
+   "mg.workshop.deliver_bram_ordinary": 1,
+   "mg.foreman.commission": 1,
+   "mg.farm.rent_plot": 1,
+   "mg.supply.seed": 3,
+   "mg.farm.plant_greens": 2,
+   "mg.farm.tend_crop": 2,
+   "mg.farm.grow_greens": 2,
+   "mg.farm.harvest_greens": 2,
+   "mg.shop.inspect": 1,
+   "mg.shop.sell_mira_crate_full": 1,
+   "mg.shop.sell_sela_greens_friendly": 1,
+   "mg.room.use_inn": 1,
+   "mg.inn.sela_greens": 1,
+   "mg.auction.inspect": 1,
+   "mg.auction.bid_high": 1,
+   "mg.restoration.inspect": 1,
+   "mg.supply.cloth": 1,
+   "mg.restoration.conserve": 1,
+   "mg.restoration.display_conserved": 1,
+   "mg.aid.sela_request": 1,
+   "mg.aid.lend_sela": 1,
+   "mg.aid.extend_sela_loan": 1,
+   "mg.event.book": 2,
+   "mg.event.cancel_booking": 1,
+   "mg.event.prepare_exhibition_conserved": 1,
+   "mg.farm.plant_grain": 1,
+   "mg.ship.hear_order": 1
+  },
+  "actors": {
+   "mg.mira": {
+    "facts": {
+     "mg.consent": true
+    },
+    "resources": {
+     "coins": 146
+    },
+    "completed": {},
+    "sources": {},
+    "techniques": {},
+    "worldId": "base.frontier"
+   },
+   "mg.orin": {
+    "facts": {
+     "mg.consent": true,
+     "mg.foremanReady": false
+    },
+    "resources": {
+     "coins": 37
+    },
+    "completed": {
+     "mg.foreman.execute": 1
+    },
+    "sources": {},
+    "techniques": {},
+    "worldId": "base.frontier"
+   },
+   "mg.sela": {
+    "facts": {
+     "mg.consent": true
+    },
+    "resources": {
+     "coins": 40
+    },
+    "completed": {},
+    "sources": {},
+    "techniques": {},
+    "worldId": "base.frontier"
+   },
+   "mg.bram": {
+    "facts": {
+     "mg.consent": true
+    },
+    "resources": {
+     "coins": 188
+    },
+    "completed": {},
+    "sources": {},
+    "techniques": {},
+    "worldId": "base.frontier"
+   }
+  },
+  "owners": {
+   "mg.mira": {
+    "{\"id\":\"Courtyard seed packet\"}": 13,
+    "{\"id\":\"Rough wood log\"}": 8,
+    "{\"id\":\"Linen cloth\"}": 9,
+    "{\"id\":\"Courtyard wood crate\"}": 1,
+    "{\"id\":\"Conserved courtyard heirloom\"}": 1
+   },
+   "mg.orin": {
+    "{\"id\":\"Rough wood log\"}": 4
+   },
+   "mg.sela": {
+    "{\"id\":\"Courtyard greens\"}": 1
+   },
+   "mg.bram": {
+    "{\"id\":\"Courtyard wood crate\"}": 3
+   }
+  },
+  "people": {
+   "mg.mira": {
+    "life": "alive",
+    "inventory": "simulation",
+    "location": "Village",
+    "bornAt": 0,
+    "definitionId": "mg.mira",
+    "definitionRevision": 1,
+    "createdBy": "player",
+    "vitals": {
+     "health": 20,
+     "max_health": 20,
+     "stamina": 20,
+     "max_stamina": 20
+    },
+    "body": {
+     "hands": 2
+    }
+   },
+   "mg.orin": {
+    "life": "alive",
+    "inventory": "simulation",
+    "location": "Village",
+    "bornAt": 0,
+    "definitionId": "mg.orin",
+    "definitionRevision": 1,
+    "createdBy": "player",
+    "vitals": {
+     "health": 20,
+     "max_health": 20,
+     "stamina": 16,
+     "max_stamina": 20
+    },
+    "body": {
+     "hands": 2
+    }
+   },
+   "mg.sela": {
+    "life": "alive",
+    "inventory": "simulation",
+    "location": "Village",
+    "bornAt": 0,
+    "definitionId": "mg.sela",
+    "definitionRevision": 1,
+    "createdBy": "player",
+    "vitals": {
+     "health": 20,
+     "max_health": 20,
+     "stamina": 20,
+     "max_stamina": 20
+    },
+    "body": {
+     "hands": 2
+    }
+   },
+   "mg.bram": {
+    "life": "alive",
+    "inventory": "simulation",
+    "location": "Village",
+    "bornAt": 0,
+    "definitionId": "mg.bram",
+    "definitionRevision": 1,
+    "createdBy": "player",
+    "vitals": {
+     "health": 20,
+     "max_health": 20,
+     "stamina": 20,
+     "max_stamina": 20
+    },
+    "body": {
+     "hands": 2
+    }
+   }
+  },
+  "sites": {
+   "mg.bench": {
+    "capacity": 1,
+    "reservations": {},
+    "owner": "player"
+   },
+   "mg.room": {
+    "capacity": 1,
+    "reservations": {},
+    "owner": "player"
+   },
+   "mg.plot": {
+    "capacity": 1,
+    "reservations": {},
+    "owner": "player"
+   },
+   "mg.venue": {
+    "capacity": 1,
+    "reservations": {},
+    "owner": "player"
+   },
+   "mg.dispatch": {
+    "capacity": 1,
+    "reservations": {
+     "simulation:83": "player"
+    },
+    "owner": "player"
+   }
+  },
+  "claims": {
+   "mg01.agreement": {
+    "owner": "player",
+    "status": "settled",
+    "cause": "simulation:8",
+    "at": 14
+   },
+   "mg01.share.settlement": {
+    "owner": "player",
+    "status": "settled",
+    "cause": "simulation:14",
+    "at": 23
+   },
+   "mg02.room.deed": {
+    "owner": "player",
+    "status": "settled",
+    "cause": "simulation:27",
+    "at": 50
+   },
+   "mg02.sela.request": {
+    "owner": "player",
+    "status": "settled",
+    "cause": "simulation:31",
+    "at": 63
+   },
+   "mg02.sela.request.response": {
+    "owner": "player",
+    "status": "settled",
+    "cause": "simulation:32",
+    "at": 64
+   },
+   "mg07.bram.order": {
+    "owner": "player",
+    "status": "settled",
+    "cause": "simulation:41",
+    "at": 97
+   },
+   "mg07.bram.delivery": {
+    "owner": "player",
+    "status": "settled",
+    "cause": "simulation:42",
+    "at": 101
+   },
+   "mg03.shop.mira_crate": {
+    "owner": "player",
+    "status": "settled",
+    "cause": "simulation:59",
+    "at": 166
+   },
+   "mg03.shop.sela_greens": {
+    "owner": "player",
+    "status": "settled",
+    "cause": "simulation:60",
+    "at": 167
+   },
+   "mg03.inn.sela": {
+    "owner": "player",
+    "status": "settled",
+    "cause": "simulation:64",
+    "at": 171
+   },
+   "mg04.auction.inspection": {
+    "owner": "player",
+    "status": "settled",
+    "cause": "simulation:65",
+    "at": 187
+   },
+   "mg04.auction.mira.heirloom": {
+    "owner": "player",
+    "status": "settled",
+    "cause": "simulation:66",
+    "at": 188
+   },
+   "mg08.sela.request": {
+    "owner": "player",
+    "status": "settled",
+    "cause": "simulation:73",
+    "at": 207
+   },
+   "mg08.sela.terms": {
+    "owner": "player",
+    "status": "settled",
+    "cause": "simulation:74",
+    "at": 208
+   },
+   "mg08.sela.loan.extension": {
+    "owner": "player",
+    "status": "settled",
+    "cause": "simulation:75",
+    "at": 209
+   }
+  },
+  "knowledge": {
+   "mg.charter": {
+    "stage": "seen",
+    "value": "Mira offers a room concession, seeds, cloth and logs. Orin seeks a wood-goods partner. Sela wants useful work and lodging. Bram has a finite order budget. Their offers apply only in this Village courtyard.",
+    "at": 0,
+    "cause": "simulation:5",
+    "basis": {
+     "kind": "instruction",
+     "attributedTo": "mg.mira",
+     "situationId": "mg.courtyard"
+    }
+   },
+   "mg.orin.enterprise": {
+    "stage": "seen",
+    "value": "Orin has six actual logs, a finite purse and one small batch he can make room for. Bram has one quoted purchase worth six coins if the crate is delivered. A share costs three coins and pays four from Orin only after that sale. A goods advance transfers two logs now; after the sale, repay three coins to Orin. The buyer must have the six coins at sale time.",
+    "at": 13,
+    "cause": "simulation:7",
+    "basis": {
+     "kind": "instruction",
+     "attributedTo": "mg.orin",
+     "situationId": "mg.courtyard"
+    }
+   },
+   "mg.capitalAgreement": {
+    "stage": "seen",
+    "value": "Share chosen: three coins invested; two Orin logs supplied; four coins return only after the actual Bram sale.",
+    "at": 14,
+    "cause": "simulation:8",
+    "basis": {
+     "kind": "instruction",
+     "attributedTo": "mg.orin",
+     "situationId": "mg.courtyard"
+    }
+   },
+   "mg.capitalBatch": {
+    "stage": "seen",
+    "value": "Made one actual courtyard wood crate from the two reserved Orin logs. It remains unsold until delivered to Bram.",
+    "at": 22,
+    "cause": "simulation:11",
+    "basis": {
+     "kind": "observation",
+     "attributedTo": "player",
+     "situationId": "mg.courtyard"
+    }
+   },
+   "mg.capitalSale": {
+    "stage": "seen",
+    "value": "Bram bought and received the actual share-batch crate for six coins paid to Orin.",
+    "at": 22,
+    "cause": "simulation:13",
+    "basis": {
+     "kind": "instruction",
+     "attributedTo": "mg.bram",
+     "situationId": "mg.courtyard"
+    }
+   },
+   "mg.capitalSettlement": {
+    "stage": "seen",
+    "value": "Orin paid the one four-coin share return after the actual sale; this share is settled.",
+    "at": 23,
+    "cause": "simulation:14",
+    "basis": {
+     "kind": "instruction",
+     "attributedTo": "mg.orin",
+     "situationId": "mg.courtyard"
+    }
+   },
+   "mg.roomRight": {
+    "stage": "seen",
+    "value": "Bought Mira’s one room concession. It grants the right to use the room; repair and each use remain separate choices.",
+    "at": 50,
+    "cause": "simulation:27",
+    "basis": {
+     "kind": "instruction",
+     "attributedTo": "mg.mira",
+     "situationId": "mg.courtyard"
+    }
+   },
+   "mg.roomCondition": {
+    "stage": "seen",
+    "value": "Repaired the actual room concession with one log. The room can now be assigned one use at a time.",
+    "at": 55,
+    "cause": "simulation:28",
+    "basis": {
+     "kind": "observation",
+     "attributedTo": "player",
+     "situationId": "mg.courtyard"
+    }
+   },
+   "mg.roomUse": {
+    "stage": "seen",
+    "value": "Assigned the repaired room to inn use. Changing use requires the room to be free of an active commitment.",
+    "at": 168,
+    "cause": "simulation:61",
+    "basis": {
+     "kind": "observation",
+     "attributedTo": "player",
+     "situationId": "mg.courtyard"
+    }
+   },
+   "mg.roomRental": {
+    "stage": "seen",
+    "value": "Sela completed one paid lodging period in the repaired room. Her two coins transferred at completion.",
+    "at": 62,
+    "cause": "simulation:30",
+    "basis": {
+     "kind": "instruction",
+     "attributedTo": "mg.sela",
+     "situationId": "mg.courtyard"
+    }
+   },
+   "mg.roomTenantRequest": {
+    "stage": "seen",
+    "value": "After her completed stay, Sela asked for one small room repair. You may spend a real log and time to help, or end future rental.",
+    "at": 63,
+    "cause": "simulation:31",
+    "basis": {
+     "kind": "instruction",
+     "attributedTo": "mg.sela",
+     "situationId": "mg.courtyard"
+    }
+   },
+   "mg.roomTenantResponse": {
+    "stage": "seen",
+    "value": "Used one real log and three minutes to complete Sela’s requested repair. Her completed stay remains a separate finite record.",
+    "at": 67,
+    "cause": "simulation:32",
+    "basis": {
+     "kind": "instruction",
+     "attributedTo": "mg.sela",
+     "situationId": "mg.courtyard"
+    }
+   },
+   "mg.room.privateRest": {
+    "stage": "seen",
+    "value": "Spent three played minutes resting in your repaired private room, restoring two stamina. No rent or guest commitment was created.",
+    "at": 72,
+    "cause": "simulation:34",
+    "basis": {
+     "kind": "observation",
+     "attributedTo": "player",
+     "situationId": "mg.courtyard"
+    }
+   },
+   "mg.roomWorkshop": {
+    "stage": "seen",
+    "value": "Made one actual crate using the room as a workshop. The product is still player stock and can be sold through a supported buyer.",
+    "at": 94,
+    "cause": "simulation:37",
+    "basis": {
+     "kind": "observation",
+     "attributedTo": "player",
+     "situationId": "mg.courtyard"
+    }
+   },
+   "mg.bram.order": {
+    "stage": "seen",
+    "value": "Accepted and completed Bram’s one ordinary-crate order at the shared bench. Two actual logs made one Courtyard wood crate; delivery is still required for the quoted six-coin payment.",
+    "at": 101,
+    "cause": "simulation:41",
+    "basis": {
+     "kind": "instruction",
+     "attributedTo": "mg.bram",
+     "situationId": "mg.courtyard"
+    }
+   },
+   "mg.bram.delivery": {
+    "stage": "seen",
+    "value": "Delivered the actual ordinary Courtyard wood crate to Bram. Six coins moved from his finite purse once for this accepted order.",
+    "at": 101,
+    "cause": "simulation:42",
+    "basis": {
+     "kind": "instruction",
+     "attributedTo": "mg.bram",
+     "situationId": "mg.courtyard"
+    }
+   },
+   "mg.foreman.terms": {
+    "stage": "seen",
+    "value": "Commissioned Orin with exactly two logs and two coins. One order only; labor uses his own two stamina and four played minutes at the actual courtyard bench. Cancellation returns the two logs, not his already-paid fee.",
+    "at": 102,
+    "cause": "simulation:43",
+    "basis": {
+     "kind": "instruction",
+     "attributedTo": "mg.orin",
+     "situationId": "mg.courtyard"
+    }
+   },
+   "mg.foreman.delivered": {
+    "stage": "seen",
+    "value": "Orin finished the one commissioned crate using two actual supplied logs and his own stamina. The crate returned to your carried inventory once; no extra spending or new order was authorized.",
+    "at": 107,
+    "cause": "simulation:44",
+    "basis": {
+     "kind": "instruction",
+     "attributedTo": "mg.orin",
+     "situationId": "mg.courtyard"
+    }
+   },
+   "mg.plotRight": {
+    "stage": "seen",
+    "value": "Paid Mira four coins for use of the single Village courtyard plot. Seed, effort and each harvest remain separate.",
+    "at": 115,
+    "cause": "simulation:45",
+    "basis": {
+     "kind": "instruction",
+     "attributedTo": "mg.mira",
+     "situationId": "mg.courtyard"
+    }
+   },
+   "mg.cropPlan": {
+    "stage": "seen",
+    "value": "Planted one packet of grain. Tend the planted crop, then spend played time growing it to harvest readiness.",
+    "at": 218,
+    "cause": "simulation:81",
+    "basis": {
+     "kind": "observation",
+     "attributedTo": "player",
+     "situationId": "mg.courtyard"
+    }
+   },
+   "mg.cropCare": {
+    "stage": "seen",
+    "value": "Tended the planted crop with one stamina. Growth can now be started; only a ready crop can be harvested.",
+    "at": 154,
+    "cause": "simulation:55",
+    "basis": {
+     "kind": "observation",
+     "attributedTo": "player",
+     "situationId": "mg.courtyard"
+    }
+   },
+   "mg.cropReady": {
+    "stage": "seen",
+    "value": "The tended greens are ready. Harvest the actual greens before planting another crop.",
+    "at": 164,
+    "cause": "simulation:56",
+    "basis": {
+     "kind": "observation",
+     "attributedTo": "player",
+     "situationId": "mg.courtyard"
+    }
+   },
+   "mg.cropHarvest": {
+    "stage": "seen",
+    "value": "Harvested three actual portions of greens from the ready crop. This crop cannot be harvested again.",
+    "at": 164,
+    "cause": "simulation:57",
+    "basis": {
+     "kind": "observation",
+     "attributedTo": "player",
+     "situationId": "mg.courtyard"
+    }
+   },
+   "mg.shop.quotes": {
+    "stage": "seen",
+    "value": "Mira will buy one actual Courtyard wood crate for six coins at full price or five coins as friendly service. Sela will buy one actual Courtyard greens portion for four coins full or three coins friendly. Bram will buy one actual Fine courtyard crate for ten coins full or eight coins friendly. Each offer is finite, uses the buyer’s actual purse, and closes after one sale.",
+    "at": 165,
+    "cause": "simulation:58",
+    "basis": {
+     "kind": "instruction",
+     "attributedTo": "mg.mira",
+     "situationId": "mg.courtyard"
+    }
+   },
+   "mg.shop.mira_crate": {
+    "stage": "seen",
+    "value": "Sold one actual crate to Mira for 6 coins. This finite customer offer is complete.",
+    "at": 166,
+    "cause": "simulation:59",
+    "basis": {
+     "kind": "instruction",
+     "attributedTo": "mg.mira",
+     "situationId": "mg.courtyard"
+    }
+   },
+   "mg.shop.sela_greens": {
+    "stage": "seen",
+    "value": "Sold one actual greens to Sela for 3 coins at the friendly price. This finite customer offer is complete.",
+    "at": 167,
+    "cause": "simulation:60",
+    "basis": {
+     "kind": "instruction",
+     "attributedTo": "mg.sela",
+     "situationId": "mg.courtyard"
+    }
+   },
+   "mg.inn.sela": {
+    "stage": "seen",
+    "value": "Sela completed one greens meal in the repaired inn. One real greens portion was served and three of her coins were paid to you.",
+    "at": 175,
+    "cause": "simulation:64",
+    "basis": {
+     "kind": "instruction",
+     "attributedTo": "mg.sela",
+     "situationId": "mg.courtyard"
+    }
+   },
+   "mg.auction.heirloom.condition": {
+    "stage": "seen",
+    "value": "Mira’s one damaged courtyard heirloom is chipped and loose at the join. It is still a real damaged item and can be conserved with cloth or restored with wood. Inspection does not reveal a future value.",
+    "at": 187,
+    "cause": "simulation:65",
+    "basis": {
+     "kind": "instruction",
+     "attributedTo": "mg.mira",
+     "situationId": "mg.courtyard"
+    }
+   },
+   "mg.auction.result": {
+    "stage": "seen",
+    "value": "Set a ten-coin ceiling and won Mira’s actual damaged courtyard heirloom at the published eight-coin clearing price. The ceiling was not charged.",
+    "at": 188,
+    "cause": "simulation:66",
+    "basis": {
+     "kind": "instruction",
+     "attributedTo": "mg.mira",
+     "situationId": "mg.courtyard"
+    }
+   },
+   "mg.restoration.condition": {
+    "stage": "seen",
+    "value": "The actual damaged courtyard heirloom has a loose join and chipped surface. A linen-cloth conservation can prepare it for a local display; a log-supported repair makes it sale-grade. This is an ordinary condition report, not a valuation or provenance claim.",
+    "at": 189,
+    "cause": "simulation:67",
+    "basis": {
+     "kind": "observation",
+     "attributedTo": "player",
+     "situationId": "mg.courtyard"
+    }
+   },
+   "mg.restoration.conserved": {
+    "stage": "seen",
+    "value": "Conserved one actual damaged heirloom with one real linen cloth at the shared bench. The resulting conserved object remains in your inventory until you display it or use another supported route.",
+    "at": 198,
+    "cause": "simulation:71",
+    "basis": {
+     "kind": "instruction",
+     "attributedTo": "mg.mira",
+     "situationId": "mg.courtyard"
+    }
+   },
+   "mg.restoration.display": {
+    "stage": "seen",
+    "value": "Placed one actual conserved heirloom in Mira’s courtyard display. It is held in Mira’s stock and cannot also be sold. Withdraw the same object before taking it elsewhere.",
+    "at": 198,
+    "cause": "simulation:72",
+    "basis": {
+     "kind": "instruction",
+     "attributedTo": "mg.mira",
+     "situationId": "mg.courtyard"
+    }
+   },
+   "mg.sela.aid_request": {
+    "stage": "seen",
+    "value": "Sela needs eight coins for a local expense. A loan creates only an eight-coin principal claim; a gift creates no debt; refusal changes no money or obligation.",
+    "at": 207,
+    "cause": "simulation:73",
+    "basis": {
+     "kind": "instruction",
+     "attributedTo": "mg.sela",
+     "situationId": "mg.courtyard"
+    }
+   },
+   "mg.sela.aid_terms": {
+    "stage": "seen",
+    "value": "Chose an eight-coin loan. Sela received the actual coins; the same principal is collectible only after her useful commissioned work pays her.",
+    "at": 208,
+    "cause": "simulation:74",
+    "basis": {
+     "kind": "instruction",
+     "attributedTo": "mg.sela",
+     "situationId": "mg.courtyard"
+    }
+   },
+   "mg.sela.loan_extension": {
+    "stage": "seen",
+    "value": "Sela consented to one extension of the same eight-coin principal until after her funded work. No new money, interest or larger claim was added.",
+    "at": 209,
+    "cause": "simulation:75",
+    "basis": {
+     "kind": "instruction",
+     "attributedTo": "mg.sela",
+     "situationId": "mg.courtyard"
+    }
+   },
+   "mg.event.booking": {
+    "stage": "seen",
+    "value": "Booked the courtyard venue for one event by paying Mira two actual coins. Choose and prepare one programme before hosting.",
+    "at": 212,
+    "cause": "simulation:78",
+    "basis": {
+     "kind": "instruction",
+     "attributedTo": "mg.mira",
+     "situationId": "mg.courtyard"
+    }
+   },
+   "mg.event.cancellation": {
+    "stage": "seen",
+    "value": "Cancelled the unhosted courtyard booking. Mira returned the same two-coin venue fee from her actual purse; no food or displayed object was consumed.",
+    "at": 211,
+    "cause": "simulation:77",
+    "basis": {
+     "kind": "instruction",
+     "attributedTo": "mg.mira",
+     "situationId": "mg.courtyard"
+    }
+   },
+   "mg.event.program.exhibition_conserved": {
+    "stage": "seen",
+    "value": "Prepare a conserved-object exhibition is prepared for the booked courtyard. Bram offers a finite eight-coin sponsorship for an exhibition featuring the actual conserved object in Mira’s display. The object stays with Mira.",
+    "at": 213,
+    "cause": "simulation:79",
+    "basis": {
+     "kind": "instruction",
+     "attributedTo": "mg.mira",
+     "situationId": "mg.courtyard"
+    }
+   },
+   "mg.shippingOffer": {
+    "stage": "seen",
+    "value": "Bram authorized one shipment from the Village courtyard. Local quotes: one wood crate for 8 coins or one fine crate for 14. Escorted quotes: one wood crate for 12 coins or one fine crate for 18, with a 2-coin Orin escort fee. Bram pays only after actual delivery.",
+    "at": 236,
+    "cause": "simulation:82",
+    "basis": {
+     "kind": "instruction",
+     "attributedTo": "mg.bram",
+     "situationId": "mg.courtyard"
+    }
+   }
+  },
+  "jobs": [
+   {
+    "id": "simulation:83",
+    "sequence": 83,
+    "commandId": "mg.ship.crate.escorted",
+    "revision": 1,
+    "actorId": "player",
+    "targetId": "mg.bram",
+    "due": 243,
+    "effects": [
+     {
+      "type": "resource",
+      "actor": "mg.orin",
+      "key": "coins",
+      "amount": 2
+     },
+     {
+      "type": "resource",
+      "actor": "mg.bram",
+      "key": "coins",
+      "amount": -12
+     },
+     {
+      "type": "resource",
+      "actor": "player",
+      "native": true,
+      "key": "money",
+      "amount": 12
+     },
+     {
+      "type": "fact",
+      "actor": "player",
+      "scope": "actor",
+      "key": "mg.shippingDelivered",
+      "value": true
+     },
+     {
+      "type": "fact",
+      "actor": "player",
+      "scope": "actor",
+      "key": "mg.shippingPhase",
+      "value": "delivered"
+     },
+     {
+      "type": "knowledge",
+      "actor": "player",
+      "key": "mg.shippingReceipt",
+      "stage": "seen",
+      "value": "Bram received one actual Courtyard wood crate by escorted route and paid 12 coins from his purse. This one-order shipment is settled.",
+      "basis": {
+       "kind": "instruction",
+       "attributedTo": "mg.bram",
+       "situationId": "mg.courtyard"
+      }
+     },
+     {
+      "type": "relationship",
+      "actor": "player",
+      "target": "mg.bram",
+      "axis": "trust",
+      "amount": 1
+     }
+    ],
+    "costs": [
+     {
+      "type": "transfer",
+      "key": "{\"id\":\"Courtyard wood crate\"}",
+      "count": 1,
+      "from": "player",
+      "to": "mg.bram"
+     },
+     {
+      "type": "resource",
+      "actor": "player",
+      "native": true,
+      "key": "money",
+      "amount": -2
+     },
+     {
+      "type": "vital",
+      "actor": "mg.orin",
+      "key": "stamina",
+      "amount": -2
+     }
+    ],
+    "cancellation": "refund",
+    "siteId": "mg.dispatch",
+    "claim": null,
+    "label": "Ship Courtyard wood crate · escorted shipment · 6 min + 2 coin Orin escort fee",
+    "roll": null,
+    "outcomeId": null,
+    "context": {
+     "actorId": "player",
+     "targetId": "mg.bram",
+     "partyIds": []
+    },
+    "participants": [
+     "player",
+     "mg.bram",
+     "mg.orin"
+    ],
+    "reservationReturns": 1,
+    "completionSupport": {
+     "schema": 1,
+     "requires": {
+      "all": [
+       {
+        "fact": "management.supported",
+        "op": "eq",
+        "value": true,
+        "reason": "Return to Village with your living native body and available played-time services."
+       },
+       {
+        "fact": "actor.mg.opened",
+        "op": "eq",
+        "value": true
+       },
+       {
+        "all": [
+         {
+          "all": [
+           {
+            "fact": "management.present.mg.bram",
+            "op": "eq",
+            "value": true,
+            "reason": "The named local person needs a living body, consent and available attention here."
+           },
+           {
+            "fact": "actor.mg.shippingRight",
+            "op": "eq",
+            "value": true
+           },
+           {
+            "fact": "actor.mg.shippingPhase",
+            "op": "eq",
+            "value": "offered"
+           },
+           {
+            "not": {
+             "fact": "actor.mg.shippingDelivered",
+             "op": "eq",
+             "value": true
+            }
+           },
+           {
+            "fact": "management.coins.mg.bram",
+            "op": "gte",
+            "value": 12,
+            "reason": "The quoted payer must have the actual coins; no automatic credit is created."
+           }
+          ]
+         },
+         {
+          "fact": "management.present.mg.orin",
+          "op": "eq",
+          "value": true,
+          "reason": "The named local person needs a living body, consent and available attention here."
+         }
+        ]
+       }
+      ]
+     },
+     "coLocated": true,
+     "location": "Village",
+     "failure": "refund"
+    }
+   }
+  ],
+  "programs": {
+   "player": {
+    "commandId": "mg.room.workshop_batch",
+    "remaining": 1,
+    "status": "paused",
+    "targetId": null
+   }
+  }
+ }
+}

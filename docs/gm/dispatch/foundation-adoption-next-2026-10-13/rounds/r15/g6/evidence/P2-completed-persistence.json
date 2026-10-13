@@ -1,0 +1,162 @@
+{
+ "exportedSha256": "69b116f232773486454f029cb1a4f1bb0c7af1a551ec289c0fc1361984cecbb4",
+ "reloadSame": true,
+ "import1Same": true,
+ "import2Same": true,
+ "completed": {
+  "money": 89,
+  "clock": 288,
+  "facts": {
+   "mg.opened": true,
+   "mg.version": 1,
+   "mg.capitalAgreement": "share",
+   "mg.capitalBatchMade": true,
+   "mg.capitalSold": true,
+   "mg.capitalAgreementSettled": true,
+   "mg.roomOwned": true,
+   "mg.roomRepaired": true,
+   "mg.roomUse": "inn",
+   "mg.roomSelaHosted": false,
+   "mg.roomTenantRequest": false,
+   "mg.bramOrder": "ordinary",
+   "mg.bramOrderDelivered": true,
+   "mg.plotRight": true,
+   "mg.cropStage": "harvested",
+   "mg.cropType": "grain",
+   "mg.shop_mira_crate_closed": true,
+   "mg.shop_sela_greens_closed": true,
+   "mg.inn_sela_served": true,
+   "mg.auctionResult": "won",
+   "mg.displayedKind": false,
+   "mg.selaAidTerms": "loan",
+   "mg.selaDebtOutstanding": false,
+   "mg.selaLoanExtended": true,
+   "mg.selaWorkReady": false,
+   "mg.selaWorkPaid": true,
+   "mg.eventBooked": false,
+   "mg.eventProgram": false,
+   "mg.shippingRight": true,
+   "mg.shippingPhase": "delivered",
+   "mg.shippingDelivered": true
+  },
+  "npc": {
+   "mg.mira": {
+    "coins": 134,
+    "stock": {
+     "{\"id\":\"Courtyard seed packet\"}": 13,
+     "{\"id\":\"Rough wood log\"}": 8,
+     "{\"id\":\"Linen cloth\"}": 9,
+     "{\"id\":\"Courtyard wood crate\"}": 2
+    },
+    "stamina": 20
+   },
+   "mg.orin": {
+    "coins": 39,
+    "stock": {
+     "{\"id\":\"Rough wood log\"}": 4
+    },
+    "stamina": 16
+   },
+   "mg.sela": {
+    "coins": 42,
+    "stock": {
+     "{\"id\":\"Courtyard greens\"}": 1
+    },
+    "stamina": 20
+   },
+   "mg.bram": {
+    "coins": 168,
+    "stock": {
+     "{\"id\":\"Courtyard wood crate\"}": 3
+    },
+    "stamina": 20
+   }
+  },
+  "jobs": [],
+  "program": {
+   "commandId": "mg.room.workshop_batch",
+   "remaining": 1,
+   "status": "paused",
+   "targetId": null
+  },
+  "completed": {
+   "mg.begin": 1,
+   "mg.orin.inspect": 1,
+   "mg.orin.share": 1,
+   "mg.orin.make_batch": 1,
+   "mg.orin.sell_batch": 1,
+   "mg.orin.settle_share": 1,
+   "mg.supply.log": 12,
+   "mg.mira.buy_room": 1,
+   "mg.mira.repair_room": 1,
+   "mg.room.use_rental": 1,
+   "mg.room.sela_stay": 1,
+   "mg.room.sela_request": 1,
+   "mg.room.answer_sela_repair": 1,
+   "mg.room.use_personal": 1,
+   "mg.room.personal_rest": 1,
+   "mg.room.use_workshop": 1,
+   "mg.room.workshop_batch": 2,
+   "mg.workshop.bram_ordinary": 1,
+   "mg.workshop.deliver_bram_ordinary": 1,
+   "mg.foreman.commission": 1,
+   "mg.farm.rent_plot": 1,
+   "mg.supply.seed": 3,
+   "mg.farm.plant_greens": 2,
+   "mg.farm.tend_crop": 3,
+   "mg.farm.grow_greens": 2,
+   "mg.farm.harvest_greens": 2,
+   "mg.shop.inspect": 1,
+   "mg.shop.sell_mira_crate_full": 1,
+   "mg.shop.sell_sela_greens_friendly": 1,
+   "mg.room.use_inn": 1,
+   "mg.inn.sela_greens": 1,
+   "mg.auction.inspect": 1,
+   "mg.auction.bid_high": 1,
+   "mg.restoration.inspect": 1,
+   "mg.supply.cloth": 1,
+   "mg.restoration.conserve": 1,
+   "mg.restoration.display_conserved": 1,
+   "mg.aid.sela_request": 1,
+   "mg.aid.lend_sela": 1,
+   "mg.aid.extend_sela_loan": 1,
+   "mg.event.book": 2,
+   "mg.event.cancel_booking": 1,
+   "mg.event.prepare_exhibition_conserved": 1,
+   "mg.farm.plant_grain": 1,
+   "mg.ship.hear_order": 1,
+   "mg.ship.crate.escorted": 1,
+   "mg.event.host_exhibition_conserved": 1,
+   "mg.aid.mira_funded_work": 1,
+   "mg.aid.deliver_mira_work": 1,
+   "mg.aid.repay_sela_loan": 1,
+   "mg.restoration.withdraw_conserved": 1,
+   "mg.farm.grow_grain": 1,
+   "mg.farm.harvest_grain": 1
+  }
+ },
+ "inventory": {
+  "{\"id\":\"Cheap leather pants\",\"quality\":40}": {
+   "count": 1
+  },
+  "{\"id\":\"Stale bread\"}": {
+   "count": 5
+  },
+  "{\"id\":\"Rough wood log\"}": {
+   "count": 2
+  },
+  "{\"id\":\"Courtyard wood crate\"}": {
+   "count": 1
+  },
+  "{\"id\":\"Courtyard greens\"}": {
+   "count": 4
+  },
+  "{\"id\":\"Conserved courtyard heirloom\"}": {
+   "count": 1
+  },
+  "{\"id\":\"Courtyard grain\"}": {
+   "count": 5
+  }
+ },
+ "errors": []
+}

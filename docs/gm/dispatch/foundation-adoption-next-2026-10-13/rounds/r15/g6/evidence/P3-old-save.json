@@ -1,0 +1,53 @@
+{
+ "baseBundle": "http://127.0.0.1:19162/dist/bundle.js?version=v0.6-0219035cdbca",
+ "natural": {
+  "differing": [
+   "availabilities"
+  ],
+  "mgKeysInCandidate": 0,
+  "candidatePanel": {
+   "visible": true,
+   "rows": [
+    "Visit the market courtyard · optional, free"
+   ]
+  },
+  "base": {
+   "errors": [],
+   "bundle": "http://127.0.0.1:19162/dist/bundle.js?version=v0.6-0219035cdbca",
+   "money": 102,
+   "location": "Village"
+  },
+  "candidate": {
+   "errors": [],
+   "bundle": "http://127.0.0.1:19160/dist/bundle.js?version=v0.6-6270d46aa670",
+   "money": 102,
+   "location": "Village"
+  },
+  "expansionSimulationEqual": true
+ },
+ "d1": {
+  "differing": [
+   "availabilities"
+  ],
+  "mgKeysInCandidate": 0,
+  "candidatePanel": {
+   "visible": true,
+   "rows": [
+    "Visit the market courtyard · optional, free"
+   ]
+  },
+  "base": {
+   "errors": [],
+   "bundle": "http://127.0.0.1:19162/dist/bundle.js?version=v0.6-0219035cdbca",
+   "money": 1000,
+   "location": "Village"
+  },
+  "candidate": {
+   "errors": [],
+   "bundle": "http://127.0.0.1:19160/dist/bundle.js?version=v0.6-6270d46aa670",
+   "money": 1000,
+   "location": "Village"
+  },
+  "expansionSimulationEqual": true
+ }
+}

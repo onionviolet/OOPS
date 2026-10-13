@@ -1,0 +1,28 @@
+// MG06 natural: rent plot, buy seed, cancel a planting (refund), plant greens, tend, grow, harvest once.
+const greens = '{"id":"Courtyard greens"}', seed = '{"id":"Courtyard seed packet"}';
+const inv = s => s.inventories.person.main_character;
+const a = await snap('MG06 before');
+expect(!(await has('Harvest ready greens')), 'no harvest action on an unplanted plot');
+await h.mg('Rent Mira’s local plot');
+await h.mg('Buy one courtyard seed packet');
+await h.mg('Buy one courtyard seed packet');
+const rented = await snap('MG06 rented, 2 seeds');
+expect(rented.st.money === a.st.money - 8 && inv(rented.s)[seed].count === 2, 'plot 4 + seeds 2x2');
+await h.mg('Plant quick greens');
+const planting = await snap('MG06 planting');
+const vitalsWhileWorking = await page.evaluate(() => [...document.querySelectorAll('div')].find(d => /^\d+\/\d+ stamina$/.test(d.innerText?.trim()))?.innerText);
+await h.mg('Cancel Plant quick greens');
+const back = await snap('MG06 planting cancelled');
+expect(inv(back.s)[seed].count === 2 && back.st.facts['mg.cropStage'] === false || inv(back.s)[seed].count === 2 && back.st.facts['mg.cropStage'] === undefined, 'cancel refunded seed, no crop');
+await h.mg('Plant quick greens');
+await idle();
+expect(!(await enabled('Plant grain')), 'occupied plot cannot be replanted');
+await h.mg('Tend the planted crop');
+await idle();
+await h.mg('Grow tended greens');
+await idle();
+await h.mg('Harvest ready greens');
+const harvested = await snap('MG06 harvested');
+expect(inv(harvested.s)[greens].count === 3 && harvested.st.facts['mg.cropStage'] === 'harvested', 'three greens once');
+expect(!(await has('Harvest ready greens')), 'second harvest unavailable');
+return {vitalsWhileWorking, rows: journal.slice(-5).map(j => [j.label, j.money, JSON.stringify(j.inventory), j.facts['mg.cropStage'], j.jobs.map(x => x.command).join(',')])};

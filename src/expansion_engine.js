@@ -1,6 +1,7 @@
 import {nativeEquipmentSnapshot} from './native_equipment_transaction.js';
 import {nextContainerBoundary} from './structured_container_runtime.js';
 import {advanceNativeContainerClocks} from './simulation_effects.js';
+import {validateManagementState} from './management/validation.js';
 import {validateSteamAbsorptionState} from './steam_absorption_facts.js';
 import {validateContextualBalmState} from './contextual_balm_facts.js';
 import {validateCoolingRefinement, migrateCoolingRefinementSituation} from './cooling_refinement_facts.js';
@@ -144,6 +145,7 @@ export function validateExpansionState(state, registry) {
     validateAuditRemainderProjects(state,registry);
     validateChronicle(state.chronicle, state.clock);
     validateSimulationState(state.simulation, state, registry?.simulation);
+    validateManagementState(state,registry?.simulation);
     validateHomeFurnishings(state,registry);
     validateCrushSocial(state,registry);
     validateStatusCareState(state,registry);

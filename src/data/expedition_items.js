@@ -1,3 +1,4 @@
+import {registerManagementItems} from '../management/foundation.js';
 import {steamBOHItemSpecifications} from '../steam_boh_content.js';
 import {registerGameAbsorptionAssayItems} from '../game_absorption_assay_content.js';
 import {worldCompletionItemSpecifications} from '../world_completion_content.js';
@@ -15,6 +16,8 @@ import {registerFeatureObjectItems} from '../feature_expansion_objects.js';
 import {FEATURE_POWER_ITEMS} from '../feature_expansion_powers.js';
 import {registerReferenceGameplayItems} from '../reference_gameplay_content.js';
 import {item_templates, OtherItem} from "../items.js";
+
+registerManagementItems({itemTemplates:item_templates,OtherItem});
 
 // Original provisional supplies, registered through the existing item model.
 for(const [id, description, value] of [
