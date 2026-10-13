@@ -8,17 +8,20 @@ export function createPeopleOverview() {
     const cards = new Map();
     function render(state, facts) {
         const rows = knownPeopleView(state, facts);
+        // View-only: two distinct known people never share one heading.
+        const shared = name => rows.filter(row => row.name === name).length > 1;
+        const title = row => shared(row.name) ? `${row.name} (${row.location.replace(/^[^:]*:\s*/, "")})` : row.name;
         panel.hidden = !rows.length;
         for(const row of rows) {
             let card = cards.get(row.id);
             if(!card) {
-                const root = node("details"), heading = node("summary", row.name), location = node("p"), details = node("div"), history = node("ul");
+                const root = node("details"), heading = node("summary", title(row)), location = node("p"), details = node("div"), history = node("ul");
                 root.dataset.knownPerson = row.id; root.append(heading, location, details, history); list.append(root);
                 card = {root, heading, location, details, history, signature:""}; cards.set(row.id, card);
             }
-            const signature = JSON.stringify(row);
+            const signature = JSON.stringify([title(row), row]);
             if(signature !== card.signature) {
-                card.signature = signature; card.heading.textContent = row.name; card.location.textContent = row.location;
+                card.signature = signature; card.heading.textContent = title(row); card.location.textContent = row.location;
                 card.details.replaceChildren(...row.details.map(text => node("p", text)));
                 card.history.replaceChildren(...row.memories.map(m => node("li", m.text))); card.history.hidden = !row.memories.length;
             }
