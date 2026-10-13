@@ -16,7 +16,7 @@ Decompile or source-read every queued game Weibao already owns. Re-run the local
 |---:|---|---|
 | 1 | Legends of Idleon | How each new world introduces a distinct system across one character roster |
 | 2 | NGU IDLE | How 10+ parallel progression systems unlock in order and stay legible across rebirths |
-| 3 | CivIdle | Age/tech prestige and production-chain offline catch-up; check for public source first |
+| 3 | CivIdle | Age/tech prestige and production-chain offline catch-up. Official source is public ([fishpondstudio/CivIdle](https://github.com/fishpondstudio/CivIdle), GPL-3.0), so no install is needed; lane `cividle` started 2026-10-13 |
 | 4 | Reverend Insanity playtest | How a licensed cultivation-novel adaptation turns Gu rules into game state; access may have closed |
 
 ## Short list
