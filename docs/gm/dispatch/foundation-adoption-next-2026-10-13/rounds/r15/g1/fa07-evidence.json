@@ -1,0 +1,413 @@
+{
+ "bundle": {
+  "url": "http://127.0.0.1:19110/dist/bundle.js?version=v0.6-75230b041c4b",
+  "loaded": "75230b041c4b5551ec2a924d0882bb104ad2d90c92b523f9018496a976c84672",
+  "disk": "75230b041c4b5551ec2a924d0882bb104ad2d90c92b523f9018496a976c84672"
+ },
+ "steps": {
+  "S_scrape": {
+   "fixture": {
+    "name": "TEST FIXTURE R15 G1 FA07 balm",
+    "balm": 2,
+    "log": 1,
+    "money": 102
+   },
+   "afterRoughKit": {
+    "clock": 4,
+    "scraped": "until 24",
+    "jobs": [],
+    "balm": 2,
+    "effects": {},
+    "receipt": null,
+    "done": 0,
+    "log": 0,
+    "money": 101
+   },
+   "unrequestedBusyReportsDuringJob": 0
+  },
+  "P_positive": {
+   "before": {
+    "clock": 6,
+    "scraped": "until 24",
+    "jobs": [],
+    "balm": 2,
+    "effects": {},
+    "receipt": null,
+    "done": 0
+   },
+   "liveBefore": {
+    "balmRow": "Healing balm x2",
+    "effectsList": "'Scraped palms' : 18mTender palms slow packing and marker work. Rest or played time brings recovery.",
+    "notices": []
+   },
+   "after": {
+    "clock": 8,
+    "scraped": null,
+    "jobs": [],
+    "balm": 1,
+    "effects": {
+     "Weak healing balm": 89
+    },
+    "receipt": "simulation:34@7",
+    "done": 1
+   },
+   "liveAfter": {
+    "balmRow": "Healing balm",
+    "effectsList": "'Weak healing balm' : 89mHp regen: +5Hp % regen: +0.5",
+    "notices": []
+   },
+   "latestTreatmentRecord": "Latest treatment: One existing Healing balm was spent over one played minute to remove the current palm scrape. Soreness, permanent marks, learned grip, health and stamina were left to their existing owners. Native Weak healing balm remaining now: 89 played minutes.",
+   "unrequestedBusyReportsDuringJob": 0
+  },
+  "R_restComparison": {
+   "before": {
+    "clock": 5,
+    "scraped": "until 24",
+    "jobs": [],
+    "balm": 2,
+    "effects": {},
+    "receipt": null,
+    "done": 0
+   },
+   "started": {
+    "clock": 7,
+    "scraped": "until 24",
+    "jobs": [
+     "body.recover@9"
+    ],
+    "balm": 2,
+    "effects": {},
+    "receipt": null,
+    "done": 0
+   },
+   "after": {
+    "clock": 10,
+    "scraped": null,
+    "jobs": [],
+    "balm": 2,
+    "effects": {},
+    "receipt": null,
+    "done": 0
+   },
+   "live": {
+    "balmRow": "Healing balm x2",
+    "effectsList": "No active effects",
+    "notices": []
+   }
+  },
+  "C_cancel": {
+   "reserved": {
+    "clock": 6,
+    "scraped": "until 24",
+    "jobs": [
+     "contextual_balm.dress_scraped_palms@7"
+    ],
+    "balm": 1,
+    "effects": {},
+    "receipt": null,
+    "done": 0
+   },
+   "afterCancel": {
+    "clock": 6,
+    "scraped": "until 24",
+    "jobs": [],
+    "balm": 2,
+    "effects": {},
+    "receipt": null,
+    "done": 0
+   },
+   "afterReload": {
+    "clock": 6,
+    "scraped": "until 24",
+    "jobs": [],
+    "balm": 2,
+    "effects": {},
+    "receipt": null,
+    "done": 0
+   },
+   "retried": {
+    "clock": 9,
+    "scraped": null,
+    "jobs": [],
+    "balm": 1,
+    "effects": {
+     "Weak healing balm": 89
+    },
+    "receipt": "simulation:36@8",
+    "done": 1
+   }
+  },
+  "X_expiryWhilePending": {
+   "target": 23,
+   "reserved": {
+    "clock": 23,
+    "expiresAt": 24,
+    "balm": 1,
+    "jobs": [
+     "contextual_balm.dress_scraped_palms@24"
+    ]
+   },
+   "after": {
+    "clock": 25,
+    "scraped": null,
+    "jobs": [],
+    "balm": 2,
+    "effects": {},
+    "receipt": null,
+    "done": 0
+   },
+   "live": {
+    "balmRow": "Healing balm x2",
+    "effectsList": "No active effects",
+    "notices": []
+   }
+  },
+  "W1_failedWriteAtReservation": {
+   "writeAttempts": 1,
+   "durable": {
+    "clock": 6,
+    "scraped": "until 24",
+    "jobs": [],
+    "balm": 2,
+    "effects": {},
+    "receipt": null,
+    "done": 0
+   },
+   "live": {
+    "balmRow": "Healing balm x2",
+    "effectsList": "'Scraped palms' : 18mTender palms slow packing and marker work. Rest or played time brings recovery.",
+    "notices": [
+     "Your browser has no room for this life. Export your save to a file; your last saved life is still safe.",
+     "This action could not be completed. Review the current requirements and try again."
+    ]
+   },
+   "afterReload": {
+    "clock": 6,
+    "scraped": "until 24",
+    "jobs": [],
+    "balm": 2,
+    "effects": {},
+    "receipt": null,
+    "done": 0
+   },
+   "retried": {
+    "clock": 9,
+    "scraped": null,
+    "jobs": [],
+    "balm": 1,
+    "effects": {
+     "Weak healing balm": 89
+    },
+    "receipt": "simulation:34@8",
+    "done": 1
+   }
+  },
+  "W2_failedWriteAtCompletion": {
+   "liveBefore": {
+    "balmRow": "Healing balm x2",
+    "effectsList": "'Scraped palms' : 18mTender palms slow packing and marker work. Rest or played time brings recovery.",
+    "notices": []
+   },
+   "writeAttempts": 1,
+   "durableDuringFailure": {
+    "clock": 6,
+    "scraped": "until 24",
+    "jobs": [
+     "contextual_balm.dress_scraped_palms@7"
+    ],
+    "balm": 1,
+    "effects": {},
+    "receipt": null,
+    "done": 0
+   },
+   "liveDuringFailure": {
+    "balmRow": "Healing balm",
+    "effectsList": "'Scraped palms' : 18mTender palms slow packing and marker work. Rest or played time brings recovery.",
+    "notices": [
+     "Your browser has no room for this life. Export your save to a file; your last saved life is still safe.",
+     "Progress paused: Your browser has no room for this life. Export your save to a file; your last saved life is still safe."
+    ]
+   },
+   "restoredBeforePlay": {
+    "clock": 6,
+    "scraped": "until 24",
+    "jobs": [
+     "contextual_balm.dress_scraped_palms@7"
+    ],
+    "balm": 1,
+    "effects": {},
+    "receipt": null,
+    "done": 0
+   },
+   "afterRetry": {
+    "clock": 8,
+    "scraped": null,
+    "jobs": [],
+    "balm": 1,
+    "effects": {
+     "Weak healing balm": 89
+    },
+    "receipt": "simulation:34@7",
+    "done": 1
+   },
+   "liveAfterRetry": {
+    "balmRow": "Healing balm",
+    "effectsList": "'Weak healing balm' : 89mHp regen: +5Hp % regen: +0.5",
+    "notices": []
+   }
+  },
+  "PS_pendingSaveReload": {
+   "savedPending": {
+    "clock": 6,
+    "scraped": "until 24",
+    "jobs": [
+     "contextual_balm.dress_scraped_palms@7"
+    ],
+    "balm": 1,
+    "effects": {},
+    "receipt": null,
+    "done": 0
+   },
+   "stillPendingAfter2s": {
+    "clock": 6,
+    "scraped": "until 24",
+    "jobs": [
+     "contextual_balm.dress_scraped_palms@7"
+    ],
+    "balm": 1,
+    "effects": {},
+    "receipt": null,
+    "done": 0
+   },
+   "afterReloadBeforePlay": {
+    "clock": 6,
+    "scraped": "until 24",
+    "jobs": [
+     "contextual_balm.dress_scraped_palms@7"
+    ],
+    "balm": 1,
+    "effects": {},
+    "receipt": null,
+    "done": 0
+   },
+   "afterPlay": {
+    "clock": 8,
+    "scraped": null,
+    "jobs": [],
+    "balm": 1,
+    "effects": {
+     "Weak healing balm": 89
+    },
+    "receipt": "simulation:34@7",
+    "done": 1
+   }
+  },
+  "PE_pendingExportImport": {
+   "exportedPending": {
+    "clock": 6,
+    "scraped": "until 24",
+    "jobs": [
+     "contextual_balm.dress_scraped_palms@7"
+    ],
+    "balm": 1,
+    "effects": {},
+    "receipt": null,
+    "done": 0
+   },
+   "wipedOriginHasSave": false,
+   "importedBeforePlay": {
+    "clock": 6,
+    "scraped": "until 24",
+    "jobs": [
+     "contextual_balm.dress_scraped_palms@7"
+    ],
+    "balm": 1,
+    "effects": {},
+    "receipt": null,
+    "done": 0
+   },
+   "afterPlay": {
+    "clock": 8,
+    "scraped": null,
+    "jobs": [],
+    "balm": 1,
+    "effects": {
+     "Weak healing balm": 89
+    },
+    "receipt": "simulation:34@7",
+    "done": 1
+   }
+  },
+  "F_completedPersistence": {
+   "live": {
+    "clock": 8,
+    "scraped": null,
+    "jobs": [],
+    "balm": 1,
+    "effects": {
+     "Weak healing balm": 89
+    },
+    "receipt": "simulation:34@7",
+    "done": 1
+   },
+   "saved": {
+    "clock": 8,
+    "scraped": null,
+    "jobs": [],
+    "balm": 1,
+    "effects": {
+     "Weak healing balm": 89
+    },
+    "receipt": "simulation:34@7",
+    "done": 1
+   },
+   "reloaded": {
+    "clock": 8,
+    "scraped": null,
+    "jobs": [],
+    "balm": 1,
+    "effects": {
+     "Weak healing balm": 89
+    },
+    "receipt": "simulation:34@7",
+    "done": 1
+   },
+   "liveAfterReload": {
+    "balmRow": "Healing balm",
+    "effectsList": "'Weak healing balm' : 89mHp regen: +5Hp % regen: +0.5",
+    "notices": []
+   },
+   "exported": {
+    "clock": 8,
+    "scraped": null,
+    "jobs": [],
+    "balm": 1,
+    "effects": {
+     "Weak healing balm": 89
+    },
+    "receipt": "simulation:34@7",
+    "done": 1
+   },
+   "imported": {
+    "clock": 8,
+    "scraped": null,
+    "jobs": [],
+    "balm": 1,
+    "effects": {
+     "Weak healing balm": 89
+    },
+    "receipt": "simulation:34@7",
+    "done": 1
+   },
+   "liveAfterImport": {
+    "balmRow": "Healing balm",
+    "effectsList": "'Weak healing balm' : 88mHp regen: +5Hp % regen: +0.5",
+    "notices": []
+   },
+   "name": "TEST FIXTURE R15 G1 FA07 balm"
+  }
+ },
+ "pageErrors": [],
+ "profile": "fresh /private/tmp profile",
+ "viewport": "1600x1100 headless Chrome"
+}

@@ -1,0 +1,225 @@
+{
+ "label": "natural",
+ "hero": "TEST FIXTURE R15 G1 FA18 natural",
+ "steps": {
+  "contact": [
+   {
+    "time": "08:04",
+    "money": 102,
+    "issued": 0,
+    "used": 0,
+    "helped": 0,
+    "declined": 0,
+    "encounter": null,
+    "hubMisses": 0,
+    "bread": 5,
+    "effects": {}
+   },
+   {
+    "time": "08:18",
+    "money": 102,
+    "issued": 0,
+    "used": 0,
+    "helped": 0,
+    "declined": 0,
+    "encounter": null,
+    "hubMisses": 1,
+    "bread": 5,
+    "effects": {}
+   },
+   {
+    "time": "08:31",
+    "money": 102,
+    "issued": 0,
+    "used": 0,
+    "helped": 0,
+    "declined": 0,
+    "encounter": null,
+    "hubMisses": 2,
+    "bread": 5,
+    "effects": {}
+   },
+   {
+    "time": "08:49",
+    "money": 102,
+    "issued": 0,
+    "used": 0,
+    "helped": 0,
+    "declined": 0,
+    "encounter": "runner",
+    "hubMisses": 0,
+    "bread": 5,
+    "effects": {}
+   }
+  ],
+  "pendingContactSaveReload": {
+   "after": {
+    "time": "08:50",
+    "money": 102,
+    "issued": 0,
+    "used": 0,
+    "helped": 0,
+    "declined": 0,
+    "encounter": "runner",
+    "hubMisses": 0,
+    "bread": 5,
+    "effects": {}
+   },
+   "panelButtons": [
+    "Look around",
+    "Midday bread: opens in 190 minutes (12:00–14:00)",
+    "Offer runner a meal (5 coins; Perception +2 XP; one meal ticket)",
+    "Let the runner continue (free)"
+   ]
+  },
+  "help": {
+   "status": "You pay five coins for the runner’s meal and listen to their account of the road. Perception +2 XP. The runner leaves one meal ticket: later exchange it in Village with one coin for one Stale bread.",
+   "after": {
+    "time": "08:51",
+    "money": 97,
+    "issued": 1,
+    "used": 0,
+    "helped": 1,
+    "declined": 0,
+    "encounter": null,
+    "hubMisses": 0,
+    "bread": 5,
+    "effects": {}
+   },
+   "perception": [
+    0,
+    2
+   ],
+   "helpButtonGone": true,
+   "ticketButton": "Use runner meal ticket (1 left; 1 coin → 1 Stale bread)"
+  },
+  "ticketHeldPersistence": {
+   "afterSaveReload": {
+    "time": "08:52",
+    "money": 97,
+    "issued": 1,
+    "used": 0,
+    "helped": 1,
+    "declined": 0,
+    "encounter": null,
+    "hubMisses": 0,
+    "bread": 5,
+    "effects": {}
+   },
+   "afterWipeAndLiteralImport": {
+    "time": "08:52",
+    "money": 97,
+    "issued": 1,
+    "used": 0,
+    "helped": 1,
+    "declined": 0,
+    "encounter": null,
+    "hubMisses": 0,
+    "bread": 5,
+    "effects": {}
+   },
+   "ticketButtonAfterImport": "Use runner meal ticket (1 left; 1 coin → 1 Stale bread)",
+   "helpButtonAbsent": true
+  },
+  "idleThirtyMinutes": {
+   "before": {
+    "time": "08:53",
+    "money": 97,
+    "issued": 1,
+    "used": 0,
+    "helped": 1,
+    "declined": 0,
+    "encounter": null,
+    "hubMisses": 0,
+    "bread": 5,
+    "effects": {}
+   },
+   "after": {
+    "time": "09:20",
+    "money": 97,
+    "issued": 1,
+    "used": 0,
+    "helped": 1,
+    "declined": 0,
+    "encounter": null,
+    "hubMisses": 0,
+    "bread": 5,
+    "effects": {}
+   }
+  },
+  "redeem": {
+   "status": "One runner meal ticket and one coin exchanged for one Stale bread. Use it from inventory for its ordinary meal effect.",
+   "after": {
+    "time": "09:21",
+    "money": 96,
+    "issued": 1,
+    "used": 1,
+    "helped": 1,
+    "declined": 0,
+    "encounter": null,
+    "hubMisses": 0,
+    "bread": 6,
+    "effects": {}
+   },
+   "ticketButtonGone": true,
+   "inventoryLine": "Stale bread x6"
+  },
+  "eatBread": {
+   "after": {
+    "time": "09:22",
+    "money": 96,
+    "issued": 1,
+    "used": 1,
+    "helped": 1,
+    "declined": 0,
+    "encounter": null,
+    "hubMisses": 0,
+    "bread": 5,
+    "effects": {
+     "Basic meal": 59
+    }
+   },
+   "effectsList": "'Basic meal' : 59mStam regen: +0.5"
+  },
+  "finalPersistence": {
+   "afterSaveReload": {
+    "time": "09:23",
+    "money": 96,
+    "issued": 1,
+    "used": 1,
+    "helped": 1,
+    "declined": 0,
+    "encounter": null,
+    "hubMisses": 0,
+    "bread": 5,
+    "effects": {
+     "Basic meal": 59
+    }
+   },
+   "afterWipeAndLiteralImport": {
+    "time": "09:23",
+    "money": 96,
+    "issued": 1,
+    "used": 1,
+    "helped": 1,
+    "declined": 0,
+    "encounter": null,
+    "hubMisses": 0,
+    "bread": 5,
+    "effects": {
+     "Basic meal": 59
+    }
+   },
+   "ticketButtonCount": 0,
+   "name": "TEST FIXTURE R15 G1 FA18 natural"
+  }
+ },
+ "bundle": {
+  "url": "http://127.0.0.1:19110/dist/bundle.js?version=v0.6-75230b041c4b",
+  "loaded": "75230b041c4b5551ec2a924d0882bb104ad2d90c92b523f9018496a976c84672",
+  "disk": "75230b041c4b5551ec2a924d0882bb104ad2d90c92b523f9018496a976c84672"
+ },
+ "profile": "fresh /private/tmp profile",
+ "viewport": "1600x1100 headless Chrome",
+ "pageErrors": []
+}

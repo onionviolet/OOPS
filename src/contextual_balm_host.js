@@ -65,7 +65,7 @@ export function contextualBalmPresentation(state,registry,context={}) {
     const cancels=work.actions.map(a=>({...a,command:{type:I.group,action:'cancel',id:a.command?.id||a.id,sequence:state.sequence}}));
     const records=featureRecordedKnowledge(state,[I.prefix]);
     const receipt=f['contextualBalm.lastTreatment'];
-    if(receipt) records.push({id:'contextual_balm.lastTreatment',text:`Latest treatment: ${receipt.value} Native Weak healing balm remaining: ${f['contextualBalm.currentWeakBalmDuration']} played minutes before this treatment.`});
+    if(receipt) records.push({id:'contextual_balm.lastTreatment',text:`Latest treatment: ${receipt.value} Native Weak healing balm remaining now: ${f['contextualBalm.currentWeakBalmDuration']} played minutes.`});
     const exact=actions.find(a=>a.id===I.dress);
     if(exact) exact.command.sequence=state.sequence;
     const unavailable=[];

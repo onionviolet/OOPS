@@ -1,0 +1,21 @@
+{
+  "file": "TEST-FIXTURE-R15-G1-FA07-balm.txt",
+  "hero": "TEST FIXTURE R15 G1 FA07 balm",
+  "baseItems": {
+    "Cheap leather pants": 1,
+    "Stale bread": 5,
+    "undefined": 1
+  },
+  "fixtureItems": {
+    "Cheap leather pants": 1,
+    "Stale bread": 5,
+    "undefined": 1,
+    "Healing balm": 2,
+    "Rough wood log": 1
+  },
+  "money": 102,
+  "worldId": "base.frontier",
+  "baseWarnings": [],
+  "verifyWarnings": [],
+  "import": "PASS (real importSaveFile + load, warnings false)"
+}

@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import {createExpansionState,loadExpansionState,advanceSimulation} from '../src/expansion_engine.js';
 import {initializeExpedition,expeditionRegistry as registry} from '../src/expedition_content.js';
 import {beginBodyRecord} from '../src/body_progression.js';
-import {commitContextualBalmCommand as commit,stageContextualBalmEffectRequest as stage,contextualBalmContext,validateContextualBalmState} from '../src/contextual_balm_host.js';
+import {commitContextualBalmCommand as commit,stageContextualBalmEffectRequest as stage,contextualBalmContext,validateContextualBalmState,contextualBalmPresentation} from '../src/contextual_balm_host.js';
 import {contextualBalmAvailableCount} from '../src/contextual_balm_facts.js';
 import {CONTEXTUAL_BALM_IDS as I} from '../src/contextual_balm_content.js';
 import {prepareContextualBalmNative as prepare} from '../src/contextual_balm_native.js';
@@ -152,4 +152,15 @@ test('copied feature pending job, condition, routine or player record cannot res
         p=>{p.state.simulation.people.player.facts={[I.version]:1};}]){
         const bad=structuredClone(p);alter(bad);assert.throws(()=>reload(bad));
     }
+});
+
+test('latest treatment record labels the current Weak healing balm duration as current, not as before treatment',()=>{
+    // R15 G1 browser run: the record read "88 played minutes before this treatment" while the
+    // treatment had started from 0. The value is the current remaining duration.
+    const {plan}=finished(1);
+    const now={clock:plan.state.clock,battleRunning:false,effects:{[I.effectId]:{duration:88}}};
+    const text=contextualBalmPresentation(plan.state,registry,context(plan,{nativeCareFrame:now})).sections[0].records
+        .find(r=>r.id==='contextual_balm.lastTreatment').text;
+    assert.match(text,/Native Weak healing balm remaining now: 88 played minutes\.$/);
+    assert.doesNotMatch(text,/before this treatment/);
 });

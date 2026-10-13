@@ -2193,7 +2193,7 @@ function saveCustomization(next) {
 
 function workLedgerContext(extra={}) {
     return {actorId:expansionState.actors.player.id || 'player', locationId:expansionState.actors.player.worldId==='base.frontier'?current_location?.id:'away', alive:character.is_alive===true,
-        busy:!!(current_activity||current_dialogue||current_game_action||current_combat||is_sleeping||is_reading||is_in_trade()||expeditionOccupiesPlayer()),...extra};
+        busy:!!(current_activity||current_dialogue||current_game_action||current_combat||is_sleeping||is_reading||is_in_trade()||nativeOccupationReason()),...extra};
 }
 export function nativeWorkLedgerChance(baseChance,category,subcategory) {return modifyWorkLedgerChance(workLedger,baseChance,workLedgerContext({category,subcategory})).value;}
 export function nativeWorkLedgerQuality(baseQuality,category,subcategory,qualityCap) {return modifyWorkLedgerQuality(workLedger,baseQuality,workLedgerContext({category,subcategory,qualityCap})).value;}
