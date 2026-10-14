@@ -656,16 +656,3 @@ and shared-owner dependencies. All internal workers/proof browsers are released;
 no successor or further implementation runs until explicit human resumption.
 The whole source/world horizon remains open, and isolated foundation/UI/customization
 returns require their own narrow integration and acceptance gates.
-
-## Fork resurvey proposal, 2026-10-14
-
-A live resurvey found 42 forks and 61 branch heads. New Ononoki content and fixes
-are already in the October 11 absorption. The current branch adds public or
-heard clear milestones, known bestiary sources in the item log and a partial
-known-loot base-value estimate. Unknown rewards and sources stay hidden; no save
-fields or rewards are added. These are reversible proposals awaiting play/taste,
-with a generated native desktop/reload gate distinct from natural balance.
-
-[Resurvey and all row decisions](docs/gm/world-implementation/second-pass/fork-network-absorption/RESURVEY_2026-10-14.md)
-and [lane checks / merge risks](docs/gm/dispatch/absorb-all-2026-10-14/reports/fork-resurvey.md)
-own the evidence. Schoko Fort belongs to the separate fork-fort lane.
