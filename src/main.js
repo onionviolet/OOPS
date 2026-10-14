@@ -1636,7 +1636,22 @@ function validateNativeGameplayReferences(definitions) {
     }
 }
 
-function simulationNativeContexts() {
+// One publication's panel renders read the same unchanged world, so each context
+// builder runs once per pass. Every caller gets its own top-level and facts copy;
+// any expansion write ends the frame's reuse.
+let readFrame=null;
+function framedRead(name,build){
+    if(!readFrame||readFrame.state!==expansionState)return build();
+    if(!readFrame.values.has(name))readFrame.values.set(name,build());
+    const value=readFrame.values.get(name),copy=c=>c.facts?{...c,facts:{...c.facts}}:{...c};
+    return name==='simulationNativeContexts'?Object.fromEntries(Object.entries(value).map(([id,c])=>[id,copy(c)])):copy(value);
+}
+function withReadFrame(render){
+    const outer=readFrame;readFrame={state:expansionState,values:new Map()};
+    try{return render();}finally{readFrame=outer;}
+}
+function simulationNativeContexts(){return framedRead('simulationNativeContexts',buildSimulationNativeContexts);}
+function buildSimulationNativeContexts() {
     const contexts=tidemarkSimulationContexts(expansionState,realmSimulationContexts(expansionState,nativeGameplay.contexts(expansionState,!!(current_activity || current_game_action || current_combat || current_dialogue || is_sleeping || is_reading || is_in_trade()))));
     const evidence=frontierNativeEvidence(),causalFrame=causalNative.read(expansionState);
     for(const id of Object.keys(expansionState.simulation?.people || {player:true})) contexts[id]={...contexts[id],nativeSkillLevels:evidence.nativeSkillLevels,nativeZoneCounts:evidence.nativeZoneCounts,destinationNative:tidemarkNative.read(expansionState),nestedNative:nestedNative.read(expansionState),paradiseNative:paradiseNative.read(expansionState),molNative:molNative.read(expansionState),proto23Native:proto23Native.read(expansionState),causalStoryNative:causalFrame,...nativeCampaignLocationOwners(),
@@ -1666,7 +1681,8 @@ function projectNativePeopleBodies() {
         stats.stamina = Math.max(0, Math.min(stats.max_stamina, p.vitals.stamina));
     }
 }
-function expeditionContext() {
+function expeditionContext(){return framedRead('expeditionContext',buildExpeditionContext);}
+function buildExpeditionContext() {
     const gameplay = gameplaySnapshot();
     const evidence=frontierNativeEvidence();
     return originalFrontierContext(expansionState,expeditionRegistry,skillExpansionContext(expansionState,{nativeBody:currentNativeBody(),nativeAlive:character.is_alive===true,nativeCareFrame:nativeCareFrame(),equipment:readNativeEquipment({player:character}),actorId: "player", worldId: expansionState.actors.player.worldId, external: {money: character.money}, gameplay,...evidence,
@@ -1921,6 +1937,7 @@ function persistExpansion(plan, ownershipBindings = {}, itemsByOwner = {}) {
         if(plan.calendar && (p23LivingGear!==undefined||previousNight !== is_night(current_game_time))) {character.addActiveEffectBonus(active_effects);character.updateStatsAndDisplay();}
         if(townAccess.length && current_location.tags.safe_zone) update_displayed_normal_location(current_location);
         renderWorldIdentity();
+        withReadFrame(()=>{
         expeditionPanel?.render(); techniquePanel?.render(); chroniclePanel?.render(); villagePanel?.render(); simulationPanel?.render(); systemsWorkshopPanel?.render(); townPanel?.render();
         pursuitPanel?.render();
         bodyPanel?.render();
@@ -1936,6 +1953,7 @@ function persistExpansion(plan, ownershipBindings = {}, itemsByOwner = {}) {
         titlesPanel?.render();
         if(plan.p00EarnedTitles){for(const id of plan.p00EarnedTitles)log_message(`Title earned: ${title_by_id[id].name}. ${title_by_id[id].text}`,'level_up');titlesPanel?.announce(plan.p00EarnedTitles);}
         worldEventFeed?.render();
+        });
     } catch(error) {console.error("Saved expedition display could not refresh; reload to restore it.", error);}
     if(plan.calendar) awakenOptionalStart();
 }
@@ -2387,7 +2405,8 @@ function actFoundationInteraction(command){
     persistExpansion(plan);foundationInteractionPanel?.render();
     return plan;
 }
-function featureWaveContext(){
+function featureWaveContext(){return framedRead('featureWaveContext',buildFeatureWaveContext);}
+function buildFeatureWaveContext(){
     const bookCurrent=paradiseContext(expansionState,referenceGameplayContext(expansionState,expeditionRegistry,nestedLifeContext(expansionState,nestedChainContext(expansionState,nestedContext(expansionState,repositoryAbsorptionContext(expansionState,expeditionRegistry,featurePowerContext(expansionState,tidemarkContext(expansionState,societyContext(expansionState,featureObjectContext(expansionState,expeditionRegistry,campaignContext()))))))))));
     const current=paradiseCampaignContext(expansionState,molContext(expansionState,bookCurrent));
     const joined=coolingRefinementContext(expansionState,expeditionRegistry,contextualBalmContext(expansionState,gameAbsorptionAssayContext(expansionState,expeditionRegistry,factorioRetortContext(expansionState,expeditionRegistry,proto23Context(expansionState,worldCompletionContext(expansionState,auditRemainderContext(expansionState,expeditionRegistry,auditedWorkshopContext(expansionState,expeditionRegistry,nethackFieldcraftContext(expansionState,expeditionRegistry,current)))))))));
@@ -2526,7 +2545,8 @@ function planParadiseAction(state,registry,command,context,sequence){
     return stageParadiseCarrierClock(plan,{...context,nativeAlive:character.is_alive===true},plan.paradiseAdvanceBy,
         (draft,minutes)=>advanceChroniclePlan(draft,minutes,true),syncParadiseClock);
 }
-function campaignContext() {
+function campaignContext(){return framedRead('campaignContext',buildCampaignContext);}
+function buildCampaignContext() {
     return {...expeditionContext(),destinationNative:tidemarkNative.read(expansionState),nestedNative:nestedNative.read(expansionState),paradiseNative:paradiseNative.read(expansionState),molNative:molNative.read(expansionState),proto23Native:proto23Native.read(expansionState),causalStoryNative:causalNative.read(expansionState),...nativeCampaignLocationOwners(),equipment:Object.fromEntries(Object.entries(simulationNativeContexts()).filter(([,c])=>c.equipment).map(([id,c])=>[id,c.equipment])),nativeAlive:character.is_alive===true,busy:!!(current_activity || current_game_action || current_combat || current_dialogue || is_sleeping || is_reading || is_in_trade()),
         vitals:Object.fromEntries(Object.entries(simulationNativeContexts()).map(([id,c])=>[id,c.vitals]))};
 }

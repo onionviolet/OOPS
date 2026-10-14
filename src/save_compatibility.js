@@ -2,6 +2,9 @@ import {simulationValidationMemo} from './simulation_render.js';
 // Retired prototype content stays recoverable without registering playable content.
 const RETIRED_IDS = new Set(["Jade Hollow", "Dewleaf", "Dewleaf tea", "Meridian pellet"]);
 
+// Every save walk visits every key, so plain keys skip the throwing JSON.parse:
+// only text whose first non-whitespace character is "{" can parse to an object with an id.
+const retiredKeyCache = new Map();
 function retiredKey(key) {
     const memo = simulationValidationMemo(retiredKey);
     if(!memo) return classifyRetiredKey(key);
@@ -11,7 +14,16 @@ function retiredKey(key) {
 
 function classifyRetiredKey(key) {
     if(RETIRED_IDS.has(key)) return true;
-    try { return RETIRED_IDS.has(JSON.parse(key)?.id); } catch { return false; }
+    let cached = retiredKeyCache.get(key);
+    if(cached === undefined) {
+        cached = false;
+        if(/^[ \t\n\r]*\{/.test(key)) {
+            try { cached = RETIRED_IDS.has(JSON.parse(key)?.id); } catch { cached = false; }
+        }
+        if(retiredKeyCache.size >= 50000) retiredKeyCache.clear();
+        retiredKeyCache.set(key, cached);
+    }
+    return cached;
 }
 
 export function prepareFoundationSave(original) {
