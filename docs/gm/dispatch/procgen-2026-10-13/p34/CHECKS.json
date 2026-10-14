@@ -1,0 +1,54 @@
+{
+  "date": "2026-10-14",
+  "label": "SOURCE",
+  "fullSuite": {
+    "tests": 680,
+    "passed": 680,
+    "failed": 0,
+    "skipped": 0
+  },
+  "ownFocusedChecks": 18,
+  "s1BeforeFeatures": {
+    "tests": 664,
+    "passed": 664,
+    "build": "PASS"
+  },
+  "build": "PASS",
+  "sourceMapMatchingFiles": 468,
+  "sourceMapMismatches": [],
+  "bundleSha256": "4e39334013e23a032b0cafbb4f235d4cad4f5097af6f66207eb43dd31638c278",
+  "sourceSha256": {
+    "lore_history_state.js": "e1e464ea8da308f087e49f2d33a88c3d3cadff888e7a44cd953c0310f5733148",
+    "lore_history_view.js": "4afc314cc1844d0fd16e212e6186eed79d39040d229c0800f966e310da4a6ecd",
+    "story_requests.js": "899b235be48e0b899ab72279a4bf24eb357f624ec9d5412b7f2b2870d02a2193",
+    "story_aftermath.js": "6c1cdf50739733cc273d4012b9aed2f5ec4b20622e256163bb84fb3444b5e6ba",
+    "generated_people.js": "0b6a3117e8994db2a841c03593558a999aa3753f9422ed0f9335b7b8144d04a0",
+    "generated_people_ui.js": "065f4816bf8ad5377dcf2766ac7cf4c421ddac3f51e5f754bf07a076e2094783",
+    "storylet_deck.js": "7cf343ca9badaa71f142e46dd8869ee2165b74191202efb6118e6afdc27cd113",
+    "main.js": "0bb92593c1a706e0e84ab0aebe41eb38ff9a68637dfdb82d437764c1fb82a967",
+    "simulation.js": "157871c353f0e82af6aebc76133e087287ecdacced7976ad74b32cb7714d3c83",
+    "simulation_content.js": "616cc3150dc8e1ef93c8d2497af59f7d2545cab3c7a71b535ad618effc79bb57",
+    "save_files.js": "0cb8ed738c37ba06ee9afcf6011ccdb9e4bc2613f0b311e93997473a76576ea7",
+    "expansion_engine.js": "9480f5673823192ecaa255e3794b9e677482f24c17b8d7b1ebb0897c7c63efab",
+    "seeded_streams.js": "c0ec7b394e00e65fdf6c8b380aa7aa34770dacafe8ee6f738045ac8011071ba3"
+  },
+  "lint": {
+    "cards": 15,
+    "requestContracts": 1,
+    "findings": 0
+  },
+  "headless": {
+    "seed": 43,
+    "playedMinutes": 3600,
+    "repeatedSeedExact": true,
+    "chunk900ReloadExact": true,
+    "budgetReturnDrained": true
+  },
+  "stress": {
+    "closedRequests": 100,
+    "subsequentDelivery": "PASS",
+    "boundedRequestRecords": 16,
+    "boundedHistoryReceipts": 96
+  },
+  "artifactMaxBytes": 386241
+}

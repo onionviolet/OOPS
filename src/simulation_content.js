@@ -1,3 +1,4 @@
+import {storyAftermathDefinitions} from './story_aftermath.js';
 import {storyletDefinitions} from './storylet_content.js';
 import {foundationInteractionDefinitions} from './foundation_interaction_content.js';
 import {steamAbsorptionDefinitions} from './steam_absorption_content.js';
@@ -130,4 +131,4 @@ for(const [key,rows] of Object.entries(steamAbsorptionDefinitions)) {
 for(const [key,rows]of Object.entries(foundationInteractionDefinitions))simulationDefinitions[key]=[...(simulationDefinitions[key]||[]),...rows];
 
 // P3: registered cards draw only after the player begins Village encounters.
-for(const [key,rows] of Object.entries(storyletDefinitions))simulationDefinitions[key]=[...(simulationDefinitions[key]||[]),...rows];
+for(const [key,rows] of Object.entries({people:storyletDefinitions.people,commands:storyletDefinitions.commands,events:[...storyletDefinitions.events,...storyAftermathDefinitions.events]}))simulationDefinitions[key]=[...(simulationDefinitions[key]||[]),...rows];

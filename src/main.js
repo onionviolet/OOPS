@@ -8550,11 +8550,11 @@ if(!importProbeToken && !foundationSaveBlocked && !is_loading_error) {
         mentor:choice=>writeVillageCareer(choice),resolve:choice=>writeVillageCareer(choice),promote:()=>writeVillageCareer('promote'),
         notes:()=>writeVillageCareer('notes'),tutor:()=>writeVillageCareer('tutor'),readNotes:()=>start_reading(WATCHCRAFT_BOOK),
         practice:()=>start_activity('meditating')});
-    registerGeneratedPeople({read:()=>({at:calendarMinutes(current_game_time),seed:generatedPeopleSeed(),
+    registerGeneratedPeople({read:()=>({at:calendarMinutes(current_game_time),seed:generatedPeopleSeed(),expansion:expansionState,
         inVillage:current_location?.id==='Village'&&expansionState.actors.player.worldId==='base.frontier',
         canWrite:ownsSave&&!foundationSaveBlocked&&!importProbeToken&&!is_loading_error&&!lifeStorageFailure,
         busy:!!(nativeOccupationReason()||current_activity||current_game_action||current_combat||current_dialogue||is_sleeping||is_reading||is_in_trade())}),
-        save:create_save,persist:serialized=>lifeSaveStorage.setItem(is_on_dev()?dev_save_key:save_key,serialized),
+        save:create_save,persist:serialized=>{const saved=JSON.parse(serialized);validateSaveEnvelope(saved,game_version);lifeSaveStorage.setItem(is_on_dev()?dev_save_key:save_key,serialized);expansionState=saved.expansion;simulationPanel?.render();},
         authoredNames:[...expeditionRegistry.simulation.people.values()].map(p=>p.label||p.name||p.id),
         itemKey:id=>item_templates[id].getInventoryKey(),canSupply:key=>canConsumeNativeCraftingItem(key)&&character.getItems()[key]?.count>=1,
         publishSupply:key=>{character.removeFromInventory([{item_key:key,item_count:1}]);update_displayed_character_inventory();},publishReward:add_money_to_character});
