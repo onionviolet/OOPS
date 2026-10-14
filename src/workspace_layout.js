@@ -1,3 +1,4 @@
+import {deferSimulationRender} from './simulation_render.js';
 import { getDisplaySettings, getDisplaySetting, replaceDisplaySettings, effectsCap } from './display_settings.js';
 import { normalizeLayout, parseLayout, presetLayout, changeModule, reorderModule, layoutStorageKey, normalizeColumns } from './workspace_state.js';
 const registry = new Map();
@@ -130,6 +131,7 @@ function syncRestore(module, state, known, eligible, classic) {
     if (restore.title !== reason) { restore.title = reason; if (reason) restore.setAttribute('aria-description', reason); else restore.removeAttribute('aria-description'); }
 }
 export function updateWorkspace() {
+    if(deferSimulationRender(updateWorkspace, updateWorkspace)) return;
     if (!owner) return;
     revealArmed(); // start the settle clock on the first pass after the start screen closes
     const focused = document.activeElement; const counts = {};

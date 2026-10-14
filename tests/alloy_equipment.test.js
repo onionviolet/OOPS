@@ -118,6 +118,6 @@ test('paid drive fuel and output freeze across reload, completion and cancellati
 test('equipped native brace with an open road offer keeps ticking, travelling and reloading', async () => {
     const {stdout}=await promisify(execFile)(process.execPath,
         ['docs/gm/d1-alloy-equipment-2026-10-07/fixture/generate.mjs','--equipped-clock'],
-        {cwd:resolve('.'),timeout:60000,maxBuffer:1024*1024});
+        {cwd:resolve('.'),timeout:Number(process.env.YAIRPG_FIXTURE_TIMEOUT_MS || 60000),maxBuffer:1024*1024});
     assert.match(stdout,/Equipped save\/reload and native timer: PASS/);
 });

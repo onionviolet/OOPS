@@ -1,0 +1,51 @@
+{
+  "viewport": [
+    1366,
+    768
+  ],
+  "excluded": [
+    "saved_at",
+    "last_rewarded_export"
+  ],
+  "results": [
+    {
+      "id": "idle",
+      "ticks": 12,
+      "callbacks": 12,
+      "stepMs": 139
+    },
+    {
+      "id": "work",
+      "ticks": 12,
+      "callbacks": 12,
+      "stepMs": 107
+    },
+    {
+      "id": "combat",
+      "ticks": 12,
+      "callbacks": 1444,
+      "stepMs": 122
+    },
+    {
+      "id": "timed-action",
+      "ticks": 65,
+      "callbacks": 665,
+      "stepMs": 391
+    },
+    {
+      "id": "timed-job",
+      "ticks": 125,
+      "callbacks": 125,
+      "stepMs": 992
+    },
+    {
+      "id": "autosave-boundary",
+      "ticks": 65,
+      "callbacks": 65,
+      "stepMs": 421
+    }
+  ],
+  "errors": [],
+  "normalSmoke": true,
+  "oldSaveLoad": true
+}

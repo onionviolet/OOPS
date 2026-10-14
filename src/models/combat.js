@@ -1,4 +1,5 @@
 import {damageRecord,supportedHarvest} from '../harvest.js';
+import {engineTimeout,clearEngineTimeout,engineNow} from '../simulation_clock.js';
 import {combatHitText} from '../ui_polish.js';
 import {STREAMS,gameOrdinal,gameKeyedRandom} from "../seeded_streams.js";
 import {getElementalDefenseModifier} from '../absorb_e3/elemental_affinities.js';
@@ -166,7 +167,7 @@ class Combat {
                 this.#data[fighter_type].attack_cooldowns[i] *= cooldown_multiplier;
                 this.#data[fighter_type].time_variance_acumulators[i] = 0;
                 this.#data[fighter_type].timer_adjustments[i] = 0;
-                this.#data[fighter_type].timers[i] = [Date.now(), Date.now()];
+                this.#data[fighter_type].timers[i] = [engineNow(), engineNow()];
             }
         });
 
@@ -262,9 +263,9 @@ class Combat {
         }
 
         this.clearAttackLoop({fighter_index, is_attacker});
-        fighter_data.attack_loops[fighter_index] = setTimeout(() => {
+        fighter_data.attack_loops[fighter_index] = engineTimeout(() => {
             if(this.is_ended) { return; }
-            const now=Date.now();
+            const now=engineNow();
             const timing=nextAttackTiming(fighter_data.timers[fighter_index][1],now,actual_cooldown*1000/(60*tickrate),
                 fighter_data.time_variance_acumulators[fighter_index],maximum_time_correction/tickrate);
             fighter_data.timers[fighter_index][0]=now;
@@ -589,7 +590,7 @@ class Combat {
     }
 
     clearAttackLoop({fighter_index, is_attacker}) {
-        clearTimeout(
+        clearEngineTimeout(
             (is_attacker ? this.#data.attackers : this.#data.defenders).attack_loops[fighter_index]
         );
     }

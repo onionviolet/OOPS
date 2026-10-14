@@ -1,6 +1,7 @@
 let nativeObservedDropReader;
 export function setNativeObservedDropReader(read){nativeObservedDropReader=read;}
 import {GRADED_IDS} from './harvest.js';
+import {deferSimulationRender} from './simulation_render.js';
 import {knownBestiarySources, knownLootValue} from './fork_discovery_views.js';
 import {vendorState, conditionText} from './ui_polish.js';
 import {equipmentDurability} from './absorb_e2/durability.js';
@@ -152,6 +153,13 @@ const message_log = document.getElementById("message_box_div");
 // a sticky "N new" control at the log's bottom edge jumps to the newest line.
 let message_log_unread_count = 0;
 let message_log_unread_anchor = null;
+let batched_log_following;
+let batched_log_scroll_requested = false;
+function finish_batched_message_log() {
+    if(batched_log_scroll_requested) message_log.scrollTop = message_log.scrollHeight;
+    batched_log_following = undefined;
+    batched_log_scroll_requested = false;
+}
 function is_message_log_near_bottom() {
     if(!message_log) return true;
     return message_log.scrollHeight - message_log.scrollTop - message_log.clientHeight < 24;
@@ -161,6 +169,7 @@ function hide_message_log_unread() {
     if(message_log_unread_anchor) message_log_unread_anchor.hidden = true;
 }
 function show_message_log_unread() {
+    if(deferSimulationRender(show_message_log_unread, show_message_log_unread)) return;
     if(!message_log) return;
     if(!message_log_unread_anchor) {
         message_log_unread_anchor = document.createElement("div");
@@ -1108,7 +1117,10 @@ export function setNativeLogBufferReader(reader) {
     }
         
     // Log follow "always" (display setting) jumps to the newest line even while scrolled up.
-    const log_was_following = getDisplaySetting("logFollow") === "always" || is_message_log_near_bottom();
+    const batch_log = deferSimulationRender(finish_batched_message_log, finish_batched_message_log);
+    const log_was_following = batch_log && batched_log_following !== undefined ? batched_log_following
+        : getDisplaySetting("logFollow") === "always" || is_message_log_near_bottom();
+    if(batch_log) batched_log_following = log_was_following;
 
     message.classList.add(class_to_add, group_to_add);
     if(details.safeText) message.textContent = message_to_add;
@@ -1129,7 +1141,8 @@ export function setNativeLogBufferReader(reader) {
         //scroll the message log but only if added message is in a not hidden category
         //and the player is not reading older lines; then count it as unread instead
         if(log_was_following) {
-            message_log.scrollTop = message_log.scrollHeight;
+            if(batch_log) batched_log_scroll_requested = true;
+            else message_log.scrollTop = message_log.scrollHeight;
         } else {
             message_log_unread_count += 1;
             show_message_log_unread();
@@ -1297,6 +1310,7 @@ function update_displayed_storage() {
 }
 
 function update_displayed_money() {
+    if(deferSimulationRender(update_displayed_money, () => update_displayed_money(...arguments))) return;
     set_HTML(document.getElementById("money_div"), `Your purse contains: ${denominationsKnown() ? format_money(character.money) : `${character.money} coins (denominations unfamiliar)`}`);
 }
 
@@ -1709,7 +1723,8 @@ function update_displayed_trader_inventory({item_key, trader_sorting="name", sor
  * @param {Object} data
  * @param {Boolean} data.is_trade whethere player is in trade, affecting whether displayed price be basic or trade-specific
  */
-function update_displayed_character_inventory({item_key, equip_slot, character_sorting, sorting_direction="asc", was_anything_new_added=false, is_trade=false, skip_sorting=false} = {}) {    
+function update_displayed_character_inventory({item_key, equip_slot, character_sorting, sorting_direction="asc", was_anything_new_added=false, is_trade=false, skip_sorting=false} = {}) {
+    if(deferSimulationRender(update_displayed_character_inventory, () => update_displayed_character_inventory({character_sorting, sorting_direction, is_trade}))) return;
     if(document.getElementById("crafting_window").style.display === "block") apply_crafting_filter();
     //removal of unneeded divs
 
@@ -1894,6 +1909,7 @@ function update_displayed_character_inventory({item_key, equip_slot, character_s
 }
 
 function update_displayed_storage_inventory({item_key, sorting_direction="asc", was_anything_new_added=false} = {}) {
+    if(deferSimulationRender(update_displayed_storage_inventory, () => update_displayed_storage_inventory({sorting_direction}))) return;
     const inventory = player_storage.getItems();
 
     //removal of unneeded divs
@@ -3895,6 +3911,7 @@ function create_gathering_tooltip(location_activity) {
  * @returns 
  */
 function update_gathering_tooltip(activity) {
+    if(deferSimulationRender(update_gathering_tooltip, () => update_gathering_tooltip(...arguments))) return;
     let parent = document.querySelector(`[data-activity="${activity.activity_id}"]`);
     let gathering_tooltip;
     if(parent) {
@@ -3925,7 +3942,8 @@ function update_gathering_tooltip(activity) {
     set_HTML(gathering_tooltip, tooltip_content);
 }
 
-function update_displayed_health() { //call it when using healing items, resting or getting hit
+function update_displayed_health() {
+    if(deferSimulationRender(update_displayed_health, () => update_displayed_health(...arguments))) return; //call it when using healing items, resting or getting hit
     refreshConditionRows();
     const full_stats = character.getFullStats();
 
@@ -3936,7 +3954,8 @@ function update_displayed_health() { //call it when using healing items, resting
         + " hp";
     current_health_bar.style.width = (full_stats.health*100/full_stats.max_health).toString() +"%";
 }
-function update_displayed_stamina() { //call it when eating, resting or fighting
+function update_displayed_stamina() {
+    if(deferSimulationRender(update_displayed_stamina, () => update_displayed_stamina(...arguments))) return; //call it when eating, resting or fighting
     const full_stats = character.getFullStats();
 
     const total_regen = character.getStaminaRegenerationTotal();
@@ -3951,6 +3970,7 @@ function update_displayed_stamina() { //call it when eating, resting or fighting
  * updates displayed stats and their breakdowns (including health and stamina)
  */
 function update_displayed_stats() {
+    if(deferSimulationRender(update_displayed_stats, () => update_displayed_stats(...arguments))) return;
     const full_stats = character.getFullStats();
     const equipment = character.getEquipment();
     Object.keys(stats_divs).forEach(function(key){
@@ -4214,6 +4234,7 @@ function create_xp_bonus_breakdown(bonus, include_multipliers) {
 
 function displayedEffects() {return Object.fromEntries(Object.entries({...active_effects,...character.getSimulationEffects()}).filter(([,e])=>e.duration==null||e.duration>0));}
 function update_displayed_effects() {
+    if(deferSimulationRender(update_displayed_effects, () => update_displayed_effects(...arguments))) return;
     const effects = displayedEffects();
     active_effect_count.innerText = Object.keys(effects).length;
     clear_HTML_content(active_effects_tooltip);
@@ -4226,6 +4247,7 @@ function update_displayed_effects() {
     update_displayed_effect_durations();
 }
 function update_displayed_effect_durations() {
+    if(deferSimulationRender(update_displayed_effect_durations, () => update_displayed_effect_durations(...arguments))) return;
     const effects = displayedEffects();
     if(Object.keys(effects).some(key=>!effect_divs[key])) {update_displayed_effects();return;}
     for(const [key,row] of Object.entries(effect_divs)) {
@@ -4238,6 +4260,7 @@ function update_displayed_effect_durations() {
 }
 
 function update_displayed_time() {
+    if(deferSimulationRender(update_displayed_time, () => update_displayed_time(...arguments))) return;
     let time_of_the_day = current_game_time.getTimeOfDaySimple();
 
     //color coding like it used to be done with icon?
@@ -4246,6 +4269,7 @@ function update_displayed_time() {
 }
 
 function update_displayed_temperature(optionalWeather = {}) {
+    if(deferSimulationRender(update_displayed_temperature, () => update_displayed_temperature(...arguments))) return;
     const localWords = readLocalWeatherWords();
     if (localWords !== null) {
         clear_HTML_content(weather_field);
@@ -4363,6 +4387,7 @@ function format_money(num) {
 }
 
 function update_displayed_character_xp(did_level = false) {
+    if(deferSimulationRender(update_displayed_character_xp, () => update_displayed_character_xp(...arguments))) return;
     /*
     character_xp_div
         character_xp_bar_max
@@ -4382,10 +4407,12 @@ function update_displayed_character_xp(did_level = false) {
 }
 
 function update_displayed_xp_bonuses() {
+    if(deferSimulationRender(update_displayed_xp_bonuses, () => update_displayed_xp_bonuses(...arguments))) return;
     update_xp_bar_tooltip();
 }
 
 function update_displayed_stamina_efficiency() {
+    if(deferSimulationRender(update_displayed_stamina_efficiency, () => update_displayed_stamina_efficiency(...arguments))) return;
     update_stamina_bar_tooltip();
 }
 
@@ -4420,6 +4447,7 @@ function update_displayed_reputation() {
 
 //TODO: some display polishing + maybe move to a dedicated tab?
 function update_displayed_item_log() {
+    if(deferSimulationRender(update_displayed_item_log, () => update_displayed_item_log(...arguments))) return;
 
     set_HTML(data_entry_divs.item_log,`<div id='item_log_header'>Item log</div>`)
 
@@ -4669,6 +4697,7 @@ function start_activity_display(current_activity) {
 }
 
 function update_displayed_ongoing_activity(current_activity) {
+    if(deferSimulationRender(update_displayed_ongoing_activity, () => {if(document.getElementById('action_xp_div')) update_displayed_ongoing_activity(...arguments);})) return;
     const base_activity = activities[current_activity.activity_name];
 
     if(base_activity.type === "JOB") {
@@ -4767,6 +4796,7 @@ function start_game_action_display(npc_id, action_key) {
 }
 
 function update_game_action_progress_bar(percent) {
+    if(deferSimulationRender(update_game_action_progress_bar, () => update_game_action_progress_bar(...arguments))) return;
     document.getElementById("action_progress_bar").style.width = 385*percent+"px";
 }
 
@@ -5012,6 +5042,7 @@ function create_new_skill_bar(skill) {
  * @returns 
  */
 function update_displayed_skill_bar(skill, leveled_up=true) {
+    if(deferSimulationRender(`skill:${skill.skill_id}`, () => update_displayed_skill_bar(skill, true))) return;
     if(!nativeSkillDiscovery(skill,character)){
         skill_bar_divs[skill.category]?.[skill.skill_id]?.remove();
         if(skill_bar_divs[skill.category])delete skill_bar_divs[skill.category][skill.skill_id];
@@ -5118,6 +5149,7 @@ function update_displayed_skill_xp_gain(skill) {
 }
 
 function update_all_displayed_skills_xp_gain(){
+    if(deferSimulationRender(update_all_displayed_skills_xp_gain, () => update_all_displayed_skills_xp_gain(...arguments))) return;
     Object.keys(skill_bar_divs).forEach(category => {
         Object.keys(skill_bar_divs[category]).forEach(skill_id => {
             update_displayed_skill_xp_gain(skills[skill_id]);
@@ -6093,6 +6125,7 @@ function set_light_based_background_color(is_sky_visible) {
 }
 
 function update_export_button_tooltip(time_passed, time_until_reward) {
+    if(deferSimulationRender(update_export_button_tooltip, () => update_export_button_tooltip(...arguments))) return;
     if(time_passed > time_until_reward) {
         //just say reward is available
         export_button_tooltip.innerText = "Reward available!";

@@ -1,0 +1,41 @@
+{
+  "before": "matched-before",
+  "after": "matched-after",
+  "ticksPerRun": 200,
+  "runsPerCase": 3,
+  "quietPreflightPassed": false,
+  "cases": [
+    {
+      "id": "idle",
+      "beforeTicksPerSecond": 20.770373139766313,
+      "afterTicksPerSecond": 195.7905041605482,
+      "speedup": 9.426431718055838,
+      "stateSha256": "6628216262c71b589b822103f5931539550906d3f892dc3af8c0cae8da34d1a5",
+      "canonicalBytesMatch": true
+    },
+    {
+      "id": "work",
+      "beforeTicksPerSecond": 20.879006159306815,
+      "afterTicksPerSecond": 206.71834625322998,
+      "speedup": 9.90077519379845,
+      "stateSha256": "d963983039a96f4f0b307900da2064a7ccef7c69a235fe452e69fdf8bc2bbd4a",
+      "canonicalBytesMatch": true
+    },
+    {
+      "id": "combat",
+      "beforeTicksPerSecond": 19.856240816476873,
+      "afterTicksPerSecond": 169.60651288966633,
+      "speedup": 8.54172320215443,
+      "stateSha256": "2f21669f1b35d816d5111edf399be809ce0de39c371227e64367e36763c2c828",
+      "canonicalBytesMatch": true
+    },
+    {
+      "id": "search",
+      "beforeTicksPerSecond": 20.75140850183923,
+      "afterTicksPerSecond": 200.1200720420324,
+      "speedup": 9.643686211675485,
+      "stateSha256": "4cca0c111e40dbd4481e58e9a8b9ccd32e0ecaf3c23e1795fd549f8ea3ebde69",
+      "canonicalBytesMatch": true
+    }
+  ]
+}

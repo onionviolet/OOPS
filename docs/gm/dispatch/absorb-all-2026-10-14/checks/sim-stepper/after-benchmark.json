@@ -1,0 +1,268 @@
+{
+  "viewport": [
+    1366,
+    768
+  ],
+  "bundleSha256": "9c5e0401501b4c86280f8ceead98f08be0e4e6cb4005ed0a33b7f3295e24df4b",
+  "ticks": 200,
+  "runs": [
+    {
+      "id": "idle",
+      "run": 1,
+      "ticks": 200,
+      "ms": 1211.5,
+      "ticksPerSecond": 165.0846058605035,
+      "callbacks": 200,
+      "errors": [],
+      "host": {
+        "at": "2026-10-14T22:39:45.825Z",
+        "loadavg": [
+          8.88134765625,
+          36.52197265625,
+          112.6025390625
+        ],
+        "cores": 18,
+        "freeMiB": 2762
+      },
+      "quiet": null,
+      "stateSha256": "6628216262c71b589b822103f5931539550906d3f892dc3af8c0cae8da34d1a5"
+    },
+    {
+      "id": "idle",
+      "run": 2,
+      "ticks": 200,
+      "ms": 1236.8999999910593,
+      "ticksPerSecond": 161.69455897925917,
+      "callbacks": 200,
+      "errors": [],
+      "host": {
+        "at": "2026-10-14T22:39:48.294Z",
+        "loadavg": [
+          8.88134765625,
+          36.52197265625,
+          112.6025390625
+        ],
+        "cores": 18,
+        "freeMiB": 2386
+      },
+      "quiet": null,
+      "stateSha256": "6628216262c71b589b822103f5931539550906d3f892dc3af8c0cae8da34d1a5"
+    },
+    {
+      "id": "idle",
+      "run": 3,
+      "ticks": 200,
+      "ms": 1252,
+      "ticksPerSecond": 159.7444089456869,
+      "callbacks": 200,
+      "errors": [],
+      "host": {
+        "at": "2026-10-14T22:39:50.625Z",
+        "loadavg": [
+          8.5703125,
+          35.99853515625,
+          111.9716796875
+        ],
+        "cores": 18,
+        "freeMiB": 2490
+      },
+      "quiet": null,
+      "stateSha256": "6628216262c71b589b822103f5931539550906d3f892dc3af8c0cae8da34d1a5"
+    },
+    {
+      "id": "work",
+      "run": 1,
+      "ticks": 200,
+      "ms": 1316.9000000059605,
+      "ticksPerSecond": 151.87182018307752,
+      "callbacks": 200,
+      "errors": [],
+      "host": {
+        "at": "2026-10-14T22:39:53.168Z",
+        "loadavg": [
+          8.5703125,
+          35.99853515625,
+          111.9716796875
+        ],
+        "cores": 18,
+        "freeMiB": 2191
+      },
+      "quiet": null,
+      "stateSha256": "d963983039a96f4f0b307900da2064a7ccef7c69a235fe452e69fdf8bc2bbd4a"
+    },
+    {
+      "id": "work",
+      "run": 2,
+      "ticks": 200,
+      "ms": 1219.3999999910593,
+      "ticksPerSecond": 164.0150893894263,
+      "callbacks": 200,
+      "errors": [],
+      "host": {
+        "at": "2026-10-14T22:39:55.664Z",
+        "loadavg": [
+          8.0439453125,
+          35.43408203125,
+          111.3271484375
+        ],
+        "cores": 18,
+        "freeMiB": 3335
+      },
+      "quiet": null,
+      "stateSha256": "d963983039a96f4f0b307900da2064a7ccef7c69a235fe452e69fdf8bc2bbd4a"
+    },
+    {
+      "id": "work",
+      "run": 3,
+      "ticks": 200,
+      "ms": 960.3999999910593,
+      "ticksPerSecond": 208.24656393363378,
+      "callbacks": 200,
+      "errors": [],
+      "host": {
+        "at": "2026-10-14T22:39:57.927Z",
+        "loadavg": [
+          8.0439453125,
+          35.43408203125,
+          111.3271484375
+        ],
+        "cores": 18,
+        "freeMiB": 4464
+      },
+      "quiet": null,
+      "stateSha256": "d963983039a96f4f0b307900da2064a7ccef7c69a235fe452e69fdf8bc2bbd4a"
+    },
+    {
+      "id": "combat",
+      "run": 1,
+      "ticks": 200,
+      "ms": 1172.5,
+      "ticksPerSecond": 170.57569296375266,
+      "callbacks": 15205,
+      "errors": [],
+      "host": {
+        "at": "2026-10-14T22:39:59.914Z",
+        "loadavg": [
+          7.9599609375,
+          34.9619140625,
+          110.7158203125
+        ],
+        "cores": 18,
+        "freeMiB": 4505
+      },
+      "quiet": null,
+      "stateSha256": "2f21669f1b35d816d5111edf399be809ce0de39c371227e64367e36763c2c828"
+    },
+    {
+      "id": "combat",
+      "run": 2,
+      "ticks": 200,
+      "ms": 1190.2000000029802,
+      "ticksPerSecond": 168.03898504410955,
+      "callbacks": 15205,
+      "errors": [],
+      "host": {
+        "at": "2026-10-14T22:40:02.092Z",
+        "loadavg": [
+          7.9599609375,
+          34.9619140625,
+          110.7158203125
+        ],
+        "cores": 18,
+        "freeMiB": 4452
+      },
+      "quiet": null,
+      "stateSha256": "2f21669f1b35d816d5111edf399be809ce0de39c371227e64367e36763c2c828"
+    },
+    {
+      "id": "combat",
+      "run": 3,
+      "ticks": 200,
+      "ms": 1292,
+      "ticksPerSecond": 154.79876160990713,
+      "callbacks": 15205,
+      "errors": [],
+      "host": {
+        "at": "2026-10-14T22:40:04.361Z",
+        "loadavg": [
+          7.9599609375,
+          34.9619140625,
+          110.7158203125
+        ],
+        "cores": 18,
+        "freeMiB": 4665
+      },
+      "quiet": null,
+      "stateSha256": "2f21669f1b35d816d5111edf399be809ce0de39c371227e64367e36763c2c828"
+    },
+    {
+      "id": "search",
+      "run": 1,
+      "ticks": 200,
+      "ms": 980.0999999940395,
+      "ticksPerSecond": 204.0608101226572,
+      "callbacks": 800,
+      "errors": [],
+      "host": {
+        "at": "2026-10-14T22:40:06.676Z",
+        "loadavg": [
+          8.203125,
+          34.56396484375,
+          110.13134765625
+        ],
+        "cores": 18,
+        "freeMiB": 3483
+      },
+      "quiet": null,
+      "stateSha256": "4cca0c111e40dbd4481e58e9a8b9ccd32e0ecaf3c23e1795fd549f8ea3ebde69"
+    },
+    {
+      "id": "search",
+      "run": 2,
+      "ticks": 200,
+      "ms": 959.5999999940395,
+      "ticksPerSecond": 208.42017507424166,
+      "callbacks": 800,
+      "errors": [],
+      "host": {
+        "at": "2026-10-14T22:40:08.682Z",
+        "loadavg": [
+          8.203125,
+          34.56396484375,
+          110.13134765625
+        ],
+        "cores": 18,
+        "freeMiB": 3504
+      },
+      "quiet": null,
+      "stateSha256": "4cca0c111e40dbd4481e58e9a8b9ccd32e0ecaf3c23e1795fd549f8ea3ebde69"
+    },
+    {
+      "id": "search",
+      "run": 3,
+      "ticks": 200,
+      "ms": 958.1000000089407,
+      "ticksPerSecond": 208.74647740124587,
+      "callbacks": 800,
+      "errors": [],
+      "host": {
+        "at": "2026-10-14T22:40:10.622Z",
+        "loadavg": [
+          8.0263671875,
+          34.08935546875,
+          109.52099609375
+        ],
+        "cores": 18,
+        "freeMiB": 3499
+      },
+      "quiet": null,
+      "stateSha256": "4cca0c111e40dbd4481e58e9a8b9ccd32e0ecaf3c23e1795fd549f8ea3ebde69"
+    }
+  ],
+  "medians": {
+    "idle": 161.69455897925917,
+    "work": 164.0150893894263,
+    "combat": 168.03898504410955,
+    "search": 208.42017507424166
+  }
+}

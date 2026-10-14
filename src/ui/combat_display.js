@@ -1,3 +1,4 @@
+import {deferSimulationRender} from '../simulation_render.js';
 "use strict";
 
 import { skills } from "../data/skills.js";
@@ -214,6 +215,7 @@ function update_displayed_fighters_stats() {
 }
 
 function update_fighter_stats({fighter_index, is_attacker}) {
+    if(deferSimulationRender(`update_fighter_stats:${is_attacker}:${fighter_index}`, () => {if(current_combat && !current_combat.is_ended && (is_attacker ? current_combat.attackers : current_combat.defenders)[fighter_index] && (is_attacker ? current_combat.attackers_ui_slot : current_combat.defenders_ui_slot).children[fighter_index]) update_fighter_stats(...arguments);})) return;
     const full_stats = current_combat.attackers[0].getFullStats(); //ends up ignored if there's more than 1 attacker
 
     const fighter_div = (is_attacker ? current_combat.attackers_ui_slot : current_combat.defenders_ui_slot).children[fighter_index];
@@ -377,6 +379,7 @@ function update_displayed_health_of_defenders() {
 }
 
 function update_displayed_health_of_fighter({fighter_index, is_attacker}) {
+    if(deferSimulationRender(`update_displayed_health_of_fighter:${is_attacker}:${fighter_index}`, () => {if(current_combat && !current_combat.is_ended && (is_attacker ? current_combat.attackers : current_combat.defenders)[fighter_index] && (is_attacker ? current_combat.attackers_ui_slot : current_combat.defenders_ui_slot).children[fighter_index]) update_displayed_health_of_fighter(...arguments);})) return;
     const fighter = is_attacker?current_combat.attackers[fighter_index] : current_combat.defenders[fighter_index];
     const fighter_div = is_attacker?current_combat.attackers_ui_slot.children[fighter_index] : current_combat.defenders_ui_slot.children[fighter_index];
     
@@ -402,6 +405,7 @@ function update_displayed_health_of_fighter({fighter_index, is_attacker}) {
 }
 
 function update_attack_bar({fighter_index, is_attacker, progress}) {
+    if(deferSimulationRender(`update_attack_bar:${is_attacker}:${fighter_index}`, () => {if(current_combat && !current_combat.is_ended && (is_attacker ? current_combat.attackers : current_combat.defenders)[fighter_index] && (is_attacker ? current_combat.attackers_ui_slot : current_combat.defenders_ui_slot).children[fighter_index]) update_attack_bar(...arguments);})) return;
     (is_attacker ? current_combat.attackers_ui_slot : current_combat.defenders_ui_slot)
         .children.item(fighter_index).querySelector("[data-attack_bar]").style.width = `${Math.min(progress*100,100)}%`;
 }

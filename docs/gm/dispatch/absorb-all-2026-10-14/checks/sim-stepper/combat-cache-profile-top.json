@@ -1,0 +1,186 @@
+{
+  "topSelf": [
+    {
+      "function": "persistExpansionPlan",
+      "site": "../src/expansion_persistence.js:7:17",
+      "selfMs": 91.69,
+      "totalMs": 545.1
+    },
+    {
+      "function": "(program)",
+      "site": "(V8):0:0",
+      "selfMs": 85.4,
+      "totalMs": 85.4
+    },
+    {
+      "function": "prepareFoundationSave",
+      "site": "../src/save_compatibility.js:17:17",
+      "selfMs": 64.89,
+      "totalMs": 102.35
+    },
+    {
+      "function": "create_save",
+      "site": "../src/main.js:5457:10",
+      "selfMs": 58.59,
+      "totalMs": 130.83
+    },
+    {
+      "function": "setItem",
+      "site": "../src/main.js:452:26",
+      "selfMs": 54.31,
+      "totalMs": 107.34
+    },
+    {
+      "function": "is_message_log_near_bottom",
+      "site": "../src/display.js:153:10",
+      "selfMs": 46.32,
+      "totalMs": 46.32
+    },
+    {
+      "function": "frontierNativeEvidence",
+      "site": "../src/main.js:1040:10",
+      "selfMs": 41.53,
+      "totalMs": 46.09
+    },
+    {
+      "function": "auditRemainderCombinedFacts",
+      "site": "../src/audit_remainder_facts.js:12:17",
+      "selfMs": 38.95,
+      "totalMs": 65.38
+    },
+    {
+      "function": "worldCompletionFacts",
+      "site": "../src/world_completion_facts.js:15:17",
+      "selfMs": 38.17,
+      "totalMs": 112.36
+    },
+    {
+      "function": "copy",
+      "site": "../src/simulation_contracts.js:17:17",
+      "selfMs": 31.93,
+      "totalMs": 33.45
+    },
+    {
+      "function": "log_message",
+      "site": "../src/display.js:933:11",
+      "selfMs": 29.29,
+      "totalMs": 79.87
+    },
+    {
+      "function": "originalFrontierFacts",
+      "site": "../src/original_frontier_facts.js:7:17",
+      "selfMs": 27.49,
+      "totalMs": 30
+    },
+    {
+      "function": "visit",
+      "site": "../src/mixture_state.js:86:14",
+      "selfMs": 26.43,
+      "totalMs": 26.43
+    },
+    {
+      "function": "(garbage collector)",
+      "site": "(V8):0:0",
+      "selfMs": 25.65,
+      "totalMs": 25.65
+    },
+    {
+      "function": "structuredClone",
+      "site": "(V8):0:0",
+      "selfMs": 25.54,
+      "totalMs": 25.54
+    }
+  ],
+  "topTotal": [
+    {
+      "function": "(root)",
+      "site": "(V8):0:0",
+      "selfMs": 0,
+      "totalMs": 1557.37
+    },
+    {
+      "function": "(anonymous)",
+      "site": "(V8):1:2",
+      "selfMs": 0,
+      "totalMs": 1426.74
+    },
+    {
+      "function": "evaluate",
+      "site": "(V8):305:11",
+      "selfMs": 0,
+      "totalMs": 1426.74
+    },
+    {
+      "function": "(anonymous)",
+      "site": "(V8):1:1",
+      "selfMs": 1.51,
+      "totalMs": 1426.74
+    },
+    {
+      "function": "advanceTicks",
+      "site": "../src/main.js:8254:10",
+      "selfMs": 0,
+      "totalMs": 1425.23
+    },
+    {
+      "function": "runEngineTicks",
+      "site": "../src/simulation_clock.js:62:17",
+      "selfMs": 2.54,
+      "totalMs": 1344.36
+    },
+    {
+      "function": "(anonymous)",
+      "site": "../src/main.js:7777:19",
+      "selfMs": 0,
+      "totalMs": 1192.68
+    },
+    {
+      "function": "simulateTick",
+      "site": "../src/main.js:7797:10",
+      "selfMs": 14.44,
+      "totalMs": 1192.68
+    },
+    {
+      "function": "update_timer",
+      "site": "../src/main.js:7681:10",
+      "selfMs": 1.49,
+      "totalMs": 1144.65
+    },
+    {
+      "function": "persistExpansion",
+      "site": "../src/main.js:1077:10",
+      "selfMs": 6,
+      "totalMs": 1024.84
+    },
+    {
+      "function": "persistExpansionPlan",
+      "site": "../src/expansion_persistence.js:7:17",
+      "selfMs": 91.69,
+      "totalMs": 545.1
+    },
+    {
+      "function": "featureWaveContext",
+      "site": "../src/main.js:1680:10",
+      "selfMs": 2.95,
+      "totalMs": 402.31
+    },
+    {
+      "function": "data",
+      "site": "../src/main.js:1203:27",
+      "selfMs": 1.5,
+      "totalMs": 199.39
+    },
+    {
+      "function": "validateSaveEnvelope",
+      "site": "../src/save_files.js:49:17",
+      "selfMs": 10.18,
+      "totalMs": 197.89
+    },
+    {
+      "function": "simulationNativeContexts",
+      "site": "../src/main.js:1025:10",
+      "selfMs": 13.61,
+      "totalMs": 186.88
+    }
+  ]
+}
