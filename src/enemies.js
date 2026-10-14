@@ -1,3 +1,4 @@
+import {registerFortEnemies} from "./fork_fort_content.js";
 "use strict";
 import {mitigateCombatDamage} from "./combat_math.js";
 
@@ -760,6 +761,7 @@ const enemy_abilites = {
 
 })();
 
+registerFortEnemies({enemy_templates, Enemy});
 Object.keys(enemy_templates).forEach(enemy_key => {
     enemy_templates[enemy_key].id = enemy_key;
 

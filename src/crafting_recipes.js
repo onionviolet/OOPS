@@ -1,3 +1,4 @@
+import {registerFortRecipes} from "./fork_fort_content.js";
 import {registerAccessoryRecipes, accessoryCraftChance} from './absorb_c1/accessories.js';
 import {BRACE_ID, deriveBraceStats} from "./alloy_equipment.js";
 "use strict";
@@ -2104,6 +2105,7 @@ const recipes = {
 }
 
 
+registerFortRecipes({recipes, ItemRecipe});
 registerAccessoryRecipes({recipes, ItemRecipe});
 Object.keys(recipes).forEach(recipe_category => {
     Object.keys(recipes[recipe_category]).forEach(recipe_subcategory => {
