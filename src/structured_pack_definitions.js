@@ -1,3 +1,5 @@
+import {compileStructuredExpeditions} from './structured_expedition_runtime.js';
+import {compileStructuredAbilities} from './structured_ability_runtime.js';
 import {validateStructuredEquipmentDefinition} from './structured_equipment_runtime.js';
 import {validateStructuredRenewalDefinition} from './structured_renewal.js';
 import {createContentRegistry} from './expansion_engine.js';
@@ -98,6 +100,13 @@ export function compileStructuredPack(raw, existingRegistry = null) {
             Object.values(v).forEach(walk);};walk(command);
     }
     if(d.capabilities.includes('source-function'))check(d.simulation.containers?.length>0,'Unsupported structured pack capability without actual consumer.');
+    // Compile metadata into the commands that the shared transaction validates.
+    // Absent metadata leaves the original definition and receipt hash unchanged.
+    if(Object.hasOwn(d, 'abilities')) {
+        const abilities = compileStructuredAbilities(d);
+        d.simulation.commands = abilities.commands;
+    }
+    if(Object.hasOwn(d, 'expeditions'))d.simulation.commands = compileStructuredExpeditions(d).commands;
     const authored = {worlds: [d.world], simulation: d.simulation};
     for(const family of contentFamilies.filter(f => f !== 'worlds')) {
         const rows = (family === 'capabilities' ? d.capabilityDefinitions : d[family]) || [];

@@ -1,6 +1,7 @@
 import {validateStreams,validateNativeEncounter} from "./seeded_streams.js";
 import {validateMixtureEnvelope} from './mixture_state.js';
 import {validateStoryletState} from './storylet_deck.js';
+import {validateStructuredDeathEnvelope} from './structured_life_runtime.js';
 import {validateCheatState} from './cheat_cards.js';
 import {validateCustomizationState} from './customization_profiles.js';
 import {migrateWorkLedger} from './work_ledger_system.js';
@@ -51,6 +52,7 @@ export function validateSaveEnvelope(original, currentVersion) {
     if(original.work_ledger!=null)migrateWorkLedger(original.work_ledger);
     if(original.content_packs!=null)validatePackState(original.content_packs);
     validateStructuredEnvelope(original);
+    validateStructuredDeathEnvelope(original);
     if(original.village_career != null) {
         validateVillageCareer(original.village_career);
         if(original.village_career.recruit && !original.npc_lives?.people?.some(p=>p.id==='iona' && p.name==='Iona'))throw new Error('Village recruit needs her public life.');

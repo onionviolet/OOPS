@@ -10,7 +10,7 @@ export function createStructuredPackPanel({read,command}) {
     const actionRows=new Map(),jobRows=new Map();
     const trim=(cache,ids)=>{for(const [id,row]of cache)if(!ids.has(id)){if(row.card.contains(document.activeElement))summary.focus?.();row.card.remove();cache.delete(id);}};
     const projected=()=>{const v=read();return {
-        available:!!v.available,active:!!v.active,title:v.title,place:v.place,description:v.description,
+        expeditions:(v.expeditions||[]).map(s=>({id:s.id,label:s.label,phase:s.phase,injury:s.injury})),available:!!v.available,active:!!v.active,title:v.title,place:v.place,description:v.description,
         people:(v.people||[]).map(p=>({name:p.name,details:p.details||[]})),
         status:(v.status||[]).map(s=>({label:s.label,value:s.value})),
         actions:(v.actions||[]).map(a=>({id:a.id,label:a.label,description:a.description,eligible:!!a.eligible,reasons:a.reasons||[],duration:a.duration||0,costs:a.costs||[],completed:a.completed||0,repeatable:!!a.repeatable})),
@@ -58,6 +58,7 @@ export function createStructuredPackPanel({read,command}) {
             if(!view.active)info.append(button(view.beginLabel||'Begin',{structuredBegin:'begin'},{type:'begin'},!view.canWrite));
             else {
                 p(view.place);
+                for(const site of view.expeditions)p(`${site.label}: ${site.phase}${site.injury>0?' · treatment needed':''}`);
                 for(const person of view.people){p(person.name);for(const detail of person.details)p(detail);}
                 for(const row of view.status)p(`${row.label}: ${row.value}`);
                 for(const job of view.jobs){

@@ -7,6 +7,7 @@ import {createMixturePanel} from './mixture_ui.js';
 import {createStoryletPanel} from './storylet_ui.js';
 import {HERB_LESSON,heldLesson,bindAcquisitionLesson,bindDenominationKnowledge,createPracticePanel,openingAllows,stageRevealKnowledge} from './reveal_chain.js';
 import {getDisplaySetting,subscribeDisplaySettings} from './display_settings.js';
+import {structuredLifeEnded,reconcileStructuredLifePlan,structuredLifeView,archiveStructuredLife,publishIndependentStructuredLife,listStructuredLifeArchives} from './structured_life_runtime.js';
 import {beginNativeCraftTransaction,nativeCraftQuestOwners} from './native_craft_transaction.js';
 import {worldCompletionSavedNativeItem} from './world_completion_native.js';
 import {createFoundationInteractionPanel} from './foundation_interaction_ui.js';
@@ -306,9 +307,12 @@ import {createStartProbe} from './start_probe_ui.js';
 const optionalPacks=new Map();
 const foundationProbeEnabled=typeof location!=='undefined'&&['localhost','127.0.0.1'].includes(location.hostname)&&new URLSearchParams(location.search).get('foundation_probe')==='1';
 const structuredPacks=new Map();
-const initialStructuredDefinition=()=>foundationProbeEnabled&&structuredPacks.get(FOUNDATION_START_PACK_ID)||structuredPacks.get(LIVELIHOOD_PACK_ID)||[...structuredPacks.values()][0];
+// Local authoring preview selects an optional candidate without replacing live content.
+const structuredCandidateId=typeof location!=='undefined'&&['localhost','127.0.0.1'].includes(location.hostname)?new URLSearchParams(location.search).get('structured_candidate'):null;
+const initialStructuredDefinition=()=>structuredPacks.get(structuredCandidateId)||foundationProbeEnabled&&structuredPacks.get(FOUNDATION_START_PACK_ID)||structuredPacks.get(LIVELIHOOD_PACK_ID)||[...structuredPacks.values()][0];
 const packDefinitionsForSave=()=>new Map([...optionalPacks,...structuredPacks]);
 let structuredPanel,structuredNotice='',suspendedStructuredSave=null;
+const nativeLifeEnded=(state=expansionState)=>state.chronicle?.life.endedAt!=null||structuredLifeEnded(state,optionalPackState.structured);
 let cheatState=defaultCheatState();
 let statusWindow;
 function cheatCalendarTime() {
@@ -403,6 +407,8 @@ const backup_key = "backup save";
 const dev_backup_key = "dev backup save";
 // Heir succession: the ended life stays in the save slot until the heir's
 // envelope passes the real import check. Only a small request crosses reload.
+const independent_request_key='structured independent request';
+const independentRequest=(()=>{if(importProbeToken)return null;try{const r=JSON.parse(localStorage.getItem(independent_request_key));return r?.schema===1&&!r.error?r:null;}catch{return null;}})();
 const heir_request_key = "heir request";
 const heirRequest = (() => {
     if(importProbeToken) return null;
@@ -912,6 +918,7 @@ function persistExpansion(plan, ownershipBindings = {}, itemsByOwner = {}) {
     reconcileFieldCareNative(expansionState,plan,expeditionContext());
     stageContextualBalmEffectRequest(expansionState,plan,expeditionContext());
     reconcileWorldCompletionPlan(plan,expeditionRegistry,{player:{...expeditionContext(),external:plan.external,gameplay:plan.gameplay,vitals:plan.vitals||expeditionContext().vitals,equipment:plan.equipment||expeditionContext().equipment}});
+    reconcileStructuredLifePlan(plan,optionalPackState.structured,{deaths:game_stats.total_deaths});
     const previousNight = is_night(current_game_time);
     if(!ownsSave || importProbeToken || expansionError || foundationSaveBlocked || is_loading_error) throw new Error(expansionError || "This tab cannot commit expeditions.");
     for(const actor of Object.values(plan.state.actors)) {
@@ -977,6 +984,7 @@ function persistExpansion(plan, ownershipBindings = {}, itemsByOwner = {}) {
     if(plan.pacingNext){setPacingState(plan.pacingNext);pacingMinute=plan.pacingTarget;pacingPanel?.render();pacingStatusPanel?.render();durabilityPanel?.render();elementalPanel?.render();}
     if(plan.nativePatch?.fort_supply)fortSupply=migrateFortSupply({fort_supply:plan.nativePatch.fort_supply});
     if(plan.localLifeResult){localLife=normalizeLocalLife(plan.localLifeResult.state);for(const message of plan.localLifeResult.messages)log_message(message,'notification');}
+    if(plan.nativePatch?.total_deaths!=null)game_stats.total_deaths=plan.nativePatch.total_deaths;
     character.money = plan.external.money;
     if(plan.calendar) current_game_time.loadTime(plan.calendar);
 
@@ -987,7 +995,7 @@ function persistExpansion(plan, ownershipBindings = {}, itemsByOwner = {}) {
         }
         if(expired) {character.addActiveEffectBonus(active_effects); character.updateStatsAndDisplay();}
     }
-    if(expansionState.chronicle?.life.endedAt != null) character.is_alive = false;
+    if(nativeLifeEnded()) character.is_alive = false;
     if(plan.absorbPublish)plan.absorbPublish();
     publication.publish();
     unlockPublication.publish();
@@ -1090,7 +1098,7 @@ function commitNativeStorage(request) {
 bind_storage_transfer(commitNativeStorage);
 
 function startExpedition(actionId, sequence) {
-    if(expansionState.chronicle?.session || expansionState.chronicle?.life.endedAt != null || current_activity || current_game_action || current_combat || is_sleeping || is_reading || is_in_trade()) {
+    if(expansionState.chronicle?.session || nativeLifeEnded() || current_activity || current_game_action || current_combat || is_sleeping || is_reading || is_in_trade()) {
         throw new Error("Finish your current activity, combat, trade or rest before beginning an expedition.");
     }
     persistExpansion(commitAction(expansionState, expeditionRegistry, actionId, expeditionContext(), sequence));
@@ -1140,6 +1148,7 @@ function readStructuredCampaign() {
 }
 function commandStructuredCampaign(command) {
     try {
+        if(nativeLifeEnded())throw Error('This life has ended.');
         if(!ownsSave||foundationSaveBlocked||expansionError||importProbeToken)throw Error('Restore saving before continuing.');
         const record=optionalPackState.structured,d=record?structuredPacks.get(record.packId):optionalPackState.pendingStructured?structuredPacks.get(optionalPackState.pendingStructured.packId):initialStructuredDefinition(),context=structuredContext();
         if(!d)throw Error('This beginning content is unavailable.');
@@ -1220,7 +1229,7 @@ function nativeOccupationReason() {
     if(expansionState.actors.player.facts['original_frontier.travel.remaining']>0)return 'Finish or cancel your remaining native journey in local notes first.';
     if(simulationOccupiesActor(expansionState) || waitingSimulationChoice(expansionState)) return "Finish your living-world work or decision first.";
     if(usesJoinedClock() && ((!ownsSave && !restoringNativeSave) || foundationSaveBlocked || expansionError)) return "Progress is paused until saving is restored. Reload before continuing.";
-    if(expansionState.chronicle?.session || expansionState.chronicle?.life.endedAt != null) {
+    if(expansionState.chronicle?.session || nativeLifeEnded()) {
         return "Finish or withdraw from the elder encounter; an ended mortal life cannot begin a new activity.";
     }
     if(expansionState.pending.some(job => job.context.actorId === "player") || activePractice(expansionState.actors.player)) {
@@ -1700,6 +1709,26 @@ function beginHeir() {
     lifeSaveStorage.setItem(is_on_dev() ? dev_save_key : save_key, serialized);
     localStorage.setItem(heir_request_key, JSON.stringify({schema: 1, leftovers}));
     window.location.reload();
+}
+function beginIndependentLife(){
+    if(!ownsSave||importProbeToken||foundationSaveBlocked||!structuredLifeEnded(expansionState,optionalPackState.structured))throw Error('A writable ended local life is required.');
+    const key=is_on_dev()?dev_save_key:save_key;const serialized=localStorage.getItem(key);
+    const archived=archiveStructuredLife({storage:localStorage,key,serialized,writeArchive:(k,v)=>writeGuardedSave(localStorage,k,v),validateEnvelope:s=>validateSaveEnvelope(s,game_version)});
+    localStorage.setItem(independent_request_key,JSON.stringify({schema:1,key,instanceId:archived.instanceId,archiveKey:archived.archiveKey}));window.location.reload();
+}
+async function completeIndependentRequest(request){
+    const key=is_on_dev()?dev_save_key:save_key;
+    try{
+        if(!(await saveOwnership)||request.key!==key)throw Error('The destination tab must own this save.');
+        const serialized=localStorage.getItem(key),old=JSON.parse(serialized);
+        if(old.content_packs?.structured?.instanceId!==request.instanceId||request.archiveKey!==`${key}:ended-life:${request.instanceId}`)throw Error('The active life changed.');
+        const nextSerialized=create_save();if(!nextSerialized)throw Error('No supported fresh beginning.');
+        await publishIndependentStructuredLife({storage:localStorage,key,serialized,nextSerialized,validateEnvelope:s=>validateSaveEnvelope(s,game_version),preflight:bytes=>preflightImport(JSON.parse(bytes)),publish:bytes=>lifeSaveStorage.setItem(key,bytes)});
+    }catch(error){console.error('Independent character waits; preserved archive available.',error);
+        try{localStorage.setItem(independent_request_key,JSON.stringify({schema:1,error:'Independent character could not begin. The ended life and its archive are preserved.'}));}catch{}
+        window.location.reload();await new Promise(()=>{});
+    }
+    localStorage.removeItem(independent_request_key);window.location.reload();await new Promise(()=>{});
 }
 async function completeHeirRequest(request) {
     const key = is_on_dev() ? dev_save_key : save_key;
@@ -2369,7 +2398,7 @@ function feedbackClockPauseReason() {
     if(!workLedgerCanWrite())return 'Paused until saving is restored.';
     if(expansionState.simulation?.sessions.player||waitingSimulationChoice(expansionState))return 'Waiting for your response.';
     if(backlogNativeClockPaused(expansionState))return 'Waiting for the current local situation.';
-    if(expansionState.chronicle?.life.endedAt!=null)return 'This life has ended.';
+    if(nativeLifeEnded())return 'This life has ended.';
     return '';
 }
 function publishWorkLedger(plan,anchor,onDurable) {
@@ -3662,7 +3691,7 @@ function unlock_combat_stance(stance_id) {
 
 function change_stance({stance_id, is_temporary = false}) {
     if(!restoringNativeSave){const reasons=backlogNativeActionReasons(expansionState,'combat');if(reasons.length){log_message(reasons.join(' '),'notification');return;}}
-    if(expansionState.chronicle?.session || expansionState.chronicle?.life.endedAt != null) return;
+    if(expansionState.chronicle?.session || nativeLifeEnded()) return;
     if(is_temporary) {
         if(!stances[stance_id]) {
             throw new Error(`No such stance as "${stance_id}"`);
@@ -6870,7 +6899,8 @@ function load(save_data) {
 
         set_loading_screen_progress("Hiding from the vet");
 
-        if(save_data.character.hp_to_full == null || save_data.character.hp_to_full >= full_stats.max_health) {
+        if(structuredLifeEnded(expansionState,optionalPackState.structured)){full_stats.health=0;character.is_alive=false;}
+        else if(save_data.character.hp_to_full == null || save_data.character.hp_to_full >= full_stats.max_health) {
             full_stats.health = 1;
         } else {
             full_stats.health = full_stats.max_health - save_data.character.hp_to_full;
@@ -7264,6 +7294,7 @@ function hard_reset() {
 
 //update game time
 function update_timer(time_in_minutes, source = null) {
+    if(nativeLifeEnded())return 0;
     if(optionalPackState.pendingStructured&&!optionalPackState.structured)return 0;
     if(Object.values(optionalPackState.packs).some(r=>r.active)) {
         if(importProbeToken||!ownsSave||foundationSaveBlocked||is_loading_error||lifeStorageFailure)return 0;
@@ -7288,7 +7319,7 @@ function update_timer(time_in_minutes, source = null) {
     const minutes = time_in_minutes ?? (is_sleeping ? config.time_speedup_when_sleeping : 1);
     if(minutes === 0) return 0;
     if(usesJoinedClock()) {
-        if(importProbeToken || !ownsSave || expansionError || foundationSaveBlocked || is_loading_error || expansionState.chronicle?.life.endedAt != null) return 0;
+        if(importProbeToken || !ownsSave || expansionError || foundationSaveBlocked || is_loading_error || nativeLifeEnded()) return 0;
         if(expansionState.simulation?.sessions.player || waitingSimulationChoice(expansionState)) {frontierCampaignPanel?.render();featureExpansionPanel?.render();foundationInteractionPanel?.render();causalStoryPanel?.render();simulationPanel?.render(); pursuitPanel?.render(); fieldPanel?.render(); promisePanel?.render(); crushSocialPanel?.render(); managementPanel?.render(); knownRoutesPanel?.render();adventureNotebook?.render(); return 0;}
         if(expansionState.chronicle?.session?.policy === "manual") {chroniclePanel?.render(); return 0;}
         try {
@@ -7298,7 +7329,7 @@ function update_timer(time_in_minutes, source = null) {
             const consumed = plan.state.clock - expansionState.clock;
             persistExpansion(plan);
             if(was_night !== is_night(current_game_time)) character.updateStatsAndDisplay();
-            if(expansionState.chronicle?.life.endedAt != null) {if(current_combat) end_combat(); character.is_alive = false;}
+            if(nativeLifeEnded()) {if(current_combat) end_combat(); character.is_alive = false;}
             expeditionPanel?.render(); techniquePanel?.render(); chroniclePanel?.render(); villagePanel?.render(); simulationPanel?.render();
             return consumed;
         } catch(error) {
@@ -7382,7 +7413,7 @@ function update() {
         const prev_day = current_game_time.day_count;
         const advancedMinutes = update_timer();
         furniturePanel?.render();localLifePanel?.render();practicePanel?.render();updateWorkspace();fortControls?.render();pacingPanel?.render();pacingStatusPanel?.render();durabilityPanel?.render();elementalPanel?.render();
-        if(!advancedMinutes || expansionState.chronicle?.life.endedAt != null) {awakenOptionalStart(); update(); return;}
+        if(!advancedMinutes || nativeLifeEnded()) {awakenOptionalStart(); update(); return;}
 
         if(start_date - last_rewarded_export > config.time_between_export_rewards) {
             document.getElementById("save_to_file_button").classList.add("export_button_with_reward");
@@ -7882,7 +7913,7 @@ function refresh_titles({silent = false} = {}) {
 
 function run() {
     if(importProbeToken) return;
-    if(expansionState.chronicle?.life.endedAt != null) {character.is_alive = false; chroniclePanel?.render(true); return;}
+    if(nativeLifeEnded()) {character.is_alive = false; chroniclePanel?.render(true); return;}
     if(typeof current_location === "undefined") {
         change_location({location_id: "Village", skip_travel_time: true});
     } 
@@ -8255,7 +8286,7 @@ translationManager.translateUI(language);
 //check if there's an existing save file, otherwise just do some initial setup
 if(importProbeToken) {
     // Probe uses fresh definitions and never reads another saved character.
-} else if(!heirRequest?.leftovers && (!is_on_dev() && save_key in localStorage || is_on_dev() && (dev_save_key in localStorage || !("skip_live_import" in localStorage) && save_key in localStorage ))) {
+} else if(!independentRequest && !heirRequest?.leftovers && (!is_on_dev() && save_key in localStorage || is_on_dev() && (dev_save_key in localStorage || !("skip_live_import" in localStorage) && save_key in localStorage ))) {
     load_from_localstorage();
     if(!is_loading_error) refresh_titles({silent: true});
     character.updateStatsAndDisplay();
@@ -8280,6 +8311,7 @@ if(importProbeToken) {
     questManager.startQuest({quest_id: "Lost memory"});
 
     last_rewarded_export = Date.now() - 1000*60*60*16; //reduces timer by 16 hours, making first reward export appear in 4 hours from starting
+    if(independentRequest) await completeIndependentRequest(independentRequest);
     if(heirRequest?.leftovers) await completeHeirRequest(heirRequest);
 }
 
@@ -8449,15 +8481,15 @@ if(!importProbeToken && !foundationSaveBlocked && !is_loading_error) {
     fieldPanel = createFieldPanel({registry:expeditionRegistry,read:()=>{const snapshot=readProgression();return {...snapshot,inDialogue:!!current_dialogue,
         context:{...snapshot.context,vitals:Object.fromEntries(Object.entries(simulationNativeContexts()).map(([id,c])=>[id,c.vitals]))}};},command:actSimulation});
     promisePanel=createPromisePanel({registry:expeditionRegistry,read:()=>({...readProgression(),context:campaignContext(),canWrite:ownsSave && !foundationSaveBlocked && !importProbeToken,inDialogue:!!current_dialogue,inCombat:!!current_combat}),command:actSimulation});
-    chroniclePanel = createChroniclePanel({read: () => ({state: expansionState, context: chronicleContext(),
+    chroniclePanel = createChroniclePanel({read: () => ({structuredLife:structuredLifeView(expansionState,optionalPackState.structured),state: expansionState, context: chronicleContext(),
         canWrite: ownsSave && !importProbeToken && !foundationSaveBlocked,
         enabled: ownsSave && current_location?.id === "Village" && !current_activity && !current_game_action && !current_combat && !is_sleeping && !is_reading && !is_in_trade() && !activePractice(expansionState.actors.player) && metVillageElder(),
         occupied: expansionState.pending.some(j => j.context.actorId === "player"),
-        dutyJob: expansionState.pending.find(j => j.actionId === "chronicle.archive_duty"), error: expansionError, pauseReason: chroniclePauseReason}),
+        dutyJob: expansionState.pending.find(j => j.actionId === "chronicle.archive_duty"), error: expansionError||(()=>{try{return JSON.parse(localStorage.getItem(independent_request_key))?.error;}catch{return '';}})(), pauseReason: chroniclePauseReason}),
         command: actChronicle, duty: () => startExpedition("chronicle.archive_duty", expansionState.sequence),
         cancelDuty: () => {const j = expansionState.pending.find(j => j.actionId === "chronicle.archive_duty"); if(j) cancelExpedition(j.id, expansionState.sequence);},
         exportSave: () => {const serialized = create_save(); if(!serialized) return; const url = URL.createObjectURL(new Blob([encodeSaveFile(serialized)], {type: "text/plain"})); const a = document.createElement("a"); a.href = url; a.download = "YAIRPG-ended-life.txt"; a.click(); setTimeout(() => URL.revokeObjectURL(url), 1000);}, reset: hard_reset,
-        beginHeir, heirPreview: previewHeir});
+        beginHeir, heirPreview: previewHeir,beginIndependent:beginIndependentLife,archiveExports:listStructuredLifeArchives({storage:localStorage,key:is_on_dev()?dev_save_key:save_key}).map(a=>({label:a.label,export:()=>{const url=URL.createObjectURL(new Blob([encodeSaveFile(a.serialized)],{type:'text/plain'}));const link=document.createElement('a');link.href=url;link.download='YAIRPG-archived-life.txt';link.click();setTimeout(()=>URL.revokeObjectURL(url),1000);}}))});
     knownRoutesPanel=createKnownRoutesPanel({container:document.getElementById('location_actions_div'),focusFallback:document.getElementById('journal_show_notebook'),
         read:()=>({...readProgression(),context:featureWaveContext(),inDialogue:!!current_dialogue,inCombat:!!current_combat,canWrite:ownsSave&&!foundationSaveBlocked&&!importProbeToken}),
         present:snapshot=>{
