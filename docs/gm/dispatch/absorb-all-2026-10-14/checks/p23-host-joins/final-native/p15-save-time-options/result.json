@@ -1,0 +1,23 @@
+{
+  "lane": "p15-save-time-options",
+  "status": "PASS",
+  "viewport": "1366x768",
+  "bundleSha256": "aed370ca9cdf895625028762486d14c5a231817f6cdcd7116cbed849594c9ed0",
+  "currentMainOldClientBundleSha256": "7b5e74251df799a650d07c01829d32f6b441e4b333a91837cacca14343c5d4d7",
+  "gates": [
+    "current-main old client fresh native Save loads unchanged, no implicit enrollment",
+    "explicit enrollment one write; every prior localStorage key byte-identical",
+    "captured exact native life, paid native trade, Save and Undo restores exact bytes",
+    "enrolled Save/reload/Export/literal-file Import preserves both exact snapshots in one revision",
+    "second native Undo swaps exact snapshots without replaying grants",
+    "quota failure preserves prior authority bytes",
+    "export schema rejection before mutation",
+    "game schema rejection before mutation",
+    "present corrupt and unsupported authority reject loudly, no fallback or localStorage mutation, actual preserved-legacy recovery download",
+    "explicit Hard Reset writes one fresh native authority and keeps original legacy bytes"
+  ],
+  "legacyHashes": {
+    "save data": "be30e6c44c757278db994b5bd971fef57b6de17044fd385355496e0f7a001432"
+  },
+  "pageErrors": []
+}
