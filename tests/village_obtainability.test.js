@@ -20,3 +20,8 @@ test('bands react to known route, funds and stock without revealing or changing 
  assert.equal(reachBand(index['Survey rope'],{money:16}),'ready');assert.equal(reachBand(index['Survey rope'],{money:15}),'stretch');assert.equal(reachBand(index['Survey rope'],{money:100,quantity:2}),'stretch');
  assert.equal(openingBuyPrice(51,4),210);
 });
+
+test('known market exhaustion is stretch while observed optional stock is ready',()=>{
+ const t=readVillageSupplyTables();t.stock=t.stock.map(r=>({...r,known:true,available:true,stockObserved:true,availableCount:r.item==='Survey rope'?0:r.count[0]}));
+ const index=buildVillageObtainability(t);assert.equal(reachBand(index['Survey rope'],{money:102}),'stretch');assert.equal(reachBand(index['Cooking herbs'],{money:102}),'ready');
+});

@@ -1,0 +1,14 @@
+{
+  "label": "natural",
+  "profile": "/private/tmp/ta-ta1-profile-unknown-1-1792004869273",
+  "seed": 2640414281,
+  "item": "Survey rope",
+  "quantity": 1,
+  "band": "unknown",
+  "reward": 38,
+  "clue": "I am looking for a light length of cord.",
+  "hint": "Supply reach: unknown. I am looking for a light length of cord. Fee agreed at unknown reach; it stays 38 coins.",
+  "noHiddenSource": true,
+  "pendingReloadExact": true,
+  "missingStockRefusalKeepsEscrow": true
+}

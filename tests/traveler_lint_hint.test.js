@@ -16,7 +16,7 @@ test('lint rejects world-unreachable asks and fees outside difficulty band, incl
 test('unknown clue leaks no hidden source; discovered trader/gather/drop hints project only knowledge',()=>{
  const t=readVillageSupplyTables(),before=structuredClone(t),a=VILLAGE_ASKS.road_mender[3],goal={...a,quantity:1,band:'unknown'};
  let index=buildVillageObtainability(t),hint=travelerSourceHint(goal,index);assert.equal(hint.band,'unknown');assert.equal(hint.line,a.clue);assert.ok(!hint.line.includes('Wolf rat'));
- t.drops=t.drops.map(r=>({...r,known:r.source==='Wolf rat',available:r.source==='Wolf rat'}));index=buildVillageObtainability(t);hint=travelerSourceHint(goal,index);assert.match(hint.line,/Wolf rat/);assert.equal(hint.band,'ready');
+ t.drops=t.drops.map(r=>({...r,known:r.source==='Wolf rat',available:false}));index=buildVillageObtainability(t);hint=travelerSourceHint(goal,index);assert.match(hint.line,/Wolf rat/);assert.equal(hint.band,'stretch');
  const rope={...VILLAGE_ASKS.river_walker[1],quantity:1,band:'unknown'};assert.ok(!travelerSourceHint(rope,index).line.includes('market'));
  t.stock=t.stock.map(r=>({...r,known:true,available:true}));index=buildVillageObtainability(t);hint=travelerSourceHint(rope,index,{money:0});assert.match(hint.line,/Village market/);assert.equal(hint.band,'stretch');assert.equal(travelerSourceHint(rope,index,{money:16}).band,'ready');
  assert.deepEqual(buildVillageObtainability(before),readVillageObtainability());

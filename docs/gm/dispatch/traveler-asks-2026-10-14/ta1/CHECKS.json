@@ -1,0 +1,54 @@
+{
+  "label": "SOURCE and rebuilt-byte join",
+  "tests": {
+    "total": 867,
+    "passed": 867,
+    "failed": 0,
+    "skipped": 0
+  },
+  "build": "PASS",
+  "lint": {
+    "label": "SOURCE",
+    "cards": 15,
+    "requestContracts": 2,
+    "askEntries": 12,
+    "reachBands": [
+      "ready",
+      "stretch",
+      "unknown"
+    ],
+    "findings": []
+  },
+  "replay": {
+    "label": "SOURCE",
+    "seed": 43,
+    "playedMinutes": 3600,
+    "receipts": 2,
+    "budgetReturns": 6,
+    "calls": 8,
+    "generationRevision": 2,
+    "requestRevision": 2,
+    "sameSeedExact": true
+  },
+  "sourceMapMatches": [
+    "src/village_obtainability.js",
+    "src/village_traveler_asks.js",
+    "src/traveler_source_hint.js",
+    "src/generated_people.js",
+    "src/generated_people_ui.js",
+    "src/story_requests.js",
+    "src/lore_history_view.js",
+    "src/main.js"
+  ],
+  "sourceSha256": {
+    "src/village_obtainability.js": "6d9f2bc447c8a2ad876d659340e2dbc1379df8f437372a35e26ae3af125f721d",
+    "src/village_traveler_asks.js": "f523e3c9a395ab8e270f03aaa2c130ba5d3663e5aab318fa2cbef3c0195f336f",
+    "src/traveler_source_hint.js": "7887323bee72a49f0a1f04a65ebbb3cff6f323bb96be9b9ed67c39a90466061e",
+    "src/generated_people.js": "b60795ffeb7d26c2e1eebcfb73b3b8ad5b335b65ea42f547fa74b46ec9f03ec1",
+    "src/generated_people_ui.js": "70f943bf0ed36677e4eb2b3ab3b9d543f0d35ee3f4c625c7bc6162bd5d176f5f",
+    "src/story_requests.js": "f2d16e70aa5dd0b170eca1c875afcb58b43b2c12bb1c14c4eb1099d07e04a475",
+    "src/lore_history_view.js": "e4c6555c23b1406d3f69c4ef9969a68bc28b60bd3c16979cf8cf1ce2dd9a5054",
+    "src/main.js": "bfd51970a579b7d47c403e1cc61c38826d70b561a411297e8e8a739f8119796a"
+  },
+  "bundleSha256": "b1b39c8fdb7c4bf25e161a3f042f3845b610cf7ed22893f4565a81601163ed87"
+}

@@ -1,0 +1,86 @@
+{
+  "viewports": [
+    "1366x768",
+    "1600x1000"
+  ],
+  "bundleSha256": "b1b39c8fdb7c4bf25e161a3f042f3845b610cf7ed22893f4565a81601163ed87",
+  "natural": [
+    {
+      "label": "natural",
+      "profile": "/private/tmp/ta-ta1-profile-natural-1-1792004645621",
+      "seed": 2333918603,
+      "item": "Glass bottle",
+      "quantity": 1,
+      "band": "ready",
+      "reward": 102,
+      "purchaseCost": 80,
+      "pendingReloadExact": true,
+      "nativePurchaseAndDelivery": true,
+      "recap": "Story so far: you delivered one Glass bottle to Ibb Reedman and received 102 wood coins at played minute 3.",
+      "hint": "Supply reach: ready. Known source: the Village market (80 coins each before discounts). Fee agreed at ready reach; it stays 102 coins.",
+      "completedReloadExact": true,
+      "exportLiteralImportExact": true,
+      "literal": "/private/tmp/ta-ta1-natural-1-literal.txt"
+    },
+    {
+      "label": "natural",
+      "profile": "/private/tmp/ta-ta1-profile-natural-2-1792004663923",
+      "seed": 3193988720,
+      "item": "Glass phial",
+      "quantity": 2,
+      "band": "ready",
+      "reward": 102,
+      "purchaseCost": 80,
+      "pendingReloadExact": true,
+      "nativePurchaseAndDelivery": true,
+      "recap": "Story so far: you delivered 2 Glass phial to Kesh Cartwright and received 102 wood coins at played minute 1.",
+      "hint": "Supply reach: ready. Known source: the Village market (40 coins each before discounts). Fee agreed at ready reach; it stays 102 coins.",
+      "completedReloadExact": true,
+      "exportLiteralImportExact": true,
+      "literal": "/private/tmp/ta-ta1-natural-2-literal.txt"
+    }
+  ],
+  "rev1": {
+    "label": "seeded-native, naturally earned rev1 baseline literal",
+    "profile": "/private/tmp/ta-ta1-profile-rev1-load-1792004675857",
+    "revision": 1,
+    "item": "Stale bread",
+    "quantity": 1,
+    "reward": 6,
+    "unchangedGoalAndTerms": true,
+    "settled": true,
+    "pendingReloadExact": true,
+    "completedReloadExact": true,
+    "exportLiteralImportExact": true,
+    "literal": "/private/tmp/ta-ta1-rev1-literal.txt"
+  },
+  "attempts": [
+    {
+      "profile": "/private/tmp/ta-ta1-profile-natural-1-1792004645621",
+      "seed": 2333918603,
+      "known": [
+        {
+          "id": "traveler_2",
+          "item": "Glass bottle",
+          "quantity": 1,
+          "band": "ready"
+        }
+      ],
+      "chosen": "traveler_2"
+    },
+    {
+      "profile": "/private/tmp/ta-ta1-profile-natural-2-1792004663923",
+      "seed": 3193988720,
+      "known": [
+        {
+          "id": "traveler_2",
+          "item": "Glass phial",
+          "quantity": 2,
+          "band": "ready"
+        }
+      ],
+      "chosen": "traveler_2"
+    }
+  ],
+  "pageErrors": []
+}
