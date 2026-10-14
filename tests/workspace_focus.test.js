@@ -17,7 +17,8 @@ class Element {
 test('opening a module keeps focus already inside it and still focuses it from outside', async () => {
     const previous = globalThis.document;
     const outside = new Element('button');
-    globalThis.document = {createElement: tag => new Element(tag), getElementById: () => null, activeElement: outside, createComment: () => new Element('comment')};
+    const documentElement = {dataset: {}, style: {setProperty() {}, removeProperty() {}}};
+    globalThis.document = {createElement: tag => new Element(tag), getElementById: () => null, activeElement: outside, createComment: () => new Element('comment'), documentElement, addEventListener() {}, removeEventListener() {}, querySelector: () => null, querySelectorAll: () => []};
     try {
         const {registerWorkspaceModule, openWorkspaceModule} = await import('../src/workspace_layout.js');
         const home = new Element('div'), node = new Element('section'), tab = new Element('button'), panel = new Element('div'), action = new Element('button');
