@@ -28,3 +28,6 @@ joined as G9 at Weibao's request: Codex session
 `01a1385a-baf6-7901-9cb3-25aac0acb959` in `.claude/worktrees/r15-g9-world1`
 (branch `r15-g9-world1`) finishes World1's N1–N5 native gates. The World1 pause
 is lifted for those gates only. G4 is still running on Codex.
+G10 (Weibao: "send accordingly") closes the leaves left open by G1, G2, G3,
+G5 and G6: Codex session `01a1385e-f9ad-7e60-a51b-7a70dc4294cd` in
+`.claude/worktrees/r15-g10-remaining` (branch `r15-g10-remaining`).
