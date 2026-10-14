@@ -1,0 +1,5 @@
+{
+  "command": "Python SHA-256 of each metafile input and grouping by hash",
+  "inputCount": 465,
+  "exactDuplicateGroups": []
+}

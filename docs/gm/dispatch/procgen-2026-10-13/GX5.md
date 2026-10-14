@@ -1,9 +1,0 @@
-# GX5: per-save appearances for unidentified mixtures (code)
-
-Follow `/Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/procgen-2026-10-13/COMMON.md` exactly. Worktree `.claude/worktrees/proc-gx5-appearances`, branch `proc/gx5-appearances` from current `codex/gameplay-foundations` (includes wave 1 merge 4e13f97f), port 19410, report folder `docs/gm/dispatch/procgen-2026-10-13/gx5/`.
-
-Build P5's rank-1 slice W2-1 O3-A. Spec: `docs/gm/dispatch/procgen-2026-10-13/p5/O3_APPEARANCE_SHUFFLE.md` and the W2-1 row in `p5/REPORT.md` (read from the main checkout if not yet committed in your branch). Outcome Weibao can play: unknown P2 mixture products get per-save appearances (e.g. "cloudy amber vial"); after he identifies one type by experiment, later batches of that type are recognized by appearance, while unseen batch properties stay hidden. Different saves map appearances differently; reloads never change the mapping.
-
-Use the merged P1 stream root (`src/seeded_streams.js`) and P2's canonical identity/knowledge contract (`src/mixture_*.js`). Own new `src/product_appearance_*.js` modules and tests; keep edits to mixture modules narrow and listed; keep `src/main.js`/`src/save_files.js`/items/inventory edits minimal and listed. Old saves: products made before this slice keep working (state the compatibility decision). Existing fixed fieldcraft vial unchanged. Labels must not rely on color alone.
-
-Proof: unit tests for fixed draw budget, same-seed determinism, distinct seeds differ, recognition after identification, no truth leakage in projections, old-save load. Browser on rebuilt worktree at 1366x768 and 1600x1000: acquire and mix an unknown product, see its appearance, identify by experiment, make the same type again and see it recognized; Save/reload; Export then literal-file Import at a second fresh origin; show a second fresh seed maps differently. Label natural vs seeded-native.

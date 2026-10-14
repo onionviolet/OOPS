@@ -1,0 +1,235 @@
+{
+  "environment": {
+    "node": "v22.23.3",
+    "platform": "darwin",
+    "arch": "arm64",
+    "cpu": "Apple M5 Pro",
+    "startedAt": "2026-10-14T04:54:27.219Z",
+    "finishedAt": "2026-10-14T04:59:20.606Z"
+  },
+  "method": "4 warmups, 31 independent same-input operations, median and nearest-rank p95; fixture setup excluded; GC not forced; one process; no DOM or real localStorage",
+  "sizes": [
+    {
+      "name": "fresh",
+      "shape": {
+        "actors": 1,
+        "scheduled_jobs": 1,
+        "native_inventory_entries": 20,
+        "expired_opportunities": 0,
+        "facts_per_actor": 0,
+        "simulation_log": 1
+      },
+      "bytes": {
+        "utf8": 3079,
+        "utf16": 6158,
+        "expansion_utf8": 1408,
+        "inventory_utf8": 1162
+      },
+      "operations": {
+        "clone_expansion": {
+          "median_ms": 0.0146,
+          "p95_ms": 0.0489,
+          "samples": 31
+        },
+        "validate_expansion": {
+          "median_ms": 0.1389,
+          "p95_ms": 67.6519,
+          "samples": 31
+        },
+        "advance_1_future_jobs": {
+          "median_ms": 0.5741,
+          "p95_ms": 3.621,
+          "samples": 31
+        },
+        "advance_60_settle_all": {
+          "median_ms": 5.8882,
+          "p95_ms": 263.145,
+          "samples": 31
+        },
+        "preview_command": {
+          "median_ms": 9.1255,
+          "p95_ms": 373.3611,
+          "samples": 31
+        },
+        "commit_command": {
+          "median_ms": 66.029,
+          "p95_ms": 389.4365,
+          "samples": 31
+        },
+        "serialize_envelope": {
+          "median_ms": 0.0047,
+          "p95_ms": 0.0066,
+          "samples": 31
+        },
+        "parse_envelope": {
+          "median_ms": 0.0101,
+          "p95_ms": 7.1908,
+          "samples": 31
+        },
+        "validate_envelope": {
+          "median_ms": 2.9677,
+          "p95_ms": 104.893,
+          "samples": 31
+        },
+        "autosave_pure_stages": {
+          "median_ms": 0.0431,
+          "p95_ms": 0.2267,
+          "samples": 31
+        },
+        "persist_plan_mock_storage": {
+          "median_ms": 3.9654,
+          "p95_ms": 134.1214,
+          "samples": 31
+        }
+      }
+    },
+    {
+      "name": "mid",
+      "shape": {
+        "actors": 32,
+        "scheduled_jobs": 32,
+        "native_inventory_entries": 1000,
+        "expired_opportunities": 200,
+        "facts_per_actor": 30,
+        "simulation_log": 1
+      },
+      "bytes": {
+        "utf8": 155369,
+        "utf16": 310738,
+        "expansion_utf8": 96936,
+        "inventory_utf8": 57924
+      },
+      "operations": {
+        "clone_expansion": {
+          "median_ms": 0.4152,
+          "p95_ms": 41.6408,
+          "samples": 31
+        },
+        "validate_expansion": {
+          "median_ms": 1.186,
+          "p95_ms": 87.135,
+          "samples": 31
+        },
+        "advance_1_future_jobs": {
+          "median_ms": 2.4865,
+          "p95_ms": 48.4582,
+          "samples": 31
+        },
+        "advance_60_settle_all": {
+          "median_ms": 785.8466,
+          "p95_ms": 1382.8628,
+          "samples": 31
+        },
+        "preview_command": {
+          "median_ms": 45.6646,
+          "p95_ms": 184.0785,
+          "samples": 31
+        },
+        "commit_command": {
+          "median_ms": 124.0581,
+          "p95_ms": 198.5338,
+          "samples": 31
+        },
+        "serialize_envelope": {
+          "median_ms": 0.241,
+          "p95_ms": 15.8558,
+          "samples": 31
+        },
+        "parse_envelope": {
+          "median_ms": 0.5533,
+          "p95_ms": 28.4547,
+          "samples": 31
+        },
+        "validate_envelope": {
+          "median_ms": 254.1539,
+          "p95_ms": 452.26,
+          "samples": 31
+        },
+        "autosave_pure_stages": {
+          "median_ms": 1.7363,
+          "p95_ms": 15.5652,
+          "samples": 31
+        },
+        "persist_plan_mock_storage": {
+          "median_ms": 168.3651,
+          "p95_ms": 252.4973,
+          "samples": 31
+        }
+      }
+    },
+    {
+      "name": "crowded",
+      "shape": {
+        "actors": 128,
+        "scheduled_jobs": 128,
+        "native_inventory_entries": 10000,
+        "expired_opportunities": 2000,
+        "facts_per_actor": 100,
+        "simulation_log": 1
+      },
+      "bytes": {
+        "utf8": 1579124,
+        "utf16": 3158248,
+        "expansion_utf8": 989690,
+        "inventory_utf8": 588925
+      },
+      "operations": {
+        "clone_expansion": {
+          "median_ms": 15.1387,
+          "p95_ms": 144.7205,
+          "samples": 31
+        },
+        "validate_expansion": {
+          "median_ms": 8.5846,
+          "p95_ms": 190.9625,
+          "samples": 31
+        },
+        "advance_1_future_jobs": {
+          "median_ms": 132.4878,
+          "p95_ms": 282.2824,
+          "samples": 31
+        },
+        "advance_60_settle_all": {
+          "median_ms": 719.4789,
+          "p95_ms": 2045.521,
+          "samples": 31
+        },
+        "preview_command": {
+          "median_ms": 318.9731,
+          "p95_ms": 820.8291,
+          "samples": 31
+        },
+        "commit_command": {
+          "median_ms": 364.2578,
+          "p95_ms": 464.4931,
+          "samples": 31
+        },
+        "serialize_envelope": {
+          "median_ms": 4.2341,
+          "p95_ms": 5.1019,
+          "samples": 31
+        },
+        "parse_envelope": {
+          "median_ms": 6.5325,
+          "p95_ms": 8.2081,
+          "samples": 31
+        },
+        "validate_envelope": {
+          "median_ms": 509.3587,
+          "p95_ms": 609.0762,
+          "samples": 31
+        },
+        "autosave_pure_stages": {
+          "median_ms": 15.503,
+          "p95_ms": 17.838,
+          "samples": 31
+        },
+        "persist_plan_mock_storage": {
+          "median_ms": 502.171,
+          "p95_ms": 1239.6083,
+          "samples": 31
+        }
+      }
+    }
+  ]
+}

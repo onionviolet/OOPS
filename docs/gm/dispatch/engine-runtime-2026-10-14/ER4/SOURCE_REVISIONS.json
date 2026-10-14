@@ -1,0 +1,47 @@
+[
+  {
+    "id": "antimatter",
+    "repo": "IvarK/AntimatterDimensionsSourceCode",
+    "error": "Cloning into 'docs/gm/dispatch/engine-runtime-2026-10-14/ER4/sources/antimatter'...\nerror: RPC failed; curl 92 HTTP/2 stream 5 was not closed cleanly: CANCEL (err 8)\nerror: 3000 bytes of body are still expected\nfetch-pack: unexpected disconnect while reading sideband packet\nfatal: early EOF\nfatal: fetch-pack: invalid index-pack output\n"
+  },
+  {
+    "id": "kittens",
+    "repo": "nuclear-unicorn/kittensgame",
+    "error": "Cloning into 'docs/gm/dispatch/engine-runtime-2026-10-14/ER4/sources/kittens'...\nerror: RPC failed; curl 56 Recv failure: Connection reset by peer\nerror: 10774 bytes of body are still expected\nfetch-pack: unexpected disconnect while reading sideband packet\nfatal: early EOF\nfatal: fetch-pack: invalid index-pack output\n"
+  },
+  {
+    "id": "evolve",
+    "repo": "pmotschmann/Evolve",
+    "error": "Cloning into 'docs/gm/dispatch/engine-runtime-2026-10-14/ER4/sources/evolve'...\nerror: RPC failed; curl 56 Recv failure: Connection reset by peer\nerror: 4047 bytes of body are still expected\nfetch-pack: unexpected disconnect while reading sideband packet\nfatal: early EOF\nfatal: fetch-pack: invalid index-pack output\n"
+  },
+  {
+    "id": "trimps",
+    "repo": "Trimps/Trimps.github.io",
+    "sha": "b9edb1dfee270ebf81bef8d934dc71276bf8d963"
+  },
+  {
+    "id": "darkroom",
+    "repo": "doublespeakgames/adarkroom",
+    "error": "Cloning into 'docs/gm/dispatch/engine-runtime-2026-10-14/ER4/sources/darkroom'...\nerror: RPC failed; curl 56 Recv failure: Connection reset by peer\nerror: 4101 bytes of body are still expected\nfetch-pack: unexpected disconnect while reading sideband packet\nfatal: early EOF\nfatal: fetch-pack: invalid index-pack output\n"
+  },
+  {
+    "id": "progressknight",
+    "repo": "ihtasham42/progress-knight",
+    "sha": "f6dd0c3c444d838f80325bbdca918160b99e89e5"
+  },
+  {
+    "id": "idleloops",
+    "repo": "omsi6/loops",
+    "error": "Cloning into 'docs/gm/dispatch/engine-runtime-2026-10-14/ER4/sources/idleloops'...\nremote: Repository not found.\nfatal: repository 'https://github.com/omsi6/loops.git/' not found\n"
+  },
+  {
+    "id": "candybox",
+    "repo": "candybox2/candybox2.github.io",
+    "sha": "35301d438aa2c1e58e8cb3ea215b0af323bddf9b"
+  },
+  {
+    "id": "upstream",
+    "repo": "miktaew/yet-another-idle-rpg",
+    "sha": "e3356432ad5112f30842cfe6a6b5c3a4ced77de9"
+  }
+]

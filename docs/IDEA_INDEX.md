@@ -18,6 +18,16 @@ Remaining gaps, in order:
 
 ## How ideas are kept
 
+[Engine, runtime, performance and stack](ENGINE_RUNTIME_PERFORMANCE_AND_STACK_CONSIDERATIONS_2026-10-14.md)
+owns the 2026-10-14 engine palette beyond E1-E10: runtime architecture (RT),
+performance and measurement (PF), persistence (DA), tech stack options (TS),
+codebase health (CH), other (OS), proper engine options (EG), libraries (LB)
+NPC/sim architecture (AI), subtle micro correctness (MC), building our own
+engine (OE), wider engine catalog (XE), engine-design subtleties (SB),
+engine-revealing cheats (CX), overarching principles (OV), implementation
+implications (IM), comic worlds through the engine (CE) and abstractions (AB).
+Proposals only; Codex lanes ER1-ER18 audit.
+
 [Companions, familiars and pets](COMPANIONS_FAMILIARS_AND_PETS_CONSIDERATIONS_2026-10-14.md)
 owns the 2026-10-14 palette for creatures, spirits and things that travel with the
 player: kinds, acquisition, bond tracks, care, mounts, per-world fit, cheat shapes
