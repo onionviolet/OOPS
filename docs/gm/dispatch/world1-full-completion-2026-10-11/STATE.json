@@ -15,7 +15,12 @@
     "structured equipment integration and affected tests",
     "src/models/hero.js current equipment effect refresh; no incumbent writer"
   ],
-  "workers": {},
+  "workers": {
+    "foundation_reconcile": {
+      "role": "read-only review",
+      "state": "complete; no write reservation"
+    }
+  },
   "processes": [],
   "successors": [
     {
@@ -95,14 +100,16 @@
   "resumedAt": "2026-10-13",
   "resumeAuthority": "Weibao: send the full World1 campaign after G9 with codex",
   "privateCompanion": "p10 and p09 ignored companions; root installs, frozen predecessors retained",
-  "activeProof": "19306/19307 integration harness; closing after checkpoint",
+  "activeProof": "none; all campaign harnesses and browsers closed",
   "foundationIntegration": {
     "commit": "638241e95bb0d6ee0678d487ca6cdfd8b42c2129",
     "status": "source and affected seeded-native PASS"
   },
   "commits": {
     "C01": "dd7501bb",
-    "C02": "2a355072"
+    "C02": "2a355072",
+    "foundationMerge": "4df76598"
   },
-  "stopReason": "recoverable context/budget boundary; full campaign remains authorized"
+  "stopReason": "recoverable context/budget boundary; full campaign remains authorized",
+  "integrationCommit": "4df76598"
 }

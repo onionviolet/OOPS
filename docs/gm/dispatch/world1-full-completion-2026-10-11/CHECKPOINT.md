@@ -34,3 +34,8 @@ Next: W1-C03/L2-U02 following [NEXT_UNIT](NEXT_UNIT.md). Source, libraries and p
 untouched outside the explicitly authorized new private notes.
 Preserve frozen p01–p08; new immutable content edition, existing engine/clock/
 stock/knowledge/publisher. Desktop proof at 1600×1100; mobile deferred.
+
+Recoverable boundary: C01 `dd7501bb`, C02 `2a355072`, foundation merge `4df76598`.
+All campaign proof browsers/harnesses closed. Full campaign remains authorized
+and incomplete; resume W1-C03 here without a new chat or permission. Local
+rebuilt dist/index are unstaged; root retains main integration/installation.
