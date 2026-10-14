@@ -1562,7 +1562,7 @@ on, and one lane per open direction.
 
 | Code | Angle | Do |
 |---|---|---|
-| MD1 | **Not every world has seasons.** Paradise's hub, dungeons, dream realms and space have no Earth year. The climate shape needs "no season", custom cycles and indoor worlds, not four named seasons per world. | ACCOUNT in W23, W28 |
+| MD1 | **Not every world has seasons.** (Corrected in round 11, CR4: Paradise was named here without a source check; its hub has a sourced calendar and each derived world brings its own.) Dungeons, dream realms and space may have no Earth year. The climate shape needs "no season", custom cycles and indoor worlds, not four named seasons per world. | ACCOUNT in W23, W28 |
 | MD2 | **Weather reads `current_location` from `main.js`.** A per-world derive should take world, place and clock as arguments so tests and the away ledger can call it without the game loaded. | ACCOUNT in W28 |
 | MD3 | **Away time must reuse the same derive.** If the away ledger guesses weather separately, crops and travel disagree with what you see on return. Determinism belongs with `core/a5-determinism` and seeded streams. | ACCOUNT in W25, W28 |
 | MD4 | **Derived, but effects saved.** Weather itself can be recomputed; what it caused (spoiled food, a missed ferry) must save as a caused effect with a cause ID (MC29). | ACCOUNT |
@@ -1603,3 +1603,85 @@ on, and one lane per open direction.
 | W26 | DR5 carriers and small consequences | `W26_CARRIERS_AND_SMALL_CONSEQUENCES.md` | launched |
 | W27 | DR6 inspector map | `W27_INSPECTOR_MAP.md` | launched |
 | W28 | DR1 per-world climate prototype (own worktree and branch, pure module plus tests, not integrated) | branch `kit/w28-world-climate` | queued until W23 returns |
+
+## Round 11: specific worlds and their special stuff (2026-10-14)
+
+Request (Weibao, 2026-10-14): "Consider specific world stuff too, cause
+paradise hub might based on the book and more? Or has special stuff and
+more? more t oconsider? Send out codex accordingly".
+
+Rounds 9 and 10 wrote generic directions. Each world bends them: some
+worlds already solved a direction in their own code, some have a shape the
+kit never assumed. This round checks the directions against specific
+worlds, starting with Paradise, and sends lanes by world group.
+
+### Corrections first (CR4-CR6)
+
+| Code | What was wrong | Evidence | Fixed |
+|---|---|---|---|
+| CR4 | MD1 said Paradise's hub has no seasons. That was a guess, not a source check. | SHOWN: [hub life](paradise-hub/HUB_LIFE_ECONOMY_AND_PEOPLE_2026-10-14.md) "Between-world calendar" row (hub rest days, mission spacing, origin return, with an open stage contradiction); [canon plan](paradise-hub/CANON_PRIORITY_PLAN_2026-10-14.md) F16 (Paradise, Reality and Void share reference flow; other worlds and transit vary). | MD1 reworded in place. |
+| CR5 | KX66 and MC8 implied the game has one global clock. Paradise already has per-instance clocks with policies. | SHOWN: `src/book_world_paradise_native.js` `paradiseCalendarAt` (own 30-day months); `src/book_world_paradise_carriers.js:30-35` clock list with `common` and `presence` modes, `hub` versus `local` kinds, `absence: 'freeze'`, and return and extraction deadlines on local clocks. | DR4 should start from Paradise's clock policy shape, not invent one. W25 told via this round. |
+| CR6 | W26 uses "carriers" for news; Paradise code already uses "carrier" for the body and context that crosses worlds. | SHOWN: `src/book_world_paradise_carriers.js:11` `paradiseCarrierContext`. | Kit calls news carriers **couriers** from here on (MD10 meaning unchanged). |
+
+### World shapes the kit assumed away (SW)
+
+The kit pictured one world with one map and one clock. Several priority
+worlds have other shapes, and each shape changes how every K part nests.
+
+| Code | Shape | Worlds (MEMORY unless cited) | What it changes |
+|---|---|---|---|
+| SW1 | **Hub of worlds.** A home base that sends you into derived worlds with their own laws, clocks and deadlines. | Paradise (SHOWN above) | Two kit layers: one hub kit, plus a thin kit per derived world. Hub laws (contract, rating, fees) sit above local laws. |
+| SW2 | **Looping world.** The world resets on a schedule; you keep some things. | Mother of Learning (time loop) | "Reload" becomes an in-world event. Lifecycle rows (MC) need an in-loop column: what resets, what persists, who remembers. |
+| SW3 | **Paired worlds.** Two linked realms with different rules and clocks. | Shadow Slave (waking world and Dream Realm), Bleach (living world and Soul Society) | Each realm needs its own K2, K5, K28; crossings (K15) happen inside one world. |
+| SW4 | **Bounded institution world.** Life runs on a school or org calendar. | HP (school years and terms), JJK (school plus missions), Naruto (village and ranks) | The institution's calendar is the world's main clock; holidays and terms drive K8, K21, K32. |
+| SW5 | **Modular campaign world.** Rules first, settings swappable. | D&D | The kit applies per setting module; the rules layer (rests, slots, planes) is the shared core. |
+| SW6 | **Hidden-layer world.** An ordinary surface hides a power society. | LOTM, CoI, HP, Fate, JJK | Two of everything: public and hidden cast, prices, news, law. Perception (K30) and subtext (K31) carry most of the play. |
+| SW7 | **Event-bounded world.** The world is defined by one recurring contest. | Fate (Grail War), HxH (Hunter Exam and arcs) | The canon clock is the contest; K12 and K32 dominate, and life between contests is thin in the source. |
+| SW8 | **Series of books as eras.** One world, different books with different floors. | TTKS (B1-B5 split) | Kit rows per book, no borrowing floors across books (already W1 rule). |
+
+### Specific worlds against the directions (WS)
+
+All rows are proposals. Anything not cited is MEMORY and goes to the lanes
+to source-check.
+
+| Code | World | Special stuff the kit must respect | Directions it bends |
+|---|---|---|---|
+| WS1 | Paradise | Contract and rating system above every derived world; paid hub services with real prices; finite hub rest between missions; auctions and guilds; derived worlds with deadlines and extraction (SHOWN in paradise-hub docs). Native code already owns calendar, clocks and carriers. | DR1 weather lives per derived world; the hub's own environment needs a source check. DR3 hub law (contract terms) outranks local law. DR4 reuse its clock policies. DR6 its envelope validators are a ready inspector source. |
+| WS2 | Mother of Learning | Month loop; loop-aware knowledge; Cyoria's calendar inside one month. | DR4 loop reset is a clock event; DR1 weather must repeat inside the loop unless the player changes causes; DR5 rumours reset with the loop. |
+| WS3 | Harry Potter | School terms, houses, points; owl post; Ministry law and the Statute of Secrecy; Scottish weather. | DR3 secrecy is a law with twin actions (spell, potion, item, talk); DR5 owls and the Prophet as couriers; DR1 a highland climate. |
+| WS4 | D&D | Rests, spell slots, planes with their own laws; settings vary. | DR4 rests are a clock; DR3 planar laws; DR1 per setting and per plane. |
+| WS5 | LOTM and CoI | Pathways and Sequences with acting; potion ingredients; churches and secret orgs; foggy industrial city. | DR3 church and secret-org laws; DR5 newspapers plus secret channels; DR6 sealed-truth care in every lens page. |
+| WS6 | Shadow Slave | Spell, Nightmares, Dream Realm, ranks; waking world under the Spell. | SW3 pairing; DR4 two clocks; DR3 the Spell's rules as hard laws. |
+| WS7 | JJK, Bleach, Naruto | Curtains and domains; reiatsu and Soul Society; chakra, villages and ranks. | SW3, SW4; DR3 institution law (schools, Gotei, villages); DR5 mission briefings as couriers. |
+| WS8 | Fate, HxH, FMA | Grail War rules and command spells; Nen vows and restrictions; equivalent exchange and state alchemists. | DR3 vows and exchanges are personal laws; SW7 contest clocks. |
+| WS9 | TTKS | Per-book worlds (B1-B5). | SW8; every direction rated per book. |
+
+### More to consider on world-specific stuff (MW)
+
+| Code | Angle | Do |
+|---|---|---|
+| MW1 | **Worlds that already solved a direction are templates.** Paradise's clock policies, MoL's native state and any world validator should be read before a generic design. | ACCOUNT: lanes list "already solved here" first. |
+| MW2 | **Book first, then special.** A world's special system comes from its source; an original addition is labelled as one (the Paradise docs already split novel-qualified and original content). | ACCOUNT |
+| MW3 | **Nesting.** Hub worlds and paired worlds need kit cards that nest: parent card plus child cards, with inheritance stated per part. | LATER: template gains a "parent world" field (after W29). |
+| MW4 | **Source contradictions stay visible.** Paradise's calendar has a stage contradiction; the kit picks a per-era Default + Dial, never a silent pick. | ACCOUNT |
+| MW5 | **Special currencies and ratings are laws too.** Paradise coins and ratings, house points, mission ranks: who issues them, who can revoke them, what they buy. | W29-W32 |
+| MW6 | **World-specific inspectors.** Each world may need one lens no other world has (contract terms, loop memory, Sequence digestion, vow ledger). | W27 input |
+| MW7 | **Per-world risk to sealed secrets.** World-specific lens pages and climate text can leak sealed truth; lanes name the risk by secret ID only. | ACCOUNT |
+
+### Suggestions (round 11, ranked)
+
+1. Make Paradise's clock policies the starting shape for DR4 and the climate
+   prototype (W28), since they already carry modes, kinds, absence and
+   deadlines.
+2. Add the world shape (SW) to every world card so nesting is explicit
+   before more per-part rows are written.
+3. After W29-W32 return, add a "special stuff" section to the template.
+
+### Codex lanes, round 11
+
+| Lane | Worlds | Owns |
+|---|---|---|
+| W29 | Paradise hub and derived worlds (deepest) | `W29_PARADISE_SPECIAL.md` |
+| W30 | HP, D&D, Mother of Learning | `W30_HP_DND_MOL_SPECIAL.md` |
+| W31 | LOTM, CoI, Shadow Slave, TTKS B1-B5 | `W31_NOVEL_WORLDS_SPECIAL.md` |
+| W32 | JJK, Bleach, Naruto, Fate, HxH, FMA | `W32_ANIME_WORLDS_SPECIAL.md` |

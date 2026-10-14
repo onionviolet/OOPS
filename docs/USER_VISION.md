@@ -110,6 +110,13 @@ Its rows are proposals; only this section's quoted priority is Weibao's directio
 
 ## World core kit, every little detail and a repeating audit, 2026-10-14
 
+Round 11 request (2026-10-14): "Consider specific world stuff too, cause
+paradise hub might based on the book and more? Or has special stuff and
+more? more t oconsider? Send out codex accordingly". Read as: generic kit
+directions must be checked against each world's source and its special
+systems, starting from the book (Paradise first), and a world that already
+solved a direction in its own code is the template, not an exception.
+
 Round 10 request (2026-10-14): "sned out codex to address each direction, run
 another more to consider pass". Read as: one Codex lane per open round 9
 direction (DR1-DR8) plus a more-to-consider pass on those directions
@@ -173,7 +180,9 @@ audit RA1-RA10; 9, the more-to-consider school part by part (MC1-MC34:
 producer, owner, reader, lifecycle, inspect and a NOW, ACCOUNT or LATER
 disposition per part), same-day owner map OM1-OM10, KX63-KX70 and lanes
 W21-W23; 10, corrections CR1-CR3, directions DR1-DR8 with one lane each,
-MD1-MD12, KX71-KX75 and lanes W24-W28.
+MD1-MD12, KX71-KX75 and lanes W24-W28; 11, specific worlds: corrections
+CR4-CR6 (Paradise has sourced calendars and per-instance clock policies),
+world shapes SW1-SW8, per-world rows WS1-WS9, MW1-MW7 and lanes W29-W32.
 
 Owners: the [world core kit](worlds/WORLD_CORE_KIT_2026-10-14.md) (palette,
 rounds and lane returns, all proposals), the

@@ -63,3 +63,7 @@ Round 7 (launched 2026-10-14 01:25):
 | W26 carriers and small consequences (round 10) | 01a13b9b-1863-7da2-a6bf-2f7a2b8cf047 | .../W26_CARRIERS_AND_SMALL_CONSEQUENCES.md, ../W26_REPORT.md |
 | W27 inspector map (round 10) | 01a13b9b-188b-73e1-8735-5bece6bcdc44 | .../W27_INSPECTOR_MAP.md, ../W27_REPORT.md |
 | W28 world climate prototype (round 10) | queued until W23 returns | branch kit/w28-world-climate, ../W28_REPORT.md |
+| W29 Paradise special (round 11) | 01a13ba0-6f9b-7022-93ad-ca7581579bee | .../W29_PARADISE_SPECIAL.md, ../W29_REPORT.md |
+| W30 HP, D&D, MoL special (round 11) | 01a13ba0-6fb5-7c62-9aea-8c123b68a240 | .../W30_HP_DND_MOL_SPECIAL.md, ../W30_REPORT.md |
+| W31 novel worlds special (round 11) | 01a13ba0-6fd1-7052-9b7b-726c47b988df | .../W31_NOVEL_WORLDS_SPECIAL.md, ../W31_REPORT.md |
+| W32 anime worlds special (round 11) | 01a13ba0-6ff5-7e82-9a09-74546fa71e59 | .../W32_ANIME_WORLDS_SPECIAL.md, ../W32_REPORT.md |
