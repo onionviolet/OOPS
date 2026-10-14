@@ -1,6 +1,8 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {normalizeLocalLife,advanceLocalLife,localLifeAction,localLifeView,localLifeQuestView,recordLocalPurchases} from '../src/absorb_c2/local_life.js';
+import {normalizeLocalLife,advanceLocalLife as advanceWithStream,localLifeAction,localLifeView,localLifeQuestView,recordLocalPurchases} from '../src/absorb_c2/local_life.js';
+// Procgen requires a saved stream; calls that roll nothing get a fixed no-hit draw.
+const advanceLocalLife=(raw,c,rng=()=>.999)=>advanceWithStream(raw,c,rng);
 import {grantEarnedTitles,titleView} from '../src/titles.js';
 import {createDiscoveryCuePolicy} from '../src/native_discovery_policy.js';
 const c=(x={})=>({worldId:'base.frontier',alive:true,idle:true,location:'Village',clock:420,calendarMinute:420,money:20,perception:0,millUnlocked:true,...x});
