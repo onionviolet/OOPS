@@ -6,6 +6,7 @@
         <link rel="stylesheet" href="styles/workspace.css">
         <link rel="stylesheet" href="styles/workspace_discovery.css">
         <link rel="stylesheet" href="styles/display_settings.css">
+        <link rel="stylesheet" href="styles/status_window.css">
         <link rel = "stylesheet" href = "style.css?version=v0.6-b76c6660e503">
         <link rel="stylesheet" href="styles/action_legibility.css?version=721590da18e7">
         <link rel="stylesheet" href="styles/crafting_detail.css">
@@ -119,6 +120,15 @@
                     </div>
                     <div id = "hero_creation_panel_race_kemonomimi" class="race_selection_list">
                         <div id = "race_kemonomimi_label" class="race_label" data-translation="ui race_kemonomimi_label"></div> </div>
+                </div>
+                <div class="cheat_start_choice">
+                    <label for="cheat_start">Optional beginning</label>
+                    <select id="cheat_start" data-cheat-start aria-describedby="cheat_start_desc">
+                        <option value="none" selected>No system</option>
+                        <option value="system-quests">Begin with a system</option>
+                        <option value="surprise">Surprise me</option>
+                    </select>
+                    <p id="cheat_start_desc" data-cheat-start-desc>A chosen system starts dormant and wakes on your first won fight or day 3. It adds an informational view of your level and known abilities, without granting power. You can leave it off. Surprise me chooses from available starts; currently only this system is available.</p>
                 </div>
                 <div id = "hero_creation_panel_confirmation_wrapper" class="race_selection_list">
                     <div id = "hero_creation_panel_confirmation" data-translation="ui confirm">

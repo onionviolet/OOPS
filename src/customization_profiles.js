@@ -8,7 +8,7 @@ const choice = (value, choices, label) => choices.includes(value) ? value : fail
 const number = (value, min, max, label) => typeof value === 'number' && Number.isFinite(value) && value >= min && value <= max ? value : fail(`invalid ${label}`);
 const color = value => typeof value === 'string' && /^#[\da-f]{6}$/i.test(value) ? value : fail('colors require #RRGGBB');
 const keys = (value, allowed) => { if (!record(value) || Object.keys(value).some(key => !allowed.includes(key))) fail('unknown or malformed fields'); };
-export const CUSTOMIZATION_MODULES = ['ledger', 'crafting', 'local-actions', 'vitals', 'preparation', 'belongings', 'records', 'time', 'location', 'skills', 'messages', 'notebook', 'customization'];
+export const CUSTOMIZATION_MODULES = ['ledger', 'crafting', 'local-actions', 'vitals', 'preparation', 'belongings', 'records', 'time', 'location', 'skills', 'messages', 'notebook', 'customization', 'status-window'];
 export const EFFECT_MODULES = ['ledger', 'crafting', 'skills'];
 export function defaultPresentationSettings() {
     return {componentTheme: 'neutral', typography: {font: 'system', size: 14}, palette: {background: '#1c243b', text: '#f1f2f5', accent: '#9bb4ae'}, spacing: 8, effects: 'reduced', sound: false, presentation: 'inline', effectDefinition: {motif: 'receipt', duration: 1800, color: '#b8d8cf', background: '#162127', static: false, plain: false}};

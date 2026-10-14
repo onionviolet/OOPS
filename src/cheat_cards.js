@@ -35,6 +35,8 @@ export function validateCheatCard(card) {
     if(!PANELS.has(card.ui)) throw new Error('Invalid cheat card ui: unknown panel.');
     if(!TERMS.has(card.terms)) throw new Error('Invalid cheat card terms.');
     object(card.state, 'card state');
+    if(Object.hasOwn(card.state, 'awakened') && typeof card.state.awakened !== 'boolean')
+        throw new Error('Invalid cheat awakened state: expected a boolean.');
     for(const key of ['hooks', 'stages', 'observers', 'sources']) {
         if(!Array.isArray(card[key])) throw new Error(`Invalid cheat card ${key}: expected an array.`);
     }
@@ -75,3 +77,25 @@ export function recordCheatMessage(state, id, text, at) {
 export const SYSTEM_QUESTS_CARD = Object.freeze({id: 'system-quests', family: 'system', name: 'Quest system',
     ui: 'status-window', terms: 'gift', hooks: Object.freeze([]), state: Object.freeze({}),
     stages: Object.freeze([]), observers: Object.freeze([]), sources: Object.freeze([])});
+
+// CH1: explicit dormancy is opt-in; legacy C0 cards and messages stay valid.
+export function optionalStartCard() {
+    return {...structuredClone(SYSTEM_QUESTS_CARD), state: {awakened: false, points: 0}};
+}
+export function awakenedStatusCard(state) {
+    return Object.values(state.held).find(entry => entry.card.ui === 'status-window' &&
+        (entry.card.state.awakened === true || (entry.card.state.awakened === undefined && entry.messages.length > 0)));
+}
+export const FIRST_SYSTEM_MESSAGE = 'Your system is awake. You can now read your level and known abilities.';
+export function awakenCheats(state, {dayCount, wonFight = false, at}) {
+    const next = validateCheatState(state), messages = [];
+    if(!wonFight && !(dayCount >= 3)) return {state: next, messages};
+    for(const [id, entry] of Object.entries(next.held)) {
+        if(entry.card.ui !== 'status-window' || entry.card.state.awakened !== false) continue;
+        entry.card.state.awakened = true;
+        const recorded = recordCheatMessage(next, id, FIRST_SYSTEM_MESSAGE, at);
+        next.held[id] = recorded.held[id];
+        messages.push(FIRST_SYSTEM_MESSAGE);
+    }
+    return {state: validateCheatState(next), messages};
+}
