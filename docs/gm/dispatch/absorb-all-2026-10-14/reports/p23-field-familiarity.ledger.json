@@ -119,5 +119,6 @@
   ],
   "final_merge_eligible": false,
   "pushed": false,
-  "merged": false
+  "merged": false,
+  "evidence_checkpoint_commit": "c85326b9"
 }

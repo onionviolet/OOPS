@@ -3,7 +3,7 @@
 Status: module implemented, native loop **implemented-unverified**. Do not final
 merge as gameplay. P00 owns the missing native joins and integrated candidate.
 Source commit: `359e6565` on `absorb-all/p23-field-familiarity`, base
-`0216ccdefcfce79877378f8cb0ee41129fe11c5d`. No push or merge. Initial tree clean.
+`0216ccdefcfce79877378f8cb0ee41129fe11c5d`. Evidence checkpoint commit: `c85326b9`. No push or merge. Initial tree clean.
 
 ## Authority and scope
 
