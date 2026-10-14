@@ -8787,7 +8787,7 @@ if(!importProbeToken && !foundationSaveBlocked && !is_loading_error) {
     registerWorkspaceModule({id:'customization-sites',title:'Original site',node:authoredHost,home:'center'});
     mountWorkspace();
     refreshCustomization();
-    expansionQuests = createExpansionQuests({read: readProgression,readLocalLife:()=>localLife});
+    expansionQuests = createExpansionQuests({read: readProgression,readLocalLife:()=>localLife,readLocalContext:localLifeContext});
     const bodySkills = new Set(["Running","Weightlifting","Climbing","Equilibrium","Breathing","Swimming","Fortitude","Perception","Meditation","Sleeping","Cold resistance"]);
     characterBio = createCharacterBio({registry: expeditionRegistry, read: readProgression,
         readTraining: () => Object.values(skills).filter(skill => skill.isUnlocked() && skill.getTotalXP() >= skill.visibility_treshold && skill.getCurrentLvl() > 0)

@@ -208,7 +208,7 @@ export function localLifeView(raw,c) {
         readiness:available?'Ready. Search time passes while you remain idle here.': 'Finish combat, travel, dialogue, sleep or other work first.',
         rows:[{id:'look',label:found?'Search complete: nothing remains':s.looking?`Stop looking (${s.searchProgress}/5 minutes; 1 find remains)`:'Look around (1 find remains)',disabled:!available||found||!places[c.location]},
             ...(s.parcelStep===3 && c.location==='Village'?[{id:'parcel_again',label:'Start another Village parcel relay',disabled:!available}]:[]),
-            ...(s.pamphletRead && s.parcelStep<3?[{id:'parcel',label:`Parcel relay ${s.parcelStep+1}/3: ${PARCEL_STOPS[s.parcelStep].text}`,disabled:!available||c.location!==PARCEL_STOPS[s.parcelStep].location||(s.parcelStep===0&&!c.millUnlocked)}]:[]),
+            ...(s.pamphletRead && s.parcelStep<3?[{id:'parcel',label:`Parcel relay ${s.parcelStep+1}/3: ${PARCEL_STOPS[s.parcelStep].text}${s.parcelStep===0&&!c.millUnlocked?' Clear the Cave room and report to the village elder to open Eastern mill first.':''}`,disabled:!available||c.location!==PARCEL_STOPS[s.parcelStep].location||(s.parcelStep===0&&!c.millUnlocked)}]:[]),
             ...(c.location==='Village'?[
                 {id:'mentor',label:'Ask the village elder what to do next',disabled:!available},
                 ...(s.visitorMet?[{id:'pamphlet',label:s.pamphletRead?'Courier: route pamphlet read':'Visiting courier: read route pamphlet (unlocks parcel relay)',disabled:!available||s.pamphletRead}]:[]),
@@ -226,7 +226,7 @@ export function recordLocalPurchases(raw,quantity) {
     if(!natural(quantity))throw new Error('Invalid purchased item count.');
     const s=normalizeLocalLife(raw);s.itemsBought=Math.min(Number.MAX_SAFE_INTEGER,s.itemsBought+quantity);return s;
 }
-export function localLifeQuestView(raw) {
+export function localLifeQuestView(raw,c={}) {
     const s=normalizeLocalLife(raw);
     return [
         ...(s.watchDay!=null?[{id:'village.watch',name:'Village watch',completed:!s.watching,
@@ -234,6 +234,6 @@ export function localLifeQuestView(raw) {
             objective:s.watching?`On watch: ${s.watchMinutes} played minutes. Stay until 20:00; 12 coins on completion.`:`${s.watchShifts} shifts completed. Accept another at 07:00–10:00.`}]:[]),
         ...(s.pamphletRead?[{id:'village.parcel',name:'Village parcel relay',completed:s.parcelStep===3,
             description:'The courier pamphlet connects the elder, millers and old craftsman. Use ordinary travel between handoffs.',
-            objective:s.parcelStep===3?`${s.parcelRuns} relays delivered. 8 coins and 2 Perception XP paid for the last receipt. Start another in Village.`:`Next stop ${s.parcelStep+1}/3: ${PARCEL_STOPS[s.parcelStep].text}`}]:[])
+            objective:s.parcelStep===3?`${s.parcelRuns} relays delivered. 8 coins and 2 Perception XP paid for the last receipt. Start another in Village.`:`Next stop ${s.parcelStep+1}/3: ${PARCEL_STOPS[s.parcelStep].text}${s.parcelStep===0&&c.millUnlocked!==true?' Before collecting: clear the Cave room and report to the village elder to open Eastern mill.':''}`}]:[])
     ];
 }
