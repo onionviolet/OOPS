@@ -4,7 +4,7 @@
   "date": "2026-10-14",
   "status": "tranche 1 technically passed; tranches 2-5 OPEN",
   "base_head": "43b01f95112b5a4017d0cd426d414ae553abeadc",
-  "candidate_head": "be0e594527dd2f7e50314fa6ab3d910adb89481f",
+  "candidate_head": "355c7a3a",
   "session": "01a138ea-def0-77c0-b800-f4ade39f33af",
   "port": 18834,
   "viewport": {
@@ -38,7 +38,8 @@
       "native": "tranche1-native.json and tranche1-guards.json",
       "bundle_sha256": "313c5c95ff047166fa7eb81e2f3297bcba5383d6d765fead15613b69bfb7a1d5",
       "prerequisites": "supported old-envelope fixture; no feature outcomes seeded",
-      "human_acceptance": "OPEN"
+      "human_acceptance": "OPEN",
+      "commit": "355c7a3a"
     }
   ],
   "merged_lanes": [
@@ -90,12 +91,25 @@
     "bundleSha256": "2ff397f1a6cd86eacf4f10e173e8bd49eae71e3572e779fddaf40eeea2126eeb",
     "pageErrors": []
   },
-  "blocker": null,
+  "blocker": {
+    "id": "Q2",
+    "type": "save-format/boot authority decision",
+    "proposal": "checks/p23-host-joins/P15_SAVE_AUTHORITY_PROPOSAL.md",
+    "status": "coordinator answer pending",
+    "runtime_implementation": false
+  },
   "persistent_families": {
     "p23_exposure": "native pending/settled/full-envelope restore passed",
     "household": "native pending/settled/full-envelope restore passed"
   },
   "remaining_acceptance": "native technical tranche gates then Weibao play/taste",
   "push": false,
-  "standing_scope": "finished absorb-all lane files transferred for integration except air-wider; record edits"
+  "standing_scope": "finished absorb-all lane files transferred for integration except air-wider; record edits",
+  "remaining_work": [
+    "tranche 2 gear/combat plus encounter-profile joins",
+    "tranche 3 reading/salvage plus long-life/growth joins",
+    "tranche 4 field/market/leisure plus repeat-search joins",
+    "tranche 5 detail/adaptation plus approved save options",
+    "merge current main before final gate"
+  ]
 }
