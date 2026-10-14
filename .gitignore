@@ -35,3 +35,7 @@ __pycache__/
 
 # Throwaway proof-browser profiles (caches, cookies) stay local
 disposable-profile/
+
+# Local-only: deep reference saves (game dialogue/text, full tables, decoded
+# flows) kept for YAIR reference per the 2026-10-14 standing rule (public repo)
+/docs/research/*/private/

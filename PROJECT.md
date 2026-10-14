@@ -44,6 +44,12 @@ separate the accepted direction from unresolved mechanics.
 merged promptly, and each coordinator runs a merge sweep of its finished work
 before launching the next wave. [User vision](docs/USER_VISION.md#merge-before-dispatch-2026-10-14).
 
+**Save deep details (2026-10-14):** decompile and research passes save deep
+reference detail for later YAIR use, including game dialogue and text with IDs
+and conditions, full tables and decoded flows, in gitignored
+`docs/research/<source>/private/`. Committed docs stay paraphrased.
+[User vision](docs/USER_VISION.md#save-deep-details-for-reference-2026-10-14).
+
 **Desktop/laptop UI is primary; mobile optimization is deferred unless Weibao
 requests it.** Use screen width and height for useful independent panels and
 visible routine actions at comfortable text size. The accepted direction and

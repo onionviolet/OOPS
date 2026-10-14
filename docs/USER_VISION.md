@@ -2922,3 +2922,23 @@ Then: “Dispatch T2 (read-only chain inspector) then T3 (rule reader at Village
 mixing) as code lanes, after HV1 merges.” HV1 merged at 4f853c24 (merge sweep).
 Code lanes in [chain build](gm/dispatch/chain-build-2026-10-14/COMMON.md): T2
 running; T3 starts on T2's branch once T2 is DONE. Root merges after gates.
+
+## Save deep details for reference, 2026-10-14
+
+> Feel free to save dialogue text for future reference for YAIR too, make that a standing rule for the future to save deep details and more
+
+Said during the Hogwarts Legacy deep decompile pass. Standing rule: every
+decompile, source-read or research pass saves deep detail for future YAIR
+reference, not only bounded summaries. That includes full dialogue and
+interface text with line IDs, speakers and conditions; full data tables
+(CSV or JSON); decoded Blueprint and quest flows; native chain notes; and
+anything else a later design or implementation lane could reuse.
+
+Where: gitignored `docs/research/<source>/private/` next to the committed
+analysis (the repo is public), with bulk raw extracts allowed in
+`~/.codex/research/<source>/`. Each committed REPORT links its private folder
+and states what it holds. Committed docs, commit messages and UI keep
+paraphrase and short identifiers. Gameplay content stays original unless
+Weibao requests a direct adaptation (PROJECT.md attribution rules). Sealed
+secrets still follow AGENTS.md. User saves and source libraries stay
+untouched.
