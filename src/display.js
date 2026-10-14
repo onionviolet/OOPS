@@ -1,3 +1,4 @@
+import {GRADED_IDS} from './harvest.js';
 import {knownBestiarySources, knownLootValue} from './fork_discovery_views.js';
 import {vendorState, conditionText} from './ui_polish.js';
 import {equipmentDurability} from './absorb_e2/durability.js';
@@ -3211,7 +3212,9 @@ function commit_selected_item_recipe(amount) {
     const recipe = recipes[category][subcategory][recipe_id];
     const row = crafting_pages[category][subcategory].querySelector(`[data-recipe_id="${recipe_id}"]`);
     if(!row || !item_recipe_state(category, recipe).available) { focusFirstBlocker(document.getElementById("crafting_detail")); return; }
-    const result_key = item_templates[recipe.getResult().result_id].getInventoryKey();
+    const result_id=recipe.getResult().result_id;
+    const result_key = item_templates[result_id].getInventoryKey();
+    const resultCount=()=>GRADED_IDS.includes(result_id)?Object.values(character.getItems()).filter(row=>row.item.id===result_id).reduce((n,row)=>n+row.count,0):(character.getItems()[result_key]?.count||0);
     const inputs = {};
     for(const material of recipe.materials) {
         for(const entry of find_recipe_material({material, ignore_stop: true}).items) {
@@ -3219,13 +3222,13 @@ function commit_selected_item_recipe(amount) {
         }
     }
     const skill = skills[recipe.recipe_skill];
-    const made_before = character.getItems()[result_key]?.count || 0, xp_before = skill.getTotalXP();
+    const made_before = resultCount(), xp_before = skill.getTotalXP();
     const list = row.parentNode, scroll = list.scrollTop;
     window.useRecipe(row.querySelector(".recipe_item_name"), amount);
     const items = character.getItems();
     const used = Object.entries(inputs).map(([key, v]) => ({name: v.name, count: v.before - (items[key]?.count || 0)})).filter(u => u.count > 0);
     crafting_receipt = {key: item_recipe_key(selection), text: craftReceiptText({
-        made: (items[result_key]?.count || 0) - made_before, result_name: item_templates[recipe.getResult().result_id].getName(),
+        made: resultCount() - made_before, result_name: item_templates[recipe.getResult().result_id].getName(),
         used, xp: skill.getTotalXP() - xp_before})};
     refresh_crafting_detail();
     list.scrollTop = scroll;

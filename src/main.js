@@ -1,4 +1,4 @@
-import {createHarvest,validateHarvest,supportedHarvest,drawSpecimen,addCarcass,beginHarvest,cancelHarvest,advanceHarvest,consumedHarvestQuality,gradedKey} from './harvest.js';
+import {GRADED_IDS,createHarvest,validateHarvest,supportedHarvest,drawSpecimen,addCarcass,beginHarvest,cancelHarvest,advanceHarvest,consumedHarvestQuality,gradedKey} from './harvest.js';
 import {createHarvestPanel} from './harvest_ui.js';
 import {setProductAppearanceOwner} from './product_appearance_view.js';
 import {STREAMS,ensureStreams,bindGameStreams,gameKeyedRandom,gameRandom,gameRandomRange,drawUnit,scopedStream,seededRecipe,validateNativeEncounter,streamSeed} from "./seeded_streams.js";
@@ -1235,9 +1235,10 @@ function harvestWritable(){return ownsSave&&!foundationSaveBlocked&&!importProbe
 function harvestReady(){return harvestWritable()&&!nativeOccupationReason()&&!current_activity&&!current_game_action&&!current_combat&&!current_dialogue&&!is_sleeping&&!is_reading&&!is_in_trade();}
 function grantHarvest(plan){
     if(!plan)return;
+    if(!skills.Butchering.isUnlocked()) {skills.Butchering.setUnlocked();create_new_skill_bar(skills.Butchering);}
     const items=plan.outputs.map(o=>({item_key:o.item_key,count:o.count}));
-    character.addToInventory(items);item_log.log_items(items);
-    add_xp_to_skill({skill:skills.Butchering,xp_to_add:plan.xp,should_info:false});
+    character.addToInventory(items);
+    add_xp_to_skill({skill:skills.Butchering,xp_to_add:plan.xp,should_info:false,cap_gained_xp:false});
     log_message('Processed carcass: '+plan.outputs.map(o=>`${o.count} ${getItemFromKey(o.item_key).getName()}`).join(', '),'loot');
     update_displayed_character_inventory();update_displayed_crafting_recipes();
 }
@@ -1276,7 +1277,7 @@ function tickHarvest(minutes){
 }
 
 function nativeOccupationReason() {
-    if(harvestOwner?.job && !harvestOwner.job.automatic)return "Finish or cancel carcass processing before starting another activity.";
+    if(!restoringNativeSave && harvestOwner?.job && !harvestOwner.job.automatic)return "Finish or cancel carcass processing before starting another activity.";
     if(!restoringNativeSave && Object.values(optionalPackState.packs).some(r=>r.active))return 'Return from your optional world before starting native activities.';
     if(!restoringNativeSave && villageTeachingBusy(villageCareer))return 'Finish the agreed teaching minutes before starting another activity.';
     const backlogReasons=backlogNativeActionReasons(expansionState);
@@ -3065,7 +3066,7 @@ function recipeLesson(inventory){
 function practiceRunReason(){
     if(!ownsSave||foundationSaveBlocked||importProbeToken)return 'Saving is unavailable.';
     if(expansionState.actors.player.worldId!=='base.frontier')return 'Run is practiced for frontier travel.';
-    if(current_combat||current_activity||is_reading||is_sleeping||current_dialogue||is_in_trade()||expeditionOccupiesPlayer())return 'Finish your current activity before running.';
+    if(current_combat||current_activity||is_reading||is_sleeping||current_dialogue||is_in_trade()||nativeOccupationReason())return 'Finish your current activity before running.';
     if(character.getFullStats().stamina<2)return 'Requires 2 stamina for a journey.';
     return '';
 }
@@ -4443,7 +4444,7 @@ function execute_native_recipe(target, ammount_wanted_to_craft = 1) {
                 game_stats.total_crafting_attempts += attempted_crafting_ammount;
                 game_stats.total_crafting_successes += successful_crafting_ammount;
 
-                const harvestQuality = result_id==='Piece of wolf rat leather' ? consumedHarvestQuality(materials,selected_recipe.materials,attempted_crafting_ammount) : null;
+                const harvestQuality = category==='butchering' && GRADED_IDS.includes(result_id) ? consumedHarvestQuality(materials,selected_recipe.materials,attempted_crafting_ammount) : null;
                 //remove used materials
                 for (let i = 0; i < selected_recipe.materials.length; i++) {
                     let to_remove = selected_recipe.materials[i].count * attempted_crafting_ammount;
@@ -6153,6 +6154,7 @@ function load(save_data) {
 
                     Object.keys(saved_inventory).forEach(key => {
                         const parsedKey=JSON.parse(key);
+                        if(GRADED_IDS.includes(parsedKey.id)&&parsedKey.quality!=null){getItemFromKey(key);item_list.push({item_key:key,count:saved_inventory[key].count});return;}
                         if(parsedKey.id===MIXTURE_ID){const item=getItemFromKey(key);item_list.push({item_key:item.getInventoryKey(),count:saved_inventory[key].count});return;}
                         const measuredItem=worldCompletionSavedNativeItem(key,saved_inventory[key],getItemFromKey);
                         if(measuredItem){item_list.push(measuredItem);return;}
@@ -8477,7 +8479,7 @@ update_displayed_equipment();
 sort_displayed_inventory({sort_by: "name", target: "character"});
 
 if(!importProbeToken && !foundationSaveBlocked && !is_loading_error) {
-    harvestPanel=createHarvestPanel({container:document.getElementById('location_actions_div'),read:()=>({state:harvestOwner,context:harvestContext(),writable:harvestWritable(),ready:harvestReady()}),act:actHarvest,developer:is_on_dev()});
+    harvestPanel=createHarvestPanel({container:document.getElementById('location_actions_div'),read:()=>({state:harvestOwner,context:harvestContext(),writable:harvestWritable(),ready:harvestReady()}),act:actHarvest,developer:is_on_dev()||new URLSearchParams(location.search).get("harvest-inspector")==="1"});
     if(structuredPacks.size)structuredPanel=createStructuredPackPanel({read:readStructuredCampaign,command:commandStructuredCampaign});
     optionalPackPanel=createContentPackPanel({definitions:optionalPacks,always:true,
         read:()=>({state:optionalPackState,pauseReason:feedbackClockPauseReason(),canEnter:ownsSave&&current_location?.id==='Village'&&!nativeOccupationReason()&&!current_activity&&!current_game_action&&!current_combat&&!current_dialogue&&!is_sleeping&&!is_reading&&!is_in_trade(),canAct:ownsSave&&!foundationSaveBlocked&&!lifeStorageFailure,
@@ -8736,6 +8738,7 @@ if(!importProbeToken && !foundationSaveBlocked && !is_loading_error) {
     };
     createWorkspaceViews({read:()=>({
         work:[current_activity?nativeWorkLabel(current_activity):null,current_game_action?.name,
+            harvestOwner?.job?`${harvestOwner.job.automatic?'Auto-processing':'Processing'} ${harvestOwner.job.specimen.species}: ${harvestOwner.job.choice}, ${Math.ceil(harvestOwner.job.remaining)} min remaining`:null,
             is_sleeping?'Sleeping':null,is_reading?'Reading':null,current_dialogue?'Conversation in progress':null,
             current_combat?'Combat in progress':null,
             ...expansionState.pending.filter(j=>j.context.actorId==='player').map(j=>`${j.label||expeditionRegistry.actions.get(j.actionId)?.label||'Current work'}: ${Math.max(0,j.due-expansionState.clock)} min remaining`),

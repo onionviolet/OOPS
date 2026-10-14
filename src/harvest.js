@@ -2,7 +2,7 @@
 export const HARVEST_CAP = 24;
 export const HARVEST_SPECIES = Object.freeze(['Starving wolf rat','Wolf rat','Elite wolf rat','Elite wolf rat guardian','Wall rat']);
 export const HARVEST_PARTS = Object.freeze({pelt:{id:'Rat pelt',count:1,minutes:2},tail:{id:'Rat tail',count:1,minutes:1},fang:{id:'Rat fang',count:2,minutes:1}});
-export const GRADED_IDS = Object.freeze(['Rat pelt','Rat tail','Rat fang','Piece of wolf rat leather']);
+export const GRADED_IDS = Object.freeze(['Rat pelt','Rat tail','Rat fang','Piece of wolf rat leather','Processed rat pelt','Rat meat chunks']);
 const clamp=(n,lo,hi)=>Math.min(hi,Math.max(lo,n));
 export const supportedHarvest = species => HARVEST_SPECIES.includes(species);
 export const partNames = species => species==='Wall rat'?['tail','fang']:['pelt','tail','fang'];
@@ -29,10 +29,11 @@ export function harvestGrade(specimen,{clock,skill=0,tool=0},part){
 export function gradedKey(id,quality,completeness){return JSON.stringify({id,quality,...(completeness?{completeness}:{})});}
 export function validateGradedKey(key){
     const v=JSON.parse(key);
-    if(v.completeness!=null||GRADED_IDS.includes(v.id)&&v.quality!=null){
+    if(v.completeness==null)return v; // Legacy quality-only keys retain their original reader contract.
+    if(v.completeness!=null){
         if(!GRADED_IDS.includes(v.id)||!Number.isInteger(v.quality)||v.quality<10||v.quality>150||v.quality%5||
             (v.completeness!=null&&!['whole','damaged','scraps'].includes(v.completeness))||
-            (v.id==='Piece of wolf rat leather'&&v.completeness!=null)||
+            (!['Rat pelt','Rat tail','Rat fang'].includes(v.id)&&v.completeness!=null)||
             key!==gradedKey(v.id,v.quality,v.completeness))throw Error('Invalid graded harvest material.');
     }
     return v;

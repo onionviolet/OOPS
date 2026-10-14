@@ -1,0 +1,17 @@
+{
+  "label": "natural",
+  "used": [
+    {
+      "key": "{\"id\":\"Rat pelt\",\"quality\":70}",
+      "n": 1
+    },
+    {
+      "key": "{\"id\":\"Rat pelt\",\"quality\":75,\"completeness\":\"damaged\"}",
+      "n": 5
+    }
+  ],
+  "outputQuality": 75,
+  "leatherDelta": 1,
+  "peltDelta": -6,
+  "receiptVerifiedInPriorAttempt": true
+}
