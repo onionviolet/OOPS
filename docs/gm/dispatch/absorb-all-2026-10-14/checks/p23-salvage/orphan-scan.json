@@ -1,0 +1,197 @@
+{
+  "kind": "source reference scan only; native reachability unproved",
+  "rows": [
+    {
+      "category": "butchering",
+      "subcategory": "items",
+      "id": "Piece of alligator leather",
+      "has_acquisition_reference": true
+    },
+    {
+      "category": "butchering",
+      "subcategory": "items",
+      "id": "Piece of snakeskin leather",
+      "has_acquisition_reference": true
+    },
+    {
+      "category": "butchering",
+      "subcategory": "items",
+      "id": "Turtle shellplate",
+      "has_acquisition_reference": true
+    },
+    {
+      "category": "crafting",
+      "subcategory": "items",
+      "id": "Linen cloth",
+      "has_acquisition_reference": true
+    },
+    {
+      "category": "crafting",
+      "subcategory": "items",
+      "id": "Silk cloth",
+      "has_acquisition_reference": true
+    },
+    {
+      "category": "crafting",
+      "subcategory": "items",
+      "id": "Glass phial",
+      "has_acquisition_reference": true
+    },
+    {
+      "category": "crafting",
+      "subcategory": "items",
+      "id": "Glass bottle",
+      "has_acquisition_reference": true
+    },
+    {
+      "category": "smelting",
+      "subcategory": "items",
+      "id": "Springsteel ingot",
+      "has_acquisition_reference": true
+    },
+    {
+      "category": "smelting",
+      "subcategory": "items",
+      "id": "Raw Glass",
+      "has_acquisition_reference": true
+    },
+    {
+      "category": "smelting",
+      "subcategory": "items",
+      "id": "Alchemical Wood",
+      "has_acquisition_reference": true
+    },
+    {
+      "category": "cooking",
+      "subcategory": "items",
+      "id": "Animal fat",
+      "has_acquisition_reference": true
+    },
+    {
+      "category": "alchemy",
+      "subcategory": "items",
+      "id": "Potash",
+      "has_acquisition_reference": true
+    },
+    {
+      "category": "alchemy",
+      "subcategory": "items",
+      "id": "Bufonite",
+      "has_acquisition_reference": true
+    },
+    {
+      "category": "cooking",
+      "subcategory": "items",
+      "id": "Alligator jerky",
+      "has_acquisition_reference": true
+    },
+    {
+      "category": "cooking",
+      "subcategory": "items",
+      "id": "Snake jerky",
+      "has_acquisition_reference": true
+    },
+    {
+      "category": "cooking",
+      "subcategory": "items",
+      "id": "Turtle jerky",
+      "has_acquisition_reference": true
+    },
+    {
+      "category": "cooking",
+      "subcategory": "items",
+      "id": "Swampland skewer",
+      "has_acquisition_reference": true
+    },
+    {
+      "category": "cooking",
+      "subcategory": "items",
+      "id": "Crab bisque",
+      "has_acquisition_reference": true
+    },
+    {
+      "category": "cooking",
+      "subcategory": "items",
+      "id": "Clam broth",
+      "has_acquisition_reference": true
+    },
+    {
+      "category": "cooking",
+      "subcategory": "items",
+      "id": "Turtle soup",
+      "has_acquisition_reference": true
+    },
+    {
+      "category": "cooking",
+      "subcategory": "items",
+      "id": "Basin gumbo",
+      "has_acquisition_reference": true
+    },
+    {
+      "category": "alchemy",
+      "subcategory": "items",
+      "id": "Weak healing powder",
+      "has_acquisition_reference": true
+    },
+    {
+      "category": "alchemy",
+      "subcategory": "items",
+      "id": "Healing powder",
+      "has_acquisition_reference": true
+    },
+    {
+      "category": "alchemy",
+      "subcategory": "items",
+      "id": "Potent healing powder",
+      "has_acquisition_reference": true
+    },
+    {
+      "category": "alchemy",
+      "subcategory": "items",
+      "id": "Oneberry juice",
+      "has_acquisition_reference": true
+    },
+    {
+      "category": "alchemy",
+      "subcategory": "items",
+      "id": "Healing potion",
+      "has_acquisition_reference": true
+    },
+    {
+      "category": "alchemy",
+      "subcategory": "items",
+      "id": "Healing balm",
+      "has_acquisition_reference": true
+    },
+    {
+      "category": "alchemy",
+      "subcategory": "items",
+      "id": "Thick healing balm",
+      "has_acquisition_reference": true
+    },
+    {
+      "category": "alchemy",
+      "subcategory": "items",
+      "id": "Potion of sapping",
+      "has_acquisition_reference": true
+    },
+    {
+      "category": "alchemy",
+      "subcategory": "items",
+      "id": "Sulfur",
+      "has_acquisition_reference": true
+    },
+    {
+      "category": "alchemy",
+      "subcategory": "items",
+      "id": "Frog trophy",
+      "has_acquisition_reference": true
+    },
+    {
+      "category": "crafting",
+      "subcategory": "items",
+      "id": "Simple dream catcher",
+      "has_acquisition_reference": true
+    }
+  ]
+}
