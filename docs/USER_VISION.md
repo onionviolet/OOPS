@@ -554,6 +554,20 @@ Status: dossiers exist under `docs/research/<game>/`. Four-game absorption
 (Dwarf Fortress, Book of Hours, ONI, Cult of the Lamb) and Factorio recovery
 were in progress on 2026-10-07. A newer-games audit was also started.
 
+2026-10-14 update:
+
+> make sure the province war is able to refer and use the audits too?
+
+> we dont mind going through path of the idle cultivator, we dont need to
+> copy code, just go through how things are implmented
+
+Game research is shared: Province War may cite and route YAIRPG dossiers
+through its own audit register. Reading obfuscated or minified builds to
+learn how mechanics are implemented is accepted; copying code is not. Partial
+lanes, free titles and re-audits of earlier rejected or parked proposals were
+also requested. Wave record:
+[game research wave](gm/dispatch/game-research-wave-2026-10-14/runs/SESSIONS.md).
+
 ### 2. Book worlds lived in fully, not followed on rails
 
 > Do we follow along the protaginist or do other stuff accordingly?

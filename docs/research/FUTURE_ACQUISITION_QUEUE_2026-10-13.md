@@ -10,6 +10,8 @@ Decompile or source-read every queued game Weibao already owns. Re-run the local
 
 **Last inventory run, 2026-10-13:** none of the 12 queued paid games is owned or installed, so no decompile pass ran. Installed games already have lanes. Local RE tools: Ghidra 12.1.4 (Homebrew, with keg-only openjdk@21), `strings`, `otool`. Not installed: dotnet, ILSpy/ilspycmd, a runnable Cpp2IL, AssetRipper, Java decompilers, UndertaleModTool. A .NET or Unity pass would first need dotnet plus ilspycmd.
 
+**Inventory run, 2026-10-14 17:00:** newly owned on Steam: Academagia, Heaven's Vault, Immortal Life, The Scroll of Taiwu, Warsim and Idle Reincarnator; Hearts of Iron IV and 100 Space Cats are installed. Only Idle Reincarnator and HoI4 have payloads; the rest are Windows-only and install through the macSteam `notproton` compatibility tool (Taiwu so far has only its soundtrack DLC). `ilspycmd` 11.1 is now installed with dotnet SDK 10 in `~/.dotnet`. Lanes and gates: [game research wave](../gm/dispatch/game-research-wave-2026-10-14/runs/SESSIONS.md).
+
 **Free titles to consider** (on the account, not installed; Windows-only, so they need CrossOver or a Windows host plus a download go-ahead):
 
 | Rank | Game | Question it would answer |

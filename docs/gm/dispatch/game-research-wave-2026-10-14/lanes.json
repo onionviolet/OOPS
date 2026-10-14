@@ -1,0 +1,120 @@
+{
+ "hoi4": {
+  "out": "docs/research/hearts-of-iron-iv/",
+  "gate": null,
+  "cwd": null
+ },
+ "idle-reincarnator": {
+  "out": "docs/research/idle-reincarnator/",
+  "gate": null,
+  "cwd": null
+ },
+ "academagia-decompile": {
+  "out": "docs/research/academagia/decompile-2026-10-14/",
+  "gate": {
+   "kind": "steam_exe",
+   "dir": "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Academagia The Making of Mages",
+   "appid": 533480
+  },
+  "cwd": null
+ },
+ "heavens-vault": {
+  "out": "docs/research/heavens-vault/",
+  "gate": {
+   "kind": "steam_exe",
+   "dir": "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Heaven's Vault",
+   "appid": 774201
+  },
+  "cwd": null
+ },
+ "immortal-life": {
+  "out": "docs/research/immortal-life/",
+  "gate": {
+   "kind": "steam_exe",
+   "dir": "/Users/weiwei/Library/Application Support/Steam/steamapps/common/ImmortalLife",
+   "appid": 1201230
+  },
+  "cwd": null
+ },
+ "taiwu": {
+  "out": "docs/research/scroll-of-taiwu/",
+  "gate": {
+   "kind": "steam_exe",
+   "dir": "/Users/weiwei/Library/Application Support/Steam/steamapps/common/The Scroll Of Taiwu",
+   "appid": 838350
+  },
+  "cwd": null
+ },
+ "warsim": {
+  "out": "docs/research/warsim/",
+  "gate": {
+   "kind": "steam_exe",
+   "dir": "/Users/weiwei/Library/Application Support/Steam/steamapps/common/Warsim The Realm of Aslona",
+   "appid": 659540
+  },
+  "cwd": null
+ },
+ "ngu-idle": {
+  "out": "docs/research/ngu-idle/",
+  "gate": {
+   "kind": "steam_exe",
+   "dir": "/Users/weiwei/Library/Application Support/Steam/steamapps/common/NGU IDLE",
+   "appid": 1147690
+  },
+  "cwd": null
+ },
+ "path-idle-cultivator": {
+  "out": "docs/research/cultivation-idlers/path-of-the-idle-cultivator/",
+  "gate": null,
+  "cwd": null
+ },
+ "discworld-2": {
+  "out": "docs/research/discworld-mud/pass-2026-10-14/",
+  "gate": null,
+  "cwd": null
+ },
+ "kol-2": {
+  "out": "docs/research/kingdom-of-loathing/pass-2026-10-14/",
+  "gate": null,
+  "cwd": null
+ },
+ "idle-depth": {
+  "out": "docs/research/immortality-idle/pass-2026-10-14/",
+  "gate": null,
+  "cwd": null
+ },
+ "idleon": {
+  "out": "docs/research/legends-of-idleon/",
+  "gate": null,
+  "cwd": null
+ },
+ "free-text-worlds": {
+  "out": "docs/research/free-text-worlds-2026-10-14/",
+  "gate": null,
+  "cwd": null
+ },
+ "prestige-community": {
+  "out": "docs/research/modding-tree/pass-2026-10-14/",
+  "gate": null,
+  "cwd": null
+ },
+ "coverage-refresh": {
+  "out": "docs/research/coverage-refresh-2026-10-14/",
+  "gate": null,
+  "cwd": null
+ },
+ "adoption-reaudit": {
+  "out": "docs/research/game-research-adoption-reaudit-2026-10-14/",
+  "gate": null,
+  "cwd": null
+ },
+ "pw-intake": {
+  "out": "docs/audits/yairpg-game-research-v1/ (in Province War)",
+  "gate": {
+   "kind": "file_contains",
+   "path": "/Users/weiwei/code/yet-another-idle-rpg/docs/research/hearts-of-iron-iv/CHECKPOINT.md",
+   "text": "COMPLETE"
+  },
+  "cwd": "/Users/weiwei/code/province-war"
+ }
+}
