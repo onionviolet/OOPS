@@ -1,4 +1,4 @@
-import {createHarvest,supportedHarvest,drawSpecimen,addCarcass,beginHarvest,cancelHarvest,advanceHarvest,consumedHarvestQuality,gradedKey} from './harvest.js';
+import {createHarvest,validateHarvest,supportedHarvest,drawSpecimen,addCarcass,beginHarvest,cancelHarvest,advanceHarvest,consumedHarvestQuality,gradedKey} from './harvest.js';
 import {createHarvestPanel} from './harvest_ui.js';
 import {setProductAppearanceOwner} from './product_appearance_view.js';
 import {STREAMS,ensureStreams,bindGameStreams,gameKeyedRandom,gameRandom,gameRandomRange,drawUnit,scopedStream,seededRecipe,validateNativeEncounter,streamSeed} from "./seeded_streams.js";
@@ -1250,21 +1250,28 @@ function receiveHarvest(target){
     if(harvestOwner.left>left)log_message('Carcass lot full: one '+target.name+' left behind. Enable auto-processing to retain incoming parts.','notification');
     harvestPanel?.render();
 }
+function harvestTransaction(run){
+    const transaction=beginNativeCraftTransaction({owners:[character,character.getItems(),character.getLevelableComponent(),item_log,global_flags,availabilities,...Object.values(skills).map(s=>s.getAvailabilityComponent()),which_skills_affect_skill,...nativeCraftQuestOwners(quests,active_quests)],bindings:[{get:()=>harvestOwner,set:v=>{harvestOwner=v;}}]});
+    try {run();const serialized=create_save();if(!serialized)throw Error('Could not save carcass processing.');validateSaveEnvelope(JSON.parse(serialized),game_version);lifeSaveStorage.setItem(is_on_dev()?dev_save_key:save_key,serialized,()=>transaction.markDurable());}
+    catch(e){if(transaction.status==='pending'){transaction.rollback();update_displayed_character_inventory();}throw e;}
+}
 function actHarvest(request){
     if(!harvestWritable())throw Error('Processing requires a living player in the writable frontier game.');
     if(request.type==='begin'&&!harvestReady())throw Error('Finish the current activity before processing.');
-    harvestOwner??=createHarvest();
+    harvestTransaction(()=>{harvestOwner??=createHarvest();
     if(request.type==='auto')harvestOwner.auto=!!request.value;
     else if(request.type==='cancel')cancelHarvest(harvestOwner);
     else if(request.type==='begin')beginHarvest(harvestOwner,request.species,request.choice,harvestContext());
-    else throw Error('Unknown processing action.');
+    else throw Error('Unknown processing action.');});
     harvestPanel?.render();
 }
 function tickHarvest(minutes){
     if(!harvestOwner||!harvestWritable())return;
     // Auto handling is an idle combat companion; explicit handling occupies the player.
     const ready=harvestOwner.job&&!harvestOwner.job.automatic || (!current_activity&&!current_game_action&&!current_dialogue&&!is_sleeping&&!is_reading&&!is_in_trade()&&!nativeOccupationReason());
-    for(const plan of advanceHarvest(harvestOwner,minutes,harvestContext(),{ready:!!ready}))grantHarvest(plan);
+    if(!ready || !harvestOwner.job && !harvestOwner.auto)return;
+    try {harvestTransaction(()=>{for(const plan of advanceHarvest(harvestOwner,minutes,harvestContext(),{ready:true}))grantHarvest(plan);});}
+    catch(e){log_message('Carcass processing paused: '+e.message,'notification');}
     harvestPanel?.render();
 }
 
@@ -3797,6 +3804,7 @@ function set_new_combat({enemies} = {}) {
         enemies=savedEncounter.enemies.map(row=>{
             const e=new Enemy({...enemy_templates[row.template],stats:{...row.stats}});
             e.init();Object.assign(e.getFullStats(),row.full);e.is_alive=row.alive;
+            if(row.harvestDamage)e.harvestDamage=structuredClone(row.harvestDamage);
             e.rngKey=row.key;e.encounterKey=savedEncounter.key;e.templateKey=row.template;return e;
         });
     }
@@ -5205,6 +5213,7 @@ function create_save({forExport = false} = {}) {
         });
         
         save_data["current location"] = current_location.id;
+        if(harvestOwner)save_data.harvest=structuredClone(validateHarvest(harvestOwner,calendarMinutes(current_game_time)));
         save_data.native_encounter = current_combat?.snapshot(current_location.id) || pendingNativeEncounter;
 
         save_data["locations"] = {};
@@ -5496,6 +5505,7 @@ function load(save_data) {
             save_data = preparePackSave(save_data,packDefinitionsForSave());
             save_data = validateSaveEnvelope(save_data, game_version);
             setMixtureOwner(save_data.mixtures);
+            harvestOwner=save_data.harvest==null?null:structuredClone(validateHarvest(save_data.harvest,calendarMinutes(save_data["current time"])));
             cheatState=validateCheatState(save_data.cheats??defaultCheatState());
             optionalPackState=validatePackState(save_data.content_packs??emptyPackState());
             localLife=normalizeLocalLife(save_data.absorb_local_life);

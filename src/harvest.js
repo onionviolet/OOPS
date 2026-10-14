@@ -46,7 +46,7 @@ export function planHarvest(specimen,choice,context){
 }
 export function finishHarvest(state,specimen,choice,context){
     const plan=planHarvest(specimen,choice,context);state.processed++;state.sequence++;
-    state.last={key:specimen.key,species:specimen.species,choice,outputs:plan.outputs,damage:specimen.damage,draw:specimen.draw,skill:context.skill,tool:context.tool,clock:context.clock};
+    state.last={specimen:structuredClone(specimen),key:specimen.key,species:specimen.species,choice,outputs:plan.outputs,damage:specimen.damage,draw:specimen.draw,skill:context.skill,tool:context.tool,clock:context.clock};
     return plan;
 }
 export function addCarcass(state,specimen,context){
@@ -74,4 +74,30 @@ export function consumedHarvestQuality(groups,requirements,attempts){
     let weight=0,total=0,graded=false;
     groups.forEach((g,i)=>{let remaining=requirements[i].count*attempts;for(const row of g.items){const n=Math.min(remaining,row.count);remaining-=n;if(n&&row.item.quality!=null)graded=true;total+=n*(row.item.quality??100);weight+=n;if(!remaining)break;}});
     return graded&&weight?Math.round(total/weight/5)*5:null;
+}
+const natural=n=>Number.isSafeInteger(n)&&n>=0;
+const object=v=>v&&typeof v==='object'&&!Array.isArray(v);
+const fail=()=>{throw Error('Invalid or unsupported saved harvest state.');};
+export function validateHarvestDamage(d){
+    if(!object(d)||!natural(d.hits)||!natural(d.crits)||d.crits>d.hits||!Number.isFinite(d.overkill)||d.overkill<0||!['physical','cut','blunt','fire','magic'].includes(d.type))fail();return d;
+}
+export function validateSpecimen(s,clock=Number.MAX_SAFE_INTEGER){
+    if(!object(s)||!supportedHarvest(s.species)||typeof s.key!=='string'||!s.key||s.key.length>500||!natural(s.born)||s.born>clock||
+        !Number.isFinite(s.draw)||s.draw<0||s.draw>=1)fail();
+    const expected=drawSpecimen({species:s.species,key:s.key,clock:s.born,damage:validateHarvestDamage(s.damage)},()=>s.draw);
+    for(const k of ['size','condition','variant'])if(expected[k]!==s[k])fail();return s;
+}
+export function validateHarvest(s,clock=Number.MAX_SAFE_INTEGER){
+    if(s==null)return null;
+    if(!object(s)||s.schema!==1||s.revision!==1||!natural(s.sequence)||!natural(s.left)||!natural(s.processed)||typeof s.auto!=='boolean'||!object(s.lots))fail();
+    const keys=new Set();const visit=x=>{validateSpecimen(x,clock);if(keys.has(x.key))fail();keys.add(x.key);};
+    for(const [species,lot] of Object.entries(s.lots)){if(!supportedHarvest(species)||!Array.isArray(lot)||lot.length>HARVEST_CAP)fail();for(const x of lot){if(x.species!==species)fail();visit(x);}}
+    if(s.job!=null){const j=s.job;if(!object(j)||typeof j.automatic!=='boolean'||!Number.isFinite(j.remaining)||j.remaining<=0)fail();visit(j.specimen);const plan=planHarvest(j.specimen,j.choice,{clock,skill:0,tool:0});if(j.remaining>plan.minutes||(s.lots[j.specimen.species]?.length??0)+1>HARVEST_CAP)fail();}
+    if(s.last!=null){const l=s.last;validateSpecimen(l.specimen,clock);if(!natural(l.clock)||l.clock>clock||l.clock<l.specimen.born||!Number.isFinite(l.skill)||l.skill<0||!Number.isFinite(l.tool)||l.tool<0)fail();const expected=planHarvest(l.specimen,l.choice,l);if(JSON.stringify(expected.outputs)!==JSON.stringify(l.outputs)||l.key!==l.specimen.key||l.species!==l.specimen.species||l.draw!==l.specimen.draw||JSON.stringify(l.damage)!==JSON.stringify(l.specimen.damage))fail();}
+    return s;
+}
+export function validateHarvestEnvelope(envelope,clock=Number.MAX_SAFE_INTEGER){
+    validateHarvest(envelope.harvest,clock);
+    function visit(v){if(typeof v==='string'&&v.startsWith('{')){let parsed;try{parsed=JSON.parse(v);}catch{return;}if(parsed.completeness!=null||GRADED_IDS.includes(parsed.id)&&parsed.quality!=null)validateGradedKey(v);}else if(v&&typeof v==='object')for(const [k,x]of Object.entries(v)){visit(k);visit(x);}}
+    visit(envelope);return envelope;
 }

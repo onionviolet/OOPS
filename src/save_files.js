@@ -1,3 +1,4 @@
+import {validateHarvestEnvelope} from './harvest.js';
 import {validateProductAppearanceEnvelope} from './product_appearance_state.js';
 import {validateStreams,validateNativeEncounter} from "./seeded_streams.js";
 import {validateMixtureEnvelope} from './mixture_state.js';
@@ -48,6 +49,7 @@ const number = (value, label, minimum = 0) => {
 
 export function validateSaveEnvelope(original, currentVersion) {
     object(original, "Save");
+    validateHarvestEnvelope(original,original["current time"]?calendarMinutes(original["current time"]):Number.MAX_SAFE_INTEGER);
     validateMixtureEnvelope(original);
     validateProductAppearanceEnvelope(original);
     if(Object.hasOwn(original, "cheats"))validateCheatState(original.cheats);

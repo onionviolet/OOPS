@@ -67,7 +67,7 @@ class Combat {
     snapshot(locationId) {
         if(this.is_special_combat || this.actionAdapter || this.is_ended) return null;
         return {schema:1,locationId,key:this.rngKey,turns:structuredClone(this.#turns),loops:structuredClone(Object.fromEntries(Object.entries(this.#pendingLoops).filter(([key])=>{const [side,index]=key.split(":");return this[side][index]?.is_alive;}))),
-            enemies:this.defenders.map(e=>({template:e.templateKey || e.name,key:e.rngKey,stats:{...e.stats},full:{...e.getFullStats()},alive:e.is_alive}))};
+            enemies:this.defenders.map(e=>({template:e.templateKey || e.name,key:e.rngKey,stats:{...e.stats},full:{...e.getFullStats()},alive:e.is_alive,...(e.harvestDamage?{harvestDamage:structuredClone(e.harvestDamage)}:{})}))};
     }
 
     #startFighter(fighter_index,is_attacker) {
