@@ -1,3 +1,4 @@
+import {registerFortQuest} from "./fork_fort_content.js";
 "use strict";
 
 import AvailabilityComponent from "./components/availability_component.js";
@@ -588,6 +589,7 @@ quests["Test quest"] = new Quest({
 });
 */
 
+registerFortQuest({quests, Quest, QuestTask});
 Object.keys(quests).forEach(quest => {
     quests[quest].quest_id = quest;
 });

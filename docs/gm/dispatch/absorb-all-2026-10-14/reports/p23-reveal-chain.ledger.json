@@ -1,0 +1,108 @@
+{
+  "schema": 1,
+  "lane": "p23-reveal-chain",
+  "indexBase": 1,
+  "ledger": "/Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/vivid-proto23-flow-2026-10-13/PROTO23_ABSORPTION_LEDGER.json",
+  "originalLedgerEdited": false,
+  "sourceCommit": "51827c04e82083b9374de0cc6cff7e45a6b952eb",
+  "rows": [
+    {
+      "row": 19,
+      "source": "docs/research/proto23/readers-2026-10-10/R2_skills_items.md",
+      "heading": "1. Skill engine (Proto23)",
+      "mechanism": "Skill appears on its first level-up (51 XP), each milestone level runs a hand-written reward (stat, title, recipe, other skill multiplier) with a \"NEW PERK\" announcement.",
+      "originalDisposition": "adapt-next",
+      "newDisposition": "adopted",
+      "commit": "51827c04e82083b9374de0cc6cff7e45a6b952eb",
+      "notes": "First actual native level gate, category/picker filtering, and 26 explicitly authored first-level stat perks where milestones were absent.",
+      "evidence": "docs/gm/dispatch/absorb-all-2026-10-14/checks/reveal-verification.json",
+      "proposalAcceptedByDirector": false
+    },
+    {
+      "row": 22,
+      "source": "docs/research/proto23/readers-2026-10-10/R2_skills_items.md",
+      "heading": "2. Item engine (Proto23)",
+      "mechanism": "Holding a threshold stack of a material (50 Cure Grass) teaches a recipe once via an onGet hook, then the hook disarms.",
+      "originalDisposition": "adapt-next",
+      "newDisposition": "adopted",
+      "commit": "51827c04e82083b9374de0cc6cff7e45a6b952eb",
+      "notes": "Twenty held Golmoon leaves teach Weak healing powder. Explicit optional actor fact and a stable native recipe availability ID; chest/trade publication stages knowledge before durable save. Learned preparations reveals separately.",
+      "evidence": "docs/gm/dispatch/absorb-all-2026-10-14/checks/reveal-verification.json",
+      "proposalAcceptedByDirector": false
+    },
+    {
+      "row": 25,
+      "source": "docs/research/proto23/readers-2026-10-10/R2_skills_items.md",
+      "heading": "3. Books and manuals (Proto23)",
+      "mechanism": "Reading time shrinks with Literacy, and finishing certain books unlocks a whole UI view (Bestiary, Journal, Marketplace).",
+      "originalDisposition": "adapt-next",
+      "newDisposition": "adopted",
+      "commit": "51827c04e82083b9374de0cc6cff7e45a6b952eb",
+      "notes": "Literacy scales study work and remaining time, while restore uses exact raw progress. ABC for kids or Old combat manual completion reveals Reading reference and opens existing Journal/Bestiary. Stop retains partial progress.",
+      "evidence": "docs/gm/dispatch/absorb-all-2026-10-14/checks/reveal-verification.json",
+      "proposalAcceptedByDirector": false
+    },
+    {
+      "row": 47,
+      "source": "docs/research/proto23/readers-2026-10-10/R4_crafting_vendors_actions_combat.md",
+      "heading": "3. Actions, rest, sleep, jobs, training",
+      "mechanism": "Run and Investigate are free toggles granted by milestones; a known action stays listed with a current reason it cannot run.",
+      "originalDisposition": "adapt-next",
+      "newDisposition": "adopted",
+      "commit": "51827c04e82083b9374de0cc6cff7e45a6b952eb",
+      "notes": "Running level 1 grants Run; Perception level 1 grants Investigate. Known rows retain current blocked reasons. Investigate delegates to the original Local life owner.",
+      "evidence": "docs/gm/dispatch/absorb-all-2026-10-14/checks/reveal-verification.json",
+      "proposalAcceptedByDirector": false
+    },
+    {
+      "row": 69,
+      "source": "docs/research/proto23/readers-2026-10-10/R5_map_dialogue_time_save.md",
+      "heading": "10. Startup and misc",
+      "mechanism": "Opening is a staged reveal: each introduction response shows the next panel (time, stats, inventory, nav/log, enemy panel).",
+      "originalDisposition": "adapt-next",
+      "newDisposition": "adopted",
+      "commit": "51827c04e82083b9374de0cc6cff7e45a6b952eb",
+      "notes": "Existing first-fight Combat reveal from d49cb911 retained. Additional opt-in staged presentation opening is off by default and persists browser introduction progress, without replacing the original beginning.",
+      "evidence": "docs/gm/dispatch/absorb-all-2026-10-14/checks/reveal-verification.json",
+      "proposalAcceptedByDirector": false,
+      "existingCommit": "d49cb911"
+    },
+    {
+      "row": 75,
+      "source": "docs/research/proto23/UI_SOURCE_ABSORPTION_2026-10-13.md",
+      "heading": "F1: Meaningful events reveal the interface",
+      "mechanism": "Real events reveal panels: first recipe shows Assemble, first skill shows Skills, first fight shows the enemy panel, wallet reveals money.",
+      "originalDisposition": "adapt-next",
+      "newDisposition": "adopted",
+      "commit": "51827c04e82083b9374de0cc6cff7e45a6b952eb",
+      "notes": "Existing Combat gate retained. Skills, practiced actions, learned preparations and reading reference have real-fact discovery gates and no unknown picker labels; Classic also respects undiscovered gates.",
+      "evidence": "docs/gm/dispatch/absorb-all-2026-10-14/checks/reveal-verification.json",
+      "proposalAcceptedByDirector": false,
+      "existingCommit": "d49cb911"
+    },
+    {
+      "row": 83,
+      "source": "docs/research/proto23/SOURCE_MECHANISMS_AND_ADOPTION_2026-10-13.md",
+      "heading": "F4: The strongest pattern is a chain from experience to capability to UI",
+      "mechanism": "Walking practice levels, grants Run, which reveals the Actions tab; holding 50 Cure Grass teaches a recipe and reveals Assemble.",
+      "originalDisposition": "adapt-next",
+      "newDisposition": "adopted",
+      "commit": "51827c04e82083b9374de0cc6cff7e45a6b952eb",
+      "notes": "Native practice to level 1 to Run/Investigate to Practiced actions, and currently held herb stack to recipe to Learned preparations, implemented through native owners.",
+      "evidence": "docs/gm/dispatch/absorb-all-2026-10-14/checks/reveal-verification.json",
+      "proposalAcceptedByDirector": false
+    },
+    {
+      "row": 85,
+      "source": "docs/research/proto23/SOURCE_MECHANISMS_AND_ADOPTION_2026-10-13.md",
+      "heading": "F4: The strongest pattern is a chain from experience to capability to UI",
+      "mechanism": "Use a wallet to reveal money denominations; a book grants a Bestiary/Journal view.",
+      "originalDisposition": "adapt-next",
+      "newDisposition": "adopted",
+      "commit": "51827c04e82083b9374de0cc6cff7e45a6b952eb",
+      "notes": "Familiar frontier purse remains unchanged. An unfamiliar world shows readable raw coin counts until a real money settlement records per-world knowledge; denominations then remain known. Book-completion reference view also lands here.",
+      "evidence": "docs/gm/dispatch/absorb-all-2026-10-14/checks/reveal-verification.json",
+      "proposalAcceptedByDirector": false
+    }
+  ]
+}

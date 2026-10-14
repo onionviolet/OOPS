@@ -1,0 +1,122 @@
+{
+  "schema": 1,
+  "lane": "p23-household",
+  "date": "2026-10-14",
+  "base_head": "0216ccdefcfce79877378f8cb0ee41129fe11c5d",
+  "branch": "absorb-all/p23-household",
+  "worktree": "/Users/weiwei/code/yair-absorb-all-20261014/p23-household",
+  "source_commit": "c6cb1e75c7701cb47131437c961a9cd04e24b8de",
+  "status": "implemented-unverified; P00 native integration required",
+  "final_merge_allowed": false,
+  "authorization": "current coordinator assignment reserves 18822 and exclusive paths; launch wave 2 now",
+  "viewport": [
+    1366,
+    768
+  ],
+  "mobile": "deferred",
+  "copied_foreign_code_or_assets": false,
+  "source_hashes": {
+    "src/absorb_b/furniture.js": "d49d7e3da7f22fe303adacc981a4d8b85307be557cd326ea09702d62d32f07ad",
+    "src/absorb_p23/household/model.js": "7074c1b3ac7092e08745018c94c847ac811e62af69f3df7cd4ca1fa50d635006",
+    "src/absorb_p23/household/host.js": "6bed424c9de81018a0e5cfd50df636a988d5531f501291f4ffa59bc0ba4f64ff",
+    "tests/p23-household.test.js": "2c75356ad35207b4244d8d6fc880cd36f9ab84e302a150efc2c720b56d734b1f"
+  },
+  "rows": [
+    {
+      "id": "R15",
+      "disposition": "original-proposal-implemented-unverified",
+      "landing": [
+        "src/absorb_p23/household/model.js",
+        "src/absorb_b/furniture.js"
+      ],
+      "open": "native animal growth/gift/rest and owned comfort consumer"
+    },
+    {
+      "id": "R63",
+      "disposition": "original-proposal-implemented-unverified",
+      "landing": [
+        "src/absorb_p23/household/model.js"
+      ],
+      "open": "native repeated animal bonding; social half P10"
+    },
+    {
+      "id": "N08",
+      "disposition": "original-proposal-implemented-unverified",
+      "landing": [
+        "src/absorb_p23/household/model.js",
+        "src/absorb_p23/household/host.js"
+      ],
+      "open": "native prepaid fuel/Wet/smoke/ventilation/extinguish/exit"
+    },
+    {
+      "id": "R12.home",
+      "disposition": "original-proposal-implemented-unverified",
+      "landing": [
+        "src/absorb_p23/household/model.js"
+      ],
+      "open": "native fuelled Wet drying; portable half P04"
+    }
+  ],
+  "compatibility": {
+    "save_field_request": "optional household block in native full envelope; P00 owns exact transaction/save join",
+    "absent": "preserve absence; no grants",
+    "unsupported": "reject entire candidate before mutation",
+    "clock": "exact saved native played clock on import; no wall-clock catch-up",
+    "settlement": "root sequence compare plus atomic native resources/block publication; recurring gift per eligible visit after 60 played minutes",
+    "effects_off": "no animation emitted; native display master switch remains authoritative"
+  },
+  "checks": {
+    "focused": {
+      "command": "node --test tests/p23-household*.test.js tests/absorb_b.test.js",
+      "tests": 16,
+      "pass": 16,
+      "fail": 0
+    },
+    "build": "npm run build PASS on final source",
+    "full_initial": {
+      "command": "npm test",
+      "tests": 632,
+      "pass": 631,
+      "fail": 1,
+      "duration_ms": 460086.8455,
+      "failure": "tests/alloy_equipment.test.js:118 native brace fixture subprocess after 61035.664792 ms; 60000 ms timeout"
+    },
+    "isolated_failure_recheck": {
+      "command": "node --test tests/alloy_equipment.test.js",
+      "tests": 5,
+      "pass": 5,
+      "fail": 0,
+      "duration_ms": 7047.814875
+    },
+    "full_final": {
+      "command": "npm test -- --test-concurrency=2",
+      "tests": 632,
+      "pass": 632,
+      "fail": 0,
+      "skipped": 0,
+      "cancelled": 0,
+      "duration_ms": 80532.67925
+    },
+    "browser": {
+      "status": "PASS baseline load and uncoupled module fixture only",
+      "served_bundle_sha256": "598e02f54fe7db4c9a35bc79c75a754a7f8dc42eccf9fab828de8fd82e97b615",
+      "changed_modules_registered_in_native_bundle": false,
+      "page_errors": 0,
+      "module_reload_exact": true,
+      "module_literal_json_file_import_exact": true,
+      "module_no_duplicate_gift": true
+    }
+  },
+  "p00_contract": "reports/p23-household.md#exact-p00-host-requests",
+  "open_gates": [
+    "P00 native ownership/discovery/resource/clock/condition/save registrations",
+    "changed native desktop loop from fresh rebuilt integrated origin",
+    "native Save/reload/Export/literal-file Import pending and settled states",
+    "old native save without block compatibility",
+    "Weibao play/taste after technical gates"
+  ],
+  "report": "reports/p23-household.md",
+  "evidence": "docs/gm/dispatch/absorb-all-2026-10-14/checks/p23-household/",
+  "push": false,
+  "merge": false
+}

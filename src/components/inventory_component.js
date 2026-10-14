@@ -1,3 +1,4 @@
+import {MIXTURE_ID,getMixtureOwner,productFromKey} from '../mixture_state.js';
 "use strict";
 
 import { getItem, getItemFromKey, item_templates } from "../items.js";
@@ -36,6 +37,7 @@ class InventoryComponent {
                 item_key = item.getInventoryKey();
             } 
 
+            if(item_key.startsWith('{')&&JSON.parse(item_key).id===MIXTURE_ID){productFromKey(getMixtureOwner(),item_key);if(items[i].count!==undefined&&(!Number.isSafeInteger(items[i].count)||items[i].count<1))throw new TypeError('Generated vials need positive whole counts.');}
             if(!(item_key in this.#items)) {//not in inventory
                 if(!items[i].count) {
                     items[i].count = 1;

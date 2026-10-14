@@ -1,0 +1,3308 @@
+[
+  {
+    "code": "QC1",
+    "line": 231,
+    "section": 8,
+    "text": "| QC1 | Vanilla quests are hand-written objects in `src/quests.js` (597 lines) with `QuestTask` conditions grouped `any` / `all`. | A generator can emit the same shape instead of a new quest type. |"
+  },
+  {
+    "code": "QC2",
+    "line": 232,
+    "section": 8,
+    "text": "| QC2 | Task event types are `kill`, `kill_any`, `clear`, `reach_skill`, `enter_location` (`src/quests.js:205-223`); `change_location` fires `enter_location` (`src/main.js:2196`). | The action hooks QT needs already exist for these verbs. New verbs (craft, sell, talk, read) need new event calls. |"
+  },
+  {
+    "code": "QC3",
+    "line": 233,
+    "section": 8,
+    "text": "| QC3 | Native unlocks can start a quest (`src/native_unlock_transaction.js:37`). | A discovery-triggered quest has a working route today. |"
+  },
+  {
+    "code": "QC4",
+    "line": 234,
+    "section": 8,
+    "text": "| QC4 | No general native quest generator exists. Six authored expansion quest cards already share the quest display (`src/expansion_quest_ui.js:8-28`, `src/frontier_campaign.js:56-77`), and `src/simulation.js` already has due checks, saved draws and guaranteeAfter pacing (corrected by R2 K04, K05). | Generated quests are a new consumer of existing seams, not a parallel reward owner. LN9 is not at stake. |"
+  },
+  {
+    "code": "QL1",
+    "line": 240,
+    "section": 8,
+    "text": "| QL1 | **Base sources** | World-native boards, guild ranks, bounties, neighbors' problems, rumors at the inn. Open by play: the board panel appears when you first meet a board (X1 discovery). | Every life has goals without a patron. |"
+  },
+  {
+    "code": "QL2",
+    "line": 241,
+    "section": 8,
+    "text": "| QL2 | **World reskin** | Same engine with a local face: adventurers' guild, Hogwarts detentions and professor errands, Fallout radio calls, sect missions, regimental orders. | Worlds feel different without separate code. |"
+  },
+  {
+    "code": "QL3",
+    "line": 242,
+    "section": 8,
+    "text": "| QL3 | **Cheat versions** | Daily quest with penalty (Solo Leveling), parasite system that steers (`docs/CHEAT_LIBRARY.md` Oracle of Yonder), foreknowledge quests, hidden-truth quests pointing at sealed routes, quests that create their own target, quest system C3 with points and shop. | Breaks a rule; follows part 13 patron and cost rules; can crack or go dark (DP2, DP9). |"
+  },
+  {
+    "code": "QL4",
+    "line": 243,
+    "section": 8,
+    "text": "| QL4 | **Ambitions** | Personal goals, suggested from events or written by the player (accepted direction). | The player's own quest source, no issuer needed. |"
+  },
+  {
+    "code": "QL5",
+    "line": 244,
+    "section": 8,
+    "text": "| QL5 | **Sandbox** | Spawn any quest type, sandbox stamp (T3). | Testing and free play. |"
+  },
+  {
+    "code": "QS1",
+    "line": 252,
+    "section": 8,
+    "text": "| QS1 | **Shortage** | Grain low before winter, herbalist out of moonleaf. | Quest exists because the economy says so; finishing it changes prices. |"
+  },
+  {
+    "code": "QS2",
+    "line": 253,
+    "section": 8,
+    "text": "| QS2 | **Threat** | Wolves bred in the north woods; bandits on the trade road. | Undone, the threat grows or moves (QX1). |"
+  },
+  {
+    "code": "QS3",
+    "line": 254,
+    "section": 8,
+    "text": "| QS3 | **NPC need** | An authored person's current goal (`DEEPER_SYSTEM_INTERACTIONS` line 50) becomes a favor request. | Favors carry relationship weight and can be refused by either side. |"
+  },
+  {
+    "code": "QS4",
+    "line": 255,
+    "section": 8,
+    "text": "| QS4 | **Institution** | Guild rank exam, sect mission quota, school assignment. | Comes with dues and rank; fails can cost membership (FR4). |"
+  },
+  {
+    "code": "QS5",
+    "line": 256,
+    "section": 8,
+    "text": "| QS5 | **Rumor** | Gossip points at a ruin, a missing person, a treasure. | Reliability varies; some rumors are wrong (Knowledge and discovery \"Told\" layer). |"
+  },
+  {
+    "code": "QS6",
+    "line": 257,
+    "section": 8,
+    "text": "| QS6 | **Event** | Festival, plague, succession, war call. | Time-limited; missed ones become log lines. |"
+  },
+  {
+    "code": "QS7",
+    "line": 258,
+    "section": 8,
+    "text": "| QS7 | **Story beat** | Canon plot near the protagonist. | Story quests you join, change or miss. |"
+  },
+  {
+    "code": "QS8",
+    "line": 259,
+    "section": 8,
+    "text": "| QS8 | **Rift or dungeon** | Gate, rift, dungeon break, anomaly. | Native in Solo Leveling, DCC, Shadow Slave; spawns combat and loot work. |"
+  },
+  {
+    "code": "QS9",
+    "line": 260,
+    "section": 8,
+    "text": "| QS9 | **Contract** | Trade run, escort, caravan, commission. | Idle fit: hire a party to run it while away (QX6). |"
+  },
+  {
+    "code": "QS10",
+    "line": 261,
+    "section": 8,
+    "text": "| QS10 | **Dream or vision** | A divination, a nightmare, a patron's whisper. | Ambiguous issuer; can be a cheat face or a world rule. |"
+  },
+  {
+    "code": "QT1",
+    "line": 269,
+    "section": 8,
+    "text": "| QT1 | **Skill or practice milestone** | Smithing 10: the smith offers a masterwork commission. | Offer, not auto-accept. |"
+  },
+  {
+    "code": "QT2",
+    "line": 270,
+    "section": 8,
+    "text": "| QT2 | **Repeated action** | Killed 30 wolves: the hunter's lodge invites you; the druid circle asks you to stop. | Repetition attracts both patrons and objectors. |"
+  },
+  {
+    "code": "QT3",
+    "line": 271,
+    "section": 8,
+    "text": "| QT3 | **Item found** | Pick up a sealed letter, a broken sword, a map fragment. | The item carries its own quest seed (vanilla-style). |"
+  },
+  {
+    "code": "QT4",
+    "line": 272,
+    "section": 8,
+    "text": "| QT4 | **Place entered** | First visit to a ruin or shrine (QC2 `enter_location`). | Uses the existing hook. |"
+  },
+  {
+    "code": "QT5",
+    "line": 273,
+    "section": 8,
+    "text": "| QT5 | **Person met or helped** | Help someone once; they come back with a bigger ask. | Follow-ups gated by trust, not a fixed count. |"
+  },
+  {
+    "code": "QT6",
+    "line": 274,
+    "section": 8,
+    "text": "| QT6 | **Harm done** | Theft, a death, a broken promise. | Revenge, bounty on you or a guilt quest (QX3). |"
+  },
+  {
+    "code": "QT7",
+    "line": 275,
+    "section": 8,
+    "text": "| QT7 | **Renown or suspicion threshold** | Known as a healer: plague town asks; known as a thief: guard investigates. | Reads renown (FI25) and suspicion (DP5). |"
+  },
+  {
+    "code": "QT8",
+    "line": 276,
+    "section": 8,
+    "text": "| QT8 | **Discovery** | Learn a secret or a recipe. | Native unlocks can start quests today (QC3). Sealed routes stay sealed; the quest names an ID only in reports. |"
+  },
+  {
+    "code": "QT9",
+    "line": 277,
+    "section": 8,
+    "text": "| QT9 | **Failure or death** | Lose a fight, die. | Rematch, recovery or a death-reward quest (`FIRST_CHEATS_AND_DEATH_REWARDS_2026-10-13.md`). |"
+  },
+  {
+    "code": "QT10",
+    "line": 278,
+    "section": 8,
+    "text": "| QT10 | **Body or life stage** | Coming of age, pregnancy, aging, illness, hunger. | Life-sim beats as quests (`HUNGER_AND_BODILY_NEEDS_CONSIDERATIONS_2026-10-13.md`). |"
+  },
+  {
+    "code": "QT11",
+    "line": 279,
+    "section": 8,
+    "text": "| QT11 | **Absence** | Away a season: the farm needs repair, a rival took your stall. | Offline time produces consequences you can fix. |"
+  },
+  {
+    "code": "QG1",
+    "line": 287,
+    "section": 8,
+    "text": "| QG1 | **Player-written goal** | Free text plus a chosen template (\"master a craft\", \"find a person\", \"earn X\", \"join Y\", \"reach a place\"). The game maps it to known steps and marks unknown steps as \"find out how\". | The player can aim anywhere; unknowns become discovery work, not dead ends. |"
+  },
+  {
+    "code": "QG2",
+    "line": 288,
+    "section": 8,
+    "text": "| QG2 | **Suggested Ambition** | Formed from what happened (\"avenge my brother\" after a death). Accept, reword or decline. | Accepted direction. Declined suggestions stay in a list, not deleted. |"
+  },
+  {
+    "code": "QG3",
+    "line": 289,
+    "section": 8,
+    "text": "| QG3 | **Goal decomposition as planning** | A goal shows a step tree: known steps, guessed steps, unknown steps. Steps can come from any source (QS) or trigger (QT). | Shows what to do next without a walkthrough. Hint density (DL6) controls how much is filled in. |"
+  },
+  {
+    "code": "QG4",
+    "line": 290,
+    "section": 8,
+    "text": "| QG4 | **Goal pulls the generator** | Active goals weight which generated quests appear: aim to be a smith and more ore and forge work surfaces. | The world seems to answer your interests, honestly framed as \"you notice\". |"
+  },
+  {
+    "code": "QG5",
+    "line": 291,
+    "section": 8,
+    "text": "| QG5 | **Character's goal vs player's goal** | The character can hold goals the player did not choose (identity doc Q1, \"who forms the goal\"). Conflict is shown, not hidden. | Fits possession, shared-body and strong-personality starts. |"
+  },
+  {
+    "code": "QG6",
+    "line": 292,
+    "section": 8,
+    "text": "| QG6 | **Goals change** | A goal can be abandoned, transformed (revenge becomes protection) or fulfilled early. | Abandoning is a life event, not a fail screen. |"
+  },
+  {
+    "code": "QG7",
+    "line": 293,
+    "section": 8,
+    "text": "| QG7 | **Inherited goals** | An heir or reincarnation can take up a predecessor's unfinished goal. | Lineage scope (DP8); a family ambition across lives. |"
+  },
+  {
+    "code": "QG8",
+    "line": 294,
+    "section": 8,
+    "text": "| QG8 | **Shared goals** | A companion, faction or patron shares or opposes your goal. | Allies help with steps; rivals race you. |"
+  },
+  {
+    "code": "QG9",
+    "line": 295,
+    "section": 8,
+    "text": "| QG9 | **Goal as cheat** | Some systems read your goals and post quests toward them, or toward what they want you to want. | QL3 parasite system: steering by tailored offers is the cost. |"
+  },
+  {
+    "code": "QG10",
+    "line": 296,
+    "section": 8,
+    "text": "| QG10 | **Long and short goals** | Day, season, life, multiverse horizons (`LIFE_SIM_NORTH_STAR.md` line 3881 table). | Idle play needs both a next hour and a next decade. |"
+  },
+  {
+    "code": "QX1",
+    "line": 302,
+    "section": 8,
+    "text": "| QX1 | **Undone quests have consequences** | The threat grows, the person finds someone else, the price spikes. Missed ones become log lines (accepted). | The world does not wait; choosing not to act is a choice. |"
+  },
+  {
+    "code": "QX2",
+    "line": 303,
+    "section": 8,
+    "text": "| QX2 | **Who issued it matters** | Person, institution, world, patron or unknown. Each issuer has motives and can lie, inflate or betray. | Quests become relationships, not checklists. |"
+  },
+  {
+    "code": "QX3",
+    "line": 304,
+    "section": 8,
+    "text": "| QX3 | **You can be the target** | Others' boards post bounties on you once renown or suspicion is high enough. | The generator is also a threat. |"
+  },
+  {
+    "code": "QX4",
+    "line": 305,
+    "section": 8,
+    "text": "| QX4 | **Rewards beyond numbers** | A panel (DP10), access, a contact, a clue, a title, a favor owed. | Info and access as rewards. |"
+  },
+  {
+    "code": "QX5",
+    "line": 306,
+    "section": 8,
+    "text": "| QX5 | **Quests conflict** | Two factions want opposite outcomes; helping one closes the other. | Choices that gate choices (`CHOICES_THAT_GATE_CHOICES_2026-10-13.md`). |"
+  },
+  {
+    "code": "QX6",
+    "line": 307,
+    "section": 8,
+    "text": "| QX6 | **Idle delegation** | Hired party, apprentice or follower runs a contract while you are away, with risk and a report. A cheat version is scale (shadow army, clones). | FI35 delegation applied to quests. |"
+  },
+  {
+    "code": "QX7",
+    "line": 308,
+    "section": 8,
+    "text": "| QX7 | **Corrupt or subvert a quest** | Fake the proof, sell out the issuer, do it your way. | Cheat library line 289: corrupt or satisfy the quest system. |"
+  },
+  {
+    "code": "QX8",
+    "line": 309,
+    "section": 8,
+    "text": "| QX8 | **Quest density per world** | Per-world adjective: sleepy village to rift-saturated city. Not a fixed cap (solo-player rule, no fixed \"once\"). | Worlds feel different in how much they ask of you. |"
+  },
+  {
+    "code": "QX9",
+    "line": 310,
+    "section": 8,
+    "text": "| QX9 | **Quest log as a feature that can be framed** | Plain list is base (LN4); a System window, a sect jade slip or a diary are skins. | Same readable floor everywhere. |"
+  },
+  {
+    "code": "QX10",
+    "line": 311,
+    "section": 8,
+    "text": "| QX10 | **Generated quests remember** | A generated wolf quest names the same wolves, the same farmer; follow-ups chain. | Avoids the radiant-quest feel of interchangeable fetch tasks. |"
+  },
+  {
+    "code": "QX11",
+    "line": 312,
+    "section": 8,
+    "text": "| QX11 | **Seeded generation** | Generation uses the saved RNG, so reloads do not reroll offers (accepted storyteller rule). | Save integrity and fairness. |"
+  },
+  {
+    "code": "QX12",
+    "line": 313,
+    "section": 8,
+    "text": "| QX12 | **Storyteller pacing** | A pity timer and a quiet period: no wall of offers, no long drought. | Uses the accepted storyteller with a pity timer. |"
+  },
+  {
+    "code": "DL9",
+    "line": 319,
+    "section": 8,
+    "text": "| DL9 | Quest density | Per world | Sparse to saturated |"
+  },
+  {
+    "code": "DL10",
+    "line": 320,
+    "section": 8,
+    "text": "| DL10 | Goal suggestion | Suggest from events, player can write | Off to frequent |"
+  },
+  {
+    "code": "DL11",
+    "line": 321,
+    "section": 8,
+    "text": "| DL11 | Step visibility on goals | Known and guessed steps; unknown marked | Hidden to full plan |"
+  },
+  {
+    "code": "DL12",
+    "line": 322,
+    "section": 8,
+    "text": "| DL12 | Consequence speed for undone quests | Per world, season scale | Frozen to fast |"
+  },
+  {
+    "code": "DL13",
+    "line": 323,
+    "section": 8,
+    "text": "| DL13 | Quest framing | Plain board plus world skin | Plain only to heavy System face |"
+  },
+  {
+    "code": "T6",
+    "line": 329,
+    "section": 8,
+    "text": "| T6 | **Template quest emitter.** A generator that emits vanilla `Quest` / `QuestTask` objects from a template plus a world-state read (QS1, QS2) using existing event types (QC2). | Needs a migration: generated quests must be saved with seed and template id, since vanilla quests are code-defined. Additive field, default empty. |"
+  },
+  {
+    "code": "T7",
+    "line": 330,
+    "section": 8,
+    "text": "| T7 | **Action-triggered offers.** Hook QT1, QT2, QT4 to existing counters and `enter_location`; post an offer to the board panel with a receipt. | Offer list in save (additive, default empty). |"
+  },
+  {
+    "code": "T8",
+    "line": 331,
+    "section": 8,
+    "text": "| T8 | **Ambition card.** One player-written or suggested goal with a step list mapped to known quest templates (QG1-QG3). | Additive goals array, default empty. |"
+  },
+  {
+    "code": "QP1",
+    "line": 345,
+    "section": 9,
+    "text": "| QP1 | **Post a quest** | Once you have money, rank or a home, post work to a board: gather 20 herbs, find my sister, clear my cellar. NPC adventurers take it on their own schedule. | Turns money into outcomes; an idle verb that scales with wealth. |"
+  },
+  {
+    "code": "QP2",
+    "line": 346,
+    "section": 9,
+    "text": "| QP2 | **Quality of who takes it** | Pay and your renown set who answers: a rookie, a veteran, a crook who takes the advance and runs. | Hiring has risk; reputation of the poster matters. |"
+  },
+  {
+    "code": "QP3",
+    "line": 347,
+    "section": 9,
+    "text": "| QP3 | **You become an institution** | Found a guild, shop, sect, house or company that issues quests to its members. | Late-life arc; links to hub and home building. |"
+  },
+  {
+    "code": "QP4",
+    "line": 348,
+    "section": 9,
+    "text": "| QP4 | **Followers' quests** | Followers ask for your help with their goals (QS3 inverted toward you). | Loyalty earned by helping, not by a meter. |"
+  },
+  {
+    "code": "QP5",
+    "line": 349,
+    "section": 9,
+    "text": "| QP5 | **Mentor quests** | Set tasks for an apprentice or heir; their completion trains them. | Lineage play (DP8, QG7). |"
+  },
+  {
+    "code": "QP6",
+    "line": 350,
+    "section": 9,
+    "text": "| QP6 | **Bounty on someone** | Post a bounty on a rival or monster. Others may also come for you (QX3). | Escalation that the player starts. |"
+  },
+  {
+    "code": "QO1",
+    "line": 356,
+    "section": 9,
+    "text": "| QO1 | **NPCs take quests too** | Board quests can be finished by someone else first. | Boards feel alive; urgency without timers. |"
+  },
+  {
+    "code": "QO2",
+    "line": 357,
+    "section": 9,
+    "text": "| QO2 | **Rival adventurers** | A named party competes for the same jobs and rank. | Recurring cast; rivalry can turn to alliance. |"
+  },
+  {
+    "code": "QO3",
+    "line": 358,
+    "section": 9,
+    "text": "| QO3 | **Party up** | Join an NPC party for a quest; split the pay, share the risk. | Social route into combat for weak builds. |"
+  },
+  {
+    "code": "QO4",
+    "line": 359,
+    "section": 9,
+    "text": "| QO4 | **Steal credit or be robbed of it** | Someone claims your kill; you claim theirs. | Proof matters (QF6). |"
+  },
+  {
+    "code": "QO5",
+    "line": 360,
+    "section": 9,
+    "text": "| QO5 | **Quest outcomes from others change the world** | A rival clears the dungeon; the rift closes without you. | You are one actor among many. |"
+  },
+  {
+    "code": "QF1",
+    "line": 368,
+    "section": 9,
+    "text": "| QF1 | **Investigate** | Find out who poisoned the well; clues and suspects, wrong answers possible. | Uses knowledge and discovery layers; can be wrong. |"
+  },
+  {
+    "code": "QF2",
+    "line": 369,
+    "section": 9,
+    "text": "| QF2 | **Escort or protect** | Keep a merchant alive on the road; protect a village for three nights. | Defense; idle-friendly when it runs over time. |"
+  },
+  {
+    "code": "QF3",
+    "line": 370,
+    "section": 9,
+    "text": "| QF3 | **Negotiate or persuade** | Settle a land dispute; convince the elder. | Social skills as quest power. |"
+  },
+  {
+    "code": "QF4",
+    "line": 371,
+    "section": 9,
+    "text": "| QF4 | **Make or repair** | Forge a blade to spec; repair a bridge. | Crafting lives get quests too. |"
+  },
+  {
+    "code": "QF5",
+    "line": 372,
+    "section": 9,
+    "text": "| QF5 | **Deliver under constraint** | Before dawn, unseen, without opening it. | Constraints create choices (open it?). |"
+  },
+  {
+    "code": "QF6",
+    "line": 373,
+    "section": 9,
+    "text": "| QF6 | **Prove it** | Bring a head, a seal, a witness. Faked proof is possible (QX7). | Verification becomes play. |"
+  },
+  {
+    "code": "QF7",
+    "line": 374,
+    "section": 9,
+    "text": "| QF7 | **Endure or wait** | Hold the post a season; survive the winter. | Fits idle time naturally. |"
+  },
+  {
+    "code": "QF8",
+    "line": 375,
+    "section": 9,
+    "text": "| QF8 | **Learn** | Pass an exam, master a spell, read a book. | School and sect worlds. |"
+  },
+  {
+    "code": "QF9",
+    "line": 376,
+    "section": 9,
+    "text": "| QF9 | **Choose a side** | Two issuers, opposite outcomes (QX5). | Branch points. |"
+  },
+  {
+    "code": "QF10",
+    "line": 377,
+    "section": 9,
+    "text": "| QF10 | **Open-ended** | \"Make the town safer.\" Many ways count. | Rewards creativity; scored by state change, not a checklist. |"
+  },
+  {
+    "code": "QR1",
+    "line": 383,
+    "section": 9,
+    "text": "| QR1 | **Partial credit** | Saved two of three hostages: partial pay, mixed relations. | Outcomes have degrees, not pass/fail. |"
+  },
+  {
+    "code": "QR2",
+    "line": 384,
+    "section": 9,
+    "text": "| QR2 | **Failure opens work** | A failed escort spawns a rescue or revenge quest. | Failure moves the story. |"
+  },
+  {
+    "code": "QR3",
+    "line": 385,
+    "section": 9,
+    "text": "| QR3 | **Abandon with cost** | Drop a quest; the issuer remembers. Cost per issuer, not universal. | Freedom with weight. |"
+  },
+  {
+    "code": "QR4",
+    "line": 386,
+    "section": 9,
+    "text": "| QR4 | **Late completion** | Still possible, worth less or different. | Avoids hard timers punishing idle play. |"
+  },
+  {
+    "code": "QR5",
+    "line": 387,
+    "section": 9,
+    "text": "| QR5 | **Unwinnable known up front?** | Default: quests can be impossible only when a world says so, and the log explains why afterward (LN7 spirit). | Fair surprise, no blind trap. |"
+  },
+  {
+    "code": "QI1",
+    "line": 393,
+    "section": 9,
+    "text": "| QI1 | **Offline offers wait or expire by kind** | Standing bounties wait; urgent pleas lapse into log lines. | Absence has a cost without wiping everything. |"
+  },
+  {
+    "code": "QI2",
+    "line": 394,
+    "section": 9,
+    "text": "| QI2 | **Return summary** | On return: offers that came, ones taken by others, consequences. | You see what the world did. |"
+  },
+  {
+    "code": "QI3",
+    "line": 395,
+    "section": 9,
+    "text": "| QI3 | **Multi-day quests run in background** | Travel, waiting and enduring tick while you do other things. | Idle core. |"
+  },
+  {
+    "code": "QI4",
+    "line": 396,
+    "section": 9,
+    "text": "| QI4 | **Calendar quests** | Seasonal festivals, exams, tournaments on known dates. | Planning ahead; FI2 queue fit. |"
+  },
+  {
+    "code": "QI5",
+    "line": 397,
+    "section": 9,
+    "text": "| QI5 | **Routine-generated quests** | A daily routine produces small offers (the baker you visit asks a favor). | Routine becomes social. |"
+  },
+  {
+    "code": "QV1",
+    "line": 403,
+    "section": 9,
+    "text": "| QV1 | **Board as a place** | A physical board, a guild clerk, a sect hall, a radio, an owl. | Diegetic first, plain list always (LN4). |"
+  },
+  {
+    "code": "QV2",
+    "line": 404,
+    "section": 9,
+    "text": "| QV2 | **Offers in conversation** | NPCs mention needs in talk; you can ask \"any work?\". | Quests surface through gossip (accepted). |"
+  },
+  {
+    "code": "QV3",
+    "line": 405,
+    "section": 9,
+    "text": "| QV3 | **Receipts** | Each offer can show why it appeared (QT). Toggle in Assist settings (T2). | Explains the generator; hideable for immersion. |"
+  },
+  {
+    "code": "QV4",
+    "line": 406,
+    "section": 9,
+    "text": "| QV4 | **Not a wall of markers** | Few offers at once, pinned goals on top, the rest in a log. | Avoids checklist fatigue (QX12 pacing). |"
+  },
+  {
+    "code": "QV5",
+    "line": 407,
+    "section": 9,
+    "text": "| QV5 | **Desktop first** | Board and goal tree target laptop width per the standing UI priority; mobile deferred. | Matches accepted UI direction. |"
+  },
+  {
+    "code": "QW1",
+    "line": 415,
+    "section": 9,
+    "text": "| QW1 | Harry Potter | Homework, detentions, professors' errands, house points, Quidditch, O.W.L.s as calendar quests (QI4). | A map or a ledger that posts other students' secrets as tasks. |"
+  },
+  {
+    "code": "QW2",
+    "line": 416,
+    "section": 9,
+    "text": "| QW2 | D&D | Tavern rumors, quest givers, patrons, guild contracts; the DM as storyteller. | A warlock patron's demands as a quest stream. |"
+  },
+  {
+    "code": "QW3",
+    "line": 417,
+    "section": 9,
+    "text": "| QW3 | A Soldier's Life | Orders, duty roster, inspections, campaign objectives. Orders are not optional: refusal is a military event. | Foreknowledge of the campaign. |"
+  },
+  {
+    "code": "QW4",
+    "line": 418,
+    "section": 9,
+    "text": "| QW4 | TTKS | Book-dependent; B2-B3 known system is native in its arc. | Outside that arc, a system is a cheat. |"
+  },
+  {
+    "code": "QW5",
+    "line": 419,
+    "section": 9,
+    "text": "| QW5 | Mother of Learning | Academy work and town needs that reset each loop; knowledge of quests carries. | Loop memory is the cheat: you know every request in advance. |"
+  },
+  {
+    "code": "QW6",
+    "line": 420,
+    "section": 9,
+    "text": "| QW6 | LOTM / Circle of Inevitability | Official Beyonder teams' duties, club requests, ingredient hunts. | Divination answers as quest hints (FW2-16), with attention risk. |"
+  },
+  {
+    "code": "QW7",
+    "line": 421,
+    "section": 9,
+    "text": "| QW7 | Shadow Slave | The Spell assigns trials to everyone it infects, so its quests are native, not a cheat, for the Spell-bearer. | A second, private quest source would be the cheat. |"
+  },
+  {
+    "code": "QW8",
+    "line": 422,
+    "section": 9,
+    "text": "| QW8 | JJK | Jujutsu school assigns exorcisms by grade; window reports. | Seeing curses' grades exactly. |"
+  },
+  {
+    "code": "QW9",
+    "line": 423,
+    "section": 9,
+    "text": "| QW9 | Bleach | Division duties, patrols, Hollow alerts. | Quest feed that predicts Hollow appearances. |"
+  },
+  {
+    "code": "QW10",
+    "line": 424,
+    "section": 9,
+    "text": "| QW10 | Fate | The Grail War is the main quest; Church as a referee. | Knowing other Masters' identities. |"
+  },
+  {
+    "code": "QW11",
+    "line": 425,
+    "section": 9,
+    "text": "| QW11 | HxH | Hunter exam, Hunter site bounties, Blacklist and Treasure hunting. | Full access to restricted listings. |"
+  },
+  {
+    "code": "QA1",
+    "line": 433,
+    "section": 9,
+    "text": "| QA1 | **Templates as data** | Template = shape (QF) + slot rules (who, where, what) + world tags + reward table. | Writers add templates without code. |"
+  },
+  {
+    "code": "QA2",
+    "line": 434,
+    "section": 9,
+    "text": "| QA2 | **Slot filling from known entities** | Slots pick real NPCs, places, monsters from world state, not new names. | QX10 memory comes free. |"
+  },
+  {
+    "code": "QA3",
+    "line": 435,
+    "section": 9,
+    "text": "| QA3 | **Authored beats beat generated ones** | When an authored quest fits the moment, it wins over a generated one. | Canon worlds stay canon-first. |"
+  },
+  {
+    "code": "QA4",
+    "line": 436,
+    "section": 9,
+    "text": "| QA4 | **Validation** | Every generated quest is checked as completable with current state (target exists, place reachable) before offering. | No broken quests. |"
+  },
+  {
+    "code": "QA5",
+    "line": 437,
+    "section": 9,
+    "text": "| QA5 | **Deterministic tests** | Fixed seed \u2192 fixed offers; tests snapshot a week of offers per world. | Generators are testable. |"
+  },
+  {
+    "code": "QA6",
+    "line": 438,
+    "section": 9,
+    "text": "| QA6 | **Sealed-secret guard** | Quests that point at a sealed route show only in-world clues; reports and logs name the secret by ID. | AGENTS.md sealed-secret rule. |"
+  },
+  {
+    "code": "QA7",
+    "line": 439,
+    "section": 9,
+    "text": "| QA7 | **New event types** | Add `craft`, `sell`, `talk`, `read`, `give`, `wait` events beside QC2. | Needed by QF3-QF8 and QT. |"
+  },
+  {
+    "code": "QK1",
+    "line": 445,
+    "section": 9,
+    "text": "| QK1 | Radiant-quest blandness | QA2 real entities, QX10 chains, QF shape variety. |"
+  },
+  {
+    "code": "QK2",
+    "line": 446,
+    "section": 9,
+    "text": "| QK2 | Checklist fatigue | QV4 pacing, density dial DL9. |"
+  },
+  {
+    "code": "QK3",
+    "line": 447,
+    "section": 9,
+    "text": "| QK3 | Generated quests contradicting canon | QA3 authored first; world tags block off-canon templates. |"
+  },
+  {
+    "code": "QK4",
+    "line": 448,
+    "section": 9,
+    "text": "| QK4 | Save bloat from many offers | Expired offers compress to log lines (QI1). |"
+  },
+  {
+    "code": "QK5",
+    "line": 449,
+    "section": 9,
+    "text": "| QK5 | Steering feels manipulative | Receipts (QV3); manipulation only where a cheat does it on purpose (QG9). |"
+  },
+  {
+    "code": "DL14",
+    "line": 455,
+    "section": 9,
+    "text": "| DL14 | NPC competition for quests | On, gentle | Off to cutthroat |"
+  },
+  {
+    "code": "DL15",
+    "line": 456,
+    "section": 9,
+    "text": "| DL15 | Offer receipts | Shown | Hidden to always |"
+  },
+  {
+    "code": "DL16",
+    "line": 457,
+    "section": 9,
+    "text": "| DL16 | Failure harshness | Partial credit | Pass/fail to forgiving |"
+  },
+  {
+    "code": "T9",
+    "line": 461,
+    "section": 9,
+    "text": "| T9 | **New quest event types (QA7)** in `src/quests.js` event dispatch. | None for events; quests using them follow T6 storage. |"
+  },
+  {
+    "code": "T10",
+    "line": 462,
+    "section": 9,
+    "text": "| T10 | **Completability check (QA4)** before an offer posts. | None. |"
+  },
+  {
+    "code": "T11",
+    "line": 463,
+    "section": 9,
+    "text": "| T11 | **Post-a-quest (QP1)** with one NPC taker resolved by time and a roll. | Additive posted-quests array, default empty. |"
+  },
+  {
+    "code": "QN1",
+    "line": 479,
+    "section": 10,
+    "text": "| QN1 | **Ignoring is free unless you promised** | Untaken offers carry no penalty. Accepted-then-dropped ones cost with that issuer only (QR3). | Removes completionist guilt; promises still mean something. |"
+  },
+  {
+    "code": "QN2",
+    "line": 480,
+    "section": 10,
+    "text": "| QN2 | **The world resolves what you skip** | Someone else takes it (QO1), the threat grows (QX1), or it fades. The return summary (QI2) tells you which. | Skipping has a story, not a hole. |"
+  },
+  {
+    "code": "QN3",
+    "line": 481,
+    "section": 10,
+    "text": "| QN3 | **Goals sort the board** | Offers matching active goals (QG4) sit on top; the rest fold into \"other work\". | Triage by what you want, not by scrolling. |"
+  },
+  {
+    "code": "QN4",
+    "line": 482,
+    "section": 10,
+    "text": "| QN4 | **Specialization narrows offers** | Known as a monster hunter, you get monster work; a healer gets plague calls. Renown (FI25) shapes the feed. | Identity emerges from choices and keeps the feed short. |"
+  },
+  {
+    "code": "QN5",
+    "line": 483,
+    "section": 10,
+    "text": "| QN5 | **Route bundling** | The board marks offers on or near your planned route or routine. | Efficiency is a pleasure; picks feel smart. |"
+  },
+  {
+    "code": "QN6",
+    "line": 484,
+    "section": 10,
+    "text": "| QN6 | **Delegate the rest** | Hand a bounty to a follower, party or hired hand (QX6, QP1); take a cut and the risk. | Wealth and followers turn \"can't\" into \"someone can\". |"
+  },
+  {
+    "code": "QN7",
+    "line": 485,
+    "section": 10,
+    "text": "| QN7 | **Saying no is a verb** | Decline politely, refuse openly or pass it to a friend. Each has a social read. | Turning down work is social play. |"
+  },
+  {
+    "code": "QN8",
+    "line": 486,
+    "section": 10,
+    "text": "| QN8 | **Roads not taken, at death** | The legacy screen lists notable offers you passed and what became of them. | Reflection, not a fail list. Fits life recap. |"
+  },
+  {
+    "code": "QN9",
+    "line": 487,
+    "section": 10,
+    "text": "| QN9 | **Another life can pick it up** | An heir, reincarnation or later run can find the same unresolved thread, changed by time. | Lineage gives skipped content a second chance. |"
+  },
+  {
+    "code": "QN10",
+    "line": 488,
+    "section": 10,
+    "text": "| QN10 | **No completion percentage by default** | No \"47% of quests done\" meter in normal play. Sandbox or a stats journal (FI26) can show counts. | A percentage turns a life into a checklist. |"
+  },
+  {
+    "code": "QN11",
+    "line": 489,
+    "section": 10,
+    "text": "| QN11 | **Scarcity is per world** | A busy city overflows with work; a frontier village has two jobs a season. | Density as world adjective (QX8, DL9). |"
+  },
+  {
+    "code": "QM1",
+    "line": 495,
+    "section": 10,
+    "text": "| QM1 | **Exploration needs no quest** | Any reachable place can be entered for its own sake; quests are one reason among many. | Curiosity is the main open-world engine. |"
+  },
+  {
+    "code": "QM2",
+    "line": 496,
+    "section": 10,
+    "text": "| QM2 | **Visible pull** | Landmarks, smoke, ruins and a mountain on the horizon appear in the location text and map as unknown sites. | Things you can see invite you without a marker. |"
+  },
+  {
+    "code": "QM3",
+    "line": 497,
+    "section": 10,
+    "text": "| QM3 | **Rumors as fuzzy pins** | A rumor places a pin with an uncertainty radius and a reliability note. | Finding the place is part of the quest. |"
+  },
+  {
+    "code": "QM4",
+    "line": 498,
+    "section": 10,
+    "text": "| QM4 | **Danger gradient, not level walls** | Safe core, risky edges. You can wander into deadly places early; warning signs come first (tracks, bones, locals' advice). | Danger is a choice, not a lock. Scaling per world (DL17). |"
+  },
+  {
+    "code": "QM5",
+    "line": 499,
+    "section": 10,
+    "text": "| QM5 | **Regions have state** | Each region tracks control, season, prosperity and threat; quests read and write it (QS). | The map changes because of you and others. |"
+  },
+  {
+    "code": "QM6",
+    "line": 500,
+    "section": 10,
+    "text": "| QM6 | **Travel is content** | Journeys produce encounters, camps and roadside offers; idle-friendly as a background routine (QI3). | Space between points matters. |"
+  },
+  {
+    "code": "QM7",
+    "line": 501,
+    "section": 10,
+    "text": "| QM7 | **Knowledge map** | The map shows what this life knows; others' maps can be bought, stolen or inherited (FI7, FR2). | Knowledge as map. |"
+  },
+  {
+    "code": "QM8",
+    "line": 502,
+    "section": 10,
+    "text": "| QM8 | **Systemic answers** | Fire burns, rivers block, guards sleep, bribes work. Several ways through a problem. | Open world means open methods, not only open space. |"
+  },
+  {
+    "code": "QM9",
+    "line": 503,
+    "section": 10,
+    "text": "| QM9 | **Places remember you** | A cleared ruin stays cleared until something moves in; a town you saved greets you. | Persistence makes the world feel lived in. |"
+  },
+  {
+    "code": "QM10",
+    "line": 504,
+    "section": 10,
+    "text": "| QM10 | **Expeditions** | Set out on a multi-day expedition with supplies; resolve as a background run with a report and choices at key points. | Open world in an idle game. |"
+  },
+  {
+    "code": "QM11",
+    "line": 505,
+    "section": 10,
+    "text": "| QM11 | **Hidden places, no markers** | Some places are found only by noticing (a draft under a door, a song's lyric). | Discovery layer \"Hidden\" (accepted). |"
+  },
+  {
+    "code": "QM12",
+    "line": 506,
+    "section": 10,
+    "text": "| QM12 | **Desktop map first** | Map and region panels designed at laptop width; mobile deferred. | Standing UI priority. |"
+  },
+  {
+    "code": "QE1",
+    "line": 514,
+    "section": 10,
+    "text": "| QE1 | **Scale ladder** | Village, region, realm, world, multiverse. Renown and power past a tier attract the next tier's issuers. | Endgame arrives by escalation, not a menu. |"
+  },
+  {
+    "code": "QE2",
+    "line": 515,
+    "section": 10,
+    "text": "| QE2 | **Bigger powers notice** | Nobles, sects, gods, patrons and rival transmigrators start offering (or threatening) once you matter. | The issuer list grows with you. |"
+  },
+  {
+    "code": "QE3",
+    "line": 516,
+    "section": 10,
+    "text": "| QE3 | **Goal chains** | A fulfilled Ambition suggests a bigger one (\"master the forge\" then \"forge a legend\" then \"found a school\"). | Goals grow without the player having to invent each tier. |"
+  },
+  {
+    "code": "QE4",
+    "line": 517,
+    "section": 10,
+    "text": "| QE4 | **Endgame paths** | Several, none required: **Ruler** (own a town, realm or world), **Master** (top of a power or craft ladder), **Founder** (an institution that outlives you), **Resolver** (face the world's great threat or canon climax), **Seeker** (sealed truths, tracked by ID), **Explorer** (every region, then other worlds), **Escapee** (leave the cycle, free yourself from a patron), **Legacy** (a lineage that shapes history). | Many ends fit \"several progression paths\" in PROJECT.md. |"
+  },
+  {
+    "code": "QE5",
+    "line": 518,
+    "section": 10,
+    "text": "| QE5 | **World ceiling** | Each world has a native power and influence cap (canon's top tier). Beyond it lies \"the outside\" (`LIFE_SIM_NORTH_STAR.md` line 2942). | The world's own end leads to the next layer. |"
+  },
+  {
+    "code": "QE6",
+    "line": 519,
+    "section": 10,
+    "text": "| QE6 | **Finished world, still playable** | Reaching a world's end gives an epilogue and leaves the world open, changed. | Endings without a wall. |"
+  },
+  {
+    "code": "QE7",
+    "line": 520,
+    "section": 10,
+    "text": "| QE7 | **Endgame quests change the board** | Late quests reshape regions, factions and economies, which changes what small quests appear. | Your peak shows up in ordinary days. |"
+  },
+  {
+    "code": "QE8",
+    "line": 521,
+    "section": 10,
+    "text": "| QE8 | **Prestige hook** | A finished life or world feeds the prestige layer: carry what the world's rules allow. | Connects quests to the first-milestone prestige layer. |"
+  },
+  {
+    "code": "QE9",
+    "line": 522,
+    "section": 10,
+    "text": "| QE9 | **Post-peak life** | Aging, teaching, retiring, ruling. Endgame for one life can be quiet. | Life-sim honesty: not every end is a boss. |"
+  },
+  {
+    "code": "QE10",
+    "line": 523,
+    "section": 10,
+    "text": "| QE10 | **Endgame threats come to you** | Past a scale, crises arrive whether or not you accept a quest (war, invasion, a god's attention). | Power has a cost; prevents a solved, static world. |"
+  },
+  {
+    "code": "QH1",
+    "line": 529,
+    "section": 10,
+    "text": "| QH1 | **Hub board** | The hub posts work set in other worlds (fetch a reagent from LOTM, an escort in D&D). | Ties worlds together through ordinary work. |"
+  },
+  {
+    "code": "QH2",
+    "line": 530,
+    "section": 10,
+    "text": "| QH2 | **Threads that cross** | A quest started in one world can need something from another. | Multiverse play from the ground up. |"
+  },
+  {
+    "code": "QH3",
+    "line": 531,
+    "section": 10,
+    "text": "| QH3 | **Quests as cheat acquisition** | A patron's trial, a system's onboarding quest or a relic hunt grants a cheat (`FEATURE_UNLOCK_AND_CHEAT_ACQUISITION_PROCESS_2026-10-13.md`). | Cheats earned through play, not only granted. |"
+  },
+  {
+    "code": "QH4",
+    "line": 532,
+    "section": 10,
+    "text": "| QH4 | **Reputation does not travel by default** | A legend in one world is a stranger in the next, unless a hub faction or cheat carries it. | Each world restarts the ladder; carryover is a choice. |"
+  },
+  {
+    "code": "QH5",
+    "line": 533,
+    "section": 10,
+    "text": "| QH5 | **World-native boards stay native** | Cross-world offers sit in the hub or a cheat panel, not on a local board. | Keeps canon worlds coherent. |"
+  },
+  {
+    "code": "QZ1",
+    "line": 539,
+    "section": 10,
+    "text": "| QZ1 | **Quests that change who you are** | Mercy or cruelty choices shift traits, beliefs or titles. | Identity built by deeds (PLAYER_CHARACTER_IDENTITY doc). |"
+  },
+  {
+    "code": "QZ2",
+    "line": 540,
+    "section": 10,
+    "text": "| QZ2 | **Companion arcs** | Companions' personal quests surface as trust grows. | Relationships with story. |"
+  },
+  {
+    "code": "QZ3",
+    "line": 541,
+    "section": 10,
+    "text": "| QZ3 | **Teaching through quests** | A new system (crafting, alchemy, a power) opens with a short quest from someone who knows it. | Onboarding in fiction; replaces tutorials. |"
+  },
+  {
+    "code": "QZ4",
+    "line": 542,
+    "section": 10,
+    "text": "| QZ4 | **Quest-free play is valid** | A life of farming, trading or studying with no quests still progresses. | Life sim first; quests are one path. |"
+  },
+  {
+    "code": "QZ5",
+    "line": 543,
+    "section": 10,
+    "text": "| QZ5 | **Morally grey work** | Smuggling, debt collecting, assassination contracts. Reputation with different groups moves in opposite directions. | Fits the grey-area design stance; choices have readers. |"
+  },
+  {
+    "code": "QZ6",
+    "line": 544,
+    "section": 10,
+    "text": "| QZ6 | **Repeatable work vs story** | Bounties and contracts repeat as a job; story quests happen once per world state. Repeat limits are per world, never a fixed \"once\". | Idle loops need repeatable work. |"
+  },
+  {
+    "code": "DL17",
+    "line": 550,
+    "section": 10,
+    "text": "| DL17 | Danger scaling | Fixed danger by region | Fixed to scales with you |"
+  },
+  {
+    "code": "DL18",
+    "line": 551,
+    "section": 10,
+    "text": "| DL18 | Roads-not-taken recap | On at death | Off to every season |"
+  },
+  {
+    "code": "DL19",
+    "line": 552,
+    "section": 10,
+    "text": "| DL19 | Endgame pressure (QE10) | Per world | None to relentless |"
+  },
+  {
+    "code": "DL20",
+    "line": 553,
+    "section": 10,
+    "text": "| DL20 | Completion meter | Off in normal play | Off to always shown |"
+  },
+  {
+    "code": "T12",
+    "line": 557,
+    "section": 10,
+    "text": "| T12 | **Goal-sorted board (QN3, QN5).** Sort offers by active goal match and route distance. | None; derived. |"
+  },
+  {
+    "code": "T13",
+    "line": 558,
+    "section": 10,
+    "text": "| T13 | **Return summary (QI2, QN2).** List offers that came, lapsed or were taken by others while away. | Uses the T7 offer list; lapsed offers compress to log lines. |"
+  },
+  {
+    "code": "T14",
+    "line": 559,
+    "section": 10,
+    "text": "| T14 | **Region state (QM5).** Control, prosperity and threat per region that generators read and quests write. | Additive region-state map, default derived from current world data; migration needed. |"
+  },
+  {
+    "code": "QBK1",
+    "line": 577,
+    "section": 11,
+    "text": "| QBK1 | **Closed** | A finished series with a final climax and often an epilogue. | Climax is a scheduled event graph node; after it, the epilogue era is a valid world state. |"
+  },
+  {
+    "code": "QBK2",
+    "line": 578,
+    "section": 11,
+    "text": "| QBK2 | **Closed with sequel era** | A finished arc with a later continuation in the same world. | Sequel is a later era of the same world instance, not a new world (era stacking). |"
+  },
+  {
+    "code": "QBK3",
+    "line": 579,
+    "section": 11,
+    "text": "| QBK3 | **Ongoing** | Publication continues or is on hiatus. | Canon runs to the last verified chapter; past that is the **canon frontier** (11.3). |"
+  },
+  {
+    "code": "QBK4",
+    "line": 580,
+    "section": 11,
+    "text": "| QBK4 | **Branching** | Visual novels or works with several routes or endings. | Each route is an event-graph branch chosen by world state, not a menu. |"
+  },
+  {
+    "code": "QBK5",
+    "line": 581,
+    "section": 11,
+    "text": "| QBK5 | **Setting, no ending** | Tabletop settings and shared worlds. | Natural course is generated (motive-driven); endings are campaign-scale threats, many possible. |"
+  },
+  {
+    "code": "QBK6",
+    "line": 582,
+    "section": 11,
+    "text": "| QBK6 | **Adaptation split** | Different adaptations end differently. | The world pack names which continuity it follows; the other is an AU overlay. |"
+  },
+  {
+    "code": "QBK7",
+    "line": 583,
+    "section": 11,
+    "text": "| QBK7 | **Disputed canon** | Supplementary works whose canon status fans argue about. | Optional overlay, off by default, labeled. |"
+  },
+  {
+    "code": "QBW1",
+    "line": 589,
+    "section": 11,
+    "text": "| QBW1 | Harry Potter | QBK1 + QBK2 + QBK7 | Seven books complete; officially recognized stage sequel recorded separately from fan dispute. Canon ~6.8 years, 19-year epilogue gap. Proposed 7 days/h. (V01) |"
+  },
+  {
+    "code": "QBW2",
+    "line": 590,
+    "section": 11,
+    "text": "| QBW2 | D&D | QBK5 | No global ending or frontier; each run binds setting, edition and adventure. Proposed 1 day/h regional campaign. (V02) |"
+  },
+  {
+    "code": "QBW3",
+    "line": 591,
+    "section": 11,
+    "text": "| QBW3 | A Soldier's Life | Ongoing coverage, status U | Supplied books 1-5 to ch 319 is acquisition coverage, not a final ending; ~2 years attributed. Proposed 3 days/h. (V03) |"
+  },
+  {
+    "code": "QBW4",
+    "line": 592,
+    "section": 11,
+    "text": "| QBW4 | TTKS | QBK3 per book | **Correction:** all five titles are ongoing at the 2026-10-10 capture, and B3 holds several challenge worlds plus a return, not one world. Separate local clocks per book; no manufactured climaxes. (V04a-e, V29) |"
+  },
+  {
+    "code": "QBW5",
+    "line": 593,
+    "section": 11,
+    "text": "| QBW5 | Mother of Learning | QBK1 | Repeated external month vs ~8.5 subjective years; month-later aftermath era. Proposed 7 subjective days/h. (V05) |"
+  },
+  {
+    "code": "QBW6",
+    "line": 594,
+    "section": 11,
+    "text": "| QBW6 | LOTM / Circle of Inevitability | QBK2 | Both novels complete; ~3.3 years then ~2.3 years, ~6-year gap between eras. Proposed 7 days/h. (V06) |"
+  },
+  {
+    "code": "QBW7",
+    "line": 595,
+    "section": 11,
+    "text": "| QBW7 | Shadow Slave | QBK3 | Ongoing; exact current chapter and date still OPEN. Proposed 14 days/h. (V07, V17) |"
+  },
+  {
+    "code": "QBW8",
+    "line": 596,
+    "section": 11,
+    "text": "| QBW8 | JJK | QBK1 + QBK2 | **Correction:** completed short sequel set decades later. Original ~6-7 months. Proposed 0.5 days/h. (V08) |"
+  },
+  {
+    "code": "QBW9",
+    "line": 597,
+    "section": 11,
+    "text": "| QBW9 | Bleach | QBK1 + later one-shot and novels | Do not invent ongoing serialization; ~2 years to the war, later eras 10 and 12 years on. Proposed 3 days/h. (V09) |"
+  },
+  {
+    "code": "QBW10",
+    "line": 598,
+    "section": 11,
+    "text": "| QBW10 | Fate | QBK4 | Routes apply to stay night; hollow ataraxia bound separately; no franchise-wide frontier. ~two-week route, proposed 0.0625 days/h. (V10) |"
+  },
+  {
+    "code": "QBW11",
+    "line": 599,
+    "section": 11,
+    "text": "| QBW11 | HxH | QBK3 | Published to ch 420 with a dated return-to-gap; ~2.6 years, ~9 arcs. Proposed 3 days/h. (V11) |"
+  },
+  {
+    "code": "QBW12",
+    "line": 600,
+    "section": 11,
+    "text": "| QBW12 | FMA | QBK6 | Split completed continuities; the 2003 film belongs to the 2003 line only. Manga ~1 year, proposed 1 day/h. (V12) |"
+  },
+  {
+    "code": "QBW13",
+    "line": 601,
+    "section": 11,
+    "text": "| QBW13 | Naruto | QBK1 + QBK2 (sequel ongoing) | Original ~5 years; sequel has its own frontier. Proposed 7 days/h; later-generation starts separate. (V13) |"
+  },
+  {
+    "code": "QBW14",
+    "line": 602,
+    "section": 11,
+    "text": "| QBW14 | Chainsaw Man | QBK1 | Two-part manga completed (ch 232). ~2-year envelope, proposed 3 days/h. (V14) |"
+  },
+  {
+    "code": "QBW15",
+    "line": 603,
+    "section": 11,
+    "text": "| QBW15 | One Piece | QBK3 | Ongoing (ch 1195 as of 2026-10-11); ~11 sagas and ~33 arcs; final saga is not a completed ending. Proposed 3 days/h. (V15) |"
+  },
+  {
+    "code": "QBV1",
+    "line": 609,
+    "section": 11,
+    "text": "| QBV1 | **Ending metadata combines, not one enum** (V00). Base closure, sequel status, adaptation or route identity and dispute are separate fields. | QBK codes stack, as in the table above. |"
+  },
+  {
+    "code": "QBV2",
+    "line": 610,
+    "section": 11,
+    "text": "| QBV2 | **Frontier needs four endpoints** (V16, V18, V19). Published, captured, read and adapted endpoints, each with an absolute date and observation date. | QBF1 and QBF4 record all four; a displayed count is not enough. |"
+  },
+  {
+    "code": "QBV3",
+    "line": 611,
+    "section": 11,
+    "text": "| QBV3 | **Several clocks** (V21). Waking, subjective, simulation, loop and hub clocks are separate; acceleration preserves source ratios. | RL1 rates apply per clock. |"
+  },
+  {
+    "code": "QBV4",
+    "line": 612,
+    "section": 11,
+    "text": "| QBV4 | **Eras are optional run scopes** (V22), not forced life ends, resets or prestige. | RL7 unchanged in spirit; never a forced end. |"
+  },
+  {
+    "code": "QBV5",
+    "line": 613,
+    "section": 11,
+    "text": "| QBV5 | **Static metadata first** (V23). Ending type, eras and rates live in world-pack data; persisted clocks later need additive versioning without retiming current instances. | T15 stays save-free. |"
+  },
+  {
+    "code": "QBV6",
+    "line": 614,
+    "section": 11,
+    "text": "| QBV6 | **Open gaps stay open** (V25): Shadow Slave current chapter, today's A Soldier's Life and TTKS publication status, some exact spans. | Not promoted to facts. |"
+  },
+  {
+    "code": "QBC1",
+    "line": 620,
+    "section": 11,
+    "text": "| QBC1 | **The climax keeps its causes, not its schedule** | The natural course reaches its climax when its real causes hold, whether or not you take part. If causes fail, the event changes or never comes; prevention is a valid end (R2 K32; `docs/TIMELINES_AND_DIVERGENCE.md` T3). | You live in a world with its own story, not a stage waiting for you. |"
+  },
+  {
+    "code": "QBC2",
+    "line": 621,
+    "section": 11,
+    "text": "| QBC2 | **Your role at the end** | Participant, helper, witness, absent, on the other side, or the cause of a different ending. | Many ways to be present; quiet lives can watch it from a village. |"
+  },
+  {
+    "code": "QBC3",
+    "line": 622,
+    "section": 11,
+    "text": "| QBC3 | **Changed ending** | Enough disturbance (TIMELINES inertia) shifts the outcome: better, worse or sideways. The changed outcome is a sealed state, referred to by ID. | Your actions can matter at the largest scale. |"
+  },
+  {
+    "code": "QBC4",
+    "line": 623,
+    "section": 11,
+    "text": "| QBC4 | **Ending that never comes** | You defuse the cause early; the climax never forms. Motives persist (TIMELINES C6), so a different crisis can grow. | Prevention is valid and has follow-ons. |"
+  },
+  {
+    "code": "QBC5",
+    "line": 624,
+    "section": 11,
+    "text": "| QBC5 | **Bad ending** | The antagonist side wins. The world continues in that state, playable. | Failure is a world, not a game over. |"
+  },
+  {
+    "code": "QBC6",
+    "line": 625,
+    "section": 11,
+    "text": "| QBC6 | **Protagonist absent or replaced** | If the canon lead dies or never appears, a role is filled only by someone with real motive and means; it can stay unfilled. No conjured substitutes to force canon (R2 K32, R5 P-I5). | Classic fanfic premise without railroading. |"
+  },
+  {
+    "code": "QBC7",
+    "line": 626,
+    "section": 11,
+    "text": "| QBC7 | **You die before the end** | Your life ends before the climax; an heir, a fresh life or a ghost can see it. | Lifespans shorter than plots are normal. |"
+  },
+  {
+    "code": "QBC8",
+    "line": 627,
+    "section": 11,
+    "text": "| QBC8 | **Being noticed by the plot** | Rising renown pulls you into canon events: the leads seek you out, antagonists target you. | Ties QE ladder to canon (QE2). |"
+  },
+  {
+    "code": "QBC9",
+    "line": 628,
+    "section": 11,
+    "text": "| QBC9 | **Side characters' endings** | Canon fates of named NPCs (deaths, betrayals, marriages) are scheduled beats you can alter one by one. | Small endings matter as much as the big one. |"
+  },
+  {
+    "code": "QBC10",
+    "line": 629,
+    "section": 11,
+    "text": "| QBC10 | **Foreknowledge of the ending** | A transmigrator who knows the ending has it as a notebook entry with confidence that drops as ripples reach it (TIMELINES \"What the player sees\"). | Knowing the end is the classic cheat; it decays honestly. |"
+  },
+  {
+    "code": "QBF1",
+    "line": 635,
+    "section": 11,
+    "text": "| QBF1 | **Frontier marker** | The last verified chapter's date is the frontier. Beyond it the world runs on motives and generation, stamped \"past canon\" in the chronicle. | Honest about what is source and what is game. |"
+  },
+  {
+    "code": "QBF2",
+    "line": 636,
+    "section": 11,
+    "text": "| QBF2 | **New canon arrives** | When new chapters are digested, existing saves keep their own course; new canon applies to new starts or as an opt-in update. | Save integrity (rule 9); no retcon of a life in progress. |"
+  },
+  {
+    "code": "QBF3",
+    "line": 637,
+    "section": 11,
+    "text": "| QBF3 | **No invented canon** | Past the frontier, generated events are labeled original, never presented as the author's plot (LORE_AND_CONTINUITY line 27). | Attribution rule. |"
+  },
+  {
+    "code": "QBF4",
+    "line": 638,
+    "section": 11,
+    "text": "| QBF4 | **Frontier per agent workflow** | Source deep dives (playbook) record the frontier chapter and date. | Keeps the marker verifiable. |"
+  },
+  {
+    "code": "QBA1",
+    "line": 644,
+    "section": 11,
+    "text": "| QBA1 | **Aftermath era** | After the climax: rebuilding, power vacuum, veterans, ruins, new laws. The world keeps running with motives from the new state. | Epilogue starts (ST3) for the same life. |"
+  },
+  {
+    "code": "QBA2",
+    "line": 645,
+    "section": 11,
+    "text": "| QBA2 | **Time jump choice** | At a world's end you can continue now, skip to the epilogue era, or jump to a sequel era (QBK2). | Fits idle pacing and long lives. |"
+  },
+  {
+    "code": "QBA3",
+    "line": 646,
+    "section": 11,
+    "text": "| QBA3 | **Legend status** | Your part in the ending becomes history: songs, statues, textbooks, or nothing if you hid it. | Renown at world scale; heirs inherit it. |"
+  },
+  {
+    "code": "QBA4",
+    "line": 647,
+    "section": 11,
+    "text": "| QBA4 | **What carries** | Ending a world feeds prestige (QE8) by that world's rules. A changed ending can grant a distinct carry. | Endings pay into the meta layer. |"
+  },
+  {
+    "code": "QBA5",
+    "line": 648,
+    "section": 11,
+    "text": "| QBA5 | **Ending screen** | A chronicle page: what happened, your role, the canon course beside yours (public canon only; changed outcomes by ID in reports). | Closure; a reason to try another role next time. |"
+  },
+  {
+    "code": "QBA6",
+    "line": 649,
+    "section": 11,
+    "text": "| QBA6 | **Replay the same world differently** | Next life in the same world with a different start, era or role (CONTINUATION_CHOICE P3). | Endings invite another run, not a stop. |"
+  },
+  {
+    "code": "QBA7",
+    "line": 650,
+    "section": 11,
+    "text": "| QBA7 | **Endings unlock starts** | Seeing an ending opens after-canon starts (UG4) and AU overlays tied to it. | Earned options. |"
+  },
+  {
+    "code": "QBM1",
+    "line": 656,
+    "section": 11,
+    "text": "| QBM1 | **Fix-it and villain-win AUs** | Common fan premises become AU overlays: the tragedy averted, the antagonist triumphant, the quiet epilogue. | Cheap AU variants (canon-first tier note). |"
+  },
+  {
+    "code": "QBM2",
+    "line": 657,
+    "section": 11,
+    "text": "| QBM2 | **Ending as a goal** | \"Change the ending\" or \"see the ending\" can be an Ambition (QG2) with steps. | Gives a whole life a spine. |"
+  },
+  {
+    "code": "QBM3",
+    "line": 658,
+    "section": 11,
+    "text": "| QBM3 | **Cross-world after ending** | A finished world can become a source of travelers, items or refugees to others (QH). | Endings feed the multiverse. |"
+  },
+  {
+    "code": "QBM4",
+    "line": 659,
+    "section": 11,
+    "text": "| QBM4 | **The ending's people move on** | Leads age, retire, teach; you can meet them later as NPCs in the aftermath. | Living beside canon after canon. |"
+  },
+  {
+    "code": "QBM5",
+    "line": 660,
+    "section": 11,
+    "text": "| QBM5 | **Smaller arc endings** | Each canon arc ends too (exam, tournament, war). Arc endings are mini-climaxes with the same rules. | Not only the final ending matters. |"
+  },
+  {
+    "code": "QBM6",
+    "line": 661,
+    "section": 11,
+    "text": "| QBM6 | **Loop and time worlds** | In loop worlds an ending can reset, so \"the end\" may be the escape from the loop. | World-specific meaning of ending. |"
+  },
+  {
+    "code": "QBM7",
+    "line": 662,
+    "section": 11,
+    "text": "| QBM7 | **Ending pacing in idle play** | A climax can pause offline progress or ask for presence (a \"be here for this\" flag). | Big moments are not resolved while you sleep, unless you choose. |"
+  },
+  {
+    "code": "DL21",
+    "line": 668,
+    "section": 11,
+    "text": "| DL21 | Climax presence | Asks for presence when you are involved | Never pause to always pause |"
+  },
+  {
+    "code": "DL22",
+    "line": 669,
+    "section": 11,
+    "text": "| DL22 | Canon-beside-yours on ending screen | On | Off to full comparison |"
+  },
+  {
+    "code": "DL23",
+    "line": 670,
+    "section": 11,
+    "text": "| DL23 | Post-frontier generation | Motive-driven, stamped | Freeze at frontier to free generation |"
+  },
+  {
+    "code": "T15",
+    "line": 674,
+    "section": 11,
+    "text": "| T15 | **Ending type field** in world pack metadata (QBK). | None; data. |"
+  },
+  {
+    "code": "T16",
+    "line": 675,
+    "section": 11,
+    "text": "| T16 | **Ending chronicle page** (QBA5) on climax resolution. | Additive record of the resolved climax, default absent. |"
+  },
+  {
+    "code": "T17",
+    "line": 676,
+    "section": 11,
+    "text": "| T17 | **Canon frontier stamp** (QBF1) on generated post-frontier events. | Additive flag on chronicle entries, default false. |"
+  },
+  {
+    "code": "RL1",
+    "line": 690,
+    "section": 12,
+    "text": "| RL1 | **World time vs play time** | Each world has a time scale (in-world days per real hour) and \"wait until next beat\" (FI32, FI4). A canon spanning years is reachable in weeks of play, not months. | Long canons stay finishable without rushing. |"
+  },
+  {
+    "code": "RL2",
+    "line": 691,
+    "section": 12,
+    "text": "| RL2 | **Death mid-world is normal** | A life can end anywhere in the story. The world instance does not reset; it keeps the changes (TIMELINES heirs rule). | Not reaching the end is part of a life sim, not a failure state. |"
+  },
+  {
+    "code": "RL3",
+    "line": 692,
+    "section": 12,
+    "text": "| RL3 | **Progress lives in several places** | Character (lost at death unless carried), world instance (persists by world rule), lineage (heir: bounded estate leftovers, lessons, reputation, home and obligations already carry through `src/heir_inheritance.js`, per R2 K08), meta, player knowledge. Player knowledge never fills the next character's Notebook without a real carrier (R2 K34). Each death shows what stayed where. | Death never means \"everything gone\"; the player sees what was kept. |"
+  },
+  {
+    "code": "RL4",
+    "line": 693,
+    "section": 12,
+    "text": "| RL4 | **Arc credit** | Each finished arc (QBM5), Ambition or ending pays into meta progress, so a life that dies mid-story still earns. | Removes the all-or-nothing feel of long worlds. |"
+  },
+  {
+    "code": "RL5",
+    "line": 694,
+    "section": 12,
+    "text": "| RL5 | **Next life after death, in this world** | Options: heir, fresh random life in the same world later in time, same era as someone else, or leave the world. All reasonable options reachable (CONTINUATION P1-P3). | Death opens choices instead of one forced path. |"
+  },
+  {
+    "code": "RL6",
+    "line": 695,
+    "section": 12,
+    "text": "| RL6 | **The world remembers you** | A next life in the same world finds your grave, your legend, your unfinished threads (QN9). | Continuity without immortality. |"
+  },
+  {
+    "code": "RL7",
+    "line": 696,
+    "section": 12,
+    "text": "| RL7 | **Eras as chapters** | A long canon splits into eras (before, during arcs, climax, aftermath). A run can target one era. | Shorter, complete-feeling runs inside a long world. |"
+  },
+  {
+    "code": "RL8",
+    "line": 697,
+    "section": 12,
+    "text": "| RL8 | **No save-scum; a character's time power is separate from the player's menu** | Reload does not reroll (QX11). Choosing a start, era or branch premise from the menu is a player choice, not a character power (Weibao 2026-10-10, `docs/USER_VISION.md` lines 1656-1662; corrected by R3 G-C1). An in-world return to an anchor is a time power with its own costs. | Death keeps weight without turning menu access into a cheat. |"
+  },
+  {
+    "code": "RL9",
+    "line": 698,
+    "section": 12,
+    "text": "| RL9 | **Pace the long middle** | Routines, delegation, expeditions and the storyteller carry the slow years; active play is for turning points (LIFE_SIM loop table, D2b). | Long worlds stay idle-friendly. |"
+  },
+  {
+    "code": "RL10",
+    "line": 699,
+    "section": 12,
+    "text": "| RL10 | **Difficulty of survival is per world** | Some worlds are lethal (CSM, JJK), some gentle (a village life). Expected life length is a world adjective. | Players can pick how risky a run is. |"
+  },
+  {
+    "code": "RB1",
+    "line": 705,
+    "section": 12,
+    "text": "| RB1 | **Three handlings** | (a) **Stay**: one instance goes off canon and runs on motives (TIMELINES off-rails). (b) **Branch**: past a divergence threshold, the instance is labeled a branch world; the canon template stays clean for new starts. (c) **Fork on demand**: the player splits a copy (time cheat or sandbox). | All three stay reachable; (a) plus (b) labeling is the base default. |"
+  },
+  {
+    "code": "RB2",
+    "line": 706,
+    "section": 12,
+    "text": "| RB2 | **Canon template is never modified** | A world pack is a template. Every run is an instance. Divergence lives in the instance only. | New starts always get canon; branches never leak into it. |"
+  },
+  {
+    "code": "RB3",
+    "line": 707,
+    "section": 12,
+    "text": "| RB3 | **Branches are places** | A branched instance appears in the hub atlas with a name (\"the world where the war never came\") and can be revisited by later lives or travelers. | Your changed worlds become part of the multiverse. |"
+  },
+  {
+    "code": "RB4",
+    "line": 708,
+    "section": 12,
+    "text": "| RB4 | **Branches are saved automatically; carrying a person back is the power** | Accepted direction: branches are saved automatically as diffs, named by biggest change and renamable (`docs/TIMELINES_AND_DIVERGENCE.md` 2026-10-10 sections). Selecting a branch premise is a player choice (RL8). A character who deliberately splits or returns through time needs a world route or cheat. Labeling is not forking: an actual fork needs real owned state (R2 K37). | Keeps the cheat test for in-world time power only. |"
+  },
+  {
+    "code": "RB5",
+    "line": 709,
+    "section": 12,
+    "text": "| RB5 | **Branch drift label** | Each instance carries a drift band (near canon, bent, broken, unrecognizable) shown only in the atlas or via a divergence sense (TIMELINES \"Optional faculties\"). | Lets players choose where to go without numbers in normal play. |"
+  },
+  {
+    "code": "RB6",
+    "line": 710,
+    "section": 12,
+    "text": "| RB6 | **Branch limit by save size, not \"once\"** | Instances accumulate. Old, unvisited ones compress to a summary (state aggregates plus chronicle) and can be archived or exported. | Save integrity without a fixed cap. |"
+  },
+  {
+    "code": "RB7",
+    "line": 711,
+    "section": 12,
+    "text": "| RB7 | **Branch merge is rare power** | Merging two instances is a high cheat or endgame feat, never a base action. | Multiverse endgame material (QE5). |"
+  },
+  {
+    "code": "RB8",
+    "line": 712,
+    "section": 12,
+    "text": "| RB8 | **Canon worlds vs original worlds** | Original worlds have a generated natural course; \"branch\" there means a run instance as well. Same mechanics. | One system for all worlds. |"
+  },
+  {
+    "code": "RB9",
+    "line": 713,
+    "section": 12,
+    "text": "| RB9 | **Others' branches** | Rival transmigrators or patrons can create branches too; you may meet a world someone else bent. | Multiverse with other actors. |"
+  },
+  {
+    "code": "RS1",
+    "line": 719,
+    "section": 12,
+    "text": "| RS1 | **End a run any time** | Retirement, death, world ending, or a plain \"close this chapter\" action. Solo player: no penalty beyond what the world's rules say. | Player decides when a story is done. |"
+  },
+  {
+    "code": "RS2",
+    "line": 720,
+    "section": 12,
+    "text": "| RS2 | **Shelve a world** | Leave a world without ending it. It freezes or ticks at low detail (aggregates) per the world's clock rule. Return later as the same or another person. | \"Split\" a run: stop here, keep the world, go elsewhere. |"
+  },
+  {
+    "code": "RS3",
+    "line": 721,
+    "section": 12,
+    "text": "| RS3 | **Continue elsewhere with the same person** | Transmigrate, travel or ascend to another world with what that route allows (travel stays separate from prestige). | A life can span worlds without a reset. |"
+  },
+  {
+    "code": "RS4",
+    "line": 722,
+    "section": 12,
+    "text": "| RS4 | **Continue elsewhere as someone new** | Fresh random life in another world (P1), with prestige carry if you prestiged. | Variety across worlds. |"
+  },
+  {
+    "code": "RS5",
+    "line": 723,
+    "section": 12,
+    "text": "| RS5 | **Come back changed** | Returning to a shelved world shows elapsed time, what others did (QO5) and what your absence caused (QI2). | Shelving has a story too. |"
+  },
+  {
+    "code": "RS6",
+    "line": 724,
+    "section": 12,
+    "text": "| RS6 | **Several open worlds at once** | Multiple shelved instances; one active life at a time by default. A cheat or a multi-body premise can run more than one. | Breadth without parallel micro-management by default. |"
+  },
+  {
+    "code": "RS7",
+    "line": 725,
+    "section": 12,
+    "text": "| RS7 | **Natural stopping points** | The game marks good places to end or shelve: arc ends, a funeral, a graduation, a season turn. | Helps players stop on a high note. |"
+  },
+  {
+    "code": "RS8",
+    "line": 726,
+    "section": 12,
+    "text": "| RS8 | **Run summary on any end** | Chronicle page per run (QBA5) even for deaths and shelves: what you did, what carried, what is still open. | Closure for every kind of end. |"
+  },
+  {
+    "code": "RP1",
+    "line": 732,
+    "section": 12,
+    "text": "| RP1 | **Prestige is a choice at run end** | When a run ends, prestige is offered, not forced. Declining keeps playing the lineage or world. | Respects long attachment to one world. |"
+  },
+  {
+    "code": "RP2",
+    "line": 733,
+    "section": 12,
+    "text": "| RP2 | **What prestige measures** | Deeds across the run: arcs, endings (canon, changed or prevented), Ambitions, discoveries, people helped, worlds touched. Not only levels. | Rewards the kinds of play the game wants. |"
+  },
+  {
+    "code": "RP3",
+    "line": 734,
+    "section": 12,
+    "text": "| RP3 | **What prestige carries** | Earned start options (part 13 EO), soul traits, knowledge records, cheat slots or patron standing; per-world rules can block some (carryover part 17). | Ties into existing carryover owners. |"
+  },
+  {
+    "code": "RP4",
+    "line": 735,
+    "section": 12,
+    "text": "| RP4 | **Partial prestige** | A run that ended early (death, shelving) still prestiges with its earned deeds (RL4). | Long uncertain worlds still pay. |"
+  },
+  {
+    "code": "RP5",
+    "line": 736,
+    "section": 12,
+    "text": "| RP5 | **Prestige restarts the natural course** | A new run in a world uses the clean canon template (RB2), unless a carried scar says otherwise (TIMELINES line 267). | Fresh canon for each prestige cycle. |"
+  },
+  {
+    "code": "RP6",
+    "line": 737,
+    "section": 12,
+    "text": "| RP6 | **Branches survive prestige** | Branch worlds stay in the atlas across prestige cycles, as places, not as your character's state. | Your history across cycles accumulates. |"
+  },
+  {
+    "code": "RP7",
+    "line": 738,
+    "section": 12,
+    "text": "| RP7 | **Repeat value per world, not \"once\"** | Repeating an ending pays by that world's adjective (diminishing, steady or rising), never a fixed one-time limit. | Solo-player rule. |"
+  },
+  {
+    "code": "RP8",
+    "line": 739,
+    "section": 12,
+    "text": "| RP8 | **Prestige vs travel vs ascension vs renewal** | Kept separate (PROJECT). Existing field and structured renewal retains the protagonist (`src/frontier_campaign.js`, `src/structured_renewal.js`, R2 K13) and stays as it is; a next-life prestige reset is a separate proposal needing its own carry contract before any payout (R2 K35, K450). Generic reset and rebirth transitions already exist in `src/simulation.js:567-608` (R2 K39). | One prestige layer for the first milestone; no accidental second layer. |"
+  },
+  {
+    "code": "RP9",
+    "line": 740,
+    "section": 12,
+    "text": "| RP9 | **First milestone** | One prestige layer, one realm. Branch atlas and multi-world shelving are later layers. | Sequencing, not scope cap. |"
+  },
+  {
+    "code": "RX1",
+    "line": 746,
+    "section": 12,
+    "text": "| RX1 | **Hall of lives** | Every past life listed with world, era, role, end and legacy. Readable across prestige. | Long-term memory of the player's history. |"
+  },
+  {
+    "code": "RX2",
+    "line": 747,
+    "section": 12,
+    "text": "| RX2 | **Legends travel slowly** | A famous past life can become a myth in later runs of the same world instance, or in branches it touched. | Rewards history without breaking canon templates. |"
+  },
+  {
+    "code": "RX3",
+    "line": 748,
+    "section": 12,
+    "text": "| RX3 | **Past selves as NPCs** | In a shelved or branched world, your past life (or their ghost, statue, diary) can appear to a later life. | Meeting yourself is a classic premise. |"
+  },
+  {
+    "code": "RX4",
+    "line": 749,
+    "section": 12,
+    "text": "| RX4 | **Achievement-like milestones** | Optional records (finished every arc in a world, prevented an ending) feed earned options. | Long-term goals that are not a meter (QN10). |"
+  },
+  {
+    "code": "RX5",
+    "line": 750,
+    "section": 12,
+    "text": "| RX5 | **Abandon without guilt** | Dropping a world for good is fine; it shelves forever with its summary. | Breadth over completion. |"
+  },
+  {
+    "code": "RX6",
+    "line": 751,
+    "section": 12,
+    "text": "| RX6 | **Export a world** | A branch instance can be exported and imported like a save (LN2). | Players keep favorite worlds. |"
+  },
+  {
+    "code": "RX7",
+    "line": 752,
+    "section": 12,
+    "text": "| RX7 | **Run modifiers** | Optional challenge or comfort settings per run (hardcore, gentle, short era). | Lets one player play both ways. |"
+  },
+  {
+    "code": "DL24",
+    "line": 758,
+    "section": 12,
+    "text": "| DL24 | Branch labeling threshold | Medium drift | Never label to label every divergence |"
+  },
+  {
+    "code": "DL25",
+    "line": 759,
+    "section": 12,
+    "text": "| DL25 | Shelved world clock | Per world rule | Frozen to full aggregate ticking |"
+  },
+  {
+    "code": "DL26",
+    "line": 760,
+    "section": 12,
+    "text": "| DL26 | Prestige offer | At every run end | Only at world endings to any time |"
+  },
+  {
+    "code": "DL27",
+    "line": 761,
+    "section": 12,
+    "text": "| DL27 | Repeat payout per world | World adjective | Diminishing to rising |"
+  },
+  {
+    "code": "T18",
+    "line": 765,
+    "section": 12,
+    "text": "| T18 | **Run summary page** (RS8) at any run end, reading chronicle data. | Additive run record, default absent. |"
+  },
+  {
+    "code": "T19",
+    "line": 766,
+    "section": 12,
+    "text": "| T19 | **Instance provenance and drift band** on `src/world_instances.js` records (RB2, RB5). | Instance schema 2 with `provenance.kind` canon / original / au / branch / unknown and a `forkedFromInstanceId` separate from enclosing `parentInstanceId`. Old records classify from their definition or become `unknown`, never blanket \"canon, near\" (R2 K10, K37, K413). |"
+  },
+  {
+    "code": "T20",
+    "line": 767,
+    "section": 12,
+    "text": "| T20 | **Shelve action** (RS2) for the current world with a frozen clock. | Additive shelved-instance list; frozen state reuses existing instance records. |"
+  },
+  {
+    "code": "T21",
+    "line": 768,
+    "section": 12,
+    "text": "| T21 | **Deeds ledger for prestige** (RP2, RL4) from existing title counters and chronicle. | Additive ledger; existing counters reused. |"
+  },
+  {
+    "code": "NT1",
+    "line": 786,
+    "section": 13,
+    "text": "| NT1 | **Same moment, nearby** | A bystander, the person who found your body, your killer, a newborn that night. Same instance; C1 rules. | Immediate continuation; your death is a scene the next life lives through. |"
+  },
+  {
+    "code": "NT2",
+    "line": 787,
+    "section": 13,
+    "text": "| NT2 | **Short later (days to years)** | Same instance, aftermath fresh: funeral, estate split, investigation, revenge. C2 rules: elapsed time gets a declared outcome. | Consequences of the death are playable. |"
+  },
+  {
+    "code": "NT3",
+    "line": 788,
+    "section": 13,
+    "text": "| NT3 | **One generation later** | Your children grown, your workshop someone else's, your rivals old. | Lineage play without being the heir (P3). |"
+  },
+  {
+    "code": "NT4",
+    "line": 789,
+    "section": 13,
+    "text": "| NT4 | **Long later (centuries)** | You are a legend, a ruin or forgotten. Tech and politics moved (TECHNOLOGY doc eras). | Same world, nearly new setting. |"
+  },
+  {
+    "code": "NT5",
+    "line": 790,
+    "section": 13,
+    "text": "| NT5 | **Sequel or epilogue era** | Canon's own later era (QBK2) or the aftermath (QBA1). | Uses authored eras. |"
+  },
+  {
+    "code": "NT6",
+    "line": 791,
+    "section": 13,
+    "text": "| NT6 | **Overlapping your past life (earlier, while you were alive)** | You are born or start while your previous self is still living. Default: a branch (C3) so the finished history stays intact. | Meeting your earlier self is a classic premise; needs a paradox rule (13.3). |"
+  },
+  {
+    "code": "NT7",
+    "line": 792,
+    "section": 13,
+    "text": "| NT7 | **Before your past life was born** | Prequel era in the same world. As a plain start (P4) it is a branch with no memories; with memories it is regression or time travel. | Prequels and ancestor play. |"
+  },
+  {
+    "code": "NT8",
+    "line": 793,
+    "section": 13,
+    "text": "| NT8 | **Canon prequel era** | The world's own earlier history (founders, old wars). | Canon-first worlds often have rich back history. |"
+  },
+  {
+    "code": "NT9",
+    "line": 794,
+    "section": 13,
+    "text": "| NT9 | **Random placement** | Default for \"fresh random life\" (P1): random among eligible eras of this world, weighted toward later than your death. | Suspense; past placements stay rarer because they need a branch. |"
+  },
+  {
+    "code": "NT10",
+    "line": 795,
+    "section": 13,
+    "text": "| NT10 | **Chosen placement** | Picking the era from the menu is a player choice (RL8, P4), offered as an earned option or sandbox choice; only carrying a person or memories back needs a route (R5 P-I3). | Choice without making it the default. |"
+  },
+  {
+    "code": "NE1",
+    "line": 801,
+    "section": 13,
+    "text": "| NE1 | **Fresh person, no carry** | Pure perspective change. History stays; you only bring player knowledge. | The cleanest option; no lore needed. |"
+  },
+  {
+    "code": "NE2",
+    "line": 802,
+    "section": 13,
+    "text": "| NE2 | **Return by the world's own rules** | Only where the world supports it (SUCCESSION_BY_WORLD). The native form may be an infant, an adult, memoryless or partial; an infant with chosen memories is a proposed premise or cheat unless the world says so (C5; corrected by R4 WI3, W03, W41). | Canon-consistent return. |"
+  },
+  {
+    "code": "NE3",
+    "line": 803,
+    "section": 13,
+    "text": "| NE3 | **In-world afterlife** | Death moves you to a layer of the same world where the world has one: Bleach souls pass on, D&D outer planes (setting-pinned). HP portraits and ghosts are representations or remnants, not automatic afterlife personhood (R4 WI4). | The same world continues past death without a reset. |"
+  },
+  {
+    "code": "NE4",
+    "line": 804,
+    "section": 13,
+    "text": "| NE4 | **Resurrection** | A world-native price (D&D raise dead, a ritual, a bargain). Body returns; costs and changes stick. | Death can be undone where the world allows, never free. |"
+  },
+  {
+    "code": "NE5",
+    "line": 805,
+    "section": 13,
+    "text": "| NE5 | **Undeath or remnant** | Revenant, cursed spirit, lingering will, possessed item. | A dark continuation; world-dependent. |"
+  },
+  {
+    "code": "NE6",
+    "line": 806,
+    "section": 13,
+    "text": "| NE6 | **Possession or replacement** | Enter a living adult (E2): host survives, resists, shares or is absent. | Adult starts with a body history. |"
+  },
+  {
+    "code": "NE7",
+    "line": 807,
+    "section": 13,
+    "text": "| NE7 | **Patron or system respawn** | A cheat respawns you (DR4 afterlife offer, regression). Uses cheat costs. | The classic transmigrator loop, as a cheat. |"
+  },
+  {
+    "code": "NE8",
+    "line": 808,
+    "section": 13,
+    "text": "| NE8 | **Echo** | No memory, only d\u00e9j\u00e0 vu, talents or dreams from the past life. Low-cost carry. | Soft continuity for worlds without reincarnation lore. |"
+  },
+  {
+    "code": "NE9",
+    "line": 809,
+    "section": 13,
+    "text": "| NE9 | **Leave the world** | Death sends you to another world or the hub (RS4). | Same-world return stays optional. |"
+  },
+  {
+    "code": "NP1",
+    "line": 815,
+    "section": 13,
+    "text": "| NP1 | **Branch (default)** | Any past placement. The finished history stays as its own instance; the new life runs a copy from the earlier point (C3, RB). | Never destroys a finished run. |"
+  },
+  {
+    "code": "NP2",
+    "line": 816,
+    "section": 13,
+    "text": "| NP2 | **Reset or overwrite** | Worlds or cheats where a reset replaces the old course. MoL is a copied-iteration case with its own retained domains, not arbitrary real-era overwrite (R4 WI5, R5 P-I1; details in r5/SPOILERS.md). A recorded attempt is history, not automatically a visitable world (R5 P46). | Real stakes for time powers, scoped to the source. |"
+  },
+  {
+    "code": "NP3",
+    "line": 817,
+    "section": 13,
+    "text": "| NP3 | **Closed loop** | Rare, authored: you were always part of history; the new life fills a role the old run already saw (a stranger who helped you). Only for authored beats, not general simulation. | Delightful when authored; impossible to guarantee in general, so kept narrow. |"
+  },
+  {
+    "code": "NP4",
+    "line": 818,
+    "section": 13,
+    "text": "| NP4 | **Parallel past** | A separate instance with no causal tie; meeting \"yourself\" is meeting a counterpart (C4). | Simple and safe. |"
+  },
+  {
+    "code": "NP5",
+    "line": 819,
+    "section": 13,
+    "text": "| NP5 | **Meeting your earlier self** | Weibao's 2026-10-14 lean (USER_VISION, \"Little to no interaction with the past selves or bodies?\"): past selves and old bodies are ordinary background NPCs with little special interaction by default; a special meeting is optional, never mandatory or a boss (R5 P48, P-I4). | Respects the recorded lean while keeping the option. |"
+  },
+  {
+    "code": "NP6",
+    "line": 820,
+    "section": 13,
+    "text": "| NP6 | **Helping or harming your past self** | Possible in a branch; outcomes apply only to that branch. | Fix-it play within a branch. |"
+  },
+  {
+    "code": "NP7",
+    "line": 821,
+    "section": 13,
+    "text": "| NP7 | **Knowledge crossing** | Without a memory route, the character knows nothing; the player still does. Player knowledge guides goals without granting character mastery (identity doc E2). | Keeps player knowledge honest. |"
+  },
+  {
+    "code": "NF1",
+    "line": 827,
+    "section": 13,
+    "text": "| NF1 | **Your grave and remains** | Grave, ashes, a body never found, an empty tomb. Grave robbers and necromancers exist where the world has them. | The past life is physically present. |"
+  },
+  {
+    "code": "NF2",
+    "line": 828,
+    "section": 13,
+    "text": "| NF2 | **Your stuff** | Estate divided, sold, stolen, kept as relics, cursed. Reclaiming it is a quest (QT3). | Items carry history across lives. |"
+  },
+  {
+    "code": "NF3",
+    "line": 829,
+    "section": 13,
+    "text": "| NF3 | **Your people** | Widow, children, apprentices, friends and enemies remember you. Recognition of the new you is narrow and fallible (SUCCESSION rule 4). | Emotional weight; reunion and grief scenes. |"
+  },
+  {
+    "code": "NF4",
+    "line": 830,
+    "section": 13,
+    "text": "| NF4 | **Your killer** | Still alive, rewarded, hunted or regretful. Revenge or forgiveness as an Ambition. | Strong motive for the next life. |"
+  },
+  {
+    "code": "NF5",
+    "line": 831,
+    "section": 13,
+    "text": "| NF5 | **Your unfinished threads** | Open quests, debts, promises, half-built projects (QN9). | Continuity of play. |"
+  },
+  {
+    "code": "NF6",
+    "line": 832,
+    "section": 13,
+    "text": "| NF6 | **Your reputation, distorted** | Legend grows or sours with time and retelling (RX2). | History is not exact. |"
+  },
+  {
+    "code": "NF7",
+    "line": 833,
+    "section": 13,
+    "text": "| NF7 | **Your institutions** | A guild or school you founded thrives or decays (QP3). | Founder endgame pays off across lives. |"
+  },
+  {
+    "code": "NF8",
+    "line": 834,
+    "section": 13,
+    "text": "| NF8 | **Your secrets** | Things you hid may be found by others; things you knew may be lost. Sealed routes stay sealed by ID. | Secrets have lives of their own. |"
+  },
+  {
+    "code": "NF9",
+    "line": 835,
+    "section": 13,
+    "text": "| NF9 | **Your changes to the world** | The natural course after your interventions (TIMELINES heirs rule applies to any later life in the instance). | Your impact outlives you. |"
+  },
+  {
+    "code": "ND1",
+    "line": 841,
+    "section": 13,
+    "text": "| ND1 | **Death screen offers** | Shows the reachable options for this world and your earned options: later here, now here, elsewhere, heir, prestige. Past placements shown when earned or sandbox. | Clear choice at an emotional moment. |"
+  },
+  {
+    "code": "ND2",
+    "line": 842,
+    "section": 13,
+    "text": "| ND2 | **Random default** | A \"surprise me\" option follows P1 suspense. | Low-effort continuation. |"
+  },
+  {
+    "code": "ND3",
+    "line": 843,
+    "section": 13,
+    "text": "| ND3 | **World rules can forbid** | A world without afterlife or reincarnation hides NE2-NE3 unless a cheat or premise provides them. | Canon consistency. |"
+  },
+  {
+    "code": "ND4",
+    "line": 844,
+    "section": 13,
+    "text": "| ND4 | **Repeat limits are per world** | No fixed \"once\"; a world may make repeated rebirths costlier, rarer or noticed (DP5). | Solo-player rule. |"
+  },
+  {
+    "code": "ND5",
+    "line": 845,
+    "section": 13,
+    "text": "| ND5 | **Death notice by others** | Seers, gods, death gods or systems may notice a soul that keeps coming back. | Rebirth has social and cosmic consequences. |"
+  },
+  {
+    "code": "ND6",
+    "line": 846,
+    "section": 13,
+    "text": "| ND6 | **Grief and attachment** | The game allows lingering: attend your own funeral as a ghost, read letters, see the estate split, before moving on. | Life sim honesty; closure. |"
+  },
+  {
+    "code": "DL28",
+    "line": 852,
+    "section": 13,
+    "text": "| DL28 | Next-life placement | Random, weighted later | Only later to any era |"
+  },
+  {
+    "code": "DL29",
+    "line": 853,
+    "section": 13,
+    "text": "| DL29 | Past placement history model | Branch (NP1) | Branch, overwrite, parallel per world |"
+  },
+  {
+    "code": "DL30",
+    "line": 854,
+    "section": 13,
+    "text": "| DL30 | Memory carry on rebirth | World rule | None to full |"
+  },
+  {
+    "code": "DL31",
+    "line": 855,
+    "section": 13,
+    "text": "| DL31 | Linger after death | Short | Skip to long |"
+  },
+  {
+    "code": "T22",
+    "line": 859,
+    "section": 13,
+    "text": "| T22 | **Same-world later start** (NT2-NT3) using the current instance plus an elapsed-time summary. | New life record linked to existing instance; additive. |"
+  },
+  {
+    "code": "T23",
+    "line": 860,
+    "section": 13,
+    "text": "| T23 | **Death screen option list** (ND1) driven by world rules and earned options. | None; derived. |"
+  },
+  {
+    "code": "T24",
+    "line": 861,
+    "section": 13,
+    "text": "| T24 | **Past-life traces** (NF1-NF3): grave, estate record and remembered-by list created at death. | Additive records in the instance, default empty. |"
+  },
+  {
+    "code": "T25",
+    "line": 862,
+    "section": 13,
+    "text": "| T25 | **Branch-at-earlier-point** (NP1) using `src/world_instances.js` instance copy with a start date. | New instance record; old instance untouched. |"
+  },
+  {
+    "code": "RZQ1",
+    "line": 880,
+    "section": 14,
+    "text": "| RZQ1 | **Which offers appear** | Drawn from eligible sources (QS) weighted by state and goals (QG4); a quest stream per world instance. | Variety with reasons. |"
+  },
+  {
+    "code": "RZQ2",
+    "line": 881,
+    "section": 14,
+    "text": "| RZQ2 | **Slot filling** | Which real NPC, place, monster fills a template (QA2), weighted by proximity and relationship. | Generated quests stay grounded. |"
+  },
+  {
+    "code": "RZQ3",
+    "line": 882,
+    "section": 14,
+    "text": "| RZQ3 | **Hidden complications** | A twist drawn at offer time and committed then: the client lies, the target is innocent, a rival shows. Revealed by play. | Surprise without reload-farming. |"
+  },
+  {
+    "code": "RZQ4",
+    "line": 883,
+    "section": 14,
+    "text": "| RZQ4 | **Reward variance** | Within a band; rare bonus outcomes from the same table. | Small excitement without slot-machine feel. |"
+  },
+  {
+    "code": "RZQ5",
+    "line": 884,
+    "section": 14,
+    "text": "| RZQ5 | **Rival timing** | When an NPC party takes a board job (QO1) rolls on the same stream. | Urgency stays fair and reproducible. |"
+  },
+  {
+    "code": "RZQ6",
+    "line": 885,
+    "section": 14,
+    "text": "| RZQ6 | **Rumor truth** | Each rumor rolls true, partly true or false at creation (Told layer reliability). | Investigation matters. |"
+  },
+  {
+    "code": "RZR1",
+    "line": 891,
+    "section": 14,
+    "text": "| RZR1 | **Next-life placement** | Era, place, family, body drawn from eligible starts weighted later than death (NT9, DL28). | Suspenseful continuation. |"
+  },
+  {
+    "code": "RZR2",
+    "line": 892,
+    "section": 14,
+    "text": "| RZR2 | **Rebirth talents and echoes** | A small draw of talents or echoes (NE8), correlated with the past life where the world's rules allow. | Each life feels distinct. |"
+  },
+  {
+    "code": "RZR3",
+    "line": 893,
+    "section": 14,
+    "text": "| RZR3 | **Afterlife outcome** | Where a soul lands, per the world's rules (NE3), when the world has more than one place. | Canon cosmologies as tables. |"
+  },
+  {
+    "code": "RZR4",
+    "line": 894,
+    "section": 14,
+    "text": "| RZR4 | **Death causes** | Accidents, illness and violence roll from real exposure: what you did, where you were, your body. Warnings come first (QM4). | Death is fair, never a dice ambush. |"
+  },
+  {
+    "code": "RZR5",
+    "line": 895,
+    "section": 14,
+    "text": "| RZR5 | **What the next life finds** | Estate fate, heirs' choices, killer's fate (NF) resolve by motives plus draws on the instance's long-term stream. | The aftermath surprises even you. |"
+  },
+  {
+    "code": "RZR6",
+    "line": 896,
+    "section": 14,
+    "text": "| RZR6 | **Run modifiers** | Optional random modifiers per run (RX7): a harsh winter era, a plague year, a lucky birth. Opt in; shown before commit. | Variety for repeat play. |"
+  },
+  {
+    "code": "RZR7",
+    "line": 897,
+    "section": 14,
+    "text": "| RZR7 | **Prestige offers** | At prestige, a few boons drawn from earned options; choose one. Extra choices are earned. | Hades-style choice, bounded by earned options. |"
+  },
+  {
+    "code": "RZW1",
+    "line": 903,
+    "section": 14,
+    "text": "| RZW1 | **Original worlds' natural course** | Generated history and plans per instance (RB8, E6 lore grammar). | Original worlds differ each run. |"
+  },
+  {
+    "code": "RZW2",
+    "line": 904,
+    "section": 14,
+    "text": "| RZW2 | **Canon worlds stay canon by default** | Canon facts are not rolled. Variation lives in people and places the canon does not fix (STARTS P3 \"what may vary without breaking source rules\"). | Canon-first priority. |"
+  },
+  {
+    "code": "RZW3",
+    "line": 905,
+    "section": 14,
+    "text": "| RZW3 | **AU rolls** | An opt-in AU overlay can roll a changed premise; the changed truth is sealed. | Replay of canon worlds with real surprise. |"
+  },
+  {
+    "code": "RZW4",
+    "line": 906,
+    "section": 14,
+    "text": "| RZW4 | **Branch events** | Off-canon instances run on motives plus the storyteller (TIMELINES C6, E5), seeded per instance. | Each branch goes its own way. |"
+  },
+  {
+    "code": "RZW5",
+    "line": 907,
+    "section": 14,
+    "text": "| RZW5 | **Shelved world catch-up** | Elapsed time while shelved resolves with aggregate rolls on the instance stream (RS5). | Return surprises without full simulation. |"
+  },
+  {
+    "code": "RZW6",
+    "line": 908,
+    "section": 14,
+    "text": "| RZW6 | **Rival transmigrators and patrons** | Whether another outsider exists in this instance, and who, rolled at creation and sealed. | Not every world has one; when it does, it is a discovery. |"
+  },
+  {
+    "code": "RZF1",
+    "line": 914,
+    "section": 14,
+    "text": "| RZF1 | **Correlated, not independent** | Related facts roll together: a noble birth brings education, duties and enemies (STARTS P3). | Random results that make sense. |"
+  },
+  {
+    "code": "RZF2",
+    "line": 915,
+    "section": 14,
+    "text": "| RZF2 | **Pity without fixing** | Storyteller pacing (E5) eases droughts and spikes; no secret forced luck unless that policy is selected. | Fair over time, honest about it. |"
+  },
+  {
+    "code": "RZF3",
+    "line": 916,
+    "section": 14,
+    "text": "| RZF3 | **Anti-repeat history** | Optional memory across runs so the same start or quest twist does not repeat too soon. | Variety across prestige cycles. |"
+  },
+  {
+    "code": "RZF4",
+    "line": 917,
+    "section": 14,
+    "text": "| RZF4 | **Outliers stay real** | A very lucky or unlucky start is allowed; it is not balanced away by a hidden penalty. | Stories need extremes. |"
+  },
+  {
+    "code": "RZF5",
+    "line": 918,
+    "section": 14,
+    "text": "| RZF5 | **Show the cause, not the roll** | The log says why (a storm, a betrayal), not \"rolled 3\". Odds display follows FI14 and DL5. | Keeps fiction intact. |"
+  },
+  {
+    "code": "RZF6",
+    "line": 919,
+    "section": 14,
+    "text": "| RZF6 | **Player-chosen seed** | Sandbox and challenge modes can set or share a seed; normal play uses a hidden per-save seed. | Shareable runs without spoiling normal play. |"
+  },
+  {
+    "code": "RZF7",
+    "line": 920,
+    "section": 14,
+    "text": "| RZF7 | **Content changes** | A seed promises identical results only for the same content version; newer packs may differ (STARTS P3). | Honest reproducibility. |"
+  },
+  {
+    "code": "RZP1",
+    "line": 926,
+    "section": 14,
+    "text": "| RZP1 | **Luck as a stat** | A world or cheat can bias draws (E1 cheat seams: see, reroll, pin, bias, steal, rewind). | Luck powers are a common cheat family. |"
+  },
+  {
+    "code": "RZP2",
+    "line": 927,
+    "section": 14,
+    "text": "| RZP2 | **Reroll is a cheat** | An in-fiction reroll of a quest twist, birth or prestige offer uses cheat costs; base play does not reroll. | Keeps decisions weighty. |"
+  },
+  {
+    "code": "RZP3",
+    "line": 928,
+    "section": 14,
+    "text": "| RZP3 | **Fate readers** | Divination shows tendencies of upcoming draws (FW2-16), with interpretation risk. | Information about randomness as a world power. |"
+  },
+  {
+    "code": "RZP4",
+    "line": 929,
+    "section": 14,
+    "text": "| RZP4 | **Fate is noticed** | Bending probability often draws attention (DP5); luck has a price in worlds that track it. | Power with consequences. |"
+  },
+  {
+    "code": "DL32",
+    "line": 935,
+    "section": 14,
+    "text": "| DL32 | Quest twist rate | Per world | None to frequent |"
+  },
+  {
+    "code": "DL33",
+    "line": 936,
+    "section": 14,
+    "text": "| DL33 | Run modifiers | Off | Off, opt-in, random |"
+  },
+  {
+    "code": "DL34",
+    "line": 937,
+    "section": 14,
+    "text": "| DL34 | Anti-repeat memory | On, light | Off to strict |"
+  },
+  {
+    "code": "DL35",
+    "line": 938,
+    "section": 14,
+    "text": "| DL35 | Seed visibility | Hidden | Hidden, shown in sandbox, shareable |"
+  },
+  {
+    "code": "T26",
+    "line": 942,
+    "section": 14,
+    "text": "| T26 | **Quest stream** on E1 streams for offers, slots and twists (RZQ1-RZQ3). | Stream state in save via E1 shape (P1 lane owns streams). |"
+  },
+  {
+    "code": "T27",
+    "line": 943,
+    "section": 14,
+    "text": "| T27 | **Next-life draw** from eligible starts with committed result (RZR1). | Committed selection persisted before publication (WORLD_COMPLETION_STANDARD). |"
+  },
+  {
+    "code": "T28",
+    "line": 944,
+    "section": 14,
+    "text": "| T28 | **Prestige boon draw** (RZR7). | Committed offer list in the run record. |"
+  },
+  {
+    "code": "MB1",
+    "line": 960,
+    "section": 15,
+    "text": "| MB1 | **A place between lives** | One screen-space where the run summary (RS8), death options (ND1), prestige (RP1) and atlas (RB3) sit together. Its face follows the cosmology: a hub, a god's office, a library, a void, plain menus. | One coherent moment instead of five popups. |"
+  },
+  {
+    "code": "MB2",
+    "line": 961,
+    "section": 15,
+    "text": "| MB2 | **Diegetic or plain** | Diegetic when the cosmology gives a reason (Paradise hub, a patron); plain otherwise (LN4 floor). | Lore when it fits, never forced. |"
+  },
+  {
+    "code": "MB3",
+    "line": 962,
+    "section": 15,
+    "text": "| MB3 | **Time stands still there by default** | No world ticks while you are between lives, unless a shelved world's rule says otherwise (DL25). | Decisions without pressure. |"
+  },
+  {
+    "code": "MB4",
+    "line": 963,
+    "section": 15,
+    "text": "| MB4 | **Skippable** | \"Surprise me\" (ND2) goes straight to the next life. | Fast continuation for players who want flow. |"
+  },
+  {
+    "code": "MB5",
+    "line": 964,
+    "section": 15,
+    "text": "| MB5 | **Things to do between** | Review the hall of lives, read recovered notes, spend prestige, talk to a patron, visit an atlas entry. | The between is a reward, not a loading screen. |"
+  },
+  {
+    "code": "MB6",
+    "line": 965,
+    "section": 15,
+    "text": "| MB6 | **The between can have people** | Other souls, a clerk, a rival, a guide. Relationships here persist across lives. | A stable cast across many deaths. |"
+  },
+  {
+    "code": "MS1",
+    "line": 971,
+    "section": 15,
+    "text": "| MS1 | **Who persists** | Default: the player persists; the character persists only through a carrier the world or a cheat supplies (SELF_AS_PLAYER S1). | Clear line between player and soul. |"
+  },
+  {
+    "code": "MS2",
+    "line": 972,
+    "section": 15,
+    "text": "| MS2 | **Memory load** | Many lives of memory can blur, stack or weigh on a soul where the world says so; a cleaner start is an option. | Long-lived souls feel different; a classic premise. |"
+  },
+  {
+    "code": "MS3",
+    "line": 973,
+    "section": 15,
+    "text": "| MS3 | **Identity drift** | Habits, fears and loves from past lives can leak into a new one as traits (NE8 echoes). | Continuity felt, not told. |"
+  },
+  {
+    "code": "MS4",
+    "line": 974,
+    "section": 15,
+    "text": "| MS4 | **Souls that follow you** | A companion, rival or beloved can reincarnate too, in the same or other worlds. | Cross-life relationships. |"
+  },
+  {
+    "code": "MS5",
+    "line": 975,
+    "section": 15,
+    "text": "| MS5 | **Names across lives** | The hall of lives lists each name; the soul may carry a true name some worlds can read. | Small detail with lore weight. |"
+  },
+  {
+    "code": "MS6",
+    "line": 976,
+    "section": 15,
+    "text": "| MS6 | **Player knowledge is always yours** | Nothing the player learned is taken away; the character's knowledge follows world rules (NP7). | Honest split; no memory wipe of the player. |"
+  },
+  {
+    "code": "MM1",
+    "line": 982,
+    "section": 15,
+    "text": "| MM1 | **Mostly sideways** | Prestige mostly adds options (starts, eras, routes, cheat slots) rather than raw power. | Early worlds stay meaningful after many cycles. |"
+  },
+  {
+    "code": "MM2",
+    "line": 983,
+    "section": 15,
+    "text": "| MM2 | **Some vertical, capped per world** | Carried power is clipped by each world's laws (E9, carryover part 17). | A god-level soul does not trivialize a village start unless a premise says so. |"
+  },
+  {
+    "code": "MM3",
+    "line": 984,
+    "section": 15,
+    "text": "| MM3 | **Soft growth curve** | Meta rewards grow slower than deeds (sublinear), so a long life is worth more than many short ones but not infinitely. | Idle prestige math without runaway. |"
+  },
+  {
+    "code": "MM4",
+    "line": 985,
+    "section": 15,
+    "text": "| MM4 | **Goals at every horizon** | Next life, next world, next prestige, multiverse (loop table). | Always a reason to continue. |"
+  },
+  {
+    "code": "MM5",
+    "line": 986,
+    "section": 15,
+    "text": "| MM5 | **Visible meta record** | A deeds ledger (T21) and earned options list. No overall completion meter (QN10). | Progress felt without a checklist. |"
+  },
+  {
+    "code": "MM6",
+    "line": 987,
+    "section": 15,
+    "text": "| MM6 | **Meta can be lost or bargained** | Patrons can take a cut, a cosmology can tax souls, a bargain can trade meta for a cheat. | Meta with stakes, per world. |"
+  },
+  {
+    "code": "MW1",
+    "line": 993,
+    "section": 15,
+    "text": "| MW1 | **Different power scales** | Worlds keep their own scales (a village farmer vs a Nen user vs a Soul Reaper). No universal level number. | Worlds feel distinct (PROJECT vision). |"
+  },
+  {
+    "code": "MW2",
+    "line": 994,
+    "section": 15,
+    "text": "| MW2 | **Translation at the border** | Power crossing into a world passes through that world's laws: it works, works partly, changes form or fails (DP9, E9). | Prevents one world's power from flattening another. |"
+  },
+  {
+    "code": "MW3",
+    "line": 995,
+    "section": 15,
+    "text": "| MW3 | **Currency and goods do not convert freely** | Money stays local; goods may be valuable, worthless or illegal elsewhere. | Trade between worlds becomes play. |"
+  },
+  {
+    "code": "MW4",
+    "line": 996,
+    "section": 15,
+    "text": "| MW4 | **Difficulty per world, not per player level** | A world is as hard as its rules make it (DL17). | Players pick challenge by world. |"
+  },
+  {
+    "code": "MW5",
+    "line": 997,
+    "section": 15,
+    "text": "| MW5 | **Strong starts are allowed** | An overpowered life is a valid run (RZF4); the world reacts (DP5, QE10). | Power fantasy with consequences, not bans. |"
+  },
+  {
+    "code": "MU1",
+    "line": 1005,
+    "section": 15,
+    "text": "| MU1 | **Quest board and goal tree** | Board as a world panel; goals pinned at top (QV4, QG3). | Daily play surface. |"
+  },
+  {
+    "code": "MU2",
+    "line": 1006,
+    "section": 15,
+    "text": "| MU2 | **Death and between screen** | One layout: summary, what stayed where (RL3), options, prestige. | The most emotional screen gets one coherent design. |"
+  },
+  {
+    "code": "MU3",
+    "line": 1007,
+    "section": 15,
+    "text": "| MU3 | **Atlas** | Worlds, branches, shelved instances, drift bands (RB5). | Multiverse as a place you browse. |"
+  },
+  {
+    "code": "MU4",
+    "line": 1008,
+    "section": 15,
+    "text": "| MU4 | **Hall of lives** | Timeline of lives with world, era, role, end, legacy (RX1). | Long-term memory. |"
+  },
+  {
+    "code": "MU5",
+    "line": 1009,
+    "section": 15,
+    "text": "| MU5 | **Information density** | Plain summaries first, details on demand; no wall of numbers. | Readable at laptop width. |"
+  },
+  {
+    "code": "MU6",
+    "line": 1010,
+    "section": 15,
+    "text": "| MU6 | **Rebuilt browser evidence** | Any of these, when built, is checked at the target desktop viewport (AGENTS.md). | Standing gate. |"
+  },
+  {
+    "code": "MO1",
+    "line": 1016,
+    "section": 15,
+    "text": "| MO1 | **One system at a time** | First life: ordinary work and a few offers. First death: a simple death screen. First run end: prestige appears. First branch: the atlas appears. | Discovery at first need (DL1). |"
+  },
+  {
+    "code": "MO2",
+    "line": 1017,
+    "section": 15,
+    "text": "| MO2 | **Explain by fiction first** | A clerk, a ghost, a dream introduces the between; a short line of plain help as fallback. | Lore teaches; text backs it up. |"
+  },
+  {
+    "code": "MO3",
+    "line": 1018,
+    "section": 15,
+    "text": "| MO3 | **No lost run from not knowing** | A first death never loses more than the rules said; the first death screen says what stayed. | Trust in the system early. |"
+  },
+  {
+    "code": "MO4",
+    "line": 1019,
+    "section": 15,
+    "text": "| MO4 | **Advanced options earned** | Past placement, chosen era, seed sharing, run modifiers open later (EO). | Avoids choice overload at the start. |"
+  },
+  {
+    "code": "MC1",
+    "line": 1025,
+    "section": 15,
+    "text": "| MC1 | **Dark worlds stay dark** | Canon tone is kept (CSM, JJK, LOTM). | Faithful worlds. |"
+  },
+  {
+    "code": "MC2",
+    "line": 1026,
+    "section": 15,
+    "text": "| MC2 | **Detail level settings** | A setting controls how much grim detail text shows (gore, grief scenes), not what happens. | Comfort without changing the world. |"
+  },
+  {
+    "code": "MC3",
+    "line": 1027,
+    "section": 15,
+    "text": "| MC3 | **Grief scenes are optional to linger in** | ND6 linger is skippable. | Respects mood. |"
+  },
+  {
+    "code": "MT1",
+    "line": 1033,
+    "section": 15,
+    "text": "| MT1 | **Headless long-run tests** | Simulate many lives and prestige cycles from a fixed seed; check save size, determinism and that nothing dead-ends. | These systems fail only over long play. |"
+  },
+  {
+    "code": "MT2",
+    "line": 1034,
+    "section": 15,
+    "text": "| MT2 | **Save growth budget** | A target size per instance and per hall entry; compression rules (RB6, QK4) tested. | Browser storage limits are real. |"
+  },
+  {
+    "code": "MT3",
+    "line": 1035,
+    "section": 15,
+    "text": "| MT3 | **Migration chain tests** | Old saves move through every added field (T6 to T28) without behavior change where the slice does not apply. | Persistence rule. |"
+  },
+  {
+    "code": "DL36",
+    "line": 1041,
+    "section": 15,
+    "text": "| DL36 | Between-lives face | Per cosmology | Plain menus to fully diegetic |"
+  },
+  {
+    "code": "DL37",
+    "line": 1042,
+    "section": 15,
+    "text": "| DL37 | Meta vertical power | Capped per world | None to uncapped |"
+  },
+  {
+    "code": "DL38",
+    "line": 1043,
+    "section": 15,
+    "text": "| DL38 | Grim detail | Canon level | Softened to full |"
+  },
+  {
+    "code": "T29",
+    "line": 1047,
+    "section": 15,
+    "text": "| T29 | **Between screen** combining T18 summary, T23 options and prestige. | None beyond T18, T21, T23. |"
+  },
+  {
+    "code": "T30",
+    "line": 1048,
+    "section": 15,
+    "text": "| T30 | **Hall of lives** reading run records. | Uses T18 run records. |"
+  },
+  {
+    "code": "T31",
+    "line": 1049,
+    "section": 15,
+    "text": "| T31 | **Headless long-run test harness** (MT1). | None; test only. |"
+  },
+  {
+    "code": "XA1",
+    "line": 1063,
+    "section": 16,
+    "text": "| XA1 | **Meta plot beats tied to run events** | The holder or patron (TIME_KEEPERS) reacts to deaths, endings, branches and prestige, so a cross-run story advances only by living lives. | Hades-style: dying moves a story forward. |"
+  },
+  {
+    "code": "XA2",
+    "line": 1064,
+    "section": 16,
+    "text": "| XA2 | **The question of why you return** | Why this soul keeps coming back is a sealed secret with discovery routes across worlds; reports name it by ID. | A long mystery that spans the whole save. |"
+  },
+  {
+    "code": "XA3",
+    "line": 1065,
+    "section": 16,
+    "text": "| XA3 | **Pruning threatens the atlas** | Time keepers can prune branch worlds you made (RB3), turning branch upkeep into a stake. Per cosmology; off where it does not fit. | Branches become things to protect. |"
+  },
+  {
+    "code": "XA4",
+    "line": 1066,
+    "section": 16,
+    "text": "| XA4 | **Cross-run NPCs remember differently** | Beings in high layers remember past runs (COSMIC_EVENTS \"whether gods remember\"); ordinary people do not. | Recognition has a cosmology. |"
+  },
+  {
+    "code": "XA5",
+    "line": 1067,
+    "section": 16,
+    "text": "| XA5 | **Quest choices echo upward** | Repeated patterns across lives (always merciful, always the thief) are noticed by the holder and shape later offers or titles. | Character of the soul built by play. |"
+  },
+  {
+    "code": "XS1",
+    "line": 1075,
+    "section": 16,
+    "text": "| XS1 | **Pattern detectors** | Recognize rivalry (repeated clashes), debt of life (saved twice), feud across generations, betrayal, rise from nothing, fall from grace, revenge completed. | Turns raw events into arcs. |"
+  },
+  {
+    "code": "XS2",
+    "line": 1076,
+    "section": 16,
+    "text": "| XS2 | **Named arcs** | A recognized arc gets a title in the chronicle (\"The Miller's Feud\") and the thread registry (A6). | Players remember named stories. |"
+  },
+  {
+    "code": "XS3",
+    "line": 1077,
+    "section": 16,
+    "text": "| XS3 | **Arcs become offers** | A recognized rivalry can produce a duel challenge; a debt of life can produce a favor call (QT). | Emergent stories feed the quest generator. |"
+  },
+  {
+    "code": "XS4",
+    "line": 1078,
+    "section": 16,
+    "text": "| XS4 | **Arcs become titles and legends** | A finished arc can grant a title (`src/titles.js`) and a legend that spreads with distortion (RX2, NF6). | Rewards play that was never a quest. |"
+  },
+  {
+    "code": "XS5",
+    "line": 1079,
+    "section": 16,
+    "text": "| XS5 | **Arcs across lives** | A feud that outlives you continues with your heir or your next life's family (NF4). | Cross-life drama without scripting. |"
+  },
+  {
+    "code": "XS6",
+    "line": 1080,
+    "section": 16,
+    "text": "| XS6 | **Arc pages at run end** | The run summary (RS8) lists the arcs this life took part in. | Better closure than a stat list. |"
+  },
+  {
+    "code": "XS7",
+    "line": 1081,
+    "section": 16,
+    "text": "| XS7 | **Restraint** | Only a few arcs named per life; minor patterns stay unnamed. | Named stories stay special. |"
+  },
+  {
+    "code": "XF1",
+    "line": 1087,
+    "section": 16,
+    "text": "| XF1 | **Soul death** | Some worlds can destroy a soul. Default: a soul-death ends the soul's carry but not the save; the player continues as a new soul with player knowledge and meta options kept. | Real stakes without deleting the player's history. |"
+  },
+  {
+    "code": "XF2",
+    "line": 1088,
+    "section": 16,
+    "text": "| XF2 | **Hardcore save** | Opt-in: soul death or a set condition ends the whole save. Export still works (LN2). | For players who want it, never the default. |"
+  },
+  {
+    "code": "XF3",
+    "line": 1089,
+    "section": 16,
+    "text": "| XF3 | **A true ending** | The cross-run story (XA) can end: leave the cycle, take the holder's seat, break the system (QE4 Escapee). | The whole save can have an ending. |"
+  },
+  {
+    "code": "XF4",
+    "line": 1090,
+    "section": 16,
+    "text": "| XF4 | **After the true ending** | Epilogue, then continue: the cycle gone or changed, the atlas still there, new options (NG+ door, US1). | Endings without walls (QE6). |"
+  },
+  {
+    "code": "XF5",
+    "line": 1091,
+    "section": 16,
+    "text": "| XF5 | **Several true endings** | Different final ends by path (Ruler of a multiverse, Founder of a new cycle, free mortal). | Matches several progression paths. |"
+  },
+  {
+    "code": "XF6",
+    "line": 1092,
+    "section": 16,
+    "text": "| XF6 | **Reset everything** | A fresh save keeps nothing unless the player imports a legacy file by choice. | Clean starts stay possible. |"
+  },
+  {
+    "code": "XP1",
+    "line": 1098,
+    "section": 16,
+    "text": "| XP1 | **Player notes** | Free-text notes on people, places, quests and lives, saved with the save; never read as game facts. | Players track their own theories. |"
+  },
+  {
+    "code": "XP2",
+    "line": 1099,
+    "section": 16,
+    "text": "| XP2 | **Naming** | Name your horse, your sword, your guild, your branch world (RB3). Names appear in chronicle and legend. | Ownership through naming. |"
+  },
+  {
+    "code": "XP3",
+    "line": 1100,
+    "section": 16,
+    "text": "| XP3 | **Custom ambitions** | Free-text goals (QG1) with player-picked steps. | Player-driven play. |"
+  },
+  {
+    "code": "XP4",
+    "line": 1101,
+    "section": 16,
+    "text": "| XP4 | **Posted quests** | Your own quest postings (QP1) with your wording. | Authoring inside the fiction. |"
+  },
+  {
+    "code": "XP5",
+    "line": 1102,
+    "section": 16,
+    "text": "| XP5 | **Custom starts and worlds** | Creative-mode start editor (SG5) and, later, custom world packs; labeled and separate from canon. | Long-term play value. |"
+  },
+  {
+    "code": "XP6",
+    "line": 1103,
+    "section": 16,
+    "text": "| XP6 | **Sharing** | Export a branch world, a start record or a seed (RX6, RZF6) to share. Shared items never carry another player's private save data. | Replay with friends without multiplayer. |"
+  },
+  {
+    "code": "XP7",
+    "line": 1104,
+    "section": 16,
+    "text": "| XP7 | **Fan premise import** | A short premise form (\"what if X survived\") turns into an AU overlay draft for agents to qualify. | Fits the fan-premise surveys (source deep dive playbook). |"
+  },
+  {
+    "code": "XN1",
+    "line": 1110,
+    "section": 16,
+    "text": "| XN1 | **Short and long sessions** | A five-minute check-in (collect, set routines, read the return summary) and a long session (turning points) both work. | Idle game honesty. |"
+  },
+  {
+    "code": "XN2",
+    "line": 1111,
+    "section": 16,
+    "text": "| XN2 | **Return summary first** | Coming back opens on what happened (QI2), then the board. | Reorientation before choices. |"
+  },
+  {
+    "code": "XN3",
+    "line": 1112,
+    "section": 16,
+    "text": "| XN3 | **Safe stopping** | Any moment is a safe save point; big moments ask for presence (QBM7). | Real life interrupts. |"
+  },
+  {
+    "code": "XN4",
+    "line": 1113,
+    "section": 16,
+    "text": "| XN4 | **Several devices by export** | Move a save by export and import; no account required. | Matches LN2 and current save design. |"
+  },
+  {
+    "code": "DL39",
+    "line": 1119,
+    "section": 16,
+    "text": "| DL39 | Arc naming frequency | Few per life | Off to many |"
+  },
+  {
+    "code": "DL40",
+    "line": 1120,
+    "section": 16,
+    "text": "| DL40 | Soul death | World rule, save continues | Off to hardcore save end |"
+  },
+  {
+    "code": "DL41",
+    "line": 1121,
+    "section": 16,
+    "text": "| DL41 | Pruning pressure on branches | Per cosmology | Off to active |"
+  },
+  {
+    "code": "T32",
+    "line": 1125,
+    "section": 16,
+    "text": "| T32 | **Two arc detectors** (rivalry, debt of life) over chronicle and relationship events, writing named arcs. | Additive arc list; detectors derived. |"
+  },
+  {
+    "code": "T33",
+    "line": 1126,
+    "section": 16,
+    "text": "| T33 | **Player notes** on any entity. | Additive notes map keyed by stable id, default empty. |"
+  },
+  {
+    "code": "PP1",
+    "line": 1140,
+    "section": 17,
+    "text": "| PP1 | **Companions have opinions on quests** | A companion approves, objects or refuses a job by their values (RM axes). Refusal is a scene, not a stat check. | Party as people (S3). |"
+  },
+  {
+    "code": "PP2",
+    "line": 1141,
+    "section": 17,
+    "text": "| PP2 | **Shares and pay** | Who gets what from a reward is negotiated once and remembered; unfair splits strain trust. | Money as relationship. |"
+  },
+  {
+    "code": "PP3",
+    "line": 1142,
+    "section": 17,
+    "text": "| PP3 | **Roles in a party** | Scout, face, healer, muscle, planner. Roles change which quest shapes (QF) go well. | Party composition matters without class locks. |"
+  },
+  {
+    "code": "PP4",
+    "line": 1143,
+    "section": 17,
+    "text": "| PP4 | **Companion death** | Permanent by default where the world says so; grief, funeral, revenge, or an in-world afterlife route (NE3) for them too. | Loss with weight. |"
+  },
+  {
+    "code": "PP5",
+    "line": 1144,
+    "section": 17,
+    "text": "| PP5 | **Companions after your death** | They go on: continue your goal, scatter, join your heir, mourn, betray. Next life may meet them (NF3). | Your party outlives you. |"
+  },
+  {
+    "code": "PP6",
+    "line": 1145,
+    "section": 17,
+    "text": "| PP6 | **Companions who know about your rebirths** | Rare, earned trust; can be told the truth and may or may not believe it (SUCCESSION recognition). | Strong cross-life bonds. |"
+  },
+  {
+    "code": "PP7",
+    "line": 1146,
+    "section": 17,
+    "text": "| PP7 | **Party while you are away** | A party on a contract (QX6) reports back with choices at key points (QM10). | Idle-friendly party play. |"
+  },
+  {
+    "code": "PD1",
+    "line": 1152,
+    "section": 17,
+    "text": "| PD1 | **Rest days are play** | Cooking, visiting, hobbies, festivals, sleeping in. They restore and build relationships. | Life sim between quests. |"
+  },
+  {
+    "code": "PD2",
+    "line": 1153,
+    "section": 17,
+    "text": "| PD2 | **Wounds and recovery time** | Injuries take time; downtime is when recovery happens, with care from others. | Natural pacing between big jobs. |"
+  },
+  {
+    "code": "PD3",
+    "line": 1154,
+    "section": 17,
+    "text": "| PD3 | **Training montages** | Downtime can be spent training with a teacher; the result shows at the next challenge. | Anime and xianxia staple. |"
+  },
+  {
+    "code": "PD4",
+    "line": 1155,
+    "section": 17,
+    "text": "| PD4 | **Home upkeep** | A home needs repair, rent, tending; a neglected home decays (QT11 absence). | Ties quests to home life. |"
+  },
+  {
+    "code": "PD5",
+    "line": 1156,
+    "section": 17,
+    "text": "| PD5 | **Cozy worlds or stretches** | Some lives or eras can be quest-light by choice (QZ4). | Not every life is an adventure. |"
+  },
+  {
+    "code": "PM1",
+    "line": 1162,
+    "section": 17,
+    "text": "| PM1 | **Bounty prices move** | Prices follow danger, urgency and how many adventurers are around; a monster boom floods the board and cuts pay. | Work has a market. |"
+  },
+  {
+    "code": "PM2",
+    "line": 1163,
+    "section": 17,
+    "text": "| PM2 | **Fees and dues** | Guild fees, licenses, rank exams, sect contributions; unpaid dues cost rank. | Institutions have upkeep (FR4). |"
+  },
+  {
+    "code": "PM3",
+    "line": 1164,
+    "section": 17,
+    "text": "| PM3 | **Expenses** | Gear repair, potions, travel, bribes; a job's net pay can be negative. | Choosing jobs is a calculation. |"
+  },
+  {
+    "code": "PM4",
+    "line": 1165,
+    "section": 17,
+    "text": "| PM4 | **Information is sold** | Maps, quest tips, monster weaknesses and rumor verification are goods (FR9). | Knowledge economy. |"
+  },
+  {
+    "code": "PM5",
+    "line": 1166,
+    "section": 17,
+    "text": "| PM5 | **Debt and loans** | Borrow to equip; lenders send collectors; debt outlives you if the world's law says so. | Risk with consequences across lives. |"
+  },
+  {
+    "code": "PM6",
+    "line": 1167,
+    "section": 17,
+    "text": "| PM6 | **Taxes and tribute** | Lords, states, sects take a share; evasion is a crime. | Grey-area play (QZ5). |"
+  },
+  {
+    "code": "PW1",
+    "line": 1173,
+    "section": 17,
+    "text": "| PW1 | **Wills** | Write a will that names heirs and bequests; without one, local law decides (SUCCESSION). | Planning your death is play. |"
+  },
+  {
+    "code": "PW2",
+    "line": 1174,
+    "section": 17,
+    "text": "| PW2 | **Executors and disputes** | Relatives contest, executors cheat, courts decide. Next life can watch or intervene (NT2). | Aftermath drama. |"
+  },
+  {
+    "code": "PW3",
+    "line": 1175,
+    "section": 17,
+    "text": "| PW3 | **Funerals** | Rites per culture and world; cost, who attends, and what is said shape your legend (NF6). | Closure with social meaning. |"
+  },
+  {
+    "code": "PW4",
+    "line": 1176,
+    "section": 17,
+    "text": "| PW4 | **Stashes and dead drops** | Hide goods for a future life to find; finding them needs knowledge carry or luck (NF2). | Classic reincarnator move. |"
+  },
+  {
+    "code": "PW5",
+    "line": 1177,
+    "section": 17,
+    "text": "| PW5 | **Letters to the future** | Leave letters, diaries or a sealed box to open later; others may open them first. | Cross-life messages. |"
+  },
+  {
+    "code": "PW6",
+    "line": 1178,
+    "section": 17,
+    "text": "| PW6 | **Insurance, temple tithes and death benefits** | Where the world has them: a guild pays your family, a temple guarantees rites. | World-specific comfort and costs. |"
+  },
+  {
+    "code": "PW7",
+    "line": 1179,
+    "section": 17,
+    "text": "| PW7 | **Missing, presumed dead** | A body never found: estate frozen, rumors you live, return possible if you were not dead. | Ambiguity as story. |"
+  },
+  {
+    "code": "PW8",
+    "line": 1180,
+    "section": 17,
+    "text": "| PW8 | **Identity after rebirth** | Claiming your old property as a new person is legally impossible in most worlds; proof, bribery or a sympathetic judge may work. | Real cost to reincarnation claims. |"
+  },
+  {
+    "code": "DL42",
+    "line": 1186,
+    "section": 17,
+    "text": "| DL42 | Market pressure on bounty prices | Gentle | Fixed to volatile |"
+  },
+  {
+    "code": "DL43",
+    "line": 1187,
+    "section": 17,
+    "text": "| DL43 | Debt across lives | World law | Off to inherited |"
+  },
+  {
+    "code": "T34",
+    "line": 1191,
+    "section": 17,
+    "text": "| T34 | **Will and bequest** at death applied by `src/life_experience_host.js` heir leftovers path. | Additive will record on the life, default absent (local law applies). |"
+  },
+  {
+    "code": "T35",
+    "line": 1192,
+    "section": 17,
+    "text": "| T35 | **Stash for a future life** (PW4): a hidden container in the world instance. | Additive instance fact. |"
+  },
+  {
+    "code": "EGR1",
+    "line": 1206,
+    "section": 18,
+    "text": "| EGR1 | **Holdings ladder** | Household, estate, village, town, province, realm. Each step adds a few new verbs, not a new game. | Ruling grows out of ordinary life. |"
+  },
+  {
+    "code": "EGR2",
+    "line": 1207,
+    "section": 18,
+    "text": "| EGR2 | **Decrees and policies** | A handful of standing choices (tax rate, law focus, levy, festival budget) with slow, visible effects. | Idle-friendly governance. |"
+  },
+  {
+    "code": "EGR3",
+    "line": 1208,
+    "section": 18,
+    "text": "| EGR3 | **Council and delegates** | Appoint people to run things; their competence and loyalty matter (E3 people). | Delegation as the core ruling verb. |"
+  },
+  {
+    "code": "EGR4",
+    "line": 1209,
+    "section": 18,
+    "text": "| EGR4 | **Unrest and legitimacy** | Subjects judge you by results and by their values; unrest produces petitions, protests, revolts. | Power has to be kept. |"
+  },
+  {
+    "code": "EGR5",
+    "line": 1210,
+    "section": 18,
+    "text": "| EGR5 | **Petitions as quests** | Subjects bring problems; ruling is choosing which to hear (QN triage at scale). | The quest board becomes a throne room. |"
+  },
+  {
+    "code": "EGR6",
+    "line": 1211,
+    "section": 18,
+    "text": "| EGR6 | **Succession of rule** | Who rules after you is its own drama (PW wills, heirs, usurpers). | Ties ruling to death systems. |"
+  },
+  {
+    "code": "EGR7",
+    "line": 1212,
+    "section": 18,
+    "text": "| EGR7 | **Canon offices** | In canon worlds, rule means canon offices: Ministry posts, division captaincy, clan headship, church rank, Hunter Association seats. | Ruling stays in-world. |"
+  },
+  {
+    "code": "EGW1",
+    "line": 1218,
+    "section": 18,
+    "text": "| EGW1 | **Armies as aggregates** | Units with size, quality, morale and supply; named officers only (TIMELINES C4 level of detail). | War without micromanaging soldiers. |"
+  },
+  {
+    "code": "EGW2",
+    "line": 1219,
+    "section": 18,
+    "text": "| EGW2 | **Campaigns run over time** | March, siege, battle and retreat resolve on the clock with reports and key decisions (QM10 style). | War fits idle play. |"
+  },
+  {
+    "code": "EGW3",
+    "line": 1220,
+    "section": 18,
+    "text": "| EGW3 | **Your place in battle** | Commander, champion, healer, spy or civilian. A personal scene at the decisive moment. | Personal stakes inside mass events. |"
+  },
+  {
+    "code": "EGW4",
+    "line": 1221,
+    "section": 18,
+    "text": "| EGW4 | **War weariness and cost** | Wars drain people, money and goodwill; long wars change the world (QM5 region state). | War is never free. |"
+  },
+  {
+    "code": "EGW5",
+    "line": 1222,
+    "section": 18,
+    "text": "| EGW5 | **War comes to you** | Past a scale, others declare on you (QE10). | Power invites conflict. |"
+  },
+  {
+    "code": "EGW6",
+    "line": 1223,
+    "section": 18,
+    "text": "| EGW6 | **Ending wars** | Treaties, marriages, tribute, conquest, mutual exhaustion. | Many ways out. |"
+  },
+  {
+    "code": "EGF1",
+    "line": 1229,
+    "section": 18,
+    "text": "| EGF1 | **Gods want things** | Where gods are real, they issue tasks (QS source), reward piety and punish breaches (24_TITLES divine marks). | Faith as a quest source with stakes. |"
+  },
+  {
+    "code": "EGF2",
+    "line": 1230,
+    "section": 18,
+    "text": "| EGF2 | **Rank in a church** | Acolyte to high priest; a church is an institution (FR4) with doctrine and politics. | Religious career path. |"
+  },
+  {
+    "code": "EGF3",
+    "line": 1231,
+    "section": 18,
+    "text": "| EGF3 | **Sainthood and apotheosis** | Where a world allows, deeds and worship can raise you toward divinity (LOTM-style ladders, original cosmologies). | A faith endgame with a ceiling break (QE5). |"
+  },
+  {
+    "code": "EGF4",
+    "line": 1232,
+    "section": 18,
+    "text": "| EGF4 | **Founding a faith** | Start a cult or religion; followers bring power and duties. | Founder path for faith. |"
+  },
+  {
+    "code": "EGF5",
+    "line": 1233,
+    "section": 18,
+    "text": "| EGF5 | **Heresy and persecution** | Unorthodox belief draws inquisitors (DP5). | Faith has social risk. |"
+  },
+  {
+    "code": "EGM1",
+    "line": 1239,
+    "section": 18,
+    "text": "| EGM1 | **Masterworks** | Late craft or power goals produce named works with legends (XS4). | A crafting endgame. |"
+  },
+  {
+    "code": "EGM2",
+    "line": 1240,
+    "section": 18,
+    "text": "| EGM2 | **Students and schools** | Teaching spreads your method; students compete, betray or surpass you (QP5). | Mastery becomes legacy. |"
+  },
+  {
+    "code": "EGM3",
+    "line": 1241,
+    "section": 18,
+    "text": "| EGM3 | **Research frontier** | Discover techniques nobody has; discoveries can leak or be stolen (TECHNOLOGY doc carriers). | Knowledge endgame. |"
+  },
+  {
+    "code": "EGM4",
+    "line": 1242,
+    "section": 18,
+    "text": "| EGM4 | **Peak and decline** | Aging dulls the body; mastery shifts to judgment and teaching (QE9). | Honest life arc. |"
+  },
+  {
+    "code": "EGM5",
+    "line": 1243,
+    "section": 18,
+    "text": "| EGM5 | **Rivals at the top** | Other masters challenge, duel or collaborate. | The top is crowded. |"
+  },
+  {
+    "code": "EGO1",
+    "line": 1249,
+    "section": 18,
+    "text": "| EGO1 | **Founder: institution life** | A guild, school or company has members, budget, rules and reputation; it can split, merge or be captured (QP3, B1). | An endgame that outlives you. |"
+  },
+  {
+    "code": "EGO2",
+    "line": 1250,
+    "section": 18,
+    "text": "| EGO2 | **Explorer: edges of the map** | Unknown regions, other planes, other worlds; first contact and mapping as deeds (QM). | Curiosity endgame. |"
+  },
+  {
+    "code": "EGO3",
+    "line": 1251,
+    "section": 18,
+    "text": "| EGO3 | **Seeker: sealed truths** | Long investigations across lives toward sealed secrets by ID (XA2). | Mystery endgame. |"
+  },
+  {
+    "code": "EGO4",
+    "line": 1252,
+    "section": 18,
+    "text": "| EGO4 | **Escapee: breaking free** | From a patron, a system, a loop or the cycle (XF3). | Freedom endgame. |"
+  },
+  {
+    "code": "EGO5",
+    "line": 1253,
+    "section": 18,
+    "text": "| EGO5 | **Legacy: shaping history** | Lineage and institutions bend a world's long course (NF9). | Quiet, long endgame. |"
+  },
+  {
+    "code": "EGO6",
+    "line": 1254,
+    "section": 18,
+    "text": "| EGO6 | **Paths combine** | A ruler can be a master; a founder can be a saint. No path excludes another unless a world's law does. | Everything possible, reasonably. |"
+  },
+  {
+    "code": "EGI1",
+    "line": 1260,
+    "section": 18,
+    "text": "| EGI1 | **Endgame idles through delegation** | Councils, officers, students and clergy do the daily work; you decide turning points. | Large-scale play stays light. |"
+  },
+  {
+    "code": "EGI2",
+    "line": 1261,
+    "section": 18,
+    "text": "| EGI2 | **Reports, not micromanagement** | A periodic report per holding, army, church or institution with a few decisions. | Readable at scale (MU5). |"
+  },
+  {
+    "code": "EGI3",
+    "line": 1262,
+    "section": 18,
+    "text": "| EGI3 | **Threats scale with reach** | Rivals, coups, crusades, plagues, cosmic events (COSMIC_EVENTS) target what you have built. | Endgame stays alive. |"
+  },
+  {
+    "code": "EGI4",
+    "line": 1263,
+    "section": 18,
+    "text": "| EGI4 | **Losing it all is a story** | Exile, deposition, schism or defeat continue the life rather than end the save. | Falls are content (QR2). |"
+  },
+  {
+    "code": "DL44",
+    "line": 1269,
+    "section": 18,
+    "text": "| DL44 | Governance depth | Few decrees | Off to detailed |"
+  },
+  {
+    "code": "DL45",
+    "line": 1270,
+    "section": 18,
+    "text": "| DL45 | War frequency at scale | Per world | Rare to constant |"
+  },
+  {
+    "code": "T36",
+    "line": 1274,
+    "section": 18,
+    "text": "| T36 | **Village holding** (EGR1-EGR2): one holding with three decrees and a periodic report. Later layer, not first milestone. | Additive holding record, default absent. |"
+  },
+  {
+    "code": "OSV1",
+    "line": 1288,
+    "section": 19,
+    "text": "| OSV1 | **Dark boards** | Thieves' guilds, cults, black markets and crime lords post work: theft, smuggling, intimidation, assassination (QZ5). | Grey and dark lives have goals too. |"
+  },
+  {
+    "code": "OSV2",
+    "line": 1289,
+    "section": 19,
+    "text": "| OSV2 | **You post the evil quests** | As a crime boss or dark lord, you post work for minions (QP1 inverted). Minion quality follows pay and fear. | Villain endgame verbs. |"
+  },
+  {
+    "code": "OSV3",
+    "line": 1290,
+    "section": 19,
+    "text": "| OSV3 | **Heroes come for you** | Past a notoriety threshold, boards post bounties on you and adventurers arrive in waves (QX3, QE10). | Being the dungeon boss as play. |"
+  },
+  {
+    "code": "OSV4",
+    "line": 1291,
+    "section": 19,
+    "text": "| OSV4 | **Canon heroes as threats** | In canon worlds, the protagonists may become your enemies if you oppose the plot (ENEMY_PROTAGONISTS). | Living opposite the protagonist. |"
+  },
+  {
+    "code": "OSV5",
+    "line": 1292,
+    "section": 19,
+    "text": "| OSV5 | **Redemption and corruption arcs** | Story recognition (XS) can name a fall or a redemption; both stay open. | Moral change across a life. |"
+  },
+  {
+    "code": "OSV6",
+    "line": 1293,
+    "section": 19,
+    "text": "| OSV6 | **Villain endings** | The villain-win ending (QBC5) as a goal: what does the world look like when you win? | Dark ends are complete worlds. |"
+  },
+  {
+    "code": "OSM1",
+    "line": 1299,
+    "section": 19,
+    "text": "| OSM1 | **You are the bounty** | As a monster (BK2), the quest board is a threat list: who is hunting you, when, how strong. | Inverts the quest system. |"
+  },
+  {
+    "code": "OSM2",
+    "line": 1300,
+    "section": 19,
+    "text": "| OSM2 | **Monster goals** | Feed, grow, evolve, claim territory, protect a brood; generated from body needs (BK profiles). | Quests without a board. |"
+  },
+  {
+    "code": "OSM3",
+    "line": 1301,
+    "section": 19,
+    "text": "| OSM3 | **Monster society quests** | A pack, hive or dungeon ecology issues its own tasks (NONHUMAN society doc). | Nonhuman worlds have institutions too. |"
+  },
+  {
+    "code": "OSM4",
+    "line": 1302,
+    "section": 19,
+    "text": "| OSM4 | **Dungeon core play** | As a place (BK7), adventurers are visitors; you design defenses and rewards; their quest outcomes are your income. | Classic dungeon-core genre. |"
+  },
+  {
+    "code": "OSM5",
+    "line": 1303,
+    "section": 19,
+    "text": "| OSM5 | **Monster death and rebirth** | Monster lives die often; rebirth as a stronger form or a different species follows world rules (NE). | Fits evolution and reincarnation tropes. |"
+  },
+  {
+    "code": "OSM6",
+    "line": 1304,
+    "section": 19,
+    "text": "| OSM6 | **Crossing to the human side** | Taming, alliance, disguise or peace treaties can move a monster into human quest boards. | Paths between sides. |"
+  },
+  {
+    "code": "OSO1",
+    "line": 1310,
+    "section": 19,
+    "text": "| OSO1 | **Neutral brokers** | Information brokers, mercenaries and fences work for any side; both sides post to them. | A third position. |"
+  },
+  {
+    "code": "OSO2",
+    "line": 1311,
+    "section": 19,
+    "text": "| OSO2 | **Double agents** | Take quests from both sides; discovery is a renown and suspicion event (DP5). | High-risk play. |"
+  },
+  {
+    "code": "OSO3",
+    "line": 1312,
+    "section": 19,
+    "text": "| OSO3 | **Outsider transmigrators as rivals** | Another outsider pursues the opposite ending (RZW6). | Mirror rivals. |"
+  },
+  {
+    "code": "OSO4",
+    "line": 1313,
+    "section": 19,
+    "text": "| OSO4 | **Spirits and gods as players** | As a ghost or minor god (BK4), you issue quests to mortals through dreams and omens. | Quest giver as the main role. |"
+  },
+  {
+    "code": "OSR1",
+    "line": 1319,
+    "section": 19,
+    "text": "| OSR1 | **Meet your old victims or heroes** | A next life in the same instance can meet those your villain life hurt (NF3, NF4). | Consequences across lives. |"
+  },
+  {
+    "code": "OSR2",
+    "line": 1320,
+    "section": 19,
+    "text": "| OSR2 | **Karma where the world tracks it** | Some cosmologies weigh past lives' deeds on rebirth placement (RZR1); others do not. | Moral weight as a world adjective. |"
+  },
+  {
+    "code": "OSR3",
+    "line": 1321,
+    "section": 19,
+    "text": "| OSR3 | **Notoriety in the hall of lives** | Villain lives are recorded like any other (RX1). | No judgment from the game, only from the world. |"
+  },
+  {
+    "code": "OSR4",
+    "line": 1322,
+    "section": 19,
+    "text": "| OSR4 | **Prestige for dark deeds** | Deeds count regardless of alignment (RP2); some patrons pay more for darker ones. | Every path rewarded on its own terms. |"
+  },
+  {
+    "code": "OSL1",
+    "line": 1328,
+    "section": 19,
+    "text": "| OSL1 | **Grim detail follows the setting** | Villain acts are described at the grim-detail setting (MC2), not more. | Comfort control without censoring choice. |"
+  },
+  {
+    "code": "OSL2",
+    "line": 1329,
+    "section": 19,
+    "text": "| OSL2 | **The world reacts honestly** | People judge villainy by their values; no forced redemption, no forced punishment beyond the world's means. | Grey-area stance: consequences, not moralizing. |"
+  },
+  {
+    "code": "DL46",
+    "line": 1335,
+    "section": 19,
+    "text": "| DL46 | Hero pressure on notorious players | Per world | Off to relentless |"
+  },
+  {
+    "code": "DL47",
+    "line": 1336,
+    "section": 19,
+    "text": "| DL47 | Karma on rebirth | World rule | Off to strong |"
+  },
+  {
+    "code": "T37",
+    "line": 1340,
+    "section": 19,
+    "text": "| T37 | **Bounty-on-you list** (OSV3, OSM1) reading existing renown and suspicion. | Additive hunter list on the instance, default empty. |"
+  },
+  {
+    "code": "OV1",
+    "line": 1350,
+    "section": 20,
+    "text": "| OV1 | PW4 stashes, PW5 letters, NF2 your stuff, RL5 next life options | `docs/LIFE_SIM_NORTH_STAR.md` lines 3527-3760 (plans that narrow the next-life roll, stashes, corpse runs, letters, dead-man's switches, family vault, succession politics, lineage progression) | Same ideas; part 22 adds quest and branch links only. |"
+  },
+  {
+    "code": "OV2",
+    "line": 1351,
+    "section": 20,
+    "text": "| OV2 | RX1 hall of lives, RP prestige, RS3 cross-world continuation, MS self across lives | `docs/CHEAT_LIBRARY.md` player-layer cards (Heirloom Compact, Rebirth Ledger line 478, Hall of Selves line 553, World Deeds line 569) | Those cards frame the same features as cheats; part 22 frames base versions. Cheat test (refinement 3) decides per world. |"
+  },
+  {
+    "code": "OV3",
+    "line": 1352,
+    "section": 20,
+    "text": "| OV3 | RL2-RL3 death keeps the world, RL8 anchors, NP2 overwrite | `docs/research/DEATH_AND_RESET_CONSIDERATIONS_2026-10-10.md` (reset dials R1-R6, foreknowledge decay F1-F5) | Part 22 RL and NP rows should cite those dials rather than restate them. |"
+  },
+  {
+    "code": "OV4",
+    "line": 1353,
+    "section": 20,
+    "text": "| OV4 | NF3 recognition, PP6 companions who know, MS3 echoes | `docs/SELVES_AND_ECHOES.md` (recognition by soul, face or habit) | Same mechanism. |"
+  },
+  {
+    "code": "OV5",
+    "line": 1354,
+    "section": 20,
+    "text": "| OV5 | RS, RP, MB carry and retrofit | `17_CARRYOVER_AND_RETROFIT.md` (carry rules, retrofit of existing saves) | Part 17 owns what carries; part 22 does not change it. |"
+  },
+  {
+    "code": "OV6",
+    "line": 1355,
+    "section": 20,
+    "text": "| OV6 | XA1 holder, XA3 pruning | `docs/TIME_KEEPERS_AND_VARIANTS.md` | Already linked in part 16. |"
+  }
+]

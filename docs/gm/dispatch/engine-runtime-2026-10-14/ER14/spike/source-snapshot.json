@@ -1,0 +1,22 @@
+{
+  "src/absorb_e1/pacing.js": {
+    "sha256": "0cb526073c7e2f36ddef60f93d5d276c62e39f18a2f873502363c38fa419e661",
+    "bytes": 5205
+  },
+  "src/world_rhythm.js": {
+    "sha256": "a6d3f7e63f2627aac99ff5e9f16b62e6a41c59a27a235f7365f48952b0d2d3e6",
+    "bytes": 1892
+  },
+  "src/expansion_engine.js": {
+    "sha256": "da1e9761400bec1cf72f4da171408f22af6cb6a2ce3dd72565b8b29039ab3f82",
+    "bytes": 50849
+  },
+  "src/simulation.js": {
+    "sha256": "c5717787ca8e0fcb57e2933e8d8a39e9088f6e12d8d7197d91605517cdc0041b",
+    "bytes": 62344
+  },
+  "docs/gm/dispatch/engine-runtime-2026-10-14/ER1/benchmark-results.json": {
+    "sha256": "8e79f4098ce6e7b41f52be68d5cab7f1180e3d2230d11483346cbc1c78957e7c",
+    "bytes": 5883
+  }
+}

@@ -1,0 +1,121 @@
+{
+  "date": "2026-10-14",
+  "proposal_only": true,
+  "status": "PASS documentation-only",
+  "required_file_count": 7,
+  "proposal_markers": [
+    {
+      "file": "CHECKPOINT.md",
+      "pass": true
+    },
+    {
+      "file": "EPISODES.md",
+      "pass": true
+    },
+    {
+      "file": "VIEWS.md",
+      "pass": true
+    },
+    {
+      "file": "TRIAGE.md",
+      "pass": true
+    },
+    {
+      "file": "EXPORTS.md",
+      "pass": true
+    },
+    {
+      "file": "MORE.md",
+      "pass": true
+    },
+    {
+      "file": "REPORT.md",
+      "pass": true
+    }
+  ],
+  "relative_link_count": 80,
+  "missing_targets": [],
+  "fence_pairing": [
+    {
+      "file": "CHECKPOINT.md",
+      "pass": true
+    },
+    {
+      "file": "EPISODES.md",
+      "pass": true
+    },
+    {
+      "file": "VIEWS.md",
+      "pass": true
+    },
+    {
+      "file": "TRIAGE.md",
+      "pass": true
+    },
+    {
+      "file": "EXPORTS.md",
+      "pass": true
+    },
+    {
+      "file": "MORE.md",
+      "pass": true
+    },
+    {
+      "file": "REPORT.md",
+      "pass": true
+    }
+  ],
+  "source_locator_range_count": 43,
+  "locator_bounds_errors": [],
+  "ranked_slice_count": 5,
+  "suggested_ports": [
+    "21400",
+    "21410",
+    "21420",
+    "21430",
+    "21440"
+  ],
+  "structural_scan": {
+    "blockquote_lines": 0,
+    "raw_novel_paths": 0,
+    "em_dash_count": 0,
+    "ascii_sketch_count": 8
+  },
+  "manual_review": {
+    "status": "reviewed",
+    "basis": "Original synthetic examples; no copied canon passages/private-note quotations. Secret discussion is ID/route/status and scans cover final bytes/metadata. Bounded documentation review, not semantic/runtime leak proof."
+  },
+  "source_snapshot_sha256": {
+    ".claude/worktrees/proc-p3-storylets/src/event_feed.js": "cdc1c747ae9cc2b68ba6725d97b9657aabebfe531c3be4e961b3a8d59fcc2e3e",
+    ".claude/worktrees/proc-p3-storylets/src/simulation.js": "87934300de153660565845c72d78d22ff64e0debad38bb036e2acaa76793d775",
+    ".claude/worktrees/proc-p3-storylets/src/storylet_ui.js": "db67025c0d073962a1aaadbfe10bbcfffe979cafa1762214c99ad3c7ad08349b",
+    "src/causal_story_actors.js": "232f064f41a139490b05fbaa6d96e7280d13a8b7b7a772e4983a1b635febbd2e",
+    "src/causal_story_content.js": "6fbcfc9e1718f961f8c4b99c588c1cc8c4816378ce889c93662cec0aea10af22",
+    "src/causal_story_core.js": "7f4993ccc8251e376c72f59dbec61f6efe24c744b61915d6011725da572b4fb5",
+    "src/causal_story_host.js": "cc6464bb00936100be5cf6b02c95be62f38c3478d273b2b83c4395fb7bcf8c1c",
+    "src/causal_story_ids.js": "1aca94dc5eaf5412865b60ce292bc00f5c34fa7e5cdd85a53d31efbd4fa22fee",
+    "src/causal_story_native.js": "f70656361f79b011fdf18953caa10fba3acea327c007e16c170fd5345c5ccc84",
+    "src/causal_story_scenes.js": "7ccaeae599ce284f7d5003ab95b9687426c69ebdba452b9238d2931ef9f28ca9",
+    "src/causal_story_ui.js": "5e43b094b364e574e9ad00e8bda57ada6b2a333c04191af86c2db49df87a32e5",
+    "src/event_feed.js": "f25a1f1ff13bc751509cece72a3825cc7163c646e7f565f29f477bbcbffb2915",
+    "src/event_feed_ui.js": "d1c3539ea9d2f1f64fa67f453237f593b1dec3e9cd9b56754e730d674d02ffd0",
+    "src/life_record.js": "21ac5f17fff62794ba26d7180deb6a9c0ad85060d79134e5d6ce83de51d1d9bd",
+    "src/people_knowledge.js": "e52bf2508ab626785ad66074179f33916aaed7946fbd403706cb59303e851261",
+    "src/simulation.js": "2a790db46f004639d356ebec3678bfe63e1957fe5fda6cc9892368a050b54b66",
+    "src/simulation_content.js": "9c55fc6edeebb9f75027dcada4dcc44ebb1fc27e4815cac75731825e0f2252bc",
+    "src/simulation_contracts.js": "519b55317952eb7b4cd10a0cabb899542e7af706f568358f146b241be81b301c",
+    "src/simulation_effects.js": "507a5a60b82eaade331601c90f5e98410a2d99486903b9109937f933f3ffe151",
+    "src/simulation_resolution.js": "b47789d1959d5e43fcce298b3631830169aa0d89b972cd7d08da1a55e4c2fd94",
+    "src/simulation_ui.js": "ed41498fbf78e78d2383d2fb397692f1e6c211ad2666eeb1a3bb69d1b226fc37",
+    "src/world_visit_history.js": "c9296a84f4df6c0a0ea5ed818ca1ca283149e247eb7354eaaeb983f9b99b2bd2"
+  },
+  "scope": "All task-created/edited artifacts confined to p25; unrelated dirty state preserved. No runtime edits, build, browser, npm tests, private saves, servers, delegation or commits.",
+  "anchor_check": {
+    "count": 7,
+    "missing": [],
+    "method": "Markdown heading slug approximation; verified requested fragments"
+  },
+  "whitespace_check": {
+    "trailing_whitespace": 0
+  }
+}

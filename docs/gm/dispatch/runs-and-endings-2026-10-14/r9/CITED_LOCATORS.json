@@ -1,0 +1,1587 @@
+[
+  {
+    "path": "AGENTS.md",
+    "line": 21,
+    "line_sha256": "5ff243a6907f6a7b12c210abe23b6a59d41defc23e95920ea8db31a7face6ee7"
+  },
+  {
+    "path": "PROJECT.md",
+    "line": 307,
+    "line_sha256": "f431f3e84f88785be154a74271742dacaf5716b9f250295995cb02bcec2d6193"
+  },
+  {
+    "path": "docs/CHEAT_COSMOLOGY.md",
+    "line": 279,
+    "line_sha256": "295d59d497ead1a1ea55fdf0b07e5b951877ef805438e0d4accf33d9eed23926"
+  },
+  {
+    "path": "docs/CHEAT_COSMOLOGY.md",
+    "line": 290,
+    "line_sha256": "5526759e47b8867a824d5d95b1786233113462905aafe2d0e0230abeff404471"
+  },
+  {
+    "path": "docs/CHEAT_COSMOLOGY.md",
+    "line": 546,
+    "line_sha256": "6ae52e80d67d00f0f599f0c9a8e02c145ab91084bcf9fc68caa3b1fef496d510"
+  },
+  {
+    "path": "docs/CHEAT_COSMOLOGY.md",
+    "line": 973,
+    "line_sha256": "b920e7efdc075128735930a7d1e1a474850594a840e0da94342e089fc597643b"
+  },
+  {
+    "path": "docs/CHEAT_LIBRARY.md",
+    "line": 160,
+    "line_sha256": "8cb7a8ca7f13592c162033ad6eedd270a86fba9893cad68d9aa3b6cfa72eca79"
+  },
+  {
+    "path": "docs/CHEAT_LIBRARY.md",
+    "line": 289,
+    "line_sha256": "5158d4471a266dbefdbd2f60d14fa0057f6e8d7a1b09f10246c705a3f84ccd46"
+  },
+  {
+    "path": "docs/CHEAT_LIBRARY.md",
+    "line": 486,
+    "line_sha256": "0a82df8a47ef3183c23c95d505ed873b83bff1f3c01b64872c58b7ff4950dfae"
+  },
+  {
+    "path": "docs/CHEAT_LIBRARY.md",
+    "line": 487,
+    "line_sha256": "650c8b56c6b3a6f7c279a6af4bb67de98c73c6cdcc7a6a9b71fa7f053f0f7f78"
+  },
+  {
+    "path": "docs/CHEAT_LIBRARY.md",
+    "line": 495,
+    "line_sha256": "082fa5578e826d8766837a6bff6ff3a5f7fb1fa29c7388ff63c6fc8459a0b61d"
+  },
+  {
+    "path": "docs/CHEAT_LIBRARY.md",
+    "line": 553,
+    "line_sha256": "a161fbed99ffbd2c7660b3ba90cda7e9494716c7e8fc84d3b9b7062e3aba3c4e"
+  },
+  {
+    "path": "docs/CHEAT_LIBRARY.md",
+    "line": 903,
+    "line_sha256": "ecba949a9e30ac9820c7da227c889a7bc62206de117667614c987cefd60ad113"
+  },
+  {
+    "path": "docs/ENEMY_PROTAGONISTS.md",
+    "line": 74,
+    "line_sha256": "95f6c1c2dfc5f736da85e40d76ade3eae4bbc8da510486d7786febb5036a46ca"
+  },
+  {
+    "path": "docs/INTRO_FLOW_CONSIDERATIONS_2026-10-13.md",
+    "line": 387,
+    "line_sha256": "01ef0d33e451ccf1ea8cdf8abea2a5f847ab9be2c20350b7b2f1d7842fb60bbd"
+  },
+  {
+    "path": "docs/LIFE_SIM_NORTH_STAR.md",
+    "line": 134,
+    "line_sha256": "2ed09773c475c2c68f76694536e3d8ef3641fd86379baeddf15b66ee712b6208"
+  },
+  {
+    "path": "docs/LIFE_SIM_NORTH_STAR.md",
+    "line": 168,
+    "line_sha256": "91e6c08685b4c18f9a027309488a061ae97c144f2d112d3a4cbf8ece5e11b007"
+  },
+  {
+    "path": "docs/LIFE_SIM_NORTH_STAR.md",
+    "line": 336,
+    "line_sha256": "9d485c8ad5473b3fd6891ff0e6fd641d2fcfcbc8dd52a2388a338b24fe33bbcb"
+  },
+  {
+    "path": "docs/LIFE_SIM_NORTH_STAR.md",
+    "line": 344,
+    "line_sha256": "418219cb703b1af5322ee6dedd3331638ec371d6647f4203c57a7364d43ee1b9"
+  },
+  {
+    "path": "docs/LIFE_SIM_NORTH_STAR.md",
+    "line": 346,
+    "line_sha256": "ba6ec0e60e26fbea471bc39a1de2d1cd5fb5efa4c8aa32880cde8436dafe393f"
+  },
+  {
+    "path": "docs/LIFE_SIM_NORTH_STAR.md",
+    "line": 368,
+    "line_sha256": "7056d58b37b093bad5c6ad805ea5171aa0e3d469420aff351247e0006288a4d3"
+  },
+  {
+    "path": "docs/LIFE_SIM_NORTH_STAR.md",
+    "line": 380,
+    "line_sha256": "5d8b56e3894dddd3a60b8d48466bba47258f7fb37f4d566789d2779960a1d06e"
+  },
+  {
+    "path": "docs/LIFE_SIM_NORTH_STAR.md",
+    "line": 1088,
+    "line_sha256": "6dacd5caa1165314f091d6ee774884a27982dc3eb9fdd6781ac5142a45897411"
+  },
+  {
+    "path": "docs/LIFE_SIM_NORTH_STAR.md",
+    "line": 1094,
+    "line_sha256": "d2b6d69d1d42ec344fbabc25f36b4228c3a25e6f84a32c4240365f3e53940e31"
+  },
+  {
+    "path": "docs/LIFE_SIM_NORTH_STAR.md",
+    "line": 1099,
+    "line_sha256": "d520fba3951e82467a5403c657cac22b84b49a689cc1a51cc8c266a807a2d2bc"
+  },
+  {
+    "path": "docs/LIFE_SIM_NORTH_STAR.md",
+    "line": 1101,
+    "line_sha256": "ddf7cf000321a3931b094c964279180cd7196afba37b2e4e61b96caf2fab657f"
+  },
+  {
+    "path": "docs/LIFE_SIM_NORTH_STAR.md",
+    "line": 1106,
+    "line_sha256": "7157b516894acb5a414ccd4303e07871511adb1744bb7fd0bd14b60be470407a"
+  },
+  {
+    "path": "docs/LIFE_SIM_NORTH_STAR.md",
+    "line": 1110,
+    "line_sha256": "09fbcd296c9f75cc86b5c79f184a34a37e65cfc7c61a752418261c34b6348a3a"
+  },
+  {
+    "path": "docs/LIFE_SIM_NORTH_STAR.md",
+    "line": 1114,
+    "line_sha256": "12ce7f504bda0a569f1ae09ad5a98408d756df834f8e9701d41c9529e03b520f"
+  },
+  {
+    "path": "docs/LIFE_SIM_NORTH_STAR.md",
+    "line": 1115,
+    "line_sha256": "e716aab4f26130527b2cb927f22ebe588ca517ef4b7ffd787e7fcdc0f891351b"
+  },
+  {
+    "path": "docs/LIFE_SIM_NORTH_STAR.md",
+    "line": 1117,
+    "line_sha256": "a2cc36b7a2152126e7a5e8f9ca546bf265542914a367e071a03fc5628afd1b25"
+  },
+  {
+    "path": "docs/LIFE_SIM_NORTH_STAR.md",
+    "line": 1196,
+    "line_sha256": "ceb2ebd4b6136af51374db0ae78a06ef2a0fab265391be48041f8d2bc3450998"
+  },
+  {
+    "path": "docs/LIFE_SIM_NORTH_STAR.md",
+    "line": 1222,
+    "line_sha256": "50603c6a4b82f77475d12efb1821353ae8450b59891a245c69be906f350dcf9d"
+  },
+  {
+    "path": "docs/LIFE_SIM_NORTH_STAR.md",
+    "line": 1231,
+    "line_sha256": "fa798b5e8b0feca34b67f975303639236491d1204a5dbf5a02f06a0062e39163"
+  },
+  {
+    "path": "docs/LIFE_SIM_NORTH_STAR.md",
+    "line": 1745,
+    "line_sha256": "6da3a3c92b59780e741ed03fede2f1f2415bd43a75e5ec61d2181d7d0dcd0ed8"
+  },
+  {
+    "path": "docs/LIFE_SIM_NORTH_STAR.md",
+    "line": 1776,
+    "line_sha256": "1b1739b0416f3e1562a5b85d7d0f5f28e57c61d403a81b620a2bba03f23c7404"
+  },
+  {
+    "path": "docs/LIFE_SIM_NORTH_STAR.md",
+    "line": 1778,
+    "line_sha256": "740ba6edc90bcad90a1b4d7993ee3737b61da4dd7e8b53512edf878fd3fec4bc"
+  },
+  {
+    "path": "docs/LIFE_SIM_NORTH_STAR.md",
+    "line": 1780,
+    "line_sha256": "14bbff98f9e1867355792d16a21de1c79c63e46bd93d8c462679c1d625cf8366"
+  },
+  {
+    "path": "docs/LIFE_SIM_NORTH_STAR.md",
+    "line": 1786,
+    "line_sha256": "e0f537ab34b03e7a7877309c9bc35b7d9eda22a64fc6230498463708387a99bc"
+  },
+  {
+    "path": "docs/LIFE_SIM_NORTH_STAR.md",
+    "line": 1787,
+    "line_sha256": "5386d2640dc4580284611c3537e44cf85c926932422ebdf1578220c091daec00"
+  },
+  {
+    "path": "docs/LIFE_SIM_NORTH_STAR.md",
+    "line": 1792,
+    "line_sha256": "e4311bd9279c2e919766e46d8a668de38b5b36ab62d1fbde91c6b8afc09185e8"
+  },
+  {
+    "path": "docs/LIFE_SIM_NORTH_STAR.md",
+    "line": 1793,
+    "line_sha256": "fe18368f7bd82a273e55400fe971c55911802147f2e225bf0686f26e76e6d52a"
+  },
+  {
+    "path": "docs/LIFE_SIM_NORTH_STAR.md",
+    "line": 1794,
+    "line_sha256": "868b4df3f2366a7bfaf88bf976e285e93ddeedce99f846c9ecbd05087879d92e"
+  },
+  {
+    "path": "docs/LIFE_SIM_NORTH_STAR.md",
+    "line": 1803,
+    "line_sha256": "fab4605c0167d5dd216470f0b27ac23f6fdd713f05a80d836883dd1501c4139e"
+  },
+  {
+    "path": "docs/LIFE_SIM_NORTH_STAR.md",
+    "line": 3324,
+    "line_sha256": "74c2a99d99ae8b47bf1d110642fd0af93eb5a6ca9f9343ea05b256887a60ccf3"
+  },
+  {
+    "path": "docs/LIFE_SIM_NORTH_STAR.md",
+    "line": 3330,
+    "line_sha256": "802002aae1afaefa1a07bcfcaaade8687a9c0f637ab70b9ee7cb32981421a4d1"
+  },
+  {
+    "path": "docs/LIFE_SIM_NORTH_STAR.md",
+    "line": 3335,
+    "line_sha256": "2d34bc5b63881efd497485b5e17322559acba37734e5dad095f6436e755955a4"
+  },
+  {
+    "path": "docs/LIFE_SIM_NORTH_STAR.md",
+    "line": 3337,
+    "line_sha256": "8ba72fd6da9ae5812c777e219c02ac75803dd3e388f95b1758f2b82b038393ef"
+  },
+  {
+    "path": "docs/LIFE_SIM_NORTH_STAR.md",
+    "line": 3345,
+    "line_sha256": "9a96076734228877e01fb933a0738dc2e0351bc1f598723c439a9cf6416272a4"
+  },
+  {
+    "path": "docs/LIFE_SIM_NORTH_STAR.md",
+    "line": 3381,
+    "line_sha256": "39d1c02ca31732d345d006b242991ba33005d07f82dd9d22f56bb9f4d2d7a540"
+  },
+  {
+    "path": "docs/LIFE_SIM_NORTH_STAR.md",
+    "line": 3388,
+    "line_sha256": "27086375b2f60ed5bbc39d8c0100a5eac189ca8335346e0197f8a2a0d6f96a45"
+  },
+  {
+    "path": "docs/LIFE_SIM_NORTH_STAR.md",
+    "line": 3422,
+    "line_sha256": "25fb2c0c844697d979f6618db4e9d5fa94a5af3255d054330d5ff3b646bf8e82"
+  },
+  {
+    "path": "docs/LIFE_SIM_NORTH_STAR.md",
+    "line": 3432,
+    "line_sha256": "5b77aa2237a9cebf141beeb0308bd77db88b6b9874ca46a457dc50ed93d26704"
+  },
+  {
+    "path": "docs/LIFE_SIM_NORTH_STAR.md",
+    "line": 3481,
+    "line_sha256": "e13f470be68483e501c0370c436ddc5f84747bbfcacaa536cbad875d5270cb73"
+  },
+  {
+    "path": "docs/LIFE_SIM_NORTH_STAR.md",
+    "line": 3504,
+    "line_sha256": "1a808593585bd6d34878c8020cf3a748bcf8de9b80e1cc476509086d564a38b8"
+  },
+  {
+    "path": "docs/LIFE_SIM_NORTH_STAR.md",
+    "line": 3510,
+    "line_sha256": "5909916c35081a95d5a1d04063e53e9c5703eaf0fb08212e2003bf31ea42e3ce"
+  },
+  {
+    "path": "docs/LIFE_SIM_NORTH_STAR.md",
+    "line": 3518,
+    "line_sha256": "2280a99dfce47a8fc0f5da31bee4f7ff3d7e42b43a851382f083d27cb001e137"
+  },
+  {
+    "path": "docs/LIFE_SIM_NORTH_STAR.md",
+    "line": 3527,
+    "line_sha256": "dd5462b9f46e96f5dfe06439a301e078ac7e9b2cf5c19efaa5d8541926a67f98"
+  },
+  {
+    "path": "docs/LIFE_SIM_NORTH_STAR.md",
+    "line": 3608,
+    "line_sha256": "ee75dc6946e3a19e20c4c7a7a384bcee18cd9ef57180010e435682f7daf3c8c5"
+  },
+  {
+    "path": "docs/LIFE_SIM_NORTH_STAR.md",
+    "line": 3622,
+    "line_sha256": "c494acea87a2cdf9a80332487c1447e99e92f38d0da2ee0b38868cd3c83960a5"
+  },
+  {
+    "path": "docs/LIFE_SIM_NORTH_STAR.md",
+    "line": 3711,
+    "line_sha256": "173163d55b5b426601702fefccba606d368155b6b52181bfaebf940ccaa95591"
+  },
+  {
+    "path": "docs/LIFE_SIM_NORTH_STAR.md",
+    "line": 3727,
+    "line_sha256": "1e062d3c258bea0f575a8531d4ca5f597c92f46bcbace89183c82e834b942eae"
+  },
+  {
+    "path": "docs/LIFE_SIM_NORTH_STAR.md",
+    "line": 3796,
+    "line_sha256": "0f10e5de8a86b3e7d8c7a45ad93c3e8d3e83bed8bab8469b1ffe2ff0e726ef5b"
+  },
+  {
+    "path": "docs/LIFE_SIM_NORTH_STAR.md",
+    "line": 3809,
+    "line_sha256": "dd62038131cf81c3778713275ad23d5ef84c3b99b4154406ecb2d8a71872b924"
+  },
+  {
+    "path": "docs/LIFE_SIM_NORTH_STAR.md",
+    "line": 3824,
+    "line_sha256": "fb22c2d361d7ad743ebc9932fc9164225a8c597d5bf326f32265bb25667cbf49"
+  },
+  {
+    "path": "docs/LIFE_SIM_NORTH_STAR.md",
+    "line": 3831,
+    "line_sha256": "4be97b534dcde7d17cf9f9c315ef5e61e266881c3581dd837beaa4ab8cd16445"
+  },
+  {
+    "path": "docs/LIFE_SIM_NORTH_STAR.md",
+    "line": 3855,
+    "line_sha256": "643e86d5fd702f0baf689415d8fd135354be211e4563ecb8f141b3f8cedddeb4"
+  },
+  {
+    "path": "docs/LIFE_SIM_NORTH_STAR.md",
+    "line": 3878,
+    "line_sha256": "e2dc6024400284960974e00e4eecf4198eb2ad74787c34c120cc3fc8a1870d54"
+  },
+  {
+    "path": "docs/LIFE_SIM_NORTH_STAR.md",
+    "line": 3883,
+    "line_sha256": "14686a3617108a8e1ce9b2a0ccedf9a7a64aeb6de3b26a5ad48ae9de5d0baf25"
+  },
+  {
+    "path": "docs/LIFE_SIM_NORTH_STAR.md",
+    "line": 3885,
+    "line_sha256": "46c2227df9af3cdb30285b70bc52007762da2bb801ab1b86f3d0f34b9902d78c"
+  },
+  {
+    "path": "docs/LIFE_SIM_NORTH_STAR.md",
+    "line": 3887,
+    "line_sha256": "417b17086b480add35fd69e7dc01973e1dce73d5251b1da81ad9d131aec0b8a3"
+  },
+  {
+    "path": "docs/LIFE_SIM_NORTH_STAR.md",
+    "line": 3906,
+    "line_sha256": "d71643e255a0c237186ed21fd15cacd656ebdcfe1d0f0dbc7c313e9fade28c2b"
+  },
+  {
+    "path": "docs/LIFE_SIM_NORTH_STAR.md",
+    "line": 4433,
+    "line_sha256": "d2f65b48966825f81e000dc3410429f55a3e1e5ee85e4966d41298c5ab771ec4"
+  },
+  {
+    "path": "docs/LIFE_SIM_NORTH_STAR.md",
+    "line": 4435,
+    "line_sha256": "fb438cf151e9e6fd1aa440186d047de9d208d1e1cd4307b75c7e514b6728450b"
+  },
+  {
+    "path": "docs/LIFE_SIM_NORTH_STAR.md",
+    "line": 4437,
+    "line_sha256": "01ccd66345abcbc0ae82205b0cf035d8ae82b42db4b25b84c9b819115210e2cc"
+  },
+  {
+    "path": "docs/LIFE_SIM_NORTH_STAR.md",
+    "line": 4440,
+    "line_sha256": "5bfd8601f97226974a6ec4064bae4f2984178e8c5a1ef5bf6c034fcaf5ad22fd"
+  },
+  {
+    "path": "docs/LIFE_SIM_NORTH_STAR.md",
+    "line": 4442,
+    "line_sha256": "8b179c53ebc83abdd9c5cee9ab6569bc27510480a1310a717b88df3ac4faa532"
+  },
+  {
+    "path": "docs/LIFE_SIM_NORTH_STAR.md",
+    "line": 4459,
+    "line_sha256": "fddd0d7dabaf5a25c18b5c918371a6c4094b1dd1f028862801177d6a10bdd8b3"
+  },
+  {
+    "path": "docs/LIFE_SIM_NORTH_STAR.md",
+    "line": 4464,
+    "line_sha256": "0dd1494f9347d2f804f97c117fb1b068338614bcf9a81fdc14cb72f215a8ccad"
+  },
+  {
+    "path": "docs/LIFE_SIM_NORTH_STAR.md",
+    "line": 4477,
+    "line_sha256": "5b36a02a3c8cf2d380956b686b8785fe4588f528114b3ed1f644314704bd5077"
+  },
+  {
+    "path": "docs/LIFE_SIM_NORTH_STAR.md",
+    "line": 4483,
+    "line_sha256": "5f7d62deb01b3d151a6ca9899b444d27c677c87158726316657d42519c64e217"
+  },
+  {
+    "path": "docs/LIFE_SIM_NORTH_STAR.md",
+    "line": 4487,
+    "line_sha256": "7478a1247d77f421e0896301ecce5b7998aca4a8a9cacc24c109f5601b9f5229"
+  },
+  {
+    "path": "docs/LIFE_SIM_NORTH_STAR.md",
+    "line": 6654,
+    "line_sha256": "52ffbf0347cba661d9b094a79271d22af3771484a57f7901e65311a9c274af9c"
+  },
+  {
+    "path": "docs/LIFE_SIM_NORTH_STAR.md",
+    "line": 6658,
+    "line_sha256": "b335fac87c98fbccde1b6f9ea3a4e7ab4077c28ccd42267eaf7999eaa84ffbdc"
+  },
+  {
+    "path": "docs/LIFE_SIM_NORTH_STAR.md",
+    "line": 6665,
+    "line_sha256": "f8fa57964aaa561d6e0cda37c6a32385c039d595e53fb34ceb221c983f79a351"
+  },
+  {
+    "path": "docs/LIFE_SIM_NORTH_STAR.md",
+    "line": 6667,
+    "line_sha256": "e3485289f70b30bf825716adaa0edda02ef49da20d1c58954e4495a5f1337a2c"
+  },
+  {
+    "path": "docs/LIFE_SIM_NORTH_STAR.md",
+    "line": 6669,
+    "line_sha256": "30d7f0daed13a1b9754b37b6e4573ad5003d68af65e08984501c289e56ec9cd0"
+  },
+  {
+    "path": "docs/LIFE_SIM_NORTH_STAR.md",
+    "line": 6670,
+    "line_sha256": "afeae63449ccb6d376412d57d65ab6b16bab696eb723258d7227f33004feafc3"
+  },
+  {
+    "path": "docs/LIFE_SIM_NORTH_STAR.md",
+    "line": 6692,
+    "line_sha256": "39d64336340f0217e20d2e08a572a290ccc71c5e063009c27f1506bc2be257bf"
+  },
+  {
+    "path": "docs/PROCEDURAL_STORY_AND_CONTENT_CONSIDERATIONS_2026-10-14.md",
+    "line": 9,
+    "line_sha256": "f5f4b3775b8634498f6b66ad8802e7758f07945a278ba2163841f9ee7084185c"
+  },
+  {
+    "path": "docs/PROCEDURAL_STORY_AND_CONTENT_CONSIDERATIONS_2026-10-14.md",
+    "line": 24,
+    "line_sha256": "826fb7522ac76c4ce9156113e39a93a9106fed955c9b633799ff5be234c0e9fd"
+  },
+  {
+    "path": "docs/PROCEDURAL_STORY_AND_CONTENT_CONSIDERATIONS_2026-10-14.md",
+    "line": 27,
+    "line_sha256": "0b3a816f1a6c8209c5af6c0c9abf45e128764235d5c89faae2bda35d4328e183"
+  },
+  {
+    "path": "docs/PROCEDURAL_STORY_AND_CONTENT_CONSIDERATIONS_2026-10-14.md",
+    "line": 28,
+    "line_sha256": "da6f694c8971371e937b686c7f1f4d8ce05b35b9b93a7822ded7a07c22b46f5f"
+  },
+  {
+    "path": "docs/PROCEDURAL_STORY_AND_CONTENT_CONSIDERATIONS_2026-10-14.md",
+    "line": 29,
+    "line_sha256": "226ca8ed2c978a2420c83e39f5e78e9bf83beacd4887f3eaec0a258fdf994983"
+  },
+  {
+    "path": "docs/PROCEDURAL_STORY_AND_CONTENT_CONSIDERATIONS_2026-10-14.md",
+    "line": 40,
+    "line_sha256": "16b88c709842160f6b37c7c8ffe7acc4ba4e172aeaefa7fa2b6c0a5a236faca0"
+  },
+  {
+    "path": "docs/PROCEDURAL_STORY_AND_CONTENT_CONSIDERATIONS_2026-10-14.md",
+    "line": 41,
+    "line_sha256": "199a9582283d39351f063bc1222e1502dc6e831e19fdb2dd7cf13f17a88c0eb5"
+  },
+  {
+    "path": "docs/PROCEDURAL_STORY_AND_CONTENT_CONSIDERATIONS_2026-10-14.md",
+    "line": 44,
+    "line_sha256": "2a2ef6da9b3910990e7d9aff95e80a25eb6bbed61471c75afc0781ed31c0b18d"
+  },
+  {
+    "path": "docs/PROCEDURAL_STORY_AND_CONTENT_CONSIDERATIONS_2026-10-14.md",
+    "line": 54,
+    "line_sha256": "70ddf87404512159ea3e0a8196ea55b399f2d44ba276f4241f242a9d02c10942"
+  },
+  {
+    "path": "docs/PROCEDURAL_STORY_AND_CONTENT_CONSIDERATIONS_2026-10-14.md",
+    "line": 57,
+    "line_sha256": "9266a66cefa589e61a875a24cf8f89b1eb26231c74e7ac4f5d6f5c4a3878d9de"
+  },
+  {
+    "path": "docs/PROCEDURAL_STORY_AND_CONTENT_CONSIDERATIONS_2026-10-14.md",
+    "line": 58,
+    "line_sha256": "fe1cae116143f7e3e259e76e06ed4d2f576292f46aaa7b279e600182c7334de2"
+  },
+  {
+    "path": "docs/PROCEDURAL_STORY_AND_CONTENT_CONSIDERATIONS_2026-10-14.md",
+    "line": 61,
+    "line_sha256": "7b9fc455e02ddea469af13d987d04706263c8d47a90fea063617542dc9017e89"
+  },
+  {
+    "path": "docs/PROCEDURAL_STORY_AND_CONTENT_CONSIDERATIONS_2026-10-14.md",
+    "line": 70,
+    "line_sha256": "e10095038b1210a04a246ec6b4d4763fdd76b871b8fe797841cd409b263fc893"
+  },
+  {
+    "path": "docs/PROCEDURAL_STORY_AND_CONTENT_CONSIDERATIONS_2026-10-14.md",
+    "line": 72,
+    "line_sha256": "d71190da177ededd7dbafe010ac1a3038d515a8b28b1139501edc78a07b87621"
+  },
+  {
+    "path": "docs/PROCEDURAL_STORY_AND_CONTENT_CONSIDERATIONS_2026-10-14.md",
+    "line": 83,
+    "line_sha256": "f6a2bbeb63846b0330a47f0130fc8ac301a7115d3f33563ee9e1c061c634c5f7"
+  },
+  {
+    "path": "docs/PROCEDURAL_STORY_AND_CONTENT_CONSIDERATIONS_2026-10-14.md",
+    "line": 84,
+    "line_sha256": "ef9657ecf0711060945979f6a2396b4feccc2c55471e10ba8b4b6c6dd7d24e42"
+  },
+  {
+    "path": "docs/PROCEDURAL_STORY_AND_CONTENT_CONSIDERATIONS_2026-10-14.md",
+    "line": 85,
+    "line_sha256": "c3798beb031d005a4244c6703f8d77bca0fe12f02933c8e606417463d3bef82d"
+  },
+  {
+    "path": "docs/PROCEDURAL_STORY_AND_CONTENT_CONSIDERATIONS_2026-10-14.md",
+    "line": 86,
+    "line_sha256": "0c5b5055953bbe6c9dd9a467263876398455527ce532374b947ca8bb09f0a631"
+  },
+  {
+    "path": "docs/PROCEDURAL_STORY_AND_CONTENT_CONSIDERATIONS_2026-10-14.md",
+    "line": 87,
+    "line_sha256": "76a4facb8de98cb138dd213b32608ced82c162770f61538cbcd53f0f619e4c08"
+  },
+  {
+    "path": "docs/PROCEDURAL_STORY_AND_CONTENT_CONSIDERATIONS_2026-10-14.md",
+    "line": 93,
+    "line_sha256": "84da3fe156c971fc6310de5ce4f0e4084af523bd32a2146b41ffce1346e90f9b"
+  },
+  {
+    "path": "docs/PROCEDURAL_STORY_AND_CONTENT_CONSIDERATIONS_2026-10-14.md",
+    "line": 94,
+    "line_sha256": "3c846d1e5789f2678ba6dcce335ebfa8e9dc27ce8b8504c792edc5a5ef4f1bd4"
+  },
+  {
+    "path": "docs/PROCEDURAL_STORY_AND_CONTENT_CONSIDERATIONS_2026-10-14.md",
+    "line": 95,
+    "line_sha256": "57a0ed4f2624ec5dafb39ebf27859814a3b19880bf2c2692a50af6b2b398d784"
+  },
+  {
+    "path": "docs/PROCEDURAL_STORY_AND_CONTENT_CONSIDERATIONS_2026-10-14.md",
+    "line": 118,
+    "line_sha256": "3490244bafc24ab711656efcb76d11411b695eadc74a5c4b119c5925922034d3"
+  },
+  {
+    "path": "docs/PROCEDURAL_STORY_AND_CONTENT_CONSIDERATIONS_2026-10-14.md",
+    "line": 129,
+    "line_sha256": "e98cdc3a1d2475395598db393fea350d0b8c8b20605296c74e4d55f33f36f02e"
+  },
+  {
+    "path": "docs/PROCEDURAL_STORY_AND_CONTENT_CONSIDERATIONS_2026-10-14.md",
+    "line": 140,
+    "line_sha256": "544fab60dbc1e87371727422da32a4bd12b99aa4b5d3c94bc89607b134e9c410"
+  },
+  {
+    "path": "docs/PROCEDURAL_STORY_AND_CONTENT_CONSIDERATIONS_2026-10-14.md",
+    "line": 141,
+    "line_sha256": "37975520835e4d14510b0698ca0785e6acf708c7ddc715b48100adea28459ea0"
+  },
+  {
+    "path": "docs/PROCEDURAL_STORY_AND_CONTENT_CONSIDERATIONS_2026-10-14.md",
+    "line": 147,
+    "line_sha256": "e144e60676f2c7d758c2c0bdc59e71d7e8994754a07a88b85633c4919871889b"
+  },
+  {
+    "path": "docs/PROCEDURAL_STORY_AND_CONTENT_CONSIDERATIONS_2026-10-14.md",
+    "line": 155,
+    "line_sha256": "13a59135bebcabbea27c4a5377490ef29e6751603fc20558757790a2e90d6e89"
+  },
+  {
+    "path": "docs/PROCEDURAL_STORY_AND_CONTENT_CONSIDERATIONS_2026-10-14.md",
+    "line": 156,
+    "line_sha256": "12e3346b26e86eb4b92009f686df93c2e9ae46d04507eab2084201f62c3e96bc"
+  },
+  {
+    "path": "docs/PROCEDURAL_STORY_AND_CONTENT_CONSIDERATIONS_2026-10-14.md",
+    "line": 188,
+    "line_sha256": "025f790191a075a57f9b2e67049452da79f458087125f74612b7b8f218c05383"
+  },
+  {
+    "path": "docs/PROCEDURAL_STORY_AND_CONTENT_CONSIDERATIONS_2026-10-14.md",
+    "line": 197,
+    "line_sha256": "fa97ea4face21ebb47499baf18261723ed34de9b3e069eb39a8987ed0339fdbc"
+  },
+  {
+    "path": "docs/PROCEDURAL_STORY_AND_CONTENT_CONSIDERATIONS_2026-10-14.md",
+    "line": 198,
+    "line_sha256": "e1bb951844f48d8fcc79935b4ddf6f7762a8be4da083374b2c40a5cbe362ac07"
+  },
+  {
+    "path": "docs/PROCEDURAL_STORY_AND_CONTENT_CONSIDERATIONS_2026-10-14.md",
+    "line": 230,
+    "line_sha256": "c29e3f189066c39c8c9950dca3f8444dcad7ad381397094c665409c738aaacee"
+  },
+  {
+    "path": "docs/PROCEDURAL_STORY_AND_CONTENT_CONSIDERATIONS_2026-10-14.md",
+    "line": 239,
+    "line_sha256": "77f55e04f510a9f4030b1fb871a0a5fafda08e0f71d781962027ab29af2af387"
+  },
+  {
+    "path": "docs/PROCEDURAL_STORY_AND_CONTENT_CONSIDERATIONS_2026-10-14.md",
+    "line": 299,
+    "line_sha256": "ace5b4c6927549117b1d2e3be18a49358a166ba5ad587ea62a8fad2197a5935a"
+  },
+  {
+    "path": "docs/PROCEDURAL_STORY_AND_CONTENT_CONSIDERATIONS_2026-10-14.md",
+    "line": 300,
+    "line_sha256": "822e1d560c7ad9ff2190a6f9f30da8e1ac40936e0fff8ae20b24c07e32a21085"
+  },
+  {
+    "path": "docs/PROCEDURAL_STORY_AND_CONTENT_CONSIDERATIONS_2026-10-14.md",
+    "line": 314,
+    "line_sha256": "bd4029a9e640810851052a741e36936e2795f86e82716d12fb10dace6632abbe"
+  },
+  {
+    "path": "docs/PROCEDURAL_STORY_AND_CONTENT_CONSIDERATIONS_2026-10-14.md",
+    "line": 315,
+    "line_sha256": "9ad4568809fa9f31542045297e1aed2a06e2a104ab69d3242addfc993d9943cc"
+  },
+  {
+    "path": "docs/PROCEDURAL_STORY_AND_CONTENT_CONSIDERATIONS_2026-10-14.md",
+    "line": 321,
+    "line_sha256": "55238dd2caeaee84408396b93d5c4470b6362dad513d177c8a709652fcbbf8e4"
+  },
+  {
+    "path": "docs/PROCEDURAL_STORY_AND_CONTENT_CONSIDERATIONS_2026-10-14.md",
+    "line": 383,
+    "line_sha256": "886cbe24b350473abf29344c17ee4f246266b41e2c77aa9eee4dca4c06ff89ed"
+  },
+  {
+    "path": "docs/PROCEDURAL_STORY_AND_CONTENT_CONSIDERATIONS_2026-10-14.md",
+    "line": 391,
+    "line_sha256": "83739dff910fa28d1fae1c174996e70b125efb1cf4bbd09bdf92dda5c6581ae5"
+  },
+  {
+    "path": "docs/PROCEDURAL_STORY_AND_CONTENT_CONSIDERATIONS_2026-10-14.md",
+    "line": 393,
+    "line_sha256": "d0ab1a7f4dccd9a585636eb9b551c60572f553117e11b679a4daa650436de725"
+  },
+  {
+    "path": "docs/PROCEDURAL_STORY_AND_CONTENT_CONSIDERATIONS_2026-10-14.md",
+    "line": 414,
+    "line_sha256": "59765d11ffae5d5ad72a112b87b2b60e5f5d665ea4f0e4a07b4b740b5cd98a26"
+  },
+  {
+    "path": "docs/PROCEDURAL_STORY_AND_CONTENT_CONSIDERATIONS_2026-10-14.md",
+    "line": 422,
+    "line_sha256": "de70800599ad0f2e200e40ab9ff58a71d18cafbeea8065afd83312ba006a888a"
+  },
+  {
+    "path": "docs/PROCEDURAL_STORY_AND_CONTENT_CONSIDERATIONS_2026-10-14.md",
+    "line": 435,
+    "line_sha256": "8aeb0ea630ffd77599782de94d4fc2d7fd82a7dbadc4bb0ae1da1e82a5f767d0"
+  },
+  {
+    "path": "docs/PROCEDURAL_STORY_AND_CONTENT_CONSIDERATIONS_2026-10-14.md",
+    "line": 464,
+    "line_sha256": "74f3142d7ed59bdfbcc0bd1662577fe04197913b2bdfe859527887f25d0bcf78"
+  },
+  {
+    "path": "docs/PROCEDURAL_STORY_AND_CONTENT_CONSIDERATIONS_2026-10-14.md",
+    "line": 476,
+    "line_sha256": "1be46348dd89b5f530d03b280b568b9b3389a13637985dc2863b5c4bf29376a2"
+  },
+  {
+    "path": "docs/PROCEDURAL_STORY_AND_CONTENT_CONSIDERATIONS_2026-10-14.md",
+    "line": 509,
+    "line_sha256": "6cc8e1b00ed0c58c6d33d419002e3e1e198d120dde9c2cb638ead75c20507109"
+  },
+  {
+    "path": "docs/RULES_FROM_SCRATCH.md",
+    "line": 28,
+    "line_sha256": "e22a57936cbb08712bd450bdcd9cf0c63ff8891cefbaf7612464e552c1c1ed5d"
+  },
+  {
+    "path": "docs/RULES_FROM_SCRATCH.md",
+    "line": 149,
+    "line_sha256": "6e1515f33041ee3ba4e8e4ae677ca1866d984479ee243a19bb56aa02ad84e2a4"
+  },
+  {
+    "path": "docs/RULES_FROM_SCRATCH.md",
+    "line": 168,
+    "line_sha256": "eae93c6b5899c8af0328dff337fd9b70f70af7940e747f61fa61ae93f3cac08c"
+  },
+  {
+    "path": "docs/RULES_FROM_SCRATCH.md",
+    "line": 174,
+    "line_sha256": "df8318f33d1d3feabe52fb492ec2438ccbe768be82f64852d13dd20f15c0223f"
+  },
+  {
+    "path": "docs/RULES_FROM_SCRATCH.md",
+    "line": 181,
+    "line_sha256": "2ec09639e5f86a005a5874f450dd9b85e3c0e7ad583316df38a7aa49abc35ade"
+  },
+  {
+    "path": "docs/RULES_FROM_SCRATCH.md",
+    "line": 186,
+    "line_sha256": "76eacab43d79f4adc48d8be206333e7cb7adef0ddab3ebf2a223c82f9feef476"
+  },
+  {
+    "path": "docs/RULES_FROM_SCRATCH.md",
+    "line": 190,
+    "line_sha256": "50a0254be74e413b04c02b51912326b25ca4e616e7726f6c503ce8c10b89379c"
+  },
+  {
+    "path": "docs/RULES_FROM_SCRATCH.md",
+    "line": 202,
+    "line_sha256": "b1dda8b992c1557a983d9dbe76bed114271914a79cba3442f93488375b93d4ba"
+  },
+  {
+    "path": "docs/SELVES_AND_ECHOES.md",
+    "line": 20,
+    "line_sha256": "27d5a01b19ccb61322f9ec4df58ff9bd150fd33051203b252b7a639b9a4632e9"
+  },
+  {
+    "path": "docs/SELVES_AND_ECHOES.md",
+    "line": 97,
+    "line_sha256": "9878f47f025d460a359d2b0da783dd2d1fde7347c0215e72cbf70fd9628821c1"
+  },
+  {
+    "path": "docs/STARTS_ENDINGS_AND_RANDOMNESS_PALETTE.md",
+    "line": 34,
+    "line_sha256": "1a572ad782182a68439cc9b081bb3b69f54b8cf9baa8163334e095cd106ad380"
+  },
+  {
+    "path": "docs/STARTS_ENDINGS_AND_RANDOMNESS_PALETTE.md",
+    "line": 39,
+    "line_sha256": "0a954708bdf60854a822d349c6294b026710f56fc06ef7b9550463613139b273"
+  },
+  {
+    "path": "docs/STARTS_ENDINGS_AND_RANDOMNESS_PALETTE.md",
+    "line": 43,
+    "line_sha256": "2aceaf84ad3e8dcca3cf24cc5730788f18269dbb93389448ec7dfa1ca4bfd34c"
+  },
+  {
+    "path": "docs/STARTS_ENDINGS_AND_RANDOMNESS_PALETTE.md",
+    "line": 44,
+    "line_sha256": "5d6fa3bdf3772bd7663bd02da04574c65081b12d58d76f042f4e06160761dd95"
+  },
+  {
+    "path": "docs/STARTS_ENDINGS_AND_RANDOMNESS_PALETTE.md",
+    "line": 46,
+    "line_sha256": "03b039daffee003f0a117c3fdc7206276654e5184ff85bd2a9225077a6c888bb"
+  },
+  {
+    "path": "docs/STARTS_ENDINGS_AND_RANDOMNESS_PALETTE.md",
+    "line": 47,
+    "line_sha256": "032e907ec7cdea8429da0863abecd71896340e3ee264c2ff98141899644b83aa"
+  },
+  {
+    "path": "docs/STARTS_ENDINGS_AND_RANDOMNESS_PALETTE.md",
+    "line": 49,
+    "line_sha256": "f7342e45a6701f71477b094c784eb58e3a37085f7ce2b4f9021b3d14b62a515a"
+  },
+  {
+    "path": "docs/STARTS_ENDINGS_AND_RANDOMNESS_PALETTE.md",
+    "line": 52,
+    "line_sha256": "0bd849af91212cd9e194e2fdc5b08d57123c354e4ebaf958a55997ff4b477264"
+  },
+  {
+    "path": "docs/STARTS_ENDINGS_AND_RANDOMNESS_PALETTE.md",
+    "line": 59,
+    "line_sha256": "1c49ad8fce63dc8864eb25b15ec08f87708518baadf2c3959c170d3f4a364e04"
+  },
+  {
+    "path": "docs/STARTS_ENDINGS_AND_RANDOMNESS_PALETTE.md",
+    "line": 60,
+    "line_sha256": "4cb144e96cadda43ef9f2b78e3070a7193fc12423d996f6464852cd6a3fc46d0"
+  },
+  {
+    "path": "docs/STARTS_ENDINGS_AND_RANDOMNESS_PALETTE.md",
+    "line": 62,
+    "line_sha256": "b4816275f995def35e5ccff89efe944e034352a6a03fe876bd765b6b5cfd952e"
+  },
+  {
+    "path": "docs/STARTS_ENDINGS_AND_RANDOMNESS_PALETTE.md",
+    "line": 65,
+    "line_sha256": "481978ef5a9bb89a799396131a80c7e0b7978795678b29ed38c85db18b1d2ede"
+  },
+  {
+    "path": "docs/STARTS_ENDINGS_AND_RANDOMNESS_PALETTE.md",
+    "line": 74,
+    "line_sha256": "457cf48bb5897e989454cd5dc3cf110c776e776d9db7ac0b8287f3c69be74336"
+  },
+  {
+    "path": "docs/STARTS_ENDINGS_AND_RANDOMNESS_PALETTE.md",
+    "line": 88,
+    "line_sha256": "674cdc825acb65ffabb5935d34238d3156f1c5230541bf997c1c497acf633965"
+  },
+  {
+    "path": "docs/STARTS_ENDINGS_AND_RANDOMNESS_PALETTE.md",
+    "line": 93,
+    "line_sha256": "be5a13aa4dd7a722f19c165336dcb04a6c12a2a72cf3093ffe508278b9a0ba66"
+  },
+  {
+    "path": "docs/TIMELINES_AND_DIVERGENCE.md",
+    "line": 17,
+    "line_sha256": "ebc19fa938b8c7ddf6f837195bde6c31a3eedcd4e0a04dba52ae9185b7c316c5"
+  },
+  {
+    "path": "docs/TIMELINES_AND_DIVERGENCE.md",
+    "line": 25,
+    "line_sha256": "d3107538ec371201da48f0416baab1edebab9b77f388696d00e948913ffd848a"
+  },
+  {
+    "path": "docs/TIMELINES_AND_DIVERGENCE.md",
+    "line": 49,
+    "line_sha256": "c42757c29d0f00bb2e4d8a4d57da1a2da5628531c4d45e29b3294aeee777c259"
+  },
+  {
+    "path": "docs/TIMELINES_AND_DIVERGENCE.md",
+    "line": 68,
+    "line_sha256": "a79be0bae51ed9a1f3635471818c1033fb29175c0d91709c5f1fa7e3e1681ec1"
+  },
+  {
+    "path": "docs/TIMELINES_AND_DIVERGENCE.md",
+    "line": 71,
+    "line_sha256": "4721619569fa57244b7c9c789af6c54489f0d847f0aba498217734828292ddd9"
+  },
+  {
+    "path": "docs/TIMELINES_AND_DIVERGENCE.md",
+    "line": 80,
+    "line_sha256": "9f9f1d5779c320dfe4363a9f491a975d22a0210a57d62fe0b40a18c4a9ec2505"
+  },
+  {
+    "path": "docs/TIMELINES_AND_DIVERGENCE.md",
+    "line": 176,
+    "line_sha256": "b68213e383edf8ac35176bf9a99a58b7f16fd619526b7f1c98e1336c2bbb3839"
+  },
+  {
+    "path": "docs/TIMELINES_AND_DIVERGENCE.md",
+    "line": 178,
+    "line_sha256": "6f0e016bae67b869e4f6f0419f28d4a71cd8e8e99eab623453859bf6fcbc122f"
+  },
+  {
+    "path": "docs/TIMELINES_AND_DIVERGENCE.md",
+    "line": 196,
+    "line_sha256": "448213a451e7c5f2b4a731e1a444e21a424e78e77fe5158b2d73c042ef264f97"
+  },
+  {
+    "path": "docs/TIMELINES_AND_DIVERGENCE.md",
+    "line": 198,
+    "line_sha256": "ef8cd45a8d5d97f6d5dc87d300aed5b06954cc7b9e3a73ed7d87a202410947ff"
+  },
+  {
+    "path": "docs/TIMELINES_AND_DIVERGENCE.md",
+    "line": 232,
+    "line_sha256": "413f263663de51962cf74eeac602e65bf1762ea097eccd8c2433819aa1315452"
+  },
+  {
+    "path": "docs/TIMELINES_AND_DIVERGENCE.md",
+    "line": 236,
+    "line_sha256": "b1a669a6cafe2f7657c2aa2121510316f2ebdfec9400642c39c5eff130b3eaf3"
+  },
+  {
+    "path": "docs/TIMELINES_AND_DIVERGENCE.md",
+    "line": 239,
+    "line_sha256": "4e74eff949e249adcdf297d13bbd568a3cf2aa92121d0d50550a7dcb0ac7907f"
+  },
+  {
+    "path": "docs/TIMELINES_AND_DIVERGENCE.md",
+    "line": 243,
+    "line_sha256": "a7b687762421234883e98503c76fc48a68dffcdb37a04a215da4798fb94e4ca8"
+  },
+  {
+    "path": "docs/TIMELINES_AND_DIVERGENCE.md",
+    "line": 254,
+    "line_sha256": "07fa935ff97a23e951ca7e8db7df5d8e1833f988bbc2bf1ab9b9a56171fb767f"
+  },
+  {
+    "path": "docs/TIMELINES_AND_DIVERGENCE.md",
+    "line": 267,
+    "line_sha256": "7a5888d0632905575e2c0bd8fc3039c3a40207a0ed527c0541bee9460bdc4330"
+  },
+  {
+    "path": "docs/TIMELINES_AND_DIVERGENCE.md",
+    "line": 272,
+    "line_sha256": "2fb24fe435d0eee2d10450e79e5e160b5ec1d1ad684066d15f7faf2b842afd40"
+  },
+  {
+    "path": "docs/TIMELINES_AND_DIVERGENCE.md",
+    "line": 338,
+    "line_sha256": "68ba0e86214acde44d04aae8875054a7b953841631458a0bb016c846c9aa9ac8"
+  },
+  {
+    "path": "docs/TIMELINES_AND_DIVERGENCE.md",
+    "line": 359,
+    "line_sha256": "b24e32efd0c1dd950714d262b31b3b50a011df2c7d7d1056c0891bf324818d66"
+  },
+  {
+    "path": "docs/TIMELINES_AND_DIVERGENCE.md",
+    "line": 396,
+    "line_sha256": "c1e5c91f442a30f7551a81f146aadcce871d19d3d2e80d523e6268d72bb8d55c"
+  },
+  {
+    "path": "docs/TIMELINES_AND_DIVERGENCE.md",
+    "line": 420,
+    "line_sha256": "8aaeba4d41245c12388149a1280682a5927c8857e9c545b85eeb0b3354cb7ca0"
+  },
+  {
+    "path": "docs/TIMELINES_AND_DIVERGENCE.md",
+    "line": 433,
+    "line_sha256": "c8cd84602ed1d079f58de941c1a998dc150876fad90aff384cd7350ac09fd369"
+  },
+  {
+    "path": "docs/TIMELINES_AND_DIVERGENCE.md",
+    "line": 437,
+    "line_sha256": "50123650a34a54f05c87794b52922e7cb9ce0627826b4690e39ca12309c4e81e"
+  },
+  {
+    "path": "docs/TIMELINES_AND_DIVERGENCE.md",
+    "line": 461,
+    "line_sha256": "3220ec7be9e987136c51dae6269f7b4436ad803f87acdf4e878e756f9b40102a"
+  },
+  {
+    "path": "docs/TIMELINES_AND_DIVERGENCE.md",
+    "line": 490,
+    "line_sha256": "69974d378a90eaffcdc144f37a3651fe6095ba5446efec5a43dac87aea2ab6bd"
+  },
+  {
+    "path": "docs/TIMELINES_AND_DIVERGENCE.md",
+    "line": 503,
+    "line_sha256": "49bb1c5e3bf0dabbf84df5a3df5e8da45274ef7c20e0084064eb7d769b89b7e0"
+  },
+  {
+    "path": "docs/TIMELINES_AND_DIVERGENCE.md",
+    "line": 511,
+    "line_sha256": "dfc3d1c2906343e9b711b6c63723beefd93715fbadb4ec2801983c7b33e52465"
+  },
+  {
+    "path": "docs/TIME_KEEPERS_AND_VARIANTS.md",
+    "line": 84,
+    "line_sha256": "214a05c74b23456235d0dcbc3b19e8865ef466c46e63acb9bce7c2a52b2b0bb0"
+  },
+  {
+    "path": "docs/TIME_KEEPERS_AND_VARIANTS.md",
+    "line": 431,
+    "line_sha256": "5844a7dd686228dec151824bd786ee551bda94903ba4240c98cc6a3d971b2142"
+  },
+  {
+    "path": "docs/TIME_KEEPERS_AND_VARIANTS.md",
+    "line": 596,
+    "line_sha256": "e008c7cbc07d1346e879988d14173f71eb55ea08e37363f0402296ed43cbba34"
+  },
+  {
+    "path": "docs/TIME_KEEPERS_AND_VARIANTS.md",
+    "line": 600,
+    "line_sha256": "67edd1d9525284984dd1ed9719998effaa94713412e1ce60e46931fdd6d2e709"
+  },
+  {
+    "path": "docs/TIME_KEEPERS_AND_VARIANTS.md",
+    "line": 601,
+    "line_sha256": "17b1285519914e6d6f3bcb9850c62dad34a6c910f3e85692d012f8f59b25e3fd"
+  },
+  {
+    "path": "docs/TIME_KEEPERS_AND_VARIANTS.md",
+    "line": 614,
+    "line_sha256": "203619e49ef9124987ee762a934c9c5c1b429abbce409d36083af2a98562c548"
+  },
+  {
+    "path": "docs/USER_VISION.md",
+    "line": 2262,
+    "line_sha256": "9bade83ebf89444e10bfc1f2523a0388fa617858dce2ea9925249815a27a0e99"
+  },
+  {
+    "path": "docs/emergent/E1_SEEDED_STREAMS.md",
+    "line": 87,
+    "line_sha256": "8f9f47adbc9e3f156f651c76da94a73875c970c1e6fca6806e8dcf192d9448fb"
+  },
+  {
+    "path": "docs/emergent/E1_SEEDED_STREAMS.md",
+    "line": 145,
+    "line_sha256": "cae1daf9fc4cdd1bf38e89554e6765b77824c68c72ff81110c665e71110c8c72"
+  },
+  {
+    "path": "docs/emergent/E1_SEEDED_STREAMS.md",
+    "line": 164,
+    "line_sha256": "ee87c63c73c6de44b05f93dca964e482410b8788b39731b94bba4ea6bec789f1"
+  },
+  {
+    "path": "docs/emergent/E1_SEEDED_STREAMS.md",
+    "line": 171,
+    "line_sha256": "56f8f7b2a9d14f6f2d281ba30ba5173cca08b5b901bf3a03a6b7f6147206a453"
+  },
+  {
+    "path": "docs/emergent/E1_SEEDED_STREAMS.md",
+    "line": 274,
+    "line_sha256": "a52aecd8ca0cbc8f2b4edb572898f6750a3a22e316364f5823a1e1f760cc81aa"
+  },
+  {
+    "path": "docs/emergent/E2_STORYLETS.md",
+    "line": 118,
+    "line_sha256": "bff60879e0b69ebf5e7ac20b9f4591ac00f9e0fa2a5fc203a5cf272500e83ed7"
+  },
+  {
+    "path": "docs/emergent/E2_STORYLETS.md",
+    "line": 152,
+    "line_sha256": "e7d922933d0faf7d980328d894a29b84cc1acdc40f4462bfa660cf792f672d3e"
+  },
+  {
+    "path": "docs/emergent/E2_STORYLETS.md",
+    "line": 155,
+    "line_sha256": "797ccf2da7d4cc71d5ad78972ce27b2d61b89e538be2884fc77a55ba6376fdd4"
+  },
+  {
+    "path": "docs/emergent/E2_STORYLETS.md",
+    "line": 186,
+    "line_sha256": "f51f0b194913a5d40222096a841583a8f7987aa0821a06cbe51a6e48cdab2929"
+  },
+  {
+    "path": "docs/emergent/E2_STORYLETS.md",
+    "line": 267,
+    "line_sha256": "59b66266ccd258c8aff69a02b59fee7ea7b3536ad30deac6fe14202a4196a1c7"
+  },
+  {
+    "path": "docs/emergent/E2_STORYLETS.md",
+    "line": 293,
+    "line_sha256": "9ec196e40bfa12d2ea64b57b4900de9662a6e21fd3927aea444355bae446c57f"
+  },
+  {
+    "path": "docs/emergent/E2_STORYLETS.md",
+    "line": 303,
+    "line_sha256": "127e342842f88e5564e914b110a8c74b627904ce395030b76463db4f540c8211"
+  },
+  {
+    "path": "docs/emergent/E3_LIVING_PEOPLE.md",
+    "line": 158,
+    "line_sha256": "6060a97aecc4d484e4730e31148105bb9105f5b166ea0fa50d0453cf427651aa"
+  },
+  {
+    "path": "docs/emergent/E3_LIVING_PEOPLE.md",
+    "line": 249,
+    "line_sha256": "6d4865e5b483e873d8ff21eab61c7e1f9bb89f5777c5c3d8535c94eb9caa77b2"
+  },
+  {
+    "path": "docs/emergent/E3_LIVING_PEOPLE.md",
+    "line": 526,
+    "line_sha256": "78cc062727ac42031a125dbddb65354c1468c3c5199387009ded81c0b0040969"
+  },
+  {
+    "path": "docs/emergent/E3_LIVING_PEOPLE.md",
+    "line": 564,
+    "line_sha256": "0562f93bb499c7625109c9c009d62adb426c6e48454b4ccded8114f790ec0032"
+  },
+  {
+    "path": "docs/emergent/E3_LIVING_PEOPLE.md",
+    "line": 602,
+    "line_sha256": "73fbcf530c07905069fd190797d006042af08cf54427ec95936889ebc3ae69bb"
+  },
+  {
+    "path": "docs/emergent/E4_TAGS_AND_RULES.md",
+    "line": 129,
+    "line_sha256": "5a27cb8fbdb0983dd111faf27faa428592b6232a189eb580a4f5d1ee686da306"
+  },
+  {
+    "path": "docs/emergent/E4_TAGS_AND_RULES.md",
+    "line": 189,
+    "line_sha256": "0e55ec28905666fadf8dbac508794c23cb775384a1edb233d1fd8c4fec442f81"
+  },
+  {
+    "path": "docs/emergent/E5_STORYTELLER_AND_FATE.md",
+    "line": 150,
+    "line_sha256": "1c2d878a2902cf34cdb567aa06177cddf7c47ac40786161d006244d86028e548"
+  },
+  {
+    "path": "docs/emergent/E5_STORYTELLER_AND_FATE.md",
+    "line": 324,
+    "line_sha256": "689cf19dfdfabcfd069625d0c5289259bbfcdf04b41dd94546ff44e5efc3c700"
+  },
+  {
+    "path": "docs/emergent/E5_STORYTELLER_AND_FATE.md",
+    "line": 328,
+    "line_sha256": "5a354d849cd24b71ab0b02c8abd48a1fba7fa39dfb3b466028fd42eefe82a09b"
+  },
+  {
+    "path": "docs/emergent/E7_OBSERVATION_AND_MYSTERY.md",
+    "line": 134,
+    "line_sha256": "af880948cd9667115abb6f9d198d70eb1fcf3530d974e758900297114f84325a"
+  },
+  {
+    "path": "docs/emergent/E8_POWER_ASPECTS.md",
+    "line": 111,
+    "line_sha256": "322befe5b5676c39c35ac45de711ecb342a130d3f37745233304e5b890c25106"
+  },
+  {
+    "path": "docs/emergent/E9_WORLD_LAWS.md",
+    "line": 134,
+    "line_sha256": "f4853e09c2e576645ba465707a4296477414df2a190ac9976588f423ea4ea860"
+  },
+  {
+    "path": "docs/emergent/E9_WORLD_LAWS.md",
+    "line": 162,
+    "line_sha256": "9300fe68bf2e6a87f67c5cf86bde7ac73a8bc0bf2de50230f067f54062b107f4"
+  },
+  {
+    "path": "docs/emergent/E9_WORLD_LAWS.md",
+    "line": 169,
+    "line_sha256": "149171c0ff174a271bd7f078fbb52c69a1a74eac473994c8d40ec7875742c557"
+  },
+  {
+    "path": "docs/gm/dispatch/runs-and-endings-2026-10-14/r1/REPORT.md",
+    "line": 17,
+    "line_sha256": "e08b2776289e035cb21174676fe20b8b8f330b32b758892a6dca3beb449e3eb4"
+  },
+  {
+    "path": "docs/gm/dispatch/runs-and-endings-2026-10-14/r1/REPORT.md",
+    "line": 18,
+    "line_sha256": "32a027c29ec0c2a5f56dd49ecc2aafec81874e22eb9c5aaccf0cf8cc6915da12"
+  },
+  {
+    "path": "docs/gm/dispatch/runs-and-endings-2026-10-14/r1/REPORT.md",
+    "line": 19,
+    "line_sha256": "7a59aecce0e145bf26525062cd307b2ff79bd6a26978fcf3457d76fc35539764"
+  },
+  {
+    "path": "docs/gm/dispatch/runs-and-endings-2026-10-14/r1/REPORT.md",
+    "line": 20,
+    "line_sha256": "9892dc919d1cf075a62d38ef9f6a13f37176cfaf0b7f67e32e582c0ee6bd0e8b"
+  },
+  {
+    "path": "docs/gm/dispatch/runs-and-endings-2026-10-14/r1/REPORT.md",
+    "line": 21,
+    "line_sha256": "feb7424a72e71b0d55e4aca6f5c7acbd6185de5cd6f6d602c7c12a611861456c"
+  },
+  {
+    "path": "docs/gm/dispatch/runs-and-endings-2026-10-14/r1/REPORT.md",
+    "line": 22,
+    "line_sha256": "b495301fd34721c79274d58b2f2310a450a3df093bbc4d59ea36f261291a959b"
+  },
+  {
+    "path": "docs/gm/dispatch/runs-and-endings-2026-10-14/r1/REPORT.md",
+    "line": 23,
+    "line_sha256": "624aeb4f2e41e8f6a08d39c9bd746dbcd12f1ea47f36fa83630358d9dc780028"
+  },
+  {
+    "path": "docs/gm/dispatch/runs-and-endings-2026-10-14/r1/REPORT.md",
+    "line": 24,
+    "line_sha256": "af368c082eb0bb7158417eb27f23e1066521ce190dfbee47d1f2bfae18238b4e"
+  },
+  {
+    "path": "docs/gm/dispatch/runs-and-endings-2026-10-14/r1/REPORT.md",
+    "line": 25,
+    "line_sha256": "45ccdc6e556facd77b17e598aecb78357308b2f8107c63c2dd8bbcb1355d377e"
+  },
+  {
+    "path": "docs/gm/dispatch/runs-and-endings-2026-10-14/r1/REPORT.md",
+    "line": 26,
+    "line_sha256": "27d544ef9b1c8f11d1599094b9a4c9ec893980f155f85f40e1430bcd19997850"
+  },
+  {
+    "path": "docs/gm/dispatch/runs-and-endings-2026-10-14/r1/REPORT.md",
+    "line": 27,
+    "line_sha256": "caf8336dc88f0c562d6aa727229cd29757679b49fd07a8313563b9b4c117be93"
+  },
+  {
+    "path": "docs/gm/dispatch/runs-and-endings-2026-10-14/r1/REPORT.md",
+    "line": 28,
+    "line_sha256": "d59eb287b6d7d1defc8f854f598cdbef559278354e897745d63b7979a7cb1bbd"
+  },
+  {
+    "path": "docs/gm/dispatch/runs-and-endings-2026-10-14/r1/REPORT.md",
+    "line": 29,
+    "line_sha256": "007e6135d475fd8041f7cc3fe7d0a5cd2316222046db7dc515b2eaa6f98548ef"
+  },
+  {
+    "path": "docs/gm/dispatch/runs-and-endings-2026-10-14/r1/REPORT.md",
+    "line": 30,
+    "line_sha256": "d983864d5e1f42cc2d4ee18d5d9c0bb737cdc20212ee0c32c5e0d40e8c80e3fe"
+  },
+  {
+    "path": "docs/gm/dispatch/runs-and-endings-2026-10-14/r1/REPORT.md",
+    "line": 31,
+    "line_sha256": "b27d513c62eb3fd0c1bc78571737c203baeed0bd9c3788f420942f3e6c1ce10a"
+  },
+  {
+    "path": "docs/research/DEATH_AND_RESET_CONSIDERATIONS_2026-10-10.md",
+    "line": 26,
+    "line_sha256": "5af6b8589c5c4ed00f6f21cfde304d6f8eb1fe0d80e8f5f3d5fe4981d77f49fe"
+  },
+  {
+    "path": "docs/research/DEATH_AND_RESET_CONSIDERATIONS_2026-10-10.md",
+    "line": 28,
+    "line_sha256": "3cdfab87312b80365fd812718bffd2918ca4eafaca135b5e470ddfde6b4035c6"
+  },
+  {
+    "path": "docs/research/DEATH_AND_RESET_CONSIDERATIONS_2026-10-10.md",
+    "line": 33,
+    "line_sha256": "dd6cd18b04439e023773546a2736957eef0bddf5fb58cbfb24c0769f2c672ac7"
+  },
+  {
+    "path": "docs/research/DEATH_AND_RESET_CONSIDERATIONS_2026-10-10.md",
+    "line": 45,
+    "line_sha256": "cadb5fae0f2ae4de9ee71efdd9ae198260b156ec70356aea94e51704d4b08fb6"
+  },
+  {
+    "path": "docs/research/DEATH_AND_RESET_CONSIDERATIONS_2026-10-10.md",
+    "line": 62,
+    "line_sha256": "125f31ba772e35312556ea3b794121a46e62d9c6caa662cf57a6a435f74deb01"
+  },
+  {
+    "path": "docs/research/DEATH_AND_RESET_CONSIDERATIONS_2026-10-10.md",
+    "line": 112,
+    "line_sha256": "40d94758979eaf853886bc53e92b53fb1d749092d7a59746cf0a10c5cbe5db22"
+  },
+  {
+    "path": "docs/research/SOURCE_DEEP_DIVE_PLAYBOOK.md",
+    "line": 275,
+    "line_sha256": "d59981f8f04f2a0ebb443f58b059eba514ae639fa437288a757e4f55fe74f20a"
+  },
+  {
+    "path": "docs/worlds/CHOICES_THAT_GATE_CHOICES_2026-10-13.md",
+    "line": 13,
+    "line_sha256": "87ed465a965cdedea4d2ce6147f1eb2ebccc58c1d703089cc0ad27fafaf4840d"
+  },
+  {
+    "path": "docs/worlds/CONTINUATION_CHOICE_CONSIDERATION_2026-10-13.md",
+    "line": 15,
+    "line_sha256": "1d811e583eaad702c6e1bbe3286668789d1a23ef35b2c2b1d0ceb1dc96398db0"
+  },
+  {
+    "path": "docs/worlds/CONTINUATION_CHOICE_CONSIDERATION_2026-10-13.md",
+    "line": 31,
+    "line_sha256": "c2085545a4c0be87eb2b2ada018e6e314f73525ee53d5bddd1fd3e4fde85b6c2"
+  },
+  {
+    "path": "docs/worlds/CONTINUATION_CHOICE_CONSIDERATION_2026-10-13.md",
+    "line": 35,
+    "line_sha256": "ff4e50b3d0ff0b93ef4a2fe76ffeaca02bd2853ba1d2098c2e3eaca1627e692e"
+  },
+  {
+    "path": "docs/worlds/CONTINUATION_CHOICE_CONSIDERATION_2026-10-13.md",
+    "line": 36,
+    "line_sha256": "e3bc17a7cc7b8077123ec06c0781f73e347d875e7a8add2d1e211659b8310f37"
+  },
+  {
+    "path": "docs/worlds/CONTINUATION_CHOICE_CONSIDERATION_2026-10-13.md",
+    "line": 37,
+    "line_sha256": "302378f8926c292e5924a1ae233faa30a9796134497e45d2ee4f113ab937d3a0"
+  },
+  {
+    "path": "docs/worlds/CONTINUATION_CHOICE_CONSIDERATION_2026-10-13.md",
+    "line": 46,
+    "line_sha256": "a818ffd07cf98e242bc5732d6c604d7551b2fd1a709c14820f09f964377019a8"
+  },
+  {
+    "path": "docs/worlds/CONTINUATION_CHOICE_CONSIDERATION_2026-10-13.md",
+    "line": 55,
+    "line_sha256": "43678135eb5b30d54f9d520ede38cb26eedadef7940ebaa1c90fea939d9c4ee2"
+  },
+  {
+    "path": "docs/worlds/DIALOGUE_AND_INTERACTIONS.md",
+    "line": 28,
+    "line_sha256": "b5a713918a6c72a746b55fa9b7db5a55d016a58f3dce0d0d3001ec69ea2948e0"
+  },
+  {
+    "path": "docs/worlds/DIALOGUE_AND_INTERACTIONS.md",
+    "line": 34,
+    "line_sha256": "683f4c2b2d5b4255e5cf0c3dc51e087c85870184cd8d67ddb627cd86e58afa42"
+  },
+  {
+    "path": "docs/worlds/DIALOGUE_AND_INTERACTIONS.md",
+    "line": 46,
+    "line_sha256": "44ac3dd2e3cd8e5c313a4ddcfb19029c2511c121b85af2e169c4227c726442eb"
+  },
+  {
+    "path": "docs/worlds/DIALOGUE_AND_INTERACTIONS.md",
+    "line": 86,
+    "line_sha256": "3e10af0b74dd33eb9e602f282692eef9a667104555ed4cf44fc9b1eb13c2216c"
+  },
+  {
+    "path": "docs/worlds/DIALOGUE_AND_INTERACTIONS.md",
+    "line": 121,
+    "line_sha256": "31a79b70507e9fd525c965355e7ad4e3e77dbfd7aab4e41cf96e014bf26048aa"
+  },
+  {
+    "path": "docs/worlds/FEATURE_UNLOCK_AND_CHEAT_ACQUISITION_PROCESS_2026-10-13.md",
+    "line": 32,
+    "line_sha256": "fbb378c0bf3fc5df41ed5054106664579073eaa56934253399373b95cbf90c30"
+  },
+  {
+    "path": "docs/worlds/FIRST_CHEATS_AND_DEATH_REWARDS_2026-10-13.md",
+    "line": 34,
+    "line_sha256": "18dbc2af909a90dd00c95c26b839d804de0da2047bec15f4ab6d779e6ce1d38a"
+  },
+  {
+    "path": "docs/worlds/LORE_AND_CONTINUITY.md",
+    "line": 23,
+    "line_sha256": "3c4704dd1c31b4bbd6abd5846acd68c441eadf50d090dbcf77e56aaa5e36358d"
+  },
+  {
+    "path": "docs/worlds/LORE_AND_CONTINUITY.md",
+    "line": 27,
+    "line_sha256": "adbb3ee9c7594d1685e289acffa92d6d42c25b7f019ec1d89cd364a5c36d4855"
+  },
+  {
+    "path": "docs/worlds/NONHUMAN_MONSTER_SIDE_2026-10-14.md",
+    "line": 81,
+    "line_sha256": "7323a989480982ad44c4ec1a75a95f8fdfe6aced3fe509c5044884cbddc2079f"
+  },
+  {
+    "path": "docs/worlds/NONHUMAN_PROGRESSION_AND_BALANCE_2026-10-14.md",
+    "line": 32,
+    "line_sha256": "6f2f2171fa67a5523b4bb847585e3457ff1f86cde56175313a99409fafd303a3"
+  },
+  {
+    "path": "docs/worlds/NONHUMAN_SOCIETY_LAW_AND_ECONOMY_2026-10-14.md",
+    "line": 84,
+    "line_sha256": "8357c592a7f1c38ce311cb0b41dc71e7f59812378f44461e7c28ae7440da6c78"
+  },
+  {
+    "path": "docs/worlds/NONHUMAN_SOCIETY_LAW_AND_ECONOMY_2026-10-14.md",
+    "line": 218,
+    "line_sha256": "272e6b3367fbd54058648909ebcea1319c0a265581425739ce6fa587d553db08"
+  },
+  {
+    "path": "docs/worlds/NONHUMAN_SOCIETY_LAW_AND_ECONOMY_2026-10-14.md",
+    "line": 226,
+    "line_sha256": "47038321bcb73088358f8f0a555e3082542b32ee6c73fb2e7ece50ef32e20acf"
+  },
+  {
+    "path": "docs/worlds/NONHUMAN_STARTS_PLAY_2026-10-14.md",
+    "line": 57,
+    "line_sha256": "b623712a5fda13d17a8406b5e32e5dbf2bd734d7dfdab27ba5bdf898934b6982"
+  },
+  {
+    "path": "docs/worlds/NONHUMAN_STARTS_PLAY_2026-10-14.md",
+    "line": 89,
+    "line_sha256": "891ea9c03d3786679715531d3478a788451f33578c6fcc491167488f6a3152ce"
+  },
+  {
+    "path": "docs/worlds/ORIGINS_AND_WORLD_TIMELINES.md",
+    "line": 84,
+    "line_sha256": "9fdb337d67afc6ca02c5f9d13f4ffe62bc0d5683717e68eaa7d051fb785d1faa"
+  },
+  {
+    "path": "docs/worlds/PLAYER_CHARACTER_IDENTITY_AND_CONTROL_2026-10-13.md",
+    "line": 38,
+    "line_sha256": "8313dc932c34a6bb721303c9fc03b3b92220ccf87917f8d2d198911384cfc490"
+  },
+  {
+    "path": "docs/worlds/PLAYER_CHARACTER_IDENTITY_AND_CONTROL_2026-10-13.md",
+    "line": 98,
+    "line_sha256": "f79ee68112051a8ef1f6c1417bf8ac5c0ffdfc7e665910926ee783d0ccc4bca8"
+  },
+  {
+    "path": "docs/worlds/SELF_AS_PLAYER_LORE_CONSIDERATIONS_2026-10-13.md",
+    "line": 7,
+    "line_sha256": "0c7ed3ce20937168e3b2b337e923385805f2dbf45fcef612d97166bb4eb8ec44"
+  },
+  {
+    "path": "docs/worlds/SUCCESSION_BY_WORLD.md",
+    "line": 21,
+    "line_sha256": "627dd2658e3c20135f0027f60079e169b4c5467477597b4bda9d24bf88c280a2"
+  },
+  {
+    "path": "docs/worlds/SUCCESSION_BY_WORLD.md",
+    "line": 59,
+    "line_sha256": "4ded701ba79cba86068c75d05b6fbe458e8deb333accaba474aaeb6438004a73"
+  },
+  {
+    "path": "docs/worlds/WORLD_SECRETS_AND_DISCOVERY.md",
+    "line": 33,
+    "line_sha256": "c537933ec3965487c5f15a8fcfff472c46074142d3344387a7da56e6cae2b35c"
+  },
+  {
+    "path": "docs/worlds/WORLD_SECRETS_AND_DISCOVERY.md",
+    "line": 36,
+    "line_sha256": "370eda1a8e902316973c3ce7de61fb6037d0d2334e42dec9af31316ee42e3902"
+  },
+  {
+    "path": "docs/worlds/WORLD_SECRETS_AND_DISCOVERY.md",
+    "line": 89,
+    "line_sha256": "204f2e27fb194e9578d4d563807c9ff9b543525fded4f5ca3d985f1f86094f1c"
+  },
+  {
+    "path": "docs/worlds/WORLD_SECRETS_AND_DISCOVERY.md",
+    "line": 128,
+    "line_sha256": "b5ca74dbbffc7a4986c056f720653a844a421f64e79048f1da321503a838db4b"
+  },
+  {
+    "path": "docs/worlds/world-depth-2026-10-13/02_MOL_HP_JJK_DND.md",
+    "line": 19,
+    "line_sha256": "362d724084a3b7d08bd96ab1a4f334f49298d646aa56a44dd01421fff6fe68dd"
+  },
+  {
+    "path": "docs/worlds/world-depth-2026-10-13/02_MOL_HP_JJK_DND.md",
+    "line": 44,
+    "line_sha256": "575d1e1d6e5ddb11b3909f91e9cae4e41aca12318a9dca43641dc2000b977713"
+  },
+  {
+    "path": "docs/worlds/world-depth-2026-10-13/02_MOL_HP_JJK_DND.md",
+    "line": 62,
+    "line_sha256": "b56e56d9cfeabe21bf2899804efb2965046172ba18935ca862fac833684c8924"
+  },
+  {
+    "path": "docs/worlds/world-depth-2026-10-13/03_BLEACH_NARUTO_ELDEN_RING.md",
+    "line": 19,
+    "line_sha256": "286893b4688171de35b60a29d79329955af6ee772cd8e01cae72143da9dfad50"
+  },
+  {
+    "path": "docs/worlds/world-depth-2026-10-13/04_FALLOUT_SKYRIM_SL_TTKS.md",
+    "line": 129,
+    "line_sha256": "c4e777ad87bb4eeac4e885c210ccdb9070929c8c7e7590c68c7045d889c9c69a"
+  },
+  {
+    "path": "docs/worlds/world-depth-2026-10-13/05_RESEARCHED_WORLDS.md",
+    "line": 295,
+    "line_sha256": "822c1fb8ced874471d0becc78cc03be87e43fdf1c9a6ab4400a9180e4cd27e33"
+  },
+  {
+    "path": "docs/worlds/world-depth-2026-10-13/06_CROSS_WORLD.md",
+    "line": 71,
+    "line_sha256": "d9ce0969c1f3415dd274f1a6d80470ed3953131888ac3801711345fdbef87b01"
+  },
+  {
+    "path": "docs/worlds/world-depth-2026-10-13/06_CROSS_WORLD.md",
+    "line": 72,
+    "line_sha256": "5515ea9a65644684cfb1ac0c68bf743ec753444e1d8284babfc0b0e2e77d9999"
+  },
+  {
+    "path": "docs/worlds/world-depth-2026-10-13/08_PRIORITY_CANON_AND_AU.md",
+    "line": 145,
+    "line_sha256": "c06e77fc89d368b01887b7a0476b0f57c527c4ce342d659eed82ab96fdd80449"
+  },
+  {
+    "path": "docs/worlds/world-depth-2026-10-13/12_PRIORITY_WORLD_STARTS.md",
+    "line": 141,
+    "line_sha256": "fc4a3d42d659a0f8c71dfb2e44bc917eabc0d824fc18ddb6723efdff66142866"
+  },
+  {
+    "path": "docs/worlds/world-depth-2026-10-13/13_EARNED_OPTIONS_AND_CHEATS.md",
+    "line": 26,
+    "line_sha256": "e34dbbc3f1e6554c27cceb69ff4f13fad2428069f4864bd94b1cc6eb66d5bac3"
+  },
+  {
+    "path": "docs/worlds/world-depth-2026-10-13/13_EARNED_OPTIONS_AND_CHEATS.md",
+    "line": 33,
+    "line_sha256": "63689e017c27e6087d366f49880d20eaa2b37e7b09ac0fb83134a360477fc4ce"
+  },
+  {
+    "path": "docs/worlds/world-depth-2026-10-13/13_EARNED_OPTIONS_AND_CHEATS.md",
+    "line": 36,
+    "line_sha256": "9736c34b4b415f45ffa3a5a38cc3307a1086387bef54beda0631c1ae7f53d30e"
+  },
+  {
+    "path": "docs/worlds/world-depth-2026-10-13/13_EARNED_OPTIONS_AND_CHEATS.md",
+    "line": 38,
+    "line_sha256": "b2dbbd2956e5b4c3262efaf956d9c5a65df4600541c8a0534333f25850c55012"
+  },
+  {
+    "path": "docs/worlds/world-depth-2026-10-13/14_RESEARCH_SKILLS_SCALES.md",
+    "line": 151,
+    "line_sha256": "4cd4c1fc6255b675107cbda22ec510eacc5c4111406202cb69e8e598e3755ad4"
+  },
+  {
+    "path": "docs/worlds/world-depth-2026-10-13/17_CARRYOVER_AND_RETROFIT.md",
+    "line": 47,
+    "line_sha256": "f9bcdbe22c6b333ee8f285f3f98fe81927df7553429012cf0dc8b6ed7c009066"
+  },
+  {
+    "path": "docs/worlds/world-depth-2026-10-13/17_CARRYOVER_AND_RETROFIT.md",
+    "line": 54,
+    "line_sha256": "6966a072df748430cf0843e76d10bfe337f7cfccfd82cf25897b0177ebfaea2c"
+  },
+  {
+    "path": "docs/worlds/world-depth-2026-10-13/17_CARRYOVER_AND_RETROFIT.md",
+    "line": 56,
+    "line_sha256": "177115459c79007903dcaaef1b97b184e79963e874f051b4806ed70f7af599b4"
+  },
+  {
+    "path": "docs/worlds/world-depth-2026-10-13/17_CARRYOVER_AND_RETROFIT.md",
+    "line": 57,
+    "line_sha256": "e58832fdb04f32a9d4404e70dfda24a78334f596d8ace69a31fb5a57a6324300"
+  },
+  {
+    "path": "docs/worlds/world-depth-2026-10-13/17_CARRYOVER_AND_RETROFIT.md",
+    "line": 58,
+    "line_sha256": "ca3a9d68796a064406266791154adfac938199ab089c189e7fda5166afff3bfc"
+  },
+  {
+    "path": "docs/worlds/world-depth-2026-10-13/17_CARRYOVER_AND_RETROFIT.md",
+    "line": 63,
+    "line_sha256": "dd818b26504a338d09e0a0599b5e0a05e4a3e7d6eb4619286636399e5cecadf9"
+  },
+  {
+    "path": "docs/worlds/world-depth-2026-10-13/17_CARRYOVER_AND_RETROFIT.md",
+    "line": 70,
+    "line_sha256": "2c1057966820316871971eaa999fb2cced4c58ad6b74949361ea5fe2347633a7"
+  },
+  {
+    "path": "docs/worlds/world-depth-2026-10-13/19_DIALOGUE_ACTIONS.md",
+    "line": 43,
+    "line_sha256": "dc3a718b9382b5ac9bb7ecf40c20a78461cb6e2d0da26fb06ef4885304d3e5ee"
+  },
+  {
+    "path": "docs/worlds/world-depth-2026-10-13/20_FRIENDS_AND_RELATIONSHIPS.md",
+    "line": 57,
+    "line_sha256": "a441ccb7c4beccef5361dbff5161c902bf9ad2b33d6eb9321cd80205091a71bb"
+  },
+  {
+    "path": "docs/worlds/world-depth-2026-10-13/20_FRIENDS_AND_RELATIONSHIPS.md",
+    "line": 59,
+    "line_sha256": "a3dfbc29415533a9087549cbf73e4ff917851815e8c2732e111d16269308a4cd"
+  },
+  {
+    "path": "docs/worlds/world-depth-2026-10-13/20_FRIENDS_AND_RELATIONSHIPS.md",
+    "line": 85,
+    "line_sha256": "3108da2988f6d6b0b148b70632423037832f3c45832fde4c66280415d89fe61e"
+  },
+  {
+    "path": "docs/worlds/world-depth-2026-10-13/20_FRIENDS_AND_RELATIONSHIPS.md",
+    "line": 88,
+    "line_sha256": "7ccbc9913324b9a39311efb47bf8b01bb5293db6b5c6a0bb73803e50625ef23e"
+  },
+  {
+    "path": "docs/worlds/world-depth-2026-10-13/20_FRIENDS_AND_RELATIONSHIPS.md",
+    "line": 93,
+    "line_sha256": "2fb2280c9937dac4046f6cb85d3a26df466a36c972072c11a9b56693ea48fb4f"
+  },
+  {
+    "path": "docs/worlds/world-depth-2026-10-13/20_FRIENDS_AND_RELATIONSHIPS.md",
+    "line": 131,
+    "line_sha256": "5177239ad2b3f662f9b8d596922945f77b76da1768cdbc107e1f09d67dd42407"
+  },
+  {
+    "path": "docs/worlds/world-depth-2026-10-13/21_RENOWN_AND_SUBTLE.md",
+    "line": 37,
+    "line_sha256": "0ce730d06778f7b90787d327a7a2d9bc939434034c3a11a954429ad5c67f3983"
+  },
+  {
+    "path": "docs/worlds/world-depth-2026-10-13/21_RENOWN_AND_SUBTLE.md",
+    "line": 39,
+    "line_sha256": "c4f2561d7afe0365f6f57a4c5c2a2c693ab778b132adfc17e57cda319bc9feeb"
+  },
+  {
+    "path": "docs/worlds/world-depth-2026-10-13/21_RENOWN_AND_SUBTLE.md",
+    "line": 59,
+    "line_sha256": "e64447480cfb3443bfb3d9889b9a593a113b236dfc966576fced782694006dda"
+  },
+  {
+    "path": "docs/worlds/world-depth-2026-10-13/21_RENOWN_AND_SUBTLE.md",
+    "line": 71,
+    "line_sha256": "ad7c59465d4cec8680c6176675c40b09a4f2f63f0e3f58c77967ed580d2d44a3"
+  },
+  {
+    "path": "docs/worlds/world-depth-2026-10-13/24_TITLES.md",
+    "line": 34,
+    "line_sha256": "d2d3adae933da0196c54ca4740f4cf26b41e6ffcee5fe50878ca59ffc9a9dbeb"
+  },
+  {
+    "path": "docs/worlds/world-depth-2026-10-13/28_FOUNDATIONAL_FUNCTIONS.md",
+    "line": 19,
+    "line_sha256": "98ae0fea9e83d4f007c33c79c772ac038cb1e3677ad3839bbaa45f24bb72c75f"
+  },
+  {
+    "path": "docs/worlds/world-depth-2026-10-13/28_FOUNDATIONAL_FUNCTIONS.md",
+    "line": 42,
+    "line_sha256": "b5cce163671c8f2de84bd94eaaece4246e778dfaf94bc7217178e144e977f25c"
+  },
+  {
+    "path": "docs/worlds/world-depth-2026-10-13/28_FOUNDATIONAL_FUNCTIONS.md",
+    "line": 48,
+    "line_sha256": "088a6c58fdfc863c376e90e4733b9438f3a3a3f83c8954e6f31226fdd33c6d04"
+  },
+  {
+    "path": "docs/worlds/world-depth-2026-10-13/29_RELATIONSHIP_PREREQUISITES.md",
+    "line": 218,
+    "line_sha256": "059125a79ae0df0b652742233eb8a27602d1e89db56e8ce092b21edc7be1d22b"
+  }
+]

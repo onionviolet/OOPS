@@ -1,3 +1,5 @@
+import {combatHitText} from '../ui_polish.js';
+import {STREAMS,gameOrdinal,gameKeyedRandom} from "../seeded_streams.js";
 import {getElementalDefenseModifier} from '../absorb_e3/elemental_affinities.js';
 import {equipmentDurability as durability} from '../absorb_e2/durability.js';
 import {accessoryDropModifier} from '../absorb_c1/accessories.js';
@@ -17,6 +19,10 @@ import { do_onhit_animation, do_onstart_animation, fill_fighter_divs, remove_onh
 let maximum_time_correction = 10;
 
 class Combat {
+
+    #turns = {attackers:[], defenders:[]};
+    #pendingLoops = {};
+    #resume;
 
     #data = {
         defenders: {
@@ -43,6 +49,7 @@ class Combat {
         is_special_combat, //true -> skips loot, rewards, location progress, etc (esp since it might not even involve player)
         show_stance_controls, //generally just ignore it let it be auto set
         actionAdapter,
+        savedEncounter,
     }) {
         this.attackers = attackers;
         this.defenders = defenders;
@@ -52,6 +59,26 @@ class Combat {
         this.show_stance_controls = show_stance_controls ?? !this.is_special_combat;
         this.is_ended = false;
         this.actionAdapter = actionAdapter;
+        this.rngKey = savedEncounter?.key || defenders[0]?.encounterKey || (actionAdapter ? null : `combat:${gameOrdinal(STREAMS.combat)}`);
+        if(savedEncounter) {this.#turns=structuredClone(savedEncounter.turns);this.#resume=structuredClone(savedEncounter.loops);}
+    }
+
+    snapshot(locationId) {
+        if(this.is_special_combat || this.actionAdapter || this.is_ended) return null;
+        return {schema:1,locationId,key:this.rngKey,turns:structuredClone(this.#turns),loops:structuredClone(Object.fromEntries(Object.entries(this.#pendingLoops).filter(([key])=>{const [side,index]=key.split(":");return this[side][index]?.is_alive;}))),
+            enemies:this.defenders.map(e=>({template:e.templateKey || e.name,key:e.rngKey,stats:{...e.stats},full:{...e.getFullStats()},alive:e.is_alive}))};
+    }
+
+    #startFighter(fighter_index,is_attacker) {
+        const side=is_attacker ? "attackers" : "defenders",saved=this.#resume?.[`${side}:${fighter_index}`];
+        if(saved && this[side][fighter_index].is_alive) {
+            const opponents=is_attacker ? this.defenders : this.attackers;
+            this.doAttackLoop({...saved,fighter_index,is_attacker,targets:saved.targets.map(i=>opponents[i]),is_new:false});
+        } else this.setAttackLoop({fighter_index,is_attacker,base_cooldown:this.#data[side].attack_cooldowns[fighter_index]});
+    }
+
+    #random(side,index,targetIndex,decision) {
+        return gameKeyedRandom(STREAMS.combat,JSON.stringify([this.rngKey,side,index,this.#turns[side][index]||0,targetIndex,decision]));
     }
 
     #setupDisplay() {
@@ -115,11 +142,11 @@ class Combat {
             if(game_options.do_enemy_onhit_animations) {
                 do_onstart_animation({fighter_index: i, is_attacker: false});
             }
-            this.setAttackLoop({fighter_index: i, is_attacker: false, base_cooldown: this.#data.defenders.attack_cooldowns[i]});
+            this.#startFighter(i,false);
             update_displayed_health_of_fighter({fighter_index: i, is_attacker: false});
         }
         for(let i = 0; i < this.attackers.length; i++) {
-            this.setAttackLoop({fighter_index: i, is_attacker: true, base_cooldown: this.#data.attackers.attack_cooldowns[i]});
+            this.#startFighter(i,true);
             update_displayed_health_of_fighter({fighter_index: i, is_attacker: true});
         }
     }
@@ -150,6 +177,8 @@ class Combat {
             }
         }
 
+        const side = is_attacker ? "attackers" : "defenders";
+        this.#turns[side][fighter_index] = (this.#turns[side][fighter_index] || 0) + 1;
         let target_count = 1;
         if(fighter.tags?.main_character && !this.is_special_combat) {
             if(target_count > 1 && current_stance.related_skill) {
@@ -157,7 +186,7 @@ class Combat {
             }
 
             if(current_stance.randomize_target_count) {
-                target_count = Math.floor(Math.random()*target_count) || 1;
+                target_count = Math.floor(this.#random(side,fighter_index,-1,"targets")*target_count) || 1;
             }
         }
 
@@ -185,6 +214,9 @@ class Combat {
 
         const fighter = is_attacker ? this.attackers[fighter_index] : this.defenders[fighter_index];
 
+        const side=is_attacker ? "attackers" : "defenders";
+        this.#pendingLoops[`${side}:${fighter_index}`]={base_cooldown,actual_cooldown,attack_power,target_count,count,
+            targets:targets.map(t=>(is_attacker ? this.defenders : this.attackers).indexOf(t))};
         update_attack_bar({fighter_index, is_attacker, progress: count/60});
 
         const fighter_data = is_attacker ? this.#data.attackers : this.#data.defenders;
@@ -258,6 +290,9 @@ class Combat {
 
         const fighters = is_attacker ? this.attackers : this.defenders;
         const fighter = fighters[fighter_index];
+        const side=is_attacker ? "attackers" : "defenders";
+        const targetIndex=(is_attacker ? this.defenders : this.attackers).indexOf(target);
+        const random=decision=>this.#random(side,fighter_index,targetIndex,decision);
         const opponents = is_attacker ? this.defenders : this.attackers;
         const base_damage = attack_power;
         const opponent_count_xp_multiplier = this.is_special_combat? 1 : opponents.length**(1/3);
@@ -316,11 +351,11 @@ class Combat {
 
         let partially_blocked = false; //only used for combat info in message log
 
-        damages_dealt = rollBaseCombatDamage(base_damage,fighter.getFullStats().attack_count,damage_modifier);
+        damages_dealt = rollBaseCombatDamage(base_damage,fighter.getFullStats().attack_count,damage_modifier,(() => {let i=0;return ()=>random(`damage:${i++}`);})());
 
 
         if(target.hasShield()) {
-            if(target.getFullStats().block_chance > Math.random()) {//BLOCKED THE ATTACK
+            if(target.getFullStats().block_chance > random("block")) {//BLOCKED THE ATTACK
 
                 if(!target.getEquipment()["off-hand"].tags["ignore_skill"]){
                     damages_dealt = damages_dealt.map(x => x*(1-target.getTotalSkillLevel("Shield blocking")/100));
@@ -348,7 +383,7 @@ class Combat {
 
             const xp_to_add = target.isWearingArmor() ? fighter.xp_value : fighter.xp_value * 1.5;
 
-            if(hit_chance < Math.random()) { //EVADED ATTACK
+            if(hit_chance < random("evade")) { //EVADED ATTACK
                 log_message(target.name + " evaded an attack", (!this.is_special_combat && fighter.tags.main_character ? "hero_missed" : "enemy_missed"));
 
                 if(!this.is_special_combat && target.tags.main_character) {
@@ -374,7 +409,7 @@ class Combat {
         game_stats.total_hits_taken += Number(!this.is_special_combat && !!target.tags.main_character);
         game_stats.total_hits_done += Number(!this.is_special_combat && !!fighter.tags.main_character);
 
-        if(fighter.getFullStats().crit_rate > Math.random()){
+        if(fighter.getFullStats().crit_rate > random("crit")){
             damages_dealt = damages_dealt.map(val => val*fighter.getFullStats().crit_multiplier);
             critted = true;
             game_stats.total_crits_taken += Number(!this.is_special_combat && !!target.tags.main_character);
@@ -392,8 +427,10 @@ class Combat {
         if(!this.is_special_combat&&target.tags.main_character)defense_modifier+=getElementalDefenseModifier({enabled:game_options.elemental_affinities,attacker:fighter,equipment:target.getEquipment(),baseDamage:base_damage});
         let {damage_taken, fainted} = target.takeDamage({damage_values: damages_dealt, defense_modifier, give_skill_xp: (!this.is_special_combat && target.tags.main_character)});
 
-        target.on_damaged(fighter);
-        fighter.on_hit(target);
+        let callbackDraw=0;
+        target.on_damaged(fighter,()=>random(`on_damaged:${callbackDraw++}`));
+        callbackDraw=0;
+        fighter.on_hit(target,()=>random(`on_hit:${callbackDraw++}`));
 
         if(!this.is_special_combat && target.tags.main_character) {
             
@@ -405,23 +442,12 @@ class Combat {
             add_xp_to_skill({skill: skills["Fortitude"], xp_to_add: (damage_taken**0.6)*target_count_xp_modifier});
         }
 
-        const hit_count_msg = damages_dealt.length > 1?` x${damages_dealt.length}`:"";
+        // Native damage is physical and has no body-part roll. Do not invent one.
         const condt = (!this.is_special_combat && target.tags.main_character);
-        if(critted) {
-            if(partially_blocked) {
-                log_message(target.name + " partially blocked, was critically hit" + hit_count_msg + " for " + Math.ceil(10*damage_taken)/10 + " dmg", condt?"hero_attacked_critically":"enemy_attacked_critically");
-            } 
-            else {
-                log_message(target.name + " was critically hit" + hit_count_msg + " for " + Math.ceil(10*damage_taken)/10 + " dmg", condt?"hero_attacked_critically":"enemy_attacked_critically");
-            }
-        } else {
-            if(partially_blocked) {
-                log_message(target.name + " partially blocked, was hit" + hit_count_msg + " for " + Math.ceil(10*damage_taken)/10 + " dmg", condt?"hero_attacked":"enemy_attacked");
-            }
-            else {
-                log_message(target.name + " was hit" + hit_count_msg + " for " + Math.ceil(10*damage_taken)/10 + " dmg", condt?"hero_attacked":"enemy_attacked");
-            }
-        }
+        log_message(combatHitText({target: target.name, damage: damage_taken,
+            count: damages_dealt.length, critical: critted, blocked: partially_blocked}),
+            condt ? (critted ? "hero_attacked_critically" : "hero_attacked")
+                : (critted ? "enemy_attacked_critically" : "enemy_attacked"), {damageType: "physical"});
 
         if(game_options.do_enemy_onhit_animations) {
             do_onhit_animation({fighter_index: (is_attacker ? this.defenders : this.attackers).findIndex(x => x === target), is_attacker: !is_attacker});

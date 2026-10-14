@@ -1,0 +1,11 @@
+You are a lane for Reincarnation Paradise (轮回乐园), newly a canon-first priority world in a browser idle RPG (YAIRPG, a text life-sim across many worlds). Read /Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/paradise-priority-2026-10-14/COMMON.md and /Users/weiwei/code/yet-another-idle-rpg/AGENTS.md first and follow them. Read /Users/weiwei/code/yet-another-idle-rpg/docs/worlds/paradise-hub/WORLD_BRIEF.md, /Users/weiwei/code/yet-another-idle-rpg/docs/research/novels/NS01_REINCARNATION_PARADISE.md, /Users/weiwei/code/yet-another-idle-rpg/docs/worlds/WORLD_DEPTH_CONSIDERATIONS_2026-10-13.md with its parts 08 and 12 (format to mirror), /Users/weiwei/code/yet-another-idle-rpg/docs/INTRO_FLOW_CONSIDERATIONS_2026-10-13.md (start records WC/SR/LY/LK, start kinds SA1-SA24) and the private dossier listed in COMMON.md.
+Also read /Users/weiwei/code/yet-another-idle-rpg/docs/worlds/NONHUMAN_STARTS_ENGINE_REQUIREMENTS_2026-10-14.md (E1-E15, N1-N15).
+
+You are the BEINGS AND BODIES lane: Paradise's nonhuman, pet, summon, race, bloodline and transformation systems, which matter for nonhuman starts. Write one tracked doc: /Users/weiwei/code/yet-another-idle-rpg/docs/worlds/paradise-hub/BEINGS_PETS_AND_BODIES_2026-10-14.md. Sections:
+1. Pets and summons in canon (e.g. Baha and others; acquisition, contracts, growth, evolution, bond, death and revival, storage between worlds), with locators.
+2. Contractor races, bloodlines, body modification, transformation and race change; how the Paradise treats a nonhuman contractor; derived-world natives with nonhuman bodies.
+3. Possession, avatars, clones, resurrection and body replacement as shown.
+4. Playable premises: start as a pet or summon, a nonhuman contractor, a bloodline awakening, a derived-world monster recruited by the Paradise, a hub creature; each as a start record with engine needs (E codes) and Default + Dial.
+5. How Paradise's rules could act as the lore engine for nonhuman starts in other worlds (contracts that issue bodies, race-change items as earned options), labeled proposals.
+6. New considerations (PB1..), at most five suggestions.
+Keep CHECKPOINT.md in /Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/paradise-priority-2026-10-14/beings/.

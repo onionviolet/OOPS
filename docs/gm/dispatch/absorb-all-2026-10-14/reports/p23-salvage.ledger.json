@@ -1,0 +1,109 @@
+{
+  "schema": 1,
+  "lane": "p23-salvage",
+  "date": "2026-10-14",
+  "base_head": "0216ccdefcfce79877378f8cb0ee41129fe11c5d",
+  "head": "58afaf185b0a06c5fafd3fa0cb9a23f6992fb24f",
+  "status": "implemented-unverified; P00 native candidate required; NOT final-merge ready",
+  "source": "original Proto23-inspired proposal; no foreign code/assets copied",
+  "rows": [
+    {
+      "id": "R24",
+      "disposition": "parked",
+      "native_gate": "optional lossless-lot proof and spoilage policy absent"
+    },
+    {
+      "id": "N05",
+      "disposition": "implemented-unverified",
+      "native_gate": "P00 host integration and native persistence OPEN"
+    },
+    {
+      "id": "N06",
+      "disposition": "implemented-unverified",
+      "native_gate": "P00 host integration and native persistence OPEN"
+    },
+    {
+      "id": "N07",
+      "disposition": "implemented-unverified",
+      "native_gate": "P00 host integration and native persistence OPEN"
+    }
+  ],
+  "acquisition": {
+    "recipe": "p23.salvage.survey_kit",
+    "route": "successful durable exact-copy salvage",
+    "native": "OPEN",
+    "existing_orphan_repaired": false,
+    "limit": "locked native recipes inspected have acquisition references; reference is not reachability proof"
+  },
+  "compatibility": {
+    "optional_field": "p23_salvage",
+    "schema": 1,
+    "absent": "unlearned/empty; old inventory unchanged",
+    "invalid": "reject before mutation",
+    "exact_keys": "E2 retained; consumed-copy condition removed only in staged native patch"
+  },
+  "checks": {
+    "focused": {
+      "tests": 15,
+      "pass": 15,
+      "fail": 0
+    },
+    "build": "pass",
+    "full_initial": {
+      "tests": 634,
+      "pass": 633,
+      "fail": 1,
+      "failure": "alloy_equipment.test.js:118 subprocess timeout 60000ms"
+    },
+    "alloy_recheck": {
+      "tests": 1,
+      "pass": 1,
+      "fail": 0
+    },
+    "full_first_serial": {
+      "tests": 634,
+      "pass": 634,
+      "fail": 0
+    },
+    "full_final": {
+      "command": "npm test -- --test-concurrency=1",
+      "tests": 636,
+      "pass": 636,
+      "fail": 0,
+      "skipped": 0,
+      "cancelled": 0,
+      "duration_ms": 34142.400666
+    },
+    "browser": {
+      "kind": "fresh-origin base smoke only; changed native salvage loop OPEN",
+      "viewport": [
+        1366,
+        768
+      ],
+      "origin": "http://127.0.0.1:18827/",
+      "servedBundleSha256": "598e02f54fe7db4c9a35bc79c75a754a7f8dc42eccf9fab828de8fd82e97b615",
+      "localBundleSha256": "598e02f54fe7db4c9a35bc79c75a754a7f8dc42eccf9fab828de8fd82e97b615",
+      "servedBytesMatch": true,
+      "errors": [],
+      "salvageInNativeBundle": false,
+      "nativeSaveReloadExportLiteralImport": "OPEN: P00 host connection absent"
+    }
+  },
+  "open": [
+    "P00 native item acquisition and registration",
+    "P04/P00 exact-copy allocation with wear off",
+    "native paid played-clock/calendar join",
+    "earned native recipe discovery and changed loop at 1366x768",
+    "native Save/reload/Export/literal-file Import",
+    "existing orphan repair requirement not established",
+    "Weibao play/taste after technical gates"
+  ],
+  "p00_contract_report": "/Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/absorb-all-2026-10-14/reports/p23-salvage.md",
+  "push": false,
+  "merge": false,
+  "commits": [
+    "d6d7462574f169639dc9a08aa8f3dcac750c02b5",
+    "58afaf185b0a06c5fafd3fa0cb9a23f6992fb24f"
+  ],
+  "worktree_clean": true
+}

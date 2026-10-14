@@ -1,3 +1,7 @@
+import {systemsWorkshopItems} from './systems_workshop_content.js';
+import {registerFortItems} from "./fork_fort_content.js";
+import {MIXTURE_ID,INGREDIENTS,getMixtureOwner,productFromKey,mixturePresentation} from './mixture_state.js';
+import {readingRate} from './reveal_chain.js';
 import {equipmentDurability as durability} from './absorb_e2/durability.js';
 import {registerAccessoryItems} from './absorb_c1/accessories.js';
 import {WATCHCRAFT_BOOK, WATCHCRAFT_READING} from './village_career.js';
@@ -86,29 +90,28 @@ const item_log = {
     },
 
     log_item(item_id, number = 1, quality = 0) {
+        const wasKnown = this.items[item_id]?.number > 0;
         if (!this.items[item_id]) {
             this.items[item_id] = {
                 id: item_id,
                 number: 0,
                 quality_highest: 0,
                 quality_lowest: Number.POSITIVE_INFINITY
-            }
-
-
-            if(droplist[item_id]) { //if item can possibly drop from an enemy
-                Object.keys(enemy_killcount).forEach(enemy_key => {
-                    if(enemy_templates[enemy_key].loot_list.filter(x => x.item_name === item_id)) {
-                        //if item can drop from specific enemy - update that enemey's bestiary tooltip
-                        update_bestiary_entry_tooltip(enemy_key);
-                    }
-                });
-            }
+            };
         }
-
         this.items[item_id].number += number;
         this.items[item_id].quality_highest = Math.max(this.items[item_id].quality_highest, quality);
         this.items[item_id].quality_lowest = Math.min(this.items[item_id].quality_lowest, quality);
-        
+
+        // Refresh after the positive acquisition is recorded. FNA08/FNA10
+        // projections must not treat a newly allocated zero-count record as known.
+        if (!wasKnown && this.items[item_id].number > 0 && droplist[item_id]) {
+            Object.keys(enemy_killcount).forEach(enemy_key => {
+                if (enemy_templates[enemy_key]?.loot_list.some(x => x.item_name === item_id)) {
+                    update_bestiary_entry_tooltip(enemy_key);
+                }
+            });
+        }
     },
 
     is_known(item_id) {
@@ -1130,9 +1133,9 @@ class Book extends Item {
      * @returns {Number} total time needed to read the book
      */
     getReadingTime() {
-        //maybe make it go faster with literacy skill level?
+        // Progress stays in original work units, so old saves need no conversion.
         let {required_time} = book_stats[this.name];
-        return required_time;
+        return required_time / readingRate(character.getTotalSkillLevel("Literacy"));
     }
 
     /**
@@ -1141,11 +1144,11 @@ class Book extends Item {
      */
     getRemainingTime() {
         let remaining_time = Math.max(book_stats[this.name].required_time - book_stats[this.name].accumulated_time, 0);
-        return remaining_time;
+        return remaining_time / readingRate(character.getTotalSkillLevel("Literacy"));
     }
 
-    addProgress(time = 1) {
-        book_stats[this.name].accumulated_time += time;
+    addProgress(time = 1, {study = true} = {}) {
+        book_stats[this.name].accumulated_time += time * (study ? readingRate(character.getTotalSkillLevel("Literacy")) : 1);
         if(book_stats[this.name].accumulated_time >= book_stats[this.name].required_time) {
             this.setAsFinished();
         }
@@ -1216,6 +1219,14 @@ function getItem(item_data) {
 function getItemFromKey(key) {return durability.bindFromKey(key,nativeGetItemFromKey(key));}
 function nativeGetItemFromKey(key) {
     let {id, components, quality} = JSON.parse(key);
+    if(id===MIXTURE_ID) {
+        const product=productFromKey(getMixtureOwner(),key),view=mixturePresentation(getMixtureOwner(),product);
+        const item=new UsableItem({id:MIXTURE_ID,name:view.name,description:view.description,value:12,effects:[],tags:{medicine:true}});
+        item.inventory_key=key;item.mixture=product.id;
+        item.getName=()=>mixturePresentation(getMixtureOwner(),product).name;
+        Object.defineProperty(item,'description',{get:()=>mixturePresentation(getMixtureOwner(),product).description});
+        return item;
+    }
     if(id && !quality) {
         if(item_templates[id]) {
             return preserveWorldCompletionNativeItem(key,getItem(item_templates[id]));
@@ -4520,6 +4531,10 @@ item_templates[BRACE_ID] = new Amulet({value: 140, item_tier: 2, use_quality: fa
     stats: deriveBraceStats(item_templates[ALLOY_ID]),
     description: "Spring grade 1, derived from springsteel: +2 Agility, -1 Strength. Forceful workshop packing: 2 kits for 2 drive units instead of 1 kit for 3. Other techniques unchanged. Balance proposal."});
 
+// Original procedural carriers. Fixed prices convey no hidden properties.
+for(const ingredient of INGREDIENTS)item_templates[ingredient.id]=new Material({name:ingredient.id,value:ingredient.price,material_type:'mixture ingredient',description:'Original fictional mixing ingredient. Properties are unobserved; they still operate.'});
+item_templates[MIXTURE_ID]=new UsableItem({name:MIXTURE_ID,value:12,effects:[],description:'Generated Village vial. Use its exact owned mixture.',tags:{medicine:true}});
+
 //setup ids
 function setup_ids() {
     Object.keys(item_templates).forEach(id => {
@@ -4540,12 +4555,28 @@ add_gear_components();
 crafting_component_manager.fill_components();
 add_gear();
 registerAccessoryItems({item_templates, Amulet});
+registerFortItems({item_templates, book_stats, Book, BookData, Material});
 setup_ids();
+// Air workshop proposal: optional templates must not enrich absent-edition saves.
+// Actual item instantiation registers its availability when workshop goods arrive.
+for(const [name,description,value] of systemsWorkshopItems){
+    item_templates[name]=new OtherItem({id:name,name,description,value});
+    delete availabilities.item[name];
+}
+
+// The loader restores optional availability before reading saved flags. Only
+// supported workshop names are admitted, after the expansion edition validated.
+function restoreSystemsWorkshopAvailability(save){
+    if(!save.expansion?.actors.player.facts['systems_workshop.joined'])return;
+    for(const [name] of systemsWorkshopItems)if(Object.hasOwn(save.availabilities?.item||{},name))
+        availabilities.item[name] ||= item_templates[name]._getBasicAvailabilityComponent();
+}
 
 availability_havers.push(Item);
 
 export {
     item_templates,
+    restoreSystemsWorkshopAvailability,
     item_log,
     Item, OtherItem, UsableItem,
     Armor, Shield, Weapon, Cape, Artifact, Book,

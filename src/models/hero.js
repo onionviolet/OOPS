@@ -1,3 +1,4 @@
+import {observeAcquisition} from '../reveal_chain.js';
 import {equipmentDurability as durability} from '../absorb_e2/durability.js';
 "use strict";
 
@@ -246,6 +247,7 @@ class Hero extends Person {
 
         if(!skip_item_log) {
             item_log.log_items(items);
+            observeAcquisition(this.getItems());
         }
         
         update_displayed_character_inventory({ was_anything_new_added });

@@ -1,0 +1,12 @@
+{
+  "viewport": [
+    1366,
+    768
+  ],
+  "checks": [
+    "exact earned workshop reload",
+    "actual native Export download",
+    "actual file-input Import preserves all actors, custody, knowledge, grants, RNG, inventory and purse"
+  ],
+  "errors": []
+}

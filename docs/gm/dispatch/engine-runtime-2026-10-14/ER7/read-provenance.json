@@ -1,0 +1,13 @@
+{
+  "AGENTS.md": "0aecd5d70ed7f6c7815c81b66ac6137da49b1c04573ac785007cfb38ad559026",
+  "PROJECT.md": "ff1d541093bd734521277ed29fdb95a5c5e0e7701c52fd9ca7463f791b57b3ab",
+  "docs/USER_VISION.md": "aa584b0c064886b279b5b3bdaba841969db8b1ec695d55e610aaf00a980f7835",
+  "docs/gm/dispatch/engine-runtime-2026-10-14/COMMON.md": "96630bcdee800197c1a1e85fb2050758bddd1310e97d49ccda565f5a2f9995d5",
+  "src/save_files.js": "dc7908d8a257ddcb896b0a3a077902ce961a7b681d0cba24e1dd1ef7f992e81f",
+  "src/expansion_persistence.js": "779a82715884c48f3d2338816d76b90e5e894b625f2fb7daec174091c73bc966",
+  "src/main.js": "fc0743237c7c93a62ac834bd636afe5c6c7858172b77d1a53d01a84b1195172f",
+  "docs/research/RUNTIME_HOTSPOT_AUDIT_2026-10-14.md": "728c564137673d121f6f6f5955bb2c06bb54bfed33d985c17046d97b252420a5",
+  "docs/research/TECH_STACK_OPTIONS_2026-10-14.md": "b1764ccb0180b61f515be26d57a4310704d54655fc658f51cffe783a0cb72a54",
+  "git_branch": "codex/gameplay-foundations",
+  "head": "20aa1312a30c96500c5570e08b516eb51952addd"
+}

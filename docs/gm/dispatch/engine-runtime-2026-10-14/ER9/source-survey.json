@@ -1,0 +1,453 @@
+{
+  "randomLineSites": 63,
+  "randomFiles": 10,
+  "randomOccurrences": 63,
+  "randomSites": [
+    {
+      "file": "src/absorb_c2/local_life.js",
+      "line": 42,
+      "text": "export function advanceLocalLife(raw,c,rng=Math.random) {"
+    },
+    {
+      "file": "src/combat_math.js",
+      "line": 34,
+      "text": "export function rollBaseCombatDamage(attackPower, count, modifier = 1, random = Math.random) {"
+    },
+    {
+      "file": "src/combat_math.js",
+      "line": 44,
+      "text": "hitModifier = 1, evasionModifier = 1, damageModifier = 1, random = Math.random}) {"
+    },
+    {
+      "file": "src/components/trader_component.js",
+      "line": 117,
+      "text": "if(inventory_template[i].items[j].canBeStarted(context)  && inventory_template[i].items[j].chance >= Math.random()) {"
+    },
+    {
+      "file": "src/components/trader_component.js",
+      "line": 119,
+      "text": "inventory_template[i].items[j].count[0] : Math.round(Math.random() *"
+    },
+    {
+      "file": "src/components/trader_component.js",
+      "line": 123,
+      "text": "let quality = Math.round(Math.random() *"
+    },
+    {
+      "file": "src/display.js",
+      "line": 361,
+      "text": "pos.x = pos.x + Math.random()*80-40;"
+    },
+    {
+      "file": "src/display.js",
+      "line": 376,
+      "text": "if(Math.random() > 0.5) {"
+    },
+    {
+      "file": "src/enemies.js",
+      "line": 170,
+      "text": "if(item.chance * this.get_droprate_modifier(drop_chance_modifier) >= Math.random()) {"
+    },
+    {
+      "file": "src/enemies.js",
+      "line": 174,
+      "text": "item_count = Math.round(Math.random() * (item[\"count\"][\"max\"] - item[\"count\"][\"min\"]) + item[\"count\"][\"min\"]);"
+    },
+    {
+      "file": "src/enemies.js",
+      "line": 216,
+      "text": "statuses[Math.floor(Math.random() * statuses.length)],"
+    },
+    {
+      "file": "src/enemies.js",
+      "line": 443,
+      "text": "const roll = Math.random();"
+    },
+    {
+      "file": "src/enemies.js",
+      "line": 454,
+      "text": "const roll = Math.random();"
+    },
+    {
+      "file": "src/enemies.js",
+      "line": 501,
+      "text": "const roll = Math.random();"
+    },
+    {
+      "file": "src/enemies.js",
+      "line": 518,
+      "text": "const roll = Math.random();"
+    },
+    {
+      "file": "src/main.js",
+      "line": 2511,
+      "text": "const random_effect = game_action.floating_click_effects[Math.floor(Math.random()*game_action.floating_click_effects.length)];"
+    },
+    {
+      "file": "src/main.js",
+      "line": 2586,
+      "text": "result_message = action.failure_texts.unable_to_begin[Math.floor(action.failure_texts.unable_to_begin.length * Math.random())];"
+    },
+    {
+      "file": "src/main.js",
+      "line": 2589,
+      "text": "result_message = action.failure_texts.conditional_loss[Math.floor(action.failure_texts.conditional_loss.length * Math.random())];"
+    },
+    {
+      "file": "src/main.js",
+      "line": 2593,
+      "text": "if(action_result > Math.random()) {"
+    },
+    {
+      "file": "src/main.js",
+      "line": 2610,
+      "text": "? lines[Math.floor(lines.length * Math.random())]"
+    },
+    {
+      "file": "src/main.js",
+      "line": 2933,
+      "text": "if(rewards.chance && (Math.random() > rewards.chance)) {"
+    },
+    {
+      "file": "src/main.js",
+      "line": 3292,
+      "text": "if(arr[i].chance_to_be_in_mix && (Math.random() > arr[i].chance_to_be_in_mix)) {"
+    },
+    {
+      "file": "src/main.js",
+      "line": 3502,
+      "text": "if(Math.random() <= 0.01) {"
+    },
+    {
+      "file": "src/main.js",
+      "line": 3504,
+      "text": "const index = Math.floor(words.length * Math.random());"
+    },
+    {
+      "file": "src/main.js",
+      "line": 4224,
+      "text": "const variable_craft = Math.random()<(attempted_crafting_ammount*success_chance - successful_crafting_ammount)?1:0;"
+    },
+    {
+      "file": "src/main.js",
+      "line": 4236,
+      "text": "if(Math.random()<success_chance) {"
+    },
+    {
+      "file": "src/main.js",
+      "line": 4273,
+      "text": "const fuzzy_final_result_count = Math.floor(fuzzy_result) + (Math.random()<(fuzzy_result - Math.floor(fuzzy_result))?1:0);"
+    },
+    {
+      "file": "src/main.js",
+      "line": 4694,
+      "text": "if(chance > Math.random()) {"
+    },
+    {
+      "file": "src/main.js",
+      "line": 7503,
+      "text": "if(Math.random() > (1-gained_resources[i].chance)) {"
+    },
+    {
+      "file": "src/main.js",
+      "line": 7574,
+      "text": "if(Math.random() < 1/600) {"
+    },
+    {
+      "file": "src/main.js",
+      "line": 7575,
+      "text": "log_message(`\"${sounds[Math.floor(Math.random()*sounds.length)]}\"`, \"background\");"
+    },
+    {
+      "file": "src/main.js",
+      "line": 7578,
+      "text": "if (current_activity && Math.random() < 1/100) {"
+    },
+    {
+      "file": "src/main.js",
+      "line": 7581,
+      "text": "log_message(`\"${sounds[Math.floor(Math.random()*sounds.length)]}\"`, \"background\");"
+    },
+    {
+      "file": "src/misc.js",
+      "line": 69,
+      "text": "return Math.round(Math.random() * (max-min) + min);"
+    },
+    {
+      "file": "src/models/combat.js",
+      "line": 160,
+      "text": "target_count = Math.floor(Math.random()*target_count) || 1;"
+    },
+    {
+      "file": "src/models/combat.js",
+      "line": 323,
+      "text": "if(target.getFullStats().block_chance > Math.random()) {//BLOCKED THE ATTACK"
+    },
+    {
+      "file": "src/models/combat.js",
+      "line": 351,
+      "text": "if(hit_chance < Math.random()) { //EVADED ATTACK"
+    },
+    {
+      "file": "src/models/combat.js",
+      "line": 377,
+      "text": "if(fighter.getFullStats().crit_rate > Math.random()){"
+    },
+    {
+      "file": "src/models/location.js",
+      "line": 344,
+      "text": "const index = Math.floor(Math.random() * this.enemy_groups_list.length);"
+    },
+    {
+      "file": "src/models/location.js",
+      "line": 355,
+      "text": "const group_size = this.enemy_group_size[0] + Math.round(Math.random() * (this.enemy_group_size[1] - this.enemy_group_size[0]));"
+    },
+    {
+      "file": "src/models/location.js",
+      "line": 357,
+      "text": "enemy_group.push(this.enemies_list[Math.floor(Math.random() * this.enemies_list.length)]);"
+    },
+    {
+      "file": "src/models/location.js",
+      "line": 367,
+      "text": "const variation = Math.random() * this.enemy_stat_variation;"
+    },
+    {
+      "file": "src/models/location.js",
+      "line": 373,
+      "text": "health: Math.round(enemy.stats.health * (base - Math.random() * vary)),"
+    },
+    {
+      "file": "src/models/location.js",
+      "line": 374,
+      "text": "attack: Math.round(enemy.stats.attack * (base - Math.random() * vary)),"
+    },
+    {
+      "file": "src/models/location.js",
+      "line": 375,
+      "text": "agility: Math.round(enemy.stats.agility * (base - Math.random() * vary)),"
+    },
+    {
+      "file": "src/models/location.js",
+      "line": 376,
+      "text": "dexterity: Math.round(enemy.stats.dexterity * (base - Math.random() * vary)),"
+    },
+    {
+      "file": "src/models/location.js",
+      "line": 377,
+      "text": "magic: Math.round(enemy.stats.magic * (base - Math.random() * vary)),"
+    },
+    {
+      "file": "src/models/location.js",
+      "line": 378,
+      "text": "intuition: Math.round(enemy.stats.intuition * (base - Math.random() * vary)),"
+    },
+    {
+      "file": "src/models/location.js",
+      "line": 379,
+      "text": "attack_speed: Math.round(enemy.stats.attack_speed * (base - Math.random() * vary) * 100) / 100,"
+    },
+    {
+      "file": "src/models/location.js",
+      "line": 380,
+      "text": "attack_count: Math.round((enemy.stats.attack_count || 1) * (base - Math.random() * vary)),"
+    },
+    {
+      "file": "src/models/location.js",
+      "line": 381,
+      "text": "defense: Math.round(enemy.stats.defense * (base - Math.random() * vary))"
+    },
+    {
+      "file": "src/particles.js",
+      "line": 5,
+      "text": "this.x = Math.random() * (canvas.width - size - 1) + size + 1;"
+    },
+    {
+      "file": "src/particles.js",
+      "line": 7,
+      "text": "this.distance = Math.random()*50 + 1;"
+    },
+    {
+      "file": "src/particles.js",
+      "line": 8,
+      "text": "this.opacity = Math.random() * 0.5 + 0.5;"
+    },
+    {
+      "file": "src/particles.js",
+      "line": 9,
+      "text": "this.radians = Math.random() * Math.PI * 2;"
+    },
+    {
+      "file": "src/particles.js",
+      "line": 10,
+      "text": "this.y = Math.random() * (canvas.height - size - 1) + size + 1;"
+    },
+    {
+      "file": "src/particles.js",
+      "line": 16,
+      "text": "const size = Math.random()*2 + 2;"
+    },
+    {
+      "file": "src/particles.js",
+      "line": 43,
+      "text": "const size = Math.random()*2 + 2;"
+    },
+    {
+      "file": "src/particles.js",
+      "line": 49,
+      "text": "this.fall_speed = Math.random() * 1.5 + 0.5;"
+    },
+    {
+      "file": "src/particles.js",
+      "line": 72,
+      "text": "const size = Math.random()*3 + 1;"
+    },
+    {
+      "file": "src/particles.js",
+      "line": 85,
+      "text": "this.tempX = this.x + Math.sin(Math.random());"
+    },
+    {
+      "file": "src/particles.js",
+      "line": 86,
+      "text": "this.tempY = this.y + Math.sin(Math.random());"
+    },
+    {
+      "file": "src/particles.js",
+      "line": 102,
+      "text": "const size = Math.random()*6 + 6;"
+    }
+  ],
+  "localeSites": [
+    {
+      "file": "src/display.js",
+      "line": 5291,
+      "text": ".localeCompare(b.querySelector(\".bestiary_entry_name\").innerText);"
+    },
+    {
+      "file": "src/display.js",
+      "line": 5504,
+      "text": ".localeCompare(b.getAttribute(\"data-book\")))"
+    },
+    {
+      "file": "src/event_feed.js",
+      "line": 92,
+      "text": "const order = (a,b) => b.at-a.at || a.id.localeCompare(b.id);"
+    },
+    {
+      "file": "src/event_feed.js",
+      "line": 93,
+      "text": "leads.sort((a,b) => Number(b.available)-Number(a.available) || a.at-b.at || a.id.localeCompare(b.id));"
+    },
+    {
+      "file": "src/known_routes_host.js",
+      "line": 239,
+      "text": "projected.section.routes.sort((a, b) => a.direction.localeCompare(b.direction) || a.label.localeCompare(b.label));"
+    },
+    {
+      "file": "src/npc_lives.js",
+      "line": 21,
+      "text": "events.sort((a,b)=>a.year-b.year||a.id.localeCompare(b.id));"
+    },
+    {
+      "file": "src/npc_lives.js",
+      "line": 51,
+      "text": "s.events.sort((a,b)=>a.year-b.year||a.id.localeCompare(b.id));return validateVillageLives(s);"
+    },
+    {
+      "file": "src/pursuit.js",
+      "line": 96,
+      "text": "for(let i=0;i<queue.length;i++) for(const r of policy.routes.filter(r=>r.from === queue[i].location).sort((a,b)=>a.to.localeCompare(b.to))) {"
+    },
+    {
+      "file": "src/pursuit.js",
+      "line": 140,
+      "text": "for(const p of Object.values(s.pursuits || {}).sort((a,b)=>a.id.localeCompare(b.id))) {"
+    },
+    {
+      "file": "src/realm_boundary_rules.js",
+      "line": 148,
+      "text": "const latest = [...known].filter(e => e.boundarySnapshot).sort((a, b) => b.at - a.at || b.id.localeCompare(a.id))[0];"
+    },
+    {
+      "file": "src/realm_connections.js",
+      "line": 242,
+      "text": "const latest = [...known].filter(e => e.connectionSnapshot).sort((a, b) => b.at - a.at || b.id.localeCompare(a.id))[0];"
+    },
+    {
+      "file": "src/simulation.js",
+      "line": 410,
+      "text": "const terminals = Object.values(s.events).filter(e => e.status !== \"open\").sort((a,b) => a.at - b.at || a.id.localeCompare(b.id));"
+    },
+    {
+      "file": "src/simulation.js",
+      "line": 498,
+      "text": "for(const e of Object.values(s.events).sort((a,b) => a.at - b.at || a.id.localeCompare(b.id))) if(e.status === \"open\" && (e.mode !== \"decision\" || e.actorId !== \"player\" || !e.discoveredBy.includes(\"player\")) && e.expiresAt != null && e.expiresAt <= state.clock) {"
+    },
+    {
+      "file": "src/simulation.js",
+      "line": 501,
+      "text": "for(const [id,c] of Object.entries(s.checks).sort(([a],[b]) => a.localeCompare(b))) if(c.due <= state.clock) {"
+    },
+    {
+      "file": "src/simulation.js",
+      "line": 522,
+      "text": "for(const [id,c] of Object.entries(s.controllers).sort(([a],[b]) => a.localeCompare(b))) if(s.people[c.actorId].life === \"alive\" && c.due <= state.clock) {"
+    },
+    {
+      "file": "src/simulation.js",
+      "line": 525,
+      "text": "for(const candidate of [...d.actions].sort((a,b) => b.priority - a.priority || JSON.stringify(a).localeCompare(JSON.stringify(b)))) {"
+    },
+    {
+      "file": "src/simulation.js",
+      "line": 535,
+      "text": "const event = kind === \"event\" ? Object.values(s.events).filter(e => e.actorId === c.actorId && e.definitionId === candidate.eventId && e.status === \"open\").sort((a,b) => a.at - b.at || a.id.localeCompare(b.id))[0] : null;"
+    },
+    {
+      "file": "src/simulation.js",
+      "line": 545,
+      "text": "for(const [actorId,p] of Object.entries(s.programs).sort(([a],[b]) => a.localeCompare(b))) if(p.status === \"running\" && !simulationOccupiesActor(state, actorId) && !state.pending.some(j => j.context.actorId === actorId)) {"
+    },
+    {
+      "file": "src/structured_equipment_runtime.js",
+      "line": 75,
+      "text": "out.layers.sort((a,b)=>a.layer-b.layer||a.slot.localeCompare(b.slot));"
+    },
+    {
+      "file": "src/world_completion_learning_runtime.js",
+      "line": 101,
+      "text": "for(const [key, n] of Object.entries(stock || {}).sort(([a], [b]) => a.localeCompare(b))) {"
+    }
+  ],
+  "lifecycle": [
+    {
+      "file": "src/native_discovery_feedback.js",
+      "line": 60,
+      "text": "document.addEventListener('visibilitychange', visibility);"
+    },
+    {
+      "file": "src/native_discovery_feedback.js",
+      "line": 62,
+      "text": "cancel(); document.removeEventListener('visibilitychange', visibility);"
+    },
+    {
+      "file": "src/settled_text_effects.js",
+      "line": 128,
+      "text": "document.addEventListener('visibilitychange', visibility);"
+    },
+    {
+      "file": "src/settled_text_effects.js",
+      "line": 131,
+      "text": "cancel(); document.removeEventListener('visibilitychange', visibility);"
+    }
+  ],
+  "testSites": [
+    {
+      "file": "tests/feature_panel_save_failure.test.js",
+      "line": 37,
+      "text": "await new Promise(resolve => setTimeout(resolve, 0));"
+    }
+  ]
+}

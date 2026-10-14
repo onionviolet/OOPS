@@ -1,0 +1,8 @@
+import {slice} from './common.mjs';
+// Synthetic shape model only. Deliberately no runtime imports or real content/saves.
+export function developedSave(n){
+  const s=slice(n);s.actors=Object.fromEntries(s.actors.map(a=>[a.id,a]));
+  s.simulation={schema:1,people:Object.fromEntries(Array.from({length:n},(_,i)=>[`actor.${i}`,{id:`actor.${i}`,bornAt:0,worldId:`world.${i%8}`,knownMethods:['method.work'],conditions:[],opinions:{player:i%100}}])),jobs:s.pending,log:Array.from({length:n*2},(_,i)=>({id:`receipt.${i}`,at:i,actorId:`actor.${i%n}`,kind:'settlement',details:{spent:2,earned:5,method:'method.work'},text:`Synthetic receipt ${i}: café 工作, task ${i%97} settled.`}))};
+  const inventory=Object.fromEntries(Array.from({length:n},(_,i)=>[JSON.stringify({id:`synthetic.item.${i}`,quality:i%100}),{count:1+i%10}]));
+  return {'game version':'v0.6.0','current time':{year:3,month:4,day:5,hour:6,minute:7,day_count:824},'current location':'Synthetic town',saved_at:'2026-10-14 00_00_00',fork_schema:1,character:{name:'Synthetic café hero 工作',money:12000,xp:{total_xp:100000},equipment:{},titles:{},hp_to_full:2,stamina_to_full:5},levels:{person:{main_character:{total_xp:100000,skill_xp:{Literacy:1000,Running:5000}}}},inventories:{person:{main_character:inventory}},availabilities:{location:{'Synthetic town':1}},locations:{'Synthetic town':{is_unlocked:true}},npcs:{},books:{'Synthetic notes':{accumulated_time:60}},options:{effects:true},active_effects:{'Synthetic meal':{duration:30}},life_record:{schema:1,entries:s.simulation.log.slice(0,n)},npc_lives:{schema:1,people:Object.values(s.simulation.people)},retired_content:{schema:1,entries:[{path:['synthetic_domain'],value:{retained:true}}]},expansion:s};
+}

@@ -1,0 +1,273 @@
+{
+  "status": "PASS",
+  "proposal_packet": true,
+  "checked_at": "2026-10-14T04:47:35.652931+00:00",
+  "branch": "codex/gameplay-foundations",
+  "head": "5c084e50cc251fc9b9d8f26b754377da5c61ffca",
+  "checks": "Static documentation only; no runtime/build/browser/native/persistence/canon authentication.",
+  "required_files": [
+    "CHECKPOINT.md",
+    "REFERENCES.md",
+    "STRUCTURES.md",
+    "CONTRACT.md",
+    "WORLD_FIT.md",
+    "MORE.md",
+    "REPORT.md",
+    "BACKLOG.md"
+  ],
+  "markdown_files": 8,
+  "local_links": 78,
+  "external_source_links": 31,
+  "source_locators": 21,
+  "errors": [],
+  "anchor_errors": [],
+  "source_fingerprints": [
+    {
+      "path": "src/causal_story_actors.js",
+      "lines": 163,
+      "sha256": "232f064f41a139490b05fbaa6d96e7280d13a8b7b7a772e4983a1b635febbd2e"
+    },
+    {
+      "path": "src/causal_story_content.js",
+      "lines": 255,
+      "sha256": "6fbcfc9e1718f961f8c4b99c588c1cc8c4816378ce889c93662cec0aea10af22"
+    },
+    {
+      "path": "src/causal_story_core.js",
+      "lines": 433,
+      "sha256": "7f4993ccc8251e376c72f59dbec61f6efe24c744b61915d6011725da572b4fb5"
+    },
+    {
+      "path": "src/causal_story_host.js",
+      "lines": 504,
+      "sha256": "cc6464bb00936100be5cf6b02c95be62f38c3478d273b2b83c4395fb7bcf8c1c"
+    },
+    {
+      "path": "src/causal_story_ids.js",
+      "lines": 20,
+      "sha256": "1aca94dc5eaf5412865b60ce292bc00f5c34fa7e5cdd85a53d31efbd4fa22fee"
+    },
+    {
+      "path": "src/causal_story_native.js",
+      "lines": 477,
+      "sha256": "f70656361f79b011fdf18953caa10fba3acea327c007e16c170fd5345c5ccc84"
+    },
+    {
+      "path": "src/causal_story_scenes.js",
+      "lines": 104,
+      "sha256": "7ccaeae599ce284f7d5003ab95b9687426c69ebdba452b9238d2931ef9f28ca9"
+    },
+    {
+      "path": "src/causal_story_ui.js",
+      "lines": 352,
+      "sha256": "5e43b094b364e574e9ad00e8bda57ada6b2a333c04191af86c2db49df87a32e5"
+    },
+    {
+      "path": "src/simulation.js",
+      "lines": 633,
+      "sha256": "4b0cec849a464c1ea758752c0881f15f7f26d5be857173ffcefda4b7eaba149c"
+    },
+    {
+      "path": "src/simulation_content.js",
+      "lines": 129,
+      "sha256": "9c55fc6edeebb9f75027dcada4dcc44ebb1fc27e4815cac75731825e0f2252bc"
+    },
+    {
+      "path": "src/simulation_contracts.js",
+      "lines": 322,
+      "sha256": "519b55317952eb7b4cd10a0cabb899542e7af706f568358f146b241be81b301c"
+    },
+    {
+      "path": "src/simulation_effects.js",
+      "lines": 394,
+      "sha256": "507a5a60b82eaade331601c90f5e98410a2d99486903b9109937f933f3ffe151"
+    },
+    {
+      "path": "src/simulation_resolution.js",
+      "lines": 41,
+      "sha256": "b47789d1959d5e43fcce298b3631830169aa0d89b972cd7d08da1a55e4c2fd94"
+    },
+    {
+      "path": "src/simulation_ui.js",
+      "lines": 100,
+      "sha256": "ed41498fbf78e78d2383d2fb397692f1e6c211ad2666eeb1a3bb69d1b226fc37"
+    },
+    {
+      "path": "src/event_feed.js",
+      "lines": 103,
+      "sha256": "f25a1f1ff13bc751509cece72a3825cc7163c646e7f565f29f477bbcbffb2915"
+    },
+    {
+      "path": "src/event_feed_ui.js",
+      "lines": 50,
+      "sha256": "d1c3539ea9d2f1f64fa67f453237f593b1dec3e9cd9b56754e730d674d02ffd0"
+    },
+    {
+      "path": "src/world_visit_history.js",
+      "lines": 70,
+      "sha256": "c9296a84f4df6c0a0ea5ed818ca1ca283149e247eb7354eaaeb983f9b99b2bd2"
+    },
+    {
+      "path": "src/life_record.js",
+      "lines": 82,
+      "sha256": "21ac5f17fff62794ba26d7180deb6a9c0ad85060d79134e5d6ce83de51d1d9bd"
+    },
+    {
+      "path": "src/people_knowledge.js",
+      "lines": 106,
+      "sha256": "e52bf2508ab626785ad66074179f33916aaed7946fbd403706cb59303e851261"
+    }
+  ],
+  "source_locator_details": [
+    {
+      "document": "CONTRACT.md",
+      "source": "src/causal_story_ids.js",
+      "line": 2,
+      "exists": true
+    },
+    {
+      "document": "CONTRACT.md",
+      "source": "src/causal_story_content.js",
+      "line": 231,
+      "exists": true
+    },
+    {
+      "document": "CONTRACT.md",
+      "source": "src/causal_story_actors.js",
+      "line": 71,
+      "exists": true
+    },
+    {
+      "document": "CONTRACT.md",
+      "source": "src/causal_story_content.js",
+      "line": 236,
+      "exists": true
+    },
+    {
+      "document": "CONTRACT.md",
+      "source": "src/causal_story_core.js",
+      "line": 162,
+      "exists": true
+    },
+    {
+      "document": "CONTRACT.md",
+      "source": "src/causal_story_host.js",
+      "line": 32,
+      "exists": true
+    },
+    {
+      "document": "CONTRACT.md",
+      "source": "src/causal_story_native.js",
+      "line": 120,
+      "exists": true
+    },
+    {
+      "document": "CONTRACT.md",
+      "source": "src/causal_story_ui.js",
+      "line": 60,
+      "exists": true
+    },
+    {
+      "document": "CONTRACT.md",
+      "source": "src/causal_story_scenes.js",
+      "line": 42,
+      "exists": true
+    },
+    {
+      "document": "CONTRACT.md",
+      "source": "src/simulation.js",
+      "line": 36,
+      "exists": true
+    },
+    {
+      "document": "CONTRACT.md",
+      "source": "src/simulation.js",
+      "line": 452,
+      "exists": true
+    },
+    {
+      "document": "CONTRACT.md",
+      "source": "src/simulation_contracts.js",
+      "line": 217,
+      "exists": true
+    },
+    {
+      "document": "CONTRACT.md",
+      "source": "src/simulation_resolution.js",
+      "line": 4,
+      "exists": true
+    },
+    {
+      "document": "CONTRACT.md",
+      "source": "src/simulation_effects.js",
+      "line": 58,
+      "exists": true
+    },
+    {
+      "document": "CONTRACT.md",
+      "source": "src/simulation_content.js",
+      "line": 103,
+      "exists": true
+    },
+    {
+      "document": "CONTRACT.md",
+      "source": "src/simulation_ui.js",
+      "line": 39,
+      "exists": true
+    },
+    {
+      "document": "CONTRACT.md",
+      "source": "src/event_feed.js",
+      "line": 3,
+      "exists": true
+    },
+    {
+      "document": "CONTRACT.md",
+      "source": "src/event_feed_ui.js",
+      "line": 4,
+      "exists": true
+    },
+    {
+      "document": "CONTRACT.md",
+      "source": "src/world_visit_history.js",
+      "line": 7,
+      "exists": true
+    },
+    {
+      "document": "CONTRACT.md",
+      "source": "src/life_record.js",
+      "line": 1,
+      "exists": true
+    },
+    {
+      "document": "CONTRACT.md",
+      "source": "src/people_knowledge.js",
+      "line": 6,
+      "exists": true
+    }
+  ],
+  "sibling_presence": {
+    "p13": {
+      "directory": true,
+      "report": false
+    },
+    "p14": {
+      "directory": true,
+      "report": true
+    },
+    "p15": {
+      "directory": true,
+      "report": true
+    },
+    "p16": {
+      "directory": true,
+      "report": true
+    }
+  },
+  "write_scope": "Only P12; reviewed all mutation commands. Existing concurrent workspace dirt left untouched.",
+  "port_check": "lsof returned no listeners on 20150-20154; observation only, not reservation.",
+  "recommended_slice_count": 5,
+  "whitespace_style_errors": [],
+  "git_diff_check": "PASS; scoped git diff only, supplemented by direct untracked markdown scan",
+  "manual_review": "Proposal boundaries, source qualification, secret-ID-only references, no raw canon/private-note quotations, sibling ownership and no runtime proof claims reviewed. Not a guarantee of all future disclosure paths."
+}

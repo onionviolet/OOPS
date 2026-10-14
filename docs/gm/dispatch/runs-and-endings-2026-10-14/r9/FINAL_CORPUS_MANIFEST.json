@@ -1,0 +1,522 @@
+[
+  {
+    "path": "docs/CHEAT_COSMOLOGY.md",
+    "sha256": "2d3bc445e35d2b17ff62a791ef29337e88d18c7eea917a27be9c14882872cb34",
+    "lines": 1281
+  },
+  {
+    "path": "docs/CHEAT_LIBRARY.md",
+    "sha256": "17c27211a3a743fa8f7f3571d76984cbec36a91150264e55af17b930e6fe01b1",
+    "lines": 1419
+  },
+  {
+    "path": "docs/LIFE_SIM_NORTH_STAR.md",
+    "sha256": "8b4bb828e22666db1aba29f761e583dc5e0a99bb192b59f2d2956009a68c47a1",
+    "lines": 7637
+  },
+  {
+    "path": "docs/PROCEDURAL_STORY_AND_CONTENT_CONSIDERATIONS_2026-10-14.md",
+    "sha256": "c418a4c0fbbbd583949e00d80e3edd8481975eef6d40c7880f3d2af4037ba1ca",
+    "lines": 887
+  },
+  {
+    "path": "docs/SELVES_AND_ECHOES.md",
+    "sha256": "309636a7e4e6f6263fac3e1df2208d6f7972042deb81e2dc65c212c345a318f9",
+    "lines": 280
+  },
+  {
+    "path": "docs/STARTS_ENDINGS_AND_RANDOMNESS_PALETTE.md",
+    "sha256": "79a084cd8b3669750b0648ed1739df641a4e0df7c871ce08d83dfef438f88870",
+    "lines": 107
+  },
+  {
+    "path": "docs/TIMELINES_AND_DIVERGENCE.md",
+    "sha256": "ddbd89552dc53a8f830b2f43c65fcc4f639c23aca450c3e99440152f9d1588ee",
+    "lines": 602
+  },
+  {
+    "path": "docs/TIME_KEEPERS_AND_VARIANTS.md",
+    "sha256": "66991d3b8313268cc09c611d091f1fd487b30cfe2ac0d7e249ac3210615ab3bc",
+    "lines": 813
+  },
+  {
+    "path": "docs/emergent/E1_SEEDED_STREAMS.md",
+    "sha256": "7582bb8088ac9d83f3ac95bd95340a059d91d195fa17efe331ab3ba3636604a6",
+    "lines": 542
+  },
+  {
+    "path": "docs/emergent/E2_STORYLETS.md",
+    "sha256": "8efaa09dd56e5555fbacfb82f79ff665b7a3fc39160621bf6db108f918c8d9e4",
+    "lines": 800
+  },
+  {
+    "path": "docs/emergent/E3_LIVING_PEOPLE.md",
+    "sha256": "292190b45c4ff167d387aa5b2b9233220645cae1f4977844ccbf5257c93840c2",
+    "lines": 908
+  },
+  {
+    "path": "docs/emergent/E4B_MATERIALS_AND_NOITA.md",
+    "sha256": "5ecf7b66f0effb001f82893111f8f96ccaf567625fb1fe85fd0bc308f5545734",
+    "lines": 386
+  },
+  {
+    "path": "docs/emergent/E4_TAGS_AND_RULES.md",
+    "sha256": "6936d98e5c1530efd2e93128e9a719cd82d48edc131fd0bb8998ea2833bad027",
+    "lines": 700
+  },
+  {
+    "path": "docs/emergent/E5_STORYTELLER_AND_FATE.md",
+    "sha256": "75bf377ad317b8244aa2437c5a1fd819f81490a809e7eb852d18110daa6be589",
+    "lines": 753
+  },
+  {
+    "path": "docs/emergent/E6_LORE_LAYER.md",
+    "sha256": "886a2fb8ef8b7192b71814bfcbc3b4e28934191e74e6b572ac728bfe16cb94dd",
+    "lines": 599
+  },
+  {
+    "path": "docs/emergent/E7_OBSERVATION_AND_MYSTERY.md",
+    "sha256": "5fee252342a625162f19fd12ebe3ac4a3dca2e62ea88e9a60db74307906a975a",
+    "lines": 201
+  },
+  {
+    "path": "docs/emergent/E8B_POWER_CATALOG.md",
+    "sha256": "b3f52031f3e1d550645607c4b49a56b2aafed665996388e09d8167692d1130e8",
+    "lines": 290
+  },
+  {
+    "path": "docs/emergent/E8C_POWER_PATHS_AND_ANIME.md",
+    "sha256": "59511ff01263fb1141c8984a03b8d0ab3491b6a45a719d11af971687911f03f3",
+    "lines": 214
+  },
+  {
+    "path": "docs/emergent/E8D_VOW_SYSTEM.md",
+    "sha256": "1b033a6f89477dec5f58b2f73c6bd8ec83b13fc2ed65f53fc3b9858dbce0ed7e",
+    "lines": 416
+  },
+  {
+    "path": "docs/emergent/E8E_ADAPTATION.md",
+    "sha256": "d88efbedbc1e5c7a99e33c305d03aa0b6641d70f80b2e6ef6d2b21acaabc1511",
+    "lines": 210
+  },
+  {
+    "path": "docs/emergent/E8E_POWERS_IN_A_LIFE.md",
+    "sha256": "ff5725c9c511839b38ed8af6bf8829de2fa9e72b1fc1ec6d3ce22941440c778b",
+    "lines": 255
+  },
+  {
+    "path": "docs/emergent/E8F_ADJECTIVES.md",
+    "sha256": "0bf9efd3706e09e6b465a2ca94d518b1068cc69ceba089cf0e9eea8d0f88aa74",
+    "lines": 514
+  },
+  {
+    "path": "docs/emergent/E8_POWER_ASPECTS.md",
+    "sha256": "2c60a37de0398c9d42a3e12d06b6b090b0acaa2a156263a97079bf26993228d3",
+    "lines": 283
+  },
+  {
+    "path": "docs/emergent/E9_WORLD_LAWS.md",
+    "sha256": "a94cb97e646a7d327be1e6656370751bb726d6e91d9cbc6887c897bd9123bdfd",
+    "lines": 450
+  },
+  {
+    "path": "docs/research/DEATH_AND_RESET_CONSIDERATIONS_2026-10-10.md",
+    "sha256": "cbd046428be5c878ebd2dda33a73b53d3be02cf208fbf4ac758dc2b23e2eeead",
+    "lines": 135
+  },
+  {
+    "path": "docs/worlds/ABILITY_AUTHORING.md",
+    "sha256": "afa6e6a7e16906041da66d5c7662d82c7c47d69c522246d646e0fefc142b915e",
+    "lines": 404
+  },
+  {
+    "path": "docs/worlds/BOOK_WORLD_ENTRY_MATRIX.md",
+    "sha256": "7abb0e1fbd3352ea6a176ea27336f060e46d48db7686d7cc29e8c0729849b1eb",
+    "lines": 97
+  },
+  {
+    "path": "docs/worlds/CAMPAIGN_FRAMEWORK.md",
+    "sha256": "679feddcd8572f75525cd598d54243353883ad86fd99a5584fa46dfb6e4d081d",
+    "lines": 216
+  },
+  {
+    "path": "docs/worlds/CHOICES_THAT_GATE_CHOICES_2026-10-13.md",
+    "sha256": "70489af9370d8004c9844962d23d80f4a99e273399365c07a8a60331c7639de8",
+    "lines": 154
+  },
+  {
+    "path": "docs/worlds/COMIC_WORLDS_STARTS_AND_BRANCHES_2026-10-14.md",
+    "sha256": "1576547aa34248acd5b3277863fc640901e7b4624d413d57f96c3956dc4049ec",
+    "lines": 114
+  },
+  {
+    "path": "docs/worlds/COMPANIONS_BY_WORLD_2026-10-14.md",
+    "sha256": "4014524b8157453dc196f80a9705e8d490de995c67e66138f23a8fffda4dc49a",
+    "lines": 209
+  },
+  {
+    "path": "docs/worlds/CONTINUATION_CHOICE_CONSIDERATION_2026-10-13.md",
+    "sha256": "366113034330b1636b9d9a5972304a27ffd960d587d3b650d81b526c7725c06e",
+    "lines": 59
+  },
+  {
+    "path": "docs/worlds/DEEPER_SYSTEM_INTERACTIONS_2026-10-13.md",
+    "sha256": "a7af33f55b37de463bda07a62cbee8ee8106a8903903f4f4c44705a6f3e9bf6f",
+    "lines": 121
+  },
+  {
+    "path": "docs/worlds/DIALOGUE_AND_INTERACTIONS.md",
+    "sha256": "6c9f867d703be28f0d406a18db260fe33c831299fd2eeaf18d49bf1016ea2be5",
+    "lines": 180
+  },
+  {
+    "path": "docs/worlds/FEATURE_UNLOCK_AND_CHEAT_ACQUISITION_PROCESS_2026-10-13.md",
+    "sha256": "481a7ff614948c67ea5bc6ef23873c48412a6a1be2521a086cc611b52ee1b09f",
+    "lines": 65
+  },
+  {
+    "path": "docs/worlds/FIRST_CHEATS_AND_DEATH_REWARDS_2026-10-13.md",
+    "sha256": "e590b351314afa5d2cb8a6e5dbc65885a82c99ff7903b1f25ce9fe9f93fc5963",
+    "lines": 82
+  },
+  {
+    "path": "docs/worlds/IDENTITY_LAWS_BY_WORLD_2026-10-14.md",
+    "sha256": "a5ab553f06bfbd58570fd3f349bd436ccb8acc7142ecdbc2937953ff6abbc7d3",
+    "lines": 275
+  },
+  {
+    "path": "docs/worlds/IDENTITY_LAWS_GAPS_2026-10-14.md",
+    "sha256": "b80b2e6ee6ca02fd24960f34ea2ab98c6a55d00ca64ac8f3a16ffb603a36da2d",
+    "lines": 243
+  },
+  {
+    "path": "docs/worlds/LORE_AND_CONTINUITY.md",
+    "sha256": "1a3b260a1cdf2526fcc1a327c8afb5a6e2a93b82244d08c7fac246074846afc4",
+    "lines": 296
+  },
+  {
+    "path": "docs/worlds/MAKER_ARTS_BY_WORLD_2026-10-14.md",
+    "sha256": "badc1a6c464ea9cca98f8f354731fa911b5b587ff65678c211636a1496701750",
+    "lines": 165
+  },
+  {
+    "path": "docs/worlds/MULTIVERSE_STRUCTURES.md",
+    "sha256": "de806e3c68687f185597b8083e9e3e15efcaccd6ae5e3589972b558a07464ecd",
+    "lines": 103
+  },
+  {
+    "path": "docs/worlds/NONHUMAN_ABSTRACTIONS_NEEDED_2026-10-14.md",
+    "sha256": "f6019821d3f4ebdd30478060e6ade1f31ddd07b984272c273b3c8ee597b06860",
+    "lines": 332
+  },
+  {
+    "path": "docs/worlds/NONHUMAN_BODY_AUTHORING_2026-10-14.md",
+    "sha256": "642f16e130253d49793cf3f43d4cd2eaed3a0bf0919931606b9ab2464ca3512e",
+    "lines": 1182
+  },
+  {
+    "path": "docs/worlds/NONHUMAN_BONDS_AND_PARTIES_2026-10-14.md",
+    "sha256": "70164231f3aa53b1c934c6e8a4ad466dd23434703f6b710fd78fc246aec704a7",
+    "lines": 187
+  },
+  {
+    "path": "docs/worlds/NONHUMAN_CHEATS_2026-10-14.md",
+    "sha256": "11cdab7049b87356e519c21afea5b0d282f29e3aed802d2002b6227aac698280",
+    "lines": 361
+  },
+  {
+    "path": "docs/worlds/NONHUMAN_CLOCKS_LIFESPANS_AND_SEASONS_2026-10-14.md",
+    "sha256": "9f5ba1817d576f9daa685b8cce0f66f41e9b2c8cccb66ee0bf5df7bb2920f60c",
+    "lines": 181
+  },
+  {
+    "path": "docs/worlds/NONHUMAN_IMPLEMENTATION_IMPLICATIONS_2026-10-14.md",
+    "sha256": "c8c29c7e962626e67b2846347465bfdc3ad288f8c912cfa608c4a433cc0957b2",
+    "lines": 376
+  },
+  {
+    "path": "docs/worlds/NONHUMAN_KIN_AND_RELATIONSHIPS_2026-10-14.md",
+    "sha256": "8ae9a0ce6301be1b018cbab035a2029d3a26c4086d475e8ecdd06229ce46c20e",
+    "lines": 247
+  },
+  {
+    "path": "docs/worlds/NONHUMAN_MAJORITY_WORLDS_2026-10-14.md",
+    "sha256": "d2809bf5caae59f406d00bbc3ba6158bdc89a95c37609b9c4cc46b461c5d199c",
+    "lines": 256
+  },
+  {
+    "path": "docs/worlds/NONHUMAN_MAKING_AND_BUILDING_2026-10-14.md",
+    "sha256": "f8b9757809c42b29a50054ceca5770975ee652f931da9608cce4ed2bad3d44f5",
+    "lines": 340
+  },
+  {
+    "path": "docs/worlds/NONHUMAN_MINDS_AND_COGNITION_2026-10-14.md",
+    "sha256": "7245b9ef910eefc73ab35864771fc163e46d16c30cd5bacfb35df7467f0a168f",
+    "lines": 364
+  },
+  {
+    "path": "docs/worlds/NONHUMAN_MONSTER_SIDE_2026-10-14.md",
+    "sha256": "021763d5d5cc1deb78d33c5689e1e693506e499ecba1b755a570de0b4790740f",
+    "lines": 337
+  },
+  {
+    "path": "docs/worlds/NONHUMAN_OVERARCHING_FRAME_2026-10-14.md",
+    "sha256": "6c7b29371c8629c6e1511c6a3a5c1711c806dbed2fac208d56978ac63aee8bde",
+    "lines": 361
+  },
+  {
+    "path": "docs/worlds/NONHUMAN_PROGRESSION_AND_BALANCE_2026-10-14.md",
+    "sha256": "58941965b9e3ccab5e13c6f471ec610cf8ded9b1fc13703fd2e070427eb73a4b",
+    "lines": 302
+  },
+  {
+    "path": "docs/worlds/NONHUMAN_PROTAGONIST_MECHANICS_2026-10-14.md",
+    "sha256": "ff1b1bb26a4faa3a2ad40d395493ca817eb62f2a2dded03c97ee90c5a8f90428",
+    "lines": 214
+  },
+  {
+    "path": "docs/worlds/NONHUMAN_SENSES_SCALE_AND_UI_2026-10-14.md",
+    "sha256": "09d57d067005c52f833473c877dc25797d651d217db578c9489c848395edf0dc",
+    "lines": 402
+  },
+  {
+    "path": "docs/worlds/NONHUMAN_SOCIETY_LAW_AND_ECONOMY_2026-10-14.md",
+    "sha256": "0e827b82c082a818ad5e87c387902866c6c69e9b52f7d86e0c6254ca08d52481",
+    "lines": 370
+  },
+  {
+    "path": "docs/worlds/NONHUMAN_STARTS_BY_WORLD_2026-10-14.md",
+    "sha256": "5844378a916aa59d5a6b2129ba176288ee8af7fcb608aa40c3792f41296d128d",
+    "lines": 392
+  },
+  {
+    "path": "docs/worlds/NONHUMAN_STARTS_ENGINE_REQUIREMENTS_2026-10-14.md",
+    "sha256": "d33bcf422ce7d1d67919c8d0824be6edc2f065d5a06c0fef7dce0aaa19a8e7be",
+    "lines": 600
+  },
+  {
+    "path": "docs/worlds/NONHUMAN_STARTS_ENGINE_SPEC_2026-10-14.md",
+    "sha256": "c55cc34f827c63f13ce3d178b421c672e5425f1fcc34a32bbe848daf40915830",
+    "lines": 430
+  },
+  {
+    "path": "docs/worlds/NONHUMAN_STARTS_PLAY_2026-10-14.md",
+    "sha256": "c05ca963641e8adf78bcd0f6ee8005c135636305482db94b30bf8bdd2620a9c3",
+    "lines": 382
+  },
+  {
+    "path": "docs/worlds/NONHUMAN_START_SPECS_2026-10-14.md",
+    "sha256": "e286256fd30b2380702f23529ebb9a1f7d2c87c0998cc07edf23fb894ccd3126",
+    "lines": 414
+  },
+  {
+    "path": "docs/worlds/NONHUMAN_SUBTLE_MICRO_DETAILS_2026-10-14.md",
+    "sha256": "a4e2a351857c72130a2518e63a153cd24b00ad1998d180b8091743c8fd78cb3f",
+    "lines": 380
+  },
+  {
+    "path": "docs/worlds/NONHUMAN_SYNTHESIS_AND_ROADMAP_2026-10-14.md",
+    "sha256": "8423cfe30070f879c8e210bd1a8baa23d9f86cbcb28f3ebbe8dbe2a50730cabf",
+    "lines": 353
+  },
+  {
+    "path": "docs/worlds/NONHUMAN_TRANSFORMATION_AND_BODY_CHANGE_2026-10-14.md",
+    "sha256": "05d29a163de2662b71ec4a40616883a92443767684adcf0d2144fb50e279278f",
+    "lines": 321
+  },
+  {
+    "path": "docs/worlds/ORIGINS_AND_WORLD_TIMELINES.md",
+    "sha256": "ff928265b787cbece0dcc7e4634df8f5bb4cd6009b70a0f8fe246fb66f4ed403",
+    "lines": 118
+  },
+  {
+    "path": "docs/worlds/PLAYER_CHARACTER_IDENTITY_AND_CONTROL_2026-10-13.md",
+    "sha256": "0c8e55bf1952dbb2043b211adda015080e9fbab7a73a617e795bdcaae04bbe79",
+    "lines": 206
+  },
+  {
+    "path": "docs/worlds/PROGRESSION_AND_ASSEMBLY.md",
+    "sha256": "08aa1dd60d75808b0cc6182b44bfa856404ea4aee1c5c02980eb6222928c7ceb",
+    "lines": 137
+  },
+  {
+    "path": "docs/worlds/RESEARCH_TALENTS_PROGRESSION_AND_STARTS_2026-10-13.md",
+    "sha256": "f7f630de4a9b8e3bd27d263efba0ea9f9468861eaaceb8c484a415d7de3f41c1",
+    "lines": 149
+  },
+  {
+    "path": "docs/worlds/SELF_AS_PLAYER_LORE_CONSIDERATIONS_2026-10-13.md",
+    "sha256": "76e848b666f3070ee7a01b7f7d535eb799f4ee11053260521fcb38b602737ef7",
+    "lines": 363
+  },
+  {
+    "path": "docs/worlds/SKILL_MECHANISMS_AND_MEANS_2026-10-13.md",
+    "sha256": "86ab0ff78e6d4ec4d579e51db989e606c474c774faf30222777741af92a1970d",
+    "lines": 112
+  },
+  {
+    "path": "docs/worlds/START_AS_TRASH_NOBLE_LESSONS_2026-10-14.md",
+    "sha256": "6ede6460581f24c8efe1bd568060ae279ee47c2a0f63ef604b835ca346b11139",
+    "lines": 119
+  },
+  {
+    "path": "docs/worlds/START_MICRO_DETAILS_2026-10-14.md",
+    "sha256": "f3bdecf20cfd7f3df84414ea7801aec0ef267467464f38b648a3a752a3438a2e",
+    "lines": 450
+  },
+  {
+    "path": "docs/worlds/SUCCESSION_BY_WORLD.md",
+    "sha256": "f1ba916b7e51e890928baac10802d107170ba171974069e8296debb027d58884",
+    "lines": 258
+  },
+  {
+    "path": "docs/worlds/VILLAIN_STARTS_AND_OTHER_SELVES_2026-10-14.md",
+    "sha256": "4ad9e7b19c8c799b9dfa6fd530047933d66cba20bfc244815ffd45d0b4e3c44b",
+    "lines": 214
+  },
+  {
+    "path": "docs/worlds/WORLD_CORE_KIT_2026-10-14.md",
+    "sha256": "0472a8153049c30dbbf4715dc513cfec600b4662bbe06982a245798aa17a8c31",
+    "lines": 1399
+  },
+  {
+    "path": "docs/worlds/WORLD_CORE_KIT_AUDIT_PLAYBOOK.md",
+    "sha256": "321aaee7a2f00dfa9fa8b445236aa4ef251ad024a27a0bb7ee779fc6f3c36599",
+    "lines": 151
+  },
+  {
+    "path": "docs/worlds/WORLD_DEPTH_CONSIDERATIONS_2026-10-13.md",
+    "sha256": "e071022bf1b5f241dffaad26a1f3b79be514589347c9014d3a328b0a5d1cfd7a",
+    "lines": 161
+  },
+  {
+    "path": "docs/worlds/WORLD_SECRETS_AND_DISCOVERY.md",
+    "sha256": "238e270799dab7a8b09bc81ebfce0943a6df4bf465bfb7cbe7079ebf7c8120e9",
+    "lines": 203
+  },
+  {
+    "path": "docs/worlds/world-depth-2026-10-13/01_HOME_AND_HUBS.md",
+    "sha256": "53b622b3e41a5cd4ae945533406b7ac5aa0824a851045e75b7ee6969e1bebc97",
+    "lines": 238
+  },
+  {
+    "path": "docs/worlds/world-depth-2026-10-13/02_MOL_HP_JJK_DND.md",
+    "sha256": "4dd2caa79590f0d408a8ddcbe42c9e7bfc3babb6bd5f741843103609da6f8f37",
+    "lines": 237
+  },
+  {
+    "path": "docs/worlds/world-depth-2026-10-13/03_BLEACH_NARUTO_ELDEN_RING.md",
+    "sha256": "5739ddd68d42e71e50803e1228f50c71499b0cc536905513789dd99259174f14",
+    "lines": 173
+  },
+  {
+    "path": "docs/worlds/world-depth-2026-10-13/04_FALLOUT_SKYRIM_SL_TTKS.md",
+    "sha256": "c792445dadcbbf78a053181fb35888cff33f68ca439d58f8cb2ec7decbe30e35",
+    "lines": 240
+  },
+  {
+    "path": "docs/worlds/world-depth-2026-10-13/05_RESEARCHED_WORLDS.md",
+    "sha256": "0459d9ae8f2f4770e8fe29fe413a1932e534010022505442d557ea3b35576165",
+    "lines": 634
+  },
+  {
+    "path": "docs/worlds/world-depth-2026-10-13/06_CROSS_WORLD.md",
+    "sha256": "a6081b5ba342e30bc0ef9c0da06dc7e2b7db51c5d2c9622c674dd694401a2aef",
+    "lines": 130
+  },
+  {
+    "path": "docs/worlds/world-depth-2026-10-13/07_REQUIRED_FEATURES_AND_ENGINE.md",
+    "sha256": "418a1606b470a93286e803c1854b58d19a9ca3805dad2a226e19e234446f46f5",
+    "lines": 146
+  },
+  {
+    "path": "docs/worlds/world-depth-2026-10-13/08_PRIORITY_CANON_AND_AU.md",
+    "sha256": "d8ea8f659845682a5c58c341367b49f961f8a4812c5ef50d465c6ede0079799b",
+    "lines": 231
+  },
+  {
+    "path": "docs/worlds/world-depth-2026-10-13/09_MORE_BOOK_WORLDS_CANON_AND_AU.md",
+    "sha256": "9d1112f3cd58918e3caad9f71360671650181e9087277002f2696b11c5c8f3d6",
+    "lines": 513
+  },
+  {
+    "path": "docs/worlds/world-depth-2026-10-13/10_FULL_WORLD_METHOD.md",
+    "sha256": "e67ba0efcd65a034aa764cbc9d410017264bf084ad34ebc8a7022602d9ff1ffe",
+    "lines": 336
+  },
+  {
+    "path": "docs/worlds/world-depth-2026-10-13/11_ACCESS_AND_STARTS.md",
+    "sha256": "0b193caad04f10bade2a939ba6fddf6fa5096b308715b7b0626dedd2fca58566",
+    "lines": 175
+  },
+  {
+    "path": "docs/worlds/world-depth-2026-10-13/12_PRIORITY_WORLD_STARTS.md",
+    "sha256": "cf133be36cbe5f1236600ed8761250d6b4aae4a564a970a7305513b32c163011",
+    "lines": 207
+  },
+  {
+    "path": "docs/worlds/world-depth-2026-10-13/13_EARNED_OPTIONS_AND_CHEATS.md",
+    "sha256": "27d5e9b634f107843f69cd556a88e180ace033baa7e015331d985d30c57478ba",
+    "lines": 179
+  },
+  {
+    "path": "docs/worlds/world-depth-2026-10-13/14_RESEARCH_SKILLS_SCALES.md",
+    "sha256": "e47ac8030512db53ebc34bb96a59a78ecf4aeed276de6cb58098914a713cc645",
+    "lines": 187
+  },
+  {
+    "path": "docs/worlds/world-depth-2026-10-13/15_JOKES_AS_HINTS.md",
+    "sha256": "a0a27e141e3ed8dae0e44ddbb037b0d2f600dc3440b47a8d5ab3505b1fac3f7b",
+    "lines": 207
+  },
+  {
+    "path": "docs/worlds/world-depth-2026-10-13/16_EXPANDED_POSSIBILITIES.md",
+    "sha256": "42332454c9fa54ac70004369e0bd939bde10ad1be815d15bf72bdbae28e7be90",
+    "lines": 399
+  },
+  {
+    "path": "docs/worlds/world-depth-2026-10-13/17_CARRYOVER_AND_RETROFIT.md",
+    "sha256": "e5a1d87e46fde4dee3df8f0ec9c02df1376bb025d44c23fc1eb80b5f9e361f18",
+    "lines": 140
+  },
+  {
+    "path": "docs/worlds/world-depth-2026-10-13/18_PROTO23_ABSORB.md",
+    "sha256": "485e2bc1a6343f94c0e3a56a241bda2942d280d888e63c3ac2263f832659ffcf",
+    "lines": 127
+  },
+  {
+    "path": "docs/worlds/world-depth-2026-10-13/19_DIALOGUE_ACTIONS.md",
+    "sha256": "489b723e71e2cdc846fc7e4e6ef5f1fa3b7a54db82135060b9b25d411862db4c",
+    "lines": 202
+  },
+  {
+    "path": "docs/worlds/world-depth-2026-10-13/20_FRIENDS_AND_RELATIONSHIPS.md",
+    "sha256": "7bc7a1aca595e018a7754a4d295715afa3315e466eb66278cb2d589efa0df5db",
+    "lines": 229
+  },
+  {
+    "path": "docs/worlds/world-depth-2026-10-13/21_RENOWN_AND_SUBTLE.md",
+    "sha256": "6390b75268cad280b19650c0d32cad58677aa97eb13070dd8b6b558da4f548c2",
+    "lines": 194
+  },
+  {
+    "path": "docs/worlds/world-depth-2026-10-13/23_DEEPER_SYNTHESIS.md",
+    "sha256": "39e0365abfaed43de02646ba606b6d4081a29b4dec4f8ec366079be9504ad9b2",
+    "lines": 295
+  },
+  {
+    "path": "docs/worlds/world-depth-2026-10-13/24_TITLES.md",
+    "sha256": "01870502f13e4ae418f686f9bfcd5b936e2ab0feb18f8230a3bc0433b268b7ed",
+    "lines": 173
+  },
+  {
+    "path": "docs/worlds/world-depth-2026-10-13/28_FOUNDATIONAL_FUNCTIONS.md",
+    "sha256": "544143d44ecd31f05022d7077bc47d15257a0317f437975ba2ebe51045769499",
+    "lines": 159
+  },
+  {
+    "path": "docs/worlds/world-depth-2026-10-13/29_RELATIONSHIP_PREREQUISITES.md",
+    "sha256": "873be1da49bebca0d540cfa1b82a654a266550dac33841436ee0486b70a22be8",
+    "lines": 356
+  }
+]

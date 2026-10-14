@@ -1,0 +1,12 @@
+{
+  "src/main.js": "63bde375a9416186e116f26aa554172e0ef077563ed6d695eec93dd22f0cc956",
+  "src/expansion_engine.js": "da1e9761400bec1cf72f4da171408f22af6cb6a2ce3dd72565b8b29039ab3f82",
+  "src/expansion_persistence.js": "779a82715884c48f3d2338816d76b90e5e894b625f2fb7daec174091c73bc966",
+  "src/save_files.js": "9b87a732f2cb18abfd9e4225fa546203fed0b5d6e544e1284af01b2f61f16e6a",
+  "src/simulation.js": "c5717787ca8e0fcb57e2933e8d8a39e9088f6e12d8d7197d91605517cdc0041b",
+  "src/game_time.js": "ae58e07158d52962cc8e0735b2e30af803f85bba4e68881038127a2b6b9cbf6c",
+  "src/combat_math.js": "ad191cf1e6ddafb2b895bb953829e27ec4abe3806a90b4b4d87f8bf27842c045",
+  "src/absorb_e1/pacing.js": "0cb526073c7e2f36ddef60f93d5d276c62e39f18a2f873502363c38fa419e661",
+  "src/absorb_c2/local_life.js": "a5b75139999f0e573f5a0a79709463dafa8269edcccea10b77313e7dc13c0b8d",
+  "src/misc.js": "fb68556cee90d303cf980d992b637d37c46bd14501d14436df35d990ba6ac510"
+}

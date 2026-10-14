@@ -1,7 +1,9 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
-import {normalizeLocalLife,advanceLocalLife,localLifeAction,localLifeView,LOCAL_LIFE_BALANCE,MEAL_SCHEDULE} from '../src/absorb_c2/local_life.js';
+import {normalizeLocalLife,advanceLocalLife as advanceWithStream,localLifeAction,localLifeView,LOCAL_LIFE_BALANCE,MEAL_SCHEDULE} from '../src/absorb_c2/local_life.js';
+// Procgen requires a saved stream; calls that roll nothing get a fixed no-hit draw.
+const advanceLocalLife=(raw,c,rng=()=>.999)=>advanceWithStream(raw,c,rng);
 import {createLocalLifePanel} from '../src/absorb_c2/panel.js';
 const frame=(overrides={})=>({worldId:'base.frontier',location:'Village',alive:true,idle:true,clock:0,calendarMinute:720,
     perception:0,money:20,foodPoisonRemaining:0,...overrides});

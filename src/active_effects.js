@@ -1,3 +1,4 @@
+import {validateExposure} from './mixture_state.js';
 
 const effect_templates = {}; 
 //templates, since some effects will appear across multiple items but with different durations
@@ -33,6 +34,10 @@ class ActiveEffect {
         //or make it work with group_tags instead?
     }
 }
+
+// Original proposal: edged guardian wounds stack time, not separate save state.
+effect_templates.Bleeding = new ActiveEffect({name:'Bleeding',description:'A claw wound. Repeated hits add duration, capped at 15 game minutes. Played exposure trains Iron skin.',
+    effects:{stats:{health_loss_flat:{flat:-.5}}},tags:{debuff:true}});
 
 //weather effects
 (()=>{
@@ -511,4 +516,9 @@ Object.keys(effect_templates).forEach(effect_key => {
     effect_templates[effect_key].id = effect_key;
 });
 
+export function restoreActiveEffect(id, saved) {
+    if(saved.mixtureExposure){validateExposure(saved);const effect=new ActiveEffect(structuredClone(saved));effect.mixtureExposure=structuredClone(saved.mixtureExposure);return effect;}
+    if(!effect_templates[id])throw new Error('Unsupported saved active effect.');
+    return new ActiveEffect({...effect_templates[id],duration:saved.duration});
+}
 export {effect_templates, ActiveEffect};

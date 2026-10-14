@@ -1,0 +1,638 @@
+{
+  "status": "PROPOSAL packet; read-only source snapshot, not executed proof",
+  "capturedAt": "2026-10-14T04:43:12.651064+00:00",
+  "head": "5c084e50cc251fc9b9d8f26b754377da5c61ffca",
+  "readDepth": "Relevant sections for long owners and source modules; per-world source/history/contradiction sections. Hashes bind whole input bytes, not a claim of exhaustive reading. No private novel files were opened.",
+  "files": [
+    {
+      "path": ".claude/worktrees/proc-p3-storylets/docs/gm/dispatch/procgen-2026-10-13/p3/REPORT.md",
+      "sha256": "f39f768a08e595bf751de18135534d47767726142f20d39b98a3490244e5d3c7",
+      "lines": 83,
+      "bytes": 12782
+    },
+    {
+      "path": ".claude/worktrees/proc-p4-people/docs/gm/dispatch/procgen-2026-10-13/p4/REPORT.md",
+      "sha256": "b5d9b5ed3dc1a4e1b7b3dc10b80042016a9c9783fba09c957054d10b3997c5ee",
+      "lines": 56,
+      "bytes": 6420
+    },
+    {
+      "path": "AGENTS.md",
+      "sha256": "0aecd5d70ed7f6c7815c81b66ac6137da49b1c04573ac785007cfb38ad559026",
+      "lines": 107,
+      "bytes": 5222
+    },
+    {
+      "path": "PROJECT.md",
+      "sha256": "ef9b99c939970a706b9b91b9ca2715e2b1b6bfec629d567aacbe72d16d44b0fa",
+      "lines": 670,
+      "bytes": 49815
+    },
+    {
+      "path": "docs/COSMIC_EVENTS.md",
+      "sha256": "d95827546a336c7008715007859eff8d81d75c0a24f1d24eb6ffa9a17186b844",
+      "lines": 354,
+      "bytes": 18425
+    },
+    {
+      "path": "docs/INTRO_FLOW_CONSIDERATIONS_2026-10-13.md",
+      "sha256": "5e08da797219dc0c9de10d9f97645a6fd95bc15f14265e68695744864b9aa976",
+      "lines": 1272,
+      "bytes": 113494,
+      "initialSha256": "ae7f8335f5b8d7107e45bd56e71676cc06a37c455c1bff1b28efa2843d2d7ad3",
+      "refreshedAt": "2026-10-14T04:44:59.915927+00:00"
+    },
+    {
+      "path": "docs/PROCEDURAL_GENERATION_STATUS_2026-10-13.md",
+      "sha256": "9a80d3c1a8326f7bd306e36f1efdfbd40f15daaa76631af02705b9b5a12ceb9d",
+      "lines": 56,
+      "bytes": 6653
+    },
+    {
+      "path": "docs/RIVALS_IDENTITIES_AND_FATE.md",
+      "sha256": "02a6da942ce5cf92d4477caa4b23e032c8556de2c99a25d616d8df9229cdb164",
+      "lines": 342,
+      "bytes": 51246
+    },
+    {
+      "path": "docs/STARTS_ENDINGS_AND_RANDOMNESS_PALETTE.md",
+      "sha256": "79a084cd8b3669750b0648ed1739df641a4e0df7c871ce08d83dfef438f88870",
+      "lines": 107,
+      "bytes": 7877
+    },
+    {
+      "path": "docs/TIMELINES_AND_DIVERGENCE.md",
+      "sha256": "ddbd89552dc53a8f830b2f43c65fcc4f639c23aca450c3e99440152f9d1588ee",
+      "lines": 602,
+      "bytes": 36484
+    },
+    {
+      "path": "docs/USER_VISION.md",
+      "sha256": "f876da3970b84f9ae0d33627068145450c321f126b54cc52909e9ce3e097f17d",
+      "lines": 2309,
+      "bytes": 236550,
+      "initialSha256": "bcbf5fed1ade4e98714028d9e4d59cb1e9665841ce3a15fedc5fd200bbf7ec2e",
+      "refreshedAt": "2026-10-14T04:44:59.915927+00:00"
+    },
+    {
+      "path": "docs/emergent/E2_STORYLETS.md",
+      "sha256": "3690cb17c1890cc47b467ce330ceb3b9c2d4e834c8b6d7ddcb2d527f5d30b505",
+      "lines": 785,
+      "bytes": 50939
+    },
+    {
+      "path": "docs/emergent/E5_STORYTELLER_AND_FATE.md",
+      "sha256": "75bf377ad317b8244aa2437c5a1fd819f81490a809e7eb852d18110daa6be589",
+      "lines": 753,
+      "bytes": 38408
+    },
+    {
+      "path": "docs/emergent/E6_LORE_LAYER.md",
+      "sha256": "886a2fb8ef8b7192b71814bfcbc3b4e28934191e74e6b572ac728bfe16cb94dd",
+      "lines": 599,
+      "bytes": 36149
+    },
+    {
+      "path": "docs/emergent/E7_OBSERVATION_AND_MYSTERY.md",
+      "sha256": "5fee252342a625162f19fd12ebe3ac4a3dca2e62ea88e9a60db74307906a975a",
+      "lines": 201,
+      "bytes": 10873
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/COMMON.md",
+      "sha256": "615702f75ed356bfbd2d427b59d6bd713cc1ce5768a4cde6062a20aa5f1342ef",
+      "lines": 50,
+      "bytes": 4046
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/PLAN.md",
+      "sha256": "965f2b9cc77b5641c8bc10bf6e1b11397558a2bdd57682cac96bbda736894aa7",
+      "lines": 63,
+      "bytes": 9388,
+      "initialSha256": "cb19647a6981a33e58bd3206528f0b8b7f8b8f3a6ce4285bdadd3d35a9d341c6",
+      "refreshedAt": "2026-10-14T04:44:59.915927+00:00"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p10/REPORT.md",
+      "sha256": "ddc3b9c9d6c83020f70f083e65200191f415f13391a83fcccc74797bfd722402",
+      "lines": 89,
+      "bytes": 17624
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p11/CONTEXT.md",
+      "sha256": "5e4b52ee44abaeae0009fe8b48a73189e81583492e599123cced619a802ddb4c",
+      "lines": 130,
+      "bytes": 23118
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p11/DREAMS_AND_OCCASIONS.md",
+      "sha256": "1bf9c51857ba760efabc5d69843b26fe86252c60cee9e71db0ad10ec32f20ca2",
+      "lines": 45,
+      "bytes": 7419
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p11/INFORMATION_AND_LIBRARIES.md",
+      "sha256": "ac819208cf00876642baeaaa94146057bc6dd745cf4800e5f27c13a4850c25c4",
+      "lines": 37,
+      "bytes": 6115
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p11/MORE.md",
+      "sha256": "5bdb6015953bb27831e022f21c2216e658d6e62aa32df6d407132cbeca17824c",
+      "lines": 35,
+      "bytes": 9834
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p11/REQUESTS_AND_MARKETS.md",
+      "sha256": "96838a304e73a4643471880b82cfab0ea1355c1d38c63c91c394eb346ee74940",
+      "lines": 37,
+      "bytes": 7055
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p12/CHECKPOINT.md",
+      "sha256": "c68db2bea5c764b9bb9c00979624629aac3bf2d77bf0927392f840604cf99460",
+      "lines": 19,
+      "bytes": 1594
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p13/CHECKPOINT.md",
+      "sha256": "504fb5d03db99b926f7d162113f12d0d9121e8e54802b4918f08b74bac88ccf4",
+      "lines": 19,
+      "bytes": 1371
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p15/CHECKPOINT.md",
+      "sha256": "9d73267b191f5ba290bc1859b65ae64c417e029c6793248b1dc30caea8ef73ad",
+      "lines": 19,
+      "bytes": 2778,
+      "initialSha256": "d03a2b53ac1cea608631e4f3bb46a9f08b195a2d7ac80eb418ca94c089395548",
+      "refreshedAt": "2026-10-14T04:44:59.915927+00:00"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p5/D8_LORE_GRAMMAR.md",
+      "sha256": "0676ae0006f847fcebbbf596afbe3cb2a60644b64368a041c29f27f23a38295d",
+      "lines": 53,
+      "bytes": 10112
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p5/D9_STORYTELLER.md",
+      "sha256": "9cb2dc362f585c33a85a1ec34cd0d15e949634120d1725a8687b39c8dba19f95",
+      "lines": 53,
+      "bytes": 9741
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p5/EXTRA_IDEAS.md",
+      "sha256": "078b592855214c06d0e86169a6d1ab2b8f5ad25aad5ae0cd308aa6be26442d34",
+      "lines": 26,
+      "bytes": 7677
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p6/CREATIVE_WORKS.md",
+      "sha256": "273d0e3f0ffa0aab690da8227dc7803aa13b34094b9ee8995fa093baeef68764",
+      "lines": 43,
+      "bytes": 5740
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p7/GUIDELINES.md",
+      "sha256": "4a9091b2705a8c7884d221f4d5206193da7b7bb0a9f4c1dbf22fd7c8e88ee78d",
+      "lines": 83,
+      "bytes": 14816
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p9/A_NOVEL_CONCEPT.md",
+      "sha256": "e1a420bea060b0aa3848a56cff311eb29a32c62c43181f2ce1f1f25a53a6fc33",
+      "lines": 41,
+      "bytes": 4492
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p9/A_WILL_ETERNAL.md",
+      "sha256": "122cae899019f7dede21b860f513174a35e66fcad2229054447587bb1b4be2eb",
+      "lines": 41,
+      "bytes": 4572
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p9/BEYOND_TIMESCAPE.md",
+      "sha256": "a62cb645d0cbf5090bc3ced21b7c397b28db29af162a66c1da889b46434f997e",
+      "lines": 41,
+      "bytes": 4561
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p9/CIRCLE_OF_INEVITABILITY.md",
+      "sha256": "fa34d2bd7b69584bed9075679b36237b9aafc884ef52f81995e6eb429af70ccb",
+      "lines": 41,
+      "bytes": 5721
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p9/CRADLE.md",
+      "sha256": "b5d9aadef2609a461dd938ed5096821890cf1d981269f4fd46e73d9af0181539",
+      "lines": 41,
+      "bytes": 4356
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p9/DND.md",
+      "sha256": "069f2699d8623c0a2dc253aa953b64c03d0d9fafeef9ac341c65ad2e43debaa0",
+      "lines": 45,
+      "bytes": 6253
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p9/FATED_VILLAIN.md",
+      "sha256": "0a43f1b4d9b0eb8d37c8f47e32a0a65334f22d5ce24cefc2f25f5b7413061861",
+      "lines": 41,
+      "bytes": 4592
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p9/GENETIC_ASCENSION.md",
+      "sha256": "c66b5545ecde0c1fe01fa08309f4de32bca1fc68001f39423935c4e7727fe404",
+      "lines": 41,
+      "bytes": 4586
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p9/HARRY_POTTER.md",
+      "sha256": "dcd7857aad2cd5dbffb070b358b0eca51ced79ac94cffe740670926c4233c24b",
+      "lines": 45,
+      "bytes": 6592
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p9/ISSTH.md",
+      "sha256": "4339c36fe997605450ef1d1fb770d8104225a74953b58f7e38bfdce7cd2ac2b7",
+      "lines": 41,
+      "bytes": 4579
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p9/KAIROS.md",
+      "sha256": "8245e727a8281043b999a248701d869b2166dfb39d70d6ecee5c7647acda6b59",
+      "lines": 41,
+      "bytes": 4631
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p9/LABYRINTH_MAD_GOD.md",
+      "sha256": "10d16692d6f0065bded5ae9c8a99759c82d6ffb97bbd6a02c34cf4840d1b7214",
+      "lines": 41,
+      "bytes": 4659
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p9/LEGENDARY_MECHANIC.md",
+      "sha256": "c028f0de7cf7f5398b99e8ceb278821c70ce32255e5507151120451e29c63754",
+      "lines": 41,
+      "bytes": 4216
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p9/LOTM.md",
+      "sha256": "b37660c3e81d09ab9a21e15df224764fbe2c4b4502bc4a515ec98b8064c89775",
+      "lines": 42,
+      "bytes": 6443
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p9/MISTBORN.md",
+      "sha256": "ca4858e9f8598b0fc758c72a8c46bdfb2c4e72728c66399ce8101264be0ef3a6",
+      "lines": 41,
+      "bytes": 4355
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p9/MOTHER_OF_LEARNING.md",
+      "sha256": "236c4b24f3f26015d1844c39d1cb9a62cf46492b2ff1f82677ceeda59078ad15",
+      "lines": 45,
+      "bytes": 6430
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p9/OMNISCIENT_READER.md",
+      "sha256": "45e8e1f074b501760b125e911d76d25566e99b63fef1d5d102d6c7c6eb4efd4f",
+      "lines": 41,
+      "bytes": 4643
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p9/PERFECT_RUN.md",
+      "sha256": "8f4cadd4c1e234ad1bed53c107263e79d5e33e83fc159661887fbf40e72f2ee8",
+      "lines": 41,
+      "bytes": 4320
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p9/PROFILE_RULES.md",
+      "sha256": "97b7fbc217e6d552d58697ee1681e3efba7227d9ee4e3b07da3a7520cf6f833d",
+      "lines": 38,
+      "bytes": 6640
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p9/REGRESSORS_TALE.md",
+      "sha256": "3f16cc6b851024aa8b528cc08b0e1d496fc86c7ba831f714c8036a3a3afe1495",
+      "lines": 41,
+      "bytes": 4594
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p9/RENEGADE_IMMORTAL.md",
+      "sha256": "d2eb1faaf71359ebdc7ff2ed63e06b150c0f3958e24a69d616b5afec12cb723b",
+      "lines": 41,
+      "bytes": 4662
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p9/REVEREND_INSANITY.md",
+      "sha256": "0107a3cb075c45776cff68561415a93572319d2dbb9d5d78a2b84c350ba09dd9",
+      "lines": 41,
+      "bytes": 4465
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p9/SECOND_COMING_GLUTTONY.md",
+      "sha256": "5dd59b7c5aedb63f24ff810d45f506918e054f06210f9e716a5c8a673a241c1e",
+      "lines": 41,
+      "bytes": 4539
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p9/SHADOW_SLAVE.md",
+      "sha256": "68d08e7e08bbe2654a6cac6ee20e57a22babddb49e69406f198b7ccb13adb930",
+      "lines": 42,
+      "bytes": 6489
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p9/SOLDIERS_LIFE.md",
+      "sha256": "982289ccafcb8d44677806dbd77dcd7ce95c192b820f7583067ba85cac498f2e",
+      "lines": 45,
+      "bytes": 6548
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p9/SOLO_LEVELING.md",
+      "sha256": "90e6f31c7a705766d9a8cfc84615a5227a68bf2cfba159c9b182027517a1cac7",
+      "lines": 43,
+      "bytes": 4781
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p9/SPEEDRUNNING_MULTIVERSE.md",
+      "sha256": "720eb7e8a6394a19811d995665d78172fb129997f0e93e051e3cbc8a86886b61",
+      "lines": 41,
+      "bytes": 4636
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p9/TRAVELERS_GATE.md",
+      "sha256": "dc6fb356473b77cf8c6042dc2bfd13c020bc4f09c4faaab195112603f2f780a0",
+      "lines": 41,
+      "bytes": 3889
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p9/TTKS.md",
+      "sha256": "c03680507b780ab70c5b696673c376c514fe3986ccfc626e8db0f8e0cfe7f977",
+      "lines": 15,
+      "bytes": 1692
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p9/TTKS_B1.md",
+      "sha256": "b62af6536ba83850c87333eef773b09b098f4fa0a5d0821e9b0803ea30f7e356",
+      "lines": 39,
+      "bytes": 4728
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p9/TTKS_B2.md",
+      "sha256": "a05557c1178f97f315bdf83723dc83c6e12c5d215812a51693ba704955de5982",
+      "lines": 39,
+      "bytes": 4928
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p9/TTKS_B3.md",
+      "sha256": "2d430d8d36bc3f0910c953a1c0bdd70307db63da386a31d9efa70625241beb1e",
+      "lines": 41,
+      "bytes": 4910
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p9/TTKS_B4.md",
+      "sha256": "38810dc663fb75488918b181b9ff376a1697d5d05cea68064565133b25b5e19b",
+      "lines": 39,
+      "bytes": 4671
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p9/TTKS_B5.md",
+      "sha256": "824b49ed8bb64a60e6827c333a9b750ed3d5a68caf2bbbd3314ef101a42073ee",
+      "lines": 39,
+      "bytes": 5171
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p9/WANDERING_INN.md",
+      "sha256": "97f0c79f638d1548017a4f78a052249f371d8748f2a126ce8bc38bb878115ba6",
+      "lines": 41,
+      "bytes": 4385
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p9/WARLOCK_MAGUS.md",
+      "sha256": "e9b61120b5da354137e3d48e41595384bc99f25646d1c7d809f4bc60eeecc81d",
+      "lines": 41,
+      "bytes": 4281
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p9/WAR_PANTHEON.md",
+      "sha256": "e0dd39b34229da9974a9ea24c3fc3a34c5c077a3838c5bb5f628ac446e9f16ae",
+      "lines": 35,
+      "bytes": 5018
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p9/WISH_UPON_STARS.md",
+      "sha256": "cfd27607e472efe82d160f72f59fa87ce8e1b50edc84d03b6c25cb10e646c7ad",
+      "lines": 41,
+      "bytes": 4645
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p9/WORM.md",
+      "sha256": "b3ebade7e978beb11ef6bd491f29da1a6f6d70c52f52004a112e5ca57c669bf0",
+      "lines": 41,
+      "bytes": 4458
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p9/YOU_ARE_SUMMONED.md",
+      "sha256": "8380e136dd9e27915c324002902797992797b975e7f8f29e25f8aef5e993f836",
+      "lines": 41,
+      "bytes": 4580
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p9/YOU_HAVE_DIED_AGAIN.md",
+      "sha256": "33bdc2467dc31606bca524c76f627046cbc3ffa8b0380c4d9505875901793758",
+      "lines": 41,
+      "bytes": 4701
+    },
+    {
+      "path": "docs/worlds/paradise-hub/WORLD_BRIEF.md",
+      "sha256": "9c3cee92c95e92194927de1ad388158ffef49087647a016bcd033e19a23ceec8",
+      "lines": 49,
+      "bytes": 9256
+    },
+    {
+      "path": "src/causal_story_actors.js",
+      "sha256": "232f064f41a139490b05fbaa6d96e7280d13a8b7b7a772e4983a1b635febbd2e",
+      "lines": 163,
+      "bytes": 14945
+    },
+    {
+      "path": "src/causal_story_content.js",
+      "sha256": "6fbcfc9e1718f961f8c4b99c588c1cc8c4816378ce889c93662cec0aea10af22",
+      "lines": 255,
+      "bytes": 32049
+    },
+    {
+      "path": "src/causal_story_core.js",
+      "sha256": "7f4993ccc8251e376c72f59dbec61f6efe24c744b61915d6011725da572b4fb5",
+      "lines": 433,
+      "bytes": 34681
+    },
+    {
+      "path": "src/causal_story_host.js",
+      "sha256": "cc6464bb00936100be5cf6b02c95be62f38c3478d273b2b83c4395fb7bcf8c1c",
+      "lines": 504,
+      "bytes": 43129
+    },
+    {
+      "path": "src/causal_story_ids.js",
+      "sha256": "1aca94dc5eaf5412865b60ce292bc00f5c34fa7e5cdd85a53d31efbd4fa22fee",
+      "lines": 20,
+      "bytes": 2077
+    },
+    {
+      "path": "src/causal_story_native.js",
+      "sha256": "f70656361f79b011fdf18953caa10fba3acea327c007e16c170fd5345c5ccc84",
+      "lines": 477,
+      "bytes": 34749
+    },
+    {
+      "path": "src/causal_story_scenes.js",
+      "sha256": "7ccaeae599ce284f7d5003ab95b9687426c69ebdba452b9238d2931ef9f28ca9",
+      "lines": 104,
+      "bytes": 5891
+    },
+    {
+      "path": "src/causal_story_ui.js",
+      "sha256": "5e43b094b364e574e9ad00e8bda57ada6b2a333c04191af86c2db49df87a32e5",
+      "lines": 352,
+      "bytes": 19208
+    },
+    {
+      "path": "src/chronicle.js",
+      "sha256": "c21046237528b7b692efc367ae7cacc9b1a41714c622eff24b29c8ff5a9b261b",
+      "lines": 315,
+      "bytes": 29405
+    },
+    {
+      "path": "src/event_feed.js",
+      "sha256": "f25a1f1ff13bc751509cece72a3825cc7163c646e7f565f29f477bbcbffb2915",
+      "lines": 103,
+      "bytes": 9971
+    },
+    {
+      "path": "src/event_feed_ui.js",
+      "sha256": "d1c3539ea9d2f1f64fa67f453237f593b1dec3e9cd9b56754e730d674d02ffd0",
+      "lines": 50,
+      "bytes": 4003
+    },
+    {
+      "path": "src/expansion_engine.js",
+      "sha256": "da1e9761400bec1cf72f4da171408f22af6cb6a2ce3dd72565b8b29039ab3f82",
+      "lines": 685,
+      "bytes": 50849
+    },
+    {
+      "path": "src/life_record.js",
+      "sha256": "21ac5f17fff62794ba26d7180deb6a9c0ad85060d79134e5d6ce83de51d1d9bd",
+      "lines": 82,
+      "bytes": 5819
+    },
+    {
+      "path": "src/people_knowledge.js",
+      "sha256": "e52bf2508ab626785ad66074179f33916aaed7946fbd403706cb59303e851261",
+      "lines": 106,
+      "bytes": 10229
+    },
+    {
+      "path": "src/simulation.js",
+      "sha256": "4b0cec849a464c1ea758752c0881f15f7f26d5be857173ffcefda4b7eaba149c",
+      "lines": 633,
+      "bytes": 61405
+    },
+    {
+      "path": "src/simulation_content.js",
+      "sha256": "9c55fc6edeebb9f75027dcada4dcc44ebb1fc27e4815cac75731825e0f2252bc",
+      "lines": 129,
+      "bytes": 14941
+    },
+    {
+      "path": "src/simulation_contracts.js",
+      "sha256": "519b55317952eb7b4cd10a0cabb899542e7af706f568358f146b241be81b301c",
+      "lines": 322,
+      "bytes": 35088
+    },
+    {
+      "path": "src/simulation_effects.js",
+      "sha256": "507a5a60b82eaade331601c90f5e98410a2d99486903b9109937f933f3ffe151",
+      "lines": 394,
+      "bytes": 36376
+    },
+    {
+      "path": "src/simulation_resolution.js",
+      "sha256": "b47789d1959d5e43fcce298b3631830169aa0d89b972cd7d08da1a55e4c2fd94",
+      "lines": 41,
+      "bytes": 2314
+    },
+    {
+      "path": "src/simulation_ui.js",
+      "sha256": "ed41498fbf78e78d2383d2fb397692f1e6c211ad2666eeb1a3bb69d1b226fc37",
+      "lines": 100,
+      "bytes": 12445
+    },
+    {
+      "path": "src/world_visit_history.js",
+      "sha256": "c9296a84f4df6c0a0ea5ed818ca1ca283149e247eb7354eaaeb983f9b99b2bd2",
+      "lines": 70,
+      "bytes": 3549
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p12/CONTRACT.md",
+      "sha256": "e881f0525d0d3415b06bbb835dda821d75bc15a991ba8c9264d9932d17329c23",
+      "lines": 127,
+      "bytes": 20713,
+      "refreshedAt": "2026-10-14T04:44:59.915927+00:00",
+      "readDepth": "Relevant interface sections; no sibling checks rerun"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p13/RULES.md",
+      "sha256": "b528d850ae4a2e8a3d2795c138029c70f35c1c235e94830c21ad95e86b695cdd",
+      "lines": 79,
+      "bytes": 13660,
+      "refreshedAt": "2026-10-14T04:44:59.915927+00:00",
+      "readDepth": "Relevant interface sections; no sibling checks rerun"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p15/RUNTIME_TEXT.md",
+      "sha256": "5ba74b701fca6ccf26629165be42eba71a4ecd068f979d449ee09e57a72276da",
+      "lines": 105,
+      "bytes": 15613,
+      "refreshedAt": "2026-10-14T04:44:59.915927+00:00",
+      "readDepth": "Relevant interface sections; no sibling checks rerun"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p15/REPORT.md",
+      "sha256": "f84c7167e2536bb47fba4846e95befebdda1aae82b56820278eb88592607275a",
+      "lines": 90,
+      "bytes": 17937,
+      "refreshedAt": "2026-10-14T04:44:59.915927+00:00",
+      "readDepth": "Relevant interface sections; no sibling checks rerun"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p16/PLAYER_AUTHORSHIP.md",
+      "sha256": "5cc1387e6d12d495dcd490a4bf444ab7210775dcd0f114e031f44596b6ff2fc0",
+      "lines": 42,
+      "bytes": 7036,
+      "refreshedAt": "2026-10-14T04:44:59.915927+00:00",
+      "readDepth": "Relevant interface sections; no sibling checks rerun"
+    },
+    {
+      "path": "docs/gm/dispatch/procgen-2026-10-13/p16/LOOPS_AND_RESETS.md",
+      "sha256": "64a731764f4ff70ce9ea0e81e9a39355f754d721e7e39aa4fb40a904de4d4532",
+      "lines": 48,
+      "bytes": 9069,
+      "refreshedAt": "2026-10-14T04:44:59.915927+00:00",
+      "readDepth": "Relevant interface sections; no sibling checks rerun"
+    }
+  ],
+  "refresh": {
+    "at": "2026-10-14T04:44:59.915927+00:00",
+    "initiallyDriftedInputs": [
+      "docs/INTRO_FLOW_CONSIDERATIONS_2026-10-13.md",
+      "docs/USER_VISION.md",
+      "docs/gm/dispatch/procgen-2026-10-13/PLAN.md",
+      "docs/gm/dispatch/procgen-2026-10-13/p15/CHECKPOINT.md"
+    ],
+    "disposition": "Read refreshed direction/PLAN and sibling interfaces; all added directions are proposal dispatches. No source-module drift. Updated P14 sibling read boundary and ownership joins."
+  }
+}

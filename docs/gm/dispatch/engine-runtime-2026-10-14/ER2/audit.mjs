@@ -1,0 +1,21 @@
+import esbuild from 'esbuild';
+import fs from 'node:fs';import path from 'node:path';import crypto from 'node:crypto';import zlib from 'node:zlib';
+const root=process.cwd(),dir='/tmp/er2-runtime-audit';fs.mkdirSync(dir,{recursive:true});
+const files=fs.readdirSync('src',{recursive:true}).filter(p=>/\.(js|json)$/.test(p)&&!path.basename(p).startsWith('SECRETS')).map(p=>'src/'+p);
+const opts={bundle:true,minify:true,platform:'browser',target:'es2022',format:'esm',metafile:true,logLevel:'silent'};
+const start=performance.now();const b=await esbuild.build({...opts,entryPoints:['src/main.js'],sourcemap:true,outfile:dir+'/bundle.js'});fs.writeFileSync(dir+'/metafile.json',JSON.stringify(b.metafile,null,2));
+// All-source nonbundled parsing yields resolved import edges, including files outside the main entry closure.
+const g=await esbuild.build({entryPoints:files.filter(p=>p.endsWith('.js')),outdir:dir+'/graph',bundle:false,write:false,metafile:true,platform:'browser',format:'esm',logLevel:'silent'});
+const resolve=(f,p)=>{if(!p.startsWith('.'))return p;let q=path.posix.normalize(path.posix.join(path.posix.dirname(f),p));if(files.includes(q))return q;if(files.includes(q+'.js'))return q+'.js';return q;};
+const entryImports=Object.fromEntries(Object.values(g.metafile.outputs).map(o=>[o.entryPoint,o.imports]));
+const graph=Object.fromEntries(files.map(f=>[f,[...new Set((entryImports[f]||[]).map(i=>resolve(f,i.path)).filter(p=>files.includes(p)))]]));
+const reachable=new Set();function visit(f){if(reachable.has(f))return;reachable.add(f);for(const v of graph[f]||[])visit(v);}visit('src/main.js');
+// Tarjan SCCs.
+let index=0;const ids={},low={},stack=[],on=new Set(),scc=[];function tarjan(v){ids[v]=low[v]=index++;stack.push(v);on.add(v);for(const w of graph[v]){if(ids[w]===undefined){tarjan(w);low[v]=Math.min(low[v],low[w]);}else if(on.has(w))low[v]=Math.min(low[v],ids[w]);}if(low[v]===ids[v]){let c=[],w;do{w=stack.pop();on.delete(w);c.push(w);}while(w!==v);if(c.length>1||graph[v].includes(v))scc.push(c.sort());}}for(const f of files)if(ids[f]===undefined)tarjan(f);
+const output=Object.entries(b.metafile.outputs).find(([k])=>k.endsWith('/bundle.js'))[1];const sizes=Object.entries(output.inputs).map(([file,v])=>({file,bytes:v.bytesInOutput})).sort((a,b)=>b.bytes-a.bytes);
+const folder={};for(const {file,bytes}of sizes){const d=path.posix.dirname(file);folder[d]=(folder[d]||0)+bytes;}
+const incoming=Object.fromEntries(files.map(f=>[f,[]]));for(const[f,vs]of Object.entries(graph))for(const v of vs)incoming[v].push(f);
+const hashes={};for(const f of files){const h=crypto.createHash('sha256').update(fs.readFileSync(f)).digest('hex');(hashes[h]??=[]).push(f);}
+const groups={};for(const [name,re]of Object.entries({ink:/ink|^stories\//,content:/_content\.js$|simulation_content\.js$|management\/content\.js$|\.json$/,audit:/audit_remainder_/,absorb:/\/absorb_/,hosts:/_host\.js$/,facts:/_facts\.js$/,mol:/book_world_mol_/,paradise:/book_world_paradise_/,proto23:/proto23_world_/,nethack:/nethack_fieldcraft_/,management:/\/management\//})){const list=sizes.filter(x=>re.test(x.file));groups[name]={bytes:list.reduce((s,x)=>s+x.bytes,0),files:list};}
+const all={buildAndGraphSeconds:(performance.now()-start)/1000,totalBytes:output.bytes,gzipBytes:zlib.gzipSync(fs.readFileSync(dir+'/bundle.js')).length,sourceMapBytes:fs.statSync(dir+'/bundle.js.map').size,inputCount:Object.keys(b.metafile.inputs).length,sourceCount:files.length,sizes,folders:Object.entries(folder).sort((a,b)=>b[1]-a[1]),groups,graph,cycles:scc,unreachable:files.filter(f=>!reachable.has(f)),fanIn:Object.entries(incoming).map(([file,importers])=>({file,count:importers.length,importers})).sort((a,b)=>b.count-a.count),fanOut:Object.entries(graph).map(([file,imports])=>({file,count:imports.length,imports})).sort((a,b)=>b.count-a.count),exactDuplicates:Object.values(hashes).filter(v=>v.length>1)};
+fs.writeFileSync(dir+'/analysis.json',JSON.stringify(all,null,2));console.log(JSON.stringify({...all,sizes:sizes.slice(0,20),graph:undefined,cycles:scc.map(c=>({size:c.length,files:c})),fanIn:all.fanIn.slice(0,12).map(({file,count})=>({file,count})),fanOut:all.fanOut.slice(0,10).map(({file,count})=>({file,count})),groups:Object.fromEntries(Object.entries(groups).map(([k,v])=>[k,{bytes:v.bytes,count:v.files.length}]))},null,2));

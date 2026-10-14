@@ -1,0 +1,13 @@
+{
+  "label": "natural",
+  "origin": "http://127.0.0.1:19660",
+  "profile": "/private/tmp/procgen-wave1-integration-profile-smoke-1791954374655",
+  "viewport": "1366x768",
+  "bundleSha256": "2c04448dac43f399c9803101bf5cc3b9370a54bc54b4154cea7141b3028d564e",
+  "checks": [
+    "served bundle equals rebuilt worktree bundle",
+    "fresh hero bought ingredients, mixed one vial and drank it (real exposure, observed knowledge)",
+    "Save/reload retains mixtures, exposure, streams and inventory exactly"
+  ],
+  "errors": []
+}

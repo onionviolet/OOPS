@@ -1,0 +1,27 @@
+{
+  "status": "pass",
+  "paper_steps": {
+    "A": 13,
+    "B": 13,
+    "C": 14,
+    "D": 14
+  },
+  "total_steps": 54,
+  "gap_rows": 28,
+  "ranked_defaults": 10,
+  "integration_map_rows": 28,
+  "referenced_codes_valid": true,
+  "local_markdown_links_checked": 36,
+  "table_structure_checked": true,
+  "style_checked": true,
+  "illustrative_money_check": {
+    "cash_at_death": 50.0,
+    "debt_at_death": 70,
+    "gross_estate": 150.0,
+    "residual_bequest": 70.0
+  },
+  "concurrent_source_changes_reconciled": true,
+  "final_source_sha256": "5eb44fc465350ab000eafb31e80a9023b2c862edbacf2d45c4fad43997f48684",
+  "errors": [],
+  "limits": "Static document/reference and illustrative arithmetic checks only; no gameplay, runtime, save, migration, source-canon ending or balance proof."
+}

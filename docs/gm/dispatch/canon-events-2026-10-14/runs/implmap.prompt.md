@@ -1,0 +1,11 @@
+You are the read-only implementation-map lane. Read /Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/canon-events-2026-10-14/COMMON.md and the start-sources COMMON.md it points to (writing rules; no git add/commit/push), AGENTS.md, PROJECT.md (accepted decisions, Foundation lanes, UI direction), docs/INTRO_AND_STARTS_INDEX_2026-10-14.md, docs/INTRO_FLOW_CONSIDERATIONS_2026-10-13.md rounds 19-21 (IR, OG codes), docs/research/PROFILE_AND_BRANCH_SAVE_SHAPE_2026-10-14.md, docs/research/OFFLINE_TIME_AND_BRANCH_CLOCK_AUDIT_2026-10-14.md, docs/PANEL_KIT.md, and the modules in the worktree /Users/weiwei/.codex/worktrees/start-records/yet-another-idle-rpg (src/start_records.js, src/anchor_snapshots.js, src/start_probe_ui.js, the src/main.js diff via `git -C <worktree> diff`).
+
+Question: what does integrating start records, anchor snapshots, branch changes and knowledge into the real game imply? Read the real code in /Users/weiwei/code/yet-another-idle-rpg/src (no edits): new-game path, creation confirm, structured packs and foundation start content (schema-2 packs with starts[]), expansion state and actors, knowledge stores (simulation.knowledge), calendars, save/load, panel kit and workspace registration.
+
+Write /Users/weiwei/code/yet-another-idle-rpg/docs/research/START_AND_BRANCH_INTEGRATION_MAP_2026-10-14.md with file:line citations, labeled VERIFIED/INFERRED:
+1. Seams: where each module would plug in (IR1), with the smallest viable change at each.
+2. Fact namespace options (IR2): flat canon facts projected into real owners vs events writing real owners directly; compare with the existing structured-pack registry and simulation knowledge; recommend one.
+3. Clock binding (IR3) and save home (IR4) consistent with the two reports.
+4. Ownership and conflicts (IR8): which Foundation or other active lanes own the touched files (read docs/gm/dispatch/*/GOAL.md or CHECKPOINT.md status lines; do not contact them).
+5. A staged plan of 4-6 integration steps, each with its gate (pure, browser, save/reload/import), what it risks, and what Weibao would be able to play after it.
+6. At most five suggestions. Keep CHECKPOINT.md in /Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/canon-events-2026-10-14/implmap/.

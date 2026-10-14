@@ -1,0 +1,10 @@
+PASS I1_vivid_default {"fresh":{"scheme":"vivid","select":"vivid"},"storedStandardStays":"standard"}
+PASS I2_bars {"xp":{"fill":"rgb(255, 191, 61)","hue":40.20618556701032,"edge":8.14},"stamina":{"fill":"rgb(79, 227, 111)","hue":132.97297297297297,"edge":8},"mana":{"fill":"rgb(157, 179, 255)","hue":226.53061224489795,"edge":6.58},"health":{"fill":"rgb(255, 125, 135)","hue":355.38461538461536,"edge":5.44}}
+PASS I3_rarity all visible item names >= 4.5:1 on Vivid
+PASS I4_reveal_combat {"revealsInCombat":["stance","combat"],"combatShellVisible":true,"afterLeave":["Open Combat [disabled]"],"revealsAfterReload":[]}
+PASS I5_new_marker marked on acquire, cleared when seen
+PASS I6_coin_float {"full":[{"d":48,"dy":0,"text":"−1C","anim":0}],"reduced":[{"d":48,"dy":0,"text":"−1C","anim":0}]}
+PASS I7_semantic_tokens {"standard":{"gain":{"v":"#6ad37a","ratio":8.21},"loss":{"v":"#ff7b7b","ratio":6.13},"money":{"v":"#ffd700","ratio":10.97},"blocked":{"v":"#f0a35e","ratio":7.4}},"vivid":{"gain":{"v":"#66e39a","ratio":10.4},"loss":{"v":"#ff7d86","ratio":6.81},"money":{"v":"#ffd54f","ratio":11.89},"blocked":{"v":"#ffb36b","ratio":9.52}}}
+PASS I8_log_unread no jump while reading; count; jump clears
+PASS I10_vitals_aligned {"standard":{"rows":["xp:16px/13px/7.79","stamina:16px/13px/11.21","mana:16px/13px/1.79","health:16px/13px/4.16"],"level":"Lv 0"},"vivid":{"rows":["xp:16px/13px/4","stamina:16px/13px/4.03","mana:16px/13px/3.85","health:16px/13px/3.76"],"level":"Lv 0"}}
+PASS I9_desktop_viewports no h-scroll, actions visible at 3 desktop sizes

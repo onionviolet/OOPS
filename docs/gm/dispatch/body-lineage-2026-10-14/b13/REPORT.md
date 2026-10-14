@@ -1,0 +1,59 @@
+# B13 report: diagnosis, look-alikes and breadcrumbs
+
+2026-10-14. **Documentation complete; design remains proposal.** All writes are under this B13 folder. No source edits, builds, npm commands, staging, commits, browser actions or private-save access. [COMMON](../COMMON.md), [PLAN](../PLAN.md) and [B13 assignment](../B13.md) define scope; root owns any integration into the genetics owner.
+
+The packet turns LA1-LA12 into investigations with evidence, separating protocols, mistaken actions and actual possible costs. BC1-BC9 have observation windows, qualified witnesses and explicit proof limits. Seven diagnostician candidates use actual means; eight card families and six seeded-commitment rules connect evidence to decisions and existing delivery surfaces. Counts describe documentation coverage, not implemented tests or gameplay.
+
+| Artifact | Review surface |
+|---|---|
+| [PAIRS.md](PAIRS.md) | Each LA: evidence, separating comparison/alternate route, mixed causes, wrong-read consequence, useful next act and Default/Dial |
+| [BREADCRUMBS.md](BREADCRUMBS.md) | Each BC: when, who, what it establishes, what it cannot establish and a follow-up |
+| [DIAGNOSTICIANS.md](DIAGNOSTICIANS.md) | DT1-DT7 means, blind spots, costs/counters; DX1-DX5 diagnosis acts; observer/People boundaries |
+| [EVENT_SHAPES.md](EVENT_SHAPES.md) | ES1-ES8 shapes, all 21 LA/BC bindings, SD1-SD6 seeds, three specified journeys and five future gates |
+| [CHECKPOINT.md](CHECKPOINT.md) | Ordered completed work, concurrent source refresh and checks |
+
+## Findings and live-source audit
+
+**SHOWN/SOURCE** means inspected code, not executed gameplay. **STATED** means an owning document/report's claim. **INFERRED** means interpretation or proposed extension. Final main read was at HEAD `2874c613`; the checkout contains other workers' changes. Locators describe functions and observed behavior so a later integrator can refresh drift.
+
+| Code | Evidence, file:line | Finding and content consequence |
+|---|---|---|
+| F1 | [people_knowledge.js:6](../../../../../src/people_knowledge.js:6), [12](../../../../../src/people_knowledge.js:12), [29](../../../../../src/people_knowledge.js:29), [81](../../../../../src/people_knowledge.js:81), [97](../../../../../src/people_knowledge.js:97) | SHOWN: witnessed introductions and authored provider joins; private NPC state excluded; body-feedback precedent; merges by ID; book reports attributed. New diagnosis keys need an explicit introduced-subject/received-reading provider and context binding, not a global person scan |
+| F2 | [event_feed.js:37](../../../../../src/event_feed.js:37), [43](../../../../../src/event_feed.js:43), [46](../../../../../src/event_feed.js:46), [50](../../../../../src/event_feed.js:50), [102](../../../../../src/event_feed.js:102); [event_feed_ui.js:22](../../../../../src/event_feed_ui.js:22), [32](../../../../../src/event_feed_ui.js:32), [41](../../../../../src/event_feed_ui.js:41) | SHOWN: discovered local events become leads/news; storylets route to their panel; resolved news repeats the original label; only selected knowledge prefixes become news; cap eight. UI gates location/dialogue/combat and keeps buttons mounted. INFERRED: an assay result needs its own delivered result projection and durable record; recent news is not an evidence archive |
+| F3 | [simulation_content.js:1](../../../../../src/simulation_content.js:1), [59](../../../../../src/simulation_content.js:59), [61](../../../../../src/simulation_content.js:61), [105](../../../../../src/simulation_content.js:105), [133](../../../../../src/simulation_content.js:133) | SHOWN: main now imports/appends storylet definitions alongside original content; legacy shower remains registered. Registration/onEnroll/body commands do not implement diagnosis or grant every profession's means. A B13 family needs actual opt-in/cause/actor/protocol joins |
+| F4 | [simulation_effects.js:110](../../../../../src/simulation_effects.js:110), [131](../../../../../src/simulation_effects.js:131), [157](../../../../../src/simulation_effects.js:157), [281](../../../../../src/simulation_effects.js:281); [causal_situations.js:52](../../../../../src/causal_situations.js:52); [simulation_contracts.js:66](../../../../../src/simulation_contracts.js:66) | SHOWN: execution can see private target facts separately from observed person facts. Knowledge uses seen/interpreted/understood and overwrites the same key at equal/higher stage; basis is restricted attribution, not a general evidence graph. INFERRED: preserve observations, claims and corrections separately, with a selected current summary, using P14/P24 or a declared bounded adapter |
+| F5 | [storylet_content.js:16](../../../../../src/storylet_content.js:16), [75](../../../../../src/storylet_content.js:75); [storylet_deck.js:10](../../../../../src/storylet_deck.js:10), [29](../../../../../src/storylet_deck.js:29), [43](../../../../../src/storylet_deck.js:43), [48](../../../../../src/storylet_deck.js:48); [simulation.js:85](../../../../../src/simulation.js:85), [407](../../../../../src/simulation.js:407), [430](../../../../../src/simulation.js:430) | SHOWN: fixed contact, four seeded competing decks, preview-safe candidate assembly, saved draw receipts, nonblocking storylet decisions, transaction/stale/busy response checks. STATED: P3 report's isolated proof. INFERRED: reuse delivery/commitment, add real evidence protocols; generic multi-role casting, clinical tests and contradiction history are not supplied by P3 |
+
+The main checkout changed during this read-only lane. Initial source inspection found no storylet files. A later source read detected integration; F3/F5 and EVENT_SHAPES use the refreshed main state. The initial absence is retained only as dated checkpoint history, not an open integration requirement. B13 performed no merge and cannot infer current runtime/build proof from that source arrival.
+
+Final audited SHA-256 prefixes: `people_knowledge.js e52bf2508ab6`, `event_feed.js cdc1c747ae9c`, `event_feed_ui.js d1c3539ea9d2`, `simulation_content.js 8b1eba97d0a7`, `storylet_content.js eb24109e0fa2`, `storylet_deck.js 683688b03fd2`. These bind the inspection snapshot; they are not served-byte or packaged evidence.
+
+## Owner reconciliation
+
+Read the full [genetics palette](../../../../GENETICS_CONSTITUTIONS_AND_BROOD_PLAY.md), relevant [life-sim layers/body/checklist](../../../../LIFE_SIM_NORTH_STAR.md#layers-of-a-person), prior [body-lineage integration](../../body-lineage-expansion-2026-10-11/INTEGRATION.md), [E2](../../../../emergent/E2_STORYLETS.md), [E7](../../../../emergent/E7_OBSERVATION_AND_MYSTERY.md), [means/appraisal](../../../../MEANS_AND_APPRAISAL.md), [secrecy/discovery](../../../../worlds/WORLD_SECRETS_AND_DISCOVERY.md) and live AGENTS/PROJECT/USER_VISION direction. Read [P3 report](../../../../../.claude/worktrees/proc-p3-storylets/docs/gm/dispatch/procgen-2026-10-13/p3/REPORT.md) and present [P24 packet](../../procgen-2026-10-13/p24/REPORT.md); P3 content/deck were also inspected read-only, then refreshed in main.
+
+| ID | Tension | Disposition for this proposal |
+|---|---|---|
+| D1 | G57 table sounds binary; G1/G11 distinguish several carriers and mechanisms | Compare hypotheses without forcing exclusivity. Technique can accompany strength; a diet can build an enduring constitution; kin sense can read ritual kinship |
+| D2 | LA9's statistical hint can sound like proof of a named constitution | Repeated trials support a bounded anomaly; carrier-specific evidence establishes mechanism. Do not turn game randomness into a clinical/fate claim |
+| D3 | E2 broad draft differs from P3's actual slice, and P24 preserves attributed source dates | Use nested P3 metadata and actual single-target delivery. Scoped hard pauses, generic cast roles, seasons and paid autonomy remain separate joins; P3's branch tests are not B13 proof |
+| D4 | E7 depth-on-demand/knowledge stages can be mistaken for rerollable truth or certainty | K1 cause is fixed before effects; new observation does not redraw it. Stage ranks are not confidence. P24's source lineage and coverage constrain negative evidence and corrections |
+| D5 | Clues, hidden NPC observations and agent-readable truth can leak through convenient narration | Known facts only in feed/People; relay requires actual communication. World-qualified secret IDs/routes/status only in reports. No live sealed file/answer was copied or reserved here |
+
+Everything possible reasonably remains a palette: ordinary and exceptional means, cheap/free services, strong exact readings, recurring enquiries and alternative routes stay reachable where the world/person supports them. No universal penalty, test slot count, purity hierarchy or once-per-life restriction is added. One realm/one prestige and one completed playable slice sequence future delivery. Current body/UI/save owners remain owners; B13 does not update accepted direction or select a world/build.
+
+## Ranked recommendations, unselected
+
+1. **A1:** Begin with LA1 + BC4, a familiar tool and two supported work comparisons. It has a visible instruction/handle consequence without requiring a medical or ancestry simulator. Implement the actual comparison and adapted work result before diagnostic prose.
+2. **A2:** Preserve evidence and corrections before scaling investigations. Reuse P14/P24 claim/belief contracts, or declare a bounded separate-key adapter; add one explicit People provider. Same-key overwrite would lose the very mistake this content asks the player to investigate.
+3. **A3:** Follow with LA6 + BC6 only when care, retained sample/custody and a real assay/exposure resolver are ready. Provide medic and independent account/sample routes; distinguish substance, cause and intent. Do not treat P3's fever service as that resolver.
+4. **A4:** Attach ES1-ES6 to the integrated P3 delivery path with pure previews and safe expiry, then verify negative/inconclusive outcomes and useful action before certainty. Keep pacing configurable and actual recurrence distinct from receipt idempotency.
+5. **A5:** Introduce BC8/BC9 or lineage discovery after the selected world qualifies its memory/kin channels. Use two supported routes where the premise allows and a useful payoff; audit metadata and all player surfaces by secret ID without publishing the answer.
+
+## Checks and open gates
+
+Documentation validation PASS, recorded in CHECKPOINT: six expected files, exact LA/BC and ES/DT/SD coverage, all 95 local links, three heading anchors, 64 in-range file:line locators, ten consistent tables, five ranked recommendations, proposal markers and no em dashes. Manual review distinguishes evidence from cause/intent, source from report, and current code from proposed joins. Static checks do not establish engine, lore or gameplay correctness.
+
+All EVENT_SHAPES G1-G5 implementation/acceptance cases remain **OPEN / NOT RUN**. Next authoritative gate is root selecting a bounded slice with live source ownership, actual protocol/consequence consumers and explicit save compatibility, followed by that builder's own tests, rebuild, fresh-origin desktop play and pending/completed/corrected save roundtrips. Human fiction/pacing/balance acceptance is separate. B13's documentation task is complete and grants no source-writing authority.
+
+Not verified: runtime tests/build, served bundle, browser UI at 1366x768, clinical/fate/anatomy behavior, save/reload/export/import, real NPC diagnostic means, broad casting, canon mechanism/source authentication, primary external research, every possible disclosure surface, or human acceptance. No book acquisition/full-source reading, source-library modification, private save inspection, stage/commit/push/merge/publication was performed. All example content is original proposed play, not a real-world medical instruction or new franchise claim.

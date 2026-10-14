@@ -1,3 +1,4 @@
+import {STREAMS,gameOrdinal,gameKeyedRandom} from "../seeded_streams.js";
 "use strict";
 import { clamp, slerp } from "../misc.js";
 import AvailabilityComponent from "../components/availability_component.js";
@@ -335,13 +336,16 @@ class CombatZone extends BaseLocation {
     get_next_enemies() {
 
         const enemies = [];
+        const encounterKey = `${this.id}:${gameOrdinal(STREAMS.encounter)}`;
+        let draw = 0;
+        const random = () => gameKeyedRandom(STREAMS.encounter, `${encounterKey}:composition:${draw++}`);
         let enemy_group = [];
 
         if(this.enemy_groups_list.length > 0 && this.enemy_groups_killed%this.predefined_lineup_on_nth_group == 0 && (this.enemy_groups_killed > 0 || this.predefined_lineup_on_nth_group == 1)) { // PREDEFINED GROUPS EXIST
             
             if(this.is_enemy_groups_list_random) { 
                 //choose randomly
-                const index = Math.floor(Math.random() * this.enemy_groups_list.length);
+                const index = Math.floor(random() * this.enemy_groups_list.length);
                 enemy_group = this.enemy_groups_list[index].enemies; //names
             } else { 
                 //choose in order provided
@@ -352,9 +356,9 @@ class CombatZone extends BaseLocation {
 
         } else {  // PREDEFINED GROUPS DON'T EXIST
 
-            const group_size = this.enemy_group_size[0] + Math.round(Math.random() * (this.enemy_group_size[1] - this.enemy_group_size[0]));
+            const group_size = this.enemy_group_size[0] + Math.round(random() * (this.enemy_group_size[1] - this.enemy_group_size[0]));
             for(let i = 0; i < group_size; i++) {
-                enemy_group.push(this.enemies_list[Math.floor(Math.random() * this.enemies_list.length)]);
+                enemy_group.push(this.enemies_list[Math.floor(random() * this.enemies_list.length)]);
             }
         }
  
@@ -364,26 +368,29 @@ class CombatZone extends BaseLocation {
 
             if(this.enemy_stat_variation != 0) {
 
-                const variation = Math.random() * this.enemy_stat_variation;
+                const variation = random() * this.enemy_stat_variation;
 
                 const base = 1 + variation;
                 const vary = 2 * variation;
                 newEnemy = new Enemy({...enemy,
                     stats: {
-                        health: Math.round(enemy.stats.health * (base - Math.random() * vary)),
-                        attack: Math.round(enemy.stats.attack * (base - Math.random() * vary)),
-                        agility: Math.round(enemy.stats.agility * (base - Math.random() * vary)),
-                        dexterity: Math.round(enemy.stats.dexterity * (base - Math.random() * vary)),
-                        magic: Math.round(enemy.stats.magic * (base - Math.random() * vary)),
-                        intuition: Math.round(enemy.stats.intuition * (base - Math.random() * vary)),
-                        attack_speed: Math.round(enemy.stats.attack_speed * (base - Math.random() * vary) * 100) / 100,
-                        attack_count: Math.round((enemy.stats.attack_count || 1) * (base - Math.random() * vary)),
-                        defense: Math.round(enemy.stats.defense * (base - Math.random() * vary))
+                        health: Math.round(enemy.stats.health * (base - random() * vary)),
+                        attack: Math.round(enemy.stats.attack * (base - random() * vary)),
+                        agility: Math.round(enemy.stats.agility * (base - random() * vary)),
+                        dexterity: Math.round(enemy.stats.dexterity * (base - random() * vary)),
+                        magic: Math.round(enemy.stats.magic * (base - random() * vary)),
+                        intuition: Math.round(enemy.stats.intuition * (base - random() * vary)),
+                        attack_speed: Math.round(enemy.stats.attack_speed * (base - random() * vary) * 100) / 100,
+                        attack_count: Math.round((enemy.stats.attack_count || 1) * (base - random() * vary)),
+                        defense: Math.round(enemy.stats.defense * (base - random() * vary))
                     },
                 });
             } else {
                 newEnemy = new Enemy({...enemy, stats: {...enemy.stats, attack_count: enemy.stats.attack_count || 1}});
             }
+            newEnemy.rngKey = `${encounterKey}:enemy:${i}`;
+            newEnemy.encounterKey = encounterKey;
+            newEnemy.templateKey = enemy_group[i];
             newEnemy.is_alive = true
             newEnemy.init();
 

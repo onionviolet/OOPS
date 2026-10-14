@@ -144,6 +144,7 @@ export function updateWorkspace() {
             else if (!module.placeholder?.parentNode) { const home = (module.homeId && document.getElementById(module.homeId)) || module.home; if(home?.isConnected && module.node.parentNode !== home)home.append(module.node); }
             module.node.classList.toggle('workspace-user-hidden', state.hidden && !module.critical);
             const eligible = module.eligible() !== false, known = moduleKnown(module, eligible); labelShell(module, known);
+            module.node.classList.toggle("workspace-discovery-hidden", !known || !eligible);
             syncRestore(module, state, known, eligible, true);
         });
         if (focused?.isConnected && document.activeElement !== focused && !focused.closest('[hidden]')) focused.focus({preventScroll:true});
@@ -151,7 +152,7 @@ export function updateWorkspace() {
     }
     owner.layout.modules.forEach(state => {
         const module = registry.get(state.id); if (module.critical) { state.hidden = false; state.collapsed = false; } makeShell(module);
-        module.node.classList.remove('workspace-user-hidden');
+        module.node.classList.remove('workspace-user-hidden','workspace-discovery-hidden');
         if (module.node.parentNode !== module.body) module.body.append(module.node);
         const shell = module.shell; const eligible = module.eligible() !== false, known = moduleKnown(module, eligible); labelShell(module, known);
         // Undiscovered shells wait outside the labelled docks, so no dock label or text names them.

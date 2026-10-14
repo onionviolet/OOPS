@@ -1,3 +1,4 @@
+import {registerFortRecipes} from "./fork_fort_content.js";
 import {registerAccessoryRecipes, accessoryCraftChance} from './absorb_c1/accessories.js';
 import {BRACE_ID, deriveBraceStats} from "./alloy_equipment.js";
 "use strict";
@@ -1890,7 +1891,7 @@ function get_recipe_xp_value({category, subcategory, recipe_id, material_count, 
     });
     
     alchemy_recipes.items["Weak healing powder"] = new ItemRecipe({
-        name: "Weak healing powder",
+        name: "Weak healing powder", id: "Weak healing powder",
         recipe_type: "usable",
         is_unlocked: false,
         materials: [{material_id: "Golmoon leaf", count: 5}],
@@ -2104,6 +2105,7 @@ const recipes = {
 }
 
 
+registerFortRecipes({recipes, ItemRecipe});
 registerAccessoryRecipes({recipes, ItemRecipe});
 Object.keys(recipes).forEach(recipe_category => {
     Object.keys(recipes[recipe_category]).forEach(recipe_subcategory => {
@@ -2116,3 +2118,9 @@ Object.keys(recipes).forEach(recipe_category => {
 availability_havers.push(Recipe);
 
 export { recipes, find_recipe_material, get_recipe_xp_value, get_crafting_quality_caps, get_component_stats, ItemRecipe }
+
+// Same public gathering routes as existing herbs, no new world or tool gate.
+export function registerMixtureGathering(locations) {
+    const herbs=locations['Forest road']?.activities?.herbalism?.gained_resources?.resources;
+    if(herbs)for(const name of ['River bellleaf','Emberseed'])if(!herbs.some(r=>r.name===name))herbs.push({name,ammount:[[1,1],[1,2]],chance:[0.4,0.8]});
+}

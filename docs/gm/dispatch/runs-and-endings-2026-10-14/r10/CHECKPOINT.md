@@ -1,0 +1,15 @@
+# R10 checkpoint
+
+2026-10-14. Writer: R10. **Bounded research return complete; lane released for Claude's integration review.** Docs-only; exclusive writes inside this lane. No runtime, bundle, save, owner, commit or push changes authorized by COMMON.md.
+
+Done: read COMMON, AGENTS, PROJECT priorities, GM research rules, part 22 sections 8–12 and 22, part 36 including MC47, R1 prompt/status report; inspected dirty tree on `codex/gameplay-foundations`. Inspected named private ASL/TTKS B1–B5 findings, bounded official primary sources, retained local wiki revisions and indexed secondary evidence. Existing proposals are not canon evidence. Failed direct wiki fetches switched routes; no acquisition or full-book reread was undertaken.
+
+Delivered: [REPORT](REPORT.md) has 94 world-native details, six per world and ten across the five TTKS titles; ten cross-world additions M201–M210; three ranked candidates M301–M303 with compatibility decisions. [SOURCES](SOURCES.md) keeps access routes, dates and evidence limits. [SPOILERS](SPOILERS.md) holds outcome-bearing identities/locators. [INTEGRATION](INTEGRATION.md) maps all 107 content/build rows individually to sections 8–12 and records five qualifications without editing owners.
+
+Validation: [VALIDATION.json](VALIDATION.json) records 15 worlds, 94 world rows, ten cross-world rows, three candidates, 107 unique row codes and matching integration coverage. Local file targets/anchors, per-world evidence labels/citations, row counts and em-dash guard pass. Manual source-profile, proposal separation, micro-row overlap and spoiler review supplemented a selected outcome-name check; the name check is not a general spoiler detector. All this lane's writes are confined to `r10/`. No code, build, browser or save testing performed.
+
+Corrections during review: CSM hospital letters are ch31, not the draft ch29; located post-hunt domestic chores are ch11 pp12–19, replacing a ch12 title-only citation. M302 now uses existing explicit Accepted/AcceptedAt facts; an unestablished witness slot is not called ready. Existing world-instance `played_minutes` is not a canonical-calendar conversion.
+
+Open source facts: funerary convention in every ASL/TTKS locality, general MoL death-register practice, exact first ordinary day in multiple sources, and universal return-recognition tests were not established. They remain labeled limits; no canon was invented to close them. R1 owns publication status, including its open frontiers. Three proposals can begin with save-free view/static data; delivery records and canon calendar conversion remain separate dependent extensions. Gameplay/native persistence/human acceptance is unperformed, not passed.
+
+Next owner action: Claude reviews/selects this tranche and integrates into live owners. No further R10 research or runtime work is inferred. Any later selected implementation needs its own scoped acceptance gate, rebuilt laptop evidence, and migration plus Save/reload/import if persisted facts change.

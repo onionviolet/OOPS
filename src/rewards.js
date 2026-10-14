@@ -1,3 +1,4 @@
+// Town-entry wave and reciprocal XP additions adapted from miktaew/yet-another-idle-rpg-dev 200f1ba6 (MIT).
 "use strict";
 
 class Rewards {
@@ -130,6 +131,20 @@ class Rewards {
                 "dialogue_key": [String] //an array with textline keys
             },
             npcs: [String] //an array with npc keys
+            actions: [
+                {
+
+                    action: String //action key
+
+                    location_key: String
+
+                    or
+
+                    dialogue_key: String
+
+                }
+
+            ]
         }
         */
 

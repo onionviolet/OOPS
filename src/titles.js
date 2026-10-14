@@ -28,6 +28,8 @@ export const title_catalog = [
     {id: 'forager', family: 'craft', name: 'Forager', counter: 'gathered', at: 100, text: 'Gather 100 materials.'},
     {id: 'hoarder', family: 'craft', name: 'Hoarder', counter: 'gathered', at: 2500, text: 'Gather 2,500 materials.', bonus: {xp_multipliers: {'Gathering mastery': 1.03}}},
 
+    {id:'homebody',family:'life',name:'Homebody',counter:'home_minutes',at:1440,text:'Spend 1,440 played game minutes at home in the Shack.'},
+    {id:'local_customer',family:'life',name:'Local Customer',counter:'items_bought',at:25,text:'Buy 25 items in settled trades.'},
     {id: 'reader', family: 'life', name: 'Reader', counter: 'books', at: 1, text: 'Finish reading a book.'},
     {id: 'bookworm', family: 'life', name: 'Bookworm', counter: 'books', at: 5, text: 'Finish reading 5 books.', bonus: {xp_multipliers: {Literacy: 1.03}}},
     {id: 'settled', family: 'life', name: 'Settled In', counter: 'years', at: 1, text: 'Live through your first year.'},

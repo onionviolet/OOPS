@@ -1,0 +1,30 @@
+# Subtest: equipped native brace with an open road offer keeps ticking, travelling and reloading
+not ok 73 - equipped native brace with an open road offer keeps ticking, travelling and reloading
+  ---
+  duration_ms: 61567.731666
+  type: 'test'
+  location: '/Users/weiwei/code/yair-absorb-all-20261014/fork-resurvey/tests/alloy_equipment.test.js:118:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    Command failed: /Users/weiwei/.local/share/node-v22.23.3-darwin-arm64/bin/node docs/gm/d1-alloy-equipment-2026-10-07/fixture/generate.mjs --equipped-clock
+    
+  code: 'ERR_TEST_FAILURE'
+  stack: |-
+    genericNodeError (node:internal/errors:983:15)
+    wrappedFn (node:internal/errors:537:14)
+    ChildProcess.exithandler (node:child_process:417:12)
+    ChildProcess.emit (node:events:519:28)
+    maybeClose (node:internal/child_process:1101:16)
+    ChildProcess._handle.onexit (node:internal/child_process:304:5)
+  ...
+
+  ...
+1..624
+# tests 624
+# suites 0
+# pass 623
+# fail 1
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 400646.981917

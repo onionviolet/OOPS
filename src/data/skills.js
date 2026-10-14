@@ -1,3 +1,4 @@
+// Town-entry wave and reciprocal XP additions adapted from miktaew/yet-another-idle-rpg-dev 200f1ba6 (MIT).
 "use strict";
 
 import { character } from "./character.js";
@@ -26,6 +27,7 @@ const skill_category_crafting = "Crafting";
 //basic combat skills
 (function(){
     skills["Combat"] = new Skill({
+        milestones: {1: {stats: {max_health: {flat: 1}}}},
                                 names: {0: "Combat"}, 
                                 category: "Combat",
                                 description: "Overall combat ability", 
@@ -104,6 +106,7 @@ const skill_category_crafting = "Crafting";
                             });    
                                 
     skills["Giant slayer"] = new Skill({
+        milestones: {1: {stats: {strength: {flat: 1}}}},
                                 names: {0: "Giant killer", 15: "Giant slayer"}, 
                                 description: "Large opponents might seem scary, but just don't get hit and you should be fine!", 
                                 max_level_coefficient: 2,
@@ -209,6 +212,7 @@ const skill_category_crafting = "Crafting";
                                             },
                                             xp_multipliers: {
                                                 Weightlifting: 1.05,
+                                                Equilibrium: 1.05
                                             }
                                         },
                                         5: {
@@ -237,6 +241,7 @@ const skill_category_crafting = "Crafting";
                                             },
                                             xp_multipliers: {
                                                 Perception: 1.1,
+                                                Equilibrium: 1.1
                                             }
                                         },
                                         12: {
@@ -259,6 +264,7 @@ const skill_category_crafting = "Crafting";
                                                 Weightlifting: 1.2,
                                                 Fortitude: 1.2,
                                                 Combat: 1.2,
+                                                Equilibrium: 1.1,
                                             },
                                             stats: {
                                                 "strength": {multiplier: 1.05}
@@ -347,6 +353,7 @@ Adds ${skills["Unarmed"].getCurrentLvl()/10} base damage to unarmed attacks`;
 //combat stances
 (function(){
     skills["Stance mastery"] = new Skill({
+        milestones: {1: {stats: {agility: {flat: 1}}}},
                                     names: {0: "Stance proficiency", 10: "Stance mastery"}, 
                                     description: "Knowledge on how to apply different stances in combat",
                                     base_xp_cost: 60,
@@ -357,6 +364,7 @@ Adds ${skills["Unarmed"].getCurrentLvl()/10} base damage to unarmed attacks`;
                                     },
                                 });
     skills["Quick steps"] = new Skill({
+        milestones: {1: {stats: {agility: {flat: 1}}}},
                                 names: {0: "Quick steps"}, 
                                 parent_skill: "Stance mastery",
                                 description: "A swift and precise technique that abandons strength in favor of greater speed", 
@@ -368,6 +376,7 @@ Adds ${skills["Unarmed"].getCurrentLvl()/10} base damage to unarmed attacks`;
                                     return `Improves efficiency of the 'Quick Steps' stance`;
                                 }});
     skills["Heavy strike"] = new Skill({
+        milestones: {1: {stats: {strength: {flat: 1}}}},
                                 names: {0: "Crushing force"}, 
                                 parent_skill: "Stance mastery",
                                 description: "A powerful and dangerous technique that abandons speed in favor of overwhelmingly strong attacks",
@@ -378,7 +387,8 @@ Adds ${skills["Unarmed"].getCurrentLvl()/10} base damage to unarmed attacks`;
                                 get_effect_description: ()=> {
                                     return `Improves efficiency of the "Crushing force" stance`;
                                 }});
-    skills["Wide swing"] = new Skill({ 
+    skills["Wide swing"] = new Skill({
+        milestones: {1: {stats: {dexterity: {flat: 1}}}},
                                 names: {0: "Broad arc"}, 
                                 parent_skill: "Stance mastery",
                                 description: "A special technique that allows striking multiple enemies at once, although at a cost of lower overall efficiency." 
@@ -391,6 +401,7 @@ Adds ${skills["Unarmed"].getCurrentLvl()/10} base damage to unarmed attacks`;
                                     return `Improves efficiency of the "Broad arc" stance`;
                                 }});
     skills["Defensive measures"] = new Skill({
+        milestones: {1: {stats: {max_health: {flat: 1}}}},
                                 names: {0: "Defensive measures"}, 
                                 parent_skill: "Stance mastery",
                                 description: "A careful technique focused much more on defense than on attacking",
@@ -401,7 +412,8 @@ Adds ${skills["Unarmed"].getCurrentLvl()/10} base damage to unarmed attacks`;
                                 get_effect_description: ()=> {
                                     return `Improves efficiency of the "Defensive Measures" stance`;
                                 }});
-    skills["Berserker's stride"] = new Skill({ 
+    skills["Berserker's stride"] = new Skill({
+        milestones: {1: {stats: {max_stamina: {flat: 1}}}},
                                 names: {0: "Berserker's stride"}, 
                                 parent_skill: "Stance mastery",
                                 description: "A wild and dangerous technique that focuses on dealing as much damage as possible, while completely ignoring own defense",
@@ -413,6 +425,7 @@ Adds ${skills["Unarmed"].getCurrentLvl()/10} base damage to unarmed attacks`;
                                     return `Improves efficiency of the "Berserker's Stride" stance`;
                                 }});                  
     skills["Flowing water"] = new Skill({
+        milestones: {1: {stats: {agility: {flat: 1}}}},
                                 names: {0: "Flowing water"}, 
                                 parent_skill: "Stance mastery",
                                 description: "A wild and dangerous technique that focuses on dealing as much damage as possible, while completely ignoring own defense",
@@ -887,6 +900,7 @@ Adds ${skills["Unarmed"].getCurrentLvl()/10} base damage to unarmed attacks`;
     });
 
     skills["Heat resistance"] = new Skill({
+        milestones: {1: {stats: {max_health: {flat: 1}}}},
         names: {0: "Heat resistance"},
         description: "Ability to survive and function in high temperatures",
         base_xp_cost: 100,
@@ -894,6 +908,7 @@ Adds ${skills["Unarmed"].getCurrentLvl()/10} base damage to unarmed attacks`;
         category: "Environmental",
     });
     skills["Cold resistance"] = new Skill({
+        milestones: {1: {stats: {max_stamina: {flat: 1}}}},
         names: {0: "Cold resistance"},
         description: "Ability to survive and function in low temperatures",
         base_xp_cost: 200,
@@ -906,6 +921,7 @@ Adds ${skills["Unarmed"].getCurrentLvl()/10} base damage to unarmed attacks`;
     });
 
     skills["Dazzle resistance"] = new Skill({
+        milestones: {1: {stats: {intuition: {flat: 1}}}},
         names: {0: "Dazzle resistance"},
         description: "Don't look at the sun, it's bad for your eyes",
         base_xp_cost: 60,
@@ -921,6 +937,7 @@ Adds ${skills["Unarmed"].getCurrentLvl()/10} base damage to unarmed attacks`;
 //weapon skills
 (function(){
     skills["Weapon mastery"] = new Skill({
+        milestones: {1: {stats: {dexterity: {flat: 1}}}},
                                     names: {0: "Weapon proficiency", 15: "Weapon mastery"}, 
                                     description: "Knowledge of all weapons",
                                     category: "Weapon",
@@ -1158,6 +1175,7 @@ Multiplies AP with daggers by ${Math.round((character.getTotalSkillCoefficient({
                             });
 
     skills["Wands"] = new Skill({
+        milestones: {1: {stats: {intuition: {flat: 1}}}},
                                 parent_skill: "Weapon mastery",
                                 names: {0: "Wand casting"}, 
                                 category: "Weapon",
@@ -1168,6 +1186,7 @@ Multiplies AP with daggers by ${Math.round((character.getTotalSkillCoefficient({
                                 max_level_coefficient: 8});
 
     skills["Staffs"] = new Skill({
+        milestones: {1: {stats: {dexterity: {flat: 1}}}},
                                 parent_skill: "Weapon mastery",
                                 names: {0: "Staff casting"}, 
                                 category: "Weapon",
@@ -1800,6 +1819,7 @@ Multiplies AP with daggers by ${Math.round((character.getTotalSkillCoefficient({
                 },
                 xp_multipliers: {
                     "Unarmed": 1.1,
+                    "Shield blocking": 1.1,
                 }
             },
             7: {
@@ -1837,6 +1857,7 @@ Multiplies AP with daggers by ${Math.round((character.getTotalSkillCoefficient({
                 },
                 xp_multipliers: {
                     "Unarmed": 1.2,
+                    "Shield blocking": 1.2,
                 }
             }
         },
@@ -1940,6 +1961,7 @@ Multiplies AP with daggers by ${Math.round((character.getTotalSkillCoefficient({
 //resource gathering related
 (function(){
     skills["Gathering mastery"] = new Skill({
+        milestones: {1: {stats: {max_stamina: {flat: 1}}}},
         names: {0: "Beginner gatherer", 10: "Apprentice gatherer", 25: "Adept gatherer", 35: "Expert gatherer", 50: "Master gatherer"}, 
         description: "Knowledge on how to gather all the kinds of resources. "
                     +"While each of them is seemingly gathered in a completely different way, with enough practice you being to see some commonalities.",
@@ -1953,6 +1975,7 @@ Multiplies AP with daggers by ${Math.round((character.getTotalSkillCoefficient({
         },
     });
     skills["Woodcutting"] = new Skill({
+        milestones: {1: {stats: {strength: {flat: 1}}}},
         names: {0: "Woodcutting"},
         parent_skill: "Gathering mastery",
         description: "Get better with chopping the wood and recognizing useful trees",
@@ -1963,6 +1986,7 @@ Multiplies AP with daggers by ${Math.round((character.getTotalSkillCoefficient({
     });
 
     skills["Mining"] = new Skill({
+        milestones: {1: {stats: {strength: {flat: 1}}}},
         names: {0: "Mining"},
         parent_skill: "Gathering mastery",
         description: "Get better with mining for ore and stone",
@@ -1973,6 +1997,7 @@ Multiplies AP with daggers by ${Math.round((character.getTotalSkillCoefficient({
     });
 
     skills["Digging"] = new Skill({
+        milestones: {1: {stats: {max_stamina: {flat: 1}}}},
         names: {0: "Digging"},
         parent_skill: "Gathering mastery",
         description: "Get better with swinging the shovel",
@@ -1983,6 +2008,7 @@ Multiplies AP with daggers by ${Math.round((character.getTotalSkillCoefficient({
     });
 
     skills["Herbalism"] = new Skill({
+        milestones: {1: {stats: {intuition: {flat: 1}}}},
         names: {0: "Herbalism"},
         parent_skill: "Gathering mastery",
         description: "Knowledge of useful plants and mushrooms",
@@ -1993,6 +2019,7 @@ Multiplies AP with daggers by ${Math.round((character.getTotalSkillCoefficient({
     });
 
     skills["Animal handling"] = new Skill({
+        milestones: {1: {stats: {intuition: {flat: 1}}}},
         names: {0: "Animal handling"},
         parent_skill: "Gathering mastery",
         description: "Knowledge and skills required to deal with a wide variety of animals",
@@ -2153,6 +2180,7 @@ Multiplies AP with daggers by ${Math.round((character.getTotalSkillCoefficient({
     });
 
     skills["Crafting"] = new Skill({
+        milestones: {1: {stats: {dexterity: {flat: 1}}}},
         names: {0: "Tinkering"}, 
         description: "Turn smaller pieces into one bigger thing",
         category: skill_category_crafting,
@@ -2198,6 +2226,7 @@ Multiplies AP with daggers by ${Math.round((character.getTotalSkillCoefficient({
         }
     });
     skills["Cooking"] = new Skill({
+        milestones: {1: {stats: {max_stamina: {flat: 1}}}},
         names: {0: "Cooking"}, 
         description: "Making the inedible edible",
         category: skill_category_crafting,
@@ -2206,6 +2235,7 @@ Multiplies AP with daggers by ${Math.round((character.getTotalSkillCoefficient({
         max_level: 60,
     });
     skills["Alchemy"] = new Skill({
+        milestones: {1: {stats: {intuition: {flat: 1}}}},
         names: {0: "Alchemy"}, 
         description: "Extracting and enhancing useful properties of the ingredients",
         category: skill_category_crafting,
@@ -2241,6 +2271,7 @@ Multiplies AP with daggers by ${Math.round((character.getTotalSkillCoefficient({
         }
     });
     skills["Woodworking"] = new Skill({
+        milestones: {1: {stats: {dexterity: {flat: 1}}}},
         skill_id: "Woodworking", 
         names: {0: "Woodworking"}, 
         description: "Turning wood logs into something useful",
@@ -2569,6 +2600,7 @@ Multiplies AP with daggers by ${Math.round((character.getTotalSkillCoefficient({
         }
     });
     skills["Medicine"] = new Skill({
+        milestones: {1: {stats: {max_health: {flat: 1}}}},
         names: {0: "Medicine"}, 
         description: "Create better medicaments and improve your skill at treating wounds",
         category: "Character",

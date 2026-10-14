@@ -1,0 +1,118 @@
+TAP version 13
+# Subtest: all six finite experiments have exact conserved water and harvest
+ok 1 - all six finite experiments have exact conserved water and harvest
+  ---
+  duration_ms: 9.569917
+  type: 'test'
+  ...
+# Subtest: exports exact independent represented output and reproducible knowledge
+ok 2 - exports exact independent represented output and reproducible knowledge
+  ---
+  duration_ms: 0.522917
+  type: 'test'
+  ...
+# Subtest: changing layout and inlet yields a bounded comparison, not real resources
+ok 3 - changing layout and inlet yields a bounded comparison, not real resources
+  ---
+  duration_ms: 1.60975
+  type: 'test'
+  ...
+# Subtest: invalid configurations cannot start unbounded work or silently coerce inputs
+ok 4 - invalid configurations cannot start unbounded work or silently coerce inputs
+  ---
+  duration_ms: 0.797958
+  type: 'test'
+  ...
+# Subtest: natural funded commission grants once, rejects stale/repeat and fabricated objective
+ok 5 - natural funded commission grants once, rejects stale/repeat and fabricated objective
+  ---
+  duration_ms: 2567.913916
+  type: 'test'
+  ...
+# Subtest: permanent learning, leased useful output and upgraded scope retain exact carriers
+ok 6 - permanent learning, leased useful output and upgraded scope retain exact carriers
+  ---
+  duration_ms: 4777.420208
+  type: 'test'
+  ...
+# Subtest: cache seeded opening spends actual custody once and covers two useful outcomes
+ok 7 - cache seeded opening spends actual custody once and covers two useful outcomes
+  ---
+  duration_ms: 34341.912583
+  type: 'test'
+  ...
+# Subtest: funded wager commits hidden draw, fold returns custody, win/loss settle once
+ok 8 - funded wager commits hidden draw, fold returns custody, win/loss settle once
+  ---
+  duration_ms: 33537.254792
+  type: 'test'
+  ...
+# Subtest: lens requires learned source and actual tool; model exports only knowledge and changes real yield
+ok 9 - lens requires learned source and actual tool; model exports only knowledge and changes real yield
+  ---
+  duration_ms: 9512.740708
+  type: 'test'
+  ...
+# Subtest: Ren uses own stock after teacher leaves and disconnects; finite work stays finite
+ok 10 - Ren uses own stock after teacher leaves and disconnects; finite work stays finite
+  ---
+  duration_ms: 7454.842417
+  type: 'test'
+  ...
+# Subtest: reservation reload/import, refund and failed storage never publish debit or grant
+ok 11 - reservation reload/import, refund and failed storage never publish debit or grant
+  ---
+  duration_ms: 2035.04525
+  type: 'test'
+  ...
+# Subtest: old absent edition saves remain untouched; malformed ledger and wrong escrow reject
+ok 12 - old absent edition saves remain untouched; malformed ledger and wrong escrow reject
+  ---
+  duration_ms: 1481.759833
+  type: 'test'
+  ...
+# Subtest: preservation has a real clock consequence across carried, recipient and chest custody
+ok 13 - preservation has a real clock consequence across carried, recipient and chest custody
+  ---
+  duration_ms: 8527.348291
+  type: 'test'
+  ...
+# Subtest: import rejects unfunded points and falsified experiment outputs
+ok 14 - import rejects unfunded points and falsified experiment outputs
+  ---
+  duration_ms: 663.829375
+  type: 'test'
+  ...
+# Subtest: expiry import must bind the receipt and cannot delete or move its deadline
+ok 15 - expiry import must bind the receipt and cannot delete or move its deadline
+  ---
+  duration_ms: 2594.82325
+  type: 'test'
+  ...
+# Subtest: irrigation preservation still requires its actual fixed-function carrier and rival cannot wager unfunded
+ok 16 - irrigation preservation still requires its actual fixed-function carrier and rival cannot wager unfunded
+  ---
+  duration_ms: 5584.480291
+  type: 'test'
+  ...
+# Subtest: eligibility ignores caller assertions about recommendation, installation and Ren learning
+ok 17 - eligibility ignores caller assertions about recommendation, installation and Ren learning
+  ---
+  duration_ms: 389.460125
+  type: 'test'
+  ...
+# Subtest: engine reconciles manufacture receipts and expiry before validating or returning its plan
+ok 18 - engine reconciles manufacture receipts and expiry before validating or returning its plan
+  ---
+  duration_ms: 4241.333458
+  type: 'test'
+  ...
+1..18
+# tests 18
+# suites 0
+# pass 18
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 121134.339792

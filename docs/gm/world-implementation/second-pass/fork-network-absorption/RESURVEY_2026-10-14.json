@@ -1,0 +1,1587 @@
+{
+  "schema_version": 1,
+  "snapshot_at": "2026-10-14T04:28:23.513946+00:00",
+  "baseline": "2026-10-05T15:19:53.727851+00:00",
+  "enumeration_routes": [
+    "GitHub REST forks per_page=100 (both complete first pages)",
+    "git ls-remote --heads for every enumerated fork"
+  ],
+  "repositories": [
+    {
+      "full_name": "onionviolet/yet-another-idle-rpg",
+      "family": "normal",
+      "created_at": "2026-09-30T21:44:43Z",
+      "pushed_at": "2026-10-14T04:20:40Z",
+      "default_branch": "master",
+      "url": "https://github.com/onionviolet/yet-another-idle-rpg",
+      "new_repository": false,
+      "enumeration_error": null,
+      "branches": [
+        {
+          "name": "codex/gameplay-foundations",
+          "sha": "0216ccdefcfce79877378f8cb0ee41129fe11c5d",
+          "previous_sha": null,
+          "new_branch": true,
+          "changed": true
+        },
+        {
+          "name": "ghpages",
+          "sha": "fc047803a3f6e1c9a032cce1fc407bfd1c906fc7",
+          "previous_sha": "fc047803a3f6e1c9a032cce1fc407bfd1c906fc7",
+          "new_branch": false,
+          "changed": false
+        },
+        {
+          "name": "master",
+          "sha": "0216ccdefcfce79877378f8cb0ee41129fe11c5d",
+          "previous_sha": "e3356432ad5112f30842cfe6a6b5c3a4ced77de9",
+          "new_branch": false,
+          "changed": true
+        }
+      ],
+      "decision": "Personal fork is incumbent current worktree, not an external adoption."
+    },
+    {
+      "full_name": "oks-archive/miktaew--yet-another-idle-rpg",
+      "family": "normal",
+      "created_at": "2026-09-25T19:20:06Z",
+      "pushed_at": "2026-06-26T16:32:44Z",
+      "default_branch": "master",
+      "url": "https://github.com/oks-archive/miktaew--yet-another-idle-rpg",
+      "new_repository": false,
+      "enumeration_error": null,
+      "branches": [
+        {
+          "name": "ghpages",
+          "sha": "fc047803a3f6e1c9a032cce1fc407bfd1c906fc7",
+          "previous_sha": "fc047803a3f6e1c9a032cce1fc407bfd1c906fc7",
+          "new_branch": false,
+          "changed": false
+        },
+        {
+          "name": "master",
+          "sha": "e3356432ad5112f30842cfe6a6b5c3a4ced77de9",
+          "previous_sha": "e3356432ad5112f30842cfe6a6b5c3a4ced77de9",
+          "new_branch": false,
+          "changed": false
+        }
+      ],
+      "decision": "All live branch pins equal inspected October 5 pins; no newly uninspected branches."
+    },
+    {
+      "full_name": "BippyCost/yet-another-idle-rpg-tweak",
+      "family": "normal",
+      "created_at": "2026-09-05T09:39:51Z",
+      "pushed_at": "2026-09-08T13:05:41Z",
+      "default_branch": "master",
+      "url": "https://github.com/BippyCost/yet-another-idle-rpg-tweak",
+      "new_repository": false,
+      "enumeration_error": null,
+      "branches": [
+        {
+          "name": "master",
+          "sha": "16fcd31955818aa816d21dde2321e75dfce6e44b",
+          "previous_sha": "16fcd31955818aa816d21dde2321e75dfce6e44b",
+          "new_branch": false,
+          "changed": false
+        },
+        {
+          "name": "testing",
+          "sha": "03a6469e11499c1daf7c203a4f0af55bd79c708f",
+          "previous_sha": "03a6469e11499c1daf7c203a4f0af55bd79c708f",
+          "new_branch": false,
+          "changed": false
+        }
+      ],
+      "decision": "All live branch pins equal inspected October 5 pins; no newly uninspected branches."
+    },
+    {
+      "full_name": "JohnRipper/yet-another-idle-rpg",
+      "family": "normal",
+      "created_at": "2026-08-28T16:54:19Z",
+      "pushed_at": "2026-06-26T16:32:44Z",
+      "default_branch": "master",
+      "url": "https://github.com/JohnRipper/yet-another-idle-rpg",
+      "new_repository": false,
+      "enumeration_error": null,
+      "branches": [
+        {
+          "name": "ghpages",
+          "sha": "fc047803a3f6e1c9a032cce1fc407bfd1c906fc7",
+          "previous_sha": "fc047803a3f6e1c9a032cce1fc407bfd1c906fc7",
+          "new_branch": false,
+          "changed": false
+        },
+        {
+          "name": "master",
+          "sha": "e3356432ad5112f30842cfe6a6b5c3a4ced77de9",
+          "previous_sha": "e3356432ad5112f30842cfe6a6b5c3a4ced77de9",
+          "new_branch": false,
+          "changed": false
+        }
+      ],
+      "decision": "All live branch pins equal inspected October 5 pins; no newly uninspected branches."
+    },
+    {
+      "full_name": "XrColer/yet-another-idle-rpg",
+      "family": "normal",
+      "created_at": "2026-08-20T15:52:47Z",
+      "pushed_at": "2026-06-26T16:32:44Z",
+      "default_branch": "master",
+      "url": "https://github.com/XrColer/yet-another-idle-rpg",
+      "new_repository": false,
+      "enumeration_error": null,
+      "branches": [
+        {
+          "name": "master",
+          "sha": "e3356432ad5112f30842cfe6a6b5c3a4ced77de9",
+          "previous_sha": "e3356432ad5112f30842cfe6a6b5c3a4ced77de9",
+          "new_branch": false,
+          "changed": false
+        }
+      ],
+      "decision": "All live branch pins equal inspected October 5 pins; no newly uninspected branches."
+    },
+    {
+      "full_name": "SchokoKaramel/yet-another-idle-rpg",
+      "family": "normal",
+      "created_at": "2026-08-20T14:44:29Z",
+      "pushed_at": "2026-08-28T22:03:43Z",
+      "default_branch": "master",
+      "url": "https://github.com/SchokoKaramel/yet-another-idle-rpg",
+      "new_repository": false,
+      "enumeration_error": null,
+      "branches": [
+        {
+          "name": "master",
+          "sha": "16c08d3f8b6a6318f8dc11fe27c390257b2c6b57",
+          "previous_sha": "16c08d3f8b6a6318f8dc11fe27c390257b2c6b57",
+          "new_branch": false,
+          "changed": false
+        }
+      ],
+      "decision": "All live branch pins equal inspected October 5 pins; no newly uninspected branches."
+    },
+    {
+      "full_name": "yexinxiaojie/yet-another-idle-rpg",
+      "family": "normal",
+      "created_at": "2026-06-21T17:52:51Z",
+      "pushed_at": "2026-06-21T14:49:46Z",
+      "default_branch": "master",
+      "url": "https://github.com/yexinxiaojie/yet-another-idle-rpg",
+      "new_repository": false,
+      "enumeration_error": null,
+      "branches": [
+        {
+          "name": "master",
+          "sha": "1dd786c062da60374ea3c75fb7b1b25168eea976",
+          "previous_sha": "1dd786c062da60374ea3c75fb7b1b25168eea976",
+          "new_branch": false,
+          "changed": false
+        }
+      ],
+      "decision": "All live branch pins equal inspected October 5 pins; no newly uninspected branches."
+    },
+    {
+      "full_name": "Ishamoridin/yet-another-idle-rpg",
+      "family": "normal",
+      "created_at": "2026-03-24T03:07:30Z",
+      "pushed_at": "2026-03-24T03:12:12Z",
+      "default_branch": "master",
+      "url": "https://github.com/Ishamoridin/yet-another-idle-rpg",
+      "new_repository": false,
+      "enumeration_error": null,
+      "branches": [
+        {
+          "name": "master",
+          "sha": "b579b9f65e3b41c2ffd921aac72b22f22c8c9dcd",
+          "previous_sha": "b579b9f65e3b41c2ffd921aac72b22f22c8c9dcd",
+          "new_branch": false,
+          "changed": false
+        }
+      ],
+      "decision": "All live branch pins equal inspected October 5 pins; no newly uninspected branches."
+    },
+    {
+      "full_name": "fiammanda/yet-another-idle-rpg",
+      "family": "normal",
+      "created_at": "2026-03-08T02:16:28Z",
+      "pushed_at": "2026-02-22T10:26:28Z",
+      "default_branch": "master",
+      "url": "https://github.com/fiammanda/yet-another-idle-rpg",
+      "new_repository": false,
+      "enumeration_error": null,
+      "branches": [
+        {
+          "name": "master",
+          "sha": "0b66e276571bee39f013451a4dc9d70e344353ea",
+          "previous_sha": "0b66e276571bee39f013451a4dc9d70e344353ea",
+          "new_branch": false,
+          "changed": false
+        }
+      ],
+      "decision": "All live branch pins equal inspected October 5 pins; no newly uninspected branches."
+    },
+    {
+      "full_name": "xunge0613/yet-another-idle-rpg",
+      "family": "normal",
+      "created_at": "2026-03-07T03:34:03Z",
+      "pushed_at": "2026-02-22T10:26:28Z",
+      "default_branch": "master",
+      "url": "https://github.com/xunge0613/yet-another-idle-rpg",
+      "new_repository": false,
+      "enumeration_error": null,
+      "branches": [
+        {
+          "name": "master",
+          "sha": "0b66e276571bee39f013451a4dc9d70e344353ea",
+          "previous_sha": "0b66e276571bee39f013451a4dc9d70e344353ea",
+          "new_branch": false,
+          "changed": false
+        }
+      ],
+      "decision": "All live branch pins equal inspected October 5 pins; no newly uninspected branches."
+    },
+    {
+      "full_name": "infinitiez/infnitiez.github.io",
+      "family": "normal",
+      "created_at": "2026-03-05T19:07:49Z",
+      "pushed_at": "2026-03-05T19:53:41Z",
+      "default_branch": "master",
+      "url": "https://github.com/infinitiez/infnitiez.github.io",
+      "new_repository": false,
+      "enumeration_error": null,
+      "branches": [
+        {
+          "name": "ghpages",
+          "sha": "ea8a3d78cd264a158530de5665c6211a6d62d3c9",
+          "previous_sha": "ea8a3d78cd264a158530de5665c6211a6d62d3c9",
+          "new_branch": false,
+          "changed": false
+        },
+        {
+          "name": "master",
+          "sha": "a33402b5966527f3f6d7af958329795fb772fab4",
+          "previous_sha": "a33402b5966527f3f6d7af958329795fb772fab4",
+          "new_branch": false,
+          "changed": false
+        }
+      ],
+      "decision": "All live branch pins equal inspected October 5 pins; no newly uninspected branches."
+    },
+    {
+      "full_name": "bigbang20061/yet-another-idle-rpg",
+      "family": "normal",
+      "created_at": "2026-03-05T09:15:37Z",
+      "pushed_at": "2026-02-22T10:26:28Z",
+      "default_branch": "master",
+      "url": "https://github.com/bigbang20061/yet-another-idle-rpg",
+      "new_repository": false,
+      "enumeration_error": null,
+      "branches": [
+        {
+          "name": "master",
+          "sha": "0b66e276571bee39f013451a4dc9d70e344353ea",
+          "previous_sha": "0b66e276571bee39f013451a4dc9d70e344353ea",
+          "new_branch": false,
+          "changed": false
+        }
+      ],
+      "decision": "All live branch pins equal inspected October 5 pins; no newly uninspected branches."
+    },
+    {
+      "full_name": "tommycon117/yet-another-idle-rpg",
+      "family": "normal",
+      "created_at": "2026-02-07T22:57:38Z",
+      "pushed_at": "2026-01-02T17:52:12Z",
+      "default_branch": "master",
+      "url": "https://github.com/tommycon117/yet-another-idle-rpg",
+      "new_repository": false,
+      "enumeration_error": null,
+      "branches": [
+        {
+          "name": "master",
+          "sha": "26ff7c1a3da7e8cdd96d9a954cb35b3d9305e2b0",
+          "previous_sha": "26ff7c1a3da7e8cdd96d9a954cb35b3d9305e2b0",
+          "new_branch": false,
+          "changed": false
+        }
+      ],
+      "decision": "All live branch pins equal inspected October 5 pins; no newly uninspected branches."
+    },
+    {
+      "full_name": "Oysica/yet-another-idle-rpg",
+      "family": "normal",
+      "created_at": "2026-01-03T04:27:48Z",
+      "pushed_at": "2026-01-02T17:52:12Z",
+      "default_branch": "master",
+      "url": "https://github.com/Oysica/yet-another-idle-rpg",
+      "new_repository": false,
+      "enumeration_error": null,
+      "branches": [
+        {
+          "name": "master",
+          "sha": "26ff7c1a3da7e8cdd96d9a954cb35b3d9305e2b0",
+          "previous_sha": "26ff7c1a3da7e8cdd96d9a954cb35b3d9305e2b0",
+          "new_branch": false,
+          "changed": false
+        }
+      ],
+      "decision": "All live branch pins equal inspected October 5 pins; no newly uninspected branches."
+    },
+    {
+      "full_name": "burak-ozmus/yet-another-idle-rpg",
+      "family": "normal",
+      "created_at": "2025-12-06T16:40:41Z",
+      "pushed_at": "2025-12-06T16:57:15Z",
+      "default_branch": "master",
+      "url": "https://github.com/burak-ozmus/yet-another-idle-rpg",
+      "new_repository": false,
+      "enumeration_error": null,
+      "branches": [
+        {
+          "name": "master",
+          "sha": "e98383e0e9be86f65c6a121ee07d19f251077ad0",
+          "previous_sha": "e98383e0e9be86f65c6a121ee07d19f251077ad0",
+          "new_branch": false,
+          "changed": false
+        }
+      ],
+      "decision": "All live branch pins equal inspected October 5 pins; no newly uninspected branches."
+    },
+    {
+      "full_name": "ttboxup-cpu/yet-another-idle-rpg",
+      "family": "normal",
+      "created_at": "2025-11-26T01:03:29Z",
+      "pushed_at": "2025-06-08T12:56:50Z",
+      "default_branch": "master",
+      "url": "https://github.com/ttboxup-cpu/yet-another-idle-rpg",
+      "new_repository": false,
+      "enumeration_error": null,
+      "branches": [
+        {
+          "name": "master",
+          "sha": "5e7563ef0d1f652f3592ab81c0eacae0b3b2ac8d",
+          "previous_sha": "5e7563ef0d1f652f3592ab81c0eacae0b3b2ac8d",
+          "new_branch": false,
+          "changed": false
+        }
+      ],
+      "decision": "All live branch pins equal inspected October 5 pins; no newly uninspected branches."
+    },
+    {
+      "full_name": "ArturLange/suraimu",
+      "family": "normal",
+      "created_at": "2025-09-28T10:37:38Z",
+      "pushed_at": "2026-05-16T12:10:29Z",
+      "default_branch": "master",
+      "url": "https://github.com/ArturLange/suraimu",
+      "new_repository": false,
+      "enumeration_error": null,
+      "branches": [
+        {
+          "name": "master",
+          "sha": "7557ba29fae1d4f2f65bfeab0b134b0ff9345a58",
+          "previous_sha": "7557ba29fae1d4f2f65bfeab0b134b0ff9345a58",
+          "new_branch": false,
+          "changed": false
+        }
+      ],
+      "decision": "All live branch pins equal inspected October 5 pins; no newly uninspected branches."
+    },
+    {
+      "full_name": "Zorakir/yet-another-another-idle-rpg",
+      "family": "normal",
+      "created_at": "2025-09-27T22:00:39Z",
+      "pushed_at": "2025-09-27T22:53:10Z",
+      "default_branch": "master",
+      "url": "https://github.com/Zorakir/yet-another-another-idle-rpg",
+      "new_repository": false,
+      "enumeration_error": null,
+      "branches": [
+        {
+          "name": "master",
+          "sha": "fe99d02ba6b8978ec92f93307c0252cacc54c583",
+          "previous_sha": "fe99d02ba6b8978ec92f93307c0252cacc54c583",
+          "new_branch": false,
+          "changed": false
+        }
+      ],
+      "decision": "All live branch pins equal inspected October 5 pins; no newly uninspected branches."
+    },
+    {
+      "full_name": "Ancient-Majik-Tech/RealmsIdle",
+      "family": "normal",
+      "created_at": "2025-03-24T04:02:22Z",
+      "pushed_at": "2024-11-04T21:10:06Z",
+      "default_branch": "master",
+      "url": "https://github.com/Ancient-Majik-Tech/RealmsIdle",
+      "new_repository": false,
+      "enumeration_error": null,
+      "branches": [
+        {
+          "name": "master",
+          "sha": "0bb5f5872caf4dd5f10b6d4771c488a1cd64c85b",
+          "previous_sha": "0bb5f5872caf4dd5f10b6d4771c488a1cd64c85b",
+          "new_branch": false,
+          "changed": false
+        }
+      ],
+      "decision": "All live branch pins equal inspected October 5 pins; no newly uninspected branches."
+    },
+    {
+      "full_name": "FueledByOCHD/experimental-idle-rpg-MyWork",
+      "family": "normal",
+      "created_at": "2025-03-23T14:22:55Z",
+      "pushed_at": "2025-03-24T01:38:52Z",
+      "default_branch": "master",
+      "url": "https://github.com/FueledByOCHD/experimental-idle-rpg-MyWork",
+      "new_repository": false,
+      "enumeration_error": null,
+      "branches": [
+        {
+          "name": "master",
+          "sha": "669d39578d2c6a06cb15ca8cc2c54e3b9a120461",
+          "previous_sha": "669d39578d2c6a06cb15ca8cc2c54e3b9a120461",
+          "new_branch": false,
+          "changed": false
+        }
+      ],
+      "decision": "All live branch pins equal inspected October 5 pins; no newly uninspected branches."
+    },
+    {
+      "full_name": "Kanthor/yet-another-garage-rpg",
+      "family": "normal",
+      "created_at": "2025-01-30T19:42:57Z",
+      "pushed_at": "2025-01-30T20:07:57Z",
+      "default_branch": "master",
+      "url": "https://github.com/Kanthor/yet-another-garage-rpg",
+      "new_repository": false,
+      "enumeration_error": null,
+      "branches": [
+        {
+          "name": "master",
+          "sha": "31cf7387957d205027366488a29f3b6e6f0e1acc",
+          "previous_sha": "31cf7387957d205027366488a29f3b6e6f0e1acc",
+          "new_branch": false,
+          "changed": false
+        }
+      ],
+      "decision": "All live branch pins equal inspected October 5 pins; no newly uninspected branches."
+    },
+    {
+      "full_name": "ChaosTherum/yet-another-idle-rpg",
+      "family": "normal",
+      "created_at": "2024-11-26T14:18:00Z",
+      "pushed_at": "2024-11-04T21:10:06Z",
+      "default_branch": "master",
+      "url": "https://github.com/ChaosTherum/yet-another-idle-rpg",
+      "new_repository": false,
+      "enumeration_error": null,
+      "branches": [
+        {
+          "name": "master",
+          "sha": "0bb5f5872caf4dd5f10b6d4771c488a1cd64c85b",
+          "previous_sha": "0bb5f5872caf4dd5f10b6d4771c488a1cd64c85b",
+          "new_branch": false,
+          "changed": false
+        }
+      ],
+      "decision": "All live branch pins equal inspected October 5 pins; no newly uninspected branches."
+    },
+    {
+      "full_name": "jaytechnos1/RPG",
+      "family": "normal",
+      "created_at": "2024-11-24T07:08:26Z",
+      "pushed_at": "2024-11-24T07:12:59Z",
+      "default_branch": "master",
+      "url": "https://github.com/jaytechnos1/RPG",
+      "new_repository": false,
+      "enumeration_error": null,
+      "branches": [
+        {
+          "name": "master",
+          "sha": "24b89710df85382fb3f7aab82c46009dab0c38ce",
+          "previous_sha": "24b89710df85382fb3f7aab82c46009dab0c38ce",
+          "new_branch": false,
+          "changed": false
+        }
+      ],
+      "decision": "All live branch pins equal inspected October 5 pins; no newly uninspected branches."
+    },
+    {
+      "full_name": "JamesCCoder/yet-another-idle-rpg",
+      "family": "normal",
+      "created_at": "2024-05-29T00:45:18Z",
+      "pushed_at": "2024-04-23T08:14:44Z",
+      "default_branch": "master",
+      "url": "https://github.com/JamesCCoder/yet-another-idle-rpg",
+      "new_repository": false,
+      "enumeration_error": null,
+      "branches": [
+        {
+          "name": "master",
+          "sha": "f41ecd232337d8bed4277ad3550126d03c75d84d",
+          "previous_sha": "f41ecd232337d8bed4277ad3550126d03c75d84d",
+          "new_branch": false,
+          "changed": false
+        }
+      ],
+      "decision": "All live branch pins equal inspected October 5 pins; no newly uninspected branches."
+    },
+    {
+      "full_name": "Gui88/yet-another-idle-rpg",
+      "family": "normal",
+      "created_at": "2024-05-08T10:56:44Z",
+      "pushed_at": "2024-04-23T08:14:44Z",
+      "default_branch": "master",
+      "url": "https://github.com/Gui88/yet-another-idle-rpg",
+      "new_repository": false,
+      "enumeration_error": null,
+      "branches": [
+        {
+          "name": "master",
+          "sha": "f41ecd232337d8bed4277ad3550126d03c75d84d",
+          "previous_sha": "f41ecd232337d8bed4277ad3550126d03c75d84d",
+          "new_branch": false,
+          "changed": false
+        }
+      ],
+      "decision": "All live branch pins equal inspected October 5 pins; no newly uninspected branches."
+    },
+    {
+      "full_name": "ccpemily/yet-another-idle-rpg",
+      "family": "normal",
+      "created_at": "2024-04-28T06:07:03Z",
+      "pushed_at": "2024-04-23T08:14:44Z",
+      "default_branch": "master",
+      "url": "https://github.com/ccpemily/yet-another-idle-rpg",
+      "new_repository": false,
+      "enumeration_error": null,
+      "branches": [
+        {
+          "name": "master",
+          "sha": "f41ecd232337d8bed4277ad3550126d03c75d84d",
+          "previous_sha": "f41ecd232337d8bed4277ad3550126d03c75d84d",
+          "new_branch": false,
+          "changed": false
+        }
+      ],
+      "decision": "All live branch pins equal inspected October 5 pins; no newly uninspected branches."
+    },
+    {
+      "full_name": "JustAnName/yet-another-idle-rpg-dev",
+      "family": "dev",
+      "created_at": "2026-09-16T19:18:33Z",
+      "pushed_at": "2026-09-14T18:59:14Z",
+      "default_branch": "master",
+      "url": "https://github.com/JustAnName/yet-another-idle-rpg-dev",
+      "new_repository": false,
+      "enumeration_error": null,
+      "branches": [
+        {
+          "name": "master",
+          "sha": "85c394728903ea61fcb6a6fa36f445337076bf5a",
+          "previous_sha": "85c394728903ea61fcb6a6fa36f445337076bf5a",
+          "new_branch": false,
+          "changed": false
+        }
+      ],
+      "decision": "All live branch pins equal inspected October 5 pins; no newly uninspected branches."
+    },
+    {
+      "full_name": "Kuroiteiken/yairp",
+      "family": "dev",
+      "created_at": "2026-08-19T08:49:58Z",
+      "pushed_at": "2026-09-13T16:08:51Z",
+      "default_branch": "master",
+      "url": "https://github.com/Kuroiteiken/yairp",
+      "new_repository": false,
+      "enumeration_error": null,
+      "branches": [
+        {
+          "name": "contribute/upstream-display",
+          "sha": "44cef56b76a43d28b37c061c416ad902097ecc63",
+          "previous_sha": "44cef56b76a43d28b37c061c416ad902097ecc63",
+          "new_branch": false,
+          "changed": false
+        },
+        {
+          "name": "contribute/upstream-fixes",
+          "sha": "bb68ac656385ac18885949e5d845bbad72e30a26",
+          "previous_sha": "bb68ac656385ac18885949e5d845bbad72e30a26",
+          "new_branch": false,
+          "changed": false
+        },
+        {
+          "name": "contribute/upstream-imports",
+          "sha": "235968fcde84b81e7eafcb9ed6f2f26c7fe4ff1e",
+          "previous_sha": "235968fcde84b81e7eafcb9ed6f2f26c7fe4ff1e",
+          "new_branch": false,
+          "changed": false
+        },
+        {
+          "name": "master",
+          "sha": "9bebc9e49b0039a26044bcf6b03808826ceb692b",
+          "previous_sha": "9bebc9e49b0039a26044bcf6b03808826ceb692b",
+          "new_branch": false,
+          "changed": false
+        }
+      ],
+      "decision": "All live branch pins equal inspected October 5 pins; no newly uninspected branches."
+    },
+    {
+      "full_name": "Stick124/Useful-by-any-other-name",
+      "family": "dev",
+      "created_at": "2026-06-02T21:10:05Z",
+      "pushed_at": "2026-09-05T14:18:09Z",
+      "default_branch": "master",
+      "url": "https://github.com/Stick124/Useful-by-any-other-name",
+      "new_repository": false,
+      "enumeration_error": null,
+      "branches": [
+        {
+          "name": "master",
+          "sha": "519afb590d4d7b71f54efae7ba0754a02e7c77b5",
+          "previous_sha": "519afb590d4d7b71f54efae7ba0754a02e7c77b5",
+          "new_branch": false,
+          "changed": false
+        }
+      ],
+      "decision": "All live branch pins equal inspected October 5 pins; no newly uninspected branches."
+    },
+    {
+      "full_name": "SardineMilk/yet-another-idle-rpg-dev",
+      "family": "dev",
+      "created_at": "2026-05-26T09:59:15Z",
+      "pushed_at": "2026-09-10T14:36:58Z",
+      "default_branch": "master",
+      "url": "https://github.com/SardineMilk/yet-another-idle-rpg-dev",
+      "new_repository": false,
+      "enumeration_error": null,
+      "branches": [
+        {
+          "name": "master",
+          "sha": "519afb590d4d7b71f54efae7ba0754a02e7c77b5",
+          "previous_sha": "519afb590d4d7b71f54efae7ba0754a02e7c77b5",
+          "new_branch": false,
+          "changed": false
+        },
+        {
+          "name": "spelling-fixes",
+          "sha": "dc35b147b1abfcd9f12e35cd58cb4149437e1153",
+          "previous_sha": "dc35b147b1abfcd9f12e35cd58cb4149437e1153",
+          "new_branch": false,
+          "changed": false
+        }
+      ],
+      "decision": "All live branch pins equal inspected October 5 pins; no newly uninspected branches."
+    },
+    {
+      "full_name": "Erlemar/yet-another-idle-rpg-dev",
+      "family": "dev",
+      "created_at": "2026-05-06T18:01:52Z",
+      "pushed_at": "2026-05-06T18:07:29Z",
+      "default_branch": "master",
+      "url": "https://github.com/Erlemar/yet-another-idle-rpg-dev",
+      "new_repository": false,
+      "enumeration_error": null,
+      "branches": [
+        {
+          "name": "carya-canyon-herbalism",
+          "sha": "945bc0b0fa64d574b074e71a8625301fe25095b8",
+          "previous_sha": "945bc0b0fa64d574b074e71a8625301fe25095b8",
+          "new_branch": false,
+          "changed": false
+        },
+        {
+          "name": "gh-pages",
+          "sha": "b8cbaabf91ae167786e105018832ef3e084f5cd4",
+          "previous_sha": "b8cbaabf91ae167786e105018832ef3e084f5cd4",
+          "new_branch": false,
+          "changed": false
+        },
+        {
+          "name": "master",
+          "sha": "98520a3d0fce24cc6ebeda7462e4d47db3813db1",
+          "previous_sha": "98520a3d0fce24cc6ebeda7462e4d47db3813db1",
+          "new_branch": false,
+          "changed": false
+        }
+      ],
+      "decision": "All live branch pins equal inspected October 5 pins; no newly uninspected branches."
+    },
+    {
+      "full_name": "StanleyWangGT/yet-another-idle-rpg-dev",
+      "family": "dev",
+      "created_at": "2026-04-01T17:24:17Z",
+      "pushed_at": "2026-03-31T13:44:51Z",
+      "default_branch": "master",
+      "url": "https://github.com/StanleyWangGT/yet-another-idle-rpg-dev",
+      "new_repository": false,
+      "enumeration_error": null,
+      "branches": [
+        {
+          "name": "master",
+          "sha": "1ead90d4b82945bd6c51097d77e56a62381a4805",
+          "previous_sha": "1ead90d4b82945bd6c51097d77e56a62381a4805",
+          "new_branch": false,
+          "changed": false
+        }
+      ],
+      "decision": "All live branch pins equal inspected October 5 pins; no newly uninspected branches."
+    },
+    {
+      "full_name": "Sergeich0/yet-another-idle-rpg-dev",
+      "family": "dev",
+      "created_at": "2026-03-25T22:41:17Z",
+      "pushed_at": "2026-03-18T19:39:55Z",
+      "default_branch": "master",
+      "url": "https://github.com/Sergeich0/yet-another-idle-rpg-dev",
+      "new_repository": false,
+      "enumeration_error": null,
+      "branches": [
+        {
+          "name": "gh-pages",
+          "sha": "b8cbaabf91ae167786e105018832ef3e084f5cd4",
+          "previous_sha": "b8cbaabf91ae167786e105018832ef3e084f5cd4",
+          "new_branch": false,
+          "changed": false
+        },
+        {
+          "name": "master",
+          "sha": "d0be1aacbf864415a38462d5101d895ce8402c82",
+          "previous_sha": "d0be1aacbf864415a38462d5101d895ce8402c82",
+          "new_branch": false,
+          "changed": false
+        }
+      ],
+      "decision": "All live branch pins equal inspected October 5 pins; no newly uninspected branches."
+    },
+    {
+      "full_name": "OneMoreGuy/yet-another-idle-rpg-dev",
+      "family": "dev",
+      "created_at": "2026-03-19T19:38:51Z",
+      "pushed_at": "2026-05-11T13:57:10Z",
+      "default_branch": "master",
+      "url": "https://github.com/OneMoreGuy/yet-another-idle-rpg-dev",
+      "new_repository": false,
+      "enumeration_error": null,
+      "branches": [
+        {
+          "name": "master",
+          "sha": "b23749524569d693b1033485aa90362c69971dab",
+          "previous_sha": "b23749524569d693b1033485aa90362c69971dab",
+          "new_branch": false,
+          "changed": false
+        }
+      ],
+      "decision": "All live branch pins equal inspected October 5 pins; no newly uninspected branches."
+    },
+    {
+      "full_name": "Trilbyspaceclone/yet-another-idle-rpg-dev",
+      "family": "dev",
+      "created_at": "2026-03-05T01:10:20Z",
+      "pushed_at": "2026-05-30T04:41:06Z",
+      "default_branch": "master",
+      "url": "https://github.com/Trilbyspaceclone/yet-another-idle-rpg-dev",
+      "new_repository": false,
+      "enumeration_error": null,
+      "branches": [
+        {
+          "name": "crafting_in_shed",
+          "sha": "5cecf7860b43a96a38370e349440ec682679a602",
+          "previous_sha": "5cecf7860b43a96a38370e349440ec682679a602",
+          "new_branch": false,
+          "changed": false
+        },
+        {
+          "name": "master",
+          "sha": "dd7fe10ea180ee794d6739ed8c10fe5cb16c571d",
+          "previous_sha": "dd7fe10ea180ee794d6739ed8c10fe5cb16c571d",
+          "new_branch": false,
+          "changed": false
+        }
+      ],
+      "decision": "All live branch pins equal inspected October 5 pins; no newly uninspected branches."
+    },
+    {
+      "full_name": "MrDrJames/yet-another-idle-rpg-dev",
+      "family": "dev",
+      "created_at": "2026-02-26T18:53:15Z",
+      "pushed_at": "2026-02-26T18:53:33Z",
+      "default_branch": "master",
+      "url": "https://github.com/MrDrJames/yet-another-idle-rpg-dev",
+      "new_repository": false,
+      "enumeration_error": null,
+      "branches": [
+        {
+          "name": "asterisks-rewards",
+          "sha": "c0b8d1d06e96107eb1572f03ae3324e8133f1fe8",
+          "previous_sha": "c0b8d1d06e96107eb1572f03ae3324e8133f1fe8",
+          "new_branch": false,
+          "changed": false
+        },
+        {
+          "name": "gh-pages",
+          "sha": "b8cbaabf91ae167786e105018832ef3e084f5cd4",
+          "previous_sha": "b8cbaabf91ae167786e105018832ef3e084f5cd4",
+          "new_branch": false,
+          "changed": false
+        },
+        {
+          "name": "master",
+          "sha": "009a0b199e97b09bfab6a8f8b281e62ba5eed9cb",
+          "previous_sha": "009a0b199e97b09bfab6a8f8b281e62ba5eed9cb",
+          "new_branch": false,
+          "changed": false
+        }
+      ],
+      "decision": "All live branch pins equal inspected October 5 pins; no newly uninspected branches."
+    },
+    {
+      "full_name": "nick-biles/yet-another-idle-rpg-dev",
+      "family": "dev",
+      "created_at": "2026-02-26T11:58:39Z",
+      "pushed_at": "2026-03-15T05:30:48Z",
+      "default_branch": "master",
+      "url": "https://github.com/nick-biles/yet-another-idle-rpg-dev",
+      "new_repository": false,
+      "enumeration_error": null,
+      "branches": [
+        {
+          "name": "master",
+          "sha": "6c1822d22fccfc7103eced2d95763a0ae1526e3f",
+          "previous_sha": "6c1822d22fccfc7103eced2d95763a0ae1526e3f",
+          "new_branch": false,
+          "changed": false
+        }
+      ],
+      "decision": "All live branch pins equal inspected October 5 pins; no newly uninspected branches."
+    },
+    {
+      "full_name": "Bram-Nordvegr/yet-another-idle-rpg-dev",
+      "family": "dev",
+      "created_at": "2026-02-07T18:01:45Z",
+      "pushed_at": "2026-02-23T01:57:42Z",
+      "default_branch": "master",
+      "url": "https://github.com/Bram-Nordvegr/yet-another-idle-rpg-dev",
+      "new_repository": false,
+      "enumeration_error": null,
+      "branches": [
+        {
+          "name": "master",
+          "sha": "009a0b199e97b09bfab6a8f8b281e62ba5eed9cb",
+          "previous_sha": "009a0b199e97b09bfab6a8f8b281e62ba5eed9cb",
+          "new_branch": false,
+          "changed": false
+        }
+      ],
+      "decision": "All live branch pins equal inspected October 5 pins; no newly uninspected branches."
+    },
+    {
+      "full_name": "BD-Jim/YAIRPG_Dev_Jim_Mod",
+      "family": "dev",
+      "created_at": "2025-12-28T06:00:42Z",
+      "pushed_at": "2026-09-23T01:46:12Z",
+      "default_branch": "master",
+      "url": "https://github.com/BD-Jim/YAIRPG_Dev_Jim_Mod",
+      "new_repository": false,
+      "enumeration_error": null,
+      "branches": [
+        {
+          "name": "master",
+          "sha": "6b8126f1713bc687a78f17ac9961a4bd3aa1b8a4",
+          "previous_sha": "6b8126f1713bc687a78f17ac9961a4bd3aa1b8a4",
+          "new_branch": false,
+          "changed": false
+        }
+      ],
+      "decision": "All live branch pins equal inspected October 5 pins; no newly uninspected branches."
+    },
+    {
+      "full_name": "MercuriusXeno/yet-another-idle-rpg-dev",
+      "family": "dev",
+      "created_at": "2025-12-23T19:57:55Z",
+      "pushed_at": "2026-02-25T05:29:28Z",
+      "default_branch": "master",
+      "url": "https://github.com/MercuriusXeno/yet-another-idle-rpg-dev",
+      "new_repository": false,
+      "enumeration_error": null,
+      "branches": [
+        {
+          "name": "dom-br-rework",
+          "sha": "37b2e5395564363c17ec8a9db48e6db059aa0a7d",
+          "previous_sha": "37b2e5395564363c17ec8a9db48e6db059aa0a7d",
+          "new_branch": false,
+          "changed": false
+        },
+        {
+          "name": "effect-cache-retention",
+          "sha": "682665c786c0596b6563b0c05060f5bda5b0aa0b",
+          "previous_sha": "682665c786c0596b6563b0c05060f5bda5b0aa0b",
+          "new_branch": false,
+          "changed": false
+        },
+        {
+          "name": "gh-pages",
+          "sha": "30ba65243196384a553d950aeeea4e37232055c3",
+          "previous_sha": "30ba65243196384a553d950aeeea4e37232055c3",
+          "new_branch": false,
+          "changed": false
+        },
+        {
+          "name": "master",
+          "sha": "3d6607d5b34b02d8f7e97f25c576a75b5197637e",
+          "previous_sha": "3d6607d5b34b02d8f7e97f25c576a75b5197637e",
+          "new_branch": false,
+          "changed": false
+        }
+      ],
+      "decision": "All live branch pins equal inspected October 5 pins; no newly uninspected branches."
+    },
+    {
+      "full_name": "OnonokiNonon/yet-another-idle-rpg-fork",
+      "family": "dev",
+      "created_at": "2025-06-04T20:44:07Z",
+      "pushed_at": "2026-10-07T22:02:07Z",
+      "default_branch": "master",
+      "url": "https://github.com/OnonokiNonon/yet-another-idle-rpg-fork",
+      "new_repository": false,
+      "enumeration_error": null,
+      "branches": [
+        {
+          "name": "master",
+          "sha": "3405b8f90dbb7738a984c6ecb9f3a410995d9865",
+          "previous_sha": "5ffc560a1bcad8079b03cfcd09472e181ba867e7",
+          "new_branch": false,
+          "changed": true
+        }
+      ],
+      "decision": "3405b8f plus enemy/model/load fixes already in current 0216ccde; inspected all 10 changed files; no new external implementation."
+    },
+    {
+      "full_name": "Grifoxcorgi/yet-another-idle-rpg-dev",
+      "family": "dev",
+      "created_at": "2025-05-09T17:20:30Z",
+      "pushed_at": "2025-05-10T01:48:33Z",
+      "default_branch": "master",
+      "url": "https://github.com/Grifoxcorgi/yet-another-idle-rpg-dev",
+      "new_repository": false,
+      "enumeration_error": null,
+      "branches": [
+        {
+          "name": "master",
+          "sha": "ce8455107dbc2d67877c34d4c49a1e4d03803c3d",
+          "previous_sha": "ce8455107dbc2d67877c34d4c49a1e4d03803c3d",
+          "new_branch": false,
+          "changed": false
+        }
+      ],
+      "decision": "All live branch pins equal inspected October 5 pins; no newly uninspected branches."
+    }
+  ],
+  "counts": {
+    "normal_forks": 26,
+    "dev_forks": 16,
+    "forks": 42,
+    "fork_branch_heads": 61,
+    "new_external_forks": 0,
+    "changed_external_forks": 1,
+    "new_external_branch_heads": 0,
+    "new_personal_branch_heads": 1
+  },
+  "roots": [
+    {
+      "full_name": "miktaew/yet-another-idle-rpg",
+      "branches": [
+        {
+          "sha": "fc047803a3f6e1c9a032cce1fc407bfd1c906fc7",
+          "name": "ghpages"
+        },
+        {
+          "sha": "e3356432ad5112f30842cfe6a6b5c3a4ced77de9",
+          "name": "master"
+        }
+      ]
+    },
+    {
+      "full_name": "miktaew/yet-another-idle-rpg-dev",
+      "branches": [
+        {
+          "sha": "87ccb1812a0a37fd5b5f64514a075f90a32ab678",
+          "name": "gh-pages"
+        },
+        {
+          "sha": "200f1ba6d0b61272f93683a311855d3c6346abfa",
+          "name": "master"
+        },
+        {
+          "sha": "c5de678cfbd5b0879c5460b5b861fc967af660ac",
+          "name": "refactoring"
+        }
+      ]
+    }
+  ],
+  "candidate_reaudit": [
+    {
+      "id": "FNA01",
+      "title": "Use the authored native action name",
+      "repository": "Kuroiteiken/yairp",
+      "branch": "contribute/upstream-display",
+      "source_sha": "44cef56b76a43d28b37c061c416ad902097ecc63",
+      "decision": "Already adopted",
+      "reason": "68694413; src/display.js uses action_name, model supplies fallback; preserve availability filters."
+    },
+    {
+      "id": "FNA02",
+      "title": "Guard component recipe inputs",
+      "repository": "Zorakir/yet-another-another-idle-rpg",
+      "branch": "master",
+      "source_sha": "fe99d02ba6b8978ec92f93307c0252cacc54c583",
+      "decision": "Already adopted",
+      "reason": "68694413; src/crafting_recipes.js validates missing/unmatched native material/results before RNG; main rejects stale selections."
+    },
+    {
+      "id": "FNA03",
+      "title": "Keep clamped trade requests immutable",
+      "repository": "Zorakir/yet-another-another-idle-rpg",
+      "branch": "master",
+      "source_sha": "fe99d02ba6b8978ec92f93307c0252cacc54c583",
+      "decision": "Already adopted",
+      "reason": "68694413; src/trade.js copies requests, preserving native grouped quote/settlement. No scalar-price rollback."
+    },
+    {
+      "id": "FNA04",
+      "title": "Hint at known remaining clear rewards",
+      "repository": "MrDrJames/yet-another-idle-rpg-dev",
+      "branch": "asterisks-rewards",
+      "source_sha": "c0b8d1d06e96107eb1572f03ae3324e8133f1fe8",
+      "decision": "Adapted this lane",
+      "reason": "src/fork_discovery_views.js extends the existing heard-note contract to explicit authored public hints. Infested field description publicly discloses its recognition thresholds. Both display refresh paths use the existing reader. Hidden rows contribute no marker."
+    },
+    {
+      "id": "FNA05",
+      "title": "Reauthor the Fort resource and quest chain",
+      "repository": "SchokoKaramel/yet-another-idle-rpg",
+      "branch": "master",
+      "source_sha": "16c08d3f8b6a6318f8dc11fe27c390257b2c6b57",
+      "decision": "Other lane",
+      "reason": "Schoko Fort chain belongs exclusively to fork-fort. Existing Waypost Fort (f62e264e) is a separate original campaign; no duplicate Schoko implementation here."
+    },
+    {
+      "id": "FNA06",
+      "title": "Filter crafting to currently makeable known recipes",
+      "repository": "Kuroiteiken/yairp",
+      "branch": "master",
+      "source_sha": "9bebc9e49b0039a26044bcf6b03808826ceb692b",
+      "decision": "Already adopted",
+      "reason": "68694413 and d49cb911; Makeable now filter plus selected-row recovery and craft detail already exist. Never-made history cannot be inferred from present stock; omit that unsupported marker."
+    },
+    {
+      "id": "FNA07",
+      "title": "Repair a demonstrated old-save entitlement idempotently",
+      "repository": "Kuroiteiken/yairp",
+      "branch": "master",
+      "source_sha": "9bebc9e49b0039a26044bcf6b03808826ceb692b",
+      "decision": "Retain targeted migration only",
+      "reason": "Current v06/save compatibility stages earned unlocks and preserves retired content. No demonstrated missing entitlement in these pins/current fixtures. Inventing historical rewards from max skill is incorrect even for a solo player. No speculative save repair."
+    },
+    {
+      "id": "FNA08",
+      "title": "Knowledge-gated reverse source index",
+      "repository": "Kuroiteiken/yairp",
+      "branch": "master",
+      "source_sha": "9bebc9e49b0039a26044bcf6b03808826ceb692b",
+      "decision": "Adapted this lane",
+      "reason": "Native Item log now reverses only already disclosed bestiary loot edges for positively acquired items and killed enemies. Label is Known bestiary sources, not observed-drop provenance. Existing Fort journal retains actual/reported source records. Whole-registry undiscovered sources stay excluded."
+    },
+    {
+      "id": "FNA09",
+      "title": "Opt-in return after defeat recovery",
+      "repository": "Dimava/NekoRPG",
+      "branch": "english",
+      "source_sha": "e299be78e1274d955c081309f501f1f34451d1c5",
+      "decision": "Deferred specific automatic transition",
+      "reason": "Native auto-return-to-bed and manual fast travel to last combat already work. Automatic waking/return is genuinely additional convenience, not forbidden abuse. It needs a saved cause/intent, current-world destination validation and cancellation across sleep/travel/restore; copying a Neko tick condition would affect voluntary sleep and stale realms. Retain manual return now; no fixed attempt cap."
+    },
+    {
+      "id": "FNA10",
+      "title": "Expected value of already disclosed loot",
+      "repository": "Dimava/NekoRPG",
+      "branch": "english",
+      "source_sha": "e299be78e1274d955c081309f501f1f34451d1c5",
+      "decision": "Adapted this lane",
+      "reason": "Encountered enemy bestiary gains partial expected base loot value from positively acquired items only. Uses native drop modifier and count expectation, caps actual probability at 1, labels standard-quality/base-price/market/markup exclusions. No Neko gems or source/assets copied."
+    },
+    {
+      "id": "FNA11",
+      "title": "Native gathering methods with actual count/time effects",
+      "repository": "SchokoKaramel/yet-another-idle-rpg",
+      "branch": "master",
+      "source_sha": "16c08d3f8b6a6318f8dc11fe27c390257b2c6b57",
+      "decision": "Duplicate useful mechanism; omit broken neighbors",
+      "reason": "src/models/location.js getActivityEfficiency already scales real count, chance and duration from native gathering skills; main settles those exact outputs. Adding parallel generic Gather speed/efficiency tracks duplicates that progression. Efficient training is display-only in source, Failure expert lacks settlement consumer, and unclamped Lucky loot is not an independent rule worth transplanting."
+    },
+    {
+      "id": "FNA12",
+      "title": "Repeatable funded local work board",
+      "repository": "Kuroiteiken/yairp",
+      "branch": "master",
+      "source_sha": "9bebc9e49b0039a26044bcf6b03808826ceb692b",
+      "decision": "Already adapted",
+      "reason": "f62e264e; native Waypost clerk accepts repeat actual deliveries from finite funds with custody/save staging. No fixed once cap on paid work. A second guild_jobs clock/ledger would duplicate it; further regional customers are new content, not a safe mechanical transplant."
+    },
+    {
+      "id": "FNA13",
+      "title": "Resource-funded alternate combat mode",
+      "repository": "FueledByOCHD/experimental-idle-rpg-MyWork",
+      "branch": "master",
+      "source_sha": "669d39578d2c6a06cb15ca8cc2c54e3b9a120461",
+      "decision": "Duplicate paid stance pattern; mana variant deferred",
+      "reason": "src/combat_stances.js already supplies earned stamina-funded alternate functions; native combat owns fuel/counters. Fueled mana stance is live but its magic module is unused/invalid and no acquisition/casting/counter chain accompanies it. Mana-funded magic remains possible for a world with authored spells; do not turn every ordinary weapon hit into a global mana multiplier."
+    },
+    {
+      "id": "FNA14",
+      "title": "Connected original gathering-material sinks",
+      "repository": "ArturLange/suraimu",
+      "branch": "master",
+      "source_sha": "7557ba29fae1d4f2f65bfeab0b134b0ff9345a58",
+      "decision": "Newer native connected sinks already adopted; incomplete catalog deferred",
+      "reason": "Current Days 4\u20137 include monster bone processing/handles, Gryphon pinion/trophy and Frumious claw/blade. Suraimu remaining Spiritwood/Magisteel names have acquisition but missing downstream functions. Do not add dead stock or change all worlds to Tensura. A source-qualified original material chain needs its own actual source and sink, not the TS graph."
+    },
+    {
+      "id": "FNA15",
+      "title": "Meter-driven traversal scene",
+      "repository": "SardineMilk/incrpg",
+      "branch": "main",
+      "source_sha": "5846ac12197bd918fd05a5683ca5d2cf8e5b5840",
+      "decision": "Deferred new traversal scene, not rejected engine capability",
+      "reason": "Current native action/route commitments and Climbing support original traversal; Sardine grip/height/falling-rock interaction is additional content with no native interchangeable scene. No engine/toolchain port or rat image copy. Reauthor when selecting an actual reachable cliff with grip costs, retreat and failure aftermath; preserve all-world possibility."
+    },
+    {
+      "id": "FNA16",
+      "title": "Discovered damage-type weakness",
+      "repository": "shtosik/yet-another-idle-rpg",
+      "branch": "main",
+      "source_sha": "eac55fcf36b7c53514b05ca927f3bb147783b5d4",
+      "decision": "Deferred typed offense authoring; defensive preparation already adapted",
+      "reason": "Native optional absorb_e3 preparation already responds to encountered enemies/known bestiary with real defensive effects. Angular offensive weakness is a distinct useful future rule, but current ordinary weapons expose weapon family, not that games element enumeration. Requires world-specific attack types/known evidence/resistance/counters and native battle fixtures. Do not infer universal fire weakness from a tag or replace combat with broken OneMore code."
+    },
+    {
+      "id": "FNA17",
+      "title": "Legacy alias migration principle",
+      "repository": "BippyCost/yet-another-idle-rpg-tweak",
+      "branch": "testing",
+      "source_sha": "03a6469e11499c1daf7c203a4f0af55bd79c708f",
+      "decision": "Already native principle; no new rename",
+      "reason": "Extra old candidate beyond requested FNA01\u201316 included for completeness. Current guild ID is intentionally retained and v06 migration preserves legacy data. Bippy item-only aliases omit quest/kill domains; no selected rename warrants adding them."
+    }
+  ],
+  "source_reads": [
+    {
+      "url": "https://raw.githubusercontent.com/Kuroiteiken/yairp/44cef56b76a43d28b37c061c416ad902097ecc63/src/display.js",
+      "path": "/tmp/fork-resurvey-20261014/sources/Kuroiteiken/yairp/src/display.js",
+      "sha": "44cef56b76a43d28b37c061c416ad902097ecc63",
+      "ok": true,
+      "error": null,
+      "sha256": "a5fa8918e7d0533e7950f011b98e3a8bf63279c0b52bb4e919a4f23e60e8a97a"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/Zorakir/yet-another-another-idle-rpg/fe99d02ba6b8978ec92f93307c0252cacc54c583/src/crafting_recipes.js",
+      "path": "/tmp/fork-resurvey-20261014/sources/Zorakir/yet-another-another-idle-rpg/src/crafting_recipes.js",
+      "sha": "fe99d02ba6b8978ec92f93307c0252cacc54c583",
+      "ok": true,
+      "error": null,
+      "sha256": "cd9839b1cb2bd53fa820675579afb3c999a3b7df6679172774370e5d6376d7db"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/Zorakir/yet-another-another-idle-rpg/fe99d02ba6b8978ec92f93307c0252cacc54c583/src/trade.js",
+      "path": "/tmp/fork-resurvey-20261014/sources/Zorakir/yet-another-another-idle-rpg/src/trade.js",
+      "sha": "fe99d02ba6b8978ec92f93307c0252cacc54c583",
+      "ok": true,
+      "error": null,
+      "sha256": "deebcf26908f8f2286ea30fdb749ff34fe1f474ebd33b5100c3886cb372fd8cd"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/MrDrJames/yet-another-idle-rpg-dev/c0b8d1d06e96107eb1572f03ae3324e8133f1fe8/src/locations.js",
+      "path": "/tmp/fork-resurvey-20261014/sources/MrDrJames/yet-another-idle-rpg-dev/src/locations.js",
+      "sha": "c0b8d1d06e96107eb1572f03ae3324e8133f1fe8",
+      "ok": true,
+      "error": null,
+      "sha256": "48d9a9ea8b922b1320f5602546a9615464ad530dd13b1eae6634de6eea30ec55"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/MrDrJames/yet-another-idle-rpg-dev/c0b8d1d06e96107eb1572f03ae3324e8133f1fe8/src/display.js",
+      "path": "/tmp/fork-resurvey-20261014/sources/MrDrJames/yet-another-idle-rpg-dev/src/display.js",
+      "sha": "c0b8d1d06e96107eb1572f03ae3324e8133f1fe8",
+      "ok": true,
+      "error": null,
+      "sha256": "3ba20d4600282cf0da59b924214573ab885c5ac5ec47d75fa9e1e993b3d18bbe"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/SchokoKaramel/yet-another-idle-rpg/16c08d3f8b6a6318f8dc11fe27c390257b2c6b57/src/locations.js",
+      "path": "/tmp/fork-resurvey-20261014/sources/SchokoKaramel/yet-another-idle-rpg/src/locations.js",
+      "sha": "16c08d3f8b6a6318f8dc11fe27c390257b2c6b57",
+      "ok": true,
+      "error": null,
+      "sha256": "9dc65c349b74a74e70128e18ac1fa5d5a40b7c9fca07a050c7a53b77e75d10e2"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/SchokoKaramel/yet-another-idle-rpg/16c08d3f8b6a6318f8dc11fe27c390257b2c6b57/src/quests.js",
+      "path": "/tmp/fork-resurvey-20261014/sources/SchokoKaramel/yet-another-idle-rpg/src/quests.js",
+      "sha": "16c08d3f8b6a6318f8dc11fe27c390257b2c6b57",
+      "ok": true,
+      "error": null,
+      "sha256": "454f554cfd55509ac11290323da43eb16ef7e7d388429f636b5d364d703b85a7"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/SchokoKaramel/yet-another-idle-rpg/16c08d3f8b6a6318f8dc11fe27c390257b2c6b57/src/enemies.js",
+      "path": "/tmp/fork-resurvey-20261014/sources/SchokoKaramel/yet-another-idle-rpg/src/enemies.js",
+      "sha": "16c08d3f8b6a6318f8dc11fe27c390257b2c6b57",
+      "ok": true,
+      "error": null,
+      "sha256": "ef1f8f1c054a9489b3abe7d22def6821ce4f7b0d33dac7b43500426063236442"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/SchokoKaramel/yet-another-idle-rpg/16c08d3f8b6a6318f8dc11fe27c390257b2c6b57/src/items.js",
+      "path": "/tmp/fork-resurvey-20261014/sources/SchokoKaramel/yet-another-idle-rpg/src/items.js",
+      "sha": "16c08d3f8b6a6318f8dc11fe27c390257b2c6b57",
+      "ok": true,
+      "error": null,
+      "sha256": "a910158c61cedcaa9977f32884dac6b29153980e5e90ab14e822e3675b6b0404"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/SchokoKaramel/yet-another-idle-rpg/16c08d3f8b6a6318f8dc11fe27c390257b2c6b57/src/crafting_recipes.js",
+      "path": "/tmp/fork-resurvey-20261014/sources/SchokoKaramel/yet-another-idle-rpg/src/crafting_recipes.js",
+      "sha": "16c08d3f8b6a6318f8dc11fe27c390257b2c6b57",
+      "ok": true,
+      "error": null,
+      "sha256": "97f7d68ab1e09ddd8a20669733b9aff2b8b0a02bb198a64ac552b6a2a80ff764"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/Kuroiteiken/yairp/9bebc9e49b0039a26044bcf6b03808826ceb692b/src/display/crafting_display.js",
+      "path": "/tmp/fork-resurvey-20261014/sources/Kuroiteiken/yairp/src/display/crafting_display.js",
+      "sha": "9bebc9e49b0039a26044bcf6b03808826ceb692b",
+      "ok": true,
+      "error": null,
+      "sha256": "d3afcf01fe609316fd6e765dcc503df3102d20d6b2f926a65f0294d7cb9261ff"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/Kuroiteiken/yairp/9bebc9e49b0039a26044bcf6b03808826ceb692b/src/save_repairs.js",
+      "path": "/tmp/fork-resurvey-20261014/sources/Kuroiteiken/yairp/src/save_repairs.js",
+      "sha": "9bebc9e49b0039a26044bcf6b03808826ceb692b",
+      "ok": true,
+      "error": null,
+      "sha256": "70bed61d54dc577aa5d681e6b38c9cb01f914a854b73590f6fe7c1036387fc78"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/Kuroiteiken/yairp/9bebc9e49b0039a26044bcf6b03808826ceb692b/src/save_load.js",
+      "path": "/tmp/fork-resurvey-20261014/sources/Kuroiteiken/yairp/src/save_load.js",
+      "sha": "9bebc9e49b0039a26044bcf6b03808826ceb692b",
+      "ok": true,
+      "error": null,
+      "sha256": "b93d5425e1661ec37ddda5f879d1df7c96b87fd6dc3aab9c734aefd6f6c72816"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/Kuroiteiken/yairp/9bebc9e49b0039a26044bcf6b03808826ceb692b/src/world_index.js",
+      "path": "/tmp/fork-resurvey-20261014/sources/Kuroiteiken/yairp/src/world_index.js",
+      "sha": "9bebc9e49b0039a26044bcf6b03808826ceb692b",
+      "ok": true,
+      "error": null,
+      "sha256": "7ab2ed85d63bdbeb956e5f5682a12212d2565bdc035ebfcf76e6f036a57834d7"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/Kuroiteiken/yairp/9bebc9e49b0039a26044bcf6b03808826ceb692b/src/display/journal_panels.js",
+      "path": "/tmp/fork-resurvey-20261014/sources/Kuroiteiken/yairp/src/display/journal_panels.js",
+      "sha": "9bebc9e49b0039a26044bcf6b03808826ceb692b",
+      "ok": true,
+      "error": null,
+      "sha256": "614f6bbb02929fa38456db0285a8fde7b300178a7301ceb4ac4183d5f2c076b1"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/Dimava/NekoRPG/e299be78e1274d955c081309f501f1f34451d1c5/src/islands/Options.vue",
+      "path": "/tmp/fork-resurvey-20261014/sources/Dimava/NekoRPG/src/islands/Options.vue",
+      "sha": "e299be78e1274d955c081309f501f1f34451d1c5",
+      "ok": true,
+      "error": null,
+      "sha256": "0474abf9aee5d659a006b22b22f87d45774d91d90354ff8938878ddb73495a94"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/Dimava/NekoRPG/e299be78e1274d955c081309f501f1f34451d1c5/src/main.js",
+      "path": "/tmp/fork-resurvey-20261014/sources/Dimava/NekoRPG/src/main.js",
+      "sha": "e299be78e1274d955c081309f501f1f34451d1c5",
+      "ok": true,
+      "error": null,
+      "sha256": "52c6b692661ae2350e213d7ff4b6aff6f50691175cbda58ccfd4df7c4472e9c7"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/Dimava/NekoRPG/e299be78e1274d955c081309f501f1f34451d1c5/src/islands/Bestiary.vue",
+      "path": "/tmp/fork-resurvey-20261014/sources/Dimava/NekoRPG/src/islands/Bestiary.vue",
+      "sha": "e299be78e1274d955c081309f501f1f34451d1c5",
+      "ok": true,
+      "error": null,
+      "sha256": "c7798c6008c9738c0406a9bac3f9b620f447487ef11a34f89f6a3427e38c7dfd"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/Dimava/NekoRPG/e299be78e1274d955c081309f501f1f34451d1c5/src/gems.js",
+      "path": "/tmp/fork-resurvey-20261014/sources/Dimava/NekoRPG/src/gems.js",
+      "sha": "e299be78e1274d955c081309f501f1f34451d1c5",
+      "ok": true,
+      "error": null,
+      "sha256": "18ae94c8cb90eee311a6d6b6373933c96ce566005e85e714a6bda015f6114551"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/Dimava/NekoRPG/e299be78e1274d955c081309f501f1f34451d1c5/src/components/ItemTooltip.vue",
+      "path": "/tmp/fork-resurvey-20261014/sources/Dimava/NekoRPG/src/components/ItemTooltip.vue",
+      "sha": "e299be78e1274d955c081309f501f1f34451d1c5",
+      "ok": true,
+      "error": null,
+      "sha256": "b75164bcd390f7e2d5e713c6a15057cb77e81e681b1242ea3e5f0b80d8f3077f"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/SchokoKaramel/yet-another-idle-rpg/16c08d3f8b6a6318f8dc11fe27c390257b2c6b57/src/main.js",
+      "path": "/tmp/fork-resurvey-20261014/sources/SchokoKaramel/yet-another-idle-rpg/src/main.js",
+      "sha": "16c08d3f8b6a6318f8dc11fe27c390257b2c6b57",
+      "ok": true,
+      "error": null,
+      "sha256": "1d64829850840632bb7125575b0d457c007250f0f4be257f91ae59ea10181541"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/Kuroiteiken/yairp/9bebc9e49b0039a26044bcf6b03808826ceb692b/src/guild_jobs.js",
+      "path": "/tmp/fork-resurvey-20261014/sources/Kuroiteiken/yairp/src/guild_jobs.js",
+      "sha": "9bebc9e49b0039a26044bcf6b03808826ceb692b",
+      "ok": true,
+      "error": null,
+      "sha256": "e5424072c3d339815f7e4bc28c931bfe5a8a876e25e9778c8c65f40204156b39"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/FueledByOCHD/experimental-idle-rpg-MyWork/669d39578d2c6a06cb15ca8cc2c54e3b9a120461/src/combat_stances.js",
+      "path": "/tmp/fork-resurvey-20261014/sources/FueledByOCHD/experimental-idle-rpg-MyWork/src/combat_stances.js",
+      "sha": "669d39578d2c6a06cb15ca8cc2c54e3b9a120461",
+      "ok": true,
+      "error": null,
+      "sha256": "bc901472cd35d8a5013cdfaa1eb56c0fc2ebbe48c9502e5c2500a4c1d634040c"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/FueledByOCHD/experimental-idle-rpg-MyWork/669d39578d2c6a06cb15ca8cc2c54e3b9a120461/src/character.js",
+      "path": "/tmp/fork-resurvey-20261014/sources/FueledByOCHD/experimental-idle-rpg-MyWork/src/character.js",
+      "sha": "669d39578d2c6a06cb15ca8cc2c54e3b9a120461",
+      "ok": true,
+      "error": null,
+      "sha256": "7c6d690ac1d04ad0190c26505c9e94af28aa0c32e61092a555de27c3dd38a4da"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/FueledByOCHD/experimental-idle-rpg-MyWork/669d39578d2c6a06cb15ca8cc2c54e3b9a120461/src/main.js",
+      "path": "/tmp/fork-resurvey-20261014/sources/FueledByOCHD/experimental-idle-rpg-MyWork/src/main.js",
+      "sha": "669d39578d2c6a06cb15ca8cc2c54e3b9a120461",
+      "ok": true,
+      "error": null,
+      "sha256": "f4f8a268f0198964b0846e87becc510f3cea16fa96be9e966036c118eeb21c78"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/ArturLange/suraimu/7557ba29fae1d4f2f65bfeab0b134b0ff9345a58/src/items/items_data.ts",
+      "path": "/tmp/fork-resurvey-20261014/sources/ArturLange/suraimu/src/items/items_data.ts",
+      "sha": "7557ba29fae1d4f2f65bfeab0b134b0ff9345a58",
+      "ok": true,
+      "error": null,
+      "sha256": "5fa79bb8cab7a1e2ecf805303629713c158b9b3287907d7260cfe414c3672161"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/ArturLange/suraimu/7557ba29fae1d4f2f65bfeab0b134b0ff9345a58/src/locations.ts",
+      "path": "/tmp/fork-resurvey-20261014/sources/ArturLange/suraimu/src/locations.ts",
+      "sha": "7557ba29fae1d4f2f65bfeab0b134b0ff9345a58",
+      "ok": true,
+      "error": null,
+      "sha256": "ba584d94141c1dbb3448f636bbc319a32c57e455ff0ff042604480d72471994b"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/ArturLange/suraimu/7557ba29fae1d4f2f65bfeab0b134b0ff9345a58/src/crafting_recipes.ts",
+      "path": "/tmp/fork-resurvey-20261014/sources/ArturLange/suraimu/src/crafting_recipes.ts",
+      "sha": "7557ba29fae1d4f2f65bfeab0b134b0ff9345a58",
+      "ok": true,
+      "error": null,
+      "sha256": "753d0ff0e52dd697dd906b03942883a04e6e4a70caf1f085f2107e7673e0e85e"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/SardineMilk/incrpg/5846ac12197bd918fd05a5683ca5d2cf8e5b5840/src/data/activitiesData.js",
+      "path": "/tmp/fork-resurvey-20261014/sources/SardineMilk/incrpg/src/data/activitiesData.js",
+      "sha": "5846ac12197bd918fd05a5683ca5d2cf8e5b5840",
+      "ok": true,
+      "error": null,
+      "sha256": "1cf7b526878292ae323f50a8085d54f85da5ebbf2163f1697b6050f451709e03"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/SardineMilk/incrpg/5846ac12197bd918fd05a5683ca5d2cf8e5b5840/src/game/tick.js",
+      "path": "/tmp/fork-resurvey-20261014/sources/SardineMilk/incrpg/src/game/tick.js",
+      "sha": "5846ac12197bd918fd05a5683ca5d2cf8e5b5840",
+      "ok": true,
+      "error": null,
+      "sha256": "1ba470cc43e8ddca4001b6518c94fee0b2b25d9992c4f7511b61c2f33d9e72c7"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/SardineMilk/incrpg/5846ac12197bd918fd05a5683ca5d2cf8e5b5840/src/utils/save.js",
+      "path": "/tmp/fork-resurvey-20261014/sources/SardineMilk/incrpg/src/utils/save.js",
+      "sha": "5846ac12197bd918fd05a5683ca5d2cf8e5b5840",
+      "ok": true,
+      "error": null,
+      "sha256": "a8e4efde4490c9b83af8c53763aaabb1c44302c356197ba0a5162cf94f5590c6"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/shtosik/yet-another-idle-rpg/eac55fcf36b7c53514b05ca927f3bb147783b5d4/src/app/services/battle-manager.service.ts",
+      "path": "/tmp/fork-resurvey-20261014/sources/shtosik/yet-another-idle-rpg/src/app/services/battle-manager.service.ts",
+      "sha": "eac55fcf36b7c53514b05ca927f3bb147783b5d4",
+      "ok": true,
+      "error": null,
+      "sha256": "7e8667245ee025f18362de4e892dc39dea7b6be915e4918e7c66b813c667954f"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/shtosik/yet-another-idle-rpg/eac55fcf36b7c53514b05ca927f3bb147783b5d4/src/app/store/player/player.store.ts",
+      "path": "/tmp/fork-resurvey-20261014/sources/shtosik/yet-another-idle-rpg/src/app/store/player/player.store.ts",
+      "sha": "eac55fcf36b7c53514b05ca927f3bb147783b5d4",
+      "ok": true,
+      "error": null,
+      "sha256": "4b8615e8bcbc929631605ef8e1e2df0efe0fa8a425be248b84701e00ad919792"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/BippyCost/yet-another-idle-rpg-tweak/03a6469e11499c1daf7c203a4f0af55bd79c708f/src/items.js",
+      "path": "/tmp/fork-resurvey-20261014/sources/BippyCost/yet-another-idle-rpg-tweak/src/items.js",
+      "sha": "03a6469e11499c1daf7c203a4f0af55bd79c708f",
+      "ok": true,
+      "error": null,
+      "sha256": "2c76a4e4b5199546a3e45c74f238e7d57b2cf2d3e504ff3a28f4c568602f7879"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/BippyCost/yet-another-idle-rpg-tweak/03a6469e11499c1daf7c203a4f0af55bd79c708f/src/crafting_recipes.js",
+      "path": "/tmp/fork-resurvey-20261014/sources/BippyCost/yet-another-idle-rpg-tweak/src/crafting_recipes.js",
+      "sha": "03a6469e11499c1daf7c203a4f0af55bd79c708f",
+      "ok": true,
+      "error": null,
+      "sha256": "2541b9faaa25668253f204dd4b4dd95d59d38b06d63d40f8c833fc2441aabf42"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/Grifoxcorgi/yet-another-idle-rpg-dev/ce8455107dbc2d67877c34d4c49a1e4d03803c3d/src/skills.js",
+      "path": "/tmp/fork-resurvey-20261014/sources/Grifoxcorgi/yet-another-idle-rpg-dev/src/skills.js",
+      "sha": "ce8455107dbc2d67877c34d4c49a1e4d03803c3d",
+      "ok": true,
+      "error": null,
+      "sha256": "6d6bdd50fa77f6adc8b329fe986796fd934bcf3eb4730286bde64f1ac9ae9a28"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/Ishamoridin/yet-another-idle-rpg/b579b9f65e3b41c2ffd921aac72b22f22c8c9dcd/src/main.js",
+      "path": "/tmp/fork-resurvey-20261014/sources/Ishamoridin/yet-another-idle-rpg/src/main.js",
+      "sha": "b579b9f65e3b41c2ffd921aac72b22f22c8c9dcd",
+      "ok": true,
+      "error": null,
+      "sha256": "dfeb4ca1a2cac6d5296bd4a5cebb97794f81a8eb5a4c7939ab0c702b1588a859"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/MercuriusXeno/yet-another-idle-rpg-dev/37b2e5395564363c17ec8a9db48e6db059aa0a7d/src/display.js",
+      "path": "/tmp/fork-resurvey-20261014/sources/MercuriusXeno/yet-another-idle-rpg-dev/src/display.js",
+      "sha": "37b2e5395564363c17ec8a9db48e6db059aa0a7d",
+      "ok": true,
+      "error": null,
+      "sha256": "26a9e311ce729d5bf68f4a068baabc1b54e9355f162d93763bc65415d81cd9e4"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/MercuriusXeno/yet-another-idle-rpg-dev/37b2e5395564363c17ec8a9db48e6db059aa0a7d/src/dom_manipulation.js",
+      "path": "/tmp/fork-resurvey-20261014/sources/MercuriusXeno/yet-another-idle-rpg-dev/src/dom_manipulation.js",
+      "sha": "37b2e5395564363c17ec8a9db48e6db059aa0a7d",
+      "ok": true,
+      "error": null,
+      "sha256": "e2d6ed995634a4c147fcf99d78cc80bd020dddea817691f060ae5aeda3e03f23"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/OneMoreGuy/yet-another-idle-rpg-dev/b23749524569d693b1033485aa90362c69971dab/src/main.js",
+      "path": "/tmp/fork-resurvey-20261014/sources/OneMoreGuy/yet-another-idle-rpg-dev/src/main.js",
+      "sha": "b23749524569d693b1033485aa90362c69971dab",
+      "ok": true,
+      "error": null,
+      "sha256": "eb1a19b8c4241cd87a9c27eebab1c5e25fed25b35ce25369c46bcd4bb77d7d70"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/SchokoKaramel/yet-another-idle-rpg/16c08d3f8b6a6318f8dc11fe27c390257b2c6b57/src/skills.js",
+      "path": "/tmp/fork-resurvey-20261014/sources/SchokoKaramel/yet-another-idle-rpg/src/skills.js",
+      "sha": "16c08d3f8b6a6318f8dc11fe27c390257b2c6b57",
+      "ok": true,
+      "error": null,
+      "sha256": "f48477c7fd35295b884d9cc3266ff992f1148bdb4f7176ad7c1c4eb6df019a66"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/Zorakir/yet-another-another-idle-rpg/fe99d02ba6b8978ec92f93307c0252cacc54c583/src/quests.js",
+      "path": "/tmp/fork-resurvey-20261014/sources/Zorakir/yet-another-another-idle-rpg/src/quests.js",
+      "sha": "fe99d02ba6b8978ec92f93307c0252cacc54c583",
+      "ok": true,
+      "error": null,
+      "sha256": "b773847a2e7881faa48b1975f7636967a4f19adbb0f98c62fcf26c7470b7ac6a"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/Zorakir/yet-another-another-idle-rpg/fe99d02ba6b8978ec92f93307c0252cacc54c583/src/main.js",
+      "path": "/tmp/fork-resurvey-20261014/sources/Zorakir/yet-another-another-idle-rpg/src/main.js",
+      "sha": "fe99d02ba6b8978ec92f93307c0252cacc54c583",
+      "ok": true,
+      "error": null,
+      "sha256": "d2ac5b5f4d543f442d13b39afab911ad7238334f5141f3b938d5ceb44bd4c75a"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/aspiringcoder6/yet-another-idle-rpg/71e043f9f895fb2dae5c87a859a8bb9a6dc2bf5a/src/skills.js",
+      "path": "/tmp/fork-resurvey-20261014/sources/aspiringcoder6/yet-another-idle-rpg/src/skills.js",
+      "sha": "71e043f9f895fb2dae5c87a859a8bb9a6dc2bf5a",
+      "ok": true,
+      "error": null,
+      "sha256": "fc2d8d2417f385d879dc22f1afc56496ac4cf686aea9fcb446b61940754fa6a5"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/burak-ozmus/yet-another-idle-rpg/e98383e0e9be86f65c6a121ee07d19f251077ad0/src/skills.js",
+      "path": "/tmp/fork-resurvey-20261014/sources/burak-ozmus/yet-another-idle-rpg/src/skills.js",
+      "sha": "e98383e0e9be86f65c6a121ee07d19f251077ad0",
+      "ok": true,
+      "error": null,
+      "sha256": "b33988875c8f29109ccf0f176064a9941b56c38d6f7e082f4583e91421eecfef"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/burak-ozmus/yet-another-idle-rpg/e98383e0e9be86f65c6a121ee07d19f251077ad0/src/trade.js",
+      "path": "/tmp/fork-resurvey-20261014/sources/burak-ozmus/yet-another-idle-rpg/src/trade.js",
+      "sha": "e98383e0e9be86f65c6a121ee07d19f251077ad0",
+      "ok": true,
+      "error": null,
+      "sha256": "dddcabebf38b47db4838c6815c69c8df8c764a2333c6be5eb64b111ed764a5af"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/infinitiez/infnitiez.github.io/a33402b5966527f3f6d7af958329795fb772fab4/src/main.js",
+      "path": "/tmp/fork-resurvey-20261014/sources/infinitiez/infnitiez.github.io/src/main.js",
+      "sha": "a33402b5966527f3f6d7af958329795fb772fab4",
+      "ok": true,
+      "error": null,
+      "sha256": "1a25cc33c82224481a0dd6f4b392d1c112117801f77552ca22ea6077fb854f65"
+    }
+  ],
+  "changed_external_commits": [
+    {
+      "sha": "dff5101e80a0dfe10c624e6848e1e72bec3c3652",
+      "message": "Merge pull request #249 from OnonokiNonon/master\n\nDays 2&3"
+    },
+    {
+      "sha": "af47a8e9b112116935870ae7126dd2f194d2694a",
+      "message": "misc"
+    },
+    {
+      "sha": "0e5f6c3d43f34fe698bc3bfdd5b60ef12571a076",
+      "message": "Update enemies.js"
+    },
+    {
+      "sha": "f000bd0be346c96e10ae39ae7e8dd64346ccbe28",
+      "message": "a few fixes"
+    },
+    {
+      "sha": "3405b8f90dbb7738a984c6ecb9f3a410995d9865",
+      "message": "Days 4-7\n\nDay 4 - Cactus:\ta new area\nDay 5 - Smack:\ta new weapon component\nDay 6 - Ogre:\ta big and burly monster\nDay 7 - Panic:\ta new enemy and area type to go with the new area"
+    }
+  ],
+  "limits": [
+    "Fork-network enumeration only, not GitHub global repository search. Old detached candidate sources reviewed at their pinned revisions; their current branch networks were not resurveyed.",
+    "47 primary source files downloaded for targeted mechanism review; no source archive, novels, foreign assets or user saves committed.",
+    "Network API pages contain fewer than 100 rows (26 and 16); git ls-remote returns complete advertised heads; no enumeration errors.",
+    "No remote mutations. Root dev 200f1ba6 belongs to upstream-dev lane."
+  ]
+}

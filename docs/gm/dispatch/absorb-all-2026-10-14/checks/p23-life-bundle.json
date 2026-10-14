@@ -1,0 +1,27 @@
+{
+  "sha256": "888976300030909716d2f47f35f62dab54eca2a6f3cb2b3ba4e6665161b8b940",
+  "url": "http://127.0.0.1:18706/dist/bundle.js",
+  "servedSha256": "888976300030909716d2f47f35f62dab54eca2a6f3cb2b3ba4e6665161b8b940",
+  "browserBundleUrl": "http://127.0.0.1:18706/dist/bundle.js?version=v0.6-888976300030",
+  "viewport": {
+    "width": 1366,
+    "height": 768
+  },
+  "behaviorChecks": 17,
+  "primary": 14,
+  "extra": 2,
+  "visibleCue": 1,
+  "persistenceCheckpoints": 8,
+  "implementationCommit": "99b207e6c72eac0ce64d3a10aee0094055e05ea3",
+  "build": "PASS",
+  "focusedTests": {
+    "pass": 35,
+    "fail": 0
+  },
+  "fullTests": {
+    "pass": 630,
+    "fail": 0,
+    "durationMs": 156251.377833
+  },
+  "fullTestSummary": "# tests 630\n# suites 0\n# pass 630\n# fail 0\n# cancelled 0\n# skipped 0\n# todo 0\n# duration_ms 156251.377833"
+}

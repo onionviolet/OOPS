@@ -1,0 +1,37 @@
+[
+  {
+    "name": "zod-mini-schema",
+    "minified": 13263,
+    "gzip": 4607
+  },
+  {
+    "name": "pure-rand-all",
+    "minified": 9919,
+    "gzip": 5308
+  },
+  {
+    "name": "pure-rand-dice",
+    "minified": 1900,
+    "gzip": 896
+  },
+  {
+    "name": "valibot-schema",
+    "minified": 3100,
+    "gzip": 1212
+  },
+  {
+    "name": "zod-schema",
+    "minified": 453957,
+    "gzip": 92947
+  },
+  {
+    "name": "scoped-typebox-runtime",
+    "minified": 104976,
+    "gzip": 25422
+  },
+  {
+    "name": "new-typebox-runtime",
+    "minified": 149846,
+    "gzip": 38212
+  }
+]

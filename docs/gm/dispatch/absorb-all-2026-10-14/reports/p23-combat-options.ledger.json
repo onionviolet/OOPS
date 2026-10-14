@@ -1,0 +1,77 @@
+{
+  "schema": 1,
+  "lane": "p23-combat-options",
+  "date": "2026-10-14",
+  "base": "0216ccdefcfce79877378f8cb0ee41129fe11c5d",
+  "source_commit": "a5f9d7a3f90b09c78de2189e6ff3e5b400611760",
+  "status": "source-committed; implemented-unverified; full-gate-not-passing",
+  "native_gate": "OPEN-P00-host-integration",
+  "rows": [
+    {
+      "id": "R23",
+      "status": "implemented-unverified"
+    },
+    {
+      "id": "R50",
+      "status": "implemented-unverified"
+    },
+    {
+      "id": "R51",
+      "status": "adopted-source-equivalent"
+    },
+    {
+      "id": "N14",
+      "status": "implemented-unverified"
+    }
+  ],
+  "compatibility": {
+    "absent": "unchanged-old-save",
+    "schema": 1,
+    "unsupported": "reject-before-mutation",
+    "subtick_restore": "unsupported; resume restarts cooldowns",
+    "native_fighter_restore": "OPEN-P00"
+  },
+  "verification": {
+    "focused": {
+      "tests": 15,
+      "pass": 15,
+      "fail": 0
+    },
+    "build": "PASS",
+    "full": {
+      "status": "NOT-PASSING",
+      "npm_test": "stopped-stalled; incomplete",
+      "equivalent_command": "node --test --test-concurrency=1 --test-timeout=30000 tests/*.test.js",
+      "tests": 618,
+      "pass": 616,
+      "fail": 0,
+      "cancelled": 2,
+      "skip": 0,
+      "duration_ms": 206420.400042,
+      "exit_code": 1,
+      "timeouts": [
+        "tests/cheat_cards.test.js",
+        "tests/cooling_refinement.test.js"
+      ],
+      "baseline_cause": "unconfirmed"
+    },
+    "browser": {
+      "status": 200,
+      "viewport": "1366x768",
+      "bundleURL": "dist/bundle.js?version=v0.6-78d00845dc8a",
+      "bundleSHA256": "78d00845dc8af88f5714310a0ccbfd221430bbccbade2ba9fab1492a500e128e",
+      "errors": [],
+      "oldCombatTicked": true,
+      "saveBytes": 46235,
+      "locationAfterReload": "Village",
+      "changedTactics": "OPEN: P00 host joins absent",
+      "literalImport": "OPEN: pending tactics not in save envelope"
+    },
+    "changed_native": "OPEN",
+    "literal_import": "OPEN",
+    "source_diff_check": "PASS"
+  },
+  "contract": "src/absorb_p23/combat_options/HOST_CONTRACT.md",
+  "merge_allowed": false,
+  "human_acceptance": "OPEN-play-taste"
+}

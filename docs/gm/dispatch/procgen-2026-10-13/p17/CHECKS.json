@@ -1,0 +1,162 @@
+{
+  "date": "2026-10-14",
+  "status": "PROPOSAL_ONLY",
+  "evidence_label": "STATIC_DOCUMENTATION_AND_SOURCE_INSPECTION",
+  "checks": {
+    "local_links": {
+      "count": 135,
+      "missing": [],
+      "result": "PASS"
+    },
+    "fragment_review": [],
+    "proposal_markers": {
+      "ACTING_AND_DIGESTION.md": true,
+      "BACKLOG.md": true,
+      "BELIEF_TITLES_AND_REPUTATION.md": true,
+      "CHECKPOINT.md": true,
+      "CONTRACT.md": true,
+      "FATE_LUCK_AND_LOOPS.md": true,
+      "LIVE_AUDIT.md": true,
+      "MORE.md": true,
+      "NARRATIVE_METAPHYSICS.md": true,
+      "ORIGINAL_STORY_WORLDS.md": true,
+      "ORV_STORIES_AND_SPONSORS.md": true,
+      "REPORT.md": true,
+      "SYSTEM_QUEST_GIVERS.md": true
+    },
+    "report_ranked_slices": 5,
+    "proposed_ports": [
+      "20600",
+      "20610",
+      "20620",
+      "20630",
+      "20640"
+    ],
+    "source_clusters": [
+      "ACTING_AND_DIGESTION.md",
+      "BELIEF_TITLES_AND_REPUTATION.md",
+      "FATE_LUCK_AND_LOOPS.md",
+      "NARRATIVE_METAPHYSICS.md",
+      "ORIGINAL_STORY_WORLDS.md",
+      "ORV_STORIES_AND_SPONSORS.md",
+      "SYSTEM_QUEST_GIVERS.md"
+    ],
+    "source_locator_ranges": {
+      "count": 16,
+      "out_of_bounds": [],
+      "result": "PASS"
+    },
+    "main_branch_modules_present": {
+      "storylet_deck.js": false,
+      "generated_people.js": false
+    },
+    "total_markdown_files": 13,
+    "proposed_ports_result": "PASS: five suggested ports beginning at 20600; not opened or reserved",
+    "initial_self_link_note": "Initial scan preceded CHECKS.json creation; both self-record links pass after materialization.",
+    "overall_result": "PASS",
+    "audited_source_drift_since_snapshot": {
+      "changed": [],
+      "result": "PASS"
+    }
+  },
+  "source_snapshot": [
+    {
+      "path": "src/causal_story_actors.js",
+      "sha256": "232f064f41a139490b05fbaa6d96e7280d13a8b7b7a772e4983a1b635febbd2e",
+      "lines": 163
+    },
+    {
+      "path": "src/causal_story_content.js",
+      "sha256": "6fbcfc9e1718f961f8c4b99c588c1cc8c4816378ce889c93662cec0aea10af22",
+      "lines": 255
+    },
+    {
+      "path": "src/causal_story_core.js",
+      "sha256": "7f4993ccc8251e376c72f59dbec61f6efe24c744b61915d6011725da572b4fb5",
+      "lines": 433
+    },
+    {
+      "path": "src/causal_story_host.js",
+      "sha256": "cc6464bb00936100be5cf6b02c95be62f38c3478d273b2b83c4395fb7bcf8c1c",
+      "lines": 504
+    },
+    {
+      "path": "src/causal_story_ids.js",
+      "sha256": "1aca94dc5eaf5412865b60ce292bc00f5c34fa7e5cdd85a53d31efbd4fa22fee",
+      "lines": 20
+    },
+    {
+      "path": "src/causal_story_native.js",
+      "sha256": "f70656361f79b011fdf18953caa10fba3acea327c007e16c170fd5345c5ccc84",
+      "lines": 477
+    },
+    {
+      "path": "src/causal_story_scenes.js",
+      "sha256": "7ccaeae599ce284f7d5003ab95b9687426c69ebdba452b9238d2931ef9f28ca9",
+      "lines": 104
+    },
+    {
+      "path": "src/causal_story_ui.js",
+      "sha256": "5e43b094b364e574e9ad00e8bda57ada6b2a333c04191af86c2db49df87a32e5",
+      "lines": 352
+    },
+    {
+      "path": "src/event_feed.js",
+      "sha256": "f25a1f1ff13bc751509cece72a3825cc7163c646e7f565f29f477bbcbffb2915",
+      "lines": 103
+    },
+    {
+      "path": "src/event_feed_ui.js",
+      "sha256": "d1c3539ea9d2f1f64fa67f453237f593b1dec3e9cd9b56754e730d674d02ffd0",
+      "lines": 50
+    },
+    {
+      "path": "src/life_record.js",
+      "sha256": "21ac5f17fff62794ba26d7180deb6a9c0ad85060d79134e5d6ce83de51d1d9bd",
+      "lines": 82
+    },
+    {
+      "path": "src/people_knowledge.js",
+      "sha256": "e52bf2508ab626785ad66074179f33916aaed7946fbd403706cb59303e851261",
+      "lines": 106
+    },
+    {
+      "path": "src/simulation.js",
+      "sha256": "2a790db46f004639d356ebec3678bfe63e1957fe5fda6cc9892368a050b54b66",
+      "lines": 637
+    },
+    {
+      "path": "src/simulation_content.js",
+      "sha256": "9c55fc6edeebb9f75027dcada4dcc44ebb1fc27e4815cac75731825e0f2252bc",
+      "lines": 129
+    },
+    {
+      "path": "src/simulation_contracts.js",
+      "sha256": "519b55317952eb7b4cd10a0cabb899542e7af706f568358f146b241be81b301c",
+      "lines": 322
+    },
+    {
+      "path": "src/simulation_effects.js",
+      "sha256": "507a5a60b82eaade331601c90f5e98410a2d99486903b9109937f933f3ffe151",
+      "lines": 394
+    },
+    {
+      "path": "src/simulation_resolution.js",
+      "sha256": "b47789d1959d5e43fcce298b3631830169aa0d89b972cd7d08da1a55e4c2fd94",
+      "lines": 41
+    },
+    {
+      "path": "src/simulation_ui.js",
+      "sha256": "ed41498fbf78e78d2383d2fb397692f1e6c211ad2666eeb1a3bb69d1b226fc37",
+      "lines": 100
+    },
+    {
+      "path": "src/world_visit_history.js",
+      "sha256": "c9296a84f4df6c0a0ea5ed818ca1ca283149e247eb7354eaaeb983f9b99b2bd2",
+      "lines": 70
+    }
+  ],
+  "scope": "Only p17 writes; no runtime edits, builds, gameplay tests, commits or private saves. Source hashes are drift locators, not execution proof.",
+  "runtime_gates": "NOT_RUN",
+  "disclosure_review": "Manual: no sealed truth, raw canon prose or private analytical quotation authored; not a comprehensive leak test."
+}

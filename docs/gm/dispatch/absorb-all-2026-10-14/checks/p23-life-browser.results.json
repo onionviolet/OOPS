@@ -1,0 +1,394 @@
+[
+  {
+    "check": "fresh search, watch opening and mentor",
+    "result": "PASS"
+  },
+  {
+    "check": "accepted watch save/reload/export/import",
+    "result": "PASS",
+    "state": {
+      "schema": 3,
+      "homeMinutes": 0,
+      "itemsBought": 0,
+      "watchDay": 359730,
+      "watchMinutes": 0,
+      "watchShifts": 0,
+      "watching": true,
+      "marketClaim": null,
+      "visitorPending": false,
+      "visitorMet": false,
+      "pamphletRead": false,
+      "parcelStep": 0,
+      "parcelStarted": false,
+      "parcelRuns": 0,
+      "runnerMealsIssued": 0,
+      "runnerMealsUsed": 0,
+      "searches": {
+        "Village": {
+          "misses": 0,
+          "found": false
+        },
+        "Shack": {
+          "misses": 0,
+          "found": false
+        }
+      },
+      "looking": false,
+      "lookPlace": null,
+      "searchProgress": 0,
+      "lastClock": 518011620,
+      "lastLocation": "Village",
+      "poisonMinutes": 0,
+      "lastHubAttempt": null,
+      "hubMisses": 0,
+      "hubDay": null,
+      "encounter": null,
+      "helped": 0,
+      "declined": 0,
+      "mealClaim": null,
+      "meals": 0
+    }
+  },
+  {
+    "check": "evening watch pays once",
+    "result": "PASS",
+    "state": {
+      "schema": 3,
+      "homeMinutes": 0,
+      "itemsBought": 0,
+      "watchDay": 359730,
+      "watchMinutes": 1,
+      "watchShifts": 1,
+      "watching": false,
+      "marketClaim": null,
+      "visitorPending": false,
+      "visitorMet": false,
+      "pamphletRead": false,
+      "parcelStep": 0,
+      "parcelStarted": false,
+      "parcelRuns": 0,
+      "runnerMealsIssued": 0,
+      "runnerMealsUsed": 0,
+      "searches": {
+        "Village": {
+          "misses": 0,
+          "found": false
+        },
+        "Shack": {
+          "misses": 0,
+          "found": false
+        }
+      },
+      "looking": false,
+      "lookPlace": null,
+      "searchProgress": 0,
+      "lastClock": 518012401,
+      "lastLocation": "Village",
+      "poisonMinutes": 0,
+      "lastHubAttempt": 518012400,
+      "hubMisses": 0,
+      "hubDay": null,
+      "encounter": null,
+      "helped": 0,
+      "declined": 0,
+      "mealClaim": null,
+      "meals": 0
+    }
+  },
+  {
+    "check": "watch voluntary interruption without pay",
+    "result": "PASS"
+  },
+  {
+    "check": "pamphlet unlock and relay gate",
+    "result": "PASS",
+    "state": {
+      "schema": 3,
+      "homeMinutes": 0,
+      "itemsBought": 0,
+      "watchDay": null,
+      "watchMinutes": 0,
+      "watchShifts": 0,
+      "watching": false,
+      "marketClaim": null,
+      "visitorPending": false,
+      "visitorMet": true,
+      "pamphletRead": true,
+      "parcelStep": 0,
+      "parcelStarted": false,
+      "parcelRuns": 0,
+      "runnerMealsIssued": 0,
+      "runnerMealsUsed": 0,
+      "searches": {
+        "Village": {
+          "misses": 0,
+          "found": false
+        },
+        "Shack": {
+          "misses": 0,
+          "found": false
+        }
+      },
+      "looking": false,
+      "lookPlace": null,
+      "searchProgress": 0,
+      "lastClock": 518011680,
+      "lastLocation": null,
+      "poisonMinutes": 0,
+      "lastHubAttempt": null,
+      "hubMisses": 0,
+      "hubDay": null,
+      "encounter": null,
+      "helped": 0,
+      "declined": 0,
+      "mealClaim": null,
+      "meals": 0
+    }
+  },
+  {
+    "check": "three stops using ordinary travel and once-only reward",
+    "result": "PASS",
+    "state": {
+      "schema": 3,
+      "homeMinutes": 0,
+      "itemsBought": 0,
+      "watchDay": null,
+      "watchMinutes": 0,
+      "watchShifts": 0,
+      "watching": false,
+      "marketClaim": null,
+      "visitorPending": true,
+      "visitorMet": true,
+      "pamphletRead": true,
+      "parcelStep": 3,
+      "parcelStarted": true,
+      "parcelRuns": 1,
+      "runnerMealsIssued": 0,
+      "runnerMealsUsed": 0,
+      "searches": {
+        "Village": {
+          "misses": 0,
+          "found": false
+        },
+        "Shack": {
+          "misses": 0,
+          "found": false
+        }
+      },
+      "looking": false,
+      "lookPlace": null,
+      "searchProgress": 0,
+      "lastClock": 518011742,
+      "lastLocation": "Village",
+      "poisonMinutes": 0,
+      "lastHubAttempt": 518011741,
+      "hubMisses": 0,
+      "hubDay": null,
+      "encounter": null,
+      "helped": 0,
+      "declined": 0,
+      "mealClaim": null,
+      "meals": 0
+    }
+  },
+  {
+    "check": "parcel relay explicit repeat remains available",
+    "result": "PASS"
+  },
+  {
+    "check": "weekly stall claim survives persistence",
+    "result": "PASS",
+    "state": {
+      "schema": 3,
+      "homeMinutes": 0,
+      "itemsBought": 0,
+      "watchDay": null,
+      "watchMinutes": 0,
+      "watchShifts": 0,
+      "watching": false,
+      "marketClaim": 51390,
+      "visitorPending": false,
+      "visitorMet": false,
+      "pamphletRead": false,
+      "parcelStep": 0,
+      "parcelStarted": false,
+      "parcelRuns": 0,
+      "runnerMealsIssued": 0,
+      "runnerMealsUsed": 0,
+      "searches": {
+        "Village": {
+          "misses": 0,
+          "found": false
+        },
+        "Shack": {
+          "misses": 0,
+          "found": false
+        }
+      },
+      "looking": false,
+      "lookPlace": null,
+      "searchProgress": 0,
+      "lastClock": 518011740,
+      "lastLocation": null,
+      "poisonMinutes": 0,
+      "lastHubAttempt": null,
+      "hubMisses": 0,
+      "hubDay": null,
+      "encounter": null,
+      "helped": 0,
+      "declined": 0,
+      "mealClaim": null,
+      "meals": 0
+    }
+  },
+  {
+    "check": "played home counter grants public title",
+    "result": "PASS"
+  },
+  {
+    "check": "home title persistence",
+    "result": "PASS",
+    "state": {
+      "schema": 3,
+      "homeMinutes": 1445,
+      "itemsBought": 0,
+      "watchDay": null,
+      "watchMinutes": 0,
+      "watchShifts": 0,
+      "watching": false,
+      "marketClaim": null,
+      "visitorPending": false,
+      "visitorMet": false,
+      "pamphletRead": false,
+      "parcelStep": 0,
+      "parcelStarted": false,
+      "parcelRuns": 0,
+      "runnerMealsIssued": 0,
+      "runnerMealsUsed": 0,
+      "searches": {
+        "Village": {
+          "misses": 0,
+          "found": false
+        },
+        "Shack": {
+          "misses": 0,
+          "found": false
+        }
+      },
+      "looking": false,
+      "lookPlace": null,
+      "searchProgress": 0,
+      "lastClock": 518011686,
+      "lastLocation": "Shack",
+      "poisonMinutes": 0,
+      "lastHubAttempt": 518011686,
+      "hubMisses": 0,
+      "hubDay": null,
+      "encounter": null,
+      "helped": 0,
+      "declined": 0,
+      "mealClaim": null,
+      "meals": 0
+    }
+  },
+  {
+    "check": "native bleeding duration stacking and resistance XP",
+    "result": "PASS"
+  },
+  {
+    "check": "bleeding save/reload/export/import",
+    "result": "PASS",
+    "state": {
+      "schema": 3,
+      "homeMinutes": 1447,
+      "itemsBought": 0,
+      "watchDay": null,
+      "watchMinutes": 0,
+      "watchShifts": 0,
+      "watching": false,
+      "marketClaim": null,
+      "visitorPending": false,
+      "visitorMet": false,
+      "pamphletRead": false,
+      "parcelStep": 0,
+      "parcelStarted": false,
+      "parcelRuns": 0,
+      "runnerMealsIssued": 0,
+      "runnerMealsUsed": 0,
+      "searches": {
+        "Village": {
+          "misses": 0,
+          "found": false
+        },
+        "Shack": {
+          "misses": 0,
+          "found": false
+        }
+      },
+      "looking": false,
+      "lookPlace": null,
+      "searchProgress": 0,
+      "lastClock": 518011688,
+      "lastLocation": "Shack",
+      "poisonMinutes": 0,
+      "lastHubAttempt": 518011688,
+      "hubMisses": 0,
+      "hubDay": null,
+      "encounter": null,
+      "helped": 0,
+      "declined": 0,
+      "mealClaim": null,
+      "meals": 0
+    }
+  },
+  {
+    "check": "settled native purchase counter grants anchored title cue",
+    "result": "PASS"
+  },
+  {
+    "check": "purchase title save/reload/export/import",
+    "result": "PASS",
+    "state": {
+      "schema": 3,
+      "homeMinutes": 0,
+      "itemsBought": 25,
+      "watchDay": null,
+      "watchMinutes": 0,
+      "watchShifts": 0,
+      "watching": false,
+      "marketClaim": null,
+      "visitorPending": false,
+      "visitorMet": false,
+      "pamphletRead": false,
+      "parcelStep": 0,
+      "parcelStarted": false,
+      "parcelRuns": 0,
+      "runnerMealsIssued": 0,
+      "runnerMealsUsed": 0,
+      "searches": {
+        "Village": {
+          "misses": 0,
+          "found": false
+        },
+        "Shack": {
+          "misses": 0,
+          "found": false
+        }
+      },
+      "looking": false,
+      "lookPlace": null,
+      "searchProgress": 0,
+      "lastClock": 518011685,
+      "lastLocation": "Village",
+      "poisonMinutes": 0,
+      "lastHubAttempt": 518011681,
+      "hubMisses": 0,
+      "hubDay": null,
+      "encounter": null,
+      "helped": 0,
+      "declined": 0,
+      "mealClaim": null,
+      "meals": 0
+    }
+  }
+]

@@ -52,8 +52,8 @@ class Skill {
         if(base_xp_cost < 1/config.skill_xp_gains_cap) {
             console.warn(`Skill "${this.skill_id}" has base xp cost lower than what would be needed due to skill xp gains cap!`);
         }
-        this.visibility_treshold = visibility_treshold < base_xp_cost ? visibility_treshold : base_xp_cost;
-        //xp needed for skill to become visible and to get "unlock" message; try to keep it less than xp needed for lvl
+        this.visibility_treshold = base_xp_cost;
+        // Reveal at the first actual level-up. Existing XP and earned levels are unchanged.
 
         this.#availability = new AvailabilityComponent({is_unlocked, start_conditions: xp_gain_conditions});
         //is_unlocked is the only functional property; 

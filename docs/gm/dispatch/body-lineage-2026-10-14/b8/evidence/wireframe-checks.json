@@ -1,0 +1,804 @@
+{
+  "at": "2026-10-14T05:07:08.743Z",
+  "profile": "/private/tmp/body-b8-RmXnF3",
+  "errors": [],
+  "keyboard": {
+    "tag": "A",
+    "text": "UI1 Body",
+    "outline": "solid"
+  },
+  "results": [
+    {
+      "file": "ui1-body",
+      "viewport": {
+        "width": 1366,
+        "height": 768
+      },
+      "page": {
+        "width": 1366,
+        "height": 768
+      },
+      "bounds": {
+        ".inspector h1": {
+          "x": 677,
+          "y": 55,
+          "width": 676,
+          "height": 39.390625,
+          "bottom": 94.390625,
+          "right": 1353
+        },
+        ".inspector .subhead": {
+          "x": 677,
+          "y": 94.390625,
+          "width": 676,
+          "height": 63.59375,
+          "bottom": 157.984375,
+          "right": 1353
+        },
+        ".inspector footer": {
+          "x": 677,
+          "y": 618.203125,
+          "width": 676,
+          "height": 82.796875,
+          "bottom": 701,
+          "right": 1353
+        },
+        ".reading": {
+          "x": 677,
+          "y": 157.984375,
+          "width": 676,
+          "height": 460.21875,
+          "bottom": 618.203125,
+          "right": 1353
+        },
+        ".bottom": {
+          "x": 0,
+          "y": 712,
+          "width": 1366,
+          "height": 44,
+          "bottom": 756,
+          "right": 1366
+        }
+      },
+      "overflows": [],
+      "textContrastMinimum": 7.681919131215151,
+      "contrastFailures": [],
+      "readingScroll": {
+        "client": 460,
+        "content": 581
+      },
+      "scrollCheck": {
+        "bottomReached": true,
+        "lastBottomWithinReader": true,
+        "currentStripVisible": true
+      },
+      "pass": true
+    },
+    {
+      "file": "ui2-family",
+      "viewport": {
+        "width": 1366,
+        "height": 768
+      },
+      "page": {
+        "width": 1366,
+        "height": 768
+      },
+      "bounds": {
+        ".inspector h1": {
+          "x": 677,
+          "y": 55,
+          "width": 676,
+          "height": 39.390625,
+          "bottom": 94.390625,
+          "right": 1353
+        },
+        ".inspector .subhead": {
+          "x": 677,
+          "y": 94.390625,
+          "width": 676,
+          "height": 63.59375,
+          "bottom": 157.984375,
+          "right": 1353
+        },
+        ".inspector footer": {
+          "x": 677,
+          "y": 632.203125,
+          "width": 676,
+          "height": 68.796875,
+          "bottom": 701,
+          "right": 1353
+        },
+        ".reading": {
+          "x": 677,
+          "y": 157.984375,
+          "width": 676,
+          "height": 474.21875,
+          "bottom": 632.203125,
+          "right": 1353
+        },
+        ".bottom": {
+          "x": 0,
+          "y": 712,
+          "width": 1366,
+          "height": 44,
+          "bottom": 756,
+          "right": 1366
+        }
+      },
+      "overflows": [],
+      "textContrastMinimum": 7.681919131215151,
+      "contrastFailures": [],
+      "readingScroll": {
+        "client": 474,
+        "content": 474
+      },
+      "scrollCheck": {
+        "bottomReached": true,
+        "lastBottomWithinReader": true,
+        "currentStripVisible": true
+      },
+      "pass": true
+    },
+    {
+      "file": "ui3-heirs",
+      "viewport": {
+        "width": 1366,
+        "height": 768
+      },
+      "page": {
+        "width": 1366,
+        "height": 768
+      },
+      "bounds": {
+        ".inspector h1": {
+          "x": 677,
+          "y": 55,
+          "width": 676,
+          "height": 39.390625,
+          "bottom": 94.390625,
+          "right": 1353
+        },
+        ".inspector .subhead": {
+          "x": 677,
+          "y": 94.390625,
+          "width": 676,
+          "height": 63.59375,
+          "bottom": 157.984375,
+          "right": 1353
+        },
+        ".inspector footer": {
+          "x": 677,
+          "y": 649,
+          "width": 676,
+          "height": 52,
+          "bottom": 701,
+          "right": 1353
+        },
+        ".reading": {
+          "x": 677,
+          "y": 157.984375,
+          "width": 676,
+          "height": 491.015625,
+          "bottom": 649,
+          "right": 1353
+        },
+        ".bottom": {
+          "x": 0,
+          "y": 712,
+          "width": 1366,
+          "height": 44,
+          "bottom": 756,
+          "right": 1366
+        }
+      },
+      "overflows": [],
+      "textContrastMinimum": 7.681919131215151,
+      "contrastFailures": [],
+      "readingScroll": {
+        "client": 491,
+        "content": 523
+      },
+      "scrollCheck": {
+        "bottomReached": true,
+        "lastBottomWithinReader": true,
+        "currentStripVisible": true
+      },
+      "pass": true
+    },
+    {
+      "file": "ui4-match",
+      "viewport": {
+        "width": 1366,
+        "height": 768
+      },
+      "page": {
+        "width": 1366,
+        "height": 768
+      },
+      "bounds": {
+        ".inspector h1": {
+          "x": 677,
+          "y": 55,
+          "width": 676,
+          "height": 39.390625,
+          "bottom": 94.390625,
+          "right": 1353
+        },
+        ".inspector .subhead": {
+          "x": 677,
+          "y": 94.390625,
+          "width": 676,
+          "height": 63.59375,
+          "bottom": 157.984375,
+          "right": 1353
+        },
+        ".inspector footer": {
+          "x": 677,
+          "y": 618.203125,
+          "width": 676,
+          "height": 82.796875,
+          "bottom": 701,
+          "right": 1353
+        },
+        ".reading": {
+          "x": 677,
+          "y": 157.984375,
+          "width": 676,
+          "height": 460.21875,
+          "bottom": 618.203125,
+          "right": 1353
+        },
+        ".bottom": {
+          "x": 0,
+          "y": 712,
+          "width": 1366,
+          "height": 44,
+          "bottom": 756,
+          "right": 1366
+        }
+      },
+      "overflows": [],
+      "textContrastMinimum": 7.681919131215151,
+      "contrastFailures": [],
+      "readingScroll": {
+        "client": 460,
+        "content": 460
+      },
+      "scrollCheck": {
+        "bottomReached": true,
+        "lastBottomWithinReader": true,
+        "currentStripVisible": true
+      },
+      "pass": true
+    },
+    {
+      "file": "ui5-conditions",
+      "viewport": {
+        "width": 1366,
+        "height": 768
+      },
+      "page": {
+        "width": 1366,
+        "height": 768
+      },
+      "bounds": {
+        ".inspector h1": {
+          "x": 677,
+          "y": 55,
+          "width": 676,
+          "height": 39.390625,
+          "bottom": 94.390625,
+          "right": 1353
+        },
+        ".inspector .subhead": {
+          "x": 677,
+          "y": 94.390625,
+          "width": 676,
+          "height": 63.59375,
+          "bottom": 157.984375,
+          "right": 1353
+        },
+        ".inspector footer": {
+          "x": 677,
+          "y": 649,
+          "width": 676,
+          "height": 52,
+          "bottom": 701,
+          "right": 1353
+        },
+        ".reading": {
+          "x": 677,
+          "y": 282.78125,
+          "width": 676,
+          "height": 366.21875,
+          "bottom": 649,
+          "right": 1353
+        },
+        ".bottom": {
+          "x": 0,
+          "y": 712,
+          "width": 1366,
+          "height": 44,
+          "bottom": 756,
+          "right": 1366
+        }
+      },
+      "overflows": [],
+      "textContrastMinimum": 7.681919131215151,
+      "contrastFailures": [],
+      "readingScroll": {
+        "client": 366,
+        "content": 482
+      },
+      "scrollCheck": {
+        "bottomReached": true,
+        "lastBottomWithinReader": true,
+        "currentStripVisible": true
+      },
+      "pass": true
+    },
+    {
+      "file": "ui6-skins",
+      "viewport": {
+        "width": 1366,
+        "height": 768
+      },
+      "page": {
+        "width": 1366,
+        "height": 768
+      },
+      "bounds": {
+        ".inspector h1": {
+          "x": 677,
+          "y": 55,
+          "width": 676,
+          "height": 39.390625,
+          "bottom": 94.390625,
+          "right": 1353
+        },
+        ".inspector .subhead": {
+          "x": 677,
+          "y": 94.390625,
+          "width": 676,
+          "height": 63.59375,
+          "bottom": 157.984375,
+          "right": 1353
+        },
+        ".inspector footer": {
+          "x": 677,
+          "y": 663,
+          "width": 676,
+          "height": 38,
+          "bottom": 701,
+          "right": 1353
+        },
+        ".reading": {
+          "x": 677,
+          "y": 157.984375,
+          "width": 676,
+          "height": 505.015625,
+          "bottom": 663,
+          "right": 1353
+        },
+        ".bottom": {
+          "x": 0,
+          "y": 712,
+          "width": 1366,
+          "height": 44,
+          "bottom": 756,
+          "right": 1366
+        }
+      },
+      "overflows": [],
+      "textContrastMinimum": 7.681919131215151,
+      "contrastFailures": [],
+      "readingScroll": {
+        "client": 505,
+        "content": 533
+      },
+      "scrollCheck": {
+        "bottomReached": true,
+        "lastBottomWithinReader": true,
+        "currentStripVisible": true
+      },
+      "pass": true
+    },
+    {
+      "file": "ui1-body",
+      "viewport": {
+        "width": 1920,
+        "height": 1080
+      },
+      "page": {
+        "width": 1920,
+        "height": 1080
+      },
+      "bounds": {
+        ".inspector h1": {
+          "x": 777,
+          "y": 55,
+          "width": 1130,
+          "height": 39.390625,
+          "bottom": 94.390625,
+          "right": 1907
+        },
+        ".inspector .subhead": {
+          "x": 777,
+          "y": 94.390625,
+          "width": 1130,
+          "height": 63.59375,
+          "bottom": 157.984375,
+          "right": 1907
+        },
+        ".inspector footer": {
+          "x": 777,
+          "y": 961,
+          "width": 1130,
+          "height": 52,
+          "bottom": 1013,
+          "right": 1907
+        },
+        ".reading": {
+          "x": 777,
+          "y": 157.984375,
+          "width": 1130,
+          "height": 803.015625,
+          "bottom": 961,
+          "right": 1907
+        },
+        ".bottom": {
+          "x": 0,
+          "y": 1024,
+          "width": 1920,
+          "height": 44,
+          "bottom": 1068,
+          "right": 1920
+        }
+      },
+      "overflows": [],
+      "textContrastMinimum": 7.681919131215151,
+      "contrastFailures": [],
+      "readingScroll": {
+        "client": 803,
+        "content": 803
+      },
+      "scrollCheck": {
+        "bottomReached": true,
+        "lastBottomWithinReader": true,
+        "currentStripVisible": true
+      },
+      "pass": true
+    },
+    {
+      "file": "ui2-family",
+      "viewport": {
+        "width": 1920,
+        "height": 1080
+      },
+      "page": {
+        "width": 1920,
+        "height": 1080
+      },
+      "bounds": {
+        ".inspector h1": {
+          "x": 777,
+          "y": 55,
+          "width": 1130,
+          "height": 39.390625,
+          "bottom": 94.390625,
+          "right": 1907
+        },
+        ".inspector .subhead": {
+          "x": 777,
+          "y": 94.390625,
+          "width": 1130,
+          "height": 63.59375,
+          "bottom": 157.984375,
+          "right": 1907
+        },
+        ".inspector footer": {
+          "x": 777,
+          "y": 975,
+          "width": 1130,
+          "height": 38,
+          "bottom": 1013,
+          "right": 1907
+        },
+        ".reading": {
+          "x": 777,
+          "y": 157.984375,
+          "width": 1130,
+          "height": 817.015625,
+          "bottom": 975,
+          "right": 1907
+        },
+        ".bottom": {
+          "x": 0,
+          "y": 1024,
+          "width": 1920,
+          "height": 44,
+          "bottom": 1068,
+          "right": 1920
+        }
+      },
+      "overflows": [],
+      "textContrastMinimum": 7.681919131215151,
+      "contrastFailures": [],
+      "readingScroll": {
+        "client": 817,
+        "content": 817
+      },
+      "scrollCheck": {
+        "bottomReached": true,
+        "lastBottomWithinReader": true,
+        "currentStripVisible": true
+      },
+      "pass": true
+    },
+    {
+      "file": "ui3-heirs",
+      "viewport": {
+        "width": 1920,
+        "height": 1080
+      },
+      "page": {
+        "width": 1920,
+        "height": 1080
+      },
+      "bounds": {
+        ".inspector h1": {
+          "x": 777,
+          "y": 55,
+          "width": 1130,
+          "height": 39.390625,
+          "bottom": 94.390625,
+          "right": 1907
+        },
+        ".inspector .subhead": {
+          "x": 777,
+          "y": 94.390625,
+          "width": 1130,
+          "height": 63.59375,
+          "bottom": 157.984375,
+          "right": 1907
+        },
+        ".inspector footer": {
+          "x": 777,
+          "y": 961,
+          "width": 1130,
+          "height": 52,
+          "bottom": 1013,
+          "right": 1907
+        },
+        ".reading": {
+          "x": 777,
+          "y": 157.984375,
+          "width": 1130,
+          "height": 803.015625,
+          "bottom": 961,
+          "right": 1907
+        },
+        ".bottom": {
+          "x": 0,
+          "y": 1024,
+          "width": 1920,
+          "height": 44,
+          "bottom": 1068,
+          "right": 1920
+        }
+      },
+      "overflows": [],
+      "textContrastMinimum": 7.681919131215151,
+      "contrastFailures": [],
+      "readingScroll": {
+        "client": 803,
+        "content": 803
+      },
+      "scrollCheck": {
+        "bottomReached": true,
+        "lastBottomWithinReader": true,
+        "currentStripVisible": true
+      },
+      "pass": true
+    },
+    {
+      "file": "ui4-match",
+      "viewport": {
+        "width": 1920,
+        "height": 1080
+      },
+      "page": {
+        "width": 1920,
+        "height": 1080
+      },
+      "bounds": {
+        ".inspector h1": {
+          "x": 777,
+          "y": 55,
+          "width": 1130,
+          "height": 39.390625,
+          "bottom": 94.390625,
+          "right": 1907
+        },
+        ".inspector .subhead": {
+          "x": 777,
+          "y": 94.390625,
+          "width": 1130,
+          "height": 63.59375,
+          "bottom": 157.984375,
+          "right": 1907
+        },
+        ".inspector footer": {
+          "x": 777,
+          "y": 961,
+          "width": 1130,
+          "height": 52,
+          "bottom": 1013,
+          "right": 1907
+        },
+        ".reading": {
+          "x": 777,
+          "y": 157.984375,
+          "width": 1130,
+          "height": 803.015625,
+          "bottom": 961,
+          "right": 1907
+        },
+        ".bottom": {
+          "x": 0,
+          "y": 1024,
+          "width": 1920,
+          "height": 44,
+          "bottom": 1068,
+          "right": 1920
+        }
+      },
+      "overflows": [],
+      "textContrastMinimum": 7.681919131215151,
+      "contrastFailures": [],
+      "readingScroll": {
+        "client": 803,
+        "content": 803
+      },
+      "scrollCheck": {
+        "bottomReached": true,
+        "lastBottomWithinReader": true,
+        "currentStripVisible": true
+      },
+      "pass": true
+    },
+    {
+      "file": "ui5-conditions",
+      "viewport": {
+        "width": 1920,
+        "height": 1080
+      },
+      "page": {
+        "width": 1920,
+        "height": 1080
+      },
+      "bounds": {
+        ".inspector h1": {
+          "x": 777,
+          "y": 55,
+          "width": 1130,
+          "height": 39.390625,
+          "bottom": 94.390625,
+          "right": 1907
+        },
+        ".inspector .subhead": {
+          "x": 777,
+          "y": 94.390625,
+          "width": 1130,
+          "height": 63.59375,
+          "bottom": 157.984375,
+          "right": 1907
+        },
+        ".inspector footer": {
+          "x": 777,
+          "y": 961,
+          "width": 1130,
+          "height": 52,
+          "bottom": 1013,
+          "right": 1907
+        },
+        ".reading": {
+          "x": 777,
+          "y": 282.78125,
+          "width": 1130,
+          "height": 678.21875,
+          "bottom": 961,
+          "right": 1907
+        },
+        ".bottom": {
+          "x": 0,
+          "y": 1024,
+          "width": 1920,
+          "height": 44,
+          "bottom": 1068,
+          "right": 1920
+        }
+      },
+      "overflows": [],
+      "textContrastMinimum": 7.681919131215151,
+      "contrastFailures": [],
+      "readingScroll": {
+        "client": 678,
+        "content": 678
+      },
+      "scrollCheck": {
+        "bottomReached": true,
+        "lastBottomWithinReader": true,
+        "currentStripVisible": true
+      },
+      "pass": true
+    },
+    {
+      "file": "ui6-skins",
+      "viewport": {
+        "width": 1920,
+        "height": 1080
+      },
+      "page": {
+        "width": 1920,
+        "height": 1080
+      },
+      "bounds": {
+        ".inspector h1": {
+          "x": 777,
+          "y": 55,
+          "width": 1130,
+          "height": 39.390625,
+          "bottom": 94.390625,
+          "right": 1907
+        },
+        ".inspector .subhead": {
+          "x": 777,
+          "y": 94.390625,
+          "width": 1130,
+          "height": 63.59375,
+          "bottom": 157.984375,
+          "right": 1907
+        },
+        ".inspector footer": {
+          "x": 777,
+          "y": 975,
+          "width": 1130,
+          "height": 38,
+          "bottom": 1013,
+          "right": 1907
+        },
+        ".reading": {
+          "x": 777,
+          "y": 157.984375,
+          "width": 1130,
+          "height": 817.015625,
+          "bottom": 975,
+          "right": 1907
+        },
+        ".bottom": {
+          "x": 0,
+          "y": 1024,
+          "width": 1920,
+          "height": 44,
+          "bottom": 1068,
+          "right": 1920
+        }
+      },
+      "overflows": [],
+      "textContrastMinimum": 7.681919131215151,
+      "contrastFailures": [],
+      "readingScroll": {
+        "client": 817,
+        "content": 817
+      },
+      "scrollCheck": {
+        "bottomReached": true,
+        "lastBottomWithinReader": true,
+        "currentStripVisible": true
+      },
+      "pass": true
+    }
+  ]
+}

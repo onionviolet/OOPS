@@ -1,0 +1,5 @@
+{
+  "check": "title grant cue intersects visible Character panel at 1366x768",
+  "result": "PASS",
+  "bundle": "http://127.0.0.1:18706/dist/bundle.js?version=v0.6-888976300030"
+}

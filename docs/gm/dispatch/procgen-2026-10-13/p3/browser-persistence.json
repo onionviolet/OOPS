@@ -1,0 +1,32 @@
+{
+  "origin": "http://127.0.0.1:19330/",
+  "buildHash": "e08c23fde4d07f9cdef8ab3a74574bd62d149f84630bccefdb0671340c626e3b",
+  "hero": "TEST FIXTURE PROCGEN P3 PERSISTENCE",
+  "timerControl": "Normal native timers; both restore branches observed at the same clock 54",
+  "pendingClock": 36,
+  "nextClock": 54,
+  "decision": "village.child_has_fever",
+  "findings": [
+    {
+      "label": "SEEDED_NATIVE",
+      "gate": "Save/reload",
+      "result": "exact pending cards, RNG, due times, cooldowns and receipts"
+    },
+    {
+      "label": "SEEDED_NATIVE",
+      "gate": "next draw after reload",
+      "result": "exact deck and event continuation through native ticks"
+    },
+    {
+      "label": "SEEDED_NATIVE",
+      "gate": "decision response",
+      "result": "village.child_has_fever help resolved with real saved fact"
+    },
+    {
+      "label": "SEEDED_NATIVE",
+      "gate": "Export/literal Import",
+      "result": "native downloaded file, real file input, exact cards and deck state"
+    }
+  ],
+  "errors": []
+}

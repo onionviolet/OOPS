@@ -1,0 +1,27 @@
+{
+  "date": "2026-10-14",
+  "scope": "docs-only R4 lane",
+  "result": "PASS",
+  "world_groups": 15,
+  "ttks_subworlds": 5,
+  "conditional_route_matrices": 19,
+  "conditional_routes_per_matrix": 6,
+  "common_routes": [
+    "NE1",
+    "NE7",
+    "NE9"
+  ],
+  "local_links_checked": 31,
+  "tables_checked": 28,
+  "table_widths": "PASS",
+  "em_dash_check": "PASS",
+  "manual_review": "Source states, proposal status, spoilers, era bounds and lane-only write scope reviewed; primary-canon/source gaps remain labelled.",
+  "runtime_checks": "NOT RUN; no runtime changes",
+  "owner_integration": "Reserved for Claude by COMMON.md",
+  "files": {
+    "CHECKPOINT.md": "cc3aa2e4dcaa7a9ff956597e491be37c29baaf10eb99203ac32271162a65ab7e",
+    "INTEGRATION.md": "6a2038736ec9ac93bb0713d59fb47deeec84b3c91a222e7b34bf135131a8d74c",
+    "REPORT.md": "dc6c6f2c844ea294514132bd09d4a684b70a9114a0e5cdf7f4ac58e747475912",
+    "SPOILERS.md": "60dcbb20be24cbf1dd0e387417bad537818622f965301ed979128086befb7062"
+  }
+}
