@@ -28,16 +28,29 @@ let browser;
  assert.match(clear,/known milestone: 4 clears/);
  assert.ok(!clear.includes('10 clears'));
  await page.screenshot({path:'/tmp/fork-resurvey-20261014/combat.png'});
- await page.waitForFunction(()=>document.querySelector('.known_loot_value'),null,{timeout:120000});
+ // P11 replaces catalog odds with durable actual drop receipts. Keep the
+ // acquired-only discovery gate and assert exact native associations/counts.
+ await page.waitForFunction(()=>{window.saveProgress();const s=JSON.parse(localStorage.getItem('save data'));return Object.values(s.p23_drop_observations?.creatures||{}).some(c=>Object.keys(c.drops).length);},null,{timeout:120000});
  await R.leaveCombat(page);
  const saved=JSON.parse(await R.saveText(page));
  const known=Object.keys(saved.item_log).filter(k=>saved.item_log[k].number>0);
  assert.ok(known.length>0);
- const estimate=await page.locator('.known_loot_value').allTextContents();
- assert.ok(estimate.length>0);assert.ok(estimate.every(t=>t.includes('Acquired items only')));
+ const observed=saved.p23_drop_observations;
+ const estimate=[];
+ for(const [name,record] of Object.entries(observed.creatures)) {
+   const entry=page.locator('.bestiary_entry_div').filter({has:page.getByText(name,{exact:true})}).first();
+   const text=await entry.innerText();
+   assert.match(text,/Observed drops/);
+   for(const [id,count] of Object.entries(record.drops)) {
+     assert(saved.item_log[id]?.number>0,'observed drop is acquired');
+     assert(text.includes(`${id}: ${count} acquired`),`exact observed ${name}/${id}`);
+   }
+   assert(!/Drop chance|Known loot estimate/.test(text),'no catalog odds or unobserved value projection');
+   estimate.push(text);
+ }
  await page.locator('#journal_show_bestiary').click();
  await page.locator('.bestiary_entry_div').first().hover();
- assert.ok(await page.locator('.known_loot_value').first().isVisible());
+ assert.ok(await page.locator('.bestiary_entry_tooltip').first().isVisible());
  await page.screenshot({path:'/tmp/fork-resurvey-20261014/bestiary.png'});
  // Open the native journal and data view through its existing controls.
  await page.locator('#journal_show_data').click();
@@ -54,7 +67,7 @@ let browser;
  const savedClears=Math.floor(saved.locations['Infested field'].enemy_groups_killed/15);
  const next=[2,4,10].find(n=>n>savedClears);assert.equal(reloaded,`Clears: [${savedClears}]`+(next?` · known milestone: ${next} clears`:''));
  await R.leaveCombat(page);
- assert.ok((await page.locator('.known_loot_value').count())>0);
+ assert.deepEqual(JSON.parse(await R.saveText(page)).p23_drop_observations,observed,'actual observed drop receipts survive reload');
  assert.deepEqual(errors,[]);
  const evidence={viewport:'1366x768',fixture:'precombat disposable boundary fixture: matching hero XP 100000, field groups 29, controlled Math.random 0.01',clearAfterRealKill:clear,knownItems:known,estimates:estimate,itemLog:sources,reloaded,errors};
  fs.writeFileSync('/tmp/fork-resurvey-20261014/browser.json',JSON.stringify(evidence,null,2));
