@@ -1,0 +1,45 @@
+{
+  "date": "2026-10-13",
+  "branch": "r15-g9-world1",
+  "inputSha256": {
+    "src/main.js": "84733971f08b52d6071653ec8b9cea929b26d8ca5ce28426f467adbd1b502712",
+    "src/simulation.js": "baa7fc35a5c311413ff0ba7e6590aa64b1549e2b64159733e0c1233d07ee884c",
+    "src/save_files.js": "dc7908d8a257ddcb896b0a3a077902ce961a7b681d0cba24e1dd1ef7f992e81f",
+    "src/structured_container_runtime.js": "b50fecd3c630237112826f2cdac9b7ba6e6551277482efb3472bdf4e1d856696",
+    "src/structured_pack_runtime.js": "6fde55ab7e9e42109bc5553ac0bcb057e4310687c87c5a60ace390e10bb670e1",
+    "src/simulation_effects.js": "b527e7ae07125a91a6241fc125102acc4b9aa49df0db4164ff4e1416c11d1856",
+    "dist/bundle.js": "f7ef53cefe38bcdda23a8b54a767c6ab393499d43986fa0cf0437107168350e0",
+    "private_packs/manifest.json": "cb74be41d7acc7e929fa6a8a4f652f64ed25cc758ab1e60d3536ee400032eb73",
+    "private_packs/p08/pack.json": "b7da41fd1a55720792f7c132fe64c6fbb84bb45c66c12c3c23caeb497601f213"
+  },
+  "verification": {
+    "build": {
+      "label": "source",
+      "status": "PASS",
+      "command": "npm run build"
+    },
+    "tests": {
+      "label": "source",
+      "status": "PASS",
+      "command": "npm test",
+      "passed": 613,
+      "failed": 0
+    },
+    "privateContracts": {
+      "label": "source",
+      "status": "PASS",
+      "groups": 13
+    }
+  },
+  "browser": {
+    "origin": "http://127.0.0.1:19190/",
+    "channel": "chrome",
+    "headless": true,
+    "viewport": {
+      "width": 1600,
+      "height": 1100
+    },
+    "profile": "/private/tmp/r15-g9-profile-first"
+  },
+  "runtimeSourceChanges": []
+}
