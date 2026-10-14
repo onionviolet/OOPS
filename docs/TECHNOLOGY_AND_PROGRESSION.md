@@ -1644,6 +1644,20 @@ Original versions for public builds; the named examples are inspirations.
 | RC22 | **Suit assistant** | J.A.R.V.I.S. | Diagnostics, roadmaps, bottlenecks (RC15 form) | Only for systems it is connected to |
 | RC23 | **Contingency files** | Batman's files | A known person's weaknesses (CW8) | Needs study; files can be stolen and used against you |
 
+**Corrections from T15** ([report](gm/dispatch/research-tech-2026-10-14/t15/REPORT.md),
+[genius and status quo](gm/dispatch/research-tech-2026-10-14/t15/GENIUS_AND_STATUS_QUO.md)).
+Read the tables above with these fixes: vibranium is mined, adamantium is
+manufactured (CW3); comics Ultron is Hank Pym's creation, the MCU's is
+Stark's (CW13); the Expo, the Vulture and the Sokovia Accords are screen
+canon, not comics (CW6, CW14, CW15); comic geniuses are exceptional people,
+not literally supernatural (CW1). For the cheats: Cerebro finds mutant
+minds, it is not a universal power-ranker (RC16); Mother Box is not
+verified as an arbitrary goal solver (RC17); Brainiac's collection does not
+prove access to every fact (RC18); Oracle depends on her access (RC19);
+the Watcher's oath is a vow, not physical inability (RC20); danger senses
+warn without explaining (RC21). CW2 now lists changeable in-fiction causes
+and real counterexamples where diffusion succeeds.
+
 ### AB. Abstractions the code would need
 
 Rounds 3 to 10 keep reusing the same few shapes. These are the interfaces
@@ -1786,3 +1800,35 @@ small-graph oracle, frozen golden roadmaps for soap, lamp and thermometer,
 a contextual danger lint (T6's abstract data is not a lint), receipts that
 pin meaning across pack revisions, and measured computation limits. Its
 ready build prompt is being run as lane T16.
+
+### Lane results, part 2 (folded 2026-10-14)
+
+Lanes T5, T7 and T10 to T16 finished; another session committed their
+stranded outputs in `fd176f27`, and the afternoon sweep merged T6 and T16
+into the branch (`5b8989e8`). Everything below stays proposal; no gameplay
+uses the planner yet. T12 and T13 checkpoints still read "started", but
+both reports are complete.
+
+| Lane | What it adds | Duplicates or contradictions | Top pick |
+|---|---|---|---|
+| **T5** procedural invention ([report](gm/dispatch/research-tech-2026-10-14/t5/REPORT.md)) | V1 to V38: verified references (Infinite Craft, Scribblenauts, Dwarf Fortress raws, GOAP, HTN), a function vocabulary, worked roadmaps in two worlds each, offline and runtime model routes. Native glass, potash, charcoal, fat and processed wood recipes already shorten roadmaps | Corrects PI2: an AND/OR display, GOAP search, HTN decomposition and scheduling are related but distinct; keep "make" versus "obtain", task order and capacity separate. Runtime models never replace a frozen validated pack (V34 to V38) | V22: use native glass unlocks as the first real planner witness |
+| **T7** planner for powers ([report](gm/dispatch/research-tech-2026-10-14/t7/REPORT.md)) | A1 onward: per-world power roadmaps keeping each world's source, body, fuel and delivery rules (PP) | Confirms PP5: a deeper graph never certifies canon legality or teaches an innate faculty | A30: project the existing home Rat-step chain into a planner pack |
+| **T10** per-craft micro ([report](gm/dispatch/research-tech-2026-10-14/t10/REPORT.md)) | U1 onward: sensory ladders, mistakes, body costs and tool care for about 18 crafts, nonhuman readings, code hooks | None; fills MS to MU with wording | U40: one skill-dependent cue on a Woodworking or Forging result, text only, no save change |
+| **T11** ambient signs ([report](gm/dispatch/research-tech-2026-10-14/t11/REPORT.md)) | N1 onward: where SW and SE text attaches; worked soap, lamp and copy examples | Corrects SW and SE: signs need an actual saved cause; market saturation cannot reveal a hidden rival project (also T13 R12f) | N19: one earned local sentence from the existing `town.returned` outcome |
+| **T12** expertise and memory ([report](gm/dispatch/research-tech-2026-10-14/t12/REPORT.md), [findings](gm/dispatch/research-tech-2026-10-14/t12/FINDINGS.md)) | K1 to K18 with sources and effect sizes; spacing and retrieval practice have the strongest evidence | Corrects SC: TK is not a scientific scale; Dreyfus stages, deliberate-practice claims and Dunning-Kruger explanations are contested, so SC8 must not stereotype novices; strong experts can be less prone to fixation (SC3) | K1/K2/K11/K16: teach one operative cue to a real recipient (joins T4 S1) |
+| **T13** architecture ([report](gm/dispatch/research-tech-2026-10-14/t13/REPORT.md)) | R1 to R12: module owners, one additive research save envelope, dependency order, writer conflicts | Refines IM6: "non-stacking" is not enough identity, native keys merge equal type, components and quality (R12e). IM2 should store evidence and references, not duplicate economy balances; P34 loreHistory overlaps (R12c) | R11a: first slice = U40 craft cue plus N19 village sentence, then the C1 anomaly |
+| **T14** revealer cards ([report](gm/dispatch/research-tech-2026-10-14/t14/REPORT.md), [cards](gm/dispatch/research-tech-2026-10-14/t14/CARDS.md)) | L codes: 60 cards, RC1 to RC15 in four forms each including a mood form. The real validator accepts 54; six need panel decisions (L30 to L35) | Confirms IM8: the validator's fixed panel list blocks some forms. The 850 KB `cards.json` stays uncommitted; CARDS.md summarizes it | L71: RC2 atlas paired with the planner, actor view versus true graph |
+| **T15** comics ([report](gm/dispatch/research-tech-2026-10-14/t15/REPORT.md)) | M11 to M74: every CW and RC16 to RC23 checked, 24 comic targets, original public-build cheats (psychometric traces, flaw sight, truthful testimony) | Corrections placed under round 10 above | M70: an original-city communicator-to-rescue-drone repair chain that spreads to a second crew |
+| **T16** planner QA ([report](../.claude/worktrees/rt-t16-qa/docs/gm/dispatch/research-tech-2026-10-14/t9-build/REPORT.md)) | Z1 to Z6 built: 128-cell matrix, independent oracle, golden roadmaps, contextual danger lint, receipts, limits. Reports 30 planner, 334 QA and 992 full-suite tests passing; 216 benchmark profiles within target | Merged in `5b8989e8`. Native consumers remain `unbound-demo` | Wire one real consumer only when a slice is chosen |
+
+**Where the lanes agree.** T10, T11, T13 and T12 independently point at the
+same first step: text only, no save change. One skill-dependent craft cue
+(U40) and one earned village sentence (N19). Next comes the C1 anomaly with
+a real evidence store, then teaching one operative cue (T4 S1, T12 K16),
+then one roadmap tied to native glass (T5 V22) with RC2 as the first
+revealer (T14 L71). This matches round 9's build order with the lanes'
+corrections applied.
+
+**Top picks, ranked:** (1) U40 plus N19 text slice; (2) C1 anomaly with the
+IM2 evidence store; (3) teach one operative cue; (4) native-glass roadmap
+plus RC2; (5) M70 or B31 as the first diffusion consequence.
