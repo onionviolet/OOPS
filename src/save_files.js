@@ -1,3 +1,6 @@
+import {validateStreams,validateNativeEncounter} from "./seeded_streams.js";
+import {validateMixtureEnvelope} from './mixture_state.js';
+import {validateStoryletState} from './storylet_deck.js';
 import {validateCheatState} from './cheat_cards.js';
 import {validateCustomizationState} from './customization_profiles.js';
 import {migrateWorkLedger} from './work_ledger_system.js';
@@ -27,6 +30,8 @@ import {validateVillageCareer, WATCHCRAFT_BOOK, WATCHCRAFT_READING, WATCHCRAFT_P
 
 import {validateLifeRecord} from './life_record.js';
 import {validateVillageLives} from './npc_lives.js';
+import {validateGeneratedPeople} from './generated_people.js';
+import {calendarMinutes} from './world_rhythm.js';
 
 const object = (value, label) => {
     if(!value || typeof value !== "object" || Array.isArray(value)) throw new Error(`${label} must be an object.`);
@@ -39,6 +44,7 @@ const number = (value, label, minimum = 0) => {
 
 export function validateSaveEnvelope(original, currentVersion) {
     object(original, "Save");
+    validateMixtureEnvelope(original);
     if(Object.hasOwn(original, "cheats"))validateCheatState(original.cheats);
     if(original.customization!=null)validateCustomizationState(original.customization);
     if(original.work_ledger!=null)migrateWorkLedger(original.work_ledger);
@@ -54,6 +60,7 @@ export function validateSaveEnvelope(original, currentVersion) {
         if(original.village_career.loan?.status==='active' && (original['current location']!=='Village' || original.current_activity?.activity_id!=='patrolling'))throw new Error('Active Village career must have its native patrol.');
     }
     if(original.life_record != null) validateLifeRecord(original.life_record);
+    if(original.generated_people != null) {validateGeneratedPeople(original.generated_people);if(original.generated_people.lastMinute>calendarMinutes(original['current time']))throw Error('Generated people are ahead of this calendar.');}
     if(original.npc_lives != null) {validateVillageLives(original.npc_lives);if(original.npc_lives.lastYear > original["current time"]?.year)throw new Error("Village lives are ahead of this calendar.");}
     const parts = version => {
         if(typeof version !== "string" || !/^v\d+(\.\d+){1,4}$/.test(version)) throw new Error("Unrecognized save version.");
@@ -70,7 +77,10 @@ export function validateSaveEnvelope(original, currentVersion) {
     migrateFortSupply(original);
     if(Object.hasOwn(original,"absorb_local_life"))normalizeLocalLife(original.absorb_local_life);
     const {save, retired} = prepareFoundationSave(original);
-    if(save.expansion != null) validateExpansionState(save.expansion);
+    if(save.expansion != null) {validateExpansionState(save.expansion);validateStoryletState(save.expansion);}
+    if(save.expansion?.streams != null) validateStreams(save.expansion.streams);
+    validateNativeEncounter(save.native_encounter,save["current location"]);
+    if(save.native_encounter && !save.expansion?.streams)throw Error("Saved encounter needs its random streams.");
     validateRealmEnvelope(save);
     validateTidemarkEnvelope(save);
     validateNestedEnvelope(save);

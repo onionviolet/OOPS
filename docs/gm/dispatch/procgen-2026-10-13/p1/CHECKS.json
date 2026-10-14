@@ -1,0 +1,64 @@
+{
+  "completed": "2026-10-14 EDT",
+  "label": "SOURCE",
+  "unit": {
+    "tests": 8,
+    "pass": 8
+  },
+  "fullSuite": {
+    "command": "npm test",
+    "tests": 629,
+    "pass": 629,
+    "fail": 0,
+    "skip": 0
+  },
+  "build": {
+    "command": "npm run build",
+    "result": "PASS",
+    "bundleSha256": "d25d5d6f254b1a4672b73096f355ec7fa620dbdbe874916ab66fcac51fcbde61",
+    "changedSources": [
+      {
+        "file": "src/seeded_streams.js",
+        "sha256": "c0ec7b394e00e65fdf6c8b380aa7aa34770dacafe8ee6f738045ac8011071ba3",
+        "sourceMapMatches": true
+      },
+      {
+        "file": "src/main.js",
+        "sha256": "7c5b8a53d81fc970025d56ef9d1487c26fd9857b69c21cf7391324d48b2e33fb",
+        "sourceMapMatches": true
+      },
+      {
+        "file": "src/save_files.js",
+        "sha256": "b672f78b6d49d916f66d257442566c8527e7545ba2d319d7f5f878582d3d3556",
+        "sourceMapMatches": true
+      },
+      {
+        "file": "src/models/combat.js",
+        "sha256": "e73d170047906527881a0b46cd8b78b713782da5a9b48e9c803bdae99fa2f9a4",
+        "sourceMapMatches": true
+      },
+      {
+        "file": "src/models/location.js",
+        "sha256": "d3181798b406b964f3a94e792aa5c0f89bf5f2f28ca75a1276dfb23a7b2ca56b",
+        "sourceMapMatches": true
+      },
+      {
+        "file": "src/enemies.js",
+        "sha256": "230b2d46f46f7492eb0b5a20c9216856b09926daf16f504f4475e20f2239b422",
+        "sourceMapMatches": true
+      },
+      {
+        "file": "src/components/trader_component.js",
+        "sha256": "f408d1bac7c12e11dd737267ef6bfd3bf9af91e13c6bd7d7b0de5858e5361b6a",
+        "sourceMapMatches": true
+      },
+      {
+        "file": "src/absorb_c2/local_life.js",
+        "sha256": "a5b75139999f0e573f5a0a79709463dafa8269edcccea10b77313e7dc13c0b8d",
+        "sourceMapMatches": true
+      }
+    ]
+  },
+  "diffCheck": "PASS scoped source/tests/report paths",
+  "notes": "dist/ and index.html are verification outputs, excluded from commit"
+}

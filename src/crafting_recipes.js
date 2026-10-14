@@ -2116,3 +2116,9 @@ Object.keys(recipes).forEach(recipe_category => {
 availability_havers.push(Recipe);
 
 export { recipes, find_recipe_material, get_recipe_xp_value, get_crafting_quality_caps, get_component_stats, ItemRecipe }
+
+// Same public gathering routes as existing herbs, no new world or tool gate.
+export function registerMixtureGathering(locations) {
+    const herbs=locations['Forest road']?.activities?.herbalism?.gained_resources?.resources;
+    if(herbs)for(const name of ['River bellleaf','Emberseed'])if(!herbs.some(r=>r.name===name))herbs.push({name,ammount:[[1,1],[1,2]],chance:[0.4,0.8]});
+}

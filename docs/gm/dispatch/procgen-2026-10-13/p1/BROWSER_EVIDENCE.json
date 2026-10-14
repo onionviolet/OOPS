@@ -1,0 +1,45 @@
+{
+  "label": "seeded-native",
+  "profile": "/private/tmp/procgen-p1-profile-1791950392594",
+  "viewports": [
+    "1366x768",
+    "1600x1000"
+  ],
+  "seed": 43,
+  "bundleSha256": "d25d5d6f254b1a4672b73096f355ec7fa620dbdbe874916ab66fcac51fcbde61",
+  "errors": [],
+  "reload": "PASS same saved enemy state and stream state, manual Save writes verified",
+  "nextFightLoot": "PASS same player decision receipts, kill loot and next lineup; native timers, stopped at next kill",
+  "killsBefore": 0,
+  "killsAfter": 1,
+  "hitsBefore": 2,
+  "hitsAfter": 6,
+  "inventoryBefore": {
+    "{\"id\":\"Cheap leather pants\",\"quality\":40}": {
+      "count": 1
+    },
+    "{\"id\":\"Stale bread\"}": {
+      "count": 5
+    }
+  },
+  "inventoryAfter": {
+    "{\"id\":\"Cheap leather pants\",\"quality\":40}": {
+      "count": 1
+    },
+    "{\"id\":\"Stale bread\"}": {
+      "count": 5
+    },
+    "{\"id\":\"Rat tail\"}": {
+      "count": 1
+    }
+  },
+  "trader": "PASS native epoch stock and receipts replay",
+  "literalImport": "PASS downloaded file uploaded through input, exact projection",
+  "root": 874960366,
+  "cells": {
+    "encounter@base.frontier": {
+      "n": 2,
+      "salt": 0
+    }
+  }
+}
