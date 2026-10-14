@@ -405,6 +405,7 @@ function occur(out, registry, d, check, roll) {
     const event = {id, definitionId: d.id, revision: d.revision, actorId, targetId, mode: d.mode, at: state.clock,
         expiresAt: d.lifetime ? state.clock + d.lifetime : null, status: d.mode === "ambient" ? "resolved" : "open", roll,
         label: d.label, responses: copy(d.responses || []), onExpire: copy(d.onExpire || []), discoveredBy: [], cause: check.cause || id};
+    if(d.historyRef)event.historyRef=d.historyRef;
     if(d.storylet) {event.storylet={deck:d.storylet.deck,urgency:d.storylet.urgency,receipt:copy(check.receipt)};if(d.mode === "decision")event.nonBlocking=true;}
     applySimulationEffects(out, d.effects || [], context, registry, id);
     if(d.aware || d.public && actorId === "player") event.discoveredBy.push(actorId);

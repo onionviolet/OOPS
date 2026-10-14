@@ -1,3 +1,4 @@
+import {validateStoryRequests} from './story_requests.js';
 import {drawUnit,scopedStream} from './seeded_streams.js';
 import {deriveSimulationSeed} from './simulation_resolution.js';
 import {generatePersonName} from './name_grammar.js';
@@ -39,7 +40,7 @@ export function validateGeneratedPeople(s) {
         check(natural(p.possessions?.coins)&&p.possessions.coins<=20&&typeof p.possessions.keepsake==='string'&&p.possessions.keepsake.length<=40&&p.possessions.supplies&&Object.keys(p.possessions.supplies).every(k=>k===p.goal.item&&p.possessions.supplies[k]===1),'possessions');
         check(natural(p.arrivedAt)&&p.arrivedAt>=s.enrolledAt&&['visiting','on_road','resident'].includes(p.status)&&typeof p.resident==='boolean'&&(!p.resident||p.goal.fulfilled)&&['arriving','resting','talking','planning','browsing','traveling'].includes(p.action)&&[null,'helped with supplies'].includes(p.relationship),'routine');
         check(!p.goal.fulfilled||(p.met&&p.relationship==='helped with supplies'&&p.possessions.supplies[p.goal.item]===1),'settlement');
-    }return s;
+    }validateStoryRequests(s);return s;
 }
 // Pure hourly projection: no random draws, no offline wall time, no preview mutation.
 // The six-hour routine includes recovery; long calendar jumps cost O(people).
@@ -73,7 +74,7 @@ export function interactGeneratedPerson(state,id,action,{inVillage=true,supplied
     else {
         check(p.met,'meet first');
         if(action==='talk'){const next=p.traits.find(t=>!p.knownTraits.includes(t));check(next,'nothing new to share');p.knownTraits.push(next);}
-        else if(action==='help') {check(!p.goal.fulfilled&&suppliedItem===p.goal.item&&p.possessions.coins>=p.goal.reward,'request needs its actual supply');p.goal.fulfilled=true;p.possessions.supplies[suppliedItem]=1;reward=p.goal.reward;p.possessions.coins-=reward;p.relationship='helped with supplies';}
+        else if(action==='help') {check(!s.storyRequests?.requests.some(r=>r.issuer===id&&['offered','accepted'].includes(r.status)),'use the reserved request');check(!p.goal.fulfilled&&suppliedItem===p.goal.item&&p.possessions.coins>=p.goal.reward,'request needs its actual supply');p.goal.fulfilled=true;p.possessions.supplies[suppliedItem]=1;reward=p.goal.reward;p.possessions.coins-=reward;p.relationship='helped with supplies';}
         else if(action==='settle'){check(p.goal.fulfilled&&!p.resident,'help before offering a place');p.resident=true;p.status='resident';}
         else throw Error('Unknown generated person interaction.');
     }
