@@ -148,6 +148,6 @@ Bottom line: the idea palette is saturated. Six owner docs and about 60 docs lan
 | Code | Item | Level, done check |
 |---|---|---|
 | R3-9 | Seed R3-1/R3-2/R3-3 guard | Economy/medium Codex lane, own worktree. Done: same-seed craft replay test, reload leaves next quality draw unchanged, allowlist test fails on a new `Math.random` in a gameplay file, build passes |
-| R3-10 | Merge pass for R3-4 | Balanced/medium. Done: each branch rebased or merged on current base, full test suite and build pass, desktop browser proof at 1366x768 including Save/reload and literal Import; or a written park reason |
+| R3-10 | Merge pass for R3-4. **Done 2026-10-14**: landed `759dd393`, [report](gm/dispatch/procgen-2026-10-13/r3-merge/REPORT.md); R3-5 STATUS reconciled | Balanced/medium. Done: each branch rebased or merged on current base, full test suite and build pass, desktop browser proof at 1366x768 including Save/reload and literal Import; or a written park reason |
 | R3-11 | Wave 2 playable slice, ranked from P5: per-save appearances (GX5, already coded) + storylets casting generated travelers (B4) + one generated lore recap (P14 top pick) | Strong/high coordinator, balanced workers. Done: Weibao can play it in Village; all three survive Save/reload and Import |
 | R3-12 | Fate-ledger debug view (GL2) as the first lens, scoped to developer mode | Balanced/medium. Reveals only; never shows sealed truths outside their route |
