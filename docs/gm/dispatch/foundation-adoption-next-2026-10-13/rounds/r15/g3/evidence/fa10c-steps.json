@@ -1,0 +1,341 @@
+[
+ {
+  "name": "old-r3-import",
+  "clock": 70,
+  "money": 86,
+  "staminaToFull": 0,
+  "location": "Village",
+  "inv": {
+   "Cheap leather pants": 1,
+   "Stale bread": 5,
+   "Old pickaxe": 1,
+   "Old sickle": 1,
+   "Old shovel": 1,
+   "Rough wood log": 95,
+   "Tree sap": 3,
+   "Cooling salt packet": 3,
+   "Empty cooling sleeve": 2
+  },
+  "jobs": [],
+  "conditions": {},
+  "facts": {}
+ },
+ {
+  "name": "rest-before-expiry",
+  "clock": 863,
+  "money": 47,
+  "staminaToFull": 0,
+  "location": "Village",
+  "inv": {
+   "Cheap leather pants": 1,
+   "Stale bread": 5,
+   "Old pickaxe": 1,
+   "Old sickle": 1,
+   "Old shovel": 1,
+   "Rough wood log": 78,
+   "Cooling salt packet": 1,
+   "Empty cooling sleeve": 2,
+   "Prepared survey kit": 7,
+   "Wax-sealed survey kit": 4,
+   "Dulled field fitting knife": 2,
+   "Set repair resin": 1,
+   "Empty retort resin tray": 1,
+   "Empty retort residue tray": 1,
+   "Empty bench vial": 1,
+   "Unmarked pale vial": 1,
+   "Sound repair stave": 4,
+   "Field fitting knife": 1,
+   "Tree sap": 1,
+   "Cyorian research paper": 1,
+   "Cyorian formula ink": 1,
+   "Bench clearance manual": 1
+  },
+  "jobs": [],
+  "conditions": {},
+  "facts": {
+   "steam.boh.enrolled": true,
+   "nethack_fieldcraft.opened": true,
+   "game_absorption_assay.opened": true,
+   "game_absorption_assay.termsRevision": 1,
+   "game_absorption_assay.negativeTrial": "dull",
+   "steam.boh.diagnosticAvailable": true
+  },
+  "fatigueAtTrialEnd": {
+   "intensity": 1,
+   "expiresAt": 864,
+   "cause": "simulation:4857"
+  },
+  "restStartClock": 861,
+  "restDue": 862,
+  "afterClock": 862
+ },
+ {
+  "name": "compare-after-storage-failure-reload-retry",
+  "clock": 868,
+  "money": 47,
+  "staminaToFull": 0,
+  "location": "Village",
+  "inv": {
+   "Cheap leather pants": 1,
+   "Stale bread": 5,
+   "Old pickaxe": 1,
+   "Old sickle": 1,
+   "Old shovel": 1,
+   "Rough wood log": 78,
+   "Cooling salt packet": 1,
+   "Empty cooling sleeve": 2,
+   "Prepared survey kit": 7,
+   "Wax-sealed survey kit": 4,
+   "Dulled field fitting knife": 2,
+   "Set repair resin": 1,
+   "Empty retort resin tray": 1,
+   "Empty retort residue tray": 1,
+   "Empty bench vial": 1,
+   "Unmarked pale vial": 1,
+   "Sound repair stave": 4,
+   "Field fitting knife": 1,
+   "Tree sap": 1,
+   "Cyorian research paper": 1,
+   "Cyorian formula ink": 1,
+   "Bench clearance manual": 1
+  },
+  "jobs": [],
+  "conditions": {},
+  "facts": {
+   "steam.boh.enrolled": true,
+   "nethack_fieldcraft.opened": true,
+   "game_absorption_assay.opened": true,
+   "game_absorption_assay.termsRevision": 1,
+   "game_absorption_assay.negativeTrial": "dull",
+   "steam.boh.diagnosticAvailable": false,
+   "steam.boh.preparationVersion": 1
+  },
+  "failureUi": [
+   "Your browser has no room for this life. Export your save to a file; your last saved life is still safe.",
+   "Your browser has no room for this life. Export your save to a file; your last saved life is still safe.",
+   "Your browser has no room for this life. Export your save to a file; your last saved life is still safe.",
+   "Your browser has no room for this life. Export your save to a file; your last saved life is still safe.",
+   "Your browser has no room for this life. Export your save to a file; your last saved life is still safe.",
+   "Your browser has no room for this life. Export your save to a file; your last saved life is still safe.",
+   "Your browser has no room for this life. Export your save to a file; your last saved life is still safe.",
+   "Your browser has no room for this life. Export your save to a file; your last saved life is still safe.",
+   "Your browser has no room for this life. Export your save to a file; your last saved life is still safe.",
+   "Your browser has no room for this life. Export your save to a file; your last saved life is still safe.",
+   "Your browser has no room for this life. Export your save to a file; your last saved life is still safe.",
+   "Your browser has no room for this life. Export your save to a file; your last saved life is still safe.",
+   "Your browser has no room for this life. Export your save to a file; your last saved life is still safe.",
+   "Your browser has no room for this life. Export your save to a file; your last saved life is still safe.",
+   "Your browser has no room for this life. Export your save to a file; your last saved life is still safe.",
+   "Your browser has no room for this life. Export your save to a file; your last saved life is still safe.",
+   "Your browser has no room for this life. Export your save to a file; your last saved life is still safe.",
+   "Your browser has no room for this life. Export your save to a file; your last saved life is still safe.",
+   "Your browser has no room for this life. Export your save to a file; your last saved life is still safe.",
+   "Your browser has no room for this life. Export your save to a file; your last saved life is still safe.",
+   "Your browser has no room for this life. Export your save to a file; your last saved life is still safe.",
+   "Your browser has no room for this life. Export your save to a file; your last saved life is still safe.",
+   "Your browser has no room for this life. Export your save to a file; your last saved life is still safe.",
+   "Your browser has no room for this life. Export your save to a file; your last saved life is still safe.",
+   "Your browser has no room for this life. Export your save to a file; your last saved life is still safe.",
+   "Your browser has no room for this life. Export your save to a file; your last saved life is still safe.",
+   "Your browser has no room for this life. Export your save to a file; your last saved life is still safe.",
+   "Your browser has no room for this life. Export your save to a file; your last saved life is still safe."
+  ]
+ },
+ {
+  "name": "travel-attempt-during-read",
+  "clock": 875,
+  "money": 47,
+  "staminaToFull": 0,
+  "location": "Village",
+  "inv": {
+   "Cheap leather pants": 1,
+   "Stale bread": 5,
+   "Old pickaxe": 1,
+   "Old sickle": 1,
+   "Old shovel": 1,
+   "Rough wood log": 78,
+   "Cooling salt packet": 1,
+   "Empty cooling sleeve": 2,
+   "Prepared survey kit": 7,
+   "Wax-sealed survey kit": 4,
+   "Dulled field fitting knife": 2,
+   "Set repair resin": 1,
+   "Empty retort resin tray": 1,
+   "Empty retort residue tray": 1,
+   "Empty bench vial": 1,
+   "Unmarked pale vial": 1,
+   "Sound repair stave": 4,
+   "Field fitting knife": 1,
+   "Tree sap": 1,
+   "Cyorian research paper": 1,
+   "Cyorian formula ink": 1,
+   "Bench clearance manual": 1
+  },
+  "jobs": [],
+  "conditions": {},
+  "facts": {
+   "steam.boh.enrolled": true,
+   "nethack_fieldcraft.opened": true,
+   "game_absorption_assay.opened": true,
+   "game_absorption_assay.termsRevision": 1,
+   "game_absorption_assay.negativeTrial": "dull",
+   "steam.boh.diagnosticAvailable": false,
+   "steam.boh.preparationVersion": 1,
+   "steam.boh.procedureVersion": 1
+  },
+  "travel": [
+   {
+    "t": "Shack",
+    "txt": "check_box_outline_blank Go to [Shack] [10m]",
+    "dis": "false",
+    "vis": false
+   },
+   {
+    "t": "Nearby cave",
+    "txt": "check_box_outline_blank Go to [Nearby cave] [1h]",
+    "dis": "false",
+    "vis": false
+   },
+   {
+    "t": "Infested field",
+    "txt": "warning_amber  Enter the [Infested field] [15m]",
+    "dis": "false",
+    "vis": false
+   },
+   {
+    "t": "Shack",
+    "txt": "bed Travel to [Shack] [10m]",
+    "dis": "false",
+    "vis": false
+   },
+   {
+    "t": "Infested field",
+    "txt": "warning_amber Travel to [Infested field] [15m] ",
+    "dis": "false",
+    "vis": false
+   }
+  ],
+  "clicked": "err locator.click: Timeout 3000ms exceeded.\nCall log:\n  - waiting for locator('[data"
+ },
+ {
+  "name": "travel-attempt-during-copy",
+  "clock": 891,
+  "money": 45,
+  "staminaToFull": 0,
+  "location": "Village",
+  "inv": {
+   "Cheap leather pants": 1,
+   "Stale bread": 5,
+   "Old pickaxe": 1,
+   "Old sickle": 1,
+   "Old shovel": 1,
+   "Rough wood log": 78,
+   "Cooling salt packet": 1,
+   "Empty cooling sleeve": 2,
+   "Prepared survey kit": 9,
+   "Wax-sealed survey kit": 4,
+   "Dulled field fitting knife": 3,
+   "Set repair resin": 1,
+   "Empty retort resin tray": 1,
+   "Empty retort residue tray": 1,
+   "Empty bench vial": 1,
+   "Unmarked pale vial": 1,
+   "Sound repair stave": 2,
+   "Bench clearance manual": 1
+  },
+  "jobs": [
+   [
+    "steam.boh.copy_manual",
+    892
+   ]
+  ],
+  "conditions": {},
+  "facts": {
+   "steam.boh.enrolled": true,
+   "nethack_fieldcraft.opened": true,
+   "game_absorption_assay.opened": true,
+   "game_absorption_assay.termsRevision": 1,
+   "game_absorption_assay.negativeTrial": "dull",
+   "steam.boh.diagnosticAvailable": false,
+   "steam.boh.preparationVersion": 1,
+   "steam.boh.procedureVersion": 1
+  },
+  "vis": [
+   {
+    "t": "Shack",
+    "txt": "check_box_outline_blank Go to [Shack] [10m]",
+    "vis": false
+   },
+   {
+    "t": "Nearby cave",
+    "txt": "check_box_outline_blank Go to [Nearby cave] [1h]",
+    "vis": false
+   },
+   {
+    "t": "Infested field",
+    "txt": "warning_amber  Enter the [Infested field] [15m]",
+    "vis": false
+   },
+   {
+    "t": "Shack",
+    "txt": "bed Travel to [Shack] [10m]",
+    "vis": false
+   },
+   {
+    "t": "Infested field",
+    "txt": "warning_amber Travel to [Infested field] [15m]",
+    "vis": false
+   }
+  ],
+  "clicked": "not visible",
+  "msgs": [
+   "Finish your living-world work or decision first.",
+   "Finish your living-world work or decision first.",
+   "Finish your living-world work or decision first.",
+   "Finish your living-world work or decision first.",
+   "Finish your living-world work or decision first.",
+   "Finish your living-world work or decision first.",
+   "Finish your living-world work or decision first.",
+   "Finish your living-world work or decision first."
+  ]
+ },
+ {
+  "name": "fa10c-final",
+  "clock": 894,
+  "money": 45,
+  "staminaToFull": 0,
+  "location": "Village",
+  "inv": {
+   "Cheap leather pants": 1,
+   "Stale bread": 5,
+   "Old pickaxe": 1,
+   "Old sickle": 1,
+   "Old shovel": 1,
+   "Rough wood log": 78,
+   "Cooling salt packet": 1,
+   "Empty cooling sleeve": 2,
+   "Prepared survey kit": 9,
+   "Wax-sealed survey kit": 4,
+   "Dulled field fitting knife": 3,
+   "Set repair resin": 1,
+   "Empty retort resin tray": 1,
+   "Empty retort residue tray": 1,
+   "Empty bench vial": 1,
+   "Unmarked pale vial": 1,
+   "Sound repair stave": 2,
+   "Bench clearance manual": 2
+  },
+  "jobs": [],
+  "conditions": {},
+  "facts": {
+   "steam.boh.enrolled": true,
+   "nethack_fieldcraft.opened": true,
+   "game_absorption_assay.opened": true,
+   "game_absorption_assay.termsRevision": 1,
+   "game_absorption_assay.negativeTrial": "dull",
+   "steam.boh.diagnosticAvailable": false,
+   "steam.boh.preparationVersion": 1,
+   "steam.boh.procedureVersion": 1
+  }
+ }
+]

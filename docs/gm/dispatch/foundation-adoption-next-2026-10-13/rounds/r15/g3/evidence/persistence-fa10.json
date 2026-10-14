@@ -1,0 +1,117 @@
+[
+ {
+  "checkpoint": {
+   "name": "fa10-prepared",
+   "clock": 917,
+   "exportHash": "c90ee94b6bd3a3a9640757f8cd44fb148231fdc04c2d4804b9ad8417c7bb1e72",
+   "reloadExact": true,
+   "exportExact": false,
+   "importExact": false,
+   "bundle": {
+    "label": "fa10-prepared",
+    "built": "0219035cdbca2beed70a4daa1e9bbe33290845df9bcd15eac6e6af776be5a3d9",
+    "loaded": "0219035cdbca2beed70a4daa1e9bbe33290845df9bcd15eac6e6af776be5a3d9",
+    "match": true
+   }
+  }
+ },
+ {
+  "checkpoint": {
+   "name": "fa10-kits-completed",
+   "clock": 939,
+   "exportHash": "5a6098c8616522f3c98b4d93ebedd1cd860ff992c6e6dbddcc84063b0d3057b9",
+   "reloadExact": true,
+   "importExact": false,
+   "reloadDiff": [],
+   "importDiff": [
+    [
+     ".0.equipment.weapon.stats",
+     null,
+     "{\"attack_speed\":{\"multiplier\":0.71},\"attack_power\":{}}"
+    ],
+    [
+     ".0.equipment.weapon.bonus_skill_levels",
+     null,
+     "{}"
+    ],
+    [
+     ".0.equipment.weapon.attack_power",
+     null,
+     "3.6"
+    ],
+    [
+     ".0.equipment.weapon.inventory_key",
+     null,
+     "\"{\\\"components\\\":{\\\"head\\\":\\\"Cheap iron axe head\\\",\\\"handle\\\":\\\"Simple wooden medium handle\\\"},\\\"quality\\\":50}\""
+    ],
+    [
+     ".0.equipment.weapon.rarity",
+     null,
+     "\"common\""
+    ],
+    [
+     ".0.equipment.axe.stats",
+     null,
+     "{}"
+    ],
+    [
+     ".0.equipment.axe.bonus_skill_levels",
+     null,
+     "{}"
+    ],
+    [
+     ".0.equipment.axe.inventory_key",
+     null,
+     "\"{\\\"id\\\":\\\"Old axe\\\",\\\"quality\\\":100}\""
+    ]
+   ],
+   "exportOnlyDerivedEquipment": true,
+   "exportDiffPaths": [
+    ".0.equipment.weapon.stats",
+    ".0.equipment.weapon.bonus_skill_levels",
+    ".0.equipment.weapon.attack_power",
+    ".0.equipment.weapon.inventory_key",
+    ".0.equipment.weapon.rarity",
+    ".0.equipment.axe.stats",
+    ".0.equipment.axe.bonus_skill_levels",
+    ".0.equipment.axe.inventory_key"
+   ],
+   "bundle": {
+    "label": "fa10-kits-completed",
+    "built": "0219035cdbca2beed70a4daa1e9bbe33290845df9bcd15eac6e6af776be5a3d9",
+    "loaded": "0219035cdbca2beed70a4daa1e9bbe33290845df9bcd15eac6e6af776be5a3d9",
+    "match": true
+   },
+   "pageErrors": []
+  }
+ },
+ {
+  "checkpoint": {
+   "name": "fa10-kits-delivered",
+   "clock": 950,
+   "exportHash": "c74a3130463ee3a867ee889f58dae974429871fe7264c75e5b7d4e378ca2556e",
+   "reloadExact": true,
+   "reloadDiff": [],
+   "exportEqual": true,
+   "importEqual": true,
+   "exportImportOtherDiffs": [],
+   "derivedEquipmentFieldsOnlyInExport": [
+    ".0.equipment.weapon.stats",
+    ".0.equipment.weapon.bonus_skill_levels",
+    ".0.equipment.weapon.attack_power",
+    ".0.equipment.weapon.inventory_key",
+    ".0.equipment.weapon.rarity",
+    ".0.equipment.axe.stats",
+    ".0.equipment.axe.bonus_skill_levels",
+    ".0.equipment.axe.inventory_key"
+   ],
+   "bundle": {
+    "label": "fa10-kits-delivered",
+    "built": "0219035cdbca2beed70a4daa1e9bbe33290845df9bcd15eac6e6af776be5a3d9",
+    "loaded": "0219035cdbca2beed70a4daa1e9bbe33290845df9bcd15eac6e6af776be5a3d9",
+    "match": true
+   },
+   "pageErrors": []
+  }
+ }
+]

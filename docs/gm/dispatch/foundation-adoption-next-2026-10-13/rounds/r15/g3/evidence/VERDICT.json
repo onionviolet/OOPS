@@ -1,0 +1,37 @@
+{
+ "status": "PASS",
+ "browserSteps": 15,
+ "checkpointCount": 13,
+ "checkpoints": [
+  "current-fa10-prepared",
+  "current-fa10-learned",
+  "current-fa10-kits-pending",
+  "current-fa10-kits-completed",
+  "current-fa10-delivered",
+  "current-fa10-failure-retry",
+  "current-fa13-control-pending",
+  "fa13-identified-by-inference",
+  "fa13-pins-recovered",
+  "fa13-pin-kit-delivered",
+  "fa13-final",
+  "current-clouded-negative-pending",
+  "current-old-absent"
+ ],
+ "npmTest": {
+  "label": "source",
+  "pass": 611,
+  "fail": 0
+ },
+ "fa13Probe": {
+  "label": "source",
+  "pass": 13
+ },
+ "browserLabel": "seeded-native",
+ "remainingNative": [
+  "FA10 forced support loss and synthetic guard inputs",
+  "FA10 guided and fine-tool alternatives",
+  "FA13 forced support/body/clock/custody/forged-input cases",
+  "FA13-specific failed storage writes"
+ ],
+ "humanAcceptance": "fiction, pacing and balance remain with Weibao"
+}

@@ -1,0 +1,33 @@
+{
+ "ok": true,
+ "value": {
+  "k": {
+   "tabs": 3,
+   "focusAfter": {
+    "tag": "SUMMARY",
+    "text": "Tools, practice & local lives"
+   }
+  },
+  "pending": [],
+  "identity": {
+   "stage": "understood",
+   "kind": "inference",
+   "text": "Identified by elimination: the clouded batch contains gum wash. Eda's closed list allowed only gum wash or reed oil; you"
+  },
+  "comparison": "inference",
+  "stockSame": true,
+  "buttons": [
+   "Do this: Buy one Clouded bench vial · 2 coins",
+   "Do this: Buy one Gummed fitting pin · 1 coin",
+   "Unavailable: Wash one gummed pin with a clouded charge · 1 stamina + 2 min",
+   "Unavailable: Scrape a gummed pin with your dull knife spine · 2 stamina + 5 min"
+  ],
+  "cp": {
+   "reload": true,
+   "exp": true,
+   "imp": true,
+   "other": [],
+   "errs": []
+  }
+ }
+}

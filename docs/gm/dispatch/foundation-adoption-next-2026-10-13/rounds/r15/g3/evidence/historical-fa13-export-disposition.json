@@ -1,0 +1,26 @@
+[
+ {
+  "historicalCheckpoint": "fa13-identified-by-inference",
+  "historicalHash": "6721de8b11bff58ba3e3b7a64a548af2a13c45d698ca7b08ce88c70ccab98dd5",
+  "latestFileHash": "20b8896a0a37997d9492549b0e0830e17e7b40e9e1c708ac5f2bed7f3256051e",
+  "same": false
+ },
+ {
+  "historicalCheckpoint": "fa13-pins-recovered",
+  "historicalHash": "d3746f5000a4a891ee7403fce390ab8745aee5ef517c76512b344603ec7a597c",
+  "latestFileHash": "55ce8c52e684a34e91a621c6a7f46719eed71b84d71cfd4063356c2fb9b073e7",
+  "same": false
+ },
+ {
+  "historicalCheckpoint": "fa13-pin-kit-delivered",
+  "historicalHash": "854a62d2ac94ca8210e512d764fa3b2833a90fe75e2298cb25e408670c1d9eb6",
+  "latestFileHash": "c8d416931d456f37fddfb326bc43b46b110ecb6c5f6bf2a6fda66d5b0aca8a55",
+  "same": false
+ },
+ {
+  "historicalCheckpoint": "fa13-final",
+  "historicalHash": "737363b2b7f3245b5e8563e55fb5364878b8b0ca9ea7cff465f41a022d4f5f3c",
+  "latestFileHash": "737363b2b7f3245b5e8563e55fb5364878b8b0ca9ea7cff465f41a022d4f5f3c",
+  "same": true
+ }
+]

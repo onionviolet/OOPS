@@ -1,0 +1,18 @@
+globalThis.runName='current-copy-cancel';globalThis.steps=[];log=[];
+await importFile(path.join(dir,'fixture/TEST-FIXTURE-R15-G3-FA10.txt'));
+await page.waitForTimeout(1000);await waitPlay();await play();
+const L='Bench clearance study',owner='feature_objects.miri';
+const pick=s=>({...brief(s),edaStamina:s.expansion.simulation.people[owner].vitals.stamina,edaCoins:s.expansion.actors[owner].resources.coins});
+const pre=await save(),out={before:pick(pre)};
+out.copyKey=await keyAct(L,'Commission a clearance manual');
+let s=await stored();out.pending=pick(s);
+check(out.pending.edaStamina===out.before.edaStamina-1,'actual Eda pays one reserved stamina');
+check(s.character.money===pre.character.money-2,'two coins held');
+out.cancelKey=await keyAct(L,'Cancel work','Space');
+s=await save();out.cancelled=pick(s);
+check(out.cancelled.edaStamina===out.before.edaStamina && out.cancelled.edaCoins===out.before.edaCoins,'actual Eda effort returned and purse unchanged');
+check(s.character.money===pre.character.money,'player purse returned');
+for(const k of new Set([...Object.keys(inv(pre)),...Object.keys(inv(s))]))check(n(s,k)===n(pre,k),'returned counted '+k);
+check(!s.expansion.simulation.jobs.length,'no pending copy');
+await record('current-copy-cancel-actual-owner',out);
+return out;

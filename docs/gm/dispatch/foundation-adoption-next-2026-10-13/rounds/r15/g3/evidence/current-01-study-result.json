@@ -1,0 +1,303 @@
+{
+ "ok": true,
+ "value": {
+  "before": {
+   "clock": 867,
+   "money": 47,
+   "staminaToFull": 0,
+   "location": "Village",
+   "inv": {
+    "Cheap leather pants": 1,
+    "Stale bread": 5,
+    "Old pickaxe": 1,
+    "Old sickle": 1,
+    "Old shovel": 1,
+    "Rough wood log": 78,
+    "Cooling salt packet": 1,
+    "Empty cooling sleeve": 2,
+    "Prepared survey kit": 7,
+    "Wax-sealed survey kit": 4,
+    "Dulled field fitting knife": 2,
+    "Bench clearance manual": 1,
+    "Set repair resin": 1,
+    "Empty retort resin tray": 1,
+    "Empty retort residue tray": 1,
+    "Empty bench vial": 1,
+    "Unmarked pale vial": 1,
+    "Sound repair stave": 4,
+    "Field fitting knife": 1,
+    "Tree sap": 1,
+    "Cyorian research paper": 1,
+    "Cyorian formula ink": 1
+   },
+   "jobs": [],
+   "conditions": {}
+  },
+  "trialKey": {
+   "tabs": 2,
+   "focused": {
+    "tag": "BUTTON",
+    "text": "Do this: Try the difficult reading · manual + sample set aside + 2 stamina + 3 min",
+    "focusVisible": true,
+    "outline": "solid 3px rgb(255, 229, 138)"
+   },
+   "key": "Enter",
+   "notice": "",
+   "focusAfter": {
+    "tag": "BUTTON",
+    "text": "Unavailable: Try the difficult reading · manual + sample set aside + 2 stamina +"
+   }
+  },
+  "trialPending": {
+   "clock": 868,
+   "money": 47,
+   "staminaToFull": 2,
+   "location": "Village",
+   "inv": {
+    "Cheap leather pants": 1,
+    "Stale bread": 5,
+    "Old pickaxe": 1,
+    "Old sickle": 1,
+    "Old shovel": 1,
+    "Rough wood log": 78,
+    "Cooling salt packet": 1,
+    "Empty cooling sleeve": 2,
+    "Prepared survey kit": 7,
+    "Wax-sealed survey kit": 4,
+    "Dulled field fitting knife": 2,
+    "Set repair resin": 1,
+    "Empty retort resin tray": 1,
+    "Empty retort residue tray": 1,
+    "Empty bench vial": 1,
+    "Unmarked pale vial": 1,
+    "Sound repair stave": 3,
+    "Field fitting knife": 1,
+    "Tree sap": 1,
+    "Cyorian research paper": 1,
+    "Cyorian formula ink": 1
+   },
+   "jobs": [
+    [
+     "steam.boh.trial",
+     870
+    ]
+   ],
+   "conditions": {}
+  },
+  "diagnostic": {
+   "stage": "seen",
+   "value": "You can identify the sound stave, but the diagrams leave one question unanswered: how much room does the knife’s edge need beside the marked working strip? This missing edge-clearance comparison is where the reading stopped. Your manual and sample return. You still need to settle that comparison before learning the method.",
+   "at": 870,
+   "cause": "simulation:4867",
+   "basis": {
+    "kind": "observation",
+    "attributedTo": "player",
+    "situationId": "feature_objects.sluice"
+   }
+  },
+  "fatigue": {
+   "intensity": 1,
+   "expiresAt": 874,
+   "cause": "simulation:4867"
+  },
+  "restKey": {
+   "tabs": 2,
+   "focused": {
+    "tag": "BUTTON",
+    "text": "Do this: Rest from clearance study · 2 min",
+    "focusVisible": true,
+    "outline": "solid 3px rgb(255, 229, 138)"
+   },
+   "key": "Enter",
+   "notice": "",
+   "focusAfter": {
+    "tag": "BUTTON",
+    "text": "Unavailable: Rest from clearance study · 2 min"
+   }
+  },
+  "restPending": {
+   "clock": 871,
+   "money": 47,
+   "staminaToFull": 0,
+   "location": "Village",
+   "inv": {
+    "Cheap leather pants": 1,
+    "Stale bread": 5,
+    "Old pickaxe": 1,
+    "Old sickle": 1,
+    "Old shovel": 1,
+    "Rough wood log": 78,
+    "Cooling salt packet": 1,
+    "Empty cooling sleeve": 2,
+    "Prepared survey kit": 7,
+    "Wax-sealed survey kit": 4,
+    "Dulled field fitting knife": 2,
+    "Set repair resin": 1,
+    "Empty retort resin tray": 1,
+    "Empty retort residue tray": 1,
+    "Empty bench vial": 1,
+    "Unmarked pale vial": 1,
+    "Sound repair stave": 4,
+    "Field fitting knife": 1,
+    "Tree sap": 1,
+    "Cyorian research paper": 1,
+    "Cyorian formula ink": 1,
+    "Bench clearance manual": 1
+   },
+   "jobs": [
+    [
+     "steam.boh.rest",
+     872
+    ]
+   ],
+   "conditions": {
+    "steam.boh.study_fatigue": {
+     "intensity": 1,
+     "expiresAt": 874,
+     "cause": "simulation:4867"
+    }
+   }
+  },
+  "rested": {
+   "clock": 872,
+   "money": 47,
+   "staminaToFull": 0,
+   "location": "Village",
+   "inv": {
+    "Cheap leather pants": 1,
+    "Stale bread": 5,
+    "Old pickaxe": 1,
+    "Old sickle": 1,
+    "Old shovel": 1,
+    "Rough wood log": 78,
+    "Cooling salt packet": 1,
+    "Empty cooling sleeve": 2,
+    "Prepared survey kit": 7,
+    "Wax-sealed survey kit": 4,
+    "Dulled field fitting knife": 2,
+    "Set repair resin": 1,
+    "Empty retort resin tray": 1,
+    "Empty retort residue tray": 1,
+    "Empty bench vial": 1,
+    "Unmarked pale vial": 1,
+    "Sound repair stave": 4,
+    "Field fitting knife": 1,
+    "Tree sap": 1,
+    "Cyorian research paper": 1,
+    "Cyorian formula ink": 1,
+    "Bench clearance manual": 1
+   },
+   "jobs": [],
+   "conditions": {}
+  },
+  "compareKey": {
+   "tabs": 2,
+   "focused": {
+    "tag": "BUTTON",
+    "text": "Do this: Resolve the missing clearance comparison · manual + sample set aside + 2 min",
+    "focusVisible": true,
+    "outline": "solid 3px rgb(255, 229, 138)"
+   },
+   "key": "Enter",
+   "notice": "",
+   "focusAfter": {
+    "tag": "BUTTON",
+    "text": "Unavailable: Resolve the missing clearance comparison · manual + sample set asid"
+   }
+  },
+  "prepared": {
+   "name": "current-fa10-prepared",
+   "clock": 874,
+   "exportHash": "f851a9f25c43c85597cc4713d5e84e39d6a2598ea4b7466cf9540c13d9c48f1c",
+   "reloadExact": true,
+   "reloadDiff": [],
+   "exportEqual": true,
+   "importEqual": true,
+   "exportImportOtherDiffs": [],
+   "derivedEquipmentFieldsOnlyInExport": [
+    ".0.equipment.weapon.rarity"
+   ],
+   "bundle": {
+    "label": "current-fa10-prepared",
+    "built": "84746e7891da46f2f7a7f89cf67a712f43c31454c5c479da065fb53eff734e1c",
+    "loaded": "84746e7891da46f2f7a7f89cf67a712f43c31454c5c479da065fb53eff734e1c",
+    "match": true
+   },
+   "pageErrors": []
+  },
+  "readKey": {
+   "tabs": 2,
+   "focused": {
+    "tag": "BUTTON",
+    "text": "Do this: Read the prepared manual · manual set aside + 1 stamina + 3 min",
+    "focusVisible": true,
+    "outline": "solid 3px rgb(255, 229, 138)"
+   },
+   "key": "Space",
+   "notice": "",
+   "focusAfter": {
+    "tag": "BUTTON",
+    "text": "Unavailable: Read the prepared manual · manual set aside + 1 stamina + 3 min"
+   }
+  },
+  "learned": {
+   "name": "current-fa10-learned",
+   "clock": 878,
+   "exportHash": "db6deeb4908eea32384251ec21c9e509ff58daa2703ca5f9cc790200836798e7",
+   "reloadExact": true,
+   "reloadDiff": [],
+   "exportEqual": true,
+   "importEqual": true,
+   "exportImportOtherDiffs": [],
+   "derivedEquipmentFieldsOnlyInExport": [
+    ".0.equipment.weapon.stats",
+    ".0.equipment.weapon.bonus_skill_levels",
+    ".0.equipment.weapon.attack_power",
+    ".0.equipment.weapon.inventory_key",
+    ".0.equipment.weapon.rarity",
+    ".0.equipment.axe.stats",
+    ".0.equipment.axe.bonus_skill_levels",
+    ".0.equipment.axe.inventory_key"
+   ],
+   "bundle": {
+    "label": "current-fa10-learned",
+    "built": "84746e7891da46f2f7a7f89cf67a712f43c31454c5c479da065fb53eff734e1c",
+    "loaded": "84746e7891da46f2f7a7f89cf67a712f43c31454c5c479da065fb53eff734e1c",
+    "match": true
+   },
+   "pageErrors": []
+  },
+  "end": {
+   "clock": 878,
+   "money": 47,
+   "staminaToFull": 0,
+   "location": "Village",
+   "inv": {
+    "Cheap leather pants": 1,
+    "Stale bread": 5,
+    "Old pickaxe": 1,
+    "Old sickle": 1,
+    "Old shovel": 1,
+    "Rough wood log": 78,
+    "Cooling salt packet": 1,
+    "Empty cooling sleeve": 2,
+    "Prepared survey kit": 7,
+    "Wax-sealed survey kit": 4,
+    "Dulled field fitting knife": 2,
+    "Set repair resin": 1,
+    "Empty retort resin tray": 1,
+    "Empty retort residue tray": 1,
+    "Empty bench vial": 1,
+    "Unmarked pale vial": 1,
+    "Sound repair stave": 4,
+    "Field fitting knife": 1,
+    "Tree sap": 1,
+    "Cyorian research paper": 1,
+    "Cyorian formula ink": 1,
+    "Bench clearance manual": 1
+   },
+   "jobs": [],
+   "conditions": {}
+  }
+ }
+}

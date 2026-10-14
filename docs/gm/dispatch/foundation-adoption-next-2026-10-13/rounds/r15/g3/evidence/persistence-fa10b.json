@@ -1,0 +1,133 @@
+[
+ {
+  "checkpoint": {
+   "name": "fa10b-fatigued",
+   "clock": 866,
+   "exportHash": "039b9ce490ae0b82a6d76ddf6c9292c886d6790f98a9ac7c593bfe6fc0468680",
+   "reloadExact": true,
+   "reloadDiff": [],
+   "exportEqual": true,
+   "importEqual": true,
+   "exportImportOtherDiffs": [],
+   "derivedEquipmentFieldsOnlyInExport": [
+    ".0.equipment.weapon.rarity"
+   ],
+   "bundle": {
+    "label": "fa10b-fatigued",
+    "built": "57d06fa48f51bc8653da44f5280dce06f1c9f0b1a9753dc5b792b9be0b567d6f",
+    "loaded": "57d06fa48f51bc8653da44f5280dce06f1c9f0b1a9753dc5b792b9be0b567d6f",
+    "match": true
+   },
+   "pageErrors": []
+  }
+ },
+ {
+  "checkpoint": {
+   "name": "fa10b-learned",
+   "clock": 877,
+   "exportHash": "73e1051f02683c9598eecae571457ec7bbaf032c19e9712f59dc89a6972eeeb5",
+   "reloadExact": true,
+   "reloadDiff": [],
+   "exportEqual": true,
+   "importEqual": true,
+   "exportImportOtherDiffs": [],
+   "derivedEquipmentFieldsOnlyInExport": [
+    ".0.equipment.weapon.rarity"
+   ],
+   "bundle": {
+    "label": "fa10b-learned",
+    "built": "57d06fa48f51bc8653da44f5280dce06f1c9f0b1a9753dc5b792b9be0b567d6f",
+    "loaded": "57d06fa48f51bc8653da44f5280dce06f1c9f0b1a9753dc5b792b9be0b567d6f",
+    "match": true
+   },
+   "pageErrors": []
+  }
+ },
+ {
+  "checkpoint": {
+   "name": "fa10b-kits-pending",
+   "clock": 885,
+   "exportHash": "fb54a901eeef279f75968f533366342656606463c3db9c0a7f3d6dccf406e886",
+   "reloadExact": true,
+   "reloadDiff": [],
+   "exportEqual": true,
+   "importEqual": true,
+   "exportImportOtherDiffs": [],
+   "derivedEquipmentFieldsOnlyInExport": [
+    ".0.equipment.weapon.stats",
+    ".0.equipment.weapon.bonus_skill_levels",
+    ".0.equipment.weapon.attack_power",
+    ".0.equipment.weapon.inventory_key",
+    ".0.equipment.weapon.rarity",
+    ".0.equipment.axe.stats",
+    ".0.equipment.axe.bonus_skill_levels",
+    ".0.equipment.axe.inventory_key"
+   ],
+   "bundle": {
+    "label": "fa10b-kits-pending",
+    "built": "57d06fa48f51bc8653da44f5280dce06f1c9f0b1a9753dc5b792b9be0b567d6f",
+    "loaded": "57d06fa48f51bc8653da44f5280dce06f1c9f0b1a9753dc5b792b9be0b567d6f",
+    "match": true
+   },
+   "pageErrors": []
+  }
+ },
+ {
+  "checkpoint": {
+   "name": "fa10b-kits-completed",
+   "clock": 887,
+   "exportHash": "252ff8865180ab3450d8aadf84f0ab8c05f81d00228248738433c8697feca764",
+   "reloadExact": true,
+   "reloadDiff": [],
+   "exportEqual": true,
+   "importEqual": true,
+   "exportImportOtherDiffs": [],
+   "derivedEquipmentFieldsOnlyInExport": [
+    ".0.equipment.weapon.stats",
+    ".0.equipment.weapon.bonus_skill_levels",
+    ".0.equipment.weapon.attack_power",
+    ".0.equipment.weapon.inventory_key",
+    ".0.equipment.weapon.rarity",
+    ".0.equipment.axe.stats",
+    ".0.equipment.axe.bonus_skill_levels",
+    ".0.equipment.axe.inventory_key"
+   ],
+   "bundle": {
+    "label": "fa10b-kits-completed",
+    "built": "57d06fa48f51bc8653da44f5280dce06f1c9f0b1a9753dc5b792b9be0b567d6f",
+    "loaded": "57d06fa48f51bc8653da44f5280dce06f1c9f0b1a9753dc5b792b9be0b567d6f",
+    "match": true
+   },
+   "pageErrors": []
+  }
+ },
+ {
+  "checkpoint": {
+   "name": "fa10b-kits-delivered",
+   "clock": 890,
+   "exportHash": "83179278cccdaa2c78c5729fa1917e2adf9915acca0eff0e3118a8561ce590d8",
+   "reloadExact": true,
+   "reloadDiff": [],
+   "exportEqual": true,
+   "importEqual": true,
+   "exportImportOtherDiffs": [],
+   "derivedEquipmentFieldsOnlyInExport": [
+    ".0.equipment.weapon.stats",
+    ".0.equipment.weapon.bonus_skill_levels",
+    ".0.equipment.weapon.attack_power",
+    ".0.equipment.weapon.inventory_key",
+    ".0.equipment.weapon.rarity",
+    ".0.equipment.axe.stats",
+    ".0.equipment.axe.bonus_skill_levels",
+    ".0.equipment.axe.inventory_key"
+   ],
+   "bundle": {
+    "label": "fa10b-kits-delivered",
+    "built": "57d06fa48f51bc8653da44f5280dce06f1c9f0b1a9753dc5b792b9be0b567d6f",
+    "loaded": "57d06fa48f51bc8653da44f5280dce06f1c9f0b1a9753dc5b792b9be0b567d6f",
+    "match": true
+   },
+   "pageErrors": []
+  }
+ }
+]

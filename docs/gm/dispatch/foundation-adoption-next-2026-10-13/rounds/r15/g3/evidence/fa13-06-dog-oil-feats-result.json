@@ -1,0 +1,288 @@
+{
+ "ok": true,
+ "value": {
+  "start": {
+   "clock": 938,
+   "money": 45,
+   "ration": 0,
+   "vial": 0,
+   "empty": 3,
+   "pin": 1,
+   "dog": {
+    "satiety": 0,
+    "lessons": 0,
+    "stamina": 4,
+    "willing": true
+   },
+   "scent": null,
+   "feats": [
+    "bench_liquid_discovery"
+   ],
+   "jobs": []
+  },
+  "before": [
+   "Do this: Buy one Unmarked pale vial · 2 coins",
+   "Do this: Buy one Workshop ration · 1 coin",
+   "Unavailable: Apply a pale vial to your own dull plain knife · 1 stamina + 3 min",
+   "Unavailable: Scent Eda's recess with identified reed oil · 1 stamina",
+   "Unavailable: Feed Rill one Workshop ration · up to 2 satiety + 2 dog stamina",
+   "Unavailable: Practice one ordinary scent lesson with Rill · 2 min + care effort",
+   "Do this: Recover one of Eda's actual pins by hand · 2 stamina + 4 min",
+   "Unavailable: Bind one pin, sound stave and set resin into a survey kit · 1 stamina + 3 min",
+   "Do this: Hand Rill's workshop attention back to Eda"
+  ],
+  "bought": {
+   "clock": 943,
+   "money": 40,
+   "ration": 3,
+   "vial": 1,
+   "empty": 3,
+   "pin": 1,
+   "dog": {
+    "satiety": 0,
+    "lessons": 0,
+    "stamina": 4,
+    "willing": true
+   },
+   "scent": null,
+   "feats": [
+    "bench_liquid_discovery"
+   ],
+   "jobs": []
+  },
+  "fed1": {
+   "clock": 944,
+   "money": 40,
+   "ration": 2,
+   "vial": 1,
+   "empty": 3,
+   "pin": 1,
+   "dog": {
+    "satiety": 2,
+    "lessons": 0,
+    "stamina": 4,
+    "willing": true
+   },
+   "scent": null,
+   "feats": [
+    "bench_liquid_discovery"
+   ],
+   "jobs": []
+  },
+  "lesson1": {
+   "clock": 946,
+   "money": 40,
+   "ration": 2,
+   "vial": 1,
+   "empty": 3,
+   "pin": 1,
+   "dog": {
+    "satiety": 1,
+    "lessons": 1,
+    "stamina": 3,
+    "willing": true
+   },
+   "scent": null,
+   "feats": [
+    "bench_liquid_discovery"
+   ],
+   "jobs": []
+  },
+  "lesson2": {
+   "clock": 948,
+   "money": 40,
+   "ration": 2,
+   "vial": 1,
+   "empty": 3,
+   "pin": 1,
+   "dog": {
+    "satiety": 0,
+    "lessons": 2,
+    "stamina": 2,
+    "willing": true
+   },
+   "scent": null,
+   "feats": [
+    "bench_liquid_discovery"
+   ],
+   "jobs": []
+  },
+  "afterLessons": [
+   "Do this: Buy one Unmarked pale vial · 2 coins",
+   "Do this: Buy one Workshop ration · 1 coin",
+   "Do this: Apply a pale vial to your own dull plain knife · 1 stamina + 3 min",
+   "Do this: Scent Eda's recess with identified reed oil · 1 stamina",
+   "Do this: Feed Rill one Workshop ration · up to 2 satiety + 2 dog stamina",
+   "Do this: Recover one of Eda's actual pins by hand · 2 stamina + 4 min",
+   "Unavailable: Ask trained Rill to retrieve one actual pin · care + 1 stamina + 1 min",
+   "Unavailable: Bind one pin, sound stave and set resin into a survey kit · 1 stamina + 3 min",
+   "Do this: Hand Rill's workshop attention back to Eda"
+  ],
+  "fed3": {
+   "clock": 950,
+   "money": 40,
+   "ration": 0,
+   "vial": 1,
+   "empty": 3,
+   "pin": 1,
+   "dog": {
+    "satiety": 4,
+    "lessons": 2,
+    "stamina": 4,
+    "willing": true
+   },
+   "scent": null,
+   "feats": [
+    "bench_liquid_discovery"
+   ],
+   "jobs": []
+  },
+  "fullRefusal": "Feed Rill one Workshop ration · up to 2 satiety + 2 dog stamina\n\nRations are dog food; pale vials are not. Full satiety refuses feeding without spending anything. Feeding remains possible during a calm handoff.\n\nUnavailable\n\nKnown requirements\nReturn to the Village with your supported living body and local played clock.\nRecover your usable hands for bench work.\nYour health: at least 2. (met)\nEda needs her present living body and permission.\nRill is already full; keep the ration.\nWhy this is unavailable\nThis action is not available under the current conditions. Review the known preparation or choose another action.\nStated costs\n1 Workshop ration. You have 0 available.\n\nTime terms: Immediate action.\n\nReserved\nEda, Village sluice fitter is reserved for this accepted work.\nUnavailable: Feed Rill one Workshop ration · up to 2 satiety + 2 dog stamina",
+  "noScentRefusal": "Ask trained Rill to retrieve one actual pin · care + 1 stamina + 1 min\n\nRequires two earned lessons, current consent, jaws, four legs, health, attention and co-location. Lost scent or support at completion returns reserved pin and effort and produces no result.\n\nUnavailable\n\nKnown requirements\nReturn to the Village with your supported living body and local played clock.\nRecover your usable hands for bench work.\nYour health: at least 2. (met)\nEda needs her present living body and permission.\nRill needs present willingness, a living body, usable jaws and all four legs.\nFeed Rill a Workshop ration before asking for effort.\nRill needs one actual stamina.\nApply identified reed oil to this recess first.\nWhy this is unavailable\nThis action is not available under the current conditions. Review the known preparation or choose another action.\nStated costs\n1 stamina. You have 50.849999999999994 available.\nEda, Village sluice fitter: 1 Recovered fitting pin.\n\nTime terms: 1 played minutes under the known terms.\n\nCancellation: Cancelling returns reserved inputs. Time already played is not returned.\n\nReserved\nYour attention is reserved while the accepted work runs.\nEda, Village sluice fitter is reserved for this accepted work.\nA place at Eda's dry fitting bench is reserved for this work.\nUnavailable: Ask trained Rill to retrieve one actual pin · care + 1 stamina + 1 min",
+  "scented": {
+   "clock": 951,
+   "money": 40,
+   "ration": 0,
+   "vial": 0,
+   "empty": 4,
+   "pin": 1,
+   "dog": {
+    "satiety": 4,
+    "lessons": 2,
+    "stamina": 4,
+    "willing": true
+   },
+   "scent": null,
+   "feats": [
+    "bench_liquid_discovery",
+    "reed_oil_two_uses"
+   ],
+   "jobs": []
+  },
+  "dogPending": {
+   "clock": 952,
+   "money": 40,
+   "ration": 0,
+   "vial": 0,
+   "empty": 4,
+   "pin": 2,
+   "dog": {
+    "satiety": 3,
+    "lessons": 2,
+    "stamina": 3,
+    "willing": true
+   },
+   "scent": null,
+   "feats": [
+    "bench_liquid_discovery",
+    "reed_oil_two_uses",
+    "rill_retrieved_real_stock"
+   ],
+   "jobs": []
+  },
+  "dogRetrieved": {
+   "clock": 952,
+   "money": 40,
+   "ration": 0,
+   "vial": 0,
+   "empty": 4,
+   "pin": 2,
+   "dog": {
+    "satiety": 3,
+    "lessons": 2,
+    "stamina": 3,
+    "willing": true
+   },
+   "scent": null,
+   "feats": [
+    "bench_liquid_discovery",
+    "reed_oil_two_uses",
+    "rill_retrieved_real_stock"
+   ],
+   "jobs": []
+  },
+  "manualRetrieved": {
+   "clock": 956,
+   "money": 40,
+   "ration": 0,
+   "vial": 0,
+   "empty": 4,
+   "pin": 3,
+   "dog": {
+    "satiety": 3,
+    "lessons": 2,
+    "stamina": 3,
+    "willing": true
+   },
+   "scent": null,
+   "feats": [
+    "bench_liquid_discovery",
+    "reed_oil_two_uses",
+    "rill_retrieved_real_stock"
+   ],
+   "jobs": []
+  },
+  "pinsExhausted": "Recover one of Eda's actual pins by hand · 2 stamina + 4 min\n\nA complete ordinary route. The accepted recovery removes one actual pin into reservation; completion hands that pin to you. Cancellation returns it to Eda.\n\nUnavailable\n\nKnown requirements\nReturn to the Village with your supported living body and local played clock.\nRecover your usable hands for bench work.\nYour health: at least 2. (met)\nEda needs her present living body and permission.\nBoth finite pins have already been retrieved or reserved.\nWhy this is unavailable\nThis action is not available under the current conditions. Review the known preparation or choose another action.\nStated costs\n2 stamina. You have 50.849999999999994 available.\nEda, Village sluice fitter: 1 Recovered fitting pin.\n\nTime terms: 4 played minutes under the known terms.\n\nCancellation: Cancelling returns reserved inputs. Time already played is not returned.\n\nReserved\nYour attention is reserved while the accepted work runs.\nEda, Village sluice fitter is reserved for this accepted work.\nA place at Eda's dry fitting bench is reserved for this work.\nUnavailable: Recover one of Eda's actual pins by hand · 2 stamina + 4 min",
+  "handoff": {
+   "clock": 957,
+   "money": 40,
+   "ration": 0,
+   "vial": 0,
+   "empty": 4,
+   "pin": 3,
+   "dog": {
+    "satiety": 3,
+    "lessons": 2,
+    "stamina": 3,
+    "willing": false
+   },
+   "scent": null,
+   "feats": [
+    "bench_liquid_discovery",
+    "reed_oil_two_uses",
+    "rill_retrieved_real_stock"
+   ],
+   "jobs": []
+  },
+  "afterHandoff": [
+   "Do this: Buy one Unmarked pale vial · 2 coins",
+   "Do this: Buy one Workshop ration · 1 coin",
+   "Unavailable: Apply a pale vial to your own dull plain knife · 1 stamina + 3 min",
+   "Unavailable: Scent Eda's recess with identified reed oil · 1 stamina",
+   "Unavailable: Feed Rill one Workshop ration · up to 2 satiety + 2 dog stamina",
+   "Unavailable: Recover one of Eda's actual pins by hand · 2 stamina + 4 min",
+   "Unavailable: Ask trained Rill to retrieve one actual pin · care + 1 stamina + 1 min",
+   "Unavailable: Bind one pin, sound stave and set resin into a survey kit · 1 stamina + 3 min",
+   "Do this: Ask Eda and Rill to resume willing workshop practice"
+  ],
+  "resumed": {
+   "clock": 958,
+   "money": 40,
+   "ration": 0,
+   "vial": 0,
+   "empty": 4,
+   "pin": 3,
+   "dog": {
+    "satiety": 3,
+    "lessons": 2,
+    "stamina": 3,
+    "willing": true
+   },
+   "scent": null,
+   "feats": [
+    "bench_liquid_discovery",
+    "reed_oil_two_uses",
+    "rill_retrieved_real_stock"
+   ],
+   "jobs": []
+  },
+  "featRecords": [],
+  "cp": {
+   "reload": true,
+   "exp": true,
+   "imp": true,
+   "other": [],
+   "errs": []
+  }
+ }
+}

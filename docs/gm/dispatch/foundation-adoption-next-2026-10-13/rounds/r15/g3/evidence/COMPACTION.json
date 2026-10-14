@@ -1,0 +1,194 @@
+[
+ {
+  "name": "current-clouded-negative-pending-export.txt",
+  "sha256": "88c387272eda8257940fd12f551ae0e35b340ed398a2af921bf000155437b718",
+  "bytes": 185996,
+  "retainedAs": "current-clouded-negative-pending-export.txt.gz"
+ },
+ {
+  "name": "current-fa10-delivered-export.txt",
+  "sha256": "ce2ad3e070314c7357db4a10cdb27907bd262e8507e85b63c191c39d0f779894",
+  "bytes": 186792,
+  "retainedAs": "current-fa10-delivered-export.txt.gz"
+ },
+ {
+  "name": "current-fa10-failure-retry-export.txt",
+  "sha256": "8140df824e7bc75d3c395cb525bb0609f888ac38f91b9a6a7f33d1417d9730ee",
+  "bytes": 186800,
+  "retainedAs": "current-fa10-failure-retry-export.txt.gz"
+ },
+ {
+  "name": "current-fa10-kits-completed-export.txt",
+  "sha256": "40b8e0a5cb5ac2b5f96b8d0360ac265c8af227ca5e275bf49bdd3ca5f6462a94",
+  "bytes": 186772,
+  "retainedAs": "current-fa10-kits-completed-export.txt.gz"
+ },
+ {
+  "name": "current-fa10-kits-pending-export.txt",
+  "sha256": "652e079371af4f38811ca09a17fdd23d4087ac5e77339308618e4bc35bfb306c",
+  "bytes": 189724,
+  "retainedAs": "current-fa10-kits-pending-export.txt.gz"
+ },
+ {
+  "name": "current-fa10-learned-export.txt",
+  "sha256": "db6deeb4908eea32384251ec21c9e509ff58daa2703ca5f9cc790200836798e7",
+  "bytes": 186208,
+  "retainedAs": "current-fa10-learned-export.txt.gz"
+ },
+ {
+  "name": "current-fa10-prepared-export.txt",
+  "sha256": "f851a9f25c43c85597cc4713d5e84e39d6a2598ea4b7466cf9540c13d9c48f1c",
+  "bytes": 185180,
+  "retainedAs": "current-fa10-prepared-export.txt.gz"
+ },
+ {
+  "name": "current-fa13-control-pending-export.txt",
+  "sha256": "d005008853d3e8805a06a76ef8f697cd5bd355194e368b639ae23eec9a0b870e",
+  "bytes": 185316,
+  "retainedAs": "current-fa13-control-pending-export.txt.gz"
+ },
+ {
+  "name": "current-old-absent-export.txt",
+  "sha256": "1a470ac1731691c85745c25e974fd46e39c548fb20e38e812605fa711ea724e2",
+  "bytes": 108088,
+  "retainedAs": "current-old-absent-export.txt.gz"
+ },
+ {
+  "name": "fa10-kits-completed-export.txt",
+  "sha256": "5a6098c8616522f3c98b4d93ebedd1cd860ff992c6e6dbddcc84063b0d3057b9",
+  "bytes": 185940,
+  "disposition": "superseded by current merged-build checkpoint; original retained in local archive"
+ },
+ {
+  "name": "fa10-kits-delivered-export.txt",
+  "sha256": "c74a3130463ee3a867ee889f58dae974429871fe7264c75e5b7d4e378ca2556e",
+  "bytes": 185940,
+  "disposition": "superseded by current merged-build checkpoint; original retained in local archive"
+ },
+ {
+  "name": "fa10-prepared-export.txt",
+  "sha256": "c90ee94b6bd3a3a9640757f8cd44fb148231fdc04c2d4804b9ad8417c7bb1e72",
+  "bytes": 184472,
+  "disposition": "superseded by current merged-build checkpoint; original retained in local archive"
+ },
+ {
+  "name": "fa10-trial-pending-export.txt",
+  "sha256": "f2f63805843b8ad992026ba448ab266848c71f58b08cc617441d2d6e12496487",
+  "bytes": 186456,
+  "disposition": "superseded by current merged-build checkpoint; original retained in local archive"
+ },
+ {
+  "name": "fa10b-fatigued-export.txt",
+  "sha256": "039b9ce490ae0b82a6d76ddf6c9292c886d6790f98a9ac7c593bfe6fc0468680",
+  "bytes": 183484,
+  "retainedAs": "fa10b-fatigued-export.txt.gz"
+ },
+ {
+  "name": "fa10b-kits-completed-export.txt",
+  "sha256": "252ff8865180ab3450d8aadf84f0ab8c05f81d00228248738433c8697feca764",
+  "bytes": 186592,
+  "disposition": "superseded by current merged-build checkpoint; original retained in local archive"
+ },
+ {
+  "name": "fa10b-kits-delivered-export.txt",
+  "sha256": "83179278cccdaa2c78c5729fa1917e2adf9915acca0eff0e3118a8561ce590d8",
+  "bytes": 186592,
+  "disposition": "superseded by current merged-build checkpoint; original retained in local archive"
+ },
+ {
+  "name": "fa10b-kits-pending-export.txt",
+  "sha256": "fb54a901eeef279f75968f533366342656606463c3db9c0a7f3d6dccf406e886",
+  "bytes": 189484,
+  "disposition": "superseded by current merged-build checkpoint; original retained in local archive"
+ },
+ {
+  "name": "fa10b-learned-export.txt",
+  "sha256": "73e1051f02683c9598eecae571457ec7bbaf032c19e9712f59dc89a6972eeeb5",
+  "bytes": 185924,
+  "disposition": "superseded by current merged-build checkpoint; original retained in local archive"
+ },
+ {
+  "name": "fa10b-storage-failure.png",
+  "sha256": "5e71c5ca646174ecdcd0ec42c745d25e149d72734ebf599e2b51fadd02d4f48b",
+  "bytes": 451658,
+  "disposition": "redundant pre-merge screenshot; current merged-build JPEGs retained"
+ },
+ {
+  "name": "fa10c-final-export.txt",
+  "sha256": "5c636f826f9ff2b7c20b2e2fb241ab13aa813f243893929d8f2f213c28875732",
+  "bytes": 186396,
+  "disposition": "superseded by current merged-build checkpoint; original retained in local archive"
+ },
+ {
+  "name": "fa10c-storage-failure.png",
+  "sha256": "ec9dd3c2eddc115ce31829b17714ddad57e17170bb0d57d1b2e1d18e939de956",
+  "bytes": 462109,
+  "disposition": "redundant pre-merge screenshot; current merged-build JPEGs retained"
+ },
+ {
+  "name": "fa10c-travel-during-copy.png",
+  "sha256": "f35d89a00e1cfc95354c074a8be2ab726cad73bb52d9b952e3a37d3c93a09366",
+  "bytes": 463131,
+  "disposition": "redundant pre-merge screenshot; current merged-build JPEGs retained"
+ },
+ {
+  "name": "fa13-final-export.txt",
+  "sha256": "78876da14a8804629bdf47fecfb955b47544b751b8e5d361e45393fcd07f814e",
+  "bytes": 196068,
+  "retainedAs": "fa13-final-export.txt.gz"
+ },
+ {
+  "name": "fa13-final.png",
+  "sha256": "727779d972caa2c6b06566d33f5e5627bb905723a271342f0c9a06821cfd316c",
+  "bytes": 436741,
+  "disposition": "redundant pre-merge screenshot; current merged-build JPEGs retained"
+ },
+ {
+  "name": "fa13-identified-by-inference-export.txt",
+  "sha256": "20b8896a0a37997d9492549b0e0830e17e7b40e9e1c708ac5f2bed7f3256051e",
+  "bytes": 186288,
+  "retainedAs": "fa13-identified-by-inference-export.txt.gz"
+ },
+ {
+  "name": "fa13-pin-kit-delivered-export.txt",
+  "sha256": "c8d416931d456f37fddfb326bc43b46b110ecb6c5f6bf2a6fda66d5b0aca8a55",
+  "bytes": 189372,
+  "retainedAs": "fa13-pin-kit-delivered-export.txt.gz"
+ },
+ {
+  "name": "fa13-pins-recovered-export.txt",
+  "sha256": "55ce8c52e684a34e91a621c6a7f46719eed71b84d71cfd4063356c2fb9b073e7",
+  "bytes": 188792,
+  "retainedAs": "fa13-pins-recovered-export.txt.gz"
+ },
+ {
+  "name": "partial-fa13-final-export.txt",
+  "sha256": "737363b2b7f3245b5e8563e55fb5364878b8b0ca9ea7cff465f41a022d4f5f3c",
+  "bytes": 195640,
+  "retainedAs": "partial-fa13-final-export.txt.gz"
+ },
+ {
+  "name": "fixture/TEST-FIXTURE-R15-G3-FA10.txt",
+  "sha256": "548c4fbfd9dda3175fe4fbf05d77fe5f5ea1820c09e9628c9745ea480eae3e9f",
+  "bytes": 182621,
+  "retainedAs": "fixture/TEST-FIXTURE-R15-G3-FA10.txt.gz"
+ },
+ {
+  "name": "fixture/TEST-FIXTURE-R15-G3-FA13.txt",
+  "sha256": "8783720969326a6c56881a9eba6b1b39022895fa7407c0f9be83ced9d5aa8532",
+  "bytes": 182321,
+  "retainedAs": "fixture/TEST-FIXTURE-R15-G3-FA13.txt.gz"
+ },
+ {
+  "name": "fixture/TEST-FIXTURE-R15-G3-NEGATIVE.txt",
+  "sha256": "06425b4c36c641fc7f1610047f91145c7b8fa3d870377fe604e5fa7b309098cb",
+  "bytes": 174161,
+  "retainedAs": "fixture/TEST-FIXTURE-R15-G3-NEGATIVE.txt.gz"
+ },
+ {
+  "name": "fixture/TEST-FIXTURE-R15-G3-OLD.txt",
+  "sha256": "2cd773d500557e8fb4b5cbec3db321aaf53a93949f05935e328bc7d37e416915",
+  "bytes": 107573,
+  "retainedAs": "fixture/TEST-FIXTURE-R15-G3-OLD.txt.gz"
+ }
+]
