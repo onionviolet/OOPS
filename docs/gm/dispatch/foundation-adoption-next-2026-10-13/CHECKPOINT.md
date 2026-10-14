@@ -31,3 +31,7 @@ is lifted for those gates only. G4 is still running on Codex.
 G10 (Weibao: "send accordingly") closes the leaves left open by G1, G2, G3,
 G5 and G6: Codex session `01a1385e-f9ad-7e60-a51b-7a70dc4294cd` in
 `.claude/worktrees/r15-g10-remaining` (branch `r15-g10-remaining`).
+Weibao: "send the full World1 campaign after G9 with codex". After G9 merges,
+root launches one Codex coordinator for the full S00–S14 World1 campaign in
+`.claude/worktrees/w1-campaign` (branch `w1-campaign`), committing per playable
+unit for root to merge. The World1 pause is fully lifted at that point.
