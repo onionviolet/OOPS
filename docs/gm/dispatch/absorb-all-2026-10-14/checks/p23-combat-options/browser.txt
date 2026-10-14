@@ -1,0 +1,1 @@
+{"status":200,"viewport":"1366x768","bundleURL":"dist/bundle.js?version=v0.6-78d00845dc8a","bundleSHA256":"78d00845dc8af88f5714310a0ccbfd221430bbccbade2ba9fab1492a500e128e","errors":[],"oldCombatTicked":true,"saveBytes":46235,"locationAfterReload":"Village","changedTactics":"OPEN: P00 host joins absent","literalImport":"OPEN: pending tactics not in save envelope"}

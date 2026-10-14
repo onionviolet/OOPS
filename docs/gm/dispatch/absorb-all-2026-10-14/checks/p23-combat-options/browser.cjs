@@ -1,0 +1,24 @@
+const fs = require('fs');
+const crypto = require('crypto');
+const {chromium} = require('/Users/weiwei/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright');
+process.env.URL = 'http://127.0.0.1:18825/';
+const R = require('../../../vivid-proto23-flow-2026-10-13/checks/routes.cjs');
+(async () => {
+  const browser = await chromium.launch({channel:'chrome',headless:true});
+  const context = await browser.newContext({viewport:{width:1366,height:768},acceptDownloads:true});
+  const page = await context.newPage(); const errors = []; page.on('pageerror', e => errors.push(e.message));
+  const response = await page.goto(process.env.URL, {waitUntil:'domcontentloaded'});
+  await R.startFresh(page);
+  const bundleURL = await page.locator('script[src*="dist/bundle.js"]').getAttribute('src');
+  const bundle = await context.request.get(process.env.URL + bundleURL);
+  const hash = crypto.createHash('sha256').update(await bundle.body()).digest('hex');
+  await R.unlockCombatRoute(page); await R.enterCombat(page);
+  await page.screenshot({path:__dirname+'/native-old-controls.png'});
+  const combat = await page.locator('#combat_div').innerText();
+  await R.leaveCombat(page); const saved = await R.saveText(page);
+  await page.reload({waitUntil:'domcontentloaded'}); await R.startFresh(page);
+  const result = {status:response.status(),viewport:'1366x768',bundleURL,bundleSHA256:hash,errors,oldCombatTicked:!!combat,saveBytes:saved.length,locationAfterReload:await page.locator('#location_name_span').innerText(),changedTactics:'OPEN: P00 host joins absent',literalImport:'OPEN: pending tactics not in save envelope'};
+  fs.writeFileSync(__dirname+'/browser.json', JSON.stringify(result,null,2)+'\n');
+  console.log(JSON.stringify(result)); await browser.close();
+  if(errors.length) process.exitCode=1;
+})().catch(e=>{console.error(e);process.exitCode=1});

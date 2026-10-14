@@ -1,0 +1,100 @@
+TAP version 13
+# Subtest: old saves absent; unsupported or malformed tactics reject before host mutation
+ok 1 - old saves absent; unsupported or malformed tactics reject before host mutation
+  ---
+  duration_ms: 12.017792
+  type: 'test'
+  ...
+# Subtest: paid throw can repeat with distinct native events, duplicate is inert
+ok 2 - paid throw can repeat with distinct native events, duplicate is inert
+  ---
+  duration_ms: 5.966042
+  type: 'test'
+  ...
+# Subtest: missing ammo and denied custody preserve selected tactic and inventory
+ok 3 - missing ammo and denied custody preserve selected tactic and inventory
+  ---
+  duration_ms: 0.258083
+  type: 'test'
+  ...
+# Subtest: smoke pays a real item and calls escape without any kill reward; no replay
+ok 4 - smoke pays a real item and calls escape without any kill reward; no replay
+  ---
+  duration_ms: 5.544042
+  type: 'test'
+  ...
+# Subtest: lure offers one authored opportunity per payment, can repeat, never pays a kill
+ok 5 - lure offers one authored opportunity per payment, can repeat, never pays a kill
+  ---
+  duration_ms: 0.168292
+  type: 'test'
+  ...
+# Subtest: pending tactic, break request and paused phase survive exact JSON export/import
+ok 6 - pending tactic, break request and paused phase survive exact JSON export/import
+  ---
+  duration_ms: 0.3055
+  type: 'test'
+  ...
+# Subtest: victory break resumes the pending native round once
+ok 7 - victory break resumes the pending native round once
+  ---
+  duration_ms: 0.114459
+  type: 'test'
+  ...
+# Subtest: noncombat throwing training pays again per occurrence and uses native XP host
+ok 8 - noncombat throwing training pays again per occurrence and uses native XP host
+  ---
+  duration_ms: 0.205083
+  type: 'test'
+  ...
+# Subtest: P16 drop profile is optional and validates before mutation
+ok 9 - P16 drop profile is optional and validates before mutation
+  ---
+  duration_ms: 0.468042
+  type: 'test'
+  ...
+# Subtest: actual native strike hits armor with single projectile, misses with native hit roll
+ok 10 - actual native strike hits armor with single projectile, misses with native hit roll
+  ---
+  duration_ms: 7.658208
+  type: 'test'
+  ...
+# Subtest: actual native defeat awards once, duplicate dead target does not repay
+ok 11 - actual native defeat awards once, duplicate dead target does not repay
+  ---
+  duration_ms: 0.893459
+  type: 'test'
+  ...
+# Subtest: actual cooldown exchange consumes ammo, then break prevents scheduling another swing
+ok 12 - actual cooldown exchange consumes ammo, then break prevents scheduling another swing
+  ---
+  duration_ms: 1.088375
+  type: 'test'
+  ...
+# Subtest: actual smoke exchange never invokes native damage or loot settlement
+ok 13 - actual smoke exchange never invokes native damage or loot settlement
+  ---
+  duration_ms: 0.968916
+  type: 'test'
+  ...
+# Subtest: actual victory break keeps next encounter pending until one explicit resume
+ok 14 - actual victory break keeps next encounter pending until one explicit resume
+  ---
+  duration_ms: 0.860917
+  type: 'test'
+  ...
+# Subtest: R51 native independent cooldowns retain a 4:1 speed ratio without a burst engine
+ok 15 - R51 native independent cooldowns retain a 4:1 speed ratio without a burst engine
+  ---
+  duration_ms: 0.62425
+  type: 'test'
+  ...
+1..15
+# tests 15
+# suites 0
+# pass 15
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 1358.045875
