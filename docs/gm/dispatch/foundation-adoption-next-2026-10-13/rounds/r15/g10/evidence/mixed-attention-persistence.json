@@ -1,0 +1,11 @@
+{
+ "label": "mixed-attention",
+ "reload": true,
+ "literalImport": true,
+ "file": "mixed-attention.txt",
+ "sha256": "3c8644070b3e21ec8ea5a258a7e53b32af3e02d450f51eeda48f01d92df2b6ee",
+ "clock": 542,
+ "derivedCacheDifferences": [
+  ".character.equipment.weapon.rarity"
+ ]
+}

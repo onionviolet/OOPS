@@ -1,0 +1,11 @@
+{
+ "label": "Rill-support-refund",
+ "reload": true,
+ "literalImport": true,
+ "file": "Rill-support-refund.txt",
+ "sha256": "f558077d972f1086213ae587f382048efb974ecd01ddb3cecdfed56a16aa70bf",
+ "clock": 864,
+ "derivedCacheDifferences": [
+  ".character.equipment.weapon.rarity"
+ ]
+}

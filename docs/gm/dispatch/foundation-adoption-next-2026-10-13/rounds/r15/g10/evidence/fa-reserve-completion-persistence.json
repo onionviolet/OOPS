@@ -1,0 +1,11 @@
+{
+ "label": "fa-reserve-completion",
+ "reload": true,
+ "literalImport": true,
+ "file": "fa-reserve-completion.txt",
+ "sha256": "049ec018cf47f2b0741353758ac0715d9dc2012efe49edb7f6065ef057ab4b95",
+ "clock": 751,
+ "derivedCacheDifferences": [
+  ".character.equipment.weapon.rarity"
+ ]
+}

@@ -1,0 +1,9 @@
+{
+ "label": "source",
+ "command": "npm test",
+ "exitCode": 0,
+ "tests": 623,
+ "pass": 623,
+ "fail": 0,
+ "rawLogSha256": "9e5f254922e656eae0aadfdba64b01916a12c8ec60ffda0f07f637ac87af96b8"
+}

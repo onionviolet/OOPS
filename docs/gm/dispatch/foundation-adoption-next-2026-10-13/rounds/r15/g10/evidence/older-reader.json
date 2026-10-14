@@ -1,0 +1,29 @@
+{
+ "label": "seeded-native",
+ "readerCommit": "97c28efece4fd6248b6f075ad0c6927c3d0432df",
+ "loaded": [
+  {
+   "url": "http://127.0.0.1:19200/docs/gm/dispatch/foundation-adoption-next-2026-10-13/rounds/r15/g10/older/dist/bundle.js?version=v0.6-4ad406701929",
+   "hash": "4ad40670192922070c064a5828fe250e169e94b73c30e1883f488907434f511a"
+  }
+ ],
+ "cases": [
+  {
+   "id": "reserve-support-refund.txt",
+   "rejected": true,
+   "durableUnchanged": true,
+   "message": [
+    "Import rejected. Current save kept. This expansion save needs a compatible engine schema."
+   ]
+  },
+  {
+   "id": "retort-support-refund.txt",
+   "rejected": true,
+   "durableUnchanged": true,
+   "message": [
+    "Import rejected. Current save kept. This expansion save needs a compatible engine schema.",
+    "Import rejected. Current save kept. This expansion save needs a compatible engine schema."
+   ]
+  }
+ ]
+}

@@ -1,0 +1,7 @@
+{
+ "label": "source",
+ "command": "node rounds/r15/g3/source-fa13.mjs",
+ "exitCode": 0,
+ "checks": 13,
+ "rawLogSha256": "d62c670f21f94e08e8f218a8d6f9c668c06370a29f487272a4e26a28d81db09f"
+}

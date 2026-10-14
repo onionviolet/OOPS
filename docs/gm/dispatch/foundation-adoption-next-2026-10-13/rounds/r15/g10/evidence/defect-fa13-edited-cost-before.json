@@ -1,0 +1,19 @@
+{
+ "label": "seeded-native",
+ "bundle": {
+  "url": "http://127.0.0.1:19200/dist/bundle.js?version=v0.6-86394b60d659",
+  "loaded": "69b728839cafe6d01fb4376e03e0925f1ca574c60736a2f99db66cf3dc43aed8",
+  "disk": "69b728839cafe6d01fb4376e03e0925f1ca574c60736a2f99db66cf3dc43aed8"
+ },
+ "importAccepted": true,
+ "hero": "TEST FIXTURE R15 G10 INVALID fieldcraft-cost",
+ "command": "nethack_fieldcraft.trial_dull",
+ "editedCost": {
+  "type": "item",
+  "actor": "player",
+  "key": "{\"id\":\"Unmarked pale vial\"}",
+  "amount": -99
+ },
+ "originalCost": -1,
+ "durableWritten": true
+}

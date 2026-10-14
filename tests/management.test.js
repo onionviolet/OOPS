@@ -26,6 +26,19 @@ function base(money=102){return {state:initializeExpedition(createExpansionState
 const opened=(money=102)=>run(base(money),I.begin);
 const buy=(p,name,n=1)=>{for(let i=0;i<n;i++)p=run(p,`mg.supply.${name}`);return p;};
 const job=(p,id,minutes)=>advance(run(p,id),minutes);
+test('SOURCE courtyard partial work rejects a shifted original deadline',()=>{
+ let p=buy(opened(),'log',2);p=run(p,'mg.workshop.bram_ordinary');p=advance(p,1);
+ const pending=playerJobs(p)[0];assert.deepEqual(pending.managementWork,{schema:1,startedAt:0});
+ assert.deepEqual(reload(p).state,p.state);const bad=structuredClone(p);playerJobs(bad)[0].due++;
+ assert.throws(()=>reload(bad),/actual start and due time/);
+ p=advance(p,3);assert.equal(stock(p,K.crate),1);assert.equal(playerJobs(p).length,0);
+});
+test('SOURCE older courtyard pending work keeps exact terms and bounded remaining time',()=>{
+ let p=advance(run(buy(opened(),'log',2),'mg.workshop.bram_ordinary'),1);
+ delete playerJobs(p)[0].managementWork;assert.deepEqual(reload(p).state,p.state);
+ const bad=structuredClone(p);playerJobs(bad)[0].due=bad.state.clock+5;assert.throws(()=>reload(bad),/local duration/);
+ p=advance(p,3);assert.equal(stock(p,K.crate),1);assert.equal(playerJobs(p).length,0);
+});
 const cancelCurrent=p=>act(p,{type:'cancel',id:playerJobs(p)[0].id});
 const actionIds=p=>managementPresentation(p.state,registry,ctx(p)).sections.flatMap(s=>s.actions.map(a=>a.id));
 

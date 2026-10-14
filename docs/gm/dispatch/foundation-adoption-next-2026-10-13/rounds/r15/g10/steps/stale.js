@@ -1,0 +1,5 @@
+const E={label:'seeded-native',cases:[]};
+for(const kind of ['manual','retort','reserve']){
+ await reload();if(kind==='manual')await fixture('g3','fixture/TEST-FIXTURE-R15-G3-FA10.txt.gz');else await importFile(kind==='retort'?path.join(h.root,'docs/gm/dispatch/foundation-adoption-next-2026-10-13/rounds/r15/g2/fixture/TEST-FIXTURE-R15-G2-retort.txt'):'/private/tmp/r15-g10-g2-fixtures/TEST-FIXTURE-R15-G2-reserve.txt');
+ await page.evaluate(()=>G.character.name='TEST FIXTURE R15 G10 stale quote');const before=await save();const result=await page.evaluate(kind=>{try{const c=kind==='manual'?{type:'steam_boh',id:'steam.boh.guided'}:kind==='retort'?{type:'factorio_retort',id:'factorio_retort.batch'}:{type:'audited_kit_reserve_start'};G.feature({...c,sequence:G.state.sequence-1});return {ok:true};}catch(e){return {ok:false,message:e.message};}},kind);assert.equal(result.ok,false);assert.ok(eq(before,await s()));E.cases.push({id:kind,result,durableUnchanged:true});
+}h.write('stale.json',E);return E;

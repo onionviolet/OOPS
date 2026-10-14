@@ -1,0 +1,38 @@
+{
+ "ok": true,
+ "value": {
+  "label": "seeded-native",
+  "bridgeAbsent": true,
+  "pendingStamp": {
+   "schema": 1,
+   "startedAt": 856
+  },
+  "singleCompletion": true,
+  "bundle": {
+   "url": "http://127.0.0.1:19200/dist/bundle.js?version=v0.6-e41608d21461",
+   "loaded": "e41608d214616cce2c87ff0e4fe411d6c36a4b703879d2d9478313aa5918e202",
+   "disk": "e41608d214616cce2c87ff0e4fe411d6c36a4b703879d2d9478313aa5918e202"
+  },
+  "persistence": {
+   "label": "standard-fieldcraft-completed",
+   "reload": true,
+   "literalImport": true,
+   "file": "standard-fieldcraft-completed.txt",
+   "sha256": "e8feb66776be64fe0b39dee04c355cf99fa85d77c683cf52777719f0fe11a23b",
+   "clock": 859,
+   "derivedCacheDifferences": [
+    ".character.equipment.weapon.rarity"
+   ]
+  },
+  "courtyardCompleted": true,
+  "courtyardPersistence": {
+   "label": "standard-courtyard-completed",
+   "reload": true,
+   "literalImport": true,
+   "file": "standard-courtyard-completed.txt",
+   "sha256": "cf301b1b5ca2af793ccabaf5338f3f289057facecdd69ffe3a70dc3df0a700ee",
+   "clock": 4,
+   "derivedCacheDifferences": []
+  }
+ }
+}

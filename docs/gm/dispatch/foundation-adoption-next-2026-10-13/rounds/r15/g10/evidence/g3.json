@@ -1,0 +1,50 @@
+{
+ "label": "seeded-native",
+ "cases": [
+  {
+   "id": "guided-fine",
+   "money": [
+    47,
+    44
+   ],
+   "preparationDistinct": true,
+   "kits": 2,
+   "persistence": {
+    "label": "fa10-guided-fine",
+    "reload": true,
+    "literalImport": true,
+    "file": "fa10-guided-fine.txt",
+    "sha256": "2520a42219352e597a172f0c8b8f6663af3d7db04cc962976e60ac381ae24508",
+    "clock": 865,
+    "derivedCacheDifferences": [
+     ".character.equipment.weapon.rarity"
+    ]
+   }
+  },
+  {
+   "id": "support-location",
+   "refunded": true,
+   "noResult": true
+  },
+  {
+   "id": "support-alive",
+   "refunded": true,
+   "noResult": true
+  },
+  {
+   "id": "support-author",
+   "refunded": true,
+   "noResult": true
+  },
+  {
+   "id": "support-hands",
+   "refunded": true,
+   "noResult": true
+  },
+  {
+   "id": "invalid-bench",
+   "publicationRejected": true,
+   "pendingDurableKept": true
+  }
+ ]
+}

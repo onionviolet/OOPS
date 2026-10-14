@@ -1,0 +1,24 @@
+{
+ "id": "assay-completion",
+ "label": "seeded-native",
+ "durableUnchanged": true,
+ "liveUnchanged": true,
+ "failedWrites": 1,
+ "notices": [
+  "Your browser has no room for this life. Export your save to a file; your last saved life is still safe.",
+  "Saving available. Draft changes can now be applied.",
+  "Saving available. Draft changes can now be applied."
+ ],
+ "retryOnce": true,
+ "persistence": {
+  "label": "assay-completion",
+  "reload": true,
+  "literalImport": true,
+  "file": "assay-completion.txt",
+  "sha256": "126754cbdfcd7dc1f449a65ad0205f002a1e39acf1cb61888ad9ecbb59b81eef",
+  "clock": 858,
+  "derivedCacheDifferences": [
+   ".character.equipment.weapon.rarity"
+  ]
+ }
+}

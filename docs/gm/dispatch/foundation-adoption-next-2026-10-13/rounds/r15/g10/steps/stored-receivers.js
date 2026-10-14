@@ -1,0 +1,6 @@
+const E={label:'seeded-native',cases:[]};
+await reload();await fixture('g2','fixture/TEST-FIXTURE-R15-G2-retort.txt');await page.evaluate(()=>G.character.name='TEST FIXTURE R15 G10 receiver rejection');const readySave=await save();
+for(const kind of ['duplicate-tray','equipped-tray','forged-quality','forged-custody'])E.cases.push(await reject('retort-'+kind,readySave,b=>{const k=JSON.stringify({id:'Empty retort resin tray'});if(kind==='duplicate-tray')b.inventories.person.main_character[k].count++;if(kind==='equipped-tray')b.character.equipment.hand=k;if(kind==='forged-quality')b.inventories.person.main_character[JSON.stringify({id:'Empty retort resin tray',quality:2})]={count:1};if(kind==='forged-custody')b.expansion.simulation.custody.bad={key:k};}));
+await feature('Prepare one retort batch');const pending=await save();
+for(const kind of ['cost','effect','due','receiver-count'])E.cases.push(await reject('retort-job-'+kind,pending,b=>{const j=b.expansion.simulation.jobs.find(j=>j.commandId==='factorio_retort.batch');if(kind==='cost')j.costs[0].amount=-99;if(kind==='effect')j.effects.pop();if(kind==='due')j.due++;if(kind==='receiver-count')j.reservationReturns=0;}));
+h.write('stored-receivers.json',E);return E;

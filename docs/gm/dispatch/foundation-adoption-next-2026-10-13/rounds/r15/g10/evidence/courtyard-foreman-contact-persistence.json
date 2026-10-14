@@ -1,0 +1,9 @@
+{
+ "label": "courtyard-foreman-contact",
+ "reload": true,
+ "literalImport": true,
+ "file": "courtyard-foreman-contact.txt",
+ "sha256": "8a3fc74678b93ac6402292833491671e273686258bdfcc6bdcbf7fb545ee0458",
+ "clock": 6,
+ "derivedCacheDifferences": []
+}
