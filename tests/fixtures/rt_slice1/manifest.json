@@ -1,0 +1,34 @@
+{
+  "seed": 17,
+  "provenance": "seeded-native; native rewards/material and XP APIs, no debug writes or save edits",
+  "crafts": [
+    {
+      "band": "low",
+      "skill": "Woodworking",
+      "recipe": "Processed rough wood",
+      "level": 0,
+      "attempts": 5
+    },
+    {
+      "band": "low",
+      "skill": "Forging",
+      "recipe": "Iron chainmail",
+      "level": 0,
+      "attempts": 16
+    },
+    {
+      "band": "high",
+      "skill": "Woodworking",
+      "recipe": "Processed rough wood",
+      "level": 11,
+      "attempts": 1
+    },
+    {
+      "band": "high",
+      "skill": "Forging",
+      "recipe": "Iron chainmail",
+      "level": 11,
+      "attempts": 2
+    }
+  ]
+}
