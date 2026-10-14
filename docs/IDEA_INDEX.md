@@ -18,6 +18,12 @@ Remaining gaps, in order:
 
 ## How ideas are kept
 
+[World core kit](worlds/WORLD_CORE_KIT_2026-10-14.md) owns the 2026-10-14
+per-world checklist of what a world needs to play in depth (K1-K34, micro,
+subtle detail, comics, lens cheats, abstractions; eight rounds, lanes W1-W20).
+It repeats as a standing audit: [core audit entry](audits/WORLD_CORE_KIT_CORE_AUDIT.md)
+and [playbook](worlds/WORLD_CORE_KIT_AUDIT_PLAYBOOK.md). Proposals only.
+
 [Engine, runtime, performance and stack](ENGINE_RUNTIME_PERFORMANCE_AND_STACK_CONSIDERATIONS_2026-10-14.md)
 owns the 2026-10-14 engine palette beyond E1-E10: runtime architecture (RT),
 performance and measurement (PF), persistence (DA), tech stack options (TS),

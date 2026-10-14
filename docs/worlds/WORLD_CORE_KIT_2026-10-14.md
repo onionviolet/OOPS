@@ -1299,3 +1299,101 @@ Two meanings, both covered.
 |---|---|---|---|
 | W19 | Consolidation: per-world kit cards from W1-W18, code renames, contradiction registers | `docs/worlds/world-core-kit-2026-10-14/cards/` | Queued until lanes return |
 | W20 | More comic media and comic cheats: CW18-CW25 checked, CL16-CL25 in depth, Avatar and Worm kit floors | `.../W20_COMIC_MEDIA_AND_CHEATS.md` | Running |
+
+## Round 8: returns in detail, repeating audit, every little detail (2026-10-14)
+
+Requests: "save this core auditing for long term repeating", then "consider
+the stuff accordingly, every little detail, maybe put into uservision? more
+to consider?" Saved as the [audit playbook](WORLD_CORE_KIT_AUDIT_PLAYBOOK.md),
+[core audit entry](../audits/WORLD_CORE_KIT_CORE_AUDIT.md), tools in
+[tools/core_kit_audit/](tools/core_kit_audit/) and a
+[USER_VISION section](../USER_VISION.md#world-core-kit-every-little-detail-and-a-repeating-audit-2026-10-14).
+
+### Lane returns (F15-F26)
+
+Fifteen of twenty lanes have now finished (W12, W16, W17, W18, W20 running;
+W19 queued).
+
+| Code | Finding | Lane |
+|---|---|---|
+| F15 | **First people slice: one remembered loan plus a household appointment and paid work that changes a later offer,** in HP or the MoL visitor branch. Pin identity, dates and money before any canon T5 card. Refusal and absence must show who lives and works next. | W3 A1-A3 |
+| F16 | **First story slice: appraisal, then warning, then local aftermath** in one HP school-year window, with three frozen starter knowledge envelopes. Reuse the MoL and Fated Villain pilot lessons: one warning with a credible response and one nonresponse. | W5 S1-S2 |
+| F17 | **Grounded micro pools exist** for HP school supplies, MoL household and workshop, Tingen utilities, a Trier café, a Shadow Slave refuge and the early Paradise service street. Fate domestic life, JJK school days and Naruto civilian routines need scene locators first. | W7 S1-S2 |
+| F18 | **Micro reaches a hint only through an observed baseline.** A micro sighting neither reveals a sealed truth nor proves a lie; a tell needs the actor's normal behaviour first. | W7 S3, W13 A2 |
+| F19 | **Reference games point at "learned preference plus later acknowledgement"** (the regular's order remembered, a later nod to it) and one personal display plus one queued care routine per district. Gate: a changed later response, no extra reward on redraw, exact save/reload/import. | W10 A1-A2 |
+| F20 | **First perception proof: HP nursery** (trade eyes and receipt), then the same selector in D&D repair and MoL physical study. Nine cue candidates and three cast cards as the comparison set. | W13 A1 |
+| F21 | **Subtext floor = literal line, two readings, a witnessed baseline and a direct way to ask.** No subtext skill or confidence meter before that. | W13 A2 |
+| F22 | **The randomness fix (U04) is now source-merged,** so IO5 (micro seed and look-text micro) can land in an authorized integration window. It is the smallest visible proof of pure rendering, stable revision and old-save compatibility. | W14 S14.1 |
+| F23 | **IO3 (MoL) needs an opt-in forward canon profile and a real ward affordance frozen before code;** keep the legacy visitor intact and do not call a local calendar a canonical month. | W14 S14.2 |
+| F24 | **IO6 price signals must change real prices end to end** (list, basket, commit, post-reload), and the existing saturation path should do its own work once. | W14 S14.3 |
+| F25 | **Power core order: read-only parity view after the capability boundary is set, then one MoL device/ward core, then one distinct consumer** (D&D slot preparation or an LOTM role-act receipt). No seventh capability store. | W15 P1-P3 |
+| F26 | **Rules floor: bind one HP or D&D floor to exact passages** with 5-10 law facts, 3-6 techniques and one recoverable objective; use the MoL device and its noncombat outs as the comparison for power, fuel and body kept separate. | W2 A1-A2 |
+
+Convergence across lanes: HP and MoL keep coming up as the first two worlds
+for almost every slice (people, story, perception, micro, power), D&D third.
+That matches the canon-first order and the readiness grid.
+
+### Every little detail: principles (ED)
+
+How "every little detail" stays wanted without becoming noise or debt.
+
+- ED1 **Every detail gets a home.** Each detail has a code, an owner and a
+  tier (T0 census at least). Nothing is lost because no one wrote it down.
+- ED2 **Detail is cheap at T1, earned above it.** Naming a detail costs a
+  line; making it remembered (T3) needs a reader that uses it.
+- ED3 **A detail with a future reader gets saved.** Others are derived or
+  stay texture (W11 A3).
+- ED4 **Truthful detail.** A detail never claims something the world did not
+  do: no invented off-screen acts, no fake canon (F11, F13).
+- ED5 **Details compound.** The best details link: a micro line becomes a
+  tell, a tell becomes a clue, a clue becomes a callback (KR1, KC).
+- ED6 **Detail density follows attention.** Where Weibao plays, detail
+  deepens (DT6); elsewhere it stays at floor.
+- ED7 **Details are checked like code.** Seal lint, era lint, budget and
+  repetition checks apply to every generated or authored line (II21, KG).
+- ED8 **Little details are in the direction, not just the palette.** Recorded
+  in USER_VISION so later agents treat them as wanted, not as gold-plating.
+
+### More to consider: the repeating audit itself (RA)
+
+- RA1 **Drift check.** Each rerun compares the root's claims with lane
+  findings and code; stale claims are corrected in place (LL3).
+- RA2 **Staleness tags.** Kit rows and cards carry the date and commit they
+  were checked at, so a reader knows how old a "partial" is.
+- RA3 **Delta first.** Reruns start from what changed since the last run
+  (git log since the run's commit, new world folders, new lane outputs).
+- RA4 **Cost guard.** A rerun lists lanes and expected size up front; 2-6
+  lanes per round, fewer when 40+ other runs are live (LL8).
+- RA5 **Round summaries.** Each round states added codes, folded returns and
+  corrections (KX54), so growth stays readable.
+- RA6 **Retire rows.** Rows superseded by a better one get a dated "see X"
+  instead of silent deletion.
+- RA7 **Readiness trend.** The cards' grid keeps a small history (floors met
+  per world per run) so progress over months is visible.
+- RA8 **Director view.** A one-page, spoiler-safe "where each world stands"
+  for Weibao from the grid, refreshed each run (KX37, KX55).
+- RA9 **Automation option.** A scheduled check could run `status.py` and a
+  readiness delta on a cadence; set up only if Weibao asks, since it is
+  standing configuration.
+- RA10 **Shared method.** Improvements found here fold into the general topic
+  expansion playbook as well, so the companions audit and others benefit.
+
+### Other stuff and more (KX57-KX62)
+
+| Code | Consideration |
+|---|---|
+| KX57 | **HP and MoL as joint pilots.** Most slices name both; run each slice in one and verify reuse in the other before a third world. |
+| KX58 | **Slice bundling.** People (F15), story (F16), perception (F20) and micro (F19) slices can share one HP district so one proof covers four kit parts. |
+| KX59 | **Source request queue.** Gaps like Fate domestic life or JJK school days become narrow scene requests for the source lanes, not broad rereads (F17). |
+| KX60 | **Integration window booking.** IO5 is unblocked (F22); kit slices queue for the Foundation and core-foundations integration windows rather than writing shared files directly. |
+| KX61 | **Card freshness badge.** Each world card shows "checked at commit X, date Y" (RA2). |
+| KX62 | **Detail debt.** Count per world: named-only details, unqualified recipes, open contradictions; the number should fall over runs. |
+
+### Suggestions (round 8, ranked)
+
+1. Bundle the first HP slices in one district (KX58): remembered loan,
+   appraisal-to-warning, nursery perception, learned preference. One proof,
+   four kit parts.
+2. Book IO5 into the next integration window now that U04 is merged (F22).
+3. Run W19 consolidation as soon as the remaining five lanes finish, then
+   record the first readiness trend (RA7).

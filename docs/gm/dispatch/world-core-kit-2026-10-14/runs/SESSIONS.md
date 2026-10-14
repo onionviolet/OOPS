@@ -48,3 +48,10 @@ Round 6 (launched 2026-10-14 01:14):
 | W16 comic worlds | 01a138d2-fd28-77a2-9d91-5375f461a9a6 | .../W16_COMIC_WORLDS.md, ../W16_REPORT.md |
 | W17 lens cheats | 01a138d2-fd57-7750-889a-e3466d15e6ab | .../W17_LENS_CHEATS.md, ../W17_REPORT.md |
 | W18 abstraction map | 01a138d2-fd6a-7e50-8b31-9ec89b90d86c | .../W18_ABSTRACTIONS.md, ../W18_REPORT.md |
+
+Round 7 (launched 2026-10-14 01:25):
+
+| Run | Session id | Writes |
+| --- | --- | --- |
+| W20 comic media and cheats | 01a138d6-1cdb-7ca2-a7ff-b35e881837d9 | .../W20_COMIC_MEDIA_AND_CHEATS.md, ../W20_REPORT.md |
+| W19 consolidation | queued until W1-W18 finish | .../cards/, ../W19_REPORT.md |

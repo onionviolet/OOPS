@@ -108,6 +108,65 @@ points, subtle details, required features and engine improvements live in
 [World depth considerations](worlds/WORLD_DEPTH_CONSIDERATIONS_2026-10-13.md).
 Its rows are proposals; only this section's quoted priority is Weibao's direction.
 
+## World core kit, every little detail and a repeating audit, 2026-10-14
+
+Weibao's requests, in order, on 2026-10-14:
+
+> core stuff needed for each world to be implemented in depth? do a 'more to consider? other stuff and more? save and extend accordingly Send out codex as usesful?' for each aspect?
+
+Then the same prompt with "Subtle micro stuff too?", "Subtle relevant stuff
+too?", "Implementation implciations and more?", then "Considering comic worlds
+and stuff and more? ... Cheats that would show stuff like these and more? ...
+Overarching stuff? ... Abstaction thats needed?", then "Merging, commiting or
+pushing?", then:
+
+> save this core auditing for long term repeating
+
+> consider the stuff accordingly, every little detail, maybe put into uservision? more to consider?
+
+Direction recorded (Claude's reading of those requests, stated here so later
+agents need not re-derive it):
+
+- **Every world in depth, through one shared kit.** Each world should become
+  something you can live in, not a stage set. A common checklist of what a
+  world needs (laws, power core, starts, places, cast, institutions, daily
+  life, craft, danger, knowledge, canon course, signature loop, look,
+  crossings, endings) is the way to get there, with a floor before deep.
+- **Every little detail counts.** Micro texture (greetings, snacks, gestures,
+  smells, posters), small verbs and moments, marks the world keeps, callbacks,
+  and subtle details that matter (signals before events, ripples after acts,
+  perception that depends on who you are, subtext) are all wanted. They stay
+  light: never required, never spam, never leaking sealed secrets.
+- **Design and implementation together.** Each round also asks what it means
+  for code, saves, testing and the abstractions the engine needs.
+- **Comics and other media are in consideration,** with no change to the
+  canon-first order. Cheats that reveal hidden layers (lenses) are wanted as a
+  family.
+- **The audit repeats.** The kit audit is a standing, long-term process,
+  rerun when worlds, code or direction change, extending rather than
+  restarting.
+- Commits of this work are fine; push and master merge wait for an explicit
+  yes each time.
+
+Rounds of the kit palette (all proposals): 1, kit parts K1-K18 and lanes
+W1-W6; 2, K19-K24 lived layer and micro KM1-KM18; 3, K25-K28, micro verbs,
+moments, marks, callbacks and guards; 4, K29-K32 and subtle relevant detail
+(signals, ripples, perception, subtext); 5, lane findings F1-F7 and
+implementation implications; 6, comic worlds, lens cheats, overarching shape
+and abstractions AX1-AX19; 7, more comic media and cheats, merging and git
+(kit committed as 596e1cac; push and master merge await a yes); 8, lane
+returns F15-F26, every-little-detail principles ED1-ED8 and the repeating
+audit RA1-RA10.
+
+Owners: the [world core kit](worlds/WORLD_CORE_KIT_2026-10-14.md) (palette,
+rounds and lane returns, all proposals), the
+[world core kit audit playbook](worlds/WORLD_CORE_KIT_AUDIT_PLAYBOOK.md) (how
+to rerun it) and the [core audit entry](audits/WORLD_CORE_KIT_CORE_AUDIT.md)
+(triggers and run log, under the general
+[topic expansion audit playbook](audits/TOPIC_EXPANSION_AUDIT_PLAYBOOK.md)).
+Only the quoted requests and this direction list are Weibao's; kit rows are
+proposals until he accepts them.
+
 ## Detailed completion and suspenseful entry, 2026-10-11
 
 > send new chat with gm accordingly, more to consider? and then another gm to begin workingo n parts that can be worked on?
