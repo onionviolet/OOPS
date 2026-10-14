@@ -1,0 +1,16 @@
+{
+  "viewport": {
+    "width": 1366,
+    "height": 768
+  },
+  "origin": "http://127.0.0.1:18831/",
+  "freshContext": true,
+  "baselineLocation": "Village",
+  "methodVisible": 0,
+  "errors": [],
+  "servedHash": "598e02f54fe7db4c9a35bc79c75a754a7f8dc42eccf9fab828de8fd82e97b615",
+  "localHash": "598e02f54fe7db4c9a35bc79c75a754a7f8dc42eccf9fab828de8fd82e97b615",
+  "hashMatches": true,
+  "changedNativeLoop": "OPEN: no P00 registration or host import",
+  "nativeSaveReloadExportLiteralImport": "OPEN: pending/settled family is not connected to save envelope"
+}
