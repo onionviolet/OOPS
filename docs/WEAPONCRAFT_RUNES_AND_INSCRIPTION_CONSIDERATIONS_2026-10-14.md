@@ -308,3 +308,170 @@ R3 will refine this against source.
    Cheap, and they carry the flavor.
 
 Nothing here is selected for a build.
+
+## Round 2: consolidation and what's still new (2026-10-14)
+
+Weibao: "more to consider? other stuff and more? Cheats that would show stuff
+like these and more? MOre to consider save and extend accordingly Send out
+codex as usesful? Subtle stuff too? Overarching stuff? Implementation
+implciations and more? Abstaction thats needed? Merging, commiting or
+pushing?"
+
+### What was wrong first
+
+The first weaponcraft message reached three sessions. Each wrote a palette:
+- this doc (primary, per IDEA_INDEX);
+- [Weaponcrafting, runes and inscription](WEAPONCRAFTING_RUNES_AND_INSCRIPTION_CONSIDERATIONS_2026-10-14.md),
+  which already carries a duplicate notice pointing here;
+- [Weaponcraft, runes and maker arts](WEAPONCRAFT_RUNES_AND_MAKER_ARTS_CONSIDERATIONS_2026-10-14.md),
+  with lanes W1 to W7 in [maker-arts dispatch](gm/dispatch/maker-arts-2026-10-14/SESSIONS.md).
+
+This doc also missed two existing owners that the maker-arts doc cites:
+[P6 SMITHING](gm/dispatch/procgen-2026-10-13/p6/SMITHING.md) (alloy as
+composition, parts, ordered melt, shape, cool and fit, slice S3-A) and
+[P6 PATTERNS](gm/dispatch/procgen-2026-10-13/p6/PATTERNS.md) (runes,
+formations and talismans as a typed channel graph on a carrier with an
+energy payer, slice S6-A).
+
+**Correction:**
+- **AB1 and AB5 defer to P6.** The part tree (AB1) and surface capacity (AB5)
+  belong to P6's assembly graph (L2).
+- **AB6 is a surface on P6's graph.** The rune grammar (AB6) is a readable
+  surface over P6's pattern graph (L3), not a separate grammar engine.
+- **Item identity follows commit `2874c613`.** That commit names P2 records
+  as the item identity authority.
+
+My lanes R1 and R3 were stopped as duplicates of W1 (by world) and W4
+(implementation against live code); both can be resumed from
+[SESSIONS](gm/dispatch/weaponcraft-runes-2026-10-14/runs/SESSIONS.md). R2
+(game references, especially rune and decipher games) keeps running.
+
+### Crosswalk: one name per idea
+
+Read across a row, and use the primary code going forward. "M" is maker
+arts, "I" is the Weaponcrafting doc and "P" is this doc.
+
+| Idea | P (this doc) | M (maker arts) | I (inscription) | Owner of the record |
+| --- | --- | --- | --- | --- |
+| Weapons as part graphs | WC1 | WC1 | WF1 | P6 SMITHING L2 |
+| Geometry as the stat | WC2 | WC2 | | P6 SMITHING |
+| Heat treatment and process | WC3 | WC3, WC4 | WF3, WF4 | P6 SMITHING, audit process record |
+| Material ceiling, skill closeness | WC4 | | WF2 | Five-record contract |
+| Fit to wielder and technique | WC5, WC6 | WC5, WC6 | WF5 | Derived profile (derived-snapshots) |
+| Wear and maintenance | WC7 | WC8 | WP1 | Progression and assembly condition |
+| Reforge and history | WC8, WC10 | WC10 | WP2-WP4, WP7 | Story BI1 receipt log |
+| Growth and bonded weapons | WC9 | OM9 | WP5 | Companions bond record |
+| Armor | WC11 | AR1-AR6 | WF12 | P6 L2 |
+| Rune atoms and grammar | RN1, RN2 | RN1, RN2 | RU1, RU2 | P6 PATTERNS L3 |
+| Carrier capacity | RN3, RN5 | RN3 | RU4 | P6 PATTERNS |
+| Triggers and logic | RN6 | RN4 | | P6 PATTERNS (execution trace) |
+| Decay and upkeep | RN7 | RN5 | RU10 | Condition vector |
+| Learning and deciphering | RN10 | RN11 | RU3, RU8 | Knowledge store |
+| Per-save generated scripts | RN1, RN13 | RN12 | | Sealed by ID |
+| Formations at scale | RN12 | RN7 | RU12 | P6 PATTERNS site law |
+| Item status window | CR5 | RC1 | CS1 | Knowledge store plus CH1 |
+| Blueprint sight | CR1 | RC2 | | Knowledge store |
+| Rune reader | CR2 | RC5 | CS4 | Knowledge store |
+| Flaw finder | CR4 | RC3, RC4 | | Knowledge store |
+| Craft simulator or forge preview | CR7 | RC7, RC8 | CS3 | Pure preview, no draw |
+| Copy once seen or structural copy | CR9 | RC13 | CS8 | Per-cheat conservation adjective |
+| Psychometry | CR10 | RC6, RC16 | CS6 | Receipt log |
+| Evolution path | CR11 | RC7 | CS9 | Knowledge plus forecast |
+| One made-thing model | OV | OV1, OV2 | OV1 | P6 L1-L3 plus five records |
+| Knowledge separate from truth | OV4, AB7 | OV4, AB6 | OV2, AB7 | **Needs one owner** (all three say so) |
+
+Unique rows worth keeping from the others:
+- **Maker arts:** proof and testing (WC11), weapon law and custom (WC12),
+  monster-part weapons (WC14), armor coverage maps (AR1 to AR6), deep words
+  (RN9), runes as binding (RN10), rune resource loops (RN14), fidelity tiers
+  F0 to F5 for reveal cheats, the uses-left counter (RC10), the fit meter
+  (RC11), array sight (RC12), the masterwork omen (RC15), text generated
+  from properties (IM10), and "every stat has a consumer" (OV3).
+- **Inscription doc:** commissions (WF8), heirlooms (WP6), theft traced by
+  mark (WP8), runes revealing intent (RU13), a base smith's sense versus the
+  cheat (CS12), and the bounded rune interpreter (IM6).
+
+### WX. What none of the three covered
+
+**WX1. Carrying makers across worlds.** A Skyrim-enchanted blade in the JJK
+world:
+- Does the enchantment still run (local physics law)?
+- Can locals read it (foreign script)?
+- Does it look like a cheat to them?
+
+Each world's law adapter (AB11) answers per operator: runs, runs weakened,
+dormant, or transformed. Foreign scripts start at fidelity F0 for locals.
+
+**WX2. Cross-world fusion.** Combining two worlds' making laws (rune-carved
+chakra steel, a cursed-tool wand) is a deliberate, costly experiment with
+its own failure table. It's late-game and multiverse scale.
+
+**WX3. Multi-maker items.** A smith, a runesmith and a jeweler each own
+their parts and get credit in the receipt log. Quality can be capped by the
+weakest maker.
+
+**WX4. Design ownership.** Trade secrets, sect-only techniques, guild
+licenses, stolen designs and forgeries of designs, not just of marks. A
+design is a knowledge record with an owner and a leak risk.
+
+**WX5. Masterpiece projects across seasons.** A legendary weapon as a
+months-long idle project with milestones (find the ore, train the skill,
+wait for the eclipse to quench). It shows as a goal chain (GP2) and a
+progress clock (MI68).
+
+**WX6. Guild ranks and exams.** Apprentice to journeyman to master, by a
+judged masterpiece, with exams reading real item properties. This is a
+social consumer for OV3.
+
+**WX7. Items that refuse.** A weapon that won't serve a wielder who violates
+its maker's intent, works badly for thieves, or bonds to someone else. It's a
+world adjective and reads the bond relation (AB9 in maker arts).
+
+**WX8. Testing grounds.** Proving Ground dummies, test cuts and a combat
+simulator that reads the derived profile, so a design can be compared
+honestly before commissioning (WC11 in maker arts, made into a place).
+
+**WX9. Design strings.** Export and import a design as a short text code for
+your own records. It carries knowledge only, never the item, so it can't
+duplicate anything.
+
+### CR2. More cheats (CR16 onward)
+
+| Code | Cheat | Shows or does | Surface |
+| --- | --- | --- | --- |
+| CR16 | Rune compiler | Write intent in plain words; the cheat proposes a rune graph at your knowledge level. Wrong intent still compiles wrongly | V13 ui-layer in the composer |
+| CR17 | Pocket forge time | Forge inside dilated time; the outside clock moves slowly | V2 body-modifier |
+| CR18 | Master's echo | A dead master's process plays back as guidance (extends maker arts RC16) | V4 voice-channel |
+| CR19 | Material atlas | Where a known material exists in reachable worlds, at report age | V5 records-view |
+| CR20 | Item rewind | Return an item to a past recorded state; history keeps both | V3 item-interface |
+| CR21 | True naming | Naming an item grants it a property tied to the name's meaning | V3 item-interface |
+| CR22 | Foreign script sense | Read any world's script at F1 on sight (WX1) | V6 perception-lens |
+
+### SU2. More subtle details (SU15 onward)
+
+| Code | Detail |
+| --- | --- |
+| SU15 | Each maker has a rune handwriting; experts recognize a hand the way they recognize a mark. |
+| SU16 | A left-handed smith's marks and edge bevels are mirrored. |
+| SU17 | A well-tempered blade's ring is written as onomatopoeia, and a flawed one rings dull (text VFX). |
+| SU18 | Rain makes fresh rune ink run if it isn't sealed. |
+| SU19 | A good sheath clicks home. A scabbard wears pale where the hand rests. |
+| SU20 | Forge songs: work chants per tradition, which keep rhythm and appear in the log. |
+| SU21 | A foreign-world weapon draws stares and questions in a world where it looks wrong (WX1). |
+
+### AB2. Abstraction stance after consolidation
+
+- **One maker pipeline, no weapon, armor or rune engines.** All three docs
+  agree. Records belong to P6 L1 to L3 and the five-record contract.
+- **The open gap is one owner for the knowledge and fidelity store.** All
+  three palettes, plus the companions and cheat docs, need it. Naming that
+  owner is the single most useful next decision. It isn't made here.
+- **Derived profiles belong to the derived-snapshots dispatch.**
+- **Cross-world behavior (WX1) is a column in the world law adapter,** not new
+  code per pair of worlds.
+
+### Next step for the duplicates (proposal)
+
+Once lanes W1 to W7 and R2 report, fold their findings here. Then turn the
+other two palettes into pointers to this doc, as the inscription doc already
+offers. Nothing is selected for a build.
