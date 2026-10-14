@@ -15,3 +15,9 @@ D2: Target desktop 1366x768 and 1600x1000 with wrapping role rows and one bounde
 ## Verification
 
 Pending stages 2 through 4. Source audit only so far.
+
+## Stage 2: pure readers
+
+F4: Added src/chain_inspector.js. Source rows read retained lots/profiles/native stock and custody; part-template rows read authored part/command definitions; operation rows read current jobs/methods and current scheduler eligibility; output-batch rows distinguish current keyed stock from latest receipt output; observation rows read existing harvest/knowledge receipts. No physical lineage is invented. Why text identifies existing policy or quotes caused knowledge. Feature templates are definitions, not recomputed eligibility or rule traces.
+
+F5: Six focused SOURCE tests pass: deterministic frozen inputs, byte equality, identical harvest/mixture quotes, identical next loot/craft/gather draws and stream receipts, absent-owner non-initialization, fail-closed non-developer access, and verbatim supplied-trace display. The public view entry is projectChains(frame, {developer:true}); only that explicit boolean enables truth. Domain readers are internal developer adapters, not in-fiction views. T3 supplies ruleTrace as a transient frame property; absent traces stay absent and no resolver is imported.
