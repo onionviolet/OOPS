@@ -1,0 +1,94 @@
+TAP version 13
+# Subtest: P07 optional old-save defaults do not touch C2 or source objects
+ok 1 - P07 optional old-save defaults do not touch C2 or source objects
+  ---
+  duration_ms: 4.424375
+  type: 'test'
+  ...
+# Subtest: P07 strict schema preflight rejects malformed records before mutation
+ok 2 - P07 strict schema preflight rejects malformed records before mutation
+  ---
+  duration_ms: 352.098583
+  type: 'test'
+  ...
+# Subtest: P07 window matches native New phase across 120 days and hour boundaries
+ok 3 - P07 window matches native New phase across 120 days and hour boundaries
+  ---
+  duration_ms: 608.65275
+  type: 'test'
+  ...
+# Subtest: P07 next window preserves native month/year rollover and fractional lunar cycle
+ok 4 - P07 next window preserves native month/year rollover and fractional lunar cycle
+  ---
+  duration_ms: 0.321041
+  type: 'test'
+  ...
+# Subtest: P07 physical harvest settles once, reload/view never creates a claim
+ok 5 - P07 physical harvest settles once, reload/view never creates a claim
+  ---
+  duration_ms: 0.691334
+  type: 'test'
+  ...
+# Subtest: P07 two distinct lunar cycles harvest and future occurrences remain reachable
+ok 6 - P07 two distinct lunar cycles harvest and future occurrences remain reachable
+  ---
+  duration_ms: 0.41325
+  type: 'test'
+  ...
+# Subtest: P07 scouting and combat time unlock a faster real search without clear XP
+ok 7 - P07 scouting and combat time unlock a faster real search without clear XP
+  ---
+  duration_ms: 0.240792
+  type: 'test'
+  ...
+# Subtest: P07 both learning sources can independently reach the useful threshold
+ok 8 - P07 both learning sources can independently reach the useful threshold
+  ---
+  duration_ms: 0.206292
+  type: 'test'
+  ...
+# Subtest: P07 ineligible world/location/death and ordinary idle time do not learn
+ok 9 - P07 ineligible world/location/death and ordinary idle time do not learn
+  ---
+  duration_ms: 0.347333
+  type: 'test'
+  ...
+# Subtest: P07 duplicate/backward/gapped callbacks do not replay elapsed familiarity
+ok 10 - P07 duplicate/backward/gapped callbacks do not replay elapsed familiarity
+  ---
+  duration_ms: 0.401208
+  type: 'test'
+  ...
+# Subtest: P07 interruption/closing/phase change stops unpaid search without stock claim
+ok 11 - P07 interruption/closing/phase change stops unpaid search without stock claim
+  ---
+  duration_ms: 0.332458
+  type: 'test'
+  ...
+# Subtest: P07 pending and settled serialization stays exact without replaying rewards
+ok 12 - P07 pending and settled serialization stays exact without replaying rewards
+  ---
+  duration_ms: 0.123958
+  type: 'test'
+  ...
+# Subtest: P07 known-only projection has no effects or undiscovered name leak
+ok 13 - P07 known-only projection has no effects or undiscovered name leak
+  ---
+  duration_ms: 0.3435
+  type: 'test'
+  ...
+# Subtest: P07 whole-save preflight rejects impossible occurrence and clock bindings
+ok 14 - P07 whole-save preflight rejects impossible occurrence and clock bindings
+  ---
+  duration_ms: 0.246583
+  type: 'test'
+  ...
+1..14
+# tests 14
+# suites 0
+# pass 14
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 2837.842583

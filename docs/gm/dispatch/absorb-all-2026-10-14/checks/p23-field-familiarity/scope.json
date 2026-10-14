@@ -1,0 +1,17 @@
+{
+  "lane": "p23-field-familiarity",
+  "base": "0216ccdefcfce79877378f8cb0ee41129fe11c5d",
+  "branch": "absorb-all/p23-field-familiarity",
+  "initialStatus": "clean",
+  "port": 18826,
+  "reservationEvidence": "Coordinator assignment explicitly confirms port reserved; live runs/SESSIONS.md lists lane session 01a138b8-c632-71b3-ba84-38884fae6a43; lsof showed no listener before our server",
+  "viewport": {"width":1366,"height":768},
+  "visibleOutcome": "Known-only New-phase next window and six/three-minute search in native Local actions after P00 joins",
+  "deferred": ["mobile optimization","P00 shared registration/save/clock wiring","C2/P14 replenishment state"],
+  "source": {"revision":"e93a8cd617932fb698ff889b968a32f9a20d48f3","sha256":"a43e55e2eeb455f1c1ae589e3fc074a588813fe6cd57cfba827dcf923f3755d5","path":"/private/tmp/proto23-ui-source.html","copiedCodeOrAssets":false},
+  "authority": ["AGENTS.md","PROJECT.md standing priorities and Accepted decisions","docs/USER_VISION.md standing desktop and scope direction","docs/LIFE_SIM_NORTH_STAR.md (proposal)","COMMON.md","coordinator wave-2 assignment"],
+  "sourceReads": ["game_time.js","activities.js","models/location.js CombatZone and LocationActivity","absorb_c2/local_life.js","world_rhythm.js","main.js native clock/save and clear reward bindings","items.js Golmoon leaf","R1-R5 reader mechanism notes","xeus24-mod reader lunar/scouting notes"],
+  "wave1ReportsRead": ["p23-ui-polish.md fd737f8a","upstream-dev.md","air-workshop.md"],
+  "wave1Pending": ["p23-life-loops report/ownership transfer","p23-reveal-chain report"],
+  "nativeStatus": "implemented-unverified: P00 integration pending"
+}
