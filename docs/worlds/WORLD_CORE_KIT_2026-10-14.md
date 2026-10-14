@@ -25,6 +25,28 @@ How it fits with what exists:
   [canon-events-2026-10-14](../gm/dispatch/canon-events-2026-10-14/COMMON.md);
   K12 links there.
 
+## Topic map (added round 15)
+
+Rounds are appended, never rewritten. Jump by code:
+
+| Round | Theme | Codes |
+|---|---|---|
+| 1 | Kit parts and per-part angles | K1-K18, KX1-KX10 |
+| 2 | Lived layer and micro | K19-K24, KM, KX11-KX20 |
+| 3 | Micro in motion | K25-K28, KV, KT, KK, KC, KG |
+| 4 | Subtle relevant detail | K29-K32, KS, KQ, KP, KD, KR |
+| 5 | Implementation implications | F1-F7, II, IS, IO, K33-K34 |
+| 6 | Comics, lens cheats, overarching, abstractions | CW, CL, OV, AX1-AX19 |
+| 7 | Comic media and cheats, merging | F8-F14, CW18-CW25, CL16-CL25, MG |
+| 8 | Every little detail, repeating audit | F15-F31, ED, RA |
+| 9 | More-to-consider school per part | MC1-MC34, OM, AN, KX63-KX70 |
+| 10 | A lane per direction | CR1-CR3, DR1-DR8, MD1-MD12 |
+| 11 | Specific worlds | CR4-CR6, SW1-SW8, WS1-WS9, MW1-MW7 |
+| 12 | Canon calendars | CR7, CC1-CC16, KX76-KX81 |
+| 13 | All returns folded | FX1-FX5, F32-F49 |
+| 14 | Book versus code | CR8, SF1-SF10, KX82-KX86 |
+| 15 | What's next | NX1-NX12, A1-A5 |
+
 ## The kit at a glance (K)
 
 "Floor" is the least a world needs for a first playable slice that still feels
@@ -1895,3 +1917,42 @@ gameplay effect (getting Wet in a place the book never describes as rainy).
 | Lane | Covers | Owns |
 |---|---|---|
 | W37 | Source-fidelity audit of native world code: every constant and engine flag in MoL, Paradise, Proto23 and active book profiles, tagged book, derived, original or placeholder with locators; home-world leaks (KX84) with SHOWN code paths; placeholder registry (KX82) | `W37_SOURCE_FIDELITY.md` |
+
+## Round 15: what's next, and more to consider on getting there (2026-10-14)
+
+Request (Weibao, 2026-10-14): "whats next> MOre to consoider?"
+
+State: W36 has committed the calendar and climate slice and a rebuilt
+candidate on branch `kit/w36-calendar-climate` (`b0bb853b`, `f903ec1a`;
+new `src/world_calendar.js`, `src/world_calendar_content.js`,
+`src/world_weather_display.js`, `tests/world_calendar.test.js`, small
+`display.js` and `main.js` joins). Its report is pending. W37 (source
+fidelity) is running.
+
+### Next, in order (A)
+
+| Code | Step | Done when |
+|---|---|---|
+| A1 | Root runs the W36 desktop journey on rebuilt bytes at 1366x768, fresh origin: home date header, MoL and Paradise entry headers, weather words, Paradise rain and Wet before and after the CR8 fix, save, reload, export, literal import unchanged. | Screenshots and receipts saved; anything not reached stays OPEN |
+| A2 | Merge W36 into `codex/gameplay-foundations`, rebuild there, full tests, smoke again. | Merge commit plus clean rebuilt bundle; push waits for a yes |
+| A3 | Fold W37; pick the top home-world leak fixes as the next small slice (SF9). | Ranked leak list in the root |
+| A4 | Canon same-tick ordering fix (F39) as its own slice. | Ordering test plus legacy path |
+| A5 | First inspector page from W27's list. | One page, read-only, desktop |
+
+### More to consider on getting there (NX)
+
+| Code | Angle | Do |
+|---|---|---|
+| NX1 | **Bundles don't merge.** W36 committed `dist/bundle.js` and the version hash in `index.html`; the shared branch moved since (`70291906` changed seeded streams). Merge source only, then rebuild on the merged tree. | ACCOUNT in A2 |
+| NX2 | **Parity after the base moves.** W28's climate parity was proven on an older base; `seeded_streams` changed on the shared branch. Rerun W28 and W36 tests after the merge. | ACCOUNT in A2 |
+| NX3 | **Shared index safety.** Other sessions stage files in the main checkout. Prove the merge in an isolated index first (R15 G10 method), never stash or reset. | ACCOUNT in A2 |
+| NX4 | **First time the kit is visible in play.** The journey screenshots are what Weibao judges; director acceptance is separate from passing checks. | ACCOUNT |
+| NX5 | **Legacy dates look bland** ("year 1, month 1"). Honest for now; the next visible upgrade is a sourced local name (MoL "Chariot" is dossier-qualified per W34) once adopted by a profile revision. | LATER |
+| NX6 | **Removing Wet in Paradise is a gameplay change.** An already-active Wet effect on an old save simply expires; no migration needed, but the journey should load an old save in Paradise to confirm. | ACCOUNT in A1 |
+| NX7 | **No offline catch-up claims.** Skipped-day summaries in the log describe played time only; the away ledger is not integrated. | ACCOUNT |
+| NX8 | **Cards are now stale.** W19 cards predate W21-W37. Refresh them in one consolidation lane after W37, not piecemeal. | LATER (card refresh lane) |
+| NX9 | **Merge sweep before the next wave.** 31 unmerged branches remain; per the standing rule, their owners merge gate-passing ones before the next Codex wave. | LATER, owners |
+| NX10 | **Readiness trend.** Record today's baseline (K19-K34 runtime 0 met of 288) so the next audit shows movement (RA7). | NOW: recorded in this row |
+| NX11 | **This root is long** (about 1,900 lines). The topic map helps; the next run should start a dated successor file and link back rather than keep appending. | LATER, next run |
+| NX12 | **Fidelity before breadth.** After A1-A3, the cheapest real depth gain is fixing leaks and placeholders in the two native worlds that already play (MoL, Paradise), before adding parts to unbuilt worlds. | ACCOUNT |
+

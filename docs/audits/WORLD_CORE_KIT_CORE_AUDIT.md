@@ -69,3 +69,4 @@ scope, changes a standing priority or turns deferred work into a gate
 | 2026-10-14 | 12 | W33-W35 calendars | this commit | Canon calendars. MoL and Paradise native calendars are elapsed counters in the base-world 30-day, 12-month format (CR7); CC1-CC16 |
 | 2026-10-14 | 13 | All W1-W35 finished and folded | this commit | Corrections FX1-FX5 in place; F32-F49; 20 world cards; K19-K34 runtime 0 met of 288; W28 climate prototype on branch kit/w28-world-climate (807/807 tests in worktree, not integrated) |
 | 2026-10-14 | 14 | W36 integration slice, W37 fidelity | this commit | Book versus code. Paradise 20 C is a code placeholder; home rain reaches Paradise places via is_under_roof false (CR8); provenance tags SF1-SF10 |
+| 2026-10-14 | 15 | none new (W36, W37 running) | this commit | What's next A1-A5; NX1-NX12; topic map added. Baseline for trend: K19-K34 runtime 0 met of 288. Next run starts a dated successor root (NX11) |
