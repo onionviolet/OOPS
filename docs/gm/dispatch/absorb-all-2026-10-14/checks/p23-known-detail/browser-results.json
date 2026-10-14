@@ -1,0 +1,75 @@
+{
+  "viewport": [
+    1366,
+    768
+  ],
+  "nativeFeatureAcceptance": "OPEN: requires P00 host integration",
+  "results": [
+    {
+      "id": "served-bundle",
+      "status": "pass",
+      "detail": {
+        "sha256": "aa9e4155fa4961e114f1b4afff28964363002517e584e783e3e52f8c69f5a9ea"
+      }
+    },
+    {
+      "id": "native-existing-first-kill-bestiary",
+      "status": "pass",
+      "detail": {
+        "entries": 1,
+        "killCounts": [
+          "1"
+        ],
+        "hasUnknown": true,
+        "odds": [
+          "current %base %",
+          "4%[4%]",
+          "4%[4%]",
+          "1%[1%]"
+        ]
+      }
+    },
+    {
+      "id": "native-desktop-baseline",
+      "status": "pass",
+      "detail": {
+        "pageErrors": []
+      }
+    },
+    {
+      "id": "fixture-keyboard-bind-use-typing-rebind-unbind",
+      "status": "pass",
+      "detail": "Exact mock dispatch count 2; no hover"
+    },
+    {
+      "id": "fixture-hotkey-reload",
+      "status": "pass",
+      "detail": "Browser binding retained"
+    },
+    {
+      "id": "fixture-stale-binding-cleanup",
+      "status": "pass",
+      "detail": "Lost item can be unbound by keyboard without exposing identity"
+    },
+    {
+      "id": "fixture-exact-values-and-readiness",
+      "status": "pass",
+      "detail": "Keyboard exact detail and native-shaped blocked row"
+    },
+    {
+      "id": "fixture-observed-drop-boundary",
+      "status": "pass",
+      "detail": "Unobserved association absent"
+    },
+    {
+      "id": "fixture-fresh-browser-literal-snapshot-adoption-reload",
+      "status": "pass",
+      "detail": "Presentation file only, not native save envelope"
+    },
+    {
+      "id": "fixture-existing-local-precedence",
+      "status": "pass",
+      "detail": "Existing exact format wins"
+    }
+  ]
+}

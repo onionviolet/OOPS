@@ -1,0 +1,21 @@
+{
+  "src/display_settings.js": {
+    "sha256": "e26fbd3edd785a88eaa55997bd895420a89cab9ecb6606f13b22a36fba23c8d5",
+    "servedMatches": true
+  },
+  "src/absorb_p23/known_detail/observations.js": {
+    "sha256": "50d0f1b243aa335d7c6118f3e15088c0200cb8c1cd2ddd76bd22e7b081d1f737",
+    "servedMatches": true
+  },
+  "src/absorb_p23/known_detail/hotkeys.js": {
+    "sha256": "59304fecb0733196fbc39337b23753ff9b367420a51e52c815c4061cd146a830",
+    "servedMatches": true
+  },
+  "src/absorb_p23/known_detail/presentation.js": {
+    "sha256": "7f46ca8394b15c9b606b5b9c5f86a75de4fb3812dd95655f0bda49c6f8427fb3",
+    "servedMatches": true
+  },
+  "tests/p23-known-detail.test.js": {
+    "sha256": "bdddf6012d56e53e92d62aa532435c2cb286da6c23e558c3bc5d148624a02b08"
+  }
+}

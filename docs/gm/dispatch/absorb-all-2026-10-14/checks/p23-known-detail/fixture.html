@@ -1,0 +1,18 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><title>Known-detail module contract fixture</title>
+<style>body{font:18px system-ui;max-width:1100px;margin:24px}button,input{font:inherit;padding:6px}section{border:1px solid #888;padding:12px;margin:12px 0}input[type=text]{width:50px}</style>
+<h1>Module contract fixture, not native gameplay</h1><section id="item"></section><input id="typing" aria-label="Typing control"><section id="chains"></section><section id="numbers"></section><p id="notice" role="status"></p>
+<label>Import presentation snapshot <input id="literal" type="file"></label>
+<script type="module">
+import {createKnownItemHotkeys,mountKnownItemBinding,mountKnownItemHotkeyList} from '/src/absorb_p23/known_detail/hotkeys.js';
+import {mountKnownMethodChains,mountKnownNumber,projectObservedDrops} from '/src/absorb_p23/known_detail/presentation.js';
+import * as settings from '/src/display_settings.js';
+window.calls=[];window.state={canWrite:true,items:[{id:'owned:1',label:'Known kit',known:true,owned:true,eligible:true,action:'use',inputFingerprint:'first'}]};
+window.controller=createKnownItemHotkeys({read:()=>state,preflight:q=>({eligible:q.inputFingerprint==='first',command:{id:q.id,type:q.action}}),command:q=>calls.push(q),notice:t=>document.getElementById('notice').textContent=t});
+window.binding=mountKnownItemBinding(document.getElementById('item'),'owned:1',controller);
+window.hotkeyList=mountKnownItemHotkeyList(document.getElementById('item'),controller);
+window.chain=mountKnownMethodChains(document.getElementById('chains'),()=>({families:[{id:'known',learned:true,mastery:2,row:{label:'Known method'},milestones:[{at:2,met:true,label:'Known useful benefit'}],actions:[{id:'use',row:{label:'Use method',control:{enabled:false},surfaces:{preview:['Four played minutes']},reasons:['Missing known tool']}}]}]}));
+mountKnownNumber(document.getElementById('numbers'),1234567,'compact');
+window.settings=settings;window.projectObservedDrops=projectObservedDrops;
+document.getElementById('literal').addEventListener('change',async e=>{try{settings.adoptDisplayPreferences(JSON.parse(await e.target.files[0].text()));window.importResult='ok'}catch(error){window.importResult=error.message}});
+window.ready=true;
+</script></html>
