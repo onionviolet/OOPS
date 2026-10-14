@@ -3081,11 +3081,11 @@ function recipeLesson(inventory){
     log_message('Handling twenty Golmoon leaves taught you a preparation. Review it in Learned preparations.','notification');
     update_displayed_crafting_recipes();practicePanel?.render();updateWorkspace();
 }
-function practiceRunReason(){
+function practiceRunReason({toggle=false}={}){
     if(!ownsSave||foundationSaveBlocked||importProbeToken)return 'Saving is unavailable.';
     if(expansionState.actors.player.worldId!=='base.frontier')return 'Run is practiced for frontier travel.';
     if(current_combat||current_activity||is_reading||is_sleeping||current_dialogue||is_in_trade()||nativeOccupationReason())return 'Finish your current activity before running.';
-    if(character.getFullStats().stamina<2)return 'Requires 2 stamina for a journey.';
+    if(character.getFullStats().stamina<2 && !(toggle && revealFacts()['reveal.run']===true))return 'Requires 2 stamina for a journey; travel falls back to walking.';
     return '';
 }
 function do_reading() {
@@ -8737,9 +8737,9 @@ if(!importProbeToken && !foundationSaveBlocked && !is_loading_error) {
     update_displayed_money();
     practicePanel=createPracticePanel({register:registerWorkspaceModule,update:updateWorkspace,
         read:()=>{const context=localLifeContext(),found=localLife.searches[current_location?.id]?.found;
-            return {progress:character.getLevelableComponent().skill_progress,run:revealFacts()['reveal.run']===true,reason:practiceRunReason(),recipe:revealFacts()['reveal.herbLesson']===true,craftReason:accessoryCraftingTiers(current_location,undefined,global_flags.is_crafting_unlocked).alchemy?'':'Requires an accessible alchemy station before crafting.',
+            return {progress:character.getLevelableComponent().skill_progress,run:revealFacts()['reveal.run']===true,reason:practiceRunReason({toggle:true}),runFallback:character.getFullStats().stamina<2,recipe:revealFacts()['reveal.herbLesson']===true,craftReason:accessoryCraftingTiers(current_location,undefined,global_flags.is_crafting_unlocked).alchemy?'':'Requires an accessible alchemy station before crafting.',
                 search:{on:localLife.looking,reason:!ownsSave||foundationSaveBlocked||importProbeToken?'Saving is unavailable.':!context.idle?'Finish your current activity before investigating.':!['Village','Shack'].includes(context.location)?'Investigate is practiced in Village and Shack.':found?'Nothing remains to find here.':''}};},
-        toggleRun:()=>{if(practiceRunReason())return;const next=structuredClone(expansionState);next.sequence++;next.actors.player.facts['reveal.run']=!revealFacts()['reveal.run'];persistExpansion({state:next,gameplay:gameplaySnapshot(),external:{money:character.money},messages:[]});},
+        toggleRun:()=>{if(practiceRunReason({toggle:true}))return;const next=structuredClone(expansionState);next.sequence++;next.actors.player.facts['reveal.run']=!revealFacts()['reveal.run'];persistExpansion({state:next,gameplay:gameplaySnapshot(),external:{money:character.money},messages:[]});},
         investigate:()=>dispatchLocalLifePlan(localLifeAction(localLife,localLifeContext(),'look')),
         craft:()=>{if(!accessoryCraftingTiers(current_location,undefined,global_flags.is_crafting_unlocked).alchemy)return;open_crafting_window();switch_crafting_recipes_page('alchemy');}});
     createEquipmentComparison({read:()=>{

@@ -31,7 +31,7 @@ export function createPracticePanel({read,toggleRun,investigate,craft,register,u
     document.getElementById('location_related_div').append(panel,preparations);
     let signature='';
     function render(){
-        const view=read(),methods=practiceMethods(view.progress),next=JSON.stringify([methods,view.run,view.reason,view.search,view.recipe,view.craftReason]);
+        const view=read(),methods=practiceMethods(view.progress),next=JSON.stringify([methods,view.run,view.reason,view.runFallback,view.search,view.recipe,view.craftReason]);
         if(next===signature)return;signature=next;
         const focused=document.activeElement?.dataset.practiceAction;
         body.replaceChildren();preparations.replaceChildren();
@@ -41,7 +41,7 @@ export function createPracticePanel({read,toggleRun,investigate,craft,register,u
             button.type='button';button.dataset.practiceAction=row.id;
             button.textContent=row.id==='run'?`Run: ${view.run?'on':'off'}`:`Investigate: ${view.search.on?'on':'off'}`;
             button.disabled=!!reason;button.setAttribute('aria-pressed',String(row.id==='run'?view.run:view.search.on));
-            status.textContent=reason|| (row.id==='run'?' Travel 20% faster; costs 2 stamina per journey.':' Uses the existing five-minute local search.');
+            status.textContent=reason|| (row.id==='run'?(view.runFallback?' Low stamina: travel falls back to walking. You can turn Run off.':' Travel 20% faster; costs 2 stamina per journey.'):' Uses the existing five-minute local search.');
             button.onclick=()=>{row.id==='run'?toggleRun():investigate();render();update();};line.append(button,status);body.append(line);
         }
         if(view.recipe){const note=document.createElement('p');note.textContent='Learned: Weak healing powder. Preparation uses 5 Golmoon leaves. '+(view.craftReason||'An alchemy station is available.');preparations.append(note);const button=document.createElement('button');button.type='button';button.textContent='Review learned herb preparation';button.disabled=!!view.craftReason;button.onclick=craft;preparations.append(button);}
