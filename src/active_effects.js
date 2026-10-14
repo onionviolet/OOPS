@@ -35,6 +35,10 @@ class ActiveEffect {
     }
 }
 
+// Original proposal: edged guardian wounds stack time, not separate save state.
+effect_templates.Bleeding = new ActiveEffect({name:'Bleeding',description:'A claw wound. Repeated hits add duration, capped at 15 game minutes. Played exposure trains Iron skin.',
+    effects:{stats:{health_loss_flat:{flat:-.5}}},tags:{debuff:true}});
+
 //weather effects
 (()=>{
     effect_templates["Wet"] = new ActiveEffect({

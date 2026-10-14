@@ -1,3 +1,4 @@
+import {localLifeQuestView} from './absorb_c2/local_life.js';
 import {originalFrontierCareerQuestView} from './original_frontier_campaign_host.js';
 import {originalFrontierQuestView} from './original_frontier_campaign_content.js';
 import {townQuestView} from "./town_content.js";
@@ -6,9 +7,9 @@ import {fieldSupplyQuestView} from "./frontier_campaign.js";
 import {exchangeQuestView} from "./exchange.js";
 
 // Read-only sibling cards share the native completed filter. No reward owner here.
-export function createExpansionQuests({read}) {
+export function createExpansionQuests({read,readLocalLife=()=>undefined}) {
     const list=document.createElement("div");list.id="expansion_quest_list";
-    const cards=[["original_frontier.return_charter","original_frontier_charter_details",originalFrontierCareerQuestView],["original_frontier.short_measure","original_frontier_quest_details",originalFrontierQuestView],["town.survey","town_quest_details",townQuestView],["field.workshop","field_quest_details",fieldQuestView],["field.supplies","field_supply_details",fieldSupplyQuestView],["exchange.parcel","exchange_quest_details",exchangeQuestView]].map(([id,detailsId,view])=>{
+    const cards=[["original_frontier.return_charter","original_frontier_charter_details",originalFrontierCareerQuestView],["original_frontier.short_measure","original_frontier_quest_details",originalFrontierQuestView],["town.survey","town_quest_details",townQuestView],["field.workshop","field_quest_details",fieldQuestView],["field.supplies","field_supply_details",fieldSupplyQuestView],["exchange.parcel","exchange_quest_details",exchangeQuestView],...["village.watch","village.parcel"].map(id=>[id,`${id.replace('.','_')}_details`,()=>localLifeQuestView(readLocalLife()).find(q=>q.id===id)])].map(([id,detailsId,view])=>{
         const card=document.createElement("div");card.className="quest_div";card.dataset.expansionQuest=id;
         const title=document.createElement("button");title.type="button";title.className="quest_name_div expansion_quest_name";
         const details=document.createElement("div");details.id=detailsId;title.setAttribute("aria-controls",detailsId);title.setAttribute("aria-expanded","false");

@@ -1,0 +1,152 @@
+{
+  "lane": "p23-life-loops",
+  "date": "2026-10-14",
+  "branch": "absorb-all/p23-life-loops",
+  "base": "0216ccde",
+  "implementationCommit": "99b207e6c72eac0ce64d3a10aee0094055e05ea3",
+  "originalLedgerModified": false,
+  "rows": [
+    {
+      "ledgerIndex": 2,
+      "rowNumber": 3,
+      "source": "docs/research/proto23/readers-2026-10-10/R1_core_time_titles_effects_furniture.md",
+      "heading": "1. Global state and save format (143-425)",
+      "mechanism": "Large lifetime counter bag (kills, money gained, deaths, time at home, cat pats, shop buys) that later feeds titles and milestones.",
+      "previousDisposition": "adapt-next",
+      "disposition": "adopted",
+      "commit": "99b207e6c72eac0ce64d3a10aee0094055e05ea3",
+      "where": [
+        "src/absorb_c2/local_life.js",
+        "src/main.js",
+        "src/titles.js"
+      ],
+      "reason": "Schema 3 preserves old accounts; historical home time and purchases default to zero, not fabricated. Two public goals use native observed minutes and settled trade quantities.",
+      "acceptance": "reversible proposal; director play/taste pending"
+    },
+    {
+      "ledgerIndex": 5,
+      "rowNumber": 6,
+      "source": "docs/research/proto23/readers-2026-10-10/R1_core_time_titles_effects_furniture.md",
+      "heading": "3. Titles (431-880, plus unlock tables 7262-7304 and giveTitle 13760)",
+      "mechanism": "Title earn moment is a visible event: grant, set as current title, announce once.",
+      "previousDisposition": "adapt-next",
+      "disposition": "adopted",
+      "commit": "99b207e6c72eac0ce64d3a10aee0094055e05ea3",
+      "where": [
+        "src/titles_ui.js",
+        "src/native_discovery_feedback.js",
+        "src/native_discovery_policy.js",
+        "src/settled_text_effects.js"
+      ],
+      "reason": "Configured native title events reuse the existing cue, compact styling, dismissal and effects settings. Restores emit no event. Existing all-held title bonuses remain derived; no separate equipped-title system.",
+      "acceptance": "reversible proposal; director play/taste pending"
+    },
+    {
+      "ledgerIndex": 10,
+      "rowNumber": 11,
+      "source": "docs/research/proto23/readers-2026-10-10/R1_core_time_titles_effects_furniture.md",
+      "heading": "5. Effects (972-1423; plumbing at 10774-10794, 13864)",
+      "mechanism": "Damage-over-time effects (poison, venom, bleeding, food poisoning) each train a matching resistance skill as they tick, tying status effects to the skill economy.",
+      "previousDisposition": "adapt-next",
+      "disposition": "adopted",
+      "commit": "99b207e6c72eac0ce64d3a10aee0094055e05ea3",
+      "where": [
+        "src/active_effects.js",
+        "src/enemies.js",
+        "src/absorb_c2/local_life.js",
+        "src/main.js"
+      ],
+      "reason": "Existing clawed guardian applies stackable native Bleeding. Played exposure trains existing Iron skin, a bodily-defense adaptation. Food-poison training from C2 is retained, not duplicated.",
+      "acceptance": "reversible proposal; director play/taste pending"
+    },
+    {
+      "ledgerIndex": 15,
+      "rowNumber": 16,
+      "source": "docs/research/proto23/readers-2026-10-10/R1_core_time_titles_effects_furniture.md",
+      "heading": "7. Quests (1590-1683; givers 11939-12320)",
+      "mechanism": "Wait-out-a-shift repeatable quest: accept in a morning window, stand until evening, small pay plus Patience XP and rare passerby coins.",
+      "previousDisposition": "adapt-next",
+      "disposition": "adopted",
+      "commit": "99b207e6c72eac0ce64d3a10aee0094055e05ea3",
+      "where": [
+        "src/absorb_c2/local_life.js",
+        "src/world_rhythm.js recurringWindow",
+        "src/expansion_quest_ui.js"
+      ],
+      "reason": "Morning acceptance, idle Village watch through 20:00, native money and skill settlement, visible closed reason and repeated next-day shifts. Existing Persistence substitutes for a new Patience skill.",
+      "acceptance": "reversible proposal; director play/taste pending"
+    },
+    {
+      "ledgerIndex": 56,
+      "rowNumber": 57,
+      "source": "docs/research/proto23/readers-2026-10-10/R5_map_dialogue_time_save.md",
+      "heading": "2. Time",
+      "mechanism": "Daily and weekly plan hooks: a once-per-day/week registry runs vendor restock, rat infestations and small events.",
+      "previousDisposition": "adapt-next",
+      "disposition": "adopted",
+      "commit": "99b207e6c72eac0ce64d3a10aee0094055e05ea3",
+      "where": [
+        "src/absorb_c2/local_life.js",
+        "src/world_rhythm.js recurringWindow"
+      ],
+      "reason": "One weekly market stall restocks a persisted free bread claim and displays the next occurrence. Existing daily bread and native trader restock retain their owners; no second clock or catch-up registry.",
+      "acceptance": "reversible proposal; director play/taste pending"
+    },
+    {
+      "ledgerIndex": 60,
+      "rowNumber": 61,
+      "source": "docs/research/proto23/readers-2026-10-10/R5_map_dialogue_time_save.md",
+      "heading": "4. Map graph and location catalog",
+      "mechanism": "Unlock-by-reading-a-pamphlet and random sub-visibility (Shady Kid 15%, pamphlet 40%) make the hub feel discovered.",
+      "previousDisposition": "adapt-next",
+      "disposition": "adopted",
+      "commit": "99b207e6c72eac0ce64d3a10aee0094055e05ea3",
+      "where": [
+        "src/absorb_c2/local_life.js"
+      ],
+      "reason": "One capped 40% arrival roll, deferred until idle, retains the courier after meeting. Pamphlet reveals relay actions in the location list without bypassing native mill travel permission. No new map location is invented.",
+      "acceptance": "reversible proposal; director play/taste pending"
+    },
+    {
+      "ledgerIndex": 61,
+      "rowNumber": 62,
+      "source": "docs/research/proto23/readers-2026-10-10/R5_map_dialogue_time_save.md",
+      "heading": "5. NPCs, dialogue and quest hooks",
+      "mechanism": "Parcel relay errand across several NPCs that doubles as a map tour; one mentor tells you what to do next.",
+      "previousDisposition": "adapt-next",
+      "disposition": "adopted",
+      "commit": "99b207e6c72eac0ce64d3a10aee0094055e05ea3",
+      "where": [
+        "src/absorb_c2/local_life.js",
+        "src/expansion_quest_ui.js"
+      ],
+      "reason": "Three explicit existing-NPC handoffs with ordinary Village/mill travel, a next-stop Quest card, paid final receipt, explicit repeat and elder guidance. Existing quest presentation and Local life settlement remain the owners.",
+      "acceptance": "reversible proposal; director play/taste pending"
+    },
+    {
+      "ledgerIndex": 64,
+      "rowNumber": 65,
+      "source": "docs/research/proto23/readers-2026-10-10/R5_map_dialogue_time_save.md",
+      "heading": "6. Scouting and discovery",
+      "mechanism": "Search tells you whether anything remains (\"you sense something\" / \"nothing of interest left\").",
+      "previousDisposition": "adapt-next",
+      "disposition": "adopted",
+      "commit": "99b207e6c72eac0ce64d3a10aee0094055e05ea3",
+      "where": [
+        "src/absorb_c2/local_life.js",
+        "existing src/absorb_c2/panel.js consumer"
+      ],
+      "reason": "The existing search row states one remaining find or zero/nothing remains, and disables exhausted search. Find quantities and chance are unchanged.",
+      "acceptance": "reversible proposal; director play/taste pending"
+    }
+  ],
+  "straddlingRows": [
+    {
+      "ledgerIndex": 92,
+      "rowNumber": 93,
+      "owner": "p23-ui-polish",
+      "disposition": "outside-primary-lane",
+      "reason": "The unearned title-goal portion already existed in 73519a0a. The row\u2019s nextSlice is exact held-copy condition/repair cost, primarily equipment UI, so this lane does not claim that row."
+    }
+  ]
+}

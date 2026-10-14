@@ -665,3 +665,15 @@ and shared-owner dependencies. All internal workers/proof browsers are released;
 no successor or further implementation runs until explicit human resumption.
 The whole source/world horizon remains open, and isolated foundation/UI/customization
 returns require their own narrow integration and acceptance gates.
+
+## Proto23 Village life loops proposal, 2026-10-14
+
+The absorb-all lane adds morning watch, a weekly bread stall, a discovered courier
+pamphlet, repeatable elder/mill/craftsman parcel relays and elder guidance through
+the existing Local life and Quests owners. Two public lifetime title goals use
+observed home minutes and settled trade quantities; live grants share the native
+discovery cue. Existing guardian claws can cause native Bleeding that trains Iron
+skin. Search now states remaining finds. All names and balance remain proposals;
+1366×768 desktop is primary, mobile deferred. [Village loop owner](docs/PROTO23_VILLAGE_LIFE_LOOPS_2026-10-14.md)
+records routes, compatibility and the evidence owner. Weibao's play/taste acceptance
+remains separate from implementation and test evidence.

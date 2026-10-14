@@ -3,8 +3,8 @@ import {createDiscoveryCuePolicy} from './native_discovery_policy.js';
 
 // Native callers emit only actual threshold crossings after settlement, never
 // restored rows or inferred DOM/text changes. Resolution rechecks known state.
-export function createNativeDiscoveryFeedback({container, readSettings, resolve}) {
-    const policy = createDiscoveryCuePolicy();
+export function createNativeDiscoveryFeedback({container, readSettings, resolve, eventType = 'native-skill-discovery', anchorAttribute = 'data-skill', singular = 'Discovered', plural = 'skills'}) {
+    const policy = createDiscoveryCuePolicy({eventType,singular,plural});
     const effects = createSettledTextEffects({container, readSettings});
     container.classList.add('native-discovery-host');
     let pending = [], scheduled = false, epoch = 0, dismissTimer = null;
@@ -36,7 +36,7 @@ export function createNativeDiscoveryFeedback({container, readSettings, resolve}
         // Ordinary cancellation keeps policy identity, so it cannot replay a
         // learned skill; the renderer must not suppress a new session's event.
         receipt.sequence = `${epoch}:${receipt.sequence}`;
-        const row = container.querySelector(`[data-skill="${CSS.escape(receipt.id)}"]`);
+        const row = container.querySelector(`[${anchorAttribute}="${CSS.escape(receipt.id)}"]`);
         const anchor = row?.getClientRects().length ? row : row?.closest('[data-skill_category]');
         // Stances, a collapsed panel or a user-hidden view stays in place. The
         // authoritative native log already carries the readable discovery.
@@ -52,7 +52,7 @@ export function createNativeDiscoveryFeedback({container, readSettings, resolve}
         }
     };
     function publish(event) {
-        if (event?.type !== 'native-skill-discovery' || event.settled !== true) return;
+        if (event?.type !== eventType || event.settled !== true) return;
         pending.push(event);
         if (!scheduled) {scheduled = true; const token = epoch; queueMicrotask(() => flush(token));}
     }
