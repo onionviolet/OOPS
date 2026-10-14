@@ -23,3 +23,5 @@ D5: Visible outcome at 1366x768 and 1600x1000: opt into a responsive method besi
 ## Checks and playable gate
 
 Audit only so far. Required stages: pure tests, native transaction and compatibility tests, GR16 sweep/goldens/restoration, npm test, node build.js, fresh-origin natural paid mix/drink and old-product control at both desktop sizes, exact Save/reload/Export/literal Import and forced failed-write control. BACKLOG.md owns anything unexercised.
+
+V1 SOURCE: Stage 2 adds src/rule_modules.js and 16 named checks covering PC2-T1 through T15 and T34. Matching delegates to unchanged evaluateRule and tagFacts. Rational parameter arithmetic remains exact through composition; one route-scoped candidate index includes negative/unanchored selectors. Physical, institutional and knowledge channels are separate before exemptions/priority. Unsupported transformation/cycle programs are rejected at admission; T15 proves refusal, not a general transform engine. The finite claim allocator is an admission helper for synthetic T11/T12 fixtures, not a new gameplay reaction system.
