@@ -1,3 +1,4 @@
+import {combatHitText} from '../ui_polish.js';
 import {getElementalDefenseModifier} from '../absorb_e3/elemental_affinities.js';
 import {equipmentDurability as durability} from '../absorb_e2/durability.js';
 import {accessoryDropModifier} from '../absorb_c1/accessories.js';
@@ -405,23 +406,12 @@ class Combat {
             add_xp_to_skill({skill: skills["Fortitude"], xp_to_add: (damage_taken**0.6)*target_count_xp_modifier});
         }
 
-        const hit_count_msg = damages_dealt.length > 1?` x${damages_dealt.length}`:"";
+        // Native damage is physical and has no body-part roll. Do not invent one.
         const condt = (!this.is_special_combat && target.tags.main_character);
-        if(critted) {
-            if(partially_blocked) {
-                log_message(target.name + " partially blocked, was critically hit" + hit_count_msg + " for " + Math.ceil(10*damage_taken)/10 + " dmg", condt?"hero_attacked_critically":"enemy_attacked_critically");
-            } 
-            else {
-                log_message(target.name + " was critically hit" + hit_count_msg + " for " + Math.ceil(10*damage_taken)/10 + " dmg", condt?"hero_attacked_critically":"enemy_attacked_critically");
-            }
-        } else {
-            if(partially_blocked) {
-                log_message(target.name + " partially blocked, was hit" + hit_count_msg + " for " + Math.ceil(10*damage_taken)/10 + " dmg", condt?"hero_attacked":"enemy_attacked");
-            }
-            else {
-                log_message(target.name + " was hit" + hit_count_msg + " for " + Math.ceil(10*damage_taken)/10 + " dmg", condt?"hero_attacked":"enemy_attacked");
-            }
-        }
+        log_message(combatHitText({target: target.name, damage: damage_taken,
+            count: damages_dealt.length, critical: critted, blocked: partially_blocked}),
+            condt ? (critted ? "hero_attacked_critically" : "hero_attacked")
+                : (critted ? "enemy_attacked_critically" : "enemy_attacked"), {damageType: "physical"});
 
         if(game_options.do_enemy_onhit_animations) {
             do_onhit_animation({fighter_index: (is_attacker ? this.defenders : this.attackers).findIndex(x => x === target), is_attacker: !is_attacker});

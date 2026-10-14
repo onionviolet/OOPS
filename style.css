@@ -3125,3 +3125,24 @@ i {
 #titles_panel .title_family { margin-top: .4rem; font-style: italic; }
 #titles_panel .title_locked { opacity: .55; }
 #titles_panel .title_bonus { color: #7fbf7f; }
+
+/* Proto23 UI behavior reimplementation: focus details and independent status words. */
+.inventory_item_control:focus-within .item_tooltip,
+.equipped_item_control:focus-within .item_tooltip,
+.equipment_slot_div:focus-within .item_tooltip { display: block; }
+.inventory_item_control:focus-visible, .equipped_item_control:focus-visible {
+    outline: 2px solid var(--sem-money, #f2cf78); outline-offset: -2px;
+}
+[data-vendor-status] { font-size: .85em; margin-left: .4em; }
+[data-vendor-state="unaffordable"] .item_value,
+[data-vendor-state="unaffordable"] [data-vendor-status] { color: var(--sem-blocked, #ff9999); }
+[data-vendor-state="sold-out"], [data-vendor-state="in-basket"] { color: #aaa; }
+[data-vendor-state="sold-out"] .item_value, [data-vendor-state="sold-out"] .item_name,
+[data-vendor-state="sold-out"] [data-rarity] { color: #aaa !important; }
+[data-vendor-state="sold-out"] .trade_ammount_buttons,
+[data-vendor-state="in-basket"] .trade_ammount_buttons { visibility: hidden; }
+[data-item-condition] { display: block; font-size: .85em; color: var(--sem-money, #f2cf78); padding: 2px 4px; }
+.message_common[data-damage-type="physical"] { border-left: 2px solid #c5b8a5; padding-left: 5px; }
+#message_box_div .message_common[data-damage-target="hero"] { color: var(--sem-loss, #ff9999); }
+#message_box_div .message_common[data-damage-target="enemy"] { color: var(--sem-gain, #92dda9); }
+[data-weather-consequence] { font-size: .85em; color: var(--sem-money, #f2cf78); }

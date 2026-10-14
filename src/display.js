@@ -1,3 +1,5 @@
+import {vendorState, conditionText} from './ui_polish.js';
+import {equipmentDurability} from './absorb_e2/durability.js';
 import {foodPacingDescription} from './absorb_e1/panel.js';
 import {rarityColor} from './rarity_palette.js';
 import {getDisplaySetting} from './display_settings.js';
@@ -77,6 +79,66 @@ let item_buying_divs = {};
 let item_selling_divs = {};
 const trader_inventory_div = document.getElementById("trader_inventory_div");
 const storage_inventory_div = document.getElementById("storage_inventory_div");
+
+// Keyboard focus receives the same read-only detail as pointer hover.
+function positionFocusedItemDetail() {
+    const row = document.activeElement?.closest?.('.inventory_item_control, .equipped_item_control, .equipment_slot_div');
+    const tooltip = row?.querySelector('.item_tooltip');
+    if(!tooltip) return;
+    const rect = row.getBoundingClientRect();
+    tooltip.id ||= `focused-item-detail-${++itemDetailId}`;
+    tooltip.setAttribute('role', 'tooltip');
+    row.setAttribute('aria-describedby', tooltip.id);
+    tooltip.style.left = `${Math.max(4, Math.min(rect.right + 8, innerWidth - tooltip.offsetWidth - 8))}px`;
+    tooltip.style.top = `${Math.max(4, Math.min(rect.top, innerHeight - tooltip.offsetHeight - 8))}px`;
+    tooltip.style.maxHeight = `${innerHeight - 16}px`;
+    tooltip.style.overflowY = 'auto';
+}
+let itemDetailId = 0;
+document.addEventListener('focusin', positionFocusedItemDetail);
+window.addEventListener('resize', positionFocusedItemDetail);
+document.addEventListener('scroll', positionFocusedItemDetail, true);
+// Empty stock rows are retained only for this trade visit, never saved.
+const seenVendorRows = new Map();
+trader_inventory_div.addEventListener('click', event => {
+    if(event.target.closest('[data-vendor-state="sold-out"], [data-vendor-state="in-basket"]')) {
+        event.stopImmediatePropagation(); event.preventDefault();
+    }
+}, true);
+function refreshVendorStates() {
+    if(!current_trader) return;
+    const trader = NPCRegistry.get(current_trader).getTraderComponent();
+    const inventory = trader.getTradeInventory();
+    for(const [key, row] of Object.entries(trader_item_divs)) {
+        seenVendorRows.set(key, row);
+    }
+    for(const [key, row] of seenVendorRows) {
+        const entry = inventory[key];
+        if(!row.isConnected) trader_inventory_div.append(row);
+        const price = entry ? round_item_price(entry.item.getValue({region: current_location.market_region,
+            multiplier: trader.getProfitMargin(current_location.market_region) || 1})) : 0;
+        const selected = to_buy.items.find(x => x.item_key === key)?.count || 0;
+        const status = vendorState({stock: entry?.count || 0, selected, price,
+            money: character.money, buying: to_buy.value, selling: to_sell.value});
+        row.dataset.vendorState = status.state;
+        row.setAttribute('aria-disabled', String(['sold-out', 'in-basket'].includes(status.state)));
+        let label = row.querySelector('[data-vendor-status]');
+        if(!label) { label = document.createElement('span'); label.dataset.vendorStatus = ''; row.querySelector('.item_additional_content').append(label); }
+        label.textContent = status.label;
+        if(status.state === 'sold-out' || status.state === 'in-basket') row.querySelector('.item_count').textContent = ' x0';
+    }
+}
+function refreshConditionRows() {
+    for(const [slot, item] of Object.entries(character.getEquipment())) {
+        const row = item_divs[slot];
+        if(!row || !item) continue;
+        let label = row.querySelector('[data-item-condition]');
+        const text = conditionText(equipmentDurability, character, item);
+        if(!text) { label?.remove(); continue; }
+        if(!label) { label = document.createElement('span'); label.dataset.itemCondition = ''; row.append(label); }
+        label.textContent = text;
+    }
+}
 
 //message log
 const message_log = document.getElementById("message_box_div");
@@ -860,7 +922,7 @@ function end_activity_animation(remove) {
  * @param {String} message_to_add text to display
  * @param {String} message_type used for adding proper class to html element
  */
- function log_message(message_to_add, message_type) {
+ function log_message(message_to_add, message_type, details = {}) {
     if(typeof message_to_add === 'undefined') {
         return;
     }
@@ -870,6 +932,10 @@ function end_activity_animation(remove) {
 
     let message = document.createElement("div");
     message.classList.add("message_common");
+    if(details.damageType === 'physical') {
+        message.dataset.damageType = 'physical';
+        message.dataset.damageTarget = message_type.startsWith('hero_') ? 'hero' : 'enemy';
+    }
 
     let class_to_add = "message_default";
     let group_to_add = "message_events";
@@ -1196,6 +1262,9 @@ function start_activity_animation(settings) {
 }
 
 function update_displayed_trader() {
+    for(const row of seenVendorRows.values()) row.remove();
+    seenVendorRows.clear();
+    trader_item_divs = {};
     action_div.style.display = "none";
     trade_div.style.display = "inherit";
     document.getElementById("trader_cost_mult_value").textContent = `${Math.round(100 * (NPCRegistry.get(current_trader).getTraderComponent().getProfitMargin(current_location.market_region)))}%`
@@ -1213,6 +1282,7 @@ function update_displayed_money() {
 }
 
 function update_displayed_total_price(total_price) {
+    refreshVendorStates();
     set_HTML(document.getElementById("trade_price_value"), format_money(total_price));
 }
 
@@ -1606,6 +1676,7 @@ function update_displayed_trader_inventory({item_key, trader_sorting="name", sor
         }
     }
     
+    refreshVendorStates();
     if(was_anything_new_added) {
         sort_displayed_inventory({target: "trader", sort_by: trader_sorting, direction: sorting_direction});
     }
@@ -1796,6 +1867,8 @@ function update_displayed_character_inventory({item_key, equip_slot, character_s
         }
     }
     
+    refreshConditionRows();
+    positionFocusedItemDetail();
     if(was_anything_new_added && !skip_sorting) {
         sort_displayed_inventory({target: "character", sort_by: character_sorting, direction: sorting_direction});
     }
@@ -1874,6 +1947,7 @@ function exit_displayed_storage() {
 function create_inventory_item_div({key, item_count, target, is_equipped, trade_index, is_trade = false}) {
 
     const item_control_div = document.createElement("div");
+    item_control_div.tabIndex = 0;
     const item_div = document.createElement("div");
     const item_name_div = document.createElement("div");
     const item_additional = document.createElement("div");
@@ -2083,6 +2157,10 @@ function create_inventory_item_div({key, item_count, target, is_equipped, trade_
         apply_inventory_new_marker(item_control_div, key);
     }
 
+    if(is_equipped) {
+        const text = conditionText(equipmentDurability, character, target_item);
+        if(text) { const label = document.createElement("span"); label.dataset.itemCondition = ""; label.textContent = text; item_control_div.append(label); }
+    }
     return item_control_div;
 }
 
@@ -2092,6 +2170,7 @@ function create_inventory_item_div({key, item_count, target, is_equipped, trade_
 function update_displayed_equipment() {
     const equipment = character.getEquipment();
     Object.keys(equipment_slots_divs).forEach(function(key) {
+        equipment_slots_divs[key].tabIndex = 0;
         let eq_tooltip; 
 
         if(equipment[key] == null) { //no item in slot
@@ -3824,6 +3903,7 @@ function update_gathering_tooltip(activity) {
 }
 
 function update_displayed_health() { //call it when using healing items, resting or getting hit
+    refreshConditionRows();
     const full_stats = character.getFullStats();
 
     const total_regen = character.getHealthRegenerationTotal() + character.getHealthLossTotal();
@@ -4142,8 +4222,8 @@ function update_displayed_time() {
     set_HTML(time_field, current_game_time.toString() + ", <b>" + time_of_the_day + "</b>");
 }
 
-function update_displayed_temperature() {
-    const temperature = get_current_temperature_smoothed();
+function update_displayed_temperature(optionalWeather = {}) {
+    const temperature = get_current_temperature_smoothed() + (optionalWeather.temperatureOffset || 0);
     let displayed_temperature = Math.round(10*(game_options.use_uncivilised_temperature_scale?celsius_to_fahrenheit(temperature):temperature))/10;
     let html_content;
     const temperature_unit = game_options.use_uncivilised_temperature_scale?"°F":"°C";
@@ -4182,6 +4262,16 @@ function update_displayed_temperature() {
 
     insert_HTML(weather_field, html_content);
 
+    if(optionalWeather.active && optionalWeather.remaining != null) {
+        const summary = document.createElement('span');
+        summary.dataset.weatherConsequence = '';
+        // Disabled weather has zero offset and no weather multiplier; only show when enabled.
+        if(optionalWeather.enabled) {
+            summary.textContent = ` · ${optionalWeather.weatherLabel} · ${Math.ceil(optionalWeather.remaining)}m · Weather XP ×${optionalWeather.weatherEfficiency}`;
+            summary.title = current_location.is_under_roof ? 'Sheltered: outdoor weather consequences do not apply.' : `Outdoor temperature offset ${optionalWeather.temperatureOffset >= 0 ? '+' : ''}${optionalWeather.temperatureOffset}°C. Rain can cause Wet.`;
+            weather_field.append(summary);
+        }
+    }
     weather_field.appendChild(create_temperature_tooltip());
 }
 
