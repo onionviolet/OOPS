@@ -49,3 +49,10 @@ test('pending/settled full envelopes import exactly; corrupt reserve/ref fails b
  assert.deepEqual(decodeSaveFile(encodeSaveFile(JSON.stringify(settled)),'v0.6').generated_people,settled.generated_people);
  settled.generated_people.storyRequests.requests[0].receiptId='missing';assert.throws(()=>validateStoryRequests(settled.generated_people,settled.expansion),/request/);
 });
+test('closed request quota retires old claims, permits repeated real needs and preserves the latest known receipt',()=>{
+ let e=spineFixture().envelope;
+ for(let i=0;i<100;i++){e=raise(e);const r=e.generated_people.storyRequests.requests.at(-1);e=planStoryRequest(e,{action:'decline',id:r.id}).envelope;}
+ assert.equal(e.generated_people.storyRequests.requests.length,16);assert.ok(e.expansion.loreHistory.receipts.length<=96);assert.ok(e.expansion.loreHistory.evicted>0);
+ e=raise(e);const r=e.generated_people.storyRequests.requests.at(-1);e=planStoryRequest(e,{action:'take',id:r.id}).envelope;const key=JSON.stringify({id:r.item});e.inventories.person.main_character[key]={count:1};e=planStoryRequest(e,{action:'deliver',id:r.id,itemKey:key}).envelope;
+ assert.equal(e.generated_people.storyRequests.requests.at(-1).status,'delivered');validateStoryRequests(e.generated_people,e.expansion);
+});

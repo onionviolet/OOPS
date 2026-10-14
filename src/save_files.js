@@ -59,6 +59,7 @@ export function validateSaveEnvelope(original, currentVersion) {
         if(original.village_career.loan?.status==='active' && (original['current location']!=='Village' || original.current_activity?.activity_id!=='patrolling'))throw new Error('Active Village career must have its native patrol.');
     }
     if(original.life_record != null) validateLifeRecord(original.life_record);
+    if(original.generated_people?.storyRequests&&!original.expansion)throw Error('Remembered requests require their history owner.');
     if(original.generated_people != null) {validateGeneratedPeople(original.generated_people);validateStoryRequests(original.generated_people,original.expansion);if(original.generated_people.lastMinute>calendarMinutes(original['current time']))throw Error('Generated people are ahead of this calendar.');}
     if(original.npc_lives != null) {validateVillageLives(original.npc_lives);if(original.npc_lives.lastYear > original["current time"]?.year)throw new Error("Village lives are ahead of this calendar.");}
     const parts = version => {

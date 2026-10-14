@@ -1,9 +1,9 @@
 import {storyRecap} from './lore_history_view.js';
-import {planStoryRequest,publishStoryRequest,salientRequestPerson} from './story_requests.js';
+import {planStoryRequest,publishStoryRequest,salientRequestPerson,validateStoryRequests} from './story_requests.js';
 import {createGeneratedPeople,advanceGeneratedPeople,validateGeneratedPeople,generatedPeopleView,interactGeneratedPerson} from './generated_people.js';
 import {villageAuthoredNames} from './name_grammar.js';
 let current=null;
-export function restoreGeneratedPeople(save) {current=save.generated_people==null?null:structuredClone(validateGeneratedPeople(save.generated_people));}
+export function restoreGeneratedPeople(save) {if(save.generated_people?.storyRequests&&!save.expansion)throw Error('Remembered requests require their history owner.');validateStoryRequests(save.generated_people,save.expansion);current=save.generated_people==null?null:structuredClone(validateGeneratedPeople(save.generated_people));}
 export function generatedPeopleSnapshot(at) {return advanceGeneratedPeople(current,at);}
 const node=(tag,text='')=>{const n=document.createElement(tag);n.textContent=text;return n;};
 // Registration lives here, independent of simulation_content and authored households.

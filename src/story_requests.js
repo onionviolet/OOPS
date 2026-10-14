@@ -18,6 +18,7 @@ export function validateStoryRequests(people,expansion=null) {
   if(expansion&&!pending(r)) {
    const receipt=queryStoryOutcomes(expansion,{id:r.receiptId})[0];
    check(receipt&&receipt.issuer===p.id&&receipt.targetObject===r.item&&receipt.result===r.status&&receipt.causeRefs.includes(r.id));
+   if(expansion.loreHistory.consumerPins!=null)check(expansion.loreHistory.consumerPins[`p4.request:${r.id}`]?.includes(r.receiptId));
   }
  }
  if(expansion)validateLoreHistory(expansion);
@@ -40,7 +41,8 @@ export function planStoryRequest(envelope,{action,id=null,itemKey=null,expectedS
   check(state.actors.player.facts['storylets.enabled']===true,'Begin Village encounters after speaking to the elder first.');
   s.storyRequests={schema:1,enabled:true,nextId:1,requests:[]};
  } else if(action==='raise') {
-  check(s.storyRequests&&s.storyRequests.requests.length<16);
+  check(s.storyRequests);
+  if(s.storyRequests.requests.length>=16){const retired=s.storyRequests.requests.findIndex(r=>!pending(r));check(retired>=0,'Finish an active request before admitting another.');const [old]=s.storyRequests.requests.splice(retired,1);if(state.loreHistory?.consumerPins)delete state.loreHistory.consumerPins[`p4.request:${old.id}`];}
   const p=salientRequestPerson(s,state);check(p,'Meet a traveler with an unmet supply need and a funded fee.');
   p.possessions.coins-=p.goal.reward;
   s.storyRequests.requests.push({id:`request:${s.storyRequests.nextId++}`,revision:1,issuer:p.id,needRef:`supply:${p.id}:${p.goal.item}`,needRevision:1,item:p.goal.item,quantity:1,reward:p.goal.reward,held:p.goal.reward,at:state.clock,status:'offered',expiryPolicy:REQUEST_CONTRACT.expiry,receiptId:null});
@@ -63,6 +65,7 @@ export function planStoryRequest(envelope,{action,id=null,itemKey=null,expectedS
    r.receiptId=receipt.id;
   }
  }
+ if(state.loreHistory){state.loreHistory.consumerPins||={};for(const r of s.storyRequests?.requests||[])if(r.receiptId)state.loreHistory.consumerPins[`p4.request:${r.id}`]=[r.receiptId];}
  state.sequence++;validateStoryRequests(s,state);return {envelope:save,reward,supplyKey};
 }
 export function publishStoryRequest(plan,{persist,publishSupply,publishReward}) {

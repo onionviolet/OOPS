@@ -8,11 +8,13 @@ export function queryStoryOutcomes(state,filter={}) {
     return (state.loreHistory?.receipts||[]).filter(r=>Object.entries(filter).every(([key,value])=>r[key]===value)).map(r=>structuredClone(r));
 }
 export function historyPins(state,extra=[]) {
-    const pins=new Set(extra);
+    const pins=new Set([...extra,...Object.values(state.loreHistory?.consumerPins||{}).flat()]);
     for(const r of state.loreHistory?.receipts||[])for(const id of r.historyCauses)pins.add(id);
     for(const e of Object.values(state.simulation?.events||{}))if(e.status==='open'&&e.historyRef)pins.add(e.historyRef);
     // Request settlement evidence is required for future callback predicates.
-    for(const r of state.loreHistory?.receipts||[])if(r.action.startsWith('request.'))pins.add(r.id);
+    const requests=(state.loreHistory?.receipts||[]).filter(r=>r.action.startsWith('request.'));
+    if(state.loreHistory?.consumerPins==null)for(const r of requests)pins.add(r.id);
+    else {const latest=new Map(requests.map(r=>[r.targetPerson,r.id]));for(const id of latest.values())pins.add(id);}
     return pins;
 }
 export function validateLoreHistory(state) {
@@ -28,6 +30,7 @@ export function validateLoreHistory(state) {
         check(Array.isArray(r.applied)&&r.applied.length<=64&&r.applied.every(d=>object(d)&&ref(d.owner)&&ref(d.key)&&['item','coin','skill'].includes(d.kind)&&Number.isFinite(d.delta)&&d.delta!==0));
         ids.add(r.id);ops.add(r.operation);last=r.ordinal;
     }
+    if(h.consumerPins!=null){check(object(h.consumerPins)&&Object.keys(h.consumerPins).length<=32);for(const refs of Object.values(h.consumerPins))check(Array.isArray(refs)&&refs.length<=8&&refs.every(id=>ids.has(id)));}
     for(const e of Object.values(state.simulation?.events||{}))if(e.historyRef)check(ids.has(e.historyRef));
     return h;
 }
