@@ -756,3 +756,7 @@ body #bottom_panel_div .sl_button {padding-left:6px;padding-right:6px;}
 .workspace-discovery-hidden { display: none !important; }
 #practice_capabilities button { margin: 4px 8px 4px 0; }
 #staged_opening { padding: 8px; }
+
+/* Reach A1 proposal: ordinary header activation stays separate from layout editing. */
+#main_content.workspace-active[data-layout-editing="false"] .workspace-module-header strong[role="button"] { cursor: pointer; }
+#main_content.workspace-active .workspace-module-header strong[role="button"]:focus-visible { outline: 2px solid var(--workspace-accent); outline-offset: 2px; }

@@ -21,7 +21,11 @@ function makeShell(module) {
     const shell = el('section', 'workspace-module'); shell.dataset.module = module.id; shell.tabIndex = -1;
     const header = el('div', 'workspace-module-header');
     const handle = button('↕', 'handle', module.id); handle.className = 'workspace-drag-handle'; handle.draggable = false; handle.title = 'Drag to reorder or dock. Arrow keys move; left/right changes dock.'; 
-    const title = el('strong'); header.append(handle, title, button('Collapse', 'collapse', module.id));
+    const title = el('strong'); title.tabIndex = 0; title.setAttribute('role', 'button');
+    const toggle = () => { if (!owner.editing && !module.critical) { const state = owner.layout.modules.find(v => v.id === module.id); apply(module.id, {collapsed: !state.collapsed}); } };
+    title.addEventListener('click', toggle);
+    title.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggle(); } });
+    header.append(handle, title, button('Collapse', 'collapse', module.id));
     const details = el('details', 'workspace-module-controls'); const summary = el('summary', '', 'Options'); details.append(summary); 
     const label = el('label', '', 'Dock '), select = el('select'); select.dataset.workspaceAction = 'dock'; select.dataset.module = module.id;
     ['left', 'center', 'right', 'float'].forEach(d => { const option = el('option', '', d === 'float' ? 'Floating' : d); option.value = d; select.append(option); }); label.append(select); details.append(label);
@@ -170,6 +174,7 @@ export function updateWorkspace() {
         const d = owner.narrow ? 'center' : state.dock, destination = owner.context==='authoring' && ['current-work','customization-preview'].includes(state.id) ? owner.contextBar : owner.docks[d], key=destination===owner.contextBar?'context':d,index=counts[key]||0;counts[key]=index+1;
         if (destination.children[index] !== shell) destination.insertBefore(shell, destination.children[index] || null);
         module.body.hidden = state.collapsed;
+        shell.querySelector('.workspace-module-header > strong').setAttribute('aria-expanded', String(!state.collapsed));
         shell.querySelector('[data-workspace-action="hide"]').disabled = module.critical; shell.querySelector('[data-workspace-action="collapse"]').disabled = module.critical;
         shell.querySelector('[data-workspace-action="collapse"]').textContent = state.collapsed ? 'Expand' : 'Collapse'; shell.querySelector('[data-workspace-action="collapse"]').setAttribute('aria-expanded', String(!state.collapsed));
         shell.querySelector('[data-workspace-action="pin"]').textContent = state.pinned ? 'Unpin' : 'Pin'; shell.querySelector('[data-workspace-action="pin"]').setAttribute('aria-pressed', String(state.pinned));
