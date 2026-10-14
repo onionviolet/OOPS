@@ -1,0 +1,186 @@
+{
+  "topSelf": [
+    {
+      "function": "retiredKey",
+      "site": "../src/save_compatibility.js:4:10",
+      "selfMs": 57055.21,
+      "totalMs": 57055.21
+    },
+    {
+      "function": "persistExpansionPlan",
+      "site": "../src/expansion_persistence.js:7:17",
+      "selfMs": 544.14,
+      "totalMs": 60447.88
+    },
+    {
+      "function": "setItem",
+      "site": "../src/main.js:452:26",
+      "selfMs": 462.48,
+      "totalMs": 786.25
+    },
+    {
+      "function": "prepareFoundationSave",
+      "site": "../src/save_compatibility.js:9:17",
+      "selfMs": 445.6,
+      "totalMs": 57847.09
+    },
+    {
+      "function": "(garbage collector)",
+      "site": "(V8):0:0",
+      "selfMs": 376.77,
+      "totalMs": 376.77
+    },
+    {
+      "function": "n",
+      "site": "../src/save_compatibility.js:42:20",
+      "selfMs": 347.5,
+      "totalMs": 57402.72
+    },
+    {
+      "function": "worldCompletionFacts",
+      "site": "../src/world_completion_facts.js:15:17",
+      "selfMs": 309.42,
+      "totalMs": 947.52
+    },
+    {
+      "function": "auditRemainderCombinedFacts",
+      "site": "../src/audit_remainder_facts.js:12:17",
+      "selfMs": 299.24,
+      "totalMs": 428.61
+    },
+    {
+      "function": "simulateTick",
+      "site": "../src/main.js:7797:10",
+      "selfMs": 289.92,
+      "totalMs": 65661.27
+    },
+    {
+      "function": "frontierNativeEvidence",
+      "site": "../src/main.js:1040:10",
+      "selfMs": 257.06,
+      "totalMs": 292.1
+    },
+    {
+      "function": "structuredClone",
+      "site": "(V8):0:0",
+      "selfMs": 231.26,
+      "totalMs": 231.26
+    },
+    {
+      "function": "(program)",
+      "site": "(V8):0:0",
+      "selfMs": 225.94,
+      "totalMs": 225.94
+    },
+    {
+      "function": "originalFrontierFacts",
+      "site": "../src/original_frontier_facts.js:7:17",
+      "selfMs": 220.15,
+      "totalMs": 230.61
+    },
+    {
+      "function": "create_save",
+      "site": "../src/main.js:5457:10",
+      "selfMs": 217.04,
+      "totalMs": 576.68
+    },
+    {
+      "function": "readGameplayActor",
+      "site": "../src/gameplay_publication.js:3:17",
+      "selfMs": 193.33,
+      "totalMs": 230.55
+    }
+  ],
+  "topTotal": [
+    {
+      "function": "(root)",
+      "site": "(V8):0:0",
+      "selfMs": 0,
+      "totalMs": 66580.32
+    },
+    {
+      "function": "(anonymous)",
+      "site": "(V8):1:2",
+      "selfMs": 0,
+      "totalMs": 65729.51
+    },
+    {
+      "function": "evaluate",
+      "site": "(V8):305:11",
+      "selfMs": 0,
+      "totalMs": 65729.51
+    },
+    {
+      "function": "(anonymous)",
+      "site": "(V8):1:1",
+      "selfMs": 0,
+      "totalMs": 65729.2
+    },
+    {
+      "function": "advanceTicks",
+      "site": "../src/main.js:8254:10",
+      "selfMs": 0,
+      "totalMs": 65729.2
+    },
+    {
+      "function": "runEngineTicks",
+      "site": "../src/simulation_clock.js:62:17",
+      "selfMs": 1.59,
+      "totalMs": 65673.53
+    },
+    {
+      "function": "engineTimeout",
+      "site": "../src/main.js:7777:19",
+      "selfMs": 9.39,
+      "totalMs": 65670.68
+    },
+    {
+      "function": "simulateTick",
+      "site": "../src/main.js:7797:10",
+      "selfMs": 289.92,
+      "totalMs": 65661.27
+    },
+    {
+      "function": "update_timer",
+      "site": "../src/main.js:7681:10",
+      "selfMs": 13.42,
+      "totalMs": 65140.51
+    },
+    {
+      "function": "persistExpansion",
+      "site": "../src/main.js:1077:10",
+      "selfMs": 58.79,
+      "totalMs": 64392.13
+    },
+    {
+      "function": "persistExpansionPlan",
+      "site": "../src/expansion_persistence.js:7:17",
+      "selfMs": 544.14,
+      "totalMs": 60447.88
+    },
+    {
+      "function": "data",
+      "site": "../src/main.js:1203:27",
+      "selfMs": 7.25,
+      "totalMs": 58400.05
+    },
+    {
+      "function": "validateSaveEnvelope",
+      "site": "../src/save_files.js:49:17",
+      "selfMs": 43.22,
+      "totalMs": 58388.6
+    },
+    {
+      "function": "prepareFoundationSave",
+      "site": "../src/save_compatibility.js:9:17",
+      "selfMs": 445.6,
+      "totalMs": 57847.09
+    },
+    {
+      "function": "n",
+      "site": "../src/save_compatibility.js:42:20",
+      "selfMs": 347.5,
+      "totalMs": 57402.72
+    }
+  ]
+}
