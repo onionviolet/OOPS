@@ -1,0 +1,76 @@
+TAP version 13
+# Subtest: E2 identity contract preserves independent copies with wear disabled
+ok 1 - E2 identity contract preserves independent copies with wear disabled
+  ---
+  duration_ms: 1.255583
+  type: 'test'
+  ...
+# Subtest: native played clock flips aura at 20:00 and 04:00, removal stops it
+ok 2 - native played clock flips aura at 20:00 and 04:00, removal stops it
+  ---
+  duration_ms: 0.759208
+  type: 'test'
+  ...
+# Subtest: kill staging is inert until publication and a real event settles once
+ok 3 - kill staging is inert until publication and a real event settles once
+  ---
+  duration_ms: 0.428667
+  type: 'test'
+  ...
+# Subtest: identical weapon and collector copies grow independently through swap and re-equip
+ok 4 - identical weapon and collector copies grow independently through swap and re-equip
+  ---
+  duration_ms: 0.2905
+  type: 'test'
+  ...
+# Subtest: training, summoned and other actor kills do not award; non-beast kills only grow weapon
+ok 5 - training, summoned and other actor kills do not award; non-beast kills only grow weapon
+  ---
+  duration_ms: 0.154542
+  type: 'test'
+  ...
+# Subtest: collector spend consumes real saved reserve and supplies native stamina publication patch
+ok 6 - collector spend consumes real saved reserve and supplies native stamina publication patch
+  ---
+  duration_ms: 0.180375
+  type: 'test'
+  ...
+# Subtest: failed persistence, custody and stale plans leave live resource unchanged
+ok 7 - failed persistence, custody and stale plans leave live resource unchanged
+  ---
+  duration_ms: 0.234709
+  type: 'test'
+  ...
+# Subtest: collector reserve has capacity but spending allows unlimited future refill
+ok 8 - collector reserve has capacity but spending allows unlimited future refill
+  ---
+  duration_ms: 0.998291
+  type: 'test'
+  ...
+# Subtest: full old/new copy JSON import controls and schema rejection before mutation
+ok 9 - full old/new copy JSON import controls and schema rejection before mutation
+  ---
+  duration_ms: 0.671542
+  type: 'test'
+  ...
+# Subtest: known-only rows and native custody failures cannot expose unknown gear
+ok 10 - known-only rows and native custody failures cannot expose unknown gear
+  ---
+  duration_ms: 0.422417
+  type: 'test'
+  ...
+# Subtest: native item registration and decoder preserve original living weapon components and E2 copies
+ok 11 - native item registration and decoder preserve original living weapon components and E2 copies
+  ---
+  duration_ms: 39.165667
+  type: 'test'
+  ...
+1..11
+# tests 11
+# suites 0
+# pass 11
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 95.636542

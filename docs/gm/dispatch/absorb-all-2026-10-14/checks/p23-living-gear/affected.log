@@ -1,0 +1,113 @@
+TAP version 13
+# Subtest: old-save and default-off native keys and pacing stay intact
+ok 1 - old-save and default-off native keys and pacing stay intact
+  ---
+  duration_ms: 0.791459
+  type: 'test'
+  ...
+# Subtest: separate equal-quality copies keep immutable keys, distinct damage and repair coins
+ok 2 - separate equal-quality copies keep immutable keys, distinct damage and repair coins
+  ---
+  duration_ms: 1.024875
+  type: 'test'
+  ...
+# Subtest: condition and ID allocation survive serialization, old missing condition defaults full
+ok 3 - condition and ID allocation survive serialization, old missing condition defaults full
+  ---
+  duration_ms: 0.284458
+  type: 'test'
+  ...
+# Subtest: actual native inventory, Hero equip/unequip, key decoder and equipment publisher preserve worn copy
+ok 4 - actual native inventory, Hero equip/unequip, key decoder and equipment publisher preserve worn copy
+  ---
+  duration_ms: 65.301125
+  type: 'test'
+  ...
+# Native steel greaves defense: fresh 13, condition20 4.16; direct getter 13.
+# Subtest: staged repair and toggle reject storage/custody failures without live writes or ID forks
+ok 5 - staged repair and toggle reject storage/custody failures without live writes or ID forks
+  ---
+  duration_ms: 0.815375
+  type: 'test'
+  ...
+# Subtest: landed hits degrade armor and shield with real defense/block penalties and no destruction
+ok 6 - landed hits degrade armor and shield with real defense/block penalties and no destruction
+  ---
+  duration_ms: 0.34625
+  type: 'test'
+  ...
+# Subtest: E2 identity contract preserves independent copies with wear disabled
+ok 7 - E2 identity contract preserves independent copies with wear disabled
+  ---
+  duration_ms: 1.63475
+  type: 'test'
+  ...
+# Subtest: native played clock flips aura at 20:00 and 04:00, removal stops it
+ok 8 - native played clock flips aura at 20:00 and 04:00, removal stops it
+  ---
+  duration_ms: 0.913083
+  type: 'test'
+  ...
+# Subtest: kill staging is inert until publication and a real event settles once
+ok 9 - kill staging is inert until publication and a real event settles once
+  ---
+  duration_ms: 0.595292
+  type: 'test'
+  ...
+# Subtest: identical weapon and collector copies grow independently through swap and re-equip
+ok 10 - identical weapon and collector copies grow independently through swap and re-equip
+  ---
+  duration_ms: 0.415584
+  type: 'test'
+  ...
+# Subtest: training, summoned and other actor kills do not award; non-beast kills only grow weapon
+ok 11 - training, summoned and other actor kills do not award; non-beast kills only grow weapon
+  ---
+  duration_ms: 0.22825
+  type: 'test'
+  ...
+# Subtest: collector spend consumes real saved reserve and supplies native stamina publication patch
+ok 12 - collector spend consumes real saved reserve and supplies native stamina publication patch
+  ---
+  duration_ms: 0.25675
+  type: 'test'
+  ...
+# Subtest: failed persistence, custody and stale plans leave live resource unchanged
+ok 13 - failed persistence, custody and stale plans leave live resource unchanged
+  ---
+  duration_ms: 0.253
+  type: 'test'
+  ...
+# Subtest: collector reserve has capacity but spending allows unlimited future refill
+ok 14 - collector reserve has capacity but spending allows unlimited future refill
+  ---
+  duration_ms: 1.297208
+  type: 'test'
+  ...
+# Subtest: full old/new copy JSON import controls and schema rejection before mutation
+ok 15 - full old/new copy JSON import controls and schema rejection before mutation
+  ---
+  duration_ms: 1.078958
+  type: 'test'
+  ...
+# Subtest: known-only rows and native custody failures cannot expose unknown gear
+ok 16 - known-only rows and native custody failures cannot expose unknown gear
+  ---
+  duration_ms: 0.650083
+  type: 'test'
+  ...
+# Subtest: native item registration and decoder preserve original living weapon components and E2 copies
+ok 17 - native item registration and decoder preserve original living weapon components and E2 copies
+  ---
+  duration_ms: 53.011584
+  type: 'test'
+  ...
+1..17
+# tests 17
+# suites 0
+# pass 17
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 271.012084
