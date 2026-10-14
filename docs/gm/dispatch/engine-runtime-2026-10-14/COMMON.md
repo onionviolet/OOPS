@@ -67,3 +67,7 @@ Weibao: "Considering comic worlds and stuff? Abstraction that's needed?"
 Root palette sections R (CE, CX19-CX23, MC35-MC37) and S (AB1-AB15).
 Comic world design is owned by docs/COMIC_WORLDS_AND_MEDIUM_CONSIDERATIONS_2026-10-14.md
 and its K lanes; read, link, never edit. Canon-first order is unchanged.
+
+## Status
+
+Folded 2026-10-14 into the root palette, section U. No lanes running.
