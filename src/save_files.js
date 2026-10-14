@@ -1,3 +1,4 @@
+import {validateStreams,validateNativeEncounter} from "./seeded_streams.js";
 import {validateCheatState} from './cheat_cards.js';
 import {validateCustomizationState} from './customization_profiles.js';
 import {migrateWorkLedger} from './work_ledger_system.js';
@@ -71,6 +72,9 @@ export function validateSaveEnvelope(original, currentVersion) {
     if(Object.hasOwn(original,"absorb_local_life"))normalizeLocalLife(original.absorb_local_life);
     const {save, retired} = prepareFoundationSave(original);
     if(save.expansion != null) validateExpansionState(save.expansion);
+    if(save.expansion?.streams != null) validateStreams(save.expansion.streams);
+    validateNativeEncounter(save.native_encounter,save["current location"]);
+    if(save.native_encounter && !save.expansion?.streams)throw Error("Saved encounter needs its random streams.");
     validateRealmEnvelope(save);
     validateTidemarkEnvelope(save);
     validateNestedEnvelope(save);

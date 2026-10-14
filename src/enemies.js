@@ -1,3 +1,4 @@
+import {STREAMS,gameRandom,gameKeyedRandom} from "./seeded_streams.js";
 "use strict";
 import {mitigateCombatDamage} from "./combat_math.js";
 
@@ -163,15 +164,16 @@ class Enemy {
         // goes through items and calculates drops
         // result is in form [{item: Item, count: item_count}, {...}, {...}]
         let loot = [];
+        const random = key => this.rngKey ? gameKeyedRandom(STREAMS.loot, `${this.rngKey}:${key}`) : gameRandom(STREAMS.loot, key);
         let item;
         
         for (let i = 0; i < this.loot_list.length; i++) {
             item = this.loot_list[i];
-            if(item.chance * this.get_droprate_modifier(drop_chance_modifier) >= Math.random()) {
+            if(item.chance * this.get_droprate_modifier(drop_chance_modifier) > random(`drop:${i}`)) {
                 // checks if it should drop
                 let item_count = 1;
                 if("count" in item) {
-                    item_count = Math.round(Math.random() * (item["count"]["max"] - item["count"]["min"]) + item["count"]["min"]);
+                    item_count = Math.round(random(`count:${i}`) * (item["count"]["max"] - item["count"]["min"]) + item["count"]["min"]);
                     // calculates how much drops (from range min-max, both inclusive)
                 }
                 loot.push({item_id: item.item_name, "count": item_count });
@@ -207,13 +209,13 @@ class Enemy {
 }
 
 const enemy_abilites = {
-    bufotoxin(duration) {
+    bufotoxin(duration, random = () => gameRandom(STREAMS.combat, "status")) {
         let statuses = ["Irritation", "Confusion", "Hallucinations",
             "Weak necrotizing venom", "Mild necrotizing venom",
             "Paralysing poison", "Infected lungs", "Convulsive poison"];
 
         add_active_effect(
-            statuses[Math.floor(Math.random() * statuses.length)],
+            statuses[Math.floor(random() * statuses.length)],
             duration);
     },
     stone_gaze(duration) {
@@ -439,26 +441,26 @@ const enemy_abilites = {
             {item_name: "Weak monster bone", chance: 0.05},
         ],
         size: enemy_sizes.LARGE,
-        on_hit: (character) => {
-            const roll = Math.random();
+        on_hit: (character, random = () => gameRandom(STREAMS.combat, "on_hit")) => {
+            const roll = random();
             if(roll < 0.1) {
                 //todo: add some category for these messages
                 log_message("The frog's long tongue leaves you covered in sticky saliva!", "hero_attacked");
                 add_active_effect("Sticky", 30);
             } else if (roll < 0.2) {
                 log_message("The frog's attack leaves some of its toxins on you!", "hero_attacked");
-                enemy_abilites.bufotoxin(10);
+                enemy_abilites.bufotoxin(10, random);
             }
         },
-        on_damaged: (character) => {
-            const roll = Math.random();
+        on_damaged: (character, random = () => gameRandom(STREAMS.combat, "on_damaged")) => {
+            const roll = random();
             if (character.getEquipment().weapon == null && roll < 0.1) {
                 log_message("Touching the frog with your bare hands leaves them covered in toxins!", "hero_attacked");
-                enemy_abilites.bufotoxin(10);
+                enemy_abilites.bufotoxin(10, random);
             }
             else if (character.getEquipment().weapon != null && roll < 0.05) {
                 log_message("Striking the frog causes some toxins to splash on you!", "hero_attacked");
-                enemy_abilites.bufotoxin(10);
+                enemy_abilites.bufotoxin(10, random);
             }
         },
     });
@@ -497,8 +499,8 @@ const enemy_abilites = {
         tags: ["living", "insect"],
         stats: {health: 300, attack: 40, agility: 200, dexterity: 150, intuition: 100, magic: 0, attack_speed: 1.5, defense: 5},
         size: enemy_sizes.SMALL,
-        on_hit: () => {
-            const roll = Math.random();
+        on_hit: (target, random = () => gameRandom(STREAMS.combat, "on_hit")) => {
+            const roll = random();
             if(roll < 0.2) {
                 log_message("The dragonfly quickly stabs you with its stinger and retreats", "hero_attacked");
                 add_active_effect("Dragonfly venom", 10);
@@ -514,8 +516,8 @@ const enemy_abilites = {
         tags: ["living", "insect"],
         stats: {health: 800, attack: 80, agility: 280, dexterity: 200, intuition: 100, magic: 0, attack_speed: 1.1, defense: 10},
         size: enemy_sizes.SMALL,
-        on_hit: () => {
-            const roll = Math.random();
+        on_hit: (target, random = () => gameRandom(STREAMS.combat, "on_hit")) => {
+            const roll = random();
             if(roll < 0.2) {
                 log_message("The dragonfly queen quickly stabs you with its large stinger and retreats", "hero_attacked");
                 add_active_effect("Dragonfly queen venom", 10);

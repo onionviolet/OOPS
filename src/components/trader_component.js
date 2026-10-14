@@ -1,3 +1,4 @@
+import {STREAMS,gameKeyedRandom} from "../seeded_streams.js";
 import {accessoryTradeMargin} from '../absorb_c1/accessories.js';
 "use strict";
 
@@ -109,18 +110,20 @@ class TraderComponent {
     fillInventoryFromTemplate(context) {
         const items = this.getInventoryComponent().getItems();
         const inventory_template = inventory_templates[this.inventory_template];
+        const epoch = current_game_time.day_count + 1 - current_game_time.day_count % this.refresh_time;
+        const random = (i,j,decision) => gameKeyedRandom(STREAMS.market, JSON.stringify([this.name,this.inventory_template,epoch,i,j,decision]));
 
         for (let i = 0; i < inventory_template.length; i++) {
             //inventory_template[i] is a TradeItemGroup = {start_conditions?, items}
             if(inventory_template[i].canBeStarted(context)) {
                 for(let j = 0; j < inventory_template[i].items.length; j++){
-                    if(inventory_template[i].items[j].canBeStarted(context)  && inventory_template[i].items[j].chance >= Math.random()) {
+                    if(inventory_template[i].items[j].canBeStarted(context)  && inventory_template[i].items[j].chance > random(i,j,"presence")) {
                         let item_count = inventory_template[i].items[j].count.length == 1 ?
-                        inventory_template[i].items[j].count[0] : Math.round(Math.random() *
+                        inventory_template[i].items[j].count[0] : Math.round(random(i,j,"count") *
                             (inventory_template[i].items[j].count[1] - inventory_template[i].items[j].count[0]) + inventory_template[i].items[j].count[0]);
                         
                         if(inventory_template[i].items[j].quality) {
-                            let quality = Math.round(Math.random() *
+                            let quality = Math.round(random(i,j,"quality") *
                                 (inventory_template[i].items[j].quality[1] - inventory_template[i].items[j].quality[0]) + inventory_template[i].items[j].quality[0]);
 
                             const item = getItem({...item_templates[inventory_template[i].items[j].item_name], quality});
