@@ -695,3 +695,92 @@ Proposal only. After the spine: BA1 (names by familiarity), BB1 (remembered
 preferences), BF5 (return line first) and BE1 (certainty markers) are each small
 and make every generated line feel more personal. They are good first additions
 to P34's recap and later-card work.
+
+---
+
+## Round 9 (2026-10-14): implementation implications
+
+Request: "more to consider? other stuff and more? save and extend accordingly Send
+out codex as useful? Subtle stuff too? Implementation implications and more?"
+Lanes: P38 consolidates contracts (BI), P39 sequences the roadmap (BJ, BK), P40
+audits determinism and subtle engineering hazards in live code (BL).
+
+**Progress.** P34 has committed S-1 (P1, P3, P4 integrated) and S-2 (typed settled
+outcomes) on its branch. It will rebase onto `proc/wave1-integration` (owned by the
+Procedural crafting and potions session) when that lands.
+[P26](gm/dispatch/procgen-2026-10-13/p26/REPORT.md) top picks: a source-qualified
+beat batch for one canon world, a quiet occasion (share a meal, then back to
+work), and one running gag with a real cause and payoff. Finished lane reports
+are committed (20aa1312, 12179d0f) per the merge-before-dispatch rule.
+
+## BI. Too many contracts
+
+The lanes proposed many state shapes: P12 threads, P14 history receipts, P17 story
+signals, P19 relationship edges, P20 place memory, P21 ventures, P31 promises, P11
+requests, P22 content packs and others. Built separately, they become parallel
+stores that disagree.
+
+| Code | Implication |
+|---|---|
+| BI1 | **One entity reference scheme** for people, places, items, threads, factions and worlds. Stable IDs, never display names (reused NPC names are already a live bug class). References survive level-of-detail promotion (AM2). |
+| BI2 | **One receipt log with indexes**, not one history per feature. Append-only settled outcomes, indexed by actor, target, place, thread and time. Features query it; they don't keep private copies. |
+| BI3 | **One owner per store.** Requests, relationships, promises, knowledge and threads each get exactly one owning module. Everything else reads through it. |
+| BI4 | **Retention tiers.** Recent receipts in full, older ones summarized, oldest as aggregates. Compaction never removes a receipt that something still pins (an open promise, an anniversary, a grudge). |
+
+P38 maps every proposed contract onto these and lists the duplicates to merge.
+
+## BJ. Order of work
+
+| Code | Implication |
+|---|---|
+| BJ1 | **Spine, then micro, then lane slices.** S-1 to S-5 first; then cheap micro details (BA1, BB1, BE1, BF5); then lane first slices one at a time, each playable. |
+| BJ2 | **Pick slices by file overlap, not just value.** Two slices that both edit `main.js` and `save_files.js` can't run in parallel lanes without the collisions already seen. |
+| BJ3 | **A registry to stop main.js collisions.** New generators register themselves in their own files (cards, people templates, receipt consumers, UI panels) instead of each editing `main.js`. Every later lane gets cheaper and safer. |
+| BJ4 | **Feature flags per save.** Each generator is opt-in per save with an off switch, so a broken generator never strands a save. P3 already uses this pattern. |
+
+P39 builds the dependency graph, critical path and file-conflict map across all
+lane slices.
+
+## BK. Runtime budgets
+
+| Code | Implication |
+|---|---|
+| BK1 | **Per-tick time budget.** The browser main thread has a few milliseconds per tick for simulation. Social web, settlements and storylets share it, so level of detail (AM1) is a requirement, not polish. |
+| BK2 | **Catch-up stays bounded.** Long played advances use the existing 512-boundary scheduler budget and continue later; generators never loop unbounded on return. |
+| BK3 | **Bundle size.** Per-world content packs load lazily so one world's canon data doesn't ship in every session. |
+| BK4 | **Save size budget** per game-year, measured by the P18 headless soak, with compaction (BI4) tuned against it. |
+
+## BL. Subtle engineering hazards
+
+Each one silently breaks the "reload never rerolls" promise or leaks information.
+
+| Code | Hazard | Rule |
+|---|---|---|
+| BL1 | `Math.random` or `Date.now` inside game logic | Generators read named streams and the played clock only. Add a lint rule. |
+| BL2 | `localeCompare` or locale-dependent sorting in draw order | Sort by code point with explicit tie-breaks. |
+| BL3 | Map and Set iteration order lost or changed through JSON save round trips | Serialize sorted; never depend on insertion order after load. |
+| BL4 | Floating-point weights that differ across engines | Integer weights and integer math in draws. |
+| BL5 | Two events due on the same tick resolving in arbitrary order | Deterministic tie-break by (due time, deck, ID). |
+| BL6 | Cooldown off-by-one at catch-up boundaries | Test boundary ticks explicitly in the headless runner. |
+| BL7 | Undo window restores state but not RNG position | Undo restores the stream cursor too, or undo only before commit. |
+| BL8 | Receipts pointing at compacted or deleted entities | Tombstones with minimal identity, never dangling refs. |
+| BL9 | "Why?" hover or recaps revealing sealed causes | All UI reads go through the known-context projection (S-4); no direct state reads in UI code. |
+| BL10 | Imports from a newer build | Reject with a clear message before any write. |
+| BL11 | Template grammar errors (pronouns, plurals, articles) | Per-person pronouns (they/them default), plural-aware templates, lint for unfilled slots. |
+| BL12 | Long or non-Latin names overflowing 1366x768 panels or sorting oddly | Truncation rules with full name on hover; code-point sort; font coverage for CJK names. |
+
+P40 audits live code for BL1 to BL5 with file and line and proposes the lint rules.
+
+## BM. Process implications
+
+| Code | Implication |
+|---|---|
+| BM1 | **Docs debt.** Thirty-seven lanes produced hundreds of proposal files. The considerations doc and the P38 contract map should be the two entry points; lane folders become reference material. |
+| BM2 | **Label collisions.** Lane labels collided once already (P26 to P28 vs crafting). New waves use a session-unique prefix or check the folder before naming. |
+| BM3 | **Proposals stay proposals.** Nothing in these rounds is selected. Weibao picks; the spine prototype (P34) is the only code in flight. |
+
+## Round 9 suggested order
+
+Proposal only. BJ3 (generator registry) and BL1-BL5 lint pay for themselves on the
+next merge. BI2 (one receipt log) should be decided before any second lane slice
+is built, or the stores will fork.
