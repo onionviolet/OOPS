@@ -58,3 +58,17 @@ Resume a lane: `LANE_CWD=<cwd> python3 runs/launch.py <lane> lanes/<lane>.prompt
 ## Round 2 results (all ten finished by 17:55, 2026-10-14)
 
 Immortal Life and Taiwu finished installing; the watcher launched both at 17:43 and exited with no gated lanes left. Every game lane is PARTIAL with a named unread table. pw-intake is COMPLETE in Province War: `docs/audits/yairpg-game-research-v1/` indexes 13 dossiers, routes 43 findings to existing packets and registers family A-YAIR (register check passes). Those Province War files are uncommitted in that repo.
+
+## Round 3 (launched 2026-10-14 18:20)
+
+Weibao: "consider deeper for taiwu and immortal and more? For warsim use REA accordingly". REA is the pinned Ghidra MCP build from the Hogwarts lane, reused read-only.
+
+| Lane | Output | Session id |
+| --- | --- | --- |
+| warsim-rea | `docs/research/warsim/pass-2026-10-14-rea/` | 01a13c6d-c00e-77e2-9985-4d9be7ad40eb |
+| taiwu-2 | `docs/research/scroll-of-taiwu/pass-2026-10-14-deep/` | 01a13c6d-c038-74e3-9e5d-c20c97a7b3b2 |
+| immortal-life-2 | `docs/research/immortal-life/pass-2026-10-14-deep/` | 01a13c6d-c05e-71e1-aace-7fd84b1938f9 |
+| academagia-2 | `docs/research/academagia/pass-2026-10-14-adventures/` | 01a13c6d-c09a-7221-9a15-a730176b3bfd |
+| cross-game-synthesis | `docs/research/cross-game-synthesis-2026-10-14/` | 01a13c6d-c0cc-7343-b5a8-9eaeb4d3f741 |
+
+Province War intake committed there as `7e661376` (branch `claude/cow-parity`, now on origin) with only its own registry entry; two other chats' pending registry entries stay uncommitted.

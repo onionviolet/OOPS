@@ -131,5 +131,30 @@
   "out": "docs/research/your-chronicle/pass-2026-10-14/",
   "gate": null,
   "cwd": null
+ },
+ "warsim-rea": {
+  "out": "docs/research/warsim/pass-2026-10-14-rea/",
+  "gate": null,
+  "cwd": null
+ },
+ "taiwu-2": {
+  "out": "docs/research/scroll-of-taiwu/pass-2026-10-14-deep/",
+  "gate": null,
+  "cwd": null
+ },
+ "immortal-life-2": {
+  "out": "docs/research/immortal-life/pass-2026-10-14-deep/",
+  "gate": null,
+  "cwd": null
+ },
+ "academagia-2": {
+  "out": "docs/research/academagia/pass-2026-10-14-adventures/",
+  "gate": null,
+  "cwd": null
+ },
+ "cross-game-synthesis": {
+  "out": "docs/research/cross-game-synthesis-2026-10-14/",
+  "gate": null,
+  "cwd": null
  }
 }
