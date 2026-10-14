@@ -54,4 +54,7 @@ Round 7 (launched 2026-10-14 01:25):
 | Run | Session id | Writes |
 | --- | --- | --- |
 | W20 comic media and cheats | 01a138d6-1cdb-7ca2-a7ff-b35e881837d9 | .../W20_COMIC_MEDIA_AND_CHEATS.md, ../W20_REPORT.md |
-| W19 consolidation | queued until W1-W18 finish | .../cards/, ../W19_REPORT.md |
+| W19 consolidation | 01a13b8f-dc03-7651-ba36-ba4046e09c77 | .../cards/, ../W19_REPORT.md |
+| W21 K19-K34 readiness (round 9) | 01a13b93-7306-7f81-807c-e85a32fe7144 | .../W21_READINESS_K19_K34.md, ../W21_REPORT.md |
+| W22 dependency chains (round 9) | 01a13b93-7322-7181-b58b-5f7726c0689c | .../W22_DEPENDENCY_CHAINS.md, ../W22_REPORT.md |
+| W23 globals and lifecycle (round 9) | 01a13b93-733e-7762-a3fb-fab74a66bd1e | .../W23_GLOBALS_AND_LIFECYCLE.md, ../W23_REPORT.md |

@@ -110,6 +110,13 @@ Its rows are proposals; only this section's quoted priority is Weibao's directio
 
 ## World core kit, every little detail and a repeating audit, 2026-10-14
 
+Round 9 request (2026-10-14): the same "more to consider? other stuff and
+more? save and extend accordingly Send out codex as usesful?" for each aspect,
+with "Use the more to consider school". Read as: run the more-to-consider
+skill's questions on every kit part (what breaks between having a part and
+the player feeling it, what to inspect, what to reuse, what to do now versus
+later), not only list more features.
+
 Weibao's requests, in order, on 2026-10-14:
 
 > core stuff needed for each world to be implemented in depth? do a 'more to consider? other stuff and more? save and extend accordingly Send out codex as usesful?' for each aspect?
@@ -156,7 +163,10 @@ implementation implications; 6, comic worlds, lens cheats, overarching shape
 and abstractions AX1-AX19; 7, more comic media and cheats, merging and git
 (kit committed as 596e1cac; push and master merge await a yes); 8, lane
 returns F15-F26, every-little-detail principles ED1-ED8 and the repeating
-audit RA1-RA10.
+audit RA1-RA10; 9, the more-to-consider school part by part (MC1-MC34:
+producer, owner, reader, lifecycle, inspect and a NOW, ACCOUNT or LATER
+disposition per part), same-day owner map OM1-OM10, KX63-KX70 and lanes
+W21-W23.
 
 Owners: the [world core kit](worlds/WORLD_CORE_KIT_2026-10-14.md) (palette,
 rounds and lane returns, all proposals), the

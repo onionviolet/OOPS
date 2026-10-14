@@ -1412,3 +1412,120 @@ All design lanes W1-W18 and W20 have finished; W19 consolidation is launched.
 
 Convergence: W13, W17 and W18 all point at one observation-and-receipt
 interface as the shared next abstraction (round 6 suggestion 1 confirmed).
+
+## Round 9: the more-to-consider school, part by part (2026-10-14)
+
+Request (Weibao, 2026-10-14, second time): the same "more to consider? other
+stuff and more? save and extend accordingly Send out codex as usesful?" for
+each aspect, plus "Use the more to consider school".
+
+The school (skill `more-to-consider`) asks different questions from rounds
+1-8. Rounds 1-8 asked *what a world needs*. Round 9 asks, per part, *what
+breaks between having it and the player feeling it*: who produces the state,
+who owns it, who reads it, what the player sees; what goes wrong on reload,
+old saves, odd ordering and repeats; how to inspect it; what to reuse; and a
+disposition. Codes MC1-MC34 match K1-K34.
+
+Dispositions: **NOW** = fix in the kit's own files this round. **ACCOUNT**
+= a constraint every slice of that part must carry, no separate work.
+**LATER** = recorded follow-up or lane.
+
+### Same-day owners to reuse, not restate (OM)
+
+Twenty other dispatches ran on 2026-10-14. Each kit part has a sibling owner
+that went deeper on one slice of it. Read these before writing a kit row.
+
+| Code | Kit parts | Same-day owner |
+|---|---|---|
+| OM1 | K3, K13 | [core foundations](../CORE_FOUNDATIONS_SCORECARD_2026-10-14.md) A1 capability merge; [W15](world-core-kit-2026-10-14/W15_POWER_CORE_SCHEMA.md) |
+| OM2 | K4, K15 | start-sources, nonhuman-starts dispatches; [nonhuman engine requirements](NONHUMAN_STARTS_ENGINE_REQUIREMENTS_2026-10-14.md) |
+| OM3 | K6 | companions, relationship-prereqs dispatches |
+| OM4 | K9 | maker-arts, making-runes, weaponcraft-runes, research-tech dispatches; [maker arts by world](MAKER_ARTS_BY_WORLD_2026-10-14.md) |
+| OM5 | K12, K17 | canon-events dispatch; [TIMELINES_AND_DIVERGENCE](../TIMELINES_AND_DIVERGENCE.md) |
+| OM6 | K16 | runs-and-endings dispatch |
+| OM7 | K22 | body-lineage dispatch; [genetics doc](../GENETICS_CONSTITUTIONS_AND_BROOD_PLAY.md) |
+| OM8 | K8, K26, K32 idle side | away-ledger, derived-snapshots dispatches (absence and offline time) |
+| OM9 | K14, K34 | ui-at-scale, p23-ui-polish dispatches |
+| OM10 | K18, K33 | engine-runtime dispatch; gen-rules for seeded generation |
+
+### Part by part (MC)
+
+Each row: **Chain** = producer, owner, reader, what the player sees, and
+where it breaks today. **Subtle** = the interaction that makes the obvious
+build wrong. **Lifecycle** = reload, old save, ordering, repeats, partial.
+**Inspect** = the read-only view that proves it. **Do** = disposition.
+
+| Code | Chain (where it breaks) | Subtle | Lifecycle | Inspect | Do |
+|---|---|---|---|---|---|
+| MC1 Census | Source lane → ledger → pack author → nobody at runtime. Census rows have no consumer, so a census can be "done" and change nothing (W1 F3). | Census weight W0-W3 silently decides what gets built; a missed row is invisible later. | Source revisions: a census row pinned to an edition goes stale when a new book lands. | Coverage printout: census row → kit row → pack ID → journey. | ACCOUNT: every census row names its consumer or says "texture only". |
+| MC2 Laws | Doc law → `realm_boundary_rules.js` for imports only. Native laws live as scattered checks in action code. | A law checked in one action but not its twin (buy vs steal, cast vs scroll) is a hole players find first. | Law change after a save: an action legal yesterday is illegal now; old pending work must finish or refund. | Law lens: "why can't I?" names the law and its source. | LATER (W21): list each law's enforcing call sites per world. |
+| MC3 Power | Six capability systems, each its own producer and reader (U07, W15). Status window reads some, not all. | Two systems grant the same skill; mastery double counts or splits. Idle growth from one, active use in another. | Merge migration: old XP must keep meaning (W15 says no forced conversion). | Power ledger: every point of power with its receipt (AX15). | ACCOUNT: no new world adds a seventh store; wait for A1 read shape. |
+| MC4 Starts | Start record → body/role/means → world state. Prior history at a mid-era start has no producer (debts, friends, scars invented by nobody). | A start's means outrun the world's economy on day one. | A start chosen in an old save before a start record changes. | Start preview: what you own, owe, know, and who knows you. | ACCOUNT: every start lists its prior-history producer, even "generated at start". |
+| MC5 Places | Place defs → location state → look text. Changed places (burned, warded) need a state owner per place copy. | Place state shared across copies leaks one AU's fire into canon. | Removed place in a revised pack; player standing in it on load. | Place history: states this place passed through and why. | ACCOUNT: place state keyed by world instance (AX11). |
+| MC6 Cast | Person defs → people_knowledge → dialogue/log. Schedules (T3) have no shared clock reader per world. | A T3 person seen in two places at once when two clocks disagree. | Dead person in canon, alive in your copy: which file owns the body. | Cast schedule viewer (K34). | LATER: tie to companions and relationship-prereqs readers (OM3). |
+| MC7 Institutions | Standing (UP4) thin; each world invents its own rep. | Rank and standing drift: promoted by one path, still a stranger to the clerk. | Institution dissolved by a canon event; your rank in it after load. | Standing card: who in the institution knows what about you. | ACCOUNT: one Standing reader (AX10) per new institution. |
+| MC8 Daily life | Jobs and prices exist (`native_trade_transaction.js`, `market_saturation.js`); calendars are one global `game_time.js`. | Local calendar festivals versus the global season name. | Away time: does the job pay while away (OM8 away ledger)? | Day ledger: earned, spent, eaten, slept, with sources. | ACCOUNT: daily loops declare their away behaviour to the away ledger. |
+| MC9 Craft | Material and recipe owners split across maker-arts lanes (OM4). | A world's tech ceiling versus an imported recipe. | Recipe revised mid-craft; half-made item on load. | Recipe provenance: where learned, what limits apply here. | ACCOUNT: craft rows link OM4; kit holds only the world floor. |
+| MC10 Danger | `native_battle_contracts.js` per world; defeat and recovery uneven. | Nonviolent outs feel worse than fighting if rewards differ. | Death mid-fight versus run endings (OM6). | Threat ecology: what lives here, why it attacks, what it wants. | ACCOUNT: every threat roster names one nonviolent out. |
+| MC11 Knowledge | `world_knowledge.js`, `observation_channels.js`, notebook. Foreknowledge has no confidence reader yet. | Knowing a canon fact you never learned in-world leaks into dialogue choices. | Copied world: does the notebook copy, split or stay with the person? | Knowledge lens: known, believed, wrong, sealed-by-ID. | ACCOUNT: AX6 observation before any new knowledge store (F30). |
+| MC12 Canon | `causal_situations.js`; canon graphs in OM5 lanes. Abstention outcomes lack a clock owner per world. | Two canon events fire on one tick in fixed file order, not story order. | Canon event already passed when a mid-era start begins. | Canon timeline with "would have happened" ghosts. | LATER: tie to canon-events lessons (OM5). |
+| MC13 Signature loop | Lives inside one world's native module; no shared loop-health reader. | A loop that is fun active but dead idle (or the reverse). | Loop state pending at save: wards half-cast, curtain up. | Loop meter: inputs, outputs, waste per hour. | ACCOUNT: each signature loop states active, idle and away behaviour. |
+| MC14 Presentation | `panel_kit.js`, `display.js`; per-world palette scattered. | A world skin that hides a warning colour another world relies on. | Old UI layout prefs after a new panel joins. | Panel census per world: which panels appear where. | ACCOUNT: desktop first; check UI rows with OM9. |
+| MC15 Crossings | `realm_boundary_rules.js`, `realm_cargo.js`. Locals' reaction to outliers has no reader. | Suppressed power that still leaks through a passive. | Carried item whose home world was removed or revised. | Carry table preview at every door. | LATER: per-edge carry rows belong to nonhuman/start lanes (OM2). |
+| MC16 Endings | Ending types in OM6; "life goes on" has no state owner. | An ending that freezes clocks other worlds still read. | Ended world reopened after a pack revision. | Ending ledger: what closed, what keeps running. | ACCOUNT: link OM6, keep kit row as floor only. |
+| MC17 AU hooks | `world_instances.js` copies; divergence metadata thin (EI2). | AU flags that change law (K2) but not cast memory (K6). | Copy made before a migration; both copies must migrate. | Copy diff: canon versus this copy, by part. | LATER: W21 traces copy keys per part. |
+| MC18 Save | `save_files.js`, `save_migration.js`, `expansion_persistence.js`. | Kit parts that add state without saying where it saves. | Every part above. | Save map: kit part → save key → migration. | NOW: K18 row in the template now asks each part's save key (see below). |
+| MC19 Senses | Look text only; no sense channel owner (AX5 new). | Nonhuman senses read the same text as humans. | None durable; texture redraw must be stable (IO5 seed anchor). | Sense lens: what each channel would add. | ACCOUNT: texture draws through the pinned seed, never render-time random. |
+| MC20 Language | Name pools per world; no address-form reader. | A title used before you know it is a leak. | Name pool revised: existing NPC names must stay. | Name origin: pool, region, era. | ACCOUNT: generated names saved, never re-rolled on load. |
+| MC21 Belief | Doc only. | Belief that contradicts a sealed truth must not hint the truth by its wording. | Festival that falls during absence. | Belief map by group. | ACCOUNT: sealed-safe wording review on belief rows. |
+| MC22 Bodies | Body-lineage owner (OM7); local medicine per world missing. | Healing magic in one world making medicine pointless across a crossing. | Injury that lasts versus away time. | Body chart with causes and healers who can help. | LATER: per-world medicine floor (W23). |
+| MC23 Information | Event feed is player-facing only; no in-world news carrier. | News that reaches NPCs faster than the carrier allows. | News queued during absence. | Rumour trace: origin, carriers, decay. | LATER: AX9 caused-effect carriers. |
+| MC24 Law of small | No fines or petty debts owner. | Petty crime with no witness reader (UP3) is free. | Debt due during absence. | Small-debt ledger. | ACCOUNT: small consequences use Standing and witness sets. |
+| MC25 Personal space | `home_furnishing_content.js` and home facts exist for the base world. | A home per world versus one home that follows you. | Home in a removed or ended world. | Room view: what is here and why. | LATER (W23): per-world home floors. |
+| MC26 Routine | Habits proposed (ABILITY_AUTHORING AB1); `everyday_life.js` exists. | Habits formed in idle time count as much as chosen ones. | Habit streaks across absence. | Habit list with formation dates. | LATER (W23). |
+| MC27 Comedy | Doc only (part 15). | A gag that repeats every reload. | Gag state not saved so callbacks fail. | Gag ledger: setup, payoff, used. | ACCOUNT: callbacks need saved setup flags (KC). |
+| MC28 Weather | **SHOWN:** `src/weather.js:9-14` is one global season table and base temperature; `:64`, `:91` read the shared season. No per-world climate. | MoL Cyoria, HP Scotland and a desert world share one season name and temperature. | Per-world weather needs a world-keyed state or a pure derive from world clock plus seed. | Weather by world and day. | LATER (W23): per-world climate floor; engine row for AX7 clock. |
+| MC29 Ripples | AX9 caused effects; KQ rows. | Ripples that only fire while the player watches. | Ripple queued, then its cause undone by a load. | Ripple timeline (CL lens). | ACCOUNT: ripples carry cause IDs. |
+| MC30 Perception | AX5 new; KP rows. | Perception filter that hides a warning the player needs. | Profile changes when body changes. | Perception diff: what you would see as X. | ACCOUNT: safety text bypasses perception filters. |
+| MC31 Subtext | Doc only. | Subtext that only works if the player reads every line. | None durable. | Subtext reveal toggle (sandbox only). | ACCOUNT: subtext always has a plain-text fallback later. |
+| MC32 Tension rhythm | Canon clock plus signals; no pacing reader. | Away time skips the calm and lands the storm. | Absence crossing a canon storm. | Rhythm strip per world. | ACCOUNT: away ledger reports storms crossed. |
+| MC33 Revision | Pack revision pin proposed; no diff tool. | A text fix that renumbers IDs. | Every save. | Pack diff tool. | ACCOUNT: IDs are stable strings, never positions. |
+| MC34 Tools | Lints and status printouts per lane. | Debug views that mutate state by accident. | Debug flags saved into real saves. | Tool list with read or write marked. | ACCOUNT: lenses read, cheats write, never one tool both. |
+
+### Act now (corrections to the kit's own files)
+
+| Code | What was wrong | Done this round |
+|---|---|---|
+| AN1 | The [kit template](templates/WORLD_CORE_KIT_TEMPLATE.md) covered K1-K18 only; K19-K34 had no fill-in rows, so a world GM following it would skip half the kit. | Added one compact table for K19-K34 with floor, save key and inspect columns. |
+| AN2 | W1 readiness cards rated K1-K18 only (252 rows). K19-K34 have no readiness. | Lane W21 rates K19-K34 for the priority worlds. |
+| AN3 | No part said where its state saves. | Template rows now carry a save key column (MC18). |
+
+### Other stuff and more (KX63-KX70)
+
+| Code | Consideration |
+|---|---|
+| KX63 | **Orphan state.** A kit part with a producer and no reader is depth nobody feels. Count orphans per world alongside detail debt (KX62). |
+| KX64 | **Reader without producer.** A panel that reads state nothing writes shows empty or fake data. Same count, other side. |
+| KX65 | **Away behaviour column.** Every loop, clock and debt says what happens while Weibao is gone (OM8). |
+| KX66 | **One world, many clocks.** Weather, canon, schedules, prices and festivals each read a clock; they must read the same world clock (AX7). |
+| KX67 | **Per-world globals audit.** `weather.js` is one example of a base-world global that every new world silently inherits. Find the others. |
+| KX68 | **Sibling owner drift.** Twenty same-day owners each extend kit parts; the kit should link, and its cards should name which owner is newest per part. |
+| KX69 | **Disposition is part of the row.** Every future kit angle carries NOW, ACCOUNT or LATER so the palette stays actionable. |
+| KX70 | **Inspect before build.** For each part, the read-only lens is cheaper than the feature and finds the gaps; build lenses first where the part is fragmented. |
+
+### Suggestions (round 9, ranked)
+
+1. Run W22 (dependency chains) next to W19's cards: orphans and missing
+   readers are the cheapest real depth gaps to fix.
+2. Treat KX67 globals as a pre-gate for any second native world: weather is
+   the first found, likely not the last.
+3. Keep W19 cards and W21 K19-K34 readiness in one grid so the trend counts
+   all 34 parts.
+
+### Codex lanes, round 9
+
+| Lane | Covers | Owns |
+|---|---|---|
+| W21 | K19-K34 readiness per priority world (D and R), extends W1 | `W21_READINESS_K19_K34.md` |
+| W22 | Dependency chains: producer, owner, reader, player view per K1-K34 in live code; orphans (KX63), readers without producers (KX64), copy keys (MC17) | `W22_DEPENDENCY_CHAINS.md` |
+| W23 | Base-world globals (KX67) and lifecycle matrix: reload, old save, ordering, repeats, absence per part; per-world floors for K22 medicine, K25 home, K26 routine, K28 weather | `W23_GLOBALS_AND_LIFECYCLE.md` |
