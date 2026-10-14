@@ -50,6 +50,12 @@ export function unitDecision(s, stream, key, n=0, salt=0) {
     const u=mix32(hashStreamSeed(s.root,JSON.stringify([stream,key,salt,n]))) / 0x100000000;
     return {value:u,receipt:{id:JSON.stringify([stream,key,n,salt]),s:stream,k:key,n,salt,u,via:null,orig:null}};
 }
+// Pure one-time generator seed from the saved stream root. No cursor advance and
+// no receipt: generators that save their own resolved truth (P2 mixtures, P4
+// travelers) take this once; reload reads their saved state, never this seed.
+export function streamSeed(state, stream, key) {
+    return Math.floor(unitDecision(ensureStreams(state),stream,key).value*0x100000000)>>>0;
+}
 function remember(s,r) {
     s.log.push(r);
     let excess=s.log.reduce((n,x)=>n+Number(x.s===r.s),0)-32;
