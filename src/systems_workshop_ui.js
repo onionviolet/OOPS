@@ -3,11 +3,15 @@ import {SW,SWK,APPRENTICE} from './systems_workshop_content.js';
 const node=(tag,text)=>{const n=document.createElement(tag);if(text)n.textContent=text;return n;};
 export function createSystemsWorkshopPanel({read,act,parent,registry}) {
  const panel=node('details');panel.id='systems_workshop_panel';panel.className='expedition_panel';
- panel.append(node('summary','Iona’s work ledger · systems and workshop'));const body=node('div'),intro=node('p'),status=node('p'),notice=node('p'),controls=node('div'),records=node('details'),recordBody=node('div');records.append(node('summary','Terms and observed workshop records'),recordBody);panel.append(body);body.append(intro,status,notice,records,controls);
+ panel.append(node('summary','Iona’s work ledger · systems and workshop'));const body=node('div'),intro=node('p'),status=node('p'),notice=node('p'),controls=node('div'),records=node('details'),recordBody=node('div');records.append(node('summary','Terms and observed workshop records'),recordBody);panel.append(body);body.append(intro,status,notice,controls,records);
  intro.textContent='Original local prototype. Earn authority-backed points through real work, keep permanent learning, or lease guidance. Optional workshop chance and a represented irrigation experiment share your actual inventory. Only played time advances work.';
  let message='',sig='';
  const run=id=>{const r=read();try{act({id,sequence:r.state.sequence});message='Progress saved.';}catch(e){message=e.message;}sig='';render();};
- const buttons=new Map();const add=(id,label)=>{const b=node('button',label);b.type='button';b.dataset.systems=id;b.addEventListener('click',()=>run(id));controls.append(b);buttons.set(id,b);};
+ const nextActions=node('section'),later=node('details'),laterBody=node('div');
+ nextActions.id='systems_workshop_next';nextActions.append(node('h4','Commission and next actions'));
+ later.append(node('summary','Learning, assistance, irrigation and optional actions'),laterBody);controls.append(nextActions,later);
+ const primary=new Set(['enroll','cancel',...['join','refuse','accept','buy_log','commission_craft','claim'].map(id=>SW+'.'+id)]);
+ const buttons=new Map();const add=(id,label)=>{const b=node('button',label);b.type='button';b.dataset.systems=id;b.addEventListener('click',()=>run(id));const row=node('div'),quote=node('small');row.append(b,quote);(primary.has(id)?nextActions:laterBody).append(row);buttons.set(id,b);};
  add('enroll','Follow local people and work');
  for(const d of registry.simulation.commands.values())if(d.group===SW&&!d.id.includes('.settle_')&&!d.id.includes('.apply_model_'))add(d.id,d.label);
  add('continue','Continue sealed draw · settle once');add('apply_model','Apply tested routing · log → real fittings · 2 min');add('cancel','Cancel reserved workshop job · return inputs');
@@ -27,15 +31,18 @@ export function createSystemsWorkshopPanel({read,act,parent,registry}) {
    `Your carried stock: ${Object.entries(SWK).filter(([,k])=>own[k]).map(([name,k])=>name+' '+own[k]).join(', ')||'none'}. `+
    (s.jobs.find(j=>j.actorId==='player'&&j.commandId.startsWith(SW+'.'))?.label||'No reserved workshop job.'):'Meet Iona to hear exact grant and work terms.';
   for(const [id,b] of buttons){
-   if(id==='enroll'){b.hidden=!!s;b.disabled=!r.enabled||!!context.busy;continue;}
-   if(id==='cancel'){const j=s?.jobs.find(j=>j.actorId==='player'&&j.commandId.startsWith(SW+'.'));b.hidden=!j;b.disabled=!r.enabled;continue;}
-   if(!s){b.hidden=true;continue;}
+   if(id==='enroll'){b.hidden=!!s;b.parentElement.hidden=b.hidden;b.disabled=!r.enabled||!!context.busy;continue;}
+   if(id==='cancel'){const j=s?.jobs.find(j=>j.actorId==='player'&&j.commandId.startsWith(SW+'.'));b.hidden=!j;b.parentElement.hidden=b.hidden;b.disabled=!r.enabled;continue;}
+   if(!s){b.hidden=true;b.parentElement.hidden=true;continue;}
    const actual=id==='continue'?SW+'.settle_'+f[SW+'.draw']:id==='apply_model'?SW+'.apply_model_'+(f[SW+'.modelLayout']===f[SW+'.modelBest']?'recommended':'trial'):id;
    const d=registry.simulation.commands.get(actual);
-   if(!d){b.hidden=true;continue;}
+   if(!d){b.hidden=true;b.parentElement.hidden=true;continue;}
    const p=previewSimulationCommand(state,registry,actual,{...context,targetId:d.targetId||null});
    b.hidden=!p.visible||!!(d.once&&state.actors.player.completed[actual])||!!(d.claim&&s.claims[d.claim])||id==='continue'&&f[SW+'.round']!=='open';
    b.disabled=!r.enabled||!p.eligible;b.title=p.reasons.join(' ');
+   b.parentElement.hidden=b.hidden;
+   b.nextElementSibling.textContent=p.reasons.join(' ') || (p.duration ? ` ${p.duration} played minutes; inputs reserved on start.` : ' Ready.');
+   b.setAttribute('aria-describedby', 'systems-status-'+id);b.nextElementSibling.id='systems-status-'+id;
   }
  }
  render();return {render};
