@@ -1,4 +1,5 @@
 import {systemsWorkshopItems} from './systems_workshop_content.js';
+import {registerFortItems} from "./fork_fort_content.js";
 import {equipmentDurability as durability} from './absorb_e2/durability.js';
 import {registerAccessoryItems} from './absorb_c1/accessories.js';
 import {WATCHCRAFT_BOOK, WATCHCRAFT_READING} from './village_career.js';
@@ -4540,6 +4541,7 @@ add_gear_components();
 crafting_component_manager.fill_components();
 add_gear();
 registerAccessoryItems({item_templates, Amulet});
+registerFortItems({item_templates, book_stats, Book, BookData, Material});
 setup_ids();
 // Air workshop proposal: optional templates must not enrich absent-edition saves.
 // Actual item instantiation registers its availability when workshop goods arrive.

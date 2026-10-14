@@ -1,3 +1,4 @@
+import {registerFortLocations} from "../fork_fort_content.js";
 "use strict";
 
 import { skills } from "./skills.js";
@@ -3688,6 +3689,7 @@ You almost muster the courage to venture in, but hesitate at the last moment`],
 
 })();
 
+registerFortLocations({locations, SafeLocation, CombatZone, LocationCrafting, GameAction});
 //setup ids
 (function(){
     Object.keys(locations).forEach(location_key => {

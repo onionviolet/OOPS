@@ -1,0 +1,61 @@
+{
+  "viewport": [
+    1366,
+    768
+  ],
+  "generatedCheckpoint": true,
+  "nativeTimers": true,
+  "results": [
+    {
+      "id": "opening_unchanged",
+      "detail": "fresh Village has no Fort option or active quest"
+    },
+    {
+      "id": "old_save_unaffected",
+      "detail": "pre-Fort checkpoint retains location, purse, inventory, levels and opening quest; no auto-enrollment"
+    },
+    {
+      "id": "offer_once",
+      "detail": "second invocation grants no second book"
+    },
+    {
+      "id": "partial_reload",
+      "detail": "mid-search action progress, active quest, book and locked approach retained"
+    },
+    {
+      "id": "stair_missing_materials",
+      "detail": "dungeon remains locked without real brace and wool"
+    },
+    {
+      "id": "court_drops_and_recipes",
+      "detail": {
+        "bone": 2,
+        "wool": 2
+      }
+    },
+    {
+      "id": "recipes_and_paid_stair",
+      "detail": "native recipes settle; stair consumes exactly one brace and two wool"
+    },
+    {
+      "id": "dungeon_journal_complete",
+      "detail": "native dungeon clear, shackle recycling and journal reading finish the quest"
+    },
+    {
+      "id": "repeat_clear_once",
+      "detail": "second full dungeon clear does not repeat the journal reward"
+    },
+    {
+      "id": "literal_file_import",
+      "detail": "completed quest, once-only journal and repeat-clear count retained"
+    },
+    {
+      "id": "completed_reload_no_replay",
+      "detail": "finished route survives reload without reward duplication"
+    },
+    {
+      "id": "page_errors",
+      "detail": []
+    }
+  ]
+}
