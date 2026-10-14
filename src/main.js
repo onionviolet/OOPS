@@ -151,7 +151,7 @@ import {prepareRivalRematch,commitFieldRenewal,RIVAL_PURSUIT} from "./frontier_c
 "use strict";
 
 import { current_game_time, is_night, Game_Time } from "./game_time.js";
-import { Book, BookData, OtherItem, Armor, item_templates, item_log, getItem, book_stats, rarity_multipliers, getArmorSlot, getItemFromKey, getItemRarity} from "./items.js";
+import { Book, BookData, OtherItem, Armor, item_templates, restoreSystemsWorkshopAvailability, item_log, getItem, book_stats, rarity_multipliers, getArmorSlot, getItemFromKey, getItemRarity} from "./items.js";
 import { loot_sold_count, market_region_mapping, recover_item_prices, trickle_market_saturations, set_loot_sold_count, capped_at } from "./market_saturation.js";
 import { locations, favourite_locations, location_types } from "./data/locations.js";
 import { skills } from "./data/skills.js";
@@ -345,6 +345,8 @@ import {createCharacterBio} from "./character_bio_ui.js";
 import {bodyFacts, beginBodyRecord} from "./body_progression.js";
 import {createBodyPanel} from "./body_ui.js";
 import {createSimulationPanel} from "./simulation_ui.js";
+import {createSystemsWorkshopPanel} from './systems_workshop_ui.js';
+import {reconcileSystemsWorkshop} from './systems_workshop_runtime.js';
 import {createEventFeed} from "./event_feed_ui.js";
 import {lifeLearningMultiplier,LIFE_LESSONS} from './life_experience.js';
 import {buildLifeHeirSave} from './life_experience_host.js';
@@ -447,6 +449,7 @@ let techniquePanel;
 let chroniclePanel;
 let villagePanel;
 let simulationPanel;
+let systemsWorkshopPanel;
 let pursuitPanel;
 let townPanel;
 let adventureNotebook;
@@ -841,6 +844,7 @@ function persistExpansion(plan, ownershipBindings = {}, itemsByOwner = {}) {
 
     if(plan.nativeLocation)causalContexts.player.facts={...causalContexts.player.facts,location:plan.nativeLocation};
     reconcileCausalStoryPlan(expansionState,plan,expeditionRegistry,causalContexts);
+    reconcileSystemsWorkshop(expansionState,plan,{chest:plan.ownership?.chest||readInventoryOwner(player_storage.getItems())});
     advanceReferenceGameplay(expansionState,plan,expeditionRegistry,featureWaveContext());
     advanceAuditRemainder(expansionState,plan,expeditionRegistry,featureWaveContext());
     reconcileBookCareRuntime(expansionState,plan,expeditionRegistry);
@@ -987,7 +991,7 @@ function persistExpansion(plan, ownershipBindings = {}, itemsByOwner = {}) {
         if(plan.calendar && previousNight !== is_night(current_game_time)) character.updateStatsAndDisplay();
         if(townAccess.length && current_location.tags.safe_zone) update_displayed_normal_location(current_location);
         renderWorldIdentity();
-        expeditionPanel?.render(); techniquePanel?.render(); chroniclePanel?.render(); villagePanel?.render(); simulationPanel?.render(); townPanel?.render();
+        expeditionPanel?.render(); techniquePanel?.render(); chroniclePanel?.render(); villagePanel?.render(); simulationPanel?.render(); systemsWorkshopPanel?.render(); townPanel?.render();
         pursuitPanel?.render();
         bodyPanel?.render();
         fieldPanel?.render(); promisePanel?.render(); crushSocialPanel?.render(); managementPanel?.render();
@@ -1200,7 +1204,7 @@ function advanceExpeditions(minutes) {
     expeditionPanel?.render();
     techniquePanel?.render();
     chroniclePanel?.render();
-    villagePanel?.render(); simulationPanel?.render(); townPanel?.render();
+    villagePanel?.render(); simulationPanel?.render(); systemsWorkshopPanel?.render(); townPanel?.render();
     pursuitPanel?.render();
     bodyPanel?.render();
     fieldPanel?.render(); promisePanel?.render(); crushSocialPanel?.render(); managementPanel?.render();
@@ -1297,7 +1301,20 @@ function actSimulation(command) {
     else if(command.type === "cancel") plan = cancelSimulationJob(expansionState, expeditionRegistry, expansionState.simulation.jobs.find(j => j.actorId === "player")?.id, context);
     else if(command.type === "event") plan = respondSimulationEvent(expansionState, expeditionRegistry, command.eventId, command.responseId, context);
     else throw new Error("Unsupported local interaction.");
-    persistExpansion(plan); simulationPanel?.render(); pursuitPanel?.render();skillExpansionPanel?.render();
+    persistExpansion(plan); simulationPanel?.render(); systemsWorkshopPanel?.render(); pursuitPanel?.render();skillExpansionPanel?.render();
+}
+function actSystemsWorkshop(command) {
+    if(command.id==='continue') {
+        const facts=expansionState.actors.player.facts, id='systems_workshop.settle_'+facts['systems_workshop.draw'];
+        return actSimulation({type:'command',id,sequence:command.sequence});
+    }
+    if(command.id==='apply_model') {
+        const facts=expansionState.actors.player.facts;
+        const variant=facts['systems_workshop.modelLayout']===facts['systems_workshop.modelBest']?'recommended':'trial';
+        return actSimulation({type:'command',id:'systems_workshop.apply_model_'+variant,sequence:command.sequence});
+    }
+    if(command.id==='cancel') return actSimulation({type:'cancel',sequence:command.sequence});
+    return actSimulation({type:command.id==='enroll'?'enroll':'command',id:command.id==='enroll'?undefined:command.id,targetId:expeditionRegistry.simulation.commands.get(command.id)?.targetId,sequence:command.sequence});
 }
 function actSkillExpansion(command){
     if(!ownsSave||importProbeToken||foundationSaveBlocked||expansionError)throw new Error('Saving must be available before this action.');
@@ -5306,6 +5323,7 @@ function load(save_data) {
             lifeRecord = migrateLifeRecord(save_data);
             npcLives = save_data.npc_lives == null ? null : advanceVillageLives(save_data.npc_lives, save_data["current time"].year);
             expansionState = initializeExpedition(loadExpansionState(save_data.expansion, expeditionRegistry, expansionState.rng));
+            restoreSystemsWorkshopAvailability(save_data);
             validateGameAbsorptionAssay(expansionState,expeditionRegistry,{gameplay:{player:{inventory:Object.fromEntries(Object.entries(save_data.character.inventory || {}).map(([key,row])=>[key,row.count]))}}});
             validateNativeGameplayReferences(expansionState.pending.flatMap(job => [job.effects, job.costs || []]));
             for(const actor of Object.values(expansionState.actors)) {
@@ -8249,6 +8267,7 @@ if(!importProbeToken && !foundationSaveBlocked && !is_loading_error) {
         read: () => ({...readProgression(), inDialogue: !!current_dialogue}), command: startExpedition, cancel: cancelExpedition});
     simulationPanel = createSimulationPanel({registry: expeditionRegistry,
         read: () => ({...readProgression(), inDialogue: !!current_dialogue}), command: actSimulation});
+    systemsWorkshopPanel=createSystemsWorkshopPanel({registry:expeditionRegistry,parent:document.getElementById('location_actions_div'),read:()=>({...readProgression(),inDialogue:!!current_dialogue,inCombat:!!current_combat}),act:actSystemsWorkshop});
     pursuitPanel=createPursuitPanel({registry:expeditionRegistry,read:()=>{const snapshot=readProgression();return {...snapshot,inDialogue:!!current_dialogue,inCombat:!!current_combat,canWrite:ownsSave && !foundationSaveBlocked && !importProbeToken,
         context:{...snapshot.context,vitals:Object.fromEntries(Object.entries(simulationNativeContexts()).map(([id,c])=>[id,c.vitals]))}};},command:actSimulation});
     nativeBattleHost=createNativeBattleHost({Combat,Enemy,registry:expeditionRegistry,player:character,getState:()=>expansionState,getContext:campaignContext,persist:persistExpansion,

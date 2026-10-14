@@ -1,3 +1,4 @@
+import {reconcileSystemsWorkshop} from './systems_workshop_runtime.js';
 import {nativeEquipmentSnapshot} from './native_equipment_transaction.js';
 import {nextContainerBoundary} from './structured_container_runtime.js';
 import {advanceNativeContainerClocks} from './simulation_effects.js';
@@ -15,6 +16,7 @@ import {reconcileParadiseCampaignDepthRuntime,validateParadiseCampaignDepthContr
 import {validateParadiseCampaignDepthState} from './book_world_paradise_campaign_facts.js';
 import {worldCompletionCropClockSupported} from './world_completion_crop_clock.js';
 import {validateWorldCompletionState,worldCompletionContext} from './world_completion_facts.js';
+import {validateSystemsWorkshop} from './systems_workshop_validation.js';
 import {worldCompletionTimersSupported,retainWorldCompletionWindows,nextWorldCompletionBoundary,worldCompletionSimulationContexts,reconcileWorldCompletionPlan} from './world_completion_runtime.js';
 import {validateLorePractice} from './lore_practice_facts.js';
 import {retainLorePracticeWindows,nextLorePracticeBoundary,lorePracticeTimersSupported,lorePracticeSimulationContexts,reconcileLorePractice} from './lore_practice_runtime.js';
@@ -145,6 +147,7 @@ export function validateExpansionState(state, registry) {
     validateAuditRemainderProjects(state,registry);
     validateChronicle(state.chronicle, state.clock);
     validateSimulationState(state.simulation, state, registry?.simulation);
+    validateSystemsWorkshop(state);
     validateManagementState(state,registry?.simulation);
     validateHomeFurnishings(state,registry);
     validateCrushSocial(state,registry);
@@ -632,6 +635,7 @@ export function advanceSimulation(state, registry, minutes, external = {}, gamep
     reconcileParadiseCampaignDepthRuntime(state,simulationPlan,registry);
     reconcileWorldCompletionPlan(simulationPlan,registry,loreContexts());
     advanceNativeContainerClocks(simulationPlan,registry,simulationContexts);
+    reconcileSystemsWorkshop(state,simulationPlan,{chest:simulationPlan.ownership?.chest||simulationContexts.player?.inventoryOwners?.chest});
     validateExpansionState(next, registry);
     return {state: next, external: budgets, gameplay: owned, acquisitions, unlocks, native: simulationPlan.native, equipment: simulationPlan.equipment, ownership: simulationPlan.ownership,
         ...(simulationPlan.nativeLocation?{nativeLocation:simulationPlan.nativeLocation}:{}),
