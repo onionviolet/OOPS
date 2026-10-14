@@ -1,0 +1,17 @@
+# Lifespan, defeat and continuity
+
+2026-10-14. Selected installed-code reading, not runtime acceptance.
+
+**L1, shown:** `PlayerController.HPChange`, VA `0x1807ffdf0`, clamps HP, notifies listeners and calls `HpZeroAction` when HP reaches zero and the actor is not already marked dead. `HpZeroAction` at `0x1808000f0` marks the player and battle unit dead, blocks normal input, and branches on `PlayerData.IsFailReturnToStart`. Its ordinary branch pauses time and opens `GameOverUI`. Its task-return branch launches a separate coroutine. That is a defeat-routing contract, not a shown end-of-lifespan ledger.
+
+**L2, shown:** `Recover(int HP)` at `0x180802910` clears the dead state on player and battle unit, restores input/movement state, applies a clamped HP change and notifies HP observers. `BreakResultUIManager.ClickBtn.MoveNext`, thunk `0x1800fb520`, calls `Recover(1)` only when the result screen's success flag is false. This does not imply replacing the player with a descendant.
+
+**L2a, shown:** GameOverUI.OnClose at 0x1805322e0 calls Recover(1). Its Wake state machine (thunk0x1800fdcb0) calls PlayerController.GameOver, closes the UI and uses PlayerBed.ForceSleepHandle or PanelSleep.OnOkClick. PlayerController.GameOver at 0x1807fe930 clears battle/interaction state. The special return coroutine (thunk0x180100f10) executes a return-point command and calls Recover with HPMax as the delta, producing capped full health. These selected paths reuse the actor; no heir or retained-life ledger appears in them.
+
+**L3, shown:** `PlayerController.CheckBreakFail` at `0x1807fdac0` checks `IsNextDayChangeEventWillBreakFail`, adds BattleBuffData ID 90005 and clears the pending flag. `DayChange` at `0x1807fe1b0` reaches this check. Buff 90005 configures a long system injury with `CantBreak`, value 2, and `lifeTime` 3. Its description says rest for two days or use the named recovery medicine. GameOverUI.PlayerDownAnime.MoveNext (thunk0x1800fdca0) recognizes the in-break-battle flag, queues next-day injury only when PlayerController.BreakGuard is false, clears the in-break flag and dispatches BreakOverOK(false). This joins ordinary trial defeat to the later injury check. The duration interpreter is unread, so three configured units and two described days are deliberately not collapsed to one proven duration.
+
+**L4, shown:** the application-facing declaration suffix (after dump.cs line 450000) was searched for lifespan, rebirth, reincarnation, inheritance, legacy, old age and Chinese lifespan/rebirth terms. No such declaration contract was found. Two substring matches for aging are `InStaging`. Complete PlayerData and Info.NPC schemas likewise have no matching age/lifespan/next-life field. Private search receipt: `notes/continuity-search.json`.
+
+**L5, bounded inference:** the recovered paths support defeat/recovery and realm advancement within the existing actor. There is no established lifespan clock, old-age death, rebirth, inheritance or next-life carryover mechanism in this pass. This is not proof that no script, ending or dynamically dispatched command implements one elsewhere. No genre assumptions substitute for a consumer trace.
+
+`PlayerData.OnLevelUp` clears current-realm preparation and selected trial skills while retaining the actor and applying stat increases. That reset is documented in the breakthrough digest; it must not be described as reincarnation.

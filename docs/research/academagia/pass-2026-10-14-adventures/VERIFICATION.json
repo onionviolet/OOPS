@@ -1,0 +1,44 @@
+{
+  "status": "PASS",
+  "method": "passive structural consistency checks, no game execution",
+  "profiles": {
+    "base": {
+      "status": "PASS",
+      "nodeIdSetMatchesSource": 1555,
+      "investigationsMatch": 1190,
+      "exitsMatch": 4065,
+      "continuanceOccurrencesMatch": 6406,
+      "actorPathsMatch": true,
+      "clubNamedNodes": 0,
+      "noNarrativeFields": true,
+      "gzipSha256": "cee9538c58de6848084d232fec23344082efa6f27992e03182451de7e3829378"
+    },
+    "Content": {
+      "status": "PASS",
+      "nodeIdSetMatchesSource": 3022,
+      "investigationsMatch": 1630,
+      "exitsMatch": 7809,
+      "continuanceOccurrencesMatch": 11465,
+      "actorPathsMatch": true,
+      "clubNamedNodes": 44,
+      "noNarrativeFields": true,
+      "gzipSha256": "d848bbe0c207533c8a6786a90738285b36ed8e96c86783ac371a03ca12c6c53b"
+    },
+    "Summer": {
+      "status": "PASS",
+      "nodeIdSetMatchesSource": 3030,
+      "investigationsMatch": 1632,
+      "exitsMatch": 7856,
+      "continuanceOccurrencesMatch": 11505,
+      "actorPathsMatch": true,
+      "clubNamedNodes": 44,
+      "noNarrativeFields": true,
+      "gzipSha256": "1d9ae4ecd6faaf56e41b1691e744c9f13db4cf6dfe12c112721e5ca08deb1391"
+    }
+  },
+  "limits": [
+    "no proof of actor resolution in live player state",
+    "no manual paraphrase of every narrative choice",
+    "no gameplay or cache execution"
+  ]
+}

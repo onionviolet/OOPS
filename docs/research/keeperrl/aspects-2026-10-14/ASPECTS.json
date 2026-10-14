@@ -1,0 +1,662 @@
+{
+  "A01": {
+    "status": "covered",
+    "sources": [
+      {
+        "game": "keeperrl",
+        "path": "player.cpp",
+        "lines": [
+          379,
+          397
+        ],
+        "url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/player.cpp#L379-L397",
+        "sha256": "9ae1fb976f6baf2e6efdb9ed0adc2768449a3c0fa1c25253e90212e852d02b5e",
+        "line_count": 1447,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      },
+      {
+        "game": "keeperrl",
+        "path": "creature.cpp",
+        "lines": [
+          905,
+          925
+        ],
+        "url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/creature.cpp#L905-L925",
+        "sha256": "c8e2e015f6880e0225af059a6e3b1a0589ea3235c1a980679e65150b79177fc7",
+        "line_count": 3062,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      },
+      {
+        "game": "keeperrl",
+        "path": "creature_attributes.cpp",
+        "lines": [
+          244,
+          260
+        ],
+        "url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/creature_attributes.cpp#L244-L260",
+        "sha256": "b45dcd77ce5a8d9f6acffc96c5509bd35b63aae52a3282987c55ac1f36dd558c",
+        "line_count": 411,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      },
+      {
+        "game": "keeperrl",
+        "path": "creature_attributes.h",
+        "lines": [
+          150,
+          165
+        ],
+        "url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/creature_attributes.h#L150-L165",
+        "sha256": "b0fe80412ca2a1116eb24d833397aa6f4297bcf2ae65389703f392c9d0f832b2",
+        "line_count": 185,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      },
+      {
+        "game": "keeperrl",
+        "path": "data_free/game_config/creatures.txt",
+        "lines": [
+          330,
+          350
+        ],
+        "url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/data_free/game_config/creatures.txt#L330-L350",
+        "sha256": "f648ca54ab5b5d0ccee57581674b40e0d09dc48311500c184db526259c155ddc",
+        "line_count": 5659,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      }
+    ],
+    "summary": "KeeperRL: Shown: Player::chatAction selects an adjacent actor and calls Creature::chatTo. chatTo requires a humanoid speaker within distance one, returns a CreatureAction, and only its execution invokes chatReaction and spends time. Attributes select friendly or hostile text by actual enemy relation, then optionally apply chatEffect at the other actor's position with the reacting actor as source. The attribute schema has friendly/hostile lines, pet reaction and chatEffect fields; the free creature data sample uses localized reaction IDs. No populated chatEffect occurrence was found in the scanned free configuration, so the runtime hook is present but a shipped free-data chat-effect route is not established. This route is not a full reply graph; no relationship-level dialogue tree or portrait binding was found in it.",
+    "yairpg": [
+      "KeeperRL: PROPOSAL: Keep preview and execution distinct in src/models/dialogue_action.js. A refusal or bark may be small, but a chat effect must still use actual actor eligibility and one committed time cost."
+    ]
+  },
+  "A02": {
+    "status": "partial",
+    "sources": [
+      {
+        "game": "keeperrl",
+        "path": "game_config.cpp",
+        "lines": [
+          1,
+          89
+        ],
+        "url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/game_config.cpp#L1-L89",
+        "sha256": "76462c97a75f0b910c145180409c356b21a6423ebd06cfc2d66bde9ac7aa52f3",
+        "line_count": 89,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      },
+      {
+        "game": "keeperrl",
+        "path": "content_factory.cpp",
+        "lines": [
+          30,
+          45
+        ],
+        "url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/content_factory.cpp#L30-L45",
+        "sha256": "648b5644e9504a3ce778c83f9528144872e4a0c77faf653c9e815a57294499ed",
+        "line_count": 512,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      },
+      {
+        "game": "keeperrl",
+        "path": "player.cpp",
+        "lines": [
+          79,
+          85
+        ],
+        "url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/player.cpp#L79-L85",
+        "sha256": "9ae1fb976f6baf2e6efdb9ed0adc2768449a3c0fa1c25253e90212e852d02b5e",
+        "line_count": 1447,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      },
+      {
+        "game": "keeperrl",
+        "path": "game.cpp",
+        "lines": [
+          839,
+          855
+        ],
+        "url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/game.cpp#L839-L855",
+        "sha256": "2a5eccf79bb29721fd22a4e232a7f510045754466fd8338d3db87fbdc17bf1e9",
+        "line_count": 1004,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      },
+      {
+        "game": "keeperrl",
+        "path": "tutorial.cpp",
+        "lines": [
+          90,
+          155
+        ],
+        "url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/tutorial.cpp#L90-L155",
+        "sha256": "00544eb15deb40b72ce7330442c993537da31dee8453ee73c087932475517ccf",
+        "line_count": 331,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      }
+    ],
+    "summary": "KeeperRL: Shown: localized intro/help content is loaded through GameConfig and ContentFactory. Player serialization keeps message buffer, tutorial and map/visibility memory. Game::achieve records an unlock and can emit a popup when not handled through Steam. Tutorial progression gives a guided sequence through actual workshop, equipment, team and conquest states. The full story/quest catalogue, retirement message boards and external text were not read.",
+    "yairpg": [
+      "KeeperRL: PROPOSAL: Existing society/world event owners should deliver short contextual aftermath and a retained history entry; a popup is feedback, not the only record of a consequential event."
+    ]
+  },
+  "A03": {
+    "status": "covered",
+    "sources": [
+      {
+        "game": "keeperrl",
+        "path": "main_loop.cpp",
+        "lines": [
+          273,
+          356
+        ],
+        "url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/main_loop.cpp#L273-L356",
+        "sha256": "00f9b30c3035666c80344d9938c1e85233b5d963e75a1858725345be94a33754",
+        "line_count": 1541,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      },
+      {
+        "game": "keeperrl",
+        "path": "model.cpp",
+        "lines": [
+          116,
+          166
+        ],
+        "url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/model.cpp#L116-L166",
+        "sha256": "fd0dd4a902c68ccd05594da4edf436989e6d446f49fb50c41c3c3a8a88c1d715",
+        "line_count": 443,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      },
+      {
+        "game": "keeperrl",
+        "path": "content_factory.cpp",
+        "lines": [
+          30,
+          90
+        ],
+        "url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/content_factory.cpp#L30-L90",
+        "sha256": "648b5644e9504a3ce778c83f9528144872e4a0c77faf653c9e815a57294499ed",
+        "line_count": 512,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      },
+      {
+        "game": "keeperrl",
+        "path": "serialization.cpp",
+        "lines": [
+          35,
+          42
+        ],
+        "url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/serialization.cpp#L35-L42",
+        "sha256": "4a3a55f8ceadfe6c45576faf1c8a2d65f9e6437e3e93f602cf234b573344631b",
+        "line_count": 42,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      },
+      {
+        "game": "keeperrl",
+        "path": "game_config.h",
+        "lines": [
+          50,
+          69
+        ],
+        "url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/game_config.h#L50-L69",
+        "sha256": "087004ad3d21a782d30486e99edfa42d40a907f40cd2231ed43e92dfcc4a612d",
+        "line_count": 69,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      }
+    ],
+    "summary": "KeeperRL: Shown: C++ modules separate MainLoop, Game, Model, actors/controllers, collectives/tasks, data factories and GUI. MainLoop distinguishes turn-based from clock-speed updates and calls Game::update under a real-time budget. Model takes the next actor from a time queue, advances periodic ticks and executes a move. ContentFactory reads typed configuration through PrettyPrinting; Cereal archives serialize state and registered controller types. No binary build, dependency resolution or performance benchmark ran.",
+    "yairpg": [
+      "KeeperRL: PROPOSAL: Keep src/simulation.js authoritative for game time and allow presentation pacing to vary independently. A real-time frame budget must not silently skip economic work."
+    ]
+  },
+  "A04": {
+    "status": "covered",
+    "sources": [
+      {
+        "game": "keeperrl",
+        "path": "parse_game.h",
+        "lines": [
+          1,
+          59
+        ],
+        "url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/parse_game.h#L1-L59",
+        "sha256": "16ed11631a1d75aec795b379bb1a3a9a9ad1ee069839bb668202aeeb50f2ee5b",
+        "line_count": 59,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      },
+      {
+        "game": "keeperrl",
+        "path": "serialization.h",
+        "lines": [
+          15,
+          45
+        ],
+        "url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/serialization.h#L15-L45",
+        "sha256": "5177e4efb7073e27c1b6a25a29a6da7d703755d2327dc8d66e29fff31fda4a9d",
+        "line_count": 195,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      },
+      {
+        "game": "keeperrl",
+        "path": "main_loop.cpp",
+        "lines": [
+          96,
+          147
+        ],
+        "url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/main_loop.cpp#L96-L147",
+        "sha256": "00f9b30c3035666c80344d9938c1e85233b5d963e75a1858725345be94a33754",
+        "line_count": 1541,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      },
+      {
+        "game": "keeperrl",
+        "path": "main_loop.cpp",
+        "lines": [
+          294,
+          356
+        ],
+        "url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/main_loop.cpp#L294-L356",
+        "sha256": "00f9b30c3035666c80344d9938c1e85233b5d963e75a1858725345be94a33754",
+        "line_count": 1541,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      },
+      {
+        "game": "keeperrl",
+        "path": "game.cpp",
+        "lines": [
+          54,
+          68
+        ],
+        "url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/game.cpp#L54-L68",
+        "sha256": "2a5eccf79bb29721fd22a4e232a7f510045754466fd8338d3db87fbdc17bf1e9",
+        "line_count": 1004,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      },
+      {
+        "game": "keeperrl",
+        "path": "model.cpp",
+        "lines": [
+          65,
+          75
+        ],
+        "url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/model.cpp#L65-L75",
+        "sha256": "fd0dd4a902c68ccd05594da4edf436989e6d446f49fb50c41c3c3a8a88c1d715",
+        "line_count": 443,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      },
+      {
+        "game": "keeperrl",
+        "path": "unlocks.cpp",
+        "lines": [
+          10,
+          46
+        ],
+        "url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/unlocks.cpp#L10-L46",
+        "sha256": "d442209aeab0bf08ccabbafbd1c6d64fe1ddb71403f7d337e0d9458793196045",
+        "line_count": 47,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      }
+    ],
+    "summary": "KeeperRL: Shown: CompressedInput/Output combine gzip streams with binary Cereal archives. saveGame writes version, display name, SavedGameInfo and game to a .tmp path, copies to destination and erases the temporary file. This is a copy, not a proven atomic rename. Compatibility requires a version above two, no newer than this build, and the same version/100 band. loadFromFile itself reads but does not enforce compatibility and catches all failures only outside single-thread mode. Game/Model serialize actors, content, clocks and turn events; sunlight is recalculated. Autosaves use elapsed global game time. Profile unlocks use a separate file.",
+    "yairpg": [
+      "KeeperRL: PROPOSAL: Preserve candidate-before-publish behavior in src/native_storage_transaction.js, state compatibility at every load entry, and separate run saves from profile receipts. Do not label copy-based publication atomic without a failure test."
+    ]
+  },
+  "A05": {
+    "status": "covered",
+    "sources": [
+      {
+        "game": "keeperrl",
+        "path": "monster_ai.cpp",
+        "lines": [
+          1210,
+          1268
+        ],
+        "url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/monster_ai.cpp#L1210-L1268",
+        "sha256": "1d8a4c269159d0b8d0f1db72a814dd2f99e2222edd3b6fee25da8c8223c770af",
+        "line_count": 1390,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      },
+      {
+        "game": "keeperrl",
+        "path": "model.cpp",
+        "lines": [
+          116,
+          166
+        ],
+        "url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/model.cpp#L116-L166",
+        "sha256": "fd0dd4a902c68ccd05594da4edf436989e6d446f49fb50c41c3c3a8a88c1d715",
+        "line_count": 443,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      }
+    ],
+    "summary": "KeeperRL: Shown: MonsterAI collects behaviour moves with a value clamped to zero-to-one times a weight, can stop evaluating once later weights cannot win, includes eligible item pickups, chooses the highest-valued candidate and performs the actual CreatureAction. Model scheduling uses a shared creature time queue. Earlier dossier traces collective task ownership and funded work; it is retained as prior selected evidence, not newly rerun coverage.",
+    "yairpg": [
+      "KeeperRL: PROPOSAL: Existing actor controllers in src/simulation_resolution.js can expose why a job lost priority, while executing only an eligible funded action. No new generic utility framework is selected."
+    ]
+  },
+  "A06": {
+    "status": "partial",
+    "sources": [
+      {
+        "game": "keeperrl",
+        "path": "gui_builder.cpp",
+        "lines": [
+          512,
+          575
+        ],
+        "url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/gui_builder.cpp#L512-L575",
+        "sha256": "89add9a1ae3f834f505a4d5c33c0b25437fb7a97add2abb059e0ea5fd6ef6f2f",
+        "line_count": 5392,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      },
+      {
+        "game": "keeperrl",
+        "path": "gui_builder.cpp",
+        "lines": [
+          1188,
+          1205
+        ],
+        "url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/gui_builder.cpp#L1188-L1205",
+        "sha256": "89add9a1ae3f834f505a4d5c33c0b25437fb7a97add2abb059e0ea5fd6ef6f2f",
+        "line_count": 5392,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      },
+      {
+        "game": "keeperrl",
+        "path": "gui_builder.cpp",
+        "lines": [
+          1373,
+          1400
+        ],
+        "url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/gui_builder.cpp#L1373-L1400",
+        "sha256": "89add9a1ae3f834f505a4d5c33c0b25437fb7a97add2abb059e0ea5fd6ef6f2f",
+        "line_count": 5392,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      },
+      {
+        "game": "keeperrl",
+        "path": "tutorial.cpp",
+        "lines": [
+          157,
+          190
+        ],
+        "url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/tutorial.cpp#L157-L190",
+        "sha256": "00544eb15deb40b72ce7330442c993537da31dee8453ee73c087932475517ccf",
+        "line_count": 331,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      }
+    ],
+    "summary": "KeeperRL: Shown: GuiBuilder has resource strip, minion tabs, immigrant overlays, item hints and delayed tooltips; Player has contextual map actions. Tutorial highlights point at real build, equipment and team controls. This supports a multi-surface base-management interface. Screen layout, text scaling, controller ergonomics and graphics/music are not runtime-verified by a source clone.",
+    "yairpg": [
+      "KeeperRL: PROPOSAL: Put useful actor, resource and work panels alongside the main action surface on desktop in src/display.js; do not collapse them to a mobile-first stack."
+    ]
+  },
+  "A07": {
+    "status": "covered",
+    "sources": [
+      {
+        "game": "keeperrl",
+        "path": "game_config.h",
+        "lines": [
+          1,
+          69
+        ],
+        "url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/game_config.h#L1-L69",
+        "sha256": "087004ad3d21a782d30486e99edfa42d40a907f40cd2231ed43e92dfcc4a612d",
+        "line_count": 69,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      },
+      {
+        "game": "keeperrl",
+        "path": "game_config.cpp",
+        "lines": [
+          1,
+          89
+        ],
+        "url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/game_config.cpp#L1-L89",
+        "sha256": "76462c97a75f0b910c145180409c356b21a6423ebd06cfc2d66bde9ac7aa52f3",
+        "line_count": 89,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      },
+      {
+        "game": "keeperrl",
+        "path": "content_factory.cpp",
+        "lines": [
+          59,
+          140
+        ],
+        "url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/content_factory.cpp#L59-L140",
+        "sha256": "648b5644e9504a3ce778c83f9528144872e4a0c77faf653c9e815a57294499ed",
+        "line_count": 512,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      },
+      {
+        "game": "keeperrl",
+        "path": "pretty_archive.h",
+        "lines": [
+          30,
+          105
+        ],
+        "url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/pretty_archive.h#L30-L105",
+        "sha256": "51c1b438f318d81166d59e785673fea8c62cccb9c2cfa6257c7fcb26889ec587",
+        "line_count": 541,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      }
+    ],
+    "summary": "KeeperRL: Shown: GameConfig enumerates typed text families and collects an ordered vector of matching files from mod directories, then passes them to PrettyPrinting. ContentFactory loads creature/spell/furniture maps, sets IDs and returns errors for missing or invalid groups. KeyVerifier participates in reference checking. PrettyInputArchive has typed, named variant and map/vector parsers. This is structured data authoring; all mod conflict precedence and parser recovery branches remain unread.",
+    "yairpg": [
+      "KeeperRL: PROPOSAL: In world content owners, use stable typed IDs and cross-reference validation. Text configuration should expose authored rules without pretending new runtime effects can be added without implementation."
+    ]
+  },
+  "A08": {
+    "status": "partial",
+    "sources": [
+      {
+        "game": "keeperrl",
+        "path": "creature.cpp",
+        "lines": [
+          1750,
+          1818
+        ],
+        "url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/creature.cpp#L1750-L1818",
+        "sha256": "c8e2e015f6880e0225af059a6e3b1a0589ea3235c1a980679e65150b79177fc7",
+        "line_count": 3062,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      },
+      {
+        "game": "keeperrl",
+        "path": "monster_ai.cpp",
+        "lines": [
+          1220,
+          1268
+        ],
+        "url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/monster_ai.cpp#L1220-L1268",
+        "sha256": "1d8a4c269159d0b8d0f1db72a814dd2f99e2222edd3b6fee25da8c8223c770af",
+        "line_count": 1390,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      }
+    ],
+    "summary": "KeeperRL: Shown: takeDamage computes defense from attributes, attacker-specific bonuses, flanking, lasting effects and buffs, then passes an attack/defense ratio into getDamage. Capture or lethal body results can return before later effects. MonsterAI compares clamped weighted values rather than treating each weight as a random chance. The exact getDamage curve and the full content balance catalogue were not reread, so no numeric equivalence or broad balance recommendation is claimed.",
+    "yairpg": [
+      "KeeperRL: PROPOSAL: Combat owner src/feature_expansion_battle.js should expose useful preparation effects and preserve result ordering. Adding an on-hit effect requires checking capture/death early exits."
+    ]
+  },
+  "A09": {
+    "status": "covered",
+    "sources": [
+      {
+        "game": "keeperrl",
+        "path": "main_loop.cpp",
+        "lines": [
+          294,
+          356
+        ],
+        "url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/main_loop.cpp#L294-L356",
+        "sha256": "00f9b30c3035666c80344d9938c1e85233b5d963e75a1858725345be94a33754",
+        "line_count": 1541,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      },
+      {
+        "game": "keeperrl",
+        "path": "model.cpp",
+        "lines": [
+          116,
+          166
+        ],
+        "url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/model.cpp#L116-L166",
+        "sha256": "fd0dd4a902c68ccd05594da4edf436989e6d446f49fb50c41c3c3a8a88c1d715",
+        "line_count": 443,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      }
+    ],
+    "summary": "KeeperRL: Shown: the main loop uses presentation speed and wall-clock intervalometers in non-turn mode but advances the game through bounded steps. A pause can finish a fractional animation interval. Model ticks creatures, levels, collectives and external enemies when local time crosses tick boundaries; actor actions come from a time queue. Global time schedules autosave. No closed-app offline growth was established.",
+    "yairpg": [
+      "KeeperRL: PROPOSAL: In src/simulation.js distinguish game-time work, actor action time, UI animation and autosave cadence. Passive eligible YAIR progression must remain possible without active clicks."
+    ]
+  },
+  "A10": {
+    "status": "covered",
+    "sources": [
+      {
+        "game": "keeperrl",
+        "path": "tutorial.cpp",
+        "lines": [
+          90,
+          190
+        ],
+        "url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/tutorial.cpp#L90-L190",
+        "sha256": "00544eb15deb40b72ce7330442c993537da31dee8453ee73c087932475517ccf",
+        "line_count": 331,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      },
+      {
+        "game": "keeperrl",
+        "path": "player.cpp",
+        "lines": [
+          79,
+          85
+        ],
+        "url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/player.cpp#L79-L85",
+        "sha256": "9ae1fb976f6baf2e6efdb9ed0adc2768449a3c0fa1c25253e90212e852d02b5e",
+        "line_count": 1447,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      }
+    ],
+    "summary": "KeeperRL: Shown: Tutorial::canContinue checks concrete game state such as completed workshop pieces, queued/output weapons, actual equipment, team existence/control and discovered or conquered targets. Highlights identify the relevant control separately from the completion predicate. Some movement/summary steps permit immediate continuation, so not every tutorial card proves a performed action. Tutorial state is serialized with Player.",
+    "yairpg": [
+      "KeeperRL: PROPOSAL: In existing first-slice content, separate explanation viewed, action queued and result earned. A queue is a valid tutorial goal only when the text says so; useful output should require settlement."
+    ]
+  },
+  "A11": {
+    "status": "covered",
+    "sources": [
+      {
+        "game": "keeperrl",
+        "path": "creature.cpp",
+        "lines": [
+          905,
+          925
+        ],
+        "url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/creature.cpp#L905-L925",
+        "sha256": "c8e2e015f6880e0225af059a6e3b1a0589ea3235c1a980679e65150b79177fc7",
+        "line_count": 3062,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      },
+      {
+        "game": "keeperrl",
+        "path": "gui_builder.cpp",
+        "lines": [
+          1373,
+          1400
+        ],
+        "url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/gui_builder.cpp#L1373-L1400",
+        "sha256": "89add9a1ae3f834f505a4d5c33c0b25437fb7a97add2abb059e0ea5fd6ef6f2f",
+        "line_count": 5392,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      },
+      {
+        "game": "keeperrl",
+        "path": "game.cpp",
+        "lines": [
+          54,
+          68
+        ],
+        "url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/game.cpp#L54-L68",
+        "sha256": "2a5eccf79bb29721fd22a4e232a7f510045754466fd8338d3db87fbdc17bf1e9",
+        "line_count": 1004,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      },
+      {
+        "game": "keeperrl",
+        "path": "parse_game.h",
+        "lines": [
+          15,
+          59
+        ],
+        "url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/parse_game.h#L15-L59",
+        "sha256": "16ed11631a1d75aec795b379bb1a3a9a9ad1ee069839bb668202aeeb50f2ee5b",
+        "line_count": 59,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      },
+      {
+        "game": "keeperrl",
+        "path": "unlocks.cpp",
+        "lines": [
+          10,
+          46
+        ],
+        "url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/unlocks.cpp#L10-L46",
+        "sha256": "d442209aeab0bf08ccabbafbd1c6d64fe1ddb71403f7d337e0d9458793196045",
+        "line_count": 47,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      }
+    ],
+    "summary": "KeeperRL: Shown: petting is a separate friend/body/reaction-qualified action; chat takes time only when performed; delayed item hints reduce accidental popups; tutorial highlights and predicates are distinct; saved metadata supports load-menu summaries; derived sunlight refreshes after load; profile unlocks survive separately from a run. These source observations do not prove UI feel. Twenty per-game details are recorded in SMALL_TOUCHES.md.",
+    "yairpg": [
+      "KeeperRL: PROPOSAL: Use small contextual feedback and persistent outcome receipts in src/simulation_ui.js; keep player-friendly optional care consistent with the food owner."
+    ]
+  },
+  "A12": {
+    "status": "partial",
+    "sources": [
+      {
+        "game": "keeperrl",
+        "path": "unlocks.cpp",
+        "lines": [
+          10,
+          46
+        ],
+        "url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/unlocks.cpp#L10-L46",
+        "sha256": "d442209aeab0bf08ccabbafbd1c6d64fe1ddb71403f7d337e0d9458793196045",
+        "line_count": 47,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      },
+      {
+        "game": "keeperrl",
+        "path": "game.cpp",
+        "lines": [
+          839,
+          858
+        ],
+        "url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/game.cpp#L839-L858",
+        "sha256": "2a5eccf79bb29721fd22a4e232a7f510045754466fd8338d3db87fbdc17bf1e9",
+        "line_count": 1004,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      },
+      {
+        "game": "keeperrl",
+        "path": "main_loop.cpp",
+        "lines": [
+          1300,
+          1345
+        ],
+        "url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/main_loop.cpp#L1300-L1345",
+        "sha256": "00f9b30c3035666c80344d9938c1e85233b5d963e75a1858725345be94a33754",
+        "line_count": 1541,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      }
+    ],
+    "summary": "KeeperRL: Shown: achievements write separate unlock IDs; Game checks whether the profile already achieved an ID and optionally shows a local notification. Source also includes retirement/campaign site reuse and online message-board/file-sharing paths. Those network and retired-site lifecycle joins are inventory-only here. The prior five-path report remains the owner for materials, facilities, invitations and faction consequences.",
+    "yairpg": [
+      "KeeperRL: PROPOSAL: In src/frontier_campaign.js retain explicit lifetime for a run receipt versus a profile unlock. No network sharing or extra prestige is requested by this comparison."
+    ]
+  }
+}

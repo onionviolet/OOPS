@@ -1,0 +1,35 @@
+{
+  "status": "PASS",
+  "checks": [
+    {
+      "check": "findings parses",
+      "passed": true
+    },
+    {
+      "check": "claim source files and symbols",
+      "passed": true
+    },
+    {
+      "check": "nine complete unique contiguous constructor ID sets",
+      "passed": true
+    },
+    {
+      "check": "five script package exact EOF and count receipts",
+      "passed": true
+    },
+    {
+      "check": "prose style and local markdown links",
+      "passed": true
+    },
+    {
+      "check": "raw extracts kept outside repository",
+      "passed": true
+    }
+  ],
+  "not_tested": [
+    "runtime",
+    "save/reload/import",
+    "gameplay",
+    "full semantic corpus coverage"
+  ]
+}

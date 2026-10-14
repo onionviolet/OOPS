@@ -1,0 +1,147 @@
+{
+  "schema_version": 1,
+  "lane": "immortal-life-2",
+  "date": "2026-10-14",
+  "status": "PARTIAL",
+  "build_id": "17861603",
+  "binary_sha256": "82294aa03035a9d2179ee87a2d5cc96f3b9fb0ff2930a64efd7986161b457f4a",
+  "evidence_scope": "Selected static native paths, matching metadata and reused tables; no gameplay or save access",
+  "findings": [
+    {
+      "id": "F1",
+      "label": "shown",
+      "system": "breakthrough",
+      "claim": "Current BreakPanel selects Level, pays stamina and starts configured combat scene.",
+      "evidence": [
+        "BreakPanel.Init 0x18036a9a0",
+        "BreakPanel.EnterBreak 0x18036a940",
+        "Method$ConfigManager.Get<Level> 0x1829e1300"
+      ],
+      "runtime_verified": false
+    },
+    {
+      "id": "F2",
+      "label": "shown",
+      "system": "resolution",
+      "claim": "Wave clear leads to result true; success result calls LevelAdd before close.",
+      "evidence": [
+        "SpawnNextWave.MoveNext 0x18037daf0",
+        "BreakComplete.MoveNext thunk 0x1800fb510",
+        "SuccessSet 0x18036c470"
+      ],
+      "runtime_verified": false
+    },
+    {
+      "id": "F3",
+      "label": "shown",
+      "system": "advancement",
+      "claim": "Promotion applies new-row stats, resets eight preparation counters/XP and clears three selected skills.",
+      "evidence": [
+        "PlayerData.OnLevelUp 0x1803be9b0",
+        "InitNowLevelAbilityExp 0x1803be250"
+      ],
+      "runtime_verified": false
+    },
+    {
+      "id": "F4",
+      "label": "inferred",
+      "system": "chance",
+      "claim": "No independent success-percentage roll or separate lightning trial established in selected chain.",
+      "evidence": [
+        "BREAKTHROUGH_DIGEST.md B1-B8"
+      ],
+      "runtime_verified": false
+    },
+    {
+      "id": "F5",
+      "label": "shown",
+      "system": "defeat",
+      "claim": "HP-zero routes to recovery/task-return paths; GameOverUI.OnClose calls Recover(1).",
+      "evidence": [
+        "HPChange 0x1807ffdf0",
+        "HpZeroAction 0x1808000f0",
+        "OnClose 0x1805322e0"
+      ],
+      "runtime_verified": false
+    },
+    {
+      "id": "F6",
+      "label": "shown",
+      "system": "injury",
+      "claim": "Next-day pending injury check adds buff90005; table lifetime and described days differ.",
+      "evidence": [
+        "CheckBreakFail 0x1807fdac0",
+        "BattleBuffData ID90005"
+      ],
+      "runtime_verified": false
+    },
+    {
+      "id": "F7",
+      "label": "inferred",
+      "system": "continuity",
+      "claim": "No lifespan or next-life contract established by bounded schema/search/recovery reading.",
+      "evidence": [
+        "PlayerData TypeDef12997",
+        "Info.NPC TypeDef12975",
+        "notes/continuity-search.json"
+      ],
+      "runtime_verified": false
+    },
+    {
+      "id": "F8",
+      "label": "shown",
+      "system": "npc",
+      "claim": "NPC XP is capped separately; RealmUp advances without an internal XP threshold or player trial.",
+      "evidence": [
+        "Info.NPC.AddExp 0x1807c9360",
+        "Info.NPC.RealmUp 0x1807c9540"
+      ],
+      "runtime_verified": false
+    },
+    {
+      "id": "F9",
+      "label": "shown",
+      "system": "npc-caller",
+      "claim": "RealmUpCmd reaches NPC AddLevel; 22 configured milestone/time trigger rows contain 32 advancement commands. No paid autonomous training policy established.",
+      "evidence": [
+        "0x18052f120",
+        "Method$AsyncTaskMethodBuilder.AwaitUnsafeOnCompleted<TaskAwaiter, RealmUpCmd.<Execute>d__10>",
+        "Trigger rows281-300,307,310"
+      ],
+      "runtime_verified": false
+    },
+    {
+      "id": "F10",
+      "label": "shown",
+      "system": "schedule",
+      "claim": "Clock-driven schedules and work timers exist; the inspected work timer does not award cultivation XP.",
+      "evidence": [
+        "NpcScheduleManager 0x1807e9320/0x1807e7f90",
+        "NpcBehaviourWorkGameHour 0x1808cfb40/0x1808cfd50"
+      ],
+      "runtime_verified": false
+    },
+    {
+      "id": "F11",
+      "label": "shown",
+      "system": "relationships",
+      "claim": "Favor mutator and roommate day/event ledger exist; generated NPC relationships remain unestablished.",
+      "evidence": [
+        "NpcManager.AddFavour 0x1808d2cd0",
+        "MarryController.Marry 0x1803280c0",
+        "OnDayChange 0x180328180"
+      ],
+      "runtime_verified": false
+    },
+    {
+      "id": "F12",
+      "label": "shown",
+      "system": "tool-fit",
+      "claim": "REA and direct Ghidra recover selected breakthrough chain with similar observed time and RAM.",
+      "evidence": [
+        "REA_TRIAL.md"
+      ],
+      "runtime_verified": false
+    }
+  ]
+}

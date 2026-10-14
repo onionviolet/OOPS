@@ -1,0 +1,17 @@
+{
+  "src/nethack_fieldcraft_item_view.js": {
+    "sha256": "0931a4c708b4d372bf4e47577814f9373879dbb563e5b2c107de45d07c148015",
+    "line_count": 70,
+    "claim": "source only, dirty moving checkout; not runtime verified"
+  },
+  "src/models/dialogue_action.js": {
+    "sha256": "ee472c7210bcf53e853fe505db9307f0c9d54ba883a8e51a966955eb8d18ac06",
+    "line_count": 13,
+    "claim": "source only, dirty moving checkout; not runtime verified"
+  },
+  "src/components/dialogue_component.js": {
+    "sha256": "33e4cc1c432ab784e143967a22c40914e1880c0c9bfd04d78e56b694b6db41f5",
+    "line_count": 115,
+    "claim": "source only, dirty moving checkout; not runtime verified"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "status": "PASS",
+  "game": "legends-of-idleon",
+  "aspect_keys": 12,
+  "required_files": 11,
+  "touches": 24,
+  "deeper_systems": 3,
+  "proposal_packets": 5,
+  "source_units": 488,
+  "new_extract_sha256_verified": 352,
+  "reused_sources_sha256_verified": 774,
+  "prior_manifest_matches": 774,
+  "prior_manifest_missing_entries": 0,
+  "installed_input_matches": 6,
+  "scope": "Research artifacts and source pins only; no gameplay/save/cloud tests"
+}

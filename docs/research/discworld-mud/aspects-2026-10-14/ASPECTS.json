@@ -1,0 +1,373 @@
+{
+  "A01": {
+    "status": "covered",
+    "summary": "SHOWN: response_mon stores ordered trigger/response pairs. Inputs use word subsequences with alternatives or regex; the first matched response wins. Say, directed speech, whisper and social verbs have separate event paths. Ordinary speech requires NPC skill >=90 and speaker >=60 unless an override applies; directed speech does not use that override in the inspected branch. Visibility and recipient filters gate responses. Strings, random response arrays and callbacks can issue commands and change state. monster.c separately supplies weighted idle/combat barks and multi-step stories. No portrait schema or general relationship graph was found in these seams; modern authored conversations are unread.",
+    "sources": [
+      {
+        "kind": "shown",
+        "path": "/Users/weiwei/.codex/research/discworld-2/repos/distribution/std/living/response_mon.c",
+        "url": "https://github.com/Yuffster/discworld_distribution_mudlib/blob/8c8619c64c0a41f09e406a97ee1e0a084ff92a60/std/living/response_mon.c",
+        "locator": "check_sub_sequence, do_response, event_person_say, event_person_sayto, event_whisper",
+        "revision": "8c8619c64c0a41f09e406a97ee1e0a084ff92a60"
+      },
+      {
+        "kind": "shown",
+        "path": "/Users/weiwei/.codex/research/discworld-2/repos/distribution/obj/monster.c",
+        "url": "https://github.com/Yuffster/discworld_distribution_mudlib/blob/8c8619c64c0a41f09e406a97ee1e0a084ff92a60/obj/monster.c",
+        "locator": "expand_string, expand_mon_string, heart_beat, load_chat",
+        "revision": "8c8619c64c0a41f09e406a97ee1e0a084ff92a60"
+      }
+    ],
+    "yairpg": [
+      {
+        "status": "PROPOSAL",
+        "takeaway": "Use typed topic, audience, language and knowledge checks before a reply; attach an explicit action receipt when speech changes state.",
+        "owner": "docs/worlds/DIALOGUE_AND_INTERACTIONS.md"
+      }
+    ]
+  },
+  "A02": {
+    "status": "covered",
+    "summary": "SHOWN: quest_handler stores parallel name, level, title, story, active-status and completion arrays, restores its registry and derives total active quest points. Story text is a completion biography payload, separate from quest identity. monster.c sequences ambient stories across heartbeats. STATED prior official help provides progressive quest hints. This does not establish a global novel timeline or exhaustive quest corpus.",
+    "sources": [
+      {
+        "kind": "shown",
+        "path": "/Users/weiwei/.codex/research/discworld-2/repos/distribution/obj/handlers/quest_handler.c",
+        "url": "https://github.com/Yuffster/discworld_distribution_mudlib/blob/8c8619c64c0a41f09e406a97ee1e0a084ff92a60/obj/handlers/quest_handler.c",
+        "locator": "create, add_quest, query_quest_story",
+        "revision": "8c8619c64c0a41f09e406a97ee1e0a084ff92a60"
+      },
+      {
+        "kind": "shown",
+        "path": "/Users/weiwei/.codex/research/discworld-2/repos/distribution/obj/monster.c",
+        "url": "https://github.com/Yuffster/discworld_distribution_mudlib/blob/8c8619c64c0a41f09e406a97ee1e0a084ff92a60/obj/monster.c",
+        "locator": "doing_story",
+        "revision": "8c8619c64c0a41f09e406a97ee1e0a084ff92a60"
+      }
+    ],
+    "yairpg": [
+      {
+        "status": "PROPOSAL",
+        "takeaway": "Store event IDs and consequences separately from journal wording; give opaque actions an earned hint route.",
+        "owner": "docs/PROCEDURAL_STORY_AND_CONTENT_CONSIDERATIONS_2026-10-14.md"
+      }
+    ]
+  },
+  "A03": {
+    "status": "covered",
+    "summary": "SHOWN: LPC inherits composable room, object and living behavior; driver callbacks include create, init, heart_beat and call_out. Shared handlers own quests, tasks, money and weather. NPC setup scripts register behavior and attacks. An NPC at full HP/GP can stop its heartbeat when nobody is nearby, subject to an overridable guard. Driver internals and current-server performance are unread.",
+    "sources": [
+      {
+        "kind": "shown",
+        "path": "/Users/weiwei/.codex/research/discworld-2/repos/distribution/obj/monster.c",
+        "url": "https://github.com/Yuffster/discworld_distribution_mudlib/blob/8c8619c64c0a41f09e406a97ee1e0a084ff92a60/obj/monster.c",
+        "locator": "heart_beat, query_ok_turn_off_heart_beat",
+        "revision": "8c8619c64c0a41f09e406a97ee1e0a084ff92a60"
+      },
+      {
+        "kind": "shown",
+        "path": "/Users/weiwei/.codex/research/discworld-2/repos/distribution/d/learning/newbie/introduction/examples/advanced_npc.c",
+        "url": "https://github.com/Yuffster/discworld_distribution_mudlib/blob/8c8619c64c0a41f09e406a97ee1e0a084ff92a60/d/learning/newbie/introduction/examples/advanced_npc.c",
+        "locator": "setup, add_combat_action",
+        "revision": "8c8619c64c0a41f09e406a97ee1e0a084ff92a60"
+      },
+      {
+        "kind": "shown",
+        "path": "/Users/weiwei/.codex/research/discworld-2/repos/distribution/global/events.c",
+        "url": "https://github.com/Yuffster/discworld_distribution_mudlib/blob/8c8619c64c0a41f09e406a97ee1e0a084ff92a60/global/events.c",
+        "locator": "global/events.c",
+        "revision": "8c8619c64c0a41f09e406a97ee1e0a084ff92a60"
+      }
+    ],
+    "yairpg": [
+      {
+        "status": "PROPOSAL",
+        "takeaway": "Separate authored definitions, retained actor state and scheduled work; measure dormant-actor scheduling before making performance claims.",
+        "owner": "docs/ENGINE_EXPANSION.md"
+      }
+    ]
+  },
+  "A04": {
+    "status": "covered",
+    "summary": "SHOWN: global/player.c save_me refuses saving while autoloading, save-inhibited or a guest; guild/race hooks run, effects freeze, inventory autoload records are built, then driver save_object is called. Autoload records identify clone/file and static/dynamic arguments. Exceptions can yield missing-item receipts. Loading reconstructs objects and invokes a completion callback. These are historical seams, not a proven transactional whole-world snapshot, portable JSON, migration policy or offline catch-up. No player file was opened.",
+    "sources": [
+      {
+        "kind": "shown",
+        "path": "/Users/weiwei/.codex/research/discworld-2/repos/distribution/global/player.c",
+        "url": "https://github.com/Yuffster/discworld_distribution_mudlib/blob/8c8619c64c0a41f09e406a97ee1e0a084ff92a60/global/player.c",
+        "locator": "save_me, save_with_auto_load, load_auto_load_alt",
+        "revision": "8c8619c64c0a41f09e406a97ee1e0a084ff92a60"
+      },
+      {
+        "kind": "shown",
+        "path": "/Users/weiwei/.codex/research/discworld-2/repos/distribution/global/auto_load.c",
+        "url": "https://github.com/Yuffster/discworld_distribution_mudlib/blob/8c8619c64c0a41f09e406a97ee1e0a084ff92a60/global/auto_load.c",
+        "locator": "auto_str_ob, create_auto_load, AUTO_LOAD_TYPE/NAME/DATA",
+        "revision": "8c8619c64c0a41f09e406a97ee1e0a084ff92a60"
+      }
+    ],
+    "yairpg": [
+      {
+        "status": "PROPOSAL",
+        "takeaway": "Keep reconstruction failures recoverable and visible; save pending effects and owned inventory under one validated publication contract.",
+        "owner": "docs/ENGINE_SAVES_AND_SCALE_REVIEW_2026-10-11.md"
+      }
+    ]
+  },
+  "A05": {
+    "status": "covered",
+    "summary": "SHOWN: advanced NPC example has separate weighted idle/combat text, chance-gated combat actions and queued casting/giving. Response code gates actual perception and language. monster heartbeat manages regeneration and conversations, with empty-room dormancy. This is reactive authored behavior, not evidence of a general planner or autonomous lifetime society.",
+    "sources": [
+      {
+        "kind": "shown",
+        "path": "/Users/weiwei/.codex/research/discworld-2/repos/distribution/d/learning/newbie/introduction/examples/advanced_npc.c",
+        "url": "https://github.com/Yuffster/discworld_distribution_mudlib/blob/8c8619c64c0a41f09e406a97ee1e0a084ff92a60/d/learning/newbie/introduction/examples/advanced_npc.c",
+        "locator": "charm_women, do_bunny, do_maintain",
+        "revision": "8c8619c64c0a41f09e406a97ee1e0a084ff92a60"
+      },
+      {
+        "kind": "shown",
+        "path": "/Users/weiwei/.codex/research/discworld-2/repos/distribution/obj/monster.c",
+        "url": "https://github.com/Yuffster/discworld_distribution_mudlib/blob/8c8619c64c0a41f09e406a97ee1e0a084ff92a60/obj/monster.c",
+        "locator": "heart_beat",
+        "revision": "8c8619c64c0a41f09e406a97ee1e0a084ff92a60"
+      }
+    ],
+    "yairpg": [
+      {
+        "status": "PROPOSAL",
+        "takeaway": "NPCs should use owned means and eligible actions; keep a small causal routine before adding a planner.",
+        "owner": "docs/CHARACTERS_AND_WORLD_EVENTS.md"
+      }
+    ]
+  },
+  "A06": {
+    "status": "partial",
+    "summary": "SHOWN: text commands, options, brief/verbose modes and score output are distinct modules. Speech templates resolve names, pronouns, guild titles and visible nearby actors. STATED prior help offers immersive score prose and descriptive-number modes. No rebuilt desktop or accessibility exercise is authorized here.",
+    "sources": [
+      {
+        "kind": "shown",
+        "path": "/Users/weiwei/.codex/research/discworld-2/repos/distribution/obj/monster.c",
+        "url": "https://github.com/Yuffster/discworld_distribution_mudlib/blob/8c8619c64c0a41f09e406a97ee1e0a084ff92a60/obj/monster.c",
+        "locator": "expand_string",
+        "revision": "8c8619c64c0a41f09e406a97ee1e0a084ff92a60"
+      },
+      {
+        "kind": "shown",
+        "path": "/Users/weiwei/.codex/research/discworld-2/repos/distribution/cmds/player/score.c",
+        "url": "https://github.com/Yuffster/discworld_distribution_mudlib/blob/8c8619c64c0a41f09e406a97ee1e0a084ff92a60/cmds/player/score.c",
+        "locator": "cmds/player/score.c",
+        "revision": "8c8619c64c0a41f09e406a97ee1e0a084ff92a60"
+      },
+      {
+        "kind": "shown",
+        "path": "/Users/weiwei/.codex/research/discworld-2/repos/distribution/cmds/player/options.c",
+        "url": "https://github.com/Yuffster/discworld_distribution_mudlib/blob/8c8619c64c0a41f09e406a97ee1e0a084ff92a60/cmds/player/options.c",
+        "locator": "cmds/player/options.c",
+        "revision": "8c8619c64c0a41f09e406a97ee1e0a084ff92a60"
+      },
+      {
+        "kind": "stated",
+        "url": "https://discworld.starturtle.net/lpc/playing/documentation.c?path=/concepts/immersion",
+        "locator": "public help",
+        "revision": "2026-10-14 read; dated posts retain their own date"
+      }
+    ],
+    "yairpg": [
+      {
+        "status": "PROPOSAL",
+        "takeaway": "Offer readable numeric/prose detail modes; keep current action, location and result visible at desktop size.",
+        "owner": "docs/THEMATIC_UI_AND_INFORMATION_DESIGN_2026-10-12.md"
+      }
+    ]
+  },
+  "A07": {
+    "status": "covered",
+    "summary": "SHOWN: NPC setup uses inheritable objects plus methods for descriptions, weighted chat, spells, attacks and callbacks. Learning-domain examples demonstrate authoring. Rules are executable LPC, not a declarative validated dialogue format. The distribution terms bar commercial code use; this pass copies no code or assets.",
+    "sources": [
+      {
+        "kind": "shown",
+        "path": "/Users/weiwei/.codex/research/discworld-2/repos/distribution/d/learning/newbie/introduction/examples/advanced_npc.c",
+        "url": "https://github.com/Yuffster/discworld_distribution_mudlib/blob/8c8619c64c0a41f09e406a97ee1e0a084ff92a60/d/learning/newbie/introduction/examples/advanced_npc.c",
+        "locator": "setup",
+        "revision": "8c8619c64c0a41f09e406a97ee1e0a084ff92a60"
+      },
+      {
+        "kind": "shown",
+        "path": "/Users/weiwei/.codex/research/discworld-2/repos/distribution/README",
+        "url": "https://github.com/Yuffster/discworld_distribution_mudlib/blob/8c8619c64c0a41f09e406a97ee1e0a084ff92a60/README",
+        "locator": "README",
+        "revision": "8c8619c64c0a41f09e406a97ee1e0a084ff92a60"
+      },
+      {
+        "kind": "shown",
+        "path": "/Users/weiwei/.codex/research/discworld-2/repos/distribution/obj/examples/response_mon.c",
+        "url": "https://github.com/Yuffster/discworld_distribution_mudlib/blob/8c8619c64c0a41f09e406a97ee1e0a084ff92a60/obj/examples/response_mon.c",
+        "locator": "obj/examples/response_mon.c",
+        "revision": "8c8619c64c0a41f09e406a97ee1e0a084ff92a60"
+      }
+    ],
+    "yairpg": [
+      {
+        "status": "PROPOSAL",
+        "takeaway": "Preserve author convenience through validated typed dialogue/action records rather than arbitrary code in content.",
+        "owner": "docs/ENGINE_AUTHORING.md"
+      }
+    ]
+  },
+  "A08": {
+    "status": "partial",
+    "summary": "SHOWN in prior source pass: bonus curves are piecewise in level with log stat influence; task difficulty/category/stat/decay gates practice awards. Old failure branches return before gain checks, unlike current help. Current teaching and taskmaster balance must not be derived from old release numbers. Seeded reproducibility, pity and modern exact rates remain unread.",
+    "sources": [
+      {
+        "kind": "shown",
+        "path": "/Users/weiwei/.codex/research/discworld-2/repos/distribution/obj/handlers/taskmaster.c",
+        "url": "https://github.com/Yuffster/discworld_distribution_mudlib/blob/8c8619c64c0a41f09e406a97ee1e0a084ff92a60/obj/handlers/taskmaster.c",
+        "locator": "obj/handlers/taskmaster.c",
+        "revision": "8c8619c64c0a41f09e406a97ee1e0a084ff92a60"
+      },
+      {
+        "kind": "shown",
+        "path": "/Users/weiwei/.codex/research/discworld-2/repos/distribution/std/living/skills.c",
+        "url": "https://github.com/Yuffster/discworld_distribution_mudlib/blob/8c8619c64c0a41f09e406a97ee1e0a084ff92a60/std/living/skills.c",
+        "locator": "std/living/skills.c",
+        "revision": "8c8619c64c0a41f09e406a97ee1e0a084ff92a60"
+      }
+    ],
+    "yairpg": [
+      {
+        "status": "PROPOSAL",
+        "takeaway": "Expose a useful practice band with useful output and solo alternatives; version formulas and distinguish training from effective ability.",
+        "owner": "docs/worlds/SKILL_MECHANISMS_AND_MEANS_2026-10-13.md"
+      }
+    ]
+  },
+  "A09": {
+    "status": "partial",
+    "summary": "SHOWN: driver heartbeats and call_out schedule NPC stories and delayed response matching; response delay is two seconds, then actions can be queued with zero-delay call_out. STATED current calendar/weather from prior help remains separate from old code. No player offline catch-up was established.",
+    "sources": [
+      {
+        "kind": "shown",
+        "path": "/Users/weiwei/.codex/research/discworld-2/repos/distribution/std/living/response_mon.c",
+        "url": "https://github.com/Yuffster/discworld_distribution_mudlib/blob/8c8619c64c0a41f09e406a97ee1e0a084ff92a60/std/living/response_mon.c",
+        "locator": "do_response, exec_response",
+        "revision": "8c8619c64c0a41f09e406a97ee1e0a084ff92a60"
+      },
+      {
+        "kind": "shown",
+        "path": "/Users/weiwei/.codex/research/discworld-2/repos/distribution/obj/monster.c",
+        "url": "https://github.com/Yuffster/discworld_distribution_mudlib/blob/8c8619c64c0a41f09e406a97ee1e0a084ff92a60/obj/monster.c",
+        "locator": "heart_beat",
+        "revision": "8c8619c64c0a41f09e406a97ee1e0a084ff92a60"
+      },
+      {
+        "kind": "shown",
+        "path": "/Users/weiwei/.codex/research/discworld-2/repos/distribution/obj/handlers/weather.c",
+        "url": "https://github.com/Yuffster/discworld_distribution_mudlib/blob/8c8619c64c0a41f09e406a97ee1e0a084ff92a60/obj/handlers/weather.c",
+        "locator": "obj/handlers/weather.c",
+        "revision": "8c8619c64c0a41f09e406a97ee1e0a084ff92a60"
+      }
+    ],
+    "yairpg": [
+      {
+        "status": "PROPOSAL",
+        "takeaway": "Specify simulation units and interruption rules for each job; ambient response delay is not a durable world calendar.",
+        "owner": "docs/TIMELINES_AND_DIVERGENCE.md"
+      }
+    ]
+  },
+  "A10": {
+    "status": "partial",
+    "summary": "SHOWN: d/learning contains tutorial examples and rooms; STATED prior official help describes nationality/start-language bundles and newbie protections. Modern live tutorial was not played. Its one-way tutorial exit is a source rule, not a YAIRPG requirement.",
+    "sources": [
+      {
+        "kind": "shown",
+        "path": "/Users/weiwei/.codex/research/discworld-2/repos/distribution/d/learning/newbie/introduction/examples/simple_npc.c",
+        "url": "https://github.com/Yuffster/discworld_distribution_mudlib/blob/8c8619c64c0a41f09e406a97ee1e0a084ff92a60/d/learning/newbie/introduction/examples/simple_npc.c",
+        "locator": "d/learning/newbie/introduction/examples/simple_npc.c",
+        "revision": "8c8619c64c0a41f09e406a97ee1e0a084ff92a60"
+      },
+      {
+        "kind": "stated",
+        "url": "https://discworld.starturtle.net/lpc/playing/documentation.c?path=/concepts/nationality",
+        "locator": "public help",
+        "revision": "2026-10-14 read; dated posts retain their own date"
+      }
+    ],
+    "yairpg": [
+      {
+        "status": "PROPOSAL",
+        "takeaway": "Teach one useful interaction and let starts seed language/place access without making reasonable later options unreachable.",
+        "owner": "docs/worlds/DIALOGUE_AND_INTERACTIONS.md"
+      }
+    ]
+  },
+  "A11": {
+    "status": "covered",
+    "summary": "SHOWN: separate idle/combat speech, pronoun/name expansion, restricted whisper content, response debug tracing, zero-delay deferred response actions and failed-item receipts. A suspicious loop detector assigns last_mess rather than comparing it; its comment admits complex loops escape detection. These are source observations, not bug reproduction.",
+    "sources": [
+      {
+        "kind": "shown",
+        "path": "/Users/weiwei/.codex/research/discworld-2/repos/distribution/std/living/response_mon.c",
+        "url": "https://github.com/Yuffster/discworld_distribution_mudlib/blob/8c8619c64c0a41f09e406a97ee1e0a084ff92a60/std/living/response_mon.c",
+        "locator": "check_loop, event_whisper, set_response_mon_debug_mode",
+        "revision": "8c8619c64c0a41f09e406a97ee1e0a084ff92a60"
+      },
+      {
+        "kind": "shown",
+        "path": "/Users/weiwei/.codex/research/discworld-2/repos/distribution/global/auto_load.c",
+        "url": "https://github.com/Yuffster/discworld_distribution_mudlib/blob/8c8619c64c0a41f09e406a97ee1e0a084ff92a60/global/auto_load.c",
+        "locator": "auto_str_ob",
+        "revision": "8c8619c64c0a41f09e406a97ee1e0a084ff92a60"
+      }
+    ],
+    "yairpg": [
+      {
+        "status": "PROPOSAL",
+        "takeaway": "Trace why a line matched and preserve observer-specific information; do not copy the loop guard literally.",
+        "owner": "docs/ENGINE_AUTHORING.md"
+      }
+    ]
+  },
+  "A12": {
+    "status": "partial",
+    "summary": "SHOWN/STATED prior dossier covers housing permissions/registry, local currency/banks, language skills, guild services, lives/ghosts, religion pools, clubs and law. The distribution also contains shops, effects, reactions, transport and player-shop modules. These are inventoried here; omitted modern domains and full current coverage remain unread.",
+    "sources": [
+      {
+        "kind": "shown",
+        "path": "/Users/weiwei/.codex/research/discworld-2/repos/distribution/std/shops",
+        "url": "https://github.com/Yuffster/discworld_distribution_mudlib/blob/8c8619c64c0a41f09e406a97ee1e0a084ff92a60/std/shops",
+        "locator": "std/shops",
+        "revision": "8c8619c64c0a41f09e406a97ee1e0a084ff92a60"
+      },
+      {
+        "kind": "shown",
+        "path": "/Users/weiwei/.codex/research/discworld-2/repos/distribution/obj/handlers",
+        "url": "https://github.com/Yuffster/discworld_distribution_mudlib/blob/8c8619c64c0a41f09e406a97ee1e0a084ff92a60/obj/handlers",
+        "locator": "obj/handlers",
+        "revision": "8c8619c64c0a41f09e406a97ee1e0a084ff92a60"
+      },
+      {
+        "kind": "shown",
+        "path": "/Users/weiwei/.codex/research/discworld-2/repos/distribution/std/effects",
+        "url": "https://github.com/Yuffster/discworld_distribution_mudlib/blob/8c8619c64c0a41f09e406a97ee1e0a084ff92a60/std/effects",
+        "locator": "std/effects",
+        "revision": "8c8619c64c0a41f09e406a97ee1e0a084ff92a60"
+      },
+      {
+        "kind": "shown",
+        "path": "/Users/weiwei/.codex/research/discworld-2/repos/distribution/std/shops/player_shop",
+        "url": "https://github.com/Yuffster/discworld_distribution_mudlib/blob/8c8619c64c0a41f09e406a97ee1e0a084ff92a60/std/shops/player_shop",
+        "locator": "std/shops/player_shop",
+        "revision": "8c8619c64c0a41f09e406a97ee1e0a084ff92a60"
+      }
+    ],
+    "yairpg": [
+      {
+        "status": "PROPOSAL",
+        "takeaway": "Property title, room access and civic permission should remain separate; Province War may cite holdings/permissions as comparison only.",
+        "owner": "docs/CHARACTERS_AND_WORLD_EVENTS.md"
+      }
+    ]
+  }
+}

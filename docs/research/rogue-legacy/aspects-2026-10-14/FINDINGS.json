@@ -1,0 +1,162 @@
+{
+  "lane": "bf-public-other",
+  "date": "2026-10-14",
+  "game": "rogue-legacy",
+  "status": "PARTIAL",
+  "evidence": "static public routes",
+  "corrections": [
+    "C1: No fresh contradiction to the prior five-path findings. Fresh reads retain the ShieldKnight contact-guard qualification: PlayerObj is required by the final conjunction, so the nested projectile block does not prove general projectile immunity.",
+    "C2: Extension of prior persistence limits: the manager uses five binary domains and optional trailing DLC data, with backup/error dialogs. A revision number exists but the checked code does not establish a general migration dispatcher or atomic all-domain commit.",
+    "C3: Fresh read corrects an initial backfill assumption: localized text IS supplied in eight .resx files, although art/music/contentproj are absent. The raw grep found 108 m_dialogDict.Add occurrences, including non-registration/debug material. Initialize contains 106 concrete registrations, 329 aligned speaker/text slots. LevelEV declares 25 journal entries. Full localized tables and the registration index are retained privately.",
+    "C4: README points to the original RogueCastleEditor and warns that it is no longer compatible with the latest game. The editor was not cloned or run; it is a future static route, not a reason to install."
+  ],
+  "findings": [
+    {
+      "id": "A01",
+      "status": "covered",
+      "summary": "Shown: DialogueManager.Initialize contains 106 concrete dictionary registrations with 329 aligned speaker/text slots, mostly LOC_ID identifiers; raw grep overcounts commented/debug examples. DialogueObj checks speaker/page array length. DialogueScreen localizes/formats pages, offers a two-choice panel and invokes reflection-based confirm/cancel callbacks, clearing stale callbacks on setup. Eight .resx resource tables are present, with 1,619 base entries and 242-484 LOC_ID_TEXT keys per locale. LocaleBuilder can choose _F variants and fall back to the base key; English/Chinese or forced-male calls use base keys. Gates/effects live in callers, not a general relationship graph.",
+      "sources": [
+        "https://github.com/flibitijibibo/RogueLegacy1/blob/b41c17888a91100bbf8f1febecaa636a1b421f5b/RogueCastle/src/Managers/DialogueManager.cs",
+        "https://github.com/flibitijibibo/RogueLegacy1/blob/b41c17888a91100bbf8f1febecaa636a1b421f5b/RogueCastle/src/Game%20Objects/DialogueObj.cs",
+        "https://github.com/flibitijibibo/RogueLegacy1/blob/b41c17888a91100bbf8f1febecaa636a1b421f5b/RogueCastle/src/Screens/DialogueScreen.cs",
+        "https://github.com/flibitijibibo/RogueLegacy1/blob/b41c17888a91100bbf8f1febecaa636a1b421f5b/RogueCastle/LocaleBuilder.cs",
+        "https://github.com/flibitijibibo/RogueLegacy1/blob/b41c17888a91100bbf8f1febecaa636a1b421f5b/RogueCastle/Resources/LocStrings.resx"
+      ]
+    },
+    {
+      "id": "A02",
+      "status": "covered",
+      "summary": "Shown: DiaryRoomObj selects the current DiaryEntry index when an unfinished room is entered. Interacting in range while grounded and not attacking opens the named entry, increments the player journal index and marks the room completed; later interaction opens the diary browser. LevelEV declares 25 journal entries. DialogueScreen forces male localization for DiaryEntry keys. Localized narrative text is present in .resx tables and retained privately; full semantic review of all locales is unread.",
+      "sources": [
+        "https://github.com/flibitijibibo/RogueLegacy1/blob/b41c17888a91100bbf8f1febecaa636a1b421f5b/RogueCastle/src/Game%20Objects/RoomObjs/Bonus%20Rooms/DiaryRoomObj.cs",
+        "https://github.com/flibitijibibo/RogueLegacy1/blob/b41c17888a91100bbf8f1febecaa636a1b421f5b/RogueCastle/src/Screens/DiaryEntryScreen.cs",
+        "https://github.com/flibitijibibo/RogueLegacy1/blob/b41c17888a91100bbf8f1febecaa636a1b421f5b/RogueCastle/src/Managers/DialogueManager.cs"
+      ]
+    },
+    {
+      "id": "A03",
+      "status": "covered",
+      "summary": "Shown/stated: C# FNA build, DS2DEngine object/physics/screen families and Tween updates. Game.Update delegates to ScreenManager with GameTime; screen and room classes own much gameplay. Definitions combine code constants, builders and absent content assets. README excludes game assets/contentproj. No asset-complete build or runtime profiling occurred.",
+      "sources": [
+        "https://github.com/flibitijibibo/RogueLegacy1/blob/b41c17888a91100bbf8f1febecaa636a1b421f5b/RogueCastle/src/Game.cs",
+        "https://github.com/flibitijibibo/RogueLegacy1/blob/b41c17888a91100bbf8f1febecaa636a1b421f5b/README.md"
+      ]
+    },
+    {
+      "id": "A04",
+      "status": "covered",
+      "summary": "Shown: SaveGameManager writes PlayerData, UpgradeData, Map, MapData and Lineage using BinaryWriter under profile paths. Separate backup files use AutoSave_ names. Player data includes a revision integer in trailing fields; readers probe for additional DLC sections. Load failure offers backup recovery or exit, with map errors delegated to loading-screen handling. SaveFiles catches errors and delays a warning until repeated failures. No atomic multi-file commit, complete migration framework or offline progress is established.",
+      "sources": [
+        "https://github.com/flibitijibibo/RogueLegacy1/blob/b41c17888a91100bbf8f1febecaa636a1b421f5b/RogueCastle/src/Managers/SaveGameManager.cs"
+      ]
+    },
+    {
+      "id": "A05",
+      "status": "covered",
+      "summary": "Shown: ShieldKnight selects stop/walk/turn logic based on difficulty, engagement state and current target position/heading. CollisionResponse combines facing, immunity counters and PlayerObj sprite state. This is authored combat behavior, not a social planner or simulated aging. The prior projectile qualification remains necessary.",
+      "sources": [
+        "https://github.com/flibitijibibo/RogueLegacy1/blob/b41c17888a91100bbf8f1febecaa636a1b421f5b/RogueCastle/src/Game%20Objects/EnemyObjs/EnemyObj_ShieldKnight.cs"
+      ]
+    },
+    {
+      "id": "A06",
+      "status": "partial",
+      "summary": "Shown: dialogue has local speaker/page arrays, continue versus end icons, wrapping and mapped confirm/cancel navigation. DiaryEntryScreen builds a five-column entry grid. Retail screen readability, localization overflow, controller timing and accessibility remain unexercised; code coordinates are not desktop acceptance.",
+      "sources": [
+        "https://github.com/flibitijibibo/RogueLegacy1/blob/b41c17888a91100bbf8f1febecaa636a1b421f5b/RogueCastle/src/Screens/DialogueScreen.cs",
+        "https://github.com/flibitijibibo/RogueLegacy1/blob/b41c17888a91100bbf8f1febecaa636a1b421f5b/RogueCastle/src/Screens/DiaryEntryScreen.cs"
+      ]
+    },
+    {
+      "id": "A07",
+      "status": "partial",
+      "summary": "Shown/stated: new dialogue is registered in C# dictionaries with LOC_ID keys backed by eight .resx tables. DialogueObj validates aligned arrays; effect targets use reflection. README links the original RogueCastleEditor but warns of incompatibility with the latest game. It was not cloned/run. An official stable mod API/load order was not established. Released source has a custom noncommercial license; absent art/music remain proprietary.",
+      "sources": [
+        "https://github.com/flibitijibibo/RogueLegacy1/blob/b41c17888a91100bbf8f1febecaa636a1b421f5b/RogueCastle/src/Managers/DialogueManager.cs",
+        "https://github.com/flibitijibibo/RogueLegacy1/blob/b41c17888a91100bbf8f1febecaa636a1b421f5b/RogueCastle/src/Game%20Objects/DialogueObj.cs",
+        "https://github.com/flibitijibibo/RogueLegacy1/blob/b41c17888a91100bbf8f1febecaa636a1b421f5b/RogueCastle/src/Screens/DialogueScreen.cs",
+        "https://github.com/flibitijibibo/RogueLegacy1/blob/b41c17888a91100bbf8f1febecaa636a1b421f5b/LICENSE.md",
+        "https://github.com/flibitijibibo/RogueLegacy1/blob/b41c17888a91100bbf8f1febecaa636a1b421f5b/README.md"
+      ]
+    },
+    {
+      "id": "A08",
+      "status": "covered",
+      "summary": "Shown: SkillObj.TotalCost equals base plus current skill level times appreciation plus global cost increase times PlayerStats.CurrentLevel; GameEV sets global increase to 10. Trait generation reuses one RandomInt(0,100) roll against strict thresholds 94 then 55, with maximum two traits. Prior inclusive helper semantics support 55/101 two, 39/101 one and 7/101 none. No current gameplay sample or general pity system was verified.",
+      "sources": [
+        "https://github.com/flibitijibibo/RogueLegacy1/blob/b41c17888a91100bbf8f1febecaa636a1b421f5b/RogueCastle/src/Game%20Objects/SkillObj.cs",
+        "https://github.com/flibitijibibo/RogueLegacy1/blob/b41c17888a91100bbf8f1febecaa636a1b421f5b/RogueCastle/src/Types/TraitType.cs",
+        "https://github.com/flibitijibibo/RogueLegacy1/blob/b41c17888a91100bbf8f1febecaa636a1b421f5b/DS2DEngine/src/CDGMath.cs"
+      ]
+    },
+    {
+      "id": "A09",
+      "status": "partial",
+      "summary": "Shown: GameTime drives screen/tween updates; room interactions are frame-driven and combat logic uses state/cooldowns. Lineage portrait ages in the prior source trace are generated presentation fields, not an elapsed life calendar. Offline catch-up, all pause exceptions and every fairy timer remain unread in this pass.",
+      "sources": [
+        "https://github.com/flibitijibibo/RogueLegacy1/blob/b41c17888a91100bbf8f1febecaa636a1b421f5b/RogueCastle/src/Game.cs",
+        "https://github.com/flibitijibibo/RogueLegacy1/blob/b41c17888a91100bbf8f1febecaa636a1b421f5b/RogueCastle/src/Game%20Objects/RoomObjs/Bonus%20Rooms/DiaryRoomObj.cs"
+      ]
+    },
+    {
+      "id": "A10",
+      "status": "partial",
+      "summary": "Shown: dictionary keys distinguish first meetings from later architect/toll states; diary and service UI reveal information after interactions. The prior manor trace links purchase levels to adjacent unlocks. Complete tutorial sequencing, every class/service introduction and the authored instruction prose are unread.",
+      "sources": [
+        "https://github.com/flibitijibibo/RogueLegacy1/blob/b41c17888a91100bbf8f1febecaa636a1b421f5b/RogueCastle/src/Managers/DialogueManager.cs",
+        "https://github.com/flibitijibibo/RogueLegacy1/blob/b41c17888a91100bbf8f1febecaa636a1b421f5b/RogueCastle/src/Game%20Objects/RoomObjs/Bonus%20Rooms/DiaryRoomObj.cs"
+      ]
+    },
+    {
+      "id": "A11",
+      "status": "covered",
+      "summary": "Shown: continue/end icons differ; typewriting can be completed before advancing; cancel and confirm invoke different handlers; dialogue setup clears stale format/callback state. Dyslexia traits alter displayed choices and dialogue. This is a source mechanic, not an accessibility template to copy. Use optional presentation settings in original YAIR work.",
+      "sources": [
+        "https://github.com/flibitijibibo/RogueLegacy1/blob/b41c17888a91100bbf8f1febecaa636a1b421f5b/RogueCastle/src/Screens/DialogueScreen.cs"
+      ]
+    },
+    {
+      "id": "A12",
+      "status": "partial",
+      "summary": "Shown/indexed: manor upgrades, frozen lineage candidates, gear/runes/spells, procedural rooms, fairy objectives, bosses, carnival minigames, achievements, death/revive and challenge rooms. Prior dossier deeply covered five connected paths; this pass adds dialogue/journal/save architecture. Not every class, room template or enemy is read, and assets are absent.",
+      "sources": [
+        "https://github.com/flibitijibibo/RogueLegacy1/blob/b41c17888a91100bbf8f1febecaa636a1b421f5b/RogueCastle/src/Managers/DialogueManager.cs",
+        "https://github.com/flibitijibibo/RogueLegacy1/blob/b41c17888a91100bbf8f1febecaa636a1b421f5b/RogueCastle/src/Managers/SaveGameManager.cs",
+        "https://github.com/flibitijibibo/RogueLegacy1/blob/b41c17888a91100bbf8f1febecaa636a1b421f5b/README.md"
+      ]
+    }
+  ],
+  "proposals": [
+    {
+      "id": "P1",
+      "title": "Typed dialogue callback receipts",
+      "owner": "docs/worlds/DIALOGUE_AND_INTERACTIONS.md",
+      "status": "PROPOSAL"
+    },
+    {
+      "id": "P2",
+      "title": "Coherent save-domain recovery",
+      "owner": "docs/ENGINE_SAVES_AND_SCALE_REVIEW_2026-10-11.md",
+      "status": "PROPOSAL"
+    },
+    {
+      "id": "P3",
+      "title": "Journal discovery versus reread",
+      "owner": "docs/worlds/WORLD_SECRETS_AND_DISCOVERY.md",
+      "status": "PROPOSAL"
+    },
+    {
+      "id": "P4",
+      "title": "Visible total upgrade cost",
+      "owner": "docs/LIFE_SIM_NORTH_STAR.md",
+      "status": "PROPOSAL"
+    },
+    {
+      "id": "P5",
+      "title": "Frozen funded successor offers",
+      "owner": "docs/worlds/CAMPAIGN_FRAMEWORK.md",
+      "status": "PROPOSAL"
+    }
+  ],
+  "gaps": "Art/music/contentproj, full semantic review of the eight present localization tables, complete source semantics, every room/class/enemy, retail behavior, full pause/timer gates and atomic recovery remain unread or unverified."
+}

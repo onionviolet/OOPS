@@ -1,0 +1,122 @@
+{
+  "uiClassEntries": 237,
+  "uiNamespaces": {
+    "<Module>": 1,
+    "XamlGeneratedNamespace": 1,
+    "Academagia.UI": 3,
+    "Academagia.UI.Views": 8,
+    "Academagia.UI.Views.Wizard": 7,
+    "Academagia.UI.Views.Windows": 5,
+    "Academagia.UI.Views.Storyline": 14,
+    "Academagia.UI.Views.Storyline.HtmlToXaml": 7,
+    "Academagia.UI.Views.Shop": 2,
+    "Academagia.UI.Views.Portrait": 1,
+    "Academagia.UI.Views.Clock": 1,
+    "Academagia.UI.Views.Scheduler": 1,
+    "Academagia.UI.Views.Rimbal": 13,
+    "Academagia.UI.Views.RightPanel": 3,
+    "Academagia.UI.Views.Relations": 7,
+    "Academagia.UI.Views.Menu": 4,
+    "Academagia.UI.Views.Lore": 2,
+    "Academagia.UI.Views.LocationInventory": 1,
+    "Academagia.UI.Views.LeftPanel": 8,
+    "Academagia.UI.Views.Inventory": 2,
+    "Academagia.UI.Views.Familar": 2,
+    "Academagia.UI.Views.EntityInformation": 2,
+    "Academagia.UI.Views.Information": 1,
+    "Academagia.UI.Views.Information.SkillInformation": 3,
+    "Academagia.UI.Views.Information.PhemeInformation": 1,
+    "Academagia.UI.Views.Information.MonsterInformation": 1,
+    "Academagia.UI.Views.Information.LocationInformation": 1,
+    "Academagia.UI.Views.Information.ItemInformation": 1,
+    "Academagia.UI.Views.Information.InstructorInformation": 1,
+    "Academagia.UI.Views.Information.CharacterInformation": 1,
+    "Academagia.UI.Views.Information.ActionEntityBaseInformation": 1,
+    "Academagia.UI.Views.Information.EmotionInformation": 1,
+    "Academagia.UI.Views.Feedback": 5,
+    "Academagia.UI.Views.Enchant": 2,
+    "Academagia.UI.Views.Duel": 9,
+    "Academagia.UI.Views.Display": 11,
+    "Academagia.UI.Views.Confirmation": 11,
+    "Academagia.UI.Views.Common": 22,
+    "Academagia.UI.Views.Common.DragManager": 6,
+    "Academagia.UI.Views.Clique": 2,
+    "Academagia.UI.Views.CharacterControlScheduler": 2,
+    "Academagia.UI.Views.Calendar": 9,
+    "Academagia.UI.Views.ButtonsPanel": 1,
+    "Academagia.UI.Views.Artificing": 2,
+    "Academagia.UI.ViewModels": 3,
+    "Academagia.UI.ValueConverters": 2,
+    "Academagia.UI.Properties": 2,
+    "Academagia.UI.Utilities": 15,
+    "Academagia.UI.Controls": 25,
+    "<PrivateImplementationDetails>": 1
+  },
+  "topLevelInstalledDlls": [
+    {
+      "name": "Academagia.Core.dll",
+      "bytes": 20480
+    },
+    {
+      "name": "Academagia.UI.dll",
+      "bytes": 39060480
+    },
+    {
+      "name": "Castle.DynamicProxy.dll",
+      "bytes": 77824
+    },
+    {
+      "name": "Common.dll",
+      "bytes": 310784
+    },
+    {
+      "name": "ContentModel.dll",
+      "bytes": 310784
+    },
+    {
+      "name": "FirebirdSql.Data.FirebirdClient.dll",
+      "bytes": 692224
+    },
+    {
+      "name": "FontLibrary.dll",
+      "bytes": 451584
+    },
+    {
+      "name": "GameLogic.dll",
+      "bytes": 834048
+    },
+    {
+      "name": "Iesi.Collections.dll",
+      "bytes": 32768
+    },
+    {
+      "name": "NHibernate.dll",
+      "bytes": 1085440
+    },
+    {
+      "name": "NVorbis.OpenTKSupport.dll",
+      "bytes": 14848
+    },
+    {
+      "name": "NVorbis.dll",
+      "bytes": 68608
+    },
+    {
+      "name": "OpenTK.dll",
+      "bytes": 3996160
+    },
+    {
+      "name": "Storage.dll",
+      "bytes": 863232
+    },
+    {
+      "name": "System.Linq.Dynamic.dll",
+      "bytes": 47616
+    },
+    {
+      "name": "log4net.dll",
+      "bytes": 270336
+    }
+  ],
+  "claim": "passive file/type-list inventory, not runtime utilization"
+}

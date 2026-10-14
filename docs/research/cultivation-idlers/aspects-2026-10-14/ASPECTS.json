@@ -1,0 +1,166 @@
+{
+  "A01": {
+    "status": "covered",
+    "sources": [
+      "https://html-classic.itch.zone/html/19729143/Cycle%20of%20the%20First%20Dawn%20Public/src/main.js",
+      "https://html-classic.itch.zone/html/19729143/Cycle%20of%20the%20First%20Dawn%20Public/src/lower_realm_life_ambient.js",
+      "https://html-classic.itch.zone/html/19729143/Cycle%20of%20the%20First%20Dawn%20Public/src/common_ground_boards.js",
+      "xanxia: formatted bundle /Users/weiwei/.codex/research/bf-idle-src/extract/xanxia-pretty.js (SHA-256 in extract/HASHES.txt; original URL https://html-classic.itch.zone/html/17169794/assets/index-BEq8ZZ4p.js)",
+      "dao: formatted bundle /Users/weiwei/.codex/research/bf-idle-src/extract/dao-pretty.js (SHA-256 in extract/HASHES.txt; original URL https://html-classic.itch.zone/html/16442969/assets/index-Bywa6CFj.js)"
+    ],
+    "summary": "Shown: Cycle renders speaker/text arrays, routine versus ambient scene continuation, named archives and unseen-scene filtering. Common Ground boards have authored combination states. Xanxia has enemy dialoguePoolId, cinematics and mission-response text. Dao has storyStage-specific presentation/action branches. Complete every scene/relationship condition remains partial; none implies general social AI.",
+    "yairpg": [
+      "PROPOSAL: Archive encountered scene IDs/facts and preserve the distinction from durable progression. Owner: docs/worlds/PROGRESSION_AND_ASSEMBLY.md; src/data/dialogues.js; src/life_record.js."
+    ]
+  },
+  "A02": {
+    "status": "covered",
+    "sources": [
+      "https://html-classic.itch.zone/html/19729143/Cycle%20of%20the%20First%20Dawn%20Public/src/authored_milestones.js",
+      "https://html-classic.itch.zone/html/19729143/Cycle%20of%20the%20First%20Dawn%20Public/src/main.js",
+      "https://html-classic.itch.zone/html/19729143/Cycle%20of%20the%20First%20Dawn%20Public/src/game.js",
+      "xanxia: formatted bundle /Users/weiwei/.codex/research/bf-idle-src/extract/xanxia-pretty.js (SHA-256 in extract/HASHES.txt; original URL https://html-classic.itch.zone/html/17169794/assets/index-BEq8ZZ4p.js)",
+      "dao: formatted bundle /Users/weiwei/.codex/research/bf-idle-src/extract/dao-pretty.js (SHA-256 in extract/HASHES.txt; original URL https://html-classic.itch.zone/html/16442969/assets/index-Bywa6CFj.js)"
+    ],
+    "summary": "Shown: Cycle rebuilds milestone text and keeps encountered archives separate from live activity percentages. Dao has prologue/cell/rebirth stage progression; Xanxia stores seenCinematics and authored beats/timings. Narrative can gate or pause progress, while ambient life may remain reward-neutral. Complete campaign closure unread.",
+    "yairpg": [
+      "PROPOSAL: Let everyday local texture be readable without forcing it to award currency. Owner: docs/worlds/PROGRESSION_AND_ASSEMBLY.md; src/data/dialogues.js; src/life_record.js."
+    ]
+  },
+  "A03": {
+    "status": "covered",
+    "sources": [
+      "https://html-classic.itch.zone/html/19729143/Cycle%20of%20the%20First%20Dawn%20Public/src/game.js",
+      "https://html-classic.itch.zone/html/19729143/Cycle%20of%20the%20First%20Dawn%20Public/src/main.js",
+      "https://html-classic.itch.zone/html/19729143/Cycle%20of%20the%20First%20Dawn%20Public/src/persistence_schema.js",
+      "dao: formatted bundle /Users/weiwei/.codex/research/bf-idle-src/extract/dao-pretty.js (SHA-256 in extract/HASHES.txt; original URL https://html-classic.itch.zone/html/16442969/assets/index-Bywa6CFj.js)",
+      "xanxia: formatted bundle /Users/weiwei/.codex/research/bf-idle-src/extract/xanxia-pretty.js (SHA-256 in extract/HASHES.txt; original URL https://html-classic.itch.zone/html/17169794/assets/index-BEq8ZZ4p.js)"
+    ],
+    "summary": "Shown: Cycle has 102 transitively imported readable JS modules, a large engine/UI split and Worker-facing messages. Dao and Xanxia are Vite-style React bundles, formatted as static text with jsbeautifier. Symbol names in those bundles are build-local; no code ran. Runtime internals and third-party bundles were not exhaustively traced.",
+    "yairpg": [
+      "PROPOSAL: Keep one authoritative simulation and use render projections for scenes/status. Owner: src/feature_expansion_work_plan.js; src/simulation.js."
+    ]
+  },
+  "A04": {
+    "status": "covered",
+    "sources": [
+      "https://html-classic.itch.zone/html/19729143/Cycle%20of%20the%20First%20Dawn%20Public/src/save_codec.js",
+      "https://html-classic.itch.zone/html/19729143/Cycle%20of%20the%20First%20Dawn%20Public/src/persistence_schema.js",
+      "https://html-classic.itch.zone/html/19729143/Cycle%20of%20the%20First%20Dawn%20Public/src/game.js",
+      "dao: formatted bundle /Users/weiwei/.codex/research/bf-idle-src/extract/dao-pretty.js (SHA-256 in extract/HASHES.txt; original URL https://html-classic.itch.zone/html/16442969/assets/index-Bywa6CFj.js)",
+      "xanxia: formatted bundle /Users/weiwei/.codex/research/bf-idle-src/extract/xanxia-pretty.js (SHA-256 in extract/HASHES.txt; original URL https://html-classic.itch.zone/html/17169794/assets/index-BEq8ZZ4p.js)"
+    ],
+    "summary": "Shown: Cycle schema 64, envelope 2, contract revision 8; typed binary/varints/shared strings, CRC32 and bounded/truncation checks; registered sections preserve unknown fields via extensions and previous-slot recovery. Dao JSON default backfill plus 5-second autosave; import checks mainly numeric spiritStones and reloads. Xanxia profile migration v0-to-v10, primary/last-good/rotating-ring recovery, slot migration and checksummed exports. All error branches/roundtrips remain unrun.",
+    "yairpg": [
+      "PROPOSAL: Persist compact IDs/facts and preserve last-good data across failed migration. Owner: src/save_files.js; src/save_compatibility.js."
+    ]
+  },
+  "A05": {
+    "status": "partial",
+    "sources": [
+      "https://html-classic.itch.zone/html/19729143/Cycle%20of%20the%20First%20Dawn%20Public/src/bonded_beast.js",
+      "https://html-classic.itch.zone/html/19729143/Cycle%20of%20the%20First%20Dawn%20Public/src/lower_realm_life_states.js",
+      "xanxia: formatted bundle /Users/weiwei/.codex/research/bf-idle-src/extract/xanxia-pretty.js (SHA-256 in extract/HASHES.txt; original URL https://html-classic.itch.zone/html/17169794/assets/index-BEq8ZZ4p.js)",
+      "dao: formatted bundle /Users/weiwei/.codex/research/bf-idle-src/extract/dao-pretty.js (SHA-256 in extract/HASHES.txt; original URL https://html-classic.itch.zone/html/16442969/assets/index-Bywa6CFj.js)"
+    ],
+    "summary": "Shown: Cycle beast adaptation/forms have persistent ranks and current-form effects; ambient actors are authored local-state variants. Xanxia enemy behavior/sect missions and Dao timed duties are controllers, not proof of autonomous NPC schedules. Full beast combat, sect simulation and AI policies unread.",
+    "yairpg": [
+      "PROPOSAL: Distinguish persistent learned companion forms from the one currently expressed. Owner: src/npc_lives.js; world CAMPAIGN.md."
+    ]
+  },
+  "A06": {
+    "status": "covered",
+    "sources": [
+      "https://html-classic.itch.zone/html/19729143/Cycle%20of%20the%20First%20Dawn%20Public/src/styles.css",
+      "https://html-classic.itch.zone/html/19729143/Cycle%20of%20the%20First%20Dawn%20Public/src/main.js",
+      "https://html-classic.itch.zone/html/16442969/assets/index-C_AmCosX.css",
+      "https://html-classic.itch.zone/html/17169794/assets/index-BoREYItn.css"
+    ],
+    "summary": "Shown: Cycle has life/inventory/technique/records panels, labelled modals, repeated regional cards and activity progress; Dao/Xanxia have React screens, themes and modal surfaces. CSS is acquired but responsive/accessibility behavior unrun.",
+    "yairpg": [
+      "PROPOSAL: At 1440x900, keep current regional activity, progress and history readable in independent panels. Owner: docs/THEMATIC_UI_AND_INFORMATION_DESIGN_2026-10-12.md."
+    ]
+  },
+  "A07": {
+    "status": "partial",
+    "sources": [
+      "https://html-classic.itch.zone/html/19729143/Cycle%20of%20the%20First%20Dawn%20Public/src/data.js",
+      "https://html-classic.itch.zone/html/19729143/Cycle%20of%20the%20First%20Dawn%20Public/src/common_ground_boards.js",
+      "https://html-classic.itch.zone/html/19729143/Cycle%20of%20the%20First%20Dawn%20Public/src/persistence_schema.js",
+      "dao: formatted bundle /Users/weiwei/.codex/research/bf-idle-src/extract/dao-pretty.js (SHA-256 in extract/HASHES.txt; original URL https://html-classic.itch.zone/html/16442969/assets/index-Bywa6CFj.js)",
+      "xanxia: formatted bundle /Users/weiwei/.codex/research/bf-idle-src/extract/xanxia-pretty.js (SHA-256 in extract/HASHES.txt; original URL https://html-classic.itch.zone/html/17169794/assets/index-BEq8ZZ4p.js)"
+    ],
+    "summary": "Shown: Cycle content lives in JS tables, per-region modules and explicit persistence registration. Board combinations are deliberately authored rather than count templates. Dao/Xanxia bundle arrays and functions contain content. No public mod API/load order established.",
+    "yairpg": [
+      "PROPOSAL: Validate discovery IDs and persistent sections whenever a campaign adds content. Owner: docs/TECHNOLOGY_AND_PROGRESSION.md."
+    ]
+  },
+  "A08": {
+    "status": "partial",
+    "sources": [
+      "https://html-classic.itch.zone/html/19729143/Cycle%20of%20the%20First%20Dawn%20Public/src/data.js",
+      "https://html-classic.itch.zone/html/19729143/Cycle%20of%20the%20First%20Dawn%20Public/src/bonded_beast.js",
+      "https://html-classic.itch.zone/html/19729143/Cycle%20of%20the%20First%20Dawn%20Public/src/wilderness.js",
+      "dao: formatted bundle /Users/weiwei/.codex/research/bf-idle-src/extract/dao-pretty.js (SHA-256 in extract/HASHES.txt; original URL https://html-classic.itch.zone/html/16442969/assets/index-Bywa6CFj.js)",
+      "xanxia: formatted bundle /Users/weiwei/.codex/research/bf-idle-src/extract/xanxia-pretty.js (SHA-256 in extract/HASHES.txt; original URL https://html-classic.itch.zone/html/17169794/assets/index-BEq8ZZ4p.js)"
+    ],
+    "summary": "Shown: Cycle has elemental/lifespan and beast rank constants; previous diminishing/pity findings remain source-bound references. Dao has fixed breakthroughs and random alchemy quality; Xanxia has level-derived realms and separate profile caps/economies. Full formula/edge-case audit unread.",
+    "yairpg": [
+      "PROPOSAL: Make local advancement constraints visible without imposing a universal cultivation ladder. Owner: docs/worlds/ABILITY_AUTHORING.md."
+    ]
+  },
+  "A09": {
+    "status": "partial",
+    "sources": [
+      "https://html-classic.itch.zone/html/19729143/Cycle%20of%20the%20First%20Dawn%20Public/src/main.js",
+      "https://html-classic.itch.zone/html/19729143/Cycle%20of%20the%20First%20Dawn%20Public/src/game.js",
+      "dao: formatted bundle /Users/weiwei/.codex/research/bf-idle-src/extract/dao-pretty.js (SHA-256 in extract/HASHES.txt; original URL https://html-classic.itch.zone/html/16442969/assets/index-Bywa6CFj.js)",
+      "xanxia: formatted bundle /Users/weiwei/.codex/research/bf-idle-src/extract/xanxia-pretty.js (SHA-256 in extract/HASHES.txt; original URL https://html-classic.itch.zone/html/17169794/assets/index-BEq8ZZ4p.js)"
+    ],
+    "summary": "Shown: Cycle separates offline/normal Worker-facing modes and banks time under its existing policy. Dao increments age through timed activities and pauses specific story stages; no reload catchup established. Xanxia displays offline receipt surfaces. Full sampled offline estimator/cap consumers and Cycle worker scheduling remain unread in this pass.",
+    "yairpg": [
+      "PROPOSAL: Keep life age, work time, paused narrative and outside elapsed time distinct. Owner: src/feature_expansion_work_plan.js; src/simulation.js."
+    ]
+  },
+  "A10": {
+    "status": "covered",
+    "sources": [
+      "https://html-classic.itch.zone/html/19729143/Cycle%20of%20the%20First%20Dawn%20Public/src/data.js",
+      "https://html-classic.itch.zone/html/19729143/Cycle%20of%20the%20First%20Dawn%20Public/src/main.js",
+      "https://html-classic.itch.zone/html/19729143/Cycle%20of%20the%20First%20Dawn%20Public/src/core_trials.js",
+      "dao: formatted bundle /Users/weiwei/.codex/research/bf-idle-src/extract/dao-pretty.js (SHA-256 in extract/HASHES.txt; original URL https://html-classic.itch.zone/html/16442969/assets/index-Bywa6CFj.js)",
+      "xanxia: formatted bundle /Users/weiwei/.codex/research/bf-idle-src/extract/xanxia-pretty.js (SHA-256 in extract/HASHES.txt; original URL https://html-classic.itch.zone/html/17169794/assets/index-BEq8ZZ4p.js)"
+    ],
+    "summary": "Shown: Cycle revelation law hides locked systems and retains revealed ones; Body/Mind trial records and manual/auto-continuation distinguish active tests from idle work. Dao story stages and Xanxia seen-cinematic gates introduce panels/mechanics. All later gates unread.",
+    "yairpg": [
+      "PROPOSAL: Reveal a reachable choice without making every existing option disappear after a missed scene. Owner: src/native_discovery_policy.js; src/observation_channels.js."
+    ]
+  },
+  "A11": {
+    "status": "covered",
+    "sources": [
+      "https://html-classic.itch.zone/html/19729143/Cycle%20of%20the%20First%20Dawn%20Public/src/main.js",
+      "https://html-classic.itch.zone/html/19729143/Cycle%20of%20the%20First%20Dawn%20Public/src/save_codec.js",
+      "xanxia: formatted bundle /Users/weiwei/.codex/research/bf-idle-src/extract/xanxia-pretty.js (SHA-256 in extract/HASHES.txt; original URL https://html-classic.itch.zone/html/17169794/assets/index-BEq8ZZ4p.js)",
+      "dao: formatted bundle /Users/weiwei/.codex/research/bf-idle-src/extract/dao-pretty.js (SHA-256 in extract/HASHES.txt; original URL https://html-classic.itch.zone/html/16442969/assets/index-Bywa6CFj.js)"
+    ],
+    "summary": "Shown: Cycle ambient hover pauses auto-continuation; distinct routine/ambient timing, load-failure notices and archival grouping. Xanxia warns on backup recovery/default fallback and exposes quota/import errors. Dao offers theme/language settings and transient achievement notices. All rendered behavior unrun.",
+    "yairpg": [
+      "PROPOSAL: Use explicit recovery-loss notices and a manual reading override during idle play. Owner: docs/THEMATIC_UI_AND_INFORMATION_DESIGN_2026-10-12.md."
+    ]
+  },
+  "A12": {
+    "status": "partial",
+    "sources": [
+      "https://html-classic.itch.zone/html/19729143/Cycle%20of%20the%20First%20Dawn%20Public/src/common_ground_boards.js",
+      "https://html-classic.itch.zone/html/19729143/Cycle%20of%20the%20First%20Dawn%20Public/src/bonded_beast.js",
+      "https://html-classic.itch.zone/html/19729143/Cycle%20of%20the%20First%20Dawn%20Public/src/act_three_academy.js",
+      "xanxia: formatted bundle /Users/weiwei/.codex/research/bf-idle-src/extract/xanxia-pretty.js (SHA-256 in extract/HASHES.txt; original URL https://html-classic.itch.zone/html/17169794/assets/index-BEq8ZZ4p.js)",
+      "dao: formatted bundle /Users/weiwei/.codex/research/bf-idle-src/extract/dao-pretty.js (SHA-256 in extract/HASHES.txt; original URL https://html-classic.itch.zone/html/16442969/assets/index-Bywa6CFj.js)"
+    ],
+    "summary": "Shown inventory: Cycle regional histories/boards, companion forms, trials, academies, houses and later realms; Dao books/alchemy/missions/Dao meditation; Xanxia aspects/Daos/sect merits/promotion/missions/multi-plane map/slots. Not just realm tiers. Full late campaign and all monolithic bundle tables remain unread.",
+    "yairpg": [
+      "PROPOSAL: Use institutions, preparation and local history as parallel meaningful paths. Owner: docs/TECHNOLOGY_AND_PROGRESSION.md."
+    ]
+  }
+}

@@ -1,0 +1,210 @@
+{
+  "game": "heavens-vault",
+  "status": "PARTIAL",
+  "evidence": "static code/data; no save access or launch",
+  "findings": [
+    {
+      "id": "F01",
+      "aspect": "A01",
+      "label": "SHOWN with stated limits",
+      "sources": [
+        "StoryScript.cs:738-851,1179-1475",
+        "ScriptParser.cs:56-141",
+        "DialogueLine.cs",
+        "StoryMoment.cs"
+      ],
+      "finding": "SHOWN: compiled Ink produces lines and choices. The host parses speaker, optional manner and tags, then creates typed moments. Manners include silent, away, closeup, frozen, linger, recipient and a named pose; emotion can come from emoticon tags. Player dialogue, NPC dialogue, remarks, object actions and travel actions are different choice sets. Every choice retains its Ink index. Choosing advances the Ink story and clears pending moments. Knowledge and recently acquired information are host bindings, so conversation can react to interpretation and recency. This is authored conditional conversation, not generated free-text dialogue. All relationship-specific lines and portrait assets are unread."
+    },
+    {
+      "id": "F02",
+      "aspect": "A02",
+      "label": "SHOWN with stated limits",
+      "sources": [
+        "TimelineDatabase.cs",
+        "TimelineEventData.cs",
+        "TimelineEvent.cs",
+        "StoryCatchupSplashScreenPage.cs",
+        "../STORY_AND_HISTORY.md",
+        "../DATA_CENSUS.md"
+      ],
+      "finding": "SHOWN: 302 timeline rows can unlock, remove, confirm and notify through knowledge states. Thirty rows have a title function and forty a description function. The timeline is revisable evidence, with uncertain titles and upgrade links. Catchup UI lays out and animates attributed lines and allows manual scrolling. Individual stories, all recap-selection rules and endings remain unread. A linked timeline card is not proof of a causally simulated history."
+    },
+    {
+      "id": "F03",
+      "aspect": "A03",
+      "label": "SHOWN with stated limits",
+      "sources": [
+        "StoryScript.cs:753-841,1179-1475",
+        "Ink.Runtime/Story.cs",
+        "StorySequencer.cs",
+        "SaveThread.cs",
+        "SYSTEM_INDEX.json"
+      ],
+      "finding": "SHOWN: Unity Mono host with a shipped Ink runtime, compiled story format 19, minimum format 18. 1,299 C# files include engine helpers and middleware, not 1,299 gameplay systems. StoryScript evaluates ContinueAsync with a millisecond budget and yields while busy, parses output into StoryMoment objects, then exposes readiness/choice events. StorySequencer handles presentation and physical actions. Save events coordinate double buffers and background state. This is a presentation/host/interpreter split, not one idle tick over every NPC."
+    },
+    {
+      "id": "F04",
+      "aspect": "A04",
+      "label": "SHOWN with stated limits",
+      "sources": [
+        "Game.cs:72-87,1208-1420,1601-1640",
+        "SaveThread.cs",
+        "CryptSaving.cs",
+        "Saver.cs",
+        "Player.cs:278-300",
+        "StoryScript.cs:1440-1475",
+        "StorySequencer.cs:2708-2724"
+      ],
+      "finding": "SHOWN: save version 2 accepts versions 1..2; v1 upgrades river-travel knowledge. The logical stream contains version, metadata, state information, host data and Ink JSON, separated by blank lines. Desktop wrapper uses HV magic/version bytes and XOR-obfuscated BinaryWriter string data, with a legacy plain-text fallback. The main thread captures Ink state, then a low-priority thread writes host data under a lock. Story moments are copied/double-buffered. Player has 20 explicit save fields including lexicon, inscriptions, tutorial state, river knowledge and timeline state; lookup dictionaries can be rebuilt from saved lists. Autosave waits for a stable choice and rejects routing, translation, pending presentation and invalid-position states. Temp write deletes the old destination before move, with optional scene backup; this is not proof of crash-atomic replacement. Broken/incompatible-save handling preserves a renamed copy. No actual save was opened. No offline catch-up was established."
+    },
+    {
+      "id": "F05",
+      "aspect": "A05",
+      "label": "SHOWN with stated limits",
+      "sources": [
+        "StoryCharacter.cs",
+        "AmbientPoseChooser.cs",
+        "StoryScript.cs:1310-1400",
+        "StorySequencer.cs"
+      ],
+      "finding": "SHOWN: characters have roles, walking/turning, facing, speaking and frame/pose state. AmbientPoseChooser alternates random wait/pose durations and can gate poses by speech and closeup. NPC dialogue is a distinct authored choice category. These are visible-behavior and staging systems. No autonomous household economy, goal planner or complete NPC schedule was established; navigation and every actor controller are unread."
+    },
+    {
+      "id": "F06",
+      "aspect": "A06",
+      "label": "SHOWN with stated limits",
+      "sources": [
+        "DialogueController.cs",
+        "DialogueChoicePicker.cs",
+        "UserSettings.cs",
+        "StoryCatchupSplashScreenPage.cs",
+        "PlannerController.cs",
+        "../RIVERS_AND_PACING.md"
+      ],
+      "finding": "SHOWN: separate dialogue/narration views and choice picker coexist with world presentation. The planner changes pacing settings. Settings declare independent audio channels, text speed/size, subtitle, vibration, mouse and wheel controls. Catchup supports manual scroll. Source fields do not prove every setting is exposed or accessible, nor establish actual desktop layout quality. Screens, input routes and all tooltips were not run."
+    },
+    {
+      "id": "F07",
+      "aspect": "A07",
+      "label": "SHOWN with stated limits",
+      "sources": [
+        "extract/textassets/INDEX.json in prior private area",
+        "ScriptParser.cs",
+        "StoryScript.cs:871-916",
+        "TimelineDatabase.cs",
+        "GameData.cs"
+      ],
+      "finding": "SHOWN: compiled Ink TextAsset plus JSON databases supply authored content. The parser handles dialogue, narration, scene control, timeline and translation instructions; unexpected unmarked text is logged. Validate calls and Ink error logging exist. Original Ink source, build-time validation and a supported mod API/load order are unread or unestablished. Compiled JSON readability alone does not establish mod support."
+    },
+    {
+      "id": "F08",
+      "aspect": "A08",
+      "label": "SHOWN with stated limits",
+      "sources": [
+        "Translation/PlayerTutorialManager.cs",
+        "PlayerTutorialItem.cs",
+        "Game.cs",
+        "../KNOWLEDGE.md",
+        "../RIVERS_AND_PACING.md"
+      ],
+      "finding": "SHOWN: translation distinguishes guesses, confirmed words and rejected alternatives. Prior source pass shows translated clues improve site search using a 0.85 residual-uncertainty factor. Route preference cost is separate from estimated physical travel time. Tutorial counters use small integers; no universal big-number economy or pity scheme was established. Full word generation, seeded RNG and all balance settings remain unread."
+    },
+    {
+      "id": "F09",
+      "aspect": "A09",
+      "label": "SHOWN with stated limits",
+      "sources": [
+        "StoryPacer.cs",
+        "StoryPacerSettings.cs",
+        "StoryScript.cs:753-841",
+        "AmbientPoseChooser.cs",
+        "../RIVERS_AND_PACING.md"
+      ],
+      "finding": "SHOWN: frame-budgeted story evaluation, presentation pacing, random ambient timers and estimated route durations are separate clocks. Pacer switches among named indoor/outdoor/space modes and a planner setting, easing toward the target. The river host schedules approach cues and conditional skipping. No general offline/aging simulation was found in this readset, and a lack of evidence is not proof of absence."
+    },
+    {
+      "id": "F10",
+      "aspect": "A10",
+      "label": "SHOWN with stated limits",
+      "sources": [
+        "Translation/PlayerTutorialManager.cs",
+        "PlayerTutorialItem.cs",
+        "Player.cs:278-300,400-430",
+        "SpaceGameTutorialState.cs"
+      ],
+      "finding": "SHOWN: 17 named translation learning items track practiced counts and learned state; required counts vary from 1 to 5 in this table. Practice marks learned at threshold under the save lock. Player persists translationTutorialState and checks learned flags in translation support paths. The space tutorial has separate state. These are mechanic-specific learning records, not proof that every story unlock follows this sequence."
+    },
+    {
+      "id": "F11",
+      "aspect": "A11",
+      "label": "SHOWN with stated limits",
+      "sources": [
+        "DialogueLine.cs",
+        "ScriptParser.cs:56-141",
+        "AmbientPoseChooser.cs",
+        "UserSettings.cs",
+        "StoryCatchupSplashScreenPage.cs",
+        "../SMALL_TOUCHES.md"
+      ],
+      "finding": "SHOWN: recipient-facing lines, nonverbal choices, lingering delivery, emotion tags, speech-aware poses, paced recaps, manual recap scrolling, separate audio channels and adjustable input sensitivity are discrete implementation hooks. Source presence is distinct from experienced polish or full accessibility. See SMALL_TOUCHES for original proposals, not claims of shipped YAIR behavior."
+    },
+    {
+      "id": "F12",
+      "aspect": "A12",
+      "label": "SHOWN with stated limits",
+      "sources": [
+        "Game.cs:184,352",
+        "StoryScript.cs:738-746",
+        "AchievementInstruction.cs",
+        "Translation/",
+        "SpaceGame/",
+        "../DATA_CENSUS.md"
+      ],
+      "finding": "SHOWN: language construction and inscription matching, artefact/clue discovery, graded location knowledge, route planning, timeline and achievement instructions extend beyond dialogue. StartSceneAt passes a saved completion count to an Ink new-game-plus variable when present. That proves a repeat-run hook, not the full retention/reset contract. All achievement conditions, ruin generation, oxygen hazards and repeat-run content remain unread."
+    }
+  ],
+  "proposals": [
+    {
+      "id": "P1",
+      "title": "Typed scene moments",
+      "owner": "docs/DIALOGUE_AND_INTERACTIONS.md; docs/ENGINE_EXPANSION.md",
+      "behavior": "One original exchange carries speaker, recipient, nonverbal response and an actual notebook-dependent consequence.",
+      "acceptance": "Fresh 1440x900 origin shows changed response and committed effect; re-entry does not duplicate reward."
+    },
+    {
+      "id": "P2",
+      "title": "Stable saved decision boundary",
+      "owner": "docs/ENGINE_EXPANSION.md",
+      "behavior": "Persist an unresolved exchange plus committed state, deriving view indexes after load.",
+      "acceptance": "Save/reload/export/import retain exact available choices and outcome receipts; rejected import leaves current state intact."
+    },
+    {
+      "id": "P3",
+      "title": "Practice-aware help",
+      "owner": "docs/THEMATIC_UI_AND_INFORMATION_DESIGN_2026-10-12.md",
+      "behavior": "Retire one hint after demonstrated use while keeping help recallable.",
+      "acceptance": "Reload/import preserve practice; changed settings do not alter skill eligibility."
+    },
+    {
+      "id": "P4",
+      "title": "Attributed revision and recap",
+      "owner": "docs/TIMELINES_AND_DIVERGENCE.md; docs/DIALOGUE_AND_INTERACTIONS.md",
+      "behavior": "Show an early interpretation and its later correction with source and reveal date.",
+      "acceptance": "Known-only recap retains old attribution and useful correction without leaking unknown truth."
+    },
+    {
+      "id": "P5",
+      "title": "Separate story compute and travel clocks",
+      "owner": "docs/TIME_KEEPERS_AND_VARIANTS.md; docs/ENGINE_EXPANSION.md",
+      "behavior": "Yield expensive evaluation while preserving queued travel interruptions.",
+      "acceptance": "Vary frame budget without changing elapsed simulation time or duplicating an event."
+    },
+    {
+      "id": "P6",
+      "title": "Useful independent evidence",
+      "owner": "docs/emergent/E7_OBSERVATION_AND_MYSTERY.md",
+      "behavior": "A second independent object changes one appraisal method.",
+      "acceptance": "Reopening the first source cannot mint confirmation; alternative ordinary progression remains reachable."
+    }
+  ]
+}

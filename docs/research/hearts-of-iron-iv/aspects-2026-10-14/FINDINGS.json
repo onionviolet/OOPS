@@ -1,0 +1,558 @@
+{
+  "game": "hearts-of-iron-iv",
+  "lane": "asp-hoi4",
+  "date": "2026-10-14",
+  "status": "PARTIAL",
+  "evidence": "source research; no runtime/save proof",
+  "aspects": "ASPECTS.json",
+  "metrics": {
+    "captured_files": 5644,
+    "captured_bytes": 122176518,
+    "english_rows": 129197,
+    "english_unique_keys": 129197,
+    "families": [
+      {
+        "family": "common/abilities",
+        "files": 6,
+        "bytes": 15713
+      },
+      {
+        "family": "common/acclimatation.txt",
+        "files": 1,
+        "bytes": 3052
+      },
+      {
+        "family": "common/aces",
+        "files": 1,
+        "bytes": 2015
+      },
+      {
+        "family": "common/achievements.txt",
+        "files": 1,
+        "bytes": 154385
+      },
+      {
+        "family": "common/ai_areas",
+        "files": 1,
+        "bytes": 6723
+      },
+      {
+        "family": "common/ai_attitudes.txt",
+        "files": 1,
+        "bytes": 943
+      },
+      {
+        "family": "common/ai_equipment",
+        "files": 23,
+        "bytes": 831280
+      },
+      {
+        "family": "common/ai_faction_theaters",
+        "files": 2,
+        "bytes": 23733
+      },
+      {
+        "family": "common/ai_focuses",
+        "files": 8,
+        "bytes": 14052
+      },
+      {
+        "family": "common/ai_navy",
+        "files": 26,
+        "bytes": 42468
+      },
+      {
+        "family": "common/ai_personalities.txt",
+        "files": 1,
+        "bytes": 19
+      },
+      {
+        "family": "common/ai_strategy",
+        "files": 50,
+        "bytes": 560230
+      },
+      {
+        "family": "common/ai_strategy_plans",
+        "files": 128,
+        "bytes": 817776
+      },
+      {
+        "family": "common/ai_templates",
+        "files": 16,
+        "bytes": 105568
+      },
+      {
+        "family": "common/alerts.txt",
+        "files": 1,
+        "bytes": 2972
+      },
+      {
+        "family": "common/autonomous_states",
+        "files": 21,
+        "bytes": 32040
+      },
+      {
+        "family": "common/bookmarks",
+        "files": 2,
+        "bytes": 59531
+      },
+      {
+        "family": "common/bop",
+        "files": 10,
+        "bytes": 86279
+      },
+      {
+        "family": "common/buildings",
+        "files": 2,
+        "bytes": 34274
+      },
+      {
+        "family": "common/characters",
+        "files": 233,
+        "bytes": 2917746
+      },
+      {
+        "family": "common/collections",
+        "files": 3,
+        "bytes": 20766
+      },
+      {
+        "family": "common/combat_tactics.txt",
+        "files": 1,
+        "bytes": 18634
+      },
+      {
+        "family": "common/continuous_focus",
+        "files": 1,
+        "bytes": 9036
+      },
+      {
+        "family": "common/countries",
+        "files": 442,
+        "bytes": 96056
+      },
+      {
+        "family": "common/country_leader",
+        "files": 4,
+        "bytes": 417561
+      },
+      {
+        "family": "common/country_tag_aliases",
+        "files": 1,
+        "bytes": 4576
+      },
+      {
+        "family": "common/country_tags",
+        "files": 2,
+        "bytes": 14501
+      },
+      {
+        "family": "common/decisions",
+        "files": 146,
+        "bytes": 6808627
+      },
+      {
+        "family": "common/defines",
+        "files": 3,
+        "bytes": 498278
+      },
+      {
+        "family": "common/difficulty_settings",
+        "files": 1,
+        "bytes": 1134
+      },
+      {
+        "family": "common/doctrines",
+        "files": 27,
+        "bytes": 210019
+      },
+      {
+        "family": "common/dynamic_modifiers",
+        "files": 11,
+        "bytes": 488438
+      },
+      {
+        "family": "common/equipment_groups",
+        "files": 2,
+        "bytes": 10109
+      },
+      {
+        "family": "common/event_modifiers.txt",
+        "files": 1,
+        "bytes": 0
+      },
+      {
+        "family": "common/factions",
+        "files": 30,
+        "bytes": 422935
+      },
+      {
+        "family": "common/focus_inlay_windows",
+        "files": 7,
+        "bytes": 54095
+      },
+      {
+        "family": "common/frontend",
+        "files": 1,
+        "bytes": 1919
+      },
+      {
+        "family": "common/game_rules",
+        "files": 1,
+        "bytes": 86017
+      },
+      {
+        "family": "common/generation",
+        "files": 1,
+        "bytes": 1448
+      },
+      {
+        "family": "common/graphicalculturetype.txt",
+        "files": 1,
+        "bytes": 245
+      },
+      {
+        "family": "common/idea_tags",
+        "files": 1,
+        "bytes": 2994
+      },
+      {
+        "family": "common/ideas",
+        "files": 213,
+        "bytes": 2527636
+      },
+      {
+        "family": "common/ideologies",
+        "files": 1,
+        "bytes": 5602
+      },
+      {
+        "family": "common/intelligence_agencies",
+        "files": 1,
+        "bytes": 15780
+      },
+      {
+        "family": "common/intelligence_agency_upgrades",
+        "files": 2,
+        "bytes": 10342
+      },
+      {
+        "family": "common/map_modes",
+        "files": 1,
+        "bytes": 3256
+      },
+      {
+        "family": "common/medals",
+        "files": 1,
+        "bytes": 40732
+      },
+      {
+        "family": "common/military_industrial_organization",
+        "files": 63,
+        "bytes": 978147
+      },
+      {
+        "family": "common/modifier_definitions",
+        "files": 2,
+        "bytes": 1695
+      },
+      {
+        "family": "common/modifiers",
+        "files": 5,
+        "bytes": 21688
+      },
+      {
+        "family": "common/msgrdk_achievements.json",
+        "files": 1,
+        "bytes": 8486
+      },
+      {
+        "family": "common/mtth",
+        "files": 1,
+        "bytes": 213
+      },
+      {
+        "family": "common/names",
+        "files": 1,
+        "bytes": 467759
+      },
+      {
+        "family": "common/national_focus",
+        "files": 81,
+        "bytes": 14189444
+      },
+      {
+        "family": "common/occupation_laws",
+        "files": 1,
+        "bytes": 26271
+      },
+      {
+        "family": "common/on_actions",
+        "files": 18,
+        "bytes": 822549
+      },
+      {
+        "family": "common/operation_phases",
+        "files": 17,
+        "bytes": 30800
+      },
+      {
+        "family": "common/operation_tokens",
+        "files": 2,
+        "bytes": 2310
+      },
+      {
+        "family": "common/operations",
+        "files": 7,
+        "bytes": 116452
+      },
+      {
+        "family": "common/opinion_modifiers",
+        "files": 13,
+        "bytes": 50937
+      },
+      {
+        "family": "common/peace_conference",
+        "files": 36,
+        "bytes": 150788
+      },
+      {
+        "family": "common/profile_backgrounds",
+        "files": 1,
+        "bytes": 1699
+      },
+      {
+        "family": "common/profile_pictures",
+        "files": 1,
+        "bytes": 6678
+      },
+      {
+        "family": "common/raids",
+        "files": 10,
+        "bytes": 267891
+      },
+      {
+        "family": "common/region_colors.txt",
+        "files": 1,
+        "bytes": 4805
+      },
+      {
+        "family": "common/resistance_activity",
+        "files": 1,
+        "bytes": 12546
+      },
+      {
+        "family": "common/resistance_compliance_modifiers",
+        "files": 2,
+        "bytes": 5365
+      },
+      {
+        "family": "common/resources",
+        "files": 2,
+        "bytes": 717
+      },
+      {
+        "family": "common/ribbons",
+        "files": 1,
+        "bytes": 19893
+      },
+      {
+        "family": "common/scientist_traits",
+        "files": 2,
+        "bytes": 5750
+      },
+      {
+        "family": "common/scorers",
+        "files": 4,
+        "bytes": 30540
+      },
+      {
+        "family": "common/script_constants",
+        "files": 5,
+        "bytes": 13438
+      },
+      {
+        "family": "common/script_enums.txt",
+        "files": 1,
+        "bytes": 17183
+      },
+      {
+        "family": "common/scripted_diplomatic_actions",
+        "files": 1,
+        "bytes": 3227
+      },
+      {
+        "family": "common/scripted_effects",
+        "files": 52,
+        "bytes": 1881905
+      },
+      {
+        "family": "common/scripted_guis",
+        "files": 18,
+        "bytes": 14233
+      },
+      {
+        "family": "common/scripted_localisation",
+        "files": 42,
+        "bytes": 24556066
+      },
+      {
+        "family": "common/scripted_triggers",
+        "files": 54,
+        "bytes": 636122
+      },
+      {
+        "family": "common/special_projects",
+        "files": 17,
+        "bytes": 330832
+      },
+      {
+        "family": "common/state_category",
+        "files": 13,
+        "bytes": 1450
+      },
+      {
+        "family": "common/strategic_locations",
+        "files": 2,
+        "bytes": 783
+      },
+      {
+        "family": "common/synchronized_dynamic_tokens",
+        "files": 1,
+        "bytes": 1528
+      },
+      {
+        "family": "common/technologies",
+        "files": 13,
+        "bytes": 429740
+      },
+      {
+        "family": "common/technology_sharing",
+        "files": 11,
+        "bytes": 34355
+      },
+      {
+        "family": "common/technology_tags",
+        "files": 1,
+        "bytes": 5378
+      },
+      {
+        "family": "common/terrain",
+        "files": 1,
+        "bytes": 7470
+      },
+      {
+        "family": "common/timed_activities",
+        "files": 1,
+        "bytes": 68
+      },
+      {
+        "family": "common/triggered_modifiers.txt",
+        "files": 1,
+        "bytes": 0
+      },
+      {
+        "family": "common/unit_leader",
+        "files": 13,
+        "bytes": 104397
+      },
+      {
+        "family": "common/unit_medals",
+        "files": 1,
+        "bytes": 39961
+      },
+      {
+        "family": "common/unit_tags",
+        "files": 1,
+        "bytes": 1315
+      },
+      {
+        "family": "common/units",
+        "files": 297,
+        "bytes": 3097727
+      },
+      {
+        "family": "common/wargoals",
+        "files": 1,
+        "bytes": 2981
+      },
+      {
+        "family": "common/weather.txt",
+        "files": 1,
+        "bytes": 5606
+      }
+    ]
+  },
+  "new_counts": {
+    "projects": 49,
+    "specializations": 4,
+    "generic_prototype_rewards": 82,
+    "operations": 39,
+    "operation_phases": 82,
+    "operation_phase_groups": 117,
+    "scripted_guis": 17,
+    "defined_text": 1537,
+    "text_branches": 30401,
+    "event_definitions": 6974,
+    "tutorial_blocks": 15,
+    "hint_blocks": 30
+  },
+  "proposals": [
+    {
+      "id": "P1",
+      "proposal": "Retain experiment learning separately from setup and repeatable trials",
+      "owner": "Modular production chains; existing skill/world work owners",
+      "gate": "Useful paid output survives cancel/resume and import; same instance never pays twice."
+    },
+    {
+      "id": "P2",
+      "proposal": "Compose an expedition from legal access, task and return phases",
+      "owner": "Characters/world events; existing simulation/jobs",
+      "gate": "Changed route or target invalidates plans; conserved means; personal risk differs from task success."
+    },
+    {
+      "id": "P3",
+      "proposal": "Project scoped text and effect summaries from actual known state",
+      "owner": "Thematic UI; knowledge and legal-command owners",
+      "gate": "Desktop 1366x768; stale button rechecks legality; repaint reveals no truth or RNG."
+    },
+    {
+      "id": "P4",
+      "proposal": "Make message reply and institution aftermath distinct durable steps",
+      "owner": "Characters/world events; storylet owner",
+      "gate": "Accept/refuse/defer all lead to supported later state across reload/import."
+    },
+    {
+      "id": "P5",
+      "proposal": "Use theme history to vary repeated experiment reports",
+      "owner": "Procedural story/content; selected world owner",
+      "gate": "Suppression changes eligible flavor weights without a guaranteed drop or lifetime action cap."
+    },
+    {
+      "id": "P6",
+      "proposal": "Report skipped persistence cases separately from passing tests",
+      "owner": "Engine saves/scale; save_files and compatibility owners",
+      "gate": "Missing fixture/token yields an explicit unverified case, not roundtrip proof."
+    },
+    {
+      "id": "P7",
+      "proposal": "Teach one useful action with a state-based contextual hint",
+      "owner": "Thematic UI; current world opening",
+      "gate": "The real predicate becomes true through natural play; label alone cannot close it."
+    },
+    {
+      "id": "P8",
+      "proposal": "Give condition and phase fields explicit units and edge semantics",
+      "owner": "Generation foundation rules; existing content validation",
+      "gate": "Min/max, deadline, cancel and absent-actor cases are checked against chosen behavior."
+    }
+  ],
+  "gaps": [
+    "Native interpreter/evaluators/serializer unread",
+    "No current-build fixture or save roundtrip",
+    "Full country/DLC semantic reading incomplete",
+    "UI layouts not exercised",
+    "Mod loader/override semantics unverified"
+  ],
+  "raw_reference": "/Users/weiwei/.codex/research/asp-hoi4/extract"
+}

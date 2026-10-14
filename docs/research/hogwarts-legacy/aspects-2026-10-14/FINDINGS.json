@@ -1,0 +1,133 @@
+{
+  "game": "hogwarts-legacy",
+  "lane": "bf-hogwarts",
+  "date": "2026-10-14",
+  "build": "20773316",
+  "status": "PARTIAL",
+  "findings": [
+    {
+      "id": "F1",
+      "label": "SHOWN",
+      "summary": "Fresh MAIN/SUB counts and graph sample confirm a separate text, speaker, branch-provider and graph structure.",
+      "sources": [
+        "SUB-enUS.bin",
+        "notes/dialogue-lines.json",
+        "notes/dialogue-branch-providers.json"
+      ]
+    },
+    {
+      "id": "F2",
+      "label": "SHOWN",
+      "summary": "Autosave trigger writes locks/stats, checks character existence and calls native save; restore hooks are distinct.",
+      "sources": [
+        "notes/save-call-index.json",
+        "Gameplay/Blueprints/Interfaces/BPI_SaveRestore.uasset"
+      ]
+    },
+    {
+      "id": "F3",
+      "label": "SHOWN",
+      "summary": "Dynamic tables include shipped defaults; they are not user saves or an established serializer whitelist.",
+      "sources": [
+        "StatsDynamic",
+        "AmbientChatterTopicsDynamic",
+        "UIQuickActionsDynamic",
+        "KnowledgeDynamic"
+      ]
+    },
+    {
+      "id": "F4",
+      "label": "SHOWN",
+      "summary": "HousePoints data exists in social actions, but no working competition is proved.",
+      "sources": [
+        "SocialActionDefinition.HousePoints"
+      ]
+    },
+    {
+      "id": "F5",
+      "label": "SHOWN",
+      "summary": "Acknowledgements separate event/type/actor/cooldown/mission policy.",
+      "sources": [
+        "AcknowledgementRules",
+        "AcknowledgementMissionDisablesVO"
+      ]
+    },
+    {
+      "id": "F6",
+      "label": "SHOWN",
+      "summary": "Knowledge uses subject/field/level/lock mappings while all knowledge-point and companion-point action awards are zero.",
+      "sources": [
+        "KnowledgeFacts",
+        "KnowledgeFactTypes",
+        "KnowledgeActions"
+      ]
+    },
+    {
+      "id": "F7",
+      "label": "SHOWN",
+      "summary": "Station choices carry occupied/required/target connection fields; runtime reservation arbitration is unread.",
+      "sources": [
+        "SocialStationActionChoices"
+      ]
+    },
+    {
+      "id": "F8",
+      "label": "STATED",
+      "summary": "Interface describes per-save mods, cloning and repair; safe migration implementation remains unverified.",
+      "sources": [
+        "MAIN-enUS.bin",
+        "UI_BP_ModTutorialSaveGame.uasset"
+      ]
+    },
+    {
+      "id": "F9",
+      "label": "SHOWN",
+      "summary": "No additional install was needed; nine packages parsed and both databases passed integrity checks.",
+      "sources": [
+        "notes/census.json",
+        "notes/save-json",
+        "notes/dialogue-json"
+      ]
+    }
+  ],
+  "proposals": [
+    {
+      "id": "P1",
+      "status": "PROPOSAL"
+    },
+    {
+      "id": "P2",
+      "status": "PROPOSAL"
+    },
+    {
+      "id": "P3",
+      "status": "PROPOSAL"
+    },
+    {
+      "id": "P4",
+      "status": "PROPOSAL"
+    },
+    {
+      "id": "P5",
+      "status": "PROPOSAL"
+    },
+    {
+      "id": "P6",
+      "status": "PROPOSAL"
+    },
+    {
+      "id": "P7",
+      "status": "PROPOSAL"
+    },
+    {
+      "id": "P8",
+      "status": "PROPOSAL"
+    }
+  ],
+  "limits": [
+    "no launch or user-save access",
+    "native save format/migration not traced",
+    "full Articy evaluator unread",
+    "static evidence is not gameplay acceptance"
+  ]
+}

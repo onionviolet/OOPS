@@ -1,0 +1,5309 @@
+{
+  "scope": "C# file inventory, not semantic read of every class or unseen assemblies",
+  "source_root": "/Users/weiwei/.codex/research/heavens-vault/extract/csharp",
+  "csharp_files": 1299,
+  "namespace_directories": {
+    ".": 747,
+    "ActionIcon": 8,
+    "CycleGrapher": 3,
+    "DeepSky.Haze": 10,
+    "DevCinematographer": 12,
+    "Ink.Runtime": 42,
+    "Planner": 4,
+    "PlayModeSaver": 2,
+    "Properties": 1,
+    "Screenshotting": 2,
+    "SoftMasking": 9,
+    "SoftMasking.Extensions": 1,
+    "SpaceGame": 113,
+    "SpaceGame.Audio": 6,
+    "SpaceGame.Pathfinding": 33,
+    "SpaceGame.Pathfinding.Graph": 11,
+    "SpaceGame.River": 29,
+    "SpaceGame.River.Particles": 12,
+    "SpaceGame.Rocks": 9,
+    "SpaceGame.Ship": 46,
+    "SplineSystem": 5,
+    "Translation": 111,
+    "UnityEngine.AI": 5,
+    "UnityEngine.EventSystems": 2,
+    "UnityEngine.PostProcessing": 47,
+    "UnityEngine.UI": 3,
+    "UnityEngine.UI.Extensions": 6,
+    "UnityX.Editor.Icon": 3,
+    "UnityX.Geometry": 9,
+    "UnityX.StateMachine": 5,
+    "UnityX.Versioning": 2,
+    "Utils.Algorithms": 1
+  },
+  "files": [
+    {
+      "path": "AABBPointChecker.cs",
+      "bytes": 1129
+    },
+    {
+      "path": "AStarCoroutineSettings.cs",
+      "bytes": 570
+    },
+    {
+      "path": "AStarCoroutineTest.cs",
+      "bytes": 7028
+    },
+    {
+      "path": "Achievement.cs",
+      "bytes": 348
+    },
+    {
+      "path": "AchievementData.cs",
+      "bytes": 336
+    },
+    {
+      "path": "AchievementDatabase.cs",
+      "bytes": 484
+    },
+    {
+      "path": "AchievementInstruction.cs",
+      "bytes": 339
+    },
+    {
+      "path": "AchievementsManager.cs",
+      "bytes": 2596
+    },
+    {
+      "path": "ActionIcon/ActionIconDatabase.cs",
+      "bytes": 2274
+    },
+    {
+      "path": "ActionIcon/ActionIconUtils.cs",
+      "bytes": 17135
+    },
+    {
+      "path": "ActionIcon/ActionIconView.cs",
+      "bytes": 11919
+    },
+    {
+      "path": "ActionIcon/ActionIconViewData.cs",
+      "bytes": 2015
+    },
+    {
+      "path": "ActionIcon/ActionIconViewDataTween.cs",
+      "bytes": 970
+    },
+    {
+      "path": "ActionIcon/BackgroundType.cs",
+      "bytes": 141
+    },
+    {
+      "path": "ActionIcon/ConsoleIconType.cs",
+      "bytes": 77
+    },
+    {
+      "path": "ActionIcon/IconVariant.cs",
+      "bytes": 92
+    },
+    {
+      "path": "ActionIconBackground.cs",
+      "bytes": 1088
+    },
+    {
+      "path": "ActiveStorySceneState.cs",
+      "bytes": 925
+    },
+    {
+      "path": "AgeRatings.cs",
+      "bytes": 277
+    },
+    {
+      "path": "AmbientPoseChooser.cs",
+      "bytes": 2126
+    },
+    {
+      "path": "AndBlender.cs",
+      "bytes": 2146
+    },
+    {
+      "path": "AnimationCurveSmoothingType.cs",
+      "bytes": 68
+    },
+    {
+      "path": "AnimationCurveX.cs",
+      "bytes": 13783
+    },
+    {
+      "path": "AnnotationStyle.cs",
+      "bytes": 170
+    },
+    {
+      "path": "AnnotationView.cs",
+      "bytes": 11696
+    },
+    {
+      "path": "AnnotationsSettings.cs",
+      "bytes": 3429
+    },
+    {
+      "path": "AnnotationsView.cs",
+      "bytes": 41431
+    },
+    {
+      "path": "ApplicationX.cs",
+      "bytes": 712
+    },
+    {
+      "path": "AssetDatabaseX.cs",
+      "bytes": 39
+    },
+    {
+      "path": "AssetPathAttribute.cs",
+      "bytes": 444
+    },
+    {
+      "path": "AudioController.cs",
+      "bytes": 9378
+    },
+    {
+      "path": "AudioControllerSettings.cs",
+      "bytes": 302
+    },
+    {
+      "path": "AudioListenerManager.cs",
+      "bytes": 2273
+    },
+    {
+      "path": "AudioMixerController.cs",
+      "bytes": 2440
+    },
+    {
+      "path": "AudioSequenceKeyframe.cs",
+      "bytes": 504
+    },
+    {
+      "path": "AudioSnapshotTransitionerManager.cs",
+      "bytes": 2866
+    },
+    {
+      "path": "AudioSnapshotTriggerVolume.cs",
+      "bytes": 1044
+    },
+    {
+      "path": "AudioSourceManager.cs",
+      "bytes": 4421
+    },
+    {
+      "path": "AudioUtils.cs",
+      "bytes": 491
+    },
+    {
+      "path": "Autefact.cs",
+      "bytes": 1354
+    },
+    {
+      "path": "AutefactCreationInstruction.cs",
+      "bytes": 696
+    },
+    {
+      "path": "AutoIcon.cs",
+      "bytes": 110
+    },
+    {
+      "path": "Averages.cs",
+      "bytes": 979
+    },
+    {
+      "path": "BVHNode.cs",
+      "bytes": 553
+    },
+    {
+      "path": "BVHNodeSerializable.cs",
+      "bytes": 266
+    },
+    {
+      "path": "BVHOctree.cs",
+      "bytes": 2148
+    },
+    {
+      "path": "BVHOctreeItem.cs",
+      "bytes": 246
+    },
+    {
+      "path": "BaseCurve.cs",
+      "bytes": 802
+    },
+    {
+      "path": "BaseEaser.cs",
+      "bytes": 1551
+    },
+    {
+      "path": "BaseIfAttribute.cs",
+      "bytes": 635
+    },
+    {
+      "path": "BaseSplashScreenPage.cs",
+      "bytes": 537
+    },
+    {
+      "path": "BaseTimedVibration.cs",
+      "bytes": 141
+    },
+    {
+      "path": "BaseTitleAndPauseOption.cs",
+      "bytes": 1946
+    },
+    {
+      "path": "BaseTitleAndPauseOptionsPanel.cs",
+      "bytes": 8067
+    },
+    {
+      "path": "BaseTitleAndPausePanel.cs",
+      "bytes": 1736
+    },
+    {
+      "path": "BasicMover.cs",
+      "bytes": 617
+    },
+    {
+      "path": "Bezier.cs",
+      "bytes": 1302
+    },
+    {
+      "path": "BiDirectionalCameraTrigger.cs",
+      "bytes": 2831
+    },
+    {
+      "path": "BilateralGaussianBlur.cs",
+      "bytes": 2470
+    },
+    {
+      "path": "BitField.cs",
+      "bytes": 1616
+    },
+    {
+      "path": "BitonicSort.cs",
+      "bytes": 3188
+    },
+    {
+      "path": "Blackout.cs",
+      "bytes": 2837
+    },
+    {
+      "path": "BlackoutSubtitleLayer.cs",
+      "bytes": 979
+    },
+    {
+      "path": "BlendMode.cs",
+      "bytes": 107
+    },
+    {
+      "path": "Blender.cs",
+      "bytes": 2871
+    },
+    {
+      "path": "BloodOxygenMeter.cs",
+      "bytes": 3399
+    },
+    {
+      "path": "BloodOxygenMeterUI.cs",
+      "bytes": 2032
+    },
+    {
+      "path": "BoolX.cs",
+      "bytes": 209
+    },
+    {
+      "path": "BoundsX.cs",
+      "bytes": 3782
+    },
+    {
+      "path": "BoxOutline.cs",
+      "bytes": 1393
+    },
+    {
+      "path": "BracketRenderer.cs",
+      "bytes": 3281
+    },
+    {
+      "path": "BubblePositioner.cs",
+      "bytes": 23357
+    },
+    {
+      "path": "ButtonAttribute.cs",
+      "bytes": 1230
+    },
+    {
+      "path": "ButtonPrompt.cs",
+      "bytes": 14240
+    },
+    {
+      "path": "ButtonPromptSettings.cs",
+      "bytes": 735
+    },
+    {
+      "path": "ByteFormatter.cs",
+      "bytes": 723
+    },
+    {
+      "path": "CameraProperties.cs",
+      "bytes": 8784
+    },
+    {
+      "path": "CameraPropertiesBuilderQueue.cs",
+      "bytes": 3172
+    },
+    {
+      "path": "CameraPropertiesModifier.cs",
+      "bytes": 6210
+    },
+    {
+      "path": "CameraPropertiesTrack.cs",
+      "bytes": 3535
+    },
+    {
+      "path": "CameraPropertiesTween.cs",
+      "bytes": 4823
+    },
+    {
+      "path": "CameraRig.cs",
+      "bytes": 2438
+    },
+    {
+      "path": "CameraShake.cs",
+      "bytes": 810
+    },
+    {
+      "path": "CameraShakeDatabase.cs",
+      "bytes": 466
+    },
+    {
+      "path": "CameraShakeInstruction.cs",
+      "bytes": 250
+    },
+    {
+      "path": "CameraShakeModule.cs",
+      "bytes": 1525
+    },
+    {
+      "path": "CameraShot.cs",
+      "bytes": 3444
+    },
+    {
+      "path": "CameraShotCharacterFrame.cs",
+      "bytes": 567
+    },
+    {
+      "path": "CameraShotSequenceKeyframe.cs",
+      "bytes": 277
+    },
+    {
+      "path": "CameraShotSetup.cs",
+      "bytes": 9167
+    },
+    {
+      "path": "CameraX.cs",
+      "bytes": 4933
+    },
+    {
+      "path": "CanvasGroupOpacityInteractionEnabler.cs",
+      "bytes": 636
+    },
+    {
+      "path": "CanvasPauseAlphaSetter.cs",
+      "bytes": 220
+    },
+    {
+      "path": "CanvasWorldScaler.cs",
+      "bytes": 1519
+    },
+    {
+      "path": "CanvasX.cs",
+      "bytes": 3738
+    },
+    {
+      "path": "CharacterCursor.cs",
+      "bytes": 2737
+    },
+    {
+      "path": "CharacterCursorPoly.cs",
+      "bytes": 2038
+    },
+    {
+      "path": "CharacterCursorSettings.cs",
+      "bytes": 857
+    },
+    {
+      "path": "CharacterDownhit.cs",
+      "bytes": 440
+    },
+    {
+      "path": "CharacterFrameAttribute.cs",
+      "bytes": 81
+    },
+    {
+      "path": "CharacterNameAttribute.cs",
+      "bytes": 300
+    },
+    {
+      "path": "CharacterPoseReference.cs",
+      "bytes": 972
+    },
+    {
+      "path": "CharacterProjectorShadowManager.cs",
+      "bytes": 5847
+    },
+    {
+      "path": "CharacterRepulser.cs",
+      "bytes": 10131
+    },
+    {
+      "path": "CharacterRepulserWaypointList.cs",
+      "bytes": 150
+    },
+    {
+      "path": "CharacterSequenceKeyframe.cs",
+      "bytes": 801
+    },
+    {
+      "path": "CharacterShadowSettings.cs",
+      "bytes": 495
+    },
+    {
+      "path": "CharacterShadowSettingsManager.cs",
+      "bytes": 138
+    },
+    {
+      "path": "CharacterStandPoint.cs",
+      "bytes": 107
+    },
+    {
+      "path": "CheckError.cs",
+      "bytes": 122
+    },
+    {
+      "path": "ChosenFrames.cs",
+      "bytes": 1994
+    },
+    {
+      "path": "Cinematographer.cs",
+      "bytes": 17442
+    },
+    {
+      "path": "CircleOutline.cs",
+      "bytes": 1728
+    },
+    {
+      "path": "ClampAttribute.cs",
+      "bytes": 339
+    },
+    {
+      "path": "ClampMaxAttribute.cs",
+      "bytes": 903
+    },
+    {
+      "path": "ClampMinAttribute.cs",
+      "bytes": 903
+    },
+    {
+      "path": "CloseUpCameraSettings.cs",
+      "bytes": 247
+    },
+    {
+      "path": "CloudGroupAsset.cs",
+      "bytes": 1269
+    },
+    {
+      "path": "CloudLightmapGroup.cs",
+      "bytes": 258
+    },
+    {
+      "path": "CloudMaterialProperties.cs",
+      "bytes": 870
+    },
+    {
+      "path": "CloudModelSceneView.cs",
+      "bytes": 662
+    },
+    {
+      "path": "Clue.cs",
+      "bytes": 903
+    },
+    {
+      "path": "ClueDatabase.cs",
+      "bytes": 453
+    },
+    {
+      "path": "ClueSignificance.cs",
+      "bytes": 84
+    },
+    {
+      "path": "CollectionX.cs",
+      "bytes": 1118
+    },
+    {
+      "path": "ColliderX.cs",
+      "bytes": 595
+    },
+    {
+      "path": "ColorAnimator.cs",
+      "bytes": 718
+    },
+    {
+      "path": "ColorMap.cs",
+      "bytes": 681
+    },
+    {
+      "path": "ColorPropertyCurve.cs",
+      "bytes": 394
+    },
+    {
+      "path": "ColorSmoothDamper.cs",
+      "bytes": 1275
+    },
+    {
+      "path": "ColorTween.cs",
+      "bytes": 2110
+    },
+    {
+      "path": "ColorX.cs",
+      "bytes": 7481
+    },
+    {
+      "path": "CommentComponent.cs",
+      "bytes": 224
+    },
+    {
+      "path": "CommonScreenshotResolutions.cs",
+      "bytes": 1155
+    },
+    {
+      "path": "CompactMatrix4x4Attribute.cs",
+      "bytes": 196
+    },
+    {
+      "path": "ComponentMenuX.cs",
+      "bytes": 39
+    },
+    {
+      "path": "ComponentPool.cs",
+      "bytes": 2927
+    },
+    {
+      "path": "ComponentX.cs",
+      "bytes": 7265
+    },
+    {
+      "path": "CoroutineHelper.cs",
+      "bytes": 1687
+    },
+    {
+      "path": "CreditsView.cs",
+      "bytes": 5230
+    },
+    {
+      "path": "CreditsViewSettings.cs",
+      "bytes": 466
+    },
+    {
+      "path": "CryptSaving.cs",
+      "bytes": 3481
+    },
+    {
+      "path": "CurrentSelectableMirror.cs",
+      "bytes": 497
+    },
+    {
+      "path": "CurveToppedBackground.cs",
+      "bytes": 2976
+    },
+    {
+      "path": "CustomRenderersSceneView.cs",
+      "bytes": 123
+    },
+    {
+      "path": "CycleGraphTester.cs",
+      "bytes": 2747
+    },
+    {
+      "path": "CycleGrapher/CycleGraph.cs",
+      "bytes": 4857
+    },
+    {
+      "path": "CycleGrapher/Graph.cs",
+      "bytes": 1087
+    },
+    {
+      "path": "CycleGrapher/Node.cs",
+      "bytes": 905
+    },
+    {
+      "path": "DeadlyFog.cs",
+      "bytes": 1002
+    },
+    {
+      "path": "DebugLogOutputter.cs",
+      "bytes": 922
+    },
+    {
+      "path": "DebugMessageGUI.cs",
+      "bytes": 1809
+    },
+    {
+      "path": "DebugOptions.cs",
+      "bytes": 6694
+    },
+    {
+      "path": "DebugOptionsSO.cs",
+      "bytes": 109
+    },
+    {
+      "path": "DebugX.cs",
+      "bytes": 12709
+    },
+    {
+      "path": "DeepSky.Haze/DS_HazeContext.cs",
+      "bytes": 3415
+    },
+    {
+      "path": "DeepSky.Haze/DS_HazeContextAsset.cs",
+      "bytes": 275
+    },
+    {
+      "path": "DeepSky.Haze/DS_HazeContextItem.cs",
+      "bytes": 5215
+    },
+    {
+      "path": "DeepSky.Haze/DS_HazeCore.cs",
+      "bytes": 4413
+    },
+    {
+      "path": "DeepSky.Haze/DS_HazeLightVolume.cs",
+      "bytes": 15379
+    },
+    {
+      "path": "DeepSky.Haze/DS_HazeView.cs",
+      "bytes": 33873
+    },
+    {
+      "path": "DeepSky.Haze/DS_HazeView_Lite.cs",
+      "bytes": 5626
+    },
+    {
+      "path": "DeepSky.Haze/DS_HazeZone.cs",
+      "bytes": 2308
+    },
+    {
+      "path": "DeepSky.Haze/DS_LightFalloff.cs",
+      "bytes": 76
+    },
+    {
+      "path": "DeepSky.Haze/DS_SamplingQuality.cs",
+      "bytes": 81
+    },
+    {
+      "path": "Demo.cs",
+      "bytes": 4049
+    },
+    {
+      "path": "DemoBugFinder.cs",
+      "bytes": 1290
+    },
+    {
+      "path": "DemoController.cs",
+      "bytes": 1047
+    },
+    {
+      "path": "DetailBoxSettings.cs",
+      "bytes": 206
+    },
+    {
+      "path": "DetailBoxView.cs",
+      "bytes": 5318
+    },
+    {
+      "path": "DevCinematographer/BaseCameraActions.cs",
+      "bytes": 1908
+    },
+    {
+      "path": "DevCinematographer/BaseOrbitCamera.cs",
+      "bytes": 1285
+    },
+    {
+      "path": "DevCinematographer/DevCinematographerCameraManager.cs",
+      "bytes": 5697
+    },
+    {
+      "path": "DevCinematographer/DevCinematographerCameraModule.cs",
+      "bytes": 3316
+    },
+    {
+      "path": "DevCinematographer/FreeCam.cs",
+      "bytes": 2824
+    },
+    {
+      "path": "DevCinematographer/FreeCamSettings.cs",
+      "bytes": 805
+    },
+    {
+      "path": "DevCinematographer/FreeCameraActions.cs",
+      "bytes": 2418
+    },
+    {
+      "path": "DevCinematographer/FreeOrbitCamera.cs",
+      "bytes": 1935
+    },
+    {
+      "path": "DevCinematographer/FreeOrbitCameraActions.cs",
+      "bytes": 1620
+    },
+    {
+      "path": "DevCinematographer/OrbitCameraActions.cs",
+      "bytes": 2661
+    },
+    {
+      "path": "DevCinematographer/TargetOrbitCamera.cs",
+      "bytes": 4619
+    },
+    {
+      "path": "DevCinematographer/TargetOrbitCameraActions.cs",
+      "bytes": 1114
+    },
+    {
+      "path": "DevSaveFileManager.cs",
+      "bytes": 1831
+    },
+    {
+      "path": "DevSaveLoaderPanel.cs",
+      "bytes": 3488
+    },
+    {
+      "path": "DialogBoxController.cs",
+      "bytes": 6748
+    },
+    {
+      "path": "DialogBoxParams.cs",
+      "bytes": 2472
+    },
+    {
+      "path": "DialogBoxSettings.cs",
+      "bytes": 168
+    },
+    {
+      "path": "DialogueChoiceButton.cs",
+      "bytes": 2141
+    },
+    {
+      "path": "DialogueChoicePicker.cs",
+      "bytes": 5151
+    },
+    {
+      "path": "DialogueChoicePickerSettings.cs",
+      "bytes": 333
+    },
+    {
+      "path": "DialogueController.cs",
+      "bytes": 8912
+    },
+    {
+      "path": "DialogueLine.cs",
+      "bytes": 1657
+    },
+    {
+      "path": "DialogueSequenceKeyframe.cs",
+      "bytes": 901
+    },
+    {
+      "path": "DialogueSide.cs",
+      "bytes": 56
+    },
+    {
+      "path": "DialogueTailLine.cs",
+      "bytes": 8535
+    },
+    {
+      "path": "DialogueThoughtDots.cs",
+      "bytes": 886
+    },
+    {
+      "path": "DialogueView.cs",
+      "bytes": 14228
+    },
+    {
+      "path": "DialogueViewAnimSettings.cs",
+      "bytes": 852
+    },
+    {
+      "path": "DirectionalCameraTrigger.cs",
+      "bytes": 1283
+    },
+    {
+      "path": "DirectoryX.cs",
+      "bytes": 901
+    },
+    {
+      "path": "DisableAttribute.cs",
+      "bytes": 74
+    },
+    {
+      "path": "DisableIfAttribute.cs",
+      "bytes": 417
+    },
+    {
+      "path": "DisableOnLevelLoad.cs",
+      "bytes": 251
+    },
+    {
+      "path": "DontAllowSceneObjectsAttribute.cs",
+      "bytes": 88
+    },
+    {
+      "path": "DoubleBufferChangeHashSet.cs",
+      "bytes": 1023
+    },
+    {
+      "path": "DoubleChecked.cs",
+      "bytes": 517
+    },
+    {
+      "path": "DoubleCheckedOne.cs",
+      "bytes": 532
+    },
+    {
+      "path": "DraggableClickable.cs",
+      "bytes": 2026
+    },
+    {
+      "path": "DraggableSlot.cs",
+      "bytes": 264
+    },
+    {
+      "path": "DrawInstancedParticlesDescription.cs",
+      "bytes": 686
+    },
+    {
+      "path": "DriveableNavMeshLink.cs",
+      "bytes": 818
+    },
+    {
+      "path": "DropTargetPointSettings.cs",
+      "bytes": 329
+    },
+    {
+      "path": "EasingFunction.cs",
+      "bytes": 19791
+    },
+    {
+      "path": "EditorApplicationX.cs",
+      "bytes": 2075
+    },
+    {
+      "path": "EmissionPoint.cs",
+      "bytes": 488
+    },
+    {
+      "path": "Emotion.cs",
+      "bytes": 6751
+    },
+    {
+      "path": "EmotionMaskLegacyAttribute.cs",
+      "bytes": 84
+    },
+    {
+      "path": "EnableDepthNormalsBuffer.cs",
+      "bytes": 476
+    },
+    {
+      "path": "EnableOnDidLoad.cs",
+      "bytes": 244
+    },
+    {
+      "path": "EnforceDecendentGameObjectProperties.cs",
+      "bytes": 1366
+    },
+    {
+      "path": "EnforceImageAspectRatio.cs",
+      "bytes": 856
+    },
+    {
+      "path": "EnumAsIntAttribute.cs",
+      "bytes": 155
+    },
+    {
+      "path": "EnumButtonsAttribute.cs",
+      "bytes": 157
+    },
+    {
+      "path": "EnumFlagAttribute.cs",
+      "bytes": 154
+    },
+    {
+      "path": "EnumX.cs",
+      "bytes": 3176
+    },
+    {
+      "path": "EnvironmentContext.cs",
+      "bytes": 733
+    },
+    {
+      "path": "EnvironmentManager.cs",
+      "bytes": 2162
+    },
+    {
+      "path": "EventSystemManager.cs",
+      "bytes": 1010
+    },
+    {
+      "path": "EventSystemX.cs",
+      "bytes": 3669
+    },
+    {
+      "path": "ExampleWheelController.cs",
+      "bytes": 942
+    },
+    {
+      "path": "ExcludeFromBuildAttribute.cs",
+      "bytes": 265
+    },
+    {
+      "path": "Expression.cs",
+      "bytes": 36
+    },
+    {
+      "path": "ExtendedButton.cs",
+      "bytes": 2050
+    },
+    {
+      "path": "ExtendedCanvasScaler.cs",
+      "bytes": 1182
+    },
+    {
+      "path": "ExtendedScrollRectController.cs",
+      "bytes": 4974
+    },
+    {
+      "path": "ExtendedSelectable.cs",
+      "bytes": 2058
+    },
+    {
+      "path": "ExtendedSlider.cs",
+      "bytes": 2449
+    },
+    {
+      "path": "FPSCounter.cs",
+      "bytes": 1422
+    },
+    {
+      "path": "FaceCamera.cs",
+      "bytes": 1355
+    },
+    {
+      "path": "FadeAudioOnEnable.cs",
+      "bytes": 1675
+    },
+    {
+      "path": "FakeNullableAttribute.cs",
+      "bytes": 219
+    },
+    {
+      "path": "FilePathAttribute.cs",
+      "bytes": 517
+    },
+    {
+      "path": "Filter.cs",
+      "bytes": 2835
+    },
+    {
+      "path": "FilterBarItemView.cs",
+      "bytes": 2266
+    },
+    {
+      "path": "FilterBarView.cs",
+      "bytes": 10230
+    },
+    {
+      "path": "FilterBarViewSettings.cs",
+      "bytes": 1092
+    },
+    {
+      "path": "FixedSizedQueue.cs",
+      "bytes": 282
+    },
+    {
+      "path": "FlagsX.cs",
+      "bytes": 1083
+    },
+    {
+      "path": "FloatChecked.cs",
+      "bytes": 502
+    },
+    {
+      "path": "FloatCheckedOne.cs",
+      "bytes": 517
+    },
+    {
+      "path": "FloatMap3D.cs",
+      "bytes": 631
+    },
+    {
+      "path": "FloatMoveTowardsEaser.cs",
+      "bytes": 2302
+    },
+    {
+      "path": "FloatSmoothDamper.cs",
+      "bytes": 2872
+    },
+    {
+      "path": "FloatSmoothStepDamper.cs",
+      "bytes": 3036
+    },
+    {
+      "path": "FloatSpringDamper.cs",
+      "bytes": 1657
+    },
+    {
+      "path": "FloatTween.cs",
+      "bytes": 1456
+    },
+    {
+      "path": "FolderPathAttribute.cs",
+      "bytes": 327
+    },
+    {
+      "path": "FootstepAudioClipDatabase.cs",
+      "bytes": 2893
+    },
+    {
+      "path": "FootstepAudioClipSet.cs",
+      "bytes": 670
+    },
+    {
+      "path": "FootstepSurfaceTypeTrigger.cs",
+      "bytes": 1186
+    },
+    {
+      "path": "Frame.cs",
+      "bytes": 3706
+    },
+    {
+      "path": "FrameChooser.cs",
+      "bytes": 5288
+    },
+    {
+      "path": "FrameRenderer.cs",
+      "bytes": 13811
+    },
+    {
+      "path": "FrameRig.cs",
+      "bytes": 9192
+    },
+    {
+      "path": "FrameRotation.cs",
+      "bytes": 1236
+    },
+    {
+      "path": "FrameSwitcher.cs",
+      "bytes": 7061
+    },
+    {
+      "path": "Friends.cs",
+      "bytes": 4805
+    },
+    {
+      "path": "FullPoseFrame.cs",
+      "bytes": 4325
+    },
+    {
+      "path": "GLDebug.cs",
+      "bytes": 7826
+    },
+    {
+      "path": "GPUBitonicSort.cs",
+      "bytes": 2826
+    },
+    {
+      "path": "GUIDrawer.cs",
+      "bytes": 653
+    },
+    {
+      "path": "GUIGraph.cs",
+      "bytes": 3985
+    },
+    {
+      "path": "GalaxyManager.cs",
+      "bytes": 4710
+    },
+    {
+      "path": "Game.cs",
+      "bytes": 61047
+    },
+    {
+      "path": "GameChoice.cs",
+      "bytes": 4082
+    },
+    {
+      "path": "GameController.cs",
+      "bytes": 39376
+    },
+    {
+      "path": "GameLayers.cs",
+      "bytes": 1961
+    },
+    {
+      "path": "GameLogger.cs",
+      "bytes": 1878
+    },
+    {
+      "path": "GameMetaInformation.cs",
+      "bytes": 198
+    },
+    {
+      "path": "GameObjectChangeChecker.cs",
+      "bytes": 1160
+    },
+    {
+      "path": "GameObjectX.cs",
+      "bytes": 1395
+    },
+    {
+      "path": "GameStateInformation.cs",
+      "bytes": 171
+    },
+    {
+      "path": "GamepadOnly.cs",
+      "bytes": 500
+    },
+    {
+      "path": "GeometryX.cs",
+      "bytes": 886
+    },
+    {
+      "path": "GizmosX.cs",
+      "bytes": 14483
+    },
+    {
+      "path": "GlobalAudioPlayer.cs",
+      "bytes": 10424
+    },
+    {
+      "path": "GlobalFootstepManager.cs",
+      "bytes": 3003
+    },
+    {
+      "path": "GradientFill.cs",
+      "bytes": 3715
+    },
+    {
+      "path": "GradientX.cs",
+      "bytes": 6735
+    },
+    {
+      "path": "Grid.cs",
+      "bytes": 9829
+    },
+    {
+      "path": "Grid3D.cs",
+      "bytes": 9053
+    },
+    {
+      "path": "HSBColor.cs",
+      "bytes": 4136
+    },
+    {
+      "path": "HSLColor.cs",
+      "bytes": 2267
+    },
+    {
+      "path": "HSVColor.cs",
+      "bytes": 3108
+    },
+    {
+      "path": "HUDFPS.cs",
+      "bytes": 1516
+    },
+    {
+      "path": "HardResetKeySequence.cs",
+      "bytes": 1644
+    },
+    {
+      "path": "HashSetX.cs",
+      "bytes": 211
+    },
+    {
+      "path": "HeaderBar.cs",
+      "bytes": 918
+    },
+    {
+      "path": "HeaderBarSettings.cs",
+      "bytes": 136
+    },
+    {
+      "path": "HeightMap.cs",
+      "bytes": 1610
+    },
+    {
+      "path": "HeightMapBlendMode.cs",
+      "bytes": 147
+    },
+    {
+      "path": "HeightMapMeshGenerator.cs",
+      "bytes": 25906
+    },
+    {
+      "path": "HideComponentIfUIHidingEnabled.cs",
+      "bytes": 348
+    },
+    {
+      "path": "HideCursorReason.cs",
+      "bytes": 193
+    },
+    {
+      "path": "HideInEditModeAttribute.cs",
+      "bytes": 81
+    },
+    {
+      "path": "HideInPlayModeAttribute.cs",
+      "bytes": 81
+    },
+    {
+      "path": "HierarchyCache.cs",
+      "bytes": 713
+    },
+    {
+      "path": "HierarchyCacheBase.cs",
+      "bytes": 579
+    },
+    {
+      "path": "HistoricalAge.cs",
+      "bytes": 574
+    },
+    {
+      "path": "HistoricalAgesDatabase.cs",
+      "bytes": 527
+    },
+    {
+      "path": "History.cs",
+      "bytes": 2086
+    },
+    {
+      "path": "HyperlinkButton.cs",
+      "bytes": 616
+    },
+    {
+      "path": "ICustomRenderer.cs",
+      "bytes": 228
+    },
+    {
+      "path": "IDialogueSource.cs",
+      "bytes": 149
+    },
+    {
+      "path": "IEnumerableX.cs",
+      "bytes": 6951
+    },
+    {
+      "path": "IPoolable.cs",
+      "bytes": 52
+    },
+    {
+      "path": "ISaveableByJsonData.cs",
+      "bytes": 90
+    },
+    {
+      "path": "ISaveableByList.cs",
+      "bytes": 68
+    },
+    {
+      "path": "ITriggerableSequenceKeyframe.cs",
+      "bytes": 67
+    },
+    {
+      "path": "ImagePulser.cs",
+      "bytes": 511
+    },
+    {
+      "path": "ImpostorRenderer.cs",
+      "bytes": 5104
+    },
+    {
+      "path": "InfoAttribute.cs",
+      "bytes": 154
+    },
+    {
+      "path": "Ink.Runtime/CallStack.cs",
+      "bytes": 10987
+    },
+    {
+      "path": "Ink.Runtime/Choice.cs",
+      "bytes": 474
+    },
+    {
+      "path": "Ink.Runtime/ChoicePoint.cs",
+      "bytes": 1722
+    },
+    {
+      "path": "Ink.Runtime/Container.cs",
+      "bytes": 7361
+    },
+    {
+      "path": "Ink.Runtime/ControlCommand.cs",
+      "bytes": 3255
+    },
+    {
+      "path": "Ink.Runtime/DebugMetadata.cs",
+      "bytes": 337
+    },
+    {
+      "path": "Ink.Runtime/Divert.cs",
+      "bytes": 2948
+    },
+    {
+      "path": "Ink.Runtime/DivertTargetValue.cs",
+      "bytes": 761
+    },
+    {
+      "path": "Ink.Runtime/FloatValue.cs",
+      "bytes": 632
+    },
+    {
+      "path": "Ink.Runtime/Glue.cs",
+      "bytes": 115
+    },
+    {
+      "path": "Ink.Runtime/INamedContent.cs",
+      "bytes": 112
+    },
+    {
+      "path": "Ink.Runtime/InkList.cs",
+      "bytes": 9452
+    },
+    {
+      "path": "Ink.Runtime/InkListItem.cs",
+      "bytes": 1026
+    },
+    {
+      "path": "Ink.Runtime/IntValue.cs",
+      "bytes": 555
+    },
+    {
+      "path": "Ink.Runtime/Json.cs",
+      "bytes": 17131
+    },
+    {
+      "path": "Ink.Runtime/ListDefinition.cs",
+      "bytes": 1608
+    },
+    {
+      "path": "Ink.Runtime/ListDefinitionsOrigin.cs",
+      "bytes": 1314
+    },
+    {
+      "path": "Ink.Runtime/ListValue.cs",
+      "bytes": 1672
+    },
+    {
+      "path": "Ink.Runtime/NativeFunctionCall.cs",
+      "bytes": 13961
+    },
+    {
+      "path": "Ink.Runtime/Object.cs",
+      "bytes": 4069
+    },
+    {
+      "path": "Ink.Runtime/Path.cs",
+      "bytes": 4687
+    },
+    {
+      "path": "Ink.Runtime/Pointer.cs",
+      "bytes": 1099
+    },
+    {
+      "path": "Ink.Runtime/ProfileNode.cs",
+      "bytes": 2795
+    },
+    {
+      "path": "Ink.Runtime/Profiler.cs",
+      "bytes": 5376
+    },
+    {
+      "path": "Ink.Runtime/PushPopType.cs",
+      "bytes": 102
+    },
+    {
+      "path": "Ink.Runtime/SearchResult.cs",
+      "bytes": 213
+    },
+    {
+      "path": "Ink.Runtime/SimpleJson.cs",
+      "bytes": 11284
+    },
+    {
+      "path": "Ink.Runtime/StatePatch.cs",
+      "bytes": 1928
+    },
+    {
+      "path": "Ink.Runtime/Story.cs",
+      "bytes": 50828
+    },
+    {
+      "path": "Ink.Runtime/StoryException.cs",
+      "bytes": 212
+    },
+    {
+      "path": "Ink.Runtime/StoryLookups.cs",
+      "bytes": 445
+    },
+    {
+      "path": "Ink.Runtime/StoryState.cs",
+      "bytes": 30896
+    },
+    {
+      "path": "Ink.Runtime/StringExt.cs",
+      "bytes": 457
+    },
+    {
+      "path": "Ink.Runtime/StringValue.cs",
+      "bytes": 1188
+    },
+    {
+      "path": "Ink.Runtime/Tag.cs",
+      "bytes": 215
+    },
+    {
+      "path": "Ink.Runtime/Value.cs",
+      "bytes": 1390
+    },
+    {
+      "path": "Ink.Runtime/ValueType.cs",
+      "bytes": 114
+    },
+    {
+      "path": "Ink.Runtime/VariableAssignment.cs",
+      "bytes": 532
+    },
+    {
+      "path": "Ink.Runtime/VariablePointerValue.cs",
+      "bytes": 976
+    },
+    {
+      "path": "Ink.Runtime/VariableReference.cs",
+      "bytes": 766
+    },
+    {
+      "path": "Ink.Runtime/VariablesState.cs",
+      "bytes": 9242
+    },
+    {
+      "path": "Ink.Runtime/Void.cs",
+      "bytes": 57
+    },
+    {
+      "path": "InkProfiling.cs",
+      "bytes": 2524
+    },
+    {
+      "path": "InkTestUtility.cs",
+      "bytes": 1451
+    },
+    {
+      "path": "InputController.cs",
+      "bytes": 31510
+    },
+    {
+      "path": "InputDeviceScroller.cs",
+      "bytes": 4474
+    },
+    {
+      "path": "InputModulePositionMirror.cs",
+      "bytes": 252
+    },
+    {
+      "path": "InputPoint.cs",
+      "bytes": 3284
+    },
+    {
+      "path": "InputPointState.cs",
+      "bytes": 98
+    },
+    {
+      "path": "InputRemapSettings.cs",
+      "bytes": 555
+    },
+    {
+      "path": "InputRemapUtils.cs",
+      "bytes": 578
+    },
+    {
+      "path": "InputTypeCanvasGroupToggler.cs",
+      "bytes": 716
+    },
+    {
+      "path": "InputVibration.cs",
+      "bytes": 2923
+    },
+    {
+      "path": "InputVibrationTest.cs",
+      "bytes": 1726
+    },
+    {
+      "path": "InteractionWidget.cs",
+      "bytes": 14825
+    },
+    {
+      "path": "InteractionWidgetChoice.cs",
+      "bytes": 2842
+    },
+    {
+      "path": "InteractionWidgetsController.cs",
+      "bytes": 3357
+    },
+    {
+      "path": "InvisibleInteractable.cs",
+      "bytes": 635
+    },
+    {
+      "path": "IssueLogger.cs",
+      "bytes": 8421
+    },
+    {
+      "path": "JSONObject.cs",
+      "bytes": 15508
+    },
+    {
+      "path": "JsonGameDatabase.cs",
+      "bytes": 792
+    },
+    {
+      "path": "LRUCache.cs",
+      "bytes": 3226
+    },
+    {
+      "path": "LaunchGameOptions.cs",
+      "bytes": 479
+    },
+    {
+      "path": "LayerMaskX.cs",
+      "bytes": 2494
+    },
+    {
+      "path": "LayoutAutoScroll.cs",
+      "bytes": 2909
+    },
+    {
+      "path": "LayoutChangeTriggerAttribute.cs",
+      "bytes": 86
+    },
+    {
+      "path": "LearnWordInstruction.cs",
+      "bytes": 952
+    },
+    {
+      "path": "LearnWordPanel.cs",
+      "bytes": 2928
+    },
+    {
+      "path": "LevelSettings.cs",
+      "bytes": 1400
+    },
+    {
+      "path": "LightProbeVolume.cs",
+      "bytes": 2863
+    },
+    {
+      "path": "LightmapParametersGroup.cs",
+      "bytes": 77
+    },
+    {
+      "path": "LightmapSwitchData.cs",
+      "bytes": 165
+    },
+    {
+      "path": "LineIntersectionTest.cs",
+      "bytes": 1167
+    },
+    {
+      "path": "ListPool.cs",
+      "bytes": 854
+    },
+    {
+      "path": "ListX.cs",
+      "bytes": 3602
+    },
+    {
+      "path": "LoadTaskMode.cs",
+      "bytes": 82
+    },
+    {
+      "path": "LoadTest.cs",
+      "bytes": 915
+    },
+    {
+      "path": "LoadableSprite.cs",
+      "bytes": 3739
+    },
+    {
+      "path": "Loader.cs",
+      "bytes": 11280
+    },
+    {
+      "path": "LoadingScreenController.cs",
+      "bytes": 11898
+    },
+    {
+      "path": "LoadingScreenControllerSettings.cs",
+      "bytes": 175
+    },
+    {
+      "path": "LoadingScreenSetup.cs",
+      "bytes": 916
+    },
+    {
+      "path": "LocationAttribute.cs",
+      "bytes": 75
+    },
+    {
+      "path": "LocationBasedSettings.cs",
+      "bytes": 2497
+    },
+    {
+      "path": "LocationLandingUIPanel.cs",
+      "bytes": 878
+    },
+    {
+      "path": "LocationSearchData.cs",
+      "bytes": 204
+    },
+    {
+      "path": "LockAttribute.cs",
+      "bytes": 99
+    },
+    {
+      "path": "LockTransform.cs",
+      "bytes": 400
+    },
+    {
+      "path": "LogFileManager.cs",
+      "bytes": 2908
+    },
+    {
+      "path": "LogicBlender.cs",
+      "bytes": 164
+    },
+    {
+      "path": "LogoController.cs",
+      "bytes": 7166
+    },
+    {
+      "path": "LogoControllerSettings.cs",
+      "bytes": 160
+    },
+    {
+      "path": "LogoSettings.cs",
+      "bytes": 1321
+    },
+    {
+      "path": "Main.cs",
+      "bytes": 443
+    },
+    {
+      "path": "MapAnnotations.cs",
+      "bytes": 11184
+    },
+    {
+      "path": "MapContent.cs",
+      "bytes": 3410
+    },
+    {
+      "path": "MapInset.cs",
+      "bytes": 1971
+    },
+    {
+      "path": "MapLocation.cs",
+      "bytes": 2724
+    },
+    {
+      "path": "MapPath.cs",
+      "bytes": 2837
+    },
+    {
+      "path": "MapRegion.cs",
+      "bytes": 6624
+    },
+    {
+      "path": "MapRuin.cs",
+      "bytes": 1980
+    },
+    {
+      "path": "MapSelectable.cs",
+      "bytes": 2187
+    },
+    {
+      "path": "MapSettings.cs",
+      "bytes": 3701
+    },
+    {
+      "path": "Margins.cs",
+      "bytes": 361
+    },
+    {
+      "path": "MarkLayoutElementForRebuild.cs",
+      "bytes": 676
+    },
+    {
+      "path": "MasterStoryAudioMixerController.cs",
+      "bytes": 1750
+    },
+    {
+      "path": "MathX.cs",
+      "bytes": 8629
+    },
+    {
+      "path": "MeshCombiner.cs",
+      "bytes": 425
+    },
+    {
+      "path": "MeshRendererX.cs",
+      "bytes": 1109
+    },
+    {
+      "path": "MinMaxAttribute.cs",
+      "bytes": 260
+    },
+    {
+      "path": "MiniList.cs",
+      "bytes": 4710
+    },
+    {
+      "path": "MirrorRectTransform.cs",
+      "bytes": 276
+    },
+    {
+      "path": "ModifiedShadow.cs",
+      "bytes": 1023
+    },
+    {
+      "path": "MonoInstancer.cs",
+      "bytes": 444
+    },
+    {
+      "path": "MonoSingleton.cs",
+      "bytes": 594
+    },
+    {
+      "path": "MouseInput.cs",
+      "bytes": 4317
+    },
+    {
+      "path": "MouseInputButton.cs",
+      "bytes": 1394
+    },
+    {
+      "path": "MouseInputWheel.cs",
+      "bytes": 798
+    },
+    {
+      "path": "MoveTowardsEaser.cs",
+      "bytes": 611
+    },
+    {
+      "path": "Narrator.cs",
+      "bytes": 1979
+    },
+    {
+      "path": "NarratorText.cs",
+      "bytes": 270
+    },
+    {
+      "path": "NavMeshAgentDebugger.cs",
+      "bytes": 125
+    },
+    {
+      "path": "NavMeshLink_StartEnd.cs",
+      "bytes": 340
+    },
+    {
+      "path": "NavMeshTester.cs",
+      "bytes": 1593
+    },
+    {
+      "path": "NavigableMenu.cs",
+      "bytes": 3873
+    },
+    {
+      "path": "NebulaLightProbeGroup.cs",
+      "bytes": 1583
+    },
+    {
+      "path": "NebulaSector.cs",
+      "bytes": 696
+    },
+    {
+      "path": "NebulaSectorData.cs",
+      "bytes": 203
+    },
+    {
+      "path": "Noise.cs",
+      "bytes": 13937
+    },
+    {
+      "path": "NoiseAnimator.cs",
+      "bytes": 434
+    },
+    {
+      "path": "NoiseMethod.cs",
+      "bytes": 93
+    },
+    {
+      "path": "NoiseMethodType.cs",
+      "bytes": 48
+    },
+    {
+      "path": "NoiseSample.cs",
+      "bytes": 1662
+    },
+    {
+      "path": "NoiseSampler.cs",
+      "bytes": 453
+    },
+    {
+      "path": "NoiseSamplerProperties.cs",
+      "bytes": 624
+    },
+    {
+      "path": "NonGamepadOnly.cs",
+      "bytes": 503
+    },
+    {
+      "path": "NotchesRenderer.cs",
+      "bytes": 1841
+    },
+    {
+      "path": "Note.cs",
+      "bytes": 458
+    },
+    {
+      "path": "Notes.cs",
+      "bytes": 113
+    },
+    {
+      "path": "Notification.cs",
+      "bytes": 457
+    },
+    {
+      "path": "NotificationWidget.cs",
+      "bytes": 12709
+    },
+    {
+      "path": "NotificationWidgetSettings.cs",
+      "bytes": 668
+    },
+    {
+      "path": "ObjectSwitchSequenceKeyframe.cs",
+      "bytes": 383
+    },
+    {
+      "path": "ObjectX.cs",
+      "bytes": 463
+    },
+    {
+      "path": "OffscreenCloudRenderer.cs",
+      "bytes": 5664
+    },
+    {
+      "path": "OnChangeAttribute.cs",
+      "bytes": 209
+    },
+    {
+      "path": "OnGUIX.cs",
+      "bytes": 3371
+    },
+    {
+      "path": "Outline8.cs",
+      "bytes": 552
+    },
+    {
+      "path": "PS4Manager.cs",
+      "bytes": 148
+    },
+    {
+      "path": "PS4Saving.cs",
+      "bytes": 283
+    },
+    {
+      "path": "PS4Utils.cs",
+      "bytes": 176
+    },
+    {
+      "path": "PadBasher.cs",
+      "bytes": 3464
+    },
+    {
+      "path": "ParticleSpawnPoint.cs",
+      "bytes": 2675
+    },
+    {
+      "path": "ParticleSystemManager.cs",
+      "bytes": 780
+    },
+    {
+      "path": "PasswordAttribute.cs",
+      "bytes": 632
+    },
+    {
+      "path": "PathX.cs",
+      "bytes": 902
+    },
+    {
+      "path": "PathfinderBranchHelperSettings.cs",
+      "bytes": 610
+    },
+    {
+      "path": "PauseController.cs",
+      "bytes": 3090
+    },
+    {
+      "path": "PerformanceTestRunner.cs",
+      "bytes": 2166
+    },
+    {
+      "path": "PhotoModeController.cs",
+      "bytes": 2217
+    },
+    {
+      "path": "PhysicsX.cs",
+      "bytes": 1668
+    },
+    {
+      "path": "PlaceholderAttribute.cs",
+      "bytes": 196
+    },
+    {
+      "path": "PlaneX.cs",
+      "bytes": 2777
+    },
+    {
+      "path": "Planner/FooterView.cs",
+      "bytes": 6246
+    },
+    {
+      "path": "Planner/HeaderView.cs",
+      "bytes": 2851
+    },
+    {
+      "path": "Planner/MapController.cs",
+      "bytes": 36181
+    },
+    {
+      "path": "Planner/TranslationView.cs",
+      "bytes": 4244
+    },
+    {
+      "path": "PlannerAudioMixerController.cs",
+      "bytes": 853
+    },
+    {
+      "path": "PlannerController.cs",
+      "bytes": 30054
+    },
+    {
+      "path": "PlannerNotificationTester.cs",
+      "bytes": 1117
+    },
+    {
+      "path": "PlannerTestSetup.cs",
+      "bytes": 10327
+    },
+    {
+      "path": "PlatformActionIconSet.cs",
+      "bytes": 865
+    },
+    {
+      "path": "PlatformFloat.cs",
+      "bytes": 3120
+    },
+    {
+      "path": "PlatformFontSizer.cs",
+      "bytes": 1019
+    },
+    {
+      "path": "PlatformReferenceResolution.cs",
+      "bytes": 1528
+    },
+    {
+      "path": "PlatformTypeGameObjectToggler.cs",
+      "bytes": 983
+    },
+    {
+      "path": "PlatformValuePresence.cs",
+      "bytes": 130
+    },
+    {
+      "path": "PlayModeSaver/PlayModeSaverManager.cs",
+      "bytes": 100
+    },
+    {
+      "path": "PlayModeSaver/SavePlayModeChanges.cs",
+      "bytes": 1396
+    },
+    {
+      "path": "Player.cs",
+      "bytes": 32326
+    },
+    {
+      "path": "PlayerTutorialItem.cs",
+      "bytes": 709
+    },
+    {
+      "path": "PlotCourseWidget.cs",
+      "bytes": 2649
+    },
+    {
+      "path": "PlotCourseWidgetSettings.cs",
+      "bytes": 150
+    },
+    {
+      "path": "Point.cs",
+      "bytes": 8751
+    },
+    {
+      "path": "Point3.cs",
+      "bytes": 5001
+    },
+    {
+      "path": "PointCloudAsset.cs",
+      "bytes": 501
+    },
+    {
+      "path": "PointCloudData.cs",
+      "bytes": 871
+    },
+    {
+      "path": "PointCloudRenderer.cs",
+      "bytes": 12042
+    },
+    {
+      "path": "PointRect.cs",
+      "bytes": 7709
+    },
+    {
+      "path": "PolyTest.cs",
+      "bytes": 1155
+    },
+    {
+      "path": "PolygonMesh2D.cs",
+      "bytes": 937
+    },
+    {
+      "path": "PolygonPropertyCurve.cs",
+      "bytes": 453
+    },
+    {
+      "path": "Pool.cs",
+      "bytes": 1039
+    },
+    {
+      "path": "PopupAttribute.cs",
+      "bytes": 167
+    },
+    {
+      "path": "PoseSequenceKeyframe.cs",
+      "bytes": 2127
+    },
+    {
+      "path": "PositionHandleAttribute.cs",
+      "bytes": 193
+    },
+    {
+      "path": "PositionLookAtAttribute.cs",
+      "bytes": 81
+    },
+    {
+      "path": "PreviewTextureAttribute.cs",
+      "bytes": 563
+    },
+    {
+      "path": "PrimitiveHelper.cs",
+      "bytes": 1060
+    },
+    {
+      "path": "ProbabilityList.cs",
+      "bytes": 1777
+    },
+    {
+      "path": "ProfileBinaryCapture.cs",
+      "bytes": 374
+    },
+    {
+      "path": "Prop.cs",
+      "bytes": 4164
+    },
+    {
+      "path": "PropFocus.cs",
+      "bytes": 3479
+    },
+    {
+      "path": "PropState.cs",
+      "bytes": 2132
+    },
+    {
+      "path": "PropZone.cs",
+      "bytes": 1737
+    },
+    {
+      "path": "Properties/AssemblyInfo.cs",
+      "bytes": 188
+    },
+    {
+      "path": "PropertyCurve.cs",
+      "bytes": 3585
+    },
+    {
+      "path": "PropertyCurveKeyframe.cs",
+      "bytes": 151
+    },
+    {
+      "path": "PropertyPopupAttribute.cs",
+      "bytes": 319
+    },
+    {
+      "path": "PropsController.cs",
+      "bytes": 7870
+    },
+    {
+      "path": "PropsControllerSettings.cs",
+      "bytes": 298
+    },
+    {
+      "path": "Prototype.cs",
+      "bytes": 3530
+    },
+    {
+      "path": "QuaternionPropertyCurve.cs",
+      "bytes": 450
+    },
+    {
+      "path": "QuaternionRotateTowardsEaser.cs",
+      "bytes": 775
+    },
+    {
+      "path": "QuaternionSmoothDamper.cs",
+      "bytes": 820
+    },
+    {
+      "path": "QuaternionTween.cs",
+      "bytes": 1364
+    },
+    {
+      "path": "QuaternionX.cs",
+      "bytes": 1919
+    },
+    {
+      "path": "QuitGameOnKeypress.cs",
+      "bytes": 200
+    },
+    {
+      "path": "RadialGrid3Agent.cs",
+      "bytes": 1011
+    },
+    {
+      "path": "RandomX.cs",
+      "bytes": 1835
+    },
+    {
+      "path": "Range.cs",
+      "bytes": 5424
+    },
+    {
+      "path": "RectSmoothDamper.cs",
+      "bytes": 1358
+    },
+    {
+      "path": "RectTransformX.cs",
+      "bytes": 7130
+    },
+    {
+      "path": "RectTween.cs",
+      "bytes": 1276
+    },
+    {
+      "path": "RectX.cs",
+      "bytes": 8638
+    },
+    {
+      "path": "ReflectionX.cs",
+      "bytes": 8857
+    },
+    {
+      "path": "RegexAttribute.cs",
+      "bytes": 493
+    },
+    {
+      "path": "RegexHelper.cs",
+      "bytes": 626
+    },
+    {
+      "path": "Region.cs",
+      "bytes": 6867
+    },
+    {
+      "path": "RegionChangeUIPanel.cs",
+      "bytes": 3574
+    },
+    {
+      "path": "RegionPointChecker.cs",
+      "bytes": 568
+    },
+    {
+      "path": "RemarkButton.cs",
+      "bytes": 4440
+    },
+    {
+      "path": "RemarkButtonSettings.cs",
+      "bytes": 583
+    },
+    {
+      "path": "RemarkButtonStateProperties.cs",
+      "bytes": 752
+    },
+    {
+      "path": "RemarkPicker.cs",
+      "bytes": 5998
+    },
+    {
+      "path": "RenderTextureX.cs",
+      "bytes": 432
+    },
+    {
+      "path": "RenderingUtilities.cs",
+      "bytes": 921
+    },
+    {
+      "path": "RichTextOptions.cs",
+      "bytes": 865
+    },
+    {
+      "path": "RichTextX.cs",
+      "bytes": 1110
+    },
+    {
+      "path": "RigidbodyX.cs",
+      "bytes": 3915
+    },
+    {
+      "path": "RiverAheadTest.cs",
+      "bytes": 68
+    },
+    {
+      "path": "RiverCamberModuleSettings.cs",
+      "bytes": 225
+    },
+    {
+      "path": "RiverGUIDAttribute.cs",
+      "bytes": 76
+    },
+    {
+      "path": "RiverNetworkBVH.cs",
+      "bytes": 16119
+    },
+    {
+      "path": "RiverNetworkEmissionData.cs",
+      "bytes": 555
+    },
+    {
+      "path": "RiverParticleEffect.cs",
+      "bytes": 3523
+    },
+    {
+      "path": "RiverRenderer.cs",
+      "bytes": 6065
+    },
+    {
+      "path": "RiverSFX.cs",
+      "bytes": 3006
+    },
+    {
+      "path": "RiverSFXSettings.cs",
+      "bytes": 598
+    },
+    {
+      "path": "RiverSegment.cs",
+      "bytes": 157
+    },
+    {
+      "path": "RockAvoidanceModuleSettings.cs",
+      "bytes": 340
+    },
+    {
+      "path": "RuinInteractionWidget.cs",
+      "bytes": 5554
+    },
+    {
+      "path": "RuntimeSceneSet.cs",
+      "bytes": 2629
+    },
+    {
+      "path": "RuntimeSceneSetLoadTask.cs",
+      "bytes": 8659
+    },
+    {
+      "path": "RuntimeSceneSetLoader.cs",
+      "bytes": 5558
+    },
+    {
+      "path": "SAnimatedCustomProperty.cs",
+      "bytes": 439
+    },
+    {
+      "path": "SAnimatedProperty.cs",
+      "bytes": 1400
+    },
+    {
+      "path": "SLayout.cs",
+      "bytes": 17471
+    },
+    {
+      "path": "SLayoutAngleProperty.cs",
+      "bytes": 183
+    },
+    {
+      "path": "SLayoutAnimation.cs",
+      "bytes": 6439
+    },
+    {
+      "path": "SLayoutAnimator.cs",
+      "bytes": 2935
+    },
+    {
+      "path": "SLayoutCanvasTimeScalar.cs",
+      "bytes": 401
+    },
+    {
+      "path": "SLayoutColorProperty.cs",
+      "bytes": 178
+    },
+    {
+      "path": "SLayoutFloatProperty.cs",
+      "bytes": 155
+    },
+    {
+      "path": "SLayoutProperty.cs",
+      "bytes": 368
+    },
+    {
+      "path": "SafeAirZone.cs",
+      "bytes": 703
+    },
+    {
+      "path": "SafeAreaGuides.cs",
+      "bytes": 1776
+    },
+    {
+      "path": "SaveField.cs",
+      "bytes": 9758
+    },
+    {
+      "path": "SaveFieldConverted.cs",
+      "bytes": 4459
+    },
+    {
+      "path": "SaveLoadDebugPath.cs",
+      "bytes": 1857
+    },
+    {
+      "path": "SaveLoadTester.cs",
+      "bytes": 819
+    },
+    {
+      "path": "SaveThread.cs",
+      "bytes": 6600
+    },
+    {
+      "path": "Saver.cs",
+      "bytes": 3884
+    },
+    {
+      "path": "SaverX.cs",
+      "bytes": 4181
+    },
+    {
+      "path": "ScaleUtils.cs",
+      "bytes": 1011
+    },
+    {
+      "path": "ScaleView.cs",
+      "bytes": 11050
+    },
+    {
+      "path": "ScaleViewSettings.cs",
+      "bytes": 498
+    },
+    {
+      "path": "SceneAttribute.cs",
+      "bytes": 99
+    },
+    {
+      "path": "SceneControlInstruction.cs",
+      "bytes": 4804
+    },
+    {
+      "path": "SceneExample.cs",
+      "bytes": 97
+    },
+    {
+      "path": "SceneLoadTask.cs",
+      "bytes": 4268
+    },
+    {
+      "path": "SceneManagerX.cs",
+      "bytes": 767
+    },
+    {
+      "path": "ScenePathAttribute.cs",
+      "bytes": 408
+    },
+    {
+      "path": "ScenePathExample.cs",
+      "bytes": 264
+    },
+    {
+      "path": "SceneSetDatabase.cs",
+      "bytes": 952
+    },
+    {
+      "path": "SceneSetManager.cs",
+      "bytes": 4390
+    },
+    {
+      "path": "SceneTask.cs",
+      "bytes": 636
+    },
+    {
+      "path": "SceneUnloadTask.cs",
+      "bytes": 1384
+    },
+    {
+      "path": "ScoringSettings.cs",
+      "bytes": 1364
+    },
+    {
+      "path": "ScreenFade.cs",
+      "bytes": 1795
+    },
+    {
+      "path": "ScreenFadeController.cs",
+      "bytes": 529
+    },
+    {
+      "path": "ScreenProperties.cs",
+      "bytes": 1435
+    },
+    {
+      "path": "ScreenX.cs",
+      "bytes": 4678
+    },
+    {
+      "path": "ScreenshotAlbum.cs",
+      "bytes": 760
+    },
+    {
+      "path": "ScreenshotCapturer.cs",
+      "bytes": 5718
+    },
+    {
+      "path": "ScreenshotExportFormat.cs",
+      "bytes": 51
+    },
+    {
+      "path": "ScreenshotExportSettings.cs",
+      "bytes": 1521
+    },
+    {
+      "path": "ScreenshotExporter.cs",
+      "bytes": 1459
+    },
+    {
+      "path": "ScreenshotResolution.cs",
+      "bytes": 268
+    },
+    {
+      "path": "ScreenshotSaverComponent.cs",
+      "bytes": 1338
+    },
+    {
+      "path": "ScreenshotSaverTextureFormat.cs",
+      "bytes": 61
+    },
+    {
+      "path": "ScreenshotSaverTextureFormatUtils.cs",
+      "bytes": 957
+    },
+    {
+      "path": "Screenshotting/BaseGIFScreenshotter.cs",
+      "bytes": 457
+    },
+    {
+      "path": "Screenshotting/GIFProtagonist360.cs",
+      "bytes": 2741
+    },
+    {
+      "path": "ScriptParser.cs",
+      "bytes": 27877
+    },
+    {
+      "path": "ScriptableSingleton.cs",
+      "bytes": 683
+    },
+    {
+      "path": "Selector.cs",
+      "bytes": 5726
+    },
+    {
+      "path": "Sequence.cs",
+      "bytes": 17060
+    },
+    {
+      "path": "SequenceKeyframe.cs",
+      "bytes": 687
+    },
+    {
+      "path": "SerializableCamera.cs",
+      "bytes": 7268
+    },
+    {
+      "path": "SerializableTransform.cs",
+      "bytes": 8481
+    },
+    {
+      "path": "SerializeConvertedAttribute.cs",
+      "bytes": 2675
+    },
+    {
+      "path": "SerializeOverwriteAttribute.cs",
+      "bytes": 72
+    },
+    {
+      "path": "SetCameraClearFlagsBasedOnDepth.cs",
+      "bytes": 1190
+    },
+    {
+      "path": "SetCaseAttribute.cs",
+      "bytes": 226
+    },
+    {
+      "path": "SetChildHideFlags.cs",
+      "bytes": 320
+    },
+    {
+      "path": "SetPropertyAttribute.cs",
+      "bytes": 220
+    },
+    {
+      "path": "ShadowMips.cs",
+      "bytes": 64
+    },
+    {
+      "path": "ShowCanvasOnPlay.cs",
+      "bytes": 158
+    },
+    {
+      "path": "ShuffleBag.cs",
+      "bytes": 1199
+    },
+    {
+      "path": "SimpleRotate.cs",
+      "bytes": 275
+    },
+    {
+      "path": "SimplexNoise.cs",
+      "bytes": 14275
+    },
+    {
+      "path": "SimplexNoiseGenerator.cs",
+      "bytes": 2402
+    },
+    {
+      "path": "SixFootstepSounds.cs",
+      "bytes": 796
+    },
+    {
+      "path": "SlipZoneSettings.cs",
+      "bytes": 177
+    },
+    {
+      "path": "SmoothDamper.cs",
+      "bytes": 1375
+    },
+    {
+      "path": "SnapToInputModule.cs",
+      "bytes": 13130
+    },
+    {
+      "path": "SoftMasking/GlobalMaterialReplacerAttribute.cs",
+      "bytes": 141
+    },
+    {
+      "path": "SoftMasking/IMaterialReplacer.cs",
+      "bytes": 142
+    },
+    {
+      "path": "SoftMasking/ISoftMask.cs",
+      "bytes": 279
+    },
+    {
+      "path": "SoftMasking/MaskChannel.cs",
+      "bytes": 365
+    },
+    {
+      "path": "SoftMasking/MaterialReplacements.cs",
+      "bytes": 2339
+    },
+    {
+      "path": "SoftMasking/MaterialReplacer.cs",
+      "bytes": 1435
+    },
+    {
+      "path": "SoftMasking/MaterialReplacerChain.cs",
+      "bytes": 862
+    },
+    {
+      "path": "SoftMasking/SoftMask.cs",
+      "bytes": 22475
+    },
+    {
+      "path": "SoftMasking/SoftMaskable.cs",
+      "bytes": 4413
+    },
+    {
+      "path": "SoftMasking.Extensions/MaterialOps.cs",
+      "bytes": 653
+    },
+    {
+      "path": "SpaceAudioMixerController.cs",
+      "bytes": 1730
+    },
+    {
+      "path": "SpaceCloudRenderer.cs",
+      "bytes": 3333
+    },
+    {
+      "path": "SpaceGame/BaseSpaceGameCameraController.cs",
+      "bytes": 2122
+    },
+    {
+      "path": "SpaceGame/BranchPointCameraModifier.cs",
+      "bytes": 2688
+    },
+    {
+      "path": "SpaceGame/BranchRiverSFXManager.cs",
+      "bytes": 2564
+    },
+    {
+      "path": "SpaceGame/BranchRiverSFXSettings.cs",
+      "bytes": 353
+    },
+    {
+      "path": "SpaceGame/FOVModuleSettings.cs",
+      "bytes": 290
+    },
+    {
+      "path": "SpaceGame/FlyingState.cs",
+      "bytes": 287
+    },
+    {
+      "path": "SpaceGame/GameCameraAccelerationDistanceSettings.cs",
+      "bytes": 244
+    },
+    {
+      "path": "SpaceGame/GameCameraDistanceSettings.cs",
+      "bytes": 347
+    },
+    {
+      "path": "SpaceGame/GameCameraDropTargetPointController.cs",
+      "bytes": 2147
+    },
+    {
+      "path": "SpaceGame/GameCameraLookRotateController.cs",
+      "bytes": 2762
+    },
+    {
+      "path": "SpaceGame/GameCameraLookRotateModuleSettings.cs",
+      "bytes": 423
+    },
+    {
+      "path": "SpaceGame/GameCameraRaiseSailsCameraController.cs",
+      "bytes": 1184
+    },
+    {
+      "path": "SpaceGame/GameCameraRaiseSailsSettings.cs",
+      "bytes": 427
+    },
+    {
+      "path": "SpaceGame/GameCameraResetToPathModule.cs",
+      "bytes": 1020
+    },
+    {
+      "path": "SpaceGame/GameCameraResetToPathSettings.cs",
+      "bytes": 154
+    },
+    {
+      "path": "SpaceGame/GameCameraShipRollModuleSettings.cs",
+      "bytes": 275
+    },
+    {
+      "path": "SpaceGame/GameCameraWorldRollModuleSettings.cs",
+      "bytes": 284
+    },
+    {
+      "path": "SpaceGame/HorizontalViewportSpaceOffsetModuleSettings.cs",
+      "bytes": 580
+    },
+    {
+      "path": "SpaceGame/JetstreamCameraController.cs",
+      "bytes": 3546
+    },
+    {
+      "path": "SpaceGame/JetstreamCameraSettings.cs",
+      "bytes": 445
+    },
+    {
+      "path": "SpaceGame/MapState.cs",
+      "bytes": 724
+    },
+    {
+      "path": "SpaceGame/Maze.cs",
+      "bytes": 4218
+    },
+    {
+      "path": "SpaceGame/MazeCameraController.cs",
+      "bytes": 2395
+    },
+    {
+      "path": "SpaceGame/NamedRegion.cs",
+      "bytes": 1787
+    },
+    {
+      "path": "SpaceGame/NebulaSectorManager.cs",
+      "bytes": 2246
+    },
+    {
+      "path": "SpaceGame/NebulaSectorProxy.cs",
+      "bytes": 4855
+    },
+    {
+      "path": "SpaceGame/NormalAxisSamplerModuleSettings.cs",
+      "bytes": 137
+    },
+    {
+      "path": "SpaceGame/PathfinderBranchHelper.cs",
+      "bytes": 4927
+    },
+    {
+      "path": "SpaceGame/PathfinderBranchHelperManager.cs",
+      "bytes": 4222
+    },
+    {
+      "path": "SpaceGame/PathfinderWentWrongUI.cs",
+      "bytes": 1722
+    },
+    {
+      "path": "SpaceGame/PlayerSpeedLineController.cs",
+      "bytes": 1345
+    },
+    {
+      "path": "SpaceGame/PlayerSpeedLineControllerSettings.cs",
+      "bytes": 306
+    },
+    {
+      "path": "SpaceGame/PushUpModuleSettings.cs",
+      "bytes": 389
+    },
+    {
+      "path": "SpaceGame/RadialSpaceGameCameraModifierField.cs",
+      "bytes": 1973
+    },
+    {
+      "path": "SpaceGame/RegionDebugRenderer.cs",
+      "bytes": 615
+    },
+    {
+      "path": "SpaceGame/RegionKnowledgeRiverLocker.cs",
+      "bytes": 2503
+    },
+    {
+      "path": "SpaceGame/RegionalSpaceGameCameraModifier.cs",
+      "bytes": 873
+    },
+    {
+      "path": "SpaceGame/ResetOnPathTutorial.cs",
+      "bytes": 187
+    },
+    {
+      "path": "SpaceGame/RiverCameraTargetPointModuleSettings.cs",
+      "bytes": 256
+    },
+    {
+      "path": "SpaceGame/RiverSampleData.cs",
+      "bytes": 10236
+    },
+    {
+      "path": "SpaceGame/RiverSpaceGameCameraModifier.cs",
+      "bytes": 3090
+    },
+    {
+      "path": "SpaceGame/RiverUILineRenderer.cs",
+      "bytes": 4592
+    },
+    {
+      "path": "SpaceGame/RiverUILineRendererPoint.cs",
+      "bytes": 246
+    },
+    {
+      "path": "SpaceGame/RockModifierZone.cs",
+      "bytes": 566
+    },
+    {
+      "path": "SpaceGame/RuinSampleData.cs",
+      "bytes": 582
+    },
+    {
+      "path": "SpaceGame/RuinTester.cs",
+      "bytes": 1275
+    },
+    {
+      "path": "SpaceGame/RuinType.cs",
+      "bytes": 65
+    },
+    {
+      "path": "SpaceGame/SailButtonInstructions.cs",
+      "bytes": 3756
+    },
+    {
+      "path": "SpaceGame/SampleDataModule.cs",
+      "bytes": 253
+    },
+    {
+      "path": "SpaceGame/SearchAreaModuleSettings.cs",
+      "bytes": 387
+    },
+    {
+      "path": "SpaceGame/ShakeModuleSettings.cs",
+      "bytes": 331
+    },
+    {
+      "path": "SpaceGame/ShipRuinTracker.cs",
+      "bytes": 12798
+    },
+    {
+      "path": "SpaceGame/SlipZone.cs",
+      "bytes": 1959
+    },
+    {
+      "path": "SpaceGame/SlipZoneHit.cs",
+      "bytes": 301
+    },
+    {
+      "path": "SpaceGame/SpaceAudioController.cs",
+      "bytes": 3559
+    },
+    {
+      "path": "SpaceGame/SpaceAudioDatabase.cs",
+      "bytes": 267
+    },
+    {
+      "path": "SpaceGame/SpaceControlsUIManager.cs",
+      "bytes": 1308
+    },
+    {
+      "path": "SpaceGame/SpaceGameBranchCameraController.cs",
+      "bytes": 4864
+    },
+    {
+      "path": "SpaceGame/SpaceGameBranchCameraControllerSettings.cs",
+      "bytes": 694
+    },
+    {
+      "path": "SpaceGame/SpaceGameCamera.cs",
+      "bytes": 3310
+    },
+    {
+      "path": "SpaceGame/SpaceGameCameraModifierComponent.cs",
+      "bytes": 5332
+    },
+    {
+      "path": "SpaceGame/SpaceGameCameraTester.cs",
+      "bytes": 754
+    },
+    {
+      "path": "SpaceGame/SpaceGameEnterLocationCameraController.cs",
+      "bytes": 1879
+    },
+    {
+      "path": "SpaceGame/SpaceGameEnterLocationCameraSettings.cs",
+      "bytes": 157
+    },
+    {
+      "path": "SpaceGame/SpaceGameExitLocationCameraController.cs",
+      "bytes": 1948
+    },
+    {
+      "path": "SpaceGame/SpaceGameExitLocationCameraSettings.cs",
+      "bytes": 220
+    },
+    {
+      "path": "SpaceGame/SpaceGameFakeSpeedCameraController.cs",
+      "bytes": 1348
+    },
+    {
+      "path": "SpaceGame/SpaceGameFakeSpeedCameraSettings.cs",
+      "bytes": 302
+    },
+    {
+      "path": "SpaceGame/SpaceGameLookAtRuinCameraController.cs",
+      "bytes": 5302
+    },
+    {
+      "path": "SpaceGame/SpaceGameLookAtRuinCameraSettings.cs",
+      "bytes": 531
+    },
+    {
+      "path": "SpaceGame/SpaceGameMaster.cs",
+      "bytes": 9667
+    },
+    {
+      "path": "SpaceGame/SpaceGameModifierCameraController.cs",
+      "bytes": 549
+    },
+    {
+      "path": "SpaceGame/SpaceGameOnBankCameraController.cs",
+      "bytes": 2328
+    },
+    {
+      "path": "SpaceGame/SpaceGameOnBankCameraControllerSettings.cs",
+      "bytes": 460
+    },
+    {
+      "path": "SpaceGame/SpaceGamePitchCameraController.cs",
+      "bytes": 3944
+    },
+    {
+      "path": "SpaceGame/SpaceGamePreventUnderwaterCameraController.cs",
+      "bytes": 3018
+    },
+    {
+      "path": "SpaceGame/SpaceGamePreventUnderwaterCameraSettings.cs",
+      "bytes": 601
+    },
+    {
+      "path": "SpaceGame/SpaceGameRuinLandingCameraController.cs",
+      "bytes": 1626
+    },
+    {
+      "path": "SpaceGame/SpaceGameRuinLandingCameraControllerSettings.cs",
+      "bytes": 545
+    },
+    {
+      "path": "SpaceGame/SpaceGameShipCameraController.cs",
+      "bytes": 13223
+    },
+    {
+      "path": "SpaceGame/SpaceGameUtils.cs",
+      "bytes": 1704
+    },
+    {
+      "path": "SpaceGame/SpaceGameWallAvoidanceCameraController.cs",
+      "bytes": 1276
+    },
+    {
+      "path": "SpaceGame/SpaceGameWallAvoidanceCameraControllerSettings.cs",
+      "bytes": 249
+    },
+    {
+      "path": "SpaceGame/SpaceInputManager.cs",
+      "bytes": 2702
+    },
+    {
+      "path": "SpaceGame/SpaceRiverHit.cs",
+      "bytes": 8511
+    },
+    {
+      "path": "SpaceGame/SpaceRuin.cs",
+      "bytes": 842
+    },
+    {
+      "path": "SpaceGame/SpaceRuinGenerationModifierZone.cs",
+      "bytes": 316
+    },
+    {
+      "path": "SpaceGame/SpaceRuinGenerator.cs",
+      "bytes": 917
+    },
+    {
+      "path": "SpaceGame/SpaceRuinGeneratorSettings.cs",
+      "bytes": 1303
+    },
+    {
+      "path": "SpaceGame/SpaceRuinHit.cs",
+      "bytes": 980
+    },
+    {
+      "path": "SpaceGame/SpaceRuinManager.cs",
+      "bytes": 1818
+    },
+    {
+      "path": "SpaceGame/SpaceRuinModel.cs",
+      "bytes": 1955
+    },
+    {
+      "path": "SpaceGame/SpaceRuinPrefabDatabase.cs",
+      "bytes": 738
+    },
+    {
+      "path": "SpaceGame/SpaceRuinSettings.cs",
+      "bytes": 588
+    },
+    {
+      "path": "SpaceGame/SpaceRuinState.cs",
+      "bytes": 293
+    },
+    {
+      "path": "SpaceGame/SpaceSkipUI.cs",
+      "bytes": 1525
+    },
+    {
+      "path": "SpaceGame/SpaceStorySequencer.cs",
+      "bytes": 16214
+    },
+    {
+      "path": "SpaceGame/SpaceTestPositioner.cs",
+      "bytes": 1671
+    },
+    {
+      "path": "SpaceGame/SpaceTitleScreenCameraController.cs",
+      "bytes": 2379
+    },
+    {
+      "path": "SpaceGame/SpaceTitleScreenCameraSettings.cs",
+      "bytes": 250
+    },
+    {
+      "path": "SpaceGame/SpaceTitleScreenDolly.cs",
+      "bytes": 797
+    },
+    {
+      "path": "SpaceGame/SpaceUIUtils.cs",
+      "bytes": 535
+    },
+    {
+      "path": "SpaceGame/SpaceWorldSampleData.cs",
+      "bytes": 802
+    },
+    {
+      "path": "SpaceGame/SpaceWorldSampler.cs",
+      "bytes": 31749
+    },
+    {
+      "path": "SpaceGame/StationaryCameraController.cs",
+      "bytes": 1652
+    },
+    {
+      "path": "SpaceGame/StationaryCameraSettings.cs",
+      "bytes": 320
+    },
+    {
+      "path": "SpaceGame/ThrustWidget.cs",
+      "bytes": 2455
+    },
+    {
+      "path": "SpaceGame/TurbulenceModifierZone.cs",
+      "bytes": 546
+    },
+    {
+      "path": "SpaceGame/TutorialUIPanel.cs",
+      "bytes": 1178
+    },
+    {
+      "path": "SpaceGame/WorldStoryLocation.cs",
+      "bytes": 5824
+    },
+    {
+      "path": "SpaceGame/WorldStoryLocationManager.cs",
+      "bytes": 4031
+    },
+    {
+      "path": "SpaceGame/WorldStoryLocationSpawnPoint.cs",
+      "bytes": 460
+    },
+    {
+      "path": "SpaceGame/WorldStoryLocationSpawnPointManager.cs",
+      "bytes": 824
+    },
+    {
+      "path": "SpaceGame.Audio/ShipCarveWhooshSFX.cs",
+      "bytes": 2090
+    },
+    {
+      "path": "SpaceGame.Audio/ShipCarveWhooshSFXSettings.cs",
+      "bytes": 827
+    },
+    {
+      "path": "SpaceGame.Audio/ShipCreakSFX.cs",
+      "bytes": 746
+    },
+    {
+      "path": "SpaceGame.Audio/ShipCreakSFXSettings.cs",
+      "bytes": 301
+    },
+    {
+      "path": "SpaceGame.Audio/ShipSailClothSFX.cs",
+      "bytes": 1246
+    },
+    {
+      "path": "SpaceGame.Audio/ShipSailClothSFXSettings.cs",
+      "bytes": 501
+    },
+    {
+      "path": "SpaceGame.Pathfinding/BranchApproachTracker.cs",
+      "bytes": 2471
+    },
+    {
+      "path": "SpaceGame.Pathfinding/BranchNodeTracker.cs",
+      "bytes": 1471
+    },
+    {
+      "path": "SpaceGame.Pathfinding/BranchTracker.cs",
+      "bytes": 14779
+    },
+    {
+      "path": "SpaceGame.Pathfinding/BranchUIInstance.cs",
+      "bytes": 1640
+    },
+    {
+      "path": "SpaceGame.Pathfinding/BranchUIManager.cs",
+      "bytes": 4265
+    },
+    {
+      "path": "SpaceGame.Pathfinding/GlobalPathfinderSettings.cs",
+      "bytes": 169
+    },
+    {
+      "path": "SpaceGame.Pathfinding/PathBranchTester.cs",
+      "bytes": 104
+    },
+    {
+      "path": "SpaceGame.Pathfinding/PatherSampler.cs",
+      "bytes": 5273
+    },
+    {
+      "path": "SpaceGame.Pathfinding/PatherShortcutManager.cs",
+      "bytes": 3304
+    },
+    {
+      "path": "SpaceGame.Pathfinding/Pathfinder.cs",
+      "bytes": 44602
+    },
+    {
+      "path": "SpaceGame.Pathfinding/PathfinderConnectionType.cs",
+      "bytes": 115
+    },
+    {
+      "path": "SpaceGame.Pathfinding/PathfinderConnectionsCollection.cs",
+      "bytes": 6447
+    },
+    {
+      "path": "SpaceGame.Pathfinding/PathfinderInfoUIPanel.cs",
+      "bytes": 2085
+    },
+    {
+      "path": "SpaceGame.Pathfinding/PathfinderNode.cs",
+      "bytes": 3699
+    },
+    {
+      "path": "SpaceGame.Pathfinding/PathfinderNodeConnection.cs",
+      "bytes": 7709
+    },
+    {
+      "path": "SpaceGame.Pathfinding/PathfinderPath.cs",
+      "bytes": 20898
+    },
+    {
+      "path": "SpaceGame.Pathfinding/PathfinderPathBranch.cs",
+      "bytes": 2866
+    },
+    {
+      "path": "SpaceGame.Pathfinding/PathfinderPathHit.cs",
+      "bytes": 1876
+    },
+    {
+      "path": "SpaceGame.Pathfinding/PathfinderPathSample.cs",
+      "bytes": 2652
+    },
+    {
+      "path": "SpaceGame.Pathfinding/PathfinderSampleTester.cs",
+      "bytes": 206
+    },
+    {
+      "path": "SpaceGame.Pathfinding/PathfinderSearchParams.cs",
+      "bytes": 1852
+    },
+    {
+      "path": "SpaceGame.Pathfinding/PathfinderSearchPoint.cs",
+      "bytes": 4369
+    },
+    {
+      "path": "SpaceGame.Pathfinding/PathfinderSettings.cs",
+      "bytes": 1973
+    },
+    {
+      "path": "SpaceGame.Pathfinding/PathfinderTester.cs",
+      "bytes": 104
+    },
+    {
+      "path": "SpaceGame.Pathfinding/PathfinderTesterSearchPoint.cs",
+      "bytes": 2437
+    },
+    {
+      "path": "SpaceGame.Pathfinding/PathfinderUtils.cs",
+      "bytes": 74
+    },
+    {
+      "path": "SpaceGame.Pathfinding/RiverPoly.cs",
+      "bytes": 194
+    },
+    {
+      "path": "SpaceGame.Pathfinding/ShipPather.cs",
+      "bytes": 47811
+    },
+    {
+      "path": "SpaceGame.Pathfinding/ShipPatherManager.cs",
+      "bytes": 3481
+    },
+    {
+      "path": "SpaceGame.Pathfinding/ShipPatherSettings.cs",
+      "bytes": 2399
+    },
+    {
+      "path": "SpaceGame.Pathfinding/ShipPathfinderTester.cs",
+      "bytes": 1638
+    },
+    {
+      "path": "SpaceGame.Pathfinding/TargetDestination.cs",
+      "bytes": 3620
+    },
+    {
+      "path": "SpaceGame.Pathfinding/TargetManagerTester.cs",
+      "bytes": 207
+    },
+    {
+      "path": "SpaceGame.Pathfinding.Graph/RiverBreak.cs",
+      "bytes": 994
+    },
+    {
+      "path": "SpaceGame.Pathfinding.Graph/RiverBreakAccessor.cs",
+      "bytes": 1177
+    },
+    {
+      "path": "SpaceGame.Pathfinding.Graph/RiverBreakConnection.cs",
+      "bytes": 1461
+    },
+    {
+      "path": "SpaceGame.Pathfinding.Graph/RiverBreaks.cs",
+      "bytes": 533
+    },
+    {
+      "path": "SpaceGame.Pathfinding.Graph/RiverGraphConnection.cs",
+      "bytes": 1150
+    },
+    {
+      "path": "SpaceGame.Pathfinding.Graph/RiverGraphWaypoint.cs",
+      "bytes": 3193
+    },
+    {
+      "path": "SpaceGame.Pathfinding.Graph/RiverGraphWaypointOwner.cs",
+      "bytes": 2097
+    },
+    {
+      "path": "SpaceGame.Pathfinding.Graph/RiverGraphWaypointOwnerAccessor.cs",
+      "bytes": 1406
+    },
+    {
+      "path": "SpaceGame.Pathfinding.Graph/RiverWaypointGraph.cs",
+      "bytes": 3824
+    },
+    {
+      "path": "SpaceGame.Pathfinding.Graph/RiverWaypointGraphData.cs",
+      "bytes": 365
+    },
+    {
+      "path": "SpaceGame.Pathfinding.Graph/WaypointTester.cs",
+      "bytes": 605
+    },
+    {
+      "path": "SpaceGame.River/BezierPointConnector.cs",
+      "bytes": 5360
+    },
+    {
+      "path": "SpaceGame.River/DebugRiverView.cs",
+      "bytes": 497
+    },
+    {
+      "path": "SpaceGame.River/EditorRiverViewTesterManager.cs",
+      "bytes": 130
+    },
+    {
+      "path": "SpaceGame.River/NebulaRiverManager.cs",
+      "bytes": 1946
+    },
+    {
+      "path": "SpaceGame.River/OnSplineChangeEvent.cs",
+      "bytes": 89
+    },
+    {
+      "path": "SpaceGame.River/PathTester.cs",
+      "bytes": 2377
+    },
+    {
+      "path": "SpaceGame.River/PrototypeScanningRiverRenderer.cs",
+      "bytes": 8731
+    },
+    {
+      "path": "SpaceGame.River/PrototypeScanningRiverRendererSegment.cs",
+      "bytes": 1612
+    },
+    {
+      "path": "SpaceGame.River/RiverAndArcLength.cs",
+      "bytes": 1195
+    },
+    {
+      "path": "SpaceGame.River/RiverAndArcLengthRange.cs",
+      "bytes": 1379
+    },
+    {
+      "path": "SpaceGame.River/RiverBezierControlPoint.cs",
+      "bytes": 1160
+    },
+    {
+      "path": "SpaceGame.River/RiverBezierPoint.cs",
+      "bytes": 16753
+    },
+    {
+      "path": "SpaceGame.River/RiverSettings.cs",
+      "bytes": 4132
+    },
+    {
+      "path": "SpaceGame.River/RiverTester.cs",
+      "bytes": 183
+    },
+    {
+      "path": "SpaceGame.River/RiverView.cs",
+      "bytes": 1104
+    },
+    {
+      "path": "SpaceGame.River/RiverViewTesterManager.cs",
+      "bytes": 1499
+    },
+    {
+      "path": "SpaceGame.River/RiverViewsManager.cs",
+      "bytes": 887
+    },
+    {
+      "path": "SpaceGame.River/RiverVisualType.cs",
+      "bytes": 87
+    },
+    {
+      "path": "SpaceGame.River/SpaceRiver.cs",
+      "bytes": 16175
+    },
+    {
+      "path": "SpaceGame.River/SpaceRiverBezierCurve.cs",
+      "bytes": 10676
+    },
+    {
+      "path": "SpaceGame.River/SpaceRiverParticleEmitter.cs",
+      "bytes": 1752
+    },
+    {
+      "path": "SpaceGame.River/SpaceRiverRendererSegment.cs",
+      "bytes": 2883
+    },
+    {
+      "path": "SpaceGame.River/SpaceRiverSampleData.cs",
+      "bytes": 16473
+    },
+    {
+      "path": "SpaceGame.River/SpaceRiverUtils.cs",
+      "bytes": 3469
+    },
+    {
+      "path": "SpaceGame.River/SpaceWorldSample.cs",
+      "bytes": 8349
+    },
+    {
+      "path": "SpaceGame.River/StickToRiver.cs",
+      "bytes": 1579
+    },
+    {
+      "path": "SpaceGame.River/TunnelMeshRendererDistanceUVGenerator.cs",
+      "bytes": 1124
+    },
+    {
+      "path": "SpaceGame.River/TunnelMeshRendererMeshUVGenerator.cs",
+      "bytes": 1379
+    },
+    {
+      "path": "SpaceGame.River/TunnelMeshRendererUVGenerator.cs",
+      "bytes": 427
+    },
+    {
+      "path": "SpaceGame.River.Particles/CustomEmitterFog.cs",
+      "bytes": 636
+    },
+    {
+      "path": "SpaceGame.River.Particles/CustomEmitterLarge.cs",
+      "bytes": 647
+    },
+    {
+      "path": "SpaceGame.River.Particles/CustomEmitterSpeedStreaks.cs",
+      "bytes": 645
+    },
+    {
+      "path": "SpaceGame.River.Particles/CustomEmitterSplash.cs",
+      "bytes": 589
+    },
+    {
+      "path": "SpaceGame.River.Particles/CustomEmitterType.cs",
+      "bytes": 118
+    },
+    {
+      "path": "SpaceGame.River.Particles/CustomEmitterVapour.cs",
+      "bytes": 656
+    },
+    {
+      "path": "SpaceGame.River.Particles/CustomParticleEmitterBase.cs",
+      "bytes": 1697
+    },
+    {
+      "path": "SpaceGame.River.Particles/CustomParticleSystem.cs",
+      "bytes": 297
+    },
+    {
+      "path": "SpaceGame.River.Particles/CustomParticleSystemDescriptor.cs",
+      "bytes": 738
+    },
+    {
+      "path": "SpaceGame.River.Particles/ICustomParticleEmitter.cs",
+      "bytes": 255
+    },
+    {
+      "path": "SpaceGame.River.Particles/SpaceRiverParticleSystemComponent.cs",
+      "bytes": 2716
+    },
+    {
+      "path": "SpaceGame.River.Particles/SplineEmitterData.cs",
+      "bytes": 270
+    },
+    {
+      "path": "SpaceGame.Rocks/SpaceRock.cs",
+      "bytes": 1666
+    },
+    {
+      "path": "SpaceGame.Rocks/SpaceRockDatabase.cs",
+      "bytes": 209
+    },
+    {
+      "path": "SpaceGame.Rocks/SpaceRockGenerator.cs",
+      "bytes": 140
+    },
+    {
+      "path": "SpaceGame.Rocks/SpaceRockGeneratorSettings.cs",
+      "bytes": 769
+    },
+    {
+      "path": "SpaceGame.Rocks/SpaceRockManager.cs",
+      "bytes": 3271
+    },
+    {
+      "path": "SpaceGame.Rocks/SpaceRockModel.cs",
+      "bytes": 663
+    },
+    {
+      "path": "SpaceGame.Rocks/SpaceRockPrefabDatabase.cs",
+      "bytes": 288
+    },
+    {
+      "path": "SpaceGame.Rocks/SpaceRockSettings.cs",
+      "bytes": 178
+    },
+    {
+      "path": "SpaceGame.Rocks/WorldRockParticlePlacer.cs",
+      "bytes": 1734
+    },
+    {
+      "path": "SpaceGame.Ship/BoostModuleSettings.cs",
+      "bytes": 256
+    },
+    {
+      "path": "SpaceGame.Ship/BuoyancyModuleSettings.cs",
+      "bytes": 383
+    },
+    {
+      "path": "SpaceGame.Ship/BuoyancySettings.cs",
+      "bytes": 499
+    },
+    {
+      "path": "SpaceGame.Ship/CarveModuleSettings.cs",
+      "bytes": 146
+    },
+    {
+      "path": "SpaceGame.Ship/DragModuleSettings.cs",
+      "bytes": 569
+    },
+    {
+      "path": "SpaceGame.Ship/JetstreamSettings.cs",
+      "bytes": 448
+    },
+    {
+      "path": "SpaceGame.Ship/RiverAutoRotateToFaceForwardModuleSettings.cs",
+      "bytes": 336
+    },
+    {
+      "path": "SpaceGame.Ship/RiverAutoRotateToPushOffRiverModuleSettings.cs",
+      "bytes": 431
+    },
+    {
+      "path": "SpaceGame.Ship/RiverCenterBoostModuleSettings.cs",
+      "bytes": 282
+    },
+    {
+      "path": "SpaceGame.Ship/RiverForceModuleSettings.cs",
+      "bytes": 1207
+    },
+    {
+      "path": "SpaceGame.Ship/RiverSkipTurbulenceModuleSettings.cs",
+      "bytes": 1021
+    },
+    {
+      "path": "SpaceGame.Ship/RiverSpringTurbulenceModuleSettings.cs",
+      "bytes": 453
+    },
+    {
+      "path": "SpaceGame.Ship/RiverSteeringModuleSettings.cs",
+      "bytes": 414
+    },
+    {
+      "path": "SpaceGame.Ship/RiverTorqueTurbulenceModuleSettings.cs",
+      "bytes": 504
+    },
+    {
+      "path": "SpaceGame.Ship/RiverTurbulenceModuleSettings.cs",
+      "bytes": 288
+    },
+    {
+      "path": "SpaceGame.Ship/ShipAudio.cs",
+      "bytes": 2341
+    },
+    {
+      "path": "SpaceGame.Ship/ShipAudioSettings.cs",
+      "bytes": 709
+    },
+    {
+      "path": "SpaceGame.Ship/ShipAutoControllerModule.cs",
+      "bytes": 7848
+    },
+    {
+      "path": "SpaceGame.Ship/ShipAutoControllerModuleSettings.cs",
+      "bytes": 450
+    },
+    {
+      "path": "SpaceGame.Ship/ShipContrailController.cs",
+      "bytes": 846
+    },
+    {
+      "path": "SpaceGame.Ship/ShipContrailSettings.cs",
+      "bytes": 183
+    },
+    {
+      "path": "SpaceGame.Ship/ShipControllerModule.cs",
+      "bytes": 2494
+    },
+    {
+      "path": "SpaceGame.Ship/ShipFrozenControllerModule.cs",
+      "bytes": 1271
+    },
+    {
+      "path": "SpaceGame.Ship/ShipLocationTriggerModule.cs",
+      "bytes": 6611
+    },
+    {
+      "path": "SpaceGame.Ship/ShipManager.cs",
+      "bytes": 14754
+    },
+    {
+      "path": "SpaceGame.Ship/ShipManualControllerModule.cs",
+      "bytes": 890
+    },
+    {
+      "path": "SpaceGame.Ship/ShipModule.cs",
+      "bytes": 404
+    },
+    {
+      "path": "SpaceGame.Ship/ShipMotorModule.cs",
+      "bytes": 53839
+    },
+    {
+      "path": "SpaceGame.Ship/ShipRiverAxisRotationModuleSettings.cs",
+      "bytes": 195
+    },
+    {
+      "path": "SpaceGame.Ship/ShipRuinDetectorModule.cs",
+      "bytes": 9867
+    },
+    {
+      "path": "SpaceGame.Ship/ShipRuinDetectorModuleSettings.cs",
+      "bytes": 481
+    },
+    {
+      "path": "SpaceGame.Ship/ShipSailModuleSettings.cs",
+      "bytes": 308
+    },
+    {
+      "path": "SpaceGame.Ship/ShipSettings.cs",
+      "bytes": 357
+    },
+    {
+      "path": "SpaceGame.Ship/ShipSurfaceFloorAxisRotationModuleSettings.cs",
+      "bytes": 303
+    },
+    {
+      "path": "SpaceGame.Ship/ShipViewAnimationController.cs",
+      "bytes": 12405
+    },
+    {
+      "path": "SpaceGame.Ship/ShipViewBodyRollModuleSettings.cs",
+      "bytes": 444
+    },
+    {
+      "path": "SpaceGame.Ship/ShipViewModule.cs",
+      "bytes": 7858
+    },
+    {
+      "path": "SpaceGame.Ship/ShipViewNormalSpeedPitchModuleSettings.cs",
+      "bytes": 212
+    },
+    {
+      "path": "SpaceGame.Ship/ShipViewNoseYawModuleSettings.cs",
+      "bytes": 348
+    },
+    {
+      "path": "SpaceGame.Ship/ShipViewSwimAnimator.cs",
+      "bytes": 1573
+    },
+    {
+      "path": "SpaceGame.Ship/ShipViewThrustingOversteerModuleSettings.cs",
+      "bytes": 289
+    },
+    {
+      "path": "SpaceGame.Ship/ShipViewTurbulenceRotationModuleSettings.cs",
+      "bytes": 169
+    },
+    {
+      "path": "SpaceGame.Ship/ShipViewVelocityPitchModuleSettings.cs",
+      "bytes": 199
+    },
+    {
+      "path": "SpaceGame.Ship/ShipWingtipSprayParticlesEffect.cs",
+      "bytes": 890
+    },
+    {
+      "path": "SpaceGame.Ship/SwimModuleSettings.cs",
+      "bytes": 618
+    },
+    {
+      "path": "SpaceGame.Ship/WingtipRiverModuleSettings.cs",
+      "bytes": 324
+    },
+    {
+      "path": "SpaceGameFloorUtils.cs",
+      "bytes": 1537
+    },
+    {
+      "path": "SpaceGameInstruction.cs",
+      "bytes": 549
+    },
+    {
+      "path": "SpaceGameTutorialState.cs",
+      "bytes": 191
+    },
+    {
+      "path": "SpaceRiverInstruction.cs",
+      "bytes": 875
+    },
+    {
+      "path": "SpaceRuinDatabase.cs",
+      "bytes": 177
+    },
+    {
+      "path": "SpaceRuinDatabaseSO.cs",
+      "bytes": 1128
+    },
+    {
+      "path": "SpaceRuinUIManager.cs",
+      "bytes": 3287
+    },
+    {
+      "path": "SpaceSceneState.cs",
+      "bytes": 350
+    },
+    {
+      "path": "SpaceShipInstruction.cs",
+      "bytes": 2591
+    },
+    {
+      "path": "SpaceSpawnPointManager.cs",
+      "bytes": 1003
+    },
+    {
+      "path": "SpaceTestSetup.cs",
+      "bytes": 502
+    },
+    {
+      "path": "SpaceUIManager.cs",
+      "bytes": 310
+    },
+    {
+      "path": "SpeedLineRenderer.cs",
+      "bytes": 1199
+    },
+    {
+      "path": "SphereColliderMargin.cs",
+      "bytes": 850
+    },
+    {
+      "path": "SphericalPointChecker.cs",
+      "bytes": 904
+    },
+    {
+      "path": "SplineEncodingPreview.cs",
+      "bytes": 944
+    },
+    {
+      "path": "SplineParticleEffect.cs",
+      "bytes": 11219
+    },
+    {
+      "path": "SplineParticleEmitterAsset.cs",
+      "bytes": 798
+    },
+    {
+      "path": "SplineSystem/OnSplineChangeEvent.cs",
+      "bytes": 82
+    },
+    {
+      "path": "SplineSystem/Spline.cs",
+      "bytes": 11116
+    },
+    {
+      "path": "SplineSystem/SplineBezierControlPoint.cs",
+      "bytes": 630
+    },
+    {
+      "path": "SplineSystem/SplineBezierCurve.cs",
+      "bytes": 6899
+    },
+    {
+      "path": "SplineSystem/SplineBezierPoint.cs",
+      "bytes": 722
+    },
+    {
+      "path": "SpriteBoundary.cs",
+      "bytes": 2446
+    },
+    {
+      "path": "SpriteShadowCastingLight.cs",
+      "bytes": 903
+    },
+    {
+      "path": "SpriteX.cs",
+      "bytes": 469
+    },
+    {
+      "path": "StandardSplashScreenPage.cs",
+      "bytes": 687
+    },
+    {
+      "path": "StateTracker.cs",
+      "bytes": 682
+    },
+    {
+      "path": "StatsAndAchievements.cs",
+      "bytes": 5984
+    },
+    {
+      "path": "SteamManager.cs",
+      "bytes": 2687
+    },
+    {
+      "path": "SteamStatsAndAchievements.cs",
+      "bytes": 2466
+    },
+    {
+      "path": "SteppedRangeAttribute.cs",
+      "bytes": 266
+    },
+    {
+      "path": "StickInputRepeater.cs",
+      "bytes": 1164
+    },
+    {
+      "path": "StochasticOITRendering.cs",
+      "bytes": 2559
+    },
+    {
+      "path": "StochasticRiverCloudRenderer.cs",
+      "bytes": 14393
+    },
+    {
+      "path": "StoryAudioMixerController.cs",
+      "bytes": 2085
+    },
+    {
+      "path": "StoryCamera.cs",
+      "bytes": 13761
+    },
+    {
+      "path": "StoryCameraAutorotater.cs",
+      "bytes": 1683
+    },
+    {
+      "path": "StoryCameraInShipCameraProperties.cs",
+      "bytes": 514
+    },
+    {
+      "path": "StoryCameraMode.cs",
+      "bytes": 1164
+    },
+    {
+      "path": "StoryCameraType.cs",
+      "bytes": 83
+    },
+    {
+      "path": "StoryCameraZoomer.cs",
+      "bytes": 717
+    },
+    {
+      "path": "StoryCameraZoomerSettings.cs",
+      "bytes": 170
+    },
+    {
+      "path": "StoryCanvas.cs",
+      "bytes": 3049
+    },
+    {
+      "path": "StoryCatchupLayoutSettings.cs",
+      "bytes": 1364
+    },
+    {
+      "path": "StoryCatchupLine.cs",
+      "bytes": 3374
+    },
+    {
+      "path": "StoryCatchupSplashScreenPage.cs",
+      "bytes": 14811
+    },
+    {
+      "path": "StoryCharacter.cs",
+      "bytes": 11118
+    },
+    {
+      "path": "StoryChoiceController.cs",
+      "bytes": 2846
+    },
+    {
+      "path": "StoryCloseUpCamera.cs",
+      "bytes": 1750
+    },
+    {
+      "path": "StoryDesktopInput.cs",
+      "bytes": 1986
+    },
+    {
+      "path": "StoryEventAudioTrigger.cs",
+      "bytes": 190
+    },
+    {
+      "path": "StoryEventExposure.cs",
+      "bytes": 700
+    },
+    {
+      "path": "StoryEventHandler.cs",
+      "bytes": 166
+    },
+    {
+      "path": "StoryEventLightIntensityRamp.cs",
+      "bytes": 1794
+    },
+    {
+      "path": "StoryEventLightmapSwitch.cs",
+      "bytes": 1531
+    },
+    {
+      "path": "StoryEventManager.cs",
+      "bytes": 1657
+    },
+    {
+      "path": "StoryEventObjectSwitch.cs",
+      "bytes": 835
+    },
+    {
+      "path": "StoryEventParticleBurst.cs",
+      "bytes": 1847
+    },
+    {
+      "path": "StoryFreeCamera.cs",
+      "bytes": 12105
+    },
+    {
+      "path": "StoryGamepadInput.cs",
+      "bytes": 1314
+    },
+    {
+      "path": "StoryInputManager.cs",
+      "bytes": 1476
+    },
+    {
+      "path": "StoryLocation.cs",
+      "bytes": 951
+    },
+    {
+      "path": "StoryLocationDatabase.cs",
+      "bytes": 4407
+    },
+    {
+      "path": "StoryLocationFakeKnowledgeManager.cs",
+      "bytes": 2010
+    },
+    {
+      "path": "StoryLocationWorldData.cs",
+      "bytes": 5330
+    },
+    {
+      "path": "StoryMoment.cs",
+      "bytes": 9650
+    },
+    {
+      "path": "StoryPacer.cs",
+      "bytes": 1947
+    },
+    {
+      "path": "StoryPacerSettings.cs",
+      "bytes": 3433
+    },
+    {
+      "path": "StoryPresenter.cs",
+      "bytes": 19631
+    },
+    {
+      "path": "StoryScript.cs",
+      "bytes": 47894
+    },
+    {
+      "path": "StorySequenceCamera.cs",
+      "bytes": 1182
+    },
+    {
+      "path": "StorySequencer.cs",
+      "bytes": 84557
+    },
+    {
+      "path": "StoryShotCamera.cs",
+      "bytes": 6998
+    },
+    {
+      "path": "StoryTestSetup.cs",
+      "bytes": 330
+    },
+    {
+      "path": "StoryTitle.cs",
+      "bytes": 64
+    },
+    {
+      "path": "StoryTwoShotCamera.cs",
+      "bytes": 3996
+    },
+    {
+      "path": "StringX.cs",
+      "bytes": 12978
+    },
+    {
+      "path": "SurfaceType.cs",
+      "bytes": 185
+    },
+    {
+      "path": "SystemInfoX.cs",
+      "bytes": 214
+    },
+    {
+      "path": "SystemX.cs",
+      "bytes": 1210
+    },
+    {
+      "path": "TTime.cs",
+      "bytes": 10460
+    },
+    {
+      "path": "TaggedFrameSetComponent.cs",
+      "bytes": 1210
+    },
+    {
+      "path": "TempListX.cs",
+      "bytes": 649
+    },
+    {
+      "path": "TestSetup.cs",
+      "bytes": 97
+    },
+    {
+      "path": "TestSetupData.cs",
+      "bytes": 209
+    },
+    {
+      "path": "TestSetupRunner.cs",
+      "bytes": 66
+    },
+    {
+      "path": "TextureX.cs",
+      "bytes": 5094
+    },
+    {
+      "path": "ThrustWidgetSettings.cs",
+      "bytes": 249
+    },
+    {
+      "path": "TimeController.cs",
+      "bytes": 2375
+    },
+    {
+      "path": "TimeParser.cs",
+      "bytes": 10109
+    },
+    {
+      "path": "TimeRange.cs",
+      "bytes": 430
+    },
+    {
+      "path": "TimeX.cs",
+      "bytes": 811
+    },
+    {
+      "path": "TimedVibration.cs",
+      "bytes": 745
+    },
+    {
+      "path": "TimedVibrationCurve.cs",
+      "bytes": 853
+    },
+    {
+      "path": "TimelineController.cs",
+      "bytes": 42661
+    },
+    {
+      "path": "TimelineCurveRenderer.cs",
+      "bytes": 1789
+    },
+    {
+      "path": "TimelineDatabase.cs",
+      "bytes": 1023
+    },
+    {
+      "path": "TimelineEvent.cs",
+      "bytes": 6792
+    },
+    {
+      "path": "TimelineEventData.cs",
+      "bytes": 1140
+    },
+    {
+      "path": "TimelineSettings.cs",
+      "bytes": 2393
+    },
+    {
+      "path": "TimelineShortcut.cs",
+      "bytes": 44
+    },
+    {
+      "path": "TimelineState.cs",
+      "bytes": 76
+    },
+    {
+      "path": "TimelineString.cs",
+      "bytes": 2296
+    },
+    {
+      "path": "Timer.cs",
+      "bytes": 3898
+    },
+    {
+      "path": "TitleAndPauseButtonOption.cs",
+      "bytes": 1002
+    },
+    {
+      "path": "TitleAndPauseDevMenuPanel.cs",
+      "bytes": 10008
+    },
+    {
+      "path": "TitleAndPauseEnumOption.cs",
+      "bytes": 2185
+    },
+    {
+      "path": "TitleAndPauseItem.cs",
+      "bytes": 394
+    },
+    {
+      "path": "TitleAndPauseMainMenuPanel.cs",
+      "bytes": 12952
+    },
+    {
+      "path": "TitleAndPauseSceneLoadPanel.cs",
+      "bytes": 11780
+    },
+    {
+      "path": "TitleAndPauseSceneLoadPanelBlock.cs",
+      "bytes": 2277
+    },
+    {
+      "path": "TitleAndPauseSceneLoadPanelSettings.cs",
+      "bytes": 155
+    },
+    {
+      "path": "TitleAndPauseSettingsPanel.cs",
+      "bytes": 9115
+    },
+    {
+      "path": "TitleAndPauseSliderOption.cs",
+      "bytes": 873
+    },
+    {
+      "path": "TitleAndPauseToggleOption.cs",
+      "bytes": 686
+    },
+    {
+      "path": "TitleAndPauseUI.cs",
+      "bytes": 10953
+    },
+    {
+      "path": "TitleAndPauseUISettings.cs",
+      "bytes": 1088
+    },
+    {
+      "path": "TitlePauseCreditsAudioMixerController.cs",
+      "bytes": 322
+    },
+    {
+      "path": "TitleScreenAudioMixerController.cs",
+      "bytes": 310
+    },
+    {
+      "path": "TitleScreenCameraShot.cs",
+      "bytes": 130
+    },
+    {
+      "path": "TitleScreenVersionView.cs",
+      "bytes": 244
+    },
+    {
+      "path": "TrailRendererX.cs",
+      "bytes": 637
+    },
+    {
+      "path": "TransformChangeChecker.cs",
+      "bytes": 2327
+    },
+    {
+      "path": "TransformCopier.cs",
+      "bytes": 961
+    },
+    {
+      "path": "TransformX.cs",
+      "bytes": 10987
+    },
+    {
+      "path": "Translation/AtomModel.cs",
+      "bytes": 3227
+    },
+    {
+      "path": "Translation/BackToOriginalSettings.cs",
+      "bytes": 175
+    },
+    {
+      "path": "Translation/BackgroundGlow.cs",
+      "bytes": 1318
+    },
+    {
+      "path": "Translation/BackgroundGlowSettings.cs",
+      "bytes": 255
+    },
+    {
+      "path": "Translation/BaseTransitionStateView.cs",
+      "bytes": 118
+    },
+    {
+      "path": "Translation/CompleteStateView.cs",
+      "bytes": 12200
+    },
+    {
+      "path": "Translation/CompleteStateViewSettings.cs",
+      "bytes": 284
+    },
+    {
+      "path": "Translation/EnterCompleteStateView.cs",
+      "bytes": 1016
+    },
+    {
+      "path": "Translation/EnterImpossibleStateView.cs",
+      "bytes": 579
+    },
+    {
+      "path": "Translation/EnterSpacingStateView.cs",
+      "bytes": 4086
+    },
+    {
+      "path": "Translation/EnterStateView.cs",
+      "bytes": 2148
+    },
+    {
+      "path": "Translation/EnterSubstitutingStateView.cs",
+      "bytes": 1144
+    },
+    {
+      "path": "Translation/EntityLexDictionary.cs",
+      "bytes": 13638
+    },
+    {
+      "path": "Translation/EntityLexDictionaryWordTranslation.cs",
+      "bytes": 3365
+    },
+    {
+      "path": "Translation/FragEllipsisManager.cs",
+      "bytes": 769
+    },
+    {
+      "path": "Translation/FragEllipsisView.cs",
+      "bytes": 1250
+    },
+    {
+      "path": "Translation/FragEllipsisViewSettings.cs",
+      "bytes": 233
+    },
+    {
+      "path": "Translation/ImpossibleStateView.cs",
+      "bytes": 1392
+    },
+    {
+      "path": "Translation/InscriptionID.cs",
+      "bytes": 75
+    },
+    {
+      "path": "Translation/LearnWordModel.cs",
+      "bytes": 230
+    },
+    {
+      "path": "Translation/LexDictionary.cs",
+      "bytes": 7359
+    },
+    {
+      "path": "Translation/Options.cs",
+      "bytes": 1668
+    },
+    {
+      "path": "Translation/PhraseType.cs",
+      "bytes": 138
+    },
+    {
+      "path": "Translation/PlayerInscriptionManager.cs",
+      "bytes": 2882
+    },
+    {
+      "path": "Translation/PlayerTutorialManager.cs",
+      "bytes": 1641
+    },
+    {
+      "path": "Translation/PrototypeWordModel.cs",
+      "bytes": 6401
+    },
+    {
+      "path": "Translation/SelectableWordSettings.cs",
+      "bytes": 644
+    },
+    {
+      "path": "Translation/SimilarTranslationWordData.cs",
+      "bytes": 949
+    },
+    {
+      "path": "Translation/SimilarWordView.cs",
+      "bytes": 5440
+    },
+    {
+      "path": "Translation/SimilarWordViewSettings.cs",
+      "bytes": 383
+    },
+    {
+      "path": "Translation/SimilarWordsViewPanel.cs",
+      "bytes": 10107
+    },
+    {
+      "path": "Translation/SimilarWordsViewPanelSettings.cs",
+      "bytes": 851
+    },
+    {
+      "path": "Translation/SpacingStateView.cs",
+      "bytes": 19061
+    },
+    {
+      "path": "Translation/SpacingToCompleteStateView.cs",
+      "bytes": 1655
+    },
+    {
+      "path": "Translation/SpacingToImpossibleStateView.cs",
+      "bytes": 626
+    },
+    {
+      "path": "Translation/SpacingToSubstitutionStateView.cs",
+      "bytes": 2277
+    },
+    {
+      "path": "Translation/SubstitutingStateView.cs",
+      "bytes": 32377
+    },
+    {
+      "path": "Translation/SubstitutionToCompleteStateView.cs",
+      "bytes": 1587
+    },
+    {
+      "path": "Translation/TesterOptionsSO.cs",
+      "bytes": 121
+    },
+    {
+      "path": "Translation/TranslationCompleteState.cs",
+      "bytes": 394
+    },
+    {
+      "path": "Translation/TranslationGameActions.cs",
+      "bytes": 3055
+    },
+    {
+      "path": "Translation/TranslationGameArtefactMenuArtefactView.cs",
+      "bytes": 1282
+    },
+    {
+      "path": "Translation/TranslationGameArtefactMenuView.cs",
+      "bytes": 3659
+    },
+    {
+      "path": "Translation/TranslationGameAssetDatabase.cs",
+      "bytes": 1204
+    },
+    {
+      "path": "Translation/TranslationGameAtomView.cs",
+      "bytes": 2318
+    },
+    {
+      "path": "Translation/TranslationGameAudioController.cs",
+      "bytes": 5322
+    },
+    {
+      "path": "Translation/TranslationGameBackButtonView.cs",
+      "bytes": 1970
+    },
+    {
+      "path": "Translation/TranslationGameControlTypeToggle.cs",
+      "bytes": 1755
+    },
+    {
+      "path": "Translation/TranslationGameController.cs",
+      "bytes": 14736
+    },
+    {
+      "path": "Translation/TranslationGameFooter.cs",
+      "bytes": 996
+    },
+    {
+      "path": "Translation/TranslationGameInkCommand.cs",
+      "bytes": 380
+    },
+    {
+      "path": "Translation/TranslationGameInkCommands.cs",
+      "bytes": 98
+    },
+    {
+      "path": "Translation/TranslationGameInscriptionFactory.cs",
+      "bytes": 19745
+    },
+    {
+      "path": "Translation/TranslationGameInscriptionFactoryModel.cs",
+      "bytes": 357
+    },
+    {
+      "path": "Translation/TranslationGamePhraseView.cs",
+      "bytes": 7515
+    },
+    {
+      "path": "Translation/TranslationGamePhraseViewManager.cs",
+      "bytes": 12707
+    },
+    {
+      "path": "Translation/TranslationGamePhraseViewManagerSettings.cs",
+      "bytes": 427
+    },
+    {
+      "path": "Translation/TranslationGamePhraseViewSlot.cs",
+      "bytes": 2616
+    },
+    {
+      "path": "Translation/TranslationGamePrototypeWordTextView.cs",
+      "bytes": 1646
+    },
+    {
+      "path": "Translation/TranslationGamePrototypeWordTextViewSettings.cs",
+      "bytes": 282
+    },
+    {
+      "path": "Translation/TranslationGameScroller.cs",
+      "bytes": 10660
+    },
+    {
+      "path": "Translation/TranslationGameScrollerButton.cs",
+      "bytes": 4570
+    },
+    {
+      "path": "Translation/TranslationGameScrollerButtonSettings.cs",
+      "bytes": 335
+    },
+    {
+      "path": "Translation/TranslationGameScrollerSettings.cs",
+      "bytes": 265
+    },
+    {
+      "path": "Translation/TranslationGameSelectableWordController.cs",
+      "bytes": 21607
+    },
+    {
+      "path": "Translation/TranslationGameSelectableWordControllerBackgroundState.cs",
+      "bytes": 953
+    },
+    {
+      "path": "Translation/TranslationGameSelectableWordControllerDefaultState.cs",
+      "bytes": 952
+    },
+    {
+      "path": "Translation/TranslationGameSelectableWordControllerHoveredState.cs",
+      "bytes": 954
+    },
+    {
+      "path": "Translation/TranslationGameSelectableWordControllerSelectedState.cs",
+      "bytes": 939
+    },
+    {
+      "path": "Translation/TranslationGameSelectionCursor.cs",
+      "bytes": 5978
+    },
+    {
+      "path": "Translation/TranslationGameSelectionCursorSettings.cs",
+      "bytes": 312
+    },
+    {
+      "path": "Translation/TranslationGameSettings.cs",
+      "bytes": 378
+    },
+    {
+      "path": "Translation/TranslationGameSpacingWordCloudWordFactory.cs",
+      "bytes": 3001
+    },
+    {
+      "path": "Translation/TranslationGameSpacingWordCloudWordFactoryManager.cs",
+      "bytes": 1331
+    },
+    {
+      "path": "Translation/TranslationGameStandaloneView.cs",
+      "bytes": 211
+    },
+    {
+      "path": "Translation/TranslationGameStory.cs",
+      "bytes": 9089
+    },
+    {
+      "path": "Translation/TranslationGameStrikethrough.cs",
+      "bytes": 857
+    },
+    {
+      "path": "Translation/TranslationGameSubstitutionWordCloudWordFactory.cs",
+      "bytes": 4015
+    },
+    {
+      "path": "Translation/TranslationGameSubstitutionWordCloudWordFactoryManager.cs",
+      "bytes": 3487
+    },
+    {
+      "path": "Translation/TranslationGameSubstitutionWordSelectionWordView.cs",
+      "bytes": 18656
+    },
+    {
+      "path": "Translation/TranslationGameTester.cs",
+      "bytes": 4249
+    },
+    {
+      "path": "Translation/TranslationGameTitle.cs",
+      "bytes": 1381
+    },
+    {
+      "path": "Translation/TranslationGameTranslationModelWord.cs",
+      "bytes": 11636
+    },
+    {
+      "path": "Translation/TranslationGameTranslationViewButtonController.cs",
+      "bytes": 1701
+    },
+    {
+      "path": "Translation/TranslationGameTranslationViewContinueButton.cs",
+      "bytes": 968
+    },
+    {
+      "path": "Translation/TranslationGameTranslationViewSubstitutingStateReviewButton.cs",
+      "bytes": 316
+    },
+    {
+      "path": "Translation/TranslationGameUtils.cs",
+      "bytes": 2724
+    },
+    {
+      "path": "Translation/TranslationGameViewController.cs",
+      "bytes": 3298
+    },
+    {
+      "path": "Translation/TranslationGameViewControllerSettings.cs",
+      "bytes": 213
+    },
+    {
+      "path": "Translation/TranslationGameViewSettings.cs",
+      "bytes": 1049
+    },
+    {
+      "path": "Translation/TranslationGameWordSelectionPanel.cs",
+      "bytes": 19256
+    },
+    {
+      "path": "Translation/TranslationGameWordSelectionPanelSettings.cs",
+      "bytes": 983
+    },
+    {
+      "path": "Translation/TranslationGameWordSelectionPanelSlotView.cs",
+      "bytes": 1381
+    },
+    {
+      "path": "Translation/TranslationGameWordSelectionStateProperties.cs",
+      "bytes": 168
+    },
+    {
+      "path": "Translation/TranslationGameWordStateView.cs",
+      "bytes": 2460
+    },
+    {
+      "path": "Translation/TranslationGameWordStateViewSettings.cs",
+      "bytes": 145
+    },
+    {
+      "path": "Translation/TranslationGameWordTextView.cs",
+      "bytes": 2364
+    },
+    {
+      "path": "Translation/TranslationGameWordView.cs",
+      "bytes": 6858
+    },
+    {
+      "path": "Translation/TranslationID.cs",
+      "bytes": 75
+    },
+    {
+      "path": "Translation/TranslationImpossibleState.cs",
+      "bytes": 122
+    },
+    {
+      "path": "Translation/TranslationInscriptionModel.cs",
+      "bytes": 906
+    },
+    {
+      "path": "Translation/TranslationModel.cs",
+      "bytes": 17821
+    },
+    {
+      "path": "Translation/TranslationPhraseModelData.cs",
+      "bytes": 9525
+    },
+    {
+      "path": "Translation/TranslationRuntimePhraseModel.cs",
+      "bytes": 3199
+    },
+    {
+      "path": "Translation/TranslationSlotView.cs",
+      "bytes": 804
+    },
+    {
+      "path": "Translation/TranslationSpacingState.cs",
+      "bytes": 6532
+    },
+    {
+      "path": "Translation/TranslationSubstitutingState.cs",
+      "bytes": 153
+    },
+    {
+      "path": "Translation/TranslationView.cs",
+      "bytes": 16020
+    },
+    {
+      "path": "Translation/TranslationViewState.cs",
+      "bytes": 1198
+    },
+    {
+      "path": "Translation/WordModel.cs",
+      "bytes": 1412
+    },
+    {
+      "path": "Translation/WordPhraseIndexSlot.cs",
+      "bytes": 2367
+    },
+    {
+      "path": "TranslationAudioMixerController.cs",
+      "bytes": 861
+    },
+    {
+      "path": "TranslationInstruction.cs",
+      "bytes": 2950
+    },
+    {
+      "path": "TraverseRiverTest.cs",
+      "bytes": 631
+    },
+    {
+      "path": "Triangulator.cs",
+      "bytes": 2689
+    },
+    {
+      "path": "TriggerListener.cs",
+      "bytes": 5736
+    },
+    {
+      "path": "TriggerVolume.cs",
+      "bytes": 1691
+    },
+    {
+      "path": "Turnaround.cs",
+      "bytes": 2490
+    },
+    {
+      "path": "Turner.cs",
+      "bytes": 10766
+    },
+    {
+      "path": "TweenProperties.cs",
+      "bytes": 834
+    },
+    {
+      "path": "TwoShotCameraSettings.cs",
+      "bytes": 464
+    },
+    {
+      "path": "TypeMap.cs",
+      "bytes": 7344
+    },
+    {
+      "path": "TypeMap3D.cs",
+      "bytes": 4097
+    },
+    {
+      "path": "TypeMap3DCellInfo.cs",
+      "bytes": 549
+    },
+    {
+      "path": "TypeMapCellInfo.cs",
+      "bytes": 544
+    },
+    {
+      "path": "TypeTween.cs",
+      "bytes": 6707
+    },
+    {
+      "path": "TypeX.cs",
+      "bytes": 657
+    },
+    {
+      "path": "UIBehaviourX.cs",
+      "bytes": 364
+    },
+    {
+      "path": "UIMonoBehaviour.cs",
+      "bytes": 205
+    },
+    {
+      "path": "UIPanel.cs",
+      "bytes": 325
+    },
+    {
+      "path": "UnderwaterBubbles.cs",
+      "bytes": 2272
+    },
+    {
+      "path": "UnderwaterBubblesSettings.cs",
+      "bytes": 185
+    },
+    {
+      "path": "UnityEngine.AI/CollectObjects.cs",
+      "bytes": 83
+    },
+    {
+      "path": "UnityEngine.AI/NavMeshLink.cs",
+      "bytes": 3930
+    },
+    {
+      "path": "UnityEngine.AI/NavMeshModifier.cs",
+      "bytes": 1413
+    },
+    {
+      "path": "UnityEngine.AI/NavMeshModifierVolume.cs",
+      "bytes": 1439
+    },
+    {
+      "path": "UnityEngine.AI/NavMeshSurface.cs",
+      "bytes": 11184
+    },
+    {
+      "path": "UnityEngine.EventSystems/FakeMouseInputModule.cs",
+      "bytes": 13049
+    },
+    {
+      "path": "UnityEngine.EventSystems/MapInputModule.cs",
+      "bytes": 8206
+    },
+    {
+      "path": "UnityEngine.PostProcessing/AmbientOcclusionComponent.cs",
+      "bytes": 6051
+    },
+    {
+      "path": "UnityEngine.PostProcessing/AmbientOcclusionModel.cs",
+      "bytes": 1806
+    },
+    {
+      "path": "UnityEngine.PostProcessing/AntialiasingModel.cs",
+      "bytes": 5174
+    },
+    {
+      "path": "UnityEngine.PostProcessing/BloomComponent.cs",
+      "bytes": 4345
+    },
+    {
+      "path": "UnityEngine.PostProcessing/BloomModel.cs",
+      "bytes": 1970
+    },
+    {
+      "path": "UnityEngine.PostProcessing/BuiltinDebugViewsComponent.cs",
+      "bytes": 6802
+    },
+    {
+      "path": "UnityEngine.PostProcessing/BuiltinDebugViewsModel.cs",
+      "bytes": 2421
+    },
+    {
+      "path": "UnityEngine.PostProcessing/ChromaticAberrationComponent.cs",
+      "bytes": 1639
+    },
+    {
+      "path": "UnityEngine.PostProcessing/ChromaticAberrationModel.cs",
+      "bytes": 737
+    },
+    {
+      "path": "UnityEngine.PostProcessing/ColorGradingComponent.cs",
+      "bytes": 12290
+    },
+    {
+      "path": "UnityEngine.PostProcessing/ColorGradingCurve.cs",
+      "bytes": 1186
+    },
+    {
+      "path": "UnityEngine.PostProcessing/ColorGradingModel.cs",
+      "bytes": 6486
+    },
+    {
+      "path": "UnityEngine.PostProcessing/DepthOfFieldComponent.cs",
+      "bytes": 5304
+    },
+    {
+      "path": "UnityEngine.PostProcessing/DepthOfFieldModel.cs",
+      "bytes": 1534
+    },
+    {
+      "path": "UnityEngine.PostProcessing/DitheringComponent.cs",
+      "bytes": 1363
+    },
+    {
+      "path": "UnityEngine.PostProcessing/DitheringModel.cs",
+      "bytes": 569
+    },
+    {
+      "path": "UnityEngine.PostProcessing/EyeAdaptationComponent.cs",
+      "bytes": 5976
+    },
+    {
+      "path": "UnityEngine.PostProcessing/EyeAdaptationModel.cs",
+      "bytes": 2515
+    },
+    {
+      "path": "UnityEngine.PostProcessing/FogComponent.cs",
+      "bytes": 2296
+    },
+    {
+      "path": "UnityEngine.PostProcessing/FogModel.cs",
+      "bytes": 592
+    },
+    {
+      "path": "UnityEngine.PostProcessing/FxaaComponent.cs",
+      "bytes": 1471
+    },
+    {
+      "path": "UnityEngine.PostProcessing/GetSetAttribute.cs",
+      "bytes": 214
+    },
+    {
+      "path": "UnityEngine.PostProcessing/GrainComponent.cs",
+      "bytes": 2084
+    },
+    {
+      "path": "UnityEngine.PostProcessing/GrainModel.cs",
+      "bytes": 1016
+    },
+    {
+      "path": "UnityEngine.PostProcessing/GraphicsUtils.cs",
+      "bytes": 2570
+    },
+    {
+      "path": "UnityEngine.PostProcessing/MaterialFactory.cs",
+      "bytes": 1064
+    },
+    {
+      "path": "UnityEngine.PostProcessing/MinAttribute.cs",
+      "bytes": 181
+    },
+    {
+      "path": "UnityEngine.PostProcessing/MotionBlurComponent.cs",
+      "bytes": 14602
+    },
+    {
+      "path": "UnityEngine.PostProcessing/MotionBlurModel.cs",
+      "bytes": 1019
+    },
+    {
+      "path": "UnityEngine.PostProcessing/PostProcessingBehaviour.cs",
+      "bytes": 12492
+    },
+    {
+      "path": "UnityEngine.PostProcessing/PostProcessingComponent.cs",
+      "bytes": 377
+    },
+    {
+      "path": "UnityEngine.PostProcessing/PostProcessingComponentBase.cs",
+      "bytes": 389
+    },
+    {
+      "path": "UnityEngine.PostProcessing/PostProcessingComponentCommandBuffer.cs",
+      "bytes": 341
+    },
+    {
+      "path": "UnityEngine.PostProcessing/PostProcessingComponentRenderTexture.cs",
+      "bytes": 218
+    },
+    {
+      "path": "UnityEngine.PostProcessing/PostProcessingContext.cs",
+      "bytes": 772
+    },
+    {
+      "path": "UnityEngine.PostProcessing/PostProcessingModel.cs",
+      "bytes": 393
+    },
+    {
+      "path": "UnityEngine.PostProcessing/PostProcessingProfile.cs",
+      "bytes": 1061
+    },
+    {
+      "path": "UnityEngine.PostProcessing/RenderTextureFactory.cs",
+      "bytes": 1757
+    },
+    {
+      "path": "UnityEngine.PostProcessing/ScreenSpaceReflectionComponent.cs",
+      "bytes": 10650
+    },
+    {
+      "path": "UnityEngine.PostProcessing/ScreenSpaceReflectionModel.cs",
+      "bytes": 3289
+    },
+    {
+      "path": "UnityEngine.PostProcessing/TaaComponent.cs",
+      "bytes": 6282
+    },
+    {
+      "path": "UnityEngine.PostProcessing/TrackballAttribute.cs",
+      "bytes": 207
+    },
+    {
+      "path": "UnityEngine.PostProcessing/TrackballGroupAttribute.cs",
+      "bytes": 107
+    },
+    {
+      "path": "UnityEngine.PostProcessing/UserLutComponent.cs",
+      "bytes": 1243
+    },
+    {
+      "path": "UnityEngine.PostProcessing/UserLutModel.cs",
+      "bytes": 700
+    },
+    {
+      "path": "UnityEngine.PostProcessing/VignetteComponent.cs",
+      "bytes": 1586
+    },
+    {
+      "path": "UnityEngine.PostProcessing/VignetteModel.cs",
+      "bytes": 1688
+    },
+    {
+      "path": "UnityEngine.UI/ExtendedScrollRect.cs",
+      "bytes": 5546
+    },
+    {
+      "path": "UnityEngine.UI/Gradient.cs",
+      "bytes": 2865
+    },
+    {
+      "path": "UnityEngine.UI/LetterSpacing.cs",
+      "bytes": 2491
+    },
+    {
+      "path": "UnityEngine.UI.Extensions/BezierPath.cs",
+      "bytes": 6029
+    },
+    {
+      "path": "UnityEngine.UI.Extensions/ResolutionMode.cs",
+      "bytes": 98
+    },
+    {
+      "path": "UnityEngine.UI.Extensions/SetPropertyUtility.cs",
+      "bytes": 813
+    },
+    {
+      "path": "UnityEngine.UI.Extensions/UILineRenderer.cs",
+      "bytes": 6897
+    },
+    {
+      "path": "UnityEngine.UI.Extensions/UIPolygon.cs",
+      "bytes": 1941
+    },
+    {
+      "path": "UnityEngine.UI.Extensions/UIPrimitiveBase.cs",
+      "bytes": 5769
+    },
+    {
+      "path": "UnityX.Editor.Icon/Icon.cs",
+      "bytes": 279
+    },
+    {
+      "path": "UnityX.Editor.Icon/IconManager.cs",
+      "bytes": 67
+    },
+    {
+      "path": "UnityX.Editor.Icon/LabelIcon.cs",
+      "bytes": 118
+    },
+    {
+      "path": "UnityX.Geometry/DrawingUtils.cs",
+      "bytes": 2380
+    },
+    {
+      "path": "UnityX.Geometry/Line.cs",
+      "bytes": 7227
+    },
+    {
+      "path": "UnityX.Geometry/Line3D.cs",
+      "bytes": 4916
+    },
+    {
+      "path": "UnityX.Geometry/Polygon.cs",
+      "bytes": 34567
+    },
+    {
+      "path": "UnityX.Geometry/RegularConvexPolygon.cs",
+      "bytes": 305
+    },
+    {
+      "path": "UnityX.Geometry/RegularPolygon.cs",
+      "bytes": 1150
+    },
+    {
+      "path": "UnityX.Geometry/Sphere.cs",
+      "bytes": 1382
+    },
+    {
+      "path": "UnityX.Geometry/StarPolygon.cs",
+      "bytes": 4338
+    },
+    {
+      "path": "UnityX.Geometry/Triangle.cs",
+      "bytes": 1560
+    },
+    {
+      "path": "UnityX.StateMachine/IState.cs",
+      "bytes": 315
+    },
+    {
+      "path": "UnityX.StateMachine/OnEnterStateEvent.cs",
+      "bytes": 74
+    },
+    {
+      "path": "UnityX.StateMachine/OnExitStateEvent.cs",
+      "bytes": 73
+    },
+    {
+      "path": "UnityX.StateMachine/State.cs",
+      "bytes": 741
+    },
+    {
+      "path": "UnityX.StateMachine/StateMachine.cs",
+      "bytes": 2662
+    },
+    {
+      "path": "UnityX.Versioning/Version.cs",
+      "bytes": 459
+    },
+    {
+      "path": "UnityX.Versioning/VersionManager.cs",
+      "bytes": 159
+    },
+    {
+      "path": "UntravelledRiverParticles.cs",
+      "bytes": 10651
+    },
+    {
+      "path": "UntravelledRiverParticlesSettings.cs",
+      "bytes": 542
+    },
+    {
+      "path": "UserSettings.cs",
+      "bytes": 2185
+    },
+    {
+      "path": "Utils.Algorithms/AStar.cs",
+      "bytes": 12872
+    },
+    {
+      "path": "Vector2Curve.cs",
+      "bytes": 2796
+    },
+    {
+      "path": "Vector2Map.cs",
+      "bytes": 2536
+    },
+    {
+      "path": "Vector2MoveTowardsEaser.cs",
+      "bytes": 693
+    },
+    {
+      "path": "Vector2SmoothDamper.cs",
+      "bytes": 764
+    },
+    {
+      "path": "Vector2ToggleAttribute.cs",
+      "bytes": 80
+    },
+    {
+      "path": "Vector2Tween.cs",
+      "bytes": 1315
+    },
+    {
+      "path": "Vector2Utils.cs",
+      "bytes": 648
+    },
+    {
+      "path": "Vector2X.cs",
+      "bytes": 7287
+    },
+    {
+      "path": "Vector3Curve.cs",
+      "bytes": 3877
+    },
+    {
+      "path": "Vector3MoveTowardsEaser.cs",
+      "bytes": 693
+    },
+    {
+      "path": "Vector3SmoothDamper.cs",
+      "bytes": 762
+    },
+    {
+      "path": "Vector3ToggleAttribute.cs",
+      "bytes": 80
+    },
+    {
+      "path": "Vector3Tween.cs",
+      "bytes": 1315
+    },
+    {
+      "path": "Vector3Utils.cs",
+      "bytes": 648
+    },
+    {
+      "path": "Vector3X.cs",
+      "bytes": 7743
+    },
+    {
+      "path": "Vector4X.cs",
+      "bytes": 484
+    },
+    {
+      "path": "VibrationMoment.cs",
+      "bytes": 2119
+    },
+    {
+      "path": "VideoFader.cs",
+      "bytes": 1401
+    },
+    {
+      "path": "VideoRenderTextureGenerator.cs",
+      "bytes": 2600
+    },
+    {
+      "path": "VideoTextureSetter.cs",
+      "bytes": 1550
+    },
+    {
+      "path": "ViewReuseGroup.cs",
+      "bytes": 1776
+    },
+    {
+      "path": "VisibleIfAttribute.cs",
+      "bytes": 488
+    },
+    {
+      "path": "VolumePointChecker.cs",
+      "bytes": 1098
+    },
+    {
+      "path": "WalkCycle.cs",
+      "bytes": 2896
+    },
+    {
+      "path": "WalkCycleSettings.cs",
+      "bytes": 1784
+    },
+    {
+      "path": "Walker.cs",
+      "bytes": 34510
+    },
+    {
+      "path": "WalkerFootstepSettings.cs",
+      "bytes": 312
+    },
+    {
+      "path": "WalkerFootstepSounds.cs",
+      "bytes": 4881
+    },
+    {
+      "path": "WaveAnimator.cs",
+      "bytes": 511
+    },
+    {
+      "path": "WaypointCameraSetting.cs",
+      "bytes": 303
+    },
+    {
+      "path": "WaypointPacerSetting.cs",
+      "bytes": 162
+    },
+    {
+      "path": "WeightedBlendOITRenderer.cs",
+      "bytes": 3409
+    },
+    {
+      "path": "WeightedBlends.cs",
+      "bytes": 3475
+    },
+    {
+      "path": "WorldGrid3.cs",
+      "bytes": 2753
+    },
+    {
+      "path": "WorldSpaceUIElement.cs",
+      "bytes": 6716
+    }
+  ],
+  "textassets": [
+    {
+      "source": "resources.assets",
+      "path_id": 2072,
+      "name": "LineBreaking Following Characters",
+      "bytes": 266,
+      "sha256": "bacbe27ee7ac98aceb46063cd45338a8b9979a4f488defc3ade6f67119f008a3"
+    },
+    {
+      "source": "resources.assets",
+      "path_id": 2073,
+      "name": "LICENSE",
+      "bytes": 401,
+      "sha256": "0076a6fd33d302cc919b9a278b518e1d0685b2003b2b024352a56483a778f61e"
+    },
+    {
+      "source": "resources.assets",
+      "path_id": 2074,
+      "name": "LineBreaking Leading Characters",
+      "bytes": 104,
+      "sha256": "6c251bfd52c12dbac2385a795ca5f9690296f125f14ef4be23294bf758e4a0bc"
+    },
+    {
+      "source": "resources.assets",
+      "path_id": 2075,
+      "name": "GameData",
+      "bytes": 280825,
+      "sha256": "a76a3622266580c577f72347a566a9d758ae07b8bc9ff1e011bb2135194d7078"
+    },
+    {
+      "source": "resources.assets",
+      "path_id": 2076,
+      "name": "COPYING",
+      "bytes": 7169,
+      "sha256": "f4e7f373b9b996950337e8d41a4a2939c2d90b7725e9baf3d5084a22717ad328"
+    },
+    {
+      "source": "sharedassets0.assets",
+      "path_id": 47,
+      "name": "ages",
+      "bytes": 1501,
+      "sha256": "a0e01e1bdaee880dd88fe28bc830b2ce72bbeb6fb227a4263019df9e0a6f21fa"
+    },
+    {
+      "source": "sharedassets0.assets",
+      "path_id": 48,
+      "name": "clues",
+      "bytes": 19510,
+      "sha256": "07c519e99eac34fca55a86e79dc544bfe6639056ce5a925a085f810bd5702107"
+    },
+    {
+      "source": "sharedassets0.assets",
+      "path_id": 49,
+      "name": "storyLocations",
+      "bytes": 18390,
+      "sha256": "b931e6f877e16c6624f2f0439fe9a3a51cdc83314f73b937e5bdf2c4e41b9e97"
+    },
+    {
+      "source": "sharedassets0.assets",
+      "path_id": 50,
+      "name": "timelineEvents",
+      "bytes": 181895,
+      "sha256": "9e098e31c7b36d822a5638903812722e9c7c0d002ac9ae993b8628cc78cce45e"
+    },
+    {
+      "source": "sharedassets0.assets",
+      "path_id": 51,
+      "name": "core",
+      "bytes": 10926739,
+      "sha256": "3cd55d072fdf60eeb6e53ce53b91a5d2983c2b1dabbcddaa45ce233d9473b708"
+    }
+  ]
+}

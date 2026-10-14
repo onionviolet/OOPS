@@ -1,0 +1,41 @@
+{
+  "status": "PARTIAL",
+  "required_outputs_present": true,
+  "aspect_keys": [
+    "A01",
+    "A02",
+    "A03",
+    "A04",
+    "A05",
+    "A06",
+    "A07",
+    "A08",
+    "A09",
+    "A10",
+    "A11",
+    "A12"
+  ],
+  "broken_links": [],
+  "textassets": 296,
+  "json_parsed": 291,
+  "application_services": 203,
+  "dialogue_graphs": 1261,
+  "dialogue_counts": {
+    "words": 6050,
+    "options": 886,
+    "option_items": 1384,
+    "conditional_options": 52,
+    "conditions": 33,
+    "scripts": 849
+  },
+  "dialogue_structural_unresolved_graphs": 97,
+  "new_native_entries": 40,
+  "native_failures": 0,
+  "current_original_hashes_match": true,
+  "hashed_private_artifacts": 1318,
+  "private_logical_bytes": 194571570,
+  "game_launched": false,
+  "personal_saves_accessed": false,
+  "raw_dialogue_or_code_in_public_docs": false,
+  "prior_work_areas_reused_read_only": true
+}

@@ -1,0 +1,254 @@
+{
+  "schema_version": 1,
+  "lane": "warsim-rea",
+  "date": "2026-10-14",
+  "status": "PARTIAL",
+  "app_id": 659540,
+  "build_id": "25097075",
+  "exe_sha256": "93d159754192876538b175b1a50a515e256806dce9f03e2d7f50a32880686e5f",
+  "work_area": "/Users/weiwei/.codex/research/warsim-rea",
+  "evidence_layers": {
+    "native": "selected_static_reconstruction",
+    "data": "prior_inventory_reused_new_alias_validation",
+    "gameplay": "not_run_prohibited",
+    "persistence": "static_writer_reader_only",
+    "yairpg": "research_proposals_no_runtime_edits"
+  },
+  "findings": [
+    {
+      "id": "F1",
+      "level": "shown",
+      "claim": "Three distinct event dispatch patterns; 120 turn draw slots with >=62 direct quiet, explore35 rejection loop, procgen24 slots/19 targets.",
+      "evidence": [
+        "Warsim.exe!RandomTurnEvent 0x1408cc665",
+        "tables 0x140ef5554,0x140f019d0,0x140fac120",
+        "EVENT_DISPATCH_DIGEST.md"
+      ]
+    },
+    {
+      "id": "F2",
+      "level": "shown",
+      "claim": "Typed name alias/stat grammar, generated alphabet recipe and faction grammar stages recovered; 50 aliases, no cycle or missing destination.",
+      "evidence": [
+        "Warsim.exe!Name/NameMaker/NameWriter/FactionNameGenerator",
+        "Data/Names/*.txt",
+        "NAME_AND_LORE_DIGEST.md"
+      ]
+    },
+    {
+      "id": "F3",
+      "level": "shown",
+      "claim": "Selected exact labor/weather harvest, cohort wages/desertion, peasant damage/return, mercenary setup and arena settlement; complete resolver open. Ordered recruitment with count/pool/funds cap traced in AutoRecruit assembly.",
+      "evidence": [
+        "TurnReport 0x1409b490d,0x1409d42ac",
+        "BattleDamage 0x140898456",
+        "BattleTroopReturn 0x1408a6d29",
+        "Arena 0x1407b6fc0",
+        "ECONOMY_AND_BATTLE_DIGEST.md",
+        "AutoRecruit 0x140cb554e"
+      ]
+    },
+    {
+      "id": "F4",
+      "level": "shown",
+      "claim": "Save writer census:1903 field writes,1454 integers,449 strings,1901 distinct names; sentinel and reader1904 token count; one numeric seconds-to-BonusSeconds mapping.",
+      "evidence": [
+        "SaveGame 0x14078fc02",
+        "LoadGame 0x1407676d1",
+        "notes/save-schema.json",
+        "SAVE_FORMAT_DIGEST.md"
+      ]
+    },
+    {
+      "id": "F5",
+      "level": "shown",
+      "claim": "Equal-input name trial: direct11.01s/1174077440 maxRSS, REA9.67s/1117421568; selected arithmetic agrees, no benchmark or decompiler advantage established.",
+      "evidence": [
+        "notes/direct-trial.log",
+        "notes/rea-trial.log",
+        "notes/comparison.json",
+        "REA_TRIAL.md"
+      ]
+    }
+  ],
+  "petition": {
+    "slot": 44,
+    "ordinary_candidates": 185,
+    "subgate": 15,
+    "variants": 3,
+    "farmer_nominal_candidate_weight": "1/8325 conditional on ordinary draw and policies; not accepted frequency",
+    "payment": 100,
+    "positive_gold_check": ">99",
+    "outcome": "reaction and one visitor consumed; no modeled herd established"
+  },
+  "trial": {
+    "ghidra": "12.1.4",
+    "rea": "6.4.0",
+    "rea_revision": "bb540826d65316c164d2de8ba4ef10f81a8ad073",
+    "full_auto_analysis": false,
+    "local_patch_reused": true,
+    "direct_name_seconds": 11.01,
+    "rea_name_seconds": 9.67,
+    "rea_name_request_interval_seconds": 8.39753624999139,
+    "direct_name_max_rss_bytes": 1174077440,
+    "rea_name_max_rss_bytes": 1117421568,
+    "compare_successful_functions": 3,
+    "exact_pseudocode_text_matches": 2,
+    "other_difference": "import-reference names and line wrapping",
+    "benchmark_claim": false,
+    "recruit_query_status": "stopped_without_response",
+    "recruit_query_client_elapsed_seconds": 333.13
+  },
+  "proposal_ids": [
+    "P1",
+    "P2",
+    "P3",
+    "P4",
+    "P5",
+    "P6",
+    "P7",
+    "P8"
+  ],
+  "implementation_packet_ids": [
+    "WP1",
+    "WP2",
+    "WP3",
+    "WP4",
+    "WP5"
+  ],
+  "small_touch_ids": [
+    "T1",
+    "T2",
+    "T3",
+    "T4",
+    "T5",
+    "T6",
+    "T7",
+    "T8",
+    "T9",
+    "T10",
+    "T11",
+    "T12",
+    "T13",
+    "T14",
+    "T15",
+    "T16",
+    "T17",
+    "T18",
+    "T19",
+    "T20",
+    "T21",
+    "T22",
+    "T23",
+    "T24"
+  ],
+  "unread": [
+    {
+      "id": "U1",
+      "system": "events",
+      "locators": [
+        "RandomTurnEvent",
+        "RandomExploreEvent",
+        "ProcGenExplo",
+        "TurnReport",
+        "RefreshPhase"
+      ],
+      "why": "Dispatch weights and one petition traced; complete predicates, subevent matrices, caller cadence and flag reset consumers not reconstructed.",
+      "next": "Read one named family and its state/reset chain from retained assembly; repair missing jump table before relying on pseudocode."
+    },
+    {
+      "id": "U2",
+      "system": "economy",
+      "locators": [
+        "TurnReport 0x1409b490d-0x1409b55ec",
+        "RoadUpgrade",
+        "TerraEconBuff",
+        "NewYearEvent"
+      ],
+      "why": "Labor/weather and selected modifiers, wages shown; complete modifier order effects, taxes, trade, tribute and all staff/unit upkeep remain open.",
+      "next": "Segment one named arithmetic block and verify constants/rounding in retained assembly; do not repeat whole TurnReport decompilation."
+    },
+    {
+      "id": "U3",
+      "system": "recruitment",
+      "locators": [
+        "AutoRecruit 0x140cb4517",
+        "main recruitment branches",
+        "Recruiters"
+      ],
+      "why": "AutoRecruit query stopped without result at333.13s; assembly traces ordered positive-count militia purchases, a10-gold pool and one free transfer. Complete manual/automated market/pool/cost/conversion catalog remains open.",
+      "next": "Continue one named purchase branch from retained AutoRecruit/main assembly, tracing pool, price definition, count transfer and refresh cadence."
+    },
+    {
+      "id": "U4",
+      "system": "battle",
+      "locators": [
+        "BattleSim",
+        "BattleEvents",
+        "CombatPhase",
+        "Preparation"
+      ],
+      "why": "Living-unit casualty selection, peasant threshold/return and arena settlement shown; all incoming budgets, special effects, mixed army/monster/siege branches and round order remain open after monolithic timeouts.",
+      "next": "Follow one Inflict2Att assignment into the already retained casualty chain, then one event modifier; use explicit ABI/call model."
+    },
+    {
+      "id": "U5",
+      "system": "names",
+      "locators": [
+        "FactionNameGenerator",
+        "Data/FactionName.txt",
+        "FactionCivLevel"
+      ],
+      "why": "Resolver stage order, grammar joins, aliases and personal-name/recipe chain recovered; complete 154-form meaning/title catalog and unusual combined-flag permutations not certified.",
+      "next": "Normalize existing selected pseudocode into a private per-form predicate matrix; review title consumers without copying embedded names."
+    },
+    {
+      "id": "U6",
+      "system": "persistence",
+      "locators": [
+        "LoadGame",
+        "SaveGame",
+        "NobilityOne..Five.txt",
+        "Adventurers.txt",
+        "Data/Names/*_NamingSystem.txt",
+        "rand/srand"
+      ],
+      "why": "1903 writer-field census and 1454 integer-reader alignment shown; 449 string joins, old-count branches, complete companion layout/copy, recipe lifecycle and seeding remain open.",
+      "next": "Join one generated name/story and its recipe/companion through writer and reader; static fresh fixtures only, no private saves."
+    },
+    {
+      "id": "U7",
+      "system": "gameplay",
+      "locators": [
+        "installed game",
+        "save/reload/import"
+      ],
+      "why": "COMMON prohibits launch and touching personal saves.",
+      "next": "No attempt in this lane; any later runtime task needs separate authorization and isolated nonprivate state."
+    },
+    {
+      "id": "U8",
+      "system": "prior unselected scope",
+      "locators": [
+        "../CHECKPOINT.md"
+      ],
+      "why": "Race-effect stacking, full data semantics, classic executable and art are outside this named follow-up and remain as in the prior checkpoint.",
+      "next": "Do not reopen them unless separately selected."
+    }
+  ],
+  "privacy_excluded": [
+    "Saves/",
+    "Scores/"
+  ],
+  "work_area_bytes": 138430872,
+  "retained_project_bytes": 24773907,
+  "current_manifest": {
+    "buildid": "25097075",
+    "StateFlags": "4",
+    "StagingSize": "0",
+    "BytesToDownload": "264339600",
+    "BytesDownloaded": "264339600"
+  },
+  "query_coverage_receipt": "~/.codex/research/warsim-rea/notes/query-coverage.json",
+  "artifact_validation": "PASS; notes/artifact-validation.json"
+}

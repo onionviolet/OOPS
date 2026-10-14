@@ -1,0 +1,314 @@
+{
+  "lane": "bf-idle-src",
+  "date": "2026-10-14",
+  "method": "fresh static source/data/declaration inspection",
+  "corrections": "No fresh executable contradiction is claimed. Prior hosted v1.3.1/script12097/data528 remains historical evidence, not a current client pin. Fresh official declarations match the prior typing hash but cannot re-prove hosted implementation order, Township wave behavior or death/resource exceptions. The hosted page failed, alternate public page and wiki API returned 403, so route switched to official declaration source without further retry variants.",
+  "aspects": {
+    "A01": {
+      "status": "partial",
+      "sources": [
+        "https://github.com/GamesByMalcsPtyLtd/Melvor-Typing-Project/blob/aa84a4253d998ab03f396aee9e1c0b3a9df0582c/src/gameTypes/lore.d.ts",
+        "https://github.com/GamesByMalcsPtyLtd/Melvor-Typing-Project/blob/aa84a4253d998ab03f396aee9e1c0b3a9df0582c/src/gameTypes/combatManager.d.ts",
+        "https://github.com/GamesByMalcsPtyLtd/Melvor-Typing-Project/blob/aa84a4253d998ab03f396aee9e1c0b3a9df0582c/src/gameTypes/tutorialIsland.d.ts"
+      ],
+      "summary": "Stated by declarations: lore books and tutorial descriptions exist. No conversation tree, speaker/portrait/relationship schema established here; combat event narration bodies inaccessible. Do not mark dialogue absent merely because the API lacks one class. Exact text IDs/conditions remain unread.",
+      "yairpg": [
+        "PROPOSAL: Keep a gated known-lore shelf and a separate conversation owner. Owner: docs/worlds/PROGRESSION_AND_ASSEMBLY.md; src/data/dialogues.js; src/life_record.js."
+      ]
+    },
+    "A02": {
+      "status": "partial",
+      "sources": [
+        "https://github.com/GamesByMalcsPtyLtd/Melvor-Typing-Project/blob/aa84a4253d998ab03f396aee9e1c0b3a9df0582c/src/gameTypes/lore.d.ts",
+        "https://github.com/GamesByMalcsPtyLtd/Melvor-Typing-Project/blob/aa84a4253d998ab03f396aee9e1c0b3a9df0582c/src/gameTypes/requirements.d.ts"
+      ],
+      "summary": "Stated: LoreBook has title/media/unlockRequirements; Lore registers books, updates unlocks and reads lore. This is a requirement-gated lore interface, not proof of current story paragraphs or call order.",
+      "yairpg": [
+        "PROPOSAL: Recheck actual known requirements when presenting a readable document. Owner: src/native_discovery_policy.js; src/observation_channels.js."
+      ]
+    },
+    "A03": {
+      "status": "partial",
+      "sources": [
+        "https://github.com/GamesByMalcsPtyLtd/Melvor-Typing-Project/blob/aa84a4253d998ab03f396aee9e1c0b3a9df0582c/src/gameTypes/game.d.ts",
+        "https://github.com/GamesByMalcsPtyLtd/Melvor-Typing-Project/blob/aa84a4253d998ab03f396aee9e1c0b3a9df0582c/src/gameTypes/gameEvents.d.ts",
+        "https://github.com/GamesByMalcsPtyLtd/Melvor-Typing-Project/blob/aa84a4253d998ab03f396aee9e1c0b3a9df0582c/src/gameTypes/namespaceRegistry.d.ts"
+      ],
+      "summary": "Stated: Game implements Serializable/EncodableObject and an event emitter, namespaced registries, data package registration, passive tickers, online/offline loop and render queues. Custom elements appear throughout declarations. Current executable initialization, engine/dependency versions and performance behavior unread.",
+      "yairpg": [
+        "PROPOSAL: Reuse stable IDs and the common publisher; declarations are an interface reference only. Owner: docs/TECHNOLOGY_AND_PROGRESSION.md."
+      ]
+    },
+    "A04": {
+      "status": "partial",
+      "sources": [
+        "https://github.com/GamesByMalcsPtyLtd/Melvor-Typing-Project/blob/aa84a4253d998ab03f396aee9e1c0b3a9df0582c/src/gameTypes/saveWriter.d.ts",
+        "https://github.com/GamesByMalcsPtyLtd/Melvor-Typing-Project/blob/aa84a4253d998ab03f396aee9e1c0b3a9df0582c/src/gameTypes/save.d.ts",
+        "https://github.com/GamesByMalcsPtyLtd/Melvor-Typing-Project/blob/aa84a4253d998ab03f396aee9e1c0b3a9df0582c/src/gameTypes/game.d.ts"
+      ],
+      "summary": "Stated: SaveWriter extends BinaryWriter and has a header, numeric/string namespace ID maps, version-returning decoder, namespaced object lookup and old-format compatibility methods. SaveGameHeader includes version/character/mode/offline action/timestamp; import returns Promise<boolean>. Unknown namespace lookup can return an ID string. Current bytes/compression/corruption handling/autosave ordering and migrations require executable bodies.",
+      "yairpg": [
+        "PROPOSAL: Preserve unresolved content identity and show import metadata before replacement. Owner: src/save_files.js; src/save_compatibility.js."
+      ]
+    },
+    "A05": {
+      "status": "partial",
+      "sources": [
+        "https://github.com/GamesByMalcsPtyLtd/Melvor-Typing-Project/blob/aa84a4253d998ab03f396aee9e1c0b3a9df0582c/src/gameTypes/monsters.d.ts",
+        "https://github.com/GamesByMalcsPtyLtd/Melvor-Typing-Project/blob/aa84a4253d998ab03f396aee9e1c0b3a9df0582c/src/gameTypes/character.d.ts",
+        "https://github.com/GamesByMalcsPtyLtd/Melvor-Typing-Project/blob/aa84a4253d998ab03f396aee9e1c0b3a9df0582c/src/gameTypes/combatManager.d.ts"
+      ],
+      "summary": "Stated: monster/character/combat state interfaces and timed actions. They do not establish autonomous NPC lives or current enemy decision order. Every body/AI policy unread.",
+      "yairpg": [
+        "PROPOSAL: Keep enemy combat controller claims separate from world NPC simulation. Owner: src/npc_lives.js; world CAMPAIGN.md."
+      ]
+    },
+    "A06": {
+      "status": "partial",
+      "sources": [
+        "https://github.com/GamesByMalcsPtyLtd/Melvor-Typing-Project/blob/aa84a4253d998ab03f396aee9e1c0b3a9df0582c/src/gameTypes/game.d.ts",
+        "https://github.com/GamesByMalcsPtyLtd/Melvor-Typing-Project/blob/aa84a4253d998ab03f396aee9e1c0b3a9df0582c/src/gameTypes/game.d.ts",
+        "https://github.com/GamesByMalcsPtyLtd/Melvor-Typing-Project/blob/aa84a4253d998ab03f396aee9e1c0b3a9df0582c/src/gameTypes/characterSelectMenus.d.ts"
+      ],
+      "summary": "Stated: character select and offline progress elements expose snapshots and result messages. Many menu classes are custom HTML elements. Current DOM/CSS/layout and keyboard use unread.",
+      "yairpg": [
+        "PROPOSAL: At 1440x900, use separate action, support and actual settlement views if selected. Owner: docs/THEMATIC_UI_AND_INFORMATION_DESIGN_2026-10-12.md."
+      ]
+    },
+    "A07": {
+      "status": "partial",
+      "sources": [
+        "https://github.com/GamesByMalcsPtyLtd/Melvor-Typing-Project/blob/aa84a4253d998ab03f396aee9e1c0b3a9df0582c/src/gameTypes/mod.d.ts",
+        "https://github.com/GamesByMalcsPtyLtd/Melvor-Typing-Project/blob/aa84a4253d998ab03f396aee9e1c0b3a9df0582c/src/gameTypes/namespaceRegistry.d.ts",
+        "https://github.com/GamesByMalcsPtyLtd/Melvor-Typing-Project/blob/aa84a4253d998ab03f396aee9e1c0b3a9df0582c/src/gameTypes/game.d.ts"
+      ],
+      "summary": "Stated: namespace registries, package APIs and mod context surfaces. Actual dependency order, overlap warnings, patch blacklists and mod storage behavior only have older dossier evidence; they were not reverified by signatures.",
+      "yairpg": [
+        "PROPOSAL: Validate references and missing content without creating a second inventory/publisher. Owner: docs/TECHNOLOGY_AND_PROGRESSION.md."
+      ]
+    },
+    "A08": {
+      "status": "partial",
+      "sources": [
+        "https://github.com/GamesByMalcsPtyLtd/Melvor-Typing-Project/blob/aa84a4253d998ab03f396aee9e1c0b3a9df0582c/src/gameTypes/skill.d.ts",
+        "https://github.com/GamesByMalcsPtyLtd/Melvor-Typing-Project/blob/aa84a4253d998ab03f396aee9e1c0b3a9df0582c/src/gameTypes/modifiers.d.ts",
+        "https://github.com/GamesByMalcsPtyLtd/Melvor-Typing-Project/blob/aa84a4253d998ab03f396aee9e1c0b3a9df0582c/src/gameTypes/utils.d.ts"
+      ],
+      "summary": "Stated: mastery/skill/modifier/formula interfaces. Exact current balance formulas, RNG/pity and production payment ordering inaccessible. Prior values must be refreshed if a packet selects them.",
+      "yairpg": [
+        "PROPOSAL: Keep recipe mastery and currently supported modifiers distinct. Owner: docs/worlds/ABILITY_AUTHORING.md."
+      ]
+    },
+    "A09": {
+      "status": "partial",
+      "sources": [
+        "https://github.com/GamesByMalcsPtyLtd/Melvor-Typing-Project/blob/aa84a4253d998ab03f396aee9e1c0b3a9df0582c/src/gameTypes/game.d.ts",
+        "https://github.com/GamesByMalcsPtyLtd/Melvor-Typing-Project/blob/aa84a4253d998ab03f396aee9e1c0b3a9df0582c/src/gameTypes/combatManager.d.ts"
+      ],
+      "summary": "Stated: TICK_INTERVAL is 50 ms; MAX_OFFLINE_TIME is 86400000 ms in declarations. Online/offline loops, timers and snapshots are explicit interfaces. Actual 24-hour processing and error/stop/death order require bodies; constants alone do not prove behavior.",
+      "yairpg": [
+        "PROPOSAL: Separate declared cap from proven offline settlement. Owner: src/feature_expansion_work_plan.js; src/simulation.js."
+      ]
+    },
+    "A10": {
+      "status": "partial",
+      "sources": [
+        "https://github.com/GamesByMalcsPtyLtd/Melvor-Typing-Project/blob/aa84a4253d998ab03f396aee9e1c0b3a9df0582c/src/gameTypes/tutorialIsland.d.ts",
+        "https://github.com/GamesByMalcsPtyLtd/Melvor-Typing-Project/blob/aa84a4253d998ab03f396aee9e1c0b3a9df0582c/src/gameTypes/tutorialMenus.d.ts"
+      ],
+      "summary": "Stated: TutorialTask uses event matching/counts; TutorialStage is namespaced/encodable and has requirements/tasks/rewards. Menus display stages/progress. Full authored stages, skip rules and reward transaction order unread.",
+      "yairpg": [
+        "PROPOSAL: Tie tutorial completion to native action events and save its stage identity. Owner: src/native_discovery_policy.js; src/observation_channels.js."
+      ]
+    },
+    "A11": {
+      "status": "partial",
+      "sources": [
+        "https://github.com/GamesByMalcsPtyLtd/Melvor-Typing-Project/blob/aa84a4253d998ab03f396aee9e1c0b3a9df0582c/src/gameTypes/notifications.d.ts",
+        "https://github.com/GamesByMalcsPtyLtd/Melvor-Typing-Project/blob/aa84a4253d998ab03f396aee9e1c0b3a9df0582c/src/gameTypes/lore.d.ts",
+        "https://github.com/GamesByMalcsPtyLtd/Melvor-Typing-Project/blob/aa84a4253d998ab03f396aee9e1c0b3a9df0582c/src/gameTypes/characterSelectMenus.d.ts"
+      ],
+      "summary": "Stated: notification/menu/lore unlock display APIs exist. They are useful authoring references but exact visual feedback, sound/accessibility and current controls unread.",
+      "yairpg": [
+        "PROPOSAL: Name actual gained/lost resources and failed capacity in a settlement view. Owner: docs/THEMATIC_UI_AND_INFORMATION_DESIGN_2026-10-12.md."
+      ]
+    },
+    "A12": {
+      "status": "partial",
+      "sources": [
+        "https://github.com/GamesByMalcsPtyLtd/Melvor-Typing-Project/blob/aa84a4253d998ab03f396aee9e1c0b3a9df0582c/src/gameTypes/cartography.d.ts",
+        "https://github.com/GamesByMalcsPtyLtd/Melvor-Typing-Project/blob/aa84a4253d998ab03f396aee9e1c0b3a9df0582c/src/gameTypes/corruption.d.ts",
+        "https://github.com/GamesByMalcsPtyLtd/Melvor-Typing-Project/blob/aa84a4253d998ab03f396aee9e1c0b3a9df0582c/src/gameTypes/harvesting.d.ts",
+        "https://github.com/GamesByMalcsPtyLtd/Melvor-Typing-Project/blob/aa84a4253d998ab03f396aee9e1c0b3a9df0582c/src/gameTypes/township.d.ts"
+      ],
+      "summary": "Stated inventory includes Cartography/Archaeology, Corruption/Harvesting, Township, summoning, mastery, skill trees, relics and combat. Declaration presence is not DLC entitlement, an installed edition or accessible current player content. Full body/data packages unread.",
+      "yairpg": [
+        "PROPOSAL: Keep discovered, owned, equipped and supported means distinct when extending a local system. Owner: docs/TECHNOLOGY_AND_PROGRESSION.md."
+      ]
+    }
+  },
+  "proposals": [
+    {
+      "id": "P1",
+      "title": "Event-driven local tutorial",
+      "owner": "src/native_discovery_policy.js; src/observation_channels.js",
+      "status": "PROPOSAL"
+    },
+    {
+      "id": "P2",
+      "title": "Requirement-gated lore shelf",
+      "owner": "docs/worlds/PROGRESSION_AND_ASSEMBLY.md; src/data/dialogues.js; src/life_record.js",
+      "status": "PROPOSAL"
+    },
+    {
+      "id": "P3",
+      "title": "Unknown-ID persistence review",
+      "owner": "src/save_files.js; src/save_compatibility.js",
+      "status": "PROPOSAL"
+    },
+    {
+      "id": "P4",
+      "title": "Actual settlement receipt",
+      "owner": "docs/THEMATIC_UI_AND_INFORMATION_DESIGN_2026-10-12.md",
+      "status": "PROPOSAL"
+    },
+    {
+      "id": "P5",
+      "title": "Support versus mastery view",
+      "owner": "docs/worlds/ABILITY_AUTHORING.md",
+      "status": "PROPOSAL"
+    }
+  ],
+  "small_touches": [
+    {
+      "id": "T01",
+      "idea": "PROPOSAL: Keep a gated known-lore shelf and a separate conversation owner. Owner: docs/worlds/PROGRESSION_AND_ASSEMBLY.md; src/data/dialogues.js; src/life_record.js.",
+      "inspiration": "A01",
+      "source_status": "partial"
+    },
+    {
+      "id": "T02",
+      "idea": "PROPOSAL: Recheck actual known requirements when presenting a readable document. Owner: src/native_discovery_policy.js; src/observation_channels.js.",
+      "inspiration": "A02",
+      "source_status": "partial"
+    },
+    {
+      "id": "T03",
+      "idea": "PROPOSAL: Reuse stable IDs and the common publisher; declarations are an interface reference only. Owner: docs/TECHNOLOGY_AND_PROGRESSION.md.",
+      "inspiration": "A03",
+      "source_status": "partial"
+    },
+    {
+      "id": "T04",
+      "idea": "PROPOSAL: Preserve unresolved content identity and show import metadata before replacement. Owner: src/save_files.js; src/save_compatibility.js.",
+      "inspiration": "A04",
+      "source_status": "partial"
+    },
+    {
+      "id": "T05",
+      "idea": "PROPOSAL: Keep enemy combat controller claims separate from world NPC simulation. Owner: src/npc_lives.js; world CAMPAIGN.md.",
+      "inspiration": "A05",
+      "source_status": "partial"
+    },
+    {
+      "id": "T06",
+      "idea": "PROPOSAL: At 1440x900, use separate action, support and actual settlement views if selected. Owner: docs/THEMATIC_UI_AND_INFORMATION_DESIGN_2026-10-12.md.",
+      "inspiration": "A06",
+      "source_status": "partial"
+    },
+    {
+      "id": "T07",
+      "idea": "PROPOSAL: Validate references and missing content without creating a second inventory/publisher. Owner: docs/TECHNOLOGY_AND_PROGRESSION.md.",
+      "inspiration": "A07",
+      "source_status": "partial"
+    },
+    {
+      "id": "T08",
+      "idea": "PROPOSAL: Keep recipe mastery and currently supported modifiers distinct. Owner: docs/worlds/ABILITY_AUTHORING.md.",
+      "inspiration": "A08",
+      "source_status": "partial"
+    },
+    {
+      "id": "T09",
+      "idea": "PROPOSAL: Separate declared cap from proven offline settlement. Owner: src/feature_expansion_work_plan.js; src/simulation.js.",
+      "inspiration": "A09",
+      "source_status": "partial"
+    },
+    {
+      "id": "T10",
+      "idea": "PROPOSAL: Tie tutorial completion to native action events and save its stage identity. Owner: src/native_discovery_policy.js; src/observation_channels.js.",
+      "inspiration": "A10",
+      "source_status": "partial"
+    },
+    {
+      "id": "T11",
+      "idea": "PROPOSAL: Name actual gained/lost resources and failed capacity in a settlement view. Owner: docs/THEMATIC_UI_AND_INFORMATION_DESIGN_2026-10-12.md.",
+      "inspiration": "A11",
+      "source_status": "partial"
+    },
+    {
+      "id": "T12",
+      "idea": "PROPOSAL: Keep discovered, owned, equipped and supported means distinct when extending a local system. Owner: docs/TECHNOLOGY_AND_PROGRESSION.md.",
+      "inspiration": "A12",
+      "source_status": "partial"
+    },
+    {
+      "id": "T13",
+      "idea": "PROPOSAL: Show a scene as encountered only after its delivery route succeeds. Owner: docs/worlds/PROGRESSION_AND_ASSEMBLY.md; src/data/dialogues.js; src/life_record.js.",
+      "inspiration": "A01/A02",
+      "source_status": "inferred adaptation, not a source feature claim"
+    },
+    {
+      "id": "T14",
+      "idea": "PROPOSAL: Keep a known scene available for rereading without replaying its reward. Owner: docs/worlds/PROGRESSION_AND_ASSEMBLY.md; src/data/dialogues.js; src/life_record.js.",
+      "inspiration": "A02/A04",
+      "source_status": "inferred adaptation, not a source feature claim"
+    },
+    {
+      "id": "T15",
+      "idea": "PROPOSAL: Show the last successful save time separately from a failed attempt. Owner: src/save_files.js; src/save_compatibility.js.",
+      "inspiration": "A04",
+      "source_status": "inferred adaptation, not a source feature claim"
+    },
+    {
+      "id": "T16",
+      "idea": "PROPOSAL: Give a restored backup a visible loss-of-recent-progress notice. Owner: src/save_files.js; src/save_compatibility.js.",
+      "inspiration": "A04",
+      "source_status": "inferred adaptation, not a source feature claim"
+    },
+    {
+      "id": "T17",
+      "idea": "PROPOSAL: Preserve the intended work target when a missing input pauses it. Owner: src/feature_expansion_work_plan.js; src/simulation.js.",
+      "inspiration": "A03/A09",
+      "source_status": "inferred adaptation, not a source feature claim"
+    },
+    {
+      "id": "T18",
+      "idea": "PROPOSAL: Label a rate estimate as projected and a settlement as actual. Owner: docs/THEMATIC_UI_AND_INFORMATION_DESIGN_2026-10-12.md.",
+      "inspiration": "A08/A09",
+      "source_status": "inferred adaptation, not a source feature claim"
+    },
+    {
+      "id": "T19",
+      "idea": "PROPOSAL: Expose the source of one active modifier beside its effect. Owner: docs/THEMATIC_UI_AND_INFORMATION_DESIGN_2026-10-12.md.",
+      "inspiration": "A06/A08",
+      "source_status": "inferred adaptation, not a source feature claim"
+    },
+    {
+      "id": "T20",
+      "idea": "PROPOSAL: Keep owned, assigned and currently usable support distinct in one local row. Owner: src/npc_lives.js; world CAMPAIGN.md.",
+      "inspiration": "A05/A12",
+      "source_status": "inferred adaptation, not a source feature claim"
+    }
+  ],
+  "unread": "Current executable build and all public data/text bodies unavailable through attempted routes. Official typing interfaces freshly read; prior executable findings retained as historical only. Runtime, DLC ownership and installation remain untouched. No install justified: it would not guarantee the remote hosted code becomes available.",
+  "runtime_exercised": false,
+  "game_installs": [],
+  "source_pins": [
+    {
+      "name": "melvor-typing",
+      "url": "https://github.com/GamesByMalcsPtyLtd/Melvor-Typing-Project.git",
+      "commit": "aa84a4253d998ab03f396aee9e1c0b3a9df0582c"
+    }
+  ]
+}

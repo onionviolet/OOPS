@@ -1,0 +1,444 @@
+{
+  "keeperrl": {
+    "pin": {
+      "commit": "95d2be4e97db2243210a71918e36a533ad94dcd1",
+      "remote": "https://github.com/miki151/keeperrl.git",
+      "files": 939
+    },
+    "tree": "7a7578b9c7ecd7bce7e292cc7d4a23b38d8cb538",
+    "sources": [
+      {
+        "game": "keeperrl",
+        "path": "player.cpp",
+        "lines": [
+          379,
+          397
+        ],
+        "url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/player.cpp#L379-L397",
+        "sha256": "9ae1fb976f6baf2e6efdb9ed0adc2768449a3c0fa1c25253e90212e852d02b5e",
+        "line_count": 1447,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      },
+      {
+        "game": "keeperrl",
+        "path": "creature.cpp",
+        "lines": [
+          905,
+          925
+        ],
+        "url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/creature.cpp#L905-L925",
+        "sha256": "c8e2e015f6880e0225af059a6e3b1a0589ea3235c1a980679e65150b79177fc7",
+        "line_count": 3062,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      },
+      {
+        "game": "keeperrl",
+        "path": "creature_attributes.cpp",
+        "lines": [
+          244,
+          260
+        ],
+        "url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/creature_attributes.cpp#L244-L260",
+        "sha256": "b45dcd77ce5a8d9f6acffc96c5509bd35b63aae52a3282987c55ac1f36dd558c",
+        "line_count": 411,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      },
+      {
+        "game": "keeperrl",
+        "path": "creature_attributes.h",
+        "lines": [
+          150,
+          165
+        ],
+        "url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/creature_attributes.h#L150-L165",
+        "sha256": "b0fe80412ca2a1116eb24d833397aa6f4297bcf2ae65389703f392c9d0f832b2",
+        "line_count": 185,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      },
+      {
+        "game": "keeperrl",
+        "path": "data_free/game_config/creatures.txt",
+        "lines": [
+          330,
+          350
+        ],
+        "url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/data_free/game_config/creatures.txt#L330-L350",
+        "sha256": "f648ca54ab5b5d0ccee57581674b40e0d09dc48311500c184db526259c155ddc",
+        "line_count": 5659,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      },
+      {
+        "game": "keeperrl",
+        "path": "game_config.cpp",
+        "lines": [
+          1,
+          89
+        ],
+        "url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/game_config.cpp#L1-L89",
+        "sha256": "76462c97a75f0b910c145180409c356b21a6423ebd06cfc2d66bde9ac7aa52f3",
+        "line_count": 89,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      },
+      {
+        "game": "keeperrl",
+        "path": "content_factory.cpp",
+        "lines": [
+          30,
+          45
+        ],
+        "url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/content_factory.cpp#L30-L45",
+        "sha256": "648b5644e9504a3ce778c83f9528144872e4a0c77faf653c9e815a57294499ed",
+        "line_count": 512,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      },
+      {
+        "game": "keeperrl",
+        "path": "player.cpp",
+        "lines": [
+          79,
+          85
+        ],
+        "url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/player.cpp#L79-L85",
+        "sha256": "9ae1fb976f6baf2e6efdb9ed0adc2768449a3c0fa1c25253e90212e852d02b5e",
+        "line_count": 1447,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      },
+      {
+        "game": "keeperrl",
+        "path": "game.cpp",
+        "lines": [
+          839,
+          855
+        ],
+        "url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/game.cpp#L839-L855",
+        "sha256": "2a5eccf79bb29721fd22a4e232a7f510045754466fd8338d3db87fbdc17bf1e9",
+        "line_count": 1004,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      },
+      {
+        "game": "keeperrl",
+        "path": "tutorial.cpp",
+        "lines": [
+          90,
+          155
+        ],
+        "url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/tutorial.cpp#L90-L155",
+        "sha256": "00544eb15deb40b72ce7330442c993537da31dee8453ee73c087932475517ccf",
+        "line_count": 331,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      },
+      {
+        "game": "keeperrl",
+        "path": "main_loop.cpp",
+        "lines": [
+          273,
+          356
+        ],
+        "url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/main_loop.cpp#L273-L356",
+        "sha256": "00f9b30c3035666c80344d9938c1e85233b5d963e75a1858725345be94a33754",
+        "line_count": 1541,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      },
+      {
+        "game": "keeperrl",
+        "path": "model.cpp",
+        "lines": [
+          116,
+          166
+        ],
+        "url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/model.cpp#L116-L166",
+        "sha256": "fd0dd4a902c68ccd05594da4edf436989e6d446f49fb50c41c3c3a8a88c1d715",
+        "line_count": 443,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      },
+      {
+        "game": "keeperrl",
+        "path": "content_factory.cpp",
+        "lines": [
+          30,
+          90
+        ],
+        "url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/content_factory.cpp#L30-L90",
+        "sha256": "648b5644e9504a3ce778c83f9528144872e4a0c77faf653c9e815a57294499ed",
+        "line_count": 512,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      },
+      {
+        "game": "keeperrl",
+        "path": "serialization.cpp",
+        "lines": [
+          35,
+          42
+        ],
+        "url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/serialization.cpp#L35-L42",
+        "sha256": "4a3a55f8ceadfe6c45576faf1c8a2d65f9e6437e3e93f602cf234b573344631b",
+        "line_count": 42,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      },
+      {
+        "game": "keeperrl",
+        "path": "game_config.h",
+        "lines": [
+          50,
+          69
+        ],
+        "url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/game_config.h#L50-L69",
+        "sha256": "087004ad3d21a782d30486e99edfa42d40a907f40cd2231ed43e92dfcc4a612d",
+        "line_count": 69,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      },
+      {
+        "game": "keeperrl",
+        "path": "parse_game.h",
+        "lines": [
+          1,
+          59
+        ],
+        "url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/parse_game.h#L1-L59",
+        "sha256": "16ed11631a1d75aec795b379bb1a3a9a9ad1ee069839bb668202aeeb50f2ee5b",
+        "line_count": 59,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      },
+      {
+        "game": "keeperrl",
+        "path": "serialization.h",
+        "lines": [
+          15,
+          45
+        ],
+        "url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/serialization.h#L15-L45",
+        "sha256": "5177e4efb7073e27c1b6a25a29a6da7d703755d2327dc8d66e29fff31fda4a9d",
+        "line_count": 195,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      },
+      {
+        "game": "keeperrl",
+        "path": "main_loop.cpp",
+        "lines": [
+          96,
+          147
+        ],
+        "url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/main_loop.cpp#L96-L147",
+        "sha256": "00f9b30c3035666c80344d9938c1e85233b5d963e75a1858725345be94a33754",
+        "line_count": 1541,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      },
+      {
+        "game": "keeperrl",
+        "path": "main_loop.cpp",
+        "lines": [
+          294,
+          356
+        ],
+        "url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/main_loop.cpp#L294-L356",
+        "sha256": "00f9b30c3035666c80344d9938c1e85233b5d963e75a1858725345be94a33754",
+        "line_count": 1541,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      },
+      {
+        "game": "keeperrl",
+        "path": "game.cpp",
+        "lines": [
+          54,
+          68
+        ],
+        "url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/game.cpp#L54-L68",
+        "sha256": "2a5eccf79bb29721fd22a4e232a7f510045754466fd8338d3db87fbdc17bf1e9",
+        "line_count": 1004,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      },
+      {
+        "game": "keeperrl",
+        "path": "model.cpp",
+        "lines": [
+          65,
+          75
+        ],
+        "url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/model.cpp#L65-L75",
+        "sha256": "fd0dd4a902c68ccd05594da4edf436989e6d446f49fb50c41c3c3a8a88c1d715",
+        "line_count": 443,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      },
+      {
+        "game": "keeperrl",
+        "path": "unlocks.cpp",
+        "lines": [
+          10,
+          46
+        ],
+        "url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/unlocks.cpp#L10-L46",
+        "sha256": "d442209aeab0bf08ccabbafbd1c6d64fe1ddb71403f7d337e0d9458793196045",
+        "line_count": 47,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      },
+      {
+        "game": "keeperrl",
+        "path": "monster_ai.cpp",
+        "lines": [
+          1210,
+          1268
+        ],
+        "url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/monster_ai.cpp#L1210-L1268",
+        "sha256": "1d8a4c269159d0b8d0f1db72a814dd2f99e2222edd3b6fee25da8c8223c770af",
+        "line_count": 1390,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      },
+      {
+        "game": "keeperrl",
+        "path": "gui_builder.cpp",
+        "lines": [
+          512,
+          575
+        ],
+        "url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/gui_builder.cpp#L512-L575",
+        "sha256": "89add9a1ae3f834f505a4d5c33c0b25437fb7a97add2abb059e0ea5fd6ef6f2f",
+        "line_count": 5392,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      },
+      {
+        "game": "keeperrl",
+        "path": "gui_builder.cpp",
+        "lines": [
+          1188,
+          1205
+        ],
+        "url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/gui_builder.cpp#L1188-L1205",
+        "sha256": "89add9a1ae3f834f505a4d5c33c0b25437fb7a97add2abb059e0ea5fd6ef6f2f",
+        "line_count": 5392,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      },
+      {
+        "game": "keeperrl",
+        "path": "gui_builder.cpp",
+        "lines": [
+          1373,
+          1400
+        ],
+        "url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/gui_builder.cpp#L1373-L1400",
+        "sha256": "89add9a1ae3f834f505a4d5c33c0b25437fb7a97add2abb059e0ea5fd6ef6f2f",
+        "line_count": 5392,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      },
+      {
+        "game": "keeperrl",
+        "path": "tutorial.cpp",
+        "lines": [
+          157,
+          190
+        ],
+        "url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/tutorial.cpp#L157-L190",
+        "sha256": "00544eb15deb40b72ce7330442c993537da31dee8453ee73c087932475517ccf",
+        "line_count": 331,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      },
+      {
+        "game": "keeperrl",
+        "path": "game_config.h",
+        "lines": [
+          1,
+          69
+        ],
+        "url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/game_config.h#L1-L69",
+        "sha256": "087004ad3d21a782d30486e99edfa42d40a907f40cd2231ed43e92dfcc4a612d",
+        "line_count": 69,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      },
+      {
+        "game": "keeperrl",
+        "path": "content_factory.cpp",
+        "lines": [
+          59,
+          140
+        ],
+        "url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/content_factory.cpp#L59-L140",
+        "sha256": "648b5644e9504a3ce778c83f9528144872e4a0c77faf653c9e815a57294499ed",
+        "line_count": 512,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      },
+      {
+        "game": "keeperrl",
+        "path": "pretty_archive.h",
+        "lines": [
+          30,
+          105
+        ],
+        "url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/pretty_archive.h#L30-L105",
+        "sha256": "51c1b438f318d81166d59e785673fea8c62cccb9c2cfa6257c7fcb26889ec587",
+        "line_count": 541,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      },
+      {
+        "game": "keeperrl",
+        "path": "creature.cpp",
+        "lines": [
+          1750,
+          1818
+        ],
+        "url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/creature.cpp#L1750-L1818",
+        "sha256": "c8e2e015f6880e0225af059a6e3b1a0589ea3235c1a980679e65150b79177fc7",
+        "line_count": 3062,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      },
+      {
+        "game": "keeperrl",
+        "path": "monster_ai.cpp",
+        "lines": [
+          1220,
+          1268
+        ],
+        "url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/monster_ai.cpp#L1220-L1268",
+        "sha256": "1d8a4c269159d0b8d0f1db72a814dd2f99e2222edd3b6fee25da8c8223c770af",
+        "line_count": 1390,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      },
+      {
+        "game": "keeperrl",
+        "path": "tutorial.cpp",
+        "lines": [
+          90,
+          190
+        ],
+        "url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/tutorial.cpp#L90-L190",
+        "sha256": "00544eb15deb40b72ce7330442c993537da31dee8453ee73c087932475517ccf",
+        "line_count": 331,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      },
+      {
+        "game": "keeperrl",
+        "path": "parse_game.h",
+        "lines": [
+          15,
+          59
+        ],
+        "url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/parse_game.h#L15-L59",
+        "sha256": "16ed11631a1d75aec795b379bb1a3a9a9ad1ee069839bb668202aeeb50f2ee5b",
+        "line_count": 59,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      },
+      {
+        "game": "keeperrl",
+        "path": "game.cpp",
+        "lines": [
+          839,
+          858
+        ],
+        "url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/game.cpp#L839-L858",
+        "sha256": "2a5eccf79bb29721fd22a4e232a7f510045754466fd8338d3db87fbdc17bf1e9",
+        "line_count": 1004,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      },
+      {
+        "game": "keeperrl",
+        "path": "main_loop.cpp",
+        "lines": [
+          1300,
+          1345
+        ],
+        "url": "https://github.com/miki151/keeperrl/blob/95d2be4e97db2243210a71918e36a533ad94dcd1/main_loop.cpp#L1300-L1345",
+        "sha256": "00f9b30c3035666c80344d9938c1e85233b5d963e75a1858725345be94a33754",
+        "line_count": 1541,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      }
+    ]
+  }
+}

@@ -1,0 +1,318 @@
+{
+  "lane": "bf-idle-src",
+  "date": "2026-10-14",
+  "method": "fresh static source/data/declaration inspection",
+  "corrections": "No contradiction of the prior six selected chains was found in the same stable revision. Extend its text coverage: messages are not merely flavor popups. sendMessage also stores a message filename on home and grants faction rumors; the first hacking-threshold message supplies a program. A modal named DialogBox does not establish a conversation tree. The prior offline comment/expression distinction remains.",
+  "aspects": {
+    "A01": {
+      "status": "covered",
+      "sources": [
+        "https://github.com/bitburner-official/bitburner-src/blob/1da7316ffd9d281b45a86c4c54ec532276557892/src/Message/MessageHelpers.tsx",
+        "https://github.com/bitburner-official/bitburner-src/blob/1da7316ffd9d281b45a86c4c54ec532276557892/src/Message/Message.ts"
+      ],
+      "summary": "Shown: authored one-way messages keyed by MessageFilename. Delivery checks received IDs, hacking thresholds, an augmentation and router visibility. sendMessage opens a suppressible modal, stores the filename and grants faction rumors. No player reply graph is in this module; speaker identity is inside authored text, not a portrait/relationship schema. Full other text routes are partial.",
+      "yairpg": [
+        "PROPOSAL: Deliver a local letter with a distinct heard/read/rumor consequence; do not silently equate it with joining a faction. Owner: docs/worlds/PROGRESSION_AND_ASSEMBLY.md; src/data/dialogues.js; src/life_record.js."
+      ]
+    },
+    "A02": {
+      "status": "covered",
+      "sources": [
+        "https://github.com/bitburner-official/bitburner-src/blob/1da7316ffd9d281b45a86c4c54ec532276557892/src/Literature/Literatures.tsx",
+        "https://github.com/bitburner-official/bitburner-src/blob/1da7316ffd9d281b45a86c4c54ec532276557892/src/Literature/LiteratureHelpers.tsx",
+        "https://github.com/bitburner-official/bitburner-src/blob/1da7316ffd9d281b45a86c4c54ec532276557892/src/engine.tsx"
+      ],
+      "summary": "Shown: literature records and messages are separate content families. Engine counters periodically check story messages; stored filenames support later reading. Authored terminal files let story sit beside actionable systems. No complete branching campaign or closure audit was made.",
+      "yairpg": [
+        "PROPOSAL: Keep a readable known-document shelf alongside the action panels. Owner: docs/worlds/PROGRESSION_AND_ASSEMBLY.md; src/data/dialogues.js; src/life_record.js."
+      ]
+    },
+    "A03": {
+      "status": "covered",
+      "sources": [
+        "https://github.com/bitburner-official/bitburner-src/blob/1da7316ffd9d281b45a86c4c54ec532276557892/package.json",
+        "https://github.com/bitburner-official/bitburner-src/blob/1da7316ffd9d281b45a86c4c54ec532276557892/src/engine.tsx",
+        "https://github.com/bitburner-official/bitburner-src/blob/1da7316ffd9d281b45a86c4c54ec532276557892/src/NetscriptWorker.ts",
+        "https://github.com/bitburner-official/bitburner-src/blob/1da7316ffd9d281b45a86c4c54ec532276557892/src/ui/UIEventEmitter.ts"
+      ],
+      "summary": "Shown: TypeScript simulation, React UI, webpack tooling, class-based systems and event emitters. Engine cycles are 200 ms; counters schedule slower work and saves. Netscript workers have PID, threads, RAM admission and cleanup. User scripting is a product feature; its full API/interpreter remains unread.",
+      "yairpg": [
+        "PROPOSAL: Keep visible finite work costs and cancellation in the existing routine owner. Owner: src/feature_expansion_work_plan.js; src/simulation.js."
+      ]
+    },
+    "A04": {
+      "status": "covered",
+      "sources": [
+        "https://github.com/bitburner-official/bitburner-src/blob/1da7316ffd9d281b45a86c4c54ec532276557892/src/SaveObject.ts",
+        "https://github.com/bitburner-official/bitburner-src/blob/1da7316ffd9d281b45a86c4c54ec532276557892/src/utils/SaveDataUtils.ts",
+        "https://github.com/bitburner-official/bitburner-src/blob/1da7316ffd9d281b45a86c4c54ec532276557892/src/utils/SaveDataMigrationUtils.ts"
+      ],
+      "summary": "Shown: outer constructor-tagged JSON holds separately serialized player/server/company/settings/system fields and VersionSave. Export uses gzip bytes when Compression Streams exists, with base64 fallback otherwise. saveGame awaits storage before bridge notification/toast. Import writes then reloads; comparison and loader validation are separate stages, not proof of atomic rollback. Recovery/import disable autosave. Migration history and Electron restore parity remain partial.",
+      "yairpg": [
+        "PROPOSAL: Explain export format and last successful write without treating a toast as validation of every loader. Owner: src/save_files.js; src/save_compatibility.js."
+      ]
+    },
+    "A05": {
+      "status": "partial",
+      "sources": [
+        "https://github.com/bitburner-official/bitburner-src/blob/1da7316ffd9d281b45a86c4c54ec532276557892/src/Go/boardAnalysis/goAI.ts",
+        "https://github.com/bitburner-official/bitburner-src/blob/1da7316ffd9d281b45a86c4c54ec532276557892/src/Gang/Gang.ts",
+        "https://github.com/bitburner-official/bitburner-src/blob/1da7316ffd9d281b45a86c4c54ec532276557892/src/Bladeburner/Bladeburner.ts"
+      ],
+      "summary": "Shown: Go uses board analysis, valid-move rules, opponent identity, promises and stale-board checks. Other organizations are timed simulations, not evidence of independent daily NPC lives. Gang and Bladeburner policy detail remains unread.",
+      "yairpg": [
+        "PROPOSAL: Reject an asynchronous NPC choice if its world state changed while deciding. Owner: src/npc_lives.js; world CAMPAIGN.md."
+      ]
+    },
+    "A06": {
+      "status": "covered",
+      "sources": [
+        "https://github.com/bitburner-official/bitburner-src/blob/1da7316ffd9d281b45a86c4c54ec532276557892/src/ui/ActiveScripts/WorkerScriptAccordion.tsx",
+        "https://github.com/bitburner-official/bitburner-src/blob/1da7316ffd9d281b45a86c4c54ec532276557892/src/Terminal/Terminal.ts",
+        "https://github.com/bitburner-official/bitburner-src/blob/1da7316ffd9d281b45a86c4c54ec532276557892/src/Settings/Settings.ts"
+      ],
+      "summary": "Shown: terminal commands, script editor/logs and expandable worker rows expose threads, RAM and online/offline production separately. Settings govern message suppression and display. Rendered desktop layout, keyboard accessibility and pacing were not exercised.",
+      "yairpg": [
+        "PROPOSAL: At 1440x900, show the routine, its budget and actual result beside current work; retain separate reading/log regions. Owner: docs/THEMATIC_UI_AND_INFORMATION_DESIGN_2026-10-12.md."
+      ]
+    },
+    "A07": {
+      "status": "partial",
+      "sources": [
+        "https://github.com/bitburner-official/bitburner-src/blob/1da7316ffd9d281b45a86c4c54ec532276557892/src/NetscriptFunctions.ts",
+        "https://github.com/bitburner-official/bitburner-src/blob/1da7316ffd9d281b45a86c4c54ec532276557892/src/Corporation/data/BaseResearchTree.ts",
+        "https://github.com/bitburner-official/bitburner-src/blob/1da7316ffd9d281b45a86c4c54ec532276557892/src/Literature/Literatures.tsx"
+      ],
+      "summary": "Shown: author content is TypeScript/TSX registries and formulas; player-authored Netscript scripts call an API. A scripting API is not a content mod loader. Complete API validation, plugins and load order were not read.",
+      "yairpg": [
+        "PROPOSAL: Use declarative content IDs for local research; do not add executable closures to YAIR content. Owner: docs/TECHNOLOGY_AND_PROGRESSION.md."
+      ]
+    },
+    "A08": {
+      "status": "partial",
+      "sources": [
+        "https://github.com/bitburner-official/bitburner-src/blob/1da7316ffd9d281b45a86c4c54ec532276557892/src/Script/ScriptHelpers.ts",
+        "https://github.com/bitburner-official/bitburner-src/blob/1da7316ffd9d281b45a86c4c54ec532276557892/src/Corporation/ResearchTree.ts",
+        "https://github.com/bitburner-official/bitburner-src/blob/1da7316ffd9d281b45a86c4c54ec532276557892/src/Casino/RNG.ts"
+      ],
+      "summary": "Shown: offline script income uses measured prior production; experience uses confidence and does not simply match the half-rate comment. Research uses parent/points gates. Casino RNG and every balance formula remain unread beyond identity.",
+      "yairpg": [
+        "PROPOSAL: Label measured versus predicted rates and state the confidence boundary. Owner: src/feature_expansion_work_plan.js; src/simulation.js."
+      ]
+    },
+    "A09": {
+      "status": "covered",
+      "sources": [
+        "https://github.com/bitburner-official/bitburner-src/blob/1da7316ffd9d281b45a86c4c54ec532276557892/src/engine.tsx",
+        "https://github.com/bitburner-official/bitburner-src/blob/1da7316ffd9d281b45a86c4c54ec532276557892/src/Script/ScriptHelpers.ts"
+      ],
+      "summary": "Shown: engine counters schedule slower tasks; load elapsed cycles drive separate subsystem catchup. Saved scripts restart only after UI load and RAM admission can fail. Offline production is not uninterrupted execution of every saved script.",
+      "yairpg": [
+        "PROPOSAL: Separate saved plan ownership from current eligibility to run. Owner: src/feature_expansion_work_plan.js; src/simulation.js."
+      ]
+    },
+    "A10": {
+      "status": "covered",
+      "sources": [
+        "https://github.com/bitburner-official/bitburner-src/blob/1da7316ffd9d281b45a86c4c54ec532276557892/src/InteractiveTutorial.ts",
+        "https://github.com/bitburner-official/bitburner-src/blob/1da7316ffd9d281b45a86c4c54ec532276557892/src/ui/InteractiveTutorial/InteractiveTutorialRoot.tsx",
+        "https://github.com/bitburner-official/bitburner-src/blob/1da7316ffd9d281b45a86c4c54ec532276557892/src/Message/MessageHelpers.tsx"
+      ],
+      "summary": "Shown: stateful tutorial steps and threshold-gated messages introduce the terminal, scripts and factions. Receiving a rumor and becoming eligible for faction entry remain distinct. All advanced reveal gates remain partial.",
+      "yairpg": [
+        "PROPOSAL: Teach one real local action and reveal its next usable consequence. Owner: src/native_discovery_policy.js; src/observation_channels.js."
+      ]
+    },
+    "A11": {
+      "status": "covered",
+      "sources": [
+        "https://github.com/bitburner-official/bitburner-src/blob/1da7316ffd9d281b45a86c4c54ec532276557892/src/ui/React/ImportSaveComparison.tsx",
+        "https://github.com/bitburner-official/bitburner-src/blob/1da7316ffd9d281b45a86c4c54ec532276557892/src/ui/ActiveScripts/WorkerScriptAccordion.tsx",
+        "https://github.com/bitburner-official/bitburner-src/blob/1da7316ffd9d281b45a86c4c54ec532276557892/src/Settings/Settings.ts"
+      ],
+      "summary": "Shown: pre-import comparison, worker kill/log controls, message suppression and separately labelled online/offline figures. These are static affordances, not measured usability.",
+      "yairpg": [
+        "PROPOSAL: Use precise stop controls and a save preview with useful identity fields. Owner: docs/THEMATIC_UI_AND_INFORMATION_DESIGN_2026-10-12.md."
+      ]
+    },
+    "A12": {
+      "status": "partial",
+      "sources": [
+        "https://github.com/bitburner-official/bitburner-src/blob/1da7316ffd9d281b45a86c4c54ec532276557892/src/Go/Go.ts",
+        "https://github.com/bitburner-official/bitburner-src/tree/1da7316ffd9d281b45a86c4c54ec532276557892/src/DarkNet",
+        "https://github.com/bitburner-official/bitburner-src/tree/1da7316ffd9d281b45a86c4c54ec532276557892/src/Infiltration",
+        "https://github.com/bitburner-official/bitburner-src/tree/1da7316ffd9d281b45a86c4c54ec532276557892/src/CodingContract"
+      ],
+      "summary": "Shown inventory: Go, DarkNet, Infiltration, coding contracts, augmentations, factions, companies, stocks, gangs, corporations, sleeves and Bladeburner coexist. The earlier six chains did not document most of them. Go next-turn safety was deepened here; whole subsystem semantics remain partial.",
+      "yairpg": [
+        "PROPOSAL: Keep mini-games optional and attach rewards to named local means. Owner: docs/worlds/ABILITY_AUTHORING.md."
+      ]
+    }
+  },
+  "proposals": [
+    {
+      "id": "P1",
+      "title": "Letters that change known options",
+      "owner": "docs/worlds/PROGRESSION_AND_ASSEMBLY.md; src/data/dialogues.js; src/life_record.js",
+      "status": "PROPOSAL"
+    },
+    {
+      "id": "P2",
+      "title": "Routine budget and result row",
+      "owner": "src/feature_expansion_work_plan.js; src/simulation.js",
+      "status": "PROPOSAL"
+    },
+    {
+      "id": "P3",
+      "title": "Stale-choice rejection for delayed NPC decisions",
+      "owner": "src/npc_lives.js; world CAMPAIGN.md",
+      "status": "PROPOSAL"
+    },
+    {
+      "id": "P4",
+      "title": "Readable import identity preview",
+      "owner": "src/save_files.js; src/save_compatibility.js",
+      "status": "PROPOSAL"
+    },
+    {
+      "id": "P5",
+      "title": "Known-document shelf",
+      "owner": "docs/THEMATIC_UI_AND_INFORMATION_DESIGN_2026-10-12.md",
+      "status": "PROPOSAL"
+    }
+  ],
+  "small_touches": [
+    {
+      "id": "T01",
+      "idea": "PROPOSAL: Deliver a local letter with a distinct heard/read/rumor consequence; do not silently equate it with joining a faction. Owner: docs/worlds/PROGRESSION_AND_ASSEMBLY.md; src/data/dialogues.js; src/life_record.js.",
+      "inspiration": "A01",
+      "source_status": "covered"
+    },
+    {
+      "id": "T02",
+      "idea": "PROPOSAL: Keep a readable known-document shelf alongside the action panels. Owner: docs/worlds/PROGRESSION_AND_ASSEMBLY.md; src/data/dialogues.js; src/life_record.js.",
+      "inspiration": "A02",
+      "source_status": "covered"
+    },
+    {
+      "id": "T03",
+      "idea": "PROPOSAL: Keep visible finite work costs and cancellation in the existing routine owner. Owner: src/feature_expansion_work_plan.js; src/simulation.js.",
+      "inspiration": "A03",
+      "source_status": "covered"
+    },
+    {
+      "id": "T04",
+      "idea": "PROPOSAL: Explain export format and last successful write without treating a toast as validation of every loader. Owner: src/save_files.js; src/save_compatibility.js.",
+      "inspiration": "A04",
+      "source_status": "covered"
+    },
+    {
+      "id": "T05",
+      "idea": "PROPOSAL: Reject an asynchronous NPC choice if its world state changed while deciding. Owner: src/npc_lives.js; world CAMPAIGN.md.",
+      "inspiration": "A05",
+      "source_status": "partial"
+    },
+    {
+      "id": "T06",
+      "idea": "PROPOSAL: At 1440x900, show the routine, its budget and actual result beside current work; retain separate reading/log regions. Owner: docs/THEMATIC_UI_AND_INFORMATION_DESIGN_2026-10-12.md.",
+      "inspiration": "A06",
+      "source_status": "covered"
+    },
+    {
+      "id": "T07",
+      "idea": "PROPOSAL: Use declarative content IDs for local research; do not add executable closures to YAIR content. Owner: docs/TECHNOLOGY_AND_PROGRESSION.md.",
+      "inspiration": "A07",
+      "source_status": "partial"
+    },
+    {
+      "id": "T08",
+      "idea": "PROPOSAL: Label measured versus predicted rates and state the confidence boundary. Owner: src/feature_expansion_work_plan.js; src/simulation.js.",
+      "inspiration": "A08",
+      "source_status": "partial"
+    },
+    {
+      "id": "T09",
+      "idea": "PROPOSAL: Separate saved plan ownership from current eligibility to run. Owner: src/feature_expansion_work_plan.js; src/simulation.js.",
+      "inspiration": "A09",
+      "source_status": "covered"
+    },
+    {
+      "id": "T10",
+      "idea": "PROPOSAL: Teach one real local action and reveal its next usable consequence. Owner: src/native_discovery_policy.js; src/observation_channels.js.",
+      "inspiration": "A10",
+      "source_status": "covered"
+    },
+    {
+      "id": "T11",
+      "idea": "PROPOSAL: Use precise stop controls and a save preview with useful identity fields. Owner: docs/THEMATIC_UI_AND_INFORMATION_DESIGN_2026-10-12.md.",
+      "inspiration": "A11",
+      "source_status": "covered"
+    },
+    {
+      "id": "T12",
+      "idea": "PROPOSAL: Keep mini-games optional and attach rewards to named local means. Owner: docs/worlds/ABILITY_AUTHORING.md.",
+      "inspiration": "A12",
+      "source_status": "partial"
+    },
+    {
+      "id": "T13",
+      "idea": "PROPOSAL: Show a scene as encountered only after its delivery route succeeds. Owner: docs/worlds/PROGRESSION_AND_ASSEMBLY.md; src/data/dialogues.js; src/life_record.js.",
+      "inspiration": "A01/A02",
+      "source_status": "inferred adaptation, not a source feature claim"
+    },
+    {
+      "id": "T14",
+      "idea": "PROPOSAL: Keep a known scene available for rereading without replaying its reward. Owner: docs/worlds/PROGRESSION_AND_ASSEMBLY.md; src/data/dialogues.js; src/life_record.js.",
+      "inspiration": "A02/A04",
+      "source_status": "inferred adaptation, not a source feature claim"
+    },
+    {
+      "id": "T15",
+      "idea": "PROPOSAL: Show the last successful save time separately from a failed attempt. Owner: src/save_files.js; src/save_compatibility.js.",
+      "inspiration": "A04",
+      "source_status": "inferred adaptation, not a source feature claim"
+    },
+    {
+      "id": "T16",
+      "idea": "PROPOSAL: Give a restored backup a visible loss-of-recent-progress notice. Owner: src/save_files.js; src/save_compatibility.js.",
+      "inspiration": "A04",
+      "source_status": "inferred adaptation, not a source feature claim"
+    },
+    {
+      "id": "T17",
+      "idea": "PROPOSAL: Preserve the intended work target when a missing input pauses it. Owner: src/feature_expansion_work_plan.js; src/simulation.js.",
+      "inspiration": "A03/A09",
+      "source_status": "inferred adaptation, not a source feature claim"
+    },
+    {
+      "id": "T18",
+      "idea": "PROPOSAL: Label a rate estimate as projected and a settlement as actual. Owner: docs/THEMATIC_UI_AND_INFORMATION_DESIGN_2026-10-12.md.",
+      "inspiration": "A08/A09",
+      "source_status": "inferred adaptation, not a source feature claim"
+    },
+    {
+      "id": "T19",
+      "idea": "PROPOSAL: Expose the source of one active modifier beside its effect. Owner: docs/THEMATIC_UI_AND_INFORMATION_DESIGN_2026-10-12.md.",
+      "inspiration": "A06/A08",
+      "source_status": "inferred adaptation, not a source feature claim"
+    },
+    {
+      "id": "T20",
+      "idea": "PROPOSAL: Keep owned, assigned and currently usable support distinct in one local row. Owner: src/npc_lives.js; world CAMPAIGN.md.",
+      "inspiration": "A05/A12",
+      "source_status": "inferred adaptation, not a source feature claim"
+    }
+  ],
+  "unread": "Full Netscript semantics, Gang/Bladeburner AI, DarkNet rules, all formula/content records and Electron save parity remain unread. No install needed for these static questions.",
+  "runtime_exercised": false,
+  "game_installs": [],
+  "source_pins": [
+    {
+      "name": "bitburner",
+      "url": "https://github.com/bitburner-official/bitburner-src.git",
+      "exit": 0,
+      "log": "Cloning into '/Users/weiwei/.codex/research/bf-idle-src/repos/bitburner'...\n",
+      "commit": "1da7316ffd9d281b45a86c4c54ec532276557892"
+    }
+  ]
+}

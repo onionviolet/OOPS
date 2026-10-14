@@ -1,0 +1,184 @@
+{
+  "A01": {
+    "status": "partial",
+    "summary": "Stated: V presents dialogue before a tactical scenario and after completion, before intermission. W menus list a Talk/persuade command with enemies. V guide records participant-specific persuasion/combat conditions. No script format, speaker/portrait table, dialogue line IDs, bark pool or full conversation graph was acquired; these are unread because no public internal corpus was located within this guide route.",
+    "sources": [
+      "https://en.wikipedia.org/wiki/Super_Robot_Wars_V",
+      "https://akurasu.net/wiki/Super_Robot_Wars/W/Menus",
+      "https://akurasu.net/wiki/Super_Robot_Wars/V/Secrets"
+    ],
+    "yairpg": [
+      {
+        "status": "PROPOSAL",
+        "owner": "docs/worlds/DIALOGUE_AND_INTERACTIONS.md",
+        "takeaway": "Keep battle persuasion a current participant action with real consequences. A dramatic exchange is not proof of universal relationship mechanics."
+      }
+    ]
+  },
+  "A02": {
+    "status": "partial",
+    "summary": "Stated: V flow chart branches by protagonist and later route choices, rejoins numbered scenarios and lists optional SR objectives. Secret scenarios sit outside ordinary stage objectives. Script scheduling/journal recall and exact branching implementation remain unread; the guide is an authored route index, not source code.",
+    "sources": [
+      "https://akurasu.net/wiki/Super_Robot_Wars/V/Flow_Chart",
+      "https://akurasu.net/wiki/Super_Robot_Wars/V/Secrets"
+    ],
+    "yairpg": [
+      {
+        "status": "PROPOSAL",
+        "owner": "docs/worlds/CAMPAIGN_FRAMEWORK.md",
+        "takeaway": "Author route split, rejoin and optional outcomes separately. Maintain a causal receipt rather than infer which scenes were seen from stage number alone."
+      }
+    ]
+  },
+  "A03": {
+    "status": "unread",
+    "summary": "Unread: internal engine modules, scripting interpreter, event bus, data tables and main loop. Public guides show alternating phases and intermission but cannot establish code architecture. No executable/source package acquired, as this lane is public guides only and no install.",
+    "sources": [
+      "https://akurasu.net/wiki/Super_Robot_Wars/W/Menus",
+      "https://en.wikipedia.org/wiki/Super_Robot_Wars_V"
+    ],
+    "yairpg": [
+      {
+        "status": "PROPOSAL",
+        "owner": "docs/worlds/CAMPAIGN_FRAMEWORK.md",
+        "takeaway": "PROPOSAL: compare phase, story settlement and intermission as design boundaries; do not cite them as an inspected engine architecture."
+      }
+    ]
+  },
+  "A04": {
+    "status": "partial",
+    "summary": "Stated: W offers map-state Save and intermission Save Data. Its cleared-file guide specifies retained upgrades/money, sold parts and reset kill counts. V article mentions PS4/Vita cross-save. Binary format/versioning, autosave timing, migration, offline time and corruption/rejection handling remain unread. Titles and editions are kept separate.",
+    "sources": [
+      "https://akurasu.net/wiki/Super_Robot_Wars/W/Menus",
+      "https://akurasu.net/wiki/Super_Robot_Wars/W/Clear",
+      "https://en.wikipedia.org/wiki/Super_Robot_Wars_V"
+    ],
+    "yairpg": [
+      {
+        "status": "PROPOSAL",
+        "owner": "docs/ENGINE_SAVES_AND_SCALE_REVIEW_2026-10-11.md",
+        "takeaway": "Declare tactical resume, completed-arc carry and new-life start as separate persistence contracts. Preserve actor identity instead of turning each into prestige."
+      }
+    ]
+  },
+  "A05": {
+    "status": "partial",
+    "summary": "Stated: W End Phase passes control to the enemy. V flow objectives include retreat HP, movement-to-area and defeat triggers. These document scenario constraints, not an AI planner, targeting weights or off-screen NPC lives. Such algorithms are unread.",
+    "sources": [
+      "https://akurasu.net/wiki/Super_Robot_Wars/W/Menus",
+      "https://akurasu.net/wiki/Super_Robot_Wars/V/Flow_Chart"
+    ],
+    "yairpg": [
+      {
+        "status": "PROPOSAL",
+        "owner": "docs/worlds/CAMPAIGN_FRAMEWORK.md",
+        "takeaway": "An enemy withdrawal threshold should create a visible tactical opportunity when observed. Do not invent a social AI model from a stage objective."
+      }
+    ]
+  },
+  "A06": {
+    "status": "covered",
+    "summary": "Stated in W menu reference: pilot, unit and weapon status are distinct; weapon view lists morale, energy/ammo, range, hit and terrain conditions. Intermission groups pilot training, unit upgrades, assignment, parts, shop and save. System settings include grid, animation toggles and shortcuts. This is guide-level UI evidence, not measured desktop behavior.",
+    "sources": [
+      "https://akurasu.net/wiki/Super_Robot_Wars/W/Menus"
+    ],
+    "yairpg": [
+      {
+        "status": "PROPOSAL",
+        "owner": "docs/THEMATIC_UI_AND_INFORMATION_DESIGN_2026-10-12.md",
+        "takeaway": "Show actor, equipment and action eligibility together on desktop. Name which resource blocks an attack; retain optional animation without hiding the receipt."
+      }
+    ]
+  },
+  "A07": {
+    "status": "unread",
+    "summary": "Unread: official author tools, script files, mod API, pack load order and validation. Akurasu authors maintain route and secret-condition tables, but wiki authoring does not establish game content authoring. No decompile or ROM acquisition.",
+    "sources": [
+      "https://akurasu.net/wiki/Super_Robot_Wars/V/Flow_Chart",
+      "https://akurasu.net/wiki/Super_Robot_Wars/V/Secrets"
+    ],
+    "yairpg": [
+      {
+        "status": "PROPOSAL",
+        "owner": "docs/worlds/CAMPAIGN_FRAMEWORK.md",
+        "takeaway": "Use a route-condition table as an original authoring proposal. It still needs a native consumer and validation before it is gameplay."
+      }
+    ]
+  },
+  "A08": {
+    "status": "partial",
+    "summary": "Stated: V objectives constrain turn counts, use of each attack, participant credit and retreat HP. Secrets add distinct character/group scores and prerequisite combinations. W exposes terrain, morale and resource costs. Full damage/hit formulas, RNG, seeds, difficulty curves, pity and economy scaling remain unread; no formula inferred from guide rows.",
+    "sources": [
+      "https://akurasu.net/wiki/Super_Robot_Wars/V/Flow_Chart",
+      "https://akurasu.net/wiki/Super_Robot_Wars/V/Secrets",
+      "https://akurasu.net/wiki/Super_Robot_Wars/W/Menus"
+    ],
+    "yairpg": [
+      {
+        "status": "PROPOSAL",
+        "owner": "docs/worlds/CAMPAIGN_FRAMEWORK.md",
+        "takeaway": "Record who earned each combat receipt and whether support credit qualifies. Optional mastery must not be a hidden universal morality score."
+      }
+    ]
+  },
+  "A09": {
+    "status": "partial",
+    "summary": "Stated: player/enemy phases and map turn limits drive optional objectives. W intermission follows battles; V routes use numbered scenarios and ordered participant checks. This is tactical/story progression, not a verified age calendar or offline system. Exact event priority when several triggers coincide is unread.",
+    "sources": [
+      "https://akurasu.net/wiki/Super_Robot_Wars/V/Flow_Chart",
+      "https://akurasu.net/wiki/Super_Robot_Wars/W/Menus"
+    ],
+    "yairpg": [
+      {
+        "status": "PROPOSAL",
+        "owner": "docs/TIMELINES_AND_DIVERGENCE.md",
+        "takeaway": "Use explicit deadline and settlement order for campaign events. Turn count and lived calendar time should not be merged without a world rule."
+      }
+    ]
+  },
+  "A10": {
+    "status": "partial",
+    "summary": "Stated: V has Beginner Mode and its opening SR objective asks use of all protagonist attacks; later objectives add coordinated kills/turn deadlines. Inferred: this can teach the action set through an optional goal. Full tutorial messages, unlock order and balancing are unread.",
+    "sources": [
+      "https://en.wikipedia.org/wiki/Super_Robot_Wars_V",
+      "https://akurasu.net/wiki/Super_Robot_Wars/V/Flow_Chart"
+    ],
+    "yairpg": [
+      {
+        "status": "PROPOSAL",
+        "owner": "docs/worlds/WORLD_SECRETS_AND_DISCOVERY.md",
+        "takeaway": "An optional opening objective can teach several useful verbs. Offer ordinary completion and explain known mastery terms without forcing perfect play."
+      }
+    ]
+  },
+  "A11": {
+    "status": "covered",
+    "summary": "Stated in W menu guide: battle animation/explosion can be toggled; grid and shortcuts can be configured; BGM can be assigned and protagonist weapons renamed. These are title-specific flavor and pacing controls. No accessibility audit or current platform parity proof.",
+    "sources": [
+      "https://akurasu.net/wiki/Super_Robot_Wars/W/Menus"
+    ],
+    "yairpg": [
+      {
+        "status": "PROPOSAL",
+        "owner": "docs/THEMATIC_UI_AND_INFORMATION_DESIGN_2026-10-12.md",
+        "takeaway": "Allow repeated-action feedback to be shortened while preserving outcomes. Cosmetic naming must not change action identity or save compatibility."
+      }
+    ]
+  },
+  "A12": {
+    "status": "partial",
+    "summary": "Stated: V has participant-specific secret recruitment/attacks, early-versus-late arrival, event-only survival, and unit upgrade transfers. W clear state trades parts for money and carries upgrades under its own rules. All-secret/series-wide catalogs, achievements and full DLC entitlement matrix remain unread.",
+    "sources": [
+      "https://akurasu.net/wiki/Super_Robot_Wars/V/Secrets",
+      "https://akurasu.net/wiki/Super_Robot_Wars/V/Upgrade_Carryover",
+      "https://akurasu.net/wiki/Super_Robot_Wars/W/Clear"
+    ],
+    "yairpg": [
+      {
+        "status": "PROPOSAL",
+        "owner": "docs/worlds/CAMPAIGN_FRAMEWORK.md",
+        "takeaway": "Distinguish survival, recruitability, early arrival and playable control. A surviving NPC need not join the player's roster."
+      }
+    ]
+  }
+}

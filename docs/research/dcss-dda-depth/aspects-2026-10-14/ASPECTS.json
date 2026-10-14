@@ -1,0 +1,1154 @@
+{
+  "A01": {
+    "status": "covered",
+    "sources": [
+      {
+        "game": "crawl",
+        "path": "crawl-ref/source/mon-speak.cc",
+        "lines": [
+          337,
+          445
+        ],
+        "url": "https://github.com/crawl/crawl/blob/c4298273a49c6601be4e1c9b79d4aba43f9aa603/crawl-ref/source/mon-speak.cc#L337-L445",
+        "sha256": "7ef74afe3ae89fbb44426be0718051e1a28afc3fb81b87c4cd4c695defb5298f",
+        "line_count": 878,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      },
+      {
+        "game": "crawl",
+        "path": "crawl-ref/source/mon-speak.cc",
+        "lines": [
+          827,
+          878
+        ],
+        "url": "https://github.com/crawl/crawl/blob/c4298273a49c6601be4e1c9b79d4aba43f9aa603/crawl-ref/source/mon-speak.cc#L827-L878",
+        "sha256": "7ef74afe3ae89fbb44426be0718051e1a28afc3fb81b87c4cd4c695defb5298f",
+        "line_count": 878,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      },
+      {
+        "game": "crawl",
+        "path": "crawl-ref/docs/develop/monster_speech.txt",
+        "lines": [
+          1,
+          45
+        ],
+        "url": "https://github.com/crawl/crawl/blob/c4298273a49c6601be4e1c9b79d4aba43f9aa603/crawl-ref/docs/develop/monster_speech.txt#L1-L45",
+        "sha256": "2071b472fbb26742c59639372fb212fd1a7a3fbdb63e4e371873c3f5df8e58e2",
+        "line_count": 923,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      },
+      {
+        "game": "cdda",
+        "path": "src/npctalk.cpp",
+        "lines": [
+          8497,
+          8528
+        ],
+        "url": "https://github.com/CleverRaven/Cataclysm-DDA/blob/ef31b1fc84c640f97a5547a5b76a6ba5e9e97847/src/npctalk.cpp#L8497-L8528",
+        "sha256": "65482e1fbe5536f667afd7e3945a1e55e3434c6799f76e7dd949c5602d871924",
+        "line_count": 9652,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      },
+      {
+        "game": "cdda",
+        "path": "src/npctalk.cpp",
+        "lines": [
+          8988,
+          9134
+        ],
+        "url": "https://github.com/CleverRaven/Cataclysm-DDA/blob/ef31b1fc84c640f97a5547a5b76a6ba5e9e97847/src/npctalk.cpp#L8988-L9134",
+        "sha256": "65482e1fbe5536f667afd7e3945a1e55e3434c6799f76e7dd949c5602d871924",
+        "line_count": 9652,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      },
+      {
+        "game": "cdda",
+        "path": "src/npctalk.cpp",
+        "lines": [
+          9168,
+          9374
+        ],
+        "url": "https://github.com/CleverRaven/Cataclysm-DDA/blob/ef31b1fc84c640f97a5547a5b76a6ba5e9e97847/src/npctalk.cpp#L9168-L9374",
+        "sha256": "65482e1fbe5536f667afd7e3945a1e55e3434c6799f76e7dd949c5602d871924",
+        "line_count": 9652,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      },
+      {
+        "game": "cdda",
+        "path": "src/npctalk.cpp",
+        "lines": [
+          9375,
+          9472
+        ],
+        "url": "https://github.com/CleverRaven/Cataclysm-DDA/blob/ef31b1fc84c640f97a5547a5b76a6ba5e9e97847/src/npctalk.cpp#L9375-L9472",
+        "sha256": "65482e1fbe5536f667afd7e3945a1e55e3434c6799f76e7dd949c5602d871924",
+        "line_count": 9652,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      },
+      {
+        "game": "cdda",
+        "path": "data/json/npcs/Backgrounds/evacuee_2.json",
+        "lines": [
+          1,
+          44
+        ],
+        "url": "https://github.com/CleverRaven/Cataclysm-DDA/blob/ef31b1fc84c640f97a5547a5b76a6ba5e9e97847/data/json/npcs/Backgrounds/evacuee_2.json#L1-L44",
+        "sha256": "c69e777093bafe0ba545c141111ded3806de76296fe7c909d866876ad25ea9e0",
+        "line_count": 52,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      }
+    ],
+    "summary": "Dungeon Crawl Stone Soup: Shown: speech is selected by C++ monster context and text-database keys, then name/actor replacements and channel prefixes produce visible or audible lines. maybe_mons_speaks changes probability for uniques, bands, allies, confusion and fleeing, and suppresses several actor states. mons_speaks_msg requires a visible cell and respects visual/perception rules. The reviewed route is barks and generated contextual lines; no reply graph, speaker portrait graph or state-changing conversation choice was found in it. Deity menus and other interaction routes are separate.\n\nCataclysm: Dark Days Ahead: Shown: json_talk_topic loads dynamic_line, speaker_effect, optional portrait_override, ordered responses and repeated inventory-driven responses. Dynamic lines allow translated strings, concatenation, random arrays and conditional branches. Response conditions can hide choices or produce a failure explanation/topic; trials require a failure effect. talk_effect_t::apply runs effects, changes NPC opinion, checks hostility and returns the next topic. Thus speech can alter world state. Some dynamic-line evaluation also clears a reason value, so text generation is not universally pure. Optional speaker-effect sentinels build a topic-scoped variable on the first actor, combine it with the condition, and set it after the effect. A base-data example BGSS_EVACUEE_2_STORY1 gates a social trial on a temporary NPC effect, branches to a later topic on success and applies that effect on the failure topic.",
+    "yairpg": [
+      "Dungeon Crawl Stone Soup: PROPOSAL: Actor barks in src/simulation_ui.js should use observation and current actor state, with low repetition for permanent companions; choices belong to the existing dialogue action owner.",
+      "Cataclysm: Dark Days Ahead: PROPOSAL: In src/data/dialogues.js and src/models/dialogue_action.js, add one earned response with explicit refusal text, recheck eligibility at commit, and keep rendering free from reward/state mutations."
+    ]
+  },
+  "A02": {
+    "status": "partial",
+    "sources": [
+      {
+        "game": "crawl",
+        "path": "crawl-ref/source/notes.cc",
+        "lines": [
+          89,
+          108
+        ],
+        "url": "https://github.com/crawl/crawl/blob/c4298273a49c6601be4e1c9b79d4aba43f9aa603/crawl-ref/source/notes.cc#L89-L108",
+        "sha256": "fb5b7e1893d671232382fe842627baa9879d50db25bdaa8575aed8deaa71598c",
+        "line_count": 601,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      },
+      {
+        "game": "crawl",
+        "path": "crawl-ref/source/notes.cc",
+        "lines": [
+          550,
+          585
+        ],
+        "url": "https://github.com/crawl/crawl/blob/c4298273a49c6601be4e1c9b79d4aba43f9aa603/crawl-ref/source/notes.cc#L550-L585",
+        "sha256": "fb5b7e1893d671232382fe842627baa9879d50db25bdaa8575aed8deaa71598c",
+        "line_count": 601,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      },
+      {
+        "game": "crawl",
+        "path": "crawl-ref/source/hints.cc",
+        "lines": [
+          65,
+          100
+        ],
+        "url": "https://github.com/crawl/crawl/blob/c4298273a49c6601be4e1c9b79d4aba43f9aa603/crawl-ref/source/hints.cc#L65-L100",
+        "sha256": "f7925a3599951a44773b4696a8d37f7485d049947a00affa160f7e8963f5b294",
+        "line_count": 2407,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      },
+      {
+        "game": "cdda",
+        "path": "src/mission.cpp",
+        "lines": [
+          46,
+          108
+        ],
+        "url": "https://github.com/CleverRaven/Cataclysm-DDA/blob/ef31b1fc84c640f97a5547a5b76a6ba5e9e97847/src/mission.cpp#L46-L108",
+        "sha256": "1e20a42072861dfca5d5bd25f3a52f00f972704de5f6827e3b3a38f89307b8fd",
+        "line_count": 1022,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      },
+      {
+        "game": "cdda",
+        "path": "src/npctalk.cpp",
+        "lines": [
+          8497,
+          8528
+        ],
+        "url": "https://github.com/CleverRaven/Cataclysm-DDA/blob/ef31b1fc84c640f97a5547a5b76a6ba5e9e97847/src/npctalk.cpp#L8497-L8528",
+        "sha256": "65482e1fbe5536f667afd7e3945a1e55e3434c6799f76e7dd949c5602d871924",
+        "line_count": 9652,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      },
+      {
+        "game": "cdda",
+        "path": "src/game_io.cpp",
+        "lines": [
+          601,
+          640
+        ],
+        "url": "https://github.com/CleverRaven/Cataclysm-DDA/blob/ef31b1fc84c640f97a5547a5b76a6ba5e9e97847/src/game_io.cpp#L601-L640",
+        "sha256": "1e1767bd017e4731470a4c61eaa667fa6d5de38b79dc9f514cb2894faddaaca2",
+        "line_count": 981,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      },
+      {
+        "game": "cdda",
+        "path": "src/game_io.cpp",
+        "lines": [
+          734,
+          780
+        ],
+        "url": "https://github.com/CleverRaven/Cataclysm-DDA/blob/ef31b1fc84c640f97a5547a5b76a6ba5e9e97847/src/game_io.cpp#L734-L780",
+        "sha256": "1e1767bd017e4731470a4c61eaa667fa6d5de38b79dc9f514cb2894faddaaca2",
+        "line_count": 981,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      }
+    ],
+    "summary": "Dungeon Crawl Stone Soup: Shown: take_note accepts only active/noteworthy or forced notes, appends a structured Note and checks milestones. Notes and hints have separate versioned save/load paths. The note catalogue includes growth, worship, mutations, items and encounters, so a run can be recalled through selected state transitions instead of every turn. This is a run chronicle, not evidence of a branching quest-journal engine.\n\nCataclysm: Dark Days Ahead: Shown: mission.cpp keeps world missions by UID; creating a mission gives it an assigned identity. Dialogue effects explicitly preserve a mission reference before applying effects that may remove it, then update opinion from mission value. Save code retains message history, global variables, missions/NPC state through separate owners, and a player diary is stored separately. Full quest scripting, all journals, environmental writing and closure branches remain unread.",
+    "yairpg": [
+      "Dungeon Crawl Stone Soup: PROPOSAL: Project existing causal receipts into a concise chronicle in src/simulation_ui.js; preserve exact causes while filtering routine repetition.",
+      "Cataclysm: Dark Days Ahead: PROPOSAL: Existing mission and society owners should retain cause, author and observed result in receipts; dialogue completion and material settlement must not be conflated."
+    ]
+  },
+  "A03": {
+    "status": "covered",
+    "sources": [
+      {
+        "game": "crawl",
+        "path": "crawl-ref/source/mon-act.cc",
+        "lines": [
+          2827,
+          2870
+        ],
+        "url": "https://github.com/crawl/crawl/blob/c4298273a49c6601be4e1c9b79d4aba43f9aa603/crawl-ref/source/mon-act.cc#L2827-L2870",
+        "sha256": "70416c8168c490771d63cd4f6776c07bc0ed196a242dba79ba2648809daa10bf",
+        "line_count": 4368,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      },
+      {
+        "game": "crawl",
+        "path": "crawl-ref/source/random.cc",
+        "lines": [
+          20,
+          100
+        ],
+        "url": "https://github.com/crawl/crawl/blob/c4298273a49c6601be4e1c9b79d4aba43f9aa603/crawl-ref/source/random.cc#L20-L100",
+        "sha256": "3452858e5575254935644223bfdf73da2068d829a39ffd7e82698341a1ed1ac2",
+        "line_count": 548,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      },
+      {
+        "game": "crawl",
+        "path": "crawl-ref/source/files.cc",
+        "lines": [
+          2651,
+          2712
+        ],
+        "url": "https://github.com/crawl/crawl/blob/c4298273a49c6601be4e1c9b79d4aba43f9aa603/crawl-ref/source/files.cc#L2651-L2712",
+        "sha256": "3fe3c8753c3e776aaf14da6be8327ac6d2a1e1ac9e275619579121989c4eede5",
+        "line_count": 4112,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      },
+      {
+        "game": "crawl",
+        "path": "crawl-ref/source/files.cc",
+        "lines": [
+          3214,
+          3275
+        ],
+        "url": "https://github.com/crawl/crawl/blob/c4298273a49c6601be4e1c9b79d4aba43f9aa603/crawl-ref/source/files.cc#L3214-L3275",
+        "sha256": "3fe3c8753c3e776aaf14da6be8327ac6d2a1e1ac9e275619579121989c4eede5",
+        "line_count": 4112,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      },
+      {
+        "game": "cdda",
+        "path": "src/init.cpp",
+        "lines": [
+          151,
+          185
+        ],
+        "url": "https://github.com/CleverRaven/Cataclysm-DDA/blob/ef31b1fc84c640f97a5547a5b76a6ba5e9e97847/src/init.cpp#L151-L185",
+        "sha256": "6b4b6d0f604ea0a3649a463bd687a63aefe618c5522120315e07ce13ef4d06f9",
+        "line_count": 1059,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      },
+      {
+        "game": "cdda",
+        "path": "src/init.cpp",
+        "lines": [
+          523,
+          586
+        ],
+        "url": "https://github.com/CleverRaven/Cataclysm-DDA/blob/ef31b1fc84c640f97a5547a5b76a6ba5e9e97847/src/init.cpp#L523-L586",
+        "sha256": "6b4b6d0f604ea0a3649a463bd687a63aefe618c5522120315e07ce13ef4d06f9",
+        "line_count": 1059,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      },
+      {
+        "game": "cdda",
+        "path": "src/init.cpp",
+        "lines": [
+          798,
+          820
+        ],
+        "url": "https://github.com/CleverRaven/Cataclysm-DDA/blob/ef31b1fc84c640f97a5547a5b76a6ba5e9e97847/src/init.cpp#L798-L820",
+        "sha256": "6b4b6d0f604ea0a3649a463bd687a63aefe618c5522120315e07ce13ef4d06f9",
+        "line_count": 1059,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      },
+      {
+        "game": "cdda",
+        "path": "src/do_turn.cpp",
+        "lines": [
+          533,
+          627
+        ],
+        "url": "https://github.com/CleverRaven/Cataclysm-DDA/blob/ef31b1fc84c640f97a5547a5b76a6ba5e9e97847/src/do_turn.cpp#L533-L627",
+        "sha256": "b70dd25098beb8e0649cd34d83d5b8d03fa104ffba75a71b6b0b8700b90a8939",
+        "line_count": 818,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      },
+      {
+        "game": "cdda",
+        "path": "src/event_bus.cpp",
+        "lines": [
+          60,
+          100
+        ],
+        "url": "https://github.com/CleverRaven/Cataclysm-DDA/blob/ef31b1fc84c640f97a5547a5b76a6ba5e9e97847/src/event_bus.cpp#L60-L100",
+        "sha256": "440586593fcb8d7eb5e8672769cbc67a81e773f8490b2183c55ea41d9c3b7322",
+        "line_count": 181,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      }
+    ],
+    "summary": "Dungeon Crawl Stone Soup: Shown: C++ gameplay combines command/main-loop dispatch, actors, separate monster action handling, tagged serialization, data text, Lua map generation and player-side Lua support. Monster actions use an energy queue and recheck actor validity after callbacks. Random generators have scoped switching and branch streams. Save state lives in a chunk package rather than one JSON object. Source has terminal/local tile/web paths; no current binary equivalence is asserted.\n\nCataclysm: Dark Days Ahead: Shown: C++ runs the simulation while typed JSON supplies large content families. DynamicDataLoader dispatches a JSON type to its loader, loads folders before finalization and performs separate finalization/consistency phases. do_turn advances the calendar, processes timed events, item wakeups, missions, weather, NPC sound and activities. event_bus synchronously notifies subscribers and rejects its null event type. Dialogue conditions/effects provide a reusable scripting vocabulary rather than unrestricted embedded game code. Full performance and thread behavior were not measured.",
+    "yairpg": [
+      "Dungeon Crawl Stone Soup: PROPOSAL: Keep simulation ownership and presentation projections separate in src/simulation.js and src/simulation_ui.js; revalidate an actor after an effect can remove or relocate it.",
+      "Cataclysm: Dark Days Ahead: PROPOSAL: In src/simulation_contracts.js validate typed content before runtime, then dispatch actual committed events to history/UI consumers. Do not let polling manufacture effects."
+    ]
+  },
+  "A04": {
+    "status": "covered",
+    "sources": [
+      {
+        "game": "crawl",
+        "path": "crawl-ref/source/files.cc",
+        "lines": [
+          2651,
+          2712
+        ],
+        "url": "https://github.com/crawl/crawl/blob/c4298273a49c6601be4e1c9b79d4aba43f9aa603/crawl-ref/source/files.cc#L2651-L2712",
+        "sha256": "3fe3c8753c3e776aaf14da6be8327ac6d2a1e1ac9e275619579121989c4eede5",
+        "line_count": 4112,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      },
+      {
+        "game": "crawl",
+        "path": "crawl-ref/source/files.cc",
+        "lines": [
+          3214,
+          3275
+        ],
+        "url": "https://github.com/crawl/crawl/blob/c4298273a49c6601be4e1c9b79d4aba43f9aa603/crawl-ref/source/files.cc#L3214-L3275",
+        "sha256": "3fe3c8753c3e776aaf14da6be8327ac6d2a1e1ac9e275619579121989c4eede5",
+        "line_count": 4112,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      },
+      {
+        "game": "crawl",
+        "path": "crawl-ref/source/files.cc",
+        "lines": [
+          3370,
+          3400
+        ],
+        "url": "https://github.com/crawl/crawl/blob/c4298273a49c6601be4e1c9b79d4aba43f9aa603/crawl-ref/source/files.cc#L3370-L3400",
+        "sha256": "3fe3c8753c3e776aaf14da6be8327ac6d2a1e1ac9e275619579121989c4eede5",
+        "line_count": 4112,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      },
+      {
+        "game": "crawl",
+        "path": "crawl-ref/source/tag-version.h",
+        "lines": [
+          15,
+          65
+        ],
+        "url": "https://github.com/crawl/crawl/blob/c4298273a49c6601be4e1c9b79d4aba43f9aa603/crawl-ref/source/tag-version.h#L15-L65",
+        "sha256": "d384db6a9ab881b9d0c889dcf974bb26a848e7b3f0b5fdc02ec75bc7ae66c1d2",
+        "line_count": 498,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      },
+      {
+        "game": "crawl",
+        "path": "crawl-ref/source/tags.cc",
+        "lines": [
+          748,
+          775
+        ],
+        "url": "https://github.com/crawl/crawl/blob/c4298273a49c6601be4e1c9b79d4aba43f9aa603/crawl-ref/source/tags.cc#L748-L775",
+        "sha256": "28a7d8225380a11290ce30fb94e01e1da0f0239a851042d11ed2331c72cf9308",
+        "line_count": 9173,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      },
+      {
+        "game": "crawl",
+        "path": "crawl-ref/source/tags.cc",
+        "lines": [
+          1301,
+          1340
+        ],
+        "url": "https://github.com/crawl/crawl/blob/c4298273a49c6601be4e1c9b79d4aba43f9aa603/crawl-ref/source/tags.cc#L1301-L1340",
+        "sha256": "28a7d8225380a11290ce30fb94e01e1da0f0239a851042d11ed2331c72cf9308",
+        "line_count": 9173,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      },
+      {
+        "game": "crawl",
+        "path": "crawl-ref/source/random.cc",
+        "lines": [
+          20,
+          60
+        ],
+        "url": "https://github.com/crawl/crawl/blob/c4298273a49c6601be4e1c9b79d4aba43f9aa603/crawl-ref/source/random.cc#L20-L60",
+        "sha256": "3452858e5575254935644223bfdf73da2068d829a39ffd7e82698341a1ed1ac2",
+        "line_count": 548,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      },
+      {
+        "game": "crawl",
+        "path": "crawl-ref/source/notes.cc",
+        "lines": [
+          550,
+          585
+        ],
+        "url": "https://github.com/crawl/crawl/blob/c4298273a49c6601be4e1c9b79d4aba43f9aa603/crawl-ref/source/notes.cc#L550-L585",
+        "sha256": "fb5b7e1893d671232382fe842627baa9879d50db25bdaa8575aed8deaa71598c",
+        "line_count": 601,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      },
+      {
+        "game": "cdda",
+        "path": "src/savegame.cpp",
+        "lines": [
+          84,
+          164
+        ],
+        "url": "https://github.com/CleverRaven/Cataclysm-DDA/blob/ef31b1fc84c640f97a5547a5b76a6ba5e9e97847/src/savegame.cpp#L84-L164",
+        "sha256": "b86a9361108e3d6a0770f45e74e103ef2099cedd602ea6e0317388866c5ad5cb",
+        "line_count": 2162,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      },
+      {
+        "game": "cdda",
+        "path": "src/savegame.cpp",
+        "lines": [
+          199,
+          328
+        ],
+        "url": "https://github.com/CleverRaven/Cataclysm-DDA/blob/ef31b1fc84c640f97a5547a5b76a6ba5e9e97847/src/savegame.cpp#L199-L328",
+        "sha256": "b86a9361108e3d6a0770f45e74e103ef2099cedd602ea6e0317388866c5ad5cb",
+        "line_count": 2162,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      },
+      {
+        "game": "cdda",
+        "path": "src/game_io.cpp",
+        "lines": [
+          601,
+          640
+        ],
+        "url": "https://github.com/CleverRaven/Cataclysm-DDA/blob/ef31b1fc84c640f97a5547a5b76a6ba5e9e97847/src/game_io.cpp#L601-L640",
+        "sha256": "1e1767bd017e4731470a4c61eaa667fa6d5de38b79dc9f514cb2894faddaaca2",
+        "line_count": 981,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      },
+      {
+        "game": "cdda",
+        "path": "src/game_io.cpp",
+        "lines": [
+          734,
+          780
+        ],
+        "url": "https://github.com/CleverRaven/Cataclysm-DDA/blob/ef31b1fc84c640f97a5547a5b76a6ba5e9e97847/src/game_io.cpp#L734-L780",
+        "sha256": "1e1767bd017e4731470a4c61eaa667fa6d5de38b79dc9f514cb2894faddaaca2",
+        "line_count": 981,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      },
+      {
+        "game": "cdda",
+        "path": "src/game_io.cpp",
+        "lines": [
+          885,
+          949
+        ],
+        "url": "https://github.com/CleverRaven/Cataclysm-DDA/blob/ef31b1fc84c640f97a5547a5b76a6ba5e9e97847/src/game_io.cpp#L885-L949",
+        "sha256": "1e1767bd017e4731470a4c61eaa667fa6d5de38b79dc9f514cb2894faddaaca2",
+        "line_count": 981,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      }
+    ],
+    "summary": "Dungeon Crawl Stone Soup: Shown: save_game calls the base writer and commits the package at checkpoints unless disabled. Tagged readers use major/minor compatibility; TAG_MAJOR_VERSION is 34 at this pin. Older minor layouts have explicit conversion branches in tags.cc. _restore_game reads character info before accepting a loadable package and aborts an incompatible save without rewriting its header when deletion is declined. restore_game offers deletion of invalid data with a default no. Notes, hints and RNG have distinct serialization. Complete chunk transaction internals and every migration were not audited.\n\nCataclysm: Dark Days Ahead: Shown: savegame.cpp declares version 40, reads legacy comment headers and an embedded loading version, and serializes turn/calendar, player, active monsters, trackers, unique NPCs, global variables, messages and queued global EOCs with time/context. game_io.cpp coordinates player, maps, NPC/faction/mission, achievements, zones/options and UI files. Compressed player save uses a temporary archive and rename. This is not whole-world atomicity. JsonError handling can return after incremental load mutation. Autosave checks both turn cadence and real minimum interval; quicksave resets counters after calling save without checking its result. No personal saves were read.",
+    "yairpg": [
+      "Dungeon Crawl Stone Soup: PROPOSAL: src/save_compatibility.js should identify which subsystem version failed and preserve the input; projections such as journal/hint caches can have narrower compatibility than simulation truth.",
+      "Cataclysm: Dark Days Ahead: PROPOSAL: src/native_storage_transaction.js should publish one validated candidate or report failure without clearing dirty state. Cross-owner saves need an explicit compatibility and atomicity decision."
+    ]
+  },
+  "A05": {
+    "status": "partial",
+    "sources": [
+      {
+        "game": "crawl",
+        "path": "crawl-ref/source/mon-act.cc",
+        "lines": [
+          2827,
+          2870
+        ],
+        "url": "https://github.com/crawl/crawl/blob/c4298273a49c6601be4e1c9b79d4aba43f9aa603/crawl-ref/source/mon-act.cc#L2827-L2870",
+        "sha256": "70416c8168c490771d63cd4f6776c07bc0ed196a242dba79ba2648809daa10bf",
+        "line_count": 4368,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      },
+      {
+        "game": "crawl",
+        "path": "crawl-ref/source/mon-speak.cc",
+        "lines": [
+          337,
+          395
+        ],
+        "url": "https://github.com/crawl/crawl/blob/c4298273a49c6601be4e1c9b79d4aba43f9aa603/crawl-ref/source/mon-speak.cc#L337-L395",
+        "sha256": "7ef74afe3ae89fbb44426be0718051e1a28afc3fb81b87c4cd4c695defb5298f",
+        "line_count": 878,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      },
+      {
+        "game": "cdda",
+        "path": "src/npcmove.cpp",
+        "lines": [
+          1910,
+          1960
+        ],
+        "url": "https://github.com/CleverRaven/Cataclysm-DDA/blob/ef31b1fc84c640f97a5547a5b76a6ba5e9e97847/src/npcmove.cpp#L1910-L1960",
+        "sha256": "73809a377d66a70431021c3b12247b6511ad06aca508397eff0ae117d1f3970d",
+        "line_count": 7842,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      },
+      {
+        "game": "cdda",
+        "path": "src/do_turn.cpp",
+        "lines": [
+          620,
+          627
+        ],
+        "url": "https://github.com/CleverRaven/Cataclysm-DDA/blob/ef31b1fc84c640f97a5547a5b76a6ba5e9e97847/src/do_turn.cpp#L620-L627",
+        "sha256": "b70dd25098beb8e0649cd34d83d5b8d03fa104ffba75a71b6b0b8700b90a8939",
+        "line_count": 818,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      }
+    ],
+    "summary": "Dungeon Crawl Stone Soup: Shown: handle_monsters queues valid living actors with action energy, rechecks them after removal, updates attitude, executes a move only if the queued energy still matches, and requeues actors that can still act. The loop includes an explicit iteration guard. Speech reads attitude and action state but is not the planner. Full tactical scoring, spell choice, noise propagation and player-rule parity remain unread.\n\nCataclysm: Dark Days Ahead: Shown: NPC move code includes danger assessment, needs goals, executor result states and activity routing. A needs executor can report idle, progressed, satisfied, holding, blocked, deferred or impossible, rather than treating every attempt as useful work. NPC sound is processed before movement to avoid actors hearing their own talk as a new cue. Full goal selection, resource reservation, faction AI and offscreen activity were not read end to end.",
+    "yairpg": [
+      "Dungeon Crawl Stone Soup: PROPOSAL: src/simulation_resolution.js should drop stale actor jobs when the actor or cost changed, while preserving an explainable refusal or pause reason.",
+      "Cataclysm: Dark Days Ahead: PROPOSAL: Extend existing independent resident work in src/feature_expansion_society.js with a concrete blocked/deferred reason and a real resource/tool consumer; avoid adding a parallel generic agent engine."
+    ]
+  },
+  "A06": {
+    "status": "partial",
+    "sources": [
+      {
+        "game": "crawl",
+        "path": "crawl-ref/source/travel.cc",
+        "lines": [
+          590,
+          625
+        ],
+        "url": "https://github.com/crawl/crawl/blob/c4298273a49c6601be4e1c9b79d4aba43f9aa603/crawl-ref/source/travel.cc#L590-L625",
+        "sha256": "2a37acff4bd851b1ec025feb3d96968825a2c77fb9d154a6ad45879ca4f78a01",
+        "line_count": 5469,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      },
+      {
+        "game": "crawl",
+        "path": "crawl-ref/source/hints.cc",
+        "lines": [
+          65,
+          100
+        ],
+        "url": "https://github.com/crawl/crawl/blob/c4298273a49c6601be4e1c9b79d4aba43f9aa603/crawl-ref/source/hints.cc#L65-L100",
+        "sha256": "f7925a3599951a44773b4696a8d37f7485d049947a00affa160f7e8963f5b294",
+        "line_count": 2407,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      },
+      {
+        "game": "crawl",
+        "path": "crawl-ref/source/describe.cc",
+        "lines": [
+          121,
+          145
+        ],
+        "url": "https://github.com/crawl/crawl/blob/c4298273a49c6601be4e1c9b79d4aba43f9aa603/crawl-ref/source/describe.cc#L121-L145",
+        "sha256": "c99e5e50cda0495270f0407bccb23c19d7e663fc90c8097dd851255e7297f979",
+        "line_count": 8221,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      },
+      {
+        "game": "cdda",
+        "path": "src/panels.cpp",
+        "lines": [
+          57,
+          168
+        ],
+        "url": "https://github.com/CleverRaven/Cataclysm-DDA/blob/ef31b1fc84c640f97a5547a5b76a6ba5e9e97847/src/panels.cpp#L57-L168",
+        "sha256": "9f6b2fd516664c9a45c0fbefe954ed9500c3397db1b56935be8fcf9fe3f5de99",
+        "line_count": 887,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      },
+      {
+        "game": "cdda",
+        "path": "src/npctalk.cpp",
+        "lines": [
+          8988,
+          9134
+        ],
+        "url": "https://github.com/CleverRaven/Cataclysm-DDA/blob/ef31b1fc84c640f97a5547a5b76a6ba5e9e97847/src/npctalk.cpp#L8988-L9134",
+        "sha256": "65482e1fbe5536f667afd7e3945a1e55e3434c6799f76e7dd949c5602d871924",
+        "line_count": 9652,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      },
+      {
+        "game": "cdda",
+        "path": "src/npctalk.cpp",
+        "lines": [
+          9375,
+          9420
+        ],
+        "url": "https://github.com/CleverRaven/Cataclysm-DDA/blob/ef31b1fc84c640f97a5547a5b76a6ba5e9e97847/src/npctalk.cpp#L9375-L9420",
+        "sha256": "65482e1fbe5536f667afd7e3945a1e55e3434c6799f76e7dd949c5602d871924",
+        "line_count": 9652,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      }
+    ],
+    "summary": "Dungeon Crawl Stone Soup: Shown: travel defines separate stop categories for items, runes, shops, stairs, portals and branches. Hints remember event flags. Descriptions have dedicated source and UI layouts, but actual terminal/tile/web screen arrangement was not exercised. Automatic travel is an interruptible convenience, not authority to execute every interesting action.\n\nCataclysm: Dark Days Ahead: Shown: panels.cpp has named panel layouts, window dimensions, widgets and draw functions; data/json/ui contains several sidebar variants. Conversation has its own option/portrait structures and failure explanations. The player can receive a failure explanation in place of an unavailable response. Actual layout selection, rendering quality and keyboard/accessibility usability were not exercised.",
+    "yairpg": [
+      "Dungeon Crawl Stone Soup: PROPOSAL: Expose work-plan stop reasons and independent detail/history panels on desktop through src/feature_expansion_work_plan.js and src/display.js.",
+      "Cataclysm: Dark Days Ahead: PROPOSAL: Use laptop space for separate status, job, actor and event surfaces in src/display.js. A contextual reason should remain readable beside the unavailable action."
+    ]
+  },
+  "A07": {
+    "status": "partial",
+    "sources": [
+      {
+        "game": "crawl",
+        "path": "crawl-ref/docs/develop/monster_speech.txt",
+        "lines": [
+          1,
+          45
+        ],
+        "url": "https://github.com/crawl/crawl/blob/c4298273a49c6601be4e1c9b79d4aba43f9aa603/crawl-ref/docs/develop/monster_speech.txt#L1-L45",
+        "sha256": "2071b472fbb26742c59639372fb212fd1a7a3fbdb63e4e371873c3f5df8e58e2",
+        "line_count": 923,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      },
+      {
+        "game": "crawl",
+        "path": "crawl-ref/docs/develop/monster_speech.txt",
+        "lines": [
+          113,
+          155
+        ],
+        "url": "https://github.com/crawl/crawl/blob/c4298273a49c6601be4e1c9b79d4aba43f9aa603/crawl-ref/docs/develop/monster_speech.txt#L113-L155",
+        "sha256": "2071b472fbb26742c59639372fb212fd1a7a3fbdb63e4e371873c3f5df8e58e2",
+        "line_count": 923,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      },
+      {
+        "game": "crawl",
+        "path": "crawl-ref/source/mon-speak.cc",
+        "lines": [
+          827,
+          878
+        ],
+        "url": "https://github.com/crawl/crawl/blob/c4298273a49c6601be4e1c9b79d4aba43f9aa603/crawl-ref/source/mon-speak.cc#L827-L878",
+        "sha256": "7ef74afe3ae89fbb44426be0718051e1a28afc3fb81b87c4cd4c695defb5298f",
+        "line_count": 878,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      },
+      {
+        "game": "crawl",
+        "path": "crawl-ref/source/random.cc",
+        "lines": [
+          108,
+          130
+        ],
+        "url": "https://github.com/crawl/crawl/blob/c4298273a49c6601be4e1c9b79d4aba43f9aa603/crawl-ref/source/random.cc#L108-L130",
+        "sha256": "3452858e5575254935644223bfdf73da2068d829a39ffd7e82698341a1ed1ac2",
+        "line_count": 548,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      },
+      {
+        "game": "cdda",
+        "path": "src/init.cpp",
+        "lines": [
+          151,
+          185
+        ],
+        "url": "https://github.com/CleverRaven/Cataclysm-DDA/blob/ef31b1fc84c640f97a5547a5b76a6ba5e9e97847/src/init.cpp#L151-L185",
+        "sha256": "6b4b6d0f604ea0a3649a463bd687a63aefe618c5522120315e07ce13ef4d06f9",
+        "line_count": 1059,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      },
+      {
+        "game": "cdda",
+        "path": "src/init.cpp",
+        "lines": [
+          523,
+          586
+        ],
+        "url": "https://github.com/CleverRaven/Cataclysm-DDA/blob/ef31b1fc84c640f97a5547a5b76a6ba5e9e97847/src/init.cpp#L523-L586",
+        "sha256": "6b4b6d0f604ea0a3649a463bd687a63aefe618c5522120315e07ce13ef4d06f9",
+        "line_count": 1059,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      },
+      {
+        "game": "cdda",
+        "path": "src/init.cpp",
+        "lines": [
+          798,
+          820
+        ],
+        "url": "https://github.com/CleverRaven/Cataclysm-DDA/blob/ef31b1fc84c640f97a5547a5b76a6ba5e9e97847/src/init.cpp#L798-L820",
+        "sha256": "6b4b6d0f604ea0a3649a463bd687a63aefe618c5522120315e07ce13ef4d06f9",
+        "line_count": 1059,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      },
+      {
+        "game": "cdda",
+        "path": "src/init.cpp",
+        "lines": [
+          954,
+          975
+        ],
+        "url": "https://github.com/CleverRaven/Cataclysm-DDA/blob/ef31b1fc84c640f97a5547a5b76a6ba5e9e97847/src/init.cpp#L954-L975",
+        "sha256": "6b4b6d0f604ea0a3649a463bd687a63aefe618c5522120315e07ce13ef4d06f9",
+        "line_count": 1059,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      },
+      {
+        "game": "cdda",
+        "path": "src/npctalk.cpp",
+        "lines": [
+          8988,
+          9035
+        ],
+        "url": "https://github.com/CleverRaven/Cataclysm-DDA/blob/ef31b1fc84c640f97a5547a5b76a6ba5e9e97847/src/npctalk.cpp#L8988-L9035",
+        "sha256": "65482e1fbe5536f667afd7e3945a1e55e3434c6799f76e7dd949c5602d871924",
+        "line_count": 9652,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      },
+      {
+        "game": "cdda",
+        "path": "src/npctalk.cpp",
+        "lines": [
+          9375,
+          9438
+        ],
+        "url": "https://github.com/CleverRaven/Cataclysm-DDA/blob/ef31b1fc84c640f97a5547a5b76a6ba5e9e97847/src/npctalk.cpp#L9375-L9438",
+        "sha256": "65482e1fbe5536f667afd7e3945a1e55e3434c6799f76e7dd949c5602d871924",
+        "line_count": 9652,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      },
+      {
+        "game": "cdda",
+        "path": "doc/JSON/NPCs.md",
+        "lines": [
+          1,
+          35
+        ],
+        "url": "https://github.com/CleverRaven/Cataclysm-DDA/blob/ef31b1fc84c640f97a5547a5b76a6ba5e9e97847/doc/JSON/NPCs.md#L1-L35",
+        "sha256": "efcf4e788e99516969fb4d5c376989a693b5406bbd4eef4bfd71a9c2d02fb1d3",
+        "line_count": 1574,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      }
+    ],
+    "summary": "Dungeon Crawl Stone Soup: Stated in developer guidance: speech entries use keyed blocks, weighted alternatives, substitutions and separate databases. Shown in current C++: current actor context selects the key and output channel. The tree contains Lua dungeon scripts and authored vaults, while player Lua is a separate seam. This pass does not certify a general mod manager, arbitrary mod load order, all Lua APIs or parser error handling.\n\nCataclysm: Dark Days Ahead: Shown: typed JSON files are loaded from paths and mod interaction files use a separate route. Loading after finalization is forbidden. Topic parsing enforces nonempty responses and a trial failure branch; loader finalization/consistency phases are distinct. NPC author docs describe separate classes, instances and conversation data. Full mod dependency ordering, every inheritance rule and native validation tools were not executed.",
+    "yairpg": [
+      "Dungeon Crawl Stone Soup: PROPOSAL: World authoring should document which fields select text and which need runtime support; reject missing references before exposing a world.",
+      "Cataclysm: Dark Days Ahead: PROPOSAL: Add content-time validation for reachable topics and declared effects in the existing world content owners; unresolved references should fail before a saved world is exposed."
+    ]
+  },
+  "A08": {
+    "status": "partial",
+    "sources": [
+      {
+        "game": "crawl",
+        "path": "crawl-ref/source/random.cc",
+        "lines": [
+          20,
+          130
+        ],
+        "url": "https://github.com/crawl/crawl/blob/c4298273a49c6601be4e1c9b79d4aba43f9aa603/crawl-ref/source/random.cc#L20-L130",
+        "sha256": "3452858e5575254935644223bfdf73da2068d829a39ffd7e82698341a1ed1ac2",
+        "line_count": 548,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      },
+      {
+        "game": "crawl",
+        "path": "crawl-ref/source/skills.cc",
+        "lines": [
+          1270,
+          1320
+        ],
+        "url": "https://github.com/crawl/crawl/blob/c4298273a49c6601be4e1c9b79d4aba43f9aa603/crawl-ref/source/skills.cc#L1270-L1320",
+        "sha256": "dd49af7f70f94dc0f4549ac65e286f40c9978dd6f0b63721eb61e6b4aabd2907",
+        "line_count": 2884,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      },
+      {
+        "game": "cdda",
+        "path": "data/json/recipes/practice/mechanics.json",
+        "lines": [
+          1,
+          53
+        ],
+        "url": "https://github.com/CleverRaven/Cataclysm-DDA/blob/ef31b1fc84c640f97a5547a5b76a6ba5e9e97847/data/json/recipes/practice/mechanics.json#L1-L53",
+        "sha256": "68fc30cfa2bf33aa708ce3e10a71db264be1fa4e48009909509e237e57388477",
+        "line_count": 53,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      },
+      {
+        "game": "cdda",
+        "path": "src/rng.cpp",
+        "lines": [
+          200,
+          220
+        ],
+        "url": "https://github.com/CleverRaven/Cataclysm-DDA/blob/ef31b1fc84c640f97a5547a5b76a6ba5e9e97847/src/rng.cpp#L200-L220",
+        "sha256": "291c06f255be4990953c3cfa293fb319a489166768bb9f12be2d33406d52333c",
+        "line_count": 234,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      }
+    ],
+    "summary": "Dungeon Crawl Stone Soup: Shown: persistent PCG generator state has serialization helpers, separate gameplay and branch-generation selections, and scoped subgenerators that restore the prior selection. User Lua randomness is kept separate from seeded gameplay. Skill target checking supports base and modified targets and disables training when the relevant target is met. These are stable execution and allocation mechanisms, not a complete balance or anti-bad-luck audit.\n\nCataclysm: Dark Days Ahead: Shown: practice recipes distinguish difficulty range, skill ceiling, proficiency, work duration, tool qualities, charge costs and book source. The reviewed mechanics file defines three practice records. rng.cpp uses a persistent process engine initialized from a high-resolution-clock seed and an explicit reseed function; this is not proof that every world random outcome is reproduced from a save. Full recipe costs, combat balance, global RNG persistence and pity mechanics remain unread.",
+    "yairpg": [
+      "Dungeon Crawl Stone Soup: PROPOSAL: Stop funded training at a useful learned function in src/feature_expansion_work_plan.js, and ensure flavor/UI draws cannot perturb material outcomes.",
+      "Cataclysm: Dark Days Ahead: PROPOSAL: src/feature_expansion_work_plan.js should distinguish practice work from item production and stop when the selected functional goal is met; funding remains required."
+    ]
+  },
+  "A09": {
+    "status": "covered",
+    "sources": [
+      {
+        "game": "crawl",
+        "path": "crawl-ref/source/timed-effects.cc",
+        "lines": [
+          424,
+          486
+        ],
+        "url": "https://github.com/crawl/crawl/blob/c4298273a49c6601be4e1c9b79d4aba43f9aa603/crawl-ref/source/timed-effects.cc#L424-L486",
+        "sha256": "1edcfd408b473ac4aee204b5dcbce78af515e606ed2b450cfd7da9054f0af90d",
+        "line_count": 1285,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      },
+      {
+        "game": "crawl",
+        "path": "crawl-ref/source/mon-act.cc",
+        "lines": [
+          2827,
+          2870
+        ],
+        "url": "https://github.com/crawl/crawl/blob/c4298273a49c6601be4e1c9b79d4aba43f9aa603/crawl-ref/source/mon-act.cc#L2827-L2870",
+        "sha256": "70416c8168c490771d63cd4f6776c07bc0ed196a242dba79ba2648809daa10bf",
+        "line_count": 4368,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      },
+      {
+        "game": "cdda",
+        "path": "src/do_turn.cpp",
+        "lines": [
+          533,
+          627
+        ],
+        "url": "https://github.com/CleverRaven/Cataclysm-DDA/blob/ef31b1fc84c640f97a5547a5b76a6ba5e9e97847/src/do_turn.cpp#L533-L627",
+        "sha256": "b70dd25098beb8e0649cd34d83d5b8d03fa104ffba75a71b6b0b8700b90a8939",
+        "line_count": 818,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      },
+      {
+        "game": "cdda",
+        "path": "src/effect_on_condition.cpp",
+        "lines": [
+          235,
+          335
+        ],
+        "url": "https://github.com/CleverRaven/Cataclysm-DDA/blob/ef31b1fc84c640f97a5547a5b76a6ba5e9e97847/src/effect_on_condition.cpp#L235-L335",
+        "sha256": "5aa53fc8b761ebc2fdfd9be0ab0f207a147bb914e1e3cdbd8d79b57b3c7bea07",
+        "line_count": 637,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      },
+      {
+        "game": "cdda",
+        "path": "src/savegame.cpp",
+        "lines": [
+          142,
+          164
+        ],
+        "url": "https://github.com/CleverRaven/Cataclysm-DDA/blob/ef31b1fc84c640f97a5547a5b76a6ba5e9e97847/src/savegame.cpp#L142-L164",
+        "sha256": "b86a9361108e3d6a0770f45e74e103ef2099cedd602ea6e0317388866c5ad5cb",
+        "line_count": 2162,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      },
+      {
+        "game": "cdda",
+        "path": "src/savegame.cpp",
+        "lines": [
+          309,
+          322
+        ],
+        "url": "https://github.com/CleverRaven/Cataclysm-DDA/blob/ef31b1fc84c640f97a5547a5b76a6ba5e9e97847/src/savegame.cpp#L309-L322",
+        "sha256": "b86a9361108e3d6a0770f45e74e103ef2099cedd602ea6e0317388866c5ad5cb",
+        "line_count": 2162,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      }
+    ],
+    "summary": "Dungeon Crawl Stone Soup: Shown: timed-effects uses elapsed action time and time_taken. It checks boundary crossings for periodic events and repeatedly catches up overdue timer effects before assigning each next deadline. Monster speed and action energy determine actor scheduling. This is simulation-time catch-up inside play; it does not establish wall-clock offline farming.\n\nCataclysm: Dark Days Ahead: Shown: do_turn advances one simulation turn and processes multiple cadences. EOCs queue an absolute calendar time, ID and context; due entries create nested dialogue context and activate effects. Recurring entries reschedule from the current turn or become inactive when a deactivation condition holds; reactivation is a separate scan. Requeueing is deferred until after the due loop. Global EOCs run on avatar processing, not every NPC turn. Queue time/context is serialized. Closed-app wall-time progression is not established.",
+    "yairpg": [
+      "Dungeon Crawl Stone Soup: PROPOSAL: In src/simulation.js, count every crossed due event under a bounded policy, then compare split steps and a longer step. Preserve YAIR passive-condition support rather than importing turn-only design as a restriction.",
+      "Cataclysm: Dark Days Ahead: PROPOSAL: In src/simulation.js use saved deadlines and actor context for a bounded recurring world event. Specify missed-period policy explicitly; do not silently turn delayed events into repeated rewards."
+    ]
+  },
+  "A10": {
+    "status": "partial",
+    "sources": [
+      {
+        "game": "crawl",
+        "path": "crawl-ref/source/hints.cc",
+        "lines": [
+          65,
+          100
+        ],
+        "url": "https://github.com/crawl/crawl/blob/c4298273a49c6601be4e1c9b79d4aba43f9aa603/crawl-ref/source/hints.cc#L65-L100",
+        "sha256": "f7925a3599951a44773b4696a8d37f7485d049947a00affa160f7e8963f5b294",
+        "line_count": 2407,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      },
+      {
+        "game": "crawl",
+        "path": "crawl-ref/source/hints.cc",
+        "lines": [
+          276,
+          285
+        ],
+        "url": "https://github.com/crawl/crawl/blob/c4298273a49c6601be4e1c9b79d4aba43f9aa603/crawl-ref/source/hints.cc#L276-L285",
+        "sha256": "f7925a3599951a44773b4696a8d37f7485d049947a00affa160f7e8963f5b294",
+        "line_count": 2407,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      },
+      {
+        "game": "cdda",
+        "path": "src/gamemode_tutorial.cpp",
+        "lines": [
+          70,
+          130
+        ],
+        "url": "https://github.com/CleverRaven/Cataclysm-DDA/blob/ef31b1fc84c640f97a5547a5b76a6ba5e9e97847/src/gamemode_tutorial.cpp#L70-L130",
+        "sha256": "7e9919eb0bc6175735f9430a27524e32992e1f6321ceb77c3ee79a6ab73aa9d0",
+        "line_count": 384,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      },
+      {
+        "game": "cdda",
+        "path": "src/npctalk.cpp",
+        "lines": [
+          9199,
+          9245
+        ],
+        "url": "https://github.com/CleverRaven/Cataclysm-DDA/blob/ef31b1fc84c640f97a5547a5b76a6ba5e9e97847/src/npctalk.cpp#L9199-L9245",
+        "sha256": "65482e1fbe5536f667afd7e3945a1e55e3434c6799f76e7dd949c5602d871924",
+        "line_count": 9652,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      }
+    ],
+    "summary": "Dungeon Crawl Stone Soup: Shown: hints serialize a type plus per-event flags and discard that hint payload when the event count changes. Loading a hints game queues a load hint and resets travel/exploration counters from the remaining hint flags. A separate tutorial route exists in tutorial.cc and Lua data but was inventoried only. The player learns selected context with persisted reveal state; not every action requires permanent gating.\n\nCataclysm: Dark Days Ahead: Shown: gamemode_tutorial.cpp names explicit lessons for movement, perception, equipment, crafting, construction and other actions. The separate tutorial mode and JSON help owners give contextual explanations without proving that the entire ordinary UI is staged. This pass read the lesson enum and route, not every trigger or all tutorial content.",
+    "yairpg": [
+      "Dungeon Crawl Stone Soup: PROPOSAL: Store explanation/reveal state apart from earned capability in src/simulation_content.js; losing a hint cache should not erase skill or force the player through a tutorial again.",
+      "Cataclysm: Dark Days Ahead: PROPOSAL: Teach a real action in the ordinary YAIR slice with a dismissible context hint, while keeping later earned options reachable and passive progression intact."
+    ]
+  },
+  "A11": {
+    "status": "covered",
+    "sources": [
+      {
+        "game": "crawl",
+        "path": "crawl-ref/source/mon-speak.cc",
+        "lines": [
+          337,
+          395
+        ],
+        "url": "https://github.com/crawl/crawl/blob/c4298273a49c6601be4e1c9b79d4aba43f9aa603/crawl-ref/source/mon-speak.cc#L337-L395",
+        "sha256": "7ef74afe3ae89fbb44426be0718051e1a28afc3fb81b87c4cd4c695defb5298f",
+        "line_count": 878,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      },
+      {
+        "game": "crawl",
+        "path": "crawl-ref/source/mon-speak.cc",
+        "lines": [
+          827,
+          878
+        ],
+        "url": "https://github.com/crawl/crawl/blob/c4298273a49c6601be4e1c9b79d4aba43f9aa603/crawl-ref/source/mon-speak.cc#L827-L878",
+        "sha256": "7ef74afe3ae89fbb44426be0718051e1a28afc3fb81b87c4cd4c695defb5298f",
+        "line_count": 878,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      },
+      {
+        "game": "crawl",
+        "path": "crawl-ref/source/files.cc",
+        "lines": [
+          3370,
+          3400
+        ],
+        "url": "https://github.com/crawl/crawl/blob/c4298273a49c6601be4e1c9b79d4aba43f9aa603/crawl-ref/source/files.cc#L3370-L3400",
+        "sha256": "3fe3c8753c3e776aaf14da6be8327ac6d2a1e1ac9e275619579121989c4eede5",
+        "line_count": 4112,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      },
+      {
+        "game": "crawl",
+        "path": "crawl-ref/source/skills.cc",
+        "lines": [
+          1280,
+          1305
+        ],
+        "url": "https://github.com/crawl/crawl/blob/c4298273a49c6601be4e1c9b79d4aba43f9aa603/crawl-ref/source/skills.cc#L1280-L1305",
+        "sha256": "dd49af7f70f94dc0f4549ac65e286f40c9978dd6f0b63721eb61e6b4aabd2907",
+        "line_count": 2884,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      },
+      {
+        "game": "cdda",
+        "path": "src/npctalk.cpp",
+        "lines": [
+          8988,
+          9134
+        ],
+        "url": "https://github.com/CleverRaven/Cataclysm-DDA/blob/ef31b1fc84c640f97a5547a5b76a6ba5e9e97847/src/npctalk.cpp#L8988-L9134",
+        "sha256": "65482e1fbe5536f667afd7e3945a1e55e3434c6799f76e7dd949c5602d871924",
+        "line_count": 9652,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      },
+      {
+        "game": "cdda",
+        "path": "src/npctalk.cpp",
+        "lines": [
+          9375,
+          9472
+        ],
+        "url": "https://github.com/CleverRaven/Cataclysm-DDA/blob/ef31b1fc84c640f97a5547a5b76a6ba5e9e97847/src/npctalk.cpp#L9375-L9472",
+        "sha256": "65482e1fbe5536f667afd7e3945a1e55e3434c6799f76e7dd949c5602d871924",
+        "line_count": 9652,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      },
+      {
+        "game": "cdda",
+        "path": "src/game_io.cpp",
+        "lines": [
+          885,
+          949
+        ],
+        "url": "https://github.com/CleverRaven/Cataclysm-DDA/blob/ef31b1fc84c640f97a5547a5b76a6ba5e9e97847/src/game_io.cpp#L885-L949",
+        "sha256": "1e1767bd017e4731470a4c61eaa667fa6d5de38b79dc9f514cb2894faddaaca2",
+        "line_count": 981,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      },
+      {
+        "game": "cdda",
+        "path": "src/npcmove.cpp",
+        "lines": [
+          1910,
+          1940
+        ],
+        "url": "https://github.com/CleverRaven/Cataclysm-DDA/blob/ef31b1fc84c640f97a5547a5b76a6ba5e9e97847/src/npcmove.cpp#L1910-L1940",
+        "sha256": "73809a377d66a70431021c3b12247b6511ad06aca508397eff0ae117d1f3970d",
+        "line_count": 7842,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      }
+    ],
+    "summary": "Dungeon Crawl Stone Soup: Shown: quieter long-term allies, distinctive unique barks, sensory message channels, milestone-filtered notes, named exploration stops, default-no deletion prompts and base-versus-modified skill-target notices are concrete small touches. Their lived frequency and desktop feel remain unplayed. SMALL_TOUCHES.md translates twenty details per game without copying their text.\n\nCataclysm: Dark Days Ahead: Shown: explanatory unavailable replies, repeat responses per inventory category, preserved standard exits, optional portrait overrides, saved message history, separate diary, real-time autosave throttling and distinct blocked/deferred NPC states are small but consequential choices. Some are useful patterns and some expose failure edges, such as clearing autosave counters despite a failed save. Twenty source-linked ideas and cautions per game are in SMALL_TOUCHES.md.",
+    "yairpg": [
+      "Dungeon Crawl Stone Soup: PROPOSAL: Use fewer but better explained notifications in src/display.js, without hiding the persistent state the player needs on a laptop.",
+      "Cataclysm: Dark Days Ahead: PROPOSAL: In src/simulation_ui.js favor clear costs, interruption reasons and readable aftermath; never announce saved success from a failed storage call."
+    ]
+  },
+  "A12": {
+    "status": "partial",
+    "sources": [
+      {
+        "game": "crawl",
+        "path": "crawl-ref/source/notes.cc",
+        "lines": [
+          89,
+          108
+        ],
+        "url": "https://github.com/crawl/crawl/blob/c4298273a49c6601be4e1c9b79d4aba43f9aa603/crawl-ref/source/notes.cc#L89-L108",
+        "sha256": "fb5b7e1893d671232382fe842627baa9879d50db25bdaa8575aed8deaa71598c",
+        "line_count": 601,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      },
+      {
+        "game": "crawl",
+        "path": "crawl-ref/source/skills.cc",
+        "lines": [
+          1270,
+          1320
+        ],
+        "url": "https://github.com/crawl/crawl/blob/c4298273a49c6601be4e1c9b79d4aba43f9aa603/crawl-ref/source/skills.cc#L1270-L1320",
+        "sha256": "dd49af7f70f94dc0f4549ac65e286f40c9978dd6f0b63721eb61e6b4aabd2907",
+        "line_count": 2884,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      },
+      {
+        "game": "crawl",
+        "path": "crawl-ref/source/tag-version.h",
+        "lines": [
+          15,
+          65
+        ],
+        "url": "https://github.com/crawl/crawl/blob/c4298273a49c6601be4e1c9b79d4aba43f9aa603/crawl-ref/source/tag-version.h#L15-L65",
+        "sha256": "d384db6a9ab881b9d0c889dcf974bb26a848e7b3f0b5fdc02ec75bc7ae66c1d2",
+        "line_count": 498,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      },
+      {
+        "game": "cdda",
+        "path": "src/init.cpp",
+        "lines": [
+          151,
+          185
+        ],
+        "url": "https://github.com/CleverRaven/Cataclysm-DDA/blob/ef31b1fc84c640f97a5547a5b76a6ba5e9e97847/src/init.cpp#L151-L185",
+        "sha256": "6b4b6d0f604ea0a3649a463bd687a63aefe618c5522120315e07ce13ef4d06f9",
+        "line_count": 1059,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      },
+      {
+        "game": "cdda",
+        "path": "src/game_io.cpp",
+        "lines": [
+          734,
+          780
+        ],
+        "url": "https://github.com/CleverRaven/Cataclysm-DDA/blob/ef31b1fc84c640f97a5547a5b76a6ba5e9e97847/src/game_io.cpp#L734-L780",
+        "sha256": "1e1767bd017e4731470a4c61eaa667fa6d5de38b79dc9f514cb2894faddaaca2",
+        "line_count": 981,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      },
+      {
+        "game": "cdda",
+        "path": "data/json/recipes/practice/mechanics.json",
+        "lines": [
+          1,
+          53
+        ],
+        "url": "https://github.com/CleverRaven/Cataclysm-DDA/blob/ef31b1fc84c640f97a5547a5b76a6ba5e9e97847/data/json/recipes/practice/mechanics.json#L1-L53",
+        "sha256": "68fc30cfa2bf33aa708ce3e10a71db264be1fa4e48009909509e237e57388477",
+        "line_count": 53,
+        "evidence_kind": "shown source, except documentation statements labeled in prose"
+      }
+    ],
+    "summary": "Dungeon Crawl Stone Soup: The prior dossier already covers runes, escape scoring, entangling lifecycle and paid skill allocation at its old pin. This pass newly shows chronicle, hints, random streams and save compatibility. Inventory also finds religion, mutations, evocations, shops, branches, ghosts and spell families. Most of those complete catalogues and their economy/reward joins remain unread, not absent.\n\nCataclysm: Dark Days Ahead: The source census finds items, recipes/practice, vehicles, mutations, bionics, overmap/mapgen, factions, camps, missions, achievements/conducts, weather, EOCs and UI widgets as separate families. Prior work already traces selected achievements, conducts, martial effects and practice. This pass adds dialogue, queued effects and save coordination. Complete vehicle/body/ecology/economy catalogues and all optional mods remain inventory-only.",
+    "yairpg": [
+      "Dungeon Crawl Stone Soup: PROPOSAL: Extend qualified run/feat receipts alongside existing endings in src/frontier_campaign.js; neither general achievements nor another prestige layer is selected.",
+      "Cataclysm: Dark Days Ahead: PROPOSAL: Reuse the existing causal receipt and work owners before selecting another broad engine. Content inventory signals opportunities, not required YAIR scope."
+    ]
+  }
+}

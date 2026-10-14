@@ -1,0 +1,374 @@
+{
+  "lane": "bf-idle-src",
+  "date": "2026-10-14",
+  "method": "fresh static source/data/declaration inspection",
+  "corrections": "Original Idle Loops repository HEAD is now 3e004b993e8d82d718945a2a4b5a17de8c0fabff, replacing the prior d41bf197 pin for this fresh pass. Repository drift alone does not show that the active idleLoops game changed. Other six heads match. No inspected behavior contradicted the prior bounded career/reset/offline comparison. Extend dialogue coverage: Idle Loops action stories use condition/number records, not a conversation tree. Quest ui_dialogs is a general UI helper, not NPC dialogue.",
+  "aspects": {
+    "A01": {
+      "status": "partial",
+      "sources": [
+        "https://github.com/dmchurch/omsi-loops/blob/fe4a349efb799a56ab548018caca1a1a1aea0c8f/actionList.js",
+        "https://github.com/dmchurch/omsi-loops/tree/fe4a349efb799a56ab548018caca1a1a1aea0c8f/lang",
+        "https://github.com/ihtasham42/progress-knight/blob/f6dd0c3c444d838f80325bbdca918160b99e89e5/js/main.js",
+        "https://github.com/pmotschmann/Evolve/blob/3436358dcd03d9f9e071d51ea071e0a78c0322e4/src/events.js"
+      ],
+      "summary": "Shown: dmchurch Action.getStoryTexts parses numbered XML stories with condition text into structured records. Original Progress Knight uses task descriptions and notifications; no NPC reply graph found in inspected files. Evolve uses event/message flavor. Whole XML corpus, every fork and late event choice remains partial.",
+      "yairpg": [
+        "PROPOSAL: Store narrative availability and reading separately from completed work. Owner: docs/worlds/PROGRESSION_AND_ASSEMBLY.md; src/data/dialogues.js; src/life_record.js."
+      ]
+    },
+    "A02": {
+      "status": "covered",
+      "sources": [
+        "https://github.com/dmchurch/omsi-loops/blob/fe4a349efb799a56ab548018caca1a1a1aea0c8f/actionList.js",
+        "https://github.com/dmchurch/omsi-loops/blob/fe4a349efb799a56ab548018caca1a1a1aea0c8f/saving.js",
+        "https://github.com/pmotschmann/Evolve/blob/3436358dcd03d9f9e071d51ea071e0a78c0322e4/src/events.js",
+        "https://github.com/pmotschmann/Evolve/blob/3436358dcd03d9f9e071d51ea071e0a78c0322e4/src/functions.js"
+      ],
+      "summary": "Shown: Idle Loops story flags/vars survive through save initialization; action story text is localized rather than embedded in its save. Evolve has retained message queues and triggered events. Progress Knight presents career/age milestones. No personal companion life graph established.",
+      "yairpg": [
+        "PROPOSAL: Retain compact story IDs and facts, with known text reconstructed from its versioned source. Owner: docs/worlds/PROGRESSION_AND_ASSEMBLY.md; src/data/dialogues.js; src/life_record.js."
+      ]
+    },
+    "A03": {
+      "status": "covered",
+      "sources": [
+        "https://github.com/ihtasham42/progress-knight/blob/f6dd0c3c444d838f80325bbdca918160b99e89e5/js/main.js",
+        "https://github.com/indomit/progress_knight_2/blob/d03f8b65adddab4a089a2f95e3a4749770aa03cb/js/main.js",
+        "https://github.com/StopSign/stopsign.github.io/blob/3e004b993e8d82d718945a2a4b5a17de8c0fabff/idleLoops/driver.js",
+        "https://github.com/dmchurch/omsi-loops/blob/fe4a349efb799a56ab548018caca1a1a1aea0c8f/driver.js",
+        "https://github.com/pmotschmann/Evolve/blob/3436358dcd03d9f9e071d51ea071e0a78c0322e4/src/index.js"
+      ],
+      "summary": "Shown: original PK is class/registry logic in a monolithic JS update loop; Quest splits main/UI/save modules. Idle Loops separates actions, driver, saving, localization and views; dmchurch adds predictor/editor/worker modules. Evolve is ES modules plus browser UI and worker handling. Seven repositories are separate snapshots, not one merged engine.",
+      "yairpg": [
+        "PROPOSAL: Use the incumbent finite work-plan interface rather than importing a fork architecture. Owner: src/feature_expansion_work_plan.js; src/simulation.js."
+      ]
+    },
+    "A04": {
+      "status": "covered",
+      "sources": [
+        "https://github.com/ihtasham42/progress-knight/blob/f6dd0c3c444d838f80325bbdca918160b99e89e5/js/main.js",
+        "https://github.com/Symb1/progress_knight_2/blob/5b6b059b1f5ad645837e504bde1d455995d05514/js/main.js",
+        "https://github.com/indomit/progress_knight_2/blob/d03f8b65adddab4a089a2f95e3a4749770aa03cb/js/saveman.js",
+        "https://github.com/dmchurch/omsi-loops/blob/fe4a349efb799a56ab548018caca1a1a1aea0c8f/saving.js",
+        "https://github.com/pmotschmann/Evolve/blob/3436358dcd03d9f9e071d51ea071e0a78c0322e4/src/vars.js",
+        "https://github.com/pmotschmann/Evolve/blob/3436358dcd03d9f9e071d51ea071e0a78c0322e4/src/functions.js"
+      ],
+      "summary": "Shown: PK original saves JSON gameData to localStorage and exports base64; storage writes/import are lightly guarded. Quest omits requirement definitions, saves completed IDs and timestamp, reconstructs definitions/prototypes and catches corrupt load. Its legacy requirement migration has shape-dependent branches, not a proven universal migration. Loops saves learned/story/plan state then rebuilds a run. Evolve uses UTF16 LZ local data/base64 exports and version/shape repairs. All roundtrips unrun.",
+      "yairpg": [
+        "PROPOSAL: Save stable completion IDs and rejoin current definitions without copying authored content. Owner: src/save_files.js; src/save_compatibility.js."
+      ]
+    },
+    "A05": {
+      "status": "partial",
+      "sources": [
+        "https://github.com/ihtasham42/progress-knight/blob/f6dd0c3c444d838f80325bbdca918160b99e89e5/js/main.js",
+        "https://github.com/dmchurch/omsi-loops/blob/fe4a349efb799a56ab548018caca1a1a1aea0c8f/actionList.js",
+        "https://github.com/pmotschmann/Evolve/blob/3436358dcd03d9f9e071d51ea071e0a78c0322e4/src/jobs.js"
+      ],
+      "summary": "Shown: chosen/concurrent task controllers, action plans and population job counters. These are not individual daily lives or utility-planning NPCs. Evolve late faction/government policies and all social actions remain unread.",
+      "yairpg": [
+        "PROPOSAL: Keep worker quantities distinct from the state of named people. Owner: src/npc_lives.js; world CAMPAIGN.md."
+      ]
+    },
+    "A06": {
+      "status": "covered",
+      "sources": [
+        "https://github.com/indomit/progress_knight_2/blob/d03f8b65adddab4a089a2f95e3a4749770aa03cb/js/ui.js",
+        "https://github.com/dmchurch/omsi-loops/blob/fe4a349efb799a56ab548018caca1a1a1aea0c8f/hotkeys.js",
+        "https://github.com/dmchurch/omsi-loops/blob/fe4a349efb799a56ab548018caca1a1a1aea0c8f/predictor.js",
+        "https://github.com/pmotschmann/Evolve/blob/3436358dcd03d9f9e071d51ea071e0a78c0322e4/src/index.js"
+      ],
+      "summary": "Shown: task progress tables; editable current/next plans; hotkey/predictor surfaces; dense civilization tabs. Prediction is a display/controller surface and is not authoritative earned output. Layout/accessibility unrun.",
+      "yairpg": [
+        "PROPOSAL: At 1440x900, display current execution beside the next editable plan and mark projections. Owner: docs/THEMATIC_UI_AND_INFORMATION_DESIGN_2026-10-12.md."
+      ]
+    },
+    "A07": {
+      "status": "partial",
+      "sources": [
+        "https://github.com/dmchurch/omsi-loops/blob/fe4a349efb799a56ab548018caca1a1a1aea0c8f/actionList.js",
+        "https://github.com/dmchurch/omsi-loops/tree/fe4a349efb799a56ab548018caca1a1a1aea0c8f/lang",
+        "https://github.com/dmchurch/omsi-loops/blob/fe4a349efb799a56ab548018caca1a1a1aea0c8f/schema.js",
+        "https://github.com/pmotschmann/Evolve/blob/3436358dcd03d9f9e071d51ea071e0a78c0322e4/src/actions.js",
+        "https://github.com/indomit/progress_knight_2/blob/d03f8b65adddab4a089a2f95e3a4749770aa03cb/js/saveman.js"
+      ],
+      "summary": "Shown: code-defined actions and localized story XML; dmchurch has an editor/schema surface. Evolve tech/action registries mix costs/predicates/effects; PK uses Task/Item definitions and reconstructed requirements. No universal cross-fork mod API or load order established.",
+      "yairpg": [
+        "PROPOSAL: Validate action IDs, localized text keys and prerequisites before content enters a campaign. Owner: docs/TECHNOLOGY_AND_PROGRESSION.md."
+      ]
+    },
+    "A08": {
+      "status": "partial",
+      "sources": [
+        "https://github.com/ihtasham42/progress-knight/blob/f6dd0c3c444d838f80325bbdca918160b99e89e5/js/main.js",
+        "https://github.com/dmchurch/omsi-loops/blob/fe4a349efb799a56ab548018caca1a1a1aea0c8f/stats.js",
+        "https://github.com/pmotschmann/Evolve/blob/3436358dcd03d9f9e071d51ea071e0a78c0322e4/src/vars.js",
+        "https://github.com/pmotschmann/Evolve/blob/3436358dcd03d9f9e071d51ea071e0a78c0322e4/src/races.js"
+      ],
+      "summary": "Shown: PK max-level carry changes training; Loops distinguishes temporary raw stats from talents/skills; Evolve traits modify an economy. All endgame curves, RNG and challenge combinations are not read.",
+      "yairpg": [
+        "PROPOSAL: Expose which retained skill changes a work rate without collapsing all advancement into one tier. Owner: docs/TECHNOLOGY_AND_PROGRESSION.md."
+      ]
+    },
+    "A09": {
+      "status": "covered",
+      "sources": [
+        "https://github.com/indomit/progress_knight_2/blob/d03f8b65adddab4a089a2f95e3a4749770aa03cb/js/main.js",
+        "https://github.com/StopSign/stopsign.github.io/blob/3e004b993e8d82d718945a2a4b5a17de8c0fabff/idleLoops/saving.js",
+        "https://github.com/dmchurch/omsi-loops/blob/fe4a349efb799a56ab548018caca1a1a1aea0c8f/saving.js",
+        "https://github.com/pmotschmann/Evolve/blob/3436358dcd03d9f9e071d51ea071e0a78c0322e4/src/main.js"
+      ],
+      "summary": "Shown: original PK only advances its running timer; Quest replays elapsed ticks with a cap and age/death boundaries as prior dossier describes. Original Loops banks elapsed time at an offlineRatio of .8; other forks and Evolve have separate acceleration policies. No common offline-aging policy follows.",
+      "yairpg": [
+        "PROPOSAL: Declare action time, lifespan time and banked acceleration separately. Owner: src/feature_expansion_work_plan.js; src/simulation.js."
+      ]
+    },
+    "A10": {
+      "status": "covered",
+      "sources": [
+        "https://github.com/ihtasham42/progress-knight/blob/f6dd0c3c444d838f80325bbdca918160b99e89e5/js/main.js",
+        "https://github.com/dmchurch/omsi-loops/blob/fe4a349efb799a56ab548018caca1a1a1aea0c8f/actionList.js",
+        "https://github.com/pmotschmann/Evolve/blob/3436358dcd03d9f9e071d51ea071e0a78c0322e4/src/actions.js"
+      ],
+      "summary": "Shown: task requirements, action visible/unlocked predicates and tech prereqs stage complexity. Named information may become visible before execution is affordable. Every fork reveal predicate remains partial.",
+      "yairpg": [
+        "PROPOSAL: Separate seen, learned, equipped and affordable states in a local work row. Owner: src/native_discovery_policy.js; src/observation_channels.js."
+      ]
+    },
+    "A11": {
+      "status": "covered",
+      "sources": [
+        "https://github.com/dmchurch/omsi-loops/blob/fe4a349efb799a56ab548018caca1a1a1aea0c8f/hotkeys.js",
+        "https://github.com/dmchurch/omsi-loops/blob/fe4a349efb799a56ab548018caca1a1a1aea0c8f/predictor.js",
+        "https://github.com/indomit/progress_knight_2/blob/d03f8b65adddab4a089a2f95e3a4749770aa03cb/js/ui.js",
+        "https://github.com/pmotschmann/Evolve/blob/3436358dcd03d9f9e071d51ea071e0a78c0322e4/src/functions.js"
+      ],
+      "summary": "Shown: keyboard plan controls, predicted results, task bars, save export and message queues. Actual focus behavior, cancellation and predictor accuracy are unrun.",
+      "yairpg": [
+        "PROPOSAL: Make planned versus actual results explicit and retain a keyboard route to routine controls. Owner: docs/THEMATIC_UI_AND_INFORMATION_DESIGN_2026-10-12.md."
+      ]
+    },
+    "A12": {
+      "status": "partial",
+      "sources": [
+        "https://github.com/pmotschmann/Evolve/blob/3436358dcd03d9f9e071d51ea071e0a78c0322e4/src/resets.js",
+        "https://github.com/pmotschmann/Evolve/blob/3436358dcd03d9f9e071d51ea071e0a78c0322e4/src/achieve.js",
+        "https://github.com/dmchurch/omsi-loops/blob/fe4a349efb799a56ab548018caca1a1a1aea0c8f/prestige.js",
+        "https://github.com/indomit/progress_knight_2/tree/d03f8b65adddab4a089a2f95e3a4749770aa03cb/js"
+      ],
+      "summary": "Shown inventory: careers/rebirth, housing/items, loop challenges, dungeons/town reputation, Evolve species/traits/space/interstellar/portal/eden economies and reset routes. Their extra layers remain references, not selected YAIR milestone gates. Most full catalogues unread.",
+      "yairpg": [
+        "PROPOSAL: Keep optional mature paths reachable while selecting only one playable local slice. Owner: docs/TECHNOLOGY_AND_PROGRESSION.md."
+      ]
+    }
+  },
+  "proposals": [
+    {
+      "id": "P1",
+      "title": "Completed-ID save reconstruction",
+      "owner": "src/save_files.js; src/save_compatibility.js",
+      "status": "PROPOSAL"
+    },
+    {
+      "id": "P2",
+      "title": "Current work beside next plan",
+      "owner": "docs/THEMATIC_UI_AND_INFORMATION_DESIGN_2026-10-12.md",
+      "status": "PROPOSAL"
+    },
+    {
+      "id": "P3",
+      "title": "Action-conditioned story shelf",
+      "owner": "docs/worlds/PROGRESSION_AND_ASSEMBLY.md; src/data/dialogues.js; src/life_record.js",
+      "status": "PROPOSAL"
+    },
+    {
+      "id": "P4",
+      "title": "Observed versus predicted result slip",
+      "owner": "src/feature_expansion_work_plan.js; src/simulation.js",
+      "status": "PROPOSAL"
+    },
+    {
+      "id": "P5",
+      "title": "Career promotion with a lasting local consequence",
+      "owner": "src/npc_lives.js; world CAMPAIGN.md",
+      "status": "PROPOSAL"
+    }
+  ],
+  "small_touches": [
+    {
+      "id": "T01",
+      "idea": "PROPOSAL: Store narrative availability and reading separately from completed work. Owner: docs/worlds/PROGRESSION_AND_ASSEMBLY.md; src/data/dialogues.js; src/life_record.js.",
+      "inspiration": "A01",
+      "source_status": "partial"
+    },
+    {
+      "id": "T02",
+      "idea": "PROPOSAL: Retain compact story IDs and facts, with known text reconstructed from its versioned source. Owner: docs/worlds/PROGRESSION_AND_ASSEMBLY.md; src/data/dialogues.js; src/life_record.js.",
+      "inspiration": "A02",
+      "source_status": "covered"
+    },
+    {
+      "id": "T03",
+      "idea": "PROPOSAL: Use the incumbent finite work-plan interface rather than importing a fork architecture. Owner: src/feature_expansion_work_plan.js; src/simulation.js.",
+      "inspiration": "A03",
+      "source_status": "covered"
+    },
+    {
+      "id": "T04",
+      "idea": "PROPOSAL: Save stable completion IDs and rejoin current definitions without copying authored content. Owner: src/save_files.js; src/save_compatibility.js.",
+      "inspiration": "A04",
+      "source_status": "covered"
+    },
+    {
+      "id": "T05",
+      "idea": "PROPOSAL: Keep worker quantities distinct from the state of named people. Owner: src/npc_lives.js; world CAMPAIGN.md.",
+      "inspiration": "A05",
+      "source_status": "partial"
+    },
+    {
+      "id": "T06",
+      "idea": "PROPOSAL: At 1440x900, display current execution beside the next editable plan and mark projections. Owner: docs/THEMATIC_UI_AND_INFORMATION_DESIGN_2026-10-12.md.",
+      "inspiration": "A06",
+      "source_status": "covered"
+    },
+    {
+      "id": "T07",
+      "idea": "PROPOSAL: Validate action IDs, localized text keys and prerequisites before content enters a campaign. Owner: docs/TECHNOLOGY_AND_PROGRESSION.md.",
+      "inspiration": "A07",
+      "source_status": "partial"
+    },
+    {
+      "id": "T08",
+      "idea": "PROPOSAL: Expose which retained skill changes a work rate without collapsing all advancement into one tier. Owner: docs/TECHNOLOGY_AND_PROGRESSION.md.",
+      "inspiration": "A08",
+      "source_status": "partial"
+    },
+    {
+      "id": "T09",
+      "idea": "PROPOSAL: Declare action time, lifespan time and banked acceleration separately. Owner: src/feature_expansion_work_plan.js; src/simulation.js.",
+      "inspiration": "A09",
+      "source_status": "covered"
+    },
+    {
+      "id": "T10",
+      "idea": "PROPOSAL: Separate seen, learned, equipped and affordable states in a local work row. Owner: src/native_discovery_policy.js; src/observation_channels.js.",
+      "inspiration": "A10",
+      "source_status": "covered"
+    },
+    {
+      "id": "T11",
+      "idea": "PROPOSAL: Make planned versus actual results explicit and retain a keyboard route to routine controls. Owner: docs/THEMATIC_UI_AND_INFORMATION_DESIGN_2026-10-12.md.",
+      "inspiration": "A11",
+      "source_status": "covered"
+    },
+    {
+      "id": "T12",
+      "idea": "PROPOSAL: Keep optional mature paths reachable while selecting only one playable local slice. Owner: docs/TECHNOLOGY_AND_PROGRESSION.md.",
+      "inspiration": "A12",
+      "source_status": "partial"
+    },
+    {
+      "id": "T13",
+      "idea": "PROPOSAL: Show a scene as encountered only after its delivery route succeeds. Owner: docs/worlds/PROGRESSION_AND_ASSEMBLY.md; src/data/dialogues.js; src/life_record.js.",
+      "inspiration": "A01/A02",
+      "source_status": "inferred adaptation, not a source feature claim"
+    },
+    {
+      "id": "T14",
+      "idea": "PROPOSAL: Keep a known scene available for rereading without replaying its reward. Owner: docs/worlds/PROGRESSION_AND_ASSEMBLY.md; src/data/dialogues.js; src/life_record.js.",
+      "inspiration": "A02/A04",
+      "source_status": "inferred adaptation, not a source feature claim"
+    },
+    {
+      "id": "T15",
+      "idea": "PROPOSAL: Show the last successful save time separately from a failed attempt. Owner: src/save_files.js; src/save_compatibility.js.",
+      "inspiration": "A04",
+      "source_status": "inferred adaptation, not a source feature claim"
+    },
+    {
+      "id": "T16",
+      "idea": "PROPOSAL: Give a restored backup a visible loss-of-recent-progress notice. Owner: src/save_files.js; src/save_compatibility.js.",
+      "inspiration": "A04",
+      "source_status": "inferred adaptation, not a source feature claim"
+    },
+    {
+      "id": "T17",
+      "idea": "PROPOSAL: Preserve the intended work target when a missing input pauses it. Owner: src/feature_expansion_work_plan.js; src/simulation.js.",
+      "inspiration": "A03/A09",
+      "source_status": "inferred adaptation, not a source feature claim"
+    },
+    {
+      "id": "T18",
+      "idea": "PROPOSAL: Label a rate estimate as projected and a settlement as actual. Owner: docs/THEMATIC_UI_AND_INFORMATION_DESIGN_2026-10-12.md.",
+      "inspiration": "A08/A09",
+      "source_status": "inferred adaptation, not a source feature claim"
+    },
+    {
+      "id": "T19",
+      "idea": "PROPOSAL: Expose the source of one active modifier beside its effect. Owner: docs/THEMATIC_UI_AND_INFORMATION_DESIGN_2026-10-12.md.",
+      "inspiration": "A06/A08",
+      "source_status": "inferred adaptation, not a source feature claim"
+    },
+    {
+      "id": "T20",
+      "idea": "PROPOSAL: Keep owned, assigned and currently usable support distinct in one local row. Owner: src/npc_lives.js; world CAMPAIGN.md.",
+      "inspiration": "A05/A12",
+      "source_status": "inferred adaptation, not a source feature claim"
+    }
+  ],
+  "unread": "All seven acquired repository families are represented, but complete story XML/late traits/challenges/ending combinations, predictor correctness and legacy migration joins remain unread. Other unrelated games in StopSign monorepo are outside the prior grouped roster. No install needed.",
+  "runtime_exercised": false,
+  "game_installs": [],
+  "source_pins": [
+    {
+      "name": "pk-original",
+      "url": "https://github.com/ihtasham42/progress-knight.git",
+      "exit": 0,
+      "log": "Cloning into '/Users/weiwei/.codex/research/bf-idle-src/repos/pk-original'...\n",
+      "commit": "f6dd0c3c444d838f80325bbdca918160b99e89e5"
+    },
+    {
+      "name": "pk2",
+      "url": "https://github.com/Symb1/progress_knight_2.git",
+      "exit": 0,
+      "log": "Cloning into '/Users/weiwei/.codex/research/bf-idle-src/repos/pk2'...\n",
+      "commit": "5b6b059b1f5ad645837e504bde1d455995d05514"
+    },
+    {
+      "name": "pk-quest",
+      "url": "https://github.com/indomit/progress_knight_2.git",
+      "exit": 0,
+      "log": "Cloning into '/Users/weiwei/.codex/research/bf-idle-src/repos/pk-quest'...\n",
+      "commit": "d03f8b65adddab4a089a2f95e3a4749770aa03cb"
+    },
+    {
+      "name": "loops-original",
+      "url": "https://github.com/StopSign/stopsign.github.io.git",
+      "exit": 0,
+      "log": "Cloning into '/Users/weiwei/.codex/research/bf-idle-src/repos/loops-original'...\n",
+      "commit": "3e004b993e8d82d718945a2a4b5a17de8c0fabff"
+    },
+    {
+      "name": "loops-omsi",
+      "url": "https://github.com/omsi6/omsi6.github.io.git",
+      "exit": 0,
+      "log": "Cloning into '/Users/weiwei/.codex/research/bf-idle-src/repos/loops-omsi'...\n",
+      "commit": "fa21477d424f3aa1f1bf6deb9f6f83c2569770ab"
+    },
+    {
+      "name": "loops-dmchurch",
+      "url": "https://github.com/dmchurch/omsi-loops.git",
+      "exit": 0,
+      "log": "Cloning into '/Users/weiwei/.codex/research/bf-idle-src/repos/loops-dmchurch'...\n",
+      "commit": "fe4a349efb799a56ab548018caca1a1a1aea0c8f"
+    },
+    {
+      "name": "evolve",
+      "url": "https://github.com/pmotschmann/Evolve.git",
+      "exit": 0,
+      "log": "Cloning into '/Users/weiwei/.codex/research/bf-idle-src/repos/evolve'...\n",
+      "commit": "3436358dcd03d9f9e071d51ea071e0a78c0322e4"
+    }
+  ]
+}

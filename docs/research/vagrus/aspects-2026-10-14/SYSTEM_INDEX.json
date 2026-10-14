@@ -1,0 +1,6122 @@
+{
+  "scope": "C# file inventory, not semantic read of every class or unseen assemblies",
+  "source_root": "/Users/weiwei/.codex/research/vagrus-2/extract/code",
+  "csharp_files": 1506,
+  "namespace_directories": {
+    ".": 923,
+    "Properties": 1,
+    "Rewired": 13,
+    "Rewired.Data": 3,
+    "Rewired.Demos": 19,
+    "Rewired.Demos.CustomPlatform": 12,
+    "Rewired.Demos.GamepadTemplateUI": 3,
+    "Rewired.Integration.UnityUI": 5,
+    "Rewired.Internal": 1,
+    "Rewired.Localization": 2,
+    "Rewired.Platforms.Switch": 1,
+    "Rewired.Utils": 1,
+    "TriangleNet": 16,
+    "TriangleNet.Geometry": 13,
+    "TriangleNet.IO": 9,
+    "TriangleNet.Logging": 4,
+    "TriangleNet.Meshing": 10,
+    "TriangleNet.Meshing.Algorithm": 3,
+    "TriangleNet.Meshing.Data": 3,
+    "TriangleNet.Meshing.Iterators": 3,
+    "TriangleNet.Smoothing": 3,
+    "TriangleNet.Tools": 9,
+    "TriangleNet.Topology": 4,
+    "TriangleNet.Topology.DCEL": 4,
+    "TriangleNet.Voronoi": 5,
+    "TriangleNet.Voronoi.Legacy": 4,
+    "UnityEngine.UI": 1,
+    "Vagrus": 142,
+    "Vagrus.Data": 47,
+    "Vagrus.Data.Sync": 64,
+    "Vagrus.Effects": 1,
+    "Vagrus.Exploration": 11,
+    "Vagrus.Exploration.Data": 43,
+    "Vagrus.Exploration.UI": 8,
+    "Vagrus.FoW": 11,
+    "Vagrus.IO": 10,
+    "Vagrus.Testing": 31,
+    "Vagrus.Testing.Suites": 26,
+    "Vagrus.UI": 33,
+    "Vagrus.UI.Chart": 1,
+    "Vagrus.UI.Components": 3
+  },
+  "files": [
+    {
+      "path": "-PrivateImplementationDetails-.cs",
+      "bytes": 0
+    },
+    {
+      "path": "AbortReason.cs",
+      "bytes": 126
+    },
+    {
+      "path": "Achievement.cs",
+      "bytes": 10575
+    },
+    {
+      "path": "AchievementAction.cs",
+      "bytes": 190
+    },
+    {
+      "path": "AchievementDependency.cs",
+      "bytes": 454
+    },
+    {
+      "path": "AchievementSave.cs",
+      "bytes": 297
+    },
+    {
+      "path": "ActionEntry.cs",
+      "bytes": 1918
+    },
+    {
+      "path": "ActionMechanics.cs",
+      "bytes": 70
+    },
+    {
+      "path": "ActionReason.cs",
+      "bytes": 169
+    },
+    {
+      "path": "ActionType.cs",
+      "bytes": 80
+    },
+    {
+      "path": "ActiveEffect.cs",
+      "bytes": 975
+    },
+    {
+      "path": "AddressableLoadingContentType.cs",
+      "bytes": 134
+    },
+    {
+      "path": "AfterClashAction.cs",
+      "bytes": 254
+    },
+    {
+      "path": "AiTweak.cs",
+      "bytes": 16184
+    },
+    {
+      "path": "AirtableLocalizedData.cs",
+      "bytes": 798
+    },
+    {
+      "path": "AmbitionDependency.cs",
+      "bytes": 422
+    },
+    {
+      "path": "AmbitionType.cs",
+      "bytes": 92
+    },
+    {
+      "path": "AnimType.cs",
+      "bytes": 164
+    },
+    {
+      "path": "AoeMidlineOrientation.cs",
+      "bytes": 56
+    },
+    {
+      "path": "AssetUnloadDiag.cs",
+      "bytes": 561
+    },
+    {
+      "path": "AttributeType.cs",
+      "bytes": 79
+    },
+    {
+      "path": "AudioGroup.cs",
+      "bytes": 57
+    },
+    {
+      "path": "AutoFight.cs",
+      "bytes": 402
+    },
+    {
+      "path": "AutoScoutMode.cs",
+      "bytes": 56
+    },
+    {
+      "path": "AvailOption.cs",
+      "bytes": 199
+    },
+    {
+      "path": "Background.cs",
+      "bytes": 1611
+    },
+    {
+      "path": "BackgroundDependency.cs",
+      "bytes": 430
+    },
+    {
+      "path": "BackgroundType.cs",
+      "bytes": 224
+    },
+    {
+      "path": "BackupCamera.cs",
+      "bytes": 445
+    },
+    {
+      "path": "BasePriorityQueue.cs",
+      "bytes": 2964
+    },
+    {
+      "path": "BaseUI.cs",
+      "bytes": 9635
+    },
+    {
+      "path": "BaseUIEx.cs",
+      "bytes": 39223
+    },
+    {
+      "path": "BeastType.cs",
+      "bytes": 87
+    },
+    {
+      "path": "BeforeSkill.cs",
+      "bytes": 52
+    },
+    {
+      "path": "BigCityHistory.cs",
+      "bytes": 102
+    },
+    {
+      "path": "BigMessageBoxUI.cs",
+      "bytes": 5954
+    },
+    {
+      "path": "BloodShot.cs",
+      "bytes": 281
+    },
+    {
+      "path": "BloodType.cs",
+      "bytes": 258
+    },
+    {
+      "path": "BoardField.cs",
+      "bytes": 180
+    },
+    {
+      "path": "BoardJSON.cs",
+      "bytes": 218
+    },
+    {
+      "path": "BookCategory.cs",
+      "bytes": 91
+    },
+    {
+      "path": "BookEntry.cs",
+      "bytes": 2058
+    },
+    {
+      "path": "BookSorting.cs",
+      "bytes": 42
+    },
+    {
+      "path": "BookTextBlock.cs",
+      "bytes": 208
+    },
+    {
+      "path": "BookType.cs",
+      "bytes": 97
+    },
+    {
+      "path": "BookUI.cs",
+      "bytes": 120345
+    },
+    {
+      "path": "BugRelatedType.cs",
+      "bytes": 568
+    },
+    {
+      "path": "BugReport.cs",
+      "bytes": 22762
+    },
+    {
+      "path": "BugReportBlobUpload.cs",
+      "bytes": 3647
+    },
+    {
+      "path": "BugReportType.cs",
+      "bytes": 160
+    },
+    {
+      "path": "BuildAccess.cs",
+      "bytes": 66
+    },
+    {
+      "path": "BuildDependency.cs",
+      "bytes": 692
+    },
+    {
+      "path": "BuildPlatform.cs",
+      "bytes": 251
+    },
+    {
+      "path": "BuildType.cs",
+      "bytes": 65
+    },
+    {
+      "path": "ButtonClickDelegate.cs",
+      "bytes": 44
+    },
+    {
+      "path": "ButtonClickParamDelegate.cs",
+      "bytes": 58
+    },
+    {
+      "path": "ButtonCommands.cs",
+      "bytes": 3109
+    },
+    {
+      "path": "ButtonIcons.cs",
+      "bytes": 127
+    },
+    {
+      "path": "ButtonRF.cs",
+      "bytes": 4029
+    },
+    {
+      "path": "ButtonSpriteState.cs",
+      "bytes": 347
+    },
+    {
+      "path": "ButtonType.cs",
+      "bytes": 42
+    },
+    {
+      "path": "ButtonUI.cs",
+      "bytes": 17945
+    },
+    {
+      "path": "Calendar.cs",
+      "bytes": 8736
+    },
+    {
+      "path": "CalendarUI.cs",
+      "bytes": 5857
+    },
+    {
+      "path": "CallingDependency.cs",
+      "bytes": 418
+    },
+    {
+      "path": "CallingType.cs",
+      "bytes": 69
+    },
+    {
+      "path": "Camp.cs",
+      "bytes": 46658
+    },
+    {
+      "path": "CampCrew.cs",
+      "bytes": 459
+    },
+    {
+      "path": "CampFireStep.cs",
+      "bytes": 3202
+    },
+    {
+      "path": "CampFireUI.cs",
+      "bytes": 19402
+    },
+    {
+      "path": "CampMode.cs",
+      "bytes": 47
+    },
+    {
+      "path": "CampSave.cs",
+      "bytes": 2670
+    },
+    {
+      "path": "CampShadow.cs",
+      "bytes": 2463
+    },
+    {
+      "path": "CampTweak.cs",
+      "bytes": 123
+    },
+    {
+      "path": "CampUI.cs",
+      "bytes": 49127
+    },
+    {
+      "path": "CampUISave.cs",
+      "bytes": 824
+    },
+    {
+      "path": "CampVirtualRow.cs",
+      "bytes": 392
+    },
+    {
+      "path": "CanvasScaleAdapter.cs",
+      "bytes": 759
+    },
+    {
+      "path": "Caravan.cs",
+      "bytes": 308793
+    },
+    {
+      "path": "CaravanRole.cs",
+      "bytes": 361
+    },
+    {
+      "path": "CaravanRoleSave.cs",
+      "bytes": 267
+    },
+    {
+      "path": "CaravanTweak.cs",
+      "bytes": 386
+    },
+    {
+      "path": "CargoAction.cs",
+      "bytes": 131
+    },
+    {
+      "path": "CargoEquipmentCellView.cs",
+      "bytes": 3113
+    },
+    {
+      "path": "CargoEquipmentData.cs",
+      "bytes": 1949
+    },
+    {
+      "path": "CargoItemCellView.cs",
+      "bytes": 1337
+    },
+    {
+      "path": "CargoItemData.cs",
+      "bytes": 397
+    },
+    {
+      "path": "CargoOld.cs",
+      "bytes": 14759
+    },
+    {
+      "path": "CargoSlotOld.cs",
+      "bytes": 781
+    },
+    {
+      "path": "CargoStashPosition.cs",
+      "bytes": 94
+    },
+    {
+      "path": "CargoTweak.cs",
+      "bytes": 464
+    },
+    {
+      "path": "CargoUI.cs",
+      "bytes": 41603
+    },
+    {
+      "path": "CastShadow.cs",
+      "bytes": 63
+    },
+    {
+      "path": "Chance.cs",
+      "bytes": 72
+    },
+    {
+      "path": "ChanceMeter.cs",
+      "bytes": 967
+    },
+    {
+      "path": "ChanceMod.cs",
+      "bytes": 97
+    },
+    {
+      "path": "ChanceModifier.cs",
+      "bytes": 3287
+    },
+    {
+      "path": "CharKillType.cs",
+      "bytes": 57
+    },
+    {
+      "path": "Character.cs",
+      "bytes": 34924
+    },
+    {
+      "path": "CharacterAction.cs",
+      "bytes": 1325
+    },
+    {
+      "path": "CharacterActionSave.cs",
+      "bytes": 1031
+    },
+    {
+      "path": "CharacterAssetLoaders.cs",
+      "bytes": 4814
+    },
+    {
+      "path": "CharacterColorCorrection.cs",
+      "bytes": 142
+    },
+    {
+      "path": "CharacterDependency.cs",
+      "bytes": 645
+    },
+    {
+      "path": "CharacterGender.cs",
+      "bytes": 69
+    },
+    {
+      "path": "CharacterLayout.cs",
+      "bytes": 90
+    },
+    {
+      "path": "CharacterPerkLevel.cs",
+      "bytes": 233
+    },
+    {
+      "path": "CharacterPhase.cs",
+      "bytes": 1731
+    },
+    {
+      "path": "CharacterPhaseEntry.cs",
+      "bytes": 1787
+    },
+    {
+      "path": "CharacterPostAction.cs",
+      "bytes": 386
+    },
+    {
+      "path": "CharacterRowPreference.cs",
+      "bytes": 136
+    },
+    {
+      "path": "CharacterStat.cs",
+      "bytes": 146
+    },
+    {
+      "path": "CharacterTemplate.cs",
+      "bytes": 1117
+    },
+    {
+      "path": "CharacterUnit.cs",
+      "bytes": 211
+    },
+    {
+      "path": "ChartRegion.cs",
+      "bytes": 252
+    },
+    {
+      "path": "ChartScriptMove.cs",
+      "bytes": 491
+    },
+    {
+      "path": "ChartStatus.cs",
+      "bytes": 986
+    },
+    {
+      "path": "ChartStatusSave.cs",
+      "bytes": 522
+    },
+    {
+      "path": "ChartTile.cs",
+      "bytes": 2393
+    },
+    {
+      "path": "ChartTweak.cs",
+      "bytes": 3183
+    },
+    {
+      "path": "ChartUI.cs",
+      "bytes": 79174
+    },
+    {
+      "path": "CheckboxSprite.cs",
+      "bytes": 158
+    },
+    {
+      "path": "CheckboxUI.cs",
+      "bytes": 3733
+    },
+    {
+      "path": "ChoiceAction.cs",
+      "bytes": 2120
+    },
+    {
+      "path": "ChoiceAttribute.cs",
+      "bytes": 79
+    },
+    {
+      "path": "ChoiceCombat.cs",
+      "bytes": 380
+    },
+    {
+      "path": "ChoiceCrewCombat.cs",
+      "bytes": 1317
+    },
+    {
+      "path": "ChoiceIcon.cs",
+      "bytes": 649
+    },
+    {
+      "path": "ChoiceScrollInfo.cs",
+      "bytes": 191
+    },
+    {
+      "path": "ChoiceTest.cs",
+      "bytes": 511
+    },
+    {
+      "path": "ChoiceTestType.cs",
+      "bytes": 58
+    },
+    {
+      "path": "CircleBoxCategory.cs",
+      "bytes": 71
+    },
+    {
+      "path": "CircleState.cs",
+      "bytes": 250
+    },
+    {
+      "path": "ClaimReason.cs",
+      "bytes": 174
+    },
+    {
+      "path": "ClaimedReward.cs",
+      "bytes": 555
+    },
+    {
+      "path": "ClaimedRewardSave.cs",
+      "bytes": 336
+    },
+    {
+      "path": "Clash.cs",
+      "bytes": 227
+    },
+    {
+      "path": "CloseUpMode.cs",
+      "bytes": 48
+    },
+    {
+      "path": "CodexCategory.cs",
+      "bytes": 97
+    },
+    {
+      "path": "CodexDependency.cs",
+      "bytes": 416
+    },
+    {
+      "path": "CodexEntry.cs",
+      "bytes": 7044
+    },
+    {
+      "path": "CodexEntrySave.cs",
+      "bytes": 254
+    },
+    {
+      "path": "CodexTableEntry.cs",
+      "bytes": 814
+    },
+    {
+      "path": "CodexTag.cs",
+      "bytes": 512
+    },
+    {
+      "path": "Colorize.cs",
+      "bytes": 58
+    },
+    {
+      "path": "CombatAnim.cs",
+      "bytes": 76
+    },
+    {
+      "path": "CombatAreaMarker.cs",
+      "bytes": 25494
+    },
+    {
+      "path": "CombatBackground.cs",
+      "bytes": 2294
+    },
+    {
+      "path": "CombatBenchmark.cs",
+      "bytes": 19828
+    },
+    {
+      "path": "CombatBoard.cs",
+      "bytes": 12779
+    },
+    {
+      "path": "CombatCamera.cs",
+      "bytes": 306
+    },
+    {
+      "path": "CombatCharacter.cs",
+      "bytes": 58173
+    },
+    {
+      "path": "CombatDecisionTrace.cs",
+      "bytes": 3586
+    },
+    {
+      "path": "CombatLogRow.cs",
+      "bytes": 255
+    },
+    {
+      "path": "CombatOutcomeStats.cs",
+      "bytes": 2194
+    },
+    {
+      "path": "CombatPerfFlags.cs",
+      "bytes": 1777
+    },
+    {
+      "path": "CombatPosition.cs",
+      "bytes": 3164
+    },
+    {
+      "path": "CombatPositionObject.cs",
+      "bytes": 65250
+    },
+    {
+      "path": "CombatProfiler.cs",
+      "bytes": 10196
+    },
+    {
+      "path": "CombatProp.cs",
+      "bytes": 1719
+    },
+    {
+      "path": "CombatResult.cs",
+      "bytes": 89
+    },
+    {
+      "path": "CombatSprite.cs",
+      "bytes": 389
+    },
+    {
+      "path": "CombatStatus.cs",
+      "bytes": 360
+    },
+    {
+      "path": "CombatTemplate.cs",
+      "bytes": 3708
+    },
+    {
+      "path": "CombatTemplateType.cs",
+      "bytes": 56
+    },
+    {
+      "path": "CombatTplDeploy.cs",
+      "bytes": 58
+    },
+    {
+      "path": "CombatTweak.cs",
+      "bytes": 3332
+    },
+    {
+      "path": "CombatUI.cs",
+      "bytes": 181905
+    },
+    {
+      "path": "Comitatus.cs",
+      "bytes": 194
+    },
+    {
+      "path": "CompanionBox.cs",
+      "bytes": 400
+    },
+    {
+      "path": "CompanionCircle.cs",
+      "bytes": 32620
+    },
+    {
+      "path": "ConditionEntry.cs",
+      "bytes": 447
+    },
+    {
+      "path": "ConditionInvalidation.cs",
+      "bytes": 3347
+    },
+    {
+      "path": "ConditionKind.cs",
+      "bytes": 101
+    },
+    {
+      "path": "Console.cs",
+      "bytes": 254887
+    },
+    {
+      "path": "Container.cs",
+      "bytes": 4846
+    },
+    {
+      "path": "ContainerQty.cs",
+      "bytes": 597
+    },
+    {
+      "path": "ContainerTempSave.cs",
+      "bytes": 945
+    },
+    {
+      "path": "ControlSkill.cs",
+      "bytes": 120
+    },
+    {
+      "path": "ControllerButtonType.cs",
+      "bytes": 695
+    },
+    {
+      "path": "ControllerIcon.cs",
+      "bytes": 170
+    },
+    {
+      "path": "ControllerIconVisual.cs",
+      "bytes": 8331
+    },
+    {
+      "path": "ControllerLayoutNames.cs",
+      "bytes": 427
+    },
+    {
+      "path": "ControllerNodeMapNavigation.cs",
+      "bytes": 13039
+    },
+    {
+      "path": "ControllerPlatform.cs",
+      "bytes": 100
+    },
+    {
+      "path": "ControllerSupportManager.cs",
+      "bytes": 41073
+    },
+    {
+      "path": "ControllerType.cs",
+      "bytes": 59
+    },
+    {
+      "path": "Controller_ScrollerField.cs",
+      "bytes": 18957
+    },
+    {
+      "path": "Controller_SimpleScroller.cs",
+      "bytes": 1025
+    },
+    {
+      "path": "Controller_Slider.cs",
+      "bytes": 3548
+    },
+    {
+      "path": "CopyPositionConstraint.cs",
+      "bytes": 557
+    },
+    {
+      "path": "CopyRotationConstraint.cs",
+      "bytes": 557
+    },
+    {
+      "path": "CposNetElement.cs",
+      "bytes": 552
+    },
+    {
+      "path": "Crew.cs",
+      "bytes": 4835
+    },
+    {
+      "path": "CrewChangeBox.cs",
+      "bytes": 258
+    },
+    {
+      "path": "CrewChoiceBlock.cs",
+      "bytes": 2231
+    },
+    {
+      "path": "CrewCircle.cs",
+      "bytes": 9470
+    },
+    {
+      "path": "CrewCircleBox.cs",
+      "bytes": 3671
+    },
+    {
+      "path": "CrewCircleDoubleBox.cs",
+      "bytes": 7981
+    },
+    {
+      "path": "CrewCircleGeneral.cs",
+      "bytes": 3763
+    },
+    {
+      "path": "CrewCircleGroup.cs",
+      "bytes": 15903
+    },
+    {
+      "path": "CrewCircleLite.cs",
+      "bytes": 4457
+    },
+    {
+      "path": "CrewCombat.cs",
+      "bytes": 182775
+    },
+    {
+      "path": "CrewCombatAbort.cs",
+      "bytes": 195
+    },
+    {
+      "path": "CrewCombatAction.cs",
+      "bytes": 4619
+    },
+    {
+      "path": "CrewCombatAttribute.cs",
+      "bytes": 3781
+    },
+    {
+      "path": "CrewCombatFightUI.cs",
+      "bytes": 145040
+    },
+    {
+      "path": "CrewCombatFlag.cs",
+      "bytes": 6305
+    },
+    {
+      "path": "CrewCombatGroup.cs",
+      "bytes": 8617
+    },
+    {
+      "path": "CrewCombatLoot.cs",
+      "bytes": 6574
+    },
+    {
+      "path": "CrewCombatOpenUI.cs",
+      "bytes": 13459
+    },
+    {
+      "path": "CrewCombatScroll.cs",
+      "bytes": 2703
+    },
+    {
+      "path": "CrewCombatStatus.cs",
+      "bytes": 126
+    },
+    {
+      "path": "CrewCombatTemp.cs",
+      "bytes": 3189
+    },
+    {
+      "path": "CrewCombatTweak.cs",
+      "bytes": 8834
+    },
+    {
+      "path": "CrewCombatUI.cs",
+      "bytes": 7948
+    },
+    {
+      "path": "CrewCombatUnit.cs",
+      "bytes": 11353
+    },
+    {
+      "path": "CrewCombatVictoryPoints.cs",
+      "bytes": 398
+    },
+    {
+      "path": "CrewRow.cs",
+      "bytes": 5738
+    },
+    {
+      "path": "CrewSide.cs",
+      "bytes": 51
+    },
+    {
+      "path": "CrewSlotCategory.cs",
+      "bytes": 126
+    },
+    {
+      "path": "CrewUI.cs",
+      "bytes": 67420
+    },
+    {
+      "path": "CriticalTest.cs",
+      "bytes": 2201
+    },
+    {
+      "path": "CriticalTestResult.cs",
+      "bytes": 106
+    },
+    {
+      "path": "Crypto.cs",
+      "bytes": 4604
+    },
+    {
+      "path": "CurveInfo.cs",
+      "bytes": 957
+    },
+    {
+      "path": "CurveTextKey.cs",
+      "bytes": 1038
+    },
+    {
+      "path": "CustomScript.cs",
+      "bytes": 208
+    },
+    {
+      "path": "DLCIcon.cs",
+      "bytes": 4706
+    },
+    {
+      "path": "DLCVersion.cs",
+      "bytes": 464
+    },
+    {
+      "path": "DateChangedEventArgs.cs",
+      "bytes": 298
+    },
+    {
+      "path": "DateDependency.cs",
+      "bytes": 237
+    },
+    {
+      "path": "DateDependencyType.cs",
+      "bytes": 85
+    },
+    {
+      "path": "DayDependency.cs",
+      "bytes": 253
+    },
+    {
+      "path": "DayName.cs",
+      "bytes": 83
+    },
+    {
+      "path": "Deal.cs",
+      "bytes": 280
+    },
+    {
+      "path": "DealBox.cs",
+      "bytes": 756
+    },
+    {
+      "path": "DealCrew.cs",
+      "bytes": 342
+    },
+    {
+      "path": "DealType.cs",
+      "bytes": 86
+    },
+    {
+      "path": "DealWithType.cs",
+      "bytes": 45
+    },
+    {
+      "path": "DecalDestroyer.cs",
+      "bytes": 234
+    },
+    {
+      "path": "DecalModderBence.cs",
+      "bytes": 515
+    },
+    {
+      "path": "Decale.cs",
+      "bytes": 14819
+    },
+    {
+      "path": "DecaleDestroyEvent.cs",
+      "bytes": 195
+    },
+    {
+      "path": "DecaleEffect.cs",
+      "bytes": 782
+    },
+    {
+      "path": "DecaleObject.cs",
+      "bytes": 2114
+    },
+    {
+      "path": "DecaleOrder.cs",
+      "bytes": 71
+    },
+    {
+      "path": "DecaleType.cs",
+      "bytes": 751
+    },
+    {
+      "path": "DefenceBox.cs",
+      "bytes": 250
+    },
+    {
+      "path": "DefenceButton.cs",
+      "bytes": 1774
+    },
+    {
+      "path": "DefendType.cs",
+      "bytes": 49
+    },
+    {
+      "path": "DelayedSpriteRendererSync.cs",
+      "bytes": 1594
+    },
+    {
+      "path": "DeliverTime.cs",
+      "bytes": 66
+    },
+    {
+      "path": "Dependency.cs",
+      "bytes": 7734
+    },
+    {
+      "path": "DependencyBlock.cs",
+      "bytes": 11266
+    },
+    {
+      "path": "DependencyFilter.cs",
+      "bytes": 198
+    },
+    {
+      "path": "DependencyScope.cs",
+      "bytes": 112
+    },
+    {
+      "path": "DependencyTarget.cs",
+      "bytes": 55
+    },
+    {
+      "path": "DeployDrag.cs",
+      "bytes": 209
+    },
+    {
+      "path": "DeployImages.cs",
+      "bytes": 143
+    },
+    {
+      "path": "DeploymentStatus.cs",
+      "bytes": 67
+    },
+    {
+      "path": "DevSettings.cs",
+      "bytes": 547
+    },
+    {
+      "path": "Difficulty.cs",
+      "bytes": 128
+    },
+    {
+      "path": "DifficultyManager.cs",
+      "bytes": 4464
+    },
+    {
+      "path": "DigitColor.cs",
+      "bytes": 77
+    },
+    {
+      "path": "Disembark.cs",
+      "bytes": 59
+    },
+    {
+      "path": "Disposition.cs",
+      "bytes": 73
+    },
+    {
+      "path": "DistanceCache.cs",
+      "bytes": 1742
+    },
+    {
+      "path": "DistanceModelFlags.cs",
+      "bytes": 2356
+    },
+    {
+      "path": "DistanceModelProbe.cs",
+      "bytes": 6120
+    },
+    {
+      "path": "DistanceProbeAgg.cs",
+      "bytes": 743
+    },
+    {
+      "path": "DistanceProbeFinding.cs",
+      "bytes": 253
+    },
+    {
+      "path": "DragAndDropControllerType.cs",
+      "bytes": 126
+    },
+    {
+      "path": "DragAndDropElement.cs",
+      "bytes": 1871
+    },
+    {
+      "path": "DragAndDropElementType.cs",
+      "bytes": 186
+    },
+    {
+      "path": "DragAndDropZoneType.cs",
+      "bytes": 65
+    },
+    {
+      "path": "DragAndDrop_Controller.cs",
+      "bytes": 15293
+    },
+    {
+      "path": "DropDownEntry.cs",
+      "bytes": 1557
+    },
+    {
+      "path": "DropDownUI.cs",
+      "bytes": 6825
+    },
+    {
+      "path": "DynamicSelectableNavigator.cs",
+      "bytes": 42765
+    },
+    {
+      "path": "Effect.cs",
+      "bytes": 2927
+    },
+    {
+      "path": "EffectCategory.cs",
+      "bytes": 97
+    },
+    {
+      "path": "EffectCategoryIcons.cs",
+      "bytes": 149
+    },
+    {
+      "path": "EffectDecale.cs",
+      "bytes": 87
+    },
+    {
+      "path": "EffectDuration.cs",
+      "bytes": 114
+    },
+    {
+      "path": "EffectElementObject.cs",
+      "bytes": 242
+    },
+    {
+      "path": "EffectGroup.cs",
+      "bytes": 122
+    },
+    {
+      "path": "EffectImmunityType.cs",
+      "bytes": 113
+    },
+    {
+      "path": "EffectLink.cs",
+      "bytes": 358
+    },
+    {
+      "path": "EffectProp.cs",
+      "bytes": 12217
+    },
+    {
+      "path": "EffectResistType.cs",
+      "bytes": 109
+    },
+    {
+      "path": "EffectRow.cs",
+      "bytes": 222
+    },
+    {
+      "path": "EffectScope.cs",
+      "bytes": 66
+    },
+    {
+      "path": "EffectSource.cs",
+      "bytes": 232
+    },
+    {
+      "path": "EffectStat.cs",
+      "bytes": 191
+    },
+    {
+      "path": "EffectSubCategory.cs",
+      "bytes": 333
+    },
+    {
+      "path": "EmptyRaycaster.cs",
+      "bytes": 238
+    },
+    {
+      "path": "EndCombatScreen.cs",
+      "bytes": 303
+    },
+    {
+      "path": "EnemyDisposition.cs",
+      "bytes": 70
+    },
+    {
+      "path": "EnemyProp.cs",
+      "bytes": 7082
+    },
+    {
+      "path": "EnhancedCellView.cs",
+      "bytes": 1743
+    },
+    {
+      "path": "EnhancedScrollController.cs",
+      "bytes": 5299
+    },
+    {
+      "path": "EntryDivider.cs",
+      "bytes": 660
+    },
+    {
+      "path": "EntryIcon.cs",
+      "bytes": 243
+    },
+    {
+      "path": "EnumExtensions.cs",
+      "bytes": 556
+    },
+    {
+      "path": "EpilogueId.cs",
+      "bytes": 909
+    },
+    {
+      "path": "Equipment.cs",
+      "bytes": 13113
+    },
+    {
+      "path": "EquipmentAction.cs",
+      "bytes": 1005
+    },
+    {
+      "path": "EquipmentActionSave.cs",
+      "bytes": 862
+    },
+    {
+      "path": "EquipmentCategory.cs",
+      "bytes": 264
+    },
+    {
+      "path": "EquipmentDependency.cs",
+      "bytes": 573
+    },
+    {
+      "path": "EquipmentHolder.cs",
+      "bytes": 24627
+    },
+    {
+      "path": "EquipmentMountSlot.cs",
+      "bytes": 702
+    },
+    {
+      "path": "EquipmentMountSlotSave.cs",
+      "bytes": 340
+    },
+    {
+      "path": "EquipmentSave.cs",
+      "bytes": 354
+    },
+    {
+      "path": "EquipmentSlot.cs",
+      "bytes": 971
+    },
+    {
+      "path": "EquipmentSlotSave.cs",
+      "bytes": 296
+    },
+    {
+      "path": "EvenlySpacingLayout.cs",
+      "bytes": 2583
+    },
+    {
+      "path": "EventChoice.cs",
+      "bytes": 2603
+    },
+    {
+      "path": "EventDependency.cs",
+      "bytes": 504
+    },
+    {
+      "path": "EventGraphAotHelper.cs",
+      "bytes": 2263
+    },
+    {
+      "path": "EventSprite.cs",
+      "bytes": 1179
+    },
+    {
+      "path": "EventStep.cs",
+      "bytes": 63948
+    },
+    {
+      "path": "EventTweak.cs",
+      "bytes": 3783
+    },
+    {
+      "path": "EventUI.cs",
+      "bytes": 85111
+    },
+    {
+      "path": "ExplorationTask.cs",
+      "bytes": 3147
+    },
+    {
+      "path": "ExplorationTaskType.cs",
+      "bytes": 90
+    },
+    {
+      "path": "ExtensionMethods.cs",
+      "bytes": 602
+    },
+    {
+      "path": "ExtinguishableFire.cs",
+      "bytes": 1603
+    },
+    {
+      "path": "FaceEntry.cs",
+      "bytes": 108
+    },
+    {
+      "path": "Faction.cs",
+      "bytes": 30825
+    },
+    {
+      "path": "FactionAction.cs",
+      "bytes": 969
+    },
+    {
+      "path": "FactionActionSave.cs",
+      "bytes": 552
+    },
+    {
+      "path": "FactionBox.cs",
+      "bytes": 240
+    },
+    {
+      "path": "FactionCategory.cs",
+      "bytes": 62
+    },
+    {
+      "path": "FactionConflictButtonBehaviour.cs",
+      "bytes": 518
+    },
+    {
+      "path": "FactionConflictUI.cs",
+      "bytes": 9728
+    },
+    {
+      "path": "FactionDependency.cs",
+      "bytes": 677
+    },
+    {
+      "path": "FactionDetailsHolderUI.cs",
+      "bytes": 15777
+    },
+    {
+      "path": "FactionInterest.cs",
+      "bytes": 265
+    },
+    {
+      "path": "FactionLocation.cs",
+      "bytes": 1230
+    },
+    {
+      "path": "FactionNodeLevel.cs",
+      "bytes": 624
+    },
+    {
+      "path": "FactionPrefix.cs",
+      "bytes": 65
+    },
+    {
+      "path": "FactionReputation.cs",
+      "bytes": 662
+    },
+    {
+      "path": "FactionReward.cs",
+      "bytes": 837
+    },
+    {
+      "path": "FactionSave.cs",
+      "bytes": 970
+    },
+    {
+      "path": "FactionStatusHolderUI.cs",
+      "bytes": 3508
+    },
+    {
+      "path": "FactionThumbHolderUI.cs",
+      "bytes": 3689
+    },
+    {
+      "path": "FactionThumbUI.cs",
+      "bytes": 3982
+    },
+    {
+      "path": "FactionTierBox.cs",
+      "bytes": 622
+    },
+    {
+      "path": "FactionTweak.cs",
+      "bytes": 1497
+    },
+    {
+      "path": "FactionUI.cs",
+      "bytes": 53636
+    },
+    {
+      "path": "FieldHighlight.cs",
+      "bytes": 222
+    },
+    {
+      "path": "FightMode.cs",
+      "bytes": 52
+    },
+    {
+      "path": "FinalScreenType.cs",
+      "bytes": 72
+    },
+    {
+      "path": "FlexibleStat.cs",
+      "bytes": 4478
+    },
+    {
+      "path": "FloatRange.cs",
+      "bytes": 4804
+    },
+    {
+      "path": "ForagingTweak.cs",
+      "bytes": 3545
+    },
+    {
+      "path": "ForceTransform.cs",
+      "bytes": 831
+    },
+    {
+      "path": "FormatRow.cs",
+      "bytes": 183
+    },
+    {
+      "path": "FoundPath.cs",
+      "bytes": 138
+    },
+    {
+      "path": "FreqChance.cs",
+      "bytes": 68
+    },
+    {
+      "path": "FreshCategoryDay.cs",
+      "bytes": 101
+    },
+    {
+      "path": "GMath.cs",
+      "bytes": 2166
+    },
+    {
+      "path": "Game.cs",
+      "bytes": 213182
+    },
+    {
+      "path": "GameCharacter.cs",
+      "bytes": 60508
+    },
+    {
+      "path": "GameCharacterSave.cs",
+      "bytes": 1390
+    },
+    {
+      "path": "GameConfig.cs",
+      "bytes": 6320
+    },
+    {
+      "path": "GameLogRow.cs",
+      "bytes": 7960
+    },
+    {
+      "path": "GameLogRowSave.cs",
+      "bytes": 527
+    },
+    {
+      "path": "GameLogType.cs",
+      "bytes": 103
+    },
+    {
+      "path": "GameLogUI.cs",
+      "bytes": 10048
+    },
+    {
+      "path": "GameManager.cs",
+      "bytes": 134
+    },
+    {
+      "path": "GameMode.cs",
+      "bytes": 55
+    },
+    {
+      "path": "GameModeSlot.cs",
+      "bytes": 325
+    },
+    {
+      "path": "GameOverUI.cs",
+      "bytes": 2972
+    },
+    {
+      "path": "GamePhase.cs",
+      "bytes": 360
+    },
+    {
+      "path": "Gear.cs",
+      "bytes": 8862
+    },
+    {
+      "path": "GearAction.cs",
+      "bytes": 891
+    },
+    {
+      "path": "GearActionSave.cs",
+      "bytes": 721
+    },
+    {
+      "path": "GearCategory.cs",
+      "bytes": 62
+    },
+    {
+      "path": "GearDependency.cs",
+      "bytes": 548
+    },
+    {
+      "path": "GearHolder.cs",
+      "bytes": 14768
+    },
+    {
+      "path": "GearMountSlot.cs",
+      "bytes": 1184
+    },
+    {
+      "path": "GearMountSlotSave.cs",
+      "bytes": 626
+    },
+    {
+      "path": "GearSlot.cs",
+      "bytes": 892
+    },
+    {
+      "path": "GearSlotSave.cs",
+      "bytes": 431
+    },
+    {
+      "path": "GeneralSettings.cs",
+      "bytes": 15645
+    },
+    {
+      "path": "GeneralTaskDependency.cs",
+      "bytes": 529
+    },
+    {
+      "path": "GeneratedName.cs",
+      "bytes": 1922
+    },
+    {
+      "path": "GfxLevel.cs",
+      "bytes": 212
+    },
+    {
+      "path": "GlossaryContentElementData.cs",
+      "bytes": 3204
+    },
+    {
+      "path": "GlossaryContentElementType.cs",
+      "bytes": 65
+    },
+    {
+      "path": "GlossaryContentElement_Data.cs",
+      "bytes": 684
+    },
+    {
+      "path": "GlossaryEntry.cs",
+      "bytes": 5794
+    },
+    {
+      "path": "GlossaryEntryData.cs",
+      "bytes": 492
+    },
+    {
+      "path": "GlossaryEntryLine.cs",
+      "bytes": 2823
+    },
+    {
+      "path": "GlossaryUI.cs",
+      "bytes": 27538
+    },
+    {
+      "path": "Goods.cs",
+      "bytes": 19752
+    },
+    {
+      "path": "GoodsAction.cs",
+      "bytes": 1703
+    },
+    {
+      "path": "GoodsActionSave.cs",
+      "bytes": 1640
+    },
+    {
+      "path": "GoodsCatGroup.cs",
+      "bytes": 110
+    },
+    {
+      "path": "GoodsCategory.cs",
+      "bytes": 160
+    },
+    {
+      "path": "GoodsDependency.cs",
+      "bytes": 714
+    },
+    {
+      "path": "GoodsQty.cs",
+      "bytes": 5079
+    },
+    {
+      "path": "GoodsQtySave.cs",
+      "bytes": 311
+    },
+    {
+      "path": "GoodsSave.cs",
+      "bytes": 330
+    },
+    {
+      "path": "GoodsSource.cs",
+      "bytes": 421
+    },
+    {
+      "path": "GoodsWorth.cs",
+      "bytes": 430
+    },
+    {
+      "path": "GroupStat.cs",
+      "bytes": 353
+    },
+    {
+      "path": "GunAim.cs",
+      "bytes": 849
+    },
+    {
+      "path": "GunShoot.cs",
+      "bytes": 2101
+    },
+    {
+      "path": "HFChance.cs",
+      "bytes": 341
+    },
+    {
+      "path": "HFColumn.cs",
+      "bytes": 6068
+    },
+    {
+      "path": "HFNodeChance.cs",
+      "bytes": 1554
+    },
+    {
+      "path": "HFResult.cs",
+      "bytes": 1066
+    },
+    {
+      "path": "HFResultUI.cs",
+      "bytes": 5052
+    },
+    {
+      "path": "HFTweak.cs",
+      "bytes": 7125
+    },
+    {
+      "path": "HFType.cs",
+      "bytes": 63
+    },
+    {
+      "path": "HSliderUI.cs",
+      "bytes": 6059
+    },
+    {
+      "path": "HangWatchdog.cs",
+      "bytes": 4342
+    },
+    {
+      "path": "HealRestriction.cs",
+      "bytes": 60
+    },
+    {
+      "path": "Health.cs",
+      "bytes": 144
+    },
+    {
+      "path": "HeightMode.cs",
+      "bytes": 64
+    },
+    {
+      "path": "HeroCombat.cs",
+      "bytes": 536016
+    },
+    {
+      "path": "HeroCombatField_Controller.cs",
+      "bytes": 27098
+    },
+    {
+      "path": "HeroSelect.cs",
+      "bytes": 414
+    },
+    {
+      "path": "HeroSelectMode.cs",
+      "bytes": 57
+    },
+    {
+      "path": "HeroSelectUI.cs",
+      "bytes": 10985
+    },
+    {
+      "path": "HoldMouseVisualMarker.cs",
+      "bytes": 1054
+    },
+    {
+      "path": "HotKey.cs",
+      "bytes": 4948
+    },
+    {
+      "path": "HoverAnim.cs",
+      "bytes": 2608
+    },
+    {
+      "path": "HuntingTweak.cs",
+      "bytes": 5730
+    },
+    {
+      "path": "IEnhancedScrollData.cs",
+      "bytes": 116
+    },
+    {
+      "path": "IScrollData.cs",
+      "bytes": 102
+    },
+    {
+      "path": "IStatusHolder.cs",
+      "bytes": 166
+    },
+    {
+      "path": "Icons.cs",
+      "bytes": 102
+    },
+    {
+      "path": "IgnoreCanvasScaler.cs",
+      "bytes": 1939
+    },
+    {
+      "path": "Impact.cs",
+      "bytes": 4249
+    },
+    {
+      "path": "ImpactBlock.cs",
+      "bytes": 2680
+    },
+    {
+      "path": "ImpactProperty.cs",
+      "bytes": 509
+    },
+    {
+      "path": "IniImages.cs",
+      "bytes": 219
+    },
+    {
+      "path": "Initial.cs",
+      "bytes": 6063
+    },
+    {
+      "path": "InitialMix.cs",
+      "bytes": 3864
+    },
+    {
+      "path": "InitialType.cs",
+      "bytes": 82
+    },
+    {
+      "path": "InitiativeIconElementHolder.cs",
+      "bytes": 356
+    },
+    {
+      "path": "IntRange.cs",
+      "bytes": 5428
+    },
+    {
+      "path": "Item.cs",
+      "bytes": 2711
+    },
+    {
+      "path": "ItemAction.cs",
+      "bytes": 891
+    },
+    {
+      "path": "ItemActionSave.cs",
+      "bytes": 721
+    },
+    {
+      "path": "ItemDependency.cs",
+      "bytes": 398
+    },
+    {
+      "path": "ItemEntry.cs",
+      "bytes": 1755
+    },
+    {
+      "path": "ItemHolder.cs",
+      "bytes": 2319
+    },
+    {
+      "path": "ItemQty.cs",
+      "bytes": 3234
+    },
+    {
+      "path": "ItemQtySave.cs",
+      "bytes": 298
+    },
+    {
+      "path": "ItemSlot.cs",
+      "bytes": 533
+    },
+    {
+      "path": "ItemSlotSave.cs",
+      "bytes": 202
+    },
+    {
+      "path": "Journal.cs",
+      "bytes": 34309
+    },
+    {
+      "path": "JournalAction.cs",
+      "bytes": 1255
+    },
+    {
+      "path": "JournalActionSave.cs",
+      "bytes": 681
+    },
+    {
+      "path": "JournalDependency.cs",
+      "bytes": 688
+    },
+    {
+      "path": "JournalMarker.cs",
+      "bytes": 1526
+    },
+    {
+      "path": "JournalMarkerSave.cs",
+      "bytes": 609
+    },
+    {
+      "path": "JournalMarkerType.cs",
+      "bytes": 52
+    },
+    {
+      "path": "JournalObjective.cs",
+      "bytes": 85
+    },
+    {
+      "path": "JournalSave.cs",
+      "bytes": 549
+    },
+    {
+      "path": "JournalType.cs",
+      "bytes": 59
+    },
+    {
+      "path": "KeyGroup.cs",
+      "bytes": 107
+    },
+    {
+      "path": "KeyType.cs",
+      "bytes": 1493
+    },
+    {
+      "path": "Keybind.cs",
+      "bytes": 707
+    },
+    {
+      "path": "KeybindUI.cs",
+      "bytes": 4439
+    },
+    {
+      "path": "Keybinding.cs",
+      "bytes": 9387
+    },
+    {
+      "path": "KeybindingSave.cs",
+      "bytes": 8728
+    },
+    {
+      "path": "LangPackData.cs",
+      "bytes": 571
+    },
+    {
+      "path": "LastMarket.cs",
+      "bytes": 906
+    },
+    {
+      "path": "Leader.cs",
+      "bytes": 7165
+    },
+    {
+      "path": "LeaderAction.cs",
+      "bytes": 711
+    },
+    {
+      "path": "LeaderActionSave.cs",
+      "bytes": 498
+    },
+    {
+      "path": "LeaderButtons.cs",
+      "bytes": 219
+    },
+    {
+      "path": "LeaderFace.cs",
+      "bytes": 4588
+    },
+    {
+      "path": "LeaderTab.cs",
+      "bytes": 74
+    },
+    {
+      "path": "LeaderTweak.cs",
+      "bytes": 2818
+    },
+    {
+      "path": "LeaderUI.cs",
+      "bytes": 52896
+    },
+    {
+      "path": "LevelsOfSkill.cs",
+      "bytes": 436
+    },
+    {
+      "path": "Line.cs",
+      "bytes": 27842
+    },
+    {
+      "path": "LineAction.cs",
+      "bytes": 416
+    },
+    {
+      "path": "LineActionSave.cs",
+      "bytes": 233
+    },
+    {
+      "path": "LineSave.cs",
+      "bytes": 187
+    },
+    {
+      "path": "ListExtensions.cs",
+      "bytes": 512
+    },
+    {
+      "path": "LoadingScreen.cs",
+      "bytes": 22407
+    },
+    {
+      "path": "LocalCharacter.cs",
+      "bytes": 1083
+    },
+    {
+      "path": "LocalCharacterEntry.cs",
+      "bytes": 935
+    },
+    {
+      "path": "LocalCombatBack.cs",
+      "bytes": 728
+    },
+    {
+      "path": "LocalCombatBackground.cs",
+      "bytes": 538
+    },
+    {
+      "path": "LocalSkill.cs",
+      "bytes": 849
+    },
+    {
+      "path": "LockAllTransform.cs",
+      "bytes": 826
+    },
+    {
+      "path": "LockTransform.cs",
+      "bytes": 1209
+    },
+    {
+      "path": "LootCat.cs",
+      "bytes": 99
+    },
+    {
+      "path": "LootScenario.cs",
+      "bytes": 124
+    },
+    {
+      "path": "MMButton.cs",
+      "bytes": 160
+    },
+    {
+      "path": "MainCamera.cs",
+      "bytes": 4280
+    },
+    {
+      "path": "MainMenuSlideOpener.cs",
+      "bytes": 2680
+    },
+    {
+      "path": "MainMenuTouchSlider.cs",
+      "bytes": 2412
+    },
+    {
+      "path": "MainMenuUI.cs",
+      "bytes": 145175
+    },
+    {
+      "path": "MansioCrew.cs",
+      "bytes": 1821
+    },
+    {
+      "path": "MansioPassenger.cs",
+      "bytes": 1492
+    },
+    {
+      "path": "MansioProduct.cs",
+      "bytes": 419
+    },
+    {
+      "path": "MansioRumor.cs",
+      "bytes": 1002
+    },
+    {
+      "path": "MansioTradeBox.cs",
+      "bytes": 3523
+    },
+    {
+      "path": "MansioTweak.cs",
+      "bytes": 76
+    },
+    {
+      "path": "MansioUI.cs",
+      "bytes": 49482
+    },
+    {
+      "path": "Map.cs",
+      "bytes": 31547
+    },
+    {
+      "path": "MapTweak.cs",
+      "bytes": 399
+    },
+    {
+      "path": "MarketBlock.cs",
+      "bytes": 125
+    },
+    {
+      "path": "MarketBox.cs",
+      "bytes": 253
+    },
+    {
+      "path": "MarketCategory.cs",
+      "bytes": 60
+    },
+    {
+      "path": "MarketHistory.cs",
+      "bytes": 731
+    },
+    {
+      "path": "MarketProduct.cs",
+      "bytes": 5714
+    },
+    {
+      "path": "MarketProductSave.cs",
+      "bytes": 978
+    },
+    {
+      "path": "MarketQtyUI.cs",
+      "bytes": 26060
+    },
+    {
+      "path": "MarketTweak.cs",
+      "bytes": 38086
+    },
+    {
+      "path": "MarketUI.cs",
+      "bytes": 58263
+    },
+    {
+      "path": "MaterialFrameAnimator.cs",
+      "bytes": 634
+    },
+    {
+      "path": "MaxDependency.cs",
+      "bytes": 236
+    },
+    {
+      "path": "MenuButton.cs",
+      "bytes": 1727
+    },
+    {
+      "path": "MenuButtonUI.cs",
+      "bytes": 6774
+    },
+    {
+      "path": "MenuCheckbox.cs",
+      "bytes": 1378
+    },
+    {
+      "path": "MenuDropdown.cs",
+      "bytes": 1946
+    },
+    {
+      "path": "MenuKeybind.cs",
+      "bytes": 1012
+    },
+    {
+      "path": "MenuLabel.cs",
+      "bytes": 921
+    },
+    {
+      "path": "MenuOption.cs",
+      "bytes": 1156
+    },
+    {
+      "path": "MenuOptionsButton.cs",
+      "bytes": 494
+    },
+    {
+      "path": "MenuSlider.cs",
+      "bytes": 1153
+    },
+    {
+      "path": "MenuType.cs",
+      "bytes": 387
+    },
+    {
+      "path": "MercenaryTask.cs",
+      "bytes": 15769
+    },
+    {
+      "path": "MercenaryTaskFlavorText.cs",
+      "bytes": 6334
+    },
+    {
+      "path": "MercenaryTaskFlavorTextSave.cs",
+      "bytes": 292
+    },
+    {
+      "path": "MercenaryTaskType.cs",
+      "bytes": 186
+    },
+    {
+      "path": "MergedSimStatus.cs",
+      "bytes": 923
+    },
+    {
+      "path": "MessageBoxUI.cs",
+      "bytes": 4037
+    },
+    {
+      "path": "Method.cs",
+      "bytes": 9428
+    },
+    {
+      "path": "MinMax.cs",
+      "bytes": 2107
+    },
+    {
+      "path": "MinMaxChance.cs",
+      "bytes": 480
+    },
+    {
+      "path": "MiniCaravanUI.cs",
+      "bytes": 25913
+    },
+    {
+      "path": "MixedPerkType.cs",
+      "bytes": 102
+    },
+    {
+      "path": "ModStat.cs",
+      "bytes": 275
+    },
+    {
+      "path": "ModType.cs",
+      "bytes": 93
+    },
+    {
+      "path": "ModValue.cs",
+      "bytes": 4228
+    },
+    {
+      "path": "MonthDependency.cs",
+      "bytes": 269
+    },
+    {
+      "path": "MonthName.cs",
+      "bytes": 157
+    },
+    {
+      "path": "MountType.cs",
+      "bytes": 55
+    },
+    {
+      "path": "MovPointFactors.cs",
+      "bytes": 411
+    },
+    {
+      "path": "MovePathData.cs",
+      "bytes": 190
+    },
+    {
+      "path": "Music.cs",
+      "bytes": 859
+    },
+    {
+      "path": "NameGender.cs",
+      "bytes": 49
+    },
+    {
+      "path": "NavScrollerElement.cs",
+      "bytes": 170
+    },
+    {
+      "path": "News.cs",
+      "bytes": 3364
+    },
+    {
+      "path": "NewsHolder.cs",
+      "bytes": 4033
+    },
+    {
+      "path": "NewsSave.cs",
+      "bytes": 428
+    },
+    {
+      "path": "NewsTweak.cs",
+      "bytes": 1440
+    },
+    {
+      "path": "Node.cs",
+      "bytes": 276410
+    },
+    {
+      "path": "NodeAction.cs",
+      "bytes": 2509
+    },
+    {
+      "path": "NodeActionSave.cs",
+      "bytes": 1314
+    },
+    {
+      "path": "NodeCondition.cs",
+      "bytes": 851
+    },
+    {
+      "path": "NodeDependency.cs",
+      "bytes": 898
+    },
+    {
+      "path": "NodeDistance.cs",
+      "bytes": 337
+    },
+    {
+      "path": "NodeGameMode.cs",
+      "bytes": 58
+    },
+    {
+      "path": "NodeHistory.cs",
+      "bytes": 171
+    },
+    {
+      "path": "NodeHistorySave.cs",
+      "bytes": 213
+    },
+    {
+      "path": "NodeSave.cs",
+      "bytes": 3710
+    },
+    {
+      "path": "NodeTitleOffset.cs",
+      "bytes": 94
+    },
+    {
+      "path": "NodeVisibilityEntry.cs",
+      "bytes": 107
+    },
+    {
+      "path": "NodeVisibilitySave.cs",
+      "bytes": 1228
+    },
+    {
+      "path": "NonPropSource.cs",
+      "bytes": 301
+    },
+    {
+      "path": "NonPropSourceInvalidation.cs",
+      "bytes": 3990
+    },
+    {
+      "path": "Note.cs",
+      "bytes": 436
+    },
+    {
+      "path": "NoteEntry.cs",
+      "bytes": 1272
+    },
+    {
+      "path": "NotesUI.cs",
+      "bytes": 10428
+    },
+    {
+      "path": "NullTransform.cs",
+      "bytes": 628
+    },
+    {
+      "path": "OR_LINE.cs",
+      "bytes": 173
+    },
+    {
+      "path": "OR_Location_Object.cs",
+      "bytes": 5835
+    },
+    {
+      "path": "OR_NODE.cs",
+      "bytes": 305
+    },
+    {
+      "path": "ObjectScalling.cs",
+      "bytes": 1139
+    },
+    {
+      "path": "ObstalcePlacementSide.cs",
+      "bytes": 63
+    },
+    {
+      "path": "OddJobsTweak.cs",
+      "bytes": 1519
+    },
+    {
+      "path": "OfferGenerateDay.cs",
+      "bytes": 497
+    },
+    {
+      "path": "OfferGenerateDaySave.cs",
+      "bytes": 292
+    },
+    {
+      "path": "OgMode.cs",
+      "bytes": 16266
+    },
+    {
+      "path": "OnDemandAssetLoader.cs",
+      "bytes": 6755
+    },
+    {
+      "path": "OnPropertyChangedEvent.cs",
+      "bytes": 91
+    },
+    {
+      "path": "Opposition.cs",
+      "bytes": 58
+    },
+    {
+      "path": "OptionsSubMenu.cs",
+      "bytes": 96
+    },
+    {
+      "path": "OuterRealm_VisualController.cs",
+      "bytes": 27710
+    },
+    {
+      "path": "OuterRealmsStarter.cs",
+      "bytes": 3817
+    },
+    {
+      "path": "OuterRealmsTweak.cs",
+      "bytes": 388
+    },
+    {
+      "path": "Outpost.cs",
+      "bytes": 58690
+    },
+    {
+      "path": "OutpostBuyOrder.cs",
+      "bytes": 92
+    },
+    {
+      "path": "OutpostSave.cs",
+      "bytes": 1601
+    },
+    {
+      "path": "OutpostSellOrder.cs",
+      "bytes": 97
+    },
+    {
+      "path": "OutpostTweak.cs",
+      "bytes": 1115
+    },
+    {
+      "path": "POI.cs",
+      "bytes": 430
+    },
+    {
+      "path": "POIAreaMarker.cs",
+      "bytes": 11777
+    },
+    {
+      "path": "POIBox.cs",
+      "bytes": 4248
+    },
+    {
+      "path": "POILevel.cs",
+      "bytes": 79
+    },
+    {
+      "path": "POIType.cs",
+      "bytes": 313
+    },
+    {
+      "path": "ParanoidFinding.cs",
+      "bytes": 309
+    },
+    {
+      "path": "ParanoidFindings.cs",
+      "bytes": 5840
+    },
+    {
+      "path": "ParticleCollision.cs",
+      "bytes": 695
+    },
+    {
+      "path": "ParticleExamples.cs",
+      "bytes": 284
+    },
+    {
+      "path": "ParticleMenu.cs",
+      "bytes": 1085
+    },
+    {
+      "path": "Passenger.cs",
+      "bytes": 21933
+    },
+    {
+      "path": "PassengerAction.cs",
+      "bytes": 781
+    },
+    {
+      "path": "PassengerActionSave.cs",
+      "bytes": 439
+    },
+    {
+      "path": "PassengerBox.cs",
+      "bytes": 273
+    },
+    {
+      "path": "PassengerDependency.cs",
+      "bytes": 438
+    },
+    {
+      "path": "PassengerHolder.cs",
+      "bytes": 6581
+    },
+    {
+      "path": "PassengerSave.cs",
+      "bytes": 1357
+    },
+    {
+      "path": "PassengerSlot.cs",
+      "bytes": 1245
+    },
+    {
+      "path": "PassengerSlotSave.cs",
+      "bytes": 201
+    },
+    {
+      "path": "PassengerTweak.cs",
+      "bytes": 1657
+    },
+    {
+      "path": "PassengerUse.cs",
+      "bytes": 158
+    },
+    {
+      "path": "PathDotBehaviour.cs",
+      "bytes": 1597
+    },
+    {
+      "path": "PathManager_OR.cs",
+      "bytes": 31686
+    },
+    {
+      "path": "PerfBreadcrumb.cs",
+      "bytes": 15675
+    },
+    {
+      "path": "PerfSection.cs",
+      "bytes": 6819
+    },
+    {
+      "path": "Perk.cs",
+      "bytes": 12886
+    },
+    {
+      "path": "PerkAction.cs",
+      "bytes": 696
+    },
+    {
+      "path": "PerkActionSave.cs",
+      "bytes": 368
+    },
+    {
+      "path": "PerkButtonStatus.cs",
+      "bytes": 104
+    },
+    {
+      "path": "PerkButtonUI.cs",
+      "bytes": 8709
+    },
+    {
+      "path": "PerkColumnUI.cs",
+      "bytes": 4394
+    },
+    {
+      "path": "PerkDependency.cs",
+      "bytes": 704
+    },
+    {
+      "path": "PerkEntry.cs",
+      "bytes": 2983
+    },
+    {
+      "path": "PerkEntryOldSave.cs",
+      "bytes": 256
+    },
+    {
+      "path": "PerkEntrySave.cs",
+      "bytes": 332
+    },
+    {
+      "path": "PerkEntryUI.cs",
+      "bytes": 3394
+    },
+    {
+      "path": "PerkGroup.cs",
+      "bytes": 58
+    },
+    {
+      "path": "PerkLevel.cs",
+      "bytes": 823
+    },
+    {
+      "path": "PerkLevelDependency.cs",
+      "bytes": 328
+    },
+    {
+      "path": "PerkManager.cs",
+      "bytes": 11574
+    },
+    {
+      "path": "PerkPerkButtonUI.cs",
+      "bytes": 8448
+    },
+    {
+      "path": "PerkPerkColumnUI.cs",
+      "bytes": 3888
+    },
+    {
+      "path": "PerkPerkEntryUI.cs",
+      "bytes": 4849
+    },
+    {
+      "path": "PerkRow.cs",
+      "bytes": 222
+    },
+    {
+      "path": "PerkSummaryHolderUI.cs",
+      "bytes": 9842
+    },
+    {
+      "path": "PerkType.cs",
+      "bytes": 110
+    },
+    {
+      "path": "PerkUI.cs",
+      "bytes": 31579
+    },
+    {
+      "path": "PerkVirtualRow.cs",
+      "bytes": 142
+    },
+    {
+      "path": "PlacedCharacter.cs",
+      "bytes": 215
+    },
+    {
+      "path": "PoiImage.cs",
+      "bytes": 976
+    },
+    {
+      "path": "PopupInfoWindowUI.cs",
+      "bytes": 15344
+    },
+    {
+      "path": "PopupSlideType.cs",
+      "bytes": 73
+    },
+    {
+      "path": "PopupWindowSlide.cs",
+      "bytes": 2916
+    },
+    {
+      "path": "PriceBorderType.cs",
+      "bytes": 61
+    },
+    {
+      "path": "PriceHistoryBox.cs",
+      "bytes": 25090
+    },
+    {
+      "path": "PriceHistoryColumn.cs",
+      "bytes": 4862
+    },
+    {
+      "path": "PriceHistoryColumnHeader.cs",
+      "bytes": 7639
+    },
+    {
+      "path": "PriceHistoryRow.cs",
+      "bytes": 6323
+    },
+    {
+      "path": "PriceHistoryTweak.cs",
+      "bytes": 226
+    },
+    {
+      "path": "PriceMode.cs",
+      "bytes": 47
+    },
+    {
+      "path": "PriorityQueue.cs",
+      "bytes": 213
+    },
+    {
+      "path": "PriorityQueueThreadSafe.cs",
+      "bytes": 1056
+    },
+    {
+      "path": "ProfessionType.cs",
+      "bytes": 137
+    },
+    {
+      "path": "Prop.cs",
+      "bytes": 6314
+    },
+    {
+      "path": "PropInstance.cs",
+      "bytes": 49462
+    },
+    {
+      "path": "PropInstanceSave.cs",
+      "bytes": 484
+    },
+    {
+      "path": "PropList.cs",
+      "bytes": 7045
+    },
+    {
+      "path": "PropProfiler.cs",
+      "bytes": 2881
+    },
+    {
+      "path": "PropQty.cs",
+      "bytes": 824
+    },
+    {
+      "path": "PropQtySave.cs",
+      "bytes": 184
+    },
+    {
+      "path": "PropStat.cs",
+      "bytes": 999
+    },
+    {
+      "path": "Properties/AssemblyInfo.cs",
+      "bytes": 626
+    },
+    {
+      "path": "Property.cs",
+      "bytes": 55332
+    },
+    {
+      "path": "PropertyAction.cs",
+      "bytes": 3092
+    },
+    {
+      "path": "PropertyActionSave.cs",
+      "bytes": 1414
+    },
+    {
+      "path": "PropertyDependency.cs",
+      "bytes": 982
+    },
+    {
+      "path": "PropertyDependencyGraph.cs",
+      "bytes": 5220
+    },
+    {
+      "path": "PropertyDurationType.cs",
+      "bytes": 63
+    },
+    {
+      "path": "PropertyEventAccess.cs",
+      "bytes": 87
+    },
+    {
+      "path": "PropertyImplStage.cs",
+      "bytes": 164
+    },
+    {
+      "path": "PropertyRelatedType.cs",
+      "bytes": 57
+    },
+    {
+      "path": "PropertyStatus.cs",
+      "bytes": 1250
+    },
+    {
+      "path": "PropertyStatusSave.cs",
+      "bytes": 369
+    },
+    {
+      "path": "PropertyTarget.cs",
+      "bytes": 100
+    },
+    {
+      "path": "PropertyTargetCategory.cs",
+      "bytes": 76
+    },
+    {
+      "path": "PropertyType.cs",
+      "bytes": 57
+    },
+    {
+      "path": "PubSettings.cs",
+      "bytes": 5099
+    },
+    {
+      "path": "QtyInputUI.cs",
+      "bytes": 4496
+    },
+    {
+      "path": "QtyType.cs",
+      "bytes": 42
+    },
+    {
+      "path": "RF_Type.cs",
+      "bytes": 59
+    },
+    {
+      "path": "RaceDependency.cs",
+      "bytes": 406
+    },
+    {
+      "path": "RaceFace.cs",
+      "bytes": 510
+    },
+    {
+      "path": "RaceNames.cs",
+      "bytes": 464
+    },
+    {
+      "path": "RaceType.cs",
+      "bytes": 277
+    },
+    {
+      "path": "RadialMenu.cs",
+      "bytes": 5979
+    },
+    {
+      "path": "Rarity.cs",
+      "bytes": 93
+    },
+    {
+      "path": "RationState.cs",
+      "bytes": 66
+    },
+    {
+      "path": "ReadOnlyAttribute.cs",
+      "bytes": 75
+    },
+    {
+      "path": "ReadOnlyTextAreaAttribute.cs",
+      "bytes": 83
+    },
+    {
+      "path": "RecurringDateDependency.cs",
+      "bytes": 312
+    },
+    {
+      "path": "RecursiveSkill.cs",
+      "bytes": 2007
+    },
+    {
+      "path": "RefreshPricesBox.cs",
+      "bytes": 5310
+    },
+    {
+      "path": "RefreshPricesRow.cs",
+      "bytes": 2873
+    },
+    {
+      "path": "RefreshReason.cs",
+      "bytes": 91
+    },
+    {
+      "path": "Region.cs",
+      "bytes": 6098
+    },
+    {
+      "path": "RegionAction.cs",
+      "bytes": 536
+    },
+    {
+      "path": "RegionActionSave.cs",
+      "bytes": 316
+    },
+    {
+      "path": "RegionDependency.cs",
+      "bytes": 575
+    },
+    {
+      "path": "RegionHistory.cs",
+      "bytes": 215
+    },
+    {
+      "path": "RegionMusic.cs",
+      "bytes": 622
+    },
+    {
+      "path": "RegionPOIImage.cs",
+      "bytes": 186
+    },
+    {
+      "path": "RegionSave.cs",
+      "bytes": 257
+    },
+    {
+      "path": "Relation.cs",
+      "bytes": 118
+    },
+    {
+      "path": "ResRow.cs",
+      "bytes": 579
+    },
+    {
+      "path": "ResistIcons.cs",
+      "bytes": 236
+    },
+    {
+      "path": "ResistTest.cs",
+      "bytes": 290
+    },
+    {
+      "path": "RewardFilter.cs",
+      "bytes": 63
+    },
+    {
+      "path": "Rewired/FlightPedalsTemplate.cs",
+      "bytes": 734
+    },
+    {
+      "path": "Rewired/FlightYokeTemplate.cs",
+      "bytes": 9295
+    },
+    {
+      "path": "Rewired/GamepadTemplate.cs",
+      "bytes": 4932
+    },
+    {
+      "path": "Rewired/HOTASTemplate.cs",
+      "bytes": 18202
+    },
+    {
+      "path": "Rewired/IFlightPedalsTemplate.cs",
+      "bytes": 216
+    },
+    {
+      "path": "Rewired/IFlightYokeTemplate.cs",
+      "bytes": 2528
+    },
+    {
+      "path": "Rewired/IGamepadTemplate.cs",
+      "bytes": 1428
+    },
+    {
+      "path": "Rewired/IHOTASTemplate.cs",
+      "bytes": 4696
+    },
+    {
+      "path": "Rewired/IRacingWheelTemplate.cs",
+      "bytes": 2097
+    },
+    {
+      "path": "Rewired/ISixDofControllerTemplate.cs",
+      "bytes": 1955
+    },
+    {
+      "path": "Rewired/InputManager.cs",
+      "bytes": 1769
+    },
+    {
+      "path": "Rewired/RacingWheelTemplate.cs",
+      "bytes": 6837
+    },
+    {
+      "path": "Rewired/SixDofControllerTemplate.cs",
+      "bytes": 7746
+    },
+    {
+      "path": "Rewired.Data/UserDataStore_File.cs",
+      "bytes": 7562
+    },
+    {
+      "path": "Rewired.Data/UserDataStore_KeyValue.cs",
+      "bytes": 47985
+    },
+    {
+      "path": "Rewired.Data/UserDataStore_PlayerPrefs.cs",
+      "bytes": 51162
+    },
+    {
+      "path": "Rewired.Demos/Bullet.cs",
+      "bytes": 401
+    },
+    {
+      "path": "Rewired.Demos/ControlRemappingDemo1.cs",
+      "bytes": 45885
+    },
+    {
+      "path": "Rewired.Demos/CustomControllerDemo.cs",
+      "bytes": 3024
+    },
+    {
+      "path": "Rewired.Demos/CustomControllerDemo_Player.cs",
+      "bytes": 1466
+    },
+    {
+      "path": "Rewired.Demos/CustomControllersTiltDemo.cs",
+      "bytes": 1070
+    },
+    {
+      "path": "Rewired.Demos/DualShock4SpecialFeaturesExample.cs",
+      "bytes": 6290
+    },
+    {
+      "path": "Rewired.Demos/EightPlayersExample_Player.cs",
+      "bytes": 1325
+    },
+    {
+      "path": "Rewired.Demos/FallbackJoystickIdentificationDemo.cs",
+      "bytes": 2671
+    },
+    {
+      "path": "Rewired.Demos/PlayerMouseSpriteExample.cs",
+      "bytes": 3569
+    },
+    {
+      "path": "Rewired.Demos/PlayerPointerEventHandlerExample.cs",
+      "bytes": 5217
+    },
+    {
+      "path": "Rewired.Demos/PressAnyButtonToJoinExample_Assigner.cs",
+      "bytes": 1219
+    },
+    {
+      "path": "Rewired.Demos/PressAnyButtonToJoinExample_GamePlayer.cs",
+      "bytes": 1252
+    },
+    {
+      "path": "Rewired.Demos/PressStartToJoinExample_Assigner.cs",
+      "bytes": 1981
+    },
+    {
+      "path": "Rewired.Demos/PressStartToJoinExample_GamePlayer.cs",
+      "bytes": 1201
+    },
+    {
+      "path": "Rewired.Demos/SimpleCombinedKeyboardMouseRemapping.cs",
+      "bytes": 6704
+    },
+    {
+      "path": "Rewired.Demos/SimpleControlRemapping.cs",
+      "bytes": 6329
+    },
+    {
+      "path": "Rewired.Demos/TouchButtonExample.cs",
+      "bytes": 989
+    },
+    {
+      "path": "Rewired.Demos/TouchJoystickExample.cs",
+      "bytes": 2600
+    },
+    {
+      "path": "Rewired.Demos/UIPointer.cs",
+      "bytes": 2197
+    },
+    {
+      "path": "Rewired.Demos.CustomPlatform/CustomPlatformHardwareJoystickMapPlatformDataSet.cs",
+      "bytes": 308
+    },
+    {
+      "path": "Rewired.Demos.CustomPlatform/CustomPlatformHardwareJoystickMapProvider.cs",
+      "bytes": 1750
+    },
+    {
+      "path": "Rewired.Demos.CustomPlatform/CustomPlatformManager.cs",
+      "bytes": 827
+    },
+    {
+      "path": "Rewired.Demos.CustomPlatform/CustomPlatformType.cs",
+      "bytes": 88
+    },
+    {
+      "path": "Rewired.Demos.CustomPlatform/MyPlatformControllerExtension.cs",
+      "bytes": 1738
+    },
+    {
+      "path": "Rewired.Demos.CustomPlatform/MyPlatformControllerIdentifier.cs",
+      "bytes": 142
+    },
+    {
+      "path": "Rewired.Demos.CustomPlatform/MyPlatformHardwareJoystickMapPlatformMap.cs",
+      "bytes": 1713
+    },
+    {
+      "path": "Rewired.Demos.CustomPlatform/MyPlatformInputSource.cs",
+      "bytes": 4201
+    },
+    {
+      "path": "Rewired.Demos.CustomPlatform/MyPlatformUnifiedKeyboardSource.cs",
+      "bytes": 1055
+    },
+    {
+      "path": "Rewired.Demos.CustomPlatform/MyPlatformUnifiedMouseSource.cs",
+      "bytes": 800
+    },
+    {
+      "path": "Rewired.Demos.CustomPlatform/UnityInputJoystickSource.cs",
+      "bytes": 5377
+    },
+    {
+      "path": "Rewired.Demos.CustomPlatform/VibrationTest.cs",
+      "bytes": 1128
+    },
+    {
+      "path": "Rewired.Demos.GamepadTemplateUI/ControllerUIEffect.cs",
+      "bytes": 998
+    },
+    {
+      "path": "Rewired.Demos.GamepadTemplateUI/ControllerUIElement.cs",
+      "bytes": 3266
+    },
+    {
+      "path": "Rewired.Demos.GamepadTemplateUI/GamepadTemplateUI.cs",
+      "bytes": 11190
+    },
+    {
+      "path": "Rewired.Integration.UnityUI/PlayerPointerEventData.cs",
+      "bytes": 1166
+    },
+    {
+      "path": "Rewired.Integration.UnityUI/PointerEventType.cs",
+      "bytes": 88
+    },
+    {
+      "path": "Rewired.Integration.UnityUI/RewiredEventSystem.cs",
+      "bytes": 873
+    },
+    {
+      "path": "Rewired.Integration.UnityUI/RewiredPointerInputModule.cs",
+      "bytes": 20401
+    },
+    {
+      "path": "Rewired.Integration.UnityUI/RewiredStandaloneInputModule.cs",
+      "bytes": 34212
+    },
+    {
+      "path": "Rewired.Internal/ControllerTemplateFactory.cs",
+      "bytes": 1449
+    },
+    {
+      "path": "Rewired.Localization/LocalizedStringProvider.cs",
+      "bytes": 1572
+    },
+    {
+      "path": "Rewired.Localization/LocalizedStringProviderBase.cs",
+      "bytes": 2153
+    },
+    {
+      "path": "Rewired.Platforms.Switch/NintendoSwitchInputManager.cs",
+      "bytes": 10696
+    },
+    {
+      "path": "Rewired.Utils/ExternalTools.cs",
+      "bytes": 3603
+    },
+    {
+      "path": "RewiredHelper.cs",
+      "bytes": 216
+    },
+    {
+      "path": "RichText.cs",
+      "bytes": 8829
+    },
+    {
+      "path": "RightPanelTest.cs",
+      "bytes": 5654
+    },
+    {
+      "path": "RoadType.cs",
+      "bytes": 56
+    },
+    {
+      "path": "Role.cs",
+      "bytes": 11150
+    },
+    {
+      "path": "RoleType.cs",
+      "bytes": 207
+    },
+    {
+      "path": "RoleUI.cs",
+      "bytes": 19204
+    },
+    {
+      "path": "RoundAnnouncement.cs",
+      "bytes": 1882
+    },
+    {
+      "path": "Rumor.cs",
+      "bytes": 5518
+    },
+    {
+      "path": "RumorAction.cs",
+      "bytes": 713
+    },
+    {
+      "path": "RumorActionSave.cs",
+      "bytes": 383
+    },
+    {
+      "path": "RumorDependency.cs",
+      "bytes": 406
+    },
+    {
+      "path": "RumorHolder.cs",
+      "bytes": 1799
+    },
+    {
+      "path": "RumorSave.cs",
+      "bytes": 459
+    },
+    {
+      "path": "RumorTweak.cs",
+      "bytes": 290
+    },
+    {
+      "path": "SaveCargoCrew.cs",
+      "bytes": 976
+    },
+    {
+      "path": "SaveGameSlot.cs",
+      "bytes": 402
+    },
+    {
+      "path": "SaveSnapshot.cs",
+      "bytes": 1001
+    },
+    {
+      "path": "SavedCombatFormation.cs",
+      "bytes": 560
+    },
+    {
+      "path": "ScaleAllower.cs",
+      "bytes": 5482
+    },
+    {
+      "path": "ScheduleStatus.cs",
+      "bytes": 240
+    },
+    {
+      "path": "ScheduledEventAction.cs",
+      "bytes": 3805
+    },
+    {
+      "path": "ScheduledEventActionSave.cs",
+      "bytes": 3653
+    },
+    {
+      "path": "ScoutResult.cs",
+      "bytes": 3273
+    },
+    {
+      "path": "ScoutResultFilter.cs",
+      "bytes": 99
+    },
+    {
+      "path": "ScoutResultSave.cs",
+      "bytes": 2984
+    },
+    {
+      "path": "ScoutSave.cs",
+      "bytes": 1124
+    },
+    {
+      "path": "ScoutType.cs",
+      "bytes": 148
+    },
+    {
+      "path": "ScoutUI.cs",
+      "bytes": 39223
+    },
+    {
+      "path": "Scouting.cs",
+      "bytes": 28083
+    },
+    {
+      "path": "ScoutingCombatSave.cs",
+      "bytes": 507
+    },
+    {
+      "path": "ScoutingPhase.cs",
+      "bytes": 60
+    },
+    {
+      "path": "ScoutingTweak.cs",
+      "bytes": 15827
+    },
+    {
+      "path": "ScreenRecorder.cs",
+      "bytes": 4293
+    },
+    {
+      "path": "ScriptNodeType.cs",
+      "bytes": 106
+    },
+    {
+      "path": "ScrollCellView.cs",
+      "bytes": 206
+    },
+    {
+      "path": "ScrollSide.cs",
+      "bytes": 41
+    },
+    {
+      "path": "ScrollbarController.cs",
+      "bytes": 1830
+    },
+    {
+      "path": "Scroller.cs",
+      "bytes": 12277
+    },
+    {
+      "path": "ScrollerField.cs",
+      "bytes": 1087
+    },
+    {
+      "path": "SeenLinesSave.cs",
+      "bytes": 654
+    },
+    {
+      "path": "SelectedForUsage.cs",
+      "bytes": 1419
+    },
+    {
+      "path": "SelectionDirection.cs",
+      "bytes": 107
+    },
+    {
+      "path": "SetRelation.cs",
+      "bytes": 97
+    },
+    {
+      "path": "Settings.cs",
+      "bytes": 11977
+    },
+    {
+      "path": "SettlementDependency.cs",
+      "bytes": 430
+    },
+    {
+      "path": "SettlementMarket.cs",
+      "bytes": 404
+    },
+    {
+      "path": "SettlementSortBy.cs",
+      "bytes": 62
+    },
+    {
+      "path": "SettlementTabPreset.cs",
+      "bytes": 708
+    },
+    {
+      "path": "SettlementType.cs",
+      "bytes": 161
+    },
+    {
+      "path": "SettlementUIPreset.cs",
+      "bytes": 379
+    },
+    {
+      "path": "SettlementUIPreset2.cs",
+      "bytes": 399
+    },
+    {
+      "path": "SfxAsset.cs",
+      "bytes": 778
+    },
+    {
+      "path": "SfxCategory.cs",
+      "bytes": 95
+    },
+    {
+      "path": "SfxPool.cs",
+      "bytes": 2804
+    },
+    {
+      "path": "SfxRoot.cs",
+      "bytes": 61
+    },
+    {
+      "path": "ShortCutType.cs",
+      "bytes": 45
+    },
+    {
+      "path": "SideTouchbarUI.cs",
+      "bytes": 7239
+    },
+    {
+      "path": "SimAttack.cs",
+      "bytes": 4108
+    },
+    {
+      "path": "SimDriftProbe.cs",
+      "bytes": 7161
+    },
+    {
+      "path": "SimOverall.cs",
+      "bytes": 168
+    },
+    {
+      "path": "SimPhase.cs",
+      "bytes": 57
+    },
+    {
+      "path": "SimResult.cs",
+      "bytes": 474
+    },
+    {
+      "path": "SimStatus.cs",
+      "bytes": 880
+    },
+    {
+      "path": "SimStep.cs",
+      "bytes": 1287
+    },
+    {
+      "path": "SingleSubmitButton.cs",
+      "bytes": 11024
+    },
+    {
+      "path": "Skill.cs",
+      "bytes": 30543
+    },
+    {
+      "path": "SkillAntiDefense.cs",
+      "bytes": 158
+    },
+    {
+      "path": "SkillAvail.cs",
+      "bytes": 210
+    },
+    {
+      "path": "SkillEffectTarget.cs",
+      "bytes": 90
+    },
+    {
+      "path": "SkillExtraAction.cs",
+      "bytes": 98
+    },
+    {
+      "path": "SkillExtraType.cs",
+      "bytes": 50
+    },
+    {
+      "path": "SkillField.cs",
+      "bytes": 98
+    },
+    {
+      "path": "SkillGroup.cs",
+      "bytes": 243
+    },
+    {
+      "path": "SkillLevelSave.cs",
+      "bytes": 288
+    },
+    {
+      "path": "SkillProjectile.cs",
+      "bytes": 46
+    },
+    {
+      "path": "SkillResult.cs",
+      "bytes": 96
+    },
+    {
+      "path": "SkillStorage.cs",
+      "bytes": 512
+    },
+    {
+      "path": "SkillTarget.cs",
+      "bytes": 205
+    },
+    {
+      "path": "SkillTweak.cs",
+      "bytes": 81
+    },
+    {
+      "path": "SkillType.cs",
+      "bytes": 187
+    },
+    {
+      "path": "SortingOrder.cs",
+      "bytes": 65
+    },
+    {
+      "path": "Sound.cs",
+      "bytes": 18067
+    },
+    {
+      "path": "SourceLevel.cs",
+      "bytes": 2258
+    },
+    {
+      "path": "SourceLevelCategory.cs",
+      "bytes": 193
+    },
+    {
+      "path": "SpatialGrid.cs",
+      "bytes": 1763
+    },
+    {
+      "path": "SrtParser.cs",
+      "bytes": 2902
+    },
+    {
+      "path": "StatResult.cs",
+      "bytes": 673
+    },
+    {
+      "path": "StatRow.cs",
+      "bytes": 1720
+    },
+    {
+      "path": "Status.cs",
+      "bytes": 1336
+    },
+    {
+      "path": "StatusCacheFingerprint.cs",
+      "bytes": 13131
+    },
+    {
+      "path": "StatusCacheFlags.cs",
+      "bytes": 13728
+    },
+    {
+      "path": "StatusCacheRegression.cs",
+      "bytes": 14110
+    },
+    {
+      "path": "StatusCacheScenarios.cs",
+      "bytes": 46543
+    },
+    {
+      "path": "StickyUI.cs",
+      "bytes": 2024
+    },
+    {
+      "path": "StoryUI.cs",
+      "bytes": 11391
+    },
+    {
+      "path": "String.cs",
+      "bytes": 22964
+    },
+    {
+      "path": "SubWindow.cs",
+      "bytes": 173
+    },
+    {
+      "path": "SubmitOnSeleect.cs",
+      "bytes": 430
+    },
+    {
+      "path": "SubtitleController.cs",
+      "bytes": 5968
+    },
+    {
+      "path": "SubtitleCue.cs",
+      "bytes": 262
+    },
+    {
+      "path": "SubtitleSource.cs",
+      "bytes": 3298
+    },
+    {
+      "path": "SubtitleTrack.cs",
+      "bytes": 513
+    },
+    {
+      "path": "SwapResult.cs",
+      "bytes": 128
+    },
+    {
+      "path": "TLink.cs",
+      "bytes": 2512
+    },
+    {
+      "path": "TLinkOptions.cs",
+      "bytes": 407
+    },
+    {
+      "path": "TabPreset.cs",
+      "bytes": 636
+    },
+    {
+      "path": "TaskAction.cs",
+      "bytes": 1428
+    },
+    {
+      "path": "TaskActionSave.cs",
+      "bytes": 788
+    },
+    {
+      "path": "TaskBox.cs",
+      "bytes": 447
+    },
+    {
+      "path": "TaskCard.cs",
+      "bytes": 223
+    },
+    {
+      "path": "TaskDependency.cs",
+      "bytes": 737
+    },
+    {
+      "path": "TaskFilterMode.cs",
+      "bytes": 59
+    },
+    {
+      "path": "TaskGenerateDay.cs",
+      "bytes": 455
+    },
+    {
+      "path": "TaskGenerateDaySave.cs",
+      "bytes": 285
+    },
+    {
+      "path": "TaskHolder.cs",
+      "bytes": 19321
+    },
+    {
+      "path": "TaskInstance.cs",
+      "bytes": 66055
+    },
+    {
+      "path": "TaskInstanceSave.cs",
+      "bytes": 5149
+    },
+    {
+      "path": "TaskStatus.cs",
+      "bytes": 97
+    },
+    {
+      "path": "TaskTweak.cs",
+      "bytes": 7385
+    },
+    {
+      "path": "TaskType.cs",
+      "bytes": 77
+    },
+    {
+      "path": "TerrainType.cs",
+      "bytes": 171
+    },
+    {
+      "path": "TestAttack.cs",
+      "bytes": 95
+    },
+    {
+      "path": "TestResult.cs",
+      "bytes": 64
+    },
+    {
+      "path": "TextCache.cs",
+      "bytes": 433
+    },
+    {
+      "path": "TextCacheEntry.cs",
+      "bytes": 163
+    },
+    {
+      "path": "TextDecale.cs",
+      "bytes": 422
+    },
+    {
+      "path": "TextHover.cs",
+      "bytes": 1154
+    },
+    {
+      "path": "TextInputUI.cs",
+      "bytes": 2831
+    },
+    {
+      "path": "TextSprite.cs",
+      "bytes": 51
+    },
+    {
+      "path": "TextTemplate.cs",
+      "bytes": 6982
+    },
+    {
+      "path": "TextTemplateType.cs",
+      "bytes": 263
+    },
+    {
+      "path": "TextTemplateUsageScanner.cs",
+      "bytes": 12558
+    },
+    {
+      "path": "TierDescription.cs",
+      "bytes": 231
+    },
+    {
+      "path": "TimeLimitUI.cs",
+      "bytes": 2439
+    },
+    {
+      "path": "ToggleBoostButton.cs",
+      "bytes": 2734
+    },
+    {
+      "path": "ToggleButton.cs",
+      "bytes": 2848
+    },
+    {
+      "path": "ToggleLister.cs",
+      "bytes": 422
+    },
+    {
+      "path": "Tooltip.cs",
+      "bytes": 30428
+    },
+    {
+      "path": "TooltipEntry.cs",
+      "bytes": 2992
+    },
+    {
+      "path": "Trace.cs",
+      "bytes": 1652
+    },
+    {
+      "path": "TradeBox.cs",
+      "bytes": 1739
+    },
+    {
+      "path": "TradeHistory.cs",
+      "bytes": 269
+    },
+    {
+      "path": "TradeHistoryOld.cs",
+      "bytes": 174
+    },
+    {
+      "path": "TradeOfferTweak.cs",
+      "bytes": 84
+    },
+    {
+      "path": "TradeProduct.cs",
+      "bytes": 189
+    },
+    {
+      "path": "TradeTask.cs",
+      "bytes": 4618
+    },
+    {
+      "path": "TradeTaskType.cs",
+      "bytes": 102
+    },
+    {
+      "path": "TriangleNet/Behavior.cs",
+      "bytes": 3055
+    },
+    {
+      "path": "TriangleNet/Configuration.cs",
+      "bytes": 530
+    },
+    {
+      "path": "TriangleNet/FindDirectionResult.cs",
+      "bytes": 103
+    },
+    {
+      "path": "TriangleNet/IPredicates.cs",
+      "bytes": 398
+    },
+    {
+      "path": "TriangleNet/InsertVertexResult.cs",
+      "bytes": 111
+    },
+    {
+      "path": "TriangleNet/LocateResult.cs",
+      "bytes": 95
+    },
+    {
+      "path": "TriangleNet/Log.cs",
+      "bytes": 906
+    },
+    {
+      "path": "TriangleNet/Mesh.cs",
+      "bytes": 22548
+    },
+    {
+      "path": "TriangleNet/MeshValidator.cs",
+      "bytes": 3705
+    },
+    {
+      "path": "TriangleNet/NewLocation.cs",
+      "bytes": 71964
+    },
+    {
+      "path": "TriangleNet/NodeNumbering.cs",
+      "bytes": 84
+    },
+    {
+      "path": "TriangleNet/RobustPredicates.cs",
+      "bytes": 57795
+    },
+    {
+      "path": "TriangleNet/TriangleLocator.cs",
+      "bytes": 3892
+    },
+    {
+      "path": "TriangleNet/TrianglePool.cs",
+      "bytes": 3818
+    },
+    {
+      "path": "TriangleNet/TriangleSampler.cs",
+      "bytes": 1021
+    },
+    {
+      "path": "TriangleNet/VertexType.cs",
+      "bytes": 121
+    },
+    {
+      "path": "TriangleNet.Geometry/Contour.cs",
+      "bytes": 3335
+    },
+    {
+      "path": "TriangleNet.Geometry/Edge.cs",
+      "bytes": 321
+    },
+    {
+      "path": "TriangleNet.Geometry/ExtensionMethods.cs",
+      "bytes": 2056
+    },
+    {
+      "path": "TriangleNet.Geometry/IEdge.cs",
+      "bytes": 116
+    },
+    {
+      "path": "TriangleNet.Geometry/IPolygon.cs",
+      "bytes": 817
+    },
+    {
+      "path": "TriangleNet.Geometry/ISegment.cs",
+      "bytes": 137
+    },
+    {
+      "path": "TriangleNet.Geometry/ITriangle.cs",
+      "bytes": 303
+    },
+    {
+      "path": "TriangleNet.Geometry/Point.cs",
+      "bytes": 1716
+    },
+    {
+      "path": "TriangleNet.Geometry/Polygon.cs",
+      "bytes": 2258
+    },
+    {
+      "path": "TriangleNet.Geometry/Rectangle.cs",
+      "bytes": 1852
+    },
+    {
+      "path": "TriangleNet.Geometry/RegionPointer.cs",
+      "bytes": 552
+    },
+    {
+      "path": "TriangleNet.Geometry/Segment.cs",
+      "bytes": 702
+    },
+    {
+      "path": "TriangleNet.Geometry/Vertex.cs",
+      "bytes": 648
+    },
+    {
+      "path": "TriangleNet.IO/DebugWriter.cs",
+      "bytes": 3958
+    },
+    {
+      "path": "TriangleNet.IO/FileProcessor.cs",
+      "bytes": 1647
+    },
+    {
+      "path": "TriangleNet.IO/IFileFormat.cs",
+      "bytes": 92
+    },
+    {
+      "path": "TriangleNet.IO/IMeshFormat.cs",
+      "bytes": 235
+    },
+    {
+      "path": "TriangleNet.IO/IPolygonFormat.cs",
+      "bytes": 252
+    },
+    {
+      "path": "TriangleNet.IO/InputTriangle.cs",
+      "bytes": 810
+    },
+    {
+      "path": "TriangleNet.IO/TriangleFormat.cs",
+      "bytes": 1748
+    },
+    {
+      "path": "TriangleNet.IO/TriangleReader.cs",
+      "bytes": 11215
+    },
+    {
+      "path": "TriangleNet.IO/TriangleWriter.cs",
+      "bytes": 7331
+    },
+    {
+      "path": "TriangleNet.Logging/ILog.cs",
+      "bytes": 318
+    },
+    {
+      "path": "TriangleNet.Logging/ILogItem.cs",
+      "bytes": 176
+    },
+    {
+      "path": "TriangleNet.Logging/LogItem.cs",
+      "bytes": 557
+    },
+    {
+      "path": "TriangleNet.Logging/LogLevel.cs",
+      "bytes": 81
+    },
+    {
+      "path": "TriangleNet.Meshing/ConstraintMesher.cs",
+      "bytes": 15568
+    },
+    {
+      "path": "TriangleNet.Meshing/ConstraintOptions.cs",
+      "bytes": 307
+    },
+    {
+      "path": "TriangleNet.Meshing/Converter.cs",
+      "bytes": 7977
+    },
+    {
+      "path": "TriangleNet.Meshing/GenericMesher.cs",
+      "bytes": 4167
+    },
+    {
+      "path": "TriangleNet.Meshing/IConstraintMesher.cs",
+      "bytes": 204
+    },
+    {
+      "path": "TriangleNet.Meshing/IMesh.cs",
+      "bytes": 442
+    },
+    {
+      "path": "TriangleNet.Meshing/IQualityMesher.cs",
+      "bytes": 249
+    },
+    {
+      "path": "TriangleNet.Meshing/ITriangulator.cs",
+      "bytes": 194
+    },
+    {
+      "path": "TriangleNet.Meshing/QualityMesher.cs",
+      "bytes": 14195
+    },
+    {
+      "path": "TriangleNet.Meshing/QualityOptions.cs",
+      "bytes": 378
+    },
+    {
+      "path": "TriangleNet.Meshing.Algorithm/Dwyer.cs",
+      "bytes": 10671
+    },
+    {
+      "path": "TriangleNet.Meshing.Algorithm/Incremental.cs",
+      "bytes": 2479
+    },
+    {
+      "path": "TriangleNet.Meshing.Algorithm/SweepLine.cs",
+      "bytes": 15148
+    },
+    {
+      "path": "TriangleNet.Meshing.Data/BadSubseg.cs",
+      "bytes": 334
+    },
+    {
+      "path": "TriangleNet.Meshing.Data/BadTriQueue.cs",
+      "bytes": 2134
+    },
+    {
+      "path": "TriangleNet.Meshing.Data/BadTriangle.cs",
+      "bytes": 340
+    },
+    {
+      "path": "TriangleNet.Meshing.Iterators/EdgeIterator.cs",
+      "bytes": 1288
+    },
+    {
+      "path": "TriangleNet.Meshing.Iterators/RegionIterator.cs",
+      "bytes": 1432
+    },
+    {
+      "path": "TriangleNet.Meshing.Iterators/VertexCirculator.cs",
+      "bytes": 1181
+    },
+    {
+      "path": "TriangleNet.Smoothing/ISmoother.cs",
+      "bytes": 157
+    },
+    {
+      "path": "TriangleNet.Smoothing/SimpleSmoother.cs",
+      "bytes": 2815
+    },
+    {
+      "path": "TriangleNet.Smoothing/VoronoiFactory.cs",
+      "bytes": 2861
+    },
+    {
+      "path": "TriangleNet.Tools/AdjacencyMatrix.cs",
+      "bytes": 2962
+    },
+    {
+      "path": "TriangleNet.Tools/CuthillMcKee.cs",
+      "bytes": 6668
+    },
+    {
+      "path": "TriangleNet.Tools/Interpolation.cs",
+      "bytes": 68
+    },
+    {
+      "path": "TriangleNet.Tools/IntersectionHelper.cs",
+      "bytes": 2822
+    },
+    {
+      "path": "TriangleNet.Tools/PolygonValidator.cs",
+      "bytes": 4273
+    },
+    {
+      "path": "TriangleNet.Tools/QualityMeasure.cs",
+      "bytes": 5407
+    },
+    {
+      "path": "TriangleNet.Tools/Statistic.cs",
+      "bytes": 6679
+    },
+    {
+      "path": "TriangleNet.Tools/TriangleQuadTree.cs",
+      "bytes": 7227
+    },
+    {
+      "path": "TriangleNet.Tools/VertexSorter.cs",
+      "bytes": 4488
+    },
+    {
+      "path": "TriangleNet.Topology/Osub.cs",
+      "bytes": 1865
+    },
+    {
+      "path": "TriangleNet.Topology/Otri.cs",
+      "bytes": 4886
+    },
+    {
+      "path": "TriangleNet.Topology/SubSegment.cs",
+      "bytes": 799
+    },
+    {
+      "path": "TriangleNet.Topology/Triangle.cs",
+      "bytes": 1338
+    },
+    {
+      "path": "TriangleNet.Topology.DCEL/DcelMesh.cs",
+      "bytes": 3057
+    },
+    {
+      "path": "TriangleNet.Topology.DCEL/Face.cs",
+      "bytes": 1095
+    },
+    {
+      "path": "TriangleNet.Topology.DCEL/HalfEdge.cs",
+      "bytes": 1051
+    },
+    {
+      "path": "TriangleNet.Topology.DCEL/Vertex.cs",
+      "bytes": 676
+    },
+    {
+      "path": "TriangleNet.Voronoi/BoundedVoronoi.cs",
+      "bytes": 2670
+    },
+    {
+      "path": "TriangleNet.Voronoi/DefaultVoronoiFactory.cs",
+      "bytes": 612
+    },
+    {
+      "path": "TriangleNet.Voronoi/IVoronoiFactory.cs",
+      "bytes": 415
+    },
+    {
+      "path": "TriangleNet.Voronoi/StandardVoronoi.cs",
+      "bytes": 900
+    },
+    {
+      "path": "TriangleNet.Voronoi/VoronoiBase.cs",
+      "bytes": 4523
+    },
+    {
+      "path": "TriangleNet.Voronoi.Legacy/BoundedVoronoiLegacy.cs",
+      "bytes": 10489
+    },
+    {
+      "path": "TriangleNet.Voronoi.Legacy/IVoronoi.cs",
+      "bytes": 239
+    },
+    {
+      "path": "TriangleNet.Voronoi.Legacy/SimpleVoronoi.cs",
+      "bytes": 5272
+    },
+    {
+      "path": "TriangleNet.Voronoi.Legacy/VoronoiRegion.cs",
+      "bytes": 1127
+    },
+    {
+      "path": "Tutorial.cs",
+      "bytes": 3669
+    },
+    {
+      "path": "TutorialCursor.cs",
+      "bytes": 259
+    },
+    {
+      "path": "TutorialHistorySave.cs",
+      "bytes": 195
+    },
+    {
+      "path": "TutorialStatus.cs",
+      "bytes": 6451
+    },
+    {
+      "path": "TutorialType.cs",
+      "bytes": 61
+    },
+    {
+      "path": "TutorialUI.cs",
+      "bytes": 26959
+    },
+    {
+      "path": "TweakFunctions.cs",
+      "bytes": 29902
+    },
+    {
+      "path": "UIBendComponent.cs",
+      "bytes": 2789
+    },
+    {
+      "path": "UIButtonSkill.cs",
+      "bytes": 4769
+    },
+    {
+      "path": "UICenter.cs",
+      "bytes": 571
+    },
+    {
+      "path": "UIClosedSide.cs",
+      "bytes": 7748
+    },
+    {
+      "path": "UIControllerIcon.cs",
+      "bytes": 674
+    },
+    {
+      "path": "UIDeployBeginFight.cs",
+      "bytes": 190
+    },
+    {
+      "path": "UIDeploySelect.cs",
+      "bytes": 939
+    },
+    {
+      "path": "UIFullSkill.cs",
+      "bytes": 1110
+    },
+    {
+      "path": "UIInitiativeButton.cs",
+      "bytes": 1809
+    },
+    {
+      "path": "UILeader.cs",
+      "bytes": 896
+    },
+    {
+      "path": "UIMiniRoleChar.cs",
+      "bytes": 1546
+    },
+    {
+      "path": "UISelectChild.cs",
+      "bytes": 705
+    },
+    {
+      "path": "UISelectParent.cs",
+      "bytes": 338
+    },
+    {
+      "path": "UISelectableScrollRect.cs",
+      "bytes": 920
+    },
+    {
+      "path": "UIShortcutKey.cs",
+      "bytes": 11958
+    },
+    {
+      "path": "UISkillLevel.cs",
+      "bytes": 651
+    },
+    {
+      "path": "UIStore.cs",
+      "bytes": 175
+    },
+    {
+      "path": "UITabSelector.cs",
+      "bytes": 5480
+    },
+    {
+      "path": "UIToggleOnPress.cs",
+      "bytes": 6336
+    },
+    {
+      "path": "UI_ZoomScaler.cs",
+      "bytes": 17990
+    },
+    {
+      "path": "UniGear.cs",
+      "bytes": 323
+    },
+    {
+      "path": "UniqueId.cs",
+      "bytes": 1094
+    },
+    {
+      "path": "UnityEngine.UI/DropShadow.cs",
+      "bytes": 2398
+    },
+    {
+      "path": "UnityMainThreadDispatcher.cs",
+      "bytes": 942
+    },
+    {
+      "path": "UnitySourceGeneratedAssemblyMonoScriptTypes_v1.cs",
+      "bytes": 375348
+    },
+    {
+      "path": "Vagrus/AdministrationUI.cs",
+      "bytes": 19097
+    },
+    {
+      "path": "Vagrus/ArtGalleryUI.cs",
+      "bytes": 1196
+    },
+    {
+      "path": "Vagrus/ArtManager.cs",
+      "bytes": 5508
+    },
+    {
+      "path": "Vagrus/ArtSlideUI.cs",
+      "bytes": 4780
+    },
+    {
+      "path": "Vagrus/BetterMask.cs",
+      "bytes": 194
+    },
+    {
+      "path": "Vagrus/Build2.cs",
+      "bytes": 5918
+    },
+    {
+      "path": "Vagrus/ButtonBox.cs",
+      "bytes": 288
+    },
+    {
+      "path": "Vagrus/ButtonChanger.cs",
+      "bytes": 2640
+    },
+    {
+      "path": "Vagrus/ButtonRewardSort.cs",
+      "bytes": 1875
+    },
+    {
+      "path": "Vagrus/ButtonSkin.cs",
+      "bytes": 514
+    },
+    {
+      "path": "Vagrus/ButtonSkinProvider.cs",
+      "bytes": 611
+    },
+    {
+      "path": "Vagrus/ButtonTextColorer.cs",
+      "bytes": 1348
+    },
+    {
+      "path": "Vagrus/Cargo.cs",
+      "bytes": 27259
+    },
+    {
+      "path": "Vagrus/CargoSlot.cs",
+      "bytes": 1911
+    },
+    {
+      "path": "Vagrus/CargoSlotSave.cs",
+      "bytes": 329
+    },
+    {
+      "path": "Vagrus/CargoSlotSaveData.cs",
+      "bytes": 178
+    },
+    {
+      "path": "Vagrus/CargoSlotType.cs",
+      "bytes": 148
+    },
+    {
+      "path": "Vagrus/CargoSlotWithState.cs",
+      "bytes": 689
+    },
+    {
+      "path": "Vagrus/CharacterAsset.cs",
+      "bytes": 1279
+    },
+    {
+      "path": "Vagrus/CharacterAssetManager.cs",
+      "bytes": 9170
+    },
+    {
+      "path": "Vagrus/CharacterSkinPickerUI.cs",
+      "bytes": 9214
+    },
+    {
+      "path": "Vagrus/CharacterSkin_UI_Element.cs",
+      "bytes": 978
+    },
+    {
+      "path": "Vagrus/CinematicUI.cs",
+      "bytes": 2366
+    },
+    {
+      "path": "Vagrus/ClockwiseComparer.cs",
+      "bytes": 894
+    },
+    {
+      "path": "Vagrus/ContentMount.cs",
+      "bytes": 287
+    },
+    {
+      "path": "Vagrus/ContentMountBase.cs",
+      "bytes": 783
+    },
+    {
+      "path": "Vagrus/ContentPath.cs",
+      "bytes": 513
+    },
+    {
+      "path": "Vagrus/ContextBase.cs",
+      "bytes": 416
+    },
+    {
+      "path": "Vagrus/ContextManager.cs",
+      "bytes": 4068
+    },
+    {
+      "path": "Vagrus/ContextSelectable.cs",
+      "bytes": 1813
+    },
+    {
+      "path": "Vagrus/ContextWindow.cs",
+      "bytes": 1597
+    },
+    {
+      "path": "Vagrus/CoroutineRunner.cs",
+      "bytes": 2509
+    },
+    {
+      "path": "Vagrus/DLCDisplayer.cs",
+      "bytes": 207
+    },
+    {
+      "path": "Vagrus/DLCIconHandler.cs",
+      "bytes": 3083
+    },
+    {
+      "path": "Vagrus/DLCManager.cs",
+      "bytes": 7478
+    },
+    {
+      "path": "Vagrus/DemoEndUI.cs",
+      "bytes": 3173
+    },
+    {
+      "path": "Vagrus/DissSwitchCheckBoxUI.cs",
+      "bytes": 965
+    },
+    {
+      "path": "Vagrus/DlcViewer.cs",
+      "bytes": 5116
+    },
+    {
+      "path": "Vagrus/DownloadEvent.cs",
+      "bytes": 104
+    },
+    {
+      "path": "Vagrus/DownloadHelper.cs",
+      "bytes": 7454
+    },
+    {
+      "path": "Vagrus/DownloadVersion.cs",
+      "bytes": 258
+    },
+    {
+      "path": "Vagrus/EffectRow.cs",
+      "bytes": 157
+    },
+    {
+      "path": "Vagrus/EpicManager.cs",
+      "bytes": 1280
+    },
+    {
+      "path": "Vagrus/ExtrasArtUI.cs",
+      "bytes": 9545
+    },
+    {
+      "path": "Vagrus/ExtrasCellData.cs",
+      "bytes": 883
+    },
+    {
+      "path": "Vagrus/ExtrasCellView.cs",
+      "bytes": 2979
+    },
+    {
+      "path": "Vagrus/ExtrasSelectionHelper.cs",
+      "bytes": 531
+    },
+    {
+      "path": "Vagrus/ExtrasTab.cs",
+      "bytes": 4112
+    },
+    {
+      "path": "Vagrus/ExtrasUI.cs",
+      "bytes": 9036
+    },
+    {
+      "path": "Vagrus/FactionLocationButton.cs",
+      "bytes": 1048
+    },
+    {
+      "path": "Vagrus/FactionRowCellView.cs",
+      "bytes": 2834
+    },
+    {
+      "path": "Vagrus/FactionRowData.cs",
+      "bytes": 609
+    },
+    {
+      "path": "Vagrus/FixSelectionNeighbours.cs",
+      "bytes": 652
+    },
+    {
+      "path": "Vagrus/FrameLightup.cs",
+      "bytes": 1231
+    },
+    {
+      "path": "Vagrus/GameEventHolder.cs",
+      "bytes": 181
+    },
+    {
+      "path": "Vagrus/HFLogic.cs",
+      "bytes": 83
+    },
+    {
+      "path": "Vagrus/HFSave.cs",
+      "bytes": 946
+    },
+    {
+      "path": "Vagrus/HiddenOverride.cs",
+      "bytes": 137
+    },
+    {
+      "path": "Vagrus/IAPManager.cs",
+      "bytes": 3358
+    },
+    {
+      "path": "Vagrus/IAsset.cs",
+      "bytes": 175
+    },
+    {
+      "path": "Vagrus/IAssetOwner.cs",
+      "bytes": 226
+    },
+    {
+      "path": "Vagrus/ICharacterDisplay.cs",
+      "bytes": 1650
+    },
+    {
+      "path": "Vagrus/IContext.cs",
+      "bytes": 171
+    },
+    {
+      "path": "Vagrus/IEditorAssetValidator.cs",
+      "bytes": 99
+    },
+    {
+      "path": "Vagrus/IInstallationDir.cs",
+      "bytes": 87
+    },
+    {
+      "path": "Vagrus/IProfanityFilter.cs",
+      "bytes": 108
+    },
+    {
+      "path": "Vagrus/IgnoreNavigation.cs",
+      "bytes": 89
+    },
+    {
+      "path": "Vagrus/LinkTextSelectableFrame.cs",
+      "bytes": 671
+    },
+    {
+      "path": "Vagrus/LocalCharShadowBence.cs",
+      "bytes": 794
+    },
+    {
+      "path": "Vagrus/LogEntry.cs",
+      "bytes": 1058
+    },
+    {
+      "path": "Vagrus/LogHandler.cs",
+      "bytes": 3512
+    },
+    {
+      "path": "Vagrus/MapData.cs",
+      "bytes": 141
+    },
+    {
+      "path": "Vagrus/MapInfoCanvas.cs",
+      "bytes": 2639
+    },
+    {
+      "path": "Vagrus/MapStreamer.cs",
+      "bytes": 13836
+    },
+    {
+      "path": "Vagrus/MapTile.cs",
+      "bytes": 4772
+    },
+    {
+      "path": "Vagrus/MapTileData.cs",
+      "bytes": 318
+    },
+    {
+      "path": "Vagrus/MarketRowCellView.cs",
+      "bytes": 6226
+    },
+    {
+      "path": "Vagrus/MarketRowData.cs",
+      "bytes": 1120
+    },
+    {
+      "path": "Vagrus/MenuBackGroundSpriteRenderer.cs",
+      "bytes": 159
+    },
+    {
+      "path": "Vagrus/MenuOptionsElement.cs",
+      "bytes": 149
+    },
+    {
+      "path": "Vagrus/ModIoGlyphSetter.cs",
+      "bytes": 1941
+    },
+    {
+      "path": "Vagrus/MusicPlayer.cs",
+      "bytes": 10174
+    },
+    {
+      "path": "Vagrus/MusicPlayerUI.cs",
+      "bytes": 6469
+    },
+    {
+      "path": "Vagrus/NoDestroyOnLoad.cs",
+      "bytes": 180
+    },
+    {
+      "path": "Vagrus/NodeCanvasBehaviour.cs",
+      "bytes": 1126
+    },
+    {
+      "path": "Vagrus/NodeFlag.cs",
+      "bytes": 5665
+    },
+    {
+      "path": "Vagrus/NodeShadowManager.cs",
+      "bytes": 2838
+    },
+    {
+      "path": "Vagrus/ObjectWithState.cs",
+      "bytes": 2481
+    },
+    {
+      "path": "Vagrus/OptionsButton.cs",
+      "bytes": 1758
+    },
+    {
+      "path": "Vagrus/PDSampling.cs",
+      "bytes": 2579
+    },
+    {
+      "path": "Vagrus/PinSelectableFrame.cs",
+      "bytes": 808
+    },
+    {
+      "path": "Vagrus/PlatformActivator.cs",
+      "bytes": 1492
+    },
+    {
+      "path": "Vagrus/PriceHistoryRowSelection.cs",
+      "bytes": 1194
+    },
+    {
+      "path": "Vagrus/ProductColumn.cs",
+      "bytes": 2382
+    },
+    {
+      "path": "Vagrus/ProductData.cs",
+      "bytes": 399
+    },
+    {
+      "path": "Vagrus/ProfanityChecker.cs",
+      "bytes": 1738
+    },
+    {
+      "path": "Vagrus/ProfanityFilter.cs",
+      "bytes": 150
+    },
+    {
+      "path": "Vagrus/PropertyLoad.cs",
+      "bytes": 298
+    },
+    {
+      "path": "Vagrus/PurchaseEvent.cs",
+      "bytes": 123
+    },
+    {
+      "path": "Vagrus/SaveData.cs",
+      "bytes": 5198
+    },
+    {
+      "path": "Vagrus/SaveGame.cs",
+      "bytes": 99787
+    },
+    {
+      "path": "Vagrus/SaveGameEditor.cs",
+      "bytes": 2925
+    },
+    {
+      "path": "Vagrus/SaveHeader.cs",
+      "bytes": 2420
+    },
+    {
+      "path": "Vagrus/ScalingLimiter.cs",
+      "bytes": 200
+    },
+    {
+      "path": "Vagrus/ScoutResultData.cs",
+      "bytes": 268
+    },
+    {
+      "path": "Vagrus/ScoutResultRow.cs",
+      "bytes": 6317
+    },
+    {
+      "path": "Vagrus/ScrollHandleSizeUpdater.cs",
+      "bytes": 841
+    },
+    {
+      "path": "Vagrus/SelectableFrameAdder.cs",
+      "bytes": 2594
+    },
+    {
+      "path": "Vagrus/SelectableFrameManager.cs",
+      "bytes": 9393
+    },
+    {
+      "path": "Vagrus/SelectionHelper.cs",
+      "bytes": 156
+    },
+    {
+      "path": "Vagrus/SliderSection.cs",
+      "bytes": 180
+    },
+    {
+      "path": "Vagrus/SocialUI.cs",
+      "bytes": 1102
+    },
+    {
+      "path": "Vagrus/SpriteData.cs",
+      "bytes": 175
+    },
+    {
+      "path": "Vagrus/SpriteLightup.cs",
+      "bytes": 1572
+    },
+    {
+      "path": "Vagrus/SpriteType.cs",
+      "bytes": 625
+    },
+    {
+      "path": "Vagrus/StatioUI.cs",
+      "bytes": 38036
+    },
+    {
+      "path": "Vagrus/StatusAndEffects.cs",
+      "bytes": 15576
+    },
+    {
+      "path": "Vagrus/StatusEffectDisplay.cs",
+      "bytes": 163
+    },
+    {
+      "path": "Vagrus/SteamSDK.cs",
+      "bytes": 139
+    },
+    {
+      "path": "Vagrus/StoreUI.cs",
+      "bytes": 8025
+    },
+    {
+      "path": "Vagrus/StubbornSelector.cs",
+      "bytes": 752
+    },
+    {
+      "path": "Vagrus/SuppliesUI.cs",
+      "bytes": 18136
+    },
+    {
+      "path": "Vagrus/SwitchToDissonanceUI.cs",
+      "bytes": 8578
+    },
+    {
+      "path": "Vagrus/TaskRowCellView.cs",
+      "bytes": 2218
+    },
+    {
+      "path": "Vagrus/TaskRowData.cs",
+      "bytes": 689
+    },
+    {
+      "path": "Vagrus/TierData.cs",
+      "bytes": 424
+    },
+    {
+      "path": "Vagrus/TierRow.cs",
+      "bytes": 329
+    },
+    {
+      "path": "Vagrus/ToolTipModeSelectable.cs",
+      "bytes": 4362
+    },
+    {
+      "path": "Vagrus/TrailerWatcherUI.cs",
+      "bytes": 252
+    },
+    {
+      "path": "Vagrus/TransUI.cs",
+      "bytes": 1592
+    },
+    {
+      "path": "Vagrus/UIElementTranslator.cs",
+      "bytes": 4310
+    },
+    {
+      "path": "Vagrus/UIFontUpdater.cs",
+      "bytes": 1466
+    },
+    {
+      "path": "Vagrus/UIProduct.cs",
+      "bytes": 415
+    },
+    {
+      "path": "Vagrus/UIQuantityFormatter.cs",
+      "bytes": 1261
+    },
+    {
+      "path": "Vagrus/UITranslator.cs",
+      "bytes": 1755
+    },
+    {
+      "path": "Vagrus/VagrusCharacterAssetBindings.cs",
+      "bytes": 4449
+    },
+    {
+      "path": "Vagrus/VagrusCounter.cs",
+      "bytes": 3419
+    },
+    {
+      "path": "Vagrus/VagrusNameGenerator.cs",
+      "bytes": 3057
+    },
+    {
+      "path": "Vagrus/VagrusOnlyTextMessageBoxUI.cs",
+      "bytes": 1490
+    },
+    {
+      "path": "Vagrus/VagrusSelector.cs",
+      "bytes": 1549
+    },
+    {
+      "path": "Vagrus/VagrusSlider.cs",
+      "bytes": 9600
+    },
+    {
+      "path": "Vagrus/VagrusSprites.cs",
+      "bytes": 1060
+    },
+    {
+      "path": "Vagrus.Data/AirTableItem.cs",
+      "bytes": 1473
+    },
+    {
+      "path": "Vagrus.Data/AirTableItemBase.cs",
+      "bytes": 190
+    },
+    {
+      "path": "Vagrus.Data/BundleConfig.cs",
+      "bytes": 855
+    },
+    {
+      "path": "Vagrus.Data/CSSVBase.cs",
+      "bytes": 1145
+    },
+    {
+      "path": "Vagrus.Data/CSSVReader.cs",
+      "bytes": 2096
+    },
+    {
+      "path": "Vagrus.Data/CSSVWriter.cs",
+      "bytes": 1229
+    },
+    {
+      "path": "Vagrus.Data/ChoiceHistory.cs",
+      "bytes": 436
+    },
+    {
+      "path": "Vagrus.Data/ChoiceHistorySave.cs",
+      "bytes": 337
+    },
+    {
+      "path": "Vagrus.Data/ChoiceTriggerCount.cs",
+      "bytes": 588
+    },
+    {
+      "path": "Vagrus.Data/ChoiceTriggerCountSave.cs",
+      "bytes": 462
+    },
+    {
+      "path": "Vagrus.Data/CityEventType.cs",
+      "bytes": 98
+    },
+    {
+      "path": "Vagrus.Data/CodexScriptError.cs",
+      "bytes": 270
+    },
+    {
+      "path": "Vagrus.Data/DLCConfig.cs",
+      "bytes": 978
+    },
+    {
+      "path": "Vagrus.Data/DataType.cs",
+      "bytes": 300
+    },
+    {
+      "path": "Vagrus.Data/DependencyType.cs",
+      "bytes": 85
+    },
+    {
+      "path": "Vagrus.Data/DisplayProductType.cs",
+      "bytes": 109
+    },
+    {
+      "path": "Vagrus.Data/EventCategory.cs",
+      "bytes": 92
+    },
+    {
+      "path": "Vagrus.Data/EventCategoryTree.cs",
+      "bytes": 2057
+    },
+    {
+      "path": "Vagrus.Data/EventFreq.cs",
+      "bytes": 124
+    },
+    {
+      "path": "Vagrus.Data/EventHistory.cs",
+      "bytes": 486
+    },
+    {
+      "path": "Vagrus.Data/EventHistorySave.cs",
+      "bytes": 386
+    },
+    {
+      "path": "Vagrus.Data/EventLoader.cs",
+      "bytes": 4095
+    },
+    {
+      "path": "Vagrus.Data/EventLogRow.cs",
+      "bytes": 2019
+    },
+    {
+      "path": "Vagrus.Data/EventOccurrence.cs",
+      "bytes": 108
+    },
+    {
+      "path": "Vagrus.Data/EventPriorityGroups.cs",
+      "bytes": 628
+    },
+    {
+      "path": "Vagrus.Data/EventScriptError.cs",
+      "bytes": 280
+    },
+    {
+      "path": "Vagrus.Data/EventScriptParser.cs",
+      "bytes": 107443
+    },
+    {
+      "path": "Vagrus.Data/EventStepScriptError.cs",
+      "bytes": 307
+    },
+    {
+      "path": "Vagrus.Data/EventVar.cs",
+      "bytes": 393
+    },
+    {
+      "path": "Vagrus.Data/FailReason.cs",
+      "bytes": 1285
+    },
+    {
+      "path": "Vagrus.Data/GameEvent.cs",
+      "bytes": 124051
+    },
+    {
+      "path": "Vagrus.Data/OccurrenceBucket.cs",
+      "bytes": 2045
+    },
+    {
+      "path": "Vagrus.Data/PoolLoader.cs",
+      "bytes": 58170
+    },
+    {
+      "path": "Vagrus.Data/PostStep.cs",
+      "bytes": 749
+    },
+    {
+      "path": "Vagrus.Data/Readiness.cs",
+      "bytes": 126
+    },
+    {
+      "path": "Vagrus.Data/ScriptError.cs",
+      "bytes": 123
+    },
+    {
+      "path": "Vagrus.Data/StepHistory.cs",
+      "bytes": 358
+    },
+    {
+      "path": "Vagrus.Data/StepHistorySave.cs",
+      "bytes": 278
+    },
+    {
+      "path": "Vagrus.Data/StepTriggerCount.cs",
+      "bytes": 512
+    },
+    {
+      "path": "Vagrus.Data/StepTriggerCountSave.cs",
+      "bytes": 412
+    },
+    {
+      "path": "Vagrus.Data/StoreProduct.cs",
+      "bytes": 2738
+    },
+    {
+      "path": "Vagrus.Data/StringEncryptor.cs",
+      "bytes": 2998
+    },
+    {
+      "path": "Vagrus.Data/TaskCategory.cs",
+      "bytes": 93
+    },
+    {
+      "path": "Vagrus.Data/TriggerCount.cs",
+      "bytes": 526
+    },
+    {
+      "path": "Vagrus.Data/TriggerCountSave.cs",
+      "bytes": 420
+    },
+    {
+      "path": "Vagrus.Data/VSRow.cs",
+      "bytes": 146
+    },
+    {
+      "path": "Vagrus.Data/VariableScope.cs",
+      "bytes": 77
+    },
+    {
+      "path": "Vagrus.Data.Sync/AirTableAPI.cs",
+      "bytes": 129051
+    },
+    {
+      "path": "Vagrus.Data.Sync/JsonAchievements.cs",
+      "bytes": 1131
+    },
+    {
+      "path": "Vagrus.Data.Sync/JsonAirTable.cs",
+      "bytes": 1850
+    },
+    {
+      "path": "Vagrus.Data.Sync/JsonCharacterChunk.cs",
+      "bytes": 1304
+    },
+    {
+      "path": "Vagrus.Data.Sync/JsonCharacterPhase.cs",
+      "bytes": 293
+    },
+    {
+      "path": "Vagrus.Data.Sync/JsonChoiceChunk.cs",
+      "bytes": 233
+    },
+    {
+      "path": "Vagrus.Data.Sync/JsonCodexChunk.cs",
+      "bytes": 259
+    },
+    {
+      "path": "Vagrus.Data.Sync/JsonCodexEntriesChunk.cs",
+      "bytes": 167
+    },
+    {
+      "path": "Vagrus.Data.Sync/JsonCodexTagsChunk.cs",
+      "bytes": 164
+    },
+    {
+      "path": "Vagrus.Data.Sync/JsonCodexes.cs",
+      "bytes": 122
+    },
+    {
+      "path": "Vagrus.Data.Sync/JsonCombatBackground.cs",
+      "bytes": 166
+    },
+    {
+      "path": "Vagrus.Data.Sync/JsonCombatTemplateChunk.cs",
+      "bytes": 682
+    },
+    {
+      "path": "Vagrus.Data.Sync/JsonContainersChunk.cs",
+      "bytes": 331
+    },
+    {
+      "path": "Vagrus.Data.Sync/JsonCrewChunk.cs",
+      "bytes": 491
+    },
+    {
+      "path": "Vagrus.Data.Sync/JsonCrewCombatActions.cs",
+      "bytes": 479
+    },
+    {
+      "path": "Vagrus.Data.Sync/JsonCrewCombatAttributes.cs",
+      "bytes": 314
+    },
+    {
+      "path": "Vagrus.Data.Sync/JsonCrewCombatTemp.cs",
+      "bytes": 1624
+    },
+    {
+      "path": "Vagrus.Data.Sync/JsonDependencyChunk.cs",
+      "bytes": 319
+    },
+    {
+      "path": "Vagrus.Data.Sync/JsonEffectChunk.cs",
+      "bytes": 306
+    },
+    {
+      "path": "Vagrus.Data.Sync/JsonEffectPropChunk.cs",
+      "bytes": 508
+    },
+    {
+      "path": "Vagrus.Data.Sync/JsonEquipmentChunk.cs",
+      "bytes": 602
+    },
+    {
+      "path": "Vagrus.Data.Sync/JsonEventChunk.cs",
+      "bytes": 537
+    },
+    {
+      "path": "Vagrus.Data.Sync/JsonEvents.cs",
+      "bytes": 120
+    },
+    {
+      "path": "Vagrus.Data.Sync/JsonExplorationTasksChunk.cs",
+      "bytes": 711
+    },
+    {
+      "path": "Vagrus.Data.Sync/JsonFactionsChunk.cs",
+      "bytes": 1236
+    },
+    {
+      "path": "Vagrus.Data.Sync/JsonFactionsLocationChunk.cs",
+      "bytes": 578
+    },
+    {
+      "path": "Vagrus.Data.Sync/JsonGameConfig.cs",
+      "bytes": 223
+    },
+    {
+      "path": "Vagrus.Data.Sync/JsonGearsChunk.cs",
+      "bytes": 545
+    },
+    {
+      "path": "Vagrus.Data.Sync/JsonGeneratedNameChunk.cs",
+      "bytes": 231
+    },
+    {
+      "path": "Vagrus.Data.Sync/JsonGoodsChunk.cs",
+      "bytes": 3101
+    },
+    {
+      "path": "Vagrus.Data.Sync/JsonHeaderChunk.cs",
+      "bytes": 133
+    },
+    {
+      "path": "Vagrus.Data.Sync/JsonImpactsChunk.cs",
+      "bytes": 280
+    },
+    {
+      "path": "Vagrus.Data.Sync/JsonInitialChunk.cs",
+      "bytes": 1343
+    },
+    {
+      "path": "Vagrus.Data.Sync/JsonItemsChunk.cs",
+      "bytes": 317
+    },
+    {
+      "path": "Vagrus.Data.Sync/JsonJournalChunk.cs",
+      "bytes": 282
+    },
+    {
+      "path": "Vagrus.Data.Sync/JsonJournals.cs",
+      "bytes": 126
+    },
+    {
+      "path": "Vagrus.Data.Sync/JsonLocalCharacter.cs",
+      "bytes": 200
+    },
+    {
+      "path": "Vagrus.Data.Sync/JsonLocalCombatBack.cs",
+      "bytes": 171
+    },
+    {
+      "path": "Vagrus.Data.Sync/JsonLocals.cs",
+      "bytes": 331
+    },
+    {
+      "path": "Vagrus.Data.Sync/JsonMercenaryTasksChunk.cs",
+      "bytes": 967
+    },
+    {
+      "path": "Vagrus.Data.Sync/JsonMercenaryTasksFlavorTextsChunk.cs",
+      "bytes": 690
+    },
+    {
+      "path": "Vagrus.Data.Sync/JsonMethodChunk.cs",
+      "bytes": 135
+    },
+    {
+      "path": "Vagrus.Data.Sync/JsonNodeChunk.cs",
+      "bytes": 158
+    },
+    {
+      "path": "Vagrus.Data.Sync/JsonPassengersChunk.cs",
+      "bytes": 1159
+    },
+    {
+      "path": "Vagrus.Data.Sync/JsonPerkChunk.cs",
+      "bytes": 2480
+    },
+    {
+      "path": "Vagrus.Data.Sync/JsonPopUpSlide.cs",
+      "bytes": 1204
+    },
+    {
+      "path": "Vagrus.Data.Sync/JsonPropertyChunk.cs",
+      "bytes": 1150
+    },
+    {
+      "path": "Vagrus.Data.Sync/JsonRegionBackground.cs",
+      "bytes": 166
+    },
+    {
+      "path": "Vagrus.Data.Sync/JsonRegionChunk.cs",
+      "bytes": 160
+    },
+    {
+      "path": "Vagrus.Data.Sync/JsonRumorsChunk.cs",
+      "bytes": 504
+    },
+    {
+      "path": "Vagrus.Data.Sync/JsonSkillChunk.cs",
+      "bytes": 1526
+    },
+    {
+      "path": "Vagrus.Data.Sync/JsonSourceLevels.cs",
+      "bytes": 300
+    },
+    {
+      "path": "Vagrus.Data.Sync/JsonStatusChunk.cs",
+      "bytes": 277
+    },
+    {
+      "path": "Vagrus.Data.Sync/JsonStepChunk.cs",
+      "bytes": 225
+    },
+    {
+      "path": "Vagrus.Data.Sync/JsonStoreProduct.cs",
+      "bytes": 434
+    },
+    {
+      "path": "Vagrus.Data.Sync/JsonTextTemplateChunk.cs",
+      "bytes": 440
+    },
+    {
+      "path": "Vagrus.Data.Sync/JsonTooltipChunk.cs",
+      "bytes": 444
+    },
+    {
+      "path": "Vagrus.Data.Sync/JsonTradeTasksChunk.cs",
+      "bytes": 677
+    },
+    {
+      "path": "Vagrus.Data.Sync/JsonTutorialChunk.cs",
+      "bytes": 1019
+    },
+    {
+      "path": "Vagrus.Data.Sync/NodeLookup.cs",
+      "bytes": 177
+    },
+    {
+      "path": "Vagrus.Data.Sync/ParseError.cs",
+      "bytes": 258
+    },
+    {
+      "path": "Vagrus.Data.Sync/RefType.cs",
+      "bytes": 180
+    },
+    {
+      "path": "Vagrus.Data.Sync/RegionLookup.cs",
+      "bytes": 179
+    },
+    {
+      "path": "Vagrus.Data.Sync/float2.cs",
+      "bytes": 332
+    },
+    {
+      "path": "Vagrus.Effects/SecondaryMotionSprite.cs",
+      "bytes": 19980
+    },
+    {
+      "path": "Vagrus.Exploration/ChallengeData.cs",
+      "bytes": 256
+    },
+    {
+      "path": "Vagrus.Exploration/ChoiceData.cs",
+      "bytes": 218
+    },
+    {
+      "path": "Vagrus.Exploration/ExplorationManager.cs",
+      "bytes": 18939
+    },
+    {
+      "path": "Vagrus.Exploration/ExplorationResult.cs",
+      "bytes": 81
+    },
+    {
+      "path": "Vagrus.Exploration/ITimestampedText.cs",
+      "bytes": 139
+    },
+    {
+      "path": "Vagrus.Exploration/Message.cs",
+      "bytes": 271
+    },
+    {
+      "path": "Vagrus.Exploration/Sealable.cs",
+      "bytes": 156
+    },
+    {
+      "path": "Vagrus.Exploration/StatData.cs",
+      "bytes": 2707
+    },
+    {
+      "path": "Vagrus.Exploration/StatId.cs",
+      "bytes": 692
+    },
+    {
+      "path": "Vagrus.Exploration/TreasureData.cs",
+      "bytes": 569
+    },
+    {
+      "path": "Vagrus.Exploration/Vignette.cs",
+      "bytes": 882
+    },
+    {
+      "path": "Vagrus.Exploration.Data/AirRef.cs",
+      "bytes": 1670
+    },
+    {
+      "path": "Vagrus.Exploration.Data/ChallengeElementData.cs",
+      "bytes": 389
+    },
+    {
+      "path": "Vagrus.Exploration.Data/ChallengeSelectorData.cs",
+      "bytes": 4011
+    },
+    {
+      "path": "Vagrus.Exploration.Data/ChoicelessStep.cs",
+      "bytes": 624
+    },
+    {
+      "path": "Vagrus.Exploration.Data/CombatData.cs",
+      "bytes": 1499
+    },
+    {
+      "path": "Vagrus.Exploration.Data/EquipScope.cs",
+      "bytes": 81
+    },
+    {
+      "path": "Vagrus.Exploration.Data/EquipmentActionData.cs",
+      "bytes": 1608
+    },
+    {
+      "path": "Vagrus.Exploration.Data/EquipmentCountData.cs",
+      "bytes": 1141
+    },
+    {
+      "path": "Vagrus.Exploration.Data/GearActionData.cs",
+      "bytes": 1514
+    },
+    {
+      "path": "Vagrus.Exploration.Data/GearCountData.cs",
+      "bytes": 1039
+    },
+    {
+      "path": "Vagrus.Exploration.Data/GetCombatBackgroundData.cs",
+      "bytes": 594
+    },
+    {
+      "path": "Vagrus.Exploration.Data/GetCombatTemplateData.cs",
+      "bytes": 568
+    },
+    {
+      "path": "Vagrus.Exploration.Data/GetContinueIconData.cs",
+      "bytes": 617
+    },
+    {
+      "path": "Vagrus.Exploration.Data/GetMethodType.cs",
+      "bytes": 83
+    },
+    {
+      "path": "Vagrus.Exploration.Data/GetObjectiveData.cs",
+      "bytes": 914
+    },
+    {
+      "path": "Vagrus.Exploration.Data/GetPropData.cs",
+      "bytes": 585
+    },
+    {
+      "path": "Vagrus.Exploration.Data/GoodsActionData.cs",
+      "bytes": 1466
+    },
+    {
+      "path": "Vagrus.Exploration.Data/GoodsCountData.cs",
+      "bytes": 809
+    },
+    {
+      "path": "Vagrus.Exploration.Data/HasCodexData.cs",
+      "bytes": 691
+    },
+    {
+      "path": "Vagrus.Exploration.Data/HasStatusData.cs",
+      "bytes": 688
+    },
+    {
+      "path": "Vagrus.Exploration.Data/IAirBaseRef.cs",
+      "bytes": 183
+    },
+    {
+      "path": "Vagrus.Exploration.Data/IExplorationStat.cs",
+      "bytes": 97
+    },
+    {
+      "path": "Vagrus.Exploration.Data/IExplorationTreasure.cs",
+      "bytes": 199
+    },
+    {
+      "path": "Vagrus.Exploration.Data/IReference.cs",
+      "bytes": 128
+    },
+    {
+      "path": "Vagrus.Exploration.Data/ItemActionData.cs",
+      "bytes": 1356
+    },
+    {
+      "path": "Vagrus.Exploration.Data/ItemCountData.cs",
+      "bytes": 782
+    },
+    {
+      "path": "Vagrus.Exploration.Data/MessageData.cs",
+      "bytes": 751
+    },
+    {
+      "path": "Vagrus.Exploration.Data/ModifyStatusData.cs",
+      "bytes": 3292
+    },
+    {
+      "path": "Vagrus.Exploration.Data/PerkLevelData.cs",
+      "bytes": 1357
+    },
+    {
+      "path": "Vagrus.Exploration.Data/PerkScope.cs",
+      "bytes": 91
+    },
+    {
+      "path": "Vagrus.Exploration.Data/PropActionData.cs",
+      "bytes": 4337
+    },
+    {
+      "path": "Vagrus.Exploration.Data/RandomBackgroundData.cs",
+      "bytes": 751
+    },
+    {
+      "path": "Vagrus.Exploration.Data/RandomCombatBackgroundData.cs",
+      "bytes": 812
+    },
+    {
+      "path": "Vagrus.Exploration.Data/RandomCombatTemplateData.cs",
+      "bytes": 918
+    },
+    {
+      "path": "Vagrus.Exploration.Data/RandomVignetteData.cs",
+      "bytes": 731
+    },
+    {
+      "path": "Vagrus.Exploration.Data/SetBackgroundData.cs",
+      "bytes": 696
+    },
+    {
+      "path": "Vagrus.Exploration.Data/SetContinueIconData.cs",
+      "bytes": 779
+    },
+    {
+      "path": "Vagrus.Exploration.Data/SetObjectiveData.cs",
+      "bytes": 980
+    },
+    {
+      "path": "Vagrus.Exploration.Data/SetTitleData.cs",
+      "bytes": 707
+    },
+    {
+      "path": "Vagrus.Exploration.Data/SetVignetteData.cs",
+      "bytes": 672
+    },
+    {
+      "path": "Vagrus.Exploration.Data/TestBranchData.cs",
+      "bytes": 999
+    },
+    {
+      "path": "Vagrus.Exploration.Data/TestData.cs",
+      "bytes": 471
+    },
+    {
+      "path": "Vagrus.Exploration.Data/TextTemplateData.cs",
+      "bytes": 1426
+    },
+    {
+      "path": "Vagrus.Exploration.UI/ChallengeElement.cs",
+      "bytes": 1823
+    },
+    {
+      "path": "Vagrus.Exploration.UI/ChallengeWindow.cs",
+      "bytes": 4772
+    },
+    {
+      "path": "Vagrus.Exploration.UI/CharacterCoin.cs",
+      "bytes": 360
+    },
+    {
+      "path": "Vagrus.Exploration.UI/ExplorationSounds.cs",
+      "bytes": 1333
+    },
+    {
+      "path": "Vagrus.Exploration.UI/ExplorationUI.cs",
+      "bytes": 16382
+    },
+    {
+      "path": "Vagrus.Exploration.UI/LineMasker.cs",
+      "bytes": 2710
+    },
+    {
+      "path": "Vagrus.Exploration.UI/RequestChallengeSelectionDelegate.cs",
+      "bytes": 128
+    },
+    {
+      "path": "Vagrus.Exploration.UI/TreasureElement.cs",
+      "bytes": 655
+    },
+    {
+      "path": "Vagrus.FoW/CaravanFogMasker.cs",
+      "bytes": 789
+    },
+    {
+      "path": "Vagrus.FoW/FOWManager.cs",
+      "bytes": 12246
+    },
+    {
+      "path": "Vagrus.FoW/FogDataProvider.cs",
+      "bytes": 3605
+    },
+    {
+      "path": "Vagrus.FoW/IStructuralChangeHandler.cs",
+      "bytes": 101
+    },
+    {
+      "path": "Vagrus.FoW/RegionFogProvider.cs",
+      "bytes": 6925
+    },
+    {
+      "path": "Vagrus.FoW/RevealerAttributes.cs",
+      "bytes": 243
+    },
+    {
+      "path": "Vagrus.FoW/RevealerData.cs",
+      "bytes": 897
+    },
+    {
+      "path": "Vagrus.FoW/RevealerFilteringJob.cs",
+      "bytes": 976
+    },
+    {
+      "path": "Vagrus.FoW/RevealerId.cs",
+      "bytes": 188
+    },
+    {
+      "path": "Vagrus.FoW/RevealerYComparer.cs",
+      "bytes": 998
+    },
+    {
+      "path": "Vagrus.FoW/StaticFogProvider.cs",
+      "bytes": 824
+    },
+    {
+      "path": "Vagrus.IO/AccessResult.cs",
+      "bytes": 173
+    },
+    {
+      "path": "Vagrus.IO/FileWriteLimiter.cs",
+      "bytes": 9650
+    },
+    {
+      "path": "Vagrus.IO/IDirectoryManager.cs",
+      "bytes": 199
+    },
+    {
+      "path": "Vagrus.IO/IFileManager.cs",
+      "bytes": 385
+    },
+    {
+      "path": "Vagrus.IO/PlatformIOManager.cs",
+      "bytes": 625
+    },
+    {
+      "path": "Vagrus.IO/VDirectory.cs",
+      "bytes": 1131
+    },
+    {
+      "path": "Vagrus.IO/VFile.cs",
+      "bytes": 6997
+    },
+    {
+      "path": "Vagrus.IO/WritePath.cs",
+      "bytes": 3303
+    },
+    {
+      "path": "Vagrus.IO/WriteRequest.cs",
+      "bytes": 481
+    },
+    {
+      "path": "Vagrus.IO/WriteType.cs",
+      "bytes": 67
+    },
+    {
+      "path": "Vagrus.Testing/CaseOutcome.cs",
+      "bytes": 118
+    },
+    {
+      "path": "Vagrus.Testing/CaseOutcomes.cs",
+      "bytes": 701
+    },
+    {
+      "path": "Vagrus.Testing/CaseResult.cs",
+      "bytes": 2399
+    },
+    {
+      "path": "Vagrus.Testing/CaseVerdict.cs",
+      "bytes": 602
+    },
+    {
+      "path": "Vagrus.Testing/CombatDriver.cs",
+      "bytes": 8500
+    },
+    {
+      "path": "Vagrus.Testing/CoreInvariants.cs",
+      "bytes": 3966
+    },
+    {
+      "path": "Vagrus.Testing/EventPump.cs",
+      "bytes": 3597
+    },
+    {
+      "path": "Vagrus.Testing/GameDriver.cs",
+      "bytes": 8046
+    },
+    {
+      "path": "Vagrus.Testing/IGameInvariant.cs",
+      "bytes": 190
+    },
+    {
+      "path": "Vagrus.Testing/IRegressionSuite.cs",
+      "bytes": 241
+    },
+    {
+      "path": "Vagrus.Testing/InputRequest.cs",
+      "bytes": 1360
+    },
+    {
+      "path": "Vagrus.Testing/InvariantBus.cs",
+      "bytes": 3526
+    },
+    {
+      "path": "Vagrus.Testing/InvariantViolation.cs",
+      "bytes": 384
+    },
+    {
+      "path": "Vagrus.Testing/LogErrorGate.cs",
+      "bytes": 2907
+    },
+    {
+      "path": "Vagrus.Testing/ObjectiveOutcome.cs",
+      "bytes": 108
+    },
+    {
+      "path": "Vagrus.Testing/ObjectiveResult.cs",
+      "bytes": 704
+    },
+    {
+      "path": "Vagrus.Testing/PropertyCacheInvariant.cs",
+      "bytes": 1724
+    },
+    {
+      "path": "Vagrus.Testing/RegressionCase.cs",
+      "bytes": 816
+    },
+    {
+      "path": "Vagrus.Testing/RegressionClock.cs",
+      "bytes": 3605
+    },
+    {
+      "path": "Vagrus.Testing/RegressionContext.cs",
+      "bytes": 4044
+    },
+    {
+      "path": "Vagrus.Testing/RegressionEnvironment.cs",
+      "bytes": 4669
+    },
+    {
+      "path": "Vagrus.Testing/RegressionRegistry.cs",
+      "bytes": 2448
+    },
+    {
+      "path": "Vagrus.Testing/RegressionReport.cs",
+      "bytes": 8423
+    },
+    {
+      "path": "Vagrus.Testing/RegressionRun.cs",
+      "bytes": 9442
+    },
+    {
+      "path": "Vagrus.Testing/RegressionSuiteBase.cs",
+      "bytes": 2031
+    },
+    {
+      "path": "Vagrus.Testing/RegressionTier.cs",
+      "bytes": 102
+    },
+    {
+      "path": "Vagrus.Testing/SaveMenuDriver.cs",
+      "bytes": 5018
+    },
+    {
+      "path": "Vagrus.Testing/ScreenDriver.cs",
+      "bytes": 14482
+    },
+    {
+      "path": "Vagrus.Testing/ScreenshotDriver.cs",
+      "bytes": 5231
+    },
+    {
+      "path": "Vagrus.Testing/UiArbiter.cs",
+      "bytes": 1797
+    },
+    {
+      "path": "Vagrus.Testing/UiStructureInvariant.cs",
+      "bytes": 1905
+    },
+    {
+      "path": "Vagrus.Testing.Suites/AchievementSuite.cs",
+      "bytes": 2399
+    },
+    {
+      "path": "Vagrus.Testing.Suites/ActivitySuite.cs",
+      "bytes": 2138
+    },
+    {
+      "path": "Vagrus.Testing.Suites/CaravanStateSuite.cs",
+      "bytes": 4894
+    },
+    {
+      "path": "Vagrus.Testing.Suites/CargoTradeSuite.cs",
+      "bytes": 2865
+    },
+    {
+      "path": "Vagrus.Testing.Suites/CharacterSuite.cs",
+      "bytes": 5663
+    },
+    {
+      "path": "Vagrus.Testing.Suites/CombatContentSuite.cs",
+      "bytes": 3417
+    },
+    {
+      "path": "Vagrus.Testing.Suites/ContentIntegritySuite.cs",
+      "bytes": 4028
+    },
+    {
+      "path": "Vagrus.Testing.Suites/DayAndCampSuite.cs",
+      "bytes": 3127
+    },
+    {
+      "path": "Vagrus.Testing.Suites/EquipmentPerkSuite.cs",
+      "bytes": 3784
+    },
+    {
+      "path": "Vagrus.Testing.Suites/EventSuite.cs",
+      "bytes": 2004
+    },
+    {
+      "path": "Vagrus.Testing.Suites/FactionSuite.cs",
+      "bytes": 1948
+    },
+    {
+      "path": "Vagrus.Testing.Suites/FrontendBootSuite.cs",
+      "bytes": 7576
+    },
+    {
+      "path": "Vagrus.Testing.Suites/JournalCodexSuite.cs",
+      "bytes": 3578
+    },
+    {
+      "path": "Vagrus.Testing.Suites/LocalizationSuite.cs",
+      "bytes": 3410
+    },
+    {
+      "path": "Vagrus.Testing.Suites/MarketSuite.cs",
+      "bytes": 3501
+    },
+    {
+      "path": "Vagrus.Testing.Suites/OutpostSuite.cs",
+      "bytes": 4211
+    },
+    {
+      "path": "Vagrus.Testing.Suites/PlatformSettingsSuite.cs",
+      "bytes": 2647
+    },
+    {
+      "path": "Vagrus.Testing.Suites/PrologueResumeSuite.cs",
+      "bytes": 2597
+    },
+    {
+      "path": "Vagrus.Testing.Suites/SaveLoadSuite.cs",
+      "bytes": 5453
+    },
+    {
+      "path": "Vagrus.Testing.Suites/ScheduledActionSuite.cs",
+      "bytes": 2345
+    },
+    {
+      "path": "Vagrus.Testing.Suites/SettlementSuite.cs",
+      "bytes": 2667
+    },
+    {
+      "path": "Vagrus.Testing.Suites/TravelSuite.cs",
+      "bytes": 6783
+    },
+    {
+      "path": "Vagrus.Testing.Suites/TutorialChainSuite.cs",
+      "bytes": 6017
+    },
+    {
+      "path": "Vagrus.Testing.Suites/TutorialRunSuite.cs",
+      "bytes": 19357
+    },
+    {
+      "path": "Vagrus.Testing.Suites/TutorialSuite.cs",
+      "bytes": 6930
+    },
+    {
+      "path": "Vagrus.Testing.Suites/UiStackSuite.cs",
+      "bytes": 3542
+    },
+    {
+      "path": "Vagrus.UI/ButtonMultiSprite.cs",
+      "bytes": 2909
+    },
+    {
+      "path": "Vagrus.UI/CharUI2.cs",
+      "bytes": 40405
+    },
+    {
+      "path": "Vagrus.UI/EquipmentBox.cs",
+      "bytes": 369
+    },
+    {
+      "path": "Vagrus.UI/EquipmentComponent.cs",
+      "bytes": 16660
+    },
+    {
+      "path": "Vagrus.UI/EquipmentMountBox.cs",
+      "bytes": 5412
+    },
+    {
+      "path": "Vagrus.UI/EventChoiceButton.cs",
+      "bytes": 26949
+    },
+    {
+      "path": "Vagrus.UI/GearDraggable.cs",
+      "bytes": 4909
+    },
+    {
+      "path": "Vagrus.UI/GearScrollData.cs",
+      "bytes": 428
+    },
+    {
+      "path": "Vagrus.UI/GoodsBox.cs",
+      "bytes": 1148
+    },
+    {
+      "path": "Vagrus.UI/GoodsDrag.cs",
+      "bytes": 930
+    },
+    {
+      "path": "Vagrus.UI/ItemBox.cs",
+      "bytes": 464
+    },
+    {
+      "path": "Vagrus.UI/ModIoInputCapture.cs",
+      "bytes": 1129
+    },
+    {
+      "path": "Vagrus.UI/MountBox.cs",
+      "bytes": 410
+    },
+    {
+      "path": "Vagrus.UI/RFButtonState.cs",
+      "bytes": 94
+    },
+    {
+      "path": "Vagrus.UI/RadialButtonInfo.cs",
+      "bytes": 306
+    },
+    {
+      "path": "Vagrus.UI/RadialMovementType.cs",
+      "bytes": 102
+    },
+    {
+      "path": "Vagrus.UI/RadialPos.cs",
+      "bytes": 99
+    },
+    {
+      "path": "Vagrus.UI/RadialState.cs",
+      "bytes": 165
+    },
+    {
+      "path": "Vagrus.UI/RadialType.cs",
+      "bytes": 259
+    },
+    {
+      "path": "Vagrus.UI/RadialUI.cs",
+      "bytes": 7156
+    },
+    {
+      "path": "Vagrus.UI/ShowOnHover.cs",
+      "bytes": 708
+    },
+    {
+      "path": "Vagrus.UI/SkillDisplay.cs",
+      "bytes": 30418
+    },
+    {
+      "path": "Vagrus.UI/SkinSelectObject.cs",
+      "bytes": 2068
+    },
+    {
+      "path": "Vagrus.UI/SkinSelectObjectData.cs",
+      "bytes": 459
+    },
+    {
+      "path": "Vagrus.UI/SongEntry.cs",
+      "bytes": 480
+    },
+    {
+      "path": "Vagrus.UI/StickyUIValueDisplay.cs",
+      "bytes": 3759
+    },
+    {
+      "path": "Vagrus.UI/SummonCharUI2.cs",
+      "bytes": 17911
+    },
+    {
+      "path": "Vagrus.UI/TutorialLayoutConfig.cs",
+      "bytes": 1293
+    },
+    {
+      "path": "Vagrus.UI/TutorialLayoutEntry.cs",
+      "bytes": 450
+    },
+    {
+      "path": "Vagrus.UI/TutorialLayoutSettings.cs",
+      "bytes": 101
+    },
+    {
+      "path": "Vagrus.UI/TutorialLayoutSettingsNormal.cs",
+      "bytes": 761
+    },
+    {
+      "path": "Vagrus.UI/TutorialLayoutSettingsSmallScreen.cs",
+      "bytes": 155
+    },
+    {
+      "path": "Vagrus.UI/TutorialSide.cs",
+      "bytes": 65
+    },
+    {
+      "path": "Vagrus.UI.Chart/TaskDetailsPanel.cs",
+      "bytes": 866
+    },
+    {
+      "path": "Vagrus.UI.Components/ScrollRect2.cs",
+      "bytes": 1779
+    },
+    {
+      "path": "Vagrus.UI.Components/Scrollbar2.cs",
+      "bytes": 2024
+    },
+    {
+      "path": "Vagrus.UI.Components/TooltipAdder.cs",
+      "bytes": 3182
+    },
+    {
+      "path": "VagrusCreationStep.cs",
+      "bytes": 2745
+    },
+    {
+      "path": "VagrusCreationTweak.cs",
+      "bytes": 1260
+    },
+    {
+      "path": "VagrusCreationUI.cs",
+      "bytes": 50856
+    },
+    {
+      "path": "VagrusDate.cs",
+      "bytes": 237
+    },
+    {
+      "path": "VagrusEntry.cs",
+      "bytes": 577
+    },
+    {
+      "path": "VagrusMessageBoxUI.cs",
+      "bytes": 4326
+    },
+    {
+      "path": "ValueType.cs",
+      "bytes": 131
+    },
+    {
+      "path": "VariableAction.cs",
+      "bytes": 497
+    },
+    {
+      "path": "VariableActionSave.cs",
+      "bytes": 390
+    },
+    {
+      "path": "VariableDependency.cs",
+      "bytes": 210
+    },
+    {
+      "path": "VariablesForTesting.cs",
+      "bytes": 223
+    },
+    {
+      "path": "ViabilityMeasure.cs",
+      "bytes": 3453
+    },
+    {
+      "path": "VictoryPointRow.cs",
+      "bytes": 234
+    },
+    {
+      "path": "VirtualKeyboardHelper.cs",
+      "bytes": 5289
+    },
+    {
+      "path": "VirtualKeyboardInput.cs",
+      "bytes": 182
+    },
+    {
+      "path": "VirtualPerk.cs",
+      "bytes": 3317
+    },
+    {
+      "path": "VirtualVagrus.cs",
+      "bytes": 2823
+    },
+    {
+      "path": "VisualTweak.cs",
+      "bytes": 6207
+    },
+    {
+      "path": "WareQtyCategory.cs",
+      "bytes": 284
+    },
+    {
+      "path": "WareRarity.cs",
+      "bytes": 93
+    },
+    {
+      "path": "WarehouseUI.cs",
+      "bytes": 37476
+    },
+    {
+      "path": "WarningUI.cs",
+      "bytes": 4328
+    },
+    {
+      "path": "WarningUIContainer.cs",
+      "bytes": 344
+    },
+    {
+      "path": "WeekDependency.cs",
+      "bytes": 261
+    },
+    {
+      "path": "WeekName.cs",
+      "bytes": 74
+    },
+    {
+      "path": "WinGameUI.cs",
+      "bytes": 17051
+    },
+    {
+      "path": "ZoomScalingPivot.cs",
+      "bytes": 4097
+    },
+    {
+      "path": "__JobReflectionRegistrationOutput__10551005135889178382.cs",
+      "bytes": 551
+    }
+  ],
+  "table_rows": {
+    "Nodes": 378,
+    "Regions": 148,
+    "CodexTags": 15,
+    "Passengers": 462,
+    "Rumors": 85,
+    "FactionsLocation": 88,
+    "TradeTasks": 592,
+    "MercenaryTasks": 319,
+    "MercenaryTasksFlavorTexts": 237,
+    "ExplorationTasks": 3,
+    "SourceLevels": 11,
+    "Factions": 88,
+    "Methods": 89,
+    "Properties": 590,
+    "Dependencies": 166,
+    "Impacts": 34,
+    "Effects": 1143,
+    "CrewCombatActions": 29,
+    "Status": 102,
+    "Crew": 12,
+    "Perks": 125,
+    "EffectProps": 357,
+    "Characters": 517,
+    "Skills": 737,
+    "Items": 118,
+    "Equipment": 93,
+    "Goods": 58,
+    "Gears": 86,
+    "CombatTemplates": 968,
+    "CrewCombatTemp": 492,
+    "CrewCombatAttributes": 69,
+    "Containers": 133,
+    "Initial": 44,
+    "CodexEntries": 51,
+    "Achievements": 114,
+    "Tooltips": 756,
+    "TextTemplates": 812,
+    "Tutorial": 195,
+    "GeneratedNames": 366,
+    "Game": 28,
+    "PopUpNews": 45,
+    "StoreProducts": 18
+  },
+  "graph_counts": {
+    "_events": 46,
+    "_subEvents": 569
+  }
+}
