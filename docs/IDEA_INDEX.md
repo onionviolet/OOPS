@@ -18,6 +18,11 @@ Remaining gaps, in order:
 
 ## How ideas are kept
 
+[Companions, familiars and pets](COMPANIONS_FAMILIARS_AND_PETS_CONSIDERATIONS_2026-10-14.md)
+owns the 2026-10-14 palette for creatures, spirits and things that travel with the
+player: kinds, acquisition, bond tracks, care, mounts, per-world fit, cheat shapes
+and expansions. Proposals only.
+
 [Engine, saves, scale and app portability](ENGINE_SAVES_AND_SCALE_REVIEW_2026-10-11.md)
 owns the 2026-10-11 engineering proposal set under I29: save/recovery and history
 contracts, performance gates, language/architecture choices, Godot/Rust/browser
