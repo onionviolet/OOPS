@@ -1,0 +1,123 @@
+{
+  "schema": 1,
+  "lane": "p23-field-familiarity",
+  "date": "2026-10-14",
+  "status": "source-committed; implemented-unverified; P00 dependency; full-suite gate open",
+  "base_head": "0216ccdefcfce79877378f8cb0ee41129fe11c5d",
+  "source_commit": "359e65657f677fa841ac86769ded72ebf74c0a2e",
+  "branch": "absorb-all/p23-field-familiarity",
+  "worktree": "/Users/weiwei/code/yair-absorb-all-20261014/p23-field-familiarity",
+  "port": 18826,
+  "reservation": "Coordinator assignment explicitly confirms reservation; runs/SESSIONS.md live lane entry; no listener before lane server",
+  "copied_foreign_code_or_assets": false,
+  "old_save_compatibility": "Optional absent field_familiarity_p07 stays absent; schema 1 preflight and contextual clock/calendar checks reject before mutation; no C2 migration",
+  "rows": [
+    {
+      "id": "R04",
+      "disposition": "native-calendar-reused; consumer-implemented-unverified",
+      "landing": "src/absorb_p23/field_familiarity/index.js:lunarWindow",
+      "proof": "Native Game_Time New phase reused, 120-day boundary sweep; sleep tuning unchanged",
+      "native_gate": "OPEN P00"
+    },
+    {
+      "id": "R37",
+      "disposition": "unparked-source-implemented; native-unverified",
+      "landing": "advanceFieldFamiliarity/fieldAction/fieldView",
+      "proof": "Both scouting/combat learning independently unlock six-to-three-minute useful search; no clear XP; continuous learning",
+      "native_gate": "OPEN P00"
+    },
+    {
+      "id": "R59",
+      "disposition": "unparked-source-implemented; native-unverified",
+      "landing": "lunarWindow/fieldAction/advanceFieldFamiliarity",
+      "proof": "Two distinct New-phase cycles, depletion, future recurrence, idempotent claims and pending serialization at module layer",
+      "native_gate": "OPEN P00"
+    }
+  ],
+  "checks": {
+    "focused": {
+      "command": "node --test tests/p23-field-familiarity.test.js",
+      "tests": 14,
+      "pass": 14,
+      "fail": 0,
+      "cancelled": 0,
+      "skipped": 0,
+      "evidence": "checks/p23-field-familiarity/focused.tap"
+    },
+    "build": {
+      "command": "npm run build",
+      "status": "PASS baseline native build; P07 not registered/bundled",
+      "evidence": "checks/p23-field-familiarity/build.log"
+    },
+    "full": {
+      "command": "npm test",
+      "tests": 635,
+      "pass": 634,
+      "fail": 1,
+      "skipped": 0,
+      "cancelled": 0,
+      "duration_ms": 443550.416125,
+      "failure": "tests/alloy_equipment.test.js:118 equipped native brace with an open road offer keeps ticking, travelling and reloading; unchanged child fixture exceeded 60000 ms timeout",
+      "classification": "concurrency timing inference; not proven pre-existing functional defect",
+      "evidence": "checks/p23-field-familiarity/full.tap"
+    },
+    "failure_reproduction": {
+      "command": "node --test --test-name-pattern=\"equipped native brace with an open road offer\" tests/alloy_equipment.test.js",
+      "tests": 1,
+      "pass": 1,
+      "fail": 0,
+      "duration_ms": 18955.178083,
+      "evidence": "checks/p23-field-familiarity/alloy-repro.tap",
+      "limits": "Does not replace failed full-suite record"
+    },
+    "browser_baseline": {
+      "status": "PASS opening-load only",
+      "origin": "http://127.0.0.1:18826",
+      "viewport": [
+        1366,
+        768
+      ],
+      "fresh_context": true,
+      "page_errors": 0,
+      "served_bundle_sha256": "598e02f54fe7db4c9a35bc79c75a754a7f8dc42eccf9fab828de8fd82e97b615",
+      "evidence": "checks/p23-field-familiarity/browser-baseline.json"
+    },
+    "native_changed_loop": {
+      "status": "NOT RUN / OPEN",
+      "reason": "P00 registrations/clock/resource/discovery joins absent"
+    },
+    "native_save_reload_export_literal_import": {
+      "status": "NOT RUN / OPEN",
+      "reason": "P00 optional envelope/preflight/publisher join absent; module JSON serialization is not native proof"
+    }
+  },
+  "host_contract": "src/absorb_p23/field_familiarity/HOST_CONTRACT.md",
+  "shared_requests": [
+    "public earned known-site fact",
+    "Village scouting and lunar gathering registrations",
+    "start-bound Infested field combat/scouting intervals",
+    "optional field_familiarity_p07 whole-envelope preflight",
+    "atomic state/native bag/activity publication",
+    "known-only Local actions desktop projection"
+  ],
+  "wave1_reports_read": [
+    "p23-ui-polish.md",
+    "upstream-dev.md",
+    "air-workshop.md"
+  ],
+  "pending_wave1": [
+    "p23-life-loops report/transfer",
+    "p23-reveal-chain report"
+  ],
+  "open_gates": [
+    "P00 integrated native candidate",
+    "green full suite on integration",
+    "earned native next-window/two-cycle/familiarity journey",
+    "pending/settled native Save/reload/export/literal-file import",
+    "host custody/atomic stale and abort controls",
+    "Weibao play/taste after technical gates"
+  ],
+  "final_merge_eligible": false,
+  "pushed": false,
+  "merged": false
+}

@@ -1,0 +1,17 @@
+{
+  "scope": "baseline native build smoke only; P07 unregistered and native acceptance OPEN",
+  "origin": "http://127.0.0.1:18826",
+  "freshContext": true,
+  "viewport": {
+    "width": 1366,
+    "height": 768
+  },
+  "httpStatus": 200,
+  "servedBundleSha256": "598e02f54fe7db4c9a35bc79c75a754a7f8dc42eccf9fab828de8fd82e97b615",
+  "bundleUrl": "http://127.0.0.1:18826/dist/bundle.js?version=v0.6-598e02f54fe7",
+  "bundleStatus": 200,
+  "errors": [],
+  "bodyExcerpt": "Yet Another Idle RPG\nby Miktaew 🐱\nLOADING\nWaiting for you to click 'PLAY'\nSave game version: none\nCurrent game version: v0.6\n\nNo issues in the loading process :)\nPLAY\nCreate your hero\nEverything in this entire panel is purely cosmetic\nName (can be changed at any time):\n\nGender presentation (perception, not identity):\nFemale\nambiguous\nMale\nHeight (relative to race average):\nShort\nAverage\nTall\nAge (relative to race's aging):\nYoung adult\nAdult\nMiddle aged\nDefault race\nHuman\nHumanoid races\nElf\nHalf",
+  "changedLoop": "NOT RUN: P00 registrations, clock callbacks and save joins absent",
+  "persistence": "NOT RUN: no native P07 save/reload/export/literal-file import integration"
+}
