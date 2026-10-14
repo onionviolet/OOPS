@@ -5372,7 +5372,7 @@ function create_bestiary_entry_tooltip(enemy_name) {
     if (estimate !== null) {
         const value = document.createElement("div");
         value.classList.add("known_loot_value");
-        value.innerText = `Known loot estimate: ${Math.round(estimate * 100) / 100} base coins per enemy. Acquired items only; standard quality, before market saturation and trader markup. Not a sale quote.`;
+        value.innerText = `Known loot estimate: ${Math.round(estimate * 100) / 100} base coins per enemy. Acquired items only; single-enemy fight without loot accessories. Standard quality, before market saturation and trader markup. Not a sale quote.`;
         bestiary_tooltip.appendChild(value);
     }
 
