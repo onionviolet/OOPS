@@ -1,0 +1,107 @@
+{
+  "schema": 1,
+  "lane": "p23-leisure-memory",
+  "date": "2026-10-14",
+  "base_head": "0216ccdefcfce79877378f8cb0ee41129fe11c5d",
+  "branch": "absorb-all/p23-leisure-memory",
+  "status": "implemented-unverified",
+  "final_merge_ready": false,
+  "source_commits": [
+    "bf8c19de",
+    "9785c96c"
+  ],
+  "rows": [
+    {
+      "id": "N16",
+      "disposition": "original-adaptation-implemented-unverified",
+      "landing": "src/absorb_p23/leisure_memory/index.js: respondToEda/revisitEda",
+      "native_gate": "P00 known actor/dialogue/private relationship/biography and funded coin publication"
+    },
+    {
+      "id": "N22",
+      "disposition": "original-adaptation-implemented-unverified",
+      "landing": "src/absorb_p23/leisure_memory/index.js: startLeisureRound/settleLeisureRound",
+      "native_gate": "P00 native paid clock reservation/RNG/costs/actions/save"
+    },
+    {
+      "id": "N23",
+      "disposition": "existing-policy-retained-missing-cause-memory-implemented-unverified",
+      "landing": "src/absorb_p23/leisure_memory/index.js: rememberNativeDefeat",
+      "native_gate": "P00 actual unconsciousness event; verified cause or unknown; no death policy"
+    }
+  ],
+  "compatibility": {
+    "save_key": "p23_leisure_memory",
+    "schema": 1,
+    "absent_old_save": "preserved absent/null; initialize at explicit enrollment only",
+    "baseline": "native save.total_deaths",
+    "reject_before_mutation": "validateLeisureMemory(state, playedClock) plus host full envelope preflight",
+    "rng": "existing expansion.rng; frozen pending outcome; no separate RNG owner",
+    "settlement": "monotonic real round/defeat watermark and captured revision; no lifetime once limits"
+  },
+  "checks": {
+    "build": "passed",
+    "focused": {
+      "pass": 17,
+      "fail": 0
+    },
+    "full_initial": {
+      "pass": 634,
+      "tests": 635,
+      "fail": 1,
+      "failure": "alloy_equipment.test.js:118 existing equipped-clock child fixture command timeout; unrelated, not proven pre-existing"
+    },
+    "full_retry": {
+      "pass": 635,
+      "tests": 635,
+      "fail": 0,
+      "duration_ms": 53860.801667
+    },
+    "full_expanded": {
+      "pass": 637,
+      "tests": 637,
+      "fail": 0,
+      "duration_ms": 76571.617042
+    },
+    "full_final": {
+      "command": "npm test -- --test-concurrency=1 --test-timeout=30000",
+      "pass": 638,
+      "tests": 638,
+      "fail": 0,
+      "skipped": 0,
+      "cancelled": 0,
+      "duration_ms": 58250.704125
+    },
+    "browser": {
+      "status": "baseline smoke only passed; changed native loop OPEN",
+      "viewport": [
+        1366,
+        768
+      ],
+      "errors": 0,
+      "bundle_sha256": "598e02f54fe7db4c9a35bc79c75a754a7f8dc42eccf9fab828de8fd82e97b615",
+      "literal_file_import": "OPEN, P00 dependency"
+    }
+  },
+  "p00_contract": "src/absorb_p23/leisure_memory/HOST_CONTRACT.md",
+  "open": [
+    "native two rounds",
+    "native pending/settled Save reload export literal-file import",
+    "known help return and refusal controls",
+    "native repeated funded sponsor practice",
+    "native cause-aware unconsciousness/ended life control",
+    "native preflight old/unsupported save and atomic write failure",
+    "Weibao play/taste after technical gates"
+  ],
+  "wave1_reports_read": [
+    "p23-ui-polish",
+    "upstream-dev"
+  ],
+  "wave1_pending_at_inspection": [
+    "p23-life-loops",
+    "p23-reveal-chain"
+  ],
+  "files_exclusive": true,
+  "copied_foreign_code_or_assets": false,
+  "push_or_merge": false
+}

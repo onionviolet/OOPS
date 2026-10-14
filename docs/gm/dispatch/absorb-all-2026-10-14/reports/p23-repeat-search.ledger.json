@@ -1,0 +1,94 @@
+{
+  "schema": 1,
+  "lane": "p23-repeat-search",
+  "packet": "P14",
+  "date": "2026-10-14",
+  "base_head": "0216ccdefcfce79877378f8cb0ee41129fe11c5d",
+  "status": "implemented-unverified-native",
+  "merge_gate": "OPEN: do not final-merge as verified gameplay",
+  "proposal": true,
+  "rows": [
+    {
+      "id": "P14",
+      "original_row_ids": [],
+      "disposition": "implemented-unverified",
+      "implementation": "src/absorb_p23/repeat_search/",
+      "mechanism": "One finite offered linen offcut per genuine Village runner departure, renewable at next departure without stacking",
+      "native_dependency": "P00 stage C2 event, clock, custody/resource acquisition and optional full-save field atomically"
+    },
+    {
+      "id": "C2-physical-finds",
+      "disposition": "preserved",
+      "implementation": "src/absorb_c2/local_life.js unchanged",
+      "compatibility": "Existing Village/Shack found flags stay truthful"
+    },
+    {
+      "id": "d49cb911/379007d7",
+      "disposition": "adopted-existing-unchanged"
+    }
+  ],
+  "compatibility": {
+    "field": "absorb_repeat_search",
+    "schema": 1,
+    "absent": "empty, no stock fabricated",
+    "unsupported_or_malformed": "reject before host mutation",
+    "migration": "none; old C2 state unchanged",
+    "settlement": "monotonic actual C2 departure ordinal with resource/state publication in one full native transaction",
+    "offline": "no replenishment/load/catch-up replay"
+  },
+  "checks": {
+    "focused": {
+      "tests": 16,
+      "pass": 16,
+      "fail": 0
+    },
+    "build": "pass",
+    "initial_full": {
+      "tests": 627,
+      "pass": 627,
+      "fail": 0
+    },
+    "final_full": {
+      "tests": 628,
+      "pass": 627,
+      "fail": 1,
+      "failure": "equipped native brace with an open road offer keeps ticking, travelling and reloading",
+      "file": "tests/alloy_equipment.test.js:118",
+      "detail": "existing child fixture failed at 60.277 seconds with configured 60-second timeout",
+      "reproduction": {
+        "tests": 1,
+        "pass": 1,
+        "fail": 0,
+        "duration_ms": 17021.742625,
+        "scope": "only named failed alloy test; full suite remains FAILED"
+      },
+      "status": "FAILED"
+    },
+    "desktop_baseline": "1366x768 fresh isolated Chrome, Village, zero page errors",
+    "module_browser": "two simulated occurrences and exhaustion; uncoupled, not native",
+    "native_loop": "OPEN",
+    "native_save_reload_export_literal_import": "OPEN",
+    "served_bundle_sha256": "598e02f54fe7db4c9a35bc79c75a754a7f8dc42eccf9fab828de8fd82e97b615",
+    "bundle_scope": "baseline native build only; isolated module not registered"
+  },
+  "commits": [
+    "0cd603a1d5f5aafaebd5e5f6e5d9a4bc81196101",
+    "a948fd1dab8127363ec8113c302e89f5bfdc495d"
+  ],
+  "host_contract": "src/absorb_p23/repeat_search/HOST_CONTRACT.md",
+  "ownership": {
+    "C2": "untouched pending finished life-loops report/transfer",
+    "P07": "reads C2, no overlap",
+    "P00": "sole host integrator"
+  },
+  "open": [
+    "passing full suite on native integrated candidate",
+    "finished life-loops remaining-find report review",
+    "P00 integrated candidate",
+    "fresh rebuilt native loop",
+    "native Save/reload/export/literal-file import",
+    "native Effects-off and desktop layout",
+    "Weibao play/taste after technical gates"
+  ],
+  "evidence_commit": "e4679325"
+}

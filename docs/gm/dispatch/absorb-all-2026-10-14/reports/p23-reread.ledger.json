@@ -1,0 +1,112 @@
+{
+  "schema": 1,
+  "lane": "p23-reread",
+  "packet": "P05",
+  "date": "2026-10-14",
+  "status": "implemented-unverified",
+  "base_head": "0216ccdefcfce79877378f8cb0ee41129fe11c5d",
+  "branch": "absorb-all/p23-reread",
+  "worktree": "/Users/weiwei/code/yair-absorb-all-20261014/p23-reread",
+  "port": 18824,
+  "reservation_basis": "coordinator assignment; matching live SESSIONS wave2 session; port free before own server",
+  "session": "01a138b8-9f01-7252-9d17-87659e874eb9",
+  "commits": [
+    "921fe053407769de0bf0f0c23c579d218c6c36f8",
+    "cc25972dcaf967ccc23ffa29c6fde1e524ef983e",
+    "c0fae23da16c4bf0e8daf7e8afab96289b53731c"
+  ],
+  "rows": [
+    {
+      "id": "R26",
+      "disposition": "adapted-original-source-module",
+      "native_gate": "OPEN"
+    },
+    {
+      "id": "R48",
+      "disposition": "preserve-native-equivalent-and-extend-rest-contract",
+      "native_gate": "OPEN"
+    },
+    {
+      "id": "N17",
+      "disposition": "adopt-existing-finished-owned-collection-source-verified",
+      "native_gate": "OPEN for newly registered anthology"
+    },
+    {
+      "id": "N21",
+      "disposition": "adapted-original-earned-rest-module",
+      "native_gate": "OPEN"
+    }
+  ],
+  "host_contract": "src/absorb_p23/reading/HOST_CONTRACT.md",
+  "compatibility": {
+    "optional_namespace": "expansion.p23Reading",
+    "schema": 1,
+    "old_absence": "preserved absent, no automatic enrollment",
+    "unsupported": "reject before native mutation",
+    "physical_books": "retained; no anonymous conversion/reset",
+    "rest_cost": "consume one earned meal at admission; no cancellation refund",
+    "idempotence": "one settled transition per p23.reading:<id>; no replay on load"
+  },
+  "checks": {
+    "focused": {
+      "tests": 13,
+      "pass": 13,
+      "fail": 0,
+      "skip": 0,
+      "scope": "final source module",
+      "duration_ms": 892.545208
+    },
+    "build": {
+      "exit": 0,
+      "feature_linked": false
+    },
+    "full_test": {
+      "tests": 634,
+      "pass": 633,
+      "fail": 1,
+      "skip": 0,
+      "duration_ms": 482088.442917,
+      "failed_test": "equipped native brace with an open road offer keeps ticking, travelling and reloading",
+      "failure_basis": "existing fixture child failed at 60000ms bound; no lane import",
+      "scope": "run started before final occupation-clearance refinement; final focused checks cover refinement"
+    },
+    "desktop": {
+      "viewport": [
+        1366,
+        768
+      ],
+      "fresh_origin": true,
+      "page_errors": 0,
+      "scope": "baseline plus direct-module source smoke, not native changed loop",
+      "served_bundle_sha256": "598e02f54fe7db4c9a35bc79c75a754a7f8dc42eccf9fab828de8fd82e97b615",
+      "served_bytes": 5100591,
+      "final_source_smoke_after_occupation_guard": true
+    },
+    "native_save_reload_export_literal_import": "NOT RUN: P00 dependency",
+    "alloy_isolated_recheck": {
+      "tests": 1,
+      "pass": 1,
+      "fail": 0,
+      "duration_ms": 18141.124375,
+      "assessment": "supports concurrent-load timeout; full run still failed"
+    }
+  },
+  "open": [
+    "wave1 reveal-chain reading/view report and ownership transfer",
+    "P00 native registrations/clock/XP/custody/discovery/save joins",
+    "paid acquisition/read/rest journeys and exact native persistence",
+    "full suite passing on integrated candidate",
+    "Effects-off and target desktop native presentation",
+    "Weibao play/taste"
+  ],
+  "merge_eligible": false,
+  "source_copy": false,
+  "dist_committed": false,
+  "pushed": false,
+  "open_processes": [],
+  "unstaged_generated": [
+    "dist/bundle.js.map"
+  ],
+  "evidence_commit": "c0fae23da16c4bf0e8daf7e8afab96289b53731c",
+  "raw_logs": "lane checks directory, ignored .log files retained locally; committed verification.json carries exact counts"
+}

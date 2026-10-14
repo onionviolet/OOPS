@@ -1,0 +1,101 @@
+{
+  "schema": 1,
+  "lane": "p23-save-time-options",
+  "date": "2026-10-14",
+  "status": "implemented-unverified native N28; N29 parked; full-suite gate incomplete",
+  "base_head": "0216ccdefcfce79877378f8cb0ee41129fe11c5d",
+  "branch": "absorb-all/p23-save-time-options",
+  "port": 18833,
+  "reservation_evidence": "current coordinator assignment; runs/SESSIONS.md session 01a138b9-0846-71d0-bfa7-067a1e593409; no initial listener",
+  "implementation_commit": "d370de8f8c118d1fc65c392fc977bd31465dc4ed",
+  "rows": [
+    {
+      "id": "N28",
+      "disposition": "partial implemented-unverified native; slots/rotation parked",
+      "module": "src/absorb_p23/save_time_options/backup_undo.js",
+      "compatibility": "optional separate per-release schema-1 journal, legacy keys and old save envelopes unchanged; single atomic replacement; no eviction; unsupported schemas reject",
+      "trigger_evidence": "10 focused tests plus empty-origin isolated module browser checks pass; native authoritative boot/restore and slot join unresolved",
+      "native_gate": "OPEN: P00 controls, atomic authoritative live publication, ownership and changed-native save/reload/export/literal import"
+    },
+    {
+      "id": "N29",
+      "disposition": "parked",
+      "trigger": "unmet: active-branch eligibility/death/sleep/exposure/cap/remainder/import replay policy not selected",
+      "landing": "CONTRACT.md required interval inputs/outputs/cursor controls only; no runtime time mutation"
+    }
+  ],
+  "checks": {
+    "build": {
+      "command": "npm run build",
+      "exit": 0
+    },
+    "focused": {
+      "command": "node --test tests/p23-save-time-options.test.js",
+      "exit": 0,
+      "tests": 10,
+      "pass": 10,
+      "fail": 0,
+      "skip": 0
+    },
+    "full_npm_test": {
+      "command": "npm test",
+      "exit": 1,
+      "aggregate_summary": false,
+      "emitted_passes": 55,
+      "emitted_failures": 0,
+      "status": "incomplete; interrupted under simultaneous load"
+    },
+    "full_bounded": {
+      "command": "node --test --test-concurrency=2 tests/*.test.js",
+      "status": "timeout",
+      "exit": 1,
+      "seconds": 240.35,
+      "aggregate_summary": false,
+      "emitted_passes": 416,
+      "emitted_failures": 0
+    },
+    "browser": {
+      "status": "finished",
+      "exit": 0,
+      "seconds": 5.89,
+      "origin": "http://127.0.0.1:18833/",
+      "probeBundleHash": "ba35b21a77291d2a9bd6a9a921982c375c0287f8fe229d0e073bc21613ff316b",
+      "viewport": {
+        "width": 1366,
+        "height": 768
+      },
+      "servedHash": "598e02f54fe7db4c9a35bc79c75a754a7f8dc42eccf9fab828de8fd82e97b615",
+      "baselineNative": {
+        "save": true,
+        "reloadExact": true,
+        "exportDownload": true,
+        "literalFileImportReloadVerified": true,
+        "pageErrors": []
+      },
+      "moduleProbe": {
+        "undoExact": true,
+        "abortPreserved": true,
+        "unsupportedRejected": true,
+        "legacyKeysPreserved": true,
+        "revision": 3,
+        "reloadDurable": true,
+        "preflight": "native iframe loader; native backup controls/publication OPEN"
+      },
+      "changedNativeLoop": "OPEN: no P00 integration",
+      "ownership": "synthetic true callback in isolated import-probe mode, not proof of native writable-tab integration"
+    }
+  },
+  "p00_contract": "src/absorb_p23/save_time_options/CONTRACT.md",
+  "merge_eligible_gameplay": false,
+  "open": [
+    "full suite completion",
+    "P00 native backup/restore/undo atomic join and persistence proof",
+    "N28 multi-slot/rotation design and proof",
+    "N29 selected clock policy then interval replay/backwards/reload/import tests",
+    "Weibao play/taste after technical gates"
+  ],
+  "no_shared_game_writes": true,
+  "no_foreign_code_assets": true,
+  "no_user_save_reads": true,
+  "push_merge": false
+}

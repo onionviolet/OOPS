@@ -1,0 +1,77 @@
+{
+  "schema": 1,
+  "lane": "p23-exposure",
+  "status": "source-and-module-proof-complete-native-unverified",
+  "date": "2026-10-14",
+  "base": "0216ccdefcfce79877378f8cb0ee41129fe11c5d",
+  "branch": "absorb-all/p23-exposure",
+  "source_commit": "68c98cfe0b7ba6f85cc914b07e1098b212a37a11",
+  "port": 18821,
+  "reservation": "explicit coordinator assignment",
+  "rows": [
+    {
+      "id": "R09",
+      "disposition": "implemented-module-native-unverified",
+      "native_gate": "OPEN: P00 integration"
+    },
+    {
+      "id": "R10",
+      "disposition": "implemented-module-native-unverified",
+      "native_gate": "OPEN: P00 integration"
+    },
+    {
+      "id": "N01",
+      "disposition": "implemented-module-native-unverified",
+      "native_gate": "OPEN: P00 integration"
+    }
+  ],
+  "host_contract": "src/absorb_p23/exposure/HOST_CONTRACT.md",
+  "focused": {
+    "tests": 28,
+    "pass": 28,
+    "fail": 0
+  },
+  "build": "PASS",
+  "full_tests": {
+    "npm_test": "attempted; stalled at 55 completed tests, interrupted",
+    "bounded_command": "node --test --test-concurrency=1 --test-timeout=30000 tests/*.test.js",
+    "exit": 1,
+    "tests": 608,
+    "pass": 606,
+    "fail": 0,
+    "cancelled": 2,
+    "skipped": 0,
+    "timeout_files": [
+      "tests/agreed_duty_continuation.test.js",
+      "tests/cooling_refinement.test.js"
+    ],
+    "baseline_cause": "not established; unchanged files do not import exposure"
+  },
+  "browser": {
+    "viewport": [
+      1366,
+      768
+    ],
+    "bundleSha256": "598e02f54fe7db4c9a35bc79c75a754a7f8dc42eccf9fab828de8fd82e97b615",
+    "servedBytes": 5100591,
+    "fixture": "PASS: module controls, pending Save/reload, export/literal-file import, future-schema rejection, resumed awards, mode off",
+    "native": "BASE SMOKE ONLY: fresh native start, no exposure panel. P00 changed-loop and native persistence gates OPEN",
+    "errors": [],
+    "sourceModules": {
+      "src/absorb_p23/exposure/exposure.js": "362526f9493af4b1542e43ae9e7ab0211ed79fe9f8c4089efff8c6449649483e",
+      "src/absorb_p23/exposure/panel.js": "71fb0e62564f4637f037f473f4160ad27ce1840c645917f5c6471a460069f514"
+    }
+  },
+  "native_changed_loop": "OPEN",
+  "native_persistence": "OPEN",
+  "old_save_compatibility": "optional absent state; no E1/shared save edits",
+  "merge_ready": false,
+  "remaining_acceptance": "P00 native technical gates, then Weibao play/taste",
+  "evidence_commits": [
+    "3b46d94b",
+    "5ba2ec4f"
+  ],
+  "final_head": "5ba2ec4f65fc75958759b35480a919b27f09295b",
+  "worktree_clean": true,
+  "server": "stopped"
+}

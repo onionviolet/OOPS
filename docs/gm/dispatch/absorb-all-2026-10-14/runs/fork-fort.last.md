@@ -1,0 +1,3 @@
+- **F1:** Implemented the opt-in Fort chain. Commits: `7140597c`, `892beb4f`.
+- **F2:** Build, 625 tests and all 12 browser gates pass, including reload, import and reward safety.
+- **F3:** [Lane report](/Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/absorb-all-2026-10-14/reports/fork-fort.md). Remaining acceptance gate: your play/taste review.

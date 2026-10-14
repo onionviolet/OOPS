@@ -1,0 +1,103 @@
+{
+  "schema": 1,
+  "lane": "p23-known-detail",
+  "date": "2026-10-14",
+  "base_head": "0216ccdefcfce79877378f8cb0ee41129fe11c5d",
+  "status": "source-module-delivered; native-implemented-unverified",
+  "native_gate": "OPEN: P00 host integration and native Save/reload/export/literal-file import",
+  "merge_eligible": false,
+  "source_commit": "e43f0f9bc7793b005be8cb17b7be9f7e180a6d60",
+  "rows": [
+    {
+      "id": "R35",
+      "disposition": "retained-native-equivalent",
+      "owner": "P00 native integration",
+      "evidence": "report row table and checks/p23-known-detail/"
+    },
+    {
+      "id": "N12",
+      "disposition": "implemented-unverified",
+      "owner": "P00 native integration",
+      "evidence": "report row table and checks/p23-known-detail/"
+    },
+    {
+      "id": "N13",
+      "disposition": "implemented-unverified",
+      "owner": "P00 native integration",
+      "evidence": "report row table and checks/p23-known-detail/"
+    },
+    {
+      "id": "N19",
+      "disposition": "implemented-unverified",
+      "owner": "P00 native integration",
+      "evidence": "report row table and checks/p23-known-detail/"
+    },
+    {
+      "id": "N25",
+      "disposition": "implemented-unverified",
+      "owner": "P00 native integration",
+      "evidence": "report row table and checks/p23-known-detail/"
+    },
+    {
+      "id": "N26",
+      "disposition": "implemented-unverified",
+      "owner": "P00 native integration",
+      "evidence": "report row table and checks/p23-known-detail/"
+    },
+    {
+      "id": "N27",
+      "disposition": "implemented-unverified",
+      "owner": "P00 native integration",
+      "evidence": "report row table and checks/p23-known-detail/"
+    }
+  ],
+  "compatibility": {
+    "old_save": "optional fields absent: no retroactive observation or settings mutation",
+    "display_preferences": "schema1 whitelist; per-key existing-local precedence; preflight before mutation",
+    "p23_drop_observations": "schema1 actual per-creature native loot only; native kill ordinal deduplicates per real event",
+    "item_hotkeys": "schema1 per-browser preferences; exact stable selected copy/stack; stale removable"
+  },
+  "p00_contracts": [
+    "H1 native item read/preflight/dispatch and controls",
+    "H2 native learned-chain notebook and exact-number presentation",
+    "H3 native actual-drop atomic settlement and optional envelope",
+    "H4 settings snapshot optional envelope validation/export/adoption",
+    "H5 integrated native desktop/persistence gates"
+  ],
+  "verification": {
+    "build": "pass",
+    "focused": {
+      "tests": 10,
+      "pass": 10,
+      "fail": 0
+    },
+    "full": {
+      "command": "npm test -- --test-concurrency=2",
+      "tests": 631,
+      "pass": 631,
+      "fail": 0,
+      "skips": 0,
+      "duration_ms": 10630.110792,
+      "status": "pass on final source"
+    },
+    "initial_unbounded_full": {
+      "tests": 629,
+      "pass": 628,
+      "fail": 1,
+      "failure": "alloy_equipment equipped-clock child fixture timeout"
+    },
+    "browser": {
+      "groups": 10,
+      "pass": 10,
+      "viewport": [
+        1366,
+        768
+      ],
+      "bundle_sha256": "aa9e4155fa4961e114f1b4afff28964363002517e584e783e3e52f8c69f5a9ea",
+      "limit": "native baseline plus separate module fixture, not changed native gameplay"
+    },
+    "native_feature_persistence": "not-run: P00 hooks absent"
+  },
+  "remaining_authoritative_acceptance": "Weibao desktop play/taste after native technical gates",
+  "evidence_commit": "b30fd87f39b4cab1392c76e9666041ce0c34328f"
+}

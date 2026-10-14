@@ -1,0 +1,99 @@
+{
+  "schema": 1,
+  "lane": "p23-long-life",
+  "date": "2026-10-14",
+  "status": "implemented-unverified; P00 integration required; not final-merge eligible",
+  "base_head": "0216ccdefcfce79877378f8cb0ee41129fe11c5d",
+  "branch": "absorb-all/p23-long-life",
+  "feature_commit": "aa5041aa89815d134098e7b7013ad30c31bf931d",
+  "reservation": {
+    "authority": "coordinator launch assignment 2026-10-14",
+    "port": 18820,
+    "initial_listener": false
+  },
+  "rows": [
+    {
+      "id": "R07",
+      "disposition": "implemented-unverified",
+      "native_gate": "OPEN: P00 host joins"
+    },
+    {
+      "id": "N03",
+      "disposition": "implemented-unverified",
+      "native_gate": "OPEN: P00 host joins"
+    },
+    {
+      "id": "N24",
+      "disposition": "implemented-unverified",
+      "native_gate": "OPEN: P00 host joins"
+    }
+  ],
+  "compatibility": {
+    "old_held_bonuses": "unchanged in absent/off/on worn mode; all old totals tested",
+    "optional_field": "character.long_life_worn, schema 1; undefined stays absent",
+    "validation": "implemented strict preflight, native envelope hookup OPEN",
+    "training": "native milestone reconstructs from earned Cooking XP, no separate stored grant",
+    "counters": "native C2 homeMinutes/itemsBought, real known novice-loss owner OPEN"
+  },
+  "verification": {
+    "build": {
+      "command": "npm run build",
+      "exit": 0
+    },
+    "focused": {
+      "command": "node --test tests/p23-long-life.test.js tests/titles.test.js",
+      "tests": 15,
+      "pass": 15,
+      "fail": 0
+    },
+    "full": {
+      "command": "npm test -- --test-concurrency=2 --test-timeout=60000",
+      "exit": 0,
+      "tests": 630,
+      "pass": 630,
+      "fail": 0,
+      "cancelled": 0,
+      "skipped": 0,
+      "duration_ms": 55486.972459
+    },
+    "initial_full": {
+      "command": "npm test",
+      "status": "terminated after stalled output; no final summary",
+      "visible_pass": 140,
+      "visible_fail": 1,
+      "failed_test": "equipped native brace with an open road offer keeps ticking, travelling and reloading",
+      "failure": "existing fixture subprocess exceeded 60000 ms under unrestricted concurrency",
+      "resolution": "same test passed in completed 630/630 bounded full run"
+    },
+    "browser": {
+      "viewport": [
+        1366,
+        768
+      ],
+      "native_baseline_checks": 4,
+      "supplemental_uncoupled_checks": 1,
+      "page_errors": 0,
+      "served_bundle_sha256": "e8f1bee494155325c4b6be013044e3564d82b329de82b8caf528e158cdce958b",
+      "native_save_reload_export_literal_import": "baseline old-title/optional-absence pass; positive new-state OPEN",
+      "native_changed_loop": "OPEN",
+      "evidence": "checks/p23-long-life/browser.json"
+    }
+  },
+  "host_contract": "src/absorb_p23/long_life/HOST_CONTRACT.md",
+  "dependencies": [
+    "finished p23-life-loops counter report",
+    "finished p23-reveal-chain milestone/discovery report",
+    "P00 native joins and integrated candidate"
+  ],
+  "open": [
+    "native earned domestic title",
+    "native known cross-skill rate change",
+    "positive pending/settled save/reload/export/literal import",
+    "native strict schema rejection before storage mutation",
+    "real known novice-loss settlement owner",
+    "integrated Effects-off/known-only controls",
+    "Weibao play/taste"
+  ],
+  "foreign_code_copied": false,
+  "push_or_merge": false
+}
