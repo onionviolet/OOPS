@@ -1,4 +1,5 @@
 import {assert, meets, natural} from './simulation_contracts.js';
+import {drawUnit,scopedStream} from './seeded_streams.js';
 import {deriveSimulationSeed} from './simulation_resolution.js';
 
 export const STORYLET_DECKS = [
@@ -14,7 +15,7 @@ export function initializeStoryletDecks(state) {
     delete state.simulation.checks['village.shower'];
     state.simulation.storyletSchema=1;
     state.simulation.decks=Object.fromEntries(STORYLET_DECKS.map(d=>[d.id,{due:state.clock+d.interval,interval:d.interval,
-        rng:deriveSimulationSeed(state.simulation.seed,`deck:${d.id}`),ticks:0,drawn:0,nulls:0,cards:{},miss:{},lastFamily:null,receipts:[]}]));
+        rng:deriveSimulationSeed(state.simulation.seed,`deck:${d.id}`),...(state.streams?{randomSource:'named'}:{}),ticks:0,drawn:0,nulls:0,cards:{},miss:{},lastFamily:null,receipts:[]}]));
 }
 export function nextStoryletBoundary(state) {
     if(!state.simulation || !enabled(state)) return Infinity;
@@ -59,7 +60,7 @@ export function advanceStoryletDecks(state,registry,factsFor,emit) {
         if(state.actors.player.worldId!=='base.frontier' || location!=='Village' || state.simulation.people.player.life!=='alive')continue;
         if(Object.values(state.simulation.events).filter(e=>e.status==='open' && e.storylet?.deck===config.id).length>=3)continue;
         const candidates=storyletCandidates(state,registry,config.id,factsFor);
-        const total=config.quiet+candidates.reduce((n,c)=>n+c.weight,0), r=roll(record);
+        const total=config.quiet+candidates.reduce((n,c)=>n+c.weight,0), r=record.randomSource==='named'?drawUnit(state,scopedStream(`deck:${config.id}`),`tick:${record.ticks}`):roll(record);
         let cursor=r*total, selected=null;
         for(const candidate of candidates) {cursor-=candidate.weight;if(cursor<0){selected=candidate.definition;break;}}
         const receipt={at:state.clock,tick:record.ticks,roll:r,total,cardId:selected?.id || null,
@@ -84,6 +85,7 @@ export function validateStoryletState(state) {
     assert(Object.keys(s.decks).length===STORYLET_DECKS.length,'Unsupported storylet decks.');
     for(const definition of STORYLET_DECKS) {
         const d=s.decks[definition.id];
+        assert(d.randomSource==null || d.randomSource==='named' && state.streams,'Invalid storylet random source.');
         assert(object(d) && natural(d.due) && d.due>=state.clock && d.interval===definition.interval && natural(d.rng) && d.rng>0 && d.rng<=0xffffffff &&
             [d.ticks,d.drawn,d.nulls].every(natural) && d.drawn+d.nulls<=d.ticks && object(d.cards) && object(d.miss) && Array.isArray(d.receipts) && d.receipts.length<=20,'Invalid saved storylet deck.');
         assert(Object.keys(d.cards).length<=400,'Storylet card history is too large.');
