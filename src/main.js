@@ -306,12 +306,29 @@ function cheatCalendarTime() {
     return {year, month, day, hour, minute, day_count};
 }
 function awakenOptionalStart(wonFight = false) {
-    const result = awakenCheats(cheatState, {dayCount: current_game_time.day_count, wonFight, at: cheatCalendarTime()});
+    if(importProbeToken || !ownsSave || foundationSaveBlocked || is_loading_error || restoringNativeSave) return;
+    // A won zone round is retained for retry/load; an individual bestiary kill is not a won fight.
+    const result = awakenCheats(cheatState, {dayCount: current_game_time.day_count,
+        wonFight: wonFight || Object.values(locations).some(zone => zone.tags.combat_zone && zone.enemy_groups_killed > 0), at: cheatCalendarTime()});
     if(!result.messages.length) return;
-    cheatState = result.state;
+    let durable = false;
+    try {
+        const serialized = create_save();
+        if(!serialized) return;
+        const save = JSON.parse(serialized);
+        save.cheats = result.state;
+        validateSaveEnvelope(save, game_version);
+        // Keep live discovery dormant until the shared storage owner commits.
+        lifeSaveStorage.setItem(is_on_dev() ? dev_save_key : save_key, JSON.stringify(save), () => {
+            durable = true;
+            cheatState = result.state;
+        });
+    } catch(error) {
+        if(!durable) {log_message(error.message, 'message_critical'); return;}
+        console.error('Awakening saved; display refresh failed:', error);
+    }
     for(const message of result.messages) log_message(message, 'notification');
     statusWindow?.render();
-    save_progress();
 }
 let optionalPackState=emptyPackState();
 let optionalPackPanel;
@@ -999,6 +1016,7 @@ function persistExpansion(plan, ownershipBindings = {}, itemsByOwner = {}) {
         characterBio?.render();
         worldEventFeed?.render();
     } catch(error) {console.error("Saved expedition display could not refresh; reload to restore it.", error);}
+    if(plan.calendar) awakenOptionalStart();
 }
 
 function commitNativeTrade(quote, currentQuote) {
@@ -7045,6 +7063,7 @@ function load(save_data) {
     } finally {
         loadingReputationTotals = null;
         restoringNativeSave = false;
+        awakenOptionalStart();
     }
 } 
 
@@ -7187,6 +7206,7 @@ function update_timer(time_in_minutes, source = null) {
     }
     
     update_displayed_time();
+    awakenOptionalStart();
     return minutes;
 }
 
@@ -7243,7 +7263,7 @@ function update() {
         const prev_day = current_game_time.day_count;
         const advancedMinutes = update_timer();
         furniturePanel?.render();localLifePanel?.render();fortControls?.render();pacingPanel?.render();pacingStatusPanel?.render();durabilityPanel?.render();elementalPanel?.render();
-        if(!advancedMinutes || expansionState.chronicle?.life.endedAt != null) {update(); return;}
+        if(!advancedMinutes || expansionState.chronicle?.life.endedAt != null) {awakenOptionalStart(); update(); return;}
 
         if(start_date - last_rewarded_export > config.time_between_export_rewards) {
             document.getElementById("save_to_file_button").classList.add("export_button_with_reward");
@@ -7255,8 +7275,6 @@ function update() {
 
         const curr_day = current_game_time.day_count;
         if(curr_day > prev_day) {
-            // CH1 dormant seed: first won fight or day 3.
-            awakenOptionalStart();
             recover_item_prices(config.trade_price_recovery_flat, config.trade_price_recovery_ratio);
             trickle_market_saturations(config.market_saturation_trickle_rate);
             if(is_in_trade()) {
@@ -7887,6 +7905,7 @@ const saveOwnership = acquireSaveOwnership().then(owned => {
     frontierCampaignPanel?.render();
     featureExpansionPanel?.render();foundationInteractionPanel?.render();
     knownRoutesPanel?.render();adventureNotebook?.render(); worldEventFeed?.render();
+    awakenOptionalStart();
     return owned;
 });
 
