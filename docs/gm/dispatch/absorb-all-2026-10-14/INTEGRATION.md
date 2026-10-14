@@ -91,3 +91,18 @@ Regression subset passes: workshop browser, legacy old save (old client
 P00 (`p23-host-joins`) is still integrating the sixteen wave-2 p23 modules; its
 fixture-scope question was approved by the coordinator (finished lanes' files
 transfer to P00).
+
+## Air-wider candidate installed (2026-10-14)
+
+Weibao: "install the air-wider candidate too". Copied the git-ignored
+`private_packs/p06-air-wider-candidate/pack.json` (identity `p06_air_wider_v1`
+rev 1, SHA-256 `5cbd5798…`) into the main checkout and listed it in
+`private_packs/manifest.json` directly after `p06/pack.json`. Co-loaded, not a
+replacement: original `p06/pack.json` is untouched (`89adcf18…`), and old saves
+keep binding it. Manifest backup: `private_packs/manifest.json.bak-20261014-pre-air-wider`.
+Play it on localhost with `?structured_candidate=p06_air_wider_v1`.
+
+Checked on main tip `2aaf07ad` with the real manifest: all nine packs load (200),
+zero page or console errors with and without the candidate query; the P4 native
+route, pending and final literal-file import pass at 1366x768. Lethal candidate
+content is omitted. To uninstall, restore the manifest backup and remove the folder.
