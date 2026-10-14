@@ -87,6 +87,8 @@ really carries them. A network does not automatically reveal every mind.
 
 ## G5 Small playable proof candidate
 
+*(2026-10-14: for build order, the [wave fold top picks](#top-picks-across-the-wave) supersede this; it stays a valid brood-route proof.)*
+
 My preferred first proof is an original lone-organism start with one useful
 acquired organ and one small network foothold. Give it actual body-specific
 actions, a visible change in everyday interaction, and an observer who needs
@@ -1551,3 +1553,82 @@ Weibao own selection.
    B18 R5, B10 A5).
 
 Wave status: folded. B1-B18 reports are linked from their rounds or this fold.
+
+## Round 10: more-to-consider pass over the whole palette, 2026-10-14
+
+User prompt: “more to consider? other stuff and more? save and extend
+accordingly, use the udpated more to consider?” This pass uses the
+more-to-consider skill's game and document lenses on G1-G80 and the B1-B18
+fold. Evidence was read from the repo; nothing was built.
+
+### Code index
+
+The doc is about 1,550 lines with 49 code families and no duplicate codes
+inside it. Several prefixes are reused by other palettes, so cite this doc's
+codes with the doc name: SB (substances here, other docs use SB), CA (cheats
+that act here, comic doc abstractions), CL (clan here, comic industry laws),
+MI (micro states here, UI-at-scale micro), BC (breadcrumbs BC1-BC9 here,
+cultivation lane cards BC01-BC12 in G16).
+
+| Family | Section | Family | Section | Family | Section |
+|---|---|---|---|---|---|
+| PH physique | G17 | GN genetics | G18 | SG sex and gender | G19 |
+| LQ little quirks | G20, G50 | AG age | G21 | BD bloodline routes | G26 |
+| CL clan politics | G27 | BP bloodline powers | G28 | MX mixing | G29 |
+| HI health | G31 | MS mind and soul | G32 | PR presence | G33 |
+| TR training | G35 | SB substances | G36 | WR wear and injury | G37 |
+| OB body as object | G38 | BM modification | G39 | RP reproduction | G40 |
+| SR social reading | G41 | EV world physics | G43 | EM emotion | G44 |
+| TM time | G45 | PG populations | G46 | UI player tools | G49 |
+| SO sourcing | G52 | GM, GD modification | G53 | MC more | G54 |
+| MI moment states | G56 | LA look-alikes | G57 | BC breadcrumbs | G58 |
+| MG micro growth | G59 | MB changed bodies | G60 | MH family micro | G61 |
+| MP presentation | G62 | SS social | G64 | SP psychology | G65 |
+| SI information | G66 | ST timing | G67 | SC side effects | G68 |
+| CV cheats that show | G70 | CA cheats that act | G71 | OV model | G72 |
+| IM implications | G73 | CB comic bodies | G75 | CC comic cheats | G76 |
+| AB abstractions | G78 | FD fold conflicts | Fold | CN constitution angles | G23 |
+
+### ACT NOW (done in this pass)
+
+- Added the code index above and the cross-doc prefix note.
+- Marked G5's "preferred first proof" as superseded for build order by the
+  fold's top picks; it remains a valid brood-route proof.
+
+### ACCOUNT FOR NOW: constraints for any body slice
+
+| Code | Constraint | Evidence and consequence |
+|---|---|---|
+| MT1 | One modifier pipeline | Race and height multipliers sit in `src/races.js` and tooltips; quirks, micro states, substances and conditions would all modify the same stats. Route them through the existing capability `sum`/`max` with provenance (`src/capabilities.js`) and active effects (`src/active_effects.js`), plus B18's typed cost adapters, never scattered `*= 1.1` |
+| MT2 | One clock for body time | Delayed effects (ST1), buildup and decay (SB1), acclimation (EV1), healing timelines (MG4) and aging all need `src/game_time.js` boundaries, not private timers |
+| MT3 | Offline body time follows the offline policy | Live offline code reviews explicit elapsed time and discards unsupported time (`src/backlog_expansion_time.js:44-46`; [offline audit](research/OFFLINE_TIME_AND_BRANCH_CLOCK_AUDIT_2026-10-14.md)). Body processes over offline spans resolve by formula over the reviewed span, never by silent wall-clock aging |
+| MT4 | Every new field gets a save decision | Saved, derived on load or transient; B2 migration pattern; old saves keep identical behaviour |
+| MT5 | Stable IDs for cards | Physique, bloodline, quirk and cheat card IDs stay stable across renames; deprecate rather than delete anything a save references |
+| MT6 | Truth vs projection in every view | B7, B15 and B18 agree: views read the knowledge projection; a hidden change never shows as a "stale" label (B18 F2) |
+| MT7 | Comfort settings stay intact | Standing direction: comfortable unfed play and no hunger death; body realism rows (PH5, LQ, MI8, SG12) respect it and a per-player body-realism setting |
+
+### LATER / DELEGATE
+
+Recorded for future selection; none is authorised by this pass.
+
+| Code | Item | Suggested level and effort | Done check |
+|---|---|---|---|
+| LD1 | Body inspector debug view: truth and each observer's projection side by side, read-only, never saved | Balanced, medium | Toggle shows both columns for player and one NPC; save file unchanged after toggling |
+| LD2 | Fixture saves for risky states: child generated before parent change, two conflicting diagnoses, mid-modification, offline span during buildup | Cheap, low, after B2 lands | Fixtures load through the real loader and pass save, reload, export and import comparison |
+| LD3 | Headless invariant run: no negative capacity, no projection field absent from truth, no child with unfrozen parent inputs, no sealed field in any view | Balanced, medium; review by strong | Joined to P18 headless story QA; fails on a planted leak |
+| LD4 | Code index lint: flag duplicate codes inside a palette and undefined code references | Cheap, low | Script exits non-zero on a planted duplicate |
+| LD5 | Economy check on compounding body bonuses over a year of idle time | Strong, medium (curves and exploits) | A one-year headless run reports total effect per row; none exceeds the world dial's stated intent |
+| LD6 | USER_VISION duplication cleanup in HEAD | Strong coordinator; touches every session's entries | One copy of each paragraph; `grep -vxF` shows no HEAD-unique lines dropped |
+
+### New angles surfaced by the pass
+
+| Code | Angle | Play or reason |
+|---|---|---|
+| NA1 | Body codex | A collection of bodies, constitutions and bloodlines you have observed, filled by real observation; an idle-friendly meta goal that reuses the projection |
+| NA2 | Body-realism comfort panel | One player-facing group of settings: injury permanence, aging pace, quirk frequency, body cycles, hunger strictness; separate from world harshness |
+| NA3 | Player-named lines | Name your bloodline, write a family motto, design a crest; nothing cosmetic, since names attach fame and enemies (L-layer names) |
+| NA4 | Accessibility | Bloodline colours and body maps need shape or text cues for colour-blind players; gendered grammar needs a pronoun resolver before localisation (B2 F1) |
+| NA5 | Body events in the chronicle | Firsts, injuries, awakenings and modifications flow into the life record and legends (P14), with bias by teller |
+| NA6 | Rival bodies over time | Recurring rivals' bodies change too: they train, get injured, modify, age; their projection updates only when you see them (B7) |
+
+No build or browser journey was run for this pass.

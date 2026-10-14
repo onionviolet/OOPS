@@ -2875,3 +2875,4 @@ templates C1-C16, procedure, run log) and the general
 [topic expansion audit playbook](audits/TOPIC_EXPANSION_AUDIT_PLAYBOOK.md)
 with the own-paths commit helper and project skill `topic-expansion-audit`.
 Then (2026-10-14, peer fold request under Weibao's O2 approval): folded body-lineage lanes B10, B12 and B14-B18 into the genetics palette's [fold section](GENETICS_CONSTITUTIONS_AND_BROOD_PLAY.md#fold-lanes-b10-b12-and-b14-to-b18-2026-10-14); wave marked folded. Proposals only.
+Then: “more to consider? other stuff and more? save and extend accordingly, use the udpated more to consider?” Saved [round 10](GENETICS_CONSTITUTIONS_AND_BROOD_PLAY.md#round-10-more-to-consider-pass-over-the-whole-palette-2026-10-14): code index, constraints MT1-MT7, delegated items LD1-LD6, new angles NA1-NA6. Proposals only.

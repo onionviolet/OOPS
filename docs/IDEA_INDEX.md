@@ -94,6 +94,8 @@ detail, and abstractions AB1-AB12 mapped to code and to the comic doc's CA
 list, with lanes B17 and B18.
 The final fold records B10, B12 and B14-B18, applies B17 and B16 corrections,
 lists cross-lane conflicts FD1-FD8 and top picks; the wave is folded.
+Round 10 runs the more-to-consider pass: code index, slice constraints
+MT1-MT7, delegated items LD1-LD6 and new angles NA1-NA6.
 
 Current idea-expansion return, 2026-10-11:
 [joined planning](gm/dispatch/idea-expansion-2026-10-11/RECONCILIATION.md) retains
