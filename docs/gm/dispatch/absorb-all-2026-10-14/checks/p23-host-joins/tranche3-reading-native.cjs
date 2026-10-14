@@ -12,7 +12,7 @@ const __p00OutputDir = __p00Fs.mkdtempSync(__p00Path.join(__p00ProofRoot, __p00P
 const fs=require('fs'),path=require('path'),assert=require('assert/strict'),crypto=require('crypto');
 const {chromium}=require('/Users/weiwei/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright');
 const dir=__p00OutputDir,base=__p00URL,gates=[];
-(async()=>{const b=await chromium.launch({channel:'chrome',headless:true}),c=await b.newContext({viewport:{width:1366,height:768}}),p=await c.newPage(),errors=[];p.on('pageerror',e=>errors.push(e.message));const loaded=[];p.on('response',r=>{if(r.status()>=200&&r.status()<300&&new URL(r.url()).href===new URL('dist/bundle.js',base).href)loaded.push(r.body().then(bytes=>crypto.createHash('sha256').update(bytes).digest('hex')));});
+(async()=>{const b=await chromium.launch({channel:'chrome',headless:true}),c=await b.newContext({viewport:{width:1366,height:768}}),p=await c.newPage(),errors=[];p.on('pageerror',e=>errors.push(e.message));const loaded=[];p.on('response',r=>{if(r.status()>=200&&r.status()<300&&new URL(r.url()).pathname===new URL('dist/bundle.js',base).pathname&&new URL(r.url()).origin===new URL(base).origin)loaded.push(r.body().then(bytes=>crypto.createHash('sha256').update(bytes).digest('hex')));});
 const open=async()=>{if(!await p.locator('#p23_reading_salvage_panel').evaluate(e=>e.open))await p.locator('#p23_reading_salvage_panel summary').click();};
 const read=()=>p.evaluate(()=>JSON.parse(localStorage.getItem('save data')));
 const save=async()=>{await p.locator('#save_button').click();return read();};
