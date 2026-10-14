@@ -26,6 +26,7 @@ import {validateVillageCareer, WATCHCRAFT_BOOK, WATCHCRAFT_READING, WATCHCRAFT_P
 
 import {validateLifeRecord} from './life_record.js';
 import {validateVillageLives} from './npc_lives.js';
+import {validateSystemsWorkshopEnvelope} from './systems_workshop_validation.js';
 
 const object = (value, label) => {
     if(!value || typeof value !== "object" || Array.isArray(value)) throw new Error(`${label} must be an object.`);
@@ -79,6 +80,7 @@ export function validateSaveEnvelope(original, currentVersion) {
     validateCausalStoryEnvelope(save);
     validateBacklogEnvelope(save);
     validateWorldCompletionNativeEnvelope(save);
+    validateSystemsWorkshopEnvelope(save);
     if(save.npc_equipment != null) {
         object(save.npc_equipment, "NPC equipment");
         for(const [id, slots] of Object.entries(save.npc_equipment)) {

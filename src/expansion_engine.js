@@ -15,6 +15,7 @@ import {reconcileParadiseCampaignDepthRuntime,validateParadiseCampaignDepthContr
 import {validateParadiseCampaignDepthState} from './book_world_paradise_campaign_facts.js';
 import {worldCompletionCropClockSupported} from './world_completion_crop_clock.js';
 import {validateWorldCompletionState,worldCompletionContext} from './world_completion_facts.js';
+import {validateSystemsWorkshop} from './systems_workshop_validation.js';
 import {worldCompletionTimersSupported,retainWorldCompletionWindows,nextWorldCompletionBoundary,worldCompletionSimulationContexts,reconcileWorldCompletionPlan} from './world_completion_runtime.js';
 import {validateLorePractice} from './lore_practice_facts.js';
 import {retainLorePracticeWindows,nextLorePracticeBoundary,lorePracticeTimersSupported,lorePracticeSimulationContexts,reconcileLorePractice} from './lore_practice_runtime.js';
@@ -145,6 +146,7 @@ export function validateExpansionState(state, registry) {
     validateAuditRemainderProjects(state,registry);
     validateChronicle(state.chronicle, state.clock);
     validateSimulationState(state.simulation, state, registry?.simulation);
+    validateSystemsWorkshop(state);
     validateManagementState(state,registry?.simulation);
     validateHomeFurnishings(state,registry);
     validateCrushSocial(state,registry);

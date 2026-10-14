@@ -21,6 +21,7 @@ import {simulationDefinitions, simulationSources} from "./simulation_content.js"
 import {townActions, townSources, TOWN_FACTS} from "./town_content.js";
 import {bodySources,bodyCapabilities} from "./body_progression.js";
 import {fieldSources,initializeFieldFacts} from "./field_workshop.js";
+import {systemsWorkshopDefinitions,systemsWorkshopSources} from './systems_workshop_content.js';
 
 const fact = (scope, key, value) => ({type: "fact", scope, key, value});
 const resource = (scope, key, amount) => ({type: "resource", scope, key, amount});
@@ -37,7 +38,13 @@ const surveyed = [fact("actor", "surveyed", true), aftermath];
 
 // Original review content, not an accepted campaign or a direct book adaptation.
 export const expeditionRegistry = createContentRegistry({
-    simulation: simulationDefinitions,
+    simulation: {
+        ...simulationDefinitions,
+        situations:[...simulationDefinitions.situations,...systemsWorkshopDefinitions.situations],
+        people:[...simulationDefinitions.people,...systemsWorkshopDefinitions.people],
+        controllers:[...simulationDefinitions.controllers,...systemsWorkshopDefinitions.controllers],
+        commands:[...simulationDefinitions.commands,...systemsWorkshopDefinitions.commands],
+    },
     worlds: [...proto23Worlds,...molWorlds,...paradiseWorlds,...nestedWorlds,TIDEMARK_WORLD,{id:"pocket.folded_glasshouse",label:"Folded Glasshouse",publicName:"Folded Glasshouse",continuityLabel:"Original contained workshop",provenance:"Original optional persistent pocket prototype; native isolation checks deferred."},{id: "base.frontier", label: "YAIRPG: Parallel Frontier", publicName: "Frontier", continuity: "branch", sourceWorld: "YAIRPG",
         continuityLabel: "YAIRPG · Branch dimension",
         provenance: "Alternate continuity derived from Miktaew's YAIRPG. Expanded fork content belongs to this dimension; the original continuity remains the reference."}],
@@ -61,7 +68,7 @@ export const expeditionRegistry = createContentRegistry({
             {id: "skill.climbing_preparation", kind: "skill", label: "Climbing 5", amount: 1,
                 when: {fact: "climbing", op: "gte", value: 5}}]},
     ],
-    sources: [...foundationInteractionSources,...worldCompletionSources,...villageSources, ...simulationSources, ...townSources, ...bodySources, ...fieldSources, {id: "frontier.field_eye", label: "Field eye", kind: "trait", revision: 1,
+    sources: [...foundationInteractionSources,...worldCompletionSources,...villageSources, ...simulationSources, ...systemsWorkshopSources, ...townSources, ...bodySources, ...fieldSources, {id: "frontier.field_eye", label: "Field eye", kind: "trait", revision: 1,
         description: "An earned knack for reading routes. Adds one route preparation source.",
         grants: [{capability: "frontier.preparation", amount: 1}]}],
     rollTables: [{id: "frontier.observation", label: "Inspection discovery", revision: 1,
