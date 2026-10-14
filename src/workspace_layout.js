@@ -161,6 +161,14 @@ export function updateWorkspace() {
         const shell = module.shell; const eligible = module.eligible() !== false, known = moduleKnown(module, eligible); labelShell(module, known);
         // Undiscovered shells wait outside the labelled docks, so no dock label or text names them.
         if (!known) { shell.hidden = true; if (shell.parentNode !== owner.vault) owner.vault.append(shell); syncRestore(module, state, known, eligible, false); return; }
+        // Reach A2 proposal: restore the vital dock only on combat entry, not every render.
+        if (state.id === 'combat') {
+            if (eligible && !module.wasInCombat) {
+                const vitals = registry.get('vitals');
+                if (vitals?.shell && !vitals.shell.hidden) vitals.shell.scrollIntoView({block:'start', inline:'nearest'});
+            }
+            module.wasInCombat = eligible;
+        }
         shell.hidden = state.hidden || !eligible; shell.classList.toggle('workspace-floating', state.dock === 'float' && !owner.narrow); shell.classList.toggle('workspace-collapsed', state.collapsed);
         shell.style.setProperty('--workspace-width', `${state.width}px`); shell.style.setProperty('--workspace-height', `${state.height}px`);
         shell.dataset.pinned = String(state.pinned);
