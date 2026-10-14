@@ -100,12 +100,12 @@ export function revisitEda(state, c, expectedRevision = state?.revision) {
 // Call ONLY after the native combat defeat event. No killer lookup or death rule.
 export function rememberNativeDefeat(state, event, c, expectedRevision = state?.revision) {
     const s = preflight(state,c,expectedRevision);
-    check(event && natural(event.count) && event.count > 0 && event.kind === 'unconsciousness' && event.cause === 'combat', 'unsupported native defeat');
+    check(event && natural(event.count) && event.count > 0 && event.kind === 'unconsciousness' && ['combat','unknown'].includes(event.cause), 'unsupported native defeat');
     if (event.count <= s.defeatCount) return result(s,c.rng);
     check(event.count === s.defeatCount + 1, 'missing native defeat occurrence');
-    check(event.knownOpponent == null || typeof event.knownOpponent === 'string' && event.knownOpponent.length > 0 && event.knownOpponent.length <= 48 && !/[<>\x00-\x1f]/.test(event.knownOpponent), 'invalid known opponent');
+    check(event.knownOpponent == null || event.cause === 'combat' && typeof event.knownOpponent === 'string' && event.knownOpponent.length > 0 && event.knownOpponent.length <= 48 && !/[<>\x00-\x1f]/.test(event.knownOpponent), 'invalid known opponent');
     s.defeatCount = event.count; s.revision++;
-    const text = event.knownOpponent ? `You lost consciousness in combat with ${event.knownOpponent} and began recovering.` : 'You lost consciousness in combat and began recovering.';
+    const text = event.knownOpponent ? `You lost consciousness in combat with ${event.knownOpponent} and began recovering.` : event.cause === 'combat' ? 'You lost consciousness in combat and began recovering.' : 'You lost consciousness and began recovering.';
     return result(s,c.rng,[memory(`p23.leisure.recovery:${event.count}`,text)]);
 }
 

@@ -127,3 +127,10 @@ test('response retry with captured revision cannot duplicate a coin transfer',()
     assert.throws(()=>respondToEda(r.state,'help',context(),0),/stale revision/);
     assert.equal(r.effects.filter(e=>e.type==='personMoney').length,1);
 });
+
+test('unattributed native health defeat records recovery without inventing an attacker',()=>{
+    const e={count:1,kind:'unconsciousness',cause:'unknown'};
+    const r=rememberNativeDefeat(createLeisureMemory(),e,context());
+    assert.equal(r.effects[0].text,'You lost consciousness and began recovering.');
+    assert.throws(()=>rememberNativeDefeat(createLeisureMemory(),{...e,knownOpponent:'Wolf'},context()));
+});

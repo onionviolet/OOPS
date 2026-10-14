@@ -9,7 +9,7 @@ costs, hidden pending face, known-person later offer and biography. Mobile defer
 Import exports from `src/absorb_p23/leisure_memory/index.js`.
 Optional top-level save key `p23_leisure_memory` (constant LEISURE_SAVE_KEY).
 Absent/null remains absent on load; initialize ONLY on actual leisure enrollment
-with `createLeisureMemory(save.game_stats.total_deaths ?? 0)` using the native
+with `createLeisureMemory(save.total_deaths ?? 0)` using the native
 counter, not a fabricated past. Preflight the optional family using
 `validateLeisureMemory(save.p23_leisure_memory, save.expansion.clock)` before any
 load/import mutation. Unsupported schema/unknown fields reject. No migration to
@@ -59,10 +59,13 @@ uses the existing played-clock owner, not a wall timer or offline catch-up.
   repeat callback cannot grant a second offer. One next practice spends Eda's
   actual coin. If she has no coin or is absent, ordinary paid play is available
   and credit remains ready. After consuming the offer another help can recur.
-- `rememberNativeDefeat(state, {kind:'unconsciousness', cause:'combat', count,
+- `rememberNativeDefeat(state, {kind:'unconsciousness', cause:'combat'|'unknown', count,
   knownOpponent?}, c, revision)`: P00 hook in the actual `kill_player` combat
   path after its real counter increment, with count from `game_stats.total_deaths`.
-  Enroll baseline from that counter. Pass knownOpponent ONLY from already
+  Enroll baseline from that counter. Native `update_health` chooses is_combat
+  from location shape, not an identified damage source. Use cause unknown unless
+  the actual combat damage callback supplies a verified cause; do not equate
+  a combat-zone location with an attacker. Pass knownOpponent ONLY from already
   observed combat identity, never a sealed registry lookup. Omit if not known.
   No hook for noncombat old-age ending, no death token item, no change to
   native recovering or inheritance. Counter duplicate yields no effects; gap
