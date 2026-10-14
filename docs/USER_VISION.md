@@ -110,6 +110,12 @@ Its rows are proposals; only this section's quoted priority is Weibao's directio
 
 ## World core kit, every little detail and a repeating audit, 2026-10-14
 
+Round 10 request (2026-10-14): "sned out codex to address each direction, run
+another more to consider pass". Read as: one Codex lane per open round 9
+direction (DR1-DR8) plus a more-to-consider pass on those directions
+(MD1-MD12). Included one reversible code prototype on its own branch
+(per-world climate, W28), queued behind its design lane; not integrated.
+
 Round 9 request (2026-10-14): the same "more to consider? other stuff and
 more? save and extend accordingly Send out codex as usesful?" for each aspect,
 with "Use the more to consider school". Read as: run the more-to-consider
@@ -166,7 +172,8 @@ returns F15-F26, every-little-detail principles ED1-ED8 and the repeating
 audit RA1-RA10; 9, the more-to-consider school part by part (MC1-MC34:
 producer, owner, reader, lifecycle, inspect and a NOW, ACCOUNT or LATER
 disposition per part), same-day owner map OM1-OM10, KX63-KX70 and lanes
-W21-W23.
+W21-W23; 10, corrections CR1-CR3, directions DR1-DR8 with one lane each,
+MD1-MD12, KX71-KX75 and lanes W24-W28.
 
 Owners: the [world core kit](worlds/WORLD_CORE_KIT_2026-10-14.md) (palette,
 rounds and lane returns, all proposals), the

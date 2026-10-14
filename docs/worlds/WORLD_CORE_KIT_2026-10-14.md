@@ -1458,7 +1458,7 @@ build wrong. **Lifecycle** = reload, old save, ordering, repeats, partial.
 | Code | Chain (where it breaks) | Subtle | Lifecycle | Inspect | Do |
 |---|---|---|---|---|---|
 | MC1 Census | Source lane → ledger → pack author → nobody at runtime. Census rows have no consumer, so a census can be "done" and change nothing (W1 F3). | Census weight W0-W3 silently decides what gets built; a missed row is invisible later. | Source revisions: a census row pinned to an edition goes stale when a new book lands. | Coverage printout: census row → kit row → pack ID → journey. | ACCOUNT: every census row names its consumer or says "texture only". |
-| MC2 Laws | Doc law → `realm_boundary_rules.js` for imports only. Native laws live as scattered checks in action code. | A law checked in one action but not its twin (buy vs steal, cast vs scroll) is a hole players find first. | Law change after a save: an action legal yesterday is illegal now; old pending work must finish or refund. | Law lens: "why can't I?" names the law and its source. | LATER (W21): list each law's enforcing call sites per world. |
+| MC2 Laws | Doc law → `realm_boundary_rules.js` for imports only. Native laws live as scattered checks in action code. | A law checked in one action but not its twin (buy vs steal, cast vs scroll) is a hole players find first. | Law change after a save: an action legal yesterday is illegal now; old pending work must finish or refund. | Law lens: "why can't I?" names the law and its source. | LATER (W24, corrected in round 10): list each law's enforcing call sites per world. |
 | MC3 Power | Six capability systems, each its own producer and reader (U07, W15). Status window reads some, not all. | Two systems grant the same skill; mastery double counts or splits. Idle growth from one, active use in another. | Merge migration: old XP must keep meaning (W15 says no forced conversion). | Power ledger: every point of power with its receipt (AX15). | ACCOUNT: no new world adds a seventh store; wait for A1 read shape. |
 | MC4 Starts | Start record → body/role/means → world state. Prior history at a mid-era start has no producer (debts, friends, scars invented by nobody). | A start's means outrun the world's economy on day one. | A start chosen in an old save before a start record changes. | Start preview: what you own, owe, know, and who knows you. | ACCOUNT: every start lists its prior-history producer, even "generated at start". |
 | MC5 Places | Place defs → location state → look text. Changed places (burned, warded) need a state owner per place copy. | Place state shared across copies leaks one AU's fire into canon. | Removed place in a revised pack; player standing in it on load. | Place history: states this place passed through and why. | ACCOUNT: place state keyed by world instance (AX11). |
@@ -1473,7 +1473,7 @@ build wrong. **Lifecycle** = reload, old save, ordering, repeats, partial.
 | MC14 Presentation | `panel_kit.js`, `display.js`; per-world palette scattered. | A world skin that hides a warning colour another world relies on. | Old UI layout prefs after a new panel joins. | Panel census per world: which panels appear where. | ACCOUNT: desktop first; check UI rows with OM9. |
 | MC15 Crossings | `realm_boundary_rules.js`, `realm_cargo.js`. Locals' reaction to outliers has no reader. | Suppressed power that still leaks through a passive. | Carried item whose home world was removed or revised. | Carry table preview at every door. | LATER: per-edge carry rows belong to nonhuman/start lanes (OM2). |
 | MC16 Endings | Ending types in OM6; "life goes on" has no state owner. | An ending that freezes clocks other worlds still read. | Ended world reopened after a pack revision. | Ending ledger: what closed, what keeps running. | ACCOUNT: link OM6, keep kit row as floor only. |
-| MC17 AU hooks | `world_instances.js` copies; divergence metadata thin (EI2). | AU flags that change law (K2) but not cast memory (K6). | Copy made before a migration; both copies must migrate. | Copy diff: canon versus this copy, by part. | LATER: W21 traces copy keys per part. |
+| MC17 AU hooks | `world_instances.js` copies; divergence metadata thin (EI2). | AU flags that change law (K2) but not cast memory (K6). | Copy made before a migration; both copies must migrate. | Copy diff: canon versus this copy, by part. | LATER: W22 traces copy keys per part (corrected in round 10). |
 | MC18 Save | `save_files.js`, `save_migration.js`, `expansion_persistence.js`. | Kit parts that add state without saying where it saves. | Every part above. | Save map: kit part → save key → migration. | NOW: K18 row in the template now asks each part's save key (see below). |
 | MC19 Senses | Look text only; no sense channel owner (AX5 new). | Nonhuman senses read the same text as humans. | None durable; texture redraw must be stable (IO5 seed anchor). | Sense lens: what each channel would add. | ACCOUNT: texture draws through the pinned seed, never render-time random. |
 | MC20 Language | Name pools per world; no address-form reader. | A title used before you know it is a leak. | Name pool revised: existing NPC names must stay. | Name origin: pool, region, era. | ACCOUNT: generated names saved, never re-rolled on load. |
@@ -1529,3 +1529,77 @@ build wrong. **Lifecycle** = reload, old save, ordering, repeats, partial.
 | W21 | K19-K34 readiness per priority world (D and R), extends W1 | `W21_READINESS_K19_K34.md` |
 | W22 | Dependency chains: producer, owner, reader, player view per K1-K34 in live code; orphans (KX63), readers without producers (KX64), copy keys (MC17) | `W22_DEPENDENCY_CHAINS.md` |
 | W23 | Base-world globals (KX67) and lifecycle matrix: reload, old save, ordering, repeats, absence per part; per-world floors for K22 medicine, K25 home, K26 routine, K28 weather | `W23_GLOBALS_AND_LIFECYCLE.md` |
+
+## Round 10: more to consider on round 9's directions, and a lane per direction (2026-10-14)
+
+Request (Weibao, 2026-10-14): "sned out codex to address each direction, run
+another more to consider pass". This round runs the more-to-consider school
+on round 9 itself: what could make its directions wrong, what they depend
+on, and one lane per open direction.
+
+### Corrections first (CR)
+
+| Code | What was wrong | Fixed |
+|---|---|---|
+| CR1 | MC2 sent law call sites to W21, but W21 is K19-K34 readiness. | MC2 now points at W24. |
+| CR2 | MC17 sent copy keys to W21; W22 owns copy keys in its prompt. | MC17 now points at W22. |
+| CR3 | Round 9 traced chains on HEAD only. 35 branches are unmerged, including core-foundations `core/a2-tags`, `core/a3-travel-tests`, `core/a4-relationships` and `core/a5-determinism`. Chain claims can be stale the moment those land. | Round 10 lanes label code found only on a branch as "branch X", and treat HEAD gaps as "open on HEAD". Merging those branches belongs to their owners (merge-before-dispatch rule); this audit does not merge them. |
+
+### The directions round 9 left open (DR)
+
+| Code | Direction | Source rows | Lane |
+|---|---|---|---|
+| DR1 | Per-world weather and climate instead of one global table | MC28, KX67, F1 | W23 designs; W28 prototypes after W23 returns |
+| DR2 | Base-world globals beyond weather | KX67 | W23 |
+| DR3 | Laws enforced in every twin action; same-tick canon ordering | MC2, MC12 | W24 |
+| DR4 | One world clock with every reader, and an away column per loop | KX65, KX66, MC6, MC8, MC32 | W25 |
+| DR5 | Information carriers, small consequences, standing and ripples | MC7, MC23, MC24, MC29 | W26 |
+| DR6 | Inspect before build: one inspector shell, read versus write tools, newest owner per part | KX68, KX70, MC34 | W27 |
+| DR7 | Orphans and readers without producers | KX63, KX64 | W22 (running) |
+| DR8 | K19-K34 readiness | AN2 | W21 (running) |
+
+### More to consider on those directions (MD)
+
+| Code | Angle | Do |
+|---|---|---|
+| MD1 | **Not every world has seasons.** Paradise's hub, dungeons, dream realms and space have no Earth year. The climate shape needs "no season", custom cycles and indoor worlds, not four named seasons per world. | ACCOUNT in W23, W28 |
+| MD2 | **Weather reads `current_location` from `main.js`.** A per-world derive should take world, place and clock as arguments so tests and the away ledger can call it without the game loaded. | ACCOUNT in W28 |
+| MD3 | **Away time must reuse the same derive.** If the away ledger guesses weather separately, crops and travel disagree with what you see on return. Determinism belongs with `core/a5-determinism` and seeded streams. | ACCOUNT in W25, W28 |
+| MD4 | **Derived, but effects saved.** Weather itself can be recomputed; what it caused (spoiled food, a missed ferry) must save as a caused effect with a cause ID (MC29). | ACCOUNT |
+| MD5 | **Twin actions come in families.** Buy, steal, beg, craft; cast, scroll, item, ritual; enter, sneak, teleport. A law checks the family, not one verb. | W24 |
+| MD6 | **Same-tick order is a story order.** When two canon events share a tick, order should follow the graph's cause edges, then a stable ID, never file load order. | W24 |
+| MD7 | **One clock, many speeds.** Worlds can run faster or slower than home (realm clock leases), but every reader inside one world must read that world's clock. Mixed readers are the bug, not different speeds. | W25 |
+| MD8 | **Thirty-four lenses is too many panels.** Lenses should share one inspector shell (status window and CL family), with one page per part, under the UI-at-scale owner. Desktop first. | W27 |
+| MD9 | **Read and write never in one tool.** A lens that can also "fix" state makes saves untrustworthy; debug writes go through cheats that leave a receipt. | W27 |
+| MD10 | **News is a carrier, not a broadcast.** Owl, gossip, phone, newspaper each have speed, reach and distortion; a ripple uses one. Small debts and petty crime then travel by the same carriers to Standing. | W26 |
+| MD11 | **Prototype after design, not alongside.** W28 waits for W23's globals list so one climate shape covers the other globals of its kind (calendar, day length). | W28 queued |
+| MD12 | **Integration windows.** Any prototype lands on its own branch and joins only through the shared integration owner (R15). No lane writes `main.js` or shared hosts. | ACCOUNT |
+
+### Other stuff and more (KX71-KX75)
+
+| Code | Consideration |
+|---|---|
+| KX71 | **Branch-aware audits.** A kit audit should list unmerged branches that touch each part, so readiness reads "HEAD partial, branch X closes it". |
+| KX72 | **Direction ledger.** Every DR row stays open until a lane returns and the root folds it; the run log counts open versus closed directions per run. |
+| KX73 | **Climate as texture first.** The cheapest visible win is weather words in look text per world (K19), before weather changes work or danger. |
+| KX74 | **Absence storms.** When away time crosses a canon storm (MC32), the return summary should say so plainly, with what you missed. |
+| KX75 | **Lens pages as acceptance aids.** Each lens page doubles as the evidence screen for a browser journey, so proof and play use the same view. |
+
+### Suggestions (round 10, ranked)
+
+1. Land W23 then W28 first: weather is the one concrete code gap found, and
+   a pure per-world climate derive is small, testable and safe to reverse.
+2. Ask the core-foundations owner to merge `core/a2`-`a5` before W24-W26
+   specs turn into code; their chains depend on tags, travel and determinism.
+3. Fold W22's orphan list into W27's inspector map so the first lens pages
+   show state that exists but nobody sees.
+
+### Codex lanes, round 10
+
+| Lane | Direction | Owns | State |
+|---|---|---|---|
+| W24 | DR3 laws and ordering | `W24_LAWS_AND_ORDERING.md` | launched |
+| W25 | DR4 clocks and away | `W25_CLOCKS_AND_AWAY.md` | launched |
+| W26 | DR5 carriers and small consequences | `W26_CARRIERS_AND_SMALL_CONSEQUENCES.md` | launched |
+| W27 | DR6 inspector map | `W27_INSPECTOR_MAP.md` | launched |
+| W28 | DR1 per-world climate prototype (own worktree and branch, pure module plus tests, not integrated) | branch `kit/w28-world-climate` | queued until W23 returns |

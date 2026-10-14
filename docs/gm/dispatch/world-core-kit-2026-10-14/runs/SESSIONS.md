@@ -58,3 +58,8 @@ Round 7 (launched 2026-10-14 01:25):
 | W21 K19-K34 readiness (round 9) | 01a13b93-7306-7f81-807c-e85a32fe7144 | .../W21_READINESS_K19_K34.md, ../W21_REPORT.md |
 | W22 dependency chains (round 9) | 01a13b93-7322-7181-b58b-5f7726c0689c | .../W22_DEPENDENCY_CHAINS.md, ../W22_REPORT.md |
 | W23 globals and lifecycle (round 9) | 01a13b93-733e-7762-a3fb-fab74a66bd1e | .../W23_GLOBALS_AND_LIFECYCLE.md, ../W23_REPORT.md |
+| W24 laws and ordering (round 10) | 01a13b9b-1828-7001-a372-d558afff2a64 | .../W24_LAWS_AND_ORDERING.md, ../W24_REPORT.md |
+| W25 clocks and away (round 10) | 01a13b9b-184a-78a1-8c0b-d08a71047474 | .../W25_CLOCKS_AND_AWAY.md, ../W25_REPORT.md |
+| W26 carriers and small consequences (round 10) | 01a13b9b-1863-7da2-a6bf-2f7a2b8cf047 | .../W26_CARRIERS_AND_SMALL_CONSEQUENCES.md, ../W26_REPORT.md |
+| W27 inspector map (round 10) | 01a13b9b-188b-73e1-8735-5bece6bcdc44 | .../W27_INSPECTOR_MAP.md, ../W27_REPORT.md |
+| W28 world climate prototype (round 10) | queued until W23 returns | branch kit/w28-world-climate, ../W28_REPORT.md |

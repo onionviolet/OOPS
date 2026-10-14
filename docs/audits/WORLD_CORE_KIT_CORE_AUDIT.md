@@ -64,3 +64,4 @@ scope, changes a standing priority or turns deferred work into a gate
 |---|---|---|---|---|
 | 2026-10-14 | 1-8 | W1-W20, W19 queued | 596e1cac, then this save | First run. Top gap K3 power core (fragmented capability systems); MoL most ready; comics added as consideration; lens cheats and AX abstractions named |
 | 2026-10-14 | 9 | W21-W23 (W19 still running) | this commit | More-to-consider school per part (MC1-MC34). Found `weather.js` is one global season table (KX67); template lacked K19-K34 rows (fixed, AN1); readiness lacked K19-K34 (W21) |
+| 2026-10-14 | 10 | W24-W27 launched, W28 prototype queued behind W23 | this commit | Lane per direction (DR1-DR8). Corrected MC2/MC17 lane refs; flagged 35 unmerged branches (core a2-a5) as chain-staleness risk (CR3) |
