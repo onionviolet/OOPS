@@ -1,3 +1,5 @@
+import {engineTimeout,engineInterval,clearEngineInterval,engineNow,stepping,testHooksEnabled,pauseEngine,resumeEngine,runEngineTicks} from './simulation_clock.js';
+import {deferSimulationRender,beginSimulationRenderBatch,endSimulationRenderBatch} from './simulation_render.js';
 import {ANTHOLOGY,ANTHOLOGY_KEY,REST_MEAL,REST_KEY,REGISTRATIONS} from './absorb_p23/reading/content.js';
 import {planReadingCommand,observeReadingClock,longRestClockRequest} from './absorb_p23/reading/runtime.js';
 import {readingPresentation} from './absorb_p23/reading/presentation.js';
@@ -2609,6 +2611,7 @@ function customizationFromSave(save) {
     const next=defaultCustomizationState();if(save.work_ledger?.settings)Object.assign(next.profiles.Default.settings,save.work_ledger.settings);return validateCustomizationState(next);
 }
 function refreshCustomization() {
+    if(deferSimulationRender(refreshCustomization, refreshCustomization)) return;
     if(!customization)return;
     document.documentElement.dataset.effects=customization.profiles?.[customization.active]?.settings?.effects||'full'; // settings pass S3: save-level Effects caps per-browser motion
     applyCustomizationProfile(customization,{season:current_game_time.getSeason(),moduleNodes:{ledger:document.getElementById('work_ledger_panel'),crafting:document.getElementById('crafting_window'),'local-actions':document.getElementById('location_related_div'),vitals:document.getElementById('basic_character_info_div'),preparation:document.getElementById('character_div'),belongings:[document.getElementById('inventory_div'),document.getElementById('inventory_combat_switch_selection')],records:document.getElementById('journal_div'),time:document.getElementById('time_and_location'),location:document.getElementById('location_div'),skills:document.getElementById('skills_and_stances_div'),messages:document.getElementById('message_log_div'),notebook:document.getElementById('adventure_notebook'),'status-window':document.getElementById('status_window_panel'),customization:[document.getElementById('customization_host'),document.getElementById('customization_effects_host'),document.getElementById('customization_rules_host')]}});
@@ -2861,11 +2864,15 @@ function start_game_action(action_key, event) {
             }
             update_game_action_progress_bar(current_iterations/total_iterations);
         };
-        game_action_interval = setInterval(game_action_tick, game_action_period());
+        game_action_interval = engineInterval(runGameActionTick, game_action_period());
     } else {
         update_game_action_progress_bar(1);
         finish_game_action({action_key, conditions_status,dialogue_key: current_dialogue});
     }
+}
+
+function runGameActionTick() {
+    game_action_tick?.();
 }
 
 //the action ticker's period at the current speed
@@ -2874,7 +2881,7 @@ function game_action_period() {
 }
 
 function stop_game_action_interval() {
-    clearInterval(game_action_interval);
+    clearEngineInterval(game_action_interval);
     game_action_interval = undefined;
     game_action_tick = undefined;
 }
@@ -2884,8 +2891,8 @@ function rearm_game_action_interval() {
     if(!game_action_tick) {
         return;
     }
-    clearInterval(game_action_interval);
-    game_action_interval = setInterval(game_action_tick, game_action_period());
+    clearEngineInterval(game_action_interval);
+    game_action_interval = engineInterval(runGameActionTick, game_action_period());
 }
 /**
  * Handles the finish, successful or not, of a game action. Not to be mistaken for end_game_action
@@ -5778,7 +5785,9 @@ function save_to_file() {
  * saves game state to localStorage, on manual saves also logs message about it being done
  * @param {Boolean} is_manual 
  */
+let stepperSaves = null;
 function save_to_localStorage({key, is_manual}) {
+    if(stepperSaves && !is_manual) {stepperSaves.add(key); return;}
     if(importProbeToken || !ownsSave) return;
     const save = create_save();
     if(save) {
@@ -7765,34 +7774,40 @@ function update_effect_durations({time_in_minutes = 1, is_travel}) {
 }
 
 function update() {
-    setTimeout(() => {
-        end_date = Date.now();
+    engineTimeout(() => {
+        end_date = engineNow();
         //basically when previous tick ends, used for timer smoothing
 
         time_variance_accumulator += ((end_date - start_date) - 1000/tickrate);
         //duration of previous tick, minus time it was supposed to take
         //important to keep it between setting end_date and start_date, so they are 2 completely separate values
 
-        start_date = Date.now();
+        start_date = engineNow();
         /*
         basically when current tick starts
         so before this assignment, start_date is when previous tick started
         and end_date is when previous_tick ended
         */
 
+        simulateTick();
+        update();
+    }, stepping() ? 1000/tickrate : 1000/tickrate - time_adjustment, 'tick');
+}
+
+function simulateTick() {
         let were_stats_updated = false;
         const prev_day = current_game_time.day_count;
         const advancedMinutes = update_timer();
         furniturePanel?.render();localLifePanel?.render();practicePanel?.render();updateWorkspace();fortControls?.render();pacingPanel?.render();pacingStatusPanel?.render();durabilityPanel?.render();elementalPanel?.render();livingGearPanel?.render();combatOptionsPanel?.render();householdPanel?.render();
-        if(!advancedMinutes || expansionState.chronicle?.life.endedAt != null) {update(); return;}
+        if(!advancedMinutes || expansionState.chronicle?.life.endedAt != null) {return;}
 
-        if(start_date - last_rewarded_export > config.time_between_export_rewards) {
+        if(Date.now() - last_rewarded_export > config.time_between_export_rewards) {
             document.getElementById("save_to_file_button").classList.add("export_button_with_reward");
         } else {
             document.getElementById("save_to_file_button").classList.remove("export_button_with_reward");
         }
 
-        update_export_button_tooltip(start_date - last_rewarded_export, config.time_between_export_rewards);
+        update_export_button_tooltip(Date.now() - last_rewarded_export, config.time_between_export_rewards);
 
         const curr_day = current_game_time.day_count;
         if(curr_day > prev_day) {
@@ -8228,11 +8243,44 @@ function update() {
 
         game_stats.total_playtime += 1/tickrate;
         if(++title_check_ticks >= 5*tickrate) {title_check_ticks = 0; refresh_titles();}
-        update();
-    }, 1000/tickrate - time_adjustment);
+
     //uses time_adjustment based on time_variance_accumulator for more precise overall stabilization
     //(instead of only stabilizing relative to previous tick, it stabilizes relative to sum of deviations)
     //probably completely unnecessary lol, but hey, it sounds cool
+}
+
+
+/** Advance the actual engine timers synchronously; never a second simulation. */
+function advanceTicks(n, {render = false} = {}) {
+    if(!testHooksEnabled) throw new Error('Test hooks are disabled.');
+    if(!Number.isSafeInteger(n) || n < 0 || n > 1000000) throw new RangeError('Ticks must be an integer from 0 to 1000000.');
+    if(stepperSaves) throw new Error('Cannot nest advanceTicks.');
+    if(n === 0) return {ticks:0, callbacks:0, autosaves:0};
+    const restore = [];
+    stepperSaves = new Set();
+    if(!render) {
+        beginSimulationRenderBatch();
+        for(const panel of [adventureNotebook,backlogOpeningPanel,backlogPanel,bodyPanel,causalStoryPanel,characterBio,chroniclePanel,combatOptionsPanel,crushSocialPanel,durabilityPanel,elementalPanel,exchangePanel,expansionQuests,expeditionPanel,featureExpansionPanel,fieldPanel,fortControls,foundationInteractionPanel,frontierCampaignPanel,furniturePanel,householdPanel,inkPanel,knownRoutesPanel,lifeRecordPanel,livingGearPanel,localLifePanel,managementPanel,nestedInkPanels,observationPanel,optionalPackPanel,originalFrontierPanel,p23ExposurePanel,pacingPanel,pacingStatusPanel,partyPanel,pocketRealmPanel,practicePanel,promisePanel,pursuitPanel,readingSalvagePanel,replacementRecognitionPanel,repositoryPanel,simulationPanel,skillExpansionPanel,statusWindow,structuredPanel,systemsWorkshopPanel,techniquePanel,titlesPanel,townPanel,villageCareerControls,villageLivesPanel,villagePanel,workLedgerPanel,worldEventFeed]) {
+            if(!panel?.render) continue;
+            const original = panel.render;
+            panel.render = function(...args) {
+                if(!deferSimulationRender(panel, () => original.apply(panel,args))) return original.apply(panel,args);
+            };
+            restore.push(() => {panel.render = original;});
+        }
+    }
+    let result;
+    try {result = runEngineTicks(n); return result;}
+    finally {
+        const saves = stepperSaves; stepperSaves = null;
+        if(result) result.autosaves = saves.size;
+        for(const key of saves) {
+            const savedAt = save_to_localStorage({key});
+            if(savedAt && (key === backup_key || key === dev_backup_key)) update_backup_load_button(savedAt);
+        }
+        for(const reset of restore) reset();
+        if(!render) endSimulationRenderBatch();
+    }
 }
 
 /** Lifetime counters that titles read; all derived from existing saved state. */
@@ -9149,6 +9197,11 @@ if(is_on_dev()) {
         document.getElementById("bottom_panel_div"), 
         `<img id = "hits_counter" src="https://hitscounter.dev/api/hit?label=dummy+hit+counter&color=%23084298&message=&style=flat&tz=UTC">`
     );
+}
+
+if(testHooksEnabled) {
+    window.advanceTicks = advanceTicks;
+    window.simulationTestHooks = Object.freeze({pause:pauseEngine,resume:resumeEngine,snapshot:()=>JSON.parse(create_save()),tickrate:()=>tickrate});
 }
 
 if(config.enable_dev_mode) {

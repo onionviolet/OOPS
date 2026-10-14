@@ -1,8 +1,9 @@
+const {engineWait}=require('../../../../../../scripts/simulation_check_helpers.cjs');
 global.fetch = undefined; // Node 22 Playwright networking workaround, as wave harness.
 const {chromium} = require('/Users/weiwei/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright');
 const fs = require('fs'), assert = require('assert/strict');
-const URL = 'http://127.0.0.1:18704/';
-const out = __dirname;
+const URL = process.env.YAIRPG_PROOF_URL || 'http://127.0.0.1:18950/?test_hooks=1';
+const out = process.env.YAIRPG_PROOF_DIR || '/tmp/sim-stepper-fort'; fs.mkdirSync(out,{recursive:true});
 const F = {lead:'Frontier fort route notes',journal:'Frontier fort keeper journal',quest:'frontier.fort.quest',offer:'frontier.fort.offer',search:'frontier.fort.search',prepare:'frontier.fort.prepare',outskirts:'Fort approach',court:'Fort courtyard',dungeon:'Fort dungeon',brace:'Frontier fort bone brace'};
 const results=[], pageErrors=[];function pass(id,detail){results.push({id,detail});console.log('PASS',id,JSON.stringify(detail));}
 async function play(p){await p.locator('#loading_screen_play_button:not(.none_display)').click();const c=p.locator('#hero_creation_panel_confirmation');if(await c.isVisible())await c.click();await p.locator('#location_name_span').filter({hasText:/Village|Mountain camp|Fort/}).waitFor({state:'visible'});await p.waitForTimeout(250);}
@@ -11,10 +12,10 @@ const inv=s=>s.inventories.person.main_character;
 const count=(s,id)=>Object.entries(inv(s)).filter(([k])=>JSON.parse(k).id===id).reduce((a,[,v])=>a+v.count,0);
 async function open(b,seed,paused=false){console.log("OPEN",seed?.["current location"]);const ctx=await b.newContext({viewport:{width:1366,height:768}});await ctx.addInitScript(seed=>{if(seed)localStorage.setItem('save data',JSON.stringify(seed));},seed);const p=await ctx.newPage();p.setDefaultTimeout(12000);p.errors=[];p.on('console',msg=>{if(msg.type()==='error')console.log('CONSOLE',msg.text())});p.on('pageerror',e=>{p.errors.push(e.message);pageErrors.push(e.message);console.log('PAGEERROR',e.stack)});await p.goto(URL,{waitUntil:"domcontentloaded"});console.log("DOM");if(paused)await p.locator("#loading_screen_play_button:not(.none_display)").waitFor({state:"visible"});else await play(p);console.log(paused?"PAUSED":"PLAYED");return {ctx,p};}
 async function action(p,id){await p.evaluate(id=>start_game_action(id),id);}
-async function doneAction(p,id,loc){await p.waitForFunction(({id,loc})=>{saveProgress();return !!(JSON.parse(localStorage.getItem('save data')).availabilities.action[id]&6)}, {id,loc},{timeout:90000,polling:500});await p.evaluate(()=>end_game_action());}
+async function doneAction(p,id,loc){await engineWait(p,({id,loc})=>{saveProgress();return !!(JSON.parse(localStorage.getItem('save data')).availabilities.action[id]&6)}, {id,loc},{timeout:90000,polling:500});await p.evaluate(()=>end_game_action());}
 async function travel(p,id,name){await p.evaluate(id=>change_location({location_id:id}),id);await p.waitForFunction(n=>document.getElementById('location_name_span').textContent.startsWith(n),name,{timeout:15000});}
-async function read(p,id){await p.evaluate(id=>start_reading(id),id);await p.waitForFunction(id=>{saveProgress();const x=JSON.parse(localStorage.getItem('save data'));return x.books[id]?.accumulated_time >= (id.includes("keeper") ? 8 : 6)},id,{timeout:10000,polling:500});}
-async function clear(p,id,parent,name){const before=await save(p),target=(Math.floor((before.locations[id].enemy_groups_killed||0)/4)+1)*4;await travel(p,id,name);await p.waitForFunction(({id,target})=>{saveProgress();return JSON.parse(localStorage.getItem('save data')).locations[id].enemy_groups_killed>=target},{id,target},{timeout:30000,polling:500});await travel(p,parent,'Fort approach');}
+async function read(p,id){await p.evaluate(id=>start_reading(id),id);await engineWait(p,id=>{saveProgress();const x=JSON.parse(localStorage.getItem('save data'));return x.books[id]?.accumulated_time >= (id.includes("keeper") ? 8 : 6)},id,{timeout:10000,polling:500});}
+async function clear(p,id,parent,name){const before=await save(p),target=(Math.floor((before.locations[id].enemy_groups_killed||0)/4)+1)*4;await travel(p,id,name);await engineWait(p,({id,target})=>{saveProgress();return JSON.parse(localStorage.getItem('save data')).locations[id].enemy_groups_killed>=target},{id,target},{timeout:30000,polling:500});await travel(p,parent,'Fort approach');}
 async function craft(p,id,category='crafting'){
  await p.evaluate(()=>openCraftingWindow());await p.evaluate(category=>switchCraftingRecipesPage(category),category);
  const row=p.locator(`.recipe_div[data-recipe_id="${id}"]`);await row.click();
@@ -37,7 +38,7 @@ try{
  await p.locator('#location_actions_div').getByText('Take an action',{exact:false}).first().click();await p.screenshot({path:out+'/camp.png'});await action(p,F.offer);await doneAction(p,F.offer,'Mountain camp');
  assert.equal(count(await save(p),F.lead),1);await action(p,F.offer);await p.evaluate(()=>end_game_action());assert.equal(count(await save(p),F.lead),1);pass('offer_once','second invocation grants no second book');
  await read(p,F.lead);assert.equal((await save(p)).quests[F.quest].is_active,true);
- await action(p,F.search);await p.waitForTimeout(650);let partial=await save(p);assert.ok(partial.locations['Mountain camp'].actions[F.search].accumulated_progress>0);assert.equal(partial.availabilities.location[F.outskirts]&1,0);
+ await action(p,F.search);if(process.env.YAIRPG_REAL_TIMERS==='1')await p.waitForTimeout(650);else await p.evaluate(()=>advanceTicks(1));let partial=await save(p);assert.ok(partial.locations['Mountain camp'].actions[F.search].accumulated_progress>0);assert.equal(partial.availabilities.location[F.outskirts]&1,0);
  fs.writeFileSync(out+'/partial.save.json',JSON.stringify(partial));console.log("CLOSING");await current.ctx.close();console.log("CLOSED");current=await open(b,partial);p=current.p;let again=await save(p);assert.equal(again.locations['Mountain camp'].actions[F.search].accumulated_progress,partial.locations['Mountain camp'].actions[F.search].accumulated_progress);assert.deepEqual(again.quests[F.quest],partial.quests[F.quest]);assert.equal(count(again,F.lead),1);pass('partial_reload','mid-search action progress, active quest, book and locked approach retained');
  await action(p,F.search);await doneAction(p,F.search,'Mountain camp');await travel(p,F.outskirts,'Fort approach');
  await action(p,F.prepare);await p.evaluate(()=>end_game_action());assert.equal((await save(p)).availabilities.location[F.dungeon]&1,0);pass('stair_missing_materials','dungeon remains locked without real brace and wool');
@@ -54,5 +55,5 @@ try{
  again=await save(p);assert.equal(again.quests[F.quest].is_finished,true);assert.equal(count(again,F.journal),1);assert.equal(again.locations[F.dungeon].enemy_groups_killed,s.locations[F.dungeon].enemy_groups_killed);pass('literal_file_import','completed quest, once-only journal and repeat-clear count retained');
  await p.reload();await play(p);again=await save(p);assert.equal(again.quests[F.quest].is_finished,true);assert.equal(count(again,F.journal),1);pass('completed_reload_no_replay','finished route survives reload without reward duplication');
  assert.deepEqual(pageErrors,[]);pass('page_errors',pageErrors);
- fs.writeFileSync(out+'/results.json',JSON.stringify({viewport:[1366,768],generatedCheckpoint:true,nativeTimers:true,results},null,2));
+ fs.writeFileSync(out+'/results.json',JSON.stringify({viewport:[1366,768],generatedCheckpoint:true,nativeTimers:process.env.YAIRPG_REAL_TIMERS==='1',results},null,2));
 }catch(e){console.error('ROUTE FAILURE',e);if(current){const s=await save(current.p);console.log('FAIL_STATE',JSON.stringify({location:s['current location'],deaths:s.total_deaths,quest:s.quests[F.quest],court:s.locations[F.court],dungeon:s.locations[F.dungeon]}));}throw e;}finally{if(current)console.log("CLOSING");await current.ctx.close();console.log("CLOSED");await b.close();}})().catch(e=>{console.error(e);process.exit(1)});

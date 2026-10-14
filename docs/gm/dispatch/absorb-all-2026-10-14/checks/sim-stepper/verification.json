@@ -1,0 +1,80 @@
+{
+  "viewport": [
+    1366,
+    768
+  ],
+  "excluded": [
+    "saved_at",
+    "last_rewarded_export"
+  ],
+  "results": [
+    {
+      "id": "idle",
+      "ticks": 12,
+      "callbacks": 12,
+      "stepMs": 1163
+    },
+    {
+      "id": "work",
+      "ticks": 12,
+      "callbacks": 12,
+      "stepMs": 1125
+    },
+    {
+      "id": "combat",
+      "ticks": 12,
+      "callbacks": 1444,
+      "stepMs": 1152
+    },
+    {
+      "id": "timed-action",
+      "ticks": 65,
+      "callbacks": 665,
+      "stepMs": 6836
+    },
+    {
+      "id": "timed-job",
+      "ticks": 125,
+      "callbacks": 125,
+      "stepMs": 11070
+    },
+    {
+      "id": "autosave-boundary",
+      "ticks": 65,
+      "callbacks": 65,
+      "stepMs": 6691
+    }
+  ],
+  "errors": [],
+  "normalSmoke": true,
+  "oldSaveLoad": true,
+  "bundleSha256": "37424ab0679b5bef0446fbb496b5f35684895a54eb12cbca22f716bf9b8665d2",
+  "resumeCompared": true,
+  "steppedTicks": 291,
+  "totalAdvanceCallMs": 28037,
+  "fort": {
+    "baselineSeconds": 112.19,
+    "firstConvertedSeconds": 22.92,
+    "finalContendedSeconds": 92.99,
+    "groups": 12,
+    "pageErrors": []
+  },
+  "tests": {
+    "count": 988,
+    "passed": 988,
+    "failed": 0,
+    "durationMs": 238165.529959,
+    "command": "YAIRPG_FIXTURE_TIMEOUT_MS=180000 node --test --test-concurrency=2 tests/*.test.js",
+    "normalNpmTestPreviouslyPassed": 988,
+    "loadedHostTimeout": "alloy native fixture, 60000ms; optional override retains default and assertions"
+  },
+  "workshop": {
+    "groups": 10,
+    "pageErrors": [],
+    "baselineSeconds": 92.08,
+    "firstConvertedSeconds": 99.24,
+    "finalContendedSeconds": 384.48,
+    "additionalSeededTimerBaselineSeconds": 175.83,
+    "endToEndSpeedupClaimed": false
+  }
+}
