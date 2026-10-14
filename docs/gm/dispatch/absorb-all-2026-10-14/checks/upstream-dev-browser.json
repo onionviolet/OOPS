@@ -1,0 +1,17 @@
+{
+  "viewport": "1366x768",
+  "baseline": "0216ccde rebuilt",
+  "baselineBundleSha256": "598e02f54fe7db4c9a35bc79c75a754a7f8dc42eccf9fab828de8fd82e97b615",
+  "bundleSha256": "edee6bc1641d8b2c3bac20ab9ad705657e6b64f3c706e7c999dd407896d5b45c",
+  "checks": [
+    "opening-save compatibility",
+    "paid town unlock with exact debit",
+    "Town square travel",
+    "guild save ID",
+    "reload/export/import",
+    "both old-save recovery lines",
+    "reputation entry",
+    "unaffordable fee hidden"
+  ],
+  "errors": []
+}
