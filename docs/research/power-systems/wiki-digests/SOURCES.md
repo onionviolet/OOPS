@@ -17,14 +17,14 @@ The dump addendum identifies Fandom's offered content as CC BY-SA. Each archived
 | jujutsu-kaisen.fandom.com | jujutsu-kaisen.fandom.com | Fri, 20 Feb 2026 15:02:08 GMT | 2754355 | [f8a8ac1e26dde6931b0cb046a8d6c98a7f038a61318dea039269f89eec5ae37c](https://s3.amazonaws.com/wikia_xml_dumps/j/ju/jujutsukaisen_pages_current.xml.7z) |
 | lordofthemysteries.fandom.com | not acquired | Mon, 31 Dec 2018 15:18:57 GMT | 13800 | dump_unavailable_storage |
 | mother-of-learning.fandom.com | not acquired | unknown | unknown | unavailable_two_guesses |
-| bleach.fandom.com | not acquired | unknown | unknown | unavailable_two_guesses |
+| bleach.fandom.com | WikiTeam IA `wiki-bleach.fandom.com-20231226` (2026-10-13) | history to 2023-12-27 | 71218122 | [1cef9e4401b7fc8c12f6239a20a40ceaa13587b9d04b942bd4b7550c18248e01](https://archive.org/download/wiki-bleach.fandom.com-20231226/bleach.fandom.com-20231226-history.xml.zst) |
 | naruto.fandom.com | not acquired | unknown | unknown | unavailable_name_guesses |
 | harrypotter.fandom.com | harrypotter.fandom.com | Mon, 14 Sep 2026 16:55:41 GMT | 54181689 | [34b0eeec50d81c12ce5a82965830bb726e3ad5263c1003034374d6be8c64b33a](https://s3.amazonaws.com/wikia_xml_dumps/h/ha/harrypotter_pages_current.xml.7z) |
 | eldenring.fandom.com | eldenring.fandom.com | Fri, 20 Feb 2026 15:15:19 GMT | 3972437 | [de026d2785338b1e2c3abb7c2aca4a6491475a9b883d1dbf104befe4a28fad73](https://s3.amazonaws.com/wikia_xml_dumps/e/el/eldenring_pages_current.xml.7z) |
 | elderscrolls.fandom.com | elderscrolls.fandom.com | Tue, 27 Jan 2026 16:19:13 GMT | 197057632 | [93f5da45f81de9213162b87542da612bae7cf31884200467b27f61c568fdddbf](https://s3.amazonaws.com/wikia_xml_dumps/e/el/elderscrolls_pages_current.xml.7z) |
 | fallout.fandom.com | fallout.fandom.com | Sun, 30 Aug 2026 09:55:53 GMT | 154191038 | [e42801c4034e55a2065ed5d89bc283a7d89b23423623dec16a430fded3ab261e](https://s3.amazonaws.com/wikia_xml_dumps/f/fa/fallout_pages_current.xml.7z) |
 | reincarnation-paradise.fandom.com | not acquired | unknown | unknown | unavailable_name_guesses |
-| chainsaw-man.fandom.com | not acquired | Mon, 22 May 2023 22:27:53 GMT | 682971 | dump_unavailable_storage |
+| chainsaw-man.fandom.com | WikiTeam IA `wiki-chainsaw-man.fandom.com-20231127` (2026-10-13) | history to 2023-11-27 | 2246952 | [b69fd1c8cee6c2195114a2c4c49b67e9a664bd55bf294d7e1c3acdb4643f27db](https://archive.org/download/wiki-chainsaw-man.fandom.com-20231127/chainsaw-man.fandom.com-20231127-history.xml.zst) |
 | hunterxhunter.fandom.com | hunterxhunter.fandom.com | Wed, 01 Jul 2026 15:10:25 GMT | 13616791 | [5fdc003e60ecf76936da8f0e04eb6b70b16f44a418fc58f4892c9a03b43c2a58](https://s3.amazonaws.com/wikia_xml_dumps/h/hu/hunterxhunter_pages_current.xml.7z) |
 | undead-unluck.fandom.com | not acquired | Thu, 02 Jul 2020 15:41:51 GMT | 111514 | dump_unavailable_storage |
 | typemoon.fandom.com | typemoon.fandom.com | Tue, 21 Jul 2026 16:09:18 GMT | 17340005 | [872ee43b72811383016f7e5776a67a55b2fb6beb434a15607d78d87f01178754](https://s3.amazonaws.com/wikia_xml_dumps/t/ty/typemoon_pages_current.xml.7z) |
@@ -148,3 +148,7 @@ Shadow Slave: [all retained revision inputs](full-dumps/shadowslave_SOURCES.json
 Full-reading DCC repair evidence: [16 full restored revisions and parent notes](full-dumps/dungeon-crawler-carl_NONCHARACTER_AUDIT.json). Incremental integration only; the main archive and template gates remain open.
 
 Full-reading JJK repair evidence: [six full restored revisions and parent notes](full-dumps/jujutsu-kaisen_NONCHARACTER_AUDIT.json), [thirteen parent-read template definitions](full-dumps/jujutsu-kaisen_DEPENDENCIES.json). Incremental integration only; whole archive and nested dependency gates remain open.
+
+## Lane setup, 2026-10-13
+
+Weibao asked for full dump lanes for JJK and Bleach, and to consider Chainsaw Man. The private cache (`~/.codex/research/wikis`) and its Python packages were missing after the machine move. JJK's S3 archive was refetched once and matched its recorded SHA-256; all 501 private read inputs were rebuilt with matching hashes. Bleach and Chainsaw Man S3 dumps stay DEEP_ARCHIVE and their Fandom API hosts stay refused, so [acquire_alt_dumps.py](acquire_alt_dumps.py) used the independent WikiTeam3 text-only history dumps on the Internet Archive (md5 checked against IA metadata, images skipped, no Fandom host contacted). `full_dump_reader.py` now streams `.zst` history XML and keeps the newest revision per title. Lanes: `full-dumps/workers/jjk-full/`, `bleach-full/`, `csm-full/`. No reading has started in the new lanes. Other lanes' private caches are also missing and were not rebuilt.

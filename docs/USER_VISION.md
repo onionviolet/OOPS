@@ -68,6 +68,32 @@ compiled to data, lints over hand ledgers, browser proof per slice) in part 10
 of the considerations doc. It is a proposal; the completion standard stays the
 owner of what "complete" means.
 
+> deprioritize fallout, we want to put book worlds and anime worlds and more at higher priorirty
+
+Direction recorded: Fallout moves to the back of the world order. Its existing
+packs, wiki dumps, roster entry and code stay; they are not deleted or
+reopened, and they are not active work. The paused Fallout full-dump read
+queue does not resume unless Weibao asks for it. Book worlds and anime/manga
+worlds now share the high-priority tier with Harry Potter and D&D. "And more" is read
+as other story-driven sources of the same kind (light novels, web novels,
+manhwa and similar). Anime/manga worlds already in the repo include Naruto,
+Bleach, Jujutsu Kaisen, Hunter x Hunter, Fullmetal Alchemist, Fate, Frieren,
+Demon Slayer, Black Clover, Chainsaw Man, Dandadan and Fire Force (wiki digests
+in `docs/research/power-systems/wiki-digests/`). Within the tier, the order
+follows source coverage, like the book worlds. This sets order, not scope.
+(Superseded the same day: "Skyrim and Elden Ring were not mentioned and keep
+their earlier place, below this tier.")
+
+> deprioritize skyrim and elden ring too, for anime world, Probably JJK bleach fate and others with deep systems and cannon that can easily be refered to and used accordingly?
+
+Direction recorded: Skyrim and Elden Ring join Fallout at the back, on the same
+terms (kept, inactive, paused dump queues stay paused). Among anime/manga worlds,
+Jujutsu Kaisen, Bleach and Fate lead. Other anime worlds follow when they share
+the same selection test: a deep power system with explicit rules, and canon that
+is well documented enough to cite and build from (for example Hunter x Hunter,
+Fullmetal Alchemist and Naruto, by Claude's reading). Within that group the order
+follows source coverage.
+
 The per-world considerations, iteration workflow, parallel worlds, starting
 points, subtle details, required features and engine improvements live in
 [World depth considerations](worlds/WORLD_DEPTH_CONSIDERATIONS_2026-10-13.md).

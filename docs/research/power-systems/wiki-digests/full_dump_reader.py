@@ -10,10 +10,12 @@ BIO=re.compile(r'(?i)(characters?|individuals?|people|persons?|\bcharacter\b|^pe
 META=re.compile(r'(?i)(gallery|image gallery|synopsis|soundtrack|episode|chapter|volume|user:|forum:|wiki:|wiki rules|sandbox|transcript|Walkthrough|Story arc)')
 POWERS=re.compile(r'(?i)(abilit|power|technique|combat|fighting|skill|body|physiology|biology|equipment|weapon|transformation|spirit|intelligence|strength|weakness|condition|restriction|vow|contract|magic|shout|law|authority|race)')
 def stream(wiki,handler):
- import py7zr
- from py7zr.io import Py7zIO,WriterFactory
  archive=pathlib.Path(D['wikis'][wiki]['download']['file'])
- parser=ET.XMLPullParser(events=('start','end'));root=None;site={};n=0
+ if archive.suffix=='.zst':Py7zIO=WriterFactory=object
+ else:
+  import py7zr
+  from py7zr.io import Py7zIO,WriterFactory
+ parser=ET.XMLPullParser(events=('start','end'));root=None;site={};n=0;history={} if archive.suffix=='.zst' else None
  def consume(b):
   nonlocal root,site,n
   parser.feed(b)
@@ -24,9 +26,17 @@ def stream(wiki,handler):
    if tag=='siteinfo':
     site={c.tag.split('}')[-1]:c.text for c in e if c.tag.split('}')[-1] in ['sitename','base','dbname','generator']};root.remove(e);continue
    if tag!='page':continue
-   cc={c.tag.split('}')[-1]:c for c in e};r=cc.get('revision');rr={c.tag.split('}')[-1]:c for c in r} if r is not None else {}
+   cc={c.tag.split('}')[-1]:c for c in e}
+   # History dumps (WikiTeam) hold many revisions; the newest one is the reading input.
+   revs=[c for c in e if c.tag.split('}')[-1]=='revision']
+   r=max(revs,key=lambda v:next((x.text or '' for x in v if x.tag.split('}')[-1]=='timestamp'),'')) if revs else None
+   rr={c.tag.split('}')[-1]:c for c in r} if r is not None else {}
    get=lambda k:rr[k].text if k in rr else None
-   title=cc['title'].text or '';ns=cc['ns'].text if 'ns' in cc else '0';text=get('text') or '';n+=1;handler(title,ns,get('id'),get('timestamp'),text,site)
+   title=cc['title'].text or '';ns=cc['ns'].text if 'ns' in cc else '0';text=get('text') or ''
+   if history is not None:
+    # WikiTeam3 splits one title across many <page> blocks; keep the newest revision overall.
+    if title not in history or (get('timestamp') or '')>history[title][2]:history[title]=(ns,get('id'),get('timestamp') or '',text)
+   else:n+=1;handler(title,ns,get('id'),get('timestamp'),text,site)
    root.remove(e);e.clear()
  class W(Py7zIO):
   def __init__(self):self.p=0
@@ -39,8 +49,16 @@ def stream(wiki,handler):
   def create(self,name):
    if not name.endswith('.xml'):raise ValueError(name)
    return W()
- with py7zr.SevenZipFile(archive,'r') as z:z.extractall(factory=Factory())
- parser.close();return {'xml_pages':n,'site':site}
+ if archive.suffix=='.zst':
+  import zstandard
+  with archive.open('rb') as f,zstandard.ZstdDecompressor(max_window_size=1<<31).stream_reader(f) as z:
+   for b in iter(lambda:z.read(1<<20),b''):consume(b)
+ else:
+  with py7zr.SevenZipFile(archive,'r') as z:z.extractall(factory=Factory())
+ parser.close()
+ if history is not None:
+  for title,(ns,rid,ts,text) in history.items():n+=1;handler(title,ns,rid,ts,text,site)
+ return {'xml_pages':n,'site':site}
 def meta(title,ns,rid,timestamp,text):
  cats=re.findall(r'\[\[Category:([^\]|]+)',text,re.I);sections=re.findall(r'^(={2,6})\s*(.*?)\s*\1\s*$',text,re.M)
  templates=list(dict.fromkeys(re.findall(r'\{\{\s*([^{}|\n]+)',text)))
@@ -146,3 +164,20 @@ def materialize(wiki):
  save(cited,{'state':'cited_reading_queue_not_semantic_verification','wiki':wiki,'archive_sha256':info['archive_sha256'],'source_identity':host,'page_cap':None,'pages':ready,'retention_policy':'Only reference-listed page inputs are retained. Character inputs retain mechanism-bearing sections/paragraphs, not complete biographies. Page text stays private.'})
  print(json.dumps({'wiki':wiki,'reading_pages':sum(bool(m.get('read_file')) for m in ready),'scope_exclusions':sum(not bool(m.get('read_file')) for m in ready),'characters':sum(m['read_characters'] for m in ready),'source_manifest':str(cited)},indent=2))
 if __name__=='__main__' and sys.argv[1]=='queue':materialize(sys.argv[2])
+
+def restore(wiki):
+ """Rebuild lost private read inputs for a frozen manifest; each payload must match its recorded read_sha256."""
+ cited=json.loads((F/(hostslug(wiki)+'_SOURCES.json')).read_text());want={m['title']:m for m in cited['pages'] if m.get('read_file')}
+ if D['wikis'][wiki].get('archive_sha256')!=cited['archive_sha256']:raise RuntimeError('Archive differs from frozen manifest')
+ ok=[];bad=[]
+ def visit(title,ns,rid,timestamp,text,site):
+  m=want.get(title)
+  if ns!='0' or not m or str(rid)!=str(m['revision_id']):return
+  chosen='\n'.join(text[a:b] for a,b in m['source_spans'])
+  if hashlib.sha256(chosen.encode()).hexdigest()!=m['read_sha256']:bad.append(title);return
+  f=pathlib.Path(m['read_file']);f.parent.mkdir(parents=True,exist_ok=True)
+  with gzip.open(f,'wt',encoding='utf-8',compresslevel=6) as out:json.dump({'metadata':m,'text':chosen},out,ensure_ascii=False)
+  ok.append(title)
+ stream(wiki,visit)
+ print(json.dumps({'wiki':wiki,'restored':len(ok),'expected':len(want),'hash_mismatch':bad,'missing':sorted(set(want)-set(ok)-set(bad))},ensure_ascii=False))
+if __name__=='__main__' and sys.argv[1]=='restore':restore(sys.argv[2])

@@ -38,7 +38,12 @@ the UI design owner supplies [task-specific gates](docs/THEMATIC_UI_AND_INFORMAT
 
 **Canon-first world order (2026-10-13):** Harry Potter, D&D and the book worlds
 (A Soldier's Life, TTKS, Mother of Learning, then LOTM/Circle of Inevitability,
-Shadow Slave and other book worlds by source coverage) come first for canon play,
+Shadow Slave and other book worlds by source coverage) come first for canon play.
+Anime/manga worlds joined that tier on 2026-10-13, led by JJK, Bleach and Fate,
+then others with deep rule-based systems and well-documented canon (HxH, FMA,
+Naruto and similar, by source coverage), plus similar story sources. Fallout,
+Skyrim and Elden Ring are deprioritized: their existing work stays but is not
+active, and their paused dump queues stay paused. The tier comes
 with easy parallel/AU variants, including relationship and start-point AUs, that
 reuse existing content and seams. Order, not scope. Direction in [User vision](docs/USER_VISION.md#world-depth-and-canon-first-world-priority-2026-10-13);
 proposals in [World depth considerations](docs/worlds/WORLD_DEPTH_CONSIDERATIONS_2026-10-13.md).
