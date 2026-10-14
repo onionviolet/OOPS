@@ -1397,3 +1397,18 @@ How "every little detail" stays wanted without becoming noise or debt.
 2. Book IO5 into the next integration window now that U04 is merged (F22).
 3. Run W19 consolidation as soon as the remaining five lanes finish, then
    record the first readiness trend (RA7).
+
+### Final lane returns (F27-F31, added 2026-10-14)
+
+All design lanes W1-W18 and W20 have finished; W19 consolidation is launched.
+
+| Code | Finding | Lane |
+|---|---|---|
+| F27 | **Signals start from one qualified canon slice:** bind five KS cues and two hub acts to its event IDs (HP supply and intake, or a selected MoL month). Review cause, recipient, clock, expiry and leak risk together for every promoted cue. Preview one calm, storm, relief interval with a worker and a specialist observer; preparing helps modestly, skipping stays viable. | W12 A1-A3 |
+| F28 | **First comic exercise: Worm's existing finite commission (ER02)** with one ordinary craft or support start, six local contacts and three crisis consequences bound to chapters. Operative power, institutional assessment and persona exposure need three different records. Retcon (a mutation) must stay separate from a read-only lens. | W16 A1-A3 |
+| F29 | **Lens proof = one observation interface, two readers:** status self-facts and item-quality appraisal, after the status window hardening gate. Lens pairs should answer different questions (missing signal versus bad measurement). Being read should leave readable traces with one helpful appraiser and one bounded investigator. | W17 S1-S3 |
+| F30 | **Define AX6 observation and AX15 receipts with separate trusted execution and observer reads,** then wrap the MoL and Paradise attributed reports as the first consumers. Defer durable Persona and runtime Overlay until two chosen floors need them. | W18 S1-S3 |
+| F31 | **Paper-test the PowerCore on bending** (tired earthbender, missing material, nonbender theory, Avatar access) to separate source, aptitude, resource and proficiency before any runtime slice. Candidate director review: Avatar quarry lesson plus Editor's note, or Worm commission plus a gutter ledger. | W20 G1-G3 |
+
+Convergence: W13, W17 and W18 all point at one observation-and-receipt
+interface as the shared next abstraction (round 6 suggestion 1 confirmed).
