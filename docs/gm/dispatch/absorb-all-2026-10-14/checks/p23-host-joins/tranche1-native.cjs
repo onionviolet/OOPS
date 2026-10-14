@@ -1,8 +1,19 @@
+// Each invocation owns a fresh browser context and a unique evidence directory.
+// Committed fixtures are immutable prerequisites, never another check's output.
+const __p00Fs = require('fs'), __p00Path = require('path');
+if (!process.env.URL) throw new Error('Set URL to the served native build origin.');
+const __p00Base = new URL(process.env.URL);
+if (!/^https?:$/.test(__p00Base.protocol)) throw new Error('URL must use HTTP or HTTPS.');
+const __p00URL = __p00Base.href.replace(/\/?$/, '/');
+const fixtureDir = __p00Path.join(__dirname, 'fixtures');
+const __p00ProofRoot = process.env.YAIRPG_PROOF_DIR || require('os').tmpdir();
+__p00Fs.mkdirSync(__p00ProofRoot, {recursive: true});
+const __p00OutputDir = __p00Fs.mkdtempSync(__p00Path.join(__p00ProofRoot, __p00Path.basename(__filename, '.cjs') + '-'));
 const fs=require('fs'),path=require('path'),assert=require('assert/strict'),crypto=require('crypto');
 const {chromium}=require('/Users/weiwei/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright');
 const R=require(path.resolve('docs/gm/dispatch/vivid-proto23-flow-2026-10-13/checks/routes.cjs'));
-const base='http://127.0.0.1:18834/',out=__dirname,finish=process.argv.includes('--finish-controls'),resume=process.argv.includes('--resume')||finish,results=resume?JSON.parse(fs.readFileSync(path.join(__dirname,'tranche1-native-failure.json'))).results:[];
-const resumeCheckpoint=finish?JSON.parse(fs.readFileSync(path.join(__dirname,'tranche1-working.json'),'utf8')):resume?JSON.parse(Buffer.from(fs.readFileSync(path.join(__dirname,'tranche1-settled.save.txt'),'utf8').replace(/^YAIR-UTF8-1:/,''),'base64').toString('utf8')):null;
+const base=__p00URL,out=__p00OutputDir,finish=process.argv.includes('--finish-controls'),resume=process.argv.includes('--resume')||finish,results=resume?JSON.parse(fs.readFileSync(path.join(fixtureDir,'tranche1-native-failure.json'))).results:[];
+const resumeCheckpoint=finish?JSON.parse(fs.readFileSync(path.join(fixtureDir,'tranche1-working.json'),'utf8')):resume?JSON.parse(Buffer.from(fs.readFileSync(path.join(fixtureDir,'tranche1-settled.save.txt'),'utf8').replace(/^YAIR-UTF8-1:/,''),'base64').toString('utf8')):null;
 const hash=x=>crypto.createHash('sha256').update(x).digest('hex');
 (async()=>{const browser=await chromium.launch({channel:'chrome',headless:true});
 const ctx=await browser.newContext({viewport:{width:1366,height:768},acceptDownloads:true});const p=await ctx.newPage();p.setDefaultTimeout(12000);const errors=[];p.on('pageerror',e=>errors.push(e.message));p.on('console',m=>{if(m.type()==='error')console.log('browser-error',m.text().slice(0,400));});

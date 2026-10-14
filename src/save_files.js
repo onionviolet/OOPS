@@ -1,3 +1,5 @@
+import {validateKnownDetailEnvelope} from './absorb_p23/host_joins/known_detail.js';
+import {validateLongLifeEnvelope} from './absorb_p23/host_joins/long_life.js';
 import {validateTrancheThreeEnvelope} from './absorb_p23/host_joins/tranche_three.js';
 import {validateTrancheOneEnvelope} from './absorb_p23/host_joins/tranche_one.js';
 import {validateTrancheTwoEnvelope} from './absorb_p23/host_joins/tranche_two.js';
@@ -48,6 +50,7 @@ const number = (value, label, minimum = 0) => {
 
 export function validateSaveEnvelope(original, currentVersion) {
     object(original, "Save");
+    validateKnownDetailEnvelope(original);
     validateTrancheOneEnvelope(original);
     validateTrancheTwoEnvelope(original);
     validateTrancheThreeEnvelope(original);

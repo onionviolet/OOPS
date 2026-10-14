@@ -523,10 +523,12 @@ class Combat {
 
                 log_message(target.name + " was defeated", "enemy_defeated");
 
+                let observedDrops;
                 if(!this.is_special_combat && fighter.tags.main_character && target.get_loot) {
                     add_xp_to_character(target.xp_value * target_count_xp_modifier, true);
 
                     let loot = target.get_loot({drop_chance_modifier: accessoryDropModifier(1/target_count**0.6667) * (this.encounterProfile?.dropChanceModifier ?? 1)});
+                    observedDrops=loot.map(row=>({item_id:row.item_id,count:row.count}));
                     if(loot.length > 0) {
                         process_current_loot({loot_list: loot, is_combat: true});
                         loot = loot.map(x => {return {item_key: item_templates[x.item_id].getInventoryKey(), count: x.count}});
@@ -534,7 +536,7 @@ class Combat {
                     }
                 }
                 
-                kill_target({fighter_index, target_index, is_target_an_attacker: !is_attacker});
+                kill_target({fighter_index, target_index, is_target_an_attacker: !is_attacker, observedDrops});
                 this.clearAttackLoop({fighter_index: target_index, is_attacker: !is_attacker});
             }
         } else {

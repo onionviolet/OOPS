@@ -1,6 +1,17 @@
+// Each invocation owns a fresh browser context and a unique evidence directory.
+// Committed fixtures are immutable prerequisites, never another check's output.
+const __p00Fs = require('fs'), __p00Path = require('path');
+if (!process.env.URL) throw new Error('Set URL to the served native build origin.');
+const __p00Base = new URL(process.env.URL);
+if (!/^https?:$/.test(__p00Base.protocol)) throw new Error('URL must use HTTP or HTTPS.');
+const __p00URL = __p00Base.href.replace(/\/?$/, '/');
+const fixtureDir = __p00Path.join(__dirname, 'fixtures');
+const __p00ProofRoot = process.env.YAIRPG_PROOF_DIR || require('os').tmpdir();
+__p00Fs.mkdirSync(__p00ProofRoot, {recursive: true});
+const __p00OutputDir = __p00Fs.mkdtempSync(__p00Path.join(__p00ProofRoot, __p00Path.basename(__filename, '.cjs') + '-'));
 const fs=require('fs'),crypto=require('crypto'),path=require('path');
 const {chromium}=require('/Users/weiwei/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright');
-const dir=__dirname,base='http://127.0.0.1:18834/';
+const dir=__p00OutputDir,base=__p00URL;
 const R=require(path.resolve('docs/gm/dispatch/vivid-proto23-flow-2026-10-13/checks/routes.cjs'));
 (async()=>{const b=await chromium.launch({channel:'chrome',headless:true});const c=await b.newContext({viewport:{width:1366,height:768},acceptDownloads:true});const p=await c.newPage();const errors=[];p.on('pageerror',e=>errors.push(e.message));
 try{

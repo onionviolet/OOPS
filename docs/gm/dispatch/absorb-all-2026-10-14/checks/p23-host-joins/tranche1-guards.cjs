@@ -1,6 +1,17 @@
+// Each invocation owns a fresh browser context and a unique evidence directory.
+// Committed fixtures are immutable prerequisites, never another check's output.
+const __p00Fs = require('fs'), __p00Path = require('path');
+if (!process.env.URL) throw new Error('Set URL to the served native build origin.');
+const __p00Base = new URL(process.env.URL);
+if (!/^https?:$/.test(__p00Base.protocol)) throw new Error('URL must use HTTP or HTTPS.');
+const __p00URL = __p00Base.href.replace(/\/?$/, '/');
+const fixtureDir = __p00Path.join(__dirname, 'fixtures');
+const __p00ProofRoot = process.env.YAIRPG_PROOF_DIR || require('os').tmpdir();
+__p00Fs.mkdirSync(__p00ProofRoot, {recursive: true});
+const __p00OutputDir = __p00Fs.mkdtempSync(__p00Path.join(__p00ProofRoot, __p00Path.basename(__filename, '.cjs') + '-'));
 const fs=require('fs'),path=require('path'),assert=require('assert/strict'),crypto=require('crypto');
 const {chromium}=require('/Users/weiwei/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright');
-const base='http://127.0.0.1:18834/',dir=__dirname,checkpoint=JSON.parse(fs.readFileSync(path.join(__dirname,'tranche1-prelight.json'))),gates=[];
+const base=__p00URL,dir=__p00OutputDir,checkpoint=JSON.parse(fs.readFileSync(path.join(fixtureDir,'tranche1-prelight.json'))),gates=[];
 (async()=>{const b=await chromium.launch({channel:'chrome',headless:true});const c=await b.newContext({viewport:{width:1366,height:768}});const p=await c.newPage();const errors=[];p.on('pageerror',e=>errors.push(e.message));
 const save=async page=>{await page.locator('#save_button').click();return page.evaluate(()=>JSON.parse(localStorage.getItem('save data')));};
 const open=async fixture=>{await p.goto(base+'style.css');await p.evaluate(x=>{localStorage.setItem('save data',JSON.stringify(x));},fixture);await p.goto(base);await p.locator('#loading_screen_play_button:not(.none_display)').click();await p.waitForFunction(()=>document.getElementById('p23_household_panel'));};

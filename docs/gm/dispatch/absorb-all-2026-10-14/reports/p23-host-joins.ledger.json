@@ -140,13 +140,7 @@
     "bundleSha256": "2ff397f1a6cd86eacf4f10e173e8bd49eae71e3572e779fddaf40eeea2126eeb",
     "pageErrors": []
   },
-  "blocker": {
-    "id": "Q2",
-    "type": "save-format/boot authority decision",
-    "proposal": "checks/p23-host-joins/P15_SAVE_AUTHORITY_PROPOSAL.md",
-    "status": "coordinator answer pending",
-    "runtime_implementation": false
-  },
+  "blocker": null,
   "persistent_families": {
     "p23_exposure": "native pending/settled/full-envelope restore passed",
     "household": "native pending/settled/full-envelope restore passed"
@@ -169,6 +163,24 @@
     "N29_offline": "out of scope"
   },
   "next_tranche": 4,
-  "next_scope": "field/market/leisure/repeat-search, then detail/adaptation/P01/P16 and remaining growth, main merge/full gate, P15 last",
-  "p18_question": "No authored150000 earned event. Nonblocking original paid study assessment versus reading-only/OPEN native gate question pending."
+  "next_scope": "step2 field/market/leisure/search; step3 adaptation/encounters/growth; main merge; P15; final full/native gate",
+  "p18_question": "answered resume4: future native earned local skill XP, optional counter/no backfill, labelled150000 proposal threshold",
+  "gate_policy": "resume5: build+focused per step; one full/native gate after all steps, current main merge, P15 last",
+  "steps": [
+    {
+      "step": 1,
+      "scope": [
+        "p23-long-life",
+        "p23-known-detail"
+      ],
+      "build": "PASS",
+      "focused": {
+        "tests": 24,
+        "pass": 24,
+        "fail": 0
+      },
+      "native": "OPEN final gate",
+      "merge_ready": false
+    }
+  ]
 }

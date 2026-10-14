@@ -1,0 +1,154 @@
+TAP version 13
+# Subtest: legacy absence preserves the envelope; invalid optional schemas reject without mutation
+ok 1 - legacy absence preserves the envelope; invalid optional schemas reject without mutation
+  ---
+  duration_ms: 1.007583
+  type: 'test'
+  ...
+# Subtest: actual loot associates only its own creature and cannot exceed native settlement history
+ok 2 - actual loot associates only its own creature and cannot exceed native settlement history
+  ---
+  duration_ms: 1.090542
+  type: 'test'
+  ...
+# Subtest: recognition stages settled native home and purchase counters without publishing titles
+ok 3 - recognition stages settled native home and purchase counters without publishing titles
+  ---
+  duration_ms: 0.766125
+  type: 'test'
+  ...
+# Subtest: repeat finished anthology does not invent another completed book
+ok 4 - repeat finished anthology does not invent another completed book
+  ---
+  duration_ms: 0.698291
+  type: 'test'
+  ...
+# Subtest: optional worn state stays absent and rejects invalid selections in envelope preflight
+ok 5 - optional worn state stays absent and rejects invalid selections in envelope preflight
+  ---
+  duration_ms: 0.162917
+  type: 'test'
+  ...
+# Subtest: binding, rebind, use and unbind retain the exact owned identity
+ok 6 - binding, rebind, use and unbind retain the exact owned identity
+  ---
+  duration_ms: 1.921333
+  type: 'test'
+  ...
+# Subtest: typing, composition, held keys, modifiers and handled events cannot fire
+ok 7 - typing, composition, held keys, modifiers and handled events cannot fire
+  ---
+  duration_ms: 0.246417
+  type: 'test'
+  ...
+# Subtest: lost custody, hidden and stale items never substitute a spare or mutate
+ok 8 - lost custody, hidden and stale items never substitute a spare or mutate
+  ---
+  duration_ms: 0.2685
+  type: 'test'
+  ...
+# Subtest: conflicting keys, duplicate identity, invalid schema and reserved keys reject
+ok 9 - conflicting keys, duplicate identity, invalid schema and reserved keys reject
+  ---
+  duration_ms: 0.423167
+  type: 'test'
+  ...
+# Subtest: number formatting preserves exact values and rarity never derives from mastery
+ok 10 - number formatting preserves exact values and rarity never derives from mastery
+  ---
+  duration_ms: 9.010083
+  type: 'test'
+  ...
+# Subtest: known chains reuse native preview gates and do not create hidden descendants
+ok 11 - known chains reuse native preview gates and do not create hidden descendants
+  ---
+  duration_ms: 0.163625
+  type: 'test'
+  ...
+# Subtest: drop details require creature-specific player observation; private odds stay absent
+ok 12 - drop details require creature-specific player observation; private odds stay absent
+  ---
+  duration_ms: 0.091917
+  type: 'test'
+  ...
+# Subtest: optional settings snapshot validates before mutation and preserves local keys
+ok 13 - optional settings snapshot validates before mutation and preserves local keys
+  ---
+  duration_ms: 1.274917
+  type: 'test'
+  ...
+# Subtest: actual drop associations settle once per native kill and continue on later kills
+ok 14 - actual drop associations settle once per native kill and continue on later kills
+  ---
+  duration_ms: 0.788459
+  type: 'test'
+  ...
+# Subtest: readiness uses the actual skill presenter and native preview without restating gates
+ok 15 - readiness uses the actual skill presenter and native preview without restating gates
+  ---
+  duration_ms: 268.486584
+  type: 'test'
+  ...
+# Subtest: earned domestic counters cross thresholds without capping repeat progression
+ok 16 - earned domestic counters cross thresholds without capping repeat progression
+  ---
+  duration_ms: 1.126084
+  type: 'test'
+  ...
+# Subtest: missing counters do not invent domestic history or expose unavailable goals
+ok 17 - missing counters do not invent domestic history or expose unavailable goals
+  ---
+  duration_ms: 0.4205
+  type: 'test'
+  ...
+# Subtest: odd settled outcome is one recognition, not a restriction on subsequent fights
+ok 18 - odd settled outcome is one recognition, not a restriction on subsequent fights
+  ---
+  duration_ms: 0.154333
+  type: 'test'
+  ...
+# Subtest: every old bonus is preserved verbatim, including worn mode
+ok 19 - every old bonus is preserved verbatim, including worn mode
+  ---
+  duration_ms: 0.31525
+  type: 'test'
+  ...
+# Subtest: worn payoff is optional, additive, collection derived and stable through serialization
+ok 20 - worn payoff is optional, additive, collection derived and stable through serialization
+  ---
+  duration_ms: 0.230917
+  type: 'test'
+  ...
+# Subtest: optional state preflight rejects unsupported schema/unheld/invalid selection without mutation
+ok 21 - optional state preflight rejects unsupported schema/unheld/invalid selection without mutation
+  ---
+  duration_ms: 0.143041
+  type: 'test'
+  ...
+# Subtest: training registration preflights conflicts and preserves unrelated milestone data
+ok 22 - training registration preflights conflicts and preserves unrelated milestone data
+  ---
+  duration_ms: 0.147417
+  type: 'test'
+  ...
+# Subtest: training projection names only known skills and never settles XP
+ok 23 - training projection names only known skills and never settles XP
+  ---
+  duration_ms: 0.072167
+  type: 'test'
+  ...
+# Subtest: native milestone awards once, repeat training progresses, XP reconstruction restores exact rate
+ok 24 - native milestone awards once, repeat training progresses, XP reconstruction restores exact rate
+  ---
+  duration_ms: 49.492916
+  type: 'test'
+  ...
+1..24
+# tests 24
+# suites 0
+# pass 24
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 336.156334

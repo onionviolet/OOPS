@@ -1,3 +1,6 @@
+import {stageTitleRecognition} from './absorb_p23/host_joins/long_life.js';
+import {installTrainingLink,trainingView} from './absorb_p23/long_life/training.js';
+import {validateWornTitle,selectWornTitle,wornTitleView,longLifeTitleBonuses} from './absorb_p23/long_life/worn.js';
 import {ANTHOLOGY,ANTHOLOGY_KEY,REST_MEAL,REST_KEY,REGISTRATIONS} from './absorb_p23/reading/content.js';
 import {planReadingCommand,observeReadingClock,longRestClockRequest} from './absorb_p23/reading/runtime.js';
 import {readingPresentation} from './absorb_p23/reading/presentation.js';
@@ -28,7 +31,14 @@ import {stageMixtureAction,commitMixturePlan} from './mixture_native.js';
 import {createMixturePanel} from './mixture_ui.js';
 import {createStoryletPanel} from './storylet_ui.js';
 import {HERB_LESSON,heldLesson,bindAcquisitionLesson,bindDenominationKnowledge,createPracticePanel,openingAllows,stageRevealKnowledge} from './reveal_chain.js';
-import {getDisplaySetting,subscribeDisplaySettings} from './display_settings.js';
+import {getDisplaySetting,subscribeDisplaySettings,DISPLAY_KEY,exportDisplayPreferences,adoptDisplayPreferences} from './display_settings.js';
+import {settleObservedDrops,validateDropObservations} from './absorb_p23/known_detail/observations.js';
+import {mountKnownMethodChains,mountKnownNumber,formatKnownNumber} from './absorb_p23/known_detail/presentation.js';
+import {createKnownItemHotkeys,mountKnownItemBinding,mountKnownItemHotkeyList} from './absorb_p23/known_detail/hotkeys.js';
+import {skillExpansionPresentation} from './skill_expansion_host.js';
+import {setNativeObservedDropReader} from './display.js';
+let p23DropObservations,loadedDisplayPreferences;
+
 import {beginNativeCraftTransaction,nativeCraftQuestOwners} from './native_craft_transaction.js';
 import {worldCompletionSavedNativeItem} from './world_completion_native.js';
 import {createFoundationInteractionPanel} from './foundation_interaction_ui.js';
@@ -186,6 +196,7 @@ import { Amulet, Weapon, WeaponComponent, Book, BookData, OtherItem, Armor, item
 import { loot_sold_count, market_region_mapping, recover_item_prices, trickle_market_saturations, set_loot_sold_count, capped_at } from "./market_saturation.js";
 import { locations, favourite_locations, location_types } from "./data/locations.js";
 import { skills } from "./data/skills.js";
+installTrainingLink(skills);
 import { which_skills_affect_skill } from "./models/skill.js";
 import { Enemy, enemy_killcount, enemy_templates, tags_for_droprate_modifier_skills } from "./enemies.js";
 import { is_in_trade, start_trade, cancel_trade, accept_trade, exit_trade,
@@ -1098,6 +1109,7 @@ function persistExpansion(plan, ownershipBindings = {}, itemsByOwner = {}) {
     const localFrame=localLifeContext(plan.calendar||current_game_time,plan.state,plan.nativeLocation||current_location?.id);
     if(!restoringNativeSave&&!plan.localLifeResult&&localFrame.clock>(localLife.lastClock??localFrame.clock))
         stageLocalLifeResult(plan,advanceSavedLocalLife(plan.state,localFrame));
+    stageTitleRecognition(plan,{titles:character.titles,counters:readTitleCounters(),calendar:current_game_time,anthologyFinished:item_templates[ANTHOLOGY].isFinished()});
     // Played-time settlements may retain their original job sequence. Opted-in
     // characters give this committed boundary a fresh nonce before recognition.
     if(plan.state.referenceGameplay && expansionState.referenceGameplay && plan.state.sequence===expansionState.sequence && plan.state.clock>expansionState.clock)plan.state.sequence++;
@@ -1233,6 +1245,9 @@ function persistExpansion(plan, ownershipBindings = {}, itemsByOwner = {}) {
     if(plan.nativePatch?.p23_living_gear)p23LivingGear=structuredClone(plan.nativePatch.p23_living_gear);
     if(plan.nativePatch?.equipment_durability)durability.load(plan.nativePatch.equipment_durability);
     if(plan.nativePatch?.p23_salvage)p23Salvage=loadSalvage(plan.nativePatch.p23_salvage);
+    if(plan.nativePatch?.['character/titles'])character.titles=structuredClone(plan.nativePatch['character/titles']);
+    if(plan.nativePatch?.['character/long_life_worn'])character.long_life_worn=validateWornTitle(plan.nativePatch['character/long_life_worn'],character.titles);
+    if(plan.nativePatch?.['character/titles'] || plan.nativePatch?.['character/long_life_worn'])character.setTitleBonus(longLifeTitleBonuses(character.titles,character.long_life_worn));
     publishStudy(plan);
     if(plan.absorbPublish)plan.absorbPublish();
     publication.publish();
@@ -1288,6 +1303,8 @@ function persistExpansion(plan, ownershipBindings = {}, itemsByOwner = {}) {
         knownRoutesPanel?.render();adventureNotebook?.render();livingGearPanel?.render();combatOptionsPanel?.render();localLifePanel?.render();practicePanel?.render();updateWorkspace();fortControls?.render();pacingPanel?.render();pacingStatusPanel?.render();durabilityPanel?.render();elementalPanel?.render();livingGearPanel?.render();combatOptionsPanel?.render();householdPanel?.render();
         expansionQuests?.render();
         characterBio?.render();
+        titlesPanel?.render();
+        if(plan.p00EarnedTitles){for(const id of plan.p00EarnedTitles)log_message(`Title earned: ${title_by_id[id].name}. ${title_by_id[id].text}`,'level_up');titlesPanel?.announce(plan.p00EarnedTitles);}
         worldEventFeed?.render();
     } catch(error) {console.error("Saved expedition display could not refresh; reload to restore it.", error);}
 }
@@ -3997,7 +4014,7 @@ function set_new_combat({enemies} = {}) {
     enemies ||= current_location.get_next_enemies();
     if(!savedEncounter&&p23CombatOptions?.phase==='escaped')p23CombatOptions={...p23CombatOptions,phase:'active'};
 
-    current_combat = new Combat({attackers: [character], defenders: enemies, savedEncounter,nativeExchangeHost:p23LivingGear===undefined&&p23CombatOptions===undefined?undefined:runP23CombatExchange,combatOptions:p23CombatOptions===undefined?undefined:combatRuntime(),nextCombatEvent:()=>{const n=current_combat.combatOptions.snapshot().lastEvent;if(n>=Number.MAX_SAFE_INTEGER)throw Error('Combat event cursor exhausted.');return n+1;}});
+    current_combat = new Combat({attackers: [character], defenders: enemies, savedEncounter,nativeExchangeHost:runP23CombatExchange,combatOptions:p23CombatOptions===undefined?undefined:combatRuntime(),nextCombatEvent:()=>{const n=current_combat.combatOptions.snapshot().lastEvent;if(n>=Number.MAX_SAFE_INTEGER)throw Error('Combat event cursor exhausted.');return n+1;}});
     // A durable technique observation can occur after the last kill but before
     // the zone clear. Resume that boundary without awarding the kill twice.
     if(savedEncounter && p23CombatOptions&&['exchange-break','encounter-break'].includes(p23CombatOptions.phase)){current_combat.showPausedCombatOptions();combatOptionsPanel?.render();return;}
@@ -4075,7 +4092,7 @@ function runP23CombatExchange(combat,resolve) {
         validateCombatOptions(combat.combatOptions?.snapshot());if(p23LivingGear!==undefined)createLivingGear(p23LivingGear);
         transaction=beginNativeCraftTransaction({owners:[expansionState,character,character.getItems(),character.getLevelableComponent(),character.getEquipment(),character.getBioComponent(),...combat.defenders,...combat.defenders.map(enemy=>enemy.getLevelableComponent()),item_log,game_stats,global_flags,availabilities,enemy_killcount,favourite_consumables,favourite_items,favourite_locations,
             ...Object.values(skills).map(skill=>skill.getAvailabilityComponent()),which_skills_affect_skill,active_effects,...nativeCraftQuestOwners(quests,active_quests)],
-            bindings:[{get:()=>expansionState,set:v=>{expansionState=v;}},{get:()=>p23LivingGear,set:v=>{p23LivingGear=v;}},{get:()=>p23CombatOptions,set:v=>{p23CombatOptions=v;}},{get:()=>current_combat,set:v=>{current_combat=v;}},{get:()=>current_location,set:v=>{current_location=v;}},{get:()=>pathfinder,set:v=>{pathfinder=v;}},{get:()=>travel_times,set:v=>{travel_times=v;}}]});
+            bindings:[{get:()=>p23DropObservations,set:v=>{p23DropObservations=v;}},{get:()=>expansionState,set:v=>{expansionState=v;}},{get:()=>p23LivingGear,set:v=>{p23LivingGear=v;}},{get:()=>p23CombatOptions,set:v=>{p23CombatOptions=v;}},{get:()=>current_combat,set:v=>{current_combat=v;}},{get:()=>current_location,set:v=>{current_location=v;}},{get:()=>pathfinder,set:v=>{pathfinder=v;}},{get:()=>travel_times,set:v=>{travel_times=v;}}]});
         scope={transaction,messages:[]};nativeP23Scope=scope;nativeCraftScopes.push(scope);
         nativeP23Transaction=transaction;nativeLivingStrike=true;result=resolve();
         if(combat.combatOptions)p23CombatOptions=combat.combatOptions.snapshot();
@@ -4147,7 +4164,7 @@ function finish_combat_round(was_special_combat) {
  * @param {Enemy} enemy 
  * @return {Boolean} if that was the last of an enemy group
  */
-function kill_target({target_index, fighter_index, is_target_an_attacker, do_quest_events = true, is_special_combat}) {
+function kill_target({target_index, fighter_index, is_target_an_attacker, do_quest_events = true, is_special_combat, observedDrops}) {
     //target is the one getting killed, fighter is the one attacking the target
     const target = is_target_an_attacker ? current_combat.attackers[target_index] : current_combat.defenders[target_index];
     const fighter = is_target_an_attacker ? current_combat.defenders[fighter_index] : current_combat.attackers[fighter_index];
@@ -4173,6 +4190,10 @@ function kill_target({target_index, fighter_index, is_target_an_attacker, do_que
             enemy_killcount[target.name] = 1;
             if(nativeP23Scope)(nativeP23Scope.bestiary ||= []).push({id:target.name,existing:false});else create_new_bestiary_entry(target.name);
         }
+    }
+
+    if(fighter.tags.main_character && !is_special_combat && target.add_to_bestiary && Array.isArray(observedDrops)) {
+        p23DropObservations=settleObservedDrops(p23DropObservations,{recipientId:'player',creatureId:target.name,killOrdinal:enemy_killcount[target.name],drops:observedDrops.map(row=>({itemId:row.item_id,count:row.count}))}).state;
     }
 
     if(fighter.tags.main_character && do_quest_events && !is_special_combat) {
@@ -5119,6 +5140,65 @@ function switch_action_box_content() {
     }
 }
 
+// Item bindings use the full native inventory key. Canonical equipment must
+// acquire one durable E2 identity before it can be bound.
+function knownItemHotkeyRows(){
+    const free=workLedgerCanWrite()&&character.is_alive&&!nativeActionReasons(expansionState).length&&!current_combat&&!current_dialogue&&!current_activity&&!current_game_action&&!is_sleeping&&!is_reading&&!is_in_trade();
+    const items=Object.entries(character.getItems()).flatMap(([id,row])=>{
+        if(row.count<1||!item_log.is_known(row.item.id))return [];
+        const equip=row.item.tags.equippable===true,usable=row.item.tags.usable===true;
+        if(!usable&&!(equip&&JSON.parse(id).e2_instance))return [];
+        let eligible=free;
+        try{assertNativeItemDisposition(expansionState,id);assertNativeItemDisposition(expansionState,canonicalDurabilityKey(id));}catch{eligible=false;}
+        if(usable&&!equip&&row.item.id!==MIXTURE_ID){const nourishment=prepareFood(getPacingState(),row.item,homePacingContext());eligible=eligible&&(nourishment.restored>0||(row.item.effects||[]).some(effect=>!active_effects[effect.effect]||active_effects[effect.effect].duration<effect.duration));}
+        return [{id,label:row.item.getName(),known:true,owned:true,eligible,action:equip?'equip':'use',inputFingerprint:JSON.stringify({id,count:row.count,equipment:readNativeEquipment({player:character}).player,effects:active_effects,pacing:getPacingState(),clock:expansionState.clock,world:expansionState.actors.player.worldId,location:current_location?.id,body:expansionState.actors.player,stats:character.getFullStats(),money:character.money})}];
+    });return {canWrite:free,items};
+}
+function identifyKnownHotkeyCopy(key){
+    if(!knownItemHotkeyRows().canWrite)throw Error('Finish current work before identifying a copy.');
+    const row=character.getItems()[key];if(!row?.item.tags.equippable||JSON.parse(key).e2_instance)throw Error('Choose an unidentified equipment copy.');
+    assertNativeItemDisposition(expansionState,key);const wear=createDurability(durability.serialize()),copy=wear.prepareEquip(row.item,getItemFromKey,{requireIdentity:true}),next=gameplaySnapshot();
+    applyGameplayEffect(next,{type:'item',key,amount:1},'player',true);applyGameplayEffect(next,{type:'item',key:copy.getInventoryKey(),amount:1},'player');
+    persistExpansion({state:structuredClone(expansionState),gameplay:next,external:{money:character.money},nativePatch:{equipment_durability:wear.serialize()}});
+}
+function commitKnownItemHotkey(request){
+    const row=knownItemHotkeyRows().items.find(row=>row.id===request.id);
+    if(!row?.eligible||row.action!==request.action||row.inputFingerprint!==request.inputFingerprint)throw Error('The item or native inputs changed. Review it again.');
+    if(request.action==='equip'){
+        const item=character.getItems()[request.id].item;
+        if(livingGearKind(item)){character_equip_item(request.id);if(character.getEquipment()[item.equip_slot]?.getInventoryKey()!==request.id)throw Error('Equip was not accepted.');return;}
+        const equipment=readNativeEquipment({player:character}).player,previous=equipment[item.equip_slot],next=gameplaySnapshot();
+        if(previous){assertNativeItemDisposition(expansionState,previous);assertNativeItemDisposition(expansionState,canonicalDurabilityKey(previous));applyGameplayEffect(next,{type:'item',key:previous,amount:1},'player');}
+        applyGameplayEffect(next,{type:'item',key:request.id,amount:1},'player',true);
+        persistExpansion({state:structuredClone(expansionState),gameplay:next,external:{money:character.money},equipment:{player:{...equipment,[item.equip_slot]:request.id}}});return;
+    }
+    if(character.getItems()[request.id].item.id===MIXTURE_ID){performMixtureAction({type:'use',key:request.id});return;}
+    const wear=durability.serialize(),before=character.getItems()[request.id].count;
+    const transaction=beginNativeCraftTransaction({owners:[character,character.getItems(),character.getLevelableComponent(),character.getEquipment(),character.getBioComponent(),item_log,game_stats,active_effects,expansionState,...Object.values(skills).map(skill=>skill.getAvailabilityComponent()),which_skills_affect_skill],bindings:[{get:()=>expansionState,set:v=>{expansionState=v;}},{get:()=>getPacingState(),set:setPacingState}]});
+    const scope={transaction,messages:[]};nativeP23Scope=scope;nativeP23Transaction=transaction;nativeCraftScopes.push(scope);
+    try{
+        use_item(request.id);
+        if((character.getItems()[request.id]?.count||0)!==before-1)throw Error('The native use action was not accepted.');
+        const serialized=create_save();if(!serialized)throw Error('The item action could not be saved.');validateSaveEnvelope(JSON.parse(serialized),game_version);
+        lifeSaveStorage.setItem(is_on_dev()?dev_save_key:save_key,serialized,()=>transaction.markDurable());
+    }catch(error){if(transaction.status==='pending'){transaction.rollback();durability.load(wear);character.addActiveEffectBonus(active_effects);character.updateStatsAndDisplay();update_displayed_character_inventory();update_displayed_effects();for(const skill of Object.values(skills))update_displayed_skill_bar(skill);}throw error;}
+    finally{nativeP23Scope=null;nativeP23Transaction=null;nativeCraftScopes.pop();if(transaction.status==='durable'){for(const args of scope.messages)log_message(...args);for(const event of scope.discoveries||[])nativeDiscoveryFeedback?.publish(event);}}
+}
+function installKnownItemHotkeys(){
+    const controller=createKnownItemHotkeys({read:knownItemHotkeyRows,reserved:['s'],notice:text=>log_message(text,'notification'),preflight:request=>{const row=knownItemHotkeyRows().items.find(row=>row.id===request.id);return {eligible:row?.eligible===true&&row.action===request.action&&row.inputFingerprint===request.inputFingerprint,command:request};},command:commitKnownItemHotkey});
+    const list=mountKnownItemHotkeyList(document.getElementById('character_bio_div'),controller),rows=new WeakMap();
+    const refresh=()=>{
+        for(const host of document.querySelectorAll('#inventory_content_div [data-character_item]')){
+            const key=host.dataset.character_item,row=character.getItems()[key];if(!row||!item_log.is_known(row.item.id))continue;
+            const mounted=rows.get(host);if(mounted?.key===key){mounted.binding?.render();continue;}if(mounted){mounted.holder.remove();rows.delete(host);}
+            const holder=document.createElement('div');holder.className='known-item-binding';holder.addEventListener('click',event=>event.stopPropagation());holder.addEventListener('submit',event=>event.stopPropagation());
+            if(row.item.tags.equippable&&!JSON.parse(key).e2_instance){const button=document.createElement('button');button.type='button';button.textContent='Identify this copy for a hotkey';button.addEventListener('click',()=>{try{identifyKnownHotkeyCopy(key);}catch(error){log_message(error.message,'notification');}});holder.append(button);rows.set(host,{key,holder,binding:null});}
+            else if(row.item.tags.usable||row.item.tags.equippable)rows.set(host,{key,holder,binding:mountKnownItemBinding(holder,key,controller)});else {rows.set(host,{key,holder,binding:null});continue;}
+            host.append(holder);
+        }list.render();
+    };const observer=new MutationObserver(refresh);observer.observe(document.getElementById('inventory_content_div'),{childList:true,subtree:true});refresh();
+}
+
 function character_equip_item(item_key) {
     const reasons = nativeActionReasons(expansionState);
     if(reasons.length) {log_message(reasons.join(" "),"notification");return;}
@@ -5480,6 +5560,7 @@ function create_save({forExport = false} = {}) {
                                 stamina_to_full: full_stats.max_stamina - full_stats.stamina,
                                 reputation: character.reputation,
                             };
+        if(character.long_life_worn!==undefined)save_data.character.long_life_worn=validateWornTitle(character.long_life_worn,character.titles);
         //stats don't get saved, they will be recalculated upon loading
 
         save_data.rain_counter = rain_counter;
@@ -5698,6 +5779,8 @@ function create_save({forExport = false} = {}) {
         if(household!==undefined)save_data.household=structuredClone(household);
         if(save_data.is_reading===ANTHOLOGY)delete save_data.is_reading;
         if(expansionState.p23Reading?.current?.kind==='rest')delete save_data.is_sleeping;
+        if(p23DropObservations!==undefined)save_data.p23_drop_observations=structuredClone(p23DropObservations);
+        if(loadedDisplayPreferences!==undefined || localStorage.getItem(DISPLAY_KEY)!==null)save_data.display_preferences=exportDisplayPreferences();
         if(p23Salvage!==undefined)save_data.p23_salvage=structuredClone(p23Salvage);
         if(p23LivingGear!==undefined)save_data.p23_living_gear=structuredClone(p23LivingGear);
         if(p23CombatOptions!==undefined)save_data.combatOptions=current_combat?.combatOptions?.snapshot()||structuredClone(p23CombatOptions);
@@ -5800,6 +5883,8 @@ function save_progress() {
     }
 }
 
+setNativeObservedDropReader(name=>Object.entries(p23DropObservations?.creatures?.[name]?.drops||{}).filter(([id])=>item_log.is_known(id)).map(([id,count])=>({label:item_templates[id].getName(),count})));
+
 //core function for loading
 function load(save_data) {
     nativeDiscoveryFeedback?.reset();titlesPanel?.resetFeedback();
@@ -5814,6 +5899,8 @@ function load(save_data) {
             syncAuthoredSite(save_data.content_packs?.authored?.draft??null);
             save_data = preparePackSave(save_data,packDefinitionsForSave());
             save_data = validateSaveEnvelope(save_data, game_version);
+            p23DropObservations=save_data.p23_drop_observations===undefined?undefined:validateDropObservations(save_data.p23_drop_observations);
+            loadedDisplayPreferences=save_data.display_preferences;
             setMixtureOwner(save_data.mixtures);
             cheatState=validateCheatState(save_data.cheats??defaultCheatState());
             optionalPackState=validatePackState(save_data.content_packs??emptyPackState());
@@ -5908,6 +5995,7 @@ function load(save_data) {
         name_field.value = save_data.character.name;
         character.name = save_data.character.name;
         character.titles = normalizeTitles(structuredClone(save_data.character.titles || {}));
+        character.long_life_worn=validateWornTitle(save_data.character.long_life_worn,character.titles);
         const bio = character.getBioComponent();
         Object.keys(bio).forEach(info => {
             bio[info] = save_data.character?.bio?.[info];
@@ -7580,6 +7668,9 @@ function load(save_data) {
         update_displayed_time();
         set_loading_screen_versions(save_data["game version"]);
         if(any_warnings) foundationSaveBlocked = true;
+        if(!any_warnings && !importProbeToken && save_data.display_preferences!==undefined) {
+            try {adoptDisplayPreferences(save_data.display_preferences);} catch(error) {log_message('Display preferences could not be adopted. '+error.message,'notification');}
+        }
         return {warnings: any_warnings};
     } catch(error) {
         foundationSaveBlocked = true;
@@ -8265,8 +8356,13 @@ function readTitleCounters() {
  * silent: back-fill on load, one summary line instead of one per title.
  */
 function refresh_titles({silent = false} = {}) {
+    if(!silent){
+        const plan=stageTitleRecognition({state:structuredClone(expansionState),external:{money:character.money},gameplay:gameplaySnapshot()},{titles:character.titles,counters:readTitleCounters(),calendar:current_game_time});
+        if(plan.p00EarnedTitles?.length)persistExpansion(plan);
+        return plan.p00EarnedTitles || [];
+    }
     const earned = grantEarnedTitles(character.titles, readTitleCounters(), titleCalendarMinute(current_game_time));
-    character.setTitleBonus(titleBonuses(character.titles));
+    character.setTitleBonus(longLifeTitleBonuses(character.titles,character.long_life_worn));
     if(!earned.length && !silent) return earned; // load (silent) always redraws: skill bars were built before the bonus existed
     if(silent) {
         if(earned.length) log_message(`Titles recognized from your past: ${earned.map(id => title_by_id[id].name).join(", ")}.`, "level_up");
@@ -8826,6 +8922,16 @@ if(!importProbeToken && !foundationSaveBlocked && !is_loading_error) {
     exchangePanel=createExchangePanel({registry:expeditionRegistry,read:()=>({...readProgression(),context:campaignContext(),inDialogue:!!current_dialogue,inCombat:!!current_combat,canWrite:ownsSave && !foundationSaveBlocked && !importProbeToken}),command:actExchange});
     observationPanel=createObservationPanel({registry:expeditionRegistry,read:()=>({...readProgression(),context:campaignContext(),inDialogue:!!current_dialogue,inCombat:!!current_combat,canWrite:ownsSave && !foundationSaveBlocked && !importProbeToken}),command:actObservation});
     skillExpansionPanel=createSkillExpansionPanel({registry:expeditionRegistry,read:()=>({...readProgression(),context:campaignContext(),inDialogue:!!current_dialogue,inCombat:!!current_combat,enabled:ownsSave&&!foundationSaveBlocked&&!importProbeToken}),command:actSkillExpansion});
+    installKnownItemHotkeys();
+    const knownMethods=mountKnownMethodChains(skillExpansionPanel.panel,()=>skillExpansionPresentation(expansionState,expeditionRegistry,campaignContext()));
+    const knownMinutesHost=document.createElement('section');knownMinutesHost.setAttribute('aria-label','Known played minutes');document.getElementById('character_bio_div').append(knownMinutesHost);
+    const knownLabel=document.createElement('span');knownLabel.textContent='Played minutes: ';knownMinutesHost.append(knownLabel);
+    const knownMinutes=mountKnownNumber(knownMinutesHost,expansionState.clock,getDisplaySetting('numberFormat'));
+    const renderKnownMinutes=()=>{const formatted=formatKnownNumber(expansionState.clock,getDisplaySetting('numberFormat')),summary=knownMinutes.element.querySelector('summary'),exact=knownMinutes.element.querySelector('p');
+        if(summary.textContent!==formatted.text)summary.textContent=formatted.text;summary.setAttribute('aria-label',`${formatted.text}; expand for exact value`);if(exact.textContent!==`Exact value: ${formatted.exact}`)exact.textContent=`Exact value: ${formatted.exact}`;};
+    subscribeDisplaySettings(renderKnownMinutes);renderKnownMinutes();
+    setInterval(()=>{knownMethods.render();renderKnownMinutes();},1000);
+
     featureExpansionPanel=createFeatureExpansionPanel({read:()=>({...readProgression(),context:featureWaveContext(),battleView:featureBattleHost.view(),battleRunning:featureBattleHost.isRunning(),notice:featureBattleHost.pauseReason(),canWrite:ownsSave&&!foundationSaveBlocked&&!importProbeToken}),command:actFeatureExpansion,present:snapshot=>refinementPresentation(snapshot,expeditionRegistry,{base:featureWavePresentation,relayHost,referenceDeskHost,replacementContext:backlogContext})});
     if(foundationProbeEnabled)foundationInteractionPanel=createFoundationInteractionPanel({registry:expeditionRegistry,enabled:true,read:()=>({state:expansionState,context:expeditionContext(),enabled:ownsSave&&!foundationSaveBlocked&&!importProbeToken&&!nativeOccupationReason(),error:expansionError}),command:actFoundationInteraction});
     managementPanel=createManagementPanel({registry:expeditionRegistry,read:()=>({...readProgression(),context:featureWaveContext(),inDialogue:!!current_dialogue,inCombat:!!current_combat,canWrite:ownsSave&&!foundationSaveBlocked&&!importProbeToken}),command:actManagement});
@@ -8931,7 +9037,7 @@ if(!importProbeToken && !foundationSaveBlocked && !is_loading_error) {
         const save=JSON.parse(serialized);save.npc_lives=createVillageLives(save['current time'].year,expansionState.rng);
         lifeSaveStorage.setItem(is_on_dev()?dev_save_key:save_key,JSON.stringify(save));
     }});
-    titlesPanel = createTitlesPanel({read: () => titleView(character.titles, readTitleCounters()),readSettings:()=>getCustomizationSettings(customization,'skills',{season:current_game_time.getSeason()})});
+    titlesPanel = createTitlesPanel({read: () => titleView(character.titles, readTitleCounters(),{knownOnly:true}),readWorn:()=>wornTitleView(character.titles,character.long_life_worn),readTraining:()=>trainingView(id=>({known:!!nativeSkillDiscovery(skills[id],character),level:character.getLevelableComponent().skill_progress[id]?.current_level || 0})),selectWorn:(id,enabled)=>{try{assertFeatureWriter();const next=selectWornTitle(character.titles,character.long_life_worn,id,enabled);persistExpansion({state:structuredClone(expansionState),external:{money:character.money},gameplay:gameplaySnapshot(),nativePatch:{'character/long_life_worn':next}});character.updateStatsAndDisplay();update_all_displayed_skills_xp_gain();}catch(error){log_message(error.message,'notification');}},readSettings:()=>getCustomizationSettings(customization,'skills',{season:current_game_time.getSeason()})});
     for(const id of ['Proto23 plain bed','Proto23 cottage hearth','Proto23 bookstand','Prepared survey kit']) {
         const bonus=furnitureItemBonusText(id);if(item_templates[id]&&bonus&&!item_templates[id].description.includes(bonus))item_templates[id].description+=' '+bonus;
     }

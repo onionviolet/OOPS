@@ -1,8 +1,19 @@
+// Each invocation owns a fresh browser context and a unique evidence directory.
+// Committed fixtures are immutable prerequisites, never another check's output.
+const __p00Fs = require('fs'), __p00Path = require('path');
+if (!process.env.URL) throw new Error('Set URL to the served native build origin.');
+const __p00Base = new URL(process.env.URL);
+if (!/^https?:$/.test(__p00Base.protocol)) throw new Error('URL must use HTTP or HTTPS.');
+const __p00URL = __p00Base.href.replace(/\/?$/, '/');
+const fixtureDir = __p00Path.join(__dirname, 'fixtures');
+const __p00ProofRoot = process.env.YAIRPG_PROOF_DIR || require('os').tmpdir();
+__p00Fs.mkdirSync(__p00ProofRoot, {recursive: true});
+const __p00OutputDir = __p00Fs.mkdtempSync(__p00Path.join(__p00ProofRoot, __p00Path.basename(__filename, '.cjs') + '-'));
 const fs=require('fs'),path=require('path'),assert=require('assert/strict'),crypto=require('crypto');const {chromium}=require('/Users/weiwei/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright');
-const dir=__dirname,base='http://127.0.0.1:18834/',gates=[];
-(async()=>{const b=await chromium.launch({channel:'chrome',headless:true}),c=await b.newContext({viewport:{width:1366,height:768}}),p=await c.newPage(),errors=[];p.on('pageerror',e=>errors.push(e.message));const loaded=[];p.on('response',r=>{if(r.status()>=200&&r.status()<300&&new URL(r.url()).pathname==='/dist/bundle.js')loaded.push(r.body().then(bytes=>crypto.createHash('sha256').update(bytes).digest('hex')));});const read=()=>p.evaluate(()=>JSON.parse(localStorage.getItem('save data'))),save=async()=>{await p.locator('#save_button').click();return read();},open=async()=>{if(!await p.locator('#p23_reading_salvage_panel').evaluate(e=>e.open))await p.locator('#p23_reading_salvage_panel summary').click();};
+const dir=__p00OutputDir,base=__p00URL,gates=[];
+(async()=>{const b=await chromium.launch({channel:'chrome',headless:true}),c=await b.newContext({viewport:{width:1366,height:768}}),p=await c.newPage(),errors=[];p.on('pageerror',e=>errors.push(e.message));const loaded=[];p.on('response',r=>{if(r.status()>=200&&r.status()<300&&new URL(r.url()).href===new URL('dist/bundle.js',base).href)loaded.push(r.body().then(bytes=>crypto.createHash('sha256').update(bytes).digest('hex')));});const read=()=>p.evaluate(()=>JSON.parse(localStorage.getItem('save data'))),save=async()=>{await p.locator('#save_button').click();return read();},open=async()=>{if(!await p.locator('#p23_reading_salvage_panel').evaluate(e=>e.open))await p.locator('#p23_reading_salvage_panel summary').click();};
 try{
-const f=JSON.parse(fs.readFileSync(path.join(dir,'tranche1-prelight.json')));f['current location']='Village';f.character.money=5000;f.availabilities.trader.villageTrader=1;delete f.household;delete f.p23_exposure;
+const f=JSON.parse(fs.readFileSync(path.join(fixtureDir,'tranche1-prelight.json')));f['current location']='Village';f.character.money=5000;f.availabilities.trader.villageTrader=1;delete f.household;delete f.p23_exposure;
 await p.goto(base+'style.css');await p.evaluate(s=>localStorage.setItem('save data',JSON.stringify(s)),f);await p.goto(base);await p.locator('#loading_screen_play_button:not(.none_display)').click();assert.equal((await save()).p23_salvage,undefined);
 await p.evaluate(()=>window.startTrade('villageTrader'));
 const buy=async id=>p.locator('#trader_inventory_div [data-trader_item]').filter({has:p.locator('.item_name')}).evaluateAll((rows,id)=>{const row=rows.find(r=>{try{return JSON.parse(r.dataset.trader_item).id===id;}catch{return false}});if(!row)throw Error('Missing paid native stock '+id);row.click();},id);

@@ -1,6 +1,17 @@
+// Each invocation owns a fresh browser context and a unique evidence directory.
+// Committed fixtures are immutable prerequisites, never another check's output.
+const __p00Fs = require('fs'), __p00Path = require('path');
+if (!process.env.URL) throw new Error('Set URL to the served native build origin.');
+const __p00Base = new URL(process.env.URL);
+if (!/^https?:$/.test(__p00Base.protocol)) throw new Error('URL must use HTTP or HTTPS.');
+const __p00URL = __p00Base.href.replace(/\/?$/, '/');
+const fixtureDir = __p00Path.join(__dirname, 'fixtures');
+const __p00ProofRoot = process.env.YAIRPG_PROOF_DIR || require('os').tmpdir();
+__p00Fs.mkdirSync(__p00ProofRoot, {recursive: true});
+const __p00OutputDir = __p00Fs.mkdtempSync(__p00Path.join(__p00ProofRoot, __p00Path.basename(__filename, '.cjs') + '-'));
 const fs=require('fs'),path=require('path'),assert=require('assert/strict'),crypto=require('crypto');
 const {chromium}=require('/Users/weiwei/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright');
-const base='http://127.0.0.1:18834/',dir=__dirname,gates=[];
+const base=__p00URL,dir=__p00OutputDir,gates=[];
 (async()=>{const b=await chromium.launch({channel:'chrome',headless:true}),c=await b.newContext({viewport:{width:1366,height:768}}),p=await c.newPage(),errors=[];p.on('pageerror',e=>errors.push(e.message));p.on('console',m=>{if(m.type()==='error'&&!m.text().includes('404'))console.log(m.text());});
 const play=async()=>{await p.locator('#loading_screen_play_button:not(.none_display)').click();await p.waitForFunction(()=>document.getElementById('p23_combat_options_panel'));};
 const save=async()=>{await p.locator('#save_button').click();return p.evaluate(()=>JSON.parse(localStorage.getItem('save data')));};
@@ -8,7 +19,7 @@ const action=async id=>{if(!await p.locator('#p23_combat_options_panel').evaluat
 const projection=s=>({options:s.combatOptions,gear:s.p23_living_gear,items:s.inventories.person.main_character,xp:s.levels.person.main_character.skill_xp,money:s.character.money,encounter:s.native_encounter&&{locationId:s.native_encounter.locationId,key:s.native_encounter.key,enemies:s.native_encounter.enemies},hp:s.character.hp_to_full});
 async function roundtrip(tag){const before=await save();await p.reload();assert.deepEqual(projection(await p.evaluate(()=>JSON.parse(localStorage.getItem('save data')))),projection(before));await play();const dp=p.waitForEvent('download');await p.locator('#save_to_file_button').click();const download=await dp,file=path.join(dir,`tranche2-${tag}.save.txt`);await download.saveAs(file);const raw=fs.readFileSync(file,'utf8').trim(),exported=JSON.parse(Buffer.from(raw.replace(/^YAIR-UTF8-1:/,''),'base64').toString('utf8'));await Promise.all([p.waitForNavigation(),p.locator('#saved_file_input').setInputFiles(file)]);assert.deepEqual(projection(await p.evaluate(()=>JSON.parse(localStorage.getItem('save data')))),projection(exported));await play();gates.push(tag+' native Save/reload/Export/literal-file Import');return exported;}
 try{
- const fixture=JSON.parse(fs.readFileSync(path.join(dir,'tranche1-prelight.json')));fixture['current location']='Village';fixture.character.money=3000;fixture.availabilities.trader.villageTrader=1;fixture.availabilities.location['Infested field']=1;fixture.character.hp_to_full=0;fixture.pacing_e1.fullness=100;delete fixture.household;delete fixture.p23_exposure;fixture.customization.profiles[fixture.customization.active].settings.effects='off';
+ const fixture=JSON.parse(fs.readFileSync(path.join(fixtureDir,'tranche1-prelight.json')));fixture['current location']='Village';fixture.character.money=3000;fixture.availabilities.trader.villageTrader=1;fixture.availabilities.location['Infested field']=1;fixture.character.hp_to_full=0;fixture.pacing_e1.fullness=100;delete fixture.household;delete fixture.p23_exposure;fixture.customization.profiles[fixture.customization.active].settings.effects='off';
  await p.goto(base+'style.css');await p.evaluate(s=>localStorage.setItem('save data',JSON.stringify(s)),fixture);await p.goto(base);await play();assert.equal((await save()).combatOptions,undefined);assert.ok(await p.locator('#p23_combat_options_panel').isHidden());
  await p.evaluate(()=>window.startTrade('villageTrader'));for(const [name,count] of [['P23 throwing stone',6],['P23 smoke pellet',2],['P23 scent pouch',2]])for(let i=0;i<count;i++)await p.locator('#trader_inventory_div .item_name').getByText(name,{exact:true}).locator('xpath=ancestor::*[contains(@class,"inventory_item_control")]').click();await p.locator('#accept_trade_button').click();await p.locator('#exit_trade_button').click();const paid=await save();assert.ok(paid.character.money<fixture.character.money);gates.push('paid native tactical item acquisition; absent old family and known-only panel');
  await action('train');let trained=await save();assert.ok(trained.levels.person.main_character.skill_xp.Throwing>0);assert.equal(trained.inventories.person.main_character['{"id":"P23 throwing stone"}'].count,5);gates.push('paid native throwing practice advances played clock and native skill');

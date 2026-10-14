@@ -1,13 +1,24 @@
+// Each invocation owns a fresh browser context and a unique evidence directory.
+// Committed fixtures are immutable prerequisites, never another check's output.
+const __p00Fs = require('fs'), __p00Path = require('path');
+if (!process.env.URL) throw new Error('Set URL to the served native build origin.');
+const __p00Base = new URL(process.env.URL);
+if (!/^https?:$/.test(__p00Base.protocol)) throw new Error('URL must use HTTP or HTTPS.');
+const __p00URL = __p00Base.href.replace(/\/?$/, '/');
+const fixtureDir = __p00Path.join(__dirname, 'fixtures');
+const __p00ProofRoot = process.env.YAIRPG_PROOF_DIR || require('os').tmpdir();
+__p00Fs.mkdirSync(__p00ProofRoot, {recursive: true});
+const __p00OutputDir = __p00Fs.mkdtempSync(__p00Path.join(__p00ProofRoot, __p00Path.basename(__filename, '.cjs') + '-'));
 const fs=require('fs'),path=require('path'),assert=require('assert/strict'),crypto=require('crypto');
 const {chromium}=require('/Users/weiwei/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright');
-const dir=__dirname,base='http://127.0.0.1:18834/',gates=[];
-(async()=>{const b=await chromium.launch({channel:'chrome',headless:true}),c=await b.newContext({viewport:{width:1366,height:768}}),p=await c.newPage(),errors=[];p.on('pageerror',e=>errors.push(e.message));const loaded=[];p.on('response',r=>{if(r.status()>=200&&r.status()<300&&new URL(r.url()).pathname==='/dist/bundle.js')loaded.push(r.body().then(bytes=>crypto.createHash('sha256').update(bytes).digest('hex')));});
+const dir=__p00OutputDir,base=__p00URL,gates=[];
+(async()=>{const b=await chromium.launch({channel:'chrome',headless:true}),c=await b.newContext({viewport:{width:1366,height:768}}),p=await c.newPage(),errors=[];p.on('pageerror',e=>errors.push(e.message));const loaded=[];p.on('response',r=>{if(r.status()>=200&&r.status()<300&&new URL(r.url()).href===new URL('dist/bundle.js',base).href)loaded.push(r.body().then(bytes=>crypto.createHash('sha256').update(bytes).digest('hex')));});
 const open=async()=>{if(!await p.locator('#p23_reading_salvage_panel').evaluate(e=>e.open))await p.locator('#p23_reading_salvage_panel summary').click();};
 const read=()=>p.evaluate(()=>JSON.parse(localStorage.getItem('save data')));
 const save=async()=>{await p.locator('#save_button').click();return read();};
 const literal=async(label,project)=>{const before=await save(),download=p.waitForEvent('download');await p.locator('#save_to_file_button').click();const file=path.join(dir,`tranche3-${label}.save.txt`);await(await download).saveAs(file);await Promise.all([p.waitForNavigation(),p.locator('#saved_file_input').setInputFiles(file)]);assert.deepEqual(project(await read()),project(before));await p.locator('#loading_screen_play_button:not(.none_display)').click();gates.push(`${label}: native Export and literal-file Import`);};
 try{
-const f=JSON.parse(fs.readFileSync(path.join(dir,'tranche1-prelight.json')));f['current location']='Village';f.character.money=5000;f.availabilities.trader.villageTrader=1;f.levels.person.main_character.skill_xp.Sleeping=31000;f.levels.person.main_character.skill_xp.Cooking=100;f.inventories.person.main_character['{"id":"Cooking herbs"}']={count:1};
+const f=JSON.parse(fs.readFileSync(path.join(fixtureDir,'tranche1-prelight.json')));f['current location']='Village';f.character.money=5000;f.availabilities.trader.villageTrader=1;f.levels.person.main_character.skill_xp.Sleeping=31000;f.levels.person.main_character.skill_xp.Cooking=100;f.inventories.person.main_character['{"id":"Cooking herbs"}']={count:1};
 await p.goto(base+'style.css');await p.evaluate(s=>localStorage.setItem('save data',JSON.stringify(s)),f);await p.goto(base);await p.locator('#loading_screen_play_button:not(.none_display)').click();assert.equal((await save()).expansion.p23Reading,undefined);
 await p.evaluate(()=>window.startTrade('villageTrader'));
 for(const name of ['Tales of the Lantern Road','Stale bread','Stale bread','Stale bread','Stale bread','Parsley, sage, rosemary and thyme','Parsley, sage, rosemary and thyme','Parsley, sage, rosemary and thyme'])await p.locator('#trader_inventory_div .item_name').getByText(name,{exact:false}).locator('xpath=ancestor::*[contains(@class,"inventory_item_control")]').click();
