@@ -150,5 +150,6 @@ In [tools/core_kit_audit/](tools/core_kit_audit/):
 | LL11 | Rounds 2-4 added K19-K34 but the template and readiness cards stayed at K1-K18 (round 9, AN1-AN2) | When a round adds parts, extend the template and queue a readiness lane in the same round |
 | LL12 | Twenty same-day dispatches each owned a slice of some kit part (OM) | Map same-day owners per part before writing rows; link, do not restate |
 | LL13 | Round 10 named Paradise as season-less without a source check; Paradise code already had per-instance clocks (CR4-CR5) | Before writing a generic direction, check the priority worlds' own owners and native code for an existing solution; label world claims MEMORY until checked |
+| LL14 | Later lanes read earlier lanes' returns mid-run and corrected the root's claims (W22 found narrow owners the root called missing) | Fold corrections in place first, with a 'Corrected round N' tag naming the lane; keep a short FX summary table |
 
 Add a row here whenever a run teaches something new.

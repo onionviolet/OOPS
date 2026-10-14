@@ -1464,7 +1464,7 @@ build wrong. **Lifecycle** = reload, old save, ordering, repeats, partial.
 | MC5 Places | Place defs → location state → look text. Changed places (burned, warded) need a state owner per place copy. | Place state shared across copies leaks one AU's fire into canon. | Removed place in a revised pack; player standing in it on load. | Place history: states this place passed through and why. | ACCOUNT: place state keyed by world instance (AX11). |
 | MC6 Cast | Person defs → people_knowledge → dialogue/log. Schedules (T3) have no shared clock reader per world. | A T3 person seen in two places at once when two clocks disagree. | Dead person in canon, alive in your copy: which file owns the body. | Cast schedule viewer (K34). | LATER: tie to companions and relationship-prereqs readers (OM3). |
 | MC7 Institutions | Standing (UP4) thin; each world invents its own rep. | Rank and standing drift: promoted by one path, still a stranger to the clerk. | Institution dissolved by a canon event; your rank in it after load. | Standing card: who in the institution knows what about you. | ACCOUNT: one Standing reader (AX10) per new institution. |
-| MC8 Daily life | Jobs and prices exist (`native_trade_transaction.js`, `market_saturation.js`); calendars are one global `game_time.js`. | Local calendar festivals versus the global season name. | Away time: does the job pay while away (OM8 away ledger)? | Day ledger: earned, spent, eaten, slept, with sources. | ACCOUNT: daily loops declare their away behaviour to the away ledger. |
+| MC8 Daily life | Jobs and prices exist (`native_trade_transaction.js`, `market_saturation.js`); calendars are one global `game_time.js`. (Corrected round 13, W23-F1: MoL and Paradise have world-keyed calendar projections; weather, trader epochs and the main date and temperature display still read home globals.) | Local calendar festivals versus the global season name. | Away time: does the job pay while away (OM8 away ledger)? | Day ledger: earned, spent, eaten, slept, with sources. | ACCOUNT: daily loops declare their away behaviour to the away ledger. |
 | MC9 Craft | Material and recipe owners split across maker-arts lanes (OM4). | A world's tech ceiling versus an imported recipe. | Recipe revised mid-craft; half-made item on load. | Recipe provenance: where learned, what limits apply here. | ACCOUNT: craft rows link OM4; kit holds only the world floor. |
 | MC10 Danger | `native_battle_contracts.js` per world; defeat and recovery uneven. | Nonviolent outs feel worse than fighting if rewards differ. | Death mid-fight versus run endings (OM6). | Threat ecology: what lives here, why it attacks, what it wants. | ACCOUNT: every threat roster names one nonviolent out. |
 | MC11 Knowledge | `world_knowledge.js`, `observation_channels.js`, notebook. Foreknowledge has no confidence reader yet. | Knowing a canon fact you never learned in-world leaks into dialogue choices. | Copied world: does the notebook copy, split or stay with the person? | Knowledge lens: known, believed, wrong, sealed-by-ID. | ACCOUNT: AX6 observation before any new knowledge store (F30). |
@@ -1472,24 +1472,24 @@ build wrong. **Lifecycle** = reload, old save, ordering, repeats, partial.
 | MC13 Signature loop | Lives inside one world's native module; no shared loop-health reader. | A loop that is fun active but dead idle (or the reverse). | Loop state pending at save: wards half-cast, curtain up. | Loop meter: inputs, outputs, waste per hour. | ACCOUNT: each signature loop states active, idle and away behaviour. |
 | MC14 Presentation | `panel_kit.js`, `display.js`; per-world palette scattered. | A world skin that hides a warning colour another world relies on. | Old UI layout prefs after a new panel joins. | Panel census per world: which panels appear where. | ACCOUNT: desktop first; check UI rows with OM9. |
 | MC15 Crossings | `realm_boundary_rules.js`, `realm_cargo.js`. Locals' reaction to outliers has no reader. | Suppressed power that still leaks through a passive. | Carried item whose home world was removed or revised. | Carry table preview at every door. | LATER: per-edge carry rows belong to nonhuman/start lanes (OM2). |
-| MC16 Endings | Ending types in OM6; "life goes on" has no state owner. | An ending that freezes clocks other worlds still read. | Ended world reopened after a pack revision. | Ending ledger: what closed, what keeps running. | ACCOUNT: link OM6, keep kit row as floor only. |
+| MC16 Endings | Ending types in OM6; "life goes on" has no state owner. (Corrected round 13, W22.M2: MoL has a bounded closure and aftermath writer, `src/book_world_mol_actions.js:70`, read on return at `:81`; no universal continuation policy.) | An ending that freezes clocks other worlds still read. | Ended world reopened after a pack revision. | Ending ledger: what closed, what keeps running. | ACCOUNT: link OM6, keep kit row as floor only. |
 | MC17 AU hooks | `world_instances.js` copies; divergence metadata thin (EI2). | AU flags that change law (K2) but not cast memory (K6). | Copy made before a migration; both copies must migrate. | Copy diff: canon versus this copy, by part. | LATER: W22 traces copy keys per part (corrected in round 10). |
 | MC18 Save | `save_files.js`, `save_migration.js`, `expansion_persistence.js`. | Kit parts that add state without saying where it saves. | Every part above. | Save map: kit part → save key → migration. | NOW: K18 row in the template now asks each part's save key (see below). |
 | MC19 Senses | Look text only; no sense channel owner (AX5 new). | Nonhuman senses read the same text as humans. | None durable; texture redraw must be stable (IO5 seed anchor). | Sense lens: what each channel would add. | ACCOUNT: texture draws through the pinned seed, never render-time random. |
 | MC20 Language | Name pools per world; no address-form reader. | A title used before you know it is a leak. | Name pool revised: existing NPC names must stay. | Name origin: pool, region, era. | ACCOUNT: generated names saved, never re-rolled on load. |
 | MC21 Belief | Doc only. | Belief that contradicts a sealed truth must not hint the truth by its wording. | Festival that falls during absence. | Belief map by group. | ACCOUNT: sealed-safe wording review on belief rows. |
 | MC22 Bodies | Body-lineage owner (OM7); local medicine per world missing. | Healing magic in one world making medicine pointless across a crossing. | Injury that lasts versus away time. | Body chart with causes and healers who can help. | LATER: per-world medicine floor (W23). |
-| MC23 Information | Event feed is player-facing only; no in-world news carrier. | News that reaches NPCs faster than the carrier allows. | News queued during absence. | Rumour trace: origin, carriers, decay. | LATER: AX9 caused-effect carriers. |
-| MC24 Law of small | No fines or petty debts owner. | Petty crime with no witness reader (UP3) is free. | Debt due during absence. | Small-debt ledger. | ACCOUNT: small consequences use Standing and witness sets. |
+| MC23 Information | Event feed is player-facing only; no in-world news carrier. (Corrected round 13, W22.M3 and W26-F1: NPC-addressed claims and corrections exist, `src/feature_expansion_subtlety_scene.js:71,75`, `src/people_knowledge.js:97`; narrow delayed reports exist; no general courier network.) | News that reaches NPCs faster than the carrier allows. | News queued during absence. | Rumour trace: origin, carriers, decay. | LATER: AX9 caused-effect carriers. |
+| MC24 Law of small | No fines or petty debts owner. (Corrected round 13, W22.M1: career debt writer `src/village_career.js:82`, shown at `src/village_career_ui.js:15`; bounded compensation `src/feature_expansion_subtlety_scene.js:78`. General courts and witness spread still missing.) | Petty crime with no witness reader (UP3) is free. | Debt due during absence. | Small-debt ledger. | ACCOUNT: small consequences use Standing and witness sets. |
 | MC25 Personal space | `home_furnishing_content.js` and home facts exist for the base world. | A home per world versus one home that follows you. | Home in a removed or ended world. | Room view: what is here and why. | LATER (W23): per-world home floors. |
 | MC26 Routine | Habits proposed (ABILITY_AUTHORING AB1); `everyday_life.js` exists. | Habits formed in idle time count as much as chosen ones. | Habit streaks across absence. | Habit list with formation dates. | LATER (W23). |
 | MC27 Comedy | Doc only (part 15). | A gag that repeats every reload. | Gag state not saved so callbacks fail. | Gag ledger: setup, payoff, used. | ACCOUNT: callbacks need saved setup flags (KC). |
-| MC28 Weather | **SHOWN:** `src/weather.js:9-14` is one global season table and base temperature; `:64`, `:91` read the shared season. No per-world climate. | MoL Cyoria, HP Scotland and a desert world share one season name and temperature. | Per-world weather needs a world-keyed state or a pure derive from world clock plus seed. | Weather by world and day. | LATER (W23): per-world climate floor; engine row for AX7 clock. |
+| MC28 Weather | **SHOWN:** `src/weather.js:9-14` is one global season table and base temperature; `:64`, `:91` read the shared season. No per-world climate. (Round 13, W29-R2: Paradise native places use a static 20 C and normal light, `src/book_world_paradise_native.js:104-106`, bypassing seasons; a fallback, not sourced climate.) | MoL Cyoria, HP Scotland and a desert world share one season name and temperature. | Per-world weather needs a world-keyed state or a pure derive from world clock plus seed. | Weather by world and day. | LATER (W23): per-world climate floor; engine row for AX7 clock. |
 | MC29 Ripples | AX9 caused effects; KQ rows. | Ripples that only fire while the player watches. | Ripple queued, then its cause undone by a load. | Ripple timeline (CL lens). | ACCOUNT: ripples carry cause IDs. |
 | MC30 Perception | AX5 new; KP rows. | Perception filter that hides a warning the player needs. | Profile changes when body changes. | Perception diff: what you would see as X. | ACCOUNT: safety text bypasses perception filters. |
 | MC31 Subtext | Doc only. | Subtext that only works if the player reads every line. | None durable. | Subtext reveal toggle (sandbox only). | ACCOUNT: subtext always has a plain-text fallback later. |
 | MC32 Tension rhythm | Canon clock plus signals; no pacing reader. | Away time skips the calm and lands the storm. | Absence crossing a canon storm. | Rhythm strip per world. | ACCOUNT: away ledger reports storms crossed. |
-| MC33 Revision | Pack revision pin proposed; no diff tool. | A text fix that renumbers IDs. | Every save. | Pack diff tool. | ACCOUNT: IDs are stable strings, never positions. |
+| MC33 Revision | Pack revision pin proposed; no diff tool. (Corrected round 13, W22.M4: typed pack receipts already save revision and hash, `src/structured_pack_runtime.js:78`, with an exact-content reader at `src/structured_pack_state.js:29`; only the diff tool is missing.) | A text fix that renumbers IDs. | Every save. | Pack diff tool. | ACCOUNT: IDs are stable strings, never positions. |
 | MC34 Tools | Lints and status printouts per lane. | Debug views that mutate state by accident. | Debug flags saved into real saves. | Tool list with read or write marked. | ACCOUNT: lenses read, cheats write, never one tool both. |
 
 ### Act now (corrections to the kit's own files)
@@ -1631,13 +1631,13 @@ worlds have other shapes, and each shape changes how every K part nests.
 | Code | Shape | Worlds (MEMORY unless cited) | What it changes |
 |---|---|---|---|
 | SW1 | **Hub of worlds.** A home base that sends you into derived worlds with their own laws, clocks and deadlines. | Paradise (SHOWN above) | Two kit layers: one hub kit, plus a thin kit per derived world. Hub laws (contract, rating, fees) sit above local laws. |
-| SW2 | **Looping world.** The world resets on a schedule; you keep some things. | Mother of Learning (time loop) | "Reload" becomes an in-world event. Lifecycle rows (MC) need an in-loop column: what resets, what persists, who remembers. |
+| SW2 | **Looping world.** The world resets on a schedule; you keep some things. | Mother of Learning (time loop) | (Corrected round 13, W19-F10, W30-F3: an in-story reset is a clock boundary, never a file reload; today's native MoL is a continuous visitor, not the canon loop.) "Reload" becomes an in-world event. Lifecycle rows (MC) need an in-loop column: what resets, what persists, who remembers. |
 | SW3 | **Paired worlds.** Two linked realms with different rules and clocks. | Shadow Slave (waking world and Dream Realm), Bleach (living world and Soul Society) | Each realm needs its own K2, K5, K28; crossings (K15) happen inside one world. |
 | SW4 | **Bounded institution world.** Life runs on a school or org calendar. | HP (school years and terms), JJK (school plus missions), Naruto (village and ranks) | The institution's calendar is the world's main clock; holidays and terms drive K8, K21, K32. |
 | SW5 | **Modular campaign world.** Rules first, settings swappable. | D&D | The kit applies per setting module; the rules layer (rests, slots, planes) is the shared core. |
 | SW6 | **Hidden-layer world.** An ordinary surface hides a power society. | LOTM, CoI, HP, Fate, JJK | Two of everything: public and hidden cast, prices, news, law. Perception (K30) and subtext (K31) carry most of the play. |
 | SW7 | **Event-bounded world.** The world is defined by one recurring contest. | Fate (Grail War), HxH (Hunter Exam and arcs) | The canon clock is the contest; K12 and K32 dominate, and life between contests is thin in the source. |
-| SW8 | **Series of books as eras.** One world, different books with different floors. | TTKS (B1-B5 split) | Kit rows per book, no borrowing floors across books (already W1 rule). |
+| SW8 | **Several independent books.** (Corrected round 13, W19-F9, W31-F1: the five TTKS books are separate worlds and settings, not eras of one world; B3 also has hub, challenge, archive and visit modes.) | TTKS (B1-B5 split) | Kit rows per book, no borrowing floors across books (already W1 rule). |
 
 ### Specific worlds against the directions (WS)
 
@@ -1709,7 +1709,7 @@ and K6 (loop-local versus calendar recurrence);
 
 | Code | Finding | Evidence |
 |---|---|---|
-| CR7 | **Native "calendars" are counters, not canon calendars.** MoL and Paradise each derive a date from elapsed minutes in the base-world format: year 1, twelve 30-day months, start at 06:00. No month names, no canon year, no week, no holidays, no canon anchor date. | SHOWN: `src/book_world_mol_native.js:7` (`calendarSeed` year 1, month 1, day 1, 06:00), `:19` `molCalendarAt`; `src/book_world_paradise_native.js` `paradiseCalendarAt` (same shape); `src/game_time.js:35-40` (30-day months, 12 months), `:63-71` and `:193` (four seasons by month number). |
+| CR7 | **Native "calendars" are counters, not canon calendars.** MoL and Paradise each derive a date from elapsed minutes in the base-world format: year 1, twelve 30-day months, start at 06:00. No month names, no canon year, no week, no holidays, no canon anchor date. | SHOWN: `src/book_world_mol_native.js:7` (`calendarSeed` year 1, month 1, day 1, 06:00), `:19` `molCalendarAt`; `src/book_world_paradise_native.js` `paradiseCalendarAt` (same shape); `src/game_time.js:35-40` (30-day months, 12 months), `:63-71` and `:193` (four seasons by month number). | (Narrowed round 13, W33-F1: shared `Game_Time` already has weekdays, `src/game_time.js:90`, and moon helpers, `:109`; they are not sourced native calendars. W33-F3: night starts at 20:00 for light and 21:00 for the Day/Night label, `:3`, `:84`, `:188`.)
 | CR7a | So per-instance *clocks* exist (CR5), but every world *formats* time like the base world. This is the KX67 globals pattern again, one layer up. | INFERRED from the above |
 
 ### Canon calendar parts (CC)
@@ -1776,3 +1776,66 @@ and K6 (loop-local versus calendar recurrence);
 | W33 | Calendar engine shape: today's time code (`game_time.js`, native calendars, `chronicle.js`, `life_record.js`, canon-events windows), CC1-CC16 against it, profile and formatter design, save and migration | `W33_CALENDAR_ENGINE.md` |
 | W34 | Canon calendar census, book worlds: Paradise, HP, MoL, LOTM, CoI, Shadow Slave, TTKS B1-B5 | `W34_CALENDARS_BOOK_WORLDS.md` |
 | W35 | Canon calendar census, other worlds: D&D, JJK, Bleach, Naruto, Fate, HxH, FMA | `W35_CALENDARS_OTHER_WORLDS.md` |
+
+## Round 13: all lane returns folded, W19 and W21-W35 (2026-10-14)
+
+Request (Weibao, 2026-10-14): "wait until all lanes finish, then fold
+everything". All 35 lanes have finished. Corrections were made in place
+first (marked "Corrected round 13" in MC8, MC16, MC23, MC24, MC28, MC33,
+SW2, SW8 and CR7). Every row below is a proposal or a source reading; no
+lane built, browser-tested or got director acceptance for gameplay.
+
+### Corrections folded in place (summary)
+
+| Code | Was | Now | Lane |
+|---|---|---|---|
+| FX1 | SW8 called TTKS one world in eras | Five independent books and settings | W19-F9, W31-F1 |
+| FX2 | SW2 let "reload" stand for a loop reset | An in-story reset is a clock boundary; native MoL today is a continuous visitor, not the canon loop | W19-F10, W30-F3 |
+| FX3 | MC16, MC23, MC24, MC33 said no owner exists | Narrow owners exist (MoL aftermath, NPC-addressed claims, career debt, pack revision receipts); the general systems are still missing | W22.M1-M4, W26-F1 |
+| FX4 | CR7 said no weeks | Shared weekdays and moon helpers exist; they are not sourced native calendars | W33-F1 |
+| FX5 | MC8 and MC28 implied all time reading is global | Calendars are local for MoL and Paradise; weather, trader epochs and the main date display still read home globals; Paradise places use a static 20 C fallback | W23-F1, W29-R2 |
+
+### Lane returns (F32-F49)
+
+| Code | Finding | Lane |
+|---|---|---|
+| F32 | **Twenty consolidated world cards now exist** ([cards index](world-core-kit-2026-10-14/cards/README.md)): 18 priority cards with TTKS split by book, paused Soldier's Life and a short Frontier card. W1's dated readiness is kept; new prose earns no runtime credit. | W19 |
+| F33 | **Readiness counts don't add across lanes.** W1 and later lanes use different denominators; combined scores are not summed. Lane-local codes now carry lane prefixes (W6-KX11 and so on). | W19-F4, F5 |
+| F34 | **K19-K34 readiness:** docs met/partial/missing 34/225/29; runtime 0/51/237. The lived and subtle layer is mostly documented and almost entirely unbuilt. | W21 |
+| F35 | **Chains:** every K1-K34 traced from producer to player view. Generated keepsakes, need values and naming detail have no reader that makes them felt. Identity discovery flags have no public producer. Same-world copies would share world facts, cast, knowledge, stock and RNG scopes; no leak reproduced. | W22 |
+| F36 | **Five cheapest chain repairs:** acquisition time in the biography, portable self-energy rows, a kit-obligation lead, a disclosed traveller keepsake, a received coarse need report. | W22.R |
+| F37 | **Nineteen base-world globals** (G01-G19): calendar, daylight, temperature, rain, location defaults, schedules, restock, money and rounding, market regions, name defaults, generated people, lifespans, furnishings and more. Money needs context as much as weather; names are already world-keyed but default to Frontier. | W23 |
+| F38 | **Lifecycle matrix** L01-L34 covers reload, old save, ordering, repeats, partial completion and absence per part, with a proof journey each (all OPEN). | W23 |
+| F39 | **Laws:** MoL and Paradise law call sites are mapped by action family; missing theft, scroll and teleport twins are missing actions, not proven bypasses. Canon same-tick ties are decided by authored array order (`src/anchor_snapshots.js:75-82,103-110`); smallest fix is cause edges then stable ID, keeping a legacy path for the existing test. | W24 |
+| F40 | **Clocks and away:** 208 modules read time; 22 away rows with Default + Dial, including storms crossed. HEAD already has seeded streams and pure anchor and away modules; the gap is one shared read and settlement seam. | W25 |
+| F41 | **Couriers and small consequences:** reputation, delayed rumour, witnessed consequences, Standing, debt and repair partly exist. First slice proposed on the HP household profile: a borrowed item, an adult told, an optional loan response. | W26 |
+| F42 | **Inspector map:** one shell, one page per K part, desktop first. Eighteen tool groups classified read, write or both; an unsaved speed control can still produce saved progress. Newest owner per part listed. | W27 |
+| F43 | **Paradise hub:** crisis sky changes and a paid private habitat with light and humidity are sourced; ordinary hub weather stays UNKNOWN. Hub and Goa instances have no parent link today (`src/book_world_paradise_state.js:36`), so nesting (MW3) is a document link, not saved containment. Current wages, prices and survey are original prototypes. | W29 |
+| F44 | **HP, D&D, MoL:** HP issuers (house points, money, exams, trust) are separate; D&D needs overlapping rules, setting, plane and local cards with actor-specific rests; MoL reset needs typed retention and atomic settlement. | W30 |
+| F45 | **LOTM, CoI, Shadow Slave, TTKS:** CoI has actor-specific resets and pocket clocks; Shadow Slave needs waking and Dream cards with no fixed time ratio; Backlund fog is sourced. | W31 |
+| F46 | **Anime worlds:** ranks, licences, certifications and command charges are separate issuer systems. Bleach is a first paired-realm card, not exactly two realms. JJK apparent night is not climate. | W32 |
+| F47 | **Calendar engine:** CC1-CC16 against code, 12 partial and 4 missing. Revisioned calendar profile in world content plus a pure formatter; MoL and Paradise adopt it without changing saved elapsed time. First slice: the date line in the log at 1366x768. | W33 |
+| F48 | **Canon calendars census:** HP July 31 birthday sourced; MoL "first of Chariot" dossier-qualified; Shadow Slave solstice link; TTKS B3 dated within its continuity; Harptos proposed for the D&D Sword Coast setting only. Contradictions kept both ways; proposed spoiler-risk IDs for calendar dates. | W34, W35 |
+| F49 | **Per-world climate prototype exists** on branch `kit/w28-world-climate` (commit `024d4da9`, worktree `../yairpg-w28-world-climate`): `src/world_climate.js` with seven tests; matches today's weather formula on 5,280 sampled inputs; `npm test` 807/807 in the worktree. Not integrated, not built, not browser-verified. Integration belongs to R15. | W28 |
+
+### Convergence
+
+- **One context reader.** W23, W25, W29 and W33 all point at the same
+  missing piece: a reader that answers "which world, place and clock am I
+  in" so weather, dates, prices and names stop defaulting to the home
+  world. W28's climate module and W33's calendar profile are its first two
+  consumers.
+- **Narrow owners already exist.** W22, W26 and W29 found working
+  single-world pieces (debts, claims, reports, clocks). Extend them; do not
+  design parallel systems.
+- **Separate issuers.** W30 and W32 independently found that ranks, points,
+  licences and currencies each need their own issuer and revoker.
+
+### Suggestions (round 13, ranked)
+
+1. Review and integrate W28 (climate) with W33's calendar profile as one
+   small slice ending in a visible local date line and local weather words,
+   proven by a rebuilt desktop journey. Needs R15's integration window.
+2. Fix canon same-tick ordering (F39) before more canon graphs are written.
+3. Build the first inspector page from W27's ranked list, starting with the
+   W22 orphans it would reveal.
