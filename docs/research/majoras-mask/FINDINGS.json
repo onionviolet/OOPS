@@ -1,0 +1,167 @@
+{
+  "lane": "majoras-mask",
+  "date": "2026-10-13",
+  "status": "bounded static research complete; runtime and full MM3D internals unread",
+  "proposal_only": true,
+  "n64_sha": "bf6bd9d0d3a90fe2f8960e034fbfd328e8bdef22",
+  "sources": {
+    "S1": "https://github.com/zeldaret/mm/blob/bf6bd9d0d3a90fe2f8960e034fbfd328e8bdef22/src/code/z_schedule.c#L3-L180",
+    "S2": "https://github.com/zeldaret/mm/blob/bf6bd9d0d3a90fe2f8960e034fbfd328e8bdef22/src/overlays/actors/ovl_En_An/scheduleScripts.schl",
+    "S3": "https://github.com/zeldaret/mm/blob/bf6bd9d0d3a90fe2f8960e034fbfd328e8bdef22/src/overlays/actors/ovl_En_Pm/scheduleScripts.schl#L101-L126",
+    "S4": "https://github.com/zeldaret/mm/blob/bf6bd9d0d3a90fe2f8960e034fbfd328e8bdef22/src/overlays/actors/ovl_En_An/z_en_an.c#L231-L266",
+    "S5": "https://github.com/zeldaret/mm/blob/bf6bd9d0d3a90fe2f8960e034fbfd328e8bdef22/src/code/z_sram_NES.c#L425-L653",
+    "S6": "https://github.com/zeldaret/mm/blob/bf6bd9d0d3a90fe2f8960e034fbfd328e8bdef22/src/code/z_sram_NES.c#L168-L220",
+    "S7": "https://github.com/zeldaret/mm/blob/bf6bd9d0d3a90fe2f8960e034fbfd328e8bdef22/include/tables/notebook_table.h",
+    "S8": "https://github.com/zeldaret/mm/blob/bf6bd9d0d3a90fe2f8960e034fbfd328e8bdef22/src/code/z_message.c#L3489-L3514",
+    "S9": "https://github.com/zeldaret/mm/blob/bf6bd9d0d3a90fe2f8960e034fbfd328e8bdef22/src/code/z_message.c#L5680-L5720",
+    "S10": "https://github.com/zeldaret/mm/blob/bf6bd9d0d3a90fe2f8960e034fbfd328e8bdef22/src/overlays/actors/ovl_En_Test4/z_en_test4.c#L405-L470",
+    "S11": "https://github.com/zeldaret/mm/blob/bf6bd9d0d3a90fe2f8960e034fbfd328e8bdef22/src/code/z_sram_NES.c#L1168-L1205",
+    "S12": "https://github.com/zeldaret/mm/blob/bf6bd9d0d3a90fe2f8960e034fbfd328e8bdef22/src/code/z_kankyo.c#L1200-L1220",
+    "W1": "https://zeldawiki.wiki/wiki/Bombers%27_Notebook",
+    "W2": "https://zeldawiki.wiki/wiki/Song_of_Time",
+    "W3": "https://zeldawiki.wiki/wiki/Inverted_Song_of_Time",
+    "W4": "https://zeldawiki.wiki/wiki/The_Legend_of_Zelda:_Majora%27s_Mask_3D",
+    "W5": "https://zeldawiki.wiki/wiki/Time"
+  },
+  "findings": [
+    {
+      "id": "F1",
+      "label": "verified (code)",
+      "title": "A clock chooses conditional routines, not a daily reward roll.",
+      "claim": "The schedule interpreter branches on day, time interval, scene, cycle flags and selected items/masks; its output includes a behavior result and interval. Anju consumes that result to choose presence, talk, work, doors or walking. This is a compact authored state machine, not evidence of a full off-screen social simulation.",
+      "sources": [
+        "https://github.com/zeldaret/mm/blob/bf6bd9d0d3a90fe2f8960e034fbfd328e8bdef22/src/code/z_schedule.c#L3-L180",
+        "https://github.com/zeldaret/mm/blob/bf6bd9d0d3a90fe2f8960e034fbfd328e8bdef22/src/overlays/actors/ovl_En_An/scheduleScripts.schl",
+        "https://github.com/zeldaret/mm/blob/bf6bd9d0d3a90fe2f8960e034fbfd328e8bdef22/src/overlays/actors/ovl_En_An/z_en_an.c#L3264-L3294"
+      ]
+    },
+    {
+      "id": "F2",
+      "label": "verified (code)",
+      "title": "Two routines meet at an exact shared window.",
+      "claim": "On day 1, both Anju and the Postman schedule the inn exchange at 14:08\u201314:18. Anju\u2019s message script changes speaker focus, records both people in the notebook, then marks the conversation heard. Following the carrier can reveal a social event without a quest marker. The last sentence is the design inference from this authored encounter.",
+      "sources": [
+        "https://github.com/zeldaret/mm/blob/bf6bd9d0d3a90fe2f8960e034fbfd328e8bdef22/src/overlays/actors/ovl_En_An/scheduleScripts.schl",
+        "https://github.com/zeldaret/mm/blob/bf6bd9d0d3a90fe2f8960e034fbfd328e8bdef22/src/overlays/actors/ovl_En_Pm/scheduleScripts.schl#L101-L126",
+        "https://github.com/zeldaret/mm/blob/bf6bd9d0d3a90fe2f8960e034fbfd328e8bdef22/src/overlays/actors/ovl_En_An/z_en_an.c#L231-L266"
+      ]
+    },
+    {
+      "id": "F3",
+      "label": "verified (code)",
+      "title": "A promise changes later behavior.",
+      "claim": "Anju\u2019s midnight route requires the current promise flag; completing that meeting selects a different day-2 routine. On day 3, delivery of the pendant makes her wait at the inn; otherwise her night location is the ranch. Time alone is insufficient: prior action selects which timetable is true.",
+      "sources": [
+        "https://github.com/zeldaret/mm/blob/bf6bd9d0d3a90fe2f8960e034fbfd328e8bdef22/src/overlays/actors/ovl_En_An/scheduleScripts.schl"
+      ]
+    },
+    {
+      "id": "F4",
+      "label": "verified (code)",
+      "title": "Reset uses explicit carry rules.",
+      "claim": "Sram_SaveEndOfCycle filters scene and week flags through persistence tables. It clears transient event flags, ammo, carried rupees, bottle contents in the checked range, trade slots, dungeon keys and stray fairies; resets the slowdown; downgrades the Razor Sword. It preserves other inventory/quest state unless explicitly handled. This supports an allowlisted retention policy, not \u201ckeep all progress.\u201d",
+      "sources": [
+        "https://github.com/zeldaret/mm/blob/bf6bd9d0d3a90fe2f8960e034fbfd328e8bdef22/src/code/z_sram_NES.c#L425-L653",
+        "https://github.com/zeldaret/mm/blob/bf6bd9d0d3a90fe2f8960e034fbfd328e8bdef22/src/code/z_sram_NES.c#L168-L220"
+      ]
+    },
+    {
+      "id": "F5",
+      "label": "verified (code)",
+      "title": "Remembering completion is separate from completing it now.",
+      "claim": "Notebook meeting and event-history flags are persistent, while the corresponding current-cycle promise/delivery flags are distinct. The table separately names the flag that colors an icon and the flag that records completion. The event queue writes recorded history and only presents its text when the notebook is owned.",
+      "sources": [
+        "https://github.com/zeldaret/mm/blob/bf6bd9d0d3a90fe2f8960e034fbfd328e8bdef22/src/code/z_sram_NES.c#L168-L220",
+        "https://github.com/zeldaret/mm/blob/bf6bd9d0d3a90fe2f8960e034fbfd328e8bdef22/include/tables/notebook_table.h",
+        "https://github.com/zeldaret/mm/blob/bf6bd9d0d3a90fe2f8960e034fbfd328e8bdef22/src/code/z_message.c#L3489-L3514"
+      ]
+    },
+    {
+      "id": "F6",
+      "label": "verified (wiki)",
+      "title": "The notebook shows people against time.",
+      "claim": "The N64 notebook has twenty person entries, schedule bars, promise marks and reward marks. After rewind, promise marks gray until the action is repeated. This is a remembered plan with a current-cycle status, not persistent NPC trust.",
+      "sources": [
+        "https://zeldawiki.wiki/wiki/Bombers%27_Notebook"
+      ]
+    },
+    {
+      "id": "F7",
+      "label": "verified (code)",
+      "title": "Deadline failure differs from deliberate rewind.",
+      "claim": "The time actor starts the moon crash when the final night crosses 06:00. Moon-crash recovery reads the stored save instead of treating all unsaved gains as a successful Song of Time carry. A loop game must distinguish restart, failure rollback and loading a saved state.",
+      "sources": [
+        "https://github.com/zeldaret/mm/blob/bf6bd9d0d3a90fe2f8960e034fbfd328e8bdef22/src/overlays/actors/ovl_En_Test4/z_en_test4.c#L405-L470",
+        "https://github.com/zeldaret/mm/blob/bf6bd9d0d3a90fe2f8960e034fbfd328e8bdef22/src/code/z_sram_NES.c#L1168-L1205"
+      ]
+    },
+    {
+      "id": "F8",
+      "label": "verified (code)",
+      "title": "Forward time skips to a boundary; slowdown changes the clock.",
+      "claim": "N64 Double Time assigns 06:00 at night or 18:00 by day, with a separate apply mode; its song gate rejects the final night. Inverted Time toggles offset between 0 and -2. The environment updater gates clock advance during pause, game over, most dialogue, transitions and cutscenes. These are simulation controls with exceptions, not unconditional wall-clock advance.",
+      "sources": [
+        "https://github.com/zeldaret/mm/blob/bf6bd9d0d3a90fe2f8960e034fbfd328e8bdef22/src/code/z_message.c#L5680-L5720",
+        "https://github.com/zeldaret/mm/blob/bf6bd9d0d3a90fe2f8960e034fbfd328e8bdef22/src/code/z_kankyo.c#L1200-L1220",
+        "https://github.com/zeldaret/mm/blob/bf6bd9d0d3a90fe2f8960e034fbfd328e8bdef22/src/code/z_message.c#L5908-L5928"
+      ]
+    },
+    {
+      "id": "F9",
+      "label": "verified (wiki)",
+      "title": "The remake makes waiting more precise.",
+      "claim": "3DS Double Time chooses a later hour in the current day; Inverted Time runs at 50% rather than the wiki\u2019s roughly 30% N64 rate. These are version-specific rules, not one shared balance setting.",
+      "sources": [
+        "https://zeldawiki.wiki/wiki/Inverted_Song_of_Time",
+        "https://zeldawiki.wiki/wiki/The_Legend_of_Zelda:_Majora%27s_Mask_3D"
+      ]
+    },
+    {
+      "id": "F10",
+      "label": "verified (wiki)",
+      "title": "The remake improves planning and separates saving.",
+      "claim": "The 3DS notebook adds rumored, ongoing and completed event notes plus alarms. Owl and Quill statues make permanent saves; Song of Time no longer saves. Its clock shows the whole cycle and minutes. These changes reduce waiting and recovery friction without eliminating the deadline.",
+      "sources": [
+        "https://zeldawiki.wiki/wiki/The_Legend_of_Zelda:_Majora%27s_Mask_3D"
+      ]
+    },
+    {
+      "id": "F11",
+      "label": "verified (wiki)",
+      "title": "Durable tools open shorter later attempts.",
+      "claim": "Songs, masks and ordinary durable equipment survive Song of Time; consumables and event items do not, with the Razor Sword an equipment exception. The learned Scarecrow spawn tune is another exception: the reset code clears its set flag. Keeping a tool is different from keeping a quest\u2019s active delivery item.",
+      "sources": [
+        "https://zeldawiki.wiki/wiki/Song_of_Time",
+        "https://github.com/zeldaret/mm/blob/bf6bd9d0d3a90fe2f8960e034fbfd328e8bdef22/src/code/z_sram_NES.c#L425-L653"
+      ]
+    },
+    {
+      "id": "F12",
+      "label": "inferred",
+      "title": "Transfer the schedule model, not Zelda\u2019s retention fiction.",
+      "claim": "For a source-qualified Mother of Learning loop, use remembered observations to plan new visits, but recheck the present route after intervention. Zelda\u2019s physical mask/item carry and bank exception cannot justify carrying local goods, notes, NPC relationships or magical sources in MoL. Existing YAIRPG\u2019s visitor branch supplies none of that loop eligibility.",
+      "sources": [
+        "https://github.com/zeldaret/mm/blob/bf6bd9d0d3a90fe2f8960e034fbfd328e8bdef22/src/overlays/actors/ovl_En_An/scheduleScripts.schl",
+        "https://github.com/zeldaret/mm/blob/bf6bd9d0d3a90fe2f8960e034fbfd328e8bdef22/src/code/z_sram_NES.c#L425-L653"
+      ]
+    },
+    {
+      "id": "F13",
+      "label": "inferred",
+      "title": "A jump must resolve crossed events in order.",
+      "claim": "A safe idle adaptation should process due NPC actions and closing windows before arriving at the chosen time, stop at player decisions, and produce a compact receipt. A remembered meeting should support planning, not auto-grant co-location or rewards. This is a YAIRPG proposal, not a claim that the N64 engine simulates every off-screen action.",
+      "sources": [
+        "https://github.com/zeldaret/mm/blob/bf6bd9d0d3a90fe2f8960e034fbfd328e8bdef22/src/code/z_schedule.c#L3-L180",
+        "https://github.com/zeldaret/mm/blob/bf6bd9d0d3a90fe2f8960e034fbfd328e8bdef22/src/code/z_message.c#L5680-L5720"
+      ]
+    }
+  ],
+  "packets": [
+    "P1 observed appointment",
+    "P2 remembered versus current notebook",
+    "P3 interlocking routines",
+    "P4 eligible reset policy",
+    "P5 safe time controls"
+  ],
+  "runtime_verified": false
+}
