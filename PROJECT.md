@@ -1,12 +1,3 @@
-## Proto23 reveal-chain proposal, 2026-10-14
-
-Authorized absorb-all adaptation adds first-level skill discovery and modest native
-milestone perks, practiced Run/Investigate controls, held-herb recipe learning,
-literacy-scaled study and earned reference panels. The optional staged opening is
-off by default; the original beginning remains intact. Desktop 1366x768 build,
-18 focused/626 full tests, nine rebuilt browser groups and native persistence
-checks pass. Taste remains unaccepted. [Lane owner and evidence](docs/gm/dispatch/absorb-all-2026-10-14/P23_REVEAL_CHAIN.md).
-
 ## Foundation R14 final assessment, 2026-10-13
 
 Final integrated recovery assessment and independent finite-gap review accepted; technical FA01–FA23 chain remains INCOMPLETE. No authorized untouched compatible changed-positive artifact/nonretry route was established, so R14 made zero native attempts and no runtime edits/build. 51 final SOURCE checks pass; R13 scoped unchanged proof reused. Required native/integration/compatibility gates, accepted FA17 leftovers and separate FA21/22 ownership remain OPEN. All inherited failed/stopped attempts and R10 state loss stay exact. No useful dependency-ready successor established. [R14 report](docs/gm/dispatch/foundation-adoption-next-2026-10-13/rounds/r14/REPORT.md) owns evidence; [checkpoint](docs/gm/dispatch/foundation-adoption-next-2026-10-13/CHECKPOINT.md) owns writer and revisit conditions. Assessment completion is not gameplay completion.
@@ -665,15 +656,3 @@ and shared-owner dependencies. All internal workers/proof browsers are released;
 no successor or further implementation runs until explicit human resumption.
 The whole source/world horizon remains open, and isolated foundation/UI/customization
 returns require their own narrow integration and acceptance gates.
-
-## Proto23 Village life loops proposal, 2026-10-14
-
-The absorb-all lane adds morning watch, a weekly bread stall, a discovered courier
-pamphlet, repeatable elder/mill/craftsman parcel relays and elder guidance through
-the existing Local life and Quests owners. Two public lifetime title goals use
-observed home minutes and settled trade quantities; live grants share the native
-discovery cue. Existing guardian claws can cause native Bleeding that trains Iron
-skin. Search now states remaining finds. All names and balance remain proposals;
-1366×768 desktop is primary, mobile deferred. [Village loop owner](docs/PROTO23_VILLAGE_LIFE_LOOPS_2026-10-14.md)
-records routes, compatibility and the evidence owner. Weibao's play/taste acceptance
-remains separate from implementation and test evidence.
