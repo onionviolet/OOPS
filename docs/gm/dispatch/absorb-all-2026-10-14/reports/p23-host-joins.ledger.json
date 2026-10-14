@@ -2,7 +2,7 @@
   "schema": 1,
   "lane": "p23-host-joins",
   "date": "2026-10-14",
-  "status": "merged-candidate; waiting for four test fixture scope; no native tranche started",
+  "status": "fixture-repaired; native tranches in progress",
   "base_head": "43b01f95112b5a4017d0cd426d414ae553abeadc",
   "candidate_head": "be0e594527dd2f7e50314fa6ab3d910adb89481f",
   "session": "01a138ea-def0-77c0-b800-f4ade39f33af",
@@ -34,11 +34,11 @@
   "excluded_lane": "air-wider",
   "actual_full": {
     "tests": 974,
-    "pass": 965,
-    "fail": 9,
+    "pass": 974,
+    "fail": 0,
     "cancelled": 0,
     "skipped": 0,
-    "duration_ms": 12028.141
+    "duration_ms": 9473.786375
   },
   "proposed_fixture_slice": {
     "tests": 43,
@@ -73,9 +73,10 @@
       "tests/p23_life_loops.test.js"
     ],
     "proposal": "checks/p23-host-joins/proposed-fixture-updates.patch",
-    "approval": "pending"
+    "approval": "approved and applied"
   },
   "persistent_families": "host joins OPEN; absent-state/preflight/native import not implemented by P00",
   "remaining_acceptance": "native technical tranche gates then Weibao play/taste",
-  "push": false
+  "push": false,
+  "standing_scope": "finished absorb-all lane files transferred for integration except air-wider; record edits"
 }

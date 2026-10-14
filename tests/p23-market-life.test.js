@@ -90,6 +90,7 @@ test('invalid baskets, incomplete deliveries and overflow cannot mutate caller s
 // bodies with small dependency doubles. This is source behavior evidence only,
 // not browser/native integration. Direct Node import hits native circular init.
 const doubles = {
+    'seeded_streams.js':`export const STREAMS={market:'market'};let draws=[0];export const setMarketDraws=x=>{draws=[...x]};export const gameKeyedRandom=()=>draws.length>1?draws.shift():draws[0];`,
     'accessories.js':`export const accessoryTradeMargin=n=>n;`,
     'character.js':`export const character={reputation:{Village:0},getTotalLevelBonus:()=>0};`,
     'inventory_templates.js':`export const row={item_name:'bread',chance:.5,count:[2,4],canBeStarted:()=>true}; export default {Test:[{canBeStarted:()=>true,items:[row]}]};`,
@@ -104,7 +105,7 @@ const doubles = {
 async function nativeProbe() {
     const bundled=await build({stdin:{contents:`export {TraderComponent} from './src/components/trader_component.js';
         export * from './src/market_saturation.js';export {current_game_time} from './src/game_time.js';
-        export {character} from './src/data/character.js';export {row} from './src/data/inventory_templates.js';`,resolveDir:process.cwd()},
+        export {character} from './src/data/character.js';export {setMarketDraws} from './src/seeded_streams.js';export {row} from './src/data/inventory_templates.js';`,resolveDir:process.cwd()},
         bundle:true,write:false,platform:'node',format:'esm',plugins:[{name:'native-dependency-doubles',setup(b){
             b.onResolve({filter:/\.js$/},args=>{const name=args.path.split('/').at(-1);if(doubles[name]) return {path:name,namespace:'double'};});
             b.onLoad({filter:/.*/,namespace:'double'},args=>({contents:doubles[args.path],loader:'js'}));
@@ -113,19 +114,17 @@ async function nativeProbe() {
 }
 test('native stock chance/count, restock boundary and earned markup remain unchanged',async()=>{
     const n=await nativeProbe();const trader=new n.TraderComponent({inventory_template:'Test',profit_margin:4,refresh_time:4});
-    const random=Math.random;
-    try {
-        Math.random=()=>.6;trader.fillInventoryFromTemplate({});assert.deepEqual(trader.getTradeInventory(),{});
-        let draws=[.5,1];Math.random=()=>draws.shift();trader.fillInventoryFromTemplate({});
+        n.setMarketDraws([.6]);trader.fillInventoryFromTemplate({});assert.deepEqual(trader.getTradeInventory(),{});
+        n.setMarketDraws([.49,.999]);trader.fillInventoryFromTemplate({});
         assert.equal(trader.getTradeInventory().bread.count,4);
-        Math.random=()=>0;n.current_game_time.day_count=0;assert.equal(trader.refresh({}),true);
+        n.setMarketDraws([0]);n.current_game_time.day_count=0;assert.equal(trader.refresh({}),true);
         assert.equal(trader.last_refresh,1);assert.equal(trader.getTradeInventory().bread.count,2);
         n.current_game_time.day_count=4;assert.equal(trader.refresh({}),false);
         n.current_game_time.day_count=5;assert.equal(trader.refresh({}),true);
         assert.equal(trader.getProfitMargin('Village'),4);
         n.character.reputation.Village=1000;n.character.getTotalLevelBonus=()=>.2;
         assert.ok(Math.abs(trader.getProfitMargin('Village')-2.2)<1e-12);
-    } finally {Math.random=random;}
+
 });
 test('native sales cause saturation; purchases and recovery reduce it without inflation',async()=>{
     const n=await nativeProbe();n.market_regions.Village={};n.fill_market_regions();

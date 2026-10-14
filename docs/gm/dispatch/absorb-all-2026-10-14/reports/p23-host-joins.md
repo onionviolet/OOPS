@@ -1,6 +1,6 @@
 # P00 host joins checkpoint, 2026-10-14
 
-**Candidate merged; integration tranches NOT STARTED. No lane is merge-ready.**
+**Candidate merged; fixture gate repaired; native tranches in progress. No lane is merge-ready yet.**
 
 F1: Live clean worktree started at `43b01f95112b5a4017d0cd426d414ae553abeadc`, branch `absorb-all/p23-host-joins`. `runs/SESSIONS.md` names P00 session `01a138ea-def0-77c0-b800-f4ade39f33af`; coordinator prompt reserves port18834 and supplies exclusive shared-file ownership after wave1. No listener before own server. COMMON and INTEGRATION read. PROJECT summary, USER_VISION desktop/authority direction, LIFE_SIM_NORTH_STAR proposal status and lane reports/contracts reviewed for candidate merge recovery. No feature rule copied from Proto23. No air-wider merge, push, main-checkout game edit, source library/user-save access or package installation.
 
@@ -67,3 +67,7 @@ ca3492ad Merge branch 'absorb-all/p23-living-gear' into absorb-all/p23-host-join
 ```
 
 Evidence: [checks directory](../checks/p23-host-joins/). No new host runtime edits were started on this failing actual baseline.
+
+## Coordinator scope transfer and fixture repair, 2026-10-14
+
+Q1 APPROVED by coordinator: ownership of four fixture files transferred to P00. Standing integration authority now covers files owned by finished absorb-all lanes, excluding air-wider; each integration edit will be recorded here. Original scope blocker above is historical and resolved. Applied the exact reviewed proposed patch to tests/p23-combat-options.test.js, tests/p23-market-life.test.js, tests/p23-long-life.test.js and tests/p23_life_loops.test.js. Actual npm test -- --test-concurrency=2 now passes 974/974,0 fail/cancelled/skipped,9473.786375ms. Evidence: approved-actual-full.txt. No runtime change in this fixture repair. No native tranche gate is closed by these tests. Main-tip merge remains required before final tranche gate.

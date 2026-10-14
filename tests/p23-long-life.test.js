@@ -13,9 +13,9 @@ test('earned domestic counters cross thresholds without capping repeat progressi
     const titles={},counters={home_minutes:59,items_bought:24};
     assert.deepEqual(grantEarnedTitles(titles,counters,59),[]);
     counters.home_minutes++; counters.items_bought++;
-    assert.deepEqual(grantEarnedTitles(titles,counters,60),['quiet_hour','pantry_keeper']);
+    assert.deepEqual(grantEarnedTitles(titles,counters,60),['local_customer','quiet_hour','pantry_keeper']);
     counters.home_minutes+=129540; counters.items_bought++;
-    assert.deepEqual(grantEarnedTitles(titles,counters,129600),['home_season']);
+    assert.deepEqual(grantEarnedTitles(titles,counters,129600),['homebody','home_season']);
     const restored=normalizeTitles(JSON.parse(JSON.stringify(titles)));
     assert.deepEqual(grantEarnedTitles(restored,counters,129601),[]);
     assert.deepEqual(restored,titles);
