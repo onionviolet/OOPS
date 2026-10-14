@@ -1,0 +1,18 @@
+{
+  "focused": {
+    "command": "node --test tests/teacher_window.test.js tests/everyday_life.test.js",
+    "tests": 11,
+    "pass": 11,
+    "fail": 0,
+    "skipped": 0,
+    "todo": 0
+  },
+  "full": {
+    "command": "npm test",
+    "tests": 1398,
+    "pass": 1395,
+    "fail": 0,
+    "skipped": 0,
+    "todo": 3
+  }
+}

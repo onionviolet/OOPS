@@ -1,6 +1,7 @@
 import {evaluateAction} from "./expansion_engine.js";
 import {NOTES_KEY, villageScene} from "./village_content.js";
 import {routeUnderstanding} from "./everyday_life.js";
+import {teacherWindow} from "./teacher_window.js";
 
 export function createVillagePanel({registry, read, command, cancel, readBook}) {
     const node = (tag, text = "", className = "") => {
@@ -10,6 +11,9 @@ export function createVillagePanel({registry, read, command, cancel, readBook}) 
     panel.append(node("summary", "Village notes"));
     const body = node("div"), scene = node("p"), status = node("p", "", "expedition_notice");
     status.setAttribute("role", "status"); body.append(scene, status); panel.append(body);
+    const teaching = node("p", "", "expedition_preview"), chapter = node("p"), opportunities = node("p");
+    teaching.dataset.teacherWindow = "lp5"; chapter.dataset.waypostPhase = "lp5";
+    body.append(teaching, chapter, opportunities);
     let signature, notice = "";
     const reading = node("button", "Read the route booklet · 4 min"); reading.type = "button"; reading.dataset.villageRead = "notes";
     reading.addEventListener("click", () => {
@@ -65,6 +69,11 @@ export function createVillagePanel({registry, read, command, cancel, readBook}) 
         const sig = JSON.stringify([state, facts, context.gameplay, context.external, enabled, error, notice]);
         if(!force && signature === sig) return; signature = sig;
         scene.textContent = villageScene(state, facts);
+        const teacher = teacherWindow(state, facts);
+        teaching.hidden = chapter.hidden = opportunities.hidden = !facts["village.craftsmanMet"] || !state.actors.player.facts["village.discovered"];
+        teaching.textContent = `Proposal · ${teacher.text} Bench orders: Notebook → People → Craftsman & workshop → Commission a kit.`;
+        chapter.textContent = `Story phase: ${teacher.phase}. Route: ${teacher.learned.known ? "learned" : "not yet understood"}. This chapter does not change teaching hours or reset methods and rewards.`;
+        opportunities.textContent = teacher.preview;
         const jobs = state.pending.filter(j => j.context.actorId === "player");
         if(facts["village.notesRead"] && notice.startsWith("Reading the surveyor")) notice = "Notes understood. The dry-bank route remains learned after you put the booklet away.";
         status.textContent = error || notice; status.hidden = !status.textContent;
