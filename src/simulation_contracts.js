@@ -287,7 +287,7 @@ export function validateSimulationState(s, state, registry) {
         }
         if(j.completionSupport) {
             const support = j.completionSupport;
-            const paidForfeit = support.failure === 'forfeit' && j.cancellation === 'forfeit' && state.schema === 11 && state.auditRemainder?.schema === 1 && registry?.commands.get(j.commandId)?.group?.startsWith('remainder_');
+            const paidForfeit = support.failure === 'forfeit' && j.cancellation === 'forfeit' && state.schema === 11 && state.auditRemainder?.schema === 1 && (registry?.commands.get(j.commandId)?.group?.startsWith('remainder_') || !registry && j.commandId === 'remainder_combat_fit.grip_practice');
             assert(s.schema >= 4 && support.schema === 1 && (support.failure === "refund" || paidForfeit) && typeof support.coLocated === "boolean" && typeof support.location === "string", "Unsupported saved completion support.");
             validatePredicate(support.requires);
         }

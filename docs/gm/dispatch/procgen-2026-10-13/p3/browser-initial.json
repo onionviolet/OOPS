@@ -1,0 +1,29 @@
+{
+  "label": "NATURAL",
+  "buildHash": "e08c23fde4d07f9cdef8ab3a74574bd62d149f84630bccefdb0671340c626e3b",
+  "start": 0,
+  "end": 46,
+  "cards": [
+    {
+      "id": "village.rats_nearly_ate_cat",
+      "mode": "offer",
+      "status": "open"
+    },
+    {
+      "id": "village.child_has_fever",
+      "mode": "decision",
+      "status": "open"
+    },
+    {
+      "id": "village.peddler_with_rope",
+      "mode": "offer",
+      "status": "open"
+    },
+    {
+      "id": "village.rats_in_the_granary",
+      "mode": "offer",
+      "status": "open"
+    }
+  ],
+  "errors": []
+}

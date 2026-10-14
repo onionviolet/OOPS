@@ -1,0 +1,155 @@
+{
+ "label": "seeded-native",
+ "cases": [
+  {
+   "id": "fa-reserve-completion",
+   "label": "seeded-native",
+   "durableUnchanged": true,
+   "liveUnchanged": true,
+   "failedWrites": 1,
+   "notices": [
+    "Your browser has no room for this life. Export your save to a file; your last saved life is still safe.",
+    "Saving available. Draft changes can now be applied.",
+    "Saving available. Draft changes can now be applied."
+   ],
+   "retryOnce": true,
+   "persistence": {
+    "label": "fa-reserve-completion",
+    "reload": true,
+    "literalImport": true,
+    "file": "fa-reserve-completion.txt",
+    "sha256": "049ec018cf47f2b0741353758ac0715d9dc2012efe49edb7f6065ef057ab4b95",
+    "clock": 751,
+    "derivedCacheDifferences": [
+     ".character.equipment.weapon.rarity"
+    ]
+   }
+  },
+  {
+   "id": "fa-retort-completion",
+   "label": "seeded-native",
+   "durableUnchanged": true,
+   "liveUnchanged": true,
+   "failedWrites": 1,
+   "notices": [
+    "Your browser has no room for this life. Export your save to a file; your last saved life is still safe.",
+    "Saving available. Draft changes can now be applied.",
+    "Saving available. Draft changes can now be applied."
+   ],
+   "retryOnce": true,
+   "persistence": {
+    "label": "fa-retort-completion",
+    "reload": true,
+    "literalImport": true,
+    "file": "fa-retort-completion.txt",
+    "sha256": "c96c0ec66354d5582b44fc82e86e20dcdd19be99bba6f2245b59b4418af77baf",
+    "clock": 751,
+    "derivedCacheDifferences": [
+     ".character.equipment.weapon.rarity"
+    ]
+   }
+  },
+  {
+   "id": "fieldcraft-acceptance",
+   "label": "seeded-native",
+   "durableUnchanged": true,
+   "liveUnchanged": true,
+   "failedWrites": 1,
+   "notices": [
+    "Your browser has no room for this life. Export your save to a file; your last saved life is still safe.",
+    "Your browser has no room for this life. Export your save to a file; your last saved life is still safe.",
+    "Your browser has no room for this life. Export your save to a file; your last saved life is still safe.",
+    "Your browser has no room for this life. Export your save to a file; your last saved life is still safe.",
+    "Your browser has no room for this life. Export your save to a file; your last saved life is still safe.",
+    "Your browser has no room for this life. Export your save to a file; your last saved life is still safe."
+   ],
+   "retryOnce": true,
+   "persistence": {
+    "label": "fieldcraft-acceptance",
+    "reload": true,
+    "literalImport": true,
+    "file": "fieldcraft-acceptance.txt",
+    "sha256": "edfee9e3b958f324a65f347887fa97e10d35042b12236a25cf5e4f00e1674ed7",
+    "clock": 859,
+    "derivedCacheDifferences": [
+     ".character.equipment.weapon.rarity"
+    ]
+   }
+  },
+  {
+   "id": "fieldcraft-completion",
+   "label": "seeded-native",
+   "durableUnchanged": true,
+   "liveUnchanged": true,
+   "failedWrites": 1,
+   "notices": [
+    "Your browser has no room for this life. Export your save to a file; your last saved life is still safe.",
+    "Saving available. Draft changes can now be applied.",
+    "Saving available. Draft changes can now be applied."
+   ],
+   "retryOnce": true,
+   "persistence": {
+    "label": "fieldcraft-completion",
+    "reload": true,
+    "literalImport": true,
+    "file": "fieldcraft-completion.txt",
+    "sha256": "2c0d06484832d118dc26649579018d1ad6810ce7ede7f6e17178f33edccf5a38",
+    "clock": 859,
+    "derivedCacheDifferences": [
+     ".character.equipment.weapon.rarity"
+    ]
+   }
+  },
+  {
+   "id": "assay-acceptance",
+   "label": "seeded-native",
+   "durableUnchanged": true,
+   "liveUnchanged": true,
+   "failedWrites": 1,
+   "notices": [
+    "Your browser has no room for this life. Export your save to a file; your last saved life is still safe.",
+    "Your browser has no room for this life. Export your save to a file; your last saved life is still safe.",
+    "Your browser has no room for this life. Export your save to a file; your last saved life is still safe.",
+    "Your browser has no room for this life. Export your save to a file; your last saved life is still safe.",
+    "Your browser has no room for this life. Export your save to a file; your last saved life is still safe.",
+    "Your browser has no room for this life. Export your save to a file; your last saved life is still safe."
+   ],
+   "retryOnce": true,
+   "persistence": {
+    "label": "assay-acceptance",
+    "reload": true,
+    "literalImport": true,
+    "file": "assay-acceptance.txt",
+    "sha256": "d4e476173a3218c3c253f549f5cd2aebc11efb1e1b275b7bf60069a378f84ff2",
+    "clock": 858,
+    "derivedCacheDifferences": [
+     ".character.equipment.weapon.rarity"
+    ]
+   }
+  },
+  {
+   "id": "assay-completion",
+   "label": "seeded-native",
+   "durableUnchanged": true,
+   "liveUnchanged": true,
+   "failedWrites": 1,
+   "notices": [
+    "Your browser has no room for this life. Export your save to a file; your last saved life is still safe.",
+    "Saving available. Draft changes can now be applied.",
+    "Saving available. Draft changes can now be applied."
+   ],
+   "retryOnce": true,
+   "persistence": {
+    "label": "assay-completion",
+    "reload": true,
+    "literalImport": true,
+    "file": "assay-completion.txt",
+    "sha256": "126754cbdfcd7dc1f449a65ad0205f002a1e39acf1cb61888ad9ecbb59b81eef",
+    "clock": 858,
+    "derivedCacheDifferences": [
+     ".character.equipment.weapon.rarity"
+    ]
+   }
+  }
+ ]
+}

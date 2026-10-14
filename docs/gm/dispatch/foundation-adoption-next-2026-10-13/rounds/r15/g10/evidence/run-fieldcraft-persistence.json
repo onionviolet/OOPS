@@ -1,0 +1,68 @@
+{
+ "ok": true,
+ "value": {
+  "label": "seeded-native",
+  "cases": [
+   {
+    "id": "stamped-pending",
+    "stamp": {
+     "schema": 1,
+     "startedAt": 856
+    },
+    "persistence": {
+     "label": "fieldcraft-stamped-pending",
+     "reload": true,
+     "literalImport": true,
+     "file": "fieldcraft-stamped-pending.txt",
+     "sha256": "22f2b6a0790984b5007fc9624cfa9bf077263234a8a3febebd24c149cbdb0c79",
+     "clock": 856,
+     "derivedCacheDifferences": [
+      ".character.equipment.weapon.rarity"
+     ]
+    }
+   },
+   {
+    "id": "stamped-completed",
+    "singleCompletion": true,
+    "persistence": {
+     "label": "fieldcraft-stamped-completed",
+     "reload": true,
+     "literalImport": true,
+     "file": "fieldcraft-stamped-completed.txt",
+     "sha256": "d4c4bc2e7916adfae9dad8a9838ab37b4fcbba814276ae6fdb832393b3f905e6",
+     "clock": 859,
+     "derivedCacheDifferences": [
+      ".character.equipment.weapon.rarity"
+     ]
+    }
+   },
+   {
+    "id": "legacy-pending",
+    "persistence": {
+     "label": "fieldcraft-legacy-pending",
+     "reload": true,
+     "literalImport": true,
+     "file": "fieldcraft-legacy-pending.txt",
+     "sha256": "452db8ad0711b85c6c506641625533ae7a7a9a152890b7d1614940dc8c6243e1",
+     "clock": 868,
+     "derivedCacheDifferences": []
+    }
+   },
+   {
+    "id": "legacy-completed",
+    "singleCompletion": true,
+    "persistence": {
+     "label": "fieldcraft-legacy-completed",
+     "reload": true,
+     "literalImport": true,
+     "file": "fieldcraft-legacy-completed.txt",
+     "sha256": "e73db35c30fefb56fabeb7e942fb9128970938cd9032e1854a96ed7e73d4838b",
+     "clock": 871,
+     "derivedCacheDifferences": [
+      ".character.equipment.weapon.rarity"
+     ]
+    }
+   }
+  ]
+ }
+}

@@ -1,0 +1,9 @@
+{
+ "label": "courtyard-charter",
+ "reload": true,
+ "literalImport": true,
+ "file": "courtyard-charter.txt",
+ "sha256": "bec8397eec644e005c0056a2e786adf5ce702630c2d57080af66f838865d4d5c",
+ "clock": 0,
+ "derivedCacheDifferences": []
+}

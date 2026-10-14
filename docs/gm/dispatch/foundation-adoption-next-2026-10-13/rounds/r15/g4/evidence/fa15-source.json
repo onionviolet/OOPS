@@ -1,0 +1,45 @@
+{
+  "scope": "Current SOURCE contracts and controlled hooks only, not native gameplay",
+  "results": [
+    {
+      "name": "Paid pad uses one native kit and one stamina for two-minute refundable job",
+      "status": "PASS",
+      "evidenceClass": "SOURCE"
+    },
+    {
+      "name": "Support checked again on completion, not just initial rendering",
+      "status": "PASS",
+      "evidenceClass": "SOURCE"
+    },
+    {
+      "name": "No physical preparation admission without explicit enrollment and actual stock",
+      "status": "PASS",
+      "evidenceClass": "SOURCE"
+    },
+    {
+      "name": "Borrowed or equipped pad cannot count as actual owned preparation",
+      "status": "PASS",
+      "evidenceClass": "SOURCE"
+    },
+    {
+      "name": "Guard admission stages exact single stock reservation and schema5 binding",
+      "status": "PASS",
+      "evidenceClass": "SOURCE"
+    },
+    {
+      "name": "Consumed pad guards once for four defense and four block then disappears",
+      "status": "PASS",
+      "evidenceClass": "SOURCE"
+    },
+    {
+      "name": "Native result is joined to real incoming resolver and explicit player choice",
+      "status": "PASS",
+      "evidenceClass": "SOURCE"
+    },
+    {
+      "name": "Earned absent Lio and grip are concrete separate unmet prerequisites",
+      "status": "PASS",
+      "evidenceClass": "SOURCE"
+    }
+  ]
+}

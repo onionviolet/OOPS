@@ -1,0 +1,4 @@
+{
+ "sha256": "7095f3000bc264ad8f997624a4d525f8c14ecb038af22e676cf3d29c03abead9",
+ "instrumentation": "Same rebuilt main entry plus test-only G bridge; no command or gameplay implementation replaced"
+}

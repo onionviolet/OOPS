@@ -1,0 +1,104 @@
+{
+ "ok": true,
+ "value": {
+  "label": "seeded-native",
+  "cases": [
+   {
+    "id": "shipment-leave",
+    "refund": true,
+    "noOutput": true,
+    "noOwnReservation": true,
+    "foremanFeeKept": false,
+    "persistence": {
+     "label": "courtyard-shipment-leave",
+     "reload": true,
+     "literalImport": true,
+     "file": "courtyard-shipment-leave.txt",
+     "sha256": "2282b1937b85b4e1363856e8149c2c300ed3188c9d5768982e20631bcccd5f56",
+     "clock": 6,
+     "derivedCacheDifferences": []
+    }
+   },
+   {
+    "id": "shipment-contact",
+    "refund": true,
+    "noOutput": true,
+    "noOwnReservation": true,
+    "foremanFeeKept": false,
+    "persistence": {
+     "label": "courtyard-shipment-contact",
+     "reload": true,
+     "literalImport": true,
+     "file": "courtyard-shipment-contact.txt",
+     "sha256": "c12d80dd63cd9999777d4b938229ee84f37a888646c77b670bd082613c56fd65",
+     "clock": 6,
+     "derivedCacheDifferences": []
+    }
+   },
+   {
+    "id": "foreman-leave",
+    "refund": true,
+    "noOutput": true,
+    "noOwnReservation": true,
+    "foremanFeeKept": true,
+    "persistence": {
+     "label": "courtyard-foreman-leave",
+     "reload": true,
+     "literalImport": true,
+     "file": "courtyard-foreman-leave.txt",
+     "sha256": "acfc3ecd3dcac131c1f7d8d414f5ea7d032f1992dd65b7ea204cffaf40283fb6",
+     "clock": 6,
+     "derivedCacheDifferences": []
+    }
+   },
+   {
+    "id": "foreman-contact",
+    "refund": true,
+    "noOutput": true,
+    "noOwnReservation": true,
+    "foremanFeeKept": true,
+    "persistence": {
+     "label": "courtyard-foreman-contact",
+     "reload": true,
+     "literalImport": true,
+     "file": "courtyard-foreman-contact.txt",
+     "sha256": "8a3fc74678b93ac6402292833491671e273686258bdfcc6bdcbf7fb545ee0458",
+     "clock": 6,
+     "derivedCacheDifferences": []
+    }
+   },
+   {
+    "id": "aid-leave",
+    "refund": true,
+    "noOutput": true,
+    "noOwnReservation": true,
+    "foremanFeeKept": false,
+    "persistence": {
+     "label": "courtyard-aid-leave",
+     "reload": true,
+     "literalImport": true,
+     "file": "courtyard-aid-leave.txt",
+     "sha256": "b5be89b2aef03e92eb6ed19c944b1cff281b6a5dca9ae463074c9c94864fa4fa",
+     "clock": 6,
+     "derivedCacheDifferences": []
+    }
+   },
+   {
+    "id": "aid-contact",
+    "refund": true,
+    "noOutput": true,
+    "noOwnReservation": true,
+    "foremanFeeKept": false,
+    "persistence": {
+     "label": "courtyard-aid-contact",
+     "reload": true,
+     "literalImport": true,
+     "file": "courtyard-aid-contact.txt",
+     "sha256": "cfca74c5316e60980000cf989fe79b28e5222d4bf4e40a1cd1bc1f738b699a3a",
+     "clock": 6,
+     "derivedCacheDifferences": []
+    }
+   }
+  ]
+ }
+}

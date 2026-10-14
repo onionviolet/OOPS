@@ -1,0 +1,11 @@
+You are a lane for nonhuman player starts in a browser idle RPG (YAIRPG, a text life-sim across many worlds). Read /Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/nonhuman-starts-2026-10-14/COMMON.md, /Users/weiwei/code/yet-another-idle-rpg/AGENTS.md and /Users/weiwei/code/yet-another-idle-rpg/docs/worlds/NONHUMAN_STARTS_ENGINE_REQUIREMENTS_2026-10-14.md (all rounds) first and follow them. The research corpus is docs/worlds/NONHUMAN_* (STARTS_ENGINE_REQUIREMENTS owner with rounds 1-8; STARTS_ENGINE_SPEC; STARTS_PLAY; STARTS_BY_WORLD; PROTAGONIST_MECHANICS; TRANSFORMATION_AND_BODY_CHANGE; SENSES_SCALE_AND_UI; SOCIETY_LAW_AND_ECONOMY; BONDS_AND_PARTIES; PROGRESSION_AND_BALANCE; MONSTER_SIDE; and, if written by now, KIN_AND_RELATIONSHIPS, SUBTLE_MICRO_DETAILS, MAJORITY_WORLDS, CLOCKS_LIFESPANS_AND_SEASONS, BODY_AUTHORING) plus docs/worlds/paradise-hub/{CANON_PRIORITY_PLAN,BEINGS_PETS_AND_BODIES,DERIVED_WORLDS_AND_MISSIONS,HUB_LIFE_ECONOMY_AND_PEOPLE}_2026-10-14.md. Reference existing codes instead of repeating content.
+
+You are the SYNTHESIS lane. Read the whole corpus (skim tables; read suggestions, risks and engine sections fully). Write /Users/weiwei/code/yet-another-idle-rpg/docs/worlds/NONHUMAN_SYNTHESIS_AND_ROADMAP_2026-10-14.md:
+1. One-page answer: what nonhuman starts need, in plain words.
+2. Dependency graph of engine pieces (E1-E15 plus lane additions) and which start kinds each unlocks; draw as a table and a mermaid graph.
+3. A single ordered roadmap of playable slices from Slice 1 foundation through hound, canon world starts and Paradise, reconciling every lane's first-slice suggestion; each slice: visible outcome, depends on, size, verification gates (rebuild, fresh origin, 1366x768, save/reload/export/import).
+4. Conflicts and contradictions register across lanes (code CF1..), with the evidence on each side and a proposed resolution from existing authority, or marked for Weibao only when it changes his direction.
+5. Duplicates register: same idea under different codes, with the code to keep as canonical pointer.
+6. Gaps: what no lane covered.
+7. Deferred-scope list so later agents don't turn palette rows into gates.
+Do not edit the owner doc or sibling docs. Keep CHECKPOINT.md in /Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/nonhuman-starts-2026-10-14/synthesis/.

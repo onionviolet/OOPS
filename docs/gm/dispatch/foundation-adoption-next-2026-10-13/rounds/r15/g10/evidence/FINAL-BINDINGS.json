@@ -1,0 +1,26 @@
+{
+ "viewport": {
+  "width": 1600,
+  "height": 1100
+ },
+ "channel": "chrome",
+ "headless": true,
+ "errors": [],
+ "matching": false,
+ "loads": 570,
+ "matchingLoads": 569,
+ "mismatches": [
+  {
+   "url": "http://127.0.0.1:19200/dist/bundle.js?version=v0.6-86394b60d659",
+   "loaded": "69b728839cafe6d01fb4376e03e0925f1ca574c60736a2f99db66cf3dc43aed8",
+   "disk": "86394b60d6593a6f44e7901d60296419276e53d12065f21d76d602614da7a703",
+   "index": 152
+  }
+ ],
+ "final": {
+  "url": "http://127.0.0.1:19200/dist/bundle.js?version=v0.6-e41608d21461",
+  "loaded": "e41608d214616cce2c87ff0e4fe411d6c36a4b703879d2d9478313aa5918e202",
+  "disk": "e41608d214616cce2c87ff0e4fe411d6c36a4b703879d2d9478313aa5918e202"
+ },
+ "traceSha256": "5b64c74c446ee3c5016fc056dee02eddc4cad2a940f08afb9d696748e39d30f2"
+}

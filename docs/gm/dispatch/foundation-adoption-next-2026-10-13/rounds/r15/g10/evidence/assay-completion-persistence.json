@@ -1,0 +1,11 @@
+{
+ "label": "assay-completion",
+ "reload": true,
+ "literalImport": true,
+ "file": "assay-completion.txt",
+ "sha256": "126754cbdfcd7dc1f449a65ad0205f002a1e39acf1cb61888ad9ecbb59b81eef",
+ "clock": 858,
+ "derivedCacheDifferences": [
+  ".character.equipment.weapon.rarity"
+ ]
+}

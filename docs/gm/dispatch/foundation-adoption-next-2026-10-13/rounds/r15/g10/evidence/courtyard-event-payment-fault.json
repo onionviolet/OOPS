@@ -1,0 +1,24 @@
+{
+ "id": "courtyard-event-payment",
+ "label": "seeded-native",
+ "durableUnchanged": true,
+ "liveUnchanged": true,
+ "failedWrites": 1,
+ "actionError": null,
+ "notices": [
+  "Your browser has no room for this life. Export your save to a file; your last saved life is still safe.",
+  "Saving available. Draft changes can now be applied.",
+  "Saving available. Draft changes can now be applied.",
+  "Courtyard change saved."
+ ],
+ "retryOnce": true,
+ "persistence": {
+  "label": "courtyard-event-payment",
+  "reload": true,
+  "literalImport": true,
+  "file": "courtyard-event-payment.txt",
+  "sha256": "14119e22db485dddc6aaf19763453f0172eb3357ceb47acc1b1af52b9031c264",
+  "clock": 5,
+  "derivedCacheDifferences": []
+ }
+}

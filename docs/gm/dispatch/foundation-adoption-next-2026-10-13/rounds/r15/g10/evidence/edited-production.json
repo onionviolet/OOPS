@@ -1,0 +1,110 @@
+{
+ "label": "seeded-native",
+ "cases": [
+  {
+   "id": "reserve-stock-policy",
+   "label": "seeded-native",
+   "rejected": true,
+   "durableUnchanged": true,
+   "message": "Import rejected. Current save kept. Unsupported reserve policy. Retain the original save and remove only this optional cursor to recover it."
+  },
+  {
+   "id": "reserve-downgrade",
+   "label": "seeded-native",
+   "rejected": true,
+   "durableUnchanged": true,
+   "message": "Import rejected. Current save kept. The optional itinerary cursor cannot contain a copied context or unsupported fields."
+  },
+  {
+   "id": "reserve-future-clock",
+   "label": "seeded-native",
+   "rejected": true,
+   "durableUnchanged": true,
+   "message": "Import rejected. Current save kept. Invalid itinerary receipt."
+  },
+  {
+   "id": "reserve-future-sequence",
+   "label": "seeded-native",
+   "rejected": true,
+   "durableUnchanged": true,
+   "message": "Import rejected. Current save kept. The optional reserve requires its actual bench meeting and explicit accepted cursor receipt."
+  },
+  {
+   "id": "reserve-cursor-index",
+   "label": "seeded-native",
+   "rejected": true,
+   "durableUnchanged": true,
+   "message": "Import rejected. Current save kept. Invalid finite reserve budget or hold state."
+  },
+  {
+   "id": "manual-cost",
+   "label": "seeded-native",
+   "rejected": true,
+   "durableUnchanged": true,
+   "message": "Import rejected. Current save kept. The saved clearance work differs from its exact admitted costs, held returns, participants, time or support."
+  },
+  {
+   "id": "manual-effect",
+   "label": "seeded-native",
+   "rejected": true,
+   "durableUnchanged": true,
+   "message": "Import rejected. Current save kept. The saved clearance work differs from its exact admitted costs, held returns, participants, time or support."
+  },
+  {
+   "id": "manual-due",
+   "label": "seeded-native",
+   "rejected": true,
+   "durableUnchanged": true,
+   "message": "Import rejected. Current save kept. The saved clearance work differs from its exact admitted costs, held returns, participants, time or support."
+  },
+  {
+   "id": "manual-version",
+   "label": "seeded-native",
+   "rejected": true,
+   "durableUnchanged": true,
+   "message": "Import rejected. Current save kept. The saved clearance work differs from its exact admitted costs, held returns, participants, time or support."
+  },
+  {
+   "id": "manual-participants",
+   "label": "seeded-native",
+   "rejected": true,
+   "durableUnchanged": true,
+   "message": "Import rejected. Current save kept. Unknown persistent actor foreign."
+  },
+  {
+   "id": "manual-support",
+   "label": "seeded-native",
+   "rejected": true,
+   "durableUnchanged": true,
+   "message": "Import rejected. Current save kept. The saved clearance work differs from its exact admitted costs, held returns, participants, time or support."
+  },
+  {
+   "id": "manual-returns",
+   "label": "seeded-native",
+   "rejected": true,
+   "durableUnchanged": true,
+   "message": "Import rejected. Current save kept. Unsupported saved reservation return accounting."
+  },
+  {
+   "id": "fieldcraft-cost",
+   "label": "seeded-native",
+   "rejected": true,
+   "durableUnchanged": true,
+   "message": "Import rejected. Current save kept. The saved fieldcraft work differs from its admitted costs, effects, participants or support."
+  },
+  {
+   "id": "fieldcraft-effect",
+   "label": "seeded-native",
+   "rejected": true,
+   "durableUnchanged": true,
+   "message": "Import rejected. Current save kept. The saved fieldcraft work differs from its admitted costs, effects, participants or support."
+  },
+  {
+   "id": "fieldcraft-due",
+   "label": "seeded-native",
+   "rejected": true,
+   "durableUnchanged": true,
+   "message": "Import rejected. Current save kept. Unsupported fieldcraft work duration."
+  }
+ ]
+}

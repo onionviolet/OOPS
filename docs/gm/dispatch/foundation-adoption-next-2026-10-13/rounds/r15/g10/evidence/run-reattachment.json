@@ -1,0 +1,53 @@
+{
+ "ok": true,
+ "value": {
+  "label": "seeded-native",
+  "away": {
+   "hidden": true,
+   "connected": true
+  },
+  "returned": {
+   "hidden": false,
+   "connected": true
+  },
+  "key": {
+   "text": "Buy one Rough wood log",
+   "key": "Space",
+   "tabs": 1,
+   "focused": {
+    "text": "Buy one Rough wood log · 2 coins",
+    "focusVisible": true,
+    "outline": "solid 3px"
+   },
+   "after": {
+    "tag": "BUTTON",
+    "text": "Buy one Rough wood log · 2 coins",
+    "connected": true
+   }
+  },
+  "afterActivity": {
+   "text": "Buy one Linen cloth",
+   "key": "Enter",
+   "tabs": 2,
+   "focused": {
+    "text": "Buy one Linen cloth · 3 coins",
+    "focusVisible": true,
+    "outline": "solid 3px"
+   },
+   "after": {
+    "tag": "BUTTON",
+    "text": "Buy one Linen cloth · 3 coins",
+    "connected": true
+   }
+  },
+  "persistence": {
+   "label": "courtyard-reattachment",
+   "reload": true,
+   "literalImport": true,
+   "file": "courtyard-reattachment.txt",
+   "sha256": "367542883b9e51c21edef314c792dfe57309b1353510c466a4ebb80ba309a0a1",
+   "clock": 0,
+   "derivedCacheDifferences": []
+  }
+ }
+}

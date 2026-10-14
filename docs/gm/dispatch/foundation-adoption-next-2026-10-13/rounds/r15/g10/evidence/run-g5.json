@@ -1,0 +1,78 @@
+{
+ "ok": true,
+ "value": {
+  "label": "seeded-native",
+  "cases": [
+   {
+    "id": "kin-papers-debt",
+    "preview": "Recipient: your next of kin.\nMoney: 350 coins.\nBelongings (7): Stale bread ×5, Old combat manual, Cheap leather pants.\nStored in the chest (18): Iron ore ×12, Rough wood log ×6.\nHome: the Shack in the Village.\nWritten papers: reading the road (study each to learn it).\nFamily standing: Village -1.\nDebt settled first: the estate paid 50 of 50 coins owed to the Village guard for a kept kit.\nThe elder's archive stays with your line.\nObligation: An unsettled assault grievance with the elder (3-coin restitution still owed).",
+    "money": [
+     400,
+     452
+    ],
+    "inheritance": {
+     "recipient": "kin",
+     "papers": [
+      "routeSignals"
+     ],
+     "apprentice": [],
+     "money": 350,
+     "belongings": 7,
+     "chest": 18,
+     "home": true,
+     "obligations": [
+      "grievance"
+     ],
+     "archiveLine": true,
+     "debtsPaid": 50
+    },
+    "studyMinutes": 5,
+    "learned": true,
+    "persistence": {
+     "label": "heir-kin-papers",
+     "reload": true,
+     "literalImport": true,
+     "file": "heir-kin-papers.txt",
+     "sha256": "0bbb169726b43ea78656b97857500fb14b04fe5474f3fe7d887ce1dadd9fcc44",
+     "clock": 5,
+     "derivedCacheDifferences": []
+    }
+   },
+   {
+    "id": "debt-shortfall",
+    "preview": "Recipient: your next of kin.\nBelongings (7): Stale bread ×5, Old combat manual, Cheap leather pants.\nStored in the chest (18): Iron ore ×12, Rough wood log ×6.\nHome: the Shack in the Village.\nWritten papers: reading the road (study each to learn it).\nFamily standing: Village -1.\nDebt settled first: the estate paid 40 of 50 coins owed to the Village guard for a kept kit; the remaining 10 was written off.\nThe elder's archive stays with your line.\nObligation: An unsettled assault grievance with the elder (3-coin restitution still owed).",
+    "money": [
+     40,
+     102
+    ],
+    "inheritance": {
+     "recipient": "kin",
+     "papers": [
+      "routeSignals"
+     ],
+     "apprentice": [],
+     "money": 0,
+     "belongings": 7,
+     "chest": 18,
+     "home": true,
+     "obligations": [
+      "grievance"
+     ],
+     "archiveLine": true,
+     "debtsPaid": 40
+    },
+    "studyMinutes": 5,
+    "learned": true,
+    "persistence": {
+     "label": "heir-shortfall",
+     "reload": true,
+     "literalImport": true,
+     "file": "heir-shortfall.txt",
+     "sha256": "fa4cbf8e9cbb94aaba200abcbb3cc738d3080e25b76c2667f9b8cd6d2d98f0fa",
+     "clock": 5,
+     "derivedCacheDifferences": []
+    }
+   }
+  ]
+ }
+}

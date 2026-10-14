@@ -1,0 +1,2 @@
+await h.importFile(path.resolve(h.evidence,'fa14-current-allocation-orr-pending.txt'));await h.play();await h.click('Cancel and withdraw sponsorship');await h.record('fa14-allocation-withdrawn');await h.advance(8);await h.record('fa14-allocation-withdrawn-later');await h.persist('fa14-allocation-withdrawn-final');
+await h.importFile(path.resolve(h.evidence,'../fixture/TEST-FIXTURE-R15-G4-allocation.txt'));await h.play();return {keep:await h.buttons('Keep'),choices:await h.buttons('kit')};

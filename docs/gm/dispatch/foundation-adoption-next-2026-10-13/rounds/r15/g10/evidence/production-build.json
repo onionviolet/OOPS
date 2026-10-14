@@ -1,0 +1,6 @@
+{
+ "command": "npm run build",
+ "exitCode": 0,
+ "sha256": "e41608d214616cce2c87ff0e4fe411d6c36a4b703879d2d9478313aa5918e202",
+ "instrumentation": false
+}

@@ -1,0 +1,64 @@
+{
+ "ok": true,
+ "value": {
+  "label": "seeded-native",
+  "cases": [
+   {
+    "id": "retort-duplicate-tray",
+    "label": "seeded-native",
+    "rejected": true,
+    "durableUnchanged": true,
+    "message": "Import rejected. Current save kept. Retort must conserve exactly one actual empty/filled/reserved receiver in each family."
+   },
+   {
+    "id": "retort-equipped-tray",
+    "label": "seeded-native",
+    "rejected": true,
+    "durableUnchanged": true,
+    "message": "Import rejected. Current save kept. Retort receivers and residue are physical stock, never player equipment or borrowed custody."
+   },
+   {
+    "id": "retort-forged-quality",
+    "label": "seeded-native",
+    "rejected": true,
+    "durableUnchanged": true,
+    "message": "Import rejected. Current save kept. Retort stock must use its exact plain native item key."
+   },
+   {
+    "id": "retort-forged-custody",
+    "label": "seeded-native",
+    "rejected": true,
+    "durableUnchanged": true,
+    "message": "Import rejected. Current save kept. Invalid custody."
+   },
+   {
+    "id": "retort-job-cost",
+    "label": "seeded-native",
+    "rejected": true,
+    "durableUnchanged": true,
+    "message": "Import rejected. Current save kept. Retort accepted work lost its exact custody, fuel, product, origin or refund terms."
+   },
+   {
+    "id": "retort-job-effect",
+    "label": "seeded-native",
+    "rejected": true,
+    "durableUnchanged": true,
+    "message": "Import rejected. Current save kept. Retort accepted work lost its exact custody, fuel, product, origin or refund terms."
+   },
+   {
+    "id": "retort-job-due",
+    "label": "seeded-native",
+    "rejected": true,
+    "durableUnchanged": true,
+    "message": "Import rejected. Current save kept. Retort accepted work lost its exact custody, fuel, product, origin or refund terms."
+   },
+   {
+    "id": "retort-job-receiver-count",
+    "label": "seeded-native",
+    "rejected": true,
+    "durableUnchanged": true,
+    "message": "Import rejected. Current save kept. Unsupported saved reservation return accounting."
+   }
+  ]
+ }
+}

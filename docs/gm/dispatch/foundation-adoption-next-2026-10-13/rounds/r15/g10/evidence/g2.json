@@ -1,0 +1,200 @@
+{
+ "label": "seeded-native",
+ "cases": [
+  {
+   "id": "reserve-support",
+   "refunded": true,
+   "cursor": {
+    "id": "work-plan:4743",
+    "definitionId": "audited_kit_reserve.resin_plan",
+    "revision": 1,
+    "actorId": "player",
+    "origin": "reference_gameplay.open",
+    "label": "Eda’s finite survey-kit reserve",
+    "startedSequence": 4743,
+    "startedAt": 748,
+    "updatedAt": 751,
+    "steps": [
+     {
+      "id": "resin_batch_1",
+      "kind": "command",
+      "commandId": "reference_gameplay.resin_kits",
+      "revision": 1
+     },
+     {
+      "id": "resin_batch_2",
+      "kind": "command",
+      "commandId": "reference_gameplay.resin_kits",
+      "revision": 1
+     },
+     {
+      "id": "resin_batch_3",
+      "kind": "command",
+      "commandId": "reference_gameplay.resin_kits",
+      "revision": 1
+     }
+    ],
+    "index": 0,
+    "status": "paused",
+    "accepted": null,
+    "reason": "The accepted step stopped or was cancelled. Its actual reservation policy was applied; no itinerary result was awarded.",
+    "stockPolicy": {
+     "version": 1,
+     "key": "{\"id\":\"Prepared survey kit\"}",
+     "upper": 4,
+     "lower": 2,
+     "batchOutput": 2,
+     "maxAcceptedBatches": 3
+    },
+    "stockHold": false,
+    "stockAcceptedBatches": 1
+   },
+   "persistence": {
+    "label": "reserve-support-refund",
+    "reload": true,
+    "literalImport": true,
+    "file": "reserve-support-refund.txt",
+    "sha256": "39fb799f3a0b07b2a706c3a124529b430107b6429c69be330d83e60438d22d34",
+    "clock": 752,
+    "derivedCacheDifferences": [
+     ".character.equipment.weapon.rarity"
+    ]
+   }
+  },
+  {
+   "id": "retort-support",
+   "refunded": true,
+   "cursor": {
+    "id": "work-plan:4743",
+    "definitionId": "factorio_retort.three_batches",
+    "revision": 1,
+    "actorId": "player",
+    "origin": "factorio_retort.install",
+    "label": "Three retort batches with separate receiver clearing",
+    "startedSequence": 4743,
+    "startedAt": 748,
+    "updatedAt": 751,
+    "steps": [
+     {
+      "id": "batch_1",
+      "kind": "command",
+      "commandId": "factorio_retort.batch",
+      "revision": 1
+     },
+     {
+      "id": "batch_2",
+      "kind": "command",
+      "commandId": "factorio_retort.batch",
+      "revision": 1
+     },
+     {
+      "id": "batch_3",
+      "kind": "command",
+      "commandId": "factorio_retort.batch",
+      "revision": 1
+     }
+    ],
+    "index": 0,
+    "status": "paused",
+    "accepted": null,
+    "reason": "The accepted step stopped or was cancelled. Its actual reservation policy was applied; no itinerary result was awarded."
+   },
+   "persistence": {
+    "label": "retort-support-refund",
+    "reload": true,
+    "literalImport": true,
+    "file": "retort-support-refund.txt",
+    "sha256": "560e7438813243efdc83c0a1ef348f8262959151b4acae6a69d6120661b8c021",
+    "clock": 752,
+    "derivedCacheDifferences": [
+     ".character.equipment.weapon.rarity"
+    ]
+   }
+  },
+  {
+   "id": "mixed-attention",
+   "cursor": {
+    "id": "work-plan:4507",
+    "definitionId": "feature_society.household_itinerary",
+    "revision": 1,
+    "actorId": "player",
+    "origin": "feature_society.terms",
+    "label": "Supply, funded repair and a personal method",
+    "startedSequence": 4507,
+    "startedAt": 528,
+    "updatedAt": 528,
+    "steps": [
+     {
+      "id": "supply",
+      "kind": "command",
+      "commandId": "feature_society.supply",
+      "revision": 1,
+      "targetId": "feature_society.hessa"
+     },
+     {
+      "id": "permission",
+      "kind": "command",
+      "commandId": "feature_society.authorize_home",
+      "revision": 1,
+      "targetId": "feature_society.hessa"
+     },
+     {
+      "id": "wait_repair",
+      "kind": "wait",
+      "requires": {
+       "fact": "world.feature_society.homeRepaired",
+       "op": "eq",
+       "value": true
+      },
+      "actorId": "feature_society.orr",
+      "commandId": "feature_society.orr_repair",
+      "revision": 1,
+      "label": "Wait for Orr’s actual funded repair before hearing the result"
+     },
+     {
+      "id": "report",
+      "kind": "command",
+      "commandId": "feature_society.hear_home",
+      "revision": 1,
+      "targetId": "feature_society.hessa"
+     },
+     {
+      "id": "learn",
+      "kind": "command",
+      "commandId": "feature_society.personal_lesson",
+      "revision": 1,
+      "targetId": "feature_society.orr"
+     },
+     {
+      "id": "travel_home",
+      "kind": "travel",
+      "location": "Shack",
+      "label": "Travel to your Shack through native travel"
+     },
+     {
+      "id": "personal_use",
+      "kind": "command",
+      "commandId": "feature_society.personal_pack",
+      "revision": 1
+     }
+    ],
+    "index": 2,
+    "status": "paused",
+    "accepted": null,
+    "reason": "The resident has not accepted the next work. Current permission, funding, body or means do not support a new commitment; meet them or correct the agreed inputs, then resume."
+   },
+   "noResidentJob": true,
+   "persistence": {
+    "label": "mixed-attention",
+    "reload": true,
+    "literalImport": true,
+    "file": "mixed-attention.txt",
+    "sha256": "3c8644070b3e21ec8ea5a258a7e53b32af3e02d450f51eeda48f01d92df2b6ee",
+    "clock": 542,
+    "derivedCacheDifferences": [
+     ".character.equipment.weapon.rarity"
+    ]
+   }
+  }
+ ]
+}

@@ -1,0 +1,23 @@
+{
+ "label": "seeded-native",
+ "seed": "Swamp access and purse, real probabilistic TraderComponent.refresh until stock; no balm added to player",
+ "tries": 1,
+ "stock": 2,
+ "money": [
+  10000,
+  9160
+ ],
+ "balm": [
+  0,
+  1
+ ],
+ "stockText": "e max level skills\nSort by name\nSort by level\nSort by progress\nSkills\nStances\nMagic\nReports\nRemembered years · 1 memories\nRemember this day\n\nYears remembered\nTitles recognized from your past: Well-Off.\nSaved the game manually\nLevels / unlocks\nEvents\nCrafting\nCombat\nLoot\nBGM\nYour beginning\n▤\nPeople you know\nPeople you know\n\nWhat you have learned and what happened between you. Locations are last known or agreed, rather than live reports.\n\nVillage elder\nSave\nExport\nImport\nsettings\nv0.6\nhelp_outline",
+ "persistence": {
+  "label": "balm-acquired",
+  "reload": true,
+  "literalImport": true,
+  "file": "balm-acquired.txt",
+  "sha256": "0caf27eec030028204aa3324a78b1c726221f11cff1c745369d8e240b6ff2f17",
+  "clock": 0
+ }
+}

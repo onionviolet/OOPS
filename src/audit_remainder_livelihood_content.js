@@ -97,7 +97,7 @@ const commissionCommands = REMAINDER_LIVELIHOOD_COMMISSIONS.flatMap(c => {
     const jobs = [
         command({id: `${P}.fund_${c.topic}`, label: `Sponsor ${label} ${c.topic.startsWith('shift') ? `shift ${c.topic.slice(-1)}` : c.driesBench ? 'bench drying' : 'packing'} · ${c.logs} log${c.logs === 1 ? '' : 's'}${allocation ? ' + 1 owned kit' : ''}${c.sap ? ' + 1 sap' : ''} + 2 coins`,
             once: true, claim: c.fundingClaim, targetId: c.worker, coLocated: true, participants: ['$target'],
-            visibleWhen: all(enrolled, hasTerms(c)), requires: all(common, hasTerms(c), f(`${c.topic}.supported`), window(c.duration),
+            visibleWhen: all(enrolled, hasTerms(c)), requires: all(common, hasTerms(c), f(`${c.topic}.fundSupported`), window(c.duration),
                 f(`${c.topic}.unfunded`), ...(allocation ? [f('allocationUnchosen'), eq(`claim.${I.localRight}.owner`, 'player')] : [])),
             costs: supplied(c), effects: [resource(c.worker, c.escrow, 2), resource(c.worker, c.demand, 1),
                 af(`funded.${c.topic}`), af(`offered.${c.topic}`, true, c.worker),

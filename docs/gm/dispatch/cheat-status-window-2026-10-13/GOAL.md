@@ -79,3 +79,24 @@ Design: dormant seed (ST11) wakes on the first won fight or day 3, whichever
 first; stage 0 is informational (knowledge, not power). "surprise" picks from
 the cards available for an optional start (today only system-quests) and
 says so. The life record notes the choice.
+
+## R1 stage 0 hardening (2026-10-14)
+
+Authority: Weibao, 2026-10-14, after the
+[audit](AUDIT_REPORT.md): "more to consider? ... Send out codex as usesful?".
+Palette: [AW1-AW5](../../../CHEAT_LIBRARY.md#more-to-consider-after-the-stage-0-audit-stage-1-and-beyond-2026-10-14).
+Scope is correctness of the shipped stage 0 only: no new milestones, no
+stage 1, no new panels. Branch `ui/cheats-r1` in `.claude/worktrees/ui-cheats-r1`
+(from master cc5fa556). Ports 18451 (check) and 18452-18459 (worker). The
+worker writes the R gate first, freezes it in GATE_R1.sha256, then edits
+source. The coordinator reviews and merges; the worker never pushes.
+
+| ID | What |
+| --- | --- |
+| R1 | Storage fault: while saves containing an awakened card are refused, crossing day 3 shows no panel, no first system line and leaves the durable card dormant; once writes succeed the card awakens, the line is logged and the reveal plays exactly once (AW1) |
+| R2 | Travel: from `fixtures/dormant_day3.save.txt`, crossing day 3 by native travel awakens the card within 10 s of arrival without waiting for another tick-driven day boundary (AW2) |
+| R3 | Load past the milestone: importing a real-code save whose clock is past day 3 with a dormant card awakens it within 10 s of load; sleeping across the boundary does too where a bed is reachable from the fixture (AW2) |
+| R4 | Reveal in view at 1366x768 Standard and Vivid: when the reveal plays, the status window's level row is inside the viewport or a visible pointer brings it there in one action; F6 then Tab reaches a control or focusable region inside the contents, not only the header (AW4) |
+| R5 | Validator: import of an awakened card without a first message, or with negative or non-integer points, is refused with a message naming the card and the current save stays untouched (AW5) |
+| R6 | `npm test` passes with at least three new tests whose names mention cheat and awakening |
+| REG | C0, CH1, panel-kit, settings, crafting and Vivid gates still pass against the R1 build |

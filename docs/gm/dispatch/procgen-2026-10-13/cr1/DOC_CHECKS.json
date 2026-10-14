@@ -1,0 +1,732 @@
+{
+  "status": "PROPOSAL_DOCUMENT_CHECKS_ONLY",
+  "checked_at_utc": "2026-10-14T05:06:47.498382+00:00",
+  "written_scope": "docs/gm/dispatch/procgen-2026-10-13/cr1",
+  "expected_artifacts": [
+    "CHECKPOINT.md",
+    "CONSUMABLE_KINDS.md",
+    "DOSE_AND_TOLERANCE.md",
+    "BODY_AND_SPECIES.md",
+    "MORE.md",
+    "REPORT.md",
+    "DOC_CHECKS.json"
+  ],
+  "document_check_errors": [],
+  "markdown_links_checked": 78,
+  "markdown_links": [
+    {
+      "from": "BODY_AND_SPECIES.md",
+      "target": "../../../../GENETICS_CONSTITUTIONS_AND_BROOD_PLAY.md",
+      "exists": true,
+      "anchor_valid": true
+    },
+    {
+      "from": "BODY_AND_SPECIES.md",
+      "target": "../../../../worlds/NONHUMAN_PROTAGONIST_MECHANICS_2026-10-14.md",
+      "exists": true,
+      "anchor_valid": true
+    },
+    {
+      "from": "BODY_AND_SPECIES.md",
+      "target": "../../../../HUNGER_AND_BODILY_NEEDS_CONSIDERATIONS_2026-10-13.md",
+      "exists": true,
+      "anchor_valid": true
+    },
+    {
+      "from": "BODY_AND_SPECIES.md",
+      "target": "../../../../COMPANIONS_FAMILIARS_AND_PETS_CONSIDERATIONS_2026-10-14.md",
+      "exists": true,
+      "anchor_valid": true
+    },
+    {
+      "from": "BODY_AND_SPECIES.md",
+      "target": "REPORT.md#p2-source-audit",
+      "exists": true,
+      "anchor_valid": true
+    },
+    {
+      "from": "BODY_AND_SPECIES.md",
+      "target": "CONSUMABLE_KINDS.md",
+      "exists": true,
+      "anchor_valid": true
+    },
+    {
+      "from": "BODY_AND_SPECIES.md",
+      "target": "DOSE_AND_TOLERANCE.md",
+      "exists": true,
+      "anchor_valid": true
+    },
+    {
+      "from": "BODY_AND_SPECIES.md",
+      "target": "../p6/COOKING.md",
+      "exists": true,
+      "anchor_valid": true
+    },
+    {
+      "from": "BODY_AND_SPECIES.md",
+      "target": "../CR3.md",
+      "exists": true,
+      "anchor_valid": true
+    },
+    {
+      "from": "BODY_AND_SPECIES.md",
+      "target": "../CR2.md",
+      "exists": true,
+      "anchor_valid": true
+    },
+    {
+      "from": "BODY_AND_SPECIES.md",
+      "target": "../CR4.md",
+      "exists": true,
+      "anchor_valid": true
+    },
+    {
+      "from": "BODY_AND_SPECIES.md",
+      "target": "REPORT.md",
+      "exists": true,
+      "anchor_valid": true
+    },
+    {
+      "from": "CHECKPOINT.md",
+      "target": "REPORT.md",
+      "exists": true,
+      "anchor_valid": true
+    },
+    {
+      "from": "CHECKPOINT.md",
+      "target": "CONSUMABLE_KINDS.md",
+      "exists": true,
+      "anchor_valid": true
+    },
+    {
+      "from": "CHECKPOINT.md",
+      "target": "DOSE_AND_TOLERANCE.md",
+      "exists": true,
+      "anchor_valid": true
+    },
+    {
+      "from": "CHECKPOINT.md",
+      "target": "BODY_AND_SPECIES.md",
+      "exists": true,
+      "anchor_valid": true
+    },
+    {
+      "from": "CHECKPOINT.md",
+      "target": "MORE.md",
+      "exists": true,
+      "anchor_valid": true
+    },
+    {
+      "from": "CHECKPOINT.md",
+      "target": "DOC_CHECKS.json",
+      "exists": true,
+      "anchor_valid": true
+    },
+    {
+      "from": "CONSUMABLE_KINDS.md",
+      "target": "../../../../PROCEDURAL_CRAFTING_AND_CONSUMABLES_CONSIDERATIONS_2026-10-14.md",
+      "exists": true,
+      "anchor_valid": true
+    },
+    {
+      "from": "CONSUMABLE_KINDS.md",
+      "target": "DOSE_AND_TOLERANCE.md",
+      "exists": true,
+      "anchor_valid": true
+    },
+    {
+      "from": "CONSUMABLE_KINDS.md",
+      "target": "BODY_AND_SPECIES.md",
+      "exists": true,
+      "anchor_valid": true
+    },
+    {
+      "from": "CONSUMABLE_KINDS.md",
+      "target": "../p6/COOKING.md",
+      "exists": true,
+      "anchor_valid": true
+    },
+    {
+      "from": "CONSUMABLE_KINDS.md",
+      "target": "../p6/COATINGS.md",
+      "exists": true,
+      "anchor_valid": true
+    },
+    {
+      "from": "CONSUMABLE_KINDS.md",
+      "target": "../p6/PATTERNS.md",
+      "exists": true,
+      "anchor_valid": true
+    },
+    {
+      "from": "CONSUMABLE_KINDS.md",
+      "target": "../p6/TECHNIQUE_INVENTION.md",
+      "exists": true,
+      "anchor_valid": true
+    },
+    {
+      "from": "CONSUMABLE_KINDS.md",
+      "target": "../p6/MORE.md",
+      "exists": true,
+      "anchor_valid": true
+    },
+    {
+      "from": "CONSUMABLE_KINDS.md",
+      "target": "REPORT.md#p2-source-audit",
+      "exists": true,
+      "anchor_valid": true
+    },
+    {
+      "from": "CONSUMABLE_KINDS.md",
+      "target": "DOSE_AND_TOLERANCE.md#co4c-curve-palette",
+      "exists": true,
+      "anchor_valid": true
+    },
+    {
+      "from": "CONSUMABLE_KINDS.md",
+      "target": "DOSE_AND_TOLERANCE.md",
+      "exists": true,
+      "anchor_valid": true
+    },
+    {
+      "from": "CONSUMABLE_KINDS.md",
+      "target": "../CR2.md",
+      "exists": true,
+      "anchor_valid": true
+    },
+    {
+      "from": "CONSUMABLE_KINDS.md",
+      "target": "../../../../research/procedural-materials-2026-10-13/deep/REPORT.md",
+      "exists": true,
+      "anchor_valid": true
+    },
+    {
+      "from": "CONSUMABLE_KINDS.md",
+      "target": "../p6/CANON_LOCATORS.md",
+      "exists": true,
+      "anchor_valid": true
+    },
+    {
+      "from": "CONSUMABLE_KINDS.md",
+      "target": "../../../../research/procedural-materials-2026-10-13/REPORT.md",
+      "exists": true,
+      "anchor_valid": true
+    },
+    {
+      "from": "CONSUMABLE_KINDS.md",
+      "target": "../../../../research/procedural-materials-2026-10-13/deep/REPORT.md",
+      "exists": true,
+      "anchor_valid": true
+    },
+    {
+      "from": "CONSUMABLE_KINDS.md",
+      "target": "../CR2.md",
+      "exists": true,
+      "anchor_valid": true
+    },
+    {
+      "from": "CONSUMABLE_KINDS.md",
+      "target": "REPORT.md#contradictions-and-qualification",
+      "exists": true,
+      "anchor_valid": true
+    },
+    {
+      "from": "CONSUMABLE_KINDS.md",
+      "target": "REPORT.md#future-gates-all-open",
+      "exists": true,
+      "anchor_valid": true
+    },
+    {
+      "from": "DOSE_AND_TOLERANCE.md",
+      "target": "CONSUMABLE_KINDS.md",
+      "exists": true,
+      "anchor_valid": true
+    },
+    {
+      "from": "DOSE_AND_TOLERANCE.md",
+      "target": "BODY_AND_SPECIES.md",
+      "exists": true,
+      "anchor_valid": true
+    },
+    {
+      "from": "DOSE_AND_TOLERANCE.md",
+      "target": "CONSUMABLE_KINDS.md#co4a-proposed-records-that-fit-p2-without-rewriting-saved-revision-1",
+      "exists": true,
+      "anchor_valid": true
+    },
+    {
+      "from": "DOSE_AND_TOLERANCE.md",
+      "target": "../p6/BUILDINGS.md",
+      "exists": true,
+      "anchor_valid": true
+    },
+    {
+      "from": "DOSE_AND_TOLERANCE.md",
+      "target": "../CR2.md",
+      "exists": true,
+      "anchor_valid": true
+    },
+    {
+      "from": "DOSE_AND_TOLERANCE.md",
+      "target": "../CR3.md",
+      "exists": true,
+      "anchor_valid": true
+    },
+    {
+      "from": "DOSE_AND_TOLERANCE.md",
+      "target": "CONSUMABLE_KINDS.md",
+      "exists": true,
+      "anchor_valid": true
+    },
+    {
+      "from": "MORE.md",
+      "target": "REPORT.md#five-ranked-additions-above-p2",
+      "exists": true,
+      "anchor_valid": true
+    },
+    {
+      "from": "MORE.md",
+      "target": "../../../../PROCEDURAL_CRAFTING_AND_CONSUMABLES_CONSIDERATIONS_2026-10-14.md",
+      "exists": true,
+      "anchor_valid": true
+    },
+    {
+      "from": "MORE.md",
+      "target": "../p6/REPORT.md",
+      "exists": true,
+      "anchor_valid": true
+    },
+    {
+      "from": "MORE.md",
+      "target": "../p8/REPORT.md",
+      "exists": true,
+      "anchor_valid": true
+    },
+    {
+      "from": "MORE.md",
+      "target": "../p11/MORE.md",
+      "exists": true,
+      "anchor_valid": true
+    },
+    {
+      "from": "MORE.md",
+      "target": "../p5/EXTRA_IDEAS.md",
+      "exists": true,
+      "anchor_valid": true
+    },
+    {
+      "from": "MORE.md",
+      "target": "../CR2.md",
+      "exists": true,
+      "anchor_valid": true
+    },
+    {
+      "from": "MORE.md",
+      "target": "../CR3.md",
+      "exists": true,
+      "anchor_valid": true
+    },
+    {
+      "from": "MORE.md",
+      "target": "../CR4.md",
+      "exists": true,
+      "anchor_valid": true
+    },
+    {
+      "from": "MORE.md",
+      "target": "DOSE_AND_TOLERANCE.md",
+      "exists": true,
+      "anchor_valid": true
+    },
+    {
+      "from": "MORE.md",
+      "target": "BODY_AND_SPECIES.md",
+      "exists": true,
+      "anchor_valid": true
+    },
+    {
+      "from": "REPORT.md",
+      "target": "CHECKPOINT.md",
+      "exists": true,
+      "anchor_valid": true
+    },
+    {
+      "from": "REPORT.md",
+      "target": "CONSUMABLE_KINDS.md",
+      "exists": true,
+      "anchor_valid": true
+    },
+    {
+      "from": "REPORT.md",
+      "target": "DOSE_AND_TOLERANCE.md",
+      "exists": true,
+      "anchor_valid": true
+    },
+    {
+      "from": "REPORT.md",
+      "target": "BODY_AND_SPECIES.md",
+      "exists": true,
+      "anchor_valid": true
+    },
+    {
+      "from": "REPORT.md",
+      "target": "MORE.md",
+      "exists": true,
+      "anchor_valid": true
+    },
+    {
+      "from": "REPORT.md",
+      "target": "DOC_CHECKS.json",
+      "exists": true,
+      "anchor_valid": true
+    },
+    {
+      "from": "REPORT.md",
+      "target": "../../../../../PROJECT.md#standing-priorities-and-document-authority",
+      "exists": true,
+      "anchor_valid": true
+    },
+    {
+      "from": "REPORT.md",
+      "target": "../../../../USER_VISION.md",
+      "exists": true,
+      "anchor_valid": true
+    },
+    {
+      "from": "REPORT.md",
+      "target": "../../../../HUNGER_AND_BODILY_NEEDS_CONSIDERATIONS_2026-10-13.md",
+      "exists": true,
+      "anchor_valid": true
+    },
+    {
+      "from": "REPORT.md",
+      "target": "../../../../../.claude/worktrees/proc-p2-mixing/docs/gm/dispatch/procgen-2026-10-13/p2/REPORT.md",
+      "exists": true,
+      "anchor_valid": true
+    },
+    {
+      "from": "REPORT.md",
+      "target": "../p6/CANON_LOCATORS.md",
+      "exists": true,
+      "anchor_valid": true
+    },
+    {
+      "from": "REPORT.md",
+      "target": "../../../../research/procedural-materials-2026-10-13/REPORT.md",
+      "exists": true,
+      "anchor_valid": true
+    },
+    {
+      "from": "REPORT.md",
+      "target": "../../../../research/procedural-materials-2026-10-13/deep/REPORT.md",
+      "exists": true,
+      "anchor_valid": true
+    },
+    {
+      "from": "REPORT.md",
+      "target": "../CR2.md",
+      "exists": true,
+      "anchor_valid": true
+    },
+    {
+      "from": "REPORT.md",
+      "target": "../CR3.md",
+      "exists": true,
+      "anchor_valid": true
+    },
+    {
+      "from": "REPORT.md",
+      "target": "../CR4.md",
+      "exists": true,
+      "anchor_valid": true
+    },
+    {
+      "from": "REPORT.md",
+      "target": "../p6/REPORT.md",
+      "exists": true,
+      "anchor_valid": true
+    },
+    {
+      "from": "REPORT.md",
+      "target": "../p8/REPORT.md",
+      "exists": true,
+      "anchor_valid": true
+    },
+    {
+      "from": "REPORT.md",
+      "target": "../p11/MORE.md",
+      "exists": true,
+      "anchor_valid": true
+    },
+    {
+      "from": "REPORT.md",
+      "target": "../p5/EXTRA_IDEAS.md",
+      "exists": true,
+      "anchor_valid": true
+    },
+    {
+      "from": "REPORT.md",
+      "target": "../../../../GENETICS_CONSTITUTIONS_AND_BROOD_PLAY.md",
+      "exists": true,
+      "anchor_valid": true
+    },
+    {
+      "from": "REPORT.md",
+      "target": "../../../../worlds/NONHUMAN_PROTAGONIST_MECHANICS_2026-10-14.md",
+      "exists": true,
+      "anchor_valid": true
+    },
+    {
+      "from": "REPORT.md",
+      "target": "../../../../COMPANIONS_FAMILIARS_AND_PETS_CONSIDERATIONS_2026-10-14.md",
+      "exists": true,
+      "anchor_valid": true
+    }
+  ],
+  "source_locators_checked": 25,
+  "source_locators": [
+    {
+      "file": "src/mixture_state.js",
+      "first": 47,
+      "last": 71,
+      "valid": true
+    },
+    {
+      "file": "src/mixture_native.js",
+      "first": 16,
+      "last": 19,
+      "valid": true
+    },
+    {
+      "file": "src/mixture_state.js",
+      "first": 92,
+      "last": 98,
+      "valid": true
+    },
+    {
+      "file": "src/mixture_state.js",
+      "first": 65,
+      "last": 65,
+      "valid": true
+    },
+    {
+      "file": "src/active_effects.js",
+      "first": 15,
+      "last": 35,
+      "valid": true
+    },
+    {
+      "file": "src/mixture_native.js",
+      "first": 5,
+      "last": 19,
+      "valid": true
+    },
+    {
+      "file": "src/mixture_state.js",
+      "first": 92,
+      "last": 95,
+      "valid": true
+    },
+    {
+      "file": "src/main.js",
+      "first": 4675,
+      "last": 4679,
+      "valid": true
+    },
+    {
+      "file": "src/mixture_state.js",
+      "first": 15,
+      "last": 45,
+      "valid": true
+    },
+    {
+      "file": "src/mixture_state.js",
+      "first": 47,
+      "last": 71,
+      "valid": true
+    },
+    {
+      "file": "src/mixture_state.js",
+      "first": 73,
+      "last": 83,
+      "valid": true
+    },
+    {
+      "file": "src/items.js",
+      "first": 1218,
+      "last": 1226,
+      "valid": true
+    },
+    {
+      "file": "src/components/inventory_component.js",
+      "first": 21,
+      "last": 46,
+      "valid": true
+    },
+    {
+      "file": "src/mixture_native.js",
+      "first": 5,
+      "last": 22,
+      "valid": true
+    },
+    {
+      "file": "src/mixture_state.js",
+      "first": 84,
+      "last": 98,
+      "valid": true
+    },
+    {
+      "file": "src/mixture_native.js",
+      "first": 38,
+      "last": 43,
+      "valid": true
+    },
+    {
+      "file": "src/main.js",
+      "first": 4668,
+      "last": 4689,
+      "valid": true
+    },
+    {
+      "file": "src/active_effects.js",
+      "first": 15,
+      "last": 35,
+      "valid": true
+    },
+    {
+      "file": "src/main.js",
+      "first": 4816,
+      "last": 4852,
+      "valid": true
+    },
+    {
+      "file": "src/mixture_native.js",
+      "first": 23,
+      "last": 35,
+      "valid": true
+    },
+    {
+      "file": "src/mixture_ui.js",
+      "first": 21,
+      "last": 21,
+      "valid": true
+    },
+    {
+      "file": "src/mixture_state.js",
+      "first": 92,
+      "last": 98,
+      "valid": true
+    },
+    {
+      "file": "src/mixture_native.js",
+      "first": 38,
+      "last": 43,
+      "valid": true
+    },
+    {
+      "file": "src/main.js",
+      "first": 4668,
+      "last": 4681,
+      "valid": true
+    },
+    {
+      "file": "src/main.js",
+      "first": 7225,
+      "last": 7244,
+      "valid": true
+    }
+  ],
+  "coverage_codes": [
+    "CO1.a",
+    "CO2.a",
+    "CO3.a",
+    "CO4.a",
+    "CO5.a",
+    "CO6.a",
+    "CO7.a",
+    "CO8.a",
+    "CO9.a",
+    "CO10.a",
+    "RS2.a",
+    "XD2.a",
+    "XD3.a",
+    "XD4.a"
+  ],
+  "ranked_slices": 5,
+  "suggested_ports": [
+    "21200",
+    "21210",
+    "21220",
+    "21230",
+    "21240"
+  ],
+  "ports_reserved_or_launched": false,
+  "p2_source_root": "/Users/weiwei/code/yet-another-idle-rpg/.claude/worktrees/proc-p2-mixing",
+  "p2_head": {
+    "exit": 0,
+    "stdout": "f8fe699487c90ec06e83bfc020dfa8a6dc234705",
+    "stderr": ""
+  },
+  "p2_src_diff_from_commit": {
+    "exit": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  "p2_worktree_status": {
+    "exit": 0,
+    "stdout": "M dist/bundle.js\n M dist/bundle.js.map\n M index.html",
+    "stderr": ""
+  },
+  "p2_source_sha256": {
+    "src/mixture_state.js": "1d3f161da9f2cb9bf138292be0f5e5b4e38c381a337fe55cc616eb71b908c02e",
+    "src/mixture_native.js": "15d49051cdea16f5ff10dd1db1aa6d8d17dd7b7e4685a3c46651c3bab196eea0",
+    "src/mixture_ui.js": "fb95a88773aeb13de0a42441ca38747ff0d9cf0281b7df8938a06e2441dc9d63",
+    "src/active_effects.js": "bb8bdf79451a6566bceb581e3dad9887164f61386e37933066c2490196175c2b",
+    "src/items.js": "a133d61e7473038fd47bdf749916d98c307b38611d2a16eb241b342dfd8c528e",
+    "src/main.js": "349ffd2e8f06ea8c01357938494c57dfd994b773fd30fa9b4b49a6521d19c30c",
+    "src/save_files.js": "0331b0bd8a1773749140f7b5dfa19a276d809b3d526e738ce4e4ad002cfd6646",
+    "src/components/inventory_component.js": "042c6be419ea8d3795eddfe938d04fd1b16e974a11372a571b864bae08d1673a",
+    "docs/gm/dispatch/procgen-2026-10-13/p2/REPORT.md": "23e4bf9f8e24b5709944bb54d32e47d91d29324682a8abb23c31f7304e86c6b7"
+  },
+  "main_head": {
+    "exit": 0,
+    "stdout": "20aa1312a30c96500c5570e08b516eb51952addd",
+    "stderr": ""
+  },
+  "p2_is_main_ancestor": {
+    "exit": 1,
+    "stdout": "",
+    "stderr": ""
+  },
+  "tracked_scope_whitespace": {
+    "exit": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  "not_run": [
+    "runtime tests",
+    "builds",
+    "servers",
+    "browser gameplay",
+    "save/reload/export/import",
+    "new primary canon reading",
+    "commits",
+    "merges",
+    "pushes"
+  ],
+  "manual_review": [
+    "no generated secret truth copied",
+    "inherited canon summarized with locators and evidence labels",
+    "all gameplay laws and numbers proposed",
+    "no write outside cr1 from this lane"
+  ],
+  "final_prose_edits": "Checkpoint/report now summarize the checked counts; contradiction codes CF1-CF5 avoid collision with curve codes C1-C7.",
+  "artifact_line_counts": {
+    "BODY_AND_SPECIES.md": 115,
+    "CHECKPOINT.md": 27,
+    "CONSUMABLE_KINDS.md": 150,
+    "DOSE_AND_TOLERANCE.md": 116,
+    "MORE.md": 50,
+    "REPORT.md": 107
+  }
+}

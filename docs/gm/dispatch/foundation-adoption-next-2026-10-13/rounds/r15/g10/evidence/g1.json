@@ -1,0 +1,96 @@
+{
+ "label": "seeded-native",
+ "cases": [
+  {
+   "id": "decline",
+   "result": {
+    "ok": true
+   },
+   "unchanged": false,
+   "persistence": {
+    "label": "fa18-decline",
+    "reload": true,
+    "literalImport": true,
+    "file": "fa18-decline.txt",
+    "sha256": "d58d795ba9dad7f93e0b6a8d6a5cba79a14ac44059c0c7a0e7b09eb8ec922c2b",
+    "clock": 0
+   }
+  },
+  {
+   "id": "help-poor",
+   "result": {
+    "ok": false,
+    "error": "You need five coins to offer a meal."
+   },
+   "unchanged": true
+  },
+  {
+   "id": "meal-poor",
+   "result": {
+    "ok": false,
+    "error": "The runner meal ticket needs one coin."
+   },
+   "unchanged": true
+  },
+  {
+   "id": "outside",
+   "result": {
+    "ok": false,
+    "error": "Use the runner meal ticket in Village."
+   },
+   "unchanged": true
+  },
+  {
+   "id": "busy",
+   "result": {
+    "ok": false,
+    "error": "Finish your current action in the home world first."
+   },
+   "unchanged": true
+  },
+  {
+   "id": "dead",
+   "result": {
+    "ok": false,
+    "error": "Finish your current action in the home world first."
+   },
+   "unchanged": true
+  },
+  {
+   "id": "failed-help",
+   "result": {
+    "ok": false,
+    "error": "Your browser has no room for this life. Export your save to a file; your last saved life is still safe."
+   },
+   "unchanged": true,
+   "writes": 1,
+   "retryOnce": true,
+   "persistence": {
+    "label": "fa18-failed-help",
+    "reload": true,
+    "literalImport": true,
+    "file": "fa18-failed-help.txt",
+    "sha256": "af644b8df923727636f55521ad569e32b23e4fdfddb700bcbc7176127b2fc997",
+    "clock": 0
+   }
+  },
+  {
+   "id": "failed-meal",
+   "result": {
+    "ok": false,
+    "error": "Your browser has no room for this life. Export your save to a file; your last saved life is still safe."
+   },
+   "unchanged": true,
+   "writes": 1,
+   "retryOnce": true,
+   "persistence": {
+    "label": "fa18-failed-meal",
+    "reload": true,
+    "literalImport": true,
+    "file": "fa18-failed-meal.txt",
+    "sha256": "b7a135a5b526446db431736a88167a99fb20d0c9c6978def62f0066cb075f6f2",
+    "clock": 0
+   }
+  }
+ ]
+}

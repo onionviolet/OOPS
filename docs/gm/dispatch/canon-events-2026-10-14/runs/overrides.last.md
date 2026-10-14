@@ -1,0 +1,3 @@
+- **V1:** `check_overrides.sh` exited **0**: integrity checks, G1–G9, O1–O8, pure imports, and `npm test` all passed. Full suite: **649 passed, 0 failed**.
+- **A1:** Added timed `branch.changes` with set/cancel/insert/cause, alternatives with `substituted`, fixed events with `resisted`, and `explainFact`. Legacy overrides remain compatible. Focused tests: **21 passed**.
+- **U1:** Browser gameplay and save integration remain unverified; this is a pure-module prototype. Edited only the two authorized files. No staging, commits, or pushes.

@@ -1,0 +1,20 @@
+{
+ "label": "seeded-native",
+ "cases": [
+  {
+   "id": "retort-alive",
+   "refunded": true,
+   "noOutput": true
+  },
+  {
+   "id": "retort-hands",
+   "refunded": true,
+   "noOutput": true
+  },
+  {
+   "id": "retort-health",
+   "refunded": true,
+   "noOutput": true
+  }
+ ]
+}

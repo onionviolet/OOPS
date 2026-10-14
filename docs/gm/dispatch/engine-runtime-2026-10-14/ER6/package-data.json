@@ -1,0 +1,1554 @@
+[
+  {
+    "name": "bitecs",
+    "checked_utc": "2026-10-14T05:01:24.030355+00:00",
+    "registry_url": "https://registry.npmjs.org/bitecs",
+    "version": "0.4.0",
+    "release": "2025-12-06T23:15:32.017Z",
+    "license": "MPL-2.0",
+    "repository": "https://github.com/NateTheGreatt/bitECS",
+    "homepage": null,
+    "module": "./dist/core/index.min.mjs",
+    "type": null,
+    "main": "./dist/core/index.min.cjs",
+    "exports": {
+      ".": {
+        "types": "./dist/core/index.d.ts",
+        "import": "./dist/core/index.min.mjs",
+        "require": "./dist/core/index.min.cjs"
+      },
+      "./serialization": {
+        "types": "./dist/serialization/index.d.ts",
+        "import": "./dist/serialization/index.min.mjs",
+        "require": "./dist/serialization/index.min.cjs"
+      },
+      "./legacy": {
+        "types": "./dist/legacy/index.d.ts",
+        "import": "./dist/legacy/index.min.mjs",
+        "require": "./dist/legacy/index.min.cjs"
+      }
+    },
+    "dependencies": {},
+    "tarball": "https://registry.npmjs.org/bitecs/-/bitecs-0.4.0.tgz",
+    "gitHead": null,
+    "github_api": "https://api.github.com/repos/NateTheGreatt/bitECS",
+    "github": {
+      "html_url": "https://github.com/NateTheGreatt/bitECS",
+      "pushed_at": "2026-08-24T15:31:37Z",
+      "updated_at": "2026-10-13T02:36:36Z",
+      "archived": false,
+      "license": {
+        "key": "mpl-2.0",
+        "name": "Mozilla Public License 2.0",
+        "spdx_id": "MPL-2.0",
+        "url": "https://api.github.com/licenses/mpl-2.0",
+        "node_id": "MDc6TGljZW5zZTE0"
+      },
+      "default_branch": "main"
+    }
+  },
+  {
+    "name": "miniplex",
+    "checked_utc": "2026-10-14T05:01:24.010583+00:00",
+    "registry_url": "https://registry.npmjs.org/miniplex",
+    "version": "2.0.0",
+    "release": "2023-07-16T11:26:33.024Z",
+    "license": "MIT",
+    "repository": "https://github.com/hmans/miniplex",
+    "homepage": "https://github.com/hmans/miniplex",
+    "module": "dist/miniplex.esm.js",
+    "type": null,
+    "main": "dist/miniplex.cjs.js",
+    "exports": null,
+    "dependencies": {
+      "@hmans/id": "^0.0.1",
+      "@hmans/queue": "^0.0.1",
+      "@miniplex/bucket": "2.0.0"
+    },
+    "tarball": "https://registry.npmjs.org/miniplex/-/miniplex-2.0.0.tgz",
+    "gitHead": null,
+    "github_api": "https://api.github.com/repos/hmans/miniplex",
+    "github": {
+      "html_url": "https://github.com/hmans/miniplex",
+      "pushed_at": "2026-04-05T11:12:40Z",
+      "updated_at": "2026-10-10T23:36:13Z",
+      "archived": false,
+      "license": {
+        "key": "mit",
+        "name": "MIT License",
+        "spdx_id": "MIT",
+        "url": "https://api.github.com/licenses/mit",
+        "node_id": "MDc6TGljZW5zZTEz"
+      },
+      "default_branch": "main"
+    },
+    "repository_resolution": "npm latest manifest omits repository; official README/GitHub matched"
+  },
+  {
+    "name": "koota",
+    "checked_utc": "2026-10-14T05:01:23.876884+00:00",
+    "registry_url": "https://registry.npmjs.org/koota",
+    "version": "0.6.6",
+    "release": "2026-04-09T17:24:09.040Z",
+    "license": "ISC",
+    "repository": "git+https://github.com/pmndrs/koota.git",
+    "homepage": "https://github.com/pmndrs/koota#readme",
+    "module": "./dist/index.js",
+    "type": "module",
+    "main": "./dist/index.cjs",
+    "exports": {
+      ".": {
+        "types": {
+          "import": "./dist/index.d.ts",
+          "require": "./dist/index.d.cts"
+        },
+        "import": "./dist/index.js",
+        "require": "./dist/index.cjs"
+      },
+      "./react": {
+        "types": {
+          "import": "./dist/react.d.ts",
+          "require": "./dist/react.d.cts"
+        },
+        "import": "./dist/react.js",
+        "require": "./dist/react.cjs"
+      }
+    },
+    "dependencies": {},
+    "tarball": "https://registry.npmjs.org/koota/-/koota-0.6.6.tgz",
+    "gitHead": null,
+    "github_api": "https://api.github.com/repos/pmndrs/koota",
+    "github": {
+      "html_url": "https://github.com/pmndrs/koota",
+      "pushed_at": "2026-10-14T01:11:59Z",
+      "updated_at": "2026-10-12T19:19:42Z",
+      "archived": false,
+      "license": {
+        "key": "isc",
+        "name": "ISC License",
+        "spdx_id": "ISC",
+        "url": "https://api.github.com/licenses/isc",
+        "node_id": "MDc6TGljZW5zZTEw"
+      },
+      "default_branch": "main"
+    }
+  },
+  {
+    "name": "@sqlite.org/sqlite-wasm",
+    "checked_utc": "2026-10-14T05:01:23.892148+00:00",
+    "registry_url": "https://registry.npmjs.org/@sqlite.org%2Fsqlite-wasm",
+    "version": "3.53.4-build2",
+    "release": "2026-10-02T11:53:25.027Z",
+    "license": "Apache-2.0",
+    "repository": "git+https://github.com/sqlite/sqlite-wasm.git",
+    "homepage": "https://github.com/sqlite/sqlite-wasm#readme",
+    "module": null,
+    "type": "module",
+    "main": "./dist/index.mjs",
+    "exports": {
+      ".": {
+        "main": "./dist/index.mjs",
+        "node": "./dist/node.mjs",
+        "types": "./dist/index.d.mts",
+        "import": "./dist/index.mjs",
+        "browser": "./dist/index.mjs"
+      },
+      "./package.json": "./package.json",
+      "./sqlite3.wasm": "./dist/sqlite3.wasm"
+    },
+    "dependencies": {},
+    "tarball": "https://registry.npmjs.org/@sqlite.org/sqlite-wasm/-/sqlite-wasm-3.53.4-build2.tgz",
+    "gitHead": "b30a8a19cab9a7928ac6b44bbc91f0b65e56324d",
+    "github_api": "https://api.github.com/repos/sqlite/sqlite-wasm",
+    "github": {
+      "html_url": "https://github.com/sqlite/sqlite-wasm",
+      "pushed_at": "2026-10-02T11:49:18Z",
+      "updated_at": "2026-10-13T12:18:45Z",
+      "archived": false,
+      "license": null,
+      "default_branch": "main"
+    }
+  },
+  {
+    "name": "immer",
+    "checked_utc": "2026-10-14T05:01:23.956394+00:00",
+    "registry_url": "https://registry.npmjs.org/immer",
+    "version": "11.1.21",
+    "release": "2026-10-02T18:30:41.965Z",
+    "license": "MIT",
+    "repository": "git+https://github.com/immerjs/immer.git",
+    "homepage": "https://github.com/immerjs/immer#readme",
+    "module": "./dist/immer.legacy-esm.js",
+    "type": null,
+    "main": "./dist/cjs/index.js",
+    "exports": {
+      ".": {
+        "import": {
+          "types": "./dist/immer.d.ts",
+          "default": "./dist/immer.mjs"
+        },
+        "require": {
+          "types": "./dist/immer.d.ts",
+          "default": "./dist/cjs/index.js"
+        },
+        "react-native": {
+          "types": "./dist/immer.d.ts",
+          "default": "./dist/immer.legacy-esm.js"
+        }
+      },
+      "./package.json": "./package.json"
+    },
+    "dependencies": {},
+    "tarball": "https://registry.npmjs.org/immer/-/immer-11.1.21.tgz",
+    "gitHead": "8848a5b16938e5681a890d73de7bda24b5080498",
+    "github_api": "https://api.github.com/repos/immerjs/immer",
+    "github": {
+      "html_url": "https://github.com/immerjs/immer",
+      "pushed_at": "2026-10-14T02:43:37Z",
+      "updated_at": "2026-10-14T04:03:56Z",
+      "archived": false,
+      "license": {
+        "key": "mit",
+        "name": "MIT License",
+        "spdx_id": "MIT",
+        "url": "https://api.github.com/licenses/mit",
+        "node_id": "MDc6TGljZW5zZTEz"
+      },
+      "default_branch": "main"
+    }
+  },
+  {
+    "name": "@preact/signals-core",
+    "checked_utc": "2026-10-14T05:01:23.853213+00:00",
+    "registry_url": "https://registry.npmjs.org/@preact%2Fsignals-core",
+    "version": "1.14.4",
+    "release": "2026-07-07T05:56:27.889Z",
+    "license": "MIT",
+    "repository": "https://github.com/preactjs/signals",
+    "homepage": "https://preactjs.com",
+    "module": "dist/signals-core.module.js",
+    "type": null,
+    "main": "dist/signals-core.js",
+    "exports": {
+      ".": {
+        "types": "./dist/signals-core.d.ts",
+        "import": "./dist/signals-core.mjs",
+        "browser": "./dist/signals-core.module.js",
+        "require": "./dist/signals-core.js"
+      }
+    },
+    "dependencies": {},
+    "tarball": "https://registry.npmjs.org/@preact/signals-core/-/signals-core-1.14.4.tgz",
+    "gitHead": null,
+    "github_api": "https://api.github.com/repos/preactjs/signals",
+    "github": {
+      "html_url": "https://github.com/preactjs/signals",
+      "pushed_at": "2026-09-30T06:17:28Z",
+      "updated_at": "2026-10-13T19:16:40Z",
+      "archived": false,
+      "license": {
+        "key": "mit",
+        "name": "MIT License",
+        "spdx_id": "MIT",
+        "url": "https://api.github.com/licenses/mit",
+        "node_id": "MDc6TGljZW5zZTEz"
+      },
+      "default_branch": "main"
+    }
+  },
+  {
+    "name": "zod",
+    "checked_utc": "2026-10-14T05:01:24.247491+00:00",
+    "registry_url": "https://registry.npmjs.org/zod",
+    "version": "4.6.7",
+    "release": "2026-10-12T16:29:37.778Z",
+    "license": "MIT",
+    "repository": "git+https://github.com/colinhacks/zod.git",
+    "homepage": "https://zod.dev",
+    "module": "./index.js",
+    "type": "module",
+    "main": "./index.cjs",
+    "exports": {
+      ".": {
+        "types": "./index.d.cts",
+        "import": "./index.js",
+        "require": "./index.cjs",
+        "@zod/source": "./src/index.ts"
+      },
+      "./v3": {
+        "types": "./v3/index.d.cts",
+        "import": "./v3/index.js",
+        "require": "./v3/index.cjs",
+        "@zod/source": "./src/v3/index.ts"
+      },
+      "./v4": {
+        "types": "./v4/index.d.cts",
+        "import": "./v4/index.js",
+        "require": "./v4/index.cjs",
+        "@zod/source": "./src/v4/index.ts"
+      },
+      "./mini": {
+        "types": "./mini/index.d.cts",
+        "import": "./mini/index.js",
+        "require": "./mini/index.cjs",
+        "@zod/source": "./src/mini/index.ts"
+      },
+      "./compile": {
+        "types": "./compile.d.cts",
+        "import": "./compile.js",
+        "require": "./compile.cjs",
+        "@zod/source": "./src/compile.ts"
+      },
+      "./locales": {
+        "types": "./locales/index.d.cts",
+        "import": "./locales/index.js",
+        "require": "./locales/index.cjs",
+        "@zod/source": "./src/locales/index.ts"
+      },
+      "./v4-mini": {
+        "types": "./v4-mini/index.d.cts",
+        "import": "./v4-mini/index.js",
+        "require": "./v4-mini/index.cjs",
+        "@zod/source": "./src/v4-mini/index.ts"
+      },
+      "./v4/core": {
+        "types": "./v4/core/index.d.cts",
+        "import": "./v4/core/index.js",
+        "require": "./v4/core/index.cjs",
+        "@zod/source": "./src/v4/core/index.ts"
+      },
+      "./v4/mini": {
+        "types": "./v4/mini/index.d.cts",
+        "import": "./v4/mini/index.js",
+        "require": "./v4/mini/index.cjs",
+        "@zod/source": "./src/v4/mini/index.ts"
+      },
+      "./v4/locales": {
+        "types": "./v4/locales/index.d.cts",
+        "import": "./v4/locales/index.js",
+        "require": "./v4/locales/index.cjs",
+        "@zod/source": "./src/v4/locales/index.ts"
+      },
+      "./package.json": "./package.json",
+      "./v4/locales/*": {
+        "types": "./v4/locales/*",
+        "import": "./v4/locales/*",
+        "require": "./v4/locales/*",
+        "@zod/source": "./src/v4/locales/*"
+      }
+    },
+    "dependencies": {},
+    "tarball": "https://registry.npmjs.org/zod/-/zod-4.6.7.tgz",
+    "gitHead": "b500a2ee95134f81d74da7911d7378dd2853d042",
+    "github_api": "https://api.github.com/repos/colinhacks/zod",
+    "github": {
+      "html_url": "https://github.com/colinhacks/zod",
+      "pushed_at": "2026-10-13T18:16:31Z",
+      "updated_at": "2026-10-14T04:44:39Z",
+      "archived": false,
+      "license": {
+        "key": "mit",
+        "name": "MIT License",
+        "spdx_id": "MIT",
+        "url": "https://api.github.com/licenses/mit",
+        "node_id": "MDc6TGljZW5zZTEz"
+      },
+      "default_branch": "main"
+    }
+  },
+  {
+    "name": "valibot",
+    "checked_utc": "2026-10-14T05:01:23.880899+00:00",
+    "registry_url": "https://registry.npmjs.org/valibot",
+    "version": "1.5.0",
+    "release": "2026-09-09T12:58:23.503Z",
+    "license": "MIT",
+    "repository": "git+https://github.com/open-circle/valibot.git",
+    "homepage": "https://valibot.dev",
+    "module": null,
+    "type": "module",
+    "main": "./dist/index.mjs",
+    "exports": {
+      ".": {
+        "import": {
+          "types": "./dist/index.d.mts",
+          "default": "./dist/index.mjs"
+        },
+        "require": {
+          "types": "./dist/index.d.cts",
+          "default": "./dist/index.cjs"
+        }
+      }
+    },
+    "dependencies": {},
+    "tarball": "https://registry.npmjs.org/valibot/-/valibot-1.5.0.tgz",
+    "gitHead": "7fd7c0f44509e8fa069291735bb4914db2cc75f7",
+    "github_api": "https://api.github.com/repos/open-circle/valibot",
+    "github": {
+      "html_url": "https://github.com/open-circle/valibot",
+      "pushed_at": "2026-10-10T09:25:53Z",
+      "updated_at": "2026-10-13T21:11:38Z",
+      "archived": false,
+      "license": {
+        "key": "mit",
+        "name": "MIT License",
+        "spdx_id": "MIT",
+        "url": "https://api.github.com/licenses/mit",
+        "node_id": "MDc6TGljZW5zZTEz"
+      },
+      "default_branch": "main"
+    }
+  },
+  {
+    "name": "@sinclair/typebox",
+    "checked_utc": "2026-10-14T05:01:24.619063+00:00",
+    "registry_url": "https://registry.npmjs.org/@sinclair%2Ftypebox",
+    "version": "0.34.52",
+    "release": "2026-07-11T21:08:28.286Z",
+    "license": "MIT",
+    "repository": "git+https://github.com/sinclairzx81/sinclair-typebox.git",
+    "homepage": "https://github.com/sinclairzx81/sinclair-typebox#readme",
+    "module": "./build/esm/index.mjs",
+    "type": null,
+    "main": "./build/cjs/index.js",
+    "exports": {
+      ".": {
+        "import": {
+          "types": "./build/esm/index.d.mts",
+          "default": "./build/esm/index.mjs"
+        },
+        "require": {
+          "types": "./build/cjs/index.d.ts",
+          "default": "./build/cjs/index.js"
+        }
+      },
+      "./type": {
+        "import": {
+          "types": "./build/esm/type/index.d.mts",
+          "default": "./build/esm/type/index.mjs"
+        },
+        "require": {
+          "types": "./build/cjs/type/index.d.ts",
+          "default": "./build/cjs/type/index.js"
+        }
+      },
+      "./value": {
+        "import": {
+          "types": "./build/esm/value/index.d.mts",
+          "default": "./build/esm/value/index.mjs"
+        },
+        "require": {
+          "types": "./build/cjs/value/index.d.ts",
+          "default": "./build/cjs/value/index.js"
+        }
+      },
+      "./errors": {
+        "import": {
+          "types": "./build/esm/errors/index.d.mts",
+          "default": "./build/esm/errors/index.mjs"
+        },
+        "require": {
+          "types": "./build/cjs/errors/index.d.ts",
+          "default": "./build/cjs/errors/index.js"
+        }
+      },
+      "./parser": {
+        "import": {
+          "types": "./build/esm/parser/index.d.mts",
+          "default": "./build/esm/parser/index.mjs"
+        },
+        "require": {
+          "types": "./build/cjs/parser/index.d.ts",
+          "default": "./build/cjs/parser/index.js"
+        }
+      },
+      "./syntax": {
+        "import": {
+          "types": "./build/esm/syntax/index.d.mts",
+          "default": "./build/esm/syntax/index.mjs"
+        },
+        "require": {
+          "types": "./build/cjs/syntax/index.d.ts",
+          "default": "./build/cjs/syntax/index.js"
+        }
+      },
+      "./system": {
+        "import": {
+          "types": "./build/esm/system/index.d.mts",
+          "default": "./build/esm/system/index.mjs"
+        },
+        "require": {
+          "types": "./build/cjs/system/index.d.ts",
+          "default": "./build/cjs/system/index.js"
+        }
+      },
+      "./compiler": {
+        "import": {
+          "types": "./build/esm/compiler/index.d.mts",
+          "default": "./build/esm/compiler/index.mjs"
+        },
+        "require": {
+          "types": "./build/cjs/compiler/index.d.ts",
+          "default": "./build/cjs/compiler/index.js"
+        }
+      }
+    },
+    "dependencies": {},
+    "tarball": "https://registry.npmjs.org/@sinclair/typebox/-/typebox-0.34.52.tgz",
+    "gitHead": null,
+    "github_api": "https://api.github.com/repos/sinclairzx81/sinclair-typebox",
+    "github": {
+      "html_url": "https://github.com/sinclairzx81/sinclair-typebox",
+      "pushed_at": "2026-07-18T06:13:40Z",
+      "updated_at": "2026-09-26T08:35:53Z",
+      "archived": false,
+      "license": {
+        "key": "other",
+        "name": "Other",
+        "spdx_id": "NOASSERTION",
+        "url": null,
+        "node_id": "MDc6TGljZW5zZTA="
+      },
+      "default_branch": "main"
+    }
+  },
+  {
+    "name": "typebox",
+    "checked_utc": "2026-10-14T05:01:27.635616+00:00",
+    "registry_url": "https://registry.npmjs.org/typebox",
+    "version": "1.3.37",
+    "release": "2026-10-12T15:05:47.198Z",
+    "license": "MIT",
+    "repository": "git+https://github.com/sinclairzx81/typebox.git",
+    "homepage": "https://github.com/sinclairzx81/typebox#readme",
+    "module": "./build/index.mjs",
+    "type": "module",
+    "main": null,
+    "exports": {
+      ".": {
+        "import": "./build/index.mjs",
+        "default": "./build/index.mjs"
+      },
+      "./type": {
+        "import": "./build/type/index.mjs",
+        "default": "./build/type/index.mjs"
+      },
+      "./error": {
+        "import": "./build/error/index.mjs",
+        "default": "./build/error/index.mjs"
+      },
+      "./guard": {
+        "import": "./build/guard/index.mjs",
+        "default": "./build/guard/index.mjs"
+      },
+      "./value": {
+        "import": "./build/value/index.mjs",
+        "default": "./build/value/index.mjs"
+      },
+      "./format": {
+        "import": "./build/format/index.mjs",
+        "default": "./build/format/index.mjs"
+      },
+      "./schema": {
+        "import": "./build/schema/index.mjs",
+        "default": "./build/schema/index.mjs"
+      },
+      "./system": {
+        "import": "./build/system/index.mjs",
+        "default": "./build/system/index.mjs"
+      },
+      "./compile": {
+        "import": "./build/compile/index.mjs",
+        "default": "./build/compile/index.mjs"
+      }
+    },
+    "dependencies": {},
+    "tarball": "https://registry.npmjs.org/typebox/-/typebox-1.3.37.tgz",
+    "gitHead": null,
+    "github_api": "https://api.github.com/repos/sinclairzx81/typebox",
+    "github": {
+      "html_url": "https://github.com/sinclairzx81/typebox",
+      "pushed_at": "2026-10-14T03:39:28Z",
+      "updated_at": "2026-10-14T01:06:16Z",
+      "archived": false,
+      "license": {
+        "key": "other",
+        "name": "Other",
+        "spdx_id": "NOASSERTION",
+        "url": null,
+        "node_id": "MDc6TGljZW5zZTA="
+      },
+      "default_branch": "main"
+    }
+  },
+  {
+    "name": "yuka",
+    "checked_utc": "2026-10-14T05:01:24.444614+00:00",
+    "registry_url": "https://registry.npmjs.org/yuka",
+    "version": "0.7.8",
+    "release": "2022-09-17T08:45:44.991Z",
+    "license": "MIT",
+    "repository": "git+https://github.com/Mugen87/yuka.git",
+    "homepage": "https://mugen87.github.io/yuka",
+    "module": "build/yuka.module.js",
+    "type": null,
+    "main": "build/yuka.js",
+    "exports": null,
+    "dependencies": {},
+    "tarball": "https://registry.npmjs.org/yuka/-/yuka-0.7.8.tgz",
+    "gitHead": "e6250dc7f5899fa9a752d817cfa4b0d37e7fd983",
+    "github_api": "https://api.github.com/repos/Mugen87/yuka",
+    "github": {
+      "html_url": "https://github.com/Mugen87/yuka",
+      "pushed_at": "2026-10-04T12:29:21Z",
+      "updated_at": "2026-10-12T06:32:58Z",
+      "archived": false,
+      "license": {
+        "key": "mit",
+        "name": "MIT License",
+        "spdx_id": "MIT",
+        "url": "https://api.github.com/licenses/mit",
+        "node_id": "MDc6TGljZW5zZTEz"
+      },
+      "default_branch": "master"
+    }
+  },
+  {
+    "name": "rot-js",
+    "checked_utc": "2026-10-14T05:01:24.405582+00:00",
+    "registry_url": "https://registry.npmjs.org/rot-js",
+    "version": "2.2.1",
+    "release": "2024-11-13T07:23:10.592Z",
+    "license": "BSD-3-Clause",
+    "repository": "git+https://github.com/ondras/rot.js.git",
+    "homepage": "https://ondras.github.io/rot.js",
+    "module": "lib/index.js",
+    "type": null,
+    "main": "dist/rot.js",
+    "exports": null,
+    "dependencies": {},
+    "tarball": "https://registry.npmjs.org/rot-js/-/rot-js-2.2.1.tgz",
+    "gitHead": "46782e248c2db9d379a5e4f13bb8323f18dff04b",
+    "github_api": "https://api.github.com/repos/ondras/rot.js",
+    "github": {
+      "html_url": "https://github.com/ondras/rot.js",
+      "pushed_at": "2024-11-13T07:22:29Z",
+      "updated_at": "2026-10-12T21:46:20Z",
+      "archived": false,
+      "license": {
+        "key": "bsd-3-clause",
+        "name": "BSD 3-Clause \"New\" or \"Revised\" License",
+        "spdx_id": "BSD-3-Clause",
+        "url": "https://api.github.com/licenses/bsd-3-clause",
+        "node_id": "MDc6TGljZW5zZTU="
+      },
+      "default_branch": "master"
+    }
+  },
+  {
+    "name": "ngraph.path",
+    "checked_utc": "2026-10-14T05:01:24.424153+00:00",
+    "registry_url": "https://registry.npmjs.org/ngraph.path",
+    "version": "1.6.1",
+    "release": "2025-11-18T07:10:53.309Z",
+    "license": "MIT",
+    "repository": "git+https://github.com/anvaka/ngraph.path.git",
+    "homepage": "https://github.com/anvaka/ngraph.path#readme",
+    "module": "dist/ngraph.path.es.js",
+    "type": "module",
+    "main": "dist/ngraph.path.cjs",
+    "exports": {
+      ".": {
+        "types": "./index.d.ts",
+        "import": "./dist/ngraph.path.es.js",
+        "require": "./dist/ngraph.path.cjs",
+        "default": "./dist/ngraph.path.es.js"
+      },
+      "./dist/*": "./dist/*"
+    },
+    "dependencies": {},
+    "tarball": "https://registry.npmjs.org/ngraph.path/-/ngraph.path-1.6.1.tgz",
+    "gitHead": "76c113c59ac3e2c11dc5ea26ffc76c833fe0b486",
+    "github_api": "https://api.github.com/repos/anvaka/ngraph.path",
+    "github": {
+      "html_url": "https://github.com/anvaka/ngraph.path",
+      "pushed_at": "2026-07-27T05:08:44Z",
+      "updated_at": "2026-10-13T17:39:42Z",
+      "archived": false,
+      "license": {
+        "key": "mit",
+        "name": "MIT License",
+        "spdx_id": "MIT",
+        "url": "https://api.github.com/licenses/mit",
+        "node_id": "MDc6TGljZW5zZTEz"
+      },
+      "default_branch": "main"
+    }
+  },
+  {
+    "name": "pure-rand",
+    "checked_utc": "2026-10-14T05:01:24.615261+00:00",
+    "registry_url": "https://registry.npmjs.org/pure-rand",
+    "version": "8.4.2",
+    "release": "2026-07-10T07:55:10.896Z",
+    "license": "MIT",
+    "repository": "git+https://github.com/dubzzz/pure-rand.git",
+    "homepage": "https://github.com/dubzzz/pure-rand#readme",
+    "module": null,
+    "type": "commonjs",
+    "main": null,
+    "exports": {
+      "./utils/skipN": {
+        "import": "./lib/esm/utils/skipN.js",
+        "require": "./lib/utils/skipN.js"
+      },
+      "./package.json": "./package.json",
+      "./utils/purify": {
+        "import": "./lib/esm/utils/purify.js",
+        "require": "./lib/utils/purify.js"
+      },
+      "./utils/generateN": {
+        "import": "./lib/esm/utils/generateN.js",
+        "require": "./lib/utils/generateN.js"
+      },
+      "./generator/mersenne": {
+        "import": "./lib/esm/generator/mersenne.js",
+        "require": "./lib/generator/mersenne.js"
+      },
+      "./types/RandomGenerator": {
+        "import": "./lib/esm/types/RandomGenerator.js",
+        "require": "./lib/types/RandomGenerator.js"
+      },
+      "./distribution/uniformInt": {
+        "import": "./lib/esm/distribution/uniformInt.js",
+        "require": "./lib/distribution/uniformInt.js"
+      },
+      "./generator/congruential32": {
+        "import": "./lib/esm/generator/congruential32.js",
+        "require": "./lib/generator/congruential32.js"
+      },
+      "./generator/xorshift128plus": {
+        "import": "./lib/esm/generator/xorshift128plus.js",
+        "require": "./lib/generator/xorshift128plus.js"
+      },
+      "./distribution/uniformBigInt": {
+        "import": "./lib/esm/distribution/uniformBigInt.js",
+        "require": "./lib/distribution/uniformBigInt.js"
+      },
+      "./generator/xoroshiro128plus": {
+        "import": "./lib/esm/generator/xoroshiro128plus.js",
+        "require": "./lib/generator/xoroshiro128plus.js"
+      },
+      "./distribution/uniformFloat32": {
+        "import": "./lib/esm/distribution/uniformFloat32.js",
+        "require": "./lib/distribution/uniformFloat32.js"
+      },
+      "./distribution/uniformFloat64": {
+        "import": "./lib/esm/distribution/uniformFloat64.js",
+        "require": "./lib/distribution/uniformFloat64.js"
+      },
+      "./types/JumpableRandomGenerator": {
+        "import": "./lib/esm/types/JumpableRandomGenerator.js",
+        "require": "./lib/types/JumpableRandomGenerator.js"
+      }
+    },
+    "dependencies": {},
+    "tarball": "https://registry.npmjs.org/pure-rand/-/pure-rand-8.4.2.tgz",
+    "gitHead": null,
+    "github_api": "https://api.github.com/repos/dubzzz/pure-rand",
+    "github": {
+      "html_url": "https://github.com/dubzzz/pure-rand",
+      "pushed_at": "2026-10-13T14:02:16Z",
+      "updated_at": "2026-10-06T13:16:17Z",
+      "archived": false,
+      "license": {
+        "key": "mit",
+        "name": "MIT License",
+        "spdx_id": "MIT",
+        "url": "https://api.github.com/licenses/mit",
+        "node_id": "MDc6TGljZW5zZTEz"
+      },
+      "default_branch": "main"
+    }
+  },
+  {
+    "name": "simplex-noise",
+    "checked_utc": "2026-10-14T05:01:24.710831+00:00",
+    "registry_url": "https://registry.npmjs.org/simplex-noise",
+    "version": "4.0.3",
+    "release": "2024-07-26T17:06:40.882Z",
+    "license": "MIT",
+    "repository": "git+https://github.com/jwagner/simplex-noise.js.git",
+    "homepage": "https://github.com/jwagner/simplex-noise.js",
+    "module": "dist/esm/simplex-noise.js",
+    "type": null,
+    "main": "dist/cjs/simplex-noise.js",
+    "exports": {
+      "require": "./dist/cjs/simplex-noise.js",
+      "import": "./dist/esm/simplex-noise.js"
+    },
+    "dependencies": {},
+    "tarball": "https://registry.npmjs.org/simplex-noise/-/simplex-noise-4.0.3.tgz",
+    "gitHead": "6bfff874f5f0efed6375a9bf27fbd39b3cec6b4e",
+    "github_api": "https://api.github.com/repos/jwagner/simplex-noise.js",
+    "github": {
+      "html_url": "https://github.com/jwagner/simplex-noise.js",
+      "pushed_at": "2024-07-26T17:06:06Z",
+      "updated_at": "2026-10-02T15:15:03Z",
+      "archived": false,
+      "license": {
+        "key": "mit",
+        "name": "MIT License",
+        "spdx_id": "MIT",
+        "url": "https://api.github.com/licenses/mit",
+        "node_id": "MDc6TGljZW5zZTEz"
+      },
+      "default_branch": "main"
+    }
+  },
+  {
+    "name": "tracery",
+    "checked_utc": "2026-10-14T05:01:24.744017+00:00",
+    "registry_url": "https://registry.npmjs.org/tracery",
+    "version": "1.0.3",
+    "release": "2015-05-21T20:04:31.280Z",
+    "license": "MIT",
+    "repository": "git@github.com:AgileDiagnosis/tracery.git",
+    "homepage": "https://github.com/AgileDiagnosis/tracery",
+    "module": null,
+    "type": null,
+    "main": "index.js",
+    "exports": null,
+    "dependencies": {
+      "connective": "~1.0.0",
+      "ski": "~1.0.0"
+    },
+    "tarball": "https://registry.npmjs.org/tracery/-/tracery-1.0.3.tgz",
+    "gitHead": "0a541a588946203128e52d67c627ef26b65b76f9",
+    "github_api": "https://api.github.com/repos/AgileDiagnosis/tracery",
+    "github": {
+      "html_url": "https://github.com/junosuarez/tracery",
+      "pushed_at": "2017-02-28T23:07:52Z",
+      "updated_at": "2022-12-09T01:34:49Z",
+      "archived": false,
+      "license": {
+        "key": "mit",
+        "name": "MIT License",
+        "spdx_id": "MIT",
+        "url": "https://api.github.com/licenses/mit",
+        "node_id": "MDc6TGljZW5zZTEz"
+      },
+      "default_branch": "master"
+    }
+  },
+  {
+    "name": "tracery-grammar",
+    "checked_utc": "2026-10-14T05:01:24.863607+00:00",
+    "registry_url": "https://registry.npmjs.org/tracery-grammar",
+    "version": "2.8.4",
+    "release": "2024-11-18T19:17:55.584Z",
+    "license": "ISC",
+    "repository": "git://github.com/v21/tracery.git",
+    "homepage": "https://github.com/v21/tracery#readme",
+    "module": null,
+    "type": null,
+    "main": "tracery.js",
+    "exports": null,
+    "dependencies": {},
+    "tarball": "https://registry.npmjs.org/tracery-grammar/-/tracery-grammar-2.8.4.tgz",
+    "gitHead": "ae7c0a2f877811ce124d7e2b4c55a685cf6ded51",
+    "github_api": "https://api.github.com/repos/v21/tracery",
+    "github": {
+      "html_url": "https://github.com/v21/tracery",
+      "pushed_at": "2024-11-18T19:16:08Z",
+      "updated_at": "2026-07-01T00:12:49Z",
+      "archived": false,
+      "license": null,
+      "default_branch": "master"
+    }
+  },
+  {
+    "name": "howler",
+    "checked_utc": "2026-10-14T05:01:24.837111+00:00",
+    "registry_url": "https://registry.npmjs.org/howler",
+    "version": "2.2.4",
+    "release": "2023-09-19T14:59:40.091Z",
+    "license": "MIT",
+    "repository": "git://github.com/goldfire/howler.js.git",
+    "homepage": "https://howlerjs.com",
+    "module": null,
+    "type": null,
+    "main": "dist/howler.js",
+    "exports": null,
+    "dependencies": {},
+    "tarball": "https://registry.npmjs.org/howler/-/howler-2.2.4.tgz",
+    "gitHead": "003b917c40cb41cf382ba47ae0ed7a35ca2abe76",
+    "github_api": "https://api.github.com/repos/goldfire/howler.js",
+    "github": {
+      "html_url": "https://github.com/goldfire/howler.js",
+      "pushed_at": "2025-11-23T23:49:01Z",
+      "updated_at": "2026-10-14T04:48:30Z",
+      "archived": false,
+      "license": {
+        "key": "mit",
+        "name": "MIT License",
+        "spdx_id": "MIT",
+        "url": "https://api.github.com/licenses/mit",
+        "node_id": "MDc6TGljZW5zZTEz"
+      },
+      "default_branch": "master"
+    }
+  },
+  {
+    "name": "pixi.js",
+    "checked_utc": "2026-10-14T05:01:26.166049+00:00",
+    "registry_url": "https://registry.npmjs.org/pixi.js",
+    "version": "8.22.0",
+    "release": "2026-10-01T21:58:04.868Z",
+    "license": "MIT",
+    "repository": "git+https://github.com/pixijs/pixijs.git",
+    "homepage": "http://pixijs.com/",
+    "module": "lib/index.mjs",
+    "type": null,
+    "main": "lib/index.js",
+    "exports": {
+      ".": {
+        "import": {
+          "types": "./lib/index.d.ts",
+          "default": "./lib/index.mjs",
+          "types@<6.0": "./lib/index.legacy.d.ts"
+        },
+        "require": {
+          "types": "./lib/index.d.ts",
+          "default": "./lib/index.js",
+          "types@<6.0": "./lib/index.legacy.d.ts"
+        }
+      },
+      "./app": {
+        "import": {
+          "default": "./lib/app/init.mjs"
+        },
+        "require": {
+          "default": "./lib/app/init.js"
+        }
+      },
+      "./dds": {
+        "import": {
+          "default": "./lib/compressed-textures/dds/init.mjs"
+        },
+        "require": {
+          "default": "./lib/compressed-textures/dds/init.js"
+        }
+      },
+      "./dom": {
+        "import": {
+          "default": "./lib/dom/init.mjs"
+        },
+        "require": {
+          "default": "./lib/dom/init.js"
+        }
+      },
+      "./gif": {
+        "import": {
+          "types": "./lib/gif/init.d.ts",
+          "default": "./lib/gif/init.mjs",
+          "types@<6.0": "./lib/gif/init.legacy.d.ts"
+        },
+        "require": {
+          "types": "./lib/gif/init.d.ts",
+          "default": "./lib/gif/init.js",
+          "types@<6.0": "./lib/gif/init.legacy.d.ts"
+        }
+      },
+      "./ktx": {
+        "import": {
+          "default": "./lib/compressed-textures/ktx/init.mjs"
+        },
+        "require": {
+          "default": "./lib/compressed-textures/ktx/init.js"
+        }
+      },
+      "./ktx2": {
+        "import": {
+          "default": "./lib/compressed-textures/ktx2/init.mjs"
+        },
+        "require": {
+          "default": "./lib/compressed-textures/ktx2/init.js"
+        }
+      },
+      "./mesh": {
+        "import": {
+          "default": "./lib/scene/mesh/init.mjs"
+        },
+        "require": {
+          "default": "./lib/scene/mesh/init.js"
+        }
+      },
+      "./text": {
+        "import": {
+          "default": "./lib/scene/text/init.mjs"
+        },
+        "require": {
+          "default": "./lib/scene/text/init.js"
+        }
+      },
+      "./basis": {
+        "import": {
+          "default": "./lib/compressed-textures/basis/init.mjs"
+        },
+        "require": {
+          "default": "./lib/compressed-textures/basis/init.js"
+        }
+      },
+      "./events": {
+        "import": {
+          "default": "./lib/events/init.mjs"
+        },
+        "require": {
+          "default": "./lib/events/init.js"
+        }
+      },
+      "./browser": {
+        "import": {
+          "default": "./lib/environment-browser/browserAll.mjs"
+        },
+        "require": {
+          "default": "./lib/environment-browser/browserAll.js"
+        }
+      },
+      "./filters": {
+        "import": {
+          "default": "./lib/filters/init.mjs"
+        },
+        "require": {
+          "default": "./lib/filters/init.js"
+        }
+      },
+      "./prepare": {
+        "import": {
+          "default": "./lib/prepare/init.mjs"
+        },
+        "require": {
+          "default": "./lib/prepare/init.js"
+        }
+      },
+      "./graphics": {
+        "import": {
+          "default": "./lib/scene/graphics/init.mjs"
+        },
+        "require": {
+          "default": "./lib/scene/graphics/init.js"
+        }
+      },
+      "./text-html": {
+        "import": {
+          "default": "./lib/scene/text-html/init.mjs"
+        },
+        "require": {
+          "default": "./lib/scene/text-html/init.js"
+        }
+      },
+      "./webworker": {
+        "import": {
+          "default": "./lib/environment-webworker/webworkerAll.mjs"
+        },
+        "require": {
+          "default": "./lib/environment-webworker/webworkerAll.js"
+        }
+      },
+      "./html-source": {
+        "import": {
+          "types": "./lib/html-source/init.d.ts",
+          "default": "./lib/html-source/init.mjs",
+          "types@<6.0": "./lib/html-source/init.legacy.d.ts"
+        },
+        "require": {
+          "types": "./lib/html-source/init.d.ts",
+          "default": "./lib/html-source/init.js",
+          "types@<6.0": "./lib/html-source/init.legacy.d.ts"
+        }
+      },
+      "./math-extras": {
+        "import": {
+          "default": "./lib/math-extras/init.mjs"
+        },
+        "require": {
+          "default": "./lib/math-extras/init.js"
+        }
+      },
+      "./text-bitmap": {
+        "import": {
+          "default": "./lib/scene/text-bitmap/init.mjs"
+        },
+        "require": {
+          "default": "./lib/scene/text-bitmap/init.js"
+        }
+      },
+      "./unsafe-eval": {
+        "import": {
+          "default": "./lib/unsafe-eval/init.mjs"
+        },
+        "require": {
+          "default": "./lib/unsafe-eval/init.js"
+        }
+      },
+      "./accessibility": {
+        "import": {
+          "default": "./lib/accessibility/init.mjs"
+        },
+        "require": {
+          "default": "./lib/accessibility/init.js"
+        }
+      },
+      "./sprite-tiling": {
+        "import": {
+          "default": "./lib/scene/sprite-tiling/init.mjs"
+        },
+        "require": {
+          "default": "./lib/scene/sprite-tiling/init.js"
+        }
+      },
+      "./sprite-nine-slice": {
+        "import": {
+          "default": "./lib/scene/sprite-nine-slice/init.mjs"
+        },
+        "require": {
+          "default": "./lib/scene/sprite-nine-slice/init.js"
+        }
+      },
+      "./particle-container": {
+        "import": {
+          "default": "./lib/scene/particle-container/init.mjs"
+        },
+        "require": {
+          "default": "./lib/scene/particle-container/init.js"
+        }
+      },
+      "./advanced-blend-modes": {
+        "import": {
+          "default": "./lib/advanced-blend-modes/init.mjs"
+        },
+        "require": {
+          "default": "./lib/advanced-blend-modes/init.js"
+        }
+      }
+    },
+    "dependencies": {
+      "earcut": "^3.0.2",
+      "tiny-lru": "^11.4.7",
+      "gifuct-js": "^2.1.2",
+      "ismobilejs": "^1.1.1",
+      "@pixi/colord": "^2.9.6",
+      "@types/earcut": "^3.0.0",
+      "@webgpu/types": "^0.1.69",
+      "eventemitter3": "^5.0.1",
+      "@xmldom/xmldom": "^0.8.15",
+      "parse-svg-path": "^0.2.0"
+    },
+    "tarball": "https://registry.npmjs.org/pixi.js/-/pixi.js-8.22.0.tgz",
+    "gitHead": "5b41ee37fd36c61e089113345a8f12cf1c3323cf",
+    "github_api": "https://api.github.com/repos/pixijs/pixijs",
+    "github": {
+      "html_url": "https://github.com/pixijs/pixijs",
+      "pushed_at": "2026-10-10T15:14:52Z",
+      "updated_at": "2026-10-14T03:19:40Z",
+      "archived": false,
+      "license": {
+        "key": "mit",
+        "name": "MIT License",
+        "spdx_id": "MIT",
+        "url": "https://api.github.com/licenses/mit",
+        "node_id": "MDc6TGljZW5zZTEz"
+      },
+      "default_branch": "dev"
+    }
+  },
+  {
+    "name": "break_infinity.js",
+    "checked_utc": "2026-10-14T05:01:24.981195+00:00",
+    "registry_url": "https://registry.npmjs.org/break_infinity.js",
+    "version": "2.2.0",
+    "release": "2023-02-26T18:49:36.897Z",
+    "license": "MIT",
+    "repository": "git+https://github.com/Patashu/break_infinity.js.git",
+    "homepage": "https://github.com/Patashu/break_infinity.js#readme",
+    "module": "dist/break_infinity.esm.js",
+    "type": null,
+    "main": "dist/break_infinity.common.js",
+    "exports": null,
+    "dependencies": {
+      "pad-end": "^1.0.2"
+    },
+    "tarball": "https://registry.npmjs.org/break_infinity.js/-/break_infinity.js-2.2.0.tgz",
+    "gitHead": "ed3ed9dfe2c50f3464303c77a6e4c0296e288240",
+    "github_api": "https://api.github.com/repos/Patashu/break_infinity.js",
+    "github": {
+      "html_url": "https://github.com/Patashu/break_infinity.js",
+      "pushed_at": "2025-08-26T02:46:34Z",
+      "updated_at": "2026-09-29T12:27:56Z",
+      "archived": false,
+      "license": {
+        "key": "mit",
+        "name": "MIT License",
+        "spdx_id": "MIT",
+        "url": "https://api.github.com/licenses/mit",
+        "node_id": "MDc6TGljZW5zZTEz"
+      },
+      "default_branch": "master"
+    }
+  },
+  {
+    "name": "decimal.js",
+    "checked_utc": "2026-10-14T05:01:25.108381+00:00",
+    "registry_url": "https://registry.npmjs.org/decimal.js",
+    "version": "10.6.0",
+    "release": "2025-07-06T22:50:38.844Z",
+    "license": "MIT",
+    "repository": "git+https://github.com/MikeMcl/decimal.js.git",
+    "homepage": "https://github.com/MikeMcl/decimal.js#readme",
+    "module": "decimal.mjs",
+    "type": null,
+    "main": "decimal",
+    "exports": {
+      ".": {
+        "types": "./decimal.d.ts",
+        "import": "./decimal.mjs",
+        "require": "./decimal.js"
+      },
+      "./decimal.mjs": "./decimal.mjs",
+      "./decimal.js": "./decimal.js",
+      "./package.json": "./package.json",
+      "./decimal": {
+        "types": "./decimal.d.ts",
+        "import": "./decimal.mjs",
+        "require": "./decimal.js"
+      }
+    },
+    "dependencies": {},
+    "tarball": "https://registry.npmjs.org/decimal.js/-/decimal.js-10.6.0.tgz",
+    "gitHead": "f1ee2f404d6bf96d59c04db80c1f404742afa3fa",
+    "github_api": "https://api.github.com/repos/MikeMcl/decimal.js",
+    "github": {
+      "html_url": "https://github.com/MikeMcl/decimal.js",
+      "pushed_at": "2026-08-30T20:11:56Z",
+      "updated_at": "2026-10-13T22:21:19Z",
+      "archived": false,
+      "license": {
+        "key": "mit",
+        "name": "MIT License",
+        "spdx_id": "MIT",
+        "url": "https://api.github.com/licenses/mit",
+        "node_id": "MDc6TGljZW5zZTEz"
+      },
+      "default_branch": "master"
+    }
+  },
+  {
+    "name": "@playwright/test",
+    "checked_utc": "2026-10-14T05:01:28.952578+00:00",
+    "registry_url": "https://registry.npmjs.org/@playwright%2Ftest",
+    "version": "1.64.0",
+    "release": "2026-10-07T20:44:27.702Z",
+    "license": "Apache-2.0",
+    "repository": "git+https://github.com/microsoft/playwright.git",
+    "homepage": "https://playwright.dev",
+    "module": null,
+    "type": null,
+    "main": null,
+    "exports": {
+      ".": {
+        "types": "./index.d.ts",
+        "import": "./index.mjs",
+        "default": "./index.js",
+        "require": "./index.js"
+      },
+      "./cli": "./cli.js",
+      "./reporter": "./reporter.js",
+      "./package.json": "./package.json"
+    },
+    "dependencies": {
+      "playwright": "1.64.0"
+    },
+    "tarball": "https://registry.npmjs.org/@playwright/test/-/test-1.64.0.tgz",
+    "gitHead": "606ecd8b34bac100db32561b6278ffd76e5eb3cd",
+    "github_api": "https://api.github.com/repos/microsoft/playwright",
+    "github": {
+      "html_url": "https://github.com/microsoft/playwright",
+      "pushed_at": "2026-10-14T02:57:02Z",
+      "updated_at": "2026-10-14T04:52:08Z",
+      "archived": false,
+      "license": {
+        "key": "apache-2.0",
+        "name": "Apache License 2.0",
+        "spdx_id": "Apache-2.0",
+        "url": "https://api.github.com/licenses/apache-2.0",
+        "node_id": "MDc6TGljZW5zZTI="
+      },
+      "default_branch": "main"
+    }
+  },
+  {
+    "name": "vitest",
+    "checked_utc": "2026-10-14T05:01:28.066067+00:00",
+    "registry_url": "https://registry.npmjs.org/vitest",
+    "version": "5.0.4",
+    "release": "2026-10-12T09:47:02.826Z",
+    "license": "MIT",
+    "repository": "git+https://github.com/vitest-dev/vitest.git",
+    "homepage": "https://vitest.dev",
+    "module": "./dist/index.js",
+    "type": "module",
+    "main": "./dist/index.js",
+    "exports": {
+      ".": {
+        "import": {
+          "types": "./dist/index.d.ts",
+          "default": "./dist/index.js"
+        },
+        "require": {
+          "types": "./index.d.cts",
+          "default": "./index.cjs"
+        },
+        "__vitest_source__": "./src/public/index.ts"
+      },
+      "./node": {
+        "types": "./dist/node.d.ts",
+        "default": "./dist/node.js",
+        "__vitest_source__": "./src/public/node.ts"
+      },
+      "./jsdom": {
+        "types": "./jsdom.d.ts"
+      },
+      "./config": {
+        "types": "./config.d.ts",
+        "default": "./dist/config.js",
+        "require": "./dist/config.cjs",
+        "__vitest_source__": "./src/public/config.ts"
+      },
+      "./worker": {
+        "types": "./worker.d.ts",
+        "default": "./dist/worker.js",
+        "__vitest_source__": "./src/public/worker.ts"
+      },
+      "./browser": {
+        "types": "./browser/context.d.ts",
+        "default": "./browser/context.js"
+      },
+      "./globals": {
+        "types": "./globals.d.ts"
+      },
+      "./runtime": {
+        "types": "./dist/runtime.d.ts",
+        "default": "./dist/runtime.js",
+        "__vitest_source__": "./src/public/runtime.ts"
+      },
+      "./importMeta": {
+        "types": "./importMeta.d.ts"
+      },
+      "./import-meta": {
+        "types": "./import-meta.d.ts"
+      },
+      "./package.json": "./package.json",
+      "./internal/traces": {
+        "default": "./dist/traces.js",
+        "__vitest_source__": "./src/utils/traces.ts"
+      },
+      "./internal/browser": {
+        "types": "./dist/browser.d.ts",
+        "default": "./dist/browser.js",
+        "__vitest_source__": "./src/public/browser.ts"
+      },
+      "./optional-types.js": {
+        "types": "./optional-types.d.ts"
+      },
+      "./optional-runtime-types.js": {
+        "types": "./optional-runtime-types.d.ts"
+      }
+    },
+    "dependencies": {
+      "chai": "^6.3.0",
+      "obug": "^3.0.0",
+      "std-env": "^4.3.0",
+      "tinyexec": "^1.3.1",
+      "picomatch": "^4.0.7",
+      "tinybench": "^6.2.2",
+      "tinyglobby": "^0.2.17",
+      "@types/chai": "^5.2.2",
+      "expect-type": "^1.4.0",
+      "magic-string": "^1.4.3",
+      "@vitest/mocker": "5.0.4",
+      "es-module-lexer": "^2.3.2",
+      "why-is-node-running": "3.2.1"
+    },
+    "tarball": "https://registry.npmjs.org/vitest/-/vitest-5.0.4.tgz",
+    "gitHead": null,
+    "github_api": "https://api.github.com/repos/vitest-dev/vitest",
+    "github": {
+      "html_url": "https://github.com/vitest-dev/vitest",
+      "pushed_at": "2026-10-13T19:50:12Z",
+      "updated_at": "2026-10-14T04:57:14Z",
+      "archived": false,
+      "license": {
+        "key": "mit",
+        "name": "MIT License",
+        "spdx_id": "MIT",
+        "url": "https://api.github.com/licenses/mit",
+        "node_id": "MDc6TGljZW5zZTEz"
+      },
+      "default_branch": "main"
+    }
+  },
+  {
+    "name": "mitt",
+    "checked_utc": "2026-10-14T05:01:25.942276+00:00",
+    "registry_url": "https://registry.npmjs.org/mitt",
+    "version": "3.0.1",
+    "release": "2023-07-04T17:31:47.638Z",
+    "license": "MIT",
+    "repository": "git+https://github.com/developit/mitt.git",
+    "homepage": "https://github.com/developit/mitt",
+    "module": "dist/mitt.mjs",
+    "type": null,
+    "main": "dist/mitt.js",
+    "exports": {
+      "types": "./index.d.ts",
+      "import": "./dist/mitt.mjs",
+      "module": "./dist/mitt.mjs",
+      "default": "./dist/mitt.mjs",
+      "require": "./dist/mitt.js"
+    },
+    "dependencies": {},
+    "tarball": "https://registry.npmjs.org/mitt/-/mitt-3.0.1.tgz",
+    "gitHead": "b240473b5707857ba2c6a8e6d707c28d1e39da49",
+    "github_api": "https://api.github.com/repos/developit/mitt",
+    "github": {
+      "html_url": "https://github.com/developit/mitt",
+      "pushed_at": "2024-08-14T08:58:20Z",
+      "updated_at": "2026-10-13T19:19:58Z",
+      "archived": false,
+      "license": {
+        "key": "mit",
+        "name": "MIT License",
+        "spdx_id": "MIT",
+        "url": "https://api.github.com/licenses/mit",
+        "node_id": "MDc6TGljZW5zZTEz"
+      },
+      "default_branch": "main"
+    }
+  },
+  {
+    "name": "idb",
+    "checked_utc": "2026-10-14T05:01:25.918836+00:00",
+    "registry_url": "https://registry.npmjs.org/idb",
+    "version": "8.0.4",
+    "release": "2026-10-06T08:20:40.245Z",
+    "license": "ISC",
+    "repository": "git://github.com/jakearchibald/idb.git",
+    "homepage": null,
+    "module": "./build/index.js",
+    "type": "module",
+    "main": "./build/index.cjs",
+    "exports": {
+      ".": {
+        "types": "./build/index.d.ts",
+        "import": "./build/index.js",
+        "module": "./build/index.js",
+        "default": "./build/index.cjs"
+      },
+      "./build/*": "./build/*",
+      "./package.json": "./package.json"
+    },
+    "dependencies": {},
+    "tarball": "https://registry.npmjs.org/idb/-/idb-8.0.4.tgz",
+    "gitHead": null,
+    "github_api": "https://api.github.com/repos/jakearchibald/idb",
+    "github": {
+      "html_url": "https://github.com/jakearchibald/idb",
+      "pushed_at": "2026-10-06T08:17:37Z",
+      "updated_at": "2026-10-13T14:18:08Z",
+      "archived": false,
+      "license": {
+        "key": "isc",
+        "name": "ISC License",
+        "spdx_id": "ISC",
+        "url": "https://api.github.com/licenses/isc",
+        "node_id": "MDc6TGljZW5zZTEw"
+      },
+      "default_branch": "main"
+    }
+  },
+  {
+    "name": "fflate",
+    "checked_utc": "2026-10-14T05:01:25.993722+00:00",
+    "registry_url": "https://registry.npmjs.org/fflate",
+    "version": "0.8.3",
+    "release": "2026-05-16T00:14:03.449Z",
+    "license": "MIT",
+    "repository": "git+https://github.com/101arrowz/fflate.git",
+    "homepage": "https://101arrowz.github.io/fflate",
+    "module": "./esm/browser.js",
+    "type": null,
+    "main": "./lib/index.cjs",
+    "exports": {
+      ".": {
+        "node": {
+          "import": {
+            "types": "./esm/index.d.mts",
+            "default": "./esm/index.mjs"
+          },
+          "require": {
+            "types": "./lib/node.d.cts",
+            "default": "./lib/node.cjs"
+          }
+        },
+        "import": {
+          "types": "./esm/browser.d.ts",
+          "default": "./esm/browser.js"
+        },
+        "require": {
+          "types": "./lib/browser.d.cts",
+          "default": "./lib/browser.cjs"
+        }
+      },
+      "./node": {
+        "import": {
+          "types": "./esm/index.d.mts",
+          "default": "./esm/index.mjs"
+        },
+        "require": {
+          "types": "./lib/node.d.cts",
+          "default": "./lib/node.cjs"
+        }
+      },
+      "./browser": {
+        "import": {
+          "types": "./esm/browser.d.ts",
+          "default": "./esm/browser.js"
+        },
+        "require": {
+          "types": "./lib/browser.d.cts",
+          "default": "./lib/browser.cjs"
+        }
+      },
+      "./package.json": "./package.json"
+    },
+    "dependencies": {},
+    "tarball": "https://registry.npmjs.org/fflate/-/fflate-0.8.3.tgz",
+    "gitHead": null,
+    "github_api": "https://api.github.com/repos/101arrowz/fflate",
+    "github": {
+      "html_url": "https://github.com/101arrowz/fflate",
+      "pushed_at": "2026-05-16T03:02:11Z",
+      "updated_at": "2026-10-13T13:08:50Z",
+      "archived": false,
+      "license": {
+        "key": "mit",
+        "name": "MIT License",
+        "spdx_id": "MIT",
+        "url": "https://api.github.com/licenses/mit",
+        "node_id": "MDc6TGljZW5zZTEz"
+      },
+      "default_branch": "master"
+    }
+  }
+]

@@ -1,0 +1,542 @@
+[
+  {
+    "id": "CX1",
+    "panel": "plot-sense",
+    "role": "records",
+    "discoveredBy": "Proposal: persist holder discovery, grade and a first successful timing impression; alternatively persist entitlement to this lens as world law. Low grade reveals only a log channel; panel or overlay begins at mid grade. Not an existing save-field path.",
+    "holds": "Rough timing and confidence for the next eligible canon event, with confidence falling as perceived divergence rises.",
+    "reveal": "Low: one original log impression. Mid/high: reveal the known surface after a persisted successful reading. Cue once on a live discovery transition, never on reload/import; reduced motion shows the final state immediately. No name, count, picker entry, setting or accessible label before discovery.",
+    "settings": [
+      {
+        "key": "panel.plot-sense.detail",
+        "label": "Reading detail",
+        "options": [
+          "brief",
+          "expanded"
+        ],
+        "default": "brief",
+        "description": "Display detail within the acquired grade and range; never expands permission, spends resources or changes world facts."
+      }
+    ],
+    "sealedRule": "Filter authorization before rendering or counting. Sealed records stay absent until their discovery route permits a reference; then show only ID and status until the truth is discovered by that route. Redact causes, role titles, names, seed layers, timing, log text, hover/focus and accessible descriptions that would reveal a sealed truth. Higher grade never bypasses the route.",
+    "needsFoundation": true,
+    "dataSource": "Reads event windows and resolvedAt, filtered through holder knowledge and discovery authorization; revealed is past applied-event visibility, not a future-event permission list. Uses the perceived divergence count for confidence. Needs a forecast permission/confidence hook; never expose the seeded exact time.",
+    "grades": {
+      "low": "A vague soon/later feeling without an event name.",
+      "mid": "A broad window for one known local event and a qualitative confidence.",
+      "high": "A narrower but still fuzzy window, confidence and last observation time for authorized nearby events."
+    },
+    "range": "Default: next eligible event affecting the current place. Dial: forecast horizon and locality; reasonably no world-wide schedule.",
+    "cost": "Default: brief focus and a cooldown per reading. Dial: recovery and horizon cost; wider readings cost more, drift reduces confidence rather than charging for certainty.",
+    "standingByWorld": {
+      "Village": {
+        "standing": "cheat",
+        "example": "Proposal: this lens exceeds ordinary Village access and requires an acquired backing; it is not a free starting interface."
+      },
+      "systemWorld": {
+        "standing": "world-law",
+        "example": "Illustrative premise: the shared system exposes this limited lens to everyone; an extra hidden/admin scope would be a cheat."
+      },
+      "cultivationWorld": {
+        "standing": "rare-gift",
+        "example": "Illustrative premise: a specialized spiritual or scholarly backing supplies this lens; ordinary spirit sense alone does not establish access."
+      }
+    },
+    "lowGradeLogLine": "The day ahead feels crowded, though I cannot tell with what."
+  },
+  {
+    "id": "CX2",
+    "panel": "divergence-gauge",
+    "role": "records",
+    "discoveredBy": "Proposal: persist holder discovery, grade and a first successful drift impression; alternatively persist entitlement to this lens as world law. Low grade reveals only a log channel; panel or overlay begins at mid grade. Not an existing save-field path.",
+    "holds": "Amount of perceived drift from canon, with scope and observation time; no event identities.",
+    "reveal": "Low: one original log impression. Mid/high: reveal the known surface after a persisted successful reading. Cue once on a live discovery transition, never on reload/import; reduced motion shows the final state immediately. No name, count, picker entry, setting or accessible label before discovery.",
+    "settings": [
+      {
+        "key": "panel.divergence-gauge.detail",
+        "label": "Reading detail",
+        "options": [
+          "brief",
+          "expanded"
+        ],
+        "default": "brief",
+        "description": "Display detail within the acquired grade and range; never expands permission, spends resources or changes world facts."
+      }
+    ],
+    "sealedRule": "Filter authorization before rendering or counting. Sealed records stay absent until their discovery route permits a reference; then show only ID and status until the truth is discovered by that route. Redact causes, role titles, names, seed layers, timing, log text, hover/focus and accessible descriptions that would reveal a sealed truth. Higher grade never bypasses the route.",
+    "needsFoundation": true,
+    "dataSource": "Reads a divergence count derived from authorized observed differences in branch.changes and derived outcomes compared with canon. No dedicated count exists in the inspected API. knowledge bounds the comparison; raw skipped/substituted/cancelled totals are not safe player counts.",
+    "grades": {
+      "low": "A near/far feeling over personally observed differences.",
+      "mid": "A coarse drift band within the observed local scope.",
+      "high": "A number of authorized differences with scope, timestamp and incomplete-coverage label; no list of changed events."
+    },
+    "range": "Default: this branch and observed locality. Dial: observed region; never compare unvisited or sealed facts to produce a hidden count.",
+    "cost": "Default: quiet passive impression; deliberate recount costs focus. Dial: update interval and sample scope.",
+    "standingByWorld": {
+      "Village": {
+        "standing": "cheat",
+        "example": "Proposal: this lens exceeds ordinary Village access and requires an acquired backing; it is not a free starting interface."
+      },
+      "systemWorld": {
+        "standing": "world-law",
+        "example": "Illustrative premise: the shared system exposes this limited lens to everyone; an extra hidden/admin scope would be a cheat."
+      },
+      "cultivationWorld": {
+        "standing": "rare-gift",
+        "example": "Illustrative premise: a specialized spiritual or scholarly backing supplies this lens; ordinary spirit sense alone does not establish access."
+      }
+    },
+    "lowGradeLogLine": "The familiar road feels a little further from the story I remember."
+  },
+  {
+    "id": "CX3",
+    "panel": "role-sight",
+    "role": "records",
+    "discoveredBy": "Proposal: persist holder discovery, grade and a first successful local role reading; alternatively persist entitlement to this lens as world law. Low grade reveals only a log channel; panel or overlay begins at mid grade. Not an existing save-field path.",
+    "holds": "A known local role and its current known holder, with substitution status and age of the reading.",
+    "reveal": "Low: one original log impression. Mid/high: reveal the known surface after a persisted successful reading. Cue once on a live discovery transition, never on reload/import; reduced motion shows the final state immediately. No name, count, picker entry, setting or accessible label before discovery.",
+    "settings": [
+      {
+        "key": "panel.role-sight.detail",
+        "label": "Reading detail",
+        "options": [
+          "brief",
+          "expanded"
+        ],
+        "default": "brief",
+        "description": "Display detail within the acquired grade and range; never expands permission, spends resources or changes world facts."
+      }
+    ],
+    "sealedRule": "Filter authorization before rendering or counting. Sealed records stay absent until their discovery route permits a reference; then show only ID and status until the truth is discovered by that route. Redact causes, role titles, names, seed layers, timing, log text, hover/focus and accessible descriptions that would reveal a sealed truth. Higher grade never bypasses the route.",
+    "needsFoundation": true,
+    "dataSource": "Reads substituted entries {id, alt}, authorized revealed events and knowledge. Those entries do not contain actor bindings or persistent ladders. Needs role-to-actor bindings and reusable ladder records (SP1-SP10, LD1-LD10), including observation timestamps.",
+    "grades": {
+      "low": "A sense that a familiar task has changed hands, without naming a hidden role.",
+      "mid": "Known local role and recognized holder, possibly a day old.",
+      "high": "Authorized role changes, observed takeover time and quality/style differences; no unchosen candidates or secret role titles."
+    },
+    "range": "Default: a visible actor in the current place. Dial: locality and lag up to a day; unique-trait roles retain their authored eligibility.",
+    "cost": "Default: a sustained look and focus per actor. Dial: lag reduction cost and readings per day; it never recruits or forces the player into a role.",
+    "standingByWorld": {
+      "Village": {
+        "standing": "cheat",
+        "example": "Proposal: this lens exceeds ordinary Village access and requires an acquired backing; it is not a free starting interface."
+      },
+      "systemWorld": {
+        "standing": "rare-gift",
+        "example": "Illustrative premise: the shared status window lacks this lens; a special grant supplies it, subject to local regulation."
+      },
+      "cultivationWorld": {
+        "standing": "rare-gift",
+        "example": "Illustrative premise: a specialized spiritual or scholarly backing supplies this lens; ordinary spirit sense alone does not establish access."
+      }
+    },
+    "lowGradeLogLine": "Someone else seems to have taken up the familiar task."
+  },
+  {
+    "id": "CX4",
+    "panel": "motive-reading",
+    "role": "overlay",
+    "discoveredBy": "Proposal: persist holder discovery, grade and a first successful contact-based motive reading; alternatively persist entitlement to this lens as world law. Low grade reveals only a log channel; panel or overlay begins at mid grade. Not an existing save-field path.",
+    "holds": "NPC want, reason and available means as short, fallible tags with confidence.",
+    "reveal": "Low: one original log impression. Mid/high: reveal the known surface after a persisted successful reading. Cue once on a live discovery transition, never on reload/import; reduced motion shows the final state immediately. No name, count, picker entry, setting or accessible label before discovery.",
+    "settings": [
+      {
+        "key": "panel.motive-reading.detail",
+        "label": "Reading detail",
+        "options": [
+          "brief",
+          "expanded"
+        ],
+        "default": "brief",
+        "description": "Display detail within the acquired grade and range; never expands permission, spends resources or changes world facts."
+      }
+    ],
+    "sealedRule": "Filter authorization before rendering or counting. Sealed records stay absent until their discovery route permits a reference; then show only ID and status until the truth is discovered by that route. Redact causes, role titles, names, seed layers, timing, log text, hover/focus and accessible descriptions that would reveal a sealed truth. Higher grade never bypasses the route.",
+    "needsFoundation": true,
+    "dataSource": "Reads authorized NPC motive records through knowledge, not world facts inferred as certainty. MT1-MT9 want/reason/means, strength and patience records are proposed data; needs contact/line-of-sight, resistance and disguise hooks. Never creates a player-character motive record (MT10).",
+    "grades": {
+      "low": "One tentative want tag during contact.",
+      "mid": "Want plus a tentative reason, explicitly SHOWN, STATED or INFERRED.",
+      "high": "Authorized want/reason/means tags and competing motives, with resistance, uncertainty and timestamp; no guarantee against disguise."
+    },
+    "range": "Default: one NPC in sight or direct contact. Dial: distance and sustained contact; no remote minds or sealed identities.",
+    "cost": "Default: focus per look, rising with resistance. Dial: recovery and contact duration; failed readings stay inconclusive rather than proving innocence.",
+    "standingByWorld": {
+      "Village": {
+        "standing": "cheat",
+        "example": "Proposal: this lens exceeds ordinary Village access and requires an acquired backing; it is not a free starting interface."
+      },
+      "systemWorld": {
+        "standing": "rare-gift",
+        "example": "Illustrative premise: the shared status window lacks this lens; a special grant supplies it, subject to local regulation."
+      },
+      "cultivationWorld": {
+        "standing": "rare-gift",
+        "example": "Illustrative premise: a specialized spiritual or scholarly backing supplies this lens; ordinary spirit sense alone does not establish access."
+      }
+    },
+    "lowGradeLogLine": "Their attention keeps returning to the door; perhaps they want a way out."
+  },
+  {
+    "id": "CX5",
+    "panel": "thread-view",
+    "role": "records",
+    "discoveredBy": "Proposal: persist holder discovery, grade and a first successful outlet forecast; alternatively persist entitlement to this lens as world law. Low grade reveals only a log channel; panel or overlay begins at mid grade. Not an existing save-field path.",
+    "holds": "Possible next outlets for a known frustrated NPC motive, as estimates rather than promises.",
+    "reveal": "Low: one original log impression. Mid/high: reveal the known surface after a persisted successful reading. Cue once on a live discovery transition, never on reload/import; reduced motion shows the final state immediately. No name, count, picker entry, setting or accessible label before discovery.",
+    "settings": [
+      {
+        "key": "panel.thread-view.detail",
+        "label": "Reading detail",
+        "options": [
+          "brief",
+          "expanded"
+        ],
+        "default": "brief",
+        "description": "Display detail within the acquired grade and range; never expands permission, spends resources or changes world facts."
+      }
+    ],
+    "sealedRule": "Filter authorization before rendering or counting. Sealed records stay absent until their discovery route permits a reference; then show only ID and status until the truth is discovered by that route. Redact causes, role titles, names, seed layers, timing, log text, hover/focus and accessible descriptions that would reveal a sealed truth. Higher grade never bypasses the route.",
+    "needsFoundation": true,
+    "dataSource": "Reads authorized motive/outlet records and knowledge; revealed and substituted can provide observed failure context. Needs OL1-OL10 requirements/costs, personality ordering, patience, satisfaction/cancellation and bounded scheduling hooks. Probabilities need an actual model; none are supplied by v2.",
+    "grades": {
+      "low": "One plausible next action, marked as a guess.",
+      "mid": "A few authorized local outlets ranked more/less likely with an uncertainty label.",
+      "high": "Model-backed probability bands, affordable means and patience windows for authorized outlets; never fabricated exact odds."
+    },
+    "range": "Default: one encountered NPC and the next local attempt. Dial: forecast span and rarity per world; active outlet budget limits scope.",
+    "cost": "Default: deliberate focus after observation. Dial: number of threads and horizon cost; satisfied motives end the forecast and canon outlet leads in fresh canon.",
+    "standingByWorld": {
+      "Village": {
+        "standing": "cheat",
+        "example": "Proposal: this lens exceeds ordinary Village access and requires an acquired backing; it is not a free starting interface."
+      },
+      "systemWorld": {
+        "standing": "rare-gift",
+        "example": "Illustrative premise: the shared status window lacks this lens; a special grant supplies it, subject to local regulation."
+      },
+      "cultivationWorld": {
+        "standing": "rare-gift",
+        "example": "Illustrative premise: a specialized spiritual or scholarly backing supplies this lens; ordinary spirit sense alone does not establish access."
+      }
+    },
+    "lowGradeLogLine": "If that refusal still stings, asking someone else might be their next move."
+  },
+  {
+    "id": "CX6",
+    "panel": "seed-glimpse",
+    "role": "records",
+    "discoveredBy": "Proposal: persist holder discovery, grade and a first authorized start-provenance reading; alternatively persist entitlement to this lens as world law. Low grade reveals only a log channel; panel or overlay begins at mid grade. Not an existing save-field path.",
+    "holds": "The life seed and authorized start-layer provenance, without hidden layer effects.",
+    "reveal": "Low: one original log impression. Mid/high: reveal the known surface after a persisted successful reading. Cue once on a live discovery transition, never on reload/import; reduced motion shows the final state immediately. No name, count, picker entry, setting or accessible label before discovery.",
+    "settings": [
+      {
+        "key": "panel.seed-glimpse.detail",
+        "label": "Reading detail",
+        "options": [
+          "brief",
+          "expanded"
+        ],
+        "default": "brief",
+        "description": "Display detail within the acquired grade and range; never expands permission, spends resources or changes world facts."
+      }
+    ],
+    "sealedRule": "Filter authorization before rendering or counting. Sealed records stay absent until their discovery route permits a reference; then show only ID and status until the truth is discovered by that route. Redact causes, role titles, names, seed layers, timing, log text, hover/focus and accessible descriptions that would reveal a sealed truth. Higher grade never bypasses the route.",
+    "needsFoundation": true,
+    "dataSource": "Reads start_records resolution provenance (seed, worldId, revision and chosen layer IDs) and knowledge. Start provenance differs from per-fact anchor provenance. Needs a read authorization/redaction adapter; no seed reroll or fact editing (CT2 flavor only).",
+    "grades": {
+      "low": "A fragment of the seed without layer names.",
+      "mid": "The copyable life seed and known contributing axes.",
+      "high": "Seed, pinned revision and authorized chosen layer labels; hidden IDs are omitted, not replaced with revealing counts."
+    },
+    "range": "Default: the holder's own committed start. Dial: permitted axes; reasonably system/admin backing is required for richer access.",
+    "cost": "Default: one deliberate reading per start, brief focus. Dial: depth and cooldown; no automatic start changes or free admin privileges.",
+    "standingByWorld": {
+      "Village": {
+        "standing": "cheat",
+        "example": "Proposal: this lens exceeds ordinary Village access and requires an acquired backing; it is not a free starting interface."
+      },
+      "systemWorld": {
+        "standing": "world-law",
+        "example": "Illustrative premise: the shared system exposes this limited lens to everyone; an extra hidden/admin scope would be a cheat."
+      },
+      "cultivationWorld": {
+        "standing": "cheat",
+        "example": "Illustrative premise: a specialized spiritual or scholarly backing supplies this lens; ordinary spirit sense alone does not establish access."
+      }
+    },
+    "lowGradeLogLine": "A short string of digits lingers behind my closed eyes."
+  },
+  {
+    "id": "CX7",
+    "panel": "origin-echo",
+    "role": "log",
+    "discoveredBy": "Proposal: persist holder discovery, grade and a first authorized body or soul echo; alternatively persist entitlement to this lens as world law. Low grade reveals only a log channel; panel or overlay begins at mid grade. Not an existing save-field path.",
+    "holds": "Fragments of the former occupant or permitted other-self history, with identity-law limits and uncertain origin.",
+    "reveal": "Low: one original log impression. Mid/high: reveal the known surface after a persisted successful reading. Cue once on a live discovery transition, never on reload/import; reduced motion shows the final state immediately. No name, count, picker entry, setting or accessible label before discovery.",
+    "settings": [
+      {
+        "key": "panel.origin-echo.detail",
+        "label": "Reading detail",
+        "options": [
+          "brief",
+          "expanded"
+        ],
+        "default": "brief",
+        "description": "Display detail within the acquired grade and range; never expands permission, spends resources or changes world facts."
+      }
+    ],
+    "sealedRule": "Filter authorization before rendering or counting. Sealed records stay absent until their discovery route permits a reference; then show only ID and status until the truth is discovered by that route. Redact causes, role titles, names, seed layers, timing, log text, hover/focus and accessible descriptions that would reveal a sealed truth. Higher grade never bypasses the route.",
+    "needsFoundation": true,
+    "dataSource": "Reads holder knowledge and authorized start provenance/own origin records. Provenance only identifies start layers, not former-occupant history. Needs authored origin memories, body/soul linkage and world identity-law permission; use tell with channel cheat after successful authorized disclosure.",
+    "grades": {
+      "low": "An unlabeled sensation or habit without a biography.",
+      "mid": "One authorized dream fragment with uncertainty and its own-body/soul scope.",
+      "high": "Linked authorized fragments and known origin context, distinguishing memories from inference; no complete biography or automatic skill grant."
+    },
+    "range": "Default: holder's own body or soul. Dial: dream frequency and recognized-self reach under IX; no access to unrelated people.",
+    "cost": "Default: rest time and a short period of distraction. Dial: deliberate recall focus and personality bleed, only where supported by the world.",
+    "standingByWorld": {
+      "Village": {
+        "standing": "cheat",
+        "example": "Proposal: this lens exceeds ordinary Village access and requires an acquired backing; it is not a free starting interface."
+      },
+      "systemWorld": {
+        "standing": "rare-gift",
+        "example": "Illustrative premise: the shared status window lacks this lens; a special grant supplies it, subject to local regulation."
+      },
+      "cultivationWorld": {
+        "standing": "rare-gift",
+        "example": "Illustrative premise: a specialized spiritual or scholarly backing supplies this lens; ordinary spirit sense alone does not establish access."
+      }
+    },
+    "lowGradeLogLine": "My hand pauses at a doorway I do not remember visiting."
+  },
+  {
+    "id": "CX8",
+    "panel": "object-memory",
+    "role": "overlay",
+    "discoveredBy": "Proposal: persist holder discovery, grade and a first successful touch reading; alternatively persist entitlement to this lens as world law. Low grade reveals only a log channel; panel or overlay begins at mid grade. Not an existing save-field path.",
+    "holds": "An original item-history line; recent ownership is clearer than old history.",
+    "reveal": "Low: one original log impression. Mid/high: reveal the known surface after a persisted successful reading. Cue once on a live discovery transition, never on reload/import; reduced motion shows the final state immediately. No name, count, picker entry, setting or accessible label before discovery.",
+    "settings": [
+      {
+        "key": "panel.object-memory.detail",
+        "label": "Reading detail",
+        "options": [
+          "brief",
+          "expanded"
+        ],
+        "default": "brief",
+        "description": "Display detail within the acquired grade and range; never expands permission, spends resources or changes world facts."
+      }
+    ],
+    "sealedRule": "Filter authorization before rendering or counting. Sealed records stay absent until their discovery route permits a reference; then show only ID and status until the truth is discovered by that route. Redact causes, role titles, names, seed layers, timing, log text, hover/focus and accessible descriptions that would reveal a sealed truth. Higher grade never bypasses the route.",
+    "needsFoundation": true,
+    "dataSource": "Reads composed snapshot.pockets entries {axis, layerId, itemId, line} and authorized holder knowledge. Existing start-pocket lines support the cheapest slice. Any-item histories need stable instance IDs, authored history entries and acquisition/transfer hooks; do not synthesize secret past owners from item IDs.",
+    "grades": {
+      "low": "One short authorized recent-history impression for a touched recorded pocket item.",
+      "mid": "The authorized pocket history line and its uncertain age.",
+      "high": "Several authorized item-history entries ordered recent first, only if authored history exists; gaps remain unknown."
+    },
+    "range": "Default: one held or touched item. Dial: memory depth and age decay; no remote inventory scan.",
+    "cost": "Default: touch plus brief focus. Dial: older-memory cost and cooldown; empty histories return no impression without implying a secret.",
+    "standingByWorld": {
+      "Village": {
+        "standing": "cheat",
+        "example": "Proposal: this lens exceeds ordinary Village access and requires an acquired backing; it is not a free starting interface."
+      },
+      "systemWorld": {
+        "standing": "common",
+        "example": "Illustrative premise: the shared status window lacks this lens; a special grant supplies it, subject to local regulation."
+      },
+      "cultivationWorld": {
+        "standing": "rare-gift",
+        "example": "Illustrative premise: a specialized spiritual or scholarly backing supplies this lens; ordinary spirit sense alone does not establish access."
+      }
+    },
+    "lowGradeLogLine": "The worn edge recalls many ordinary mornings in someone's hand."
+  },
+  {
+    "id": "CX9",
+    "panel": "anchor-recall",
+    "role": "actions",
+    "discoveredBy": "Proposal: persist holder discovery, grade and a first paid, recorded personal anchor; alternatively persist entitlement to this lens as world law. Low grade reveals only a log channel; panel or overlay begins at mid grade. Not an existing save-field path.",
+    "holds": "Known personal marks, return terms and affordable choices; return is an explicit action, separate from reading.",
+    "reveal": "Low: one original log impression. Mid/high: reveal the known surface after a persisted successful reading. Cue once on a live discovery transition, never on reload/import; reduced motion shows the final state immediately. No name, count, picker entry, setting or accessible label before discovery.",
+    "settings": [
+      {
+        "key": "panel.anchor-recall.detail",
+        "label": "Reading detail",
+        "options": [
+          "brief",
+          "expanded"
+        ],
+        "default": "brief",
+        "description": "Display detail within the acquired grade and range; never expands permission, spends resources or changes world facts."
+      }
+    ],
+    "sealedRule": "Filter authorization before rendering or counting. Sealed records stay absent until their discovery route permits a reference; then show only ID and status until the truth is discovered by that route. Redact causes, role titles, names, seed layers, timing, log text, hover/focus and accessible descriptions that would reveal a sealed truth. Higher grade never bypasses the route.",
+    "needsFoundation": true,
+    "dataSource": "Reads known anchor records, knowledge and resolvedAt/localAt for calendar display. v2 branch.changes reset {to: anchorId, keepKnowledge: [actors]} restores canon at an authored anchor, not an arbitrary saved moment. Needs personal-anchor storage, mark/return hooks, charges and separate fresh-start versus loop policies.",
+    "grades": {
+      "low": "A log acknowledgement of one marked moment and known cost.",
+      "mid": "Known mark, current eligibility and explicit return/new-start choice with cost.",
+      "high": "Multiple permitted marks, retention terms and confirmed destination preview using only known facts; no unrestricted snapshot restore."
+    },
+    "range": "Default: one local personal mark, return only under the world's regression law. Dial: slots and permitted anchor times; fresh starts and loops remain distinct.",
+    "cost": "Default: one scarce charge to mark and another explicitly confirmed return cost. Dial: recharge, retained knowledge and sacrifice; costs and slots require accepted balance before runtime.",
+    "standingByWorld": {
+      "Village": {
+        "standing": "cheat",
+        "example": "Proposal: this lens exceeds ordinary Village access and requires an acquired backing; it is not a free starting interface."
+      },
+      "systemWorld": {
+        "standing": "rare-gift",
+        "example": "Illustrative premise: the shared status window lacks this lens; a special grant supplies it, subject to local regulation."
+      },
+      "cultivationWorld": {
+        "standing": "forbidden",
+        "example": "Illustrative premise: a sect bans this regression technique despite its possible backing."
+      }
+    },
+    "lowGradeLogLine": "I hold this moment in mind, unsure how often I can find it again."
+  },
+  {
+    "id": "CX10",
+    "panel": "fixed-point-sense",
+    "role": "log",
+    "discoveredBy": "Proposal: persist holder discovery, grade and a first authorized fixed-point impression; alternatively persist entitlement to this lens as world law. Low grade reveals only a log channel; panel or overlay begins at mid grade. Not an existing save-field path.",
+    "holds": "Local dread or certainty about a supported fixed event, without its sealed cause.",
+    "reveal": "Low: one original log impression. Mid/high: reveal the known surface after a persisted successful reading. Cue once on a live discovery transition, never on reload/import; reduced motion shows the final state immediately. No name, count, picker entry, setting or accessible label before discovery.",
+    "settings": [
+      {
+        "key": "panel.fixed-point-sense.detail",
+        "label": "Reading detail",
+        "options": [
+          "brief",
+          "expanded"
+        ],
+        "default": "brief",
+        "description": "Display detail within the acquired grade and range; never expands permission, spends resources or changes world facts."
+      }
+    ],
+    "sealedRule": "Filter authorization before rendering or counting. Sealed records stay absent until their discovery route permits a reference; then show only ID and status until the truth is discovered by that route. Redact causes, role titles, names, seed layers, timing, log text, hover/focus and accessible descriptions that would reveal a sealed truth. Higher grade never bypasses the route.",
+    "needsFoundation": true,
+    "dataSource": "Reads authorized event.fixed metadata, revealed, knowledge and resisted {id, reason}. resisted is diagnostic failed-requirement data, not an in-world explanation. Needs an authored supported-means check and safe sensation text (round 19 C8); fixed alone cannot prove inevitability.",
+    "grades": {
+      "low": "Unexplained local dread with no event title or hidden count.",
+      "mid": "A known local event feels strongly constrained, with uncertainty about means.",
+      "high": "Known constraint and authorized observable supporting conditions; never a sealed cause or a claim of inevitability when means are unsupported."
+    },
+    "range": "Default: one nearby known event. Dial: horizon and sensitivity; no world-wide fixed-point catalogue.",
+    "cost": "Default: passive brief sensation; deliberate examination costs focus. Dial: recovery and sensory strain without forced player choices.",
+    "standingByWorld": {
+      "Village": {
+        "standing": "cheat",
+        "example": "Proposal: this lens exceeds ordinary Village access and requires an acquired backing; it is not a free starting interface."
+      },
+      "systemWorld": {
+        "standing": "rare-gift",
+        "example": "Illustrative premise: the shared status window lacks this lens; a special grant supplies it, subject to local regulation."
+      },
+      "cultivationWorld": {
+        "standing": "rare-gift",
+        "example": "Illustrative premise: a specialized spiritual or scholarly backing supplies this lens; ordinary spirit sense alone does not establish access."
+      }
+    },
+    "lowGradeLogLine": "The air feels stubborn, as if this hour will be hard to turn aside."
+  },
+  {
+    "id": "CX11",
+    "panel": "branch-whisper",
+    "role": "log",
+    "discoveredBy": "Proposal: persist holder discovery, grade and a first identity-law-authorized branch echo; alternatively persist entitlement to this lens as world law. Low grade reveals only a log channel; panel or overlay begins at mid grade. Not an existing save-field path.",
+    "holds": "A faint authorized contrast with another branch, labeled as a whisper rather than an active simulation.",
+    "reveal": "Low: one original log impression. Mid/high: reveal the known surface after a persisted successful reading. Cue once on a live discovery transition, never on reload/import; reduced motion shows the final state immediately. No name, count, picker entry, setting or accessible label before discovery.",
+    "settings": [
+      {
+        "key": "panel.branch-whisper.detail",
+        "label": "Reading detail",
+        "options": [
+          "brief",
+          "expanded"
+        ],
+        "default": "brief",
+        "description": "Display detail within the acquired grade and range; never expands permission, spends resources or changes world facts."
+      }
+    ],
+    "sealedRule": "Filter authorization before rendering or counting. Sealed records stay absent until their discovery route permits a reference; then show only ID and status until the truth is discovered by that route. Redact causes, role titles, names, seed layers, timing, log text, hover/focus and accessible descriptions that would reveal a sealed truth. Higher grade never bypasses the route.",
+    "needsFoundation": true,
+    "dataSource": "Reads authorized cross-branch knowledge and provenance from permitted retained branch records. v2 knowledge/reset does not grant cross-branch access. Needs identity-law checks, explicit retained-branch linkage and safe contrast selection; no parallel ticking or invented branches.",
+    "grades": {
+      "low": "One sensory echo without a branch name.",
+      "mid": "One authorized known-place contrast and uncertain origin.",
+      "high": "Several authorized contrasts with known branch labels only if the holder may recognize them; no branch roster, hidden outcomes or omniscience."
+    },
+    "range": "Default: a recognized place tied to one permitted retained branch. Dial: identity-law awareness and echo frequency; unavailable where cross-branch awareness is barred.",
+    "cost": "Default: a short distraction at recognition. Dial: deliberate recall focus and cooldown; resting branches stay frozen by their clock policy.",
+    "standingByWorld": {
+      "Village": {
+        "standing": "cheat",
+        "example": "Proposal: this lens exceeds ordinary Village access and requires an acquired backing; it is not a free starting interface."
+      },
+      "systemWorld": {
+        "standing": "rare-gift",
+        "example": "Illustrative premise: the shared status window lacks this lens; a special grant supplies it, subject to local regulation."
+      },
+      "cultivationWorld": {
+        "standing": "rare-gift",
+        "example": "Illustrative premise: a specialized spiritual or scholarly backing supplies this lens; ordinary spirit sense alone does not establish access."
+      }
+    },
+    "lowGradeLogLine": "For a breath, this corner feels as though I once reached it in different weather."
+  },
+  {
+    "id": "CX12",
+    "panel": "ledger-of-causes",
+    "role": "records",
+    "discoveredBy": "Proposal: persist holder discovery, grade and a first successful cause query about a known fact; alternatively persist entitlement to this lens as world law. Low grade reveals only a log channel; panel or overlay begins at mid grade. Not an existing save-field path.",
+    "holds": "The last writer of an authorized fact: base, event or branch change, with known cause and time.",
+    "reveal": "Low: one original log impression. Mid/high: reveal the known surface after a persisted successful reading. Cue once on a live discovery transition, never on reload/import; reduced motion shows the final state immediately. No name, count, picker entry, setting or accessible label before discovery.",
+    "settings": [
+      {
+        "key": "panel.ledger-of-causes.detail",
+        "label": "Reading detail",
+        "options": [
+          "brief",
+          "expanded"
+        ],
+        "default": "brief",
+        "description": "Display detail within the acquired grade and range; never expands permission, spends resources or changes world facts."
+      }
+    ],
+    "sealedRule": "Filter authorization before rendering or counting. Sealed records stay absent until their discovery route permits a reference; then show only ID and status until the truth is discovered by that route. Redact causes, role titles, names, seed layers, timing, log text, hover/focus and accessible descriptions that would reveal a sealed truth. Higher grade never bypasses the route.",
+    "needsFoundation": true,
+    "dataSource": "Reads explainFact(result, key) -> {by: base|event|change, id?, cause?, at?}, backed by per-fact provenance and holder knowledge. revealed gates event presentation but is not holder knowledge. Needs a safe label/redaction adapter, not another truth store; no full causal-chain reconstruction.",
+    "grades": {
+      "low": "A broad impression that one known fact is inherited or changed.",
+      "mid": "Last-writer type and an authorized rough time for one known local fact.",
+      "high": "Known last event/change label, safe cause and timestamp where present; missing fields remain unknown and base never gets an invented cause."
+    },
+    "range": "Default: one known fact about the current place or held item. Dial: query count and local scope; no whole-state dump.",
+    "cost": "Default: deliberate query costs brief study time and focus. Dial: daily queries and detail cost; unknown answers reveal no hidden cause count.",
+    "standingByWorld": {
+      "Village": {
+        "standing": "cheat",
+        "example": "Proposal: this lens exceeds ordinary Village access and requires an acquired backing; it is not a free starting interface."
+      },
+      "systemWorld": {
+        "standing": "world-law",
+        "example": "Illustrative premise: the shared system exposes this limited lens to everyone; an extra hidden/admin scope would be a cheat."
+      },
+      "cultivationWorld": {
+        "standing": "rare-gift",
+        "example": "Illustrative premise: a specialized spiritual or scholarly backing supplies this lens; ordinary spirit sense alone does not establish access."
+      }
+    },
+    "lowGradeLogLine": "This detail feels inherited from an earlier moment, though its cause is still unclear."
+  }
+]

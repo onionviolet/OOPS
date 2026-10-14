@@ -1,0 +1,22 @@
+{
+  "worker.mjs": "1dbfc6476b7a3aa7ca15d8edf146da39f70c7fb9e03092ba522942a40aaf942c",
+  "saves-run.log": "9375ea6a41d527388b030f2bab0c0fdb84fdffdd9e6ac7b36e9ee36974baece3",
+  "REPORT.md": "31ddddd08fac00b07e674ea8a1586c3f32420641f268f28d37c74519d505594e",
+  "workers-run.log": "af8a4327d15405989fba8c07a9d2b6f1814bf6ab65b2a246db8a5b65392a894b",
+  "read-provenance.json": "1c7c9d17802c9f107f8ab2f7fbe6e6c9a0d7ac005979078ac67cf1fc3cc76b3a",
+  "scratch-package-lock.json": "4a53871ee5a60a0382c1469fd010567e63d681eedde7b536c95bc57c314880fe",
+  "common.mjs": "24c8610c9422528f299e939f348b7ba1a1bca0276af24de398eca3ac8fb3200b",
+  "actors-results.json": "2b602a50469cb6afce17adee2de17a63fbecf4c66ae4f989755e89ec5db3203c",
+  "README.md": "9f0f91902c4ca6a67911740c58d2dbadd2fa1279e06f3803dd207473fa7fb596",
+  "fixtures.mjs": "31346da9e2477e156a41b750255b8378dcbc2352865f732e68ad8b865ba2832e",
+  "actors-run.log": "173b776fb7a31958e54fcc6d1ec9e591fac1d63b260a1f75e48c92804cd17980",
+  "scratch-package.json": "88e0d46b976b779d718974a671b451aad3f9e52229dab8f94f1b1841ab959530",
+  "workers-results.json": "d12d44df46c4dd5ed2b558e4f7c869e9941e4f597b6de119dc0c75fb66f1f39c",
+  "provenance.py": "17dbf90641dbe1cb38b82a1eed6ac58fe1e4028cabae1e5840f548f96ae861b3",
+  "actors.mjs": "28dd4792b566adffaf1047808ee948ecf6c4fe16a6af13117575cce7e3433650",
+  "saves-results.json": "d682ad87b1888f917d8dca9b96c47d3a56c0aee028466ec81a3d97e4cd5b2120",
+  "saves.mjs": "a12b24a7724688cf5bde92bbbad82f8b15b3cdb1719a503fa68ce0f0c5acd324",
+  "workers.mjs": "36e226155641dd3909bf952f6fa2dfdb8e1e50a6976b66c3ed331ade923887fd",
+  "write_report.py": "5f377750076b23d1702949b359ff8f4e5b3ed89a8386b9c755752358a8fee0d5",
+  "../../../../research/ENGINE_SPIKES_2026-10-14.md": "e83e86e7b8aafcd0908aa918d12bedd1450bc3385ea6418db66559c7941fb23c"
+}

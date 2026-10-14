@@ -888,3 +888,532 @@ proposals:
 
 Open questions they raise are collected in USER_VISION's 2026-10-13 cheat
 entries once answered; until then they stay in each draft.
+
+### More to consider: status window stage 1 (2026-10-13)
+
+Weibao: "more to consider for the status window stage 1? Make a prompt to
+audit". Stage 0 shipped (CH1: dormant start, awakening, informational panel).
+Stage 1 adds **system quests and points**. Palette, not specs.
+
+**What stage 1 is (S1)**
+
+| Code | Consideration |
+| --- | --- |
+| S1.1 | **Trigger:** stage 1 opens after a stretch of ordinary play since awakening (days lived, a level, a first title), never at awakening itself |
+| S1.2 | **Quests come from real state:** counters, skills, known recipes, known people and routes, titles; never a parallel fake world. Reuse `src/quests.js` task/condition shapes where they fit, but keep system quests in the held card's state, apart from the journal's story quests |
+| S1.3 | **Spoiler-safe generation:** only targets the player can already see (a known recipe, a known person, a known route); unknown content is never named |
+| S1.4 | **Near-next, not far:** each quest is one or two steps beyond what the player has done ("make 3 Processed rough wood", "reach Woodworking 2", "talk to the elder again") |
+| S1.5 | **Idle-friendly kinds:** milestone (one-off), habit (daily, passive-capable: "rest 8 hours", "work 2 shifts"), discovery-safe (visit a known place), social (talk to someone known), craft (make N of a known recipe) |
+| S1.6 | **Cadence and caps:** a small board (three to five), daily refresh, a soft daily point cap; abandon and reroll with a cost or a cooldown |
+| S1.7 | **Deterministic and saved:** generated from a stored seed and real counters, so reload and import give the same board |
+
+**Points and rewards (S1P)**
+
+| Code | Consideration |
+| --- | --- |
+| S1P.1 | Points accumulate at stage 1 but **buy nothing that skips progression**; their first use is stage 2's shop |
+| S1P.2 | Optional small information rewards at stage 1: a hint where a known material is sold, the success odds of a known recipe, a forecast line |
+| S1P.3 | Titles can come from system quests through the existing titles owner, never a second title system |
+| S1P.4 | No item or XP rewards that complete existing chains (the progression guard) |
+| S1P.5 | Point earning pace is a per-world and per-life dial (humble / standard / strong) |
+
+**Status window UI at stage 1 (S1U)**
+
+| Code | Consideration |
+| --- | --- |
+| S1U.1 | Quest rows: title, progress (have/need), time left for habits, a Claim button; claimed rows fade, not vanish, until the next refresh |
+| S1U.2 | Completion as one quiet system line in the log; claim as a settled receipt (same truthful-receipt rule as crafting) |
+| S1U.3 | A "why" line on each quest ("you know this recipe"), building trust that the system reads real state |
+| S1U.4 | Settings: auto-claim, quest notifications quiet/normal/off, board size |
+| S1U.5 | The stage-1 opening is its own reveal (once, never on reload/import), under the Effects master switch |
+| S1U.6 | Keyboard: rows and Claim reachable; F6 reaches the panel |
+
+**System voice and world fit (S1V)**
+
+- Voice per card and world (SW2): terse system, the Clerk, a guide; a setting tones it down.
+- In a world where the window is world law (WR2), stage 1 quests are what everyone gets; the cheat is the extra (WR3).
+- The board can be jammed, cracked or dark under interference (SW7), and says so.
+
+**Persistence and compatibility (S1S)**
+
+- Quest board, seed, points and stage live inside the held card's `state`
+  (C0 shape), so no new top-level save field. Older held cards default to
+  stage 0 with an empty board.
+- Validators extend with a closed quest-entry shape; invalid boards are
+  refused at import like invalid cards.
+- Counters already in the save (titles' counters, game_stats) drive progress;
+  no counter is duplicated.
+
+**Edge cases worth deciding**
+
+Quests that become impossible (a person dies, a route closes) close with a
+reason and refund nothing or a small amount; quests completed before they
+were offered don't count retroactively unless the board says "already done";
+an heir inherits the card only if its backing allows, with or without its
+board; a jammed window keeps counting but can't show.
+
+**Suggested build order:** S1.1-S1.4 with two quest kinds (milestone, craft)
+and points with no spend; S1U.1-S1U.3; persistence S1S; then habits (S1.5)
+and settings (S1U.4).
+
+### More to consider: after the stage 0 audit, stage 1 and beyond (2026-10-14)
+
+Weibao: "more to consider? other stuff and more? save and extend accordingly
+Send out codex as usesful?" after the
+[stage 0 audit](gm/dispatch/cheat-status-window-2026-10-13/AUDIT_REPORT.md)
+(F1-F14, D1-D3). Palette, not specs. The audit's three open questions are
+rewritten here as dials with a proposed default, since every reasonable
+option stays reachable.
+
+**Awakening, made robust (AW)**
+
+| Code | Consideration |
+| --- | --- |
+| AW1 | **Commit, then reveal:** the awakened card and its first message are saved first; the panel, log line and reveal play only after the save succeeds. A failed save leaves the card dormant and retries on the next tick (audit F1) |
+| AW2 | **Any clock source can wake it:** ticks, travel, sleep, offline catch-up, a time skip and an imported save already past the milestone all run the same "is it time?" check on committed state, not on a tick-local day change (audit F2) |
+| AW3 | **Wake while away:** if offline progress crosses the milestone, the card wakes during catch-up and the reveal waits for the player's return, as the first line of the "while you were away" summary |
+| AW4 | **Reveal where you are looking:** the reveal brings the panel into view or shows a short pointer ("Something opened in your character column"); it waits for an open dialogue or fight to finish (audit F4) |
+| AW5 | **Validator tightness:** an awakened card needs its first message; points, stage and board entries get semantic checks, refused at import with a message (audit F3) |
+| AW6 | **Awakening milestones are a list, first one wins:** first won fight, day 3, first native skill level, first night slept in a bed, a near-death. Per world and per card; the Village default keeps fight or day 3 and could add the skill level so a peaceful player wakes sooner than 40 real minutes (audit F10) |
+| AW7 | **Dormancy speed dial:** "soon / standard / slow" per life, shown at the start choice, mapped to the milestone list |
+
+**Dormancy as content (DM)**
+
+| Code | Consideration |
+| --- | --- |
+| DM1 | **Stirrings without names:** one or two odd but spoiler-safe log lines before awakening ("You dreamed in neat columns"), off by a setting |
+| DM2 | **The system was watching:** at awakening, the first message can summarize what it recorded during dormancy (days, first kill, skills touched) as information by default; a card that pays back dormancy is a per-card dial |
+| DM3 | **Calibration:** the first board is shaped by what you did while dormant (a runner gets a running quest), so dormancy feeds stage 1 |
+| DM4 | **False start:** some cards flicker once and go quiet again before the real awakening, per card |
+| DM5 | **Never wakes:** a dud seed (RS7) is a valid rare outcome in worlds that allow it, with its own later discovery |
+
+**Stage 1 opening, as dials (S1D; replaces audit Q1-Q3 as questions)**
+
+| Code | Dial | Proposed default for the Village pilot |
+| --- | --- | --- |
+| S1D1 | **Trigger list, first one wins:** a known skill gains a level after awakening, one played day after awakening, a first title after awakening, an NPC asks something the system can track | Skill level or one played day; the awakening's own kill or title does not count |
+| S1D2 | **First board size and kinds:** one milestone; milestone plus a generic craft count; full board of three to five | One known-skill milestone; the craft count is the next addition |
+| S1D3 | **Continuity across lives:** card and board stay with the life; card passes to the heir with board reset; card and board pass; card returns dormant | Per backing: a soul-bound system stays, a bloodline system passes reset, an item-bound one goes with the item |
+| S1D4 | **Legacy cards** (awakened before stage 1 existed): baseline taken when stage 1 first loads, so no invented history | As stated |
+
+**Quest grammar and more kinds (QG)**
+
+| Code | Consideration |
+| --- | --- |
+| QG1 | **Grammar:** verb × known target × amount × window × why line. Verbs: reach, make, rest, work, visit, talk, eat, keep (a streak), avoid |
+| QG2 | **Self-care quests:** sleep a full night, eat a proper meal, rest when hurt; pairs with [hunger and bodily needs](HUNGER_AND_BODILY_NEEDS_CONSIDERATIONS_2026-10-13.md) |
+| QG3 | **Negative-space quests:** a day without fighting, a day without spending, a streak of early nights; rewards restraint |
+| QG4 | **Player-written goals:** the system accepts a goal you set from known targets ("Reach Woodworking 3 by day 10") and tracks it; life-sim friendly |
+| QG5 | **Bridged requests:** when an NPC's story quest has a measurable step, the system can mirror it as its own row with credit to the journal; one reward by default, a bonus only where the card says so |
+| QG6 | **Adaptive or contrary boards:** the system pushes what you already do (comfort), what you neglect (balance), or alternates; per card personality |
+| QG7 | **Chained milestones:** claiming one offers the next step of the same line, so the board has direction without a skill tree yet |
+| QG8 | **Observation quests:** look closely at something known (inspect a tool, read a notice); cheap, informational, good for stage 1 |
+| QG9 | **Hidden quests:** a row shown as "???" whose completion explains it; only where the world's spoiler dial allows, never naming sealed content |
+| QG10 | **Group quests:** later, with companions or a household, tracked per person |
+
+**Time, failure and idle play (QT)**
+
+| Code | Consideration |
+| --- | --- |
+| QT1 | Stage 1 default has no failure: quests wait. Timed quests and penalties are a per-card dial (a harsh system, a daily-quest punisher) |
+| QT2 | Offline progress counts; claims batch on return with one summary receipt |
+| QT3 | Auto-claim is a convenience the system can grant later (stage 2 purchase or setting), not a stage 1 default |
+| QT4 | Habit quests count real game days, not real-time days, so sleep and offline time behave consistently |
+| QT5 | A quest that becomes impossible closes with a reason (already in S1 edge cases) and the board offers a replacement |
+
+**Points and the road to stage 2 (PT)**
+
+| Code | Consideration |
+| --- | --- |
+| PT1 | Points show "Uses unlock later" while unspendable, so they read as saved, not useless |
+| PT2 | A point ledger: every gain and spend is a receipt row (date, source, amount) |
+| PT3 | Stage 2 shop candidates that do not skip progression: information (odds, where a known item sells), convenience (board slot, reroll, auto-claim), cosmetics (window skin, voice), small time-limited focus boosts |
+| PT4 | Point variants per card: debt (a patron lends ahead), decay (unspent points fade), conversion (points into the world's own currency at a bad rate) |
+| PT5 | By default points buy what a cheat-free life could also earn somehow; they shorten, not unlock (dial for worlds where a system is the only route) |
+
+**The system as a character (SC)**
+
+| Code | Consideration |
+| --- | --- |
+| SC1 | Voice grows with stage: terse at 0, a little personality at 1, opinions at 2 |
+| SC2 | Rapport: claiming promptly or ignoring the board shifts the voice (warm, impatient, sulking); purely flavor at stage 1 |
+| SC3 | Rejecting the system: a setting or in-world act to silence it; it returns to dormant, keeps its record, and can be reawakened. Rejection itself can be a feat |
+| SC4 | Questions to the system: a small set of answerable questions about known state ("What did I do yesterday?"), never sealed truths |
+| SC5 | The system can be wrong once in a known way (SW4), giving the player a reason to verify |
+
+**Integration checks before stage 1 grows (IN)**
+
+- Journal: a "System" section beside story quests, or the status window only; the journal never double-counts.
+- Titles: quest-earned titles go through `src/titles.js`; the status window lists them like any other.
+- Heir requests and content packs: a held card's board is part of the life record exported with the save; a content pack can add quest verbs only through the closed grammar.
+- Panel kit: the board rows use kit row styles and density; the reveal uses the kit's discovery reveal.
+- Two systems held at once: one panel per card, or a merged board labeled by source; per card pair ("When cheats meet").
+- Accessibility: quest completion announced through a polite live region when the setting allows.
+
+**Gate lessons from the audit (GL), for this lane's checks**
+
+- Fault-inject storage so an awakening whose save fails stays hidden (AW1).
+- Cross the milestone by travel, sleep, offline catch-up and import, not only ticks (AW2).
+- Measure that the reveal is actually in view, and that F6 reaches the contents, not just the header (AW4).
+- Refuse an awakened card without a first message at import (AW5).
+- Keep one natural-play timing per change to the milestone list, at the real clock rate.
+
+**Suggestions (separate from the palette)**
+
+- A1: Fix AW1, AW2, AW4 and AW5 in stage 0 before stage 1 is built on top of them; small and correctness-only.
+- A2: Then build stage 1 with the S1D defaults above, one milestone row and unspendable points.
+- A3: Add AW6's skill-level milestone to the Village list during A1 if Weibao wants the peaceful route sooner; it's a one-line list change once AW2 exists.
+- A4: Keep a short "how other games and LitRPG do system quests" survey (dispatched 2026-10-14) as the reference for QG and PT.
+
+### More to consider: subtle micro details, other stuff and more (2026-10-14)
+
+Weibao: "more to consider? other stuff and more? save and extend accordingly
+Send out codex as usesful? Subtle micro stuff too?" Palette, not specs.
+Micro rows are small on their own; together they decide whether the window
+feels like a living system or a debug panel.
+
+**Numbers and text (MN)**
+
+| Code | Consideration |
+| --- | --- |
+| MN1 | **Rounding rule per row:** whole numbers for levels and points; one decimal for stats only where the stats panel shows one; the window never disagrees with the stats panel by rounding differently |
+| MN2 | **Change ticks:** a changed value flashes once or shows a small "+1" for a few seconds; off under reduced motion and the Effects master switch |
+| MN3 | **Have/need, not percent,** for small counts ("2 / 3"); percent only for long bars; no "100%" until the claim is possible |
+| MN4 | **Plurals and zero:** "1 point", "0 points", "no titles yet"; empty states say what fills them ("Titles you earn appear here") without naming unknown ones |
+| MN5 | **Bracket style:** system lines in a consistent marker per card voice ([System], a glyph, or a colored left rule), so they scan apart from ordinary log lines |
+| MN6 | **Game time, not real time,** on stamps ("Day 3, 06:10"); relative ("this morning") as a setting |
+| MN7 | **Capitalization and naming:** the card's in-world name, not "status window", once discovered; the panel title can be renamed by the player (a nickname for the system) |
+| MN8 | **Tooltip per stat:** what it does, where else it shows, last change; no tooltip on a stat the player cannot yet read (SW3) |
+| MN9 | **Number width:** tabular figures so columns don't jitter as values tick |
+| MN10 | **Truncation:** long quest and title names wrap to two lines then ellipsize with the full text on hover and focus |
+
+**Messages and the log (ML)**
+
+| Code | Consideration |
+| --- | --- |
+| ML1 | **One line per event:** a level-up that also completes a quest gives one combined line or two in a fixed order (cause, then effect), never interleaved with combat spam |
+| ML2 | **Message budget:** at most a few system lines per game hour by default; extras fold into "and 3 more" with a click to expand |
+| ML3 | **Dedupe:** the same message within a short window is merged with a ×2 count |
+| ML4 | **Message history cap:** the card keeps the first message forever and a rolling window of recent ones; older ones compact into a daily summary so the save does not grow without bound |
+| ML5 | **Filter:** the log can show or hide system lines; the status window keeps its own short history either way |
+| ML6 | **Unread marker:** a small dot on the window's header for new system lines, cleared on view; no dot under the boss key or minimal modes (W3 HU rows) |
+| ML7 | **Misspeak:** a card voice can typo or glitch rarely, flavor only, never in a number |
+
+**Interaction micro (MI)**
+
+| Code | Consideration |
+| --- | --- |
+| MI1 | Claim is idempotent: double-click or key repeat claims once; the button disables while the save commits |
+| MI2 | Focus after claim moves to the next claimable row, or the board header if none, so keyboard players don't lose place |
+| MI3 | Row order is stable: claimable first, then in progress, then claimed; ties keep offer order so rows don't jump while you read |
+| MI4 | Collapsed sections and density survive reload (panel setting), per save or per device as a setting |
+| MI5 | Claim during combat or dialogue queues the receipt until it ends, or is allowed with a quiet line; per card |
+| MI6 | Hover and focus never trigger anything that costs; previews only |
+| MI7 | A keyboard shortcut to open the window (rebindable), matching the panel kit's shortcut rules |
+
+**Timing and engine edges (ME)**
+
+| Code | Consideration |
+| --- | --- |
+| ME1 | **Tick order:** awakening, quest progress and claims settle after the tick's own state changes, in one documented order, so a level-up and its quest completion agree |
+| ME2 | **Boundary off-by-one:** "reach level 2" offered when already level 2 is already done (S1 edge rule) or never offered; the offer filter checks current state |
+| ME3 | **Separate random stream:** board generation and any system rolls use their own seeded stream so they never shift combat, loot or crafting rolls; reload gives the same board and the same fights |
+| ME4 | **Two tabs on one save:** two open tabs must not both awaken or both claim; the later writer sees the earlier commit or the game warns about another open tab |
+| ME5 | **Hidden tab throttling:** background tabs tick slower; awakening and quest checks rely on committed game time, not tick count |
+| ME6 | **Import mid-board:** an older save with a board from a previous version keeps its rows, marks unknown kinds "retired" and refunds nothing silently |
+| ME7 | **Clock jumps:** a time skip or a long offline gap completes several day-based quests at once with one summary |
+| ME8 | **Save size:** the held card's state stays small; generated boards store seeds and indices, not copies of game data |
+
+**Body, people and world micro (MW)**
+
+| Code | Consideration |
+| --- | --- |
+| MW1 | **Looking at nothing:** opening the window in company can be noticed in worlds where it is a cheat; a "you stare into space" line, a raised eyebrow, a rumor if repeated (per world, off by default in the Village pilot) |
+| MW2 | **Muttering at the system:** answering it aloud is a habit some characters form; flavor lines, a trait later |
+| MW3 | **Eyestrain:** heavy use gives a mild headache in worlds where the window rides on the body (dial; never at stage 0 default) |
+| MW4 | **Animals and children** can sense or react to an active window in some worlds |
+| MW5 | **The system learns your name:** before calibration it uses "Host" or a placeholder; after, your name or a nickname it picks |
+| MW6 | **Stat names calibrate:** first readings use plain words; after a few days they switch to the card's vocabulary, with both shown once |
+| MW7 | **Lying about it:** when asked, the player can deny, deflect or admit; each has a social trace per world |
+| MW8 | **Dreams:** the window can appear in dreams during sleep as a flavor line, a place for DM1 stirrings and stage hints |
+
+**Other stuff (OS)**
+
+| Code | Consideration |
+| --- | --- |
+| OS1 | **Comparison with the stats panel:** the window is a different view of the same truth; a setting can hide duplicated rows so the panel shows only what the system adds |
+| OS2 | **Status screenshot card** (SW10) uses the same redaction as the boss key so it is share-safe |
+| OS3 | **Life record:** awakening day, first quest, first claim and stage changes become life-record milestones and heir lore |
+| OS4 | **Achievement-style retro view:** a "first times" list (first claim, first title) as a quiet history tab, not rewards |
+| OS5 | **Help:** a one-screen "What is this?" in the system's voice, reachable once discovered |
+| OS6 | **Testing hooks:** fixtures for each micro edge (two tabs, throttled tab, double claim, import mid-board) live with the lane's checks, not in the shipped game |
+
+**Suggestions (separate from the palette)**
+
+- A5: Fold ME3 (separate random stream) and ME4 (two tabs) into the stage 1 done check; both are cheap now and expensive after boards ship.
+- A6: Adopt MN1, MN3, MN4, MN9 and MI1-MI3 as the stage 1 row defaults.
+- A7: Keep MW rows off in the Village pilot and on in the first world where a window is a cheat people can notice.
+
+### More to consider: subtle stuff, round 2 (2026-10-14)
+
+Weibao: "more to consider? other stuff and more? save and extend accordingly
+Send out codex as usesful? Subtle stuff too?" Palette, not specs. This round
+looks at what the window does to the player's head, what it quietly hides,
+and how it fails.
+
+**Player feel (PF)**
+
+| Code | Consideration |
+| --- | --- |
+| PF1 | **Anticipation over surprise:** the start choice says roughly when it wakes ("within a few days"), so dormancy reads as waiting, not as a bug |
+| PF2 | **The first claim is a beat:** slightly more ceremony than later claims (one longer system line), then plain forever after |
+| PF3 | **Quiet days are allowed:** an empty board on some days is a feature; the system says "Nothing today. Rest." instead of padding with chores |
+| PF4 | **Unfinished-task pull:** open quests nag the mind; default to few rows, and a "snooze" that hides a row without failing it |
+| PF5 | **Return after absence:** the first view after a break leads with one summary line, not a wall of receipts |
+| PF6 | **Ownership:** the player can pin one row as "my focus"; the system respects it in later suggestions (QG6) |
+| PF7 | **No guilt framing:** missed habits show "not today", never "failed", unless the card is a harsh system by design (QT1) |
+
+**Trust and honesty (TR)**
+
+| Code | Consideration |
+| --- | --- |
+| TR1 | **Stale marking:** a value not refreshed since a state change shows a faint "as of" stamp instead of looking current |
+| TR2 | **Uncertainty shown:** a card with a low grade shows ranges ("Strength 4-6") rather than false precision (SW3, SW4) |
+| TR3 | **Receipts can be checked:** each point and claim links to the event that caused it in the log |
+| TR4 | **Contradiction with the world:** when the window disagrees with what an NPC or test shows, both stay visible; the library can record the discrepancy (LB6 hypotheses) |
+| TR5 | **What it won't say:** a card can refuse a question with a reason ("Insufficient authority"), which is itself a clue, never a sealed truth |
+| TR6 | **Agenda drift:** over many days a card's suggested quests can lean toward what its backing wants (patron terms); visible only as a pattern the player may notice, tracked per card by ID |
+
+**Consent and agency (CA)**
+
+| Code | Consideration |
+| --- | --- |
+| CA1 | Decline a quest kind ("Don't offer combat quests"), respected until changed |
+| CA2 | Quests that ask for something the character would object to (hurt someone, betray a promise) show the cost plainly and are never auto-accepted |
+| CA3 | Farming guard by meaning, not by cap: kill-count quests target threats, not harmless creatures, unless the card is cruel by design and says so |
+| CA4 | The player can ask the system to go quiet for a while (a mute timer) without rejecting it (SC3) |
+
+**Failure and recovery (FR)**
+
+| Code | Consideration |
+| --- | --- |
+| FR1 | **Quarantine, not refusal, at load:** if a held card in an existing save fails validation after an update, the game loads the save, sets the card aside with a message, and keeps the raw card for a later fix; import of an outside file still refuses (C0 rule) |
+| FR2 | **Schema migrations per card:** each card carries its own state version; a migration table upgrades old boards step by step |
+| FR3 | **Corrupt board, healthy card:** a bad board resets to empty with a receipt; points and stage stay |
+| FR4 | **Undo a mistaken claim** within a short window where the card allows, as a small convenience, not a loop exploit |
+| FR5 | **Panel crash isolation:** a render error in the window shows a small error row and leaves the rest of the game running |
+
+**Spoilers and leaks (SL)**
+
+| Code | Consideration |
+| --- | --- |
+| SL1 | **Leak lint:** an automated check scans the DOM, titles, aria labels, tooltips, settings lists, export text and file names for undiscovered card and panel names in each state (none, dormant, awakened) |
+| SL2 | **Export file names** carry no cheat name; a save's summary line shows "a system" only after awakening |
+| SL3 | **Storage keys** for panel settings do not expose a card's name to someone reading browser storage, where the world cares (low priority; solo player) |
+| SL4 | **Heir view:** an heir sees the parent's system as "something they spoke to" until the heir learns of it |
+| SL5 | **Help and settings search** do not index undiscovered panels |
+
+**Look, sound and access (LA)**
+
+| Code | Consideration |
+| --- | --- |
+| LA1 | **Color meaning stays fixed:** one color for claimable, one for complete, one for system voice; never only color (a glyph too) |
+| LA2 | **Idle motion:** none by default; a faint idle shimmer is a skin option, off under reduced motion |
+| LA3 | **Theme inheritance:** the window follows Appearance and Vivid, with a card skin as an optional overlay |
+| LA4 | **Screen reader verbosity:** announce claims and stage changes; stat ticks only on request |
+| LA5 | **Reading load:** a "plain" voice setting rewrites flavor lines into short plain statements |
+| LA6 | **Text growth room:** layouts tolerate 30% longer strings for later translation and nicknames (MN7) |
+| LA7 | **Optional sound:** a soft chime per card voice on claim, off by default |
+
+**Performance (PE)**
+
+- The window re-renders only changed rows; no full rebuild per tick.
+- Quest progress reads counters on change events, not by scanning every tick.
+- The window costs nothing while collapsed or hidden.
+
+**Lives and economies (LE)**
+
+| Code | Consideration |
+| --- | --- |
+| LE1 | Points normalize per world pace so a fast world does not make points cheap everywhere (multiversal, W2) |
+| LE2 | Heirs inherit points as the card's backing allows (S1D3); inherited points are labeled as such |
+| LE3 | The system can remember a dead holder: a line at the grave, a changed voice for the heir |
+| LE4 | Point sinks arrive with stage 2 so stage 1 points don't pile into a meaningless number; until then PT1's "uses unlock later" label carries it |
+
+**Suggestions (separate from the palette)**
+
+- A8: Build SL1 (leak lint) as a reusable check now; every later cheat lane can run it.
+- A9: Adopt FR1 (quarantine at load) before any card schema changes ship; it protects real saves.
+- A10: Adopt PF3, PF7 and CA3 as stage 1 voice and quest defaults; they cost nothing and set the tone.
+
+### More to consider: cheats that show things, the overarching model and implementation (2026-10-14)
+
+Weibao: "more to consider? other stuff and more? Cheats that would show stuff
+like these and more? ... Subtle stuff too? Overarching stuff? Implementation
+implciations and more?" Palette, not specs. The last three rounds kept
+finding the same shape: something true, something the holder knows, and how
+it is shown. This round turns that into cheats, one model and a build path.
+
+**Cheats that show what the earlier rounds hid (SH)**
+
+Each turns a micro or engine detail into a power someone could hold. Grades
+run presence → category → range → exact → future (OV3).
+
+| Code | Cheat | Shows | Rides on |
+| --- | --- | --- | --- |
+| SH1 | Fate Ledger | The next few rolls of one stream (combat, weather, loot), never all | ME3 separate streams; peek without advancing |
+| SH2 | Causality Lens | Why something happened: the chain of events behind a price, a mood, a death | TR3 receipts, extended to the world |
+| SH3 | Freshness Sense | How old any piece of information is; a rumor's age, a map's last survey | TR1 stale marks |
+| SH4 | True Appraisal | Collapses ranges into exact values, grade by grade | TR2 ranges |
+| SH5 | Agenda Reader | The drift in a system's, patron's or faction's suggestions | TR6 agenda drift |
+| SH6 | Turn Sight | The order things will resolve this round; who acts first and why | ME1 tick order |
+| SH7 | Other-Self Echo | Awareness that a parallel self or a reloaded timeline exists, felt as déjà vu | ME4 two tabs, Echo Anchor, other-selves docs |
+| SH8 | World Chronicle | What happened offscreen today, budgeted like a log | ML2 message budget |
+| SH9 | Hidden-Thing Sense | That something undiscovered is near, without its name; a count, a direction | UP2 silhouettes, SL rules |
+| SH10 | Notice Meter | Who noticed you and how suspicious they are | MW1 staring, ST16 noisy cheats |
+| SH11 | Curse Identify | That an item, power or card is set aside, corrupt or false | FR1 quarantine, RS7 fakes |
+| SH12 | Ledger Sight | Debts, promises and liens between people, including patron terms | CT10, terms table |
+| SH13 | System Empathy | The mood and rapport of a system or spirit you deal with | SC2 rapport |
+| SH14 | Pace Sense | How fast this world's time and growth run against home | LE1, W2 multiversal |
+| SH15 | Riddle Sight | The condition behind a "???" quest or a locked door | QG9 hidden quests |
+| SH16 | Objection Sense | What a person would refuse or resent before you ask | CA2 consent |
+| SH17 | Strain Gauge | The real cost your own powers are taking from body or soul | MW3, costed cheats |
+| SH18 | Reader's Mirror | What another observer sees when they look at you, including their grade | SW8 who sees it, NPC lenses |
+
+Shared rules for SH cards: each has a grade, a range (self, room, village,
+world), a freshness, a cost or tell, and a counter (jammers, forgeries,
+anti-cheat, CT4). Seeing the future can drain tension, so SH1-style cards
+default to odds or one step ahead and grow toward outcomes by stage, per world.
+
+**Overarching model (OV)**
+
+| Code | Consideration |
+| --- | --- |
+| OV1 | **One fact, many lenses:** every display of hidden or partial information (status window, appraisal, library, rumor, NPC talk, SH cards) reads the same kind of observation: fact, value or range, as of when, source, grade |
+| OV2 | **Three layers:** truth (the world's state), knowledge (what a holder has observed, stored small), display (derived: redaction, rounding, voice) |
+| OV3 | **One grade ladder** shared by all information cheats so they compare and stack sensibly: none, presence, category, range, exact, future |
+| OV4 | **Every reveal is an event** with provenance, so receipts, the life record, the library and heir lore all draw from it |
+| OV5 | **Symmetric counterplay:** anything that shows can be blocked, forged, delayed or noticed (SW7, CT4, CT5) |
+| OV6 | **World baseline decides cheat-ness** of each lens (WR1-WR8): a lens everyone has is world law |
+| OV7 | **Information is the early reward currency:** stages 0 and 1 pay in knowing, which keeps the progression guard intact |
+| OV8 | **Fun over fairness** for a solo player: limits exist to keep tension and choice alive, not to stop abuse (per world, per dial) |
+
+**Subtle effects of seeing (SE)**
+
+| Code | Consideration |
+| --- | --- |
+| SE1 | **Observer effect on the player:** visible odds make people risk-averse; a setting can hide odds until asked |
+| SE2 | **Two lenses disagree:** a status window and an appraisal give different numbers; both show with their grades, and the gap is a clue |
+| SE3 | **Lenses go stale on travel:** a lens calibrated at home reads wrong in another world until it recalibrates (WR4, SH14) |
+| SE4 | **Known unknowns:** a lens can say "3 things here you can't read" without naming them, where the world allows |
+| SE5 | **Being read:** NPC lenses read you too; what they see shapes how they act (SH18), and hiding UI (W3) applies in both directions |
+| SE6 | **Knowledge travels slowly:** rumors and reports arrive late; freshness matters more than precision for far events |
+| SE7 | **Learning the lens:** the player's skill at reading a lens (spotting drift, trusting ranges) is real progression the game doesn't need to number |
+
+**Implementation implications (II)**
+
+| Code | Implication |
+| --- | --- |
+| II1 | **Fact registry:** readable facts with stable ids, an owner module, a reader for the current value and a spoiler class (public, on discovery, sealed by ID). Reuse the existing `*_facts.js` modules, `rules.js` predicates, `world_knowledge.js`, `people_knowledge.js` and `causal_situations.js` knowledge basis before adding anything |
+| II2 | **Knowledge store, small:** save only what cannot be recomputed (as of, grade, source); current values are read live |
+| II3 | **Lenses are card observers:** the C0 card already has an `observers` field; the status window becomes the first lens reading facts through it |
+| II4 | **One redaction function:** display(fact, observer) → exact, range, presence or hidden; UI, export summary and the leak lint (SL1) all use it |
+| II5 | **Change events:** facts announce changes; panels and quests subscribe (PE rows), no per-tick scanning |
+| II6 | **Named random streams** with seeds in the save; peeking lenses read without advancing; prerequisite for SH1 and for ME3 |
+| II7 | **Documented tick phases:** state changes → facts settle → observers → quests → messages → save → reveal; this is AW1's commit-then-reveal made general |
+| II8 | **One message pipeline** for all cheats: budget, dedupe, order, compaction (ML rows) |
+| II9 | **Card state versions, migrations and quarantine** (FR1, FR2) before any card schema grows |
+| II10 | **Tests follow the model:** leak lint driven by spoiler classes, a determinism test (same seed, same board, same fights), a two-tab test |
+| II11 | **Keep main.js thin:** it is about 8,600 lines; new work lives in modules with named hooks and minimal hunks |
+| II12 | **Rule of two:** build the shared seam only as far as the status window and one second lens need; no generic framework ahead of its second user |
+
+**Proposed build order (reversible):** R1 hardening → quarantine and card
+versions (FR1, FR2, II9) → status window reads facts through its observer
+(II1-II4, no new lenses) → stage 1 quests on the same facts and change events
+(II5, II7) → named random streams (II6) → one SH card as the second lens
+(SH3 Freshness Sense or SH4 True Appraisal, the cheapest) to prove reuse.
+
+**Suggestions (separate from the palette)**
+
+- A11: Treat OV1-OV4 as the shared direction for every information cheat, so the status window, appraisal and the library don't grow three models.
+- A12: Wait for the TE probe's random-stream findings before scheduling II6.
+- A13: Pick SH4 True Appraisal as the second lens; it reuses ranges (TR2) and grades (OV3) with no new world facts.
+
+### More to consider: comic worlds, the abstractions needed, and landing the work (2026-10-14)
+
+Weibao: "Considering comic worlds and stuff and more? ... Cheats that would
+show stuff like these and more? ... Overarching stuff? Implementation
+implciations and more? Abstaction thats needed? Merging, commiting or
+pushing?" Palette, not specs. The broad comic palette lives in
+[comic worlds and the medium](COMIC_WORLDS_AND_MEDIUM_CONSIDERATIONS_2026-10-14.md)
+(CW traditions, CL industry habits as world laws, CK1-CK22 comic cheats, CS,
+CO, CI, CA). This round covers only where comics meet the status window,
+system quests and the information model above, and reconciles the
+abstractions both documents propose.
+
+**The status window in comic worlds (CS-W)**
+
+| Code | Consideration |
+| --- | --- |
+| CSW1 | **Home turf:** in webtoon system worlds (CW1) the blue window is world law (WR2); the cheat is what goes beyond it (WR3), such as a hidden class, reading others' windows or an admin quest line |
+| CSW2 | **Retcons and the knowledge layer:** when a fact is retconned (CL4, CK11), the window shows the new value; the holder's observation keeps the old one with "as of", so the window can notice "this changed" while NPCs may not (OV2 meets CA5) |
+| CSW3 | **Sliding time vs day milestones:** in a sliding-timescale world (CL2), "day 3" and "one played day" count story days, not calendar years; milestones use the world's own clock |
+| CSW4 | **Issues as cadence:** a board can refresh per issue or chapter instead of per day; anniversary issues get a special board (CS17) |
+| CSW5 | **Crossover tie-ins as quests:** during a crossover event (CL6), system quests can be tie-ins labeled with the event, and close when the event ends |
+| CSW6 | **Status-quo pull on rewards:** earned points and titles are anchored by default; a world with strong pull (CL1) can drift unanchored changes back, but never the player's receipts (CO5) |
+| CSW7 | **Audience as a point source:** in sponsor worlds (CL18, CA6) points can come from watchers; the board shows who paid for what |
+| CSW8 | **Plot armour as a row:** where a world has it (CK19), the window can show it as a finite bar, refilled at arc ends |
+| CSW9 | **Cancellation:** a world that ends abruptly (CL14) closes open quests with a reason and a small settlement (QT5) |
+| CSW10 | **Presentation skin:** in a comic skin (CA2) the window draws as a bordered caption box and system lines as captions; the data is the same |
+
+**More cheats that show comic things (SH, continued)**
+
+| Code | Cheat | Shows | Rides on |
+| --- | --- | --- | --- |
+| SH19 | Retcon Detector | That a fact changed, and roughly when; not what it was unless graded higher | CSW2, CA5 versioned facts, SH3 |
+| SH20 | Status-Quo Gauge | How strongly a change will drift back, and what would anchor it | CL1, CK10 |
+| SH21 | Return Clock | When a defeated or dead recurring figure is likely to return | CL3, CL9, CI7 |
+| SH22 | Tie-in Tracker | Which local events belong to a larger crossover | CL6, CA10 |
+| SH23 | Era Sense | Which era tone the world currently runs on and when it is shifting | CL15 |
+| SH24 | Variant Diff | How you differ from a variant of yourself in another world | CK16, CA9 |
+| SH25 | Plot-Needs Meter | The variance band on someone's strength right now (CL8) | Power by the writer |
+| SH26 | Exposure Meter | How close each observer is to linking your two identities | CS9, CI6, CA7 |
+
+**Abstractions needed, reconciled (AB)**
+
+The cheat rounds (OV, II), the comic doc (CA, CI) and other 2026-10-14 docs
+propose overlapping pieces. One stack, not several:
+
+| Code | Abstraction | Merges | First two users (rule of two) |
+| --- | --- | --- | --- |
+| AB1 | **Fact:** id, owner module, reader, spoiler class, optional version history | II1, CA5 | Status window rows; leak lint |
+| AB2 | **Observation:** holder, fact, as of, grade, source, version seen | II2, CA5 per-observer memory | Status window "as of"; SH4 True Appraisal |
+| AB3 | **Lens:** card observer with domains, grade, range, freshness, cost, counter | II3, SH rows, CK1-CK9 | Status window; SH4 |
+| AB4 | **Display:** fact × observation × lens × skin → text or hidden | II4, CA2 presentation skin | Status window; export summary |
+| AB5 | **Event:** kind (caption, speech, system, recap...), provenance, beat grouping, budget | OV4, II8, CI1, CI2 | System lines; recap on return |
+| AB6 | **Milestone predicate** on committed state, any clock source | AW2, II7, S1D1, CI7 return clocks | Awakening; stage 1 trigger |
+| AB7 | **Named random stream** with peek | II6, ME3 | Stage 1 boards; SH1 later |
+| AB8 | **World law dials** incl. information dials (spoiler level, odds shown, standing) | CA1, WR1, UP4 | Village pilot; first system world |
+| AB9 | **Card state version, migration and quarantine** | II9, FR1, FR2 | Stage 1 board; any card update |
+| AB10 | **Record types** reused, not duplicated: office/mantle, identity pair, recurring actor, variant link, cross-world event | CA4, CA7-CA10 | Comic and other worlds; not cheat-owned |
+
+Rule of two applies: AB6 and AB9 already have two users in the cheat lane;
+AB1-AB4 have them once stage 1 and SH4 exist; AB5, AB7, AB8 and AB10 wait
+for their second user. Owners stay where they are (titles, quests, facts
+modules, panel kit); the stack connects them.
+
+**Landing the work (LW)**
+
+| Code | Consideration |
+| --- | --- |
+| LW1 | Code lanes merge only after their frozen gate passes on a clean build, reviewed by the coordinator |
+| LW2 | Docs and dispatch records commit with only this thread's paths and hunks; other agents' uncommitted edits stay theirs |
+| LW3 | Scratch (logs, screenshots, run folders) stays out of git; prompts, last messages, reports, gates and fixtures go in |
+| LW4 | Pushing publishes to the public fork, including any other agents' unpushed commits on the same branch; it happens on Weibao's say-so per push |
+| LW5 | Sealed secrets are checked by ID before any commit message or pushed doc |
+
+**Suggestions (separate from the palette)**
+
+- A14: Treat AB1-AB10 as the single map; an abstraction map lane (AB) checks it against code and other docs before anyone builds a second copy.
+- A15: Merge R1 once its final check passes; stage 1 builds on that.
+- A16: In comic worlds, start with CSW1 and CSW2: they test standing and the knowledge layer with no new UI.

@@ -1,0 +1,9 @@
+{
+ "label": "courtyard-delegated-completion",
+ "reload": true,
+ "literalImport": true,
+ "file": "courtyard-delegated-completion.txt",
+ "sha256": "482583b0df177c38f3b21c8ad6bae94837eec75b9a6d86171c8e84a137d21561",
+ "clock": 4,
+ "derivedCacheDifferences": []
+}

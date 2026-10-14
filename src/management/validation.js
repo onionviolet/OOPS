@@ -3,6 +3,10 @@ import {managementDefinitions} from './content.js';
 const check=(ok,msg)=>{if(!ok)throw new Error(`Courtyard: ${msg}`);};
 const natural=n=>Number.isSafeInteger(n)&&n>=0;
 const same=(a,b)=>JSON.stringify(a)===JSON.stringify(b);
+export function stampManagementJob(state,job) {
+ if(job.commandId.startsWith('mg.')&&managementDefinitions.commands.some(d=>d.id===job.commandId&&d.duration>0))
+  job.managementWork={schema:1,startedAt:state.clock};
+}
 // This additive content has no second inventory/calendar/state namespace.
 // Validate real resident balances against exact authored transactions and held
 // costs. Old saves with no charter remain inert and gain no defaults.
@@ -33,6 +37,10 @@ export function validateManagementState(state,registry) {
   const d=defs.get(j.commandId);check(d&&d.duration>0&&j.actorId===d.actorId&&j.revision===d.revision&&j.siteId===(d.siteId||null)&&j.targetId===(d.targetId||null)&&j.reservationReturns===1&&j.cancellation==='refund','unsupported local work revision or owner.');
   check(same(j.costs,d.costs)&&same(j.effects,d.effects)&&same(j.completionSupport,{schema:1,requires:d.completionRequires,coLocated:!!d.completionCoLocated,location:d.location,failure:'refund'}),'accepted local work lost exact reserved inputs/output/support.');
   check(j.due>=state.clock&&j.due<=state.clock+d.duration,'unsupported local duration.');
+  if(j.managementWork!=null){const w=j.managementWork;
+   check(w&&same(Object.keys(w).sort(),['schema','startedAt'])&&w.schema===1&&natural(w.startedAt)&&w.startedAt<=state.clock&&j.due===w.startedAt+d.duration,
+    'accepted local work lost its actual start and due time.');
+  }
   for(const e of j.costs)apply(e);
  }
  for(const d of managementDefinitions.people) {

@@ -52,7 +52,7 @@ export function createSimulationPanel({registry, read, command}) {
         const practice = state.actors.player.resources.practice || 0;
         const program = s?.programs.player;
         const routineState = program ? program.status === "paused" ? ` Routine paused${s.jobs.some(j=>j.actorId === "player") ? " after current work" : ""}. ${program.reason || ""}` : program.status === "running" ? " Routine running." : s.jobs.some(j=>j.actorId === "player" && j.commandId === program.commandId) ? " Final routine work pending; no further repetitions." : " Routine settled." : "";
-        const waiting = s?.sessions.player || inspectSimulationEvents(state).some(e=>e.actorId === "player" && e.status === "open" && e.mode === "decision") ? " Waiting for your response." : "";
+        const waiting = s?.sessions.player || inspectSimulationEvents(state).some(e=>e.actorId === "player" && e.status === "open" && e.mode === "decision" && e.nonBlocking !== true) ? " Waiting for your response." : "";
         status.textContent = error || `${notice ? notice + " " : ""}${work}${routineState}${waiting} Completed packing practice: ${practice}.`;
         const localPeople = Object.entries(s?.people || {}).filter(([id,p]) => p.createdBy === "player" && !["original_frontier.","artifact_collection.","causal.story.","remainder_","remainder."].some(prefix=>p.definitionId?.startsWith(prefix)) && state.actors[id].worldId === state.actors.player.worldId);
         people.hidden = !localPeople.length;
@@ -76,7 +76,7 @@ export function createSimulationPanel({registry, read, command}) {
             }
         }
         for(const [id,row] of participantRows) if(!s?.people[id]) {row.section.remove(); participantRows.delete(id);}
-        const currentEvents = inspectSimulationEvents(state).filter(e => e.actorId === "player" && e.status === "open" && registry.simulation.events.get(e.definitionId)?.group !== "field");
+        const currentEvents = inspectSimulationEvents(state).filter(e => e.actorId === "player" && e.status === "open" && !e.storylet && registry.simulation.events.get(e.definitionId)?.group !== "field");
         const signature = JSON.stringify([currentEvents, error, enabled]);
         if(signature !== eventSignature) {eventSignature = signature; events.replaceChildren();
         for(const e of currentEvents) {

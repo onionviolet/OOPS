@@ -18,6 +18,21 @@ Remaining gaps, in order:
 
 ## How ideas are kept
 
+[Engine, runtime, performance and stack](ENGINE_RUNTIME_PERFORMANCE_AND_STACK_CONSIDERATIONS_2026-10-14.md)
+owns the 2026-10-14 engine palette beyond E1-E10: runtime architecture (RT),
+performance and measurement (PF), persistence (DA), tech stack options (TS),
+codebase health (CH), other (OS), proper engine options (EG), libraries (LB)
+NPC/sim architecture (AI), subtle micro correctness (MC), building our own
+engine (OE), wider engine catalog (XE), engine-design subtleties (SB),
+engine-revealing cheats (CX), overarching principles (OV), implementation
+implications (IM), comic worlds through the engine (CE) and abstractions (AB).
+Proposals only; Codex lanes ER1-ER18 audit.
+
+[Companions, familiars and pets](COMPANIONS_FAMILIARS_AND_PETS_CONSIDERATIONS_2026-10-14.md)
+owns the 2026-10-14 palette for creatures, spirits and things that travel with the
+player: kinds, acquisition, bond tracks, care, mounts, per-world fit, cheat shapes
+and expansions. Proposals only.
+
 [Engine, saves, scale and app portability](ENGINE_SAVES_AND_SCALE_REVIEW_2026-10-11.md)
 owns the 2026-10-11 engineering proposal set under I29: save/recovery and history
 contracts, performance gates, language/architecture choices, Godot/Rust/browser
@@ -34,6 +49,37 @@ considerations, not accepted mechanics or implemented gameplay.
 Its [parallel specialist return](gm/dispatch/body-lineage-expansion-2026-10-11/INTEGRATION.md)
 adds 48 proposed micro/intermediate/macro/world-fit cards and 12 causal journeys,
 with overlap reconciliation and separate source/gameplay gates.
+The [2026-10-14 finer-detail round](GENETICS_CONSTITUTIONS_AND_BROOD_PLAY.md#bodies-in-finer-detail-2026-10-14)
+adds physique parts PH1-PH12, genetics texture GN1-GN12, separate sex/gender
+parts SG1-SG13, little quirks LQ1-LQ15, age AG1-AG6, different bodies,
+constitution angles CN1-CN8, a storage sketch and suggestions.
+A [bloodlines round](GENETICS_CONSTITUTIONS_AND_BROOD_PLAY.md#bloodlines-in-depth-and-other-body-layers-2026-10-14)
+adds routes BD1-BD9, clan politics CL1-CL10, bloodline powers BP1-BP9,
+mixing MX1-MX6, generations and prestige, health HI1-HI6, mind and soul
+MS1-MS6 and presence PR1-PR4.
+Round 3 adds training TR1-TR7, substances SB1-SB6, wear and injury WR1-WR6,
+the body as an object OB1-OB6, modification BM1-BM6, reproduction RP1-RP5
+and social reading SR1-SR5. Five docs-only Codex lanes (world fit, body record
+spec, bloodline prestige, canon catalog, game references) run under
+[body-lineage-2026-10-14](gm/dispatch/body-lineage-2026-10-14/PLAN.md).
+Round 4 adds world physics EV1-EV6, emotion EM1-EM6, time TM1-TM5,
+population heredity PG1-PG6, generated physiques (G47), NPC body detail
+levels (G48), player tools UI1-UI6 and quirks LQ16-LQ22, with lanes B6-B8.
+Round 5 adds sourcing from the world SO1-SO12, genetic modification
+methods GM1-GM11 and dimensions GD1-GD10, and MC1-MC6, with lanes B9-B11;
+it also summarizes the B1-B3 returns.
+Round 6 adds subtle micro detail: moment states MI1-MI10, look-alike pairs
+LA1-LA12, breadcrumbs BC1-BC9, micro growth MG1-MG6, changed-body details
+MB1-MB7, family details MH1-MH5 and presentation MP1-MP4, with lanes B12-B13.
+Round 7 records the B4-B7 returns, applies B4's franchise corrections, and
+adds subtle social SS1-SS7, psychology SP1-SP7, information SI1-SI6, timing
+ST1-ST5 and side consequences SC1-SC5, with lane B14.
+Round 8 adds body cheats that show (CV1-CV12) and act (CA1-CA10), the
+overarching model OV1-OV7, implementation implications IM1-IM10 with a
+proposed build order, and lanes B15 (body cheats) and B16 (roadmap).
+Round 9 adds comic bodies CB1-CB15, comic body cheats CC1-CC6, subtle comic
+detail, and abstractions AB1-AB12 mapped to code and to the comic doc's CA
+list, with lanes B17 and B18.
 
 Current idea-expansion return, 2026-10-11:
 [joined planning](gm/dispatch/idea-expansion-2026-10-11/RECONCILIATION.md) retains
@@ -41,6 +87,11 @@ eight lane outputs, 179 proposed detail contracts, earlier VFX-family mappings
 and titles/skills/progression micro-audits. Linked ledger/queue route actual
 consumers, missing contracts and 693 unrun acceptance cases. This finite return
 does not adjudicate every artifact or finish local source worlds/gameplay.
+[Intro flow considerations](INTRO_FLOW_CONSIDERATIONS_2026-10-13.md) owns the
+2026-10-13 opening palette: flow beats, creation screen, teaching without a
+tutorial, cheat/advantage choice placement and start options, with source
+findings on the current opening. Proposals, not accepted mechanics.
+
 
 For whole book/anime worlds or a broad feature family, start with the
 [actionability GM prompt](gm/WORLD_ACTIONABILITY_GM_PROMPT.md): recover and expand
@@ -91,7 +142,7 @@ Requested direction, proposal. [JJK world brief](worlds/jujutsu/WORLD_BRIEF.md) 
 
 Accepted standard (Weibao): what anyone can know or do is decided by the means they hold, on both sides. [Means and appraisal](MEANS_AND_APPRAISAL.md) owns the means principle (fourteen domains from knowing to legitimacy), appraisal levels AP0 to AP9, appraisal types by target, channel, mode, output and schema, little and wider subtleties, and implementation proposals; it builds on the observation contest in the life-sim north star and E7.
 
-[Technology and progression](TECHNOLOGY_AND_PROGRESSION.md) is a proposal palette (2026-10-10): where progress lives (person to multiverse, TL), shapes of progression (tree, web, eras, lost tech, cycles, alien substrates, TS), what gates the next step (bootstrapping tools, energy, measurement, permission, physics, TG), knowing that versus knowing how (fidelity TK0 to TK5), measurement turning words into numbers in the UI (TM), tech changing the idle loop (TA), world reactions (TW), tech by world, odd tech, tech as a life, a scale ladder and tech cheats.
+[Technology and progression](TECHNOLOGY_AND_PROGRESSION.md) is a proposal palette (2026-10-10): where progress lives (person to multiverse, TL), shapes of progression (tree, web, eras, lost tech, cycles, alien substrates, TS), what gates the next step (bootstrapping tools, energy, measurement, permission, physics, TG), knowing that versus knowing how (fidelity TK0 to TK5), measurement turning words into numbers in the UI (TM), tech changing the idle loop (TA), world reactions (TW), tech by world, odd tech, tech as a life, a scale ladder and tech cheats. [Round 3](TECHNOLOGY_AND_PROGRESSION.md#research-and-technology-round-3-2026-10-14) (2026-10-14) adds research as an idle verb, question sources, uncertainty display, libraries, research people, ethics, social and living technologies, tech economics, tech versus power systems, loops and branches, cross-world science and cheats TC9-TC15; round 4 adds kinds of finding, failure modes, kept and lost knowledge, uplift choices, everyday and cultural tech, logistics, knowledge markets, bestiary research, institutions, ecology, sacred tech and endgame research; round 5 adds procedural invention (name a goal like soap or a bomb, get a knowledge-filtered AND/OR roadmap); round 6 extends it to upkeep, project running, powers, generated world tech states and ruins, balance and QA; round 7 adds subtle micro detail (senses, body, tools, notes, small accidents and moments, a texture dial); round 8 adds subtle cognition, social reading, market signals, quiet world change, small numbers and hint pacing; round 9 adds revealer cheats, the overarching truth/knowledge/presentation model and implementation implications; round 10 adds comic-world research and tech, comic revealer cheats and the shared code abstractions.
 
 Accepted standard (Weibao): worlds follow their natural course unless sufficiently disturbed. [Timelines and divergence](TIMELINES_AND_DIVERGENCE.md) owns the proposed mechanics (coarse event graph, inertia versus disturbance, lazy resolution, roles not people, motives outlive scripts), per-world dials, reference fiction and scope. [Cosmic events](COSMIC_EVENTS.md) owns run-shattering outlier events (omens, scopes, staging, marks). [Presentation and the fourth wall](PRESENTATION_AND_FOURTH_WALL.md) owns animation style, cinematic set pieces (orbital strikes, telegraphs, scale flights), the [text-only VFX library](PRESENTATION_AND_FOURTH_WALL.md#text-only-vfx-library-2026-10-10) (JJK set, show of power, fourth-wall and cozy VFX, collisions; [second wave](PRESENTATION_AND_FOURTH_WALL.md#text-vfx-second-wave-deeper-entries-new-families-implementation-2026-10-10) adds new families, information effects and an implementation slice; [third wave](PRESENTATION_AND_FOURTH_WALL.md#text-vfx-third-wave-onomatopoeia-grammar-time-bluffs-and-tooling-2026-10-10) adds onomatopoeia, grammar, idle decay, bluffs (where they fit, and bluffing specific abilities with knowledge states and dossiers, plus bluff plausibility and a knowledge layer: viewpoint-filtered VFX, intel economy, self-understanding, the regressor's bluff; knowledge scoped to in-fiction impressions both ways, gated by the means each character has on hand) and tooling), powers that touch the UI, panel damage and meta effects. [E8F adjectives](emergent/E8F_ADJECTIVES.md) owns the shared adjective grammar for powers, limits and everything else. [Abuse and limits](ABUSE_AND_LIMITS.md) owns exploit fixes versus in-fiction consequences across these systems. [Trials and tribulations](TRIALS_AND_TRIBULATIONS.md) owns the trial model (triggers, pending queue, trial spaces, reward menus, offline handling). [Selves and echoes](SELVES_AND_ECHOES.md) owns past-self recognition, item instances, and generated selves (perfect, projected, alternate, shadow). [Time keepers and variants](TIME_KEEPERS_AND_VARIANTS.md) owns time-keeper factions, variants, pruning and the Void (Loki and kin), plus journey arcs, a god of stories, What If premises, and how to build characters at multiverse scale (the persistent holder is one example, not a direction), with lore coherence rules (LS1-LS13).
 

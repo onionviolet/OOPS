@@ -1,0 +1,48 @@
+{
+  "status": "PASS",
+  "kind": "documentation_only",
+  "date": "2026-10-14",
+  "markdown_files": 17,
+  "world_profile_files": 9,
+  "source_profiles": 28,
+  "ranked_slices": 5,
+  "more_angles": 20,
+  "local_links_checked": 225,
+  "source_line_links_checked": 36,
+  "in_packet_anchor_links_checked": 24,
+  "errors": [],
+  "candidate_ports": [
+    20250,
+    20251,
+    20252,
+    20253,
+    20254
+  ],
+  "not_run": [
+    "runtime tests",
+    "build",
+    "browser",
+    "save/reload/export/import",
+    "candidate primary-scene validation",
+    "human fiction acceptance"
+  ],
+  "document_sha256": {
+    "ANIME_AND_MANGA.md": "94dfd87707d4be172159d3f40f0b58a4433f16fd511562c3dee02869fa2d98cb",
+    "BACKLOG.md": "96b12863bf888f25285f417958ddcd504b991d1ed86b9044c9ba6686331e5db3",
+    "CHECKPOINT.md": "0a3b65f48d8116016fde4692a2db631a7cd3f7b0dbfdd4fc02209b7e1d9daab0",
+    "DND.md": "14b31941b36da45eeb2fdd8410ab7f74065e690c7a41111fe0a670c3a154056e",
+    "EPIC_AND_CIVIC_WORLDS.md": "606e4e8badb72d6d6fa034b148e577416ad8b56ea4d3af8b631e17d9d719b8d0",
+    "FAN_PREMISES.md": "83dfb2a211e3dd15b4f0a3b9bdcea69e59b5b36dce7d45df5b60b5dafc5e4aeb",
+    "FOREKNOWLEDGE_AND_VERSION_WORLDS.md": "be525fd5846a60ede90b648c6eeba50b6a87bac32774042d5ac64e914710fbbb",
+    "HARRY_POTTER.md": "f6c736381acb85b9ab101edb854fa5fd6a7f33bab94401260ab0f9149e6b494b",
+    "LIVE_AUDIT.md": "d1e18ff5ba03aaea2f418e961a30a8779e566aba27ccb8540c5b2ee1f65f09a0",
+    "MORE.md": "d15709f38a3ab7d897f1235a9912d96c9c162092527cbd32ef558ade916df988",
+    "MOTHER_OF_LEARNING.md": "3466bab03f48bf8d4436ea2b18bce353b84e5ae95558e85a129f8701f74d401c",
+    "OCCULT_AND_TRIAL_WORLDS.md": "e87cf9cc0ad1d8ae1016ec7fea9d37e97213dbd74ba49df41ecace7be55bd8ff",
+    "REPORT.md": "c4495773300ea768a9ae3f2d70fb7c1305766468956f86e98eac571383d9a275",
+    "RULES.md": "c7acc591d900cd09cb47532667a534457085b89fa91518053ca78c435dc9f0d8",
+    "SOLDIERS_LIFE.md": "41cef5f6c7443863aef5eecf492afea04035f5b13788016d23ac5d514853b65e",
+    "SOURCE_NOTES.md": "d1e37ee1919f6ae914e3c9c5fc3674ad715b113c8213dc553e5c3453b6d8d7fa",
+    "TTKS.md": "b8e4ec8d2d20f96b0687d2792be6ebad1ce71c4a8c1c7e741769b3231a25cc2f"
+  }
+}
