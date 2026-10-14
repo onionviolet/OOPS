@@ -1,0 +1,471 @@
+{
+  "lane": "hogwarts-legacy",
+  "date": "2026-10-14",
+  "build": "20773316",
+  "scope": "read-only installed data, selected Blueprint flow, one native chain",
+  "status": "bounded pass complete; residual gaps explicit; no gameplay implementation",
+  "labels": {
+    "SHOWN": "installed data or decoded static code",
+    "STATED": "shipped text or attributed source says it",
+    "INFERRED": "interpretation or cross-file join"
+  },
+  "questions": [
+    {
+      "id": "C01",
+      "group": 1,
+      "topic": "Spell list and fields",
+      "label": "SHOWN",
+      "status": "answered_data",
+      "answer": "162 definition rows, 164 knowledge rows; 27 UI candidates, not a verified shipped roster.",
+      "evidence": [
+        "extract/base/Phoenix/Content/SQLiteDB/PhoenixShipData.sqlite::SpellDefinition.SpellTypeID,Upgrade,CooldownTime,DamageCharacter,DamageObject",
+        "extract/base/Phoenix/Content/SQLiteDB/PhoenixShipData.sqlite::SpellKnowledge.SpellCategory,CurriculumAssociation,AllowInUI,Lock"
+      ],
+      "remaining": "Enemy/development rows and every native consumer not exhaustively classified."
+    },
+    {
+      "id": "C02",
+      "group": 1,
+      "topic": "Target tags and noncombat cooldown",
+      "label": "SHOWN",
+      "status": "answered_data",
+      "answer": "Animate, Inanimate, Plant, Dead, Water and NurtureOnly separate target/site support. Noncombat field stored independently.",
+      "evidence": [
+        "extract/base/Phoenix/Content/SQLiteDB/PhoenixShipData.sqlite::SpellDefinition.Animate,Inanimate,Plant,Dead,Water,NonCombatCooldownMultiplier",
+        "extract/base/Phoenix/Content/SQLiteDB/PhoenixShipData.sqlite::SpellKnowledge.NurtureOnly"
+      ],
+      "remaining": "Multiplier operation and universal target behavior not proved."
+    },
+    {
+      "id": "C03",
+      "group": 1,
+      "topic": "Combo and shield breaks",
+      "label": "STATED",
+      "status": "partial_with_explicit_gap",
+      "answer": "Shipped tutorial names Force/violet and Control/yellow counters and multiple bypasses; base player rows use EnemyShieldBreaker=None.",
+      "evidence": [
+        "extract/base/Phoenix/Content/Localization/WIN64/MAIN-enUS.bin::TUT_Display_AccioBlue_desc,TUT_Display_YellowShieldsZZD_desc,Hint_BreakShields,LoadingScreen_Combat11",
+        "extract/base/Phoenix/Content/SQLiteDB/PhoenixShipData.sqlite::SpellDefinition.EnemyShieldBreaker",
+        "extract/blueprints/Phoenix/Content/Gameplay/ToolSet/Spells/Incendio/BP_IncendioSpell.uasset"
+      ],
+      "remaining": "Exact red category mask, all combo ordering and native shield predicate not located in sampled spell defaults/flow. No second native chain attempted."
+    },
+    {
+      "id": "C04",
+      "group": 1,
+      "topic": "Acquisition and assignments",
+      "label": "SHOWN",
+      "status": "answered_data_and_flow",
+      "answer": "Spell rewards join mission metadata; selected lesson/assignment prerequisites and explicit spell unlock steps traced.",
+      "evidence": [
+        "extract/base/Phoenix/Content/SQLiteDB/PhoenixShipData.sqlite::MissionRewards.MissionID,TypeID,RewardID",
+        "extract/base/Phoenix/Content/SQLiteDB/PhoenixShipData.sqlite::MissionDefinition.MissionTitleTextKey,MissionLevel",
+        "extract/base/Phoenix/Content/SQLiteDB/PhoenixShipData.sqlite::MissionSteps[ZSR_01,ZSI_01,ZZC_01].Step,TaskTypeID,Keyword1..5",
+        "extract/blueprints/Phoenix/Content/Gameplay/Blueprints/Classroom/Blueprints/BP_Class_SpellMiniGame.uasset::SpellComplete"
+      ],
+      "remaining": "All 34 reward rows digested, but not every assignment branch semantically traced."
+    },
+    {
+      "id": "C05",
+      "group": 1,
+      "topic": "Noncombat lesson uses and wiring",
+      "label": "SHOWN",
+      "status": "answered_flow",
+      "answer": "Lesson callback completes a mission task; Lumos puzzle enumerates wand attachments, casts to the Lumos actor and branches on success.",
+      "evidence": [
+        "extract/blueprints/Phoenix/Content/Gameplay/Blueprints/Classroom/Blueprints/BP_Class_SpellMiniGame.uasset::ExecuteUbergraph offsets 67,175",
+        "extract/blueprints/Phoenix/Content/Gameplay/SphinxPuzzles/Blueprints/A-Lumos/BP_Sphinx_Puzzle_A_Lumos.uasset::ExecuteUbergraph offsets 2923..3115"
+      ],
+      "remaining": "Runtime end-to-end route unplayed; other spell/object consumers unread."
+    },
+    {
+      "id": "C06",
+      "group": 2,
+      "topic": "XP sources",
+      "label": "SHOWN",
+      "status": "answered_data",
+      "answer": "115 ExperienceActions, including positive challenge-progress awards and many zero-valued Progression entries.",
+      "evidence": [
+        "extract/base/Phoenix/Content/SQLiteDB/PhoenixShipData.sqlite::ExperienceActions.ExperienceAction,ExperiencePoints",
+        "extract/base/Phoenix/Content/SQLiteDB/PhoenixShipData.sqlite::AchievementChallenges.ProgressExperience"
+      ],
+      "remaining": "Award-consumer exhaustion/caps and final XP formula not traced."
+    },
+    {
+      "id": "C07",
+      "group": 2,
+      "topic": "Level curve",
+      "label": "SHOWN",
+      "status": "answered_data",
+      "answer": "All 40 stored ExperienceLevels thresholds are in the digest, including terminal sentinel.",
+      "evidence": [
+        "extract/base/Phoenix/Content/SQLiteDB/PhoenixShipData.sqlite::ExperienceLevels.ExperienceLevel,PointsForNextLevel"
+      ],
+      "remaining": "Cumulative versus delta consumption not independently established by native code."
+    },
+    {
+      "id": "C08",
+      "group": 2,
+      "topic": "Talent nodes and gates",
+      "label": "SHOWN",
+      "status": "answered_data",
+      "answer": "All 56 rows digested; 48 visible candidates in five trees, level bands and two lock fields.",
+      "evidence": [
+        "extract/base/Phoenix/Content/SQLiteDB/PhoenixShipData.sqlite::PerkDefinition.PerkID,PerkType,LevelRequirement,LockRequirement,LockRequirement2,AbilityID,UIColumn"
+      ],
+      "remaining": "No runtime reachability for every node."
+    },
+    {
+      "id": "C09",
+      "group": 2,
+      "topic": "Talent costs",
+      "label": "INFERRED",
+      "status": "answered_native_static",
+      "answer": "First-purchase success path deducts one point; both Ghidra routes recover the same selected chain.",
+      "evidence": [
+        "extract/blueprints/Phoenix/Content/UI/Menus/FieldGuide/Talents/UI_BP_FG_TalentsScreen.uasset::Purchase Talent @96,169",
+        "Phoenix/Binaries/Win64/HogwartsLegacy.exe::0x14374a6e0 -> 0x1430ff110 -> 0x143110180",
+        "notes/perk-chain-ghidra.txt",
+        "notes/rea-evidence.json"
+      ],
+      "remaining": "Upgrade/respec/return costs and level-award cadence not traced. SDK addresses are not build-matched."
+    },
+    {
+      "id": "C10",
+      "group": 2,
+      "topic": "Field Guide pages",
+      "label": "SHOWN",
+      "status": "answered_data",
+      "answer": "Page criteria and CollectionItems exploration records are distinct. The latter has 90/30/30 region rows.",
+      "evidence": [
+        "extract/base/Phoenix/Content/SQLiteDB/PhoenixShipData.sqlite::AchievementCriteria[FGC_Pages_*].Occurances,PrerequisiteLockID",
+        "extract/base/Phoenix/Content/SQLiteDB/PhoenixShipData.sqlite::CollectionItems.CategoryID,SubcategoryID,AOCLock,HouseExclusive"
+      ],
+      "remaining": "All reachable pages not counted from maps; 150 collection rows is not every page."
+    },
+    {
+      "id": "C11",
+      "group": 2,
+      "topic": "Challenge tiers",
+      "label": "SHOWN",
+      "status": "answered_data",
+      "answer": "24 groups and 88 FGC criteria rows; nonsealed tier requirements grouped in digest.",
+      "evidence": [
+        "extract/base/Phoenix/Content/SQLiteDB/PhoenixShipData.sqlite::AchievementChallenges.ChallengeID",
+        "extract/base/Phoenix/Content/SQLiteDB/PhoenixShipData.sqlite::AchievementCriteria.AchievementID,Occurances,PrerequisiteLockID,EvaluationRule",
+        "extract/base/Phoenix/Content/SQLiteDB/PhoenixShipData.sqlite::AchievementRewards.AchievementID"
+      ],
+      "remaining": "Counter resets and cumulative semantics not proved; S1 values withheld."
+    },
+    {
+      "id": "C12",
+      "group": 2,
+      "topic": "Gear traits and slots",
+      "label": "SHOWN",
+      "status": "answered_data",
+      "answer": "75 trait recipes, six equip slots; ordinary Rare/Epic/Legendary rows mostly declare one general ability, with outliers.",
+      "evidence": [
+        "extract/base/Phoenix/Content/SQLiteDB/PhoenixShipData.sqlite::GearTraitRecipeDefinition.GearAbility,LockID,Component1..6,Quantity1..6",
+        "extract/base/Phoenix/Content/SQLiteDB/PhoenixShipData.sqlite::GearItems.NumGeneralAbilities",
+        "extract/base/Phoenix/Content/SQLiteDB/PhoenixShipData.sqlite::GearSlotTypes.SlotID"
+      ],
+      "remaining": "Exact UI acceptance for every outlier and final stacking unread."
+    },
+    {
+      "id": "C13",
+      "group": 2,
+      "topic": "Loom and gear stats",
+      "label": "SHOWN",
+      "status": "answered_data_and_flow",
+      "answer": "All 38 stat-cost rows and nine increments digested; loom has separate trait and upgrade callbacks.",
+      "evidence": [
+        "extract/base/Phoenix/Content/SQLiteDB/PhoenixShipData.sqlite::GearStatUpgrade.Rarity,StatType,Upgrade,ItemID,Cost",
+        "extract/base/Phoenix/Content/SQLiteDB/PhoenixShipData.sqlite::GearStatIncrease.Amount",
+        "extract/base/Phoenix/Content/SQLiteDB/PhoenixShipData.sqlite::GearPowerLevels",
+        "extract/base/Phoenix/Content/SQLiteDB/PhoenixShipData.sqlite::GearPowerStats",
+        "extract/blueprints/Phoenix/Content/Gameplay/Sanctuary/Blueprints/Props/BP_Sanc_Loom_Parent.uasset"
+      ],
+      "remaining": "Final character damage/defense formula not reconstructed."
+    },
+    {
+      "id": "C14",
+      "group": 3,
+      "topic": "Room stations",
+      "label": "SHOWN",
+      "status": "answered_data_and_flow",
+      "answer": "Material placement costs, station classes, slot pools and generator timers are separate.",
+      "evidence": [
+        "extract/base/Phoenix/Content/SQLiteDB/PhoenixShipData.sqlite::TransfigurationObjects.Category,Class,BudgetCost,Resource1_ID,Resource1_Required",
+        "extract/base/Phoenix/Content/SQLiteDB/PhoenixShipData.sqlite::TransfigurationSlotPools.TransfigSlotID,PoolStartAmount",
+        "extract/base/Phoenix/Content/SQLiteDB/PhoenixShipData.sqlite::SanctuaryItemGeneratorData.GenerationTimeSec"
+      ],
+      "remaining": "Expanded caps and every workstation consumer unread."
+    },
+    {
+      "id": "C15",
+      "group": 3,
+      "topic": "Potions exact recipes and timers",
+      "label": "SHOWN",
+      "status": "answered_data",
+      "answer": "All seven ingredient/quantity recipes, brew seconds, yield and unlocks digested; names localized.",
+      "evidence": [
+        "extract/base/Phoenix/Content/SQLiteDB/PhoenixShipData.sqlite::PotionDefinition.PotionID,Ingredient1..6,Quantity1..6,TimeToBrewSec,Yield,LockID",
+        "extract/base/Phoenix/Content/Localization/WIN64/MAIN-enUS.bin::AMFillPotion,AutoDamagePotion"
+      ],
+      "remaining": "Offline/cancel policy not proved."
+    },
+    {
+      "id": "C16",
+      "group": 3,
+      "topic": "Plants exact production",
+      "label": "SHOWN",
+      "status": "answered_data",
+      "answer": "All eight plot/growth/regrowth/yield rows digested.",
+      "evidence": [
+        "extract/base/Phoenix/Content/SQLiteDB/PhoenixShipData.sqlite::PlantDefinition.PlantID,PlotSize,GrowthTimeSec,RegrowthTimeSec,IsMultiHarvestable,Yield_Planted,Yield_Foraged"
+      ],
+      "remaining": "Player reachability and forage overrides not all traced."
+    },
+    {
+      "id": "C17",
+      "group": 3,
+      "topic": "Care states and vivarium caps",
+      "label": "SHOWN",
+      "status": "answered_schema",
+      "answer": "Fed, interaction, happiness, harvest progress and simulation are separate; four habitats have 12/4 capacity.",
+      "evidence": [
+        "extract/base/Phoenix/Content/SQLiteDB/PhoenixShipData.sqlite::NurturingCreatureDynamic.NeedMet_Fed,NeedMet_Interaction,Happiness,ByproductCooldownProgress,SimulationEnabled",
+        "extract/base/Phoenix/Content/SQLiteDB/PhoenixShipData.sqlite::NurturingSpaceDefinition.MaxNumCreatures,MaxNumSpecies"
+      ],
+      "remaining": "Exact care Boolean rule and unloaded/offline timer semantics not located in sampled presentation Blueprints. Not assumed native solely because unread."
+    },
+    {
+      "id": "C18",
+      "group": 3,
+      "topic": "Breeding",
+      "label": "SHOWN",
+      "status": "answered_data_and_flow",
+      "answer": "13 family records define parent/offspring/egg and timers; birth handler presents a ready creature.",
+      "evidence": [
+        "extract/base/Phoenix/Content/SQLiteDB/PhoenixShipData.sqlite::CreatureFamilies.AdultID,OffspringID,EggID,PregnancyDurationSecs,ChildhoodDurationSecs,HatchingDurationSecs",
+        "extract/blueprints/Phoenix/Content/Gameplay/Nurturing/Creatures/Blueprints/GrowthHandlers/BP_CreatureGiveBirthHandler.uasset::OnNewCreatureReady"
+      ],
+      "remaining": "Sentinels are not durations; null offspring is not an automatic breeding route. Runtime breeding unplayed."
+    },
+    {
+      "id": "C19",
+      "group": 3,
+      "topic": "Beast products into exact recipes",
+      "label": "SHOWN",
+      "status": "answered_data",
+      "answer": "13 adult products, yields and production times join the 75 trait and 38 stat-cost rows.",
+      "evidence": [
+        "extract/base/Phoenix/Content/SQLiteDB/PhoenixShipData.sqlite::CreatureDefinition.ByProduct,ByproductHarvestCount,ByproductProductionTimeSec",
+        "extract/base/Phoenix/Content/SQLiteDB/PhoenixShipData.sqlite::GearTraitRecipeDefinition.Component1..6,Quantity1..6",
+        "extract/base/Phoenix/Content/SQLiteDB/PhoenixShipData.sqlite::GearStatUpgrade.ItemID,Cost"
+      ],
+      "remaining": "All non-gear product consumers and reachable vendors not audited."
+    },
+    {
+      "id": "C20",
+      "group": 4,
+      "topic": "House points",
+      "label": "SHOWN",
+      "status": "not_located_in_inspected_data",
+      "answer": "No score-ledger table or matching MissionSteps keyword found; Houses contains identity/dorm fields and two localized labels exist.",
+      "evidence": [
+        "extract/base/Phoenix/Content/SQLiteDB/PhoenixShipData.sqlite::sqlite_master",
+        "extract/base/Phoenix/Content/SQLiteDB/PhoenixShipData.sqlite::Houses.HouseID,DormLocationID",
+        "extract/base/Phoenix/Content/SQLiteDB/PhoenixShipData.sqlite::StatsDynamic.StatID",
+        "extract/base/Phoenix/Content/SQLiteDB/PhoenixShipData.sqlite::MissionSteps.Keyword1..3",
+        "extract/base/Phoenix/Content/Localization/WIN64/MAIN-enUS.bin::Category_HousePoints,TUT_display_HousePoints"
+      ],
+      "remaining": "No categorical absence claim; full native and narrative state not inspected."
+    },
+    {
+      "id": "C21",
+      "group": 4,
+      "topic": "House Cup",
+      "label": "SHOWN",
+      "status": "answered_data",
+      "answer": "HCP_01 level 34 waits on WEE_01, applies end-year schedule and invokes story graph.",
+      "evidence": [
+        "extract/base/Phoenix/Content/SQLiteDB/PhoenixShipData.sqlite::MissionDefinition[HCP_01].MissionLevel",
+        "extract/base/Phoenix/Content/SQLiteDB/PhoenixShipData.sqlite::MissionSteps[HCP_01].Step,TaskTypeID,Keyword1..5"
+      ],
+      "remaining": "Cinematic content and live winner behavior unplayed."
+    },
+    {
+      "id": "C22",
+      "group": 4,
+      "topic": "Daily schedule and term",
+      "label": "SHOWN",
+      "status": "answered_schema_with_limit",
+      "answer": "618 Overland schedule rows and weekday/time/season activity fields; some teacher defaults span 0..2400.",
+      "evidence": [
+        "extract/base/Phoenix/Content/SQLiteDB/PhoenixShipData.sqlite::Schedule_Overland.CharacterID,ActivityID,Priority,OverrideStartTime,OverrideEndTime,ScheduleKeys",
+        "extract/base/Phoenix/Content/SQLiteDB/PhoenixShipData.sqlite::ActivityDefinition.StartTime,EndTime,WeekNumber,Sunday..Saturday",
+        "extract/base/Phoenix/Content/SQLiteDB/PhoenixShipData.sqlite::CurriculumDynamic",
+        "extract/base/Phoenix/Content/SQLiteDB/PhoenixShipData.sqlite::CurriculumEOYRewards"
+      ],
+      "remaining": "No student attendance penalty, complete timetable or functioning term-grade contract located. Old/empty schemas are not a finished feature."
+    },
+    {
+      "id": "C23",
+      "group": 4,
+      "topic": "Seasons",
+      "label": "SHOWN",
+      "status": "answered_data",
+      "answer": "Mission steps set seasons, phase and overrides, independently of routine clock metadata.",
+      "evidence": [
+        "extract/base/Phoenix/Content/SQLiteDB/PhoenixShipData.sqlite::Seasons.SeasonID",
+        "extract/base/Phoenix/Content/SQLiteDB/PhoenixShipData.sqlite::MissionSteps[TaskTypeID=SetSeason or SetSeasonOverride].Keyword1,Keyword2"
+      ],
+      "remaining": "Story versus daily time causality inferred from explicit quest actions; no live transition observed."
+    },
+    {
+      "id": "C24",
+      "group": 4,
+      "topic": "Companion availability",
+      "label": "SHOWN",
+      "status": "answered_data_and_flow",
+      "answer": "CompanionLock, forced follow/off state, allowed area, schedule, volume settings and wait location are distinct.",
+      "evidence": [
+        "extract/base/Phoenix/Content/SQLiteDB/PhoenixShipData.sqlite::CharacterDefinition.CompanionLock",
+        "extract/base/Phoenix/Content/SQLiteDB/PhoenixShipData.sqlite::MissionSteps.TaskTypeID,Keyword1..5",
+        "extract/blueprints/Phoenix/Content/Gameplay/Blueprints/Utilities/BP_ForceCompanionWait.uasset",
+        "extract/blueprints/Phoenix/Content/Gameplay/Blueprints/Triggers/BP_CompanionSettingsVolume.uasset"
+      ],
+      "remaining": "No arbitrary free-summon roster or generic friendship ladder proven."
+    },
+    {
+      "id": "C25",
+      "group": 4,
+      "topic": "Relationship quests",
+      "label": "SHOWN",
+      "status": "answered_data",
+      "answer": "MissionLines defines Relationship; 105 MissionDefinition records use it, including child/checkpoint records. MissionSteps enforces quest and actor-state prerequisites.",
+      "evidence": [
+        "extract/base/Phoenix/Content/SQLiteDB/PhoenixShipData.sqlite::MissionLines.MissionLineID",
+        "extract/base/Phoenix/Content/SQLiteDB/PhoenixShipData.sqlite::MissionDefinition.MissionLineID,ParentMissionID",
+        "extract/base/Phoenix/Content/SQLiteDB/PhoenixShipData.sqlite::MissionSteps.EvalMissionComplete,SetForcedCompanionStatus"
+      ],
+      "remaining": "105 records are not 105 distinct playable relationship quests. Full narrative branches unread."
+    },
+    {
+      "id": "C26",
+      "group": 4,
+      "topic": "OWL handling",
+      "label": "STATED",
+      "status": "not_located_in_inspected_data",
+      "answer": "Preparation label exists. No written/practical exam grading contract found in inspected missions/criteria/localized exam terms.",
+      "evidence": [
+        "extract/base/Phoenix/Content/Localization/WIN64/MAIN-enUS.bin::Lighthouse_13",
+        "extract/base/Phoenix/Content/SQLiteDB/PhoenixShipData.sqlite::MissionLighthouseGoals.LighthouseGoalID",
+        "extract/base/Phoenix/Content/SQLiteDB/PhoenixShipData.sqlite::MissionDefinition.MissionTitleTextKey",
+        "extract/base/Phoenix/Content/SQLiteDB/PhoenixShipData.sqlite::AchievementCriteria",
+        "extract/base/Phoenix/Content/SQLiteDB/PhoenixShipData.sqlite::MissionSteps[WEE_01,HCP_01]"
+      ],
+      "remaining": "Full dialogue/cinematics and every Blueprint unread. Do not claim a playable exam or categorical impossibility."
+    },
+    {
+      "id": "C27",
+      "group": 5,
+      "topic": "Enemy factions",
+      "label": "SHOWN",
+      "status": "answered_data",
+      "answer": "Character faction references include regional/social/school groups; enemy definitions distinguish several combat families and roles.",
+      "evidence": [
+        "extract/base/Phoenix/Content/SQLiteDB/PhoenixShipData.sqlite::CharacterDefinition.FactionID",
+        "extract/base/Phoenix/Content/SQLiteDB/PhoenixShipData.sqlite::EnemyDefinition.EnemyID",
+        "extract/base/Phoenix/Content/SQLiteDB/PhoenixShipData.sqlite::EnemyDefinitionMap.RegistryID,EnemyClass"
+      ],
+      "remaining": "Not a complete hostility/reputation matrix."
+    },
+    {
+      "id": "C28",
+      "group": 5,
+      "topic": "AI archetypes",
+      "label": "SHOWN",
+      "status": "answered_data",
+      "answer": "Positioning, aggression, accuracy, tickets, selection and attacks have distinct tables and presets.",
+      "evidence": [
+        "extract/base/Phoenix/Content/SQLiteDB/PhoenixShipData.sqlite::EnemyDefinition.CombatPositioning,Agility,Aggressiveness,Accuracy,TicketCooldown",
+        "extract/base/Phoenix/Content/SQLiteDB/PhoenixShipData.sqlite::EnemyAttackData",
+        "extract/base/Phoenix/Content/SQLiteDB/PhoenixShipData.sqlite::EnemyAttackSelectionData",
+        "extract/base/Phoenix/Content/SQLiteDB/PhoenixShipData.sqlite::EnemyAttackSelectionWeights"
+      ],
+      "remaining": "Full behavior trees, perception and native AI execution unread."
+    },
+    {
+      "id": "C29",
+      "group": 5,
+      "topic": "Resistances and counterplay",
+      "label": "SHOWN",
+      "status": "answered_data_plus_stated",
+      "answer": "Difficulty-indexed Dugbog vulnerability scales exist; Inferius tips state fire opens vulnerability to other attacks.",
+      "evidence": [
+        "extract/base/Phoenix/Content/SQLiteDB/PhoenixShipData.sqlite::EnemyVulnerableDamageMods.Difficulty,DefaultDamageScale,VulnerableDamageScale",
+        "extract/base/Phoenix/Content/SQLiteDB/PhoenixShipData.sqlite::EnemyDefenseParams",
+        "extract/base/Phoenix/Content/Localization/WIN64/MAIN-enUS.bin::Inferius_tip_one_desc,Inferius_tip_two_desc"
+      ],
+      "remaining": "Final damage formula, all enemy resistances and application order unread."
+    },
+    {
+      "id": "C30",
+      "group": 5,
+      "topic": "Merlin puzzle families",
+      "label": "SHOWN",
+      "status": "answered_inventory_and_sample_flow",
+      "answer": "Nine active-looking family folders; 16 definition IDs and 304 instance rows include unused/test records. Lumos and fire-cube flow sampled.",
+      "evidence": [
+        "extract/base/Phoenix/Content/SQLiteDB/PhoenixShipData.sqlite::SphinxPuzzleDefinition.SphinxPuzzleID",
+        "extract/base/Phoenix/Content/SQLiteDB/PhoenixShipData.sqlite::SphinxPuzzleInstance.SphinxPuzzleTypeID,WorldName",
+        "extract/blueprints/Phoenix/Content/Gameplay/SphinxPuzzles/Blueprints",
+        "extract/blueprints/Phoenix/Content/Gameplay/Blueprints/Universal/BP_PuzzleCube_Incendio.uasset"
+      ],
+      "remaining": "Not 304 live trials; seven family flows and map reachability unread."
+    },
+    {
+      "id": "C31",
+      "group": 5,
+      "topic": "Demiguise family",
+      "label": "STATED",
+      "status": "answered_data_plus_stated",
+      "answer": "Night-only collection stated in localized item text; DMS_01 counts turn-ins and unlocks higher lock-opening tiers.",
+      "evidence": [
+        "extract/base/Phoenix/Content/Localization/WIN64/MAIN-enUS.bin::CURR_Infiltrator_Token_desc",
+        "extract/base/Phoenix/Content/SQLiteDB/PhoenixShipData.sqlite::MissionSteps[DMS_01].Step,TaskTypeID,Keyword1..3"
+      ],
+      "remaining": "Exact day/night predicate and every statue/map actor unread; no narrative resolution disclosed."
+    },
+    {
+      "id": "C32",
+      "group": 5,
+      "topic": "Collection counts",
+      "label": "SHOWN",
+      "status": "answered_data",
+      "answer": "640 data rows in 11 categories and 23 category/subcategory groups, with explicit house/DLC/unlock qualification.",
+      "evidence": [
+        "extract/base/Phoenix/Content/SQLiteDB/PhoenixShipData.sqlite::CollectionItems.CategoryID,SubcategoryID,AOCLock,HouseExclusive"
+      ],
+      "remaining": "Not one achievable completion total; reachable item filters unread."
+    },
+    {
+      "id": "C33",
+      "group": 5,
+      "topic": "S1 hidden progression",
+      "label": "SHOWN",
+      "status": "answered_sealed_data",
+      "answer": "S1: private data-gate receipt saved; no hidden truth in public artifacts.",
+      "evidence": [
+        "notes/sealed-S1.json"
+      ],
+      "remaining": "Meter formula, all hidden execution branches and runtime reachability unread. No second native chain."
+    }
+  ],
+  "unplayed": true,
+  "source_edits": false,
+  "saves_accessed": false,
+  "committed": false
+}

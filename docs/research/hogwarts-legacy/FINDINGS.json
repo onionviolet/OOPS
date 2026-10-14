@@ -1,0 +1,340 @@
+{
+  "lane": "hogwarts-legacy",
+  "date": "2026-10-14",
+  "status": "bounded pass complete; residual gaps explicit; no gameplay implementation",
+  "targets": [
+    "Hogwarts Legacy (Avalanche Software), Steam build 20773316"
+  ],
+  "sources": [
+    {
+      "id": "DB1",
+      "path": "extract/base/Phoenix/Content/SQLiteDB/PhoenixShipData.sqlite",
+      "sha256": "e0851963bf9a85b9be8b7bb03ddb67882d5376e1c50f872dc9ba0c7eba700458",
+      "scope": "schema census plus selected rows/joins; not semantic review of all 530 tables"
+    },
+    {
+      "id": "DB2",
+      "path": "extract/base/Phoenix/Content/SQLiteDB/PhoenixGameData.sqlite",
+      "sha256": "cd3041016f7b5b32415559d8b8f1c203f4cba0499eb4f11cb3e44fbf6fdef808",
+      "scope": "633-table census, development-only delta inspected; not treated as current runtime feature proof"
+    },
+    {
+      "id": "LOC",
+      "path": "extract/base/Phoenix/Content/Localization/WIN64/MAIN-enUS.bin",
+      "scope": "18889 entries decoded, selected names/help used"
+    },
+    {
+      "id": "BP",
+      "path": "extract/blueprints",
+      "scope": "20 CUE4Parse packages; ten Kismet text/DOT exports; graph limits in BLUEPRINT_PASS"
+    },
+    {
+      "id": "N1",
+      "path": "Phoenix/Binaries/Win64/HogwartsLegacy.exe",
+      "sha256": "b713e88e0034cb23562b7ffeba6febe5d6a679578215cb595e1644cfc56245a1",
+      "scope": "one purchase chain, three functions, static only"
+    }
+  ],
+  "findings": [
+    {
+      "id": "H1",
+      "label": "SHOWN",
+      "claim": "Lessons connect prerequisites, minigame completion and useful environmental methods.",
+      "coverage_refs": [
+        "C01",
+        "C02",
+        "C04",
+        "C05"
+      ],
+      "evidence": [
+        "extract/base/Phoenix/Content/SQLiteDB/PhoenixShipData.sqlite::SpellDefinition.SpellTypeID,Upgrade,CooldownTime,DamageCharacter,DamageObject",
+        "extract/base/Phoenix/Content/SQLiteDB/PhoenixShipData.sqlite::SpellKnowledge.SpellCategory,CurriculumAssociation,AllowInUI,Lock",
+        "extract/base/Phoenix/Content/SQLiteDB/PhoenixShipData.sqlite::SpellDefinition.Animate,Inanimate,Plant,Dead,Water,NonCombatCooldownMultiplier",
+        "extract/base/Phoenix/Content/SQLiteDB/PhoenixShipData.sqlite::SpellKnowledge.NurtureOnly",
+        "extract/base/Phoenix/Content/SQLiteDB/PhoenixShipData.sqlite::MissionRewards.MissionID,TypeID,RewardID",
+        "extract/base/Phoenix/Content/SQLiteDB/PhoenixShipData.sqlite::MissionDefinition.MissionTitleTextKey,MissionLevel",
+        "extract/base/Phoenix/Content/SQLiteDB/PhoenixShipData.sqlite::MissionSteps[ZSR_01,ZSI_01,ZZC_01].Step,TaskTypeID,Keyword1..5",
+        "extract/blueprints/Phoenix/Content/Gameplay/Blueprints/Classroom/Blueprints/BP_Class_SpellMiniGame.uasset::SpellComplete",
+        "extract/blueprints/Phoenix/Content/Gameplay/Blueprints/Classroom/Blueprints/BP_Class_SpellMiniGame.uasset::ExecuteUbergraph offsets 67,175",
+        "extract/blueprints/Phoenix/Content/Gameplay/SphinxPuzzles/Blueprints/A-Lumos/BP_Sphinx_Puzzle_A_Lumos.uasset::ExecuteUbergraph offsets 2923..3115"
+      ]
+    },
+    {
+      "id": "H2",
+      "label": "STATED",
+      "claim": "Shipped help describes matching-color shield counters; one SQL field is not their implementation.",
+      "coverage_refs": [
+        "C03"
+      ],
+      "evidence": [
+        "extract/base/Phoenix/Content/Localization/WIN64/MAIN-enUS.bin::TUT_Display_AccioBlue_desc,TUT_Display_YellowShieldsZZD_desc,Hint_BreakShields,LoadingScreen_Combat11",
+        "extract/base/Phoenix/Content/SQLiteDB/PhoenixShipData.sqlite::SpellDefinition.EnemyShieldBreaker",
+        "extract/blueprints/Phoenix/Content/Gameplay/ToolSet/Spells/Incendio/BP_IncendioSpell.uasset"
+      ]
+    },
+    {
+      "id": "H3",
+      "label": "SHOWN",
+      "claim": "XP, thresholds, talent gates and the first-purchase native cost are distinct layers.",
+      "coverage_refs": [
+        "C06",
+        "C07",
+        "C08",
+        "C09"
+      ],
+      "evidence": [
+        "extract/base/Phoenix/Content/SQLiteDB/PhoenixShipData.sqlite::ExperienceActions.ExperienceAction,ExperiencePoints",
+        "extract/base/Phoenix/Content/SQLiteDB/PhoenixShipData.sqlite::AchievementChallenges.ProgressExperience",
+        "extract/base/Phoenix/Content/SQLiteDB/PhoenixShipData.sqlite::ExperienceLevels.ExperienceLevel,PointsForNextLevel",
+        "extract/base/Phoenix/Content/SQLiteDB/PhoenixShipData.sqlite::PerkDefinition.PerkID,PerkType,LevelRequirement,LockRequirement,LockRequirement2,AbilityID,UIColumn",
+        "extract/blueprints/Phoenix/Content/UI/Menus/FieldGuide/Talents/UI_BP_FG_TalentsScreen.uasset::Purchase Talent @96,169",
+        "Phoenix/Binaries/Win64/HogwartsLegacy.exe::0x14374a6e0 -> 0x1430ff110 -> 0x143110180",
+        "notes/perk-chain-ghidra.txt",
+        "notes/rea-evidence.json"
+      ]
+    },
+    {
+      "id": "H4",
+      "label": "SHOWN",
+      "claim": "Challenge criteria, collection records, gear properties and upgrade costs are separate data.",
+      "coverage_refs": [
+        "C10",
+        "C11",
+        "C12",
+        "C13"
+      ],
+      "evidence": [
+        "extract/base/Phoenix/Content/SQLiteDB/PhoenixShipData.sqlite::AchievementCriteria[FGC_Pages_*].Occurances,PrerequisiteLockID",
+        "extract/base/Phoenix/Content/SQLiteDB/PhoenixShipData.sqlite::CollectionItems.CategoryID,SubcategoryID,AOCLock,HouseExclusive",
+        "extract/base/Phoenix/Content/SQLiteDB/PhoenixShipData.sqlite::AchievementChallenges.ChallengeID",
+        "extract/base/Phoenix/Content/SQLiteDB/PhoenixShipData.sqlite::AchievementCriteria.AchievementID,Occurances,PrerequisiteLockID,EvaluationRule",
+        "extract/base/Phoenix/Content/SQLiteDB/PhoenixShipData.sqlite::AchievementRewards.AchievementID",
+        "extract/base/Phoenix/Content/SQLiteDB/PhoenixShipData.sqlite::GearTraitRecipeDefinition.GearAbility,LockID,Component1..6,Quantity1..6",
+        "extract/base/Phoenix/Content/SQLiteDB/PhoenixShipData.sqlite::GearItems.NumGeneralAbilities",
+        "extract/base/Phoenix/Content/SQLiteDB/PhoenixShipData.sqlite::GearSlotTypes.SlotID",
+        "extract/base/Phoenix/Content/SQLiteDB/PhoenixShipData.sqlite::GearStatUpgrade.Rarity,StatType,Upgrade,ItemID,Cost",
+        "extract/base/Phoenix/Content/SQLiteDB/PhoenixShipData.sqlite::GearStatIncrease.Amount",
+        "extract/base/Phoenix/Content/SQLiteDB/PhoenixShipData.sqlite::GearPowerLevels",
+        "extract/base/Phoenix/Content/SQLiteDB/PhoenixShipData.sqlite::GearPowerStats",
+        "extract/blueprints/Phoenix/Content/Gameplay/Sanctuary/Blueprints/Props/BP_Sanc_Loom_Parent.uasset"
+      ]
+    },
+    {
+      "id": "H5",
+      "label": "SHOWN",
+      "claim": "Recipes, capacity, care state, breeding and gear inputs form an explicit production chain.",
+      "coverage_refs": [
+        "C14",
+        "C15",
+        "C16",
+        "C17",
+        "C18",
+        "C19"
+      ],
+      "evidence": [
+        "extract/base/Phoenix/Content/SQLiteDB/PhoenixShipData.sqlite::TransfigurationObjects.Category,Class,BudgetCost,Resource1_ID,Resource1_Required",
+        "extract/base/Phoenix/Content/SQLiteDB/PhoenixShipData.sqlite::TransfigurationSlotPools.TransfigSlotID,PoolStartAmount",
+        "extract/base/Phoenix/Content/SQLiteDB/PhoenixShipData.sqlite::SanctuaryItemGeneratorData.GenerationTimeSec",
+        "extract/base/Phoenix/Content/SQLiteDB/PhoenixShipData.sqlite::PotionDefinition.PotionID,Ingredient1..6,Quantity1..6,TimeToBrewSec,Yield,LockID",
+        "extract/base/Phoenix/Content/Localization/WIN64/MAIN-enUS.bin::AMFillPotion,AutoDamagePotion",
+        "extract/base/Phoenix/Content/SQLiteDB/PhoenixShipData.sqlite::PlantDefinition.PlantID,PlotSize,GrowthTimeSec,RegrowthTimeSec,IsMultiHarvestable,Yield_Planted,Yield_Foraged",
+        "extract/base/Phoenix/Content/SQLiteDB/PhoenixShipData.sqlite::NurturingCreatureDynamic.NeedMet_Fed,NeedMet_Interaction,Happiness,ByproductCooldownProgress,SimulationEnabled",
+        "extract/base/Phoenix/Content/SQLiteDB/PhoenixShipData.sqlite::NurturingSpaceDefinition.MaxNumCreatures,MaxNumSpecies",
+        "extract/base/Phoenix/Content/SQLiteDB/PhoenixShipData.sqlite::CreatureFamilies.AdultID,OffspringID,EggID,PregnancyDurationSecs,ChildhoodDurationSecs,HatchingDurationSecs",
+        "extract/blueprints/Phoenix/Content/Gameplay/Nurturing/Creatures/Blueprints/GrowthHandlers/BP_CreatureGiveBirthHandler.uasset::OnNewCreatureReady",
+        "extract/base/Phoenix/Content/SQLiteDB/PhoenixShipData.sqlite::CreatureDefinition.ByProduct,ByproductHarvestCount,ByproductProductionTimeSec",
+        "extract/base/Phoenix/Content/SQLiteDB/PhoenixShipData.sqlite::GearTraitRecipeDefinition.Component1..6,Quantity1..6",
+        "extract/base/Phoenix/Content/SQLiteDB/PhoenixShipData.sqlite::GearStatUpgrade.ItemID,Cost"
+      ]
+    },
+    {
+      "id": "H6",
+      "label": "SHOWN",
+      "claim": "Schedules, mission phases and companion availability have separate controls.",
+      "coverage_refs": [
+        "C22",
+        "C23",
+        "C24",
+        "C25"
+      ],
+      "evidence": [
+        "extract/base/Phoenix/Content/SQLiteDB/PhoenixShipData.sqlite::Schedule_Overland.CharacterID,ActivityID,Priority,OverrideStartTime,OverrideEndTime,ScheduleKeys",
+        "extract/base/Phoenix/Content/SQLiteDB/PhoenixShipData.sqlite::ActivityDefinition.StartTime,EndTime,WeekNumber,Sunday..Saturday",
+        "extract/base/Phoenix/Content/SQLiteDB/PhoenixShipData.sqlite::CurriculumDynamic",
+        "extract/base/Phoenix/Content/SQLiteDB/PhoenixShipData.sqlite::CurriculumEOYRewards",
+        "extract/base/Phoenix/Content/SQLiteDB/PhoenixShipData.sqlite::Seasons.SeasonID",
+        "extract/base/Phoenix/Content/SQLiteDB/PhoenixShipData.sqlite::MissionSteps[TaskTypeID=SetSeason or SetSeasonOverride].Keyword1,Keyword2",
+        "extract/base/Phoenix/Content/SQLiteDB/PhoenixShipData.sqlite::CharacterDefinition.CompanionLock",
+        "extract/base/Phoenix/Content/SQLiteDB/PhoenixShipData.sqlite::MissionSteps.TaskTypeID,Keyword1..5",
+        "extract/blueprints/Phoenix/Content/Gameplay/Blueprints/Utilities/BP_ForceCompanionWait.uasset",
+        "extract/blueprints/Phoenix/Content/Gameplay/Blueprints/Triggers/BP_CompanionSettingsVolume.uasset",
+        "extract/base/Phoenix/Content/SQLiteDB/PhoenixShipData.sqlite::MissionLines.MissionLineID",
+        "extract/base/Phoenix/Content/SQLiteDB/PhoenixShipData.sqlite::MissionDefinition.MissionLineID,ParentMissionID",
+        "extract/base/Phoenix/Content/SQLiteDB/PhoenixShipData.sqlite::MissionSteps.EvalMissionComplete,SetForcedCompanionStatus"
+      ]
+    },
+    {
+      "id": "H7",
+      "label": "SHOWN",
+      "claim": "Cup gating is present; ordinary house-score and practical OWL grading not located in checked sources.",
+      "coverage_refs": [
+        "C20",
+        "C21",
+        "C26"
+      ],
+      "evidence": [
+        "extract/base/Phoenix/Content/SQLiteDB/PhoenixShipData.sqlite::sqlite_master",
+        "extract/base/Phoenix/Content/SQLiteDB/PhoenixShipData.sqlite::Houses.HouseID,DormLocationID",
+        "extract/base/Phoenix/Content/SQLiteDB/PhoenixShipData.sqlite::StatsDynamic.StatID",
+        "extract/base/Phoenix/Content/SQLiteDB/PhoenixShipData.sqlite::MissionSteps.Keyword1..3",
+        "extract/base/Phoenix/Content/Localization/WIN64/MAIN-enUS.bin::Category_HousePoints,TUT_display_HousePoints",
+        "extract/base/Phoenix/Content/SQLiteDB/PhoenixShipData.sqlite::MissionDefinition[HCP_01].MissionLevel",
+        "extract/base/Phoenix/Content/SQLiteDB/PhoenixShipData.sqlite::MissionSteps[HCP_01].Step,TaskTypeID,Keyword1..5",
+        "extract/base/Phoenix/Content/Localization/WIN64/MAIN-enUS.bin::Lighthouse_13",
+        "extract/base/Phoenix/Content/SQLiteDB/PhoenixShipData.sqlite::MissionLighthouseGoals.LighthouseGoalID",
+        "extract/base/Phoenix/Content/SQLiteDB/PhoenixShipData.sqlite::MissionDefinition.MissionTitleTextKey",
+        "extract/base/Phoenix/Content/SQLiteDB/PhoenixShipData.sqlite::AchievementCriteria",
+        "extract/base/Phoenix/Content/SQLiteDB/PhoenixShipData.sqlite::MissionSteps[WEE_01,HCP_01]"
+      ]
+    },
+    {
+      "id": "H8",
+      "label": "SHOWN",
+      "claim": "Enemy roles, attack choice, difficulty vulnerability and stated counters are distinct.",
+      "coverage_refs": [
+        "C27",
+        "C28",
+        "C29"
+      ],
+      "evidence": [
+        "extract/base/Phoenix/Content/SQLiteDB/PhoenixShipData.sqlite::CharacterDefinition.FactionID",
+        "extract/base/Phoenix/Content/SQLiteDB/PhoenixShipData.sqlite::EnemyDefinition.EnemyID",
+        "extract/base/Phoenix/Content/SQLiteDB/PhoenixShipData.sqlite::EnemyDefinitionMap.RegistryID,EnemyClass",
+        "extract/base/Phoenix/Content/SQLiteDB/PhoenixShipData.sqlite::EnemyDefinition.CombatPositioning,Agility,Aggressiveness,Accuracy,TicketCooldown",
+        "extract/base/Phoenix/Content/SQLiteDB/PhoenixShipData.sqlite::EnemyAttackData",
+        "extract/base/Phoenix/Content/SQLiteDB/PhoenixShipData.sqlite::EnemyAttackSelectionData",
+        "extract/base/Phoenix/Content/SQLiteDB/PhoenixShipData.sqlite::EnemyAttackSelectionWeights",
+        "extract/base/Phoenix/Content/SQLiteDB/PhoenixShipData.sqlite::EnemyVulnerableDamageMods.Difficulty,DefaultDamageScale,VulnerableDamageScale",
+        "extract/base/Phoenix/Content/SQLiteDB/PhoenixShipData.sqlite::EnemyDefenseParams",
+        "extract/base/Phoenix/Content/Localization/WIN64/MAIN-enUS.bin::Inferius_tip_one_desc,Inferius_tip_two_desc"
+      ]
+    },
+    {
+      "id": "H9",
+      "label": "SHOWN",
+      "claim": "Puzzle family inventory differs from reachable totals; S1 details remain private.",
+      "coverage_refs": [
+        "C30",
+        "C31",
+        "C32",
+        "C33"
+      ],
+      "evidence": [
+        "extract/base/Phoenix/Content/SQLiteDB/PhoenixShipData.sqlite::SphinxPuzzleDefinition.SphinxPuzzleID",
+        "extract/base/Phoenix/Content/SQLiteDB/PhoenixShipData.sqlite::SphinxPuzzleInstance.SphinxPuzzleTypeID,WorldName",
+        "extract/blueprints/Phoenix/Content/Gameplay/SphinxPuzzles/Blueprints",
+        "extract/blueprints/Phoenix/Content/Gameplay/Blueprints/Universal/BP_PuzzleCube_Incendio.uasset",
+        "extract/base/Phoenix/Content/Localization/WIN64/MAIN-enUS.bin::CURR_Infiltrator_Token_desc",
+        "extract/base/Phoenix/Content/SQLiteDB/PhoenixShipData.sqlite::MissionSteps[DMS_01].Step,TaskTypeID,Keyword1..3",
+        "extract/base/Phoenix/Content/SQLiteDB/PhoenixShipData.sqlite::CollectionItems.CategoryID,SubcategoryID,AOCLock,HouseExclusive",
+        "notes/sealed-S1.json"
+      ]
+    }
+  ],
+  "previous_findings": {
+    "F1": "confirmed, extended or qualified; see REPORT",
+    "F2": "outside Legacy scope",
+    "F3": "outside Legacy scope",
+    "F4": "outside Legacy scope",
+    "F5": "outside Legacy scope",
+    "F6": "confirmed, extended or qualified; see REPORT",
+    "F7": "confirmed, extended or qualified; see REPORT",
+    "F8": "confirmed, extended or qualified; see REPORT",
+    "F9": "confirmed, extended or qualified; see REPORT",
+    "F10": "confirmed, extended or qualified; see REPORT",
+    "F11": "confirmed, extended or qualified; see REPORT",
+    "F12": "outside Legacy scope",
+    "F13": "confirmed, extended or qualified; see REPORT",
+    "F14": "confirmed, extended or qualified; see REPORT",
+    "F15": "confirmed, extended or qualified; see REPORT"
+  },
+  "previous_packets": {
+    "P1": "PROPOSAL retained; evidence/gap reconciliation in REPORT",
+    "P2": "PROPOSAL retained; evidence/gap reconciliation in REPORT",
+    "P3": "PROPOSAL retained; evidence/gap reconciliation in REPORT",
+    "P4": "PROPOSAL retained; evidence/gap reconciliation in REPORT",
+    "P5": "PROPOSAL retained; evidence/gap reconciliation in REPORT"
+  },
+  "packets": [
+    {
+      "id": "LP1",
+      "status": "PROPOSAL"
+    },
+    {
+      "id": "LP2",
+      "status": "PROPOSAL"
+    },
+    {
+      "id": "LP3",
+      "status": "PROPOSAL"
+    },
+    {
+      "id": "LP4",
+      "status": "PROPOSAL"
+    },
+    {
+      "id": "LP5",
+      "status": "PROPOSAL"
+    },
+    {
+      "id": "LP6",
+      "status": "PROPOSAL"
+    },
+    {
+      "id": "LP7",
+      "status": "PROPOSAL"
+    },
+    {
+      "id": "LP8",
+      "status": "PROPOSAL"
+    }
+  ],
+  "small_touches": [
+    "T1",
+    "T2",
+    "T3",
+    "T4",
+    "T5",
+    "T6",
+    "T7",
+    "T8",
+    "T9",
+    "T10",
+    "T11",
+    "T12",
+    "T13",
+    "T14",
+    "T15",
+    "T16",
+    "T17",
+    "T18",
+    "T19",
+    "T20",
+    "T21",
+    "T22",
+    "T23",
+    "T24",
+    "T25",
+    "T26"
+  ],
+  "acceptance": {
+    "data_integrity": true,
+    "parsed_packages": 20,
+    "kismet_commands_passed": 10,
+    "kismet_graphs_complete": false,
+    "native_functions_compared": 3,
+    "game_launched": false,
+    "saves_read": false,
+    "gameplay_implemented": false
+  }
+}
