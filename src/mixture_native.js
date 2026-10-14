@@ -1,8 +1,9 @@
+import {stageProductAppearanceAcquisition} from './product_appearance_state.js';
 import {createMixtureState,validateMixtureState,resolveMixture,mixtureKey,productFromKey,mixtureExposure,INGREDIENTS,MIXTURE_ID} from './mixture_state.js';
 const ingredientKey=id=>JSON.stringify({id});
 const count=(inv,key)=>inv[key]?.count??inv[key]??0;
 function change(inv,key,n){const next=count(inv,key)+n;if(!Number.isSafeInteger(next)||next<0)throw new Error('Ingredient shortage.');if(next)inv[key]={count:next};else delete inv[key];}
-export function stageMixtureAction({owner,seed,inventory,money,clock,request}){
+export function stageMixtureAction({owner,seed,inventory,money,clock,request,expansion}){
     const state=structuredClone(owner??createMixtureState(seed)),stock=Object.fromEntries(Object.entries(inventory).map(([k,v])=>[k,{count:count(inventory,k)}]));
     validateMixtureState(state);
     if(!Number.isSafeInteger(clock)||clock<0||!Number.isFinite(money)||money<0)throw new Error('Invalid native mixture context.');
@@ -32,12 +33,16 @@ export function stageMixtureAction({owner,seed,inventory,money,clock,request}){
         const j=state.job,p=state.products[j.product];change(stock,mixtureKey(p),1);state.job=null;plan.message='Timed batch completed.';
         if(j.remaining>1){try{reserve(p);state.job={product:p.id,held:structuredClone(p.inputs),due:clock+3,remaining:j.remaining-1};}catch(error){plan.message=`Timed batch completed. Repeat stopped: ${error.message}`;}}
     }else throw new Error('Unsupported mixture action.');
-    state.sequence++;validateMixtureState(state);return plan;
+    state.sequence++;validateMixtureState(state);
+    if(request.type==='mix')stageProductAppearanceAcquisition(plan,expansion,owner,resolveMixture(state,request.inputs,request.process),clock);
+    if(request.type==='advance')stageProductAppearanceAcquisition(plan,expansion,owner,state.products[owner.job.product],clock);
+    return plan;
 }
 // No live stock, knowledge, or exposure is published before one durable write.
 export function commitMixturePlan(plan,{createSave,validateEnvelope,write,publish}){
     if(!plan)return false;
     const text=createSave();if(typeof text!=='string')throw new Error('Could not create mixture save.');const envelope=JSON.parse(text);
+    if(plan.expansion)envelope.expansion=plan.expansion;
     envelope.mixtures=plan.state;envelope.inventories.person.main_character=plan.inventory;envelope.character.money=plan.money;
     if(plan.effect){envelope.active_effects??={};envelope.active_effects['Village mixture exposure']=plan.effect;}
     validateEnvelope(envelope);write(JSON.stringify(envelope));publish(plan);return true;

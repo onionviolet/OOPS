@@ -1,0 +1,90 @@
+{
+  "bundleSha256": "9e643c442500fbc92ce4fc4551e31785a9167de680fa04591d379ef57ff86f01",
+  "checks": [
+    {
+      "id": "N1",
+      "label": "natural",
+      "check": "own rebuilt served bundle matches",
+      "pass": true
+    },
+    {
+      "id": "N2",
+      "label": "natural",
+      "check": "paid supplies, buying does not enroll appearance pool",
+      "pass": true
+    },
+    {
+      "id": "N3",
+      "label": "natural",
+      "check": "unknown neutral appearance, no dose leakage or generated-vial auto-use at 1366x768",
+      "pass": true
+    },
+    {
+      "id": "N4",
+      "label": "natural",
+      "check": "unidentified exact Save/reload preserves map/truth/stock/knowledge/cursor",
+      "pass": true
+    },
+    {
+      "id": "N5",
+      "label": "natural",
+      "check": "unidentified Export then literal-file Import at second fresh origin",
+      "pass": true
+    },
+    {
+      "id": "N6",
+      "label": "natural",
+      "check": "native experiment consumes actual vial, records observation, applies real effect",
+      "pass": true
+    },
+    {
+      "id": "N7",
+      "label": "natural",
+      "check": "new actual batch recognized by original saved appearance with exact P2 knowledge",
+      "pass": true
+    },
+    {
+      "id": "N8",
+      "label": "natural",
+      "check": "four distinct types fill finite pool; three untested types remain unknown",
+      "pass": true
+    },
+    {
+      "id": "N9",
+      "label": "natural",
+      "check": "identified Save/reload exact mapping/truth/knowledge/inventory/effect/cursor",
+      "pass": true
+    },
+    {
+      "id": "N10",
+      "label": "natural",
+      "check": "identified literal-file Import at second fresh origin retains all compared owners",
+      "pass": true
+    },
+    {
+      "id": "N11",
+      "label": "natural",
+      "check": "imported recognized/unknown labels readable at 1600x1000",
+      "pass": true
+    },
+    {
+      "id": "N12",
+      "label": "natural",
+      "check": "second natural fresh seed maps differently; wider acquire/experiment/repeat journey passes",
+      "pass": true
+    },
+    {
+      "id": "N13",
+      "label": "natural",
+      "check": "second-seed exact saved mapping survives reload",
+      "pass": true
+    },
+    {
+      "id": "N14",
+      "label": "natural",
+      "check": "zero browser page errors",
+      "pass": true
+    }
+  ],
+  "errors": []
+}
