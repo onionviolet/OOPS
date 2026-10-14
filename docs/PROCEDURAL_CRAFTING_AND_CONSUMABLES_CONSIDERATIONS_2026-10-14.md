@@ -397,3 +397,36 @@ later family needs the exposure ledger and observer-scoped knowledge. Then AB1 s
 the second family (a meal or a gadget) reuses P2's identity. Comic making (CM)
 waits for a comic world to be selected; CM2 prep loadouts and CM7 signature
 consumables also work in original worlds.
+
+## Round 3 lane returns (CR5, CR6)
+
+[CR5](gm/dispatch/procgen-2026-10-13/cr5/REPORT.md) source-checked all 27 CM/CX
+rows ([SOURCED_CHECK](gm/dispatch/procgen-2026-10-13/cr5/SOURCED_CHECK.md)) and
+added 15 making patterns, 12 reveal cheats and 12 subtle details. Corrections to
+this palette:
+
+| Code | Correction |
+|---|---|
+| CR5-C1 | "Only one source" claims are too strong. State the exact recipe, origin, identity, authority or body requirement instead; scarce know-how is not automatically AB5 uniqueness. |
+| CR5-C2 | Character rank, hunter licence, item grade and measured strength are separate things; a printed grade (CM15, CX10) does not set world odds or output strength. |
+| CR5-C3 | Pin a continuity before using canon: comic versus film suits, New Earth versus Prime Earth, manga versus anime, main webtoon versus sequel, album versus film. |
+| CR5-C5 | CX1-CX10 and SU10 are original proposals, not canon abilities, unless a selected scene proves one. Analogues stay useful. |
+
+CR5's top original-world picks: a refillable signature-fluid kit, a design-version
+comparison bench, a hired collaborator workshop, a temporary strength pill for one
+real job, and a forged magic key bound to one lock.
+
+[CR6](gm/dispatch/procgen-2026-10-13/cr6/REPORT.md) wrote the build packet
+([REGISTRY](gm/dispatch/procgen-2026-10-13/cr6/REGISTRY.md),
+[EXPOSURE](gm/dispatch/procgen-2026-10-13/cr6/EXPOSURE.md),
+[KNOWLEDGE](gm/dispatch/procgen-2026-10-13/cr6/KNOWLEDGE.md),
+[SLICES](gm/dispatch/procgen-2026-10-13/cr6/SLICES.md)). It refines the round 3
+order: a **minimal registry adapter with P2 as entry one goes first** (so the next
+family doesn't create a second key/use/save path), then poison/antidote with dose,
+stacking and specific neutralization, then the observer notebook with a paid
+comparison test. Item identity aligns with maker-arts W4 and weaponcraft R1;
+CR6's knowledge and receipts are narrow adapters, not new universal services. Top
+risks: version drift between registry and P2 data, effects expiring twice across
+clocks, partial publication, and hidden chemistry leaking through keys, sorting or
+tooltips. Remaining gate for any builder: rebuilt port 21700 at 1366x768 and
+1600x1000 with Save/reload/Export/literal Import and old-save compatibility.
