@@ -26,11 +26,11 @@ Browser tooling: bundled Playwright Chromium executable absent; used installed C
 
 ## Serial state
 
-P1 technical gate passed; commit follows this report. P2, P3 and P4 not started. No private candidate installed or private prose committed.
+P1 `b3cdd4b7`, P2 `44ba006b` and P3 `8f2368fb` are committed with bounded technical gates passed. P4 source/tooling and ignored candidate gates pass; final commit is the candidate-tool commit on this branch. No private candidate is installed and no private prose is committed.
 
 Merge risks: `main.js` overlaps air-workshop and upstream/integration lanes; compiler changes overlap other structured authoring work. Preserve both integrations through an intentional merge and rerun the combined gates. Life/clock work overlaps p23-life-loops; UI visibility overlaps reveal/polish lanes. This lane performs no merge or push.
 
-Remaining authoritative gate: finish this lane's required technical packet checks, then Weibao's play/taste. Neither prior audit completion nor passing SOURCE tests imply whole-chain acceptance.
+Remaining acceptance gate for these bounded proposals: Weibao's play/taste. The explicitly listed unexercised variations are not recast as tested. Installing the private candidate is a separate integration decision.
 
 ## P2: discoverable repeat outings
 
@@ -48,7 +48,7 @@ Final checks: 11 expedition SOURCE tests pass (393.55025 ms); broader runtime/UI
 
 Rebuilt fresh-origin 1366×768 Chrome gate passes: hidden site before discovery; paid pending preparation exact Save/reload/Export/literal-file Import; natural elapsed native job completion using Playwright's controlled browser clock (not a completion command); held approach, extraction/return, ordinary approach/retreat with no payout, blocked retry until treatment, next ordinary attempt/extraction/treatment, and final literal-file import. Native bread counts **5 → 6 → 6 → 7**, money **102 → 100 (pending) → 91 (final)**; extraction completion count 2. Exact pending jobs/money and final receipt/facts/reward inventory comparisons pass. Screenshot `/tmp/air-wider-p2-desktop.png`, log `/tmp/air-wider-p2-typed-browser.log`. Human play/taste stays OPEN. Lethal route/browser source-loss/refund and native quota fault are unexercised; corresponding source transaction checks pass.
 
-P1 commit `b3cdd4b7`; P2 technical gate passed and its commit follows. P3 next; P4 waits for adapters. Main/UI/compiler integration conflicts require preserving other lanes' current work. No merge, push or private live-pack mutation.
+P1 commit `b3cdd4b7`; P2 commit `44ba006b`. P2 technical gate passed before P3 began. Main/UI/compiler integration conflicts require preserving other lanes' current work. No merge, push or private live-pack mutation.
 
 ## P3: scoped true death and recoverable independent life
 
@@ -70,4 +70,46 @@ Rebuilt fresh-origin 1366×768 synthetic Chrome loop passes: optional original p
 
 Implemented-unverified: archive drawer export button interaction, real browser quota/rollback fault injection, simultaneous writer contention and timed lethal jobs. Current reconciliation rejects a death plan whose clock already drifted past its cause; immediate explicit native death is the exercised route. Human play/taste remains OPEN.
 
-P2 commit `44ba006b`; P3 technical gate passed and commit follows. P4 candidate integration next. Merge conflicts in main/save/chronicle/clock must retain air-workshop, p23-life-loops and current identity/continuation work.
+P2 commit `44ba006b`; P3 commit `8f2368fb`. P3 technical gate passed before P4 began. Merge conflicts in main/save/chronicle/clock must retain air-workshop, p23-life-loops and current identity/continuation work.
+
+## P4: separate wider candidate, original identity retained
+
+Private inputs read: the `starts-talents-continuity`, `wider-gameplay` and `world1-completion` p06 files under the read-only Air snapshot root, plus current Pro p06. Current Pro matches final Air bytes. Early unrelated starts/event/transfer alternatives remain read-only history; no migrations are invented for their IDs. Main manifest and Pro p06 remain untouched.
+
+| Source item | Decision | Landing/status |
+| --- | --- | --- |
+| D10 Pro baseline | All 94 command rows and all Pro-only rows retained; separate namespace | Ignored `private_packs/p06-air-wider-candidate/pack.json` |
+| Four wider ability bindings | Adapted with actual registered metadata gates | Candidate, 4 bindings, compiler checked |
+| One wider outing and minimal dependencies | Adapted to current start/container/native command semantics | Candidate, one outing; lethal route omitted |
+| Shared acquisition producers | Pro costs/support/effects retained; actual method grant added as explicit proposed variants | Two `.air_variant` command IDs |
+| Starts/body/energy/title/unit closure | All three current starts retained; disjoint identical new facts/NPC stock/titles introduced before object preparation/installation; existing effect order/body/source/energy unchanged | ST03/ST04/ST05 SOURCE initialization and envelope checks pass |
+| Authoring/proof tooling | Original public tests; no private prose embedded | `scripts/compose_air_wider_candidate.mjs`, public tool tests and `p4-source.mjs`/`p4-browser.cjs` |
+
+Individual seven-tag decisions (source IDs only):
+
+| ID | Proposed guard |
+| --- | --- |
+| `p06.site_brief` | Retain idempotent discovery acquisition |
+| `p06.issue_site_case` | Remove global once; actual finite stock and one current custody loan |
+| `p06.practice_dressing` | Retain idempotent learned-method acquisition |
+| `p06.extract_site` | Remove lifetime once/claim; one settlement per resolved paid attempt |
+| `p06.return_site_case` | Remove global once; actual custody return releases issued flag for legitimate reborrowing |
+| `p06.report_site` | Remove global once; consume one real earned receipt per settlement |
+| `p06.acquire_beyond` | Retain finite distinct device/source acquisition |
+
+Candidate identity `p06_air_wider_v1`, revision 1. File SHA-256 **`5cbd5798301b79c99d32f433fa2261fec0cab80f17475eb0a290f71060f5100f`**. Canonical raw-content receipt hash **`sha256:7a6190c37072db07f52e3cf94747d7f7e1576dc1e2ed912c738f150a626be878`**. 121 commands = 94 baseline + 25 wider-only nonlethal rows + 2 explicit variants. Four ability bindings, one outing and three supported current starts. Exact start snapshot hashes are saved in `/tmp/air-wider-p4-final-source.log` without prose. Original Pro file hash remains `89adcf18685ff564de985a2bb774d21a759f24cce3c2318e6b3fe15d1cb80f52`; manifest remains `cb74be41d7acc7e929fa6a8a4f652f64ed25cc758ab1e60d3536ee400032eb73`.
+
+Compatibility: no original pack/manifest replacement. New candidate receipts bind the separate ID, exact revision/content and selected snapshot. Original exact-receipt saves still bind the untouched original definition and import unchanged with the candidate co-loaded. No old receipts or original starts are migrated. Future changed candidate content needs a new identity/version plus retention of exact content for any retained candidate saves. This draft's synthetic development attempts are not personal saves or installed content. Candidate text/data and synthetic save bodies remain ignored/private. Tool reproduction and policy: `docs/gm/air-wider/CANDIDATE.md`.
+
+Final gates:
+
+- Public authoring-tool slice: **3 tests, 3 pass, zero fail/skip**, 130.134958 ms. Tests prove immutable baseline inputs, preserved baseline rows/start/body, refusal of same identity/incompatible supplementation, and shared variants preserving Pro costs while adding only actual method acquisition.
+- Private SOURCE driver: ST03, ST04 and ST05 each initialize and validate an exact structured envelope. Compiled registered commands carry all four held-source gates and every outing discovery gate. Raw metadata alone is not counted as proof.
+- Build passes; tested bundle SHA-256 **`f05e59abc7865e6faf7c03260d84a553d0c25cc2c4ae102ee24b18c204cbd812`**.
+- Final `npm test`: **647 tests, 647 pass, zero fail/cancel/skip/todo**, 9167.890166 ms.
+- Rebuilt fresh-origin native Chrome at **1366×768**: ST04 route passes; discovery hidden before held knowledge; unsupported craft/carrier actions hidden or disabled; original discovery/training/watch prerequisites earn actual inputs; all four added ability routes settle; ordinary alternative, two completed paid attempts, withdrawal/treatment and actual case return → reissue pass. Each executed command is asserted to publish exactly one completion. Lethal candidate content omitted.
+- Native pending Save/Export/literal-file Import and reload pass. The one-minute preparation can finish before a later Playwright read, so a read-only successful-storage-write observer queues the actual footer Export button immediately after native publication. It captures the genuine durable pending job, without manufacturing a save or completing a job. That exported file imports into an empty profile and survives reload before PLAY with exact jobs/receipt. Final Export/literal-file Import preserves receipt/facts and exactly two settlements. The untouched original p06 beginning also exports and imports with its exact original receipt under candidate preview. Log `/tmp/air-wider-p4-release-browser.log`; files `/tmp/air-wider-p4-{pending,final,old}.txt` stay private.
+
+Earlier driver failures are not passing evidence: one clock-pause timestamp was behind browser time; missing original form discovery/material prerequisites blocked actions; controlled-clock attempts did not consistently observe native elapsed settlement; a one-minute job was already settled before the delayed pending read. Final proof uses real elapsed native ticks for jobs and captures actual published pending bytes through the supported Export action. An earlier composer ordering attempt failed object-title/condition preparation; final composition puts new real stock/titles before prepare/install and all three SOURCE starts pass. These were corrected fixture/tool choices, not permission to weaken current runtime guards or fabricate prerequisites.
+
+Implemented-unverified: native ST03/ST05 full play routes, third braced approach, repeated reporting beyond the real-receipt SOURCE guard, candidate lethal content (omitted), and P3's separately named archive-drawer/fault variations. Core required bounded packet gates pass; human play/taste remains OPEN. No private candidate installed over live content. No merge or push by this lane. Coordinator must resolve main/compiler/UI/save overlap with the other lanes and rerun integrated gates rather than treating this isolated build as integration proof.
