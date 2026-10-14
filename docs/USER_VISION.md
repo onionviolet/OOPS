@@ -972,8 +972,6 @@ Coverage: [Enemy protagonists](ENEMY_PROTAGONISTS.md) expands U14 with independe
 
 ### Concurrent characters and rogue-clone feasibility
 
-Source: direct user message in the current chat, 2026-10-01. Chat/turn/message identifiers are not supplied in the message context and are not invented.
-
 > There are many ways of going about this, and then we can have other instances or 'ais' play the game at the same time and go throughj eventrs like this for another gamemode? like clone that went rogue, or just other characters and more, or is that too much depth and non sustainable?
 
 Coverage: [Concurrency feasibility](ENEMY_PROTAGONISTS.md#concurrent-characters-rogue-clones-and-alternate-modes) preserves distinct independent-instance and shared-world interpretations, source constraints, a rogue-clone proposal, sustainability tradeoffs and five acceptance questions. The request explores feasibility and future modes; it does not authorize spawning real agents to play, select a mode or accept the proposed clone scenario.
@@ -1082,8 +1080,6 @@ State: **requested exploration saved; specific powers and proof unselected, game
 
 ## Insight and wandering idle zones follow-up, 2026-10-02
 
-Source: the current repository chat, 2026-10-02; original wording retained.
-
 > More to consider? this can help with stuff like 'insight' skills and more? more to consider? "Wanderable"/ Idle zones? where gameplay is just a little different and automated resource gathering but with chance of big monster or whatever
 
 Coverage: [Wandering zones and practical insight](WANDERING_ZONES_AND_INSIGHT.md) connects useful observation/interpretation to resource gathering, route/focus choices, occasional major encounters, supported automatic responses, return trips and retained discoveries. It supplies five considerations and an original local proof, while G2/G4 retain knowledge/time ownership and the enemy/character owners retain powers and durable lives. [Runtime contracts](ENGINE_EXPANSION.md#wandering-zone-and-insight-contracts-proposed-2026-10-02) map field intervals, source/counter evidence, native inventory, encounter suspension and stop/reload gates.
@@ -1091,8 +1087,6 @@ Coverage: [Wandering zones and practical insight](WANDERING_ZONES_AND_INSIGHT.md
 State: **requested exploration saved; concrete mechanics and proof unselected, gameplay unimplemented**. Timed native gathering and the bounded Rat-step observation/study loop exist; a general Insight handler and saved wandering controller do not. One primary game comparator was checked. No gameplay source, schema, bundle or personal save changed; no fresh build/browser/test result is claimed. The question does not select a universal Insight currency, lethal/offline-loss policy, map format, new world or prestige layer.
 
 ## Chinese-character wandering visualization, 2026-10-02
-
-Source: the current repository chat, 2026-10-02; original wording retained.
 
 > how should we visualize the 'wandering' or wander zones? We can do it chinese character style based on that one indie game I saw on reddit using japanese characters to represent the world? Feel free to look in in browser to see what I mean accordingly
 
@@ -1102,8 +1096,6 @@ State: **visual direction requested; layouts and glyph rules proposed, gameplay 
 
 ## Wandering integration and selection mapping, 2026-10-02
 
-Source: the current repository chat, 2026-10-02; original wording retained.
-
 > ideas on integrading the wandering with the base gameplay and more? more to consider? Would they just represent different views? WOuld we need to map the map to the selections and stuff?
 
 Coverage: [Base-game integration and shared views](WANDERING_ZONES_AND_INSIGHT.md#base-game-integration-and-shared-views-refined-2026-10-02) proposes one location/actor/resource/event state with map/list/atlas projections, stable target/command bindings, selection separate from commitment, normal inventory/skill/economy use and one supported active assignment/clock. It records five integration considerations, concrete glyph bindings and a Village-supply/outing/return/preparation loop. The conversation visual study demonstrates Map/List selection continuity using local scripted state only.
@@ -1112,8 +1104,6 @@ State: **integration ideas saved; native gameplay and map/action bridge unimplem
 
 ## Hanzi-field preference and blending with the base game, 2026-10-02
 
-Source: the current repository chat, 2026-10-02; original wording retained.
-
 > Hanzi field is awesome, not shure how to best mix with original game tho
 
 Coverage: [Native-screen composition](WANDERING_ZONES_AND_INSIGHT.md#hanzi-field-preference-and-native-screen-composition-2026-10-02) records endorsement of the Hanzi-field visual style and proposes a compact scene in the existing location column, one shared action panel and town/wander/encounter/return transitions. Current native HTML/CSS and expedition-panel mounting were inspected. The atlas remains a candidate overview, not an equally preferred local style.
@@ -1121,8 +1111,6 @@ Coverage: [Native-screen composition](WANDERING_ZONES_AND_INSIGHT.md#hanzi-field
 State: **Hanzi-field visual preference confirmed; exact composition and gameplay integration proposed, unimplemented**. Praise of the visual study does not accept its scripted mechanics, numerical rewards, source renderer or all prior wandering proposals. No native source, bundle, schema, personal save or new gameplay verification changed in this clarification. Existing playable review and first milestone remain pending. The compact-column composition was the earlier recommendation; the later optimality review below supersedes that placement recommendation while preserving the visual preference.
 
 ## Wandering integration optimality review, 2026-10-02
-
-Source: the current repository chat, 2026-10-02; original wording retained.
 
 > is this really the most optimal way to go about this? More to consider?
 
@@ -1153,8 +1141,6 @@ Coverage: [Original-screen assessment](WANDERING_ZONES_AND_INSIGHT.md#original-s
 State: **image-grounded assessment saved; optional presentation recommended, final placement unselected**. The screenshot is earlier UI evidence, not a current source/runtime audit. Hanzi-style praise remains valid; concern about scope does not cancel the idea or accept an implementation. No personal save quantities were copied, and no new native source, visual, timer, schema, bundle or gameplay verification changed.
 
 ## Features from similar games and beyond, 2026-10-02
-
-Source: the current repository chat, 2026-10-02; original wording retained.
 
 > features from other similar games and more?
 
@@ -1192,8 +1178,6 @@ State: **requested investigation and clarification saved; concrete system models
 
 ## Simple skills with extraordinary long-term growth, 2026-10-02
 
-Source: the current repository chat, 2026-10-02; original wording retained.
-
 > Also interesting ideas like being able to level up a simple skill to become super powerful as well? more to consider?
 
 Coverage: [simple-skill growth](RESEARCH_LITRPG_SYSTEMS.md#simple-skills-with-extraordinary-long-term-growth-2026-10-02) preserves the possibility of extraordinary development through levels and mastery, with five original patterns: increasing the same function's capacity; precision/creative use; deeper principles; personal variants/combinations; and powerful ordinary professions. Modest beginner behavior is compatible with later enormous strength. Local models may grant growth through levels alone, insights, combinations or evolution; rare external sources and replacements are not universal requirements. [Runtime growth contract](ENGINE_EXPANSION.md#long-term-growth-of-simple-skills-2026-10-02) supplies dynamic capacity, authoritative XP/lineage, threshold-grant transactions, curve/migration/pacing and rebuilt acceptance requirements.
@@ -1201,8 +1185,6 @@ Coverage: [simple-skill growth](RESEARCH_LITRPG_SYSTEMS.md#simple-skills-with-ex
 State: **requested possibility saved; examples, growth curves and eventual ceilings remain proposals, unimplemented**. Earlier wording that could imply permanent basic-skill limitations was refined in the live owner and preserved in PROTOTYPE_HISTORY.md. Current source caps/proficiency, existing saves, gameplay and first milestone are unchanged. No new book-canon, runtime-test or browser claim is made.
 
 ## Skill tiers, critical points and advancement routes, 2026-10-02
-
-Source: the current repository chat, 2026-10-02; original wording retained.
 
 > skill level teirs that gives benefits after certain critical points and more? More simple ideas like this that adds so much depth?
 
@@ -1216,8 +1198,6 @@ State: **exploration saved; exact tiers, levels, event counts, chances, failure 
 
 ## Granular progression for skills, talents and more, 2026-10-02
 
-Source: the current repository chat, 2026-10-02; original wording retained.
-
 > skills, talents, and more, granular progression for those and more?
 
 Coverage: [Granular progression](RESEARCH_LITRPG_SYSTEMS.md#granular-progression-for-skills-talents-and-connected-paths-2026-10-02) develops five connected families: broad skills, executable techniques, talents/traits/bloodlines, body/energy foundations and professions/support. It distinguishes aptitude, practiced competence and functional faculties; preserves continuous and level-only growth, optional specialties, local talent-development rules and ordinary/idle alternatives; and gives an original observation/movement/profession loop. [Runtime refinement](ENGINE_EXPANSION.md#granular-development-refinement-2026-10-02) extends the existing development package rather than adding a parallel engine.
@@ -1228,8 +1208,6 @@ State: **requested exploration saved; concrete growth paths proposed, unselected
 
 This direction is further developed in [personal techniques and incomplete methods](#personal-techniques-incomplete-skills-and-broader-book-inspiration-2026-10-02).
 
-Source: the current repository chat, 2026-10-02; original wording retained.
-
 > There can be different levels of mastery beyond advanced and more, like mastered, and exceeded or somethjing or exceeding the original creator oeveryone else who was good at that technique? We can base off of book, but also consider rarity, other differentiators and more?
 
 Coverage: [Mastery beyond the creator](RESEARCH_LITRPG_SYSTEMS.md#mastery-beyond-the-creator-rarity-and-other-distinctions-2026-10-02) extends the proposed mastery vocabulary beyond Advanced, distinguishes command of a taught form from creator/school/known-frontier comparisons, and separates personal development, method grade/scarcity, potential/completeness, actor means/fit and expression/lineage. Bounded author/licensed chapter evidence from A Novel Concept and Desolate Era supports the distinctions; the exact labels and comparison system are original proposals. [Runtime contract](ENGINE_EXPANSION.md#mastery-grades-lineage-and-comparison-contract-2026-10-02) owns future advancement, versioned benchmarks and save publication.
@@ -1237,8 +1215,6 @@ Coverage: [Mastery beyond the creator](RESEARCH_LITRPG_SYSTEMS.md#mastery-beyond
 State: **requested direction saved; exact stages, rarity meanings, comparison rules and benefits remain proposals**. Advanced is not selected as an endgame ceiling. The extended conversation comparison is illustrative. Current native XP, Rat-step, saves and the first milestone are unchanged; gameplay implementation and playable review remain pending.
 
 ## Choosing advancement routes, 2026-10-02
-
-Source: the current repository chat, 2026-10-02; original wording retained.
 
 > HOw to decide what case to use and when? More to consider?
 
@@ -1248,8 +1224,6 @@ State: **selection guidance saved; concrete triggers, thresholds, odds and imple
 
 ## Personal techniques, incomplete skills and broader book inspiration, 2026-10-02
 
-Source: the current repository chat, 2026-10-02; original wording retained.
-
 > more considerations to take into consideration? and then this can be a feature as well? people with their own techniques and more? "Incomplete" Skills? We can be inspired by all those kind of books and stuff like shadow slave and more? More to consider?
 
 Coverage: [Personal techniques and living traditions](RESEARCH_LITRPG_SYSTEMS.md#personal-techniques-incomplete-methods-and-living-traditions-2026-10-02) proposes functional individual styles, fragments/reconstruction, personal fit, transmission/secrecy and innovation/history. It distinguishes missing/damaged transmission, unfinished methods, personal misunderstanding and unavailable means. Bounded Shadow Slave, A Novel Concept and Mother of Learning evidence supports contrasting sources; the incomplete-method rules and original Split Reed proof are proposals. [Character ownership](CHARACTERS_AND_WORLD_EVENTS.md#personal-techniques-and-teaching-refinement-2026-10-02) and [runtime contract](ENGINE_EXPANSION.md#personal-technique-and-fragment-contract-2026-10-02) own integration.
@@ -1257,8 +1231,6 @@ Coverage: [Personal techniques and living traditions](RESEARCH_LITRPG_SYSTEMS.md
 State: **feature direction requested and saved; concrete content and implementation remain proposed**. Wider book inspiration remains open rather than adopting a single canonical rulebook. No new teacher/NPC controller, fragment schema, skill, gameplay source/bundle or save changed. Implementation, rebuilt play and human acceptance remain pending; current playable review and the one-realm/one-prestige milestone remain in place.
 
 ## Broader gathering and character interactions, 2026-10-02
-
-Source: the current repository chat, 2026-10-02; original wording retained.
 
 > extending existing comprehensiveness and more? stuff that can be gathered? Character interactions and mroe?
 
@@ -1296,8 +1268,6 @@ State: **research and proposals saved; no event roster, rate, offline/loss rule 
 
 Related follow-up: [party readiness](#party-readiness-and-other-companion-considerations-2026-10-02) checks whether party-oriented comparisons correspond to playable features.
 
-Source: direct user message in the current repository chat; original wording retained.
-
 > we can be inspired by the various games like a dark room and level 13 and more? Consider other games too and more?
 
 Coverage: [Broader text-first RPG inspiration](RESEARCH_IDLE_GAMES.md#broader-inspiration-for-a-text-first-rpg-2026-10-02) checks ten references against primary descriptions/pinned code. Eight additional references extend the earlier A Dark Room/Level 13 comparison: Candy Box 2, Sunless Sea, Fallen London, Roadwarden, Wildermyth, Cultist Simulator, Book of Hours and Outer Wilds. Five connected lenses cover discovery, expeditions, remembered people, practical books and interacting world conditions/builds; an optional extension of the existing willow outing illustrates their combination.
@@ -1306,8 +1276,6 @@ State: **broader inspiration requested and researched; concrete mechanics and im
 
 ## Open-world actions, karma and reputation, 2026-10-02
 
-Source: direct user message in the current repository chat; original wording retained.
-
 > open world options like the option to choose to attack certain people and more? karma system?Reputation and more> other stuff to consider?
 
 Coverage: [Open-world actions and consequences](CHARACTERS_AND_WORLD_EVENTS.md#open-world-actions-reputation-law-and-karma-2026-10-02) proposes contextual actor interactions and aggression through the retained center menu, distinct intent/outcome, personal relationships, audience reputation, notoriety, law/enforcement and optional world-specific karma. It develops witnesses/recognition/reports, proportional causal aftermath, restitution/closure, actor-service continuity and coherent alternative paths. [Runtime contracts](ENGINE_EXPANSION.md#open-world-action-and-consequence-contracts-2026-10-02) record inspected native reputation/NPC/combat seams and missing command/result/evidence/persistence/time adapters.
@@ -1315,8 +1283,6 @@ Coverage: [Open-world actions and consequences](CHARACTERS_AND_WORLD_EVENTS.md#o
 State: **open-world actions and consequence systems requested for exploration.** This does not select unrestricted attackability, a moral alignment meter, cosmic karma, a crime roster, automatic global penalties or exact lethal/loss rules. Source was inspected; no gameplay, schema, bundle, save or new runtime/build/browser result changed. Current playable review and the first milestone remain in place.
 
 ## NPC power levels and secretly powerful characters, 2026-10-02
-
-Source: direct user message in the current repository chat; original wording retained.
 
 > so would everyone have a power level now? If I decided to go crazy and attack the villiage chief it turns out they are secretly superful and stuff? more to consider?
 
@@ -1338,8 +1304,6 @@ State: **additional design considerations saved; no mechanics or implementation 
 
 Related follow-up: [party saving and inventory interface](#party-saving-and-member-inventory-interface-2026-10-02) develops persistence and owner-aware controls.
 
-Source: direct user message in the current repository chat; original wording retained.
-
 > Is there even a party system currently? other stuff to consider?
 
 Coverage: [Party, companions and shared adventures](CHARACTERS_AND_WORLD_EVENTS.md#party-companions-and-shared-adventures-2026-10-02) inspects normal/special combat construction, fighter arrays/display, NPC Person/components, expansion actors and live bindings. Ordinary combat is solo; no playable recruitable party is present. Five design families cover kinds of company, roles/cooperation, goals/relationships, possessions/growth/aftermath and scale/control/wider-world connections. Earlier companion examples remain proposed content.
@@ -1347,8 +1311,6 @@ Coverage: [Party, companions and shared adventures](CHARACTERS_AND_WORLD_EVENTS.
 State: **current-state assessment and further design exploration saved.** A Village outing helper is recommended for an initial proof; full party combat, recruitment policy, size, progression, pay and loss rules remain unselected/unimplemented. No gameplay, bundle, schema, personal save or new runtime/browser verification changed. Current playable review and one-realm/one-prestige milestone remain in place.
 
 ## Expansions and Your Chronicle balance, 2026-10-02
-
-Source: direct user message in the current repository chat; original wording retained.
 
 > expanstions and more? consider how games lijke "your chronica;" balances and more? more to consider?
 
@@ -1388,8 +1350,6 @@ State: **engine considerations requested and scoped as proposals.** This does no
 
 ## Party saving and member inventory interface, 2026-10-02
 
-Source: direct user message in the current repository chat; original wording retained.
-
 > how will stuff like those be saved and more? inventory interface for party members and more? more to consider?
 
 Coverage: [Party save/interface proposal](CHARACTERS_AND_WORLD_EVENTS.md#party-saving-and-member-inventory-interface-2026-10-02) audits native save/load, owner registries, equipment, transaction persistence and character-specific inventory UI. It proposes stable party/actor references in one save, owner-first restoration, membership continuity, legal ownership/custody, reserved supplies, permissions and member/shared-stock views. [Runtime contract](ENGINE_EXPANSION.md#party-persistence-and-owner-aware-inventory-contracts-2026-10-02) owns missing registration, serialization, migration and command/UI bindings.
@@ -1397,8 +1357,6 @@ Coverage: [Party save/interface proposal](CHARACTERS_AND_WORLD_EVENTS.md#party-s
 State: **design and a conversation-only interface study prepared.** Fictional mockup borrowing, protected-quantity transfer, equipment swap and demo snapshot reload were inspected in a browser; 320px geometry fits and stacks. These are proposal-review evidence, not native party/save implementation or accepted layout/policies. No runtime source, bundle, schema or personal save changed. Current playable review and first milestone remain in place.
 
 ## Using expansion guidance and focused game references, 2026-10-02
-
-Source: direct user message in this repository chat; original wording retained.
 
 > we can make use of that accoridngly, else to consider? similar games to draw upon?
 
@@ -1418,8 +1376,6 @@ State: **existing-character integration and earned restart exploration requested
 
 ## Original UI for party extensions, 2026-10-02
 
-Source: direct user message in the current repository chat; original wording retained.
-
 > we can follow ui of the original and more?
 
 Coverage: [Current inventory surface](CHARACTERS_AND_WORLD_EVENTS.md#inventory-surface-proposal) accepts original YAIRPG UI as the baseline, preserving panels, compact inventory/equipment controls, center actions and native journal/skill surfaces. Member inspection and shared stock remain proposed bindings; inspection does not change the active player. The conversation study was revised after source and fresh-screen inspection. [Runtime contract](ENGINE_EXPANSION.md#party-persistence-and-owner-aware-inventory-contracts-2026-10-02) records remaining owner-aware command/UI work; [prototype history](PROTOTYPE_HISTORY.md#standalone-party-inventory-study-superseded-2026-10-02) retains the earlier standalone layout and evidence.
@@ -1437,8 +1393,6 @@ Coverage: [Refined engine scope](ENGINE_EXPANSION.md#gathering-and-character-int
 State: **base-game/complexity refinement requested and prepared.** Specific offers, quantities, method rates and implementation order remain proposals. This pass modifies documentation/evidence only, preserves other source work and private saves, and claims no fresh runtime test/build/browser result. The earlier 54-test checkpoint is identified by its original fingerprints; changed in-progress source needs its own gate.
 
 ## Further original-style UI and party refinements, 2026-10-02
-
-Source: direct user message in the current repository chat; original wording retained.
 
 > more stuff to consider nd more? this is good but could potentially be better, more to consider?
 
@@ -1470,8 +1424,6 @@ State: **full starting-world expansion requested; parallel-universe framing expl
 
 ## Proceeding while preserving vanilla, 2026-10-03
 
-Source: direct user instruction in this repository chat; original wording retained.
-
 > Lets do that accordingly, I just dont want to lose the 'vanilla' experience
 
 Coverage: [Preservation constraint and town increment](gm/PROJECT_LOG.md#optional-town-chapter-2026-10-03) record the interpreted scope: preserve the inherited adventure, mechanics, quests/dialogue and native interface; new town access/story begins through an explicit optional choice. This implements the preceding complete-town-story candidate as a bounded first survey-office contract. Full original-world development remains the broader objective. New fiction belongs to our fork continuity, with no claim that it completes upstream's intended canon.
@@ -1479,8 +1431,6 @@ Coverage: [Preservation constraint and town increment](gm/PROJECT_LOG.md#optiona
 State: **implementation authorized and first optional town story delivered; human pacing/writing acceptance pending.** No separate exact-upstream version, forced reset, new world, cultivation placement or loss policy is selected. Schema5 gains additive town facts without retroactive rewards; personal saves remain untouched. [Playtest](PLAYTEST.md#optional-town-chapter-browser-and-save-proof-2026-10-03) owns rebuilt browser verification.
 
 ## Expanded YAIRPG as a branch dimension, 2026-10-03
-
-Source: direct user message in this repository chat; original wording retained.
 
 > we can just have it be a seperate world for our worlds and stuff, since we are implementing seperate worlds and more? and then we can note the dimention as not the main one and stuff?
 
@@ -1490,18 +1440,13 @@ State: **branch-dimension framing selected; working name and detailed cosmology 
 
 ## Unknown identities and UI/menu work, 2026-10-03
 
-Source: direct user instruction in this repository chat; original wording retained.
-
 > we can h=ave branch or world be unkown if it were, also the ui and menus need work
 
 Coverage: [Knowledge-aware identity and notebook menus](gm/PROJECT_LOG.md#knowledge-aware-identity-and-notebook-menus-2026-10-03) records separate actual/known world and branch identities, safe tooltips and old-save defaults, with the existing native action menu retained. Added notebooks share Here/Practice/People/Journal views, local context, active-work visibility, keyboard navigation and retained events. The previous unconditional source/branch note is archived; dated original UI/browser records remain provenance.
 
 State: **knowledge-aware identity and first menu refinement implemented; visual/wording acceptance pending.** Exact world naming, identity-discovery stories, wider native-layout redesign and additional dimensions remain separate scope. No save schema, native quest/NPC definitions, rewards, life policy or personal save is changed by this UI pass.
 
-
 ## Notebook overlap and vaguer discoveries, 2026-10-03
-
-Source: direct user instruction in this repository chat; original wording retained.
 
 > doesnt the notebook overlap with the quest page? also things can probably be more vague
 
@@ -1509,17 +1454,13 @@ Coverage: [PROJECT.md](gm/PROJECT_LOG.md#knowledge-aware-identity-and-notebook-m
 
 State: **separation and mystery-copy refinement implemented; human wording/layout acceptance pending.** Existing facts own town progress, with no second quest reward or save path. Original quests and personal saves remain preserved. [Playtest](PLAYTEST.md#quest-and-notebook-separation-proof-2026-10-03) owns rebuilt browser and save verification. Dated earlier UI records remain provenance.
 
-
 ## Notebook placement, Bio and skill influences, 2026-10-03
-
-Source: direct user message in this repository chat; original wording retained.
 
 > should notebook take up somewhere else thats not the move menu? More details in bio? Skills that affect bio and more? more to consider?
 
 Coverage: [PROJECT.md](gm/PROJECT_LOG.md#notebook-placement-and-derived-bio-2026-10-03) owns a reversible playable placement/Bio proposal: a dedicated Journal Notebook, preserved native local actions, and Bio summaries of existing visible skill effects, lasting discoveries and observed/learned movements. Native profile fields remain intact; source/discovery state owns each projection and grants nothing on display/reload. Native skill links and the Practice link use the existing views.
 
 State: **placement and derived Bio implemented as review proposals; human acceptance pending.** Further body/condition/inheritance/NPC-recognition mechanics are considered and recorded as proposals. No physique transformation, new aging/loss rule, bloodline selection, extra race progression, world or save schema is introduced. [Playtest](PLAYTEST.md#journal-notebook-and-bio-proof-2026-10-03) owns verification; dated prior placement proofs remain historical.
-
 
 ## Discovery-aware overview menus, 2026-10-03
 
@@ -1528,7 +1469,6 @@ Direct requests: "should we have various menus to show relationship and more? an
 Interpretation: distinct overview menus can grow with discovery. Basic character views stay usable in the inherited opening; People begins with actual supported meetings, while later systems need meaningful discovered content. Reading an existing record is free; actions can require trust, knowledge, tools, access or progress. No blank menu should disclose an otherwise unknown world, power or faction. Known contact records remain readable when their person is elsewhere.
 
 [Current owner](gm/PROJECT_LOG.md#discovery-aware-menus-and-people-records-2026-10-03) records the accepted boundary, implemented People projection, compatibility and further proposals. This accepts the direction and a playable first slice, not a complete cast, universal relationship score or a shipped World/Factions catalogue.
-
 
 ## Implementing body traits, recovery and NPC recognition, 2026-10-03
 
@@ -1574,8 +1514,6 @@ Selected reversible implementation proofs: an ordinary evidence-led trail test, 
 
 ## Long term game master prompt and world foundations, 2026-10-03
 
-Source: direct user message in this repository chat; wording retained.
-
 > create a long term game master prompt to help me bring ideas to life and more ideas accordingly with a set of rules accordingly, creating the foundation for specific game masters to flesh out specific worlds accordingly?
 
 Interpretation: create a reusable lead creative role that develops ideas and related possibilities, defines shared game-design rules and supplies a foundation for dedicated world game masters. The role is interpreted as a design/implementation partner with an explicit playtest mode. This authorizes the prompt artifacts, not dispatching agents, scheduling work or selecting every proposed world rule.
@@ -1597,8 +1535,6 @@ Coverage: the [master prompt](GAME_MASTER_PROMPT.md#directing-the-three-levels) 
 State: **requested hierarchy encoded in the prompts; efficient-model routes remain proposed until qualified on real work.** Documentation and current official model guidance checked; no agents dispatched, model benchmark or gameplay verification claimed. A future implementation assignment can use scoped subagents under host rules; separate user-visible chats, scheduling and publishing remain independently scoped.
 
 ## Context refresh for game master roles, 2026-10-03
-
-Source: direct user follow-up in this repository chat; wording retained.
 
 > make sure the prompt is able to refresh itsself if it's context is getting too full
 
@@ -1726,7 +1662,6 @@ Direct follow-up asks for deeper trope chains and actual multi-world settings su
 
 Current implementation receipt for both refinements, 2026-10-05: [Features delivery](gm/feature-wave/features/DELIVERY.md) and matching bundle`11aaa9cbfc69` record actual office/relay/reference consumers,19qualified source dispositions, a lived original Paradise-qualified hub/two independent retained native destinations/four staged missions and three branchable causal chains. These keep body/cargo/source/rights/debt/observers, local welfare versus issuer settlement, partial/ordinary/refusal paths, funded NPC action and changed revisit distinct. Source profiles/voice cues remain authoring-qualified; nineteen native adaptations and Hunter entitlement are not claimed. All new play/save/failure/director gates remain deferred; prices/dialogue/branch additions are reversible original prototypes.
 
-
 ## Continued ordinary life, 2026-10-05
 
 Direct human continuation: “continue accoridngly”. Features continued the existing native hub/destinations with earned personal Saltworks/Archive passage and actual hub return after settled travel, plus Lin/Brin/Ivo finite funded material jobs, free refusals/quiet meetings, retained later accounts and useful kit/shelf transfers. [Continued-life delivery](gm/feature-wave/features/nested-campaign/continued-life/DELIVERY.md) owns source/native/UI/save admission and matched bundle`1ca667dd9eef`. Actual body/cargo/current contractor/stock/funds/history/clock owners remain authoritative; no new contract, payout or local reset follows a personal visit. Optional8/personal1/life1 is explicitly chosen; old5/6/7 and absent states remain. New fiction/prices remain reversible prototypes and all gameplay/save/director gates stay deferred.
@@ -1810,7 +1745,6 @@ Recorded in [E8F adjectives](emergent/E8F_ADJECTIVES.md#expansions-and-beyond-te
 
 Recorded in [presentation and the fourth wall](PRESENTATION_AND_FOURTH_WALL.md).
 
-
 > types of possible gameplay? What can we learn from MArvel and DC and other comicbook worlds? Can we absorb accordingly from their wikis?
 >
 > run the pilot, we can also eventually take a look at fan fics and how they go about things and more?
@@ -1820,7 +1754,6 @@ Recorded in [comics wiki pilot](research/comics/REPORT.md): Power Grid ranks and
 > we can have core stuff share signiture pieces? Other powers that touch Ui? chjaracter that does cool stuff and more? At what point should they be able to interact outside and more? Expanding on each idea and more?
 
 Recorded in [presentation and the fourth wall](PRESENTATION_AND_FOURTH_WALL.md#shared-signatures-more-ui-powers-meta-characters-and-reach-2026-10-10).
-
 
 > We can consider specific alternatie worlds as possible playthrough targets, awhat about invencible and other comic worlds and more? more to consider?
 
@@ -1838,7 +1771,6 @@ Recorded as a rule in AGENTS.md and an accepted decision in PROJECT.md; implemen
 
 Recorded at the top of [presentation and the fourth wall](PRESENTATION_AND_FOURTH_WALL.md#direction-restraint-makes-effects-land-weibao-2026-10-10): UI effects are a rare menu, not a default; text and world first.
 
-
 > run the fan fic pilot
 
 Recorded in [fan fiction pilot](research/fanfic/REPORT.md): Fanlore taxonomy, Western and Chinese reader files, findings F1 to F11, premises as run starts, mechanics M1 to M11, guardrails from reader complaints, and a first slice proposal. AO3 not fetched (its robots file blocks AI crawlers).
@@ -1855,7 +1787,6 @@ Recorded in [cosmic events](COSMIC_EVENTS.md#it-depends-on-the-character-weibao-
 
 Recorded in [cosmic events](COSMIC_EVENTS.md#consequences-are-relative-and-god-likes-are-few-weibao-2026-10-10): consequences scale with capability; god-likes are scarce and unevenly spread; avatars and fragments give presence without frequency.
 
-
 > Browsing Ao3 in browser is allowed, ones you find in qidian you can probably find on ttks if popular enough, feel free to politely open blocked ones in vrowser,
 
 Done as a gap-fill pass: AO3 tag counts, Jumpchain wiki rules, Celestial Forge, a DC self-insert, and opening chapters of three Chinese novels (ttkan, 69shuba). Results in the [fan fiction pilot](research/fanfic/REPORT.md) (F12 to F15, M12 to M15); routes added to the [source deep dive playbook](research/SOURCE_DEEP_DIVE_PLAYBOOK.md#fan-and-web-fiction-routes-m3).
@@ -1871,7 +1802,6 @@ Recorded in [fitting characters at fitting times](FITTING_CHARACTERS_AND_TIMES.m
 > save accordingly and expand on more to consider?
 
 Recorded in [fitting characters at fitting times](FITTING_CHARACTERS_AND_TIMES.md#expanded-2026-10-10): worked walkthroughs, anti-patterns, a fit card template, long play, agency, emotional shape, surprise versus fairness.
-
 
 > save accordingly and expand on more to consider? Consider more popular works and more?
 
@@ -1904,8 +1834,6 @@ Recorded in [simulators: talent generation](SIMULATORS_AND_CHEAT_IMPLEMENTATION.
 > save accordingly, more to consider?
 
 Recorded in [simulators: talents in play](SIMULATORS_AND_CHEAT_IMPLEMENTATION.md#more-to-consider-talents-in-play): T27 to T39 (grade versus usefulness, combos, hidden talents, theft, wording as law, moods, auras, cross-world strength, NPC talents, names, fate's debt, asking for a talent, showing reasons).
-
-> save accordingly, more to consider?
 
 Recorded in [simulators: talents over many runs](SIMULATORS_AND_CHEAT_IMPLEMENTATION.md#more-to-consider-talents-over-many-runs): T40 to T50 (inflation, spending talents, the reveal, every life earns something, run-only talents, sealed talents, talents opening doors, appraisal, talents remembering their life, rebalancing, never an empty roll).
 
@@ -2562,7 +2490,6 @@ knowledge-filtered roadmaps, free invention, feeding routes, danger kept
 abstract). Lanes T5 (references, worked roadmaps) and T6 (pure planner
 module in a worktree, not wired into play). Proposals only.
 
-
 Then (2026-10-14): “core stuff needed for each world to be implemented in
 depth? do a 'more to consider? other stuff and more? save and extend
 accordingly Send out codex as usesful?' for each aspect?” Saved as
@@ -2623,7 +2550,6 @@ the player, visible ageing, names, mischief, presence in text, objects,
 neighbourhood, familiar asides, mounts, seasons, feedback without toasts,
 small grief, small choices, folklore, J33-J35). New lane C9 grounds micro
 behaviour in real ethology and vet sources as text cues. Proposals only.
-
 
 After a core foundations scorecard flagged unmerged branches as a risk
 ([scorecard F5](CORE_FOUNDATIONS_SCORECARD_2026-10-14.md#findings)), Weibao:
@@ -2835,10 +2761,6 @@ palette (R1-R3), so WR1-WR4 here were stopped as duplicates. Story round 11 save
 (BN story-reveal cheats, BO one knowledge layer, BP story abstractions, BQ
 implementation). Finished lane reports committed; push awaits Weibao's yes.
 
-
-
-
-
 Then: “Considering comic worlds and stuff and more? ... Abstaction thats
 needed? Merging, commiting or pushing?” Round 10 of the same doc: comic
 research and tech CW1-CW18, comic revealer cheats RC16-RC23, abstractions
@@ -2846,10 +2768,6 @@ AB1-AB12 with what not to abstract, and the merge/commit/push state. T2,
 T8, T9 results folded. Lanes T15 (comics) and T16 (planner QA build on T6's
 branch). Root committed its own doc paths only; push waits for an explicit
 yes. Proposals only.
-
-
-
-
 
 Then the same request again (with "Merging, commiting or pushing?"). The
 weaponcraft request had reached three sessions; saved as a consolidation in
@@ -2882,3 +2800,9 @@ and technology). Round 11 of [Technology and progression](TECHNOLOGY_AND_PROGRES
 act now, account for now and later items (CN1-CN15), and a ready-to-run
 [first slice prompt](gm/dispatch/research-tech-2026-10-14/NEXT_SLICE_PROMPT.md)
 (U40 craft cue plus N19 village sentence, text only). Not dispatched.
+
+Then (2026-10-14): “modularity at every level and more? from harvesting, to
+extracting resources to crafting and more? procedural rules and more? Use more
+to consider”. Saved as [modular production chains](MODULAR_PRODUCTION_CHAINS_CONSIDERATIONS_2026-10-14.md)
+(MDF1-MDF4 code findings, ML levels, MS stages, MV verbs, MR rule kinds, MX other
+chains, MT subtle, MC cheats, MA abstractions, smallest proof). Proposals only.
