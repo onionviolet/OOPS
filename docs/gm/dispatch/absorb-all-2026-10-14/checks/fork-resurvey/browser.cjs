@@ -28,26 +28,27 @@ let browser;
  assert.match(clear,/known milestone: 4 clears/);
  assert.ok(!clear.includes('10 clears'));
  await page.screenshot({path:'/tmp/fork-resurvey-20261014/combat.png'});
- // P11 replaces catalog odds with durable actual drop receipts. Keep the
- // acquired-only discovery gate and assert exact native associations/counts.
- await page.waitForFunction(()=>{window.saveProgress();const s=JSON.parse(localStorage.getItem('save data'));return Object.values(s.p23_drop_observations?.creatures||{}).some(c=>Object.keys(c.drops).length);},null,{timeout:120000});
+ // P17 replaces raw rat drops with retained carcasses. Acquire their
+ // parts through native processing, then check discovery without fake drops.
  await R.leaveCombat(page);
+ await page.locator('#harvest_panel').evaluate(e=>e.open=true);
+ await page.locator('[data-harvest-choice="whole"]').first().click();
+ await page.waitForFunction(()=>document.querySelector('#harvest_receipt'),null,{timeout:30000});
  const saved=JSON.parse(await R.saveText(page));
  const known=Object.keys(saved.item_log).filter(k=>saved.item_log[k].number>0);
  assert.ok(known.length>0);
  const observed=saved.p23_drop_observations;
  const estimate=[];
+ assert(saved.harvest.processed>0,'native whole processing completed');
+ const parts=['Rat pelt','Rat tail','Rat fang'].filter(id=>saved.item_log[id]?.number>0);
+ assert(parts.length>0,'actual carcass parts acquired');
  for(const [name,record] of Object.entries(observed.creatures)) {
-   const entry=page.locator('.bestiary_entry_div').filter({has:page.getByText(name,{exact:true})}).first();
-   const text=await entry.innerText();
-   assert.match(text,/Observed drops/);
-   for(const [id,count] of Object.entries(record.drops)) {
-     assert(saved.item_log[id]?.number>0,'observed drop is acquired');
-     assert(text.includes(`${id}: ${count} acquired`),`exact observed ${name}/${id}`);
-   }
-   assert(!/Drop chance|Known loot estimate/.test(text),'no catalog odds or unobserved value projection');
-   estimate.push(text);
+   assert.deepEqual(record.drops,{},'rat parts are harvested, never fabricated drop associations');
  }
+ const bestiaryText=await page.locator('.bestiary_entry_div').allTextContents();
+ assert(bestiaryText.some(t=>t.includes('Observed drops')&&t.includes('No drops observed yet.')));
+ assert.equal(await page.locator('.known_loot_value').count(),0,'catalog drop odds stay undisclosed under P11');
+ estimate.push(...bestiaryText);
  await page.locator('#journal_show_bestiary').click();
  await page.locator('.bestiary_entry_div').first().hover();
  assert.ok(await page.locator('.bestiary_entry_tooltip').first().isVisible());
@@ -67,9 +68,9 @@ let browser;
  const savedClears=Math.floor(saved.locations['Infested field'].enemy_groups_killed/15);
  const next=[2,4,10].find(n=>n>savedClears);assert.equal(reloaded,`Clears: [${savedClears}]`+(next?` · known milestone: ${next} clears`:''));
  await R.leaveCombat(page);
- assert.deepEqual(JSON.parse(await R.saveText(page)).p23_drop_observations,observed,'actual observed drop receipts survive reload');
+ const restored=JSON.parse(await R.saveText(page));assert.deepEqual(restored.p23_drop_observations,observed,'actual drop receipts survive reload');assert.deepEqual(restored.harvest.last,saved.harvest.last,'actual processing receipt survives reload');for(const id of parts)assert.equal(restored.item_log[id].number,saved.item_log[id].number,'acquired part knowledge retained');
  assert.deepEqual(errors,[]);
- const evidence={viewport:'1366x768',fixture:'precombat disposable boundary fixture: matching hero XP 100000, field groups 29, controlled Math.random 0.01',clearAfterRealKill:clear,knownItems:known,estimates:estimate,itemLog:sources,reloaded,errors};
+ const evidence={viewport:'1366x768',fixture:'precombat disposable boundary fixture: matching hero XP 100000, field groups 29, native carcass processing; ambient Math.random 0.01 does not control saved combat streams',clearAfterRealKill:clear,knownItems:known,estimates:estimate,itemLog:sources,reloaded,errors};
  fs.writeFileSync('/tmp/fork-resurvey-20261014/browser.json',JSON.stringify(evidence,null,2));
  console.log(JSON.stringify(evidence,null,2));
  await context.close();await browser.close();
