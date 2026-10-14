@@ -1,0 +1,10 @@
+{
+  "baseline": "91ec169e",
+  "label": "natural baseline",
+  "profile": "/private/tmp/ta-ta1-profile-rev1-1792003566355",
+  "item": "Stale bread",
+  "quantity": 1,
+  "revision": 1,
+  "literal": "/private/tmp/ta1-rev1-baseline.txt",
+  "bundleSha256": "f7dad18199d29dbeada0ea531786b737106acc50e6b397d30747ef4d50d76225"
+}
