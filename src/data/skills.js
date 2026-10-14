@@ -1,3 +1,4 @@
+// Town-entry wave and reciprocal XP additions adapted from miktaew/yet-another-idle-rpg-dev 200f1ba6 (MIT).
 "use strict";
 
 import { character } from "./character.js";
@@ -209,6 +210,7 @@ const skill_category_crafting = "Crafting";
                                             },
                                             xp_multipliers: {
                                                 Weightlifting: 1.05,
+                                                Equilibrium: 1.05
                                             }
                                         },
                                         5: {
@@ -237,6 +239,7 @@ const skill_category_crafting = "Crafting";
                                             },
                                             xp_multipliers: {
                                                 Perception: 1.1,
+                                                Equilibrium: 1.1
                                             }
                                         },
                                         12: {
@@ -259,6 +262,7 @@ const skill_category_crafting = "Crafting";
                                                 Weightlifting: 1.2,
                                                 Fortitude: 1.2,
                                                 Combat: 1.2,
+                                                Equilibrium: 1.1,
                                             },
                                             stats: {
                                                 "strength": {multiplier: 1.05}
@@ -1800,6 +1804,7 @@ Multiplies AP with daggers by ${Math.round((character.getTotalSkillCoefficient({
                 },
                 xp_multipliers: {
                     "Unarmed": 1.1,
+                    "Shield blocking": 1.1,
                 }
             },
             7: {
@@ -1837,6 +1842,7 @@ Multiplies AP with daggers by ${Math.round((character.getTotalSkillCoefficient({
                 },
                 xp_multipliers: {
                     "Unarmed": 1.2,
+                    "Shield blocking": 1.2,
                 }
             }
         },

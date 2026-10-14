@@ -2565,8 +2565,11 @@ function finish_game_action({action_key, conditions_status, dialogue_key}){
     end_activity_animation(true);
 
     let action;
+    let dialogue_id;
     if(dialogue_key) {
-        action = NPCRegistry.get(dialogue_key).getDialogueComponent().actions[action_key];
+        const dialogue = NPCRegistry.get(dialogue_key).getDialogueComponent();
+        action = dialogue.actions[action_key];
+        dialogue_id = dialogue.id;
     } else {
         action = current_location.actions[action_key];
     }
@@ -2595,7 +2598,7 @@ function finish_game_action({action_key, conditions_status, dialogue_key}){
 
             result_message = action.getSuccessText({character});
             if(!action.getAvailabilityComponent().isRepeatable()) {
-                lock_action({dialogue_key, location_key: current_location.id, action_key});
+                lock_action({dialogue_key: dialogue_id, location_key: current_location.id, action_key});
             } else {
                 action.completion_count++;
             }
@@ -2639,6 +2642,7 @@ function finish_game_action({action_key, conditions_status, dialogue_key}){
         pass_data_down_the_content_stack({data: {upstack_result_message: result_message}});
 
         if(action.attempt_duration == 0) { //if action is instant, just jump back to dialogue without bothering with display of results, leave that stuff to dialogue answer
+            current_game_action = null;
             remove_from_content_stack(content_stack_removal_options.TOP);
         }
     }
@@ -2745,7 +2749,8 @@ function unlock_action(action_data) {
 
 function lock_action({location_key, dialogue_key, action_key}) {
     if(dialogue_key) {
-        NPCRegistry.get(dialogue_key).getDialogueComponent().actions[action_key].setFinished();
+        // miktaew/yet-another-idle-rpg-dev 200f1ba6: rewards use dialogue IDs, not NPC IDs.
+        dialogues[dialogue_key].actions[action_key].setFinished();
     } else  {
         locations[location_key].actions[action_key].setFinished();
     }
