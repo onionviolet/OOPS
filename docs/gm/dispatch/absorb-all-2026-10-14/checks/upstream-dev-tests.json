@@ -1,0 +1,22 @@
+{
+  "focused": {
+    "command": "node --test tests/upstream_dev.test.js",
+    "pass": 3,
+    "fail": 0
+  },
+  "full": {
+    "command": "npm test",
+    "pass": 624,
+    "fail": 0,
+    "skipped": 0,
+    "cancelled": 0,
+    "duration_ms": 113042.483042
+  },
+  "build": {
+    "command": "npm run build",
+    "pass": true,
+    "bundle_sha256": "edee6bc1641d8b2c3bac20ab9ad705657e6b64f3c706e7c999dd407896d5b45c",
+    "source_map_matches": 464,
+    "source_map_mismatches": 0
+  }
+}
