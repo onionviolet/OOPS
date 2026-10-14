@@ -2,6 +2,7 @@ import {FEATURE_OBJECT_IDS as I, FEATURE_OBJECT_KEYS as K, featureObjectDefiniti
 import {enrollSimulation, commitSimulationCommand, previewSimulationCommand, simulationFacts, simulationOccupiesActor} from './simulation.js';
 import {assert, meets, validateSimulationState} from './simulation_contracts.js';
 import {originalFrontierFacts} from './original_frontier_facts.js';
+import {earnedDryingTracker,DRYING_REWARD_ID} from './earned_drying_tracker.js';
 
 const variants = ['sharp', 'dull', 'fine', 'fineDull'];
 const validCount = value => Number.isSafeInteger(value) && value >= 0;
@@ -48,6 +49,7 @@ export function featureObjectFacts(state, context = {}, registry) {
         f[`featureObjects.loan.${variant}`] = nativeReady && count >= 1 && !equipped && held?.key === K[variant] && held.count === 1 && held.owner === I.miri && held.holder === 'player' &&
             state.actors?.player?.facts?.['feature_objects.depositHeld'] === true;
     }
+    f['earnedDrying.ready'] = earnedDryingTracker(state)?.ready === true;
     return f;
 }
 
@@ -87,6 +89,9 @@ export function previewFeatureObjectCommand(state, registry, commandId, context)
 // case to those owners and detect partial or unsupported activation.
 export function validateFeatureObjectState(state, registry, nativeContext) {
     const s = state.simulation, f = state.actors?.player?.facts || {}, opened = f['feature_objects.introduced'] === true;
+    const drying = earnedDryingTracker(state);
+    assert(!state.actors?.player?.completed?.[DRYING_REWARD_ID] || drying && drying.progress >= 0,
+        'Drying rewards require two actual completed batches per collection.');
     const present = state.actors?.[I.miri] || s?.people?.[I.miri] || s?.situations?.[I.situation] || s?.custody?.[I.loan] || state.worlds?.[I.world]?.facts?.['feature_objects.joint'];
     if(!opened && !present) return;
     assert(opened && s?.people?.[I.miri]?.definitionId === I.miri && s?.situations?.[I.situation]?.revision === 1, 'Incomplete or unsupported fitting activation.');
@@ -127,7 +132,7 @@ export function featureObjectPresentation(state, registry, context) {
     const joint = f['feature_objects.lastSeenJoint'] || (f['feature_objects.sealed'] ? 'sealed' : f['feature_objects.braced'] ? 'braced' : f['feature_objects.jointInspected'] ? 'leaking' : null);
     const loanRecord = s?.custody?.[I.loan];
     const loan = introduced && loanRecord?.holder === 'player' ? {label: 'Eda\'s fitting knife', key: loanRecord.key, deposit: 2, owner: 'Eda', condition: ['dull', 'fineDull'].some(v => K[v] === loanRecord.key) ? 'dulled' : 'sharp'} : null;
-    return {visible: !!(canBegin || introduced || job), canBegin, introduced, beginId: I.begin, label: 'Tools & the drying shelf', actions, records, loan,
+    return {visible: !!(canBegin || introduced || job), canBegin, introduced, beginId: I.begin, label: 'Tools & the drying shelf', actions, records, loan, earnedTracker: earnedDryingTracker(state),
         work: job ? {id: job.id, label: registry.simulation.commands.get(job.commandId)?.label || job.label, remainingMinutes: Math.max(0, job.due - state.clock), cancellation: job.cancellation} : null,
         quest: introduced && f['feature_objects.jointInspected'] ? {id: I.situation, label: 'The leaking joint', stage: joint === 'sealed' ? 'Sealed shelf retained' : joint === 'braced' ? 'Ordinary brace retained' : 'Inspected local fault',
             details: joint === 'sealed' ? 'Use the quicker shelf drying task or make actual survey kits. Return a remaining loan when ready.' : 'Ordinary sound stock can brace it. An acquired fitting function or Eda\'s demonstrated part can seal it. No work was promised by asking.', completed: joint === 'sealed'} : null};

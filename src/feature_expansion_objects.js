@@ -1,5 +1,6 @@
 // Original, reversible functional objects proposal. Importing definitions never
 // enrolls people, creates native stock, teaches a method or advances time.
+import {dryingRewardDefinition} from './earned_drying_tracker.js';
 export const FEATURE_OBJECT_IDS = Object.freeze({
     world: 'base.frontier', group: 'feature_objects', miri: 'feature_objects.miri',
     situation: 'feature_objects.sluice', site: 'feature_objects.fitting_bench',
@@ -138,6 +139,7 @@ export const featureObjectDefinitions = {
             visibleWhen: introduced, requires: all(introduced, live, lender), costs: [money(-2), {type: 'transfer', from: I.miri, to: 'player', key: K.sound, count: 1}],
             effects: [coins(2), know('materialPurchase', 'Eda handed over one actual Sound repair stave for two coins. Her stock decreased by one; it does not replenish on revisit.', 'seen', 'player', I.miri)]}),
         ...returns, ...repairs, ...refits, ...cutBatches, ...matchBatches, ...kitBatches,
+        command(dryingRewardDefinition),
         ...[['shade', 6, 2, null], ['braced', 4, 1, 'braced'], ['shelf', 2, 1, 'sealed']].map(([route, duration, effort, joint]) => command({id: `feature_objects.dry_${route}`, label: `${route === 'shade' ? 'Dry in the ordinary sheltered rack' : route === 'braced' ? 'Dry along your braced clear working strip' : 'Use your sealed drying shelf'} · ${duration} min`,
             duration, cancellation: 'refund', siteId: I.site, visibleWhen: all(introduced, ...(joint ? [eq(`actor.feature_objects.${joint === 'sealed' ? 'sealed' : 'braced'}`)] : [])),
             requires: all(introduced, live, ...(joint ? [eq('world.feature_objects.joint', joint)] : [])), ...timed(live), costs: [item(K.wet, -1), stamina(-effort)],

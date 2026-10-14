@@ -49,7 +49,7 @@ export function featureWavePresentation(snapshot,registry) {
         const work=featureWorkControls(state,registry,['feature_objects'],context);
         const actions=objects.introduced?projectFeatureCommands(state,registry,context,{groups:['feature_objects']}):[];
         if(objects.canBegin)actions.unshift(button('objects-begin','Meet Eda, the sluice fitter',{type:'objects_begin'}));
-        sections.push({id:'objects',label:'Fitting tools & materials',description:objects.loan?`${objects.loan.label} remains borrowed from Eda. Return its current physical variant to reclaim the deposit.`:'Use, borrow, maintain and fit actual tools and materials.',...work,actions:[...actions,...work.actions],records:featureRecordedKnowledge(state,['feature_objects.'])});
+        sections.push({id:'objects',label:'Fitting tools & materials',description:[objects.loan?`${objects.loan.label} remains borrowed from Eda. Return its current physical variant to reclaim the deposit.`:'Use, borrow, maintain and fit actual tools and materials.',objects.earnedTracker?.text].filter(Boolean).join(' '),...work,actions:[...actions,...work.actions],records:featureRecordedKnowledge(state,['feature_objects.'])});
     }
     const society=societyPresentation(state,registry,context);
     if(society.visible) {
