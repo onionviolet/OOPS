@@ -32,6 +32,8 @@ Proposals only; Codex lanes ER1-ER18 audit.
 owns the 2026-10-14 palette for creatures, spirits and things that travel with the
 player: kinds, acquisition, bond tracks, care, mounts, per-world fit, cheat shapes
 and expansions. Proposals only.
+Repeatable via the [companions core audit](audits/COMPANIONS_CORE_AUDIT.md);
+the general method is the [topic expansion audit playbook](audits/TOPIC_EXPANSION_AUDIT_PLAYBOOK.md).
 
 [Engine, saves, scale and app portability](ENGINE_SAVES_AND_SCALE_REVIEW_2026-10-11.md)
 owns the 2026-10-11 engineering proposal set under I29: save/recovery and history
