@@ -21,3 +21,10 @@ Codex sessions: G2 `01a13839-5825-7bf2-a33e-60626ada367a`, G3
 `01a13839-5825-74b2-abaf-85d18bd3f0b6`, G4 `01a13839-583c-7261-b778-8455e70d53c1`.
 Resume with `codex exec resume <id> "<prompt>"`. FA23 UI joined as G8 under the
 UI session, which runs its own Codex workers.
+
+Later the same evening: G2 and G3 finished on Codex and are merged (master
+`187a89e7`); G3's focus test needed a document stub after the UI merge. FA19
+joined as G9 at Weibao's request: Codex session
+`01a1385a-baf6-7901-9cb3-25aac0acb959` in `.claude/worktrees/r15-g9-world1`
+(branch `r15-g9-world1`) finishes World1's N1–N5 native gates. The World1 pause
+is lifted for those gates only. G4 is still running on Codex.
