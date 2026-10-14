@@ -784,3 +784,104 @@ P40 audits live code for BL1 to BL5 with file and line and proposes the lint rul
 Proposal only. BJ3 (generator registry) and BL1-BL5 lint pay for themselves on the
 next merge. BI2 (one receipt log) should be decided before any second lane slice
 is built, or the stores will fork.
+
+---
+
+## Round 10 (2026-10-14): weapons, runes, reveal cheats and shared abstractions
+
+Request: "Weaponcrafting, runestuff, other stuff and more? ... Cheats that would
+show stuff like these ... Overarching stuff? Implementation implications and more?
+Abstraction that's needed?" Saved as its own palette:
+[weaponcrafting, runes and reveal](WEAPONCRAFTING_RUNES_AND_REVEAL_CONSIDERATIONS_2026-10-14.md)
+(WC weaponcrafting, RN runes and inscriptions, RV reveal cheats, OV overarching, XA
+abstractions, IM implementation). It extends the crafting session's palette and P6
+rather than duplicating them. Lanes WR1 to WR4.
+
+**Story tie-ins.** Made things are story objects: naming, first blood, breaking and
+reforging write spine receipts (OV1, story BC1-BC2). Reveal cheats are lenses that
+write to the same known-context store the story layer reads (XA6, story S-4, BL9).
+
+**Abstractions shared across story and making (proposal).** One item identity with
+knowledge state (XA1), one effect algebra (XA5), one lens model (XA6) and one world
+law adapter (XA8), sitting on P38's entity references and receipt log. Weapons,
+runes, potions, storylets and cheats then differ in content, not in engine.
+
+**Merge status.** Procgen wave 1 (P1-P4) merged into `codex/gameplay-foundations`
+as 4e13f97f by the Procedural crafting and potions session; 679/679 tests pass,
+build passes, nothing pushed. P34 rebases onto it when its current run ends.
+
+---
+
+## Round 11 (2026-10-14): cheats that reveal story, and the story abstractions
+
+Request: "more to consider? ... Cheats that would show stuff like these and more?
+... Subtle stuff too? Overarching stuff? Implementation implications and more?
+Abstraction that's needed? Merging, committing or pushing?"
+
+**Coordination.** The same request reached several sessions. Weapons and runes
+are canonical in [Weaponcraft, runes and inscription](WEAPONCRAFT_RUNES_AND_INSCRIPTION_CONSIDERATIONS_2026-10-14.md)
+(lanes R1 to R3); this session's WR lanes were stopped as duplicates, and
+[the companion doc](WEAPONCRAFTING_RUNES_AND_REVEAL_CONSIDERATIONS_2026-10-14.md)
+keeps the reveal-lens rules and story tie-ins. This round stays on story.
+
+**Lane results folded in.** [P32](gm/dispatch/procgen-2026-10-13/p32/REPORT.md)
+top pick: a generated invitation that handles a dead or absent cast member or a
+destroyed place gracefully, with no false visit, debit or reroll (the continuity
+guard, AN1). Second: meet a distant "cold" person, leave, and return to the same
+consistent person after detail promotion (AM2).
+[P35](gm/dispatch/procgen-2026-10-13/p35/REPORT.md) top pick: return to a place you
+actually repaired and find the surviving trace and dated evidence. Second:
+encyclopedia entries showing two conflicting accounts with a reachable check.
+P34 has committed S-1 to S-4 (integration, typed outcomes, funded traveler requests
+with remembered aftermath, learned recaps and same-person callbacks).
+
+## BN. Cheats that reveal story
+
+The reveal-lens model (companion doc RV, XA6) applies to narrative state too. Each
+lens reads the spine and writes to known context, with scope, depth, cost and error.
+
+| Code | Lens | Source patterns (recalled, to verify) |
+|---|---|---|
+| BN1 | **Fate threads.** See who is bound to whom: debts, grudges, love, destiny ties | Red-string and karma sight in xianxia; Fated Villain's plot and luck reading |
+| BN2 | **Reader's view.** Know the canon outline of this world and see where the branch has diverged | ORV's reader perspective; transmigrator foreknowledge (round 3 O1) |
+| BN3 | **Quest markers and system prompts.** The System marks hooks, shows deadlines and rewards | LitRPG quest windows (D3) |
+| BN4 | **Next-event glimpse.** A short, partly wrong preview of what the deck will draw next | Precognition reading saved streams (A3) |
+| BN5 | **Relationship status windows.** Affection, trust and intent shown as numbers or colors | Dating-sim and LitRPG favorability; status window work |
+| BN6 | **Lie and intent sense.** Know when someone hides something, not what | Common empathic cheats; story BE4 |
+| BN7 | **Protagonist detector.** Recognize who carries a story's weight (canon cast, rivals, other transmigrators) | Halo-reading cheats; AS1 other outsiders |
+| BN8 | **Story so far, for anyone.** Read any NPC's chronicle like a wiki page | U1 hero wiki, applied to others |
+
+**Subtle lens rules for story.** Seeing a thread is not controlling it. Preview lenses
+read the actual saved future, and acting on it changes that future; they never
+reroll. Some lenses are deliberately wrong, partial or delayed, and the error is
+seeded too. Sealed secrets never surface through a story lens unless the secret's
+own file names that lens as a discovery route.
+
+## BO. Overarching
+
+| Code | Idea |
+|---|---|
+| BO1 | **One knowledge layer for everything.** Item traits, rune meanings, relationship states, canon outlines and future draws are all "known or unknown to this character", revealed by lenses, experiments, people or time. One store, one projection, one UI convention ("?" for unknown). |
+| BO2 | **Everything is a thread or a receipt.** Story, crafting, combat and economy all write settled outcomes; threads group them. That makes recaps, legends, encyclopedia and "why?" work across all systems. |
+| BO3 | **Per-world law adapters at the edges.** Generic engines; world rules as plug-ins (XA8, E9). |
+
+## BP. Abstractions the story layer needs
+
+| Code | Abstraction | Status |
+|---|---|---|
+| BP1 | **Thread:** an ID, cast, beats, stakes, state, linked receipts | P12 CONTRACT; P38 consolidating |
+| BP2 | **Receipt:** a settled outcome with typed refs | Built in P34 S-2 |
+| BP3 | **Request:** issuer, need, reserved reward, routes, settlement | Built in P34 S-3 |
+| BP4 | **Known context:** what this character knows and how (saw, heard, inferred) | Built in P34 S-4 for recaps; to generalize (BO1) |
+| BP5 | **Lens:** scope, depth, cost, error, writes to known context | Companion doc RV; canonical doc R3 |
+| BP6 | **Card or template:** requirements, weights, cooldowns, responses, effects | P3, live |
+| BP7 | **Storyteller:** pacing state over decks | P5 D9, proposal |
+| BP8 | **World profile:** laws, canon anchors, reserved items, micro texture | P9, P10, P13, P37 |
+
+## BQ. Implementation implications
+
+| Code | Implication |
+|---|---|
+| BQ1 | **Generalize P34's known context early.** If item and rune lenses build their own knowledge stores, BO1 forks. One knowledge owner before any lens ships. |
+| BQ2 | **Rebase, then merge P34 promptly** once its run ends and gates pass, per the merge-before-dispatch rule, so later story slices build on it instead of on a stale branch. |
+| BQ3 | **Push cadence.** Commits are piling up locally across sessions. A push after each verified merge keeps origin a usable backup. Pushing needs Weibao's yes. |

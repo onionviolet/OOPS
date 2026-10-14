@@ -1,0 +1,54 @@
+{
+  "kittens": {
+    "repo": "nuclear-unicorn/kittensgame",
+    "sha": "781e379f79f1e7512d168849cba21ed111502644"
+  },
+  "cdda": {
+    "repo": "CleverRaven/Cataclysm-DDA",
+    "sha": "918f396f370ea48fad924fb45a797386a2f6ddb4"
+  },
+  "idleloops": {
+    "repo": "omsi6/omsi6.github.io",
+    "sha": "fa21477d424f3aa1f1bf6deb9f6f83c2569770ab"
+  },
+  "candybox-original": {
+    "repo": "candybox2/candybox",
+    "sha": "955eaaa3454b438874c0932f70cff22ec813d922"
+  },
+  "cookie-mirror": {
+    "repo": "ozh/cookieclicker",
+    "sha": "c77f00c51854a667da35a3135120797a579c2d72"
+  },
+  "progressknight": {
+    "repo": "ihtasham42/progress-knight",
+    "sha": "f6dd0c3c444d838f80325bbdca918160b99e89e5"
+  },
+  "darkroom": {
+    "repo": "doublespeakgames/adarkroom",
+    "sha": "1fada4620b6c66bd07bf15a3f1eb8223df8bc1d7"
+  },
+  "melvor-types": {
+    "repo": "GamesByMalcsPtyLtd/Melvor-Typing-Project",
+    "sha": "aa84a4253d998ab03f396aee9e1c0b3a9df0582c"
+  },
+  "evolve": {
+    "repo": "pmotschmann/Evolve",
+    "sha": "3436358dcd03d9f9e071d51ea071e0a78c0322e4"
+  },
+  "antimatter": {
+    "repo": "IvarK/AntimatterDimensionsSourceCode",
+    "sha": "5409e320cecef96a917cca1dfb68f1f183e499ca"
+  },
+  "trimps": {
+    "repo": "Trimps/Trimps.github.io",
+    "sha": "b9edb1dfee270ebf81bef8d934dc71276bf8d963"
+  },
+  "candybox": {
+    "repo": "candybox2/candybox2.github.io",
+    "sha": "35301d438aa2c1e58e8cb3ea215b0af323bddf9b"
+  },
+  "upstream": {
+    "repo": "miktaew/yet-another-idle-rpg",
+    "sha": "e3356432ad5112f30842cfe6a6b5c3a4ced77de9"
+  }
+}

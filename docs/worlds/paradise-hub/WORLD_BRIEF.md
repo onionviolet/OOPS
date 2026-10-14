@@ -47,3 +47,17 @@ Delivered native travel/retained return binds the actual original nested destina
 The original service district, two distinct retained destinations, funded ordinary work/missions, material interventions, extraction/settlement and useful return/revisit have bounded delivered source/native consumers in the linked receipts. The separate supplied-MTL sid20 first-Goa branch has independent entry/life/learning, optional cooperation, civilian cache/warning, cask diversion, palace evidence and original alternative consequences. Sid26–28 hub material beside sid20 and all prototype costs/outcomes remain explicit original placement/divergence choices. Actual earned replacement, arbitrary NPC attack, full novel/world parity and general interruption/rescue/body-start adapters remain unimplemented broader proposals.
 
 Checkpoint,2026-10-06: canonical revision21/current remainder bundle and source release supersede the old planner-only/no-writer/first-proof resume. [Current shared checkpoint](../../gm/audit-implementation/remainder/CHECKPOINT.md), [19-plus-connected coverage](../../gm/audit-implementation/remainder/COVERAGE.json), [source repairs](../../gm/audit-implementation/remainder/SOURCE_REPAIRS.md) and [later acceptance](../../gm/audit-implementation/remainder/ACCEPTANCE_BACKLOG.md) retain exact owners and unverified behavior. [Exact old brief](../../gm/audit-implementation/remainder/BEFORE_CANONICAL.json) preserves the retired paragraphs. Further work uses the actual assigned scope and current source-fit owners, without relaunching completed reading or claiming every external campaign complete.
+
+## Canon-first priority research, 2026-10-14
+
+Weibao moved Reincarnation Paradise into the canon-first tier
+([direction](../../USER_VISION.md#world-depth-and-canon-first-world-priority-2026-10-13)).
+Four research lanes ([dispatch](../../gm/dispatch/paradise-priority-2026-10-14/COMMON.md))
+returned proposals, none accepted or implemented:
+[canon priority plan](CANON_PRIORITY_PLAN_2026-10-14.md) (source map, current
+footprint vs canon, starts SRP1-SRP32, AUs ARP1-ARP10, first slice and gates),
+[beings, pets and bodies](BEINGS_PETS_AND_BODIES_2026-10-14.md) (BS1-BS5, PB1-PB5),
+[derived worlds and missions](DERIVED_WORLDS_AND_MISSIONS_2026-10-14.md)
+(chronological catalog, mission engine shape, overlaps, N18 mission bodies) and
+[hub life, economy and people](HUB_LIFE_ECONOMY_AND_PEOPLE_2026-10-14.md).
+The delivered footprint above stays as recorded.

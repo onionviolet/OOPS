@@ -1,0 +1,1498 @@
+{
+  "timing": {
+    "command": "node --test --test-reporter=/tmp/er2-runtime-audit/file-reporter.mjs tests/*.test.js",
+    "wallSeconds": 35.50405304200831,
+    "exitCode": 0
+  },
+  "overall": {
+    "success": true,
+    "counts": {
+      "tests": 634,
+      "failed": 0,
+      "passed": 634,
+      "cancelled": 0,
+      "skipped": 0,
+      "todo": 0,
+      "topLevel": 634,
+      "suites": 0
+    },
+    "duration_ms": 35427.675208
+  },
+  "files": [
+    {
+      "success": true,
+      "counts": {
+        "tests": 18,
+        "failed": 0,
+        "passed": 18,
+        "cancelled": 0,
+        "skipped": 0,
+        "todo": 0,
+        "topLevel": 18,
+        "suites": 0
+      },
+      "duration_ms": 33896.641625,
+      "file": "/Users/weiwei/code/yet-another-idle-rpg/tests/cooling_refinement.test.js"
+    },
+    {
+      "success": true,
+      "counts": {
+        "tests": 13,
+        "failed": 0,
+        "passed": 13,
+        "cancelled": 0,
+        "skipped": 0,
+        "todo": 0,
+        "topLevel": 13,
+        "suites": 0
+      },
+      "duration_ms": 27307.157542,
+      "file": "/Users/weiwei/code/yet-another-idle-rpg/tests/agreed_duty_continuation.test.js"
+    },
+    {
+      "success": true,
+      "counts": {
+        "tests": 4,
+        "failed": 0,
+        "passed": 4,
+        "cancelled": 0,
+        "skipped": 0,
+        "todo": 0,
+        "topLevel": 4,
+        "suites": 0
+      },
+      "duration_ms": 22918.834416,
+      "file": "/Users/weiwei/code/yet-another-idle-rpg/tests/cheat_cards.test.js"
+    },
+    {
+      "success": true,
+      "counts": {
+        "tests": 17,
+        "failed": 0,
+        "passed": 17,
+        "cancelled": 0,
+        "skipped": 0,
+        "todo": 0,
+        "topLevel": 17,
+        "suites": 0
+      },
+      "duration_ms": 19601.239625,
+      "file": "/Users/weiwei/code/yet-another-idle-rpg/tests/fa09_routines.test.js"
+    },
+    {
+      "success": true,
+      "counts": {
+        "tests": 15,
+        "failed": 0,
+        "passed": 15,
+        "cancelled": 0,
+        "skipped": 0,
+        "todo": 0,
+        "topLevel": 15,
+        "suites": 0
+      },
+      "duration_ms": 15927.328667,
+      "file": "/Users/weiwei/code/yet-another-idle-rpg/tests/fa11_retort.test.js"
+    },
+    {
+      "success": true,
+      "counts": {
+        "tests": 10,
+        "failed": 0,
+        "passed": 10,
+        "cancelled": 0,
+        "skipped": 0,
+        "todo": 0,
+        "topLevel": 10,
+        "suites": 0
+      },
+      "duration_ms": 15688.915625,
+      "file": "/Users/weiwei/code/yet-another-idle-rpg/tests/fa10_manual.test.js"
+    },
+    {
+      "success": true,
+      "counts": {
+        "tests": 28,
+        "failed": 0,
+        "passed": 28,
+        "cancelled": 0,
+        "skipped": 0,
+        "todo": 0,
+        "topLevel": 28,
+        "suites": 0
+      },
+      "duration_ms": 14726.040834,
+      "file": "/Users/weiwei/code/yet-another-idle-rpg/tests/simulation.test.js"
+    },
+    {
+      "success": true,
+      "counts": {
+        "tests": 19,
+        "failed": 0,
+        "passed": 19,
+        "cancelled": 0,
+        "skipped": 0,
+        "todo": 0,
+        "topLevel": 19,
+        "suites": 0
+      },
+      "duration_ms": 14488.221042,
+      "file": "/Users/weiwei/code/yet-another-idle-rpg/tests/management.test.js"
+    },
+    {
+      "success": true,
+      "counts": {
+        "tests": 12,
+        "failed": 0,
+        "passed": 12,
+        "cancelled": 0,
+        "skipped": 0,
+        "todo": 0,
+        "topLevel": 12,
+        "suites": 0
+      },
+      "duration_ms": 13995.155416,
+      "file": "/Users/weiwei/code/yet-another-idle-rpg/tests/ink_lin_parity.test.js"
+    },
+    {
+      "success": true,
+      "counts": {
+        "tests": 5,
+        "failed": 0,
+        "passed": 5,
+        "cancelled": 0,
+        "skipped": 0,
+        "todo": 0,
+        "topLevel": 5,
+        "suites": 0
+      },
+      "duration_ms": 13274.95175,
+      "file": "/Users/weiwei/code/yet-another-idle-rpg/tests/alloy_equipment.test.js"
+    },
+    {
+      "success": true,
+      "counts": {
+        "tests": 13,
+        "failed": 0,
+        "passed": 13,
+        "cancelled": 0,
+        "skipped": 0,
+        "todo": 0,
+        "topLevel": 13,
+        "suites": 0
+      },
+      "duration_ms": 11314.9705,
+      "file": "/Users/weiwei/code/yet-another-idle-rpg/tests/field_workshop.test.js"
+    },
+    {
+      "success": true,
+      "counts": {
+        "tests": 7,
+        "failed": 0,
+        "passed": 7,
+        "cancelled": 0,
+        "skipped": 0,
+        "todo": 0,
+        "topLevel": 7,
+        "suites": 0
+      },
+      "duration_ms": 10961.207875,
+      "file": "/Users/weiwei/code/yet-another-idle-rpg/tests/observation.test.js"
+    },
+    {
+      "success": true,
+      "counts": {
+        "tests": 8,
+        "failed": 0,
+        "passed": 8,
+        "cancelled": 0,
+        "skipped": 0,
+        "todo": 0,
+        "topLevel": 8,
+        "suites": 0
+      },
+      "duration_ms": 10083.34525,
+      "file": "/Users/weiwei/code/yet-another-idle-rpg/tests/exchange.test.js"
+    },
+    {
+      "success": true,
+      "counts": {
+        "tests": 10,
+        "failed": 0,
+        "passed": 10,
+        "cancelled": 0,
+        "skipped": 0,
+        "todo": 0,
+        "topLevel": 10,
+        "suites": 0
+      },
+      "duration_ms": 9927.997584,
+      "file": "/Users/weiwei/code/yet-another-idle-rpg/tests/frontier_campaign.test.js"
+    },
+    {
+      "success": true,
+      "counts": {
+        "tests": 11,
+        "failed": 0,
+        "passed": 11,
+        "cancelled": 0,
+        "skipped": 0,
+        "todo": 0,
+        "topLevel": 11,
+        "suites": 0
+      },
+      "duration_ms": 8426.3575,
+      "file": "/Users/weiwei/code/yet-another-idle-rpg/tests/party_battle.test.js"
+    },
+    {
+      "success": true,
+      "counts": {
+        "tests": 14,
+        "failed": 0,
+        "passed": 14,
+        "cancelled": 0,
+        "skipped": 0,
+        "todo": 0,
+        "topLevel": 14,
+        "suites": 0
+      },
+      "duration_ms": 7816.6475,
+      "file": "/Users/weiwei/code/yet-another-idle-rpg/tests/pursuit.test.js"
+    },
+    {
+      "success": true,
+      "counts": {
+        "tests": 15,
+        "failed": 0,
+        "passed": 15,
+        "cancelled": 0,
+        "skipped": 0,
+        "todo": 0,
+        "topLevel": 15,
+        "suites": 0
+      },
+      "duration_ms": 6823.8,
+      "file": "/Users/weiwei/code/yet-another-idle-rpg/tests/contextual_balm.test.js"
+    },
+    {
+      "success": true,
+      "counts": {
+        "tests": 8,
+        "failed": 0,
+        "passed": 8,
+        "cancelled": 0,
+        "skipped": 0,
+        "todo": 0,
+        "topLevel": 8,
+        "suites": 0
+      },
+      "duration_ms": 6684.175625,
+      "file": "/Users/weiwei/code/yet-another-idle-rpg/tests/promise_situation.test.js"
+    },
+    {
+      "success": true,
+      "counts": {
+        "tests": 9,
+        "failed": 0,
+        "passed": 9,
+        "cancelled": 0,
+        "skipped": 0,
+        "todo": 0,
+        "topLevel": 9,
+        "suites": 0
+      },
+      "duration_ms": 5023.009625,
+      "file": "/Users/weiwei/code/yet-another-idle-rpg/tests/body_progression.test.js"
+    },
+    {
+      "success": true,
+      "counts": {
+        "tests": 6,
+        "failed": 0,
+        "passed": 6,
+        "cancelled": 0,
+        "skipped": 0,
+        "todo": 0,
+        "topLevel": 6,
+        "suites": 0
+      },
+      "duration_ms": 4306.044875,
+      "file": "/Users/weiwei/code/yet-another-idle-rpg/tests/local_livelihood.test.js"
+    },
+    {
+      "success": true,
+      "counts": {
+        "tests": 4,
+        "failed": 0,
+        "passed": 4,
+        "cancelled": 0,
+        "skipped": 0,
+        "todo": 0,
+        "topLevel": 4,
+        "suites": 0
+      },
+      "duration_ms": 3902.536417,
+      "file": "/Users/weiwei/code/yet-another-idle-rpg/tests/fieldcraft_saved_jobs.test.js"
+    },
+    {
+      "success": true,
+      "counts": {
+        "tests": 12,
+        "failed": 0,
+        "passed": 12,
+        "cancelled": 0,
+        "skipped": 0,
+        "todo": 0,
+        "topLevel": 12,
+        "suites": 0
+      },
+      "duration_ms": 3672.462708,
+      "file": "/Users/weiwei/code/yet-another-idle-rpg/tests/simulation_extensions.test.js"
+    },
+    {
+      "success": true,
+      "counts": {
+        "tests": 7,
+        "failed": 0,
+        "passed": 7,
+        "cancelled": 0,
+        "skipped": 0,
+        "todo": 0,
+        "topLevel": 7,
+        "suites": 0
+      },
+      "duration_ms": 2884.347167,
+      "file": "/Users/weiwei/code/yet-another-idle-rpg/tests/everyday_life.test.js"
+    },
+    {
+      "success": true,
+      "counts": {
+        "tests": 17,
+        "failed": 0,
+        "passed": 17,
+        "cancelled": 0,
+        "skipped": 0,
+        "todo": 0,
+        "topLevel": 17,
+        "suites": 0
+      },
+      "duration_ms": 1606.127917,
+      "file": "/Users/weiwei/code/yet-another-idle-rpg/tests/foundation_interaction_policy.test.js"
+    },
+    {
+      "success": true,
+      "counts": {
+        "tests": 3,
+        "failed": 0,
+        "passed": 3,
+        "cancelled": 0,
+        "skipped": 0,
+        "todo": 0,
+        "topLevel": 3,
+        "suites": 0
+      },
+      "duration_ms": 1522.182,
+      "file": "/Users/weiwei/code/yet-another-idle-rpg/tests/combat_fit_practice.test.js"
+    },
+    {
+      "success": true,
+      "counts": {
+        "tests": 4,
+        "failed": 0,
+        "passed": 4,
+        "cancelled": 0,
+        "skipped": 0,
+        "todo": 0,
+        "topLevel": 4,
+        "suites": 0
+      },
+      "duration_ms": 1291.37675,
+      "file": "/Users/weiwei/code/yet-another-idle-rpg/tests/foundation_start_content.test.js"
+    },
+    {
+      "success": true,
+      "counts": {
+        "tests": 15,
+        "failed": 0,
+        "passed": 15,
+        "cancelled": 0,
+        "skipped": 0,
+        "todo": 0,
+        "topLevel": 15,
+        "suites": 0
+      },
+      "duration_ms": 1212.061167,
+      "file": "/Users/weiwei/code/yet-another-idle-rpg/tests/structured_pack_runtime.test.js"
+    },
+    {
+      "success": true,
+      "counts": {
+        "tests": 2,
+        "failed": 0,
+        "passed": 2,
+        "cancelled": 0,
+        "skipped": 0,
+        "todo": 0,
+        "topLevel": 2,
+        "suites": 0
+      },
+      "duration_ms": 1134.264791,
+      "file": "/Users/weiwei/code/yet-another-idle-rpg/tests/resident_allocation_funding.test.js"
+    },
+    {
+      "success": true,
+      "counts": {
+        "tests": 6,
+        "failed": 0,
+        "passed": 6,
+        "cancelled": 0,
+        "skipped": 0,
+        "todo": 0,
+        "topLevel": 6,
+        "suites": 0
+      },
+      "duration_ms": 1041.406959,
+      "file": "/Users/weiwei/code/yet-another-idle-rpg/tests/life_record.test.js"
+    },
+    {
+      "success": true,
+      "counts": {
+        "tests": 5,
+        "failed": 0,
+        "passed": 5,
+        "cancelled": 0,
+        "skipped": 0,
+        "todo": 0,
+        "topLevel": 5,
+        "suites": 0
+      },
+      "duration_ms": 1038.831667,
+      "file": "/Users/weiwei/code/yet-another-idle-rpg/tests/structured_container_integration.test.js"
+    },
+    {
+      "success": true,
+      "counts": {
+        "tests": 5,
+        "failed": 0,
+        "passed": 5,
+        "cancelled": 0,
+        "skipped": 0,
+        "todo": 0,
+        "topLevel": 5,
+        "suites": 0
+      },
+      "duration_ms": 999.489875,
+      "file": "/Users/weiwei/code/yet-another-idle-rpg/tests/structured_renewal.test.js"
+    },
+    {
+      "success": true,
+      "counts": {
+        "tests": 1,
+        "failed": 0,
+        "passed": 1,
+        "cancelled": 0,
+        "skipped": 0,
+        "todo": 0,
+        "topLevel": 1,
+        "suites": 0
+      },
+      "duration_ms": 944.931083,
+      "file": "/Users/weiwei/code/yet-another-idle-rpg/tests/feature_panel_save_failure.test.js"
+    },
+    {
+      "success": true,
+      "counts": {
+        "tests": 11,
+        "failed": 0,
+        "passed": 11,
+        "cancelled": 0,
+        "skipped": 0,
+        "todo": 0,
+        "topLevel": 11,
+        "suites": 0
+      },
+      "duration_ms": 875.536583,
+      "file": "/Users/weiwei/code/yet-another-idle-rpg/tests/expansion_engine.test.js"
+    },
+    {
+      "success": true,
+      "counts": {
+        "tests": 4,
+        "failed": 0,
+        "passed": 4,
+        "cancelled": 0,
+        "skipped": 0,
+        "todo": 0,
+        "topLevel": 4,
+        "suites": 0
+      },
+      "duration_ms": 769.262333,
+      "file": "/Users/weiwei/code/yet-another-idle-rpg/tests/village_mentor.test.js"
+    },
+    {
+      "success": true,
+      "counts": {
+        "tests": 4,
+        "failed": 0,
+        "passed": 4,
+        "cancelled": 0,
+        "skipped": 0,
+        "todo": 0,
+        "topLevel": 4,
+        "suites": 0
+      },
+      "duration_ms": 686.926375,
+      "file": "/Users/weiwei/code/yet-another-idle-rpg/tests/npc_lives.test.js"
+    },
+    {
+      "success": true,
+      "counts": {
+        "tests": 12,
+        "failed": 0,
+        "passed": 12,
+        "cancelled": 0,
+        "skipped": 0,
+        "todo": 0,
+        "topLevel": 12,
+        "suites": 0
+      },
+      "duration_ms": 642.527125,
+      "file": "/Users/weiwei/code/yet-another-idle-rpg/tests/chronicle.test.js"
+    },
+    {
+      "success": true,
+      "counts": {
+        "tests": 12,
+        "failed": 0,
+        "passed": 12,
+        "cancelled": 0,
+        "skipped": 0,
+        "todo": 0,
+        "topLevel": 12,
+        "suites": 0
+      },
+      "duration_ms": 496.095458,
+      "file": "/Users/weiwei/code/yet-another-idle-rpg/tests/structured_origins.test.js"
+    },
+    {
+      "success": true,
+      "counts": {
+        "tests": 8,
+        "failed": 0,
+        "passed": 8,
+        "cancelled": 0,
+        "skipped": 0,
+        "todo": 0,
+        "topLevel": 8,
+        "suites": 0
+      },
+      "duration_ms": 488.285,
+      "file": "/Users/weiwei/code/yet-another-idle-rpg/tests/village_life.test.js"
+    },
+    {
+      "success": true,
+      "counts": {
+        "tests": 11,
+        "failed": 0,
+        "passed": 11,
+        "cancelled": 0,
+        "skipped": 0,
+        "todo": 0,
+        "topLevel": 11,
+        "suites": 0
+      },
+      "duration_ms": 381.354792,
+      "file": "/Users/weiwei/code/yet-another-idle-rpg/tests/gameplay_foundations.test.js"
+    },
+    {
+      "success": true,
+      "counts": {
+        "tests": 7,
+        "failed": 0,
+        "passed": 7,
+        "cancelled": 0,
+        "skipped": 0,
+        "todo": 0,
+        "topLevel": 7,
+        "suites": 0
+      },
+      "duration_ms": 372.330583,
+      "file": "/Users/weiwei/code/yet-another-idle-rpg/tests/techniques.test.js"
+    },
+    {
+      "success": true,
+      "counts": {
+        "tests": 2,
+        "failed": 0,
+        "passed": 2,
+        "cancelled": 0,
+        "skipped": 0,
+        "todo": 0,
+        "topLevel": 2,
+        "suites": 0
+      },
+      "duration_ms": 357.798375,
+      "file": "/Users/weiwei/code/yet-another-idle-rpg/tests/mol_held_job_facts.test.js"
+    },
+    {
+      "success": true,
+      "counts": {
+        "tests": 5,
+        "failed": 0,
+        "passed": 5,
+        "cancelled": 0,
+        "skipped": 0,
+        "todo": 0,
+        "topLevel": 5,
+        "suites": 0
+      },
+      "duration_ms": 356.002,
+      "file": "/Users/weiwei/code/yet-another-idle-rpg/tests/native_storage_transaction.test.js"
+    },
+    {
+      "success": true,
+      "counts": {
+        "tests": 1,
+        "failed": 0,
+        "passed": 1,
+        "cancelled": 0,
+        "skipped": 0,
+        "todo": 0,
+        "topLevel": 1,
+        "suites": 0
+      },
+      "duration_ms": 246.888708,
+      "file": "/Users/weiwei/code/yet-another-idle-rpg/tests/micro_p1_xp.test.js"
+    },
+    {
+      "success": true,
+      "counts": {
+        "tests": 6,
+        "failed": 0,
+        "passed": 6,
+        "cancelled": 0,
+        "skipped": 0,
+        "todo": 0,
+        "topLevel": 6,
+        "suites": 0
+      },
+      "duration_ms": 233.207458,
+      "file": "/Users/weiwei/code/yet-another-idle-rpg/tests/people_knowledge.test.js"
+    },
+    {
+      "success": true,
+      "counts": {
+        "tests": 6,
+        "failed": 0,
+        "passed": 6,
+        "cancelled": 0,
+        "skipped": 0,
+        "todo": 0,
+        "topLevel": 6,
+        "suites": 0
+      },
+      "duration_ms": 192.187792,
+      "file": "/Users/weiwei/code/yet-another-idle-rpg/tests/town.test.js"
+    },
+    {
+      "success": true,
+      "counts": {
+        "tests": 6,
+        "failed": 0,
+        "passed": 6,
+        "cancelled": 0,
+        "skipped": 0,
+        "todo": 0,
+        "topLevel": 6,
+        "suites": 0
+      },
+      "duration_ms": 164.864042,
+      "file": "/Users/weiwei/code/yet-another-idle-rpg/tests/absorb_e2.test.js"
+    },
+    {
+      "success": true,
+      "counts": {
+        "tests": 2,
+        "failed": 0,
+        "passed": 2,
+        "cancelled": 0,
+        "skipped": 0,
+        "todo": 0,
+        "topLevel": 2,
+        "suites": 0
+      },
+      "duration_ms": 161.278709,
+      "file": "/Users/weiwei/code/yet-another-idle-rpg/tests/reference_optional_target.test.js"
+    },
+    {
+      "success": true,
+      "counts": {
+        "tests": 2,
+        "failed": 0,
+        "passed": 2,
+        "cancelled": 0,
+        "skipped": 0,
+        "todo": 0,
+        "topLevel": 2,
+        "suites": 0
+      },
+      "duration_ms": 161.199416,
+      "file": "/Users/weiwei/code/yet-another-idle-rpg/tests/native_equipment_ownership.test.js"
+    },
+    {
+      "success": true,
+      "counts": {
+        "tests": 5,
+        "failed": 0,
+        "passed": 5,
+        "cancelled": 0,
+        "skipped": 0,
+        "todo": 0,
+        "topLevel": 5,
+        "suites": 0
+      },
+      "duration_ms": 157.578459,
+      "file": "/Users/weiwei/code/yet-another-idle-rpg/tests/absorb_e3.test.js"
+    },
+    {
+      "success": true,
+      "counts": {
+        "tests": 6,
+        "failed": 0,
+        "passed": 6,
+        "cancelled": 0,
+        "skipped": 0,
+        "todo": 0,
+        "topLevel": 6,
+        "suites": 0
+      },
+      "duration_ms": 147.845208,
+      "file": "/Users/weiwei/code/yet-another-idle-rpg/tests/absorb_c1.test.js"
+    },
+    {
+      "success": true,
+      "counts": {
+        "tests": 1,
+        "failed": 0,
+        "passed": 1,
+        "cancelled": 0,
+        "skipped": 0,
+        "todo": 0,
+        "topLevel": 1,
+        "suites": 0
+      },
+      "duration_ms": 126.633917,
+      "file": "/Users/weiwei/code/yet-another-idle-rpg/tests/remainder_consequences_native_context.test.js"
+    },
+    {
+      "success": true,
+      "counts": {
+        "tests": 7,
+        "failed": 0,
+        "passed": 7,
+        "cancelled": 0,
+        "skipped": 0,
+        "todo": 0,
+        "topLevel": 7,
+        "suites": 0
+      },
+      "duration_ms": 113.200666,
+      "file": "/Users/weiwei/code/yet-another-idle-rpg/tests/fa18_runner_consequence.test.js"
+    },
+    {
+      "success": true,
+      "counts": {
+        "tests": 4,
+        "failed": 0,
+        "passed": 4,
+        "cancelled": 0,
+        "skipped": 0,
+        "todo": 0,
+        "topLevel": 4,
+        "suites": 0
+      },
+      "duration_ms": 106.102042,
+      "file": "/Users/weiwei/code/yet-another-idle-rpg/tests/native_discovery_policy.test.js"
+    },
+    {
+      "success": true,
+      "counts": {
+        "tests": 1,
+        "failed": 0,
+        "passed": 1,
+        "cancelled": 0,
+        "skipped": 0,
+        "todo": 0,
+        "topLevel": 1,
+        "suites": 0
+      },
+      "duration_ms": 77.81675,
+      "file": "/Users/weiwei/code/yet-another-idle-rpg/tests/native_retained_method.test.js"
+    },
+    {
+      "success": true,
+      "counts": {
+        "tests": 1,
+        "failed": 0,
+        "passed": 1,
+        "cancelled": 0,
+        "skipped": 0,
+        "todo": 0,
+        "topLevel": 1,
+        "suites": 0
+      },
+      "duration_ms": 74.77675,
+      "file": "/Users/weiwei/code/yet-another-idle-rpg/tests/realm_dormant_structured.test.js"
+    },
+    {
+      "success": true,
+      "counts": {
+        "tests": 4,
+        "failed": 0,
+        "passed": 4,
+        "cancelled": 0,
+        "skipped": 0,
+        "todo": 0,
+        "topLevel": 4,
+        "suites": 0
+      },
+      "duration_ms": 72.919875,
+      "file": "/Users/weiwei/code/yet-another-idle-rpg/tests/content_pack_provenance.test.js"
+    },
+    {
+      "success": true,
+      "counts": {
+        "tests": 1,
+        "failed": 0,
+        "passed": 1,
+        "cancelled": 0,
+        "skipped": 0,
+        "todo": 0,
+        "topLevel": 1,
+        "suites": 0
+      },
+      "duration_ms": 67.187,
+      "file": "/Users/weiwei/code/yet-another-idle-rpg/tests/world_completion_actor_context.test.js"
+    },
+    {
+      "success": true,
+      "counts": {
+        "tests": 4,
+        "failed": 0,
+        "passed": 4,
+        "cancelled": 0,
+        "skipped": 0,
+        "todo": 0,
+        "topLevel": 4,
+        "suites": 0
+      },
+      "duration_ms": 65.979584,
+      "file": "/Users/weiwei/code/yet-another-idle-rpg/tests/acquisition.test.js"
+    },
+    {
+      "success": true,
+      "counts": {
+        "tests": 4,
+        "failed": 0,
+        "passed": 4,
+        "cancelled": 0,
+        "skipped": 0,
+        "todo": 0,
+        "topLevel": 4,
+        "suites": 0
+      },
+      "duration_ms": 62.3215,
+      "file": "/Users/weiwei/code/yet-another-idle-rpg/tests/world_knowledge.test.js"
+    },
+    {
+      "success": true,
+      "counts": {
+        "tests": 4,
+        "failed": 0,
+        "passed": 4,
+        "cancelled": 0,
+        "skipped": 0,
+        "todo": 0,
+        "topLevel": 4,
+        "suites": 0
+      },
+      "duration_ms": 54.772458,
+      "file": "/Users/weiwei/code/yet-another-idle-rpg/tests/event_feed.test.js"
+    },
+    {
+      "success": true,
+      "counts": {
+        "tests": 2,
+        "failed": 0,
+        "passed": 2,
+        "cancelled": 0,
+        "skipped": 0,
+        "todo": 0,
+        "topLevel": 2,
+        "suites": 0
+      },
+      "duration_ms": 52.186,
+      "file": "/Users/weiwei/code/yet-another-idle-rpg/tests/lore_immediate_definition.test.js"
+    },
+    {
+      "success": true,
+      "counts": {
+        "tests": 4,
+        "failed": 0,
+        "passed": 4,
+        "cancelled": 0,
+        "skipped": 0,
+        "todo": 0,
+        "topLevel": 4,
+        "suites": 0
+      },
+      "duration_ms": 44.697334,
+      "file": "/Users/weiwei/code/yet-another-idle-rpg/tests/v06_migration.test.js"
+    },
+    {
+      "success": true,
+      "counts": {
+        "tests": 4,
+        "failed": 0,
+        "passed": 4,
+        "cancelled": 0,
+        "skipped": 0,
+        "todo": 0,
+        "topLevel": 4,
+        "suites": 0
+      },
+      "duration_ms": 41.91175,
+      "file": "/Users/weiwei/code/yet-another-idle-rpg/tests/character_bio.test.js"
+    },
+    {
+      "success": true,
+      "counts": {
+        "tests": 2,
+        "failed": 0,
+        "passed": 2,
+        "cancelled": 0,
+        "skipped": 0,
+        "todo": 0,
+        "topLevel": 2,
+        "suites": 0
+      },
+      "duration_ms": 41.891875,
+      "file": "/Users/weiwei/code/yet-another-idle-rpg/tests/world_completion_sample_owner.test.js"
+    },
+    {
+      "success": true,
+      "counts": {
+        "tests": 8,
+        "failed": 0,
+        "passed": 8,
+        "cancelled": 0,
+        "skipped": 0,
+        "todo": 0,
+        "topLevel": 8,
+        "suites": 0
+      },
+      "duration_ms": 35.58925,
+      "file": "/Users/weiwei/code/yet-another-idle-rpg/tests/authored_site.test.js"
+    },
+    {
+      "success": true,
+      "counts": {
+        "tests": 4,
+        "failed": 0,
+        "passed": 4,
+        "cancelled": 0,
+        "skipped": 0,
+        "todo": 0,
+        "topLevel": 4,
+        "suites": 0
+      },
+      "duration_ms": 34.589125,
+      "file": "/Users/weiwei/code/yet-another-idle-rpg/tests/village_choices.test.js"
+    },
+    {
+      "success": true,
+      "counts": {
+        "tests": 12,
+        "failed": 0,
+        "passed": 12,
+        "cancelled": 0,
+        "skipped": 0,
+        "todo": 0,
+        "topLevel": 12,
+        "suites": 0
+      },
+      "duration_ms": 34.569584,
+      "file": "/Users/weiwei/code/yet-another-idle-rpg/tests/absorb_e1.test.js"
+    },
+    {
+      "success": true,
+      "counts": {
+        "tests": 9,
+        "failed": 0,
+        "passed": 9,
+        "cancelled": 0,
+        "skipped": 0,
+        "todo": 0,
+        "topLevel": 9,
+        "suites": 0
+      },
+      "duration_ms": 34.091292,
+      "file": "/Users/weiwei/code/yet-another-idle-rpg/tests/structured_pack_definitions.test.js"
+    },
+    {
+      "success": true,
+      "counts": {
+        "tests": 5,
+        "failed": 0,
+        "passed": 5,
+        "cancelled": 0,
+        "skipped": 0,
+        "todo": 0,
+        "topLevel": 5,
+        "suites": 0
+      },
+      "duration_ms": 27.909417,
+      "file": "/Users/weiwei/code/yet-another-idle-rpg/tests/life_experience_b.test.js"
+    },
+    {
+      "success": true,
+      "counts": {
+        "tests": 8,
+        "failed": 0,
+        "passed": 8,
+        "cancelled": 0,
+        "skipped": 0,
+        "todo": 0,
+        "topLevel": 8,
+        "suites": 0
+      },
+      "duration_ms": 26.293708,
+      "file": "/Users/weiwei/code/yet-another-idle-rpg/tests/absorb_d.test.js"
+    },
+    {
+      "success": true,
+      "counts": {
+        "tests": 5,
+        "failed": 0,
+        "passed": 5,
+        "cancelled": 0,
+        "skipped": 0,
+        "todo": 0,
+        "topLevel": 5,
+        "suites": 0
+      },
+      "duration_ms": 25.924833,
+      "file": "/Users/weiwei/code/yet-another-idle-rpg/tests/village_career.test.js"
+    },
+    {
+      "success": true,
+      "counts": {
+        "tests": 10,
+        "failed": 0,
+        "passed": 10,
+        "cancelled": 0,
+        "skipped": 0,
+        "todo": 0,
+        "topLevel": 10,
+        "suites": 0
+      },
+      "duration_ms": 25.005209,
+      "file": "/Users/weiwei/code/yet-another-idle-rpg/tests/structured_container_runtime.test.js"
+    },
+    {
+      "success": true,
+      "counts": {
+        "tests": 5,
+        "failed": 0,
+        "passed": 5,
+        "cancelled": 0,
+        "skipped": 0,
+        "todo": 0,
+        "topLevel": 5,
+        "suites": 0
+      },
+      "duration_ms": 21.846875,
+      "file": "/Users/weiwei/code/yet-another-idle-rpg/tests/absorb_b.test.js"
+    },
+    {
+      "success": true,
+      "counts": {
+        "tests": 1,
+        "failed": 0,
+        "passed": 1,
+        "cancelled": 0,
+        "skipped": 0,
+        "todo": 0,
+        "topLevel": 1,
+        "suites": 0
+      },
+      "duration_ms": 21.695708,
+      "file": "/Users/weiwei/code/yet-another-idle-rpg/tests/work_ledger_busy_read.test.js"
+    },
+    {
+      "success": true,
+      "counts": {
+        "tests": 3,
+        "failed": 0,
+        "passed": 3,
+        "cancelled": 0,
+        "skipped": 0,
+        "todo": 0,
+        "topLevel": 3,
+        "suites": 0
+      },
+      "duration_ms": 20.560042,
+      "file": "/Users/weiwei/code/yet-another-idle-rpg/tests/village_study.test.js"
+    },
+    {
+      "success": true,
+      "counts": {
+        "tests": 7,
+        "failed": 0,
+        "passed": 7,
+        "cancelled": 0,
+        "skipped": 0,
+        "todo": 0,
+        "topLevel": 7,
+        "suites": 0
+      },
+      "duration_ms": 20.053959,
+      "file": "/Users/weiwei/code/yet-another-idle-rpg/tests/structured_pack_ui.test.js"
+    },
+    {
+      "success": true,
+      "counts": {
+        "tests": 9,
+        "failed": 0,
+        "passed": 9,
+        "cancelled": 0,
+        "skipped": 0,
+        "todo": 0,
+        "topLevel": 9,
+        "suites": 0
+      },
+      "duration_ms": 20.040792,
+      "file": "/Users/weiwei/code/yet-another-idle-rpg/tests/absorb_c2.test.js"
+    },
+    {
+      "success": true,
+      "counts": {
+        "tests": 5,
+        "failed": 0,
+        "passed": 5,
+        "cancelled": 0,
+        "skipped": 0,
+        "todo": 0,
+        "topLevel": 5,
+        "suites": 0
+      },
+      "duration_ms": 18.5475,
+      "file": "/Users/weiwei/code/yet-another-idle-rpg/tests/save_files.test.js"
+    },
+    {
+      "success": true,
+      "counts": {
+        "tests": 3,
+        "failed": 0,
+        "passed": 3,
+        "cancelled": 0,
+        "skipped": 0,
+        "todo": 0,
+        "topLevel": 3,
+        "suites": 0
+      },
+      "duration_ms": 18.501166,
+      "file": "/Users/weiwei/code/yet-another-idle-rpg/tests/cheat_status_window.test.js"
+    },
+    {
+      "success": true,
+      "counts": {
+        "tests": 2,
+        "failed": 0,
+        "passed": 2,
+        "cancelled": 0,
+        "skipped": 0,
+        "todo": 0,
+        "topLevel": 2,
+        "suites": 0
+      },
+      "duration_ms": 18.42,
+      "file": "/Users/weiwei/code/yet-another-idle-rpg/tests/world_completion_native_restore.test.js"
+    },
+    {
+      "success": true,
+      "counts": {
+        "tests": 4,
+        "failed": 0,
+        "passed": 4,
+        "cancelled": 0,
+        "skipped": 0,
+        "todo": 0,
+        "topLevel": 4,
+        "suites": 0
+      },
+      "duration_ms": 17.966209,
+      "file": "/Users/weiwei/code/yet-another-idle-rpg/tests/structured_container_preparation.test.js"
+    },
+    {
+      "success": true,
+      "counts": {
+        "tests": 5,
+        "failed": 0,
+        "passed": 5,
+        "cancelled": 0,
+        "skipped": 0,
+        "todo": 0,
+        "topLevel": 5,
+        "suites": 0
+      },
+      "duration_ms": 17.355041,
+      "file": "/Users/weiwei/code/yet-another-idle-rpg/tests/content_packs.test.js"
+    },
+    {
+      "success": true,
+      "counts": {
+        "tests": 5,
+        "failed": 0,
+        "passed": 5,
+        "cancelled": 0,
+        "skipped": 0,
+        "todo": 0,
+        "topLevel": 5,
+        "suites": 0
+      },
+      "duration_ms": 17.026167,
+      "file": "/Users/weiwei/code/yet-another-idle-rpg/tests/heir_inheritance.test.js"
+    },
+    {
+      "success": true,
+      "counts": {
+        "tests": 9,
+        "failed": 0,
+        "passed": 9,
+        "cancelled": 0,
+        "skipped": 0,
+        "todo": 0,
+        "topLevel": 9,
+        "suites": 0
+      },
+      "duration_ms": 16.199166,
+      "file": "/Users/weiwei/code/yet-another-idle-rpg/tests/structured_equipment_runtime.test.js"
+    },
+    {
+      "success": true,
+      "counts": {
+        "tests": 3,
+        "failed": 0,
+        "passed": 3,
+        "cancelled": 0,
+        "skipped": 0,
+        "todo": 0,
+        "topLevel": 3,
+        "suites": 0
+      },
+      "duration_ms": 14.430625,
+      "file": "/Users/weiwei/code/yet-another-idle-rpg/tests/save_compatibility.test.js"
+    },
+    {
+      "success": true,
+      "counts": {
+        "tests": 6,
+        "failed": 0,
+        "passed": 6,
+        "cancelled": 0,
+        "skipped": 0,
+        "todo": 0,
+        "topLevel": 6,
+        "suites": 0
+      },
+      "duration_ms": 12.51225,
+      "file": "/Users/weiwei/code/yet-another-idle-rpg/tests/native_craft_transaction.test.js"
+    },
+    {
+      "success": true,
+      "counts": {
+        "tests": 3,
+        "failed": 0,
+        "passed": 3,
+        "cancelled": 0,
+        "skipped": 0,
+        "todo": 0,
+        "topLevel": 3,
+        "suites": 0
+      },
+      "duration_ms": 11.772083,
+      "file": "/Users/weiwei/code/yet-another-idle-rpg/tests/structured_container_development.test.js"
+    },
+    {
+      "success": true,
+      "counts": {
+        "tests": 2,
+        "failed": 0,
+        "passed": 2,
+        "cancelled": 0,
+        "skipped": 0,
+        "todo": 0,
+        "topLevel": 2,
+        "suites": 0
+      },
+      "duration_ms": 11.700541,
+      "file": "/Users/weiwei/code/yet-another-idle-rpg/tests/content_pack_ui.test.js"
+    },
+    {
+      "success": true,
+      "counts": {
+        "tests": 6,
+        "failed": 0,
+        "passed": 6,
+        "cancelled": 0,
+        "skipped": 0,
+        "todo": 0,
+        "topLevel": 6,
+        "suites": 0
+      },
+      "duration_ms": 11.181791,
+      "file": "/Users/weiwei/code/yet-another-idle-rpg/tests/titles.test.js"
+    },
+    {
+      "success": true,
+      "counts": {
+        "tests": 4,
+        "failed": 0,
+        "passed": 4,
+        "cancelled": 0,
+        "skipped": 0,
+        "todo": 0,
+        "topLevel": 4,
+        "suites": 0
+      },
+      "duration_ms": 11.133791,
+      "file": "/Users/weiwei/code/yet-another-idle-rpg/tests/rules.test.js"
+    },
+    {
+      "success": true,
+      "counts": {
+        "tests": 1,
+        "failed": 0,
+        "passed": 1,
+        "cancelled": 0,
+        "skipped": 0,
+        "todo": 0,
+        "topLevel": 1,
+        "suites": 0
+      },
+      "duration_ms": 10.918708,
+      "file": "/Users/weiwei/code/yet-another-idle-rpg/tests/workspace_focus.test.js"
+    },
+    {
+      "success": true,
+      "counts": {
+        "tests": 2,
+        "failed": 0,
+        "passed": 2,
+        "cancelled": 0,
+        "skipped": 0,
+        "todo": 0,
+        "topLevel": 2,
+        "suites": 0
+      },
+      "duration_ms": 10.290834,
+      "file": "/Users/weiwei/code/yet-another-idle-rpg/tests/clear_state.test.js"
+    },
+    {
+      "success": true,
+      "counts": {
+        "tests": 2,
+        "failed": 0,
+        "passed": 2,
+        "cancelled": 0,
+        "skipped": 0,
+        "todo": 0,
+        "topLevel": 2,
+        "suites": 0
+      },
+      "duration_ms": 10.251375,
+      "file": "/Users/weiwei/code/yet-another-idle-rpg/tests/native_gameplay_binding.test.js"
+    },
+    {
+      "success": true,
+      "counts": {
+        "tests": 2,
+        "failed": 0,
+        "passed": 2,
+        "cancelled": 0,
+        "skipped": 0,
+        "todo": 0,
+        "topLevel": 2,
+        "suites": 0
+      },
+      "duration_ms": 9.144042,
+      "file": "/Users/weiwei/code/yet-another-idle-rpg/tests/life_experience_c.test.js"
+    },
+    {
+      "success": true,
+      "counts": {
+        "tests": 2,
+        "failed": 0,
+        "passed": 2,
+        "cancelled": 0,
+        "skipped": 0,
+        "todo": 0,
+        "topLevel": 2,
+        "suites": 0
+      },
+      "duration_ms": 9.08125,
+      "file": "/Users/weiwei/code/yet-another-idle-rpg/tests/simulation_optional_enrollment.test.js"
+    },
+    {
+      "success": true,
+      "counts": {
+        "tests": 2,
+        "failed": 0,
+        "passed": 2,
+        "cancelled": 0,
+        "skipped": 0,
+        "todo": 0,
+        "topLevel": 2,
+        "suites": 0
+      },
+      "duration_ms": 8.37375,
+      "file": "/Users/weiwei/code/yet-another-idle-rpg/tests/realm_optional_context.test.js"
+    },
+    {
+      "success": true,
+      "counts": {
+        "tests": 1,
+        "failed": 0,
+        "passed": 1,
+        "cancelled": 0,
+        "skipped": 0,
+        "todo": 0,
+        "topLevel": 1,
+        "suites": 0
+      },
+      "duration_ms": 8.107084,
+      "file": "/Users/weiwei/code/yet-another-idle-rpg/tests/simulation_ui_hidden.test.js"
+    },
+    {
+      "success": true,
+      "counts": {
+        "tests": 3,
+        "failed": 0,
+        "passed": 3,
+        "cancelled": 0,
+        "skipped": 0,
+        "todo": 0,
+        "topLevel": 3,
+        "suites": 0
+      },
+      "duration_ms": 8.040292,
+      "file": "/Users/weiwei/code/yet-another-idle-rpg/tests/reputation_state.test.js"
+    }
+  ],
+  "priorNpmReporterAttempt": {
+    "command": "npm test -- --test-reporter=/tmp/er2-runtime-audit/file-reporter.mjs",
+    "wallSeconds": 87.04826829100784,
+    "exitCode": 0
+  }
+}

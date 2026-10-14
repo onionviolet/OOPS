@@ -1,0 +1,3 @@
+- **F1:** Wrote the [canon report](/Users/weiwei/code/yet-another-idle-rpg/docs/worlds/NONHUMAN_STARTS_BY_WORLD_2026-10-14.md) and completed the [checkpoint](/Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/nonhuman-starts-2026-10-14/canon/CHECKPOINT.md).
+- **F2:** Covers 16 world groups, 54 start premises, 14 recurring patterns, 10 additional considerations and five ranked suggestions.
+- **F3:** Links, tables and counts pass. Source gaps are labeled, especially Naruto, D&D supplements and spirit/object identity. Research only; no gameplay changes or commits.

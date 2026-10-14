@@ -1,0 +1,25 @@
+{
+  "passed": 15,
+  "checks": [
+    "split vs single exact gameplay, 128 due jobs and weather boundaries",
+    "replay from command log + initial seeds exact full state",
+    "duplicate id ignored and conflicting payload rejected before and after load",
+    "view is recursively frozen and pure projections preserve RNG/state",
+    "manifest input order independent, missing/cyclic/version rejected",
+    "failed command rolls back RNG, slices, clock, receipts and heap",
+    "incremental save writes only dirty pacing and core plus manifest; exact load/import/resume",
+    "manifest write failure keeps last good save, retry succeeds",
+    "corrupt chunk import does not publish partial state",
+    "named streams isolated from an extra unrelated draw",
+    "tie order declared dependency then event id, not insertion order",
+    "cross-slice incremental validators rerun when dependency changes",
+    "switching persistence backend writes a complete snapshot",
+    "late recurring claim grants no missed rewards and failure leaves state exact",
+    "advance validates safe whole minutes and rolls back event-budget exhaustion"
+  ],
+  "hungerCounterexample": {
+    "single": 98.54166666666667,
+    "split": 98.5416666666667,
+    "difference": -2.842170943040401e-14
+  }
+}

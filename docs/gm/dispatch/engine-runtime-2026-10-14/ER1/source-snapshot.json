@@ -1,0 +1,29 @@
+{
+  "at": "2026-10-14T00:56:04.657654-04:00",
+  "loadavg": [
+    431.3369140625,
+    501.4912109375,
+    329.05615234375
+  ],
+  "sha256": {
+    "src/main.js": "fc0743237c7c93a62ac834bd636afe5c6c7858172b77d1a53d01a84b1195172f",
+    "src/expansion_engine.js": "da1e9761400bec1cf72f4da171408f22af6cb6a2ce3dd72565b8b29039ab3f82",
+    "src/simulation.js": "2a790db46f004639d356ebec3678bfe63e1957fe5fda6cc9892368a050b54b66",
+    "src/expansion_persistence.js": "779a82715884c48f3d2338816d76b90e5e894b625f2fb7daec174091c73bc966",
+    "src/save_files.js": "dc7908d8a257ddcb896b0a3a077902ce961a7b681d0cba24e1dd1ef7f992e81f",
+    "src/save_compatibility.js": "4800cd976ac5fa7edb6598f5deacc35d0d246c4d773315f889310297c4367334",
+    "src/display.js": "da4b693e743ccba934955e883c05fb7ad868c72b76f4dbd9c2df06215d6a7fa8",
+    "src/workspace_views.js": "8d8ba3bd5e4a52977fd3beb98c792a745bea6197f11afc069cf01c707af1fcc1",
+    "src/workspace_layout.js": "51d9ecdf3cbb29a55d431582c489563d36ad6b36adabc9db2e7dfabd464c23c7",
+    "src/models/combat.js": "ef133e52be5db0660d48fad15f4c8f3a9c5ada505acc2286c31cbe6d43d3c1d0",
+    "index.html": "b736e490fb511329edd9c136cfcd5be9ddea8e742471d2cbfffd3c14d25c52bb",
+    "package.json": "805269ecbf25287b2758391e718c805e1a4336b4b4f1c923a87b3712620e8e2c"
+  },
+  "verifiedAt": "2026-10-14T01:00:30.812418-04:00",
+  "endLoadavg": [
+    62.7353515625,
+    288.53076171875,
+    283.4306640625
+  ],
+  "changedPaths": []
+}

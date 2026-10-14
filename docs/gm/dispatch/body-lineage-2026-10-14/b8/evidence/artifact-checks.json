@@ -1,0 +1,24 @@
+{
+  "localLinksChecked": 146,
+  "missingLinks": [],
+  "emDashFiles": [],
+  "captureFingerprintsStillMatch": {
+    "dist/bundle.js": true,
+    "dist/bundle.js.map": true,
+    "index.html": true,
+    "src/character_bio_ui.js": true,
+    "src/body_ui.js": true,
+    "styles/workspace.css": true,
+    "style.css": true
+  },
+  "requiredDocuments": {
+    "CURRENT_UI.md": true,
+    "SPEC.md": true,
+    "REPORT.md": true,
+    "CHECKPOINT.md": true
+  },
+  "g49HtmlViews": 6,
+  "authoredTrailingWhitespace": [],
+  "temporaryServerStopped": true,
+  "b8BrowserProcessesRemaining": 0
+}

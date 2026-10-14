@@ -1,0 +1,232 @@
+TAP version 13
+# Subtest: C2 compatibility: absent saves default empty; unsupported or malformed containers reject
+ok 1 - C2 compatibility: absent saves default empty; unsupported or malformed containers reject
+  ---
+  duration_ms: 1.21675
+  type: 'test'
+  ...
+# Subtest: C2 source balance and readable documentation remain in agreement
+ok 2 - C2 source balance and readable documentation remain in agreement
+  ---
+  duration_ms: 2.586
+  type: 'test'
+  ...
+# Subtest: C2 exposure is played, bounded by actual remaining poison and replay resistant
+ok 3 - C2 exposure is played, bounded by actual remaining poison and replay resistant
+  ---
+  duration_ms: 0.273541
+  type: 'test'
+  ...
+# Subtest: C2 five-minute searches persist misses, cap chance, and award a finite native item once
+ok 4 - C2 five-minute searches persist misses, cap chance, and award a finite native item once
+  ---
+  duration_ms: 0.573708
+  type: 'test'
+  ...
+# Subtest: C2 interruptions and clock jumps never replay unbounded idle searches
+ok 5 - C2 interruptions and clock jumps never replay unbounded idle searches
+  ---
+  duration_ms: 0.288792
+  type: 'test'
+  ...
+# Subtest: C2 hub contact has common-clock cadence, saved misses and one daily occurrence
+ok 6 - C2 hub contact has common-clock cadence, saved misses and one daily occurrence
+  ---
+  duration_ms: 0.202125
+  type: 'test'
+  ...
+# Subtest: C2 free meal derives from native calendar, persists claim, and skips missed days
+ok 7 - C2 free meal derives from native calendar, persists claim, and skips missed days
+  ---
+  duration_ms: 0.241583
+  type: 'test'
+  ...
+# Subtest: C2 no random rolls on rendering or invalid actions; rollback keeps claims and money unchanged
+ok 8 - C2 no random rolls on rendering or invalid actions; rollback keeps claims and money unchanged
+  ---
+  duration_ms: 0.2035
+  type: 'test'
+  ...
+# Subtest: C2 panel reattaches after native location menu clears unchanged view
+ok 9 - C2 panel reattaches after native location menu clears unchanged view
+  ---
+  duration_ms: 0.501375
+  type: 'test'
+  ...
+# Subtest: legacy saves default both options off without invented debt or elapsed history
+ok 10 - legacy saves default both options off without invented debt or elapsed history
+  ---
+  duration_ms: 1.447708
+  type: 'test'
+  ...
+# Subtest: normalization bounds persisted meters and rejects future schema
+ok 11 - normalization bounds persisted meters and rejects future schema
+  ---
+  duration_ms: 0.283917
+  type: 'test'
+  ...
+# Subtest: hunger uses common played minutes, caps floor, and has actual XP effect
+ok 12 - hunger uses common played minutes, caps floor, and has actual XP effect
+  ---
+  duration_ms: 0.231417
+  type: 'test'
+  ...
+# Subtest: off options freeze existing state; absence of explicit home context cannot penalize worlds
+ok 13 - off options freeze existing state; absence of explicit home context cannot penalize worlds
+  ---
+  duration_ms: 0.146167
+  type: 'test'
+  ...
+# Subtest: native food replenishes even if native meal buff already lasts longer
+ok 14 - native food replenishes even if native meal buff already lasts longer
+  ---
+  duration_ms: 0.101375
+  type: 'test'
+  ...
+# Subtest: weather duration actually expires, fog affects outdoors XP, shelter preserves hunger only
+ok 15 - weather duration actually expires, fog affects outdoors XP, shelter preserves hunger only
+  ---
+  duration_ms: 0.056625
+  type: 'test'
+  ...
+# Subtest: optional rain adds native wet route without suppressing the native rain cycle
+ok 16 - optional rain adds native wet route without suppressing the native rain cycle
+  ---
+  duration_ms: 0.113959
+  type: 'test'
+  ...
+# Subtest: weather offsets native temperature and respects disabled/sheltered/external worlds
+ok 17 - weather offsets native temperature and respects disabled/sheltered/external worlds
+  ---
+  duration_ms: 0.052083
+  type: 'test'
+  ...
+# Subtest: season changes new durations and long common-clock steps equal segmented progression
+ok 18 - season changes new durations and long common-clock steps equal segmented progression
+  ---
+  duration_ms: 4.636542
+  type: 'test'
+  ...
+# Subtest: saved JSON roundtrip restores disabled retained state, phase and next transition without a second clock
+ok 19 - saved JSON roundtrip restores disabled retained state, phase and next transition without a second clock
+  ---
+  duration_ms: 0.331583
+  type: 'test'
+  ...
+# Subtest: readable status and food description explain defaults, effects and scope
+ok 20 - readable status and food description explain defaults, effects and scope
+  ---
+  duration_ms: 0.301292
+  type: 'test'
+  ...
+# Subtest: panel toggles call integrator and roll back visual checkbox on rejected save
+ok 21 - panel toggles call integrator and roll back visual checkbox on rejected save
+  ---
+  duration_ms: 0.397334
+  type: 'test'
+  ...
+# Subtest: preview is pure and explains knowledge, context, combined costs and actual odds
+ok 22 - preview is pure and explains knowledge, context, combined costs and actual odds
+  ---
+  duration_ms: 2.057208
+  type: 'test'
+  ...
+# Subtest: kit costs reserve once; frozen result survives reload, content revision and changed stats
+ok 23 - kit costs reserve once; frozen result survives reload, content revision and changed stats
+  ---
+  duration_ms: 25.055959
+  type: 'test'
+  ...
+# Subtest: both survey routes are viable and recorded guide condition changes departure rewards
+ok 24 - both survey routes are viable and recorded guide condition changes departure rewards
+  ---
+  duration_ms: 8.127667
+  type: 'test'
+  ...
+# Subtest: equal simulation duration in ticks or a travel jump crosses the same deadlines and expiry
+ok 25 - equal simulation duration in ticks or a travel jump crosses the same deadlines and expiry
+  ---
+  duration_ms: 57.849
+  type: 'test'
+  ...
+# Subtest: repairing the crossing enables a more valuable delivery even if the guide needs rest
+ok 26 - repairing the crossing enables a more valuable delivery even if the guide needs rest
+  ---
+  duration_ms: 2.591834
+  type: 'test'
+  ...
+# Subtest: blocking scheduled choices stop exactly at their boundary and return unspent catch-up
+ok 27 - blocking scheduled choices stop exactly at their boundary and return unspent catch-up
+  ---
+  duration_ms: 2.457208
+  type: 'test'
+  ...
+# Subtest: actors have independent budgets and one assignment each, with stable same-time ordering
+ok 28 - actors have independent budgets and one assignment each, with stable same-time ordering
+  ---
+  duration_ms: 2.154083
+  type: 'test'
+  ...
+# Subtest: invalid content and effects fail before mutation or spending
+ok 29 - invalid content and effects fail before mutation or spending
+  ---
+  duration_ms: 0.691541
+  type: 'test'
+  ...
+# Subtest: isolated rewind previews losses, retains memory and cannot export temporary rewards
+ok 30 - isolated rewind previews losses, retains memory and cannot export temporary rewards
+  ---
+  duration_ms: 1.226084
+  type: 'test'
+  ...
+# Subtest: legacy migration, dormant payload and Unicode file roundtrip retain new commitments
+ok 31 - legacy migration, dormant payload and Unicode file roundtrip retain new commitments
+  ---
+  duration_ms: 5.87275
+  type: 'test'
+  ...
+# Subtest: durable envelope write is atomic on failure, includes costs, and preserves unrelated fields
+ok 32 - durable envelope write is atomic on failure, includes costs, and preserves unrelated fields
+  ---
+  duration_ms: 1.4585
+  type: 'test'
+  ...
+# Subtest: native file encoding preserves Unicode and legacy Latin-1 saves
+ok 33 - native file encoding preserves Unicode and legacy Latin-1 saves
+  ---
+  duration_ms: 3.986958
+  type: 'test'
+  ...
+# Subtest: malformed and incompatible imports cannot write over the current save
+ok 34 - malformed and incompatible imports cannot write over the current save
+  ---
+  duration_ms: 2.10175
+  type: 'test'
+  ...
+# Subtest: real-loader rejection and storage failure do not perform premature writes
+ok 35 - real-loader rejection and storage failure do not perform premature writes
+  ---
+  duration_ms: 1.354875
+  type: 'test'
+  ...
+# Subtest: successful import commits only after preflight and retains retirement data once
+ok 36 - successful import commits only after preflight and retains retirement data once
+  ---
+  duration_ms: 0.687542
+  type: 'test'
+  ...
+# Subtest: failed export creation never encodes an undefined or invalid payload
+ok 37 - failed export creation never encodes an undefined or invalid payload
+  ---
+  duration_ms: 0.090458
+  type: 'test'
+  ...
+1..37
+# tests 37
+# suites 0
+# pass 37
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 364.8315

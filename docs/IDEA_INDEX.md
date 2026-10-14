@@ -18,6 +18,21 @@ Remaining gaps, in order:
 
 ## How ideas are kept
 
+[Engine, runtime, performance and stack](ENGINE_RUNTIME_PERFORMANCE_AND_STACK_CONSIDERATIONS_2026-10-14.md)
+owns the 2026-10-14 engine palette beyond E1-E10: runtime architecture (RT),
+performance and measurement (PF), persistence (DA), tech stack options (TS),
+codebase health (CH), other (OS), proper engine options (EG), libraries (LB)
+NPC/sim architecture (AI), subtle micro correctness (MC), building our own
+engine (OE), wider engine catalog (XE), engine-design subtleties (SB),
+engine-revealing cheats (CX), overarching principles (OV), implementation
+implications (IM), comic worlds through the engine (CE) and abstractions (AB).
+Proposals only; Codex lanes ER1-ER18 audit.
+
+[Companions, familiars and pets](COMPANIONS_FAMILIARS_AND_PETS_CONSIDERATIONS_2026-10-14.md)
+owns the 2026-10-14 palette for creatures, spirits and things that travel with the
+player: kinds, acquisition, bond tracks, care, mounts, per-world fit, cheat shapes
+and expansions. Proposals only.
+
 [Engine, saves, scale and app portability](ENGINE_SAVES_AND_SCALE_REVIEW_2026-10-11.md)
 owns the 2026-10-11 engineering proposal set under I29: save/recovery and history
 contracts, performance gates, language/architecture choices, Godot/Rust/browser
@@ -34,6 +49,37 @@ considerations, not accepted mechanics or implemented gameplay.
 Its [parallel specialist return](gm/dispatch/body-lineage-expansion-2026-10-11/INTEGRATION.md)
 adds 48 proposed micro/intermediate/macro/world-fit cards and 12 causal journeys,
 with overlap reconciliation and separate source/gameplay gates.
+The [2026-10-14 finer-detail round](GENETICS_CONSTITUTIONS_AND_BROOD_PLAY.md#bodies-in-finer-detail-2026-10-14)
+adds physique parts PH1-PH12, genetics texture GN1-GN12, separate sex/gender
+parts SG1-SG13, little quirks LQ1-LQ15, age AG1-AG6, different bodies,
+constitution angles CN1-CN8, a storage sketch and suggestions.
+A [bloodlines round](GENETICS_CONSTITUTIONS_AND_BROOD_PLAY.md#bloodlines-in-depth-and-other-body-layers-2026-10-14)
+adds routes BD1-BD9, clan politics CL1-CL10, bloodline powers BP1-BP9,
+mixing MX1-MX6, generations and prestige, health HI1-HI6, mind and soul
+MS1-MS6 and presence PR1-PR4.
+Round 3 adds training TR1-TR7, substances SB1-SB6, wear and injury WR1-WR6,
+the body as an object OB1-OB6, modification BM1-BM6, reproduction RP1-RP5
+and social reading SR1-SR5. Five docs-only Codex lanes (world fit, body record
+spec, bloodline prestige, canon catalog, game references) run under
+[body-lineage-2026-10-14](gm/dispatch/body-lineage-2026-10-14/PLAN.md).
+Round 4 adds world physics EV1-EV6, emotion EM1-EM6, time TM1-TM5,
+population heredity PG1-PG6, generated physiques (G47), NPC body detail
+levels (G48), player tools UI1-UI6 and quirks LQ16-LQ22, with lanes B6-B8.
+Round 5 adds sourcing from the world SO1-SO12, genetic modification
+methods GM1-GM11 and dimensions GD1-GD10, and MC1-MC6, with lanes B9-B11;
+it also summarizes the B1-B3 returns.
+Round 6 adds subtle micro detail: moment states MI1-MI10, look-alike pairs
+LA1-LA12, breadcrumbs BC1-BC9, micro growth MG1-MG6, changed-body details
+MB1-MB7, family details MH1-MH5 and presentation MP1-MP4, with lanes B12-B13.
+Round 7 records the B4-B7 returns, applies B4's franchise corrections, and
+adds subtle social SS1-SS7, psychology SP1-SP7, information SI1-SI6, timing
+ST1-ST5 and side consequences SC1-SC5, with lane B14.
+Round 8 adds body cheats that show (CV1-CV12) and act (CA1-CA10), the
+overarching model OV1-OV7, implementation implications IM1-IM10 with a
+proposed build order, and lanes B15 (body cheats) and B16 (roadmap).
+Round 9 adds comic bodies CB1-CB15, comic body cheats CC1-CC6, subtle comic
+detail, and abstractions AB1-AB12 mapped to code and to the comic doc's CA
+list, with lanes B17 and B18.
 
 Current idea-expansion return, 2026-10-11:
 [joined planning](gm/dispatch/idea-expansion-2026-10-11/RECONCILIATION.md) retains

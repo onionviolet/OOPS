@@ -1,0 +1,19 @@
+# Fate series and separately marked TYPE-MOON comparison cases: body and lineage catalog
+
+2026-10-14. B4 research return. Status: **bounded evidence**.
+
+Entry source: [DIGEST_fate-series.md](../../../../research/power-systems/wiki-digests/DIGEST_fate-series.md). Evidence labels follow [REPORT](REPORT.md). Mappings are analyst comparisons, not canon terminology or accepted game rules.
+
+| ID | Evidence | Genetics mapping | Bounded finding | Locator |
+|---|---|---|---|---|
+| C01 | stated | CL3; CN family, innate magical organ; BM5 | Soul-rooted Magic Circuits convert life force and access Foundations. Initial number is set at birth; artificial change and risky transfer are distinct. Lineages seek descendants with extra circuits, while quality can outweigh quantity. | [NOTES.jsonl](../../../../research/power-systems/wiki-digests/full-dumps/workers/fate-full/NOTES.jsonl): JSONL line 1, Magic Circuit r395092, Mechanisms: heredity, transfer, ratings |
+| C02 | shown | CN8, BM5 | Fiore’s leg circuits impair movement; Reines’s immature circuits overreact to magic. These are particular bodies, not a mandatory flaw for every circuit user. | [NOTES.jsonl](../../../../research/power-systems/wiki-digests/full-dumps/workers/fate-full/NOTES.jsonl): JSONL line 1, Magic Circuit r395092, impairment examples |
+| C03 | stated | MX2; CN family, alternative energy organ | Dragon-blood Magic Cores are described as a different power-producing structure from ordinary circuits. Do not flatten one into a larger circuit count. | [NOTES.jsonl](../../../../research/power-systems/wiki-digests/full-dumps/workers/fate-full/NOTES.jsonl): JSONL line 1, Magic Circuit r395092, Equivalents / Magic Core |
+| C04 | stated | BM family, constructed vessel | A Servant is a class-limited copy from a heroic record; its vessel supplies a subset of recorded abilities. This is not biological offspring. | [DIGEST_fate-series.md](../../../../research/power-systems/wiki-digests/DIGEST_fate-series.md): DF2 Servant r405040, Characteristics |
+| C05 | stated | MX2, BP7, BD8 | Tsukihime comparison only: Kishima demon ancestry carries an inversion impulse. Kouma suppresses it from childhood, and his personal mastery is exceptional. | [NOTES.jsonl](../../../../research/power-systems/wiki-digests/full-dumps/workers/fate-full/NOTES.jsonl): JSONL line 27, Kouma Kishima r382405, Background / Kishima blood |
+| C06 | stated | BP family, body-qualified technique | Tsukihime comparison only: Single Horn is taught but requires a Kishima-like body. A family restriction can concern executable anatomy as well as guarded instruction. | [NOTES.jsonl](../../../../research/power-systems/wiki-digests/full-dumps/workers/fate-full/NOTES.jsonl): JSONL line 27, Kouma Kishima r382405, Single Horn |
+| C07 | stated | BD6 approximate; CN1, AG6, BM6 | Tsukihime comparison only: Roa transmits soul information to selected unborn vessels. Power rebuilds after awakening; the record does not give each host all original circuits. Vampirism can depart when Roa does. | [NOTES.jsonl](../../../../research/power-systems/wiki-digests/full-dumps/workers/fate-full/NOTES.jsonl): JSONL line 29, Michael Roa Valdamjong r387112, Reincarnation; Vampire status; Full Moon |
+
+Coverage and contradictions: TYPE-MOON dump coverage crosses works and routes. Tsukihime, Melty Blood copies and Fate Grail vessels are not one uniform canon. Magic Crest, engineered homunculi, sex-change and lifespan generalizations remain unverified here: manifest titles exist but their cached raw inputs are absent. BD6 is an analogy for occupancy, not proof Roa is the host’s ancestor.
+
+Unmentioned BD/CL/BP/MX/CN/SG/AG/BM subcodes are **not established by this review**, rather than ruled out by the setting. In particular bodily sex, identity, presentation, reproductive function and legal/social eligibility must not be inferred from one another.

@@ -1,0 +1,10 @@
+{
+  "name": "yairpg-er7-spikes",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "@sqlite.org/sqlite-wasm": "3.53.4-build2",
+    "miniplex": "2.0.0"
+  }
+}

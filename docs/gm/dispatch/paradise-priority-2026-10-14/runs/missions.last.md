@@ -1,0 +1,3 @@
+- **F1:** Wrote [the report](docs/worlds/paradise-hub/DERIVED_WORLDS_AND_MISSIONS_2026-10-14.md): 60 ordered catalog rows, mission engine structure, overlaps, N18, idle fit, 12 considerations and five suggestions.
+- **F2:** Updated [CHECKPOINT.md](docs/gm/dispatch/paradise-priority-2026-10-14/missions/CHECKPOINT.md). Links, counts, code locators and whitespace checked.
+- **F3:** Gaps remain explicit: incomplete mission details, MTL uncertainty and missing chapters. The recorded EPUB path was unavailable for raw rechecking. No runtime changes or gameplay verification.

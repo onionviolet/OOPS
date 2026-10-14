@@ -1,0 +1,301 @@
+{
+  "node": "v22.23.3",
+  "rows": [
+    {
+      "id": "calendar-60",
+      "equal": true,
+      "result": {
+        "year": 1000,
+        "month": 1,
+        "day": 1,
+        "hour": 0,
+        "minute": 59,
+        "day_count": 361
+      }
+    },
+    {
+      "id": "calendar-1440",
+      "equal": true,
+      "result": {
+        "year": 1000,
+        "month": 1,
+        "day": 1,
+        "hour": 23,
+        "minute": 59,
+        "day_count": 361
+      }
+    },
+    {
+      "id": "calendar-518400",
+      "equal": true,
+      "result": {
+        "year": 1000,
+        "month": 12,
+        "day": 30,
+        "hour": 23,
+        "minute": 59,
+        "day_count": 720
+      }
+    },
+    {
+      "id": "pacing-60",
+      "equal": false,
+      "one": {
+        "schema": 1,
+        "hungerEnabled": true,
+        "weatherEnabled": true,
+        "fullness": 87.5,
+        "weather": {
+          "phase": 0,
+          "remaining": 60
+        }
+      },
+      "split": {
+        "schema": 1,
+        "hungerEnabled": true,
+        "weatherEnabled": true,
+        "fullness": 87.50000000000028,
+        "weather": {
+          "phase": 0,
+          "remaining": 60
+        }
+      },
+      "fullnessDelta": 2.8421709430404007e-13
+    },
+    {
+      "id": "pacing-480",
+      "equal": false,
+      "one": {
+        "schema": 1,
+        "hungerEnabled": true,
+        "weatherEnabled": true,
+        "fullness": 0,
+        "weather": {
+          "phase": 4,
+          "remaining": 120
+        }
+      },
+      "split": {
+        "schema": 1,
+        "hungerEnabled": true,
+        "weatherEnabled": true,
+        "fullness": 5.230815780521425e-13,
+        "weather": {
+          "phase": 4,
+          "remaining": 120
+        }
+      },
+      "fullnessDelta": 5.230815780521425e-13
+    },
+    {
+      "id": "pacing-1440",
+      "equal": true,
+      "one": {
+        "schema": 1,
+        "hungerEnabled": true,
+        "weatherEnabled": true,
+        "fullness": 0,
+        "weather": {
+          "phase": 5,
+          "remaining": 30
+        }
+      },
+      "split": {
+        "schema": 1,
+        "hungerEnabled": true,
+        "weatherEnabled": true,
+        "fullness": 0,
+        "weather": {
+          "phase": 5,
+          "remaining": 30
+        }
+      },
+      "fullnessDelta": 0
+    },
+    {
+      "id": "search-60",
+      "equal": false,
+      "drawsOne": 1,
+      "drawsSplit": 12,
+      "missesOne": 1,
+      "missesSplit": 12,
+      "xpOne": 0.5,
+      "xpSplit": 6
+    },
+    {
+      "id": "preview-1000",
+      "stateEqual": true,
+      "nativeRandomCalls": 0,
+      "rngBefore": 123,
+      "rngAfter": 123
+    },
+    {
+      "id": "scheduler-60",
+      "stateEqual": true,
+      "externalEqual": true,
+      "gameplayEqual": true,
+      "money": 17,
+      "clock": 60
+    },
+    {
+      "id": "clock-overflow",
+      "rejected": true
+    },
+    {
+      "id": "money-NaN",
+      "directAccepted": false,
+      "serializedAccepted": true,
+      "encoded": "{\"money\":null}"
+    },
+    {
+      "id": "money-Infinity",
+      "directAccepted": false,
+      "serializedAccepted": true,
+      "encoded": "{\"money\":null}"
+    },
+    {
+      "id": "money-undefined",
+      "directAccepted": true,
+      "serializedAccepted": true,
+      "encoded": "{}"
+    },
+    {
+      "id": "counter-Map",
+      "accepted": true,
+      "keyPresent": true,
+      "after": {},
+      "retained": false
+    },
+    {
+      "id": "counter-Set",
+      "accepted": true,
+      "keyPresent": true,
+      "after": {},
+      "retained": false
+    },
+    {
+      "id": "counter-Date",
+      "accepted": true,
+      "keyPresent": true,
+      "after": "2026-01-01T00:00:00.000Z",
+      "retained": false
+    },
+    {
+      "id": "counter-undefined",
+      "accepted": true,
+      "keyPresent": false,
+      "after": null,
+      "retained": false
+    },
+    {
+      "id": "counter-minusZero",
+      "accepted": true,
+      "keyPresent": true,
+      "after": 0,
+      "retained": false
+    },
+    {
+      "id": "counter-NaN",
+      "accepted": true,
+      "keyPresent": true,
+      "after": null,
+      "retained": false
+    },
+    {
+      "id": "counter-Infinity",
+      "accepted": true,
+      "keyPresent": true,
+      "after": null,
+      "retained": false
+    },
+    {
+      "id": "counter-BigInt",
+      "accepted": false,
+      "error": "Do not know how to serialize a BigInt"
+    },
+    {
+      "id": "calendar-NaN",
+      "minuteIsNaN": true
+    },
+    {
+      "id": "combat-Infinity",
+      "nonFinite": true,
+      "json": "[null]"
+    },
+    {
+      "id": "wall-jump",
+      "forward": {
+        "variance": 3600000,
+        "adjustment": 100
+      },
+      "backward": {
+        "variance": -3600000,
+        "adjustment": -100
+      }
+    },
+    {
+      "id": "integer-range",
+      "draws": 10000,
+      "bins": [
+        2500,
+        5000,
+        2500
+      ],
+      "source": "src/misc.js:68-70",
+      "method": "actual helper extracted and evaluated; deterministic midpoint grid"
+    },
+    {
+      "id": "locale-order",
+      "en": [
+        "a",
+        "ä",
+        "z"
+      ],
+      "sv": [
+        "a",
+        "z",
+        "ä"
+      ],
+      "idsEn": [
+        "a_b",
+        "a-b",
+        "a.b"
+      ],
+      "idsSv": [
+        "a_b",
+        "a-b",
+        "a.b"
+      ]
+    },
+    {
+      "id": "formatter-mutation",
+      "formatted": "1h1m",
+      "after": {
+        "minutes": 1,
+        "hours": 1
+      }
+    },
+    {
+      "id": "storage-size",
+      "ascii": {
+        "utf8Bytes": 1,
+        "storageBytes": 2
+      },
+      "cjk": {
+        "utf8Bytes": 3,
+        "storageBytes": 2
+      },
+      "emoji": {
+        "utf8Bytes": 4,
+        "storageBytes": 4
+      }
+    }
+  ],
+  "surveyCounts": {
+    "randomLineSites": 63,
+    "randomFiles": 10,
+    "randomOccurrences": 63,
+    "localeLines": 20,
+    "testSites": 1
+  }
+}

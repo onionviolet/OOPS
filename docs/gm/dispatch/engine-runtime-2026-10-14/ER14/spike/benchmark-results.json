@@ -1,0 +1,394 @@
+{
+  "environment": {
+    "node": "v22.23.3",
+    "cpu": "Apple M5 Pro",
+    "platform": "darwin",
+    "startedAt": "2026-10-14T05:09:30.163Z",
+    "finishedAt": "2026-10-14T05:10:12.408Z"
+  },
+  "method": "4 warmups, 31 samples; fixture/load setup excluded; median and nearest-rank p95; no forced GC; shared contended host; fs writes include OS cache, no fsync; kernel surrogate and full expansion have different semantics",
+  "sizes": [
+    {
+      "shape": {
+        "name": "fresh",
+        "actors": 1,
+        "items": 20,
+        "opportunities": 0,
+        "facts": 0
+      },
+      "kernel": {
+        "advance_1_future_jobs": {
+          "median_ms": 0.014,
+          "p95_ms": 0.067125,
+          "samples": 31
+        },
+        "advance_60_settle_all": {
+          "median_ms": 0.020083,
+          "p95_ms": 0.069875,
+          "samples": 31
+        }
+      },
+      "baseline_rerun": {
+        "advance_1_future_jobs": {
+          "median_ms": 0.621291,
+          "p95_ms": 33.5995,
+          "samples": 31
+        },
+        "advance_60_settle_all": {
+          "median_ms": 4.831042,
+          "p95_ms": 41.469208,
+          "samples": 31
+        }
+      },
+      "ER1_historical": {
+        "clone_expansion": {
+          "median_ms": 0.0146,
+          "p95_ms": 0.0489,
+          "samples": 31
+        },
+        "validate_expansion": {
+          "median_ms": 0.1389,
+          "p95_ms": 67.6519,
+          "samples": 31
+        },
+        "advance_1_future_jobs": {
+          "median_ms": 0.5741,
+          "p95_ms": 3.621,
+          "samples": 31
+        },
+        "advance_60_settle_all": {
+          "median_ms": 5.8882,
+          "p95_ms": 263.145,
+          "samples": 31
+        },
+        "preview_command": {
+          "median_ms": 9.1255,
+          "p95_ms": 373.3611,
+          "samples": 31
+        },
+        "commit_command": {
+          "median_ms": 66.029,
+          "p95_ms": 389.4365,
+          "samples": 31
+        },
+        "serialize_envelope": {
+          "median_ms": 0.0047,
+          "p95_ms": 0.0066,
+          "samples": 31
+        },
+        "parse_envelope": {
+          "median_ms": 0.0101,
+          "p95_ms": 7.1908,
+          "samples": 31
+        },
+        "validate_envelope": {
+          "median_ms": 2.9677,
+          "p95_ms": 104.893,
+          "samples": 31
+        },
+        "autosave_pure_stages": {
+          "median_ms": 0.0431,
+          "p95_ms": 0.2267,
+          "samples": 31
+        },
+        "persist_plan_mock_storage": {
+          "median_ms": 3.9654,
+          "p95_ms": 134.1214,
+          "samples": 31
+        }
+      },
+      "chunks": [
+        {
+          "id": "actors",
+          "bytes": 66,
+          "write_ms": 0.3120000000001255,
+          "write": {
+            "median_ms": 0.063209,
+            "p95_ms": 0.261667,
+            "samples": 31
+          }
+        },
+        {
+          "id": "claims",
+          "bytes": 49,
+          "write_ms": 0.14383300000008603,
+          "write": {
+            "median_ms": 0.047167,
+            "p95_ms": 0.053625,
+            "samples": 31
+          }
+        },
+        {
+          "id": "core",
+          "bytes": 350,
+          "write_ms": 0.1039170000001377,
+          "write": {
+            "median_ms": 0.059125,
+            "p95_ms": 0.237709,
+            "samples": 31
+          }
+        },
+        {
+          "id": "expired",
+          "bytes": 23,
+          "write_ms": 0.09825000000000728,
+          "write": {
+            "median_ms": 0.056542,
+            "p95_ms": 0.217833,
+            "samples": 31
+          }
+        },
+        {
+          "id": "inventory",
+          "bytes": 953,
+          "write_ms": 0.10183299999994233,
+          "write": {
+            "median_ms": 0.045708,
+            "p95_ms": 0.056459,
+            "samples": 31
+          }
+        },
+        {
+          "id": "pacing",
+          "bytes": 130,
+          "write_ms": 0.10070799999994051,
+          "write": {
+            "median_ms": 0.050125,
+            "p95_ms": 0.232083,
+            "samples": 31
+          }
+        },
+        {
+          "id": "manifest",
+          "bytes": 1256,
+          "write_ms": 0.44820800000002237,
+          "write": {
+            "median_ms": 0.148792,
+            "p95_ms": 0.253583,
+            "samples": 31
+          }
+        }
+      ],
+      "totalSaveBytes": 2827,
+      "incremental": {
+        "validated": [
+          "pacing"
+        ],
+        "writes": [
+          {
+            "id": "core",
+            "bytes": 364,
+            "write_ms": 0.10874999999987267
+          },
+          {
+            "id": "pacing",
+            "bytes": 130,
+            "write_ms": 0.07466699999986304
+          },
+          {
+            "id": "manifest",
+            "bytes": 1256,
+            "write_ms": 0.16954199999986486
+          }
+        ],
+        "totalBytes": 2841
+      },
+      "serialize_validate_write": {
+        "median_ms": 0.694958,
+        "p95_ms": 1.408167,
+        "samples": 31
+      }
+    },
+    {
+      "shape": {
+        "name": "crowded",
+        "actors": 128,
+        "items": 10000,
+        "opportunities": 2000,
+        "facts": 100
+      },
+      "kernel": {
+        "advance_1_future_jobs": {
+          "median_ms": 0.341375,
+          "p95_ms": 0.437791,
+          "samples": 31
+        },
+        "advance_60_settle_all": {
+          "median_ms": 92.914875,
+          "p95_ms": 107.133459,
+          "samples": 31
+        }
+      },
+      "baseline_rerun": {
+        "advance_1_future_jobs": {
+          "median_ms": 20.650875,
+          "p95_ms": 23.522292,
+          "samples": 31
+        },
+        "advance_60_settle_all": {
+          "median_ms": 170.722167,
+          "p95_ms": 195.263834,
+          "samples": 31
+        }
+      },
+      "ER1_historical": {
+        "clone_expansion": {
+          "median_ms": 15.1387,
+          "p95_ms": 144.7205,
+          "samples": 31
+        },
+        "validate_expansion": {
+          "median_ms": 8.5846,
+          "p95_ms": 190.9625,
+          "samples": 31
+        },
+        "advance_1_future_jobs": {
+          "median_ms": 132.4878,
+          "p95_ms": 282.2824,
+          "samples": 31
+        },
+        "advance_60_settle_all": {
+          "median_ms": 719.4789,
+          "p95_ms": 2045.521,
+          "samples": 31
+        },
+        "preview_command": {
+          "median_ms": 318.9731,
+          "p95_ms": 820.8291,
+          "samples": 31
+        },
+        "commit_command": {
+          "median_ms": 364.2578,
+          "p95_ms": 464.4931,
+          "samples": 31
+        },
+        "serialize_envelope": {
+          "median_ms": 4.2341,
+          "p95_ms": 5.1019,
+          "samples": 31
+        },
+        "parse_envelope": {
+          "median_ms": 6.5325,
+          "p95_ms": 8.2081,
+          "samples": 31
+        },
+        "validate_envelope": {
+          "median_ms": 509.3587,
+          "p95_ms": 609.0762,
+          "samples": 31
+        },
+        "autosave_pure_stages": {
+          "median_ms": 15.503,
+          "p95_ms": 17.838,
+          "samples": 31
+        },
+        "persist_plan_mock_storage": {
+          "median_ms": 502.171,
+          "p95_ms": 1239.6083,
+          "samples": 31
+        }
+      },
+      "chunks": [
+        {
+          "id": "actors",
+          "bytes": 579112,
+          "write_ms": 0.3416660000002594,
+          "write": {
+            "median_ms": 0.15675,
+            "p95_ms": 0.193458,
+            "samples": 31
+          }
+        },
+        {
+          "id": "claims",
+          "bytes": 49,
+          "write_ms": 0.14487499999813735,
+          "write": {
+            "median_ms": 0.034083,
+            "p95_ms": 0.053875,
+            "samples": 31
+          }
+        },
+        {
+          "id": "core",
+          "bytes": 36153,
+          "write_ms": 0.11983299999701558,
+          "write": {
+            "median_ms": 0.047584,
+            "p95_ms": 0.085791,
+            "samples": 31
+          }
+        },
+        {
+          "id": "expired",
+          "bytes": 122912,
+          "write_ms": 0.0974999999962165,
+          "write": {
+            "median_ms": 0.055541,
+            "p95_ms": 0.082959,
+            "samples": 31
+          }
+        },
+        {
+          "id": "inventory",
+          "bytes": 488916,
+          "write_ms": 0.16750000000320142,
+          "write": {
+            "median_ms": 0.132334,
+            "p95_ms": 0.299834,
+            "samples": 31
+          }
+        },
+        {
+          "id": "pacing",
+          "bytes": 130,
+          "write_ms": 0.07741700000042329,
+          "write": {
+            "median_ms": 0.029583,
+            "p95_ms": 0.052375,
+            "samples": 31
+          }
+        },
+        {
+          "id": "manifest",
+          "bytes": 1256,
+          "write_ms": 0.1095839999979944,
+          "write": {
+            "median_ms": 0.089791,
+            "p95_ms": 0.12675,
+            "samples": 31
+          }
+        }
+      ],
+      "totalSaveBytes": 1228528,
+      "incremental": {
+        "validated": [
+          "pacing"
+        ],
+        "writes": [
+          {
+            "id": "core",
+            "bytes": 36167,
+            "write_ms": 0.06925000000046566
+          },
+          {
+            "id": "pacing",
+            "bytes": 130,
+            "write_ms": 0.05000000000291038
+          },
+          {
+            "id": "manifest",
+            "bytes": 1256,
+            "write_ms": 0.1264999999984866
+          }
+        ],
+        "totalBytes": 1228542
+      },
+      "serialize_validate_write": {
+        "median_ms": 5.731125,
+        "p95_ms": 7.776792,
+        "samples": 31
+      }
+    }
+  ]
+}

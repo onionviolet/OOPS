@@ -1,0 +1,6 @@
+Completed the documentation pass. Existing social support was understated; the store merge was overstated as a prerequisite. No gameplay edits, builds, tests, commits or pushes.
+
+- **F1 Files changed:** [AUDIT.md](/Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/relationship-prereqs-2026-10-14/AUDIT.md), [part 29](/Users/weiwei/code/yet-another-idle-rpg/docs/worlds/world-depth-2026-10-13/29_RELATIONSHIP_PREREQUISITES.md), and its [index count](/Users/weiwei/code/yet-another-idle-rpg/docs/worlds/WORLD_DEPTH_CONSIDERATIONS_2026-10-13.md). Unrelated concurrent edits were preserved.
+- **F2 Audit counts:** 6 CONFIRMED, 9 WRONG, 0 UNVERIFIED across the 15 original Have cells. One WRONG is a correct fact with an incorrect line citation.
+- **F3 Expansion:** 64 new proposal rows, 94 total. Sections 4–11 cover retention/scale (**RZ**), family (**RFM**), idle growth (**RI**), authoring (**RAU**), continuity (**RCL**), desktop UI (**RUI**), harm/repair (**RHE**) and priority worlds (**RPW**). Original codes remain; new codes have no clashes.
+- **F4 Open build decisions:** **Q1** first person/payoff, **Q2** idle pace and trust gains, **Q3** migration policy, **Q4** general wall-clock catch-up. None blocks completion of this audit.
