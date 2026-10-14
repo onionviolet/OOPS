@@ -89,6 +89,12 @@ one engine instead of five. They extend existing proposals and must reconcile wi
 P2's product identity, P6's product logics and P38's entity and receipt
 consolidation.
 
+**Authority (2026-10-14, agreed with the Procedural crafting and potions session):**
+P2's live product and knowledge records (`src/mixture_state.js`,
+`src/mixture_native.js`, `src/active_effects.js`) are the item identity and
+knowledge authority. XA entries are adapters onto them, not a parallel model.
+Reveal lenses (XA6, RV) extend the crafting palette's CT codes and CR2.
+
 | Code | Abstraction | What it unifies |
 |---|---|---|
 | XA1 | **Item identity** = template + instance properties + provenance + knowledge state, with a stable ID | Every made, found or generated thing. P38 owns the reference scheme. |
