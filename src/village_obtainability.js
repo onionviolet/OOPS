@@ -21,7 +21,7 @@ export function buildVillageObtainability({items={},stock=[],margin=4,inventory=
    if(!r.unlocked||!r.materials?.length||r.chance<=0||index[r.item]?.routes.some(x=>x.kind==='recipe'&&x.source===r.source))continue;
    const ingredients=r.materials.map(m=>{const options=m.item?[index[m.item]]:Object.values(index).filter(x=>items[x.item]?.materialType===m.type);const best=options.filter(Boolean).sort((a,b)=>a.effortMinutes-b.effortMinutes)[0];return best?{row:best,count:m.count}:null;});
    if(ingredients.some(x=>!x))continue;
-   const minutes=(1+ingredients.reduce((n,x)=>n+x.row.effortMinutes*x.count,0))/r.chance/(r.count||1);
+   const minutes=(1+ingredients.reduce((n,x)=>n+Math.min(...x.row.routes.filter(t=>t.kind!=='inventory').map(t=>t.minutes))*x.count,0))/r.chance/(r.count||1);
    add(r.item,{kind:'recipe',source:r.source,stage:'village_craft',minutes,known:r.known===true,available:r.available===true&&ingredients.every(x=>x.row.routes.some(t=>t.known&&t.available))});changed=true;
   }
   summarize(index);if(!changed)break;

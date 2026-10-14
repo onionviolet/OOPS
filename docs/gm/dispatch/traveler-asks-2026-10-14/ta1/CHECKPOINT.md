@@ -23,3 +23,9 @@ Pure live-table index plus no-DOM SOURCE adapter and 3/3 real-table checks pass.
 ## Stage 2 complete
 
 12 authored tagged entries across mender/river traveler/hill courier, optional grade:null, ordinary fiction clues. Reach bands are derived per quantity from knowledge, funds, inventory and tools. Draw preference ready/stretch/unknown 7:2:1 among present bands. Fee basis chooses reliable trader replacement price or estimated work at 0.5 coins/minute, then adds 25/50/75 percent and 2/5/10 discovery coins respectively. Frozen fee basis will protect saved terms. 6/6 index/table SOURCE tests pass. Table remains a balance/fiction proposal. Stage 3 next.
+
+## Stage 3 complete
+
+Native new enrollment uses generationRevision:2 and revisioned people stream; explicit legacy generator mode remains for compatibility/replay fixtures. Revision-1 missing generationRevision remains revision 1 with unchanged original draw address, key, goals and 3-6 coin fee. No migration or saved-goal rewriting. Requests inherit their person's contract; rev 2 freezes quantity 1-3, grade:null and needRevision. Full quantity leaves native inventory, enters person stock and appears in receipt/recap; publication follows durable saving. Need revision is a positive field for later renewal, not a new cadence implementation. Unknown asks wait with existing escrow/absence rules.
+
+Native main bridge reads live trader, Village action, item, recipe, wolf-rat tables and actual inventory/tools/discovery. 26/26 focused SOURCE checks pass, including four revision/quantity/legacy/isolation tests; stage 3 build passes. Stage 4 lint/replay/hints next, then final full suite and rebuilt browser proof.
