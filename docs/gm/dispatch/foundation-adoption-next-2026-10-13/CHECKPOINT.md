@@ -35,3 +35,5 @@ Weibao: "send the full World1 campaign after G9 with codex". After G9 merges,
 root launches one Codex coordinator for the full S00–S14 World1 campaign in
 `.claude/worktrees/w1-campaign` (branch `w1-campaign`), committing per playable
 unit for root to merge. The World1 pause is fully lifted at that point.
+
+- 2026-10-13 23:26:58 EDT: R15 G9 merged `2526617210b0`; clean bundle `9386d5352a94` pushed to origin/codex/gameplay-foundations and master. Full tests 618 passed; fresh-profile Chrome smoke at 1600x1100 passed hero creation, advancing clock and Save, with rebuilt-byte match and only expected private_packs/manifest.json 404. Evidence: `/private/tmp/claude-501/-Users-weiwei-code-yet-another-idle-rpg/e26723ff-9aba-474b-8ba9-880b7e142612/scratchpad/codex/G9-integration-result.json` and `/private/tmp/claude-501/-Users-weiwei-code-yet-another-idle-rpg/e26723ff-9aba-474b-8ba9-880b7e142612/scratchpad/codex/G9-integration-smoke.json`.
