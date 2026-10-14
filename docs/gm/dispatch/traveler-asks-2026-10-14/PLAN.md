@@ -50,3 +50,15 @@ Weibao, 2026-10-14: "send out agents to setup reasonable traveler asks based on 
 | TA3 | Ask kinds, repeatable needs and integration with mixtures, lore and lenses; ranked build slices on the P34 contract | docs, `ta3/` | Codex default model, medium |
 
 Root merges TA1 after its gates; TA2/TA3 return to this folder. Next code lane (TA-L2/TA-L4) waits for Weibao's play feedback on TA1.
+
+## Amendment 1 (2026-10-14): asks can be out of reach
+
+Weibao: "The ask doesnt have to be someone a new palyer can get, it can be something the player cant get yet or dont know how to get and that makes the player go figure it out." This supersedes TA-A1's "fresh-player route" rule and TA1's "drawn only from items with a fresh-player route".
+
+| Code | Consideration | Disposition |
+|---|---|---|
+| TA-A1r | **Bands, not a filter.** Each ask carries a reach band from the obtainability index: *ready* (player has a known route now), *stretch* (route exists but needs skill, tool, money or a trip), *unknown* (route exists in the world but the player has not discovered it). Draw a mix, so most travelers offer something doable and some pose a puzzle. The lint still fails an ask with **no route anywhere** in the world: a puzzle must be solvable | TA1 |
+| TA-A1h | **Discovery hooks, honestly.** An unknown ask gives a fiction clue (who might know, where such things come from), never the hidden answer. Clues follow the known-source rule: name only what the player can see or has been told. Sealed secrets never become clues | TA1 hint line; TA3 designs richer clue chains |
+| TA-A1p | **No pressure from absence.** An unreachable ask waits; the fee stays escrowed (P34 rule). Traveler may move on and return; no expiry penalty for not knowing yet | Keep P34 behavior |
+| TA-A1f | **Fee by difficulty.** Stretch and unknown asks pay more, and can pay in non-coin forms later (lesson, recipe hint, introduction). Price from effort plus discovery, not just trade price | TA1 coin fee now; TA3 designs other rewards |
+| TA-A1x | **Harvest tie-in.** Asks like "a whole unblemished pelt" become natural stretch asks once carcass grading exists ([harvest plan](../harvest-modules-2026-10-14/PLAN.md)). TA1 must not assume today's item IDs are final | Keep the ask table data-driven by item ID and optional grade field |

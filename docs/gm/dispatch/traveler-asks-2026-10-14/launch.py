@@ -19,7 +19,8 @@ def args(lane):return ['-C',cwd(lane),'-c',f'model_reasoning_effort="{EFF.get(la
 if __name__=='__main__':
  if sys.argv[1]=='--resume':
   lane,sid=sys.argv[2],sys.argv[3]
-  spawn(lane,['exec','resume',sid,'Continue from your CHECKPOINT next pending item, following your prompt and COMMON.md.'])
+  msg=sys.argv[4] if len(sys.argv)>4 else 'Continue from your CHECKPOINT next pending item, following your prompt and COMMON.md.'
+  spawn(lane,['exec','resume',sid,msg])
  else:
   for lane in sys.argv[1:]:
    prompt=(HERE/f'{lane.upper()}.md').read_text()+f'\n\nYour working directory is {cwd(lane)}. Begin now.'
