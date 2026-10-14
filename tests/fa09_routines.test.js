@@ -77,6 +77,12 @@ test('SOURCE root2 policy/receipt corruption rejects while exact held and pendin
  for(const p of [reserve(opened(4)),reserve(opened())]){assert.deepEqual(reload(p).state,p.state);
  for(const alter of [c=>{c.stockPolicy.lower=3;},c=>{c.stockAcceptedBatches=4;},c=>{if(c.accepted)c.accepted.due++;else c.stockHold='forged';}]){const bad=structuredClone(p);alter(cursor(bad));assert.throws(()=>reload(bad));}}
 });
+test('R15 G2 SOURCE reserve cannot be downgraded into the legacy reader grammar; receipt times reject atomically',()=>{
+ const p=reserve(opened()),before=structuredClone(p);
+ for(const alter of [q=>{q.state.simulation.workPlans.schema=1;},q=>{cursor(q).startedAt=q.state.clock+1;},q=>{cursor(q).updatedAt=-1;},q=>{cursor(q).startedSequence=q.state.sequence+1;}]){
+  const bad=structuredClone(p);alter(bad);assert.throws(()=>reload(bad));assert.deepEqual(p,before);
+ }
+});
 test('SOURCE selected existing old measured-pack program spends each batch, completes, depletes and refunds current work',()=>{
  let p=base();p.gameplay.player.inventory[JSON.stringify({id:'Rough wood log'})]=10;p.gameplay.oldCraftsman={inventory:{},skills:{},reputation:{}};p=enrollSimulation(p.state,registry,ctx(p));
  p=commitSimulationCommand(p.state,registry,{id:'village.commission'},ctx(p,{targetId:'oldCraftsman'}));p=commitSimulationCommand(p.state,registry,{id:'village.study_method'},ctx(p));

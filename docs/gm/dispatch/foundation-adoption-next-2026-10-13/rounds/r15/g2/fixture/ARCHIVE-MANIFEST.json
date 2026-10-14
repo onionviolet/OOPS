@@ -1,0 +1,30 @@
+[
+ {
+  "file": "TEST-FIXTURE-R15-G2-held.txt",
+  "sha256": "80cd3f3fcbcc4ac09d2599f1c348fb5637b6015393d9505a4743cf5d8263bc6f"
+ },
+ {
+  "file": "TEST-FIXTURE-R15-G2-mixed-nowood.txt",
+  "sha256": "47321947cfd1d5f4e4fb5fcabe479d27198efa2fe89e11d8504f141558cd5772"
+ },
+ {
+  "file": "TEST-FIXTURE-R15-G2-mixed.txt",
+  "sha256": "757779da3bc09d91eaf966106e415ca0c0db5cb439b64c3a29ee645864a0762e"
+ },
+ {
+  "file": "TEST-FIXTURE-R15-G2-program.txt",
+  "sha256": "7317dc7bc75d3b87d74da07c31b5019d910fb238820f29f97e41faceab8c9b1a"
+ },
+ {
+  "file": "TEST-FIXTURE-R15-G2-program1log.txt",
+  "sha256": "bbead6163fe61d5c200ad4ca71ec5ea2bf542f884a6a77cebac687eab93d73f5"
+ },
+ {
+  "file": "TEST-FIXTURE-R15-G2-reserve.txt",
+  "sha256": "f45e33df377fcb5c4a1cd6b47beeec02716fcb4b0723a49f63af1efb6b9fbdc4"
+ },
+ {
+  "file": "TEST-FIXTURE-R15-G2-retort-merchant.txt",
+  "sha256": "cf2f792f0808586b1d5d451140b851edd0cb75e83630f6121b5905bdf86c0bd5"
+ }
+]

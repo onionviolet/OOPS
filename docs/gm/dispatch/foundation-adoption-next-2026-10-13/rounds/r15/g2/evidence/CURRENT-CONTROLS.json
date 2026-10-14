@@ -1,0 +1,1078 @@
+{
+ "label": "seeded-native",
+ "built": "d4999496a25e220c14e09e159bf0dc7e910fa8dfb7781cc94fbec180fbbf5c2a",
+ "cases": [
+  {
+   "name": "retort-current-refund",
+   "before": {
+    "clock": 748,
+    "money": 51,
+    "stamina_to_full": 0,
+    "hp_to_full": 0,
+    "location": "Village",
+    "items": {
+     "Tree sap": 6,
+     "Rough wood log": 78,
+     "Empty retort resin tray": 1,
+     "Empty retort residue tray": 1,
+     "Filled retort resin tray": 0,
+     "Filled retort residue tray": 0,
+     "Set repair resin": 1,
+     "Sound repair stave": 0,
+     "Prepared survey kit": 7
+    },
+    "jobs": [],
+    "cursor": {
+     "definitionId": "factorio_retort.three_batches",
+     "status": "cancelled",
+     "index": 0,
+     "reason": "Future steps cancelled. Any retained accepted job keeps its disclosed terms.",
+     "accepted": null
+    },
+    "program": {
+     "commandId": "village.measured_pack",
+     "remaining": 0,
+     "status": "complete",
+     "targetId": null
+    }
+   },
+   "accepted": {
+    "clock": 748,
+    "money": 51,
+    "stamina_to_full": 1,
+    "hp_to_full": 0,
+    "location": "Village",
+    "items": {
+     "Tree sap": 5,
+     "Rough wood log": 77,
+     "Empty retort resin tray": 0,
+     "Empty retort residue tray": 0,
+     "Filled retort resin tray": 0,
+     "Filled retort residue tray": 0,
+     "Set repair resin": 1,
+     "Sound repair stave": 0,
+     "Prepared survey kit": 7
+    },
+    "jobs": [
+     {
+      "id": "simulation:4744",
+      "commandId": "factorio_retort.batch",
+      "due": 751
+     }
+    ],
+    "cursor": {
+     "definitionId": "factorio_retort.three_batches",
+     "status": "running",
+     "index": 0,
+     "reason": "",
+     "accepted": {
+      "commandId": "factorio_retort.batch",
+      "due": 751
+     }
+    },
+    "program": {
+     "commandId": "village.measured_pack",
+     "remaining": 0,
+     "status": "complete",
+     "targetId": null
+    }
+   },
+   "cancelled": {
+    "clock": 748,
+    "money": 51,
+    "stamina_to_full": 0,
+    "hp_to_full": 0,
+    "location": "Village",
+    "items": {
+     "Tree sap": 6,
+     "Rough wood log": 78,
+     "Empty retort resin tray": 1,
+     "Empty retort residue tray": 1,
+     "Filled retort resin tray": 0,
+     "Filled retort residue tray": 0,
+     "Set repair resin": 1,
+     "Sound repair stave": 0,
+     "Prepared survey kit": 7
+    },
+    "jobs": [],
+    "cursor": {
+     "definitionId": "factorio_retort.three_batches",
+     "status": "running",
+     "index": 0,
+     "reason": "",
+     "accepted": {
+      "commandId": "factorio_retort.batch",
+      "due": 751
+     }
+    },
+    "program": {
+     "commandId": "village.measured_pack",
+     "remaining": 0,
+     "status": "complete",
+     "targetId": null
+    }
+   },
+   "cancelId": "cancel:simulation:4744",
+   "writes": [
+    {
+     "at": 1791945668000,
+     "clock": 748,
+     "stamina_to_full": 0,
+     "seq": 4742,
+     "jobs": [],
+     "cursor": "cancelled/0",
+     "prog": "complete/0",
+     "money": 51,
+     "inv": {
+      "{\"id\":\"Cheap leather pants\",\"quality\":40}": {
+       "count": 1
+      },
+      "{\"id\":\"Stale bread\"}": {
+       "count": 5
+      },
+      "{\"id\":\"Old pickaxe\",\"quality\":100}": {
+       "count": 1
+      },
+      "{\"id\":\"Old sickle\",\"quality\":100}": {
+       "count": 1
+      },
+      "{\"id\":\"Old shovel\",\"quality\":100}": {
+       "count": 1
+      },
+      "{\"id\":\"Rough wood log\"}": {
+       "count": 78
+      },
+      "{\"id\":\"Cooling salt packet\"}": {
+       "count": 1
+      },
+      "{\"id\":\"Empty cooling sleeve\"}": {
+       "count": 2
+      },
+      "{\"id\":\"Prepared survey kit\"}": {
+       "count": 7
+      },
+      "{\"id\":\"Wax-sealed survey kit\"}": {
+       "count": 4
+      },
+      "{\"id\":\"Dulled field fitting knife\"}": {
+       "count": 2
+      },
+      "{\"id\":\"Bench clearance manual\"}": {
+       "count": 1
+      },
+      "{\"id\":\"Set repair resin\"}": {
+       "count": 1
+      },
+      "{\"id\":\"Empty retort resin tray\"}": {
+       "count": 1
+      },
+      "{\"id\":\"Empty retort residue tray\"}": {
+       "count": 1
+      },
+      "{\"id\":\"Tree sap\"}": {
+       "count": 6
+      }
+     }
+    },
+    {
+     "at": 1791945668517,
+     "clock": 748,
+     "stamina_to_full": 1,
+     "seq": 4744,
+     "jobs": [
+      "factorio_retort.batch@751"
+     ],
+     "cursor": "running/0",
+     "prog": "complete/0",
+     "money": 51,
+     "inv": {
+      "{\"id\":\"Cheap leather pants\",\"quality\":40}": {
+       "count": 1
+      },
+      "{\"id\":\"Stale bread\"}": {
+       "count": 5
+      },
+      "{\"id\":\"Old pickaxe\",\"quality\":100}": {
+       "count": 1
+      },
+      "{\"id\":\"Old sickle\",\"quality\":100}": {
+       "count": 1
+      },
+      "{\"id\":\"Old shovel\",\"quality\":100}": {
+       "count": 1
+      },
+      "{\"id\":\"Rough wood log\"}": {
+       "count": 77
+      },
+      "{\"id\":\"Cooling salt packet\"}": {
+       "count": 1
+      },
+      "{\"id\":\"Empty cooling sleeve\"}": {
+       "count": 2
+      },
+      "{\"id\":\"Prepared survey kit\"}": {
+       "count": 7
+      },
+      "{\"id\":\"Wax-sealed survey kit\"}": {
+       "count": 4
+      },
+      "{\"id\":\"Dulled field fitting knife\"}": {
+       "count": 2
+      },
+      "{\"id\":\"Bench clearance manual\"}": {
+       "count": 1
+      },
+      "{\"id\":\"Set repair resin\"}": {
+       "count": 1
+      },
+      "{\"id\":\"Tree sap\"}": {
+       "count": 5
+      }
+     }
+    },
+    {
+     "at": 1791945672383,
+     "clock": 748,
+     "stamina_to_full": 1,
+     "seq": 4744,
+     "jobs": [
+      "factorio_retort.batch@751"
+     ],
+     "cursor": "running/0",
+     "prog": "complete/0",
+     "money": 51,
+     "inv": {
+      "{\"id\":\"Cheap leather pants\",\"quality\":40}": {
+       "count": 1
+      },
+      "{\"id\":\"Stale bread\"}": {
+       "count": 5
+      },
+      "{\"id\":\"Old pickaxe\",\"quality\":100}": {
+       "count": 1
+      },
+      "{\"id\":\"Old sickle\",\"quality\":100}": {
+       "count": 1
+      },
+      "{\"id\":\"Old shovel\",\"quality\":100}": {
+       "count": 1
+      },
+      "{\"id\":\"Rough wood log\"}": {
+       "count": 77
+      },
+      "{\"id\":\"Cooling salt packet\"}": {
+       "count": 1
+      },
+      "{\"id\":\"Empty cooling sleeve\"}": {
+       "count": 2
+      },
+      "{\"id\":\"Prepared survey kit\"}": {
+       "count": 7
+      },
+      "{\"id\":\"Wax-sealed survey kit\"}": {
+       "count": 4
+      },
+      "{\"id\":\"Dulled field fitting knife\"}": {
+       "count": 2
+      },
+      "{\"id\":\"Bench clearance manual\"}": {
+       "count": 1
+      },
+      "{\"id\":\"Set repair resin\"}": {
+       "count": 1
+      },
+      "{\"id\":\"Tree sap\"}": {
+       "count": 5
+      }
+     }
+    },
+    {
+     "at": 1791945672638,
+     "clock": 748,
+     "stamina_to_full": 0,
+     "seq": 4745,
+     "jobs": [],
+     "cursor": "running/0",
+     "prog": "complete/0",
+     "money": 51,
+     "inv": {
+      "{\"id\":\"Cheap leather pants\",\"quality\":40}": {
+       "count": 1
+      },
+      "{\"id\":\"Stale bread\"}": {
+       "count": 5
+      },
+      "{\"id\":\"Old pickaxe\",\"quality\":100}": {
+       "count": 1
+      },
+      "{\"id\":\"Old sickle\",\"quality\":100}": {
+       "count": 1
+      },
+      "{\"id\":\"Old shovel\",\"quality\":100}": {
+       "count": 1
+      },
+      "{\"id\":\"Rough wood log\"}": {
+       "count": 78
+      },
+      "{\"id\":\"Cooling salt packet\"}": {
+       "count": 1
+      },
+      "{\"id\":\"Empty cooling sleeve\"}": {
+       "count": 2
+      },
+      "{\"id\":\"Prepared survey kit\"}": {
+       "count": 7
+      },
+      "{\"id\":\"Wax-sealed survey kit\"}": {
+       "count": 4
+      },
+      "{\"id\":\"Dulled field fitting knife\"}": {
+       "count": 2
+      },
+      "{\"id\":\"Bench clearance manual\"}": {
+       "count": 1
+      },
+      "{\"id\":\"Set repair resin\"}": {
+       "count": 1
+      },
+      "{\"id\":\"Tree sap\"}": {
+       "count": 6
+      },
+      "{\"id\":\"Empty retort resin tray\"}": {
+       "count": 1
+      },
+      "{\"id\":\"Empty retort residue tray\"}": {
+       "count": 1
+      }
+     }
+    },
+    {
+     "at": 1791945676930,
+     "clock": 748,
+     "stamina_to_full": 0,
+     "seq": 4745,
+     "jobs": [],
+     "cursor": "running/0",
+     "prog": "complete/0",
+     "money": 51,
+     "inv": {
+      "{\"id\":\"Cheap leather pants\",\"quality\":40}": {
+       "count": 1
+      },
+      "{\"id\":\"Stale bread\"}": {
+       "count": 5
+      },
+      "{\"id\":\"Old pickaxe\",\"quality\":100}": {
+       "count": 1
+      },
+      "{\"id\":\"Old sickle\",\"quality\":100}": {
+       "count": 1
+      },
+      "{\"id\":\"Old shovel\",\"quality\":100}": {
+       "count": 1
+      },
+      "{\"id\":\"Rough wood log\"}": {
+       "count": 78
+      },
+      "{\"id\":\"Cooling salt packet\"}": {
+       "count": 1
+      },
+      "{\"id\":\"Empty cooling sleeve\"}": {
+       "count": 2
+      },
+      "{\"id\":\"Prepared survey kit\"}": {
+       "count": 7
+      },
+      "{\"id\":\"Wax-sealed survey kit\"}": {
+       "count": 4
+      },
+      "{\"id\":\"Dulled field fitting knife\"}": {
+       "count": 2
+      },
+      "{\"id\":\"Bench clearance manual\"}": {
+       "count": 1
+      },
+      "{\"id\":\"Set repair resin\"}": {
+       "count": 1
+      },
+      "{\"id\":\"Tree sap\"}": {
+       "count": 6
+      },
+      "{\"id\":\"Empty retort resin tray\"}": {
+       "count": 1
+      },
+      "{\"id\":\"Empty retort residue tray\"}": {
+       "count": 1
+      }
+     }
+    }
+   ],
+   "restoration": {
+    "label": "current-retort-refund",
+    "comparison": "loaded before PLAY, real Save/Export/reload/literal-file Import",
+    "file": "current-retort-refund.txt",
+    "fileSha": "98d221a3c1e776ff1e6bf97bedecba00b557ed5463a3787cca4e5d99057c5753",
+    "reloadDiff": [],
+    "importDiff": [],
+    "clocks": [
+     748,
+     748,
+     748
+    ]
+   }
+  },
+  {
+   "name": "retort-future-keeps-job",
+   "before": {
+    "clock": 748,
+    "money": 51,
+    "stamina_to_full": 0,
+    "hp_to_full": 0,
+    "location": "Village",
+    "items": {
+     "Tree sap": 6,
+     "Rough wood log": 78,
+     "Empty retort resin tray": 1,
+     "Empty retort residue tray": 1,
+     "Filled retort resin tray": 0,
+     "Filled retort residue tray": 0,
+     "Set repair resin": 1,
+     "Sound repair stave": 0,
+     "Prepared survey kit": 7
+    },
+    "jobs": [],
+    "cursor": {
+     "definitionId": "factorio_retort.three_batches",
+     "status": "cancelled",
+     "index": 0,
+     "reason": "Future steps cancelled. Any retained accepted job keeps its disclosed terms.",
+     "accepted": null
+    },
+    "program": {
+     "commandId": "village.measured_pack",
+     "remaining": 0,
+     "status": "complete",
+     "targetId": null
+    }
+   },
+   "pending": {
+    "clock": 748,
+    "money": 51,
+    "stamina_to_full": 1,
+    "hp_to_full": 0,
+    "location": "Village",
+    "items": {
+     "Tree sap": 5,
+     "Rough wood log": 77,
+     "Empty retort resin tray": 0,
+     "Empty retort residue tray": 0,
+     "Filled retort resin tray": 0,
+     "Filled retort residue tray": 0,
+     "Set repair resin": 1,
+     "Sound repair stave": 0,
+     "Prepared survey kit": 7
+    },
+    "jobs": [
+     {
+      "id": "simulation:4744",
+      "commandId": "factorio_retort.batch",
+      "due": 751
+     }
+    ],
+    "cursor": {
+     "definitionId": "factorio_retort.three_batches",
+     "status": "cancelled",
+     "index": 0,
+     "reason": "Future steps cancelled. Any retained accepted job keeps its disclosed terms.",
+     "accepted": null
+    },
+    "program": {
+     "commandId": "village.measured_pack",
+     "remaining": 0,
+     "status": "complete",
+     "targetId": null
+    }
+   },
+   "settled": {
+    "clock": 752,
+    "money": 51,
+    "stamina_to_full": 0,
+    "hp_to_full": 0,
+    "location": "Village",
+    "items": {
+     "Tree sap": 5,
+     "Rough wood log": 77,
+     "Empty retort resin tray": 0,
+     "Empty retort residue tray": 0,
+     "Filled retort resin tray": 1,
+     "Filled retort residue tray": 1,
+     "Set repair resin": 1,
+     "Sound repair stave": 0,
+     "Prepared survey kit": 7
+    },
+    "jobs": [],
+    "cursor": {
+     "definitionId": "factorio_retort.three_batches",
+     "status": "cancelled",
+     "index": 0,
+     "reason": "Future steps cancelled. Any retained accepted job keeps its disclosed terms.",
+     "accepted": null
+    },
+    "program": {
+     "commandId": "village.measured_pack",
+     "remaining": 0,
+     "status": "complete",
+     "targetId": null
+    }
+   },
+   "export": "current-retort-future-pending.txt"
+  },
+  {
+   "name": "reserve-current-refund-used-slot",
+   "before": {
+    "clock": 748,
+    "money": 51,
+    "stamina_to_full": 0,
+    "hp_to_full": 0,
+    "location": "Village",
+    "items": {
+     "Tree sap": 0,
+     "Rough wood log": 78,
+     "Empty retort resin tray": 1,
+     "Empty retort residue tray": 1,
+     "Filled retort resin tray": 0,
+     "Filled retort residue tray": 0,
+     "Set repair resin": 3,
+     "Sound repair stave": 6,
+     "Prepared survey kit": 0
+    },
+    "jobs": [],
+    "cursor": {
+     "definitionId": "factorio_retort.three_batches",
+     "status": "cancelled",
+     "index": 0,
+     "reason": "Future steps cancelled. Any retained accepted job keeps its disclosed terms.",
+     "accepted": null
+    },
+    "program": {
+     "commandId": "village.measured_pack",
+     "remaining": 0,
+     "status": "complete",
+     "targetId": null
+    }
+   },
+   "accepted": {
+    "clock": 748,
+    "money": 51,
+    "stamina_to_full": 1,
+    "hp_to_full": 0,
+    "location": "Village",
+    "items": {
+     "Tree sap": 0,
+     "Rough wood log": 78,
+     "Empty retort resin tray": 1,
+     "Empty retort residue tray": 1,
+     "Filled retort resin tray": 0,
+     "Filled retort residue tray": 0,
+     "Set repair resin": 2,
+     "Sound repair stave": 4,
+     "Prepared survey kit": 0
+    },
+    "jobs": [
+     {
+      "id": "simulation:4744",
+      "commandId": "reference_gameplay.resin_kits",
+      "due": 751
+     }
+    ],
+    "cursor": {
+     "definitionId": "audited_kit_reserve.resin_plan",
+     "status": "running",
+     "index": 0,
+     "reason": "",
+     "accepted": {
+      "commandId": "reference_gameplay.resin_kits",
+      "due": 751
+     },
+     "stockHold": false,
+     "stockAcceptedBatches": 1
+    },
+    "program": {
+     "commandId": "village.measured_pack",
+     "remaining": 0,
+     "status": "complete",
+     "targetId": null
+    }
+   },
+   "cancelled": {
+    "clock": 748,
+    "money": 51,
+    "stamina_to_full": 0,
+    "hp_to_full": 0,
+    "location": "Village",
+    "items": {
+     "Tree sap": 0,
+     "Rough wood log": 78,
+     "Empty retort resin tray": 1,
+     "Empty retort residue tray": 1,
+     "Filled retort resin tray": 0,
+     "Filled retort residue tray": 0,
+     "Set repair resin": 3,
+     "Sound repair stave": 6,
+     "Prepared survey kit": 0
+    },
+    "jobs": [],
+    "cursor": {
+     "definitionId": "audited_kit_reserve.resin_plan",
+     "status": "cancelled",
+     "index": 0,
+     "reason": "Future steps cancelled. Any retained accepted job keeps its disclosed terms.",
+     "accepted": null,
+     "stockHold": false,
+     "stockAcceptedBatches": 1
+    },
+    "program": {
+     "commandId": "village.measured_pack",
+     "remaining": 0,
+     "status": "complete",
+     "targetId": null
+    }
+   },
+   "writes": [
+    {
+     "at": 1791945738568,
+     "clock": 748,
+     "stamina_to_full": 0,
+     "seq": 4742,
+     "jobs": [],
+     "cursor": "cancelled/0",
+     "prog": "complete/0",
+     "money": 51,
+     "inv": {
+      "{\"id\":\"Cheap leather pants\",\"quality\":40}": {
+       "count": 1
+      },
+      "{\"id\":\"Stale bread\"}": {
+       "count": 5
+      },
+      "{\"id\":\"Old pickaxe\",\"quality\":100}": {
+       "count": 1
+      },
+      "{\"id\":\"Old sickle\",\"quality\":100}": {
+       "count": 1
+      },
+      "{\"id\":\"Old shovel\",\"quality\":100}": {
+       "count": 1
+      },
+      "{\"id\":\"Rough wood log\"}": {
+       "count": 78
+      },
+      "{\"id\":\"Cooling salt packet\"}": {
+       "count": 1
+      },
+      "{\"id\":\"Empty cooling sleeve\"}": {
+       "count": 2
+      },
+      "{\"id\":\"Wax-sealed survey kit\"}": {
+       "count": 4
+      },
+      "{\"id\":\"Dulled field fitting knife\"}": {
+       "count": 2
+      },
+      "{\"id\":\"Bench clearance manual\"}": {
+       "count": 1
+      },
+      "{\"id\":\"Set repair resin\"}": {
+       "count": 3
+      },
+      "{\"id\":\"Empty retort resin tray\"}": {
+       "count": 1
+      },
+      "{\"id\":\"Empty retort residue tray\"}": {
+       "count": 1
+      },
+      "{\"id\":\"Sound repair stave\"}": {
+       "count": 6
+      }
+     }
+    },
+    {
+     "at": 1791945739065,
+     "clock": 748,
+     "stamina_to_full": 1,
+     "seq": 4744,
+     "jobs": [
+      "reference_gameplay.resin_kits@751"
+     ],
+     "cursor": "running/0",
+     "prog": "complete/0",
+     "money": 51,
+     "inv": {
+      "{\"id\":\"Cheap leather pants\",\"quality\":40}": {
+       "count": 1
+      },
+      "{\"id\":\"Stale bread\"}": {
+       "count": 5
+      },
+      "{\"id\":\"Old pickaxe\",\"quality\":100}": {
+       "count": 1
+      },
+      "{\"id\":\"Old sickle\",\"quality\":100}": {
+       "count": 1
+      },
+      "{\"id\":\"Old shovel\",\"quality\":100}": {
+       "count": 1
+      },
+      "{\"id\":\"Rough wood log\"}": {
+       "count": 78
+      },
+      "{\"id\":\"Cooling salt packet\"}": {
+       "count": 1
+      },
+      "{\"id\":\"Empty cooling sleeve\"}": {
+       "count": 2
+      },
+      "{\"id\":\"Wax-sealed survey kit\"}": {
+       "count": 4
+      },
+      "{\"id\":\"Dulled field fitting knife\"}": {
+       "count": 2
+      },
+      "{\"id\":\"Bench clearance manual\"}": {
+       "count": 1
+      },
+      "{\"id\":\"Set repair resin\"}": {
+       "count": 2
+      },
+      "{\"id\":\"Empty retort resin tray\"}": {
+       "count": 1
+      },
+      "{\"id\":\"Empty retort residue tray\"}": {
+       "count": 1
+      },
+      "{\"id\":\"Sound repair stave\"}": {
+       "count": 4
+      }
+     }
+    },
+    {
+     "at": 1791945742172,
+     "clock": 748,
+     "stamina_to_full": 1,
+     "seq": 4744,
+     "jobs": [
+      "reference_gameplay.resin_kits@751"
+     ],
+     "cursor": "running/0",
+     "prog": "complete/0",
+     "money": 51,
+     "inv": {
+      "{\"id\":\"Cheap leather pants\",\"quality\":40}": {
+       "count": 1
+      },
+      "{\"id\":\"Stale bread\"}": {
+       "count": 5
+      },
+      "{\"id\":\"Old pickaxe\",\"quality\":100}": {
+       "count": 1
+      },
+      "{\"id\":\"Old sickle\",\"quality\":100}": {
+       "count": 1
+      },
+      "{\"id\":\"Old shovel\",\"quality\":100}": {
+       "count": 1
+      },
+      "{\"id\":\"Rough wood log\"}": {
+       "count": 78
+      },
+      "{\"id\":\"Cooling salt packet\"}": {
+       "count": 1
+      },
+      "{\"id\":\"Empty cooling sleeve\"}": {
+       "count": 2
+      },
+      "{\"id\":\"Wax-sealed survey kit\"}": {
+       "count": 4
+      },
+      "{\"id\":\"Dulled field fitting knife\"}": {
+       "count": 2
+      },
+      "{\"id\":\"Bench clearance manual\"}": {
+       "count": 1
+      },
+      "{\"id\":\"Set repair resin\"}": {
+       "count": 2
+      },
+      "{\"id\":\"Empty retort resin tray\"}": {
+       "count": 1
+      },
+      "{\"id\":\"Empty retort residue tray\"}": {
+       "count": 1
+      },
+      "{\"id\":\"Sound repair stave\"}": {
+       "count": 4
+      }
+     }
+    },
+    {
+     "at": 1791945742372,
+     "clock": 748,
+     "stamina_to_full": 0,
+     "seq": 4746,
+     "jobs": [],
+     "cursor": "cancelled/0",
+     "prog": "complete/0",
+     "money": 51,
+     "inv": {
+      "{\"id\":\"Cheap leather pants\",\"quality\":40}": {
+       "count": 1
+      },
+      "{\"id\":\"Stale bread\"}": {
+       "count": 5
+      },
+      "{\"id\":\"Old pickaxe\",\"quality\":100}": {
+       "count": 1
+      },
+      "{\"id\":\"Old sickle\",\"quality\":100}": {
+       "count": 1
+      },
+      "{\"id\":\"Old shovel\",\"quality\":100}": {
+       "count": 1
+      },
+      "{\"id\":\"Rough wood log\"}": {
+       "count": 78
+      },
+      "{\"id\":\"Cooling salt packet\"}": {
+       "count": 1
+      },
+      "{\"id\":\"Empty cooling sleeve\"}": {
+       "count": 2
+      },
+      "{\"id\":\"Wax-sealed survey kit\"}": {
+       "count": 4
+      },
+      "{\"id\":\"Dulled field fitting knife\"}": {
+       "count": 2
+      },
+      "{\"id\":\"Bench clearance manual\"}": {
+       "count": 1
+      },
+      "{\"id\":\"Set repair resin\"}": {
+       "count": 3
+      },
+      "{\"id\":\"Empty retort resin tray\"}": {
+       "count": 1
+      },
+      "{\"id\":\"Empty retort residue tray\"}": {
+       "count": 1
+      },
+      "{\"id\":\"Sound repair stave\"}": {
+       "count": 6
+      }
+     }
+    },
+    {
+     "at": 1791945745553,
+     "clock": 748,
+     "stamina_to_full": 0,
+     "seq": 4746,
+     "jobs": [],
+     "cursor": "cancelled/0",
+     "prog": "complete/0",
+     "money": 51,
+     "inv": {
+      "{\"id\":\"Cheap leather pants\",\"quality\":40}": {
+       "count": 1
+      },
+      "{\"id\":\"Stale bread\"}": {
+       "count": 5
+      },
+      "{\"id\":\"Old pickaxe\",\"quality\":100}": {
+       "count": 1
+      },
+      "{\"id\":\"Old sickle\",\"quality\":100}": {
+       "count": 1
+      },
+      "{\"id\":\"Old shovel\",\"quality\":100}": {
+       "count": 1
+      },
+      "{\"id\":\"Rough wood log\"}": {
+       "count": 78
+      },
+      "{\"id\":\"Cooling salt packet\"}": {
+       "count": 1
+      },
+      "{\"id\":\"Empty cooling sleeve\"}": {
+       "count": 2
+      },
+      "{\"id\":\"Wax-sealed survey kit\"}": {
+       "count": 4
+      },
+      "{\"id\":\"Dulled field fitting knife\"}": {
+       "count": 2
+      },
+      "{\"id\":\"Bench clearance manual\"}": {
+       "count": 1
+      },
+      "{\"id\":\"Set repair resin\"}": {
+       "count": 3
+      },
+      "{\"id\":\"Empty retort resin tray\"}": {
+       "count": 1
+      },
+      "{\"id\":\"Empty retort residue tray\"}": {
+       "count": 1
+      },
+      "{\"id\":\"Sound repair stave\"}": {
+       "count": 6
+      }
+     }
+    }
+   ],
+   "restoration": {
+    "label": "current-reserve-refund",
+    "comparison": "loaded before PLAY, real Save/Export/reload/literal-file Import",
+    "file": "current-reserve-refund.txt",
+    "fileSha": "eb893557ec4dcdaa6283208189202d86931bb10f251011bf25bedae4ce84334a",
+    "reloadDiff": [],
+    "importDiff": [],
+    "clocks": [
+     748,
+     748,
+     748
+    ]
+   }
+  },
+  {
+   "name": "reserve-failed-publication-explicit-retry",
+   "before": {
+    "clock": 748,
+    "money": 51,
+    "stamina_to_full": 0,
+    "hp_to_full": 0,
+    "location": "Village",
+    "items": {
+     "Tree sap": 0,
+     "Rough wood log": 78,
+     "Empty retort resin tray": 1,
+     "Empty retort residue tray": 1,
+     "Filled retort resin tray": 0,
+     "Filled retort residue tray": 0,
+     "Set repair resin": 3,
+     "Sound repair stave": 6,
+     "Prepared survey kit": 0
+    },
+    "jobs": [],
+    "cursor": {
+     "definitionId": "factorio_retort.three_batches",
+     "status": "cancelled",
+     "index": 0,
+     "reason": "Future steps cancelled. Any retained accepted job keeps its disclosed terms.",
+     "accepted": null
+    },
+    "program": {
+     "commandId": "village.measured_pack",
+     "remaining": 0,
+     "status": "complete",
+     "targetId": null
+    }
+   },
+   "afterFailure": {
+    "clock": 748,
+    "money": 51,
+    "stamina_to_full": 0,
+    "hp_to_full": 0,
+    "location": "Village",
+    "items": {
+     "Tree sap": 0,
+     "Rough wood log": 78,
+     "Empty retort resin tray": 1,
+     "Empty retort residue tray": 1,
+     "Filled retort resin tray": 0,
+     "Filled retort residue tray": 0,
+     "Set repair resin": 3,
+     "Sound repair stave": 6,
+     "Prepared survey kit": 0
+    },
+    "jobs": [],
+    "cursor": {
+     "definitionId": "factorio_retort.three_batches",
+     "status": "cancelled",
+     "index": 0,
+     "reason": "Future steps cancelled. Any retained accepted job keeps its disclosed terms.",
+     "accepted": null
+    },
+    "program": {
+     "commandId": "village.measured_pack",
+     "remaining": 0,
+     "status": "complete",
+     "targetId": null
+    }
+   },
+   "retry": {
+    "clock": 748,
+    "money": 51,
+    "stamina_to_full": 1,
+    "hp_to_full": 0,
+    "location": "Village",
+    "items": {
+     "Tree sap": 0,
+     "Rough wood log": 78,
+     "Empty retort resin tray": 1,
+     "Empty retort residue tray": 1,
+     "Filled retort resin tray": 0,
+     "Filled retort residue tray": 0,
+     "Set repair resin": 2,
+     "Sound repair stave": 4,
+     "Prepared survey kit": 0
+    },
+    "jobs": [
+     {
+      "id": "simulation:4744",
+      "commandId": "reference_gameplay.resin_kits",
+      "due": 751
+     }
+    ],
+    "cursor": {
+     "definitionId": "audited_kit_reserve.resin_plan",
+     "status": "running",
+     "index": 0,
+     "reason": "",
+     "accepted": {
+      "commandId": "reference_gameplay.resin_kits",
+      "due": 751
+     },
+     "stockHold": false,
+     "stockAcceptedBatches": 1
+    },
+    "program": {
+     "commandId": "village.measured_pack",
+     "remaining": 0,
+     "status": "complete",
+     "targetId": null
+    }
+   },
+   "failedWrites": [
+    {
+     "at": 1791945769917,
+     "rejected": true
+    }
+   ],
+   "notice": "nt conditions. Review the known preparation or choose another action.\nStated costs\nHear the seal-steward’s terms\nCompletion terms\nMeet the seal steward, counter clerk and a longtime colleague. Hearing their actual terms changes no identity, office, duty or possessions.\nUnavailable: Discuss the offered work\nVillage notes\nRoutes & supplies\nField association & workshop\nKnown routes\nKnown routes\n04/04/999 18:06, Summer, Thu, Day\ncloud22.5°C\nstar_border Village\nRain dots the village path.\nMedium-sized village, built at the foot of the mountains, with rocks preventing any expansions towards north. It's surrounded by many fields, most of them infested by huge rats. There is a relatively calm, somewhat small river south of it with no bridges over it, and with some old structures on the other side, clearly not used for years if not longer. Many villagers seem to have nothing to do and are just sitting around.\nMore about this place\n\nNo work running.\n\nSaving available.\n\nLocal actions\ndirections Move somewhere else\ndirections Fast travel\nconstruction Try to craft something\nquestion_answer Talk to someone\nwork_outline Find work\nfitness_center Train\nsearch Gather resources\nLocal life\nWaypost supply clerk\nClerk purse: 180 coins. Paid so far: 0. Supplies change hands immediately; no shift, promotion or patrol credit. After one Infested field clear the clerk offers free repair notes, or buy a copy for 10 coins.\nAsk for repair notes (one field clear)Buy repair notes (10 coins)\nLearned item sources\nCheap iron axe: village elder (observed, contact)\nOld pickaxe: old craftsman (observed, contact)\nOld axe: old craftsman (observed, contact)\nOld sickle: old craftsman (observed, contact)\nOld shovel: old craftsman (observed, contact)\nRough wood log: Village (observed, gather)\nTree sap: Village (observed, gather)\nOptional pacing\nEquipment condition and repair\nElemental preparation\nMarket courtyard · trade, property and projects\nJournal & received accounts\nQuests\nBestiary\nAnthology\nData\nNotebook\nSkills & practice\nkeyboard_double_arrow_downCombat skills\nkeyboard_arrow_up\nkeyboard_arrow_down\nkeyboard_double_arrow_downCharacter skills\nkeyboard_arrow_up\nkeyboard_arrow_down\nkeyboard_double_arrow_downEnvironmental skills\nkeyboard_arrow_up\nkeyboard_arrow_down\nkeyboard_double_arrow_downGathering skills\nkeyboard_arrow_up\nkeyboard_arrow_down\n Hide max level skills\nSort by name\nSort by level\nSort by progress\nSkills\nStances\nMagic\nReports\nWorld events\nRecent news\nRemembered years · 3 memories\nRemember this day\n\nYears remembered\nVillage neighbors\nSaved the game manually\nLevels / unlocks\nEvents\nCrafting\nCombat\nLoot\nBGM\nYour beginning\nPatrol & custody\nPeople you know\nPeople you know\n\nWhat you have learned and what happened between you. Locations are last known or agreed, rather than live reports.\n\nVillage elder\nOld craftsman\nEda, sluice fitter\nHessa, household steward\nOrr, household craftsperson\nVale, household apprentice\nWork Ledger\nWork ledger\nSave\nExport\nImport\nsettings\nv0.6\nhelp_outline"
+  }
+ ],
+ "log": {
+  "errors": [],
+  "console": [],
+  "loaded": [
+   {
+    "url": "http://127.0.0.1:19120/dist/bundle.js?version=v0.6-d4999496a25e",
+    "sha": "d4999496a25e220c14e09e159bf0dc7e910fa8dfb7781cc94fbec180fbbf5c2a"
+   },
+   {
+    "url": "http://127.0.0.1:19120/dist/bundle.js?version=v0.6-6fb66ff28577",
+    "sha": "d4999496a25e220c14e09e159bf0dc7e910fa8dfb7781cc94fbec180fbbf5c2a"
+   }
+  ]
+ }
+}

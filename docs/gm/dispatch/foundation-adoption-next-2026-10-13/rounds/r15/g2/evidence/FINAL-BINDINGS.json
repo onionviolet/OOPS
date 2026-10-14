@@ -1,0 +1,49 @@
+{
+  "date": "2026-10-13",
+  "branch": "worktree-agent-a31a7ac7607bfd391",
+  "mergedParent": "a697c3d194d44b1bb94f57f53f8ed60cf94c3213",
+  "viewport": [
+    1600,
+    1100
+  ],
+  "port": 19120,
+  "bundleSha256": "d4999496a25e220c14e09e159bf0dc7e910fa8dfb7781cc94fbec180fbbf5c2a",
+  "sourceSha256": {
+    "src/simulation.js": "4b0cec849a464c1ea758752c0881f15f7f26d5be857173ffcefda4b7eaba149c",
+    "src/main.js": "66658c6573aff2738bcc0474a1cfa9ecd00651ccdf29583ba7d42e7e8bd0c1dd",
+    "src/save_files.js": "9693989644833596a98379eececdc5a814e11845d27c1134b3e7dab3911b1120",
+    "src/factorio_retort_host.js": "3b22946a10fc4f021721283ec3cee0ce05c44b663c61b9879b335ade7f4c4e99",
+    "src/factorio_retort_native.js": "906d15465db4a40248afd869ad9189d43d9b6bb01ec8766902e3ad44c41ac4e0",
+    "src/feature_expansion_work_plan.js": "611483d42d6f75100db469ddc6b648a63dcb757f3f31e56982e18e7841e24f25",
+    "src/audited_kit_reserve_host.js": "410188cf9b0894547449a8117f93352af0ea2ef6fa9cf59fccea72a10d5b9fa6",
+    "tests/fa09_routines.test.js": "8f51cf78d167162c83ceaccf546d937d36c883c011c24f5940ebb04109e2d8d8",
+    "tests/fa11_retort.test.js": "51577ac97bb0687ee0fa7b3a4801f23bd0484cf0e325ebb1980cd8f112f57c8e"
+  },
+  "build": "PASS",
+  "npmTest": {
+    "tests": 611,
+    "pass": 611,
+    "fail": 0,
+    "duration_ms": 25008.580542
+  },
+  "focused": {
+    "tests": 32,
+    "pass": 32,
+    "fail": 0,
+    "includedInFullSuite": true
+  },
+  "excludedFromCommit": [
+    "dist/",
+    "index.html"
+  ],
+  "sourceEdits": [
+    "src/simulation.js"
+  ],
+  "migration": "No persisted format change; existing paused programs are not rewritten.",
+  "nativeRestorations": {
+    "comparisons": 13,
+    "allExact": true
+  },
+  "loadedBundleResponses": 37,
+  "deliveryBytes": 1436505
+}

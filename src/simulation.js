@@ -307,7 +307,8 @@ export function cancelSimulationJob(state, registry, jobId, context, expectedSeq
     s.jobs = s.jobs.filter(j => j !== job);
     recordLorePracticeCancellation(out,job);
     applySimulationEffects(out,agreedDutyCancellationEffects(out.state,job),job.context,registry,`cancel:${out.state.sequence}`);
-    if(s.programs[context.actorId]) {
+    // A settled routine stays settled when an unrelated job is cancelled.
+    if(s.programs[context.actorId] && (s.programs[context.actorId].status !== "complete" || s.programs[context.actorId].commandId === job.commandId)) {
         const program=s.programs[context.actorId]; program.status = "paused";
         if(registry.simulation.commands.get(job.commandId)?.group === "original_frontier" && program.commandId === job.commandId)program.remaining++;
     }

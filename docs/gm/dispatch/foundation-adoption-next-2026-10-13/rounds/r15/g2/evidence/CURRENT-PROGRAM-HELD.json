@@ -1,0 +1,222 @@
+{
+ "label": "seeded-native",
+ "built": "d4999496a25e220c14e09e159bf0dc7e910fa8dfb7781cc94fbec180fbbf5c2a",
+ "states": [
+  {
+   "name": "program-before",
+   "clock": 749,
+   "money": 3,
+   "stamina_to_full": 0,
+   "hp_to_full": 0,
+   "location": "Shack",
+   "items": {
+    "Prepared survey kit": 7,
+    "Rough wood log": 78
+   },
+   "jobs": [],
+   "cursor": {
+    "definitionId": "factorio_retort.three_batches",
+    "status": "cancelled",
+    "index": 0,
+    "reason": "Future steps cancelled. Any retained accepted job keeps its disclosed terms.",
+    "accepted": null
+   },
+   "program": {
+    "commandId": "village.measured_pack",
+    "remaining": 0,
+    "status": "complete",
+    "targetId": null
+   }
+  },
+  {
+   "name": "program-current",
+   "clock": 750,
+   "money": 1,
+   "stamina_to_full": 0,
+   "hp_to_full": 0,
+   "location": "Shack",
+   "items": {
+    "Prepared survey kit": 7,
+    "Rough wood log": 77
+   },
+   "jobs": [
+    {
+     "id": "simulation:4745",
+     "commandId": "village.measured_pack",
+     "due": 752
+    }
+   ],
+   "cursor": {
+    "definitionId": "factorio_retort.three_batches",
+    "status": "cancelled",
+    "index": 0,
+    "reason": "Future steps cancelled. Any retained accepted job keeps its disclosed terms.",
+    "accepted": null
+   },
+   "program": {
+    "commandId": "village.measured_pack",
+    "remaining": 2,
+    "status": "running",
+    "targetId": null
+   }
+  },
+  {
+   "name": "funding-paused",
+   "clock": 754,
+   "money": 1,
+   "stamina_to_full": 0,
+   "hp_to_full": 0,
+   "location": "Shack",
+   "items": {
+    "Prepared survey kit": 8,
+    "Rough wood log": 77
+   },
+   "jobs": [],
+   "cursor": {
+    "definitionId": "factorio_retort.three_batches",
+    "status": "cancelled",
+    "index": 0,
+    "reason": "Future steps cancelled. Any retained accepted job keeps its disclosed terms.",
+    "accepted": null
+   },
+   "program": {
+    "commandId": "village.measured_pack",
+    "remaining": 2,
+    "status": "paused",
+    "targetId": null,
+    "reason": "Next reserved inputs, funding, capacity, support or access are unavailable."
+   }
+  },
+  {
+   "name": "resume-shortage-no-debit",
+   "clock": 754,
+   "money": 1,
+   "stamina_to_full": 0,
+   "hp_to_full": 0,
+   "location": "Shack",
+   "items": {
+    "Prepared survey kit": 8,
+    "Rough wood log": 77
+   },
+   "jobs": [],
+   "cursor": {
+    "definitionId": "factorio_retort.three_batches",
+    "status": "cancelled",
+    "index": 0,
+    "reason": "Future steps cancelled. Any retained accepted job keeps its disclosed terms.",
+    "accepted": null
+   },
+   "program": {
+    "commandId": "village.measured_pack",
+    "remaining": 2,
+    "status": "paused",
+    "targetId": null,
+    "reason": "Next reserved inputs, funding, capacity, support or access are unavailable."
+   }
+  },
+  {
+   "name": "held-before-close",
+   "clock": 749,
+   "money": 51,
+   "stamina_to_full": 0,
+   "hp_to_full": 0,
+   "location": "Village",
+   "items": {
+    "Prepared survey kit": 7,
+    "Rough wood log": 78
+   },
+   "jobs": [],
+   "cursor": {
+    "definitionId": "audited_kit_reserve.resin_plan",
+    "status": "running",
+    "index": 0,
+    "reason": "Reserve holding: 7 available owned kits. Restart at 2 or fewer; holding spends no materials, stamina or work time.",
+    "accepted": null,
+    "stockHold": true,
+    "stockAcceptedBatches": 0
+   },
+   "program": {
+    "commandId": "village.measured_pack",
+    "remaining": 0,
+    "status": "complete",
+    "targetId": null
+   }
+  },
+  {
+   "name": "held-after-reopen",
+   "clock": 749,
+   "money": 51,
+   "stamina_to_full": 0,
+   "hp_to_full": 0,
+   "location": "Village",
+   "items": {
+    "Prepared survey kit": 7,
+    "Rough wood log": 78
+   },
+   "jobs": [],
+   "cursor": {
+    "definitionId": "audited_kit_reserve.resin_plan",
+    "status": "running",
+    "index": 0,
+    "reason": "Reserve holding: 7 available owned kits. Restart at 2 or fewer; holding spends no materials, stamina or work time.",
+    "accepted": null,
+    "stockHold": true,
+    "stockAcceptedBatches": 0
+   },
+   "program": {
+    "commandId": "village.measured_pack",
+    "remaining": 0,
+    "status": "complete",
+    "targetId": null
+   }
+  }
+ ],
+ "programRestoration": {
+  "label": "current-program-funding",
+  "comparison": "loaded before PLAY, real Save/Export/reload/literal-file Import",
+  "file": "current-program-funding.txt",
+  "fileSha": "ec8e5c391f787ade8b1d256f24f647df23426d986e61a5b7dfd4d781ca773395",
+  "reloadDiff": [],
+  "importDiff": [],
+  "clocks": [
+   754,
+   754,
+   754
+  ]
+ },
+ "closedBrowser": {
+  "wallSeconds": 6,
+  "beforeClock": 749,
+  "afterClock": 749,
+  "beforeCalendar": {
+   "year": 999,
+   "month": 4,
+   "day": 4,
+   "hour": 18,
+   "minute": 7,
+   "day_count": 4
+  },
+  "afterCalendar": {
+   "year": 999,
+   "month": 4,
+   "day": 4,
+   "hour": 18,
+   "minute": 7,
+   "day_count": 4
+  },
+  "cursorEqual": true
+ },
+ "heldRestoration": {
+  "label": "current-held",
+  "comparison": "loaded before PLAY, real Save/Export/reload/literal-file Import",
+  "file": "current-held.txt",
+  "fileSha": "6e3983fee6ea0a7d12e97c017328ea447c9ca30728ff72c48f3f8f6d6e7f5919",
+  "reloadDiff": [],
+  "importDiff": [],
+  "clocks": [
+   749,
+   749,
+   749
+  ]
+ }
+}

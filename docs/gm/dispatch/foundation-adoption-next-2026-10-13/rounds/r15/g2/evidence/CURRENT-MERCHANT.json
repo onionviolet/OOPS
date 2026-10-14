@@ -1,0 +1,22 @@
+{
+ "label": "seeded-native",
+ "built": "d4999496a25e220c14e09e159bf0dc7e910fa8dfb7781cc94fbec180fbbf5c2a",
+ "playerReceiver": 0,
+ "merchantReceiver": 1,
+ "batchText": "Prepare one retort batch · sap + log fuel + both empty trays + 1 stamina + 3 min Reserve only this batch and both receiving objects. Preparation keeps fuel unburned until settlement. Cancellation or unsupported completion returns unchanged input, fuel, effort and both empty trays once. Unavailable Known requirements Return to the Village with your actual living native body, usable hands and supported local clock. Commission your own retort rack and two physical trays first. Retain your actual owned rack and the existing fitting-bench permission. The resin tray has no free receiving space. Collect its contents or recover the actual empty tray. The residue tray has no free receiving space. Collect or dispose of its contents before another batch. Carry one owned, unequipped and unborrowed Tree sap. Carry one owned, unequipped and unborrowed Rough wood log as this batch’s fuel. Why this is unavailable This action is not available under the current conditions. Review the known preparation or choose another action. Stated costs 1 Tree sap. You have 6 available. 1 Rough wood log. You have 78 available. 1 Empty retort resin tray. You have 0 available. 1 Empty retort residue tray. You have 1 available. 1 stamina. You have 50.849999999999994 available. Time terms: 3 played minutes under the known terms. Cancellation: Cancelling returns reserved inputs. Time already played is not returned. Reserved Your attention is reserved while the accepted work runs. A place at Player’s Village retort rack is reserved for this work. Unavailable: Prepare one retort batch · sap + log fuel + both empty trays + 1 stamina + 3 min",
+ "batchDisabled": true,
+ "sourceRefresh": "fixture/MERCHANT-SOURCE.json (source only)",
+ "restoration": {
+  "label": "current-merchant-receiver",
+  "comparison": "loaded before PLAY, real Save/Export/reload/literal-file Import",
+  "file": "current-merchant-receiver.txt",
+  "fileSha": "7ad026986e5c5249af1c25f68e0603317a70f0d46a26170b6395c0810a7b89de",
+  "reloadDiff": [],
+  "importDiff": [],
+  "clocks": [
+   748,
+   748,
+   748
+  ]
+ }
+}

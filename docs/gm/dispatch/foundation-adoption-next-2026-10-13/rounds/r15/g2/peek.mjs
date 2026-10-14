@@ -1,0 +1,11 @@
+import {readFileSync} from 'node:fs';
+const t=readFileSync(process.argv[2],'utf8').trim();const s=JSON.parse(Buffer.from(t.split(':')[1],'base64').toString('utf8'));
+const inv=s.inventories.person.main_character;
+console.log(s.character.name, s.character.money, s['game version'], s['current location']);
+for(const [k,v] of Object.entries(inv))console.log(' ',k,v.count);
+const e=s.expansion;console.log('clock',e.clock,'jobs',e.simulation.jobs.length,'workPlans',JSON.stringify(e.simulation.workPlans).slice(0,600));
+console.log('programs',JSON.stringify(e.simulation.programs).slice(0,400));
+console.log('retort',JSON.stringify(e.referenceGameplay?.retort??null).slice(0,300));
+console.log('sites',Object.keys(e.simulation.sites));
+console.log('completed',JSON.stringify(e.actors.player.completed));
+console.log('keys',Object.keys(s));
