@@ -1,3 +1,6 @@
+import {getMixtureOwner,setMixtureOwner,MIXTURE_ID} from './mixture_state.js';
+import {stageMixtureAction,commitMixturePlan} from './mixture_native.js';
+import {createMixturePanel} from './mixture_ui.js';
 import {beginNativeCraftTransaction,nativeCraftQuestOwners} from './native_craft_transaction.js';
 import {worldCompletionSavedNativeItem} from './world_completion_native.js';
 import {createFoundationInteractionPanel} from './foundation_interaction_ui.js';
@@ -244,9 +247,9 @@ import { end_activity_animation,
 import { update_displayed_fighters_stats, update_displayed_health_of_fighter, } from "./ui/combat_display.js";
 import { compare_game_version, crafting_tags_to_skills, get_component_name, is_a_older_than_b, get_item_mapping, random_range, skill_consumable_tags, rtp, write_availability_status, npc_key_mapping, format_working_time } from "./misc.js";
 import { stances } from "./combat_stances.js";
-import { recipes, get_recipe_xp_value, get_component_stats } from "./crafting_recipes.js";
+import { registerMixtureGathering, recipes, get_recipe_xp_value, get_component_stats } from "./crafting_recipes.js";
 import { game_version, get_game_version } from "./game_version.js";
-import { ActiveEffect, effect_templates } from "./active_effects.js";
+import { restoreActiveEffect, ActiveEffect, effect_templates } from "./active_effects.js";
 import { open_storage, close_storage, move_item_to_storage, remove_item_from_storage, player_storage, is_storage_open, bind_storage_transfer } from "./data/storage.js";
 import { Verify_Game_Objects } from "./verifier.js";
 import { quests, questManager, active_quests, Quest, QuestTask } from "./quests.js";
@@ -4662,12 +4665,28 @@ function character_unequip_item(item_slot) {
     }
 }
 
+function performMixtureAction(request) {
+    const reasons=nativeActionReasons(expansionState);if(reasons.length||!character.is_alive)throw new Error(reasons.join(" ")||"A living character is needed.");
+    if(!workLedgerCanWrite()||(request.type!=='use'&&current_location?.id!=='Village')||expansionState.actors.player.worldId!=='base.frontier'||expeditionOccupiesPlayer()||current_activity||current_game_action||current_combat||current_dialogue||is_sleeping||is_reading||is_in_trade())throw new Error('Use the mixing counter while free in Village.');
+    if(request.key)assertNativeItemDisposition(expansionState,request.key);
+    const plan=stageMixtureAction({owner:getMixtureOwner(),seed:expansionState.simulation?.seed??expansionState.rng,inventory:character.getItems(),money:character.money,clock:calendarMinutes(current_game_time),request});
+    commitMixturePlan(plan,{createSave:create_save,validateEnvelope:save=>validateSaveEnvelope(save,game_version),
+        write:text=>lifeSaveStorage.setItem(is_on_dev()?dev_save_key:save_key,text),publish:p=>{
+            setMixtureOwner(p.state);character.money=p.money;
+            const stock=character.getItems();for(const key of Object.keys(stock))if(!p.inventory[key])delete stock[key];
+            for(const [key,row]of Object.entries(p.inventory))stock[key]={item:getItemFromKey(key),count:row.count};
+            if(p.effect)active_effects['Village mixture exposure']=restoreActiveEffect('Village mixture exposure',p.effect);
+            update_displayed_character_inventory();update_displayed_money();update_displayed_effects();character.addActiveEffectBonus(active_effects);character.updateStatsAndDisplay();
+        }});return plan;
+}
+
 function use_item(item_key) { 
     const reasons = nativeActionReasons(expansionState);
     if(reasons.length) {log_message(reasons.join(" "),"notification");return;}
     try {assertNativeItemDisposition(expansionState,item_key);} catch(e) {log_message(e.message,"notification");return;}
     if(!character.getItems()[item_key]?.count)return;
     const {id} = JSON.parse(item_key);
+    if(id===MIXTURE_ID){try{performMixtureAction({type:'use',key:item_key});}catch(error){log_message(error.message,'notification');}return;}
     const nourishment=prepareFood(getPacingState(),item_templates[id],homePacingContext());
     const item_effects = item_templates[id].effects;
     let used = nourishment.restored>0;
@@ -4807,12 +4826,12 @@ function add_active_effect(effect_key, duration = 1, skip_xp){
             if(do_not_apply_because_stronger_is_active) {
                 return;
             }
-            Object.keys(effect_templates[effect].group_tags).forEach(group_tag => {
+            Object.keys(active_effects[effect].group_tags).forEach(group_tag => {
                 if(do_not_apply_because_stronger_is_active) {
                     return;
                 }
                 if(group_tag in effect_templates[effect_key].group_tags) {
-                    if(effect_templates[effect].group_tags[group_tag] > effect_templates[effect_key].group_tags[group_tag]) {
+                    if(active_effects[effect].group_tags[group_tag] > effect_templates[effect_key].group_tags[group_tag]) {
                         //stronger effect is active, skip
                         do_not_apply_because_stronger_is_active = true; 
                     } else {
@@ -5145,6 +5164,7 @@ function create_save({forExport = false} = {}) {
         save_data["is_sleeping"] = is_sleeping;
 
         save_data["active_effects"] = active_effects;
+        if(getMixtureOwner())save_data.mixtures=structuredClone(getMixtureOwner());
 
         save_data["enemy_killcount"] = enemy_killcount;
         save_data["item_log"] = item_log.items;
@@ -5288,6 +5308,7 @@ function load(save_data) {
             syncAuthoredSite(save_data.content_packs?.authored?.draft??null);
             save_data = preparePackSave(save_data,packDefinitionsForSave());
             save_data = validateSaveEnvelope(save_data, game_version);
+            setMixtureOwner(save_data.mixtures);
             cheatState=validateCheatState(save_data.cheats??defaultCheatState());
             optionalPackState=validatePackState(save_data.content_packs??emptyPackState());
             localLife=normalizeLocalLife(save_data.absorb_local_life);
@@ -5925,6 +5946,7 @@ function load(save_data) {
 
                     Object.keys(saved_inventory).forEach(key => {
                         const parsedKey=JSON.parse(key);
+                        if(parsedKey.id===MIXTURE_ID){const item=getItemFromKey(key);item_list.push({item_key:item.getInventoryKey(),count:saved_inventory[key].count});return;}
                         const measuredItem=worldCompletionSavedNativeItem(key,saved_inventory[key],getItemFromKey);
                         if(measuredItem){item_list.push(measuredItem);return;}
                         if(parsedKey.e2_instance!=null){
@@ -6726,7 +6748,7 @@ function load(save_data) {
         //load active effects if save is not from before their rework
         if(compare_game_version(save_data["game version"], "v0.4.4") >= 0){
             Object.keys(save_data.active_effects).forEach(function(effect) {
-                active_effects[effect] =  new ActiveEffect({...effect_templates[effect], duration: save_data.active_effects[effect].duration});
+                active_effects[effect] = restoreActiveEffect(effect,save_data.active_effects[effect]);
             });
             character.addActiveEffectBonus(active_effects);
         }
@@ -8329,6 +8351,11 @@ if(!importProbeToken && !foundationSaveBlocked && !is_loading_error) {
     nativeDiscoveryFeedback=createNativeDiscoveryFeedback({container:document.getElementById('skills_and_stances_div'),
         readSettings:()=>getCustomizationSettings(customization,'skills',{season:current_game_time.getSeason()}),
         resolve:id=>skills[id] ? nativeSkillDiscovery(skills[id],character) : null});
+    registerMixtureGathering(locations);
+    createMixturePanel({craftingContainer:document.getElementById('crafting_window'),actionContainer:document.getElementById('location_actions_div'),
+        read:()=>({seed:expansionState.simulation?.seed??expansionState.rng,clock:calendarMinutes(current_game_time),inventory:character.getItems(),
+            visible:current_location?.id==='Village'&&expansionState.actors.player.worldId==='base.frontier'&&!current_dialogue&&!current_combat,
+            ready:workLedgerCanWrite()&&!nativeOccupationReason()&&!current_activity&&!current_game_action&&!current_dialogue&&!current_combat&&!is_sleeping&&!is_reading&&!is_in_trade()}),act:performMixtureAction});
     const cancelCraftEffect=document.createElement('button');cancelCraftEffect.type='button';cancelCraftEffect.textContent='Cancel visual effect';cancelCraftEffect.id='cancel_craft_visual_effect';cancelCraftEffect.addEventListener('click',()=>workLedgerCraftEffects.cancel());document.getElementById('crafting_window').append(cancelCraftEffect);
     workLedgerPanel=createWorkLedgerUI({container:document.getElementById('location_actions_div'),readSettings:()=>getCustomizationSettings(customization,'ledger',{season:current_game_time.getSeason()}),cancelExternalEffects:()=>workLedgerCraftEffects?.cancel(),read:()=>({...workLedgerPresentation(workLedger,workLedgerContext()),canWrite:workLedgerCanWrite()&&workLedgerContext().alive&&!workLedgerContext().busy&&workLedgerContext().locationId==='Village',reason:!workLedgerCanWrite()?'Saving unavailable; ledger is read-only.':workLedgerContext().busy?'Finish current work before choosing.':''}),command:actWorkLedger});
     const customizationHost=document.createElement('div');customizationHost.id='customization_host';
