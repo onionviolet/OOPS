@@ -4,7 +4,7 @@
   "date": "2026-10-14",
   "status": "tranches 1-2 technically passed; tranches 3-5 and P15 last OPEN",
   "base_head": "43b01f95112b5a4017d0cd426d414ae553abeadc",
-  "candidate_head": "P00 tranche 2 commit follows",
+  "candidate_head": "e3ffdf2e",
   "session": "01a138ea-def0-77c0-b800-f4ade39f33af",
   "port": 18834,
   "viewport": {
@@ -55,7 +55,7 @@
       "full_pass": 986,
       "full_fail": 0,
       "native_gate": "tranche2-native-gate.json",
-      "commit": "see P00 tranche 2 commit",
+      "commit": "e3ffdf2e",
       "open": [
         "P16 encounter profile",
         "special/actionAdapter extension",
@@ -140,5 +140,7 @@
     "native_undo": "OPEN",
     "multi_slot": "out of scope",
     "N29_offline": "out of scope"
-  }
+  },
+  "next_tranche": 3,
+  "next_scope": "reading/salvage plus relevant growth host joins"
 }
