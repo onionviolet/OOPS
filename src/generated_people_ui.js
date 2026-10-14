@@ -1,3 +1,4 @@
+import {storyRecap} from './lore_history_view.js';
 import {planStoryRequest,publishStoryRequest,salientRequestPerson} from './story_requests.js';
 import {createGeneratedPeople,advanceGeneratedPeople,validateGeneratedPeople,generatedPeopleView,interactGeneratedPerson} from './generated_people.js';
 import {villageAuthoredNames} from './name_grammar.js';
@@ -53,19 +54,19 @@ export function registerGeneratedPeople({read,save,persist,authoredNames=[],item
                     if(p.undiscovered)row.append(button('Talk about their travels',p.id,'talk',away));
                     if(!p.goal.fulfilled&&!current?.storyRequests){row.append(node('p',`Request: bring one ${p.goal.item}. Reward: ${p.goal.reward} wood coins from their purse.`),button(`Give ${p.goal.item}`,p.id,'help',away));}
                     else if(p.goal.fulfilled) {row.append(node('p','Remembers: you helped with supplies.'));if(p.status!=='resident')row.append(button('Offer a place in Village',p.id,'settle',away));}
-                }body.append(row);
+                }const recap=storyRecap(c.expansion||{},p.id);if(p.met&&recap){const line=node('p',recap.line);line.dataset.storyRecap=p.id;row.append(line,node('small',`Basis: ${recap.basis.join(', ')}. ${recap.coverage}`));}body.append(row);
             }
             if(current){const requests=current.storyRequests;
                 if(!requests)body.append(requestButton('Begin remembered requests', 'enable',null,disabled));
                 else {body.append(node('h4','Remembered supply requests'));
                     const candidate=salientRequestPerson(generatedPeopleSnapshot(c.at),c.expansion);if(candidate)body.append(requestButton('Ask about a supply need','raise',null,disabled));
                     for(const r of requests.requests){const p=view.find(p=>p.id===r.issuer);if(!p?.met)continue;const row=node('section');row.dataset.storyRequestRow=r.id;
-                        row.append(node('p',`${p.name}: missing one ${r.item} in journey supplies. ${r.status}. ${r.held} wood coins reserved; reward ${r.reward}. No deadline or absence cost.`));
+                        row.append(node('p',`${p.name}: requested one ${r.item} for journey supplies. ${r.status}. ${r.held} wood coins reserved; reward ${r.reward}. No deadline or absence cost.`));
                         const away=disabled||p.status==='on_road';
                         if(r.status==='offered')row.append(requestButton('Take request','take',r.id,away));
                         if(r.status==='accepted')row.append(requestButton(`Deliver ${r.item}`,'deliver',r.id,away));
                         if(['offered','accepted'].includes(r.status))row.append(requestButton('Decline request','decline',r.id,away));
-                        body.append(row);
+                        const recap=storyRecap(c.expansion,p.id);if(recap){const line=node('p',recap.line);line.dataset.storyRecap=p.id;row.append(line,node('small',`Basis: ${recap.basis.join(', ')}`));}body.append(row);
                     }
                 }
             }

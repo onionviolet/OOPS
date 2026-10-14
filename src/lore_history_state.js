@@ -55,9 +55,9 @@ export function appliedStoryDeltas(before,after) {
 }
 export function recordStoryletOutcome(out,event,{result,action,cause,before}) {
     if(!event.storylet)return;
-    const applied=appliedStoryDeltas(before,out),item=applied.find(d=>d.kind==='item');
-    appendStoryOutcome(out.state,{operation:`${event.id}:${action}`,worldId:'base.frontier',actor:event.actorId,issuer:event.targetId||event.definitionId,
-        targetPerson:event.targetId,targetObject:item?.key||null,targetPlace:'Village',action: event.historyRef&&action==='storylet.response'?'aftermath.response':action,result,at:out.state.clock,
+    const applied=appliedStoryDeltas(before,out),item=applied.find(d=>d.kind==='item'),parent=event.historyRef?queryStoryOutcomes(out.state,{id:event.historyRef})[0]:null;
+    appendStoryOutcome(out.state,{operation:`${event.id}:${action}`,worldId:'base.frontier',actor:event.actorId,issuer:parent?.issuer||event.targetId||event.definitionId,
+        targetPerson:parent?.targetPerson||event.targetId,targetObject:parent?.targetObject||item?.key||null,targetPlace:'Village',action: event.historyRef&&action==='storylet.response'?'aftermath.response':action,result,at:out.state.clock,
         producer:'P3',causeRefs:[event.id,cause],historyCauses:event.historyRef?[event.historyRef]:[],audience:[...event.discoveredBy],
-        known:{label:event.label},applied});
+        known:{...(parent?{person:parent.known.person,item:parent.known.item}:{}),label:event.label},applied});
 }

@@ -23,3 +23,7 @@ S-3 complete: P4-owned storyRequests optional extension records real missing jou
 P3 chances deck now includes one supported receipt-backed aftermath card, frozen to the same known person/item/receipt. Delivery offers8 Perception XP, decline offers4. No settlement means no eligible callback. Existing14 P3 cards retained.
 
 SOURCE: 21/22 affected initially passed; synthetic component-envelope fixture lacked levels, corrected to v0.6's real required shape. Six request tests now pass, covering actual deficit/salience/funds, stock/escrow conservation, decline/reoffer, stale/away/failed write, actual P3 draw, exact validated pending/settled import and corrupt-ref rejection. Build passes. Native acceptance pending final browser proof. Next S-4.
+
+S-4 complete: observer-limited history frame supplies deterministic receipt-backed Story so far lines and P3 aftermath bindings. View ignores undiscovered traits/private plans/purses and unsupported known fields, reports enrolled coverage, preserves receipt basis and uses no draw. Later response retains the same P4 person/object rather than losing identity to the card definition. Settled request wording says requested, not still missing.
+
+SOURCE: 9/9 recap+request checks pass, including same-state/reload/pure repeated projections, another-observer/hidden canary control, and actual P3 later response → same-person learned recap. Next S-5 lint/headless runner, then full suite/build/native proof.
