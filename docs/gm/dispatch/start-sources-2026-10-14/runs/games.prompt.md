@@ -1,0 +1,12 @@
+You are the games-reference lane for a browser idle RPG (YAIRPG, a text life-sim across many worlds). Read /Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/start-sources-2026-10-14/COMMON.md and AGENTS.md first and follow them. Then read docs/INTRO_FLOW_CONSIDERATIONS_2026-10-13.md rounds 3-8, docs/NICHE_GAME_REFERENCES.md, docs/RESEARCH_IDLE_GAMES.md and docs/research/ for existing game audits (grep for the titles below first; build on what exists and link it).
+
+Question: how do games handle (a) earlier characters after you switch or start a new life, (b) other selves (clones, alternate versions, past runs, ghosts of prior runs), (c) starting or playing as a villain or villain-adjacent role, and (d) the opening/start-selection flow for those? Use your web access if available (official wikis, developer posts, reputable reviews; after one blocked site switch sources); otherwise label from memory as MEMORY.
+
+Candidate games (add others that fit better): Dwarf Fortress (retired adventurers and fortress legends persist), Crusader Kings 3 (heirs, dynasty), Wildermyth (legacy heroes), Rogue Legacy 1-2 (heirs with traits), Darkest Dungeon, Hades (runs and relationships), BitLife (generations), Kenshi (start scenarios incl. bad starts), RimWorld (scenarios, storytellers), Shadow of Mordor/War (Nemesis), Loop Hero, Outer Wilds (loop), Undertale (genocide route, memory of resets), The Sims (legacies), Overlord, Dungeon Keeper, Evil Genius, Tropico, Disgaea, Pathologic, Cultist Simulator and Book of Hours (legacies and starts), Caves of Qud (character creation, start villages), Ultima IV, Stellaris (origins), Mount and Blade (start questions), Elden Ring/Dark Souls (other players' phantoms as other selves).
+
+Write one tracked doc (paraphrase, no long quotes, cite links or MEMORY): /Users/weiwei/code/yet-another-idle-rpg/docs/research/GAMES_OTHER_SELVES_AND_VILLAIN_PLAY_2026-10-14.md
+1. Per game: what it does for (a)-(d), what works, what players complain about (label inference when from tags).
+2. Patterns with codes GR1.. (e.g. old characters as NPCs, legacy objects, ghost runs, scenario-start menus, villain management loops, heat/notoriety meters).
+3. Mapping to our codes (OS, NS, VS, VM, LK, SA, RX, UI) and what YAIRPG should borrow or avoid, labeled PROPOSAL.
+4. Suggestions, at most five.
+Keep CHECKPOINT.md in /Users/weiwei/code/yet-another-idle-rpg/docs/gm/dispatch/start-sources-2026-10-14/games/.

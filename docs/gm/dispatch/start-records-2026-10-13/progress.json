@@ -1,0 +1,19 @@
+{
+  "passes": {
+    "G1": true,
+    "G2": true,
+    "G3": true,
+    "G5": true,
+    "G6": true,
+    "G7": true,
+    "G4": true
+  },
+  "notes": [
+    "2026-10-13: STOPPED before implementation: frozen G6 uses a nonexistent import selector and never imports; PASS ignores import status and inventory. Diagnosis saved in GOAL.md Next round. No checks run, no pass flags added, no server started.",
+    "2026-10-14 round 1: SR-A/C/B/D implemented. Seven new pure tests PASS; npm test 628 pass / 0 fail; build PASS; own gate G1 PASS. Baseline frozen check proved probe absent. UI/Confirm work follows.",
+    "2026-10-14 round 2: build and 628 tests PASS. Own gates G1/G2/G3/G5/G6/G7 PASS, including real file export/import. G4 FAIL: layer selector disabled while mode roll; allow choosing a layer before lock. Rebuilt 1366x768 screenshot inspected: creation fields, roll, card and Confirm visible across columns.",
+    "2026-10-14 round 3: build PASS, npm test 628 pass / 0 fail, own G4 PASS after selector fix. Manual server stopped before final check.sh.",
+    "FINAL 2026-10-14: check.sh exit 0 after last source edit: gate integrity/build/unit_file PASS, npm_test 628 pass / 0 fail, G1-G7 PASS. G5 saved native Village/Lost memory, q40 pants x1, bread x5, exactly one start-layer/seed milestone. All servers stopped. Original dirty map preserved in dist/.start-records-original-bundle.js.map. No commit, push, publication or schema change.",
+    "Final source git diff --check PASS; full generated diff reports trailing whitespace in dist/bundle.js at 1,122,974. Generated output left as emitted by build.js; frozen check.sh remains exit 0. Port 18341 confirmed closed."
+  ]
+}
