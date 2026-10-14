@@ -10,5 +10,6 @@ const URL=process.env.YAIRPG_PROOF_URL||'http://127.0.0.1:18701/',OUT=process.en
  exact(await save());await p.reload();await play();exact(await save());
  const dp=p.waitForEvent('download');await p.locator('#save_to_file_button').click();await (await dp).saveAs(OUT+'/native-export.txt');
  const loaded=p.waitForEvent('load');await p.locator('#saved_file_input').setInputFiles(OUT+'/native-export.txt');await loaded;await play();exact(await save());assert.deepEqual(errors,[]);
+ await p.locator('#systems_workshop_panel').evaluate(n=>{n.open=true;n.scrollIntoView({block:'start'});});await p.screenshot({path:OUT+'/desktop-workshop-1366x768.png'});
  fs.writeFileSync(OUT+'/PERSISTENCE_PROOF.json',JSON.stringify({viewport:[1366,768],checks:['exact earned workshop reload','actual native Export download','actual file-input Import preserves all actors, custody, knowledge, grants, RNG, inventory and purse'],errors},null,2));console.log('native export/reload/import passed');
  }finally{await b.close();}})();

@@ -4549,10 +4549,19 @@ for(const [name,description,value] of systemsWorkshopItems){
     delete availabilities.item[name];
 }
 
+// The loader restores optional availability before reading saved flags. Only
+// supported workshop names are admitted, after the expansion edition validated.
+function restoreSystemsWorkshopAvailability(save){
+    if(!save.expansion?.actors.player.facts['systems_workshop.joined'])return;
+    for(const [name] of systemsWorkshopItems)if(Object.hasOwn(save.availabilities?.item||{},name))
+        availabilities.item[name] ||= item_templates[name]._getBasicAvailabilityComponent();
+}
+
 availability_havers.push(Item);
 
 export {
     item_templates,
+    restoreSystemsWorkshopAvailability,
     item_log,
     Item, OtherItem, UsableItem,
     Armor, Shield, Weapon, Cape, Artifact, Book,

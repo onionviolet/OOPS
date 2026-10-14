@@ -151,7 +151,7 @@ import {prepareRivalRematch,commitFieldRenewal,RIVAL_PURSUIT} from "./frontier_c
 "use strict";
 
 import { current_game_time, is_night, Game_Time } from "./game_time.js";
-import { Book, BookData, OtherItem, Armor, item_templates, item_log, getItem, book_stats, rarity_multipliers, getArmorSlot, getItemFromKey, getItemRarity} from "./items.js";
+import { Book, BookData, OtherItem, Armor, item_templates, restoreSystemsWorkshopAvailability, item_log, getItem, book_stats, rarity_multipliers, getArmorSlot, getItemFromKey, getItemRarity} from "./items.js";
 import { loot_sold_count, market_region_mapping, recover_item_prices, trickle_market_saturations, set_loot_sold_count, capped_at } from "./market_saturation.js";
 import { locations, favourite_locations, location_types } from "./data/locations.js";
 import { skills } from "./data/skills.js";
@@ -5323,6 +5323,7 @@ function load(save_data) {
             lifeRecord = migrateLifeRecord(save_data);
             npcLives = save_data.npc_lives == null ? null : advanceVillageLives(save_data.npc_lives, save_data["current time"].year);
             expansionState = initializeExpedition(loadExpansionState(save_data.expansion, expeditionRegistry, expansionState.rng));
+            restoreSystemsWorkshopAvailability(save_data);
             validateGameAbsorptionAssay(expansionState,expeditionRegistry,{gameplay:{player:{inventory:Object.fromEntries(Object.entries(save_data.character.inventory || {}).map(([key,row])=>[key,row.count]))}}});
             validateNativeGameplayReferences(expansionState.pending.flatMap(job => [job.effects, job.costs || []]));
             for(const actor of Object.values(expansionState.actors)) {
