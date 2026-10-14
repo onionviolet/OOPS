@@ -1,0 +1,865 @@
+
+> test
+> node --test tests/*.test.js
+
+TAP version 13
+# Subtest: native housing bonuses are local, readable, and absent on old missing owners
+ok 1 - native housing bonuses are local, readable, and absent on old missing owners
+  ---
+  duration_ms: 7.758
+  type: 'test'
+  ...
+# Subtest: book bonus needs completed owned books, counts distinct works and caps ten
+ok 2 - book bonus needs completed owned books, counts distinct works and caps ten
+  ---
+  duration_ms: 0.502667
+  type: 'test'
+  ...
+# Subtest: counted carried furniture is inert; only settled installed local fixtures earn bonuses
+ok 3 - counted carried furniture is inert; only settled installed local fixtures earn bonuses
+  ---
+  duration_ms: 1.842875
+  type: 'test'
+  ...
+# Subtest: Shack project flags alone earn nothing; existing earned phased fixture owners do
+ok 4 - Shack project flags alone earn nothing; existing earned phased fixture owners do
+  ---
+  duration_ms: 4.78775
+  type: 'test'
+  ...
+# Subtest: home kit requires earned adaptation plus current owned physical kit; copies and reload never stack
+ok 5 - home kit requires earned adaptation plus current owned physical kit; copies and reload never stack
+  ---
+  duration_ms: 0.96975
+  type: 'test'
+  ...
+# Subtest: utilities derive solely from the native amulet slot, never saved metadata
+ok 6 - utilities derive solely from the native amulet slot, never saved metadata
+  ---
+  duration_ms: 6.039083
+  type: 'test'
+  ...
+# Subtest: luck changes nonzero item craft chance without converting impossible or certain recipes
+ok 7 - luck changes nonzero item craft chance without converting impossible or certain recipes
+  ---
+  duration_ms: 2.772542
+  type: 'test'
+  ...
+# Subtest: price reduces only markup and leaves sell values and below-base margins intact
+ok 8 - price reduces only markup and leaves sell values and below-base margins intact
+  ---
+  duration_ms: 3.027958
+  type: 'test'
+  ...
+# Subtest: portable cooking respects safety/unlock gates and preserves better native stations
+ok 9 - portable cooking respects safety/unlock gates and preserves better native stations
+  ---
+  duration_ms: 0.475459
+  type: 'test'
+  ...
+# Subtest: injected equipment reader stays live and accepts the host custody filter
+ok 10 - injected equipment reader stays live and accepts the host custody filter
+  ---
+  duration_ms: 0.407333
+  type: 'test'
+  ...
+# Subtest: native registration, material acquisition, equipment and save-key roundtrip use existing models
+ok 11 - native registration, material acquisition, equipment and save-key roundtrip use existing models
+  ---
+  duration_ms: 993.670333
+  type: 'test'
+  ...
+# Subtest: C2 compatibility: absent saves default empty; unsupported or malformed containers reject
+ok 12 - C2 compatibility: absent saves default empty; unsupported or malformed containers reject
+  ---
+  duration_ms: 1.963167
+  type: 'test'
+  ...
+# Subtest: C2 source balance and readable documentation remain in agreement
+ok 13 - C2 source balance and readable documentation remain in agreement
+  ---
+  duration_ms: 1.139042
+  type: 'test'
+  ...
+# Subtest: C2 exposure is played, bounded by actual remaining poison and replay resistant
+ok 14 - C2 exposure is played, bounded by actual remaining poison and replay resistant
+  ---
+  duration_ms: 0.514542
+  type: 'test'
+  ...
+# Subtest: C2 five-minute searches persist misses, cap chance, and award a finite native item once
+ok 15 - C2 five-minute searches persist misses, cap chance, and award a finite native item once
+  ---
+  duration_ms: 7.1805
+  type: 'test'
+  ...
+# Subtest: C2 interruptions and clock jumps never replay unbounded idle searches
+ok 16 - C2 interruptions and clock jumps never replay unbounded idle searches
+  ---
+  duration_ms: 5.064625
+  type: 'test'
+  ...
+# Subtest: C2 hub contact has common-clock cadence, saved misses and one daily occurrence
+ok 17 - C2 hub contact has common-clock cadence, saved misses and one daily occurrence
+  ---
+  duration_ms: 0.377833
+  type: 'test'
+  ...
+# Subtest: C2 free meal derives from native calendar, persists claim, and skips missed days
+ok 18 - C2 free meal derives from native calendar, persists claim, and skips missed days
+  ---
+  duration_ms: 52.742417
+  type: 'test'
+  ...
+# Subtest: C2 no random rolls on rendering or invalid actions; rollback keeps claims and money unchanged
+ok 19 - C2 no random rolls on rendering or invalid actions; rollback keeps claims and money unchanged
+  ---
+  duration_ms: 5.200042
+  type: 'test'
+  ...
+# Subtest: C2 panel reattaches after native location menu clears unchanged view
+ok 20 - C2 panel reattaches after native location menu clears unchanged view
+  ---
+  duration_ms: 1.092083
+  type: 'test'
+  ...
+# Subtest: old saves start empty without invented knowledge/history; malformed future schema fails
+ok 21 - old saves start empty without invented knowledge/history; malformed future schema fails
+  ---
+  duration_ms: 18.940792
+  type: 'test'
+  ...
+# Subtest: free earned or paid entry gives one real native book and durable funds
+ok 22 - free earned or paid entry gives one real native book and durable funds
+  ---
+  duration_ms: 17.750541
+  type: 'test'
+  ...
+# Subtest: repeat hand-ins conserve actual inventory, wages and finite employer budget
+ok 23 - repeat hand-ins conserve actual inventory, wages and finite employer budget
+  ---
+  duration_ms: 2.758167
+  type: 'test'
+  ...
+# Subtest: repair requires location, reading, actual clear, exact stock and custody
+ok 24 - repair requires location, reading, actual clear, exact stock and custody
+  ---
+  duration_ms: 31.784875
+  type: 'test'
+  ...
+# Subtest: journal uses only actual learned edges and known items, distinguishes reports
+ok 25 - journal uses only actual learned edges and known items, distinguishes reports
+  ---
+  duration_ms: 2.770334
+  type: 'test'
+  ...
+# Subtest: known remaining-clear projection never scans or reveals undisclosed thresholds
+ok 26 - known remaining-clear projection never scans or reveals undisclosed thresholds
+  ---
+  duration_ms: 0.307833
+  type: 'test'
+  ...
+# Subtest: registration creates original native content once; salvage recovers failed smelting
+ok 27 - registration creates original native content once; salvage recovers failed smelting
+  ---
+  duration_ms: 6.308
+  type: 'test'
+  ...
+# Subtest: native Quest placeholder writes preserve prior identities and absent bindings
+ok 28 - native Quest placeholder writes preserve prior identities and absent bindings
+  ---
+  duration_ms: 0.627958
+  type: 'test'
+  ...
+# Subtest: legacy saves default both options off without invented debt or elapsed history
+ok 29 - legacy saves default both options off without invented debt or elapsed history
+  ---
+  duration_ms: 8.439834
+  type: 'test'
+  ...
+# Subtest: normalization bounds persisted meters and rejects future schema
+ok 30 - normalization bounds persisted meters and rejects future schema
+  ---
+  duration_ms: 0.652209
+  type: 'test'
+  ...
+# Subtest: hunger uses common played minutes, caps floor, and has actual XP effect
+ok 31 - hunger uses common played minutes, caps floor, and has actual XP effect
+  ---
+  duration_ms: 0.329
+  type: 'test'
+  ...
+# Subtest: off options freeze existing state; absence of explicit home context cannot penalize worlds
+ok 32 - off options freeze existing state; absence of explicit home context cannot penalize worlds
+  ---
+  duration_ms: 0.254708
+  type: 'test'
+  ...
+# Subtest: native food replenishes even if native meal buff already lasts longer
+ok 33 - native food replenishes even if native meal buff already lasts longer
+  ---
+  duration_ms: 0.276792
+  type: 'test'
+  ...
+# Subtest: weather duration actually expires, fog affects outdoors XP, shelter preserves hunger only
+ok 34 - weather duration actually expires, fog affects outdoors XP, shelter preserves hunger only
+  ---
+  duration_ms: 0.190041
+  type: 'test'
+  ...
+# Subtest: optional rain adds native wet route without suppressing the native rain cycle
+ok 35 - optional rain adds native wet route without suppressing the native rain cycle
+  ---
+  duration_ms: 0.263917
+  type: 'test'
+  ...
+# Subtest: weather offsets native temperature and respects disabled/sheltered/external worlds
+ok 36 - weather offsets native temperature and respects disabled/sheltered/external worlds
+  ---
+  duration_ms: 0.10525
+  type: 'test'
+  ...
+# Subtest: season changes new durations and long common-clock steps equal segmented progression
+ok 37 - season changes new durations and long common-clock steps equal segmented progression
+  ---
+  duration_ms: 129.404959
+  type: 'test'
+  ...
+# Subtest: saved JSON roundtrip restores disabled retained state, phase and next transition without a second clock
+ok 38 - saved JSON roundtrip restores disabled retained state, phase and next transition without a second clock
+  ---
+  duration_ms: 0.580291
+  type: 'test'
+  ...
+# Subtest: readable status and food description explain defaults, effects and scope
+ok 39 - readable status and food description explain defaults, effects and scope
+  ---
+  duration_ms: 0.303667
+  type: 'test'
+  ...
+# Subtest: panel toggles call integrator and roll back visual checkbox on rejected save
+ok 40 - panel toggles call integrator and roll back visual checkbox on rejected save
+  ---
+  duration_ms: 0.375125
+  type: 'test'
+  ...
+# Subtest: old-save and default-off native keys and pacing stay intact
+ok 41 - old-save and default-off native keys and pacing stay intact
+  ---
+  duration_ms: 1.015875
+  type: 'test'
+  ...
+# Subtest: separate equal-quality copies keep immutable keys, distinct damage and repair coins
+ok 42 - separate equal-quality copies keep immutable keys, distinct damage and repair coins
+  ---
+  duration_ms: 163.541458
+  type: 'test'
+  ...
+# Subtest: condition and ID allocation survive serialization, old missing condition defaults full
+ok 43 - condition and ID allocation survive serialization, old missing condition defaults full
+  ---
+  duration_ms: 83.629292
+  type: 'test'
+  ...
+# Subtest: actual native inventory, Hero equip/unequip, key decoder and equipment publisher preserve worn copy
+ok 44 - actual native inventory, Hero equip/unequip, key decoder and equipment publisher preserve worn copy
+  ---
+  duration_ms: 1449.888917
+  type: 'test'
+  ...
+# Native steel greaves defense: fresh 13, condition20 4.16; direct getter 13.
+# Subtest: staged repair and toggle reject storage/custody failures without live writes or ID forks
+ok 45 - staged repair and toggle reject storage/custody failures without live writes or ID forks
+  ---
+  duration_ms: 78.188917
+  type: 'test'
+  ...
+# Subtest: landed hits degrade armor and shield with real defense/block penalties and no destruction
+ok 46 - landed hits degrade armor and shield with real defense/block penalties and no destruction
+  ---
+  duration_ms: 10.078458
+  type: 'test'
+  ...
+# Subtest: option defaults off and never coerces old or malformed save values
+ok 47 - option defaults off and never coerces old or malformed save values
+  ---
+  duration_ms: 10.159083
+  type: 'test'
+  ...
+# Subtest: gear swap changes actual native damage only against fitting attacks
+ok 48 - gear swap changes actual native damage only against fitting attacks
+  ---
+  duration_ms: 0.9
+  type: 'test'
+  ...
+# Subtest: only current fitting native slots count and protection stays capped
+ok 49 - only current fitting native slots count and protection stays capped
+  ---
+  duration_ms: 0.978917
+  type: 'test'
+  ...
+# Subtest: preparation view reveals only provided encounters, deduplicates and changes with setting
+ok 50 - preparation view reveals only provided encounters, deduplicates and changes with setting
+  ---
+  duration_ms: 11.111667
+  type: 'test'
+  ...
+# Subtest: native equipped IDs and reconstructed component gear provide real preparation
+ok 51 - native equipped IDs and reconstructed component gear provide real preparation
+  ---
+  duration_ms: 1071.05675
+  type: 'test'
+  ...
+# Subtest: trade stages both owners, quality keys, money, market and native acquisition without mutating input
+ok 52 - trade stages both owners, quality keys, money, market and native acquisition without mutating input
+  ---
+  duration_ms: 94.069
+  type: 'test'
+  ...
+# Subtest: stale prices or quantity, insufficient money, over-selling and overflow reject unchanged
+ok 53 - stale prices or quantity, insufficient money, over-selling and overflow reject unchanged
+  ---
+  duration_ms: 1.153375
+  type: 'test'
+  ...
+# Subtest: a failed durable trade leaves live and durable owners, XP and acquisition unchanged; success writes once
+ok 54 - a failed durable trade leaves live and durable owners, XP and acquisition unchanged; success writes once
+  ---
+  duration_ms: 31.683708
+  type: 'test'
+  ...
+# Subtest: packing reserves its fee, resumes from save and grants its kit, XP and acquisition once
+ok 55 - packing reserves its fee, resumes from save and grants its kit, XP and acquisition once
+  ---
+  duration_ms: 51.385958
+  type: 'test'
+  ...
+# Subtest: fresh optional booking is visible and actually settles; both first-duty orders retain actual accounts
+ok 56 - fresh optional booking is visible and actually settles; both first-duty orders retain actual accounts
+  ---
+  duration_ms: 49358.234
+  type: 'test'
+  ...
+# Subtest: no-preference legacy controller preserves original order without any new booking or outcome history
+ok 57 - no-preference legacy controller preserves original order without any new booking or outcome history
+  ---
+  duration_ms: 9751.6355
+  type: 'test'
+  ...
+# Subtest: pending original booking restores exact frozen terms and subsequent occupancy blocks a later workshop
+ok 58 - pending original booking restores exact frozen terms and subsequent occupancy blocks a later workshop
+  ---
+  duration_ms: 28023.4165
+  type: 'test'
+  ...
+# Subtest: kept outcome enables fresh sponsored terms, real finite means and one useful native kit
+ok 59 - kept outcome enables fresh sponsored terms, real finite means and one useful native kit
+  ---
+  duration_ms: 89351.868625
+  type: 'test'
+  ...
+# Subtest: actual consent withdrawal stops the earlier duty, refunds it and offers distinct personally funded work
+ok 60 - actual consent withdrawal stops the earlier duty, refunds it and offers distinct personally funded work
+  ---
+  duration_ms: 49325.606042
+  type: 'test'
+  ...
+# Subtest: the original NPC cancellation authority keeps its distinct account and actual original refund
+ok 61 - the original NPC cancellation authority keeps its distinct account and actual original refund
+  ---
+  duration_ms: 18038.665459
+  type: 'test'
+  ...
+# Subtest: later refusal changes no prior result, money, stock, mastery or rights and closes only its offer
+ok 62 - later refusal changes no prior result, money, stock, mastery or rights and closes only its offer
+  ---
+  duration_ms: 32985.849458
+  type: 'test'
+  ...
+# Subtest: exact workshop cancellation refunds actual reservations and preserves account through retry
+ok 63 - exact workshop cancellation refunds actual reservations and preserves account through retry
+  ---
+  duration_ms: 25234.009542
+  type: 'test'
+  ...
+# Subtest: controlled loss of actual method/body/contact/right support refunds with a truthful stopped account
+ok 64 - controlled loss of actual method/body/contact/right support refunds with a truthful stopped account
+  ---
+  duration_ms: 47408.618
+  type: 'test'
+  ...
+# Subtest: missing participant means, capability, contact, busy capacity, body and stale sequence never accept
+ok 65 - missing participant means, capability, contact, busy capacity, body and stale sequence never accept
+  ---
+  duration_ms: 40491.323208
+  type: 'test'
+  ...
+# Subtest: forged or absent prior outcome cannot create a new later agreement
+ok 66 - forged or absent prior outcome cannot create a new later agreement
+  ---
+  duration_ms: 5030.381041
+  type: 'test'
+  ...
+# Subtest: failed durable publication leaves live prior state untouched and offers one legitimate retry
+ok 67 - failed durable publication leaves live prior state untouched and offers one legitimate retry
+  ---
+  duration_ms: 5784.067875
+  type: 'test'
+  ...
+# Subtest: restoration rejects changed frozen output, costs, time, participants, accounts and closure
+ok 68 - restoration rejects changed frozen output, costs, time, participants, accounts and closure
+  ---
+  duration_ms: 7396.652541
+  type: 'test'
+  ...
+# Subtest: native Smelting 10 earns the locked alloy recipe; its material crafts the brace
+ok 69 - native Smelting 10 earns the locked alloy recipe; its material crafts the brace
+  ---
+  duration_ms: 1853.468958
+  type: 'test'
+  ...
+# Subtest: brace stats derive from the material grade, including its strength tradeoff
+ok 70 - brace stats derive from the material grade, including its strength tradeoff
+  ---
+  duration_ms: 0.438083
+  type: 'test'
+  ...
+# Subtest: equipped fact changes only the drive application; unequip restores its quote
+ok 71 - equipped fact changes only the drive application; unequip restores its quote
+  ---
+  duration_ms: 2066.635541
+  type: 'test'
+  ...
+# Subtest: paid drive fuel and output freeze across reload, completion and cancellation
+ok 72 - paid drive fuel and output freeze across reload, completion and cancellation
+  ---
+  duration_ms: 628.737166
+  type: 'test'
+  ...
+# Subtest: equipped native brace with an open road offer keeps ticking, travelling and reloading
+not ok 73 - equipped native brace with an open road offer keeps ticking, travelling and reloading
+  ---
+  duration_ms: 60235.89775
+  type: 'test'
+  location: '/Users/weiwei/code/yair-absorb-all-20261014/p23-long-life/tests/alloy_equipment.test.js:118:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    Command failed: /Users/weiwei/.local/share/node-v22.23.3-darwin-arm64/bin/node docs/gm/d1-alloy-equipment-2026-10-07/fixture/generate.mjs --equipped-clock
+    
+  code: 'ERR_TEST_FAILURE'
+  stack: |-
+    genericNodeError (node:internal/errors:983:15)
+    wrappedFn (node:internal/errors:537:14)
+    ChildProcess.exithandler (node:child_process:417:12)
+    ChildProcess.emit (node:events:519:28)
+    maybeClose (node:internal/child_process:1101:16)
+    ChildProcess._handle.onexit (node:internal/child_process:304:5)
+  ...
+# Subtest: default draft is valid and compiles to the existing schema-1 pack adapter
+ok 74 - default draft is valid and compiles to the existing schema-1 pack adapter
+  ---
+  duration_ms: 77.430125
+  type: 'test'
+  ...
+# Subtest: invalid drafts list every reason and unsupported properties are rejected
+ok 75 - invalid drafts list every reason and unsupported properties are rejected
+  ---
+  duration_ms: 46.674208
+  type: 'test'
+  ...
+# Subtest: export and import round trip; malformed, foreign and future files are rejected
+ok 76 - export and import round trip; malformed, foreign and future files are rejected
+  ---
+  duration_ms: 0.458708
+  type: 'test'
+  ...
+# Subtest: apply registers, edit re-registers with changed terms, reset removes and leaves base untouched
+ok 77 - apply registers, edit re-registers with changed terms, reset removes and leaves base untouched
+  ---
+  duration_ms: 31.614209
+  type: 'test'
+  ...
+# Subtest: invalid apply and a registration collision leave state and registries unchanged
+ok 78 - invalid apply and a registration collision leave state and registries unchanged
+  ---
+  duration_ms: 9.245
+  type: 'test'
+  ...
+# Subtest: authored activity: eligibility, native pay exactly once, cancel refunds, edit changes eligibility
+ok 79 - authored activity: eligibility, native pay exactly once, cancel refunds, edit changes eligibility
+  ---
+  duration_ms: 48.481959
+  type: 'test'
+  ...
+# Subtest: applied authored content and progress survive save file encode/import and fresh registration
+ok 80 - applied authored content and progress survive save file encode/import and fresh registration
+  ---
+  duration_ms: 10.587834
+  type: 'test'
+  ...
+# Subtest: old saves without authored content load unchanged and register nothing
+ok 81 - old saves without authored content load unchanged and register nothing
+  ---
+  duration_ms: 1.287917
+  type: 'test'
+  ...
+# Subtest: old saves remain unenrolled with unchanged legacy origins and no body rewards
+ok 82 - old saves remain unenrolled with unchanged legacy origins and no body rewards
+  ---
+  duration_ms: 143.51475
+  type: 'test'
+  ...
+# Subtest: an innate trait stays latent until its saved discovery, without invented ancestry or NPC knowledge
+ok 83 - an innate trait stays latent until its saved discovery, without invented ancestry or NPC knowledge
+  ---
+  duration_ms: 1251.413917
+  type: 'test'
+  ...
+# Subtest: drills spend actual stamina and teach native XP; recovery keeps two drills and one trained grip
+ok 84 - drills spend actual stamina and teach native XP; recovery keeps two drills and one trained grip
+  ---
+  duration_ms: 3990.861166
+  type: 'test'
+  ...
+# Subtest: rough kit cancellation refunds real inputs; completion leaves a temporary scrape and acquired mark
+ok 85 - rough kit cancellation refunds real inputs; completion leaves a temporary scrape and acquired mark
+  ---
+  duration_ms: 5888.389583
+  type: 'test'
+  ...
+# Subtest: condition recovery in batches or reloaded ticks agrees and never erases acquired body evidence
+ok 86 - condition recovery in batches or reloaded ticks agrees and never erases acquired body evidence
+  ---
+  duration_ms: 10021.457166
+  type: 'test'
+  ...
+# Subtest: craftsman recognition records only demonstrated visible evidence and cannot farm familiarity
+ok 87 - craftsman recognition records only demonstrated visible evidence and cannot farm familiarity
+  ---
+  duration_ms: 4918.38075
+  type: 'test'
+  ...
+# Subtest: tender hands add actual work time while legacy packing reduction and vanilla timing remain intact
+ok 88 - tender hands add actual work time while legacy packing reduction and vanilla timing remain intact
+  ---
+  duration_ms: 3105.730083
+  type: 'test'
+  ...
+# Subtest: failed body enrollment publication retains exact old bytes with no partial services or hidden gift
+ok 89 - failed body enrollment publication retains exact old bytes with no partial services or hidden gift
+  ---
+  duration_ms: 929.14525
+  type: 'test'
+  ...
+# Subtest: unsupported trait origins fail definition validation rather than being guessed
+ok 90 - unsupported trait origins fail definition validation rather than being guessed
+  ---
+  duration_ms: 18.136416
+  type: 'test'
+  ...
+# Subtest: old biographies disclose no unseen source, technique, identity or invented life history
+ok 91 - old biographies disclose no unseen source, technique, identity or invented life history
+  ---
+  duration_ms: 40.900208
+  type: 'test'
+  ...
+# Subtest: body training exposes only learned skill levels and their existing effects
+ok 92 - body training exposes only learned skill levels and their existing effects
+  ---
+  duration_ms: 0.806208
+  type: 'test'
+  ...
+# Subtest: lasting discoveries stay separate from temporary briefings and survive reload without rewards
+ok 93 - lasting discoveries stay separate from temporary briefings and survive reload without rewards
+  ---
+  duration_ms: 386.168291
+  type: 'test'
+  ...
+# Subtest: observed movement does not masquerade as owned or executable movement in Bio
+ok 94 - observed movement does not masquerade as owned or executable movement in Bio
+  ---
+  duration_ms: 0.36775
+  type: 'test'
+  ...
+# Subtest: cheat validators reject malformed cards and held state
+ok 95 - cheat validators reject malformed cards and held state
+  ---
+  duration_ms: 2.011875
+  type: 'test'
+  ...
+# Subtest: cheat grants and messages are pure and retain acquisition
+ok 96 - cheat grants and messages are pure and retain acquisition
+  ---
+  duration_ms: 0.722458
+  type: 'test'
+  ...
+# Subtest: cheat old-save load and real create_save encode import round trip
+ok 97 - cheat old-save load and real create_save encode import round trip
+  ---
+  duration_ms: 80006.596625
+  type: 'test'
+  ...
+# Subtest: cheat invalid imported card is rejected before preflight or storage
+ok 98 - cheat invalid imported card is rejected before preflight or storage
+  ---
+  duration_ms: 2747.771542
+  type: 'test'
+  ...
+# Subtest: cheat optional start grants a dormant informational card
+ok 99 - cheat optional start grants a dormant informational card
+  ---
+  duration_ms: 14.046625
+  type: 'test'
+  ...
+# Subtest: cheat awakens on day 3 and keeps its first message without replay
+ok 100 - cheat awakens on day 3 and keeps its first message without replay
+  ---
+  duration_ms: 146.50675
+  type: 'test'
+  ...
+# Subtest: cheat first won fight awakens before day 3
+ok 101 - cheat first won fight awakens before day 3
+  ---
+  duration_ms: 0.333584
+  type: 'test'
+  ...
+# Subtest: schema3 migration preserves frozen jobs and has no retroactive age, favors or events
+ok 102 - schema3 migration preserves frozen jobs and has no retroactive age, favors or events
+  ---
+  duration_ms: 69.651375
+  type: 'test'
+  ...
+# Subtest: calendar crosses exact months/years and long jumps without zero dates
+ok 103 - calendar crosses exact months/years and long jumps without zero dates
+  ---
+  duration_ms: 0.365375
+  type: 'test'
+  ...
+# Subtest: time batches and reload preserve missed events; reports grant information rather than missed rewards
+ok 104 - time batches and reload preserve missed events; reports grant information rather than missed rewards
+  ---
+  duration_ms: 2229.423583
+  type: 'test'
+  ...
+# Subtest: one cartographer lesson changes an existing capability, without draws on inspection
+ok 105 - one cartographer lesson changes an existing capability, without draws on inspection
+  ---
+  duration_ms: 2.078041
+  type: 'test'
+  ...
+# Subtest: a kept promise qualifies for a real manual bequest without requiring a combat path
+ok 106 - a kept promise qualifies for a real manual bequest without requiring a combat path
+  ---
+  duration_ms: 4.36075
+  type: 'test'
+  ...
+# Subtest: fixed elder can restrain a novice or yield to a stronger native-input build; intent changes aftermath
+ok 107 - fixed elder can restrain a novice or yield to a stronger native-input build; intent changes aftermath
+  ---
+  duration_ms: 1.064209
+  type: 'test'
+  ...
+# Subtest: prepared and manual responses share accounting; partial scenes survive reload and stale commands fail
+ok 108 - prepared and manual responses share accounting; partial scenes survive reload and stale commands fail
+  ---
+  duration_ms: 0.78975
+  type: 'test'
+  ...
+# Subtest: debrief and timed lesson use evidence/trust, not a universal favor score
+ok 109 - debrief and timed lesson use evidence/trust, not a universal favor score
+  ---
+  duration_ms: 1.130875
+  type: 'test'
+  ...
+# Subtest: mortal old-age boundary stops advancement once and an open life does not silently end
+ok 110 - mortal old-age boundary stops advancement once and an open life does not silently end
+  ---
+  duration_ms: 137.126583
+  type: 'test'
+  ...
+# Subtest: calendar, stamina and chronicle are written together; failed storage leaves original bytes untouched
+ok 111 - calendar, stamina and chronicle are written together; failed storage leaves original bytes untouched
+  ---
+  duration_ms: 2.081916
+  type: 'test'
+  ...
+# Subtest: repeat withdrawals cannot farm trust and first achievements survive memory pruning
+ok 112 - repeat withdrawals cannot farm trust and first achievements survive memory pruning
+  ---
+  duration_ms: 44.276833
+  type: 'test'
+  ...
+# Subtest: earned Rat-step pays less than ordinary movement and shields provide an actual guard benefit
+ok 113 - earned Rat-step pays less than ordinary movement and shields provide an actual guard benefit
+  ---
+  duration_ms: 1.684583
+  type: 'test'
+  ...
+# Subtest: uncleared and partial encounters do not earn first-clear unlocks
+ok 114 - uncleared and partial encounters do not earn first-clear unlocks
+  ---
+  duration_ms: 15.170375
+  type: 'test'
+  ...
+# Subtest: multiple-clear thresholds require the full earned count
+ok 115 - multiple-clear thresholds require the full earned count
+  ---
+  duration_ms: 30.411916
+  type: 'test'
+  ...
+# Subtest: unvisited registration parks exact native records, retains unknowns and restores with no fabricated visit
+ok 116 - unvisited registration parks exact native records, retains unknowns and restores with no fabricated visit
+  ---
+  duration_ms: 28.654875
+  type: 'test'
+  ...
+# Subtest: same registration requires exact identity; dormant envelope cannot claim unrelated records
+ok 117 - same registration requires exact identity; dormant envelope cannot claim unrelated records
+  ---
+  duration_ms: 43.173292
+  type: 'test'
+  ...
+# Subtest: legacy unvisited unknown records without provenance remain protected, never guessed by prefix
+ok 118 - legacy unvisited unknown records without provenance remain protected, never guessed by prefix
+  ---
+  duration_ms: 0.512042
+  type: 'test'
+  ...
+# Subtest: unvisited registered native non-person inventories park and restore exact records
+ok 119 - unvisited registered native non-person inventories park and restore exact records
+  ---
+  duration_ms: 0.77525
+  type: 'test'
+  ...
+# Subtest: unchanged view remounts after native host clearing, retaining buttons and callbacks
+ok 120 - unchanged view remounts after native host clearing, retaining buttons and callbacks
+  ---
+  duration_ms: 2.495125
+  type: 'test'
+  ...
+# Subtest: active unchanged view retains focus, eligibility and callbacks across polling and host replacement
+ok 121 - active unchanged view retains focus, eligibility and callbacks across polling and host replacement
+  ---
+  duration_ms: 1.179584
+  type: 'test'
+  ...
+# Subtest: timed optional duty pauses outside its world and pays exactly once
+ok 122 - timed optional duty pauses outside its world and pays exactly once
+  ---
+  duration_ms: 59.440417
+  type: 'test'
+  ...
+# Subtest: unavailable pack returns to Village while retaining opaque work and world state
+ok 123 - unavailable pack returns to Village while retaining opaque work and world state
+  ---
+  duration_ms: 8.144375
+  type: 'test'
+  ...
+# Subtest: pack registration validates everything before changing base registries
+ok 124 - pack registration validates everything before changing base registries
+  ---
+  duration_ms: 166.461
+  type: 'test'
+  ...
+# Subtest: loader absent, malformed and bad individual packs do not block base content
+ok 125 - loader absent, malformed and bad individual packs do not block base content
+  ---
+  duration_ms: 11.968375
+  type: 'test'
+  ...
+# Subtest: invalid saved work and overlapping visits are rejected without advancing
+ok 126 - invalid saved work and overlapping visits are rejected without advancing
+  ---
+  duration_ms: 13.135917
+  type: 'test'
+  ...
+# Subtest: absent feature remains absent and reserved dressing survives exact JSON restoration
+ok 127 - absent feature remains absent and reserved dressing survives exact JSON restoration
+  ---
+  duration_ms: 1716.420875
+  type: 'test'
+  ...
+# Subtest: actual joined advance finishes at one minute and preserves soreness, body and independent state
+ok 128 - actual joined advance finishes at one minute and preserves soreness, body and independent state
+  ---
+  duration_ms: 1023.814708
+  type: 'test'
+  ...
+# Subtest: cancellation refunds the exact balm without a receipt or native effect and allows retry
+ok 129 - cancellation refunds the exact balm without a receipt or native effect and allows retry
+  ---
+  duration_ms: 1044.49775
+  type: 'test'
+  ...
+# Subtest: support loss and scrape expiry refund rather than inventing treatment
+ok 130 - support loss and scrape expiry refund rather than inventing treatment
+  ---
+  duration_ms: 3899.259333
+  type: 'test'
+  ...
+# Subtest: missing stock, custody, equipment, unsupported body/place and busy state refuse without mutation
+ok 131 - missing stock, custody, equipment, unsupported body/place and busy state refuse without mutation
+  ---
+  duration_ms: 2820.315542
+  type: 'test'
+  ...
+# Subtest: stale and repeated commands cannot reserve twice; presentation facts refresh at actual time
+ok 132 - stale and repeated commands cannot reserve twice; presentation facts refresh at actual time
+  ---
+  duration_ms: 409.301
+  type: 'test'
+  ...
+# Subtest: pending restoration rejects modified cost, effect, time, participants and support contract
+ok 133 - pending restoration rejects modified cost, effect, time, participants and support contract
+  ---
+  duration_ms: 1214.604
+  type: 'test'
+  ...
+# Subtest: receipt restoration rejects altered stage/value/cause/time, namespace copies and missing receipt
+ok 134 - receipt restoration rejects altered stage/value/cause/time, namespace copies and missing receipt
+  ---
+  duration_ms: 1072.7055
+  type: 'test'
+  ...
+# Subtest: joined multi-minute advance ages the new effect from actual completion; re-staging is idempotent
+ok 135 - joined multi-minute advance ages the new effect from actual completion; re-staging is idempotent
+  ---
+  duration_ms: 14957.167375
+  type: 'test'
+  ...
+# Subtest: native staging preserves longer weak balm and distinct stronger effects until durable publication
+ok 136 - native staging preserves longer weak balm and distinct stronger effects until durable publication
+  ---
+  duration_ms: 3111.865
+  type: 'test'
+  ...
+# Subtest: failed durable write publishes no live native effect and retry uses the same caused completion
+ok 137 - failed durable write publishes no live native effect and retry uses the same caused completion
+  ---
+  duration_ms: 1623.020834
+  type: 'test'
+  ...
+# Subtest: existing native pending work and running routine block the reservation
+ok 138 - existing native pending work and running routine block the reservation
+  ---
+  duration_ms: 1174.822583
+  type: 'test'
+  ...
+# Subtest: native staging rejects mismatched clock envelopes and altered actual template contract
+ok 139 - native staging rejects mismatched clock envelopes and altered actual template contract
+  ---
+  duration_ms: 802.753333
+  type: 'test'
+  ...
+# Subtest: copied feature pending job, condition, routine or player record cannot restore as valid care
+ok 140 - copied feature pending job, condition, routine or player record cannot restore as valid care
+  ---
+  duration_ms: 1639.421458
+  type: 'test'
+  ...
+# Subtest: latest treatment record labels the current Weak healing balm duration as current, not as before treatment
+ok 141 - latest treatment record labels the current Weak healing balm duration as current, not as before treatment
+  ---
+  duration_ms: 2731.140334
+  type: 'test'
+  ...
