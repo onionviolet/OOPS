@@ -1,0 +1,35 @@
+{
+  "baseline": {
+    "location": "Village",
+    "errors": [],
+    "servedHash": "598e02f54fe7db4c9a35bc79c75a754a7f8dc42eccf9fab828de8fd82e97b615",
+    "localHash": "598e02f54fe7db4c9a35bc79c75a754a7f8dc42eccf9fab828de8fd82e97b615"
+  },
+  "moduleResult": {
+    "firstItems": [
+      {
+        "item_id": "Linen cloth",
+        "count": 1
+      }
+    ],
+    "secondItems": [
+      {
+        "item_id": "Linen cloth",
+        "count": 1
+      }
+    ],
+    "state": {
+      "schema": 1,
+      "departure": 2,
+      "remaining": 0,
+      "claims": 2,
+      "looking": false,
+      "progress": 0,
+      "lastClock": 105
+    },
+    "summary": "P14 module probe: simulated host events and clock\nRunner offcuts\n\nNo offered linen scraps remain. Looking stops. The next supply runner departure in Village offers one fresh offcut; missed offers do not accumulate.\n\nLook for offered offcut",
+    "scope": "uncoupled module only; native acceptance OPEN"
+  },
+  "nativeChangedLoop": "NOT RUN: P00 host integration absent",
+  "nativeSaveReloadExportLiteralImport": "NOT RUN: optional field is not wired to native saves"
+}

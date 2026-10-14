@@ -1,0 +1,106 @@
+TAP version 13
+# Subtest: C2 compatibility: absent saves default empty; unsupported or malformed containers reject
+ok 1 - C2 compatibility: absent saves default empty; unsupported or malformed containers reject
+  ---
+  duration_ms: 1.426875
+  type: 'test'
+  ...
+# Subtest: C2 source balance and readable documentation remain in agreement
+ok 2 - C2 source balance and readable documentation remain in agreement
+  ---
+  duration_ms: 0.978042
+  type: 'test'
+  ...
+# Subtest: C2 exposure is played, bounded by actual remaining poison and replay resistant
+ok 3 - C2 exposure is played, bounded by actual remaining poison and replay resistant
+  ---
+  duration_ms: 0.400291
+  type: 'test'
+  ...
+# Subtest: C2 five-minute searches persist misses, cap chance, and award a finite native item once
+ok 4 - C2 five-minute searches persist misses, cap chance, and award a finite native item once
+  ---
+  duration_ms: 0.88125
+  type: 'test'
+  ...
+# Subtest: C2 interruptions and clock jumps never replay unbounded idle searches
+ok 5 - C2 interruptions and clock jumps never replay unbounded idle searches
+  ---
+  duration_ms: 0.385125
+  type: 'test'
+  ...
+# Subtest: C2 hub contact has common-clock cadence, saved misses and one daily occurrence
+ok 6 - C2 hub contact has common-clock cadence, saved misses and one daily occurrence
+  ---
+  duration_ms: 0.217125
+  type: 'test'
+  ...
+# Subtest: C2 free meal derives from native calendar, persists claim, and skips missed days
+ok 7 - C2 free meal derives from native calendar, persists claim, and skips missed days
+  ---
+  duration_ms: 0.226459
+  type: 'test'
+  ...
+# Subtest: C2 no random rolls on rendering or invalid actions; rollback keeps claims and money unchanged
+ok 8 - C2 no random rolls on rendering or invalid actions; rollback keeps claims and money unchanged
+  ---
+  duration_ms: 0.202291
+  type: 'test'
+  ...
+# Subtest: C2 panel reattaches after native location menu clears unchanged view
+ok 9 - C2 panel reattaches after native location menu clears unchanged view
+  ---
+  duration_ms: 1.673792
+  type: 'test'
+  ...
+# Subtest: P14 absent saves preserve finite C2 finds and start without fabricated stock
+ok 10 - P14 absent saves preserve finite C2 finds and start without fabricated stock
+  ---
+  duration_ms: 3.361333
+  type: 'test'
+  ...
+# Subtest: P14 depletion, stopped feedback, real next occurrence and reload settle each offer once
+ok 11 - P14 depletion, stopped feedback, real next occurrence and reload settle each offer once
+  ---
+  duration_ms: 7.924667
+  type: 'test'
+  ...
+# Subtest: P14 offers do not accumulate and large clock jumps never pay a batch
+ok 12 - P14 offers do not accumulate and large clock jumps never pay a batch
+  ---
+  duration_ms: 0.117125
+  type: 'test'
+  ...
+# Subtest: P14 failed native persistence can discard a plan without losing or duplicating stock
+ok 13 - P14 failed native persistence can discard a plan without losing or duplicating stock
+  ---
+  duration_ms: 0.267458
+  type: 'test'
+  ...
+# Subtest: P14 views are pure; wrong world, busy, dead, movement and backward/repeated clocks cannot harvest
+ok 14 - P14 views are pure; wrong world, busy, dead, movement and backward/repeated clocks cannot harvest
+  ---
+  duration_ms: 7.2365
+  type: 'test'
+  ...
+# Subtest: P14 malformed optional state/event rejects before mutation
+ok 15 - P14 malformed optional state/event rejects before mutation
+  ---
+  duration_ms: 20.925583
+  type: 'test'
+  ...
+# Subtest: P14 same-clock departure from Village cancels accrued progress before return
+ok 16 - P14 same-clock departure from Village cancels accrued progress before return
+  ---
+  duration_ms: 0.205667
+  type: 'test'
+  ...
+1..16
+# tests 16
+# suites 0
+# pass 16
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 466.64325
