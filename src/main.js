@@ -1959,7 +1959,7 @@ function option_use_uncivilised_temperature_scale(option) {
         checkbox.checked = option;
     }
 
-    update_displayed_temperature();
+    update_displayed_temperature(getPacingEffects(homePacingContext()));
 }
 
 function option_do_background_animations(option) {
@@ -2251,7 +2251,7 @@ function change_location({location_id, event, skip_travel_time = false, do_quest
         progress_time({value: travel_times[previous_location.id][current_location.id], source: "travel"});
     }
 
-    update_displayed_temperature();
+    update_displayed_temperature(getPacingEffects(homePacingContext()));
     if(game_options.change_background_color) {
         set_light_based_background_color(!current_location.is_under_roof);
     }
@@ -7380,9 +7380,9 @@ function update() {
                 character.updateStatsAndDisplay();
             }
 
-            update_displayed_temperature();
         }
-        
+        // Weather duration and XP consequence change even at a stable temperature.
+        update_displayed_temperature(optionalWeather);
         current_temperature = new_temperature;
 
         //add cold status if applicable

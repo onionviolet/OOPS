@@ -1,0 +1,7 @@
+PASS S1_controls_persist controls, defaults, descriptions, persist, reset; save untouched
+PASS S2_each_setting_works every display setting changes behavior
+PASS S3_global_effects_cap save-level effects off caps all motion
+PASS S4_export_import_all one export carries layout, colors and display; old JSON still imports
+PASS S5_keyboard_clears_dot focus clears the new marker
+PASS S6_inplay_reveals ["notebook","known-people"]
+PASS S7_settings_readable settings text >= 4.5:1

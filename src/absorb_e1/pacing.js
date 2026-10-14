@@ -71,7 +71,7 @@ export function pacingEffects(raw, context={}) {
     const weather=WEATHER_STATES[state.weather.phase];
     const weatherActive=outdoors && state.weatherEnabled;
     const hungerEfficiency=active && state.hungerEnabled ? 0.8+0.2*state.fullness/100 : 1;
-    return {hungerEfficiency, efficiency:hungerEfficiency*(weatherActive?weather.efficiency:1),
+    return {enabled: state.weatherEnabled, weatherEfficiency: weatherActive ? weather.efficiency : 1, hungerEfficiency, efficiency:hungerEfficiency*(weatherActive?weather.efficiency:1),
         temperatureOffset:weatherActive?weather.temperature:0,
         raining:context.nativeRain===true || (weatherActive && weather.id==='rain'),
         weatherLabel:weather.id==='rain' && context.season==='Winter'?'Flurries':weather.label,
