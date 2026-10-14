@@ -1,0 +1,8 @@
+{
+  "label": "seeded-native",
+  "seededPrerequisites": ["craftsman contact", "100 coins", "full native vitals", "3 Rough wood logs", "5 Tree sap"],
+  "nativeCompleted": {"cut": 1, "dry": 2, "match": 1, "kit": 1},
+  "nativeFinalStock": {"Matched repair stave": 1, "Prepared survey kit": 2},
+  "nativeWork": ["met Eda", "bought owned knife", "cut", "dried twice", "inspected joint", "watched sample", "paid for instruction", "restored edge", "refitted guide", "bought extra sound stave", "matched", "restored edge", "made kits"],
+  "pageErrors": []
+}

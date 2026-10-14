@@ -1280,10 +1280,13 @@ function actHarvest(request){
     else throw Error('Unknown processing action.');});
     harvestPanel?.render();
 }
+function harvestAutomaticReady(){
+    return !current_activity&&!current_game_action&&!current_dialogue&&!is_sleeping&&!is_reading&&!is_in_trade()&&!nativeOccupationReason();
+}
 function tickHarvest(minutes){
     if(!harvestOwner||!harvestWritable())return;
     // Auto handling is an idle combat companion; explicit handling occupies the player.
-    const ready=harvestOwner.job&&!harvestOwner.job.automatic || (!current_activity&&!current_game_action&&!current_dialogue&&!is_sleeping&&!is_reading&&!is_in_trade()&&!nativeOccupationReason());
+    const ready=harvestOwner.job&&!harvestOwner.job.automatic || harvestAutomaticReady();
     if(!ready || !harvestOwner.job && !harvestOwner.auto)return;
     try {harvestTransaction(()=>{for(const plan of advanceHarvest(harvestOwner,minutes,harvestContext(),{ready:true}))grantHarvest(plan);});}
     catch(e){log_message('Carcass processing paused: '+e.message,'notification');}
@@ -4882,7 +4885,7 @@ function performMixtureAction(request) {
             setMixtureOwner(p.state);character.money=p.money;
             const stock=character.getItems();for(const key of Object.keys(stock))if(!p.inventory[key])delete stock[key];
             for(const [key,row]of Object.entries(p.inventory))stock[key]={item:getItemFromKey(key),count:row.count};
-            if(p.effect)active_effects['Village mixture exposure']=restoreActiveEffect('Village mixture exposure',p.effect);
+            if(p.effect)active_effects['Village mixture exposure']=restoreActiveEffect('Village mixture exposure',p.effect,p.state.products[p.effect.mixtureExposure.product]);
             update_displayed_character_inventory();update_displayed_money();update_displayed_effects();character.addActiveEffectBonus(active_effects);character.updateStatsAndDisplay();
         }});return plan;
 }
@@ -6972,7 +6975,7 @@ function load(save_data) {
         //load active effects if save is not from before their rework
         if(compare_game_version(save_data["game version"], "v0.4.4") >= 0){
             Object.keys(save_data.active_effects).forEach(function(effect) {
-                active_effects[effect] = restoreActiveEffect(effect,save_data.active_effects[effect]);
+                active_effects[effect] = restoreActiveEffect(effect,save_data.active_effects[effect],save_data.mixtures?.products?.[save_data.active_effects[effect].mixtureExposure?.product]);
             });
             character.addActiveEffectBonus(active_effects);
         }
@@ -8498,7 +8501,7 @@ update_displayed_equipment();
 sort_displayed_inventory({sort_by: "name", target: "character"});
 
 if(!importProbeToken && !foundationSaveBlocked && !is_loading_error) {
-    harvestPanel=createHarvestPanel({container:document.getElementById('location_actions_div'),read:()=>({state:harvestOwner,context:harvestContext(),writable:harvestWritable(),ready:harvestReady()}),act:actHarvest,developer:is_on_dev()||new URLSearchParams(location.search).get("harvest-inspector")==="1"});
+    harvestPanel=createHarvestPanel({container:document.getElementById('location_actions_div'),read:()=>({state:harvestOwner,context:harvestContext(),writable:harvestWritable(),ready:harvestReady()}),readInspector:()=>({harvest:harvestOwner,mixtures:getMixtureOwner(),ruleTrace:getMixtureOwner()?.ruleLaws?.receipts?.[getMixtureOwner()?.ruleLaws?.lastReceipt]?.trace,expansion:expansionState,inventory:character.getItems(),clock:calendarMinutes(current_game_time),handling:{context:harvestContext(),ready:harvestReady(),automaticReady:harvestWritable()&&harvestAutomaticReady()}}),act:actHarvest,developer:is_on_dev()||new URLSearchParams(location.search).get("harvest-inspector")==="1"});
     if(structuredPacks.size)structuredPanel=createStructuredPackPanel({read:readStructuredCampaign,command:commandStructuredCampaign});
     optionalPackPanel=createContentPackPanel({definitions:optionalPacks,always:true,
         read:()=>({state:optionalPackState,pauseReason:feedbackClockPauseReason(),canEnter:ownsSave&&current_location?.id==='Village'&&!nativeOccupationReason()&&!current_activity&&!current_game_action&&!current_combat&&!current_dialogue&&!is_sleeping&&!is_reading&&!is_in_trade(),canAct:ownsSave&&!foundationSaveBlocked&&!lifeStorageFailure,
@@ -8606,7 +8609,7 @@ if(!importProbeToken && !foundationSaveBlocked && !is_loading_error) {
         resolve:id=>skills[id] ? nativeSkillDiscovery(skills[id],character) : null});
     registerMixtureGathering(locations);
     createMixturePanel({craftingContainer:document.getElementById('crafting_window'),actionContainer:document.getElementById('location_actions_div'),
-        read:()=>({seed:mixtureSeed(),clock:calendarMinutes(current_game_time),inventory:character.getItems(),
+        read:()=>({seed:mixtureSeed(),expansion:expansionState,money:character.money,clock:calendarMinutes(current_game_time),inventory:character.getItems(),
             visible:current_location?.id==='Village'&&expansionState.actors.player.worldId==='base.frontier'&&!current_dialogue&&!current_combat,
             ready:workLedgerCanWrite()&&!nativeOccupationReason()&&!current_activity&&!current_game_action&&!current_dialogue&&!current_combat&&!is_sleeping&&!is_reading&&!is_in_trade()}),act:performMixtureAction});
     const cancelCraftEffect=document.createElement('button');cancelCraftEffect.type='button';cancelCraftEffect.textContent='Cancel visual effect';cancelCraftEffect.id='cancel_craft_visual_effect';cancelCraftEffect.addEventListener('click',()=>workLedgerCraftEffects.cancel());document.getElementById('crafting_window').append(cancelCraftEffect);

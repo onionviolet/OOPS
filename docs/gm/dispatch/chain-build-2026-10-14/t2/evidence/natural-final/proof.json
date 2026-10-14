@@ -1,0 +1,18 @@
+{
+  "buildHash": "b53222f574dfdd3bed4c1d5e3b72c4397c8a4da595724188d10ce2911f7d4b26",
+  "literalBytes": 70516,
+  "normalizedBytes": 80837,
+  "literalImportExact": true,
+  "openCloseSaveBytesExact": true,
+  "exportBytesExact": true,
+  "reloadChainAndStreamStateExact": true,
+  "nextDrawMatches": true,
+  "nextCraftValue": 0.3375188452191651,
+  "nonDeveloperInspectorAbsent": true,
+  "mutationControls": 0,
+  "viewports": [
+    "1366x768",
+    "1600x1000"
+  ],
+  "pageErrors": []
+}

@@ -1,0 +1,12 @@
+{
+  "label": "natural",
+  "hero": "TEST FIXTURE CB T2 NATURAL",
+  "origin": "http://127.0.0.1:22450/?harvest-inspector=1",
+  "nativeWork": ["elder conversation", "received and equipped offered sword", "equipped starting pants", "entered Infested field", "fought a Wolf rat", "earned a carcass", "returned to Village", "whole processed carcass", "bought plant and water", "brewed", "drank experimental dose", "saved observed method", "bought repeat inputs", "queued learned method"],
+  "injectedStockKnowledgeOrKills": false,
+  "processedCarcasses": 1,
+  "mixtureProducts": 1,
+  "learnedMethods": 1,
+  "nativeTimer": "HackTimer worker",
+  "pageErrors": []
+}

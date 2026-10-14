@@ -1,0 +1,759 @@
+{
+  "developerOnly": true,
+  "generatorRevision": 1,
+  "records": [
+    {
+      "root": 1,
+      "law": {
+        "schema": 1,
+        "revision": 1,
+        "id": "rule:village.response",
+        "epoch": 0,
+        "address": "[\"craft:village.rules@1\",[\"object\",[[\"continuityId\",\"frontier.branch\"],[\"instanceId\",\"frontier.main\"],[\"worldId\",\"base.frontier\"]]],[\"object\",[[\"attempt\",0],[\"epoch\",0],[\"generatorRevision\",1],[\"slot\",\"response\"],[\"tableRevision\",1]]]]",
+        "module": {
+          "schema": 1,
+          "id": "rule:village.response",
+          "revision": 1,
+          "resolver": "village.mix@2",
+          "kind": "generated_law",
+          "scope": {
+            "worldId": "base.frontier",
+            "instanceId": "frontier.main",
+            "continuityId": "frontier.branch"
+          },
+          "selector": {
+            "routes": [
+              "mix"
+            ],
+            "subjects": [
+              {
+                "role": "input",
+                "quantifier": "some",
+                "query": {
+                  "tag": "village.restorative"
+                }
+              }
+            ],
+            "requires": {
+              "all": []
+            }
+          },
+          "priority": {
+            "layer": "world",
+            "depth": 0,
+            "value": 0,
+            "specificity": 0,
+            "order": 0
+          },
+          "effects": [
+            {
+              "id": "response",
+              "channel": "physics",
+              "kind": "parameter",
+              "target": "oral.restore_availability",
+              "combine": "multiply",
+              "value": {
+                "numerator": 4,
+                "denominator": 5
+              },
+              "overrides": []
+            }
+          ]
+        },
+        "receipt": {
+          "generator": "village.response@1",
+          "table": "village.response@1",
+          "tagRevision": 1,
+          "address": "[\"craft:village.rules@1\",[\"object\",[[\"continuityId\",\"frontier.branch\"],[\"instanceId\",\"frontier.main\"],[\"worldId\",\"base.frontier\"]]],[\"object\",[[\"attempt\",0],[\"epoch\",0],[\"generatorRevision\",1],[\"slot\",\"response\"],[\"tableRevision\",1]]]]",
+          "draw": 383853002,
+          "pick": {
+            "total": 3,
+            "roll": 0,
+            "selected": "response:a",
+            "weight": 1,
+            "reason": "admitted useful response",
+            "top": [
+              {
+                "id": "response:a",
+                "weight": 1,
+                "reason": "admitted useful response"
+              },
+              {
+                "id": "response:b",
+                "weight": 1,
+                "reason": "admitted useful response"
+              },
+              {
+                "id": "response:c",
+                "weight": 1,
+                "reason": "admitted useful response"
+              }
+            ]
+          },
+          "attempt": 0,
+          "fallback": null
+        },
+        "witness": {
+          "station": "Village mixing counter",
+          "inputs": {
+            "River bellleaf": 1,
+            "Spring water": 1
+          },
+          "processes": [
+            "steep",
+            "boil"
+          ],
+          "consumer": "oral-village@2"
+        }
+      },
+      "lock": {
+        "schema": 1,
+        "resolver": "village.mix@2",
+        "refs": [
+          "rule:village.process_response@1",
+          "rule:village.response@1"
+        ],
+        "fingerprint": {
+          "lo": 29080728,
+          "hi": 660410078
+        },
+        "modules": [
+          {
+            "schema": 1,
+            "id": "rule:village.process_response",
+            "revision": 1,
+            "resolver": "village.mix@2",
+            "kind": "world_law",
+            "scope": {
+              "worldId": "base.frontier",
+              "instanceId": "frontier.main",
+              "continuityId": "frontier.branch"
+            },
+            "selector": {
+              "routes": [
+                "mix"
+              ],
+              "subjects": [
+                {
+                  "role": "input",
+                  "quantifier": "some",
+                  "query": {
+                    "tag": "village.restorative"
+                  }
+                }
+              ],
+              "requires": {
+                "fact": "procedure.process",
+                "op": "eq",
+                "value": "boil"
+              }
+            },
+            "priority": {
+              "layer": "world",
+              "depth": 0,
+              "value": 0,
+              "specificity": 0,
+              "order": 0
+            },
+            "effects": [
+              {
+                "id": "response",
+                "channel": "physics",
+                "kind": "parameter",
+                "target": "oral.restore_availability",
+                "combine": "replace",
+                "value": {
+                  "numerator": 6,
+                  "denominator": 5
+                },
+                "overrides": []
+              }
+            ]
+          },
+          {
+            "schema": 1,
+            "id": "rule:village.response",
+            "revision": 1,
+            "resolver": "village.mix@2",
+            "kind": "generated_law",
+            "scope": {
+              "worldId": "base.frontier",
+              "instanceId": "frontier.main",
+              "continuityId": "frontier.branch"
+            },
+            "selector": {
+              "routes": [
+                "mix"
+              ],
+              "subjects": [
+                {
+                  "role": "input",
+                  "quantifier": "some",
+                  "query": {
+                    "tag": "village.restorative"
+                  }
+                }
+              ],
+              "requires": {
+                "all": []
+              }
+            },
+            "priority": {
+              "layer": "world",
+              "depth": 0,
+              "value": 0,
+              "specificity": 0,
+              "order": 0
+            },
+            "effects": [
+              {
+                "id": "response",
+                "channel": "physics",
+                "kind": "parameter",
+                "target": "oral.restore_availability",
+                "combine": "multiply",
+                "value": {
+                  "numerator": 4,
+                  "denominator": 5
+                },
+                "overrides": []
+              }
+            ]
+          }
+        ]
+      },
+      "receipt": {
+        "schema": 1,
+        "resolver": "village.mix@2",
+        "candidateCount": 2,
+        "matched": [
+          "rule:village.process_response@1",
+          "rule:village.response@1"
+        ],
+        "effects": [
+          {
+            "ref": "rule:village.process_response@1/response",
+            "channel": "physics",
+            "kind": "parameter",
+            "combine": "replace",
+            "status": "applied"
+          },
+          {
+            "ref": "rule:village.response@1/response",
+            "channel": "physics",
+            "kind": "parameter",
+            "combine": "multiply",
+            "status": "applied"
+          }
+        ],
+        "value": {
+          "numerator": 24,
+          "denominator": 25
+        }
+      },
+      "productId": "m2:{\"revision\":2,\"process\":\"boil\",\"inputs\":{\"River bellleaf\":1,\"Spring water\":1},\"fractions\":{\"restore\":120,\"vigor\":0,\"trace\":12,\"matrix\":1868},\"mass\":2000,\"lawRefs\":[\"rule:village.process_response@1\",\"rule:village.response@1\"],\"fingerprint\":{\"lo\":29080728,\"hi\":660410078}}"
+    },
+    {
+      "root": 42,
+      "law": {
+        "schema": 1,
+        "revision": 1,
+        "id": "rule:village.response",
+        "epoch": 0,
+        "address": "[\"craft:village.rules@1\",[\"object\",[[\"continuityId\",\"frontier.branch\"],[\"instanceId\",\"frontier.main\"],[\"worldId\",\"base.frontier\"]]],[\"object\",[[\"attempt\",0],[\"epoch\",0],[\"generatorRevision\",1],[\"slot\",\"response\"],[\"tableRevision\",1]]]]",
+        "module": {
+          "schema": 1,
+          "id": "rule:village.response",
+          "revision": 1,
+          "resolver": "village.mix@2",
+          "kind": "generated_law",
+          "scope": {
+            "worldId": "base.frontier",
+            "instanceId": "frontier.main",
+            "continuityId": "frontier.branch"
+          },
+          "selector": {
+            "routes": [
+              "mix"
+            ],
+            "subjects": [
+              {
+                "role": "input",
+                "quantifier": "some",
+                "query": {
+                  "tag": "village.restorative"
+                }
+              }
+            ],
+            "requires": {
+              "all": []
+            }
+          },
+          "priority": {
+            "layer": "world",
+            "depth": 0,
+            "value": 0,
+            "specificity": 0,
+            "order": 0
+          },
+          "effects": [
+            {
+              "id": "response",
+              "channel": "physics",
+              "kind": "parameter",
+              "target": "oral.restore_availability",
+              "combine": "multiply",
+              "value": {
+                "numerator": 6,
+                "denominator": 5
+              },
+              "overrides": []
+            }
+          ]
+        },
+        "receipt": {
+          "generator": "village.response@1",
+          "table": "village.response@1",
+          "tagRevision": 1,
+          "address": "[\"craft:village.rules@1\",[\"object\",[[\"continuityId\",\"frontier.branch\"],[\"instanceId\",\"frontier.main\"],[\"worldId\",\"base.frontier\"]]],[\"object\",[[\"attempt\",0],[\"epoch\",0],[\"generatorRevision\",1],[\"slot\",\"response\"],[\"tableRevision\",1]]]]",
+          "draw": 3423883268,
+          "pick": {
+            "total": 3,
+            "roll": 2,
+            "selected": "response:c",
+            "weight": 1,
+            "reason": "admitted useful response",
+            "top": [
+              {
+                "id": "response:a",
+                "weight": 1,
+                "reason": "admitted useful response"
+              },
+              {
+                "id": "response:b",
+                "weight": 1,
+                "reason": "admitted useful response"
+              },
+              {
+                "id": "response:c",
+                "weight": 1,
+                "reason": "admitted useful response"
+              }
+            ]
+          },
+          "attempt": 0,
+          "fallback": null
+        },
+        "witness": {
+          "station": "Village mixing counter",
+          "inputs": {
+            "River bellleaf": 1,
+            "Spring water": 1
+          },
+          "processes": [
+            "steep",
+            "boil"
+          ],
+          "consumer": "oral-village@2"
+        }
+      },
+      "lock": {
+        "schema": 1,
+        "resolver": "village.mix@2",
+        "refs": [
+          "rule:village.process_response@1",
+          "rule:village.response@1"
+        ],
+        "fingerprint": {
+          "lo": 598960440,
+          "hi": 3904622987
+        },
+        "modules": [
+          {
+            "schema": 1,
+            "id": "rule:village.process_response",
+            "revision": 1,
+            "resolver": "village.mix@2",
+            "kind": "world_law",
+            "scope": {
+              "worldId": "base.frontier",
+              "instanceId": "frontier.main",
+              "continuityId": "frontier.branch"
+            },
+            "selector": {
+              "routes": [
+                "mix"
+              ],
+              "subjects": [
+                {
+                  "role": "input",
+                  "quantifier": "some",
+                  "query": {
+                    "tag": "village.restorative"
+                  }
+                }
+              ],
+              "requires": {
+                "fact": "procedure.process",
+                "op": "eq",
+                "value": "boil"
+              }
+            },
+            "priority": {
+              "layer": "world",
+              "depth": 0,
+              "value": 0,
+              "specificity": 0,
+              "order": 0
+            },
+            "effects": [
+              {
+                "id": "response",
+                "channel": "physics",
+                "kind": "parameter",
+                "target": "oral.restore_availability",
+                "combine": "replace",
+                "value": {
+                  "numerator": 6,
+                  "denominator": 5
+                },
+                "overrides": []
+              }
+            ]
+          },
+          {
+            "schema": 1,
+            "id": "rule:village.response",
+            "revision": 1,
+            "resolver": "village.mix@2",
+            "kind": "generated_law",
+            "scope": {
+              "worldId": "base.frontier",
+              "instanceId": "frontier.main",
+              "continuityId": "frontier.branch"
+            },
+            "selector": {
+              "routes": [
+                "mix"
+              ],
+              "subjects": [
+                {
+                  "role": "input",
+                  "quantifier": "some",
+                  "query": {
+                    "tag": "village.restorative"
+                  }
+                }
+              ],
+              "requires": {
+                "all": []
+              }
+            },
+            "priority": {
+              "layer": "world",
+              "depth": 0,
+              "value": 0,
+              "specificity": 0,
+              "order": 0
+            },
+            "effects": [
+              {
+                "id": "response",
+                "channel": "physics",
+                "kind": "parameter",
+                "target": "oral.restore_availability",
+                "combine": "multiply",
+                "value": {
+                  "numerator": 6,
+                  "denominator": 5
+                },
+                "overrides": []
+              }
+            ]
+          }
+        ]
+      },
+      "receipt": {
+        "schema": 1,
+        "resolver": "village.mix@2",
+        "candidateCount": 2,
+        "matched": [
+          "rule:village.process_response@1",
+          "rule:village.response@1"
+        ],
+        "effects": [
+          {
+            "ref": "rule:village.process_response@1/response",
+            "channel": "physics",
+            "kind": "parameter",
+            "combine": "replace",
+            "status": "applied"
+          },
+          {
+            "ref": "rule:village.response@1/response",
+            "channel": "physics",
+            "kind": "parameter",
+            "combine": "multiply",
+            "status": "applied"
+          }
+        ],
+        "value": {
+          "numerator": 36,
+          "denominator": 25
+        }
+      },
+      "productId": "m2:{\"revision\":2,\"process\":\"boil\",\"inputs\":{\"River bellleaf\":1,\"Spring water\":1},\"fractions\":{\"restore\":110,\"vigor\":0,\"trace\":11,\"matrix\":1879},\"mass\":2000,\"lawRefs\":[\"rule:village.process_response@1\",\"rule:village.response@1\"],\"fingerprint\":{\"lo\":598960440,\"hi\":3904622987}}"
+    },
+    {
+      "root": 20261014,
+      "law": {
+        "schema": 1,
+        "revision": 1,
+        "id": "rule:village.response",
+        "epoch": 0,
+        "address": "[\"craft:village.rules@1\",[\"object\",[[\"continuityId\",\"frontier.branch\"],[\"instanceId\",\"frontier.main\"],[\"worldId\",\"base.frontier\"]]],[\"object\",[[\"attempt\",0],[\"epoch\",0],[\"generatorRevision\",1],[\"slot\",\"response\"],[\"tableRevision\",1]]]]",
+        "module": {
+          "schema": 1,
+          "id": "rule:village.response",
+          "revision": 1,
+          "resolver": "village.mix@2",
+          "kind": "generated_law",
+          "scope": {
+            "worldId": "base.frontier",
+            "instanceId": "frontier.main",
+            "continuityId": "frontier.branch"
+          },
+          "selector": {
+            "routes": [
+              "mix"
+            ],
+            "subjects": [
+              {
+                "role": "input",
+                "quantifier": "some",
+                "query": {
+                  "tag": "village.restorative"
+                }
+              }
+            ],
+            "requires": {
+              "all": []
+            }
+          },
+          "priority": {
+            "layer": "world",
+            "depth": 0,
+            "value": 0,
+            "specificity": 0,
+            "order": 0
+          },
+          "effects": [
+            {
+              "id": "response",
+              "channel": "physics",
+              "kind": "parameter",
+              "target": "oral.restore_availability",
+              "combine": "multiply",
+              "value": {
+                "numerator": 1,
+                "denominator": 1
+              },
+              "overrides": []
+            }
+          ]
+        },
+        "receipt": {
+          "generator": "village.response@1",
+          "table": "village.response@1",
+          "tagRevision": 1,
+          "address": "[\"craft:village.rules@1\",[\"object\",[[\"continuityId\",\"frontier.branch\"],[\"instanceId\",\"frontier.main\"],[\"worldId\",\"base.frontier\"]]],[\"object\",[[\"attempt\",0],[\"epoch\",0],[\"generatorRevision\",1],[\"slot\",\"response\"],[\"tableRevision\",1]]]]",
+          "draw": 2810175991,
+          "pick": {
+            "total": 3,
+            "roll": 1,
+            "selected": "response:b",
+            "weight": 1,
+            "reason": "admitted useful response",
+            "top": [
+              {
+                "id": "response:a",
+                "weight": 1,
+                "reason": "admitted useful response"
+              },
+              {
+                "id": "response:b",
+                "weight": 1,
+                "reason": "admitted useful response"
+              },
+              {
+                "id": "response:c",
+                "weight": 1,
+                "reason": "admitted useful response"
+              }
+            ]
+          },
+          "attempt": 0,
+          "fallback": null
+        },
+        "witness": {
+          "station": "Village mixing counter",
+          "inputs": {
+            "River bellleaf": 1,
+            "Spring water": 1
+          },
+          "processes": [
+            "steep",
+            "boil"
+          ],
+          "consumer": "oral-village@2"
+        }
+      },
+      "lock": {
+        "schema": 1,
+        "resolver": "village.mix@2",
+        "refs": [
+          "rule:village.process_response@1",
+          "rule:village.response@1"
+        ],
+        "fingerprint": {
+          "lo": 2621980118,
+          "hi": 2241548408
+        },
+        "modules": [
+          {
+            "schema": 1,
+            "id": "rule:village.process_response",
+            "revision": 1,
+            "resolver": "village.mix@2",
+            "kind": "world_law",
+            "scope": {
+              "worldId": "base.frontier",
+              "instanceId": "frontier.main",
+              "continuityId": "frontier.branch"
+            },
+            "selector": {
+              "routes": [
+                "mix"
+              ],
+              "subjects": [
+                {
+                  "role": "input",
+                  "quantifier": "some",
+                  "query": {
+                    "tag": "village.restorative"
+                  }
+                }
+              ],
+              "requires": {
+                "fact": "procedure.process",
+                "op": "eq",
+                "value": "boil"
+              }
+            },
+            "priority": {
+              "layer": "world",
+              "depth": 0,
+              "value": 0,
+              "specificity": 0,
+              "order": 0
+            },
+            "effects": [
+              {
+                "id": "response",
+                "channel": "physics",
+                "kind": "parameter",
+                "target": "oral.restore_availability",
+                "combine": "replace",
+                "value": {
+                  "numerator": 6,
+                  "denominator": 5
+                },
+                "overrides": []
+              }
+            ]
+          },
+          {
+            "schema": 1,
+            "id": "rule:village.response",
+            "revision": 1,
+            "resolver": "village.mix@2",
+            "kind": "generated_law",
+            "scope": {
+              "worldId": "base.frontier",
+              "instanceId": "frontier.main",
+              "continuityId": "frontier.branch"
+            },
+            "selector": {
+              "routes": [
+                "mix"
+              ],
+              "subjects": [
+                {
+                  "role": "input",
+                  "quantifier": "some",
+                  "query": {
+                    "tag": "village.restorative"
+                  }
+                }
+              ],
+              "requires": {
+                "all": []
+              }
+            },
+            "priority": {
+              "layer": "world",
+              "depth": 0,
+              "value": 0,
+              "specificity": 0,
+              "order": 0
+            },
+            "effects": [
+              {
+                "id": "response",
+                "channel": "physics",
+                "kind": "parameter",
+                "target": "oral.restore_availability",
+                "combine": "multiply",
+                "value": {
+                  "numerator": 1,
+                  "denominator": 1
+                },
+                "overrides": []
+              }
+            ]
+          }
+        ]
+      },
+      "receipt": {
+        "schema": 1,
+        "resolver": "village.mix@2",
+        "candidateCount": 2,
+        "matched": [
+          "rule:village.process_response@1",
+          "rule:village.response@1"
+        ],
+        "effects": [
+          {
+            "ref": "rule:village.process_response@1/response",
+            "channel": "physics",
+            "kind": "parameter",
+            "combine": "replace",
+            "status": "applied"
+          },
+          {
+            "ref": "rule:village.response@1/response",
+            "channel": "physics",
+            "kind": "parameter",
+            "combine": "multiply",
+            "status": "applied"
+          }
+        ],
+        "value": {
+          "numerator": 6,
+          "denominator": 5
+        }
+      },
+      "productId": "m2:{\"revision\":2,\"process\":\"boil\",\"inputs\":{\"River bellleaf\":1,\"Spring water\":1},\"fractions\":{\"restore\":140,\"vigor\":0,\"trace\":14,\"matrix\":1846},\"mass\":2000,\"lawRefs\":[\"rule:village.process_response@1\",\"rule:village.response@1\"],\"fingerprint\":{\"lo\":2621980118,\"hi\":2241548408}}"
+    }
+  ]
+}
