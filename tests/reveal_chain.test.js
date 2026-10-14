@@ -35,3 +35,12 @@ test('transaction stages recipe and wallet before publication without mutating p
  const restore={state:{actors:{player:{worldId:'away',facts:{}}}},gameplay:{player:{inventory:old}},external:{money:100}};
  stageRevealKnowledge(restore,old,100);assert.deepEqual(restore.state.actors.player.facts,{});
 });
+
+import {knownPracticeHints} from '../src/reveal_chain.js';
+test('practice clues need earned XP or actually held leaves and do not reveal unknown recipe or action',()=>{
+ assert.deepEqual(knownPracticeHints({},{}),[]);
+ const hints=knownPracticeHints({Perception:{total_xp:41.41,current_xp:41.41,current_level:0,xp_to_next_lvl:100}},{a:{item:{id:'Golmoon leaf'},count:3}});
+ assert.match(hints.join(' '),/41.41 \/ 100/);assert.match(hints.join(' '),/3 \/ 20/);
+ assert.doesNotMatch(hints.join(' '),/Investigate|Weak healing powder|Forest road|Carya/);
+ assert.deepEqual(knownPracticeHints({Perception:{total_xp:100,current_level:1}},{},true),[]);
+});

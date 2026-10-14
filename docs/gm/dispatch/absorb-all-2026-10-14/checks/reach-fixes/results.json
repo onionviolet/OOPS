@@ -1,0 +1,45 @@
+{
+  "viewport": {
+    "width": 1366,
+    "height": 768
+  },
+  "results": [
+    {
+      "id": "A1",
+      "ok": true
+    },
+    {
+      "id": "A2",
+      "ok": true
+    },
+    {
+      "id": "A3",
+      "ok": true
+    },
+    {
+      "id": "A4",
+      "ok": true
+    },
+    {
+      "id": "A5",
+      "ok": true
+    },
+    {
+      "id": "A6",
+      "ok": true
+    },
+    {
+      "id": "A7",
+      "ok": true
+    },
+    {
+      "id": "A8",
+      "ok": true
+    },
+    {
+      "id": "A9",
+      "ok": true
+    }
+  ],
+  "pageErrors": []
+}

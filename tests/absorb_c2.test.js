@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
-import {normalizeLocalLife,advanceLocalLife as advanceWithStream,localLifeAction,localLifeView,LOCAL_LIFE_BALANCE,MEAL_SCHEDULE} from '../src/absorb_c2/local_life.js';
+import {normalizeLocalLife,advanceLocalLife as advanceWithStream,localLifeAction,localLifeView,localLifeQuestView,LOCAL_LIFE_BALANCE,MEAL_SCHEDULE} from '../src/absorb_c2/local_life.js';
 // Procgen requires a saved stream; calls that roll nothing get a fixed no-hit draw.
 const advanceLocalLife=(raw,c,rng=()=>.999)=>advanceWithStream(raw,c,rng);
 import {createLocalLifePanel} from '../src/absorb_c2/panel.js';
@@ -102,4 +102,11 @@ test('C2 panel reattaches after native location menu clears unchanged view',()=>
         assert.equal(container.children.filter(n=>n===p.panel).length,1);
         p.render();assert.equal(container.children.length,1);p.destroy();
     } finally {if(prior===undefined)delete globalThis.document;else globalThis.document=prior;}
+});
+
+test('parcel first row and quest disclose the mill prerequisite until it is open',()=>{
+ const s={pamphletRead:true};
+ assert.match(localLifeView(s,frame({millUnlocked:false})).rows.find(r=>r.id==='parcel').label,/Cave room.*report/);
+ assert.match(localLifeQuestView(s,{millUnlocked:false}).find(q=>q.id==='village.parcel').objective,/Cave room.*report/);
+ assert.doesNotMatch(localLifeQuestView(s,{millUnlocked:true}).find(q=>q.id==='village.parcel').objective,/Before collecting/);
 });
