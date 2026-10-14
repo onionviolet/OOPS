@@ -652,7 +652,8 @@ function growthIdentity(state=expansionState) {
 }
 function growthContext(state=expansionState) {
     const identity=growthIdentity(state),stats=character.getFullStats(),known=growthLearned(state);
-    const native=proto23Native.read(expansionState),joined=proto23Context(state,{...expeditionContext(),proto23Native:native});
+    const native=proto23Native.read(state),joined=proto23Context(state,{...expeditionContext(),proto23Native:native,
+        vitals:Object.fromEntries(Object.entries(simulationNativeContexts()).map(([id,c])=>[id,c.vitals]))});
     const supported=identity.bodySupported&&joined.facts['proto23.playerSupported']===true;
     const available=supported&&!!current_location?.canBeStarted(get_context());
     // This is the profile-specific native eligibility owner. It keeps the
@@ -665,7 +666,7 @@ function growthContext(state=expansionState) {
     const conflict=!!(current_combat||current_activity||current_game_action||current_dialogue||is_sleeping||is_in_trade()||nativeOccupationReason()||nativeActionReasons(state).length);
     return {...identity,clock:state.clock,known,nativeAlive:character.is_alive===true,ownsSave:ownsSave&&!importProbeToken,
         saveBlocked:!!(foundationSaveBlocked||expansionError||lifeStorageFailure||is_loading_error),nativeEligible:eligible,
-        idle:!conflict&&!is_reading,shopEligible:eligible&&current_location.id===PROTO23_LOCATIONS.center&&state.actors.player.facts['proto23.stewardMet']===true&&p23GrowthCounter.getAvailabilityComponent().canBeStarted(get_context()),
+        idle:!conflict&&!is_reading,shopEligible:eligible&&current_location.id===PROTO23_LOCATIONS.center&&state.actors.player.facts['proto23.stewardMet']===true&&!!p23GrowthCounter.getAvailabilityComponent().canBeStarted(get_context()),
         conditionEligible:eligible,resourcesEligible:stats.health>1,
         occupation:{kind:is_reading?'reading':'idle',jobId:is_reading?`native.book.${is_reading}`:'none',eligible:ownedReading&&!conflict},
         conflictingAction:conflict,bodyConflict:!supported,resourceConflict:!!active_effects.Recovering};
@@ -723,7 +724,8 @@ function stageTonicPurchase(context) {
     candidate.addToInventory(Object.entries(readInventoryOwner(p23GrowthCounter.getTradeInventory())).map(([item_key,count])=>({item_key,count})));
     candidate.refresh(get_context());
     const stock=readInventoryOwner(candidate.getTradeInventory()),margin=candidate.getProfitMargin(current_location.market_region);
-    const nativePrice=Math.ceil(getItemFromKey(GROWTH_TONIC_KEY).getValue()*margin);
+    const tonicItem=getItemFromKey(GROWTH_TONIC_KEY);
+    const nativePrice=Math.ceil(tonicItem.getValue({quality:tonicItem.quality,region:current_location.market_region})*margin);
     if(nativePrice!==PROFILE.tonicPrice)throw Error('The native tonic quote changed. Review the counter before buying.');
     const acquisition=quoteTonicAcquisition(p23Growth,context,{money:character.money,stockCount:stock[GROWTH_TONIC_KEY]||0});
     const quote=()=>({vendorId:GROWTH_COUNTER_ID,region:current_location.market_region,buy:[{item_key:acquisition.itemKey,count:1}],sell:[],buyValue:nativePrice,sellValue:0,money:character.money,
@@ -5117,7 +5119,7 @@ function add_xp_to_skill({skill, xp_to_add = 1, should_info = true, use_bonus = 
                 update_displayed_skill_description(skill);
             }
 
-            if(skill.is_parent) {
+            if(skill.is_parent || skill.skill_id === "Cooking") {
                 update_all_displayed_skills_xp_gain();
             } else {
                 update_displayed_skill_xp_gain(skill);
@@ -5925,7 +5927,7 @@ function installKnownItemHotkeys(){
     const refresh=()=>{
         for(const host of document.querySelectorAll('#inventory_content_div [data-character_item]')){
             const key=host.dataset.character_item,row=character.getItems()[key];if(!row||!item_log.is_known(row.item.id))continue;
-            const mounted=rows.get(host);if(mounted?.key===key){mounted.binding?.render();continue;}if(mounted){mounted.holder.remove();rows.delete(host);}
+            const mounted=rows.get(host);if(mounted?.key===key&&mounted.holder.parentNode===host){mounted.binding?.render();continue;}if(mounted){mounted.holder.remove();rows.delete(host);}
             const holder=document.createElement('div');holder.className='known-item-binding';holder.addEventListener('click',event=>event.stopPropagation());holder.addEventListener('submit',event=>event.stopPropagation());
             if(row.item.tags.equippable&&!JSON.parse(key).e2_instance){const button=document.createElement('button');button.type='button';button.textContent='Identify this copy for a hotkey';button.addEventListener('click',()=>{try{identifyKnownHotkeyCopy(key);}catch(error){log_message(error.message,'notification');}});holder.append(button);rows.set(host,{key,holder,binding:null});}
             else if(row.item.tags.usable||row.item.tags.equippable)rows.set(host,{key,holder,binding:mountKnownItemBinding(holder,key,controller)});else {rows.set(host,{key,holder,binding:null});continue;}
@@ -9314,6 +9316,7 @@ const saveOwnership = acquireSaveOwnership().then(owned => {
     frontierCampaignPanel?.render();
     featureExpansionPanel?.render();foundationInteractionPanel?.render();
     knownRoutesPanel?.render();adventureNotebook?.render();livingGearPanel?.render();combatOptionsPanel?.render(); worldEventFeed?.render();
+    trancheFourPanel?.render();trainingPanel?.render();growthPanel?.render();mistglassPanel?.render();readingSalvagePanel?.render();titlesPanel?.render();updateWorkspace();
     awakenOptionalStart();
     return owned;
 });

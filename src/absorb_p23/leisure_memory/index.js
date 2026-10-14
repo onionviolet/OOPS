@@ -1,3 +1,4 @@
+import {xorshift32} from '../../seeded_streams.js';
 // Original proposal. Proto23 leisure/social mechanisms inspired the task;
 // no foreign source or assets copied. Native host owns clock, RNG and resources.
 export const LEISURE_PERSON = 'p23.leisure.eda';
@@ -8,7 +9,7 @@ const check = (x, m) => { if (!x) throw new Error(`Leisure memory: ${m}`); };
 const exact = (x, keys) => object(x) && Object.keys(x).length === keys.length && keys.every(k => Object.hasOwn(x, k));
 const seed = n => natural(n) && n > 0 && n <= 0xffffffff;
 const face = n => Number.isInteger(n) && n >= 1 && n <= 6;
-const roll = rng => { let n = rng; n ^= n << 13; n ^= n >>> 17; n ^= n << 5; return n >>> 0; };
+const roll = xorshift32;
 const result = (state, rng, effects = [], minutes = 0) => ({state, rng, effects, minutes});
 const memory = (id, text) => ({type:'biography', id, kind:'memory', text});
 

@@ -19,17 +19,17 @@ const hash=x=>crypto.createHash('sha256').update(x).digest('hex');
 const ctx=await browser.newContext({viewport:{width:1366,height:768},acceptDownloads:true});const p=await ctx.newPage();p.setDefaultTimeout(12000);const errors=[];p.on('pageerror',e=>errors.push(e.message));p.on('console',m=>{if(m.type()==='error')console.log('browser-error',m.text().slice(0,400));});
 const save=async()=>{await p.locator('#save_button').click();const s=await p.evaluate(()=>JSON.parse(localStorage.getItem('save data')));fs.writeFileSync(path.join(out,'tranche1-working.json'),JSON.stringify(s));return s;};
 const played=async n=>{const start=(await save()).expansion.clock;for(let i=0;i<n*4+4;i++){await p.waitForTimeout(1100);const tick=await save();if(tick.expansion.clock>=start+n)return;}console.log('stopped',await p.locator('#message_log').innerText().catch(()=>''),await p.locator('#p23_household_panel').innerText().catch(()=>''));await p.screenshot({path:path.join(out,'tranche1-stopped.png')});throw Error('Native played clock did not advance');};
-const play=async()=>{await p.locator('#loading_screen_play_button:not(.none_display)').click();};
+const play=async()=>{await p.locator('#loading_screen_play_button:not(.none_display)').click({noWaitAfter:true});};
 const families=s=>({exposure:s.p23_exposure,household:s.household,clock:s.expansion.clock,xp:s.levels.person.main_character.skill_xp,items:s.inventories.person.main_character,money:s.character.money,effects:s.active_effects});
-async function roundtrip(tag){const before=await save();await p.reload();assert.deepEqual(families(await p.evaluate(()=>JSON.parse(localStorage.getItem('save data')))),families(before));await play();
+async function roundtrip(tag){const before=await save();await p.reload({waitUntil:'domcontentloaded'});assert.deepEqual(families(await p.evaluate(()=>JSON.parse(localStorage.getItem('save data')))),families(before));await play();
  const downloadP=p.waitForEvent('download');await p.locator('#save_to_file_button').click();const d=await downloadP;const file=path.join(out,`tranche1-${tag}.save.txt`);await d.saveAs(file);
  const encoded=fs.readFileSync(file,'utf8').trim(),downloaded=JSON.parse(Buffer.from(encoded.replace(/^YAIR-UTF8-1:/,''),'base64').toString('utf8'));
- await Promise.all([p.waitForNavigation(),p.locator('#saved_file_input').setInputFiles(file)]);
+ await Promise.all([p.waitForNavigation({waitUntil:'domcontentloaded'}),p.locator('#saved_file_input').setInputFiles(file)]);
  assert.deepEqual(families(await p.evaluate(()=>JSON.parse(localStorage.getItem('save data')))),families(downloaded));await play();
  results.push({gate:tag+' native Save/reload/Export/literal-file Import exact stored envelope before resumed played callbacks',status:'PASS'});return downloaded;}
 
 try{
- await p.goto(base);await R.startFresh(p);const served=await p.request.get(base+'dist/bundle.js');const local=fs.readFileSync('dist/bundle.js');assert.equal(hash(await served.body()),hash(local));
+ await p.goto(base,{waitUntil:'domcontentloaded'});await R.startFresh(p);const served=await p.request.get(base+'dist/bundle.js');const local=fs.readFileSync('dist/bundle.js');assert.equal(hash(await served.body()),hash(local));
  const baseline=await save();
  if(!resume){assert.equal(baseline.household,undefined);assert.equal(baseline.p23_exposure,undefined);results.push({gate:'old optional absence in fresh native envelope',status:'PASS'});
  // Only baseline prerequisites are configured. No feature state, clocks, event
@@ -44,7 +44,7 @@ try{
  // Import the supported baseline through the actual native literal-file loader.
  const encoded='YAIR-UTF8-1:'+Buffer.from(JSON.stringify(f)).toString('base64');
  const fixtureFile=path.join(out,'tranche1-prerequisites.save.txt');fs.writeFileSync(fixtureFile,encoded);
- await Promise.all([p.waitForNavigation(),p.locator('#saved_file_input').setInputFiles(fixtureFile)]);await play();
+ await Promise.all([p.waitForNavigation({waitUntil:'domcontentloaded'}),p.locator('#saved_file_input').setInputFiles(fixtureFile)]);await play();
  await p.locator('#p23_household_panel summary').click();
  const act=async id=>{await p.locator(`[data-household-action="${id}"]`).click();};
  await act('meet');await act('install_hearth');let s=await save();assert.equal(s.character.money,195);assert.equal(s.inventories.person.main_character['{"id":"Rough wood log"}'].count,2);assert.equal(s.household.animal.bond,10);
@@ -70,7 +70,7 @@ try{
  await p.locator('#p23_household_panel summary').click();await act('light');await act('close_vent');await played(1);
  }else{
  const checkpoint=resumeCheckpoint;const file=path.join(out,'tranche1-resume.save.txt');fs.writeFileSync(file,'YAIR-UTF8-1:'+Buffer.from(JSON.stringify(checkpoint)).toString('base64'));
- await Promise.all([p.waitForNavigation(),p.locator('#saved_file_input').setInputFiles(file)]);await play();
+ await Promise.all([p.waitForNavigation({waitUntil:'domcontentloaded'}),p.locator('#saved_file_input').setInputFiles(file)]);await play();
  if(!finish){
  await p.locator('#options_button').click();await p.locator('[data-pacing-option="weatherEnabled"]').uncheck();await p.locator('#options_button').click();await p.evaluate(()=>window.start_sleeping());
  for(let i=0;i<240;i++){await p.waitForTimeout(1100);if(((await save()).levels.person.main_character.skill_xp.Famine||0)>=10)break;}

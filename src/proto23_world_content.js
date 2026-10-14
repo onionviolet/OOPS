@@ -93,7 +93,7 @@ export const proto23Commands = [
             know('handling', 'Toma actually attended a four-minute paid demonstration, spending his own attention and stamina while you held and returned your sharp knife once. You learned the same narrow grip/edge/datum procedure as the reading route. His body, knife, private knowledge, source rank and competence stay his. Your personal trial remains separate.', 'understood', I.tutor, 'instruction')]}),
     cmd('instruction_study_conditioning', 'Ask Toma about optional study conditioning · 2 coins + 4 min', L.dojo, {targetId: I.tutor,
         claim: 'proto23.study_conditioning_lesson', visibleWhen: eq('world.proto23.arrivalMet'),
-        requires: not(has('studyConditioningLearned')), duration: 4,
+        duration: 4,
         costs: [money(-2), attention(I.tutor), effort(-1, I.tutor), effort(-1)],
         effects: [purse(I.tutor, 2), af('studyConditioningLearned'),
             know('study_conditioning', 'Toma personally demonstrated a quiet posture method during four paid supported minutes. You may explicitly enroll in this optional visitor method, then enable conditioning during actual ordinary book reading. The lesson itself grants no profile, XP, tonic, healing or native Literacy change.', 'understood', I.tutor, 'instruction')]}),

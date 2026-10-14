@@ -15,8 +15,8 @@ run('p10-leisure-memory',async({page,seed,save,click,until,persist,reject,quota,
  control.availabilities.location['Infested field']=1;
  const file=path.join(out,'p10-existing-native-one-HP-prerequisite.save.txt');
  fs.writeFileSync(file,'YAIR-UTF8-1:'+Buffer.from(JSON.stringify(control)).toString('base64'));
- await Promise.all([page.waitForNavigation(),page.locator('#saved_file_input').setInputFiles(file)]);
- await page.locator('#loading_screen_play_button:not(.none_display)').click();
+ await Promise.all([page.waitForNavigation({waitUntil:'domcontentloaded'}),page.locator('#saved_file_input').setInputFiles(file)]);
+ await page.locator('#loading_screen_play_button:not(.none_display)').click({noWaitAfter:true});
  assert.deepEqual((await save()).p23_leisure_memory,beforeDefeat.p23_leisure_memory);
  const deaths=beforeDefeat.total_deaths||0,memories=s=>s.life_record.recent.filter(r=>r.text.includes('lost consciousness'));
  assert.equal(beforeDefeat.p23_leisure_memory.defeatCount,deaths);

@@ -394,7 +394,6 @@ const favourite_locations = {};
         }),
     });
 
-    for(const id of ['scouting','lunar_gathering'])locations.Village.activities[id]=new LocationActivity({activity_name:id,starting_text:id==='scouting'?'Scout familiar ground':'Search the moonlit herb bed',is_unlocked:false,skill_xp_per_tick:0,gained_skills:{},working_period:1});
 
     locations["Shack"] = new SafeLocation({
         connected_locations: [{location: locations["Village"], custom_text: "Go outside to [Village]", travel_time: 10}],
@@ -1936,6 +1935,7 @@ There's another gate on the wall in front of you, but you have a strange feeling
 //add activities
 (function(){
     locations["Village"].activities = {
+        ...Object.fromEntries(['scouting','lunar_gathering'].map(id=>[id,new LocationActivity({activity_name:id,starting_text:id==='scouting'?'Scout familiar ground':'Search the moonlit herb bed',is_unlocked:false,skill_xp_per_tick:0,gained_skills:{},working_period:1})])),
         "fieldwork": new LocationActivity({
             activity_name: "fieldwork",
             starting_text: "Work on the fields",
