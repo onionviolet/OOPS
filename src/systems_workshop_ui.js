@@ -10,7 +10,7 @@ export function createSystemsWorkshopPanel({read,act,parent,registry}) {
  const nextActions=node('section'),later=node('details'),laterBody=node('div');
  nextActions.id='systems_workshop_next';nextActions.append(node('h4','Commission and next actions'));
  later.append(node('summary','Learning, assistance, irrigation and optional actions'),laterBody);controls.append(nextActions,later);
- const primary=new Set(['enroll','cancel',...['join','refuse','accept','buy_log','commission_craft','claim'].map(id=>SW+'.'+id)]);
+ const primary=new Set(['enroll','cancel',...['join','refuse','accept','work','buy_log','commission_craft','claim'].map(id=>SW+'.'+id)]);
  const buttons=new Map();const add=(id,label)=>{const b=node('button',label);b.type='button';b.dataset.systems=id;b.addEventListener('click',()=>run(id));const row=node('div'),quote=node('small');row.append(b,quote);(primary.has(id)?nextActions:laterBody).append(row);buttons.set(id,b);};
  add('enroll','Follow local people and work');
  for(const d of registry.simulation.commands.values())if(d.group===SW&&!d.id.includes('.settle_')&&!d.id.includes('.apply_model_'))add(d.id,d.label);
